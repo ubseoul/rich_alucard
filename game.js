@@ -19,10 +19,11 @@ const start=document.querySelector('#startButton');
 const toast=document.querySelector('#toast');
 const battleUI=document.querySelector('#battleUI');
 const attackLayer=document.querySelector('#attackLayer');
+// Legacy hit-overlay compatibility: the old rectangular effect has been removed.
+const enemyHit={classList:{add(){},remove(){}}};
 const richCast=document.querySelector('#richCast');
 const bloodFlash=document.querySelector('#bloodFlash');
 const projectiles=document.querySelector('#projectiles');
-const enemyHit=document.querySelector('#enemyHit');
 const bloodBurst=document.querySelector('#bloodBurst');
 const damageNumber=document.querySelector('#damageNumber');
 const hitShade=document.querySelector('#hitShade');
@@ -31,7 +32,6 @@ const impactCore=document.querySelector('#impactCore');
 const ceoRecoil=document.querySelector('#ceoRecoil');
 const briefcaseProjectile=document.querySelector('#briefcaseProjectile');
 const briefcaseImpact=document.querySelector('#briefcaseImpact');
-const richHit=document.querySelector('#richHit');
 const richBar=document.querySelector('#richHPBar');
 const ceoBar=document.querySelector('#ceoHPBar');
 const richText=document.querySelector('#richHPText');
@@ -202,7 +202,7 @@ async function genericPlayerFX(kind){
  if(kind==='bite') document.querySelector('#screen').classList.add('bite-flash');
  else if(kind==='octopus') document.querySelector('#screen').classList.add('brain-flash');
  else document.querySelector('#screen').classList.add('revenge-flash');
- await wait(320);enemyHit.classList.add('hit');await hitStop(65);await wait(220);enemyHit.classList.remove('hit');
+ await wait(320);await RACombatPresentation.play({target:productionCEO,attacker:geminiRich,severity:'normal',kind,recoveryMs:40});
  document.querySelector('#screen').classList.remove('bite-flash','brain-flash','revenge-flash');richCast.classList.remove('cast');attackLayer.classList.remove('active');battleUI.classList.remove('attack-mode');
 }
 async function enemyTurn(){
@@ -217,16 +217,16 @@ async function enemyTurn(){
  briefcaseProjectile.classList.add('fly');
  await wait(430);
  document.querySelector('#screen').classList.add('briefcase-shake');
- setRichState('hit');richHit.classList.add('active');
+ setRichState('hit');
  briefcaseImpact.classList.add('active');
- await hitStop(70);
+ await RACombatPresentation.play({target:geminiRich,attacker:productionCEO,severity:'normal',kind:'briefcase',recoveryMs:40});
  await wait(90);
  const dmg=16;
  const actualDamage=Math.min(richHP,dmg);
  richHP-=actualDamage;revengeStored+=actualDamage;window.RADevState.revengeStoredDamage=revengeStored;updateHP();
  await wait(260);
  document.querySelector('#screen').classList.remove('briefcase-shake');
- richHit.classList.remove('active');setRichState('idle');
+ setRichState('idle');
  briefcaseImpact.classList.remove('active');
  briefcaseProjectile.classList.remove('fly');
  attackLayer.classList.remove('active');
