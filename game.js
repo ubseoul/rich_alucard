@@ -19,8 +19,25 @@ const start=document.querySelector('#startButton');
 const toast=document.querySelector('#toast');
 const battleUI=document.querySelector('#battleUI');
 const attackLayer=document.querySelector('#attackLayer');
+const bloodBathRear=document.querySelector('#bloodBathRear'),bloodBathEngulf=document.querySelector('#bloodBathEngulf'),bloodBathForeground=document.querySelector('#bloodBathForeground'),bloodBathContact=document.querySelector('#bloodBathContact'),bloodBathImpact=document.querySelector('#bloodBathImpact');
+const BLOOD_BATH_HEAVY_THRESHOLD=.2;
+function bloodSeverity(damage,maxHP=MAX_HP){return damage>=maxHP*BLOOD_BATH_HEAVY_THRESHOLD?'heavy':'normal'}
+async function bloodBathCanonicalFX(damage=26,target=productionCEO){
+  const severity=ceoHP-damage<=0?'lethal':bloodSeverity(damage);
+  const screen=document.querySelector('#screen'),targetRect=target?.getBoundingClientRect(),screenRect=screen?.getBoundingClientRect();
+  if(targetRect&&screenRect){const groundX=targetRect.left-screenRect.left+targetRect.width*.5,groundY=targetRect.bottom-screenRect.top;bloodBathEngulf.style.left=`${Math.round(groundX-48)}px`;bloodBathEngulf.style.top=`${Math.round(groundY-88)}px`;bloodBathContact.style.left=`${Math.round(groundX-48)}px`;bloodBathContact.style.top=`${Math.round(targetRect.top-screenRect.top+targetRect.height*.42-48)}px`}
+  const rear=['blood_bath_floor_rise_01.png','blood_bath_floor_rise_02.png','blood_bath_floor_rise_03.png'];
+  bloodBathRear.classList.add('on');bloodBathForeground.classList.add('on');
+  for(const frame of rear){bloodBathRear.style.backgroundImage=`url('assets/${frame}')`;await wait(105)}
+  bloodBathEngulf.classList.add('on');bloodBathEngulf.style.backgroundImage="url('assets/blood_bath_engulf_overlay_01.png')";await wait(90);bloodBathEngulf.style.backgroundImage="url('assets/blood_bath_engulf_overlay_02.png')";
+  bloodBathForeground.style.backgroundImage="url('assets/blood_bath_foreground_01.png')";
+  bloodBathContact.classList.add('on');bloodBathContact.style.backgroundImage="url('assets/blood_bath_contact_01.png')";await wait(75);bloodBathContact.style.backgroundImage="url('assets/blood_bath_contact_02.png')";
+  const reaction=RACombatPresentation.play({target,attacker:geminiRich,severity,authored:'ceo',kind:'blood',recoveryMs:55});
+  await wait(105);bloodBathImpact.classList.add('on');await wait(55);bloodBathImpact.classList.remove('on');await reaction;
+  bloodBathContact.classList.remove('on');bloodBathEngulf.classList.remove('on');bloodBathForeground.classList.remove('on');bloodBathRear.classList.remove('on');
+}
 // Legacy hit-overlay compatibility: the old rectangular effect has been removed.
-const enemyHit={classList:{add(){const severity=ceoHP<=26?'lethal':ceoHP<=52?'heavy':'normal';RACombatPresentation.play({target:productionCEO,attacker:geminiRich,severity,authored:'ceo',kind:'blood',recoveryMs:70});},remove(){}}};
+const enemyHit={classList:{add(){bloodBathCanonicalFX(26)},remove(){}}};
 const richCast=document.querySelector('#richCast');
 const bloodFlash=document.querySelector('#bloodFlash');
 const projectiles=document.querySelector('#projectiles');
