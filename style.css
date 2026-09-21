@@ -1,0 +1,475 @@
+:root{--cream:#f6efd9;--ink:#10101b;--purple:#17142c;--line:#d9d3f1}
+*{box-sizing:border-box} html,body{margin:0;width:100%;height:100%;background:#090813;overflow:hidden;font-family:"Courier New",monospace}
+body{display:grid;place-items:center}
+#stage{height:100dvh;max-height:100dvh;aspect-ratio:9/16;display:grid;place-items:center}
+#screen{position:relative;width:min(100vw,56.25dvh);aspect-ratio:9/16;background:#080711;overflow:hidden;image-rendering:pixelated;box-shadow:0 0 0 2px #05040b}
+.room{position:absolute;inset:0 0 auto 0;height:75.5%;background:url('assets/throne_room_scene.png') top center/100% 100% no-repeat;image-rendering:pixelated}
+.edge-frame{position:absolute;inset:3px;border:2px solid #b7b1df;pointer-events:none;z-index:8}.edge-frame:after{content:"";position:absolute;inset:3px;border:1px solid #403b72}
+.panel{background:var(--cream);color:var(--ink);border:2px solid #fef9e9;outline:2px solid var(--ink);box-shadow:inset 0 0 0 1px #77718b}
+.battle-ui{position:absolute;left:4%;right:4%;bottom:3.3%;height:24%;display:grid;grid-template-columns:2fr 1fr;grid-template-rows:56% 44%;gap:4px;z-index:4}
+.dialogue{padding:8px 9px;font-size:clamp(10px,3.6cqw,17px);line-height:1.15;display:flex;align-items:center}.dialogue strong{letter-spacing:-1px}
+.main-menu{padding:5px 5px;display:flex;flex-direction:column;justify-content:center}
+button{font:inherit;cursor:pointer}.main-menu button{border:0;background:transparent;text-align:left;color:var(--ink);font-weight:bold;padding:1px 3px;font-size:clamp(9px,3.4cqw,16px);line-height:1.05}.main-menu button.selected{background:#ddd5bb}
+.moves{grid-column:1/3;display:grid;grid-template-columns:repeat(4,1fr);gap:3px}.moves button{position:relative;border:2px solid #e8e4f8;outline:1px solid #11101d;background:var(--purple);color:#f4f0ff;font-weight:bold;font-size:clamp(7px,2.7cqw,13px);line-height:1.0;padding:5px 2px 14px}.moves button span{position:absolute;left:0;right:0;bottom:0;background:var(--cream);color:var(--ink);font-size:.72em;padding:2px}.moves button:focus,.moves button.active{background:#33255b;transform:translateY(-1px)}
+.start-overlay{position:absolute;inset:0;background:rgba(5,4,12,.72);display:grid;place-items:center;z-index:20}.start-card{width:78%;padding:14px 12px;text-align:center}.title{font-weight:900;font-size:clamp(18px,6cqw,30px);letter-spacing:-1px}.subtitle{font-size:clamp(8px,2.8cqw,13px);margin:4px 0 12px}.start-card button{width:80%;background:#17142c;color:#fff;border:3px double #fff;padding:8px;font-weight:bold}.start-card small{display:block;margin-top:8px;font-size:clamp(7px,2.3cqw,11px)}
+.toast{position:absolute;z-index:15;left:8%;right:8%;top:59%;padding:7px;text-align:center;font-size:clamp(8px,2.8cqw,13px);display:none}.toast.show{display:block}
+@media (max-aspect-ratio:9/16){#screen{width:100vw;height:auto}}
+
+/* v0.2 Blood Bath vertical slice */
+.attack-layer{position:absolute;inset:0;z-index:12;pointer-events:none;display:none;overflow:hidden}
+.attack-layer.active{display:block}
+.battle-ui{transition:transform 120ms steps(2,end),opacity 120ms linear}
+.battle-ui.attack-mode{transform:translateY(68%);opacity:.15}
+.rich-cast{position:absolute;left:5.5%;top:38%;width:25%;height:19%;border-radius:45%;opacity:0}
+.rich-cast.cast{opacity:1;animation:castAura 520ms steps(3,end) infinite}
+.blood-flash{position:absolute;inset:0;background:#8b0018;opacity:0}
+.blood-flash.pulse{animation:bloodPulse 500ms steps(2,end)}
+.projectiles{position:absolute;inset:0}
+.blood-shot{position:absolute;left:24%;top:var(--y);width:var(--size);height:calc(var(--size) * .72);background:#d30d2f;box-shadow:-3px 0 #6d0016,3px 0 #ff3152;border-radius:45% 55% 55% 45%;opacity:0;animation:shot 390ms var(--delay) cubic-bezier(.2,.7,.25,1) forwards}
+.blood-shot:after{content:"";position:absolute;right:100%;top:35%;width:9px;height:2px;background:#8c001d}
+.enemy-hit{position:absolute;left:66%;top:39%;width:20%;height:22%;opacity:0}
+.enemy-hit.hit{opacity:1;animation:enemyHit 360ms steps(4,end)}
+@keyframes castAura{0%{box-shadow:0 0 0 0 rgba(190,0,35,.15)}50%{box-shadow:0 0 0 7px rgba(210,0,40,.35)}100%{box-shadow:0 0 0 2px rgba(255,40,70,.2)}}
+@keyframes bloodPulse{0%,100%{opacity:0}35%{opacity:.13}55%{opacity:.03}}
+@keyframes shot{0%{transform:translateX(0) scale(.65);opacity:0}10%{opacity:1}85%{opacity:1}100%{transform:translateX(135px) scale(1.2);opacity:0}}
+@keyframes enemyHit{0%{background:transparent;transform:translateX(0)}20%{background:rgba(255,20,50,.35);transform:translateX(3px)}40%{background:transparent;transform:translateX(-3px)}60%{background:rgba(150,0,25,.35);transform:translateX(2px)}100%{background:transparent;transform:translateX(0)}}
+
+/* v0.3 complete combat skeleton */
+.combat-hud{position:absolute;left:4.5%;right:4.5%;top:6.8%;height:12%;z-index:9;display:flex;justify-content:space-between;gap:7%}
+.hpbox{width:46%;height:max-content;background:#f6efd9;color:#10101b;border:2px solid #fff9e8;outline:2px solid #10101b;padding:4px 5px;font-size:clamp(6px,2.25cqw,11px);line-height:1.05}
+.hpbox b{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.hpbox span{display:flex;align-items:center;gap:3px;margin-top:3px}.hpbox i{height:6px;flex:1;background:#111323;border:1px solid #10101b;overflow:hidden}.hpbox em{display:block;height:100%;width:100%;background:#20c66b;transition:width 280ms steps(5,end)}.ceo-hp em{background:#d7193f}.hpbox strong{font-size:.8em;min-width:30px}
+.choice-overlay{position:absolute;inset:0;background:rgba(4,3,10,.52);z-index:30;display:none;place-items:center}.choice-overlay.show{display:grid}.choice-card{width:76%;padding:13px;text-align:center;font-weight:bold;font-size:clamp(10px,3.5cqw,17px)}.choice-buttons{display:flex;gap:10px;margin-top:12px;justify-content:center}.choice-buttons button{background:#17142c;color:#fff;border:2px solid #fff;padding:7px 16px;font-weight:bold}
+#screen.enemy-turn{animation:enemyTurn 420ms steps(3,end)}
+#screen.bite-flash:after,#screen.brain-flash:after,#screen.revenge-flash:after{content:"";position:absolute;inset:0;z-index:11;pointer-events:none}
+#screen.bite-flash:after{background:rgba(120,0,25,.22);animation:fxblink 320ms steps(3,end)}
+#screen.brain-flash:after{background:rgba(80,35,160,.20);animation:fxblink 320ms steps(3,end)}
+#screen.revenge-flash:after{background:rgba(220,20,65,.18);animation:fxblink 320ms steps(3,end)}
+@keyframes enemyTurn{0%,100%{transform:translateX(0)}35%{transform:translateX(-2px)}60%{transform:translateX(2px)}}
+@keyframes fxblink{0%,100%{opacity:0}45%{opacity:1}}
+
+/* v0.4 Blood Bath refinement */
+.battle-ui.attack-mode{transform:translateY(108%);opacity:0}
+.rich-cast.cast{animation:castAuraV4 620ms steps(3,end) infinite}
+.blood-shot{border-radius:0;clip-path:polygon(0 30%,68% 0,100% 50%,68% 100%,0 70%);animation:shotV4 350ms var(--delay) cubic-bezier(.12,.75,.18,1) forwards}
+.blood-shot:after{width:13px;background:#710016}
+.blood-burst{position:absolute;left:67%;top:38%;width:18%;height:21%;opacity:0}
+.blood-burst.burst{opacity:1;animation:burstV4 315ms steps(4,end)}
+.blood-burst:before,.blood-burst:after{content:"";position:absolute;left:45%;top:45%;width:8px;height:8px;background:#e30b38;box-shadow:-14px -8px #92001f,12px -12px #ff3156,18px 5px #820018,-9px 16px #c6002e,7px 20px #f31a45}
+.blood-burst:after{transform:rotate(45deg) scale(.8)}
+.damage-number{position:absolute;left:72%;top:35%;color:#fff6dd;text-shadow:2px 0 #640016,-2px 0 #640016,0 2px #640016,0 -2px #640016;font:bold 14px "Courier New",monospace;opacity:0}
+.damage-number.show{animation:damagePop 620ms steps(4,end)}
+.hit-shade{position:absolute;inset:0;background:rgba(90,0,18,.15);opacity:0}.hit-shade.show{opacity:1}
+#screen.hit-stop .room,#screen.hit-stop .combat-hud{filter:brightness(.72)}
+@keyframes castAuraV4{0%{box-shadow:0 0 0 0 rgba(170,0,32,0)}45%{box-shadow:0 0 0 4px rgba(190,0,38,.32),0 0 0 8px rgba(90,0,22,.12)}100%{box-shadow:0 0 0 2px rgba(255,35,70,.18)}}
+@keyframes shotV4{0%{transform:translateX(0) scaleX(.55);opacity:0}8%{opacity:1}78%{opacity:1}100%{transform:translateX(140px) scaleX(1.28);opacity:0}}
+@keyframes burstV4{0%{transform:scale(.45);filter:brightness(1.8)}35%{transform:scale(1.28)}70%{transform:scale(.95)}100%{transform:scale(1.08);opacity:0}}
+@keyframes damagePop{0%{opacity:0;transform:translateY(5px) scale(.7)}18%{opacity:1;transform:translateY(0) scale(1.25)}65%{opacity:1;transform:translateY(-8px) scale(1)}100%{opacity:0;transform:translateY(-14px)}}
+
+/* v0.5 Blood Bath OVERDRIVE — based on Bible pages 4, 8, 9: dense red room-crossing barrage */
+#screen.blood-charge{filter:contrast(1.08) saturate(1.12)}
+#screen.blood-shake{animation:screenShakeV5 360ms steps(8,end)}
+.blood-flash.pulse{animation:bloodPulseV5 760ms steps(4,end)}
+.blood-curtain{position:absolute;left:21%;right:10%;top:30%;height:34%;opacity:0;background:linear-gradient(90deg,rgba(100,0,20,.22),rgba(225,0,43,.11),rgba(120,0,24,.20));clip-path:polygon(0 36%,12% 22%,23% 40%,34% 14%,45% 35%,58% 18%,69% 39%,80% 12%,100% 31%,100% 74%,87% 62%,72% 79%,59% 58%,43% 82%,28% 60%,14% 77%,0 63%)}
+.blood-curtain.rise{animation:curtainV5 820ms steps(5,end)}
+.blood-shot{background:#f10b3b;box-shadow:-5px 0 #690015,4px 0 #ff4967,0 3px #a00026;animation:shotV5 315ms var(--delay) cubic-bezier(.08,.82,.16,1) forwards}
+.blood-shot:nth-child(3n){background:#a90029}.blood-shot:nth-child(4n){background:#ff214b}.blood-shot:nth-child(5n){filter:brightness(1.35)}
+.blood-burst.burst{animation:burstV5 420ms steps(5,end)}
+.impact-core{position:absolute;left:70%;top:40%;width:14%;height:18%;opacity:0}
+.impact-core.boom{opacity:1;animation:coreV5 400ms steps(5,end)}
+.impact-core:before{content:"";position:absolute;inset:0;background:#ff1648;clip-path:polygon(50% 0,61% 34%,100% 18%,72% 49%,100% 67%,64% 63%,50% 100%,40% 65%,4% 84%,28% 51%,0 31%,39% 36%);box-shadow:0 0 0 4px rgba(105,0,20,.45)}
+.damage-number{font-size:18px;font-weight:900}
+@keyframes screenShakeV5{0%,100%{transform:translate(0,0)}12%{transform:translate(-4px,2px)}25%{transform:translate(4px,-2px)}38%{transform:translate(-3px,-1px)}50%{transform:translate(4px,2px)}62%{transform:translate(-2px,2px)}75%{transform:translate(3px,-1px)}88%{transform:translate(-1px,1px)}}
+@keyframes bloodPulseV5{0%,100%{opacity:0}18%{opacity:.12}42%{opacity:.24}64%{opacity:.09}78%{opacity:.19}}
+@keyframes curtainV5{0%{opacity:0;transform:scaleX(.25);transform-origin:left}22%{opacity:.32}55%{opacity:.48;transform:scaleX(1)}82%{opacity:.22}100%{opacity:0;transform:scaleX(1.04)}}
+@keyframes shotV5{0%{transform:translateX(0) scaleX(.45);opacity:0}5%{opacity:1}76%{opacity:1}100%{transform:translateX(var(--travel)) scaleX(1.5);opacity:0}}
+@keyframes burstV5{0%{transform:scale(.25);filter:brightness(2.2);opacity:1}22%{transform:scale(1.65);opacity:1}48%{transform:scale(1.15);filter:brightness(1.3)}76%{transform:scale(1.45);opacity:.75}100%{transform:scale(1.8);opacity:0}}
+@keyframes coreV5{0%{transform:scale(.2) rotate(0);filter:brightness(2.5)}28%{transform:scale(1.55) rotate(8deg)}55%{transform:scale(.9) rotate(-5deg)}100%{transform:scale(1.9);opacity:0}}
+
+/* v0.6: direct Master Bible Blood Bath language — six large pixel orbs */
+.bible-blood-orb{position:absolute;width:30px;height:20px;image-rendering:pixelated;image-rendering:crisp-edges;z-index:3;opacity:0;filter:none}
+.projectiles.charge-orbs .bible-blood-orb{opacity:1;animation:orbCharge 260ms steps(2,end) var(--delay) both}
+.projectiles.fire-orbs .bible-blood-orb{opacity:1;animation:orbFly 360ms cubic-bezier(.12,.72,.18,1) var(--delay) forwards}
+.pixel-impact{position:absolute;left:69%;top:37%;width:52px;height:52px;image-rendering:pixelated;z-index:4;animation:pixelImpact 300ms steps(4,end) forwards}
+@keyframes orbCharge{0%{transform:translateX(-5px) scale(.78);opacity:0}55%{transform:translateX(2px) scale(1.08);opacity:1}100%{transform:translateX(0) scale(1);opacity:1}}
+@keyframes orbFly{0%{transform:translateX(0);opacity:1}82%{opacity:1}100%{transform:translateX(128px);opacity:0}}
+@keyframes pixelImpact{0%{transform:scale(.35);opacity:1}35%{transform:scale(1.15);opacity:1}70%{transform:scale(.9);opacity:1}100%{transform:scale(1.3);opacity:0}}
+
+/* v0.7 authored pixel Blood Bath: animated liquid orb + tendril tail + per-hit impact frames */
+.blood-orb-sprite{position:absolute;width:32px;height:32px;background-image:url('assets/blood_orb_sheet.png');background-repeat:no-repeat;background-size:96px 32px;image-rendering:pixelated;opacity:0;z-index:4;animation:orbLiquid 210ms steps(1,end) infinite}
+.charge-orbs .blood-orb-sprite{opacity:1;animation:orbLiquid 210ms steps(1,end) infinite,orbCharge 300ms steps(4,end) both}
+.fire-orbs .blood-orb-sprite{opacity:1;animation:orbLiquid 180ms steps(1,end) infinite,orbFlight var(--flight) var(--delay) cubic-bezier(.12,.75,.15,1) forwards}
+.impact-sprite{position:absolute;left:68%;width:64px;height:64px;background-image:url('assets/blood_impact_sheet.png');background-repeat:no-repeat;background-size:320px 64px;image-rendering:pixelated;z-index:6;animation:impactFrames 330ms steps(1,end) forwards}
+#screen.micro-shake{animation:microShake 150ms steps(4,end)}
+@keyframes orbLiquid{0%,32%{background-position:0 0}33%,65%{background-position:-32px 0}66%,100%{background-position:-64px 0}}
+@keyframes orbCharge{0%{transform:translate(-3px,2px) scale(.72)}35%{transform:translate(1px,-2px) scale(.92)}70%{transform:translate(-1px,1px) scale(.84)}100%{transform:translate(0,0) scale(1)}}
+@keyframes orbFlight{0%{transform:translateX(0) scale(1);opacity:1}82%{opacity:1}100%{transform:translateX(128px) scale(1.08);opacity:0}}
+@keyframes impactFrames{0%,19%{background-position:0 0;opacity:1}20%,39%{background-position:-64px 0}40%,59%{background-position:-128px 0}60%,79%{background-position:-192px 0}80%,94%{background-position:-256px 0}100%{background-position:-256px 0;opacity:0}}
+@keyframes microShake{0%,100%{transform:translate(0)}25%{transform:translate(-2px,1px)}50%{transform:translate(2px,-1px)}75%{transform:translate(-1px,-1px)}}
+.detailed-blood-missile,.missile-ghost{position:absolute;width:40px;height:24px;background-image:url('assets/blood_missiles_detailed.png');background-size:120px 144px;background-repeat:no-repeat;background-position:0 var(--row);image-rendering:pixelated;opacity:0;z-index:5}.charge-orbs .detailed-blood-missile{opacity:1;animation:detailedLiquid 210ms steps(1,end) infinite,detailCharge 310ms steps(4,end) both}.fire-orbs .detailed-blood-missile{opacity:1;animation:detailedLiquid 170ms steps(1,end) infinite,detailFlight var(--flight) var(--delay) cubic-bezier(.1,.78,.16,1) forwards}.fire-orbs .missile-ghost{animation:ghostFlight var(--flight) var(--delay) cubic-bezier(.1,.78,.16,1) forwards}.detailed-impact{position:absolute;left:67%;width:64px;height:64px;background:url('assets/blood_impact_detailed.png') 0 0/384px 64px no-repeat;image-rendering:pixelated;z-index:8;animation:detailImpact 410ms steps(1,end) forwards}@keyframes detailedLiquid{0%,32%{background-position:0 var(--row)}33%,65%{background-position:-40px var(--row)}66%,100%{background-position:-80px var(--row)}}@keyframes detailCharge{0%{transform:translate(-3px,1px) scale(.72)}38%{transform:translate(1px,-2px) scale(.93)}72%{transform:translate(-1px,1px) scale(.86)}100%{transform:translate(0) scale(1)}}@keyframes detailFlight{0%{transform:translateX(0);opacity:1}82%{opacity:1}100%{transform:translateX(128px);opacity:0}}@keyframes ghostFlight{0%{transform:translateX(-5px) scale(.92);opacity:0}12%{opacity:var(--ghost)}82%{opacity:var(--ghost)}100%{transform:translateX(120px) scale(.92);opacity:0}}@keyframes detailImpact{0%,15%{background-position:0 0;opacity:1}16%,31%{background-position:-64px 0}32%,47%{background-position:-128px 0}48%,63%{background-position:-192px 0}64%,79%{background-position:-256px 0}80%,94%{background-position:-320px 0}100%{background-position:-320px 0;opacity:0}}
+/* v0.9 CEO authored reaction + Briefcase Throw */
+.ceo-recoil{position:absolute;left:66%;top:39%;width:18%;height:22%;opacity:0;z-index:7}
+.ceo-recoil.active{opacity:1;animation:ceoRecoilV9 390ms steps(4,end)}
+.ceo-recoil.windup{opacity:1;animation:ceoWindupV9 220ms steps(3,end)}
+.briefcase-projectile{position:absolute;left:69%;top:48%;width:32px;height:24px;background:url('assets/briefcase_throw_sheet.png') 0 0/128px 24px no-repeat;image-rendering:pixelated;opacity:0;z-index:9}
+.briefcase-projectile.fly{opacity:1;animation:briefcaseFlyV9 430ms steps(4,end) forwards}
+.briefcase-impact{position:absolute;left:12%;top:40%;width:64px;height:64px;background:url('assets/briefcase_impact_sheet.png') 0 0/256px 64px no-repeat;image-rendering:pixelated;opacity:0;z-index:10}
+.briefcase-impact.active{opacity:1;animation:briefImpactV9 350ms steps(1,end) forwards}
+.rich-hit{position:absolute;left:6%;top:38%;width:26%;height:22%;opacity:0;z-index:8}
+.rich-hit.active{opacity:1;animation:richHitV9 330ms steps(4,end)}
+@keyframes ceoRecoilV9{0%{transform:translateX(0)}20%{transform:translateX(5px) rotate(2deg)}45%{transform:translateX(-3px) rotate(-2deg)}70%{transform:translateX(2px)}100%{transform:translateX(0)}}
+@keyframes ceoWindupV9{0%{transform:translateX(0)}50%{transform:translateX(5px) rotate(3deg)}100%{transform:translateX(2px) rotate(1deg)}}
+@keyframes briefcaseFlyV9{0%{transform:translateX(0);background-position:0 0}25%{background-position:-32px 0}50%{background-position:-64px 0}75%{background-position:-96px 0}100%{transform:translateX(-145px);background-position:0 0}}
+@keyframes briefImpactV9{0%,24%{background-position:0 0}25%,49%{background-position:-64px 0}50%,74%{background-position:-128px 0}75%,94%{background-position:-192px 0}100%{background-position:-192px 0;opacity:0}}
+@keyframes richHitV9{0%,100%{background:transparent;transform:translateX(0)}20%{background:rgba(255,242,190,.25);transform:translateX(-3px)}45%{background:transparent;transform:translateX(3px)}70%{background:rgba(120,0,25,.18);transform:translateX(-1px)}}
+@keyframes briefcase-shake-placeholder{0%{transform:none}}
+#screen.briefcase-shake{animation:briefcaseScreenShakeV9 320ms steps(6,end)}
+@keyframes briefcaseScreenShakeV9{0%,100%{transform:translate(0)}18%{transform:translate(3px,-1px)}36%{transform:translate(-3px,2px)}54%{transform:translate(2px,1px)}72%{transform:translate(-2px,-1px)}88%{transform:translate(1px,1px)}}
+
+/* v0.9.1: absurdly large CEO briefcase — ~4x visual area */
+.briefcase-projectile{
+  width:64px;
+  height:48px;
+  background-size:256px 48px;
+  transform-origin:center center;
+}
+.briefcase-impact{
+  transform:scale(1.22);
+  transform-origin:center center;
+}
+@keyframes briefcaseFlyV91{
+  0%{transform:translateX(0);background-position:0 0}
+  25%{background-position:-64px 0}
+  50%{background-position:-128px 0}
+  75%{background-position:-192px 0}
+  100%{transform:translateX(-145px);background-position:0 0}
+}
+.briefcase-projectile.fly{animation:briefcaseFlyV91 430ms steps(4,end) forwards}
+
+/* v0.10 Gemini Rich trial — supplied production PNGs used directly */
+.gemini-rich-mask{
+ position:absolute; left:3%; top:30%; width:31%; height:31%;
+ background:#171529; z-index:4; pointer-events:none;
+}
+.gemini-rich{
+ position:absolute; left:4%; top:30%;
+ width:80px; height:96px;
+ background-repeat:no-repeat;
+ background-size:80px 96px;
+ image-rendering:pixelated;
+ z-index:6; pointer-events:none;
+}
+.gemini-rich.state-idle{background-image:url('assets/rich_seated_idle.png')}
+.gemini-rich.state-cast{background-image:url('assets/rich_seated_cast.png')}
+.gemini-rich.state-hit{background-image:url('assets/rich_seated_hit.png')}
+.gemini-rich.state-victory{background-image:url('assets/rich_seated_victory.png')}
+
+/* v0.10.1 scale + grounding trial — same Gemini art, no redraw */
+.gemini-rich-mask{
+  left:2%;
+  top:29%;
+  width:39%;
+  height:39%;
+}
+.gemini-rich{
+  left:5.5%;
+  top:37.5%;
+  width:128px;
+  height:154px;
+  background-size:128px 154px;
+  image-rendering:pixelated;
+}
+
+/* v0.11 clean-room production composite */
+.gemini-rich-mask{display:none!important}
+
+/* Exact Gemini Rich PNGs, now judged against the real clean room.
+   v0.10.1 was 128x154; this trial is ~1.22x larger. */
+.gemini-rich{
+  left:3.5%;
+  top:31.5%;
+  width:156px;
+  height:187px;
+  background-size:156px 187px;
+  image-rendering:pixelated;
+  z-index:6;
+}
+
+/* v0.12 production cast */
+.gemini-rich{left:3.5%;top:40.5%;width:156px;height:187px;background-size:156px 187px;image-rendering:pixelated;z-index:6}
+.production-ceo{position:absolute;left:61%;top:43.5%;width:160px;height:192px;background-repeat:no-repeat;background-size:160px 192px;image-rendering:pixelated;z-index:7;pointer-events:none}
+.production-ceo.state-idle{background-image:url('assets/ceo_idle.png')}
+.production-ceo.state-throw{background-image:url('assets/ceo_briefcase_throw.png')}
+.production-ceo.state-hit{background-image:url('assets/ceo_hit.png')}
+.production-ceo.state-defeated{background-image:url('assets/ceo_defeated.png')}
+.production-assistant{position:absolute;left:78%;top:47%;width:136px;height:163px;background-repeat:no-repeat;background-size:136px 163px;image-rendering:pixelated;z-index:6;pointer-events:none}
+.production-assistant.state-idle{background-image:url('assets/assistant_idle.png')}
+.production-assistant.state-heal{background-image:url('assets/assistant_heal.png')}
+.production-assistant.state-reaction{background-image:url('assets/assistant_reaction.png')}
+.production-assistant.state-walk{background-image:url('assets/assistant_walk.png')}
+#ceoSprite,#assistantSprite,.ceo-sprite,.assistant-sprite{opacity:0!important}
+
+/* v0.12.1 — composition-only pass */
+.gemini-rich{
+  left:7%;
+  top:44%;
+}
+.production-ceo{
+  left:55%;
+  top:44%;
+}
+.production-assistant{
+  left:72%;
+  top:47%;
+}
+.rich-bite-sprite{position:absolute;width:120px;height:144px;left:57%;top:44%;background:url('assets/rich_vampire_bite.png') center/contain no-repeat;image-rendering:pixelated;opacity:0;z-index:14;pointer-events:none}.rich-bite-sprite.active{opacity:1}.bite-trail{position:absolute;left:18%;top:53%;width:46%;height:18px;opacity:0;z-index:12;background:repeating-linear-gradient(90deg,transparent 0 8px,#6d0715 8px 18px,#d21f3c 18px 26px,transparent 26px 34px);clip-path:polygon(0 40%,88% 0,100% 50%,88% 100%,0 60%);pointer-events:none}.bite-trail.flash{animation:biteTrail .16s steps(2,end) both}@keyframes biteTrail{0%{opacity:0;transform:scaleX(.08);transform-origin:left}35%{opacity:1}100%{opacity:0;transform:scaleX(1)}}.bite-impact{position:absolute;left:68%;top:50%;width:58px;height:58px;opacity:0;z-index:15;background:linear-gradient(45deg,transparent 42%,#ff3151 43% 56%,transparent 57%),linear-gradient(-45deg,transparent 42%,#9d102a 43% 56%,transparent 57%);pointer-events:none}.bite-impact.flash{animation:biteImpact .2s steps(3,end) both}@keyframes biteImpact{0%{opacity:0;transform:scale(.3)}35%{opacity:1;transform:scale(1.25)}100%{opacity:0;transform:scale(.7)}}.heal-float{position:absolute;left:12%;top:34%;z-index:18;opacity:0;font:bold 10px monospace;color:#4dff7a;text-shadow:1px 1px #07140a;pointer-events:none}.heal-float.show{animation:healFloat .55s steps(4,end) both}@keyframes healFloat{0%{opacity:0;transform:translateY(5px)}20%{opacity:1}100%{opacity:0;transform:translateY(-16px)}}.bite-shake{animation:biteShake .18s steps(2,end)}@keyframes biteShake{0%,100%{transform:translate(0)}25%{transform:translate(-3px,1px)}50%{transform:translate(3px,-1px)}75%{transform:translate(-2px,0)}}
+/* v0.14 — REVENGE */
+.revenge-shade{position:absolute;inset:0;background:#08000d;opacity:0;z-index:26;pointer-events:none}
+.revenge-shade.on{animation:revengeShade .72s steps(4,end) both}
+@keyframes revengeShade{0%{opacity:0}22%,72%{opacity:.48}100%{opacity:0}}
+
+.revenge-stored-text{position:absolute;left:14%;top:44%;width:30%;text-align:center;
+font:bold 13px monospace;color:#ff3151;text-shadow:2px 2px #25000a;opacity:0;z-index:31;pointer-events:none}
+.revenge-stored-text.on{animation:revengeNumber .62s steps(5,end) both}
+@keyframes revengeNumber{0%{opacity:0;transform:scale(.7)}20%,62%{opacity:1;transform:scale(1.18)}100%{opacity:0;transform:scale(.55)}}
+
+.revenge-mass{position:absolute;left:19%;top:49%;width:52px;height:52px;opacity:0;z-index:32;pointer-events:none;
+background:radial-gradient(circle,#fff 0 5%,#ff3151 6% 18%,#8e0b27 19% 42%,#30000c 43% 60%,transparent 61%);
+filter:drop-shadow(0 0 4px #d21f3c)}
+.revenge-mass.fire{animation:revengeFire .42s steps(6,end) both}
+@keyframes revengeFire{
+0%{opacity:0;transform:translate(0,0) scale(.3)}
+18%{opacity:1;transform:translate(0,0) scale(1.2)}
+38%{opacity:1;transform:translate(15px,0) scale(.9)}
+82%{opacity:1;transform:translate(250px,-4px) scale(.72)}
+100%{opacity:0;transform:translate(280px,-4px) scale(.45)}
+}
+.revenge-impact{position:absolute;left:67%;top:47%;width:76px;height:76px;opacity:0;z-index:33;pointer-events:none;
+background:
+linear-gradient(0deg,transparent 44%,#ff3151 45% 55%,transparent 56%),
+linear-gradient(45deg,transparent 44%,#a60d2d 45% 55%,transparent 56%),
+linear-gradient(-45deg,transparent 44%,#ff3151 45% 55%,transparent 56%)}
+.revenge-impact.hit{animation:revengeHit .28s steps(4,end) both}
+@keyframes revengeHit{0%{opacity:0;transform:scale(.25)}25%,65%{opacity:1;transform:scale(1.2)}100%{opacity:0;transform:scale(.65)}}
+.revenge-shake{animation:revengeShake .24s steps(4,end)}
+@keyframes revengeShake{0%,100%{transform:translate(0)}20%{transform:translate(-5px,1px)}40%{transform:translate(5px,-2px)}60%{transform:translate(-4px,1px)}80%{transform:translate(3px,0)}}
+
+/* v0.15 OCTOPUS BRAIN */
+.octopus-overlay{position:absolute;inset:0;z-index:70;background:rgba(9,0,17,.83);display:none;overflow:hidden;image-rendering:pixelated}
+.octopus-overlay.on{display:block}
+.octo-title{position:absolute;top:10%;left:0;width:100%;text-align:center;font:bold 15px monospace;color:#f4e7c5;text-shadow:2px 2px #5b123e;letter-spacing:1px}
+.octo-core{position:absolute;left:50%;top:39%;transform:translate(-50%,-50%);font-size:40px;z-index:74;filter:grayscale(1) sepia(1) saturate(4) hue-rotate(285deg)}
+.tentacle{position:absolute;left:50%;top:39%;width:8px;height:118px;background:#8b164e;border:2px solid #31051d;border-radius:45%;transform-origin:50% 0;z-index:72;animation:tentaclePulse .55s steps(4,end) infinite alternate}
+.t1{transform:rotate(0deg)}.t2{transform:rotate(45deg)}.t3{transform:rotate(90deg)}.t4{transform:rotate(135deg)}
+.t5{transform:rotate(180deg)}.t6{transform:rotate(225deg)}.t7{transform:rotate(270deg)}.t8{transform:rotate(315deg)}
+@keyframes tentaclePulse{from{height:88px}to{height:126px}}
+.octo-choices{position:absolute;left:8%;right:8%;bottom:8%;display:grid;gap:6px;z-index:76}
+.octo-choices button{background:#f1e5c5;border:3px solid #28131c;box-shadow:2px 2px #7d194b;padding:7px 8px;text-align:left;font-family:monospace;color:#21151a}
+.octo-choices button b{display:inline-block;width:72px;font-size:9px;color:#8a174c}.octo-choices button span{font-weight:bold;font-size:10px}
+.octo-roll{position:absolute;left:12%;right:12%;bottom:19%;background:#f1e5c5;border:4px solid #28131c;padding:12px;text-align:center;font:bold 13px monospace;color:#21151a;z-index:80;display:none}
+.octo-roll.on{display:block}
+
+/* v0.15.1 — underwater Octopus Brain refinement */
+.octopus-overlay{background:rgba(0,32,83,.58);backdrop-filter:sepia(.15) hue-rotate(155deg) saturate(1.35)}
+.octopus-overlay.choosing-away .tentacle,
+.octopus-overlay.choosing-away .brain-bubble,
+.octopus-overlay.choosing-away .octo-title,
+.octopus-overlay.choosing-away .octo-choices{display:none}
+
+.tentacle{
+  left:50%;top:auto;bottom:-20px;width:14px;height:0;
+  background:linear-gradient(90deg,#32105f 0 18%,#7645a7 19% 62%,#b678ca 63% 76%,#3a145d 77%);
+  border:2px solid #18082d;border-radius:55% 55% 18% 18%;
+  transform-origin:50% 100%;
+  animation:groundTentacle .52s steps(6,end) forwards, tentacleSway .62s .52s steps(3,end) infinite alternate;
+}
+.t1{left:5%;transform:rotate(-12deg)} .t2{left:16%;transform:rotate(8deg)}
+.t3{left:28%;transform:rotate(-5deg)} .t4{left:40%;transform:rotate(9deg)}
+.t5{left:53%;transform:rotate(-8deg)} .t6{left:65%;transform:rotate(7deg)}
+.t7{left:78%;transform:rotate(-8deg)} .t8{left:90%;transform:rotate(10deg)}
+@keyframes groundTentacle{0%{height:0}100%{height:205px}}
+@keyframes tentacleSway{from{margin-left:-2px}to{margin-left:3px}}
+
+.brain-bubble{position:absolute;bottom:8%;width:8px;height:8px;border:2px solid rgba(210,242,255,.8);
+border-radius:50%;z-index:73;opacity:0;animation:bubbleRise 2.3s steps(9,end) infinite}
+.b1{left:9%;animation-delay:.1s}.b2{left:18%;animation-delay:.8s}.b3{left:27%;animation-delay:1.4s}
+.b4{left:36%;animation-delay:.35s}.b5{left:45%;animation-delay:1.1s}.b6{left:55%;animation-delay:.55s}
+.b7{left:64%;animation-delay:1.65s}.b8{left:72%;animation-delay:.2s}.b9{left:82%;animation-delay:1.0s}
+.b10{left:91%;animation-delay:.65s}.b11{left:49%;animation-delay:1.9s}.b12{left:23%;animation-delay:2.05s}
+@keyframes bubbleRise{0%{bottom:5%;opacity:0;transform:scale(.5)}12%{opacity:.8}80%{opacity:.55}100%{bottom:88%;opacity:0;transform:scale(1.35)}}
+
+/* v0.15.2 — authored throne-floor tentacles */
+.tentacle{display:none!important}
+.tentacle-sprite{
+ position:absolute;left:0;top:0;width:100%;height:100%;z-index:72;
+ background:url('assets/octopus_brain_a.png') 0 0/100% 100% no-repeat;
+ image-rendering:pixelated;pointer-events:none;
+}
+.octopus-overlay.on .tentacle-sprite{animation:authoredTentacles 1.45s steps(1,end) infinite}
+.octopus-overlay.choosing-away .tentacle-sprite{display:none}
+@keyframes authoredTentacles{
+ 0%,12%{background-image:url('assets/octopus_brain_a.png')}
+ 13%,27%{background-image:url('assets/octopus_brain_b.png')}
+ 28%,57%{background-image:url('assets/octopus_brain_c.png')}
+ 58%,86%{background-image:url('assets/octopus_brain_d.png')}
+ 87%,100%{background-image:url('assets/octopus_brain_c.png')}
+}
+
+/* v0.15.3 — tentacles anchored to throne-room floor, not viewport */
+.octopus-overlay{overflow:hidden}
+.tentacle-sprite{
+  top:92px !important;
+  height:270px !important;
+  width:100% !important;
+  background-size:270px 362px !important;
+  background-position:center bottom !important;
+  clip-path:inset(0 0 0 0);
+}
+
+/* v0.15.4 — TRUE ROOM-FLOOR ANCHOR
+   Match the authored 270x362 frame to the .room itself (75.5% of screen). */
+.tentacle-sprite{
+  left:0 !important;
+  top:0 !important;
+  width:100% !important;
+  height:75.5% !important;
+  background-size:100% 100% !important;
+  background-position:center top !important;
+  background-repeat:no-repeat !important;
+}
+
+/* v0.15.5 — CHARACTER-FLOOR ANCHOR
+   Root line = actual throne-room floor under Rich/CEO (~61.5% stage height).
+   Keep authored room-scale height (75.5%), so top becomes -14%. */
+.tentacle-sprite{
+  left:0 !important;
+  top:-14% !important;
+  width:100% !important;
+  height:75.5% !important;
+  background-size:100% 100% !important;
+  background-position:center top !important;
+}
+
+/* v0.15.6 — user preference: restore bottom placement */
+.tentacle-sprite{
+  left:0 !important;
+  top:0 !important;
+  width:100% !important;
+  height:75.5% !important;
+  background-size:100% 100% !important;
+  background-position:center top !important;
+}
+
+/* v0.15.7 — literal bottom-of-screen placement */
+.tentacle-sprite{
+  left:0 !important;
+  top:0 !important;
+  bottom:0 !important;
+  width:100% !important;
+  height:100% !important;
+  background-size:100% 100% !important;
+  background-position:center bottom !important;
+}
+
+/* v0.16 — victory + walk-off */
+.victory-overlay{position:absolute;inset:0;z-index:88;display:none;pointer-events:none}
+.victory-overlay.on{display:block;pointer-events:auto}
+.victory-card{position:absolute;left:10%;right:10%;bottom:15%;background:#f1e5c5;border:4px solid #28131c;
+box-shadow:4px 4px #7d194b;padding:12px;text-align:center;font-family:monospace;color:#21151a}
+.victory-title{font-weight:bold;font-size:14px;margin-bottom:10px}
+.victory-question{font-weight:bold;font-size:18px;margin-bottom:10px}
+.victory-buttons{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.victory-buttons button{font:bold 14px monospace;background:#f8efd6;border:3px solid #28131c;padding:8px}
+.ending-text{position:absolute;left:8%;right:8%;top:42%;display:none;background:#f1e5c5;border:4px solid #28131c;
+padding:12px;text-align:center;font:bold 14px monospace;color:#21151a}
+.ending-text.on{display:block}
+.walkoff-rich{transition:left 1.45s steps(12,end)!important}
+.walkoff-assistant{transition:left 1.45s steps(12,end)!important}
+
+/* v0.16.1 — detach Rich from throne during walk-off */
+.rich-detached-walker{
+ position:absolute;left:17%;top:46%;width:31%;height:auto;z-index:46;
+ image-rendering:pixelated;pointer-events:none;
+ transition:left 1.45s steps(12,end);
+}
+.rich-detached-walker.go{left:112%}
+
+/* v0.17 — authored Rich get-up + walk cycle */
+.rich-authored-exit{
+ position:absolute;
+ left:9%;
+ top:43%;
+ width:29.63%;
+ height:auto;
+ z-index:46;
+ image-rendering:pixelated;
+ pointer-events:none;
+ transition:left .62s steps(6,end);
+}
+.rich-authored-exit.approach{left:59%}
+.rich-authored-exit.leave{
+ left:112%;
+ transition:left 1.25s steps(12,end);
+}
+
+/* v0.17.1 — throne remains while Rich gets up */
+.rich-throne-only{
+ position:absolute;left:7%;top:44%;width:38%;height:auto;z-index:5;
+ image-rendering:pixelated;pointer-events:none;
+}
+
+/* v0.18 — authored empty throne + victory UI cleanup */
+.rich-throne-only{display:none!important}
+.rich-throne-empty-authored{
+ position:absolute;
+ left:5.5%;
+ top:43%;
+ width:39%;
+ height:auto;
+ z-index:5;
+ image-rendering:pixelated;
+ pointer-events:none;
+}
+.battle-ui.victory-retract{
+ opacity:0;
+ transform:translateY(110%);
+ transition:opacity .25s steps(3,end),transform .35s steps(5,end);
+ pointer-events:none;
+}
+
+/* v0.19 — Rich sings the soundtrack */
+.rich-lyric-bubble{
+ position:absolute;left:7%;top:35%;z-index:60;
+ max-width:34%;padding:4px 6px;
+ background:#f6edcf;border:2px solid #24141b;
+ box-shadow:2px 2px 0 #7d194b;
+ color:#1d1317;font:bold 7px/1.2 monospace;
+ text-transform:uppercase;text-align:center;
+ image-rendering:pixelated;pointer-events:none;
+ opacity:0;transition:none;
+}
+.rich-lyric-bubble::after{
+ content:"";position:absolute;left:17px;bottom:-7px;
+ width:8px;height:8px;background:#f6edcf;
+ border-right:2px solid #24141b;border-bottom:2px solid #24141b;
+ transform:rotate(45deg);
+}
+.rich-lyric-bubble.on{opacity:1}
+
+/* v0.19.1 — larger lyric bubble, anchored close to Rich */
+.rich-lyric-bubble{
+ left:8.5% !important;
+ top:39.5% !important;
+ max-width:45% !important;
+ min-width:25% !important;
+ padding:6px 8px !important;
+ border-width:3px !important;
+ font-size:9px !important;
+ line-height:1.15 !important;
+ z-index:61 !important;
+}
+.rich-lyric-bubble::after{
+ left:30px !important;
+ bottom:-8px !important;
+ width:9px !important;
+ height:9px !important;
+}

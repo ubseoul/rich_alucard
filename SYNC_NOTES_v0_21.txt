@@ -1,0 +1,7 @@
+v0.21 Perceptual Sync
+Analyzed bloodbath_mix3.wav directly at 44.1 kHz.
+Most supplied timestamps already coincide almost exactly with strong audio transients.
+The remaining visible lag is therefore treated as perceptual/render lead rather than a bad loop clock.
+LYRIC_LEAD changed from 0.10 to 0.25 seconds.
+Reliable phrase attacks were refined to measured WAV transient times.
+19.39 and 45.24 were left unchanged because no stronger local transient justified moving them.

@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no" />
+<title>Rich Alucard — v0.22 Faster Bubble Sync</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<main id="stage" aria-label="Rich Alucard battle prototype">
+  <div id="screen">
+    <div class="room" aria-hidden="true"></div>
+    <div class="edge-frame" aria-hidden="true"></div>
+    <section class="combat-hud" aria-label="Battle health">
+      <div class="hpbox rich-hp"><b>RICH ALUCARD</b><span>HP <i><em id="richHPBar"></em></i> <strong id="richHPText">100/100</strong></span></div>
+      <div class="hpbox ceo-hp"><b>CEO ZOMBIE PRINCE</b><span>HP <i><em id="ceoHPBar"></em></i> <strong id="ceoHPText">100/100</strong></span></div>
+    </section>
+
+    <section class="battle-ui" id="battleUI">
+      <div class="dialogue panel" id="dialogue">What will<br><strong>RICH ALUCARD</strong> do?</div>
+      <div class="main-menu panel" id="mainMenu">
+        <button data-main="fight" class="selected">▶ FIGHT</button>
+        <button data-main="item">ITEM</button>
+        <button data-main="hoes">HOES</button>
+        <button data-main="run">RUN</button>
+      </div>
+      <div class="moves" id="moves">
+        <button data-move="blood">BLOOD<br>BATH <span>PP 8/8</span></button>
+        <button data-move="octopus">OCTOPUS<br>BRAIN <span>PP 8/8</span></button>
+        <button data-move="bite">VAMPIRE<br>BITE <span>PP 8/8</span></button>
+        <button data-move="revenge">REVENGE <span>PP 8/8</span></button>
+      </div>
+    </section>
+
+    <section id="startOverlay" class="start-overlay">
+      <div class="start-card panel">
+        <div class="title">RICH ALUCARD</div>
+        <div class="subtitle">FASTER BUBBLE SYNC v0.22</div>
+        <button id="startButton">▶ START</button>
+        <small>Bloodbath begins with the game.</small>
+      </div>
+    </section>
+
+    <div id="geminiRich" class="gemini-rich state-idle"></div>
+<div id="productionCEO" class="production-ceo state-idle"></div>
+<div id="productionAssistant" class="production-assistant state-idle"></div>
+<div id="biteTrail" class="bite-trail"></div><div id="richBiteSprite" class="rich-bite-sprite"></div><div id="biteImpact" class="bite-impact"></div><div id="healFloat" class="heal-float">+18 HP</div>
+<div id="revengeShade" class="revenge-shade"></div>
+<div id="revengeStoredText" class="revenge-stored-text"></div>
+<div id="revengeMass" class="revenge-mass"></div>
+<div id="revengeImpact" class="revenge-impact"></div>
+
+
+<div id="richLyricBubble" class="rich-lyric-bubble" aria-live="off"></div>
+<div id="victoryOverlay" class="victory-overlay">
+  <div id="victoryCard" class="victory-card">
+    <div class="victory-title">CEO DEFEATED</div>
+    <div class="victory-question">STEAL HIS HOE?</div>
+    <div class="victory-buttons">
+      <button id="stealYes">YES</button><button id="stealNo">NO</button>
+    </div>
+  </div>
+  <div id="endingText" class="ending-text"></div>
+</div>
+<div id="octopusOverlay" class="octopus-overlay">
+  <div class="octo-title">OCTOPUS BRAIN</div>
+  
+  <div id="tentacleSprite" class="tentacle-sprite"></div>
+  <div class="brain-bubble b1"></div><div class="brain-bubble b2"></div><div class="brain-bubble b3"></div><div class="brain-bubble b4"></div><div class="brain-bubble b5"></div><div class="brain-bubble b6"></div><div class="brain-bubble b7"></div><div class="brain-bubble b8"></div><div class="brain-bubble b9"></div><div class="brain-bubble b10"></div><div class="brain-bubble b11"></div><div class="brain-bubble b12"></div><div class="octo-choices">
+    <button data-octo="hoe"><b>CHARISMA</b><span>STEAL YOUR HOE</span></button>
+    <button data-octo="squad"><b>RECRUIT</b><span>JOIN MY SQUAD</span></button>
+    <button data-octo="roast"><b>ROAST</b><span>GET OUT MY CASTLE</span></button>
+  </div>
+  <div id="octoRoll" class="octo-roll"></div>
+</div>
+<div id="attackLayer" class="attack-layer" aria-hidden="true">
+      <div id="richCast" class="rich-cast"></div>
+      <div id="bloodFlash" class="blood-flash"></div>
+      <div id="projectiles" class="projectiles"></div>
+      <div id="enemyHit" class="enemy-hit"></div>
+      <div id="bloodBurst" class="blood-burst"></div>
+      <div id="damageNumber" class="damage-number">-26</div>
+      <div id="hitShade" class="hit-shade"></div>
+      <div id="bloodCurtain" class="blood-curtain"></div>
+      <div id="impactCore" class="impact-core"></div>
+      <div id="ceoRecoil" class="ceo-recoil"></div>
+      <div id="briefcaseProjectile" class="briefcase-projectile"></div>
+      <div id="briefcaseImpact" class="briefcase-impact"></div>
+      <div id="richHit" class="rich-hit"></div>
+    </div>
+    <section id="choiceOverlay" class="choice-overlay">
+      <div class="choice-card panel">
+        <div id="choiceTitle">STEAL HIS HOE?</div>
+        <div class="choice-buttons">
+          <button id="choiceYes">▶ YES</button><button id="choiceNo">NO</button>
+        </div>
+      </div>
+    </section>
+    <div id="toast" class="toast panel" aria-live="polite"></div>
+    <audio id="soundtrack" src="assets/bloodbath_mix3.wav" preload="auto"></audio>
+  </div>
+</main>
+<script src="game.js"></script>
+</body>
+</html>

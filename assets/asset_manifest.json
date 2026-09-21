@@ -1,0 +1,83 @@
+{
+  "cellWidth": 80,
+  "cellHeight": 96,
+  "anchor": {
+    "x": 40,
+    "y": 88
+  },
+  "sheetColumns": 2,
+  "sheetRows": 2,
+  "rendering": {
+    "imageSmoothingEnabled": false,
+    "cssImageRendering": "pixelated",
+    "scale": "integer multiples",
+    "coordinates": "integer pixels"
+  },
+  "notes": [
+    "One held key pose per named state; no animation timings implied.",
+    "CEO crown retained by current user canon update. Held briefcase is normal-sized.",
+    "Assistant remains fully clothed with the authorized fuller adult silhouette."
+  ],
+  "sets": {
+    "ceo": {
+      "sheet": "ceo_sprite_sheet.png",
+      "opaqueColors": 24,
+      "frames": {
+        "ceo_idle": {
+          "x": 0,
+          "y": 0,
+          "w": 80,
+          "h": 96
+        },
+        "ceo_briefcase_throw": {
+          "x": 80,
+          "y": 0,
+          "w": 80,
+          "h": 96
+        },
+        "ceo_hit": {
+          "x": 0,
+          "y": 96,
+          "w": 80,
+          "h": 96
+        },
+        "ceo_defeated": {
+          "x": 80,
+          "y": 96,
+          "w": 80,
+          "h": 96
+        }
+      }
+    },
+    "assistant": {
+      "sheet": "assistant_sprite_sheet.png",
+      "opaqueColors": 24,
+      "frames": {
+        "assistant_idle": {
+          "x": 0,
+          "y": 0,
+          "w": 80,
+          "h": 96
+        },
+        "assistant_heal": {
+          "x": 80,
+          "y": 0,
+          "w": 80,
+          "h": 96
+        },
+        "assistant_reaction": {
+          "x": 0,
+          "y": 96,
+          "w": 80,
+          "h": 96
+        },
+        "assistant_walk": {
+          "x": 80,
+          "y": 96,
+          "w": 80,
+          "h": 96
+        }
+      }
+    }
+  }
+}
