@@ -35,6 +35,7 @@ Marketing value alone is not sufficient justification.
 - REVENGE: actual HP damage Rich receives accumulates once; Revenge returns exactly the stored amount; storage then resets to zero. No minimum fallback.
 - Vampire Bite: fast red/black teleport/lunge bite, lifesteal/heal, return to throne.
 - Blood Bath: chunky blood projectiles/orbs/tendrils travel left-to-right. Pokémon-style resolution; no bullet hell.
+- CEO hit language is **LOCKED / APPROVED**: `ceo_hit_reaction_sheet.png` supplies normal, heavy and lethal authored reaction poses. Normal/heavy presentation severity currently uses remaining CEO HP before the hit: `>52` normal, `27–52` heavy, `≤26` lethal. This threshold is a presentation rule and may be changed by Ube.
 - Octopus Brain: eight physical tentacles + underwater/bubble treatment + three context-specific nonstandard solutions. Current CEO choices are CHARISMA — STEAL YOUR HOE; RECRUIT — JOIN MY SQUAD; ROAST — GET OUT MY CASTLE. Exact prototype checks/timings are not canon.
 - 9:16 phone-first presentation. Canonical production target: **270×480**, scalable with nearest-neighbor feel.
 - Combat is mostly fixed 2D side-on. No top-down combat, platforming or free combat movement.

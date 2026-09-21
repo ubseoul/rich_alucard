@@ -37,6 +37,11 @@ This is a creative-direction changelog, not a substitute for Git history.
 - Do not use a generic web-app “processing” indicator; attack presentation should communicate locked input.
 - A player-facing Revenge stored-damage cue remains a creative decision, not yet canon.
 
+### Locked CEO hit language
+- Ube approved the authored CEO normal, heavy and lethal reaction poses.
+- `assets/ceo_hit_reaction_manifest.json` is now `LOCKED / APPROVED`; the packed sheet is the canonical runtime source. Individual frames and the 6× preview remain inspection/reference assets.
+- Current presentation thresholds: remaining CEO HP before a hit `>52` normal, `27–52` heavy, `≤26` lethal.
+
 ### Exploration
 - Pokémon-style walking discussed as inspiration but not approved for implementation.
 - Fixed scenes/hotspots may deliver the desired inhabited-world feeling with less complexity.

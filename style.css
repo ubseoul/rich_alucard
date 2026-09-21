@@ -202,6 +202,10 @@ button{font:inherit;cursor:pointer}.main-menu button{border:0;background:transpa
 .production-ceo.state-throw{background-image:url('assets/ceo_briefcase_throw.png')}
 .production-ceo.state-hit{background-image:url('assets/ceo_hit.png')}
 .production-ceo.state-defeated{background-image:url('assets/ceo_defeated.png')}
+.production-ceo.combat-authored-ceo-normal,.production-ceo.combat-authored-ceo-heavy,.production-ceo.combat-authored-ceo-lethal{background-image:url('assets/ceo_hit_reaction_sheet.png');background-size:480px 192px;background-repeat:no-repeat}
+.production-ceo.combat-authored-ceo-normal{background-position:0 0}
+.production-ceo.combat-authored-ceo-heavy{background-position:-160px 0}
+.production-ceo.combat-authored-ceo-lethal{background-position:-320px 0}
 .production-assistant{position:absolute;left:78%;top:47%;width:136px;height:163px;background-repeat:no-repeat;background-size:136px 163px;image-rendering:pixelated;z-index:6;pointer-events:none}
 .production-assistant.state-idle{background-image:url('assets/assistant_idle.png')}
 .production-assistant.state-heal{background-image:url('assets/assistant_heal.png')}
