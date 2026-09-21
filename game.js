@@ -20,7 +20,7 @@ const toast=document.querySelector('#toast');
 const battleUI=document.querySelector('#battleUI');
 const attackLayer=document.querySelector('#attackLayer');
 // Legacy hit-overlay compatibility: the old rectangular effect has been removed.
-const enemyHit={classList:{add(){},remove(){}}};
+const enemyHit={classList:{add(){const severity=ceoHP<=26?'lethal':ceoHP<=52?'heavy':'normal';RACombatPresentation.play({target:productionCEO,attacker:geminiRich,severity,authored:'ceo',kind:'blood',recoveryMs:70});},remove(){}}};
 const richCast=document.querySelector('#richCast');
 const bloodFlash=document.querySelector('#bloodFlash');
 const projectiles=document.querySelector('#projectiles');
@@ -202,7 +202,7 @@ async function genericPlayerFX(kind){
  if(kind==='bite') document.querySelector('#screen').classList.add('bite-flash');
  else if(kind==='octopus') document.querySelector('#screen').classList.add('brain-flash');
  else document.querySelector('#screen').classList.add('revenge-flash');
- await wait(320);await RACombatPresentation.play({target:productionCEO,attacker:geminiRich,severity:'normal',kind,recoveryMs:40});
+ await wait(320);const severity=ceoHP<=26?'lethal':ceoHP<=52?'heavy':'normal';await RACombatPresentation.play({target:productionCEO,attacker:geminiRich,severity,authored:'ceo',kind,recoveryMs:40});
  document.querySelector('#screen').classList.remove('bite-flash','brain-flash','revenge-flash');richCast.classList.remove('cast');attackLayer.classList.remove('active');battleUI.classList.remove('attack-mode');
 }
 async function enemyTurn(){

@@ -162,6 +162,8 @@ Attacks should generally read:
 
 Static/state-based animation is an aesthetic strength.
 
+The CEO hit language is **LOCKED / APPROVED**. Runtime uses the authored `ceo_hit_reaction_sheet.png` with nearest-neighbor rendering: normal recoil, heavy recoil and lethal reaction. The current presentation thresholds are remaining CEO HP before the hit: `>52` normal, `27–52` heavy, `≤26` lethal.
+
 Room ambience should be sparse. Bats may occasionally cross the room; constant motion is undesirable.
 
 ## Rich visual identity
