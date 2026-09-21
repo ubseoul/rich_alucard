@@ -1,9 +1,13 @@
 :root{--cream:#f6efd9;--ink:#10101b;--purple:#17142c;--line:#d9d3f1}
+:root{--bone-cream:#f6efd9;--near-black:#10101b;--rich-red:#d7193f;--nocturnal-purple:#17142c;--dried-blood:#7d194b;--muted-gold:#c18b3c;--accent:#20c66b;--font-dialogue:"Courier New",monospace;--font-name:"Courier New",monospace;--font-command:"Courier New",monospace;--font-move:"Courier New",monospace;--font-number:"Courier New",monospace;--font-system:"Courier New",monospace}
+html[data-dev-font="monogram"]{--font-dialogue:Monogram,"Courier New",monospace;--font-name:Monogram,"Courier New",monospace;--font-command:Monogram,"Courier New",monospace;--font-move:Monogram,"Courier New",monospace;--font-number:Monogram,"Courier New",monospace;--font-system:Monogram,"Courier New",monospace}
+html[data-dev-font="press-start"]{--font-dialogue:"Press Start 2P","Courier New",monospace;--font-name:"Press Start 2P","Courier New",monospace;--font-command:"Press Start 2P","Courier New",monospace;--font-move:"Press Start 2P","Courier New",monospace;--font-number:"Press Start 2P","Courier New",monospace;--font-system:"Press Start 2P","Courier New",monospace}
+html[data-dev-font="tiny5"]{--font-dialogue:Tiny5,"Courier New",monospace;--font-name:Tiny5,"Courier New",monospace;--font-command:Tiny5,"Courier New",monospace;--font-move:Tiny5,"Courier New",monospace;--font-number:Tiny5,"Courier New",monospace;--font-system:Tiny5,"Courier New",monospace}
 *{box-sizing:border-box} html,body{margin:0;width:100%;height:100%;background:#090813;overflow:hidden;font-family:"Courier New",monospace}
 body{display:grid;place-items:center}
 #stage{height:100dvh;max-height:100dvh;aspect-ratio:9/16;display:grid;place-items:center}
 #screen{position:relative;width:min(100vw,56.25dvh);aspect-ratio:9/16;background:#080711;overflow:hidden;image-rendering:pixelated;box-shadow:0 0 0 2px #05040b}
-.room{position:absolute;inset:0 0 auto 0;height:75.5%;background:url('assets/throne_room_scene.png') top center/100% 100% no-repeat;image-rendering:pixelated}
+.room{position:absolute;inset:0 0 auto 0;height:75.5%;background:url('assets/throne_room_scene_portrait.png') top center/100% 100% no-repeat;image-rendering:pixelated}
 .edge-frame{position:absolute;inset:3px;border:2px solid #b7b1df;pointer-events:none;z-index:8}.edge-frame:after{content:"";position:absolute;inset:3px;border:1px solid #403b72}
 .panel{background:var(--cream);color:var(--ink);border:2px solid #fef9e9;outline:2px solid var(--ink);box-shadow:inset 0 0 0 1px #77718b}
 .battle-ui{position:absolute;left:4%;right:4%;bottom:3.3%;height:24%;display:grid;grid-template-columns:2fr 1fr;grid-template-rows:56% 44%;gap:4px;z-index:4}
@@ -504,6 +508,23 @@ button:active,.main-menu button.pressed,.moves button.pressed{transform:translat
 @keyframes revengeFragments{0%{transform:translate(0,0);opacity:0}45%{opacity:1}100%{transform:translate(0,0) scale(.4);opacity:0}}
 #screen.hit-stop .room,#screen.hit-stop .production-ceo,#screen.hit-stop .production-assistant,#screen.hit-stop .gemini-rich{filter:brightness(.72)}
 @media (prefers-reduced-motion:reduce){.ambience-bat{display:none}.moves button,.main-menu button{transition:none}}
+
+/* Developer-only cartridge lab. Nothing here is visible in ordinary play. */
+.dialogue{font-family:var(--font-dialogue)}
+.hpbox b,.reveal-title{font-family:var(--font-name)}
+.main-menu button{font-family:var(--font-command)}
+.moves button{font-family:var(--font-move)}
+.hpbox strong,.moves button span{font-family:var(--font-number)}
+.toast,.subtitle,.dev-panel{font-family:var(--font-system)}
+.dev-panel{position:absolute;right:3%;top:20%;z-index:120;width:45%;padding:7px;display:none;background:#f1e5c5;color:#21151a;border:2px solid #28131c;box-shadow:3px 3px #7d194b;font-size:8px;line-height:1.25}
+.dev-panel.show{display:block}
+.dev-title{font-weight:bold;letter-spacing:1px;border-bottom:1px solid #7d194b;margin-bottom:5px}
+.dev-panel label{display:block;margin:4px 0}.dev-panel select{width:100%;font:inherit;background:#fff8df;border:1px solid #28131c}.dev-panel input{vertical-align:middle}
+.dev-readout{white-space:pre-line;margin:5px 0;border-top:1px solid #b58d72;padding-top:4px;font-size:7px}
+.dev-panel button{width:100%;font:inherit;background:#17142c;color:#fff;border:1px solid #fff;padding:3px}
+#screen.cartridge-tint:after{content:"";position:absolute;inset:0;z-index:3;pointer-events:none;background:rgba(36,11,57,.08);mix-blend-mode:multiply;box-shadow:inset 0 0 0 999px rgba(13,5,25,.04)}
+#screen.cartridge-tint .room,#screen.cartridge-tint .production-ceo,#screen.cartridge-tint .production-assistant{filter:contrast(1.05) brightness(.94) saturate(1.03)}
+body.dev-enabled .production-ceo,body.dev-enabled .production-assistant{outline:1px dashed rgba(255,220,120,.7)}
 .rich-lyric-bubble.on{opacity:1}
 
 /* v0.19.1 — larger lyric bubble, anchored close to Rich */

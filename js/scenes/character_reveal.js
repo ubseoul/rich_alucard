@@ -66,6 +66,7 @@
   async function open(){
     if(active)return;
     active=true;
+    if(window.RADevState)window.RADevState.scene='character_reveal';
     if(window.RAScenes)await RAScenes.go('character_reveal');
     else RAState.patch('rich.location','character_reveal');
     show(runtime()?.vampire?'converted':'bite');
@@ -78,6 +79,7 @@
     const overlay=el('revealOverlay');
     if(overlay){overlay.classList.remove('on');overlay._closeReveal?.();}
     RAState.patch('rich.location','throne_room');
+    if(window.RADevState)window.RADevState.scene='battle';
   }
   document.addEventListener('DOMContentLoaded',()=>{
     el('revealBiteButton')?.addEventListener('click',convert);
