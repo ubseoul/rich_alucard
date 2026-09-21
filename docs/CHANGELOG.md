@@ -15,6 +15,10 @@ This is a creative-direction changelog, not a substitute for Git history.
 - Cartridge tint remains experimental until Ube approves a default.
 - Yoruba influence must come from user-selected references/forms; do not invent pseudo-Yoruba symbols.
 
+### Locked default typeface
+- **LOCKED: Press Start 2P is Rich Alucard's default primary typeface, selected by Ube after in-game playtesting and a strong immediate visual preference.**
+- Press Start 2P is bundled locally in `assets/fonts/`; Monogram and Tiny5 remain developer font-lab alternatives and are not the current default.
+
 ### Throne-room self portrait
 - Replaced the concept of the panther painting with a self-portrait of Rich based on Ube's red-background YouTube/profile image.
 - Portrait purpose: Rich is self-absorbed/loves himself and hangs his own commissioned portrait in the throne room.

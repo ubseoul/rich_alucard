@@ -2,7 +2,7 @@
 @font-face{font-family:"Press Start 2P";src:url("assets/fonts/press-start-2p.ttf") format("truetype");font-style:normal;font-weight:400;font-display:swap}
 @font-face{font-family:"Tiny5";src:url("assets/fonts/tiny5.ttf") format("truetype");font-style:normal;font-weight:400;font-display:swap}
 :root{--cream:#f6efd9;--ink:#10101b;--purple:#17142c;--line:#d9d3f1}
-:root{--bone-cream:#f6efd9;--near-black:#10101b;--rich-red:#d7193f;--nocturnal-purple:#17142c;--dried-blood:#7d194b;--muted-gold:#c18b3c;--accent:#20c66b;--font-dialogue:"Courier New",monospace;--font-name:"Courier New",monospace;--font-command:"Courier New",monospace;--font-move:"Courier New",monospace;--font-number:"Courier New",monospace;--font-system:"Courier New",monospace}
+:root{--bone-cream:#f6efd9;--near-black:#10101b;--rich-red:#d7193f;--nocturnal-purple:#17142c;--dried-blood:#7d194b;--muted-gold:#c18b3c;--accent:#20c66b;--font-dialogue:"Press Start 2P","Courier New",monospace;--font-name:"Press Start 2P","Courier New",monospace;--font-command:"Press Start 2P","Courier New",monospace;--font-move:"Press Start 2P","Courier New",monospace;--font-number:"Press Start 2P","Courier New",monospace;--font-system:"Press Start 2P","Courier New",monospace}
 html[data-dev-font="monogram"]{--font-dialogue:Monogram,"Courier New",monospace;--font-name:Monogram,"Courier New",monospace;--font-command:Monogram,"Courier New",monospace;--font-move:Monogram,"Courier New",monospace;--font-number:Monogram,"Courier New",monospace;--font-system:Monogram,"Courier New",monospace}
 html[data-dev-font="press-start"]{--font-dialogue:"Press Start 2P","Courier New",monospace;--font-name:"Press Start 2P","Courier New",monospace;--font-command:"Press Start 2P","Courier New",monospace;--font-move:"Press Start 2P","Courier New",monospace;--font-number:"Press Start 2P","Courier New",monospace;--font-system:"Press Start 2P","Courier New",monospace}
 html[data-dev-font="tiny5"]{--font-dialogue:Tiny5,"Courier New",monospace;--font-name:Tiny5,"Courier New",monospace;--font-command:Tiny5,"Courier New",monospace;--font-move:Tiny5,"Courier New",monospace;--font-number:Tiny5,"Courier New",monospace;--font-system:Tiny5,"Courier New",monospace}
@@ -513,7 +513,8 @@ button:active,.main-menu button.pressed,.moves button.pressed{transform:translat
 @media (prefers-reduced-motion:reduce){.ambience-bat{display:none}.moves button,.main-menu button{transition:none}}
 
 /* Developer-only cartridge lab. Nothing here is visible in ordinary play. */
-.dialogue{font-family:var(--font-dialogue)}
+.dialogue{font-family:var(--font-dialogue);font-size:clamp(8px,3.1cqw,15px);line-height:1.1}
+.dialogue strong{margin-top:2px;font-size:1em}
 .hpbox b,.reveal-title{font-family:var(--font-name)}
 .main-menu button{font-family:var(--font-command)}
 .moves button{font-family:var(--font-move)}

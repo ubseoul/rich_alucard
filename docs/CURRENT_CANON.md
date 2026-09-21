@@ -39,6 +39,7 @@ Marketing value alone is not sufficient justification.
 - 9:16 phone-first presentation. Canonical production target: **270×480**, scalable with nearest-neighbor feel.
 - Combat is mostly fixed 2D side-on. No top-down combat, platforming or free combat movement.
 - UI direction: **Gothic Pokémon Hybrid** — Pokémon readability with restrained vampire personality.
+- **LOCKED: Press Start 2P is Rich Alucard's default primary typeface, selected by Ube after in-game playtesting and a strong immediate visual preference.** Monogram and Tiny5 remain available as developer font-lab alternatives, but are not the current default.
 - Lost-cartridge aesthetic: large visible pixels, limited tones/material, flat lighting, hard edges, cheap/state-based animation, sparse asymmetry.
 - Music soundtrack currently uses `bloodbath_mix3.wav`, starting around 15 seconds and manually looping to the WAV end. Existing lyric sync should not be casually changed.
 - Lyric bubble represents Rich rapping/muttering the soundtrack and should visually belong near his head.
@@ -87,7 +88,7 @@ When Rich steals an adult woman:
 - Budget reset/income/spending mechanics
 - Phone apps
 - Bedroom visual layout
-- Exact default font family system
+- Future typography-role exceptions or secondary font choices
 - Exact final palette/tint
 - Exact player-facing Revenge stored-damage cue
 - Overworld walking
