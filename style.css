@@ -490,6 +490,7 @@ padding:12px;text-align:center;font:bold 14px monospace;color:#21151a}
 .moves{gap:4px}
 .moves button{font-size:clamp(8px,2.9cqw,14px);line-height:1.08;letter-spacing:.15px;padding:6px 3px 16px;transition:transform 90ms steps(1,end),background 90ms steps(1,end),filter 90ms steps(1,end)}
 .moves button span{padding:3px 2px;font-size:.7em;letter-spacing:.25px}
+.moves button b{display:inline-block;margin-left:2px;min-width:1.2em;font-family:var(--font-number);font-weight:bold;color:#f6efd9}
 button:focus-visible{outline:2px solid #8b164e;outline-offset:1px}
 button:hover{filter:brightness(1.08)}
 button:active,.main-menu button.pressed,.moves button.pressed{transform:translateY(2px);filter:brightness(.86)}
