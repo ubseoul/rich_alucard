@@ -113,62 +113,16 @@ async function normalVictory(){
     stealYes.onclick=async()=>{
       stealYes.onclick=stealNo.onclick=null;
       if(window.RACharacterSystem) RACharacterSystem.mark('ceo_assistant_001','stolen',true);
+      if(window.RAState) RAState.patch('encounters.ceo_prince.completed',false);
       victoryCard.style.display='none';
-      setRichState('victory');
-      setAssistantState('walk');
-      const r=document.querySelector('.gemini-rich');
-      const a=document.querySelector('.production-assistant');
-      // Authored get-up + walk sequence. Throne remains stationary.
-      if(r){
-        // Preserve the stationary throne as its own layer, then remove seated Rich.
-        const throne=document.createElement('img');
-        throne.src='assets/rich_throne_empty_authored.png';
-        throne.className='rich-throne-empty-authored';
-        document.querySelector('#screen').appendChild(throne);
-        r.style.visibility='hidden';
-        document.querySelector('.battle-ui')?.classList.add('victory-retract');
-      }
-      const walker=document.createElement('img');
-      walker.src='assets/rich_getup_01.png';
-      walker.className='rich-authored-exit';
-      document.querySelector('#screen').appendChild(walker);
-
-      // Three get-up poses, then a tiny standing beat.
-      await wait(120);
-      walker.src='assets/rich_getup_02.png';
-      await wait(120);
-      walker.src='assets/rich_getup_03.png';
-      await wait(120);
-      walker.src='assets/rich_standing_right.png';
-      await wait(180);
-
-      // Rich starts walking toward the Assistant first.
-      const walkFrames=[
-        'assets/rich_walk_right_01.png','assets/rich_walk_right_02.png',
-        'assets/rich_walk_right_03.png','assets/rich_walk_right_04.png'
-      ];
-      walker.classList.add('approach');
-      let wi=0;
-      const walkTimer=setInterval(()=>{ walker.src=walkFrames[wi++%walkFrames.length]; },110);
-      await wait(1050);
-
-      // Once he reaches her, they leave together.
-      if(a){
-        setAssistantState('walk');
-        a.classList.add('walkoff-assistant');
-        a.style.left='126%';
-      }
-      walker.classList.remove('approach');
-      walker.classList.add('leave');
-      await wait(1550);
-      clearInterval(walkTimer);
-      walker.remove();
-      endingText.textContent='RICH ALUCARD LEFT WITH THE ASSISTANT.';
-      endingText.classList.add('on');
+      victoryOverlay.classList.remove('on');
+      document.querySelector('.battle-ui')?.classList.add('victory-retract');
+      if(window.RACharacterReveal) await RACharacterReveal.open();
       resolve();
     };
     stealNo.onclick=async()=>{
       stealYes.onclick=stealNo.onclick=null;
+      if(window.RAState) RAState.patch('encounters.ceo_prince.completed',true);
       victoryCard.style.display='none';
       endingText.textContent='RICH STAYS ON THE THRONE.';
       endingText.classList.add('on');
