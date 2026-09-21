@@ -120,6 +120,13 @@
       </div>
     </section>
     <div id="toast" class="toast panel" aria-live="polite"></div>
+    <aside id="devPanel" class="dev-panel panel" aria-label="Developer tools">
+      <div class="dev-title">DEV MODE</div>
+      <label>FONT LAB <select id="devFont"><option value="control">CONTROL</option><option value="monogram">MONOGRAM</option><option value="press-start">PRESS START 2P</option><option value="tiny5">TINY5</option></select></label>
+      <label><input id="devTint" type="checkbox" /> CARTRIDGE TINT</label>
+      <div id="devReadout" class="dev-readout"></div>
+      <button id="devSmoke" type="button">RUN SMOKE CHECK</button>
+    </aside>
     <audio id="soundtrack" src="assets/bloodbath_mix3.wav" preload="auto"></audio>
   </div>
 </main>
@@ -131,6 +138,8 @@
 <script src="js/systems/characters.js"></script>
 <script src="js/systems/budget.js"></script>
 <script src="js/systems/ambience.js"></script>
+<script src="js/systems/devtools.js"></script>
+<script src="js/systems/smoke.js"></script>
 <script src="js/scenes/character_reveal.js"></script>
 <script src="js/engine/core.js"></script>
 <script src="game.js"></script>

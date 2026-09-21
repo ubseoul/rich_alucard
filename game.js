@@ -9,6 +9,7 @@ function setAssistantState(s){if(productionAssistant)productionAssistant.classNa
 function setRichState(state){
   if(!geminiRich) return;
   geminiRich.className='gemini-rich state-'+state;
+  if(window.RADevState)window.RADevState.richState=state;
 }
 const geminiRich=document.querySelector('#geminiRich');
 
@@ -44,6 +45,7 @@ const moves=[...document.querySelectorAll('[data-move]')];
 const MUSIC_START=15;
 const MAX_HP=100;
 let richHP=100,ceoHP=100,mainIndex=0,moveIndex=0,inMoves=false,busy=false,battleOver=false,revengeStored=0,lastRichHP=100,lastCeoHP=100;
+window.RADevState={scene:'battle',richState:'idle',revengeStoredDamage:0};
 
 const moveData={
  blood:{name:'BLOOD BATH',damage:26},
@@ -69,6 +71,7 @@ function paint(){
 }
 function resetBattle(){
  richHP=100;ceoHP=100;revengeStored=0;battleOver=false;busy=false;inMoves=false;mainIndex=0;moveIndex=0;
+ window.RADevState.revengeStoredDamage=0;
  lastRichHP=richHP;lastCeoHP=ceoHP;
  choiceOverlay.classList.remove('show');battleUI.classList.remove('attack-mode');updateHP();paint();
 }
@@ -219,7 +222,7 @@ async function enemyTurn(){
  await wait(90);
  const dmg=16;
  const actualDamage=Math.min(richHP,dmg);
- richHP-=actualDamage;revengeStored+=actualDamage;updateHP();
+ richHP-=actualDamage;revengeStored+=actualDamage;window.RADevState.revengeStoredDamage=revengeStored;updateHP();
  await wait(260);
  document.querySelector('#screen').classList.remove('briefcase-shake');
  richHit.classList.remove('active');setRichState('idle');
@@ -239,7 +242,7 @@ async function activateMove(){
  const m=moveData[id];
  if(id==='revenge'){
    say('REVENGE!',500);await genericPlayerFX('revenge');
-   const dmg=Math.max(0,revengeStored);ceoHP-=dmg;revengeStored=0;updateHP();say(dmg>0?`${dmg} DAMAGE REFLECTED.`:'NOTHING TO RETURN.',700);
+   const dmg=Math.max(0,revengeStored);ceoHP-=dmg;revengeStored=0;window.RADevState.revengeStoredDamage=0;updateHP();say(dmg>0?`${dmg} DAMAGE REFLECTED.`:'NOTHING TO RETURN.',700);
  }else{
    say(m.name+'!',500);
    if(id==='blood')await projectileVolley();
@@ -272,7 +275,7 @@ async function activateMove(){
      const reflected=Math.max(0,revengeStored);
      await revengeFX(reflected);
      ceoHP-=reflected;
-     revengeStored=0;
+     revengeStored=0;window.RADevState.revengeStoredDamage=0;
      updateHP();
      if(ceoHP<=0){await normalVictory();busy=false;return;}
      say(reflected>0?`${reflected} DAMAGE RETURNED.`:'NOTHING TO RETURN.',750);

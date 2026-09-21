@@ -19,6 +19,10 @@
     "Assistant remains fully clothed with the authorized fuller adult silhouette."
   ],
   "sets": {
+    "room": {
+      "portraitScene": "throne_room_scene_portrait.png",
+      "portraitAsset": "rich_portrait_pixel.png"
+    },
     "ceo": {
       "sheet": "ceo_sprite_sheet.png",
       "opaqueColors": 24,
