@@ -64,7 +64,9 @@ A cartridge tint may be tested, but should remain configurable until Ube approve
 
 ## Typography
 
-Candidate families selected for testing:
+**LOCKED: Press Start 2P is Rich Alucard's default primary typeface, selected by Ube after in-game playtesting and a strong immediate visual preference.** It is bundled with the game and must load identically locally and on GitHub Pages. Monogram and Tiny5 remain available through the developer font lab for future testing, but are not the current default.
+
+Developer font-lab alternatives:
 - Monogram
 - Press Start 2P
 - Tiny5
@@ -78,7 +80,7 @@ Do not assume one font must serve every role. Typography roles may differ for:
 - HP/PP/numbers
 - system messages
 
-The final family system remains TBD pending playtesting.
+The existing typography-role token architecture remains in place. Do not introduce secondary fonts automatically. If a specific role becomes objectively unreadable or cramped, flag it for Ube before choosing another family.
 
 Desired relationship: **Pokémon readability discovered inside Dracula's castle.**
 
