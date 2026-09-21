@@ -164,6 +164,8 @@ Static/state-based animation is an aesthetic strength.
 
 The CEO hit language is **LOCKED / APPROVED**. Runtime uses the authored `ceo_hit_reaction_sheet.png` with nearest-neighbor rendering: normal recoil, heavy recoil and lethal reaction. The current presentation thresholds are remaining CEO HP before the hit: `>52` normal, `27–52` heavy, `≤26` lethal.
 
+Vampire Bite's approved FX package defines the SPEED language: full-screen jaws enter and snap, a runtime contact burst lands, supplied lifesteal particles travel back to Rich, and Rich returns immediately to the throne. Use nearest-neighbor rendering and integer placement.
+
 Room ambience should be sparse. Bats may occasionally cross the room; constant motion is undesirable.
 
 ## Rich visual identity

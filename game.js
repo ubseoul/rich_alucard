@@ -253,6 +253,15 @@ async function enemyTurn(){
  if(richHP<=0){return defeat()}
  busy=false;inMoves=true;paint();
 }
+async function vampireBiteCanonicalFX(damage=24,heal=18,target=productionCEO){
+ const screen=document.querySelector('#screen'),rich=document.querySelector('.gemini-rich'),biteScreen=document.querySelector('#vampireBiteScreen'),contact=document.querySelector('#vampireBiteContact'),life=document.querySelector('#vampireBiteLife');
+ const sr=screen.getBoundingClientRect(),tr=target.getBoundingClientRect(),rr=rich.getBoundingClientRect();
+ const contactX=Math.round(tr.left-sr.left+tr.width*.5),contactY=Math.round(tr.top-sr.top+tr.height*.42),dx=Math.round(rr.left-sr.left+rr.width*.45-contactX),dy=Math.round(rr.top-sr.top+rr.height*.4-contactY),ghosts=[];
+ for(let i=0;i<3;i++){const g=rich.cloneNode(true);g.className='vampire-afterimage';g.style.left=`${Math.round(rr.left-sr.left+rr.width*.35-i*12)}px`;g.style.top=`${Math.round(rr.top-sr.top+rr.height*.25-i*4)}px`;g.style.setProperty('--ghost-delay',`${i*24}ms`);screen.appendChild(g);ghosts.push(g)}
+ rich.style.opacity='0';biteScreen.classList.add('on');await wait(35);biteScreen.classList.add('jaws-in');await wait(100);biteScreen.classList.remove('jaws-in');biteScreen.classList.add('snapped');contact.style.left=`${contactX-32}px`;contact.style.top=`${contactY-32}px`;contact.classList.add('on');screen.classList.add('combat-hit-stop','bite-shake');await wait(45);screen.classList.remove('combat-hit-stop','bite-shake');biteScreen.classList.remove('on','snapped');richBiteSprite.style.left=`${Math.round(tr.left-sr.left+tr.width*.18)}px`;richBiteSprite.style.top=`${Math.round(tr.top-sr.top+tr.height*.02)}px`;richBiteSprite.classList.add('active');
+ const severity=ceoHP-damage<=0?'lethal':bloodSeverity(damage),reaction=RACombatPresentation.play({target,attacker:rich,severity,authored:'ceo',kind:'bite',recoveryMs:50});life.classList.add('on');for(let i=0;i<4;i++){const p=document.createElement('i');p.className='vampire-life-particle';p.style.left=`${contactX-8+i*6}px`;p.style.top=`${contactY-8-i*4}px`;p.style.backgroundImage=`url('assets/${['vampire_bite_lifesteal_drop_01.png','vampire_bite_lifesteal_orb_01.png','vampire_bite_lifesteal_drop_02.png'][i%3]}')`;p.style.setProperty('--dx',`${dx+(i-1)*5}px`);p.style.setProperty('--dy',`${dy+(i-1)*3}px`);p.style.animationDelay=`${i*45}ms`;life.appendChild(p);setTimeout(()=>p.remove(),500)}
+ await wait(310);richHP=Math.min(MAX_HP,richHP+heal);updateHP();healFloat.classList.remove('show');void healFloat.offsetWidth;healFloat.classList.add('show');await reaction;life.classList.remove('on');contact.classList.remove('on');richBiteSprite.classList.remove('active');ghosts.forEach(g=>g.remove());rich.style.opacity='1';
+}
 async function activateMove(){
  if(busy||battleOver)return;
  busy=true;
@@ -265,26 +274,11 @@ async function activateMove(){
    say(m.name+'!',500);
    if(id==='blood')await projectileVolley();
    else if(id==='bite'){
-     const rich=document.querySelector('.gemini-rich'),stage=document.querySelector('#screen');
      battleUI.classList.add('attack-mode');attackLayer.classList.add('active');
-     if(rich)rich.style.opacity='0';
-     biteTrail.classList.remove('flash');void biteTrail.offsetWidth;biteTrail.classList.add('flash');
-     await wait(150);
-     richBiteSprite.classList.add('active');
-     await wait(140);
-     setCEOState('hit');
-     biteImpact.classList.remove('flash');void biteImpact.offsetWidth;biteImpact.classList.add('flash');
-     stage.classList.add('bite-shake');
-     await hitStop(75);await wait(180);
-     stage.classList.remove('bite-shake');
-     richBiteSprite.classList.remove('active');
-     await wait(80);
-     if(rich)rich.style.opacity='1';
+     await vampireBiteCanonicalFX(24,18,productionCEO);
+     ceoHP-=24;updateHP();say('24 DAMAGE. +18 HP.',700);
      attackLayer.classList.remove('active');battleUI.classList.remove('attack-mode');
-     ceoHP-=24;richHP=Math.min(MAX_HP,richHP+18);updateHP();
-     healFloat.classList.remove('show');void healFloat.offsetWidth;healFloat.classList.add('show');
-     say('24 DAMAGE. +18 HP.',700);
-     await wait(250);
+     await wait(120);
    }else if(id==='octopus'){
      const result=await octopusBrainFX();
      const ended=await resolveOctopus(result);
