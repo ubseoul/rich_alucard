@@ -515,6 +515,7 @@ button:active,.main-menu button.pressed,.moves button.pressed{transform:translat
 /* Developer-only cartridge lab. Nothing here is visible in ordinary play. */
 .dialogue{font-family:var(--font-dialogue);font-size:clamp(8px,3.1cqw,15px);line-height:1.1}
 .dialogue strong{margin-top:2px;font-size:1em}
+.choice-card,.choice-buttons button,.octo-title,.octo-choices button,.octo-roll,.victory-card,.victory-buttons button,.reveal-title,.reveal-profile,.reveal-prompt,.reveal-aftercare,.reveal-prompt button,.reveal-aftercare button{font-family:var(--font-system)}
 .hpbox b,.reveal-title{font-family:var(--font-name)}
 .main-menu button{font-family:var(--font-command)}
 .moves button{font-family:var(--font-move)}
