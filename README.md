@@ -27,13 +27,19 @@ For the intended presentation, play in a tall/mobile-sized browser window or on 
 
 ## Status
 
-**v0.1 Vertical Slice**
+**v0.23 Engine Foundation**
 
-This is an early playable prototype. Combat values, dialogue, animation timing, and broader castle/dating/party systems are still in development.
+The playable vertical slice remains the active experience while the reusable engine foundation is introduced incrementally. Combat values, dialogue, animation timing, and broader castle/dating/party systems are still in development.
+
+The foundation currently includes persistent local game state, a scene manager, an audio manager, character and move registries, runtime character state, and the monthly budget system. The existing battle and music implementation remains in `game.js` until a feature needs to move into a dedicated module.
 
 ## Built with
 
 Vanilla HTML, CSS, and JavaScript. No framework required.
+
+## Development
+
+Open `index.html` in a local browser or serve the repository with any static file server. The modular foundation scripts load before `game.js` and expose their shared runtime through the browser global namespace.
 
 ---
 

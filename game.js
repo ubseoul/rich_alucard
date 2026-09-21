@@ -101,6 +101,7 @@ async function revengeFX(amount){
 async function normalVictory(){
   if(battleOver) return;
   battleOver=true; busy=true;
+  if(window.RAState) RAState.patch('encounters.ceo_prince.defeated',true);
   setCEOState('defeated');
   say('CEO DEFEATED.',700);
   await wait(800);
@@ -111,6 +112,7 @@ async function normalVictory(){
   return new Promise(resolve=>{
     stealYes.onclick=async()=>{
       stealYes.onclick=stealNo.onclick=null;
+      if(window.RACharacterSystem) RACharacterSystem.mark('ceo_assistant_001','stolen',true);
       victoryCard.style.display='none';
       setRichState('victory');
       setAssistantState('walk');
@@ -254,8 +256,8 @@ async function enemyTurn(){
  briefcaseImpact.classList.add('active');
  await wait(90);
  const dmg=16;
- revengeStored += Math.min(richHP, dmg);
-   richHP -= dmg;revengeStored+=dmg;updateHP();
+ const actualDamage=Math.min(richHP,dmg);
+ richHP-=actualDamage;revengeStored+=actualDamage;updateHP();
  await wait(260);
  document.querySelector('#screen').classList.remove('briefcase-shake');
  richHit.classList.remove('active');setRichState('idle');
@@ -275,7 +277,7 @@ async function activateMove(){
  const m=moveData[id];
  if(id==='revenge'){
    say('REVENGE!',500);await genericPlayerFX('revenge');
-   const dmg=Math.max(12,revengeStored);ceoHP-=dmg;revengeStored=0;updateHP();say(`${dmg} DAMAGE REFLECTED.`,700);
+   const dmg=Math.max(0,revengeStored);ceoHP-=dmg;revengeStored=0;updateHP();say(dmg>0?`${dmg} DAMAGE REFLECTED.`:'NOTHING TO RETURN.',700);
  }else{
    say(m.name+'!',500);
    if(id==='blood')await projectileVolley();
