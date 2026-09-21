@@ -453,6 +453,23 @@ padding:12px;text-align:center;font:bold 14px monospace;color:#21151a}
  border-right:2px solid #24141b;border-bottom:2px solid #24141b;
  transform:rotate(45deg);
 }
+
+/* v0.23 Character #001 reveal and vampire conversion */
+.reveal-overlay{position:absolute;inset:0;z-index:90;display:none;place-items:center;background:rgba(5,4,12,.76);image-rendering:pixelated}
+.reveal-overlay.on{display:grid}
+.reveal-scene{position:relative;width:88%;height:88%;padding:8px 9px;background:#f1e5c5;border:4px solid #28131c;box-shadow:4px 4px #7d194b;color:#21151a;overflow:hidden}
+.reveal-title{text-align:center;font:bold clamp(11px,3.4cqw,17px) monospace;letter-spacing:.5px;margin-bottom:4px}
+.reveal-assistant-sprite{position:absolute;left:50%;top:15%;width:80px;height:96px;transform:translateX(-50%) scale(2);transform-origin:top center;background:url('assets/assistant_idle.png') center/80px 96px no-repeat;image-rendering:pixelated;transition:none}
+.reveal-assistant-sprite.fly{left:118%;transition:left .95s steps(8,end)}
+.reveal-profile{position:absolute;left:9%;right:9%;top:37%;bottom:23%;display:flex;flex-direction:column;gap:2px;font:clamp(7px,2.35cqw,12px)/1.04 monospace;white-space:pre-line;overflow:auto}
+.reveal-row{display:grid;grid-template-columns:42% 58%;border-bottom:1px solid rgba(40,19,28,.28);padding:2px 0}
+.reveal-row b{font-size:.88em}.reveal-row span{font-weight:bold}
+.reveal-prompt,.reveal-aftercare{position:absolute;left:9%;right:9%;bottom:6%;display:none;text-align:center;font:bold clamp(11px,3.6cqw,18px) monospace}
+.reveal-prompt.on,.reveal-aftercare.on{display:block}
+.reveal-prompt button,.reveal-aftercare button{display:block;width:100%;margin-top:5px;padding:5px;background:#17142c;color:#fff;border:2px solid #fff;font:bold clamp(9px,3cqw,14px) monospace}
+.reveal-aftercare{font-size:clamp(9px,3cqw,15px)}
+.reveal-lock{margin-bottom:5px;color:#5b123e}
+.reveal-prompt button:disabled,.reveal-aftercare button:disabled{opacity:.45}
 .rich-lyric-bubble.on{opacity:1}
 
 /* v0.19.1 — larger lyric bubble, anchored close to Rich */

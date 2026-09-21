@@ -78,6 +78,19 @@
           "h": 96
         }
       }
+    },
+    "assistant_vampire": {
+      "sheet": "assistant_vampire_sprite_sheet.png",
+      "frames": {
+        "assistant_vampire_idle": {"x": 0, "y": 0, "w": 80, "h": 96},
+        "assistant_bite_reaction": {"x": 80, "y": 0, "w": 80, "h": 96},
+        "assistant_transformation_01": {"x": 160, "y": 0, "w": 80, "h": 96},
+        "assistant_transformation_02": {"x": 240, "y": 0, "w": 80, "h": 96},
+        "assistant_vampire_reveal": {"x": 0, "y": 96, "w": 80, "h": 96},
+        "assistant_bat_01": {"x": 80, "y": 96, "w": 80, "h": 96},
+        "assistant_bat_02": {"x": 160, "y": 96, "w": 80, "h": 96},
+        "assistant_bat_03": {"x": 240, "y": 96, "w": 80, "h": 96}
+      }
     }
   }
 }

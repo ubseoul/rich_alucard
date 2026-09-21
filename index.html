@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no" />
-<title>Rich Alucard — v0.22 Faster Bubble Sync</title>
+<title>Rich Alucard — v0.23 Engine Foundation</title>
 <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -35,7 +35,7 @@
     <section id="startOverlay" class="start-overlay">
       <div class="start-card panel">
         <div class="title">RICH ALUCARD</div>
-        <div class="subtitle">FASTER BUBBLE SYNC v0.22</div>
+        <div class="subtitle">ENGINE FOUNDATION v0.23</div>
         <button id="startButton">▶ START</button>
         <small>Bloodbath begins with the game.</small>
       </div>
@@ -73,6 +73,28 @@
   </div>
   <div id="octoRoll" class="octo-roll"></div>
 </div>
+<section id="revealOverlay" class="reveal-overlay" aria-label="Character reveal">
+  <div class="reveal-scene panel">
+    <div class="reveal-title">CEO ASSISTANT #001</div>
+    <div id="revealAssistantSprite" class="reveal-assistant-sprite" aria-hidden="true"></div>
+    <div id="revealProfile" class="reveal-profile">
+      <div class="reveal-row"><b>CLASS</b><span id="revealClass"></span></div>
+      <div class="reveal-row"><b>LIKES</b><span id="revealLikes"></span></div>
+      <div class="reveal-row"><b>MOVES &amp; SPELLS</b><span id="revealMoves"></span></div>
+      <div class="reveal-row"><b>SHOPPING</b><span id="revealShopping"></span></div>
+      <div class="reveal-row"><b>DATING</b><span id="revealDating"></span></div>
+      <div class="reveal-row"><b>BUST</b><span id="revealBust"></span></div>
+    </div>
+    <div id="revealBitePrompt" class="reveal-prompt">
+      <div>BITE HER?</div>
+      <button id="revealBiteButton">YES</button>
+    </div>
+    <div id="revealAftercare" class="reveal-aftercare">
+      <div class="reveal-lock">CRACK 🔒</div>
+      <button id="revealFlyButton">LET HER FLY</button>
+    </div>
+  </div>
+</section>
 <div id="attackLayer" class="attack-layer" aria-hidden="true">
       <div id="richCast" class="rich-cast"></div>
       <div id="bloodFlash" class="blood-flash"></div>
@@ -107,6 +129,7 @@
 <script src="js/data/moves.js"></script>
 <script src="js/systems/characters.js"></script>
 <script src="js/systems/budget.js"></script>
+<script src="js/scenes/character_reveal.js"></script>
 <script src="js/engine/core.js"></script>
 <script src="game.js"></script>
 </body>
