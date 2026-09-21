@@ -470,6 +470,40 @@ padding:12px;text-align:center;font:bold 14px monospace;color:#21151a}
 .reveal-aftercare{font-size:clamp(9px,3cqw,15px)}
 .reveal-lock{margin-bottom:5px;color:#5b123e}
 .reveal-prompt button:disabled,.reveal-aftercare button:disabled{opacity:.45}
+
+/* v0.23.1 polish pass: keep the footprint, sharpen the lost-GBC hierarchy */
+#ambienceLayer{position:absolute;inset:0;z-index:2;overflow:hidden;pointer-events:none}
+.ambience-bat{position:absolute;left:-12%;width:18px;height:8px;transform:scale(var(--bat-scale));image-rendering:pixelated;opacity:0;animation:batFlight var(--bat-duration) var(--bat-delay) steps(9,end) forwards}
+.ambience-bat:before{content:"";position:absolute;left:6px;top:2px;width:6px;height:4px;background:#17142c;box-shadow:-6px -2px 0 #17142c,-10px 1px 0 #17142c,6px -2px 0 #17142c,10px 1px 0 #17142c}
+@keyframes batFlight{0%{left:-12%;opacity:0}12%{opacity:.7}88%{opacity:.7}100%{left:112%;opacity:0}}
+
+.dialogue{padding:12px 15px;font-size:clamp(11px,3.8cqw,18px);line-height:1.28;letter-spacing:.35px;justify-content:flex-start;flex-direction:column;align-items:flex-start}
+.dialogue strong{display:block;margin-top:5px;font-size:1.14em;letter-spacing:1px;color:#251432}
+.main-menu{padding:8px 9px;gap:3px;justify-content:center}
+.main-menu button{padding:3px 5px;font-size:clamp(10px,3.5cqw,17px);line-height:1.12;letter-spacing:.35px}
+.main-menu button.selected{background:#d7ccb0;outline:1px solid #8b164e}
+.moves{gap:4px}
+.moves button{font-size:clamp(8px,2.9cqw,14px);line-height:1.08;letter-spacing:.15px;padding:6px 3px 16px;transition:transform 90ms steps(1,end),background 90ms steps(1,end),filter 90ms steps(1,end)}
+.moves button span{padding:3px 2px;font-size:.7em;letter-spacing:.25px}
+button:focus-visible{outline:2px solid #8b164e;outline-offset:1px}
+button:hover{filter:brightness(1.08)}
+button:active,.main-menu button.pressed,.moves button.pressed{transform:translateY(2px);filter:brightness(.86)}
+.moves button.active{transform:translateY(-1px)}
+.hpbox strong.drain{animation:hpNumberDrain .42s steps(4,end)}
+@keyframes hpNumberDrain{0%{color:#10101b}35%{color:#8b164e;transform:translateY(1px)}100%{color:#10101b;transform:none}}
+.hpbox i em{transition:width 420ms steps(8,end)}
+.production-ceo:after,.production-assistant:after{content:"";position:absolute;left:50%;bottom:1px;width:38px;height:5px;transform:translateX(-50%);background:#201329;opacity:.42;z-index:-1}
+.production-assistant:after{width:30px;opacity:.34}
+.rich-lyric-bubble{left:10.5% !important;top:34% !important;max-width:38% !important;min-width:0 !important;padding:4px 6px !important;font-size:8px !important;line-height:1.05 !important;border-width:2px !important}
+.rich-lyric-bubble::after{left:18px !important;bottom:-7px !important;width:8px !important;height:8px !important}
+.revenge-mass.gather{opacity:1;animation:revengeGather .32s steps(5,end) both}
+.revenge-mass:before,.revenge-mass:after{content:"";position:absolute;width:4px;height:4px;background:#ff3151;box-shadow:-12px -8px #a60d2d,14px -11px #d21f3c,-16px 9px #6d0715,15px 13px #ff3151;opacity:0}
+.revenge-mass:after{width:3px;height:7px;left:18px;top:-12px;box-shadow:-20px 6px #d21f3c,21px 5px #8e0b27}
+.revenge-mass.gather:before,.revenge-mass.gather:after{opacity:1;animation:revengeFragments .32s steps(5,end) both}
+@keyframes revengeGather{0%{transform:scale(.35);opacity:.15}100%{transform:scale(1.18);opacity:1}}
+@keyframes revengeFragments{0%{transform:translate(0,0);opacity:0}45%{opacity:1}100%{transform:translate(0,0) scale(.4);opacity:0}}
+#screen.hit-stop .room,#screen.hit-stop .production-ceo,#screen.hit-stop .production-assistant,#screen.hit-stop .gemini-rich{filter:brightness(.72)}
+@media (prefers-reduced-motion:reduce){.ambience-bat{display:none}.moves button,.main-menu button{transition:none}}
 .rich-lyric-bubble.on{opacity:1}
 
 /* v0.19.1 — larger lyric bubble, anchored close to Rich */

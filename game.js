@@ -43,7 +43,7 @@ const mainButtons=[...document.querySelectorAll('[data-main]')];
 const moves=[...document.querySelectorAll('[data-move]')];
 const MUSIC_START=15;
 const MAX_HP=100;
-let richHP=100,ceoHP=100,mainIndex=0,moveIndex=0,inMoves=false,busy=false,battleOver=false,revengeStored=0;
+let richHP=100,ceoHP=100,mainIndex=0,moveIndex=0,inMoves=false,busy=false,battleOver=false,revengeStored=0,lastRichHP=100,lastCeoHP=100;
 
 const moveData={
  blood:{name:'BLOOD BATH',damage:26},
@@ -58,6 +58,9 @@ function updateHP(){
  richHP=clamp(richHP);ceoHP=clamp(ceoHP);
  richBar.style.width=richHP+'%';ceoBar.style.width=ceoHP+'%';
  richText.textContent=`${richHP}/100`;ceoText.textContent=`${ceoHP}/100`;
+  if(richHP<lastRichHP)richText.classList.remove('drain'),void richText.offsetWidth,richText.classList.add('drain');
+  if(ceoHP<lastCeoHP)ceoText.classList.remove('drain'),void ceoText.offsetWidth,ceoText.classList.add('drain');
+  lastRichHP=richHP;lastCeoHP=ceoHP;
 }
 function paint(){
  mainButtons.forEach((b,i)=>b.classList.toggle('selected',!inMoves&&i===mainIndex));
@@ -66,16 +69,17 @@ function paint(){
 }
 function resetBattle(){
  richHP=100;ceoHP=100;revengeStored=0;battleOver=false;busy=false;inMoves=false;mainIndex=0;moveIndex=0;
+ lastRichHP=richHP;lastCeoHP=ceoHP;
  choiceOverlay.classList.remove('show');battleUI.classList.remove('attack-mode');updateHP();paint();
 }
 function activateMain(){
  if(busy||battleOver)return;
  const id=mainButtons[mainIndex].dataset.main;
  if(id==='fight'){inMoves=true;paint()}
- else if(id==='hoes')say('NOT DURING THE BOSS FIGHT.');
- else if(id==='item')say('INVENTORY COMING LATER.');
- else say('RICH DOES NOT RUN.');
+ else say('NOT AVAILABLE YET.');
 }
+function pressFeedback(node){if(!node)return;node.classList.remove('pressed');void node.offsetWidth;node.classList.add('pressed');setTimeout(()=>node.classList.remove('pressed'),150)}
+async function hitStop(ms=70){const screen=document.querySelector('#screen');screen.classList.add('hit-stop');await wait(ms);screen.classList.remove('hit-stop')}
 async function projectileVolley(){battleUI.classList.add('attack-mode');attackLayer.classList.add('active');richCast.classList.add('cast');say('BLOOD BATH!',420);await wait(150);const lanes=[35,40,45,32,43,38],starts=[22,27,23,30,26,32];for(let i=0;i<6;i++){const o=document.createElement('div');o.className='detailed-blood-missile';o.style.left=starts[i]+'%';o.style.top=lanes[i]+'%';o.style.setProperty('--row',`${-i*24}px`);o.style.setProperty('--delay',`${i*70}ms`);o.style.setProperty('--flight',`${420+(i%3)*30}ms`);projectiles.appendChild(o);for(let t=1;t<=2;t++){const g=document.createElement('div');g.className='missile-ghost';g.style.left=starts[i]+'%';g.style.top=lanes[i]+'%';g.style.setProperty('--row',`${-i*24}px`);g.style.setProperty('--delay',`${i*70+t*34}ms`);g.style.setProperty('--flight',`${420+(i%3)*30}ms`);g.style.setProperty('--ghost',`${.22/t}`);projectiles.appendChild(g);}}projectiles.classList.add('charge-orbs');await wait(310);projectiles.classList.remove('charge-orbs');setRichState('cast');setCEOState('hit');projectiles.classList.add('fire-orbs');for(let i=0;i<6;i++){await wait(i===0?355:74);const q=document.createElement('div');q.className='detailed-impact';q.style.top=`${31+(i%4)*3.4}%`;projectiles.appendChild(q);const s=document.querySelector('#screen');s.classList.remove('micro-shake');void s.offsetWidth;s.classList.add('micro-shake');setTimeout(()=>q.remove(),430);}document.querySelector('#screen').classList.add('blood-shake');enemyHit.classList.add('hit');ceoRecoil.classList.add('active');damageNumber.classList.add('show');await wait(390);document.querySelector('#screen').classList.remove('blood-shake','micro-shake');enemyHit.classList.remove('hit');ceoRecoil.classList.remove('active');damageNumber.classList.remove('show');projectiles.classList.remove('fire-orbs');setRichState('idle');if(typeof ceoHP==='undefined'||ceoHP>0)setCEOState('idle');projectiles.replaceChildren();richCast.classList.remove('cast');await wait(70);attackLayer.classList.remove('active');battleUI.classList.remove('attack-mode');}
 
 async function revengeFX(amount){
@@ -86,10 +90,13 @@ async function revengeFX(amount){
   void revengeShade.offsetWidth;
   revengeShade.classList.add('on');revengeStoredText.classList.add('on');
   await wait(260);
-  revengeMass.classList.remove('fire');void revengeMass.offsetWidth;revengeMass.classList.add('fire');
+  revengeMass.classList.remove('fire','gather');void revengeMass.offsetWidth;revengeMass.classList.add('gather');
+  await wait(320);
+  revengeMass.classList.remove('gather');void revengeMass.offsetWidth;revengeMass.classList.add('fire');
   await wait(300);
   setCEOState('hit');
   revengeImpact.classList.remove('hit');void revengeImpact.offsetWidth;revengeImpact.classList.add('hit');
+  await hitStop(75);
   stage.classList.add('revenge-shake');
   await wait(250);
   stage.classList.remove('revenge-shake');
@@ -191,7 +198,7 @@ async function genericPlayerFX(kind){
  if(kind==='bite') document.querySelector('#screen').classList.add('bite-flash');
  else if(kind==='octopus') document.querySelector('#screen').classList.add('brain-flash');
  else document.querySelector('#screen').classList.add('revenge-flash');
- await wait(320);enemyHit.classList.add('hit');await wait(220);enemyHit.classList.remove('hit');
+ await wait(320);enemyHit.classList.add('hit');await hitStop(65);await wait(220);enemyHit.classList.remove('hit');
  document.querySelector('#screen').classList.remove('bite-flash','brain-flash','revenge-flash');richCast.classList.remove('cast');attackLayer.classList.remove('active');battleUI.classList.remove('attack-mode');
 }
 async function enemyTurn(){
@@ -208,6 +215,7 @@ async function enemyTurn(){
  document.querySelector('#screen').classList.add('briefcase-shake');
  setRichState('hit');richHit.classList.add('active');
  briefcaseImpact.classList.add('active');
+ await hitStop(70);
  await wait(90);
  const dmg=16;
  const actualDamage=Math.min(richHP,dmg);
@@ -246,7 +254,7 @@ async function activateMove(){
      setCEOState('hit');
      biteImpact.classList.remove('flash');void biteImpact.offsetWidth;biteImpact.classList.add('flash');
      stage.classList.add('bite-shake');
-     await wait(180);
+     await hitStop(75);await wait(180);
      stage.classList.remove('bite-shake');
      richBiteSprite.classList.remove('active');
      await wait(80);
@@ -361,8 +369,8 @@ start.addEventListener('click',async()=>{
   }
 });
 
-mainButtons.forEach((b,i)=>b.addEventListener('click',()=>{if(busy||battleOver)return;mainIndex=i;inMoves=false;paint();activateMain()}));
-moves.forEach((b,i)=>b.addEventListener('click',()=>{if(busy||battleOver)return;moveIndex=i;inMoves=true;paint();activateMove()}));
+mainButtons.forEach((b,i)=>b.addEventListener('click',()=>{if(busy||battleOver)return;pressFeedback(b);mainIndex=i;inMoves=false;paint();activateMain()}));
+moves.forEach((b,i)=>b.addEventListener('click',()=>{if(busy||battleOver)return;pressFeedback(b);moveIndex=i;inMoves=true;paint();activateMove()}));
 window.addEventListener('keydown',e=>{
   if(overlay.style.display!=='none'&&(e.key==='Enter'||e.key===' ')){start.click();return}
   if(busy||battleOver)return;
