@@ -551,8 +551,8 @@ button:active,.main-menu button.pressed,.moves button.pressed{transform:translat
 .vampire-bite-jaw,.vampire-bite-snap{position:absolute;inset:0;background-size:100% 100%;background-repeat:no-repeat;image-rendering:pixelated}
 .vampire-bite-upper{background-image:url('assets/vampire_bite_jaw_upper.png');transform:translateY(-100%)}
 .vampire-bite-lower{background-image:url('assets/vampire_bite_jaw_lower.png');transform:translateY(100%)}
-.vampire-bite-screen.jaws-in .vampire-bite-upper{transform:translateY(0);transition:transform 95ms steps(3,end)}
-.vampire-bite-screen.jaws-in .vampire-bite-lower{transform:translateY(0);transition:transform 95ms steps(3,end)}
+.vampire-bite-screen.jaws-in .vampire-bite-upper{transform:translateY(0);transition:transform var(--jaw-speed,260ms) steps(8,end)}
+.vampire-bite-screen.jaws-in .vampire-bite-lower{transform:translateY(0);transition:transform var(--jaw-speed,260ms) steps(8,end)}
 .vampire-bite-snap{display:none;background-image:url('assets/vampire_bite_snap_closed.png')}
 .vampire-bite-screen.snapped .vampire-bite-jaw{display:none}.vampire-bite-screen.snapped .vampire-bite-snap{display:block}
 .vampire-bite-contact{position:absolute;width:64px;height:64px;background:url('assets/vampire_bite_contact.png') center/64px 64px no-repeat;image-rendering:pixelated;display:none;z-index:21;pointer-events:none}
