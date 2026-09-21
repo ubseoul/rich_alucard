@@ -4,6 +4,10 @@ This is a creative-direction changelog, not a substitute for Git history.
 
 ## 2026-09-21
 
+### Approved room background update
+- Ube approved the supplied 765×1024 throne-room background with Rich's simplified red self-portrait as the current room background.
+- Preserve the supplied composition and use it as the active background asset.
+
 ### Cartridge identity
 - Clarified north star: a strange forgotten early-2000s handheld cartridge made specifically for Rich Alucard, not a perfect GBC simulation.
 - Preserve colorful old-game readability alongside vampire darkness; do not make the entire interface uniformly gothic.
