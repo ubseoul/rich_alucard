@@ -1,4 +1,4 @@
-const revengeShade=document.querySelector('#revengeShade'),revengeStoredText=document.querySelector('#revengeStoredText'),revengeMass=document.querySelector('#revengeMass'),revengeImpact=document.querySelector('#revengeImpact');
+const revengeShade=document.querySelector('#revengeShade'),revengeStoredText=document.querySelector('#revengeStoredText'),revengeMass=document.querySelector('#revengeMass'),revengeImpact=document.querySelector('#revengeImpact'),revengeWounds=document.querySelector('#revengeWounds'),revengeFXLayer=document.querySelector('#revengeFX'),revengeMassAuthored=document.querySelector('#revengeMassAuthored'),revengeCrack=document.querySelector('#revengeCrack'),revengeImpactAuthored=document.querySelector('#revengeImpactAuthored');
 const octopusOverlay=document.querySelector('#octopusOverlay'),octoRoll=document.querySelector('#octoRoll');
 const victoryOverlay=document.querySelector('#victoryOverlay'),victoryCard=document.querySelector('#victoryCard'),endingText=document.querySelector('#endingText'),stealYes=document.querySelector('#stealYes'),stealNo=document.querySelector('#stealNo');
 const productionCEO=document.querySelector('#productionCEO');
@@ -22,6 +22,7 @@ const attackLayer=document.querySelector('#attackLayer');
 const bloodBathRear=document.querySelector('#bloodBathRear'),bloodBathEngulf=document.querySelector('#bloodBathEngulf'),bloodBathForeground=document.querySelector('#bloodBathForeground'),bloodBathContact=document.querySelector('#bloodBathContact'),bloodBathImpact=document.querySelector('#bloodBathImpact');
 const BLOOD_BATH_HEAVY_THRESHOLD=.2;
 const VAMPIRE_BITE_TIMING={vanish:35,jawApproach:300,nearClosedHold:105,snapHold:220,biteReveal:500,lifesteal:520,return:80};
+const REVENGE_TIMING={freeze:320,extractionStep:85,massStep:180,massHold:300,silence:150,crackStep:95,impactHold:110,drainStep:85,drainSteps:10};
 function bloodSeverity(damage,maxHP=MAX_HP){return damage>=maxHP*BLOOD_BATH_HEAVY_THRESHOLD?'heavy':'normal'}
 async function bloodBathCanonicalFX(damage=26,target=productionCEO){
   const severity=ceoHP-damage<=0?'lethal':bloodSeverity(damage);
@@ -91,8 +92,11 @@ function resetBattle(){
  richHP=100;ceoHP=100;revengeStored=0;battleOver=false;busy=false;inMoves=false;mainIndex=0;moveIndex=0;
  window.RADevState.revengeStoredDamage=0;
  lastRichHP=richHP;lastCeoHP=ceoHP;
- choiceOverlay.classList.remove('show');battleUI.classList.remove('attack-mode');updateHP();paint();
+ clearRevengeWounds();choiceOverlay.classList.remove('show');battleUI.classList.remove('attack-mode');updateHP();paint();
 }
+function clearRevengeWounds(){if(revengeWounds)revengeWounds.replaceChildren()}
+function addRevengeWounds(amount){if(!revengeWounds)return;const count=Math.min(6,Math.max(1,Math.ceil(amount/6)));for(let i=0;i<count;i++){const w=document.createElement('i');w.className='revenge-wound';w.style.left=`${42+(i%3)*7}%`;w.style.top=`${38+Math.floor(i/3)*8}%`;w.style.backgroundImage=`url('assets/revenge_stored_wound_0${(i%4)+1}.png')`;revengeWounds.appendChild(w)}}
+async function drainCEOHP(amount){const start=ceoHP,target=Math.max(0,start-amount);for(let i=1;i<=REVENGE_TIMING.drainSteps;i++){ceoHP=Math.round(start+(target-start)*(i/REVENGE_TIMING.drainSteps));updateHP();await wait(REVENGE_TIMING.drainStep)}ceoHP=target;updateHP()}
 function activateMain(){
  if(busy||battleOver)return;
  const id=mainButtons[mainIndex].dataset.main;
@@ -103,25 +107,16 @@ function pressFeedback(node){if(!node)return;node.classList.remove('pressed');vo
 async function hitStop(ms=70){const screen=document.querySelector('#screen');screen.classList.add('hit-stop');await wait(ms);screen.classList.remove('hit-stop')}
 async function projectileVolley(){battleUI.classList.add('attack-mode');attackLayer.classList.add('active');richCast.classList.add('cast');say('BLOOD BATH!',420);await wait(150);const lanes=[35,40,45,32,43,38],starts=[22,27,23,30,26,32];for(let i=0;i<6;i++){const o=document.createElement('div');o.className='detailed-blood-missile';o.style.left=starts[i]+'%';o.style.top=lanes[i]+'%';o.style.setProperty('--row',`${-i*24}px`);o.style.setProperty('--delay',`${i*70}ms`);o.style.setProperty('--flight',`${420+(i%3)*30}ms`);projectiles.appendChild(o);for(let t=1;t<=2;t++){const g=document.createElement('div');g.className='missile-ghost';g.style.left=starts[i]+'%';g.style.top=lanes[i]+'%';g.style.setProperty('--row',`${-i*24}px`);g.style.setProperty('--delay',`${i*70+t*34}ms`);g.style.setProperty('--flight',`${420+(i%3)*30}ms`);g.style.setProperty('--ghost',`${.22/t}`);projectiles.appendChild(g);}}projectiles.classList.add('charge-orbs');await wait(310);projectiles.classList.remove('charge-orbs');setRichState('cast');setCEOState('hit');projectiles.classList.add('fire-orbs');for(let i=0;i<6;i++){await wait(i===0?355:74);const q=document.createElement('div');q.className='detailed-impact';q.style.top=`${31+(i%4)*3.4}%`;projectiles.appendChild(q);const s=document.querySelector('#screen');s.classList.remove('micro-shake');void s.offsetWidth;s.classList.add('micro-shake');setTimeout(()=>q.remove(),430);}document.querySelector('#screen').classList.add('blood-shake');enemyHit.classList.add('hit');ceoRecoil.classList.add('active');damageNumber.classList.add('show');await wait(390);document.querySelector('#screen').classList.remove('blood-shake','micro-shake');enemyHit.classList.remove('hit');ceoRecoil.classList.remove('active');damageNumber.classList.remove('show');projectiles.classList.remove('fire-orbs');setRichState('idle');if(typeof ceoHP==='undefined'||ceoHP>0)setCEOState('idle');projectiles.replaceChildren();richCast.classList.remove('cast');await wait(70);attackLayer.classList.remove('active');battleUI.classList.remove('attack-mode');}
 
-async function revengeFX(amount){
-  const stage=document.querySelector('#screen');
-  battleUI.classList.add('attack-mode'); attackLayer.classList.add('active');
-  revengeStoredText.textContent=`-${amount}`;
-  revengeShade.classList.remove('on');revengeStoredText.classList.remove('on');
-  void revengeShade.offsetWidth;
-  revengeShade.classList.add('on');revengeStoredText.classList.add('on');
-  await wait(260);
-  revengeMass.classList.remove('fire','gather');void revengeMass.offsetWidth;revengeMass.classList.add('gather');
-  await wait(320);
-  revengeMass.classList.remove('gather');void revengeMass.offsetWidth;revengeMass.classList.add('fire');
-  await wait(300);
-  setCEOState('hit');
-  revengeImpact.classList.remove('hit');void revengeImpact.offsetWidth;revengeImpact.classList.add('hit');
-  await hitStop(75);
-  stage.classList.add('revenge-shake');
-  await wait(250);
-  stage.classList.remove('revenge-shake');
-  attackLayer.classList.remove('active');battleUI.classList.remove('attack-mode');
+async function revengeFX(amount,target=productionCEO){
+ const stage=document.querySelector('#screen');battleUI.classList.add('attack-mode');attackLayer.classList.add('active');document.body.classList.add('revenge-freeze');
+ const wasPlaying=audio&&!audio.paused;if(wasPlaying)audio.pause();clearTimeout(say.t);revengeStoredText.textContent='';
+ revengeFXLayer.classList.add('on');await wait(REVENGE_TIMING.freeze);
+ const wounds=[...(revengeWounds?.children||[])];const sr=stage.getBoundingClientRect(),tr=target.getBoundingClientRect();const mx=Math.round(tr.left-sr.left+tr.width*.5),my=Math.round(tr.top-sr.top-tr.height*.5);
+ for(let i=0;i<wounds.length;i++){const w=wounds[i],r=w.getBoundingClientRect(),e=document.createElement('i');e.className='revenge-extract';e.style.left=`${Math.round(r.left-sr.left)}px`;e.style.top=`${Math.round(r.top-sr.top)}px`;e.style.backgroundImage=`url('assets/revenge_extraction_0${(i%4)+1}.png')`;e.style.setProperty('--dx',`${mx-(r.left-sr.left)}px`);e.style.setProperty('--dy',`${my-(r.top-sr.top)}px`);revengeFXLayer.appendChild(e);w.classList.add('extracted');await wait(REVENGE_TIMING.extractionStep)}
+ clearRevengeWounds();
+ for(const frame of ['revenge_mass_01.png','revenge_mass_02.png','revenge_mass_03.png']){revengeMassAuthored.style.backgroundImage=`url('assets/${frame}')`;revengeMassAuthored.classList.add('on');await wait(REVENGE_TIMING.massStep)}await wait(REVENGE_TIMING.massHold);revengeMassAuthored.classList.remove('on');await wait(REVENGE_TIMING.silence);
+ const severity=ceoHP-amount<=0?'lethal':bloodSeverity(amount);setCEOState('hit');revengeCrack.style.left=`${Math.round(tr.left-sr.left+tr.width*.18)}px`;revengeCrack.style.top=`${Math.round(tr.top-sr.top+tr.height*.12)}px`;revengeCrack.classList.add('on');for(const frame of ['revenge_target_crack_01.png','revenge_target_crack_02.png','revenge_target_crack_03.png']){revengeCrack.style.backgroundImage=`url('assets/${frame}')`;await wait(REVENGE_TIMING.crackStep)}
+ revengeImpactAuthored.classList.add('on');await hitStop(110);stage.classList.add('revenge-shake');await RACombatPresentation.play({target,attacker:geminiRich,severity,authored:'ceo',kind:'revenge',recoveryMs:40});await wait(REVENGE_TIMING.impactHold);stage.classList.remove('revenge-shake');revengeImpactAuthored.classList.remove('on');revengeCrack.classList.remove('on');revengeFXLayer.querySelectorAll('.revenge-extract').forEach(e=>e.remove());revengeFXLayer.classList.remove('on');document.body.classList.remove('revenge-freeze');if(wasPlaying)audio.play().catch(()=>{});attackLayer.classList.remove('active');battleUI.classList.remove('attack-mode');
 }
 
 
@@ -241,7 +236,7 @@ async function enemyTurn(){
  await wait(90);
  const dmg=16;
  const actualDamage=Math.min(richHP,dmg);
- richHP-=actualDamage;revengeStored+=actualDamage;window.RADevState.revengeStoredDamage=revengeStored;updateHP();
+ richHP-=actualDamage;revengeStored+=actualDamage;addRevengeWounds(actualDamage);window.RADevState.revengeStoredDamage=revengeStored;updateHP();
  await wait(260);
  document.querySelector('#screen').classList.remove('briefcase-shake');
  setRichState('idle');
@@ -269,8 +264,7 @@ async function activateMove(){
  const id=moves[moveIndex].dataset.move;
  const m=moveData[id];
  if(id==='revenge'){
-   say('REVENGE!',500);await genericPlayerFX('revenge');
-   const dmg=Math.max(0,revengeStored);ceoHP-=dmg;revengeStored=0;window.RADevState.revengeStoredDamage=0;updateHP();say(dmg>0?`${dmg} DAMAGE REFLECTED.`:'NOTHING TO RETURN.',700);
+   say('REVENGE!',500);const dmg=Math.max(0,revengeStored);revengeStored=0;window.RADevState.revengeStoredDamage=0;await revengeFX(dmg);await drainCEOHP(dmg);clearRevengeWounds();say(dmg>0?`${dmg} DAMAGE REFLECTED.`:'NOTHING TO RETURN.',700);if(ceoHP<=0){await normalVictory();busy=false;return;}
  }else{
    say(m.name+'!',500);
    if(id==='blood')await projectileVolley();
