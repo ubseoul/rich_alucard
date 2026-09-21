@@ -192,6 +192,7 @@ async function resolveOctopus(result){
   say('CEO HAS HEARD ENOUGH.',850);
   const c=document.querySelector('.production-ceo');
   if(c){c.style.transition='left 1s steps(8,end)';c.style.left='115%';}
+  ceoHP=0; updateHP();
   battleOver=true;
   return true;
 }
@@ -230,7 +231,7 @@ async function enemyTurn(){
  briefcaseProjectile.classList.remove('fly');
  attackLayer.classList.remove('active');
  battleUI.classList.remove('attack-mode');
- say(`RICH TOOK ${dmg} DAMAGE.`,650);
+ say(`RICH TOOK ${actualDamage} DAMAGE.`,650);
  await wait(600);
  if(richHP<=0){return defeat()}
  busy=false;inMoves=true;paint();
@@ -270,7 +271,7 @@ async function activateMove(){
    }else if(id==='octopus'){
      const result=await octopusBrainFX();
      const ended=await resolveOctopus(result);
-     if(ended){busy=false;return;}
+     if(ended){if(ceoHP<=0){battleOver=false;await normalVictory();}busy=false;return;}
    }else if(id==='revenge'){
      const reflected=Math.max(0,revengeStored);
      await revengeFX(reflected);
