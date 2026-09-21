@@ -1,4 +1,4 @@
-const revengeShade=document.querySelector('#revengeShade'),revengeStoredText=document.querySelector('#revengeStoredText'),revengeMass=document.querySelector('#revengeMass'),revengeImpact=document.querySelector('#revengeImpact'),revengeWounds=document.querySelector('#revengeWounds'),revengeFXLayer=document.querySelector('#revengeFX'),revengeMassAuthored=document.querySelector('#revengeMassAuthored'),revengeCrack=document.querySelector('#revengeCrack'),revengeImpactAuthored=document.querySelector('#revengeImpactAuthored');
+const revengeShade=document.querySelector('#revengeShade'),revengeStoredText=document.querySelector('#revengeStoredText'),revengeMass=document.querySelector('#revengeMass'),revengeImpact=document.querySelector('#revengeImpact'),revengeWounds=document.querySelector('#revengeWounds'),revengeValue=document.querySelector('#revengeValue'),revengeFXLayer=document.querySelector('#revengeFX'),revengeMassAuthored=document.querySelector('#revengeMassAuthored'),revengeCrack=document.querySelector('#revengeCrack'),revengeImpactAuthored=document.querySelector('#revengeImpactAuthored');
 const octopusOverlay=document.querySelector('#octopusOverlay'),octoRoll=document.querySelector('#octoRoll');
 const victoryOverlay=document.querySelector('#victoryOverlay'),victoryCard=document.querySelector('#victoryCard'),endingText=document.querySelector('#endingText'),stealYes=document.querySelector('#stealYes'),stealNo=document.querySelector('#stealNo');
 const productionCEO=document.querySelector('#productionCEO');
@@ -23,6 +23,7 @@ const bloodBathRear=document.querySelector('#bloodBathRear'),bloodBathEngulf=doc
 const BLOOD_BATH_HEAVY_THRESHOLD=.2;
 const VAMPIRE_BITE_TIMING={vanish:35,jawApproach:300,nearClosedHold:105,snapHold:220,biteReveal:500,lifesteal:520,return:80};
 const REVENGE_TIMING={freeze:320,extractionStep:85,massStep:180,massHold:300,silence:150,crackStep:95,impactHold:110,drainStep:85,drainSteps:10};
+const REVENGE_WOUND_THRESHOLDS=[.15,.30,.50,.70];
 function bloodSeverity(damage,maxHP=MAX_HP){return damage>=maxHP*BLOOD_BATH_HEAVY_THRESHOLD?'heavy':'normal'}
 async function bloodBathCanonicalFX(damage=26,target=productionCEO){
   const severity=ceoHP-damage<=0?'lethal':bloodSeverity(damage);
@@ -92,10 +93,11 @@ function resetBattle(){
  richHP=100;ceoHP=100;revengeStored=0;battleOver=false;busy=false;inMoves=false;mainIndex=0;moveIndex=0;
  window.RADevState.revengeStoredDamage=0;
  lastRichHP=richHP;lastCeoHP=ceoHP;
- clearRevengeWounds();choiceOverlay.classList.remove('show');battleUI.classList.remove('attack-mode');updateHP();paint();
+ clearRevengeWounds();updateRevengeDisplay();choiceOverlay.classList.remove('show');battleUI.classList.remove('attack-mode');updateHP();paint();
 }
+function updateRevengeDisplay(pulse=false){if(revengeValue){revengeValue.textContent=revengeStored;if(pulse){revengeValue.classList.remove('revenge-value-pulse');void revengeValue.offsetWidth;revengeValue.classList.add('revenge-value-pulse')}}}
 function clearRevengeWounds(){if(revengeWounds)revengeWounds.replaceChildren()}
-function addRevengeWounds(amount){if(!revengeWounds)return;const count=Math.min(6,Math.max(1,Math.ceil(amount/6)));for(let i=0;i<count;i++){const w=document.createElement('i');w.className='revenge-wound';w.style.left=`${42+(i%3)*7}%`;w.style.top=`${38+Math.floor(i/3)*8}%`;w.style.backgroundImage=`url('assets/revenge_stored_wound_0${(i%4)+1}.png')`;revengeWounds.appendChild(w)}}
+function addRevengeWounds(amount){if(!revengeWounds)return;const rich=document.querySelector('#geminiRich'),stage=document.querySelector('#screen');if(!rich||!stage)return;const rr=rich.getBoundingClientRect(),sr=stage.getBoundingClientRect();const count=REVENGE_WOUND_THRESHOLDS.filter(t=>revengeStored/MAX_HP>=t).length;clearRevengeWounds();const spots=[[.42,.30],[.62,.38],[.34,.54],[.58,.58]];for(let i=0;i<count;i++){const w=document.createElement('i');w.className='revenge-wound';w.style.left=`${Math.round(rr.left-sr.left+rr.width*spots[i][0])}px`;w.style.top=`${Math.round(rr.top-sr.top+rr.height*spots[i][1])}px`;w.style.backgroundImage=`url('assets/revenge_stored_wound_0${i+1}.png')`;revengeWounds.appendChild(w)}updateRevengeDisplay(true)}
 async function drainCEOHP(amount){const start=ceoHP,target=Math.max(0,start-amount);for(let i=1;i<=REVENGE_TIMING.drainSteps;i++){ceoHP=Math.round(start+(target-start)*(i/REVENGE_TIMING.drainSteps));updateHP();await wait(REVENGE_TIMING.drainStep)}ceoHP=target;updateHP()}
 function activateMain(){
  if(busy||battleOver)return;
@@ -264,7 +266,7 @@ async function activateMove(){
  const id=moves[moveIndex].dataset.move;
  const m=moveData[id];
  if(id==='revenge'){
-   say('REVENGE!',500);const dmg=Math.max(0,revengeStored);revengeStored=0;window.RADevState.revengeStoredDamage=0;await revengeFX(dmg);await drainCEOHP(dmg);clearRevengeWounds();say(dmg>0?`${dmg} DAMAGE REFLECTED.`:'NOTHING TO RETURN.',700);if(ceoHP<=0){await normalVictory();busy=false;return;}
+   say('REVENGE!',500);const dmg=Math.max(0,revengeStored);revengeStored=0;window.RADevState.revengeStoredDamage=0;updateRevengeDisplay(true);await revengeFX(dmg);await drainCEOHP(dmg);clearRevengeWounds();updateRevengeDisplay();say(dmg>0?`${dmg} DAMAGE REFLECTED.`:'NOTHING TO RETURN.',700);if(ceoHP<=0){await normalVictory();busy=false;return;}
  }else{
    say(m.name+'!',500);
    if(id==='blood')await projectileVolley();
