@@ -1,0 +1,26 @@
+RICH ALUCARD ENGINE FOUNDATION v0.23
+
+Goal: preserve the recordable v0.22 vertical slice while establishing reusable game architecture.
+
+Added:
+- Persistent game state + local save (Rich starts with $100,000 monthly budget)
+- Scene manager foundation
+- Audio manager foundation
+- Character registry
+- Character runtime-state system
+- Budget system
+- Move data registry
+- CEO Assistant #001 canonical data record
+
+Compatibility:
+- Existing battle/visual/music/lyric implementation remains in game.js for now.
+- Systems will migrate out of game.js only when an actual feature needs them; no rewrite-for-rewrite's-sake.
+
+Restored approved Revenge behavior:
+- Incoming actual damage is stored exactly once.
+- REVENGE returns exactly stored damage.
+- Stored damage resets after use.
+- No artificial minimum damage.
+
+Next feature target:
+CEO defeat -> character reveal -> bite/conversion -> vampire reveal -> CRACK gate / LET HER FLY -> bedroom + phone.
