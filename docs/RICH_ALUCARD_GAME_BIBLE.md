@@ -71,20 +71,20 @@ Current moves:
 - **REVENGE**
 
 ### Blood Bath
-Chunky blood projectiles/orbs/tendrils travel from Rich toward the enemy. Pokémon-style resolution rather than bullet hell.
+**POWER.** Chunky blood projectiles/orbs/tendrils travel from Rich toward the enemy using the approved reusable FX architecture. Pokémon-style resolution rather than bullet hell.
 
 ### Vampire Bite
-Rich disappears from the throne, uses a fast red/black teleport streak, appears beside the target for a bite/lunge key pose, damages the target, heals via lifesteal, then snaps back to the throne.
+**SPEED.** Rich disappears from the throne, giant symbolic jaws enter and snap with readable dramatic holds, then Rich appears beside the target for the approved bite pose. Reusable lifesteal FX travel back to Rich before he returns to the throne.
 
 Biting a man does not mean turning him.
 
 ### Revenge
 Actual HP damage Rich receives is stored exactly once. Revenge returns that accumulated amount and then resets storage to zero.
 
-Visual direction: stored damage can pull/rip outward around Rich, collect into a blood-red mass and launch back toward the opponent. Rich remains seated.
+**FEAR.** Music continues uninterrupted. Stored wounds visibly accumulate on Rich and the exact stored value is communicated in the move UI. The approved spectacle extracts the wounds, forms a mass, pauses, ruptures the target and drains exact stored damage; storage then resets to zero. Rich remains seated.
 
 ### Octopus Brain
-A lateral-thinking system rather than a standard damage spell. Eight thick physical tentacles appear with an underwater tint/bubbles, while only three contextual choices are presented.
+**WEIRDNESS.** A lateral-thinking system rather than a standard damage spell. Eight thick physical tentacles appear with an underwater tint/bubbles, while only three contextual choices are presented. It remains substantially as currently implemented.
 
 For CEO Zombie Prince:
 - **CHARISMA — STEAL YOUR HOE**

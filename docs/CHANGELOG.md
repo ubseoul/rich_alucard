@@ -35,7 +35,7 @@ This is a creative-direction changelog, not a substitute for Git history.
 - Core combat routes tested stable.
 - Developer-only tooling is appropriate for scene/save/audio/Revenge/font/tint inspection.
 - Do not use a generic web-app “processing” indicator; attack presentation should communicate locked input.
-- A player-facing Revenge stored-damage cue remains a creative decision, not yet canon.
+- Revenge's player-facing stored-damage cue is approved and canonical.
 
 ### Locked CEO hit language
 - Ube approved the authored CEO normal, heavy and lethal reaction poses.
@@ -44,7 +44,17 @@ This is a creative-direction changelog, not a substitute for Git history.
 
 ### Approved Vampire Bite FX
 - Ube approved the target-agnostic Vampire Bite package: screen jaws/snap, runtime contact burst, lifesteal particles and brief afterimages.
-- The package is presentation-only; existing Bite damage/healing mechanics remain unchanged. Revenge is not part of this pass.
+- The package is presentation-only; existing Bite damage/healing mechanics remain unchanged.
+
+### Intro / Throne Room Combat v1 milestone approved
+- Ube approved the current intro/throne-room battle presentation as good enough to move forward; return here for later tuning after more of the game exists.
+- Press Start 2P is the default typeface.
+- Reusable enemy reactions use normal/heavy/lethal authored states. Heavy is triggered by a single hit dealing ≥20% of target max HP; lethal overrides.
+- Blood Bath is POWER with its reusable target-agnostic impact architecture.
+- Vampire Bite is SPEED with giant symbolic jaw snap, readable dramatic holds and reusable lifesteal FX.
+- Revenge is FEAR: music continues uninterrupted, wounds accumulate visibly on Rich, the exact stored value is shown, and the locked mechanic remains exact accumulated-damage reflection followed by reset.
+- Octopus Brain is WEIRDNESS and remains substantially as implemented.
+- Core combat FX remain target-agnostic wherever practical.
 
 ### Exploration
 - Pokémon-style walking discussed as inspiration but not approved for implementation.

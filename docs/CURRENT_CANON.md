@@ -36,7 +36,12 @@ Marketing value alone is not sufficient justification.
 - Vampire Bite: fast red/black teleport/lunge bite, lifesteal/heal, return to throne.
 - Approved Vampire Bite FX package is canonical for presentation: screen-space jaws/snap, runtime contact burst, lifesteal particles and brief afterimages. Damage/healing mechanics remain unchanged.
 - Blood Bath: chunky blood projectiles/orbs/tendrils travel left-to-right. Pokémon-style resolution; no bullet hell.
-- CEO hit language is **LOCKED / APPROVED**: `ceo_hit_reaction_sheet.png` supplies normal, heavy and lethal authored reaction poses. Normal/heavy presentation severity currently uses remaining CEO HP before the hit: `>52` normal, `27–52` heavy, `≤26` lethal. This threshold is a presentation rule and may be changed by Ube.
+- Reusable enemy reaction language is **LOCKED / APPROVED**: normal, heavy and lethal authored reactions are target-agnostic wherever practical. Heavy presentation is used for a single hit dealing ≥20% of target max HP; lethal overrides when the hit defeats the target.
+- Blood Bath is the **POWER** move: chunky, reusable target-agnostic projectiles/orbs/tendrils build toward a readable impact.
+- Vampire Bite is the **SPEED** move: giant symbolic jaws and snap, with readable dramatic holds, runtime contact FX and reusable lifesteal FX. Damage/healing remain unchanged.
+- Revenge is the **FEAR** move: music continues uninterrupted; wounds visibly accumulate on Rich; the exact stored value is shown in the move UI; Revenge reflects exactly accumulated damage and then resets storage to zero.
+- Octopus Brain is the **WEIRDNESS** move and remains substantially as currently implemented.
+- Core combat FX should remain target-agnostic wherever practical and use runtime target anchors.
 - Octopus Brain: eight physical tentacles + underwater/bubble treatment + three context-specific nonstandard solutions. Current CEO choices are CHARISMA — STEAL YOUR HOE; RECRUIT — JOIN MY SQUAD; ROAST — GET OUT MY CASTLE. Exact prototype checks/timings are not canon.
 - 9:16 phone-first presentation. Canonical production target: **270×480**, scalable with nearest-neighbor feel.
 - Combat is mostly fixed 2D side-on. No top-down combat, platforming or free combat movement.
@@ -92,7 +97,6 @@ When Rich steals an adult woman:
 - Bedroom visual layout
 - Future typography-role exceptions or secondary font choices
 - Exact final palette/tint
-- Exact player-facing Revenge stored-damage cue
 - Overworld walking
 - Additional ambience events
 - Incidental generated dialogue, levels, labels or environmental text
