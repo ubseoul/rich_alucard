@@ -42,6 +42,10 @@ This is a creative-direction changelog, not a substitute for Git history.
 - `assets/ceo_hit_reaction_manifest.json` is now `LOCKED / APPROVED`; the packed sheet is the canonical runtime source. Individual frames and the 6× preview remain inspection/reference assets.
 - Current presentation thresholds: remaining CEO HP before a hit `>52` normal, `27–52` heavy, `≤26` lethal.
 
+### Approved Vampire Bite FX
+- Ube approved the target-agnostic Vampire Bite package: screen jaws/snap, runtime contact burst, lifesteal particles and brief afterimages.
+- The package is presentation-only; existing Bite damage/healing mechanics remain unchanged. Revenge is not part of this pass.
+
 ### Exploration
 - Pokémon-style walking discussed as inspiration but not approved for implementation.
 - Fixed scenes/hotspots may deliver the desired inhabited-world feeling with less complexity.

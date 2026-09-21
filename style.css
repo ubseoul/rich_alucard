@@ -546,6 +546,23 @@ button:active,.main-menu button.pressed,.moves button.pressed{transform:translat
 .blood-bath-contact-layer.on{display:block}.blood-bath-engulf{left:calc(70% - 48px);top:calc(56% - 88px);z-index:8}.blood-bath-contact{left:calc(70% - 48px);top:calc(49% - 48px);z-index:10}
 .blood-bath-impact{position:absolute;inset:0;background:url('assets/blood_bath_impact_fullscreen.png') 0 0/100% 100% no-repeat;image-rendering:pixelated;display:none;pointer-events:none;z-index:11}
 .blood-bath-impact.on{display:block}
+.vampire-bite-screen{position:absolute;inset:0;z-index:20;display:none;overflow:hidden;pointer-events:none;image-rendering:pixelated}
+.vampire-bite-screen.on{display:block}
+.vampire-bite-jaw,.vampire-bite-snap{position:absolute;inset:0;background-size:100% 100%;background-repeat:no-repeat;image-rendering:pixelated}
+.vampire-bite-upper{background-image:url('assets/vampire_bite_jaw_upper.png');transform:translateY(-100%)}
+.vampire-bite-lower{background-image:url('assets/vampire_bite_jaw_lower.png');transform:translateY(100%)}
+.vampire-bite-screen.jaws-in .vampire-bite-upper{transform:translateY(0);transition:transform 95ms steps(3,end)}
+.vampire-bite-screen.jaws-in .vampire-bite-lower{transform:translateY(0);transition:transform 95ms steps(3,end)}
+.vampire-bite-snap{display:none;background-image:url('assets/vampire_bite_snap_closed.png')}
+.vampire-bite-screen.snapped .vampire-bite-jaw{display:none}.vampire-bite-screen.snapped .vampire-bite-snap{display:block}
+.vampire-bite-contact{position:absolute;width:64px;height:64px;background:url('assets/vampire_bite_contact.png') center/64px 64px no-repeat;image-rendering:pixelated;display:none;z-index:21;pointer-events:none}
+.vampire-bite-contact.on{display:block}
+.vampire-bite-life{position:absolute;inset:0;z-index:22;pointer-events:none;display:none}
+.vampire-bite-life.on{display:block}
+.vampire-afterimage{position:absolute;width:31%;height:19%;background:inherit;background-image:url('assets/rich_seated_idle.png');background-size:100% 100%;image-rendering:pixelated;opacity:.28;filter:contrast(1.2) saturate(.5);pointer-events:none;z-index:14;animation:vampireAfterimage 120ms var(--ghost-delay) steps(2,end) forwards}
+.vampire-life-particle{position:absolute;width:16px;height:16px;background-size:48px 16px;background-repeat:no-repeat;image-rendering:pixelated;animation:vampireLifeTravel 260ms steps(5,end) forwards}
+@keyframes vampireLifeTravel{0%{opacity:1;transform:translate(0,0) scale(1)}100%{opacity:0;transform:translate(var(--dx),var(--dy)) scale(1.05)}}
+@keyframes vampireAfterimage{0%{opacity:.35}100%{opacity:0;transform:translateX(18px)}}
 
 /* Developer-only cartridge lab. Nothing here is visible in ordinary play. */
 .dialogue{font-family:var(--font-dialogue);font-size:clamp(8px,3.1cqw,15px);line-height:1.1}
