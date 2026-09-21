@@ -34,12 +34,9 @@ button{font:inherit;cursor:pointer}.main-menu button{border:0;background:transpa
 .projectiles{position:absolute;inset:0}
 .blood-shot{position:absolute;left:24%;top:var(--y);width:var(--size);height:calc(var(--size) * .72);background:#d30d2f;box-shadow:-3px 0 #6d0016,3px 0 #ff3152;border-radius:45% 55% 55% 45%;opacity:0;animation:shot 390ms var(--delay) cubic-bezier(.2,.7,.25,1) forwards}
 .blood-shot:after{content:"";position:absolute;right:100%;top:35%;width:9px;height:2px;background:#8c001d}
-.enemy-hit{position:absolute;left:66%;top:39%;width:20%;height:22%;opacity:0}
-.enemy-hit.hit{opacity:1;animation:enemyHit 360ms steps(4,end)}
 @keyframes castAura{0%{box-shadow:0 0 0 0 rgba(190,0,35,.15)}50%{box-shadow:0 0 0 7px rgba(210,0,40,.35)}100%{box-shadow:0 0 0 2px rgba(255,40,70,.2)}}
 @keyframes bloodPulse{0%,100%{opacity:0}35%{opacity:.13}55%{opacity:.03}}
 @keyframes shot{0%{transform:translateX(0) scale(.65);opacity:0}10%{opacity:1}85%{opacity:1}100%{transform:translateX(135px) scale(1.2);opacity:0}}
-@keyframes enemyHit{0%{background:transparent;transform:translateX(0)}20%{background:rgba(255,20,50,.35);transform:translateX(3px)}40%{background:transparent;transform:translateX(-3px)}60%{background:rgba(150,0,25,.35);transform:translateX(2px)}100%{background:transparent;transform:translateX(0)}}
 
 /* v0.3 complete combat skeleton */
 .combat-hud{position:absolute;left:4.5%;right:4.5%;top:6.8%;height:12%;z-index:9;display:flex;justify-content:space-between;gap:7%}
@@ -121,13 +118,10 @@ button{font:inherit;cursor:pointer}.main-menu button{border:0;background:transpa
 .briefcase-projectile.fly{opacity:1;animation:briefcaseFlyV9 430ms steps(4,end) forwards}
 .briefcase-impact{position:absolute;left:12%;top:40%;width:64px;height:64px;background:url('assets/briefcase_impact_sheet.png') 0 0/256px 64px no-repeat;image-rendering:pixelated;opacity:0;z-index:10}
 .briefcase-impact.active{opacity:1;animation:briefImpactV9 350ms steps(1,end) forwards}
-.rich-hit{position:absolute;left:6%;top:38%;width:26%;height:22%;opacity:0;z-index:8}
-.rich-hit.active{opacity:1;animation:richHitV9 330ms steps(4,end)}
 @keyframes ceoRecoilV9{0%{transform:translateX(0)}20%{transform:translateX(5px) rotate(2deg)}45%{transform:translateX(-3px) rotate(-2deg)}70%{transform:translateX(2px)}100%{transform:translateX(0)}}
 @keyframes ceoWindupV9{0%{transform:translateX(0)}50%{transform:translateX(5px) rotate(3deg)}100%{transform:translateX(2px) rotate(1deg)}}
 @keyframes briefcaseFlyV9{0%{transform:translateX(0);background-position:0 0}25%{background-position:-32px 0}50%{background-position:-64px 0}75%{background-position:-96px 0}100%{transform:translateX(-145px);background-position:0 0}}
 @keyframes briefImpactV9{0%,24%{background-position:0 0}25%,49%{background-position:-64px 0}50%,74%{background-position:-128px 0}75%,94%{background-position:-192px 0}100%{background-position:-192px 0;opacity:0}}
-@keyframes richHitV9{0%,100%{background:transparent;transform:translateX(0)}20%{background:rgba(255,242,190,.25);transform:translateX(-3px)}45%{background:transparent;transform:translateX(3px)}70%{background:rgba(120,0,25,.18);transform:translateX(-1px)}}
 @keyframes briefcase-shake-placeholder{0%{transform:none}}
 #screen.briefcase-shake{animation:briefcaseScreenShakeV9 320ms steps(6,end)}
 @keyframes briefcaseScreenShakeV9{0%,100%{transform:translate(0)}18%{transform:translate(3px,-1px)}36%{transform:translate(-3px,2px)}54%{transform:translate(2px,1px)}72%{transform:translate(-2px,-1px)}88%{transform:translate(1px,1px)}}
@@ -511,6 +505,25 @@ button:active,.main-menu button.pressed,.moves button.pressed{transform:translat
 @keyframes revengeFragments{0%{transform:translate(0,0);opacity:0}45%{opacity:1}100%{transform:translate(0,0) scale(.4);opacity:0}}
 #screen.hit-stop .room,#screen.hit-stop .production-ceo,#screen.hit-stop .production-assistant,#screen.hit-stop .gemini-rich{filter:brightness(.72)}
 @media (prefers-reduced-motion:reduce){.ambience-bat{display:none}.moves button,.main-menu button{transition:none}}
+
+/* Universal combat presentation hooks. Authored animator frames can attach to these states later. */
+#combatEffects{position:absolute;inset:0;z-index:18;pointer-events:none;overflow:hidden}
+.combat-contact{transform-origin:center bottom}
+.combat-white-flash{filter:brightness(2.1) grayscale(.35)}
+.combat-silhouette-flash{filter:brightness(2.4) contrast(1.5) grayscale(1)}
+.combat-recoil-light{animation:combatRecoilLight 150ms steps(3,end)}
+.combat-recoil-heavy{animation:combatRecoilHeavy 190ms steps(4,end)}
+.combat-attacker-commit{filter:brightness(1.18)}
+.combat-hit-stop{filter:brightness(.8) contrast(1.08)}
+.combat-shake-light{animation:combatShakeLight 120ms steps(3,end)}
+.combat-shake-heavy{animation:combatShakeHeavy 170ms steps(4,end)}
+.contact-fragment{position:absolute;width:5px;height:5px;background:#d7193f;image-rendering:pixelated;animation:contactFragment 300ms var(--delay) steps(4,end) both}
+.contact-fragment.briefcase{background:#f6efd9;border:1px solid #10101b}
+@keyframes combatRecoilLight{0%,100%{transform:translateX(0)}35%{transform:translateX(-2px)}70%{transform:translateX(1px)}}
+@keyframes combatRecoilHeavy{0%,100%{transform:translateX(0)}28%{transform:translateX(-5px)}55%{transform:translateX(3px)}78%{transform:translateX(-1px)}}
+@keyframes combatShakeLight{0%,100%{transform:translate(0)}35%{transform:translate(-2px,1px)}70%{transform:translate(1px,-1px)}}
+@keyframes combatShakeHeavy{0%,100%{transform:translate(0)}25%{transform:translate(-4px,2px)}50%{transform:translate(3px,-1px)}75%{transform:translate(-2px,1px)}}
+@keyframes contactFragment{0%{opacity:1;transform:translate(0,0) scale(.7)}100%{opacity:0;transform:translate(var(--dx),var(--dy)) scale(1.3)}}
 
 /* Developer-only cartridge lab. Nothing here is visible in ordinary play. */
 .dialogue{font-family:var(--font-dialogue);font-size:clamp(8px,3.1cqw,15px);line-height:1.1}
