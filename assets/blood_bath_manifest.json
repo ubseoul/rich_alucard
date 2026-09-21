@@ -1,0 +1,171 @@
+{
+  "move": "Blood Bath",
+  "targetAgnostic": true,
+  "containsCharacters": false,
+  "frames": [
+    {
+      "file": "blood_bath_floor_rise_01.png",
+      "size": [
+        270,
+        362
+      ],
+      "anchor": [
+        135,
+        362
+      ],
+      "role": "behind_target"
+    },
+    {
+      "file": "blood_bath_floor_rise_02.png",
+      "size": [
+        270,
+        362
+      ],
+      "anchor": [
+        135,
+        362
+      ],
+      "role": "behind_target"
+    },
+    {
+      "file": "blood_bath_floor_rise_03.png",
+      "size": [
+        270,
+        362
+      ],
+      "anchor": [
+        135,
+        362
+      ],
+      "role": "behind_target"
+    },
+    {
+      "file": "blood_bath_foreground_01.png",
+      "size": [
+        270,
+        362
+      ],
+      "anchor": [
+        135,
+        362
+      ],
+      "role": "in_front_of_target"
+    },
+    {
+      "file": "blood_bath_contact_01.png",
+      "size": [
+        96,
+        96
+      ],
+      "anchor": [
+        48,
+        48
+      ],
+      "role": "contact_point"
+    },
+    {
+      "file": "blood_bath_contact_02.png",
+      "size": [
+        96,
+        96
+      ],
+      "anchor": [
+        48,
+        48
+      ],
+      "role": "contact_point"
+    },
+    {
+      "file": "blood_bath_engulf_overlay_01.png",
+      "size": [
+        96,
+        96
+      ],
+      "anchor": [
+        48,
+        88
+      ],
+      "role": "optional_target_overlay"
+    },
+    {
+      "file": "blood_bath_engulf_overlay_02.png",
+      "size": [
+        96,
+        96
+      ],
+      "anchor": [
+        48,
+        88
+      ],
+      "role": "optional_target_overlay"
+    },
+    {
+      "file": "blood_bath_impact_fullscreen.png",
+      "size": [
+        270,
+        480
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "role": "opaque_screen_overlay"
+    }
+  ],
+  "palette": [
+    [
+      16,
+      5,
+      13
+    ],
+    [
+      87,
+      11,
+      38
+    ],
+    [
+      179,
+      16,
+      54
+    ],
+    [
+      236,
+      41,
+      73
+    ],
+    [
+      255,
+      227,
+      222
+    ]
+  ],
+  "drawOrder": [
+    "existing_environment",
+    "floor_rise",
+    "runtime_current_target_reaction",
+    "optional_engulf_overlay",
+    "foreground_blood",
+    "contact_splash",
+    "optional_fullscreen_impact",
+    "runtime_UI"
+  ],
+  "sheets": [
+    {
+      "file": "blood_bath_floor_sheet.png",
+      "cell": [
+        270,
+        362
+      ],
+      "layout": "2x2; rise01, rise02 / rise03, foreground01"
+    },
+    {
+      "file": "blood_bath_contact_overlay_sheet.png",
+      "cell": [
+        96,
+        96
+      ],
+      "layout": "2x2; contact01, contact02 / engulf01, engulf02"
+    }
+  ],
+  "timing": "Runtime-controlled. No new mechanic or duration is implied."
+}

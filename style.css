@@ -539,6 +539,13 @@ button:active,.main-menu button.pressed,.moves button.pressed{transform:translat
 .octo-choices{bottom:6%}
 .reveal-assistant-sprite{top:12%;transform:translateX(-50%) scale(1.3)}
 .reveal-profile{top:40%;gap:3px;font-size:clamp(7px,2.2cqw,11px);line-height:1.08}
+.blood-bath-layer{position:absolute;left:0;top:0;width:100%;height:75.5%;background-position:0 0;background-size:100% 100%;background-repeat:no-repeat;image-rendering:pixelated;display:none;pointer-events:none}
+.blood-bath-layer.on{display:block}
+.blood-bath-rear{z-index:6}.blood-bath-foreground{z-index:9}
+.blood-bath-contact-layer{position:absolute;width:96px;height:96px;background-position:0 0;background-size:96px 96px;background-repeat:no-repeat;image-rendering:pixelated;display:none;pointer-events:none}
+.blood-bath-contact-layer.on{display:block}.blood-bath-engulf{left:calc(70% - 48px);top:calc(56% - 88px);z-index:8}.blood-bath-contact{left:calc(70% - 48px);top:calc(49% - 48px);z-index:10}
+.blood-bath-impact{position:absolute;inset:0;background:url('assets/blood_bath_impact_fullscreen.png') 0 0/100% 100% no-repeat;image-rendering:pixelated;display:none;pointer-events:none;z-index:11}
+.blood-bath-impact.on{display:block}
 
 /* Developer-only cartridge lab. Nothing here is visible in ordinary play. */
 .dialogue{font-family:var(--font-dialogue);font-size:clamp(8px,3.1cqw,15px);line-height:1.1}
