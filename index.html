@@ -126,12 +126,18 @@
       <div class="trip-route"><div>LA</div><div>↓</div><div>ATLANTA</div><div>↓</div><div>POWDER SPRINGS</div></div>
     </section>
     <section id="powderSpringsCurb" class="trip-scene trip-curb" aria-hidden="true" aria-label="Powder Springs curb">
-      <div class="trip-placeholder"><span>DEV PLACEHOLDER BACKGROUND</span></div>
-      <div class="trip-info"><h1>POWDER SPRINGS, GA</h1><p>NIGHT</p><p>RICH HAS ARRIVED.</p><div id="tripActivityAction"></div></div>
+      <img class="trip-environment" src="assets/powder_springs_night_270x480.png" alt="" draggable="false" />
+      <div class="trip-location" aria-hidden="true">POWDER SPRINGS, GA · NIGHT</div>
+      <img id="tripRich" class="trip-rich" src="assets/rich_curb_eating.png" alt="Rich seated on the curb" draggable="false" />
+      <div id="tripActivityAction" class="trip-activity-action" aria-live="polite"></div>
     </section>
-    <section id="stargazingScene" class="trip-scene trip-stargazing" aria-hidden="true" aria-label="Stargazing">
-      <div class="trip-placeholder"><span>DEV PLACEHOLDER BACKGROUND</span></div>
+    <section id="stargazingScene" class="trip-scene trip-stargazing" aria-label="Stargazing" aria-hidden="true">
+      <img class="trip-environment" src="assets/powder_springs_night_270x480.png" alt="" draggable="false" />
+      <img class="trip-rich" src="assets/rich_curb_stargazing.png" alt="Rich seated and looking at the stars" draggable="false" />
       <button id="stargazingDone" type="button">I'M GOOD</button>
+    </section>
+    <section id="tripReturn" class="trip-scene trip-return" aria-hidden="true" aria-label="Return transition">
+      <div class="trip-route"><div>POWDER SPRINGS</div><div>↓</div><div>ATLANTA</div><div>↓</div><div>LA</div></div>
     </section>
 <div id="attackLayer" class="attack-layer" aria-hidden="true">
       <div id="richCast" class="rich-cast"></div>
@@ -167,6 +173,7 @@
         <button id="devReturnThrone" type="button">RETURN THRONE ROOM</button>
         <button id="devResetPhone" type="button">RESET PHONE TEST STATE</button>
         <button id="devResetTrip" type="button">RESET DESIRE TRIP</button>
+        <label id="devTripScaleControl">CURB RICH SCALE <select id="devTripScale" aria-label="Curb Rich scale"><option value="1">1×</option><option value="1.5" selected>1.5×</option><option value="1.75">1.75×</option><option value="2">2×</option></select></label>
         <div class="bedroom-dev-grid">
           <button data-bedroom-state="lounge_idle" type="button">LOUNGE</button><button data-bedroom-state="phone_scroll" type="button">SCROLL</button>
           <button data-bedroom-state="small_idle" type="button">IDLE</button><button data-bedroom-state="phone_reaction" type="button">REACTION</button>
