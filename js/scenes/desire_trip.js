@@ -48,11 +48,6 @@
    if(RAPhone?.isOpen?.())await RAPhone.close();
    if(RAScenes.current()!=='bedroom')await RAScenes.go('bedroom',{dev:true});
   });
-  const saved=RAState.get(),trip=saved.life.desires.activeTrip,scene=saved.life.world.scene;
-  if(trip?.status==='traveling'&&scene==='tripTravel')RAScenes.go('tripTravel',{resume:true});
-  else if(trip?.status==='arrived'&&scene==='stargazing')RAScenes.go('stargazing',{resume:true});
-  else if(trip?.status==='arrived'&&scene==='powderSpringsCurb')RAScenes.go('powderSpringsCurb',{resume:true});
-  else if(trip?.status==='completed'&&scene==='tripReturn')RAScenes.go('tripReturn',{resume:true});
  });
  document.addEventListener('ra:scene',e=>{if(!['tripTravel','powderSpringsCurb','stargazing','tripReturn'].includes(e.detail?.id))document.body.classList.remove('trip-mode')});
  window.RADesireTripPresentation={firstTrip:TRIP_001,enterTravel,setScale,scaleOptions:SCALE_OPTIONS,anchor:{source:SRC_ANCHOR,world:WORLD_ANCHOR},holds:HOLDS};

@@ -22,7 +22,7 @@
   setActorState('daughter',stage==='arrival'?'daughter_neutral':stage==='meet'?'daughter_reaction':'daughter_post_battle');
   placeCharacter(dockActors.rich,55);placeCharacter(dockActors.importer,180);placeCharacter(dockActors.daughter,230);
  }
- function layoutBattleActors(){const sx=dockCanvas?.getBoundingClientRect().width/(dockCanvas?.width||270)||1,sy=dockCanvas?.getBoundingClientRect().height/(dockCanvas?.height||480)||1;for(const [img,anchorX] of [[document.querySelector('#geminiRich'),55],[document.querySelector('#productionCEO'),180]])if(img){img.style.left=`${Math.round((anchorX-ANCHOR.x*characterScale)*sx)}px`;img.style.top=`${Math.round((GROUND_Y-ANCHOR.y*characterScale)*sy)}px`;img.style.width=`${80*characterScale*sx}px`;img.style.height=`${96*characterScale*sy}px`;img.style.backgroundSize=`${80*characterScale*sx}px ${96*characterScale*sy}px`}}
+ function layoutBattleActors(){const battleCanvas=document.querySelector('#jdmDockBattleCanvas'),sx=battleCanvas?.getBoundingClientRect().width/(battleCanvas?.width||270)||1,sy=battleCanvas?.getBoundingClientRect().height/(battleCanvas?.height||480)||1;for(const [img,anchorX] of [[document.querySelector('#geminiRich'),55],[document.querySelector('#productionCEO'),180]])if(img){img.style.left=`${Math.round((anchorX-ANCHOR.x*characterScale)*sx)}px`;img.style.top=`${Math.round((GROUND_Y-ANCHOR.y*characterScale)*sy)}px`;img.style.width=`${80*characterScale*sx}px`;img.style.height=`${96*characterScale*sy}px`;img.style.backgroundSize=`${80*characterScale*sx}px ${96*characterScale*sy}px`}}
  function clearBattleActorLayout(){for(const img of [document.querySelector('#geminiRich'),document.querySelector('#productionCEO')])if(img)for(const key of ['left','top','width','height','backgroundSize'])img.style.removeProperty(key.replace(/[A-Z]/g,m=>`-${m.toLowerCase()}`))}
  function setCharacterScale(value){const next=Number(value);if(!CHARACTER_SCALE_OPTIONS.includes(next))return characterScale;characterScale=next;if(scaleControl)scaleControl.value=String(next);if(dock?.classList.contains('active'))setDockActors(active()?.stage||'arrival');if(payoff?.classList.contains('active')){placeCharacter(payoffRich,55);placePayoffObjects()}if(RAScenes.current()==='jdmCombat')layoutBattleActors();return characterScale}
  function storeMarkup(){const owned=car(),current=active(),access=RAOpportunities.get('jdm_home_delivery');let label,action,disabled='';
@@ -80,8 +80,8 @@
  }
  function sceneExit(id){if(id==='supraPayoff'){payoffRich?.classList.remove('visible');payoffCar?.classList.remove('visible');payoffKey?.classList.remove('visible')}if(!['jdmDock','jdmAftermath','supraPayoff'].includes(id))show(dock,false)}
  function sceneClick(e){const target=e.target.closest('[data-jdm-action]');if(target){e.preventDefault();action(target.dataset.jdmAction)}}
- document.addEventListener('DOMContentLoaded',()=>{
-  setCharacterScale(DEFAULT_CHARACTER_SCALE);if(active()&&active().status!=='completed'||active()?.stage==='payoff'){const startButton=document.querySelector('#startButton');if(startButton)startButton.textContent='CONTINUE'}
+document.addEventListener('DOMContentLoaded',()=>{
+  setCharacterScale(DEFAULT_CHARACTER_SCALE);
   scaleControl?.addEventListener('change',e=>setCharacterScale(e.target.value));dockEnvironment.onload=()=>{paintEnvironment(dockCanvas,dockEnvironment);paintEnvironment(document.querySelector('#jdmDockBattleCanvas'),dockEnvironment)};payoffEnvironment.onload=()=>paintEnvironment(payoffCanvas,payoffEnvironment);
   dockPanel?.addEventListener('click',sceneClick);payoffPanel?.addEventListener('click',sceneClick);
   RAScenes.register('jdmDock',{enter:()=>sceneEntry('jdmDock'),exit:()=>sceneExit('jdmDock')});

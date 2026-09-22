@@ -379,11 +379,7 @@ audio.addEventListener('ended',()=>{
 
 start.addEventListener('click',async()=>{
   overlay.style.display='none';
-  if(window.RAJDMImports?.hasCheckpoint?.()){
-    try{if(audio.readyState<1)await new Promise(resolve=>audio.addEventListener('loadedmetadata',resolve,{once:true}));if(audio.paused){seekToLoopStart();await audio.play()}}catch(e){say('TAP AGAIN FOR AUDIO')}
-    await window.RAJDMImports.resume();return;
-  }
-  resetBattle();
+  await window.RAScenes?.go?.('bedroom',{start:true});
   try{
     if(audio.readyState<1){
       await new Promise(resolve=>audio.addEventListener('loadedmetadata',resolve,{once:true}));
