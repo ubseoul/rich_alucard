@@ -4,6 +4,12 @@ This is a creative-direction changelog, not a substitute for Git history.
 
 ## 2026-09-22
 
+### Foundation Season — Wave 2: Build / Release / Deployment Integrity
+- Added repository-owned deterministic release tooling for the vanilla static game. It validates JavaScript syntax and Wave 1 save fixtures, then produces one `dist/` artifact from the exact commit.
+- Each artifact generates a matching machine-readable `build.json` and DEV-only `js/build-info.js` with release ID, commit SHA and build timestamp. `?dev=1` reads this generated identity instead of a handwritten build string.
+- Added GitHub Actions test and Pages workflows: test → build artifact → deploy artifact → verify public build identity against the deployment commit. The public URL and game runtime architecture remain unchanged.
+- Replaced scattered manual CSS/JS cache labels with one generated artifact query version. No gameplay, save, art, combat, music, dialogue or UI behavior changed.
+
 ### Foundation Mega-Patch — Wave 1: Save Integrity + Regression Foundation
 - Advanced the browser-local save format to v7 with an explicit legacy bridge and sequential v5 → v6 → v7 migrations. Existing life, trip/history, character/encounter, ownership, business-unlock and one-time acquisition consequences are preserved.
 - Added non-destructive normalization for partial records and browser-local recovery/quarantine handling: malformed primary data restores the last valid recovery copy rather than silently defaulting Rich.
