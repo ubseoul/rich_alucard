@@ -24,11 +24,11 @@ async function test(){
   const sources=await javascriptFiles(path.join(root,'js'));
   for(const file of [...sources,path.join(root,'game.js')])new vm.Script(await readFile(file,'utf8'),{filename:path.relative(root,file)});
   const context={window:{},console,localStorage:memoryStorage(),setTimeout,clearTimeout,setInterval,clearInterval,requestAnimationFrame:fn=>setTimeout(()=>fn(0),0),cancelAnimationFrame:clearTimeout,document:{dispatchEvent(){}},CustomEvent:function(type,init){this.type=type;this.detail=init?.detail;}};context.window=context;vm.createContext(context);
-  for(const file of ['js/engine/state.js','js/data/save_fixtures.js','js/data/opportunities.js','js/engine/scenes.js','js/data/stages.js','js/engine/stage.js','js/data/combat.js','js/engine/combat_foundation.js'])vm.runInContext(await read(file,'utf8'),context,{filename:file});
+  for(const file of ['js/engine/state.js','js/data/save_fixtures.js','js/data/opportunities.js','js/engine/scenes.js','js/data/stages.js','js/engine/stage.js','js/data/combat.js','js/engine/combat_foundation.js','js/data/people.js','js/systems/people.js'])vm.runInContext(await read(file,'utf8'),context,{filename:file});
   const {RAState,RASaveFixtures,RAOpportunities}=context;
   const fixtures=RASaveFixtures.fixtures,ids=RASaveFixtures.ids;
   const v6=RAState.migrateWithReport(fixtures.lifeV6),owned=RAState.migrateWithReport(fixtures.supraOwned),partial=RAState.migrateWithReport(fixtures.partialCorrupt);
-  assert(v6.ok&&v6.state.version===7&&v6.state.life.resources.money===86000,'v6 migration did not preserve life progress');
+  assert(v6.ok&&v6.state.version===RAState.version&&v6.state.life.resources.money===86000,'v6 migration did not preserve life progress');
   assert(owned.ok&&owned.state.life.ownership.cars.filter(item=>item.id===ids.supraId).length===1,'owned Supra fixture was not preserved');
   assert(owned.state.life.world.flags.jdmHomeDelivery===true&&owned.state.characters.jdm_importer_daughter_001.conversionOutcome==='converted','one-time acquisition consequences were not preserved');
   assert(partial.ok&&partial.state.life.ownership.cars.length===1&&partial.state.life.desires.completed.length===1,'partial save normalization failed');
@@ -41,6 +41,7 @@ async function test(){
   assert(await context.RAScenes.runSelfTest(),'scene lifecycle cancellation regression');
   assert(context.RAStageLayout.runSelfTest(),'stage contract geometry regression');
   assert(context.RACombatFoundation.runSelfTest(),'combat foundation regression');
+  const assistant=context.RAPeople.meetPerson('ceo_assistant_001','legacy');context.RAPeople.rememberPersonEvent('ceo_assistant_001','ceo_assistant_stolen');context.RAPeople.rememberPersonEvent('ceo_assistant_001','ceo_assistant_stolen');context.RAPeople.setConversionState('ceo_assistant_001','converted');const daughter=context.RAPeople.meetPerson('jdm_importer_daughter_001','jdm_imports_docks');assert(assistant.met&&context.RAPeople.record('ceo_assistant_001').memories.length===1&&context.RAPeople.record('ceo_assistant_001').conversionState==='converted'&&daughter.met&&context.RAPeople.known().length===2,'persistent people idempotency regression');
   const index=await read('index.html');assert(index.includes('__BUILD_ASSET_VERSION__'),'index is missing the build asset placeholder');
   console.log(`PASS deterministic release gate (${sources.length+1} JavaScript syntax checks, save fixtures, recovery, opportunity access)`);
 }

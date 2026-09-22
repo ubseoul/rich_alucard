@@ -249,6 +249,8 @@ Never convert a PROPOSED idea into canon silently.
 
 **FOUNDATION WAVE 4 — COMBAT FOUNDATION** — Encounters are configured with combatants, moves, weighted enemy selection, routes, and presentation IDs. The CEO and JDM Importer are compatibility definitions. Rich's protected move behavior and authored presentation remain unchanged; the legacy presentation functions are adapters until a later wave has reason to generalize them.
 
+**FOUNDATION WAVE 5 — GIVE RICH PEOPLE** — The authored Person Catalog holds stable identity/configuration only. Runtime `life.people.records` holds proven meetings, milestone IDs, conversion state, contact capability, and flags. It is persistent and idempotent; it does not add messages, schedules, relationship scores, or autonomous behavior.
+
 ## 16. Current milestone order
 
 Current intended sequence:

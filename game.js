@@ -146,7 +146,7 @@ async function normalVictory(){
   return new Promise(resolve=>{
     stealYes.onclick=async()=>{
       stealYes.onclick=stealNo.onclick=null;
-      if(window.RACharacterSystem) RACharacterSystem.mark('ceo_assistant_001','stolen',true);
+      if(window.RACharacterSystem) RACharacterSystem.mark('ceo_assistant_001','stolen',true);window.RAPeople?.meetPerson('ceo_assistant_001');window.RAPeople?.setPersonFlag('ceo_assistant_001','stolen',true);window.RAPeople?.rememberPersonEvent('ceo_assistant_001','ceo_assistant_stolen');
       if(window.RAState) RAState.patch('encounters.ceo_prince.completed',false);
       victoryCard.style.display='none';
       victoryOverlay.classList.remove('on');
