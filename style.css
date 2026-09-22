@@ -676,3 +676,9 @@ body.trip-mode #screen > :not(#tripTravel):not(#powderSpringsCurb):not(#stargazi
  width:9px !important;
  height:9px !important;
 }
+/* DEV-only life state inspector */
+#devLifeInspector{margin-top:6px;border-top:1px solid #524564;padding-top:5px;font-size:8px;line-height:1.5}
+#devLifeInspector summary{cursor:pointer;font-weight:bold;margin-bottom:5px}
+#devLifeInspector pre{max-height:220px;overflow:auto;white-space:pre-wrap;overflow-wrap:anywhere;background:#111020;padding:5px;font-size:7px}
+#devLifeInspector label{display:flex;align-items:center;justify-content:space-between;gap:4px;margin:3px 0}
+#devLifeInspector input[type="text"],#devLifeInspector input[type="number"]{width:54%;min-width:0;box-sizing:border-box}

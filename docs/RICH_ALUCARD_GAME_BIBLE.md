@@ -205,13 +205,16 @@ Architecture should gradually separate:
 
 Do not overengineer hypothetical systems.
 
-Persistent state should eventually track:
-- Rich state
-- monthly budget
-- location
-- world day/month
+The **Milestone 6A Life Engine** provides the minimal persistent foundation in vanilla JavaScript. One browser-local `life` record owns identity, world location/day/month/scene/flags, resources (money, clout and vampire reputation), ownership collections, people/relationships, creative music progress, phone state, desire trips, opportunity data and history. Future-facing collections are empty until content is approved. Existing character and encounter records remain part of the same save and are preserved during migration.
+
+VampGPT reads money, location and clout from this authoritative state. Opportunity definitions are data-driven and evaluate reusable access conditions (location, money, clout, vampire reputation, contacts, relationships and prerequisite flags). Current authored content remains Atlanta available and Tokyo locked with its existing text; Tokyo has no invented unlock threshold. Desire-trip history records travel and completion as consequences without granting rewards. The developer-only Life State Inspector shows saved domains, evaluated opportunities and history, and supports test value edits; Tokyo preview access is session-only.
+
+Persistent state tracks:
+- Rich identity/resources and location
+- world day/month/scene/flags
 - character states such as met/stolen/vampire/cracked
 - encounter completion
+- owned collections, people, creative progress, phone and desire trips
 
 Save locally in the browser.
 

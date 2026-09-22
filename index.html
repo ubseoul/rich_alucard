@@ -167,6 +167,14 @@
       <label>FONT LAB <select id="devFont"><option value="control">CONTROL</option><option value="monogram">MONOGRAM</option><option value="press-start">PRESS START 2P</option><option value="tiny5">TINY5</option></select></label>
       <label><input id="devTint" type="checkbox" /> CARTRIDGE TINT</label>
       <div id="devReadout" class="dev-readout"></div>
+      <details id="devLifeInspector"><summary>LIFE STATE INSPECTOR</summary><pre id="devLifeReadout"></pre>
+        <label>MONEY <input id="devLifeMoney" type="number" step="1" /></label>
+        <label>LOCATION <input id="devLifeLocation" type="text" /></label>
+        <label>CLOUT <input id="devLifeClout" type="text" /></label>
+        <label>VAMPIRE REP <input id="devLifeVampireRep" type="text" /></label>
+        <button id="devLifeApply" type="button">APPLY DEV VALUES</button>
+        <label><input id="devTokyoPreview" type="checkbox" /> SESSION ONLY TOKYO ACCESS PREVIEW</label>
+      </details>
       <button id="devSmoke" type="button">RUN SMOKE CHECK</button>
       <section class="bedroom-dev-controls" aria-label="Bedroom scene developer controls">
         <button id="devEnterBedroom" type="button">DEV BEDROOM</button>
@@ -191,6 +199,7 @@
 <script src="js/engine/state.js"></script>
 <script src="js/engine/scenes.js"></script>
 <script src="js/systems/desire_trips.js"></script>
+<script src="js/data/opportunities.js"></script>
 <script src="js/scenes/bedroom.js"></script>
 <script src="js/scenes/phone.js"></script>
 <script src="js/scenes/desire_trip.js"></script>

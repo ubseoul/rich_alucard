@@ -61,6 +61,9 @@ Marketing value alone is not sufficient justification.
 - The short handset-to-cartridge transition and phone UI do not control music or bedroom cloud ambience. The ambient prototype remains approved and unchanged.
 - Stay with vanilla HTML/CSS/JS for now. Do not migrate to Unity/Godot merely for scale.
 - Persistent state should support Rich/world/character/encounter progression and browser-local saving.
+- **Milestone 6A Life Engine:** browser-local v5 saves use one authoritative `life` record for identity, world location/day/month/scene/flags, resources, ownership, people, creative music progress, phone, desire trips, opportunity data and history. Future-facing collections start empty; no future activities or thresholds are pre-populated. Legacy saves migrate without discarding existing budget, location, world progress, phone use, trip state, characters or encounters.
+- VampGPT reads cash, location and clout from that saved life record. Go Somewhere is data-driven: Atlanta remains available; Tokyo remains locked with the authored message. Access rules can evaluate location, money, clout, vampire reputation, contacts, relationships and prerequisite flags. Tokyo's exact requirement remains TBD.
+- Desire trip travel and completion persist through the same life record. History records only travel/completion consequences; Desire Trips grant no automatic rewards. Most life simulation remains invisible until an authored player-facing activity exists.
 - Pokémon-style overworld walking is **not approved**. Fixed scenes/hotspots remain a valid future approach.
 
 ## Vampire conversion
