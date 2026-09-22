@@ -50,6 +50,8 @@ python -m http.server 4174 --directory dist
 
 `dist/` is the complete deployable artifact. Its generated `build.json` and `js/build-info.js` carry the same release ID, commit SHA and timestamp; `?dev=1` displays that identity without affecting normal play. GitHub Actions runs the deterministic gate, builds that one artifact, deploys it to Pages, then compares the public build identity with the commit that triggered the deployment.
 
+See [the release runbook](docs/RELEASE_RUNBOOK.md) for the one-time Pages publishing-source cutover and release verification.
+
 ---
 
 Rich Alucard is an original game/music-world project.
