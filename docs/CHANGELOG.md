@@ -4,6 +4,13 @@ This is a creative-direction changelog, not a substitute for Git history.
 
 ## 2026-09-22
 
+### Foundation Wave 6 — The World Comes to Rich
+- Added a lightweight authored world-event registry and browser-local runtime event records. Events can evaluate saved prerequisites, become pending at safe deterministic gameplay boundaries, deliver once through an authored channel, and persist delivered, seen and resolved state.
+- Added a minimal incoming phone presentation that preserves the existing cartridge phone aesthetic without adding a full messaging app, inbox, push notification system, freeform texting, or real-time scheduling.
+- Event eligibility can query Wave 5 Persistent People records for person met state, memories, conversion state, contactability and flags without inspecting bespoke quest code.
+- Added PLAYER-BLIND PROOF EVENT #001 as the single Wave 6 proof event. Its content remains undisclosed for playtesting; it has no new art, combat, reward, character, fame/clout consequence, or larger adventure.
+- Advanced saves to schema v9 with `life.events.records`, added deterministic event coverage, browser smoke coverage, and DEV-only event inspection/reset.
+
 ### Foundation Season — Wave 2: Build / Release / Deployment Integrity
 - Added repository-owned deterministic release tooling for the vanilla static game. It validates JavaScript syntax and Wave 1 save fixtures, then produces one `dist/` artifact from the exact commit.
 - Each artifact generates a matching machine-readable `build.json` and DEV-only `js/build-info.js` with release ID, commit SHA and build timestamp. `?dev=1` reads this generated identity instead of a handwritten build string.

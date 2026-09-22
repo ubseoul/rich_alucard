@@ -20,6 +20,7 @@
     const inspector={identity:life.identity,world:life.world,resources:life.resources,ownership:life.ownership,people:life.people,creativeLife:life.creativeLife,phone:life.phone,desires:life.desires,opportunities:{rules:rules.map(({id,category,label,available,requirements,failures,lockedMessage,resultScene,action})=>({id,category,label,available,requirements,failures,lockedMessage,resultScene,action})),tokyoSessionPreview:previewTokyo},history:life.history};
     const lifeReadout=document.querySelector('#devLifeReadout');if(lifeReadout)lifeReadout.textContent=JSON.stringify(inspector,null,2);
     const peopleReadout=document.querySelector('#devPeopleReadout');if(peopleReadout)peopleReadout.textContent=JSON.stringify((window.RAPeople?.known?.()||[]).map(({id,catalog,record})=>({id,displayName:catalog?.displayName||null,contactCapable:catalog?.contactCapable??false,...record})),null,2);
+    const eventReadout=document.querySelector('#devEventsReadout');if(eventReadout)eventReadout.textContent=JSON.stringify((window.RAWorldEvents?.evaluations?.()||[]).map(event=>({id:event.id,eligible:event.eligible,status:event.status,deliveryChannel:event.deliveryChannel,safeBoundaries:event.safeBoundaries,failures:event.failures,state:window.RAWorldEvents?.record?.(event.id)||null})),null,2);
   }
   function setEnabled(value){enabled=value;document.body.classList.toggle('dev-enabled',enabled);if(enabled){applyFont(document.documentElement.dataset.devFont||'control');refresh();}else panel()?.classList.remove('show');}
   document.addEventListener('DOMContentLoaded',()=>{
@@ -29,6 +30,7 @@
     document.querySelector('#devTokyoPreview')?.addEventListener('change',refresh);
     document.querySelector('#devSmoke')?.addEventListener('click',()=>window.RASmoke?.run?.());
     document.querySelector('#devResetJdm')?.addEventListener('click',async()=>{window.RAJDMImports?.resetForDev?.();if(window.RAPhone?.isOpen?.())await window.RAPhone.close();await window.RAScenes?.go?.('bedroom',{devReset:'jdm'});refresh();});
+    document.querySelector('#devResetProofEvent')?.addEventListener('click',()=>{window.RAWorldEvents?.reset?.('player_blind_proof_event_001');refresh();});
     document.querySelector('#devFreshSave')?.addEventListener('click',async()=>{window.RAState?.reset?.();if(window.RAPhone?.isOpen?.())await window.RAPhone.close();await window.RAScenes?.go?.('bedroom',{devReset:'fresh'});refresh();});
     document.querySelector('#devWipeSave')?.addEventListener('click',()=>{if(!window.confirm('WIPE ALL LOCAL RICH ALUCARD SAVES? THIS CANNOT BE UNDONE.'))return;const keys=window.RAState?.keys||{};for(const key of [keys.primary,keys.recovery,keys.quarantine])if(key)localStorage.removeItem(key);location.reload();});
     setEnabled(enabled);if(enabled)panel()?.classList.add('show');

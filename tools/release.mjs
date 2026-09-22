@@ -23,8 +23,9 @@ async function javascriptFiles(directory){const entries=await readdir(directory,
 async function test(){
   const sources=await javascriptFiles(path.join(root,'js'));
   for(const file of [...sources,path.join(root,'game.js')])new vm.Script(await readFile(file,'utf8'),{filename:path.relative(root,file)});
-  const context={window:{},console,localStorage:memoryStorage(),setTimeout,clearTimeout,setInterval,clearInterval,requestAnimationFrame:fn=>setTimeout(()=>fn(0),0),cancelAnimationFrame:clearTimeout,document:{dispatchEvent(){}},CustomEvent:function(type,init){this.type=type;this.detail=init?.detail;}};context.window=context;vm.createContext(context);
-  for(const file of ['js/engine/state.js','js/data/save_fixtures.js','js/data/opportunities.js','js/engine/scenes.js','js/data/stages.js','js/engine/stage.js','js/data/combat.js','js/engine/combat_foundation.js','js/data/people.js','js/systems/people.js'])vm.runInContext(await read(file,'utf8'),context,{filename:file});
+  const listeners={};
+  const context={window:{},console,localStorage:memoryStorage(),setTimeout,clearTimeout,setInterval,clearInterval,requestAnimationFrame:fn=>setTimeout(()=>fn(0),0),cancelAnimationFrame:clearTimeout,document:{addEventListener(type,fn){listeners[type]=listeners[type]||[];listeners[type].push(fn)},removeEventListener(type,fn){listeners[type]=(listeners[type]||[]).filter(item=>item!==fn)},dispatchEvent(event){for(const fn of listeners[event.type]||[])fn(event)}},CustomEvent:function(type,init){this.type=type;this.detail=init?.detail;}};context.window=context;vm.createContext(context);
+  for(const file of ['js/engine/state.js','js/data/save_fixtures.js','js/data/opportunities.js','js/engine/scenes.js','js/data/stages.js','js/engine/stage.js','js/data/combat.js','js/engine/combat_foundation.js','js/data/people.js','js/systems/people.js','js/data/world_events.js','js/systems/world_events.js'])vm.runInContext(await read(file,'utf8'),context,{filename:file});
   const {RAState,RASaveFixtures,RAOpportunities}=context;
   const fixtures=RASaveFixtures.fixtures,ids=RASaveFixtures.ids;
   const v6=RAState.migrateWithReport(fixtures.lifeV6),owned=RAState.migrateWithReport(fixtures.supraOwned),partial=RAState.migrateWithReport(fixtures.partialCorrupt);
@@ -42,6 +43,22 @@ async function test(){
   assert(context.RAStageLayout.runSelfTest(),'stage contract geometry regression');
   assert(context.RACombatFoundation.runSelfTest(),'combat foundation regression');
   const assistant=context.RAPeople.meetPerson('ceo_assistant_001','legacy');context.RAPeople.rememberPersonEvent('ceo_assistant_001','ceo_assistant_stolen');context.RAPeople.rememberPersonEvent('ceo_assistant_001','ceo_assistant_stolen');context.RAPeople.setConversionState('ceo_assistant_001','converted');const daughter=context.RAPeople.meetPerson('jdm_importer_daughter_001','jdm_imports_docks');assert(assistant.met&&context.RAPeople.record('ceo_assistant_001').memories.length===1&&context.RAPeople.record('ceo_assistant_001').conversionState==='converted'&&daughter.met&&context.RAPeople.known().length===2,'persistent people idempotency regression');
+  context.RAWorldEvents.reset('player_blind_proof_event_001');
+  assert(!context.RAWorldEvents.evaluate('player_blind_proof_event_001').eligible,'world event should be ineligible before person prerequisite');
+  context.RAPeople.rememberPersonEvent('jdm_importer_daughter_001','jdm_daughter_encountered');
+  assert(context.RAWorldEvents.evaluate('player_blind_proof_event_001').eligible,'world event person prerequisite did not become eligible');
+  context.RAWorldEvents.advanceBoundary('bedroom-entry');
+  assert(context.RAWorldEvents.record('player_blind_proof_event_001').status==='pending','world event did not become pending at safe boundary');
+  const persisted=context.RAState.migrateRecord(context.RAState.get());
+  assert(persisted.life.events.records.player_blind_proof_event_001.status==='pending','pending event did not persist');
+  context.RAWorldEvents.deliver('phone');
+  assert(context.RAWorldEvents.record('player_blind_proof_event_001').status==='delivered'&&context.RAWorldEvents.record('player_blind_proof_event_001').deliveries===1,'phone delivery failed');
+  context.RAWorldEvents.deliver('phone');
+  assert(context.RAWorldEvents.record('player_blind_proof_event_001').deliveries===1,'event redelivered repeatedly');
+  context.RAWorldEvents.see('player_blind_proof_event_001');context.RAWorldEvents.resolve('player_blind_proof_event_001','acknowledge');
+  assert(context.RAWorldEvents.record('player_blind_proof_event_001').status==='resolved'&&context.RAState.get().life.world.flags.proofEvent001Handled===true,'event resolution did not persist');
+  const beforeReset=JSON.stringify(context.RAState.get().life.people.records);context.RAWorldEvents.reset('player_blind_proof_event_001');
+  assert(!context.RAWorldEvents.record('player_blind_proof_event_001')&&JSON.stringify(context.RAState.get().life.people.records)===beforeReset,'event reset damaged unrelated people state');
   const index=await read('index.html');assert(index.includes('__BUILD_ASSET_VERSION__'),'index is missing the build asset placeholder');
   console.log(`PASS deterministic release gate (${sources.length+1} JavaScript syntax checks, save fixtures, recovery, opportunity access)`);
 }
