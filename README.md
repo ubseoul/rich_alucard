@@ -39,7 +39,16 @@ Vanilla HTML, CSS, and JavaScript. No framework required.
 
 ## Development
 
-Open `index.html` in a local browser or serve the repository with any static file server. The modular foundation scripts load before `game.js` and expose their shared runtime through the browser global namespace.
+The game runtime remains vanilla HTML, CSS and JavaScript. Build-time tooling only creates the static Pages artifact.
+
+```powershell
+npm test
+npm run build
+npm run verify:artifact
+python -m http.server 4174 --directory dist
+```
+
+`dist/` is the complete deployable artifact. Its generated `build.json` and `js/build-info.js` carry the same release ID, commit SHA and timestamp; `?dev=1` displays that identity without affecting normal play. GitHub Actions runs the deterministic gate, builds that one artifact, deploys it to Pages, then compares the public build identity with the commit that triggered the deployment.
 
 ---
 

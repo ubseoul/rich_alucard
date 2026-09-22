@@ -1,0 +1,14 @@
+{
+  "name": "rich-alucard-static-release",
+  "private": true,
+  "version": "0.0.0",
+  "description": "Build-time release tooling for the vanilla Rich Alucard static game.",
+  "scripts": {
+    "test": "node tools/release.mjs test",
+    "build": "node tools/release.mjs build",
+    "verify:artifact": "node tools/release.mjs verify-artifact"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

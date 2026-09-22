@@ -243,6 +243,8 @@ Never convert a PROPOSED idea into canon silently.
 
 **PLAYER-VERIFIABLE BUILD ID** — Every release candidate and hotfix must carry an intentionally updated build version that appears only with `?dev=1`. QA must record the displayed value from the deployed browser before approving a player-facing fix.
 
+**BUILD / RELEASE / DEPLOYMENT INTEGRITY** — `npm test` is the deterministic release gate. `npm run build` creates the only Pages artifact in `dist/`, generates `build.json` and `js/build-info.js` from the exact Git commit and build timestamp, and applies one artifact-specific CSS/JS query version. GitHub Actions tests that artifact, deploys the artifact itself, then verifies the public `build.json` and generated DEV metadata against the triggering commit. A push alone is not release verification.
+
 ## 16. Current milestone order
 
 Current intended sequence:

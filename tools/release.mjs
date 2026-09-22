@@ -1,0 +1,82 @@
+#!/usr/bin/env node
+import {execFileSync} from 'node:child_process';
+import {cp, mkdir, readFile, rm, writeFile, readdir} from 'node:fs/promises';
+import {existsSync} from 'node:fs';
+import path from 'node:path';
+import vm from 'node:vm';
+import {fileURLToPath} from 'node:url';
+
+const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
+const output=path.join(root,'dist');
+const action=process.argv[2];
+const arg=name=>{const index=process.argv.indexOf(name);return index===-1?null:process.argv[index+1]||null;};
+const sha=()=>arg('--commit')||process.env.GITHUB_SHA||execFileSync('git',['rev-parse','HEAD'],{cwd:root,encoding:'utf8'}).trim();
+const compactTimestamp=value=>value.replace(/[-:.TZ]/g,'').slice(0,14);
+const read=relative=>readFile(path.join(root,relative),'utf8');
+const runtimeFiles=['index.html','style.css','game.js'];
+const staticDirectories=['assets','js'];
+
+function assert(condition,message){if(!condition)throw new Error(message);}
+function memoryStorage(){const data=new Map();return {getItem:key=>data.has(key)?data.get(key):null,setItem:(key,value)=>data.set(key,String(value)),removeItem:key=>data.delete(key)};}
+async function javascriptFiles(directory){const entries=await readdir(directory,{withFileTypes:true});const nested=await Promise.all(entries.map(async entry=>entry.isDirectory()?javascriptFiles(path.join(directory,entry.name)):entry.name.endsWith('.js')?[path.join(directory,entry.name)]:[]));return nested.flat();}
+
+async function test(){
+  const sources=await javascriptFiles(path.join(root,'js'));
+  for(const file of [...sources,path.join(root,'game.js')])new vm.Script(await readFile(file,'utf8'),{filename:path.relative(root,file)});
+  const context={window:{},console,localStorage:memoryStorage()};context.window=context;vm.createContext(context);
+  for(const file of ['js/engine/state.js','js/data/save_fixtures.js','js/data/opportunities.js'])vm.runInContext(await read(file,'utf8'),context,{filename:file});
+  const {RAState,RASaveFixtures,RAOpportunities}=context;
+  const fixtures=RASaveFixtures.fixtures,ids=RASaveFixtures.ids;
+  const v6=RAState.migrateWithReport(fixtures.lifeV6),owned=RAState.migrateWithReport(fixtures.supraOwned),partial=RAState.migrateWithReport(fixtures.partialCorrupt);
+  assert(v6.ok&&v6.state.version===7&&v6.state.life.resources.money===86000,'v6 migration did not preserve life progress');
+  assert(owned.ok&&owned.state.life.ownership.cars.filter(item=>item.id===ids.supraId).length===1,'owned Supra fixture was not preserved');
+  assert(owned.state.life.world.flags.jdmHomeDelivery===true&&owned.state.characters.jdm_importer_daughter_001.conversionOutcome==='converted','one-time acquisition consequences were not preserved');
+  assert(partial.ok&&partial.state.life.ownership.cars.length===1&&partial.state.life.desires.completed.length===1,'partial save normalization failed');
+  const storage=RASaveFixtures.memoryStorage();const known=RAState.migrateRecord(fixtures.supraOwned);
+  storage.setItem(RAState.keys.primary,fixtures.malformedJson);storage.setItem(RAState.keys.recovery,JSON.stringify({format:1,state:known}));
+  const recovered=RAState.read(storage);assert(recovered.status.recovered&&recovered.state.life.ownership.cars[0].id===ids.supraId,'malformed save did not recover from backup');
+  const fresh=RAState.migrateRecord(fixtures.fresh).life;
+  assert(RAOpportunities.evaluate(RAOpportunities.definitions.find(item=>item.id==='atlanta'),fresh).available,'Atlanta opportunity regression');
+  assert(!RAOpportunities.evaluate(RAOpportunities.definitions.find(item=>item.id==='tokyo'),fresh).available,'Tokyo lock regression');
+  const index=await read('index.html');assert(index.includes('__BUILD_ASSET_VERSION__'),'index is missing the build asset placeholder');
+  console.log(`PASS deterministic release gate (${sources.length+1} JavaScript syntax checks, save fixtures, recovery, opportunity access)`);
+}
+
+function identity(){const commit=sha(),builtAt=new Date().toISOString(),shortCommit=commit.slice(0,12);const releaseId=`ra-${shortCommit}-${compactTimestamp(builtAt)}`;return {schemaVersion:1,releaseId,commit,shortCommit,builtAt,assetVersion:releaseId};}
+async function build(){
+  await test();
+  const build=identity();
+  await rm(output,{recursive:true,force:true});await mkdir(output,{recursive:true});
+  for(const file of runtimeFiles)await cp(path.join(root,file),path.join(output,file));
+  for(const directory of staticDirectories)await cp(path.join(root,directory),path.join(output,directory),{recursive:true});
+  const indexPath=path.join(output,'index.html');const index=await readFile(indexPath,'utf8');assert(index.includes('__BUILD_ASSET_VERSION__'),'asset placeholder missing from artifact source');
+  await writeFile(indexPath,index.replaceAll('__BUILD_ASSET_VERSION__',build.assetVersion));
+  await writeFile(path.join(output,'build.json'),`${JSON.stringify(build,null,2)}\n`);
+  await writeFile(path.join(output,'js','build-info.js'),`/* Generated by tools/release.mjs. Do not edit. */\nwindow.RABuild=${JSON.stringify(build)};\n`);
+  await verifyArtifact(build);console.log(`PASS built ${build.releaseId} for ${build.commit}`);
+}
+async function verifyArtifact(expected=null){
+  const build=expected||JSON.parse(await readFile(path.join(output,'build.json'),'utf8'));
+  assert(build.schemaVersion===1&&typeof build.releaseId==='string'&&typeof build.commit==='string'&&typeof build.builtAt==='string','invalid build.json identity');
+  const index=await readFile(path.join(output,'index.html'),'utf8'),info=await readFile(path.join(output,'js','build-info.js'),'utf8');
+  assert(!index.includes('__BUILD_ASSET_VERSION__')&&index.includes(build.assetVersion),'artifact has inconsistent cache identity');
+  assert(info.includes(build.commit)&&info.includes(build.releaseId),'DEV build metadata disagrees with build.json');
+  for(const file of runtimeFiles)assert(existsSync(path.join(output,file)),`artifact missing ${file}`);
+  for(const directory of staticDirectories)assert(existsSync(path.join(output,directory)),`artifact missing ${directory}`);
+  if(!expected)console.log(`PASS artifact verification ${build.releaseId} (${build.commit})`);
+}
+async function verifyDeployment(){
+  const base=(arg('--url')||'').replace(/\/$/,'');const expectedCommit=arg('--commit');assert(base&&expectedCommit,'verify-deployment requires --url and --commit');
+  const response=await fetch(`${base}/build.json?commit=${expectedCommit}`,{cache:'no-store'});assert(response.ok,`public build.json unavailable: ${response.status}`);const build=await response.json();
+  assert(build.commit===expectedCommit,`public commit ${build.commit} does not match expected ${expectedCommit}`);
+  const info=await fetch(`${base}/js/build-info.js?v=${encodeURIComponent(build.assetVersion)}`,{cache:'no-store'});const body=await info.text();assert(info.ok&&body.includes(build.commit)&&body.includes(build.releaseId),'public DEV identity disagrees with build.json');
+  console.log(`PASS public deployment ${build.releaseId} (${build.commit})`);
+}
+
+try{
+  if(action==='test')await test();
+  else if(action==='build')await build();
+  else if(action==='verify-artifact')await verifyArtifact();
+  else if(action==='verify-deployment')await verifyDeployment();
+  else throw new Error('Usage: node tools/release.mjs <test|build|verify-artifact|verify-deployment>');
+}catch(error){console.error(`FAIL ${error.message}`);process.exitCode=1;}
