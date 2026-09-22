@@ -66,11 +66,15 @@ async function verifyArtifact(expected=null){
   if(!expected)console.log(`PASS artifact verification ${build.releaseId} (${build.commit})`);
 }
 async function verifyDeployment(){
-  const base=(arg('--url')||'').replace(/\/$/,'');const expectedCommit=arg('--commit');assert(base&&expectedCommit,'verify-deployment requires --url and --commit');
-  const response=await fetch(`${base}/build.json?commit=${expectedCommit}`,{cache:'no-store'});assert(response.ok,`public build.json unavailable: ${response.status}`);const build=await response.json();
-  assert(build.commit===expectedCommit,`public commit ${build.commit} does not match expected ${expectedCommit}`);
-  const info=await fetch(`${base}/js/build-info.js?v=${encodeURIComponent(build.assetVersion)}`,{cache:'no-store'});const body=await info.text();assert(info.ok&&body.includes(build.commit)&&body.includes(build.releaseId),'public DEV identity disagrees with build.json');
-  console.log(`PASS public deployment ${build.releaseId} (${build.commit})`);
+  const base=(arg('--url')||'').replace(/\/$/,'');const expectedCommit=arg('--commit');const retries=Number(arg('--retries')||1);assert(base&&expectedCommit,'verify-deployment requires --url and --commit');
+  let lastError;
+  for(let attempt=1;attempt<=retries;attempt++)try{
+    const response=await fetch(`${base}/build.json?commit=${expectedCommit}&attempt=${attempt}`,{cache:'no-store'});assert(response.ok,`public build.json unavailable: ${response.status}`);const build=await response.json();
+    assert(build.commit===expectedCommit,`public commit ${build.commit} does not match expected ${expectedCommit}`);
+    const info=await fetch(`${base}/js/build-info.js?v=${encodeURIComponent(build.assetVersion)}&attempt=${attempt}`,{cache:'no-store'});const body=await info.text();assert(info.ok&&body.includes(build.commit)&&body.includes(build.releaseId),'public DEV identity disagrees with build.json');
+    console.log(`PASS public deployment ${build.releaseId} (${build.commit})`);return;
+  }catch(error){lastError=error;if(attempt<retries)await new Promise(resolve=>setTimeout(resolve,10000));}
+  throw lastError;
 }
 
 try{

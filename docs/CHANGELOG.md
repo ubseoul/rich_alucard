@@ -7,7 +7,7 @@ This is a creative-direction changelog, not a substitute for Git history.
 ### Foundation Season — Wave 2: Build / Release / Deployment Integrity
 - Added repository-owned deterministic release tooling for the vanilla static game. It validates JavaScript syntax and Wave 1 save fixtures, then produces one `dist/` artifact from the exact commit.
 - Each artifact generates a matching machine-readable `build.json` and DEV-only `js/build-info.js` with release ID, commit SHA and build timestamp. `?dev=1` reads this generated identity instead of a handwritten build string.
-- Added GitHub Actions test and Pages workflows: test → build artifact → deploy artifact → verify public build identity against the deployment commit. The public URL and game runtime architecture remain unchanged.
+- Added GitHub Actions test and Pages workflows: the workflow sets Pages to workflow publishing, then test → build artifact → deploy artifact → verify public build identity against the deployment commit with a bounded propagation retry. The public URL and game runtime architecture remain unchanged.
 - Replaced scattered manual CSS/JS cache labels with one generated artifact query version. No gameplay, save, art, combat, music, dialogue or UI behavior changed.
 
 ### Foundation Mega-Patch — Wave 1: Save Integrity + Regression Foundation
