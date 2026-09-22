@@ -592,6 +592,18 @@ body.revenge-freeze .production-ceo,body.revenge-freeze .production-assistant,bo
 body.dev-enabled .production-ceo,body.dev-enabled .production-assistant{outline:1px dashed rgba(255,220,120,.7)}
 .rich-lyric-bubble.on{opacity:1}
 
+/* Bedroom scene: immutable source art with a window-clipped cloud layer and stable authored Rich frames. */
+#bedroomScene{position:absolute;inset:0;z-index:2;display:none;overflow:hidden;image-rendering:pixelated;pointer-events:none}
+.bedroom-base{position:absolute;inset:0;background:url('assets/rich_bedroom_environment_270x480.png') 0 0/100% 100% no-repeat;image-rendering:pixelated}
+#bedroomCloudCanvas{position:absolute;inset:0;width:100%;height:100%;z-index:1;image-rendering:pixelated;pointer-events:none}
+.bedroom-rich{position:absolute;z-index:3;left:5.185%;top:58.75%;width:47.407%;height:13.333%;object-fit:fill;image-rendering:pixelated;user-select:none}
+body.bedroom-mode #bedroomScene{display:block}
+body.bedroom-mode .room,body.bedroom-mode #ambienceLayer,body.bedroom-mode #bloodBathRear,body.bedroom-mode .edge-frame,body.bedroom-mode .combat-hud,body.bedroom-mode .battle-ui,body.bedroom-mode #geminiRich,body.bedroom-mode #productionCEO,body.bedroom-mode #productionAssistant,body.bedroom-mode #biteTrail,body.bedroom-mode #richBiteSprite,body.bedroom-mode #biteImpact,body.bedroom-mode #healFloat,body.bedroom-mode #revengeShade,body.bedroom-mode #revengeStoredText,body.bedroom-mode #revengeWounds,body.bedroom-mode #revengeMass,body.bedroom-mode #revengeImpact,body.bedroom-mode #bloodBathEngulf,body.bedroom-mode #bloodBathForeground,body.bedroom-mode #bloodBathContact,body.bedroom-mode #bloodBathImpact,body.bedroom-mode #vampireBiteScreen,body.bedroom-mode #vampireBiteContact,body.bedroom-mode #vampireBiteLife,body.bedroom-mode #revengeFX,body.bedroom-mode #richLyricBubble,body.bedroom-mode #victoryOverlay,body.bedroom-mode #octopusOverlay,body.bedroom-mode #revealOverlay,body.bedroom-mode #attackLayer,body.bedroom-mode #choiceOverlay,body.bedroom-mode #toast,body.bedroom-mode #startOverlay{display:none!important}
+.bedroom-dev-controls{border-top:1px solid #b58d72;margin-top:5px;padding-top:4px}
+.bedroom-dev-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px}
+.dev-panel .bedroom-dev-grid button{width:100%;font-size:6px;padding:3px 1px}
+body.dev-enabled .dev-panel{max-height:72%;overflow:auto}
+
 /* v0.19.1 — larger lyric bubble, anchored close to Rich */
 .rich-lyric-bubble{
  left:8.5% !important;

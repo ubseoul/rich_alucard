@@ -1,0 +1,89 @@
+{
+  "version": 1,
+  "sheet": {
+    "file": "bedroom_cloud_sprite_sheet.png",
+    "width": 288,
+    "height": 48
+  },
+  "sprites": {
+    "bedroom_cloud_large": {
+      "file": "bedroom_cloud_large.png",
+      "rectangle": {
+        "x": 0,
+        "y": 4,
+        "width": 136,
+        "height": 40
+      },
+      "dimensions": {
+        "width": 136,
+        "height": 40
+      },
+      "centerAnchor": {
+        "x": 68,
+        "y": 20
+      },
+      "visibleDimensions": {
+        "width": 128,
+        "height": 32
+      },
+      "padding": 4
+    },
+    "bedroom_cloud_medium": {
+      "file": "bedroom_cloud_medium.png",
+      "rectangle": {
+        "x": 140,
+        "y": 2,
+        "width": 88,
+        "height": 44
+      },
+      "dimensions": {
+        "width": 88,
+        "height": 44
+      },
+      "centerAnchor": {
+        "x": 44,
+        "y": 22
+      },
+      "visibleDimensions": {
+        "width": 80,
+        "height": 36
+      },
+      "padding": 4
+    },
+    "bedroom_cloud_small": {
+      "file": "bedroom_cloud_small.png",
+      "rectangle": {
+        "x": 232,
+        "y": 12,
+        "width": 52,
+        "height": 24
+      },
+      "dimensions": {
+        "width": 52,
+        "height": 24
+      },
+      "centerAnchor": {
+        "x": 26,
+        "y": 12
+      },
+      "visibleDimensions": {
+        "width": 44,
+        "height": 16
+      },
+      "padding": 4
+    }
+  },
+  "palette": [
+    "#E4E0D1",
+    "#D1D9DC",
+    "#ABBFCB"
+  ],
+  "alpha": "binary 0 or 255",
+  "rendering": {
+    "filter": "nearest-neighbor",
+    "imageSmoothingEnabled": false,
+    "cssImageRendering": "pixelated",
+    "scale": 1
+  },
+  "runtime": "Static reusable sprites only. Runtime controls slow right-to-left movement, position, spawning, layering and window masking. Clip strictly to the blue window; do not draw over architecture or bedroom foreground."
+}

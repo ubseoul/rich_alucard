@@ -10,6 +10,11 @@
 <main id="stage" aria-label="Rich Alucard battle prototype">
   <div id="screen">
     <div class="room" aria-hidden="true"></div>
+    <section id="bedroomScene" aria-hidden="true">
+      <div class="bedroom-base" aria-hidden="true"></div>
+      <canvas id="bedroomCloudCanvas" width="270" height="480" aria-hidden="true"></canvas>
+      <img id="bedroomRich" class="bedroom-rich" src="assets/rich_bedroom_lounge_idle.png" alt="" draggable="false" />
+    </section>
     <div id="ambienceLayer" aria-hidden="true"></div>
     <div id="bloodBathRear" class="blood-bath-layer blood-bath-rear" aria-hidden="true"></div>
     <div class="edge-frame" aria-hidden="true"></div>
@@ -139,12 +144,26 @@
       <label><input id="devTint" type="checkbox" /> CARTRIDGE TINT</label>
       <div id="devReadout" class="dev-readout"></div>
       <button id="devSmoke" type="button">RUN SMOKE CHECK</button>
+      <section class="bedroom-dev-controls" aria-label="Bedroom scene developer controls">
+        <button id="devEnterBedroom" type="button">DEV BEDROOM</button>
+        <button id="devReturnThrone" type="button">RETURN THRONE ROOM</button>
+        <div class="bedroom-dev-grid">
+          <button data-bedroom-state="lounge_idle" type="button">LOUNGE</button><button data-bedroom-state="phone_scroll" type="button">SCROLL</button>
+          <button data-bedroom-state="small_idle" type="button">IDLE</button><button data-bedroom-state="phone_reaction" type="button">REACTION</button>
+          <button data-bedroom-state="sleeping" type="button">SLEEP</button><button data-bedroom-state="drowsy_wake" type="button">DROWSY WAKE</button>
+        </div>
+        <button data-bedroom-cloud="large" type="button">SPAWN LARGE CLOUD</button>
+        <button data-bedroom-cloud="medium" type="button">SPAWN MEDIUM CLOUD</button>
+        <button data-bedroom-cloud="small" type="button">SPAWN SMALL CLOUD</button>
+        <button id="devClearBedroomClouds" type="button">CLEAR CLOUDS</button>
+      </section>
     </aside>
     <audio id="soundtrack" src="assets/bloodbath_mix3.wav" preload="auto"></audio>
   </div>
 </main>
 <script src="js/engine/state.js"></script>
 <script src="js/engine/scenes.js"></script>
+<script src="js/scenes/bedroom.js"></script>
 <script src="js/engine/audio.js"></script>
 <script src="js/data/characters.js"></script>
 <script src="js/data/moves.js"></script>
