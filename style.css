@@ -685,12 +685,13 @@ body.trip-mode #screen > :not(#tripTravel):not(#powderSpringsCurb):not(#stargazi
 #jdmDockBattleCanvas{display:none;position:absolute;inset:0;width:100%;height:100%;z-index:1;image-rendering:pixelated}
 body.jdm-mode .room,body.jdm-mode #ambienceLayer{display:none!important}
 body.jdm-battle #jdmDockBattleCanvas{display:block}
+body.jdm-battle #productionAssistant{display:none!important}
 body.jdm-battle .gemini-rich{left:-25px;top:174px;width:160px;height:192px;background-size:160px 192px}
 body.jdm-battle .production-ceo{left:100px;top:174px;width:160px;height:192px;background-size:160px 192px}
 body.jdm-battle .production-ceo.state-idle{background-image:url('assets/jdm_imports/characters/importer/importer_combat_ready.png')}
-body.jdm-battle .production-ceo.state-throw{background-image:url('assets/jdm_imports/characters/importer/importer_combat_ready.png');transform:translateX(-4px)}
+body.jdm-battle .production-ceo.state-throw{background-image:url('assets/jdm_imports/characters/importer/importer_combat_ready.png');transform:none}
 body.jdm-battle .production-ceo.state-hit,body.jdm-battle .production-ceo.combat-recoil-light,body.jdm-battle .production-ceo.combat-recoil-heavy{background-image:url('assets/jdm_imports/characters/importer/importer_hit.png')}
-body.jdm-battle .production-ceo.state-defeated{background-image:url('assets/jdm_imports/characters/importer/importer_defeated.png');filter:none;opacity:1;transform:translateY(5px)}
+body.jdm-battle .production-ceo.state-defeated{background-image:url('assets/jdm_imports/characters/importer/importer_defeated.png');filter:none;opacity:1;transform:none}
 body.jdm-battle .production-ceo.state-hit{filter:brightness(1.25)}
 .jdm-story-scene{position:absolute;inset:0;z-index:100;display:none;overflow:hidden;background:#091427;image-rendering:pixelated}
 .jdm-story-scene.active{display:block}

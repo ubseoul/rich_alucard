@@ -237,6 +237,8 @@ For reviews, distinguish:
 
 Never convert a PROPOSED idea into canon silently.
 
+**COMBAT STAGING QA RULE** — Every new encounter must receive a visual staging inspection at actual gameplay resolution after final production art integration. Verify ground/contact line, relative scale, opponent spacing, UI clearance, every combat state, and return-to-origin after displacement. Functional tests alone are insufficient.
+
 ## 16. Current milestone order
 
 Current intended sequence:
