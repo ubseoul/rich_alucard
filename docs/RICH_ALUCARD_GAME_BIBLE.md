@@ -245,6 +245,8 @@ Never convert a PROPOSED idea into canon silently.
 
 **BUILD / RELEASE / DEPLOYMENT INTEGRITY** — `npm test` is the deterministic release gate. `npm run build` creates the only Pages artifact in `dist/`, generates `build.json` and `js/build-info.js` from the exact Git commit and build timestamp, and applies one artifact-specific CSS/JS query version. GitHub Actions tests that artifact, deploys the artifact itself, then verifies the public `build.json` and generated DEV metadata against the triggering commit. A push alone is not release verification.
 
+**FOUNDATION WAVE 3 — SCENE LIFECYCLE + STAGE CONTRACT** — Scene-owned timers, animation frames, intervals, delayed callbacks, and temporary listeners must use a cancellable lifecycle scope and cannot mutate after scene exit. Global music keeps its intentional global lifetime. Approved stages use native-coordinate Stage Contracts; JDM Imports docks is the reference contract at 270×480 with a 350 contact line and approved Rich/importer/daughter anchors. The DEV overlay is inspection-only and hidden in normal play.
+
 ## 16. Current milestone order
 
 Current intended sequence:

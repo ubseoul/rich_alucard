@@ -125,3 +125,9 @@ This is a creative-direction changelog, not a substitute for Git history.
 - Established reusable reveal → bite → transformation → vampire profile → locked CRACK / LET HER FLY flow.
 - CRACK is Social-gated in the future; mechanics remain TBD.
 - CEO Assistant #001 canonical profile documented in CURRENT_CANON and the Master Game Bible.
+
+### Foundation Wave 3 — Control Time & Space
+- Added a small scene lifecycle scope: scene enter/exit owns cancellation of delayed work, animation frames, intervals, and temporary listeners. Global music remains global.
+- Bedroom ambience, phone overlay timing, and Desire Trip travel/activity/return timers now use scene-owned cancellation.
+- Added the reusable Stage Contract format and migrated the approved JDM Imports docks composition to native 270×480 coordinates. The approved contact line and Rich/importer/daughter anchors remain unchanged.
+- Added a DEV-only Stage Contract overlay and deterministic lifecycle/geometry coverage.

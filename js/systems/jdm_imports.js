@@ -1,12 +1,12 @@
 (function(){
  const SUPRA_MK4_PRICE_FOR_TESTING=78000;
- const CHARACTER_SCALE_OPTIONS=[1,1.25,1.5],DEFAULT_CHARACTER_SCALE=1.25,GROUND_Y=350,ANCHOR={x:40,y:88};
+ const CHARACTER_SCALE_OPTIONS=[1,1.25,1.5],DEFAULT_CHARACTER_SCALE=1.25;
  const ACQUISITION_ID='supra_mk4_first_collection',CAR_ID='toyota_supra_mk4_001',DAUGHTER_ID='jdm_importer_daughter_001';
  const dock=document.querySelector('#jdmDockScene'),dockPanel=document.querySelector('#jdmDockPanel'),payoff=document.querySelector('#supraPayoffScene'),payoffPanel=document.querySelector('#supraPayoffPanel');
  const dockCanvas=document.querySelector('#jdmDockCanvas'),payoffCanvas=document.querySelector('#supraPayoffCanvas');
  const dockActors={rich:document.querySelector('#jdmDockRich'),importer:document.querySelector('#jdmDockImporter'),daughter:document.querySelector('#jdmDockDaughter')};
  const payoffRich=document.querySelector('#supraPayoffRich'),payoffCar=document.querySelector('#supraPayoffCar'),payoffKey=document.querySelector('#supraPayoffKey');
- const scaleControl=document.querySelector('#devJdmScale');let characterScale=DEFAULT_CHARACTER_SCALE;
+ const scaleControl=document.querySelector('#devJdmScale');let characterScale=DEFAULT_CHARACTER_SCALE,dockStage=null,battleStage=null;
  const ENVIRONMENT='assets/jdm_imports/environment/docks_night_270x480.png',dockEnvironment=new Image(),payoffEnvironment=new Image();
  dockEnvironment.src=ENVIRONMENT;payoffEnvironment.src=ENVIRONMENT;
  const active=()=>RAState.get().life.acquisitions.active;
@@ -14,16 +14,17 @@
  const button=(label,action,extra='')=>`<button type="button" class="phone-button jdm-action" data-jdm-action="${action}" ${extra}>${label}</button>`;
  function panelButton(label,action){return `<button type="button" class="jdm-panel-action" data-jdm-action="${action}">${label}</button>`}
  function paintEnvironment(canvas,image){const ctx=canvas?.getContext('2d');if(!ctx||!image.complete||!image.naturalWidth)return;ctx.imageSmoothingEnabled=false;ctx.clearRect(0,0,270,480);ctx.drawImage(image,0,0,270,480)}
- function placeCharacter(img,anchorX,scale=characterScale){if(!img)return;const canvas=img.closest('#jdmDockScene')?dockCanvas:payoffCanvas,sx=canvas?.getBoundingClientRect().width/(canvas?.width||270)||1,sy=canvas?.getBoundingClientRect().height/(canvas?.height||480)||1;img.style.width=`${80*scale*sx}px`;img.style.height=`${96*scale*sy}px`;img.style.left=`${Math.round((anchorX-ANCHOR.x*scale)*sx)}px`;img.style.top=`${Math.round((GROUND_Y-ANCHOR.y*scale)*sy)}px`;img.classList.add('visible')}
+ function placeCharacter(img,anchorX,scale=characterScale){if(!img)return;const sx=payoffCanvas?.getBoundingClientRect().width/(payoffCanvas?.width||270)||1,sy=payoffCanvas?.getBoundingClientRect().height/(payoffCanvas?.height||480)||1;img.style.width=`${80*scale*sx}px`;img.style.height=`${96*scale*sy}px`;img.style.left=`${Math.round((anchorX-40*scale)*sx)}px`;img.style.top=`${Math.round((350-88*scale)*sy)}px`;img.classList.add('visible')}
+ function layoutDockActors(){for(const [slot,img] of Object.entries(dockActors)){if(img){window.RAStageLayout.layout('jdm-imports-docks',slot,dockCanvas,img,characterScale);img.classList.add('visible')}}}
  function placePayoffObjects(){const sx=payoffCanvas?.getBoundingClientRect().width/(payoffCanvas?.width||270)||1,sy=payoffCanvas?.getBoundingClientRect().height/(payoffCanvas?.height||480)||1;for(const [el,x,y,w,h] of [[payoffCar,100,304,136,50],[payoffKey,67,319,24,16]])if(el){el.style.left=`${x*sx}px`;el.style.top=`${y*sy}px`;el.style.width=`${w*sx}px`;el.style.height=`${h*sy}px`;el.classList.add('visible')}}
  function setActorState(id,filename){const img=dockActors[id];if(img)img.src=`assets/jdm_imports/characters/${id==='importer'?'importer':'daughter'}/${filename}.png`}
  function setDockActors(stage){
   setActorState('importer',stage==='arrival'?'importer_neutral':stage==='meet'?'importer_irritated':stage==='aftermath'?'importer_defeated':'importer_combat_ready');
   setActorState('daughter',stage==='arrival'?'daughter_neutral':stage==='meet'?'daughter_reaction':'daughter_post_battle');
-  placeCharacter(dockActors.rich,55);placeCharacter(dockActors.importer,180);placeCharacter(dockActors.daughter,230);
+  layoutDockActors();
  }
- function layoutBattleActors(){const battleCanvas=document.querySelector('#jdmDockBattleCanvas'),sx=battleCanvas?.getBoundingClientRect().width/(battleCanvas?.width||270)||1,sy=battleCanvas?.getBoundingClientRect().height/(battleCanvas?.height||480)||1;for(const [img,anchorX] of [[document.querySelector('#geminiRich'),55],[document.querySelector('#productionCEO'),180],[document.querySelector('#jdmBattleDaughter'),230]])if(img){img.style.left=`${Math.round((anchorX-ANCHOR.x*characterScale)*sx)}px`;img.style.top=`${Math.round((GROUND_Y-ANCHOR.y*characterScale)*sy)}px`;img.style.width=`${80*characterScale*sx}px`;img.style.height=`${96*characterScale*sy}px`;img.style.backgroundSize=`${80*characterScale*sx}px ${96*characterScale*sy}px`}window.RAJDMCombatPresentation?.layoutBubbles?.()}
- function queueBattleActorLayout(){layoutBattleActors();requestAnimationFrame(()=>{if(RAScenes.current()==='jdmCombat')layoutBattleActors()})}
+ function layoutBattleActors(){const battleCanvas=document.querySelector('#jdmDockBattleCanvas'),actors={rich:document.querySelector('#geminiRich'),importer:document.querySelector('#productionCEO'),daughter:document.querySelector('#jdmBattleDaughter')};for(const [slot,img]of Object.entries(actors))if(img){const rect=window.RAStageLayout.layout('jdm-imports-docks',slot,battleCanvas,img,characterScale);img.style.backgroundSize=`${rect.width}px ${rect.height}px`}window.RAJDMCombatPresentation?.layoutBubbles?.()}
+ function queueBattleActorLayout(){layoutBattleActors();RAScenes.currentScope()?.frame?.(()=>{if(RAScenes.current()==='jdmCombat')layoutBattleActors()})}
  function clearBattleActorLayout(){for(const img of [document.querySelector('#geminiRich'),document.querySelector('#productionCEO'),document.querySelector('#jdmBattleDaughter')])if(img)for(const key of ['left','top','width','height','backgroundSize'])img.style.removeProperty(key.replace(/[A-Z]/g,m=>`-${m.toLowerCase()}`))}
  function setCharacterScale(value){const next=Number(value);if(!CHARACTER_SCALE_OPTIONS.includes(next))return characterScale;characterScale=next;if(scaleControl)scaleControl.value=String(next);if(dock?.classList.contains('active'))setDockActors(active()?.stage||'arrival');if(payoff?.classList.contains('active')){placeCharacter(payoffRich,55);placePayoffObjects()}if(RAScenes.current()==='jdmCombat')layoutBattleActors();return characterScale}
  function storeMarkup(){const owned=car(),current=active(),access=RAOpportunities.get('jdm_home_delivery');let label,action,disabled='';
@@ -76,7 +77,8 @@
  function sayIfPossible(text){window.RACombat?.message?.(text)}
  function ownerDefeated(){patchActive({stage:'aftermath',status:'in_progress'});RAState.patch(`characters.${DAUGHTER_ID}.met`,true);RAState.patch(`characters.${DAUGHTER_ID}.adult`,true);RAState.patch('life.world.location','LA import facility');return RAScenes.go('jdmAftermath')}
  async function ownerLost(choice){if(choice==='retry')return window.RACombat?.startJdmEncounter?.();patchActive({status:'paused',stage:'meet',losses:(active()?.losses||0)+1});RAState.patch('life.world.location','LA');document.body.classList.remove('jdm-mode','jdm-battle');show(dock,false);return RAScenes.go('bedroom',{jdmImports:true})}
- function sceneEntry(id){document.body.classList.add('jdm-mode');document.body.classList.remove('jdm-battle');show(dock,id!=='supraPayoff');show(payoff,id==='supraPayoff');
+ function sceneEntry(id,scope){document.body.classList.add('jdm-mode');document.body.classList.remove('jdm-battle');show(dock,id!=='supraPayoff');show(payoff,id==='supraPayoff');
+  if(id==='jdmDock'||id==='jdmAftermath')dockStage=window.RAStageLayout.activate('jdm-imports-docks',dockCanvas,dockActors,scope,()=>characterScale);
   if(id==='jdmDock'){paintEnvironment(dockCanvas,dockEnvironment);setDockActors(active()?.stage||'arrival');renderDock()}
   if(id==='jdmAftermath'){paintEnvironment(dockCanvas,dockEnvironment);setDockActors('aftermath');renderAftermath()}
   if(id==='supraPayoff'){paintEnvironment(payoffCanvas,payoffEnvironment);placeCharacter(payoffRich,55);placePayoffObjects();renderPayoff()}
@@ -87,10 +89,11 @@ document.addEventListener('DOMContentLoaded',()=>{
   setCharacterScale(DEFAULT_CHARACTER_SCALE);
   scaleControl?.addEventListener('change',e=>setCharacterScale(e.target.value));dockEnvironment.onload=()=>{paintEnvironment(dockCanvas,dockEnvironment);paintEnvironment(document.querySelector('#jdmDockBattleCanvas'),dockEnvironment)};payoffEnvironment.onload=()=>paintEnvironment(payoffCanvas,payoffEnvironment);
   dockPanel?.addEventListener('click',sceneClick);payoffPanel?.addEventListener('click',sceneClick);
-  RAScenes.register('jdmDock',{enter:()=>sceneEntry('jdmDock'),exit:()=>sceneExit('jdmDock')});
-  RAScenes.register('jdmCombat',{enter:()=>{document.body.classList.add('jdm-mode','jdm-battle');show(dock,false);show(payoff,false);paintEnvironment(document.querySelector('#jdmDockBattleCanvas'),dockEnvironment);window.RACombat?.startJdmEncounter?.()},exit:()=>{document.body.classList.remove('jdm-battle');clearBattleActorLayout()}});
-  RAScenes.register('jdmAftermath',{enter:()=>sceneEntry('jdmAftermath'),exit:()=>sceneExit('jdmAftermath')});
-  RAScenes.register('supraPayoff',{enter:()=>sceneEntry('supraPayoff'),exit:()=>sceneExit('supraPayoff')});
+  document.querySelector('#devStageOverlay')?.addEventListener('change',e=>{document.body.classList.toggle('stage-overlay-active',e.target.checked);if(RAScenes.current()==='jdmCombat')battleStage?.layout?.();else dockStage?.layout?.()});
+  RAScenes.register('jdmDock',{enter:({scope})=>sceneEntry('jdmDock',scope),exit:()=>sceneExit('jdmDock')});
+  RAScenes.register('jdmCombat',{enter:({scope})=>{document.body.classList.add('jdm-mode','jdm-battle');show(dock,false);show(payoff,false);const canvas=document.querySelector('#jdmDockBattleCanvas');paintEnvironment(canvas,dockEnvironment);battleStage=window.RAStageLayout.activate('jdm-imports-docks',canvas,{rich:document.querySelector('#geminiRich'),importer:document.querySelector('#productionCEO'),daughter:document.querySelector('#jdmBattleDaughter')},scope,()=>characterScale);window.RACombat?.startJdmEncounter?.()},exit:()=>{document.body.classList.remove('jdm-battle');clearBattleActorLayout()}});
+  RAScenes.register('jdmAftermath',{enter:({scope})=>sceneEntry('jdmAftermath',scope),exit:()=>sceneExit('jdmAftermath')});
+  RAScenes.register('supraPayoff',{enter:({scope})=>sceneEntry('supraPayoff',scope),exit:()=>sceneExit('supraPayoff')});
  });
  window.RAJDMImports={priceForTesting:SUPRA_MK4_PRICE_FOR_TESTING,characterScaleOptions:CHARACTER_SCALE_OPTIONS,defaultCharacterScale:DEFAULT_CHARACTER_SCALE,setCharacterScale,layoutBattleActors,queueBattleActorLayout,carId:CAR_ID,characterId:DAUGHTER_ID,storeMarkup,action,begin,resume,hasCheckpoint:()=>!!active()&&(active().status!=='completed'||active().stage==='payoff'),ownerDefeated,ownerLost,completeAcquisition,computeCompletionState,drawBattleBackground:()=>paintEnvironment(document.querySelector('#jdmDockBattleCanvas'),dockEnvironment)};
  window.addEventListener('resize',()=>{if(dock?.classList.contains('active'))setDockActors(active()?.stage||'arrival');if(payoff?.classList.contains('active')){placeCharacter(payoffRich,55);placePayoffObjects()}if(RAScenes.current()==='jdmCombat')layoutBattleActors()});

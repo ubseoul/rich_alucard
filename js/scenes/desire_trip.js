@@ -3,9 +3,9 @@
  const travel=document.querySelector('#tripTravel'),curb=document.querySelector('#powderSpringsCurb'),stars=document.querySelector('#stargazingScene'),returnScene=document.querySelector('#tripReturn');
  const rich=document.querySelector('#tripRich'),activityAction=document.querySelector('#tripActivityAction'),scaleControl=document.querySelector('#devTripScale');
  const HOLDS={eating:1450,chilling:1250,stargazing:9000,returning:650};
- const SRC_SIZE={width:80,height:96},SRC_ANCHOR={x:40,y:88},WORLD_ANCHOR={x:135,y:406},SCALE_OPTIONS=[1,1.5,1.75,2],DEFAULT_SCALE=1.5;let timer=0;
+ const SRC_SIZE={width:80,height:96},SRC_ANCHOR={x:40,y:88},WORLD_ANCHOR={x:135,y:406},SCALE_OPTIONS=[1,1.5,1.75,2],DEFAULT_SCALE=1.5;let timer=0,sceneScope=null;
  function show(el,on){el?.classList.toggle('active',on);el?.setAttribute('aria-hidden',on?'false':'true')}
- function clearTimer(){clearTimeout(timer);timer=0}
+ function clearTimer(){if(typeof timer==='function')timer();else clearTimeout(timer);timer=0}
  function setScale(value){
   const scale=SCALE_OPTIONS.includes(Number(value))?Number(value):DEFAULT_SCALE;
   document.querySelectorAll('.trip-rich').forEach(img=>{
@@ -18,13 +18,14 @@
  }
  function stagePose(name){if(rich)rich.src=`assets/rich_curb_${name}.png`;curb.dataset.stage=name}
  function button(label,handler){const b=document.createElement('button');b.type='button';b.className='trip-action';b.textContent=label;b.addEventListener('click',handler,{once:true});activityAction?.replaceChildren(b)}
- function delayAction(stage,label,handler,delay){clearTimer();if(activityAction)activityAction.replaceChildren();timer=setTimeout(()=>{timer=0;if(RAScenes.current()==='powderSpringsCurb'&&curb.dataset.stage===stage)button(label,handler)},delay)}
- function enterTravel(){
+ function delayAction(stage,label,handler,delay){clearTimer();if(activityAction)activityAction.replaceChildren();timer=sceneScope?.timeout(()=>{timer=0;if(RAScenes.current()==='powderSpringsCurb'&&curb.dataset.stage===stage)button(label,handler)},delay)||0}
+ function enterTravel({scope}){
+  sceneScope=scope;
   document.body.classList.add('trip-mode');show(travel,true);RADesireTrips.setStatus('traveling');clearTimer();
-  timer=setTimeout(()=>{timer=0;const trip=RADesireTrips.current();if(!trip)return;RADesireTrips.setStatus('arrived');RAState.patch('life.world.location',`${trip.destination.name}, ${trip.destination.region}`);RAScenes.go('powderSpringsCurb')},720);
+  timer=scope.timeout(()=>{timer=0;const trip=RADesireTrips.current();if(!trip)return;RADesireTrips.setStatus('arrived');RAState.patch('life.world.location',`${trip.destination.name}, ${trip.destination.region}`);RAScenes.go('powderSpringsCurb')},720);
  }
  function exitTravel(){clearTimer();show(travel,false)}
- function enterCurb(){
+ function enterCurb({scope}){sceneScope=scope;
   document.body.classList.add('trip-mode');show(curb,true);setScale(scaleControl?.value||DEFAULT_SCALE);
   const trip=RADesireTrips.current();if(!trip)return;
   if(trip.status==='traveling')RADesireTrips.setStatus('arrived');
@@ -35,9 +36,9 @@
  function enterEating(){stagePose('eating');RADesireTrips.setCurrentActivity('eat butter chicken');delayAction('eating','FINISHED EATING',()=>{RADesireTrips.completeActivity('eat butter chicken');enterChilling()},HOLDS.eating)}
  function enterChilling(){stagePose('chilling');RADesireTrips.setCurrentActivity('chilling');delayAction('chilling','LOOK AT THE STARS',()=>RAScenes.go('stargazing'),HOLDS.chilling)}
  function exitCurb(){clearTimer();show(curb,false);if(activityAction)activityAction.replaceChildren()}
- function enterStars(){document.body.classList.add('trip-mode');show(stars,true);RADesireTrips.setCurrentActivity('look at the stars');clearTimer();const done=document.querySelector('#stargazingDone');done?.classList.remove('visible');timer=setTimeout(()=>{timer=0;if(RAScenes.current()==='stargazing')done?.classList.add('visible')},HOLDS.stargazing)}
+ function enterStars({scope}){sceneScope=scope;document.body.classList.add('trip-mode');show(stars,true);RADesireTrips.setCurrentActivity('look at the stars');clearTimer();const done=document.querySelector('#stargazingDone');done?.classList.remove('visible');timer=scope.timeout(()=>{timer=0;if(RAScenes.current()==='stargazing')done?.classList.add('visible')},HOLDS.stargazing)}
  function exitStars(){clearTimer();show(stars,false);document.querySelector('#stargazingDone')?.classList.remove('visible')}
- function enterReturn(){document.body.classList.add('trip-mode');show(returnScene,true);clearTimer();timer=setTimeout(async()=>{timer=0;RAState.patch('life.world.location','LA');await RAScenes.go('bedroom',{tripReturn:true})},HOLDS.returning)}
+ function enterReturn({scope}){sceneScope=scope;document.body.classList.add('trip-mode');show(returnScene,true);clearTimer();timer=scope.timeout(async()=>{timer=0;RAState.patch('life.world.location','LA');await RAScenes.go('bedroom',{tripReturn:true})},HOLDS.returning)}
  function exitReturn(){clearTimer();show(returnScene,false)}
  async function endStargazing(){clearTimer();RADesireTrips.completeActivity('look at the stars');RADesireTrips.finish();await RAScenes.go('tripReturn')}
  document.addEventListener('DOMContentLoaded',()=>{

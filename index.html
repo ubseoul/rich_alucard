@@ -12,6 +12,7 @@
   <div id="screen">
     <div class="room" aria-hidden="true"></div>
     <canvas id="jdmDockBattleCanvas" width="270" height="480" aria-hidden="true"></canvas>
+    <canvas id="stageContractOverlay" width="270" height="480" aria-hidden="true"></canvas>
     <section id="bedroomScene" aria-hidden="true">
       <div class="bedroom-base" aria-hidden="true"></div>
       <canvas id="bedroomCloudCanvas" width="270" height="480" aria-hidden="true"></canvas>
@@ -186,6 +187,7 @@
       <label>FONT LAB <select id="devFont"><option value="control">CONTROL</option><option value="monogram">MONOGRAM</option><option value="press-start">PRESS START 2P</option><option value="tiny5">TINY5</option></select></label>
       <label><input id="devTint" type="checkbox" /> CARTRIDGE TINT</label>
       <label id="devJdmScaleControl">JDM CHARACTER SCALE <select id="devJdmScale" aria-label="JDM scene character scale"><option value="1">1×</option><option value="1.25" selected>1.25×</option><option value="1.5">1.5×</option></select></label>
+      <label id="devStageOverlayControl"><input id="devStageOverlay" type="checkbox"> STAGE CONTRACT OVERLAY</label>
       <div id="devReadout" class="dev-readout"></div>
       <details id="devLifeInspector"><summary>LIFE STATE INSPECTOR</summary><pre id="devLifeReadout"></pre>
         <label>MONEY <input id="devLifeMoney" type="number" step="1" /></label>
@@ -220,6 +222,8 @@
 <script src="js/engine/state.js?v=__BUILD_ASSET_VERSION__"></script>
 <script src="js/data/save_fixtures.js?v=__BUILD_ASSET_VERSION__"></script>
 <script src="js/engine/scenes.js?v=__BUILD_ASSET_VERSION__"></script>
+<script src="js/data/stages.js?v=__BUILD_ASSET_VERSION__"></script>
+<script src="js/engine/stage.js?v=__BUILD_ASSET_VERSION__"></script>
 <script src="js/systems/desire_trips.js?v=__BUILD_ASSET_VERSION__"></script>
 <script src="js/data/opportunities.js?v=__BUILD_ASSET_VERSION__"></script>
 <script src="js/systems/jdm_imports.js?v=__BUILD_ASSET_VERSION__"></script>
