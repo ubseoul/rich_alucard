@@ -4,6 +4,9 @@ This is a creative-direction changelog, not a substitute for Git history.
 
 ## 2026-09-22
 
+### Milestone 6B — I Want a Supra
+- Tests desire-driven acquisition, persistent ownership, business unlocks and consequences using the Life Engine. Encounter details are intentionally withheld until Ube's first playthrough.
+
 ### Milestone 6A — Life Engine foundation
 - Recorded **Milestone 5 as PASS**: the Powder Springs playtest validated Desire Trips as satisfying without a conventional objective or reward; **FULFILLMENT IS GAMEPLAY**. Contemplative moments remain player-controlled.
 - Added the v5 browser-local `life` save record for Rich identity, world state, resources, ownership, people, creative music progress, phone, desire trips, opportunity data and history. Future-facing collections start empty.

@@ -218,6 +218,8 @@ Persistent state tracks:
 
 Save locally in the browser.
 
+**Milestone 6B — I Want a Supra** tests desire-driven acquisition, persistent ownership, business unlocks and consequences. Encounter details remain undisclosed pending Ube's playthrough.
+
 ## 15. Production workflow
 
 **Ube = creative director/world-builder/player.**

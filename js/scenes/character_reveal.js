@@ -53,6 +53,18 @@
     renderProfile();
     show('converted');
   }
+  async function convertEncounterCharacter(id,assets={}){
+    if(active||RACharacterSystem.runtime(id)?.vampire)return false;
+    active=true;const overlay=el('revealOverlay'),sprite=el('revealAssistantSprite'),profile=el('revealProfile'),title=el('revealTitle');
+    if(window.RAScenes)await RAScenes.go('jdmConversion');else RAState.patch('life.world.scene','jdmConversion');
+    overlay?.classList.add('on','external-conversion');overlay.dataset.mode='external';
+    if(title)title.textContent='VAMPIRE CONVERSION';
+    profile?.classList.remove('on');el('revealBitePrompt')?.classList.remove('on');el('revealAftercare')?.classList.remove('on');
+    if(sprite){sprite.classList.remove('fly');sprite.style.display='block';sprite.style.backgroundImage=`url('${assets.human||''}')`;}
+    await pause(420);sprite?.classList.add('conversion-bite');await pause(420);sprite?.classList.remove('conversion-bite');sprite?.classList.add('conversion-first');await pause(420);sprite?.classList.remove('conversion-first');sprite?.classList.add('conversion-second');
+    RACharacterSystem.mark(id,'vampire',true);await pause(420);sprite?.classList.remove('conversion-second');if(sprite)sprite.style.backgroundImage=`url('${assets.vampire||assets.human||''}')`;await pause(650);
+    overlay?.classList.remove('on','external-conversion');overlay.dataset.mode='';if(title)title.textContent='CEO ASSISTANT #001';profile?.classList.add('on');active=false;return true;
+  }
   async function fly(){
     const button=el('revealFlyButton');
     if(button)button.disabled=true;
@@ -86,5 +98,5 @@
     el('revealFlyButton')?.addEventListener('click',fly);
   });
   if(window.RAScenes)RAScenes.register('character_reveal',{enter:()=>show(runtime()?.vampire?'converted':'bite'),exit:close});
-  window.RACharacterReveal={open,close,convert,fly,renderProfile};
+  window.RACharacterReveal={open,close,convert,convertEncounterCharacter,fly,renderProfile};
 })();

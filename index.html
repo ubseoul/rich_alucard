@@ -10,6 +10,7 @@
 <main id="stage" aria-label="Rich Alucard battle prototype">
   <div id="screen">
     <div class="room" aria-hidden="true"></div>
+    <canvas id="jdmDockBattleCanvas" width="270" height="480" aria-hidden="true"></canvas>
     <section id="bedroomScene" aria-hidden="true">
       <div class="bedroom-base" aria-hidden="true"></div>
       <canvas id="bedroomCloudCanvas" width="270" height="480" aria-hidden="true"></canvas>
@@ -21,7 +22,7 @@
     <div class="edge-frame" aria-hidden="true"></div>
     <section class="combat-hud" aria-label="Battle health">
       <div class="hpbox rich-hp"><b>RICH ALUCARD</b><span>HP <i><em id="richHPBar"></em></i> <strong id="richHPText">100/100</strong></span></div>
-      <div class="hpbox ceo-hp"><b>CEO ZOMBIE PRINCE</b><span>HP <i><em id="ceoHPBar"></em></i> <strong id="ceoHPText">100/100</strong></span></div>
+      <div class="hpbox ceo-hp"><b id="enemyName">CEO ZOMBIE PRINCE</b><span>HP <i><em id="ceoHPBar"></em></i> <strong id="ceoHPText">100/100</strong></span></div>
     </section>
 
     <section class="battle-ui" id="battleUI">
@@ -96,7 +97,7 @@
 </div>
     <section id="revealOverlay" class="reveal-overlay" aria-label="Character reveal">
   <div class="reveal-scene panel">
-    <div class="reveal-title">CEO ASSISTANT #001</div>
+    <div id="revealTitle" class="reveal-title">CEO ASSISTANT #001</div>
     <div id="revealAssistantSprite" class="reveal-assistant-sprite" aria-hidden="true"></div>
     <div id="revealProfile" class="reveal-profile">
       <div class="reveal-row"><b>CLASS</b><span id="revealClass"></span></div>
@@ -138,6 +139,16 @@
     </section>
     <section id="tripReturn" class="trip-scene trip-return" aria-hidden="true" aria-label="Return transition">
       <div class="trip-route"><div>POWDER SPRINGS</div><div>↓</div><div>ATLANTA</div><div>↓</div><div>LA</div></div>
+    </section>
+    <section id="jdmDockScene" class="jdm-story-scene" aria-hidden="true" aria-label="JDM import facility">
+      <canvas id="jdmDockCanvas" width="270" height="480" aria-hidden="true"></canvas>
+      <div id="jdmDockDaughter" aria-hidden="true"></div>
+      <div id="jdmDockPanel" class="jdm-story-panel"></div>
+    </section>
+    <section id="supraPayoffScene" class="jdm-story-scene" aria-hidden="true" aria-label="Rich with his Supra">
+      <canvas id="supraPayoffCanvas" width="270" height="480" aria-hidden="true"></canvas>
+      <div id="supraPayoffRich" aria-hidden="true"></div>
+      <div id="supraPayoffPanel" class="supra-payoff-panel"></div>
     </section>
 <div id="attackLayer" class="attack-layer" aria-hidden="true">
       <div id="richCast" class="rich-cast"></div>
@@ -200,6 +211,7 @@
 <script src="js/engine/scenes.js"></script>
 <script src="js/systems/desire_trips.js"></script>
 <script src="js/data/opportunities.js"></script>
+<script src="js/systems/jdm_imports.js"></script>
 <script src="js/scenes/bedroom.js"></script>
 <script src="js/scenes/phone.js"></script>
 <script src="js/scenes/desire_trip.js"></script>
