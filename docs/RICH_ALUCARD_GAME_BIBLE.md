@@ -151,7 +151,15 @@ The **Bedroom Ambient Prototype and Bedroom Phone + VampGPT v0.1 are approved mi
 
 Phone home contains exactly seven apps: VampGPT, VampGram, InstaHoe, RealMoneyRealEstate, JDMIMPORTS, RICHBOIMPORTS and ONLYVAMPS. Only VampGPT has an authored interaction in v0.1. It is Rich's state-aware personal assistant, surfaces options without choosing his life, and is not freeform AI. Its canonical starting prompt is **OGA WHAT DO I DO**. The authored response reads cash from Rich's existing $100,000 budget and uses LA location and LOW clout state, then offers MAKE MONEY, MEET PEOPLE and GO SOMEWHERE. The first two lanes and other apps respond `NOT SET UP YET.`
 
-GO SOMEWHERE shows Atlanta as **available** and Tokyo as **locked by social/clout access**. The authored Tokyo message is `tokyo vampires don't fw you yet. get your clout up.` The exact clout requirement is TBD. Atlanta is currently an available destination opportunity only; no travel or location change occurs in this prototype. The player returns Phone Home → Bedroom; no activity beyond seeing Atlanta is implemented.
+GO SOMEWHERE shows Atlanta as **available** and Tokyo as **locked by social/clout access**. The authored Tokyo message is `tokyo vampires don't fw you yet. get your clout up.` The exact clout requirement is TBD. Selecting Atlanta opens the authored Butter Chicken Under the Stars desire; Rich's location changes only after he commits with LET'S GO.
+
+### Desire Trips
+
+A **Desire Trip** is an activity Rich pursues because he wants the experience. It need not have a quest, conventional objective or mechanical reward. The reusable minimum is: authored desire → persistent active trip → brief travel transition → destination scene → activity → player-controlled completion.
+
+**Butter Chicken Under the Stars is Desire Trip #001.** Rich commits to butter chicken in Powder Springs, Georgia. The placeholder sequence is LA → Atlanta → Powder Springs, a `powderSpringsCurb` scene marked **DEV PLACEHOLDER BACKGROUND**, EAT BUTTER CHICKEN, then `stargazing`. The trip state uses destination, purpose, status (`planned`, `traveling`, `arrived`, `completed`), current activity and completed activities. Eating records the activity; the trip remains arrived while Rich looks at the stars. I'M GOOD ends stargazing and marks the trip completed. Stargazing has no automatic timer. No reward, quest, combat, NPC, restaurant or travel mechanics are part of this slice.
+
+Final Powder Springs environment art and final Rich eating/stargazing states are not approved. Art direction remains: Rich sitting on a curb at night, eating takeout butter chicken and looking at a large starry sky. The prototype does not draw or approximate that target composition.
 
 ## 11. Exploration
 
@@ -228,7 +236,7 @@ Never convert a PROPOSED idea into canon silently.
 ## 16. Current milestone order
 
 Current intended sequence:
-**Engine → Conversion → Polish/QA → Bedroom Ambient (approved) → Phone + VampGPT v0.1 (approved) → Ube playtest → Fun Test → expand**
+**Engine → Conversion → Polish/QA → Bedroom Ambient (approved) → Phone + VampGPT v0.1 (approved) → Desire Trip #001 placeholder → Ube playtest → Fun Test → expand**
 
 The order may change based on actual play.
 

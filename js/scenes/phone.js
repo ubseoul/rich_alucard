@@ -17,6 +17,8 @@
    content.innerHTML=`<h1>VAMPGPT</h1><div class="phone-chat"><p class="phone-speaker">RICH</p><p>oga what do i do</p><p class="phone-speaker">VAMPGPT</p><p>you got $${cash()}.<br>you in ${r.location}.<br>clout still ${String(r.clout).toLowerCase()}.<br>we got options though.</p><div class="phone-option-list">${button('MAKE MONEY','money')}${button('MEET PEOPLE','people')}${button('GO SOMEWHERE','somewhere')}</div><div class="phone-message" aria-live="polite"></div></div>${button('HOME','home','phone-back')}`;
   }else if(page==='somewhere'){
    content.innerHTML=`<h1>VAMPGPT</h1><div class="phone-chat"><p>where you tryna go</p><div class="phone-option-list">${button('ATLANTA<br><small>AVAILABLE</small>','atlanta','destination-available')}${button('TOKYO 🔒<br><small>LOCKED</small>','tokyo','destination-locked')}</div><div class="phone-message" aria-live="polite"></div></div>${button('BACK','options','phone-back')}${button('HOME','home','phone-home')}`;
+  }else if(page==='butterChicken'){
+   content.innerHTML=`<h1>VAMPGPT</h1><div class="phone-chat"><p class="phone-speaker">VAMPGPT</p><p>you could go get butter chicken</p><p class="phone-speaker">RICH</p><p>where</p><p class="phone-speaker">VAMPGPT</p><p>powder springs<br>outside atlanta</p><p class="phone-speaker">RICH</p><p>bet</p></div><div class="phone-trip-choice">${button("LET'S GO",'letsGo')}${button('NAH','nah')}</div>${button('BACK','somewhere','phone-back')}`;
   }
  }
  function setMessage(text){const target=content.querySelector('.phone-message');if(target)target.textContent=text;}
@@ -26,12 +28,17 @@
   overlay.setAttribute('aria-hidden','false');overlay.classList.remove('closing');overlay.classList.add('open');render();
   setTimeout(()=>document.querySelector('#phoneClose')?.focus({preventScroll:true}),240);
  }
- function closePhone(){if(!opened)return;overlay.classList.remove('open');overlay.classList.add('closing');overlay.setAttribute('aria-hidden','true');setTimeout(()=>{overlay.classList.remove('closing');opened=false;window.RABedroom?.releasePhone?.();entry?.focus({preventScroll:true});},230);}
+ function closePhone(){if(!opened)return Promise.resolve();overlay.classList.remove('open');overlay.classList.add('closing');overlay.setAttribute('aria-hidden','true');return new Promise(resolve=>setTimeout(()=>{overlay.classList.remove('closing');opened=false;window.RABedroom?.releasePhone?.();entry?.focus({preventScroll:true});resolve()},230));}
  function action(name){
   if(name==='close'){closePhone();return}if(name==='home'){page='home';render();return}if(name==='vampgpt'){page='vampgpt';render();return}if(name==='prompt'){page='options';render();return}if(name==='somewhere'){page='somewhere';render();return}if(name==='options'){page='options';render();return}
   if(name==='money'||name==='people'){setMessage('NOT SET UP YET.');return}
-  if(name==='atlanta'){setMessage('ATLANTA — AVAILABLE.');return}
+  if(name==='atlanta'){page='butterChicken';render();return}
   if(name==='tokyo'){setMessage("tokyo vampires don't fw you yet. get your clout up.");return}
+  if(name==='nah'){page='somewhere';render();return}
+  if(name==='letsGo'){
+   const trip=window.RADesireTrips?.createTrip(window.RADesireTripPresentation?.firstTrip||{});if(!trip)return;
+   closePhone().then(()=>window.RADesireTrips.beginTravel());return;
+  }
   if(name==='unavailable')setMessage('NOT SET UP YET.');
  }
  document.addEventListener('DOMContentLoaded',()=>{
