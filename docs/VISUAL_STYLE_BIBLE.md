@@ -168,6 +168,12 @@ Vampire Bite's approved FX package defines the SPEED language: full-screen jaws 
 
 Room ambience should be sparse. Bats may occasionally cross the room; constant motion is undesirable.
 
+## Bedroom Ambient Prototype
+
+The first playable bedroom ambient scene is **APPROVED**. Use the supplied 270×480 bedroom environment unchanged, with authored Rich bedroom states aligned to the bed and the three supplied cloud sprites. Clouds use nearest-neighbor rendering and an exact runtime mask from the blue window pixels; they never cross the architecture or Rich.
+
+On scene entry, start with at least one cloud already moving right-to-left at a randomized position; a second differently sized cloud may occasionally be present. Keep size-specific speeds calm but perceptible within a few seconds. Future spawns remain irregular with gaps that leave open blue sky. Rich stays mostly still in authored states; sleep and wake remain sequence-controlled. This approval covers the ambient prototype, not phone gameplay or apps.
+
 ## Rich visual identity
 
 Rich's recurring signals include:

@@ -145,11 +145,9 @@ Cars, castle size and lifestyle status may eventually influence the world and ch
 
 ## 10. Bedroom / Phone
 
-A future bedroom scene shows Rich on his phone, potentially in a hoodie.
+The **Bedroom Ambient Prototype is approved** as the first playable home scene. It uses the supplied immutable 270×480 environment, authored Rich bedroom states and sparse window-clipped clouds. Each bedroom entry begins with at least one cloud already drifting at a randomized position; an occasional second differently sized cloud may also be in progress. Cloud speed is calm and size-specific, while future spawns remain irregular and leave open-sky periods.
 
-The Phone is planned as the navigation center for Rich's life.
-
-Do not invent the bedroom layout or phone apps until designed through play/creative direction.
+The Phone is planned as the navigation center for Rich's life, but phone gameplay and apps are not implemented or approved by this ambient-scene milestone.
 
 ## 11. Exploration
 

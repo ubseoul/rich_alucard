@@ -4,6 +4,12 @@ This is a creative-direction changelog, not a substitute for Git history.
 
 ## 2026-09-21
 
+### Bedroom Ambient Prototype approved — final tuning
+- Ube approved the first playable Bedroom Ambient Prototype.
+- Bedroom entry initializes at least one cloud already moving right-to-left at a randomized position within the window; a second differently sized cloud may occasionally also be in progress.
+- Cloud speeds are size-specific, calm and perceptible within a few seconds. Future spawns retain long irregular gaps and open-sky periods.
+- Preserve the supplied bedroom environment, exact window masking, nearest-neighbor cloud art and sparse Rich state changes. Phone gameplay remains out of scope.
+
 ### Approved room background update
 - Ube approved the supplied 765×1024 throne-room background with Rich's simplified red self-portrait as the current room background.
 - Preserve the supplied composition and use it as the active background asset.
