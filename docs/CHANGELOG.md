@@ -4,6 +4,14 @@ This is a creative-direction changelog, not a substitute for Git history.
 
 ## 2026-09-22
 
+### Milestone 6A — Life Engine foundation
+- Recorded **Milestone 5 as PASS**: the Powder Springs playtest validated Desire Trips as satisfying without a conventional objective or reward; **FULFILLMENT IS GAMEPLAY**. Contemplative moments remain player-controlled.
+- Added the v5 browser-local `life` save record for Rich identity, world state, resources, ownership, people, creative music progress, phone, desire trips, opportunity data and history. Future-facing collections start empty.
+- Migrated the prior save shape in place, preserving existing money/location/clout, day/month/scene, phone use, active/completed trip data, characters and encounter progress.
+- VampGPT now reads its authored cash/location/clout response from life state. The Go Somewhere options are data-driven: Atlanta remains available and Tokyo remains locked with the authored message; reusable access rules support location, money, clout, vampire reputation, contacts, relationships and prerequisite flags without adding a Tokyo threshold.
+- Desire Trip #001 travel and completion persist through life state and add idempotent history consequences only, with no rewards. Added a DEV-only Life State Inspector, state-value test controls and session-only Tokyo access preview.
+- Kept the life simulation mostly invisible until an authored player-facing activity exists. This is the minimal foundation only; no Milestone 6B work or future content was added.
+
 ### Desire Trip #001 final integration approved
 - Replaced the Powder Springs placeholder with the approved, unchanged 270×480 night environment and approved immutable Rich eating, chilling and stargazing source sprites.
 - Rich renders at 1.5× nearest-neighbor scale by default at shared anchor (40,88) → curb anchor (135,406); a DEV-only selector supports 1×, 1.5×, 1.75× and 2× for playtesting.
