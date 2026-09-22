@@ -8,6 +8,8 @@ Art handoff for a new stage must state: native dimensions, environment asset, na
 
 The JDM Imports docks contract preserves the approved 270×480 composition: combat line `y=350`, Rich `x=55`, importer `x=180`, adult daughter observer `x=230`, all at the approved 1.25× reference scale. The DEV Stage Contract overlay draws authored contacts, actor bounds, dialogue zone, and UI exclusions; it is hidden during normal play.
 
+The locked Supra source art is an object slot in this same contract. Its runtime presentation scale is 1.75×; its contact anchor remains authored at `(168, 354)` so scaling cannot introduce a separate positioning hack.
+
 ## QA
 
 **COMBAT STAGING QA RULE** — Every new encounter must receive a visual staging inspection at actual gameplay resolution after final production art integration. Verify ground/contact line, relative scale, opponent spacing, UI clearance, every combat state, and return-to-origin after displacement. Functional tests alone are insufficient.

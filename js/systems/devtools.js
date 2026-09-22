@@ -27,6 +27,9 @@
     document.querySelector('#devLifeApply')?.addEventListener('click',()=>{const value=id=>document.querySelector(`#${id}`)?.value;const money=Number(value('devLifeMoney'));if(Number.isFinite(money))window.RAState.patch('life.resources.money',money);window.RAState.patch('life.world.location',String(value('devLifeLocation')||'LA'));window.RAState.patch('life.resources.clout',String(value('devLifeClout')||'LOW').toUpperCase());window.RAState.patch('life.resources.vampireReputation',String(value('devLifeVampireRep')||'LOW').toUpperCase());refresh();});
     document.querySelector('#devTokyoPreview')?.addEventListener('change',refresh);
     document.querySelector('#devSmoke')?.addEventListener('click',()=>window.RASmoke?.run?.());
+    document.querySelector('#devResetJdm')?.addEventListener('click',async()=>{window.RAJDMImports?.resetForDev?.();if(window.RAPhone?.isOpen?.())await window.RAPhone.close();await window.RAScenes?.go?.('bedroom',{devReset:'jdm'});refresh();});
+    document.querySelector('#devFreshSave')?.addEventListener('click',async()=>{window.RAState?.reset?.();if(window.RAPhone?.isOpen?.())await window.RAPhone.close();await window.RAScenes?.go?.('bedroom',{devReset:'fresh'});refresh();});
+    document.querySelector('#devWipeSave')?.addEventListener('click',()=>{if(!window.confirm('WIPE ALL LOCAL RICH ALUCARD SAVES? THIS CANNOT BE UNDONE.'))return;const keys=window.RAState?.keys||{};for(const key of [keys.primary,keys.recovery,keys.quarantine])if(key)localStorage.removeItem(key);location.reload();});
     setEnabled(enabled);if(enabled)panel()?.classList.add('show');
     setInterval(refresh,250);
   });
