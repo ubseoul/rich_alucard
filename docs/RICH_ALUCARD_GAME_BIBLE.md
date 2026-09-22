@@ -239,6 +239,8 @@ Never convert a PROPOSED idea into canon silently.
 
 **COMBAT STAGING QA RULE** — Every new encounter must receive a visual staging inspection at actual gameplay resolution after final production art integration. Verify ground/contact line, relative scale, opponent spacing, UI clearance, every combat state, and return-to-origin after displacement. Functional tests alone are insufficient.
 
+**REAL PLAYER PATH QA** — A milestone is not player-ready merely because its isolated scene passes. Before release, test the production entry path from a representative existing save and a fresh save, without DEV shortcuts, through the same build the player will open. Verify startup/resume semantics, final rendered staging, persistence, and browser reload behavior.
+
 ## 16. Current milestone order
 
 Current intended sequence:
