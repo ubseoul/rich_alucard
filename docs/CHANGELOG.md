@@ -140,3 +140,8 @@ This is a creative-direction changelog, not a substitute for Git history.
 ### Foundation Wave 4 — Combat Foundation
 - Added data definitions for Rich moves, combatants, CEO and JDM Importer encounters, weighted enemy move selection, battle state/events, and victory/defeat routes.
 - Existing authored battle presentation remains the compatibility adapter for CEO and Importer. No encounter content, balance, moves, outcomes, or visual staging changed.
+
+### Foundation Wave 5 — Give Rich People
+- Added an authored Person Catalog and persistent runtime people records with idempotent meeting, memory, flag, and conversion APIs.
+- Save schema v8 migrates proven Assistant and JDM daughter outcomes without inventing unavailable identity or relationship details.
+- Current Assistant and daughter encounter writes also update shared people memory. DEV-only Persistent People inspection was added.

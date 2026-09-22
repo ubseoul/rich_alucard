@@ -49,7 +49,7 @@
     setFrame('transformation2');
     await pause(420);
     setFrame('vampire');
-    RACharacterSystem.mark('ceo_assistant_001','vampire',true);
+    RACharacterSystem.mark('ceo_assistant_001','vampire',true);window.RAPeople?.meetPerson('ceo_assistant_001');window.RAPeople?.setConversionState('ceo_assistant_001','converted');window.RAPeople?.rememberPersonEvent('ceo_assistant_001','ceo_assistant_converted');
     renderProfile();
     show('converted');
   }
@@ -62,7 +62,7 @@
     profile?.classList.remove('on');el('revealBitePrompt')?.classList.remove('on');el('revealAftercare')?.classList.remove('on');
     if(sprite){sprite.classList.remove('fly');sprite.style.display='block';sprite.style.backgroundImage=`url('${assets.human||''}')`;}
     await pause(420);sprite?.classList.add('conversion-bite');await pause(420);sprite?.classList.remove('conversion-bite');sprite?.classList.add('conversion-first');await pause(420);sprite?.classList.remove('conversion-first');sprite?.classList.add('conversion-second');
-    RACharacterSystem.mark(id,'vampire',true);await pause(420);sprite?.classList.remove('conversion-second');if(sprite)sprite.style.backgroundImage=`url('${assets.vampire||assets.human||''}')`;await pause(650);
+    RACharacterSystem.mark(id,'vampire',true);window.RAPeople?.meetPerson(id,'jdm_imports_docks');window.RAPeople?.setConversionState(id,'converted');window.RAPeople?.rememberPersonEvent(id,'jdm_daughter_converted');await pause(420);sprite?.classList.remove('conversion-second');if(sprite)sprite.style.backgroundImage=`url('${assets.vampire||assets.human||''}')`;await pause(650);
     overlay?.classList.remove('on','external-conversion');overlay.dataset.mode='';if(title)title.textContent='CEO ASSISTANT #001';profile?.classList.add('on');active=false;return true;
   }
   async function fly(){

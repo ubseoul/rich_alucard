@@ -19,6 +19,7 @@
     if(preview&&window.RAOpportunities){const simulated=JSON.parse(JSON.stringify(life));simulated.world.flags.tokyoAccess=true;previewTokyo=window.RAOpportunities.evaluate(window.RAOpportunities.definitions.find(x=>x.id==='tokyo'),simulated);}
     const inspector={identity:life.identity,world:life.world,resources:life.resources,ownership:life.ownership,people:life.people,creativeLife:life.creativeLife,phone:life.phone,desires:life.desires,opportunities:{rules:rules.map(({id,category,label,available,requirements,failures,lockedMessage,resultScene,action})=>({id,category,label,available,requirements,failures,lockedMessage,resultScene,action})),tokyoSessionPreview:previewTokyo},history:life.history};
     const lifeReadout=document.querySelector('#devLifeReadout');if(lifeReadout)lifeReadout.textContent=JSON.stringify(inspector,null,2);
+    const peopleReadout=document.querySelector('#devPeopleReadout');if(peopleReadout)peopleReadout.textContent=JSON.stringify((window.RAPeople?.known?.()||[]).map(({id,catalog,record})=>({id,displayName:catalog?.displayName||null,contactCapable:catalog?.contactCapable??false,...record})),null,2);
   }
   function setEnabled(value){enabled=value;document.body.classList.toggle('dev-enabled',enabled);if(enabled){applyFont(document.documentElement.dataset.devFont||'control');refresh();}else panel()?.classList.remove('show');}
   document.addEventListener('DOMContentLoaded',()=>{
