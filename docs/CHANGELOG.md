@@ -136,3 +136,7 @@ This is a creative-direction changelog, not a substitute for Git history.
 - Added DEV-only isolated replay controls for Butter Chicken and the JDM/Supra first-purchase route, plus fresh test state. JDM reset refunds its completed purchase once and removes only JDM-specific acquisition, vehicle, flag, history, and daughter-outcome state.
 - Full local save wipe is visually separated and requires an explicit browser confirmation.
 - Supra world presentation is now authored as a 1.75× Stage Contract object while retaining its approved docks contact point.
+
+### Foundation Wave 4 — Combat Foundation
+- Added data definitions for Rich moves, combatants, CEO and JDM Importer encounters, weighted enemy move selection, battle state/events, and victory/defeat routes.
+- Existing authored battle presentation remains the compatibility adapter for CEO and Importer. No encounter content, balance, moves, outcomes, or visual staging changed.
