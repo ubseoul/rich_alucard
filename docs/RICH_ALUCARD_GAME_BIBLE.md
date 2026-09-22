@@ -41,7 +41,7 @@ This is directional rather than a fully specified mechanical loop.
 
 Rich currently begins with a **$100,000 monthly budget** concept. Future systems may increase it. Reset, income and spending rules remain TBD.
 
-The **Phone** is planned as the primary navigation/interface for choosing activities. Exact apps are TBD.
+The **Phone** is the primary navigation/interface prototype. Bedroom entry uses `☎ CHECK PHONE`; the first usable app interaction is authored VampGPT. Activities remain unimplemented until separately approved.
 
 ## 4. Fun Test
 
@@ -147,7 +147,11 @@ Cars, castle size and lifestyle status may eventually influence the world and ch
 
 The **Bedroom Ambient Prototype is approved** as the first playable home scene. It uses the supplied immutable 270×480 environment, authored Rich bedroom states and sparse window-clipped clouds. Each bedroom entry begins with at least one cloud already drifting at a randomized position; an occasional second differently sized cloud may also be in progress. Cloud speed is calm and size-specific, while future spawns remain irregular and leave open-sky periods.
 
-The Phone is planned as the navigation center for Rich's life, but phone gameplay and apps are not implemented or approved by this ambient-scene milestone.
+The **Bedroom Ambient Prototype and Bedroom Phone + VampGPT v0.1 are approved milestones**. Bedroom entry initializes clouds already in progress as described above. `☎ CHECK PHONE` opens a full-screen Gothic Pokémon Hybrid cartridge phone from the physical phone in Rich's hand; closing returns to the bedroom with Rich lounging, while music and cloud ambience continue.
+
+Phone home contains exactly seven apps: VampGPT, VampGram, InstaHoe, RealMoneyRealEstate, JDMIMPORTS, RICHBOIMPORTS and ONLYVAMPS. Only VampGPT has an authored interaction in v0.1. It is Rich's state-aware personal assistant, surfaces options without choosing his life, and is not freeform AI. Its canonical starting prompt is **OGA WHAT DO I DO**. The authored response reads cash from Rich's existing $100,000 budget and uses LA location and LOW clout state, then offers MAKE MONEY, MEET PEOPLE and GO SOMEWHERE. The first two lanes and other apps respond `NOT SET UP YET.`
+
+GO SOMEWHERE shows Atlanta as **available** and Tokyo as **locked by social/clout access**. The authored Tokyo message is `tokyo vampires don't fw you yet. get your clout up.` The exact clout requirement is TBD. Atlanta is currently an available destination opportunity only; no travel or location change occurs in this prototype. The player returns Phone Home → Bedroom; no activity beyond seeing Atlanta is implemented.
 
 ## 11. Exploration
 
@@ -224,7 +228,7 @@ Never convert a PROPOSED idea into canon silently.
 ## 16. Current milestone order
 
 Current intended sequence:
-**Engine → Conversion → Polish/QA → Bedroom → Phone → Fun Test → expand**
+**Engine → Conversion → Polish/QA → Bedroom Ambient (approved) → Phone + VampGPT v0.1 (approved) → Ube playtest → Fun Test → expand**
 
 The order may change based on actual play.
 

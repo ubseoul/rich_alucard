@@ -4,6 +4,14 @@ This is a creative-direction changelog, not a substitute for Git history.
 
 ## 2026-09-21
 
+### Bedroom Phone + VampGPT v0.1 approved
+- `☎ CHECK PHONE` is the player-facing bedroom entry point, compacting to a phone icon after its first use.
+- Approved the brief handset-origin transition, full-screen cartridge phone home, authored VampGPT conversation and return-to-bedroom flow. Music and cloud ambience continue through it.
+- Phone home has exactly VampGPT, VampGram, InstaHoe, RealMoneyRealEstate, JDMIMPORTS, RICHBOIMPORTS and ONLYVAMPS. Only VampGPT is authored for play; unavailable surfaces say `NOT SET UP YET.`
+- Canonical prompt: **OGA WHAT DO I DO**. VampGPT reads the existing $100,000 budget, LA location and LOW clout from saved state and presents MAKE MONEY / MEET PEOPLE / GO SOMEWHERE.
+- GO SOMEWHERE shows Atlanta as available and Tokyo as socially/clout-gated. The exact clout requirement remains TBD. Atlanta does not trigger travel in this milestone.
+- The Phone + VampGPT prototype stops for Ube's playtest; no activities beyond seeing Atlanta are part of this approval.
+
 ### Bedroom Ambient Prototype approved — final tuning
 - Ube approved the first playable Bedroom Ambient Prototype.
 - Bedroom entry initializes at least one cloud already moving right-to-left at a randomized position within the window; a second differently sized cloud may occasionally also be in progress.
@@ -72,8 +80,8 @@ This is a creative-direction changelog, not a substitute for Git history.
 
 ### Lifestyle foundation
 - Rich has a conceptual $100,000 monthly budget.
-- Bedroom and Phone established as future life/navigation direction.
-- Exact economy, phone apps and bedroom layout remain TBD.
+- Bedroom is an approved ambient prototype and the first Phone + VampGPT v0.1 navigation prototype is approved as recorded above.
+- Exact economy mechanics and functionality for the other phone apps remain TBD.
 
 ### Vampire conversion
 - Established reusable reveal → bite → transformation → vampire profile → locked CRACK / LET HER FLY flow.
