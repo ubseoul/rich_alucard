@@ -205,7 +205,7 @@ Architecture should gradually separate:
 
 Do not overengineer hypothetical systems.
 
-The **Milestone 6A Life Engine** provides the minimal persistent foundation in vanilla JavaScript. One browser-local `life` record owns identity, world location/day/month/scene/flags, resources (money, clout and vampire reputation), ownership collections, people/relationships, creative music progress, phone state, desire trips, opportunity data and history. Future-facing collections are empty until content is approved. Existing character and encounter records remain part of the same save and are preserved during migration.
+The **Foundation Wave 1 Life Engine** provides the minimal persistent foundation in vanilla JavaScript. One browser-local v7 `life` record owns identity, world location/day/month/scene/flags, resources (money, clout and vampire reputation), ownership collections, people/relationships, creative music progress, phone state, desire trips, opportunity data and history. Future-facing collections are empty until content is approved. Existing character and encounter records remain part of the same save and are preserved during migration. The migration path is explicit and sequential: legacy saves bridge to v5, then v5 → v6 → v7. Normalization repairs missing or malformed optional structures without replacing valid progression. Before a valid primary record is replaced, it is kept in a browser-local recovery backup; malformed primary data recovers from that backup instead of silently defaulting the player.
 
 VampGPT reads money, location and clout from this authoritative state. Opportunity definitions are data-driven and evaluate reusable access conditions (location, money, clout, vampire reputation, contacts, relationships and prerequisite flags). Current authored content remains Atlanta available and Tokyo locked with its existing text; Tokyo has no invented unlock threshold. Desire-trip history records travel and completion as consequences without granting rewards. The developer-only Life State Inspector shows saved domains, evaluated opportunities and history, and supports test value edits; Tokyo preview access is session-only.
 
@@ -218,7 +218,7 @@ Persistent state tracks:
 
 Save locally in the browser.
 
-**Milestone 6B — I Want a Supra** tests desire-driven acquisition, persistent ownership, business unlocks and consequences using the v6 Life Engine. Its approved native-size production art package replaces the initial placeholders; source assets are immutable. Dock/ownership character scale defaults to 1.25× with DEV tuning at 1×, 1.25× and 1.5×. The $78,000 price remains temporary, editable test data rather than canon. Encounter details remain undisclosed pending Ube's playthrough.
+**Milestone 6B — I Want a Supra** tests desire-driven acquisition, persistent ownership, business unlocks and consequences using the v7 Life Engine. Its approved native-size production art package replaces the initial placeholders; source assets are immutable. Dock/ownership character scale defaults to 1.25× with DEV tuning at 1×, 1.25× and 1.5×. The $78,000 price remains temporary, editable test data rather than canon. Encounter details remain undisclosed pending Ube's playthrough.
 
 ## 15. Production workflow
 
