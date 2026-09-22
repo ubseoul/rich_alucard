@@ -1,11 +1,11 @@
 (function(){
   const KEY='rich_alucard_save_v1';
-  const defaults={version:5,life:{identity:{name:'Rich Alucard'},world:{location:'LA',day:1,month:1,scene:'battle',flags:{}},resources:{money:100000,clout:'LOW',vampireReputation:'LOW'},ownership:{cars:[],properties:[],possessions:[]},people:{contacts:[],relationships:[]},creativeLife:{music:{songs:[],progress:{}}},phone:{learned:false},desires:{activeTrip:null,completed:[]},opportunities:{},history:[]},characters:{ceo_assistant_001:{met:true,stolen:false,vampire:false,cracked:false}},encounters:{ceo_prince:{defeated:false,completed:false}}};
+  const defaults={version:6,life:{identity:{name:'Rich Alucard'},world:{location:'LA',day:1,month:1,scene:'battle',flags:{}},resources:{money:100000,clout:'LOW',vampireReputation:'LOW'},ownership:{cars:[],properties:[],possessions:[]},people:{contacts:[],relationships:[]},creativeLife:{music:{songs:[],progress:{}}},phone:{learned:false},desires:{activeTrip:null,completed:[]},acquisitions:{active:null,completed:[]},opportunities:{},history:[]},characters:{ceo_assistant_001:{met:true,stolen:false,vampire:false,cracked:false}},encounters:{ceo_prince:{defeated:false,completed:false}}};
   const clone=o=>JSON.parse(JSON.stringify(o));
   function merge(base,extra){if(!extra||typeof extra!=='object')return base;for(const k in extra){if(extra[k]&&typeof extra[k]==='object'&&!Array.isArray(extra[k]))base[k]=merge(base[k]&&typeof base[k]==='object'&&!Array.isArray(base[k])?base[k]:{},extra[k]);else base[k]=extra[k];}return base;}
   function migrateRecord(saved){
     if(!saved||typeof saved!=='object')return clone(defaults);
-    if(saved.version>=5&&saved.life)return merge(clone(defaults),saved);
+    if(saved.version>=5&&saved.life){const migrated=merge(clone(defaults),saved);migrated.version=6;return migrated;}
     const old={...saved},life=clone(defaults.life),legacy={};
     const rich=old.rich||{},world=old.world||{},phone=old.phone||{};
     life.resources.money=rich.budget??life.resources.money;
@@ -29,7 +29,7 @@
     return next;
   }
   let state=clone(defaults);
-  function load(){try{const raw=localStorage.getItem(KEY);if(raw){const saved=JSON.parse(raw);state=migrateRecord(saved);if(saved.version!==5||!saved.life)save();}else state=clone(defaults);}catch(e){state=clone(defaults);}return state;}
+  function load(){try{const raw=localStorage.getItem(KEY);if(raw){const saved=JSON.parse(raw);state=migrateRecord(saved);if(saved.version!==6||!saved.life)save();}else state=clone(defaults);}catch(e){state=clone(defaults);}return state;}
   function save(){try{localStorage.setItem(KEY,JSON.stringify(state));return true;}catch(e){return false;}}
   function reset(){state=clone(defaults);save();return state;}
   function get(){return state;}

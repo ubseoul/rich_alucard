@@ -682,3 +682,35 @@ body.trip-mode #screen > :not(#tripTravel):not(#powderSpringsCurb):not(#stargazi
 #devLifeInspector pre{max-height:220px;overflow:auto;white-space:pre-wrap;overflow-wrap:anywhere;background:#111020;padding:5px;font-size:7px}
 #devLifeInspector label{display:flex;align-items:center;justify-content:space-between;gap:4px;margin:3px 0}
 #devLifeInspector input[type="text"],#devLifeInspector input[type="number"]{width:54%;min-width:0;box-sizing:border-box}
+#jdmDockBattleCanvas{display:none;position:absolute;inset:0;width:100%;height:100%;z-index:1;image-rendering:pixelated}
+body.jdm-mode .room,body.jdm-mode #ambienceLayer{display:none!important}
+body.jdm-battle #jdmDockBattleCanvas{display:block}
+body.jdm-battle .production-ceo.state-idle,body.jdm-battle .production-ceo.state-throw,body.jdm-battle .production-ceo.state-hit{background-image:url('assets/jdm_importer_human.svg');background-size:160px 192px}
+body.jdm-battle .production-ceo.state-throw{transform:translateX(-4px)}
+body.jdm-battle .production-ceo.state-hit{filter:brightness(1.45) saturate(1.3)}
+body.jdm-battle .production-ceo.state-defeated{background-image:url('assets/jdm_importer_human.svg');background-size:160px 192px;filter:grayscale(1);opacity:.5;transform:translateY(9px)}
+body.jdm-battle .production-ceo.combat-recoil-light,body.jdm-battle .production-ceo.combat-recoil-heavy{background-image:url('assets/jdm_importer_human.svg');background-size:160px 192px}
+.jdm-story-scene{position:absolute;inset:0;z-index:100;display:none;overflow:hidden;background:#091427;image-rendering:pixelated}
+.jdm-story-scene.active{display:block}
+.jdm-story-scene canvas{position:absolute;inset:0;width:100%;height:100%;image-rendering:pixelated}
+#jdmDockDaughter{display:none;position:absolute;z-index:1;left:66%;bottom:31%;width:72px;height:86px;background:url('assets/jdm_daughter_human.svg') center/72px 86px no-repeat;image-rendering:pixelated}
+#jdmDockDaughter.visible{display:block}
+.jdm-story-panel{position:absolute;left:5%;right:5%;bottom:4%;max-height:42%;overflow:auto;padding:9px 8px;background:#f1e5c5;color:#17142c;border:3px solid #28131c;box-shadow:3px 3px #7d194b;font:7px/1.7 var(--font-dialogue);text-align:center}
+.jdm-kicker{margin:0 0 5px;color:#7d194b;font-size:6px}
+.jdm-speaker{margin:6px 0 0;color:#7d194b;font-size:6px}
+.jdm-small{font-size:6px;color:#544757}
+.jdm-actions{display:grid;grid-template-columns:1fr 1fr;gap:5px;margin-top:8px}
+.jdm-panel-action,.jdm-action{width:100%;min-height:28px;padding:5px 3px;background:#17142c;color:#fff;border:2px solid #fff;font:6px/1.35 var(--font-command);cursor:pointer}
+.jdm-action:disabled{opacity:.55;cursor:default}
+.jdm-store-actions{display:grid;gap:5px;margin-top:8px}
+.supra-product{display:block;width:100%;height:auto;max-height:72px;margin:4px auto 7px;image-rendering:pixelated;border:2px solid #17142c}
+.jdm-price{margin:7px 0;font-size:7px;color:#7d194b}
+.supra-payoff-panel{position:absolute;left:4%;right:4%;bottom:4%;padding:7px;background:#f1e5c5;color:#17142c;border:3px solid #28131c;box-shadow:3px 3px #7d194b;text-align:center;font:7px/1.5 var(--font-dialogue)}
+.supra-title{margin:0 0 4px;color:#7d194b;font-size:8px}
+#supraPayoffRich{display:none;position:absolute;z-index:2;left:2%;bottom:17%;width:132px;height:158px;background:url('assets/rich_seated_idle.png') center/132px 158px no-repeat;image-rendering:pixelated}
+#supraPayoffRich.visible{display:block}
+body.jdm-mode .reveal-overlay{z-index:140}
+.reveal-overlay.external-conversion .reveal-profile,.reveal-overlay.external-conversion .reveal-prompt,.reveal-overlay.external-conversion .reveal-aftercare{display:none!important}
+.reveal-assistant-sprite.conversion-bite{filter:brightness(1.7) sepia(.4)}
+.reveal-assistant-sprite.conversion-first{filter:brightness(.72) sepia(1) hue-rotate(290deg) saturate(2)}
+.reveal-assistant-sprite.conversion-second{filter:brightness(.55) sepia(1) hue-rotate(280deg) saturate(2.5);transform:translateX(-50%) scale(1.3)}
