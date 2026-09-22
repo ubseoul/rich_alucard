@@ -4,7 +4,7 @@
  let page='home',opened=false;
  const cash=()=>new Intl.NumberFormat('en-US').format(window.RABudget?.balance?.()??window.RAState.get().rich.budget);
  const state=()=>window.RAState.get();
- function updateEntry(){if(!entry)return;const learned=!!state().phone?.learned;entry.textContent=learned?'☎ PHONE':'☎ CHECK PHONE';entry.classList.toggle('learned',learned);entry.setAttribute('aria-label',learned?'Open phone':'Check phone');}
+ function updateEntry(){if(!entry)return;const learned=!!state().phone?.learned;entry.textContent=learned?'☎':'☎ CHECK PHONE';entry.classList.toggle('learned',learned);entry.setAttribute('aria-label',learned?'Open phone':'Check phone');}
  function button(label,action,cls=''){return `<button type="button" class="phone-button ${cls}" data-phone-action="${action}">${label}</button>`}
  function render(){
   if(!content)return;

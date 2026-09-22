@@ -605,7 +605,7 @@ body.bedroom-mode .room,body.bedroom-mode #ambienceLayer,body.bedroom-mode #bloo
 body.dev-enabled .dev-panel{max-height:72%;overflow:auto}
 
 /* Phone v0.1: cartridge UI expands from the authored handset in Rich's hand. */
-.check-phone{position:absolute;z-index:5;pointer-events:auto;right:5%;top:51%;max-width:43%;padding:5px 6px;background:#f1e5c5;color:#21151a;border:2px solid #28131c;box-shadow:2px 2px #7d194b;font:7px/1.4 var(--font-system);image-rendering:pixelated;white-space:nowrap}
+.check-phone{position:absolute;z-index:5;pointer-events:auto;right:5%;top:51%;max-width:43%;padding:5px 6px;background:#f1e5c5;color:#21151a;border:2px solid #28131c;box-shadow:2px 2px #7d194b;font:7px/1.4 var(--font-system);image-rendering:pixelated;white-space:normal;text-align:center}
 .check-phone.learned{width:30px;height:30px;padding:0;font-size:13px}
 .phone-overlay{position:absolute;inset:0;z-index:110;display:none;overflow:hidden;background:#080711;transform-origin:25.2% 63.3%;image-rendering:pixelated;touch-action:manipulation}
 .phone-overlay.open,.phone-overlay.closing{display:block}
