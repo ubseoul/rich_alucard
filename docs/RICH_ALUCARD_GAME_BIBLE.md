@@ -251,6 +251,8 @@ Never convert a PROPOSED idea into canon silently.
 
 **FOUNDATION WAVE 5 — GIVE RICH PEOPLE** — The authored Person Catalog holds stable identity/configuration only. Runtime `life.people.records` holds proven meetings, milestone IDs, conversion state, contact capability, and flags. It is persistent and idempotent; it does not add messages, schedules, relationship scores, or autonomous behavior.
 
+**FOUNDATION WAVE 6 — THE WORLD COMES TO RICH** — Authored world events can now become eligible from saved Rich/world/person state, become pending at deterministic safe gameplay boundaries, and deliver through a minimal incoming phone presentation. Runtime `life.events.records` stores event status, delivery count and seen/resolved state. Events are browser-local and deterministic; there are no real-world timers, backend scheduling, push notifications, freeform texting, autonomous NPC simulation, or generic quest engine. PLAYER-BLIND PROOF EVENT #001 proves Persistent People eligibility, safe delivery, one-time behavior and persistent resolution without adding new art, combat, rewards, characters, or broader relationship simulation.
+
 ## 16. Current milestone order
 
 Current intended sequence:
