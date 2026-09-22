@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no" />
+<link rel="icon" href="data:,">
 <title>Rich Alucard — v0.23 Engine Foundation</title>
 <link rel="stylesheet" href="style.css" />
 </head>
@@ -142,12 +143,18 @@
     </section>
     <section id="jdmDockScene" class="jdm-story-scene" aria-hidden="true" aria-label="JDM import facility">
       <canvas id="jdmDockCanvas" width="270" height="480" aria-hidden="true"></canvas>
-      <div id="jdmDockDaughter" aria-hidden="true"></div>
+      <div id="jdmDockCharacters" aria-hidden="true">
+        <img id="jdmDockRich" class="jdm-scene-character" src="assets/rich_standing_right.png" alt="" draggable="false" />
+        <img id="jdmDockImporter" class="jdm-scene-character" src="assets/jdm_imports/characters/importer/importer_neutral.png" alt="" draggable="false" />
+        <img id="jdmDockDaughter" class="jdm-scene-character" src="assets/jdm_imports/characters/daughter/daughter_neutral.png" alt="" draggable="false" />
+      </div>
       <div id="jdmDockPanel" class="jdm-story-panel"></div>
     </section>
     <section id="supraPayoffScene" class="jdm-story-scene" aria-hidden="true" aria-label="Rich with his Supra">
       <canvas id="supraPayoffCanvas" width="270" height="480" aria-hidden="true"></canvas>
-      <div id="supraPayoffRich" aria-hidden="true"></div>
+      <img id="supraPayoffCar" src="assets/jdm_imports/vehicles/supra_mk4_world.png" alt="" draggable="false" />
+      <img id="supraPayoffRich" src="assets/rich_standing_right.png" alt="" draggable="false" />
+      <img id="supraPayoffKey" src="assets/jdm_imports/props/car_key.png" alt="" draggable="false" />
       <div id="supraPayoffPanel" class="supra-payoff-panel"></div>
     </section>
 <div id="attackLayer" class="attack-layer" aria-hidden="true">
@@ -177,6 +184,7 @@
       <div class="dev-title">DEV MODE</div>
       <label>FONT LAB <select id="devFont"><option value="control">CONTROL</option><option value="monogram">MONOGRAM</option><option value="press-start">PRESS START 2P</option><option value="tiny5">TINY5</option></select></label>
       <label><input id="devTint" type="checkbox" /> CARTRIDGE TINT</label>
+      <label id="devJdmScaleControl">JDM CHARACTER SCALE <select id="devJdmScale" aria-label="JDM scene character scale"><option value="1">1×</option><option value="1.25" selected>1.25×</option><option value="1.5">1.5×</option></select></label>
       <div id="devReadout" class="dev-readout"></div>
       <details id="devLifeInspector"><summary>LIFE STATE INSPECTOR</summary><pre id="devLifeReadout"></pre>
         <label>MONEY <input id="devLifeMoney" type="number" step="1" /></label>

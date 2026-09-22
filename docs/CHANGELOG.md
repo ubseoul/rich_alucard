@@ -6,6 +6,8 @@ This is a creative-direction changelog, not a substitute for Git history.
 
 ### Milestone 6B — I Want a Supra
 - Tests desire-driven acquisition, persistent ownership, business unlocks and consequences using the Life Engine. Encounter details are intentionally withheld until Ube's first playthrough.
+- Integrated the approved 6B production art into the existing phone, dock, battle and ownership scenes. Replaced the temporary SVG and drawn stand-ins with individual native-size raster assets; reused canonical Rich frames byte-for-byte.
+- Dock and ownership character rendering defaults to 1.25× nearest-neighbor scale, with DEV options at 1× and 1.5×. The $78,000 price remains editable temporary test data, not canon.
 
 ### Milestone 6A — Life Engine foundation
 - Recorded **Milestone 5 as PASS**: the Powder Springs playtest validated Desire Trips as satisfying without a conventional objective or reward; **FULFILLMENT IS GAMEPLAY**. Contemplative moments remain player-controlled.
