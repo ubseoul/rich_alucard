@@ -41,7 +41,7 @@ This is directional rather than a fully specified mechanical loop.
 
 Rich currently begins with a **$100,000 monthly budget** concept. Future systems may increase it. Reset, income and spending rules remain TBD.
 
-The **Phone** is the primary navigation/interface prototype. Bedroom entry uses `☎ CHECK PHONE`; the first usable app interaction is authored VampGPT. Activities remain unimplemented until separately approved.
+The **Phone** is the primary navigation/interface prototype. Bedroom entry uses `☎ CHECK PHONE`; the first usable app interaction is authored VampGPT. Other lifestyle activities remain unimplemented until separately approved.
 
 ## 4. Fun Test
 
@@ -157,10 +157,9 @@ GO SOMEWHERE shows Atlanta as **available** and Tokyo as **locked by social/clou
 
 A **Desire Trip** is an activity Rich pursues because he wants the experience. It need not have a quest, conventional objective or mechanical reward. The reusable minimum is: authored desire → persistent active trip → brief travel transition → destination scene → activity → player-controlled completion.
 
-**Butter Chicken Under the Stars is Desire Trip #001.** Rich commits to butter chicken in Powder Springs, Georgia. The placeholder sequence is LA → Atlanta → Powder Springs, a `powderSpringsCurb` scene marked **DEV PLACEHOLDER BACKGROUND**, EAT BUTTER CHICKEN, then `stargazing`. The trip state uses destination, purpose, status (`planned`, `traveling`, `arrived`, `completed`), current activity and completed activities. Eating records the activity; the trip remains arrived while Rich looks at the stars. I'M GOOD ends stargazing and marks the trip completed. Stargazing has no automatic timer. No reward, quest, combat, NPC, restaurant or travel mechanics are part of this slice.
+**Butter Chicken Under the Stars is Desire Trip #001.** Rich commits to butter chicken in Powder Springs, Georgia. The minimal route is LA → Atlanta → Powder Springs, then the authored eating, chilling and stargazing held poses. The persistent trip state uses destination, purpose, status (`planned`, `traveling`, `arrived`, `completed`), current activity and completed activities. The player ends stargazing with I'M GOOD; there is no automatic completion. A short location-only return transition brings Rich back to the bedroom.
 
-Final Powder Springs environment art and final Rich eating/stargazing states are not approved. Art direction remains: Rich sitting on a curb at night, eating takeout butter chicken and looking at a large starry sky. The prototype does not draw or approximate that target composition.
-
+The supplied Powder Springs night environment and Rich curb sprite package are approved/locked, and their source pixels are immutable. The 80×96 Rich cells share anchor (40,88); runtime rendering uses nearest-neighbor at the same foreground curb anchor. Scale defaults to 1.5× and remains playtest-tunable through the DEV-only 1× / 1.5× / 1.75× / 2× selector. Eating and chilling expose their next actions after brief holds; stargazing can remain indefinitely until the player chooses to leave. Desire Trips and contemplative activities do not inherently grant rewards or objectives. No twinkles or distant cars were added; distant cars remain a future backlog idea.
 ## 11. Exploration
 
 Pokémon-like walking is an inspiration, not an approved system.

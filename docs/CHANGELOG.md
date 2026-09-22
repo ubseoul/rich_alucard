@@ -2,14 +2,20 @@
 
 This is a creative-direction changelog, not a substitute for Git history.
 
-## 2026-09-21
+## 2026-09-22
+
+### Desire Trip #001 final integration approved
+- Replaced the Powder Springs placeholder with the approved, unchanged 270×480 night environment and approved immutable Rich eating, chilling and stargazing source sprites.
+- Rich renders at 1.5× nearest-neighbor scale by default at shared anchor (40,88) → curb anchor (135,406); a DEV-only selector supports 1×, 1.5×, 1.75× and 2× for playtesting.
+- Arrival begins in the eating pose; FINISHED EATING advances to chilling, then LOOK AT THE STARS enters indefinite stargazing. I'M GOOD marks the persisted trip completed and begins a brief Powder Springs → Atlanta → LA transition back to the bedroom.
+- Desire Trips do not inherently grant rewards. Contemplative activities remain available until the player chooses to leave. No twinkles or distant cars were added; distant cars remain a future backlog idea.
 
 ### Desire Trip framework + Butter Chicken Under the Stars #001
 - Locked the first minimal Desire Trip flow: desire → persistent trip → brief travel transition → destination → activity → player-controlled completion. Activities can exist without quests, objectives or rewards.
 - Atlanta selection now surfaces only the authored Butter Chicken conversation and LET'S GO / NAH choice. Committing creates a trip to Powder Springs, Georgia, for butter chicken.
 - Added planned, traveling, arrived and completed trip statuses plus current/completed activity tracking. Travel shows LA → ATLANTA → POWDER SPRINGS briefly.
 - Added `powderSpringsCurb` and indefinite `stargazing` scene states. EAT BUTTER CHICKEN exposes LOOK AT THE STARS; I'M GOOD ends the moment and completes the trip.
-- Destination visuals remain clearly marked DEV PLACEHOLDER BACKGROUND. No final environment art, Rich activity states, travel system, rewards, quest, encounter, NPC or restaurant gameplay were added.
+- In that framework-only pass, destination visuals remained a DEV PLACEHOLDER BACKGROUND. The final environment and Rich activity sprites were approved and integrated in the later entry above; no rewards, quest, encounter, NPC or restaurant gameplay were added.
 
 ### Bedroom Phone + VampGPT v0.1 approved
 - `☎ CHECK PHONE` is the player-facing bedroom entry point, compacting to a phone icon after its first use.

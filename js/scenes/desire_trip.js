@@ -1,47 +1,63 @@
 (function(){
- const TRIP_001={id:'desire_trip_001',destination:{name:'Powder Springs',region:'Georgia'},purpose:'butter chicken'};
- const travel=document.querySelector('#tripTravel'),curb=document.querySelector('#powderSpringsCurb'),stars=document.querySelector('#stargazingScene'),activityAction=document.querySelector('#tripActivityAction');
- let travelTimer=0;
+ const TRIP_001={id:'desire_trip_001',title:'Butter Chicken Under the Stars',destination:{name:'Powder Springs',region:'Georgia'},purpose:'butter chicken'};
+ const travel=document.querySelector('#tripTravel'),curb=document.querySelector('#powderSpringsCurb'),stars=document.querySelector('#stargazingScene'),returnScene=document.querySelector('#tripReturn');
+ const rich=document.querySelector('#tripRich'),activityAction=document.querySelector('#tripActivityAction'),scaleControl=document.querySelector('#devTripScale');
+ const HOLDS={eating:1450,chilling:1250,stargazing:9000,returning:650};
+ const SRC_SIZE={width:80,height:96},SRC_ANCHOR={x:40,y:88},WORLD_ANCHOR={x:135,y:406},SCALE_OPTIONS=[1,1.5,1.75,2],DEFAULT_SCALE=1.5;let timer=0;
  function show(el,on){el?.classList.toggle('active',on);el?.setAttribute('aria-hidden',on?'false':'true')}
+ function clearTimer(){clearTimeout(timer);timer=0}
+ function setScale(value){
+  const scale=SCALE_OPTIONS.includes(Number(value))?Number(value):DEFAULT_SCALE;
+  document.querySelectorAll('.trip-rich').forEach(img=>{
+   img.style.width=`${SRC_SIZE.width*scale/270*100}%`;img.style.height=`${SRC_SIZE.height*scale/480*100}%`;
+   img.style.left=`${WORLD_ANCHOR.x/270*100}%`;img.style.top=`${WORLD_ANCHOR.y/480*100}%`;img.style.transform=`translate(-${SRC_ANCHOR.x/SRC_SIZE.width*100}%,-${SRC_ANCHOR.y/SRC_SIZE.height*100}%)`;
+   img.dataset.scale=String(scale);
+  });
+  if(scaleControl)scaleControl.value=String(scale);
+  return scale;
+ }
+ function stagePose(name){if(rich)rich.src=`assets/rich_curb_${name}.png`;curb.dataset.stage=name}
+ function button(label,handler){const b=document.createElement('button');b.type='button';b.className='trip-action';b.textContent=label;b.addEventListener('click',handler,{once:true});activityAction?.replaceChildren(b)}
+ function delayAction(stage,label,handler,delay){clearTimer();if(activityAction)activityAction.replaceChildren();timer=setTimeout(()=>{timer=0;if(RAScenes.current()==='powderSpringsCurb'&&curb.dataset.stage===stage)button(label,handler)},delay)}
  function enterTravel(){
-  document.body.classList.add('trip-mode');window.RADesireTrips.setStatus('traveling');show(travel,true);
-  clearTimeout(travelTimer);travelTimer=setTimeout(()=>{
-   const trip=window.RADesireTrips.current();if(!trip)return;
-   window.RADesireTrips.setStatus('arrived');window.RAState.patch('rich.location',`${trip.destination.name}, ${trip.destination.region}`);
-   window.RAScenes.go('powderSpringsCurb');
-  },720);
+  document.body.classList.add('trip-mode');show(travel,true);RADesireTrips.setStatus('traveling');clearTimer();
+  timer=setTimeout(()=>{timer=0;const trip=RADesireTrips.current();if(!trip)return;RADesireTrips.setStatus('arrived');RAState.patch('rich.location',`${trip.destination.name}, ${trip.destination.region}`);RAScenes.go('powderSpringsCurb')},720);
  }
- function exitTravel(){clearTimeout(travelTimer);travelTimer=0;show(travel,false)}
- function renderArrival(){
-  const trip=window.RADesireTrips.current(),completed=trip?.completedActivities||[];
-  if(!activityAction||!trip)return;
-  if(trip.status==='completed'){activityAction.replaceChildren();return}
-  const action=document.createElement('button');action.type='button';action.className='trip-action';
-  if(completed.includes('eat butter chicken')){action.textContent='LOOK AT THE STARS';action.addEventListener('click',()=>{window.RADesireTrips.setCurrentActivity('look at the stars');window.RAScenes.go('stargazing')})}
-  else{action.textContent='EAT BUTTER CHICKEN';action.addEventListener('click',()=>{window.RADesireTrips.completeActivity('eat butter chicken');window.RADesireTrips.setCurrentActivity('look at the stars');renderArrival()})}
-  activityAction.replaceChildren(action);
- }
+ function exitTravel(){clearTimer();show(travel,false)}
  function enterCurb(){
-  document.body.classList.add('trip-mode');show(curb,true);
-  const trip=window.RADesireTrips.current();if(!trip)return;
-  if(trip.status==='traveling')window.RADesireTrips.setStatus('arrived');
-  window.RAState.patch('rich.location',`${trip.destination.name}, ${trip.destination.region}`);renderArrival();
+  document.body.classList.add('trip-mode');show(curb,true);setScale(scaleControl?.value||DEFAULT_SCALE);
+  const trip=RADesireTrips.current();if(!trip)return;
+  if(trip.status==='traveling')RADesireTrips.setStatus('arrived');
+  RAState.patch('rich.location',`${trip.destination.name}, ${trip.destination.region}`);
+  const done=trip.completedActivities||[];
+  if(done.includes('eat butter chicken'))enterChilling();else enterEating();
  }
- function exitCurb(){show(curb,false)}
- function enterStars(){document.body.classList.add('trip-mode');show(stars,true);window.RADesireTrips.setCurrentActivity('look at the stars')}
- function exitStars(){show(stars,false)}
- async function endStargazing(){window.RADesireTrips.completeActivity('look at the stars');window.RADesireTrips.finish();await window.RAScenes.go('powderSpringsCurb')}
+ function enterEating(){stagePose('eating');RADesireTrips.setCurrentActivity('eat butter chicken');delayAction('eating','FINISHED EATING',()=>{RADesireTrips.completeActivity('eat butter chicken');enterChilling()},HOLDS.eating)}
+ function enterChilling(){stagePose('chilling');RADesireTrips.setCurrentActivity('chilling');delayAction('chilling','LOOK AT THE STARS',()=>RAScenes.go('stargazing'),HOLDS.chilling)}
+ function exitCurb(){clearTimer();show(curb,false);if(activityAction)activityAction.replaceChildren()}
+ function enterStars(){document.body.classList.add('trip-mode');show(stars,true);RADesireTrips.setCurrentActivity('look at the stars');clearTimer();const done=document.querySelector('#stargazingDone');done?.classList.remove('visible');timer=setTimeout(()=>{timer=0;if(RAScenes.current()==='stargazing')done?.classList.add('visible')},HOLDS.stargazing)}
+ function exitStars(){clearTimer();show(stars,false);document.querySelector('#stargazingDone')?.classList.remove('visible')}
+ function enterReturn(){document.body.classList.add('trip-mode');show(returnScene,true);clearTimer();timer=setTimeout(async()=>{timer=0;RAState.patch('rich.location','LA');await RAScenes.go('bedroom',{tripReturn:true})},HOLDS.returning)}
+ function exitReturn(){clearTimer();show(returnScene,false)}
+ async function endStargazing(){clearTimer();RADesireTrips.completeActivity('look at the stars');RADesireTrips.finish();await RAScenes.go('tripReturn')}
  document.addEventListener('DOMContentLoaded',()=>{
+  scaleControl?.addEventListener('change',e=>setScale(e.target.value));setScale(DEFAULT_SCALE);
   document.querySelector('#stargazingDone')?.addEventListener('click',endStargazing);
   document.querySelector('#devResetTrip')?.addEventListener('click',async()=>{
-   window.RADesireTrips.reset();window.RAState.patch('rich.location','LA');
-   if(window.RAPhone?.isOpen?.())await window.RAPhone.close();
-   if(window.RAScenes.current()!=='bedroom')await window.RAScenes.go('bedroom',{dev:true});
+   clearTimer();RADesireTrips.reset();RAState.patch('rich.location','LA');
+   if(RAPhone?.isOpen?.())await RAPhone.close();
+   if(RAScenes.current()!=='bedroom')await RAScenes.go('bedroom',{dev:true});
   });
+  const saved=RAState.get(),trip=saved.activeTrip,scene=saved.world?.scene;
+  if(trip?.status==='traveling'&&scene==='tripTravel')RAScenes.go('tripTravel',{resume:true});
+  else if(trip?.status==='arrived'&&scene==='stargazing')RAScenes.go('stargazing',{resume:true});
+  else if(trip?.status==='arrived'&&scene==='powderSpringsCurb')RAScenes.go('powderSpringsCurb',{resume:true});
+  else if(trip?.status==='completed'&&scene==='tripReturn')RAScenes.go('tripReturn',{resume:true});
  });
- document.addEventListener('ra:scene',e=>{if(!['tripTravel','powderSpringsCurb','stargazing'].includes(e.detail?.id))document.body.classList.remove('trip-mode')});
- window.RADesireTripPresentation={firstTrip:TRIP_001,enterTravel};
+ document.addEventListener('ra:scene',e=>{if(!['tripTravel','powderSpringsCurb','stargazing','tripReturn'].includes(e.detail?.id))document.body.classList.remove('trip-mode')});
+ window.RADesireTripPresentation={firstTrip:TRIP_001,enterTravel,setScale,scaleOptions:SCALE_OPTIONS,anchor:{source:SRC_ANCHOR,world:WORLD_ANCHOR},holds:HOLDS};
  RAScenes.register('tripTravel',{enter:enterTravel,exit:exitTravel});
  RAScenes.register('powderSpringsCurb',{enter:enterCurb,exit:exitCurb});
  RAScenes.register('stargazing',{enter:enterStars,exit:exitStars});
+ RAScenes.register('tripReturn',{enter:enterReturn,exit:exitReturn});
 })();
