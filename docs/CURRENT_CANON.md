@@ -53,7 +53,8 @@ Marketing value alone is not sufficient justification.
 - The throne-room wall portrait is now a self-portrait of Rich based on Ube's red-background YouTube/profile image. It should be deliberately low-detail cartridge pixel art: recognizable silhouette, sunglasses, hair, skin, black shirt, green earring, fang, strong red background. The portrait interior may change; the approved room outside it must not.
 - Room ambience may occasionally include bats. The castle should usually be still, occasionally alive.
 - Main game direction includes Rich's life outside battle. Rich has a **$100,000 monthly budget**. Exact reset/income/spending mechanics are TBD.
-- Bedroom + Phone are planned navigation/lifestyle concepts. Phone apps and bedroom layout are TBD.
+- **Bedroom Ambient Prototype is approved** as Rich's first playable home scene. Preserve its supplied immutable 270×480 environment, authored Rich states, window-masked cloud layer and sparse ambient presentation. On every scene entry, initialize at least one cloud already in progress at a randomized position; a second differently sized cloud may occasionally also be in progress. Clouds drift right-to-left at calm, size-specific speeds with long irregular future spawn gaps and open-sky periods.
+- Phone gameplay, phone apps and bedroom interactions remain unimplemented and TBD.
 - Stay with vanilla HTML/CSS/JS for now. Do not migrate to Unity/Godot merely for scale.
 - Persistent state should support Rich/world/character/encounter progression and browser-local saving.
 - Pokémon-style overworld walking is **not approved**. Fixed scenes/hotspots remain a valid future approach.
@@ -94,7 +95,6 @@ When Rich steals an adult woman:
 - CRACK threshold/roll/outcome
 - Budget reset/income/spending mechanics
 - Phone apps
-- Bedroom visual layout
 - Future typography-role exceptions or secondary font choices
 - Exact final palette/tint
 - Overworld walking
