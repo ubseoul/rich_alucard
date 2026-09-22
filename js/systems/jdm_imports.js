@@ -64,12 +64,14 @@
  }
  function recordDaughter(outcome){RAState.patch(`characters.${DAUGHTER_ID}`,{id:DAUGHTER_ID,adult:true,met:true,vampire:outcome==='converted',conversionOutcome:outcome});RAState.recordEvent({id:`jdm-daughter:${outcome}`,type:'character_outcome',characterId:DAUGHTER_ID,outcome})}
  async function convertDaughter(){patchActive({stage:'converting'});await window.RACharacterReveal.convertEncounterCharacter(DAUGHTER_ID,{human:'assets/jdm_imports/characters/daughter/daughter_neutral.png',vampire:'assets/jdm_imports/characters/daughter/daughter_vampire_reveal.png'});recordDaughter('converted');await completeAcquisition()}
- function completeAcquisition(){const life=RAState.get().life,a=life.acquisitions.active;if(!a)return false;const existing=life.ownership.cars.find(x=>x.id===CAR_ID);
-  if(!existing&&Number(life.resources.money)<Number(a.quotedPrice)){patchActive({status:'paused',stage:'aftermath',paymentPending:true});goStory('jdmAftermath');sayIfPossible('YOU NEED THE REST OF THE ASKING PRICE.');return false}
+ function computeCompletionState(life){const a=life?.acquisitions?.active;if(!a)return {ok:false,reason:'no-active-acquisition'};const existing=life.ownership?.cars?.find(x=>x.id===CAR_ID);
+  if(!existing&&Number(life.resources?.money)<Number(a.quotedPrice))return {ok:false,reason:'insufficient-funds'};
   const next=JSON.parse(JSON.stringify(life));if(!existing){next.resources.money-=Number(a.quotedPrice);next.ownership.cars.push({id:CAR_ID,make:'Toyota',model:'Supra Mk4',ownershipStatus:'owned',acquisitionSource:'jdm_imports_personal_collection',acquisitionEventId:a.purchaseEventId,acquiredAt:new Date().toISOString()})}
   next.world.flags.jdmImportsUnlocked=true;next.world.flags.jdmHomeDelivery=true;next.world.location='LA';const completedAt=new Date().toISOString();next.acquisitions.active={...a,status:'completed',stage:'payoff',paymentPending:false,completedAt};if(!next.acquisitions.completed.some(x=>x.id===ACQUISITION_ID))next.acquisitions.completed.push({id:ACQUISITION_ID,vehicleId:CAR_ID,completedAt});
   if(!next.history.some(x=>x.id===a.purchaseEventId))next.history.push({id:a.purchaseEventId,type:'vehicle_acquired',vehicleId:CAR_ID,source:'jdm_imports_personal_collection',at:completedAt});
-  if(!next.history.some(x=>x.id==='jdm-imports-unlocked'))next.history.push({id:'jdm-imports-unlocked',type:'store_access_unlocked',storeId:'jdm_imports',delivery:'home',at:completedAt});RAState.patch('life',next);return goStory('supraPayoff');
+  if(!next.history.some(x=>x.id==='jdm-imports-unlocked'))next.history.push({id:'jdm-imports-unlocked',type:'store_access_unlocked',storeId:'jdm_imports',delivery:'home',at:completedAt});return {ok:true,life:next,charged:!existing};
+ }
+ function completeAcquisition(){const life=RAState.get().life,result=computeCompletionState(life);if(!result.ok){if(result.reason==='insufficient-funds'){patchActive({status:'paused',stage:'aftermath',paymentPending:true});goStory('jdmAftermath');sayIfPossible('YOU NEED THE REST OF THE ASKING PRICE.');}return false}RAState.patch('life',result.life);return goStory('supraPayoff');
  }
  function sayIfPossible(text){window.RACombat?.message?.(text)}
  function ownerDefeated(){patchActive({stage:'aftermath',status:'in_progress'});RAState.patch(`characters.${DAUGHTER_ID}.met`,true);RAState.patch(`characters.${DAUGHTER_ID}.adult`,true);RAState.patch('life.world.location','LA import facility');return RAScenes.go('jdmAftermath')}
@@ -90,6 +92,6 @@ document.addEventListener('DOMContentLoaded',()=>{
   RAScenes.register('jdmAftermath',{enter:()=>sceneEntry('jdmAftermath'),exit:()=>sceneExit('jdmAftermath')});
   RAScenes.register('supraPayoff',{enter:()=>sceneEntry('supraPayoff'),exit:()=>sceneExit('supraPayoff')});
  });
- window.RAJDMImports={priceForTesting:SUPRA_MK4_PRICE_FOR_TESTING,characterScaleOptions:CHARACTER_SCALE_OPTIONS,defaultCharacterScale:DEFAULT_CHARACTER_SCALE,setCharacterScale,layoutBattleActors,queueBattleActorLayout,carId:CAR_ID,characterId:DAUGHTER_ID,storeMarkup,action,begin,resume,hasCheckpoint:()=>!!active()&&(active().status!=='completed'||active().stage==='payoff'),ownerDefeated,ownerLost,completeAcquisition,drawBattleBackground:()=>paintEnvironment(document.querySelector('#jdmDockBattleCanvas'),dockEnvironment)};
+ window.RAJDMImports={priceForTesting:SUPRA_MK4_PRICE_FOR_TESTING,characterScaleOptions:CHARACTER_SCALE_OPTIONS,defaultCharacterScale:DEFAULT_CHARACTER_SCALE,setCharacterScale,layoutBattleActors,queueBattleActorLayout,carId:CAR_ID,characterId:DAUGHTER_ID,storeMarkup,action,begin,resume,hasCheckpoint:()=>!!active()&&(active().status!=='completed'||active().stage==='payoff'),ownerDefeated,ownerLost,completeAcquisition,computeCompletionState,drawBattleBackground:()=>paintEnvironment(document.querySelector('#jdmDockBattleCanvas'),dockEnvironment)};
  window.addEventListener('resize',()=>{if(dock?.classList.contains('active'))setDockActors(active()?.stage||'arrival');if(payoff?.classList.contains('active')){placeCharacter(payoffRich,55);placePayoffObjects()}if(RAScenes.current()==='jdmCombat')layoutBattleActors()});
 })();

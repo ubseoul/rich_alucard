@@ -4,6 +4,12 @@ This is a creative-direction changelog, not a substitute for Git history.
 
 ## 2026-09-22
 
+### Foundation Mega-Patch — Wave 1: Save Integrity + Regression Foundation
+- Advanced the browser-local save format to v7 with an explicit legacy bridge and sequential v5 → v6 → v7 migrations. Existing life, trip/history, character/encounter, ownership, business-unlock and one-time acquisition consequences are preserved.
+- Added non-destructive normalization for partial records and browser-local recovery/quarantine handling: malformed primary data restores the last valid recovery copy rather than silently defaulting Rich.
+- Added synthetic save fixtures for fresh, legacy, v6 life, completed Butter Chicken, paused/owned Supra, malformed JSON and partial corruption. The smoke suite now verifies migration idempotence, recovery, round-trips and one-time Supra consequences without assuming a fresh player save.
+- Added release cache version `foundation-wave1-save-integrity-20260922.3`. No gameplay, content, economy, encounter or art changes were made.
+
 ### Milestone 6B — I Want a Supra
 - Tests desire-driven acquisition, persistent ownership, business unlocks and consequences using the Life Engine. Encounter details are intentionally withheld until Ube's first playthrough.
 - Integrated the approved 6B production art into the existing phone, dock, battle and ownership scenes. Replaced the temporary SVG and drawn stand-ins with individual native-size raster assets; reused canonical Rich frames byte-for-byte.
