@@ -500,7 +500,7 @@ button:active,.main-menu button.pressed,.moves button.pressed{transform:translat
 .hpbox i em{transition:width 420ms steps(8,end)}
 .production-ceo:after,.production-assistant:after{content:"";position:absolute;left:50%;bottom:1px;width:38px;height:5px;transform:translateX(-50%);background:#201329;opacity:.42;z-index:-1}
 .production-assistant:after{width:30px;opacity:.34}
-.rich-lyric-bubble{left:10.5% !important;top:34% !important;max-width:38% !important;min-width:0 !important;padding:4px 6px !important;font-size:8px !important;line-height:1.05 !important;border-width:2px !important}
+.rich-lyric-bubble{left:var(--bubble-left,10.5%) !important;top:var(--bubble-top,34%) !important;max-width:38% !important;min-width:0 !important;padding:4px 6px !important;font-size:8px !important;line-height:1.05 !important;border-width:2px !important}
 .rich-lyric-bubble::after{left:18px !important;bottom:-7px !important;width:8px !important;height:8px !important}
 .revenge-mass.gather{opacity:1;animation:revengeGather .32s steps(5,end) both}
 .revenge-mass:before,.revenge-mass:after{content:"";position:absolute;width:4px;height:4px;background:#ff3151;box-shadow:-12px -8px #a60d2d,14px -11px #d21f3c,-16px 9px #6d0715,15px 13px #ff3151;opacity:0}
@@ -686,8 +686,14 @@ body.trip-mode #screen > :not(#tripTravel):not(#powderSpringsCurb):not(#stargazi
 body.jdm-mode .room,body.jdm-mode #ambienceLayer{display:none!important}
 body.jdm-battle #jdmDockBattleCanvas{display:block}
 body.jdm-battle #productionAssistant{display:none!important}
-body.jdm-battle .gemini-rich{left:-25px;top:174px;width:160px;height:192px;background-size:160px 192px}
+body.jdm-battle .gemini-rich{left:-25px;top:174px;width:160px;height:192px;background-size:160px 192px;background-image:url('assets/rich_standing_right.png')}
 body.jdm-battle .production-ceo{left:100px;top:174px;width:160px;height:192px;background-size:160px 192px}
+#jdmBattleDaughter{display:none;position:absolute;z-index:5;object-fit:fill;image-rendering:pixelated;pointer-events:none}
+body.jdm-battle #jdmBattleDaughter{display:block}
+body.jdm-battle .toast.jdm-speaker-bubble{left:var(--speaker-bubble-left);right:auto;top:var(--speaker-bubble-top);width:auto;max-width:38%;padding:4px 6px;z-index:14;font-size:7px;line-height:1.2}
+body.jdm-battle .toast.jdm-speaker-bubble:after{content:"";position:absolute;bottom:-7px;width:8px;height:8px;background:#f6efd9;border-right:2px solid #10101b;border-bottom:2px solid #10101b;transform:rotate(45deg)}
+body.jdm-battle .toast.speaker-rich:after{left:17px}
+body.jdm-battle .toast.speaker-importer:after{right:17px}
 body.jdm-battle .production-ceo.state-idle{background-image:url('assets/jdm_imports/characters/importer/importer_combat_ready.png')}
 body.jdm-battle .production-ceo.state-throw{background-image:url('assets/jdm_imports/characters/importer/importer_combat_ready.png');transform:none}
 body.jdm-battle .production-ceo.state-hit,body.jdm-battle .production-ceo.combat-recoil-light,body.jdm-battle .production-ceo.combat-recoil-heavy{background-image:url('assets/jdm_imports/characters/importer/importer_hit.png')}

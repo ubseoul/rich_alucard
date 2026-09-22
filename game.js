@@ -74,7 +74,9 @@ const moveData={
  revenge:{name:'REVENGE',damage:0}
 };
 function wait(ms){return new Promise(r=>setTimeout(r,ms))}
-function say(msg,ms=900){toast.textContent=msg;toast.classList.add('show');clearTimeout(say.t);say.t=setTimeout(()=>toast.classList.remove('show'),ms)}
+function layoutJdmBubble(node,speaker,stack=0){if(!node||battleEncounter!=='jdm'||!document.body.classList.contains('jdm-battle'))return;const screen=document.querySelector('#screen'),actor=speaker==='importer'?productionCEO:geminiRich;if(!screen||!actor)return;const sr=screen.getBoundingClientRect(),ar=actor.getBoundingClientRect(),width=node.offsetWidth||92,height=node.offsetHeight||24;const left=Math.round(Math.max(8,Math.min(sr.width-width-8,ar.left-sr.left+ar.width*.5-width*.5)));const top=Math.round(Math.max(sr.height*.20,ar.top-sr.top-height-10-stack));node.style.setProperty('--speaker-bubble-left',`${left}px`);node.style.setProperty('--speaker-bubble-top',`${top}px`);node.style.setProperty('--bubble-left',`${left}px`);node.style.setProperty('--bubble-top',`${top}px`)}
+function layoutJdmBubbles(){layoutJdmBubble(richLyricBubble,'rich',toast.classList.contains('show')&&toast.classList.contains('jdm-speaker-bubble')&&toast.classList.contains('speaker-rich')?(toast.offsetHeight||24)+10:0);if(toast.classList.contains('show')&&toast.classList.contains('jdm-speaker-bubble'))layoutJdmBubble(toast,toast.classList.contains('speaker-importer')?'importer':'rich')}
+function say(msg,ms=900,speaker=null){toast.textContent=msg;toast.classList.add('show');toast.classList.remove('jdm-speaker-bubble','speaker-rich','speaker-importer');if(battleEncounter==='jdm'&&speaker){toast.classList.add('jdm-speaker-bubble',speaker==='importer'?'speaker-importer':'speaker-rich');layoutJdmBubbles();requestAnimationFrame(layoutJdmBubbles)}clearTimeout(say.t);say.t=setTimeout(()=>toast.classList.remove('show','jdm-speaker-bubble','speaker-rich','speaker-importer'),ms)}
 function clamp(v){return Math.max(0,Math.min(MAX_HP,v))}
 function updateHP(){
  richHP=clamp(richHP);ceoHP=clamp(ceoHP);
@@ -130,7 +132,7 @@ async function normalVictory(){
   if(battleOver) return;
   battleOver=true; busy=true;
   if(battleEncounter==='jdm'){
-    setCEOState('defeated');say('THE IMPORTER BACKS DOWN.',850);await wait(850);await window.RAJDMImports?.ownerDefeated?.();return;
+    setCEOState('defeated');say('THE IMPORTER BACKS DOWN.',850,'importer');await wait(850);await window.RAJDMImports?.ownerDefeated?.();return;
   }
   if(window.RAState) RAState.patch('encounters.ceo_prince.defeated',true);
   setCEOState('defeated');
@@ -227,7 +229,7 @@ async function genericPlayerFX(kind){
  document.querySelector('#screen').classList.remove('bite-flash','brain-flash','revenge-flash');richCast.classList.remove('cast');attackLayer.classList.remove('active');battleUI.classList.remove('attack-mode');
 }
 async function importerTurn(){
- say('THE IMPORTER SHOVES RICH BACK.',620);attackLayer.classList.add('active');battleUI.classList.add('attack-mode');setCEOState('throw');await wait(180);setRichState('hit');await RACombatPresentation.play({target:geminiRich,attacker:productionCEO,severity:'normal',kind:'importer-shove',recoveryMs:40});
+ say('THE IMPORTER SHOVES RICH BACK.',620,'importer');attackLayer.classList.add('active');battleUI.classList.add('attack-mode');setCEOState('throw');await wait(180);setRichState('hit');await RACombatPresentation.play({target:geminiRich,attacker:productionCEO,severity:'normal',kind:'importer-shove',recoveryMs:40});
  const actualDamage=Math.min(richHP,16);richHP-=actualDamage;revengeStored+=actualDamage;addRevengeWounds(actualDamage);window.RADevState.revengeStoredDamage=revengeStored;updateHP();await wait(160);setCEOState('idle');setRichState('idle');attackLayer.classList.remove('active');battleUI.classList.remove('attack-mode');if(richHP<=0)return defeat();busy=false;inMoves=true;paint();
 }
 async function enemyTurn(){
@@ -277,9 +279,9 @@ async function activateMove(){
  const id=moves[moveIndex].dataset.move;
  const m=moveData[id];
  if(id==='revenge'){
-   say('REVENGE!',500);const dmg=Math.max(0,revengeStored);revengeStored=0;window.RADevState.revengeStoredDamage=0;updateRevengeDisplay(true);await revengeFX(dmg);await drainCEOHP(dmg);clearRevengeWounds();updateRevengeDisplay();say(dmg>0?`${dmg} DAMAGE REFLECTED.`:'NOTHING TO RETURN.',700);if(ceoHP<=0){await normalVictory();busy=false;return;}
+   say('REVENGE!',500,'rich');const dmg=Math.max(0,revengeStored);revengeStored=0;window.RADevState.revengeStoredDamage=0;updateRevengeDisplay(true);await revengeFX(dmg);await drainCEOHP(dmg);clearRevengeWounds();updateRevengeDisplay();say(dmg>0?`${dmg} DAMAGE REFLECTED.`:'NOTHING TO RETURN.',700);if(ceoHP<=0){await normalVictory();busy=false;return;}
  }else{
-   say(m.name+'!',500);
+   say(m.name+'!',500,'rich');
    if(id==='blood')await projectileVolley();
    else if(id==='bite'){
      battleUI.classList.add('attack-mode');attackLayer.classList.add('active');
@@ -438,3 +440,4 @@ function syncRichLyrics(){
   requestAnimationFrame(syncRichLyrics);
 }
 requestAnimationFrame(syncRichLyrics);
+window.RAJDMCombatPresentation={layoutBubbles:layoutJdmBubbles};
