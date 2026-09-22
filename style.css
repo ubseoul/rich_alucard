@@ -604,6 +604,40 @@ body.bedroom-mode .room,body.bedroom-mode #ambienceLayer,body.bedroom-mode #bloo
 .dev-panel .bedroom-dev-grid button{width:100%;font-size:6px;padding:3px 1px}
 body.dev-enabled .dev-panel{max-height:72%;overflow:auto}
 
+/* Phone v0.1: cartridge UI expands from the authored handset in Rich's hand. */
+.check-phone{position:absolute;z-index:5;pointer-events:auto;right:5%;top:51%;max-width:43%;padding:5px 6px;background:#f1e5c5;color:#21151a;border:2px solid #28131c;box-shadow:2px 2px #7d194b;font:7px/1.4 var(--font-system);image-rendering:pixelated;white-space:nowrap}
+.check-phone.learned{width:30px;height:30px;padding:0;font-size:13px}
+.phone-overlay{position:absolute;inset:0;z-index:110;display:none;overflow:hidden;background:#080711;transform-origin:25.2% 63.3%;image-rendering:pixelated;touch-action:manipulation}
+.phone-overlay.open,.phone-overlay.closing{display:block}
+.phone-overlay.open{animation:phoneExpand 230ms steps(6,end) both}
+.phone-overlay.closing{animation:phoneCollapse 210ms steps(6,end) both}
+@keyframes phoneExpand{from{transform:scale(.035);opacity:.7}to{transform:scale(1);opacity:1}}
+@keyframes phoneCollapse{from{transform:scale(1);opacity:1}to{transform:scale(.035);opacity:.7}}
+.phone-shell{position:absolute;inset:0;box-sizing:border-box;padding:14px 12px 12px;background:#17142c;border:5px solid #10101b;box-shadow:inset 0 0 0 2px #7d194b;color:#f6efd9;display:flex;flex-direction:column;gap:8px}
+.phone-topline{display:flex;align-items:center;justify-content:space-between;min-height:28px;padding:3px 5px;border:2px solid #f6efd9;background:#10101b;font:7px var(--font-system)}
+.phone-topline button{width:27px;height:24px;padding:0;border:1px solid #f6efd9;background:#d7193f;color:#fff;font:14px var(--font-system)}
+.phone-content{min-height:0;flex:1;overflow-y:auto;overscroll-behavior:contain;padding:9px;background:#f6efd9;color:#10101b;border:3px solid #10101b;box-shadow:inset 0 0 0 1px #c18b3c;touch-action:pan-y}
+.phone-content h1{margin:1px 0 12px;padding-bottom:7px;border-bottom:2px solid #7d194b;font:10px var(--font-system);color:#7d194b}
+.phone-app-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.phone-button{display:block;width:100%;min-height:33px;padding:6px 4px;border:2px solid #28131c;box-shadow:2px 2px #7d194b;background:#17142c;color:#fff;font:7px/1.35 var(--font-system);text-align:center;overflow-wrap:anywhere;touch-action:manipulation}
+.phone-button:active{transform:translate(1px,1px);box-shadow:1px 1px #7d194b}
+.phone-app-grid .phone-button{min-height:50px;font-size:6px}
+.phone-app-grid .phone-button:first-child{background:#d7193f}
+.phone-chat{padding:8px 7px;border:2px solid #28131c;background:#fff8df;font:8px/1.65 var(--font-system);overflow-wrap:anywhere}
+.phone-chat p{margin:0 0 9px}
+.phone-chat .phone-speaker{margin:0 0 3px;color:#7d194b;font-size:7px}
+.phone-button.suggested-prompt{margin-top:7px;min-height:39px;background:#17142c;color:#fff}
+.phone-option-list{display:grid;gap:6px;margin:7px 0}
+.phone-option-list .phone-button{text-align:left;padding-left:8px}
+.phone-button.destination-available{background:#27623d}
+.phone-button.destination-locked{background:#403744;color:#f6efd9}
+.phone-button small{display:block;margin-top:4px;color:#c18b3c;font-size:6px}
+.phone-message{min-height:25px;margin-top:8px;color:#7d194b;font:7px/1.6 var(--font-system)}
+.phone-back,.phone-home{display:inline-block;width:48%;margin-top:8px}
+.phone-home{float:right}
+.phone-close-button{margin-top:9px;background:#7d194b}
+.phone-content button:focus-visible,.phone-topline button:focus-visible{outline:3px solid #c18b3c;outline-offset:2px}
+
 /* v0.19.1 — larger lyric bubble, anchored close to Rich */
 .rich-lyric-bubble{
  left:8.5% !important;

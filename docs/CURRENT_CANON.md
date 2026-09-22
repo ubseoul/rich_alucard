@@ -54,7 +54,10 @@ Marketing value alone is not sufficient justification.
 - Room ambience may occasionally include bats. The castle should usually be still, occasionally alive.
 - Main game direction includes Rich's life outside battle. Rich has a **$100,000 monthly budget**. Exact reset/income/spending mechanics are TBD.
 - **Bedroom Ambient Prototype is approved** as Rich's first playable home scene. Preserve its supplied immutable 270×480 environment, authored Rich states, window-masked cloud layer and sparse ambient presentation. On every scene entry, initialize at least one cloud already in progress at a randomized position; a second differently sized cloud may occasionally also be in progress. Clouds drift right-to-left at calm, size-specific speeds with long irregular future spawn gaps and open-sky periods.
-- Phone gameplay, phone apps and bedroom interactions remain unimplemented and TBD.
+- **Bedroom Phone + VampGPT v0.1 is approved** as the first life-navigation prototype. `☎ CHECK PHONE` is the bedroom entry point; after the first use it may compact to a phone icon. The cartridge-style phone home contains exactly VampGPT, VampGram, InstaHoe, RealMoneyRealEstate, JDMIMPORTS, RICHBOIMPORTS and ONLYVAMPS; only VampGPT has an authored interaction in this milestone. Other apps and the Make Money / Meet People lanes respond `NOT SET UP YET.`
+- VampGPT is Rich's authored, state-aware personal assistant. The canonical prompt is **OGA WHAT DO I DO** and its response presents the Make Money, Meet People and Go Somewhere lanes without choosing for Rich. Cash is sourced from the existing budget, location is LA, and clout is LOW; no numeric clout scale is defined.
+- Go Somewhere shows **Atlanta as available** and **Tokyo locked by social/clout access**. Tokyo's authored response is `tokyo vampires don't fw you yet. get your clout up.` The exact clout requirement is TBD. Atlanta is a visible opportunity only: selecting it does not start travel or change location.
+- The short handset-to-cartridge transition and phone UI do not control music or bedroom cloud ambience. The ambient prototype remains approved and unchanged.
 - Stay with vanilla HTML/CSS/JS for now. Do not migrate to Unity/Godot merely for scale.
 - Persistent state should support Rich/world/character/encounter progression and browser-local saving.
 - Pokémon-style overworld walking is **not approved**. Fixed scenes/hotspots remain a valid future approach.
@@ -94,7 +97,7 @@ When Rich steals an adult woman:
 - Social starting level/progression
 - CRACK threshold/roll/outcome
 - Budget reset/income/spending mechanics
-- Phone apps
+- Phone app functionality beyond the authored VampGPT prototype
 - Future typography-role exceptions or secondary font choices
 - Exact final palette/tint
 - Overworld walking

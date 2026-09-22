@@ -172,7 +172,13 @@ Room ambience should be sparse. Bats may occasionally cross the room; constant m
 
 The first playable bedroom ambient scene is **APPROVED**. Use the supplied 270×480 bedroom environment unchanged, with authored Rich bedroom states aligned to the bed and the three supplied cloud sprites. Clouds use nearest-neighbor rendering and an exact runtime mask from the blue window pixels; they never cross the architecture or Rich.
 
-On scene entry, start with at least one cloud already moving right-to-left at a randomized position; a second differently sized cloud may occasionally be present. Keep size-specific speeds calm but perceptible within a few seconds. Future spawns remain irregular with gaps that leave open blue sky. Rich stays mostly still in authored states; sleep and wake remain sequence-controlled. This approval covers the ambient prototype, not phone gameplay or apps.
+On scene entry, start with at least one cloud already moving right-to-left at a randomized position; a second differently sized cloud may occasionally be present. Keep size-specific speeds calm but perceptible within a few seconds. Future spawns remain irregular with gaps that leave open blue sky. Rich stays mostly still in authored states; sleep and wake remain sequence-controlled.
+
+### Bedroom Phone + VampGPT v0.1
+
+The first Bedroom Phone + VampGPT prototype is **APPROVED**. `☎ CHECK PHONE` is a restrained cream Gothic Pokémon Hybrid action prompt; after the first use it may compact to a phone icon. The phone expands from the handset area in Rich's approved PHONE SCROLL pose into a full-screen cartridge interface. Use Press Start 2P, nearest-neighbor pixel edges, cream panels and dark outlines. Keep the transition short and state-based. Closing collapses toward Rich's hand and returns Rich to LOUNGE. The phone must leave the music and bedroom cloud animation running.
+
+Phone home has exactly the seven authored app labels. VampGPT is the only functional app surface in this milestone and uses authored dialogue, not freeform AI. Its screens should favor readable text, large touch buttons and obvious Home/Back/Close navigation. The approved destination view makes Atlanta visibly available and Tokyo visibly locked by clout/social access; do not imply travel or add destinations.
 
 ## Rich visual identity
 

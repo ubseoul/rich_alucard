@@ -20,7 +20,9 @@
  function clearClouds(){clouds=[];ctx.clearRect(0,0,270,480);}
  function enter(){active=true;forced=false;scene.setAttribute('aria-hidden','false');document.body.classList.add('bedroom-mode');if(window.RADevState){window.RADevState.scene='bedroom';window.RADevState.bedroomRichState='lounge_idle'}setRichState('lounge_idle');initializeClouds();scheduleAmbient();scheduleCloud();lastFrame=0;raf=requestAnimationFrame(animate);}
  function exit(){active=false;clearTimeout(ambientTimer);clearTimeout(cloudTimer);cancelAnimationFrame(raf);raf=0;lastFrame=0;clearClouds();document.body.classList.remove('bedroom-mode');scene.setAttribute('aria-hidden','true');if(window.RADevState){window.RADevState.scene='battle';window.RADevState.richState='idle'}}
- window.RABedroom={enter,exit,setRichState(state){forced=true;clearTimeout(ambientTimer);setRichState(state)},spawnCloud,clearClouds,cloudCount:()=>clouds.length,cloudTiming:CLOUD_TIMING,ambientTiming:RICH_AMBIENT_TIMING};
+ function holdForPhone(){forced=true;clearTimeout(ambientTimer);setRichState('phone_scroll')}
+ function releasePhone(){forced=false;setRichState('lounge_idle');scheduleAmbient()}
+ window.RABedroom={enter,exit,setRichState(state){forced=true;clearTimeout(ambientTimer);setRichState(state)},holdForPhone,releasePhone,spawnCloud,clearClouds,cloudCount:()=>clouds.length,cloudTiming:CLOUD_TIMING,ambientTiming:RICH_AMBIENT_TIMING};
  if(window.RAScenes)RAScenes.register('bedroom',{enter,exit});
  document.addEventListener('DOMContentLoaded',()=>{
   document.querySelector('#devEnterBedroom')?.addEventListener('click',()=>RAScenes.go('bedroom',{dev:true}));
