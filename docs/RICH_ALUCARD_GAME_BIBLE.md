@@ -218,7 +218,7 @@ Persistent state tracks:
 
 Save locally in the browser.
 
-**Milestone 6B — I Want a Supra** tests desire-driven acquisition, persistent ownership, business unlocks and consequences. Encounter details remain undisclosed pending Ube's playthrough.
+**Milestone 6B — I Want a Supra** tests desire-driven acquisition, persistent ownership, business unlocks and consequences using the v6 Life Engine. Its approved native-size production art package replaces the initial placeholders; source assets are immutable. Dock/ownership character scale defaults to 1.25× with DEV tuning at 1×, 1.25× and 1.5×. The $78,000 price remains temporary, editable test data rather than canon. Encounter details remain undisclosed pending Ube's playthrough.
 
 ## 15. Production workflow
 
