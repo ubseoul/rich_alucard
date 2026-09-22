@@ -24,7 +24,7 @@ async function test(){
   const sources=await javascriptFiles(path.join(root,'js'));
   for(const file of [...sources,path.join(root,'game.js')])new vm.Script(await readFile(file,'utf8'),{filename:path.relative(root,file)});
   const context={window:{},console,localStorage:memoryStorage(),setTimeout,clearTimeout,setInterval,clearInterval,requestAnimationFrame:fn=>setTimeout(()=>fn(0),0),cancelAnimationFrame:clearTimeout,document:{dispatchEvent(){}},CustomEvent:function(type,init){this.type=type;this.detail=init?.detail;}};context.window=context;vm.createContext(context);
-  for(const file of ['js/engine/state.js','js/data/save_fixtures.js','js/data/opportunities.js','js/engine/scenes.js','js/data/stages.js','js/engine/stage.js'])vm.runInContext(await read(file,'utf8'),context,{filename:file});
+  for(const file of ['js/engine/state.js','js/data/save_fixtures.js','js/data/opportunities.js','js/engine/scenes.js','js/data/stages.js','js/engine/stage.js','js/data/combat.js','js/engine/combat_foundation.js'])vm.runInContext(await read(file,'utf8'),context,{filename:file});
   const {RAState,RASaveFixtures,RAOpportunities}=context;
   const fixtures=RASaveFixtures.fixtures,ids=RASaveFixtures.ids;
   const v6=RAState.migrateWithReport(fixtures.lifeV6),owned=RAState.migrateWithReport(fixtures.supraOwned),partial=RAState.migrateWithReport(fixtures.partialCorrupt);
@@ -40,6 +40,7 @@ async function test(){
   assert(!RAOpportunities.evaluate(RAOpportunities.definitions.find(item=>item.id==='tokyo'),fresh).available,'Tokyo lock regression');
   assert(await context.RAScenes.runSelfTest(),'scene lifecycle cancellation regression');
   assert(context.RAStageLayout.runSelfTest(),'stage contract geometry regression');
+  assert(context.RACombatFoundation.runSelfTest(),'combat foundation regression');
   const index=await read('index.html');assert(index.includes('__BUILD_ASSET_VERSION__'),'index is missing the build asset placeholder');
   console.log(`PASS deterministic release gate (${sources.length+1} JavaScript syntax checks, save fixtures, recovery, opportunity access)`);
 }

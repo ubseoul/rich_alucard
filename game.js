@@ -64,15 +64,12 @@ const mainButtons=[...document.querySelectorAll('[data-main]')];
 const moves=[...document.querySelectorAll('[data-move]')];
 const MUSIC_START=15;
 const MAX_HP=100;
-let richHP=100,ceoHP=100,mainIndex=0,moveIndex=0,inMoves=false,busy=false,battleOver=false,revengeStored=0,lastRichHP=100,lastCeoHP=100,battleEncounter='ceo';
+let richHP=100,ceoHP=100,mainIndex=0,moveIndex=0,inMoves=false,busy=false,battleOver=false,revengeStored=0,lastRichHP=100,lastCeoHP=100,battleEncounter='ceo',battleState=null;
 window.RADevState={scene:'battle',richState:'idle',revengeStoredDamage:0};
 
-const moveData={
- blood:{name:'BLOOD BATH',damage:26},
- octopus:{name:'OCTOPUS BRAIN',damage:18},
- bite:{name:'VAMPIRE BITE',damage:38},
- revenge:{name:'REVENGE',damage:0}
-};
+const moveData=window.RACombatDefinitions.moves;
+function syncBattleState(){if(!battleState)return;battleState.player.hp=richHP;battleState.enemy.hp=ceoHP;battleState.revengeStored=revengeStored;}
+battleState=window.RACombatFoundation.createBattleState('ceo');
 function wait(ms){return new Promise(r=>setTimeout(r,ms))}
 function layoutJdmBubble(node,speaker,stack=0){if(!node||battleEncounter!=='jdm'||!document.body.classList.contains('jdm-battle'))return;const screen=document.querySelector('#screen'),actor=speaker==='importer'?productionCEO:geminiRich;if(!screen||!actor)return;const sr=screen.getBoundingClientRect(),ar=actor.getBoundingClientRect(),width=node.offsetWidth||92,height=node.offsetHeight||24;const left=Math.round(Math.max(8,Math.min(sr.width-width-8,ar.left-sr.left+ar.width*.5-width*.5)));const top=Math.round(Math.max(sr.height*.20,ar.top-sr.top-height-10-stack));node.style.setProperty('--speaker-bubble-left',`${left}px`);node.style.setProperty('--speaker-bubble-top',`${top}px`);node.style.setProperty('--bubble-left',`${left}px`);node.style.setProperty('--bubble-top',`${top}px`)}
 function layoutJdmBubbles(){layoutJdmBubble(richLyricBubble,'rich',toast.classList.contains('show')&&toast.classList.contains('jdm-speaker-bubble')&&toast.classList.contains('speaker-rich')?(toast.offsetHeight||24)+10:0);if(toast.classList.contains('show')&&toast.classList.contains('jdm-speaker-bubble'))layoutJdmBubble(toast,toast.classList.contains('speaker-importer')?'importer':'rich')}
@@ -85,6 +82,7 @@ function updateHP(){
   if(richHP<lastRichHP)richText.classList.remove('drain'),void richText.offsetWidth,richText.classList.add('drain');
   if(ceoHP<lastCeoHP)ceoText.classList.remove('drain'),void ceoText.offsetWidth,ceoText.classList.add('drain');
   lastRichHP=richHP;lastCeoHP=ceoHP;
+  syncBattleState();
 }
 function paint(){
  mainButtons.forEach((b,i)=>b.classList.toggle('selected',!inMoves&&i===mainIndex));
@@ -93,12 +91,14 @@ function paint(){
 }
 function resetBattle(encounter='ceo'){
  battleEncounter=encounter;
+ battleState=window.RACombatFoundation.createBattleState(encounter);
  richHP=100;ceoHP=100;revengeStored=0;battleOver=false;busy=false;inMoves=false;mainIndex=0;moveIndex=0;
  document.querySelector('#enemyName').textContent=encounter==='jdm'?'JDM IMPORTER':'CEO ZOMBIE PRINCE';
  setCEOState('idle');document.body.classList.toggle('jdm-battle',encounter==='jdm');
  window.RADevState.revengeStoredDamage=0;
  lastRichHP=richHP;lastCeoHP=ceoHP;
  clearRevengeWounds();updateRevengeDisplay();choiceOverlay.classList.remove('show');battleUI.classList.remove('attack-mode');updateHP();paint();
+ window.RACombatFoundation.emit(battleState,'battle-start',{stageId:battleState.definition.stageId});
 }
 function updateRevengeDisplay(pulse=false){if(revengeValue){revengeValue.textContent=revengeStored;if(pulse){revengeValue.classList.remove('revenge-value-pulse');void revengeValue.offsetWidth;revengeValue.classList.add('revenge-value-pulse')}}}
 function clearRevengeWounds(){if(revengeWounds)revengeWounds.replaceChildren()}
@@ -131,6 +131,7 @@ async function revengeFX(amount,target=productionCEO){
 async function normalVictory(){
   if(battleOver) return;
   battleOver=true; busy=true;
+  window.RACombatFoundation.route(battleState,'victory');
   if(battleEncounter==='jdm'){
     setCEOState('defeated');say('THE IMPORTER BACKS DOWN.',850,'importer');await wait(850);await window.RAJDMImports?.ownerDefeated?.();return;
   }
@@ -235,7 +236,9 @@ async function importerTurn(){
 async function enemyTurn(){
  if(battleOver)return;
  await wait(360);
- if(battleEncounter==='jdm')return importerTurn();
+ const enemyMove=window.RACombatFoundation.selectEnemyMove(battleState);
+ window.RACombatFoundation.emit(battleState,'enemy-move-selected',{moveId:enemyMove?.id});
+ if(enemyMove?.id==='importer_shove')return importerTurn();
  say('BRIEFCASE THROW!',620);
  attackLayer.classList.add('active');
  battleUI.classList.add('attack-mode');
@@ -279,7 +282,7 @@ async function activateMove(){
  const id=moves[moveIndex].dataset.move;
  const m=moveData[id];
  if(id==='revenge'){
-   say('REVENGE!',500,'rich');const dmg=Math.max(0,revengeStored);revengeStored=0;window.RADevState.revengeStoredDamage=0;updateRevengeDisplay(true);await revengeFX(dmg);await drainCEOHP(dmg);clearRevengeWounds();updateRevengeDisplay();say(dmg>0?`${dmg} DAMAGE REFLECTED.`:'NOTHING TO RETURN.',700);if(ceoHP<=0){await normalVictory();busy=false;return;}
+   say('REVENGE!',500,'rich');const dmg=window.RACombatFoundation.consumeRevenge(battleState);revengeStored=0;window.RADevState.revengeStoredDamage=0;updateRevengeDisplay(true);await revengeFX(dmg);await drainCEOHP(dmg);clearRevengeWounds();updateRevengeDisplay();say(dmg>0?`${dmg} DAMAGE REFLECTED.`:'NOTHING TO RETURN.',700);if(ceoHP<=0){await normalVictory();busy=false;return;}
  }else{
    say(m.name+'!',500,'rich');
    if(id==='blood')await projectileVolley();
@@ -318,7 +321,7 @@ async function victory(){
 }
 
 async function defeat(){
- battleOver=true;busy=true;richHP=0;updateHP();battleUI.classList.add('attack-mode');say('UGH. WE LOST AGAIN.',1300);
+ battleOver=true;busy=true;richHP=0;updateHP();window.RACombatFoundation.route(battleState,'defeat');battleUI.classList.add('attack-mode');say('UGH. WE LOST AGAIN.',1300);
  await wait(1400);if(battleEncounter==='jdm'){choiceTitle.textContent='THE KEYS ARE STILL WITH HIM.';choiceYes.textContent='▶ TRY AGAIN';choiceNo.textContent='GO BACK';}else{choiceTitle.textContent='RESPAWN HUNGOVER?';choiceYes.textContent='▶ YES';choiceNo.textContent='STAY DEAD';}choiceOverlay.classList.add('show');
 }
 choiceYes.addEventListener('click',async()=>{

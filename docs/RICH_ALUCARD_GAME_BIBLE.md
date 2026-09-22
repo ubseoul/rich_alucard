@@ -247,6 +247,8 @@ Never convert a PROPOSED idea into canon silently.
 
 **FOUNDATION WAVE 3 — SCENE LIFECYCLE + STAGE CONTRACT** — Scene-owned timers, animation frames, intervals, delayed callbacks, and temporary listeners must use a cancellable lifecycle scope and cannot mutate after scene exit. Global music keeps its intentional global lifetime. Approved stages use native-coordinate Stage Contracts; JDM Imports docks is the reference contract at 270×480 with a 350 contact line and approved Rich/importer/daughter anchors. The DEV overlay is inspection-only and hidden in normal play.
 
+**FOUNDATION WAVE 4 — COMBAT FOUNDATION** — Encounters are configured with combatants, moves, weighted enemy selection, routes, and presentation IDs. The CEO and JDM Importer are compatibility definitions. Rich's protected move behavior and authored presentation remain unchanged; the legacy presentation functions are adapters until a later wave has reason to generalize them.
+
 ## 16. Current milestone order
 
 Current intended sequence:
