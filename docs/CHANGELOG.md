@@ -131,3 +131,8 @@ This is a creative-direction changelog, not a substitute for Git history.
 - Bedroom ambience, phone overlay timing, and Desire Trip travel/activity/return timers now use scene-owned cancellation.
 - Added the reusable Stage Contract format and migrated the approved JDM Imports docks composition to native 270×480 coordinates. The approved contact line and Rich/importer/daughter anchors remain unchanged.
 - Added a DEV-only Stage Contract overlay and deterministic lifecycle/geometry coverage.
+
+### Foundation Wave 3.1 — Playtest Polish
+- Added DEV-only isolated replay controls for Butter Chicken and the JDM/Supra first-purchase route, plus fresh test state. JDM reset refunds its completed purchase once and removes only JDM-specific acquisition, vehicle, flag, history, and daughter-outcome state.
+- Full local save wipe is visually separated and requires an explicit browser confirmation.
+- Supra world presentation is now authored as a 1.75× Stage Contract object while retaining its approved docks contact point.
