@@ -4,6 +4,13 @@ This is a creative-direction changelog, not a substitute for Git history.
 
 ## 2026-09-21
 
+### Desire Trip framework + Butter Chicken Under the Stars #001
+- Locked the first minimal Desire Trip flow: desire → persistent trip → brief travel transition → destination → activity → player-controlled completion. Activities can exist without quests, objectives or rewards.
+- Atlanta selection now surfaces only the authored Butter Chicken conversation and LET'S GO / NAH choice. Committing creates a trip to Powder Springs, Georgia, for butter chicken.
+- Added planned, traveling, arrived and completed trip statuses plus current/completed activity tracking. Travel shows LA → ATLANTA → POWDER SPRINGS briefly.
+- Added `powderSpringsCurb` and indefinite `stargazing` scene states. EAT BUTTER CHICKEN exposes LOOK AT THE STARS; I'M GOOD ends the moment and completes the trip.
+- Destination visuals remain clearly marked DEV PLACEHOLDER BACKGROUND. No final environment art, Rich activity states, travel system, rewards, quest, encounter, NPC or restaurant gameplay were added.
+
 ### Bedroom Phone + VampGPT v0.1 approved
 - `☎ CHECK PHONE` is the player-facing bedroom entry point, compacting to a phone icon after its first use.
 - Approved the brief handset-origin transition, full-screen cartridge phone home, authored VampGPT conversation and return-to-bedroom flow. Music and cloud ambience continue through it.

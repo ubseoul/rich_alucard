@@ -8,8 +8,9 @@
   function refresh(){
     if(!enabled)return;
     const s=window.RADevState||{};const save=window.RAState?.get?.()||{};const audio=document.querySelector('#soundtrack');
-    const scene=s.scene||window.RAScenes?.current?.()||'battle';const richState=scene==='bedroom'?(s.bedroomRichState||'lounge_idle'):(s.richState||'idle');
-    const lines=[`SCENE: ${scene}`,`RICH: ${richState}`,...(scene==='bedroom'?[`CLOUDS: ${window.RABedroom?.cloudCount?.()??0}`]:[]),`CASH: $${save.rich?.budget??0}`,`LOCATION: ${save.rich?.location??'--'}`,`CLOUT: ${save.rich?.clout??'--'}`,`PHONE LEARNED: ${!!save.phone?.learned}`,`CEO DEFEATED: ${!!save.encounters?.ceo_prince?.defeated}`,`ASSISTANT: ${JSON.stringify(save.characters?.ceo_assistant_001||{})}`,`AUDIO: ${audio?audio.currentTime.toFixed(2):'--'}`,`REVENGE STORED: ${s.revengeStoredDamage??0}`,`FONT: ${document.documentElement.dataset.devFont||'control'}`,`TINT: ${document.querySelector('#screen')?.classList.contains('cartridge-tint')?'ON':'OFF'}`];
+    const scene=window.RAScenes?.current?.()||s.scene||'battle';const richState=scene==='bedroom'?(s.bedroomRichState||'lounge_idle'):scene==='battle'?(s.richState||'idle'):'--';
+    const trip=save.activeTrip;const tripLine=trip?`${trip.id} / ${trip.status} / ${trip.destination?.name||'--'}`:'NONE';
+    const lines=[`SCENE: ${scene}`,`RICH: ${richState}`,...(scene==='bedroom'?[`CLOUDS: ${window.RABedroom?.cloudCount?.()??0}`]:[]),`CASH: $${save.rich?.budget??0}`,`LOCATION: ${save.rich?.location??'--'}`,`CLOUT: ${save.rich?.clout??'--'}`,`PHONE LEARNED: ${!!save.phone?.learned}`,`ACTIVE TRIP: ${tripLine}`,`CEO DEFEATED: ${!!save.encounters?.ceo_prince?.defeated}`,`ASSISTANT: ${JSON.stringify(save.characters?.ceo_assistant_001||{})}`,`AUDIO: ${audio?audio.currentTime.toFixed(2):'--'}`,`REVENGE STORED: ${s.revengeStoredDamage??0}`,`FONT: ${document.documentElement.dataset.devFont||'control'}`,`TINT: ${document.querySelector('#screen')?.classList.contains('cartridge-tint')?'ON':'OFF'}`];
     if(readout())readout().textContent=lines.join('\n');
   }
   function setEnabled(value){enabled=value;document.body.classList.toggle('dev-enabled',enabled);if(enabled){applyFont(document.documentElement.dataset.devFont||'control');refresh();}else panel()?.classList.remove('show');}
