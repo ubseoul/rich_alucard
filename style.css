@@ -683,8 +683,10 @@ body.trip-mode #screen > :not(#tripTravel):not(#powderSpringsCurb):not(#stargazi
 #devLifeInspector label{display:flex;align-items:center;justify-content:space-between;gap:4px;margin:3px 0}
 #devLifeInspector input[type="text"],#devLifeInspector input[type="number"]{width:54%;min-width:0;box-sizing:border-box}
 #jdmDockBattleCanvas{display:none;position:absolute;inset:0;width:100%;height:100%;z-index:1;image-rendering:pixelated}
+#stageContractOverlay{display:none;position:absolute;inset:0;width:100%;height:100%;z-index:13;pointer-events:none;image-rendering:pixelated}
 body.jdm-mode .room,body.jdm-mode #ambienceLayer{display:none!important}
 body.jdm-battle #jdmDockBattleCanvas{display:block}
+body.jdm-battle.stage-overlay-active #stageContractOverlay{display:block}
 body.jdm-battle #productionAssistant{display:none!important}
 body.jdm-battle .gemini-rich{left:-25px;top:174px;width:160px;height:192px;background-size:160px 192px;background-image:url('assets/rich_standing_right.png')}
 body.jdm-battle .production-ceo{left:100px;top:174px;width:160px;height:192px;background-size:160px 192px}
@@ -728,6 +730,8 @@ body.jdm-battle .production-ceo.state-hit{filter:brightness(1.25)}
 #supraPayoffKey.visible{display:block}
 #devJdmScaleControl{display:none}
 body.dev-enabled #devJdmScaleControl{display:flex}
+#devStageOverlayControl{display:none}
+body.dev-enabled #devStageOverlayControl{display:flex}
 body.jdm-mode .reveal-overlay{z-index:140}
 .reveal-overlay.external-conversion .reveal-profile,.reveal-overlay.external-conversion .reveal-prompt,.reveal-overlay.external-conversion .reveal-aftercare{display:none!important}
 .reveal-assistant-sprite.conversion-bite{filter:brightness(1.7) sepia(.4)}
