@@ -272,6 +272,35 @@
       "mode": "RGBA"
     },
     {
+      "path": "assets/bllad33/masters/bllad33_neutral_candidate_80x96.png",
+      "sha256": "fcca67ce0a90a60f16854c3c5f8019a28d243aa2bf3bf86ecdf5631013198f5b",
+      "role": "approved production master; neutral/entrance only; not runtime-integrated",
+      "status": "FROZEN",
+      "default_style_reference": true,
+      "approval_evidence": [
+        "art_department/APPROVAL_LEDGER.md",
+        "art_department/ships/rt_ship_001/ART_SHIP_MANIFEST.json"
+      ],
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "ship_id": "RT SHIP 001",
+      "state": "neutral/entrance",
+      "source_anchor": [
+        40,
+        88
+      ],
+      "presentation_scale": null,
+      "approval_status": "APPROVED MASTER",
+      "alpha": [
+        0,
+        255
+      ],
+      "freeze_scope": "Exact accepted pixels and neutral/entrance visual identity only; no other states or runtime integration."
+    },
+    {
       "path": "assets/blood_bath_contact_01.png",
       "sha256": "eb243a5b4195307400ee0ee591e18a3980d57f8e9bf9d63a785ecd81a8f74c10",
       "role": "selected source reference; broader production-package approval not inferred",

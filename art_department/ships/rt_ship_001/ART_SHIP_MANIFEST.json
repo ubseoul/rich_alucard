@@ -1,0 +1,308 @@
+{
+  "template_only": false,
+  "ship_id": "RT SHIP 001",
+  "status": "FROZEN",
+  "authorization": "Ube-supplied RT SHIP 001; subsequent HQ Taste Pass authorized cleanup of Variant B only; final explicit HQ PASS / APPROVED MASTER / FROZEN authorized exact-file promotion and required-record commit.",
+  "spoiler_classification": "OPEN for the supplied visual brief and asset review only; no hidden story scope",
+  "canon_sources": [
+    "docs/PRODUCTION_CONTROL.md",
+    "docs/CURRENT_CANON.md",
+    "docs/VISUAL_STYLE_BIBLE.md",
+    "art_department/STYLE_FINGERPRINT.md",
+    "art_department/APPROVAL_LEDGER.md"
+  ],
+  "inputs": [
+    {
+      "role": "taste-passed Variant B exploration; historical provenance only, not separately approved production pixels",
+      "audit_locator": "outputs/rt_ship_001/bllad33_b_80x96.png in originating Art session",
+      "sha256": "ad6d522cca9583e46873f8c5a2c1e37ca4c9bbc772d0964119a83b5d20b36e21",
+      "required_for_future_use_of_master": false
+    },
+    {
+      "role": "approved unchanged style reference",
+      "path": "assets/rich_standing_right.png",
+      "sha256": "765170076e8d3a9af9e8857e176e079b2a68c7ee1daafb7c8d551482228f144b"
+    },
+    {
+      "role": "frozen unchanged style reference",
+      "path": "assets/ogun_rave/masters/ogun_neutral_80x96.png",
+      "sha256": "093bf68ef4b4d3ff64228b50a94b8e57e568886a582b13e005636581c18e412b"
+    }
+  ],
+  "files": [
+    {
+      "path": "assets/bllad33/masters/bllad33_neutral_candidate_80x96.png",
+      "sha256": "fcca67ce0a90a60f16854c3c5f8019a28d243aa2bf3bf86ecdf5631013198f5b",
+      "role": "production master",
+      "dimensions": [
+        80,
+        96
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "opaque_rgb_colors": 12,
+      "state": "neutral/entrance",
+      "source_anchor": [
+        40,
+        88
+      ],
+      "presentation_scale": null,
+      "world_contact": null,
+      "layer_role": "actor; exact runtime layer unassigned",
+      "provenance": "Exact byte copy of the explicitly accepted production candidate; accepted filename retained. Variant B cleanup provenance recorded below.",
+      "approval_status": "APPROVED MASTER",
+      "freeze_status": "FROZEN",
+      "approved_states": [
+        "neutral/entrance"
+      ]
+    }
+  ],
+  "generation_and_transformations": [
+    "Exploration used built-in image generation with unchanged Rich/Ogun style references, excluding prior Bllad33 material. Variant B generator output was 1145×1374; its crop was sampled into an 80×96 exploration cell before Taste Pass.",
+    "Authorized production cleanup acted directly on that 80×96 B cell without rescaling or geometry changes: alpha threshold128, 28 low-alpha pixels cleared, 1085 partially opaque pixels hardened; 408 RGB values consolidated into 12 material colors without dithering. Three chest-light clusters and the alpha>=128 silhouette were preserved.",
+    "Promotion performed a byte-for-byte file copy only. No regeneration, re-encoding or new artwork."
+  ],
+  "pixel_preservation_checks": [
+    {
+      "check": "accepted submission SHA-256 equals promoted production file",
+      "result": "fcca67ce0a90a60f16854c3c5f8019a28d243aa2bf3bf86ecdf5631013198f5b"
+    },
+    {
+      "check": "production cleanup silhouette changes versus taste-passed B alpha>=128",
+      "changed_pixels": 0
+    },
+    {
+      "check": "production cleanup chest-light coordinates unchanged",
+      "clusters_8_connected": [
+        [
+          [
+            39,
+            54
+          ],
+          [
+            40,
+            53
+          ]
+        ],
+        [
+          [
+            41,
+            56
+          ],
+          [
+            42,
+            55
+          ]
+        ],
+        [
+          [
+            43,
+            57
+          ],
+          [
+            44,
+            56
+          ],
+          [
+            44,
+            57
+          ]
+        ]
+      ]
+    },
+    {
+      "check": "measured accepted master",
+      "opaque_bounds_inclusive": [
+        27,
+        32,
+        52,
+        87
+      ],
+      "opaque_pixels": 1087,
+      "bottom_opaque_row": 87,
+      "colors": 12,
+      "alpha_values": [
+        0,
+        255
+      ]
+    },
+    {
+      "check": "palette of exact accepted master",
+      "palette": [
+        {
+          "symbol": "0",
+          "role": "contour",
+          "rgb": [
+            1,
+            1,
+            1
+          ],
+          "hex": "#010101",
+          "pixels": 453
+        },
+        {
+          "symbol": "1",
+          "role": "dark_shadow",
+          "rgb": [
+            13,
+            12,
+            18
+          ],
+          "hex": "#0d0c12",
+          "pixels": 140
+        },
+        {
+          "symbol": "2",
+          "role": "dark_plane",
+          "rgb": [
+            24,
+            23,
+            31
+          ],
+          "hex": "#18171f",
+          "pixels": 349
+        },
+        {
+          "symbol": "3",
+          "role": "equipment_shadow",
+          "rgb": [
+            48,
+            47,
+            53
+          ],
+          "hex": "#302f35",
+          "pixels": 24
+        },
+        {
+          "symbol": "4",
+          "role": "equipment_edge",
+          "rgb": [
+            76,
+            76,
+            83
+          ],
+          "hex": "#4c4c53",
+          "pixels": 11
+        },
+        {
+          "symbol": "5",
+          "role": "steel_shadow",
+          "rgb": [
+            119,
+            120,
+            127
+          ],
+          "hex": "#77787f",
+          "pixels": 10
+        },
+        {
+          "symbol": "6",
+          "role": "steel_light",
+          "rgb": [
+            174,
+            175,
+            183
+          ],
+          "hex": "#aeafb7",
+          "pixels": 15
+        },
+        {
+          "symbol": "7",
+          "role": "skin_shadow",
+          "rgb": [
+            52,
+            23,
+            7
+          ],
+          "hex": "#341707",
+          "pixels": 5
+        },
+        {
+          "symbol": "8",
+          "role": "skin_mid",
+          "rgb": [
+            103,
+            45,
+            15
+          ],
+          "hex": "#672d0f",
+          "pixels": 23
+        },
+        {
+          "symbol": "9",
+          "role": "skin_light",
+          "rgb": [
+            139,
+            69,
+            34
+          ],
+          "hex": "#8b4522",
+          "pixels": 50
+        },
+        {
+          "symbol": "A",
+          "role": "chest_ivory",
+          "rgb": [
+            245,
+            234,
+            187
+          ],
+          "hex": "#f5eabb",
+          "pixels": 6
+        },
+        {
+          "symbol": "B",
+          "role": "chest_light",
+          "rgb": [
+            255,
+            255,
+            219
+          ],
+          "hex": "#ffffdb",
+          "pixels": 1
+        }
+      ]
+    }
+  ],
+  "native_review_evidence": [
+    {
+      "role": "previously reviewed native Rich/Ogun/candidate comparison and exact8x source/candidate inspection; historical audit locator only",
+      "audit_locator": "outputs/rt_ship_001_candidate/candidate_review.png in originating Art session",
+      "sha256": "d4b819d8490700c27582a6cf682a7700d5e275f53f5936a9d3d37c4a463f3f02",
+      "required_for_future_use_of_master": false
+    },
+    {
+      "role": "native production asset; self-contained current inspection source",
+      "path": "assets/bllad33/masters/bllad33_neutral_candidate_80x96.png",
+      "sha256": "fcca67ce0a90a60f16854c3c5f8019a28d243aa2bf3bf86ecdf5631013198f5b"
+    }
+  ],
+  "runtime_test_scope": "Not authorized or performed. Source art acceptance only; no runtime/game code changed and no environment modification.",
+  "unknowns": [
+    "Runtime presentation scale, world contact/placement and integration layer remain unassigned; Engineering/HQ must authorize any integration separately.",
+    "Independent Art Department implementation final review remains unrecorded; this character decision does not infer that approval."
+  ],
+  "taste_decision": {
+    "authority": "Ube, supplied as HQ TASTE REVIEW — PASS",
+    "variant": "B",
+    "status": "UBE TASTE PASS",
+    "quote": "This was perfect — exactly what I had in mind.",
+    "scope": "Design closed; production cleanup only; no Variant C, new costume, reinterpretation or influence."
+  },
+  "hq_acceptance": {
+    "authority": "Ube-supplied explicit HQ decision",
+    "decision": "PASS / APPROVED MASTER / FROZEN",
+    "accepted_filename": "bllad33_neutral_candidate_80x96.png",
+    "sha256": "fcca67ce0a90a60f16854c3c5f8019a28d243aa2bf3bf86ecdf5631013198f5b",
+    "statement": "UBE TASTE PASS and HQ production review are complete. Bllad33's neutral/entrance visual identity is FROZEN.",
+    "record": "art_department/APPROVAL_LEDGER.md"
+  },
+  "freeze_scope": "Exact single neutral/entrance master and accepted visual identity; no blanket acceptance of other files, states or historical explorations.",
+  "stop_point": "Promotion and scoped local commit only; STOP. No new Ship, additional state, redesign, runtime integration, push or deployment.",
+  "title": "Bllad33 neutral/entrance",
+  "recorded_date": "2026-09-23",
+  "closure_status": "CLOSED — accepted art delivery",
+  "handoff": "Use the registered exact PNG unchanged; retain contact(40,88). Filename candidate suffix is historical, not current status. Any future change requires explicit HQ delta and fresh acceptance."
+}
