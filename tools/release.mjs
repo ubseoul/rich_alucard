@@ -7,6 +7,7 @@ import vm from 'node:vm';
 import {fileURLToPath} from 'node:url';
 import {testParty} from './party-test.mjs';
 import {testRave} from './rave-test.mjs';
+import {testOgunRaveAdventure} from './ogun-rave-adventure-test.mjs';
 
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const output=path.join(root,'dist');
@@ -25,6 +26,7 @@ async function javascriptFiles(directory){const entries=await readdir(directory,
 async function test(){
   await testParty(root);
   await testRave(root);
+  await testOgunRaveAdventure(root);
   const sources=await javascriptFiles(path.join(root,'js'));
   for(const file of [...sources,path.join(root,'game.js')])new vm.Script(await readFile(file,'utf8'),{filename:path.relative(root,file)});
   const listeners={};

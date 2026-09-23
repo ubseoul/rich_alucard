@@ -2,6 +2,7 @@
  const definitions=[
   {id:'atlanta',category:'go_somewhere',label:'ATLANTA',requirements:{},resultScene:null,action:{type:'dialogue',id:'butter_chicken'}},
   {id:'tokyo',category:'go_somewhere',label:'TOKYO',requirements:{flags:{tokyoAccess:true}},lockedMessage:"tokyo vampires don't fw you yet. get your clout up."},
+  {id:'ogun_rave',category:'go_somewhere',label:"OGUN'S RAVE",requirements:{flags:{ogunsRaveInvited:true}},resultScene:null,action:{type:'dialogue',id:'ogun_rave_intro'}},
   {id:'jdm_home_delivery',category:'jdm_imports',label:'HOME DELIVERY',requirements:{flags:{jdmImportsUnlocked:true,jdmHomeDelivery:true}},lockedMessage:'first collection is in person.',resultScene:'jdmImports',action:{type:'open_store',id:'jdm_imports'}}
  ];
  function evaluate(rule,life){const failures=[],req=rule?.requirements||{},world=life?.world||{},resources=life?.resources||{},people=life?.people||{};
