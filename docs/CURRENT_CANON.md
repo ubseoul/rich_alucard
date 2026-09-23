@@ -71,6 +71,12 @@ Marketing value alone is not sufficient justification.
 - **Milestone 6B — I Want a Supra:** tests desire-driven acquisition, persistent ownership, business unlocks and consequences using the v7 Life Engine. The approved native-size production art package replaces the initial placeholders; source assets are immutable. Dock/ownership character scale defaults to 1.25× with DEV tuning at 1×, 1.25× and 1.5×. The $78,000 price remains a temporary, non-canon test value. Encounter details remain undisclosed pending Ube's playthrough.
 - Pokémon-style overworld walking is **not approved**. Fixed scenes/hotspots remain a valid future approach.
 
+## Accepted Party Foundation — ENGINEERING 01
+
+HQ PASS and UBE FUN PASS accept **attending somebody else's party** as a distinct Rich activity, using **equipped Party Behavior → Party Situation → distinct social reaction/result**. The initial mechanically meaningful behavior concepts are **TWO STEP**, **HEAD NOD**, and **TOO COOL TO DANCE**. Readable social reactions and lightweight data-driven extensibility are accepted foundations.
+
+The DEV prototype's temporary situations, writing, outcome mappings, geometric crowd and visuals are **non-canon and not frozen production content**. No broader party story, progression, hosting or additional behaviors are established by this acceptance. The branch awaits HQ-controlled integration review; merge/push/deploy and subsequent work are not authorized. See `PARTY_FOUNDATION_REVIEW.md`.
+
 ## Vampire conversion
 
 When Rich steals an adult woman:

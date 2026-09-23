@@ -4,6 +4,12 @@ This is a creative-direction changelog, not a substitute for Git history.
 
 ## 2026-09-23
 
+### ENGINEERING 01 — Party Foundation accepted
+- HQ issued PASS and recorded UBE FUN PASS: “i thought it was funny actually i liked the concept”.
+- Accepted attending-party model: equipped Party Behavior → Party Situation → distinct social reaction/result. TWO STEP, HEAD NOD and TOO COOL TO DANCE are the initial mechanically meaningful behavior concepts; readable reactions and lightweight data-driven extensibility are accepted foundations.
+- Temporary situations, placeholder writing, geometric crowd presentation and prototype visuals remain non-canon and are not frozen production content. Acceptance does not authorize expanding this prototype or implementing the actual story.
+- The isolated DEV prototype is prepared for HQ-controlled integration review; it has not been merged, pushed or deployed. Production progression and saves remain unchanged. The progressed-save World Events smoke failure remains a documented pre-existing baseline issue. See `PARTY_FOUNDATION_REVIEW.md` for evidence and boundaries.
+
 ### Rich Alucard Studio — Production Control Patch
 - Added `docs/PRODUCTION_CONTROL.md` as the studio operating model for Ube, HQ, Artist and Engineer/Codex.
 - Recorded current production build `a2b1b8246fd15836fe3904704c9fc21094ebfc83`, Core Foundation Season FROZEN / PASS, and current milestone `RICH'S LA #001 — OGUN'S RAVE` as PRE-PRODUCTION / PRODUCTION CONTROL.

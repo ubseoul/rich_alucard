@@ -4,6 +4,12 @@
 
 ## Current HEAD / build state
 
+### Branch checkpoint after ENGINEERING 01 review
+
+`engineering/party-foundation-prototype` contains the isolated DEV Party Foundation implementation at `74f55eb06183d87177163d42590a0a6a83858ef5` plus the integration-review documentation/test follow-up. Use `git rev-parse HEAD` for the final checkpoint commit. HQ issued PASS and Ube FUN PASS for the core system. Temporary situations, writing, crowd geometry and visuals are not canon or frozen production content. See `PARTY_FOUNDATION_REVIEW.md` for the exact accepted boundary, isolation checks and pre-existing progressed-save World Events smoke failure.
+
+Current branch status: **READY FOR INTEGRATION REVIEW**. Do not merge, push, deploy, expand the prototype, implement actual story content or start another milestone without HQ authorization. The baseline/public build information below describes the prior handoff, not a deployment of this local branch.
+
 - Branch: `main`
 - Current production-control baseline before this handoff patch: `188e336ff3c8d2970522c9a98cf79aed023b4da0`
 - Last verified public build before this handoff patch: `ra-188e336ff3c8-20260923010223`

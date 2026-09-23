@@ -5,7 +5,9 @@
 **Core Foundation Season:** FROZEN / PASS  
 **Current milestone:** RICH'S LA #001 — OGUN'S RAVE  
 **Current status:** PRE-PRODUCTION / PRODUCTION CONTROL  
-**Next production step:** Party Foundation + Arrival, beginning only after this production-control patch is accepted.
+**Next production step:** HQ-controlled integration review of accepted ENGINEERING 01: Party Foundation. No merge, push, deployment, actual story implementation or next milestone is authorized.
+
+**ENGINEERING 01 decision:** HQ PASS / UBE FUN PASS for the attending-party interaction model. The isolated DEV prototype is accepted as a system concept; its temporary situations, writing and visuals are non-canon and are not frozen production content. See `PARTY_FOUNDATION_REVIEW.md`. The milestone status above describes the broader story, which remains unimplemented.
 
 This document preserves how Rich Alucard work moves between Creative Direction, HQ, Artist and Engineer/Codex. It does not change canon, gameplay, runtime behavior, art, saves or deployment behavior.
 
