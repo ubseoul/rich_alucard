@@ -1,0 +1,1927 @@
+{
+  "schema_version": 1,
+  "baseline_commit": "5ccc244eb7b89400cd504d91b153e9cdbd9ad3fb",
+  "path_base": "repository root",
+  "unknown_policy": "No acceptance inferred from existence; explicit listed evidence only",
+  "assets": [
+    {
+      "path": "assets/asset_manifest.json",
+      "sha256": "0e311ea1fb8cd4d2567959b229931f20b77b673e266c8c467c805cac55f354f6",
+      "role": "runtime asset location; active usage not inferred",
+      "status": "STATUS UNKNOWN \u2014 HQ REVIEW REQUIRED",
+      "default_style_reference": false,
+      "approval_evidence": []
+    },
+    {
+      "path": "assets/assistant_bat_01.png",
+      "sha256": "c4e1a71b76bf3b69e4edf1eaa7cb58e86d68c915fe6ac5a922dcd33deb7b2cce",
+      "role": "runtime asset location; active usage not inferred",
+      "status": "STATUS UNKNOWN \u2014 HQ REVIEW REQUIRED",
+      "default_style_reference": false,
+      "approval_evidence": [],
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/assistant_bat_02.png",
+      "sha256": "289dfe202bed522ea7ef8eadfed29543b316ec745c20c11d863a1dc4a9327b0b",
+      "role": "runtime asset location; active usage not inferred",
+      "status": "STATUS UNKNOWN \u2014 HQ REVIEW REQUIRED",
+      "default_style_reference": false,
+      "approval_evidence": [],
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/assistant_bat_03.png",
+      "sha256": "5559a38f16dfb18010c8393a14656f9690cfccd435cf94523d8b5e35cfbcf528",
+      "role": "runtime asset location; active usage not inferred",
+      "status": "STATUS UNKNOWN \u2014 HQ REVIEW REQUIRED",
+      "default_style_reference": false,
+      "approval_evidence": [],
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/assistant_bite_reaction.png",
+      "sha256": "3f5ca99edf878f88ce6277a34d0c07e71f2d0466e61caea931b77f7cf727d234",
+      "role": "runtime asset location; active usage not inferred",
+      "status": "STATUS UNKNOWN \u2014 HQ REVIEW REQUIRED",
+      "default_style_reference": false,
+      "approval_evidence": [],
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/assistant_heal.png",
+      "sha256": "2a20c5ac1646ff982091c945dbd8dc3a312d088525825c3af93b979f17d9fbe6",
+      "role": "runtime asset location; active usage not inferred",
+      "status": "STATUS UNKNOWN \u2014 HQ REVIEW REQUIRED",
+      "default_style_reference": false,
+      "approval_evidence": [],
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/assistant_idle.png",
+      "sha256": "a4f4d7b73814d30bb7f1c79e5beac3954e57d6133cb181617e8aae0c7a4683a5",
+      "role": "hash-matched approved existing source",
+      "status": "APPROVED MASTER",
+      "default_style_reference": true,
+      "approval_evidence": [
+        "art_department/sources/INHERITED_REFERENCE_GUIDE.md",
+        "art_department/APPROVAL_LEDGER.md"
+      ],
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/assistant_reaction.png",
+      "sha256": "3f0bfab296c2f388b738f0e0cd33541273d08eead744ba4292405ea6fdb53e72",
+      "role": "runtime asset location; active usage not inferred",
+      "status": "STATUS UNKNOWN \u2014 HQ REVIEW REQUIRED",
+      "default_style_reference": false,
+      "approval_evidence": [],
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/assistant_sprite_sheet.png",
+      "sha256": "54138f0a236729d3ce7c043246b6686b1a9e006581da22c9bf15476a0e8783c3",
+      "role": "runtime asset location; active usage not inferred",
+      "status": "STATUS UNKNOWN \u2014 HQ REVIEW REQUIRED",
+      "default_style_reference": false,
+      "approval_evidence": [],
+      "dimensions": [
+        160,
+        192
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/assistant_transformation_01.png",
+      "sha256": "45ab9ab6ea7bbb0e9b5728edae4b5c1c8fb91e554c06632e0cde263db7b85bb8",
+      "role": "runtime asset location; active usage not inferred",
+      "status": "STATUS UNKNOWN \u2014 HQ REVIEW REQUIRED",
+      "default_style_reference": false,
+      "approval_evidence": [],
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/assistant_transformation_02.png",
+      "sha256": "d664e3b3e08cbd0389183d28f560dda9450fafb56b5abce1bb59e283f564a2e5",
+      "role": "runtime asset location; active usage not inferred",
+      "status": "STATUS UNKNOWN \u2014 HQ REVIEW REQUIRED",
+      "default_style_reference": false,
+      "approval_evidence": [],
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/assistant_vampire_idle.png",
+      "sha256": "735745b1901db07079299eb28d57cfda9ac6673f0184b4d19ac4cd116be2152e",
+      "role": "runtime asset location; active usage not inferred",
+      "status": "STATUS UNKNOWN \u2014 HQ REVIEW REQUIRED",
+      "default_style_reference": false,
+      "approval_evidence": [],
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/assistant_vampire_reveal.png",
+      "sha256": "a48ac16fe2d1b5bae8a08a64826c5c84ec62301d1da6698f6036fd3667542487",
+      "role": "hash-matched approved existing source",
+      "status": "APPROVED MASTER",
+      "default_style_reference": true,
+      "approval_evidence": [
+        "art_department/sources/INHERITED_REFERENCE_GUIDE.md",
+        "art_department/APPROVAL_LEDGER.md"
+      ],
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/assistant_vampire_sprite_sheet.png",
+      "sha256": "e0cac008737e64aa22fc689e0419466d95b37113ea797b08beeddc9826b3cbc1",
+      "role": "runtime asset location; active usage not inferred",
+      "status": "STATUS UNKNOWN \u2014 HQ REVIEW REQUIRED",
+      "default_style_reference": false,
+      "approval_evidence": [],
+      "dimensions": [
+        320,
+        192
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/assistant_walk.png",
+      "sha256": "133b0b2f3e1619f1ca2ca95289d2dc27e14870515230201f204f23094b1eeee0",
+      "role": "runtime asset location; active usage not inferred",
+      "status": "STATUS UNKNOWN \u2014 HQ REVIEW REQUIRED",
+      "default_style_reference": false,
+      "approval_evidence": [],
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/bedroom_cloud_large.png",
+      "sha256": "6ba09437eae869bf8dea8817ddcd82b43a2011c01235351f6aa201b9e66d0258",
+      "role": "selected source reference; broader production-package approval not inferred",
+      "status": "REFERENCE",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "art_department/sources/INHERITED_REFERENCE_GUIDE.md",
+        "art_department/APPROVAL_LEDGER.md"
+      ],
+      "dimensions": [
+        136,
+        40
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/bedroom_cloud_manifest.json",
+      "sha256": "c6b137b899571e57a5938944046d719b050f9bd5bb47d651cfa15dd8c5f1f2b5",
+      "role": "runtime asset location; active usage not inferred",
+      "status": "STATUS UNKNOWN \u2014 HQ REVIEW REQUIRED",
+      "default_style_reference": false,
+      "approval_evidence": []
+    },
+    {
+      "path": "assets/bedroom_cloud_medium.png",
+      "sha256": "17640605ae6329fd10a4e8ce8092e9151320828520c0a95c0c27eb7357b27c53",
+      "role": "runtime asset location; active usage not inferred",
+      "status": "STATUS UNKNOWN \u2014 HQ REVIEW REQUIRED",
+      "default_style_reference": false,
+      "approval_evidence": [],
+      "dimensions": [
+        88,
+        44
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/bedroom_cloud_README.md",
+      "sha256": "a385173e70f0f4cf39a9ca8d16311e51b0c2acd064025c675b9a641962fbf39a",
+      "role": "runtime asset location; active usage not inferred",
+      "status": "STATUS UNKNOWN \u2014 HQ REVIEW REQUIRED",
+      "default_style_reference": false,
+      "approval_evidence": []
+    },
+    {
+      "path": "assets/bedroom_cloud_small.png",
+      "sha256": "803f34d5054cd8d07814606849dcce715685cfb6348f1fd4e73ca0beb3f02880",
+      "role": "runtime asset location; active usage not inferred",
+      "status": "STATUS UNKNOWN \u2014 HQ REVIEW REQUIRED",
+      "default_style_reference": false,
+      "approval_evidence": [],
+      "dimensions": [
+        52,
+        24
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/bedroom_cloud_sprite_sheet.png",
+      "sha256": "30a8804a6f65191cedbd98a3ae766c1525a1fb7d5d986dfcec09f947571cd7af",
+      "role": "runtime asset location; active usage not inferred",
+      "status": "STATUS UNKNOWN \u2014 HQ REVIEW REQUIRED",
+      "default_style_reference": false,
+      "approval_evidence": [],
+      "dimensions": [
+        288,
+        48
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/blood_bath_contact_01.png",
+      "sha256": "eb243a5b4195307400ee0ee591e18a3980d57f8e9bf9d63a785ecd81a8f74c10",
+      "role": "selected source reference; broader production-package approval not inferred",
+      "status": "REFERENCE",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "art_department/sources/INHERITED_REFERENCE_GUIDE.md",
+        "art_department/APPROVAL_LEDGER.md"
+      ],
+      "dimensions": [
+        96,
+        96
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/blood_bath_contact_02.png",
+      "sha256": "6f4e4e11dd76fb1e0014247fa3318a561803189223b72fbace8b2dbef689afc1",
+      "role": "runtime asset location; active usage not inferred",
+      "status": "STATUS UNKNOWN \u2014 HQ REVIEW REQUIRED",
+      "default_style_reference": false,
+      "approval_evidence": [],
+      "dimensions": [
+        96,
+        96
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/blood_bath_contact_overlay_sheet.png",
+      "sha256": "c0d4ecfcb46d434b793f52a12e2ed46579078fcff4f37790c58ca9f5abd762f8",
+      "role": "runtime asset location; active usage not inferred",
+      "status": "STATUS UNKNOWN \u2014 HQ REVIEW REQUIRED",
+      "default_style_reference": false,
+      "approval_evidence": [],
+      "dimensions": [
+        192,
+        192
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/blood_bath_engulf_overlay_01.png",
+      "sha256": "e3a78f7c7c3026cbc2b9996311dd90750a02d15670f050042c5200e4c3d1d969",
+      "role": "runtime asset location; active usage not inferred",
+      "status": "STATUS UNKNOWN \u2014 HQ REVIEW REQUIRED",
+      "default_style_reference": false,
+      "approval_evidence": [],
+      "dimensions": [
+        96,
+        96
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/blood_bath_engulf_overlay_02.png",
+      "sha256": "9b7fe391bc5dfeb5cd4f89eb75cdfedfae4dc3a66ee5524fb991a21ec827f0e6",
+      "role": "runtime asset location; active usage not inferred",
+      "status": "STATUS UNKNOWN \u2014 HQ REVIEW REQUIRED",
+      "default_style_reference": false,
+      "approval_evidence": [],
+      "dimensions": [
+        96,
+        96
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/blood_bath_floor_rise_01.png",
+      "sha256": "e2c88f6bc8ddb0200a696e985e622a859d6e566e5320a2fcde252ceee9c1a503",
+      "role": "runtime asset location; active usage not inferred",
+      "status": "STATUS UNKNOWN \u2014 HQ REVIEW REQUIRED",
+      "default_style_reference": false,
+      "approval_evidence": [],
+      "dimensions": [
+        270,
+        362
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/blood_bath_floor_rise_02.png",
+      "sha256": "b8eb7e8067feaeb5368deb57dff662cbb8655c83a5d621c057691114472cbe2d",
+      "role": "runtime asset location; active usage not inferred",
+      "status": "STATUS UNKNOWN \u2014 HQ REVIEW REQUIRED",
+      "default_style_reference": false,
+      "approval_evidence": [],
+      "dimensions": [
+        270,
+        362
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/blood_bath_floor_rise_03.png",
+      "sha256": "d8cdeca8b2861d0b20a07a35c51607870d7866df3c48ac340457c63d31011615",
+      "role": "runtime asset location; active usage not inferred",
+      "status": "STATUS UNKNOWN \u2014 HQ REVIEW REQUIRED",
+      "default_style_reference": false,
+      "approval_evidence": [],
+      "dimensions": [
+        270,
+        362
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/blood_bath_floor_sheet.png",
+      "sha256": "a6d146ca43ea2dc4621cf80098ec53a38fc08b1ec1d32d828521d513ea293c2d",
+      "role": "runtime asset location; active usage not inferred",
+      "status": "STATUS UNKNOWN \u2014 HQ REVIEW REQUIRED",
+      "default_style_reference": false,
+      "approval_evidence": [],
+      "dimensions": [
+        540,
+        724
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/blood_bath_foreground_01.png",
+      "sha256": "2dd583969ec1d8407a95eaedc1ea41e382d1a9ae05b36b62b04acc3097ad0c1a",
+      "role": "runtime asset location; active usage not inferred",
+      "status": "STATUS UNKNOWN \u2014 HQ REVIEW REQUIRED",
+      "default_style_reference": false,
+      "approval_evidence": [],
+      "dimensions": [
+        270,
+        362
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/blood_bath_impact_fullscreen.png",
+      "sha256": "8291e3a4e76a49b4cf659811ab1931b3ee65b72935b31e8c23831f3fd19fa55e",
+      "role": "runtime asset location; active usage not inferred",
+      "status": "STATUS UNKNOWN \u2014 HQ REVIEW REQUIRED",
+      "default_style_reference": false,
+      "approval_evidence": [],
+      "dimensions": [
+        270,
+        480
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/blood_bath_manifest.json",
+      "sha256": "d5220e022ec9adf29eb8cf0e215b8af6af8726df1d8b4604faff6fcf9fc2f2dc",
+      "role": "runtime asset location; active usage not inferred",
+      "status": "STATUS UNKNOWN \u2014 HQ REVIEW REQUIRED",
+      "default_style_reference": false,
+      "approval_evidence": []
+    },
+    {
+      "path": "assets/blood_bath_README.md",
+      "sha256": "e7539281d815fac57c771a8d23d45e54e917815d0224b0a44e43559cfa8f0861",
+      "role": "runtime asset location; active usage not inferred",
+      "status": "STATUS UNKNOWN \u2014 HQ REVIEW REQUIRED",
+      "default_style_reference": false,
+      "approval_evidence": []
+    },
+    {
+      "path": "assets/blood_impact.png",
+      "sha256": "56e87ef566853fe45de10c37fef71b02b1b4f8b7fc18d222aa2d091b8091be35",
+      "role": "runtime asset location; active usage not inferred",
+      "status": "STATUS UNKNOWN \u2014 HQ REVIEW REQUIRED",
+      "default_style_reference": false,
+      "approval_evidence": [],
+      "dimensions": [
+        24,
+        24
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/blood_impact_detailed.png",
+      "sha256": "247be04fa8ffaa4b9f0d56bf9162622578cf0be6540354192e20fce5ff875f02",
+      "role": "runtime asset location; active usage not inferred",
+      "status": "STATUS UNKNOWN \u2014 HQ REVIEW REQUIRED",
+      "default_style_reference": false,
+      "approval_evidence": [],
+      "dimensions": [
+        384,
+        64
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/blood_impact_sheet.png",
+      "sha256": "a3c79866b98569982a2ee0013520e85c77991d10a127367555d3355c8908bf67",
+      "role": "runtime asset location; active usage not inferred",
+      "status": "STATUS UNKNOWN \u2014 HQ REVIEW REQUIRED",
+      "default_style_reference": false,
+      "approval_evidence": [],
+      "dimensions": [
+        320,
+        64
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/blood_missiles_detailed.png",
+      "sha256": "94dfc76ca153f9a764c92c37207d5a048b86dbc06e4eab8e9f6150230f0c68c6",
+      "role": "runtime asset location; active usage not inferred",
+      "status": "STATUS UNKNOWN \u2014 HQ REVIEW REQUIRED",
+      "default_style_reference": false,
+      "approval_evidence": [],
+      "dimensions": [
+        120,
+        144
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/blood_orb.png",
+      "sha256": "efb7366a09deae051b18e49995d5f8f3716b1dc069b2e104703b2374c6b6588d",
+      "role": "runtime asset location; active usage not inferred",
+      "status": "STATUS UNKNOWN \u2014 HQ REVIEW REQUIRED",
+      "default_style_reference": false,
+      "approval_evidence": [],
+      "dimensions": [
+        18,
+        12
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/blood_orb_sheet.png",
+      "sha256": "083b8f5b1733b624189de06caf05a1dea5ec162b4c71ffde40368841f9f65a0a",
+      "role": "runtime asset location; active usage not inferred",
+      "status": "STATUS UNKNOWN \u2014 HQ REVIEW REQUIRED",
+      "default_style_reference": false,
+      "approval_evidence": [],
+      "dimensions": [
+        96,
+        32
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/bloodbath_mix3.wav",
+      "sha256": "0a58fe8211548760f762d463938c3e0fe5d608cdd5fb858a19d9985d11df5045",
+      "role": "runtime asset location; active usage not inferred",
+      "status": "STATUS UNKNOWN \u2014 HQ REVIEW REQUIRED",
+      "default_style_reference": false,
+      "approval_evidence": []
+    },
+    {
+      "path": "assets/briefcase_impact_sheet.png",
+      "sha256": "8d817f326c1dbd4d9cacf0c270df87eb38480e6fd5372d04856e6bb4d3501d9c",
+      "role": "runtime asset location; active usage not inferred",
+      "status": "STATUS UNKNOWN \u2014 HQ REVIEW REQUIRED",
+      "default_style_reference": false,
+      "approval_evidence": [],
+      "dimensions": [
+        256,
+        64
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/briefcase_throw_sheet.png",
+      "sha256": "2666b1efaddee7c33b51ae475502bfd6016152e3692ad1a0be446107072b17c6",
+      "role": "runtime asset location; active usage not inferred",
+      "status": "STATUS UNKNOWN \u2014 HQ REVIEW REQUIRED",
+      "default_style_reference": false,
+      "approval_evidence": [],
+      "dimensions": [
+        128,
+        24
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/ceo_briefcase_throw.png",
+      "sha256": "e07c43ff0037a761287b40634ad80a7af0e0544ef7800588be590744ddbd7051",
+      "role": "runtime asset location; active usage not inferred",
+      "status": "STATUS UNKNOWN \u2014 HQ REVIEW REQUIRED",
+      "default_style_reference": false,
+      "approval_evidence": [],
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/ceo_defeated.png",
+      "sha256": "4b4d5cdefd19246ed1a95017dce903ac2b06077bfc3b6c2c576fbc45240c020e",
+      "role": "runtime asset location; active usage not inferred",
+      "status": "STATUS UNKNOWN \u2014 HQ REVIEW REQUIRED",
+      "default_style_reference": false,
+      "approval_evidence": [],
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/ceo_hit.png",
+      "sha256": "7635f565975dfea8ae66287a7b061e71ecebc2343114227cb568c860f221d70a",
+      "role": "runtime asset location; active usage not inferred",
+      "status": "STATUS UNKNOWN \u2014 HQ REVIEW REQUIRED",
+      "default_style_reference": false,
+      "approval_evidence": [],
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/ceo_hit_reaction_manifest.json",
+      "sha256": "69c87184f5856a1e03fbaac827d04e296203204cab38f017c576e718c554f52d",
+      "role": "runtime asset location; active usage not inferred",
+      "status": "STATUS UNKNOWN \u2014 HQ REVIEW REQUIRED",
+      "default_style_reference": false,
+      "approval_evidence": []
+    },
+    {
+      "path": "assets/ceo_hit_reaction_preview_6x.png",
+      "sha256": "27d71351244b0f3927610e40e66eca08dbe6ae787d5eea5651675b5c6d11df8f",
+      "role": "runtime asset location; active usage not inferred",
+      "status": "STATUS UNKNOWN \u2014 HQ REVIEW REQUIRED",
+      "default_style_reference": false,
+      "approval_evidence": [],
+      "dimensions": [
+        1440,
+        576
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/ceo_hit_reaction_sheet.png",
+      "sha256": "7b39bfedd11ab099d0f5e25c2b2be951fadd91fb4b5c3f36fcabe91676796cc3",
+      "role": "hash-matched approved existing source",
+      "status": "APPROVED MASTER",
+      "default_style_reference": true,
+      "approval_evidence": [
+        "art_department/sources/INHERITED_REFERENCE_GUIDE.md",
+        "art_department/APPROVAL_LEDGER.md"
+      ],
+      "dimensions": [
+        240,
+        96
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/ceo_idle.png",
+      "sha256": "8e05d9f29bffa66d7c00d8daffd72a8487c43b3f218404dd23eee2126c1c0881",
+      "role": "hash-matched approved existing source",
+      "status": "APPROVED MASTER",
+      "default_style_reference": true,
+      "approval_evidence": [
+        "art_department/sources/INHERITED_REFERENCE_GUIDE.md",
+        "art_department/APPROVAL_LEDGER.md"
+      ],
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/ceo_reaction_lethal.png",
+      "sha256": "548490a8ddd355a4ef6a189d3df018649171c67b937b19dd48f6d52f08b1cfe2",
+      "role": "runtime asset location; active usage not inferred",
+      "status": "STATUS UNKNOWN \u2014 HQ REVIEW REQUIRED",
+      "default_style_reference": false,
+      "approval_evidence": [],
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/ceo_recoil_heavy.png",
+      "sha256": "ab2347837bab3375e160f8a66a0912392173524475552976cf7e5126898a6b73",
+      "role": "runtime asset location; active usage not inferred",
+      "status": "STATUS UNKNOWN \u2014 HQ REVIEW REQUIRED",
+      "default_style_reference": false,
+      "approval_evidence": [],
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/ceo_recoil_normal.png",
+      "sha256": "0625e5ac8820ccbab31c4153af64cf7d119fceb2996a2437cf616d53ed7a157a",
+      "role": "runtime asset location; active usage not inferred",
+      "status": "STATUS UNKNOWN \u2014 HQ REVIEW REQUIRED",
+      "default_style_reference": false,
+      "approval_evidence": [],
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/ceo_sprite_sheet.png",
+      "sha256": "356c9d7a7d3a57bb747d19176503be8d53e0ada8b57fe58eb266c6a04bd68623",
+      "role": "runtime asset location; active usage not inferred",
+      "status": "STATUS UNKNOWN \u2014 HQ REVIEW REQUIRED",
+      "default_style_reference": false,
+      "approval_evidence": [],
+      "dimensions": [
+        160,
+        192
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/fonts/monogram.ttf",
+      "sha256": "13658c0d344553a6c272bf9e72e0f2b6edf23ac5ecf066837d9b61254b7452d6",
+      "role": "runtime asset location; active usage not inferred",
+      "status": "STATUS UNKNOWN \u2014 HQ REVIEW REQUIRED",
+      "default_style_reference": false,
+      "approval_evidence": []
+    },
+    {
+      "path": "assets/fonts/press-start-2p.ttf",
+      "sha256": "7b939b816f8ce185dd8c2c59e85fb05d3dcd5cde0c0b0de4a1651cb5af9c2c2b",
+      "role": "runtime asset location; active usage not inferred",
+      "status": "STATUS UNKNOWN \u2014 HQ REVIEW REQUIRED",
+      "default_style_reference": false,
+      "approval_evidence": []
+    },
+    {
+      "path": "assets/fonts/tiny5.ttf",
+      "sha256": "eb4206abc0c73e9fe4fe93c034ea270578859c40a7e740c6207322413c5c4c91",
+      "role": "runtime asset location; active usage not inferred",
+      "status": "STATUS UNKNOWN \u2014 HQ REVIEW REQUIRED",
+      "default_style_reference": false,
+      "approval_evidence": []
+    },
+    {
+      "path": "assets/jdm_imports/characters/daughter/daughter_neutral.png",
+      "sha256": "6454e833dace10f8efbd49351346ea9babf22ad9c006a1bb789cf62c156a48c6",
+      "role": "hash-matched approved existing source",
+      "status": "APPROVED MASTER",
+      "default_style_reference": true,
+      "approval_evidence": [
+        "art_department/sources/INHERITED_REFERENCE_GUIDE.md",
+        "art_department/APPROVAL_LEDGER.md"
+      ],
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/jdm_imports/characters/daughter/daughter_post_battle.png",
+      "sha256": "dbd572d59ff2272d340bf28b7456f18bd27a89c0e068c4f56c92708a1afd091e",
+      "role": "runtime asset location; active usage not inferred",
+      "status": "STATUS UNKNOWN \u2014 HQ REVIEW REQUIRED",
+      "default_style_reference": false,
+      "approval_evidence": [],
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/jdm_imports/characters/daughter/daughter_reaction.png",
+      "sha256": "16d640d0a0c392902a2e1590ecfd380f82dfebbeca0a72f10d2d316e251aed56",
+      "role": "runtime asset location; active usage not inferred",
+      "status": "STATUS UNKNOWN \u2014 HQ REVIEW REQUIRED",
+      "default_style_reference": false,
+      "approval_evidence": [],
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/jdm_imports/characters/daughter/daughter_vampire_reveal.png",
+      "sha256": "e0638686773979a39f4965fa93a18d2b65d244455413a31b830350e750a875e7",
+      "role": "hash-matched approved existing source",
+      "status": "APPROVED MASTER",
+      "default_style_reference": true,
+      "approval_evidence": [
+        "art_department/sources/INHERITED_REFERENCE_GUIDE.md",
+        "art_department/APPROVAL_LEDGER.md"
+      ],
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/jdm_imports/characters/importer/importer_combat_ready.png",
+      "sha256": "edf1419be7c480e37f544b36b7b6b21ed82142654dc2a059e19a764dc9fc0481",
+      "role": "runtime asset location; active usage not inferred",
+      "status": "STATUS UNKNOWN \u2014 HQ REVIEW REQUIRED",
+      "default_style_reference": false,
+      "approval_evidence": [],
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/jdm_imports/characters/importer/importer_defeated.png",
+      "sha256": "548ad8386153fafc478504b1a31cccce40c2bce24c3c444d156574c72e7e3c7f",
+      "role": "runtime asset location; active usage not inferred",
+      "status": "STATUS UNKNOWN \u2014 HQ REVIEW REQUIRED",
+      "default_style_reference": false,
+      "approval_evidence": [],
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/jdm_imports/characters/importer/importer_hit.png",
+      "sha256": "35e1d81e6d11c9f6c9237c547c914497948aeba6d944688bb93134a6a30743c7",
+      "role": "runtime asset location; active usage not inferred",
+      "status": "STATUS UNKNOWN \u2014 HQ REVIEW REQUIRED",
+      "default_style_reference": false,
+      "approval_evidence": [],
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/jdm_imports/characters/importer/importer_irritated.png",
+      "sha256": "e70ec2ab0453a30bf64df9675cde2fc351205c0121ea8f1d07a3222f1f83b7d8",
+      "role": "runtime asset location; active usage not inferred",
+      "status": "STATUS UNKNOWN \u2014 HQ REVIEW REQUIRED",
+      "default_style_reference": false,
+      "approval_evidence": [],
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/jdm_imports/characters/importer/importer_neutral.png",
+      "sha256": "156286be5472556c8b23fd6e81875624355ddb149e2b5e4cf30e7f080a8511d3",
+      "role": "hash-matched approved existing source",
+      "status": "APPROVED MASTER",
+      "default_style_reference": true,
+      "approval_evidence": [
+        "art_department/sources/INHERITED_REFERENCE_GUIDE.md",
+        "art_department/APPROVAL_LEDGER.md"
+      ],
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/jdm_imports/environment/docks_night_270x480.png",
+      "sha256": "3e6911eaec9ff68e6aad90626af9cf9a03a84f8803ffcb3d6aa6778fec858647",
+      "role": "hash-matched approved existing source",
+      "status": "APPROVED MASTER",
+      "default_style_reference": true,
+      "approval_evidence": [
+        "art_department/sources/INHERITED_REFERENCE_GUIDE.md",
+        "art_department/APPROVAL_LEDGER.md"
+      ],
+      "dimensions": [
+        270,
+        480
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/jdm_imports/props/car_key.png",
+      "sha256": "43c4d813d6f0aaa7a89d506be0ea355b88781410f4cfc4ff2aef3be3a4fcf35f",
+      "role": "runtime asset location; active usage not inferred",
+      "status": "STATUS UNKNOWN \u2014 HQ REVIEW REQUIRED",
+      "default_style_reference": false,
+      "approval_evidence": [],
+      "dimensions": [
+        24,
+        16
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/jdm_imports/ui/supra_mk4_listing.png",
+      "sha256": "06cca1f6643ecc6faa18063fd605263e4a2f33a12d365dba9afdc3071b02cd82",
+      "role": "runtime asset location; active usage not inferred",
+      "status": "STATUS UNKNOWN \u2014 HQ REVIEW REQUIRED",
+      "default_style_reference": false,
+      "approval_evidence": [],
+      "dimensions": [
+        68,
+        25
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/jdm_imports/vehicles/supra_mk4_world.png",
+      "sha256": "156445b526073b6906cae7330203f19d8edbf8a6574dfe6aea042db1c1575418",
+      "role": "selected source reference; broader production-package approval not inferred",
+      "status": "REFERENCE",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "art_department/sources/INHERITED_REFERENCE_GUIDE.md",
+        "art_department/APPROVAL_LEDGER.md"
+      ],
+      "dimensions": [
+        136,
+        50
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/octopus_brain_a.png",
+      "sha256": "e8d149bf8a4242da5891cdde4402ca3539bbaade19ac0405b122d9212496ccb2",
+      "role": "runtime asset location; active usage not inferred",
+      "status": "STATUS UNKNOWN \u2014 HQ REVIEW REQUIRED",
+      "default_style_reference": false,
+      "approval_evidence": [],
+      "dimensions": [
+        270,
+        362
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/octopus_brain_b.png",
+      "sha256": "7118795e7cfcafa0d32938dd79c83ef6cd2d3cfcb4af6ab23b8a394c76359705",
+      "role": "runtime asset location; active usage not inferred",
+      "status": "STATUS UNKNOWN \u2014 HQ REVIEW REQUIRED",
+      "default_style_reference": false,
+      "approval_evidence": [],
+      "dimensions": [
+        270,
+        362
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/octopus_brain_c.png",
+      "sha256": "03bedd790a1276e41703f70413019ff6122be84f233f9ed1a3a01ffaae60cb92",
+      "role": "runtime asset location; active usage not inferred",
+      "status": "STATUS UNKNOWN \u2014 HQ REVIEW REQUIRED",
+      "default_style_reference": false,
+      "approval_evidence": [],
+      "dimensions": [
+        270,
+        362
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/octopus_brain_d.png",
+      "sha256": "daca9dffefca339f8d244b1be5ac8500d80c2482870c061a06cd4aa7c940d876",
+      "role": "runtime asset location; active usage not inferred",
+      "status": "STATUS UNKNOWN \u2014 HQ REVIEW REQUIRED",
+      "default_style_reference": false,
+      "approval_evidence": [],
+      "dimensions": [
+        270,
+        362
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/ogun_rave/ART_PACKAGE_MANIFEST.json",
+      "sha256": "b0955ce50ab0a9b9f8c4ef396b822c70e6397875d129070c3d105f7a57f2e90f",
+      "role": "runtime asset location; active usage not inferred",
+      "status": "STATUS UNKNOWN \u2014 HQ REVIEW REQUIRED",
+      "default_style_reference": false,
+      "approval_evidence": []
+    },
+    {
+      "path": "assets/ogun_rave/layers/room_without_foreground.png",
+      "sha256": "fc1690873d84d492e49756cde4daf4ae16befbaead4410aef59d090864ee5556",
+      "role": "approved supporting layer/mask",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "docs/RAVE_STAGE_REVIEW.md",
+        "art_department/APPROVAL_LEDGER.md"
+      ],
+      "dimensions": [
+        270,
+        480
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/ogun_rave/layers/speaker_foreground_overlay.png",
+      "sha256": "04e5fb68a58df316c1848941390fdac7968d1691385604958490ac6ec698913c",
+      "role": "approved supporting layer/mask",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "docs/RAVE_STAGE_REVIEW.md",
+        "art_department/APPROVAL_LEDGER.md"
+      ],
+      "dimensions": [
+        270,
+        480
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/ogun_rave/masks/crowd_removal_edit_region.png",
+      "sha256": "dc6440802dc5190b27bd9f044ccdb67b4254017ddaaf7b5f42b0400a1b4d6c2b",
+      "role": "approved supporting layer/mask",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "docs/RAVE_STAGE_REVIEW.md",
+        "art_department/APPROVAL_LEDGER.md"
+      ],
+      "dimensions": [
+        270,
+        480
+      ],
+      "mode": "L"
+    },
+    {
+      "path": "assets/ogun_rave/masks/ogun_neutral_silhouette.png",
+      "sha256": "b788634871cbe6bb354b7d2ce9950b1ebdeecb01a7652548767a6b729b6e42f1",
+      "role": "approved supporting layer/mask",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "docs/RAVE_STAGE_REVIEW.md",
+        "art_department/APPROVAL_LEDGER.md"
+      ],
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "L"
+    },
+    {
+      "path": "assets/ogun_rave/masks/speaker_foreground_mask.png",
+      "sha256": "810a9b02e4325c27932318e153f9353b90df24b2ef7109ff252707d51dc54628",
+      "role": "approved supporting layer/mask",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "docs/RAVE_STAGE_REVIEW.md",
+        "art_department/APPROVAL_LEDGER.md"
+      ],
+      "dimensions": [
+        270,
+        480
+      ],
+      "mode": "L"
+    },
+    {
+      "path": "assets/ogun_rave/masters/ogun_neutral_80x96.png",
+      "sha256": "093bf68ef4b4d3ff64228b50a94b8e57e568886a582b13e005636581c18e412b",
+      "role": "production master",
+      "status": "FROZEN",
+      "default_style_reference": true,
+      "approval_evidence": [
+        "docs/RAVE_STAGE_REVIEW.md",
+        "art_department/APPROVAL_LEDGER.md"
+      ],
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/ogun_rave/masters/rave_interior_270x480.png",
+      "sha256": "597591188a9f3b7865625f967933b07586930982fb31d0c92ab4e5fc38c51118",
+      "role": "production master",
+      "status": "FROZEN",
+      "default_style_reference": true,
+      "approval_evidence": [
+        "docs/RAVE_STAGE_REVIEW.md",
+        "art_department/APPROVAL_LEDGER.md"
+      ],
+      "dimensions": [
+        270,
+        480
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/powder_springs_night_270x480.png",
+      "sha256": "b31e731120fb4536a090bad19fa9b6efd3f1c2fa77f76598c966b99e63260a8c",
+      "role": "hash-matched approved existing source",
+      "status": "APPROVED MASTER",
+      "default_style_reference": true,
+      "approval_evidence": [
+        "art_department/sources/INHERITED_REFERENCE_GUIDE.md",
+        "art_department/APPROVAL_LEDGER.md"
+      ],
+      "dimensions": [
+        270,
+        480
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/revenge_extraction_01.png",
+      "sha256": "0c9b1eeb2fe283b9da79bc5739cd0c5cd947af124b07845a3fdf6a2c5745dbff",
+      "role": "runtime asset location; active usage not inferred",
+      "status": "STATUS UNKNOWN \u2014 HQ REVIEW REQUIRED",
+      "default_style_reference": false,
+      "approval_evidence": [],
+      "dimensions": [
+        24,
+        24
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/revenge_extraction_02.png",
+      "sha256": "22edcc194f85d11b9b6e5848a8afb68851bcb22dfeb3fe4e5bf3cad24d907929",
+      "role": "runtime asset location; active usage not inferred",
+      "status": "STATUS UNKNOWN \u2014 HQ REVIEW REQUIRED",
+      "default_style_reference": false,
+      "approval_evidence": [],
+      "dimensions": [
+        24,
+        24
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/revenge_extraction_03.png",
+      "sha256": "c96fb6795847689f4ca8af29dc3b768ed4c439a70dd0d70fd44846dbbe094b07",
+      "role": "runtime asset location; active usage not inferred",
+      "status": "STATUS UNKNOWN \u2014 HQ REVIEW REQUIRED",
+      "default_style_reference": false,
+      "approval_evidence": [],
+      "dimensions": [
+        24,
+        24
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/revenge_extraction_04.png",
+      "sha256": "27b9b533a0d2c4087b84f6df83ae7df19be96283f4de6d818f36e84a26ecc943",
+      "role": "runtime asset location; active usage not inferred",
+      "status": "STATUS UNKNOWN \u2014 HQ REVIEW REQUIRED",
+      "default_style_reference": false,
+      "approval_evidence": [],
+      "dimensions": [
+        24,
+        24
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/revenge_extraction_sheet.png",
+      "sha256": "f7888500cd7765a5a1d455a4eeacb8eab02a7b330bf074a86d552c2a59669ac3",
+      "role": "runtime asset location; active usage not inferred",
+      "status": "STATUS UNKNOWN \u2014 HQ REVIEW REQUIRED",
+      "default_style_reference": false,
+      "approval_evidence": [],
+      "dimensions": [
+        96,
+        24
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/revenge_impact_fullscreen.png",
+      "sha256": "e82097fc9472e0cc224999c69f8ce7d5b1dd02567b89ca0add3b693d18e6a008",
+      "role": "runtime asset location; active usage not inferred",
+      "status": "STATUS UNKNOWN \u2014 HQ REVIEW REQUIRED",
+      "default_style_reference": false,
+      "approval_evidence": [],
+      "dimensions": [
+        270,
+        480
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/revenge_manifest.json",
+      "sha256": "ff0e46e46f46a7c373bf66d9718c960249de5ace655d68ede78afde9d3ca2837",
+      "role": "runtime asset location; active usage not inferred",
+      "status": "STATUS UNKNOWN \u2014 HQ REVIEW REQUIRED",
+      "default_style_reference": false,
+      "approval_evidence": []
+    },
+    {
+      "path": "assets/revenge_mass_01.png",
+      "sha256": "d8f8c47fbca456ce64a063993eaf721983cbd2480775572794bcac3bd9c271e0",
+      "role": "runtime asset location; active usage not inferred",
+      "status": "STATUS UNKNOWN \u2014 HQ REVIEW REQUIRED",
+      "default_style_reference": false,
+      "approval_evidence": [],
+      "dimensions": [
+        96,
+        96
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/revenge_mass_02.png",
+      "sha256": "8e880fe980ec53186b33c4d975676a831e7b616e6ac5d010456e60a614f537f7",
+      "role": "selected source reference; broader production-package approval not inferred",
+      "status": "REFERENCE",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "art_department/sources/INHERITED_REFERENCE_GUIDE.md",
+        "art_department/APPROVAL_LEDGER.md"
+      ],
+      "dimensions": [
+        96,
+        96
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/revenge_mass_03.png",
+      "sha256": "0ceceb3462adb13f8a1a42549b76921641babdd1e09e1373102e36b14e5f1746",
+      "role": "runtime asset location; active usage not inferred",
+      "status": "STATUS UNKNOWN \u2014 HQ REVIEW REQUIRED",
+      "default_style_reference": false,
+      "approval_evidence": [],
+      "dimensions": [
+        96,
+        96
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/revenge_mass_sheet.png",
+      "sha256": "a3f86665b8478920315295e48fd0b733efc3cbdfcb731577f91ff2350caea389",
+      "role": "runtime asset location; active usage not inferred",
+      "status": "STATUS UNKNOWN \u2014 HQ REVIEW REQUIRED",
+      "default_style_reference": false,
+      "approval_evidence": [],
+      "dimensions": [
+        288,
+        96
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/revenge_README.md",
+      "sha256": "815c8e008a9e264dc57b1d977365cd549efeaecbd4199379586b76648a33269b",
+      "role": "runtime asset location; active usage not inferred",
+      "status": "STATUS UNKNOWN \u2014 HQ REVIEW REQUIRED",
+      "default_style_reference": false,
+      "approval_evidence": []
+    },
+    {
+      "path": "assets/revenge_stored_wound_01.png",
+      "sha256": "ca96c7c10ef573bcf87822ba4ecf08f80f7037cf0ff2716ede7990a8935183b9",
+      "role": "runtime asset location; active usage not inferred",
+      "status": "STATUS UNKNOWN \u2014 HQ REVIEW REQUIRED",
+      "default_style_reference": false,
+      "approval_evidence": [],
+      "dimensions": [
+        16,
+        16
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/revenge_stored_wound_02.png",
+      "sha256": "2efd5384e6ddfde320edf25a5642a00ea7cd95f6906250bf0a448ab082a048f6",
+      "role": "runtime asset location; active usage not inferred",
+      "status": "STATUS UNKNOWN \u2014 HQ REVIEW REQUIRED",
+      "default_style_reference": false,
+      "approval_evidence": [],
+      "dimensions": [
+        16,
+        16
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/revenge_stored_wound_03.png",
+      "sha256": "421f7c019f7b15b5255a0778398132cd007430374de905ab676280bef9648ad4",
+      "role": "runtime asset location; active usage not inferred",
+      "status": "STATUS UNKNOWN \u2014 HQ REVIEW REQUIRED",
+      "default_style_reference": false,
+      "approval_evidence": [],
+      "dimensions": [
+        16,
+        16
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/revenge_stored_wound_04.png",
+      "sha256": "6b76f70ab13980c9067118043e29a694cdc10827c201d79b833dab9091d80e86",
+      "role": "runtime asset location; active usage not inferred",
+      "status": "STATUS UNKNOWN \u2014 HQ REVIEW REQUIRED",
+      "default_style_reference": false,
+      "approval_evidence": [],
+      "dimensions": [
+        16,
+        16
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/revenge_stored_wound_sheet.png",
+      "sha256": "47e4423038ae91de27428476de28b88525266f1589fd0f7a434a5e36b49092c3",
+      "role": "runtime asset location; active usage not inferred",
+      "status": "STATUS UNKNOWN \u2014 HQ REVIEW REQUIRED",
+      "default_style_reference": false,
+      "approval_evidence": [],
+      "dimensions": [
+        64,
+        16
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/revenge_target_crack_01.png",
+      "sha256": "9ef2d606d6b4a75fff4be557604d605ca7d0b1e218e6fdcd0be5fba9a746ba78",
+      "role": "runtime asset location; active usage not inferred",
+      "status": "STATUS UNKNOWN \u2014 HQ REVIEW REQUIRED",
+      "default_style_reference": false,
+      "approval_evidence": [],
+      "dimensions": [
+        96,
+        96
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/revenge_target_crack_02.png",
+      "sha256": "e764dc72a13204fca72d889f3774ad7fcdb729804fba78efe22cdba4268c2c52",
+      "role": "runtime asset location; active usage not inferred",
+      "status": "STATUS UNKNOWN \u2014 HQ REVIEW REQUIRED",
+      "default_style_reference": false,
+      "approval_evidence": [],
+      "dimensions": [
+        96,
+        96
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/revenge_target_crack_03.png",
+      "sha256": "a16d084874447fa832de2606fdfd268926db7df28d0192e00bfc06a37c3dba79",
+      "role": "runtime asset location; active usage not inferred",
+      "status": "STATUS UNKNOWN \u2014 HQ REVIEW REQUIRED",
+      "default_style_reference": false,
+      "approval_evidence": [],
+      "dimensions": [
+        96,
+        96
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/revenge_target_crack_sheet.png",
+      "sha256": "516e320f5cd84d0408909b6ad10d2d3201bcb9bd65f9b2350f0a6c763b4906c8",
+      "role": "runtime asset location; active usage not inferred",
+      "status": "STATUS UNKNOWN \u2014 HQ REVIEW REQUIRED",
+      "default_style_reference": false,
+      "approval_evidence": [],
+      "dimensions": [
+        288,
+        96
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/rich_bedroom_character_manifest.json",
+      "sha256": "65d46a2e53f5c63e0648624bfdcb7a6b7cc4ffa898ef0bc1046290a2af22045c",
+      "role": "runtime asset location; active usage not inferred",
+      "status": "STATUS UNKNOWN \u2014 HQ REVIEW REQUIRED",
+      "default_style_reference": false,
+      "approval_evidence": []
+    },
+    {
+      "path": "assets/rich_bedroom_character_README.md",
+      "sha256": "4a1c39fec1793f2fa9ba84d4f2ca063bf094a136487346817d6f81bc0941e762",
+      "role": "runtime asset location; active usage not inferred",
+      "status": "STATUS UNKNOWN \u2014 HQ REVIEW REQUIRED",
+      "default_style_reference": false,
+      "approval_evidence": []
+    },
+    {
+      "path": "assets/rich_bedroom_drowsy_wake.png",
+      "sha256": "3a79718bd007885945fc1e34f50c44ae5c1b49b6fc980930cf7a7cb0d9818b3f",
+      "role": "runtime asset location; active usage not inferred",
+      "status": "STATUS UNKNOWN \u2014 HQ REVIEW REQUIRED",
+      "default_style_reference": false,
+      "approval_evidence": [],
+      "dimensions": [
+        128,
+        64
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/rich_bedroom_environment_270x480.png",
+      "sha256": "f82bbdf9372c0b8e0f71b63d79867c805dbab0d25e631e5f36160c29f435c493",
+      "role": "hash-matched approved existing source",
+      "status": "APPROVED MASTER",
+      "default_style_reference": true,
+      "approval_evidence": [
+        "art_department/sources/INHERITED_REFERENCE_GUIDE.md",
+        "art_department/APPROVAL_LEDGER.md"
+      ],
+      "dimensions": [
+        270,
+        480
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/rich_bedroom_lounge_idle.png",
+      "sha256": "d2f19e4e9c3c7c60b4d570aea0708bbd854095526cb16ebbe3df4440cd92706d",
+      "role": "hash-matched approved existing source",
+      "status": "APPROVED MASTER",
+      "default_style_reference": true,
+      "approval_evidence": [
+        "art_department/sources/INHERITED_REFERENCE_GUIDE.md",
+        "art_department/APPROVAL_LEDGER.md"
+      ],
+      "dimensions": [
+        128,
+        64
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/rich_bedroom_phone_reaction.png",
+      "sha256": "2c247e47aeac2ac6137d72cadac288dc4ec84488cca30ac443f7e7a24f74cfa9",
+      "role": "runtime asset location; active usage not inferred",
+      "status": "STATUS UNKNOWN \u2014 HQ REVIEW REQUIRED",
+      "default_style_reference": false,
+      "approval_evidence": [],
+      "dimensions": [
+        128,
+        64
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/rich_bedroom_phone_scroll.png",
+      "sha256": "447e31340f438137108a7680f782435df4a1819c7aba2185de1e9a8b77234202",
+      "role": "runtime asset location; active usage not inferred",
+      "status": "STATUS UNKNOWN \u2014 HQ REVIEW REQUIRED",
+      "default_style_reference": false,
+      "approval_evidence": [],
+      "dimensions": [
+        128,
+        64
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/rich_bedroom_sleeping.png",
+      "sha256": "4dad0a864528c9800e792e61905bb043825d442f6fbbeb5f10106e38242b2820",
+      "role": "runtime asset location; active usage not inferred",
+      "status": "STATUS UNKNOWN \u2014 HQ REVIEW REQUIRED",
+      "default_style_reference": false,
+      "approval_evidence": [],
+      "dimensions": [
+        128,
+        64
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/rich_bedroom_small_idle.png",
+      "sha256": "5f7a0b5fe631deac7f6528b1053c903b1912b0468f10bcabfc0a72f489a7750e",
+      "role": "runtime asset location; active usage not inferred",
+      "status": "STATUS UNKNOWN \u2014 HQ REVIEW REQUIRED",
+      "default_style_reference": false,
+      "approval_evidence": [],
+      "dimensions": [
+        128,
+        64
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/rich_bedroom_sprite_sheet.png",
+      "sha256": "c1d19d798cc1b35398e9f235144e03f8d8dc068ae30bb0e3faf5da81fd940e9d",
+      "role": "runtime asset location; active usage not inferred",
+      "status": "STATUS UNKNOWN \u2014 HQ REVIEW REQUIRED",
+      "default_style_reference": false,
+      "approval_evidence": [],
+      "dimensions": [
+        384,
+        128
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/rich_curb_chilling.png",
+      "sha256": "fc42db9fb191c3201d1fe119c058d64a90a14ccdbbfefbc2897b9449c265c6d0",
+      "role": "hash-matched approved existing source",
+      "status": "APPROVED MASTER",
+      "default_style_reference": true,
+      "approval_evidence": [
+        "art_department/sources/INHERITED_REFERENCE_GUIDE.md",
+        "art_department/APPROVAL_LEDGER.md"
+      ],
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/rich_curb_eating.png",
+      "sha256": "437ae03f3234b2bf2502e4f05458f321fbbd5b63e3771e04dfcf34e132bf0249",
+      "role": "hash-matched approved existing source",
+      "status": "APPROVED MASTER",
+      "default_style_reference": true,
+      "approval_evidence": [
+        "art_department/sources/INHERITED_REFERENCE_GUIDE.md",
+        "art_department/APPROVAL_LEDGER.md"
+      ],
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/rich_curb_stargazing.png",
+      "sha256": "ebeb5d6621260b70907dd63374992ca575aebcc70a53533e284645f46910434f",
+      "role": "hash-matched approved existing source",
+      "status": "APPROVED MASTER",
+      "default_style_reference": true,
+      "approval_evidence": [
+        "art_department/sources/INHERITED_REFERENCE_GUIDE.md",
+        "art_department/APPROVAL_LEDGER.md"
+      ],
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/rich_getup_01.png",
+      "sha256": "b5ab2938d5fde6c7690e0a18ae68568c58983733c616c4d49e2c537bf54bbdb0",
+      "role": "runtime asset location; active usage not inferred",
+      "status": "STATUS UNKNOWN \u2014 HQ REVIEW REQUIRED",
+      "default_style_reference": false,
+      "approval_evidence": [],
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/rich_getup_02.png",
+      "sha256": "c6dabb4b31033c10713c7abbd397ccaea109b5f59f6f2ffce8c41b06940c35f0",
+      "role": "runtime asset location; active usage not inferred",
+      "status": "STATUS UNKNOWN \u2014 HQ REVIEW REQUIRED",
+      "default_style_reference": false,
+      "approval_evidence": [],
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/rich_getup_03.png",
+      "sha256": "05de9dc409a9bcc0fd003b1cca84515a76d7ba07d949ba5b2c474341283148f4",
+      "role": "runtime asset location; active usage not inferred",
+      "status": "STATUS UNKNOWN \u2014 HQ REVIEW REQUIRED",
+      "default_style_reference": false,
+      "approval_evidence": [],
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/rich_portrait_pixel.png",
+      "sha256": "70893be77d2f4e9ba6c4f918a90d44714558d4af0b1bc6fbdcb69f9585335e17",
+      "role": "runtime asset location; active usage not inferred",
+      "status": "STATUS UNKNOWN \u2014 HQ REVIEW REQUIRED",
+      "default_style_reference": false,
+      "approval_evidence": [],
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/rich_seated_cast.png",
+      "sha256": "515b65fe6e91844cc8f0f5bde5c81b5973e093355bf4fa9b309515b81dd201f0",
+      "role": "runtime asset location; active usage not inferred",
+      "status": "STATUS UNKNOWN \u2014 HQ REVIEW REQUIRED",
+      "default_style_reference": false,
+      "approval_evidence": [],
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/rich_seated_hit.png",
+      "sha256": "6e3058fd5394b6af59f6880014d1affe60fd6162b3add46bf04f3ab95653295b",
+      "role": "runtime asset location; active usage not inferred",
+      "status": "STATUS UNKNOWN \u2014 HQ REVIEW REQUIRED",
+      "default_style_reference": false,
+      "approval_evidence": [],
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/rich_seated_idle.png",
+      "sha256": "d0dbc3b07c112f9dc380df025ad987c003d9740e888caebee3a999a1b7c14eb4",
+      "role": "hash-matched approved existing source",
+      "status": "APPROVED MASTER",
+      "default_style_reference": true,
+      "approval_evidence": [
+        "art_department/sources/INHERITED_REFERENCE_GUIDE.md",
+        "art_department/APPROVAL_LEDGER.md"
+      ],
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/rich_seated_victory.png",
+      "sha256": "db02de7101316179ace71ef1e7cfa909daa567887b1321c0cac26f342e6c06ab",
+      "role": "runtime asset location; active usage not inferred",
+      "status": "STATUS UNKNOWN \u2014 HQ REVIEW REQUIRED",
+      "default_style_reference": false,
+      "approval_evidence": [],
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/rich_standing_right.png",
+      "sha256": "765170076e8d3a9af9e8857e176e079b2a68c7ee1daafb7c8d551482228f144b",
+      "role": "hash-matched approved existing source",
+      "status": "APPROVED MASTER",
+      "default_style_reference": true,
+      "approval_evidence": [
+        "art_department/sources/INHERITED_REFERENCE_GUIDE.md",
+        "art_department/APPROVAL_LEDGER.md"
+      ],
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/rich_throne_empty_authored.png",
+      "sha256": "1ec0bb28c33442cfaec817a6e29751850e1f1b38678cd46ab2f595f4605032e9",
+      "role": "runtime asset location; active usage not inferred",
+      "status": "STATUS UNKNOWN \u2014 HQ REVIEW REQUIRED",
+      "default_style_reference": false,
+      "approval_evidence": [],
+      "dimensions": [
+        1035,
+        1317
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/rich_throne_only.png",
+      "sha256": "8c99f01733262a7213e0da556bb0a98888ae5c2c97cd69d77af8cdcf2d006e64",
+      "role": "hash-matched approved existing source",
+      "status": "APPROVED MASTER",
+      "default_style_reference": true,
+      "approval_evidence": [
+        "art_department/sources/INHERITED_REFERENCE_GUIDE.md",
+        "art_department/APPROVAL_LEDGER.md"
+      ],
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/rich_vampire_bite.png",
+      "sha256": "6095b00a669dcd72cd151e24a858b79006a767cdc3e954189edd1b8591c19736",
+      "role": "hash-matched approved existing source",
+      "status": "APPROVED MASTER",
+      "default_style_reference": true,
+      "approval_evidence": [
+        "art_department/sources/INHERITED_REFERENCE_GUIDE.md",
+        "art_department/APPROVAL_LEDGER.md"
+      ],
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/rich_walk_right_01.png",
+      "sha256": "7e2b82578999a351ff516be82ab45f22cae679cf297b64b279b5e5fcf6685e15",
+      "role": "runtime asset location; active usage not inferred",
+      "status": "STATUS UNKNOWN \u2014 HQ REVIEW REQUIRED",
+      "default_style_reference": false,
+      "approval_evidence": [],
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/rich_walk_right_02.png",
+      "sha256": "6ae76fcdf9a4e584f04620d2b360beed850e384801c3f1668fff9f969061839e",
+      "role": "runtime asset location; active usage not inferred",
+      "status": "STATUS UNKNOWN \u2014 HQ REVIEW REQUIRED",
+      "default_style_reference": false,
+      "approval_evidence": [],
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/rich_walk_right_03.png",
+      "sha256": "834e2af614019d798d7b8e0d75da552b1c0d64338f02c5072aa92cfaad9c1887",
+      "role": "runtime asset location; active usage not inferred",
+      "status": "STATUS UNKNOWN \u2014 HQ REVIEW REQUIRED",
+      "default_style_reference": false,
+      "approval_evidence": [],
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/rich_walk_right_04.png",
+      "sha256": "14ea08b84ea198e66b15cf94a0843cef3ec91fafdd62f10f1b07ccbd11a0a53d",
+      "role": "runtime asset location; active usage not inferred",
+      "status": "STATUS UNKNOWN \u2014 HQ REVIEW REQUIRED",
+      "default_style_reference": false,
+      "approval_evidence": [],
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/throne_room_clean_source.png",
+      "sha256": "14d922eaaeceaa16a13ed0590f4f306fccba362ac49d0a6174ec16ff3aceeee5",
+      "role": "runtime asset location; active usage not inferred",
+      "status": "STATUS UNKNOWN \u2014 HQ REVIEW REQUIRED",
+      "default_style_reference": false,
+      "approval_evidence": [],
+      "dimensions": [
+        895,
+        1200
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/throne_room_scene.png",
+      "sha256": "1ca171460c9f2ce2a5088c27c25524e6dc85bdb4f4007a3050ebd3da868428d9",
+      "role": "runtime asset location; active usage not inferred",
+      "status": "STATUS UNKNOWN \u2014 HQ REVIEW REQUIRED",
+      "default_style_reference": false,
+      "approval_evidence": [],
+      "dimensions": [
+        270,
+        362
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/throne_room_scene_portrait.png",
+      "sha256": "08bd6a6cfcb53356e105505fb7754292c7a3c1491d7078f13b9881a4bb0f90c0",
+      "role": "hash-matched approved existing source",
+      "status": "APPROVED MASTER",
+      "default_style_reference": true,
+      "approval_evidence": [
+        "art_department/sources/INHERITED_REFERENCE_GUIDE.md",
+        "art_department/APPROVAL_LEDGER.md"
+      ],
+      "dimensions": [
+        765,
+        1024
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/vampire_bite_contact.png",
+      "sha256": "df9a605f9a48a854b560247a25073ab4dec3ac298dac2b318210f96746a901c7",
+      "role": "runtime asset location; active usage not inferred",
+      "status": "STATUS UNKNOWN \u2014 HQ REVIEW REQUIRED",
+      "default_style_reference": false,
+      "approval_evidence": [],
+      "dimensions": [
+        64,
+        64
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/vampire_bite_jaw_lower.png",
+      "sha256": "8e19382756583157c468c758a0cfe425105b01741279812be1c422b2b69a5768",
+      "role": "runtime asset location; active usage not inferred",
+      "status": "STATUS UNKNOWN \u2014 HQ REVIEW REQUIRED",
+      "default_style_reference": false,
+      "approval_evidence": [],
+      "dimensions": [
+        270,
+        480
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/vampire_bite_jaw_sheet.png",
+      "sha256": "5ab5f4ac70608fe738bfe3361a74d3248c9ffcd8338d5cf0287ae961ccabb79e",
+      "role": "runtime asset location; active usage not inferred",
+      "status": "STATUS UNKNOWN \u2014 HQ REVIEW REQUIRED",
+      "default_style_reference": false,
+      "approval_evidence": [],
+      "dimensions": [
+        810,
+        480
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/vampire_bite_jaw_upper.png",
+      "sha256": "5e14781927eba0e8ed5fc0f1311701aaa9e82068500d791eb1c0d690237b3441",
+      "role": "runtime asset location; active usage not inferred",
+      "status": "STATUS UNKNOWN \u2014 HQ REVIEW REQUIRED",
+      "default_style_reference": false,
+      "approval_evidence": [],
+      "dimensions": [
+        270,
+        480
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/vampire_bite_lifesteal_atlas.png",
+      "sha256": "447f134e37b9c36bc3d9b463ad8a699ed3fa48890b5e5311194a9ad57631fbec",
+      "role": "runtime asset location; active usage not inferred",
+      "status": "STATUS UNKNOWN \u2014 HQ REVIEW REQUIRED",
+      "default_style_reference": false,
+      "approval_evidence": [],
+      "dimensions": [
+        48,
+        16
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/vampire_bite_lifesteal_drop_01.png",
+      "sha256": "781558b082aaad2dc545713470a6c247ddb621278189cdd04275f5a009a4356d",
+      "role": "runtime asset location; active usage not inferred",
+      "status": "STATUS UNKNOWN \u2014 HQ REVIEW REQUIRED",
+      "default_style_reference": false,
+      "approval_evidence": [],
+      "dimensions": [
+        16,
+        16
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/vampire_bite_lifesteal_drop_02.png",
+      "sha256": "8db81aa343d5b99703e421f34de97013e26681f9053e62feafc38f005cbf4ff4",
+      "role": "runtime asset location; active usage not inferred",
+      "status": "STATUS UNKNOWN \u2014 HQ REVIEW REQUIRED",
+      "default_style_reference": false,
+      "approval_evidence": [],
+      "dimensions": [
+        16,
+        16
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/vampire_bite_lifesteal_orb_01.png",
+      "sha256": "5aad7b2626ec40a7effab26252df3479e6b0006de09bdfbdac235e7b8e36ca33",
+      "role": "runtime asset location; active usage not inferred",
+      "status": "STATUS UNKNOWN \u2014 HQ REVIEW REQUIRED",
+      "default_style_reference": false,
+      "approval_evidence": [],
+      "dimensions": [
+        16,
+        16
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/vampire_bite_manifest.json",
+      "sha256": "a39da0405267134510d145c223f259fe8f63759d1b9b986dd56c730b98803f0b",
+      "role": "runtime asset location; active usage not inferred",
+      "status": "STATUS UNKNOWN \u2014 HQ REVIEW REQUIRED",
+      "default_style_reference": false,
+      "approval_evidence": []
+    },
+    {
+      "path": "assets/vampire_bite_README.md",
+      "sha256": "65e497f1b8facf70d45b33f376e74e189fe761a857b1e862ce4e58ed55992b69",
+      "role": "runtime asset location; active usage not inferred",
+      "status": "STATUS UNKNOWN \u2014 HQ REVIEW REQUIRED",
+      "default_style_reference": false,
+      "approval_evidence": []
+    },
+    {
+      "path": "assets/vampire_bite_snap_closed.png",
+      "sha256": "15618df382ab162a2f53a6263dddf9465ad7927f18ff07d329611c47b96811e8",
+      "role": "selected source reference; broader production-package approval not inferred",
+      "status": "REFERENCE",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "art_department/sources/INHERITED_REFERENCE_GUIDE.md",
+        "art_department/APPROVAL_LEDGER.md"
+      ],
+      "dimensions": [
+        270,
+        480
+      ],
+      "mode": "RGBA"
+    }
+  ]
+}

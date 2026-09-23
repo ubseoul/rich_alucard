@@ -1,0 +1,3 @@
+# Historical authority transcripts
+These are text-only preserved historical documents. Original relative links refer to the old package layout and are not navigation for this repository. Use ../references/STYLE_AUTHORITY.md and the repository asset register instead. They do not override later decisions. No referenced old images are required to be copied into runtime or this documentation system.
+The standard and three-sheet kit received HQ PASS/FROZEN per INHERITED_HQ_APPROVAL. Generic vocabulary examples remained non-canon. The reference guide identifies the approval role of the original exact source subset. Runtime mapping is independently hash-checked in ASSET_REGISTER.json.

@@ -1,0 +1,14 @@
+# Explicit decision ledger
+
+This is a standalone transcription/summary of supplied authority, not new approval granted by the implementer. Historical session decisions below were explicitly supplied by Ube as HQ review. Where dates were not supplied, no exact decision timestamp is invented. Listed in decision order.
+
+1. Art Production Standard v1: **PASS / FROZEN**. Three-sheet essential kit accepted as current production authority. Adult Female Proportion Vocabulary remains TASTE PASS / APPROVED, non-canon vocabulary rather than character masters. Exact inherited record: sources/INHERITED_HQ_APPROVAL.md.
+2. Ogun VD01: UBE TASTE PASS / HQ PASS for Industrial Salon, A / Ivory Host, Rich/Ogun hierarchy and peripheral crowd/open-center direction. Ube reaction: “this shit blew me away yes”. Visual target frozen; study files not final production masters. B/C not production directions.
+3. Art Card 02: **PASS. OGUN MASTER: FROZEN. RAVE INTERIOR MASTER: FROZEN.** Specifically accepted ogun_neutral_80x96.png, rave_interior_270x480.png, supplied speaker separation, masks/registration, one-frame neutral state and exploratory crowd removal. Do not add density merely because architecture is empty. Future change requires HQ delta. The Art decision excluded runtime depth/placement/Stage Contract acceptance.
+4. Later repository Engineering 02: docs/RAVE_STAGE_REVIEW.md explicitly records HQ PASS for1905774afae66398c46ec55340c9d07f820b9c18, with frozen-art hashes and accepted integration scope. This later record resolves the historical integration-pending statement in its stated scope; it authorizes no new story/art.
+5. Bllad33 VD01: civilian, oversized-sword and sleek-sword directions rejected/closed. VD02 purple-fashion direction closed. None is an approved master.
+6. Character forensic calibration: **HQ STYLE CALIBRATION: PASS.** HQ stated the forensic rules are binding for VD03. STYLE_FINGERPRINT preserves measured source evidence and its limits; calibration acceptance is not a character acceptance.
+7. Art Department architecture: **HQ REVIEW — PASS WITH PATH DELTA.** System must live inside rich_alucard/art_department, not the session. Documentation/index implementation only. No production asset modifications. No images or new Ship. Stop for HQ FINAL REVIEW.
+8. Current explicit Bllad33 status from that same HQ instruction: **VD01: REJECTED / ARCHIVED; VD02: REJECTED / ARCHIVED; VD03: EXPLORATION / CLOSED FOR CURRENT PRODUCTION. No approved Bllad33 master exists.** Exclude every exploration from default style corpus. Future development starts as a new Art Ship with a fresh Art Agent.
+
+Approval of this architecture does not pre-award final review of its implementation. Runtime reference approval evidence also includes current docs/CURRENT_CANON.md and the inherited reference guide. Exact source matching is recorded in the register; unmatched artifacts are not promoted.
