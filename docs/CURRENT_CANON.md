@@ -6,6 +6,8 @@
 
 ## Core production rule
 
+Read [Studio Production Control](PRODUCTION_CONTROL.md) before starting meaningful cross-discipline work. Ube owns canon/taste/fantasy; HQ owns scope, spoiler classification, integration and acceptance; Artist and Engineer/Codex execute within approved briefs. Specialists cannot mark their own work PASS or FROZEN.
+
 **Approved environment artwork is immutable source art.** Environmental edits must be surgical/composited unless Ube explicitly approves regeneration. Do not recreate or reinterpret an approved room to change one prop.
 
 ## Fun Test

@@ -1,5 +1,7 @@
 # Stage Contract handoff
 
+For role authority, Production Card fields and acceptance evidence, see [Studio Production Control](PRODUCTION_CONTROL.md). Stage Contract handoffs are engineering/art integration evidence; they do not by themselves mark work PASS or FROZEN.
+
 Every approved production stage has one machine-readable contract in `js/data/stages.js`. Coordinates are authored in native canvas pixels. Runtime placement is derived only by `RAStageLayout` from the native rectangle and the rendered stage bounds.
 
 Required contract fields are `id`, `native`, `environment`, `referenceScale`, `contactLines`, `actors`, `dialogueSafeZones`, `uiExclusionZones`, and `layers`. Actor slots contain a native contact anchor, source dimensions/anchor, facing direction, and optional `observer` designation.

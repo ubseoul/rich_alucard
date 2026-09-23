@@ -1,5 +1,7 @@
 # Rich Alucard — Visual Style Bible
 
+For production authority and evidence requirements, see [Studio Production Control](PRODUCTION_CONTROL.md). Artist may make bounded execution-level visual decisions inside approved briefs, but may not independently redesign characters, invent canon, establish lore or change frozen assets. Approved source art remains immutable unless an explicit delta request says otherwise.
+
 ## North star
 
 **A strange forgotten early-2000s handheld cartridge made specifically for Rich Alucard.**

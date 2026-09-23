@@ -4,7 +4,9 @@
 **Creative director:** Ube  
 **Implementation:** browser-first HTML/CSS/JS
 
-For day-to-day implementation, read **CURRENT_CANON.md first**. This document captures the broader game direction.
+For day-to-day implementation, read **CURRENT_CANON.md first** and [Studio Production Control](PRODUCTION_CONTROL.md). This document captures the broader game direction.
+
+Production roles are explicit: Ube is Creative Director/Player; HQ owns product direction, scope, integration and acceptance; Artist owns approved visual execution; Engineer/Codex owns implementation, testing, tooling and deployment. Meaningful cross-discipline work should use short Production Cards and move through DRAFT → AUTHORIZED FOR PRODUCTION → READY FOR HQ REVIEW → PASS or NEEDS FIX → FROZEN.
 
 ## 1. Premise
 
