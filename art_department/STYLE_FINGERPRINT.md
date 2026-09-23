@@ -69,3 +69,11 @@ What makes the cast specific is the combination: Rich's large black hair and sha
 
 
 Source locations and current hashes: ASSET_REGISTER.json. Measurements below were rechecked against repository copies; no rejected exploration is a style source. PIXELS OUTRANK PROSE for measuring established visual grammar. Written canon controls character/world facts.
+
+## ART SHIP 003 approved additions
+
+Shannon is now an approved cast calibration source in the shared 80x96/contact-(40,88) grammar. Her neutral and controlled-reaction masters use compact visible envelopes of 22x56 and 29x56 pixels respectively; the reaction broadens posture without changing source contact. Use the individual masters for placement and the two-cell sheet only as a handoff convenience.
+
+The Property exterior and interior establish an additional approved 270x480 environment family. The clean interior base and binary-alpha problem overlay share exact full-canvas registration at origin (0,0); preserve that separation so gameplay can change the visible condition without repainting the base. The 96x96 ownership image is an approved exterior-derived UI identity, not a replacement environment source.
+
+The ordinary giant-rat vocabulary uses padded 96x64 cells with contact (48,56) and intended 1.25x presentation. Alert, scurry and recoil have measured opaque envelopes of 68x29, 72x24 and 68x39 pixels. Their silhouette and low-detail cluster logic are approved creature vocabulary; their runtime behavior and all PLAYER-BLIND disposition remain outside this visual calibration.

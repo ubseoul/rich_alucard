@@ -1,17 +1,21 @@
 # Current handoff
 
-**ART SHIP 002 — OGUN'S RAVE EXTERIOR: HQ PASS / APPROVED MASTER / FROZEN; art delivery closed.** UBE TASTE PASS selected Variant A and HQ production review accepted its exact bytes. No active Art Ship and no further generation, environment states, companion art, redesign or runtime integration are authorized.
+**ART SHIP 003 — MASSIVE PUSH 001: THE PROPERTY: HQ CREATIVE PASS / APPROVED MASTER / FROZEN; Creative delivery closed.** No active Art Ship and no additional art, dialogue, redesign, runtime integration or scope expansion is authorized.
 
-- Production path: `assets/ogun_rave/masters/rave_exterior_270x480.png`.
-- SHA-256: `81badc10ea5e84d1e7bcd94f337ff8beab6a6c93f3112754bc19793131438dc8`.
-- 270×480 RGB; fully opaque; 28 unique RGB colors. Exact accepted bytes preserve the left rave threshold, broad empty sidewalk/street actor field, distant warm burger-joint glow, wet-street nighttime atmosphere and useful actor/dialogue space.
-- Authority and complete scoped handoff: [Approval Ledger](APPROVAL_LEDGER.md) and [ART SHIP 002 manifest](ships/art_ship_002/ART_SHIP_MANIFEST.json). Future pixel changes require an explicit HQ delta against this exact master.
-- Runtime Stage Contract, placement, layer integration and Engineering acceptance remain unassigned and unauthorized by this Art decision.
+Accepted exact production families:
 
-Variant B and the A/B review board remain EXPLORATION outside the approved production corpus. No Rich, companion characters, restaurant trademark/logo, additional exterior state or runtime/game code was added by the Art Ship.
+- Shannon neutral and controlled-reaction masters plus two-cell handoff sheet under `assets/property/characters/shannon/`.
+- Property exterior and interior base masters under `assets/property/masters/`.
+- Exact-origin problem overlay under `assets/property/layers/`.
+- Exterior-derived ownership thumbnail under `assets/property/ui/`.
+- Giant-rat alert, scurry and recoil masters plus three-cell handoff sheet under `assets/property/creatures/giant_rat/`.
 
-The previously accepted `assets/bllad33/masters/bllad33_neutral_candidate_80x96.png` remains APPROVED MASTER / FROZEN under RT SHIP 001. Earlier Bllad33 VD01/VD02 remain REJECTED / ARCHIVED and VD03 remains EXPLORATION / CLOSED FOR CURRENT PRODUCTION.
+Exact paths, SHA-256 values, dimensions, contacts and per-file freeze scope are authoritative in [ART SHIP 003 manifest](ships/art_ship_003/ART_SHIP_MANIFEST.json) and [Asset Register](ASSET_REGISTER.json). The user-supplied decision is transcribed in [HQ Decision](ships/art_ship_003/HQ_DECISION.md) and the [Approval Ledger](APPROVAL_LEDGER.md).
 
-Ogun neutral, the rave interior and their accepted supporting layers/masks remain immutable. ART SHIP 002 does not alter their pixels or their accepted scope.
+The accepted stage guidance and complete Creative/writing/integration package are stored with the Ship. PLAYER-BLIND sequence, escalation, reveals, optional interactions, surprise treatment, protected-concept disposition and secret consequences remain restricted to `ships/art_ship_003/hq_only/` and must not be repeated in player-facing summaries.
 
-**STOP. ART SHIP 002 is closed at accepted art delivery. No next Ship is begun.**
+Important Rich lines marked `RICH LINE — VOICE PASS REQUIRED` remain unresolved and non-canon. Their unresolved state does not block this closed Art Ship. No runtime/game code, economy values, save schema or Stage Contract implementation changed. Engineering runtime acceptance remains separate.
+
+Earlier frozen work remains unchanged: ART SHIP 002's rave exterior, RT SHIP 001's Bllad33 neutral/entrance master, and the accepted Ogun/rave masters and support layers retain their recorded scopes.
+
+**STOP. ART SHIP 003 is closed at accepted Creative delivery. The Art Agent retires after the scoped commit is pushed and verified.**

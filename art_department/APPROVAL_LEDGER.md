@@ -48,3 +48,21 @@ Freeze applies only to this one neutral/entrance master and its visual identity.
 HQ authorized promotion of those exact accepted bytes to `assets/ogun_rave/masters/rave_exterior_270x480.png`, required Art Department records, a scoped commit and push to `origin/main`. The promoted file is byte-for-byte identical to the accepted production candidate: 270×480 RGB, fully opaque, 28 unique RGB colors. No regeneration, repaint, optimization, resampling or conversion occurred during promotion. See `ships/art_ship_002/ART_SHIP_MANIFEST.json` for provenance, validation and handoff.
 
 Freeze applies only to this exact exterior environment master. No companion sprites, additional exterior states, runtime/game-code changes or integration are accepted or authorized. Variant B and review-board material remain EXPLORATION outside the approved production corpus. Future pixel changes require an explicit HQ delta against the registered hash. ART SHIP 002 closes after the scoped commit reaches `origin/main`; the Art Agent retires after successful push.
+
+## ART SHIP 003 — MASSIVE PUSH 001: THE PROPERTY (recorded 2026-09-23)
+
+15. HQ supplied **HQ ONBOARDING PASS — MASSIVE PUSH 001: THE PROPERTY**, authorizing one complete bounded Creative Production Package rather than a sequence of small Taste Pass gates. Authorized scope covered Shannon's visual design, property exterior/interior, reusable giant-rat visual vocabulary, essential problem states/props, incidental non-canon dressing, Shannon/NPC dialogue, environmental writing, staging recommendations and one optional PLAYER-BLIND surprise. The authorization prohibited runtime/game-code changes, edits to frozen assets, major new canon, self-awarded approval/freeze and silent canonization of important Rich dialogue.
+16. The Art department produced and internally refined the minimum coherent package: Shannon neutral and controlled-reaction states; one property exterior; one property interior base; one exact-origin problem overlay; one exterior-derived ownership thumbnail; alert/scurry/recoil giant-rat states; state sheets; native/intended-scale review boards; stage guidance; and a separated PLAYER-BLIND treatment/writing/voice/integration package. Raw generations and a rejected money-adjacent surprise prop were excluded. Candidate validation recorded 51/51 passed checks.
+17. Explicit user-supplied HQ decision:
+
+> HQ CREATIVE PASS — MASSIVE PUSH 001: THE PROPERTY
+>
+> VISUAL / CREATIVE PACKAGE: PASS
+>
+> Promote the accepted production assets to APPROVED MASTER / FROZEN, record exact hashes, update the approved asset corpus/decision records, preserve Rich voice-pass requirements and PLAYER-BLIND material, do not integrate runtime code, commit, and push to `origin/main`.
+
+HQ accepted Shannon neutral + controlled reaction; property exterior; property interior base; property problem overlay; property ownership thumbnail; giant-rat alert/scurry/recoil vocabulary; associated handoff sheets; stage guidance; and the HQ-only treatment/writing/integration package. Exact production paths, hashes, dimensions, contacts, state order and freeze scope are recorded in `ships/art_ship_003/ART_SHIP_MANIFEST.json`.
+
+All 11 exact production PNGs are **APPROVED MASTER / FROZEN** in their named roles. Stage guidance and the Creative/writing/integration records are accepted production handoff authority but do not constitute runtime Stage Contract acceptance. Important Rich lines marked `RICH LINE — VOICE PASS REQUIRED` remain unresolved and non-canon; this does not block the Ship. PLAYER-BLIND details remain restricted to the Ship's `hq_only/` records.
+
+No runtime/game code, save schema, economy values or existing frozen pixels changed. Future pixel or accepted-document changes require an explicit HQ delta and fresh review. ART SHIP 003 closes after the scoped commit reaches `origin/main`; the Art Agent retires after successful push verification.

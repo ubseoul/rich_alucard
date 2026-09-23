@@ -10,6 +10,9 @@ All paths below are repository-root-relative; use ../../ from this index to open
 - [assets/jdm_imports/characters/daughter/daughter_vampire_reveal.png](../../assets/jdm_imports/characters/daughter/daughter_vampire_reveal.png) — APPROVED MASTER; [80, 96].
 - [assets/jdm_imports/characters/importer/importer_neutral.png](../../assets/jdm_imports/characters/importer/importer_neutral.png) — APPROVED MASTER; [80, 96].
 - [assets/ogun_rave/masters/ogun_neutral_80x96.png](../../assets/ogun_rave/masters/ogun_neutral_80x96.png) — FROZEN; [80, 96].
+- [assets/property/characters/shannon/shannon_neutral_80x96.png](../../assets/property/characters/shannon/shannon_neutral_80x96.png) — APPROVED MASTER / FROZEN; [80, 96]; neutral/conversation, contact (40,88), intended 1.25x presentation.
+- [assets/property/characters/shannon/shannon_controlled_reaction_80x96.png](../../assets/property/characters/shannon/shannon_controlled_reaction_80x96.png) — APPROVED MASTER / FROZEN; [80, 96]; controlled reaction, contact (40,88), intended 1.25x presentation.
+- [assets/property/characters/shannon/shannon_state_sheet_160x96.png](../../assets/property/characters/shannon/shannon_state_sheet_160x96.png) — APPROVED MASTER / FROZEN; two [80, 96] cells ordered neutral, controlled reaction; individual masters control placement.
 - [assets/rich_bedroom_lounge_idle.png](../../assets/rich_bedroom_lounge_idle.png) — APPROVED MASTER; [128, 64].
 - [assets/rich_curb_chilling.png](../../assets/rich_curb_chilling.png) — APPROVED MASTER; [80, 96].
 - [assets/rich_curb_eating.png](../../assets/rich_curb_eating.png) — APPROVED MASTER; [80, 96].
@@ -19,4 +22,4 @@ All paths below are repository-root-relative; use ../../ from this index to open
 - [assets/rich_throne_only.png](../../assets/rich_throne_only.png) — APPROVED MASTER; [80, 96].
 - [assets/rich_vampire_bite.png](../../assets/rich_vampire_bite.png) — APPROVED MASTER; [80, 96].
 
-Start with Rich standing, Ogun neutral and Assistant idle. Compare Daughter, Importer and CEO. Shared80x96 standing cells use contact(40,88); bedroom128x64 is a different support convention. Do not compare crown/throne bounds as bare anatomy.
+Start with Rich standing, Ogun neutral, Shannon neutral and Assistant idle. Compare Daughter, Importer and CEO. Shared 80x96 standing cells use contact (40,88); bedroom 128x64 is a different support convention. Do not compare crown/throne bounds as bare anatomy.

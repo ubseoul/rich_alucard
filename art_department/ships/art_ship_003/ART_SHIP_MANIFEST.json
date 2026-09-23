@@ -1,0 +1,411 @@
+{
+  "template_only": false,
+  "ship_id": "ART SHIP 003",
+  "title": "MASSIVE PUSH 001 — THE PROPERTY",
+  "status": "FROZEN",
+  "recorded_date": "2026-09-23",
+  "authorization": "HQ ONBOARDING PASS authorized the complete bounded Creative Production Package. The later explicit HQ CREATIVE PASS accepted the complete visual/creative candidate and directed exact asset promotion to APPROVED MASTER / FROZEN, decision-record updates, scoped commit, and push to origin/main.",
+  "spoiler_classification": "PLAYER-BLIND. Sequence, escalation, reveals, optional interactions, surprise treatment, Cryptrat disposition and secret consequences are preserved only in the Ship's hq_only records and must not be repeated in player-facing reports.",
+  "canon_sources": [
+    "docs/PRODUCTION_CONTROL.md",
+    "docs/CURRENT_CANON.md",
+    "docs/VISUAL_STYLE_BIBLE.md",
+    "docs/RICH_ALUCARD_GAME_BIBLE.md",
+    "art_department/sources/ART_PRODUCTION_STANDARD_v1.md",
+    "art_department/STYLE_FINGERPRINT.md",
+    "art_department/APPROVAL_LEDGER.md"
+  ],
+  "inputs": [
+    {
+      "role": "accepted complete creative candidate package; historical provenance",
+      "audit_locator": "outputs/property_creative_candidate in originating Art session",
+      "manifest_sha256": "8772d03c1b1ad898621503aa4fe3aafd475b172cd3c43e36c96472447fcedb1e",
+      "required_for_future_use_of_masters": false
+    },
+    {
+      "role": "unchanged approved Rich scale/identity source",
+      "path": "assets/rich_standing_right.png",
+      "sha256": "765170076e8d3a9af9e8857e176e079b2a68c7ee1daafb7c8d551482228f144b"
+    }
+  ],
+  "files": [
+    {
+      "path": "assets/property/characters/shannon/shannon_neutral_80x96.png",
+      "sha256": "fb0e7e2eeee363388f58bf3ae97a9934c3615ffa5130a17addb1edd978377052",
+      "role": "approved production master; Shannon neutral/conversation state",
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "rgb_colors": 18,
+      "ship_id": "ART SHIP 003",
+      "state": "neutral/conversation",
+      "source_anchor": [
+        40,
+        88
+      ],
+      "presentation_scale": 1.25,
+      "layer_role": "adult character actor",
+      "approval_status": "APPROVED MASTER",
+      "freeze_status": "FROZEN",
+      "freeze_scope": "Exact Shannon neutral pixels, identity, outfit, palette and source contact only; no runtime integration or additional states.",
+      "provenance": "Exact byte copy of accepted candidate assets/shannon_neutral_80x96.png; no decode/re-encode or pixel transformation during promotion.",
+      "approved_states": [
+        "neutral/conversation"
+      ]
+    },
+    {
+      "path": "assets/property/characters/shannon/shannon_controlled_reaction_80x96.png",
+      "sha256": "07afdadc921e0953459c2814d2f3ef786d9ee5bce85548d144348b89e4ef4239",
+      "role": "approved production master; Shannon controlled-reaction state",
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "rgb_colors": 18,
+      "ship_id": "ART SHIP 003",
+      "state": "controlled reaction",
+      "source_anchor": [
+        40,
+        88
+      ],
+      "presentation_scale": 1.25,
+      "layer_role": "adult character actor",
+      "approval_status": "APPROVED MASTER",
+      "freeze_status": "FROZEN",
+      "freeze_scope": "Exact Shannon controlled-reaction pixels and shared identity/contact only; no runtime integration or additional states.",
+      "provenance": "Exact byte copy of accepted candidate assets/shannon_controlled_reaction_80x96.png; no decode/re-encode or pixel transformation during promotion.",
+      "approved_states": [
+        "controlled reaction"
+      ]
+    },
+    {
+      "path": "assets/property/characters/shannon/shannon_state_sheet_160x96.png",
+      "sha256": "e347d33ade02a3badf8b1fde196abbb6673dc3273cd70557c934e0dc6e11127f",
+      "role": "approved production handoff sheet; Shannon neutral and controlled-reaction cells",
+      "dimensions": [
+        160,
+        96
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "rgb_colors": 35,
+      "ship_id": "ART SHIP 003",
+      "state": "sheet order: neutral, controlled reaction",
+      "source_anchor": [
+        40,
+        88
+      ],
+      "presentation_scale": 1.25,
+      "layer_role": "character state sheet; two 80x96 cells",
+      "approval_status": "APPROVED MASTER",
+      "freeze_status": "FROZEN",
+      "freeze_scope": "Exact two-cell sheet only; individual masters remain placement authority.",
+      "provenance": "Exact byte copy of accepted candidate assets/shannon_state_sheet_160x96.png; no decode/re-encode or pixel transformation during promotion.",
+      "approved_states": [
+        "sheet order: neutral, controlled reaction"
+      ]
+    },
+    {
+      "path": "assets/property/masters/property_exterior_270x480.png",
+      "sha256": "84912bb6ed4d89dedfa10aef1869f6c0b09f766e730c97ee5e984a1580e3df2d",
+      "role": "approved production environment master; Property exterior",
+      "dimensions": [
+        270,
+        480
+      ],
+      "mode": "RGB",
+      "alpha": [
+        255
+      ],
+      "rgb_colors": 28,
+      "ship_id": "ART SHIP 003",
+      "state": "exterior",
+      "source_anchor": null,
+      "presentation_scale": null,
+      "layer_role": "opaque 270x480 environment background",
+      "approval_status": "APPROVED MASTER",
+      "freeze_status": "FROZEN",
+      "freeze_scope": "Exact exterior environment pixels only; no runtime Stage Contract or integration acceptance.",
+      "provenance": "Exact byte copy of accepted candidate assets/property_exterior_270x480.png; no decode/re-encode or pixel transformation during promotion.",
+      "approved_states": [
+        "exterior"
+      ]
+    },
+    {
+      "path": "assets/property/masters/property_interior_base_270x480.png",
+      "sha256": "e962dc55090f440e12e97c7ca60e5452413aefc66ee73f925a20f701f0c3576f",
+      "role": "approved production environment master; Property interior base",
+      "dimensions": [
+        270,
+        480
+      ],
+      "mode": "RGB",
+      "alpha": [
+        255
+      ],
+      "rgb_colors": 30,
+      "ship_id": "ART SHIP 003",
+      "state": "interior base",
+      "source_anchor": null,
+      "presentation_scale": null,
+      "layer_role": "opaque 270x480 environment background",
+      "approval_status": "APPROVED MASTER",
+      "freeze_status": "FROZEN",
+      "freeze_scope": "Exact clean interior base pixels only; registered problem layer is a separate master.",
+      "provenance": "Exact byte copy of accepted candidate assets/property_interior_base_270x480.png; no decode/re-encode or pixel transformation during promotion.",
+      "approved_states": [
+        "interior base"
+      ]
+    },
+    {
+      "path": "assets/property/layers/property_problem_overlay_270x480.png",
+      "sha256": "c1e8b5b34240f583a77af7a0f59ed3826e331853551e231e50cb8084bdf4f358",
+      "role": "approved production master; exact-origin Property problem overlay",
+      "dimensions": [
+        270,
+        480
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "rgb_colors": 18,
+      "ship_id": "ART SHIP 003",
+      "state": "property problem visible",
+      "source_anchor": [
+        0,
+        0
+      ],
+      "presentation_scale": 1,
+      "layer_role": "transparent registered environment overlay above base and below actors",
+      "approval_status": "APPROVED MASTER",
+      "freeze_status": "FROZEN",
+      "freeze_scope": "Exact 270x480 overlay pixels and origin registration only; no collision or gameplay semantics.",
+      "provenance": "Exact byte copy of accepted candidate assets/property_problem_overlay_270x480.png; no decode/re-encode or pixel transformation during promotion.",
+      "approved_states": [
+        "property problem visible"
+      ]
+    },
+    {
+      "path": "assets/property/ui/property_ownership_thumbnail_96x96.png",
+      "sha256": "6d433728e77a39c0f5ec7bbc267421bb0558964ddeb5049c9f8c91772be4742e",
+      "role": "approved production master; exterior-derived ownership thumbnail",
+      "dimensions": [
+        96,
+        96
+      ],
+      "mode": "RGB",
+      "alpha": [
+        255
+      ],
+      "rgb_colors": 28,
+      "ship_id": "ART SHIP 003",
+      "state": "ownership card identity",
+      "source_anchor": null,
+      "presentation_scale": null,
+      "layer_role": "UI/property-list image",
+      "approval_status": "APPROVED MASTER",
+      "freeze_status": "FROZEN",
+      "freeze_scope": "Exact 96x96 derived thumbnail pixels only; no UI implementation acceptance.",
+      "provenance": "Exact byte copy of accepted candidate assets/property_ownership_thumbnail_96x96.png; no decode/re-encode or pixel transformation during promotion.",
+      "approved_states": [
+        "ownership card identity"
+      ]
+    },
+    {
+      "path": "assets/property/creatures/giant_rat/giant_rat_alert_96x64.png",
+      "sha256": "68c300f5bb34a092c4f2bf6161dde4e35ee62ba49ddec907799767cd5b960c5b",
+      "role": "approved production master; reusable giant-rat alert state",
+      "dimensions": [
+        96,
+        64
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "rgb_colors": 13,
+      "ship_id": "ART SHIP 003",
+      "state": "alert",
+      "source_anchor": [
+        48,
+        56
+      ],
+      "presentation_scale": 1.25,
+      "layer_role": "creature actor",
+      "approval_status": "APPROVED MASTER",
+      "freeze_status": "FROZEN",
+      "freeze_scope": "Exact ordinary giant-rat alert pixels and identity; explicitly excludes Cryptrat, weapons, money themes and runtime behavior.",
+      "provenance": "Exact byte copy of accepted candidate assets/giant_rat_alert_96x64.png; no decode/re-encode or pixel transformation during promotion.",
+      "approved_states": [
+        "alert"
+      ]
+    },
+    {
+      "path": "assets/property/creatures/giant_rat/giant_rat_scurry_96x64.png",
+      "sha256": "7b79c5d390ff3612b507d035cd73ceae404a3b2db350186a64139dd0c0410bcb",
+      "role": "approved production master; reusable giant-rat scurry state",
+      "dimensions": [
+        96,
+        64
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "rgb_colors": 12,
+      "ship_id": "ART SHIP 003",
+      "state": "scurry",
+      "source_anchor": [
+        48,
+        56
+      ],
+      "presentation_scale": 1.25,
+      "layer_role": "creature actor",
+      "approval_status": "APPROVED MASTER",
+      "freeze_status": "FROZEN",
+      "freeze_scope": "Exact ordinary giant-rat scurry pixels and shared identity/contact; no runtime behavior acceptance.",
+      "provenance": "Exact byte copy of accepted candidate assets/giant_rat_scurry_96x64.png; no decode/re-encode or pixel transformation during promotion.",
+      "approved_states": [
+        "scurry"
+      ]
+    },
+    {
+      "path": "assets/property/creatures/giant_rat/giant_rat_recoil_96x64.png",
+      "sha256": "deecce7d238fc521d97edc4b242e09fadac99897f0cf2660e9ab703b817d12d4",
+      "role": "approved production master; reusable giant-rat recoil state",
+      "dimensions": [
+        96,
+        64
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "rgb_colors": 13,
+      "ship_id": "ART SHIP 003",
+      "state": "recoil",
+      "source_anchor": [
+        48,
+        56
+      ],
+      "presentation_scale": 1.25,
+      "layer_role": "creature actor",
+      "approval_status": "APPROVED MASTER",
+      "freeze_status": "FROZEN",
+      "freeze_scope": "Exact ordinary giant-rat recoil pixels and shared identity/contact; no damage/combat semantics.",
+      "provenance": "Exact byte copy of accepted candidate assets/giant_rat_recoil_96x64.png; no decode/re-encode or pixel transformation during promotion.",
+      "approved_states": [
+        "recoil"
+      ]
+    },
+    {
+      "path": "assets/property/creatures/giant_rat/giant_rat_state_sheet_288x64.png",
+      "sha256": "b11a9ec7e9e4265cf4869afb566cb9b508fa62c7db7414cfed10eb78aa3f7f81",
+      "role": "approved production handoff sheet; giant-rat alert, scurry and recoil cells",
+      "dimensions": [
+        288,
+        64
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "rgb_colors": 13,
+      "ship_id": "ART SHIP 003",
+      "state": "sheet order: alert, scurry, recoil",
+      "source_anchor": [
+        48,
+        56
+      ],
+      "presentation_scale": 1.25,
+      "layer_role": "creature state sheet; three 96x64 cells",
+      "approval_status": "APPROVED MASTER",
+      "freeze_status": "FROZEN",
+      "freeze_scope": "Exact three-cell sheet only; individual masters remain placement authority.",
+      "provenance": "Exact byte copy of accepted candidate assets/giant_rat_state_sheet_288x64.png; no decode/re-encode or pixel transformation during promotion.",
+      "approved_states": [
+        "sheet order: alert, scurry, recoil"
+      ]
+    }
+  ],
+  "generation_and_transformations": [
+    "Built-in image generation used verified approved/frozen corpus references; raw generations were never promoted by existence.",
+    "Characters and creatures were nearest-neighbor normalized into documented padded source cells, palette-controlled, and converted to binary alpha before HQ review. Environments were normalized to 270x480 and palette-controlled without dithering. The overlay preserves exact full-canvas registration.",
+    "HQ CREATIVE PASS accepted the submitted candidate bytes. Promotion copied those exact bytes into repository production paths; no regeneration, repainting, optimization, resampling, re-encoding, or embellishment occurred after acceptance."
+  ],
+  "pixel_preservation_checks": [
+    {
+      "check": "all accepted candidate SHA-256 values equal promoted production files",
+      "result": true,
+      "files_checked": 11
+    },
+    {
+      "check": "candidate package validation before promotion",
+      "result": "51/51 checks passed",
+      "record": "art_department/ships/art_ship_003/VALIDATION_REPORT.md"
+    }
+  ],
+  "native_review_evidence": [
+    {
+      "path": "art_department/ships/art_ship_003/review/01_character_creature_scale_board.png",
+      "role": "character/creature native and intended-scale comparison"
+    },
+    {
+      "path": "art_department/ships/art_ship_003/review/02_environment_coverage_board.png",
+      "role": "environment coverage comparison"
+    },
+    {
+      "path": "art_department/ships/art_ship_003/review/03_problem_layer_registration_board.png",
+      "role": "base/overlay/composite registration evidence"
+    },
+    {
+      "path": "art_department/ships/art_ship_003/review/04_stage_guidance_board.png",
+      "role": "approved Creative stage guidance; not runtime acceptance"
+    }
+  ],
+  "writing_and_integration_records": [
+    "art_department/ships/art_ship_003/hq_only/PROPERTY_CREATIVE_TREATMENT_HQ_ONLY.md",
+    "art_department/ships/art_ship_003/hq_only/PROPERTY_WRITING_PACKAGE_HQ_ONLY.md",
+    "art_department/ships/art_ship_003/hq_only/RICH_VOICE_PASS_HQ_ONLY.md",
+    "art_department/ships/art_ship_003/hq_only/ENGINEERING_INTEGRATION_NOTES_HQ_ONLY.md"
+  ],
+  "runtime_test_scope": "Not authorized or performed. This decision accepts source art, handoff sheets, Creative stage guidance and Creative/writing/integration documentation only. No runtime/game code, save schema, economy values or Stage Contract implementation changed.",
+  "unknowns": [
+    "Important Rich dialogue marked RICH LINE — VOICE PASS REQUIRED remains unresolved and non-canon; this does not block the accepted Ship.",
+    "Engineering must separately implement and review runtime Stage Contracts, dialogue grammar, economy/persistence, opportunity flow and PLAYER-BLIND delivery."
+  ],
+  "taste_decision": {
+    "authority": "HQ",
+    "status": "VISUAL / CREATIVE PACKAGE: PASS",
+    "scope": "Shannon neutral/reaction; property exterior/interior/problem overlay/ownership thumbnail; giant-rat alert/scurry/recoil; handoff sheets; stage guidance; HQ-only treatment/writing/integration package."
+  },
+  "hq_acceptance": {
+    "authority": "User-supplied explicit HQ decision",
+    "decision": "HQ CREATIVE PASS / APPROVED MASTER / FROZEN",
+    "record": "art_department/ships/art_ship_003/HQ_DECISION.md"
+  },
+  "freeze_scope": "Exact 11 named production PNGs and the accepted Creative documentation/guidance in this Ship. Freeze does not canonize unresolved Rich lines, grant runtime acceptance, approve code changes, establish economy numbers, or authorize additional states/assets.",
+  "closure_status": "CLOSED — accepted Creative delivery",
+  "handoff": "Engineering may consume exact registered masters and PLAYER-BLIND records under a separate implementation authorization. Individual PNGs are placement authority; sheets are handoff conveniences. Any pixel or accepted-document content change requires an explicit HQ delta and fresh review.",
+  "stop_point": "Record acceptance, promote exact bytes, update Art Department authority records, commit scoped files, push to origin/main, verify remote commit and clean isolated worktree, then STOP and retire Art Agent."
+}

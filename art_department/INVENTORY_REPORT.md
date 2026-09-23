@@ -3,3 +3,9 @@ Repository baseline: `5ccc244eb7b89400cd504d91b153e9cdbd9ad3fb`. Initial git wor
 Previous department:310 physical files,200 PNGs,17 ZIPs;227 unique non-ZIP/archive payloads,147 unique PNGs. Retired current department snapshot before implementation:80 physical files,51 PNGs,4 ZIPs;70 unique payloads,46 unique PNGs. These historical counts include duplicates/explorations and are not approved-asset counts. The29-entry inherited source index passed its stored hash checks in the previous read-only inventory.
 Current repository includes frozen Ogun assets and a later accepted Engineering Stage Contract. This updates the proposal's historical integration-pending limitation. All accepted paths here are repository-relative; external history is optional.
 No binary art is copied, generated or modified. Existing source and runtime paths stay unchanged. See IMPLEMENTATION_EVIDENCE.json for full pre/post hashes, path-set preservation and baseline commit. Status gaps remain listed in STATUS_QUESTIONS.md.
+
+## Post–ART SHIP 003 snapshot — 2026-09-23
+
+HQ's explicit Creative Pass added 11 exact accepted PNGs under `assets/property/` and froze them as approved production masters. The current `assets/` tree contains 160 files, including 143 PNGs. `ASSET_REGISTER.json` contains 160 entries with status counts: 116 `STATUS UNKNOWN — HQ REVIEW REQUIRED`, 19 `APPROVED MASTER`, 5 `REFERENCE`, and 20 `FROZEN`.
+
+The 11 new entries are recorded as `FROZEN` with `approval_status: APPROVED MASTER`; exact SHA-256 values, dimensions, roles, contacts and freeze scope are authoritative in `ships/art_ship_003/ART_SHIP_MANIFEST.json` and `ASSET_REGISTER.json`. This snapshot does not alter the historical baseline above. No runtime/game code was changed.
