@@ -1,6 +1,6 @@
 (function(){
  const overlay=document.querySelector('#phoneOverlay'),content=document.querySelector('#phoneContent'),entry=document.querySelector('#checkPhone');
- const apps=[['VampGPT','vampgpt'],['VampGram','unavailable'],['InstaHoe','unavailable'],['RealMoneyRealEstate','unavailable'],['JDMIMPORTS','jdmImports'],['RICHBOIMPORTS','unavailable'],['ONLYVAMPS','unavailable']];
+ const apps=[['VampGPT','vampgpt'],['VampGram','unavailable'],['InstaHoe','unavailable'],['RealMoneyRealEstate','realEstate'],['JDMIMPORTS','jdmImports'],['RICHBOIMPORTS','unavailable'],['ONLYVAMPS','unavailable']];
  let page='home',opened=false,phoneScope=null,closePromise=null,closeSceneExitCleanup=null;
  const cash=()=>new Intl.NumberFormat('en-US').format(window.RABudget?.balance?.()??window.RAState.get().life.resources.money);
  const state=()=>window.RAState.get();
@@ -26,6 +26,8 @@
    content.innerHTML=`<h1>VAMPGPT</h1><div class="phone-chat"><p class="phone-speaker">VAMPGPT</p><p>you could go get butter chicken</p><p class="phone-speaker">RICH</p><p>where</p><p class="phone-speaker">VAMPGPT</p><p>powder springs<br>outside atlanta</p><p class="phone-speaker">RICH</p><p>bet</p></div><div class="phone-trip-choice">${button("LET'S GO",'letsGo')}${button('NAH','nah')}</div>${button('BACK','somewhere','phone-back')}`;
   }else if(page==='jdmImports'){
    content.innerHTML=window.RAJDMImports?.storeMarkup?.()||`<h1>JDMIMPORTS</h1><p>NOT SET UP YET.</p>`;
+  }else if(page==='realEstate'){
+   content.innerHTML=window.RAPropertyQuest?.storeMarkup?.()||`<h1>REALMONEYREALESTATE</h1><p>NOT SET UP YET.</p>`;
   }else if(page.startsWith('worldEvent:')){
    const id=page.slice('worldEvent:'.length),event=window.RAWorldEvents?.byId?.(id);
    if(!event){page='home';render();return}
@@ -63,7 +65,7 @@ function showPhone(){
   return closePromise;
  }
  function action(name){
-  if(name==='close'){closePhone();return}if(name==='home'){page='home';render();return}if(name==='vampgpt'){page='vampgpt';render();return}if(name==='prompt'){page='options';render();return}if(name==='somewhere'){page='somewhere';render();return}if(name==='options'){page='options';render();return}if(name==='jdmImports'){page='jdmImports';render();return}
+  if(name==='close'){closePhone();return}if(name==='home'){page='home';render();return}if(name==='vampgpt'){page='vampgpt';render();return}if(name==='prompt'){page='options';render();return}if(name==='somewhere'){page='somewhere';render();return}if(name==='options'){page='options';render();return}if(name==='jdmImports'){page='jdmImports';render();return}if(name==='realEstate'){page='realEstate';render();return}
   if(name.startsWith('openWorldEvent:')){page=`worldEvent:${name.slice('openWorldEvent:'.length)}`;render();return}
   if(name.startsWith('resolveWorldEvent:')){const [,id,actionId]=name.split(':');window.RAWorldEvents?.resolve?.(id,actionId);page='home';render();return}
   if(name==='money'||name==='people'){setMessage('NOT SET UP YET.');return}
@@ -83,7 +85,7 @@ function showPhone(){
   entry?.addEventListener('click',showPhone);
   document.addEventListener('ra:scene',e=>{if(e.detail?.id!=='bedroom'&&opened)closePhone()});
   document.querySelector('#phoneClose')?.addEventListener('click',closePhone);
-  overlay?.addEventListener('click',e=>{const jdm=e.target.closest('[data-jdm-action]');if(jdm){window.RAJDMImports?.action(jdm.dataset.jdmAction);return}const target=e.target.closest('[data-phone-action]');if(target)action(target.dataset.phoneAction)});
+  overlay?.addEventListener('click',e=>{const jdm=e.target.closest('[data-jdm-action]');if(jdm){window.RAJDMImports?.action(jdm.dataset.jdmAction);return}const property=e.target.closest('[data-property-action]');if(property){window.RAPropertyQuest?.action(property.dataset.propertyAction);return}const target=e.target.closest('[data-phone-action]');if(target)action(target.dataset.phoneAction)});
   document.querySelector('#devResetPhone')?.addEventListener('click',()=>{window.RAState.patch('life.resources.money',100000);window.RAState.patch('life.world.location','LA');window.RAState.patch('life.resources.clout','LOW');window.RAState.patch('life.phone.learned',false);page='home';if(opened)closePhone();updateEntry();entry?.focus({preventScroll:true});});
   document.addEventListener('keydown',e=>{if(opened&&e.key==='Escape')closePhone()});
  });
