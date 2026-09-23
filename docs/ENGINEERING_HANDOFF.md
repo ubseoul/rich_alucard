@@ -4,6 +4,10 @@
 
 ## Current HEAD / build state
 
+### Current checkpoint — ENGINEERING 02
+
+HQ granted PASS to `1905774afae66398c46ec55340c9d07f820b9c18` on `engineering/rave-stage-framework`. Accepted stage values and content-free hooks are recorded in `RAVE_STAGE_REVIEW.md` and `STAGE_CONTRACT_HANDOFF.md`. The follow-up checkpoint records that decision and reruns checks only; use `git rev-parse HEAD` for its final commit. Status: **READY FOR INTEGRATION REVIEW**. Do not merge, push, deploy, add story/framework or begin Engineering 03 without HQ authorization. Preserve the documented progressed-save World Events baseline failure. Sections below are historical handoff context and do not supersede this boundary.
+
 ### Branch checkpoint after ENGINEERING 01 review
 
 `engineering/party-foundation-prototype` contains the isolated DEV Party Foundation implementation at `74f55eb06183d87177163d42590a0a6a83858ef5` plus the integration-review documentation/test follow-up. Use `git rev-parse HEAD` for the final checkpoint commit. HQ issued PASS and Ube FUN PASS for the core system. Temporary situations, writing, crowd geometry and visuals are not canon or frozen production content. See `PARTY_FOUNDATION_REVIEW.md` for the exact accepted boundary, isolation checks and pre-existing progressed-save World Events smoke failure.

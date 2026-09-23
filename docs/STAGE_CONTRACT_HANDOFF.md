@@ -14,7 +14,7 @@ The locked Supra source art is an object slot in this same contract. Its runtime
 
 ## QA
 
-The `ogun-rave` contract is submitted for HQ engineering review in `RAVE_STAGE_REVIEW.md`. It adopts the supplied Art Card 02 proof at 1× actor scale: Rich contact (75,344), Ogun contact (192,273), both with source anchor (40,88). The room and overlay are unchanged frozen imports. This engineering submission does not mark the contract PASS/FROZEN and adds no production entry or adventure content.
+HQ granted **ENGINEERING 02 PASS** to the `ogun-rave` contract at commit `1905774afae66398c46ec55340c9d07f820b9c18`. The accepted 270×480 composition uses 1× actors: Rich contact (75,344), Ogun contact (192,273), both with source anchor (40,88). The speaker/depth stack, dialogue region (32,132,206,60) and control exclusion (16,376,238,88) are accepted. Room/overlay source bytes remain frozen. See `RAVE_STAGE_REVIEW.md` for the complete accepted contract and evidence. The branch is READY FOR INTEGRATION REVIEW; no production entry or adventure content is added, and merge/push/deploy remain unauthorized.
 
 **COMBAT STAGING QA RULE** — Every new encounter must receive a visual staging inspection at actual gameplay resolution after final production art integration. Verify ground/contact line, relative scale, opponent spacing, UI clearance, every combat state, and return-to-origin after displacement. Functional tests alone are insufficient.
 

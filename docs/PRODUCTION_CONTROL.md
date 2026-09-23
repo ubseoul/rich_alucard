@@ -5,7 +5,9 @@
 **Core Foundation Season:** FROZEN / PASS  
 **Current milestone:** RICH'S LA #001 — OGUN'S RAVE  
 **Current status:** PRE-PRODUCTION / PRODUCTION CONTROL  
-**Next production step:** HQ-controlled integration review of accepted ENGINEERING 01: Party Foundation. No merge, push, deployment, actual story implementation or next milestone is authorized.
+**Next production step:** HQ-controlled integration review of accepted ENGINEERING 02: Rave Stage Integration + Adventure Framework. No merge, push, deployment, story content, additional framework or Engineering 03 is authorized.
+
+**ENGINEERING 02 decision:** HQ PASS for `1905774afae66398c46ec55340c9d07f820b9c18`. The accepted scope is the stage composition/contract, frozen-art preservation, content-free Party/phase hooks and DEV-only review isolation. See `RAVE_STAGE_REVIEW.md`. The broader adventure remains unimplemented and PLAYER-BLIND.
 
 **ENGINEERING 01 decision:** HQ PASS / UBE FUN PASS for the attending-party interaction model. The isolated DEV prototype is accepted as a system concept; its temporary situations, writing and visuals are non-canon and are not frozen production content. See `PARTY_FOUNDATION_REVIEW.md`. The milestone status above describes the broader story, which remains unimplemented.
 

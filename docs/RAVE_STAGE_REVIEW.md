@@ -1,6 +1,9 @@
 # Rave stage + content-free hooks
 
-Status: **READY FOR HQ REVIEW**. This is an engineering submission, not PASS/FROZEN. No merge, push or deployment is authorized or performed for this card.
+Engineering decision: **HQ PASS — ENGINEERING 02**, granted by HQ for commit `1905774afae66398c46ec55340c9d07f820b9c18`.
+Branch checkpoint: **READY FOR INTEGRATION REVIEW**. No merge, push or deployment is authorized or performed for this card.
+
+HQ accepts the 270×480 Stage Contract, 1× Rich/Ogun presentation, Rich contact (75,344), Ogun contact (192,273), shared source anchor (40,88), exact approved composition, foreground speaker/depth behavior, dialogue/control safe regions, frozen-art byte preservation, Party production adapter, empty authored-phase framework, DEV review isolation and unchanged production saves/progression. This records HQ's decision; it grants no story or additional framework scope.
 
 Base: integrated Party Foundation `3d306591ec16ec77b677856f52e9ed22088a9b56` (UBE FUN PASS, HQ SYSTEM PASS, HQ INTEGRATION PASS). The current Production Card authorizes frozen Art Card 02 ingestion, stage integration and hooks only. No adventure content is supplied or authored.
 
@@ -75,4 +78,4 @@ For reproducible browser QA, install/provide Playwright + Edge and Sharp, or set
 
 No authored phases, Party situations, reactions, choices, persistent consequences or production entry route are included. No new motion, sound, crowd, art or story is created. Stage masks support visual composition only. Arbitrary future actor movement/depth needs a separately reviewed delta; the speaker probe is evidence, not movement support. Dialogue/choice UI is bounded and scrollable, with final content fit to be checked when authorized content exists.
 
-HQ review is requested for the adopted 1× composition, contract regions and hook boundaries. No blocking art-metadata conflict was found: both source anchors agree with runtime conventions. This submission stops at READY FOR HQ REVIEW; source art remains frozen under HQ's supplied approval, while engineering integration is not self-marked PASS.
+HQ has accepted the adopted 1× composition, contract regions and hook boundaries. No blocking art-metadata conflict was found: both source anchors agree with runtime conventions. Recommend integration at HQ's controlled checkpoint with the DEV-only route and documented baseline issue preserved. This branch stops at READY FOR INTEGRATION REVIEW; merge, push, deployment and Engineering 03 require HQ authorization. No story content or additional framework is authorized.
