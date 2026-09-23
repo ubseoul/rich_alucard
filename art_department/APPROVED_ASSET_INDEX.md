@@ -19,6 +19,7 @@ Repository-root-relative paths. Hashes and approval evidence are in ASSET_REGIST
 | `assets/ogun_rave/masks/ogun_neutral_silhouette.png` | FROZEN | approved supporting layer/mask |
 | `assets/ogun_rave/masks/speaker_foreground_mask.png` | FROZEN | approved supporting layer/mask |
 | `assets/ogun_rave/masters/ogun_neutral_80x96.png` | FROZEN | production master |
+| `assets/ogun_rave/masters/rave_exterior_270x480.png` | FROZEN | APPROVED MASTER; ART SHIP 002 exterior environment only; not runtime-integrated |
 | `assets/ogun_rave/masters/rave_interior_270x480.png` | FROZEN | production master |
 | `assets/powder_springs_night_270x480.png` | APPROVED MASTER | hash-matched approved existing source |
 | `assets/rich_bedroom_environment_270x480.png` | APPROVED MASTER | hash-matched approved existing source |
