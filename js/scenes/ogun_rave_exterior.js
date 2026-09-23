@@ -1,13 +1,12 @@
 (function(){
-  // ART BLOCKER: no dedicated exterior environment/companion art exists yet for the
-  // Meatpacking District curb. This scene uses CSS-only atmosphere, the existing
-  // immutable Rich standing sprite, and text-only incidental characters until a
-  // future Art Production Card supplies real exterior/companion assets.
+  // Exterior incidental companions remain text-only until a future Art Production Card
+  // supplies dedicated companion sprites.
   const stageId='ogun-rave-exterior';
+  const ENVIRONMENT='assets/ogun_rave/masters/rave_exterior_270x480.png';
   function mount(host){
     const scope=RAScenes.createScope('ogun-rave-exterior-stage');
     const root=document.createElement('section');root.className='rave-exterior-scene';root.setAttribute('aria-label',"Outside Ogun's Rave");
-    const sky=document.createElement('div');sky.className='rave-exterior-sky';root.append(sky);
+    const sky=document.createElement('img');sky.className='rave-exterior-environment';sky.src=ENVIRONMENT;sky.alt='';sky.draggable=false;root.append(sky);
     const sign=document.createElement('div');sign.className='rave-exterior-sign';sign.textContent='IN-N-GHOUL';root.append(sign);
     const rich=document.createElement('img');rich.className='rave-exterior-rich';rich.src='assets/rich_standing_right.png';rich.alt='Rich';rich.draggable=false;root.append(rich);
     const dialogue=document.createElement('div');dialogue.className='rave-dialogue rave-exterior-dialogue';dialogue.hidden=true;dialogue.setAttribute('role','status');root.append(dialogue);

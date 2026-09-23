@@ -18,10 +18,10 @@
 .rave-party-action:disabled{opacity:.5}
 .rave-contract-overlay{position:absolute;inset:0;width:100%;height:100%;z-index:10;pointer-events:none;image-rendering:pixelated}
 
-.rave-exterior-scene{position:absolute;inset:0;z-index:120;overflow:hidden}
+.rave-exterior-scene{position:absolute;inset:0;z-index:120;background:#08060d;overflow:hidden}
 .rave-exterior-scene[hidden]{display:none!important}
-.rave-exterior-sky{position:absolute;inset:0;background:radial-gradient(120% 70% at 50% 0%,#241a3a 0%,#120c1f 55%,#08060d 100%)}
+.rave-exterior-environment{position:absolute;inset:0;width:100%;height:100%;z-index:1;image-rendering:pixelated;pointer-events:none;max-width:none}
 .rave-exterior-sign{position:absolute;right:8%;top:38%;z-index:2;font-family:var(--font-dialogue,"Press Start 2P",monospace);font-size:9px;color:#ffe27a;text-shadow:0 0 6px #ff4d6d,0 0 12px #ffcf42;letter-spacing:1px;transform:rotate(-2deg)}
-.rave-exterior-rich{position:absolute;left:12%;bottom:10%;width:26%;height:auto;image-rendering:pixelated;pointer-events:none}
-.rave-exterior-dialogue{left:6%;right:6%;top:8%;position:absolute}
-.rave-exterior-choices{left:6%;right:6%;bottom:8%;position:absolute}
+.rave-exterior-rich{position:absolute;left:12%;bottom:10%;width:26%;height:auto;z-index:5;image-rendering:pixelated;pointer-events:none}
+.rave-exterior-dialogue{left:6%;right:6%;top:8%;position:absolute;z-index:9}
+.rave-exterior-choices{left:6%;right:6%;bottom:8%;position:absolute;z-index:9}
