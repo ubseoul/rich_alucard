@@ -1,5 +1,7 @@
 # Release runbook
 
+This runbook supports Engineer/Codex responsibilities described in [Studio Production Control](PRODUCTION_CONTROL.md): implementation, testing, tooling, deployment and evidence. Documentation-only production-control patches do not require deployment unless the repository workflow or HQ explicitly requires it.
+
 ## One-time GitHub Pages cutover
 
 The repository now contains the complete static release workflow, but GitHub Pages is currently configured to publish the repository root from `main`. A repository administrator must make this one-time GitHub setting change:

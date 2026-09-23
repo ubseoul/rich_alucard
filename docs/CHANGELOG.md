@@ -2,6 +2,15 @@
 
 This is a creative-direction changelog, not a substitute for Git history.
 
+## 2026-09-23
+
+### Rich Alucard Studio — Production Control Patch
+- Added `docs/PRODUCTION_CONTROL.md` as the studio operating model for Ube, HQ, Artist and Engineer/Codex.
+- Recorded current production build `a2b1b8246fd15836fe3904704c9fc21094ebfc83`, Core Foundation Season FROZEN / PASS, and current milestone `RICH'S LA #001 — OGUN'S RAVE` as PRE-PRODUCTION / PRODUCTION CONTROL.
+- Formalized authority levels, production states, Production Card fields, spoiler classifications, evidence expectations and QA ownership.
+- Added concise references from canon, game bible, visual bible, Stage Contract handoff and release runbook.
+- No gameplay, runtime behavior, art, saves or deployment behavior changed. Ogun's Rave implementation did not begin.
+
 ## 2026-09-22
 
 ### Foundation Wave 6 — The World Comes to Rich
