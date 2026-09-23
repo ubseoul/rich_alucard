@@ -4,6 +4,11 @@ This is a creative-direction changelog, not a substitute for Git history.
 
 ## 2026-09-23
 
+### Rave stage and technical hooks — READY FOR HQ REVIEW
+- Integrated HQ-frozen Art Card 02 masters/layers/masks losslessly and submitted a 270×480 Stage Contract using the supplied 1× Rich/Ogun composition.
+- Added content-free Party/phase hooks and an isolated DEV stage-review entry. No adventure content, production entry route, new animation or persistent consequence is authored.
+- Party Foundation's accepted model and original DEV prototype remain intact. Art approval comes from HQ's current Production Card; engineering acceptance is pending. See `RAVE_STAGE_REVIEW.md` for hashes, contract, evidence and the unchanged progressed-save World Events baseline issue.
+
 ### ENGINEERING 01 — Party Foundation accepted
 - HQ issued PASS and recorded UBE FUN PASS: “i thought it was funny actually i liked the concept”.
 - Accepted attending-party model: equipped Party Behavior → Party Situation → distinct social reaction/result. TWO STEP, HEAD NOD and TOO COOL TO DANCE are the initial mechanically meaningful behavior concepts; readable reactions and lightweight data-driven extensibility are accepted foundations.

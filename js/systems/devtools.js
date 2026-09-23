@@ -25,6 +25,7 @@
   function setEnabled(value){enabled=value;document.body.classList.toggle('dev-enabled',enabled);if(enabled){applyFont(document.documentElement.dataset.devFont||'control');refresh();}else panel()?.classList.remove('show');}
   document.addEventListener('DOMContentLoaded',()=>{
     document.querySelector('#devParty')?.addEventListener('click',()=>{if(enabled)window.open('party-dev.html?dev=1','_blank','noopener');});
+    document.querySelector('#devRaveStage')?.addEventListener('click',()=>{if(enabled)window.open('rave-review.html?dev=1','_blank','noopener');});
     document.querySelector('#devFont')?.addEventListener('change',e=>{applyFont(e.target.value);refresh();});
     document.querySelector('#devTint')?.addEventListener('change',e=>{applyTint(e.target.checked);refresh();});
     document.querySelector('#devLifeApply')?.addEventListener('click',()=>{const value=id=>document.querySelector(`#${id}`)?.value;const money=Number(value('devLifeMoney'));if(Number.isFinite(money))window.RAState.patch('life.resources.money',money);window.RAState.patch('life.world.location',String(value('devLifeLocation')||'LA'));window.RAState.patch('life.resources.clout',String(value('devLifeClout')||'LOW').toUpperCase());window.RAState.patch('life.resources.vampireReputation',String(value('devLifeVampireRep')||'LOW').toUpperCase());refresh();});

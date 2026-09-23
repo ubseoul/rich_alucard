@@ -1,10 +1,7 @@
 (function(){
   // Only these behavior concepts are canonical. ALL situations/results are DEV placeholders.
-  const behaviors=[
-    {id:'two-step',label:'TWO STEP',hint:'Take up space.'},
-    {id:'head-nod',label:'HEAD NOD',hint:'Catch the room.'},
-    {id:'too-cool',label:'TOO COOL TO DANCE',hint:'Let them look.'}
-  ];
+  const hints={'two-step':'Take up space.','head-nod':'Catch the room.','too-cool':'Let them look.'};
+  const behaviors=RAPartyBehaviors.map(behavior=>({...behavior,hint:hints[behavior.id]}));
   const result=(reaction,response,opening=null)=>({reaction,response,opening});
   const situations=[
     {id:'dev-floor',classification:'DEV/PLACEHOLDER',title:'THE FLOOR OPENS.',prompt:'A circle leaves a gap.',results:{
