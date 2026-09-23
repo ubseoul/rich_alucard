@@ -1,0 +1,142 @@
+{
+  "template_only": false,
+  "ship_id": "ART SHIP 002",
+  "status": "FROZEN",
+  "authorization": "Ube-supplied ART SHIP 002; HQ ONBOARDING PASS opened the exploration scope; UBE TASTE PASS selected Variant A; final explicit HQ PASS / APPROVED MASTER / FROZEN authorized exact-file promotion, required records, scoped commit and push to origin/main.",
+  "spoiler_classification": "OPEN for the supplied exterior visual brief and asset review only; no hidden story details recorded",
+  "canon_sources": [
+    "docs/PRODUCTION_CONTROL.md",
+    "docs/CURRENT_CANON.md",
+    "docs/VISUAL_STYLE_BIBLE.md",
+    "art_department/sources/ART_PRODUCTION_STANDARD_v1.md",
+    "art_department/STYLE_FINGERPRINT.md",
+    "art_department/APPROVAL_LEDGER.md"
+  ],
+  "inputs": [
+    {
+      "role": "taste-passed Variant A and exact accepted production candidate; historical provenance only",
+      "audit_locator": "outputs/ogun_rave_exterior_candidate_270x480.png in originating Art session",
+      "sha256": "81badc10ea5e84d1e7bcd94f337ff8beab6a6c93f3112754bc19793131438dc8",
+      "required_for_future_use_of_master": false
+    },
+    {
+      "role": "frozen unchanged composition and pixel-language reference",
+      "path": "assets/ogun_rave/masters/rave_interior_270x480.png",
+      "sha256": "597591188a9f3b7865625f967933b07586930982fb31d0c92ab4e5fc38c51118"
+    },
+    {
+      "role": "approved unchanged night-exterior reference",
+      "path": "assets/jdm_imports/environment/docks_night_270x480.png",
+      "sha256": "3e6911eaec9ff68e6aad90626af9cf9a03a84f8803ffcb3d6aa6778fec858647"
+    },
+    {
+      "role": "approved unchanged decompression and negative-space reference",
+      "path": "assets/powder_springs_night_270x480.png",
+      "sha256": "b31e731120fb4536a090bad19fa9b6efd3f1c2fa77f76598c966b99e63260a8c"
+    },
+    {
+      "role": "approved unchanged broad-plane material reference",
+      "path": "assets/rich_bedroom_environment_270x480.png",
+      "sha256": "f82bbdf9372c0b8e0f71b63d79867c805dbab0d25e631e5f36160c29f435c493"
+    }
+  ],
+  "files": [
+    {
+      "path": "assets/ogun_rave/masters/rave_exterior_270x480.png",
+      "sha256": "81badc10ea5e84d1e7bcd94f337ff8beab6a6c93f3112754bc19793131438dc8",
+      "role": "production environment master",
+      "dimensions": [
+        270,
+        480
+      ],
+      "mode": "RGB",
+      "alpha": [
+        255
+      ],
+      "rgb_colors": 28,
+      "state": "Ogun's Rave exterior environment",
+      "source_anchor": null,
+      "presentation_scale": null,
+      "world_contact": null,
+      "layer_role": "opaque environment background; runtime layer and placement unassigned",
+      "provenance": "Exact byte copy of the explicitly accepted ART SHIP 002 production candidate. No decode/re-encode or pixel transformation during promotion.",
+      "approval_status": "APPROVED MASTER",
+      "freeze_status": "FROZEN",
+      "approved_states": [
+        "single exterior environment master"
+      ]
+    }
+  ],
+  "generation_and_transformations": [
+    "Two authorized explorations were generated with the built-in image workflow using only verified approved/frozen repository references. Variant A and Variant B remained EXPLORATION through the taste gate.",
+    "Before UBE TASTE PASS, exploration A was normalized once to the required 270×480 native stage with nearest-neighbor sampling and a 28-color no-dither palette. Ube selected and accepted that exact native composition.",
+    "Productionization preserved the taste-passed A file byte-for-byte and decoded-pixel-for-pixel. Promotion into the repository was a direct byte copy only. No regeneration, repainting, optimization, resampling, conversion or added embellishment occurred after Taste Pass."
+  ],
+  "pixel_preservation_checks": [
+    {
+      "check": "accepted candidate SHA-256 equals promoted production file",
+      "result": "81badc10ea5e84d1e7bcd94f337ff8beab6a6c93f3112754bc19793131438dc8"
+    },
+    {
+      "check": "promoted file bytes equal accepted candidate bytes",
+      "result": true
+    },
+    {
+      "check": "measured accepted master",
+      "dimensions": [
+        270,
+        480
+      ],
+      "mode": "RGB",
+      "pixels": 129600,
+      "effective_alpha_values": [
+        255
+      ],
+      "fully_opaque_pixels": 129600,
+      "rgb_colors": 28
+    },
+    {
+      "check": "all registered approved/frozen sources before promotion",
+      "existing_checked": 27,
+      "missing": 0,
+      "hash_mismatches": 0
+    }
+  ],
+  "native_review_evidence": [
+    {
+      "role": "A/B exploration review board and production candidate report; historical audit locators only",
+      "audit_locator": "outputs/art_ship_002_AB_review_board.png and outputs/ART_SHIP_002_PRODUCTION_CANDIDATE_REPORT.md in originating Art session",
+      "required_for_future_use_of_master": false
+    },
+    {
+      "role": "native production asset; self-contained current inspection source",
+      "path": "assets/ogun_rave/masters/rave_exterior_270x480.png",
+      "sha256": "81badc10ea5e84d1e7bcd94f337ff8beab6a6c93f3112754bc19793131438dc8"
+    }
+  ],
+  "runtime_test_scope": "Not authorized or performed. Source art acceptance only; no runtime/game code changed and no Stage Contract integration performed.",
+  "unknowns": [
+    "Runtime Stage Contract, actor anchors, contact line, dialogue/UI safe zones, layer placement and production entry remain Engineering/HQ responsibilities under a separate authorization.",
+    "Dedicated companion sprites remain deliberately deferred; this Art Ship neither creates nor implies them."
+  ],
+  "taste_decision": {
+    "authority": "Ube",
+    "variant": "A",
+    "status": "UBE TASTE PASS — PASS",
+    "scope": "Composition and visual direction accepted; preserve the left rave threshold, broad empty sidewalk/street actor field, distant warm burger-joint glow, wet-street nighttime atmosphere and runtime actor/dialogue space. Productionization only, not another design iteration."
+  },
+  "hq_acceptance": {
+    "authority": "Ube-supplied explicit HQ decision",
+    "decision": "HQ PASS / APPROVED MASTER / FROZEN",
+    "accepted_filename": "ogun_rave_exterior_candidate_270x480.png",
+    "production_path": "assets/ogun_rave/masters/rave_exterior_270x480.png",
+    "sha256": "81badc10ea5e84d1e7bcd94f337ff8beab6a6c93f3112754bc19793131438dc8",
+    "record": "art_department/APPROVAL_LEDGER.md"
+  },
+  "freeze_scope": "Exact single 270×480 exterior environment master only. No companions, extra exterior states, runtime integration, restaurant branding or blanket approval of exploration files.",
+  "stop_point": "Promote exact bytes, update only required Art Department records, commit scoped files, push to origin/main, verify synchronization and clean worktree, then STOP and retire Art Agent.",
+  "title": "Ogun's Rave exterior environment",
+  "recorded_date": "2026-09-23",
+  "closure_status": "CLOSED — accepted art delivery",
+  "handoff": "Use the registered exact PNG unchanged as the exterior environment source. Engineering must define and separately review runtime Stage Contract placement. Any pixel change requires an explicit HQ delta and fresh acceptance."
+}

@@ -1,16 +1,17 @@
 # Current handoff
 
-**RT SHIP 001 — BLLAD33: HQ PASS / APPROVED MASTER / FROZEN; art delivery closed.** UBE TASTE PASS and HQ production review are complete for the single neutral/entrance master. No active Art Ship and no further generation, states, redesign or runtime integration are authorized.
+**ART SHIP 002 — OGUN'S RAVE EXTERIOR: HQ PASS / APPROVED MASTER / FROZEN; art delivery closed.** UBE TASTE PASS selected Variant A and HQ production review accepted its exact bytes. No active Art Ship and no further generation, environment states, companion art, redesign or runtime integration are authorized.
 
-- Production path: `assets/bllad33/masters/bllad33_neutral_candidate_80x96.png`.
-- SHA-256: `fcca67ce0a90a60f16854c3c5f8019a28d243aa2bf3bf86ecdf5631013198f5b`.
-- 80×96 RGBA; source contact edge (40,88), opaque bottom row87; binary alpha 0/255; 12 opaque RGB colors; 26×56 opaque bounds. The accepted filename is preserved despite its historical candidate suffix.
-- Authority and complete scoped handoff: [Approval Ledger](APPROVAL_LEDGER.md) and [RT SHIP 001 manifest](ships/rt_ship_001/ART_SHIP_MANIFEST.json). Future changes require an explicit HQ delta against this exact master. Runtime world placement, scale and integration remain unassigned and unauthorized.
+- Production path: `assets/ogun_rave/masters/rave_exterior_270x480.png`.
+- SHA-256: `81badc10ea5e84d1e7bcd94f337ff8beab6a6c93f3112754bc19793131438dc8`.
+- 270×480 RGB; fully opaque; 28 unique RGB colors. Exact accepted bytes preserve the left rave threshold, broad empty sidewalk/street actor field, distant warm burger-joint glow, wet-street nighttime atmosphere and useful actor/dialogue space.
+- Authority and complete scoped handoff: [Approval Ledger](APPROVAL_LEDGER.md) and [ART SHIP 002 manifest](ships/art_ship_002/ART_SHIP_MANIFEST.json). Future pixel changes require an explicit HQ delta against this exact master.
+- Runtime Stage Contract, placement, layer integration and Engineering acceptance remain unassigned and unauthorized by this Art decision.
 
-Bllad33 VD01/VD02 remain REJECTED / ARCHIVED. VD03 remains EXPLORATION / CLOSED FOR CURRENT PRODUCTION. These earlier images are excluded from default style study. The new RT SHIP 001 frozen master supersedes the historical “no approved Bllad33 master” status; it does not approve exploration archives.
+Variant B and the A/B review board remain EXPLORATION outside the approved production corpus. No Rich, companion characters, restaurant trademark/logo, additional exterior state or runtime/game code was added by the Art Ship.
 
-Ogun neutral, Industrial Salon and accepted support remain immutable. No extra states or crowd density authorized. Later Engineering acceptance is documented in docs/RAVE_STAGE_REVIEW.md; do not repeat superseded integration-pending claims or infer new story authorization. This promotion does not modify the Rave or any runtime/game code.
+The previously accepted `assets/bllad33/masters/bllad33_neutral_candidate_80x96.png` remains APPROVED MASTER / FROZEN under RT SHIP 001. Earlier Bllad33 VD01/VD02 remain REJECTED / ARCHIVED and VD03 remains EXPLORATION / CLOSED FOR CURRENT PRODUCTION.
 
-The separate Art Department architecture was approved with a repository path delta; its implementation's HQ FINAL REVIEW remains unrecorded here. Bllad33's character approval does not resolve that independent question. The repository retains operating rules, accepted paths/hashes, measurement evidence, current decisions and exclusions; optional historical image archives are not required onboarding authority.
+Ogun neutral, the rave interior and their accepted supporting layers/masks remain immutable. ART SHIP 002 does not alter their pixels or their accepted scope.
 
-**STOP. RT SHIP 001 is closed at accepted art delivery. No next Ship is begun.**
+**STOP. ART SHIP 002 is closed at accepted art delivery. No next Ship is begun.**

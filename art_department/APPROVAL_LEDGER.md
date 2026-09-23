@@ -32,3 +32,19 @@ Approval of this architecture does not pre-award final review of its implementat
 HQ authorized promotion of this exact file and required Art Department records, with a scoped local commit. Canonical production path: `assets/bllad33/masters/bllad33_neutral_candidate_80x96.png`. The accepted submission filename is deliberately retained; “candidate” in its filename does not override the explicit APPROVED MASTER / FROZEN decision. Exact file hash is unchanged. See `ships/rt_ship_001/ART_SHIP_MANIFEST.json` for source provenance, verification and handoff.
 
 Freeze applies only to this one neutral/entrance master and its visual identity. Earlier VD01/VD02 remain REJECTED / ARCHIVED; VD03 remains EXPLORATION / CLOSED FOR CURRENT PRODUCTION. RT SHIP 001 exploration files are not separately promoted. Runtime acceptance, placement and scale are not granted. No further states, new Ship, runtime/game-code change, push or deployment is authorized by this promotion. STOP after recording acceptance and committing the authorized files. The architecture's separate final-review status is not decided by this character approval.
+
+## ART SHIP 002 — Ogun's Rave Exterior (recorded 2026-09-23)
+
+12. Ube supplied **ART SHIP 002 — Ogun's Rave Exterior**, authorizing exactly two materially different 270×480 environment explorations for the exterior/decompression portion of Ogun's Rave. Scope required a cool, quiet, intimate, slightly surreal, expensive-but-grimy 2–3 AM Meatpacking District curb; a warm original burger-joint presence without trademarks or copied trade dress; useful actor/dialogue negative space; no baked-in Rich or companions; no companion art, runtime integration or game-code change. The fresh Art Agent received explicit HQ ONBOARDING PASS before generation.
+13. **UBE TASTE PASS — PASS. Variant A selected.** Ube accepted A's composition and visual direction, specifically preserving its left rave threshold, broad empty sidewalk/street actor field, distant warm burger-joint glow, wet-street nighttime atmosphere and runtime space. Production authorization was cleanup/productionization only, not another design iteration. Variant B remains EXPLORATION and is not promoted.
+14. Explicit Ube-supplied HQ decision:
+
+> HQ PASS — ART SHIP 002
+>
+> APPROVED MASTER / FROZEN
+>
+> SHA-256: `81badc10ea5e84d1e7bcd94f337ff8beab6a6c93f3112754bc19793131438dc8`
+
+HQ authorized promotion of those exact accepted bytes to `assets/ogun_rave/masters/rave_exterior_270x480.png`, required Art Department records, a scoped commit and push to `origin/main`. The promoted file is byte-for-byte identical to the accepted production candidate: 270×480 RGB, fully opaque, 28 unique RGB colors. No regeneration, repaint, optimization, resampling or conversion occurred during promotion. See `ships/art_ship_002/ART_SHIP_MANIFEST.json` for provenance, validation and handoff.
+
+Freeze applies only to this exact exterior environment master. No companion sprites, additional exterior states, runtime/game-code changes or integration are accepted or authorized. Variant B and review-board material remain EXPLORATION outside the approved production corpus. Future pixel changes require an explicit HQ delta against the registered hash. ART SHIP 002 closes after the scoped commit reaches `origin/main`; the Art Agent retires after successful push.

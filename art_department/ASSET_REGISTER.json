@@ -1083,6 +1083,22 @@
       "mode": "RGBA"
     },
     {
+      "path": "assets/ogun_rave/masters/rave_exterior_270x480.png",
+      "sha256": "81badc10ea5e84d1e7bcd94f337ff8beab6a6c93f3112754bc19793131438dc8",
+      "role": "production master; ART SHIP 002 exterior environment only; not runtime-integrated",
+      "status": "FROZEN",
+      "default_style_reference": true,
+      "approval_evidence": [
+        "art_department/APPROVAL_LEDGER.md",
+        "art_department/ships/art_ship_002/ART_SHIP_MANIFEST.json"
+      ],
+      "dimensions": [
+        270,
+        480
+      ],
+      "mode": "RGB"
+    },
+    {
       "path": "assets/ogun_rave/masters/rave_interior_270x480.png",
       "sha256": "597591188a9f3b7865625f967933b07586930982fb31d0c92ab4e5fc38c51118",
       "role": "production master",
