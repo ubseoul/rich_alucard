@@ -2,8 +2,8 @@
   const KEY='rich_alucard_save_v1';
   const RECOVERY_KEY='rich_alucard_save_v1_recovery';
   const QUARANTINE_KEY='rich_alucard_save_v1_invalid';
-  const VERSION=10;
-  const defaults={version:VERSION,life:{identity:{name:'Rich Alucard'},world:{location:'LA',day:1,month:1,scene:'bedroom',flags:{}},resources:{money:100000,clout:'LOW',vampireReputation:'LOW'},ownership:{cars:[],properties:[],possessions:[]},people:{contacts:[],relationships:[],records:{}},events:{records:{}},creativeLife:{music:{songs:[],progress:{}}},phone:{learned:false},desires:{activeTrip:null,completed:[]},acquisitions:{active:null,completed:[]},night:{active:null,completed:[]},opportunities:{},history:[]},characters:{ceo_assistant_001:{met:true,stolen:false,vampire:false,cracked:false}},encounters:{ceo_prince:{defeated:false,completed:false}}};
+  const VERSION=11;
+  const defaults={version:VERSION,life:{identity:{name:'Rich Alucard'},world:{location:'LA',day:1,month:1,scene:'bedroom',flags:{}},resources:{money:100000,clout:'LOW',vampireReputation:'LOW'},ownership:{cars:[],properties:[],possessions:[]},people:{contacts:[],relationships:[],records:{}},events:{records:{}},creativeLife:{music:{songs:[],progress:{}}},phone:{learned:false},desires:{activeTrip:null,completed:[]},acquisitions:{active:null,completed:[]},night:{active:null,completed:[]},property:{active:null,completed:[]},opportunities:{},history:[]},characters:{ceo_assistant_001:{met:true,stolen:false,vampire:false,cracked:false}},encounters:{ceo_prince:{defeated:false,completed:false}}};
   const clone=value=>JSON.parse(JSON.stringify(value));
   const isObject=value=>value!==null&&typeof value==='object'&&!Array.isArray(value);
   const isFiniteNumber=value=>typeof value==='number'&&Number.isFinite(value);
@@ -29,6 +29,7 @@
     life.desires=objectOr(life.desires,clone(defaults.life.desires));
     life.acquisitions=objectOr(life.acquisitions,clone(defaults.life.acquisitions));
     life.night=objectOr(life.night,clone(defaults.life.night));
+    life.property=objectOr(life.property,clone(defaults.life.property));
     life.opportunities=objectOr(life.opportunities,{});
     life.world.flags=objectOr(life.world.flags,{});
     life.ownership.cars=uniqueById(life.ownership.cars);
@@ -44,6 +45,8 @@
     life.acquisitions.completed=uniqueById(life.acquisitions.completed);
     life.night.active=isObject(life.night.active)?clone(life.night.active):null;
     life.night.completed=uniqueById(life.night.completed);
+    life.property.active=isObject(life.property.active)?clone(life.property.active):null;
+    life.property.completed=uniqueById(life.property.completed);
     life.history=uniqueById(life.history);
     normalized.characters=objectOr(normalized.characters,clone(defaults.characters));
     normalized.encounters=objectOr(normalized.encounters,clone(defaults.encounters));
@@ -89,7 +92,8 @@
   function migrateV7ToV8(saved){const next=clone(saved),people=next.life.people||(next.life.people={}),records=people.records||(people.records={}),characters=next.characters||{};const assistant=characters.ceo_assistant_001;if(assistant?.met){records.ceo_assistant_001={met:true,conversionState:assistant.vampire?'converted':'human',contactable:false,flags:{stolen:!!assistant.stolen,cracked:!!assistant.cracked},memories:[...(assistant.stolen?['ceo_assistant_stolen']:[]),...(assistant.vampire?['ceo_assistant_converted']:[])]};}const daughter=characters.jdm_importer_daughter_001;if(daughter?.met){const outcome=typeof daughter.conversionOutcome==='string'?daughter.conversionOutcome:null;records.jdm_importer_daughter_001={met:true,firstMeetingSource:'jdm_imports_docks',conversionState:daughter.vampire?'converted':'human',contactable:false,flags:outcome?{conversionOutcome:outcome}:{},memories:['jdm_daughter_encountered',...(outcome?[`jdm_daughter_${outcome}`]:[])]};}next.version=8;return next;}
   function migrateV8ToV9(saved){const next=clone(saved);next.life.events=next.life.events||{records:{}};next.life.events.records=next.life.events.records||{};next.version=9;return next;}
   function migrateV9ToV10(saved){const next=clone(saved);next.life.night=next.life.night||{active:null,completed:[]};next.version=10;return next;}
-  const migrations={5:migrateV5ToV6,6:migrateV6ToV7,7:migrateV7ToV8,8:migrateV8ToV9,9:migrateV9ToV10};
+  function migrateV10ToV11(saved){const next=clone(saved);next.life.property=next.life.property||{active:null,completed:[]};next.version=11;return next;}
+  const migrations={5:migrateV5ToV6,6:migrateV6ToV7,7:migrateV7ToV8,8:migrateV8ToV9,9:migrateV9ToV10,10:migrateV10ToV11};
   function migrateWithReport(saved){
     if(!isObject(saved))return {ok:false,error:'root-not-object'};
     let next=clone(saved),from=Number.isInteger(next.version)?next.version:0;

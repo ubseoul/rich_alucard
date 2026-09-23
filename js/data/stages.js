@@ -24,3 +24,52 @@
   const previous=window.RAStages;
   window.RAStages={get:id=>id===rave.id?rave:previous.get(id),all:()=>[...previous.all(),rave]};
 })();
+
+(function(){
+  const source={width:80,height:96,anchor:{x:40,y:88}};
+  const ratSource={width:96,height:64,anchor:{x:48,y:56}};
+  const base='assets/property/';
+  const exterior={
+    id:'property-la-4p-exterior',native:{width:270,height:480},referenceScale:1.25,
+    environment:base+'masters/property_exterior_270x480.png',
+    contactLines:[{id:'sidewalk',y:370,x1:28,x2:242}],
+    actors:{
+      rich:{source,anchor:{x:65,y:370,line:'sidewalk'},facing:'right',layer:5,states:{neutral:'assets/rich_standing_right.png'}},
+      shannon:{source,anchor:{x:195,y:370,line:'sidewalk'},facing:'left',layer:5,states:{neutral:base+'characters/shannon/shannon_neutral_80x96.png',controlled_reaction:base+'characters/shannon/shannon_controlled_reaction_80x96.png'}}
+    },
+    dialogueSafeZones:[{id:'property-exterior-dialogue',x:16,y:24,width:238,height:96}],
+    uiExclusionZones:[{id:'property-exterior-controls',x:8,y:404,width:254,height:68}],
+    hotspots:{
+      meter:{x:56,y:220,width:22,height:28},
+      stair:{x:150,y:190,width:40,height:110},
+      court:{x:95,y:135,width:112,height:70},
+      numbers:{x:6,y:400,width:24,height:30}
+    },
+    layers:[{id:'environment',z:1},{id:'incidental',z:3},{id:'actors',z:5},{id:'dialogue',z:9},{id:'controls',z:10},{id:'inspection',z:11}]
+  };
+  const interior={
+    id:'property-la-4p-interior',native:{width:270,height:480},referenceScale:1.25,
+    environment:base+'masters/property_interior_base_270x480.png',
+    problemOverlay:base+'layers/property_problem_overlay_270x480.png',
+    contactLines:[{id:'unit-floor',y:352,x1:20,x2:252}],
+    actors:{
+      rich:{source,anchor:{x:55,y:352,line:'unit-floor'},facing:'right',layer:5,states:{neutral:'assets/rich_standing_right.png'}},
+      shannon:{source,anchor:{x:132,y:352,line:'unit-floor'},facing:'left',layer:5,states:{neutral:base+'characters/shannon/shannon_neutral_80x96.png',controlled_reaction:base+'characters/shannon/shannon_controlled_reaction_80x96.png'}}
+    },
+    rat:{source:ratSource,anchor:{x:218,y:352,line:'unit-floor'},layer:4,states:{alert:base+'creatures/giant_rat/giant_rat_alert_96x64.png',scurry:base+'creatures/giant_rat/giant_rat_scurry_96x64.png',recoil:base+'creatures/giant_rat/giant_rat_recoil_96x64.png'}},
+    ratSlots:[{x:218,y:352},{x:150,y:352},{x:90,y:352}],
+    dialogueSafeZones:[{id:'property-interior-dialogue',x:16,y:20,width:238,height:96}],
+    uiExclusionZones:[{id:'property-interior-controls',x:8,y:394,width:254,height:78}],
+    hotspots:{
+      kitchen:{x:197,y:91,width:70,height:145},
+      patch:{x:133,y:104,width:36,height:62},
+      floor:{x:60,y:290,width:150,height:90},
+      door:{x:74,y:95,width:56,height:140},
+      panel:{x:150,y:180,width:36,height:52},
+      paintcan:{x:213,y:162,width:16,height:22}
+    },
+    layers:[{id:'environment',z:1},{id:'problem-overlay',z:2},{id:'props',z:3},{id:'rats',z:4},{id:'actors',z:5},{id:'front-rats',z:6},{id:'dialogue',z:9},{id:'controls',z:10},{id:'inspection',z:11}]
+  };
+  const previous=window.RAStages;
+  window.RAStages={get:id=>id===exterior.id?exterior:id===interior.id?interior:previous.get(id),all:()=>[...previous.all(),exterior,interior]};
+})();

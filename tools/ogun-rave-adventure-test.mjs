@@ -93,7 +93,7 @@ export async function testOgunRaveAdventure(root){
   const stateContext={structuredClone,localStorage:memoryStorage()};stateContext.window=stateContext;vm.createContext(stateContext);
   vm.runInContext(await read('js/engine/state.js'),stateContext,{filename:'js/engine/state.js'});
   const {RAState}=stateContext;
-  assert.equal(RAState.version,10,'save schema version did not advance for the night foundation');
+  assert(RAState.version>=10,'save schema version did not advance for the night foundation');
   assert.equal(JSON.stringify(RAState.defaults.life.night),JSON.stringify({active:null,completed:[]}));
   const migratedV9=RAState.migrateWithReport({version:9,life:{}});
   assert(migratedV9.ok&&migratedV9.state.life.night&&migratedV9.state.life.night.active===null&&Array.isArray(migratedV9.state.life.night.completed),'v9 saves must gain a safe life.night structure');

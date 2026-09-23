@@ -1,0 +1,34 @@
+.property-scene{position:absolute;inset:0;z-index:120;background:#0d0c14;overflow:hidden;image-rendering:pixelated}
+.property-scene[hidden]{display:none!important}
+.property-scene img{position:absolute;image-rendering:pixelated;pointer-events:none;max-width:none}
+.property-environment,.property-overlay{inset:0;width:100%;height:100%}
+.property-environment{z-index:1}
+.property-overlay{z-index:2;transition:opacity .3s ease}
+.property-overlay.property-hidden{opacity:0}
+.property-actor{z-index:5}
+.property-actor.property-hidden{display:none}
+.property-rat{z-index:4;transition:opacity .25s ease}
+.property-rat.property-hidden{display:none}
+.property-dialogue{position:absolute;z-index:9;overflow:auto;font-family:var(--font-dialogue,"Press Start 2P",monospace);line-height:1.5;cursor:pointer;padding:8px}
+.property-dialogue[hidden]{display:none}
+.property-speaker{margin:0 0 4px;color:#7d194b;font-size:.85em;font-weight:bold}
+.property-speaker[hidden]{display:none}
+.property-line-text{margin:0}
+.property-advance-hint{position:absolute;right:8px;bottom:4px;opacity:.65;animation:propertyAdvanceBlink 1.1s steps(2,end) infinite}
+.property-advance-hint[hidden]{display:none}
+@keyframes propertyAdvanceBlink{50%{opacity:.1}}
+.property-hotspots{position:absolute;inset:0;z-index:10;pointer-events:none}
+.property-hotspot{position:absolute;pointer-events:auto;background:rgba(246,239,217,.16);border:2px solid rgba(246,239,217,.55);border-radius:4px;box-shadow:0 0 0 2px rgba(23,20,44,.35);touch-action:manipulation}
+.property-hotspot[hidden]{display:none}
+.property-hotspot:focus-visible,.property-hotspot:hover{background:rgba(246,239,217,.32);border-color:#f6efd9}
+.property-hotspot-inspected{border-style:dashed;background:rgba(246,239,217,.06)}
+.property-choices{position:absolute;z-index:10;display:grid;align-content:start;gap:4px}
+.property-choices[hidden]{display:none}
+.property-choices button{font:inherit;font-family:var(--font-dialogue,"Press Start 2P",monospace);min-height:36px;background:#f6efd9;color:#17142c;border:2px solid #b7966a;padding:6px;touch-action:manipulation}
+.property-numbers-panel{position:absolute;z-index:11;left:8%;right:8%;top:38%;background:#f6efd9;color:#17142c;border:3px solid #28131c;box-shadow:3px 3px #7d194b;padding:8px;text-align:center;font:8px/1.6 var(--font-dialogue,"Press Start 2P",monospace)}
+.property-numbers-panel[hidden]{display:none}
+.property-numbers-panel p{margin:3px 0}
+.property-thumb{display:block;width:72px;height:72px;margin:0 auto 6px;image-rendering:pixelated}
+.property-owned-label{margin:0 0 4px;color:#7d194b;font-size:8px;text-align:center}
+.property-status{margin:2px 0;font-size:6px;color:#544757;text-align:center}
+.property-actions{display:grid;gap:5px;margin-top:8px}

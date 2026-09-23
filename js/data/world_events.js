@@ -16,6 +16,19 @@
    ]
   },
   {
+   id:'property_pb01_001',
+   deliveryChannel:'phone',
+   once:true,
+   safeBoundaries:['bedroom-entry'],
+   prerequisite:{flags:{propertyPb01Eligible:true}},
+   sender:'SHANNON',
+   subject:'PALOMA FOURPLEX',
+   body:'I did not send a contractor. The panel is closed, the baseboard is patched, and somebody used the paint. I am documenting that sentence and moving on.',
+   actions:[
+    {id:'ok',label:'NOTED',resolution:{flag:'propertyPb01Seen',historyType:'world_event_resolved'}}
+   ]
+  },
+  {
    id:'ogun_rave_invite_001',
    deliveryChannel:'phone',
    once:true,
