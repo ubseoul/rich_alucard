@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <link rel="icon" href="data:,">
+  <title>Rich Alucard — DEV Party Foundation</title>
+  <link rel="stylesheet" href="js/scenes/party.css?v=__BUILD_ASSET_VERSION__">
+</head>
+<body>
+  <main id="party" aria-label="Party Foundation DEV prototype">
+    <header><span>PARTY FOUNDATION</span><small>DEV / PLACEHOLDER</small></header>
+    <section id="room" aria-label="Temporary party floor">
+      <div id="reaction" role="status" aria-live="polite">Your behavior. Their reaction.</div>
+      <div id="crowd" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      <img id="rich" src="assets/rich_standing_right.png" alt="Rich" draggable="false">
+      <span id="roomState">OTHER PEOPLE'S PARTY</span>
+    </section>
+    <section id="situation" aria-label="Current situation"><strong id="situationTitle">HOW DO YOU CARRY YOURSELF?</strong><p id="prompt">Choose a behavior. See what happens.</p></section>
+    <div id="behaviors" role="group" aria-label="Equip party behavior"></div>
+    <button id="act" type="button">ENTER PARTY</button>
+    <footer><button id="next" type="button" disabled>NEXT</button><button id="reset" type="button">RESET</button><button id="leave" type="button">LEAVE</button></footer>
+    <section id="gate"><h1>PARTY FOUNDATION</h1><p>Choose how Rich acts.<br>See how the party responds.</p><p>Temporary test room.<br>No progress is saved.</p><button id="enter" type="button">ENTER PARTY</button><p id="exitNote" hidden>Party left. Close this tab to return to your game.</p><small id="build"></small></section>
+  </main>
+  <script src="js/build-info.js?v=__BUILD_ASSET_VERSION__"></script>
+  <script src="js/engine/scenes.js?v=__BUILD_ASSET_VERSION__"></script>
+  <script src="js/engine/stage.js?v=__BUILD_ASSET_VERSION__"></script>
+  <script src="js/data/party.js?v=__BUILD_ASSET_VERSION__"></script>
+  <script src="js/systems/party.js?v=__BUILD_ASSET_VERSION__"></script>
+  <script src="js/scenes/party.js?v=__BUILD_ASSET_VERSION__"></script>
+</body>
+</html>
