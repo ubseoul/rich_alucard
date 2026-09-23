@@ -8,7 +8,7 @@ html[data-dev-font="press-start"]{--font-dialogue:"Press Start 2P","Courier New"
 html[data-dev-font="tiny5"]{--font-dialogue:Tiny5,"Courier New",monospace;--font-name:Tiny5,"Courier New",monospace;--font-command:Tiny5,"Courier New",monospace;--font-move:Tiny5,"Courier New",monospace;--font-number:Tiny5,"Courier New",monospace;--font-system:Tiny5,"Courier New",monospace}
 *{box-sizing:border-box} html,body{margin:0;width:100%;height:100%;background:#090813;overflow:hidden;font-family:"Courier New",monospace}
 body{display:grid;place-items:center}
-#stage{height:100dvh;max-height:100dvh;aspect-ratio:9/16;display:grid;place-items:center}
+#stage{width:min(100vw,56.25dvh);height:min(100dvh,177.78vw);max-width:100vw;max-height:100dvh;aspect-ratio:9/16;display:grid;place-items:center}
 #screen{position:relative;width:min(100vw,56.25dvh);aspect-ratio:9/16;background:#080711;overflow:hidden;image-rendering:pixelated;box-shadow:0 0 0 2px #05040b}
 .room{position:absolute;inset:0 0 auto 0;height:75.5%;background:url('assets/throne_room_scene_portrait.png') top center/100% 100% no-repeat;image-rendering:pixelated}
 .edge-frame{position:absolute;inset:3px;border:2px solid #b7b1df;pointer-events:none;z-index:8}.edge-frame:after{content:"";position:absolute;inset:3px;border:1px solid #403b72}
