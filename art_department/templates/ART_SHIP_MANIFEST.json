@@ -1,0 +1,33 @@
+{
+  "template_only": true,
+  "ship_id": null,
+  "status": "DRAFT",
+  "authorization": null,
+  "spoiler_classification": null,
+  "canon_sources": [],
+  "inputs": [],
+  "files": [
+    {
+      "path": null,
+      "sha256": null,
+      "role": null,
+      "dimensions": null,
+      "alpha": null,
+      "state": null,
+      "source_anchor": null,
+      "presentation_scale": null,
+      "layer_role": null,
+      "provenance": null,
+      "approval_status": "STATUS UNKNOWN \u2014 HQ REVIEW REQUIRED"
+    }
+  ],
+  "generation_and_transformations": [],
+  "pixel_preservation_checks": [],
+  "native_review_evidence": [],
+  "runtime_test_scope": null,
+  "unknowns": [],
+  "taste_decision": null,
+  "hq_acceptance": null,
+  "freeze_scope": null,
+  "stop_point": null
+}

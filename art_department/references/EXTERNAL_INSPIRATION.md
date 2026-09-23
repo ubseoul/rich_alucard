@@ -1,0 +1,2 @@
+# External inspiration — excluded from default style study
+Historical user references included Blade stills/illustration and A Pimp Named Slickback images. These were scoped inspiration for now-closed Bllad33 explorations, not accepted character identities, costumes, swords or style masters. Temporary clipboard paths are nonportable and not required for onboarding. No copying of images is authorized by this documentation task. A future Ship must supply any needed external input explicitly; do not regenerate or search for a replacement to infer canon.

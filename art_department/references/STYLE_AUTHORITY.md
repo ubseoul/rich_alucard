@@ -1,0 +1,4 @@
+# Style authority
+Read repository docs/PRODUCTION_CONTROL.md, CURRENT_CANON.md, VISUAL_STYLE_BIBLE.md, STAGE_CONTRACT_HANDOFF.md and RICH_ALUCARD_GAME_BIBLE.md for their respective scopes. Links: [Production Control](../../docs/PRODUCTION_CONTROL.md), [Canon](../../docs/CURRENT_CANON.md), [Visual Bible](../../docs/VISUAL_STYLE_BIBLE.md), [Stage handoff](../../docs/STAGE_CONTRACT_HANDOFF.md).
+Read [frozen standard](../sources/ART_PRODUCTION_STANDARD_v1.md), [inherited HQ decision](../sources/INHERITED_HQ_APPROVAL.md), [current ledger](../APPROVAL_LEDGER.md) and [pixel fingerprint](../STYLE_FINGERPRINT.md).
+The earlier three-sheet kit is frozen reference documentation; its media is external historical material, not bundled by this documentation-only task. Core onboarding works from the runtime source pixels and the self-contained fingerprint. No vocabulary model becomes a master.
