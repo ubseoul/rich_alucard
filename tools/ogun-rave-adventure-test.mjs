@@ -12,6 +12,10 @@ export async function testOgunRaveAdventure(root){
   assert.equal(hash(bllad33Bytes),'fcca67ce0a90a60f16854c3c5f8019a28d243aa2bf3bf86ecdf5631013198f5b','Frozen Bllad33 master changed');
   assert.deepEqual([bllad33Bytes.readUInt32BE(16),bllad33Bytes.readUInt32BE(20)],[80,96],'Bllad33 master dimensions changed');
 
+  const exteriorBytes=await readFile(path.join(root,'assets/ogun_rave/masters/rave_exterior_270x480.png'));
+  assert.equal(hash(exteriorBytes),'81badc10ea5e84d1e7bcd94f337ff8beab6a6c93f3112754bc19793131438dc8','Frozen Ogun rave exterior master changed');
+  assert.deepEqual([exteriorBytes.readUInt32BE(16),exteriorBytes.readUInt32BE(20)],[270,480],'Ogun rave exterior master dimensions changed');
+
   const stageContext={structuredClone};stageContext.window=stageContext;vm.createContext(stageContext);
   for(const file of ['js/data/stages.js','js/engine/stage.js'])vm.runInContext(await read(file),stageContext,{filename:file});
   const {RAStages,RAStageLayout}=stageContext;
