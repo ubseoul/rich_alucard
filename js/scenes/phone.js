@@ -20,6 +20,8 @@
    content.innerHTML=`<h1>VAMPGPT</h1><div class="phone-chat"><p class="phone-speaker">RICH</p><p>oga what do i do</p><p class="phone-speaker">VAMPGPT</p><p>you got $${cash()}.<br>you in ${w.location}.<br>clout still ${String(r.clout).toLowerCase()}.<br>we got options though.</p><div class="phone-option-list">${button('MAKE MONEY','money')}${button('MEET PEOPLE','people')}${button('GO SOMEWHERE','somewhere')}</div><div class="phone-message" aria-live="polite"></div></div>${button('HOME','home','phone-back')}`;
   }else if(page==='somewhere'){
    content.innerHTML=`<h1>VAMPGPT</h1><div class="phone-chat"><p>where you tryna go</p><div class="phone-option-list">${opportunities().map(o=>button(`${o.label}<br><small>${o.available?'AVAILABLE':'LOCKED'}</small>`,o.id,o.available?'destination-available':'destination-locked')).join('')}</div><div class="phone-message" aria-live="polite"></div></div>${button('BACK','options','phone-back')}${button('HOME','home','phone-home')}`;
+  }else if(page==='ogunRaveIntro'){
+   content.innerHTML=`<h1>VAMPGPT</h1><div class="phone-chat"><p class="phone-speaker">VAMPGPT</p><p>ogun's rave.<br>meatpacking district.<br>you already got the invite.</p><p class="phone-speaker">RICH</p><p>say less</p></div><div class="phone-trip-choice">${button("LET'S GO",'ogunRaveGo')}${button('NAH','nah')}</div>${button('BACK','somewhere','phone-back')}`;
   }else if(page==='butterChicken'){
    content.innerHTML=`<h1>VAMPGPT</h1><div class="phone-chat"><p class="phone-speaker">VAMPGPT</p><p>you could go get butter chicken</p><p class="phone-speaker">RICH</p><p>where</p><p class="phone-speaker">VAMPGPT</p><p>powder springs<br>outside atlanta</p><p class="phone-speaker">RICH</p><p>bet</p></div><div class="phone-trip-choice">${button("LET'S GO",'letsGo')}${button('NAH','nah')}</div>${button('BACK','somewhere','phone-back')}`;
   }else if(page==='jdmImports'){
@@ -67,11 +69,13 @@ function showPhone(){
   if(name==='money'||name==='people'){setMessage('NOT SET UP YET.');return}
   if(name==='atlanta'){const option=window.RAOpportunities?.get('atlanta');if(option?.available&&option.action?.type==='dialogue'&&option.action.id==='butter_chicken'){page='butterChicken';render()}return}
   if(name==='tokyo'){const option=window.RAOpportunities?.get('tokyo');if(!option?.available)setMessage(option?.lockedMessage||"tokyo vampires don't fw you yet. get your clout up.");return}
+  if(name==='ogun_rave'){const option=window.RAOpportunities?.get('ogun_rave');if(option?.available&&option.action?.type==='dialogue'&&option.action.id==='ogun_rave_intro'){page='ogunRaveIntro';render()}return}
   if(name==='nah'){page='somewhere';render();return}
   if(name==='letsGo'){
    const trip=window.RADesireTrips?.createTrip(window.RADesireTripPresentation?.firstTrip||{});if(!trip)return;
    closePhone().then(ok=>{if(ok)window.RADesireTrips.beginTravel()});return;
   }
+  if(name==='ogunRaveGo'){closePhone().then(ok=>{if(ok)window.RAOgunRave?.begin?.()});return}
   if(name==='unavailable')setMessage('NOT SET UP YET.');
  }
  document.addEventListener('DOMContentLoaded',()=>{

@@ -9,7 +9,8 @@
     contactLines:[{id:'party-floor',y:344,x1:28,x2:242},{id:'host-landing',y:273,x1:166,x2:248}],
     actors:{
       rich:{source,anchor:{x:75,y:344,line:'party-floor'},facing:'right',layer:5,states:{neutral:'assets/rich_standing_right.png'}},
-      ogun:{source,anchor:{x:192,y:273,line:'host-landing'},facing:'authored',layer:6,states:{neutral:base+'masters/ogun_neutral_80x96.png'}}
+      ogun:{source,anchor:{x:192,y:273,line:'host-landing'},facing:'authored',layer:6,states:{neutral:base+'masters/ogun_neutral_80x96.png'}},
+      bllad33:{source,anchor:{x:225,y:344,line:'party-floor'},facing:'left',layer:8,states:{neutral:'assets/bllad33/masters/bllad33_neutral_candidate_80x96.png'}}
     },
     hostLanding:{x:166,y:273,width:82,height:21},
     foreground:{asset:base+'layers/speaker_foreground_overlay.png',mask:base+'masks/speaker_foreground_mask.png',layer:7,mode:'fixed visual redraw above actors; includes background margins'},

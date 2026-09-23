@@ -14,6 +14,19 @@
    actions:[
     {id:'acknowledge',label:'OPEN IT',resolution:{flag:'proofEvent001Handled',historyType:'world_event_resolved'}}
    ]
+  },
+  {
+   id:'ogun_rave_invite_001',
+   deliveryChannel:'phone',
+   once:true,
+   safeBoundaries:['bedroom-entry'],
+   prerequisite:{},
+   sender:'OGUN',
+   subject:'TONIGHT',
+   body:"meatpacking district. bring yourself. don't be too fashionably late.",
+   actions:[
+    {id:'in',label:"I'M THERE",resolution:{flag:'ogunsRaveInvited',historyType:'world_event_resolved'}}
+   ]
   }
  ];
 })();
