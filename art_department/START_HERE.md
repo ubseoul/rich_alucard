@@ -22,4 +22,4 @@ This repository is the permanent institutional memory. No access to an earlier c
 
 Fresh Art Agent → inspect approved corpus → demonstrate understanding → HQ PASS → receive one Art Ship → explore → Ube Taste Pass → authorized production package → HQ PASS/FROZEN → update approved corpus → retire chat.
 
-Bllad33 has no approved master. No Art Ship is currently active. Prior Bllad33 work is excluded from default style study.
+Bllad33 now has one APPROVED MASTER / FROZEN neutral/entrance sprite from RT SHIP 001; see [Current Handoff](CURRENT_HANDOFF.md) and [the Ship manifest](ships/rt_ship_001/ART_SHIP_MANIFEST.json) for its exact path/hash and scope. No Art Ship is currently active. Earlier Bllad33 VD01/VD02/VD03 explorations remain excluded from default style study; their historical no-master status does not override the later explicit approval.

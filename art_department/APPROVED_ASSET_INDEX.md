@@ -6,6 +6,7 @@ Repository-root-relative paths. Hashes and approval evidence are in ASSET_REGIST
 |---|---|---|
 | `assets/assistant_idle.png` | APPROVED MASTER | hash-matched approved existing source |
 | `assets/assistant_vampire_reveal.png` | APPROVED MASTER | hash-matched approved existing source |
+| `assets/bllad33/masters/bllad33_neutral_candidate_80x96.png` | FROZEN | APPROVED MASTER; RT SHIP 001 neutral/entrance only; not runtime-integrated |
 | `assets/ceo_hit_reaction_sheet.png` | APPROVED MASTER | hash-matched approved existing source |
 | `assets/ceo_idle.png` | APPROVED MASTER | hash-matched approved existing source |
 | `assets/jdm_imports/characters/daughter/daughter_neutral.png` | APPROVED MASTER | hash-matched approved existing source |

@@ -9,6 +9,26 @@ This is a standalone transcription/summary of supplied authority, not new approv
 5. Bllad33 VD01: civilian, oversized-sword and sleek-sword directions rejected/closed. VD02 purple-fashion direction closed. None is an approved master.
 6. Character forensic calibration: **HQ STYLE CALIBRATION: PASS.** HQ stated the forensic rules are binding for VD03. STYLE_FINGERPRINT preserves measured source evidence and its limits; calibration acceptance is not a character acceptance.
 7. Art Department architecture: **HQ REVIEW — PASS WITH PATH DELTA.** System must live inside rich_alucard/art_department, not the session. Documentation/index implementation only. No production asset modifications. No images or new Ship. Stop for HQ FINAL REVIEW.
-8. Current explicit Bllad33 status from that same HQ instruction: **VD01: REJECTED / ARCHIVED; VD02: REJECTED / ARCHIVED; VD03: EXPLORATION / CLOSED FOR CURRENT PRODUCTION. No approved Bllad33 master exists.** Exclude every exploration from default style corpus. Future development starts as a new Art Ship with a fresh Art Agent.
+8. Bllad33 status at the architecture decision (historical; superseded only for the new RT SHIP 001 master below): **VD01: REJECTED / ARCHIVED; VD02: REJECTED / ARCHIVED; VD03: EXPLORATION / CLOSED FOR CURRENT PRODUCTION. No approved Bllad33 master exists.** Exclude every exploration from default style corpus. Future development starts as a new Art Ship with a fresh Art Agent.
 
 Approval of this architecture does not pre-award final review of its implementation. Runtime reference approval evidence also includes current docs/CURRENT_CANON.md and the inherited reference guide. Exact source matching is recorded in the register; unmatched artifacts are not promoted.
+
+## RT SHIP 001 — Bllad33 (recorded 2026-09-23)
+
+9. Ube supplied **RT SHIP 001 — BLLAD33**, explicitly superseding every previous Bllad33 creative direction. Authorized scope: up to three neutral/entrance explorations translating the Blade vampire-hunter archetype into the established Rich/Ogun pixel grammar. Prior Bllad33 explorations and Slickback/pimp/cane directions are excluded. No additional states, animation, story, environment changes or runtime integration.
+10. **HQ TASTE REVIEW — PASS. Variant B receives UBE TASTE PASS.** Ube: “This was perfect — exactly what I had in mind.” The character design problem is closed; no Variant C, additional costume, reinterpretation or new influence. HQ authorized native-grid, binary-alpha and palette cleanup of B only, preserving its proportions, silhouette, grooming, sunglasses, long black coat, compact tactical equipment, three-light chest read, hip equipment, shoulder-carried sword and planted stance. The submitted cleanup remained CANDIDATE until the following decision.
+11. Explicit Ube-supplied HQ decision:
+
+> HQ DECISION — PASS / APPROVED MASTER / FROZEN
+>
+> `bllad33_neutral_candidate_80x96.png`
+>
+> SHA-256: `fcca67ce0a90a60f16854c3c5f8019a28d243aa2bf3bf86ecdf5631013198f5b`
+>
+> UBE TASTE PASS and HQ production review are complete.
+>
+> Bllad33's neutral/entrance visual identity is FROZEN.
+
+HQ authorized promotion of this exact file and required Art Department records, with a scoped local commit. Canonical production path: `assets/bllad33/masters/bllad33_neutral_candidate_80x96.png`. The accepted submission filename is deliberately retained; “candidate” in its filename does not override the explicit APPROVED MASTER / FROZEN decision. Exact file hash is unchanged. See `ships/rt_ship_001/ART_SHIP_MANIFEST.json` for source provenance, verification and handoff.
+
+Freeze applies only to this one neutral/entrance master and its visual identity. Earlier VD01/VD02 remain REJECTED / ARCHIVED; VD03 remains EXPLORATION / CLOSED FOR CURRENT PRODUCTION. RT SHIP 001 exploration files are not separately promoted. Runtime acceptance, placement and scale are not granted. No further states, new Ship, runtime/game-code change, push or deployment is authorized by this promotion. STOP after recording acceptance and committing the authorized files. The architecture's separate final-review status is not decided by this character approval.

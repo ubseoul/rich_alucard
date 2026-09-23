@@ -3,6 +3,7 @@
 All paths below are repository-root-relative; use ../../ from this index to open them. Verify hashes in ../ASSET_REGISTER.json. Status is scoped to the named file, never its whole directory.
 - [assets/assistant_idle.png](../../assets/assistant_idle.png) — APPROVED MASTER; [80, 96].
 - [assets/assistant_vampire_reveal.png](../../assets/assistant_vampire_reveal.png) — APPROVED MASTER; [80, 96].
+- [assets/bllad33/masters/bllad33_neutral_candidate_80x96.png](../../assets/bllad33/masters/bllad33_neutral_candidate_80x96.png) — APPROVED MASTER / FROZEN; [80, 96]; RT SHIP 001 neutral/entrance only, contact (40,88).
 - [assets/ceo_hit_reaction_sheet.png](../../assets/ceo_hit_reaction_sheet.png) — APPROVED MASTER; [240, 96].
 - [assets/ceo_idle.png](../../assets/ceo_idle.png) — APPROVED MASTER; [80, 96].
 - [assets/jdm_imports/characters/daughter/daughter_neutral.png](../../assets/jdm_imports/characters/daughter/daughter_neutral.png) — APPROVED MASTER; [80, 96].
