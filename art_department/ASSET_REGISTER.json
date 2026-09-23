@@ -1967,6 +1967,324 @@
         480
       ],
       "mode": "RGBA"
+    },
+    {
+      "path": "assets/property/characters/shannon/shannon_neutral_80x96.png",
+      "sha256": "fb0e7e2eeee363388f58bf3ae97a9934c3615ffa5130a17addb1edd978377052",
+      "role": "approved production master; Shannon neutral/conversation state",
+      "status": "FROZEN",
+      "default_style_reference": true,
+      "approval_evidence": [
+        "art_department/APPROVAL_LEDGER.md",
+        "art_department/ships/art_ship_003/ART_SHIP_MANIFEST.json",
+        "art_department/ships/art_ship_003/HQ_DECISION.md"
+      ],
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "ship_id": "ART SHIP 003",
+      "state": "neutral/conversation",
+      "source_anchor": [
+        40,
+        88
+      ],
+      "presentation_scale": 1.25,
+      "approval_status": "APPROVED MASTER",
+      "alpha": [
+        0,
+        255
+      ],
+      "freeze_scope": "Exact Shannon neutral pixels, identity, outfit, palette and source contact only; no runtime integration or additional states."
+    },
+    {
+      "path": "assets/property/characters/shannon/shannon_controlled_reaction_80x96.png",
+      "sha256": "07afdadc921e0953459c2814d2f3ef786d9ee5bce85548d144348b89e4ef4239",
+      "role": "approved production master; Shannon controlled-reaction state",
+      "status": "FROZEN",
+      "default_style_reference": true,
+      "approval_evidence": [
+        "art_department/APPROVAL_LEDGER.md",
+        "art_department/ships/art_ship_003/ART_SHIP_MANIFEST.json",
+        "art_department/ships/art_ship_003/HQ_DECISION.md"
+      ],
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "ship_id": "ART SHIP 003",
+      "state": "controlled reaction",
+      "source_anchor": [
+        40,
+        88
+      ],
+      "presentation_scale": 1.25,
+      "approval_status": "APPROVED MASTER",
+      "alpha": [
+        0,
+        255
+      ],
+      "freeze_scope": "Exact Shannon controlled-reaction pixels and shared identity/contact only; no runtime integration or additional states."
+    },
+    {
+      "path": "assets/property/characters/shannon/shannon_state_sheet_160x96.png",
+      "sha256": "e347d33ade02a3badf8b1fde196abbb6673dc3273cd70557c934e0dc6e11127f",
+      "role": "approved production handoff sheet; Shannon neutral and controlled-reaction cells",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "art_department/APPROVAL_LEDGER.md",
+        "art_department/ships/art_ship_003/ART_SHIP_MANIFEST.json",
+        "art_department/ships/art_ship_003/HQ_DECISION.md"
+      ],
+      "dimensions": [
+        160,
+        96
+      ],
+      "mode": "RGBA",
+      "ship_id": "ART SHIP 003",
+      "state": "sheet order: neutral, controlled reaction",
+      "source_anchor": [
+        40,
+        88
+      ],
+      "presentation_scale": 1.25,
+      "approval_status": "APPROVED MASTER",
+      "alpha": [
+        0,
+        255
+      ],
+      "freeze_scope": "Exact two-cell sheet only; individual masters remain placement authority."
+    },
+    {
+      "path": "assets/property/masters/property_exterior_270x480.png",
+      "sha256": "84912bb6ed4d89dedfa10aef1869f6c0b09f766e730c97ee5e984a1580e3df2d",
+      "role": "approved production environment master; Property exterior",
+      "status": "FROZEN",
+      "default_style_reference": true,
+      "approval_evidence": [
+        "art_department/APPROVAL_LEDGER.md",
+        "art_department/ships/art_ship_003/ART_SHIP_MANIFEST.json",
+        "art_department/ships/art_ship_003/HQ_DECISION.md"
+      ],
+      "dimensions": [
+        270,
+        480
+      ],
+      "mode": "RGB",
+      "ship_id": "ART SHIP 003",
+      "state": "exterior",
+      "source_anchor": null,
+      "presentation_scale": null,
+      "approval_status": "APPROVED MASTER",
+      "alpha": [
+        255
+      ],
+      "freeze_scope": "Exact exterior environment pixels only; no runtime Stage Contract or integration acceptance."
+    },
+    {
+      "path": "assets/property/masters/property_interior_base_270x480.png",
+      "sha256": "e962dc55090f440e12e97c7ca60e5452413aefc66ee73f925a20f701f0c3576f",
+      "role": "approved production environment master; Property interior base",
+      "status": "FROZEN",
+      "default_style_reference": true,
+      "approval_evidence": [
+        "art_department/APPROVAL_LEDGER.md",
+        "art_department/ships/art_ship_003/ART_SHIP_MANIFEST.json",
+        "art_department/ships/art_ship_003/HQ_DECISION.md"
+      ],
+      "dimensions": [
+        270,
+        480
+      ],
+      "mode": "RGB",
+      "ship_id": "ART SHIP 003",
+      "state": "interior base",
+      "source_anchor": null,
+      "presentation_scale": null,
+      "approval_status": "APPROVED MASTER",
+      "alpha": [
+        255
+      ],
+      "freeze_scope": "Exact clean interior base pixels only; registered problem layer is a separate master."
+    },
+    {
+      "path": "assets/property/layers/property_problem_overlay_270x480.png",
+      "sha256": "c1e8b5b34240f583a77af7a0f59ed3826e331853551e231e50cb8084bdf4f358",
+      "role": "approved production master; exact-origin Property problem overlay",
+      "status": "FROZEN",
+      "default_style_reference": true,
+      "approval_evidence": [
+        "art_department/APPROVAL_LEDGER.md",
+        "art_department/ships/art_ship_003/ART_SHIP_MANIFEST.json",
+        "art_department/ships/art_ship_003/HQ_DECISION.md"
+      ],
+      "dimensions": [
+        270,
+        480
+      ],
+      "mode": "RGBA",
+      "ship_id": "ART SHIP 003",
+      "state": "property problem visible",
+      "source_anchor": [
+        0,
+        0
+      ],
+      "presentation_scale": 1,
+      "approval_status": "APPROVED MASTER",
+      "alpha": [
+        0,
+        255
+      ],
+      "freeze_scope": "Exact 270x480 overlay pixels and origin registration only; no collision or gameplay semantics."
+    },
+    {
+      "path": "assets/property/ui/property_ownership_thumbnail_96x96.png",
+      "sha256": "6d433728e77a39c0f5ec7bbc267421bb0558964ddeb5049c9f8c91772be4742e",
+      "role": "approved production master; exterior-derived ownership thumbnail",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "art_department/APPROVAL_LEDGER.md",
+        "art_department/ships/art_ship_003/ART_SHIP_MANIFEST.json",
+        "art_department/ships/art_ship_003/HQ_DECISION.md"
+      ],
+      "dimensions": [
+        96,
+        96
+      ],
+      "mode": "RGB",
+      "ship_id": "ART SHIP 003",
+      "state": "ownership card identity",
+      "source_anchor": null,
+      "presentation_scale": null,
+      "approval_status": "APPROVED MASTER",
+      "alpha": [
+        255
+      ],
+      "freeze_scope": "Exact 96x96 derived thumbnail pixels only; no UI implementation acceptance."
+    },
+    {
+      "path": "assets/property/creatures/giant_rat/giant_rat_alert_96x64.png",
+      "sha256": "68c300f5bb34a092c4f2bf6161dde4e35ee62ba49ddec907799767cd5b960c5b",
+      "role": "approved production master; reusable giant-rat alert state",
+      "status": "FROZEN",
+      "default_style_reference": true,
+      "approval_evidence": [
+        "art_department/APPROVAL_LEDGER.md",
+        "art_department/ships/art_ship_003/ART_SHIP_MANIFEST.json",
+        "art_department/ships/art_ship_003/HQ_DECISION.md"
+      ],
+      "dimensions": [
+        96,
+        64
+      ],
+      "mode": "RGBA",
+      "ship_id": "ART SHIP 003",
+      "state": "alert",
+      "source_anchor": [
+        48,
+        56
+      ],
+      "presentation_scale": 1.25,
+      "approval_status": "APPROVED MASTER",
+      "alpha": [
+        0,
+        255
+      ],
+      "freeze_scope": "Exact ordinary giant-rat alert pixels and identity; explicitly excludes Cryptrat, weapons, money themes and runtime behavior."
+    },
+    {
+      "path": "assets/property/creatures/giant_rat/giant_rat_scurry_96x64.png",
+      "sha256": "7b79c5d390ff3612b507d035cd73ceae404a3b2db350186a64139dd0c0410bcb",
+      "role": "approved production master; reusable giant-rat scurry state",
+      "status": "FROZEN",
+      "default_style_reference": true,
+      "approval_evidence": [
+        "art_department/APPROVAL_LEDGER.md",
+        "art_department/ships/art_ship_003/ART_SHIP_MANIFEST.json",
+        "art_department/ships/art_ship_003/HQ_DECISION.md"
+      ],
+      "dimensions": [
+        96,
+        64
+      ],
+      "mode": "RGBA",
+      "ship_id": "ART SHIP 003",
+      "state": "scurry",
+      "source_anchor": [
+        48,
+        56
+      ],
+      "presentation_scale": 1.25,
+      "approval_status": "APPROVED MASTER",
+      "alpha": [
+        0,
+        255
+      ],
+      "freeze_scope": "Exact ordinary giant-rat scurry pixels and shared identity/contact; no runtime behavior acceptance."
+    },
+    {
+      "path": "assets/property/creatures/giant_rat/giant_rat_recoil_96x64.png",
+      "sha256": "deecce7d238fc521d97edc4b242e09fadac99897f0cf2660e9ab703b817d12d4",
+      "role": "approved production master; reusable giant-rat recoil state",
+      "status": "FROZEN",
+      "default_style_reference": true,
+      "approval_evidence": [
+        "art_department/APPROVAL_LEDGER.md",
+        "art_department/ships/art_ship_003/ART_SHIP_MANIFEST.json",
+        "art_department/ships/art_ship_003/HQ_DECISION.md"
+      ],
+      "dimensions": [
+        96,
+        64
+      ],
+      "mode": "RGBA",
+      "ship_id": "ART SHIP 003",
+      "state": "recoil",
+      "source_anchor": [
+        48,
+        56
+      ],
+      "presentation_scale": 1.25,
+      "approval_status": "APPROVED MASTER",
+      "alpha": [
+        0,
+        255
+      ],
+      "freeze_scope": "Exact ordinary giant-rat recoil pixels and shared identity/contact; no damage/combat semantics."
+    },
+    {
+      "path": "assets/property/creatures/giant_rat/giant_rat_state_sheet_288x64.png",
+      "sha256": "b11a9ec7e9e4265cf4869afb566cb9b508fa62c7db7414cfed10eb78aa3f7f81",
+      "role": "approved production handoff sheet; giant-rat alert, scurry and recoil cells",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "art_department/APPROVAL_LEDGER.md",
+        "art_department/ships/art_ship_003/ART_SHIP_MANIFEST.json",
+        "art_department/ships/art_ship_003/HQ_DECISION.md"
+      ],
+      "dimensions": [
+        288,
+        64
+      ],
+      "mode": "RGBA",
+      "ship_id": "ART SHIP 003",
+      "state": "sheet order: alert, scurry, recoil",
+      "source_anchor": [
+        48,
+        56
+      ],
+      "presentation_scale": 1.25,
+      "approval_status": "APPROVED MASTER",
+      "alpha": [
+        0,
+        255
+      ],
+      "freeze_scope": "Exact three-cell sheet only; individual masters remain placement authority."
     }
   ]
 }

@@ -22,6 +22,17 @@ Repository-root-relative paths. Hashes and approval evidence are in ASSET_REGIST
 | `assets/ogun_rave/masters/rave_exterior_270x480.png` | FROZEN | APPROVED MASTER; ART SHIP 002 exterior environment only; not runtime-integrated |
 | `assets/ogun_rave/masters/rave_interior_270x480.png` | FROZEN | production master |
 | `assets/powder_springs_night_270x480.png` | APPROVED MASTER | hash-matched approved existing source |
+| `assets/property/characters/shannon/shannon_controlled_reaction_80x96.png` | FROZEN | APPROVED MASTER; ART SHIP 003 controlled-reaction state; not runtime-integrated |
+| `assets/property/characters/shannon/shannon_neutral_80x96.png` | FROZEN | APPROVED MASTER; ART SHIP 003 neutral/conversation state; not runtime-integrated |
+| `assets/property/characters/shannon/shannon_state_sheet_160x96.png` | FROZEN | APPROVED MASTER; ART SHIP 003 two-cell handoff sheet; individual masters control placement |
+| `assets/property/creatures/giant_rat/giant_rat_alert_96x64.png` | FROZEN | APPROVED MASTER; ART SHIP 003 ordinary giant-rat alert state; not runtime-integrated |
+| `assets/property/creatures/giant_rat/giant_rat_recoil_96x64.png` | FROZEN | APPROVED MASTER; ART SHIP 003 ordinary giant-rat recoil state; not runtime-integrated |
+| `assets/property/creatures/giant_rat/giant_rat_scurry_96x64.png` | FROZEN | APPROVED MASTER; ART SHIP 003 ordinary giant-rat scurry state; not runtime-integrated |
+| `assets/property/creatures/giant_rat/giant_rat_state_sheet_288x64.png` | FROZEN | APPROVED MASTER; ART SHIP 003 three-cell handoff sheet; individual masters control placement |
+| `assets/property/layers/property_problem_overlay_270x480.png` | FROZEN | APPROVED MASTER; ART SHIP 003 exact-origin registered problem layer; not runtime-integrated |
+| `assets/property/masters/property_exterior_270x480.png` | FROZEN | APPROVED MASTER; ART SHIP 003 exterior environment; not runtime-integrated |
+| `assets/property/masters/property_interior_base_270x480.png` | FROZEN | APPROVED MASTER; ART SHIP 003 clean interior base; not runtime-integrated |
+| `assets/property/ui/property_ownership_thumbnail_96x96.png` | FROZEN | APPROVED MASTER; ART SHIP 003 ownership-card image; not runtime-integrated |
 | `assets/rich_bedroom_environment_270x480.png` | APPROVED MASTER | hash-matched approved existing source |
 | `assets/rich_bedroom_lounge_idle.png` | APPROVED MASTER | hash-matched approved existing source |
 | `assets/rich_curb_chilling.png` | APPROVED MASTER | hash-matched approved existing source |
