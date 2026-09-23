@@ -400,7 +400,7 @@ start.addEventListener('click',async()=>{
 mainButtons.forEach((b,i)=>b.addEventListener('click',()=>{if(busy||battleOver)return;pressFeedback(b);mainIndex=i;inMoves=false;paint();activateMain()}));
 moves.forEach((b,i)=>b.addEventListener('click',()=>{if(busy||battleOver)return;pressFeedback(b);moveIndex=i;inMoves=true;paint();activateMove()}));
 window.addEventListener('keydown',e=>{
-  if(window.RAScenes?.current()==='bedroom')return;
+  if(['bedroom','ogun-rave'].includes(window.RAScenes?.current()))return;
   if(overlay.style.display!=='none'&&(e.key==='Enter'||e.key===' ')){start.click();return}
   if(busy||battleOver)return;
   if(['ArrowUp','ArrowDown','ArrowLeft','ArrowRight','Enter','Escape',' '].includes(e.key))e.preventDefault();

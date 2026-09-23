@@ -1,0 +1,71 @@
+// Local generated build QA. Args: base URL, evidence directory, optional Art package directory.
+import assert from 'node:assert/strict';
+import {mkdir,writeFile,readFile} from 'node:fs/promises';
+import path from 'node:path';
+import {createRequire} from 'node:module';
+const require=createRequire(import.meta.url);
+const {chromium}=require(process.env.RA_PLAYWRIGHT_PATH||'playwright');
+const sharp=require(process.env.RA_SHARP_PATH||'sharp');
+const base=process.argv[2]||'http://127.0.0.1:4176',output=path.resolve(process.argv[3]||'work/rave-evidence');
+const root=path.resolve(import.meta.dirname,'..'),art=path.join(root,'assets/ogun_rave');
+await mkdir(output,{recursive:true});
+const browser=await chromium.launch({headless:true,channel:process.env.RA_BROWSER_CHANNEL||'msedge'});
+const context=await browser.newContext({viewport:{width:270,height:850}}),errors=[],checks=[];
+context.on('page',page=>page.on('pageerror',error=>errors.push(error.message)));
+const record=name=>{checks.push(name);console.log('PASS '+name);};
+const bytes=page=>page.evaluate(()=>JSON.stringify(Object.fromEntries(Object.keys(localStorage).sort().map(k=>[k,localStorage.getItem(k)]))));
+const raw=source=>sharp(source).ensureAlpha().raw().toBuffer();
+try{
+  const game=await context.newPage();await game.goto(base);
+  assert.equal(await game.locator('#devRaveStage').isVisible(),false);assert.equal(await game.locator('.rave-scene').count(),0);
+  assert.equal(await game.evaluate(()=>RARaveScene.current()),null);
+  assert.equal(await game.evaluate(()=>{const prior=open;let called=false;try{window.open=()=>{called=true;};document.querySelector('#devRaveStage').click();return called;}finally{window.open=prior;}}),false);
+  await game.locator('#startButton').click();await game.waitForFunction(()=>RAScenes.current()==='bedroom');
+  await game.evaluate(()=>RAState.write(localStorage,RAState.migrateRecord(RASaveFixtures.fixtures.supraOwned),false));
+  await game.goto(`${base}/?dev=1`);const before=await bytes(game);
+  await context.addInitScript(()=>{if(location.pathname.endsWith('rave-review.html'))for(const name of ['setItem','removeItem','clear'])Storage.prototype[name]=()=>{throw Error('Review attempted storage write');};});
+  const opened=context.waitForEvent('page');await game.locator('#devRaveStage').click();const page=await opened;await page.waitForLoadState();
+  assert.equal(await page.evaluate(()=>typeof RAState),'undefined');assert.equal(await page.evaluate(()=>window.opener),null);
+  assert.equal(await page.evaluate(()=>typeof RAPartyData),'undefined');
+  await page.locator('#enterRave').click();await page.evaluate(()=>Promise.all([...document.querySelectorAll('#screen img')].map(image=>image.decode())));
+  const native=path.join(output,'rave-native-270x480.png');await page.locator('#screen').screenshot({path:native});
+  await sharp(native).resize(1080,1920,{kernel:'nearest'}).png().toFile(path.join(output,'rave-review-4x.png'));
+  if(process.argv[4])assert.deepEqual(await raw(native),await raw(path.join(process.argv[4],'01_composition_native_270x480.png')),'runtime must reproduce supplied composition pixel-for-pixel');
+  record('native runtime matches supplied composition; nearest-neighbor 4x evidence captured');
+  const master=path.join(art,'masters/rave_interior_270x480.png');
+  const rebuilt=await sharp(path.join(art,'layers/room_without_foreground.png')).composite([{input:path.join(art,'layers/speaker_foreground_overlay.png')}]).png().toBuffer();
+  assert.deepEqual(await raw(rebuilt),await raw(master));record('complementary layers reconstruct room master exactly, no seams');
+  for(const id of ['two-step','head-nod','too-cool']){await page.locator('#behavior').selectOption(id);assert.match(await page.locator('#adapterState').innerText(),/No authored situation/);}
+  await page.locator('#zones').check();await page.locator('#dialogueProof').check();
+  await page.locator('#screen').screenshot({path:path.join(output,'rave-dialogue-zones-native.png')});
+  assert.match(await page.locator('.rave-dialogue').innerText(),/DEV LAYOUT CHECK/);
+  await page.locator('#zones').uncheck();await page.locator('#dialogueProof').uncheck();await page.locator('#depthProbe').check();
+  const probe=path.join(output,'rave-speaker-probe-native.png');await page.locator('#screen').screenshot({path:probe});
+  const probePixels=await raw(probe),overlay=await raw(path.join(art,'layers/speaker_foreground_overlay.png'));
+  for(let i=0;i<overlay.length;i+=4)if(overlay[i+3]===255)for(let channel=0;channel<4;channel++)assert.equal(probePixels[i+channel],overlay[i+channel]);
+  record('speaker overlay redraw wins at every opaque foreground pixel during overlap probe');
+  await page.locator('#resetRave').click();assert.equal(await page.locator('#depthProbe').isChecked(),false);
+  await page.locator('#screen').screenshot({path:path.join(output,'rave-reset-native.png')});assert.deepEqual(await raw(path.join(output,'rave-reset-native.png')),await raw(native));
+  for(let i=0;i<3;i++){await page.locator('#exitRave').click();assert.equal(await page.locator('.rave-scene').count(),0);await page.locator('#enterRave').click();}
+  await page.keyboard.press('Escape');assert.equal(await page.locator('.rave-scene').count(),0);
+  assert.equal(await bytes(page),before);record('review equipment, inspection, reset and repeated exit leave all save bytes unchanged');
+  await page.reload();assert.equal(await page.locator('.rave-scene').count(),0);
+  await page.goto(`${base}/rave-review.html`);assert.equal(await page.locator('#enterRave').isDisabled(),true);record('reload clean and review gated without dev=1');
+  // Exercise the registered production scene only in this disposable browser profile.
+  await game.evaluate(()=>RAScenes.go('ogun-rave'));
+  assert.equal(await game.locator('.rave-scene').count(),1);
+  assert.equal(await game.evaluate(()=>RARaveScene.current().session.snapshot().phase),null);
+  const combatBefore=await game.evaluate(()=>JSON.stringify(RACombat.snapshot()));
+  await game.keyboard.press('Enter');await game.keyboard.press('ArrowDown');await game.keyboard.press('Space');
+  assert.equal(await game.evaluate(()=>RAScenes.current()),'ogun-rave');
+  assert.equal(await game.evaluate(()=>JSON.stringify(RACombat.snapshot())),combatBefore);
+  assert.equal(await game.locator('#battleUI').evaluate(node=>node.inert),true);
+  await game.evaluate(()=>RAScenes.go('bedroom'));assert.equal(await game.locator('.rave-scene').count(),0);
+  assert.equal(await game.locator('#battleUI').evaluate(node=>node.inert),false);
+  record('registered production scene enters/exits through existing lifecycle with no authored phase');
+  await page.goto(`${base}/rave-review.html?dev=1`);await page.setViewportSize({width:390,height:950});await page.locator('#enterRave').click();
+  await page.screenshot({path:path.join(output,'rave-phone-review.png')});
+  assert.equal(await page.locator('.rave-rich').evaluate(node=>getComputedStyle(node).imageRendering),'pixelated');
+  assert.deepEqual(errors,[]);record('phone presentation uses pixelated rendering; no runtime errors');
+  await writeFile(path.join(output,'rave-browser-results.json'),JSON.stringify({checks,errors},null,2)+'\n');
+}finally{await browser.close();}

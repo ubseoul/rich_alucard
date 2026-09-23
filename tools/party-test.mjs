@@ -5,7 +5,7 @@ import vm from 'node:vm';
 
 export async function testParty(root){
   const context={structuredClone};context.window=context;vm.createContext(context);
-  for(const file of ['js/data/party.js','js/systems/party.js'])vm.runInContext(await readFile(path.join(root,file),'utf8'),context,{filename:file});
+  for(const file of ['js/data/party_behaviors.js','js/data/party.js','js/systems/party.js'])vm.runInContext(await readFile(path.join(root,file),'utf8'),context,{filename:file});
   const {RAPartyData:data,RAParty:party}=context;
   const definitions=JSON.stringify(data);
   assert.equal(data.behaviors.map(b=>b.label).join('|'),'TWO STEP|HEAD NOD|TOO COOL TO DANCE');

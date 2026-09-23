@@ -6,6 +6,7 @@ import path from 'node:path';
 import vm from 'node:vm';
 import {fileURLToPath} from 'node:url';
 import {testParty} from './party-test.mjs';
+import {testRave} from './rave-test.mjs';
 
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const output=path.join(root,'dist');
@@ -14,7 +15,7 @@ const arg=name=>{const index=process.argv.indexOf(name);return index===-1?null:p
 const sha=()=>arg('--commit')||process.env.GITHUB_SHA||execFileSync('git',['rev-parse','HEAD'],{cwd:root,encoding:'utf8'}).trim();
 const compactTimestamp=value=>value.replace(/[-:.TZ]/g,'').slice(0,14);
 const read=relative=>readFile(path.join(root,relative),'utf8');
-const runtimeFiles=['index.html','party-dev.html','style.css','game.js'];
+const runtimeFiles=['index.html','party-dev.html','rave-review.html','style.css','game.js'];
 const staticDirectories=['assets','js'];
 
 function assert(condition,message){if(!condition)throw new Error(message);}
@@ -23,6 +24,7 @@ async function javascriptFiles(directory){const entries=await readdir(directory,
 
 async function test(){
   await testParty(root);
+  await testRave(root);
   const sources=await javascriptFiles(path.join(root,'js'));
   for(const file of [...sources,path.join(root,'game.js')])new vm.Script(await readFile(file,'utf8'),{filename:path.relative(root,file)});
   const listeners={};
@@ -72,7 +74,7 @@ async function build(){
   await rm(output,{recursive:true,force:true});await mkdir(output,{recursive:true});
   for(const file of runtimeFiles)await cp(path.join(root,file),path.join(output,file));
   for(const directory of staticDirectories)await cp(path.join(root,directory),path.join(output,directory),{recursive:true});
-  for(const page of ['index.html','party-dev.html']){
+  for(const page of ['index.html','party-dev.html','rave-review.html']){
     const indexPath=path.join(output,page);const index=await readFile(indexPath,'utf8');assert(index.includes('__BUILD_ASSET_VERSION__'),'asset placeholder missing from artifact source');
     await writeFile(indexPath,index.replaceAll('__BUILD_ASSET_VERSION__',build.assetVersion));
   }
@@ -88,6 +90,8 @@ async function verifyArtifact(expected=null){
   assert(info.includes(build.commit)&&info.includes(build.releaseId),'DEV build metadata disagrees with build.json');
   const party=await readFile(path.join(output,'party-dev.html'),'utf8');
   assert(!party.includes('__BUILD_ASSET_VERSION__')&&party.includes(build.assetVersion),'party artifact has inconsistent cache identity');
+  const rave=await readFile(path.join(output,'rave-review.html'),'utf8');
+  assert(!rave.includes('__BUILD_ASSET_VERSION__')&&rave.includes(build.assetVersion),'rave review has inconsistent cache identity');
   for(const file of runtimeFiles)assert(existsSync(path.join(output,file)),`artifact missing ${file}`);
   for(const directory of staticDirectories)assert(existsSync(path.join(output,directory)),`artifact missing ${directory}`);
   if(!expected)console.log(`PASS artifact verification ${build.releaseId} (${build.commit})`);

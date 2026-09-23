@@ -1,0 +1,9 @@
+.rave-scene{position:absolute;inset:0;z-index:120;background:#100d18;overflow:hidden;image-rendering:pixelated}
+.rave-scene[hidden]{display:none!important}
+.rave-scene img{position:absolute;image-rendering:pixelated;pointer-events:none;max-width:none}
+.rave-environment,.rave-foreground{inset:0;width:100%;height:100%}.rave-environment{z-index:1}.rave-foreground{z-index:7}
+.rave-rich{z-index:5}.rave-ogun{z-index:6}
+.rave-dialogue,.rave-choices{position:absolute;z-index:9;font-family:var(--font-dialogue,"Press Start 2P",monospace);color:#f6efd9;overflow:auto;line-height:1.7;font-size:8px}
+.rave-dialogue{background:#17142c;border:2px solid #d5c298;padding:8px}.rave-dialogue[hidden],.rave-choices[hidden]{display:none}
+.rave-choices{display:grid;align-content:start;gap:4px}.rave-choices button{font:inherit;min-height:36px;background:#f6efd9;color:#17142c;border:2px solid #b7966a;padding:6px;touch-action:manipulation}
+.rave-contract-overlay{position:absolute;inset:0;width:100%;height:100%;z-index:10;pointer-events:none;image-rendering:pixelated}
