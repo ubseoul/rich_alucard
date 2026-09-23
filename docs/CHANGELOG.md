@@ -4,10 +4,11 @@ This is a creative-direction changelog, not a substitute for Git history.
 
 ## 2026-09-23
 
-### Rave stage and technical hooks — READY FOR HQ REVIEW
+### ENGINEERING 02 — HQ PASS / READY FOR INTEGRATION REVIEW
+- HQ accepted implementation commit `1905774afae66398c46ec55340c9d07f820b9c18`: 270×480 contract, 1× actors, contacts Rich (75,344) / Ogun (192,273), shared anchor (40,88), exact approved composition, speaker depth, safe regions, byte preservation, content-free hooks and save-isolated DEV review.
 - Integrated HQ-frozen Art Card 02 masters/layers/masks losslessly and submitted a 270×480 Stage Contract using the supplied 1× Rich/Ogun composition.
 - Added content-free Party/phase hooks and an isolated DEV stage-review entry. No adventure content, production entry route, new animation or persistent consequence is authored.
-- Party Foundation's accepted model and original DEV prototype remain intact. Art approval comes from HQ's current Production Card; engineering acceptance is pending. See `RAVE_STAGE_REVIEW.md` for hashes, contract, evidence and the unchanged progressed-save World Events baseline issue.
+- Party Foundation's accepted model and original DEV prototype remain intact. HQ engineering acceptance is recorded; integration authorization is pending. No additional framework, story or next milestone is authorized. See `RAVE_STAGE_REVIEW.md` for hashes, contract, evidence and the unchanged progressed-save World Events baseline issue. No merge, push or deployment is performed for this checkpoint.
 
 ### ENGINEERING 01 — Party Foundation accepted
 - HQ issued PASS and recorded UBE FUN PASS: “i thought it was funny actually i liked the concept”.
