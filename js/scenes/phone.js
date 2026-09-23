@@ -1,7 +1,7 @@
 (function(){
  const overlay=document.querySelector('#phoneOverlay'),content=document.querySelector('#phoneContent'),entry=document.querySelector('#checkPhone');
  const apps=[['VampGPT','vampgpt'],['VampGram','unavailable'],['InstaHoe','unavailable'],['RealMoneyRealEstate','unavailable'],['JDMIMPORTS','jdmImports'],['RICHBOIMPORTS','unavailable'],['ONLYVAMPS','unavailable']];
- let page='home',opened=false,phoneScope=null,closePromise=null;
+ let page='home',opened=false,phoneScope=null,closePromise=null,closeSceneExitCleanup=null;
  const cash=()=>new Intl.NumberFormat('en-US').format(window.RABudget?.balance?.()??window.RAState.get().life.resources.money);
  const state=()=>window.RAState.get();
  function updateEntry(){if(!entry)return;const learned=!!state().life.phone.learned;entry.textContent=learned?'☎':'☎ CHECK PHONE';entry.classList.toggle('learned',learned);entry.setAttribute('aria-label',learned?'Open phone':'Check phone');}
@@ -35,11 +35,31 @@
 function showPhone(){
   if(opened||document.body.classList.contains('bedroom-mode')===false)return;
   window.RAWorldEvents?.deliver?.('phone');
-  opened=true;phoneScope=window.RAScenes?.currentScope?.()?.child('phone-overlay')||window.RAScenes?.createScope?.('phone-overlay');page='home';window.RABedroom?.holdForPhone?.();window.RAState.patch('life.phone.learned',true);updateEntry();
+  opened=true;phoneScope=window.RAScenes?.currentScope?.()?.child('phone-overlay')||window.RAScenes?.createScope?.('phone-overlay');closeSceneExitCleanup=null;page='home';window.RABedroom?.holdForPhone?.();window.RAState.patch('life.phone.learned',true);updateEntry();
   overlay.setAttribute('aria-hidden','false');overlay.classList.remove('closing');overlay.classList.add('open');render();
   phoneScope?.timeout(()=>document.querySelector('#phoneClose')?.focus({preventScroll:true}),240);
  }
- function closePhone(){if(!opened)return Promise.resolve(false);if(closePromise)return closePromise;overlay.classList.remove('open');overlay.classList.add('closing');overlay.setAttribute('aria-hidden','true');const scope=phoneScope;closePromise=new Promise(resolve=>{const finish=ok=>{overlay.classList.remove('closing');opened=false;phoneScope=null;closePromise=null;window.RABedroom?.releasePhone?.();entry?.focus({preventScroll:true});resolve(ok)};if(!scope?.isActive?.()){finish(false);return}scope.timeout(()=>finish(true),230);scope.cleanup(()=>finish(false))});return closePromise;}
+ function closePhone(){
+  if(!opened)return Promise.resolve(false);if(closePromise)return closePromise;
+  overlay.classList.remove('open');overlay.classList.add('closing');overlay.setAttribute('aria-hidden','true');
+  const scope=phoneScope;
+  closePromise=new Promise(resolve=>{
+   let settled=false;
+   const finish=ok=>{
+    if(settled)return;settled=true;
+    closeSceneExitCleanup?.();closeSceneExitCleanup=null;
+    overlay.classList.remove('closing');
+    opened=false;phoneScope=null;closePromise=null;
+    window.RABedroom?.releasePhone?.();entry?.focus({preventScroll:true});
+    scope?.cancel?.();
+    resolve(ok);
+   };
+   if(!scope?.isActive?.()){finish(false);return}
+   scope.timeout(()=>finish(true),230);
+   closeSceneExitCleanup=scope.cleanup(()=>finish(false));
+  });
+  return closePromise;
+ }
  function action(name){
   if(name==='close'){closePhone();return}if(name==='home'){page='home';render();return}if(name==='vampgpt'){page='vampgpt';render();return}if(name==='prompt'){page='options';render();return}if(name==='somewhere'){page='somewhere';render();return}if(name==='options'){page='options';render();return}if(name==='jdmImports'){page='jdmImports';render();return}
   if(name.startsWith('openWorldEvent:')){page=`worldEvent:${name.slice('openWorldEvent:'.length)}`;render();return}
