@@ -1,6 +1,9 @@
 # Party Foundation — engineering review
 
-Status: **READY FOR HQ REVIEW**. HQ acceptance and Ube FUN PASS are pending.
+System decision: **HQ PASS / UBE FUN PASS** for ENGINEERING 01: Party Foundation.
+Branch checkpoint: **READY FOR INTEGRATION REVIEW**. Merge, push and deployment remain unauthorized.
+
+Ube's playtest response: “i thought it was funny actually i liked the concept”. HQ accepts equipped Party Behavior → Party Situation → distinct social reaction/result, mechanically meaningful TWO STEP / HEAD NOD / TOO COOL TO DANCE choices, readable reactions, lightweight data-driven extensibility, and attending as a distinct Rich activity. This acceptance does not canonize or freeze the temporary situations, writing, geometric crowd or prototype visuals.
 
 Authority: the supplied first engineering slice Production Card, marked AUTHORIZED FOR PRODUCTION. This authorizes a DEV attending-party mechanic prototype only. It does not authorize deployment or the next milestone. Existing foundation/canon/art contracts remain frozen.
 
@@ -23,6 +26,8 @@ Choose ENTER PARTY, equip TWO STEP, HEAD NOD or TOO COOL TO DANCE, then SHOW THE
 
 ## Verification
 
+- Integration isolation audit: normal `index.html` loads no party data/system/scene scripts; the only production entry is a hidden DEV-panel button whose handler also checks that DEV is enabled. Direct prototype entry requires `?dev=1`. No normal phone, opportunity, scene or world-event route points to the prototype. The prototype cannot write a production scene ID because it never calls `RAScenes.go` and does not load `RAState`. All situations carry DEV/PLACEHOLDER classification, the data file explicitly limits canon to the behavior concepts, and the page visibly labels the entire room DEV / PLACEHOLDER.
+
 - Deterministic gate: 33 JavaScript syntax checks plus existing foundation checks; all nine party resolutions, three openings, invalid/duplicate actions, equipment switching, reset, repeat and leave.
 - Local build and artifact identity verification succeed. No remote push/deploy performed.
 - Browser: all nine resolutions and three openings exercised through visible controls; repeated leave/re-entry, Escape, reset, reload and DEV gating checked. Screenshots inspected at native 270×480 and captured at 390×844. No browser runtime errors.
@@ -34,4 +39,4 @@ Choose ENTER PARTY, equip TWO STEP, HEAD NOD or TOO COOL TO DANCE, then SHOW THE
 
 This is a deterministic three-situation loop with one equipped behavior at a time, minimal temporary text, geometric crowd reactions and no new audio/art. It does not establish the final party structure, balancing, narrative or progression. DEV gating is a testing affordance, not a secrecy/security boundary.
 
-HQ should assess whether choices feel socially distinct and whether the temporary openings make attending enjoyable. Ube's playtest determines FUN PASS. No additional product decisions block reviewing this slice. Any tuning, production integration or further milestone work requires HQ direction. Deployment remains unauthorized.
+HQ and Ube have accepted the concept. No further placeholder content, mechanics, progression or polish is authorized. Recommend integration at HQ's controlled checkpoint, retaining the DEV-only boundary and the documented baseline smoke limitation. No merge, push or deployment has been performed. Actual story implementation and subsequent milestones remain unauthorized.

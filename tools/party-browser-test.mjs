@@ -19,7 +19,11 @@ try{
   await game.waitForFunction(()=>RAScenes.current()==='bedroom');
   await game.locator('#checkPhone').click();await game.waitForFunction(()=>RAPhone.isOpen());
   await game.locator('#phoneClose').click();await game.waitForFunction(()=>!RAPhone.isOpen());
-  assert.equal(await game.locator('#devParty').isVisible(),false);record('fresh production START → bedroom → phone → close; DEV entry hidden');
+  assert.equal(await game.locator('#devParty').isVisible(),false);
+  assert.equal(await game.evaluate(()=>['RAParty','RAPartyData'].every(key=>typeof window[key]==='undefined')),true);
+  assert.equal(await game.locator('script[src*="party"]').count(),0);
+  assert.equal(await game.evaluate(()=>{let opened=false;const original=window.open;try{window.open=()=>{opened=true;};document.querySelector('#devParty').click();return opened;}finally{window.open=original;}}),false);
+  record('fresh production START → bedroom → phone → close; DEV entry hidden, unloaded and inactive outside DEV');
   await game.evaluate(()=>{const saved=RAState.migrateRecord(RASaveFixtures.fixtures.supraOwned);RAState.write(localStorage,saved,false);});
   await game.reload();await game.locator('#startButton').click();await game.waitForFunction(()=>RAScenes.current()==='bedroom');
   assert.equal(await game.evaluate(()=>RAState.get().life.ownership.cars.length),1);record('representative existing save loads through normal START path with ownership retained');
