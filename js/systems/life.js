@@ -94,6 +94,6 @@
  const done=id=>adventureRecord(id)?.status==='completed'||(adventureRecord(id)?.count||0)>0;
  const doneCount=ids=>ids.filter(done).length;
  // Query helper handed to content predicates: keeps authored conditions short and readable.
- function L(){return {life:life(),day:today().day,info:today(),money:money(),clout:clout(),rep:rep(),flag,done,count,hasCar,hasRoom,hasGun,hasProp,hasFit,dragon:dragon(),app:appUnlocked,person:id=>window.RARelations?.get?.(id)||null,level:id=>window.RARelations?.level?.(id)||0,followers:Number(life().resources.followers)||0,netWorth:netWorth(),lit:litDimensions(),leaning:leaning()};}
+ function L(){return {life:life(),day:today().day,info:today(),money:money(),clout:clout(),rep:rep(),flag,done,count,hasCar,hasRoom,hasGun,hasProp,hasFit,dragon:dragon(),app:appUnlocked,person:id=>window.RARelations?.get?.(id)||null,level:id=>window.RARelations?.level?.(id)||0,followers:Number(life().resources.followers)||0,netWorth:netWorth(),lit:litDimensions(),leaning:leaning(),get coolCount(){return (window.RARelations?.known?.()||[]).filter(p=>p.level>=2).length;},get known3cool(){return this.coolCount>=3;}};}
  window.RALife={life,dayInfo,today,TIERS,addPoints,clout,rep,elderName,money,addMoney,spend,fmt,netWorth,addFollowers,flag,setFlag,counter,count,addItem,consume,hasCar,addCar,patchCar,ownedCars,hasRoom,addRoom,hasGun,addGun,hasProp,addProp,hasFit,addFit,equipFit,dragon,patchDragon,appUnlocked,unlockApp,remember,recentMemories,receipt,mail,text,light,litDimensions,tendency,leaning,adventureRecord,done,doneCount,L,hash};
 })();
