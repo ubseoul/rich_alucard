@@ -302,18 +302,12 @@
   for(let y=m.visible[1];y<m.visible[1]+m.visible[3];y++)for(let x=m.visible[0];x<m.visible[0]+m.visible[2];x++){if(pixels.data[(y*pixels.width+x)*4+3]<16)continue;const sx=a.sprite.x+(a.flip?m.width-x-1:x)*a.k,sy=a.sprite.y+y*a.k;n+=area(intersect(box(sx,sy,a.k,a.k),r))}return n}
  // Dead space: share of the world viewport showing low-detail environment (8×8 native tiles whose pixels
  // barely deviate from the tile median) and no focal actor. Threshold is locked from the golden set.
+ // Dead space: the canonical metric (js/engine/presentation_metrics.js), over the visible world viewport.
  async function deadSpace(ctl,frame){
   const canvas=ctl.env?.tagName==='CANVAS'?ctl.env:null;if(!canvas&&!ctl.envAsset)return null;
-  const img=canvas?canvas.getContext('2d').getImageData(0,0,canvas.width,canvas.height):await loadImage(ctl.envAsset),T=8,cam=frame.camera,env=envSize(ctl.stage),kx=img.width/env.width,ky=img.height/env.height;
-  const focal=ctl.shot.focal.map(s=>frame.actors[s]).filter(Boolean).map(a=>a.visible);let dead=0,total=0;
-  for(let ty=Math.floor(cam.y/T)*T;ty<cam.y+cam.h;ty+=T)for(let tx=Math.floor(cam.x/T)*T;tx<cam.x+cam.w;tx+=T){
-   const tile=worldRectToScreen(frame,[tx,ty,T,T]),w=area(intersect(tile,frame.world))/area(tile);if(w<=0)continue;total+=w;
-   if(focal.some(b=>area(intersect(tile,b))>0))continue;
-   const lum=[];for(let y=Math.floor(ty*ky);y<Math.min(img.height,(ty+T)*ky);y++)for(let x=Math.floor(tx*kx);x<Math.min(img.width,(tx+T)*kx);x++){const o=(y*img.width+x)*4;lum.push(.3*img.data[o]+.59*img.data[o+1]+.11*img.data[o+2])}
-   if(!lum.length)continue;const sorted=[...lum].sort((p,q)=>p-q),med=sorted[sorted.length>>1],busy=lum.filter(v=>Math.abs(v-med)>12).length/lum.length;
-   if(busy<.15)dead+=w;
-  }
-  return total?round3(dead/total):0;
+  const pixels=canvas?canvas.getContext('2d').getImageData(0,0,canvas.width,canvas.height):await loadImage(ctl.envAsset);
+  const focal=ctl.shot.focal.map(s=>frame.actors[s]).filter(Boolean).map(a=>a.visible);
+  return window.RAPresentationMetrics.deadSpace({pixels,envRect:frame.env,clip:frame.world,focal});
  }
  async function lintLive(ctl,{fx=true}={}){
   const frame=relayout(ctl);if(!frame)return null;

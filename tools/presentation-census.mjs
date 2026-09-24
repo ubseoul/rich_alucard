@@ -118,8 +118,10 @@ function measureInPage({spec,meta}){
  const world=window.RAPresentationDirector?.worldRect?.()||box(0,0,sr.width,sr.height);
  const ui=spec.ui.flatMap(s=>[...document.querySelectorAll(s)]).filter(shown).map(el=>rel(el.getBoundingClientRect()));
  const actors={};
- for(const [slot,sel] of Object.entries(spec.actors)){const el=document.querySelector(sel);if(!shown(el))continue;const asset=assetOf(el),m=meta[asset];if(!m||m.environment)continue;const r=rel(el.getBoundingClientRect()),kx=r.w/m.width,ky=r.h/m.height;
-  const sub=([x,y,w,h])=>box(r.x+x*kx,r.y+y*ky,w*kx,h*ky);actors[slot]={asset,k:kx,sprite:r,visible:sub(m.visible),face:sub(m.face),faceSource:m.faceSource}}
+ // Painted (placeholder) canvas actors: visible bounds measured from their pixels, like the Director's runtime metadata.
+ const canvasMeta=c=>{const d=c.getContext('2d').getImageData(0,0,c.width,c.height).data;let x0=c.width,y0=c.height,x1=-1,y1=-1;for(let y=0;y<c.height;y++)for(let x=0;x<c.width;x++)if(d[(y*c.width+x)*4+3]>0){x0=Math.min(x0,x);x1=Math.max(x1,x);y0=Math.min(y0,y);y1=Math.max(y1,y)}const v=x1<0?[0,0,c.width,c.height]:[x0,y0,x1-x0+1,y1-y0+1];return {width:c.width,height:c.height,visible:v,face:[Math.round(v[0]+v[2]*.15),Math.round(v[1]+v[3]*.16),Math.max(1,Math.round(v[2]*.7)),Math.max(1,Math.round(v[3]*.3))],faceSource:'derived',canvas:true}};
+ for(const [slot,sel] of Object.entries(spec.actors)){const el=document.querySelector(sel);if(!shown(el))continue;const asset=el.tagName==='CANVAS'?null:assetOf(el),m=el.tagName==='CANVAS'?canvasMeta(el):meta[asset];if(!m||m.environment)continue;const r=rel(el.getBoundingClientRect()),kx=r.w/m.width,ky=r.h/m.height;
+  const sub=([x,y,w,h])=>box(r.x+x*kx,r.y+y*ky,w*kx,h*ky);actors[slot]={asset,sel,k:kx,sprite:r,visible:sub(m.visible),face:sub(m.face),faceSource:m.faceSource}}
  const viewport={w:innerWidth,h:innerHeight};
  return {viewport,screen:{w:sr.width,h:sr.height},screenUse:(sr.width*sr.height)/(innerWidth*innerHeight),world,ui,actors,director:window.RAPresentationDirector?.current?.()?{stage:RAPresentationDirector.current().stage,mode:RAPresentationDirector.current().mode}:null};
 }
@@ -128,17 +130,15 @@ async function pixelMetrics(page,spec,m){
   const load=src=>new Promise((res,rej)=>{const [file,frame]=src.split('#');const i=new Image();i.onload=()=>{const w=frame!=null?80:i.naturalWidth,c=document.createElement('canvas');c.width=w;c.height=i.naturalHeight;const g=c.getContext('2d');g.drawImage(i,frame!=null?-80*+frame:0,0);res(g.getImageData(0,0,c.width,c.height))};i.onerror=rej;i.src=file});
   const box=(x,y,w,h)=>({x,y,w,h}),area=b=>Math.max(0,b.w)*Math.max(0,b.h),inter=(a,b)=>{const x=Math.max(a.x,b.x),y=Math.max(a.y,b.y);return box(x,y,Math.min(a.x+a.w,b.x+b.w)-x,Math.min(a.y+a.h,b.y+b.h)-y)};
   const out={overlap:{},deadSpace:null};
-  for(const [slot,a] of Object.entries(m.actors)){if(!spec.focal.includes(slot))continue;const img=await load(a.asset);let n=0;
+  for(const [slot,a] of Object.entries(m.actors)){if(!spec.focal.includes(slot))continue;const cv=a.asset?null:document.querySelector(a.sel);const img=cv?cv.getContext('2d').getImageData(0,0,cv.width,cv.height):await load(a.asset);let n=0;
    for(const r of m.ui){const clip=inter(inter(r,a.visible),m.world);if(area(clip)<=0)continue;for(let y=0;y<img.height;y++)for(let x=0;x<img.width;x++){if(img.data[(y*img.width+x)*4+3]<16)continue;n+=area(inter(box(a.sprite.x+x*a.k,a.sprite.y+y*a.k,a.k,a.k),clip))}}
    out.overlap[slot]=Math.round(n)}
-  // Dead space over the visible environment region not covered by UI (legacy) / the world viewport (Director).
-  const envEl=document.querySelector(spec.env.selector);if(envEl){const sr=document.querySelector('#screen').getBoundingClientRect(),er=envEl.getBoundingClientRect(),img=await load(spec.env.asset);
-   const env=box(er.left-sr.left,er.top-sr.top,er.width,er.height),kx=env.w/img.width,ky=env.h/img.height,T=8;const focal=spec.focal.map(s=>m.actors[s]?.visible).filter(Boolean);let dead=0,total=0;
-   const view=inter(m.world,box(0,0,sr.width,sr.height));
-   for(let ty=0;ty<img.height;ty+=T*Math.max(1,Math.round(img.height/480)))for(let tx=0;tx<img.width;tx+=T*Math.max(1,Math.round(img.width/270))){const step=T*Math.max(1,Math.round(img.width/270));const tile=box(env.x+tx*kx,env.y+ty*ky,step*kx,step*ky);let w=area(inter(tile,view))/area(tile);if(w<=0)continue;for(const r of m.ui)w-=area(inter(tile,r))/area(tile);if(w<=0)continue;total+=w;if(focal.some(b=>area(inter(tile,b))>0))continue;
-    const lum=[];for(let y=ty;y<Math.min(img.height,ty+step);y++)for(let x=tx;x<Math.min(img.width,tx+step);x++){const o=(y*img.width+x)*4;lum.push(.3*img.data[o]+.59*img.data[o+1]+.11*img.data[o+2])}
-    const s=[...lum].sort((p,q)=>p-q),med=s[s.length>>1];if(lum.filter(v=>Math.abs(v-med)>12).length/lum.length<.15)dead+=w}
-   out.deadSpace=total?Math.round(dead/total*1000)/1000:null}
+  // Dead space: the canonical metric (js/engine/presentation_metrics.js, injected from this checkout into every
+  // page — legacy baselines included). Canvas environments are read from the canvas actually on screen.
+  const envEl=document.querySelector(spec.env.selector);if(envEl){const sr=document.querySelector('#screen').getBoundingClientRect(),er=envEl.getBoundingClientRect();
+   const pixels=envEl.tagName==='CANVAS'?envEl.getContext('2d').getImageData(0,0,envEl.width,envEl.height):await load(spec.env.asset);
+   const envRect=box(er.left-sr.left,er.top-sr.top,er.width,er.height),clip=inter(m.world,box(0,0,sr.width,sr.height));
+   out.deadSpace=RAPresentationMetrics.deadSpace({pixels,envRect,clip,exclude:m.ui,focal:spec.focal.map(s=>m.actors[s]?.visible).filter(Boolean)})}
   return out;
  },{spec:{focal:spec.focal,env:spec.env},m});
 }
@@ -161,12 +161,13 @@ function seeded(order,seed){const a=[...order];let s=seed>>>0;for(let i=a.length
 
 export async function census(){
  await mkdir(out,{recursive:true});
+ const metricsSource=await readFile(path.join(here,'js/engine/presentation_metrics.js'),'utf8');
  const meta=await assetMeta(),{chromium}=loadPlaywright(),browser=await chromium.launch({executablePath:await chromiumPath()}),server=await serve(),base=`http://127.0.0.1:${server.address().port}`;
  const scenes=(args.scenes?String(args.scenes).split(','):['docks-combat']);const report={label,root,generated:new Date().toISOString(),dpr:DPR,scenes:{}};const errors=[];
  async function open(W,H,url='/'){const page=await browser.newPage({viewport:{width:W,height:H},deviceScaleFactor:DPR});page.on('pageerror',e=>errors.push(e.message));
   if(args.legacy)await page.addInitScript(()=>{window.__pdLegacy=true});
   await page.addInitScript(()=>{let s=20260924;Math.random=()=>((s=Math.imul(s^s>>>15,2246822519)+0x9e3779b9|0)>>>0)/4294967296;try{localStorage.clear()}catch{}});
-  await page.goto(base+url);await page.waitForTimeout(500);return page}
+  await page.goto(base+url);await page.waitForTimeout(500);if(!await page.evaluate(()=>!!window.RAPresentationMetrics))await page.addScriptTag({content:metricsSource});return page}
  try{
   for(const id of scenes){const spec=SCENES[id];if(!spec)throw new Error(`unknown scene ${id}`);const entry=report.scenes[id]={title:spec.title,sizes:{}};
    for(const [W,H] of SIZES){const page=await open(W,H,spec.url);await spec.enter(page);await freeze(page);
