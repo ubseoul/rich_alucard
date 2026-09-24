@@ -20,3 +20,9 @@ Environment variants passed HQ visual review but remain the highest-risk compari
 No runtime/game code changed. No SEALED/HQ-only content was accessed. Remaining OPEN gaps are recorded in [Remaining Open Gaps](ships/art_ship_006/REMAINING_OPEN_GAPS.md). Future pixel changes or additional states require a new explicit Art Ship.
 
 **STOP. ART SHIP 006 is FROZEN / COMPLETE. The Art Agent retires after scoped commit, push and clean-tree verification.**
+
+## Zero-upload continuation
+
+The next Art Agent starts at `START_HERE.md`; no external Vol 2, Vol 5, HQ Addendum, review board, or prior chat upload is required. The committed OPEN source subsets and provenance are in `production_authority/`. Current implementation state and current demand are in `production_authority/ROUGH_COMPLETE_ENGINEERING_SNAPSHOT.md` and `CURRENT_OPEN_ART_GAPS.md` / `.json`.
+
+The latest frozen corpus remains 135 assets at `origin/main` `a2992617b825acf1ab7a9bdb187d2caca66be701`. ART SHIP 004/005/006 remain frozen handoff records, not runtime integration approval. The next recommended priority is Engineering integration of those 115 frozen Ship files, followed by a bounded derivative/condition Ship for the current playable path. Do not begin ART SHIP 007 or generate new art from this handoff alone.
