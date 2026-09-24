@@ -24,3 +24,11 @@ Preserve decision text, authority, scope, exact paths and hashes. Do not infer a
 
 ## Repository discipline
 No runtime asset moves, renames or edits for indexing. Use repository-root-relative paths and SHA-256; retain canonical filenames. External historical paths are audit locators only, never required onboarding authority. Missing legacy media stays missing; do not reconstruct it. Use current repository docs for current integration, inherited sources for historical acceptance. Do not merge, push or deploy merely to publish this documentation. Keep all required knowledge self-contained in this directory and current repo docs; optional external archives may remain unavailable on a fresh machine.
+
+## Zero-upload onboarding requirement
+
+`START_HERE.md` is the canonical cold-start entry point. Every retiring Art Agent must leave the next agent able to determine, from the repository alone: the authoritative style, frozen pixels, immutable boundaries, current implementation/integration state, current OPEN gaps, Engineering visual demand, restricted demand, next priority, and the candidate→approval→freeze procedure.
+
+The durable Art-facing OPEN canon and execution subset lives in `production_authority/`. Its README records source names, versions/dates, treatment, and hashes. It must never import or summarize SEALED/HQ-only content. `CURRENT_OPEN_ART_GAPS.md` and `.json` are the current reconciliation; historical Engineering lists such as `docs/btf/ART_INPUTS.md` are provenance only.
+
+At Ship close, update `START_HERE.md`, `CURRENT_HANDOFF.md`, the current gap map, `ASSET_REGISTER.json`, `APPROVED_ASSET_INDEX.md`, `APPROVAL_LEDGER.md`, the Ship Engineering map, frozen totals, and recommended next priority as applicable. Run the zero-upload cold-start validation before commit. Frozen asset bytes and runtime code must remain unchanged unless a separately authorized task explicitly scopes them.

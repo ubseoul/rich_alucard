@@ -77,3 +77,31 @@ Shannon is now an approved cast calibration source in the shared 80x96/contact-(
 The Property exterior and interior establish an additional approved 270x480 environment family. The clean interior base and binary-alpha problem overlay share exact full-canvas registration at origin (0,0); preserve that separation so gameplay can change the visible condition without repainting the base. The 96x96 ownership image is an approved exterior-derived UI identity, not a replacement environment source.
 
 The ordinary giant-rat vocabulary uses padded 96x64 cells with contact (48,56) and intended 1.25x presentation. Alert, scurry and recoil have measured opaque envelopes of 68x29, 72x24 and 68x39 pixels. Their silhouette and low-detail cluster logic are approved creature vocabulary; their runtime behavior and all PLAYER-BLIND disposition remain outside this visual calibration.
+
+## ART SHIP 004 approved additions
+
+Octopus Sensei adds an approved compact non-humanoid character grammar in 96x96 cells with contact (48,84). Neutral and point states preserve the same 14-color identity, squat eight-limb silhouette, tiny spectacles and sparse accent logic; the gesture changes without proportion redesign. Use the individual masters for placement and the two-cell sheet only as a handoff convenience.
+
+The Goldfish Years adds a frozen 270x480 midnight-ocean environment base with broad calm staging space. Intact and collapsed ladders are separate seven-color binary-alpha overlays registered at exact origin (0,0), not alternate repaints of the base. This base-plus-condition pattern is approved scene-construction authority alongside the Property base/overlay system.
+
+Primary gameplay characters are presented by Engineering at approximately 1.85x their historical on-screen scale with nearest-neighbor filtering. This larger runtime footprint informs environment negative space, anchors and UI clearance; it does not authorize larger native source sprites or proportional redesign.
+
+## ART SHIP 005 approved additions
+
+ART SHIP 005 adds a broad OPEN Before the Fame anchor corpus: 28 native 80x96/contact-(40,88) character identities, 20 opaque 270x480 environments, three compact binary-alpha props and one compact binary-alpha sphynx-cat creature. All 52 exact files received UBE TASTE PASS and are APPROVED MASTER / FROZEN.
+
+The character set expands the approved range of bodies, ages, supernatural types, clothing and stance while preserving the established source-cell discipline: identity is carried by silhouette, grouped color planes and sparse high-value accents rather than facial illustration or dense texture. These are identity/pose anchors, not state-complete characters.
+
+The environment set expands the approved location grammar across domestic, retail, nightlife, castle, medical, civic and outdoor settings. Each is an opaque 270x480 master with readable depth, restrained palette grouping and a lower staging field compatible with the larger runtime character footprint. No Ship 005 environment implies overlays, crowds, hotspots or collision.
+
+Agege bread, the Blueberry Mazda egg, the Dragon Maggi Cube and the sitting sphynx cat establish compact native prop/creature anchors with binary alpha. Review enlargement was nearest-neighbor only; source pixels remain unchanged.
+
+Primary gameplay characters continue to use approximately 1.85x historical on-screen runtime presentation with nearest-neighbor filtering. This is Engineering presentation guidance, never permission to resize frozen sources or derive unapproved states.
+
+## ART SHIP 006 approved additions
+
+ART SHIP 006 freezes derivative-state continuity as production authority. The accepted 80x96 alternate states preserve their Ship 005 masters' identity, proportions, silhouette, material grouping, native density and `(40,88)` source contact while changing only scene action or expression. Rich contextual states preserve the compact dark silhouette and sparse high-value accents of the existing Rich masters. Always return to the frozen master when deriving another state; do not chain derivatives.
+
+The accepted TOUGE vocabulary uses 16x28 bottom-anchored overhead silhouettes with restrained model-specific proportion and color differences. Phone/app icons use 24x24 transparent cells with high-contrast symbolic reads and no baked labels. The three accepted 270x480 environment conditions remain full-frame state masters, not reusable overlays; their generative derivation makes them a higher-risk comparison category than the direct character-state work.
+
+The approximately 1.85x character scale remains a nearest-neighbor Engineering presentation rule and is not baked into any ART SHIP 006 source.

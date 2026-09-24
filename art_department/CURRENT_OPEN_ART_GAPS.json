@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "recorded_date": "2026-09-24",
+  "authority_commit": "a2992617b825acf1ab7a9bdb187d2caca66be701",
+  "engineering_audit": {
+    "branch": "origin/claude/eloquent-shannon-kc5qkn",
+    "commit": "c2a637bb2df8143f117cff1cecc8ca1cff6ba11e",
+    "merge_base": "f2ca7d4393ec5af60ae6ecb53eec001b449a649e",
+    "historical_map": "docs/btf/ART_INPUTS.md",
+    "historical_placeholder_environments": 61,
+    "historical_placeholder_character_slots": 56,
+    "branch_is_merged_or_deployed": false,
+    "new_btf_surfaces_use_placeholder_painter": true
+  },
+  "frozen_snapshot": {
+    "frozen_corpus_assets": 135,
+    "register_entries": 275,
+    "art_ship_004_files": 6,
+    "art_ship_005_files": 52,
+    "art_ship_006_files": 57,
+    "frozen_environment_ids_satisfied": 25,
+    "frozen_character_or_creature_slots_satisfied": 30,
+    "candidate_awaiting_review": 0,
+    "runtime_display_scale": "approximately 1.85x nearest-neighbor; source pixels remain native"
+  },
+  "FROZEN_SATISFIED": {
+    "character_or_creature_slots": ["mazda_human", "kiki", "nneka", "pinky", "moonie", "kaede", "wispa", "tasha", "nightshade", "hina", "bunmi", "june", "ms_patrice", "tristan", "coffe", "tunde", "dre", "uncle_sunday", "reggie", "okada", "deacon_brass", "hilt", "lil_smack", "bruce_loose", "kevin", "phil", "iron_jaw", "bonesworth", "octopus_sensei", "cat"],
+    "environment_ids": ["ocean_floor", "ocean_floor_collapsed", "castle_exterior", "castle_exterior_party", "grave", "grave_closed", "pet_crypt", "kush_crypt", "pier", "slurp", "cafe", "catacomb", "blood_bank", "armory", "ballroom", "party_hall", "party_hall_packed", "roof", "music_room", "garage", "fish_tank", "naija_mart", "hollow_bowl", "waffle_haven", "family_house"],
+    "ship_006_derivative_and_ui_groups": ["bonesworth", "bruce_loose", "kevin", "phil", "iron_jaw", "hilt", "tunde", "dre", "uncle_sunday", "deacon_brass", "rich_contextual", "touge_vehicles", "phone_app_icons"],
+    "authority_records": ["art_department/ASSET_REGISTER.json", "art_department/APPROVED_ASSET_INDEX.md", "art_department/ships/art_ship_004/ART_SHIP_MANIFEST.json", "art_department/ships/art_ship_005/ART_SHIP_MANIFEST.json", "art_department/ships/art_ship_006/ART_SHIP_MANIFEST.json"]
+  },
+  "CANDIDATE_AWAITING_REVIEW": [],
+  "STILL_MISSING": {
+    "new_identity_slots": ["marisol", "duchess", "emberly", "jade", "lo", "brenda", "velvet", "anfeesa", "rookoko", "officer_nodd", "don_chuy", "tokyo_tony", "vicky", "mom", "dad", "sister", "brother1", "brother2", "god", "j_circle", "trippin_red", "paladin", "bard", "cleric", "buckhead", "og_hooper"],
+    "environment_ids": ["throne_party_mess", "boba_shop", "food_court", "kush_back", "catacomb_dead", "kitchen", "movie_room", "peking_naija", "naija_lot", "salon", "brunch", "onsen", "little_tokyo", "venice", "gallery", "tristan_apt", "taco_truck", "atl_airport", "maul", "lennox", "centennial", "atl_house_party", "suya_spot", "duchess_castle", "rooftop_dtla", "neighbor_castle", "crest", "portobello_bedroom", "portobello_office", "portobello_porch", "ocean_night_flight", "la_sky", "street_night", "lan_night", "halloween", "tokyo_tease"],
+    "props_creatures_vehicles_ui": ["mazda_majestic_and_riding", "pier_catches_and_cards", "dragon_maggi_cube_variants", "agege_bread_torn", "armory_gun_case_and_combat_states", "rich_radio_cover_tiles", "non_supra_world_listing_delivery_damaged_surfaces", "touge_rival_cars", "portobello_mazda", "bedroom_company_overlays_and_props", "weather_and_stars_overlays", "crowd_condition_overlays", "full_phone_app_screens_and_listing_cards"]
+  },
+  "DERIVATIVE_STATE_NEEDED": {
+    "states": ["coffe_hype", "coffe_caught", "reggie_leaning_in", "kiki_date_laughing_bedroom", "nneka_bill_date_bedroom", "pinky_impressed_date_bedroom", "moonie_date_wolfed_bedroom", "kaede_ceiling_drop_date_bedroom", "wispa_wave_date", "tasha_stage_rush_date_bedroom", "nightshade_casting_date", "hina_smug_date", "bunmi_date_bedroom", "june_paired_working_date_bedroom", "ms_patrice_laugh_date_bedroom", "mazda_human_eating_bedroom", "rich_touge_hud_riding_mazda_portobello_hungover_if_needed", "bllad33_hookah_and_dry_reaction"],
+    "derivation_rule": "Always derive from the frozen master, never from a previous derivative; create only scene-required states."
+  },
+  "ENGINEERING_INTEGRATION_NEEDED": {
+    "frozen_ship_files_not_integrated_by_their_ships": 115,
+    "ship_ids": ["ART SHIP 004", "ART SHIP 005", "ART SHIP 006"],
+    "required_behavior": "Map individual masters/layers/states/icons into the current playable branch without changing bytes; sheets are handoff conveniences, not the sole runtime source.",
+    "implementation_snapshot": "art_department/production_authority/ROUGH_COMPLETE_ENGINEERING_SNAPSHOT.md",
+    "non_art_dependency": "PLAYMAKERS, OCTOPUS BRAIN, MONTANA, and SHOPPING ADDICT audio loops remain Engineering/audio work."
+  },
+  "BLOCKED_BY_CANON_IDENTITY": ["god_culturally_sensitive_open_card", "family_names_and_details", "dragon_cube_maggi_vs_magi_label", "cat_final_name", "coffe_rogue_guided", "portobello_staging_guided", "laura_never_has_art"],
+  "SEALED_DO_NOT_TOUCH": "Vol 4, Vol 5-S, sealed reveal identities, Cryptrat/second-dragon dispositions, HQ-M01/M02/M03, and any other HQ-only material. Keep neutral hooks neutral and do not enumerate restricted assets.",
+  "next_recommended_priority": ["integrate the 115 frozen Ship 004-006 files", "bounded derivatives and additive conditions for the current playable path", "identity anchors for the 26 missing OPEN slots", "remaining high-reuse environments then props/crowds/full UI screens"],
+  "historical_map_is_not_current_truth": true
+}
