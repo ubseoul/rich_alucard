@@ -22,6 +22,8 @@ This repository is the permanent institutional memory. No access to an earlier c
 
 Fresh Art Agent → inspect approved corpus → demonstrate understanding → HQ PASS → receive one Art Ship → explore → Ube Taste Pass → authorized production package → HQ PASS/FROZEN → update approved corpus → retire chat.
 
-ART SHIP 003 — MASSIVE PUSH 001: THE PROPERTY is now HQ CREATIVE PASS / APPROVED MASTER / FROZEN and closed. Its exact Shannon, property and ordinary giant-rat masters, handoff sheets, stage guidance and PLAYER-BLIND Creative records are governed by [Current Handoff](CURRENT_HANDOFF.md), [the Approval Ledger](APPROVAL_LEDGER.md) and [the Ship manifest](ships/art_ship_003/ART_SHIP_MANIFEST.json). Important Rich voice-pass lines remain unresolved and non-canon. No Art Ship is currently active.
+ART SHIP 004 — THE GOLDFISH YEARS is HQ TECHNICAL PASS / APPROVED MASTER / FROZEN and complete. Its exact ocean-floor base, intact/collapsed ladder layers, Octopus Sensei neutral/point masters and two-cell sheet are governed by [Current Handoff](CURRENT_HANDOFF.md), [the Approval Ledger](APPROVAL_LEDGER.md) and [the Ship manifest](ships/art_ship_004/ART_SHIP_MANIFEST.json). Primary gameplay characters use approximately 1.85x historical on-screen runtime presentation with nearest-neighbor filtering; native source pixels remain unchanged. No Art Ship is currently active.
+
+ART SHIP 003 — MASSIVE PUSH 001: THE PROPERTY remains HQ CREATIVE PASS / APPROVED MASTER / FROZEN and closed. Its exact Shannon, property and ordinary giant-rat masters, handoff sheets, stage guidance and PLAYER-BLIND Creative records remain governed by its recorded scopes. Important Rich voice-pass lines remain unresolved and non-canon.
 
 Bllad33 retains one APPROVED MASTER / FROZEN neutral/entrance sprite from RT SHIP 001. Earlier Bllad33 VD01/VD02/VD03 explorations remain excluded from default style study; their historical no-master status does not override the later explicit approval.

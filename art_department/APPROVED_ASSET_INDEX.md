@@ -9,6 +9,12 @@ Repository-root-relative paths. Hashes and approval evidence are in ASSET_REGIST
 | `assets/bllad33/masters/bllad33_neutral_candidate_80x96.png` | FROZEN | APPROVED MASTER; RT SHIP 001 neutral/entrance only; not runtime-integrated |
 | `assets/ceo_hit_reaction_sheet.png` | APPROVED MASTER | hash-matched approved existing source |
 | `assets/ceo_idle.png` | APPROVED MASTER | hash-matched approved existing source |
+| `assets/goldfish_years/characters/octopus_sensei/octopus_sensei_neutral_96x96.png` | FROZEN | APPROVED MASTER; ART SHIP 004 neutral/listening state; contact (48,84); not runtime-integrated |
+| `assets/goldfish_years/characters/octopus_sensei/octopus_sensei_point_96x96.png` | FROZEN | APPROVED MASTER; ART SHIP 004 point/instruction state; contact (48,84); not runtime-integrated |
+| `assets/goldfish_years/characters/octopus_sensei/octopus_sensei_state_sheet_192x96.png` | FROZEN | APPROVED MASTER; ART SHIP 004 two-cell handoff sheet; individual masters control placement |
+| `assets/goldfish_years/layers/ladder_collapsed_overlay_270x480.png` | FROZEN | APPROVED MASTER; ART SHIP 004 exact-origin collapsed-ladder condition layer; not runtime-integrated |
+| `assets/goldfish_years/layers/ladder_intact_overlay_270x480.png` | FROZEN | APPROVED MASTER; ART SHIP 004 exact-origin intact-ladder condition layer; not runtime-integrated |
+| `assets/goldfish_years/masters/ocean_floor_base_270x480.png` | FROZEN | APPROVED MASTER; ART SHIP 004 opaque A00 environment base; not runtime-integrated |
 | `assets/jdm_imports/characters/daughter/daughter_neutral.png` | APPROVED MASTER | hash-matched approved existing source |
 | `assets/jdm_imports/characters/daughter/daughter_vampire_reveal.png` | APPROVED MASTER | hash-matched approved existing source |
 | `assets/jdm_imports/characters/importer/importer_neutral.png` | APPROVED MASTER | hash-matched approved existing source |

@@ -9,3 +9,9 @@ No binary art is copied, generated or modified. Existing source and runtime path
 HQ's explicit Creative Pass added 11 exact accepted PNGs under `assets/property/` and froze them as approved production masters. The current `assets/` tree contains 160 files, including 143 PNGs. `ASSET_REGISTER.json` contains 160 entries with status counts: 116 `STATUS UNKNOWN — HQ REVIEW REQUIRED`, 19 `APPROVED MASTER`, 5 `REFERENCE`, and 20 `FROZEN`.
 
 The 11 new entries are recorded as `FROZEN` with `approval_status: APPROVED MASTER`; exact SHA-256 values, dimensions, roles, contacts and freeze scope are authoritative in `ships/art_ship_003/ART_SHIP_MANIFEST.json` and `ASSET_REGISTER.json`. This snapshot does not alter the historical baseline above. No runtime/game code was changed.
+
+## Post–ART SHIP 004 snapshot — 2026-09-24
+
+HQ TECHNICAL PASS added six exact accepted PNGs under `assets/goldfish_years/` and froze them as approved production masters: one ocean-floor base, two exact-origin ladder condition layers, two Octopus Sensei states and one two-cell handoff sheet. The `assets/` tree now contains 166 files, including 149 PNGs. `ASSET_REGISTER.json` contains 166 entries with status counts: 116 `STATUS UNKNOWN — HQ REVIEW REQUIRED`, 19 `APPROVED MASTER`, 5 `REFERENCE`, and 26 `FROZEN`.
+
+All six new entries are `FROZEN` with `approval_status: APPROVED MASTER`; their accepted candidate hashes equal the canonical production hashes. Native source dimensions remain unchanged. Approximately 1.85x historical on-screen character presentation is an Engineering runtime rule using nearest-neighbor filtering, not a source-art transformation. No runtime/game code changed.

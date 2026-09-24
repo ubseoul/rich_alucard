@@ -4,6 +4,8 @@ All paths below are repository-root-relative; use ../../ from this index to open
 - [assets/bedroom_cloud_large.png](../../assets/bedroom_cloud_large.png) — REFERENCE; [136, 40].
 - [assets/blood_bath_contact_01.png](../../assets/blood_bath_contact_01.png) — REFERENCE; [96, 96].
 - [assets/jdm_imports/vehicles/supra_mk4_world.png](../../assets/jdm_imports/vehicles/supra_mk4_world.png) — REFERENCE; [136, 50].
+- [assets/goldfish_years/layers/ladder_intact_overlay_270x480.png](../../assets/goldfish_years/layers/ladder_intact_overlay_270x480.png) — APPROVED MASTER / FROZEN; full-canvas binary-alpha overlay, exact origin (0,0); intact condition only.
+- [assets/goldfish_years/layers/ladder_collapsed_overlay_270x480.png](../../assets/goldfish_years/layers/ladder_collapsed_overlay_270x480.png) — APPROVED MASTER / FROZEN; full-canvas binary-alpha overlay, exact origin (0,0); collapsed condition only.
 - [assets/property/creatures/giant_rat/giant_rat_alert_96x64.png](../../assets/property/creatures/giant_rat/giant_rat_alert_96x64.png) — APPROVED MASTER / FROZEN; [96, 64]; ordinary giant-rat alert state, contact (48,56), intended 1.25x presentation.
 - [assets/property/creatures/giant_rat/giant_rat_scurry_96x64.png](../../assets/property/creatures/giant_rat/giant_rat_scurry_96x64.png) — APPROVED MASTER / FROZEN; [96, 64]; ordinary giant-rat scurry state, contact (48,56), intended 1.25x presentation.
 - [assets/property/creatures/giant_rat/giant_rat_recoil_96x64.png](../../assets/property/creatures/giant_rat/giant_rat_recoil_96x64.png) — APPROVED MASTER / FROZEN; [96, 64]; ordinary giant-rat recoil state, contact (48,56), intended 1.25x presentation.
