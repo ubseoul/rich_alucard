@@ -1,0 +1,1113 @@
+{
+  "ship": "ART SHIP 006",
+  "status": "CANDIDATE \u2014 NOT APPROVED MASTER / NOT FROZEN",
+  "authority_commit": "4d797b0be55a8990eaddbb6536d584936ed55799",
+  "generated_at_utc": "2026-09-24T16:42:32.648968+00:00",
+  "native_candidate_count": 46,
+  "package_breakdown": {
+    "character_states": 20,
+    "rich_contextual_states": 6,
+    "touge_vehicles": 8,
+    "environment_states": 3,
+    "phone_app_icons": 9,
+    "state_sheet_files": 14
+  },
+  "assets": [
+    {
+      "id": "bonesworth_telegraph",
+      "kind": "character_state",
+      "path": "native/characters/bonesworth/bonesworth_telegraph_80x96.png",
+      "sha256": "726af2a7b70533aacd98038a3fe380a1146b0c9151ffb9872c508e4265626e6d",
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "alpha_values": [
+        0,
+        255
+      ],
+      "opaque_bbox": [
+        21,
+        26,
+        59,
+        88
+      ],
+      "frozen_master": "assets/before_the_fame/characters/bonesworth/sir_bonesworth_hungover_80x96.png",
+      "frozen_master_sha256": "42b1acd8247bf855f73cce165246c2b4079ae1f2070f137800ffe89997f7cafe",
+      "status": "CANDIDATE \u2014 NOT APPROVED/FROZEN"
+    },
+    {
+      "id": "bonesworth_strike",
+      "kind": "character_state",
+      "path": "native/characters/bonesworth/bonesworth_strike_80x96.png",
+      "sha256": "4c4327cbebbeaa7592e1e70114b04670af553dd1e2eab4173d6fb7f567e908d6",
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "alpha_values": [
+        0,
+        255
+      ],
+      "opaque_bbox": [
+        13,
+        43,
+        68,
+        88
+      ],
+      "frozen_master": "assets/before_the_fame/characters/bonesworth/sir_bonesworth_hungover_80x96.png",
+      "frozen_master_sha256": "42b1acd8247bf855f73cce165246c2b4079ae1f2070f137800ffe89997f7cafe",
+      "status": "CANDIDATE \u2014 NOT APPROVED/FROZEN"
+    },
+    {
+      "id": "bonesworth_hit",
+      "kind": "character_state",
+      "path": "native/characters/bonesworth/bonesworth_hit_80x96.png",
+      "sha256": "32a2be64e45d60fb9480ca229a23275ff70e2a4c13de1379af26fdfa1f5d587c",
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "alpha_values": [
+        0,
+        255
+      ],
+      "opaque_bbox": [
+        12,
+        44,
+        69,
+        88
+      ],
+      "frozen_master": "assets/before_the_fame/characters/bonesworth/sir_bonesworth_hungover_80x96.png",
+      "frozen_master_sha256": "42b1acd8247bf855f73cce165246c2b4079ae1f2070f137800ffe89997f7cafe",
+      "status": "CANDIDATE \u2014 NOT APPROVED/FROZEN"
+    },
+    {
+      "id": "bonesworth_defeated",
+      "kind": "character_state",
+      "path": "native/characters/bonesworth/bonesworth_defeated_80x96.png",
+      "sha256": "38ce0b4f5a6eb0008207bb7643adaa58a0eb3e4fb365c112843a42f09047f862",
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "alpha_values": [
+        0,
+        255
+      ],
+      "opaque_bbox": [
+        14,
+        64,
+        67,
+        88
+      ],
+      "frozen_master": "assets/before_the_fame/characters/bonesworth/sir_bonesworth_hungover_80x96.png",
+      "frozen_master_sha256": "42b1acd8247bf855f73cce165246c2b4079ae1f2070f137800ffe89997f7cafe",
+      "status": "CANDIDATE \u2014 NOT APPROVED/FROZEN"
+    },
+    {
+      "id": "bruce_strike",
+      "kind": "character_state",
+      "path": "native/characters/bruce/bruce_strike_80x96.png",
+      "sha256": "ae869b1cff22a81cbf43d0500488ca969b4f6ee1d158949852cc66cc08fb8ef9",
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "alpha_values": [
+        0,
+        255
+      ],
+      "opaque_bbox": [
+        16,
+        28,
+        64,
+        88
+      ],
+      "frozen_master": "assets/before_the_fame/characters/bruce_loose/bruce_loose_neutral_80x96.png",
+      "frozen_master_sha256": "f3f21e5b8919f46b84a918a32abdd77e07a632dc5fcdcc6c12db9e310f278d46",
+      "status": "CANDIDATE \u2014 NOT APPROVED/FROZEN"
+    },
+    {
+      "id": "bruce_bow",
+      "kind": "character_state",
+      "path": "native/characters/bruce/bruce_bow_80x96.png",
+      "sha256": "7db0b9ccbd9d6e206bdf22400921750ebe7427f0e09187e765f6cc5e75ace4d9",
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "alpha_values": [
+        0,
+        255
+      ],
+      "opaque_bbox": [
+        29,
+        31,
+        51,
+        88
+      ],
+      "frozen_master": "assets/before_the_fame/characters/bruce_loose/bruce_loose_neutral_80x96.png",
+      "frozen_master_sha256": "f3f21e5b8919f46b84a918a32abdd77e07a632dc5fcdcc6c12db9e310f278d46",
+      "status": "CANDIDATE \u2014 NOT APPROVED/FROZEN"
+    },
+    {
+      "id": "kevin_attack",
+      "kind": "character_state",
+      "path": "native/characters/kevin/kevin_attack_80x96.png",
+      "sha256": "1492b2bba948b19b37f82422984e8cff36bd74310568134e8d7b90515c4705cc",
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "alpha_values": [
+        0,
+        255
+      ],
+      "opaque_bbox": [
+        9,
+        30,
+        72,
+        88
+      ],
+      "frozen_master": "assets/before_the_fame/characters/kevin/kagebunshin_kevin_neutral_80x96.png",
+      "frozen_master_sha256": "a009d371273a5d6d617eb05bb6582f8007fdfaab46b0c5775725c0ba3a5288c2",
+      "status": "CANDIDATE \u2014 NOT APPROVED/FROZEN"
+    },
+    {
+      "id": "kevin_poof",
+      "kind": "character_state",
+      "path": "native/characters/kevin/kevin_poof_80x96.png",
+      "sha256": "04507581e14ce5fae8e91b53fa6be2900006173bc02154c294fe4da1736880a5",
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "alpha_values": [
+        0,
+        255
+      ],
+      "opaque_bbox": [
+        6,
+        31,
+        75,
+        88
+      ],
+      "frozen_master": "assets/before_the_fame/characters/kevin/kagebunshin_kevin_neutral_80x96.png",
+      "frozen_master_sha256": "a009d371273a5d6d617eb05bb6582f8007fdfaab46b0c5775725c0ba3a5288c2",
+      "status": "CANDIDATE \u2014 NOT APPROVED/FROZEN"
+    },
+    {
+      "id": "phil_charging_day3",
+      "kind": "character_state",
+      "path": "native/characters/phil/phil_charging_day3_80x96.png",
+      "sha256": "1609de089d3d893927752c98d6f9af6033dac77d1213a2ab518e4717ffb85af5",
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "alpha_values": [
+        0,
+        255
+      ],
+      "opaque_bbox": [
+        15,
+        8,
+        65,
+        88
+      ],
+      "frozen_master": "assets/before_the_fame/characters/phil/power_level_phil_charging_day1_80x96.png",
+      "frozen_master_sha256": "fdbbe7b0665dc1ff63e33b7774a2976963a8c9ef5e4b408fc86d581bae2cfa8e",
+      "status": "CANDIDATE \u2014 NOT APPROVED/FROZEN"
+    },
+    {
+      "id": "phil_sitting_plate",
+      "kind": "character_state",
+      "path": "native/characters/phil/phil_sitting_plate_80x96.png",
+      "sha256": "58c1a059a421366f8de562f71f016472451a1f46aa3ebc2f150e4b0a69df0095",
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "alpha_values": [
+        0,
+        255
+      ],
+      "opaque_bbox": [
+        20,
+        40,
+        60,
+        88
+      ],
+      "frozen_master": "assets/before_the_fame/characters/phil/power_level_phil_charging_day1_80x96.png",
+      "frozen_master_sha256": "fdbbe7b0665dc1ff63e33b7774a2976963a8c9ef5e4b408fc86d581bae2cfa8e",
+      "status": "CANDIDATE \u2014 NOT APPROVED/FROZEN"
+    },
+    {
+      "id": "iron_jaw_rapping",
+      "kind": "character_state",
+      "path": "native/characters/iron_jaw/iron_jaw_rapping_80x96.png",
+      "sha256": "9dd750ae491c6bd51a499004172626b2676f9f2afdf0c0f72571e1ed1d314ebf",
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "alpha_values": [
+        0,
+        255
+      ],
+      "opaque_bbox": [
+        23,
+        30,
+        58,
+        88
+      ],
+      "frozen_master": "assets/before_the_fame/characters/iron_jaw/iron_jaw_neutral_80x96.png",
+      "frozen_master_sha256": "2b0ebc264fbb9a38f17e048897c1a203072f1bbafa76cf47da866b71bfb1bd61",
+      "status": "CANDIDATE \u2014 NOT APPROVED/FROZEN"
+    },
+    {
+      "id": "iron_jaw_defeated",
+      "kind": "character_state",
+      "path": "native/characters/iron_jaw/iron_jaw_defeated_80x96.png",
+      "sha256": "b28b634aee59de9cfa3fc3b25510fd8e0cbc9b0ea84796e2bc1b3adaaba6aab1",
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "alpha_values": [
+        0,
+        255
+      ],
+      "opaque_bbox": [
+        24,
+        47,
+        57,
+        88
+      ],
+      "frozen_master": "assets/before_the_fame/characters/iron_jaw/iron_jaw_neutral_80x96.png",
+      "frozen_master_sha256": "2b0ebc264fbb9a38f17e048897c1a203072f1bbafa76cf47da866b71bfb1bd61",
+      "status": "CANDIDATE \u2014 NOT APPROVED/FROZEN"
+    },
+    {
+      "id": "hilt_strike",
+      "kind": "character_state",
+      "path": "native/characters/hilt/hilt_strike_80x96.png",
+      "sha256": "4fe312f8a0e96e63f8463825d5d4e7cbc0f24bf6b7af2df27c6169bb5aefc6c7",
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "alpha_values": [
+        0,
+        255
+      ],
+      "opaque_bbox": [
+        18,
+        25,
+        63,
+        88
+      ],
+      "frozen_master": "assets/before_the_fame/characters/hilt/hilt_neutral_80x96.png",
+      "frozen_master_sha256": "e179293708207d5dbe7892dc71bd120ce270490c22141aaf6245d5bf4b46a4e9",
+      "status": "CANDIDATE \u2014 NOT APPROVED/FROZEN"
+    },
+    {
+      "id": "hilt_walk_away",
+      "kind": "character_state",
+      "path": "native/characters/hilt/hilt_walk_away_80x96.png",
+      "sha256": "d3e6c0c838cf4cf39912c7b2b9b1c64ee1ae14567d7a425bd4efd78823793742",
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "alpha_values": [
+        0,
+        255
+      ],
+      "opaque_bbox": [
+        32,
+        24,
+        63,
+        88
+      ],
+      "frozen_master": "assets/before_the_fame/characters/hilt/hilt_neutral_80x96.png",
+      "frozen_master_sha256": "e179293708207d5dbe7892dc71bd120ce270490c22141aaf6245d5bf4b46a4e9",
+      "status": "CANDIDATE \u2014 NOT APPROVED/FROZEN"
+    },
+    {
+      "id": "tunde_asleep_floor",
+      "kind": "character_state",
+      "path": "native/characters/tunde/tunde_asleep_floor_80x96.png",
+      "sha256": "e20c98b4aa80c44f2025ce1fbbc46be611f5b415f61ca6783d698ce513a84d4f",
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "alpha_values": [
+        0,
+        255
+      ],
+      "opaque_bbox": [
+        3,
+        64,
+        77,
+        88
+      ],
+      "frozen_master": "assets/before_the_fame/characters/tunde/tunde_neutral_80x96.png",
+      "frozen_master_sha256": "12b9fa058d82caed91fc89b5fa6c3072875919239b107d79a477623e4de99ac9",
+      "status": "CANDIDATE \u2014 NOT APPROVED/FROZEN"
+    },
+    {
+      "id": "dre_asleep_floor",
+      "kind": "character_state",
+      "path": "native/characters/dre/dre_asleep_floor_80x96.png",
+      "sha256": "680052c9ece74d9a94dbe7e39e0cfa75068dd69e031d8963cc00cbe30ca63d59",
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "alpha_values": [
+        0,
+        255
+      ],
+      "opaque_bbox": [
+        3,
+        65,
+        77,
+        88
+      ],
+      "frozen_master": "assets/before_the_fame/characters/dre/dre_neutral_80x96.png",
+      "frozen_master_sha256": "6945490fb4e31dd01afe594ee061a50d8ee354f92a073936c031e0b32f1e1875",
+      "status": "CANDIDATE \u2014 NOT APPROVED/FROZEN"
+    },
+    {
+      "id": "uncle_sunday_offended",
+      "kind": "character_state",
+      "path": "native/characters/uncle_sunday/uncle_sunday_offended_80x96.png",
+      "sha256": "9d641470dd0e533600f9b6cda719142cca4d799c4e9ae82366af465df6c6bd43",
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "alpha_values": [
+        0,
+        255
+      ],
+      "opaque_bbox": [
+        23,
+        32,
+        57,
+        88
+      ],
+      "frozen_master": "assets/before_the_fame/characters/uncle_sunday/uncle_sunday_neutral_80x96.png",
+      "frozen_master_sha256": "79ee0ada6bbc4044180fefbd8371ee7ce16d2aa1eeaba998e83c471371ee4f63",
+      "status": "CANDIDATE \u2014 NOT APPROVED/FROZEN"
+    },
+    {
+      "id": "uncle_sunday_melted",
+      "kind": "character_state",
+      "path": "native/characters/uncle_sunday/uncle_sunday_melted_80x96.png",
+      "sha256": "0e23acfa3ade6c1045906cabecaf423f4f581d11d0085b4cff6d56188e86d332",
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "alpha_values": [
+        0,
+        255
+      ],
+      "opaque_bbox": [
+        13,
+        57,
+        68,
+        88
+      ],
+      "frozen_master": "assets/before_the_fame/characters/uncle_sunday/uncle_sunday_neutral_80x96.png",
+      "frozen_master_sha256": "79ee0ada6bbc4044180fefbd8371ee7ce16d2aa1eeaba998e83c471371ee4f63",
+      "status": "CANDIDATE \u2014 NOT APPROVED/FROZEN"
+    },
+    {
+      "id": "uncle_sunday_fishing",
+      "kind": "character_state",
+      "path": "native/characters/uncle_sunday/uncle_sunday_fishing_80x96.png",
+      "sha256": "9e61dc82c076bf88f9d7080ed192351dc14ff2bd7341d05b3cc3d538979ab060",
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "alpha_values": [
+        0,
+        255
+      ],
+      "opaque_bbox": [
+        12,
+        28,
+        68,
+        88
+      ],
+      "frozen_master": "assets/before_the_fame/characters/uncle_sunday/uncle_sunday_neutral_80x96.png",
+      "frozen_master_sha256": "79ee0ada6bbc4044180fefbd8371ee7ce16d2aa1eeaba998e83c471371ee4f63",
+      "status": "CANDIDATE \u2014 NOT APPROVED/FROZEN"
+    },
+    {
+      "id": "deacon_brass_blessing",
+      "kind": "character_state",
+      "path": "native/characters/deacon_brass/deacon_brass_blessing_80x96.png",
+      "sha256": "270ab35b2df0229d72c2af91be5b6b393ac0c8a2051559c3c8637f81532d5364",
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "alpha_values": [
+        0,
+        255
+      ],
+      "opaque_bbox": [
+        26,
+        28,
+        55,
+        88
+      ],
+      "frozen_master": "assets/before_the_fame/characters/deacon_brass/deacon_brass_neutral_80x96.png",
+      "frozen_master_sha256": "746fae3011c67286822941ba67505bb063b8c695169a2baf23e4eb84783bfdce",
+      "status": "CANDIDATE \u2014 NOT APPROVED/FROZEN"
+    },
+    {
+      "id": "rich_fishing_cast",
+      "kind": "rich_contextual_state",
+      "path": "native/characters/rich/rich_fishing_cast_80x96.png",
+      "sha256": "5a28fd47156b93f9282033eb84db2c6fab7ff362d6390e03ba452e3145c1fc65",
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "alpha_values": [
+        0,
+        255
+      ],
+      "opaque_bbox": [
+        14,
+        37,
+        66,
+        88
+      ],
+      "frozen_master": "assets/rich_standing_right.png",
+      "frozen_master_sha256": "765170076e8d3a9af9e8857e176e079b2a68c7ee1daafb7c8d551482228f144b",
+      "status": "CANDIDATE \u2014 NOT APPROVED/FROZEN"
+    },
+    {
+      "id": "rich_holding_fish_away",
+      "kind": "rich_contextual_state",
+      "path": "native/characters/rich/rich_holding_fish_away_80x96.png",
+      "sha256": "960a9a4bdbaee810640dccf91026f22e95a43ecf5c95ff54762a87aa2b86b4e6",
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "alpha_values": [
+        0,
+        255
+      ],
+      "opaque_bbox": [
+        9,
+        39,
+        71,
+        88
+      ],
+      "frozen_master": "assets/rich_standing_right.png",
+      "frozen_master_sha256": "765170076e8d3a9af9e8857e176e079b2a68c7ee1daafb7c8d551482228f144b",
+      "status": "CANDIDATE \u2014 NOT APPROVED/FROZEN"
+    },
+    {
+      "id": "rich_ramen_apron",
+      "kind": "rich_contextual_state",
+      "path": "native/characters/rich/rich_ramen_apron_80x96.png",
+      "sha256": "85881baef03dc2919c5f88b95db57dd9809d7e815ac4bc1878a61cae8fde05ac",
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "alpha_values": [
+        0,
+        255
+      ],
+      "opaque_bbox": [
+        13,
+        36,
+        68,
+        88
+      ],
+      "frozen_master": "assets/rich_standing_right.png",
+      "frozen_master_sha256": "765170076e8d3a9af9e8857e176e079b2a68c7ee1daafb7c8d551482228f144b",
+      "status": "CANDIDATE \u2014 NOT APPROVED/FROZEN"
+    },
+    {
+      "id": "rich_on_stage",
+      "kind": "rich_contextual_state",
+      "path": "native/characters/rich/rich_on_stage_80x96.png",
+      "sha256": "c78240fa2c7952bc3a5c96189e2e99967e41fee6d05ca31b6a9ae9dce1917615",
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "alpha_values": [
+        0,
+        255
+      ],
+      "opaque_bbox": [
+        26,
+        36,
+        54,
+        88
+      ],
+      "frozen_master": "assets/rich_standing_right.png",
+      "frozen_master_sha256": "765170076e8d3a9af9e8857e176e079b2a68c7ee1daafb7c8d551482228f144b",
+      "status": "CANDIDATE \u2014 NOT APPROVED/FROZEN"
+    },
+    {
+      "id": "rich_laptop_seated",
+      "kind": "rich_contextual_state",
+      "path": "native/characters/rich/rich_laptop_seated_80x96.png",
+      "sha256": "a18ecf0d5c57d74f2be77a671faea5a6c01e7c6c60b00787d3f08c22499637b0",
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "alpha_values": [
+        0,
+        255
+      ],
+      "opaque_bbox": [
+        25,
+        40,
+        55,
+        88
+      ],
+      "frozen_master": "assets/rich_curb_chilling.png",
+      "frozen_master_sha256": "fc42db9fb191c3201d1fe119c058d64a90a14ccdbbfefbc2897b9449c265c6d0",
+      "status": "CANDIDATE \u2014 NOT APPROVED/FROZEN"
+    },
+    {
+      "id": "rich_laptop_nod",
+      "kind": "rich_contextual_state",
+      "path": "native/characters/rich/rich_laptop_nod_80x96.png",
+      "sha256": "601c3fb46a87a6a8843a7569ed978a46118ce94d7ff864a0dc7aeb5e0fb63379",
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "alpha_values": [
+        0,
+        255
+      ],
+      "opaque_bbox": [
+        26,
+        43,
+        54,
+        88
+      ],
+      "frozen_master": "assets/rich_curb_chilling.png",
+      "frozen_master_sha256": "fc42db9fb191c3201d1fe119c058d64a90a14ccdbbfefbc2897b9449c265c6d0",
+      "status": "CANDIDATE \u2014 NOT APPROVED/FROZEN"
+    },
+    {
+      "id": "supra",
+      "kind": "touge_vehicle",
+      "path": "native/vehicles/touge/supra_16x28.png",
+      "sha256": "6ea8a06099fdb2eb6a7fa7511c4fedf9e71e850f26c91ac515be52233adaf5de",
+      "dimensions": [
+        16,
+        28
+      ],
+      "mode": "RGBA",
+      "alpha_values": [
+        0,
+        255
+      ],
+      "opaque_bbox": [
+        1,
+        1,
+        15,
+        27
+      ],
+      "frozen_master": "assets/jdm_imports/vehicles/supra_mk4_world.png",
+      "frozen_master_sha256": "156445b526073b6906cae7330203f19d8edbf8a6574dfe6aea042db1c1575418",
+      "status": "CANDIDATE \u2014 NOT APPROVED/FROZEN"
+    },
+    {
+      "id": "s15_stock",
+      "kind": "touge_vehicle",
+      "path": "native/vehicles/touge/s15_stock_16x28.png",
+      "sha256": "043cc33c95685d8767ccc8a472da10bd3fc8cd72e7587659b42941739d0bb670",
+      "dimensions": [
+        16,
+        28
+      ],
+      "mode": "RGBA",
+      "alpha_values": [
+        0,
+        255
+      ],
+      "opaque_bbox": [
+        1,
+        7,
+        12,
+        27
+      ],
+      "frozen_master": null,
+      "frozen_master_sha256": null,
+      "status": "CANDIDATE \u2014 NOT APPROVED/FROZEN"
+    },
+    {
+      "id": "s15_bodykit",
+      "kind": "touge_vehicle",
+      "path": "native/vehicles/touge/s15_bodykit_16x28.png",
+      "sha256": "93e615e305c8ff8ae181185b0be6af3ac5d0ffb22883314f721c0a623bee623b",
+      "dimensions": [
+        16,
+        28
+      ],
+      "mode": "RGBA",
+      "alpha_values": [
+        0,
+        255
+      ],
+      "opaque_bbox": [
+        1,
+        6,
+        12,
+        27
+      ],
+      "frozen_master": null,
+      "frozen_master_sha256": null,
+      "status": "CANDIDATE \u2014 NOT APPROVED/FROZEN"
+    },
+    {
+      "id": "s2000_pink",
+      "kind": "touge_vehicle",
+      "path": "native/vehicles/touge/s2000_pink_16x28.png",
+      "sha256": "e05a9872cece4d4b2293544d2c599c5ae5fbca542fc2d38afee6023e73b2943e",
+      "dimensions": [
+        16,
+        28
+      ],
+      "mode": "RGBA",
+      "alpha_values": [
+        0,
+        255
+      ],
+      "opaque_bbox": [
+        1,
+        9,
+        11,
+        27
+      ],
+      "frozen_master": null,
+      "frozen_master_sha256": null,
+      "status": "CANDIDATE \u2014 NOT APPROVED/FROZEN"
+    },
+    {
+      "id": "r34_blue",
+      "kind": "touge_vehicle",
+      "path": "native/vehicles/touge/r34_blue_16x28.png",
+      "sha256": "024c136cf7d62c94e0772addf57588d5c58c41b2abd84339ba1963fc87b04660",
+      "dimensions": [
+        16,
+        28
+      ],
+      "mode": "RGBA",
+      "alpha_values": [
+        0,
+        255
+      ],
+      "opaque_bbox": [
+        1,
+        5,
+        11,
+        27
+      ],
+      "frozen_master": null,
+      "frozen_master_sha256": null,
+      "status": "CANDIDATE \u2014 NOT APPROVED/FROZEN"
+    },
+    {
+      "id": "urus_oxblood",
+      "kind": "touge_vehicle",
+      "path": "native/vehicles/touge/urus_oxblood_16x28.png",
+      "sha256": "478d745544eb9f746f9b41d55dc16b1921fffccfa47f7ccfaaf8ebd568f99c92",
+      "dimensions": [
+        16,
+        28
+      ],
+      "mode": "RGBA",
+      "alpha_values": [
+        0,
+        255
+      ],
+      "opaque_bbox": [
+        1,
+        4,
+        13,
+        27
+      ],
+      "frozen_master": null,
+      "frozen_master_sha256": null,
+      "status": "CANDIDATE \u2014 NOT APPROVED/FROZEN"
+    },
+    {
+      "id": "aventador_purple",
+      "kind": "touge_vehicle",
+      "path": "native/vehicles/touge/aventador_purple_16x28.png",
+      "sha256": "e4cee12291aa9377934d6ac2b75edef87b32ee7ade4f68d4c2017162bd0292d5",
+      "dimensions": [
+        16,
+        28
+      ],
+      "mode": "RGBA",
+      "alpha_values": [
+        0,
+        255
+      ],
+      "opaque_bbox": [
+        1,
+        4,
+        15,
+        27
+      ],
+      "frozen_master": null,
+      "frozen_master_sha256": null,
+      "status": "CANDIDATE \u2014 NOT APPROVED/FROZEN"
+    },
+    {
+      "id": "ferrari_f40_red",
+      "kind": "touge_vehicle",
+      "path": "native/vehicles/touge/ferrari_f40_red_16x28.png",
+      "sha256": "054d4f22f247c405bdae6fdfaad209337982d015a41c38af624df1927accd28c",
+      "dimensions": [
+        16,
+        28
+      ],
+      "mode": "RGBA",
+      "alpha_values": [
+        0,
+        255
+      ],
+      "opaque_bbox": [
+        1,
+        2,
+        15,
+        27
+      ],
+      "frozen_master": null,
+      "frozen_master_sha256": null,
+      "status": "CANDIDATE \u2014 NOT APPROVED/FROZEN"
+    },
+    {
+      "id": "castle_exterior_party",
+      "kind": "environment_state",
+      "path": "native/environments/castle_exterior_party_270x480.png",
+      "sha256": "fe641074f4aff48cef9ac59146216f35ae44b98f6702581b46a96204561f72ec",
+      "dimensions": [
+        270,
+        480
+      ],
+      "mode": "RGB",
+      "alpha_values": null,
+      "opaque_bbox": null,
+      "frozen_master": "assets/before_the_fame/environments/castle_exterior/castle_exterior_night_270x480.png",
+      "frozen_master_sha256": "be4417926078581934f48bcfd80dd71a0985ecd0459a5ccbac767a1abd7e2873",
+      "status": "CANDIDATE \u2014 NOT APPROVED/FROZEN"
+    },
+    {
+      "id": "grave_closed",
+      "kind": "environment_state",
+      "path": "native/environments/grave_closed_270x480.png",
+      "sha256": "0a3258fcca44b97b18dc0363ab6e0e72169bf5d108d615d136c3427a463f5dfd",
+      "dimensions": [
+        270,
+        480
+      ],
+      "mode": "RGB",
+      "alpha_values": null,
+      "opaque_bbox": null,
+      "frozen_master": "assets/before_the_fame/environments/grave/grave_hub_night_270x480.png",
+      "frozen_master_sha256": "b2919f7181268d83160231a803307e3afd0c35a1485396d1677440da1262ffbd",
+      "status": "CANDIDATE \u2014 NOT APPROVED/FROZEN"
+    },
+    {
+      "id": "party_hall_packed",
+      "kind": "environment_state",
+      "path": "native/environments/party_hall_packed_270x480.png",
+      "sha256": "d6be254816fa98d6b293c5654c538b58dcd809cdf46317a0c0076eed1dc44558",
+      "dimensions": [
+        270,
+        480
+      ],
+      "mode": "RGB",
+      "alpha_values": null,
+      "opaque_bbox": null,
+      "frozen_master": "assets/before_the_fame/environments/party_hall/party_hall_empty_270x480.png",
+      "frozen_master_sha256": "5987874f3b8407ce3ca9b7906871cb189c1766df59e9c0215bd7aad7763efc40",
+      "status": "CANDIDATE \u2014 NOT APPROVED/FROZEN"
+    },
+    {
+      "id": "texts",
+      "kind": "phone_app_icon",
+      "path": "native/ui/apps/app_texts_24x24.png",
+      "sha256": "c90776f5f92d4414a8a9d580b202206b36504aec4f3255114444fcbaf510de42",
+      "dimensions": [
+        24,
+        24
+      ],
+      "mode": "RGBA",
+      "alpha_values": [
+        0,
+        255
+      ],
+      "opaque_bbox": [
+        2,
+        2,
+        22,
+        22
+      ],
+      "frozen_master": null,
+      "frozen_master_sha256": null,
+      "status": "CANDIDATE \u2014 NOT APPROVED/FROZEN"
+    },
+    {
+      "id": "hatch",
+      "kind": "phone_app_icon",
+      "path": "native/ui/apps/app_hatch_24x24.png",
+      "sha256": "0e5163e467e9dd361a338696714c5560eb6ac83171b2ac8dc0fc5a2738aac5bf",
+      "dimensions": [
+        24,
+        24
+      ],
+      "mode": "RGBA",
+      "alpha_values": [
+        0,
+        255
+      ],
+      "opaque_bbox": [
+        2,
+        2,
+        21,
+        22
+      ],
+      "frozen_master": null,
+      "frozen_master_sha256": null,
+      "status": "CANDIDATE \u2014 NOT APPROVED/FROZEN"
+    },
+    {
+      "id": "touge",
+      "kind": "phone_app_icon",
+      "path": "native/ui/apps/app_touge_24x24.png",
+      "sha256": "744296323a21e41d6bd4c5b32b251a6c047498a74cbbdfbaab21c95f9666f773",
+      "dimensions": [
+        24,
+        24
+      ],
+      "mode": "RGBA",
+      "alpha_values": [
+        0,
+        255
+      ],
+      "opaque_bbox": [
+        2,
+        2,
+        22,
+        22
+      ],
+      "frozen_master": null,
+      "frozen_master_sha256": null,
+      "status": "CANDIDATE \u2014 NOT APPROVED/FROZEN"
+    },
+    {
+      "id": "bars",
+      "kind": "phone_app_icon",
+      "path": "native/ui/apps/app_bars_24x24.png",
+      "sha256": "63f715bfe59e1d96f5c52c75fe36776e20ed49ecb21f24e7fdcb7f43633b61a8",
+      "dimensions": [
+        24,
+        24
+      ],
+      "mode": "RGBA",
+      "alpha_values": [
+        0,
+        255
+      ],
+      "opaque_bbox": [
+        5,
+        2,
+        19,
+        22
+      ],
+      "frozen_master": null,
+      "frozen_master_sha256": null,
+      "status": "CANDIDATE \u2014 NOT APPROVED/FROZEN"
+    },
+    {
+      "id": "rich_radio",
+      "kind": "phone_app_icon",
+      "path": "native/ui/apps/app_rich_radio_24x24.png",
+      "sha256": "ef05b51f6403d31a97183f60b56401c2d0c793dd0241a38f168923cb0b804fde",
+      "dimensions": [
+        24,
+        24
+      ],
+      "mode": "RGBA",
+      "alpha_values": [
+        0,
+        255
+      ],
+      "opaque_bbox": [
+        2,
+        3,
+        22,
+        21
+      ],
+      "frozen_master": null,
+      "frozen_master_sha256": null,
+      "status": "CANDIDATE \u2014 NOT APPROVED/FROZEN"
+    },
+    {
+      "id": "receipts",
+      "kind": "phone_app_icon",
+      "path": "native/ui/apps/app_receipts_24x24.png",
+      "sha256": "ab67d2f2106723b88b684545b552bf2d01a90ace6bdda12deb06a2f26d44b2ac",
+      "dimensions": [
+        24,
+        24
+      ],
+      "mode": "RGBA",
+      "alpha_values": [
+        0,
+        255
+      ],
+      "opaque_bbox": [
+        4,
+        2,
+        20,
+        22
+      ],
+      "frozen_master": null,
+      "frozen_master_sha256": null,
+      "status": "CANDIDATE \u2014 NOT APPROVED/FROZEN"
+    },
+    {
+      "id": "vampgpt",
+      "kind": "phone_app_icon",
+      "path": "native/ui/apps/app_vampgpt_24x24.png",
+      "sha256": "3718d06745df8f48f8c9d83560407063aa597290ead10257f8b71753f5ac8bfa",
+      "dimensions": [
+        24,
+        24
+      ],
+      "mode": "RGBA",
+      "alpha_values": [
+        0,
+        255
+      ],
+      "opaque_bbox": [
+        2,
+        4,
+        19,
+        20
+      ],
+      "frozen_master": null,
+      "frozen_master_sha256": null,
+      "status": "CANDIDATE \u2014 NOT APPROVED/FROZEN"
+    },
+    {
+      "id": "jdmimports",
+      "kind": "phone_app_icon",
+      "path": "native/ui/apps/app_jdmimports_24x24.png",
+      "sha256": "c9f3dae27413e9f75f80799446e77c17424cfc2e0c75b105476a15eb276aff2a",
+      "dimensions": [
+        24,
+        24
+      ],
+      "mode": "RGBA",
+      "alpha_values": [
+        0,
+        255
+      ],
+      "opaque_bbox": [
+        2,
+        2,
+        21,
+        22
+      ],
+      "frozen_master": null,
+      "frozen_master_sha256": null,
+      "status": "CANDIDATE \u2014 NOT APPROVED/FROZEN"
+    },
+    {
+      "id": "pickup",
+      "kind": "phone_app_icon",
+      "path": "native/ui/apps/app_pickup_24x24.png",
+      "sha256": "973155ae27920a02773a7ad0cc4a280b35d3a9243e062e0f19a12901e66b427a",
+      "dimensions": [
+        24,
+        24
+      ],
+      "mode": "RGBA",
+      "alpha_values": [
+        0,
+        255
+      ],
+      "opaque_bbox": [
+        3,
+        2,
+        20,
+        22
+      ],
+      "frozen_master": null,
+      "frozen_master_sha256": null,
+      "status": "CANDIDATE \u2014 NOT APPROVED/FROZEN"
+    }
+  ],
+  "state_sheets": [
+    "state_sheets/characters/bonesworth_sir_bonesworth_hungover_80x96_art_ship_006_state_sheet_320x96.png",
+    "state_sheets/characters/bruce_bruce_loose_neutral_80x96_art_ship_006_state_sheet_160x96.png",
+    "state_sheets/characters/deacon_brass_deacon_brass_neutral_80x96_art_ship_006_state_sheet_80x96.png",
+    "state_sheets/characters/dre_dre_neutral_80x96_art_ship_006_state_sheet_80x96.png",
+    "state_sheets/characters/hilt_hilt_neutral_80x96_art_ship_006_state_sheet_160x96.png",
+    "state_sheets/characters/iron_jaw_iron_jaw_neutral_80x96_art_ship_006_state_sheet_160x96.png",
+    "state_sheets/characters/kevin_kagebunshin_kevin_neutral_80x96_art_ship_006_state_sheet_160x96.png",
+    "state_sheets/characters/phil_power_level_phil_charging_day1_80x96_art_ship_006_state_sheet_160x96.png",
+    "state_sheets/characters/tunde_tunde_neutral_80x96_art_ship_006_state_sheet_80x96.png",
+    "state_sheets/characters/uncle_sunday_uncle_sunday_neutral_80x96_art_ship_006_state_sheet_240x96.png",
+    "state_sheets/characters/rich_contextual_rich_curb_chilling_art_ship_006_state_sheet_160x96.png",
+    "state_sheets/characters/rich_contextual_rich_standing_right_art_ship_006_state_sheet_320x96.png",
+    "state_sheets/touge_vehicle_sheet_128x28.png",
+    "state_sheets/phone_app_icon_sheet_216x24.png"
+  ]
+}

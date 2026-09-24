@@ -1,0 +1,2172 @@
+{
+  "template_only": false,
+  "schema_version": 2,
+  "ship_id": "ART SHIP 006",
+  "title": "OPEN Derivative Production Push",
+  "wave": "OPEN Before the Fame derivative states, vehicles, condition environments and UI",
+  "status": "FROZEN",
+  "closure_status": "FROZEN / COMPLETE",
+  "authorization": "HQ accepted all five review categories and authorized the normal technical promotion/freeze process, exact-byte preservation, record updates and clean-worktree verification.",
+  "spoiler_classification": "OPEN Before the Fame only; no SEALED or HQ-only content accessed",
+  "recorded_date": "2026-09-24",
+  "source_authority": "origin/main 4d797b0be55a8990eaddbb6536d584936ed55799",
+  "source_package_archive_sha256": "ba702963f448e12aba056a9f387005c983a20db5c87e230181994f2943940a61",
+  "native_candidate_count": 46,
+  "canonical_handoff_sheet_count": 11,
+  "canonical_png_count": 57,
+  "source_scale_policy": {
+    "native_source_pixels_preserved": true,
+    "source_assets_pre_scaled_for_runtime": false,
+    "primary_gameplay_character_runtime_display_scale": 1.85,
+    "runtime_filter": "nearest-neighbor"
+  },
+  "hq_acceptance": {
+    "authority": "Explicit user-supplied HQ visual pass",
+    "decision": "APPROVED MASTER / FROZEN promotion authorized",
+    "scope": "Character states, Rich contextual states, vehicles, phone/app icons and environment variants; environment variants remain the highest-risk review category.",
+    "record": "art_department/ships/art_ship_006/HQ_DECISION.md"
+  },
+  "category_counts": {
+    "CHARACTER_STATE": 20,
+    "ENVIRONMENT_STATE": 3,
+    "PHONE_APP_ICON": 9,
+    "RICH_CONTEXTUAL_STATE": 6,
+    "STATE_SHEET": 11,
+    "TOUGE_VEHICLE": 8
+  },
+  "files": [
+    {
+      "review_number": 1,
+      "asset_id": "bonesworth_telegraph",
+      "category": "CHARACTER_STATE",
+      "source_candidate_path": "native/characters/bonesworth/bonesworth_telegraph_80x96.png",
+      "path": "assets/before_the_fame/characters/bonesworth/bonesworth_telegraph_80x96.png",
+      "accepted_candidate_sha256": "726af2a7b70533aacd98038a3fe380a1146b0c9151ffb9872c508e4265626e6d",
+      "sha256": "726af2a7b70533aacd98038a3fe380a1146b0c9151ffb9872c508e4265626e6d",
+      "role": "approved production alternate character state; ART SHIP 006 id bonesworth_telegraph",
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "opaque_bbox": [
+        21,
+        26,
+        59,
+        88
+      ],
+      "rgb_colors": 18,
+      "source_anchor": [
+        40,
+        88
+      ],
+      "presentation_scale": 1.85,
+      "state_order": null,
+      "provenance": "Exact byte copy of the HQ review-accepted ART SHIP 006 candidate package; no decode/re-encode or pixel transformation during promotion.",
+      "approval_status": "APPROVED MASTER",
+      "freeze_status": "FROZEN",
+      "default_style_reference": true,
+      "freeze_scope": "Exact 80x96 native pixels for accepted state bonesworth_telegraph, binary alpha and source contact (40,88) only; no additional interpolation, animation frames, runtime integration or proportional reinterpretation.",
+      "derived_from_frozen_master": "assets/before_the_fame/characters/bonesworth/sir_bonesworth_hungover_80x96.png",
+      "derived_from_frozen_master_sha256": "42b1acd8247bf855f73cce165246c2b4079ae1f2070f137800ffe89997f7cafe"
+    },
+    {
+      "review_number": 2,
+      "asset_id": "bonesworth_strike",
+      "category": "CHARACTER_STATE",
+      "source_candidate_path": "native/characters/bonesworth/bonesworth_strike_80x96.png",
+      "path": "assets/before_the_fame/characters/bonesworth/bonesworth_strike_80x96.png",
+      "accepted_candidate_sha256": "4c4327cbebbeaa7592e1e70114b04670af553dd1e2eab4173d6fb7f567e908d6",
+      "sha256": "4c4327cbebbeaa7592e1e70114b04670af553dd1e2eab4173d6fb7f567e908d6",
+      "role": "approved production alternate character state; ART SHIP 006 id bonesworth_strike",
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "opaque_bbox": [
+        13,
+        43,
+        68,
+        88
+      ],
+      "rgb_colors": 18,
+      "source_anchor": [
+        40,
+        88
+      ],
+      "presentation_scale": 1.85,
+      "state_order": null,
+      "provenance": "Exact byte copy of the HQ review-accepted ART SHIP 006 candidate package; no decode/re-encode or pixel transformation during promotion.",
+      "approval_status": "APPROVED MASTER",
+      "freeze_status": "FROZEN",
+      "default_style_reference": true,
+      "freeze_scope": "Exact 80x96 native pixels for accepted state bonesworth_strike, binary alpha and source contact (40,88) only; no additional interpolation, animation frames, runtime integration or proportional reinterpretation.",
+      "derived_from_frozen_master": "assets/before_the_fame/characters/bonesworth/sir_bonesworth_hungover_80x96.png",
+      "derived_from_frozen_master_sha256": "42b1acd8247bf855f73cce165246c2b4079ae1f2070f137800ffe89997f7cafe"
+    },
+    {
+      "review_number": 3,
+      "asset_id": "bonesworth_hit",
+      "category": "CHARACTER_STATE",
+      "source_candidate_path": "native/characters/bonesworth/bonesworth_hit_80x96.png",
+      "path": "assets/before_the_fame/characters/bonesworth/bonesworth_hit_80x96.png",
+      "accepted_candidate_sha256": "32a2be64e45d60fb9480ca229a23275ff70e2a4c13de1379af26fdfa1f5d587c",
+      "sha256": "32a2be64e45d60fb9480ca229a23275ff70e2a4c13de1379af26fdfa1f5d587c",
+      "role": "approved production alternate character state; ART SHIP 006 id bonesworth_hit",
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "opaque_bbox": [
+        12,
+        44,
+        69,
+        88
+      ],
+      "rgb_colors": 18,
+      "source_anchor": [
+        40,
+        88
+      ],
+      "presentation_scale": 1.85,
+      "state_order": null,
+      "provenance": "Exact byte copy of the HQ review-accepted ART SHIP 006 candidate package; no decode/re-encode or pixel transformation during promotion.",
+      "approval_status": "APPROVED MASTER",
+      "freeze_status": "FROZEN",
+      "default_style_reference": true,
+      "freeze_scope": "Exact 80x96 native pixels for accepted state bonesworth_hit, binary alpha and source contact (40,88) only; no additional interpolation, animation frames, runtime integration or proportional reinterpretation.",
+      "derived_from_frozen_master": "assets/before_the_fame/characters/bonesworth/sir_bonesworth_hungover_80x96.png",
+      "derived_from_frozen_master_sha256": "42b1acd8247bf855f73cce165246c2b4079ae1f2070f137800ffe89997f7cafe"
+    },
+    {
+      "review_number": 4,
+      "asset_id": "bonesworth_defeated",
+      "category": "CHARACTER_STATE",
+      "source_candidate_path": "native/characters/bonesworth/bonesworth_defeated_80x96.png",
+      "path": "assets/before_the_fame/characters/bonesworth/bonesworth_defeated_80x96.png",
+      "accepted_candidate_sha256": "38ce0b4f5a6eb0008207bb7643adaa58a0eb3e4fb365c112843a42f09047f862",
+      "sha256": "38ce0b4f5a6eb0008207bb7643adaa58a0eb3e4fb365c112843a42f09047f862",
+      "role": "approved production alternate character state; ART SHIP 006 id bonesworth_defeated",
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "opaque_bbox": [
+        14,
+        64,
+        67,
+        88
+      ],
+      "rgb_colors": 18,
+      "source_anchor": [
+        40,
+        88
+      ],
+      "presentation_scale": 1.85,
+      "state_order": null,
+      "provenance": "Exact byte copy of the HQ review-accepted ART SHIP 006 candidate package; no decode/re-encode or pixel transformation during promotion.",
+      "approval_status": "APPROVED MASTER",
+      "freeze_status": "FROZEN",
+      "default_style_reference": true,
+      "freeze_scope": "Exact 80x96 native pixels for accepted state bonesworth_defeated, binary alpha and source contact (40,88) only; no additional interpolation, animation frames, runtime integration or proportional reinterpretation.",
+      "derived_from_frozen_master": "assets/before_the_fame/characters/bonesworth/sir_bonesworth_hungover_80x96.png",
+      "derived_from_frozen_master_sha256": "42b1acd8247bf855f73cce165246c2b4079ae1f2070f137800ffe89997f7cafe"
+    },
+    {
+      "review_number": 5,
+      "asset_id": "bruce_strike",
+      "category": "CHARACTER_STATE",
+      "source_candidate_path": "native/characters/bruce/bruce_strike_80x96.png",
+      "path": "assets/before_the_fame/characters/bruce_loose/bruce_strike_80x96.png",
+      "accepted_candidate_sha256": "ae869b1cff22a81cbf43d0500488ca969b4f6ee1d158949852cc66cc08fb8ef9",
+      "sha256": "ae869b1cff22a81cbf43d0500488ca969b4f6ee1d158949852cc66cc08fb8ef9",
+      "role": "approved production alternate character state; ART SHIP 006 id bruce_strike",
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "opaque_bbox": [
+        16,
+        28,
+        64,
+        88
+      ],
+      "rgb_colors": 18,
+      "source_anchor": [
+        40,
+        88
+      ],
+      "presentation_scale": 1.85,
+      "state_order": null,
+      "provenance": "Exact byte copy of the HQ review-accepted ART SHIP 006 candidate package; no decode/re-encode or pixel transformation during promotion.",
+      "approval_status": "APPROVED MASTER",
+      "freeze_status": "FROZEN",
+      "default_style_reference": true,
+      "freeze_scope": "Exact 80x96 native pixels for accepted state bruce_strike, binary alpha and source contact (40,88) only; no additional interpolation, animation frames, runtime integration or proportional reinterpretation.",
+      "derived_from_frozen_master": "assets/before_the_fame/characters/bruce_loose/bruce_loose_neutral_80x96.png",
+      "derived_from_frozen_master_sha256": "f3f21e5b8919f46b84a918a32abdd77e07a632dc5fcdcc6c12db9e310f278d46"
+    },
+    {
+      "review_number": 6,
+      "asset_id": "bruce_bow",
+      "category": "CHARACTER_STATE",
+      "source_candidate_path": "native/characters/bruce/bruce_bow_80x96.png",
+      "path": "assets/before_the_fame/characters/bruce_loose/bruce_bow_80x96.png",
+      "accepted_candidate_sha256": "7db0b9ccbd9d6e206bdf22400921750ebe7427f0e09187e765f6cc5e75ace4d9",
+      "sha256": "7db0b9ccbd9d6e206bdf22400921750ebe7427f0e09187e765f6cc5e75ace4d9",
+      "role": "approved production alternate character state; ART SHIP 006 id bruce_bow",
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "opaque_bbox": [
+        29,
+        31,
+        51,
+        88
+      ],
+      "rgb_colors": 18,
+      "source_anchor": [
+        40,
+        88
+      ],
+      "presentation_scale": 1.85,
+      "state_order": null,
+      "provenance": "Exact byte copy of the HQ review-accepted ART SHIP 006 candidate package; no decode/re-encode or pixel transformation during promotion.",
+      "approval_status": "APPROVED MASTER",
+      "freeze_status": "FROZEN",
+      "default_style_reference": true,
+      "freeze_scope": "Exact 80x96 native pixels for accepted state bruce_bow, binary alpha and source contact (40,88) only; no additional interpolation, animation frames, runtime integration or proportional reinterpretation.",
+      "derived_from_frozen_master": "assets/before_the_fame/characters/bruce_loose/bruce_loose_neutral_80x96.png",
+      "derived_from_frozen_master_sha256": "f3f21e5b8919f46b84a918a32abdd77e07a632dc5fcdcc6c12db9e310f278d46"
+    },
+    {
+      "review_number": 7,
+      "asset_id": "kevin_attack",
+      "category": "CHARACTER_STATE",
+      "source_candidate_path": "native/characters/kevin/kevin_attack_80x96.png",
+      "path": "assets/before_the_fame/characters/kevin/kevin_attack_80x96.png",
+      "accepted_candidate_sha256": "1492b2bba948b19b37f82422984e8cff36bd74310568134e8d7b90515c4705cc",
+      "sha256": "1492b2bba948b19b37f82422984e8cff36bd74310568134e8d7b90515c4705cc",
+      "role": "approved production alternate character state; ART SHIP 006 id kevin_attack",
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "opaque_bbox": [
+        9,
+        30,
+        72,
+        88
+      ],
+      "rgb_colors": 17,
+      "source_anchor": [
+        40,
+        88
+      ],
+      "presentation_scale": 1.85,
+      "state_order": null,
+      "provenance": "Exact byte copy of the HQ review-accepted ART SHIP 006 candidate package; no decode/re-encode or pixel transformation during promotion.",
+      "approval_status": "APPROVED MASTER",
+      "freeze_status": "FROZEN",
+      "default_style_reference": true,
+      "freeze_scope": "Exact 80x96 native pixels for accepted state kevin_attack, binary alpha and source contact (40,88) only; no additional interpolation, animation frames, runtime integration or proportional reinterpretation.",
+      "derived_from_frozen_master": "assets/before_the_fame/characters/kevin/kagebunshin_kevin_neutral_80x96.png",
+      "derived_from_frozen_master_sha256": "a009d371273a5d6d617eb05bb6582f8007fdfaab46b0c5775725c0ba3a5288c2"
+    },
+    {
+      "review_number": 8,
+      "asset_id": "kevin_poof",
+      "category": "CHARACTER_STATE",
+      "source_candidate_path": "native/characters/kevin/kevin_poof_80x96.png",
+      "path": "assets/before_the_fame/characters/kevin/kevin_poof_80x96.png",
+      "accepted_candidate_sha256": "04507581e14ce5fae8e91b53fa6be2900006173bc02154c294fe4da1736880a5",
+      "sha256": "04507581e14ce5fae8e91b53fa6be2900006173bc02154c294fe4da1736880a5",
+      "role": "approved production alternate character state; ART SHIP 006 id kevin_poof",
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "opaque_bbox": [
+        6,
+        31,
+        75,
+        88
+      ],
+      "rgb_colors": 18,
+      "source_anchor": [
+        40,
+        88
+      ],
+      "presentation_scale": 1.85,
+      "state_order": null,
+      "provenance": "Exact byte copy of the HQ review-accepted ART SHIP 006 candidate package; no decode/re-encode or pixel transformation during promotion.",
+      "approval_status": "APPROVED MASTER",
+      "freeze_status": "FROZEN",
+      "default_style_reference": true,
+      "freeze_scope": "Exact 80x96 native pixels for accepted state kevin_poof, binary alpha and source contact (40,88) only; no additional interpolation, animation frames, runtime integration or proportional reinterpretation.",
+      "derived_from_frozen_master": "assets/before_the_fame/characters/kevin/kagebunshin_kevin_neutral_80x96.png",
+      "derived_from_frozen_master_sha256": "a009d371273a5d6d617eb05bb6582f8007fdfaab46b0c5775725c0ba3a5288c2"
+    },
+    {
+      "review_number": 9,
+      "asset_id": "phil_charging_day3",
+      "category": "CHARACTER_STATE",
+      "source_candidate_path": "native/characters/phil/phil_charging_day3_80x96.png",
+      "path": "assets/before_the_fame/characters/phil/phil_charging_day3_80x96.png",
+      "accepted_candidate_sha256": "1609de089d3d893927752c98d6f9af6033dac77d1213a2ab518e4717ffb85af5",
+      "sha256": "1609de089d3d893927752c98d6f9af6033dac77d1213a2ab518e4717ffb85af5",
+      "role": "approved production alternate character state; ART SHIP 006 id phil_charging_day3",
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "opaque_bbox": [
+        15,
+        8,
+        65,
+        88
+      ],
+      "rgb_colors": 1071,
+      "source_anchor": [
+        40,
+        88
+      ],
+      "presentation_scale": 1.85,
+      "state_order": null,
+      "provenance": "Exact byte copy of the HQ review-accepted ART SHIP 006 candidate package; no decode/re-encode or pixel transformation during promotion.",
+      "approval_status": "APPROVED MASTER",
+      "freeze_status": "FROZEN",
+      "default_style_reference": true,
+      "freeze_scope": "Exact 80x96 native pixels for accepted state phil_charging_day3, binary alpha and source contact (40,88) only; no additional interpolation, animation frames, runtime integration or proportional reinterpretation.",
+      "derived_from_frozen_master": "assets/before_the_fame/characters/phil/power_level_phil_charging_day1_80x96.png",
+      "derived_from_frozen_master_sha256": "fdbbe7b0665dc1ff63e33b7774a2976963a8c9ef5e4b408fc86d581bae2cfa8e"
+    },
+    {
+      "review_number": 10,
+      "asset_id": "phil_sitting_plate",
+      "category": "CHARACTER_STATE",
+      "source_candidate_path": "native/characters/phil/phil_sitting_plate_80x96.png",
+      "path": "assets/before_the_fame/characters/phil/phil_sitting_plate_80x96.png",
+      "accepted_candidate_sha256": "58c1a059a421366f8de562f71f016472451a1f46aa3ebc2f150e4b0a69df0095",
+      "sha256": "58c1a059a421366f8de562f71f016472451a1f46aa3ebc2f150e4b0a69df0095",
+      "role": "approved production alternate character state; ART SHIP 006 id phil_sitting_plate",
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "opaque_bbox": [
+        20,
+        40,
+        60,
+        88
+      ],
+      "rgb_colors": 678,
+      "source_anchor": [
+        40,
+        88
+      ],
+      "presentation_scale": 1.85,
+      "state_order": null,
+      "provenance": "Exact byte copy of the HQ review-accepted ART SHIP 006 candidate package; no decode/re-encode or pixel transformation during promotion.",
+      "approval_status": "APPROVED MASTER",
+      "freeze_status": "FROZEN",
+      "default_style_reference": true,
+      "freeze_scope": "Exact 80x96 native pixels for accepted state phil_sitting_plate, binary alpha and source contact (40,88) only; no additional interpolation, animation frames, runtime integration or proportional reinterpretation.",
+      "derived_from_frozen_master": "assets/before_the_fame/characters/phil/power_level_phil_charging_day1_80x96.png",
+      "derived_from_frozen_master_sha256": "fdbbe7b0665dc1ff63e33b7774a2976963a8c9ef5e4b408fc86d581bae2cfa8e"
+    },
+    {
+      "review_number": 11,
+      "asset_id": "iron_jaw_rapping",
+      "category": "CHARACTER_STATE",
+      "source_candidate_path": "native/characters/iron_jaw/iron_jaw_rapping_80x96.png",
+      "path": "assets/before_the_fame/characters/iron_jaw/iron_jaw_rapping_80x96.png",
+      "accepted_candidate_sha256": "9dd750ae491c6bd51a499004172626b2676f9f2afdf0c0f72571e1ed1d314ebf",
+      "sha256": "9dd750ae491c6bd51a499004172626b2676f9f2afdf0c0f72571e1ed1d314ebf",
+      "role": "approved production alternate character state; ART SHIP 006 id iron_jaw_rapping",
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "opaque_bbox": [
+        23,
+        30,
+        58,
+        88
+      ],
+      "rgb_colors": 17,
+      "source_anchor": [
+        40,
+        88
+      ],
+      "presentation_scale": 1.85,
+      "state_order": null,
+      "provenance": "Exact byte copy of the HQ review-accepted ART SHIP 006 candidate package; no decode/re-encode or pixel transformation during promotion.",
+      "approval_status": "APPROVED MASTER",
+      "freeze_status": "FROZEN",
+      "default_style_reference": true,
+      "freeze_scope": "Exact 80x96 native pixels for accepted state iron_jaw_rapping, binary alpha and source contact (40,88) only; no additional interpolation, animation frames, runtime integration or proportional reinterpretation.",
+      "derived_from_frozen_master": "assets/before_the_fame/characters/iron_jaw/iron_jaw_neutral_80x96.png",
+      "derived_from_frozen_master_sha256": "2b0ebc264fbb9a38f17e048897c1a203072f1bbafa76cf47da866b71bfb1bd61"
+    },
+    {
+      "review_number": 12,
+      "asset_id": "iron_jaw_defeated",
+      "category": "CHARACTER_STATE",
+      "source_candidate_path": "native/characters/iron_jaw/iron_jaw_defeated_80x96.png",
+      "path": "assets/before_the_fame/characters/iron_jaw/iron_jaw_defeated_80x96.png",
+      "accepted_candidate_sha256": "b28b634aee59de9cfa3fc3b25510fd8e0cbc9b0ea84796e2bc1b3adaaba6aab1",
+      "sha256": "b28b634aee59de9cfa3fc3b25510fd8e0cbc9b0ea84796e2bc1b3adaaba6aab1",
+      "role": "approved production alternate character state; ART SHIP 006 id iron_jaw_defeated",
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "opaque_bbox": [
+        24,
+        47,
+        57,
+        88
+      ],
+      "rgb_colors": 18,
+      "source_anchor": [
+        40,
+        88
+      ],
+      "presentation_scale": 1.85,
+      "state_order": null,
+      "provenance": "Exact byte copy of the HQ review-accepted ART SHIP 006 candidate package; no decode/re-encode or pixel transformation during promotion.",
+      "approval_status": "APPROVED MASTER",
+      "freeze_status": "FROZEN",
+      "default_style_reference": true,
+      "freeze_scope": "Exact 80x96 native pixels for accepted state iron_jaw_defeated, binary alpha and source contact (40,88) only; no additional interpolation, animation frames, runtime integration or proportional reinterpretation.",
+      "derived_from_frozen_master": "assets/before_the_fame/characters/iron_jaw/iron_jaw_neutral_80x96.png",
+      "derived_from_frozen_master_sha256": "2b0ebc264fbb9a38f17e048897c1a203072f1bbafa76cf47da866b71bfb1bd61"
+    },
+    {
+      "review_number": 13,
+      "asset_id": "hilt_strike",
+      "category": "CHARACTER_STATE",
+      "source_candidate_path": "native/characters/hilt/hilt_strike_80x96.png",
+      "path": "assets/before_the_fame/characters/hilt/hilt_strike_80x96.png",
+      "accepted_candidate_sha256": "4fe312f8a0e96e63f8463825d5d4e7cbc0f24bf6b7af2df27c6169bb5aefc6c7",
+      "sha256": "4fe312f8a0e96e63f8463825d5d4e7cbc0f24bf6b7af2df27c6169bb5aefc6c7",
+      "role": "approved production alternate character state; ART SHIP 006 id hilt_strike",
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "opaque_bbox": [
+        18,
+        25,
+        63,
+        88
+      ],
+      "rgb_colors": 18,
+      "source_anchor": [
+        40,
+        88
+      ],
+      "presentation_scale": 1.85,
+      "state_order": null,
+      "provenance": "Exact byte copy of the HQ review-accepted ART SHIP 006 candidate package; no decode/re-encode or pixel transformation during promotion.",
+      "approval_status": "APPROVED MASTER",
+      "freeze_status": "FROZEN",
+      "default_style_reference": true,
+      "freeze_scope": "Exact 80x96 native pixels for accepted state hilt_strike, binary alpha and source contact (40,88) only; no additional interpolation, animation frames, runtime integration or proportional reinterpretation.",
+      "derived_from_frozen_master": "assets/before_the_fame/characters/hilt/hilt_neutral_80x96.png",
+      "derived_from_frozen_master_sha256": "e179293708207d5dbe7892dc71bd120ce270490c22141aaf6245d5bf4b46a4e9"
+    },
+    {
+      "review_number": 14,
+      "asset_id": "hilt_walk_away",
+      "category": "CHARACTER_STATE",
+      "source_candidate_path": "native/characters/hilt/hilt_walk_away_80x96.png",
+      "path": "assets/before_the_fame/characters/hilt/hilt_walk_away_80x96.png",
+      "accepted_candidate_sha256": "d3e6c0c838cf4cf39912c7b2b9b1c64ee1ae14567d7a425bd4efd78823793742",
+      "sha256": "d3e6c0c838cf4cf39912c7b2b9b1c64ee1ae14567d7a425bd4efd78823793742",
+      "role": "approved production alternate character state; ART SHIP 006 id hilt_walk_away",
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "opaque_bbox": [
+        32,
+        24,
+        63,
+        88
+      ],
+      "rgb_colors": 17,
+      "source_anchor": [
+        40,
+        88
+      ],
+      "presentation_scale": 1.85,
+      "state_order": null,
+      "provenance": "Exact byte copy of the HQ review-accepted ART SHIP 006 candidate package; no decode/re-encode or pixel transformation during promotion.",
+      "approval_status": "APPROVED MASTER",
+      "freeze_status": "FROZEN",
+      "default_style_reference": true,
+      "freeze_scope": "Exact 80x96 native pixels for accepted state hilt_walk_away, binary alpha and source contact (40,88) only; no additional interpolation, animation frames, runtime integration or proportional reinterpretation.",
+      "derived_from_frozen_master": "assets/before_the_fame/characters/hilt/hilt_neutral_80x96.png",
+      "derived_from_frozen_master_sha256": "e179293708207d5dbe7892dc71bd120ce270490c22141aaf6245d5bf4b46a4e9"
+    },
+    {
+      "review_number": 15,
+      "asset_id": "tunde_asleep_floor",
+      "category": "CHARACTER_STATE",
+      "source_candidate_path": "native/characters/tunde/tunde_asleep_floor_80x96.png",
+      "path": "assets/before_the_fame/characters/tunde/tunde_asleep_floor_80x96.png",
+      "accepted_candidate_sha256": "e20c98b4aa80c44f2025ce1fbbc46be611f5b415f61ca6783d698ce513a84d4f",
+      "sha256": "e20c98b4aa80c44f2025ce1fbbc46be611f5b415f61ca6783d698ce513a84d4f",
+      "role": "approved production alternate character state; ART SHIP 006 id tunde_asleep_floor",
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "opaque_bbox": [
+        3,
+        64,
+        77,
+        88
+      ],
+      "rgb_colors": 16,
+      "source_anchor": [
+        40,
+        88
+      ],
+      "presentation_scale": 1.85,
+      "state_order": null,
+      "provenance": "Exact byte copy of the HQ review-accepted ART SHIP 006 candidate package; no decode/re-encode or pixel transformation during promotion.",
+      "approval_status": "APPROVED MASTER",
+      "freeze_status": "FROZEN",
+      "default_style_reference": true,
+      "freeze_scope": "Exact 80x96 native pixels for accepted state tunde_asleep_floor, binary alpha and source contact (40,88) only; no additional interpolation, animation frames, runtime integration or proportional reinterpretation.",
+      "derived_from_frozen_master": "assets/before_the_fame/characters/tunde/tunde_neutral_80x96.png",
+      "derived_from_frozen_master_sha256": "12b9fa058d82caed91fc89b5fa6c3072875919239b107d79a477623e4de99ac9"
+    },
+    {
+      "review_number": 16,
+      "asset_id": "dre_asleep_floor",
+      "category": "CHARACTER_STATE",
+      "source_candidate_path": "native/characters/dre/dre_asleep_floor_80x96.png",
+      "path": "assets/before_the_fame/characters/dre/dre_asleep_floor_80x96.png",
+      "accepted_candidate_sha256": "680052c9ece74d9a94dbe7e39e0cfa75068dd69e031d8963cc00cbe30ca63d59",
+      "sha256": "680052c9ece74d9a94dbe7e39e0cfa75068dd69e031d8963cc00cbe30ca63d59",
+      "role": "approved production alternate character state; ART SHIP 006 id dre_asleep_floor",
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "opaque_bbox": [
+        3,
+        65,
+        77,
+        88
+      ],
+      "rgb_colors": 16,
+      "source_anchor": [
+        40,
+        88
+      ],
+      "presentation_scale": 1.85,
+      "state_order": null,
+      "provenance": "Exact byte copy of the HQ review-accepted ART SHIP 006 candidate package; no decode/re-encode or pixel transformation during promotion.",
+      "approval_status": "APPROVED MASTER",
+      "freeze_status": "FROZEN",
+      "default_style_reference": true,
+      "freeze_scope": "Exact 80x96 native pixels for accepted state dre_asleep_floor, binary alpha and source contact (40,88) only; no additional interpolation, animation frames, runtime integration or proportional reinterpretation.",
+      "derived_from_frozen_master": "assets/before_the_fame/characters/dre/dre_neutral_80x96.png",
+      "derived_from_frozen_master_sha256": "6945490fb4e31dd01afe594ee061a50d8ee354f92a073936c031e0b32f1e1875"
+    },
+    {
+      "review_number": 17,
+      "asset_id": "uncle_sunday_offended",
+      "category": "CHARACTER_STATE",
+      "source_candidate_path": "native/characters/uncle_sunday/uncle_sunday_offended_80x96.png",
+      "path": "assets/before_the_fame/characters/uncle_sunday/uncle_sunday_offended_80x96.png",
+      "accepted_candidate_sha256": "9d641470dd0e533600f9b6cda719142cca4d799c4e9ae82366af465df6c6bd43",
+      "sha256": "9d641470dd0e533600f9b6cda719142cca4d799c4e9ae82366af465df6c6bd43",
+      "role": "approved production alternate character state; ART SHIP 006 id uncle_sunday_offended",
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "opaque_bbox": [
+        23,
+        32,
+        57,
+        88
+      ],
+      "rgb_colors": 18,
+      "source_anchor": [
+        40,
+        88
+      ],
+      "presentation_scale": 1.85,
+      "state_order": null,
+      "provenance": "Exact byte copy of the HQ review-accepted ART SHIP 006 candidate package; no decode/re-encode or pixel transformation during promotion.",
+      "approval_status": "APPROVED MASTER",
+      "freeze_status": "FROZEN",
+      "default_style_reference": true,
+      "freeze_scope": "Exact 80x96 native pixels for accepted state uncle_sunday_offended, binary alpha and source contact (40,88) only; no additional interpolation, animation frames, runtime integration or proportional reinterpretation.",
+      "derived_from_frozen_master": "assets/before_the_fame/characters/uncle_sunday/uncle_sunday_neutral_80x96.png",
+      "derived_from_frozen_master_sha256": "79ee0ada6bbc4044180fefbd8371ee7ce16d2aa1eeaba998e83c471371ee4f63"
+    },
+    {
+      "review_number": 18,
+      "asset_id": "uncle_sunday_melted",
+      "category": "CHARACTER_STATE",
+      "source_candidate_path": "native/characters/uncle_sunday/uncle_sunday_melted_80x96.png",
+      "path": "assets/before_the_fame/characters/uncle_sunday/uncle_sunday_melted_80x96.png",
+      "accepted_candidate_sha256": "0e23acfa3ade6c1045906cabecaf423f4f581d11d0085b4cff6d56188e86d332",
+      "sha256": "0e23acfa3ade6c1045906cabecaf423f4f581d11d0085b4cff6d56188e86d332",
+      "role": "approved production alternate character state; ART SHIP 006 id uncle_sunday_melted",
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "opaque_bbox": [
+        13,
+        57,
+        68,
+        88
+      ],
+      "rgb_colors": 18,
+      "source_anchor": [
+        40,
+        88
+      ],
+      "presentation_scale": 1.85,
+      "state_order": null,
+      "provenance": "Exact byte copy of the HQ review-accepted ART SHIP 006 candidate package; no decode/re-encode or pixel transformation during promotion.",
+      "approval_status": "APPROVED MASTER",
+      "freeze_status": "FROZEN",
+      "default_style_reference": true,
+      "freeze_scope": "Exact 80x96 native pixels for accepted state uncle_sunday_melted, binary alpha and source contact (40,88) only; no additional interpolation, animation frames, runtime integration or proportional reinterpretation.",
+      "derived_from_frozen_master": "assets/before_the_fame/characters/uncle_sunday/uncle_sunday_neutral_80x96.png",
+      "derived_from_frozen_master_sha256": "79ee0ada6bbc4044180fefbd8371ee7ce16d2aa1eeaba998e83c471371ee4f63"
+    },
+    {
+      "review_number": 19,
+      "asset_id": "uncle_sunday_fishing",
+      "category": "CHARACTER_STATE",
+      "source_candidate_path": "native/characters/uncle_sunday/uncle_sunday_fishing_80x96.png",
+      "path": "assets/before_the_fame/characters/uncle_sunday/uncle_sunday_fishing_80x96.png",
+      "accepted_candidate_sha256": "9e61dc82c076bf88f9d7080ed192351dc14ff2bd7341d05b3cc3d538979ab060",
+      "sha256": "9e61dc82c076bf88f9d7080ed192351dc14ff2bd7341d05b3cc3d538979ab060",
+      "role": "approved production alternate character state; ART SHIP 006 id uncle_sunday_fishing",
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "opaque_bbox": [
+        12,
+        28,
+        68,
+        88
+      ],
+      "rgb_colors": 18,
+      "source_anchor": [
+        40,
+        88
+      ],
+      "presentation_scale": 1.85,
+      "state_order": null,
+      "provenance": "Exact byte copy of the HQ review-accepted ART SHIP 006 candidate package; no decode/re-encode or pixel transformation during promotion.",
+      "approval_status": "APPROVED MASTER",
+      "freeze_status": "FROZEN",
+      "default_style_reference": true,
+      "freeze_scope": "Exact 80x96 native pixels for accepted state uncle_sunday_fishing, binary alpha and source contact (40,88) only; no additional interpolation, animation frames, runtime integration or proportional reinterpretation.",
+      "derived_from_frozen_master": "assets/before_the_fame/characters/uncle_sunday/uncle_sunday_neutral_80x96.png",
+      "derived_from_frozen_master_sha256": "79ee0ada6bbc4044180fefbd8371ee7ce16d2aa1eeaba998e83c471371ee4f63"
+    },
+    {
+      "review_number": 20,
+      "asset_id": "deacon_brass_blessing",
+      "category": "CHARACTER_STATE",
+      "source_candidate_path": "native/characters/deacon_brass/deacon_brass_blessing_80x96.png",
+      "path": "assets/before_the_fame/characters/deacon_brass/deacon_brass_blessing_80x96.png",
+      "accepted_candidate_sha256": "270ab35b2df0229d72c2af91be5b6b393ac0c8a2051559c3c8637f81532d5364",
+      "sha256": "270ab35b2df0229d72c2af91be5b6b393ac0c8a2051559c3c8637f81532d5364",
+      "role": "approved production alternate character state; ART SHIP 006 id deacon_brass_blessing",
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "opaque_bbox": [
+        26,
+        28,
+        55,
+        88
+      ],
+      "rgb_colors": 17,
+      "source_anchor": [
+        40,
+        88
+      ],
+      "presentation_scale": 1.85,
+      "state_order": null,
+      "provenance": "Exact byte copy of the HQ review-accepted ART SHIP 006 candidate package; no decode/re-encode or pixel transformation during promotion.",
+      "approval_status": "APPROVED MASTER",
+      "freeze_status": "FROZEN",
+      "default_style_reference": true,
+      "freeze_scope": "Exact 80x96 native pixels for accepted state deacon_brass_blessing, binary alpha and source contact (40,88) only; no additional interpolation, animation frames, runtime integration or proportional reinterpretation.",
+      "derived_from_frozen_master": "assets/before_the_fame/characters/deacon_brass/deacon_brass_neutral_80x96.png",
+      "derived_from_frozen_master_sha256": "746fae3011c67286822941ba67505bb063b8c695169a2baf23e4eb84783bfdce"
+    },
+    {
+      "review_number": 21,
+      "asset_id": "rich_fishing_cast",
+      "category": "RICH_CONTEXTUAL_STATE",
+      "source_candidate_path": "native/characters/rich/rich_fishing_cast_80x96.png",
+      "path": "assets/before_the_fame/characters/rich/rich_fishing_cast_80x96.png",
+      "accepted_candidate_sha256": "5a28fd47156b93f9282033eb84db2c6fab7ff362d6390e03ba452e3145c1fc65",
+      "sha256": "5a28fd47156b93f9282033eb84db2c6fab7ff362d6390e03ba452e3145c1fc65",
+      "role": "approved Rich contextual state; ART SHIP 006 id rich_fishing_cast",
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "opaque_bbox": [
+        14,
+        37,
+        66,
+        88
+      ],
+      "rgb_colors": 86,
+      "source_anchor": [
+        40,
+        88
+      ],
+      "presentation_scale": 1.85,
+      "state_order": null,
+      "provenance": "Exact byte copy of the HQ review-accepted ART SHIP 006 candidate package; no decode/re-encode or pixel transformation during promotion.",
+      "approval_status": "APPROVED MASTER",
+      "freeze_status": "FROZEN",
+      "default_style_reference": true,
+      "freeze_scope": "Exact 80x96 native pixels for accepted state rich_fishing_cast, binary alpha and source contact (40,88) only; no additional interpolation, animation frames, runtime integration or proportional reinterpretation.",
+      "derived_from_frozen_master": "assets/rich_standing_right.png",
+      "derived_from_frozen_master_sha256": "765170076e8d3a9af9e8857e176e079b2a68c7ee1daafb7c8d551482228f144b"
+    },
+    {
+      "review_number": 22,
+      "asset_id": "rich_holding_fish_away",
+      "category": "RICH_CONTEXTUAL_STATE",
+      "source_candidate_path": "native/characters/rich/rich_holding_fish_away_80x96.png",
+      "path": "assets/before_the_fame/characters/rich/rich_holding_fish_away_80x96.png",
+      "accepted_candidate_sha256": "960a9a4bdbaee810640dccf91026f22e95a43ecf5c95ff54762a87aa2b86b4e6",
+      "sha256": "960a9a4bdbaee810640dccf91026f22e95a43ecf5c95ff54762a87aa2b86b4e6",
+      "role": "approved Rich contextual state; ART SHIP 006 id rich_holding_fish_away",
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "opaque_bbox": [
+        9,
+        39,
+        71,
+        88
+      ],
+      "rgb_colors": 93,
+      "source_anchor": [
+        40,
+        88
+      ],
+      "presentation_scale": 1.85,
+      "state_order": null,
+      "provenance": "Exact byte copy of the HQ review-accepted ART SHIP 006 candidate package; no decode/re-encode or pixel transformation during promotion.",
+      "approval_status": "APPROVED MASTER",
+      "freeze_status": "FROZEN",
+      "default_style_reference": true,
+      "freeze_scope": "Exact 80x96 native pixels for accepted state rich_holding_fish_away, binary alpha and source contact (40,88) only; no additional interpolation, animation frames, runtime integration or proportional reinterpretation.",
+      "derived_from_frozen_master": "assets/rich_standing_right.png",
+      "derived_from_frozen_master_sha256": "765170076e8d3a9af9e8857e176e079b2a68c7ee1daafb7c8d551482228f144b"
+    },
+    {
+      "review_number": 23,
+      "asset_id": "rich_ramen_apron",
+      "category": "RICH_CONTEXTUAL_STATE",
+      "source_candidate_path": "native/characters/rich/rich_ramen_apron_80x96.png",
+      "path": "assets/before_the_fame/characters/rich/rich_ramen_apron_80x96.png",
+      "accepted_candidate_sha256": "85881baef03dc2919c5f88b95db57dd9809d7e815ac4bc1878a61cae8fde05ac",
+      "sha256": "85881baef03dc2919c5f88b95db57dd9809d7e815ac4bc1878a61cae8fde05ac",
+      "role": "approved Rich contextual state; ART SHIP 006 id rich_ramen_apron",
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "opaque_bbox": [
+        13,
+        36,
+        68,
+        88
+      ],
+      "rgb_colors": 125,
+      "source_anchor": [
+        40,
+        88
+      ],
+      "presentation_scale": 1.85,
+      "state_order": null,
+      "provenance": "Exact byte copy of the HQ review-accepted ART SHIP 006 candidate package; no decode/re-encode or pixel transformation during promotion.",
+      "approval_status": "APPROVED MASTER",
+      "freeze_status": "FROZEN",
+      "default_style_reference": true,
+      "freeze_scope": "Exact 80x96 native pixels for accepted state rich_ramen_apron, binary alpha and source contact (40,88) only; no additional interpolation, animation frames, runtime integration or proportional reinterpretation.",
+      "derived_from_frozen_master": "assets/rich_standing_right.png",
+      "derived_from_frozen_master_sha256": "765170076e8d3a9af9e8857e176e079b2a68c7ee1daafb7c8d551482228f144b"
+    },
+    {
+      "review_number": 24,
+      "asset_id": "rich_on_stage",
+      "category": "RICH_CONTEXTUAL_STATE",
+      "source_candidate_path": "native/characters/rich/rich_on_stage_80x96.png",
+      "path": "assets/before_the_fame/characters/rich/rich_on_stage_80x96.png",
+      "accepted_candidate_sha256": "c78240fa2c7952bc3a5c96189e2e99967e41fee6d05ca31b6a9ae9dce1917615",
+      "sha256": "c78240fa2c7952bc3a5c96189e2e99967e41fee6d05ca31b6a9ae9dce1917615",
+      "role": "approved Rich contextual state; ART SHIP 006 id rich_on_stage",
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "opaque_bbox": [
+        26,
+        36,
+        54,
+        88
+      ],
+      "rgb_colors": 86,
+      "source_anchor": [
+        40,
+        88
+      ],
+      "presentation_scale": 1.85,
+      "state_order": null,
+      "provenance": "Exact byte copy of the HQ review-accepted ART SHIP 006 candidate package; no decode/re-encode or pixel transformation during promotion.",
+      "approval_status": "APPROVED MASTER",
+      "freeze_status": "FROZEN",
+      "default_style_reference": true,
+      "freeze_scope": "Exact 80x96 native pixels for accepted state rich_on_stage, binary alpha and source contact (40,88) only; no additional interpolation, animation frames, runtime integration or proportional reinterpretation.",
+      "derived_from_frozen_master": "assets/rich_standing_right.png",
+      "derived_from_frozen_master_sha256": "765170076e8d3a9af9e8857e176e079b2a68c7ee1daafb7c8d551482228f144b"
+    },
+    {
+      "review_number": 25,
+      "asset_id": "rich_laptop_seated",
+      "category": "RICH_CONTEXTUAL_STATE",
+      "source_candidate_path": "native/characters/rich/rich_laptop_seated_80x96.png",
+      "path": "assets/before_the_fame/characters/rich/rich_laptop_seated_80x96.png",
+      "accepted_candidate_sha256": "a18ecf0d5c57d74f2be77a671faea5a6c01e7c6c60b00787d3f08c22499637b0",
+      "sha256": "a18ecf0d5c57d74f2be77a671faea5a6c01e7c6c60b00787d3f08c22499637b0",
+      "role": "approved Rich contextual state; ART SHIP 006 id rich_laptop_seated",
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "opaque_bbox": [
+        25,
+        40,
+        55,
+        88
+      ],
+      "rgb_colors": 109,
+      "source_anchor": [
+        40,
+        88
+      ],
+      "presentation_scale": 1.85,
+      "state_order": null,
+      "provenance": "Exact byte copy of the HQ review-accepted ART SHIP 006 candidate package; no decode/re-encode or pixel transformation during promotion.",
+      "approval_status": "APPROVED MASTER",
+      "freeze_status": "FROZEN",
+      "default_style_reference": true,
+      "freeze_scope": "Exact 80x96 native pixels for accepted state rich_laptop_seated, binary alpha and source contact (40,88) only; no additional interpolation, animation frames, runtime integration or proportional reinterpretation.",
+      "derived_from_frozen_master": "assets/rich_curb_chilling.png",
+      "derived_from_frozen_master_sha256": "fc42db9fb191c3201d1fe119c058d64a90a14ccdbbfefbc2897b9449c265c6d0"
+    },
+    {
+      "review_number": 26,
+      "asset_id": "rich_laptop_nod",
+      "category": "RICH_CONTEXTUAL_STATE",
+      "source_candidate_path": "native/characters/rich/rich_laptop_nod_80x96.png",
+      "path": "assets/before_the_fame/characters/rich/rich_laptop_nod_80x96.png",
+      "accepted_candidate_sha256": "601c3fb46a87a6a8843a7569ed978a46118ce94d7ff864a0dc7aeb5e0fb63379",
+      "sha256": "601c3fb46a87a6a8843a7569ed978a46118ce94d7ff864a0dc7aeb5e0fb63379",
+      "role": "approved Rich contextual state; ART SHIP 006 id rich_laptop_nod",
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "opaque_bbox": [
+        26,
+        43,
+        54,
+        88
+      ],
+      "rgb_colors": 113,
+      "source_anchor": [
+        40,
+        88
+      ],
+      "presentation_scale": 1.85,
+      "state_order": null,
+      "provenance": "Exact byte copy of the HQ review-accepted ART SHIP 006 candidate package; no decode/re-encode or pixel transformation during promotion.",
+      "approval_status": "APPROVED MASTER",
+      "freeze_status": "FROZEN",
+      "default_style_reference": true,
+      "freeze_scope": "Exact 80x96 native pixels for accepted state rich_laptop_nod, binary alpha and source contact (40,88) only; no additional interpolation, animation frames, runtime integration or proportional reinterpretation.",
+      "derived_from_frozen_master": "assets/rich_curb_chilling.png",
+      "derived_from_frozen_master_sha256": "fc42db9fb191c3201d1fe119c058d64a90a14ccdbbfefbc2897b9449c265c6d0"
+    },
+    {
+      "review_number": 27,
+      "asset_id": "supra",
+      "category": "TOUGE_VEHICLE",
+      "source_candidate_path": "native/vehicles/touge/supra_16x28.png",
+      "path": "assets/before_the_fame/vehicles/touge/supra_16x28.png",
+      "accepted_candidate_sha256": "6ea8a06099fdb2eb6a7fa7511c4fedf9e71e850f26c91ac515be52233adaf5de",
+      "sha256": "6ea8a06099fdb2eb6a7fa7511c4fedf9e71e850f26c91ac515be52233adaf5de",
+      "role": "approved top-down TOUGE vehicle sprite; ART SHIP 006 id supra",
+      "dimensions": [
+        16,
+        28
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "opaque_bbox": [
+        1,
+        1,
+        15,
+        27
+      ],
+      "rgb_colors": 10,
+      "source_anchor": [
+        8,
+        27
+      ],
+      "presentation_scale": null,
+      "state_order": null,
+      "provenance": "Exact byte copy of the HQ review-accepted ART SHIP 006 candidate package; no decode/re-encode or pixel transformation during promotion.",
+      "approval_status": "APPROVED MASTER",
+      "freeze_status": "FROZEN",
+      "default_style_reference": true,
+      "freeze_scope": "Exact 16x28 top-down TOUGE sprite pixels for supra, binary alpha and bottom-center source anchor only; no world/listing/damage state or runtime integration acceptance.",
+      "derived_from_frozen_master": "assets/jdm_imports/vehicles/supra_mk4_world.png",
+      "derived_from_frozen_master_sha256": "156445b526073b6906cae7330203f19d8edbf8a6574dfe6aea042db1c1575418"
+    },
+    {
+      "review_number": 28,
+      "asset_id": "s15_stock",
+      "category": "TOUGE_VEHICLE",
+      "source_candidate_path": "native/vehicles/touge/s15_stock_16x28.png",
+      "path": "assets/before_the_fame/vehicles/touge/s15_stock_16x28.png",
+      "accepted_candidate_sha256": "043cc33c95685d8767ccc8a472da10bd3fc8cd72e7587659b42941739d0bb670",
+      "sha256": "043cc33c95685d8767ccc8a472da10bd3fc8cd72e7587659b42941739d0bb670",
+      "role": "approved top-down TOUGE vehicle sprite; ART SHIP 006 id s15_stock",
+      "dimensions": [
+        16,
+        28
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "opaque_bbox": [
+        1,
+        7,
+        12,
+        27
+      ],
+      "rgb_colors": 11,
+      "source_anchor": [
+        8,
+        27
+      ],
+      "presentation_scale": null,
+      "state_order": null,
+      "provenance": "Exact byte copy of the HQ review-accepted ART SHIP 006 candidate package; no decode/re-encode or pixel transformation during promotion.",
+      "approval_status": "APPROVED MASTER",
+      "freeze_status": "FROZEN",
+      "default_style_reference": true,
+      "freeze_scope": "Exact 16x28 top-down TOUGE sprite pixels for s15_stock, binary alpha and bottom-center source anchor only; no world/listing/damage state or runtime integration acceptance."
+    },
+    {
+      "review_number": 29,
+      "asset_id": "s15_bodykit",
+      "category": "TOUGE_VEHICLE",
+      "source_candidate_path": "native/vehicles/touge/s15_bodykit_16x28.png",
+      "path": "assets/before_the_fame/vehicles/touge/s15_bodykit_16x28.png",
+      "accepted_candidate_sha256": "93e615e305c8ff8ae181185b0be6af3ac5d0ffb22883314f721c0a623bee623b",
+      "sha256": "93e615e305c8ff8ae181185b0be6af3ac5d0ffb22883314f721c0a623bee623b",
+      "role": "approved top-down TOUGE vehicle sprite; ART SHIP 006 id s15_bodykit",
+      "dimensions": [
+        16,
+        28
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "opaque_bbox": [
+        1,
+        6,
+        12,
+        27
+      ],
+      "rgb_colors": 11,
+      "source_anchor": [
+        8,
+        27
+      ],
+      "presentation_scale": null,
+      "state_order": null,
+      "provenance": "Exact byte copy of the HQ review-accepted ART SHIP 006 candidate package; no decode/re-encode or pixel transformation during promotion.",
+      "approval_status": "APPROVED MASTER",
+      "freeze_status": "FROZEN",
+      "default_style_reference": true,
+      "freeze_scope": "Exact 16x28 top-down TOUGE sprite pixels for s15_bodykit, binary alpha and bottom-center source anchor only; no world/listing/damage state or runtime integration acceptance."
+    },
+    {
+      "review_number": 30,
+      "asset_id": "s2000_pink",
+      "category": "TOUGE_VEHICLE",
+      "source_candidate_path": "native/vehicles/touge/s2000_pink_16x28.png",
+      "path": "assets/before_the_fame/vehicles/touge/s2000_pink_16x28.png",
+      "accepted_candidate_sha256": "e05a9872cece4d4b2293544d2c599c5ae5fbca542fc2d38afee6023e73b2943e",
+      "sha256": "e05a9872cece4d4b2293544d2c599c5ae5fbca542fc2d38afee6023e73b2943e",
+      "role": "approved top-down TOUGE vehicle sprite; ART SHIP 006 id s2000_pink",
+      "dimensions": [
+        16,
+        28
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "opaque_bbox": [
+        1,
+        9,
+        11,
+        27
+      ],
+      "rgb_colors": 9,
+      "source_anchor": [
+        8,
+        27
+      ],
+      "presentation_scale": null,
+      "state_order": null,
+      "provenance": "Exact byte copy of the HQ review-accepted ART SHIP 006 candidate package; no decode/re-encode or pixel transformation during promotion.",
+      "approval_status": "APPROVED MASTER",
+      "freeze_status": "FROZEN",
+      "default_style_reference": true,
+      "freeze_scope": "Exact 16x28 top-down TOUGE sprite pixels for s2000_pink, binary alpha and bottom-center source anchor only; no world/listing/damage state or runtime integration acceptance."
+    },
+    {
+      "review_number": 31,
+      "asset_id": "r34_blue",
+      "category": "TOUGE_VEHICLE",
+      "source_candidate_path": "native/vehicles/touge/r34_blue_16x28.png",
+      "path": "assets/before_the_fame/vehicles/touge/r34_blue_16x28.png",
+      "accepted_candidate_sha256": "024c136cf7d62c94e0772addf57588d5c58c41b2abd84339ba1963fc87b04660",
+      "sha256": "024c136cf7d62c94e0772addf57588d5c58c41b2abd84339ba1963fc87b04660",
+      "role": "approved top-down TOUGE vehicle sprite; ART SHIP 006 id r34_blue",
+      "dimensions": [
+        16,
+        28
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "opaque_bbox": [
+        1,
+        5,
+        11,
+        27
+      ],
+      "rgb_colors": 8,
+      "source_anchor": [
+        8,
+        27
+      ],
+      "presentation_scale": null,
+      "state_order": null,
+      "provenance": "Exact byte copy of the HQ review-accepted ART SHIP 006 candidate package; no decode/re-encode or pixel transformation during promotion.",
+      "approval_status": "APPROVED MASTER",
+      "freeze_status": "FROZEN",
+      "default_style_reference": true,
+      "freeze_scope": "Exact 16x28 top-down TOUGE sprite pixels for r34_blue, binary alpha and bottom-center source anchor only; no world/listing/damage state or runtime integration acceptance."
+    },
+    {
+      "review_number": 32,
+      "asset_id": "urus_oxblood",
+      "category": "TOUGE_VEHICLE",
+      "source_candidate_path": "native/vehicles/touge/urus_oxblood_16x28.png",
+      "path": "assets/before_the_fame/vehicles/touge/urus_oxblood_16x28.png",
+      "accepted_candidate_sha256": "478d745544eb9f746f9b41d55dc16b1921fffccfa47f7ccfaaf8ebd568f99c92",
+      "sha256": "478d745544eb9f746f9b41d55dc16b1921fffccfa47f7ccfaaf8ebd568f99c92",
+      "role": "approved top-down TOUGE vehicle sprite; ART SHIP 006 id urus_oxblood",
+      "dimensions": [
+        16,
+        28
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "opaque_bbox": [
+        1,
+        4,
+        13,
+        27
+      ],
+      "rgb_colors": 7,
+      "source_anchor": [
+        8,
+        27
+      ],
+      "presentation_scale": null,
+      "state_order": null,
+      "provenance": "Exact byte copy of the HQ review-accepted ART SHIP 006 candidate package; no decode/re-encode or pixel transformation during promotion.",
+      "approval_status": "APPROVED MASTER",
+      "freeze_status": "FROZEN",
+      "default_style_reference": true,
+      "freeze_scope": "Exact 16x28 top-down TOUGE sprite pixels for urus_oxblood, binary alpha and bottom-center source anchor only; no world/listing/damage state or runtime integration acceptance."
+    },
+    {
+      "review_number": 33,
+      "asset_id": "aventador_purple",
+      "category": "TOUGE_VEHICLE",
+      "source_candidate_path": "native/vehicles/touge/aventador_purple_16x28.png",
+      "path": "assets/before_the_fame/vehicles/touge/aventador_purple_16x28.png",
+      "accepted_candidate_sha256": "e4cee12291aa9377934d6ac2b75edef87b32ee7ade4f68d4c2017162bd0292d5",
+      "sha256": "e4cee12291aa9377934d6ac2b75edef87b32ee7ade4f68d4c2017162bd0292d5",
+      "role": "approved top-down TOUGE vehicle sprite; ART SHIP 006 id aventador_purple",
+      "dimensions": [
+        16,
+        28
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "opaque_bbox": [
+        1,
+        4,
+        15,
+        27
+      ],
+      "rgb_colors": 9,
+      "source_anchor": [
+        8,
+        27
+      ],
+      "presentation_scale": null,
+      "state_order": null,
+      "provenance": "Exact byte copy of the HQ review-accepted ART SHIP 006 candidate package; no decode/re-encode or pixel transformation during promotion.",
+      "approval_status": "APPROVED MASTER",
+      "freeze_status": "FROZEN",
+      "default_style_reference": true,
+      "freeze_scope": "Exact 16x28 top-down TOUGE sprite pixels for aventador_purple, binary alpha and bottom-center source anchor only; no world/listing/damage state or runtime integration acceptance."
+    },
+    {
+      "review_number": 34,
+      "asset_id": "ferrari_f40_red",
+      "category": "TOUGE_VEHICLE",
+      "source_candidate_path": "native/vehicles/touge/ferrari_f40_red_16x28.png",
+      "path": "assets/before_the_fame/vehicles/touge/ferrari_f40_red_16x28.png",
+      "accepted_candidate_sha256": "054d4f22f247c405bdae6fdfaad209337982d015a41c38af624df1927accd28c",
+      "sha256": "054d4f22f247c405bdae6fdfaad209337982d015a41c38af624df1927accd28c",
+      "role": "approved top-down TOUGE vehicle sprite; ART SHIP 006 id ferrari_f40_red",
+      "dimensions": [
+        16,
+        28
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "opaque_bbox": [
+        1,
+        2,
+        15,
+        27
+      ],
+      "rgb_colors": 7,
+      "source_anchor": [
+        8,
+        27
+      ],
+      "presentation_scale": null,
+      "state_order": null,
+      "provenance": "Exact byte copy of the HQ review-accepted ART SHIP 006 candidate package; no decode/re-encode or pixel transformation during promotion.",
+      "approval_status": "APPROVED MASTER",
+      "freeze_status": "FROZEN",
+      "default_style_reference": true,
+      "freeze_scope": "Exact 16x28 top-down TOUGE sprite pixels for ferrari_f40_red, binary alpha and bottom-center source anchor only; no world/listing/damage state or runtime integration acceptance."
+    },
+    {
+      "review_number": 35,
+      "asset_id": "castle_exterior_party",
+      "category": "ENVIRONMENT_STATE",
+      "source_candidate_path": "native/environments/castle_exterior_party_270x480.png",
+      "path": "assets/before_the_fame/environments/castle_exterior/castle_exterior_party_270x480.png",
+      "accepted_candidate_sha256": "fe641074f4aff48cef9ac59146216f35ae44b98f6702581b46a96204561f72ec",
+      "sha256": "fe641074f4aff48cef9ac59146216f35ae44b98f6702581b46a96204561f72ec",
+      "role": "approved scene-specific environment state; ART SHIP 006 id castle_exterior_party",
+      "dimensions": [
+        270,
+        480
+      ],
+      "mode": "RGB",
+      "alpha": [
+        255
+      ],
+      "opaque_bbox": null,
+      "rgb_colors": 28,
+      "source_anchor": null,
+      "presentation_scale": null,
+      "state_order": null,
+      "provenance": "Exact byte copy of the HQ review-accepted ART SHIP 006 candidate package; no decode/re-encode or pixel transformation during promotion.",
+      "approval_status": "APPROVED MASTER",
+      "freeze_status": "FROZEN",
+      "default_style_reference": true,
+      "freeze_scope": "Exact 270x480 opaque environment-state pixels for castle_exterior_party; this freezes the accepted full-frame derivation only and does not imply a reusable overlay, collision, hotspot or runtime integration contract.",
+      "derived_from_frozen_master": "assets/before_the_fame/environments/castle_exterior/castle_exterior_night_270x480.png",
+      "derived_from_frozen_master_sha256": "be4417926078581934f48bcfd80dd71a0985ecd0459a5ccbac767a1abd7e2873"
+    },
+    {
+      "review_number": 36,
+      "asset_id": "grave_closed",
+      "category": "ENVIRONMENT_STATE",
+      "source_candidate_path": "native/environments/grave_closed_270x480.png",
+      "path": "assets/before_the_fame/environments/grave/grave_closed_270x480.png",
+      "accepted_candidate_sha256": "0a3258fcca44b97b18dc0363ab6e0e72169bf5d108d615d136c3427a463f5dfd",
+      "sha256": "0a3258fcca44b97b18dc0363ab6e0e72169bf5d108d615d136c3427a463f5dfd",
+      "role": "approved scene-specific environment state; ART SHIP 006 id grave_closed",
+      "dimensions": [
+        270,
+        480
+      ],
+      "mode": "RGB",
+      "alpha": [
+        255
+      ],
+      "opaque_bbox": null,
+      "rgb_colors": 30,
+      "source_anchor": null,
+      "presentation_scale": null,
+      "state_order": null,
+      "provenance": "Exact byte copy of the HQ review-accepted ART SHIP 006 candidate package; no decode/re-encode or pixel transformation during promotion.",
+      "approval_status": "APPROVED MASTER",
+      "freeze_status": "FROZEN",
+      "default_style_reference": true,
+      "freeze_scope": "Exact 270x480 opaque environment-state pixels for grave_closed; this freezes the accepted full-frame derivation only and does not imply a reusable overlay, collision, hotspot or runtime integration contract.",
+      "derived_from_frozen_master": "assets/before_the_fame/environments/grave/grave_hub_night_270x480.png",
+      "derived_from_frozen_master_sha256": "b2919f7181268d83160231a803307e3afd0c35a1485396d1677440da1262ffbd"
+    },
+    {
+      "review_number": 37,
+      "asset_id": "party_hall_packed",
+      "category": "ENVIRONMENT_STATE",
+      "source_candidate_path": "native/environments/party_hall_packed_270x480.png",
+      "path": "assets/before_the_fame/environments/party_hall/party_hall_packed_270x480.png",
+      "accepted_candidate_sha256": "d6be254816fa98d6b293c5654c538b58dcd809cdf46317a0c0076eed1dc44558",
+      "sha256": "d6be254816fa98d6b293c5654c538b58dcd809cdf46317a0c0076eed1dc44558",
+      "role": "approved scene-specific environment state; ART SHIP 006 id party_hall_packed",
+      "dimensions": [
+        270,
+        480
+      ],
+      "mode": "RGB",
+      "alpha": [
+        255
+      ],
+      "opaque_bbox": null,
+      "rgb_colors": 28,
+      "source_anchor": null,
+      "presentation_scale": null,
+      "state_order": null,
+      "provenance": "Exact byte copy of the HQ review-accepted ART SHIP 006 candidate package; no decode/re-encode or pixel transformation during promotion.",
+      "approval_status": "APPROVED MASTER",
+      "freeze_status": "FROZEN",
+      "default_style_reference": true,
+      "freeze_scope": "Exact 270x480 opaque environment-state pixels for party_hall_packed; this freezes the accepted full-frame derivation only and does not imply a reusable overlay, collision, hotspot or runtime integration contract.",
+      "derived_from_frozen_master": "assets/before_the_fame/environments/party_hall/party_hall_empty_270x480.png",
+      "derived_from_frozen_master_sha256": "5987874f3b8407ce3ca9b7906871cb189c1766df59e9c0215bd7aad7763efc40"
+    },
+    {
+      "review_number": 38,
+      "asset_id": "texts",
+      "category": "PHONE_APP_ICON",
+      "source_candidate_path": "native/ui/apps/app_texts_24x24.png",
+      "path": "assets/before_the_fame/ui/apps/app_texts_24x24.png",
+      "accepted_candidate_sha256": "c90776f5f92d4414a8a9d580b202206b36504aec4f3255114444fcbaf510de42",
+      "sha256": "c90776f5f92d4414a8a9d580b202206b36504aec4f3255114444fcbaf510de42",
+      "role": "approved phone/app icon; ART SHIP 006 id texts",
+      "dimensions": [
+        24,
+        24
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "opaque_bbox": [
+        2,
+        2,
+        22,
+        22
+      ],
+      "rgb_colors": 9,
+      "source_anchor": null,
+      "presentation_scale": null,
+      "state_order": null,
+      "provenance": "Exact byte copy of the HQ review-accepted ART SHIP 006 candidate package; no decode/re-encode or pixel transformation during promotion.",
+      "approval_status": "APPROVED MASTER",
+      "freeze_status": "FROZEN",
+      "default_style_reference": true,
+      "freeze_scope": "Exact 24x24 transparent icon pixels for texts; no screen layout, label, interaction or runtime integration acceptance."
+    },
+    {
+      "review_number": 39,
+      "asset_id": "hatch",
+      "category": "PHONE_APP_ICON",
+      "source_candidate_path": "native/ui/apps/app_hatch_24x24.png",
+      "path": "assets/before_the_fame/ui/apps/app_hatch_24x24.png",
+      "accepted_candidate_sha256": "0e5163e467e9dd361a338696714c5560eb6ac83171b2ac8dc0fc5a2738aac5bf",
+      "sha256": "0e5163e467e9dd361a338696714c5560eb6ac83171b2ac8dc0fc5a2738aac5bf",
+      "role": "approved phone/app icon; ART SHIP 006 id hatch",
+      "dimensions": [
+        24,
+        24
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "opaque_bbox": [
+        2,
+        2,
+        21,
+        22
+      ],
+      "rgb_colors": 9,
+      "source_anchor": null,
+      "presentation_scale": null,
+      "state_order": null,
+      "provenance": "Exact byte copy of the HQ review-accepted ART SHIP 006 candidate package; no decode/re-encode or pixel transformation during promotion.",
+      "approval_status": "APPROVED MASTER",
+      "freeze_status": "FROZEN",
+      "default_style_reference": true,
+      "freeze_scope": "Exact 24x24 transparent icon pixels for hatch; no screen layout, label, interaction or runtime integration acceptance."
+    },
+    {
+      "review_number": 40,
+      "asset_id": "touge",
+      "category": "PHONE_APP_ICON",
+      "source_candidate_path": "native/ui/apps/app_touge_24x24.png",
+      "path": "assets/before_the_fame/ui/apps/app_touge_24x24.png",
+      "accepted_candidate_sha256": "744296323a21e41d6bd4c5b32b251a6c047498a74cbbdfbaab21c95f9666f773",
+      "sha256": "744296323a21e41d6bd4c5b32b251a6c047498a74cbbdfbaab21c95f9666f773",
+      "role": "approved phone/app icon; ART SHIP 006 id touge",
+      "dimensions": [
+        24,
+        24
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "opaque_bbox": [
+        2,
+        2,
+        22,
+        22
+      ],
+      "rgb_colors": 12,
+      "source_anchor": null,
+      "presentation_scale": null,
+      "state_order": null,
+      "provenance": "Exact byte copy of the HQ review-accepted ART SHIP 006 candidate package; no decode/re-encode or pixel transformation during promotion.",
+      "approval_status": "APPROVED MASTER",
+      "freeze_status": "FROZEN",
+      "default_style_reference": true,
+      "freeze_scope": "Exact 24x24 transparent icon pixels for touge; no screen layout, label, interaction or runtime integration acceptance."
+    },
+    {
+      "review_number": 41,
+      "asset_id": "bars",
+      "category": "PHONE_APP_ICON",
+      "source_candidate_path": "native/ui/apps/app_bars_24x24.png",
+      "path": "assets/before_the_fame/ui/apps/app_bars_24x24.png",
+      "accepted_candidate_sha256": "63f715bfe59e1d96f5c52c75fe36776e20ed49ecb21f24e7fdcb7f43633b61a8",
+      "sha256": "63f715bfe59e1d96f5c52c75fe36776e20ed49ecb21f24e7fdcb7f43633b61a8",
+      "role": "approved phone/app icon; ART SHIP 006 id bars",
+      "dimensions": [
+        24,
+        24
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "opaque_bbox": [
+        5,
+        2,
+        19,
+        22
+      ],
+      "rgb_colors": 11,
+      "source_anchor": null,
+      "presentation_scale": null,
+      "state_order": null,
+      "provenance": "Exact byte copy of the HQ review-accepted ART SHIP 006 candidate package; no decode/re-encode or pixel transformation during promotion.",
+      "approval_status": "APPROVED MASTER",
+      "freeze_status": "FROZEN",
+      "default_style_reference": true,
+      "freeze_scope": "Exact 24x24 transparent icon pixels for bars; no screen layout, label, interaction or runtime integration acceptance."
+    },
+    {
+      "review_number": 42,
+      "asset_id": "rich_radio",
+      "category": "PHONE_APP_ICON",
+      "source_candidate_path": "native/ui/apps/app_rich_radio_24x24.png",
+      "path": "assets/before_the_fame/ui/apps/app_rich_radio_24x24.png",
+      "accepted_candidate_sha256": "ef05b51f6403d31a97183f60b56401c2d0c793dd0241a38f168923cb0b804fde",
+      "sha256": "ef05b51f6403d31a97183f60b56401c2d0c793dd0241a38f168923cb0b804fde",
+      "role": "approved phone/app icon; ART SHIP 006 id rich_radio",
+      "dimensions": [
+        24,
+        24
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "opaque_bbox": [
+        2,
+        3,
+        22,
+        21
+      ],
+      "rgb_colors": 11,
+      "source_anchor": null,
+      "presentation_scale": null,
+      "state_order": null,
+      "provenance": "Exact byte copy of the HQ review-accepted ART SHIP 006 candidate package; no decode/re-encode or pixel transformation during promotion.",
+      "approval_status": "APPROVED MASTER",
+      "freeze_status": "FROZEN",
+      "default_style_reference": true,
+      "freeze_scope": "Exact 24x24 transparent icon pixels for rich_radio; no screen layout, label, interaction or runtime integration acceptance."
+    },
+    {
+      "review_number": 43,
+      "asset_id": "receipts",
+      "category": "PHONE_APP_ICON",
+      "source_candidate_path": "native/ui/apps/app_receipts_24x24.png",
+      "path": "assets/before_the_fame/ui/apps/app_receipts_24x24.png",
+      "accepted_candidate_sha256": "ab67d2f2106723b88b684545b552bf2d01a90ace6bdda12deb06a2f26d44b2ac",
+      "sha256": "ab67d2f2106723b88b684545b552bf2d01a90ace6bdda12deb06a2f26d44b2ac",
+      "role": "approved phone/app icon; ART SHIP 006 id receipts",
+      "dimensions": [
+        24,
+        24
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "opaque_bbox": [
+        4,
+        2,
+        20,
+        22
+      ],
+      "rgb_colors": 7,
+      "source_anchor": null,
+      "presentation_scale": null,
+      "state_order": null,
+      "provenance": "Exact byte copy of the HQ review-accepted ART SHIP 006 candidate package; no decode/re-encode or pixel transformation during promotion.",
+      "approval_status": "APPROVED MASTER",
+      "freeze_status": "FROZEN",
+      "default_style_reference": true,
+      "freeze_scope": "Exact 24x24 transparent icon pixels for receipts; no screen layout, label, interaction or runtime integration acceptance."
+    },
+    {
+      "review_number": 44,
+      "asset_id": "vampgpt",
+      "category": "PHONE_APP_ICON",
+      "source_candidate_path": "native/ui/apps/app_vampgpt_24x24.png",
+      "path": "assets/before_the_fame/ui/apps/app_vampgpt_24x24.png",
+      "accepted_candidate_sha256": "3718d06745df8f48f8c9d83560407063aa597290ead10257f8b71753f5ac8bfa",
+      "sha256": "3718d06745df8f48f8c9d83560407063aa597290ead10257f8b71753f5ac8bfa",
+      "role": "approved phone/app icon; ART SHIP 006 id vampgpt",
+      "dimensions": [
+        24,
+        24
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "opaque_bbox": [
+        2,
+        4,
+        19,
+        20
+      ],
+      "rgb_colors": 8,
+      "source_anchor": null,
+      "presentation_scale": null,
+      "state_order": null,
+      "provenance": "Exact byte copy of the HQ review-accepted ART SHIP 006 candidate package; no decode/re-encode or pixel transformation during promotion.",
+      "approval_status": "APPROVED MASTER",
+      "freeze_status": "FROZEN",
+      "default_style_reference": true,
+      "freeze_scope": "Exact 24x24 transparent icon pixels for vampgpt; no screen layout, label, interaction or runtime integration acceptance."
+    },
+    {
+      "review_number": 45,
+      "asset_id": "jdmimports",
+      "category": "PHONE_APP_ICON",
+      "source_candidate_path": "native/ui/apps/app_jdmimports_24x24.png",
+      "path": "assets/before_the_fame/ui/apps/app_jdmimports_24x24.png",
+      "accepted_candidate_sha256": "c9f3dae27413e9f75f80799446e77c17424cfc2e0c75b105476a15eb276aff2a",
+      "sha256": "c9f3dae27413e9f75f80799446e77c17424cfc2e0c75b105476a15eb276aff2a",
+      "role": "approved phone/app icon; ART SHIP 006 id jdmimports",
+      "dimensions": [
+        24,
+        24
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "opaque_bbox": [
+        2,
+        2,
+        21,
+        22
+      ],
+      "rgb_colors": 11,
+      "source_anchor": null,
+      "presentation_scale": null,
+      "state_order": null,
+      "provenance": "Exact byte copy of the HQ review-accepted ART SHIP 006 candidate package; no decode/re-encode or pixel transformation during promotion.",
+      "approval_status": "APPROVED MASTER",
+      "freeze_status": "FROZEN",
+      "default_style_reference": true,
+      "freeze_scope": "Exact 24x24 transparent icon pixels for jdmimports; no screen layout, label, interaction or runtime integration acceptance."
+    },
+    {
+      "review_number": 46,
+      "asset_id": "pickup",
+      "category": "PHONE_APP_ICON",
+      "source_candidate_path": "native/ui/apps/app_pickup_24x24.png",
+      "path": "assets/before_the_fame/ui/apps/app_pickup_24x24.png",
+      "accepted_candidate_sha256": "973155ae27920a02773a7ad0cc4a280b35d3a9243e062e0f19a12901e66b427a",
+      "sha256": "973155ae27920a02773a7ad0cc4a280b35d3a9243e062e0f19a12901e66b427a",
+      "role": "approved phone/app icon; ART SHIP 006 id pickup",
+      "dimensions": [
+        24,
+        24
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "opaque_bbox": [
+        3,
+        2,
+        20,
+        22
+      ],
+      "rgb_colors": 9,
+      "source_anchor": null,
+      "presentation_scale": null,
+      "state_order": null,
+      "provenance": "Exact byte copy of the HQ review-accepted ART SHIP 006 candidate package; no decode/re-encode or pixel transformation during promotion.",
+      "approval_status": "APPROVED MASTER",
+      "freeze_status": "FROZEN",
+      "default_style_reference": true,
+      "freeze_scope": "Exact 24x24 transparent icon pixels for pickup; no screen layout, label, interaction or runtime integration acceptance."
+    },
+    {
+      "review_number": 47,
+      "asset_id": "bonesworth_combat",
+      "category": "STATE_SHEET",
+      "source_candidate_path": "state_sheets/characters/bonesworth_sir_bonesworth_hungover_80x96_art_ship_006_state_sheet_320x96.png",
+      "path": "assets/before_the_fame/characters/bonesworth/bonesworth_combat_state_sheet_320x96.png",
+      "accepted_candidate_sha256": "b9e5e74a6e7702546c7cf7581e6f0e2a38df7578bb26279650f8bddda6a68983",
+      "sha256": "b9e5e74a6e7702546c7cf7581e6f0e2a38df7578bb26279650f8bddda6a68983",
+      "role": "approved handoff state sheet; ART SHIP 006 id bonesworth_combat",
+      "dimensions": [
+        320,
+        96
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "opaque_bbox": [
+        21,
+        26,
+        307,
+        88
+      ],
+      "rgb_colors": 18,
+      "source_anchor": null,
+      "presentation_scale": null,
+      "state_order": [
+        "bonesworth_telegraph",
+        "bonesworth_strike",
+        "bonesworth_hit",
+        "bonesworth_defeated"
+      ],
+      "provenance": "Exact byte copy of the HQ review-accepted ART SHIP 006 candidate package; no decode/re-encode or pixel transformation during promotion.",
+      "approval_status": "APPROVED MASTER",
+      "freeze_status": "FROZEN",
+      "default_style_reference": false,
+      "freeze_scope": "Exact 320x96 handoff-sheet pixels and recorded frame order for bonesworth_combat; individual masters control placement."
+    },
+    {
+      "review_number": 48,
+      "asset_id": "bruce_loose",
+      "category": "STATE_SHEET",
+      "source_candidate_path": "state_sheets/characters/bruce_bruce_loose_neutral_80x96_art_ship_006_state_sheet_160x96.png",
+      "path": "assets/before_the_fame/characters/bruce_loose/bruce_loose_state_sheet_160x96.png",
+      "accepted_candidate_sha256": "e6ada5ee4580413cb945d056acc80c0a8355a7ddb4ac92c7c62b47b9d00a5272",
+      "sha256": "e6ada5ee4580413cb945d056acc80c0a8355a7ddb4ac92c7c62b47b9d00a5272",
+      "role": "approved handoff state sheet; ART SHIP 006 id bruce_loose",
+      "dimensions": [
+        160,
+        96
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "opaque_bbox": [
+        16,
+        28,
+        131,
+        88
+      ],
+      "rgb_colors": 18,
+      "source_anchor": null,
+      "presentation_scale": null,
+      "state_order": [
+        "bruce_strike",
+        "bruce_bow"
+      ],
+      "provenance": "Exact byte copy of the HQ review-accepted ART SHIP 006 candidate package; no decode/re-encode or pixel transformation during promotion.",
+      "approval_status": "APPROVED MASTER",
+      "freeze_status": "FROZEN",
+      "default_style_reference": false,
+      "freeze_scope": "Exact 160x96 handoff-sheet pixels and recorded frame order for bruce_loose; individual masters control placement."
+    },
+    {
+      "review_number": 49,
+      "asset_id": "hilt",
+      "category": "STATE_SHEET",
+      "source_candidate_path": "state_sheets/characters/hilt_hilt_neutral_80x96_art_ship_006_state_sheet_160x96.png",
+      "path": "assets/before_the_fame/characters/hilt/hilt_state_sheet_160x96.png",
+      "accepted_candidate_sha256": "b9292c03a806125d372f84ecf51e238de1076636ea27b300fdfd79a7a59d1c5f",
+      "sha256": "b9292c03a806125d372f84ecf51e238de1076636ea27b300fdfd79a7a59d1c5f",
+      "role": "approved handoff state sheet; ART SHIP 006 id hilt",
+      "dimensions": [
+        160,
+        96
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "opaque_bbox": [
+        18,
+        24,
+        143,
+        88
+      ],
+      "rgb_colors": 18,
+      "source_anchor": null,
+      "presentation_scale": null,
+      "state_order": [
+        "hilt_strike",
+        "hilt_walk_away"
+      ],
+      "provenance": "Exact byte copy of the HQ review-accepted ART SHIP 006 candidate package; no decode/re-encode or pixel transformation during promotion.",
+      "approval_status": "APPROVED MASTER",
+      "freeze_status": "FROZEN",
+      "default_style_reference": false,
+      "freeze_scope": "Exact 160x96 handoff-sheet pixels and recorded frame order for hilt; individual masters control placement."
+    },
+    {
+      "review_number": 50,
+      "asset_id": "iron_jaw",
+      "category": "STATE_SHEET",
+      "source_candidate_path": "state_sheets/characters/iron_jaw_iron_jaw_neutral_80x96_art_ship_006_state_sheet_160x96.png",
+      "path": "assets/before_the_fame/characters/iron_jaw/iron_jaw_state_sheet_160x96.png",
+      "accepted_candidate_sha256": "206c7aaef7a5736fe538028640f0c6f6fbf81e8e22a60d89faaeb456cba01c2f",
+      "sha256": "206c7aaef7a5736fe538028640f0c6f6fbf81e8e22a60d89faaeb456cba01c2f",
+      "role": "approved handoff state sheet; ART SHIP 006 id iron_jaw",
+      "dimensions": [
+        160,
+        96
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "opaque_bbox": [
+        23,
+        30,
+        137,
+        88
+      ],
+      "rgb_colors": 18,
+      "source_anchor": null,
+      "presentation_scale": null,
+      "state_order": [
+        "iron_jaw_rapping",
+        "iron_jaw_defeated"
+      ],
+      "provenance": "Exact byte copy of the HQ review-accepted ART SHIP 006 candidate package; no decode/re-encode or pixel transformation during promotion.",
+      "approval_status": "APPROVED MASTER",
+      "freeze_status": "FROZEN",
+      "default_style_reference": false,
+      "freeze_scope": "Exact 160x96 handoff-sheet pixels and recorded frame order for iron_jaw; individual masters control placement."
+    },
+    {
+      "review_number": 51,
+      "asset_id": "kevin",
+      "category": "STATE_SHEET",
+      "source_candidate_path": "state_sheets/characters/kevin_kagebunshin_kevin_neutral_80x96_art_ship_006_state_sheet_160x96.png",
+      "path": "assets/before_the_fame/characters/kevin/kevin_state_sheet_160x96.png",
+      "accepted_candidate_sha256": "6e89b1d21ee1b11caff0c6720a223ccb3fe5a58f274c0f3de1c4091c837c6f26",
+      "sha256": "6e89b1d21ee1b11caff0c6720a223ccb3fe5a58f274c0f3de1c4091c837c6f26",
+      "role": "approved handoff state sheet; ART SHIP 006 id kevin",
+      "dimensions": [
+        160,
+        96
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "opaque_bbox": [
+        9,
+        30,
+        155,
+        88
+      ],
+      "rgb_colors": 18,
+      "source_anchor": null,
+      "presentation_scale": null,
+      "state_order": [
+        "kevin_attack",
+        "kevin_poof"
+      ],
+      "provenance": "Exact byte copy of the HQ review-accepted ART SHIP 006 candidate package; no decode/re-encode or pixel transformation during promotion.",
+      "approval_status": "APPROVED MASTER",
+      "freeze_status": "FROZEN",
+      "default_style_reference": false,
+      "freeze_scope": "Exact 160x96 handoff-sheet pixels and recorded frame order for kevin; individual masters control placement."
+    },
+    {
+      "review_number": 52,
+      "asset_id": "phil",
+      "category": "STATE_SHEET",
+      "source_candidate_path": "state_sheets/characters/phil_power_level_phil_charging_day1_80x96_art_ship_006_state_sheet_160x96.png",
+      "path": "assets/before_the_fame/characters/phil/phil_state_sheet_160x96.png",
+      "accepted_candidate_sha256": "911d4c20afd2182bc69696d560bf7f483d567330116c4dd3279d237bb60583fe",
+      "sha256": "911d4c20afd2182bc69696d560bf7f483d567330116c4dd3279d237bb60583fe",
+      "role": "approved handoff state sheet; ART SHIP 006 id phil",
+      "dimensions": [
+        160,
+        96
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "opaque_bbox": [
+        15,
+        8,
+        140,
+        88
+      ],
+      "rgb_colors": 1496,
+      "source_anchor": null,
+      "presentation_scale": null,
+      "state_order": [
+        "phil_charging_day3",
+        "phil_sitting_plate"
+      ],
+      "provenance": "Exact byte copy of the HQ review-accepted ART SHIP 006 candidate package; no decode/re-encode or pixel transformation during promotion.",
+      "approval_status": "APPROVED MASTER",
+      "freeze_status": "FROZEN",
+      "default_style_reference": false,
+      "freeze_scope": "Exact 160x96 handoff-sheet pixels and recorded frame order for phil; individual masters control placement."
+    },
+    {
+      "review_number": 53,
+      "asset_id": "uncle_sunday",
+      "category": "STATE_SHEET",
+      "source_candidate_path": "state_sheets/characters/uncle_sunday_uncle_sunday_neutral_80x96_art_ship_006_state_sheet_240x96.png",
+      "path": "assets/before_the_fame/characters/uncle_sunday/uncle_sunday_state_sheet_240x96.png",
+      "accepted_candidate_sha256": "53bc349e0e32553ef40479df5de7834551ee29de5295227a251685cb5d1b8462",
+      "sha256": "53bc349e0e32553ef40479df5de7834551ee29de5295227a251685cb5d1b8462",
+      "role": "approved handoff state sheet; ART SHIP 006 id uncle_sunday",
+      "dimensions": [
+        240,
+        96
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "opaque_bbox": [
+        23,
+        28,
+        228,
+        88
+      ],
+      "rgb_colors": 18,
+      "source_anchor": null,
+      "presentation_scale": null,
+      "state_order": [
+        "uncle_sunday_offended",
+        "uncle_sunday_melted",
+        "uncle_sunday_fishing"
+      ],
+      "provenance": "Exact byte copy of the HQ review-accepted ART SHIP 006 candidate package; no decode/re-encode or pixel transformation during promotion.",
+      "approval_status": "APPROVED MASTER",
+      "freeze_status": "FROZEN",
+      "default_style_reference": false,
+      "freeze_scope": "Exact 240x96 handoff-sheet pixels and recorded frame order for uncle_sunday; individual masters control placement."
+    },
+    {
+      "review_number": 54,
+      "asset_id": "rich_laptop",
+      "category": "STATE_SHEET",
+      "source_candidate_path": "state_sheets/characters/rich_contextual_rich_curb_chilling_art_ship_006_state_sheet_160x96.png",
+      "path": "assets/before_the_fame/characters/rich/rich_laptop_state_sheet_160x96.png",
+      "accepted_candidate_sha256": "ab8faabed16f494a9d21231261947ac0b0f2ea8b6e160e2fc5016b29555e7abc",
+      "sha256": "ab8faabed16f494a9d21231261947ac0b0f2ea8b6e160e2fc5016b29555e7abc",
+      "role": "approved handoff state sheet; ART SHIP 006 id rich_laptop",
+      "dimensions": [
+        160,
+        96
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "opaque_bbox": [
+        25,
+        40,
+        134,
+        88
+      ],
+      "rgb_colors": 126,
+      "source_anchor": null,
+      "presentation_scale": null,
+      "state_order": [
+        "rich_laptop_seated",
+        "rich_laptop_nod"
+      ],
+      "provenance": "Exact byte copy of the HQ review-accepted ART SHIP 006 candidate package; no decode/re-encode or pixel transformation during promotion.",
+      "approval_status": "APPROVED MASTER",
+      "freeze_status": "FROZEN",
+      "default_style_reference": false,
+      "freeze_scope": "Exact 160x96 handoff-sheet pixels and recorded frame order for rich_laptop; individual masters control placement."
+    },
+    {
+      "review_number": 55,
+      "asset_id": "rich_contextual",
+      "category": "STATE_SHEET",
+      "source_candidate_path": "state_sheets/characters/rich_contextual_rich_standing_right_art_ship_006_state_sheet_320x96.png",
+      "path": "assets/before_the_fame/characters/rich/rich_contextual_state_sheet_320x96.png",
+      "accepted_candidate_sha256": "cb9ca2010dc2a01773aca41639040c979e4cd87e392f4475f2679ffecccf3158",
+      "sha256": "cb9ca2010dc2a01773aca41639040c979e4cd87e392f4475f2679ffecccf3158",
+      "role": "approved handoff state sheet; ART SHIP 006 id rich_contextual",
+      "dimensions": [
+        320,
+        96
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "opaque_bbox": [
+        14,
+        36,
+        294,
+        88
+      ],
+      "rgb_colors": 149,
+      "source_anchor": null,
+      "presentation_scale": null,
+      "state_order": [
+        "rich_fishing_cast",
+        "rich_holding_fish_away",
+        "rich_ramen_apron",
+        "rich_on_stage"
+      ],
+      "provenance": "Exact byte copy of the HQ review-accepted ART SHIP 006 candidate package; no decode/re-encode or pixel transformation during promotion.",
+      "approval_status": "APPROVED MASTER",
+      "freeze_status": "FROZEN",
+      "default_style_reference": false,
+      "freeze_scope": "Exact 320x96 handoff-sheet pixels and recorded frame order for rich_contextual; individual masters control placement."
+    },
+    {
+      "review_number": 56,
+      "asset_id": "touge_vehicles",
+      "category": "STATE_SHEET",
+      "source_candidate_path": "state_sheets/touge_vehicle_sheet_128x28.png",
+      "path": "assets/before_the_fame/vehicles/touge/touge_vehicle_sheet_128x28.png",
+      "accepted_candidate_sha256": "68b7a0e84a5a858cb129dcf70aeaf563db57e76e4c7befb69d54222342b2170d",
+      "sha256": "68b7a0e84a5a858cb129dcf70aeaf563db57e76e4c7befb69d54222342b2170d",
+      "role": "approved handoff state sheet; ART SHIP 006 id touge_vehicles",
+      "dimensions": [
+        128,
+        28
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "opaque_bbox": [
+        1,
+        1,
+        127,
+        27
+      ],
+      "rgb_colors": 16,
+      "source_anchor": null,
+      "presentation_scale": null,
+      "state_order": [
+        "supra",
+        "s15_stock",
+        "s15_bodykit",
+        "s2000_pink",
+        "r34_blue",
+        "urus_oxblood",
+        "aventador_purple",
+        "ferrari_f40_red"
+      ],
+      "provenance": "Exact byte copy of the HQ review-accepted ART SHIP 006 candidate package; no decode/re-encode or pixel transformation during promotion.",
+      "approval_status": "APPROVED MASTER",
+      "freeze_status": "FROZEN",
+      "default_style_reference": false,
+      "freeze_scope": "Exact 128x28 handoff-sheet pixels and recorded frame order for touge_vehicles; individual masters control placement."
+    },
+    {
+      "review_number": 57,
+      "asset_id": "phone_app_icons",
+      "category": "STATE_SHEET",
+      "source_candidate_path": "state_sheets/phone_app_icon_sheet_216x24.png",
+      "path": "assets/before_the_fame/ui/apps/phone_app_icon_sheet_216x24.png",
+      "accepted_candidate_sha256": "e5b3eb4b734a41ae77e5d5930c4ae7612dbbbf0ed5b52e4b418b708b272b8908",
+      "sha256": "e5b3eb4b734a41ae77e5d5930c4ae7612dbbbf0ed5b52e4b418b708b272b8908",
+      "role": "approved handoff state sheet; ART SHIP 006 id phone_app_icons",
+      "dimensions": [
+        216,
+        24
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "opaque_bbox": [
+        2,
+        2,
+        212,
+        22
+      ],
+      "rgb_colors": 14,
+      "source_anchor": null,
+      "presentation_scale": null,
+      "state_order": [
+        "texts",
+        "hatch",
+        "touge",
+        "bars",
+        "rich_radio",
+        "receipts",
+        "vampgpt",
+        "jdmimports",
+        "pickup"
+      ],
+      "provenance": "Exact byte copy of the HQ review-accepted ART SHIP 006 candidate package; no decode/re-encode or pixel transformation during promotion.",
+      "approval_status": "APPROVED MASTER",
+      "freeze_status": "FROZEN",
+      "default_style_reference": false,
+      "freeze_scope": "Exact 216x24 handoff-sheet pixels and recorded frame order for phone_app_icons; individual masters control placement."
+    }
+  ]
+}

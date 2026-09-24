@@ -66,3 +66,46 @@ HQ accepted Shannon neutral + controlled reaction; property exterior; property i
 All 11 exact production PNGs are **APPROVED MASTER / FROZEN** in their named roles. Stage guidance and the Creative/writing/integration records are accepted production handoff authority but do not constitute runtime Stage Contract acceptance. Important Rich lines marked `RICH LINE — VOICE PASS REQUIRED` remain unresolved and non-canon; this does not block the Ship. PLAYER-BLIND details remain restricted to the Ship's `hq_only/` records.
 
 No runtime/game code, save schema, economy values or existing frozen pixels changed. Future pixel or accepted-document changes require an explicit HQ delta and fresh review. ART SHIP 003 closes after the scoped commit reaches `origin/main`; the Art Agent retires after successful push verification.
+
+## ART SHIP 004 — THE GOLDFISH YEARS (recorded 2026-09-24)
+
+18. Ube supplied OPEN W1 production authorization for the smallest coherent A00 package: one ocean-floor base, intact and collapsed ladder condition layers, Octopus Sensei neutral and point states, a two-state handoff sheet, review compositions and Engineering staging guidance. Approved/frozen source pixels controlled style grammar. Existing Rich was reused unchanged. The approximately 1.85x historical on-screen character presentation target remained an Engineering nearest-neighbor runtime rule, not a source-art scale change.
+19. **UBE TASTE PASS / HQ CANDIDATE PASS.** Ube passed Octopus Sensei identity/read, the narrow precarious intact ladder, the midnight-ocean palette and collapsed/intact environment continuity. No redesign or further creative iteration was requested. A presentation-only correction normalized the candidate board and handoff documentation to the authoritative approximately 1.85x runtime target; all six candidate asset hashes remained unchanged.
+20. Explicit user-supplied HQ decision:
+
+> HQ TECHNICAL PASS — ART SHIP 004 PROMOTION + COMMIT AUTHORIZED
+>
+> Promote the complete six-asset set together through CANDIDATE → APPROVED MASTER → FROZEN. Do not regenerate, resize, retouch, reinterpret or otherwise alter their pixels. Update required Art Department records, preserve exact hashes, validate canonical copies, commit art/docs only and push to origin/main.
+
+HQ accepted and froze these exact canonical production files:
+
+| Path | SHA-256 |
+|---|---|
+| `assets/goldfish_years/masters/ocean_floor_base_270x480.png` | `6484265a6fda709848aefbe8625943e88bf69e797e90fc7547d0814b0b923bb8` |
+| `assets/goldfish_years/layers/ladder_intact_overlay_270x480.png` | `5334abe19594197cd598866f0c8fac8144b21cfac28397011cc6e601b39ff3c8` |
+| `assets/goldfish_years/layers/ladder_collapsed_overlay_270x480.png` | `5d258840ac63dce1852144b8ac1f1f979b5013c4ed310a7c37a152daa3e6e854` |
+| `assets/goldfish_years/characters/octopus_sensei/octopus_sensei_neutral_96x96.png` | `716c1dc09f1322cdc0fbbe7da7f5a17764ac89668e97265afdd6cd7d8994dc78` |
+| `assets/goldfish_years/characters/octopus_sensei/octopus_sensei_point_96x96.png` | `8c00ebdaecfc1709fa68982426c1a146e2cd10ab985ba9ec1625a3af27c82e13` |
+| `assets/goldfish_years/characters/octopus_sensei/octopus_sensei_state_sheet_192x96.png` | `6e7b0977266ffc0c976e4ab56f8d2d2cfcee57794cbe6f7b22121a4f5d7aecec` |
+
+Promotion copied the accepted files byte-for-byte into canonical production paths. All five transparent masters retain binary alpha; the environment base remains fully opaque. Raw generations and non-authoritative candidate duplicates are excluded from the approved corpus. Future Art Agents may learn from the six frozen canonical winners and must not use excluded exploration material as style authority.
+
+Freeze applies only to the six named PNGs, accepted identities/states, anchors/origins, formats and layer roles recorded in `ships/art_ship_004/ART_SHIP_MANIFEST.json`. It does not grant runtime integration acceptance, authorize additional states, modify Rich, change runtime code or deploy the game. ART SHIP 004 closes after the scoped commit reaches `origin/main`; the Art Agent then retires and does not begin ART SHIP 005 in this chat.
+
+## ART SHIP 005 — OPEN CHAPTER ANCHORS (recorded 2026-09-24)
+
+21. ART SHIP 005 executed an intentional fresh-agent capacity test over remaining OPEN Before the Fame chapter needs. Seven validated candidate packages yielded 52 native candidates: 28 characters, 20 environments, three props and one creature. All candidates were shown on the consolidated UBE / HQ Taste & Identity Review Board; weak candidates were not hidden.
+22. **UBE TASTE PASS — COMPLETE BATCH.** Ube accepted all 52 candidates as a visually coherent anchor shipment. No candidate was excluded and no revision or alternate state was requested.
+23. Explicit user-supplied HQ direction authorized the complete set to proceed through **CANDIDATE → APPROVED MASTER → FROZEN**, required canonical record updates, exact-byte hash verification, commit and push to `origin/main`, and retirement of this Art Agent.
+
+All 52 exact canonical PNGs named in `ships/art_ship_005/ART_SHIP_MANIFEST.json` are **APPROVED MASTER / FROZEN**. Promotion copied every accepted candidate byte-for-byte. The 1.85x primary-character presentation rule remains Engineering runtime guidance with nearest-neighbor filtering and is not baked into native assets.
+
+Freeze applies only to the named anchor pixels, identities/poses, OPEN ids, dimensions, formats, alpha modes and source contacts. It does not authorize derivative states, animation sheets, vehicles, UI, crowds, overlays, remaining OPEN coverage, runtime integration, SEALED/HQ-only access or ART SHIP 006. No runtime/game code changed.
+
+## ART SHIP 006 — OPEN DERIVATIVE PRODUCTION PUSH (recorded 2026-09-24)
+
+24. ART SHIP 006 began after a fresh Art Lead audited the exact 78-file frozen corpus at `origin/main 4d797b0be55a8990eaddbb6536d584936ed55799`, reconciled the Rough Complete Engineering demand map and received explicit HQ production authorization.
+25. The production push yielded 46 native candidates: 20 matched alternate character states, six Rich contextual states, eight TOUGE vehicle sprites, three scene-specific environment states and nine phone/app icons, plus assembled handoff sheets. No runtime code or SEALED/HQ-only content was accessed.
+26. HQ supplied an explicit visual pass: character states PASS; Rich contextual states PASS; vehicles PASS; phone/app icons PASS; environment variants PASS with the recorded full-frame generative-risk note. HQ authorized normal technical promotion/freeze, prohibited regeneration and required exact-byte preservation.
+
+All 46 native candidates and 11 useful multi-frame handoff sheets named in `ships/art_ship_006/ART_SHIP_MANIFEST.json` are **APPROVED MASTER / FROZEN**. Canonical hashes equal accepted package hashes. The three redundant one-cell package sheets remain package evidence only. Runtime integration is not granted. Future pixel changes require an explicit HQ delta.

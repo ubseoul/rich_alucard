@@ -1,0 +1,73 @@
+{
+  "characters": {
+    "bonesworth": "assets/before_the_fame/characters/bonesworth/sir_bonesworth_hungover_80x96.png",
+    "bruce_loose": "assets/before_the_fame/characters/bruce_loose/bruce_loose_neutral_80x96.png",
+    "bunmi": "assets/before_the_fame/characters/bunmi/bunmi_neutral_80x96.png",
+    "coffe": "assets/before_the_fame/characters/coffe/coffe_neutral_80x96.png",
+    "deacon_brass": "assets/before_the_fame/characters/deacon_brass/deacon_brass_neutral_80x96.png",
+    "dre": "assets/before_the_fame/characters/dre/dre_neutral_80x96.png",
+    "hilt": "assets/before_the_fame/characters/hilt/hilt_neutral_80x96.png",
+    "hina": "assets/before_the_fame/characters/hina/hina_neutral_80x96.png",
+    "iron_jaw": "assets/before_the_fame/characters/iron_jaw/iron_jaw_neutral_80x96.png",
+    "june": "assets/before_the_fame/characters/june/june_neutral_80x96.png",
+    "kaede": "assets/before_the_fame/characters/kaede/kaede_neutral_80x96.png",
+    "kevin": "assets/before_the_fame/characters/kevin/kagebunshin_kevin_neutral_80x96.png",
+    "kiki": "assets/before_the_fame/characters/kiki/kiki_neutral_work_80x96.png",
+    "lil_smack": "assets/before_the_fame/characters/lil_smack/lil_smack_eating_80x96.png",
+    "mazda_human": "assets/before_the_fame/characters/mazda_human/blueberry_mazda_human_neutral_80x96.png",
+    "moonie": "assets/before_the_fame/characters/moonie/moonie_dorsey_neutral_80x96.png",
+    "ms_patrice": "assets/before_the_fame/characters/ms_patrice/ms_patrice_neutral_80x96.png",
+    "nightshade": "assets/before_the_fame/characters/nightshade/nightshade_neutral_80x96.png",
+    "nneka": "assets/before_the_fame/characters/nneka/nneka_neutral_80x96.png",
+    "okada": "assets/before_the_fame/characters/okada/mr_okada_neutral_80x96.png",
+    "phil": "assets/before_the_fame/characters/phil/power_level_phil_charging_day1_80x96.png",
+    "pinky": "assets/before_the_fame/characters/pinky/pinky_arms_crossed_80x96.png",
+    "reggie": "assets/before_the_fame/characters/reggie/reggie_neutral_80x96.png",
+    "tasha": "assets/before_the_fame/characters/tasha/tasha_tastemaker_filming_80x96.png",
+    "tristan": "assets/before_the_fame/characters/tristan/tristan_neutral_80x96.png",
+    "tunde": "assets/before_the_fame/characters/tunde/tunde_neutral_80x96.png",
+    "uncle_sunday": "assets/before_the_fame/characters/uncle_sunday/uncle_sunday_neutral_80x96.png",
+    "wispa": "assets/before_the_fame/characters/wispa/wispa_neutral_80x96.png"
+  },
+  "environments": {
+    "armory": "assets/before_the_fame/environments/armory/armory_behind_church_270x480.png",
+    "ballroom": "assets/before_the_fame/environments/ballroom/hollywood_hotel_ballroom_270x480.png",
+    "blood_bank": "assets/before_the_fame/environments/blood_bank/lifeblood_blood_bank_270x480.png",
+    "cafe": "assets/before_the_fame/environments/cafe/bean_there_dead_that_cafe_270x480.png",
+    "castle_exterior": "assets/before_the_fame/environments/castle_exterior/castle_exterior_night_270x480.png",
+    "catacomb": "assets/before_the_fame/environments/catacomb/catacomb_empty_270x480.png",
+    "family_house": "assets/before_the_fame/environments/family_house/family_house_atl_kitchen_270x480.png",
+    "fish_tank": "assets/before_the_fame/environments/fish_tank/castle_fish_tank_room_270x480.png",
+    "garage": "assets/before_the_fame/environments/garage/castle_garage_empty_270x480.png",
+    "grave": "assets/before_the_fame/environments/grave/grave_hub_night_270x480.png",
+    "hollow_bowl": "assets/before_the_fame/environments/hollow_bowl/hollow_bowl_night_270x480.png",
+    "kush_crypt": "assets/before_the_fame/environments/kush_crypt/kush_and_crypt_front_270x480.png",
+    "music_room": "assets/before_the_fame/environments/music_room/castle_music_room_270x480.png",
+    "naija_mart": "assets/before_the_fame/environments/naija_mart/naija_mart_interior_270x480.png",
+    "party_hall": "assets/before_the_fame/environments/party_hall/party_hall_empty_270x480.png",
+    "pet_crypt": "assets/before_the_fame/environments/pet_crypt/pet_crypt_interior_270x480.png",
+    "pier": "assets/before_the_fame/environments/pier/santa_monica_pier_night_270x480.png",
+    "roof": "assets/before_the_fame/environments/roof/castle_roof_hookah_270x480.png",
+    "slurp": "assets/before_the_fame/environments/slurp/slurp_dynasty_little_tokyo_270x480.png",
+    "waffle_haven": "assets/before_the_fame/environments/waffle_haven/waffle_haven_1am_270x480.png"
+  },
+  "props": {
+    "agege_bread": "assets/before_the_fame/props/agege_bread/agege_bread_whole_32x24.png",
+    "mazda_egg": "assets/before_the_fame/props/mazda_egg/blueberry_mazda_egg_32x32.png",
+    "dragon_maggi_cube": "assets/before_the_fame/props/dragon_maggi_cube/dragon_maggi_cube_24x24.png"
+  },
+  "creatures": {
+    "cat": "assets/before_the_fame/creatures/cat/sphynx_cat_sitting_48x32.png"
+  },
+  "runtime_presentation_rule": {
+    "primary_gameplay_characters": "approximately 1.85x historical on-screen scale",
+    "filtering": "nearest-neighbor",
+    "native_source_pixels_changed": false
+  },
+  "integration_status": "NOT RUNTIME-INTEGRATED; handoff map only",
+  "candidate_package_aliases": {
+    "mr_okada": "okada",
+    "fish_tank_room": "fish_tank",
+    "sphynx_cat": "cat"
+  }
+}

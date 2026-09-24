@@ -1,0 +1,263 @@
+{
+  "schema_version": 2,
+  "ship_id": "ART SHIP 004",
+  "status": "FROZEN / COMPLETE",
+  "validation_result": "PASS",
+  "runtime_display_rule": "approximately 1.85x historical on-screen scale, nearest-neighbor; native source assets unchanged",
+  "files": [
+    {
+      "path": "assets/goldfish_years/masters/ocean_floor_base_270x480.png",
+      "exists": true,
+      "sha256": "6484265a6fda709848aefbe8625943e88bf69e797e90fc7547d0814b0b923bb8",
+      "accepted_candidate_sha256": "6484265a6fda709848aefbe8625943e88bf69e797e90fc7547d0814b0b923bb8",
+      "dimensions": [
+        270,
+        480
+      ],
+      "mode": "RGB",
+      "alpha_values": [
+        255
+      ],
+      "opaque_rgb_colors": 24,
+      "manifest_hash_match": true,
+      "accepted_candidate_hash_match": true,
+      "manifest_dimensions_match": true,
+      "manifest_mode_match": true,
+      "manifest_alpha_match": true,
+      "manifest_color_count_match": true,
+      "register_present": true,
+      "register_hash_match": true,
+      "register_frozen": true,
+      "approved_index_present": true,
+      "pass": true
+    },
+    {
+      "path": "assets/goldfish_years/layers/ladder_intact_overlay_270x480.png",
+      "exists": true,
+      "sha256": "5334abe19594197cd598866f0c8fac8144b21cfac28397011cc6e601b39ff3c8",
+      "accepted_candidate_sha256": "5334abe19594197cd598866f0c8fac8144b21cfac28397011cc6e601b39ff3c8",
+      "dimensions": [
+        270,
+        480
+      ],
+      "mode": "RGBA",
+      "alpha_values": [
+        0,
+        255
+      ],
+      "opaque_rgb_colors": 7,
+      "manifest_hash_match": true,
+      "accepted_candidate_hash_match": true,
+      "manifest_dimensions_match": true,
+      "manifest_mode_match": true,
+      "manifest_alpha_match": true,
+      "manifest_color_count_match": true,
+      "register_present": true,
+      "register_hash_match": true,
+      "register_frozen": true,
+      "approved_index_present": true,
+      "pass": true
+    },
+    {
+      "path": "assets/goldfish_years/layers/ladder_collapsed_overlay_270x480.png",
+      "exists": true,
+      "sha256": "5d258840ac63dce1852144b8ac1f1f979b5013c4ed310a7c37a152daa3e6e854",
+      "accepted_candidate_sha256": "5d258840ac63dce1852144b8ac1f1f979b5013c4ed310a7c37a152daa3e6e854",
+      "dimensions": [
+        270,
+        480
+      ],
+      "mode": "RGBA",
+      "alpha_values": [
+        0,
+        255
+      ],
+      "opaque_rgb_colors": 7,
+      "manifest_hash_match": true,
+      "accepted_candidate_hash_match": true,
+      "manifest_dimensions_match": true,
+      "manifest_mode_match": true,
+      "manifest_alpha_match": true,
+      "manifest_color_count_match": true,
+      "register_present": true,
+      "register_hash_match": true,
+      "register_frozen": true,
+      "approved_index_present": true,
+      "pass": true
+    },
+    {
+      "path": "assets/goldfish_years/characters/octopus_sensei/octopus_sensei_neutral_96x96.png",
+      "exists": true,
+      "sha256": "716c1dc09f1322cdc0fbbe7da7f5a17764ac89668e97265afdd6cd7d8994dc78",
+      "accepted_candidate_sha256": "716c1dc09f1322cdc0fbbe7da7f5a17764ac89668e97265afdd6cd7d8994dc78",
+      "dimensions": [
+        96,
+        96
+      ],
+      "mode": "RGBA",
+      "alpha_values": [
+        0,
+        255
+      ],
+      "opaque_rgb_colors": 14,
+      "manifest_hash_match": true,
+      "accepted_candidate_hash_match": true,
+      "manifest_dimensions_match": true,
+      "manifest_mode_match": true,
+      "manifest_alpha_match": true,
+      "manifest_color_count_match": true,
+      "register_present": true,
+      "register_hash_match": true,
+      "register_frozen": true,
+      "approved_index_present": true,
+      "pass": true
+    },
+    {
+      "path": "assets/goldfish_years/characters/octopus_sensei/octopus_sensei_point_96x96.png",
+      "exists": true,
+      "sha256": "8c00ebdaecfc1709fa68982426c1a146e2cd10ab985ba9ec1625a3af27c82e13",
+      "accepted_candidate_sha256": "8c00ebdaecfc1709fa68982426c1a146e2cd10ab985ba9ec1625a3af27c82e13",
+      "dimensions": [
+        96,
+        96
+      ],
+      "mode": "RGBA",
+      "alpha_values": [
+        0,
+        255
+      ],
+      "opaque_rgb_colors": 14,
+      "manifest_hash_match": true,
+      "accepted_candidate_hash_match": true,
+      "manifest_dimensions_match": true,
+      "manifest_mode_match": true,
+      "manifest_alpha_match": true,
+      "manifest_color_count_match": true,
+      "register_present": true,
+      "register_hash_match": true,
+      "register_frozen": true,
+      "approved_index_present": true,
+      "pass": true
+    },
+    {
+      "path": "assets/goldfish_years/characters/octopus_sensei/octopus_sensei_state_sheet_192x96.png",
+      "exists": true,
+      "sha256": "6e7b0977266ffc0c976e4ab56f8d2d2cfcee57794cbe6f7b22121a4f5d7aecec",
+      "accepted_candidate_sha256": "6e7b0977266ffc0c976e4ab56f8d2d2cfcee57794cbe6f7b22121a4f5d7aecec",
+      "dimensions": [
+        192,
+        96
+      ],
+      "mode": "RGBA",
+      "alpha_values": [
+        0,
+        255
+      ],
+      "opaque_rgb_colors": 27,
+      "manifest_hash_match": true,
+      "accepted_candidate_hash_match": true,
+      "manifest_dimensions_match": true,
+      "manifest_mode_match": true,
+      "manifest_alpha_match": true,
+      "manifest_color_count_match": true,
+      "register_present": true,
+      "register_hash_match": true,
+      "register_frozen": true,
+      "approved_index_present": true,
+      "pass": true
+    }
+  ],
+  "checks": [
+    {
+      "check": "manifest_exact_file_count",
+      "expected": 6,
+      "actual": 6,
+      "pass": true
+    },
+    {
+      "check": "state_sheet_cells_equal_individual_masters",
+      "neutral": true,
+      "point": true,
+      "pass": true
+    },
+    {
+      "check": "transparent_masters_binary_alpha",
+      "files_checked": 5,
+      "pass": true
+    },
+    {
+      "check": "approved_rich_source_unchanged",
+      "sha256": "765170076e8d3a9af9e8857e176e079b2a68c7ee1daafb7c8d551482228f144b",
+      "pass": true
+    },
+    {
+      "check": "technical_review_board_hash",
+      "sha256": "262e5c18fe91dc7db1ef30e798c6fc77cbb728e38d4fc817c62d8797e2b8288a",
+      "pass": true
+    },
+    {
+      "check": "no_obsolete_runtime_scale_references",
+      "matches": [],
+      "pass": true
+    },
+    {
+      "check": "non_authoritative_pixel_folders_excluded",
+      "candidate_directory_absent": true,
+      "exploration_directory_absent": true,
+      "pass": true
+    },
+    {
+      "check": "art_docs_only_changed_paths",
+      "changed_paths": [
+        "art_department/APPROVAL_LEDGER.md",
+        "art_department/APPROVED_ASSET_INDEX.md",
+        "art_department/ASSET_REGISTER.json",
+        "art_department/CURRENT_HANDOFF.md",
+        "art_department/INVENTORY_REPORT.md",
+        "art_department/START_HERE.md",
+        "art_department/STYLE_FINGERPRINT.md",
+        "art_department/references/CHARACTERS.md",
+        "art_department/references/ENVIRONMENTS.md",
+        "art_department/references/OBJECTS_FX_AMBIENT.md",
+        "art_department/ships/art_ship_004/ART_SHIP.md",
+        "art_department/ships/art_ship_004/ART_SHIP_MANIFEST.json",
+        "art_department/ships/art_ship_004/ENGINEERING_STAGING_NOTES.md",
+        "art_department/ships/art_ship_004/GENERATION_LOG.md",
+        "art_department/ships/art_ship_004/HQ_DECISION.md",
+        "art_department/ships/art_ship_004/HQ_TECHNICAL_PROMOTION_REVIEW.md",
+        "art_department/ships/art_ship_004/VALIDATION_REPORT.json",
+        "art_department/ships/art_ship_004/VALIDATION_REPORT.md",
+        "art_department/ships/art_ship_004/review/art_ship_004_candidate_board.png",
+        "art_department/ships/art_ship_004/review/scene_collapsed_sensei_native_270x480.png",
+        "art_department/ships/art_ship_004/review/scene_intact_native_270x480.png",
+        "art_department/ships/art_ship_004/review/stage_contract_preview_native_270x480.png",
+        "assets/goldfish_years/characters/octopus_sensei/octopus_sensei_neutral_96x96.png",
+        "assets/goldfish_years/characters/octopus_sensei/octopus_sensei_point_96x96.png",
+        "assets/goldfish_years/characters/octopus_sensei/octopus_sensei_state_sheet_192x96.png",
+        "assets/goldfish_years/layers/ladder_collapsed_overlay_270x480.png",
+        "assets/goldfish_years/layers/ladder_intact_overlay_270x480.png",
+        "assets/goldfish_years/masters/ocean_floor_base_270x480.png"
+      ],
+      "runtime_code_changes": [],
+      "unrelated_untracked_excluded_from_scope": [],
+      "pass": true
+    },
+    {
+      "check": "asset_register_inventory",
+      "entries": 166,
+      "status_counts": {
+        "STATUS UNKNOWN \u2014 HQ REVIEW REQUIRED": 116,
+        "APPROVED MASTER": 19,
+        "REFERENCE": 5,
+        "FROZEN": 26
+      },
+      "pass": true
+    }
+  ],
+  "summary": {
+    "files_checked": 6,
+    "file_failures": 0,
+    "check_failures": 0,
+    "runtime_code_touched": false
+  }
+}

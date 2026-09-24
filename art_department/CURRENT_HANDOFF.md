@@ -1,21 +1,28 @@
 # Current handoff
 
-**ART SHIP 003 — MASSIVE PUSH 001: THE PROPERTY: HQ CREATIVE PASS / APPROVED MASTER / FROZEN; Creative delivery closed.** No active Art Ship and no additional art, dialogue, redesign, runtime integration or scope expansion is authorized.
+**ART SHIP 006 — OPEN DERIVATIVE PRODUCTION PUSH: HQ VISUAL PASS / APPROVED MASTER / FROZEN / COMPLETE.** No active Art Ship and no further generation or runtime integration is authorized by this handoff.
 
-Accepted exact production families:
+## Frozen result
 
-- Shannon neutral and controlled-reaction masters plus two-cell handoff sheet under `assets/property/characters/shannon/`.
-- Property exterior and interior base masters under `assets/property/masters/`.
-- Exact-origin problem overlay under `assets/property/layers/`.
-- Exterior-derived ownership thumbnail under `assets/property/ui/`.
-- Giant-rat alert, scurry and recoil masters plus three-cell handoff sheet under `assets/property/creatures/giant_rat/`.
+- 46 canonical native masters under `assets/before_the_fame/`: 20 matched character states, six Rich contextual states, eight TOUGE vehicles, three environment condition states and nine phone/app icons.
+- 11 canonical useful multi-frame handoff sheets.
+- 57 total canonical PNGs; every canonical SHA-256 equals its accepted package SHA-256.
+- Character/Rich sources remain 80x96/contact `(40,88)`; the approximately 1.85x scale is runtime-only.
 
-Exact paths, SHA-256 values, dimensions, contacts and per-file freeze scope are authoritative in [ART SHIP 003 manifest](ships/art_ship_003/ART_SHIP_MANIFEST.json) and [Asset Register](ASSET_REGISTER.json). The user-supplied decision is transcribed in [HQ Decision](ships/art_ship_003/HQ_DECISION.md) and the [Approval Ledger](APPROVAL_LEDGER.md).
+Exact ids, paths, hashes, dimensions, formats, alpha, contacts, state order, provenance and freeze scopes are authoritative in [ART SHIP 006 manifest](ships/art_ship_006/ART_SHIP_MANIFEST.json), [Engineering Asset Map](ships/art_ship_006/ENGINEERING_ASSET_MAP.json), [State Sheet Definitions](ships/art_ship_006/STATE_SHEET_DEFINITIONS.json) and [Asset Register](ASSET_REGISTER.json).
 
-The accepted stage guidance and complete Creative/writing/integration package are stored with the Ship. PLAYER-BLIND sequence, escalation, reveals, optional interactions, surprise treatment, protected-concept disposition and secret consequences remain restricted to `ships/art_ship_003/hq_only/` and must not be repeated in player-facing summaries.
+## Review note
 
-Important Rich lines marked `RICH LINE — VOICE PASS REQUIRED` remain unresolved and non-canon. Their unresolved state does not block this closed Art Ship. No runtime/game code, economy values, save schema or Stage Contract implementation changed. Engineering runtime acceptance remains separate.
+Environment variants passed HQ visual review but remain the highest-risk comparison category because they are full-frame generative derivations. Their exact accepted pixels are frozen; they are not overlays and do not imply collision/hotspot/runtime acceptance.
 
-Earlier frozen work remains unchanged: ART SHIP 002's rave exterior, RT SHIP 001's Bllad33 neutral/entrance master, and the accepted Ogun/rave masters and support layers retain their recorded scopes.
+## Boundaries
 
-**STOP. ART SHIP 003 is closed at accepted Creative delivery. The Art Agent retires after the scoped commit is pushed and verified.**
+No runtime/game code changed. No SEALED/HQ-only content was accessed. Remaining OPEN gaps are recorded in [Remaining Open Gaps](ships/art_ship_006/REMAINING_OPEN_GAPS.md). Future pixel changes or additional states require a new explicit Art Ship.
+
+**STOP. ART SHIP 006 is FROZEN / COMPLETE. The Art Agent retires after scoped commit, push and clean-tree verification.**
+
+## Zero-upload continuation
+
+The next Art Agent starts at `START_HERE.md`; no external Vol 2, Vol 5, HQ Addendum, review board, or prior chat upload is required. The committed OPEN source subsets and provenance are in `production_authority/`. Current implementation state and current demand are in `production_authority/ROUGH_COMPLETE_ENGINEERING_SNAPSHOT.md` and `CURRENT_OPEN_ART_GAPS.md` / `.json`.
+
+The latest frozen corpus remains 135 assets, with ART SHIP 006 frozen at `a2992617b825acf1ab7a9bdb187d2caca66be701`; the current repository tip may be newer because of documentation-only onboarding commits. ART SHIP 004/005/006 remain frozen handoff records, not runtime integration approval. The next recommended priority is Engineering integration of those 115 frozen Ship files, followed by a bounded derivative/condition Ship for the current playable path. Do not begin ART SHIP 007 or generate new art from this handoff alone.
