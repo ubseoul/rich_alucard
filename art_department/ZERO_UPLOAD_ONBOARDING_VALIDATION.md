@@ -2,6 +2,7 @@
 
 **Date:** 2026-09-24
 **Authority tested:** `a2992617b825acf1ab7a9bdb187d2caca66be701`
+**Final onboarding record:** documentation-only repository tip after this validation
 **Result:** **PASS**
 
 ## Cold-start simulation

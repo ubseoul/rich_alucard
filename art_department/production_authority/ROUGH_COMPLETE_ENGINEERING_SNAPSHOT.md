@@ -4,7 +4,7 @@ This is a dated, read-only reconciliation of the Rough Complete implementation b
 
 ## Reconciled commits
 
-- Art authority / current `origin/main`: `a2992617b825acf1ab7a9bdb187d2caca66be701` (ART SHIP 006 frozen).
+- ART SHIP 006 frozen pixel authority: `a2992617b825acf1ab7a9bdb187d2caca66be701`; current `origin/main` may be newer because of documentation-only onboarding history.
 - Read-only Rough Complete branch: `origin/claude/eloquent-shannon-kc5qkn` at `c2a637bb2df8143f117cff1cecc8ca1cff6ba11e`.
 - Branch merge base: `f2ca7d4393ec5af60ae6ecb53eec001b449a649e`.
 - The Rough Complete branch is not merged or deployed. Its `docs/btf/ART_INPUTS.md` is historical Engineering demand, not current Art truth.

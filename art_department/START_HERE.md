@@ -8,7 +8,7 @@ This repository is the Art Department's institutional memory. **The project reme
 
 ## Current state
 
-- Current authority is `origin/main` at `a2992617b825acf1ab7a9bdb187d2caca66be701`.
+- The frozen ART SHIP 006 pixel authority is commit `a2992617b825acf1ab7a9bdb187d2caca66be701`; the current repository tip includes this onboarding infrastructure commit on top of it.
 - ART SHIP 006 — OPEN Derivative Production Push is frozen/complete. The frozen corpus is **135 assets**; the register contains 275 entries.
 - ART SHIP 004, 005, and 006 are the latest frozen Ship records. Their canonical PNGs are under `assets/` and are indexed by `APPROVED_ASSET_INDEX.md`, `ASSET_REGISTER.json`, and the Ship manifests.
 - No Art Ship is active. Do not generate or modify pixels until HQ authorizes a new Ship.
