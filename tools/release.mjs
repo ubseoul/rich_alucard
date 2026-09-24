@@ -4,7 +4,7 @@ import {cp, mkdir, readFile, rm, writeFile, readdir} from 'node:fs/promises';
 import {existsSync} from 'node:fs';
 import path from 'node:path';
 import vm from 'node:vm';
-import {fileURLToPath} from 'node:url';
+import {fileURLToPath,pathToFileURL} from 'node:url';
 import {testParty} from './party-test.mjs';
 import {testRave} from './rave-test.mjs';
 import {testOgunRaveAdventure} from './ogun-rave-adventure-test.mjs';
@@ -17,7 +17,7 @@ const arg=name=>{const index=process.argv.indexOf(name);return index===-1?null:p
 const sha=()=>arg('--commit')||process.env.GITHUB_SHA||execFileSync('git',['rev-parse','HEAD'],{cwd:root,encoding:'utf8'}).trim();
 const compactTimestamp=value=>value.replace(/[-:.TZ]/g,'').slice(0,14);
 const read=relative=>readFile(path.join(root,relative),'utf8');
-const runtimeFiles=['index.html','party-dev.html','rave-review.html','style.css','game.js'];
+const runtimeFiles=['index.html','party-dev.html','rave-review.html','minigame-lab.html','style.css','game.js'];
 const staticDirectories=['assets','js'];
 
 function assert(condition,message){if(!condition)throw new Error(message);}
@@ -29,6 +29,9 @@ async function test(){
   await testRave(root);
   await testOgunRaveAdventure(root);
   await testProperty(root);
+  const minigameTests=(await readdir(path.join(root,'tools','minigames'))).filter(name=>name.endsWith('-test.mjs')).sort();
+  for(const name of minigameTests){const mod=await import(pathToFileURL(path.join(root,'tools','minigames',name)).href);await mod.test(root);}
+  const btf=await import(pathToFileURL(path.join(root,'tools','btf-test.mjs')).href);await btf.test(root);
   const sources=await javascriptFiles(path.join(root,'js'));
   for(const file of [...sources,path.join(root,'game.js')])new vm.Script(await readFile(file,'utf8'),{filename:path.relative(root,file)});
   const listeners={};
@@ -78,7 +81,7 @@ async function build(){
   await rm(output,{recursive:true,force:true});await mkdir(output,{recursive:true});
   for(const file of runtimeFiles)await cp(path.join(root,file),path.join(output,file));
   for(const directory of staticDirectories)await cp(path.join(root,directory),path.join(output,directory),{recursive:true});
-  for(const page of ['index.html','party-dev.html','rave-review.html']){
+  for(const page of ['index.html','party-dev.html','rave-review.html','minigame-lab.html']){
     const indexPath=path.join(output,page);const index=await readFile(indexPath,'utf8');assert(index.includes('__BUILD_ASSET_VERSION__'),'asset placeholder missing from artifact source');
     await writeFile(indexPath,index.replaceAll('__BUILD_ASSET_VERSION__',build.assetVersion));
   }

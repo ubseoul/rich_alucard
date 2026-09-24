@@ -33,7 +33,8 @@
    deliveryChannel:'phone',
    once:true,
    safeBoundaries:['bedroom-entry'],
-   prerequisite:{},
+   // Life clock integration: the invite lands on the first party night (Friday), not before the first wake.
+   prerequisite:{flags:{ogunInviteWindow:true}},
    sender:'OGUN',
    subject:'TONIGHT',
    body:"meatpacking district. bring yourself. don't be too fashionably late.",

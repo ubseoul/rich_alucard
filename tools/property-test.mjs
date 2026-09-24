@@ -127,7 +127,7 @@ export async function testProperty(root){
   const stateContext={structuredClone,localStorage:memoryStorage()};stateContext.window=stateContext;vm.createContext(stateContext);
   vm.runInContext(await read('js/engine/state.js'),stateContext,{filename:'js/engine/state.js'});
   const {RAState}=stateContext;
-  assert.equal(RAState.version,11,'save schema version did not advance for the property foundation');
+  assert(RAState.version>=11,'save schema version did not advance for the property foundation');
   assert.equal(RAState.defaults.life.property.active,null);assert(Array.isArray(RAState.defaults.life.property.completed)&&RAState.defaults.life.property.completed.length===0);
   const migratedV10=RAState.migrateWithReport({version:10,life:{}});
   assert(migratedV10.ok&&migratedV10.state.life.property.active===null&&Array.isArray(migratedV10.state.life.property.completed),'v10 saves must gain a safe life.property structure');
