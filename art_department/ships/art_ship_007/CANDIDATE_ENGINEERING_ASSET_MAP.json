@@ -1,0 +1,78 @@
+{
+  "schema_version": 1,
+  "ship_id": "ART SHIP 007",
+  "status": "CANDIDATE \u2014 NOT RUNTIME INTEGRATED",
+  "characters": {
+    "marisol": "assets/characters/marisol/marisol_neutral_80x96.png",
+    "duchess": "assets/characters/duchess/duchess_bathory_brown_neutral_80x96.png",
+    "emberly": "assets/characters/emberly/emberly_neutral_80x96.png",
+    "jade": "assets/characters/jade/jade_wyrmwood_neutral_80x96.png",
+    "lo": "assets/characters/lo/lo_dolores_neutral_80x96.png",
+    "brenda": "assets/characters/brenda/brenda_neutral_80x96.png",
+    "velvet": "assets/characters/velvet/velvet_vantablack_profile_80x96.png",
+    "anfeesa": "assets/characters/anfeesa/dj_anfeesa_neutral_80x96.png",
+    "rookoko": "assets/characters/rookoko/rookoko_neutral_80x96.png",
+    "officer_nodd": "assets/characters/officer_nodd/officer_nodd_neutral_80x96.png",
+    "don_chuy": "assets/characters/don_chuy/don_chuy_neutral_80x96.png",
+    "tokyo_tony": "assets/characters/tokyo_tony/tokyo_tony_smug_80x96.png",
+    "vicky": "assets/characters/vicky/vicky_neutral_80x96.png",
+    "j_circle": "assets/characters/j_circle/j_circle_entrance_80x96.png",
+    "trippin_red": "assets/characters/trippin_red/trippin_red_stage_ready_80x96.png",
+    "paladin": "assets/characters/paladin/paladin_neutral_80x96.png",
+    "bard": "assets/characters/bard/bard_neutral_80x96.png",
+    "cleric": "assets/characters/cleric/cleric_neutral_80x96.png"
+  },
+  "environments": {
+    "boba_shop": "assets/environments/boba_shop/boba_shop_night_270x480.png",
+    "food_court": "assets/environments/food_court/grave_food_court_night_270x480.png",
+    "kush_back": "assets/environments/kush_back/kush_crypt_egg_back_room_270x480.png",
+    "kitchen": "assets/environments/kitchen/castle_kitchen_270x480.png",
+    "movie_room": "assets/environments/movie_room/castle_movie_room_270x480.png",
+    "peking_naija": "assets/environments/peking_naija/peking_naija_interior_270x480.png",
+    "salon": "assets/environments/salon/twist_and_shout_salon_270x480.png",
+    "brunch": "assets/environments/brunch/eggs_benedead_brunch_270x480.png",
+    "onsen": "assets/environments/onsen/yu_and_me_onsen_270x480.png",
+    "little_tokyo": "assets/environments/little_tokyo/little_tokyo_night_270x480.png",
+    "venice": "assets/environments/venice/venice_courts_night_270x480.png",
+    "gallery": "assets/environments/gallery/rookoko_gallery_270x480.png",
+    "tristan_apt": "assets/environments/tristan_apt/tristan_apartment_270x480.png",
+    "taco_truck": "assets/environments/taco_truck/don_chuy_taco_truck_270x480.png",
+    "maul": "assets/environments/maul/maul_of_georgia_270x480.png",
+    "lennox": "assets/environments/lennox/lennox_scare_270x480.png",
+    "centennial": "assets/environments/centennial/centennial_vampiric_park_270x480.png",
+    "suya_spot": "assets/environments/suya_spot/southwest_atlanta_suya_spot_270x480.png",
+    "crest": "assets/environments/crest/angeles_crest_overlook_270x480.png",
+    "duchess_castle": "assets/environments/duchess_castle/duchess_castle_reception_270x480.png"
+  },
+  "source_contracts": {
+    "character": {
+      "cell": [
+        80,
+        96
+      ],
+      "contact": [
+        40,
+        88
+      ],
+      "runtime_scale": "approximately 1.85x nearest-neighbor only"
+    },
+    "environment": {
+      "canvas": [
+        270,
+        480
+      ],
+      "mode": "RGB",
+      "layer_role": "opaque reusable master candidate"
+    }
+  },
+  "explicit_exclusions": [
+    "crowds and crowd overlays",
+    "scene-specific condition overlays",
+    "presentation compositions",
+    "family identities and phone portraits",
+    "God identity",
+    "Buckhead Vampire and OG Hooper",
+    "GUIDED or bedroom-company states",
+    "SEALED/HQ-only material"
+  ]
+}
