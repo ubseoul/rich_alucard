@@ -80,3 +80,34 @@
   const previous=window.RAStages;
   window.RAStages={get:id=>id===exterior.id?exterior:id===interior.id?interior:previous.get(id),all:()=>[...previous.all(),exterior,interior]};
 })();
+
+(function(){
+  // Throne room (CEO fight) — composed legacy room art, 765×1024 native grid. Presentation Director stage.
+  // The legacy CSS composition (Rich 1.95 / CEO 2 / assistant 1.7 CSS px per source px on a 390-wide room)
+  // becomes two depth lines: front (Rich, CEO) and a slightly farther back line (assistant); the smaller
+  // back-line scale follows floor perspective instead of a per-character size. The throne chair is part of
+  // Rich's seated sprites, so the pilot re-stages the fight closer together without touching pixels.
+  const source={width:80,height:96,anchor:{x:40,y:88}};
+  const throne={
+    id:'throne-room',native:{width:765,height:1024},environment:'assets/throne_room_scene_portrait.png',referenceScale:1,
+    contactLines:[{id:'front',y:940,x1:40,x2:725,scale:3.9},{id:'back',y:905,x1:40,x2:725,scale:3.59}],
+    actors:{
+      rich:{source,anchor:{x:290,y:940,line:'front'},facing:'right',layer:6},
+      ceo:{source,anchor:{x:500,y:940,line:'front'},facing:'left',layer:7},
+      assistant:{source,anchor:{x:615,y:905,line:'back'},facing:'left',observer:true,layer:6}
+    },
+    dialogueSafeZones:[],uiExclusionZones:[],
+    layers:[{id:'environment',z:1},{id:'ambience',z:2},{id:'actors',z:6},{id:'ceo',z:7},{id:'fx',z:8}],
+    director:{roles:{rich:'rich',enemy:'ceo'},
+     states:{rich:['assets/rich_seated_idle.png','assets/rich_seated_cast.png','assets/rich_seated_hit.png','assets/rich_seated_victory.png'],ceo:['assets/ceo_idle.png','assets/ceo_briefcase_throw.png','assets/ceo_hit.png','assets/ceo_defeated.png','assets/ceo_hit_reaction_sheet.png#0','assets/ceo_hit_reaction_sheet.png#1','assets/ceo_hit_reaction_sheet.png#2'],assistant:['assets/assistant_idle.png','assets/assistant_heal.png','assets/assistant_reaction.png','assets/assistant_walk.png']},
+     // `include`: secondary actors kept inside the frame (horizontal fit only; not part of the size target).
+     shots:{combat:{profile:'combat',focal:['rich','ceo'],include:['assistant'],speakers:['rich','ceo'],reference:'rich'},
+      // Held tableau when the assistant crosses to Rich's side (snap-pan out, hold, snap-pan back).
+      tableau:{profile:'establishing',focal:['rich','ceo','assistant'],speakers:['rich','ceo'],reference:'rich'}},
+     // Beat marks: authored world positions for scripted moves (assistant joins Rich; CEO leaves the room).
+     marks:{assistantJoin:{slot:'assistant',x:160,line:'front'},ceoExit:{slot:'ceo',x:1000,line:'front'}},
+     worldLayers:{bloodBath:[0,0,765,1024]}}
+  };
+  const previous=window.RAStages;
+  window.RAStages={get:id=>id===throne.id?throne:previous.get(id),all:()=>[...previous.all(),throne]};
+})();

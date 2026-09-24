@@ -90,7 +90,7 @@ function paint(){
  if(inMoves&&!busy)moves[moveIndex].focus();
 }
 function resetBattle(encounter='ceo'){
- battleEncounter=encounter;
+ battleEncounter=encounter;window.RAPresentationDirector?.resetMoves?.();
  battleState=window.RACombatFoundation.createBattleState(encounter);
  richHP=100;ceoHP=100;revengeStored=0;battleOver=false;busy=false;inMoves=false;mainIndex=0;moveIndex=0;
  document.querySelector('#enemyName').textContent=encounter==='jdm'?'JDM IMPORTER':'CEO ZOMBIE PRINCE';
@@ -113,6 +113,7 @@ function activateMain(){
 function pressFeedback(node){if(!node)return;node.classList.remove('pressed');void node.offsetWidth;node.classList.add('pressed');setTimeout(()=>node.classList.remove('pressed'),150)}
 async function hitStop(ms=70){const screen=document.querySelector('#screen');screen.classList.add('hit-stop');await wait(ms);screen.classList.remove('hit-stop')}
 // Presentation Director scenes anchor code-spawned effects to actors; legacy scenes keep screen percentages.
+function directorOn(stage){return window.RAPresentationDirector?.current?.()?.stage===stage}
 function directorSpawn(role,dx,dy,size){return window.RAPresentationDirector?.active?.()?window.RAPresentationDirector.fxPoint(role,dx,dy,size):null}
 async function projectileVolley(){battleUI.classList.add('attack-mode');attackLayer.classList.add('active');richCast.classList.add('cast');say('BLOOD BATH!',420);await wait(150);const lanes=[35,40,45,32,43,38],starts=[22,27,23,30,26,32];for(let i=0;i<6;i++){const at=directorSpawn('rich',...(window.RAPresentationData?.spawn.missileStarts[i]||[0,0]),[40,24]),left=at?`${at.x}px`:starts[i]+'%',top=at?`${at.y}px`:lanes[i]+'%';const o=document.createElement('div');o.className='detailed-blood-missile';o.style.left=left;o.style.top=top;o.style.setProperty('--row',`${-i*24}px`);o.style.setProperty('--delay',`${i*70}ms`);o.style.setProperty('--flight',`${420+(i%3)*30}ms`);projectiles.appendChild(o);for(let t=1;t<=2;t++){const g=document.createElement('div');g.className='missile-ghost';g.style.left=left;g.style.top=top;g.style.setProperty('--row',`${-i*24}px`);g.style.setProperty('--delay',`${i*70+t*34}ms`);g.style.setProperty('--flight',`${420+(i%3)*30}ms`);g.style.setProperty('--ghost',`${.22/t}`);projectiles.appendChild(g);}}projectiles.classList.add('charge-orbs');await wait(310);projectiles.classList.remove('charge-orbs');setRichState('cast');setCEOState('hit');projectiles.classList.add('fire-orbs');for(let i=0;i<6;i++){await wait(i===0?355:74);const q=document.createElement('div');q.className='detailed-impact';const hit=window.RAPresentationData&&directorSpawn('enemy',RAPresentationData.spawn.impact.dx,RAPresentationData.spawn.impact.dy+(i%4)*RAPresentationData.spawn.impact.step,[64,64]);if(hit){q.style.left=`${hit.x}px`;q.style.top=`${hit.y}px`}else q.style.top=`${31+(i%4)*3.4}%`;projectiles.appendChild(q);const s=document.querySelector('#screen');s.classList.remove('micro-shake');void s.offsetWidth;s.classList.add('micro-shake');setTimeout(()=>q.remove(),430);}document.querySelector('#screen').classList.add('blood-shake');enemyHit.classList.add('hit');ceoRecoil.classList.add('active');damageNumber.classList.add('show');await wait(390);document.querySelector('#screen').classList.remove('blood-shake','micro-shake');enemyHit.classList.remove('hit');ceoRecoil.classList.remove('active');damageNumber.classList.remove('show');projectiles.classList.remove('fire-orbs');setRichState('idle');if(typeof ceoHP==='undefined'||ceoHP>0)setCEOState('idle');projectiles.replaceChildren();richCast.classList.remove('cast');await wait(70);attackLayer.classList.remove('active');battleUI.classList.remove('attack-mode');}
 
@@ -205,9 +206,10 @@ async function resolveOctopus(result){
   if(result.kind==='hoe'){
     say('SHE JOINS RICH.',650);
     setAssistantState('walk');
-    const a=document.querySelector('.production-assistant');
+    if(directorOn('throne-room')){await RAPresentationDirector.mark('assistantJoin',{ms:1000,steps:8});await RAPresentationDirector.setBeat('tableau',{transition:'snap-pan',ms:280});await wait(1200);await RAPresentationDirector.setBeat('combat',{transition:'snap-pan',ms:280});}
+    else{const a=document.querySelector('.production-assistant');
     if(a){a.style.transition='left 1s steps(8,end)';a.style.left='28%';}
-    await wait(1050);
+    await wait(1050);}
     setAssistantState('idle');
     return false; // combat continues
   }
@@ -218,8 +220,9 @@ async function resolveOctopus(result){
     return true;
   }
   say('CEO HAS HEARD ENOUGH.',850);
-  const c=document.querySelector('.production-ceo');
-  if(c){c.style.transition='left 1s steps(8,end)';c.style.left='115%';}
+  if(directorOn('throne-room'))RAPresentationDirector.mark('ceoExit',{ms:1000,steps:8});
+  else{const c=document.querySelector('.production-ceo');
+  if(c){c.style.transition='left 1s steps(8,end)';c.style.left='115%';}}
   ceoHP=0; updateHP();
   battleOver=true;
   return true;

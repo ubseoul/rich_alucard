@@ -59,7 +59,18 @@ const SCENES={
   actors:{rich:'#geminiRich',ceo:'#productionCEO',assistant:'#productionAssistant'},
   focal:['rich','ceo'],
   ui:['.combat-hud .hpbox','#battleUI'],
-  variants:[],moves:[]
+  variants:[
+   {id:'rich-cast',run:()=>{document.querySelector('#geminiRich').className='gemini-rich state-cast'}},
+   {id:'ceo-throw',run:()=>{document.querySelector('#productionCEO').className='production-ceo state-throw'}},
+   {id:'ceo-hit',run:()=>{document.querySelector('#productionCEO').className='production-ceo state-hit'}},
+   {id:'ceo-authored-heavy',run:()=>{document.querySelector('#productionCEO').className='production-ceo state-hit combat-authored-ceo-heavy'}},
+   {id:'ceo-defeated',run:()=>{document.querySelector('#productionCEO').className='production-ceo state-defeated'}},
+   {id:'assistant-joins',run:()=>RAPresentationDirector.mark('assistantJoin',{kind:'cut'})},
+   {id:'tableau-beat',run:()=>RAPresentationDirector.setBeat('tableau')},
+   {id:'back-to-combat',run:()=>RAPresentationDirector.setBeat('combat')},
+   {id:'longest-dialogue',run:()=>{document.querySelector('#dialogue').innerHTML='RESPAWN HUNGOVER?<br><strong>RICH ALUCARD</strong> TOOK 16 DAMAGE.'}}
+  ],
+  moves:['blood','bite','revenge']
  }
 };
 
@@ -70,7 +81,7 @@ function measureInPage({spec,meta}){
  const box=(x,y,w,h)=>({x,y,w,h}),area=b=>Math.max(0,b.w)*Math.max(0,b.h);
  const inter=(a,b)=>{const x=Math.max(a.x,b.x),y=Math.max(a.y,b.y);return box(x,y,Math.min(a.x+a.w,b.x+b.w)-x,Math.min(a.y+a.h,b.y+b.h)-y)};
  const shown=el=>{if(!el)return false;const cs=getComputedStyle(el);return cs.display!=='none'&&cs.visibility!=='hidden'&&+cs.opacity>0};
- const assetOf=el=>{if(el.tagName==='IMG')return (el.getAttribute('src')||'').match(/assets\/[^?"')]+/)?.[0];return (getComputedStyle(el).backgroundImage.match(/assets\/[^"')?]+/)||[])[0]};
+ const assetOf=el=>{if(el.tagName==='IMG')return (el.getAttribute('src')||'').match(/assets\/[^?"')]+/)?.[0];const cs=getComputedStyle(el),file=(cs.backgroundImage.match(/assets\/[^"')?]+/)||[])[0],sheet=meta[file]?.sheet;if(!sheet)return file;const w=el.getBoundingClientRect().width/sheet.frameWidth;return `${file}#${Math.max(0,Math.min(sheet.frames-1,Math.round(-parseFloat(cs.backgroundPositionX||'0')/(sheet.frameWidth*w))))}`};
  const world=window.RAPresentationDirector?.worldRect?.()||box(0,0,sr.width,sr.height);
  const ui=spec.ui.flatMap(s=>[...document.querySelectorAll(s)]).filter(shown).map(el=>rel(el.getBoundingClientRect()));
  const actors={};
@@ -81,7 +92,7 @@ function measureInPage({spec,meta}){
 }
 async function pixelMetrics(page,spec,m){
  return page.evaluate(async({spec,m})=>{
-  const load=src=>new Promise((res,rej)=>{const i=new Image();i.onload=()=>{const c=document.createElement('canvas');c.width=i.naturalWidth;c.height=i.naturalHeight;const g=c.getContext('2d');g.drawImage(i,0,0);res(g.getImageData(0,0,c.width,c.height))};i.onerror=rej;i.src=src});
+  const load=src=>new Promise((res,rej)=>{const [file,frame]=src.split('#');const i=new Image();i.onload=()=>{const w=frame!=null?80:i.naturalWidth,c=document.createElement('canvas');c.width=w;c.height=i.naturalHeight;const g=c.getContext('2d');g.drawImage(i,frame!=null?-80*+frame:0,0);res(g.getImageData(0,0,c.width,c.height))};i.onerror=rej;i.src=file});
   const box=(x,y,w,h)=>({x,y,w,h}),area=b=>Math.max(0,b.w)*Math.max(0,b.h),inter=(a,b)=>{const x=Math.max(a.x,b.x),y=Math.max(a.y,b.y);return box(x,y,Math.min(a.x+a.w,b.x+b.w)-x,Math.min(a.y+a.h,b.y+b.h)-y)};
   const out={overlap:{},deadSpace:null};
   for(const [slot,a] of Object.entries(m.actors)){if(!spec.focal.includes(slot))continue;const img=await load(a.asset);let n=0;
