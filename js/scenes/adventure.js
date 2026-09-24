@@ -113,6 +113,7 @@
   }
  }
  async function returnHome(res){
+  if(res?.chain&&RAAdventures.available(res.chain)){RAAdventures.start(res.chain,{from:'chain',vars:res.chainVars||{}});await RAScenes.go('adventure',{chained:true});return;}
   document.body.classList.remove('adventure-mode');
   const dest=res?.location||'bedroom';
   await RAScenes.go(dest==='bedroom'?'bedroom':dest,{returnBeat:true,adventure:res?.id});

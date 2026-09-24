@@ -19,7 +19,7 @@
     RABudget.spend(price);
     const acquiredAt=new Date().toISOString();
     const stabilizeAt=new Date(Date.now()+STABILIZE_MS).toISOString();
-    const property={id:PROPERTY_ID,label:'PALOMA FOURPLEX',ownershipStatus:'owned',acquisitionSource:'real_estate_shannon',transactionMode:mode,acquiredAt,condition:'active',pendingRepairCost:repair,monthlyIncome:MONTHLY_INCOME,purchasePrice:price,incomeReadyAt:stabilizeAt,nextCollectionAt:stabilizeAt,firstSignChoice:record?.firstSignChoice||null,ratApproach:record?.ratApproach||null};
+    const property={id:PROPERTY_ID,label:'PALOMA FOURPLEX',ownershipStatus:'owned',acquisitionSource:'real_estate_shannon',transactionMode:mode,acquiredAt,condition:'active',pendingRepairCost:repair,monthlyIncome:MONTHLY_INCOME,purchasePrice:price,incomeReadyAt:stabilizeAt,nextCollectionAt:stabilizeAt,weeklyRent:MONTHLY_INCOME,rentDue:0,value:price,acquiredDay:window.RALife?.today?.().day||1,firstSignChoice:record?.firstSignChoice||null,ratApproach:record?.ratApproach||null};
     const life=RAState.get().life;
     RAState.patch('life.ownership.properties',[...life.ownership.properties,property]);
     window.RAPeople?.meetPerson('shannon_001','property_la_4p_01');
@@ -38,6 +38,8 @@
     const life=RAState.get().life,idx=life.ownership.properties.findIndex(x=>x.id===PROPERTY_ID);
     if(idx<0)return false;
     const prop=life.ownership.properties[idx];
+    // Life clock (save v12): rent accrues on Shannon Fridays as rentDue. Legacy wall-clock path kept for old records.
+    if(Number.isFinite(prop.rentDue)){if(!(prop.rentDue>0))return false;const due=prop.rentDue;window.RABudget?.add(due);const next=[...life.ownership.properties];next[idx]={...prop,rentDue:0,lastCollectedAt:new Date().toISOString(),condition:prop.condition==='active'?'stabilized':prop.condition};RAState.patch('life.ownership.properties',next);RAState.recordEvent({id:`property-rent:${PROPERTY_ID}:${Date.now()}`,type:'property_income_collected',propertyId:PROPERTY_ID,amount:due,at:new Date().toISOString()});return due;}
     if(Date.parse(prop.nextCollectionAt||0)>Date.now())return false;
     const amount=Number(prop.monthlyIncome)||0;
     window.RABudget?.add(amount);
@@ -128,9 +130,11 @@
   function storeMarkup(){
     const owned=ownedRecord(),record=active();
     if(owned){
-      const ready=Date.parse(owned.incomeReadyAt||0)<=Date.now();
-      const collectable=ready&&Date.parse(owned.nextCollectionAt||0)<=Date.now();
-      return `<h1>REALMONEYREALESTATE</h1><img class="property-thumb" src="assets/property/ui/property_ownership_thumbnail_96x96.png" alt="" draggable="false" /><p class="property-owned-label">PALOMA FOURPLEX / OWNED</p><p class="property-status">CONDITION: ${owned.condition==='stabilized'?'STABILIZED':'ACTIVE'}</p><p class="property-status">INCOME: ${ready?'READY':'PENDING STABILIZATION'}</p><div class="property-actions"><button type="button" class="phone-button property-action" data-property-action="collect" ${collectable?'':'disabled'}>${collectable?`COLLECT $${new Intl.NumberFormat('en-US').format(owned.monthlyIncome)}`:'NOT YET DUE'}</button><button type="button" class="phone-button" data-property-action="home">HOME</button></div>`;
+      const clock=Number.isFinite(owned.rentDue);
+      const ready=clock||Date.parse(owned.incomeReadyAt||0)<=Date.now();
+      const collectable=clock?owned.rentDue>0:ready&&Date.parse(owned.nextCollectionAt||0)<=Date.now();
+      const collectAmount=clock?owned.rentDue:owned.monthlyIncome;
+      return `<h1>REALMONEYREALESTATE</h1><img class="property-thumb" src="assets/property/ui/property_ownership_thumbnail_96x96.png" alt="" draggable="false" /><p class="property-owned-label">PALOMA FOURPLEX / OWNED</p><p class="property-status">CONDITION: ${owned.condition==='stabilized'?'STABILIZED':'ACTIVE'}</p><p class="property-status">INCOME: ${ready?'READY':'PENDING STABILIZATION'}</p><div class="property-actions"><button type="button" class="phone-button property-action" data-property-action="collect" ${collectable?'':'disabled'}>${collectable?`COLLECT $${new Intl.NumberFormat('en-US').format(collectAmount)}`:(clock?'NEXT: SHANNON FRIDAY':'NOT YET DUE')}</button><button type="button" class="phone-button" data-property-action="home">HOME</button></div>`;
     }
     if(record&&record.status!=='completed')return `<h1>REALMONEYREALESTATE</h1><p>FOURPLEX / AS-IS</p><p class="property-status">INSPECTION IN PROGRESS.</p><div class="property-actions"><button type="button" class="phone-button property-action" data-property-action="resume">RETURN TO THE PROPERTY</button><button type="button" class="phone-button" data-property-action="home">HOME</button></div>`;
     return `<h1>REALMONEYREALESTATE</h1><p>FOURPLEX / AS-IS</p><p class="property-status">FOUR DOORS. ONE PRICE. SELLER WANTS SPEED.</p><p class="property-status">INCOME PROPERTY. INSPECTION REQUIRED.</p><div class="property-actions"><button type="button" class="phone-button property-action" data-property-action="see">SEE IT</button><button type="button" class="phone-button" data-property-action="home">NOT TODAY</button></div>`;
@@ -143,7 +147,7 @@
   document.addEventListener('DOMContentLoaded',()=>{
     document.querySelector('#devResetProperty')?.addEventListener('click',async()=>{resetForDev();if(window.RAPhone?.isOpen?.())await window.RAPhone.close();if(window.RAScenes?.current?.()!=='bedroom')await window.RAScenes?.go?.('bedroom',{devReset:'property'});});
     document.querySelector('#devEnterProperty')?.addEventListener('click',()=>begin());
-    document.querySelector('#devCollectRent')?.addEventListener('click',()=>{const life=RAState.get().life,idx=life.ownership.properties.findIndex(x=>x.id===PROPERTY_ID);if(idx>=0){const next=[...life.ownership.properties];next[idx]={...next[idx],nextCollectionAt:new Date(0).toISOString(),incomeReadyAt:new Date(0).toISOString()};RAState.patch('life.ownership.properties',next);}});
+    document.querySelector('#devCollectRent')?.addEventListener('click',()=>{const life=RAState.get().life,idx=life.ownership.properties.findIndex(x=>x.id===PROPERTY_ID);if(idx>=0){const next=[...life.ownership.properties];const p=next[idx];next[idx]={...p,nextCollectionAt:new Date(0).toISOString(),incomeReadyAt:new Date(0).toISOString(),...(Number.isFinite(p.rentDue)?{rentDue:p.rentDue+(Number(p.weeklyRent)||0)}:{})};RAState.patch('life.ownership.properties',next);}});
   });
   window.RAPropertyQuest={propertyId:PROPERTY_ID,questId:QUEST_ID,active,ownedRecord,begin,resume,resetForDev,storeMarkup,action,collectRent,computeAcquisition,completePurchase,priceCut:PRICE_CUT,priceAsis:PRICE_ASIS,monthlyIncome:MONTHLY_INCOME,buildExteriorDefinition,buildInteriorDefinition};
 })();

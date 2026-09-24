@@ -34,7 +34,7 @@
   const def=get(id);if(!def)return false;const a=active();if(a&&a.id!==id)return false;
   if(!def.repeatable&&isDone(id))return false;
   if(def.cooldown&&record(id)?.completedDay&&RALife.today().day-record(id).completedDay<def.cooldown)return false;
-  if(def.oncePerNight!==false&&def.repeatable&&record(id)?.lastDay===RALife.today().day&&def.oncePerNight)return false;
+  if(def.oncePerNight&&record(id)?.lastDay===RALife.today().day)return false;
   try{return def.available?def.available(RALife.L())!==false:true}catch(e){console.error(e);return false}
  }
  // Adventure context handed to content callbacks.
@@ -59,17 +59,19 @@
  // Enter a node: inherit env/actors, apply once-only effects, persist position.
  function enter(nodeId){
   const a=active();if(!a)return null;const def=get(a.id);const node=def.nodes[nodeId];if(!node){console.error('missing node',a.id,nodeId);return null;}
-  const env=node.env||a.env;let actors=node.actors===null?{}:node.actors?{...(node.keepActors?a.actors:{}),...node.actors}:a.actors;
+  const C=context();const envSrc=typeof node.env==='function'?node.env(C):node.env;const actSrc=typeof node.actors==='function'?node.actors(C):node.actors;
+  const env=envSrc||a.env;let actors=actSrc===null?{}:actSrc?{...(node.keepActors?a.actors:{}),...actSrc}:a.actors;
   patchActive({node:nodeId,env,actors});
   if(node.enter&&!(active().applied||[]).includes(nodeId)){patchActive({applied:[...(active().applied||[]),nodeId]});try{node.enter(context())}catch(e){console.error('enter fx',a.id,nodeId,e)}}
   return {node,env,actors:active().actors,def};
  }
  function choicesFor(nodeId){
   const a=active();if(!a)return [];const node=get(a.id)?.nodes[nodeId];const L=RALife.L();
-  return (node?.choices||[]).map((c,index)=>{let ok=true;try{ok=c.when?c.when(L)!==false:true}catch(e){ok=false}return {...c,index,locked:!ok};}).filter(c=>!(c.locked&&c.hideLocked!==false));
+  const list=typeof node?.choices==='function'?node.choices(context()):(node?.choices||[]);
+  return list.map((c,index)=>{let ok=true;try{ok=c.when?c.when(L)!==false:true}catch(e){ok=false}return {...c,index,locked:!ok};}).filter(c=>!(c.locked&&c.hideLocked!==false));
  }
  function choose(nodeId,index){
-  const a=active();if(!a)return null;const node=get(a.id).nodes[nodeId];const c=node?.choices?.[index];if(!c)return null;
+  const a=active();if(!a)return null;const node=get(a.id).nodes[nodeId];const all=typeof node?.choices==='function'?node.choices(context()):(node?.choices||[]);const c=all[index];if(!c)return null;
   let ok=true;try{ok=c.when?c.when(RALife.L())!==false:true}catch(e){ok=false}if(!ok)return null;
   const A=context();if(c.fx)try{c.fx(A)}catch(e){console.error('choice fx',e)}
   if(c.tendency)RALife.tendency(c.tendency);
@@ -97,7 +99,9 @@
   RAState.patch('life.clock.returnBeat',home?{speaker:home[0],text:home[1],vp:!!home[2]?.vp,adventure:def.id,nightEnder:!!(end.nightEnder||def.nightEnder)}:{adventure:def.id,nightEnder:!!(end.nightEnder||def.nightEnder)});
   RAState.patch('life.adventures.active',null);
   document.dispatchEvent(new CustomEvent('ra:adventure-complete',{detail:{id:def.id,outcome}}));
-  return {id:def.id,outcome,nightEnder:!!(end.nightEnder||def.nightEnder),location:end.location};
+  const chain=typeof end.chain==='function'?end.chain(A):end.chain;
+  if(chain)RAState.patch('life.clock.returnBeat',null);
+  return {id:def.id,outcome,nightEnder:!!(end.nightEnder||def.nightEnder),location:end.location,chain:chain||null,chainVars:end.chainVars?end.chainVars(A):{}};
  }
  function abandon(){const a=active();if(!a)return;const rec=record(a.id)||{};saveRecord(a.id,{...rec,status:rec.count?'completed':'available'});RAState.patch('life.adventures.active',null);}
  // Static validation used by tests: every node reachable target exists, every adventure has an end + memory.
@@ -105,12 +109,12 @@
   const errors=[];const ids=Object.keys(def.nodes);let hasEnd=false;
   for(const [id,n] of Object.entries(def.nodes)){
    if(n.end)hasEnd=true;
-   const targets=[];if(typeof n.next==='string')targets.push(n.next);for(const c of n.choices||[])if(typeof c.next==='string')targets.push(c.next);
+   const targets=[];if(typeof n.next==='string')targets.push(n.next);if(Array.isArray(n.choices))for(const c of n.choices)if(typeof c.next==='string')targets.push(c.next);
    if(n.route&&typeof n.route.next==='string')targets.push(n.route.next);
    if(n.fight)for(const k of ['win','lose','spared','run'])if(typeof n.fight[k]==='string')targets.push(n.fight[k]);
    for(const t of targets)if(!ids.includes(t))errors.push(`${def.id}.${id} → missing node ${t}`);
    if(!n.end&&!n.next&&!n.choices&&!n.route&&!n.minigame&&!n.fight)errors.push(`${def.id}.${id} dead end`);
-   for(const line of n.lines||[])if(line[0]==='rich'&&!(line[2]&&(line[2].vp||line[2].canon)))errors.push(`${def.id}.${id} Rich line not marked [VP]: ${line[1]}`);
+   for(const line of Array.isArray(n.lines)?n.lines:[])if(line&&line[0]==='rich'&&!(line[2]&&(line[2].vp||line[2].canon)))errors.push(`${def.id}.${id} Rich line not marked [VP]: ${line[1]}`);
   }
   if(!hasEnd)errors.push(`${def.id} has no end node`);
   return errors;
