@@ -744,3 +744,25 @@ body.jdm-mode .reveal-overlay{z-index:140}
 .reveal-assistant-sprite.conversion-bite{filter:brightness(1.7) sepia(.4)}
 .reveal-assistant-sprite.conversion-first{filter:brightness(.72) sepia(1) hue-rotate(290deg) saturate(2)}
 .reveal-assistant-sprite.conversion-second{filter:brightness(.55) sepia(1) hue-rotate(280deg) saturate(2.5);transform:translateX(-50%) scale(1.3)}
+
+/* ==== Presentation Director (docs/PRESENTATION_DIRECTOR.md) ====
+   Generic per-mode layout driven by Director CSS variables. No per-scene sizing lives here. */
+body.pd-active #stage{height:min(100dvh,calc(min(100vw,56.25dvh) * 2.2223));aspect-ratio:auto}
+body.pd-active #screen{height:100%;aspect-ratio:auto;overflow:clip}
+/* overflow:clip — focus() on off-screen command buttons during attacks must never scroll the camera. */
+#pdWorld{position:absolute;overflow:hidden;pointer-events:none;box-shadow:0 -2px 0 #05040b,0 2px 0 #05040b,0 -3px 0 #403b72,0 3px 0 #403b72}
+#pdWorld > *{position:absolute;margin:0}
+#screen[data-pd-mode="combat"] .combat-hud{left:var(--pd-hud-x);right:auto;top:var(--pd-hud-y);width:var(--pd-hud-w);height:var(--pd-hud-h);align-items:center}
+#screen[data-pd-mode="combat"] .battle-ui{left:var(--pd-ui-x);right:auto;bottom:auto;width:var(--pd-ui-w);height:min(var(--pd-ui-h),calc(var(--pd-ui-w) * .6));top:calc(var(--pd-ui-y) + max(0px,(var(--pd-ui-h) - var(--pd-ui-w) * .6) / 2))}
+#screen[data-pd-mode="combat"] .toast:not(.jdm-speaker-bubble){top:calc(var(--pd-world-y) + var(--pd-world-h) * .82)}
+/* Effects positioned in code from actor rectangles keep their authored size relative to the actor. */
+body.pd-active .blood-bath-contact-layer,body.pd-active .revenge-wound,body.pd-active .revenge-extract,body.pd-active .revenge-crack,body.pd-active .vampire-bite-contact,body.pd-active .contact-fragment,body.pd-active .vampire-life-particle{scale:var(--pd-fx,1)}
+body.pd-active .blood-bath-engulf{transform-origin:50% 92%}
+body.pd-active .detailed-blood-missile,body.pd-active .missile-ghost,body.pd-active .detailed-impact{scale:var(--pd-fx,1);transform-origin:0 0}
+/* Flight distances are Director variables (in pre-scale px; the element's scale applies to its transform). */
+body.pd-active .fire-orbs .detailed-blood-missile{animation:detailedLiquid 170ms steps(1,end) infinite,pdDetailFlight var(--flight) var(--delay) cubic-bezier(.1,.78,.16,1) forwards}
+body.pd-active .fire-orbs .missile-ghost{animation:pdGhostFlight var(--flight) var(--delay) cubic-bezier(.1,.78,.16,1) forwards}
+body.pd-active .briefcase-projectile.fly{animation:pdBriefcaseFly 430ms steps(4,end) forwards}
+@keyframes pdDetailFlight{0%{transform:translateX(0);opacity:1}82%{opacity:1}100%{transform:translateX(var(--pd-missile-dx,128px));opacity:0}}
+@keyframes pdGhostFlight{0%{transform:translateX(-5px) scale(.92);opacity:0}12%{opacity:var(--ghost)}82%{opacity:var(--ghost)}100%{transform:translateX(calc(var(--pd-missile-dx,128px) - 8px)) scale(.92);opacity:0}}
+@keyframes pdBriefcaseFly{0%{transform:translateX(0);background-position:0 0}25%{background-position:-64px 0}50%{background-position:-128px 0}75%{background-position:-192px 0}100%{transform:translateX(var(--pd-briefcase-dx,-145px));background-position:0 0}}
