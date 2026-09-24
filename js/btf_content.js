@@ -6,5 +6,6 @@ window.RABtfContentFiles=[
  'js/data/bars_words.js',
  'js/minigames/touge.js','js/minigames/hatch.js','js/minigames/pier.js','js/minigames/bars.js','js/minigames/slurp.js','js/minigames/jollof.js','js/minigames/garage.js','js/minigames/hookah.js','js/minigames/pickup.js',
  'js/data/btf/adventures/w1_opening.js','js/data/btf/adventures/systems.js','js/data/btf/adventures/date.js','js/data/btf/dates.js','js/data/btf/adventures/w1_life.js','js/data/btf/adventures/w2.js','js/data/btf/adventures/w3.js','js/data/btf/adventures/w4.js','js/data/btf/adventures/w5.js','js/data/btf/dates_cast.js',
+ 'js/systems/btf_dev.js',
  'js/sealed/pack.js'
 ];
