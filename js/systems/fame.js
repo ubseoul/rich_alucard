@@ -37,5 +37,9 @@
   o.innerHTML='<button type="button" class="fame-continue">THE NEXT MORNING</button>';
   o.querySelector('button').addEventListener('click',()=>{o.remove();RAClock.wake({first:true});window.RABedroomLife?.build?.();window.RABedroomLife?.showMail?.();},{once:true});
  }
- window.RAFame={eligible,claimsWake,play,checkSpark,dims:DIMS};
+ // LEGEND is lit by finishing authored weird adventures (VOL 1 §5.3: "4+ authored weird adventures").
+ const LEGEND=['A00','A09','A10','A15','A18','A19','A20','A25','A27','A28','A30','A31','A32','A44','A47','A50','A51','A52','A56'];
+ const CHAOS=['A23','A29','A28'];
+ document.addEventListener('ra:adventure-complete',e=>{const id=e.detail?.id;if(LEGEND.includes(id))RALife.light('legend',1,`legend:${id}`);if(CHAOS.includes(id))RALife.light('chaos',1,`chaos:${id}`);});
+ window.RAFame={eligible,claimsWake,play,checkSpark,dims:DIMS,LEGEND};
 })();
