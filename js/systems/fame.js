@@ -40,6 +40,9 @@
  // LEGEND is lit by finishing authored weird adventures (VOL 1 §5.3: "4+ authored weird adventures").
  const LEGEND=['A00','A09','A10','A15','A18','A19','A20','A25','A27','A28','A30','A31','A32','A44','A47','A50','A51','A52','A56'];
  const CHAOS=['A23','A29','A28'];
+ // Every distinct authored adventure lights its lane's dimension once (texture, not grinding one activity).
+ const LANE_DIM={music:'expression',nightlife:'expression',hosting:'expression',cars:'expression',dating:'connection',people:'connection',family:'connection',food:'connection',desire:'connection',property:'ownership',mall:'ownership',home:'ownership',money:'ownership',dragons:'legend',weird:'legend',shout:'legend',combat:'legend',fishing:'legend',vampire:'chaos'};
+ document.addEventListener('ra:adventure-complete',e=>{const def=RAAdventures.get(e.detail?.id);if(!def)return;const dim=LANE_DIM[def.lane];if(dim)RALife.light(dim,1,`lane:${def.id}`);});
  document.addEventListener('ra:adventure-complete',e=>{const id=e.detail?.id;if(LEGEND.includes(id))RALife.light('legend',1,`legend:${id}`);if(CHAOS.includes(id))RALife.light('chaos',1,`chaos:${id}`);});
  window.RAFame={eligible,claimsWake,play,checkSpark,dims:DIMS,LEGEND};
 })();

@@ -4,16 +4,18 @@ import path from 'node:path';import {fileURLToPath,pathToFileURL} from 'node:url
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const {loadBtf,walk}=await import(pathToFileURL(path.join(root,'tools','btf-test.mjs')).href);
 const PERSONAS={
- homebody:{lanes:['home','food','dragons','music','dating','cafe','fishing','desire'],buys:['kitchen','music_room','movie_room','dragon_roost','coffin_upgrade'],outings:2,dates:1},
- party:{lanes:['nightlife','dating','music','people','combat','hosting'],buys:['party_hall','hookah_roof','music_room'],outings:3,dates:2},
- landlord:{lanes:['property','cars','mall','money','home'],buys:['garage','armory_wall','fish_tank','party_hall','coffin_upgrade'],outings:2,dates:1,properties:true,cars:['s15','urus','aventador']},
- weirdo:{lanes:['weird','combat','shout','dragons','food','nightlife'],buys:['hookah_roof','dragon_roost','armory_wall'],outings:3,dates:1}
+ homebody:{lanes:['home','food','dragons','music','dating','money'],buys:['kitchen','music_room','movie_room','dragon_roost','coffin_upgrade'],outings:2,dates:1},
+ party:{lanes:['people','dating','music','food','combat'],buys:['party_hall','hookah_roof','music_room'],outings:3,dates:2},
+ landlord:{lanes:['property','cars','mall','money','home','food'],buys:['garage','armory_wall','fish_tank','party_hall','coffin_upgrade'],outings:2,dates:1,properties:true,cars:['s15','urus','aventador']},
+ weirdo:{lanes:['combat','dragons','food','life','world','home','people'],buys:['hookah_roof','dragon_roost','armory_wall'],outings:3,dates:1}
 };
 export async function simulate(name,{maxDays=70,seed=1,log=false}={}){
  const P=PERSONAS[name];const ctx=await loadBtf(root);const {RAState,RAClock,RALife,RAAdventures,RATemptations,RAWakeTriggers,RAPlaces,RARelations,RACastle,RARealEstate,RACars,RAFame}=ctx;
  let rng=seed;const rand=()=>{rng=(rng*1103515245+12345)%2147483648;return rng/2147483648;};
  RAClock.wake({first:true});RALife.setFlag('prologueDone',true);RALife.setFlag('throneDone',true);
  const ran=[];let fameDay=null;
+ // The released Property adventure (PLAYER-BLIND) can't be walked headlessly; simulate its completion for property-minded lives.
+ const buyFirstProperty=()=>{if(RALife.flag('propertyOwned')||RALife.money()<40000)return;RALife.spend(34000);RAState.patch('life.ownership.properties',[...RALife.life().ownership.properties,{id:'property_la_4p_01',label:'PALOMA FOURPLEX',ownershipStatus:'owned',weeklyRent:1400,rentDue:0,purchasePrice:34000,value:34000}]);RALife.setFlag('propertyOwned',true);ctx.RALegacyBridge?.bridge({});};
  const run=id=>{if(!RAAdventures.available(id))return false;const def=RAAdventures.get(id);try{walk(ctx,id,{vars:def.testVars&&id==='DATE'?{}:{},pick:(list,step)=>{const oct=list.findIndex(c=>c.octopus);return name==='weirdo'&&oct>=0?oct:Math.floor(rand()*list.length);},minigame:()=>({outcome:rand()<.7?'win':'done',score:Math.round(5000+rand()*40000),rewards:{money:Math.round(rand()*300)}}),fight:()=>({outcome:rand()<.65?'win':rand()<.5?'spared':'lose'})});ran.push(`${RALife.today().day}:${id}`);return true;}catch(e){if(log)console.error(name,id,e.message);RAAdventures.abandon?.();return false;}};
  for(let d=0;d<maxDays;d++){
   const w=RAWakeTriggers.pick();if(w)run(w);
@@ -25,6 +27,7 @@ export async function simulate(name,{maxDays=70,seed=1,log=false}={}){
   for(const r of RARelations.known({dateable:true}).slice(0,P.dates)){if(RARelations.canDate(r.id)&&rand()<.6){const ok=RAAdventures.start('DATE',{vars:{person:r.id}});if(ok){RAAdventures.abandon();RAState.patch('life.adventures.active',null);try{walk(ctx,'DATE',{vars:{person:r.id},pick:()=>Math.floor(rand()*3)});ran.push(`${RALife.today().day}:DATE:${r.id}`);}catch(e){RAAdventures.abandon?.();}}}}
   // purchases
   for(const room of P.buys){if(!RALife.hasRoom(room)&&RALife.money()>(RACastle.ROOMS.find(r=>r.id===room)?.price||0)+60000)RACastle.buy(room);}
+  if(P.properties||name==='homebody')buyFirstProperty();
   if(P.properties){RARealEstate.collectAll();for(const l of RARealEstate.LISTINGS)if(RALife.money()>l.price*.3+50000&&RARealEstate.shannonLane())RARealEstate.buy(l.id,{down:true});}
   if(P.cars)for(const k of P.cars)if(RALife.money()>(RACars.CATALOG[k].price+80000))RACars.buy(k);
   // sleep; the protected ending claims the next wake once eligible
