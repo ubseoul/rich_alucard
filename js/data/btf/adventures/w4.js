@@ -313,7 +313,7 @@
    subs.add(id);RALife.setFlag('onlyvamps_subs',[...subs]);RALife.setFlag('onlyvamps_renew',{...(RALife.flag('onlyvamps_renew')||{}),[id]:RALife.today().day});
    RALife.remember({text:`subscribed to a page on ONLYVAMPS`,lane:'people',quality:.3});return true;}
   function cancel(id){const subs=new Set(RALife.flag('onlyvamps_subs')||[]);if(!subs.has(id))return false;subs.delete(id);RALife.setFlag('onlyvamps_subs',[...subs]);return true;}
-  RAClock.onWake('onlyvamps-renew',45,({info})=>{if(info.dayOfMonth!==1&&info.day%30!==1)return;
+  RAClock.onWake('onlyvamps-renew',45,({info})=>{if(info.dayOfMonth!==1)return;
    for(const id of RALife.flag('onlyvamps_subs')||[]){if(RALife.money()>=PRICE)RALife.spend(PRICE);else{cancel(id);RALife.mail({id:`ov-cancel:${id}:${info.day}`,kind:'app',title:'ONLYVAMPS',body:'a subscription lapsed. not enough funds.',app:'onlyvamps'});}}});
   window.RAOnlyVamps={PRICE,creators:CREATORS,subbed,subscribe,cancel,
    markup(){const tiles=CREATORS().map(c=>{const p=RABtfPeople.get(c.person);const collision=RARelations.met(c.person)&&c.locked;
