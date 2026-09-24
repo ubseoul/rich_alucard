@@ -2,7 +2,7 @@
 
 The Presentation Director is the single presentation source of truth for migrated scenes: environment framing, actors, camera, depth, the UI-aware world viewport, world-attached FX, beats and presentation QA. It is an evolution of the Stage Contract system (`js/engine/stage.js`), not a second renderer. It changes how game state is displayed, never what it means: no save, gameplay, canon or frozen-pixel changes.
 
-Status: **pilot midpoint** — core, numeric lint, real-UI framing and the docks combat migration are in. Throne combat, the Powder Springs curb adventure adapter and the DEV Combat 2.0 fixture follow after HQ review. Nothing else is migrated.
+Status: **pilot complete, awaiting HQ review.** Migrated: docks combat, throne-room combat, the `adventure.js` adapter (allowlist: `curb`), and a DEV-only Combat 2.0 fixture. Nothing else is migrated. Results are in [presentation/PILOT_REPORT.md](presentation/PILOT_REPORT.md).
 
 ## Files
 
@@ -17,6 +17,10 @@ Status: **pilot midpoint** — core, numeric lint, real-UI framing and the docks
 | `tools/presentation/annotations.json` | Authored face boxes (source pixels, from visual inspection of the frozen PNG) |
 | `tools/presentation-census.mjs` | Deterministic screen census: captures, objective metrics, live lint, runtime variants, real FX playback, candidate contact sheets |
 | `tools/presentation-test.mjs` | Release-gate checks (runs in `npm test`) |
+| `tools/presentation-adventure-dryrun.mjs` | Numbers-only adapter lint over every authored adventure screen |
+| `js/scenes/throne.js` | Registers the boot `battle` state (throne CEO fight) as a Director scene |
+| `js/systems/presentation_fixtures.js` | DEV-only non-canon fixtures: curb adapter adventure, Combat 2.0 test enemy |
+| `docs/presentation/golden/` | Golden set: approved and known-bad 390×844 references, `GOLDEN.json` metrics and hashes |
 
 ## Coordinate model
 
@@ -40,10 +44,32 @@ Body targets are the visible height of a reference-height body (Rich standing, 5
 | conversation | 35–45% | 40% |
 | intimate / close | 50–60% | 55% |
 
+Each profile's `reference` is the locked cross-scene size. The pilot locked combat at **0.325**. The same character at the same profile must be within ±5% of it in every scene.
+
+## Beats, moves and transitions
+
+- **Beats** are named shots in `director.shots`. `setBeat(beat, {transition:'cut'|'snap-pan'})` switches between them. For example, the throne's `combat` → `tableau` beat plays: snap-pan out, hold, snap-pan back.
+- **Moves.** `moveTo(slot, {x, line}, {kind:'walk'|'step'|'enter'|'cut'})` and authored `director.marks` move actors in world units. Moves are stepped and deterministic.
+- **Camera stability.** Within a beat the camera doesn't follow actor moves or state changes.
+- **Framing hints.** `include` keeps secondary actors in frame without counting them toward the size target.
+
+## Adventure adapter
+
+`adventureStage(env, cast, {slots, node})` turns any adventure node into a contract:
+- **Floor:** one contact line at `env.floorY`, with depth scale `env.base × 1.85`.
+- **Actors:** anchored at their slot, clamped so bodies stay inside the frame.
+- **Default shot:** 1–2 actors → conversation, 3+ → establishing. If a profile can't be reached under full-width cover, it falls back to the next one automatically. A node's `shot` field overrides this for hero screens.
+- **Placeholders:** RAPixel placeholder actors get runtime metadata, with visible bounds measured from their canvas pixels.
+- **Allowlist:** only environments listed in `RAPresentationData.adventure.environments` are Director-staged.
+
+## Combat 2.0
+
+`RACombat2.run(enemy, {director:true})` stages the fight through the same adapter contract in combat mode. The legacy 0.9 × global multiplier and the fixed floor at y=318 aren't used on that path. It's pilot-gated: only the DEV fixture passes `director:true`.
+
 ## SOLVE → SEARCH → LINT → AI JUDGE → LOCK
 
 1. **SOLVE** (`solve`): `S = max(cover, target·zoom·viewH / refBody)`. The focal group must fit the usable width. `x` centres the focal group. `y` puts the front contact line at the profile's contact fraction while keeping bubble headroom above the tallest head. The focal boxes are the **envelope of every approved state** (`director.states`), so the camera never jumps when an actor changes pose.
-2. **SEARCH** (`search`): contact fraction × zoom ∈ {1, 1.06}, ≤ 6 candidates.
+2. **SEARCH** (`search`): contact fraction × zoom ∈ {1, 1.06}, ≤ 6 candidates. Only perceptibly different framings are kept (≥ 4% position or ≥ 3% zoom apart).
 3. **LINT** (`lintFrame` geometry and `lint()` live on the rendered DOM):
    - shot size and consistency
    - face size (≥ 24 CSS px at 360 wide, scaled)
@@ -52,7 +78,7 @@ Body targets are the visible height of a reference-height body (Rich standing, 5
    - face visibility against UI, bubbles and front actors (100%)
    - headroom, contact-line validity, environment covers viewport, asset authority
    - dialogue text fit, FX centre inside the world
-   - dead space (measure-only until locked from the golden set)
+   - dead space ≤ 0.8 (locked from the pilot golden set)
 4. **AI JUDGE**: hero and composition-sensitive screens only. The legal candidates are rendered with the real UI into one contact sheet, then judged twice, the second time in a seeded shuffled order. The result is accepted only if both passes pick the same candidate for rubric reasons. Disagreement means **HOLD**. No confidence percentages.
 5. **LOCK**: `presentation_locks.js` stores the choice (not pixels), the reasons and an inputs hash (`tools/presentation/inputs.mjs`: contract, profile, mode, acceptance, asset hashes/metadata). The release gate fails if the hash goes stale. It also lints every locked screen across the runtime variant matrix (all combinations of approved focal states) at 360×740, 390×844 and 430×932.
 
@@ -83,6 +109,8 @@ RA_PLAYWRIGHT_PATH=<playwright-core dir> node tools/presentation-census.mjs --la
 - Output goes to `work/presentation_census/REVIEWER_ONLY/<label>/` (git-ignored): screenshots, contact sheets, candidate sheets (pass 1 and shuffled pass 2), and `census-<label>.json`.
 - `--root <checkout>` measures another checkout, such as the pre-Director baseline, with the same yardstick.
 - Never surface the output automatically to the player. Unseen and SEALED content stays spoiler-protected.
+- Candidate letter keys are written to `*-candidates-KEY.sealed.json`, so the judge doesn't see the mapping.
+- `--legacy` renders the DEV fixtures through the pre-Director staging, to produce baselines (test hook `window.__pdLegacy`).
 
 ## Migrating a scene
 

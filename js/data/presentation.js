@@ -14,16 +14,16 @@
    ui:{min:.44},
    uiSelectors:['.combat-hud .hpbox','#battleUI'],
    dialogueSelectors:['#dialogue'],
-   bubbles:'world'
+   bubbleSelectors:['#toast.jdm-speaker-bubble','#richLyricBubble.on']
   },
   dialogue:{
    id:'dialogue',
    pad:.022,hud:0,gap:.012,
    world:{maxAspect:1.3,minAspect:1.0},
    ui:{min:.46},
-   uiSelectors:['.adv-panel','.adv-choices'],
-   dialogueSelectors:['.adv-panel'],
-   bubbles:'world'
+   uiSelectors:['.adv-box','.adv-choices'],
+   dialogueSelectors:['.adv-box'],
+   bubbleSelectors:['.adv-bubble']
   },
   exploration:{id:'exploration',pad:.022,hud:.1,gap:.012,world:{maxAspect:1.5,minAspect:1.1},ui:{min:.3},uiSelectors:[],dialogueSelectors:[]},
   cinematic:{id:'cinematic',pad:0,hud:0,gap:0,world:{maxAspect:1.78,minAspect:1.2},ui:{min:.18},uiSelectors:[],dialogueSelectors:[]},
@@ -34,9 +34,11 @@
  // of the world viewport height. `contact` = candidate positions of the focal contact line inside the
  // viewport (0 = top, 1 = bottom). `headroom` = minimum clear space above the tallest focal head,
  // reserved for speech bubbles. HQ initial targets; locked from the pilot's golden set.
+ // `reference` = the locked cross-scene size for the profile (pilot golden set); same character + same profile
+ // must render within ±acceptance.consistency of it in every scene.
  const profiles={
   establishing:{id:'establishing',body:[.20,.25],target:.225,contact:[.78,.84,.9],headroom:.12,side:.03},
-  combat:{id:'combat',body:[.30,.35],target:.325,contact:[.8,.85,.9],headroom:.16,side:.025},
+  combat:{id:'combat',body:[.30,.35],target:.325,reference:.325,contact:[.8,.85,.9],headroom:.16,side:.025},
   conversation:{id:'conversation',body:[.35,.45],target:.40,contact:[.82,.88,.93],headroom:.14,side:.03},
   close:{id:'close',body:[.50,.60],target:.55,contact:[.9,.96,1.02],headroom:.08,side:.02}
  };
@@ -44,7 +46,8 @@
  // "same character + same shot profile" renders at the same fraction everywhere.
  const reference={asset:'assets/rich_standing_right.png'};
  // Acceptance thresholds (HQ Amendment §6). deadSpace threshold is locked from the pilot golden set.
- const acceptance={uiOverlapPx:0,faceVisible:1,minFacePx:24,minFacePxAtWidth:360,consistency:.05,deadSpace:null,fxInsideWorld:1};
+ // deadSpace locked from the pilot golden set (approved screens measured .39–.78; see docs/presentation/PILOT_REPORT.md).
+ const acceptance={uiOverlapPx:0,faceVisible:1,minFacePx:24,minFacePxAtWidth:360,consistency:.05,deadSpace:.8,fxInsideWorld:1};
  // Live review rubric (HQ Amendment §8) — the same criteria the automated judge will use.
  const rubric=['focal hierarchy','readability','environment readability','UI coexistence','dramatic/story intent','Rich Alucard presentation consistency'];
  // World-attached combat FX, authored in BODY UNITS: pixels at a reference visible body height of 124.67 px
@@ -76,5 +79,7 @@
  // Code-spawned effects (game.js in Director mode), same body units. Missiles leave Rich's chest in a spread and
  // travel the anchor-to-anchor distance plus missileFlight; impacts land on the enemy chest.
  const spawn={missileStarts:[[20,-50],[14,-30],[24,-10],[10,-40],[18,-20],[26,0]],impact:{dx:-32,dy:-53,step:14},missileFlight:-60,briefcaseFlight:18};
- window.RAPresentationData={modes,profiles,reference,acceptance,rubric,fx,fxReference,spawn};
+ // Adventure adapter pilot allowlist (js/scenes/adventure.js): only these environments are Director-staged.
+ const adventure={environments:['curb']};
+ window.RAPresentationData={modes,profiles,reference,acceptance,rubric,fx,fxReference,spawn,adventure};
 })();

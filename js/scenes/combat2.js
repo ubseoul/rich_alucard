@@ -17,12 +17,27 @@
   const env=RAPixel.createCanvas(root,{className:'c2-env'});const envDef=RAEnvironments.get(params.env||'throne');
   if(envDef?.image){const img=new Image();img.src=envDef.image;img.onload=()=>{const c=env.ctx;c.imageSmoothingEnabled=false;if(envDef.cover){const s=Math.max(270/img.naturalWidth,480/img.naturalHeight);c.drawImage(img,(270-img.naturalWidth*s)/2,(480-img.naturalHeight*s)/2,img.naturalWidth*s,img.naturalHeight*s);}else c.drawImage(img,0,0,270,480);c.fillStyle='rgba(8,7,15,.35)';c.fillRect(0,0,270,480);};}
   else if(envDef?.paint){RAPixel.paintEnvironment(env.ctx,envDef.paint);env.ctx.fillStyle='rgba(8,7,15,.3)';env.ctx.fillRect(0,0,270,480);}
+  // Presentation Director path (pilot: DEV fixture only via params.director). The Director owns size and position,
+  // so the legacy 0.9 × global multiplier and the fixed floor at y=318 are not used on this path.
+  const directed=!!params.director&&!!window.RAPresentationDirector;
   const scale=RADisplay.scaled(1)*.9,floor=318;
   const richEl=actorEl('rich',70,floor,scale,false);const enemyEl=actorEl(def.person||enemyId,200,floor,scale,!!RABtfPeople.get(def.person)?.sprite);
   richEl.classList.add('c2-rich');enemyEl.classList.add('c2-enemy');root.append(richEl,enemyEl);
-  if(def.minions){for(let i=0;i<5;i++){const k=actorEl(def.person,150+i*22,floor-30+i*6,scale*.55,false);k.classList.add('c2-minion');root.append(k);}}
+  const minionEls=[];if(def.minions){for(let i=0;i<5;i++){const k=actorEl(def.person,150+i*22,floor-30+i*6,scale*.55,false);k.classList.add('c2-minion');root.append(k);minionEls.push(k);}}
   root.insertAdjacentHTML('beforeend',`<div class="c2-hud"><div class="c2-hp c2-hp-rich"><b>RICH ALUCARD</b><span>HP <i><em></em></i> <strong></strong></span></div><div class="c2-hp c2-hp-enemy"><b>${esc(state.enemy.name)}</b><span>HP <i><em></em></i> <strong></strong></span></div></div><div class="c2-telegraph" hidden></div><div class="c2-float" aria-hidden="true"></div><div class="c2-panel"><div class="c2-log" aria-live="polite"></div><div class="c2-menu"></div></div><div class="c2-octo" hidden></div>`);
   screen.append(root);document.body.classList.add('combat2-mode');
+  if(directed)stageDirector();
+  function stageDirector(){
+   // Same adapter contract as adventures: environment floor + depth scale, slot anchors; minions stand on a
+   // farther depth band (0.55 of the floor scale — the legacy crowd depth made explicit).
+   const envDef2=envDef||RAEnvironments.get('throne'),y=envDef2.floorY??floor,depth=(envDef2.base||1)*1.85;
+   const cast={rich:{id:'rich',x:72},enemy:{id:def.person||enemyId,x:198,flip:!!RABtfPeople.get(def.person)?.sprite}};
+   minionEls.forEach((el,i)=>{cast[`minion${i}`]={id:'minion',x:150+i*22,y:y-30+i*6,lineScale:depth*.55};});
+   const stage=RAPresentationDirector.adventureStage(envDef2,cast,{node:{shot:{profile:'combat',focal:['rich','enemy'],reference:'rich'}}});
+   stage.id=`c2:${envDef2.id}`;stage.director.roles={rich:'rich',enemy:'enemy'};
+   const actors={rich:richEl,enemy:enemyEl};minionEls.forEach((el,i)=>actors[`minion${i}`]=el);
+   RAPresentationDirector.enter({stage,mode:'combat',beat:'default',host:root,env:env.canvas,actors,roles:stage.director.roles,fx:false,ui:{selectors:['.c2-hud .c2-hp','.c2-panel'],dialogue:['.c2-log'],bubbles:[]}});
+  }
   const $=sel=>root.querySelector(sel);let resolveRun;let menu='main';
   function hud(){const r=state.rich,e=state.enemy;$('.c2-hp-rich em').style.width=`${r.hp/r.max*100}%`;$('.c2-hp-rich strong').textContent=`${r.hp}/${r.max}`;$('.c2-hp-enemy em').style.width=`${e.hp/e.max*100}%`;$('.c2-hp-enemy strong').textContent=`${e.hp}/${e.max}`;const t=$('.c2-telegraph');t.hidden=!state.telegraph||state.over;t.textContent=state.telegraph||'';if(def.minions){const n=Math.max(1,Math.ceil(state.enemy.minions*e.hp/e.max));root.querySelectorAll('.c2-minion').forEach((m,i)=>m.style.opacity=i<Math.min(5,Math.ceil(n/8))?'1':'0');}}
   function btn(label,act,cls=''){return `<button type="button" class="c2-btn ${cls}" data-c2="${esc(act)}">${label}</button>`;}
@@ -47,7 +62,7 @@
    }
    busy=false;
   }
-  function floatNum(n,kind,target){if(n==null)return;const f=document.createElement('b');f.className=`c2-num c2-num-${kind}`;f.textContent=typeof n==='number'?`-${n}`:n;const onRich=kind==='rich'||target==='rich';f.style.left=onRich?'18%':'66%';f.style.top='44%';$('.c2-float').append(f);setTimeout(()=>f.remove(),900);}
+  function floatNum(n,kind,target){if(n==null)return;const f=document.createElement('b');f.className=`c2-num c2-num-${kind}`;f.textContent=typeof n==='number'?`-${n}`:n;const onRich=kind==='rich'||target==='rich';const at=directed?RAPresentationDirector.fxPoint(onRich?'rich':'enemy',-12,-84,[24,16]):null;f.style.left=at?`${at.x}px`:onRich?'18%':'66%';f.style.top=at?`${at.y}px`:'44%';$('.c2-float').append(f);setTimeout(()=>f.remove(),900);}
   function flashScreen(cls){root.classList.remove(cls);void root.offsetWidth;root.classList.add(cls);setTimeout(()=>root.classList.remove(cls),500);}
   function shake(){root.classList.remove('c2-shake');void root.offsetWidth;root.classList.add('c2-shake');}
   let busy=false;
@@ -58,7 +73,7 @@
    if(state.over)return finish();
    renderMenu();
   }
-  async function bloodFx(){const layer=$('.c2-float');for(let i=0;i<5;i++){const o=document.createElement('i');o.className='c2-orb';o.style.top=`${40+i*2.2}%`;o.style.animationDelay=`${i*60}ms`;layer.append(o);setTimeout(()=>o.remove(),800);}await wait(420);}
+  async function bloodFx(){const layer=$('.c2-float');for(let i=0;i<5;i++){const o=document.createElement('i');o.className='c2-orb';const from=directed?RAPresentationDirector.fxPoint('rich',14,-30+i*6):null,to=directed?RAPresentationDirector.fxPoint('enemy',-20,-30+i*6):null;if(from){o.style.left=`${from.x}px`;o.style.top=`${from.y}px`;o.style.setProperty('--pd-orb-to',`${to.x}px`);}else o.style.top=`${40+i*2.2}%`;o.style.animationDelay=`${i*60}ms`;layer.append(o);setTimeout(()=>o.remove(),800);}await wait(420);}
   root.addEventListener('click',e=>{
    const o=e.target.closest('[data-octo]');if(o){$('.c2-octo').hidden=true;doAction({type:'octopus',option:o.dataset.octo});return;}
    const b=e.target.closest('[data-c2]');if(!b||busy)return;const [kind,a,c]=b.dataset.c2.split(':');
@@ -81,7 +96,7 @@
    await new Promise(r=>{root.addEventListener('click',e=>{if(e.target.closest('[data-c2="done"]'))r();});});
    close({outcome,octopus:state.octopusUsed,recruited:!!state.recruited,learned:state.learned||null,turns:state.turn});
   }
-  function close(result){root.remove();document.body.classList.remove('combat2-mode');active=null;resolveRun(result);}
+  function close(result){if(directed)RAPresentationDirector.exit();root.remove();document.body.classList.remove('combat2-mode');active=null;resolveRun(result);}
   hud();$('.c2-log').textContent=params.intro||`${state.enemy.name} WANTS TO FIGHT.`;renderMenu();
   if(state.telegraph){$('.c2-telegraph').hidden=false;}
   return new Promise(resolve=>{resolveRun=resolve;active={abort:()=>close({outcome:'run'}),state,debugResolve:o=>{RACombat2Rules.forceEnd(state,o);finish();}};});

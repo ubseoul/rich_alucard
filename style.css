@@ -773,3 +773,16 @@ body.pd-active .briefcase-projectile.fly{animation:pdBriefcaseFly 430ms steps(4,
 #pdWorld > .production-ceo.combat-authored-ceo-lethal{background-position:calc(var(--pd-k) * -160px) 0}
 /* Contact shadow sits on the contact line (source y 88), sized in source pixels. */
 #pdWorld > .production-ceo:after,#pdWorld > .production-assistant:after{width:calc(var(--pd-k) * 19px);height:calc(var(--pd-k) * 2.5px);bottom:calc(var(--pd-k) * 6.75px)}
+/* Dialogue mode (adventure adapter): world viewport on top, dialogue/choices in the UI band below it. */
+#screen[data-pd-mode="dialogue"] .adv-box{left:var(--pd-ui-x);right:auto;width:var(--pd-ui-w);top:calc(var(--pd-ui-y) + 1.6em);bottom:auto;min-height:min(calc(var(--pd-ui-h) * .5),calc(var(--pd-ui-h) - 1.6em))}
+#screen[data-pd-mode="dialogue"] .adv-choices{left:var(--pd-ui-x);right:auto;width:var(--pd-ui-w);top:var(--pd-ui-y);bottom:auto;max-height:var(--pd-ui-h)}
+#screen[data-pd-mode="dialogue"] .adv-location{left:calc(var(--pd-world-x) + 8px);top:calc(var(--pd-world-y) + 8px)}
+#screen[data-pd-mode="dialogue"] .adv-scene{background:#080711}
+/* Combat 2.0 in combat mode (Director path): HUD band, telegraph on the world, panel in the UI band. */
+#screen[data-pd-mode="combat"] .c2-scene{background:#080711}
+#screen[data-pd-mode="combat"] .c2-hud{left:var(--pd-hud-x);right:auto;width:var(--pd-hud-w);top:var(--pd-hud-y);height:var(--pd-hud-h);align-items:center}
+#screen[data-pd-mode="combat"] .c2-telegraph{left:calc(var(--pd-world-x) + 4%);right:auto;width:calc(var(--pd-world-w) * .92);top:calc(var(--pd-world-y) + 8px)}
+#screen[data-pd-mode="combat"] .c2-panel{left:var(--pd-ui-x);right:auto;width:var(--pd-ui-w);top:var(--pd-ui-y);bottom:auto;max-height:var(--pd-ui-h)}
+#screen[data-pd-mode="combat"] .c2-menu{max-height:none}
+#screen[data-pd-mode="combat"] .c2-orb{width:calc(23px * var(--pd-fx,1));animation-name:pdC2Orb}
+@keyframes pdC2Orb{to{left:var(--pd-orb-to,70%)}}

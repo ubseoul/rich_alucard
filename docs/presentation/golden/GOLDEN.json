@@ -1,0 +1,471 @@
+{
+ "status": "PILOT GOLDEN SET — pending HQ pilot review",
+ "director": "pd-1",
+ "rubric": [
+  "focal hierarchy",
+  "readability",
+  "environment readability",
+  "UI coexistence",
+  "dramatic/story intent",
+  "Rich Alucard presentation consistency"
+ ],
+ "lockedProfiles": {
+  "combat": {
+   "reference": 0.325,
+   "tolerance": 0.05,
+   "measured": {
+    "throne": [
+     0.312,
+     0.318
+    ],
+    "docks": [
+     0.318,
+     0.327
+    ],
+    "combat2Fixture": [
+     0.318,
+     0.327
+    ]
+   }
+  },
+  "conversation": {
+   "target": 0.4,
+   "measured": {
+    "curbAdapter": [
+     0.403,
+     0.41
+    ]
+   }
+  }
+ },
+ "deadSpace": {
+  "threshold": 0.8,
+  "note": "Director lint metric (8-px native tiles with <15% pixels deviating from tile median, excluding focal bodies). Approved screens: throne .378, curb .64, docks .658, Combat 2.0 fixture .70."
+ },
+ "scenes": {
+  "throne-combat": {
+   "stage": "throne-room",
+   "beat": "combat",
+   "lock": "contact 0.80, zoom 1 (c1)",
+   "golden": {
+    "file": "throne-combat/golden-390x844.png",
+    "sha256": "7dfad05d345814288be10a0bf5ec5c7b14565b3defb70da7789ba5662b150836"
+   },
+   "knownBad": {
+    "file": "throne-combat/known-bad-legacy-390x844.png",
+    "sha256": "0c9a2d22aeb7737c77dd6e2348c3d54177670744eb063ac02b159ab3f13c2805"
+   },
+   "lintDeadSpace": 0.378,
+   "metrics": {
+    "360x740": {
+     "before": {
+      "screenUse": 0.865,
+      "worldH": 640,
+      "rich.bodyPx": 125,
+      "rich.bodyOfScreen": 0.195,
+      "rich.bodyOfWorld": 0.195,
+      "rich.facePx": 27,
+      "rich.uiOverlapPx": 0,
+      "ceo.bodyPx": 122,
+      "ceo.bodyOfScreen": 0.191,
+      "ceo.bodyOfWorld": 0.191,
+      "ceo.facePx": 34,
+      "ceo.uiOverlapPx": 0,
+      "deadSpace": 0.205
+     },
+     "after": {
+      "screenUse": 1,
+      "worldH": 490,
+      "rich.bodyPx": 192,
+      "rich.bodyOfScreen": 0.259,
+      "rich.bodyOfWorld": 0.392,
+      "rich.facePx": 42,
+      "rich.uiOverlapPx": 0,
+      "ceo.bodyPx": 183,
+      "ceo.bodyOfScreen": 0.247,
+      "ceo.bodyOfWorld": 0.373,
+      "ceo.facePx": 51,
+      "ceo.uiOverlapPx": 0,
+      "deadSpace": 0.147
+     },
+     "lint": true,
+     "body": 0.318,
+     "profile": "combat"
+    },
+    "390x844": {
+     "before": {
+      "screenUse": 0.821,
+      "worldH": 693,
+      "rich.bodyPx": 125,
+      "rich.bodyOfScreen": 0.18,
+      "rich.bodyOfWorld": 0.18,
+      "rich.facePx": 27,
+      "rich.uiOverlapPx": 0,
+      "ceo.bodyPx": 122,
+      "ceo.bodyOfScreen": 0.176,
+      "ceo.bodyOfWorld": 0.176,
+      "ceo.facePx": 34,
+      "ceo.uiOverlapPx": 0,
+      "deadSpace": 0.21
+     },
+     "after": {
+      "screenUse": 1,
+      "worldH": 530,
+      "rich.bodyPx": 204,
+      "rich.bodyOfScreen": 0.241,
+      "rich.bodyOfWorld": 0.384,
+      "rich.facePx": 45,
+      "rich.uiOverlapPx": 0,
+      "ceo.bodyPx": 194,
+      "ceo.bodyOfScreen": 0.23,
+      "ceo.bodyOfWorld": 0.366,
+      "ceo.facePx": 54,
+      "ceo.uiOverlapPx": 0,
+      "deadSpace": 0.147
+     },
+     "lint": true,
+     "body": 0.312,
+     "profile": "combat"
+    },
+    "430x932": {
+     "before": {
+      "screenUse": 0.82,
+      "worldH": 764,
+      "rich.bodyPx": 125,
+      "rich.bodyOfScreen": 0.163,
+      "rich.bodyOfWorld": 0.163,
+      "rich.facePx": 27,
+      "rich.uiOverlapPx": 0,
+      "ceo.bodyPx": 122,
+      "ceo.bodyOfScreen": 0.16,
+      "ceo.bodyOfWorld": 0.16,
+      "ceo.facePx": 34,
+      "ceo.uiOverlapPx": 0,
+      "deadSpace": 0.212
+     },
+     "after": {
+      "screenUse": 1,
+      "worldH": 585,
+      "rich.bodyPx": 225,
+      "rich.bodyOfScreen": 0.241,
+      "rich.bodyOfWorld": 0.384,
+      "rich.facePx": 49,
+      "rich.uiOverlapPx": 0,
+      "ceo.bodyPx": 214,
+      "ceo.bodyOfScreen": 0.23,
+      "ceo.bodyOfWorld": 0.366,
+      "ceo.facePx": 60,
+      "ceo.uiOverlapPx": 0,
+      "deadSpace": 0.147
+     },
+     "lint": true,
+     "body": 0.312,
+     "profile": "combat"
+    }
+   }
+  },
+  "docks-combat": {
+   "stage": "jdm-imports-docks",
+   "beat": "combat",
+   "lock": "contact 0.80, zoom 1 (c1)",
+   "golden": {
+    "file": "docks-combat/golden-390x844.png",
+    "sha256": "bf04466c252c823e0a26905d531a553c70a9797cdb9263867b7cafa9176ebe79"
+   },
+   "knownBad": {
+    "file": "docks-combat/known-bad-legacy-390x844.png",
+    "sha256": "83cc406f59d1b916c8bfc7a56edcaff7432dfceec325e36d791993cae8f402dc"
+   },
+   "lintDeadSpace": 0.658,
+   "metrics": {
+    "360x740": {
+     "before": {
+      "screenUse": 0.865,
+      "worldH": 640,
+      "rich.bodyPx": 160,
+      "rich.bodyOfScreen": 0.251,
+      "rich.bodyOfWorld": 0.251,
+      "rich.facePx": 43,
+      "rich.uiOverlapPx": 38,
+      "importer.bodyPx": 173,
+      "importer.bodyOfScreen": 0.27,
+      "importer.bodyOfWorld": 0.27,
+      "importer.facePx": 49,
+      "importer.uiOverlapPx": 33,
+      "deadSpace": 0.683
+     },
+     "after": {
+      "screenUse": 1,
+      "worldH": 490,
+      "rich.bodyPx": 156,
+      "rich.bodyOfScreen": 0.211,
+      "rich.bodyOfWorld": 0.318,
+      "rich.facePx": 42,
+      "rich.uiOverlapPx": 0,
+      "importer.bodyPx": 168,
+      "importer.bodyOfScreen": 0.227,
+      "importer.bodyOfWorld": 0.343,
+      "importer.facePx": 48,
+      "importer.uiOverlapPx": 0,
+      "deadSpace": 0.663
+     },
+     "lint": true,
+     "body": 0.318,
+     "profile": "combat"
+    },
+    "390x844": {
+     "before": {
+      "screenUse": 0.821,
+      "worldH": 693,
+      "rich.bodyPx": 174,
+      "rich.bodyOfScreen": 0.251,
+      "rich.bodyOfWorld": 0.251,
+      "rich.facePx": 47,
+      "rich.uiOverlapPx": 45,
+      "importer.bodyPx": 187,
+      "importer.bodyOfScreen": 0.27,
+      "importer.bodyOfWorld": 0.27,
+      "importer.facePx": 53,
+      "importer.uiOverlapPx": 40,
+      "deadSpace": 0.684
+     },
+     "after": {
+      "screenUse": 1,
+      "worldH": 530,
+      "rich.bodyPx": 173,
+      "rich.bodyOfScreen": 0.205,
+      "rich.bodyOfWorld": 0.327,
+      "rich.facePx": 47,
+      "rich.uiOverlapPx": 0,
+      "importer.bodyPx": 187,
+      "importer.bodyOfScreen": 0.221,
+      "importer.bodyOfWorld": 0.352,
+      "importer.facePx": 53,
+      "importer.uiOverlapPx": 0,
+      "deadSpace": 0.658
+     },
+     "lint": true,
+     "body": 0.327,
+     "profile": "combat"
+    },
+    "430x932": {
+     "before": {
+      "screenUse": 0.82,
+      "worldH": 764,
+      "rich.bodyPx": 192,
+      "rich.bodyOfScreen": 0.251,
+      "rich.bodyOfWorld": 0.251,
+      "rich.facePx": 52,
+      "rich.uiOverlapPx": 54,
+      "importer.bodyPx": 206,
+      "importer.bodyOfScreen": 0.27,
+      "importer.bodyOfWorld": 0.27,
+      "importer.facePx": 59,
+      "importer.uiOverlapPx": 48,
+      "deadSpace": 0.684
+     },
+     "after": {
+      "screenUse": 1,
+      "worldH": 585,
+      "rich.bodyPx": 191,
+      "rich.bodyOfScreen": 0.205,
+      "rich.bodyOfWorld": 0.326,
+      "rich.facePx": 51,
+      "rich.uiOverlapPx": 0,
+      "importer.bodyPx": 205,
+      "importer.bodyOfScreen": 0.22,
+      "importer.bodyOfWorld": 0.351,
+      "importer.facePx": 59,
+      "importer.uiOverlapPx": 0,
+      "deadSpace": 0.658
+     },
+     "lint": true,
+     "body": 0.326,
+     "profile": "combat"
+    }
+   }
+  },
+  "curb-adventure": {
+   "stage": "adv:curb",
+   "beat": "default (adapter auto-shot)",
+   "lock": "unlocked utility default (solve + lint)",
+   "golden": {
+    "file": "curb-adventure/golden-390x844.png",
+    "sha256": "9f3e5d6636d034ccde025306c63ba642ac86c80b530112459827c58b02e94914"
+   },
+   "knownBad": {
+    "file": "curb-adventure/known-bad-legacy-390x844.png",
+    "sha256": "b7de52c902e4ab7f518994e3a25d34af8a6a1a48f01d2853fd4a10742f427a3a"
+   },
+   "lintDeadSpace": 0.64,
+   "metrics": {
+    "360x740": {
+     "before": {
+      "screenUse": 0.865,
+      "worldH": 640,
+      "rich.bodyPx": 192,
+      "rich.bodyOfScreen": 0.301,
+      "rich.bodyOfWorld": 0.301,
+      "rich.facePx": 52,
+      "rich.uiOverlapPx": 1382,
+      "deadSpace": 0.841
+     },
+     "after": {
+      "screenUse": 1,
+      "worldH": 468,
+      "rich.bodyPx": 191,
+      "rich.bodyOfScreen": 0.258,
+      "rich.bodyOfWorld": 0.407,
+      "rich.facePx": 51,
+      "rich.uiOverlapPx": 0,
+      "deadSpace": 0.774
+     },
+     "lint": true,
+     "body": 0.407,
+     "profile": "conversation"
+    },
+    "390x844": {
+     "before": {
+      "screenUse": 0.821,
+      "worldH": 693,
+      "rich.bodyPx": 208,
+      "rich.bodyOfScreen": 0.301,
+      "rich.bodyOfWorld": 0.301,
+      "rich.facePx": 56,
+      "rich.uiOverlapPx": 1623,
+      "deadSpace": 0.841
+     },
+     "after": {
+      "screenUse": 1,
+      "worldH": 507,
+      "rich.bodyPx": 208,
+      "rich.bodyOfScreen": 0.246,
+      "rich.bodyOfWorld": 0.41,
+      "rich.facePx": 56,
+      "rich.uiOverlapPx": 0,
+      "deadSpace": 0.774
+     },
+     "lint": true,
+     "body": 0.41,
+     "profile": "conversation"
+    },
+    "430x932": {
+     "before": {
+      "screenUse": 0.82,
+      "worldH": 764,
+      "rich.bodyPx": 230,
+      "rich.bodyOfScreen": 0.301,
+      "rich.bodyOfWorld": 0.301,
+      "rich.facePx": 62,
+      "rich.uiOverlapPx": 1973,
+      "deadSpace": 0.841
+     },
+     "after": {
+      "screenUse": 1,
+      "worldH": 559,
+      "rich.bodyPx": 225,
+      "rich.bodyOfScreen": 0.242,
+      "rich.bodyOfWorld": 0.403,
+      "rich.facePx": 61,
+      "rich.uiOverlapPx": 0,
+      "deadSpace": 0.781
+     },
+     "lint": true,
+     "body": 0.403,
+     "profile": "conversation"
+    }
+   }
+  },
+  "combat2-fixture": {
+   "stage": "c2:docks",
+   "beat": "default (DEV fixture)",
+   "lock": "unlocked (DEV fixture)",
+   "golden": {
+    "file": "combat2-fixture/golden-390x844.png",
+    "sha256": "de064f7e1fa6ea8fbf1740ccc0f6f66146f86891c6edc49c43ebc9448739e564"
+   },
+   "knownBad": {
+    "file": "combat2-fixture/known-bad-legacy-390x844.png",
+    "sha256": "d06baf156d06adbe92d63b2ac0b5cc4f7d1c281041b5fe31baad24313d639f68"
+   },
+   "lintDeadSpace": 0.7,
+   "metrics": {
+    "360x740": {
+     "before": {
+      "screenUse": 0.865,
+      "worldH": 640,
+      "rich.bodyPx": 115,
+      "rich.bodyOfScreen": 0.18,
+      "rich.bodyOfWorld": 0.18,
+      "rich.facePx": 31,
+      "rich.uiOverlapPx": 0,
+      "deadSpace": 0.746
+     },
+     "after": {
+      "screenUse": 1,
+      "worldH": 490,
+      "rich.bodyPx": 156,
+      "rich.bodyOfScreen": 0.211,
+      "rich.bodyOfWorld": 0.318,
+      "rich.facePx": 42,
+      "rich.uiOverlapPx": 0,
+      "deadSpace": 0.713
+     },
+     "lint": true,
+     "body": 0.318,
+     "profile": "combat"
+    },
+    "390x844": {
+     "before": {
+      "screenUse": 0.821,
+      "worldH": 693,
+      "rich.bodyPx": 125,
+      "rich.bodyOfScreen": 0.18,
+      "rich.bodyOfWorld": 0.18,
+      "rich.facePx": 34,
+      "rich.uiOverlapPx": 0,
+      "deadSpace": 0.745
+     },
+     "after": {
+      "screenUse": 1,
+      "worldH": 530,
+      "rich.bodyPx": 173,
+      "rich.bodyOfScreen": 0.205,
+      "rich.bodyOfWorld": 0.327,
+      "rich.facePx": 47,
+      "rich.uiOverlapPx": 0,
+      "deadSpace": 0.7
+     },
+     "lint": true,
+     "body": 0.327,
+     "profile": "combat"
+    },
+    "430x932": {
+     "before": {
+      "screenUse": 0.82,
+      "worldH": 764,
+      "rich.bodyPx": 138,
+      "rich.bodyOfScreen": 0.18,
+      "rich.bodyOfWorld": 0.18,
+      "rich.facePx": 37,
+      "rich.uiOverlapPx": 0,
+      "deadSpace": 0.741
+     },
+     "after": {
+      "screenUse": 1,
+      "worldH": 585,
+      "rich.bodyPx": 191,
+      "rich.bodyOfScreen": 0.205,
+      "rich.bodyOfWorld": 0.326,
+      "rich.facePx": 51,
+      "rich.uiOverlapPx": 0,
+      "deadSpace": 0.701
+     },
+     "lint": true,
+     "body": 0.326,
+     "profile": "combat"
+    }
+   }
+  }
+ }
+}

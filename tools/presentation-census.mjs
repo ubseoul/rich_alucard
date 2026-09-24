@@ -4,7 +4,8 @@
 //
 // Usage:
 //   node tools/presentation-census.mjs [--root <repo checkout>] [--out <dir>] [--scenes docks-combat,...]
-//                                      [--candidates] [--fx] [--label before|after]
+//                                      [--candidates] [--fx] [--label before|after] [--legacy]
+// --legacy: DEV fixtures render through the legacy (pre-Director) staging for before/after baselines.
 // Needs Playwright (RA_PLAYWRIGHT_PATH → module dir; falls back to 'playwright-core'/'playwright')
 // and Chromium (RA_CHROMIUM_PATH, else the Playwright-managed browser).
 import {createRequire} from 'node:module';
@@ -51,6 +52,38 @@ const SCENES={
    {id:'longest-dialogue',run:()=>{document.querySelector('#dialogue').innerHTML='THE KEYS ARE STILL WITH HIM.<br><strong>RICH ALUCARD</strong> TOOK 16 DAMAGE.'}}
   ],
   moves:['blood','bite','revenge']
+ },
+ 'curb-adventure':{
+  title:'Powder Springs curb — adventure adapter (DEV fixture)',
+  url:'/?dev=1',
+  enter:async page=>{await page.evaluate(async()=>{document.querySelector('#startOverlay')?.remove();document.querySelector('#devPanel')?.classList.remove('show');await RAPresentationFixtures.curb('pair')});await page.waitForTimeout(900)},
+  env:{selector:'.adv-env',asset:'assets/powder_springs_night_270x480.png'},
+  actors:{rich:'.adv-scene [data-actor="rich"]',extra:'.adv-scene [data-actor="pd_fixture_extra"]'},
+  focal:['rich','extra'],
+  ui:['.adv-box','.adv-choices'],
+  variants:[
+   {id:'solo-narration',run:async()=>{await RAPresentationFixtures.curb('solo')}},
+   {id:'solo-rich-bubble',run:async()=>{document.querySelector('#adventureScene').click()}},
+   {id:'seated-curb-pose',run:async()=>{await RAPresentationFixtures.curb('seated')}},
+   {id:'trio-establishing',run:async()=>{await RAPresentationFixtures.curb('trio')}},
+   {id:'choices',run:async()=>{await RAPresentationFixtures.curb('pick')}}
+  ],
+  moves:[]
+ },
+ 'combat2-fixture':{
+  title:'Combat 2.0 — DEV fixture (non-canon test enemy, docks environment)',
+  url:'/?dev=1',
+  enter:async page=>{await page.evaluate(async()=>{document.querySelector('#startOverlay')?.remove();document.querySelector('#devPanel')?.classList.remove('show');RAPresentationFixtures.combat2();await new Promise(r=>setTimeout(r,600))});await page.waitForTimeout(900)},
+  env:{selector:'.c2-env',asset:'assets/jdm_imports/environment/docks_night_270x480.png'},
+  actors:{rich:'.c2-scene .c2-rich',enemy:'.c2-scene .c2-enemy'},
+  focal:['rich','enemy'],
+  ui:['.c2-hud .c2-hp','.c2-panel'],
+  variants:[
+   {id:'fight-menu',run:()=>{document.querySelector('[data-c2="fight"]').click()}},
+   {id:'blood-orbs',run:()=>{document.querySelector('[data-c2="move:blood"]')?.click()},wait:250},
+   {id:'crowd',run:async()=>{RACombat2.active()?.abort();await new Promise(r=>setTimeout(r,50));RAPresentationFixtures.combat2({crowd:true});await new Promise(r=>setTimeout(r,300))},wait:700}
+  ],
+  moves:[]
  },
  'throne-combat':{
   title:'Throne-room combat (CEO)',
@@ -130,18 +163,19 @@ export async function census(){
  await mkdir(out,{recursive:true});
  const meta=await assetMeta(),{chromium}=loadPlaywright(),browser=await chromium.launch({executablePath:await chromiumPath()}),server=await serve(),base=`http://127.0.0.1:${server.address().port}`;
  const scenes=(args.scenes?String(args.scenes).split(','):['docks-combat']);const report={label,root,generated:new Date().toISOString(),dpr:DPR,scenes:{}};const errors=[];
- async function open(W,H){const page=await browser.newPage({viewport:{width:W,height:H},deviceScaleFactor:DPR});page.on('pageerror',e=>errors.push(e.message));
+ async function open(W,H,url='/'){const page=await browser.newPage({viewport:{width:W,height:H},deviceScaleFactor:DPR});page.on('pageerror',e=>errors.push(e.message));
+  if(args.legacy)await page.addInitScript(()=>{window.__pdLegacy=true});
   await page.addInitScript(()=>{let s=20260924;Math.random=()=>((s=Math.imul(s^s>>>15,2246822519)+0x9e3779b9|0)>>>0)/4294967296;try{localStorage.clear()}catch{}});
-  await page.goto(base+'/');await page.waitForTimeout(500);return page}
+  await page.goto(base+url);await page.waitForTimeout(500);return page}
  try{
   for(const id of scenes){const spec=SCENES[id];if(!spec)throw new Error(`unknown scene ${id}`);const entry=report.scenes[id]={title:spec.title,sizes:{}};
-   for(const [W,H] of SIZES){const page=await open(W,H);await spec.enter(page);await freeze(page);
+   for(const [W,H] of SIZES){const page=await open(W,H,spec.url);await spec.enter(page);await freeze(page);
     const file=`${id}-${label}-${W}x${H}.png`;await page.screenshot({path:path.join(out,file)});
     const m=await page.evaluate(measureInPage,{spec:plain(spec),meta}),px=await pixelMetrics(page,spec,m);
     const row={file,metrics:summarize(m,px,spec),measured:m};
     row.lint=await page.evaluate(()=>window.RAPresentationDirector?.lint?.()??null);
-    if(row.lint){row.variants=[];for(const v of spec.variants){await page.evaluate(`(${v.run})()`);await page.waitForTimeout(60);const vl=await page.evaluate(()=>RAPresentationDirector.lint());const vm2=await page.evaluate(measureInPage,{spec:plain(spec),meta}),vpx=await pixelMetrics(page,spec,vm2);row.variants.push({id:v.id,pass:vl.pass,failed:vl.checks.filter(c=>!c.pass),metrics:summarize(vm2,vpx,spec)});if(W===390){const vf=`${id}-${label}-${W}x${H}-variant-${v.id}.png`;await page.screenshot({path:path.join(out,vf)});}}
-     await page.close();const fresh=await open(W,H);await spec.enter(fresh);await freeze(fresh);
+    if(row.lint){row.variants=[];for(const v of spec.variants){await page.evaluate(`(${v.run})()`);await page.waitForTimeout(v.wait??400);const vl=await page.evaluate(()=>RAPresentationDirector.lint());const vm2=await page.evaluate(measureInPage,{spec:plain(spec),meta}),vpx=await pixelMetrics(page,spec,vm2);row.variants.push({id:v.id,pass:vl.pass,failed:vl.checks.filter(c=>!c.pass),metrics:summarize(vm2,vpx,spec)});if(W===390){const vf=`${id}-${label}-${W}x${H}-variant-${v.id}.png`;await page.screenshot({path:path.join(out,vf)});}}
+     await page.close();const fresh=await open(W,H,spec.url);await spec.enter(fresh);await freeze(fresh);
      if(args.candidates&&W===390)row.candidates=await candidates(fresh,id);
      if(args.fx)row.fx=await fxRun(fresh,id,spec,W,H);
      await fresh.close();
@@ -155,7 +189,10 @@ export async function census(){
    await sheet(sp,base,`${SCENES[id].title} — ${label} — REVIEWER ONLY`,cells,`${id}-${label}-sheet.png`);
    for(const r of Object.values(report.scenes[id].sizes))if(r.candidates){const {order1,order2,cells:cand}=r.candidates;
     await sheet(sp,base,`${SCENES[id].title} — candidates pass 1 — REVIEWER ONLY`,order1.map((c,i)=>({file:cand[c].file,w:260,caption:`${'ABCDEF'[i]}`})),`${id}-candidates-pass1.png`);
-    await sheet(sp,base,`${SCENES[id].title} — candidates pass 2 (shuffled) — REVIEWER ONLY`,order2.map((c,i)=>({file:cand[c].file,w:260,caption:`${'ABCDEF'[i]}`})),`${id}-candidates-pass2.png`);}}
+    await sheet(sp,base,`${SCENES[id].title} — candidates pass 2 (shuffled) — REVIEWER ONLY`,order2.map((c,i)=>({file:cand[c].file,w:260,caption:`${'ABCDEF'[i]}`})),`${id}-candidates-pass2.png`);
+    // Keep the letter→candidate key out of the report the judge reads.
+    await writeFile(path.join(out,`${id}-candidates-KEY.sealed.json`),JSON.stringify({pass1:order1,pass2:order2,cells:Object.fromEntries(Object.entries(cand).map(([k,v])=>[k,{contact:v.contact,zoom:v.zoom,pass:v.pass}]))},null,1));
+    r.candidates={legal:r.candidates.legal.length,sealedKey:`${id}-candidates-KEY.sealed.json`};}}
   await sp.close();
  }finally{report.errors=errors;await writeFile(path.join(out,`census-${label}.json`),JSON.stringify(report,null,1));await browser.close();server.close()}
  return report;
@@ -170,7 +207,8 @@ async function candidates(page,id){
   cells[c.id]={...c,file,pass:lint.pass,failed:lint.checks.filter(x=>!x.pass).map(x=>`${x.id}=${x.value}`),metrics:lint.metrics}}
  await page.evaluate(()=>window.__pdPreview?.restore());
  const legal=Object.keys(cells).filter(k=>cells[k].pass);
- return {cells,legal,order1:legal,order2:seeded(legal,7)};
+ // Judge blindness: sheets carry letters only; the letter→candidate mapping is written to a separate sealed file.
+ return {cells,legal,order1:legal,order2:seeded(legal,7),sealed:true};
 }
 
 // FX run: plays each move for real and samples every visible world-attached effect against the world viewport.
