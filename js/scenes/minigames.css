@@ -1,0 +1,6 @@
+.ra-minigame{position:absolute;inset:0;z-index:80;background:#08070f;overflow:hidden;touch-action:none;user-select:none;-webkit-user-select:none}
+.ra-minigame-stage{position:absolute;inset:0}
+.ra-minigame-stage canvas{image-rendering:pixelated}
+.ra-minigame-quit{position:absolute;right:1.5%;top:1%;z-index:5;font-family:var(--font-system,"Press Start 2P",monospace);font-size:clamp(7px,2.6cqw,11px);padding:.5em .7em;background:#f6efd9;color:#10101b;border:2px solid #10101b;box-shadow:2px 2px #7d194b;cursor:pointer}
+.ra-minigame-quit:active{transform:translate(1px,1px);box-shadow:1px 1px #7d194b}
+body.minigame-mode #devPanel{z-index:90}

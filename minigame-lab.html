@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no" />
+<link rel="icon" href="data:,">
+<title>Rich Alucard — FEEL BATCH (Play Window A)</title>
+<link rel="stylesheet" href="style.css?v=__BUILD_ASSET_VERSION__" />
+<link rel="stylesheet" href="js/scenes/minigames.css?v=__BUILD_ASSET_VERSION__" />
+<style>
+#labMenu{position:absolute;inset:0;z-index:10;display:flex;flex-direction:column;gap:2.4%;padding:10% 8%;background:#17142c;color:#f6efd9;font-family:"Press Start 2P",monospace;font-size:clamp(7px,2.7cqw,12px);overflow:auto}
+#labMenu h1{font-size:1.4em;margin:0 0 4%;color:#d7193f}
+#labMenu p{margin:0 0 3%;line-height:1.6;color:#c9c0a8}
+#labMenu button{font:inherit;text-align:left;padding:.9em 1em;background:#f6efd9;color:#10101b;border:3px solid #10101b;box-shadow:3px 3px #7d194b;cursor:pointer}
+#labResult{min-height:3em;color:#20c66b;line-height:1.6;white-space:pre-wrap}
+#screen{container-type:inline-size}
+</style>
+</head>
+<body>
+<main id="stage" aria-label="Rich Alucard feel batch">
+  <div id="screen">
+    <section id="labMenu" aria-label="Feel batch menu">
+      <h1>FEEL BATCH</h1>
+      <p>PLAY WHAT FEELS GOOD. QUIT ANY TIME.</p>
+      <div id="labList" style="display:flex;flex-direction:column;gap:10px"></div>
+      <div id="labResult" aria-live="polite"></div>
+    </section>
+  </div>
+</main>
+<script>window.RA_MINIGAME_LAB=true;</script>
+<script src="js/engine/pixel.js?v=__BUILD_ASSET_VERSION__"></script>
+<script src="js/engine/minigames.js?v=__BUILD_ASSET_VERSION__"></script>
+<script src="js/minigames/index.js?v=__BUILD_ASSET_VERSION__"></script>
+<script>
+(async function(){
+ const list=document.querySelector('#labList'),result=document.querySelector('#labResult'),menu=document.querySelector('#labMenu');
+ const files=(window.RAMinigameFiles||[]);
+ for(const file of files){await new Promise(resolve=>{const s=document.createElement('script');s.src=`js/minigames/${file}?v=__BUILD_ASSET_VERSION__`;s.onload=s.onerror=resolve;document.body.append(s);});}
+ const params=new URLSearchParams(location.search);
+ async function play(id,extra={}){menu.style.display='none';const r=await RAMinigames.launch(id,{lab:true,...extra});menu.style.display='';result.textContent=`${id.toUpperCase()}: ${r.quit?'QUIT':(r.outcome||'DONE').toUpperCase()}${r.score!=null?`\nSCORE ${r.score}`:''}${r.summary?`\n${r.summary}`:''}`;}
+ for(const game of RAMinigames.list()){const b=document.createElement('button');b.type='button';b.textContent=game.title;b.dataset.game=game.id;b.addEventListener('click',()=>play(game.id));list.append(b);}
+ window.RALab={play};
+ if(params.get('game'))play(params.get('game'),Object.fromEntries([...params].filter(([k])=>k!=='game')));
+})();
+</script>
+</body>
+</html>

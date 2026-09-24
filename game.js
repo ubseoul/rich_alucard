@@ -152,6 +152,7 @@ async function normalVictory(){
       victoryOverlay.classList.remove('on');
       document.querySelector('.battle-ui')?.classList.add('victory-retract');
       if(window.RACharacterReveal) await RACharacterReveal.open();
+      document.dispatchEvent(new CustomEvent('ra:ceo-resolved',{detail:{stole:true}}));
       resolve();
     };
     stealNo.onclick=async()=>{
@@ -160,6 +161,7 @@ async function normalVictory(){
       victoryCard.style.display='none';
       endingText.textContent='RICH STAYS ON THE THRONE.';
       endingText.classList.add('on');
+      document.dispatchEvent(new CustomEvent('ra:ceo-resolved',{detail:{stole:false}}));
       resolve();
     };
   });
@@ -384,7 +386,8 @@ audio.addEventListener('ended',()=>{
 
 start.addEventListener('click',async()=>{
   overlay.style.display='none';
-  await window.RAScenes?.go?.('bedroom',{start:true});
+  const routed=await window.RANewGame?.onStart?.();
+  if(!routed)await window.RAScenes?.go?.('bedroom',{start:true});
   try{
     if(audio.readyState<1){
       await new Promise(resolve=>audio.addEventListener('loadedmetadata',resolve,{once:true}));
@@ -400,7 +403,7 @@ start.addEventListener('click',async()=>{
 mainButtons.forEach((b,i)=>b.addEventListener('click',()=>{if(busy||battleOver)return;pressFeedback(b);mainIndex=i;inMoves=false;paint();activateMain()}));
 moves.forEach((b,i)=>b.addEventListener('click',()=>{if(busy||battleOver)return;pressFeedback(b);moveIndex=i;inMoves=true;paint();activateMove()}));
 window.addEventListener('keydown',e=>{
-  if(['bedroom','ogun-rave'].includes(window.RAScenes?.current()))return;
+  if(['bedroom','ogun-rave','adventure'].includes(window.RAScenes?.current())||document.body.classList.contains('minigame-mode')||document.body.classList.contains('combat2-mode'))return;
   if(overlay.style.display!=='none'&&(e.key==='Enter'||e.key===' ')){start.click();return}
   if(busy||battleOver)return;
   if(['ArrowUp','ArrowDown','ArrowLeft','ArrowRight','Enter','Escape',' '].includes(e.key))e.preventDefault();
@@ -415,7 +418,7 @@ window.RACombat={startJdmEncounter(){resetBattle('jdm');document.body.classList.
 const richBiteSprite=document.querySelector('#richBiteSprite'),biteTrail=document.querySelector('#biteTrail'),biteImpact=document.querySelector('#biteImpact'),healFloat=document.querySelector('#healFloat');const biteSleep=ms=>new Promise(r=>setTimeout(r,ms));async function vampireBiteAttack(){const rich=document.querySelector('.gemini-rich'),stage=document.querySelector('.game')||document.querySelector('.game-shell')||document.querySelector('#game')||document.body;if(rich)rich.style.opacity='0';biteTrail.classList.remove('flash');void biteTrail.offsetWidth;biteTrail.classList.add('flash');await biteSleep(125);richBiteSprite.classList.add('active');await biteSleep(115);setCEOState('hit');biteImpact.classList.remove('flash');void biteImpact.offsetWidth;biteImpact.classList.add('flash');stage.classList.add('bite-shake');if(typeof ceoHP!=='undefined')ceoHP=Math.max(0,ceoHP-24);if(typeof richHP!=='undefined')richHP=Math.min(100,richHP+18);if(typeof updateHP==='function')updateHP();if(typeof updateBars==='function')updateBars();healFloat.classList.remove('show');void healFloat.offsetWidth;healFloat.classList.add('show');await biteSleep(210);stage.classList.remove('bite-shake');richBiteSprite.classList.remove('active');await biteSleep(90);if(rich)rich.style.opacity='1';if(typeof ceoHP!=='undefined'&&ceoHP<=0){setCEOState('defeated');setAssistantState('reaction');if(typeof victory==='function')victory();}else{setCEOState('idle');if(typeof enemyTurn==='function')setTimeout(()=>enemyTurn(),180);else if(typeof ceoTurn==='function')setTimeout(()=>ceoTurn(),180);}}
 
 function syncRichLyrics(){
-  if(!audio || audio.paused){
+  if(!audio || audio.paused || (audio.dataset.track&&audio.dataset.track!=='bloodbath')){
     richLyricBubble?.classList.remove('on');
     requestAnimationFrame(syncRichLyrics);
     return;
