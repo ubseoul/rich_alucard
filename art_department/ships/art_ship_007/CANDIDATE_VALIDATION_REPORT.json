@@ -1,0 +1,315 @@
+{
+  "result": "PASS",
+  "assets_checked": 38,
+  "checks": [
+    {
+      "path": "assets/characters/marisol/marisol_neutral_80x96.png",
+      "pass": true,
+      "bbox": [
+        24,
+        28,
+        55,
+        88
+      ],
+      "colors": 18
+    },
+    {
+      "path": "assets/characters/duchess/duchess_bathory_brown_neutral_80x96.png",
+      "pass": true,
+      "bbox": [
+        22,
+        20,
+        58,
+        88
+      ],
+      "colors": 18
+    },
+    {
+      "path": "assets/characters/emberly/emberly_neutral_80x96.png",
+      "pass": true,
+      "bbox": [
+        24,
+        20,
+        55,
+        88
+      ],
+      "colors": 18
+    },
+    {
+      "path": "assets/characters/jade/jade_wyrmwood_neutral_80x96.png",
+      "pass": true,
+      "bbox": [
+        22,
+        16,
+        58,
+        88
+      ],
+      "colors": 18
+    },
+    {
+      "path": "assets/characters/lo/lo_dolores_neutral_80x96.png",
+      "pass": true,
+      "bbox": [
+        29,
+        28,
+        51,
+        88
+      ],
+      "colors": 18
+    },
+    {
+      "path": "assets/characters/brenda/brenda_neutral_80x96.png",
+      "pass": true,
+      "bbox": [
+        28,
+        28,
+        52,
+        88
+      ],
+      "colors": 18
+    },
+    {
+      "path": "assets/characters/velvet/velvet_vantablack_profile_80x96.png",
+      "pass": true,
+      "bbox": [
+        27,
+        26,
+        53,
+        88
+      ],
+      "colors": 18
+    },
+    {
+      "path": "assets/characters/anfeesa/dj_anfeesa_neutral_80x96.png",
+      "pass": true,
+      "bbox": [
+        28,
+        26,
+        51,
+        88
+      ],
+      "colors": 18
+    },
+    {
+      "path": "assets/characters/rookoko/rookoko_neutral_80x96.png",
+      "pass": true,
+      "bbox": [
+        25,
+        24,
+        55,
+        88
+      ],
+      "colors": 18
+    },
+    {
+      "path": "assets/characters/officer_nodd/officer_nodd_neutral_80x96.png",
+      "pass": true,
+      "bbox": [
+        26,
+        28,
+        54,
+        88
+      ],
+      "colors": 18
+    },
+    {
+      "path": "assets/characters/don_chuy/don_chuy_neutral_80x96.png",
+      "pass": true,
+      "bbox": [
+        22,
+        28,
+        57,
+        88
+      ],
+      "colors": 18
+    },
+    {
+      "path": "assets/characters/tokyo_tony/tokyo_tony_smug_80x96.png",
+      "pass": true,
+      "bbox": [
+        26,
+        28,
+        53,
+        88
+      ],
+      "colors": 18
+    },
+    {
+      "path": "assets/characters/vicky/vicky_neutral_80x96.png",
+      "pass": true,
+      "bbox": [
+        24,
+        24,
+        56,
+        88
+      ],
+      "colors": 18
+    },
+    {
+      "path": "assets/characters/j_circle/j_circle_entrance_80x96.png",
+      "pass": true,
+      "bbox": [
+        20,
+        20,
+        59,
+        88
+      ],
+      "colors": 18
+    },
+    {
+      "path": "assets/characters/trippin_red/trippin_red_stage_ready_80x96.png",
+      "pass": true,
+      "bbox": [
+        22,
+        24,
+        58,
+        88
+      ],
+      "colors": 18
+    },
+    {
+      "path": "assets/characters/paladin/paladin_neutral_80x96.png",
+      "pass": true,
+      "bbox": [
+        23,
+        26,
+        57,
+        88
+      ],
+      "colors": 18
+    },
+    {
+      "path": "assets/characters/bard/bard_neutral_80x96.png",
+      "pass": true,
+      "bbox": [
+        28,
+        28,
+        52,
+        88
+      ],
+      "colors": 18
+    },
+    {
+      "path": "assets/characters/cleric/cleric_neutral_80x96.png",
+      "pass": true,
+      "bbox": [
+        23,
+        26,
+        57,
+        88
+      ],
+      "colors": 18
+    },
+    {
+      "path": "assets/environments/boba_shop/boba_shop_night_270x480.png",
+      "pass": true,
+      "colors": 30
+    },
+    {
+      "path": "assets/environments/food_court/grave_food_court_night_270x480.png",
+      "pass": true,
+      "colors": 30
+    },
+    {
+      "path": "assets/environments/kush_back/kush_crypt_egg_back_room_270x480.png",
+      "pass": true,
+      "colors": 30
+    },
+    {
+      "path": "assets/environments/kitchen/castle_kitchen_270x480.png",
+      "pass": true,
+      "colors": 30
+    },
+    {
+      "path": "assets/environments/movie_room/castle_movie_room_270x480.png",
+      "pass": true,
+      "colors": 30
+    },
+    {
+      "path": "assets/environments/peking_naija/peking_naija_interior_270x480.png",
+      "pass": true,
+      "colors": 30
+    },
+    {
+      "path": "assets/environments/salon/twist_and_shout_salon_270x480.png",
+      "pass": true,
+      "colors": 30
+    },
+    {
+      "path": "assets/environments/brunch/eggs_benedead_brunch_270x480.png",
+      "pass": true,
+      "colors": 30
+    },
+    {
+      "path": "assets/environments/onsen/yu_and_me_onsen_270x480.png",
+      "pass": true,
+      "colors": 30
+    },
+    {
+      "path": "assets/environments/little_tokyo/little_tokyo_night_270x480.png",
+      "pass": true,
+      "colors": 30
+    },
+    {
+      "path": "assets/environments/venice/venice_courts_night_270x480.png",
+      "pass": true,
+      "colors": 30
+    },
+    {
+      "path": "assets/environments/gallery/rookoko_gallery_270x480.png",
+      "pass": true,
+      "colors": 30
+    },
+    {
+      "path": "assets/environments/tristan_apt/tristan_apartment_270x480.png",
+      "pass": true,
+      "colors": 30
+    },
+    {
+      "path": "assets/environments/taco_truck/don_chuy_taco_truck_270x480.png",
+      "pass": true,
+      "colors": 30
+    },
+    {
+      "path": "assets/environments/maul/maul_of_georgia_270x480.png",
+      "pass": true,
+      "colors": 30
+    },
+    {
+      "path": "assets/environments/lennox/lennox_scare_270x480.png",
+      "pass": true,
+      "colors": 30
+    },
+    {
+      "path": "assets/environments/centennial/centennial_vampiric_park_270x480.png",
+      "pass": true,
+      "colors": 30
+    },
+    {
+      "path": "assets/environments/suya_spot/southwest_atlanta_suya_spot_270x480.png",
+      "pass": true,
+      "colors": 30
+    },
+    {
+      "path": "assets/environments/crest/angeles_crest_overlook_270x480.png",
+      "pass": true,
+      "colors": 30
+    },
+    {
+      "path": "assets/environments/duchess_castle/duchess_castle_reception_270x480.png",
+      "pass": true,
+      "colors": 30
+    }
+  ],
+  "review_boards_checked": 6,
+  "automated_contracts": [
+    "character dimensions/mode",
+    "binary alpha",
+    "contact y=88",
+    "visible envelope bounds",
+    "character color ceiling",
+    "environment dimensions/mode",
+    "environment color ceiling"
+  ],
+  "manual_review_required": "HQ/Ube Taste & Identity review remains required. Automated PASS is not approval."
+}

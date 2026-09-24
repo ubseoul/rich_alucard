@@ -8,9 +8,9 @@ This repository is the Art Department's institutional memory. **The project reme
 
 ## Current state
 
-- The frozen ART SHIP 006 pixel authority is commit `a2992617b825acf1ab7a9bdb187d2caca66be701`; the current repository tip includes this onboarding infrastructure commit on top of it.
-- ART SHIP 006 — OPEN Derivative Production Push is frozen/complete. The frozen corpus is **135 assets**; the register contains 275 entries.
-- ART SHIP 004, 005, and 006 are the latest frozen Ship records. Their canonical PNGs are under `assets/` and are indexed by `APPROVED_ASSET_INDEX.md`, `ASSET_REGISTER.json`, and the Ship manifests.
+- ART SHIP 007 is the latest frozen pixel authority; resolve the exact promotion SHA as the commit containing `ships/art_ship_007/ART_SHIP_MANIFEST.json`.
+- ART SHIP 007 — OPEN Foundation Completion is frozen/complete. The frozen corpus is **173 assets**; the register contains 313 entries.
+- ART SHIP 004, 005, 006, and 007 are the latest frozen Ship records. Their canonical PNGs are under `assets/` and are indexed by `APPROVED_ASSET_INDEX.md`, `ASSET_REGISTER.json`, and the Ship manifests.
 - No Art Ship is active. Do not generate or modify pixels until HQ authorizes a new Ship.
 - The read-only Rough Complete Engineering branch is `origin/claude/eloquent-shannon-kc5qkn` at `c2a637bb2df8143f117cff1cecc8ca1cff6ba11e`; it is not merged or deployed. It still paints new BTF surfaces with placeholders. Use the repository snapshot and gap map to understand its visual demand; never treat its historical `docs/btf/ART_INPUTS.md` as current truth.
 
@@ -39,7 +39,7 @@ Read completely, in this order:
 8. `art_department/CURRENT_OPEN_ART_GAPS.md` and `CURRENT_OPEN_ART_GAPS.json`
 9. `art_department/STYLE_FINGERPRINT.md` and the relevant files in `art_department/references/`
 10. `art_department/APPROVED_ASSET_INDEX.md`, then the relevant `ASSET_REGISTER.json` entries and native PNGs
-11. The relevant frozen Ship records under `art_department/ships/` (004, 005, 006)
+11. The relevant frozen Ship records under `art_department/ships/` (004, 005, 006, 007)
 12. `art_department/APPROVAL_LEDGER.md` and the templates under `art_department/templates/`
 
 For implementation state, also read the current repository `docs/ENGINEERING_HANDOFF.md` and the committed snapshot above. The Rough Complete branch's `CHECKPOINT.md`, `DECISIONS.md`, and `ART_INPUTS.md` are historical read-only evidence and are already reconciled in the snapshot/gap map.
@@ -47,14 +47,14 @@ For implementation state, also read the current repository `docs/ENGINEERING_HAN
 ## Where authority lives
 
 - Frozen pixels: repository-root `assets/`, exact paths recorded in `ASSET_REGISTER.json` and `APPROVED_ASSET_INDEX.md`.
-- Ship-specific hashes, scopes, and Engineering mappings: `art_department/ships/art_ship_004/`, `art_ship_005/`, and `art_ship_006/`.
+- Ship-specific hashes, scopes, and Engineering mappings: `art_department/ships/art_ship_004/`, `art_ship_005/`, `art_ship_006/`, and `art_ship_007/`.
 - Visual measurements and pixel grammar: `STYLE_FINGERPRINT.md` and `references/CHARACTERS.md`, `ENVIRONMENTS.md`, and `OBJECTS_FX_AMBIENT.md`.
 - OPEN source/canon needed for Art: `production_authority/`.
 - Current gaps and next priority: `CURRENT_OPEN_ART_GAPS.md` / `.json`.
 
 ## Implementation and open demand
 
-The frozen corpus is present, but Ship 004/005/006 records are handoff-only and not runtime-integrated by those Ships. The Rough Complete branch currently renders 61 historical environment placeholders and 56 character slots through `RAPixel`; the reconciled current list is in `CURRENT_OPEN_ART_GAPS.md`. That map distinguishes frozen/satisfied, candidate, derivative state, still-missing identity/environment, Engineering integration, canon blockers, and restricted demand. Do not guess integration status from filenames.
+The frozen corpus is present, but Ship 004/005/006/007 records are handoff-only and not runtime-integrated by those Ships. The Rough Complete branch currently renders 61 historical environment placeholders and 56 character slots through `RAPixel`; the reconciled current list is in `CURRENT_OPEN_ART_GAPS.md`. That map distinguishes frozen/satisfied, candidate, derivative state, still-missing identity/environment, Engineering integration, canon blockers, and restricted demand. Do not guess integration status from filenames.
 
 Primary gameplay characters target approximately **1.85×** historical on-screen presentation with nearest-neighbor filtering. This is an Engineering runtime rule, not permission to enlarge or redesign native source sprites. Composed room art has its own contract.
 
@@ -68,4 +68,4 @@ An Art Agent may generate only after HQ names an Art Ship and the agent complete
 
 Before retirement, update as applicable: `START_HERE.md`, `CURRENT_HANDOFF.md`, `CURRENT_OPEN_ART_GAPS.md` / `.json`, `ASSET_REGISTER.json`, `APPROVED_ASSET_INDEX.md`, `APPROVAL_LEDGER.md`, Ship Engineering maps, frozen totals, and the recommended next priority. Run the repository/art validation, verify every frozen asset hash, verify no runtime changes, perform the cold-start test, commit only scoped Art Department documentation/assets, push, and verify a clean tree.
 
-The current handoff says **STOP**: ART SHIP 006 is frozen/complete and no new Ship is authorized by this repository state.
+The current handoff says **STOP**: ART SHIP 007 is frozen/complete, this Art Agent retires, and ART SHIP 008 must not begin in this chat.

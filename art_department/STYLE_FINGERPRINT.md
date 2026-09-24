@@ -105,3 +105,13 @@ ART SHIP 006 freezes derivative-state continuity as production authority. The ac
 The accepted TOUGE vocabulary uses 16x28 bottom-anchored overhead silhouettes with restrained model-specific proportion and color differences. Phone/app icons use 24x24 transparent cells with high-contrast symbolic reads and no baked labels. The three accepted 270x480 environment conditions remain full-frame state masters, not reusable overlays; their generative derivation makes them a higher-risk comparison category than the direct character-state work.
 
 The approximately 1.85x character scale remains a nearest-neighbor Engineering presentation rule and is not baked into any ART SHIP 006 source.
+
+## ART SHIP 007 approved additions
+
+ART SHIP 007 adds 18 native 80x96/contact-`(40,88)` identity anchors and 20 opaque 270x480 reusable environment masters. All 38 exact files received BE TASTE PASS / HQ VISUAL PASS and are APPROVED MASTER / FROZEN.
+
+The character anchors extend the approved range across castle staff, vampires, dragons, zombies, contemporary Atlanta/Los Angeles supporting cast and ordinary fantasy-party roles while preserving compact silhouette-first identity, sparse facial marks, grouped material planes, binary alpha and the established source contact. They are anchor poses, not permission to invent derivative states.
+
+The environment masters extend the reusable grammar across retail, restaurant, castle, civic, apartment, outdoor-court, road and gallery spaces. They retain opaque 270x480 canvases and readable lower staging bands. Their acceptance does not grant crowds, overlays, condition variants, collision, hotspots or runtime integration.
+
+The approximately 1.85x character scale remains a nearest-neighbor Engineering presentation rule and is not baked into any ART SHIP 007 source. Exact paths and hashes are controlled by the Ship manifest and Asset Register.
