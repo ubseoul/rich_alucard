@@ -6,6 +6,9 @@ All paths below are repository-root-relative; use ../../ from this index to open
 - [assets/bllad33/masters/bllad33_neutral_candidate_80x96.png](../../assets/bllad33/masters/bllad33_neutral_candidate_80x96.png) — APPROVED MASTER / FROZEN; [80, 96]; RT SHIP 001 neutral/entrance only, contact (40,88).
 - [assets/ceo_hit_reaction_sheet.png](../../assets/ceo_hit_reaction_sheet.png) — APPROVED MASTER; [240, 96].
 - [assets/ceo_idle.png](../../assets/ceo_idle.png) — APPROVED MASTER; [80, 96].
+- [assets/goldfish_years/characters/octopus_sensei/octopus_sensei_neutral_96x96.png](../../assets/goldfish_years/characters/octopus_sensei/octopus_sensei_neutral_96x96.png) — APPROVED MASTER / FROZEN; [96, 96]; neutral/listening, contact (48,84), approximately 1.85x Engineering runtime presentation.
+- [assets/goldfish_years/characters/octopus_sensei/octopus_sensei_point_96x96.png](../../assets/goldfish_years/characters/octopus_sensei/octopus_sensei_point_96x96.png) — APPROVED MASTER / FROZEN; [96, 96]; point/instruction, contact (48,84), approximately 1.85x Engineering runtime presentation.
+- [assets/goldfish_years/characters/octopus_sensei/octopus_sensei_state_sheet_192x96.png](../../assets/goldfish_years/characters/octopus_sensei/octopus_sensei_state_sheet_192x96.png) — APPROVED MASTER / FROZEN; two [96, 96] cells ordered neutral, point; individual masters control placement.
 - [assets/jdm_imports/characters/daughter/daughter_neutral.png](../../assets/jdm_imports/characters/daughter/daughter_neutral.png) — APPROVED MASTER; [80, 96].
 - [assets/jdm_imports/characters/daughter/daughter_vampire_reveal.png](../../assets/jdm_imports/characters/daughter/daughter_vampire_reveal.png) — APPROVED MASTER; [80, 96].
 - [assets/jdm_imports/characters/importer/importer_neutral.png](../../assets/jdm_imports/characters/importer/importer_neutral.png) — APPROVED MASTER; [80, 96].
@@ -22,4 +25,4 @@ All paths below are repository-root-relative; use ../../ from this index to open
 - [assets/rich_throne_only.png](../../assets/rich_throne_only.png) — APPROVED MASTER; [80, 96].
 - [assets/rich_vampire_bite.png](../../assets/rich_vampire_bite.png) — APPROVED MASTER; [80, 96].
 
-Start with Rich standing, Ogun neutral, Shannon neutral and Assistant idle. Compare Daughter, Importer and CEO. Shared 80x96 standing cells use contact (40,88); bedroom 128x64 is a different support convention. Do not compare crown/throne bounds as bare anatomy.
+Start with Rich standing, Ogun neutral, Shannon neutral and Assistant idle. Compare Daughter, Importer and CEO. Use Octopus Sensei for compact non-humanoid silhouette and restrained creature-detail calibration. Shared 80x96 standing cells use contact (40,88); Sensei uses a 96x96/contact-(48,84) cell and the bedroom 128x64 source uses a different support convention. Do not compare crown/throne bounds as bare anatomy.

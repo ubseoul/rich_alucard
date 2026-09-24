@@ -77,3 +77,11 @@ Shannon is now an approved cast calibration source in the shared 80x96/contact-(
 The Property exterior and interior establish an additional approved 270x480 environment family. The clean interior base and binary-alpha problem overlay share exact full-canvas registration at origin (0,0); preserve that separation so gameplay can change the visible condition without repainting the base. The 96x96 ownership image is an approved exterior-derived UI identity, not a replacement environment source.
 
 The ordinary giant-rat vocabulary uses padded 96x64 cells with contact (48,56) and intended 1.25x presentation. Alert, scurry and recoil have measured opaque envelopes of 68x29, 72x24 and 68x39 pixels. Their silhouette and low-detail cluster logic are approved creature vocabulary; their runtime behavior and all PLAYER-BLIND disposition remain outside this visual calibration.
+
+## ART SHIP 004 approved additions
+
+Octopus Sensei adds an approved compact non-humanoid character grammar in 96x96 cells with contact (48,84). Neutral and point states preserve the same 14-color identity, squat eight-limb silhouette, tiny spectacles and sparse accent logic; the gesture changes without proportion redesign. Use the individual masters for placement and the two-cell sheet only as a handoff convenience.
+
+The Goldfish Years adds a frozen 270x480 midnight-ocean environment base with broad calm staging space. Intact and collapsed ladders are separate seven-color binary-alpha overlays registered at exact origin (0,0), not alternate repaints of the base. This base-plus-condition pattern is approved scene-construction authority alongside the Property base/overlay system.
+
+Primary gameplay characters are presented by Engineering at approximately 1.85x their historical on-screen scale with nearest-neighbor filtering. This larger runtime footprint informs environment negative space, anchors and UI clearance; it does not authorize larger native source sprites or proportional redesign.

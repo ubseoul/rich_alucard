@@ -1,21 +1,21 @@
 # Current handoff
 
-**ART SHIP 003 — MASSIVE PUSH 001: THE PROPERTY: HQ CREATIVE PASS / APPROVED MASTER / FROZEN; Creative delivery closed.** No active Art Ship and no additional art, dialogue, redesign, runtime integration or scope expansion is authorized.
+**ART SHIP 004 — THE GOLDFISH YEARS: HQ TECHNICAL PASS / APPROVED MASTER / FROZEN / COMPLETE.** No active Art Ship and no additional art, dialogue, redesign, runtime integration or scope expansion is authorized. Do not begin ART SHIP 005 without a fresh explicit authorization.
 
-Accepted exact production families:
+Accepted exact production files:
 
-- Shannon neutral and controlled-reaction masters plus two-cell handoff sheet under `assets/property/characters/shannon/`.
-- Property exterior and interior base masters under `assets/property/masters/`.
-- Exact-origin problem overlay under `assets/property/layers/`.
-- Exterior-derived ownership thumbnail under `assets/property/ui/`.
-- Giant-rat alert, scurry and recoil masters plus three-cell handoff sheet under `assets/property/creatures/giant_rat/`.
+- Ocean-floor base: `assets/goldfish_years/masters/ocean_floor_base_270x480.png`.
+- Exact-origin ladder conditions: `assets/goldfish_years/layers/ladder_intact_overlay_270x480.png` and `assets/goldfish_years/layers/ladder_collapsed_overlay_270x480.png`.
+- Octopus Sensei masters: neutral and point states plus two-cell handoff sheet under `assets/goldfish_years/characters/octopus_sensei/`.
 
-Exact paths, SHA-256 values, dimensions, contacts and per-file freeze scope are authoritative in [ART SHIP 003 manifest](ships/art_ship_003/ART_SHIP_MANIFEST.json) and [Asset Register](ASSET_REGISTER.json). The user-supplied decision is transcribed in [HQ Decision](ships/art_ship_003/HQ_DECISION.md) and the [Approval Ledger](APPROVAL_LEDGER.md).
+Exact paths, SHA-256 values, dimensions, alpha, contacts, state order and per-file freeze scope are authoritative in [ART SHIP 004 manifest](ships/art_ship_004/ART_SHIP_MANIFEST.json) and [Asset Register](ASSET_REGISTER.json). The explicit decision is transcribed in [HQ Decision](ships/art_ship_004/HQ_DECISION.md) and the [Approval Ledger](APPROVAL_LEDGER.md).
 
-The accepted stage guidance and complete Creative/writing/integration package are stored with the Ship. PLAYER-BLIND sequence, escalation, reveals, optional interactions, surprise treatment, protected-concept disposition and secret consequences remain restricted to `ships/art_ship_003/hq_only/` and must not be repeated in player-facing summaries.
+Primary gameplay characters render at approximately 1.85x their historical on-screen size using nearest-neighbor filtering. This is an Engineering runtime presentation rule. Native source sprites remain unchanged and must not be enlarged or proportionally redesigned to compensate.
 
-Important Rich lines marked `RICH LINE — VOICE PASS REQUIRED` remain unresolved and non-canon. Their unresolved state does not block this closed Art Ship. No runtime/game code, economy values, save schema or Stage Contract implementation changed. Engineering runtime acceptance remains separate.
+The ocean base and ladder conditions use a 270x480 exact-origin layer contract. Octopus Sensei uses 96x96 cells with source contact (48,84); the state-sheet order is neutral then point. Review/staging guidance is stored with the Ship. Runtime placement, collision, interaction wiring, Stage Contract acceptance and game-code integration remain separate Engineering work.
 
-Earlier frozen work remains unchanged: ART SHIP 002's rave exterior, RT SHIP 001's Bllad33 neutral/entrance master, and the accepted Ogun/rave masters and support layers retain their recorded scopes.
+Raw generations, candidate-folder duplicates, status-unknown Octopus Brain frames and other exploration material are not production authority. Future Art Agents may learn from the six canonical frozen winners only. Existing frozen Rich pixels were not modified.
 
-**STOP. ART SHIP 003 is closed at accepted Creative delivery. The Art Agent retires after the scoped commit is pushed and verified.**
+Earlier frozen work remains unchanged: ART SHIP 003's Property/Shannon/giant-rat package, ART SHIP 002's rave exterior, RT SHIP 001's Bllad33 neutral/entrance master, and the accepted Ogun/rave masters and support layers retain their recorded scopes.
+
+**STOP. ART SHIP 004 is FROZEN / COMPLETE. The Art Agent retires after the scoped commit is pushed and verified.**

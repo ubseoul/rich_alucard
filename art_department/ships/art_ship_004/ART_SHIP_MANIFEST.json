@@ -1,0 +1,203 @@
+{
+  "template_only": false,
+  "ship_id": "ART SHIP 004",
+  "title": "The Goldfish Years",
+  "wave": "OPEN W1 LIFE FOUNDATION",
+  "status": "FROZEN",
+  "closure_status": "FROZEN / COMPLETE",
+  "authorization": "Ube-supplied OPEN W1 authorization opened production; UBE TASTE PASS and HQ CANDIDATE PASS accepted all four reviewed visual decisions; HQ TECHNICAL PASS authorized exact-file promotion to APPROVED MASTER / FROZEN, required Art Department records, scoped commit and push to origin/main.",
+  "spoiler_classification": "OPEN W1; no sealed or HQ-only W5 material used",
+  "recorded_date": "2026-09-24",
+  "canon_sources": [
+    "docs/PRODUCTION_CONTROL.md",
+    "docs/CURRENT_CANON.md",
+    "docs/VISUAL_STYLE_BIBLE.md",
+    "art_department/ART_SYSTEM.md",
+    "art_department/STYLE_FINGERPRINT.md",
+    "art_department/APPROVAL_LEDGER.md"
+  ],
+  "source_scale_policy": {
+    "native_source_pixels_preserved": true,
+    "source_assets_pre_scaled_for_runtime": false,
+    "primary_gameplay_character_runtime_display_scale": 1.85,
+    "runtime_filter": "nearest-neighbor",
+    "authority": "Engineering runtime presentation rule; it does not alter native source assets"
+  },
+  "taste_decision": {
+    "authority": "Ube",
+    "status": "UBE TASTE PASS / HQ CANDIDATE PASS",
+    "results": [
+      "Octopus Sensei identity/read: PASS",
+      "Narrow precarious intact ladder: PASS",
+      "Midnight-ocean palette: PASS",
+      "Collapsed/intact environment continuity: PASS"
+    ]
+  },
+  "hq_acceptance": {
+    "authority": "Ube-supplied explicit HQ decision",
+    "decision": "HQ TECHNICAL PASS / APPROVED MASTER / FROZEN",
+    "scope": "The complete six-asset set named in this manifest, promoted together without pixel changes.",
+    "record": "art_department/ships/art_ship_004/HQ_DECISION.md"
+  },
+  "files": [
+    {
+      "path": "assets/goldfish_years/masters/ocean_floor_base_270x480.png",
+      "accepted_candidate_sha256": "6484265a6fda709848aefbe8625943e88bf69e797e90fc7547d0814b0b923bb8",
+      "sha256": "6484265a6fda709848aefbe8625943e88bf69e797e90fc7547d0814b0b923bb8",
+      "role": "approved production environment master; A00 ocean-floor base",
+      "dimensions": [270, 480],
+      "mode": "RGB",
+      "alpha": [255],
+      "rgb_colors": 24,
+      "state": "ocean-floor base without actors or ladder",
+      "source_anchor": null,
+      "presentation_scale": null,
+      "layer_role": "opaque environment base",
+      "provenance": "Exact byte copy of the accepted ART SHIP 004 candidate; no decode/re-encode or pixel transformation during promotion.",
+      "approval_status": "APPROVED MASTER",
+      "freeze_status": "FROZEN",
+      "default_style_reference": true,
+      "freeze_scope": "Exact 270x480 opaque ocean-floor pixels and base role only; no runtime Stage Contract or integration acceptance."
+    },
+    {
+      "path": "assets/goldfish_years/layers/ladder_intact_overlay_270x480.png",
+      "accepted_candidate_sha256": "5334abe19594197cd598866f0c8fac8144b21cfac28397011cc6e601b39ff3c8",
+      "sha256": "5334abe19594197cd598866f0c8fac8144b21cfac28397011cc6e601b39ff3c8",
+      "role": "approved production master; exact-origin intact-ladder condition overlay",
+      "dimensions": [270, 480],
+      "mode": "RGBA",
+      "alpha": [0, 255],
+      "rgb_colors": 7,
+      "state": "ladder intact",
+      "source_anchor": [0, 0],
+      "presentation_scale": 1,
+      "layer_role": "binary-alpha exact-origin scene condition layer above base and below actors",
+      "provenance": "Exact byte copy of the accepted ART SHIP 004 candidate; no decode/re-encode or pixel transformation during promotion.",
+      "approval_status": "APPROVED MASTER",
+      "freeze_status": "FROZEN",
+      "default_style_reference": true,
+      "freeze_scope": "Exact intact-ladder pixels, binary alpha and origin (0,0) registration only; mutually exclusive with the collapsed state; no collision or runtime behavior acceptance."
+    },
+    {
+      "path": "assets/goldfish_years/layers/ladder_collapsed_overlay_270x480.png",
+      "accepted_candidate_sha256": "5d258840ac63dce1852144b8ac1f1f979b5013c4ed310a7c37a152daa3e6e854",
+      "sha256": "5d258840ac63dce1852144b8ac1f1f979b5013c4ed310a7c37a152daa3e6e854",
+      "role": "approved production master; exact-origin collapsed-ladder condition overlay",
+      "dimensions": [270, 480],
+      "mode": "RGBA",
+      "alpha": [0, 255],
+      "rgb_colors": 7,
+      "state": "ladder collapsed",
+      "source_anchor": [0, 0],
+      "presentation_scale": 1,
+      "layer_role": "binary-alpha exact-origin scene condition layer above base and below actors",
+      "provenance": "Exact byte copy of the accepted ART SHIP 004 candidate; no decode/re-encode or pixel transformation during promotion.",
+      "approval_status": "APPROVED MASTER",
+      "freeze_status": "FROZEN",
+      "default_style_reference": true,
+      "freeze_scope": "Exact collapsed-ladder pixels, binary alpha and origin (0,0) registration only; mutually exclusive with the intact state; no collision or runtime behavior acceptance."
+    },
+    {
+      "path": "assets/goldfish_years/characters/octopus_sensei/octopus_sensei_neutral_96x96.png",
+      "accepted_candidate_sha256": "716c1dc09f1322cdc0fbbe7da7f5a17764ac89668e97265afdd6cd7d8994dc78",
+      "sha256": "716c1dc09f1322cdc0fbbe7da7f5a17764ac89668e97265afdd6cd7d8994dc78",
+      "role": "approved production character master; Octopus Sensei neutral/listening state",
+      "dimensions": [96, 96],
+      "mode": "RGBA",
+      "alpha": [0, 255],
+      "rgb_colors": 14,
+      "state": "neutral/listening",
+      "source_anchor": [48, 84],
+      "presentation_scale": 1.85,
+      "layer_role": "actor",
+      "provenance": "Exact byte copy of the accepted ART SHIP 004 candidate; no decode/re-encode or pixel transformation during promotion.",
+      "approval_status": "APPROVED MASTER",
+      "freeze_status": "FROZEN",
+      "default_style_reference": true,
+      "freeze_scope": "Exact Octopus Sensei neutral pixels, identity, palette, silhouette and source contact (48,84) only; no additional states or runtime integration."
+    },
+    {
+      "path": "assets/goldfish_years/characters/octopus_sensei/octopus_sensei_point_96x96.png",
+      "accepted_candidate_sha256": "8c00ebdaecfc1709fa68982426c1a146e2cd10ab985ba9ec1625a3af27c82e13",
+      "sha256": "8c00ebdaecfc1709fa68982426c1a146e2cd10ab985ba9ec1625a3af27c82e13",
+      "role": "approved production character master; Octopus Sensei pointing state",
+      "dimensions": [96, 96],
+      "mode": "RGBA",
+      "alpha": [0, 255],
+      "rgb_colors": 14,
+      "state": "point left/instruction",
+      "source_anchor": [48, 84],
+      "presentation_scale": 1.85,
+      "layer_role": "actor",
+      "provenance": "Exact byte copy of the accepted ART SHIP 004 candidate; no decode/re-encode or pixel transformation during promotion.",
+      "approval_status": "APPROVED MASTER",
+      "freeze_status": "FROZEN",
+      "default_style_reference": true,
+      "freeze_scope": "Exact Octopus Sensei pointing pixels, shared identity, palette, silhouette and source contact (48,84) only; no additional states or runtime integration."
+    },
+    {
+      "path": "assets/goldfish_years/characters/octopus_sensei/octopus_sensei_state_sheet_192x96.png",
+      "accepted_candidate_sha256": "6e7b0977266ffc0c976e4ab56f8d2d2cfcee57794cbe6f7b22121a4f5d7aecec",
+      "sha256": "6e7b0977266ffc0c976e4ab56f8d2d2cfcee57794cbe6f7b22121a4f5d7aecec",
+      "role": "approved production handoff sheet; Octopus Sensei neutral and point cells",
+      "dimensions": [192, 96],
+      "mode": "RGBA",
+      "alpha": [0, 255],
+      "rgb_colors": 27,
+      "state": "sheet order: neutral, point",
+      "frame_size": [96, 96],
+      "source_anchor": [48, 84],
+      "presentation_scale": 1.85,
+      "layer_role": "handoff sheet; individual masters control placement",
+      "provenance": "Exact byte copy of the accepted ART SHIP 004 candidate; no decode/re-encode or pixel transformation during promotion.",
+      "approval_status": "APPROVED MASTER",
+      "freeze_status": "FROZEN",
+      "default_style_reference": false,
+      "freeze_scope": "Exact two-cell sheet only, ordered neutral then point; individual frozen masters remain placement authority."
+    }
+  ],
+  "generation_and_promotion": [
+    "Authorized explorations used approved/frozen repository pixels as style authority; rejected, archived and status-unknown art was excluded.",
+    "Ube/HQ accepted the exact six native candidate files after the 1.85x documentation correction. The correction changed review presentation and documentation only.",
+    "Promotion copied the six accepted files byte-for-byte into canonical production paths. No regeneration, resizing, retouching, palette change, optimization, resampling, conversion or other pixel transformation occurred.",
+    "Raw generations and non-authoritative candidate-folder duplicates are excluded from the committed approved corpus; the canonical production files are the future style authority."
+  ],
+  "pixel_preservation_checks": [
+    {
+      "check": "all accepted candidate SHA-256 values equal promoted production files",
+      "result": true,
+      "files_checked": 6,
+      "hash_mismatches": 0
+    },
+    {
+      "check": "all transparent production assets use binary alpha",
+      "result": true,
+      "files_checked": 5
+    },
+    {
+      "check": "opaque environment master is fully opaque",
+      "result": true
+    },
+    {
+      "check": "runtime or frozen Rich files modified",
+      "result": false
+    }
+  ],
+  "review_evidence": [
+    {
+      "path": "art_department/ships/art_ship_004/review/art_ship_004_candidate_board.png",
+      "sha256": "262e5c18fe91dc7db1ef30e798c6fc77cbb728e38d4fc817c62d8797e2b8288a",
+      "dimensions": [1200, 1660],
+      "role": "HQ technical-review board; explicitly labels 1.85x nearest-neighbor runtime preview and unchanged source sprites",
+      "approval_role": "review evidence only; canonical production PNGs control"
+    },
+    {
+      "path": "art_department/ships/art_ship_004/ENGINEERING_STAGING_NOTES.md",
+      "role": "non-runtime implementation handoff; Engineering integration remains separate"
+    }
+  ],
+  "freeze_scope": "The exact six named production PNGs, their named states/layer roles, binary-alpha or opaque format, registered anchors/origins, and Octopus Sensei visual identity. Freeze does not grant runtime integration acceptance, authorize additional states/assets, modify Rich, or bake the approximately 1.85x Engineering display rule into source pixels.",
+  "runtime_test_scope": "Not authorized or performed. This is an art/docs-only promotion; no runtime/game code or deployment changed.",
+  "handoff": "Engineering may consume the six canonical production paths unchanged and apply approximately 1.85x historical on-screen character presentation with nearest-neighbor filtering. Any pixel change requires an explicit HQ delta and fresh review.",
+  "stop_point": "Update required Art Department records, validate exact promoted bytes, commit scoped art/docs only, push to origin/main, verify remote synchronization and working-tree state, then STOP and retire this Art Agent. Do not begin ART SHIP 005."
+}

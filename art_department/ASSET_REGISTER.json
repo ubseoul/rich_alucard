@@ -743,6 +743,182 @@
       "approval_evidence": []
     },
     {
+      "path": "assets/goldfish_years/characters/octopus_sensei/octopus_sensei_neutral_96x96.png",
+      "sha256": "716c1dc09f1322cdc0fbbe7da7f5a17764ac89668e97265afdd6cd7d8994dc78",
+      "role": "approved production character master; Octopus Sensei neutral/listening state",
+      "status": "FROZEN",
+      "default_style_reference": true,
+      "approval_evidence": [
+        "art_department/APPROVAL_LEDGER.md",
+        "art_department/ships/art_ship_004/ART_SHIP_MANIFEST.json",
+        "art_department/ships/art_ship_004/HQ_DECISION.md"
+      ],
+      "dimensions": [
+        96,
+        96
+      ],
+      "mode": "RGBA",
+      "ship_id": "ART SHIP 004",
+      "state": "neutral/listening",
+      "source_anchor": [
+        48,
+        84
+      ],
+      "presentation_scale": 1.85,
+      "approval_status": "APPROVED MASTER",
+      "alpha": [
+        0,
+        255
+      ],
+      "freeze_scope": "Exact Octopus Sensei neutral pixels, identity, palette, silhouette and source contact (48,84) only; no additional states or runtime integration."
+    },
+    {
+      "path": "assets/goldfish_years/characters/octopus_sensei/octopus_sensei_point_96x96.png",
+      "sha256": "8c00ebdaecfc1709fa68982426c1a146e2cd10ab985ba9ec1625a3af27c82e13",
+      "role": "approved production character master; Octopus Sensei point/instruction state",
+      "status": "FROZEN",
+      "default_style_reference": true,
+      "approval_evidence": [
+        "art_department/APPROVAL_LEDGER.md",
+        "art_department/ships/art_ship_004/ART_SHIP_MANIFEST.json",
+        "art_department/ships/art_ship_004/HQ_DECISION.md"
+      ],
+      "dimensions": [
+        96,
+        96
+      ],
+      "mode": "RGBA",
+      "ship_id": "ART SHIP 004",
+      "state": "point left/instruction",
+      "source_anchor": [
+        48,
+        84
+      ],
+      "presentation_scale": 1.85,
+      "approval_status": "APPROVED MASTER",
+      "alpha": [
+        0,
+        255
+      ],
+      "freeze_scope": "Exact Octopus Sensei pointing pixels, shared identity, palette, silhouette and source contact (48,84) only; no additional states or runtime integration."
+    },
+    {
+      "path": "assets/goldfish_years/characters/octopus_sensei/octopus_sensei_state_sheet_192x96.png",
+      "sha256": "6e7b0977266ffc0c976e4ab56f8d2d2cfcee57794cbe6f7b22121a4f5d7aecec",
+      "role": "approved production handoff sheet; Octopus Sensei neutral and point cells",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "art_department/APPROVAL_LEDGER.md",
+        "art_department/ships/art_ship_004/ART_SHIP_MANIFEST.json",
+        "art_department/ships/art_ship_004/HQ_DECISION.md"
+      ],
+      "dimensions": [
+        192,
+        96
+      ],
+      "mode": "RGBA",
+      "ship_id": "ART SHIP 004",
+      "state": "sheet order: neutral, point",
+      "source_anchor": [
+        48,
+        84
+      ],
+      "presentation_scale": 1.85,
+      "approval_status": "APPROVED MASTER",
+      "alpha": [
+        0,
+        255
+      ],
+      "freeze_scope": "Exact two-cell sheet only, ordered neutral then point; individual frozen masters remain placement authority."
+    },
+    {
+      "path": "assets/goldfish_years/layers/ladder_collapsed_overlay_270x480.png",
+      "sha256": "5d258840ac63dce1852144b8ac1f1f979b5013c4ed310a7c37a152daa3e6e854",
+      "role": "approved production master; exact-origin collapsed-ladder condition overlay",
+      "status": "FROZEN",
+      "default_style_reference": true,
+      "approval_evidence": [
+        "art_department/APPROVAL_LEDGER.md",
+        "art_department/ships/art_ship_004/ART_SHIP_MANIFEST.json",
+        "art_department/ships/art_ship_004/HQ_DECISION.md"
+      ],
+      "dimensions": [
+        270,
+        480
+      ],
+      "mode": "RGBA",
+      "ship_id": "ART SHIP 004",
+      "state": "ladder collapsed",
+      "source_anchor": [
+        0,
+        0
+      ],
+      "presentation_scale": 1,
+      "approval_status": "APPROVED MASTER",
+      "alpha": [
+        0,
+        255
+      ],
+      "freeze_scope": "Exact collapsed-ladder pixels, binary alpha and origin (0,0) registration only; mutually exclusive with the intact state; no collision or runtime behavior acceptance."
+    },
+    {
+      "path": "assets/goldfish_years/layers/ladder_intact_overlay_270x480.png",
+      "sha256": "5334abe19594197cd598866f0c8fac8144b21cfac28397011cc6e601b39ff3c8",
+      "role": "approved production master; exact-origin intact-ladder condition overlay",
+      "status": "FROZEN",
+      "default_style_reference": true,
+      "approval_evidence": [
+        "art_department/APPROVAL_LEDGER.md",
+        "art_department/ships/art_ship_004/ART_SHIP_MANIFEST.json",
+        "art_department/ships/art_ship_004/HQ_DECISION.md"
+      ],
+      "dimensions": [
+        270,
+        480
+      ],
+      "mode": "RGBA",
+      "ship_id": "ART SHIP 004",
+      "state": "ladder intact",
+      "source_anchor": [
+        0,
+        0
+      ],
+      "presentation_scale": 1,
+      "approval_status": "APPROVED MASTER",
+      "alpha": [
+        0,
+        255
+      ],
+      "freeze_scope": "Exact intact-ladder pixels, binary alpha and origin (0,0) registration only; mutually exclusive with the collapsed state; no collision or runtime behavior acceptance."
+    },
+    {
+      "path": "assets/goldfish_years/masters/ocean_floor_base_270x480.png",
+      "sha256": "6484265a6fda709848aefbe8625943e88bf69e797e90fc7547d0814b0b923bb8",
+      "role": "approved production environment master; A00 ocean-floor base",
+      "status": "FROZEN",
+      "default_style_reference": true,
+      "approval_evidence": [
+        "art_department/APPROVAL_LEDGER.md",
+        "art_department/ships/art_ship_004/ART_SHIP_MANIFEST.json",
+        "art_department/ships/art_ship_004/HQ_DECISION.md"
+      ],
+      "dimensions": [
+        270,
+        480
+      ],
+      "mode": "RGB",
+      "ship_id": "ART SHIP 004",
+      "state": "ocean-floor base without actors or ladder",
+      "source_anchor": null,
+      "presentation_scale": null,
+      "approval_status": "APPROVED MASTER",
+      "alpha": [
+        255
+      ],
+      "freeze_scope": "Exact 270x480 opaque ocean-floor pixels and base role only; no runtime Stage Contract or integration acceptance."
+    },
+    {
       "path": "assets/jdm_imports/characters/daughter/daughter_neutral.png",
       "sha256": "6454e833dace10f8efbd49351346ea9babf22ad9c006a1bb789cf62c156a48c6",
       "role": "hash-matched approved existing source",
