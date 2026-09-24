@@ -21,7 +21,17 @@
  const inside=(inner,outer)=>area(inner)>0?area(intersect(inner,outer))/area(inner):1;
  const round3=v=>Math.round(v*1000)/1000;
  function assetPath(value){if(!value)return null;const m=String(value).match(/assets\/[^"')?]+/);return m?m[0]:null}
- function spriteMeta(path){const meta=window.RAPresentationAssets?.[path];return meta&&!meta.environment?meta:{...FALLBACK_SPRITE,missing:path||true}}
+ // Runtime metadata for actors painted at runtime (RAPixel placeholders): alpha bounds measured from the canvas.
+ const runtimeMeta=new Map(),runtimeKeys=new WeakMap();let runtimeSeq=0;
+ function spriteMeta(path){const meta=window.RAPresentationAssets?.[path]||runtimeMeta.get(path)?.meta;return meta&&!meta.environment?meta:{...FALLBACK_SPRITE,missing:path||true}}
+ function canvasAsset(canvas){
+  let key=runtimeKeys.get(canvas);if(!key){key=`runtime:${++runtimeSeq}`;runtimeKeys.set(canvas,key)}
+  const pixels=canvas.getContext('2d').getImageData(0,0,canvas.width,canvas.height);let x0=canvas.width,y0=canvas.height,x1=-1,y1=-1;
+  for(let y=0;y<canvas.height;y++)for(let x=0;x<canvas.width;x++)if(pixels.data[(y*canvas.width+x)*4+3]>0){x0=Math.min(x0,x);x1=Math.max(x1,x);y0=Math.min(y0,y);y1=Math.max(y1,y)}
+  const visible=x1<0?[0,0,canvas.width,canvas.height]:[x0,y0,x1-x0+1,y1-y0+1];
+  runtimeMeta.set(key,{pixels,meta:{width:canvas.width,height:canvas.height,visible,anchor:[40,88],face:[Math.round(visible[0]+visible[2]*.15),Math.round(visible[1]+visible[3]*.16),Math.max(1,Math.round(visible[2]*.7)),Math.max(1,Math.round(visible[3]*.3))],faceSource:'derived',authority:'PLACEHOLDER'}});
+  return key;
+ }
  function envSize(stage){return stage.world||stage.native}
  function lineOf(stage,actor){return (stage.contactLines||[]).find(line=>line.id===actor.anchor.line)||null}
  function actorScale(stage,slot){const actor=stage.actors[slot],scale=actor.scale??lineOf(stage,actor)?.scale;if(!(scale>0))throw new Error(`Director stage ${stage.id}: contact line for ${slot} has no scale`);return scale}
@@ -50,6 +60,8 @@
  function solve(spec){
   const stage=spec.stage,profile=data().profiles[spec.profile],env=envSize(stage),view=spec.view;
   if(!profile)throw new Error(`Unknown shot profile: ${spec.profile}`);
+  // Empty stage: full-width cover, grounded at the bottom of the environment.
+  if(!spec.focal?.length){const S=Math.max(view.w/env.width,view.h/env.height),w=view.w/S,h=view.h/S;return {S,x:(env.width-w)/2,y:env.height-h,w,h,zoom:1,contact:1,cover:S,limited:false,profile:profile.id}}
   // Envelope of every approved state per focal slot → the camera never jumps when an actor changes state.
   const envelope=(slot,at)=>{const list=(spec.states?.[slot]?.length?spec.states[slot]:[spec.assets?.[slot]]).map(asset=>worldActor(stage,slot,asset,at));return {...list[0],visible:union(list.map(a=>a.visible))}};
   const focal=spec.focal.map(slot=>envelope(slot,spec.at?.[slot])),include=(spec.include||[]).filter(slot=>stage.actors[slot]).map(slot=>envelope(slot));
@@ -101,11 +113,13 @@
  function lintFrame(stage,frame,{profile,focal,speakers=focal,reference,uiRects=[],golden=null}={}){
   const P=data().profiles[profile],acc=data().acceptance,checks=[],W=frame.layout?.W??frame.world.w;
   const add=(id,pass,value,limit,note)=>checks.push({id,pass:!!pass,value,limit,...(note?{note}:{})});
+  if(!focal.length)return {pass:true,checks:[{id:'empty-stage',pass:true,value:0,limit:'no focal actors'}],metrics:{body:0,headroom:1,S:round3(frame.S)}};
   const ref=frame.actors[reference]||frame.actors[focal[0]],refRatio=ref?ref.visible.h/spriteMeta(data().reference.asset).visible[3]/ref.k:1;
   const body=ref?ref.visible.h/frame.world.h/refRatio:0;
   add('shot-size',body>=P.body[0]-.005&&body<=P.body[1]+.005,round3(body),P.body,`reference-height body / world viewport (${P.id})`);
-  if(golden?.body)add('shot-consistency',Math.abs(body/golden.body-1)<=acc.consistency,round3(body/golden.body-1),acc.consistency);
-  else add('shot-consistency',Math.abs(body/P.target-1)<=Math.max(acc.consistency,(P.body[1]-P.body[0])/2/P.target),round3(body/P.target-1),'vs profile target');
+  // Cross-scene consistency: against the profile's locked reference size (golden set), else the profile target.
+  const refSize=P.reference??P.target;
+  add('shot-consistency',Math.abs(body/refSize-1)<=(P.reference!=null?acc.consistency:Math.max(acc.consistency,(P.body[1]-P.body[0])/2/P.target)),round3(body/refSize-1),P.reference!=null?`±${acc.consistency} of locked ${P.id} reference ${refSize}`:'vs profile target');
   const minFace=acc.minFacePx*W/acc.minFacePxAtWidth;
   for(const slot of speakers){const a=frame.actors[slot];if(!a)continue;add(`face-size:${slot}`,a.face.h>=minFace,round3(a.face.h),round3(minFace),a.faceSource)}
   for(const slot of focal){const a=frame.actors[slot];if(!a)continue;
@@ -129,11 +143,46 @@
  // centre x, 42% down. --pd-fx = Rich's current visible height / legacy reference, so effects scale with the body.
  function anchorPoint(frame,role,roles){const a=frame.actors[roles?.[role]];return a?{x:a.visible.x+a.visible.w*.5,y:a.visible.y+a.visible.h*.42}:null}
 
+ // ---- Adventure adapter: slot-based adventure data → Director stage contract + default shot ----
+ // Every adventure node names an environment (RAEnvironments) and actors in slots. The adapter turns that into
+ // a contract: one contact line at the environment floor (depth scale = registry base × the approved 1.85
+ // primary-character rule, made explicit), actors anchored at their slot, and a default shot chosen from the
+ // cast size — then the Director solves the camera like any other scene. Hero nodes may override with `shot`.
+ const APPROVED_PRIMARY_SCALE=1.85;
+ function adventureStage(env,cast,{slots,node,states}={}){
+  const floor=env.floorY??372,scale=env.depth??(env.base||1)*APPROVED_PRIMARY_SCALE,lines=[{id:'floor',y:floor,x1:0,x2:270,scale}],actors={};
+  for(const [slot,spec] of Object.entries(cast)){
+   // Slot positions are clamped so a typical body (≈30 source px wide) stays inside the environment width.
+   const half=15*scale+4,x=Math.min(270-half,Math.max(half,spec.x??slots?.[slot]??135)),y=spec.y??floor;let line=lines.find(l=>l.y===y);
+   const lineScale=spec.lineScale??scale;if(!line||line.scale!==lineScale){line={id:`y${y}${lineScale!==scale?'d':''}`,y,x1:0,x2:270,scale:lineScale};lines.push(line)}
+   actors[slot]={source:{width:80,height:96,anchor:{x:40,y:88}},anchor:{x,y,line:line.id},flip:!!spec.flip,observer:!!spec.observer};
+  }
+  const visible=Object.keys(cast).filter(slot=>!cast[slot].hidden&&!cast[slot].observer);
+  const reference=Object.keys(cast).find(slot=>cast[slot].id==='rich');
+  // Preference order; SOLVE falls back when full-width cover or the focal group makes a profile unreachable.
+  const auto=visible.length>=3?['establishing','conversation']:['conversation','establishing'];
+  const override=node?.shot||null;
+  const stage={id:`adv:${env.id}`,native:{width:270,height:480},environment:env.image||null,contactLines:lines,actors,
+   director:{states:states||{},shots:{}}};
+  // Default shot: first profile in the preference list whose solved framing keeps the reference body in band.
+  const candidates=(override?.profile?[override.profile]:auto).map(profile=>({profile,focal:override?.focal||visible,include:override?.include||[],speakers:override?.speakers||visible,reference:override?.reference||reference||visible[0]}));
+  stage.director.shots.default=candidates[0];stage.director.shotCandidates=candidates;
+  return stage;
+ }
+ // Picks the first candidate shot whose solve is not width-limited below its size band (data-driven fallback).
+ function chooseShot(stage,view,assets){
+  for(const shot of stage.director.shotCandidates||[stage.director.shots.default]){if(!shot.focal.length)return shot;
+   const cam=solve({stage,profile:shot.profile,focal:shot.focal,include:shot.include,reference:shot.reference,assets,states:stage.director.states,view}),refScale=stage.contactLines.find(l=>l.id===stage.actors[shot.reference]?.anchor.line)?.scale||stage.contactLines[0].scale;
+   const body=spriteMeta(data().reference.asset).visible[3]*refScale*cam.S/view.h,band=data().profiles[shot.profile].body;
+   if(body>=band[0]-.005&&body<=band[1]+.005)return shot}
+  return stage.director.shotCandidates?.at(-1)||stage.director.shots.default;
+ }
+
  // ---- Live controller ----
  let active=null;
  function screenEl(){return document.querySelector('#screen')}
- function worldEl(){let el=document.querySelector('#pdWorld');if(!el){el=document.createElement('div');el.id='pdWorld';el.setAttribute('aria-hidden','true');screenEl().prepend(el)}return el}
- function elementAsset(el){if(!el)return null;if(el.tagName==='IMG')return assetPath(el.getAttribute('src'));if(el.tagName==='CANVAS')return el.dataset.asset||null;const cs=getComputedStyle(el),path=assetPath(cs.backgroundImage),sheet=window.RAPresentationAssets?.[path]?.sheet;
+ function worldEl(host){let el=document.querySelector('#pdWorld');if(!el){el=document.createElement('div');el.id='pdWorld';el.setAttribute('aria-hidden','true');(host||active?.host||screenEl()).prepend(el)}return el}
+ function elementAsset(el){if(!el)return null;if(el.tagName==='IMG')return assetPath(el.getAttribute('src'));if(el.tagName==='CANVAS')return el.dataset.asset||canvasAsset(el);const cs=getComputedStyle(el),path=assetPath(cs.backgroundImage),sheet=window.RAPresentationAssets?.[path]?.sheet;
   // Sprite sheets resolve to the frame currently shown (background-position / frame width in CSS px).
   if(sheet){const k=parseFloat(el.style.getPropertyValue('--pd-k'))||1,index=Math.round(-parseFloat(cs.backgroundPositionX||'0')/(sheet.frameWidth*k));return `${path}#${Math.max(0,Math.min(sheet.frames-1,index))}`}return path}
  function currentAssets(ctl){const out={};for(const [slot,el] of Object.entries(ctl.actors))out[slot]=ctl.assetOf?.[slot]?.(el)??elementAsset(el);return out}
@@ -142,7 +191,7 @@
  function relayout(ctl){
   const {W,H}=screenSize();if(!(W>0&&H>0))return null;
   const dpr=window.devicePixelRatio||1,stage=ctl.stage,layout=screenLayout(ctl.mode,W,H);
-  const assets=currentAssets(ctl),shot=ctl.shot;
+  const assets=currentAssets(ctl);if(ctl.autoShot)ctl.shot=chooseShot(ctl.stage,{w:layout.world.w,h:layout.world.h},assets);const shot=ctl.shot;
   const spec={stage,profile:shot.profile,focal:shot.focal,include:shot.include,reference:shot.reference,assets,states:stage.director?.states,at:ctl.moved,view:{w:layout.world.w,h:layout.world.h}};
   const locked=window.RAPresentationLocks?.get?.(stage.id,ctl.beat);
   const camera=solve({...spec,...(locked?{contact:locked.contact,zoom:locked.zoom}:{contact:shot.contact,zoom:shot.zoom})});
@@ -169,7 +218,7 @@
    const refBody=ref?ref.k*spriteMeta(data().reference.asset).visible[3]:0,fx=refBody?refBody/data().fxReference.visibleHeight:1,sp=data().spawn;
    set('--pd-fx',String(round3(fx)));ctl.fxScale=fx;ctl.anchors={rich,enemy};
    if(rich&&enemy){set('--pd-missile-dx',px((enemy.x-rich.x)/fx+sp.missileFlight));set('--pd-briefcase-dx',px((rich.x-enemy.x)/fx+sp.briefcaseFlight))}
-   for(const item of data().fx||[])placeFx(ctl,item);
+   if(ctl.fx!==false)for(const item of data().fx||[])placeFx(ctl,item);
   }
  }
  function placeFx(ctl,item){
@@ -204,7 +253,7 @@
   const stage=typeof options.stage==='string'?contract(options.stage):options.stage;
   const ctl={...options,stage,beat:options.beat||'default',shot:{...(stage.director?.shots?.[options.beat||'default']||{}),...(options.shot||{})},restore:[]};
   if(!ctl.shot.profile||!ctl.shot.focal)throw new Error(`Director stage ${stage.id}: beat ${ctl.beat} needs a shot profile and focal actors`);
-  const screen=screenEl(),world=worldEl();
+  const screen=screenEl(),world=worldEl(ctl.host);
   document.body.classList.add('pd-active');screen.dataset.pdMode=ctl.mode;screen.dataset.pdStage=stage.id;
   const adopt=el=>{if(!el||el.parentElement===world)return;ctl.restore.push({el,parent:el.parentElement,next:el.nextSibling,style:el.getAttribute('style')});world.appendChild(el)};
   adopt(ctl.env);for(const el of Object.values(ctl.actors))adopt(el);for(const el of ctl.viewportLayers||[])adopt(el);
@@ -246,7 +295,7 @@
  // ---- Live lint: measures the real rendered UI and sprite pixels ----
  const imageCache=new Map();
  // `path#i` = frame i of a horizontal sprite sheet.
- function loadImage(src){if(!imageCache.has(src))imageCache.set(src,new Promise((resolve,reject)=>{const [file,frame]=src.split('#'),sheet=frame!=null?window.RAPresentationAssets?.[file]?.sheet:null;const img=new Image();img.onload=()=>{const w=sheet?sheet.frameWidth:img.naturalWidth,c=document.createElement('canvas');c.width=w;c.height=img.naturalHeight;const g=c.getContext('2d');g.drawImage(img,sheet?-w*+frame:0,0);resolve(g.getImageData(0,0,c.width,c.height))};img.onerror=()=>reject(new Error(`image ${src}`));img.src=file}));return imageCache.get(src)}
+ function loadImage(src){if(runtimeMeta.has(src))return Promise.resolve(runtimeMeta.get(src).pixels);if(!imageCache.has(src))imageCache.set(src,new Promise((resolve,reject)=>{const [file,frame]=src.split('#'),sheet=frame!=null?window.RAPresentationAssets?.[file]?.sheet:null;const img=new Image();img.onload=()=>{const w=sheet?sheet.frameWidth:img.naturalWidth,c=document.createElement('canvas');c.width=w;c.height=img.naturalHeight;const g=c.getContext('2d');g.drawImage(img,sheet?-w*+frame:0,0);resolve(g.getImageData(0,0,c.width,c.height))};img.onerror=()=>reject(new Error(`image ${src}`));img.src=file}));return imageCache.get(src)}
  function visibleRect(el){if(!el)return null;const cs=getComputedStyle(el);if(cs.display==='none'||cs.visibility==='hidden'||+cs.opacity===0)return null;const r=el.getBoundingClientRect(),s=screenEl().getBoundingClientRect();return r.width&&r.height?box(r.left-s.left,r.top-s.top,r.width,r.height):null}
  // Opaque source pixels of an actor that land inside `rect` (screen px, clipped to the world viewport), in CSS px².
  function maskArea(pixels,a,rect,world){const r=intersect(intersect(rect,a.visible),world);if(area(r)<=0)return 0;let n=0;const m=a.meta;
@@ -254,7 +303,8 @@
  // Dead space: share of the world viewport showing low-detail environment (8×8 native tiles whose pixels
  // barely deviate from the tile median) and no focal actor. Threshold is locked from the golden set.
  async function deadSpace(ctl,frame){
-  const envAsset=ctl.envAsset;if(!envAsset)return null;const img=await loadImage(envAsset),T=8,cam=frame.camera,env=envSize(ctl.stage),kx=img.width/env.width,ky=img.height/env.height;
+  const canvas=ctl.env?.tagName==='CANVAS'?ctl.env:null;if(!canvas&&!ctl.envAsset)return null;
+  const img=canvas?canvas.getContext('2d').getImageData(0,0,canvas.width,canvas.height):await loadImage(ctl.envAsset),T=8,cam=frame.camera,env=envSize(ctl.stage),kx=img.width/env.width,ky=img.height/env.height;
   const focal=ctl.shot.focal.map(s=>frame.actors[s]).filter(Boolean).map(a=>a.visible);let dead=0,total=0;
   for(let ty=Math.floor(cam.y/T)*T;ty<cam.y+cam.h;ty+=T)for(let tx=Math.floor(cam.x/T)*T;tx<cam.x+cam.w;tx+=T){
    const tile=worldRectToScreen(frame,[tx,ty,T,T]),w=area(intersect(tile,frame.world))/area(tile);if(w<=0)continue;total+=w;
@@ -267,11 +317,11 @@
  }
  async function lintLive(ctl,{fx=true}={}){
   const frame=relayout(ctl);if(!frame)return null;
-  const mode=data().modes[ctl.mode],uiRects=mode.uiSelectors.flatMap(sel=>[...document.querySelectorAll(sel)].map(visibleRect).filter(Boolean));
+  const base=data().modes[ctl.mode],mode={...base,...(ctl.ui?{uiSelectors:ctl.ui.selectors||base.uiSelectors,dialogueSelectors:ctl.ui.dialogue||base.dialogueSelectors,bubbleSelectors:ctl.ui.bubbles||base.bubbleSelectors}:{})},uiRects=mode.uiSelectors.flatMap(sel=>[...document.querySelectorAll(sel)].map(visibleRect).filter(Boolean));
   const report=lintFrame(ctl.stage,frame,{profile:ctl.shot.profile,focal:ctl.shot.focal,speakers:ctl.shot.speakers||ctl.shot.focal,reference:ctl.shot.reference,uiRects,golden:window.RAPresentationLocks?.golden?.(ctl.stage.id,ctl.beat)});
   const add=(id,pass,value,limit,note)=>report.checks.push({id,pass:!!pass,value,limit,...(note?{note}:{})});
   const order=Object.values(frame.actors).sort((a,b)=>(+getComputedStyle(ctl.actors[a.slot]).zIndex||0)-(+getComputedStyle(ctl.actors[b.slot]).zIndex||0)||a.anchor.y-b.anchor.y);
-  const bubbles=['#toast.jdm-speaker-bubble','#richLyricBubble.on'].map(s=>visibleRect(document.querySelector(s))).filter(Boolean);
+  const bubbles=(mode.bubbleSelectors||[]).map(s=>visibleRect(document.querySelector(s))).filter(Boolean);
   for(const slot of ctl.shot.focal){const a=frame.actors[slot];if(!a?.asset)continue;const pixels=await loadImage(a.asset);
    const ov=uiRects.reduce((n,r)=>n+maskArea(pixels,a,r,frame.world),0);add(`ui-overlap-px:${slot}`,ov<=data().acceptance.uiOverlapPx,Math.round(ov),0,'opaque sprite pixels under rendered UI (CSS px²)');
    let covered=0;const face=intersect(a.face,frame.world);covered+=area(a.face)-area(face);
@@ -310,6 +360,6 @@
  window.RAStageLayout={contract,actorRect,transform,layout,activate,drawOverlay,runSelfTest};
  window.RAPresentationDirector={screenLayout,worldActor,solve,search,project,lintFrame,enter,exit,fxPoint,runSelfTest:runDirectorSelfTest,
   active:()=>!!active,current:()=>active&&{stage:active.stage.id,mode:active.mode,beat:active.beat,frame:active.frame},
-  worldRect:()=>active?.frame?.world||null,mark:(id,opts)=>active?mark(active,id,opts):Promise.resolve(false),resetMoves:()=>{if(active?.moved){active.moved={};relayout(active)}},moveTo:(slot,to,opts)=>active?moveTo(active,slot,to,opts):Promise.resolve(false),setBeat:(beat,opts)=>active?setBeat(active,beat,opts):null,relayout:()=>active&&relayout(active),lint:opts=>active?lintLive(active,opts):Promise.resolve(null),
+  worldRect:()=>active?.frame?.world||null,actorBox:slot=>active?.frame?.actors?.[slot]||null,adventureStage,mark:(id,opts)=>active?mark(active,id,opts):Promise.resolve(false),resetMoves:()=>{if(active?.moved){active.moved={};relayout(active)}},moveTo:(slot,to,opts)=>active?moveTo(active,slot,to,opts):Promise.resolve(false),setBeat:(beat,opts)=>active?setBeat(active,beat,opts):null,relayout:()=>active&&relayout(active),lint:opts=>active?lintLive(active,opts):Promise.resolve(null),
   preview:(beatOrShot)=>{if(!active)return null;const prev=active.shot;active.shot={...prev,...beatOrShot};const f=relayout(active);return {frame:f,restore:()=>{active.shot=prev;relayout(active)}}}};
 })();

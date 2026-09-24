@@ -92,7 +92,7 @@
     id:'throne-room',native:{width:765,height:1024},environment:'assets/throne_room_scene_portrait.png',referenceScale:1,
     contactLines:[{id:'front',y:940,x1:40,x2:725,scale:3.9},{id:'back',y:905,x1:40,x2:725,scale:3.59}],
     actors:{
-      rich:{source,anchor:{x:290,y:940,line:'front'},facing:'right',layer:6},
+      rich:{source,anchor:{x:300,y:940,line:'front'},facing:'right',layer:6},
       ceo:{source,anchor:{x:500,y:940,line:'front'},facing:'left',layer:7},
       assistant:{source,anchor:{x:615,y:905,line:'back'},facing:'left',observer:true,layer:6}
     },

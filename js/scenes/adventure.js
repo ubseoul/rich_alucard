@@ -50,7 +50,21 @@
    el.dataset.slot=slot;actorLayer.append(el);
   }
  }
- function actorNode(id){return actorLayer.querySelector(`[data-actor="${CSS.escape(id)}"]`);}
+ function actorNode(id){return actorLayer.querySelector(`[data-actor="${CSS.escape(id)}"]`)||root?.querySelector(`#pdWorld [data-actor="${CSS.escape(id)}"]`);}
+ // Presentation Director adapter (pilot allowlist): the node's environment + slot actors become a Director
+ // stage; the Director owns camera, actor size and the UI-aware world viewport. Other environments keep the
+ // legacy full-frame staging until migrated.
+ let directorNode=false;
+ function directorEnabled(env){return !!window.RAPresentationDirector&&!window.__pdLegacy&&(window.RAPresentationData?.adventure?.environments||[]).includes(env?.id);}
+ function stageDirector(actors,node){
+  directorNode=false;if(!directorEnabled(currentEnv)){window.RAPresentationDirector?.exit();return;}
+  const cast={},elements={};
+  for(const el of actorLayer.children){const slot=el.dataset.slot,spec=actors?.[slot];if(!slot||!spec)continue;const id=typeof spec==='string'?spec:spec.id;const x=typeof spec==='object'&&spec.x!=null?spec.x:SLOTS[slot]??135;
+   cast[slot]={...(typeof spec==='object'?spec:{}),id,x,flip:(typeof spec==='object'&&spec.flip)||(id==='rich'&&x>150)};elements[slot]=el;}
+  const stage=RAPresentationDirector.adventureStage(currentEnv,cast,{slots:SLOTS,node});
+  RAPresentationDirector.enter({stage,mode:'dialogue',beat:'default',scope,host:root,env:envCanvas.canvas||envCanvas,actors:elements,autoShot:!node?.shot});
+  directorNode=true;
+ }
  async function typeText(el,text){el.textContent=text;}
  async function showLine([speaker,text,opts={}]){
   if(!scope?.isActive())return;
@@ -60,8 +74,10 @@
   if(richOnStage){
    box.hidden=true;bubble.hidden=false;bubble.innerHTML=`<b class="adv-speaker">RICH${opts.vp&&dev?' <span class="adv-vp">VP</span>':''}</b><span></span>`;await typeText(bubble.querySelector('span'),text);
    const n=actorNode('rich'),r=n.getBoundingClientRect(),rr=root.getBoundingClientRect();
-   const left=Math.max(4,Math.min(rr.width-bubble.offsetWidth-4,r.left-rr.left+r.width*.5-bubble.offsetWidth*.5));
-   const top=Math.max(rr.height*.06,r.top-rr.top+r.height*.18-bubble.offsetHeight);
+   // Director scenes: bubble sits just above the visible head, clamped inside the world viewport.
+   const slot=n.dataset.slot,body=directorNode?RAPresentationDirector.actorBox(slot):null,world=directorNode?RAPresentationDirector.worldRect():null;
+   const left=body?Math.max(world.x+4,Math.min(world.x+world.w-bubble.offsetWidth-4,body.visible.x+body.visible.w*.5-bubble.offsetWidth*.5)):Math.max(4,Math.min(rr.width-bubble.offsetWidth-4,r.left-rr.left+r.width*.5-bubble.offsetWidth*.5));
+   const top=body?Math.max(world.y+4,body.visible.y-bubble.offsetHeight-6):Math.max(rr.height*.06,r.top-rr.top+r.height*.18-bubble.offsetHeight);
    Object.assign(bubble.style,{left:`${left}px`,top:`${top}px`});
   }else{
    bubble.hidden=true;box.hidden=false;const sp=box.querySelector('.adv-speaker');
@@ -98,7 +114,7 @@
  async function run(nodeId){
   while(scope?.isActive()&&nodeId){
    const r=RAAdventures.enter(nodeId);if(!r){await leave();return;}
-   const {node,env,actors}=r;paintEnv(typeof env==='function'?env(RAAdventures.context()):env);renderActors(actors);
+   const {node,env,actors}=r;if(directorNode){window.RAPresentationDirector?.exit();directorNode=false;}paintEnv(typeof env==='function'?env(RAAdventures.context()):env);renderActors(actors);stageDirector(actors,node);
    const a=RAAdventures.active();
    if(node.title&&!(a.titles||[]).includes(nodeId)){hideDialogue();await showTitle(typeof node.title==='function'?node.title(RAAdventures.context()):node.title);RAAdventures.patchActive({titles:[...(RAAdventures.active()?.titles||[]),nodeId]});}
    const lines=typeof node.lines==='function'?node.lines(RAAdventures.context()):(node.lines||[]);
