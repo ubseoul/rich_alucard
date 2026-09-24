@@ -26,12 +26,13 @@ export async function loadBtf(root,{seedState=null}={}){
 }
 
 // Drive one adventure from start to end with a choice policy. Minigames/fights get synthetic results.
-export function walk(ctx,id,{pick=(choices,step)=>0,minigame=()=>({outcome:'win',score:1,rewards:{}}),fight=()=>({outcome:'win'}),maxSteps=400}={}){
- const {RAAdventures}=ctx;const run=RAAdventures.start(id,{from:'test'});assert(run,`could not start ${id}`);
+export function walk(ctx,id,{vars={},pick=(choices,step)=>0,minigame=()=>({outcome:'win',score:1,rewards:{}}),fight=()=>({outcome:'win'}),maxSteps=400}={}){
+ const {RAAdventures}=ctx;const run=RAAdventures.start(id,{from:'test',vars});assert(run,`could not start ${id}`);
  let node=run.node,steps=0;const visited=[];
  while(node&&steps++<maxSteps){
   const r=RAAdventures.enter(node);assert(r,`${id}: enter failed at ${node}`);visited.push(node);const n=r.node;
-  if(typeof n.lines==='function')n.lines(RAAdventures.context());
+  if(typeof n.lines==='function'){for(const line of n.lines(RAAdventures.context())||[])if(line&&line[0]==='rich')assert(line[2]&&(line[2].vp||line[2].canon),`${id}.${node}: Rich line not marked [VP]: ${line[1]}`);}
+  if(typeof n.title==='function')n.title(RAAdventures.context());
   if(n.end){const res=RAAdventures.complete(node);return {res,visited};}
   if(n.route){const next=n.route.next;RAAdventures.context().set('route','walk');node=next;continue;}
   if(n.choices){const list=RAAdventures.choicesFor(node).filter(c=>!c.locked);if(!list.length){assert(n.next,`${id}.${node}: every choice locked and no fallback next`);node=RAAdventures.nextOf(node);continue;}const c=list[Math.min(list.length-1,pick(list,steps))];node=RAAdventures.choose(node,c.index);continue;}
@@ -76,11 +77,11 @@ export async function test(root){
   const errors=all.flatMap(def=>RAAdventures.validate(def));assert.equal(errors.length,0,'adventure graph errors:\n'+errors.join('\n'));
   let walks=0;
   for(const def of all){
-   const choiceNodes=Object.entries(def.nodes).filter(([,n])=>n.choices?.length);const width=Math.max(1,...choiceNodes.map(([,n])=>n.choices.length));
+   const choiceNodes=Object.entries(def.nodes).filter(([,n])=>n.choices);const width=Math.max(1,...choiceNodes.map(([,n])=>typeof n.choices==='function'?3:n.choices.length));
    for(let k=0;k<width;k++){for(const outcome of ['win','lose']){const fresh=await loadBtf(root);const {RAState,RAClock,RALife}=fresh;RAClock.wake({first:true});
     RAState.patch('life.world.day',40);RAState.patch('life.resources.money',5e6);(def.testSetup||(()=>{}))(fresh);
     const available=fresh.RAAdventures.available(def.id);if(!available&&!def.testSetup)continue;
-    const {res}=walk(fresh,def.id,{pick:(list,step)=>(k+step)%list.length,fight:()=>({outcome}),minigame:()=>({outcome,score:outcome==='win'?9999:1,rewards:{}})});
+    const {res}=walk(fresh,def.id,{vars:def.testVars||{},pick:(list,step)=>(k+step)%list.length,fight:()=>({outcome}),minigame:()=>({outcome,score:outcome==='win'?9999:1,rewards:{}})});
     assert(res&&res.id===def.id,`${def.id} did not complete`);assert(!fresh.RAAdventures.active(),`${def.id} left an active record`);
     assert(RAState.get().life.memoryLog.length>0,`${def.id} wrote no memory`);walks++;}}
   }

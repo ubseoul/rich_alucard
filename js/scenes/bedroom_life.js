@@ -60,10 +60,13 @@
  }
  document.addEventListener('ra:scene',e=>{
   if(e.detail?.id!=='bedroom'){clear();return;}
+  setTimeout(()=>{if(RAScenes.current()==='bedroom')onBedroom(e);},0);
+ });
+ function onBedroom(e){
   if(!RALife.life().clock.started)return; // prologue/first wake owns the room until the life clock starts
   build();
   if(RAAdventures.active()){RAAdventureScene.resume();return;}
   if(!showReturnBeat()){const unread=(RALife.life().clock.mail||[]).filter(m=>m.day===RALife.today().day&&!m.read&&m.kind!=='weekday');if(unread.length)showMail();}
- });
+ }
  window.RABedroomLife={build,confirmBed,goToSleep,showMail,refresh:()=>{if(layer)build();}};
 })();

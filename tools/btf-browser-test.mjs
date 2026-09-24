@@ -18,7 +18,7 @@ async function advanceAdventure(p,{maxTaps=120,choose=0,shots=false}={}){
   const choices=p.locator('.adv-choice:not([disabled])');
   if(await choices.count()){if(shots)await snap(p,'choice');const n=await choices.count();await choices.nth(Math.min(n-1,typeof choose==='function'?choose(n):choose)).click();await p.waitForTimeout(150);continue;}
   if(await p.locator('.ra-minigame').count()){await p.locator('.ra-minigame-quit').click();await p.waitForTimeout(150);continue;}
-  if(await p.locator('.c2-scene').count()){await p.evaluate(()=>RACombat2.debugResolve?.('win'));await p.waitForTimeout(200);continue;}
+  if(await p.locator('.c2-scene').count()){if(shots)await snap(p,'combat');const done=p.locator('[data-c2="done"]');if(await done.count()){await done.click();continue;}const f=p.locator('[data-c2="fight"]');if(await f.count()){await f.click();await p.locator('[data-c2^="move:blood"]').click();await p.waitForTimeout(2600);continue;}await p.waitForTimeout(500);continue;}
   await tapStage(p);
  }
 }
@@ -45,11 +45,11 @@ try{
   console.log('PASS newgame path',JSON.stringify({day:await p.evaluate(()=>RALife.today().day)}));
  }
  if(scenario==='adventure'){
-  const id=process.argv[5];const p=await page();await p.goto(`${base}/?dev=1`);
-  await p.evaluate(()=>{localStorage.clear();});await p.goto(`${base}/?dev=1`);
+  const id=process.argv[5];const vars=JSON.parse(process.argv[6]||'{}');const setup=process.argv[7]||'';const p=await page();await p.goto(`${base}/`);
+  await p.evaluate(()=>{localStorage.clear();});await p.goto(`${base}/`);
   await p.evaluate(async(id)=>{const s=RAState.migrateRecord(RASaveFixtures.fixtures.supraOwned);RAState.write(localStorage,s,false);RAState.load();},id);
-  await p.goto(`${base}/?dev=1`);await p.locator('#startButton').click();await p.waitForFunction(()=>RAScenes.current()==='bedroom');
-  await p.evaluate(id=>RAAdventureScene.begin(id,{from:'qa'}),id);await p.waitForTimeout(400);
+  await p.goto(`${base}/`);await p.locator('#startButton').click();await p.waitForFunction(()=>RAScenes.current()==='bedroom');
+  await p.evaluate(({id,vars,setup})=>{if(setup)(new Function(setup))();return RAAdventureScene.begin(id,{from:'qa',vars});},{id,vars,setup});await p.waitForTimeout(400);
   await advanceAdventure(p,{shots:true});await snap(p,`after-${id}`);console.log('PASS adventure',id);
  }
 }finally{

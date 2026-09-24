@@ -7,7 +7,7 @@
   if(r.clout)RALife.addPoints('clout',r.clout);
   if(r.rep)RALife.addPoints('rep',r.rep);
   for(const [id,n] of Object.entries(r.items||{}))RALife.addItem(id,n);
-  for(const [id,n] of Object.entries(r.consumed||{}))RALife.addItem(id,-n);
+  if(!r.dragonActions?.length)for(const [id,n] of Object.entries(r.consumed||{}))RALife.addItem(id,-n);
   for(const [flag,v] of Object.entries(r.flags||{}))RALife.setFlag(flag,v);
   for(const m of r.memories||[])RALife.remember({text:m,lane:result.minigame||adventure,type:'minigame'});
   if(r.hooks?.length){const music={...RAState.get().life.creativeLife.music};music.hooks=[...(music.hooks||[]),...r.hooks.map(h=>({...h,day:RALife.today().day}))];RAState.patch('life.creativeLife.music',music);}
