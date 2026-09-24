@@ -1,7 +1,7 @@
 # Current OPEN Art gaps — reconciled at ART SHIP 006
 
 **As of:** 2026-09-24
-**Pixel authority:** `origin/main` / `a2992617b825acf1ab7a9bdb187d2caca66be701`
+**Frozen pixel authority:** ART SHIP 006 freeze commit `a2992617b825acf1ab7a9bdb187d2caca66be701` (current repository tip may be newer documentation-only history)
 **Engineering audit source:** read-only `origin/claude/eloquent-shannon-kc5qkn` at `c2a637bb2df8143f117cff1cecc8ca1cff6ba11e`; historical `docs/btf/ART_INPUTS.md` is not current truth.
 
 This map reconciles the 61 environment and 56 character placeholders reported by Rough Complete against frozen ART SHIP 004/005/006 files, the current register/index, Ship Engineering maps, and the branch implementation state. A filename does not imply runtime integration.
