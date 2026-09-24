@@ -1,0 +1,419 @@
+{
+  "all_passed": true,
+  "checks": [
+    {
+      "id": "bonesworth_telegraph",
+      "kind": "character_state",
+      "expected_dimensions": [
+        80,
+        96
+      ],
+      "passed": true
+    },
+    {
+      "id": "bonesworth_strike",
+      "kind": "character_state",
+      "expected_dimensions": [
+        80,
+        96
+      ],
+      "passed": true
+    },
+    {
+      "id": "bonesworth_hit",
+      "kind": "character_state",
+      "expected_dimensions": [
+        80,
+        96
+      ],
+      "passed": true
+    },
+    {
+      "id": "bonesworth_defeated",
+      "kind": "character_state",
+      "expected_dimensions": [
+        80,
+        96
+      ],
+      "passed": true
+    },
+    {
+      "id": "bruce_strike",
+      "kind": "character_state",
+      "expected_dimensions": [
+        80,
+        96
+      ],
+      "passed": true
+    },
+    {
+      "id": "bruce_bow",
+      "kind": "character_state",
+      "expected_dimensions": [
+        80,
+        96
+      ],
+      "passed": true
+    },
+    {
+      "id": "kevin_attack",
+      "kind": "character_state",
+      "expected_dimensions": [
+        80,
+        96
+      ],
+      "passed": true
+    },
+    {
+      "id": "kevin_poof",
+      "kind": "character_state",
+      "expected_dimensions": [
+        80,
+        96
+      ],
+      "passed": true
+    },
+    {
+      "id": "phil_charging_day3",
+      "kind": "character_state",
+      "expected_dimensions": [
+        80,
+        96
+      ],
+      "passed": true
+    },
+    {
+      "id": "phil_sitting_plate",
+      "kind": "character_state",
+      "expected_dimensions": [
+        80,
+        96
+      ],
+      "passed": true
+    },
+    {
+      "id": "iron_jaw_rapping",
+      "kind": "character_state",
+      "expected_dimensions": [
+        80,
+        96
+      ],
+      "passed": true
+    },
+    {
+      "id": "iron_jaw_defeated",
+      "kind": "character_state",
+      "expected_dimensions": [
+        80,
+        96
+      ],
+      "passed": true
+    },
+    {
+      "id": "hilt_strike",
+      "kind": "character_state",
+      "expected_dimensions": [
+        80,
+        96
+      ],
+      "passed": true
+    },
+    {
+      "id": "hilt_walk_away",
+      "kind": "character_state",
+      "expected_dimensions": [
+        80,
+        96
+      ],
+      "passed": true
+    },
+    {
+      "id": "tunde_asleep_floor",
+      "kind": "character_state",
+      "expected_dimensions": [
+        80,
+        96
+      ],
+      "passed": true
+    },
+    {
+      "id": "dre_asleep_floor",
+      "kind": "character_state",
+      "expected_dimensions": [
+        80,
+        96
+      ],
+      "passed": true
+    },
+    {
+      "id": "uncle_sunday_offended",
+      "kind": "character_state",
+      "expected_dimensions": [
+        80,
+        96
+      ],
+      "passed": true
+    },
+    {
+      "id": "uncle_sunday_melted",
+      "kind": "character_state",
+      "expected_dimensions": [
+        80,
+        96
+      ],
+      "passed": true
+    },
+    {
+      "id": "uncle_sunday_fishing",
+      "kind": "character_state",
+      "expected_dimensions": [
+        80,
+        96
+      ],
+      "passed": true
+    },
+    {
+      "id": "deacon_brass_blessing",
+      "kind": "character_state",
+      "expected_dimensions": [
+        80,
+        96
+      ],
+      "passed": true
+    },
+    {
+      "id": "rich_fishing_cast",
+      "kind": "rich_contextual_state",
+      "expected_dimensions": [
+        80,
+        96
+      ],
+      "passed": true
+    },
+    {
+      "id": "rich_holding_fish_away",
+      "kind": "rich_contextual_state",
+      "expected_dimensions": [
+        80,
+        96
+      ],
+      "passed": true
+    },
+    {
+      "id": "rich_ramen_apron",
+      "kind": "rich_contextual_state",
+      "expected_dimensions": [
+        80,
+        96
+      ],
+      "passed": true
+    },
+    {
+      "id": "rich_on_stage",
+      "kind": "rich_contextual_state",
+      "expected_dimensions": [
+        80,
+        96
+      ],
+      "passed": true
+    },
+    {
+      "id": "rich_laptop_seated",
+      "kind": "rich_contextual_state",
+      "expected_dimensions": [
+        80,
+        96
+      ],
+      "passed": true
+    },
+    {
+      "id": "rich_laptop_nod",
+      "kind": "rich_contextual_state",
+      "expected_dimensions": [
+        80,
+        96
+      ],
+      "passed": true
+    },
+    {
+      "id": "supra",
+      "kind": "touge_vehicle",
+      "expected_dimensions": [
+        16,
+        28
+      ],
+      "passed": true
+    },
+    {
+      "id": "s15_stock",
+      "kind": "touge_vehicle",
+      "expected_dimensions": [
+        16,
+        28
+      ],
+      "passed": true
+    },
+    {
+      "id": "s15_bodykit",
+      "kind": "touge_vehicle",
+      "expected_dimensions": [
+        16,
+        28
+      ],
+      "passed": true
+    },
+    {
+      "id": "s2000_pink",
+      "kind": "touge_vehicle",
+      "expected_dimensions": [
+        16,
+        28
+      ],
+      "passed": true
+    },
+    {
+      "id": "r34_blue",
+      "kind": "touge_vehicle",
+      "expected_dimensions": [
+        16,
+        28
+      ],
+      "passed": true
+    },
+    {
+      "id": "urus_oxblood",
+      "kind": "touge_vehicle",
+      "expected_dimensions": [
+        16,
+        28
+      ],
+      "passed": true
+    },
+    {
+      "id": "aventador_purple",
+      "kind": "touge_vehicle",
+      "expected_dimensions": [
+        16,
+        28
+      ],
+      "passed": true
+    },
+    {
+      "id": "ferrari_f40_red",
+      "kind": "touge_vehicle",
+      "expected_dimensions": [
+        16,
+        28
+      ],
+      "passed": true
+    },
+    {
+      "id": "castle_exterior_party",
+      "kind": "environment_state",
+      "expected_dimensions": [
+        270,
+        480
+      ],
+      "passed": true
+    },
+    {
+      "id": "grave_closed",
+      "kind": "environment_state",
+      "expected_dimensions": [
+        270,
+        480
+      ],
+      "passed": true
+    },
+    {
+      "id": "party_hall_packed",
+      "kind": "environment_state",
+      "expected_dimensions": [
+        270,
+        480
+      ],
+      "passed": true
+    },
+    {
+      "id": "texts",
+      "kind": "phone_app_icon",
+      "expected_dimensions": [
+        24,
+        24
+      ],
+      "passed": true
+    },
+    {
+      "id": "hatch",
+      "kind": "phone_app_icon",
+      "expected_dimensions": [
+        24,
+        24
+      ],
+      "passed": true
+    },
+    {
+      "id": "touge",
+      "kind": "phone_app_icon",
+      "expected_dimensions": [
+        24,
+        24
+      ],
+      "passed": true
+    },
+    {
+      "id": "bars",
+      "kind": "phone_app_icon",
+      "expected_dimensions": [
+        24,
+        24
+      ],
+      "passed": true
+    },
+    {
+      "id": "rich_radio",
+      "kind": "phone_app_icon",
+      "expected_dimensions": [
+        24,
+        24
+      ],
+      "passed": true
+    },
+    {
+      "id": "receipts",
+      "kind": "phone_app_icon",
+      "expected_dimensions": [
+        24,
+        24
+      ],
+      "passed": true
+    },
+    {
+      "id": "vampgpt",
+      "kind": "phone_app_icon",
+      "expected_dimensions": [
+        24,
+        24
+      ],
+      "passed": true
+    },
+    {
+      "id": "jdmimports",
+      "kind": "phone_app_icon",
+      "expected_dimensions": [
+        24,
+        24
+      ],
+      "passed": true
+    },
+    {
+      "id": "pickup",
+      "kind": "phone_app_icon",
+      "expected_dimensions": [
+        24,
+        24
+      ],
+      "passed": true
+    }
+  ]
+}

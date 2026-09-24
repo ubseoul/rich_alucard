@@ -12,3 +12,7 @@ No question above was resolved by aesthetic inference. Unknown does not mean rej
 ## ART SHIP 005 closure
 
 ART SHIP 005 has no unresolved acceptance question: all 52 named native candidates received UBE TASTE PASS and explicit HQ promotion authority and are APPROVED MASTER / FROZEN. This does not resolve the separate historical `STATUS UNKNOWN — HQ REVIEW REQUIRED` entries elsewhere in the register. No Art Ship is active.
+
+## ART SHIP 006 closure
+
+ART SHIP 006 has no unresolved acceptance question: all five reviewed categories received HQ visual PASS, and the exact promoted paths are APPROVED MASTER / FROZEN. Environment variants retain their explicit higher-risk review note but are accepted. This does not resolve historical `STATUS UNKNOWN — HQ REVIEW REQUIRED` entries or remaining OPEN gaps. No Art Ship is active.

@@ -97,3 +97,11 @@ The environment set expands the approved location grammar across domestic, retai
 Agege bread, the Blueberry Mazda egg, the Dragon Maggi Cube and the sitting sphynx cat establish compact native prop/creature anchors with binary alpha. Review enlargement was nearest-neighbor only; source pixels remain unchanged.
 
 Primary gameplay characters continue to use approximately 1.85x historical on-screen runtime presentation with nearest-neighbor filtering. This is Engineering presentation guidance, never permission to resize frozen sources or derive unapproved states.
+
+## ART SHIP 006 approved additions
+
+ART SHIP 006 freezes derivative-state continuity as production authority. The accepted 80x96 alternate states preserve their Ship 005 masters' identity, proportions, silhouette, material grouping, native density and `(40,88)` source contact while changing only scene action or expression. Rich contextual states preserve the compact dark silhouette and sparse high-value accents of the existing Rich masters. Always return to the frozen master when deriving another state; do not chain derivatives.
+
+The accepted TOUGE vocabulary uses 16x28 bottom-anchored overhead silhouettes with restrained model-specific proportion and color differences. Phone/app icons use 24x24 transparent cells with high-contrast symbolic reads and no baked labels. The three accepted 270x480 environment conditions remain full-frame state masters, not reusable overlays; their generative derivation makes them a higher-risk comparison category than the direct character-state work.
+
+The approximately 1.85x character scale remains a nearest-neighbor Engineering presentation rule and is not baked into any ART SHIP 006 source.

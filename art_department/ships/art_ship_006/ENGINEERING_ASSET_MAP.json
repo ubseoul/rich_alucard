@@ -1,0 +1,468 @@
+{
+  "ship_id": "ART SHIP 006",
+  "status": "FROZEN",
+  "authority_commit": "4d797b0be55a8990eaddbb6536d584936ed55799",
+  "runtime_code_modified": false,
+  "mappings": {
+    "characters.bonesworth_telegraph": {
+      "path": "assets/before_the_fame/characters/bonesworth/bonesworth_telegraph_80x96.png",
+      "dimensions": [
+        80,
+        96
+      ],
+      "sha256": "726af2a7b70533aacd98038a3fe380a1146b0c9151ffb9872c508e4265626e6d",
+      "status": "APPROVED MASTER / FROZEN",
+      "runtime_integration": "not performed by ART SHIP 006"
+    },
+    "characters.bonesworth_strike": {
+      "path": "assets/before_the_fame/characters/bonesworth/bonesworth_strike_80x96.png",
+      "dimensions": [
+        80,
+        96
+      ],
+      "sha256": "4c4327cbebbeaa7592e1e70114b04670af553dd1e2eab4173d6fb7f567e908d6",
+      "status": "APPROVED MASTER / FROZEN",
+      "runtime_integration": "not performed by ART SHIP 006"
+    },
+    "characters.bonesworth_hit": {
+      "path": "assets/before_the_fame/characters/bonesworth/bonesworth_hit_80x96.png",
+      "dimensions": [
+        80,
+        96
+      ],
+      "sha256": "32a2be64e45d60fb9480ca229a23275ff70e2a4c13de1379af26fdfa1f5d587c",
+      "status": "APPROVED MASTER / FROZEN",
+      "runtime_integration": "not performed by ART SHIP 006"
+    },
+    "characters.bonesworth_defeated": {
+      "path": "assets/before_the_fame/characters/bonesworth/bonesworth_defeated_80x96.png",
+      "dimensions": [
+        80,
+        96
+      ],
+      "sha256": "38ce0b4f5a6eb0008207bb7643adaa58a0eb3e4fb365c112843a42f09047f862",
+      "status": "APPROVED MASTER / FROZEN",
+      "runtime_integration": "not performed by ART SHIP 006"
+    },
+    "characters.bruce_strike": {
+      "path": "assets/before_the_fame/characters/bruce_loose/bruce_strike_80x96.png",
+      "dimensions": [
+        80,
+        96
+      ],
+      "sha256": "ae869b1cff22a81cbf43d0500488ca969b4f6ee1d158949852cc66cc08fb8ef9",
+      "status": "APPROVED MASTER / FROZEN",
+      "runtime_integration": "not performed by ART SHIP 006"
+    },
+    "characters.bruce_bow": {
+      "path": "assets/before_the_fame/characters/bruce_loose/bruce_bow_80x96.png",
+      "dimensions": [
+        80,
+        96
+      ],
+      "sha256": "7db0b9ccbd9d6e206bdf22400921750ebe7427f0e09187e765f6cc5e75ace4d9",
+      "status": "APPROVED MASTER / FROZEN",
+      "runtime_integration": "not performed by ART SHIP 006"
+    },
+    "characters.kevin_attack": {
+      "path": "assets/before_the_fame/characters/kevin/kevin_attack_80x96.png",
+      "dimensions": [
+        80,
+        96
+      ],
+      "sha256": "1492b2bba948b19b37f82422984e8cff36bd74310568134e8d7b90515c4705cc",
+      "status": "APPROVED MASTER / FROZEN",
+      "runtime_integration": "not performed by ART SHIP 006"
+    },
+    "characters.kevin_poof": {
+      "path": "assets/before_the_fame/characters/kevin/kevin_poof_80x96.png",
+      "dimensions": [
+        80,
+        96
+      ],
+      "sha256": "04507581e14ce5fae8e91b53fa6be2900006173bc02154c294fe4da1736880a5",
+      "status": "APPROVED MASTER / FROZEN",
+      "runtime_integration": "not performed by ART SHIP 006"
+    },
+    "characters.phil_charging_day3": {
+      "path": "assets/before_the_fame/characters/phil/phil_charging_day3_80x96.png",
+      "dimensions": [
+        80,
+        96
+      ],
+      "sha256": "1609de089d3d893927752c98d6f9af6033dac77d1213a2ab518e4717ffb85af5",
+      "status": "APPROVED MASTER / FROZEN",
+      "runtime_integration": "not performed by ART SHIP 006"
+    },
+    "characters.phil_sitting_plate": {
+      "path": "assets/before_the_fame/characters/phil/phil_sitting_plate_80x96.png",
+      "dimensions": [
+        80,
+        96
+      ],
+      "sha256": "58c1a059a421366f8de562f71f016472451a1f46aa3ebc2f150e4b0a69df0095",
+      "status": "APPROVED MASTER / FROZEN",
+      "runtime_integration": "not performed by ART SHIP 006"
+    },
+    "characters.iron_jaw_rapping": {
+      "path": "assets/before_the_fame/characters/iron_jaw/iron_jaw_rapping_80x96.png",
+      "dimensions": [
+        80,
+        96
+      ],
+      "sha256": "9dd750ae491c6bd51a499004172626b2676f9f2afdf0c0f72571e1ed1d314ebf",
+      "status": "APPROVED MASTER / FROZEN",
+      "runtime_integration": "not performed by ART SHIP 006"
+    },
+    "characters.iron_jaw_defeated": {
+      "path": "assets/before_the_fame/characters/iron_jaw/iron_jaw_defeated_80x96.png",
+      "dimensions": [
+        80,
+        96
+      ],
+      "sha256": "b28b634aee59de9cfa3fc3b25510fd8e0cbc9b0ea84796e2bc1b3adaaba6aab1",
+      "status": "APPROVED MASTER / FROZEN",
+      "runtime_integration": "not performed by ART SHIP 006"
+    },
+    "characters.hilt_strike": {
+      "path": "assets/before_the_fame/characters/hilt/hilt_strike_80x96.png",
+      "dimensions": [
+        80,
+        96
+      ],
+      "sha256": "4fe312f8a0e96e63f8463825d5d4e7cbc0f24bf6b7af2df27c6169bb5aefc6c7",
+      "status": "APPROVED MASTER / FROZEN",
+      "runtime_integration": "not performed by ART SHIP 006"
+    },
+    "characters.hilt_walk_away": {
+      "path": "assets/before_the_fame/characters/hilt/hilt_walk_away_80x96.png",
+      "dimensions": [
+        80,
+        96
+      ],
+      "sha256": "d3e6c0c838cf4cf39912c7b2b9b1c64ee1ae14567d7a425bd4efd78823793742",
+      "status": "APPROVED MASTER / FROZEN",
+      "runtime_integration": "not performed by ART SHIP 006"
+    },
+    "characters.tunde_asleep_floor": {
+      "path": "assets/before_the_fame/characters/tunde/tunde_asleep_floor_80x96.png",
+      "dimensions": [
+        80,
+        96
+      ],
+      "sha256": "e20c98b4aa80c44f2025ce1fbbc46be611f5b415f61ca6783d698ce513a84d4f",
+      "status": "APPROVED MASTER / FROZEN",
+      "runtime_integration": "not performed by ART SHIP 006"
+    },
+    "characters.dre_asleep_floor": {
+      "path": "assets/before_the_fame/characters/dre/dre_asleep_floor_80x96.png",
+      "dimensions": [
+        80,
+        96
+      ],
+      "sha256": "680052c9ece74d9a94dbe7e39e0cfa75068dd69e031d8963cc00cbe30ca63d59",
+      "status": "APPROVED MASTER / FROZEN",
+      "runtime_integration": "not performed by ART SHIP 006"
+    },
+    "characters.uncle_sunday_offended": {
+      "path": "assets/before_the_fame/characters/uncle_sunday/uncle_sunday_offended_80x96.png",
+      "dimensions": [
+        80,
+        96
+      ],
+      "sha256": "9d641470dd0e533600f9b6cda719142cca4d799c4e9ae82366af465df6c6bd43",
+      "status": "APPROVED MASTER / FROZEN",
+      "runtime_integration": "not performed by ART SHIP 006"
+    },
+    "characters.uncle_sunday_melted": {
+      "path": "assets/before_the_fame/characters/uncle_sunday/uncle_sunday_melted_80x96.png",
+      "dimensions": [
+        80,
+        96
+      ],
+      "sha256": "0e23acfa3ade6c1045906cabecaf423f4f581d11d0085b4cff6d56188e86d332",
+      "status": "APPROVED MASTER / FROZEN",
+      "runtime_integration": "not performed by ART SHIP 006"
+    },
+    "characters.uncle_sunday_fishing": {
+      "path": "assets/before_the_fame/characters/uncle_sunday/uncle_sunday_fishing_80x96.png",
+      "dimensions": [
+        80,
+        96
+      ],
+      "sha256": "9e61dc82c076bf88f9d7080ed192351dc14ff2bd7341d05b3cc3d538979ab060",
+      "status": "APPROVED MASTER / FROZEN",
+      "runtime_integration": "not performed by ART SHIP 006"
+    },
+    "characters.deacon_brass_blessing": {
+      "path": "assets/before_the_fame/characters/deacon_brass/deacon_brass_blessing_80x96.png",
+      "dimensions": [
+        80,
+        96
+      ],
+      "sha256": "270ab35b2df0229d72c2af91be5b6b393ac0c8a2051559c3c8637f81532d5364",
+      "status": "APPROVED MASTER / FROZEN",
+      "runtime_integration": "not performed by ART SHIP 006"
+    },
+    "characters.rich.fishing_cast": {
+      "path": "assets/before_the_fame/characters/rich/rich_fishing_cast_80x96.png",
+      "dimensions": [
+        80,
+        96
+      ],
+      "sha256": "5a28fd47156b93f9282033eb84db2c6fab7ff362d6390e03ba452e3145c1fc65",
+      "status": "APPROVED MASTER / FROZEN",
+      "runtime_integration": "not performed by ART SHIP 006"
+    },
+    "characters.rich.holding_fish_away": {
+      "path": "assets/before_the_fame/characters/rich/rich_holding_fish_away_80x96.png",
+      "dimensions": [
+        80,
+        96
+      ],
+      "sha256": "960a9a4bdbaee810640dccf91026f22e95a43ecf5c95ff54762a87aa2b86b4e6",
+      "status": "APPROVED MASTER / FROZEN",
+      "runtime_integration": "not performed by ART SHIP 006"
+    },
+    "characters.rich.ramen_apron": {
+      "path": "assets/before_the_fame/characters/rich/rich_ramen_apron_80x96.png",
+      "dimensions": [
+        80,
+        96
+      ],
+      "sha256": "85881baef03dc2919c5f88b95db57dd9809d7e815ac4bc1878a61cae8fde05ac",
+      "status": "APPROVED MASTER / FROZEN",
+      "runtime_integration": "not performed by ART SHIP 006"
+    },
+    "characters.rich.on_stage": {
+      "path": "assets/before_the_fame/characters/rich/rich_on_stage_80x96.png",
+      "dimensions": [
+        80,
+        96
+      ],
+      "sha256": "c78240fa2c7952bc3a5c96189e2e99967e41fee6d05ca31b6a9ae9dce1917615",
+      "status": "APPROVED MASTER / FROZEN",
+      "runtime_integration": "not performed by ART SHIP 006"
+    },
+    "characters.rich.laptop_seated": {
+      "path": "assets/before_the_fame/characters/rich/rich_laptop_seated_80x96.png",
+      "dimensions": [
+        80,
+        96
+      ],
+      "sha256": "a18ecf0d5c57d74f2be77a671faea5a6c01e7c6c60b00787d3f08c22499637b0",
+      "status": "APPROVED MASTER / FROZEN",
+      "runtime_integration": "not performed by ART SHIP 006"
+    },
+    "characters.rich.laptop_nod": {
+      "path": "assets/before_the_fame/characters/rich/rich_laptop_nod_80x96.png",
+      "dimensions": [
+        80,
+        96
+      ],
+      "sha256": "601c3fb46a87a6a8843a7569ed978a46118ce94d7ff864a0dc7aeb5e0fb63379",
+      "status": "APPROVED MASTER / FROZEN",
+      "runtime_integration": "not performed by ART SHIP 006"
+    },
+    "minigames.touge.cars.supra": {
+      "path": "assets/before_the_fame/vehicles/touge/supra_16x28.png",
+      "dimensions": [
+        16,
+        28
+      ],
+      "sha256": "6ea8a06099fdb2eb6a7fa7511c4fedf9e71e850f26c91ac515be52233adaf5de",
+      "status": "APPROVED MASTER / FROZEN",
+      "runtime_integration": "not performed by ART SHIP 006"
+    },
+    "minigames.touge.cars.s15_stock": {
+      "path": "assets/before_the_fame/vehicles/touge/s15_stock_16x28.png",
+      "dimensions": [
+        16,
+        28
+      ],
+      "sha256": "043cc33c95685d8767ccc8a472da10bd3fc8cd72e7587659b42941739d0bb670",
+      "status": "APPROVED MASTER / FROZEN",
+      "runtime_integration": "not performed by ART SHIP 006"
+    },
+    "minigames.touge.cars.s15_bodykit": {
+      "path": "assets/before_the_fame/vehicles/touge/s15_bodykit_16x28.png",
+      "dimensions": [
+        16,
+        28
+      ],
+      "sha256": "93e615e305c8ff8ae181185b0be6af3ac5d0ffb22883314f721c0a623bee623b",
+      "status": "APPROVED MASTER / FROZEN",
+      "runtime_integration": "not performed by ART SHIP 006"
+    },
+    "minigames.touge.cars.s2000_pink": {
+      "path": "assets/before_the_fame/vehicles/touge/s2000_pink_16x28.png",
+      "dimensions": [
+        16,
+        28
+      ],
+      "sha256": "e05a9872cece4d4b2293544d2c599c5ae5fbca542fc2d38afee6023e73b2943e",
+      "status": "APPROVED MASTER / FROZEN",
+      "runtime_integration": "not performed by ART SHIP 006"
+    },
+    "minigames.touge.cars.r34_blue": {
+      "path": "assets/before_the_fame/vehicles/touge/r34_blue_16x28.png",
+      "dimensions": [
+        16,
+        28
+      ],
+      "sha256": "024c136cf7d62c94e0772addf57588d5c58c41b2abd84339ba1963fc87b04660",
+      "status": "APPROVED MASTER / FROZEN",
+      "runtime_integration": "not performed by ART SHIP 006"
+    },
+    "minigames.touge.cars.urus_oxblood": {
+      "path": "assets/before_the_fame/vehicles/touge/urus_oxblood_16x28.png",
+      "dimensions": [
+        16,
+        28
+      ],
+      "sha256": "478d745544eb9f746f9b41d55dc16b1921fffccfa47f7ccfaaf8ebd568f99c92",
+      "status": "APPROVED MASTER / FROZEN",
+      "runtime_integration": "not performed by ART SHIP 006"
+    },
+    "minigames.touge.cars.aventador_purple": {
+      "path": "assets/before_the_fame/vehicles/touge/aventador_purple_16x28.png",
+      "dimensions": [
+        16,
+        28
+      ],
+      "sha256": "e4cee12291aa9377934d6ac2b75edef87b32ee7ade4f68d4c2017162bd0292d5",
+      "status": "APPROVED MASTER / FROZEN",
+      "runtime_integration": "not performed by ART SHIP 006"
+    },
+    "minigames.touge.cars.ferrari_f40_red": {
+      "path": "assets/before_the_fame/vehicles/touge/ferrari_f40_red_16x28.png",
+      "dimensions": [
+        16,
+        28
+      ],
+      "sha256": "054d4f22f247c405bdae6fdfaad209337982d015a41c38af624df1927accd28c",
+      "status": "APPROVED MASTER / FROZEN",
+      "runtime_integration": "not performed by ART SHIP 006"
+    },
+    "environments.castle_exterior_party": {
+      "path": "assets/before_the_fame/environments/castle_exterior/castle_exterior_party_270x480.png",
+      "dimensions": [
+        270,
+        480
+      ],
+      "sha256": "fe641074f4aff48cef9ac59146216f35ae44b98f6702581b46a96204561f72ec",
+      "status": "APPROVED MASTER / FROZEN",
+      "runtime_integration": "not performed by ART SHIP 006"
+    },
+    "environments.grave_closed": {
+      "path": "assets/before_the_fame/environments/grave/grave_closed_270x480.png",
+      "dimensions": [
+        270,
+        480
+      ],
+      "sha256": "0a3258fcca44b97b18dc0363ab6e0e72169bf5d108d615d136c3427a463f5dfd",
+      "status": "APPROVED MASTER / FROZEN",
+      "runtime_integration": "not performed by ART SHIP 006"
+    },
+    "environments.party_hall_packed": {
+      "path": "assets/before_the_fame/environments/party_hall/party_hall_packed_270x480.png",
+      "dimensions": [
+        270,
+        480
+      ],
+      "sha256": "d6be254816fa98d6b293c5654c538b58dcd809cdf46317a0c0076eed1dc44558",
+      "status": "APPROVED MASTER / FROZEN",
+      "runtime_integration": "not performed by ART SHIP 006"
+    },
+    "phone.apps.texts.icon": {
+      "path": "assets/before_the_fame/ui/apps/app_texts_24x24.png",
+      "dimensions": [
+        24,
+        24
+      ],
+      "sha256": "c90776f5f92d4414a8a9d580b202206b36504aec4f3255114444fcbaf510de42",
+      "status": "APPROVED MASTER / FROZEN",
+      "runtime_integration": "not performed by ART SHIP 006"
+    },
+    "phone.apps.hatch.icon": {
+      "path": "assets/before_the_fame/ui/apps/app_hatch_24x24.png",
+      "dimensions": [
+        24,
+        24
+      ],
+      "sha256": "0e5163e467e9dd361a338696714c5560eb6ac83171b2ac8dc0fc5a2738aac5bf",
+      "status": "APPROVED MASTER / FROZEN",
+      "runtime_integration": "not performed by ART SHIP 006"
+    },
+    "phone.apps.touge.icon": {
+      "path": "assets/before_the_fame/ui/apps/app_touge_24x24.png",
+      "dimensions": [
+        24,
+        24
+      ],
+      "sha256": "744296323a21e41d6bd4c5b32b251a6c047498a74cbbdfbaab21c95f9666f773",
+      "status": "APPROVED MASTER / FROZEN",
+      "runtime_integration": "not performed by ART SHIP 006"
+    },
+    "phone.apps.bars.icon": {
+      "path": "assets/before_the_fame/ui/apps/app_bars_24x24.png",
+      "dimensions": [
+        24,
+        24
+      ],
+      "sha256": "63f715bfe59e1d96f5c52c75fe36776e20ed49ecb21f24e7fdcb7f43633b61a8",
+      "status": "APPROVED MASTER / FROZEN",
+      "runtime_integration": "not performed by ART SHIP 006"
+    },
+    "phone.apps.rich_radio.icon": {
+      "path": "assets/before_the_fame/ui/apps/app_rich_radio_24x24.png",
+      "dimensions": [
+        24,
+        24
+      ],
+      "sha256": "ef05b51f6403d31a97183f60b56401c2d0c793dd0241a38f168923cb0b804fde",
+      "status": "APPROVED MASTER / FROZEN",
+      "runtime_integration": "not performed by ART SHIP 006"
+    },
+    "phone.apps.receipts.icon": {
+      "path": "assets/before_the_fame/ui/apps/app_receipts_24x24.png",
+      "dimensions": [
+        24,
+        24
+      ],
+      "sha256": "ab67d2f2106723b88b684545b552bf2d01a90ace6bdda12deb06a2f26d44b2ac",
+      "status": "APPROVED MASTER / FROZEN",
+      "runtime_integration": "not performed by ART SHIP 006"
+    },
+    "phone.apps.vampgpt.icon": {
+      "path": "assets/before_the_fame/ui/apps/app_vampgpt_24x24.png",
+      "dimensions": [
+        24,
+        24
+      ],
+      "sha256": "3718d06745df8f48f8c9d83560407063aa597290ead10257f8b71753f5ac8bfa",
+      "status": "APPROVED MASTER / FROZEN",
+      "runtime_integration": "not performed by ART SHIP 006"
+    },
+    "phone.apps.jdmimports.icon": {
+      "path": "assets/before_the_fame/ui/apps/app_jdmimports_24x24.png",
+      "dimensions": [
+        24,
+        24
+      ],
+      "sha256": "c9f3dae27413e9f75f80799446e77c17424cfc2e0c75b105476a15eb276aff2a",
+      "status": "APPROVED MASTER / FROZEN",
+      "runtime_integration": "not performed by ART SHIP 006"
+    },
+    "phone.apps.pickup.icon": {
+      "path": "assets/before_the_fame/ui/apps/app_pickup_24x24.png",
+      "dimensions": [
+        24,
+        24
+      ],
+      "sha256": "973155ae27920a02773a7ad0cc4a280b35d3a9243e062e0f19a12901e66b427a",
+      "status": "APPROVED MASTER / FROZEN",
+      "runtime_integration": "not performed by ART SHIP 006"
+    }
+  }
+}
