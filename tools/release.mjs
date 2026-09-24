@@ -32,11 +32,12 @@ async function test(){
   const minigameTests=(await readdir(path.join(root,'tools','minigames'))).filter(name=>name.endsWith('-test.mjs')).sort();
   for(const name of minigameTests){const mod=await import(pathToFileURL(path.join(root,'tools','minigames',name)).href);await mod.test(root);}
   const btf=await import(pathToFileURL(path.join(root,'tools','btf-test.mjs')).href);await btf.test(root);
+  const presentation=await import(pathToFileURL(path.join(root,'tools','presentation-test.mjs')).href);await presentation.test(root);
   const sources=await javascriptFiles(path.join(root,'js'));
   for(const file of [...sources,path.join(root,'game.js')])new vm.Script(await readFile(file,'utf8'),{filename:path.relative(root,file)});
   const listeners={};
   const context={window:{},console,localStorage:memoryStorage(),setTimeout,clearTimeout,setInterval,clearInterval,requestAnimationFrame:fn=>setTimeout(()=>fn(0),0),cancelAnimationFrame:clearTimeout,document:{addEventListener(type,fn){listeners[type]=listeners[type]||[];listeners[type].push(fn)},removeEventListener(type,fn){listeners[type]=(listeners[type]||[]).filter(item=>item!==fn)},dispatchEvent(event){for(const fn of listeners[event.type]||[])fn(event)}},CustomEvent:function(type,init){this.type=type;this.detail=init?.detail;}};context.window=context;vm.createContext(context);
-  for(const file of ['js/engine/state.js','js/data/save_fixtures.js','js/data/opportunities.js','js/engine/scenes.js','js/data/stages.js','js/engine/stage.js','js/data/combat.js','js/engine/combat_foundation.js','js/data/people.js','js/systems/people.js','js/data/world_events.js','js/systems/world_events.js'])vm.runInContext(await read(file,'utf8'),context,{filename:file});
+  for(const file of ['js/engine/state.js','js/data/save_fixtures.js','js/data/opportunities.js','js/engine/scenes.js','js/data/stages.js','js/data/presentation.js','js/data/presentation_assets.js','js/data/presentation_locks.js','js/engine/stage.js','js/data/combat.js','js/engine/combat_foundation.js','js/data/people.js','js/systems/people.js','js/data/world_events.js','js/systems/world_events.js'])vm.runInContext(await read(file,'utf8'),context,{filename:file});
   const {RAState,RASaveFixtures,RAOpportunities}=context;
   const fixtures=RASaveFixtures.fixtures,ids=RASaveFixtures.ids;
   const v6=RAState.migrateWithReport(fixtures.lifeV6),owned=RAState.migrateWithReport(fixtures.supraOwned),partial=RAState.migrateWithReport(fixtures.partialCorrupt);

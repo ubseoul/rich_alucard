@@ -1,0 +1,17 @@
+{
+ "about": "Presentation Director asset annotations. Face boxes are authored in source pixels [x,y,w,h] by visual inspection of the frozen PNG; the PNG is never modified. Visible bounds, hashes and dimensions are derived by tools/presentation-assets.mjs.",
+ "defaultAnchor": [40, 88],
+ "assets": {
+  "assets/rich_standing_right.png": {"face": [32, 45, 19, 14]},
+  "assets/jdm_imports/environment/docks_night_270x480.png": {"environment": true},
+  "assets/jdm_imports/characters/importer/importer_combat_ready.png": {"face": [29, 42, 20, 16]},
+  "assets/jdm_imports/characters/importer/importer_hit.png": {"face": [35, 43, 18, 15]},
+  "assets/jdm_imports/characters/importer/importer_defeated.png": {"face": [29, 59, 19, 13]},
+  "assets/jdm_imports/characters/importer/importer_neutral.png": {},
+  "assets/jdm_imports/characters/importer/importer_irritated.png": {},
+  "assets/jdm_imports/characters/daughter/daughter_neutral.png": {},
+  "assets/jdm_imports/characters/daughter/daughter_reaction.png": {},
+  "assets/jdm_imports/characters/daughter/daughter_post_battle.png": {"face": [32, 41, 11, 13]},
+  "assets/jdm_imports/characters/daughter/daughter_vampire_reveal.png": {}
+ }
+}

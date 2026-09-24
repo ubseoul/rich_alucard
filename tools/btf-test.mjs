@@ -44,7 +44,7 @@ export function walk(ctx,id,{vars={},pick=(choices,step)=>0,minigame=()=>({outco
 }
 
 export async function test(root){
- {const {expectedIndex}=await import(pathToFileURL(path.join(root,'tools','sync-index.mjs')).href);assert.equal(await readFile(path.join(root,'index.html'),'utf8'),await expectedIndex(),'index.html BTF script block is stale — run node tools/sync-index.mjs');}
+ {const {expectedIndex}=await import(pathToFileURL(path.join(root,'tools','sync-index.mjs')).href);const lf=text=>text.replace(/\r\n/g,'\n');assert.equal(lf(await readFile(path.join(root,'index.html'),'utf8')),lf(await expectedIndex()),'index.html BTF script block is stale — run node tools/sync-index.mjs');}
  // --- migration ---
  {const ctx=await loadBtf(root);const {RAState,RASaveFixtures}=ctx;
   assert.equal(RAState.version,12);

@@ -1,0 +1,123 @@
+{
+ "screen": "jdm-imports-docks / combat",
+ "status": "CANDIDATE GOLDEN — pending HQ midpoint review",
+ "director": "pd-1",
+ "lock": "js/data/presentation_locks.js jdm-imports-docks.combat (c2: contact 0.80, zoom 1.06, inputs 7006d8efb938da64)",
+ "references": {
+  "candidate-golden-390x844.png": {
+   "kind": "approved-candidate",
+   "sha256": "73dc6e2a2e4c76dce3bb6d9345680e244ac32e467eb0fccf6c8d42952bf02283"
+  },
+  "known-bad-legacy-390x844.png": {
+   "kind": "known-bad",
+   "why": [
+    "9:16 letterbox wastes 18% of a 19.5:9 phone",
+    "command panel covers both combatants' feet (opaque sprite pixels under UI)",
+    "HP panels float over the sky",
+    "no world/UI separation"
+   ],
+   "sha256": "83cc406f59d1b916c8bfc7a56edcaff7432dfceec325e36d791993cae8f402dc"
+  }
+ },
+ "metrics": {
+  "360x740": {
+   "before": {
+    "screenUse": 0.865,
+    "worldH": 640,
+    "rich.bodyPx": 160,
+    "rich.bodyOfScreen": 0.251,
+    "rich.bodyOfWorld": 0.251,
+    "rich.facePx": 43,
+    "rich.uiOverlapPx": 38,
+    "importer.bodyPx": 173,
+    "importer.bodyOfScreen": 0.27,
+    "importer.bodyOfWorld": 0.27,
+    "importer.facePx": 49,
+    "importer.uiOverlapPx": 33,
+    "deadSpace": 0.683
+   },
+   "after": {
+    "screenUse": 1,
+    "worldH": 490,
+    "rich.bodyPx": 169,
+    "rich.bodyOfScreen": 0.228,
+    "rich.bodyOfWorld": 0.344,
+    "rich.facePx": 45,
+    "rich.uiOverlapPx": 0,
+    "importer.bodyPx": 182,
+    "importer.bodyOfScreen": 0.246,
+    "importer.bodyOfWorld": 0.371,
+    "importer.facePx": 52,
+    "importer.uiOverlapPx": 0,
+    "deadSpace": 0.641
+   },
+   "lint": true
+  },
+  "390x844": {
+   "before": {
+    "screenUse": 0.821,
+    "worldH": 693,
+    "rich.bodyPx": 174,
+    "rich.bodyOfScreen": 0.251,
+    "rich.bodyOfWorld": 0.251,
+    "rich.facePx": 47,
+    "rich.uiOverlapPx": 45,
+    "importer.bodyPx": 187,
+    "importer.bodyOfScreen": 0.27,
+    "importer.bodyOfWorld": 0.27,
+    "importer.facePx": 53,
+    "importer.uiOverlapPx": 40,
+    "deadSpace": 0.684
+   },
+   "after": {
+    "screenUse": 1,
+    "worldH": 530,
+    "rich.bodyPx": 183,
+    "rich.bodyOfScreen": 0.216,
+    "rich.bodyOfWorld": 0.344,
+    "rich.facePx": 49,
+    "rich.uiOverlapPx": 0,
+    "importer.bodyPx": 197,
+    "importer.bodyOfScreen": 0.233,
+    "importer.bodyOfWorld": 0.371,
+    "importer.facePx": 56,
+    "importer.uiOverlapPx": 0,
+    "deadSpace": 0.643
+   },
+   "lint": true
+  },
+  "430x932": {
+   "before": {
+    "screenUse": 0.82,
+    "worldH": 764,
+    "rich.bodyPx": 192,
+    "rich.bodyOfScreen": 0.251,
+    "rich.bodyOfWorld": 0.251,
+    "rich.facePx": 52,
+    "rich.uiOverlapPx": 54,
+    "importer.bodyPx": 206,
+    "importer.bodyOfScreen": 0.27,
+    "importer.bodyOfWorld": 0.27,
+    "importer.facePx": 59,
+    "importer.uiOverlapPx": 48,
+    "deadSpace": 0.684
+   },
+   "after": {
+    "screenUse": 1,
+    "worldH": 585,
+    "rich.bodyPx": 202,
+    "rich.bodyOfScreen": 0.216,
+    "rich.bodyOfWorld": 0.344,
+    "rich.facePx": 54,
+    "rich.uiOverlapPx": 0,
+    "importer.bodyPx": 217,
+    "importer.bodyOfScreen": 0.233,
+    "importer.bodyOfWorld": 0.371,
+    "importer.facePx": 62,
+    "importer.uiOverlapPx": 0,
+    "deadSpace": 0.643
+   },
+   "lint": true
+  }
+ }
+}
