@@ -101,3 +101,11 @@ Freeze applies only to the six named PNGs, accepted identities/states, anchors/o
 All 52 exact canonical PNGs named in `ships/art_ship_005/ART_SHIP_MANIFEST.json` are **APPROVED MASTER / FROZEN**. Promotion copied every accepted candidate byte-for-byte. The 1.85x primary-character presentation rule remains Engineering runtime guidance with nearest-neighbor filtering and is not baked into native assets.
 
 Freeze applies only to the named anchor pixels, identities/poses, OPEN ids, dimensions, formats, alpha modes and source contacts. It does not authorize derivative states, animation sheets, vehicles, UI, crowds, overlays, remaining OPEN coverage, runtime integration, SEALED/HQ-only access or ART SHIP 006. No runtime/game code changed.
+
+## ART SHIP 006 — OPEN DERIVATIVE PRODUCTION PUSH (recorded 2026-09-24)
+
+24. ART SHIP 006 began after a fresh Art Lead audited the exact 78-file frozen corpus at `origin/main 4d797b0be55a8990eaddbb6536d584936ed55799`, reconciled the Rough Complete Engineering demand map and received explicit HQ production authorization.
+25. The production push yielded 46 native candidates: 20 matched alternate character states, six Rich contextual states, eight TOUGE vehicle sprites, three scene-specific environment states and nine phone/app icons, plus assembled handoff sheets. No runtime code or SEALED/HQ-only content was accessed.
+26. HQ supplied an explicit visual pass: character states PASS; Rich contextual states PASS; vehicles PASS; phone/app icons PASS; environment variants PASS with the recorded full-frame generative-risk note. HQ authorized normal technical promotion/freeze, prohibited regeneration and required exact-byte preservation.
+
+All 46 native candidates and 11 useful multi-frame handoff sheets named in `ships/art_ship_006/ART_SHIP_MANIFEST.json` are **APPROVED MASTER / FROZEN**. Canonical hashes equal accepted package hashes. The three redundant one-cell package sheets remain package evidence only. Runtime integration is not granted. Future pixel changes require an explicit HQ delta.

@@ -21,3 +21,9 @@ All six new entries are `FROZEN` with `approval_status: APPROVED MASTER`; their 
 UBE TASTE PASS and HQ promotion authority added 52 exact accepted PNGs under `assets/before_the_fame/` and froze them as approved production masters: 28 character anchors, 20 environment masters, three props and one creature. The `assets/` tree now contains 218 files, including 201 PNGs. `ASSET_REGISTER.json` contains 218 entries with status counts: 116 `STATUS UNKNOWN — HQ REVIEW REQUIRED`, 19 `APPROVED MASTER`, 5 `REFERENCE`, and 78 `FROZEN`.
 
 All 52 new entries are `FROZEN` with `approval_status: APPROVED MASTER`; every accepted candidate SHA-256 equals its canonical production SHA-256. Native source dimensions and bytes remain unchanged. Approximately 1.85x historical on-screen character presentation remains an Engineering nearest-neighbor runtime rule. No runtime/game code changed.
+
+## Post–ART SHIP 006 snapshot — 2026-09-24
+
+HQ visual acceptance and technical promotion added 57 exact canonical PNGs under `assets/before_the_fame/`: 46 native masters and 11 useful multi-frame handoff sheets. The `assets/` tree now contains 275 files, including 258 PNGs. `ASSET_REGISTER.json` contains 275 entries with status counts: 116 `STATUS UNKNOWN — HQ REVIEW REQUIRED`, 19 `APPROVED MASTER`, 5 `REFERENCE`, and 135 `FROZEN`.
+
+Every accepted candidate hash equals its canonical production hash. Native dimensions and bytes remain unchanged. The approximately 1.85x character presentation rule remains an Engineering nearest-neighbor runtime rule. No runtime/game code changed.

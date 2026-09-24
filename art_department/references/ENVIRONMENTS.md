@@ -35,3 +35,9 @@ All paths below are repository-root-relative; use ../../ from this index to open
 - [assets/before_the_fame/environments/garage/castle_garage_empty_270x480.png](../../assets/before_the_fame/environments/garage/castle_garage_empty_270x480.png) — APPROVED MASTER / FROZEN; [270, 480]; opaque OPEN environment id `garage`.
 - [assets/before_the_fame/environments/music_room/castle_music_room_270x480.png](../../assets/before_the_fame/environments/music_room/castle_music_room_270x480.png) — APPROVED MASTER / FROZEN; [270, 480]; opaque OPEN environment id `music_room`.
 - [assets/before_the_fame/environments/roof/castle_roof_hookah_270x480.png](../../assets/before_the_fame/environments/roof/castle_roof_hookah_270x480.png) — APPROVED MASTER / FROZEN; [270, 480]; opaque OPEN environment id `roof`.
+
+## ART SHIP 006 environment states
+
+- [assets/before_the_fame/environments/castle_exterior/castle_exterior_party_270x480.png](../../assets/before_the_fame/environments/castle_exterior/castle_exterior_party_270x480.png) — APPROVED MASTER / FROZEN; [270, 480]; opaque condition state `castle_exterior_party`; full-frame replacement, not overlay.
+- [assets/before_the_fame/environments/grave/grave_closed_270x480.png](../../assets/before_the_fame/environments/grave/grave_closed_270x480.png) — APPROVED MASTER / FROZEN; [270, 480]; opaque condition state `grave_closed`; full-frame replacement, not overlay.
+- [assets/before_the_fame/environments/party_hall/party_hall_packed_270x480.png](../../assets/before_the_fame/environments/party_hall/party_hall_packed_270x480.png) — APPROVED MASTER / FROZEN; [270, 480]; opaque condition state `party_hall_packed`; full-frame replacement, not overlay.

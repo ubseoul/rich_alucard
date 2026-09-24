@@ -1,23 +1,22 @@
 # Current handoff
 
-**ART SHIP 005 — OPEN CHAPTER ANCHORS: UBE TASTE PASS / APPROVED MASTER / FROZEN / COMPLETE.** No active Art Ship and no derivative state, animation, vehicle, UI, crowd, overlay, remaining OPEN coverage, runtime integration or ART SHIP 006 work is authorized in this chat.
+**ART SHIP 006 — OPEN DERIVATIVE PRODUCTION PUSH: HQ VISUAL PASS / APPROVED MASTER / FROZEN / COMPLETE.** No active Art Ship and no further generation or runtime integration is authorized by this handoff.
 
 ## Frozen result
 
-- 52 canonical native PNGs under `assets/before_the_fame/`.
-- 28 character anchors: 80x96 RGBA, binary alpha, source contact `(40,88)`.
-- 20 environment masters: 270x480 opaque RGB.
-- Three props and one creature: native compact RGBA, binary alpha.
-- Every canonical SHA-256 equals the accepted candidate SHA-256.
+- 46 canonical native masters under `assets/before_the_fame/`: 20 matched character states, six Rich contextual states, eight TOUGE vehicles, three environment condition states and nine phone/app icons.
+- 11 canonical useful multi-frame handoff sheets.
+- 57 total canonical PNGs; every canonical SHA-256 equals its accepted package SHA-256.
+- Character/Rich sources remain 80x96/contact `(40,88)`; the approximately 1.85x scale is runtime-only.
 
-Exact OPEN ids, paths, hashes, dimensions, formats, alpha, contacts, source packages and per-file freeze scopes are authoritative in [ART SHIP 005 manifest](ships/art_ship_005/ART_SHIP_MANIFEST.json), [Engineering Asset Map](ships/art_ship_005/ENGINEERING_ASSET_MAP.json) and [Asset Register](ASSET_REGISTER.json). The explicit decision is transcribed in [HQ Decision](ships/art_ship_005/HQ_DECISION.md) and the [Approval Ledger](APPROVAL_LEDGER.md).
+Exact ids, paths, hashes, dimensions, formats, alpha, contacts, state order, provenance and freeze scopes are authoritative in [ART SHIP 006 manifest](ships/art_ship_006/ART_SHIP_MANIFEST.json), [Engineering Asset Map](ships/art_ship_006/ENGINEERING_ASSET_MAP.json), [State Sheet Definitions](ships/art_ship_006/STATE_SHEET_DEFINITIONS.json) and [Asset Register](ASSET_REGISTER.json).
 
-## Runtime rule
+## Review note
 
-Primary gameplay characters are presented by Engineering at approximately 1.85x their historical on-screen scale with nearest-neighbor filtering. Native source files remain unchanged. This Ship does not modify or authorize runtime code.
+Environment variants passed HQ visual review but remain the highest-risk comparison category because they are full-frame generative derivations. Their exact accepted pixels are frozen; they are not overlays and do not imply collision/hotspot/runtime acceptance.
 
 ## Boundaries
 
-Only the exact 52 anchor files are frozen by ART SHIP 005. No alternate states, sheets, vehicles, UI, crowds, overlays, additional chapter coverage or SEALED/HQ-only content is included. Future pixel changes or derivatives require a new explicit Art Ship and fresh review.
+No runtime/game code changed. No SEALED/HQ-only content was accessed. Remaining OPEN gaps are recorded in [Remaining Open Gaps](ships/art_ship_006/REMAINING_OPEN_GAPS.md). Future pixel changes or additional states require a new explicit Art Ship.
 
-**STOP. ART SHIP 005 is FROZEN / COMPLETE. The Art Agent retires after the scoped commit is pushed and verified.**
+**STOP. ART SHIP 006 is FROZEN / COMPLETE. The Art Agent retires after scoped commit, push and clean-tree verification.**

@@ -1,0 +1,265 @@
+{
+  "ship_id": "ART SHIP 006",
+  "status": "FROZEN",
+  "character_contract": {
+    "cell": [
+      80,
+      96
+    ],
+    "anchor": [
+      40,
+      88
+    ],
+    "alpha": "binary",
+    "runtime_scale": 1.85,
+    "runtime_scale_baked_into_source": false
+  },
+  "sheets": [
+    {
+      "id": "bonesworth_combat",
+      "path": "assets/before_the_fame/characters/bonesworth/bonesworth_combat_state_sheet_320x96.png",
+      "dimensions": [
+        320,
+        96
+      ],
+      "sha256": "b9e5e74a6e7702546c7cf7581e6f0e2a38df7578bb26279650f8bddda6a68983",
+      "frame": [
+        80,
+        96
+      ],
+      "anchor": [
+        40,
+        88
+      ],
+      "order": [
+        "bonesworth_telegraph",
+        "bonesworth_strike",
+        "bonesworth_hit",
+        "bonesworth_defeated"
+      ]
+    },
+    {
+      "id": "bruce_loose",
+      "path": "assets/before_the_fame/characters/bruce_loose/bruce_loose_state_sheet_160x96.png",
+      "dimensions": [
+        160,
+        96
+      ],
+      "sha256": "e6ada5ee4580413cb945d056acc80c0a8355a7ddb4ac92c7c62b47b9d00a5272",
+      "frame": [
+        80,
+        96
+      ],
+      "anchor": [
+        40,
+        88
+      ],
+      "order": [
+        "bruce_strike",
+        "bruce_bow"
+      ]
+    },
+    {
+      "id": "hilt",
+      "path": "assets/before_the_fame/characters/hilt/hilt_state_sheet_160x96.png",
+      "dimensions": [
+        160,
+        96
+      ],
+      "sha256": "b9292c03a806125d372f84ecf51e238de1076636ea27b300fdfd79a7a59d1c5f",
+      "frame": [
+        80,
+        96
+      ],
+      "anchor": [
+        40,
+        88
+      ],
+      "order": [
+        "hilt_strike",
+        "hilt_walk_away"
+      ]
+    },
+    {
+      "id": "iron_jaw",
+      "path": "assets/before_the_fame/characters/iron_jaw/iron_jaw_state_sheet_160x96.png",
+      "dimensions": [
+        160,
+        96
+      ],
+      "sha256": "206c7aaef7a5736fe538028640f0c6f6fbf81e8e22a60d89faaeb456cba01c2f",
+      "frame": [
+        80,
+        96
+      ],
+      "anchor": [
+        40,
+        88
+      ],
+      "order": [
+        "iron_jaw_rapping",
+        "iron_jaw_defeated"
+      ]
+    },
+    {
+      "id": "kevin",
+      "path": "assets/before_the_fame/characters/kevin/kevin_state_sheet_160x96.png",
+      "dimensions": [
+        160,
+        96
+      ],
+      "sha256": "6e89b1d21ee1b11caff0c6720a223ccb3fe5a58f274c0f3de1c4091c837c6f26",
+      "frame": [
+        80,
+        96
+      ],
+      "anchor": [
+        40,
+        88
+      ],
+      "order": [
+        "kevin_attack",
+        "kevin_poof"
+      ]
+    },
+    {
+      "id": "phil",
+      "path": "assets/before_the_fame/characters/phil/phil_state_sheet_160x96.png",
+      "dimensions": [
+        160,
+        96
+      ],
+      "sha256": "911d4c20afd2182bc69696d560bf7f483d567330116c4dd3279d237bb60583fe",
+      "frame": [
+        80,
+        96
+      ],
+      "anchor": [
+        40,
+        88
+      ],
+      "order": [
+        "phil_charging_day3",
+        "phil_sitting_plate"
+      ]
+    },
+    {
+      "id": "uncle_sunday",
+      "path": "assets/before_the_fame/characters/uncle_sunday/uncle_sunday_state_sheet_240x96.png",
+      "dimensions": [
+        240,
+        96
+      ],
+      "sha256": "53bc349e0e32553ef40479df5de7834551ee29de5295227a251685cb5d1b8462",
+      "frame": [
+        80,
+        96
+      ],
+      "anchor": [
+        40,
+        88
+      ],
+      "order": [
+        "uncle_sunday_offended",
+        "uncle_sunday_melted",
+        "uncle_sunday_fishing"
+      ]
+    },
+    {
+      "id": "rich_laptop",
+      "path": "assets/before_the_fame/characters/rich/rich_laptop_state_sheet_160x96.png",
+      "dimensions": [
+        160,
+        96
+      ],
+      "sha256": "ab8faabed16f494a9d21231261947ac0b0f2ea8b6e160e2fc5016b29555e7abc",
+      "frame": [
+        80,
+        96
+      ],
+      "anchor": [
+        40,
+        88
+      ],
+      "order": [
+        "rich_laptop_seated",
+        "rich_laptop_nod"
+      ]
+    },
+    {
+      "id": "rich_contextual",
+      "path": "assets/before_the_fame/characters/rich/rich_contextual_state_sheet_320x96.png",
+      "dimensions": [
+        320,
+        96
+      ],
+      "sha256": "cb9ca2010dc2a01773aca41639040c979e4cd87e392f4475f2679ffecccf3158",
+      "frame": [
+        80,
+        96
+      ],
+      "anchor": [
+        40,
+        88
+      ],
+      "order": [
+        "rich_fishing_cast",
+        "rich_holding_fish_away",
+        "rich_ramen_apron",
+        "rich_on_stage"
+      ]
+    },
+    {
+      "id": "touge_vehicles",
+      "path": "assets/before_the_fame/vehicles/touge/touge_vehicle_sheet_128x28.png",
+      "dimensions": [
+        128,
+        28
+      ],
+      "sha256": "68b7a0e84a5a858cb129dcf70aeaf563db57e76e4c7befb69d54222342b2170d",
+      "frame": [
+        16,
+        28
+      ],
+      "anchor": [
+        8,
+        27
+      ],
+      "order": [
+        "supra",
+        "s15_stock",
+        "s15_bodykit",
+        "s2000_pink",
+        "r34_blue",
+        "urus_oxblood",
+        "aventador_purple",
+        "ferrari_f40_red"
+      ]
+    },
+    {
+      "id": "phone_app_icons",
+      "path": "assets/before_the_fame/ui/apps/phone_app_icon_sheet_216x24.png",
+      "dimensions": [
+        216,
+        24
+      ],
+      "sha256": "e5b3eb4b734a41ae77e5d5930c4ae7612dbbbf0ed5b52e4b418b708b272b8908",
+      "frame": [
+        24,
+        24
+      ],
+      "anchor": null,
+      "order": [
+        "texts",
+        "hatch",
+        "touge",
+        "bars",
+        "rich_radio",
+        "receipts",
+        "vampgpt",
+        "jdmimports",
+        "pickup"
+      ]
+    }
+  ]
+}
