@@ -15,10 +15,11 @@ export async function loadPresentation(root){
 
 export function inputsHash(win,stageId,beat){
  const stage=win.RAStages.get(stageId),shot=stage.director.shots[beat],data=win.RAPresentationData,assets=win.RAPresentationAssets;
- const mode=Object.values(data.modes).find(m=>m.id===(shot.mode||'combat'));
- const actorAssets=Object.keys(assets).filter(file=>!assets[file].environment).sort();
+ const mode=data.modes[shot.mode||'combat'];
+ // Only this stage's approved states (its runtime variant matrix) affect its composition.
+ const actorAssets=[...new Set(Object.values(stage.director.states||{}).flat())].sort();
  const payload={version:DIRECTOR_VERSION,stage:{id:stage.id,world:stage.world||stage.native,environment:stage.environment,contactLines:stage.contactLines,actors:Object.fromEntries(Object.entries(stage.actors).map(([slot,a])=>[slot,{anchor:a.anchor,flip:!!a.flip}])),director:stage.director},
   shot,profile:data.profiles[shot.profile],mode,reference:data.reference,acceptance:data.acceptance,
-  assets:{environment:assets[stage.environment]?.sha256||null,actors:actorAssets.map(file=>[file,assets[file].sha256,assets[file].visible,assets[file].face])}};
+  assets:{environment:assets[stage.environment]?.sha256||null,actors:actorAssets.map(file=>[file,assets[file]?.sha256??null,assets[file]?.visible??null,assets[file]?.face??null])}};
  return createHash('sha256').update(JSON.stringify(payload)).digest('hex').slice(0,16);
 }

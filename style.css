@@ -766,3 +766,10 @@ body.pd-active .briefcase-projectile.fly{animation:pdBriefcaseFly 430ms steps(4,
 @keyframes pdDetailFlight{0%{transform:translateX(0);opacity:1}82%{opacity:1}100%{transform:translateX(var(--pd-missile-dx,128px));opacity:0}}
 @keyframes pdGhostFlight{0%{transform:translateX(-5px) scale(.92);opacity:0}12%{opacity:var(--ghost)}82%{opacity:var(--ghost)}100%{transform:translateX(calc(var(--pd-missile-dx,128px) - 8px)) scale(.92);opacity:0}}
 @keyframes pdBriefcaseFly{0%{transform:translateX(0);background-position:0 0}25%{background-position:-64px 0}50%{background-position:-128px 0}75%{background-position:-192px 0}100%{transform:translateX(var(--pd-briefcase-dx,-145px));background-position:0 0}}
+/* Director actors: sprite size comes from the camera (per-element --pd-w/--pd-h/--pd-k), never from scene CSS. */
+#pdWorld > .gemini-rich,#pdWorld > .production-ceo,#pdWorld > .production-assistant{background-size:var(--pd-w) var(--pd-h)}
+#pdWorld > .production-ceo.combat-authored-ceo-normal,#pdWorld > .production-ceo.combat-authored-ceo-heavy,#pdWorld > .production-ceo.combat-authored-ceo-lethal{background-size:calc(var(--pd-k) * 240px) var(--pd-h)}
+#pdWorld > .production-ceo.combat-authored-ceo-heavy{background-position:calc(var(--pd-k) * -80px) 0}
+#pdWorld > .production-ceo.combat-authored-ceo-lethal{background-position:calc(var(--pd-k) * -160px) 0}
+/* Contact shadow sits on the contact line (source y 88), sized in source pixels. */
+#pdWorld > .production-ceo:after,#pdWorld > .production-assistant:after{width:calc(var(--pd-k) * 19px);height:calc(var(--pd-k) * 2.5px);bottom:calc(var(--pd-k) * 6.75px)}

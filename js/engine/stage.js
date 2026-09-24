@@ -28,9 +28,9 @@
 
  // Actor boxes in world units: sprite frame, visible (alpha) body, face.
  function worldActor(stage,slot,asset,at){
-  const actor=stage.actors[slot],a=actorScale(stage,slot),m=spriteMeta(asset),ax=at?.x??actor.anchor.x,ay=at?.y??actor.anchor.y,sx=ax-m.anchor[0]*a,sy=ay-m.anchor[1]*a;
+  const actor=stage.actors[slot],line=at?.line?(stage.contactLines||[]).find(l=>l.id===at.line):null,a=line?.scale??actorScale(stage,slot),m=spriteMeta(asset),ax=at?.x??actor.anchor.x,ay=at?.y??line?.y??actor.anchor.y,sx=ax-m.anchor[0]*a,sy=ay-m.anchor[1]*a;
   const rect=([x,y,w,h])=>box(sx+(actor.flip?m.width-x-w:x)*a,sy+y*a,w*a,h*a);
-  return {slot,asset,scale:a,anchor:{x:ax,y:ay},sprite:box(sx,sy,m.width*a,m.height*a),visible:rect(m.visible),face:rect(m.face),faceSource:m.faceSource,authority:m.authority,meta:m,flip:!!actor.flip};
+  return {slot,asset,scale:a,line:line?.id??actor.anchor.line,anchor:{x:ax,y:ay},sprite:box(sx,sy,m.width*a,m.height*a),visible:rect(m.visible),face:rect(m.face),faceSource:m.faceSource,authority:m.authority,meta:m,flip:!!actor.flip};
  }
 
  // UI-aware screen modes: HUD band, world viewport, UI band — all in #screen CSS pixels.
@@ -51,13 +51,14 @@
   const stage=spec.stage,profile=data().profiles[spec.profile],env=envSize(stage),view=spec.view;
   if(!profile)throw new Error(`Unknown shot profile: ${spec.profile}`);
   // Envelope of every approved state per focal slot → the camera never jumps when an actor changes state.
-  const focal=spec.focal.map(slot=>{const list=(spec.states?.[slot]?.length?spec.states[slot]:[spec.assets?.[slot]]).map(asset=>worldActor(stage,slot,asset));return {...list[0],visible:union(list.map(a=>a.visible))}});
+  const envelope=(slot,at)=>{const list=(spec.states?.[slot]?.length?spec.states[slot]:[spec.assets?.[slot]]).map(asset=>worldActor(stage,slot,asset,at));return {...list[0],visible:union(list.map(a=>a.visible))}};
+  const focal=spec.focal.map(slot=>envelope(slot,spec.at?.[slot])),include=(spec.include||[]).filter(slot=>stage.actors[slot]).map(slot=>envelope(slot));
   const refScale=focal.find(f=>f.slot===spec.reference)?.scale??focal[0].scale;
   const refH=spriteMeta(data().reference.asset).visible[3]*refScale;
   const cover=Math.max(view.w/env.width,view.h/env.height);
   const zoom=spec.zoom||1,contact=spec.contact??profile.contact[1];
   let S=Math.max(cover,profile.target*zoom*view.h/refH),limited=false;
-  const group=union(focal.map(f=>f.visible)),usable=view.w*(1-2*profile.side);
+  const group=union([...focal,...include].map(f=>f.visible)),usable=view.w*(1-2*profile.side);
   if(group.w*S>usable){const fit=Math.max(cover,usable/group.w);limited=fit<S;S=fit}
   const w=view.w/S,h=view.h/S;
   const x=clamp(group.x+group.w/2-w/2,0,env.width-w);
@@ -67,10 +68,11 @@
  }
  // SEARCH: small neighbourhood around the analytic solution (≤ 6 candidates).
  function search(spec){
-  const profile=data().profiles[spec.profile],seen=new Set(),out=[];
+  const profile=data().profiles[spec.profile],out=[];
   for(const contact of profile.contact)for(const zoom of [1,1.06]){
-   const cam=solve({...spec,contact,zoom}),key=`${cam.S.toFixed(4)}:${cam.x.toFixed(2)}:${cam.y.toFixed(2)}`;
-   if(!seen.has(key)){seen.add(key);out.push({id:`c${out.length+1}`,contact,zoom,camera:cam})}
+   // Only perceptibly different framings reach the judge: ≥ 4% of the view in position or ≥ 3% in zoom.
+   const cam=solve({...spec,contact,zoom});
+   if(!out.some(o=>Math.abs(o.camera.S/cam.S-1)<.03&&Math.abs(o.camera.y-cam.y)<.04*cam.h&&Math.abs(o.camera.x-cam.x)<.04*cam.w))out.push({id:`c${out.length+1}`,contact,zoom,camera:cam})
   }
   return out.slice(0,6);
  }
@@ -89,7 +91,7 @@
    const k=crisp(actor.scale*S);
    const m=actor.meta,ax=snap(sx(actor.anchor.x)),ay=snap(sy(actor.anchor.y)),left=snap(ax-m.anchor[0]*k),top=snap(ay-m.anchor[1]*k);
    const rect=([x,y,w,h])=>box(left+(actor.flip?m.width-x-w:x)*k,top+y*k,w*k,h*k);
-   placed[actor.slot]={...actor,k,sprite:box(left,top,m.width*k,m.height*k),visible:rect(m.visible),face:rect(m.face),contact:{x:ax,y:ay}};
+   placed[actor.slot]={...actor,world:actor.anchor,k,sprite:box(left,top,m.width*k,m.height*k),visible:rect(m.visible),face:rect(m.face),contact:{x:ax,y:ay}};
   }
   return {S,env:envRect,world:layout.world,actors:placed,dpr,camera};
  }
@@ -115,8 +117,8 @@
   const headTop=Math.min(...focal.map(s=>frame.actors[s]?.visible.y??Infinity)),head=(headTop-frame.world.y)/frame.world.h;
   add('headroom',head>=P.headroom-.005,round3(head),P.headroom);
   add('env-cover',frame.env.x<=frame.world.x+.5&&frame.env.y<=frame.world.y+.5&&frame.env.x+frame.env.w>=frame.world.x+frame.world.w-.5&&frame.env.y+frame.env.h>=frame.world.y+frame.world.h-.5,true,'no letterbox inside world viewport');
-  for(const [slot,a] of Object.entries(frame.actors)){const actor=stage.actors[slot],line=lineOf(stage,actor);
-   add(`contact:${slot}`,!!line&&actor.anchor.y===line.y&&(line.x1==null||(actor.anchor.x>=line.x1&&actor.anchor.x<=line.x2)),line?.id||null,'on a contact line');
+  for(const [slot,a] of Object.entries(frame.actors)){const line=(stage.contactLines||[]).find(l=>l.id===a.line),at=a.world||a.anchor;
+   add(`contact:${slot}`,!!line&&Math.abs(at.y-line.y)<.01&&(line.x1==null||(at.x>=line.x1&&at.x<=line.x2)),line?.id||null,'on a contact line');
    add(`authority:${slot}`,!a.meta.missing&&a.authority!=='UNREGISTERED',a.authority||'missing',a.asset);
   }
   return {pass:checks.every(c=>c.pass),checks,metrics:{body:round3(body),headroom:round3(head),S:round3(frame.S)}};
@@ -131,7 +133,9 @@
  let active=null;
  function screenEl(){return document.querySelector('#screen')}
  function worldEl(){let el=document.querySelector('#pdWorld');if(!el){el=document.createElement('div');el.id='pdWorld';el.setAttribute('aria-hidden','true');screenEl().prepend(el)}return el}
- function elementAsset(el){if(!el)return null;if(el.tagName==='IMG')return assetPath(el.getAttribute('src'));if(el.tagName==='CANVAS')return el.dataset.asset||null;return assetPath(getComputedStyle(el).backgroundImage)}
+ function elementAsset(el){if(!el)return null;if(el.tagName==='IMG')return assetPath(el.getAttribute('src'));if(el.tagName==='CANVAS')return el.dataset.asset||null;const cs=getComputedStyle(el),path=assetPath(cs.backgroundImage),sheet=window.RAPresentationAssets?.[path]?.sheet;
+  // Sprite sheets resolve to the frame currently shown (background-position / frame width in CSS px).
+  if(sheet){const k=parseFloat(el.style.getPropertyValue('--pd-k'))||1,index=Math.round(-parseFloat(cs.backgroundPositionX||'0')/(sheet.frameWidth*k));return `${path}#${Math.max(0,Math.min(sheet.frames-1,index))}`}return path}
  function currentAssets(ctl){const out={};for(const [slot,el] of Object.entries(ctl.actors))out[slot]=ctl.assetOf?.[slot]?.(el)??elementAsset(el);return out}
  function screenSize(){const r=screenEl().getBoundingClientRect();return {W:r.width,H:r.height}}
 
@@ -139,10 +143,10 @@
   const {W,H}=screenSize();if(!(W>0&&H>0))return null;
   const dpr=window.devicePixelRatio||1,stage=ctl.stage,layout=screenLayout(ctl.mode,W,H);
   const assets=currentAssets(ctl),shot=ctl.shot;
-  const spec={stage,profile:shot.profile,focal:shot.focal,reference:shot.reference,assets,states:stage.director?.states,view:{w:layout.world.w,h:layout.world.h}};
+  const spec={stage,profile:shot.profile,focal:shot.focal,include:shot.include,reference:shot.reference,assets,states:stage.director?.states,at:ctl.moved,view:{w:layout.world.w,h:layout.world.h}};
   const locked=window.RAPresentationLocks?.get?.(stage.id,ctl.beat);
   const camera=solve({...spec,...(locked?{contact:locked.contact,zoom:locked.zoom}:{contact:shot.contact,zoom:shot.zoom})});
-  const actors=Object.keys(ctl.actors).map(slot=>worldActor(stage,slot,assets[slot]));
+  const actors=Object.keys(ctl.actors).map(slot=>worldActor(stage,slot,assets[slot],ctl.moved?.[slot]));
   const frame=project(stage,layout,camera,actors,dpr);frame.layout=layout;frame.spec=spec;frame.lockedChoice=locked||null;
   ctl.frame=frame;apply(ctl,frame);return frame;
  }
@@ -155,7 +159,8 @@
   Object.assign(world.style,{left:px(L.world.x),top:px(L.world.y),width:px(L.world.w),height:px(L.world.h)});
   const local=b=>({left:px(b.x-L.world.x),top:px(b.y-L.world.y),width:px(b.w),height:px(b.h)});
   if(ctl.env)Object.assign(ctl.env.style,local(frame.env));
-  for(const [slot,el] of Object.entries(ctl.actors)){const a=frame.actors[slot];if(!el||!a)continue;Object.assign(el.style,local(a.sprite));if(el.tagName==='DIV')el.style.backgroundSize=`${px(a.sprite.w)} ${px(a.sprite.h)}`}
+  for(const [slot,el] of Object.entries(ctl.actors)){const a=frame.actors[slot];if(!el||!a)continue;Object.assign(el.style,local(a.sprite));el.style.setProperty('--pd-w',px(a.sprite.w));el.style.setProperty('--pd-h',px(a.sprite.h));el.style.setProperty('--pd-k',String(round3(a.k)))}
+  for(const el of ctl.viewportLayers||[])Object.assign(el.style,{left:'0px',top:'0px',width:'100%',height:'100%'});
   for(const layer of ctl.worldLayers||[]){const r=worldRectToScreen(frame,layer.rect),c=intersect(r,L.world);Object.assign(layer.el.style,{left:px(r.x),top:px(r.y),width:px(r.w),height:px(r.h),backgroundSize:'100% 100%',clipPath:`inset(${px(c.y-r.y)} ${px(r.x+r.w-(c.x+c.w))} ${px(r.y+r.h-(c.y+c.h))} ${px(c.x-r.x)})`})}
   const overlay=document.querySelector('#stageContractOverlay');if(overlay&&overlay.parentElement===world){Object.assign(overlay.style,local(frame.env));drawDirectorOverlay(ctl,frame,overlay)}
   if(ctl.roles){
@@ -202,7 +207,7 @@
   const screen=screenEl(),world=worldEl();
   document.body.classList.add('pd-active');screen.dataset.pdMode=ctl.mode;screen.dataset.pdStage=stage.id;
   const adopt=el=>{if(!el||el.parentElement===world)return;ctl.restore.push({el,parent:el.parentElement,next:el.nextSibling,style:el.getAttribute('style')});world.appendChild(el)};
-  adopt(ctl.env);for(const el of Object.values(ctl.actors))adopt(el);
+  adopt(ctl.env);for(const el of Object.values(ctl.actors))adopt(el);for(const el of ctl.viewportLayers||[])adopt(el);
   const overlay=document.querySelector('#stageContractOverlay');if(overlay)adopt(overlay);
   for(const layer of ctl.worldLayers||[])ctl.restore.push({el:layer.el,style:layer.el.getAttribute('style')});
   active=ctl;
@@ -210,9 +215,25 @@
   ctl.scope?.cleanup(()=>{if(active===ctl)exit()});
   relayout(ctl);ctl.scope?.frame?.(()=>{if(active===ctl)relayout(ctl)});
   document.dispatchEvent(new CustomEvent('ra:presentation-enter',{detail:{stage:stage.id,mode:ctl.mode}}));
-  return {relayout:()=>relayout(ctl),frame:()=>ctl.frame,lint:opts=>lintLive(ctl,opts),setBeat:beat=>setBeat(ctl,beat)};
+  return {relayout:()=>relayout(ctl),frame:()=>ctl.frame,lint:opts=>lintLive(ctl,opts),setBeat:(beat,opts)=>setBeat(ctl,beat,opts),moveTo:(slot,to,opts)=>moveTo(ctl,slot,to,opts),mark:(id,opts)=>mark(ctl,id,opts)};
  }
- function setBeat(ctl,beat){const shot=ctl.stage.director?.shots?.[beat];if(!shot)throw new Error(`Unknown beat ${beat}`);ctl.beat=beat;ctl.shot={...shot};return relayout(ctl)}
+ // ---- Beats & transitions (deterministic, small): cut | snap-pan for camera; walk/step/enter for actors ----
+ const wait=ms=>new Promise(resolve=>setTimeout(resolve,ms));
+ function transitionWorld(ctl,els,ms,steps){const value=ms?`left ${ms}ms steps(${steps},end),top ${ms}ms steps(${steps},end),width ${ms}ms steps(${steps},end),height ${ms}ms steps(${steps},end)`:'';for(const el of els)if(el)el.style.transition=value}
+ async function setBeat(ctl,beat,{transition='cut',ms=320,steps=4}={}){
+  const shot=ctl.stage.director?.shots?.[beat];if(!shot)throw new Error(`Unknown beat ${beat}`);
+  const els=[ctl.env,...Object.values(ctl.actors)];if(transition==='snap-pan')transitionWorld(ctl,els,ms,steps);
+  ctl.beat=beat;ctl.shot={...shot};const frame=relayout(ctl);if(transition==='snap-pan'){await wait(ms);transitionWorld(ctl,els,0)}return frame;
+ }
+ // Move an actor through the world: `to` = {x, line?}; kind walk (stepped), step (short), enter (from outside the view), cut.
+ async function moveTo(ctl,slot,to,{kind='walk',ms=1000,steps=8}={}){
+  const el=ctl.actors[slot];if(!el)return;const moved=ctl.moved||(ctl.moved={});
+  if(kind==='enter'&&ctl.frame){const cam=ctl.frame.camera,side=to.x<cam.x+cam.w/2?-1:1;moved[slot]={...to,x:side<0?cam.x-120:cam.x+cam.w+120};relayout(ctl);await wait(16)}
+  if(kind!=='cut')transitionWorld(ctl,[el],ms,steps);
+  moved[slot]={...to};relayout(ctl);
+  if(kind!=='cut'){await wait(ms);transitionWorld(ctl,[el],0)}
+ }
+ function mark(ctl,id,opts){const m=ctl.stage.director?.marks?.[id];if(!m)throw new Error(`Unknown mark ${id}`);return moveTo(ctl,m.slot,{x:m.x,line:m.line},opts)}
  function exit(){
   const ctl=active;if(!ctl)return;active=null;ctl.observer?.disconnect();
   for(const item of ctl.restore.reverse()){if(item.parent){if(item.next&&item.next.parentElement===item.parent)item.parent.insertBefore(item.el,item.next);else item.parent.appendChild(item.el)}if(item.style==null)item.el.removeAttribute('style');else item.el.setAttribute('style',item.style)}
@@ -224,7 +245,8 @@
 
  // ---- Live lint: measures the real rendered UI and sprite pixels ----
  const imageCache=new Map();
- function loadImage(src){if(!imageCache.has(src))imageCache.set(src,new Promise((resolve,reject)=>{const img=new Image();img.onload=()=>{const c=document.createElement('canvas');c.width=img.naturalWidth;c.height=img.naturalHeight;const g=c.getContext('2d');g.drawImage(img,0,0);resolve(g.getImageData(0,0,c.width,c.height))};img.onerror=()=>reject(new Error(`image ${src}`));img.src=src}));return imageCache.get(src)}
+ // `path#i` = frame i of a horizontal sprite sheet.
+ function loadImage(src){if(!imageCache.has(src))imageCache.set(src,new Promise((resolve,reject)=>{const [file,frame]=src.split('#'),sheet=frame!=null?window.RAPresentationAssets?.[file]?.sheet:null;const img=new Image();img.onload=()=>{const w=sheet?sheet.frameWidth:img.naturalWidth,c=document.createElement('canvas');c.width=w;c.height=img.naturalHeight;const g=c.getContext('2d');g.drawImage(img,sheet?-w*+frame:0,0);resolve(g.getImageData(0,0,c.width,c.height))};img.onerror=()=>reject(new Error(`image ${src}`));img.src=file}));return imageCache.get(src)}
  function visibleRect(el){if(!el)return null;const cs=getComputedStyle(el);if(cs.display==='none'||cs.visibility==='hidden'||+cs.opacity===0)return null;const r=el.getBoundingClientRect(),s=screenEl().getBoundingClientRect();return r.width&&r.height?box(r.left-s.left,r.top-s.top,r.width,r.height):null}
  // Opaque source pixels of an actor that land inside `rect` (screen px, clipped to the world viewport), in CSS px².
  function maskArea(pixels,a,rect,world){const r=intersect(intersect(rect,a.visible),world);if(area(r)<=0)return 0;let n=0;const m=a.meta;
@@ -288,6 +310,6 @@
  window.RAStageLayout={contract,actorRect,transform,layout,activate,drawOverlay,runSelfTest};
  window.RAPresentationDirector={screenLayout,worldActor,solve,search,project,lintFrame,enter,exit,fxPoint,runSelfTest:runDirectorSelfTest,
   active:()=>!!active,current:()=>active&&{stage:active.stage.id,mode:active.mode,beat:active.beat,frame:active.frame},
-  worldRect:()=>active?.frame?.world||null,relayout:()=>active&&relayout(active),lint:opts=>active?lintLive(active,opts):Promise.resolve(null),
+  worldRect:()=>active?.frame?.world||null,mark:(id,opts)=>active?mark(active,id,opts):Promise.resolve(false),resetMoves:()=>{if(active?.moved){active.moved={};relayout(active)}},moveTo:(slot,to,opts)=>active?moveTo(active,slot,to,opts):Promise.resolve(false),setBeat:(beat,opts)=>active?setBeat(active,beat,opts):null,relayout:()=>active&&relayout(active),lint:opts=>active?lintLive(active,opts):Promise.resolve(null),
   preview:(beatOrShot)=>{if(!active)return null;const prev=active.shot;active.shot={...prev,...beatOrShot};const f=relayout(active);return {frame:f,restore:()=>{active.shot=prev;relayout(active)}}}};
 })();

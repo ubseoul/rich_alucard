@@ -12,6 +12,20 @@
   "assets/jdm_imports/characters/daughter/daughter_neutral.png": {},
   "assets/jdm_imports/characters/daughter/daughter_reaction.png": {},
   "assets/jdm_imports/characters/daughter/daughter_post_battle.png": {"face": [32, 41, 11, 13]},
-  "assets/jdm_imports/characters/daughter/daughter_vampire_reveal.png": {}
+  "assets/jdm_imports/characters/daughter/daughter_vampire_reveal.png": {},
+  "assets/throne_room_scene_portrait.png": {"environment": true},
+  "assets/rich_seated_idle.png": {"face": [24, 45, 18, 14]},
+  "assets/rich_seated_cast.png": {"face": [24, 45, 18, 14]},
+  "assets/rich_seated_hit.png": {"face": [23, 45, 18, 14]},
+  "assets/rich_seated_victory.png": {"face": [23, 45, 18, 14]},
+  "assets/ceo_idle.png": {"face": [31, 41, 21, 17]},
+  "assets/ceo_briefcase_throw.png": {"face": [25, 42, 20, 16]},
+  "assets/ceo_hit.png": {"face": [36, 43, 21, 15]},
+  "assets/ceo_defeated.png": {"face": [21, 54, 19, 14]},
+  "assets/assistant_idle.png": {"face": [30, 42, 19, 12]},
+  "assets/assistant_heal.png": {"face": [29, 42, 18, 12]},
+  "assets/assistant_reaction.png": {"face": [29, 42, 20, 12]},
+  "assets/assistant_walk.png": {"face": [29, 42, 20, 12]},
+  "assets/ceo_hit_reaction_sheet.png": {"frames": {"width": 80, "faces": [[32, 41, 19, 13], [40, 39, 20, 15], [41, 66, 17, 14]]}}
  }
 }
