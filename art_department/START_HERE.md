@@ -1,33 +1,71 @@
 # Rich Alucard Art Department — start here
 
-This repository is the permanent institutional memory. No access to an earlier conversation or Codex session is required to complete onboarding. System implementation is READY FOR HQ FINAL REVIEW; it does not authorize a new Art Ship.
+This repository is the Art Department's institutional memory. **The project remembers. The chat does not.** A fresh Art Agent must be able to onboard from this file and the files it points to; no Ube-uploaded Volumes, Addenda, review boards, or prior chat are required.
 
-- PIXELS OUTRANK PROSE for measuring established visual grammar.
-- Written canon controls character/world facts.
-- Explicit Production Control decisions control approval/freeze status.
-- Asset existence does not imply approval.
-- Rejected/exploratory art is excluded from default future style study.
-- A generated image enters the approved visual corpus only after explicit Ube/HQ acceptance.
-- Direction approval, Taste Pass, Approved Master, and FROZEN are distinct states.
-- Fresh Art Agents must complete onboarding and receive HQ PASS before generating production art.
+## What this project is
 
-## Required sequence
-1. Read [ART_SYSTEM](ART_SYSTEM.md), [CURRENT_HANDOFF](CURRENT_HANDOFF.md), [APPROVAL_LEDGER](APPROVAL_LEDGER.md) and [STATUS_QUESTIONS](STATUS_QUESTIONS.md).
-2. Read repository [Production Control](../docs/PRODUCTION_CONTROL.md), [Current Canon](../docs/CURRENT_CANON.md), [Visual Style Bible](../docs/VISUAL_STYLE_BIBLE.md) and the inherited frozen [Art Production Standard](sources/ART_PRODUCTION_STANDARD_v1.md). Current explicit decisions override historical submission headers in their scope.
-3. Use [APPROVED_ASSET_INDEX](APPROVED_ASSET_INDEX.md) and [ASSET_REGISTER](ASSET_REGISTER.json). Paths in the register are repository-root-relative. Verify SHA-256 before relying on a source. Unavailable or mismatched files are blockers for dependent work, not permission to redraw.
-4. Inspect actual approved PNGs at native 1x. Inspect enlarged nearest-neighbor crops as needed without changing source pixels. Start with Rich, Ogun and Assistant; compare Daughter, Importer and CEO. Do not load exploration archives as default style material.
-5. Read [STYLE_FINGERPRINT](STYLE_FINGERPRINT.md) and the relevant reference indexes. Reproduce the stated measurements from source pixels and distinguish bounds from anatomical estimates.
-6. Complete [ART_ONBOARDING_REPORT](templates/ART_ONBOARDING_REPORT.md), demonstrating understanding with named files and measured evidence. STOP for HQ PASS. Do not generate character art as an onboarding demonstration.
-7. After onboarding PASS, wait for one explicit Art Ship. Follow its scope and stop gates.
+`Rich Alucard: Before the Fame` is a portrait pixel-art life/adventure game about Rich Alucard's early life in vampire Los Angeles: rooms, dates, friends, minigames, cars, music, social systems, and small ordinary-life jokes. Art owns pixels and visual continuity; Story/canon owns meaning; Engineering owns runtime integration; Ube owns taste and canon; HQ owns scope, acceptance, and freeze.
 
-Fresh Art Agent → inspect approved corpus → demonstrate understanding → HQ PASS → receive one Art Ship → explore → Ube Taste Pass → authorized production package → HQ PASS/FROZEN → update approved corpus → retire chat.
+## Current state
 
-ART SHIP 006 — OPEN DERIVATIVE PRODUCTION PUSH is HQ VISUAL PASS / APPROVED MASTER / FROZEN and complete. Its 46 native masters and 11 useful multi-frame handoff sheets are governed by [Current Handoff](CURRENT_HANDOFF.md), [the Approval Ledger](APPROVAL_LEDGER.md) and [the Ship manifest](ships/art_ship_006/ART_SHIP_MANIFEST.json). Accepted bytes are exact; runtime code was not modified. No Art Ship is currently active.
+- Current authority is `origin/main` at `a2992617b825acf1ab7a9bdb187d2caca66be701`.
+- ART SHIP 006 — OPEN Derivative Production Push is frozen/complete. The frozen corpus is **135 assets**; the register contains 275 entries.
+- ART SHIP 004, 005, and 006 are the latest frozen Ship records. Their canonical PNGs are under `assets/` and are indexed by `APPROVED_ASSET_INDEX.md`, `ASSET_REGISTER.json`, and the Ship manifests.
+- No Art Ship is active. Do not generate or modify pixels until HQ authorizes a new Ship.
+- The read-only Rough Complete Engineering branch is `origin/claude/eloquent-shannon-kc5qkn` at `c2a637bb2df8143f117cff1cecc8ca1cff6ba11e`; it is not merged or deployed. It still paints new BTF surfaces with placeholders. Use the repository snapshot and gap map to understand its visual demand; never treat its historical `docs/btf/ART_INPUTS.md` as current truth.
 
-ART SHIP 005 — OPEN CHAPTER ANCHORS is UBE TASTE PASS / APPROVED MASTER / FROZEN and complete. Its 52 exact native anchor files—28 characters, 20 environments, three props and one creature—are governed by [Current Handoff](CURRENT_HANDOFF.md), [the Approval Ledger](APPROVAL_LEDGER.md) and [the Ship manifest](ships/art_ship_005/ART_SHIP_MANIFEST.json). Primary gameplay characters use approximately 1.85x historical on-screen runtime presentation with nearest-neighbor filtering; native source pixels remain unchanged. No Art Ship is currently active.
+## Authority hierarchy
 
-ART SHIP 004 — THE GOLDFISH YEARS is HQ TECHNICAL PASS / APPROVED MASTER / FROZEN and complete. Its exact ocean-floor base, intact/collapsed ladder layers, Octopus Sensei neutral/point masters and two-cell sheet are governed by [Current Handoff](CURRENT_HANDOFF.md), [the Approval Ledger](APPROVAL_LEDGER.md) and [the Ship manifest](ships/art_ship_004/ART_SHIP_MANIFEST.json). Primary gameplay characters use approximately 1.85x historical on-screen runtime presentation with nearest-neighbor filtering; native source pixels remain unchanged. No Art Ship is currently active.
+1. Ube's current canon/taste decisions.
+2. `docs/CURRENT_CANON.md` and `docs/PRODUCTION_CONTROL.md`.
+3. Exact frozen pixels plus `ASSET_REGISTER.json` and `APPROVED_ASSET_INDEX.md`.
+4. The applicable ART SHIP manifest, HQ decision, Engineering map, and state definitions.
+5. The committed OPEN production-authority subsets in `production_authority/`.
+6. Art Department judgment inside the explicit Ship scope.
 
-ART SHIP 003 — MASSIVE PUSH 001: THE PROPERTY remains HQ CREATIVE PASS / APPROVED MASTER / FROZEN and closed. Its exact Shannon, property and ordinary giant-rat masters, handoff sheets, stage guidance and PLAYER-BLIND Creative records remain governed by its recorded scopes. Important Rich voice-pass lines remain unresolved and non-canon.
+Pixels outrank prose for established visual grammar. Asset existence is not approval. A candidate, review board, placeholder, or exploratory output cannot become style authority by existing in the repository.
 
-Bllad33 retains one APPROVED MASTER / FROZEN neutral/entrance sprite from RT SHIP 001. Earlier Bllad33 VD01/VD02/VD03 explorations remain excluded from default style study; their historical no-master status does not override the later explicit approval.
+## Required reading order for a fresh Art Agent
+
+Read completely, in this order:
+
+1. `art_department/ART_SYSTEM.md`
+2. `art_department/CURRENT_HANDOFF.md`
+3. `art_department/production_authority/README.md`
+4. `art_department/production_authority/HQ_PRODUCTION_ADDENDUM_OPEN_ART.md`
+5. `art_department/production_authority/VOL2_CHARACTER_VISUAL_BIBLE_OPEN.md`
+6. `art_department/production_authority/VOL5_OPEN_VISUAL_ADDITIONS.md`
+7. `art_department/production_authority/ROUGH_COMPLETE_ENGINEERING_SNAPSHOT.md`
+8. `art_department/CURRENT_OPEN_ART_GAPS.md` and `CURRENT_OPEN_ART_GAPS.json`
+9. `art_department/STYLE_FINGERPRINT.md` and the relevant files in `art_department/references/`
+10. `art_department/APPROVED_ASSET_INDEX.md`, then the relevant `ASSET_REGISTER.json` entries and native PNGs
+11. The relevant frozen Ship records under `art_department/ships/` (004, 005, 006)
+12. `art_department/APPROVAL_LEDGER.md` and the templates under `art_department/templates/`
+
+For implementation state, also read the current repository `docs/ENGINEERING_HANDOFF.md` and the committed snapshot above. The Rough Complete branch's `CHECKPOINT.md`, `DECISIONS.md`, and `ART_INPUTS.md` are historical read-only evidence and are already reconciled in the snapshot/gap map.
+
+## Where authority lives
+
+- Frozen pixels: repository-root `assets/`, exact paths recorded in `ASSET_REGISTER.json` and `APPROVED_ASSET_INDEX.md`.
+- Ship-specific hashes, scopes, and Engineering mappings: `art_department/ships/art_ship_004/`, `art_ship_005/`, and `art_ship_006/`.
+- Visual measurements and pixel grammar: `STYLE_FINGERPRINT.md` and `references/CHARACTERS.md`, `ENVIRONMENTS.md`, and `OBJECTS_FX_AMBIENT.md`.
+- OPEN source/canon needed for Art: `production_authority/`.
+- Current gaps and next priority: `CURRENT_OPEN_ART_GAPS.md` / `.json`.
+
+## Implementation and open demand
+
+The frozen corpus is present, but Ship 004/005/006 records are handoff-only and not runtime-integrated by those Ships. The Rough Complete branch currently renders 61 historical environment placeholders and 56 character slots through `RAPixel`; the reconciled current list is in `CURRENT_OPEN_ART_GAPS.md`. That map distinguishes frozen/satisfied, candidate, derivative state, still-missing identity/environment, Engineering integration, canon blockers, and restricted demand. Do not guess integration status from filenames.
+
+Primary gameplay characters target approximately **1.85×** historical on-screen presentation with nearest-neighbor filtering. This is an Engineering runtime rule, not permission to enlarge or redesign native source sprites. Composed room art has its own contract.
+
+## OPEN vs restricted boundaries
+
+OPEN cards and the repository's frozen corpus are actionable only within an authorized Ship. GUIDED material needs its named scope. Never inspect, import, summarize, or visually solve SEALED/HQ-only material. Keep restricted reveal identities, Vol 4, Vol 5-S, HQ-only deltas, and neutral hooks out of Art-facing boards and records. If a request crosses that boundary, stop and record `SEALED / DO NOT TOUCH`.
+
+## Candidate → approval → freeze procedure
+
+An Art Agent may generate only after HQ names an Art Ship and the agent completes a scoped onboarding report. Work from the frozen master, not a derivative. Submit native pixels, exact integer review boards, state definitions, Engineering mappings, source-preservation evidence, validation, and hashes. Ube/HQ reviews the candidate; only an explicit decision can make it `APPROVED MASTER`, and only an explicit freeze can make it `FROZEN`. Runtime integration is a separate Engineering decision.
+
+Before retirement, update as applicable: `START_HERE.md`, `CURRENT_HANDOFF.md`, `CURRENT_OPEN_ART_GAPS.md` / `.json`, `ASSET_REGISTER.json`, `APPROVED_ASSET_INDEX.md`, `APPROVAL_LEDGER.md`, Ship Engineering maps, frozen totals, and the recommended next priority. Run the repository/art validation, verify every frozen asset hash, verify no runtime changes, perform the cold-start test, commit only scoped Art Department documentation/assets, push, and verify a clean tree.
+
+The current handoff says **STOP**: ART SHIP 006 is frozen/complete and no new Ship is authorized by this repository state.
