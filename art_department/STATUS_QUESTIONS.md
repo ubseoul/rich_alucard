@@ -8,3 +8,7 @@
 7. Repository documents describe later Engineering acceptance. Art acceptance and deployment state are different. No new live/deployment verification was performed in this task; use the repository release runbook for that scope.
 
 No question above was resolved by aesthetic inference. Unknown does not mean rejected. No missing evidence authorizes more art.
+
+## ART SHIP 005 closure
+
+ART SHIP 005 has no unresolved acceptance question: all 52 named native candidates received UBE TASTE PASS and explicit HQ promotion authority and are APPROVED MASTER / FROZEN. This does not resolve the separate historical `STATUS UNKNOWN — HQ REVIEW REQUIRED` entries elsewhere in the register. No Art Ship is active.

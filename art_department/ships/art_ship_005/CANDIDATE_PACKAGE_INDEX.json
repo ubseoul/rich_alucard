@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "ship_id": "ART SHIP 005",
+  "packages": [
+    {
+      "package_id": "art_ship_005_open_chapter_candidate_wave_ab",
+      "native_asset_count": 12,
+      "candidate_manifest_sha256": "7d67365e31b5b9511f61eb45bb93ae204d98fd27256e8fe7c158873767439ecb",
+      "engineering_asset_map_sha256": "399cd6926c675f55bf04dca54b0167ee923812ef3f212207a97da9cfa3c8d8b7",
+      "validation_report_sha256": "94b85580dff3e9222828e59636c5acf5f96c8b9b960fac07b1affc82972f1a6a",
+      "validation_result": "PASS"
+    },
+    {
+      "package_id": "art_ship_005_open_chapter_candidate_wave_c",
+      "native_asset_count": 4,
+      "candidate_manifest_sha256": "425471b472d58311fe70c0afc2b6e9d1a2452dfa029b76b1f19abd3df5840f97",
+      "engineering_asset_map_sha256": "31bd5d99c79ed3a9ff5cb4c88987d04232d5de9807c9d1dec8ef5747b7b50838",
+      "validation_report_sha256": "5e1fb26c4dddd8bd7c2564195c9002b5831c5d299f030d695422e7585ad8387c",
+      "validation_result": "PASS"
+    },
+    {
+      "package_id": "art_ship_005_open_chapter_candidate_wave_d",
+      "native_asset_count": 8,
+      "candidate_manifest_sha256": "a7db9618cdcebf44117bba4857fa1d6f59edacda4dc7e819b6fe6768ab6b8392",
+      "engineering_asset_map_sha256": "b382a73386324916647e133027a4d46adc76bbfadef361f3ffb1523b3540c4d7",
+      "validation_report_sha256": "c8869420d61b559024c11821b9b1a1ced613d9d09806f5db6d9a2413e7b678b7",
+      "validation_result": "PASS"
+    },
+    {
+      "package_id": "art_ship_005_open_chapter_candidate_wave_e",
+      "native_asset_count": 8,
+      "candidate_manifest_sha256": "8af7ea95e33ef384a6c3ba5c5813c81723bb15f16031c1aa6764b1c1a8d024df",
+      "engineering_asset_map_sha256": "d78e398e4df5b354be048855006a8f78472b121edeee4cb9f6c6c4db383b638e",
+      "validation_report_sha256": "2d431fffce4799d661b66f3b58d322ad268739271fab9a264eb71efe2071f27d",
+      "validation_result": "PASS"
+    },
+    {
+      "package_id": "art_ship_005_open_chapter_candidate_wave_f",
+      "native_asset_count": 8,
+      "candidate_manifest_sha256": "13fd42102f0581e830fef1f62386b71c7726164e50f1cfa07bcc179770c37481",
+      "engineering_asset_map_sha256": "792cb94e85beb69c66c9710222be64acc3266a664717b8e78d82db65bb047f21",
+      "validation_report_sha256": "6e441e16bca74889c5075b778d874bad3070bcad5699c31e740d628716833728",
+      "validation_result": "PASS"
+    },
+    {
+      "package_id": "art_ship_005_open_chapter_candidate_wave_g",
+      "native_asset_count": 8,
+      "candidate_manifest_sha256": "d8d4d11a150ae043ed4bf71bfcc2acf9ecf328ac510ac0dfe0e5da3d4df2279c",
+      "engineering_asset_map_sha256": "d595c9a041bf490836e40bce1e521ecda3ca9ff00c12d16e3bd45e02f704a176",
+      "validation_report_sha256": "ddab0fb461dc3d2653b4af5b50f09ffe6f819914e0331fb6e367a97251f410c6",
+      "validation_result": "PASS"
+    },
+    {
+      "package_id": "art_ship_005_open_chapter_candidate_wave_h",
+      "native_asset_count": 4,
+      "candidate_manifest_sha256": "301431092441c0adef7a70e6017fc745ce35b1ff69103331b7bf74de93cac553",
+      "engineering_asset_map_sha256": "0a1c39ae92d2b5b3c4538e7246d90d81124ba5c49e62be7b95d2592a751fe215",
+      "validation_report_sha256": "b894fbe0bd07ce96589d828f8c4fa8b158af7e39281ff20b9ad2baca64839eb8",
+      "validation_result": "PASS"
+    }
+  ],
+  "total_native_candidates": 52,
+  "status": "ACCEPTED / PROMOTED / FROZEN"
+}

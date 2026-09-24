@@ -13,3 +13,10 @@ All paths below are repository-root-relative; use ../../ from this index to open
 - [assets/property/ui/property_ownership_thumbnail_96x96.png](../../assets/property/ui/property_ownership_thumbnail_96x96.png) — APPROVED MASTER / FROZEN; [96, 96]; exterior-derived ownership-card image.
 - [assets/revenge_mass_02.png](../../assets/revenge_mass_02.png) — REFERENCE; [96, 96].
 - [assets/vampire_bite_snap_closed.png](../../assets/vampire_bite_snap_closed.png) — REFERENCE; [270, 480].
+
+## ART SHIP 005 prop and creature anchors
+
+- [assets/before_the_fame/props/agege_bread/agege_bread_whole_32x24.png](../../assets/before_the_fame/props/agege_bread/agege_bread_whole_32x24.png) — APPROVED MASTER / FROZEN; [32, 24]; binary-alpha OPEN prop id `agege_bread`.
+- [assets/before_the_fame/props/mazda_egg/blueberry_mazda_egg_32x32.png](../../assets/before_the_fame/props/mazda_egg/blueberry_mazda_egg_32x32.png) — APPROVED MASTER / FROZEN; [32, 32]; binary-alpha OPEN prop id `mazda_egg`.
+- [assets/before_the_fame/props/dragon_maggi_cube/dragon_maggi_cube_24x24.png](../../assets/before_the_fame/props/dragon_maggi_cube/dragon_maggi_cube_24x24.png) — APPROVED MASTER / FROZEN; [24, 24]; binary-alpha OPEN prop id `dragon_maggi_cube`.
+- [assets/before_the_fame/creatures/cat/sphynx_cat_sitting_48x32.png](../../assets/before_the_fame/creatures/cat/sphynx_cat_sitting_48x32.png) — APPROVED MASTER / FROZEN; [48, 32]; binary-alpha OPEN creature id `sphynx_cat`.

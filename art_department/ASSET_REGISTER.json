@@ -2461,6 +2461,1581 @@
         255
       ],
       "freeze_scope": "Exact three-cell sheet only; individual masters remain placement authority."
+    },
+    {
+      "path": "assets/before_the_fame/characters/bonesworth/sir_bonesworth_hungover_80x96.png",
+      "sha256": "42b1acd8247bf855f73cce165246c2b4079ae1f2070f137800ffe89997f7cafe",
+      "role": "approved production character anchor; OPEN id bonesworth",
+      "status": "FROZEN",
+      "default_style_reference": true,
+      "approval_evidence": [
+        "art_department/APPROVAL_LEDGER.md",
+        "art_department/ships/art_ship_005/ART_SHIP_MANIFEST.json",
+        "art_department/ships/art_ship_005/HQ_DECISION.md"
+      ],
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "ship_id": "ART SHIP 005",
+      "open_id": "bonesworth",
+      "category": "CHARACTER",
+      "state": "accepted anchor pose represented by the canonical filename",
+      "source_anchor": [
+        40,
+        88
+      ],
+      "presentation_scale": 1.85,
+      "approval_status": "APPROVED MASTER",
+      "alpha": [
+        0,
+        255
+      ],
+      "freeze_scope": "Exact native pixels for OPEN character id bonesworth, accepted anchor pose, 80x96 cell and source contact (40,88) only; no alternate states, animation, runtime integration or proportional reinterpretation."
+    },
+    {
+      "path": "assets/before_the_fame/characters/bruce_loose/bruce_loose_neutral_80x96.png",
+      "sha256": "f3f21e5b8919f46b84a918a32abdd77e07a632dc5fcdcc6c12db9e310f278d46",
+      "role": "approved production character anchor; OPEN id bruce_loose",
+      "status": "FROZEN",
+      "default_style_reference": true,
+      "approval_evidence": [
+        "art_department/APPROVAL_LEDGER.md",
+        "art_department/ships/art_ship_005/ART_SHIP_MANIFEST.json",
+        "art_department/ships/art_ship_005/HQ_DECISION.md"
+      ],
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "ship_id": "ART SHIP 005",
+      "open_id": "bruce_loose",
+      "category": "CHARACTER",
+      "state": "accepted anchor pose represented by the canonical filename",
+      "source_anchor": [
+        40,
+        88
+      ],
+      "presentation_scale": 1.85,
+      "approval_status": "APPROVED MASTER",
+      "alpha": [
+        0,
+        255
+      ],
+      "freeze_scope": "Exact native pixels for OPEN character id bruce_loose, accepted anchor pose, 80x96 cell and source contact (40,88) only; no alternate states, animation, runtime integration or proportional reinterpretation."
+    },
+    {
+      "path": "assets/before_the_fame/characters/bunmi/bunmi_neutral_80x96.png",
+      "sha256": "72b14eed28c57c93343a4fbe2c40e23ac99e4006f53cc57484f1d58e73cad414",
+      "role": "approved production character anchor; OPEN id bunmi",
+      "status": "FROZEN",
+      "default_style_reference": true,
+      "approval_evidence": [
+        "art_department/APPROVAL_LEDGER.md",
+        "art_department/ships/art_ship_005/ART_SHIP_MANIFEST.json",
+        "art_department/ships/art_ship_005/HQ_DECISION.md"
+      ],
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "ship_id": "ART SHIP 005",
+      "open_id": "bunmi",
+      "category": "CHARACTER",
+      "state": "accepted anchor pose represented by the canonical filename",
+      "source_anchor": [
+        40,
+        88
+      ],
+      "presentation_scale": 1.85,
+      "approval_status": "APPROVED MASTER",
+      "alpha": [
+        0,
+        255
+      ],
+      "freeze_scope": "Exact native pixels for OPEN character id bunmi, accepted anchor pose, 80x96 cell and source contact (40,88) only; no alternate states, animation, runtime integration or proportional reinterpretation."
+    },
+    {
+      "path": "assets/before_the_fame/characters/coffe/coffe_neutral_80x96.png",
+      "sha256": "d8c386770d3b57a7d0409b561aee02f62e92396dc12852510c470b04ec17e0dd",
+      "role": "approved production character anchor; OPEN id coffe",
+      "status": "FROZEN",
+      "default_style_reference": true,
+      "approval_evidence": [
+        "art_department/APPROVAL_LEDGER.md",
+        "art_department/ships/art_ship_005/ART_SHIP_MANIFEST.json",
+        "art_department/ships/art_ship_005/HQ_DECISION.md"
+      ],
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "ship_id": "ART SHIP 005",
+      "open_id": "coffe",
+      "category": "CHARACTER",
+      "state": "accepted anchor pose represented by the canonical filename",
+      "source_anchor": [
+        40,
+        88
+      ],
+      "presentation_scale": 1.85,
+      "approval_status": "APPROVED MASTER",
+      "alpha": [
+        0,
+        255
+      ],
+      "freeze_scope": "Exact native pixels for OPEN character id coffe, accepted anchor pose, 80x96 cell and source contact (40,88) only; no alternate states, animation, runtime integration or proportional reinterpretation."
+    },
+    {
+      "path": "assets/before_the_fame/characters/deacon_brass/deacon_brass_neutral_80x96.png",
+      "sha256": "746fae3011c67286822941ba67505bb063b8c695169a2baf23e4eb84783bfdce",
+      "role": "approved production character anchor; OPEN id deacon_brass",
+      "status": "FROZEN",
+      "default_style_reference": true,
+      "approval_evidence": [
+        "art_department/APPROVAL_LEDGER.md",
+        "art_department/ships/art_ship_005/ART_SHIP_MANIFEST.json",
+        "art_department/ships/art_ship_005/HQ_DECISION.md"
+      ],
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "ship_id": "ART SHIP 005",
+      "open_id": "deacon_brass",
+      "category": "CHARACTER",
+      "state": "accepted anchor pose represented by the canonical filename",
+      "source_anchor": [
+        40,
+        88
+      ],
+      "presentation_scale": 1.85,
+      "approval_status": "APPROVED MASTER",
+      "alpha": [
+        0,
+        255
+      ],
+      "freeze_scope": "Exact native pixels for OPEN character id deacon_brass, accepted anchor pose, 80x96 cell and source contact (40,88) only; no alternate states, animation, runtime integration or proportional reinterpretation."
+    },
+    {
+      "path": "assets/before_the_fame/characters/dre/dre_neutral_80x96.png",
+      "sha256": "6945490fb4e31dd01afe594ee061a50d8ee354f92a073936c031e0b32f1e1875",
+      "role": "approved production character anchor; OPEN id dre",
+      "status": "FROZEN",
+      "default_style_reference": true,
+      "approval_evidence": [
+        "art_department/APPROVAL_LEDGER.md",
+        "art_department/ships/art_ship_005/ART_SHIP_MANIFEST.json",
+        "art_department/ships/art_ship_005/HQ_DECISION.md"
+      ],
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "ship_id": "ART SHIP 005",
+      "open_id": "dre",
+      "category": "CHARACTER",
+      "state": "accepted anchor pose represented by the canonical filename",
+      "source_anchor": [
+        40,
+        88
+      ],
+      "presentation_scale": 1.85,
+      "approval_status": "APPROVED MASTER",
+      "alpha": [
+        0,
+        255
+      ],
+      "freeze_scope": "Exact native pixels for OPEN character id dre, accepted anchor pose, 80x96 cell and source contact (40,88) only; no alternate states, animation, runtime integration or proportional reinterpretation."
+    },
+    {
+      "path": "assets/before_the_fame/characters/hilt/hilt_neutral_80x96.png",
+      "sha256": "e179293708207d5dbe7892dc71bd120ce270490c22141aaf6245d5bf4b46a4e9",
+      "role": "approved production character anchor; OPEN id hilt",
+      "status": "FROZEN",
+      "default_style_reference": true,
+      "approval_evidence": [
+        "art_department/APPROVAL_LEDGER.md",
+        "art_department/ships/art_ship_005/ART_SHIP_MANIFEST.json",
+        "art_department/ships/art_ship_005/HQ_DECISION.md"
+      ],
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "ship_id": "ART SHIP 005",
+      "open_id": "hilt",
+      "category": "CHARACTER",
+      "state": "accepted anchor pose represented by the canonical filename",
+      "source_anchor": [
+        40,
+        88
+      ],
+      "presentation_scale": 1.85,
+      "approval_status": "APPROVED MASTER",
+      "alpha": [
+        0,
+        255
+      ],
+      "freeze_scope": "Exact native pixels for OPEN character id hilt, accepted anchor pose, 80x96 cell and source contact (40,88) only; no alternate states, animation, runtime integration or proportional reinterpretation."
+    },
+    {
+      "path": "assets/before_the_fame/characters/hina/hina_neutral_80x96.png",
+      "sha256": "c7bacc6885281fd0bb41cf7f633613fb88b8176d164b75fe56cf71a05356c23b",
+      "role": "approved production character anchor; OPEN id hina",
+      "status": "FROZEN",
+      "default_style_reference": true,
+      "approval_evidence": [
+        "art_department/APPROVAL_LEDGER.md",
+        "art_department/ships/art_ship_005/ART_SHIP_MANIFEST.json",
+        "art_department/ships/art_ship_005/HQ_DECISION.md"
+      ],
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "ship_id": "ART SHIP 005",
+      "open_id": "hina",
+      "category": "CHARACTER",
+      "state": "accepted anchor pose represented by the canonical filename",
+      "source_anchor": [
+        40,
+        88
+      ],
+      "presentation_scale": 1.85,
+      "approval_status": "APPROVED MASTER",
+      "alpha": [
+        0,
+        255
+      ],
+      "freeze_scope": "Exact native pixels for OPEN character id hina, accepted anchor pose, 80x96 cell and source contact (40,88) only; no alternate states, animation, runtime integration or proportional reinterpretation."
+    },
+    {
+      "path": "assets/before_the_fame/characters/iron_jaw/iron_jaw_neutral_80x96.png",
+      "sha256": "2b0ebc264fbb9a38f17e048897c1a203072f1bbafa76cf47da866b71bfb1bd61",
+      "role": "approved production character anchor; OPEN id iron_jaw",
+      "status": "FROZEN",
+      "default_style_reference": true,
+      "approval_evidence": [
+        "art_department/APPROVAL_LEDGER.md",
+        "art_department/ships/art_ship_005/ART_SHIP_MANIFEST.json",
+        "art_department/ships/art_ship_005/HQ_DECISION.md"
+      ],
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "ship_id": "ART SHIP 005",
+      "open_id": "iron_jaw",
+      "category": "CHARACTER",
+      "state": "accepted anchor pose represented by the canonical filename",
+      "source_anchor": [
+        40,
+        88
+      ],
+      "presentation_scale": 1.85,
+      "approval_status": "APPROVED MASTER",
+      "alpha": [
+        0,
+        255
+      ],
+      "freeze_scope": "Exact native pixels for OPEN character id iron_jaw, accepted anchor pose, 80x96 cell and source contact (40,88) only; no alternate states, animation, runtime integration or proportional reinterpretation."
+    },
+    {
+      "path": "assets/before_the_fame/characters/june/june_neutral_80x96.png",
+      "sha256": "89bae51dba181a599446150d1df64494e71ad0646b3782ce1fde3738eb5d5c76",
+      "role": "approved production character anchor; OPEN id june",
+      "status": "FROZEN",
+      "default_style_reference": true,
+      "approval_evidence": [
+        "art_department/APPROVAL_LEDGER.md",
+        "art_department/ships/art_ship_005/ART_SHIP_MANIFEST.json",
+        "art_department/ships/art_ship_005/HQ_DECISION.md"
+      ],
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "ship_id": "ART SHIP 005",
+      "open_id": "june",
+      "category": "CHARACTER",
+      "state": "accepted anchor pose represented by the canonical filename",
+      "source_anchor": [
+        40,
+        88
+      ],
+      "presentation_scale": 1.85,
+      "approval_status": "APPROVED MASTER",
+      "alpha": [
+        0,
+        255
+      ],
+      "freeze_scope": "Exact native pixels for OPEN character id june, accepted anchor pose, 80x96 cell and source contact (40,88) only; no alternate states, animation, runtime integration or proportional reinterpretation."
+    },
+    {
+      "path": "assets/before_the_fame/characters/kaede/kaede_neutral_80x96.png",
+      "sha256": "74aab07edffac683482517ca48fb0ffafc63ad9492c9adf14de88d4d442a3251",
+      "role": "approved production character anchor; OPEN id kaede",
+      "status": "FROZEN",
+      "default_style_reference": true,
+      "approval_evidence": [
+        "art_department/APPROVAL_LEDGER.md",
+        "art_department/ships/art_ship_005/ART_SHIP_MANIFEST.json",
+        "art_department/ships/art_ship_005/HQ_DECISION.md"
+      ],
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "ship_id": "ART SHIP 005",
+      "open_id": "kaede",
+      "category": "CHARACTER",
+      "state": "accepted anchor pose represented by the canonical filename",
+      "source_anchor": [
+        40,
+        88
+      ],
+      "presentation_scale": 1.85,
+      "approval_status": "APPROVED MASTER",
+      "alpha": [
+        0,
+        255
+      ],
+      "freeze_scope": "Exact native pixels for OPEN character id kaede, accepted anchor pose, 80x96 cell and source contact (40,88) only; no alternate states, animation, runtime integration or proportional reinterpretation."
+    },
+    {
+      "path": "assets/before_the_fame/characters/kevin/kagebunshin_kevin_neutral_80x96.png",
+      "sha256": "a009d371273a5d6d617eb05bb6582f8007fdfaab46b0c5775725c0ba3a5288c2",
+      "role": "approved production character anchor; OPEN id kevin",
+      "status": "FROZEN",
+      "default_style_reference": true,
+      "approval_evidence": [
+        "art_department/APPROVAL_LEDGER.md",
+        "art_department/ships/art_ship_005/ART_SHIP_MANIFEST.json",
+        "art_department/ships/art_ship_005/HQ_DECISION.md"
+      ],
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "ship_id": "ART SHIP 005",
+      "open_id": "kevin",
+      "category": "CHARACTER",
+      "state": "accepted anchor pose represented by the canonical filename",
+      "source_anchor": [
+        40,
+        88
+      ],
+      "presentation_scale": 1.85,
+      "approval_status": "APPROVED MASTER",
+      "alpha": [
+        0,
+        255
+      ],
+      "freeze_scope": "Exact native pixels for OPEN character id kevin, accepted anchor pose, 80x96 cell and source contact (40,88) only; no alternate states, animation, runtime integration or proportional reinterpretation."
+    },
+    {
+      "path": "assets/before_the_fame/characters/kiki/kiki_neutral_work_80x96.png",
+      "sha256": "fdc064d97ecf53e99b6f3a8bfea850609901f27b017dce0bccbea0b4882f8054",
+      "role": "approved production character anchor; OPEN id kiki",
+      "status": "FROZEN",
+      "default_style_reference": true,
+      "approval_evidence": [
+        "art_department/APPROVAL_LEDGER.md",
+        "art_department/ships/art_ship_005/ART_SHIP_MANIFEST.json",
+        "art_department/ships/art_ship_005/HQ_DECISION.md"
+      ],
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "ship_id": "ART SHIP 005",
+      "open_id": "kiki",
+      "category": "CHARACTER",
+      "state": "accepted anchor pose represented by the canonical filename",
+      "source_anchor": [
+        40,
+        88
+      ],
+      "presentation_scale": 1.85,
+      "approval_status": "APPROVED MASTER",
+      "alpha": [
+        0,
+        255
+      ],
+      "freeze_scope": "Exact native pixels for OPEN character id kiki, accepted anchor pose, 80x96 cell and source contact (40,88) only; no alternate states, animation, runtime integration or proportional reinterpretation."
+    },
+    {
+      "path": "assets/before_the_fame/characters/lil_smack/lil_smack_eating_80x96.png",
+      "sha256": "7640a3607d61bfdf28fd1169b80e784614a2376ff28fb2ee0277f80485fab0d8",
+      "role": "approved production character anchor; OPEN id lil_smack",
+      "status": "FROZEN",
+      "default_style_reference": true,
+      "approval_evidence": [
+        "art_department/APPROVAL_LEDGER.md",
+        "art_department/ships/art_ship_005/ART_SHIP_MANIFEST.json",
+        "art_department/ships/art_ship_005/HQ_DECISION.md"
+      ],
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "ship_id": "ART SHIP 005",
+      "open_id": "lil_smack",
+      "category": "CHARACTER",
+      "state": "accepted anchor pose represented by the canonical filename",
+      "source_anchor": [
+        40,
+        88
+      ],
+      "presentation_scale": 1.85,
+      "approval_status": "APPROVED MASTER",
+      "alpha": [
+        0,
+        255
+      ],
+      "freeze_scope": "Exact native pixels for OPEN character id lil_smack, accepted anchor pose, 80x96 cell and source contact (40,88) only; no alternate states, animation, runtime integration or proportional reinterpretation."
+    },
+    {
+      "path": "assets/before_the_fame/characters/mazda_human/blueberry_mazda_human_neutral_80x96.png",
+      "sha256": "2e2c7246ca6d1dc583c814659bbb0d0df18688db5c86adcad6c6767ddb979290",
+      "role": "approved production character anchor; OPEN id mazda_human",
+      "status": "FROZEN",
+      "default_style_reference": true,
+      "approval_evidence": [
+        "art_department/APPROVAL_LEDGER.md",
+        "art_department/ships/art_ship_005/ART_SHIP_MANIFEST.json",
+        "art_department/ships/art_ship_005/HQ_DECISION.md"
+      ],
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "ship_id": "ART SHIP 005",
+      "open_id": "mazda_human",
+      "category": "CHARACTER",
+      "state": "accepted anchor pose represented by the canonical filename",
+      "source_anchor": [
+        40,
+        88
+      ],
+      "presentation_scale": 1.85,
+      "approval_status": "APPROVED MASTER",
+      "alpha": [
+        0,
+        255
+      ],
+      "freeze_scope": "Exact native pixels for OPEN character id mazda_human, accepted anchor pose, 80x96 cell and source contact (40,88) only; no alternate states, animation, runtime integration or proportional reinterpretation."
+    },
+    {
+      "path": "assets/before_the_fame/characters/moonie/moonie_dorsey_neutral_80x96.png",
+      "sha256": "28106700746dec289e896894d1be6ebf5e23cefc26bd15b58367836b17c43e49",
+      "role": "approved production character anchor; OPEN id moonie",
+      "status": "FROZEN",
+      "default_style_reference": true,
+      "approval_evidence": [
+        "art_department/APPROVAL_LEDGER.md",
+        "art_department/ships/art_ship_005/ART_SHIP_MANIFEST.json",
+        "art_department/ships/art_ship_005/HQ_DECISION.md"
+      ],
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "ship_id": "ART SHIP 005",
+      "open_id": "moonie",
+      "category": "CHARACTER",
+      "state": "accepted anchor pose represented by the canonical filename",
+      "source_anchor": [
+        40,
+        88
+      ],
+      "presentation_scale": 1.85,
+      "approval_status": "APPROVED MASTER",
+      "alpha": [
+        0,
+        255
+      ],
+      "freeze_scope": "Exact native pixels for OPEN character id moonie, accepted anchor pose, 80x96 cell and source contact (40,88) only; no alternate states, animation, runtime integration or proportional reinterpretation."
+    },
+    {
+      "path": "assets/before_the_fame/characters/okada/mr_okada_neutral_80x96.png",
+      "sha256": "f1bc8d82afa52ba4cab4ae90f07e3c865756ce983022beb122a99f8a7d726010",
+      "role": "approved production character anchor; OPEN id okada",
+      "status": "FROZEN",
+      "default_style_reference": true,
+      "approval_evidence": [
+        "art_department/APPROVAL_LEDGER.md",
+        "art_department/ships/art_ship_005/ART_SHIP_MANIFEST.json",
+        "art_department/ships/art_ship_005/HQ_DECISION.md"
+      ],
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "ship_id": "ART SHIP 005",
+      "open_id": "okada",
+      "category": "CHARACTER",
+      "state": "accepted anchor pose represented by the canonical filename",
+      "source_anchor": [
+        40,
+        88
+      ],
+      "presentation_scale": 1.85,
+      "approval_status": "APPROVED MASTER",
+      "alpha": [
+        0,
+        255
+      ],
+      "freeze_scope": "Exact native pixels for OPEN character id mr_okada, accepted anchor pose, 80x96 cell and source contact (40,88) only; no alternate states, animation, runtime integration or proportional reinterpretation.",
+      "candidate_package_id": "mr_okada"
+    },
+    {
+      "path": "assets/before_the_fame/characters/ms_patrice/ms_patrice_neutral_80x96.png",
+      "sha256": "b565bd37630f630080892acb4e6c48498b314d168778d31d0d93d7a65fdde5a3",
+      "role": "approved production character anchor; OPEN id ms_patrice",
+      "status": "FROZEN",
+      "default_style_reference": true,
+      "approval_evidence": [
+        "art_department/APPROVAL_LEDGER.md",
+        "art_department/ships/art_ship_005/ART_SHIP_MANIFEST.json",
+        "art_department/ships/art_ship_005/HQ_DECISION.md"
+      ],
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "ship_id": "ART SHIP 005",
+      "open_id": "ms_patrice",
+      "category": "CHARACTER",
+      "state": "accepted anchor pose represented by the canonical filename",
+      "source_anchor": [
+        40,
+        88
+      ],
+      "presentation_scale": 1.85,
+      "approval_status": "APPROVED MASTER",
+      "alpha": [
+        0,
+        255
+      ],
+      "freeze_scope": "Exact native pixels for OPEN character id ms_patrice, accepted anchor pose, 80x96 cell and source contact (40,88) only; no alternate states, animation, runtime integration or proportional reinterpretation."
+    },
+    {
+      "path": "assets/before_the_fame/characters/nightshade/nightshade_neutral_80x96.png",
+      "sha256": "09d8c0f67cff92740e292cf86a5d223bb055a241bf6e635e274d7baae85eb04c",
+      "role": "approved production character anchor; OPEN id nightshade",
+      "status": "FROZEN",
+      "default_style_reference": true,
+      "approval_evidence": [
+        "art_department/APPROVAL_LEDGER.md",
+        "art_department/ships/art_ship_005/ART_SHIP_MANIFEST.json",
+        "art_department/ships/art_ship_005/HQ_DECISION.md"
+      ],
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "ship_id": "ART SHIP 005",
+      "open_id": "nightshade",
+      "category": "CHARACTER",
+      "state": "accepted anchor pose represented by the canonical filename",
+      "source_anchor": [
+        40,
+        88
+      ],
+      "presentation_scale": 1.85,
+      "approval_status": "APPROVED MASTER",
+      "alpha": [
+        0,
+        255
+      ],
+      "freeze_scope": "Exact native pixels for OPEN character id nightshade, accepted anchor pose, 80x96 cell and source contact (40,88) only; no alternate states, animation, runtime integration or proportional reinterpretation."
+    },
+    {
+      "path": "assets/before_the_fame/characters/nneka/nneka_neutral_80x96.png",
+      "sha256": "cdf57badf9a9961af5a971d9c222c95152343d1f2debcd6959eb96615b83e6ef",
+      "role": "approved production character anchor; OPEN id nneka",
+      "status": "FROZEN",
+      "default_style_reference": true,
+      "approval_evidence": [
+        "art_department/APPROVAL_LEDGER.md",
+        "art_department/ships/art_ship_005/ART_SHIP_MANIFEST.json",
+        "art_department/ships/art_ship_005/HQ_DECISION.md"
+      ],
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "ship_id": "ART SHIP 005",
+      "open_id": "nneka",
+      "category": "CHARACTER",
+      "state": "accepted anchor pose represented by the canonical filename",
+      "source_anchor": [
+        40,
+        88
+      ],
+      "presentation_scale": 1.85,
+      "approval_status": "APPROVED MASTER",
+      "alpha": [
+        0,
+        255
+      ],
+      "freeze_scope": "Exact native pixels for OPEN character id nneka, accepted anchor pose, 80x96 cell and source contact (40,88) only; no alternate states, animation, runtime integration or proportional reinterpretation."
+    },
+    {
+      "path": "assets/before_the_fame/characters/phil/power_level_phil_charging_day1_80x96.png",
+      "sha256": "fdbbe7b0665dc1ff63e33b7774a2976963a8c9ef5e4b408fc86d581bae2cfa8e",
+      "role": "approved production character anchor; OPEN id phil",
+      "status": "FROZEN",
+      "default_style_reference": true,
+      "approval_evidence": [
+        "art_department/APPROVAL_LEDGER.md",
+        "art_department/ships/art_ship_005/ART_SHIP_MANIFEST.json",
+        "art_department/ships/art_ship_005/HQ_DECISION.md"
+      ],
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "ship_id": "ART SHIP 005",
+      "open_id": "phil",
+      "category": "CHARACTER",
+      "state": "accepted anchor pose represented by the canonical filename",
+      "source_anchor": [
+        40,
+        88
+      ],
+      "presentation_scale": 1.85,
+      "approval_status": "APPROVED MASTER",
+      "alpha": [
+        0,
+        255
+      ],
+      "freeze_scope": "Exact native pixels for OPEN character id phil, accepted anchor pose, 80x96 cell and source contact (40,88) only; no alternate states, animation, runtime integration or proportional reinterpretation."
+    },
+    {
+      "path": "assets/before_the_fame/characters/pinky/pinky_arms_crossed_80x96.png",
+      "sha256": "ce8cb2b12f2f85730fb637f3bb751c3876fce8747a38a2ba28021e7bcea1925d",
+      "role": "approved production character anchor; OPEN id pinky",
+      "status": "FROZEN",
+      "default_style_reference": true,
+      "approval_evidence": [
+        "art_department/APPROVAL_LEDGER.md",
+        "art_department/ships/art_ship_005/ART_SHIP_MANIFEST.json",
+        "art_department/ships/art_ship_005/HQ_DECISION.md"
+      ],
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "ship_id": "ART SHIP 005",
+      "open_id": "pinky",
+      "category": "CHARACTER",
+      "state": "accepted anchor pose represented by the canonical filename",
+      "source_anchor": [
+        40,
+        88
+      ],
+      "presentation_scale": 1.85,
+      "approval_status": "APPROVED MASTER",
+      "alpha": [
+        0,
+        255
+      ],
+      "freeze_scope": "Exact native pixels for OPEN character id pinky, accepted anchor pose, 80x96 cell and source contact (40,88) only; no alternate states, animation, runtime integration or proportional reinterpretation."
+    },
+    {
+      "path": "assets/before_the_fame/characters/reggie/reggie_neutral_80x96.png",
+      "sha256": "be0a959b785da1856a0b39ec756d6f3454c61486e4b1a93952e1d39cef7a1d94",
+      "role": "approved production character anchor; OPEN id reggie",
+      "status": "FROZEN",
+      "default_style_reference": true,
+      "approval_evidence": [
+        "art_department/APPROVAL_LEDGER.md",
+        "art_department/ships/art_ship_005/ART_SHIP_MANIFEST.json",
+        "art_department/ships/art_ship_005/HQ_DECISION.md"
+      ],
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "ship_id": "ART SHIP 005",
+      "open_id": "reggie",
+      "category": "CHARACTER",
+      "state": "accepted anchor pose represented by the canonical filename",
+      "source_anchor": [
+        40,
+        88
+      ],
+      "presentation_scale": 1.85,
+      "approval_status": "APPROVED MASTER",
+      "alpha": [
+        0,
+        255
+      ],
+      "freeze_scope": "Exact native pixels for OPEN character id reggie, accepted anchor pose, 80x96 cell and source contact (40,88) only; no alternate states, animation, runtime integration or proportional reinterpretation."
+    },
+    {
+      "path": "assets/before_the_fame/characters/tasha/tasha_tastemaker_filming_80x96.png",
+      "sha256": "744c37144d01cec4eb8e4bebf06f1eb664a8326772178f0795b35d02360096df",
+      "role": "approved production character anchor; OPEN id tasha",
+      "status": "FROZEN",
+      "default_style_reference": true,
+      "approval_evidence": [
+        "art_department/APPROVAL_LEDGER.md",
+        "art_department/ships/art_ship_005/ART_SHIP_MANIFEST.json",
+        "art_department/ships/art_ship_005/HQ_DECISION.md"
+      ],
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "ship_id": "ART SHIP 005",
+      "open_id": "tasha",
+      "category": "CHARACTER",
+      "state": "accepted anchor pose represented by the canonical filename",
+      "source_anchor": [
+        40,
+        88
+      ],
+      "presentation_scale": 1.85,
+      "approval_status": "APPROVED MASTER",
+      "alpha": [
+        0,
+        255
+      ],
+      "freeze_scope": "Exact native pixels for OPEN character id tasha, accepted anchor pose, 80x96 cell and source contact (40,88) only; no alternate states, animation, runtime integration or proportional reinterpretation."
+    },
+    {
+      "path": "assets/before_the_fame/characters/tristan/tristan_neutral_80x96.png",
+      "sha256": "2f430846238a4d02f139e72d1ce94f2086519ed0775d74d50bcc9fa3ad57e36d",
+      "role": "approved production character anchor; OPEN id tristan",
+      "status": "FROZEN",
+      "default_style_reference": true,
+      "approval_evidence": [
+        "art_department/APPROVAL_LEDGER.md",
+        "art_department/ships/art_ship_005/ART_SHIP_MANIFEST.json",
+        "art_department/ships/art_ship_005/HQ_DECISION.md"
+      ],
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "ship_id": "ART SHIP 005",
+      "open_id": "tristan",
+      "category": "CHARACTER",
+      "state": "accepted anchor pose represented by the canonical filename",
+      "source_anchor": [
+        40,
+        88
+      ],
+      "presentation_scale": 1.85,
+      "approval_status": "APPROVED MASTER",
+      "alpha": [
+        0,
+        255
+      ],
+      "freeze_scope": "Exact native pixels for OPEN character id tristan, accepted anchor pose, 80x96 cell and source contact (40,88) only; no alternate states, animation, runtime integration or proportional reinterpretation."
+    },
+    {
+      "path": "assets/before_the_fame/characters/tunde/tunde_neutral_80x96.png",
+      "sha256": "12b9fa058d82caed91fc89b5fa6c3072875919239b107d79a477623e4de99ac9",
+      "role": "approved production character anchor; OPEN id tunde",
+      "status": "FROZEN",
+      "default_style_reference": true,
+      "approval_evidence": [
+        "art_department/APPROVAL_LEDGER.md",
+        "art_department/ships/art_ship_005/ART_SHIP_MANIFEST.json",
+        "art_department/ships/art_ship_005/HQ_DECISION.md"
+      ],
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "ship_id": "ART SHIP 005",
+      "open_id": "tunde",
+      "category": "CHARACTER",
+      "state": "accepted anchor pose represented by the canonical filename",
+      "source_anchor": [
+        40,
+        88
+      ],
+      "presentation_scale": 1.85,
+      "approval_status": "APPROVED MASTER",
+      "alpha": [
+        0,
+        255
+      ],
+      "freeze_scope": "Exact native pixels for OPEN character id tunde, accepted anchor pose, 80x96 cell and source contact (40,88) only; no alternate states, animation, runtime integration or proportional reinterpretation."
+    },
+    {
+      "path": "assets/before_the_fame/characters/uncle_sunday/uncle_sunday_neutral_80x96.png",
+      "sha256": "79ee0ada6bbc4044180fefbd8371ee7ce16d2aa1eeaba998e83c471371ee4f63",
+      "role": "approved production character anchor; OPEN id uncle_sunday",
+      "status": "FROZEN",
+      "default_style_reference": true,
+      "approval_evidence": [
+        "art_department/APPROVAL_LEDGER.md",
+        "art_department/ships/art_ship_005/ART_SHIP_MANIFEST.json",
+        "art_department/ships/art_ship_005/HQ_DECISION.md"
+      ],
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "ship_id": "ART SHIP 005",
+      "open_id": "uncle_sunday",
+      "category": "CHARACTER",
+      "state": "accepted anchor pose represented by the canonical filename",
+      "source_anchor": [
+        40,
+        88
+      ],
+      "presentation_scale": 1.85,
+      "approval_status": "APPROVED MASTER",
+      "alpha": [
+        0,
+        255
+      ],
+      "freeze_scope": "Exact native pixels for OPEN character id uncle_sunday, accepted anchor pose, 80x96 cell and source contact (40,88) only; no alternate states, animation, runtime integration or proportional reinterpretation."
+    },
+    {
+      "path": "assets/before_the_fame/characters/wispa/wispa_neutral_80x96.png",
+      "sha256": "e80a09c69320db06a2816d64bf515652cd84d4d899df9c438ec00b36c820b319",
+      "role": "approved production character anchor; OPEN id wispa",
+      "status": "FROZEN",
+      "default_style_reference": true,
+      "approval_evidence": [
+        "art_department/APPROVAL_LEDGER.md",
+        "art_department/ships/art_ship_005/ART_SHIP_MANIFEST.json",
+        "art_department/ships/art_ship_005/HQ_DECISION.md"
+      ],
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "ship_id": "ART SHIP 005",
+      "open_id": "wispa",
+      "category": "CHARACTER",
+      "state": "accepted anchor pose represented by the canonical filename",
+      "source_anchor": [
+        40,
+        88
+      ],
+      "presentation_scale": 1.85,
+      "approval_status": "APPROVED MASTER",
+      "alpha": [
+        0,
+        255
+      ],
+      "freeze_scope": "Exact native pixels for OPEN character id wispa, accepted anchor pose, 80x96 cell and source contact (40,88) only; no alternate states, animation, runtime integration or proportional reinterpretation."
+    },
+    {
+      "path": "assets/before_the_fame/creatures/cat/sphynx_cat_sitting_48x32.png",
+      "sha256": "9dd8b1fea654aeda7f956e3c3338c1e58bd7ebfee3738f8e8e3fcf62dffa9b7c",
+      "role": "approved production creature anchor; OPEN id cat",
+      "status": "FROZEN",
+      "default_style_reference": true,
+      "approval_evidence": [
+        "art_department/APPROVAL_LEDGER.md",
+        "art_department/ships/art_ship_005/ART_SHIP_MANIFEST.json",
+        "art_department/ships/art_ship_005/HQ_DECISION.md"
+      ],
+      "dimensions": [
+        48,
+        32
+      ],
+      "mode": "RGBA",
+      "ship_id": "ART SHIP 005",
+      "open_id": "cat",
+      "category": "CREATURE",
+      "state": "accepted sitting/base creature identity",
+      "source_anchor": null,
+      "presentation_scale": null,
+      "approval_status": "APPROVED MASTER",
+      "alpha": [
+        0,
+        255
+      ],
+      "freeze_scope": "Exact native transparent pixels for OPEN creature id sphynx_cat and base identity only; no alternate states, animation, runtime scale or integration acceptance.",
+      "candidate_package_id": "sphynx_cat"
+    },
+    {
+      "path": "assets/before_the_fame/environments/armory/armory_behind_church_270x480.png",
+      "sha256": "21db9cea10f6a65b318d58d92d1b8b6dcd2d8a5e7a81e8db1e42873d56207df0",
+      "role": "approved production environment master; OPEN id armory",
+      "status": "FROZEN",
+      "default_style_reference": true,
+      "approval_evidence": [
+        "art_department/APPROVAL_LEDGER.md",
+        "art_department/ships/art_ship_005/ART_SHIP_MANIFEST.json",
+        "art_department/ships/art_ship_005/HQ_DECISION.md"
+      ],
+      "dimensions": [
+        270,
+        480
+      ],
+      "mode": "RGB",
+      "ship_id": "ART SHIP 005",
+      "open_id": "armory",
+      "category": "ENVIRONMENT",
+      "state": "accepted opaque environment anchor",
+      "source_anchor": null,
+      "presentation_scale": null,
+      "approval_status": "APPROVED MASTER",
+      "alpha": [
+        255
+      ],
+      "freeze_scope": "Exact 270x480 opaque environment pixels for OPEN environment id armory and base role only; no overlays, variants, runtime Stage Contract or integration acceptance."
+    },
+    {
+      "path": "assets/before_the_fame/environments/ballroom/hollywood_hotel_ballroom_270x480.png",
+      "sha256": "a7e102ece3ddb2fac3c5df2a285bc9a0934c9b8da45767dbe7952d550e987e3e",
+      "role": "approved production environment master; OPEN id ballroom",
+      "status": "FROZEN",
+      "default_style_reference": true,
+      "approval_evidence": [
+        "art_department/APPROVAL_LEDGER.md",
+        "art_department/ships/art_ship_005/ART_SHIP_MANIFEST.json",
+        "art_department/ships/art_ship_005/HQ_DECISION.md"
+      ],
+      "dimensions": [
+        270,
+        480
+      ],
+      "mode": "RGB",
+      "ship_id": "ART SHIP 005",
+      "open_id": "ballroom",
+      "category": "ENVIRONMENT",
+      "state": "accepted opaque environment anchor",
+      "source_anchor": null,
+      "presentation_scale": null,
+      "approval_status": "APPROVED MASTER",
+      "alpha": [
+        255
+      ],
+      "freeze_scope": "Exact 270x480 opaque environment pixels for OPEN environment id ballroom and base role only; no overlays, variants, runtime Stage Contract or integration acceptance."
+    },
+    {
+      "path": "assets/before_the_fame/environments/blood_bank/lifeblood_blood_bank_270x480.png",
+      "sha256": "91068533f4e0a059b362998c13e8efeaa98dfbabd0f022dde607c4443e201ca7",
+      "role": "approved production environment master; OPEN id blood_bank",
+      "status": "FROZEN",
+      "default_style_reference": true,
+      "approval_evidence": [
+        "art_department/APPROVAL_LEDGER.md",
+        "art_department/ships/art_ship_005/ART_SHIP_MANIFEST.json",
+        "art_department/ships/art_ship_005/HQ_DECISION.md"
+      ],
+      "dimensions": [
+        270,
+        480
+      ],
+      "mode": "RGB",
+      "ship_id": "ART SHIP 005",
+      "open_id": "blood_bank",
+      "category": "ENVIRONMENT",
+      "state": "accepted opaque environment anchor",
+      "source_anchor": null,
+      "presentation_scale": null,
+      "approval_status": "APPROVED MASTER",
+      "alpha": [
+        255
+      ],
+      "freeze_scope": "Exact 270x480 opaque environment pixels for OPEN environment id blood_bank and base role only; no overlays, variants, runtime Stage Contract or integration acceptance."
+    },
+    {
+      "path": "assets/before_the_fame/environments/cafe/bean_there_dead_that_cafe_270x480.png",
+      "sha256": "792932fe68581e580d97fa066ec135860a4caadfed28a3a4b73b1c977c8ce161",
+      "role": "approved production environment master; OPEN id cafe",
+      "status": "FROZEN",
+      "default_style_reference": true,
+      "approval_evidence": [
+        "art_department/APPROVAL_LEDGER.md",
+        "art_department/ships/art_ship_005/ART_SHIP_MANIFEST.json",
+        "art_department/ships/art_ship_005/HQ_DECISION.md"
+      ],
+      "dimensions": [
+        270,
+        480
+      ],
+      "mode": "RGB",
+      "ship_id": "ART SHIP 005",
+      "open_id": "cafe",
+      "category": "ENVIRONMENT",
+      "state": "accepted opaque environment anchor",
+      "source_anchor": null,
+      "presentation_scale": null,
+      "approval_status": "APPROVED MASTER",
+      "alpha": [
+        255
+      ],
+      "freeze_scope": "Exact 270x480 opaque environment pixels for OPEN environment id cafe and base role only; no overlays, variants, runtime Stage Contract or integration acceptance."
+    },
+    {
+      "path": "assets/before_the_fame/environments/castle_exterior/castle_exterior_night_270x480.png",
+      "sha256": "be4417926078581934f48bcfd80dd71a0985ecd0459a5ccbac767a1abd7e2873",
+      "role": "approved production environment master; OPEN id castle_exterior",
+      "status": "FROZEN",
+      "default_style_reference": true,
+      "approval_evidence": [
+        "art_department/APPROVAL_LEDGER.md",
+        "art_department/ships/art_ship_005/ART_SHIP_MANIFEST.json",
+        "art_department/ships/art_ship_005/HQ_DECISION.md"
+      ],
+      "dimensions": [
+        270,
+        480
+      ],
+      "mode": "RGB",
+      "ship_id": "ART SHIP 005",
+      "open_id": "castle_exterior",
+      "category": "ENVIRONMENT",
+      "state": "accepted opaque environment anchor",
+      "source_anchor": null,
+      "presentation_scale": null,
+      "approval_status": "APPROVED MASTER",
+      "alpha": [
+        255
+      ],
+      "freeze_scope": "Exact 270x480 opaque environment pixels for OPEN environment id castle_exterior and base role only; no overlays, variants, runtime Stage Contract or integration acceptance."
+    },
+    {
+      "path": "assets/before_the_fame/environments/catacomb/catacomb_empty_270x480.png",
+      "sha256": "863f1c965a4713c570333e0c10291a56c6fc29ca1008afb76200d832588c3fa4",
+      "role": "approved production environment master; OPEN id catacomb",
+      "status": "FROZEN",
+      "default_style_reference": true,
+      "approval_evidence": [
+        "art_department/APPROVAL_LEDGER.md",
+        "art_department/ships/art_ship_005/ART_SHIP_MANIFEST.json",
+        "art_department/ships/art_ship_005/HQ_DECISION.md"
+      ],
+      "dimensions": [
+        270,
+        480
+      ],
+      "mode": "RGB",
+      "ship_id": "ART SHIP 005",
+      "open_id": "catacomb",
+      "category": "ENVIRONMENT",
+      "state": "accepted opaque environment anchor",
+      "source_anchor": null,
+      "presentation_scale": null,
+      "approval_status": "APPROVED MASTER",
+      "alpha": [
+        255
+      ],
+      "freeze_scope": "Exact 270x480 opaque environment pixels for OPEN environment id catacomb and base role only; no overlays, variants, runtime Stage Contract or integration acceptance."
+    },
+    {
+      "path": "assets/before_the_fame/environments/family_house/family_house_atl_kitchen_270x480.png",
+      "sha256": "1e5394f975438e52b8cacff3a37f5e1b3842f6a9788136f1da513c9787a37edf",
+      "role": "approved production environment master; OPEN id family_house",
+      "status": "FROZEN",
+      "default_style_reference": true,
+      "approval_evidence": [
+        "art_department/APPROVAL_LEDGER.md",
+        "art_department/ships/art_ship_005/ART_SHIP_MANIFEST.json",
+        "art_department/ships/art_ship_005/HQ_DECISION.md"
+      ],
+      "dimensions": [
+        270,
+        480
+      ],
+      "mode": "RGB",
+      "ship_id": "ART SHIP 005",
+      "open_id": "family_house",
+      "category": "ENVIRONMENT",
+      "state": "accepted opaque environment anchor",
+      "source_anchor": null,
+      "presentation_scale": null,
+      "approval_status": "APPROVED MASTER",
+      "alpha": [
+        255
+      ],
+      "freeze_scope": "Exact 270x480 opaque environment pixels for OPEN environment id family_house and base role only; no overlays, variants, runtime Stage Contract or integration acceptance."
+    },
+    {
+      "path": "assets/before_the_fame/environments/fish_tank/castle_fish_tank_room_270x480.png",
+      "sha256": "4d387b85d270163ba84093c2a7fedc85f16464fdfbcbbbc7cd4bcfbc80a183fd",
+      "role": "approved production environment master; OPEN id fish_tank",
+      "status": "FROZEN",
+      "default_style_reference": true,
+      "approval_evidence": [
+        "art_department/APPROVAL_LEDGER.md",
+        "art_department/ships/art_ship_005/ART_SHIP_MANIFEST.json",
+        "art_department/ships/art_ship_005/HQ_DECISION.md"
+      ],
+      "dimensions": [
+        270,
+        480
+      ],
+      "mode": "RGB",
+      "ship_id": "ART SHIP 005",
+      "open_id": "fish_tank",
+      "category": "ENVIRONMENT",
+      "state": "accepted opaque environment anchor",
+      "source_anchor": null,
+      "presentation_scale": null,
+      "approval_status": "APPROVED MASTER",
+      "alpha": [
+        255
+      ],
+      "freeze_scope": "Exact 270x480 opaque environment pixels for OPEN environment id fish_tank_room and base role only; no overlays, variants, runtime Stage Contract or integration acceptance.",
+      "candidate_package_id": "fish_tank_room"
+    },
+    {
+      "path": "assets/before_the_fame/environments/garage/castle_garage_empty_270x480.png",
+      "sha256": "d6168199cbf4a0520d9ae27158b3aaa0af20ceb02b5aa81fec93d8f40e4d84f2",
+      "role": "approved production environment master; OPEN id garage",
+      "status": "FROZEN",
+      "default_style_reference": true,
+      "approval_evidence": [
+        "art_department/APPROVAL_LEDGER.md",
+        "art_department/ships/art_ship_005/ART_SHIP_MANIFEST.json",
+        "art_department/ships/art_ship_005/HQ_DECISION.md"
+      ],
+      "dimensions": [
+        270,
+        480
+      ],
+      "mode": "RGB",
+      "ship_id": "ART SHIP 005",
+      "open_id": "garage",
+      "category": "ENVIRONMENT",
+      "state": "accepted opaque environment anchor",
+      "source_anchor": null,
+      "presentation_scale": null,
+      "approval_status": "APPROVED MASTER",
+      "alpha": [
+        255
+      ],
+      "freeze_scope": "Exact 270x480 opaque environment pixels for OPEN environment id garage and base role only; no overlays, variants, runtime Stage Contract or integration acceptance."
+    },
+    {
+      "path": "assets/before_the_fame/environments/grave/grave_hub_night_270x480.png",
+      "sha256": "b2919f7181268d83160231a803307e3afd0c35a1485396d1677440da1262ffbd",
+      "role": "approved production environment master; OPEN id grave",
+      "status": "FROZEN",
+      "default_style_reference": true,
+      "approval_evidence": [
+        "art_department/APPROVAL_LEDGER.md",
+        "art_department/ships/art_ship_005/ART_SHIP_MANIFEST.json",
+        "art_department/ships/art_ship_005/HQ_DECISION.md"
+      ],
+      "dimensions": [
+        270,
+        480
+      ],
+      "mode": "RGB",
+      "ship_id": "ART SHIP 005",
+      "open_id": "grave",
+      "category": "ENVIRONMENT",
+      "state": "accepted opaque environment anchor",
+      "source_anchor": null,
+      "presentation_scale": null,
+      "approval_status": "APPROVED MASTER",
+      "alpha": [
+        255
+      ],
+      "freeze_scope": "Exact 270x480 opaque environment pixels for OPEN environment id grave and base role only; no overlays, variants, runtime Stage Contract or integration acceptance."
+    },
+    {
+      "path": "assets/before_the_fame/environments/hollow_bowl/hollow_bowl_night_270x480.png",
+      "sha256": "19d098d6d70c7228db164a23c2551a301667055977010392d1ff1d9f8420aa30",
+      "role": "approved production environment master; OPEN id hollow_bowl",
+      "status": "FROZEN",
+      "default_style_reference": true,
+      "approval_evidence": [
+        "art_department/APPROVAL_LEDGER.md",
+        "art_department/ships/art_ship_005/ART_SHIP_MANIFEST.json",
+        "art_department/ships/art_ship_005/HQ_DECISION.md"
+      ],
+      "dimensions": [
+        270,
+        480
+      ],
+      "mode": "RGB",
+      "ship_id": "ART SHIP 005",
+      "open_id": "hollow_bowl",
+      "category": "ENVIRONMENT",
+      "state": "accepted opaque environment anchor",
+      "source_anchor": null,
+      "presentation_scale": null,
+      "approval_status": "APPROVED MASTER",
+      "alpha": [
+        255
+      ],
+      "freeze_scope": "Exact 270x480 opaque environment pixels for OPEN environment id hollow_bowl and base role only; no overlays, variants, runtime Stage Contract or integration acceptance."
+    },
+    {
+      "path": "assets/before_the_fame/environments/kush_crypt/kush_and_crypt_front_270x480.png",
+      "sha256": "75d5c014b7eaf0b5033d47f5e7ead5755b6ee4d34b8cd615b19e2a07d99fba2d",
+      "role": "approved production environment master; OPEN id kush_crypt",
+      "status": "FROZEN",
+      "default_style_reference": true,
+      "approval_evidence": [
+        "art_department/APPROVAL_LEDGER.md",
+        "art_department/ships/art_ship_005/ART_SHIP_MANIFEST.json",
+        "art_department/ships/art_ship_005/HQ_DECISION.md"
+      ],
+      "dimensions": [
+        270,
+        480
+      ],
+      "mode": "RGB",
+      "ship_id": "ART SHIP 005",
+      "open_id": "kush_crypt",
+      "category": "ENVIRONMENT",
+      "state": "accepted opaque environment anchor",
+      "source_anchor": null,
+      "presentation_scale": null,
+      "approval_status": "APPROVED MASTER",
+      "alpha": [
+        255
+      ],
+      "freeze_scope": "Exact 270x480 opaque environment pixels for OPEN environment id kush_crypt and base role only; no overlays, variants, runtime Stage Contract or integration acceptance."
+    },
+    {
+      "path": "assets/before_the_fame/environments/music_room/castle_music_room_270x480.png",
+      "sha256": "67a7d6c9146ce50f3c386ebde53b6f3cc0a8a50ca831fecada31b50b5ec9971f",
+      "role": "approved production environment master; OPEN id music_room",
+      "status": "FROZEN",
+      "default_style_reference": true,
+      "approval_evidence": [
+        "art_department/APPROVAL_LEDGER.md",
+        "art_department/ships/art_ship_005/ART_SHIP_MANIFEST.json",
+        "art_department/ships/art_ship_005/HQ_DECISION.md"
+      ],
+      "dimensions": [
+        270,
+        480
+      ],
+      "mode": "RGB",
+      "ship_id": "ART SHIP 005",
+      "open_id": "music_room",
+      "category": "ENVIRONMENT",
+      "state": "accepted opaque environment anchor",
+      "source_anchor": null,
+      "presentation_scale": null,
+      "approval_status": "APPROVED MASTER",
+      "alpha": [
+        255
+      ],
+      "freeze_scope": "Exact 270x480 opaque environment pixels for OPEN environment id music_room and base role only; no overlays, variants, runtime Stage Contract or integration acceptance."
+    },
+    {
+      "path": "assets/before_the_fame/environments/naija_mart/naija_mart_interior_270x480.png",
+      "sha256": "197b2a7e1793a7edec7d8d650ae09282a78c28f55d8c7c2eba3357693f748565",
+      "role": "approved production environment master; OPEN id naija_mart",
+      "status": "FROZEN",
+      "default_style_reference": true,
+      "approval_evidence": [
+        "art_department/APPROVAL_LEDGER.md",
+        "art_department/ships/art_ship_005/ART_SHIP_MANIFEST.json",
+        "art_department/ships/art_ship_005/HQ_DECISION.md"
+      ],
+      "dimensions": [
+        270,
+        480
+      ],
+      "mode": "RGB",
+      "ship_id": "ART SHIP 005",
+      "open_id": "naija_mart",
+      "category": "ENVIRONMENT",
+      "state": "accepted opaque environment anchor",
+      "source_anchor": null,
+      "presentation_scale": null,
+      "approval_status": "APPROVED MASTER",
+      "alpha": [
+        255
+      ],
+      "freeze_scope": "Exact 270x480 opaque environment pixels for OPEN environment id naija_mart and base role only; no overlays, variants, runtime Stage Contract or integration acceptance."
+    },
+    {
+      "path": "assets/before_the_fame/environments/party_hall/party_hall_empty_270x480.png",
+      "sha256": "5987874f3b8407ce3ca9b7906871cb189c1766df59e9c0215bd7aad7763efc40",
+      "role": "approved production environment master; OPEN id party_hall",
+      "status": "FROZEN",
+      "default_style_reference": true,
+      "approval_evidence": [
+        "art_department/APPROVAL_LEDGER.md",
+        "art_department/ships/art_ship_005/ART_SHIP_MANIFEST.json",
+        "art_department/ships/art_ship_005/HQ_DECISION.md"
+      ],
+      "dimensions": [
+        270,
+        480
+      ],
+      "mode": "RGB",
+      "ship_id": "ART SHIP 005",
+      "open_id": "party_hall",
+      "category": "ENVIRONMENT",
+      "state": "accepted opaque environment anchor",
+      "source_anchor": null,
+      "presentation_scale": null,
+      "approval_status": "APPROVED MASTER",
+      "alpha": [
+        255
+      ],
+      "freeze_scope": "Exact 270x480 opaque environment pixels for OPEN environment id party_hall and base role only; no overlays, variants, runtime Stage Contract or integration acceptance."
+    },
+    {
+      "path": "assets/before_the_fame/environments/pet_crypt/pet_crypt_interior_270x480.png",
+      "sha256": "a6f42c37da63456e54a11244ed20eb24b6c9d4f3d650c361841d2267939413d8",
+      "role": "approved production environment master; OPEN id pet_crypt",
+      "status": "FROZEN",
+      "default_style_reference": true,
+      "approval_evidence": [
+        "art_department/APPROVAL_LEDGER.md",
+        "art_department/ships/art_ship_005/ART_SHIP_MANIFEST.json",
+        "art_department/ships/art_ship_005/HQ_DECISION.md"
+      ],
+      "dimensions": [
+        270,
+        480
+      ],
+      "mode": "RGB",
+      "ship_id": "ART SHIP 005",
+      "open_id": "pet_crypt",
+      "category": "ENVIRONMENT",
+      "state": "accepted opaque environment anchor",
+      "source_anchor": null,
+      "presentation_scale": null,
+      "approval_status": "APPROVED MASTER",
+      "alpha": [
+        255
+      ],
+      "freeze_scope": "Exact 270x480 opaque environment pixels for OPEN environment id pet_crypt and base role only; no overlays, variants, runtime Stage Contract or integration acceptance."
+    },
+    {
+      "path": "assets/before_the_fame/environments/pier/santa_monica_pier_night_270x480.png",
+      "sha256": "3421be5b33921498cdc7c1c0ac695e36d1fe5fb5880ea81429c97fb47311497e",
+      "role": "approved production environment master; OPEN id pier",
+      "status": "FROZEN",
+      "default_style_reference": true,
+      "approval_evidence": [
+        "art_department/APPROVAL_LEDGER.md",
+        "art_department/ships/art_ship_005/ART_SHIP_MANIFEST.json",
+        "art_department/ships/art_ship_005/HQ_DECISION.md"
+      ],
+      "dimensions": [
+        270,
+        480
+      ],
+      "mode": "RGB",
+      "ship_id": "ART SHIP 005",
+      "open_id": "pier",
+      "category": "ENVIRONMENT",
+      "state": "accepted opaque environment anchor",
+      "source_anchor": null,
+      "presentation_scale": null,
+      "approval_status": "APPROVED MASTER",
+      "alpha": [
+        255
+      ],
+      "freeze_scope": "Exact 270x480 opaque environment pixels for OPEN environment id pier and base role only; no overlays, variants, runtime Stage Contract or integration acceptance."
+    },
+    {
+      "path": "assets/before_the_fame/environments/roof/castle_roof_hookah_270x480.png",
+      "sha256": "c69ecdd37591ba999e1b5f87eb8f1192ab1364d41cb35037e93e27f9e7782545",
+      "role": "approved production environment master; OPEN id roof",
+      "status": "FROZEN",
+      "default_style_reference": true,
+      "approval_evidence": [
+        "art_department/APPROVAL_LEDGER.md",
+        "art_department/ships/art_ship_005/ART_SHIP_MANIFEST.json",
+        "art_department/ships/art_ship_005/HQ_DECISION.md"
+      ],
+      "dimensions": [
+        270,
+        480
+      ],
+      "mode": "RGB",
+      "ship_id": "ART SHIP 005",
+      "open_id": "roof",
+      "category": "ENVIRONMENT",
+      "state": "accepted opaque environment anchor",
+      "source_anchor": null,
+      "presentation_scale": null,
+      "approval_status": "APPROVED MASTER",
+      "alpha": [
+        255
+      ],
+      "freeze_scope": "Exact 270x480 opaque environment pixels for OPEN environment id roof and base role only; no overlays, variants, runtime Stage Contract or integration acceptance."
+    },
+    {
+      "path": "assets/before_the_fame/environments/slurp/slurp_dynasty_little_tokyo_270x480.png",
+      "sha256": "55fe2ca7be23f8cd54aeafc3a26219982632af96546b019cf1f019b633f744ea",
+      "role": "approved production environment master; OPEN id slurp",
+      "status": "FROZEN",
+      "default_style_reference": true,
+      "approval_evidence": [
+        "art_department/APPROVAL_LEDGER.md",
+        "art_department/ships/art_ship_005/ART_SHIP_MANIFEST.json",
+        "art_department/ships/art_ship_005/HQ_DECISION.md"
+      ],
+      "dimensions": [
+        270,
+        480
+      ],
+      "mode": "RGB",
+      "ship_id": "ART SHIP 005",
+      "open_id": "slurp",
+      "category": "ENVIRONMENT",
+      "state": "accepted opaque environment anchor",
+      "source_anchor": null,
+      "presentation_scale": null,
+      "approval_status": "APPROVED MASTER",
+      "alpha": [
+        255
+      ],
+      "freeze_scope": "Exact 270x480 opaque environment pixels for OPEN environment id slurp and base role only; no overlays, variants, runtime Stage Contract or integration acceptance."
+    },
+    {
+      "path": "assets/before_the_fame/environments/waffle_haven/waffle_haven_1am_270x480.png",
+      "sha256": "572c9c1b3a45a639030140aa7daf2bfa8509d0c2acd05fd4eb815595ed2b85c9",
+      "role": "approved production environment master; OPEN id waffle_haven",
+      "status": "FROZEN",
+      "default_style_reference": true,
+      "approval_evidence": [
+        "art_department/APPROVAL_LEDGER.md",
+        "art_department/ships/art_ship_005/ART_SHIP_MANIFEST.json",
+        "art_department/ships/art_ship_005/HQ_DECISION.md"
+      ],
+      "dimensions": [
+        270,
+        480
+      ],
+      "mode": "RGB",
+      "ship_id": "ART SHIP 005",
+      "open_id": "waffle_haven",
+      "category": "ENVIRONMENT",
+      "state": "accepted opaque environment anchor",
+      "source_anchor": null,
+      "presentation_scale": null,
+      "approval_status": "APPROVED MASTER",
+      "alpha": [
+        255
+      ],
+      "freeze_scope": "Exact 270x480 opaque environment pixels for OPEN environment id waffle_haven and base role only; no overlays, variants, runtime Stage Contract or integration acceptance."
+    },
+    {
+      "path": "assets/before_the_fame/props/agege_bread/agege_bread_whole_32x24.png",
+      "sha256": "144e7048cf423821c7de7afed3c7bd703500c107f48d77ca69b3ae0b4e89aeca",
+      "role": "approved production prop anchor; OPEN id agege_bread",
+      "status": "FROZEN",
+      "default_style_reference": true,
+      "approval_evidence": [
+        "art_department/APPROVAL_LEDGER.md",
+        "art_department/ships/art_ship_005/ART_SHIP_MANIFEST.json",
+        "art_department/ships/art_ship_005/HQ_DECISION.md"
+      ],
+      "dimensions": [
+        32,
+        24
+      ],
+      "mode": "RGBA",
+      "ship_id": "ART SHIP 005",
+      "open_id": "agege_bread",
+      "category": "PROP",
+      "state": "accepted base prop identity",
+      "source_anchor": null,
+      "presentation_scale": null,
+      "approval_status": "APPROVED MASTER",
+      "alpha": [
+        0,
+        255
+      ],
+      "freeze_scope": "Exact native transparent pixels for OPEN prop id agege_bread and base identity only; no alternate states, animation, runtime scale or integration acceptance."
+    },
+    {
+      "path": "assets/before_the_fame/props/dragon_maggi_cube/dragon_maggi_cube_24x24.png",
+      "sha256": "48c7b3f4a866ddf2c94fdecbb7117a146a736d87e8c688aab8302bf995de45be",
+      "role": "approved production prop anchor; OPEN id dragon_maggi_cube",
+      "status": "FROZEN",
+      "default_style_reference": true,
+      "approval_evidence": [
+        "art_department/APPROVAL_LEDGER.md",
+        "art_department/ships/art_ship_005/ART_SHIP_MANIFEST.json",
+        "art_department/ships/art_ship_005/HQ_DECISION.md"
+      ],
+      "dimensions": [
+        24,
+        24
+      ],
+      "mode": "RGBA",
+      "ship_id": "ART SHIP 005",
+      "open_id": "dragon_maggi_cube",
+      "category": "PROP",
+      "state": "accepted base prop identity",
+      "source_anchor": null,
+      "presentation_scale": null,
+      "approval_status": "APPROVED MASTER",
+      "alpha": [
+        0,
+        255
+      ],
+      "freeze_scope": "Exact native transparent pixels for OPEN prop id dragon_maggi_cube and base identity only; no alternate states, animation, runtime scale or integration acceptance."
+    },
+    {
+      "path": "assets/before_the_fame/props/mazda_egg/blueberry_mazda_egg_32x32.png",
+      "sha256": "d2ee91eef7c9941a18f2d6488d1dab53cdb152071f07d3089bf90650d619c6d8",
+      "role": "approved production prop anchor; OPEN id mazda_egg",
+      "status": "FROZEN",
+      "default_style_reference": true,
+      "approval_evidence": [
+        "art_department/APPROVAL_LEDGER.md",
+        "art_department/ships/art_ship_005/ART_SHIP_MANIFEST.json",
+        "art_department/ships/art_ship_005/HQ_DECISION.md"
+      ],
+      "dimensions": [
+        32,
+        32
+      ],
+      "mode": "RGBA",
+      "ship_id": "ART SHIP 005",
+      "open_id": "mazda_egg",
+      "category": "PROP",
+      "state": "accepted base prop identity",
+      "source_anchor": null,
+      "presentation_scale": null,
+      "approval_status": "APPROVED MASTER",
+      "alpha": [
+        0,
+        255
+      ],
+      "freeze_scope": "Exact native transparent pixels for OPEN prop id mazda_egg and base identity only; no alternate states, animation, runtime scale or integration acceptance."
     }
   ]
 }
