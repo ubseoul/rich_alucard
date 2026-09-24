@@ -1,0 +1,1247 @@
+{
+  "template_only": false,
+  "schema_version": 2,
+  "ship_id": "ART SHIP 007",
+  "title": "OPEN Foundation Completion",
+  "wave": "OPEN identity anchors and reusable environment masters independent of scene framing",
+  "status": "FROZEN",
+  "closure_status": "FROZEN / COMPLETE",
+  "authorization": "UBE TASTE PASS / HQ VISUAL PASS accepted the complete 38-asset batch and authorized CANDIDATE → APPROVED MASTER → FROZEN promotion, exact-byte preservation, required authority updates, commit and push to origin/main.",
+  "spoiler_classification": "OPEN Before the Fame only; no SEALED or HQ-only content accessed",
+  "recorded_date": "2026-09-24",
+  "source_authority": "origin/main 6613eb6fe041f08907db96c8569b862f8ae98e53",
+  "source_package_manifest_sha256": "e2170a27dea79d8c55f6a2e2075dafd3d6e0ff6c6994de770723ca16e68d7b05",
+  "canonical_png_count": 38,
+  "source_scale_policy": {
+    "native_source_pixels_preserved": true,
+    "source_assets_pre_scaled_for_runtime": false,
+    "primary_gameplay_character_runtime_display_scale": 1.85,
+    "runtime_filter": "nearest-neighbor"
+  },
+  "hq_acceptance": {
+    "authority": "Explicit user-supplied BE TASTE PASS / HQ VISUAL PASS",
+    "decision": "APPROVED MASTER / FROZEN promotion authorized",
+    "scope": "18 identity anchors and 20 reusable environments; no regeneration or visual revision requested.",
+    "record": "art_department/ships/art_ship_007/HQ_DECISION.md"
+  },
+  "category_counts": {
+    "CHARACTER": 18,
+    "ENVIRONMENT": 20
+  },
+  "files": [
+    {
+      "review_number": 1,
+      "asset_id": "marisol",
+      "open_id": "marisol",
+      "category": "CHARACTER",
+      "source_candidate_path": "assets/characters/marisol/marisol_neutral_80x96.png",
+      "path": "assets/before_the_fame/characters/marisol/marisol_neutral_80x96.png",
+      "accepted_candidate_sha256": "a906c82b5796e0a6ac7931790c88f7c235672d4b16b977175a10c446a1d80bb7",
+      "sha256": "a906c82b5796e0a6ac7931790c88f7c235672d4b16b977175a10c446a1d80bb7",
+      "role": "approved production character anchor; OPEN id marisol",
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "rgb_colors": 18,
+      "state": "accepted anchor pose represented by the canonical filename",
+      "source_anchor": [
+        40,
+        88
+      ],
+      "presentation_scale": 1.85,
+      "layer_role": null,
+      "prompt_summary": "adult castle maid; black/white uniform, gloves, feather duster weapon-read, deadpan",
+      "provenance": "Exact byte copy of the UBE TASTE PASS / HQ VISUAL PASS ART SHIP 007 native candidate; no decode, re-encode, resize, retouch or pixel transformation during promotion.",
+      "approval_status": "APPROVED MASTER",
+      "freeze_status": "FROZEN",
+      "default_style_reference": true,
+      "freeze_scope": "Exact native pixels for OPEN character id marisol, accepted anchor pose, 80x96 cell and source contact (40,88) only; no alternate states, animation, runtime integration or proportional reinterpretation."
+    },
+    {
+      "review_number": 2,
+      "asset_id": "duchess",
+      "open_id": "duchess",
+      "category": "CHARACTER",
+      "source_candidate_path": "assets/characters/duchess/duchess_bathory_brown_neutral_80x96.png",
+      "path": "assets/before_the_fame/characters/duchess/duchess_bathory_brown_neutral_80x96.png",
+      "accepted_candidate_sha256": "487aa9ce49c009a6a30fdc20a6d69ae8f40c908f85adeedb16fc1e7e94a8d6c8",
+      "sha256": "487aa9ce49c009a6a30fdc20a6d69ae8f40c908f85adeedb16fc1e7e94a8d6c8",
+      "role": "approved production character anchor; OPEN id duchess",
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "rgb_colors": 18,
+      "state": "accepted anchor pose represented by the canonical filename",
+      "source_anchor": [
+        40,
+        88
+      ],
+      "presentation_scale": 1.85,
+      "layer_role": null,
+      "prompt_summary": "ancient statuesque vampire; dark red/black gothic-luxury gown, bag, restrained gold",
+      "provenance": "Exact byte copy of the UBE TASTE PASS / HQ VISUAL PASS ART SHIP 007 native candidate; no decode, re-encode, resize, retouch or pixel transformation during promotion.",
+      "approval_status": "APPROVED MASTER",
+      "freeze_status": "FROZEN",
+      "default_style_reference": true,
+      "freeze_scope": "Exact native pixels for OPEN character id duchess, accepted anchor pose, 80x96 cell and source contact (40,88) only; no alternate states, animation, runtime integration or proportional reinterpretation."
+    },
+    {
+      "review_number": 3,
+      "asset_id": "emberly",
+      "open_id": "emberly",
+      "category": "CHARACTER",
+      "source_candidate_path": "assets/characters/emberly/emberly_neutral_80x96.png",
+      "path": "assets/before_the_fame/characters/emberly/emberly_neutral_80x96.png",
+      "accepted_candidate_sha256": "57b0d61d3a7b7b2a7811fd1c382e18b715464701da8f388982d4350be0109e85",
+      "sha256": "57b0d61d3a7b7b2a7811fd1c382e18b715464701da8f388982d4350be0109e85",
+      "role": "approved production character anchor; OPEN id emberly",
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "rgb_colors": 18,
+      "state": "accepted anchor pose represented by the canonical filename",
+      "source_anchor": [
+        40,
+        88
+      ],
+      "presentation_scale": 1.85,
+      "layer_role": null,
+      "prompt_summary": "adult dragon woman; red-orange horns/tail/wings, scale accents, dispensary workwear",
+      "provenance": "Exact byte copy of the UBE TASTE PASS / HQ VISUAL PASS ART SHIP 007 native candidate; no decode, re-encode, resize, retouch or pixel transformation during promotion.",
+      "approval_status": "APPROVED MASTER",
+      "freeze_status": "FROZEN",
+      "default_style_reference": true,
+      "freeze_scope": "Exact native pixels for OPEN character id emberly, accepted anchor pose, 80x96 cell and source contact (40,88) only; no alternate states, animation, runtime integration or proportional reinterpretation."
+    },
+    {
+      "review_number": 4,
+      "asset_id": "jade",
+      "open_id": "jade",
+      "category": "CHARACTER",
+      "source_candidate_path": "assets/characters/jade/jade_wyrmwood_neutral_80x96.png",
+      "path": "assets/before_the_fame/characters/jade/jade_wyrmwood_neutral_80x96.png",
+      "accepted_candidate_sha256": "f9fe8221111c534170bb595908dd1008ac3f3c5753e51a87ba68a47b7d21482c",
+      "sha256": "f9fe8221111c534170bb595908dd1008ac3f3c5753e51a87ba68a47b7d21482c",
+      "role": "approved production character anchor; OPEN id jade",
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "rgb_colors": 18,
+      "state": "accepted anchor pose represented by the canonical filename",
+      "source_anchor": [
+        40,
+        88
+      ],
+      "presentation_scale": 1.85,
+      "layer_role": null,
+      "prompt_summary": "jade dragon royalty; mostly dragon-bodied, humanoid face/torso, treasure as clothing",
+      "provenance": "Exact byte copy of the UBE TASTE PASS / HQ VISUAL PASS ART SHIP 007 native candidate; no decode, re-encode, resize, retouch or pixel transformation during promotion.",
+      "approval_status": "APPROVED MASTER",
+      "freeze_status": "FROZEN",
+      "default_style_reference": true,
+      "freeze_scope": "Exact native pixels for OPEN character id jade, accepted anchor pose, 80x96 cell and source contact (40,88) only; no alternate states, animation, runtime integration or proportional reinterpretation."
+    },
+    {
+      "review_number": 5,
+      "asset_id": "lo",
+      "open_id": "lo",
+      "category": "CHARACTER",
+      "source_candidate_path": "assets/characters/lo/lo_dolores_neutral_80x96.png",
+      "path": "assets/before_the_fame/characters/lo/lo_dolores_neutral_80x96.png",
+      "accepted_candidate_sha256": "c69902507388bb4c81259baccde552170422b62f07ce9c44b88f9ad850c1a882",
+      "sha256": "c69902507388bb4c81259baccde552170422b62f07ce9c44b88f9ad850c1a882",
+      "role": "approved production character anchor; OPEN id lo",
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "rgb_colors": 18,
+      "state": "accepted anchor pose represented by the canonical filename",
+      "source_anchor": [
+        40,
+        88
+      ],
+      "presentation_scale": 1.85,
+      "layer_role": null,
+      "prompt_summary": "cute-grim adult zombie; sundress, sunglasses, tote, restrained stitches, no gore",
+      "provenance": "Exact byte copy of the UBE TASTE PASS / HQ VISUAL PASS ART SHIP 007 native candidate; no decode, re-encode, resize, retouch or pixel transformation during promotion.",
+      "approval_status": "APPROVED MASTER",
+      "freeze_status": "FROZEN",
+      "default_style_reference": true,
+      "freeze_scope": "Exact native pixels for OPEN character id lo, accepted anchor pose, 80x96 cell and source contact (40,88) only; no alternate states, animation, runtime integration or proportional reinterpretation."
+    },
+    {
+      "review_number": 6,
+      "asset_id": "brenda",
+      "open_id": "brenda",
+      "category": "CHARACTER",
+      "source_candidate_path": "assets/characters/brenda/brenda_neutral_80x96.png",
+      "path": "assets/before_the_fame/characters/brenda/brenda_neutral_80x96.png",
+      "accepted_candidate_sha256": "bf394cabb65b4951fefc8d1ba3910f85e3cdbad870310802bfce407b5609222a",
+      "sha256": "bf394cabb65b4951fefc8d1ba3910f85e3cdbad870310802bfce407b5609222a",
+      "role": "approved production character anchor; OPEN id brenda",
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "rgb_colors": 18,
+      "state": "accepted anchor pose represented by the canonical filename",
+      "source_anchor": [
+        40,
+        88
+      ],
+      "presentation_scale": 1.85,
+      "layer_role": null,
+      "prompt_summary": "soft-full adult zombie accountant; cardigan, lanyard, salad box",
+      "provenance": "Exact byte copy of the UBE TASTE PASS / HQ VISUAL PASS ART SHIP 007 native candidate; no decode, re-encode, resize, retouch or pixel transformation during promotion.",
+      "approval_status": "APPROVED MASTER",
+      "freeze_status": "FROZEN",
+      "default_style_reference": true,
+      "freeze_scope": "Exact native pixels for OPEN character id brenda, accepted anchor pose, 80x96 cell and source contact (40,88) only; no alternate states, animation, runtime integration or proportional reinterpretation."
+    },
+    {
+      "review_number": 7,
+      "asset_id": "velvet",
+      "open_id": "velvet",
+      "category": "CHARACTER",
+      "source_candidate_path": "assets/characters/velvet/velvet_vantablack_profile_80x96.png",
+      "path": "assets/before_the_fame/characters/velvet/velvet_vantablack_profile_80x96.png",
+      "accepted_candidate_sha256": "6ec938de55fa0eee45ed4d5decd30661c1899b85effdac82873ed25ca7355610",
+      "sha256": "6ec938de55fa0eee45ed4d5decd30661c1899b85effdac82873ed25ca7355610",
+      "role": "approved production character anchor; OPEN id velvet",
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "rgb_colors": 18,
+      "state": "accepted anchor pose represented by the canonical filename",
+      "source_anchor": [
+        40,
+        88
+      ],
+      "presentation_scale": 1.85,
+      "layer_role": null,
+      "prompt_summary": "luxury near-black vampire glam; compact phone/ring-light profile pose",
+      "provenance": "Exact byte copy of the UBE TASTE PASS / HQ VISUAL PASS ART SHIP 007 native candidate; no decode, re-encode, resize, retouch or pixel transformation during promotion.",
+      "approval_status": "APPROVED MASTER",
+      "freeze_status": "FROZEN",
+      "default_style_reference": true,
+      "freeze_scope": "Exact native pixels for OPEN character id velvet, accepted anchor pose, 80x96 cell and source contact (40,88) only; no alternate states, animation, runtime integration or proportional reinterpretation."
+    },
+    {
+      "review_number": 8,
+      "asset_id": "anfeesa",
+      "open_id": "anfeesa",
+      "category": "CHARACTER",
+      "source_candidate_path": "assets/characters/anfeesa/dj_anfeesa_neutral_80x96.png",
+      "path": "assets/before_the_fame/characters/anfeesa/dj_anfeesa_neutral_80x96.png",
+      "accepted_candidate_sha256": "7c896d24097a7e6d98edf07ea1113ee4750d1147b6b1ab5c5cbe60bd126d9f0f",
+      "sha256": "7c896d24097a7e6d98edf07ea1113ee4750d1147b6b1ab5c5cbe60bd126d9f0f",
+      "role": "approved production character anchor; OPEN id anfeesa",
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "rgb_colors": 18,
+      "state": "accepted anchor pose represented by the canonical filename",
+      "source_anchor": [
+        40,
+        88
+      ],
+      "presentation_scale": 1.85,
+      "layer_role": null,
+      "prompt_summary": "fictional adult DJ; platinum hair, all black, headphones at neck",
+      "provenance": "Exact byte copy of the UBE TASTE PASS / HQ VISUAL PASS ART SHIP 007 native candidate; no decode, re-encode, resize, retouch or pixel transformation during promotion.",
+      "approval_status": "APPROVED MASTER",
+      "freeze_status": "FROZEN",
+      "default_style_reference": true,
+      "freeze_scope": "Exact native pixels for OPEN character id anfeesa, accepted anchor pose, 80x96 cell and source contact (40,88) only; no alternate states, animation, runtime integration or proportional reinterpretation."
+    },
+    {
+      "review_number": 9,
+      "asset_id": "rookoko",
+      "open_id": "rookoko",
+      "category": "CHARACTER",
+      "source_candidate_path": "assets/characters/rookoko/rookoko_neutral_80x96.png",
+      "path": "assets/before_the_fame/characters/rookoko/rookoko_neutral_80x96.png",
+      "accepted_candidate_sha256": "ed315afe3431738962162ee58177c4f4cb9de9cdb246d22f57476bc200423ff1",
+      "sha256": "ed315afe3431738962162ee58177c4f4cb9de9cdb246d22f57476bc200423ff1",
+      "role": "approved production character anchor; OPEN id rookoko",
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "rgb_colors": 18,
+      "state": "accepted anchor pose represented by the canonical filename",
+      "source_anchor": [
+        40,
+        88
+      ],
+      "presentation_scale": 1.85,
+      "layer_role": null,
+      "prompt_summary": "adult male platonic painter; beanie, paint-stained workwear, sketchbook and brush",
+      "provenance": "Exact byte copy of the UBE TASTE PASS / HQ VISUAL PASS ART SHIP 007 native candidate; no decode, re-encode, resize, retouch or pixel transformation during promotion.",
+      "approval_status": "APPROVED MASTER",
+      "freeze_status": "FROZEN",
+      "default_style_reference": true,
+      "freeze_scope": "Exact native pixels for OPEN character id rookoko, accepted anchor pose, 80x96 cell and source contact (40,88) only; no alternate states, animation, runtime integration or proportional reinterpretation."
+    },
+    {
+      "review_number": 10,
+      "asset_id": "officer_nodd",
+      "open_id": "officer_nodd",
+      "category": "CHARACTER",
+      "source_candidate_path": "assets/characters/officer_nodd/officer_nodd_neutral_80x96.png",
+      "path": "assets/before_the_fame/characters/officer_nodd/officer_nodd_neutral_80x96.png",
+      "accepted_candidate_sha256": "07c4fc9ca7aa09588d0dff63aa61e82dcf6405fd5d7ef2be591dd11a90b1c58c",
+      "sha256": "07c4fc9ca7aa09588d0dff63aa61e82dcf6405fd5d7ef2be591dd11a90b1c58c",
+      "role": "approved production character anchor; OPEN id officer_nodd",
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "rgb_colors": 18,
+      "state": "accepted anchor pose represented by the canonical filename",
+      "source_anchor": [
+        40,
+        88
+      ],
+      "presentation_scale": 1.85,
+      "layer_role": null,
+      "prompt_summary": "fictional officer; mustache, aviators, generic uniform, calm nod-ready posture",
+      "provenance": "Exact byte copy of the UBE TASTE PASS / HQ VISUAL PASS ART SHIP 007 native candidate; no decode, re-encode, resize, retouch or pixel transformation during promotion.",
+      "approval_status": "APPROVED MASTER",
+      "freeze_status": "FROZEN",
+      "default_style_reference": true,
+      "freeze_scope": "Exact native pixels for OPEN character id officer_nodd, accepted anchor pose, 80x96 cell and source contact (40,88) only; no alternate states, animation, runtime integration or proportional reinterpretation."
+    },
+    {
+      "review_number": 11,
+      "asset_id": "don_chuy",
+      "open_id": "don_chuy",
+      "category": "CHARACTER",
+      "source_candidate_path": "assets/characters/don_chuy/don_chuy_neutral_80x96.png",
+      "path": "assets/before_the_fame/characters/don_chuy/don_chuy_neutral_80x96.png",
+      "accepted_candidate_sha256": "875b39b8a253c9b80a01f8d372a0a488deefa083755503f892eaa85ea30c3d74",
+      "sha256": "875b39b8a253c9b80a01f8d372a0a488deefa083755503f892eaa85ea30c3d74",
+      "role": "approved production character anchor; OPEN id don_chuy",
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "rgb_colors": 18,
+      "state": "accepted anchor pose represented by the canonical filename",
+      "source_anchor": [
+        40,
+        88
+      ],
+      "presentation_scale": 1.85,
+      "layer_role": null,
+      "prompt_summary": "fictional taco-truck owner; cap, apron, handheld radio",
+      "provenance": "Exact byte copy of the UBE TASTE PASS / HQ VISUAL PASS ART SHIP 007 native candidate; no decode, re-encode, resize, retouch or pixel transformation during promotion.",
+      "approval_status": "APPROVED MASTER",
+      "freeze_status": "FROZEN",
+      "default_style_reference": true,
+      "freeze_scope": "Exact native pixels for OPEN character id don_chuy, accepted anchor pose, 80x96 cell and source contact (40,88) only; no alternate states, animation, runtime integration or proportional reinterpretation."
+    },
+    {
+      "review_number": 12,
+      "asset_id": "tokyo_tony",
+      "open_id": "tokyo_tony",
+      "category": "CHARACTER",
+      "source_candidate_path": "assets/characters/tokyo_tony/tokyo_tony_smug_80x96.png",
+      "path": "assets/before_the_fame/characters/tokyo_tony/tokyo_tony_smug_80x96.png",
+      "accepted_candidate_sha256": "f95a433eac260b298fe14a95cf0e54086cbb6689d6f4ed4126ac98f5d596c442",
+      "sha256": "f95a433eac260b298fe14a95cf0e54086cbb6689d6f4ed4126ac98f5d596c442",
+      "role": "approved production character anchor; OPEN id tokyo_tony",
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "rgb_colors": 18,
+      "state": "accepted anchor pose represented by the canonical filename",
+      "source_anchor": [
+        40,
+        88
+      ],
+      "presentation_scale": 1.85,
+      "layer_role": null,
+      "prompt_summary": "fictional Midnight Mafia leader; oversized JDM jacket, toothpick, frosted tips",
+      "provenance": "Exact byte copy of the UBE TASTE PASS / HQ VISUAL PASS ART SHIP 007 native candidate; no decode, re-encode, resize, retouch or pixel transformation during promotion.",
+      "approval_status": "APPROVED MASTER",
+      "freeze_status": "FROZEN",
+      "default_style_reference": true,
+      "freeze_scope": "Exact native pixels for OPEN character id tokyo_tony, accepted anchor pose, 80x96 cell and source contact (40,88) only; no alternate states, animation, runtime integration or proportional reinterpretation."
+    },
+    {
+      "review_number": 13,
+      "asset_id": "vicky",
+      "open_id": "vicky",
+      "category": "CHARACTER",
+      "source_candidate_path": "assets/characters/vicky/vicky_neutral_80x96.png",
+      "path": "assets/before_the_fame/characters/vicky/vicky_neutral_80x96.png",
+      "accepted_candidate_sha256": "13a707e3a8ecdb43882adb0a688b02500a8f75776cf7ec658c8c37d0d8bd8efb",
+      "sha256": "13a707e3a8ecdb43882adb0a688b02500a8f75776cf7ec658c8c37d0d8bd8efb",
+      "role": "approved production character anchor; OPEN id vicky",
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "rgb_colors": 18,
+      "state": "accepted anchor pose represented by the canonical filename",
+      "source_anchor": [
+        40,
+        88
+      ],
+      "presentation_scale": 1.85,
+      "layer_role": null,
+      "prompt_summary": "athletic principled adult adventurer; travel cloak, practical leather armor, staff",
+      "provenance": "Exact byte copy of the UBE TASTE PASS / HQ VISUAL PASS ART SHIP 007 native candidate; no decode, re-encode, resize, retouch or pixel transformation during promotion.",
+      "approval_status": "APPROVED MASTER",
+      "freeze_status": "FROZEN",
+      "default_style_reference": true,
+      "freeze_scope": "Exact native pixels for OPEN character id vicky, accepted anchor pose, 80x96 cell and source contact (40,88) only; no alternate states, animation, runtime integration or proportional reinterpretation."
+    },
+    {
+      "review_number": 14,
+      "asset_id": "j_circle",
+      "open_id": "j_circle",
+      "category": "CHARACTER",
+      "source_candidate_path": "assets/characters/j_circle/j_circle_entrance_80x96.png",
+      "path": "assets/before_the_fame/characters/j_circle/j_circle_entrance_80x96.png",
+      "accepted_candidate_sha256": "07a729dad918a2e14b4004d80a07c305bf367ec05770961477543100d779423b",
+      "sha256": "07a729dad918a2e14b4004d80a07c305bf367ec05770961477543100d779423b",
+      "role": "approved production character anchor; OPEN id j_circle",
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "rgb_colors": 18,
+      "state": "accepted anchor pose represented by the canonical filename",
+      "source_anchor": [
+        40,
+        88
+      ],
+      "presentation_scale": 1.85,
+      "layer_role": null,
+      "prompt_summary": "Oba of LA; huge fur coat, simple black fit, restrained gold, entrance-neutral",
+      "provenance": "Exact byte copy of the UBE TASTE PASS / HQ VISUAL PASS ART SHIP 007 native candidate; no decode, re-encode, resize, retouch or pixel transformation during promotion.",
+      "approval_status": "APPROVED MASTER",
+      "freeze_status": "FROZEN",
+      "default_style_reference": true,
+      "freeze_scope": "Exact native pixels for OPEN character id j_circle, accepted anchor pose, 80x96 cell and source contact (40,88) only; no alternate states, animation, runtime integration or proportional reinterpretation."
+    },
+    {
+      "review_number": 15,
+      "asset_id": "trippin_red",
+      "open_id": "trippin_red",
+      "category": "CHARACTER",
+      "source_candidate_path": "assets/characters/trippin_red/trippin_red_stage_ready_80x96.png",
+      "path": "assets/before_the_fame/characters/trippin_red/trippin_red_stage_ready_80x96.png",
+      "accepted_candidate_sha256": "f127040b06122ea5f6f6e32d0706dc35fd106b287c3c5b5960671318ce922697",
+      "sha256": "f127040b06122ea5f6f6e32d0706dc35fd106b287c3c5b5960671318ce922697",
+      "role": "approved production character anchor; OPEN id trippin_red",
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "rgb_colors": 18,
+      "state": "accepted anchor pose represented by the canonical filename",
+      "source_anchor": [
+        40,
+        88
+      ],
+      "presentation_scale": 1.85,
+      "layer_role": null,
+      "prompt_summary": "fictional parody rapper; red hair, original performance jacket, compact microphone",
+      "provenance": "Exact byte copy of the UBE TASTE PASS / HQ VISUAL PASS ART SHIP 007 native candidate; no decode, re-encode, resize, retouch or pixel transformation during promotion.",
+      "approval_status": "APPROVED MASTER",
+      "freeze_status": "FROZEN",
+      "default_style_reference": true,
+      "freeze_scope": "Exact native pixels for OPEN character id trippin_red, accepted anchor pose, 80x96 cell and source contact (40,88) only; no alternate states, animation, runtime integration or proportional reinterpretation."
+    },
+    {
+      "review_number": 16,
+      "asset_id": "paladin",
+      "open_id": "paladin",
+      "category": "CHARACTER",
+      "source_candidate_path": "assets/characters/paladin/paladin_neutral_80x96.png",
+      "path": "assets/before_the_fame/characters/paladin/paladin_neutral_80x96.png",
+      "accepted_candidate_sha256": "cc7122015ee7750f24978763671f774101563231ead98c934380e60d8f9c6aa1",
+      "sha256": "cc7122015ee7750f24978763671f774101563231ead98c934380e60d8f9c6aa1",
+      "role": "approved production character anchor; OPEN id paladin",
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "rgb_colors": 18,
+      "state": "accepted anchor pose represented by the canonical filename",
+      "source_anchor": [
+        40,
+        88
+      ],
+      "presentation_scale": 1.85,
+      "layer_role": null,
+      "prompt_summary": "ordinary fantasy-RPG party paladin; practical armor, shield, sheathed sword",
+      "provenance": "Exact byte copy of the UBE TASTE PASS / HQ VISUAL PASS ART SHIP 007 native candidate; no decode, re-encode, resize, retouch or pixel transformation during promotion.",
+      "approval_status": "APPROVED MASTER",
+      "freeze_status": "FROZEN",
+      "default_style_reference": true,
+      "freeze_scope": "Exact native pixels for OPEN character id paladin, accepted anchor pose, 80x96 cell and source contact (40,88) only; no alternate states, animation, runtime integration or proportional reinterpretation."
+    },
+    {
+      "review_number": 17,
+      "asset_id": "bard",
+      "open_id": "bard",
+      "category": "CHARACTER",
+      "source_candidate_path": "assets/characters/bard/bard_neutral_80x96.png",
+      "path": "assets/before_the_fame/characters/bard/bard_neutral_80x96.png",
+      "accepted_candidate_sha256": "5213c311932331809945f0efc95aa3befe3049a8173d3ba1aa021b17ce8826dd",
+      "sha256": "5213c311932331809945f0efc95aa3befe3049a8173d3ba1aa021b17ce8826dd",
+      "role": "approved production character anchor; OPEN id bard",
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "rgb_colors": 18,
+      "state": "accepted anchor pose represented by the canonical filename",
+      "source_anchor": [
+        40,
+        88
+      ],
+      "presentation_scale": 1.85,
+      "layer_role": null,
+      "prompt_summary": "ordinary fantasy-RPG party bard; travel clothes, short cape, small lute",
+      "provenance": "Exact byte copy of the UBE TASTE PASS / HQ VISUAL PASS ART SHIP 007 native candidate; no decode, re-encode, resize, retouch or pixel transformation during promotion.",
+      "approval_status": "APPROVED MASTER",
+      "freeze_status": "FROZEN",
+      "default_style_reference": true,
+      "freeze_scope": "Exact native pixels for OPEN character id bard, accepted anchor pose, 80x96 cell and source contact (40,88) only; no alternate states, animation, runtime integration or proportional reinterpretation."
+    },
+    {
+      "review_number": 18,
+      "asset_id": "cleric",
+      "open_id": "cleric",
+      "category": "CHARACTER",
+      "source_candidate_path": "assets/characters/cleric/cleric_neutral_80x96.png",
+      "path": "assets/before_the_fame/characters/cleric/cleric_neutral_80x96.png",
+      "accepted_candidate_sha256": "4b81e630e4fd2c45202eaf3e2812781558bd3f6bc015c761a24309003c59ecda",
+      "sha256": "4b81e630e4fd2c45202eaf3e2812781558bd3f6bc015c761a24309003c59ecda",
+      "role": "approved production character anchor; OPEN id cleric",
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "rgb_colors": 18,
+      "state": "accepted anchor pose represented by the canonical filename",
+      "source_anchor": [
+        40,
+        88
+      ],
+      "presentation_scale": 1.85,
+      "layer_role": null,
+      "prompt_summary": "ordinary fantasy-RPG party cleric; layered robe, satchel, plain staff; no iconography",
+      "provenance": "Exact byte copy of the UBE TASTE PASS / HQ VISUAL PASS ART SHIP 007 native candidate; no decode, re-encode, resize, retouch or pixel transformation during promotion.",
+      "approval_status": "APPROVED MASTER",
+      "freeze_status": "FROZEN",
+      "default_style_reference": true,
+      "freeze_scope": "Exact native pixels for OPEN character id cleric, accepted anchor pose, 80x96 cell and source contact (40,88) only; no alternate states, animation, runtime integration or proportional reinterpretation."
+    },
+    {
+      "review_number": 19,
+      "asset_id": "boba_shop",
+      "open_id": "boba_shop",
+      "category": "ENVIRONMENT",
+      "source_candidate_path": "assets/environments/boba_shop/boba_shop_night_270x480.png",
+      "path": "assets/before_the_fame/environments/boba_shop/boba_shop_night_270x480.png",
+      "accepted_candidate_sha256": "924328a9716844ad198a487a0058106d9b0af5529b8a0d24da5932d930011d75",
+      "sha256": "924328a9716844ad198a487a0058106d9b0af5529b8a0d24da5932d930011d75",
+      "role": "approved production environment master; OPEN id boba_shop",
+      "dimensions": [
+        270,
+        480
+      ],
+      "mode": "RGB",
+      "alpha": [
+        255
+      ],
+      "rgb_colors": 30,
+      "state": "accepted opaque environment anchor",
+      "source_anchor": null,
+      "presentation_scale": null,
+      "layer_role": "opaque 270x480 environment master",
+      "prompt_summary": "compact boba counter at night; warm cream and muted violet",
+      "provenance": "Exact byte copy of the UBE TASTE PASS / HQ VISUAL PASS ART SHIP 007 native candidate; no decode, re-encode, resize, retouch or pixel transformation during promotion.",
+      "approval_status": "APPROVED MASTER",
+      "freeze_status": "FROZEN",
+      "default_style_reference": true,
+      "freeze_scope": "Exact 270x480 opaque environment pixels for OPEN environment id boba_shop and base role only; no overlays, variants, runtime Stage Contract or integration acceptance."
+    },
+    {
+      "review_number": 20,
+      "asset_id": "food_court",
+      "open_id": "food_court",
+      "category": "ENVIRONMENT",
+      "source_candidate_path": "assets/environments/food_court/grave_food_court_night_270x480.png",
+      "path": "assets/before_the_fame/environments/food_court/grave_food_court_night_270x480.png",
+      "accepted_candidate_sha256": "fea009424212c49cebbd0fe63d036967d3cd560d78ed628ac6fd9e9ee42849f9",
+      "sha256": "fea009424212c49cebbd0fe63d036967d3cd560d78ed628ac6fd9e9ee42849f9",
+      "role": "approved production environment master; OPEN id food_court",
+      "dimensions": [
+        270,
+        480
+      ],
+      "mode": "RGB",
+      "alpha": [
+        255
+      ],
+      "rgb_colors": 30,
+      "state": "accepted opaque environment anchor",
+      "source_anchor": null,
+      "presentation_scale": null,
+      "layer_role": "opaque 270x480 environment master",
+      "prompt_summary": "The Grave food-court edge at night; quiet counters, string lights, fountain",
+      "provenance": "Exact byte copy of the UBE TASTE PASS / HQ VISUAL PASS ART SHIP 007 native candidate; no decode, re-encode, resize, retouch or pixel transformation during promotion.",
+      "approval_status": "APPROVED MASTER",
+      "freeze_status": "FROZEN",
+      "default_style_reference": true,
+      "freeze_scope": "Exact 270x480 opaque environment pixels for OPEN environment id food_court and base role only; no overlays, variants, runtime Stage Contract or integration acceptance."
+    },
+    {
+      "review_number": 21,
+      "asset_id": "kush_back",
+      "open_id": "kush_back",
+      "category": "ENVIRONMENT",
+      "source_candidate_path": "assets/environments/kush_back/kush_crypt_egg_back_room_270x480.png",
+      "path": "assets/before_the_fame/environments/kush_back/kush_crypt_egg_back_room_270x480.png",
+      "accepted_candidate_sha256": "38f4af0aa89bcdd6eb916b3206a2add4bf25539c5b612813859cfe203edebc19",
+      "sha256": "38f4af0aa89bcdd6eb916b3206a2add4bf25539c5b612813859cfe203edebc19",
+      "role": "approved production environment master; OPEN id kush_back",
+      "dimensions": [
+        270,
+        480
+      ],
+      "mode": "RGB",
+      "alpha": [
+        255
+      ],
+      "rgb_colors": 30,
+      "state": "accepted opaque environment anchor",
+      "source_anchor": null,
+      "presentation_scale": null,
+      "layer_role": "opaque 270x480 environment master",
+      "prompt_summary": "Kush & Crypt secure egg back room; empty runtime pedestal zone",
+      "provenance": "Exact byte copy of the UBE TASTE PASS / HQ VISUAL PASS ART SHIP 007 native candidate; no decode, re-encode, resize, retouch or pixel transformation during promotion.",
+      "approval_status": "APPROVED MASTER",
+      "freeze_status": "FROZEN",
+      "default_style_reference": true,
+      "freeze_scope": "Exact 270x480 opaque environment pixels for OPEN environment id kush_back and base role only; no overlays, variants, runtime Stage Contract or integration acceptance."
+    },
+    {
+      "review_number": 22,
+      "asset_id": "kitchen",
+      "open_id": "kitchen",
+      "category": "ENVIRONMENT",
+      "source_candidate_path": "assets/environments/kitchen/castle_kitchen_270x480.png",
+      "path": "assets/before_the_fame/environments/kitchen/castle_kitchen_270x480.png",
+      "accepted_candidate_sha256": "5f30a6257b785e266901bcf206e1deb829caf64af8ce77b3805a976103cd83a8",
+      "sha256": "5f30a6257b785e266901bcf206e1deb829caf64af8ce77b3805a976103cd83a8",
+      "role": "approved production environment master; OPEN id kitchen",
+      "dimensions": [
+        270,
+        480
+      ],
+      "mode": "RGB",
+      "alpha": [
+        255
+      ],
+      "rgb_colors": 30,
+      "state": "accepted opaque environment anchor",
+      "source_anchor": null,
+      "presentation_scale": null,
+      "layer_role": "opaque 270x480 environment master",
+      "prompt_summary": "functional castle kitchen with modern use and broad stone floor",
+      "provenance": "Exact byte copy of the UBE TASTE PASS / HQ VISUAL PASS ART SHIP 007 native candidate; no decode, re-encode, resize, retouch or pixel transformation during promotion.",
+      "approval_status": "APPROVED MASTER",
+      "freeze_status": "FROZEN",
+      "default_style_reference": true,
+      "freeze_scope": "Exact 270x480 opaque environment pixels for OPEN environment id kitchen and base role only; no overlays, variants, runtime Stage Contract or integration acceptance."
+    },
+    {
+      "review_number": 23,
+      "asset_id": "movie_room",
+      "open_id": "movie_room",
+      "category": "ENVIRONMENT",
+      "source_candidate_path": "assets/environments/movie_room/castle_movie_room_270x480.png",
+      "path": "assets/before_the_fame/environments/movie_room/castle_movie_room_270x480.png",
+      "accepted_candidate_sha256": "e3fd09b81a3bed3173b1435d1b1efc8bd467ed84982e192ea901358b3b7c9560",
+      "sha256": "e3fd09b81a3bed3173b1435d1b1efc8bd467ed84982e192ea901358b3b7c9560",
+      "role": "approved production environment master; OPEN id movie_room",
+      "dimensions": [
+        270,
+        480
+      ],
+      "mode": "RGB",
+      "alpha": [
+        255
+      ],
+      "rgb_colors": 30,
+      "state": "accepted opaque environment anchor",
+      "source_anchor": null,
+      "presentation_scale": null,
+      "layer_role": "opaque 270x480 environment master",
+      "prompt_summary": "cozy castle screening room with blank screen and side seating",
+      "provenance": "Exact byte copy of the UBE TASTE PASS / HQ VISUAL PASS ART SHIP 007 native candidate; no decode, re-encode, resize, retouch or pixel transformation during promotion.",
+      "approval_status": "APPROVED MASTER",
+      "freeze_status": "FROZEN",
+      "default_style_reference": true,
+      "freeze_scope": "Exact 270x480 opaque environment pixels for OPEN environment id movie_room and base role only; no overlays, variants, runtime Stage Contract or integration acceptance."
+    },
+    {
+      "review_number": 24,
+      "asset_id": "peking_naija",
+      "open_id": "peking_naija",
+      "category": "ENVIRONMENT",
+      "source_candidate_path": "assets/environments/peking_naija/peking_naija_interior_270x480.png",
+      "path": "assets/before_the_fame/environments/peking_naija/peking_naija_interior_270x480.png",
+      "accepted_candidate_sha256": "696a4f1d3796714d7043010f2bae91b71ffad60e2872eb17455b4ccb93115219",
+      "sha256": "696a4f1d3796714d7043010f2bae91b71ffad60e2872eb17455b4ccb93115219",
+      "role": "approved production environment master; OPEN id peking_naija",
+      "dimensions": [
+        270,
+        480
+      ],
+      "mode": "RGB",
+      "alpha": [
+        255
+      ],
+      "rgb_colors": 30,
+      "state": "accepted opaque environment anchor",
+      "source_anchor": null,
+      "presentation_scale": null,
+      "layer_role": "opaque 270x480 environment master",
+      "prompt_summary": "warm Nigerian-Chinese family restaurant; no flags or readable signage",
+      "provenance": "Exact byte copy of the UBE TASTE PASS / HQ VISUAL PASS ART SHIP 007 native candidate; no decode, re-encode, resize, retouch or pixel transformation during promotion.",
+      "approval_status": "APPROVED MASTER",
+      "freeze_status": "FROZEN",
+      "default_style_reference": true,
+      "freeze_scope": "Exact 270x480 opaque environment pixels for OPEN environment id peking_naija and base role only; no overlays, variants, runtime Stage Contract or integration acceptance."
+    },
+    {
+      "review_number": 25,
+      "asset_id": "salon",
+      "open_id": "salon",
+      "category": "ENVIRONMENT",
+      "source_candidate_path": "assets/environments/salon/twist_and_shout_salon_270x480.png",
+      "path": "assets/before_the_fame/environments/salon/twist_and_shout_salon_270x480.png",
+      "accepted_candidate_sha256": "240e6a9244d27df5947624b47ee2e3a142bbca2405ea7be74cc5c7856be2e63a",
+      "sha256": "240e6a9244d27df5947624b47ee2e3a142bbca2405ea7be74cc5c7856be2e63a",
+      "role": "approved production environment master; OPEN id salon",
+      "dimensions": [
+        270,
+        480
+      ],
+      "mode": "RGB",
+      "alpha": [
+        255
+      ],
+      "rgb_colors": 30,
+      "state": "accepted opaque environment anchor",
+      "source_anchor": null,
+      "presentation_scale": null,
+      "layer_role": "opaque 270x480 environment master",
+      "prompt_summary": "adult hair salon; chairs, dryer, mirror stations, central aisle",
+      "provenance": "Exact byte copy of the UBE TASTE PASS / HQ VISUAL PASS ART SHIP 007 native candidate; no decode, re-encode, resize, retouch or pixel transformation during promotion.",
+      "approval_status": "APPROVED MASTER",
+      "freeze_status": "FROZEN",
+      "default_style_reference": true,
+      "freeze_scope": "Exact 270x480 opaque environment pixels for OPEN environment id salon and base role only; no overlays, variants, runtime Stage Contract or integration acceptance."
+    },
+    {
+      "review_number": 26,
+      "asset_id": "brunch",
+      "open_id": "brunch",
+      "category": "ENVIRONMENT",
+      "source_candidate_path": "assets/environments/brunch/eggs_benedead_brunch_270x480.png",
+      "path": "assets/before_the_fame/environments/brunch/eggs_benedead_brunch_270x480.png",
+      "accepted_candidate_sha256": "5bf2d7a132b820d62fe20cf3a603d32070a0f2f7ea2bdc62afb4a7ae92424396",
+      "sha256": "5bf2d7a132b820d62fe20cf3a603d32070a0f2f7ea2bdc62afb4a7ae92424396",
+      "role": "approved production environment master; OPEN id brunch",
+      "dimensions": [
+        270,
+        480
+      ],
+      "mode": "RGB",
+      "alpha": [
+        255
+      ],
+      "rgb_colors": 30,
+      "state": "accepted opaque environment anchor",
+      "source_anchor": null,
+      "presentation_scale": null,
+      "layer_role": "opaque 270x480 environment master",
+      "prompt_summary": "bright daytime brunch window seat; playful undead color only",
+      "provenance": "Exact byte copy of the UBE TASTE PASS / HQ VISUAL PASS ART SHIP 007 native candidate; no decode, re-encode, resize, retouch or pixel transformation during promotion.",
+      "approval_status": "APPROVED MASTER",
+      "freeze_status": "FROZEN",
+      "default_style_reference": true,
+      "freeze_scope": "Exact 270x480 opaque environment pixels for OPEN environment id brunch and base role only; no overlays, variants, runtime Stage Contract or integration acceptance."
+    },
+    {
+      "review_number": 27,
+      "asset_id": "onsen",
+      "open_id": "onsen",
+      "category": "ENVIRONMENT",
+      "source_candidate_path": "assets/environments/onsen/yu_and_me_onsen_270x480.png",
+      "path": "assets/before_the_fame/environments/onsen/yu_and_me_onsen_270x480.png",
+      "accepted_candidate_sha256": "78e02cbb6b58cc21c6499b36cb6cd94d3f34770b7a02364c011581c3482ed3c5",
+      "sha256": "78e02cbb6b58cc21c6499b36cb6cd94d3f34770b7a02364c011581c3482ed3c5",
+      "role": "approved production environment master; OPEN id onsen",
+      "dimensions": [
+        270,
+        480
+      ],
+      "mode": "RGB",
+      "alpha": [
+        255
+      ],
+      "rgb_colors": 30,
+      "state": "accepted opaque environment anchor",
+      "source_anchor": null,
+      "presentation_scale": null,
+      "layer_role": "opaque 270x480 environment master",
+      "prompt_summary": "private onsen; cedar, stone, restrained steam, dry staging floor",
+      "provenance": "Exact byte copy of the UBE TASTE PASS / HQ VISUAL PASS ART SHIP 007 native candidate; no decode, re-encode, resize, retouch or pixel transformation during promotion.",
+      "approval_status": "APPROVED MASTER",
+      "freeze_status": "FROZEN",
+      "default_style_reference": true,
+      "freeze_scope": "Exact 270x480 opaque environment pixels for OPEN environment id onsen and base role only; no overlays, variants, runtime Stage Contract or integration acceptance."
+    },
+    {
+      "review_number": 28,
+      "asset_id": "little_tokyo",
+      "open_id": "little_tokyo",
+      "category": "ENVIRONMENT",
+      "source_candidate_path": "assets/environments/little_tokyo/little_tokyo_night_270x480.png",
+      "path": "assets/before_the_fame/environments/little_tokyo/little_tokyo_night_270x480.png",
+      "accepted_candidate_sha256": "d15659b840e96e94d8478ec2d26efa85c0bf82f3e9cc2892c352e8ac3de33caa",
+      "sha256": "d15659b840e96e94d8478ec2d26efa85c0bf82f3e9cc2892c352e8ac3de33caa",
+      "role": "approved production environment master; OPEN id little_tokyo",
+      "dimensions": [
+        270,
+        480
+      ],
+      "mode": "RGB",
+      "alpha": [
+        255
+      ],
+      "rgb_colors": 30,
+      "state": "accepted opaque environment anchor",
+      "source_anchor": null,
+      "presentation_scale": null,
+      "layer_role": "opaque 270x480 environment master",
+      "prompt_summary": "lantern plaza and photo booth at night; no copied signage",
+      "provenance": "Exact byte copy of the UBE TASTE PASS / HQ VISUAL PASS ART SHIP 007 native candidate; no decode, re-encode, resize, retouch or pixel transformation during promotion.",
+      "approval_status": "APPROVED MASTER",
+      "freeze_status": "FROZEN",
+      "default_style_reference": true,
+      "freeze_scope": "Exact 270x480 opaque environment pixels for OPEN environment id little_tokyo and base role only; no overlays, variants, runtime Stage Contract or integration acceptance."
+    },
+    {
+      "review_number": 29,
+      "asset_id": "venice",
+      "open_id": "venice",
+      "category": "ENVIRONMENT",
+      "source_candidate_path": "assets/environments/venice/venice_courts_night_270x480.png",
+      "path": "assets/before_the_fame/environments/venice/venice_courts_night_270x480.png",
+      "accepted_candidate_sha256": "6d8f23749069ce597b0dbbb91265c9e24da4566e21177665f2c520a245e0df35",
+      "sha256": "6d8f23749069ce597b0dbbb91265c9e24da4566e21177665f2c520a245e0df35",
+      "role": "approved production environment master; OPEN id venice",
+      "dimensions": [
+        270,
+        480
+      ],
+      "mode": "RGB",
+      "alpha": [
+        255
+      ],
+      "rgb_colors": 30,
+      "state": "accepted opaque environment anchor",
+      "source_anchor": null,
+      "presentation_scale": null,
+      "layer_role": "opaque 270x480 environment master",
+      "prompt_summary": "night basketball court with ocean and pier lights; no players",
+      "provenance": "Exact byte copy of the UBE TASTE PASS / HQ VISUAL PASS ART SHIP 007 native candidate; no decode, re-encode, resize, retouch or pixel transformation during promotion.",
+      "approval_status": "APPROVED MASTER",
+      "freeze_status": "FROZEN",
+      "default_style_reference": true,
+      "freeze_scope": "Exact 270x480 opaque environment pixels for OPEN environment id venice and base role only; no overlays, variants, runtime Stage Contract or integration acceptance."
+    },
+    {
+      "review_number": 30,
+      "asset_id": "gallery",
+      "open_id": "gallery",
+      "category": "ENVIRONMENT",
+      "source_candidate_path": "assets/environments/gallery/rookoko_gallery_270x480.png",
+      "path": "assets/before_the_fame/environments/gallery/rookoko_gallery_270x480.png",
+      "accepted_candidate_sha256": "fdcfbfb68c83c0c9e7677bd95b4fed322d1f7af3023c857dae2b5de48b44f216",
+      "sha256": "fdcfbfb68c83c0c9e7677bd95b4fed322d1f7af3023c857dae2b5de48b44f216",
+      "role": "approved production environment master; OPEN id gallery",
+      "dimensions": [
+        270,
+        480
+      ],
+      "mode": "RGB",
+      "alpha": [
+        255
+      ],
+      "rgb_colors": 30,
+      "state": "accepted opaque environment anchor",
+      "source_anchor": null,
+      "presentation_scale": null,
+      "layer_role": "opaque 270x480 environment master",
+      "prompt_summary": "clean contemporary gallery; abstract art, sculpture, clear pale floor",
+      "provenance": "Exact byte copy of the UBE TASTE PASS / HQ VISUAL PASS ART SHIP 007 native candidate; no decode, re-encode, resize, retouch or pixel transformation during promotion.",
+      "approval_status": "APPROVED MASTER",
+      "freeze_status": "FROZEN",
+      "default_style_reference": true,
+      "freeze_scope": "Exact 270x480 opaque environment pixels for OPEN environment id gallery and base role only; no overlays, variants, runtime Stage Contract or integration acceptance."
+    },
+    {
+      "review_number": 31,
+      "asset_id": "tristan_apt",
+      "open_id": "tristan_apt",
+      "category": "ENVIRONMENT",
+      "source_candidate_path": "assets/environments/tristan_apt/tristan_apartment_270x480.png",
+      "path": "assets/before_the_fame/environments/tristan_apt/tristan_apartment_270x480.png",
+      "accepted_candidate_sha256": "7ee376bbf15019ac0c1b86b99403cf16a154e37a50ecc373cf9cb2bbac735e9f",
+      "sha256": "7ee376bbf15019ac0c1b86b99403cf16a154e37a50ecc373cf9cb2bbac735e9f",
+      "role": "approved production environment master; OPEN id tristan_apt",
+      "dimensions": [
+        270,
+        480
+      ],
+      "mode": "RGB",
+      "alpha": [
+        255
+      ],
+      "rgb_colors": 30,
+      "state": "accepted opaque environment anchor",
+      "source_anchor": null,
+      "presentation_scale": null,
+      "layer_role": "opaque 270x480 environment master",
+      "prompt_summary": "three-monitor apartment at night; snack shapes, couch, broad floor",
+      "provenance": "Exact byte copy of the UBE TASTE PASS / HQ VISUAL PASS ART SHIP 007 native candidate; no decode, re-encode, resize, retouch or pixel transformation during promotion.",
+      "approval_status": "APPROVED MASTER",
+      "freeze_status": "FROZEN",
+      "default_style_reference": true,
+      "freeze_scope": "Exact 270x480 opaque environment pixels for OPEN environment id tristan_apt and base role only; no overlays, variants, runtime Stage Contract or integration acceptance."
+    },
+    {
+      "review_number": 32,
+      "asset_id": "taco_truck",
+      "open_id": "taco_truck",
+      "category": "ENVIRONMENT",
+      "source_candidate_path": "assets/environments/taco_truck/don_chuy_taco_truck_270x480.png",
+      "path": "assets/before_the_fame/environments/taco_truck/don_chuy_taco_truck_270x480.png",
+      "accepted_candidate_sha256": "a0b694d79170a8cfe27ccad7f4c3d454faf7de46dc3d51cc9fcdb755c465d15a",
+      "sha256": "a0b694d79170a8cfe27ccad7f4c3d454faf7de46dc3d51cc9fcdb755c465d15a",
+      "role": "approved production environment master; OPEN id taco_truck",
+      "dimensions": [
+        270,
+        480
+      ],
+      "mode": "RGB",
+      "alpha": [
+        255
+      ],
+      "rgb_colors": 30,
+      "state": "accepted opaque environment anchor",
+      "source_anchor": null,
+      "presentation_scale": null,
+      "layer_role": "opaque 270x480 environment master",
+      "prompt_summary": "fictional taco truck on an ordinary LA night street; empty service area",
+      "provenance": "Exact byte copy of the UBE TASTE PASS / HQ VISUAL PASS ART SHIP 007 native candidate; no decode, re-encode, resize, retouch or pixel transformation during promotion.",
+      "approval_status": "APPROVED MASTER",
+      "freeze_status": "FROZEN",
+      "default_style_reference": true,
+      "freeze_scope": "Exact 270x480 opaque environment pixels for OPEN environment id taco_truck and base role only; no overlays, variants, runtime Stage Contract or integration acceptance."
+    },
+    {
+      "review_number": 33,
+      "asset_id": "maul",
+      "open_id": "maul",
+      "category": "ENVIRONMENT",
+      "source_candidate_path": "assets/environments/maul/maul_of_georgia_270x480.png",
+      "path": "assets/before_the_fame/environments/maul/maul_of_georgia_270x480.png",
+      "accepted_candidate_sha256": "02dbe701b4bd5fad14d1127f9403e956c5ba89580dffaae47ddfceda6bc8d0bb",
+      "sha256": "02dbe701b4bd5fad14d1127f9403e956c5ba89580dffaae47ddfceda6bc8d0bb",
+      "role": "approved production environment master; OPEN id maul",
+      "dimensions": [
+        270,
+        480
+      ],
+      "mode": "RGB",
+      "alpha": [
+        255
+      ],
+      "rgb_colors": 30,
+      "state": "accepted opaque environment anchor",
+      "source_anchor": null,
+      "presentation_scale": null,
+      "layer_role": "opaque 270x480 environment master",
+      "prompt_summary": "playful gothic Georgia mall; arched skylight, quiet storefronts",
+      "provenance": "Exact byte copy of the UBE TASTE PASS / HQ VISUAL PASS ART SHIP 007 native candidate; no decode, re-encode, resize, retouch or pixel transformation during promotion.",
+      "approval_status": "APPROVED MASTER",
+      "freeze_status": "FROZEN",
+      "default_style_reference": true,
+      "freeze_scope": "Exact 270x480 opaque environment pixels for OPEN environment id maul and base role only; no overlays, variants, runtime Stage Contract or integration acceptance."
+    },
+    {
+      "review_number": 34,
+      "asset_id": "lennox",
+      "open_id": "lennox",
+      "category": "ENVIRONMENT",
+      "source_candidate_path": "assets/environments/lennox/lennox_scare_270x480.png",
+      "path": "assets/before_the_fame/environments/lennox/lennox_scare_270x480.png",
+      "accepted_candidate_sha256": "911128f91cc0a286b1cf0d2e79fd362117b9f2ff3a6bc4df66e49c6d53a0ab2a",
+      "sha256": "911128f91cc0a286b1cf0d2e79fd362117b9f2ff3a6bc4df66e49c6d53a0ab2a",
+      "role": "approved production environment master; OPEN id lennox",
+      "dimensions": [
+        270,
+        480
+      ],
+      "mode": "RGB",
+      "alpha": [
+        255
+      ],
+      "rgb_colors": 30,
+      "state": "accepted opaque environment anchor",
+      "source_anchor": null,
+      "presentation_scale": null,
+      "layer_role": "opaque 270x480 environment master",
+      "prompt_summary": "upscale Atlanta mall corridor with restrained vampire architecture",
+      "provenance": "Exact byte copy of the UBE TASTE PASS / HQ VISUAL PASS ART SHIP 007 native candidate; no decode, re-encode, resize, retouch or pixel transformation during promotion.",
+      "approval_status": "APPROVED MASTER",
+      "freeze_status": "FROZEN",
+      "default_style_reference": true,
+      "freeze_scope": "Exact 270x480 opaque environment pixels for OPEN environment id lennox and base role only; no overlays, variants, runtime Stage Contract or integration acceptance."
+    },
+    {
+      "review_number": 35,
+      "asset_id": "centennial",
+      "open_id": "centennial",
+      "category": "ENVIRONMENT",
+      "source_candidate_path": "assets/environments/centennial/centennial_vampiric_park_270x480.png",
+      "path": "assets/before_the_fame/environments/centennial/centennial_vampiric_park_270x480.png",
+      "accepted_candidate_sha256": "6046b91576e548f878fe41372c7410913b5a006bbcd39377e044247cb58d16fd",
+      "sha256": "6046b91576e548f878fe41372c7410913b5a006bbcd39377e044247cb58d16fd",
+      "role": "approved production environment master; OPEN id centennial",
+      "dimensions": [
+        270,
+        480
+      ],
+      "mode": "RGB",
+      "alpha": [
+        255
+      ],
+      "rgb_colors": 30,
+      "state": "accepted opaque environment anchor",
+      "source_anchor": null,
+      "presentation_scale": null,
+      "layer_role": "opaque 270x480 environment master",
+      "prompt_summary": "welcoming Atlanta civic park at night with restrained gothic details",
+      "provenance": "Exact byte copy of the UBE TASTE PASS / HQ VISUAL PASS ART SHIP 007 native candidate; no decode, re-encode, resize, retouch or pixel transformation during promotion.",
+      "approval_status": "APPROVED MASTER",
+      "freeze_status": "FROZEN",
+      "default_style_reference": true,
+      "freeze_scope": "Exact 270x480 opaque environment pixels for OPEN environment id centennial and base role only; no overlays, variants, runtime Stage Contract or integration acceptance."
+    },
+    {
+      "review_number": 36,
+      "asset_id": "suya_spot",
+      "open_id": "suya_spot",
+      "category": "ENVIRONMENT",
+      "source_candidate_path": "assets/environments/suya_spot/southwest_atlanta_suya_spot_270x480.png",
+      "path": "assets/before_the_fame/environments/suya_spot/southwest_atlanta_suya_spot_270x480.png",
+      "accepted_candidate_sha256": "596bb9a78265aa42ca135e7472ce648d0f8b8f87feaed53383f0ee3714950679",
+      "sha256": "596bb9a78265aa42ca135e7472ce648d0f8b8f87feaed53383f0ee3714950679",
+      "role": "approved production environment master; OPEN id suya_spot",
+      "dimensions": [
+        270,
+        480
+      ],
+      "mode": "RGB",
+      "alpha": [
+        255
+      ],
+      "rgb_colors": 30,
+      "state": "accepted opaque environment anchor",
+      "source_anchor": null,
+      "presentation_scale": null,
+      "layer_role": "opaque 270x480 environment master",
+      "prompt_summary": "friendly roadside suya stand at night; broad open patio",
+      "provenance": "Exact byte copy of the UBE TASTE PASS / HQ VISUAL PASS ART SHIP 007 native candidate; no decode, re-encode, resize, retouch or pixel transformation during promotion.",
+      "approval_status": "APPROVED MASTER",
+      "freeze_status": "FROZEN",
+      "default_style_reference": true,
+      "freeze_scope": "Exact 270x480 opaque environment pixels for OPEN environment id suya_spot and base role only; no overlays, variants, runtime Stage Contract or integration acceptance."
+    },
+    {
+      "review_number": 37,
+      "asset_id": "crest",
+      "open_id": "crest",
+      "category": "ENVIRONMENT",
+      "source_candidate_path": "assets/environments/crest/angeles_crest_overlook_270x480.png",
+      "path": "assets/before_the_fame/environments/crest/angeles_crest_overlook_270x480.png",
+      "accepted_candidate_sha256": "ddeda8ab4b44b4935e1a8450a24a13c8ad885f5282c214f305ec8e0eee28e4a7",
+      "sha256": "ddeda8ab4b44b4935e1a8450a24a13c8ad885f5282c214f305ec8e0eee28e4a7",
+      "role": "approved production environment master; OPEN id crest",
+      "dimensions": [
+        270,
+        480
+      ],
+      "mode": "RGB",
+      "alpha": [
+        255
+      ],
+      "rgb_colors": 30,
+      "state": "accepted opaque environment anchor",
+      "source_anchor": null,
+      "presentation_scale": null,
+      "layer_role": "opaque 270x480 environment master",
+      "prompt_summary": "empty Touge overlook and mountain road at night; no cars or HUD",
+      "provenance": "Exact byte copy of the UBE TASTE PASS / HQ VISUAL PASS ART SHIP 007 native candidate; no decode, re-encode, resize, retouch or pixel transformation during promotion.",
+      "approval_status": "APPROVED MASTER",
+      "freeze_status": "FROZEN",
+      "default_style_reference": true,
+      "freeze_scope": "Exact 270x480 opaque environment pixels for OPEN environment id crest and base role only; no overlays, variants, runtime Stage Contract or integration acceptance."
+    },
+    {
+      "review_number": 38,
+      "asset_id": "duchess_castle",
+      "open_id": "duchess_castle",
+      "category": "ENVIRONMENT",
+      "source_candidate_path": "assets/environments/duchess_castle/duchess_castle_reception_270x480.png",
+      "path": "assets/before_the_fame/environments/duchess_castle/duchess_castle_reception_270x480.png",
+      "accepted_candidate_sha256": "e9f4406059a2eed587840d67f96c45969a6650cae24d176dbb43f6c049068eee",
+      "sha256": "e9f4406059a2eed587840d67f96c45969a6650cae24d176dbb43f6c049068eee",
+      "role": "approved production environment master; OPEN id duchess_castle",
+      "dimensions": [
+        270,
+        480
+      ],
+      "mode": "RGB",
+      "alpha": [
+        255
+      ],
+      "rgb_colors": 30,
+      "state": "accepted opaque environment anchor",
+      "source_anchor": null,
+      "presentation_scale": null,
+      "layer_role": "opaque 270x480 environment master",
+      "prompt_summary": "grand candlelit gothic-luxury reception chamber; no crowd",
+      "provenance": "Exact byte copy of the UBE TASTE PASS / HQ VISUAL PASS ART SHIP 007 native candidate; no decode, re-encode, resize, retouch or pixel transformation during promotion.",
+      "approval_status": "APPROVED MASTER",
+      "freeze_status": "FROZEN",
+      "default_style_reference": true,
+      "freeze_scope": "Exact 270x480 opaque environment pixels for OPEN environment id duchess_castle and base role only; no overlays, variants, runtime Stage Contract or integration acceptance."
+    }
+  ],
+  "runtime_integration": "not performed by ART SHIP 007",
+  "promotion_commit": "Resolve as the commit containing this manifest; a Git commit cannot contain its own SHA without changing that SHA."
+}

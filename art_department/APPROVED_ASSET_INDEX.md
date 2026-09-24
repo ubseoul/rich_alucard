@@ -172,3 +172,48 @@ All 46 native candidates and 11 useful multi-frame handoff sheets below are APPR
 | `assets/before_the_fame/characters/rich/rich_contextual_state_sheet_320x96.png` | FROZEN | APPROVED MASTER; ART SHIP 006 approved handoff state sheet; ART SHIP 006 id rich_contextual; not runtime-integrated |
 | `assets/before_the_fame/vehicles/touge/touge_vehicle_sheet_128x28.png` | FROZEN | APPROVED MASTER; ART SHIP 006 approved handoff state sheet; ART SHIP 006 id touge_vehicles; not runtime-integrated |
 | `assets/before_the_fame/ui/apps/phone_app_icon_sheet_216x24.png` | FROZEN | APPROVED MASTER; ART SHIP 006 approved handoff state sheet; ART SHIP 006 id phone_app_icons; not runtime-integrated |
+
+## ART SHIP 007 — OPEN Foundation Completion
+
+All 18 identity anchors and 20 reusable environment masters below are APPROVED MASTER / FROZEN. Runtime integration was not performed by this Ship.
+
+| Path | Status | Role |
+|---|---|---|
+| `assets/before_the_fame/characters/marisol/marisol_neutral_80x96.png` | FROZEN | APPROVED MASTER; ART SHIP 007 character anchor; OPEN id `marisol`; not runtime-integrated |
+| `assets/before_the_fame/characters/duchess/duchess_bathory_brown_neutral_80x96.png` | FROZEN | APPROVED MASTER; ART SHIP 007 character anchor; OPEN id `duchess`; not runtime-integrated |
+| `assets/before_the_fame/characters/emberly/emberly_neutral_80x96.png` | FROZEN | APPROVED MASTER; ART SHIP 007 character anchor; OPEN id `emberly`; not runtime-integrated |
+| `assets/before_the_fame/characters/jade/jade_wyrmwood_neutral_80x96.png` | FROZEN | APPROVED MASTER; ART SHIP 007 character anchor; OPEN id `jade`; not runtime-integrated |
+| `assets/before_the_fame/characters/lo/lo_dolores_neutral_80x96.png` | FROZEN | APPROVED MASTER; ART SHIP 007 character anchor; OPEN id `lo`; not runtime-integrated |
+| `assets/before_the_fame/characters/brenda/brenda_neutral_80x96.png` | FROZEN | APPROVED MASTER; ART SHIP 007 character anchor; OPEN id `brenda`; not runtime-integrated |
+| `assets/before_the_fame/characters/velvet/velvet_vantablack_profile_80x96.png` | FROZEN | APPROVED MASTER; ART SHIP 007 character anchor; OPEN id `velvet`; not runtime-integrated |
+| `assets/before_the_fame/characters/anfeesa/dj_anfeesa_neutral_80x96.png` | FROZEN | APPROVED MASTER; ART SHIP 007 character anchor; OPEN id `anfeesa`; not runtime-integrated |
+| `assets/before_the_fame/characters/rookoko/rookoko_neutral_80x96.png` | FROZEN | APPROVED MASTER; ART SHIP 007 character anchor; OPEN id `rookoko`; not runtime-integrated |
+| `assets/before_the_fame/characters/officer_nodd/officer_nodd_neutral_80x96.png` | FROZEN | APPROVED MASTER; ART SHIP 007 character anchor; OPEN id `officer_nodd`; not runtime-integrated |
+| `assets/before_the_fame/characters/don_chuy/don_chuy_neutral_80x96.png` | FROZEN | APPROVED MASTER; ART SHIP 007 character anchor; OPEN id `don_chuy`; not runtime-integrated |
+| `assets/before_the_fame/characters/tokyo_tony/tokyo_tony_smug_80x96.png` | FROZEN | APPROVED MASTER; ART SHIP 007 character anchor; OPEN id `tokyo_tony`; not runtime-integrated |
+| `assets/before_the_fame/characters/vicky/vicky_neutral_80x96.png` | FROZEN | APPROVED MASTER; ART SHIP 007 character anchor; OPEN id `vicky`; not runtime-integrated |
+| `assets/before_the_fame/characters/j_circle/j_circle_entrance_80x96.png` | FROZEN | APPROVED MASTER; ART SHIP 007 character anchor; OPEN id `j_circle`; not runtime-integrated |
+| `assets/before_the_fame/characters/trippin_red/trippin_red_stage_ready_80x96.png` | FROZEN | APPROVED MASTER; ART SHIP 007 character anchor; OPEN id `trippin_red`; not runtime-integrated |
+| `assets/before_the_fame/characters/paladin/paladin_neutral_80x96.png` | FROZEN | APPROVED MASTER; ART SHIP 007 character anchor; OPEN id `paladin`; not runtime-integrated |
+| `assets/before_the_fame/characters/bard/bard_neutral_80x96.png` | FROZEN | APPROVED MASTER; ART SHIP 007 character anchor; OPEN id `bard`; not runtime-integrated |
+| `assets/before_the_fame/characters/cleric/cleric_neutral_80x96.png` | FROZEN | APPROVED MASTER; ART SHIP 007 character anchor; OPEN id `cleric`; not runtime-integrated |
+| `assets/before_the_fame/environments/boba_shop/boba_shop_night_270x480.png` | FROZEN | APPROVED MASTER; ART SHIP 007 environment master; OPEN id `boba_shop`; not runtime-integrated |
+| `assets/before_the_fame/environments/food_court/grave_food_court_night_270x480.png` | FROZEN | APPROVED MASTER; ART SHIP 007 environment master; OPEN id `food_court`; not runtime-integrated |
+| `assets/before_the_fame/environments/kush_back/kush_crypt_egg_back_room_270x480.png` | FROZEN | APPROVED MASTER; ART SHIP 007 environment master; OPEN id `kush_back`; not runtime-integrated |
+| `assets/before_the_fame/environments/kitchen/castle_kitchen_270x480.png` | FROZEN | APPROVED MASTER; ART SHIP 007 environment master; OPEN id `kitchen`; not runtime-integrated |
+| `assets/before_the_fame/environments/movie_room/castle_movie_room_270x480.png` | FROZEN | APPROVED MASTER; ART SHIP 007 environment master; OPEN id `movie_room`; not runtime-integrated |
+| `assets/before_the_fame/environments/peking_naija/peking_naija_interior_270x480.png` | FROZEN | APPROVED MASTER; ART SHIP 007 environment master; OPEN id `peking_naija`; not runtime-integrated |
+| `assets/before_the_fame/environments/salon/twist_and_shout_salon_270x480.png` | FROZEN | APPROVED MASTER; ART SHIP 007 environment master; OPEN id `salon`; not runtime-integrated |
+| `assets/before_the_fame/environments/brunch/eggs_benedead_brunch_270x480.png` | FROZEN | APPROVED MASTER; ART SHIP 007 environment master; OPEN id `brunch`; not runtime-integrated |
+| `assets/before_the_fame/environments/onsen/yu_and_me_onsen_270x480.png` | FROZEN | APPROVED MASTER; ART SHIP 007 environment master; OPEN id `onsen`; not runtime-integrated |
+| `assets/before_the_fame/environments/little_tokyo/little_tokyo_night_270x480.png` | FROZEN | APPROVED MASTER; ART SHIP 007 environment master; OPEN id `little_tokyo`; not runtime-integrated |
+| `assets/before_the_fame/environments/venice/venice_courts_night_270x480.png` | FROZEN | APPROVED MASTER; ART SHIP 007 environment master; OPEN id `venice`; not runtime-integrated |
+| `assets/before_the_fame/environments/gallery/rookoko_gallery_270x480.png` | FROZEN | APPROVED MASTER; ART SHIP 007 environment master; OPEN id `gallery`; not runtime-integrated |
+| `assets/before_the_fame/environments/tristan_apt/tristan_apartment_270x480.png` | FROZEN | APPROVED MASTER; ART SHIP 007 environment master; OPEN id `tristan_apt`; not runtime-integrated |
+| `assets/before_the_fame/environments/taco_truck/don_chuy_taco_truck_270x480.png` | FROZEN | APPROVED MASTER; ART SHIP 007 environment master; OPEN id `taco_truck`; not runtime-integrated |
+| `assets/before_the_fame/environments/maul/maul_of_georgia_270x480.png` | FROZEN | APPROVED MASTER; ART SHIP 007 environment master; OPEN id `maul`; not runtime-integrated |
+| `assets/before_the_fame/environments/lennox/lennox_scare_270x480.png` | FROZEN | APPROVED MASTER; ART SHIP 007 environment master; OPEN id `lennox`; not runtime-integrated |
+| `assets/before_the_fame/environments/centennial/centennial_vampiric_park_270x480.png` | FROZEN | APPROVED MASTER; ART SHIP 007 environment master; OPEN id `centennial`; not runtime-integrated |
+| `assets/before_the_fame/environments/suya_spot/southwest_atlanta_suya_spot_270x480.png` | FROZEN | APPROVED MASTER; ART SHIP 007 environment master; OPEN id `suya_spot`; not runtime-integrated |
+| `assets/before_the_fame/environments/crest/angeles_crest_overlook_270x480.png` | FROZEN | APPROVED MASTER; ART SHIP 007 environment master; OPEN id `crest`; not runtime-integrated |
+| `assets/before_the_fame/environments/duchess_castle/duchess_castle_reception_270x480.png` | FROZEN | APPROVED MASTER; ART SHIP 007 environment master; OPEN id `duchess_castle`; not runtime-integrated |
