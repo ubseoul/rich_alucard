@@ -1,21 +1,23 @@
 # Current handoff
 
-**ART SHIP 004 — THE GOLDFISH YEARS: HQ TECHNICAL PASS / APPROVED MASTER / FROZEN / COMPLETE.** No active Art Ship and no additional art, dialogue, redesign, runtime integration or scope expansion is authorized. Do not begin ART SHIP 005 without a fresh explicit authorization.
+**ART SHIP 005 — OPEN CHAPTER ANCHORS: UBE TASTE PASS / APPROVED MASTER / FROZEN / COMPLETE.** No active Art Ship and no derivative state, animation, vehicle, UI, crowd, overlay, remaining OPEN coverage, runtime integration or ART SHIP 006 work is authorized in this chat.
 
-Accepted exact production files:
+## Frozen result
 
-- Ocean-floor base: `assets/goldfish_years/masters/ocean_floor_base_270x480.png`.
-- Exact-origin ladder conditions: `assets/goldfish_years/layers/ladder_intact_overlay_270x480.png` and `assets/goldfish_years/layers/ladder_collapsed_overlay_270x480.png`.
-- Octopus Sensei masters: neutral and point states plus two-cell handoff sheet under `assets/goldfish_years/characters/octopus_sensei/`.
+- 52 canonical native PNGs under `assets/before_the_fame/`.
+- 28 character anchors: 80x96 RGBA, binary alpha, source contact `(40,88)`.
+- 20 environment masters: 270x480 opaque RGB.
+- Three props and one creature: native compact RGBA, binary alpha.
+- Every canonical SHA-256 equals the accepted candidate SHA-256.
 
-Exact paths, SHA-256 values, dimensions, alpha, contacts, state order and per-file freeze scope are authoritative in [ART SHIP 004 manifest](ships/art_ship_004/ART_SHIP_MANIFEST.json) and [Asset Register](ASSET_REGISTER.json). The explicit decision is transcribed in [HQ Decision](ships/art_ship_004/HQ_DECISION.md) and the [Approval Ledger](APPROVAL_LEDGER.md).
+Exact OPEN ids, paths, hashes, dimensions, formats, alpha, contacts, source packages and per-file freeze scopes are authoritative in [ART SHIP 005 manifest](ships/art_ship_005/ART_SHIP_MANIFEST.json), [Engineering Asset Map](ships/art_ship_005/ENGINEERING_ASSET_MAP.json) and [Asset Register](ASSET_REGISTER.json). The explicit decision is transcribed in [HQ Decision](ships/art_ship_005/HQ_DECISION.md) and the [Approval Ledger](APPROVAL_LEDGER.md).
 
-Primary gameplay characters render at approximately 1.85x their historical on-screen size using nearest-neighbor filtering. This is an Engineering runtime presentation rule. Native source sprites remain unchanged and must not be enlarged or proportionally redesigned to compensate.
+## Runtime rule
 
-The ocean base and ladder conditions use a 270x480 exact-origin layer contract. Octopus Sensei uses 96x96 cells with source contact (48,84); the state-sheet order is neutral then point. Review/staging guidance is stored with the Ship. Runtime placement, collision, interaction wiring, Stage Contract acceptance and game-code integration remain separate Engineering work.
+Primary gameplay characters are presented by Engineering at approximately 1.85x their historical on-screen scale with nearest-neighbor filtering. Native source files remain unchanged. This Ship does not modify or authorize runtime code.
 
-Raw generations, candidate-folder duplicates, status-unknown Octopus Brain frames and other exploration material are not production authority. Future Art Agents may learn from the six canonical frozen winners only. Existing frozen Rich pixels were not modified.
+## Boundaries
 
-Earlier frozen work remains unchanged: ART SHIP 003's Property/Shannon/giant-rat package, ART SHIP 002's rave exterior, RT SHIP 001's Bllad33 neutral/entrance master, and the accepted Ogun/rave masters and support layers retain their recorded scopes.
+Only the exact 52 anchor files are frozen by ART SHIP 005. No alternate states, sheets, vehicles, UI, crowds, overlays, additional chapter coverage or SEALED/HQ-only content is included. Future pixel changes or derivatives require a new explicit Art Ship and fresh review.
 
-**STOP. ART SHIP 004 is FROZEN / COMPLETE. The Art Agent retires after the scoped commit is pushed and verified.**
+**STOP. ART SHIP 005 is FROZEN / COMPLETE. The Art Agent retires after the scoped commit is pushed and verified.**

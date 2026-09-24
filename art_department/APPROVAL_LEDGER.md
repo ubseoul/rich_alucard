@@ -91,3 +91,13 @@ HQ accepted and froze these exact canonical production files:
 Promotion copied the accepted files byte-for-byte into canonical production paths. All five transparent masters retain binary alpha; the environment base remains fully opaque. Raw generations and non-authoritative candidate duplicates are excluded from the approved corpus. Future Art Agents may learn from the six frozen canonical winners and must not use excluded exploration material as style authority.
 
 Freeze applies only to the six named PNGs, accepted identities/states, anchors/origins, formats and layer roles recorded in `ships/art_ship_004/ART_SHIP_MANIFEST.json`. It does not grant runtime integration acceptance, authorize additional states, modify Rich, change runtime code or deploy the game. ART SHIP 004 closes after the scoped commit reaches `origin/main`; the Art Agent then retires and does not begin ART SHIP 005 in this chat.
+
+## ART SHIP 005 — OPEN CHAPTER ANCHORS (recorded 2026-09-24)
+
+21. ART SHIP 005 executed an intentional fresh-agent capacity test over remaining OPEN Before the Fame chapter needs. Seven validated candidate packages yielded 52 native candidates: 28 characters, 20 environments, three props and one creature. All candidates were shown on the consolidated UBE / HQ Taste & Identity Review Board; weak candidates were not hidden.
+22. **UBE TASTE PASS — COMPLETE BATCH.** Ube accepted all 52 candidates as a visually coherent anchor shipment. No candidate was excluded and no revision or alternate state was requested.
+23. Explicit user-supplied HQ direction authorized the complete set to proceed through **CANDIDATE → APPROVED MASTER → FROZEN**, required canonical record updates, exact-byte hash verification, commit and push to `origin/main`, and retirement of this Art Agent.
+
+All 52 exact canonical PNGs named in `ships/art_ship_005/ART_SHIP_MANIFEST.json` are **APPROVED MASTER / FROZEN**. Promotion copied every accepted candidate byte-for-byte. The 1.85x primary-character presentation rule remains Engineering runtime guidance with nearest-neighbor filtering and is not baked into native assets.
+
+Freeze applies only to the named anchor pixels, identities/poses, OPEN ids, dimensions, formats, alpha modes and source contacts. It does not authorize derivative states, animation sheets, vehicles, UI, crowds, overlays, remaining OPEN coverage, runtime integration, SEALED/HQ-only access or ART SHIP 006. No runtime/game code changed.
