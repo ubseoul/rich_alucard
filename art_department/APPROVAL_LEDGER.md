@@ -109,3 +109,21 @@ Freeze applies only to the named anchor pixels, identities/poses, OPEN ids, dime
 26. HQ supplied an explicit visual pass: character states PASS; Rich contextual states PASS; vehicles PASS; phone/app icons PASS; environment variants PASS with the recorded full-frame generative-risk note. HQ authorized normal technical promotion/freeze, prohibited regeneration and required exact-byte preservation.
 
 All 46 native candidates and 11 useful multi-frame handoff sheets named in `ships/art_ship_006/ART_SHIP_MANIFEST.json` are **APPROVED MASTER / FROZEN**. Canonical hashes equal accepted package hashes. The three redundant one-cell package sheets remain package evidence only. Runtime integration is not granted. Future pixel changes require an explicit HQ delta.
+
+## ART SHIP 007 — OPEN FOUNDATION COMPLETION (recorded 2026-09-24)
+
+27. Ube authorized ART SHIP 007 to continue the OPEN Art backlog with missing identity anchors and independent reusable environments, excluding staging-dependent crowds, scene-specific overlays, presentation compositions, speculative derivatives and SEALED/HQ-only material.
+28. The Ship produced 38 validated native candidates: 18 identity anchors and 20 reusable environments. Automated native-contract validation passed 38/38; review evidence included one identity board and five exact 2× nearest-neighbor environment boards. Ambiguous, likeness-sensitive, condition-dependent, crowd, overlay and presentation-dependent work was explicitly deferred.
+29. Explicit user-supplied decision:
+
+> BE TASTE PASS / HQ VISUAL PASS — ART SHIP 007
+>
+> 18 identity anchors — PASS
+>
+> 20 reusable environments — PASS
+>
+> Proceed CANDIDATE → APPROVED MASTER → FROZEN, preserve every accepted candidate byte-for-byte, update authority records, commit and push to origin/main.
+
+All 38 exact canonical PNGs named in `ships/art_ship_007/ART_SHIP_MANIFEST.json` are **APPROVED MASTER / FROZEN**. Canonical hashes equal accepted candidate hashes. No art was regenerated or visually revised during promotion.
+
+Freeze applies only to the named anchor/master pixels, OPEN ids, dimensions, formats, alpha modes, character contacts and environment base roles. It does not authorize derivative states, overlays, crowds, runtime Stage Contracts or runtime integration. No runtime/gameplay code changed and no SEALED/HQ-only content was accessed. ART SHIP 007 is FROZEN / COMPLETE; this Art Agent retires and does not begin ART SHIP 008 in this chat.

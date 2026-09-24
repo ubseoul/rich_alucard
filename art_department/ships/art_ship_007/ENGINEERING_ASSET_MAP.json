@@ -1,0 +1,411 @@
+{
+  "schema_version": 1,
+  "ship_id": "ART SHIP 007",
+  "status": "APPROVED MASTER / FROZEN",
+  "source_authority_commit": "6613eb6fe041f08907db96c8569b862f8ae98e53",
+  "runtime_code_modified": false,
+  "runtime_integration": "not performed by ART SHIP 007",
+  "mappings": {
+    "characters.marisol": {
+      "path": "assets/before_the_fame/characters/marisol/marisol_neutral_80x96.png",
+      "dimensions": [
+        80,
+        96
+      ],
+      "sha256": "a906c82b5796e0a6ac7931790c88f7c235672d4b16b977175a10c446a1d80bb7",
+      "status": "APPROVED MASTER / FROZEN",
+      "runtime_integration": "not performed by ART SHIP 007"
+    },
+    "characters.duchess": {
+      "path": "assets/before_the_fame/characters/duchess/duchess_bathory_brown_neutral_80x96.png",
+      "dimensions": [
+        80,
+        96
+      ],
+      "sha256": "487aa9ce49c009a6a30fdc20a6d69ae8f40c908f85adeedb16fc1e7e94a8d6c8",
+      "status": "APPROVED MASTER / FROZEN",
+      "runtime_integration": "not performed by ART SHIP 007"
+    },
+    "characters.emberly": {
+      "path": "assets/before_the_fame/characters/emberly/emberly_neutral_80x96.png",
+      "dimensions": [
+        80,
+        96
+      ],
+      "sha256": "57b0d61d3a7b7b2a7811fd1c382e18b715464701da8f388982d4350be0109e85",
+      "status": "APPROVED MASTER / FROZEN",
+      "runtime_integration": "not performed by ART SHIP 007"
+    },
+    "characters.jade": {
+      "path": "assets/before_the_fame/characters/jade/jade_wyrmwood_neutral_80x96.png",
+      "dimensions": [
+        80,
+        96
+      ],
+      "sha256": "f9fe8221111c534170bb595908dd1008ac3f3c5753e51a87ba68a47b7d21482c",
+      "status": "APPROVED MASTER / FROZEN",
+      "runtime_integration": "not performed by ART SHIP 007"
+    },
+    "characters.lo": {
+      "path": "assets/before_the_fame/characters/lo/lo_dolores_neutral_80x96.png",
+      "dimensions": [
+        80,
+        96
+      ],
+      "sha256": "c69902507388bb4c81259baccde552170422b62f07ce9c44b88f9ad850c1a882",
+      "status": "APPROVED MASTER / FROZEN",
+      "runtime_integration": "not performed by ART SHIP 007"
+    },
+    "characters.brenda": {
+      "path": "assets/before_the_fame/characters/brenda/brenda_neutral_80x96.png",
+      "dimensions": [
+        80,
+        96
+      ],
+      "sha256": "bf394cabb65b4951fefc8d1ba3910f85e3cdbad870310802bfce407b5609222a",
+      "status": "APPROVED MASTER / FROZEN",
+      "runtime_integration": "not performed by ART SHIP 007"
+    },
+    "characters.velvet": {
+      "path": "assets/before_the_fame/characters/velvet/velvet_vantablack_profile_80x96.png",
+      "dimensions": [
+        80,
+        96
+      ],
+      "sha256": "6ec938de55fa0eee45ed4d5decd30661c1899b85effdac82873ed25ca7355610",
+      "status": "APPROVED MASTER / FROZEN",
+      "runtime_integration": "not performed by ART SHIP 007"
+    },
+    "characters.anfeesa": {
+      "path": "assets/before_the_fame/characters/anfeesa/dj_anfeesa_neutral_80x96.png",
+      "dimensions": [
+        80,
+        96
+      ],
+      "sha256": "7c896d24097a7e6d98edf07ea1113ee4750d1147b6b1ab5c5cbe60bd126d9f0f",
+      "status": "APPROVED MASTER / FROZEN",
+      "runtime_integration": "not performed by ART SHIP 007"
+    },
+    "characters.rookoko": {
+      "path": "assets/before_the_fame/characters/rookoko/rookoko_neutral_80x96.png",
+      "dimensions": [
+        80,
+        96
+      ],
+      "sha256": "ed315afe3431738962162ee58177c4f4cb9de9cdb246d22f57476bc200423ff1",
+      "status": "APPROVED MASTER / FROZEN",
+      "runtime_integration": "not performed by ART SHIP 007"
+    },
+    "characters.officer_nodd": {
+      "path": "assets/before_the_fame/characters/officer_nodd/officer_nodd_neutral_80x96.png",
+      "dimensions": [
+        80,
+        96
+      ],
+      "sha256": "07c4fc9ca7aa09588d0dff63aa61e82dcf6405fd5d7ef2be591dd11a90b1c58c",
+      "status": "APPROVED MASTER / FROZEN",
+      "runtime_integration": "not performed by ART SHIP 007"
+    },
+    "characters.don_chuy": {
+      "path": "assets/before_the_fame/characters/don_chuy/don_chuy_neutral_80x96.png",
+      "dimensions": [
+        80,
+        96
+      ],
+      "sha256": "875b39b8a253c9b80a01f8d372a0a488deefa083755503f892eaa85ea30c3d74",
+      "status": "APPROVED MASTER / FROZEN",
+      "runtime_integration": "not performed by ART SHIP 007"
+    },
+    "characters.tokyo_tony": {
+      "path": "assets/before_the_fame/characters/tokyo_tony/tokyo_tony_smug_80x96.png",
+      "dimensions": [
+        80,
+        96
+      ],
+      "sha256": "f95a433eac260b298fe14a95cf0e54086cbb6689d6f4ed4126ac98f5d596c442",
+      "status": "APPROVED MASTER / FROZEN",
+      "runtime_integration": "not performed by ART SHIP 007"
+    },
+    "characters.vicky": {
+      "path": "assets/before_the_fame/characters/vicky/vicky_neutral_80x96.png",
+      "dimensions": [
+        80,
+        96
+      ],
+      "sha256": "13a707e3a8ecdb43882adb0a688b02500a8f75776cf7ec658c8c37d0d8bd8efb",
+      "status": "APPROVED MASTER / FROZEN",
+      "runtime_integration": "not performed by ART SHIP 007"
+    },
+    "characters.j_circle": {
+      "path": "assets/before_the_fame/characters/j_circle/j_circle_entrance_80x96.png",
+      "dimensions": [
+        80,
+        96
+      ],
+      "sha256": "07a729dad918a2e14b4004d80a07c305bf367ec05770961477543100d779423b",
+      "status": "APPROVED MASTER / FROZEN",
+      "runtime_integration": "not performed by ART SHIP 007"
+    },
+    "characters.trippin_red": {
+      "path": "assets/before_the_fame/characters/trippin_red/trippin_red_stage_ready_80x96.png",
+      "dimensions": [
+        80,
+        96
+      ],
+      "sha256": "f127040b06122ea5f6f6e32d0706dc35fd106b287c3c5b5960671318ce922697",
+      "status": "APPROVED MASTER / FROZEN",
+      "runtime_integration": "not performed by ART SHIP 007"
+    },
+    "characters.paladin": {
+      "path": "assets/before_the_fame/characters/paladin/paladin_neutral_80x96.png",
+      "dimensions": [
+        80,
+        96
+      ],
+      "sha256": "cc7122015ee7750f24978763671f774101563231ead98c934380e60d8f9c6aa1",
+      "status": "APPROVED MASTER / FROZEN",
+      "runtime_integration": "not performed by ART SHIP 007"
+    },
+    "characters.bard": {
+      "path": "assets/before_the_fame/characters/bard/bard_neutral_80x96.png",
+      "dimensions": [
+        80,
+        96
+      ],
+      "sha256": "5213c311932331809945f0efc95aa3befe3049a8173d3ba1aa021b17ce8826dd",
+      "status": "APPROVED MASTER / FROZEN",
+      "runtime_integration": "not performed by ART SHIP 007"
+    },
+    "characters.cleric": {
+      "path": "assets/before_the_fame/characters/cleric/cleric_neutral_80x96.png",
+      "dimensions": [
+        80,
+        96
+      ],
+      "sha256": "4b81e630e4fd2c45202eaf3e2812781558bd3f6bc015c761a24309003c59ecda",
+      "status": "APPROVED MASTER / FROZEN",
+      "runtime_integration": "not performed by ART SHIP 007"
+    },
+    "environments.boba_shop": {
+      "path": "assets/before_the_fame/environments/boba_shop/boba_shop_night_270x480.png",
+      "dimensions": [
+        270,
+        480
+      ],
+      "sha256": "924328a9716844ad198a487a0058106d9b0af5529b8a0d24da5932d930011d75",
+      "status": "APPROVED MASTER / FROZEN",
+      "runtime_integration": "not performed by ART SHIP 007"
+    },
+    "environments.food_court": {
+      "path": "assets/before_the_fame/environments/food_court/grave_food_court_night_270x480.png",
+      "dimensions": [
+        270,
+        480
+      ],
+      "sha256": "fea009424212c49cebbd0fe63d036967d3cd560d78ed628ac6fd9e9ee42849f9",
+      "status": "APPROVED MASTER / FROZEN",
+      "runtime_integration": "not performed by ART SHIP 007"
+    },
+    "environments.kush_back": {
+      "path": "assets/before_the_fame/environments/kush_back/kush_crypt_egg_back_room_270x480.png",
+      "dimensions": [
+        270,
+        480
+      ],
+      "sha256": "38f4af0aa89bcdd6eb916b3206a2add4bf25539c5b612813859cfe203edebc19",
+      "status": "APPROVED MASTER / FROZEN",
+      "runtime_integration": "not performed by ART SHIP 007"
+    },
+    "environments.kitchen": {
+      "path": "assets/before_the_fame/environments/kitchen/castle_kitchen_270x480.png",
+      "dimensions": [
+        270,
+        480
+      ],
+      "sha256": "5f30a6257b785e266901bcf206e1deb829caf64af8ce77b3805a976103cd83a8",
+      "status": "APPROVED MASTER / FROZEN",
+      "runtime_integration": "not performed by ART SHIP 007"
+    },
+    "environments.movie_room": {
+      "path": "assets/before_the_fame/environments/movie_room/castle_movie_room_270x480.png",
+      "dimensions": [
+        270,
+        480
+      ],
+      "sha256": "e3fd09b81a3bed3173b1435d1b1efc8bd467ed84982e192ea901358b3b7c9560",
+      "status": "APPROVED MASTER / FROZEN",
+      "runtime_integration": "not performed by ART SHIP 007"
+    },
+    "environments.peking_naija": {
+      "path": "assets/before_the_fame/environments/peking_naija/peking_naija_interior_270x480.png",
+      "dimensions": [
+        270,
+        480
+      ],
+      "sha256": "696a4f1d3796714d7043010f2bae91b71ffad60e2872eb17455b4ccb93115219",
+      "status": "APPROVED MASTER / FROZEN",
+      "runtime_integration": "not performed by ART SHIP 007"
+    },
+    "environments.salon": {
+      "path": "assets/before_the_fame/environments/salon/twist_and_shout_salon_270x480.png",
+      "dimensions": [
+        270,
+        480
+      ],
+      "sha256": "240e6a9244d27df5947624b47ee2e3a142bbca2405ea7be74cc5c7856be2e63a",
+      "status": "APPROVED MASTER / FROZEN",
+      "runtime_integration": "not performed by ART SHIP 007"
+    },
+    "environments.brunch": {
+      "path": "assets/before_the_fame/environments/brunch/eggs_benedead_brunch_270x480.png",
+      "dimensions": [
+        270,
+        480
+      ],
+      "sha256": "5bf2d7a132b820d62fe20cf3a603d32070a0f2f7ea2bdc62afb4a7ae92424396",
+      "status": "APPROVED MASTER / FROZEN",
+      "runtime_integration": "not performed by ART SHIP 007"
+    },
+    "environments.onsen": {
+      "path": "assets/before_the_fame/environments/onsen/yu_and_me_onsen_270x480.png",
+      "dimensions": [
+        270,
+        480
+      ],
+      "sha256": "78e02cbb6b58cc21c6499b36cb6cd94d3f34770b7a02364c011581c3482ed3c5",
+      "status": "APPROVED MASTER / FROZEN",
+      "runtime_integration": "not performed by ART SHIP 007"
+    },
+    "environments.little_tokyo": {
+      "path": "assets/before_the_fame/environments/little_tokyo/little_tokyo_night_270x480.png",
+      "dimensions": [
+        270,
+        480
+      ],
+      "sha256": "d15659b840e96e94d8478ec2d26efa85c0bf82f3e9cc2892c352e8ac3de33caa",
+      "status": "APPROVED MASTER / FROZEN",
+      "runtime_integration": "not performed by ART SHIP 007"
+    },
+    "environments.venice": {
+      "path": "assets/before_the_fame/environments/venice/venice_courts_night_270x480.png",
+      "dimensions": [
+        270,
+        480
+      ],
+      "sha256": "6d8f23749069ce597b0dbbb91265c9e24da4566e21177665f2c520a245e0df35",
+      "status": "APPROVED MASTER / FROZEN",
+      "runtime_integration": "not performed by ART SHIP 007"
+    },
+    "environments.gallery": {
+      "path": "assets/before_the_fame/environments/gallery/rookoko_gallery_270x480.png",
+      "dimensions": [
+        270,
+        480
+      ],
+      "sha256": "fdcfbfb68c83c0c9e7677bd95b4fed322d1f7af3023c857dae2b5de48b44f216",
+      "status": "APPROVED MASTER / FROZEN",
+      "runtime_integration": "not performed by ART SHIP 007"
+    },
+    "environments.tristan_apt": {
+      "path": "assets/before_the_fame/environments/tristan_apt/tristan_apartment_270x480.png",
+      "dimensions": [
+        270,
+        480
+      ],
+      "sha256": "7ee376bbf15019ac0c1b86b99403cf16a154e37a50ecc373cf9cb2bbac735e9f",
+      "status": "APPROVED MASTER / FROZEN",
+      "runtime_integration": "not performed by ART SHIP 007"
+    },
+    "environments.taco_truck": {
+      "path": "assets/before_the_fame/environments/taco_truck/don_chuy_taco_truck_270x480.png",
+      "dimensions": [
+        270,
+        480
+      ],
+      "sha256": "a0b694d79170a8cfe27ccad7f4c3d454faf7de46dc3d51cc9fcdb755c465d15a",
+      "status": "APPROVED MASTER / FROZEN",
+      "runtime_integration": "not performed by ART SHIP 007"
+    },
+    "environments.maul": {
+      "path": "assets/before_the_fame/environments/maul/maul_of_georgia_270x480.png",
+      "dimensions": [
+        270,
+        480
+      ],
+      "sha256": "02dbe701b4bd5fad14d1127f9403e956c5ba89580dffaae47ddfceda6bc8d0bb",
+      "status": "APPROVED MASTER / FROZEN",
+      "runtime_integration": "not performed by ART SHIP 007"
+    },
+    "environments.lennox": {
+      "path": "assets/before_the_fame/environments/lennox/lennox_scare_270x480.png",
+      "dimensions": [
+        270,
+        480
+      ],
+      "sha256": "911128f91cc0a286b1cf0d2e79fd362117b9f2ff3a6bc4df66e49c6d53a0ab2a",
+      "status": "APPROVED MASTER / FROZEN",
+      "runtime_integration": "not performed by ART SHIP 007"
+    },
+    "environments.centennial": {
+      "path": "assets/before_the_fame/environments/centennial/centennial_vampiric_park_270x480.png",
+      "dimensions": [
+        270,
+        480
+      ],
+      "sha256": "6046b91576e548f878fe41372c7410913b5a006bbcd39377e044247cb58d16fd",
+      "status": "APPROVED MASTER / FROZEN",
+      "runtime_integration": "not performed by ART SHIP 007"
+    },
+    "environments.suya_spot": {
+      "path": "assets/before_the_fame/environments/suya_spot/southwest_atlanta_suya_spot_270x480.png",
+      "dimensions": [
+        270,
+        480
+      ],
+      "sha256": "596bb9a78265aa42ca135e7472ce648d0f8b8f87feaed53383f0ee3714950679",
+      "status": "APPROVED MASTER / FROZEN",
+      "runtime_integration": "not performed by ART SHIP 007"
+    },
+    "environments.crest": {
+      "path": "assets/before_the_fame/environments/crest/angeles_crest_overlook_270x480.png",
+      "dimensions": [
+        270,
+        480
+      ],
+      "sha256": "ddeda8ab4b44b4935e1a8450a24a13c8ad885f5282c214f305ec8e0eee28e4a7",
+      "status": "APPROVED MASTER / FROZEN",
+      "runtime_integration": "not performed by ART SHIP 007"
+    },
+    "environments.duchess_castle": {
+      "path": "assets/before_the_fame/environments/duchess_castle/duchess_castle_reception_270x480.png",
+      "dimensions": [
+        270,
+        480
+      ],
+      "sha256": "e9f4406059a2eed587840d67f96c45969a6650cae24d176dbb43f6c049068eee",
+      "status": "APPROVED MASTER / FROZEN",
+      "runtime_integration": "not performed by ART SHIP 007"
+    }
+  },
+  "source_contracts": {
+    "character": {
+      "cell": [
+        80,
+        96
+      ],
+      "contact": [
+        40,
+        88
+      ],
+      "runtime_scale": "approximately 1.85x nearest-neighbor only"
+    },
+    "environment": {
+      "canvas": [
+        270,
+        480
+      ],
+      "mode": "RGB",
+      "layer_role": "opaque reusable environment master"
+    }
+  }
+}
