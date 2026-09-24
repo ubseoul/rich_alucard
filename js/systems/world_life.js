@@ -31,6 +31,8 @@
   const cv=document.createElement('canvas');cv.width=270;cv.height=480;cv.className='bedroom-overlay-canvas';Object.assign(cv.style,{position:'absolute',inset:'0',width:'100%',height:'100%',imageRendering:'pixelated',pointerEvents:'none',zIndex:'1'});
   const ctx=cv.getContext('2d');ctx.imageSmoothingEnabled=false;
   for(const id of life().ownership.props||[]){const p=PROPS[id];if(!p)continue;RAPixel.rect(ctx,p.x,p.y,p.w,p.h,p.c);RAPixel.rect(ctx,p.x,p.y,p.w,1,'rgba(255,255,255,.25)');}
+  // Approved weather variant: rain nights show rain in the cloud window (clipped to the window region).
+  if(RALife.today().rain){const rnd=RAPixel.rng(RALife.today().day);ctx.save();ctx.beginPath();ctx.rect(32,10,236,250);ctx.clip();ctx.fillStyle='rgba(20,30,60,.28)';ctx.fillRect(32,10,236,250);for(let i=0;i<90;i++)RAPixel.rect(ctx,32+rnd()*236,10+rnd()*250,1,6,'rgba(200,220,255,.55)');ctx.restore();}
   const c=RALife.flag('bedroomCompany');
   if(c&&c.day===RALife.today().day){
    if(c.kind==='woman'){const look=RABtfPeople.get(c.id)?.look||{};ctx.save();ctx.translate(196,332);ctx.rotate(-Math.PI/2);RAPixel.drawActor(ctx,look,0,0,.9);ctx.restore();RAPixel.rect(ctx,150,332,86,12,'#e9dcc4');}
