@@ -27,7 +27,13 @@
   "og_hooper": {"status": "NO APPROVED ART YET", "note": "Deferred identity (ART SHIP 007 accepted deferral)."}
  },
  "screens": {
-  "hollow_bowl|left:rich": {"status": "HOLD", "ticket": "NC-FA-10", "note": "ART SHIP 008 crowd layer integrated (seating tiers, exact origin), but the Director's conversation framing of the staging floor shows only slivers of it at the top corners; the narrated packed venue does not read in-frame (live check with the runtime companion as well)."},
+  "la_sky|left:rich,right:mazda_human": {"status": "PASS (POLISH NOTE)", "ticket": "NC-FA-13", "note": "ART SHIP 009 la_sky master reads as over LA at night; the beat narrates Rich riding on Mazda's back mid-flight, but both approved anchors stand on the cloud-bank contact line."},
+  "lan_night|left:rich,right:tristan": {"status": "PASS (POLISH NOTE)", "ticket": "PD-AS9-01", "note": "Approved zero-pixel reuse of the frozen tristan_apt master (AS9-REUSE-LAN-NIGHT). The apartment at night reads; the conversation framing crops the three monitors just above frame (desk chair and setup edge visible)."},
+  "portobello_bedroom|left:portobello_kid1,mid:rich_portobello,right:portobello_kid2": {"status": "HOLD", "ticket": "NC-FA-07", "note": "ART SHIP 009 portobello_bedroom master integrated; all figures are RAPixel placeholders (Portobello cast has no approved art)."},
+  "portobello_bedroom|left:portobello_wife,mid:rich_portobello": {"status": "HOLD", "ticket": "NC-FA-07", "note": "ART SHIP 009 portobello_bedroom master integrated; all figures are RAPixel placeholders (Portobello cast has no approved art)."},
+  "portobello_office|left:rich_portobello,right:portobello_manager": {"status": "HOLD", "ticket": "NC-FA-07", "note": "ART SHIP 009 portobello_office master integrated; all figures are RAPixel placeholders (Portobello cast has no approved art)."},
+  "portobello_porch|left:rich_portobello,right:portobello_wife": {"status": "HOLD", "ticket": "NC-FA-07", "note": "ART SHIP 009 portobello_porch master integrated; all figures are RAPixel placeholders (Portobello cast has no approved art)."},
+  "rooftop_dtla|left:rich": {"status": "HOLD", "ticket": "NC-FA-12", "note": "ART SHIP 009 rooftop_dtla master integrated and framed cleanly, but the beat is a rooftop party and the master is an empty rooftop (string lights sit above the conversation frame): the frame reads as no party."},
   "pier|left:rich@holding_fish_away,right:uncle_sunday@fishing": {"status": "HOLD", "ticket": "PD-FA-02", "note": "Two wide frozen poses; generic staging cannot reach a shot band."}
  },
  "surfaces": {
@@ -37,7 +43,7 @@
   "minigame:pickup": {"status": "HOLD", "ticket": "NC-FA-07", "note": "Mixed: frozen Rich with placeholder players (no approved art for the other players)."},
   "minigame:hookah": {"status": "PASS (final art)", "note": "Content surface (HOOKAH, company BLLAD33): frozen Rich and Bllad33 hookah_seated states at native 1:1, seated above the score lines and clear of the antenna target."},
   "minigame:hookah?company=ROOKOKO": {"status": "PASS (final art)", "note": "Explicitly named ROOKOKO company draws frozen Rookoko hookah_seated beside Rich. No current content beat names ROOKOKO explicitly."},
-  "minigame:hookah?company=HOMIES": {"status": "HOLD", "ticket": "NC-FA-11", "note": "A41 crew roof passes company HOMIES (HQ-AS8-01). Rich seated only: no approved seated crew states yet. Stays HOLD until the crew coverage exists and passes runtime review."},
+  "minigame:hookah?company=HOMIES": {"status": "PASS (final art)", "note": "A41 crew roof (company HOMIES, HQ-AS8-01): frozen ART SHIP 009 tunde.hookah_seated (company seat) and dre.hookah_seated (Rich's other side) flank frozen rich.hookah_seated at native 1:1 on their contacts, above the score lines and clear of the antenna target. NC-FA-11 resolved; Rookoko stays explicit-only."},
   "minigame:jollof": {"status": "HOLD", "ticket": "NC-FA-07", "note": "The cook figure's identity is not specified by the minigame; not mapped (no guessing)."},
   "minigame:touge": {"status": "PASS (final art)", "note": "Player car uses the frozen TOUGE vehicle by runtime car id; rival cars have no approved art (placeholder)."},
   "minigame:hatch": {"status": "PASS (final art) at the egg stage", "note": "Frozen egg; hatchling/young/majestic dragon forms have no approved art (placeholder shapes)."},

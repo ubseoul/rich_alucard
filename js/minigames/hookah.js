@@ -2,8 +2,9 @@
  // HOOKAH RINGS — hangout on the castle Hookah Roof at night. Not a score-chaser.
  const P=()=>window.RAPixel,palette=()=>P().palette;
  const TARGETS={moon:{x:210,y:70,r:22},antenna:{x:48,y:330,r:14}};
- // Presentation only: seated contact points for the frozen hookah states (Rich centre, company between him and the antenna).
- const SEATS={rich:[135,386],company:[90,388]};
+ // Presentation only: seated contact points for the frozen hookah states (Rich centre, company between him and the antenna;
+ // a second crew member on Rich's other side, mirroring the company seat's spacing, clear of the score lines).
+ const SEATS={rich:[135,386],company:[90,388],crew:[181,388]};
 
  function makeRing(releaseSpeed,smoothness){
   releaseSpeed=Math.max(0,Math.min(1,releaseSpeed));smoothness=Math.max(0,Math.min(1,smoothness));
@@ -50,8 +51,9 @@
   const {canvas,ctx:g}=P().createCanvas(root);
   const params=ctx.params||{};
   // No company param keeps the long-standing ROOKOKO line set, but Rookoko is NOT a default companion (HQ-AS8-01):
-  // his seated figure is drawn only when a beat names ROOKOKO explicitly. HOMIES has no seated crew art yet
-  // (NEEDS CREATIVE NC-FA-11), so no crew figure is drawn — never a standing anchor on a seated surface.
+  // his seated figure is drawn only when a beat names ROOKOKO explicitly. HOMIES (A41 crew roof) seats the frozen
+  // ART SHIP 009 crew states (NC-FA-11): Tunde on the company seat, Dre on Rich's other side. Never a standing anchor
+  // on a seated surface: a crew member without seated art is simply not drawn.
   const company=params.company||'ROOKOKO',namedCompany=params.company||null;
   const dateName=params.dateName||'her';
   const song=params.song||'MONTANA';
@@ -134,6 +136,11 @@
    // lines and clear of the antenna target; placeholders only if art is unavailable.
    if(!rp.drawSprite?.(g,rp.personSprite?.('rich','hookah_seated'),SEATS.rich[0],SEATS.rich[1]))rp.drawActor(g,{top:'#111018',bottom:'#0d0c14',hairShape:'locs',shades:true,accent:pal.green},135,410,1.4);
    if(namedCompany==='ROOKOKO')rp.drawSprite?.(g,rp.personSprite?.('rookoko','hookah_seated'),SEATS.company[0],SEATS.company[1]);
+   if(company==='HOMIES'){
+    const seated=id=>!!window.RABtfPeople?.get?.(id)?.states?.hookah_seated;
+    if(seated('tunde'))rp.drawSprite?.(g,rp.personSprite?.('tunde','hookah_seated'),SEATS.company[0],SEATS.company[1]);
+    if(seated('dre'))rp.drawSprite?.(g,rp.personSprite?.('dre','hookah_seated'),SEATS.crew[0],SEATS.crew[1]);
+   }
    if(lines&&company==='DATE')rp.drawActor(g,{top:'#3a1f33',bottom:'#241830',hairShape:'long',accent:pal.pink},185,410,1.2);
    if(company==='BLLAD33'){
     bllad33T+=dt;

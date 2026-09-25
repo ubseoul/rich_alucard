@@ -1,5 +1,25 @@
 # Presentation Director — exception and NEEDS CREATIVE tickets
 
+## ART SHIP 009 integration re-evaluation (branch `claude/art-ship-009-integration`)
+
+The 12 frozen ART SHIP 009 assets and the `lan_night → tristan_apt` zero-pixel reuse are integrated (`docs/art_integration/ART_SHIP_009_INTEGRATION.md`). Ticket status after live visual review:
+
+| Ticket | Status | Notes |
+|---|---|---|
+| NC-FA-10 | **RESOLVED** | The stage-band crowd draws over the seating crowd. While both are active, the Director stages the pair on the open stage apron (left x=108, right x=164) so the audience reads beside them in the real companion two-shot. |
+| NC-FA-11 | **RESOLVED** | HOOKAH `company=HOMIES` seats frozen Tunde and Dre beside Rich. |
+| NC-FA-06 | **RESOLVED for every census screen** | No screen is held by a placeholder environment. Four placeholder ids (`catacomb_dead`, `atl_airport`, `ocean_night_flight`, `halloween`) have no current screen. |
+| NC-FA-07 | **OPEN — now the sole blocker on 4 Portobello screens** (the 5th is also PD-W1-04) | `rich_portobello`, `portobello_wife`, `portobello_kid1`, `portobello_kid2` and `portobello_manager` are inline RAPixel placeholders. The Portobello Rich transformation is GUIDED (VOL2 visual bible: standing, presenting, porch seated). It needs its named authorization. The wife, kids and manager have no committed OPEN visual card, so they need a Story/HQ card before any Art Ship. |
+| PD-W1-04 | **HOLD — re-evaluated on the frozen bedroom** | See the Director table in the integration report and HQ-AS9-01. |
+
+### New tickets
+
+| Ticket | Screens | Current assets | What fails | Asset/decision needed | Severity |
+|---|---|---|---|---|---|
+| NC-FA-12 | `rooftop_dtla\|left:rich` (ROOFTOP_DTLA attendable party, `arrive`) | Frozen ART SHIP 009 `rooftop_dtla` master (integrated) | The beat is "string lights, a skyline, a party with no host anyone can name". The master is an empty rooftop, and its string lights sit above the conversation frame. At 360/390/430 the frame reads as a quiet empty rooftop, not a party. | An exact-origin 270×480 additive **party-crowd condition layer** over the frozen master. Binary alpha, surface-scoped to this screen, drawn below the actors, no base repaint (the Ship 008 crowd grammar). Partygoers must sit inside the conversation band (about world x 0–190, y 200–372 with Rich on the `left` slot at x=72), behind the contact line, and Rich must stay unoccluded. | Blocking for that screen (HOLD) |
+| NC-FA-13 | `la_sky\|left:rich,right:mazda_human` (A32 `night`; MAZDA arc beats reuse `la_sky`) | Frozen `la_sky` master; Rich and Mazda-human standing anchors | The beat narrates Rich on Mazda's back mid-flight, but both anchors stand on the cloud-bank line. The sky and the city read correctly. | A flight/riding presentation, e.g. a Rich riding state with Mazda in flight. CURRENT_OPEN_ART_GAPS already lists Rich riding states; the exact contract is Art's and Story's call. | Polish (screen PASS with polish note) |
+| PD-AS9-01 | `lan_night\|left:rich,right:tristan` (A50) | Frozen `tristan_apt` master via approved zero-pixel reuse | The conversation framing crops Tristan's three monitors just above the frame. The desk chair and setup edge show, and the apartment at night reads. The narration and later lines name the monitors. | Director: an authored `shot` with more headroom or a lower framing for A50, if HQ wants the monitors in frame. No new art. | Polish (screen PASS with polish note) |
+
 ## ART SHIP 008 integration re-evaluation (branch `claude/art-ship-008-integration`)
 
 The 14 frozen ART SHIP 008 assets are integrated (`docs/art_integration/ART_SHIP_008_INTEGRATION.md`). Ticket status after live visual review:

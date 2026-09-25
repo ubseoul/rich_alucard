@@ -2,6 +2,25 @@
 
 Spoiler-safe: ids, surface keys and runtime evidence only.
 
+## HQ-AS9-01 — PD-W1-04 Portobello four-actor staging
+
+**Status:** OPEN — HQ/Presentation decision. The screen stays HOLD (also NC-FA-07 cast art).
+
+**Screen:** `portobello_bedroom|farRight:portobello_kid2,left:portobello_wife,mid:rich_portobello,right:portobello_kid1` (A30 `breakfast`; narration names both kids; the wife speaks, then Rich).
+
+**Evidence.** Measured on the frozen ART SHIP 009 bedroom master at 360/390/430, contact y=372. The four figures are RAPixel placeholders, so the Director measures them with Rich-proxy metrics.
+- Generic default: the four slots compact to 83/135/187/227. Body 0.359 is in the conversation band, but it is 8.5% under the consistency reference, so it fails.
+- Authored conversation with all four focal: body 0.322. Fails size and consistency.
+- Establishing: 0.274, between bands. Fails.
+- Rich + wife focal only: lint passes (≈0.41), but both kids leave the frame.
+
+**Options**
+1. **Recommended: wait for the Portobello cast art (NC-FA-07), then re-run the generic Director.** Real kid sprites (content height 0.55–0.6) give slot compaction slack that the Rich-proxy doesn't. Staging authored against placeholder metrics would have to be redone.
+2. Accept `shot-consistency` for this beat, like PD-W3-02: keep the generic 0.359 four-shot, which is in band but 8.5% under the reference.
+3. Author a Rich + wife two-shot for `breakfast`, with the kids off-frame and carried by narration only. This changes what the beat stages, so it's a creative call.
+
+No Director change was made. The exception entry is unchanged.
+
 ## HQ-AS8-01 — HOOKAH default company visual (Rookoko `default_alias`)
 
 **Status:** DECIDED — HQ chose **Option 2 (HOMIES)**.
