@@ -69,7 +69,9 @@
   const refH=spriteMeta(data().reference.asset).visible[3]*refScale;
   const cover=Math.max(view.w/env.width,view.h/env.height);
   const zoom=spec.zoom||1,contact=spec.contact??profile.contact[1];
-  let S=Math.max(cover,profile.target*zoom*view.h/refH),limited=false;
+  // A shot may ask for a different size inside its profile band (e.g. the band's upper end for face readability).
+  const target=Math.min(profile.body[1],Math.max(profile.body[0],spec.target??profile.target));
+  let S=Math.max(cover,target*zoom*view.h/refH),limited=false;
   const group=union([...focal,...include].map(f=>f.visible)),usable=view.w*(1-2*profile.side);
   if(group.w*S>usable){const fit=Math.max(cover,usable/group.w);limited=fit<S;S=fit}
   const w=view.w/S,h=view.h/S;
@@ -208,7 +210,7 @@
   const {W,H}=screenSize();if(!(W>0&&H>0))return null;
   const dpr=window.devicePixelRatio||1,stage=ctl.stage,layout=screenLayout(ctl.mode,W,H);
   const assets=currentAssets(ctl);if(ctl.autoShot)ctl.shot=chooseShot(ctl.stage,{w:layout.world.w,h:layout.world.h},assets);const shot=ctl.shot;
-  const spec={stage,profile:shot.profile,focal:shot.focal,include:shot.include,reference:shot.reference,assets,states:stage.director?.states,at:ctl.moved,view:{w:layout.world.w,h:layout.world.h}};
+  const spec={stage,profile:shot.profile,focal:shot.focal,include:shot.include,reference:shot.reference,target:shot.target,assets,states:stage.director?.states,at:ctl.moved,view:{w:layout.world.w,h:layout.world.h}};
   const locked=window.RAPresentationLocks?.get?.(stage.id,ctl.beat);
   const camera=solve({...spec,...(locked?{contact:locked.contact,zoom:locked.zoom}:{contact:shot.contact,zoom:shot.zoom})});
   const actors=Object.keys(ctl.actors).map(slot=>worldActor(stage,slot,assets[slot],ctl.moved?.[slot]));
@@ -267,7 +269,9 @@
  function enter(options){
   if(active)exit();
   const stage=typeof options.stage==='string'?contract(options.stage):options.stage;
-  const ctl={...options,stage,beat:options.beat||'default',shot:{...(stage.director?.shots?.[options.beat||'default']||{}),...(options.shot||{})},restore:[]};
+  // Stage-level accepted intent (e.g. a sky-is-the-subject scene) works like a data exception for named checks.
+  const intent=stage.director?.accept?{status:'ACCEPTED-INTENT',ticket:stage.director.accept.reason,accept:stage.director.accept.checks}:null;
+  const ctl={exception:intent,...options,stage,beat:options.beat||'default',shot:{...(stage.director?.shots?.[options.beat||'default']||{}),...(options.shot||{})},restore:[]};
   if(!ctl.shot.profile||!ctl.shot.focal)throw new Error(`Director stage ${stage.id}: beat ${ctl.beat} needs a shot profile and focal actors`);
   const screen=screenEl(),world=worldEl(ctl.host);
   document.body.classList.add('pd-active');screen.dataset.pdMode=ctl.mode;screen.dataset.pdStage=stage.id;
@@ -340,10 +344,12 @@
    for(const front of order.slice(order.indexOf(a)+1)){if(!front.asset)continue;covered+=maskArea(await loadImage(front.asset),front,face,frame.world)}
    const visible=area(a.face)?Math.max(0,1-covered/area(a.face)):1,accepted=ctl.exception?.accept?.includes('face-visible');add(`face-visible:${slot}`,accepted||visible>=data().acceptance.faceVisible-.0005,round3(visible),1,accepted&&visible<data().acceptance.faceVisible-.0005?`ACCEPTED ${ctl.exception.ticket}`:undefined);
   }
+  // Placement: the rendered actor must sit where the camera put it (catches foreign transforms/legacy positioning).
+  for(const [slot,el] of Object.entries(ctl.actors)){const a=frame.actors[slot];if(!el||!a)continue;const r=el.getBoundingClientRect(),s=screenEl().getBoundingClientRect(),dx=Math.abs(r.left-s.left-a.sprite.x),dy=Math.abs(r.top-s.top-a.sprite.y),dw=Math.abs(r.width-a.sprite.w);add(`placement:${slot}`,dx<=1.5&&dy<=1.5&&dw<=1.5,round3(Math.max(dx,dy,dw)),1.5,'rendered vs camera position (CSS px)')}
   const dead=await deadSpace(ctl,frame);const threshold=data().acceptance.deadSpace;
   // Placeholder environments are flat by design: dead space is provisional until final art lands.
-  const envProvisional=!!ctl.envPlaceholder&&threshold!=null&&dead>threshold;
-  add('dead-space',envProvisional||(threshold==null?true:dead<=threshold),dead,threshold??'measure-only (lock from golden set)',envProvisional?'PROVISIONAL (placeholder environment art)':undefined);
+  const envProvisional=!!ctl.envPlaceholder&&threshold!=null&&dead>threshold,deadAccepted=!!ctl.exception?.accept?.includes('dead-space')&&threshold!=null&&dead>threshold;
+  add('dead-space',envProvisional||deadAccepted||(threshold==null?true:dead<=threshold),dead,threshold??'measure-only (lock from golden set)',envProvisional?'PROVISIONAL (placeholder environment art)':deadAccepted?`ACCEPTED ${ctl.exception.ticket}`:undefined);
   for(const sel of mode.dialogueSelectors){const el=document.querySelector(sel);if(el&&visibleRect(el))add(`text-fit:${sel}`,el.scrollHeight<=el.clientHeight+1&&el.scrollWidth<=el.clientWidth+1,`${el.scrollWidth}x${el.scrollHeight}`,`${el.clientWidth}x${el.clientHeight}`)}
   if(fx)for(const item of data().fx||[]){const r=visibleRect(document.querySelector(item.el));if(!r)continue;const cx=r.x+r.w/2,cy=r.y+r.h/2,ok=cx>=frame.world.x&&cx<=frame.world.x+frame.world.w&&cy>=frame.world.y&&cy<=frame.world.y+frame.world.h;add(`fx-bounds:${item.el}`,ok,round3(inside(r,frame.world)),'centre inside world viewport')}
   report.pass=report.checks.every(c=>c.pass);

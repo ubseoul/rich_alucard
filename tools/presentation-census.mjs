@@ -85,6 +85,21 @@ const SCENES={
   ],
   moves:[]
  },
+ 'trip-curb':{
+  title:'Desire Trip #001 — Powder Springs curb',
+  url:'/?dev=1',
+  enter:async page=>{await page.evaluate(async()=>{document.querySelector('#startOverlay')?.remove();document.querySelector('#devPanel')?.classList.remove('show');
+   RADesireTrips.createTrip({id:'pd_census_trip',title:'Butter Chicken Under the Stars',destination:{name:'Powder Springs',region:'Georgia'},purpose:'butter chicken'});RADesireTrips.setStatus('arrived');await RAScenes.go('powderSpringsCurb')});await page.waitForTimeout(1800)},
+  env:{selector:'#powderSpringsCurb .trip-environment',asset:'assets/powder_springs_night_270x480.png'},
+  actors:{rich:'#powderSpringsCurb .trip-rich'},
+  focal:['rich'],
+  ui:['#tripActivityAction .trip-action'],
+  variants:[
+   {id:'chilling',run:()=>{document.querySelector('#tripActivityAction .trip-action')?.click()},wait:1600},
+   {id:'stargazing',run:async()=>{await RAScenes.go('stargazing')},wait:900}
+  ],
+  moves:[]
+ },
  'throne-combat':{
   title:'Throne-room combat (CEO)',
   enter:async page=>{await page.evaluate(async()=>{document.querySelector('#startOverlay')?.remove();await RAScenes.go('battle')});await page.waitForTimeout(700)},
