@@ -28,5 +28,11 @@ export async function test(root){
    assert.ok(lint.pass,`locked ${stageId}/${beat} fails lint at ${W}x${H} with ${JSON.stringify(assets)}: ${lint.checks.filter(c=>!c.pass).map(c=>`${c.id}=${c.value}`).join(', ')}`);
   }
  }
- console.log('PASS presentation (asset metadata vs frozen register, Director self-test, locked shots × runtime variant matrix lint at 360/390/430)');
+ // Wave 1 regression lock: every adventure screen's adapter default (or accepted exception) is unchanged.
+ const {dryRun,LOCK}=await import('./presentation-adventure-dryrun.mjs');const wave1=await dryRun();
+ assert.deepEqual(wave1.unexpected,[],`adventure screens fail adapter lint without an accepted exception: ${wave1.unexpected.join('; ')}`);
+ assert.deepEqual(wave1.staleExceptions,[],`adventure exceptions no longer fail — remove them: ${wave1.staleExceptions.join('; ')}`);
+ const locked=JSON.parse(await readFile(path.join(root,LOCK),'utf8')).screens;
+ assert.deepEqual(wave1.lock,locked,`adventure presentation changed vs ${LOCK} — review, then node tools/presentation-adventure-dryrun.mjs --write-lock`);
+ console.log(`PASS presentation (asset metadata vs frozen register, Director self-test, locked shots × runtime variant matrix lint at 360/390/430, ${wave1.screens} adventure screens vs Wave 1 lock: ${wave1.pass} pass, ${wave1.fail} accepted exceptions)`);
 }

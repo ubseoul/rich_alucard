@@ -30,6 +30,10 @@
   "assets/assistant_heal.png": {"face": [29, 42, 18, 12]},
   "assets/assistant_reaction.png": {"face": [29, 42, 20, 12]},
   "assets/assistant_walk.png": {"face": [29, 42, 20, 12]},
+  "assets/assistant_vampire_idle.png": {"face": [32, 42, 17, 12]},
+  "assets/property/characters/shannon/shannon_neutral_80x96.png": {"face": [34, 38, 12, 10]},
+  "assets/bllad33/masters/bllad33_neutral_candidate_80x96.png": {"face": [34, 38, 15, 12]},
+  "assets/ogun_rave/masters/ogun_neutral_80x96.png": {"face": [33, 36, 14, 12]},
   "assets/ceo_hit_reaction_sheet.png": {"frames": {"width": 80, "faces": [[32, 41, 19, 13], [40, 39, 20, 15], [41, 66, 17, 14]]}}
  }
 }

@@ -110,16 +110,23 @@
  const worldRectToScreen=(frame,[x,y,w,h])=>box(frame.world.x+(x-frame.camera.x)*frame.S,frame.world.y+(y-frame.camera.y)*frame.S,w*frame.S,h*frame.S);
 
  // LINT (geometry): numeric acceptance on a projected frame. uiRects are real measured UI rectangles.
- function lintFrame(stage,frame,{profile,focal,speakers=focal,reference,uiRects=[],golden=null}={}){
+ function lintFrame(stage,frame,{profile,focal,speakers=focal,reference,uiRects=[],golden=null,exception=null}={}){
   const P=data().profiles[profile],acc=data().acceptance,checks=[],W=frame.layout?.W??frame.world.w;
-  const add=(id,pass,value,limit,note)=>checks.push({id,pass:!!pass,value,limit,...(note?{note}:{})});
+  const placeholderActors=focal.some(slot=>frame.actors[slot]?.authority==='PLACEHOLDER');
+  // PROVISIONAL: size checks that fail only because a focal actor is RAPixel placeholder art (bounds will change
+  // when final art lands) pass with a note; exceptions may accept named checks (with their ticket).
+  const add=(id,pass,value,limit,note)=>{const base=id.split(':')[0];let ok=!!pass,n=note;
+   if(!ok&&exception?.accept?.includes(base)){ok=true;n=`ACCEPTED ${exception.ticket}`}
+   else if(!ok&&placeholderActors&&['shot-size','shot-consistency','in-view'].includes(base)){ok=true;n='PROVISIONAL (placeholder actor art)'}
+   checks.push({id,pass:ok,value,limit,...(n?{note:n}:{})})};
   if(!focal.length)return {pass:true,checks:[{id:'empty-stage',pass:true,value:0,limit:'no focal actors'}],metrics:{body:0,headroom:1,S:round3(frame.S)}};
   const ref=frame.actors[reference]||frame.actors[focal[0]],refRatio=ref?ref.visible.h/spriteMeta(data().reference.asset).visible[3]/ref.k:1;
   const body=ref?ref.visible.h/frame.world.h/refRatio:0;
-  add('shot-size',body>=P.body[0]-.005&&body<=P.body[1]+.005,round3(body),P.body,`reference-height body / world viewport (${P.id})`);
+  // Accepted exceptions (data, with a ticket) still report the measured size but do not fail the size checks.
+  add('shot-size',exception||(body>=P.body[0]-.005&&body<=P.body[1]+.005),round3(body),P.body,exception?`EXCEPTION ${exception.status} ${exception.ticket}`:`reference-height body / world viewport (${P.id})`);
   // Cross-scene consistency: against the profile's locked reference size (golden set), else the profile target.
   const refSize=P.reference??P.target;
-  add('shot-consistency',Math.abs(body/refSize-1)<=(P.reference!=null?acc.consistency:Math.max(acc.consistency,(P.body[1]-P.body[0])/2/P.target)),round3(body/refSize-1),P.reference!=null?`±${acc.consistency} of locked ${P.id} reference ${refSize}`:'vs profile target');
+  add('shot-consistency',!!exception||Math.abs(body/refSize-1)<=(P.reference!=null?acc.consistency:Math.max(acc.consistency,(P.body[1]-P.body[0])/2/P.target)),round3(body/refSize-1),P.reference!=null?`±${acc.consistency} of locked ${P.id} reference ${refSize}`:'vs profile target');
   const minFace=acc.minFacePx*W/acc.minFacePxAtWidth;
   for(const slot of speakers){const a=frame.actors[slot];if(!a)continue;add(`face-size:${slot}`,a.face.h>=minFace,round3(a.face.h),round3(minFace),a.faceSource)}
   for(const slot of focal){const a=frame.actors[slot];if(!a)continue;
@@ -312,7 +319,8 @@
  async function lintLive(ctl,{fx=true}={}){
   const frame=relayout(ctl);if(!frame)return null;
   const base=data().modes[ctl.mode],mode={...base,...(ctl.ui?{uiSelectors:ctl.ui.selectors||base.uiSelectors,dialogueSelectors:ctl.ui.dialogue||base.dialogueSelectors,bubbleSelectors:ctl.ui.bubbles||base.bubbleSelectors}:{})},uiRects=mode.uiSelectors.flatMap(sel=>[...document.querySelectorAll(sel)].map(visibleRect).filter(Boolean));
-  const report=lintFrame(ctl.stage,frame,{profile:ctl.shot.profile,focal:ctl.shot.focal,speakers:ctl.shot.speakers||ctl.shot.focal,reference:ctl.shot.reference,uiRects,golden:window.RAPresentationLocks?.golden?.(ctl.stage.id,ctl.beat)});
+  const report=lintFrame(ctl.stage,frame,{profile:ctl.shot.profile,focal:ctl.shot.focal,speakers:ctl.shot.speakers||ctl.shot.focal,reference:ctl.shot.reference,uiRects,golden:window.RAPresentationLocks?.golden?.(ctl.stage.id,ctl.beat),exception:ctl.exception});
+  if(ctl.exception)report.exception=ctl.exception;
   const add=(id,pass,value,limit,note)=>report.checks.push({id,pass:!!pass,value,limit,...(note?{note}:{})});
   const order=Object.values(frame.actors).sort((a,b)=>(+getComputedStyle(ctl.actors[a.slot]).zIndex||0)-(+getComputedStyle(ctl.actors[b.slot]).zIndex||0)||a.anchor.y-b.anchor.y);
   const bubbles=(mode.bubbleSelectors||[]).map(s=>visibleRect(document.querySelector(s))).filter(Boolean);
@@ -321,10 +329,12 @@
    let covered=0;const face=intersect(a.face,frame.world);covered+=area(a.face)-area(face);
    for(const r of [...uiRects,...bubbles])covered+=area(intersect(face,r));
    for(const front of order.slice(order.indexOf(a)+1)){if(!front.asset)continue;covered+=maskArea(await loadImage(front.asset),front,face,frame.world)}
-   const visible=area(a.face)?Math.max(0,1-covered/area(a.face)):1;add(`face-visible:${slot}`,visible>=data().acceptance.faceVisible-.0005,round3(visible),1);
+   const visible=area(a.face)?Math.max(0,1-covered/area(a.face)):1,accepted=ctl.exception?.accept?.includes('face-visible');add(`face-visible:${slot}`,accepted||visible>=data().acceptance.faceVisible-.0005,round3(visible),1,accepted&&visible<data().acceptance.faceVisible-.0005?`ACCEPTED ${ctl.exception.ticket}`:undefined);
   }
   const dead=await deadSpace(ctl,frame);const threshold=data().acceptance.deadSpace;
-  add('dead-space',threshold==null?true:dead<=threshold,dead,threshold??'measure-only (lock from golden set)');
+  // Placeholder environments are flat by design: dead space is provisional until final art lands.
+  const envProvisional=!!ctl.envPlaceholder&&threshold!=null&&dead>threshold;
+  add('dead-space',envProvisional||(threshold==null?true:dead<=threshold),dead,threshold??'measure-only (lock from golden set)',envProvisional?'PROVISIONAL (placeholder environment art)':undefined);
   for(const sel of mode.dialogueSelectors){const el=document.querySelector(sel);if(el&&visibleRect(el))add(`text-fit:${sel}`,el.scrollHeight<=el.clientHeight+1&&el.scrollWidth<=el.clientWidth+1,`${el.scrollWidth}x${el.scrollHeight}`,`${el.clientWidth}x${el.clientHeight}`)}
   if(fx)for(const item of data().fx||[]){const r=visibleRect(document.querySelector(item.el));if(!r)continue;const cx=r.x+r.w/2,cy=r.y+r.h/2,ok=cx>=frame.world.x&&cx<=frame.world.x+frame.world.w&&cy>=frame.world.y&&cy<=frame.world.y+frame.world.h;add(`fx-bounds:${item.el}`,ok,round3(inside(r,frame.world)),'centre inside world viewport')}
   report.pass=report.checks.every(c=>c.pass);
