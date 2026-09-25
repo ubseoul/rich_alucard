@@ -87,6 +87,8 @@
         button.hidden=!visible;
         button.classList.toggle('property-hotspot-inspected',view.inspected?.includes(id));
       }
+      // Wave 4: the interior camera widens only while the player inspects hotspots.
+      if(directed&&isInterior){const beat=view.mode==='hotspot'&&view.linesDone&&!view.hotspotActive?'inspect':'talk';if(RAPresentationDirector.current()?.beat!==beat)RAPresentationDirector.setBeat(beat,{transition:'snap-pan',ms:280});}
       layout();
     }
 
