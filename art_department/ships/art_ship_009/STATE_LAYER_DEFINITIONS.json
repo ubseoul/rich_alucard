@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "ship_id": "ART SHIP 009",
+  "definitions": [
+    {
+      "id": "hollow_bowl_stage_band_crowd_condition",
+      "type": "exact_origin_additive_layer",
+      "candidate_path": "art_department/ships/art_ship_009/candidates/native/layers/hollow_bowl_stage_band_crowd_overlay_270x480.png",
+      "native_dimensions": [
+        270,
+        480
+      ],
+      "origin": [
+        0,
+        0
+      ],
+      "alpha": "binary",
+      "draw_order": "base -> frozen seating crowd -> stage-band crowd companion -> actors -> UI",
+      "activation_surfaces": [
+        "hollow_bowl|left:rich"
+      ]
+    },
+    {
+      "id": "tunde.hookah_seated",
+      "type": "character_state",
+      "candidate_path": "art_department/ships/art_ship_009/candidates/native/characters/tunde_hookah_seated_80x96.png",
+      "native_dimensions": [
+        80,
+        96
+      ],
+      "contact": [
+        40,
+        88
+      ],
+      "alpha": "binary",
+      "activation_surfaces": [
+        "minigame:hookah?company=HOMIES"
+      ]
+    },
+    {
+      "id": "dre.hookah_seated",
+      "type": "character_state",
+      "candidate_path": "art_department/ships/art_ship_009/candidates/native/characters/dre_hookah_seated_80x96.png",
+      "native_dimensions": [
+        80,
+        96
+      ],
+      "contact": [
+        40,
+        88
+      ],
+      "alpha": "binary",
+      "activation_surfaces": [
+        "minigame:hookah?company=HOMIES"
+      ]
+    }
+  ],
+  "presentation_director_final_framing_authority": true,
+  "runtime_code_modified": false
+}

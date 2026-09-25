@@ -1,0 +1,118 @@
+{
+  "base_sha": "a16196e4fbc0c7530a00bdfe915fb9c9c7cd1826",
+  "source_checks": [
+    {
+      "path": "assets/before_the_fame/characters/dre/dre_neutral_80x96.png",
+      "expected_sha256": "6945490fb4e31dd01afe594ee061a50d8ee354f92a073936c031e0b32f1e1875",
+      "actual_sha256": "6945490fb4e31dd01afe594ee061a50d8ee354f92a073936c031e0b32f1e1875",
+      "pass": true
+    },
+    {
+      "path": "assets/before_the_fame/characters/tunde/tunde_neutral_80x96.png",
+      "expected_sha256": "12b9fa058d82caed91fc89b5fa6c3072875919239b107d79a477623e4de99ac9",
+      "actual_sha256": "12b9fa058d82caed91fc89b5fa6c3072875919239b107d79a477623e4de99ac9",
+      "pass": true
+    },
+    {
+      "path": "assets/before_the_fame/environments/brunch/eggs_benedead_brunch_270x480.png",
+      "expected_sha256": "5bf2d7a132b820d62fe20cf3a603d32070a0f2f7ea2bdc62afb4a7ae92424396",
+      "actual_sha256": "5bf2d7a132b820d62fe20cf3a603d32070a0f2f7ea2bdc62afb4a7ae92424396",
+      "pass": true
+    },
+    {
+      "path": "assets/before_the_fame/environments/castle_exterior/castle_exterior_night_270x480.png",
+      "expected_sha256": "be4417926078581934f48bcfd80dd71a0985ecd0459a5ccbac767a1abd7e2873",
+      "actual_sha256": "be4417926078581934f48bcfd80dd71a0985ecd0459a5ccbac767a1abd7e2873",
+      "pass": true
+    },
+    {
+      "path": "assets/before_the_fame/environments/castle_exterior/castle_exterior_party_270x480.png",
+      "expected_sha256": "fe641074f4aff48cef9ac59146216f35ae44b98f6702581b46a96204561f72ec",
+      "actual_sha256": "fe641074f4aff48cef9ac59146216f35ae44b98f6702581b46a96204561f72ec",
+      "pass": true
+    },
+    {
+      "path": "assets/before_the_fame/environments/crest/angeles_crest_overlook_270x480.png",
+      "expected_sha256": "ddeda8ab4b44b4935e1a8450a24a13c8ad885f5282c214f305ec8e0eee28e4a7",
+      "actual_sha256": "ddeda8ab4b44b4935e1a8450a24a13c8ad885f5282c214f305ec8e0eee28e4a7",
+      "pass": true
+    },
+    {
+      "path": "assets/before_the_fame/environments/family_house/family_house_atl_kitchen_270x480.png",
+      "expected_sha256": "1e5394f975438e52b8cacff3a37f5e1b3842f6a9788136f1da513c9787a37edf",
+      "actual_sha256": "1e5394f975438e52b8cacff3a37f5e1b3842f6a9788136f1da513c9787a37edf",
+      "pass": true
+    },
+    {
+      "path": "assets/before_the_fame/environments/gallery/rookoko_gallery_270x480.png",
+      "expected_sha256": "fdcfbfb68c83c0c9e7677bd95b4fed322d1f7af3023c857dae2b5de48b44f216",
+      "actual_sha256": "fdcfbfb68c83c0c9e7677bd95b4fed322d1f7af3023c857dae2b5de48b44f216",
+      "pass": true
+    },
+    {
+      "path": "assets/before_the_fame/environments/hollow_bowl/hollow_bowl_night_270x480.png",
+      "expected_sha256": "19d098d6d70c7228db164a23c2551a301667055977010392d1ff1d9f8420aa30",
+      "actual_sha256": "19d098d6d70c7228db164a23c2551a301667055977010392d1ff1d9f8420aa30",
+      "pass": true
+    },
+    {
+      "path": "assets/before_the_fame/environments/hollow_bowl/layers/hollow_bowl_crowd_overlay_270x480.png",
+      "expected_sha256": "8821c902ca448f3222f3d28f5f32cddafbd95b607a08bf48e73254cc4d7665d1",
+      "actual_sha256": "8821c902ca448f3222f3d28f5f32cddafbd95b607a08bf48e73254cc4d7665d1",
+      "pass": true
+    },
+    {
+      "path": "assets/before_the_fame/environments/little_tokyo/little_tokyo_night_270x480.png",
+      "expected_sha256": "d15659b840e96e94d8478ec2d26efa85c0bf82f3e9cc2892c352e8ac3de33caa",
+      "actual_sha256": "d15659b840e96e94d8478ec2d26efa85c0bf82f3e9cc2892c352e8ac3de33caa",
+      "pass": true
+    },
+    {
+      "path": "assets/before_the_fame/environments/naija_mart/naija_mart_interior_270x480.png",
+      "expected_sha256": "197b2a7e1793a7edec7d8d650ae09282a78c28f55d8c7c2eba3357693f748565",
+      "actual_sha256": "197b2a7e1793a7edec7d8d650ae09282a78c28f55d8c7c2eba3357693f748565",
+      "pass": true
+    },
+    {
+      "path": "assets/before_the_fame/environments/party_hall/party_hall_packed_270x480.png",
+      "expected_sha256": "d6be254816fa98d6b293c5654c538b58dcd809cdf46317a0c0076eed1dc44558",
+      "actual_sha256": "d6be254816fa98d6b293c5654c538b58dcd809cdf46317a0c0076eed1dc44558",
+      "pass": true
+    },
+    {
+      "path": "assets/before_the_fame/environments/roof/castle_roof_hookah_270x480.png",
+      "expected_sha256": "c69ecdd37591ba999e1b5f87eb8f1192ab1364d41cb35037e93e27f9e7782545",
+      "actual_sha256": "c69ecdd37591ba999e1b5f87eb8f1192ab1364d41cb35037e93e27f9e7782545",
+      "pass": true
+    },
+    {
+      "path": "assets/before_the_fame/environments/street_night/street_night_270x480.png",
+      "expected_sha256": "68aa0f2176e9c255083ebaaf8b4874fb19f61a9ece04921580cc78309694f13a",
+      "actual_sha256": "68aa0f2176e9c255083ebaaf8b4874fb19f61a9ece04921580cc78309694f13a",
+      "pass": true
+    },
+    {
+      "path": "assets/before_the_fame/environments/suya_spot/southwest_atlanta_suya_spot_270x480.png",
+      "expected_sha256": "596bb9a78265aa42ca135e7472ce648d0f8b8f87feaed53383f0ee3714950679",
+      "actual_sha256": "596bb9a78265aa42ca135e7472ce648d0f8b8f87feaed53383f0ee3714950679",
+      "pass": true
+    },
+    {
+      "path": "assets/before_the_fame/environments/tristan_apt/tristan_apartment_270x480.png",
+      "expected_sha256": "7ee376bbf15019ac0c1b86b99403cf16a154e37a50ecc373cf9cb2bbac735e9f",
+      "actual_sha256": "7ee376bbf15019ac0c1b86b99403cf16a154e37a50ecc373cf9cb2bbac735e9f",
+      "pass": true
+    },
+    {
+      "path": "assets/powder_springs_night_270x480.png",
+      "expected_sha256": "b31e731120fb4536a090bad19fa9b6efd3f1c2fa77f76598c966b99e63260a8c",
+      "actual_sha256": "b31e731120fb4536a090bad19fa9b6efd3f1c2fa77f76598c966b99e63260a8c",
+      "pass": true
+    }
+  ],
+  "source_hashes_pass": true,
+  "changed_paths_outside_ship": [],
+  "untracked_paths_outside_ship": [],
+  "frozen_or_runtime_paths_changed": false,
+  "pass": true
+}

@@ -1,0 +1,112 @@
+{
+  "renders": [
+    {
+      "filename": "atl_house_party_raw.png",
+      "sha256": "415b0d50ad5e9d6fc68b002bd39197b217f2694ea13a31432964b9275c2ba7bb",
+      "dimensions": [
+        941,
+        1672
+      ],
+      "mode": "RGB"
+    },
+    {
+      "filename": "dre_hookah_seated_raw.png",
+      "sha256": "5fc3e74aa68729fab9304a21302fd4c1f8b75234edbc5b0205cb369d8a8d81d8",
+      "dimensions": [
+        1145,
+        1374
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "filename": "hollow_bowl_stage_band_raw.png",
+      "sha256": "4958b1e917ec5380b488727fe3308a3b465f0a2f382ace037c1d20e11ef056cc",
+      "dimensions": [
+        941,
+        1672
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "filename": "la_sky_raw.png",
+      "sha256": "675f5c76f884fb7fc7174790c83c7be6415eca6287767cd78256055090ee47e0",
+      "dimensions": [
+        941,
+        1672
+      ],
+      "mode": "RGB"
+    },
+    {
+      "filename": "naija_lot_raw.png",
+      "sha256": "9894130e8e47318d8fd63bde8d9663547bc3e03296d37a6e2389f7b6f40c151f",
+      "dimensions": [
+        941,
+        1672
+      ],
+      "mode": "RGB"
+    },
+    {
+      "filename": "neighbor_castle_raw.png",
+      "sha256": "b7858f251b2c93f16152c0bed6cfe723634788042503cce56b2704ce455d98f2",
+      "dimensions": [
+        941,
+        1672
+      ],
+      "mode": "RGB"
+    },
+    {
+      "filename": "portobello_bedroom_raw.png",
+      "sha256": "fd332bc4f430e626dd11d2f44e7b7d247df950819c5a097fe19869ba4d64cb8d",
+      "dimensions": [
+        941,
+        1672
+      ],
+      "mode": "RGB"
+    },
+    {
+      "filename": "portobello_office_raw.png",
+      "sha256": "86d72d3a7043d5eebc6696923832282cefce76695020bcfc6b26d938bd7b83ca",
+      "dimensions": [
+        941,
+        1672
+      ],
+      "mode": "RGB"
+    },
+    {
+      "filename": "portobello_porch_raw.png",
+      "sha256": "0ce3b7766632795d906cee6fe717b52dca9fb8b837f1eefdf5d5fb3264f1c454",
+      "dimensions": [
+        941,
+        1672
+      ],
+      "mode": "RGB"
+    },
+    {
+      "filename": "rooftop_dtla_raw.png",
+      "sha256": "5dedf0f09f182761c7c65d9129110506b0ff592662bbad3ee422cca822d4379e",
+      "dimensions": [
+        941,
+        1672
+      ],
+      "mode": "RGB"
+    },
+    {
+      "filename": "tokyo_tease_raw.png",
+      "sha256": "cdeb98a70279dedcb778dd40dad5194bbb217182884cad6d9299969a2ee8cdd9",
+      "dimensions": [
+        941,
+        1672
+      ],
+      "mode": "RGB"
+    },
+    {
+      "filename": "tunde_hookah_seated_raw.png",
+      "sha256": "701d5b15a3a5be4c0fdb5103d435314ac897ca23c87f5b95d9f95ac1719547c7",
+      "dimensions": [
+        1145,
+        1374
+      ],
+      "mode": "RGBA"
+    }
+  ]
+}
