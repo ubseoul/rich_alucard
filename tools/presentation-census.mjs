@@ -114,6 +114,27 @@ const SCENES={
   ],
   moves:[]
  },
+ 'property-exterior':{
+  title:'Property exterior — REVIEWER ONLY / PLAYER-BLIND',url:'/?dev=1',
+  enter:async page=>{await page.evaluate(async()=>{document.querySelector('#startOverlay')?.remove();document.querySelector('#devPanel')?.classList.remove('show');await RAScenes.go('property-la-4p-exterior',{definition:RAPropertyQuest.buildExteriorDefinition(),phase:'curb_offer'})});await page.waitForTimeout(900)},
+  env:{selector:'.property-environment',asset:'assets/property/masters/property_exterior_270x480.png'},
+  actors:{rich:'.property-rich',shannon:'.property-shannon'},focal:['rich','shannon'],ui:['.property-dialogue','.property-choices'],
+  variants:[{id:'advance',run:()=>{document.querySelector('.property-dialogue')?.click()},wait:500},{id:'advance-2',run:()=>{document.querySelector('.property-dialogue')?.click()},wait:500}],moves:[]
+ },
+ 'property-interior':{
+  title:'Property interior — REVIEWER ONLY / PLAYER-BLIND',url:'/?dev=1',
+  enter:async page=>{await page.evaluate(async()=>{document.querySelector('#startOverlay')?.remove();document.querySelector('#devPanel')?.classList.remove('show');await RAScenes.go('property-la-4p-interior',{definition:RAPropertyQuest.buildInteriorDefinition(),phase:'int_entry'})});await page.waitForTimeout(900)},
+  env:{selector:'.property-environment',asset:'assets/property/masters/property_interior_base_270x480.png'},
+  actors:{rich:'.property-rich',shannon:'.property-shannon'},focal:['rich','shannon'],ui:['.property-dialogue','.property-choices'],
+  variants:[{id:'advance',run:()=>{document.querySelector('.property-dialogue')?.click()},wait:500},{id:'advance-2',run:()=>{document.querySelector('.property-dialogue')?.click()},wait:500},{id:'advance-3',run:()=>{document.querySelector('.property-dialogue')?.click()},wait:500}],moves:[]
+ },
+ 'rave-interior':{
+  title:"Ogun's rave — REVIEWER ONLY / PLAYER-BLIND",url:'/?dev=1',
+  enter:async page=>{await page.evaluate(async()=>{document.querySelector('#startOverlay')?.remove();document.querySelector('#devPanel')?.classList.remove('show');await RAScenes.go('ogun-rave',{definition:RAOgunRave.buildInteriorDefinition(),phase:'arrival'})});await page.waitForTimeout(900)},
+  env:{selector:'.rave-environment',asset:'assets/ogun_rave/masters/rave_interior_270x480.png'},
+  actors:{rich:'.rave-rich',ogun:'.rave-ogun'},focal:['rich','ogun'],ui:['.rave-dialogue','.rave-choices','.rave-party-panel'],
+  variants:[{id:'advance',run:()=>{document.querySelector('.rave-dialogue')?.click()},wait:500},{id:'advance-2',run:()=>{document.querySelector('.rave-dialogue')?.click()},wait:500},{id:'advance-3',run:()=>{document.querySelector('.rave-dialogue')?.click()},wait:500}],moves:[]
+ },
  'throne-combat':{
   title:'Throne-room combat (CEO)',
   enter:async page=>{await page.evaluate(async()=>{document.querySelector('#startOverlay')?.remove();await RAScenes.go('battle')});await page.waitForTimeout(700)},

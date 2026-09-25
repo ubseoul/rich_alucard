@@ -6,13 +6,13 @@
     const isInterior=stageId==='property-la-4p-interior';
     const root=document.createElement('section');root.className='property-scene';root.setAttribute('aria-label',isInterior?'Fourplex interior':'Fourplex exterior');root.tabIndex=-1;
     const addImage=(className,src,alt='')=>{const img=document.createElement('img');img.className=className;img.src=src;img.alt=alt;img.draggable=false;root.append(img);return img;};
-    addImage('property-environment',contract.environment);
+    const envImg=addImage('property-environment',contract.environment);
     let overlay=null;
     if(isInterior){overlay=addImage('property-overlay property-hidden',contract.problemOverlay);}
     const rich=addImage('property-actor property-rich',contract.actors.rich.states.neutral,'Rich');
     const shannon=addImage('property-actor property-shannon property-hidden',contract.actors.shannon.states.neutral,'Shannon');
     const ratNodes=isInterior?[0,1,2].map(i=>{const img=addImage(`property-rat property-rat-${i} property-hidden`,contract.rat.states.alert,'');return img;}):[];
-    const dialogue=document.createElement('div');dialogue.className='property-dialogue panel';dialogue.setAttribute('role','status');
+    const dialogue=document.createElement('div');dialogue.className='property-dialogue panel';dialogue.dataset.pdUi='dialogue';dialogue.setAttribute('role','status');
     const speakerLabel=document.createElement('p');speakerLabel.className='property-speaker';dialogue.append(speakerLabel);
     const textEl=document.createElement('p');textEl.className='property-line-text';dialogue.append(textEl);
     const advanceHint=document.createElement('span');advanceHint.className='property-advance-hint';advanceHint.textContent='▼';dialogue.append(advanceHint);
@@ -23,9 +23,12 @@
       const button=document.createElement('button');button.type='button';button.className='property-hotspot';button.dataset.hotspot=id;button.setAttribute('aria-label',id);
       hotspotLayer.append(button);hotspotButtons[id]=button;
     }
-    const choices=document.createElement('div');choices.className='property-choices';choices.hidden=true;root.append(choices);
+    const choices=document.createElement('div');choices.className='property-choices';choices.dataset.pdUi='choices';choices.hidden=true;root.append(choices);
     const numbersPanel=document.createElement('div');numbersPanel.className='property-numbers-panel';numbersPanel.hidden=true;root.append(numbersPanel);
     host.append(root);
+    // Presentation Director (Wave 3): camera, actor size, overlays and hotspots come from the Director.
+    const directed=!!window.RAPresentationDirector&&!window.__pdLegacy;
+    if(directed)RAPresentationDirector.enterMounted({stage:stageId,host:root,scope,env:envImg,actors:{rich,shannon,...Object.fromEntries(ratNodes.map((node,i)=>[`rat${i}`,node]))},overlays:[overlay],hotspots:hotspotButtons});
     const previousFocus=document.activeElement;
     const siblings=[...host.children].filter(node=>node!==root).map(node=>[node,node.inert]);
     for(const [node] of siblings)node.inert=true;
@@ -34,6 +37,7 @@
 
     function rectStyle(node,rect){const bounds=root.getBoundingClientRect(),native=contract.native;Object.assign(node.style,{left:`${rect.x*bounds.width/native.width}px`,top:`${rect.y*bounds.height/native.height}px`,width:`${rect.width*bounds.width/native.width}px`,height:`${rect.height*bounds.height/native.height}px`});}
     function layout(){
+      if(directed){RAPresentationDirector.relayout();dialogue.style.fontSize=choices.style.fontSize=`${8*root.getBoundingClientRect().width/contract.native.width}px`;return}
       const bounds=root.getBoundingClientRect();
       const r1=RAStageLayout.transform(contract,RAStageLayout.actorRect(contract,'rich'),bounds,bounds);
       Object.assign(rich.style,{left:`${r1.left}px`,top:`${r1.top}px`,width:`${r1.width}px`,height:`${r1.height}px`});

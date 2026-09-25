@@ -73,7 +73,8 @@
   // A shot may ask for a different size inside its profile band (e.g. the band's upper end for face readability).
   const target=Math.min(profile.body[1],Math.max(profile.body[0],spec.target??profile.target));
   let S=Math.max(cover,target*zoom*view.h/refH),limited=false;
-  const group=union([...focal,...include].map(f=>f.visible)),usable=view.w*(1-2*profile.side);
+  // includeRects: world rectangles (interaction hotspots) that must stay inside the frame.
+  const group=union([...focal,...include].map(f=>f.visible).concat((spec.includeRects||[]).map(([x,y,w,h])=>box(x,y,w,h)))),usable=view.w*(1-2*profile.side);
   if(group.w*S>usable){const fit=Math.max(cover,usable/group.w);limited=fit<S;S=fit}
   const w=view.w/S,h=view.h/S;
   const x=clamp(group.x+group.w/2-w/2,0,env.width-w);
@@ -200,6 +201,15 @@
   return stage.director.shotCandidates?.at(-1)||stage.director.shots.default;
  }
 
+ // ---- Mounted scenes (Property, Rave, …): environment image, actor images, environment-sized overlays and
+ // world-space hotspot buttons. One generic entry: overlays/hotspots become world layers; the scene's UI elements
+ // carry data-pd-ui roles and are laid out by the mode.
+ function enterMounted({stage:stageId,beat='default',mode='dialogue',host,scope,env,envAsset,actors,overlays=[],hotspots={}}){
+  const stage=contract(stageId),size=envSize(stage);
+  const worldLayers=[...overlays.filter(Boolean).map(el=>({el,rect:[0,0,size.width,size.height]})),...Object.entries(hotspots).filter(([id,el])=>el&&stage.hotspots?.[id]).map(([id,el])=>{const r=stage.hotspots[id];return {el,rect:[r.x,r.y,r.width,r.height]}})];
+  return enter({stage,mode,beat,host,scope,env,envAsset:envAsset||stage.environment,actors,worldLayers});
+ }
+
  // ---- Live controller ----
  let active=null;
  function screenEl(){return document.querySelector('#screen')}
@@ -216,7 +226,8 @@
   const mode=ctl.stage.director?.modes?.[ctl.beat]||ctl.mode;if(screenEl().dataset.pdMode!==mode)screenEl().dataset.pdMode=mode;ctl.activeMode=mode;
   const dpr=window.devicePixelRatio||1,stage=ctl.stage,layout=screenLayout(mode,W,H);
   const assets=currentAssets(ctl);if(ctl.autoShot)ctl.shot=chooseShot(ctl.stage,{w:layout.world.w,h:layout.world.h},assets);const shot=ctl.shot;
-  const spec={stage,profile:shot.profile,focal:shot.focal,include:shot.include,reference:shot.reference,target:shot.target,assets,states:stage.director?.states,at:ctl.moved,view:{w:layout.world.w,h:layout.world.h}};
+  const includeRects=shot.includeHotspots?Object.values(stage.hotspots||{}).map(r=>[r.x,r.y,r.width,r.height]):[];
+  const spec={stage,profile:shot.profile,focal:shot.focal,include:shot.include,includeRects,reference:shot.reference,target:shot.target,assets,states:stage.director?.states,at:ctl.moved,view:{w:layout.world.w,h:layout.world.h}};
   const locked=window.RAPresentationLocks?.get?.(stage.id,ctl.beat);
   const camera=solve({...spec,...(locked?{contact:locked.contact,zoom:locked.zoom}:{contact:shot.contact,zoom:shot.zoom})});
   const actors=Object.keys(ctl.actors).map(slot=>worldActor(stage,slot,assets[slot],ctl.moved?.[slot]));
@@ -236,6 +247,7 @@
   for(const el of ctl.viewportLayers||[])Object.assign(el.style,{left:'0px',top:'0px',width:'100%',height:'100%'});
   for(const layer of ctl.worldLayers||[]){const r=worldRectToScreen(frame,layer.rect),c=intersect(r,L.world);Object.assign(layer.el.style,{left:px(r.x),top:px(r.y),width:px(r.w),height:px(r.h),backgroundSize:'100% 100%',clipPath:`inset(${px(c.y-r.y)} ${px(r.x+r.w-(c.x+c.w))} ${px(r.y+r.h-(c.y+c.h))} ${px(c.x-r.x)})`})}
   const overlay=document.querySelector('#stageContractOverlay');if(overlay&&overlay.parentElement===world){Object.assign(overlay.style,local(frame.env));drawDirectorOverlay(ctl,frame,overlay)}
+  stackUi(ctl);
   if(ctl.roles){
    const rich=anchorPoint(frame,'rich',ctl.roles),enemy=anchorPoint(frame,'enemy',ctl.roles),ref=frame.actors[ctl.roles.rich]||Object.values(frame.actors)[0];
    // Reference-height body (pose-independent): current scale × reference visible height.
@@ -244,6 +256,13 @@
    if(rich&&enemy){set('--pd-missile-dx',px((enemy.x-rich.x)/fx+sp.missileFlight));set('--pd-briefcase-dx',px((rich.x-enemy.x)/fx+sp.briefcaseFlight))}
    if(ctl.fx!==false)for(const item of data().fx||[])placeFx(ctl,item);
   }
+ }
+ // UI band stack: every visible [data-pd-ui] dialogue → choices → actions element is placed top-down in the UI
+ // band (never on top of each other), with the remaining band height as its max height.
+ function stackUi(ctl){
+  const L=ctl.frame?.layout,host=ctl.host||screenEl();if(!L||!host)return;const gap=Math.round(L.W*.02);let y=L.ui.y+gap/2;
+  for(const role of ['dialogue','choices','actions'])for(const el of host.querySelectorAll(`[data-pd-ui="${role}"]`)){
+   if(!visibleRect(el))continue;el.style.top=px(y);el.style.bottom='auto';el.style.maxHeight=px(Math.max(40,L.ui.y+L.ui.h-y-gap/2));y+=el.offsetHeight+gap;(ctl.uiTouched||(ctl.uiTouched=new Set())).add(el)}
  }
  function placeFx(ctl,item){
   const el=document.querySelector(item.el),a=ctl.anchors?.[item.role],fx=ctl.fxScale||1;if(!el||!a)return;
@@ -276,7 +295,7 @@
   if(active)exit();
   const stage=typeof options.stage==='string'?contract(options.stage):options.stage;
   // Stage-level accepted intent (e.g. a sky-is-the-subject scene) works like a data exception for named checks.
-  const intent=stage.director?.accept?{status:'ACCEPTED-INTENT',ticket:stage.director.accept.reason,accept:stage.director.accept.checks}:null;
+  const intent=stage.director?.exception||(stage.director?.accept?{status:'ACCEPTED-INTENT',ticket:stage.director.accept.reason,accept:stage.director.accept.checks}:null);
   const ctl={exception:intent,...options,stage,beat:options.beat||'default',shot:{...(stage.director?.shots?.[options.beat||'default']||{}),...(options.shot||{})},restore:[]};
   if(!ctl.shot.profile||!ctl.shot.focal)throw new Error(`Director stage ${stage.id}: beat ${ctl.beat} needs a shot profile and focal actors`);
   const screen=screenEl(),world=worldEl(ctl.host);
@@ -287,6 +306,9 @@
   for(const layer of ctl.worldLayers||[])ctl.restore.push({el:layer.el,style:layer.el.getAttribute('style')});
   active=ctl;
   const observer=new ResizeObserver(()=>{if(active===ctl)relayout(ctl)});observer.observe(screen);ctl.observer=observer;
+  // Restack the UI band when scene UI shows/hides or its text changes (style changes are ours, not observed).
+  let queued=false;const restack=()=>{if(queued)return;queued=true;requestAnimationFrame(()=>{queued=false;if(active===ctl)stackUi(ctl)})};
+  ctl.uiObserver=new MutationObserver(restack);ctl.uiObserver.observe(ctl.host||screen,{subtree:true,childList:true,characterData:true,attributes:true,attributeFilter:['hidden','class']});
   ctl.scope?.cleanup(()=>{if(active===ctl)exit()});
   relayout(ctl);ctl.scope?.frame?.(()=>{if(active===ctl)relayout(ctl)});
   document.dispatchEvent(new CustomEvent('ra:presentation-enter',{detail:{stage:stage.id,mode:ctl.mode}}));
@@ -310,7 +332,8 @@
  }
  function mark(ctl,id,opts){const m=ctl.stage.director?.marks?.[id];if(!m)throw new Error(`Unknown mark ${id}`);return moveTo(ctl,m.slot,{x:m.x,line:m.line},opts)}
  function exit(){
-  const ctl=active;if(!ctl)return;active=null;ctl.observer?.disconnect();
+  const ctl=active;if(!ctl)return;active=null;ctl.observer?.disconnect();ctl.uiObserver?.disconnect();
+  for(const el of ctl.uiTouched||[]){for(const k of ['top','bottom','max-height'])el.style.removeProperty(k)}
   for(const item of ctl.restore.reverse()){if(item.parent){if(item.next&&item.next.parentElement===item.parent)item.parent.insertBefore(item.el,item.next);else item.parent.appendChild(item.el)}if(item.style==null)item.el.removeAttribute('style');else item.el.setAttribute('style',item.style)}
   for(const el of ctl.fxTouched||[]){for(const k of ['left','top','width','height','right','bottom','scale'])el.style.removeProperty(k);if(el.getAttribute('style')==='')el.removeAttribute('style')}
   const screen=screenEl();for(const name of [...screen.style])if(name.startsWith('--pd-'))screen.style.removeProperty(name);
@@ -337,7 +360,7 @@
  }
  async function lintLive(ctl,{fx=true}={}){
   const frame=relayout(ctl);if(!frame)return null;
-  const base=data().modes[ctl.activeMode||ctl.mode],mode={...base,...(ctl.ui?{uiSelectors:ctl.ui.selectors||base.uiSelectors,dialogueSelectors:ctl.ui.dialogue||base.dialogueSelectors,bubbleSelectors:ctl.ui.bubbles||base.bubbleSelectors}:{})},uiRects=mode.uiSelectors.flatMap(sel=>[...document.querySelectorAll(sel)].map(visibleRect).filter(Boolean));
+  const base0=data().modes[ctl.activeMode||ctl.mode],base={...base0,uiSelectors:[...base0.uiSelectors,'[data-pd-ui="dialogue"]','[data-pd-ui="choices"]','[data-pd-ui="actions"]']},mode={...base,...(ctl.ui?{uiSelectors:ctl.ui.selectors||base.uiSelectors,dialogueSelectors:ctl.ui.dialogue||base.dialogueSelectors,bubbleSelectors:ctl.ui.bubbles||base.bubbleSelectors}:{})},uiRects=mode.uiSelectors.flatMap(sel=>[...document.querySelectorAll(sel)].map(visibleRect).filter(Boolean));
   const report=lintFrame(ctl.stage,frame,{profile:ctl.shot.profile,focal:ctl.shot.focal,speakers:ctl.shot.speakers||ctl.shot.focal,reference:ctl.shot.reference,uiRects,golden:window.RAPresentationLocks?.golden?.(ctl.stage.id,ctl.beat),exception:ctl.exception});
   if(ctl.exception)report.exception=ctl.exception;
   const add=(id,pass,value,limit,note)=>report.checks.push({id,pass:!!pass,value,limit,...(note?{note}:{})});
@@ -351,12 +374,12 @@
    const visible=area(a.face)?Math.max(0,1-covered/area(a.face)):1,accepted=ctl.exception?.accept?.includes('face-visible');add(`face-visible:${slot}`,accepted||visible>=data().acceptance.faceVisible-.0005,round3(visible),1,accepted&&visible<data().acceptance.faceVisible-.0005?`ACCEPTED ${ctl.exception.ticket}`:undefined);
   }
   // Placement: the rendered actor must sit where the camera put it (catches foreign transforms/legacy positioning).
-  for(const [slot,el] of Object.entries(ctl.actors)){const a=frame.actors[slot];if(!el||!a)continue;const r=el.getBoundingClientRect(),s=screenEl().getBoundingClientRect(),dx=Math.abs(r.left-s.left-a.sprite.x),dy=Math.abs(r.top-s.top-a.sprite.y),dw=Math.abs(r.width-a.sprite.w);add(`placement:${slot}`,dx<=1.5&&dy<=1.5&&dw<=1.5,round3(Math.max(dx,dy,dw)),1.5,'rendered vs camera position (CSS px)')}
+  for(const [slot,el] of Object.entries(ctl.actors)){const a=frame.actors[slot];if(!el||!a||!visibleRect(el))continue;const r=el.getBoundingClientRect(),s=screenEl().getBoundingClientRect(),dx=Math.abs(r.left-s.left-a.sprite.x),dy=Math.abs(r.top-s.top-a.sprite.y),dw=Math.abs(r.width-a.sprite.w);add(`placement:${slot}`,dx<=1.5&&dy<=1.5&&dw<=1.5,round3(Math.max(dx,dy,dw)),1.5,'rendered vs camera position (CSS px)')}
   const dead=await deadSpace(ctl,frame);const threshold=data().acceptance.deadSpace;
   // Placeholder environments are flat by design: dead space is provisional until final art lands.
   const envProvisional=!!ctl.envPlaceholder&&threshold!=null&&dead>threshold,deadAccepted=!!ctl.exception?.accept?.includes('dead-space')&&threshold!=null&&dead>threshold;
   add('dead-space',envProvisional||deadAccepted||(threshold==null?true:dead<=threshold),dead,threshold??'measure-only (lock from golden set)',envProvisional?'PROVISIONAL (placeholder environment art)':deadAccepted?`ACCEPTED ${ctl.exception.ticket}`:undefined);
-  for(const sel of mode.dialogueSelectors){const el=document.querySelector(sel);if(el&&visibleRect(el))add(`text-fit:${sel}`,el.scrollHeight<=el.clientHeight+1&&el.scrollWidth<=el.clientWidth+1,`${el.scrollWidth}x${el.scrollHeight}`,`${el.clientWidth}x${el.clientHeight}`)}
+  for(const sel of [...mode.dialogueSelectors,'[data-pd-ui="dialogue"]','[data-pd-ui="choices"]']){const el=document.querySelector(sel);if(el&&visibleRect(el))add(`text-fit:${sel}`,el.scrollHeight<=el.clientHeight+1&&el.scrollWidth<=el.clientWidth+1,`${el.scrollWidth}x${el.scrollHeight}`,`${el.clientWidth}x${el.clientHeight}`)}
   if(fx)for(const item of data().fx||[]){const r=visibleRect(document.querySelector(item.el));if(!r)continue;const cx=r.x+r.w/2,cy=r.y+r.h/2,ok=cx>=frame.world.x&&cx<=frame.world.x+frame.world.w&&cy>=frame.world.y&&cy<=frame.world.y+frame.world.h;add(`fx-bounds:${item.el}`,ok,round3(inside(r,frame.world)),'centre inside world viewport')}
   report.pass=report.checks.every(c=>c.pass);
   report.frame={W:frame.layout.W,H:frame.layout.H,dpr:frame.dpr,world:frame.world,hud:frame.layout.hud,ui:frame.layout.ui,camera:Object.fromEntries(Object.entries(frame.camera).map(([k,v])=>[k,typeof v==='number'?round3(v):v])),actors:Object.fromEntries(Object.entries(frame.actors).map(([k,a])=>[k,{asset:a.asset,k:round3(a.k),visible:a.visible,face:a.face}])),uiRects};
@@ -385,6 +408,6 @@
  window.RAStageLayout={contract,actorRect,transform,layout,activate,drawOverlay,runSelfTest};
  window.RAPresentationDirector={screenLayout,worldActor,solve,search,project,lintFrame,enter,exit,fxPoint,runSelfTest:runDirectorSelfTest,
   active:()=>!!active,current:()=>active&&{stage:active.stage.id,mode:active.mode,beat:active.beat,frame:active.frame},
-  worldRect:()=>active?.frame?.world||null,actorBox:slot=>active?.frame?.actors?.[slot]||null,adventureStage,combat2Stage,mark:(id,opts)=>active?mark(active,id,opts):Promise.resolve(false),resetMoves:()=>{if(active?.moved){active.moved={};relayout(active)}},moveTo:(slot,to,opts)=>active?moveTo(active,slot,to,opts):Promise.resolve(false),setBeat:(beat,opts)=>active?setBeat(active,beat,opts):null,relayout:()=>active&&relayout(active),lint:opts=>active?lintLive(active,opts):Promise.resolve(null),
+  worldRect:()=>active?.frame?.world||null,actorBox:slot=>active?.frame?.actors?.[slot]||null,adventureStage,combat2Stage,enterMounted,mark:(id,opts)=>active?mark(active,id,opts):Promise.resolve(false),resetMoves:()=>{if(active?.moved){active.moved={};relayout(active)}},moveTo:(slot,to,opts)=>active?moveTo(active,slot,to,opts):Promise.resolve(false),setBeat:(beat,opts)=>active?setBeat(active,beat,opts):null,relayout:()=>active&&relayout(active),lint:opts=>active?lintLive(active,opts):Promise.resolve(null),
   preview:(beatOrShot)=>{if(!active)return null;const prev=active.shot;active.shot={...prev,...beatOrShot};const f=relayout(active);return {frame:f,restore:()=>{active.shot=prev;relayout(active)}}}};
 })();

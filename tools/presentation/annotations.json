@@ -35,6 +35,10 @@
   "assets/bllad33/masters/bllad33_neutral_candidate_80x96.png": {"face": [34, 38, 15, 12]},
   "assets/ogun_rave/masters/ogun_neutral_80x96.png": {"face": [33, 36, 14, 12]},
   "assets/jdm_imports/vehicles/supra_mk4_world.png": {"anchor": [68, 50]},
+  "assets/property/creatures/giant_rat/giant_rat_alert_96x64.png": {"anchor": [48, 56]},
+  "assets/property/creatures/giant_rat/giant_rat_scurry_96x64.png": {"anchor": [48, 56]},
+  "assets/property/creatures/giant_rat/giant_rat_recoil_96x64.png": {"anchor": [48, 56]},
+  "assets/property/characters/shannon/shannon_controlled_reaction_80x96.png": {"face": [33, 38, 13, 10]},
   "assets/ceo_hit_reaction_sheet.png": {"frames": {"width": 80, "faces": [[32, 41, 19, 13], [40, 39, 20, 15], [41, 66, 17, 14]]}}
  }
 }
