@@ -64,9 +64,42 @@ export async function dryRun(){
  return result;
 }
 
-if(process.argv[1]===fileURLToPath(import.meta.url)){
+if(process.argv[1]===fileURLToPath(import.meta.url)&&!process.argv.includes('--combat')){
  const r=await dryRun(),out=path.resolve(process.argv[2]&&process.argv[2]!=='--write-lock'?process.argv[2]:path.join(root,'work','presentation_census','REVIEWER_ONLY','adventure-dryrun.json'));
  if(process.argv.includes('--write-lock')){await mkdir(path.join(root,'docs','presentation','locks'),{recursive:true});await writeFile(path.join(root,LOCK),JSON.stringify({about:'Wave 1 regression lock: adapter default shot per adventure screen (environment|slot:person). profile!ticket = accepted exception. Regenerate with node tools/presentation-adventure-dryrun.mjs --write-lock after a reviewed change.',screens:r.lock},null,1)+'\n');console.log(`wrote ${LOCK}`)}
  await mkdir(path.dirname(out),{recursive:true});await writeFile(out,JSON.stringify(r,null,1));
  console.log(`adapter dry run: ${r.screens} distinct screens (${r.nodes} nodes) — PASS ${r.pass} / FAIL ${r.fail}; profiles ${JSON.stringify(r.profiles)}; failing checks ${JSON.stringify(r.failures)}; placeholder actor slots ${r.placeholderActors}`);
+}
+
+// ---- Wave 2: Combat 2.0 dry run — every authored fight × every environment it can resolve to ----
+export const COMBAT_LOCK='docs/presentation/locks/wave2-combat.json';
+export async function combatDryRun(){
+ const ctx=await loadBtf(root);
+ for(const file of ['js/data/stages.js','js/data/presentation.js','js/data/presentation_assets.js','js/data/presentation_locks.js','js/engine/stage.js'])vm.runInContext(await readFile(path.join(root,file),'utf8'),ctx,{filename:file});
+ const D=ctx.RAPresentationDirector,meta=ctx.RAPresentationAssets,E=ctx.RACombatData.ENEMIES,people=ctx.RABtfPeople;
+ const varSets=[{},{where:'slurp'},{where:'grave'}];
+ const fights=new Map();
+ for(const def of ctx.RAAdventures.all())for(const [id,node] of Object.entries(def.nodes)){if(!node.fight)continue;
+  for(const vars of varSets){const A={vars,L:{},get:k=>vars[k],flag:()=>false};let params={};try{params=typeof node.fight.params==='function'?node.fight.params(A):(node.fight.params||{})}catch{}
+   let env=params.env;try{if(typeof env==='function')env=env(A)}catch{env=null}env=env||'throne';
+   const key=`${node.fight.enemy}@${env}`;if(!fights.has(key))fights.set(key,{enemy:node.fight.enemy,env,refs:new Set()});fights.get(key).refs.add(`${def.id}:${id}`)}}
+ const rows=[];
+ for(const [key,f] of fights){
+  const def=E[f.enemy],envDef=ctx.RAEnvironments.get(f.env)||ctx.RAEnvironments.get('throne'),sprite=people.get(def?.person)?.sprite;
+  const stage=D.combat2Stage(envDef,def?.person||f.enemy,{flip:!!sprite,minions:def?.minions?5:0});
+  const assets={rich:'assets/rich_standing_right.png',enemy:sprite&&meta[sprite]?sprite:'assets/rich_standing_right.png'};
+  const fails=new Set();let body=null;
+  for(const [W,H] of SIZES){const L=D.screenLayout('combat',W,H),shot=stage.director.shots.default;
+   const cam=D.solve({stage,profile:'combat',focal:shot.focal,reference:'rich',assets,view:{w:L.world.w,h:L.world.h}});
+   const frame=D.project(stage,L,cam,['rich','enemy'].map(slot=>D.worldActor(stage,slot,assets[slot])),3);frame.layout=L;
+   const lint=D.lintFrame(stage,frame,{profile:'combat',focal:shot.focal,reference:'rich',uiRects:[L.hud,L.ui]});body=lint.metrics.body;
+   for(const c of lint.checks)if(!c.pass&&!c.id.startsWith('authority'))fails.add(c.id.split(':')[0])}
+  rows.push({key,enemy:f.enemy,env:f.env,refs:[...f.refs],pass:!fails.size,fails:[...fails],body,placeholderEnemy:!(sprite&&meta[sprite])});
+ }
+ rows.sort((a,b)=>a.key.localeCompare(b.key));
+ return {fights:rows.length,pass:rows.filter(r=>r.pass).length,rows,lock:Object.fromEntries(rows.map(r=>[r.key,r.pass?'combat':`FAIL:${r.fails.join('+')}`]))};
+}
+if(process.argv[1]===fileURLToPath(import.meta.url)&&process.argv.includes('--combat')){
+ const r=await combatDryRun();console.log(`combat dry run: ${r.fights} fight×environment screens — PASS ${r.pass}`);for(const row of r.rows)if(!row.pass)console.log('FAIL',row.key,row.fails.join(','),row.body);
+ if(process.argv.includes('--write-lock')){await writeFile(path.join(root,COMBAT_LOCK),JSON.stringify({about:'Wave 2 regression lock: Combat 2.0 Director framing per enemy@environment (combat profile). Regenerate with node tools/presentation-adventure-dryrun.mjs --combat --write-lock after a reviewed change.',fights:r.lock},null,1)+'\n');console.log(`wrote ${COMBAT_LOCK}`)}
 }

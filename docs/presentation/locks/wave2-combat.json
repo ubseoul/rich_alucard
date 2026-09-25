@@ -1,0 +1,22 @@
+{
+ "about": "Wave 2 regression lock: Combat 2.0 Director framing per enemy@environment (combat profile). Regenerate with node tools/presentation-adventure-dryrun.mjs --combat --write-lock after a reviewed change.",
+ "fights": {
+  "bard@throne_party_mess": "combat",
+  "bonesworth@throne_party_mess": "combat",
+  "bruce_loose@food_court": "combat",
+  "buckhead@lennox": "combat",
+  "cleric@throne_party_mess": "combat",
+  "coffe@throne_party_mess": "combat",
+  "hilt_rematch@throne": "combat",
+  "hilt@bedroom": "combat",
+  "kevins@grave": "combat",
+  "kevins@slurp": "combat",
+  "lil_smack@food_court": "combat",
+  "paladin@throne_party_mess": "combat",
+  "phil@street_night": "combat",
+  "training@maul": "combat",
+  "training@throne": "combat",
+  "uncle_sunday@pet_crypt": "combat",
+  "werewolf@grave_closed": "combat"
+ }
+}

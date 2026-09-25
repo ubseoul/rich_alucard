@@ -14,12 +14,13 @@
   if(active)active.abort?.();
   const def=D().ENEMIES[enemyId];const state=RACombat2Rules.create(enemyId,params);
   const screen=document.querySelector('#screen');const root=document.createElement('section');root.className='c2-scene';root.setAttribute('aria-label','Battle');
-  const env=RAPixel.createCanvas(root,{className:'c2-env'});const envDef=RAEnvironments.get(params.env||'throne');
+  const env=RAPixel.createCanvas(root,{className:'c2-env'});const envId=typeof params.env==='function'?params.env(RAAdventures.context()):params.env;const envDef=RAEnvironments.get(envId||'throne')||RAEnvironments.get('throne');
   if(envDef?.image){const img=new Image();img.src=envDef.image;img.onload=()=>{const c=env.ctx;c.imageSmoothingEnabled=false;if(envDef.cover){const s=Math.max(270/img.naturalWidth,480/img.naturalHeight);c.drawImage(img,(270-img.naturalWidth*s)/2,(480-img.naturalHeight*s)/2,img.naturalWidth*s,img.naturalHeight*s);}else c.drawImage(img,0,0,270,480);c.fillStyle='rgba(8,7,15,.35)';c.fillRect(0,0,270,480);};}
   else if(envDef?.paint){RAPixel.paintEnvironment(env.ctx,envDef.paint);env.ctx.fillStyle='rgba(8,7,15,.3)';env.ctx.fillRect(0,0,270,480);}
   // Presentation Director path (pilot: DEV fixture only via params.director). The Director owns size and position,
   // so the legacy 0.9 × global multiplier and the fixed floor at y=318 are not used on this path.
-  const directed=!!params.director&&!!window.RAPresentationDirector;
+  // Wave 2: every Combat 2.0 fight is Director-staged (params.director:false or the census legacy hook opt out).
+  const directed=params.director!==false&&!window.__pdLegacy&&!!window.RAPresentationDirector;
   const scale=RADisplay.scaled(1)*.9,floor=318;
   const richEl=actorEl('rich',70,floor,scale,false);const enemyEl=actorEl(def.person||enemyId,200,floor,scale,!!RABtfPeople.get(def.person)?.sprite);
   richEl.classList.add('c2-rich');enemyEl.classList.add('c2-enemy');root.append(richEl,enemyEl);
@@ -30,11 +31,7 @@
   function stageDirector(){
    // Same adapter contract as adventures: environment floor + depth scale, slot anchors; minions stand on a
    // farther depth band (0.55 of the floor scale — the legacy crowd depth made explicit).
-   const envDef2=envDef||RAEnvironments.get('throne'),y=envDef2.floorY??floor,depth=(envDef2.base||1)*1.85;
-   const cast={rich:{id:'rich',x:72},enemy:{id:def.person||enemyId,x:198,flip:!!RABtfPeople.get(def.person)?.sprite}};
-   minionEls.forEach((el,i)=>{cast[`minion${i}`]={id:'minion',x:150+i*22,y:y-30+i*6,lineScale:depth*.55};});
-   const stage=RAPresentationDirector.adventureStage(envDef2,cast,{node:{shot:{profile:'combat',focal:['rich','enemy'],reference:'rich'}}});
-   stage.id=`c2:${envDef2.id}`;stage.director.roles={rich:'rich',enemy:'enemy'};
+   const stage=RAPresentationDirector.combat2Stage(envDef,def.person||enemyId,{flip:!!RABtfPeople.get(def.person)?.sprite,minions:minionEls.length});
    const actors={rich:richEl,enemy:enemyEl};minionEls.forEach((el,i)=>actors[`minion${i}`]=el);
    RAPresentationDirector.enter({stage,mode:'combat',beat:'default',host:root,env:env.canvas,actors,roles:stage.director.roles,fx:false,ui:{selectors:['.c2-hud .c2-hp','.c2-panel'],dialogue:['.c2-log'],bubbles:[]}});
   }

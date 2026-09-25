@@ -176,6 +176,15 @@
   stage.director.shots.default=candidates[0];stage.director.shotCandidates=candidates;
   return stage;
  }
+ // Combat 2.0: the same adapter contract in combat mode. Rich left / enemy right on the environment floor;
+ // minions stand on a farther depth band (0.55 of the floor scale — the legacy crowd depth made explicit).
+ function combat2Stage(env,enemyPerson,{flip=false,minions=0}={}){
+  const y=env.floorY??318,depth=(env.base||1)*APPROVED_PRIMARY_SCALE;
+  const cast={rich:{id:'rich',x:72},enemy:{id:enemyPerson,x:198,flip}};
+  for(let i=0;i<minions;i++)cast[`minion${i}`]={id:'minion',x:150+i*22,y:y-30+i*6,lineScale:depth*.55};
+  const stage=adventureStage(env,cast,{node:{shot:{profile:'combat',focal:['rich','enemy'],reference:'rich'}}});
+  stage.id=`c2:${env.id}`;stage.director.roles={rich:'rich',enemy:'enemy'};return stage;
+ }
  // Picks the first candidate shot whose solve is not width-limited below its size band (data-driven fallback).
  function chooseShot(stage,view,assets){
   for(const shot of stage.director.shotCandidates||[stage.director.shots.default]){if(!shot.focal.length)return shot;
@@ -364,6 +373,6 @@
  window.RAStageLayout={contract,actorRect,transform,layout,activate,drawOverlay,runSelfTest};
  window.RAPresentationDirector={screenLayout,worldActor,solve,search,project,lintFrame,enter,exit,fxPoint,runSelfTest:runDirectorSelfTest,
   active:()=>!!active,current:()=>active&&{stage:active.stage.id,mode:active.mode,beat:active.beat,frame:active.frame},
-  worldRect:()=>active?.frame?.world||null,actorBox:slot=>active?.frame?.actors?.[slot]||null,adventureStage,mark:(id,opts)=>active?mark(active,id,opts):Promise.resolve(false),resetMoves:()=>{if(active?.moved){active.moved={};relayout(active)}},moveTo:(slot,to,opts)=>active?moveTo(active,slot,to,opts):Promise.resolve(false),setBeat:(beat,opts)=>active?setBeat(active,beat,opts):null,relayout:()=>active&&relayout(active),lint:opts=>active?lintLive(active,opts):Promise.resolve(null),
+  worldRect:()=>active?.frame?.world||null,actorBox:slot=>active?.frame?.actors?.[slot]||null,adventureStage,combat2Stage,mark:(id,opts)=>active?mark(active,id,opts):Promise.resolve(false),resetMoves:()=>{if(active?.moved){active.moved={};relayout(active)}},moveTo:(slot,to,opts)=>active?moveTo(active,slot,to,opts):Promise.resolve(false),setBeat:(beat,opts)=>active?setBeat(active,beat,opts):null,relayout:()=>active&&relayout(active),lint:opts=>active?lintLive(active,opts):Promise.resolve(null),
   preview:(beatOrShot)=>{if(!active)return null;const prev=active.shot;active.shot={...prev,...beatOrShot};const f=relayout(active);return {frame:f,restore:()=>{active.shot=prev;relayout(active)}}}};
 })();

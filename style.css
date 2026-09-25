@@ -782,7 +782,9 @@ body.pd-active .briefcase-projectile.fly{animation:pdBriefcaseFly 430ms steps(4,
 #screen[data-pd-mode="combat"] .c2-scene{background:#080711}
 #screen[data-pd-mode="combat"] .c2-hud{left:var(--pd-hud-x);right:auto;width:var(--pd-hud-w);top:var(--pd-hud-y);height:var(--pd-hud-h);align-items:center}
 #screen[data-pd-mode="combat"] .c2-telegraph{left:calc(var(--pd-world-x) + 4%);right:auto;width:calc(var(--pd-world-w) * .92);top:calc(var(--pd-world-y) + 8px)}
-#screen[data-pd-mode="combat"] .c2-panel{left:var(--pd-ui-x);right:auto;width:var(--pd-ui-w);top:var(--pd-ui-y);bottom:auto;max-height:var(--pd-ui-h)}
-#screen[data-pd-mode="combat"] .c2-menu{max-height:none}
+#screen[data-pd-mode="combat"] .c2-panel{left:var(--pd-ui-x);right:auto;width:var(--pd-ui-w);top:var(--pd-ui-y);bottom:auto;height:var(--pd-ui-h);max-height:var(--pd-ui-h)}
+/* The command grid fills the band: taller, easier touch targets instead of an empty strip under the menu. */
+#screen[data-pd-mode="combat"] .c2-menu{max-height:none;flex:1;min-height:0;grid-auto-rows:minmax(0,1fr);overflow:auto}
+#screen[data-pd-mode="combat"] .c2-btn{display:flex;flex-direction:column;justify-content:center}
 #screen[data-pd-mode="combat"] .c2-orb{width:calc(23px * var(--pd-fx,1));animation-name:pdC2Orb}
 @keyframes pdC2Orb{to{left:var(--pd-orb-to,70%)}}
