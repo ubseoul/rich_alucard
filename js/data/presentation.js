@@ -40,7 +40,9 @@
   establishing:{id:'establishing',body:[.20,.25],target:.225,contact:[.78,.84,.9],headroom:.12,side:.03},
   combat:{id:'combat',body:[.30,.35],target:.325,reference:.325,contact:[.8,.85,.9],headroom:.16,side:.025},
   conversation:{id:'conversation',body:[.35,.45],target:.40,reference:.392,contact:[.82,.88,.93],headroom:.14,side:.03},
-  close:{id:'close',body:[.50,.60],target:.55,contact:[.9,.96,1.02],headroom:.08,side:.02}
+  close:{id:'close',body:[.50,.60],target:.55,contact:[.9,.96,1.02],headroom:.08,side:.02},
+  // Hubs / composed rooms: the whole environment is the subject. No body band — full-width cover framing.
+  room:{id:'room',body:null,target:0,contact:[.7,.78,.86],headroom:0,side:0}
  };
  // Reference character: profile body targets are expressed against Rich's standing visible height so that
  // "same character + same shot profile" renders at the same fraction everywhere.

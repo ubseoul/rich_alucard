@@ -9,8 +9,8 @@
  function clear(){layer?.remove();layer=null;}
  function build(){
   clear();layer=el('div','bedroom-life-layer');Object.assign(layer.style,{position:'absolute',inset:'0',zIndex:'6',pointerEvents:'none'});
-  const bar=el('div','bedroom-daybar',dayLabel());layer.append(bar);
-  const row=el('div','bedroom-life');
+  const bar=el('div','bedroom-daybar',dayLabel());bar.dataset.pdUi='location';layer.append(bar);
+  const row=el('div','bedroom-life');row.dataset.pdUi='actions';
   const sleep=el('button','bedroom-sleep','☾ SLEEP');sleep.type='button';sleep.addEventListener('click',()=>confirmBed());
   const castle=el('button','bedroom-castle','⌂ CASTLE');castle.type='button';castle.addEventListener('click',()=>window.RACastle?.open?.());
   row.append(castle,sleep);layer.append(row);
@@ -21,7 +21,7 @@
   const beat=RALife.life().clock.returnBeat;if(!beat)return false;
   RAState.patch('life.clock.returnBeat',null);
   if(!beat.text){if(beat.nightEnder)confirmBed({nightEnder:true});return true;}
-  const card=el('div','bedroom-return',`<b>${beat.speaker==='rich'||!beat.speaker?'RICH':(window.RABtfPeople?.get(beat.speaker)?.name||beat.speaker)}${beat.vp&&document.body.classList.contains('dev-enabled')?' <span class="adv-vp">VP</span>':''}</b>${beat.text}`);
+  const card=el('div','bedroom-return',`<b>${beat.speaker==='rich'||!beat.speaker?'RICH':(window.RABtfPeople?.get(beat.speaker)?.name||beat.speaker)}${beat.vp&&document.body.classList.contains('dev-enabled')?' <span class="adv-vp">VP</span>':''}</b>${beat.text}`);card.dataset.pdUi='dialogue';
   card.style.pointerEvents='auto';layer.append(card);window.RABedroom?.setRichState?.('small_idle');
   card.addEventListener('click',()=>{card.remove();window.RABedroom?.releasePhone?.();if(beat.nightEnder)confirmBed({nightEnder:true});},{once:true});
   return true;

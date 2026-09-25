@@ -39,6 +39,13 @@
   "assets/property/creatures/giant_rat/giant_rat_scurry_96x64.png": {"anchor": [48, 56]},
   "assets/property/creatures/giant_rat/giant_rat_recoil_96x64.png": {"anchor": [48, 56]},
   "assets/property/characters/shannon/shannon_controlled_reaction_80x96.png": {"face": [33, 38, 13, 10]},
+  "assets/rich_bedroom_environment_270x480.png": {"environment": true},
+  "assets/rich_bedroom_lounge_idle.png": {"anchor": [64, 56]},
+  "assets/rich_bedroom_phone_scroll.png": {"anchor": [64, 56]},
+  "assets/rich_bedroom_small_idle.png": {"anchor": [64, 56]},
+  "assets/rich_bedroom_phone_reaction.png": {"anchor": [64, 56]},
+  "assets/rich_bedroom_sleeping.png": {"anchor": [64, 56]},
+  "assets/rich_bedroom_drowsy_wake.png": {"anchor": [64, 56]},
   "assets/ceo_hit_reaction_sheet.png": {"frames": {"width": 80, "faces": [[32, 41, 19, 13], [40, 39, 20, 15], [41, 66, 17, 14]]}}
  }
 }

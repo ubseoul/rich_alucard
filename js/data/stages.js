@@ -150,3 +150,20 @@
   const previous=window.RAStages;
   window.RAStages={get:id=>id===trip.id?trip:previous.get(id),all:()=>[...previous.all(),trip]};
 })();
+
+(function(){
+  // Bedroom hub — composed room art (approved). Presentation Director stage: the whole room is the subject
+  // (room profile, cinematic mode); the lounging Rich is a composed object at its approved 1× placement
+  // (legacy left 5.185% / top 58.75% → source top-left at 14,282).
+  const lounge={width:128,height:64,anchor:{x:64,y:56}};
+  const bedroom={
+    id:'bedroom-hub',native:{width:270,height:480},environment:'assets/rich_bedroom_environment_270x480.png',referenceScale:1,
+    contactLines:[{id:'bed',y:338,x1:0,x2:270,scale:1}],
+    actors:{},objects:{rich:{source:lounge,anchor:{x:78,y:338,line:'bed'},scale:1,layer:3}},
+    dialogueSafeZones:[],uiExclusionZones:[],layers:[{id:'environment',z:0},{id:'clouds',z:1},{id:'rich',z:3},{id:'overlay',z:6}],
+    director:{mode:'cinematic',states:{rich:['assets/rich_bedroom_lounge_idle.png','assets/rich_bedroom_phone_scroll.png','assets/rich_bedroom_small_idle.png','assets/rich_bedroom_phone_reaction.png','assets/rich_bedroom_sleeping.png','assets/rich_bedroom_drowsy_wake.png']},
+     shots:{default:{profile:'room',focal:['rich'],speakers:[],reference:'rich'}}}
+  };
+  const previous=window.RAStages;
+  window.RAStages={get:id=>id===bedroom.id?bedroom:previous.get(id),all:()=>[...previous.all(),bedroom]};
+})();

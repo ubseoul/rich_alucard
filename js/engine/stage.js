@@ -71,7 +71,7 @@
   const cover=Math.max(view.w/env.width,view.h/env.height);
   const zoom=spec.zoom||1,contact=spec.contact??profile.contact[1];
   // A shot may ask for a different size inside its profile band (e.g. the band's upper end for face readability).
-  const target=Math.min(profile.body[1],Math.max(profile.body[0],spec.target??profile.target));
+  const target=profile.body?Math.min(profile.body[1],Math.max(profile.body[0],spec.target??profile.target)):0;
   let S=Math.max(cover,target*zoom*view.h/refH),limited=false;
   // includeRects: world rectangles (interaction hotspots) that must stay inside the frame.
   const group=union([...focal,...include].map(f=>f.visible).concat((spec.includeRects||[]).map(([x,y,w,h])=>box(x,y,w,h)))),usable=view.w*(1-2*profile.side);
@@ -117,7 +117,7 @@
 
  // LINT (geometry): numeric acceptance on a projected frame. uiRects are real measured UI rectangles.
  function lintFrame(stage,frame,{profile,focal,speakers=focal,reference,uiRects=[],golden=null,exception=null}={}){
-  const P=data().profiles[profile],acc=data().acceptance,checks=[],W=frame.layout?.W??frame.world.w;
+  const P=data().profiles[profile],acc=data().acceptance,checks=[],W=frame.layout?.W??frame.world.w,roomShot=!P.body;
   const placeholderActors=focal.some(slot=>frame.actors[slot]?.authority==='PLACEHOLDER');
   // PROVISIONAL: size checks that fail only because a focal actor is RAPixel placeholder art (bounds will change
   // when final art lands) pass with a note; exceptions may accept named checks (with their ticket).
@@ -129,10 +129,10 @@
   const ref=frame.actors[reference]||frame.actors[focal[0]],refRatio=ref?ref.visible.h/spriteMeta(data().reference.asset).visible[3]/ref.k:1;
   const body=ref?ref.visible.h/frame.world.h/refRatio:0;
   // Accepted exceptions (data, with a ticket) still report the measured size but do not fail the size checks.
-  add('shot-size',exception||(body>=P.body[0]-.005&&body<=P.body[1]+.005),round3(body),P.body,exception?`EXCEPTION ${exception.status} ${exception.ticket}`:`reference-height body / world viewport (${P.id})`);
+  add('shot-size',roomShot||exception||(body>=P.body[0]-.005&&body<=P.body[1]+.005),round3(body),P.body,exception?`EXCEPTION ${exception.status} ${exception.ticket}`:`reference-height body / world viewport (${P.id})`);
   // Cross-scene consistency: against the profile's locked reference size (golden set), else the profile target.
   const refSize=P.reference??P.target;
-  add('shot-consistency',!!exception||Math.abs(body/refSize-1)<=(P.reference!=null?acc.consistency:Math.max(acc.consistency,(P.body[1]-P.body[0])/2/P.target)),round3(body/refSize-1),P.reference!=null?`±${acc.consistency} of locked ${P.id} reference ${refSize}`:'vs profile target');
+  add('shot-consistency',roomShot||!!exception||Math.abs(body/refSize-1)<=(P.reference!=null?acc.consistency:Math.max(acc.consistency,(P.body[1]-P.body[0])/2/P.target)),round3(body/refSize-1),P.reference!=null?`±${acc.consistency} of locked ${P.id} reference ${refSize}`:'vs profile target');
   const minFace=acc.minFacePx*W/acc.minFacePxAtWidth;
   for(const slot of speakers){const a=frame.actors[slot];if(!a)continue;add(`face-size:${slot}`,a.face.h>=minFace,round3(a.face.h),round3(minFace),a.faceSource)}
   for(const slot of focal){const a=frame.actors[slot];if(!a)continue;
@@ -245,7 +245,8 @@
   if(ctl.env)Object.assign(ctl.env.style,local(frame.env));
   for(const [slot,el] of Object.entries(ctl.actors)){const a=frame.actors[slot];if(!el||!a)continue;Object.assign(el.style,local(a.sprite));el.style.setProperty('--pd-w',px(a.sprite.w));el.style.setProperty('--pd-h',px(a.sprite.h));el.style.setProperty('--pd-k',String(round3(a.k)))}
   for(const el of ctl.viewportLayers||[])Object.assign(el.style,{left:'0px',top:'0px',width:'100%',height:'100%'});
-  for(const layer of ctl.worldLayers||[]){const r=worldRectToScreen(frame,layer.rect),c=intersect(r,L.world);Object.assign(layer.el.style,{left:px(r.x),top:px(r.y),width:px(r.w),height:px(r.h),backgroundSize:'100% 100%',clipPath:`inset(${px(c.y-r.y)} ${px(r.x+r.w-(c.x+c.w))} ${px(r.y+r.h-(c.y+c.h))} ${px(c.x-r.x)})`})}
+  const selectorLayers=(ctl.worldLayerSelectors||[]).flatMap(({sel,rect})=>[...(ctl.host||screen).querySelectorAll(sel)].map(el=>({el,rect})));
+  for(const layer of [...(ctl.worldLayers||[]),...selectorLayers]){(ctl.layerTouched||(ctl.layerTouched=new Set())).add(layer.el);const r=worldRectToScreen(frame,layer.rect),c=intersect(r,L.world);Object.assign(layer.el.style,{left:px(r.x),top:px(r.y),width:px(r.w),height:px(r.h),backgroundSize:'100% 100%',clipPath:`inset(${px(c.y-r.y)} ${px(r.x+r.w-(c.x+c.w))} ${px(r.y+r.h-(c.y+c.h))} ${px(c.x-r.x)})`})}
   const overlay=document.querySelector('#stageContractOverlay');if(overlay&&overlay.parentElement===world){Object.assign(overlay.style,local(frame.env));drawDirectorOverlay(ctl,frame,overlay)}
   stackUi(ctl);
   if(ctl.roles){
@@ -307,7 +308,7 @@
   active=ctl;
   const observer=new ResizeObserver(()=>{if(active===ctl)relayout(ctl)});observer.observe(screen);ctl.observer=observer;
   // Restack the UI band when scene UI shows/hides or its text changes (style changes are ours, not observed).
-  let queued=false;const restack=()=>{if(queued)return;queued=true;requestAnimationFrame(()=>{queued=false;if(active===ctl)stackUi(ctl)})};
+  let queued=false;const restack=()=>{if(queued)return;queued=true;requestAnimationFrame(()=>{queued=false;if(active===ctl){if(ctl.worldLayerSelectors?.length&&ctl.frame)apply(ctl,ctl.frame);else stackUi(ctl)}})};
   ctl.uiObserver=new MutationObserver(restack);ctl.uiObserver.observe(ctl.host||screen,{subtree:true,childList:true,characterData:true,attributes:true,attributeFilter:['hidden','class']});
   ctl.scope?.cleanup(()=>{if(active===ctl)exit()});
   relayout(ctl);ctl.scope?.frame?.(()=>{if(active===ctl)relayout(ctl)});
@@ -334,6 +335,7 @@
  function exit(){
   const ctl=active;if(!ctl)return;active=null;ctl.observer?.disconnect();ctl.uiObserver?.disconnect();
   for(const el of ctl.uiTouched||[]){for(const k of ['top','bottom','max-height'])el.style.removeProperty(k)}
+  for(const el of ctl.layerTouched||[])if(!ctl.restore.some(r=>r.el===el))for(const k of ['left','top','width','height','background-size','clip-path'])el.style.removeProperty(k);
   for(const item of ctl.restore.reverse()){if(item.parent){if(item.next&&item.next.parentElement===item.parent)item.parent.insertBefore(item.el,item.next);else item.parent.appendChild(item.el)}if(item.style==null)item.el.removeAttribute('style');else item.el.setAttribute('style',item.style)}
   for(const el of ctl.fxTouched||[]){for(const k of ['left','top','width','height','right','bottom','scale'])el.style.removeProperty(k);if(el.getAttribute('style')==='')el.removeAttribute('style')}
   const screen=screenEl();for(const name of [...screen.style])if(name.startsWith('--pd-'))screen.style.removeProperty(name);
