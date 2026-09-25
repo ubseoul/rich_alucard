@@ -100,6 +100,20 @@ const SCENES={
   ],
   moves:[]
  },
+ 'jdm-story':{
+  title:'JDM docks story (arrival / aftermath / Supra payoff) — REVIEWER ONLY',
+  url:'/?dev=1',
+  enter:async page=>{await page.evaluate(async()=>{document.querySelector('#startOverlay')?.remove();document.querySelector('#devPanel')?.classList.remove('show');await RAScenes.go('jdmDock')});await page.waitForTimeout(900)},
+  env:{selector:'#jdmDockCanvas',asset:'assets/jdm_imports/environment/docks_night_270x480.png'},
+  actors:{rich:'#jdmDockRich',importer:'#jdmDockImporter',daughter:'#jdmDockDaughter'},
+  focal:['rich','importer'],
+  ui:['#jdmDockPanel'],
+  variants:[
+   {id:'aftermath',run:async()=>{await RAScenes.go('jdmAftermath')},wait:700},
+   {id:'payoff',run:async()=>{await RAScenes.go('supraPayoff')},wait:900}
+  ],
+  moves:[]
+ },
  'throne-combat':{
   title:'Throne-room combat (CEO)',
   enter:async page=>{await page.evaluate(async()=>{document.querySelector('#startOverlay')?.remove();await RAScenes.go('battle')});await page.waitForTimeout(700)},

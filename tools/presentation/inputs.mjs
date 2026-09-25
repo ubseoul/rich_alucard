@@ -18,7 +18,9 @@ export function inputsHash(win,stageId,beat){
  const mode=data.modes[shot.mode||stage.director.mode||'combat'];
  // Only this stage's approved states (its runtime variant matrix) affect its composition.
  const actorAssets=[...new Set(Object.values(stage.director.states||{}).flat())].sort();
- const payload={version:DIRECTOR_VERSION,stage:{id:stage.id,world:stage.world||stage.native,environment:stage.environment,contactLines:stage.contactLines,actors:Object.fromEntries(Object.entries(stage.actors).map(([slot,a])=>[slot,{anchor:a.anchor,flip:!!a.flip}])),director:stage.director},
+ const payload={version:DIRECTOR_VERSION,stage:{id:stage.id,world:stage.world||stage.native,environment:stage.environment,contactLines:stage.contactLines,actors:Object.fromEntries(Object.entries(stage.actors).map(([slot,a])=>[slot,{anchor:a.anchor,flip:!!a.flip}])),
+   // Only this beat's shot and mode (other beats on a shared contract must not invalidate the lock).
+   director:{states:stage.director.states,roles:stage.director.roles||null,worldLayers:stage.director.worldLayers||null,accept:stage.director.accept||null,mode:stage.director.modes?.[beat]||stage.director.mode||null}},
   shot,profile:data.profiles[shot.profile],mode,reference:data.reference,acceptance:data.acceptance,
   assets:{environment:assets[stage.environment]?.sha256||null,actors:actorAssets.map(file=>[file,assets[file]?.sha256??null,assets[file]?.visible??null,assets[file]?.face??null])}};
  return createHash('sha256').update(JSON.stringify(payload)).digest('hex').slice(0,16);

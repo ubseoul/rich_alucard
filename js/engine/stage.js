@@ -34,11 +34,11 @@
  }
  function envSize(stage){return stage.world||stage.native}
  function lineOf(stage,actor){return (stage.contactLines||[]).find(line=>line.id===actor.anchor.line)||null}
- function actorScale(stage,slot){const actor=stage.actors[slot],scale=actor.scale??lineOf(stage,actor)?.scale;if(!(scale>0))throw new Error(`Director stage ${stage.id}: contact line for ${slot} has no scale`);return scale}
+ function actorScale(stage,slot){const actor=stage.actors[slot]||stage.objects?.[slot],scale=actor.scale??lineOf(stage,actor)?.scale;if(!(scale>0))throw new Error(`Director stage ${stage.id}: contact line for ${slot} has no scale`);return scale}
 
  // Actor boxes in world units: sprite frame, visible (alpha) body, face.
  function worldActor(stage,slot,asset,at){
-  const actor=stage.actors[slot],line=at?.line?(stage.contactLines||[]).find(l=>l.id===at.line):null,a=line?.scale??actorScale(stage,slot),m=spriteMeta(asset),ax=at?.x??actor.anchor.x,ay=at?.y??line?.y??actor.anchor.y,sx=ax-m.anchor[0]*a,sy=ay-m.anchor[1]*a;
+  const actor=stage.actors[slot]||stage.objects?.[slot],line=at?.line?(stage.contactLines||[]).find(l=>l.id===at.line):null,a=line?.scale??actorScale(stage,slot),m=spriteMeta(asset),ax=at?.x??actor.anchor.x,ay=at?.y??line?.y??actor.anchor.y,sx=ax-m.anchor[0]*a,sy=ay-m.anchor[1]*a;
   const rect=([x,y,w,h])=>box(sx+(actor.flip?m.width-x-w:x)*a,sy+y*a,w*a,h*a);
   return {slot,asset,scale:a,line:line?.id??actor.anchor.line,anchor:{x:ax,y:ay},sprite:box(sx,sy,m.width*a,m.height*a),visible:rect(m.visible),face:rect(m.face),faceSource:m.faceSource,authority:m.authority,meta:m,flip:!!actor.flip};
  }
@@ -63,8 +63,9 @@
   // Empty stage: full-width cover, grounded at the bottom of the environment.
   if(!spec.focal?.length){const S=Math.max(view.w/env.width,view.h/env.height),w=view.w/S,h=view.h/S;return {S,x:(env.width-w)/2,y:env.height-h,w,h,zoom:1,contact:1,cover:S,limited:false,profile:profile.id}}
   // Envelope of every approved state per focal slot → the camera never jumps when an actor changes state.
+  const known=slot=>stage.actors[slot]||stage.objects?.[slot];
   const envelope=(slot,at)=>{const list=(spec.states?.[slot]?.length?spec.states[slot]:[spec.assets?.[slot]]).map(asset=>worldActor(stage,slot,asset,at));return {...list[0],visible:union(list.map(a=>a.visible))}};
-  const focal=spec.focal.map(slot=>envelope(slot,spec.at?.[slot])),include=(spec.include||[]).filter(slot=>stage.actors[slot]).map(slot=>envelope(slot));
+  const focal=spec.focal.map(slot=>envelope(slot,spec.at?.[slot])),include=(spec.include||[]).filter(known).map(slot=>envelope(slot));
   const refScale=focal.find(f=>f.slot===spec.reference)?.scale??focal[0].scale;
   const refH=spriteMeta(data().reference.asset).visible[3]*refScale;
   const cover=Math.max(view.w/env.width,view.h/env.height);
@@ -100,7 +101,9 @@
   const placed={},range=data().profiles[camera.profile]?.body,refH=spriteMeta(data().reference.asset).visible[3];
   // Crisp pixels: prefer an integer device-pixel scale within 4%, but never one that leaves the shot-size band.
   const crisp=k=>{const kd=k*dpr,options=[Math.round(kd),Math.floor(kd),Math.ceil(kd)].filter((v,i,a)=>v>0&&a.indexOf(v)===i&&Math.abs(v-kd)/kd<=.04);
-   for(const v of options){const body=refH*v/dpr/layout.world.h;if(!range||(body>=range[0]&&body<=range[1]))return v/dpr}return k};
+   // …and never one that leaves the locked cross-scene reference tolerance.
+   const prof=data().profiles[camera.profile],ref=prof?.reference,tol=data().acceptance.consistency;
+   for(const v of options){const body=refH*v/dpr/layout.world.h;if((!range||(body>=range[0]&&body<=range[1]))&&(ref==null||Math.abs(body/ref-1)<=tol))return v/dpr}return k};
   for(const actor of actors){
    const k=crisp(actor.scale*S);
    const m=actor.meta,ax=snap(sx(actor.anchor.x)),ay=snap(sy(actor.anchor.y)),left=snap(ax-m.anchor[0]*k),top=snap(ay-m.anchor[1]*k);
@@ -132,7 +135,8 @@
   const minFace=acc.minFacePx*W/acc.minFacePxAtWidth;
   for(const slot of speakers){const a=frame.actors[slot];if(!a)continue;add(`face-size:${slot}`,a.face.h>=minFace,round3(a.face.h),round3(minFace),a.faceSource)}
   for(const slot of focal){const a=frame.actors[slot];if(!a)continue;
-   add(`in-view:${slot}`,inside(a.visible,frame.world)>=.999,round3(inside(a.visible,frame.world)),1);
+   // Vehicles/props (stage.objects) may bleed off the frame edge; characters must be fully in view.
+   const need=stage.objects?.[slot]?.9:.999;add(`in-view:${slot}`,inside(a.visible,frame.world)>=need,round3(inside(a.visible,frame.world)),need===.9?.9:1);
    add(`face-in-view:${slot}`,inside(a.face,frame.world)>=.999,round3(inside(a.face,frame.world)),1);
    const ov=uiRects.reduce((sum,r)=>sum+area(intersect(intersect(a.visible,frame.world),r)),0);
    add(`ui-overlap-bbox:${slot}`,ov<=acc.uiOverlapPx,Math.round(ov),acc.uiOverlapPx);
@@ -190,7 +194,7 @@
  // Picks the first candidate shot whose solve is not width-limited below its size band (data-driven fallback).
  function chooseShot(stage,view,assets){
   for(const shot of stage.director.shotCandidates||[stage.director.shots.default]){if(!shot.focal.length)return shot;
-   const cam=solve({stage,profile:shot.profile,focal:shot.focal,include:shot.include,reference:shot.reference,assets,states:stage.director.states,view}),refScale=stage.contactLines.find(l=>l.id===stage.actors[shot.reference]?.anchor.line)?.scale||stage.contactLines[0].scale;
+   const cam=solve({stage,profile:shot.profile,focal:shot.focal,include:shot.include,reference:shot.reference,assets,states:stage.director.states,view}),refScale=stage.contactLines.find(l=>l.id===(stage.actors[shot.reference]||stage.objects?.[shot.reference])?.anchor.line)?.scale||stage.contactLines[0].scale;
    const body=spriteMeta(data().reference.asset).visible[3]*refScale*cam.S/view.h,band=data().profiles[shot.profile].body;
    if(body>=band[0]-.005&&body<=band[1]+.005)return shot}
   return stage.director.shotCandidates?.at(-1)||stage.director.shots.default;
@@ -208,7 +212,9 @@
 
  function relayout(ctl){
   const {W,H}=screenSize();if(!(W>0&&H>0))return null;
-  const dpr=window.devicePixelRatio||1,stage=ctl.stage,layout=screenLayout(ctl.mode,W,H);
+  // A beat may switch the screen mode (stage.director.modes[beat]).
+  const mode=ctl.stage.director?.modes?.[ctl.beat]||ctl.mode;if(screenEl().dataset.pdMode!==mode)screenEl().dataset.pdMode=mode;ctl.activeMode=mode;
+  const dpr=window.devicePixelRatio||1,stage=ctl.stage,layout=screenLayout(mode,W,H);
   const assets=currentAssets(ctl);if(ctl.autoShot)ctl.shot=chooseShot(ctl.stage,{w:layout.world.w,h:layout.world.h},assets);const shot=ctl.shot;
   const spec={stage,profile:shot.profile,focal:shot.focal,include:shot.include,reference:shot.reference,target:shot.target,assets,states:stage.director?.states,at:ctl.moved,view:{w:layout.world.w,h:layout.world.h}};
   const locked=window.RAPresentationLocks?.get?.(stage.id,ctl.beat);
@@ -331,7 +337,7 @@
  }
  async function lintLive(ctl,{fx=true}={}){
   const frame=relayout(ctl);if(!frame)return null;
-  const base=data().modes[ctl.mode],mode={...base,...(ctl.ui?{uiSelectors:ctl.ui.selectors||base.uiSelectors,dialogueSelectors:ctl.ui.dialogue||base.dialogueSelectors,bubbleSelectors:ctl.ui.bubbles||base.bubbleSelectors}:{})},uiRects=mode.uiSelectors.flatMap(sel=>[...document.querySelectorAll(sel)].map(visibleRect).filter(Boolean));
+  const base=data().modes[ctl.activeMode||ctl.mode],mode={...base,...(ctl.ui?{uiSelectors:ctl.ui.selectors||base.uiSelectors,dialogueSelectors:ctl.ui.dialogue||base.dialogueSelectors,bubbleSelectors:ctl.ui.bubbles||base.bubbleSelectors}:{})},uiRects=mode.uiSelectors.flatMap(sel=>[...document.querySelectorAll(sel)].map(visibleRect).filter(Boolean));
   const report=lintFrame(ctl.stage,frame,{profile:ctl.shot.profile,focal:ctl.shot.focal,speakers:ctl.shot.speakers||ctl.shot.focal,reference:ctl.shot.reference,uiRects,golden:window.RAPresentationLocks?.golden?.(ctl.stage.id,ctl.beat),exception:ctl.exception});
   if(ctl.exception)report.exception=ctl.exception;
   const add=(id,pass,value,limit,note)=>report.checks.push({id,pass:!!pass,value,limit,...(note?{note}:{})});
