@@ -48,3 +48,10 @@ Each wave follows the same cycle: migrate, then variant lint, deterministic cens
 - **Screen shape:** new game → prologue → throne → victory → bedroom → reveal → Desire Trip loop now stays one shape (no 9:16 jumps).
 - **Census:** all Wave 3 screens pass lint, variants and aspect integrity at 360/390/430.
 - **Tickets:** PD-W3-01 (property interior) and PD-W3-02 (rave interior) accept `shot-consistency` only.
+
+## Wave 4 — hero overrides (only where choreography is genuinely needed)
+- **Property interior:** a `talk` / `inspect` beat pair. The conversation is tight (0.41, no exception), and the camera snap-pans wider only while the player inspects hotspots. PD-W3-01 is narrowed to the inspect beat. Both beats pass at 360/390/430.
+- **Assessed, not overridden:**
+  - The rave interior: width-limited by its HQ-accepted positions; a creative decision for HQ.
+  - The Wave 1 exceptions: waiting on environment art integration, or ordinary staging where an authored override now would be premature.
+  - Existing hero choreography stays as built: the throne tableau beat, the Desire Trip cinematic beats and the Supra payoff reveal.

@@ -207,7 +207,8 @@
  function enterMounted({stage:stageId,beat='default',mode='dialogue',host,scope,env,envAsset,actors,overlays=[],hotspots={}}){
   const stage=contract(stageId),size=envSize(stage);
   const worldLayers=[...overlays.filter(Boolean).map(el=>({el,rect:[0,0,size.width,size.height]})),...Object.entries(hotspots).filter(([id,el])=>el&&stage.hotspots?.[id]).map(([id,el])=>{const r=stage.hotspots[id];return {el,rect:[r.x,r.y,r.width,r.height]}})];
-  return enter({stage,mode,beat,host,scope,env,envAsset:envAsset||stage.environment,actors,worldLayers});
+  const first=stage.director?.shots?.[beat]?beat:Object.keys(stage.director?.shots||{})[0];
+  return enter({stage,mode,beat:first,host,scope,env,envAsset:envAsset||stage.environment,actors,worldLayers});
  }
 
  // ---- Live controller ----
@@ -369,8 +370,9 @@
  async function lintLive(ctl,{fx=true}={}){
   const frame=relayout(ctl);if(!frame)return null;
   const base0=data().modes[ctl.activeMode||ctl.mode],base={...base0,uiSelectors:[...base0.uiSelectors,'[data-pd-ui="dialogue"]','[data-pd-ui="choices"]','[data-pd-ui="actions"]']},mode={...base,...(ctl.ui?{uiSelectors:ctl.ui.selectors||base.uiSelectors,dialogueSelectors:ctl.ui.dialogue||base.dialogueSelectors,bubbleSelectors:ctl.ui.bubbles||base.bubbleSelectors}:{})},uiRects=mode.uiSelectors.flatMap(sel=>[...document.querySelectorAll(sel)].map(visibleRect).filter(Boolean));
-  const report=lintFrame(ctl.stage,frame,{profile:ctl.shot.profile,focal:ctl.shot.focal,speakers:ctl.shot.speakers||ctl.shot.focal,reference:ctl.shot.reference,uiRects,golden:window.RAPresentationLocks?.golden?.(ctl.stage.id,ctl.beat),exception:ctl.exception});
-  if(ctl.exception)report.exception=ctl.exception;
+  const exception=ctl.stage.director?.exceptions?.[ctl.beat]||ctl.exception;ctl.activeException=exception;
+  const report=lintFrame(ctl.stage,frame,{profile:ctl.shot.profile,focal:ctl.shot.focal,speakers:ctl.shot.speakers||ctl.shot.focal,reference:ctl.shot.reference,uiRects,golden:window.RAPresentationLocks?.golden?.(ctl.stage.id,ctl.beat),exception});
+  if(exception)report.exception=exception;
   const add=(id,pass,value,limit,note)=>report.checks.push({id,pass:!!pass,value,limit,...(note?{note}:{})});
   const order=Object.values(frame.actors).sort((a,b)=>(+getComputedStyle(ctl.actors[a.slot]).zIndex||0)-(+getComputedStyle(ctl.actors[b.slot]).zIndex||0)||a.anchor.y-b.anchor.y);
   const bubbles=(mode.bubbleSelectors||[]).map(s=>visibleRect(document.querySelector(s))).filter(Boolean);
@@ -379,14 +381,14 @@
    let covered=0;const face=intersect(a.face,frame.world);covered+=area(a.face)-area(face);
    for(const r of [...uiRects,...bubbles])covered+=area(intersect(face,r));
    for(const front of order.slice(order.indexOf(a)+1)){if(!front.asset)continue;covered+=maskArea(await loadImage(front.asset),front,face,frame.world)}
-   const visible=area(a.face)?Math.max(0,1-covered/area(a.face)):1,accepted=ctl.exception?.accept?.includes('face-visible');add(`face-visible:${slot}`,accepted||visible>=data().acceptance.faceVisible-.0005,round3(visible),1,accepted&&visible<data().acceptance.faceVisible-.0005?`ACCEPTED ${ctl.exception.ticket}`:undefined);
+   const visible=area(a.face)?Math.max(0,1-covered/area(a.face)):1,accepted=ctl.activeException?.accept?.includes('face-visible');add(`face-visible:${slot}`,accepted||visible>=data().acceptance.faceVisible-.0005,round3(visible),1,accepted&&visible<data().acceptance.faceVisible-.0005?`ACCEPTED ${ctl.activeException.ticket}`:undefined);
   }
   // Placement: the rendered actor must sit where the camera put it (catches foreign transforms/legacy positioning).
   for(const [slot,el] of Object.entries(ctl.actors)){const a=frame.actors[slot];if(!el||!a||!visibleRect(el))continue;const r=el.getBoundingClientRect(),s=screenEl().getBoundingClientRect(),dx=Math.abs(r.left-s.left-a.sprite.x),dy=Math.abs(r.top-s.top-a.sprite.y),dw=Math.abs(r.width-a.sprite.w);add(`placement:${slot}`,dx<=1.5&&dy<=1.5&&dw<=1.5,round3(Math.max(dx,dy,dw)),1.5,'rendered vs camera position (CSS px)')}
   const dead=await deadSpace(ctl,frame);const threshold=data().acceptance.deadSpace;
   // Placeholder environments are flat by design: dead space is provisional until final art lands.
-  const envProvisional=!!ctl.envPlaceholder&&threshold!=null&&dead>threshold,deadAccepted=!!ctl.exception?.accept?.includes('dead-space')&&threshold!=null&&dead>threshold;
-  add('dead-space',envProvisional||deadAccepted||(threshold==null?true:dead<=threshold),dead,threshold??'measure-only (lock from golden set)',envProvisional?'PROVISIONAL (placeholder environment art)':deadAccepted?`ACCEPTED ${ctl.exception.ticket}`:undefined);
+  const envProvisional=!!ctl.envPlaceholder&&threshold!=null&&dead>threshold,deadAccepted=!!ctl.activeException?.accept?.includes('dead-space')&&threshold!=null&&dead>threshold;
+  add('dead-space',envProvisional||deadAccepted||(threshold==null?true:dead<=threshold),dead,threshold??'measure-only (lock from golden set)',envProvisional?'PROVISIONAL (placeholder environment art)':deadAccepted?`ACCEPTED ${ctl.activeException.ticket}`:undefined);
   for(const sel of [...mode.dialogueSelectors,'[data-pd-ui="dialogue"]','[data-pd-ui="choices"]']){const el=document.querySelector(sel);if(el&&visibleRect(el))add(`text-fit:${sel}`,el.scrollHeight<=el.clientHeight+1&&el.scrollWidth<=el.clientWidth+1,`${el.scrollWidth}x${el.scrollHeight}`,`${el.clientWidth}x${el.clientHeight}`)}
   if(fx)for(const item of data().fx||[]){const r=visibleRect(document.querySelector(item.el));if(!r)continue;const cx=r.x+r.w/2,cy=r.y+r.h/2,ok=cx>=frame.world.x&&cx<=frame.world.x+frame.world.w&&cy>=frame.world.y&&cy<=frame.world.y+frame.world.h;add(`fx-bounds:${item.el}`,ok,round3(inside(r,frame.world)),'centre inside world viewport')}
   report.pass=report.checks.every(c=>c.pass);

@@ -126,7 +126,7 @@ const SCENES={
   enter:async page=>{await page.evaluate(async()=>{document.querySelector('#startOverlay')?.remove();document.querySelector('#devPanel')?.classList.remove('show');await RAScenes.go('property-la-4p-interior',{definition:RAPropertyQuest.buildInteriorDefinition(),phase:'int_entry'})});await page.waitForTimeout(900)},
   env:{selector:'.property-environment',asset:'assets/property/masters/property_interior_base_270x480.png'},
   actors:{rich:'.property-rich',shannon:'.property-shannon'},focal:['rich','shannon'],ui:['.property-dialogue','.property-choices'],
-  variants:[{id:'advance',run:()=>{document.querySelector('.property-dialogue')?.click()},wait:500},{id:'advance-2',run:()=>{document.querySelector('.property-dialogue')?.click()},wait:500},{id:'advance-3',run:()=>{document.querySelector('.property-dialogue')?.click()},wait:500}],moves:[]
+  variants:[...[1,2,3].map(n=>({id:`advance-${n}`,run:()=>{document.querySelector('.property-dialogue:not([hidden])')?.click()},wait:450})),{id:'inspect-beat',run:async()=>{await RAPresentationDirector.setBeat('inspect')},wait:450},{id:'talk-beat',run:async()=>{await RAPresentationDirector.setBeat('talk')},wait:450}],moves:[]
  },
  'rave-interior':{
   title:"Ogun's rave — REVIEWER ONLY / PLAYER-BLIND",url:'/?dev=1',
@@ -259,7 +259,7 @@ export async function census(){
     const m=await page.evaluate(measureInPage,{spec:plain(spec),meta}),px=await pixelMetrics(page,spec,m);
     const row={file,metrics:summarize(m,px,spec),measured:m,aspect:await aspectIntegrity(page)};
     row.lint=await page.evaluate(()=>window.RAPresentationDirector?.lint?.()??null);
-    if(row.lint){row.variants=[];for(const v of spec.variants){await page.evaluate(`(${v.run})()`);await page.waitForTimeout(v.wait??400);const vl=await page.evaluate(()=>RAPresentationDirector.lint());const vm2=await page.evaluate(measureInPage,{spec:plain(spec),meta}),vpx=await pixelMetrics(page,spec,vm2);row.variants.push({id:v.id,pass:vl.pass,failed:vl.checks.filter(c=>!c.pass),metrics:summarize(vm2,vpx,spec)});if(W===390){const vf=`${id}-${label}-${W}x${H}-variant-${v.id}.png`;await page.screenshot({path:path.join(out,vf)});}}
+    if(row.lint){row.variants=[];for(const v of spec.variants){await page.evaluate(`(${v.run})()`);await page.waitForTimeout(v.wait??400);const vl=await page.evaluate(()=>RAPresentationDirector.lint());vl.beat=vl.beat||null;const vm2=await page.evaluate(measureInPage,{spec:plain(spec),meta}),vpx=await pixelMetrics(page,spec,vm2);row.variants.push({id:v.id,beat:vl.beat,pass:vl.pass,failed:vl.checks.filter(c=>!c.pass),metrics:summarize(vm2,vpx,spec)});if(W===390){const vf=`${id}-${label}-${W}x${H}-variant-${v.id}.png`;await page.screenshot({path:path.join(out,vf)});}}
      await page.close();const fresh=await open(W,H,spec.url);await spec.enter(fresh);await freeze(fresh);
      if(args.candidates&&W===390)row.candidates=await candidates(fresh,id);
      if(args.fx)row.fx=await fxRun(fresh,id,spec,W,H);

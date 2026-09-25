@@ -92,8 +92,10 @@
     // Rats are floor objects at their legacy scale (1.25, no primary-character rule); slots from ratSlots.
     objects:Object.fromEntries([{x:218,y:352},{x:150,y:352},{x:90,y:352}].map((slot,i)=>[`rat${i}`,{source:ratSource,anchor:{x:slot.x,y:slot.y,line:'unit-floor'},scale:1.25,layer:4}])),
     director:{states:{rich:['assets/rich_standing_right.png'],shannon:[base+'characters/shannon/shannon_neutral_80x96.png',base+'characters/shannon/shannon_controlled_reaction_80x96.png']},
-     shots:{default:{profile:'conversation',focal:['rich','shannon'],speakers:['rich','shannon'],reference:'rich',includeHotspots:true}},
-     exception:{status:'EXCEPTION-LAYOUT',ticket:'PD-W3-01',accept:['shot-consistency']}}
+     // Wave 4 choreography: a tight conversation while talking; the camera widens (snap-pan) to keep every
+     // hotspot in frame only while the player inspects. Only the inspect beat carries the exception.
+     shots:{talk:{profile:'conversation',focal:['rich','shannon'],speakers:['rich','shannon'],reference:'rich'},inspect:{profile:'conversation',focal:['rich','shannon'],speakers:['rich','shannon'],reference:'rich',includeHotspots:true}},
+     exceptions:{inspect:{status:'EXCEPTION-LAYOUT',ticket:'PD-W3-01',accept:['shot-consistency']}}}
   };
   const previous=window.RAStages;
   window.RAStages={get:id=>id===exterior.id?exterior:id===interior.id?interior:previous.get(id),all:()=>[...previous.all(),exterior,interior]};
