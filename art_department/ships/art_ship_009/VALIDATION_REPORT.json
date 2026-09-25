@@ -1,22 +1,36 @@
 {
   "ship_id": "ART SHIP 009",
+  "phase": "APPROVED MASTER / FROZEN promotion",
   "result": "PASS",
-  "art_package": {
-    "native_candidates_passed": 12,
-    "native_candidates_total": 12,
+  "accepted_candidate_checkpoint": "47da18d9984c4915d3325709364db9a442fb3b36",
+  "promotion": {
+    "candidate_hashes_matched": 12,
+    "candidate_hashes_total": 12,
+    "frozen_hashes_passed": 199,
+    "frozen_hashes_total": 199,
     "source_hashes_passed": 18,
     "source_hashes_total": 18,
+    "native_contracts": "PASS",
     "json_parse": "PASS",
     "scope_audit": "PASS",
-    "internal_visual_review": "PASS"
+    "lan_night_zero_pixel_reuse": "PASS",
+    "sealed_hq_only_accessed": false,
+    "cold_start_onboarding": "PASS",
+    "cold_start_required_paths": "23/23"
   },
   "repository": {
     "npm_test": "PASS",
     "npm_build": "PASS",
     "npm_verify_artifact": "PASS",
-    "artifact_release_id": "ra-a16196e4fbc0-20260925180310",
-    "artifact_commit": "a16196e4fbc0c7530a00bdfe915fb9c9c7cd1826"
+    "artifact_release_id": "ra-47da18d9984c-20260925222013",
+    "artifact_commit": "47da18d9984c4915d3325709364db9a442fb3b36"
+  },
+  "runtime_baseline": {
+    "pass": 98,
+    "hold": 23,
+    "updated_by_promotion": false
   },
   "deployment_run": false,
-  "runtime_code_modified": false
+  "runtime_code_modified": false,
+  "merged": false
 }

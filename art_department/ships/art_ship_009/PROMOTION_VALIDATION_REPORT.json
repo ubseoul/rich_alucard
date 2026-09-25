@@ -1,0 +1,241 @@
+{
+  "ship_id": "ART SHIP 009",
+  "accepted_candidate_checkpoint": "47da18d9984c4915d3325709364db9a442fb3b36",
+  "promotion_checks": [
+    {
+      "request_id": "AS9-ENV-ATL-HOUSE-PARTY",
+      "candidate_path": "art_department/ships/art_ship_009/candidates/native/environments/atl_house_party_270x480.png",
+      "approved_path": "assets/before_the_fame/environments/atl_house_party/southwest_atlanta_house_party_270x480.png",
+      "sha256": "56696dba8d204ee07bfaf64ca1e9b51824a2797e6a29509da8976c0525ee4f8a",
+      "checks": {
+        "candidate_hash_matches_manifest": true,
+        "approved_hash_matches_candidate": true,
+        "approved_hash_matches_engineering_map": true,
+        "dimensions_match": true,
+        "mode_contract_matches": true
+      },
+      "pass": true
+    },
+    {
+      "request_id": "AS9-ENV-LA-SKY",
+      "candidate_path": "art_department/ships/art_ship_009/candidates/native/environments/la_sky_270x480.png",
+      "approved_path": "assets/before_the_fame/environments/la_sky/la_sky_night_flight_270x480.png",
+      "sha256": "8cc18ec3b4d7f2d372d0fab77ecbfef45de55557ced4b892bf307c8bafc50aa6",
+      "checks": {
+        "candidate_hash_matches_manifest": true,
+        "approved_hash_matches_candidate": true,
+        "approved_hash_matches_engineering_map": true,
+        "dimensions_match": true,
+        "mode_contract_matches": true
+      },
+      "pass": true
+    },
+    {
+      "request_id": "AS9-ENV-NAIJA-LOT",
+      "candidate_path": "art_department/ships/art_ship_009/candidates/native/environments/naija_lot_270x480.png",
+      "approved_path": "assets/before_the_fame/environments/naija_lot/naija_mart_parking_lot_270x480.png",
+      "sha256": "c8e46d74919eeb95e1edb89da3422cf1b17262b9fc273c5564d48d11270d05f4",
+      "checks": {
+        "candidate_hash_matches_manifest": true,
+        "approved_hash_matches_candidate": true,
+        "approved_hash_matches_engineering_map": true,
+        "dimensions_match": true,
+        "mode_contract_matches": true
+      },
+      "pass": true
+    },
+    {
+      "request_id": "AS9-ENV-NEIGHBOR-CASTLE",
+      "candidate_path": "art_department/ships/art_ship_009/candidates/native/environments/neighbor_castle_270x480.png",
+      "approved_path": "assets/before_the_fame/environments/neighbor_castle/neighbor_castle_party_270x480.png",
+      "sha256": "7d8d578602296b48dd3ed0d7b425e5a1295b16415aee1cd5fcf5784548012091",
+      "checks": {
+        "candidate_hash_matches_manifest": true,
+        "approved_hash_matches_candidate": true,
+        "approved_hash_matches_engineering_map": true,
+        "dimensions_match": true,
+        "mode_contract_matches": true
+      },
+      "pass": true
+    },
+    {
+      "request_id": "AS9-ENV-PORTOBELLO-BEDROOM",
+      "candidate_path": "art_department/ships/art_ship_009/candidates/native/environments/portobello_bedroom_270x480.png",
+      "approved_path": "assets/before_the_fame/environments/portobello_bedroom/portobello_beige_bedroom_270x480.png",
+      "sha256": "1713dc57c814ed1a428129f28a695b9d2ab22df05751949ca9e32c912154c4e4",
+      "checks": {
+        "candidate_hash_matches_manifest": true,
+        "approved_hash_matches_candidate": true,
+        "approved_hash_matches_engineering_map": true,
+        "dimensions_match": true,
+        "mode_contract_matches": true
+      },
+      "pass": true
+    },
+    {
+      "request_id": "AS9-ENV-PORTOBELLO-OFFICE",
+      "candidate_path": "art_department/ships/art_ship_009/candidates/native/environments/portobello_office_270x480.png",
+      "approved_path": "assets/before_the_fame/environments/portobello_office/portobello_kpi_office_270x480.png",
+      "sha256": "65861eabd71f798f2260958689ed6035a7cca70881e774a59b6708d6603f7526",
+      "checks": {
+        "candidate_hash_matches_manifest": true,
+        "approved_hash_matches_candidate": true,
+        "approved_hash_matches_engineering_map": true,
+        "dimensions_match": true,
+        "mode_contract_matches": true
+      },
+      "pass": true
+    },
+    {
+      "request_id": "AS9-ENV-PORTOBELLO-PORCH",
+      "candidate_path": "art_department/ships/art_ship_009/candidates/native/environments/portobello_porch_270x480.png",
+      "approved_path": "assets/before_the_fame/environments/portobello_porch/portobello_porch_dusk_270x480.png",
+      "sha256": "0c4b1b9aa8e2eb3c137b06a558c5ff5e30a6556f932c941148a6cd21b186377b",
+      "checks": {
+        "candidate_hash_matches_manifest": true,
+        "approved_hash_matches_candidate": true,
+        "approved_hash_matches_engineering_map": true,
+        "dimensions_match": true,
+        "mode_contract_matches": true
+      },
+      "pass": true
+    },
+    {
+      "request_id": "AS9-ENV-ROOFTOP-DTLA",
+      "candidate_path": "art_department/ships/art_ship_009/candidates/native/environments/rooftop_dtla_270x480.png",
+      "approved_path": "assets/before_the_fame/environments/rooftop_dtla/downtown_la_rooftop_party_270x480.png",
+      "sha256": "af41cbb7c045a55848421434e14e9e122dabc61becc2d1c2dcc1fb1ceebf5ebf",
+      "checks": {
+        "candidate_hash_matches_manifest": true,
+        "approved_hash_matches_candidate": true,
+        "approved_hash_matches_engineering_map": true,
+        "dimensions_match": true,
+        "mode_contract_matches": true
+      },
+      "pass": true
+    },
+    {
+      "request_id": "AS9-ENV-TOKYO-TEASE",
+      "candidate_path": "art_department/ships/art_ship_009/candidates/native/environments/tokyo_tease_270x480.png",
+      "approved_path": "assets/before_the_fame/environments/tokyo_tease/tokyo_tease_270x480.png",
+      "sha256": "98febff28278f87d2b477a3f8ed60e256fba2e595384371eb42fa12e5d41d039",
+      "checks": {
+        "candidate_hash_matches_manifest": true,
+        "approved_hash_matches_candidate": true,
+        "approved_hash_matches_engineering_map": true,
+        "dimensions_match": true,
+        "mode_contract_matches": true
+      },
+      "pass": true
+    },
+    {
+      "request_id": "AS9-HOLLOW-STAGE-BAND-CROWD",
+      "candidate_path": "art_department/ships/art_ship_009/candidates/native/layers/hollow_bowl_stage_band_crowd_overlay_270x480.png",
+      "approved_path": "assets/before_the_fame/environments/hollow_bowl/layers/hollow_bowl_stage_band_crowd_overlay_270x480.png",
+      "sha256": "fb0dd0b070818db692999ed285d761d985f3dad66bc1e3ae4442425f2e8b846a",
+      "checks": {
+        "candidate_hash_matches_manifest": true,
+        "approved_hash_matches_candidate": true,
+        "approved_hash_matches_engineering_map": true,
+        "dimensions_match": true,
+        "mode_contract_matches": true
+      },
+      "pass": true
+    },
+    {
+      "request_id": "AS9-TUNDE-HOOKAH",
+      "candidate_path": "art_department/ships/art_ship_009/candidates/native/characters/tunde_hookah_seated_80x96.png",
+      "approved_path": "assets/before_the_fame/characters/tunde/tunde_hookah_seated_80x96.png",
+      "sha256": "ae412ca4af2c117fadc85a53b1596aed9ce1412f8bcdc4d031a0c505faf4ef92",
+      "checks": {
+        "candidate_hash_matches_manifest": true,
+        "approved_hash_matches_candidate": true,
+        "approved_hash_matches_engineering_map": true,
+        "dimensions_match": true,
+        "mode_contract_matches": true
+      },
+      "pass": true
+    },
+    {
+      "request_id": "AS9-DRE-HOOKAH",
+      "candidate_path": "art_department/ships/art_ship_009/candidates/native/characters/dre_hookah_seated_80x96.png",
+      "approved_path": "assets/before_the_fame/characters/dre/dre_hookah_seated_80x96.png",
+      "sha256": "a2d98b0d79037caa956b4b4a512b35e31098bd1e0fd76d95a91074d7c711dd9e",
+      "checks": {
+        "candidate_hash_matches_manifest": true,
+        "approved_hash_matches_candidate": true,
+        "approved_hash_matches_engineering_map": true,
+        "dimensions_match": true,
+        "mode_contract_matches": true
+      },
+      "pass": true
+    }
+  ],
+  "promoted_count": 12,
+  "promoted_exact_byte_matches": 12,
+  "frozen_corpus_count": 199,
+  "frozen_corpus_checks_pass": true,
+  "source_reference_count": 18,
+  "source_reference_checks_pass": true,
+  "lan_night_zero_pixel_reuse": {
+    "mapping": "lan_night -> tristan_apt",
+    "source_path": "assets/before_the_fame/environments/tristan_apt/tristan_apartment_270x480.png",
+    "source_sha256": "7ee376bbf15019ac0c1b86b99403cf16a154e37a50ecc373cf9cb2bbac735e9f",
+    "expected_sha256": "7ee376bbf15019ac0c1b86b99403cf16a154e37a50ecc373cf9cb2bbac735e9f",
+    "same_hash_asset_paths": [
+      "assets/before_the_fame/environments/tristan_apt/tristan_apartment_270x480.png"
+    ],
+    "new_lan_night_bitmap_paths": [],
+    "pass": true
+  },
+  "changed_paths_since_candidate_checkpoint": [
+    "art_department/APPROVAL_LEDGER.md",
+    "art_department/APPROVED_ASSET_INDEX.md",
+    "art_department/ASSET_REGISTER.json",
+    "art_department/CURRENT_HANDOFF.md",
+    "art_department/CURRENT_OPEN_ART_GAPS.json",
+    "art_department/CURRENT_OPEN_ART_GAPS.md",
+    "art_department/START_HERE.md",
+    "art_department/STYLE_FINGERPRINT.md",
+    "art_department/ZERO_UPLOAD_ONBOARDING_VALIDATION.md",
+    "art_department/references/CHARACTERS.md",
+    "art_department/references/ENVIRONMENTS.md",
+    "art_department/ships/art_ship_009/ART_SHIP.md",
+    "art_department/ships/art_ship_009/ART_SHIP_MANIFEST.json",
+    "art_department/ships/art_ship_009/CANDIDATE_PACKAGE_MANIFEST.json",
+    "art_department/ships/art_ship_009/CANDIDATE_PACKAGE_README.md",
+    "art_department/ships/art_ship_009/ENGINEERING_ASSET_MAP.json",
+    "art_department/ships/art_ship_009/EXPECTED_HOLD_RESOLUTION_REPORT.md",
+    "art_department/ships/art_ship_009/FROZEN_CORPUS_SHA256SUMS.txt",
+    "art_department/ships/art_ship_009/HQ_DECISION.md",
+    "art_department/ships/art_ship_009/HQ_TECHNICAL_PROMOTION_REVIEW.md",
+    "art_department/ships/art_ship_009/PROMOTION_VALIDATION_REPORT.json",
+    "art_department/ships/art_ship_009/RUNTIME_DEMAND_MAP.json",
+    "art_department/ships/art_ship_009/RUNTIME_DEMAND_MAP.md",
+    "art_department/ships/art_ship_009/SOURCE_PACKAGE_SHA256SUMS.txt",
+    "art_department/ships/art_ship_009/SOURCE_PRESERVATION_EVIDENCE.json",
+    "art_department/ships/art_ship_009/SOURCE_PRESERVATION_EVIDENCE.md",
+    "art_department/ships/art_ship_009/STATE_LAYER_DEFINITIONS.json",
+    "art_department/ships/art_ship_009/VALIDATION_REPORT.json",
+    "art_department/ships/art_ship_009/VALIDATION_REPORT.md",
+    "art_department/ships/art_ship_009/tools/build_candidates.py",
+    "art_department/ships/art_ship_009/tools/validate_candidates.py",
+    "art_department/ships/art_ship_009/tools/validate_promotion.py",
+    "assets/before_the_fame/characters/dre/dre_hookah_seated_80x96.png",
+    "assets/before_the_fame/characters/tunde/tunde_hookah_seated_80x96.png",
+    "assets/before_the_fame/environments/atl_house_party/southwest_atlanta_house_party_270x480.png",
+    "assets/before_the_fame/environments/hollow_bowl/layers/hollow_bowl_stage_band_crowd_overlay_270x480.png",
+    "assets/before_the_fame/environments/la_sky/la_sky_night_flight_270x480.png",
+    "assets/before_the_fame/environments/naija_lot/naija_mart_parking_lot_270x480.png",
+    "assets/before_the_fame/environments/neighbor_castle/neighbor_castle_party_270x480.png",
+    "assets/before_the_fame/environments/portobello_bedroom/portobello_beige_bedroom_270x480.png",
+    "assets/before_the_fame/environments/portobello_office/portobello_kpi_office_270x480.png",
+    "assets/before_the_fame/environments/portobello_porch/portobello_porch_dusk_270x480.png",
+    "assets/before_the_fame/environments/rooftop_dtla/downtown_la_rooftop_party_270x480.png",
+    "assets/before_the_fame/environments/tokyo_tease/tokyo_tease_270x480.png"
+  ],
+  "out_of_scope_paths": [],
+  "runtime_or_gameplay_code_changed": false,
+  "sealed_hq_only_content_accessed": false,
+  "result": "PASS"
+}

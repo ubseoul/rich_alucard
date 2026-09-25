@@ -1,6 +1,6 @@
 # ART SHIP 009 — OPEN RUNTIME COMPLETION
 
-**Status:** ART SHIP 009 — CANDIDATE PACKAGE READY FOR HQ REVIEW
+**Status:** ART SHIP 009 — FROZEN / COMPLETE
 
 **Owner:** Art
 
@@ -16,7 +16,7 @@ Produce the smallest native candidate package that removes the remaining runtime
 
 ## Runtime reconciliation
 
-The live Integration Matrix contains five held Portobello **surface keys** but only three distinct Portobello environment ids: `portobello_bedroom` (three surfaces), `portobello_office` and `portobello_porch`. Ten distinct environment ids cover the 12 requested placeholder screens. Runtime inspection also proves that `lan_night` is the already-frozen `tristan_apt` location at 4 A.M.; the existing master directly satisfies the visual card without a new bitmap. Therefore this Ship contains **12 native candidates**, not 15:
+The live Integration Matrix contains five held Portobello **surface keys** but only three distinct Portobello environment ids: `portobello_bedroom` (three surfaces), `portobello_office` and `portobello_porch`. Ten distinct environment ids cover the 12 requested placeholder screens. Runtime inspection also proves that `lan_night` is the already-frozen `tristan_apt` location at 4 A.M.; the existing master directly satisfies the visual card without a new bitmap. Therefore this Ship promoted **12 native assets**, not 15:
 
 - nine new opaque environment masters;
 - one exact-origin additive Hollow Bowl conversation/stage-band crowd layer;
@@ -33,4 +33,4 @@ The live Integration Matrix contains five held Portobello **surface keys** but o
 
 ## Stop point
 
-Stop reached: **ART SHIP 009 — CANDIDATE PACKAGE READY FOR HQ REVIEW**. No candidate is APPROVED MASTER or FROZEN.
+Stop reached: **ART SHIP 009 — FROZEN / COMPLETE**. All 12 submitted candidate byte streams are APPROVED MASTER / FROZEN. Runtime integration, merge and deployment remain outside this Ship.

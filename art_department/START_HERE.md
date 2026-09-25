@@ -8,11 +8,11 @@ This repository is the Art Department's institutional memory. **The project reme
 
 ## Current state
 
-- Runtime/art-integration authority: `origin/claude/frozen-art-integration` at `c887f5d6d1a417384d906a361e2b52c0f3423e3c`.
-- ART SHIP 008 is the latest frozen pixel authority. The frozen corpus contains **187 assets**; the Asset Register contains **327 entries**.
-- ART SHIP 004–008 hand off **167 files**. At the current checkpoint, **132 drive runtime**, **14 newly frozen Ship 008 assets await Engineering integration/runtime QA**, **12 are handoff/reference sheets**, four approved states have no current scene, four files are mapping-ambiguous, and one prop has no visual surface.
-- The playable census contains **103 adventure screens + 17 fights**: **75 PASS (final art)** and **45 HOLD**. All automated adventure/fight presentation checks pass; HOLD now means missing or incorrect creative coverage, unresolved cast/environment art, or an explicit NEEDS CREATIVE condition—not generic Presentation Director failure.
-- ART SHIP 008 — RUNTIME COMPLETION PASS is APPROVED MASTER / FROZEN / COMPLETE on `art/art_ship_008`. Runtime integration and PASS/HOLD movement remain pending Engineering and runtime QA. The Rookoko proposed default alias must be verified with runtime/content intent during integration.
+- Runtime/art-integration authority: `origin/claude/art-ship-008-integration` at `a16196e4fbc0c7530a00bdfe915fb9c9c7cd1826`.
+- ART SHIP 009 is the latest frozen pixel authority. The frozen corpus contains **199 assets**; the Asset Register contains **339 entries**.
+- ART SHIP 004–009 hand off **179 files**. At the current checkpoint, **145 drive runtime**, **12 newly frozen Ship 009 assets await Engineering integration/runtime QA**, one historical file is superseded, **12 are handoff/reference sheets**, four approved states have no current scene, four files are mapping-ambiguous, and one prop has no visual surface.
+- The playable census contains **104 adventure screens + 17 fights**: **98 PASS (final art)** and **23 HOLD**. All automated adventure/fight presentation checks pass; HOLD means missing or incorrect creative coverage, unresolved cast/environment art, or an explicit NEEDS CREATIVE condition—not generic Presentation Director failure.
+- ART SHIP 009 — OPEN RUNTIME COMPLETION is APPROVED MASTER / FROZEN / COMPLETE on `art/art_ship_009`. The package adds nine environment masters, one additive Hollow Bowl companion layer and two seated HOMIES states. The approved `lan_night → tristan_apt` mapping is zero-pixel reuse. Runtime integration and PASS/HOLD movement remain pending Engineering and real Presentation QA; PD-W1-04 remains Presentation Director/HQ-owned.
 
 ## Authority hierarchy
 
@@ -39,7 +39,7 @@ Read completely, in this order:
 8. `art_department/CURRENT_OPEN_ART_GAPS.md` and `.json`
 9. `art_department/STYLE_FINGERPRINT.md` and the relevant files in `art_department/references/`
 10. `art_department/APPROVED_ASSET_INDEX.md`, then relevant `ASSET_REGISTER.json` entries and native PNGs
-11. Relevant frozen Ship records under `art_department/ships/` (004, 005, 006, 007, 008)
+11. Relevant frozen Ship records under `art_department/ships/` (004, 005, 006, 007, 008, 009)
 12. `art_department/APPROVAL_LEDGER.md` and the templates under `art_department/templates/`
 
 For current implementation truth, additionally read:
@@ -70,4 +70,4 @@ Only an explicit decision can make a candidate `APPROVED MASTER`; only an explic
 
 At Ship close, update as applicable: `START_HERE.md`, `CURRENT_HANDOFF.md`, the current gap map, `ASSET_REGISTER.json`, `APPROVED_ASSET_INDEX.md`, `APPROVAL_LEDGER.md`, Ship maps/manifests, frozen totals and recommended next priority. Verify frozen hashes, no runtime changes, the zero-upload cold start and a clean scoped tree.
 
-**Current stop point:** ART SHIP 008 is FROZEN / COMPLETE. Recommended next production step is Engineering integration of the 14 frozen assets, explicit Rookoko default-alias intent verification, and a fresh Integration Matrix/runtime visual-QA pass. Do not begin another Art Ship until that result refreshes demand; do not merge or deploy from this Art task.
+**Current stop point:** ART SHIP 009 is FROZEN / COMPLETE. Recommended next step is Engineering integration of the 12 frozen assets plus the approved zero-pixel `lan_night → tristan_apt` mapping, followed by Presentation Director review (including PD-W1-04) and a fresh Integration Matrix/runtime visual-QA pass. Do not update the 98 PASS / 23 HOLD baseline until that work earns the projected movement. Do not begin another Art Ship until the result refreshes demand; do not merge or deploy from this Art task.

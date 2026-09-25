@@ -1,6 +1,6 @@
 # ART SHIP 009 — Candidate Package
 
-**Status:** CANDIDATE PACKAGE READY FOR HQ REVIEW
+**Status:** ACCEPTED CANDIDATE CHECKPOINT; PROMOTED BYTE-FOR-BYTE TO APPROVED MASTER / FROZEN
 
 ## Package contents
 
@@ -13,14 +13,17 @@
 
 ## Review order
 
-1. `RUNTIME_DEMAND_MAP.md` and `.json`
-2. `CANDIDATE_PACKAGE_MANIFEST.json`
-3. `CANDIDATE_VALIDATION_REPORT.md` and `.json`
-4. `SOURCE_PRESERVATION_EVIDENCE.md` and `.json`
-5. `INTERNAL_VISUAL_REVIEW.md`
-6. `EXPECTED_HOLD_RESOLUTION_REPORT.md`
-7. `GENERATION_LOG.md`
+1. `HQ_DECISION.md`
+2. `ART_SHIP_MANIFEST.json`
+3. `VALIDATION_REPORT.md` and `.json`
+4. `HQ_TECHNICAL_PROMOTION_REVIEW.md`
+5. `RUNTIME_DEMAND_MAP.md` and `.json`
+6. `ENGINEERING_ASSET_MAP.json` and `STATE_LAYER_DEFINITIONS.json`
+7. `SOURCE_PRESERVATION_EVIDENCE.md`, `.json` and `PROMOTION_VALIDATION_REPORT.json`
+8. `CANDIDATE_PACKAGE_MANIFEST.json` and candidate validation evidence
+9. `EXPECTED_HOLD_RESOLUTION_REPORT.md`
+10. `GENERATION_LOG.md`
 
 ## Authority boundary
 
-All files are candidates. Nothing in this package is APPROVED MASTER, FROZEN, runtime-integrated, merged or deployed. Presentation Director retains final framing authority. Review boards are reviewer-only and must not be surfaced to the player.
+The files under `candidates/` preserve the accepted submission at checkpoint `47da18d9984c4915d3325709364db9a442fb3b36`. Their exact bytes are promoted to the canonical paths in `ENGINEERING_ASSET_MAP.json` and are APPROVED MASTER / FROZEN. No runtime integration, merge or deployment occurred. Presentation Director retains final framing authority. Review boards are reviewer-only and must not be surfaced to the player.

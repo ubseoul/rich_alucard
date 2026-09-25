@@ -39,6 +39,8 @@ def collect_sources(asset: dict) -> list[dict]:
 
 
 def main() -> None:
+    if (SHIP / "HQ_DECISION.md").exists():
+        raise SystemExit("ART SHIP 009 is frozen; candidate-record regeneration is disabled. Use validate_promotion.py.")
     demand = json.loads((SHIP / "RUNTIME_DEMAND_MAP.json").read_text(encoding="utf-8"))
     facts = json.loads((SHIP / "CANDIDATE_TECHNICAL_FACTS.json").read_text(encoding="utf-8"))["assets"]
     facts_by_path = {item["path"]: item for item in facts}

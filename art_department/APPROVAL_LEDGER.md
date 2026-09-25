@@ -145,3 +145,19 @@ All 14 exact PNGs named in `ships/art_ship_008/ART_SHIP_MANIFEST.json` are **APP
 The corrected Rich derivative is frozen only as the contextual ramen/SLURP state and is not a new Rich neutral/master. The original frozen source and promotion history remain unchanged. The recorded Rookoko default alias is not an Art canon/gameplay decision and must **VERIFY WITH RUNTIME/CONTENT INTENT DURING INTEGRATION** before permanent integration.
 
 Runtime integration, Presentation Director framing, gameplay/content alias decisions and PASS/HOLD movement remain separate Engineering/runtime-QA work. No runtime/gameplay file changed, no SEALED/HQ-only content was accessed, and no merge or deployment was performed. ART SHIP 008 is FROZEN / COMPLETE.
+
+## ART SHIP 009 — OPEN RUNTIME COMPLETION (recorded 2026-09-25)
+
+33. ART SHIP 009 began from `claude/art-ship-008-integration` at `a16196e4fbc0c7530a00bdfe915fb9c9c7cd1826`, reconciled the live 98 PASS / 23 HOLD Integration Matrix, and produced the smallest authorized Art-owned package. The five held Portobello entries resolved to three distinct environment masters, and `lan_night` resolved to zero-pixel reuse of the already-frozen `tristan_apt` master. The submitted package contained 12 native candidates: nine environment masters, one additive Hollow Bowl stage-band crowd companion layer, and two seated identity-anchored HOMIES states.
+34. Candidate checkpoint `47da18d9984c4915d3325709364db9a442fb3b36` passed 12/12 native-contract checks, 18/18 source-hash checks, repository tests/build/artifact verification and internal PLAYER-BLIND visual review. No frozen source pixel or runtime/gameplay file changed during candidate production.
+35. Explicit user-supplied HQ decision:
+
+> HQ PASS — ART SHIP 009 CANDIDATES APPROVED FOR PROMOTION
+>
+> All 12 submitted native candidates are approved.
+>
+> Proceed APPROVED MASTER → FROZEN. Promote the exact submitted candidate bytes without regeneration or revision. Preserve the frozen Hollow Bowl master and Ship 008 crowd layer; keep the new NC-FA-10 layer additive only. Approve `tunde.hookah_seated` and `dre.hookah_seated` only for NC-FA-11 / `company=HOMIES`. Approve `lan_night → tristan_apt` as zero-pixel reuse without duplicating or renaming the source master. Keep projected PASS/HOLD movement as forecast only, and keep PD-W1-04 under Presentation Director/HQ authority.
+
+All 12 exact canonical PNGs named in `ships/art_ship_009/ART_SHIP_MANIFEST.json` are **APPROVED MASTER / FROZEN**. Every canonical SHA-256 equals its accepted candidate SHA-256. The frozen corpus is now 199 assets across 339 Asset Register entries. The 18 verified source hashes, existing Hollow Bowl layers and frozen Tristan apartment master remain unchanged.
+
+The approved `lan_night → tristan_apt` mapping creates no new bitmap. Runtime integration, Presentation Director staging approval, gameplay changes and PASS/HOLD movement remain Engineering/runtime-QA work. No runtime/gameplay code changed, no SEALED/HQ-only content was accessed, and no merge or deployment was performed. ART SHIP 009 is FROZEN / COMPLETE.

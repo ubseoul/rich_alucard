@@ -1,6 +1,6 @@
 # ART SHIP 009 — Runtime Demand Map
 
-**Status:** CANDIDATE PACKAGE READY FOR HQ REVIEW
+**Status:** APPROVED MASTER / FROZEN / COMPLETE — PENDING ENGINEERING INTEGRATION
 
 **Runtime authority:** `claude/art-ship-008-integration` at `a16196e4fbc0c7530a00bdfe915fb9c9c7cd1826`
 
@@ -12,7 +12,7 @@
 
 The Integration Matrix has five held Portobello surface keys, not five distinct environment ids. They resolve to three masters: `portobello_bedroom` (three held surfaces), `portobello_office` and `portobello_porch`. Across the full requested environment scope there are 12 held screens but only ten distinct environment ids.
 
-`lan_night` is the same authored location already frozen as `tristan_apt`: Tristan's apartment, three monitors/snacks, at night. Reusing that exact master weakens neither the location nor the condition and requires no new pixels. The smallest package is therefore 12 candidates: nine environment masters, one Hollow Bowl exact-origin additive layer and two seated derivatives. A thirteenth map row records the zero-pixel alias handoff.
+`lan_night` is the same authored location already frozen as `tristan_apt`: Tristan's apartment, three monitors/snacks, at night. Reusing that exact master weakens neither the location nor the condition and requires no new pixels. The smallest package is therefore 12 promoted assets: nine environment masters, one Hollow Bowl exact-origin additive layer and two seated derivatives. A thirteenth map row records the approved zero-pixel alias handoff.
 
 ## Demand summary
 
@@ -40,8 +40,10 @@ The Integration Matrix has five held Portobello surface keys, not five distinct 
 - Tunde anchor: SHA-256 `12b9fa058d82caed91fc89b5fa6c3072875919239b107d79a477623e4de99ac9`.
 - Dre anchor: SHA-256 `6945490fb4e31dd01afe594ee061a50d8ee354f92a073936c031e0b32f1e1875`.
 
-All listed source bytes are immutable. New candidates remain under this Ship until HQ review.
+All listed source bytes remain immutable. HQ approved the 12 exact candidate byte streams at checkpoint `47da18d9984c4915d3325709364db9a442fb3b36`; canonical copies are APPROVED MASTER / FROZEN and byte-identical to those candidates.
+
+`lan_night → tristan_apt` is approved as zero-pixel reuse. The existing frozen master remains at its established path and is neither duplicated nor renamed.
 
 ## Forecast
 
-If all mappings are later accepted, frozen, integrated and pass runtime visual QA, 13 adventure HOLD screens should clear: the 12 placeholder-environment screens plus NC-FA-10. The projected adventure/fight matrix would move from 98 PASS / 23 HOLD to approximately 111 PASS / 10 HOLD. NC-FA-11 should separately clear one held minigame surface. This is a forecast, not current runtime acceptance.
+If all mappings are later integrated and pass runtime visual QA, 13 adventure HOLD screens should clear: the 12 placeholder-environment screens plus NC-FA-10. The projected adventure/fight matrix would move from 98 PASS / 23 HOLD to approximately 111 PASS / 10 HOLD. NC-FA-11 should separately clear one held minigame surface. This is a forecast, not current runtime acceptance.

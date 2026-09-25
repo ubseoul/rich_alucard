@@ -238,3 +238,24 @@ All 14 runtime-demand assets below are APPROVED MASTER / FROZEN. Runtime integra
 | `assets/before_the_fame/environments/throne_party_mess/throne_party_mess_overlay_765x1024.png` | FROZEN | APPROVED MASTER; ART SHIP 008 exact-origin additive condition layer over the original throne master; not runtime-integrated |
 | `assets/before_the_fame/environments/cafe/layers/cafe_laptop_seat_rear_270x480.png` | FROZEN | APPROVED MASTER; ART SHIP 008 exact-origin rear support layer; not runtime-integrated |
 | `assets/before_the_fame/environments/cafe/layers/cafe_laptop_table_foreground_270x480.png` | FROZEN | APPROVED MASTER; ART SHIP 008 exact-origin foreground support layer; not runtime-integrated |
+
+## ART SHIP 009 — OPEN Runtime Completion
+
+All 12 native assets below are APPROVED MASTER / FROZEN at exact candidate bytes. Runtime integration and projected PASS/HOLD movement remain pending Engineering integration and real Presentation QA.
+
+| Path | Status | Role |
+|---|---|---|
+| `assets/before_the_fame/environments/atl_house_party/southwest_atlanta_house_party_270x480.png` | FROZEN | APPROVED MASTER; ART SHIP 009 environment master; runtime id `atl_house_party`; not runtime-integrated |
+| `assets/before_the_fame/environments/la_sky/la_sky_night_flight_270x480.png` | FROZEN | APPROVED MASTER; ART SHIP 009 environment master; runtime id `la_sky`; not runtime-integrated |
+| `assets/before_the_fame/environments/naija_lot/naija_mart_parking_lot_270x480.png` | FROZEN | APPROVED MASTER; ART SHIP 009 environment master; runtime id `naija_lot`; not runtime-integrated |
+| `assets/before_the_fame/environments/neighbor_castle/neighbor_castle_party_270x480.png` | FROZEN | APPROVED MASTER; ART SHIP 009 environment master; runtime id `neighbor_castle`; not runtime-integrated |
+| `assets/before_the_fame/environments/portobello_bedroom/portobello_beige_bedroom_270x480.png` | FROZEN | APPROVED MASTER; ART SHIP 009 environment master; runtime id `portobello_bedroom`; PD-W1-04 remains Director/HQ-owned; not runtime-integrated |
+| `assets/before_the_fame/environments/portobello_office/portobello_kpi_office_270x480.png` | FROZEN | APPROVED MASTER; ART SHIP 009 environment master; runtime id `portobello_office`; not runtime-integrated |
+| `assets/before_the_fame/environments/portobello_porch/portobello_porch_dusk_270x480.png` | FROZEN | APPROVED MASTER; ART SHIP 009 environment master; runtime id `portobello_porch`; not runtime-integrated |
+| `assets/before_the_fame/environments/rooftop_dtla/downtown_la_rooftop_party_270x480.png` | FROZEN | APPROVED MASTER; ART SHIP 009 environment master; runtime id `rooftop_dtla`; not runtime-integrated |
+| `assets/before_the_fame/environments/tokyo_tease/tokyo_tease_270x480.png` | FROZEN | APPROVED MASTER; ART SHIP 009 environment master; runtime id `tokyo_tease`; not runtime-integrated |
+| `assets/before_the_fame/environments/hollow_bowl/layers/hollow_bowl_stage_band_crowd_overlay_270x480.png` | FROZEN | APPROVED MASTER; ART SHIP 009 exact-origin additive NC-FA-10 companion layer; frozen base and Ship 008 crowd layer preserved; not runtime-integrated |
+| `assets/before_the_fame/characters/tunde/tunde_hookah_seated_80x96.png` | FROZEN | APPROVED MASTER; ART SHIP 009 seated NC-FA-11 state for `company=HOMIES`; not runtime-integrated |
+| `assets/before_the_fame/characters/dre/dre_hookah_seated_80x96.png` | FROZEN | APPROVED MASTER; ART SHIP 009 seated NC-FA-11 state for `company=HOMIES`; not runtime-integrated |
+
+The approved `lan_night → tristan_apt` recommendation creates no new bitmap and does not alter, duplicate or rename the frozen Tristan apartment master.

@@ -2,7 +2,7 @@
   "schema_version": 1,
   "ship_id": "ART SHIP 009",
   "title": "OPEN RUNTIME COMPLETION",
-  "status": "CANDIDATE PACKAGE READY FOR HQ REVIEW",
+  "status": "APPROVED MASTER / FROZEN / COMPLETE \u2014 PENDING ENGINEERING INTEGRATION",
   "runtime_authority": {
     "branch": "claude/art-ship-008-integration",
     "commit": "a16196e4fbc0c7530a00bdfe915fb9c9c7cd1826",
@@ -37,7 +37,8 @@
       "native_dimensions": [270,480], "alpha_opacity_contract": "RGB; fully opaque", "contact_or_origin": {"proposed_floor_contact_line": 372, "director_final_framing_authority": true},
       "runtime_surfaces": ["atl_house_party|left:rich,right:bunmi"], "severity": "BLOCKING", "expected_resolution": {"hold_screens": 1, "problem_class": "placeholder environment"},
       "engineering_mapping": {"key": "environments.atl_house_party", "candidate_path": "art_department/ships/art_ship_009/candidates/native/environments/atl_house_party_270x480.png", "proposed_canonical_path": "assets/before_the_fame/environments/atl_house_party/southwest_atlanta_house_party_270x480.png"},
-      "candidate_status": "CANDIDATE — HQ REVIEW REQUIRED"
+      "candidate_status": "APPROVED MASTER / FROZEN",
+      "runtime_integration_status": "PENDING ENGINEERING INTEGRATION AND RUNTIME QA"
     },
     {
       "request_id": "AS9-ENV-LA-SKY", "source_ticket": "NC-FA-06", "runtime_asset_id": "la_sky", "asset_type": "ENVIRONMENT_MASTER", "state_condition_layer": "night flight over Los Angeles", "authority_class": "OPEN", "source_master": null,
@@ -48,7 +49,8 @@
       "native_dimensions": [270,480], "alpha_opacity_contract": "RGB; fully opaque", "contact_or_origin": {"proposed_floor_contact_line": 372, "director_final_framing_authority": true},
       "runtime_surfaces": ["la_sky|left:rich,right:mazda_human"], "severity": "BLOCKING", "expected_resolution": {"hold_screens": 1, "problem_class": "placeholder environment"},
       "engineering_mapping": {"key": "environments.la_sky", "candidate_path": "art_department/ships/art_ship_009/candidates/native/environments/la_sky_270x480.png", "proposed_canonical_path": "assets/before_the_fame/environments/la_sky/la_sky_night_flight_270x480.png"},
-      "candidate_status": "CANDIDATE — HQ REVIEW REQUIRED"
+      "candidate_status": "APPROVED MASTER / FROZEN",
+      "runtime_integration_status": "PENDING ENGINEERING INTEGRATION AND RUNTIME QA"
     },
     {
       "request_id": "AS9-REUSE-LAN-NIGHT", "source_ticket": "NC-FA-06", "runtime_asset_id": "lan_night", "asset_type": "EXISTING_ENVIRONMENT_MASTER_ALIAS", "state_condition_layer": "Tristan's apartment at 4 A.M.", "authority_class": "OPEN",
@@ -56,7 +58,7 @@
       "native_dimensions": [270,480], "alpha_opacity_contract": "existing RGB; fully opaque; unchanged", "contact_or_origin": {"existing_floor_contact_line": 372, "director_final_framing_authority": true},
       "runtime_surfaces": ["lan_night|left:rich,right:tristan"], "severity": "BLOCKING", "expected_resolution": {"hold_screens": 1, "problem_class": "placeholder environment", "new_pixels": 0},
       "engineering_mapping": {"key": "environments.lan_night", "reuse_registry_id": "tristan_apt", "reuse_path": "assets/before_the_fame/environments/tristan_apt/tristan_apartment_270x480.png"},
-      "candidate_status": "NO NEW ASSET — ENGINEERING REUSE"
+      "candidate_status": "APPROVED ZERO-PIXEL REUSE — PENDING ENGINEERING INTEGRATION"
     },
     {
       "request_id": "AS9-ENV-NAIJA-LOT", "source_ticket": "NC-FA-06", "runtime_asset_id": "naija_lot", "asset_type": "ENVIRONMENT_MASTER", "state_condition_layer": "Naija Mart parking lot", "authority_class": "OPEN", "source_master": null,
@@ -68,7 +70,8 @@
       "native_dimensions": [270,480], "alpha_opacity_contract": "RGB; fully opaque", "contact_or_origin": {"proposed_floor_contact_line": 372, "director_final_framing_authority": true},
       "runtime_surfaces": ["naija_lot|left:rich,right:nneka"], "severity": "BLOCKING", "expected_resolution": {"hold_screens": 1, "problem_class": "placeholder environment"},
       "engineering_mapping": {"key": "environments.naija_lot", "candidate_path": "art_department/ships/art_ship_009/candidates/native/environments/naija_lot_270x480.png", "proposed_canonical_path": "assets/before_the_fame/environments/naija_lot/naija_mart_parking_lot_270x480.png"},
-      "candidate_status": "CANDIDATE — HQ REVIEW REQUIRED"
+      "candidate_status": "APPROVED MASTER / FROZEN",
+      "runtime_integration_status": "PENDING ENGINEERING INTEGRATION AND RUNTIME QA"
     },
     {
       "request_id": "AS9-ENV-NEIGHBOR-CASTLE", "source_ticket": "NC-FA-06", "runtime_asset_id": "neighbor_castle", "asset_type": "ENVIRONMENT_MASTER", "state_condition_layer": "smaller neighboring castle party exterior", "authority_class": "OPEN", "source_master": null,
@@ -79,7 +82,8 @@
       "native_dimensions": [270,480], "alpha_opacity_contract": "RGB; fully opaque", "contact_or_origin": {"proposed_floor_contact_line": 372, "director_final_framing_authority": true},
       "runtime_surfaces": ["neighbor_castle|left:rich"], "severity": "BLOCKING", "expected_resolution": {"hold_screens": 1, "problem_class": "placeholder environment"},
       "engineering_mapping": {"key": "environments.neighbor_castle", "candidate_path": "art_department/ships/art_ship_009/candidates/native/environments/neighbor_castle_270x480.png", "proposed_canonical_path": "assets/before_the_fame/environments/neighbor_castle/neighbor_castle_party_270x480.png"},
-      "candidate_status": "CANDIDATE — HQ REVIEW REQUIRED"
+      "candidate_status": "APPROVED MASTER / FROZEN",
+      "runtime_integration_status": "PENDING ENGINEERING INTEGRATION AND RUNTIME QA"
     },
     {
       "request_id": "AS9-ENV-PORTOBELLO-BEDROOM", "source_ticket": "NC-FA-06 / PD-W1-04", "runtime_asset_id": "portobello_bedroom", "asset_type": "ENVIRONMENT_MASTER", "state_condition_layer": "warm beige family bedroom; no irony or grime", "authority_class": "OPEN — NAMED SHIP AUTHORIZATION", "source_master": null,
@@ -95,7 +99,8 @@
       ],
       "severity": "BLOCKING", "expected_resolution": {"hold_screens": 3, "problem_class": "placeholder environment", "remaining_dependency": "PD-W1-04 four-actor staging remains Director/HQ-owned"},
       "engineering_mapping": {"key": "environments.portobello_bedroom", "candidate_path": "art_department/ships/art_ship_009/candidates/native/environments/portobello_bedroom_270x480.png", "proposed_canonical_path": "assets/before_the_fame/environments/portobello_bedroom/portobello_beige_bedroom_270x480.png"},
-      "candidate_status": "CANDIDATE — HQ REVIEW REQUIRED"
+      "candidate_status": "APPROVED MASTER / FROZEN",
+      "runtime_integration_status": "PENDING ENGINEERING INTEGRATION AND RUNTIME QA"
     },
     {
       "request_id": "AS9-ENV-PORTOBELLO-OFFICE", "source_ticket": "NC-FA-06", "runtime_asset_id": "portobello_office", "asset_type": "ENVIRONMENT_MASTER", "state_condition_layer": "quiet KPI review office", "authority_class": "OPEN — NAMED SHIP AUTHORIZATION", "source_master": null,
@@ -106,7 +111,8 @@
       "native_dimensions": [270,480], "alpha_opacity_contract": "RGB; fully opaque", "contact_or_origin": {"proposed_floor_contact_line": 372, "director_final_framing_authority": true},
       "runtime_surfaces": ["portobello_office|left:rich_portobello,right:portobello_manager"], "severity": "BLOCKING", "expected_resolution": {"hold_screens": 1, "problem_class": "placeholder environment"},
       "engineering_mapping": {"key": "environments.portobello_office", "candidate_path": "art_department/ships/art_ship_009/candidates/native/environments/portobello_office_270x480.png", "proposed_canonical_path": "assets/before_the_fame/environments/portobello_office/portobello_kpi_office_270x480.png"},
-      "candidate_status": "CANDIDATE — HQ REVIEW REQUIRED"
+      "candidate_status": "APPROVED MASTER / FROZEN",
+      "runtime_integration_status": "PENDING ENGINEERING INTEGRATION AND RUNTIME QA"
     },
     {
       "request_id": "AS9-ENV-PORTOBELLO-PORCH", "source_ticket": "NC-FA-06", "runtime_asset_id": "portobello_porch", "asset_type": "ENVIRONMENT_MASTER", "state_condition_layer": "warm family porch at dusk; no irony or grime", "authority_class": "OPEN — NAMED SHIP AUTHORIZATION", "source_master": null,
@@ -117,7 +123,8 @@
       "native_dimensions": [270,480], "alpha_opacity_contract": "RGB; fully opaque", "contact_or_origin": {"proposed_floor_contact_line": 372, "director_final_framing_authority": true},
       "runtime_surfaces": ["portobello_porch|left:rich_portobello,right:portobello_wife"], "severity": "BLOCKING", "expected_resolution": {"hold_screens": 1, "problem_class": "placeholder environment"},
       "engineering_mapping": {"key": "environments.portobello_porch", "candidate_path": "art_department/ships/art_ship_009/candidates/native/environments/portobello_porch_270x480.png", "proposed_canonical_path": "assets/before_the_fame/environments/portobello_porch/portobello_porch_dusk_270x480.png"},
-      "candidate_status": "CANDIDATE — HQ REVIEW REQUIRED"
+      "candidate_status": "APPROVED MASTER / FROZEN",
+      "runtime_integration_status": "PENDING ENGINEERING INTEGRATION AND RUNTIME QA"
     },
     {
       "request_id": "AS9-ENV-ROOFTOP-DTLA", "source_ticket": "NC-FA-06", "runtime_asset_id": "rooftop_dtla", "asset_type": "ENVIRONMENT_MASTER", "state_condition_layer": "anonymous downtown Los Angeles rooftop party", "authority_class": "OPEN", "source_master": null,
@@ -128,7 +135,8 @@
       "native_dimensions": [270,480], "alpha_opacity_contract": "RGB; fully opaque", "contact_or_origin": {"proposed_floor_contact_line": 372, "director_final_framing_authority": true},
       "runtime_surfaces": ["rooftop_dtla|left:rich"], "severity": "BLOCKING", "expected_resolution": {"hold_screens": 1, "problem_class": "placeholder environment"},
       "engineering_mapping": {"key": "environments.rooftop_dtla", "candidate_path": "art_department/ships/art_ship_009/candidates/native/environments/rooftop_dtla_270x480.png", "proposed_canonical_path": "assets/before_the_fame/environments/rooftop_dtla/downtown_la_rooftop_party_270x480.png"},
-      "candidate_status": "CANDIDATE — HQ REVIEW REQUIRED"
+      "candidate_status": "APPROVED MASTER / FROZEN",
+      "runtime_integration_status": "PENDING ENGINEERING INTEGRATION AND RUNTIME QA"
     },
     {
       "request_id": "AS9-ENV-TOKYO-TEASE", "source_ticket": "NC-FA-06", "runtime_asset_id": "tokyo_tease", "asset_type": "ENVIRONMENT_MASTER", "state_condition_layer": "distant Tokyo access tease; no restricted reveal", "authority_class": "OPEN", "source_master": null,
@@ -139,7 +147,8 @@
       "native_dimensions": [270,480], "alpha_opacity_contract": "RGB; fully opaque", "contact_or_origin": {"proposed_floor_contact_line": 372, "director_final_framing_authority": true},
       "runtime_surfaces": ["tokyo_tease|mid:rich"], "severity": "BLOCKING", "expected_resolution": {"hold_screens": 1, "problem_class": "placeholder environment"},
       "engineering_mapping": {"key": "environments.tokyo_tease", "candidate_path": "art_department/ships/art_ship_009/candidates/native/environments/tokyo_tease_270x480.png", "proposed_canonical_path": "assets/before_the_fame/environments/tokyo_tease/tokyo_tease_270x480.png"},
-      "candidate_status": "CANDIDATE — HQ REVIEW REQUIRED"
+      "candidate_status": "APPROVED MASTER / FROZEN",
+      "runtime_integration_status": "PENDING ENGINEERING INTEGRATION AND RUNTIME QA"
     },
     {
       "request_id": "AS9-HOLLOW-STAGE-BAND-CROWD", "source_ticket": "NC-FA-10", "runtime_asset_id": "hollow_bowl_stage_band_crowd_condition", "asset_type": "ENVIRONMENT_CONDITION_LAYER", "state_condition_layer": "additional audience presence in visible conversation/stage band; companion to frozen seating crowd", "authority_class": "OPEN",
@@ -148,7 +157,8 @@
       "native_dimensions": [270,480], "alpha_opacity_contract": "RGBA; alpha values 0/255 only", "contact_or_origin": {"origin": [0,0], "exact_origin": true, "actor_contact_line": 372, "must_remain_behind_named_actors": true},
       "runtime_surfaces": ["hollow_bowl|left:rich"], "severity": "BLOCKING", "expected_resolution": {"hold_screens": 1, "problem_class": "existing crowd largely outside Director conversation camera"},
       "engineering_mapping": {"key": "environments.hollow_bowl.layers.stage_band_crowd_condition", "candidate_path": "art_department/ships/art_ship_009/candidates/native/layers/hollow_bowl_stage_band_crowd_overlay_270x480.png", "proposed_canonical_path": "assets/before_the_fame/environments/hollow_bowl/layers/hollow_bowl_stage_band_crowd_overlay_270x480.png", "draw_order": "base -> frozen seating crowd -> stage-band crowd companion -> actors -> UI", "activation": "only hollow_bowl|left:rich via the existing surface table"},
-      "candidate_status": "CANDIDATE — HQ REVIEW REQUIRED"
+      "candidate_status": "APPROVED MASTER / FROZEN",
+      "runtime_integration_status": "PENDING ENGINEERING INTEGRATION AND RUNTIME QA"
     },
     {
       "request_id": "AS9-TUNDE-HOOKAH", "source_ticket": "NC-FA-11", "runtime_asset_id": "tunde.hookah_seated", "asset_type": "CHARACTER_STATE", "state_condition_layer": "seated HOMIES hookah companion", "authority_class": "OPEN",
@@ -156,7 +166,8 @@
       "native_dimensions": [80,96], "alpha_opacity_contract": "RGBA; alpha values 0/255 only", "contact_or_origin": {"contact": [40,88]},
       "runtime_surfaces": ["minigame:hookah?company=HOMIES"], "severity": "BLOCKING", "expected_resolution": {"held_minigame_surfaces": 1, "dependency_group": "NC-FA-11 two-state set", "problem_class": "Rich alone on HOMIES surface"},
       "engineering_mapping": {"key": "minigames.hookah.company.HOMIES.tunde", "candidate_path": "art_department/ships/art_ship_009/candidates/native/characters/tunde_hookah_seated_80x96.png", "proposed_canonical_path": "assets/before_the_fame/characters/tunde/tunde_hookah_seated_80x96.png"},
-      "candidate_status": "CANDIDATE — HQ REVIEW REQUIRED"
+      "candidate_status": "APPROVED MASTER / FROZEN",
+      "runtime_integration_status": "PENDING ENGINEERING INTEGRATION AND RUNTIME QA"
     },
     {
       "request_id": "AS9-DRE-HOOKAH", "source_ticket": "NC-FA-11", "runtime_asset_id": "dre.hookah_seated", "asset_type": "CHARACTER_STATE", "state_condition_layer": "seated HOMIES hookah companion", "authority_class": "OPEN",
@@ -164,7 +175,8 @@
       "native_dimensions": [80,96], "alpha_opacity_contract": "RGBA; alpha values 0/255 only", "contact_or_origin": {"contact": [40,88]},
       "runtime_surfaces": ["minigame:hookah?company=HOMIES"], "severity": "BLOCKING", "expected_resolution": {"held_minigame_surfaces": 1, "dependency_group": "NC-FA-11 two-state set", "problem_class": "Rich alone on HOMIES surface"},
       "engineering_mapping": {"key": "minigames.hookah.company.HOMIES.dre", "candidate_path": "art_department/ships/art_ship_009/candidates/native/characters/dre_hookah_seated_80x96.png", "proposed_canonical_path": "assets/before_the_fame/characters/dre/dre_hookah_seated_80x96.png"},
-      "candidate_status": "CANDIDATE — HQ REVIEW REQUIRED"
+      "candidate_status": "APPROVED MASTER / FROZEN",
+      "runtime_integration_status": "PENDING ENGINEERING INTEGRATION AND RUNTIME QA"
     }
   ],
   "scope_summary": {
@@ -183,6 +195,6 @@
   "explicit_exclusions": ["family identities", "souls", "Buckhead", "training-dummy identities", "other canon-sensitive or underspecified cast", "PD-FA-02", "SEALED/HQ-only material", "PLAYMAKERS / Vol 7", "audio", "runtime/gameplay code", "speculative assets"],
   "generation_authorized": true,
   "generation_authorization": "User-authorized ART SHIP 009 project brief",
-  "approval_status": "CANDIDATE-ONLY; HQ/UBE REVIEW REQUIRED",
+  "approval_status": "12 APPROVED MASTER / FROZEN; ZERO-PIXEL REUSE APPROVED; NO RUNTIME INTEGRATION CLAIM",
   "runtime_integrated": false
 }

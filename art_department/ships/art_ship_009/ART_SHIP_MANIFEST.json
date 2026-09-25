@@ -2,12 +2,19 @@
   "schema_version": 1,
   "ship_id": "ART SHIP 009",
   "title": "OPEN RUNTIME COMPLETION",
-  "status": "CANDIDATE PACKAGE READY FOR HQ REVIEW",
-  "authorization": "User-supplied ART SHIP 009 project brief; generation, internal review and iteration authorized; approval/freeze explicitly prohibited.",
+  "status": "APPROVED MASTER / FROZEN / COMPLETE",
+  "authorization": "User-supplied ART SHIP 009 brief plus explicit HQ PASS approving all 12 candidates for byte-for-byte promotion to APPROVED MASTER / FROZEN.",
   "spoiler_classification": "OPEN production; internal boards PLAYER-BLIND / reviewer-only",
-  "approval_claimed": false,
-  "frozen_claimed": false,
+  "approval_claimed": true,
+  "frozen_claimed": true,
   "runtime_integrated": false,
+  "accepted_candidate_checkpoint": "47da18d9984c4915d3325709364db9a442fb3b36",
+  "promotion_authority": "HQ PASS \u2014 ART SHIP 009 CANDIDATES APPROVED FOR PROMOTION",
+  "promotion_policy": "All 12 submitted native candidates promoted byte-for-byte; no regeneration or pixel revision.",
+  "frozen_corpus_before": 187,
+  "frozen_corpus_after": 199,
+  "register_entries_before": 327,
+  "register_entries_after": 339,
   "base": {
     "branch": "claude/art-ship-008-integration",
     "commit": "a16196e4fbc0c7530a00bdfe915fb9c9c7cd1826"
@@ -19,13 +26,14 @@
       "request_id": "AS9-ENV-ATL-HOUSE-PARTY",
       "runtime_asset_id": "atl_house_party",
       "candidate_path": "art_department/ships/art_ship_009/candidates/native/environments/atl_house_party_270x480.png",
+      "approved_path": "assets/before_the_fame/environments/atl_house_party/southwest_atlanta_house_party_270x480.png",
       "sha256": "56696dba8d204ee07bfaf64ca1e9b51824a2797e6a29509da8976c0525ee4f8a",
       "dimensions": [
         270,
         480
       ],
       "mode": "RGB",
-      "status": "CANDIDATE \u2014 HQ REVIEW REQUIRED",
+      "status": "APPROVED MASTER / FROZEN",
       "runtime_surfaces": [
         "atl_house_party|left:rich,right:bunmi"
       ]
@@ -34,13 +42,14 @@
       "request_id": "AS9-ENV-LA-SKY",
       "runtime_asset_id": "la_sky",
       "candidate_path": "art_department/ships/art_ship_009/candidates/native/environments/la_sky_270x480.png",
+      "approved_path": "assets/before_the_fame/environments/la_sky/la_sky_night_flight_270x480.png",
       "sha256": "8cc18ec3b4d7f2d372d0fab77ecbfef45de55557ced4b892bf307c8bafc50aa6",
       "dimensions": [
         270,
         480
       ],
       "mode": "RGB",
-      "status": "CANDIDATE \u2014 HQ REVIEW REQUIRED",
+      "status": "APPROVED MASTER / FROZEN",
       "runtime_surfaces": [
         "la_sky|left:rich,right:mazda_human"
       ]
@@ -49,13 +58,14 @@
       "request_id": "AS9-ENV-NAIJA-LOT",
       "runtime_asset_id": "naija_lot",
       "candidate_path": "art_department/ships/art_ship_009/candidates/native/environments/naija_lot_270x480.png",
+      "approved_path": "assets/before_the_fame/environments/naija_lot/naija_mart_parking_lot_270x480.png",
       "sha256": "c8e46d74919eeb95e1edb89da3422cf1b17262b9fc273c5564d48d11270d05f4",
       "dimensions": [
         270,
         480
       ],
       "mode": "RGB",
-      "status": "CANDIDATE \u2014 HQ REVIEW REQUIRED",
+      "status": "APPROVED MASTER / FROZEN",
       "runtime_surfaces": [
         "naija_lot|left:rich,right:nneka"
       ]
@@ -64,13 +74,14 @@
       "request_id": "AS9-ENV-NEIGHBOR-CASTLE",
       "runtime_asset_id": "neighbor_castle",
       "candidate_path": "art_department/ships/art_ship_009/candidates/native/environments/neighbor_castle_270x480.png",
+      "approved_path": "assets/before_the_fame/environments/neighbor_castle/neighbor_castle_party_270x480.png",
       "sha256": "7d8d578602296b48dd3ed0d7b425e5a1295b16415aee1cd5fcf5784548012091",
       "dimensions": [
         270,
         480
       ],
       "mode": "RGB",
-      "status": "CANDIDATE \u2014 HQ REVIEW REQUIRED",
+      "status": "APPROVED MASTER / FROZEN",
       "runtime_surfaces": [
         "neighbor_castle|left:rich"
       ]
@@ -79,13 +90,14 @@
       "request_id": "AS9-ENV-PORTOBELLO-BEDROOM",
       "runtime_asset_id": "portobello_bedroom",
       "candidate_path": "art_department/ships/art_ship_009/candidates/native/environments/portobello_bedroom_270x480.png",
+      "approved_path": "assets/before_the_fame/environments/portobello_bedroom/portobello_beige_bedroom_270x480.png",
       "sha256": "1713dc57c814ed1a428129f28a695b9d2ab22df05751949ca9e32c912154c4e4",
       "dimensions": [
         270,
         480
       ],
       "mode": "RGB",
-      "status": "CANDIDATE \u2014 HQ REVIEW REQUIRED",
+      "status": "APPROVED MASTER / FROZEN",
       "runtime_surfaces": [
         "portobello_bedroom|farRight:portobello_kid2,left:portobello_wife,mid:rich_portobello,right:portobello_kid1",
         "portobello_bedroom|left:portobello_kid1,mid:rich_portobello,right:portobello_kid2",
@@ -96,13 +108,14 @@
       "request_id": "AS9-ENV-PORTOBELLO-OFFICE",
       "runtime_asset_id": "portobello_office",
       "candidate_path": "art_department/ships/art_ship_009/candidates/native/environments/portobello_office_270x480.png",
+      "approved_path": "assets/before_the_fame/environments/portobello_office/portobello_kpi_office_270x480.png",
       "sha256": "65861eabd71f798f2260958689ed6035a7cca70881e774a59b6708d6603f7526",
       "dimensions": [
         270,
         480
       ],
       "mode": "RGB",
-      "status": "CANDIDATE \u2014 HQ REVIEW REQUIRED",
+      "status": "APPROVED MASTER / FROZEN",
       "runtime_surfaces": [
         "portobello_office|left:rich_portobello,right:portobello_manager"
       ]
@@ -111,13 +124,14 @@
       "request_id": "AS9-ENV-PORTOBELLO-PORCH",
       "runtime_asset_id": "portobello_porch",
       "candidate_path": "art_department/ships/art_ship_009/candidates/native/environments/portobello_porch_270x480.png",
+      "approved_path": "assets/before_the_fame/environments/portobello_porch/portobello_porch_dusk_270x480.png",
       "sha256": "0c4b1b9aa8e2eb3c137b06a558c5ff5e30a6556f932c941148a6cd21b186377b",
       "dimensions": [
         270,
         480
       ],
       "mode": "RGB",
-      "status": "CANDIDATE \u2014 HQ REVIEW REQUIRED",
+      "status": "APPROVED MASTER / FROZEN",
       "runtime_surfaces": [
         "portobello_porch|left:rich_portobello,right:portobello_wife"
       ]
@@ -126,13 +140,14 @@
       "request_id": "AS9-ENV-ROOFTOP-DTLA",
       "runtime_asset_id": "rooftop_dtla",
       "candidate_path": "art_department/ships/art_ship_009/candidates/native/environments/rooftop_dtla_270x480.png",
+      "approved_path": "assets/before_the_fame/environments/rooftop_dtla/downtown_la_rooftop_party_270x480.png",
       "sha256": "af41cbb7c045a55848421434e14e9e122dabc61becc2d1c2dcc1fb1ceebf5ebf",
       "dimensions": [
         270,
         480
       ],
       "mode": "RGB",
-      "status": "CANDIDATE \u2014 HQ REVIEW REQUIRED",
+      "status": "APPROVED MASTER / FROZEN",
       "runtime_surfaces": [
         "rooftop_dtla|left:rich"
       ]
@@ -141,13 +156,14 @@
       "request_id": "AS9-ENV-TOKYO-TEASE",
       "runtime_asset_id": "tokyo_tease",
       "candidate_path": "art_department/ships/art_ship_009/candidates/native/environments/tokyo_tease_270x480.png",
+      "approved_path": "assets/before_the_fame/environments/tokyo_tease/tokyo_tease_270x480.png",
       "sha256": "98febff28278f87d2b477a3f8ed60e256fba2e595384371eb42fa12e5d41d039",
       "dimensions": [
         270,
         480
       ],
       "mode": "RGB",
-      "status": "CANDIDATE \u2014 HQ REVIEW REQUIRED",
+      "status": "APPROVED MASTER / FROZEN",
       "runtime_surfaces": [
         "tokyo_tease|mid:rich"
       ]
@@ -156,13 +172,14 @@
       "request_id": "AS9-HOLLOW-STAGE-BAND-CROWD",
       "runtime_asset_id": "hollow_bowl_stage_band_crowd_condition",
       "candidate_path": "art_department/ships/art_ship_009/candidates/native/layers/hollow_bowl_stage_band_crowd_overlay_270x480.png",
+      "approved_path": "assets/before_the_fame/environments/hollow_bowl/layers/hollow_bowl_stage_band_crowd_overlay_270x480.png",
       "sha256": "fb0dd0b070818db692999ed285d761d985f3dad66bc1e3ae4442425f2e8b846a",
       "dimensions": [
         270,
         480
       ],
       "mode": "RGBA",
-      "status": "CANDIDATE \u2014 HQ REVIEW REQUIRED",
+      "status": "APPROVED MASTER / FROZEN",
       "runtime_surfaces": [
         "hollow_bowl|left:rich"
       ]
@@ -171,13 +188,14 @@
       "request_id": "AS9-TUNDE-HOOKAH",
       "runtime_asset_id": "tunde.hookah_seated",
       "candidate_path": "art_department/ships/art_ship_009/candidates/native/characters/tunde_hookah_seated_80x96.png",
+      "approved_path": "assets/before_the_fame/characters/tunde/tunde_hookah_seated_80x96.png",
       "sha256": "ae412ca4af2c117fadc85a53b1596aed9ce1412f8bcdc4d031a0c505faf4ef92",
       "dimensions": [
         80,
         96
       ],
       "mode": "RGBA",
-      "status": "CANDIDATE \u2014 HQ REVIEW REQUIRED",
+      "status": "APPROVED MASTER / FROZEN",
       "runtime_surfaces": [
         "minigame:hookah?company=HOMIES"
       ]
@@ -186,13 +204,14 @@
       "request_id": "AS9-DRE-HOOKAH",
       "runtime_asset_id": "dre.hookah_seated",
       "candidate_path": "art_department/ships/art_ship_009/candidates/native/characters/dre_hookah_seated_80x96.png",
+      "approved_path": "assets/before_the_fame/characters/dre/dre_hookah_seated_80x96.png",
       "sha256": "a2d98b0d79037caa956b4b4a512b35e31098bd1e0fd76d95a91074d7c711dd9e",
       "dimensions": [
         80,
         96
       ],
       "mode": "RGBA",
-      "status": "CANDIDATE \u2014 HQ REVIEW REQUIRED",
+      "status": "APPROVED MASTER / FROZEN",
       "runtime_surfaces": [
         "minigame:hookah?company=HOMIES"
       ]
@@ -224,8 +243,8 @@
   "unknowns": [
     "PD-W1-04 four-actor staging remains Presentation Director/HQ-owned after integration."
   ],
-  "taste_decision": "PENDING HQ/UBE REVIEW",
-  "hq_acceptance": "NOT CLAIMED",
-  "freeze_scope": null,
-  "stop_point": "ART SHIP 009 \u2014 CANDIDATE PACKAGE READY FOR HQ REVIEW"
+  "taste_decision": "HQ PASS \u2014 ALL 12 SUBMITTED NATIVE CANDIDATES",
+  "hq_acceptance": "APPROVED MASTER / FROZEN",
+  "freeze_scope": "The exact 12 promoted canonical PNG byte streams, their native dimensions, modes, alpha contracts, contacts/origin, runtime ids and layer roles. Runtime integration, PD-W1-04 staging approval, merge and deployment are excluded.",
+  "stop_point": "ART SHIP 009 \u2014 FROZEN / COMPLETE"
 }
