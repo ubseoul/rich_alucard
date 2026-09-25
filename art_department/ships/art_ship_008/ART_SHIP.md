@@ -1,6 +1,6 @@
 # ART SHIP 008 — Runtime Completion Pass
 
-**Status:** ONBOARDING + DOCUMENTATION COMPLETE / GENERATION NOT AUTHORIZED
+**Status:** CANDIDATE PACKAGE COMPLETE — HQ REVIEW REQUIRED
 **Owner:** Art
 **Base:** `origin/claude/frozen-art-integration` at `c887f5d6d1a417384d906a361e2b52c0f3423e3c`
 **Branch:** `art/art_ship_008`
@@ -9,9 +9,9 @@
 
 Convert current runtime presentation failures into a small, precisely mapped native candidate package. Optimize for held screens and surfaces genuinely reaching final presentation quality, not raw asset count.
 
-## Proposed scope
+## Delivered scope
 
-- 14 native candidates.
+- 14 native candidates generated and technically validated.
 - P0/P1: `NC-FA-01`, `NC-FA-02`, `NC-FA-05`, `NC-FA-08`.
 - Additional high-reuse OPEN coverage: two currently missing environment conditions.
 - Cleanly bounded polish: `NC-FA-03` and `NC-FA-04`.
@@ -27,18 +27,18 @@ Exact contracts are in `RUNTIME_DEMAND_MAP.md` and `.json`.
 - Presentation Director metadata controls final size/framing on migrated scenes; source art remains native.
 - No runtime/gameplay code, merge, deployment, SEALED/HQ-only access, speculative UI or unsupported identity design.
 
-## Authorization gates
+## Authorization record and remaining gates
 
-- No pixels before `HQ PASS — ART SHIP 008 GENERATION AUTHORIZED`.
-- `AS8-RICH-APRON-FIX` additionally requires the explicit recorded delta boundary.
-- `AS8-COFFE-GUIDED` additionally requires explicit named GUIDED authorization.
+- General generation authorization was received with the exact required phrase.
+- The exact frozen-delta authorization was received and enforced for `AS8-RICH-APRON-FIX`.
+- Named GUIDED authorization was received and isolated for `AS8-COFFE-GUIDED`.
 - Generated output remains `CANDIDATE — HQ/UBE REVIEW REQUIRED`.
 - Approval and freeze require later explicit decisions.
 
-## Required delivery if authorized
+## Delivered package
 
-Native candidates, integer-scale review boards, state/layer definitions, Engineering Asset Map, manifest, source-master provenance, hashes, validation, candidate-status records and expected HOLD-resolution summary. User-facing review remains spoiler-safe and uses neutral ticket ids/counts.
+Native candidates, five integer-scale review boards, state/layer definitions, Engineering Asset Map, manifest, source-master provenance, candidate/raw hashes, validation, candidate-status records and expected HOLD-resolution summary are present in this Ship directory and mapped asset paths. User-facing reporting remains spoiler-safe and uses neutral ticket ids/counts.
 
 ## Stop point
 
-Finish onboarding documentation and wait. Do not generate pixels, modify runtime code, merge or deploy.
+The complete Ship 008 candidate package is ready for HQ review. Do not promote, approve, freeze, integrate runtime code, merge or deploy without the next explicit decision.

@@ -1,0 +1,118 @@
+{
+  "schema_version": 1,
+  "ship_id": "ART SHIP 008",
+  "result": "PASS",
+  "source_count": 15,
+  "all_source_hashes_match": true,
+  "sources": [
+    {
+      "path": "assets/before_the_fame/characters/coffe/coffe_neutral_80x96.png",
+      "expected_sha256": "d8c386770d3b57a7d0409b561aee02f62e92396dc12852510c470b04ec17e0dd",
+      "actual_sha256": "d8c386770d3b57a7d0409b561aee02f62e92396dc12852510c470b04ec17e0dd",
+      "match": true
+    },
+    {
+      "path": "assets/before_the_fame/characters/moonie/moonie_dorsey_neutral_80x96.png",
+      "expected_sha256": "28106700746dec289e896894d1be6ebf5e23cefc26bd15b58367836b17c43e49",
+      "actual_sha256": "28106700746dec289e896894d1be6ebf5e23cefc26bd15b58367836b17c43e49",
+      "match": true
+    },
+    {
+      "path": "assets/before_the_fame/characters/phil/phil_charging_day3_80x96.png",
+      "expected_sha256": "1609de089d3d893927752c98d6f9af6033dac77d1213a2ab518e4717ffb85af5",
+      "actual_sha256": "1609de089d3d893927752c98d6f9af6033dac77d1213a2ab518e4717ffb85af5",
+      "match": true
+    },
+    {
+      "path": "assets/before_the_fame/characters/rich/rich_laptop_nod_80x96.png",
+      "expected_sha256": "601c3fb46a87a6a8843a7569ed978a46118ce94d7ff864a0dc7aeb5e0fb63379",
+      "actual_sha256": "601c3fb46a87a6a8843a7569ed978a46118ce94d7ff864a0dc7aeb5e0fb63379",
+      "match": true
+    },
+    {
+      "path": "assets/before_the_fame/characters/rich/rich_laptop_seated_80x96.png",
+      "expected_sha256": "a18ecf0d5c57d74f2be77a671faea5a6c01e7c6c60b00787d3f08c22499637b0",
+      "actual_sha256": "a18ecf0d5c57d74f2be77a671faea5a6c01e7c6c60b00787d3f08c22499637b0",
+      "match": true
+    },
+    {
+      "path": "assets/before_the_fame/characters/rich/rich_ramen_apron_80x96.png",
+      "expected_sha256": "85881baef03dc2919c5f88b95db57dd9809d7e815ac4bc1878a61cae8fde05ac",
+      "actual_sha256": "85881baef03dc2919c5f88b95db57dd9809d7e815ac4bc1878a61cae8fde05ac",
+      "match": true
+    },
+    {
+      "path": "assets/before_the_fame/characters/rookoko/rookoko_neutral_80x96.png",
+      "expected_sha256": "ed315afe3431738962162ee58177c4f4cb9de9cdb246d22f57476bc200423ff1",
+      "actual_sha256": "ed315afe3431738962162ee58177c4f4cb9de9cdb246d22f57476bc200423ff1",
+      "match": true
+    },
+    {
+      "path": "assets/before_the_fame/environments/cafe/bean_there_dead_that_cafe_270x480.png",
+      "expected_sha256": "792932fe68581e580d97fa066ec135860a4caadfed28a3a4b73b1c977c8ce161",
+      "actual_sha256": "792932fe68581e580d97fa066ec135860a4caadfed28a3a4b73b1c977c8ce161",
+      "match": true
+    },
+    {
+      "path": "assets/before_the_fame/environments/castle_exterior/castle_exterior_night_270x480.png",
+      "expected_sha256": "be4417926078581934f48bcfd80dd71a0985ecd0459a5ccbac767a1abd7e2873",
+      "actual_sha256": "be4417926078581934f48bcfd80dd71a0985ecd0459a5ccbac767a1abd7e2873",
+      "match": true
+    },
+    {
+      "path": "assets/before_the_fame/environments/catacomb/catacomb_empty_270x480.png",
+      "expected_sha256": "863f1c965a4713c570333e0c10291a56c6fc29ca1008afb76200d832588c3fa4",
+      "actual_sha256": "863f1c965a4713c570333e0c10291a56c6fc29ca1008afb76200d832588c3fa4",
+      "match": true
+    },
+    {
+      "path": "assets/before_the_fame/environments/duchess_castle/duchess_castle_reception_270x480.png",
+      "expected_sha256": "e9f4406059a2eed587840d67f96c45969a6650cae24d176dbb43f6c049068eee",
+      "actual_sha256": "e9f4406059a2eed587840d67f96c45969a6650cae24d176dbb43f6c049068eee",
+      "match": true
+    },
+    {
+      "path": "assets/before_the_fame/environments/hollow_bowl/hollow_bowl_night_270x480.png",
+      "expected_sha256": "19d098d6d70c7228db164a23c2551a301667055977010392d1ff1d9f8420aa30",
+      "actual_sha256": "19d098d6d70c7228db164a23c2551a301667055977010392d1ff1d9f8420aa30",
+      "match": true
+    },
+    {
+      "path": "assets/bllad33/masters/bllad33_neutral_candidate_80x96.png",
+      "expected_sha256": "fcca67ce0a90a60f16854c3c5f8019a28d243aa2bf3bf86ecdf5631013198f5b",
+      "actual_sha256": "fcca67ce0a90a60f16854c3c5f8019a28d243aa2bf3bf86ecdf5631013198f5b",
+      "match": true
+    },
+    {
+      "path": "assets/powder_springs_night_270x480.png",
+      "expected_sha256": "b31e731120fb4536a090bad19fa9b6efd3f1c2fa77f76598c966b99e63260a8c",
+      "actual_sha256": "b31e731120fb4536a090bad19fa9b6efd3f1c2fa77f76598c966b99e63260a8c",
+      "match": true
+    },
+    {
+      "path": "assets/throne_room_scene_portrait.png",
+      "expected_sha256": "08bd6a6cfcb53356e105505fb7754292c7a3c1491d7078f13b9881a4bb0f90c0",
+      "actual_sha256": "08bd6a6cfcb53356e105505fb7754292c7a3c1491d7078f13b9881a4bb0f90c0",
+      "match": true
+    }
+  ],
+  "authorized_delta": {
+    "request_id": "AS8-RICH-APRON-FIX",
+    "source_path": "assets/before_the_fame/characters/rich/rich_ramen_apron_80x96.png",
+    "candidate_path": "assets/before_the_fame/characters/rich/rich_ramen_apron_corrected_80x96.png",
+    "allowed_rectangle_inclusive": {
+      "x": [
+        13,
+        18
+      ],
+      "y": [
+        56,
+        73
+      ]
+    },
+    "changed_pixels_inside": 65,
+    "changed_pixels_outside": 0,
+    "outside_delta_byte_identity_after_rgba_normalization": true,
+    "source_sha256_after_generation": "85881baef03dc2919c5f88b95db57dd9809d7e815ac4bc1878a61cae8fde05ac"
+  }
+}

@@ -1,0 +1,78 @@
+{
+  "schema_version": 1,
+  "ship_id": "ART SHIP 008",
+  "generator": "OpenAI image generation",
+  "note": "Raw generation binaries remain in the generator store; native candidates are the packaged review artifacts.",
+  "files": [
+    {
+      "request_id": "AS8-RICH-APRON-FIX",
+      "basename": "exec-eba938ca-9b39-42e0-abef-97c402b88433.png",
+      "sha256": "3e445bf17b6d4725a13e423c7b5ed6eb3d3c65f9e9e443aebe044a8f9ac8f2cf"
+    },
+    {
+      "request_id": "AS8-CROWD-CATACOMB",
+      "basename": "exec-f931aa8f-5891-4863-a693-212a66dbd6e2.png",
+      "sha256": "8461ab065eb25478248e0ffaaea920e76fa53b77b885a8c3f3ca59e885459512"
+    },
+    {
+      "request_id": "AS8-CROWD-HOLLOW",
+      "basename": "exec-8d66a058-d89d-4570-b834-f44af086fade.png",
+      "sha256": "7bd2ca1b7d81d861c77603eac68c70dccfee66debdef119dce8b009fb8b9311c"
+    },
+    {
+      "request_id": "AS8-CROWD-DUCHESS",
+      "basename": "exec-089a9667-8079-4173-a958-073004d4eaaa.png",
+      "sha256": "d97ba52ad5448908e24fbdd18ed75086141ff90655692467acb421e292eb2d5d"
+    },
+    {
+      "request_id": "AS8-MOONIE-ENDPOINT",
+      "basename": "exec-2e2e46d6-d743-43e9-9cf0-2f0bc9ef5a77.png",
+      "sha256": "e5b7d6a7a82fd41abc188c2ed34a144ea336e5ea77c18464e29d0a040b6727c6"
+    },
+    {
+      "request_id": "AS8-COFFE-GUIDED",
+      "basename": "exec-302ab619-557d-4ee6-9b5e-59d5d8bec847.png",
+      "sha256": "0adf10881684a01b89337fa3ad8c4305c16b59c4f1cd6cfc0495772375234b08"
+    },
+    {
+      "request_id": "AS8-PHIL-SPENT",
+      "basename": "exec-5bcd2681-6697-4286-a39c-54518f9b2c08.png",
+      "sha256": "2b4127ad903b5fb3b75a154768e99302b68f2e7eb55518ae9a1730f01f1a2fb3"
+    },
+    {
+      "request_id": "AS8-RICH-HOOKAH",
+      "basename": "exec-7f91af31-a992-4d2b-ba93-bcc8b1f643f9.png",
+      "sha256": "32b5df1837f4c12f4f0d1a850fc669caa6a3542cd9a1f6b70edbcc67535c7f0f"
+    },
+    {
+      "request_id": "AS8-BLLAD33-HOOKAH",
+      "basename": "exec-9145f6df-a73e-4b28-9a1f-e34852bfad4d.png",
+      "sha256": "92e4e872b0683e5dee4a753321c59c2b47623e1cfab85e695794cecb0c50e3f0"
+    },
+    {
+      "request_id": "AS8-ROOKOKO-HOOKAH",
+      "basename": "exec-b9371a8a-9865-46d7-90dc-d29acdcc2f14.png",
+      "sha256": "f82925792d26cf1bacde34fd37046bacc028d26376e55a163ea7e78fedc45b60"
+    },
+    {
+      "request_id": "AS8-ENV-STREET-NIGHT",
+      "basename": "exec-c7fb15cb-ea3f-410c-9c4a-f9b0b7584913.png",
+      "sha256": "390ce9a610cc91cdce1b2fa72190713fdac516036c38aeaefa2d2f8c5cdc4ac7"
+    },
+    {
+      "request_id": "AS8-THRONE-MESS-LAYER",
+      "basename": "exec-a2cb5039-408e-402c-be4d-cc0c96a91d7e.png",
+      "sha256": "2adbad3a386e0468d196299e834422db485d9bd48e1a07ffaf5152875a666ee0"
+    },
+    {
+      "request_id": "AS8-CAFE-SEAT-REAR",
+      "basename": "exec-f10e948a-1f15-4cce-b298-d03fd0120e3d.png",
+      "sha256": "d01dc995bdd5960cd48cffa7a088de960a786a078d05c555442a09a7ecb1cac0"
+    },
+    {
+      "request_id": "AS8-CAFE-TABLE-FRONT",
+      "basename": "exec-57f1b6ce-c7fe-4e89-9c0d-0c09030a0f75.png",
+      "sha256": "63206a6ea9215105705cd615b2dcafbe5c22555b5095c1d86957b42667a0a30a"
+    }
+  ]
+}

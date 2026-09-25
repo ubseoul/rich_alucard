@@ -12,7 +12,7 @@ This repository is the Art Department's institutional memory. **The project reme
 - ART SHIP 007 remains the latest frozen pixel authority. The frozen corpus contains **173 assets**; the Asset Register contains **313 entries**.
 - ART SHIP 004–007 hand off **153 files**. At the current checkpoint, **132 drive runtime**, **12 are handoff/reference sheets**, four approved states have no current scene, four files are mapping-ambiguous, and one prop has no visual surface.
 - The playable census contains **103 adventure screens + 17 fights**: **75 PASS (final art)** and **45 HOLD**. All automated adventure/fight presentation checks pass; HOLD now means missing or incorrect creative coverage, unresolved cast/environment art, or an explicit NEEDS CREATIVE condition—not generic Presentation Director failure.
-- ART SHIP 008 — RUNTIME COMPLETION PASS is at onboarding/documentation stage on `art/art_ship_008`. **Do not generate pixels until the explicit response `HQ PASS — ART SHIP 008 GENERATION AUTHORIZED`.**
+- ART SHIP 008 — RUNTIME COMPLETION PASS has a complete 14-item candidate package on `art/art_ship_008`. Technical and internal visual review pass; nothing is approved, frozen or runtime-integrated. The current stop is HQ candidate review.
 
 ## Authority hierarchy
 
@@ -70,4 +70,4 @@ Only an explicit decision can make a candidate `APPROVED MASTER`; only an explic
 
 At Ship close, update as applicable: `START_HERE.md`, `CURRENT_HANDOFF.md`, the current gap map, `ASSET_REGISTER.json`, `APPROVED_ASSET_INDEX.md`, `APPROVAL_LEDGER.md`, Ship maps/manifests, frozen totals and recommended next priority. Verify frozen hashes, no runtime changes, the zero-upload cold start and a clean scoped tree.
 
-**Current stop point:** onboarding/documentation may proceed. Pixel generation is stopped pending `HQ PASS — ART SHIP 008 GENERATION AUTHORIZED`.
+**Current stop point:** ART SHIP 008 is ready for HQ review. Do not promote, approve, freeze, integrate, merge or deploy without the next explicit decision.
