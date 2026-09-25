@@ -1,4 +1,5 @@
 {
+  "evidence_scope": "accepted candidate checkpoint; promotion re-verification is recorded in PROMOTION_VALIDATION_REPORT.json",
   "base_sha": "a16196e4fbc0c7530a00bdfe915fb9c9c7cd1826",
   "source_checks": [
     {
@@ -114,5 +115,8 @@
   "changed_paths_outside_ship": [],
   "untracked_paths_outside_ship": [],
   "frozen_or_runtime_paths_changed": false,
-  "pass": true
+  "pass": true,
+  "promotion_source_checks": "18/18 PASS",
+  "promotion_frozen_corpus_checks": "199/199 PASS",
+  "promotion_validation": "art_department/ships/art_ship_009/PROMOTION_VALIDATION_REPORT.json"
 }

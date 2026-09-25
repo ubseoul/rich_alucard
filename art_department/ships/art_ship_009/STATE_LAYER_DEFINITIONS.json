@@ -1,11 +1,16 @@
 {
   "schema_version": 1,
   "ship_id": "ART SHIP 009",
+  "status": "APPROVED MASTER / FROZEN — PENDING ENGINEERING INTEGRATION",
   "definitions": [
     {
       "id": "hollow_bowl_stage_band_crowd_condition",
       "type": "exact_origin_additive_layer",
       "candidate_path": "art_department/ships/art_ship_009/candidates/native/layers/hollow_bowl_stage_band_crowd_overlay_270x480.png",
+      "approved_path": "assets/before_the_fame/environments/hollow_bowl/layers/hollow_bowl_stage_band_crowd_overlay_270x480.png",
+      "approved_sha256": "fb0dd0b070818db692999ed285d761d985f3dad66bc1e3ae4442425f2e8b846a",
+      "status": "APPROVED MASTER / FROZEN",
+      "runtime_integration_status": "PENDING ENGINEERING INTEGRATION AND RUNTIME QA",
       "native_dimensions": [
         270,
         480
@@ -24,6 +29,10 @@
       "id": "tunde.hookah_seated",
       "type": "character_state",
       "candidate_path": "art_department/ships/art_ship_009/candidates/native/characters/tunde_hookah_seated_80x96.png",
+      "approved_path": "assets/before_the_fame/characters/tunde/tunde_hookah_seated_80x96.png",
+      "approved_sha256": "ae412ca4af2c117fadc85a53b1596aed9ce1412f8bcdc4d031a0c505faf4ef92",
+      "status": "APPROVED MASTER / FROZEN",
+      "runtime_integration_status": "PENDING ENGINEERING INTEGRATION AND RUNTIME QA",
       "native_dimensions": [
         80,
         96
@@ -41,6 +50,10 @@
       "id": "dre.hookah_seated",
       "type": "character_state",
       "candidate_path": "art_department/ships/art_ship_009/candidates/native/characters/dre_hookah_seated_80x96.png",
+      "approved_path": "assets/before_the_fame/characters/dre/dre_hookah_seated_80x96.png",
+      "approved_sha256": "a2d98b0d79037caa956b4b4a512b35e31098bd1e0fd76d95a91074d7c711dd9e",
+      "status": "APPROVED MASTER / FROZEN",
+      "runtime_integration_status": "PENDING ENGINEERING INTEGRATION AND RUNTIME QA",
       "native_dimensions": [
         80,
         96

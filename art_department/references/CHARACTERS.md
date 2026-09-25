@@ -116,3 +116,8 @@ Start with Rich standing, Ogun neutral, Shannon neutral and Assistant idle. Comp
 - [assets/before_the_fame/characters/paladin/paladin_neutral_80x96.png](../../assets/before_the_fame/characters/paladin/paladin_neutral_80x96.png) — APPROVED MASTER / FROZEN; [80, 96]; OPEN id `paladin`; contact (40,88); approximately 1.85x Engineering runtime presentation.
 - [assets/before_the_fame/characters/bard/bard_neutral_80x96.png](../../assets/before_the_fame/characters/bard/bard_neutral_80x96.png) — APPROVED MASTER / FROZEN; [80, 96]; OPEN id `bard`; contact (40,88); approximately 1.85x Engineering runtime presentation.
 - [assets/before_the_fame/characters/cleric/cleric_neutral_80x96.png](../../assets/before_the_fame/characters/cleric/cleric_neutral_80x96.png) — APPROVED MASTER / FROZEN; [80, 96]; OPEN id `cleric`; contact (40,88); approximately 1.85x Engineering runtime presentation.
+
+## ART SHIP 009 seated states
+
+- [assets/before_the_fame/characters/tunde/tunde_hookah_seated_80x96.png](../../assets/before_the_fame/characters/tunde/tunde_hookah_seated_80x96.png) — APPROVED MASTER / FROZEN; [80, 96]; binary alpha; `tunde.hookah_seated`; contact (40,88); NC-FA-11 / `company=HOMIES` only; not runtime-integrated.
+- [assets/before_the_fame/characters/dre/dre_hookah_seated_80x96.png](../../assets/before_the_fame/characters/dre/dre_hookah_seated_80x96.png) — APPROVED MASTER / FROZEN; [80, 96]; binary alpha; `dre.hookah_seated`; contact (40,88); NC-FA-11 / `company=HOMIES` only; not runtime-integrated.

@@ -229,6 +229,8 @@ def technical_fact(path: Path, kind: str) -> dict[str, object]:
 
 
 def main() -> None:
+    if (SHIP / "HQ_DECISION.md").exists():
+        raise SystemExit("ART SHIP 009 is frozen; candidate rebuild is disabled. Use validate_promotion.py for read-only verification.")
     for directory in [NATIVE / "environments", NATIVE / "layers", NATIVE / "characters", REVIEW]:
         directory.mkdir(parents=True, exist_ok=True)
 

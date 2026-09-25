@@ -2,7 +2,7 @@
 
 **Live baseline:** 104 adventure screens + 17 fights; 98 PASS / 23 HOLD. Frozen corpus: 187 assets.
 
-If HQ accepts and freezes the exact candidates, and Engineering integrates the mappings and completes actual-resolution runtime QA:
+HQ has accepted and frozen the exact candidate bytes. If Engineering integrates the mappings and completes actual-resolution runtime QA:
 
 - The nine new environment masters plus the `lan_night` zero-pixel reuse should clear all **12 placeholder-environment HOLD screens**.
 - The Hollow Bowl additive companion layer should clear **NC-FA-10: 1 HOLD screen**.

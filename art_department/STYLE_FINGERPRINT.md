@@ -115,3 +115,13 @@ The character anchors extend the approved range across castle staff, vampires, d
 The environment masters extend the reusable grammar across retail, restaurant, castle, civic, apartment, outdoor-court, road and gallery spaces. They retain opaque 270x480 canvases and readable lower staging bands. Their acceptance does not grant crowds, overlays, condition variants, collision, hotspots or runtime integration.
 
 The approximately 1.85x character scale remains a nearest-neighbor Engineering presentation rule and is not baked into any ART SHIP 007 source. Exact paths and hashes are controlled by the Ship manifest and Asset Register.
+
+## ART SHIP 009 approved additions
+
+ART SHIP 009 adds nine opaque 270x480 environment masters targeted to live runtime HOLD surfaces. They confirm the approved phone-first fixed-camera grammar: compact hard-edged clusters, limited 30-color reductions, readable lower staging bands and location-specific silhouettes without baked named actors, UI or post-processing effects. Presentation Director retains final framing authority.
+
+The Hollow Bowl stage-band crowd asset extends the approved base-plus-condition grammar as a binary-alpha exact-origin additive companion. It layers after the frozen Ship 008 seating crowd and below named actors; neither the frozen base nor the earlier layer may be repainted or replaced.
+
+The Tunde and Dre seated states extend the 80x96/contact-`(40,88)` derivative grammar while preserving their exact frozen anchors' identity palettes and silhouette cues. Their approval is restricted to NC-FA-11 / `company=HOMIES` and does not authorize other crew or seated derivatives.
+
+The approved `lan_night → tristan_apt` mapping is architectural reuse, not new style authority or a new bitmap. The existing frozen master remains the sole source pixel asset.
