@@ -200,6 +200,27 @@ function summarize(m,px,spec){
  for(const slot of spec.focal){const a=m.actors[slot];if(!a)continue;rows[`${slot}.bodyPx`]=Math.round(a.visible.h);rows[`${slot}.bodyOfScreen`]=+(a.visible.h/m.screen.h).toFixed(3);rows[`${slot}.bodyOfWorld`]=+(a.visible.h/m.world.h).toFixed(3);rows[`${slot}.facePx`]=Math.round(a.face.h);rows[`${slot}.uiOverlapPx`]=px.overlap[slot]??null}
  rows.deadSpace=px.deadSpace;return rows;
 }
+// Aspect integrity: every visible <img>, <canvas> and percentage-sized background image inside #screen must render at
+// its native aspect (±2%). Frozen art may be cropped or scaled, never stretched.
+async function aspectIntegrity(page){
+ return page.evaluate(async()=>{
+  const out=[],scr=document.querySelector('#screen'),shown=el=>{const cs=getComputedStyle(el);return cs.display!=='none'&&cs.visibility!=='hidden'&&+cs.opacity>0};
+  const size=src=>new Promise(r=>{const i=new Image();i.onload=()=>r([i.naturalWidth,i.naturalHeight]);i.onerror=()=>r(null);i.src=src});
+  // Elements fully covered by a higher opaque full-screen scene root are not seen: skip them.
+  const sr=scr.getBoundingClientRect(),opaque=el=>{const c=getComputedStyle(el).backgroundColor.match(/[\d.]+/g);return c&&(c.length<4||+c[3]===1)},z=el=>+getComputedStyle(el).zIndex||0;
+  const roots=[...scr.children].filter(el=>{if(!shown(el))return false;const r=el.getBoundingClientRect();return Math.abs(r.width-sr.width)<1&&Math.abs(r.height-sr.height)<1&&opaque(el)}).sort((a,b)=>z(a)-z(b)),top=roots.at(-1);
+  const covered=el=>{if(!top||top.contains(el))return false;let t=el;while(t.parentElement&&t.parentElement!==scr)t=t.parentElement;return t!==top&&z(t)<=z(top)};
+  for(const el of scr.querySelectorAll('*')){if(!shown(el)||covered(el))continue;const r=el.getBoundingClientRect();if(r.width<4||r.height<4)continue;
+   let nat=null,what=el.tagName.toLowerCase();
+   if(el.tagName==='IMG'&&el.naturalWidth&&getComputedStyle(el).objectFit==='fill')nat=[el.naturalWidth,el.naturalHeight];
+   else if(el.tagName==='CANVAS')nat=[el.width,el.height];
+   else{const cs=getComputedStyle(el),m=cs.backgroundImage.match(/url\("?([^")]+)"?\)/);if(m&&/^100% 100%$/.test(cs.backgroundSize.trim())){nat=await size(m[1]);what='bg:'+m[1].split('/').pop()}}
+   if(!nat||!nat[0]||!nat[1])continue;const want=nat[1]/nat[0],got=r.height/r.width;
+   // Sprite sheets drawn one frame at a time are exempt (background-size differs from 100%).
+   if(Math.abs(got/want-1)>.02)out.push({what:what+(el.id?'#'+el.id:el.className?'.'+String(el.className).split(' ')[0]:''),want:+want.toFixed(3),got:+got.toFixed(3)});}
+  return out;
+ });
+}
 async function freeze(page){await page.addStyleTag({content:'*,*:before,*:after{animation-play-state:paused!important;transition:none!important;caret-color:transparent!important}'});await page.evaluate(()=>document.getAnimations().forEach(a=>a.pause()))}
 
 async function sheet(page,base,title,cells,file){
@@ -223,7 +244,7 @@ export async function census(){
    for(const [W,H] of SIZES){const page=await open(W,H,spec.url);await spec.enter(page);await freeze(page);
     const file=`${id}-${label}-${W}x${H}.png`;await page.screenshot({path:path.join(out,file)});
     const m=await page.evaluate(measureInPage,{spec:plain(spec),meta}),px=await pixelMetrics(page,spec,m);
-    const row={file,metrics:summarize(m,px,spec),measured:m};
+    const row={file,metrics:summarize(m,px,spec),measured:m,aspect:await aspectIntegrity(page)};
     row.lint=await page.evaluate(()=>window.RAPresentationDirector?.lint?.()??null);
     if(row.lint){row.variants=[];for(const v of spec.variants){await page.evaluate(`(${v.run})()`);await page.waitForTimeout(v.wait??400);const vl=await page.evaluate(()=>RAPresentationDirector.lint());const vm2=await page.evaluate(measureInPage,{spec:plain(spec),meta}),vpx=await pixelMetrics(page,spec,vm2);row.variants.push({id:v.id,pass:vl.pass,failed:vl.checks.filter(c=>!c.pass),metrics:summarize(vm2,vpx,spec)});if(W===390){const vf=`${id}-${label}-${W}x${H}-variant-${v.id}.png`;await page.screenshot({path:path.join(out,vf)});}}
      await page.close();const fresh=await open(W,H,spec.url);await spec.enter(fresh);await freeze(fresh);
