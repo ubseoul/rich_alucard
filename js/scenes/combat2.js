@@ -4,9 +4,9 @@
  const wait=ms=>new Promise(r=>setTimeout(r,ms));
  let active=null;
  const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
- function actorEl(personId,x,floor,scale,flip){
+ function actorEl(personId,x,floor,scale,flip,src=null){
   const person=personId==='rich'?RABtfPeople.rich:RABtfPeople.get(personId);let el;
-  if(person?.sprite){el=document.createElement('img');el.src=person.sprite;el.alt='';}
+  if(src||person?.sprite){el=document.createElement('img');el.src=src||person.sprite;el.alt='';}
   else{el=document.createElement('canvas');el.width=80;el.height=96;const c=el.getContext('2d');c.imageSmoothingEnabled=false;RAPixel.drawActor(c,person?.look||{},40,88,1);}
   el.className='c2-actor';Object.assign(el.style,{left:`${(x-40*scale)/270*100}%`,top:`${(floor-88*scale)/480*100}%`,width:`${80*scale/270*100}%`,height:`${96*scale/480*100}%`,transform:flip?'scaleX(-1)':''});return el;
  }
@@ -15,22 +15,24 @@
   const def=D().ENEMIES[enemyId];const state=RACombat2Rules.create(enemyId,params);
   const screen=document.querySelector('#screen');const root=document.createElement('section');root.className='c2-scene';root.setAttribute('aria-label','Battle');
   const env=RAPixel.createCanvas(root,{className:'c2-env'});const envId=typeof params.env==='function'?params.env(RAAdventures.context()):params.env;const envDef=RAEnvironments.get(envId||'throne')||RAEnvironments.get('throne');
-  if(envDef?.image){const img=new Image();img.src=envDef.image;img.onload=()=>{const c=env.ctx;c.imageSmoothingEnabled=false;if(envDef.cover){const s=Math.max(270/img.naturalWidth,480/img.naturalHeight);c.drawImage(img,(270-img.naturalWidth*s)/2,(480-img.naturalHeight*s)/2,img.naturalWidth*s,img.naturalHeight*s);}else c.drawImage(img,0,0,270,480);c.fillStyle='rgba(8,7,15,.35)';c.fillRect(0,0,270,480);};}
+  // Base + exact-origin frozen layers (always-on, and conditions scoped to this fight's screen) with the base's framing.
+  if(envDef?.image){const img=new Image();img.src=envDef.image;const layers=[...(envDef.layers||[]),...RAEnvironments.surfaceLayers(envDef,{key:`combat:${enemyId}@${envDef.id}`}).under].map(src=>Object.assign(new Image(),{src}));
+   const draw=()=>{if(!img.complete||!img.naturalWidth||layers.some(L=>!L.complete))return;const c=env.ctx;RAEnvironments.drawImage(c,img,envDef);for(const L of layers)if(L.naturalWidth)RAEnvironments.drawImage(c,L,envDef);c.fillStyle='rgba(8,7,15,.35)';c.fillRect(0,0,270,480);};
+   for(const el of [img,...layers])el.addEventListener('load',draw,{once:true});}
   else if(envDef?.paint){RAPixel.paintEnvironment(env.ctx,envDef.paint);env.ctx.fillStyle='rgba(8,7,15,.3)';env.ctx.fillRect(0,0,270,480);}
   // Presentation Director path (pilot: DEV fixture only via params.director). The Director owns size and position,
   // so the legacy 0.9 × global multiplier and the fixed floor at y=318 are not used on this path.
   // Wave 2: every Combat 2.0 fight is Director-staged (params.director:false or the census legacy hook opt out).
   const directed=params.director!==false&&!window.__pdLegacy&&!!window.RAPresentationDirector;
   const scale=RADisplay.scaled(1)*.9,floor=318;
-  const richEl=actorEl('rich',70,floor,scale,false);const enemyEl=actorEl(def.person||enemyId,200,floor,scale,!!RABtfPeople.get(def.person)?.sprite);
+  const richEl=actorEl('rich',70,floor,scale,false);const art=D().enemyArt(enemyId);const enemyEl=actorEl(def.person||enemyId,200,floor,scale,!!art.base,art.base);
   richEl.classList.add('c2-rich');enemyEl.classList.add('c2-enemy');root.append(richEl,enemyEl);
   // Approved frozen combat states (RAArtRegistry, ART SHIP 006) follow the fight's own events: the enemy telegraphs,
-  // strikes when Rich is hurt, reacts when hit and stays defeated on a win; otherwise it returns to its anchor.
-  // Only states that exist are used; everything else keeps the identity anchor.
-  const enemyPerson=RABtfPeople.get(def.person),COMBAT_STATES={telegraph:['telegraph'],strike:['strike','attack'],hit:['hit'],defeated:['defeated','poof']};
-  const combatState=role=>(COMBAT_STATES[role]||[]).map(name=>enemyPerson?.states?.[name]).find(Boolean)||null;
-  const enemyStates=[enemyPerson?.sprite,...Object.keys(COMBAT_STATES).map(combatState)].filter((src,i,all)=>src&&all.indexOf(src)===i);
-  function setEnemyState(role){if(enemyEl.tagName!=='IMG'||!enemyPerson?.sprite)return;const src=(role&&combatState(role))||enemyPerson.sprite;if(enemyEl.getAttribute('src')===src)return;enemyEl.src=src;if(directed)RAPresentationDirector.relayout();}
+  // strikes when Rich is hurt, reacts when hit and stays defeated on a win; otherwise it returns to its base sprite.
+  // Only states that exist are used; a fight staged in a named state (RACombatData.enemyArt) holds that state.
+  const combatState=role=>art.roles[role]?.src||null;
+  const enemyStates=[art.base,...Object.values(art.roles).map(r=>r.src)].filter((src,i,all)=>src&&all.indexOf(src)===i);
+  function setEnemyState(role){if(enemyEl.tagName!=='IMG'||!art.base)return;const src=(role&&combatState(role))||art.base;if(enemyEl.getAttribute('src')===src)return;enemyEl.src=src;if(directed)RAPresentationDirector.relayout();}
   const minionEls=[];if(def.minions){for(let i=0;i<5;i++){const k=actorEl(def.person,150+i*22,floor-30+i*6,scale*.55,false);k.classList.add('c2-minion');root.append(k);minionEls.push(k);}}
   root.insertAdjacentHTML('beforeend',`<div class="c2-hud"><div class="c2-hp c2-hp-rich"><b>RICH ALUCARD</b><span>HP <i><em></em></i> <strong></strong></span></div><div class="c2-hp c2-hp-enemy"><b>${esc(state.enemy.name)}</b><span>HP <i><em></em></i> <strong></strong></span></div></div><div class="c2-telegraph" hidden></div><div class="c2-float" aria-hidden="true"></div><div class="c2-panel"><div class="c2-log" aria-live="polite"></div><div class="c2-menu"></div></div><div class="c2-octo" hidden></div>`);
   screen.append(root);document.body.classList.add('combat2-mode');
@@ -38,7 +40,7 @@
   function stageDirector(){
    // Same adapter contract as adventures: environment floor + depth scale, slot anchors; minions stand on a
    // farther depth band (0.55 of the floor scale — the legacy crowd depth made explicit).
-   const stage=RAPresentationDirector.combat2Stage(envDef,def.person||enemyId,{flip:!!RABtfPeople.get(def.person)?.sprite,minions:minionEls.length,states:enemyStates});
+   const stage=RAPresentationDirector.combat2Stage(envDef,def.person||enemyId,{flip:!!art.base,minions:minionEls.length,states:enemyStates});
    const actors={rich:richEl,enemy:enemyEl};minionEls.forEach((el,i)=>actors[`minion${i}`]=el);
    RAPresentationDirector.enter({stage,mode:'combat',beat:'default',host:root,env:env.canvas,actors,roles:stage.director.roles,fx:false,ui:{selectors:['.c2-hud .c2-hp','.c2-panel'],dialogue:['.c2-log'],bubbles:[]}});
   }

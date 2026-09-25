@@ -2,6 +2,8 @@
  // HOOKAH RINGS — hangout on the castle Hookah Roof at night. Not a score-chaser.
  const P=()=>window.RAPixel,palette=()=>P().palette;
  const TARGETS={moon:{x:210,y:70,r:22},antenna:{x:48,y:330,r:14}};
+ // Presentation only: seated contact points for the frozen hookah states (Rich centre, company between him and the antenna).
+ const SEATS={rich:[135,386],company:[90,388]};
 
  function makeRing(releaseSpeed,smoothness){
   releaseSpeed=Math.max(0,Math.min(1,releaseSpeed));smoothness=Math.max(0,Math.min(1,smoothness));
@@ -47,7 +49,9 @@
  window.RAMinigames.register('hookah',{title:'HOOKAH RINGS',mount(root,ctx){
   const {canvas,ctx:g}=P().createCanvas(root);
   const params=ctx.params||{};
-  const company=params.company||'ROOKOKO';
+  // No company param keeps the long-standing ROOKOKO line set; the Rookoko seated figure is drawn only when a beat
+  // names ROOKOKO explicitly (the default-company visual is an open HQ decision: docs/art_integration/HQ_DECISIONS.md).
+  const company=params.company||'ROOKOKO',namedCompany=params.company||null;
   const dateName=params.dateName||'her';
   const song=params.song||'MONTANA';
   const lines=COMPANY_LINES[company];
@@ -125,14 +129,17 @@
    const now=performance.now();const dt=now-lastT;lastT=now;
    const rp=P(),pal=palette();
    rp.paintEnvironment(g,env());
-   rp.drawActor(g,{top:'#111018',bottom:'#0d0c14',hairShape:'locs',shades:true,accent:pal.green},135,410,1.4);
+   // Frozen seated states (ART SHIP 008) at native 1:1 on their contact point, seated on the roof above the score
+   // lines and clear of the antenna target; placeholders only if art is unavailable.
+   if(!rp.drawSprite?.(g,rp.personSprite?.('rich','hookah_seated'),SEATS.rich[0],SEATS.rich[1]))rp.drawActor(g,{top:'#111018',bottom:'#0d0c14',hairShape:'locs',shades:true,accent:pal.green},135,410,1.4);
+   if(namedCompany==='ROOKOKO')rp.drawSprite?.(g,rp.personSprite?.('rookoko','hookah_seated'),SEATS.company[0],SEATS.company[1]);
    if(lines&&company==='DATE')rp.drawActor(g,{top:'#3a1f33',bottom:'#241830',hairShape:'long',accent:pal.pink},185,410,1.2);
    if(company==='BLLAD33'){
     bllad33T+=dt;
-    if(!bllad33Ring||bllad33T>2600){bllad33Ring=window.RAMinigameLogic.hookah.makeRing(.7,1);bllad33Ring.x=60;bllad33T=0;}
+    if(!bllad33Ring||bllad33T>2600){bllad33Ring=window.RAMinigameLogic.hookah.makeRing(.7,1);bllad33Ring.x=SEATS.company[0];bllad33T=0;}
     else bllad33Ring=window.RAMinigameLogic.hookah.stepRing(bllad33Ring,dt);
     drawRing(rp,bllad33Ring,1-bllad33Ring.age/3000);
-    rp.drawActor(g,{top:'#1a1a22',bottom:'#101014',hairShape:'hood',shades:true},60,415,1.1);
+    if(!rp.drawSprite?.(g,rp.personSprite?.('bllad33','hookah_seated'),SEATS.company[0],SEATS.company[1]))rp.drawActor(g,{top:'#1a1a22',bottom:'#101014',hairShape:'hood',shades:true},60,415,1.1);
    }
    for(let i=rings.length-1;i>=0;i--){
     const r=rings[i]=window.RAMinigameLogic.hookah.stepRing(rings[i],dt);
