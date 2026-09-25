@@ -1,18 +1,19 @@
 # Current handoff
 
-**ART SHIP 008 — RUNTIME COMPLETION PASS: 14-CANDIDATE PACKAGE COMPLETE / HQ REVIEW REQUIRED.**
+**ART SHIP 008 — RUNTIME COMPLETION PASS: APPROVED MASTER / FROZEN / COMPLETE.**
 
 ## Branch and base
 
 - Working branch: `art/art_ship_008`
 - Exact base and runtime/art-integration authority: `origin/claude/frozen-art-integration` at `c887f5d6d1a417384d906a361e2b52c0f3423e3c`
-- No runtime/gameplay code, frozen pixel, merge or deployment is in scope.
+- Promotion is Art/docs only. No runtime/gameplay code, merge or deployment was performed.
 
 ## Current runtime truth
 
-- Frozen corpus: **173 assets**; Asset Register: **313 entries**.
-- ART SHIP 004–007 handoff files: **153**.
+- Frozen corpus: **187 assets**; Asset Register: **327 entries**.
+- ART SHIP 004–008 handoff files: **167**.
 - Runtime-integrated: **132**.
+- Approved Ship 008 assets pending Engineering integration/runtime QA: **14**.
 - Handoff/reference sheets: **12**.
 - Approved state with no current scene: **4**.
 - Mapping-ambiguous: **4**.
@@ -27,9 +28,9 @@
 
 Frozen source bytes remain immutable. On Presentation Director-managed scenes, the Director's shot/camera/framing metadata is the only final display-size authority. Approximately 1.85× is historical reference context, not a universal runtime multiplier and never a reason to resize source art.
 
-## Ship 008 candidate package
+## Ship 008 frozen package
 
-The authorized 14-asset candidate package is complete and recorded in `ships/art_ship_008/`:
+The accepted 14-asset package is promoted byte-for-byte and recorded in `ships/art_ship_008/`:
 
 - three exact-origin crowd/condition layers;
 - one corrected frozen-state derivative submitted as a new candidate, never an overwrite;
@@ -40,15 +41,15 @@ The authorized 14-asset candidate package is complete and recorded in `ships/art
 - one exact-origin environment-condition layer;
 - two exact-origin seating-support layers.
 
-All 14 native candidates pass technical validation and internal visual review. Every referenced source hash still matches; the authorized frozen-state correction changes 65 pixels inside its recorded rectangle and zero outside it. If accepted and integrated as mapped, the package is expected to move up to **23 of 45** adventure/fight screens out of HOLD, reduce the total to approximately **22 HOLD**, clear **two held minigame surfaces**, and correct **three PASS-with-polish-note screens**. Final counts require Engineering integration and runtime review.
+All 14 native assets are APPROVED MASTER / FROZEN. Every referenced source hash still matches; the authorized frozen-state correction changes 65 pixels inside its recorded rectangle and zero outside it. The corrected Rich asset is contextual ramen/SLURP only and is not a neutral/master redesign. If integrated as mapped and accepted by runtime QA, the package is expected to move up to **23 of 45** adventure/fight screens out of HOLD, reduce the total to approximately **22 HOLD**, clear **two held minigame surfaces**, and correct **three PASS-with-polish-note screens**. The current runtime truth remains **75 PASS / 45 HOLD** until that work occurs.
 
-## Review status
+## Integration boundary
 
-- General, exact-delta and single named GUIDED generation authorizations were received and honored.
-- The package remains candidate-only. No item is APPROVED MASTER or FROZEN.
-- Engineering has a candidate mapping, but no runtime integration was performed.
-- Nothing may be called APPROVED or FROZEN without later Ube/HQ decisions.
+- General, exact-delta, named GUIDED and promotion authorizations were received and honored.
+- Engineering mappings are approved Art handoff records, but no runtime integration was performed.
+- The Rookoko proposed `default_alias: true` mapping must **VERIFY WITH RUNTIME/CONTENT INTENT DURING INTEGRATION**. Art has not made a canon/gameplay default-companion decision.
+- Presentation Director retains final framing authority; source pixels remain native.
 
 ## Stop
 
-**STOP. Package is ready for HQ review. Do not promote, freeze, integrate, merge, deploy or modify runtime code without the next explicit decision.**
+**STOP. ART SHIP 008 is FROZEN / COMPLETE. Recommended next step: Engineering integrates the 14 frozen assets, verifies the Rookoko alias intent, then reruns the Integration Matrix and runtime visual QA before any PASS/HOLD update. Do not merge or deploy from this Art task.**

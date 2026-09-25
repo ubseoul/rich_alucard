@@ -1,6 +1,6 @@
 # ART SHIP 008 — Runtime Completion Pass
 
-**Status:** CANDIDATE PACKAGE COMPLETE — HQ REVIEW REQUIRED
+**Status:** APPROVED MASTER / FROZEN / COMPLETE
 **Owner:** Art
 **Base:** `origin/claude/frozen-art-integration` at `c887f5d6d1a417384d906a361e2b52c0f3423e3c`
 **Branch:** `art/art_ship_008`
@@ -9,9 +9,9 @@
 
 Convert current runtime presentation failures into a small, precisely mapped native candidate package. Optimize for held screens and surfaces genuinely reaching final presentation quality, not raw asset count.
 
-## Delivered scope
+## Frozen scope
 
-- 14 native candidates generated and technically validated.
+- 14 native assets promoted byte-for-byte from candidate checkpoint `d37e157b929f1a8ae8e690f30f73729e81e491bf`.
 - P0/P1: `NC-FA-01`, `NC-FA-02`, `NC-FA-05`, `NC-FA-08`.
 - Additional high-reuse OPEN coverage: two currently missing environment conditions.
 - Cleanly bounded polish: `NC-FA-03` and `NC-FA-04`.
@@ -27,18 +27,18 @@ Exact contracts are in `RUNTIME_DEMAND_MAP.md` and `.json`.
 - Presentation Director metadata controls final size/framing on migrated scenes; source art remains native.
 - No runtime/gameplay code, merge, deployment, SEALED/HQ-only access, speculative UI or unsupported identity design.
 
-## Authorization record and remaining gates
+## HQ promotion decision
 
-- General generation authorization was received with the exact required phrase.
-- The exact frozen-delta authorization was received and enforced for `AS8-RICH-APRON-FIX`.
-- Named GUIDED authorization was received and isolated for `AS8-COFFE-GUIDED`.
-- Generated output remains `CANDIDATE — HQ/UBE REVIEW REQUIRED`.
-- Approval and freeze require later explicit decisions.
+- HQ approved all 14 submitted candidates for `APPROVED MASTER → FROZEN` promotion without regeneration or visual revision.
+- The exact frozen-delta evidence remains authoritative; the original frozen source is preserved.
+- The corrected Rich derivative is frozen only as its contextual ramen/SLURP state, not as a neutral/master redesign.
+- The single GUIDED asset remains isolated to its named Ship authorization.
+- The Rookoko default-companion alias remains a visible Engineering proposal and must **VERIFY WITH RUNTIME/CONTENT INTENT DURING INTEGRATION**; Art does not decide the canon/gameplay default.
 
-## Delivered package
+## Frozen package
 
-Native candidates, five integer-scale review boards, state/layer definitions, Engineering Asset Map, manifest, source-master provenance, candidate/raw hashes, validation, candidate-status records and expected HOLD-resolution summary are present in this Ship directory and mapped asset paths. User-facing reporting remains spoiler-safe and uses neutral ticket ids/counts.
+The authoritative freeze record is `ART_SHIP_MANIFEST.json`. Candidate evidence, five integer-scale internal review boards, state/layer definitions, the Engineering Asset Map, source provenance, authorized-delta evidence, hashes, promotion validation and forecast report remain archived in this Ship directory. User-facing reporting remains spoiler-safe and uses neutral ticket ids/counts.
 
 ## Stop point
 
-The complete Ship 008 candidate package is ready for HQ review. Do not promote, approve, freeze, integrate runtime code, merge or deploy without the next explicit decision.
+ART SHIP 008 is FROZEN / COMPLETE. Runtime integration, alias verification, Presentation Director framing and runtime QA are the next production step. Do not merge or deploy from this Art task.

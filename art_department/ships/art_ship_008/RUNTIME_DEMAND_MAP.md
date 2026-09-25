@@ -1,6 +1,6 @@
 # ART SHIP 008 — Runtime Demand Map
 
-**Status:** CANDIDATE PACKAGE COMPLETE — HQ REVIEW REQUIRED
+**Status:** APPROVED MASTER / FROZEN / COMPLETE — PENDING ENGINEERING INTEGRATION
 **Runtime authority:** `origin/claude/frozen-art-integration` at `c887f5d6d1a417384d906a361e2b52c0f3423e3c`
 **Machine authority:** `RUNTIME_DEMAND_MAP.json`
 
@@ -19,7 +19,7 @@ This map is spoiler-safe at report level. Exact runtime surface keys live in the
 | AS8-THRONE-MESS-LAYER | gap map / NC-FA-06 | exact-origin condition layer | 1 | OPEN | COVERAGE | 7 held screens, including one NC-FA-05 dependency |
 | AS8-CAFE-* | NC-FA-03 | registered rear/foreground layers | 2 | OPEN | POLISH | 3 polish-note screens |
 
-**Total:** 14 generated native candidates. All remain **CANDIDATE — HQ REVIEW REQUIRED**; none is approved, frozen or runtime-integrated.
+**Total:** 14 native assets are **APPROVED MASTER / FROZEN**. None is runtime-integrated by this Ship.
 
 ## Native contracts
 
@@ -38,12 +38,20 @@ This map is spoiler-safe at report level. Exact runtime surface keys live in the
 - General generation authorization received: `HQ PASS — ART SHIP 008 GENERATION AUTHORIZED`.
 - Named GUIDED authorization received for `AS8-COFFE-GUIDED` for this Ship only.
 - Exact HQ delta authorization received for `AS8-RICH-APRON-FIX`; validation records zero changed pixels outside the frozen rectangle.
+- HQ promotion authorization accepted all 14 submitted candidate bytes without revision.
 - Family/culturally sensitive/underspecified identities are excluded as `BLOCKED BY CANON`.
 - `NC-FA-09`, no-surface assets, speculative poses/UI and future content are excluded.
 
+## Promotion boundaries
+
+- `AS8-RICH-APRON-FIX` is frozen only as the contextual ramen/SLURP state. It is not a Rich neutral/master redesign. The original frozen source and history remain immutable.
+- `AS8-ROOKOKO-HOOKAH` retains its recorded `default_alias: true` proposal, but Art does not make that canon/gameplay decision. Engineering must **VERIFY WITH RUNTIME/CONTENT INTENT DURING INTEGRATION** before making the alias permanent.
+- PASS/HOLD counts remain the pre-integration runtime truth until Engineering integration and runtime QA.
+
 ## Candidate package
 
-- Machine manifest: `CANDIDATE_PACKAGE_MANIFEST.json`
+- Frozen manifest: `ART_SHIP_MANIFEST.json`
+- Accepted submission evidence: `CANDIDATE_PACKAGE_MANIFEST.json`
 - Engineering mappings: `ENGINEERING_ASSET_MAP.json`
 - State/layer contracts: `STATE_LAYER_DEFINITIONS.json`
 - Technical validation: `CANDIDATE_VALIDATION_REPORT.json` and `.md`
@@ -53,4 +61,4 @@ This map is spoiler-safe at report level. Exact runtime surface keys live in the
 
 ## Forecast
 
-All 14 candidates passed internal technical and visual review. If they are later approved/frozen and integrated exactly as mapped, up to 23 of 45 current adventure/fight HOLD screens should leave HOLD, yielding approximately 22 remaining. Two held minigame surfaces should also clear, and three current PASS screens should lose their polish notes. This forecast is not approval or runtime acceptance.
+All 14 assets are now approved/frozen. If Engineering integrates them exactly as mapped and runtime QA accepts the results, up to 23 of 45 current adventure/fight HOLD screens should leave HOLD, yielding approximately 22 remaining. Two held minigame surfaces should also clear, and three current PASS screens should lose their polish notes. This remains a forecast, not current runtime truth.

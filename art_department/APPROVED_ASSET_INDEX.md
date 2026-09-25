@@ -217,3 +217,24 @@ All 18 identity anchors and 20 reusable environment masters below are APPROVED M
 | `assets/before_the_fame/environments/suya_spot/southwest_atlanta_suya_spot_270x480.png` | FROZEN | APPROVED MASTER; ART SHIP 007 environment master; OPEN id `suya_spot`; not runtime-integrated |
 | `assets/before_the_fame/environments/crest/angeles_crest_overlook_270x480.png` | FROZEN | APPROVED MASTER; ART SHIP 007 environment master; OPEN id `crest`; not runtime-integrated |
 | `assets/before_the_fame/environments/duchess_castle/duchess_castle_reception_270x480.png` | FROZEN | APPROVED MASTER; ART SHIP 007 environment master; OPEN id `duchess_castle`; not runtime-integrated |
+
+## ART SHIP 008 — Runtime Completion Pass
+
+All 14 runtime-demand assets below are APPROVED MASTER / FROZEN. Runtime integration and the projected PASS/HOLD movement remain pending Engineering integration and runtime QA.
+
+| Path | Status | Role |
+|---|---|---|
+| `assets/before_the_fame/environments/catacomb/layers/catacomb_crowd_overlay_270x480.png` | FROZEN | APPROVED MASTER; ART SHIP 008 exact-origin crowd condition layer; not runtime-integrated |
+| `assets/before_the_fame/environments/hollow_bowl/layers/hollow_bowl_crowd_overlay_270x480.png` | FROZEN | APPROVED MASTER; ART SHIP 008 exact-origin crowd condition layer; not runtime-integrated |
+| `assets/before_the_fame/environments/duchess_castle/layers/duchess_reception_crowd_overlay_270x480.png` | FROZEN | APPROVED MASTER; ART SHIP 008 exact-origin reception condition layer; not runtime-integrated |
+| `assets/before_the_fame/characters/rich/rich_ramen_apron_corrected_80x96.png` | FROZEN | APPROVED MASTER; ART SHIP 008 contextual ramen/SLURP state only; not a Rich neutral/master design; original frozen source preserved; not runtime-integrated |
+| `assets/before_the_fame/characters/moonie/moonie_wolfed_out_80x96.png` | FROZEN | APPROVED MASTER; ART SHIP 008 matched endpoint state; not runtime-integrated |
+| `assets/before_the_fame/characters/coffe/coffe_rogue_80x96.png` | FROZEN | APPROVED MASTER; ART SHIP 008 isolated GUIDED state; no broader GUIDED authorization; not runtime-integrated |
+| `assets/before_the_fame/characters/rich/rich_hookah_seated_80x96.png` | FROZEN | APPROVED MASTER; ART SHIP 008 seated contextual state; not runtime-integrated |
+| `assets/bllad33/states/bllad33_hookah_seated_80x96.png` | FROZEN | APPROVED MASTER; ART SHIP 008 seated matched state; not runtime-integrated |
+| `assets/before_the_fame/characters/rookoko/rookoko_hookah_seated_80x96.png` | FROZEN | APPROVED MASTER; ART SHIP 008 seated matched state; proposed default alias must **VERIFY WITH RUNTIME/CONTENT INTENT DURING INTEGRATION**; not runtime-integrated |
+| `assets/before_the_fame/environments/street_night/street_night_270x480.png` | FROZEN | APPROVED MASTER; ART SHIP 008 reusable environment master; not runtime-integrated |
+| `assets/before_the_fame/characters/phil/phil_spent_grounded_80x96.png` | FROZEN | APPROVED MASTER; ART SHIP 008 matched endpoint state; not runtime-integrated |
+| `assets/before_the_fame/environments/throne_party_mess/throne_party_mess_overlay_765x1024.png` | FROZEN | APPROVED MASTER; ART SHIP 008 exact-origin additive condition layer over the original throne master; not runtime-integrated |
+| `assets/before_the_fame/environments/cafe/layers/cafe_laptop_seat_rear_270x480.png` | FROZEN | APPROVED MASTER; ART SHIP 008 exact-origin rear support layer; not runtime-integrated |
+| `assets/before_the_fame/environments/cafe/layers/cafe_laptop_table_foreground_270x480.png` | FROZEN | APPROVED MASTER; ART SHIP 008 exact-origin foreground support layer; not runtime-integrated |

@@ -7052,6 +7052,610 @@
       ],
       "freeze_scope": "Exact 270x480 opaque environment pixels for OPEN environment id duchess_castle and base role only; no overlays, variants, runtime Stage Contract or integration acceptance.",
       "layer_role": "opaque 270x480 environment master"
+    },
+    {
+      "path": "assets/before_the_fame/environments/catacomb/layers/catacomb_crowd_overlay_270x480.png",
+      "sha256": "5468959ed5029d5202b09f2bc651f1b117d156a2fb1ea6b1acf6f72dda4bcd18",
+      "role": "approved production environment condition layer; ART SHIP 008 id catacomb_crowd_condition",
+      "status": "FROZEN",
+      "default_style_reference": true,
+      "approval_evidence": [
+        "art_department/APPROVAL_LEDGER.md",
+        "art_department/ships/art_ship_008/ART_SHIP_MANIFEST.json",
+        "art_department/ships/art_ship_008/HQ_DECISION.md",
+        "art_department/ships/art_ship_008/SOURCE_PRESERVATION_EVIDENCE.json"
+      ],
+      "dimensions": [
+        270,
+        480
+      ],
+      "mode": "RGBA",
+      "ship_id": "ART SHIP 008",
+      "asset_id": "catacomb_crowd_condition",
+      "category": "ENVIRONMENT_CONDITION_LAYER",
+      "state": "crowd-present condition; above frozen base and behind named actors",
+      "source_anchor": [
+        0,
+        0
+      ],
+      "presentation_scale": null,
+      "approval_status": "APPROVED MASTER",
+      "alpha": [
+        0,
+        255
+      ],
+      "freeze_scope": "Exact 270x480 approved additive layer pixels and exact origin (0,0) for runtime id catacomb_crowd_condition; no base repaint, collision, gameplay, activation or runtime acceptance is implied.",
+      "runtime_surfaces": [
+        "catacomb|left:rich,right:iron_jaw",
+        "catacomb|left:rich@on_stage",
+        "catacomb|left:rich@on_stage,right:tasha"
+      ],
+      "runtime_integration_status": "PENDING ENGINEERING INTEGRATION AND RUNTIME QA",
+      "source_master": {
+        "path": "assets/before_the_fame/environments/catacomb/catacomb_empty_270x480.png",
+        "sha256": "863f1c965a4713c570333e0c10291a56c6fc29ca1008afb76200d832588c3fa4"
+      },
+      "layer_role": "crowd-present condition; above frozen base and behind named actors",
+      "draw_order": "base -> crowd layer -> actors -> UI"
+    },
+    {
+      "path": "assets/before_the_fame/environments/hollow_bowl/layers/hollow_bowl_crowd_overlay_270x480.png",
+      "sha256": "8821c902ca448f3222f3d28f5f32cddafbd95b607a08bf48e73254cc4d7665d1",
+      "role": "approved production environment condition layer; ART SHIP 008 id hollow_bowl_crowd_condition",
+      "status": "FROZEN",
+      "default_style_reference": true,
+      "approval_evidence": [
+        "art_department/APPROVAL_LEDGER.md",
+        "art_department/ships/art_ship_008/ART_SHIP_MANIFEST.json",
+        "art_department/ships/art_ship_008/HQ_DECISION.md",
+        "art_department/ships/art_ship_008/SOURCE_PRESERVATION_EVIDENCE.json"
+      ],
+      "dimensions": [
+        270,
+        480
+      ],
+      "mode": "RGBA",
+      "ship_id": "ART SHIP 008",
+      "asset_id": "hollow_bowl_crowd_condition",
+      "category": "ENVIRONMENT_CONDITION_LAYER",
+      "state": "packed-crowd condition; above frozen base and behind named actors",
+      "source_anchor": [
+        0,
+        0
+      ],
+      "presentation_scale": null,
+      "approval_status": "APPROVED MASTER",
+      "alpha": [
+        0,
+        255
+      ],
+      "freeze_scope": "Exact 270x480 approved additive layer pixels and exact origin (0,0) for runtime id hollow_bowl_crowd_condition; no base repaint, collision, gameplay, activation or runtime acceptance is implied.",
+      "runtime_surfaces": [
+        "hollow_bowl|left:rich"
+      ],
+      "runtime_integration_status": "PENDING ENGINEERING INTEGRATION AND RUNTIME QA",
+      "source_master": {
+        "path": "assets/before_the_fame/environments/hollow_bowl/hollow_bowl_night_270x480.png",
+        "sha256": "19d098d6d70c7228db164a23c2551a301667055977010392d1ff1d9f8420aa30"
+      },
+      "layer_role": "packed-crowd condition; above frozen base and behind named actors",
+      "draw_order": "base -> crowd layer -> actors -> UI"
+    },
+    {
+      "path": "assets/before_the_fame/environments/duchess_castle/layers/duchess_reception_crowd_overlay_270x480.png",
+      "sha256": "e28c5c9882ac51ee3f7a5d12480c9f59e83b48552c8f6413606c35a6937b0d7e",
+      "role": "approved production environment condition layer; ART SHIP 008 id duchess_castle_reception_condition",
+      "status": "FROZEN",
+      "default_style_reference": true,
+      "approval_evidence": [
+        "art_department/APPROVAL_LEDGER.md",
+        "art_department/ships/art_ship_008/ART_SHIP_MANIFEST.json",
+        "art_department/ships/art_ship_008/HQ_DECISION.md",
+        "art_department/ships/art_ship_008/SOURCE_PRESERVATION_EVIDENCE.json"
+      ],
+      "dimensions": [
+        270,
+        480
+      ],
+      "mode": "RGBA",
+      "ship_id": "ART SHIP 008",
+      "asset_id": "duchess_castle_reception_condition",
+      "category": "ENVIRONMENT_CONDITION_LAYER",
+      "state": "receiving-line/crowd condition; above frozen base and behind named actors",
+      "source_anchor": [
+        0,
+        0
+      ],
+      "presentation_scale": null,
+      "approval_status": "APPROVED MASTER",
+      "alpha": [
+        0,
+        255
+      ],
+      "freeze_scope": "Exact 270x480 approved additive layer pixels and exact origin (0,0) for runtime id duchess_castle_reception_condition; no base repaint, collision, gameplay, activation or runtime acceptance is implied.",
+      "runtime_surfaces": [
+        "duchess_castle|left:rich"
+      ],
+      "runtime_integration_status": "PENDING ENGINEERING INTEGRATION AND RUNTIME QA",
+      "source_master": {
+        "path": "assets/before_the_fame/environments/duchess_castle/duchess_castle_reception_270x480.png",
+        "sha256": "e9f4406059a2eed587840d67f96c45969a6650cae24d176dbb43f6c049068eee"
+      },
+      "layer_role": "receiving-line/crowd condition; above frozen base and behind named actors",
+      "draw_order": "base -> crowd layer -> actors -> UI"
+    },
+    {
+      "path": "assets/before_the_fame/characters/rich/rich_ramen_apron_corrected_80x96.png",
+      "sha256": "9c2ba5ab7175cffb0d5c71040bf8461c3dd3e82320605009a0781ffc353d2019",
+      "role": "approved production character state delta; ART SHIP 008 id rich.ramen_apron_corrected",
+      "status": "FROZEN",
+      "default_style_reference": true,
+      "approval_evidence": [
+        "art_department/APPROVAL_LEDGER.md",
+        "art_department/ships/art_ship_008/ART_SHIP_MANIFEST.json",
+        "art_department/ships/art_ship_008/HQ_DECISION.md",
+        "art_department/ships/art_ship_008/SOURCE_PRESERVATION_EVIDENCE.json"
+      ],
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "ship_id": "ART SHIP 008",
+      "asset_id": "rich.ramen_apron_corrected",
+      "category": "CHARACTER_STATE_DELTA",
+      "state": "ramen-apron state with disconnected utensil attached or removed",
+      "source_anchor": [
+        40,
+        88
+      ],
+      "presentation_scale": null,
+      "approval_status": "APPROVED MASTER",
+      "alpha": [
+        0,
+        255
+      ],
+      "freeze_scope": "Exact 80x96 approved contextual ramen/SLURP state pixels, binary alpha and recorded contact only. This is not a Rich neutral/master redesign; the original frozen source and its promotion history remain authoritative and immutable.",
+      "runtime_surfaces": [
+        "slurp|farRight:hina,left:rich@ramen_apron,right:okada",
+        "minigame:slurp"
+      ],
+      "runtime_integration_status": "PENDING ENGINEERING INTEGRATION AND RUNTIME QA",
+      "source_master": {
+        "path": "assets/before_the_fame/characters/rich/rich_ramen_apron_80x96.png",
+        "sha256": "85881baef03dc2919c5f88b95db57dd9809d7e815ac4bc1878a61cae8fde05ac"
+      },
+      "authorized_delta_evidence": "art_department/ships/art_ship_008/SOURCE_PRESERVATION_EVIDENCE.json",
+      "contextual_scope": "ramen/SLURP state only; not Rich neutral/master"
+    },
+    {
+      "path": "assets/before_the_fame/characters/moonie/moonie_wolfed_out_80x96.png",
+      "sha256": "a85b867ceb9fb2d1b852e1df0bbec5c1439dbffdccf8163390a7058a0fca6747",
+      "role": "approved production character state; ART SHIP 008 id moonie.wolfed_out",
+      "status": "FROZEN",
+      "default_style_reference": true,
+      "approval_evidence": [
+        "art_department/APPROVAL_LEDGER.md",
+        "art_department/ships/art_ship_008/ART_SHIP_MANIFEST.json",
+        "art_department/ships/art_ship_008/HQ_DECISION.md",
+        "art_department/ships/art_ship_008/SOURCE_PRESERVATION_EVIDENCE.json"
+      ],
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "ship_id": "ART SHIP 008",
+      "asset_id": "moonie.wolfed_out",
+      "category": "CHARACTER_STATE",
+      "state": "OPEN transformed endpoint",
+      "source_anchor": [
+        40,
+        88
+      ],
+      "presentation_scale": null,
+      "approval_status": "APPROVED MASTER",
+      "alpha": [
+        0,
+        255
+      ],
+      "freeze_scope": "Exact 80x96 approved matched-state pixels, binary alpha and contact (40,88) for runtime id moonie.wolfed_out only; no additional states or runtime acceptance.",
+      "runtime_surfaces": [
+        "combat:werewolf@grave_closed"
+      ],
+      "runtime_integration_status": "PENDING ENGINEERING INTEGRATION AND RUNTIME QA",
+      "source_master": {
+        "path": "assets/before_the_fame/characters/moonie/moonie_dorsey_neutral_80x96.png",
+        "sha256": "28106700746dec289e896894d1be6ebf5e23cefc26bd15b58367836b17c43e49"
+      }
+    },
+    {
+      "path": "assets/before_the_fame/characters/coffe/coffe_rogue_80x96.png",
+      "sha256": "24c0789da9071eac3dc553a73b3df9d646c4d23d0829d054daa376095c6c350c",
+      "role": "approved production character state; ART SHIP 008 id coffe.rogue",
+      "status": "FROZEN",
+      "default_style_reference": true,
+      "approval_evidence": [
+        "art_department/APPROVAL_LEDGER.md",
+        "art_department/ships/art_ship_008/ART_SHIP_MANIFEST.json",
+        "art_department/ships/art_ship_008/HQ_DECISION.md",
+        "art_department/ships/art_ship_008/SOURCE_PRESERVATION_EVIDENCE.json"
+      ],
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "ship_id": "ART SHIP 008",
+      "asset_id": "coffe.rogue",
+      "category": "CHARACTER_STATE",
+      "state": "GUIDED isolated variant",
+      "source_anchor": [
+        40,
+        88
+      ],
+      "presentation_scale": null,
+      "approval_status": "APPROVED MASTER",
+      "alpha": [
+        0,
+        255
+      ],
+      "freeze_scope": "Exact 80x96 approved matched-state pixels, binary alpha and contact (40,88) for runtime id coffe.rogue only; no additional states or runtime acceptance.",
+      "runtime_surfaces": [
+        "combat:coffe@throne_party_mess"
+      ],
+      "runtime_integration_status": "PENDING ENGINEERING INTEGRATION AND RUNTIME QA",
+      "source_master": {
+        "path": "assets/before_the_fame/characters/coffe/coffe_neutral_80x96.png",
+        "sha256": "d8c386770d3b57a7d0409b561aee02f62e92396dc12852510c470b04ec17e0dd"
+      }
+    },
+    {
+      "path": "assets/before_the_fame/characters/rich/rich_hookah_seated_80x96.png",
+      "sha256": "c260180a4b3636fc2765534e0053abd1cab25b2ca2c43c83f800e6b55ee20696",
+      "role": "approved production character state; ART SHIP 008 id rich.hookah_seated",
+      "status": "FROZEN",
+      "default_style_reference": true,
+      "approval_evidence": [
+        "art_department/APPROVAL_LEDGER.md",
+        "art_department/ships/art_ship_008/ART_SHIP_MANIFEST.json",
+        "art_department/ships/art_ship_008/HQ_DECISION.md",
+        "art_department/ships/art_ship_008/SOURCE_PRESERVATION_EVIDENCE.json"
+      ],
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "ship_id": "ART SHIP 008",
+      "asset_id": "rich.hookah_seated",
+      "category": "CHARACTER_STATE",
+      "state": "seated hookah participant state",
+      "source_anchor": [
+        40,
+        88
+      ],
+      "presentation_scale": null,
+      "approval_status": "APPROVED MASTER",
+      "alpha": [
+        0,
+        255
+      ],
+      "freeze_scope": "Exact 80x96 approved matched-state pixels, binary alpha and contact (40,88) for runtime id rich.hookah_seated only; no additional states or runtime acceptance.",
+      "runtime_surfaces": [
+        "minigame:hookah"
+      ],
+      "runtime_integration_status": "PENDING ENGINEERING INTEGRATION AND RUNTIME QA",
+      "source_master": {
+        "path": "assets/before_the_fame/characters/rich/rich_laptop_seated_80x96.png",
+        "sha256": "a18ecf0d5c57d74f2be77a671faea5a6c01e7c6c60b00787d3f08c22499637b0"
+      }
+    },
+    {
+      "path": "assets/bllad33/states/bllad33_hookah_seated_80x96.png",
+      "sha256": "bcc056454a2c1a234acbb427b5f53061c7d23b211dfb59079077b874e171b94c",
+      "role": "approved production character state; ART SHIP 008 id bllad33.hookah_seated",
+      "status": "FROZEN",
+      "default_style_reference": true,
+      "approval_evidence": [
+        "art_department/APPROVAL_LEDGER.md",
+        "art_department/ships/art_ship_008/ART_SHIP_MANIFEST.json",
+        "art_department/ships/art_ship_008/HQ_DECISION.md",
+        "art_department/ships/art_ship_008/SOURCE_PRESERVATION_EVIDENCE.json"
+      ],
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "ship_id": "ART SHIP 008",
+      "asset_id": "bllad33.hookah_seated",
+      "category": "CHARACTER_STATE",
+      "state": "seated hookah companion state",
+      "source_anchor": [
+        40,
+        88
+      ],
+      "presentation_scale": null,
+      "approval_status": "APPROVED MASTER",
+      "alpha": [
+        0,
+        255
+      ],
+      "freeze_scope": "Exact 80x96 approved matched-state pixels, binary alpha and contact (40,88) for runtime id bllad33.hookah_seated only; no additional states or runtime acceptance.",
+      "runtime_surfaces": [
+        "minigame:hookah?company=BLLAD33"
+      ],
+      "runtime_integration_status": "PENDING ENGINEERING INTEGRATION AND RUNTIME QA",
+      "source_master": {
+        "path": "assets/bllad33/masters/bllad33_neutral_candidate_80x96.png",
+        "sha256": "fcca67ce0a90a60f16854c3c5f8019a28d243aa2bf3bf86ecdf5631013198f5b"
+      }
+    },
+    {
+      "path": "assets/before_the_fame/characters/rookoko/rookoko_hookah_seated_80x96.png",
+      "sha256": "35b1481a575cd853cbffaefc7b133ee67763158a01faf6c44834502036247ba0",
+      "role": "approved production character state; ART SHIP 008 id rookoko.hookah_seated",
+      "status": "FROZEN",
+      "default_style_reference": true,
+      "approval_evidence": [
+        "art_department/APPROVAL_LEDGER.md",
+        "art_department/ships/art_ship_008/ART_SHIP_MANIFEST.json",
+        "art_department/ships/art_ship_008/HQ_DECISION.md",
+        "art_department/ships/art_ship_008/SOURCE_PRESERVATION_EVIDENCE.json"
+      ],
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "ship_id": "ART SHIP 008",
+      "asset_id": "rookoko.hookah_seated",
+      "category": "CHARACTER_STATE",
+      "state": "default seated hookah companion state",
+      "source_anchor": [
+        40,
+        88
+      ],
+      "presentation_scale": null,
+      "approval_status": "APPROVED MASTER",
+      "alpha": [
+        0,
+        255
+      ],
+      "freeze_scope": "Exact 80x96 approved matched-state pixels, binary alpha and contact (40,88) for runtime id rookoko.hookah_seated only; no additional states or runtime acceptance. Runtime alias/default-companion semantics remain Engineering/Content decisions.",
+      "runtime_surfaces": [
+        "minigame:hookah?company=ROOKOKO",
+        "minigame:hookah?company=default"
+      ],
+      "runtime_integration_status": "PENDING ENGINEERING INTEGRATION AND RUNTIME QA",
+      "source_master": {
+        "path": "assets/before_the_fame/characters/rookoko/rookoko_neutral_80x96.png",
+        "sha256": "ed315afe3431738962162ee58177c4f4cb9de9cdb246d22f57476bc200423ff1"
+      },
+      "default_alias_recorded": true,
+      "default_alias_verification": "VERIFY WITH RUNTIME/CONTENT INTENT DURING INTEGRATION"
+    },
+    {
+      "path": "assets/before_the_fame/environments/street_night/street_night_270x480.png",
+      "sha256": "68aa0f2176e9c255083ebaaf8b4874fb19f61a9ece04921580cc78309694f13a",
+      "role": "approved production environment master; ART SHIP 008 id street_night",
+      "status": "FROZEN",
+      "default_style_reference": true,
+      "approval_evidence": [
+        "art_department/APPROVAL_LEDGER.md",
+        "art_department/ships/art_ship_008/ART_SHIP_MANIFEST.json",
+        "art_department/ships/art_ship_008/HQ_DECISION.md",
+        "art_department/ships/art_ship_008/SOURCE_PRESERVATION_EVIDENCE.json"
+      ],
+      "dimensions": [
+        270,
+        480
+      ],
+      "mode": "RGB",
+      "ship_id": "ART SHIP 008",
+      "asset_id": "street_night",
+      "category": "ENVIRONMENT_MASTER",
+      "state": "reusable OPEN street-night base",
+      "source_anchor": null,
+      "presentation_scale": null,
+      "approval_status": "APPROVED MASTER",
+      "alpha": [
+        255
+      ],
+      "freeze_scope": "Exact 270x480 opaque approved environment-master pixels for runtime id street_night; Presentation Director retains final framing and runtime integration remains pending.",
+      "runtime_surfaces": [
+        "street_night|left:rich",
+        "street_night|left:rich,right:coffe",
+        "street_night|left:rich,right:officer_nodd",
+        "street_night|left:rich,right:phil",
+        "street_night|left:rich,right:phil@charging_day3",
+        "street_night|left:rich,right:phil@sitting_plate",
+        "street_night|left:rich,right:shannon_001",
+        "street_night|mid:rich",
+        "combat:phil@street_night"
+      ],
+      "runtime_integration_status": "PENDING ENGINEERING INTEGRATION AND RUNTIME QA"
+    },
+    {
+      "path": "assets/before_the_fame/characters/phil/phil_spent_grounded_80x96.png",
+      "sha256": "0e17fac440e486ba4b0bc2f0ca1078c2b584ced86915c6469bab04c6a4b7476d",
+      "role": "approved production character state; ART SHIP 008 id phil.spent_grounded",
+      "status": "FROZEN",
+      "default_style_reference": true,
+      "approval_evidence": [
+        "art_department/APPROVAL_LEDGER.md",
+        "art_department/ships/art_ship_008/ART_SHIP_MANIFEST.json",
+        "art_department/ships/art_ship_008/HQ_DECISION.md",
+        "art_department/ships/art_ship_008/SOURCE_PRESERVATION_EVIDENCE.json"
+      ],
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "ship_id": "ART SHIP 008",
+      "asset_id": "phil.spent_grounded",
+      "category": "CHARACTER_STATE",
+      "state": "spent/grounded endpoint preserving day-three identity",
+      "source_anchor": [
+        40,
+        88
+      ],
+      "presentation_scale": null,
+      "approval_status": "APPROVED MASTER",
+      "alpha": [
+        0,
+        255
+      ],
+      "freeze_scope": "Exact 80x96 approved matched-state pixels, binary alpha and contact (40,88) for runtime id phil.spent_grounded only; no additional states or runtime acceptance.",
+      "runtime_surfaces": [
+        "street_night|left:rich,right:phil@charging_day3"
+      ],
+      "runtime_integration_status": "PENDING ENGINEERING INTEGRATION AND RUNTIME QA",
+      "source_master": {
+        "path": "assets/before_the_fame/characters/phil/phil_charging_day3_80x96.png",
+        "sha256": "1609de089d3d893927752c98d6f9af6033dac77d1213a2ab518e4717ffb85af5"
+      }
+    },
+    {
+      "path": "assets/before_the_fame/environments/throne_party_mess/throne_party_mess_overlay_765x1024.png",
+      "sha256": "3f0b874e19eacacb21babe3375b67c7ee1f071ecbe9a3d5acad2f5ad7f4ed265",
+      "role": "approved production environment condition layer; ART SHIP 008 id throne_party_mess",
+      "status": "FROZEN",
+      "default_style_reference": true,
+      "approval_evidence": [
+        "art_department/APPROVAL_LEDGER.md",
+        "art_department/ships/art_ship_008/ART_SHIP_MANIFEST.json",
+        "art_department/ships/art_ship_008/HQ_DECISION.md",
+        "art_department/ships/art_ship_008/SOURCE_PRESERVATION_EVIDENCE.json"
+      ],
+      "dimensions": [
+        765,
+        1024
+      ],
+      "mode": "RGBA",
+      "ship_id": "ART SHIP 008",
+      "asset_id": "throne_party_mess",
+      "category": "ENVIRONMENT_CONDITION_LAYER",
+      "state": "post-party condition over approved throne base",
+      "source_anchor": [
+        0,
+        0
+      ],
+      "presentation_scale": null,
+      "approval_status": "APPROVED MASTER",
+      "alpha": [
+        0,
+        255
+      ],
+      "freeze_scope": "Exact 765x1024 approved additive layer pixels and exact origin (0,0) for runtime id throne_party_mess; no base repaint, collision, gameplay, activation or runtime acceptance is implied.",
+      "runtime_surfaces": [
+        "throne_party_mess|left:rich,right:vicky",
+        "throne_party_mess|mid:rich",
+        "combat:bard@throne_party_mess",
+        "combat:bonesworth@throne_party_mess",
+        "combat:cleric@throne_party_mess",
+        "combat:paladin@throne_party_mess",
+        "combat:coffe@throne_party_mess"
+      ],
+      "runtime_integration_status": "PENDING ENGINEERING INTEGRATION AND RUNTIME QA",
+      "source_master": {
+        "path": "assets/throne_room_scene_portrait.png",
+        "sha256": "08bd6a6cfcb53356e105505fb7754292c7a3c1491d7078f13b9881a4bb0f90c0"
+      },
+      "layer_role": "post-party condition over approved throne base",
+      "draw_order": "base -> condition layer -> actors -> UI"
+    },
+    {
+      "path": "assets/before_the_fame/environments/cafe/layers/cafe_laptop_seat_rear_270x480.png",
+      "sha256": "fed712ed5e22b0e652c0b18e2ca77fab8d755b82a65ddd8cfb9c1c031a4b9eb7",
+      "role": "approved production environment support layer; ART SHIP 008 id cafe_laptop_support_rear",
+      "status": "FROZEN",
+      "default_style_reference": true,
+      "approval_evidence": [
+        "art_department/APPROVAL_LEDGER.md",
+        "art_department/ships/art_ship_008/ART_SHIP_MANIFEST.json",
+        "art_department/ships/art_ship_008/HQ_DECISION.md",
+        "art_department/ships/art_ship_008/SOURCE_PRESERVATION_EVIDENCE.json"
+      ],
+      "dimensions": [
+        270,
+        480
+      ],
+      "mode": "RGBA",
+      "ship_id": "ART SHIP 008",
+      "asset_id": "cafe_laptop_support_rear",
+      "category": "ENVIRONMENT_SUPPORT_LAYER",
+      "state": "rear seating support for Rich laptop states",
+      "source_anchor": [
+        0,
+        0
+      ],
+      "presentation_scale": null,
+      "approval_status": "APPROVED MASTER",
+      "alpha": [
+        0,
+        255
+      ],
+      "freeze_scope": "Exact 270x480 approved additive layer pixels and exact origin (0,0) for runtime id cafe_laptop_support_rear; no base repaint, collision, gameplay, activation or runtime acceptance is implied.",
+      "runtime_surfaces": [
+        "cafe|left:rich@laptop_seated",
+        "cafe|left:rich@laptop_nod",
+        "cafe|left:rich@laptop_seated,right:wispa"
+      ],
+      "runtime_integration_status": "PENDING ENGINEERING INTEGRATION AND RUNTIME QA",
+      "source_master": {
+        "path": "assets/before_the_fame/environments/cafe/bean_there_dead_that_cafe_270x480.png",
+        "sha256": "792932fe68581e580d97fa066ec135860a4caadfed28a3a4b73b1c977c8ce161"
+      },
+      "layer_role": "rear seating support for Rich laptop states",
+      "draw_order": "base -> rear support -> actors"
+    },
+    {
+      "path": "assets/before_the_fame/environments/cafe/layers/cafe_laptop_table_foreground_270x480.png",
+      "sha256": "819aa2407f727507337fa0cedcb9b9402e51b8a94d0cc3ef0394a43122f2f62c",
+      "role": "approved production environment support layer; ART SHIP 008 id cafe_laptop_table_foreground",
+      "status": "FROZEN",
+      "default_style_reference": true,
+      "approval_evidence": [
+        "art_department/APPROVAL_LEDGER.md",
+        "art_department/ships/art_ship_008/ART_SHIP_MANIFEST.json",
+        "art_department/ships/art_ship_008/HQ_DECISION.md",
+        "art_department/ships/art_ship_008/SOURCE_PRESERVATION_EVIDENCE.json"
+      ],
+      "dimensions": [
+        270,
+        480
+      ],
+      "mode": "RGBA",
+      "ship_id": "ART SHIP 008",
+      "asset_id": "cafe_laptop_table_foreground",
+      "category": "ENVIRONMENT_SUPPORT_LAYER",
+      "state": "foreground table/support occlusion for Rich laptop states",
+      "source_anchor": [
+        0,
+        0
+      ],
+      "presentation_scale": null,
+      "approval_status": "APPROVED MASTER",
+      "alpha": [
+        0,
+        255
+      ],
+      "freeze_scope": "Exact 270x480 approved additive layer pixels and exact origin (0,0) for runtime id cafe_laptop_table_foreground; no base repaint, collision, gameplay, activation or runtime acceptance is implied.",
+      "runtime_surfaces": [
+        "cafe|left:rich@laptop_seated",
+        "cafe|left:rich@laptop_nod",
+        "cafe|left:rich@laptop_seated,right:wispa"
+      ],
+      "runtime_integration_status": "PENDING ENGINEERING INTEGRATION AND RUNTIME QA",
+      "source_master": {
+        "path": "assets/before_the_fame/environments/cafe/bean_there_dead_that_cafe_270x480.png",
+        "sha256": "792932fe68581e580d97fa066ec135860a4caadfed28a3a4b73b1c977c8ce161"
+      },
+      "layer_role": "foreground table/support occlusion for Rich laptop states",
+      "draw_order": "actors -> foreground table -> UI"
     }
   ]
 }
