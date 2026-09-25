@@ -34,5 +34,10 @@ export async function test(root){
  assert.deepEqual(wave1.staleExceptions,[],`adventure exceptions no longer fail — remove them: ${wave1.staleExceptions.join('; ')}`);
  const locked=JSON.parse(await readFile(path.join(root,LOCK),'utf8')).screens;
  assert.deepEqual(wave1.lock,locked,`adventure presentation changed vs ${LOCK} — review, then node tools/presentation-adventure-dryrun.mjs --write-lock`);
+ // Wave 2 regression lock: every authored Combat 2.0 fight × environment frames at combat size.
+ const {combatDryRun,COMBAT_LOCK}=await import('./presentation-adventure-dryrun.mjs');const wave2=await combatDryRun();
+ assert.deepEqual(wave2.lock,JSON.parse(await readFile(path.join(root,COMBAT_LOCK),'utf8')).fights,`Combat 2.0 presentation changed vs ${COMBAT_LOCK} — review, then node tools/presentation-adventure-dryrun.mjs --combat --write-lock`);
+ assert.equal(wave2.pass,wave2.fights,`Combat 2.0 fights failing Director lint: ${wave2.rows.filter(r=>!r.pass).map(r=>r.key).join('; ')}`);
+ console.log(`PASS presentation (${wave2.fights} Combat 2.0 fight screens vs Wave 2 lock)`);
  console.log(`PASS presentation (asset metadata vs frozen register, Director self-test, locked shots × runtime variant matrix lint at 360/390/430, ${wave1.screens} adventure screens vs Wave 1 lock: ${wave1.pass} pass, ${wave1.fail} accepted exceptions)`);
 }

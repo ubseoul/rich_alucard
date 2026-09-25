@@ -70,4 +70,26 @@ export async function sweep(){
  await writeFile(path.join(out,'sweep.json'),JSON.stringify({summary,results},null,1));
  return summary;
 }
-if(process.argv[1]===fileURLToPath(import.meta.url)){const s=await sweep();console.log(JSON.stringify(s,null,1));console.log(`REVIEWER-ONLY output: ${out}`)}
+// ---- Wave 2: every real Combat 2.0 fight (enemy × environment) through the real combat scene ----
+export async function combatSweep(){
+ const {combatDryRun}=await import('./presentation-adventure-dryrun.mjs');const dr=await combatDryRun(),dir=path.join(out,'..','sweep-combat');await mkdir(dir,{recursive:true});
+ const {chromium}=loadPlaywright(),browser=await chromium.launch({executablePath:await chromiumPath()}),server=await serve(),base=`http://127.0.0.1:${server.address().port}`;
+ const results={},errors=[];
+ try{for(const [W,H] of SIZES){
+  const page=await browser.newPage({viewport:{width:W,height:H},deviceScaleFactor:DPR});page.on('pageerror',e=>errors.push(`${W}: ${e.message}`));
+  await page.addInitScript(()=>{let s=20260925;Math.random=()=>((s=Math.imul(s^s>>>15,2246822519)+0x9e3779b9|0)>>>0)/4294967296;try{localStorage.clear()}catch{}});
+  await page.goto(base+'/?dev=1');await page.waitForTimeout(600);
+  await page.evaluate(async()=>{document.querySelector('#startOverlay')?.remove();document.querySelector('#devPanel')?.classList.remove('show');await RAScenes.go('bedroom',{devFixture:true})});
+  for(const [i,row] of dr.rows.entries()){try{
+   const r=await page.evaluate(async({enemy,env})=>{RACombat2.active()?.abort();await new Promise(r=>setTimeout(r,80));RACombat2.run(enemy,{env,noPenalty:true});await new Promise(r=>setTimeout(r,600));
+    document.getAnimations().forEach(a=>{a.pause();a.currentTime=0});const lint=await RAPresentationDirector.lint();
+    return {director:!!RAPresentationDirector.current(),lint:lint&&{pass:lint.pass,failed:lint.checks.filter(c=>!c.pass).map(c=>`${c.id}=${c.value}`),notes:lint.checks.filter(c=>c.note&&/PROVISIONAL|ACCEPTED/.test(c.note)).map(c=>`${c.id}:${c.note}`),metrics:lint.metrics}}},{enemy:row.enemy,env:row.env});
+   (results[row.key]||(results[row.key]={key:row.key,sizes:{}})).sizes[`${W}x${H}`]=r;
+   if(W===390){const file=`fight-${String(i).padStart(2,'0')}.png`;await page.screenshot({path:path.join(dir,file)});results[row.key].file=file}}catch(e){errors.push(`${row.key} @${W}: ${e.message}`)}}
+  await page.evaluate(()=>RACombat2.active()?.abort());await page.close()}
+ }finally{await browser.close();server.close()}
+ const summary={fights:dr.rows.length,errors,pass:Object.values(results).filter(r=>SIZES.every(([W,H])=>r.sizes[`${W}x${H}`]?.lint?.pass)).length,noDirector:Object.values(results).filter(r=>SIZES.some(([W,H])=>!r.sizes[`${W}x${H}`]?.director)).map(r=>r.key),provisional:Object.values(results).filter(r=>r.sizes['390x844']?.lint?.notes?.length).length};
+ await writeFile(path.join(dir,'sweep.json'),JSON.stringify({summary,results},null,1));return summary;
+}
+if(process.argv[1]===fileURLToPath(import.meta.url)&&process.argv.includes('--combat')){console.log(JSON.stringify(await combatSweep(),null,1))}
+else if(process.argv[1]===fileURLToPath(import.meta.url)){const s=await sweep();console.log(JSON.stringify(s,null,1));console.log(`REVIEWER-ONLY output: ${out}`)}

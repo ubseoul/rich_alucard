@@ -1,5 +1,5 @@
 {
- "status": "PILOT GOLDEN SET — pending HQ pilot review",
+ "status": "PILOT GOLDEN SET \u2014 pending HQ pilot review",
  "director": "pd-1",
  "rubric": [
   "focal hierarchy",
@@ -382,7 +382,7 @@
    "lock": "unlocked (DEV fixture)",
    "golden": {
     "file": "combat2-fixture/golden-390x844.png",
-    "sha256": "de064f7e1fa6ea8fbf1740ccc0f6f66146f86891c6edc49c43ebc9448739e564"
+    "sha256": "829c0c44ad98f46856a2cd28328569b113a75023e7c84e1e6f9a3c3d2fb0558f"
    },
    "knownBad": {
     "file": "combat2-fixture/known-bad-legacy-390x844.png",
@@ -465,7 +465,8 @@
      "body": 0.326,
      "profile": "combat"
     }
-   }
+   },
+   "history": "Wave 2: Combat 2.0 command panel fills the UI band (larger touch targets); framing and lint unchanged."
   }
  }
 }

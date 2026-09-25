@@ -15,3 +15,13 @@ Each wave follows the same cycle: migrate, then variant lint, deterministic cens
 - **Internal visual review:** all 8 contact sheets reviewed. Rich's size is consistent, there's no clipping, speaker tags and bubbles are clean, and the dialogue band is consistent. No generic defect was found. The flatness seen on many screens is placeholder art.
 - **Regression lock:** `docs/presentation/locks/wave1-adventures.json` records the chosen shot for every screen. `npm test` fails on any unexpected failure, stale exception or changed default.
 - **No scene-specific code:** the 5 exceptions are data entries with tickets.
+
+## Wave 2 — Combat 2.0
+- **Scope:** every Combat 2.0 fight is Director-staged in combat mode through the shared contract builder (`RAPresentationDirector.combat2Stage`). The legacy 0.9 × multiplier and the fixed y=318 floor are no longer used. There are 17 authored fight × environment screens (16 fight nodes; one fight resolves to two environments).
+- **Bug fixed on the way:** two fights define their environment as a function of adventure state, which `combat2.js` never resolved, so they rendered without a backdrop. Environments now resolve before staging.
+- **Variant lint (dry run, release gate):** 17/17 pass the combat profile at 360/390/430.
+- **Deterministic sweep** (`tools/presentation-sweep.mjs --combat`, the real combat scene with the real UI): **17/17 fights pass live lint at all sizes**, all Director-staged, with no page errors.
+- **Internal visual review:** Rich's size is consistent with the migrated legacy fights, and bodies and crowds read. One generic defect was found and fixed: the command panel left about 40% of the UI band empty. The command grid now fills the band, giving larger touch targets (a combat-mode CSS rule, not per scene).
+- **Real player path:** an adventure fight node was played through Director-staged combat to victory and back through the adventure resolution, with no errors and no leftover Director state.
+- **Regression lock:** `docs/presentation/locks/wave2-combat.json`, enforced by `npm test`. Pilot baselines: docks, throne and curb are pixel-identical. The Combat 2.0 fixture golden was refreshed for the panel change (framing and lint unchanged).
+- **No new tickets.**
