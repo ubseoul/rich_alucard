@@ -134,7 +134,7 @@
   const refSize=P.reference??P.target;
   add('shot-consistency',roomShot||!!exception||Math.abs(body/refSize-1)<=(P.reference!=null?acc.consistency:Math.max(acc.consistency,(P.body[1]-P.body[0])/2/P.target)),round3(body/refSize-1),P.reference!=null?`±${acc.consistency} of locked ${P.id} reference ${refSize}`:'vs profile target');
   const minFace=acc.minFacePx*W/acc.minFacePxAtWidth;
-  for(const slot of speakers){const a=frame.actors[slot];if(!a)continue;add(`face-size:${slot}`,a.face.h>=minFace,round3(a.face.h),round3(minFace),a.faceSource)}
+  for(const slot of speakers){const a=frame.actors[slot];if(!a)continue;add(`face-size:${slot}`,a.face.h>=minFace||!!a.meta?.noFace,round3(a.face.h),round3(minFace),a.meta?.noFace?'no readable face in this pose (authored)':a.faceSource)}
   for(const slot of focal){const a=frame.actors[slot];if(!a)continue;
    // Vehicles/props (stage.objects) may bleed off the frame edge; characters must be fully in view.
    const need=stage.objects?.[slot]?.9:.999;add(`in-view:${slot}`,inside(a.visible,frame.world)>=need,round3(inside(a.visible,frame.world)),need===.9?.9:1);
@@ -162,12 +162,44 @@
  // a contract: one contact line at the environment floor (depth scale = registry base × the approved 1.85
  // primary-character rule, made explicit), actors anchored at their slot, and a default shot chosen from the
  // cast size — then the Director solves the camera like any other scene. Hero nodes may override with `shot`.
- const APPROVED_PRIMARY_SCALE=1.85;
- function adventureStage(env,cast,{slots,node,states}={}){
+ const APPROVED_PRIMARY_SCALE=1.85,CENSUS_SIZES=[[360,740],[390,844],[430,932]];
+ // Frozen-art staging (generic, metadata-driven; no per-screen positions). With real sprite metadata the adapter
+ // clamps each slot so that actor's actual visible body stays inside the environment, and when the focal group is
+ // too wide to reach the conversation consistency floor at the census phone sizes it draws the group toward its
+ // centre, proportionally, never closer than 2 world px between neighbouring bodies. Screens that already reach
+ // the floor are untouched.
+ function slotExtents(asset,scale,flip){const m=spriteMeta(asset);if(m.missing)return null;const [vx,,vw]=m.visible,ax=m.anchor[0],l=(ax-vx)*scale,r=(vx+vw-ax)*scale;return flip?{l:r,r:l}:{l,r}}
+ function conversationWidth(scale){const P=data().profiles.conversation,floorSize=P.reference*(1-data().acceptance.consistency)+.002,refH=spriteMeta(data().reference.asset).visible[3]*scale;
+  return Math.min(...CENSUS_SIZES.map(([W,H])=>{const L=screenLayout('dialogue',W,H);return L.world.w*(1-2*P.side)*refH/(floorSize*L.world.h)}))}
+ function compactSlots(xs,ext,maxW){
+  // Close only slack: each gap between neighbouring visible bodies wider than 2 world px shrinks by the same share
+  // of its excess until the group fits (or all slack is used). Overlapping pairs are never touched; the group's
+  // centre stays put.
+  const order=Object.keys(xs).sort((a,b)=>xs[a]-xs[b]);
+  const left=Math.min(...order.map(s=>xs[s]-ext[s].l)),right=Math.max(...order.map(s=>xs[s]+ext[s].r)),need=right-left-maxW;
+  if(need<=0)return xs;
+  const gaps=order.slice(1).map((s,i)=>Math.max(0,(xs[s]-ext[s].l)-(xs[order[i]]+ext[order[i]].r)-2)),slack=gaps.reduce((a,b)=>a+b,0);
+  if(!(slack>0))return xs;
+  const share=Math.min(1,need/slack),out={[order[0]]:xs[order[0]]};let shift=0;
+  order.slice(1).forEach((s,i)=>{shift+=gaps[i]*share;out[s]=xs[s]-shift});
+  const recentre=shift/2;for(const s of order)out[s]+=recentre;
+  return out;
+ }
+ function adventureStage(env,cast,{slots,node,states,assets}={}){
   const floor=env.floorY??372,scale=env.depth??(env.base||1)*APPROVED_PRIMARY_SCALE,lines=[{id:'floor',y:floor,x1:0,x2:270,scale}],actors={};
+  const ext={},xs={};
   for(const [slot,spec] of Object.entries(cast)){
-   // Slot positions are clamped so a typical body (≈30 source px wide) stays inside the environment width.
-   const half=15*scale+4,x=Math.min(270-half,Math.max(half,spec.x??slots?.[slot]??135)),y=spec.y??floor;let line=lines.find(l=>l.y===y);
+   ext[slot]=assets?.[slot]?slotExtents(assets[slot],spec.lineScale??scale,!!spec.flip):null;
+   // Slot positions are clamped so the actor's visible body (a typical ≈30 source px body when no metadata) stays inside the environment width.
+   const e=ext[slot]||{l:15*scale,r:15*scale};xs[slot]=Math.min(270-e.r-4,Math.max(e.l+4,spec.x??slots?.[slot]??135));
+  }
+  const focalSlots=Object.keys(cast).filter(slot=>!cast[slot].hidden&&!cast[slot].observer&&cast[slot].y==null);
+  if(!node?.shot&&focalSlots.length>=2&&focalSlots.every(slot=>ext[slot]&&(cast[slot].x==null||cast[slot].x===slots?.[slot]))){
+   const moved=compactSlots(Object.fromEntries(focalSlots.map(s=>[s,xs[s]])),ext,conversationWidth(scale));
+   for(const slot of focalSlots){const e=ext[slot];xs[slot]=Math.min(270-e.r-4,Math.max(e.l+4,moved[slot]))}
+  }
+  for(const [slot,spec] of Object.entries(cast)){
+   const x=xs[slot],y=spec.y??floor;let line=lines.find(l=>l.y===y);
    const lineScale=spec.lineScale??scale;if(!line||line.scale!==lineScale){line={id:`y${y}${lineScale!==scale?'d':''}`,y,x1:0,x2:270,scale:lineScale};lines.push(line)}
    actors[slot]={source:{width:80,height:96,anchor:{x:40,y:88}},anchor:{x,y,line:line.id},flip:!!spec.flip,observer:!!spec.observer};
   }
@@ -185,12 +217,13 @@
  }
  // Combat 2.0: the same adapter contract in combat mode. Rich left / enemy right on the environment floor;
  // minions stand on a farther depth band (0.55 of the floor scale — the legacy crowd depth made explicit).
- function combat2Stage(env,enemyPerson,{flip=false,minions=0}={}){
+ function combat2Stage(env,enemyPerson,{flip=false,minions=0,states=null}={}){
   const y=env.floorY??318,depth=(env.base||1)*APPROVED_PRIMARY_SCALE;
   const cast={rich:{id:'rich',x:72},enemy:{id:enemyPerson,x:198,flip}};
-  for(let i=0;i<minions;i++)cast[`minion${i}`]={id:'minion',x:150+i*22,y:y-30+i*6,lineScale:depth*.55};
+  // Minions are background crowd on the far depth band: observers, never focal or speaking.
+  for(let i=0;i<minions;i++)cast[`minion${i}`]={id:'minion',x:150+i*22,y:y-30+i*6,lineScale:depth*.55,observer:true};
   const stage=adventureStage(env,cast,{node:{shot:{profile:'combat',focal:['rich','enemy'],reference:'rich'}}});
-  stage.id=`c2:${env.id}`;stage.director.roles={rich:'rich',enemy:'enemy'};return stage;
+  stage.id=`c2:${env.id}`;stage.director.roles={rich:'rich',enemy:'enemy'};if(states?.length)stage.director.states={enemy:states};return stage;
  }
  // Picks the first candidate shot whose solve is not width-limited below its size band (data-driven fallback).
  function chooseShot(stage,view,assets){
@@ -418,6 +451,6 @@
  window.RAStageLayout={contract,actorRect,transform,layout,activate,drawOverlay,runSelfTest};
  window.RAPresentationDirector={screenLayout,worldActor,solve,search,project,lintFrame,enter,exit,fxPoint,runSelfTest:runDirectorSelfTest,
   active:()=>!!active,current:()=>active&&{stage:active.stage.id,mode:active.mode,beat:active.beat,frame:active.frame},
-  enterUi,worldRect:()=>active?.frame?.world||null,actorBox:slot=>active?.frame?.actors?.[slot]||null,adventureStage,combat2Stage,enterMounted,mark:(id,opts)=>active?mark(active,id,opts):Promise.resolve(false),resetMoves:()=>{if(active?.moved){active.moved={};relayout(active)}},moveTo:(slot,to,opts)=>active?moveTo(active,slot,to,opts):Promise.resolve(false),setBeat:(beat,opts)=>active?setBeat(active,beat,opts):null,relayout:()=>active&&!active.uiOnly&&relayout(active),lint:opts=>active&&!active.uiOnly?lintLive(active,opts):Promise.resolve(null),
+  enterUi,assetOf:elementAsset,worldRect:()=>active?.frame?.world||null,actorBox:slot=>active?.frame?.actors?.[slot]||null,adventureStage,combat2Stage,enterMounted,mark:(id,opts)=>active?mark(active,id,opts):Promise.resolve(false),resetMoves:()=>{if(active?.moved){active.moved={};relayout(active)}},moveTo:(slot,to,opts)=>active?moveTo(active,slot,to,opts):Promise.resolve(false),setBeat:(beat,opts)=>active?setBeat(active,beat,opts):null,relayout:()=>active&&!active.uiOnly&&relayout(active),lint:opts=>active&&!active.uiOnly?lintLive(active,opts):Promise.resolve(null),
   preview:(beatOrShot)=>{if(!active)return null;const prev=active.shot;active.shot={...prev,...beatOrShot};const f=relayout(active);return {frame:f,restore:()=>{active.shot=prev;relayout(active)}}}};
 })();

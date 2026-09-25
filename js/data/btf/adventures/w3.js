@@ -62,8 +62,8 @@
  // A20 — POWER LEVEL PHIL. A 3-day arc keyed to the Life Clock: each WAKE (day 18+) after this
  // becomes available advances the joke by one stage. Day 3: hair gold, real fight.
  // ============================================================================================
- D({id:'A20',title:'POWER LEVEL PHIL',lane:'combat',memoryType:'combat',repeatable:true,start:'arrive',testVars:{stage:1},nodes:{
-  arrive:{env:'street_night',actors:{left:'rich',right:'phil'},
+ D({id:'A20',title:'POWER LEVEL PHIL',lane:'combat',memoryType:'combat',repeatable:true,start:'arrive',testVars:{stage:1},presentationVariants:[{stage:3}],nodes:{
+  arrive:{env:'street_night',actors:A=>({left:'rich',right:(A.vars.stage||Math.min(3,(Number(RALife.flag('philProgress'))||0)+1))>=3?{id:'phil',state:'charging_day3'}:'phil'}),
    title:A=>({1:'DAY ONE',2:'DAY TWO',3:'DAY THREE'}[A.vars.stage||Math.min(3,(Number(RALife.flag('philProgress'))||0)+1)]),
    enter:A=>{if(!A.vars.stage)A.set('stage',Math.min(3,(Number(RALife.flag('philProgress'))||0)+1));RARelations.meet('phil','A20');},
    lines:A=>{const st=A.vars.stage;if(st===1)return [N('a guy in a power stance is standing in the middle of the sidewalk, screaming.'),S('phil','I\'M SO CLOSE TO MY FULL POWER!'),N('nothing visibly happens.')];
@@ -73,7 +73,7 @@
   fork:{choices:A=>[{label:'ASK HOW LONG',next:'ask'},{label:'FIGHT NOW',next:'fightnow'},{label:'GET FOOD WHILE HE CHARGES',octopus:true,next:'food'}]},
   ask:{lines:A=>[S('phil','SOON. SO SOON.')],next:A=>A.vars.stage>=3?'fightnow':'wrap'},
   fightnow:{fight:{enemy:'phil',params:A=>({env:'street_night',invincible:A.vars.stage<3,intro:A.vars.stage<3?'PHIL IS INVINCIBLE WHILE HE CHARGES.':'PHIL IS AT FULL POWER. FINALLY.'}),win:'wrap',lose:'wrap',spared:'wrap'}},
-  food:{lines:[N('you leave and come back with garlic knots. phil is still screaming, but he stops to eat.'),S('phil','…thanks. nobody ever does that.')],
+  food:{actors:{left:'rich',right:{id:'phil',state:'sitting_plate'}},lines:[N('you leave and come back with garlic knots. phil is still screaming, but he stops to eat.'),S('phil','…thanks. nobody ever does that.')],
    enter:A=>{RARelations.add('phil',2,{reason:'fed him'});},next:'wrap'},
   wrap:{lines:A=>A.vars.stage>=3?[N('phil is on the ground, gold hair fading back to brown, grinning.'),S('phil','WORTH IT.')]:[N('you leave phil to keep charging. he waves without breaking stance.')],
    enter:A=>{const st=A.vars.stage;if(st>=3){RALife.setFlag('phil3Done',true);RALife.remember({text:'power level phil finally powered up',lane:'combat'});}else{RALife.setFlag('philProgress',st);RALife.setFlag('philLastDay',RALife.today().day);}},
@@ -206,7 +206,7 @@
   spell:{lines:[N('she looks at the flowers for a long time before taking them.')],
    choices:[{label:'HEX',sub:'WEAKEN',fx:X=>X.set('spell','hex'),next:'cast'},{label:'VIOLET VEIL',sub:'BLOCK',fx:X=>X.set('spell','veil'),next:'cast'},
     {label:'SÉANCE',sub:'DOT',fx:X=>X.set('spell','seance'),next:'cast'},{label:'DEAD RINGER',sub:'STUN A BOSS',fx:X=>X.set('spell','ringer'),next:'cast'}]},
-  cast:{lines:A=>[N(`she teaches you ${RACombatData.MOVES[A.vars.spell].label}.`),S('nightshade','one per visit. that is how it works.')],
+  cast:{lines:A=>[N(`she teaches you ${RACombatData.MOVES[A.vars.spell]?.label||'a spell'}.`),S('nightshade','one per visit. that is how it works.')],
    enter:A=>{RALife.consume('gift_flowers');learnMove(A.vars.spell,{magic:true});RARelations.add('nightshade',6,{reason:'brought flowers'});},next:'end'},
   end:{end:{outcome:A=>A.vars.spell||'empty-handed',memory:A=>({text:A.vars.spell?`learned ${RACombatData.MOVES[A.vars.spell].label.toLowerCase()} from nightshade`:'visited nightshade with nothing to give',lane:'combat',quality:A.vars.spell?1.2:.3}),
    home:A=>A.vars.spell?['rich','magic. actual magic.',{vp:true}]:null}}

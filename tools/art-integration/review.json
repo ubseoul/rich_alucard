@@ -1,0 +1,42 @@
+{
+ "about": "Authored frozen-art integration review record (reviewer decisions; spoiler-safe: ids, screen keys and generic descriptions only). tools/art-integration.mjs combines it with the live runtime to generate docs/art_integration/INTEGRATION_MATRIX.json. Statuses that the runtime can prove (integrated, placeholder, no art) are derived, never authored here.",
+ "states": {
+  "bruce_loose.bow": {"status": "FROZEN + MAPPING AMBIGUOUS", "note": "No scene narrates a bow; the lesson beat could carry it but the content does not say so. Needs a Story/HQ call before wiring."},
+  "deacon_brass.blessing": {"status": "FROZEN + MAPPING AMBIGUOUS", "note": "Armory beats mention grace but never narrate a blessing gesture."},
+  "hilt.walk_away": {"status": "FROZEN STATE AVAILABLE", "note": "A23 'leave' narrates Hilt leaving, but Hilt is never on stage in that adventure (entrance line only); wiring it would add a cast member to the beat."},
+  "iron_jaw.rapping": {"status": "FROZEN STATE AVAILABLE", "note": "The battle itself is the BARS minigame (UI overlay); no adventure beat shows him mid-verse."},
+  "rich.fishing_cast": {"status": "FROZEN STATE AVAILABLE", "note": "The cast happens inside the PIER minigame; the repeat PIER adventure referenced by places/temptations is not defined in content."},
+  "tunde.asleep_floor": {"status": "FROZEN STATE AVAILABLE", "note": "No current OPEN beat stages Tunde on the floor."},
+  "dre.asleep_floor": {"status": "FROZEN STATE AVAILABLE", "note": "No current OPEN beat stages Dre on the floor."}
+ },
+ "assets": {
+  "assets/before_the_fame/props/agege_bread/agege_bread_whole_32x24.png": {"status": "FROZEN + READY TO INTEGRATE", "note": "Inventory/item surface (Wave 4)."},
+  "assets/before_the_fame/props/mazda_egg/blueberry_mazda_egg_32x32.png": {"status": "FROZEN + READY TO INTEGRATE", "note": "Dragon egg surface (Wave 4)."},
+  "assets/before_the_fame/props/dragon_maggi_cube/dragon_maggi_cube_24x24.png": {"status": "FROZEN + MAPPING AMBIGUOUS", "note": "Label spelling (MAGGI vs MAGI) is Ube-owned; the label must stay swappable (CURRENT_OPEN_ART_GAPS)."}
+ },
+ "people": {
+  "mom": {"status": "NEEDS CREATIVE", "note": "Family identity: names/details await Ube; no invented portraits."},
+  "dad": {"status": "NEEDS CREATIVE", "note": "Family identity: names/details await Ube; no invented portraits."},
+  "sister": {"status": "NEEDS CREATIVE", "note": "Family identity: names/details await Ube; no invented portraits."},
+  "brother1": {"status": "NEEDS CREATIVE", "note": "Family identity: names/details await Ube; no invented portraits."},
+  "brother2": {"status": "NEEDS CREATIVE", "note": "Family identity: names/details await Ube; no invented portraits."},
+  "god": {"status": "NEEDS CREATIVE", "note": "Culturally sensitive OPEN card; exact committed card only."},
+  "buckhead": {"status": "NO APPROVED ART YET", "note": "Deferred identity (ART SHIP 007 accepted deferral)."},
+  "og_hooper": {"status": "NO APPROVED ART YET", "note": "Deferred identity (ART SHIP 007 accepted deferral)."}
+ },
+ "screens": {
+  "hollow_bowl|left:rich": {"status": "HOLD", "ticket": "NC-FA-01", "note": "Narration requires a packed venue; the frozen base is empty."},
+  "duchess_castle|left:rich": {"status": "HOLD", "ticket": "NC-FA-01", "note": "Narration stages a receiving line; the frozen base is empty."},
+  "catacomb|left:rich@on_stage": {"status": "HOLD", "ticket": "NC-FA-01", "note": "Performance beat; narration references the room's attention; the frozen base is empty."},
+  "catacomb|left:rich@on_stage,right:tasha": {"status": "HOLD", "ticket": "NC-FA-01", "note": "Performance beat with the room reacting; the frozen base is empty."},
+  "catacomb|left:rich,right:iron_jaw": {"status": "HOLD", "ticket": "NC-FA-01", "note": "Narration: a crowd forms; the frozen base is empty."},
+  "slurp|farRight:hina,left:rich@ramen_apron,right:okada": {"status": "HOLD", "ticket": "NC-FA-02", "note": "The approved apron state includes a detached utensil left of the body that reads as a stray floating object in-scene."},
+  "pier|left:rich@holding_fish_away,right:uncle_sunday@fishing": {"status": "HOLD", "ticket": "PD-FA-02", "note": "Two wide frozen poses; generic staging cannot reach a shot band."},
+  "street_night|left:rich,right:phil@charging_day3": {"status": "PASS (POLISH NOTE)", "ticket": "NC-FA-04", "note": "The wrap beat after the day-three fight narrates a spent, grounded Phil but inherits the charging pose."},
+  "cafe|left:rich@laptop_seated": {"status": "PASS (POLISH NOTE)", "ticket": "NC-FA-03", "note": "The approved seated-laptop pose reads as sitting on the café floor."},
+  "cafe|left:rich@laptop_seated,right:wispa": {"status": "PASS (POLISH NOTE)", "ticket": "NC-FA-03", "note": "The approved seated-laptop pose reads as sitting on the café floor."},
+  "cafe|left:rich@laptop_nod": {"status": "PASS (POLISH NOTE)", "ticket": "NC-FA-03", "note": "The approved seated-laptop pose reads as sitting on the café floor."},
+  "combat:werewolf@grave_closed": {"status": "HOLD", "ticket": "NC-FA-05", "note": "The fight is the transformed state; only the human identity anchor is approved."},
+  "combat:coffe@throne_party_mess": {"status": "HOLD", "ticket": "NC-FA-05", "note": "GUIDED variant fight; only the default identity anchor is approved."}
+ }
+}

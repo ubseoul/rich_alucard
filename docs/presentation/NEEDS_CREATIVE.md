@@ -1,6 +1,35 @@
 # Presentation Director — exception and NEEDS CREATIVE tickets
 
-## Outstanding tickets (six, as accepted at the bulk QA checkpoint)
+## Frozen-art integration re-evaluation (branch `claude/frozen-art-integration`)
+
+Tickets were re-checked against the integrated frozen ART SHIP 004–007 art (docs/art_integration/README.md). With real sprite metadata the adventure adapter clamps each slot by the actor's actual visible body and closes spare space in a width-limited focal group (generic; no per-screen positions). Current state:
+
+| Ticket | Status after frozen art | Notes |
+|---|---|---|
+| PD-W1-01 | **RESOLVED** | The frozen ocean-floor base (with its exact-origin ladder layers) plus metadata-driven staging reaches the conversation band. The screens stay HOLD in the integration matrix because the drowned-soul figures have no approved art (mixed screen). |
+| PD-W1-02 | **RESOLVED** (framing) | The Slurp three-shot reaches the conversation band with authored faces ≥ 24 px. The screen is HOLD for NC-FA-02 (apron state). |
+| PD-W1-03 | **RESOLVED** | Pet Crypt pair, including the offended and melted states, passes in the conversation band. |
+| PD-W1-04 | OPEN | Portobello bedroom: no approved environment or cast art yet (placeholders). |
+| PD-W3-01 | UNCHANGED | Property interior inspect beat; already frozen art; composition-limited by hotspots. |
+| PD-W3-02 | UNCHANGED | Ogun's Rave; already frozen art; HQ-accepted composition. |
+| PD-FA-02 | NEW — EXCEPTION-LAYOUT, HOLD | `pier|left:rich@holding_fish_away,right:uncle_sunday@fishing`: two wide approved poses (fish held at arm's length, rod out) leave no slack to close; framing falls between bands. Resolution: an authored hero shot for this beat (e.g. Rich-only focal with the second figure as a secondary) — a staging decision for HQ, not a new asset. Polish. |
+| FU-01 | **FIXED** | `meet` derives the date person the same way as `wake` when entered directly; a second instance of the same class (a spell chosen in the previous node) was guarded too. `npm test` now enters every adventure node cold. |
+
+### NEEDS CREATIVE (Art tickets from final-art review; spoiler-safe)
+
+| Ticket | Screens | Current assets | What fails | Asset needed | Severity |
+|---|---|---|---|---|---|
+| NC-FA-01 | `hollow_bowl|left:rich`, `duchess_castle|left:rich`, `catacomb|left:rich@on_stage`, `catacomb|left:rich@on_stage,right:tasha`, `catacomb|left:rich,right:iron_jaw` | Frozen empty/base environment masters | The beat's text depends on a crowd or a staged room of people; the frozen base is empty, so the screen contradicts the narration | Crowd/condition layers (exact-origin overlays or condition masters) for these venues — already listed in CURRENT_OPEN_ART_GAPS "crowd/condition overlays" | Blocking for final presentation of those beats (screens HOLD) |
+| NC-FA-02 | `slurp|farRight:hina,left:rich@ramen_apron,right:okada` | `rich_ramen_apron_80x96.png` (frozen) | The approved apron state contains a detached utensil well left of the body; in-scene it reads as a stray floating object at the frame edge | A corrected apron state (held item attached or removed) via an HQ delta | Blocking for that screen (HOLD) |
+| NC-FA-03 | `cafe|left:rich@laptop_seated`, `…@laptop_nod`, `…@laptop_seated,right:wispa` | `rich_laptop_seated/nod_80x96.png` (frozen) | The seated pose has no seat in the café master, so Rich reads as sitting on the floor | A café seat/table foreground layer or a seated-at-table variant | Polish |
+| NC-FA-04 | `street_night|left:rich,right:phil@charging_day3` (wrap beat) | Phil day-3 charging state | The closing beat describes a spent, grounded figure but the only approved day-3 state is mid-charge | A spent/grounded Phil state | Polish |
+| NC-FA-05 | `combat:werewolf@grave_closed`, `combat:coffe@throne_party_mess` | Identity anchors | Both fights are a transformed or GUIDED variant of a known identity; only the default anchor is approved | The transformed endpoint and the GUIDED variant states (already in CURRENT_OPEN_ART_GAPS) | Blocking for final presentation (HOLD) |
+| NC-FA-06 | Environments with no frozen master (16 ids, e.g. `street_night`, `throne_party_mess`, `la_sky`) | RAPixel placeholders | Placeholder environments; any screen using them is HOLD | Environment masters per CURRENT_OPEN_ART_GAPS "STILL MISSING — environments" | Blocking (coverage) |
+| NC-FA-07 | Screens with family, God, Buckhead Vampire, OG, drowned souls, Portobello cast, ad-hoc extras | RAPixel placeholder actors | Mixed real/placeholder screens (HOLD per HQ) | Identity anchors (canon-owned where noted) | Blocking (coverage) |
+
+---
+
+## Historical tickets (as accepted at the bulk QA checkpoint)
 
 | Ticket | Screen | Status |
 |---|---|---|
