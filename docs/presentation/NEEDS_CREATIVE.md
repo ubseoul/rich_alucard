@@ -1,5 +1,22 @@
 # Presentation Director — exception and NEEDS CREATIVE tickets
 
+## Outstanding tickets (six, as accepted at the bulk QA checkpoint)
+
+| Ticket | Screen | Status |
+|---|---|---|
+| PD-W1-01 | `ocean_floor` / `ocean_floor_collapsed` three-actor prologue screens | EXCEPTION-LAYOUT, **NEEDS CREATIVE**: integrate the frozen ocean-floor master, then author a hero shot |
+| PD-W1-02 | `slurp`, three actors | EXCEPTION-LAYOUT; also accepts partial face overlap; needs an authored shot or slot positions |
+| PD-W1-03 | `pet_crypt`, two actors at the frame edges | EXCEPTION-LAYOUT; needs authored slot positions |
+| PD-W1-04 | `portobello_bedroom`, four actors | EXCEPTION-LAYOUT; needs an authored shot and environment art |
+| PD-W3-01 | Property interior, `inspect` beat only | Accepts `shot-consistency` (every hotspot must stay in frame) |
+| PD-W3-02 | Ogun's Rave interior | Accepts `shot-consistency`; tightening means changing the HQ-accepted composition, a creative decision for HQ |
+
+## Non-presentation follow-ups (not tickets for Art or the Director)
+
+| ID | Issue | Where | Notes |
+|---|---|---|---|
+| FU-01 | An out-of-order story node throws `TypeError: Cannot read properties of null (reading 'name')` | `js/data/btf/adventures/w2.js:16`. The node's `lines` read `RABtfPeople.get(A.vars.person).name`, but `A.vars.person` is set by an earlier node | Only reached when a node is entered without its predecessor (the presentation sweep jumps straight to nodes). It doesn't occur in normal play order. Content-side fix: null-guard the person lookup, or seed the var on entry. Not a Presentation Director issue |
+
 These are the screens the generic Director can't bring into a shot band without scene-specific staging. The Director still frames each one best-effort (full-width, UI-separated, nothing clipped), and lint records the accepted exception. Screen keys are `environment|slot:person`, and this file contains no story content. The release gate requires the exception list in `js/data/presentation.js` to exactly match the screens that fail the dry run.
 
 | Ticket | Screen(s) | Why generic framing can't pass | Resolution path |
