@@ -18,7 +18,7 @@
   const rave={
     id:'ogun-rave',native:{width:270,height:480},referenceScale:1,
     environment:base+'masters/rave_interior_270x480.png',
-    contactLines:[{id:'party-floor',y:344,x1:28,x2:242},{id:'host-landing',y:273,x1:166,x2:248}],
+    contactLines:[{id:'party-floor',y:344,x1:28,x2:242,scale:1.85},{id:'host-landing',y:273,x1:166,x2:248,scale:1.85}],
     actors:{
       rich:{source,anchor:{x:75,y:344,line:'party-floor'},facing:'right',layer:5,states:{neutral:'assets/rich_standing_right.png'}},
       ogun:{source,anchor:{x:192,y:273,line:'host-landing'},facing:'authored',layer:6,states:{neutral:base+'masters/ogun_neutral_80x96.png'}},
@@ -31,7 +31,12 @@
     dialogueSafeZones:[{id:'rave-dialogue',x:32,y:132,width:206,height:60}],
     uiExclusionZones:[{id:'rave-choices',x:16,y:376,width:238,height:88}],
     partyFloor:{id:'central-party-floor',x:36,y:300,width:198,height:66,semantics:'composition area, not a walk mesh'},
-    layers:[{id:'environment',z:1},{id:'rich',z:5},{id:'ogun',z:6},{id:'speaker-foreground',z:7},{id:'dialogue',z:9},{id:'inspection',z:10}]
+    layers:[{id:'environment',z:1},{id:'rich',z:5},{id:'ogun',z:6},{id:'speaker-foreground',z:7},{id:'dialogue',z:9},{id:'inspection',z:10}],
+    // Presentation Director (Wave 3): the accepted 1× composition at the legacy runtime 1.85 rule, made explicit;
+    // the speaker foreground stays an environment-sized layer drawn above the actors.
+    director:{states:{rich:['assets/rich_standing_right.png'],ogun:[base+'masters/ogun_neutral_80x96.png'],bllad33:['assets/bllad33/masters/bllad33_neutral_candidate_80x96.png']},
+     shots:{default:{profile:'conversation',focal:['rich','ogun'],include:['bllad33'],speakers:['rich','ogun','bllad33'],reference:'rich'}},
+     exception:{status:'EXCEPTION-LAYOUT',ticket:'PD-W3-02',accept:['shot-consistency']}}
   };
   const previous=window.RAStages;
   window.RAStages={get:id=>id===rave.id?rave:previous.get(id),all:()=>[...previous.all(),rave]};
@@ -44,7 +49,7 @@
   const exterior={
     id:'property-la-4p-exterior',native:{width:270,height:480},referenceScale:1.25,
     environment:base+'masters/property_exterior_270x480.png',
-    contactLines:[{id:'sidewalk',y:370,x1:28,x2:242}],
+    contactLines:[{id:'sidewalk',y:370,x1:28,x2:242,scale:2.3125}],
     actors:{
       rich:{source,anchor:{x:65,y:370,line:'sidewalk'},facing:'right',layer:5,states:{neutral:'assets/rich_standing_right.png'}},
       shannon:{source,anchor:{x:195,y:370,line:'sidewalk'},facing:'left',layer:5,states:{neutral:base+'characters/shannon/shannon_neutral_80x96.png',controlled_reaction:base+'characters/shannon/shannon_controlled_reaction_80x96.png'}}
@@ -57,13 +62,16 @@
       court:{x:95,y:135,width:112,height:70},
       numbers:{x:6,y:400,width:24,height:30}
     },
-    layers:[{id:'environment',z:1},{id:'incidental',z:3},{id:'actors',z:5},{id:'dialogue',z:9},{id:'controls',z:10},{id:'inspection',z:11}]
+    layers:[{id:'environment',z:1},{id:'incidental',z:3},{id:'actors',z:5},{id:'dialogue',z:9},{id:'controls',z:10},{id:'inspection',z:11}],
+    // Presentation Director (Wave 3): line scale = legacy runtime 1.25 × 1.85; interaction hotspots stay in frame.
+    director:{states:{rich:['assets/rich_standing_right.png'],shannon:[base+'characters/shannon/shannon_neutral_80x96.png',base+'characters/shannon/shannon_controlled_reaction_80x96.png']},
+     shots:{default:{profile:'conversation',focal:['rich','shannon'],speakers:['rich','shannon'],reference:'rich',includeHotspots:true}}}
   };
   const interior={
     id:'property-la-4p-interior',native:{width:270,height:480},referenceScale:1.25,
     environment:base+'masters/property_interior_base_270x480.png',
     problemOverlay:base+'layers/property_problem_overlay_270x480.png',
-    contactLines:[{id:'unit-floor',y:352,x1:20,x2:252}],
+    contactLines:[{id:'unit-floor',y:352,x1:20,x2:252,scale:2.3125}],
     actors:{
       rich:{source,anchor:{x:55,y:352,line:'unit-floor'},facing:'right',layer:5,states:{neutral:'assets/rich_standing_right.png'}},
       shannon:{source,anchor:{x:132,y:352,line:'unit-floor'},facing:'left',layer:5,states:{neutral:base+'characters/shannon/shannon_neutral_80x96.png',controlled_reaction:base+'characters/shannon/shannon_controlled_reaction_80x96.png'}}
@@ -80,7 +88,12 @@
       panel:{x:150,y:180,width:36,height:52},
       paintcan:{x:213,y:162,width:16,height:22}
     },
-    layers:[{id:'environment',z:1},{id:'problem-overlay',z:2},{id:'props',z:3},{id:'rats',z:4},{id:'actors',z:5},{id:'front-rats',z:6},{id:'dialogue',z:9},{id:'controls',z:10},{id:'inspection',z:11}]
+    layers:[{id:'environment',z:1},{id:'problem-overlay',z:2},{id:'props',z:3},{id:'rats',z:4},{id:'actors',z:5},{id:'front-rats',z:6},{id:'dialogue',z:9},{id:'controls',z:10},{id:'inspection',z:11}],
+    // Rats are floor objects at their legacy scale (1.25, no primary-character rule); slots from ratSlots.
+    objects:Object.fromEntries([{x:218,y:352},{x:150,y:352},{x:90,y:352}].map((slot,i)=>[`rat${i}`,{source:ratSource,anchor:{x:slot.x,y:slot.y,line:'unit-floor'},scale:1.25,layer:4}])),
+    director:{states:{rich:['assets/rich_standing_right.png'],shannon:[base+'characters/shannon/shannon_neutral_80x96.png',base+'characters/shannon/shannon_controlled_reaction_80x96.png']},
+     shots:{default:{profile:'conversation',focal:['rich','shannon'],speakers:['rich','shannon'],reference:'rich',includeHotspots:true}},
+     exception:{status:'EXCEPTION-LAYOUT',ticket:'PD-W3-01',accept:['shot-consistency']}}
   };
   const previous=window.RAStages;
   window.RAStages={get:id=>id===exterior.id?exterior:id===interior.id?interior:previous.get(id),all:()=>[...previous.all(),exterior,interior]};

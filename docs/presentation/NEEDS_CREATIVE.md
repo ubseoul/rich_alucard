@@ -18,3 +18,10 @@ These are tracked through the Art gap map, not as presentation defects:
 ## Environment art already frozen but not runtime-integrated
 
 Art Ship 007 froze a set of environments and characters, including boba_shop, brunch, food_court, kitchen, onsen and venice, that the adventures still paint as placeholders. Integrating them is a separate Engineering change and isn't part of this presentation migration. When they are integrated, rerun the dry run and sweep: provisional notes should drop, and the Wave 1 lock will show exactly which screens changed.
+
+## Wave 3 exceptions
+
+| Ticket | Screen | Why | Resolution path |
+|---|---|---|---|
+| PD-W3-01 | Property interior (`property-la-4p-interior`) | The interaction hotspots span the room from the door to the far-right kitchen, so the frame must stay nearly full-width. That gives a conversation size of 0.359: in band (0.35–0.45) but 8% under the cross-scene reference | Accept `shot-consistency` only. Wave 4 could move a hotspot or add an interaction beat if HQ wants the tighter size |
+| PD-W3-02 | Ogun's Rave interior (`ogun-rave`) | The HQ-accepted wide composition (Rich left; Ogun on the raised host landing; a third speaker right) gives a conversation size of 0.351: in band but 10% under the reference | Accept `shot-consistency` only. Candidate Wave 4 beat choreography (per-phase shots) |
