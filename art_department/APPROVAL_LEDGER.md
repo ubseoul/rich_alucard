@@ -127,3 +127,21 @@ All 46 native candidates and 11 useful multi-frame handoff sheets named in `ship
 All 38 exact canonical PNGs named in `ships/art_ship_007/ART_SHIP_MANIFEST.json` are **APPROVED MASTER / FROZEN**. Canonical hashes equal accepted candidate hashes. No art was regenerated or visually revised during promotion.
 
 Freeze applies only to the named anchor/master pixels, OPEN ids, dimensions, formats, alpha modes, character contacts and environment base roles. It does not authorize derivative states, overlays, crowds, runtime Stage Contracts or runtime integration. No runtime/gameplay code changed and no SEALED/HQ-only content was accessed. ART SHIP 007 is FROZEN / COMPLETE; this Art Agent retires and does not begin ART SHIP 008 in this chat.
+
+## ART SHIP 008 — RUNTIME COMPLETION PASS (recorded 2026-09-25)
+
+30. ART SHIP 008 reconciled the current Integration Matrix and NEEDS CREATIVE record into a bounded 14-item Runtime Demand Map. HQ authorized generation, including one exact frozen-delta derivative and one named GUIDED candidate. Art produced 14 native candidates, preserved every referenced source hash, generated internal PLAYER-BLIND review evidence, and recorded a forecast of up to 23 adventure/fight HOLD screens, two held minigame surfaces and three polish-note screens pending Engineering integration.
+31. Candidate checkpoint `d37e157b929f1a8ae8e690f30f73729e81e491bf` passed 14/14 native-contract checks, 15/15 source-hash checks, repository tests and internal visual review. The authorized Rich derivative changed 65 pixels inside its recorded rectangle and zero outside it; the original frozen source remained immutable.
+32. Explicit user-supplied HQ decision:
+
+> HQ PASS — ART SHIP 008 CANDIDATES APPROVED FOR PROMOTION
+>
+> All 14 submitted candidates are approved.
+>
+> Proceed with APPROVED MASTER → FROZEN promotion byte-for-byte. Do not regenerate or visually revise. Preserve the original frozen Rich source and contextual ramen/SLURP-only scope. Keep the Rookoko default-companion alias visible for Engineering but mark it VERIFY WITH RUNTIME/CONTENT INTENT DURING INTEGRATION. Do not update runtime PASS/HOLD counts before Engineering integration and runtime QA.
+
+All 14 exact PNGs named in `ships/art_ship_008/ART_SHIP_MANIFEST.json` are **APPROVED MASTER / FROZEN**. Promoted hashes equal accepted candidate hashes. No image was regenerated, decoded/re-encoded, resized, retouched or visually revised during promotion.
+
+The corrected Rich derivative is frozen only as the contextual ramen/SLURP state and is not a new Rich neutral/master. The original frozen source and promotion history remain unchanged. The recorded Rookoko default alias is not an Art canon/gameplay decision and must **VERIFY WITH RUNTIME/CONTENT INTENT DURING INTEGRATION** before permanent integration.
+
+Runtime integration, Presentation Director framing, gameplay/content alias decisions and PASS/HOLD movement remain separate Engineering/runtime-QA work. No runtime/gameplay file changed, no SEALED/HQ-only content was accessed, and no merge or deployment was performed. ART SHIP 008 is FROZEN / COMPLETE.

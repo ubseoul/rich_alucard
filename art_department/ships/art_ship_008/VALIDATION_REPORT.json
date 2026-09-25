@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "ship_id": "ART SHIP 008",
+  "result": "PASS",
+  "candidate_checkpoint": "d37e157b929f1a8ae8e690f30f73729e81e491bf",
+  "promotion": {
+    "approved_candidates": 14,
+    "promoted_assets": 14,
+    "exact_candidate_hash_matches": 14,
+    "candidate_hash_mismatches": 0,
+    "pixel_regeneration_or_revision": false,
+    "asset_files_changed_during_promotion": 0
+  },
+  "frozen_corpus": {
+    "preexisting_checked": 173,
+    "preexisting_hash_failures": 0,
+    "final_checked": 187,
+    "final_hash_failures": 0,
+    "register_entries": 327,
+    "ship_008_frozen_assets": 14
+  },
+  "contracts": {
+    "native_dimensions_modes_alpha": "PASS",
+    "contacts_and_exact_origins": "PASS",
+    "source_preservation": "PASS",
+    "authorized_delta_changed_pixels_inside": 65,
+    "authorized_delta_changed_pixels_outside": 0,
+    "rich_contextual_scope_recorded": true,
+    "rookoko_default_alias_verification_recorded": "VERIFY WITH RUNTIME/CONTENT INTENT DURING INTEGRATION"
+  },
+  "repository": {
+    "runtime_or_gameplay_files_changed": 0,
+    "sealed_or_hq_only_sources_accessed": 0,
+    "npm_test": "PASS",
+    "art_integration_test": "PASS — registry 153 frozen runtime-handoff files; 185 runtime refs; 75 PASS / 45 HOLD unchanged",
+    "git_diff_check": "PASS",
+    "cold_start_onboarding_validation": "PASS"
+  },
+  "runtime": {
+    "integration_performed": false,
+    "pass_count": 75,
+    "hold_count": 45,
+    "forecast_applied_as_current_truth": false
+  },
+  "approval_note": "APPROVED MASTER / FROZEN promotion is complete. Runtime integration, alias intent, Presentation Director framing and PASS/HOLD acceptance remain Engineering/runtime-QA work."
+}

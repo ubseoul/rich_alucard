@@ -11,10 +11,11 @@
     ]
   },
   "frozen_snapshot": {
-    "frozen_corpus_assets": 173,
-    "register_entries": 313,
-    "ship_004_007_handoff_files": 153,
+    "frozen_corpus_assets": 187,
+    "register_entries": 327,
+    "ship_004_008_handoff_files": 167,
     "runtime_integrated_files": 132,
+    "ship_008_approved_pending_integration_runtime_qa": 14,
     "handoff_reference_sheets": 12,
     "approved_states_without_current_scene": 4,
     "mapping_ambiguous_files": 4,
@@ -35,17 +36,17 @@
     "resize_source_to_fix_composition": false
   },
   "priority_tickets": [
-    {"id": "NC-FA-01", "severity": "BLOCKING", "held_screens": 5, "ship_008": true},
-    {"id": "NC-FA-02", "severity": "BLOCKING", "held_screens": 1, "held_surfaces": 1, "ship_008": true, "requires_hq_delta": true},
-    {"id": "NC-FA-05", "severity": "BLOCKING", "held_fights": 2, "ship_008": true, "guided_named_authorization_required": true},
-    {"id": "NC-FA-08", "severity": "BLOCKING", "held_surfaces": 1, "ship_008": true},
-    {"id": "NC-FA-03", "severity": "POLISH", "polish_screens": 3, "ship_008": true},
-    {"id": "NC-FA-04", "severity": "POLISH", "screens": 1, "ship_008": true}
+    {"id": "NC-FA-01", "severity": "BLOCKING", "held_screens": 5, "ship_008": true, "art_status": "APPROVED MASTER / FROZEN — PENDING ENGINEERING INTEGRATION"},
+    {"id": "NC-FA-02", "severity": "BLOCKING", "held_screens": 1, "held_surfaces": 1, "ship_008": true, "requires_hq_delta": true, "art_status": "APPROVED MASTER / FROZEN — PENDING ENGINEERING INTEGRATION"},
+    {"id": "NC-FA-05", "severity": "BLOCKING", "held_fights": 2, "ship_008": true, "guided_named_authorization_required": true, "art_status": "APPROVED MASTER / FROZEN — PENDING ENGINEERING INTEGRATION"},
+    {"id": "NC-FA-08", "severity": "BLOCKING", "held_surfaces": 1, "ship_008": true, "art_status": "APPROVED MASTER / FROZEN — PENDING ENGINEERING INTEGRATION", "rookoko_default_alias": "VERIFY WITH RUNTIME/CONTENT INTENT DURING INTEGRATION"},
+    {"id": "NC-FA-03", "severity": "POLISH", "polish_screens": 3, "ship_008": true, "art_status": "APPROVED MASTER / FROZEN — PENDING ENGINEERING INTEGRATION"},
+    {"id": "NC-FA-04", "severity": "POLISH", "screens": 1, "ship_008": true, "art_status": "APPROVED MASTER / FROZEN — PENDING ENGINEERING INTEGRATION"}
   ],
   "missing_environment_ids": [
-    "throne_party_mess", "catacomb_dead", "naija_lot", "atl_airport", "atl_house_party",
+    "catacomb_dead", "naija_lot", "atl_airport", "atl_house_party",
     "rooftop_dtla", "neighbor_castle", "portobello_bedroom", "portobello_office", "portobello_porch",
-    "ocean_night_flight", "la_sky", "street_night", "lan_night", "halloween", "tokyo_tease"
+    "ocean_night_flight", "la_sky", "lan_night", "halloween", "tokyo_tease"
   ],
   "missing_identity_ids": ["mom", "dad", "sister", "brother1", "brother2", "god", "buckhead", "og_hooper"],
   "blocked_by_canon": [
@@ -54,7 +55,8 @@
     "buckhead underspecified identity",
     "og_hooper underspecified identity"
   ],
-  "guided_requires_named_authorization": ["coffe_rogue", "portobello staging and progression"],
+  "guided_requires_named_authorization": ["portobello staging and progression", "any revision or expansion of the frozen Ship 008 GUIDED state"],
+  "guided_frozen_exact_scope": ["ART SHIP 008 named GUIDED state"],
   "excluded": [
     "NC-FA-09 mapping questions",
     "assets with no current visual surface solely for file-use completion",
@@ -63,16 +65,21 @@
     "SEALED/HQ-only material"
   ],
   "ship_008_forecast": {
-    "proposed_assets": 14,
+    "frozen_assets": 14,
     "adventure_fight_holds_potentially_cleared": 23,
     "hold_after_successful_approval_and_integration": 22,
     "held_minigame_surfaces_potentially_cleared": 2,
     "polish_note_screens_potentially_corrected": 3,
-    "forecast_is_acceptance": false,
+    "promotion_complete": true,
+    "runtime_integration_complete": false,
+    "forecast_is_current_runtime_acceptance": false,
     "map": "art_department/ships/art_ship_008/RUNTIME_DEMAND_MAP.json"
   },
-  "generation_authorized": false,
+  "generation_authorized": true,
+  "promotion_authorized": true,
+  "ship_008_status": "APPROVED MASTER / FROZEN / COMPLETE",
   "required_authorization_text": "HQ PASS — ART SHIP 008 GENERATION AUTHORIZED",
+  "recommended_next_step": "Engineering integrates the 14 frozen Ship 008 assets, verifies the Rookoko default alias with runtime/content intent, and reruns the Integration Matrix and runtime visual QA before PASS/HOLD changes or another Art Ship.",
   "historical_rough_complete_map_is_current_truth": false,
   "sealed_content_accessed": false
 }

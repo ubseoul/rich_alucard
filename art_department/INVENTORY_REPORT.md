@@ -33,3 +33,9 @@ Every accepted candidate hash equals its canonical production hash. Native dimen
 BE TASTE PASS / HQ VISUAL PASS and technical promotion added 38 exact canonical PNGs under `assets/before_the_fame/`: 18 character identity anchors and 20 reusable environment masters. The `assets/` tree now contains 313 files, including 296 PNGs. `ASSET_REGISTER.json` contains 313 entries with status counts: 116 `STATUS UNKNOWN — HQ REVIEW REQUIRED`, 19 `APPROVED MASTER`, 5 `REFERENCE`, and 173 `FROZEN`.
 
 Every accepted candidate hash equals its canonical production hash. Native dimensions and bytes remain unchanged. The approximately 1.85x character presentation rule remains an Engineering nearest-neighbor runtime rule. No runtime/gameplay code changed.
+
+## Post–ART SHIP 008 snapshot — 2026-09-25
+
+HQ promotion authority added 14 exact accepted PNGs across matched character states, exact-origin condition/support layers and one reusable environment master. The `assets/` tree now contains 327 files, including 310 PNGs. `ASSET_REGISTER.json` contains 327 entries with status counts: 116 `STATUS UNKNOWN — HQ REVIEW REQUIRED`, 19 `APPROVED MASTER`, 5 `REFERENCE`, and 187 `FROZEN`.
+
+Every promoted SHA-256 equals its approved candidate SHA-256. All 173 pre-existing frozen hashes remain unchanged. The authorized Rich correction is frozen only as the contextual ramen/SLURP state, not as a neutral/master redesign, and the original frozen source remains registered unchanged. Exact-origin contracts and character contacts are preserved. Runtime integration, the Rookoko default-alias intent decision and PASS/HOLD movement remain pending Engineering/runtime QA. No runtime/gameplay code changed.

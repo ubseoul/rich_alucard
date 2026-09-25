@@ -24,3 +24,7 @@
 ## Stop
 
 Package ready for HQ review. No approval, freeze, runtime integration, merge or deployment performed.
+
+## Promotion close — 2026-09-25
+
+HQ subsequently approved all 14 submitted candidates for byte-for-byte promotion. `ART_SHIP_MANIFEST.json`, `HQ_DECISION.md` and `VALIDATION_REPORT.json` are the current authority: all 14 assets are APPROVED MASTER / FROZEN, with runtime integration still pending.

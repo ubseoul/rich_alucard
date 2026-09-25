@@ -2,7 +2,7 @@
   "schema_version": 1,
   "ship_id": "ART SHIP 008",
   "title": "RUNTIME COMPLETION PASS",
-  "status": "CANDIDATE PACKAGE COMPLETE — HQ REVIEW REQUIRED",
+  "status": "APPROVED MASTER / FROZEN / COMPLETE \u2014 PENDING ENGINEERING INTEGRATION",
   "runtime_authority": {
     "branch": "origin/claude/frozen-art-integration",
     "commit": "c887f5d6d1a417384d906a361e2b52c0f3423e3c",
@@ -23,20 +23,42 @@
       "asset_type": "ENVIRONMENT_CONDITION_LAYER",
       "state_condition_layer": "crowd-present condition; above frozen base and behind named actors",
       "authority_class": "OPEN",
-      "source_master": {"path": "assets/before_the_fame/environments/catacomb/catacomb_empty_270x480.png", "sha256": "863f1c965a4713c570333e0c10291a56c6fc29ca1008afb76200d832588c3fa4"},
-      "native_dimensions": [270, 480],
+      "source_master": {
+        "path": "assets/before_the_fame/environments/catacomb/catacomb_empty_270x480.png",
+        "sha256": "863f1c965a4713c570333e0c10291a56c6fc29ca1008afb76200d832588c3fa4"
+      },
+      "native_dimensions": [
+        270,
+        480
+      ],
       "alpha_opacity_contract": "RGBA; alpha values 0/255 only",
-      "contact_or_origin": {"origin": [0, 0], "exact_origin": true},
+      "contact_or_origin": {
+        "origin": [
+          0,
+          0
+        ],
+        "exact_origin": true
+      },
       "runtime_surfaces": [
         "catacomb|left:rich,right:iron_jaw",
         "catacomb|left:rich@on_stage",
         "catacomb|left:rich@on_stage,right:tasha"
       ],
       "severity": "BLOCKING",
-      "expected_resolution": {"hold_screens": 3, "problem_class": "empty frozen base contradicts required crowd condition"},
-      "engineering_mapping": {"key": "environments.catacomb.layers.crowd_condition", "proposed_path": "assets/before_the_fame/environments/catacomb/layers/catacomb_crowd_overlay_270x480.png", "draw_order": "base -> crowd layer -> actors -> UI", "activation": "only the listed surface keys"},
+      "expected_resolution": {
+        "hold_screens": 3,
+        "problem_class": "empty frozen base contradicts required crowd condition"
+      },
+      "engineering_mapping": {
+        "key": "environments.catacomb.layers.crowd_condition",
+        "proposed_path": "assets/before_the_fame/environments/catacomb/layers/catacomb_crowd_overlay_270x480.png",
+        "draw_order": "base -> crowd layer -> actors -> UI",
+        "activation": "only the listed surface keys"
+      },
       "authorization_required": "HQ generation authorization",
-      "candidate_status": "GENERATED — CANDIDATE / HQ REVIEW REQUIRED"
+      "candidate_status": "APPROVED MASTER / FROZEN",
+      "approved_sha256": "5468959ed5029d5202b09f2bc651f1b117d156a2fb1ea6b1acf6f72dda4bcd18",
+      "runtime_integration_status": "PENDING ENGINEERING INTEGRATION AND RUNTIME QA"
     },
     {
       "request_id": "AS8-CROWD-HOLLOW",
@@ -45,16 +67,40 @@
       "asset_type": "ENVIRONMENT_CONDITION_LAYER",
       "state_condition_layer": "packed-crowd condition; above frozen base and behind named actors",
       "authority_class": "OPEN",
-      "source_master": {"path": "assets/before_the_fame/environments/hollow_bowl/hollow_bowl_night_270x480.png", "sha256": "19d098d6d70c7228db164a23c2551a301667055977010392d1ff1d9f8420aa30"},
-      "native_dimensions": [270, 480],
+      "source_master": {
+        "path": "assets/before_the_fame/environments/hollow_bowl/hollow_bowl_night_270x480.png",
+        "sha256": "19d098d6d70c7228db164a23c2551a301667055977010392d1ff1d9f8420aa30"
+      },
+      "native_dimensions": [
+        270,
+        480
+      ],
       "alpha_opacity_contract": "RGBA; alpha values 0/255 only",
-      "contact_or_origin": {"origin": [0, 0], "exact_origin": true},
-      "runtime_surfaces": ["hollow_bowl|left:rich"],
+      "contact_or_origin": {
+        "origin": [
+          0,
+          0
+        ],
+        "exact_origin": true
+      },
+      "runtime_surfaces": [
+        "hollow_bowl|left:rich"
+      ],
       "severity": "BLOCKING",
-      "expected_resolution": {"hold_screens": 1, "problem_class": "empty frozen base lacks required venue condition"},
-      "engineering_mapping": {"key": "environments.hollow_bowl.layers.crowd_condition", "proposed_path": "assets/before_the_fame/environments/hollow_bowl/layers/hollow_bowl_crowd_overlay_270x480.png", "draw_order": "base -> crowd layer -> actors -> UI", "activation": "only the listed surface key"},
+      "expected_resolution": {
+        "hold_screens": 1,
+        "problem_class": "empty frozen base lacks required venue condition"
+      },
+      "engineering_mapping": {
+        "key": "environments.hollow_bowl.layers.crowd_condition",
+        "proposed_path": "assets/before_the_fame/environments/hollow_bowl/layers/hollow_bowl_crowd_overlay_270x480.png",
+        "draw_order": "base -> crowd layer -> actors -> UI",
+        "activation": "only the listed surface key"
+      },
       "authorization_required": "HQ generation authorization",
-      "candidate_status": "GENERATED — CANDIDATE / HQ REVIEW REQUIRED"
+      "candidate_status": "APPROVED MASTER / FROZEN",
+      "approved_sha256": "8821c902ca448f3222f3d28f5f32cddafbd95b607a08bf48e73254cc4d7665d1",
+      "runtime_integration_status": "PENDING ENGINEERING INTEGRATION AND RUNTIME QA"
     },
     {
       "request_id": "AS8-CROWD-DUCHESS",
@@ -63,16 +109,40 @@
       "asset_type": "ENVIRONMENT_CONDITION_LAYER",
       "state_condition_layer": "receiving-line/crowd condition; above frozen base and behind named actors",
       "authority_class": "OPEN",
-      "source_master": {"path": "assets/before_the_fame/environments/duchess_castle/duchess_castle_reception_270x480.png", "sha256": "e9f4406059a2eed587840d67f96c45969a6650cae24d176dbb43f6c049068eee"},
-      "native_dimensions": [270, 480],
+      "source_master": {
+        "path": "assets/before_the_fame/environments/duchess_castle/duchess_castle_reception_270x480.png",
+        "sha256": "e9f4406059a2eed587840d67f96c45969a6650cae24d176dbb43f6c049068eee"
+      },
+      "native_dimensions": [
+        270,
+        480
+      ],
       "alpha_opacity_contract": "RGBA; alpha values 0/255 only",
-      "contact_or_origin": {"origin": [0, 0], "exact_origin": true},
-      "runtime_surfaces": ["duchess_castle|left:rich"],
+      "contact_or_origin": {
+        "origin": [
+          0,
+          0
+        ],
+        "exact_origin": true
+      },
+      "runtime_surfaces": [
+        "duchess_castle|left:rich"
+      ],
       "severity": "BLOCKING",
-      "expected_resolution": {"hold_screens": 1, "problem_class": "empty frozen base lacks required reception condition"},
-      "engineering_mapping": {"key": "environments.duchess_castle.layers.reception_condition", "proposed_path": "assets/before_the_fame/environments/duchess_castle/layers/duchess_reception_crowd_overlay_270x480.png", "draw_order": "base -> crowd layer -> actors -> UI", "activation": "only the listed surface key"},
+      "expected_resolution": {
+        "hold_screens": 1,
+        "problem_class": "empty frozen base lacks required reception condition"
+      },
+      "engineering_mapping": {
+        "key": "environments.duchess_castle.layers.reception_condition",
+        "proposed_path": "assets/before_the_fame/environments/duchess_castle/layers/duchess_reception_crowd_overlay_270x480.png",
+        "draw_order": "base -> crowd layer -> actors -> UI",
+        "activation": "only the listed surface key"
+      },
       "authorization_required": "HQ generation authorization",
-      "candidate_status": "GENERATED — CANDIDATE / HQ REVIEW REQUIRED"
+      "candidate_status": "APPROVED MASTER / FROZEN",
+      "approved_sha256": "e28c5c9882ac51ee3f7a5d12480c9f59e83b48552c8f6413606c35a6937b0d7e",
+      "runtime_integration_status": "PENDING ENGINEERING INTEGRATION AND RUNTIME QA"
     },
     {
       "request_id": "AS8-RICH-APRON-FIX",
@@ -80,17 +150,41 @@
       "runtime_asset_id": "rich.ramen_apron_corrected",
       "asset_type": "CHARACTER_STATE_DELTA",
       "state_condition_layer": "ramen-apron state with disconnected utensil attached or removed",
-      "authority_class": "OPEN — HQ DELTA REQUIRED",
-      "source_master": {"path": "assets/before_the_fame/characters/rich/rich_ramen_apron_80x96.png", "sha256": "85881baef03dc2919c5f88b95db57dd9809d7e815ac4bc1878a61cae8fde05ac"},
-      "native_dimensions": [80, 96],
+      "authority_class": "OPEN \u2014 HQ DELTA REQUIRED",
+      "source_master": {
+        "path": "assets/before_the_fame/characters/rich/rich_ramen_apron_80x96.png",
+        "sha256": "85881baef03dc2919c5f88b95db57dd9809d7e815ac4bc1878a61cae8fde05ac"
+      },
+      "native_dimensions": [
+        80,
+        96
+      ],
       "alpha_opacity_contract": "RGBA; alpha values 0/255 only",
-      "contact_or_origin": {"contact": [40, 88]},
-      "runtime_surfaces": ["slurp|farRight:hina,left:rich@ramen_apron,right:okada", "minigame:slurp"],
+      "contact_or_origin": {
+        "contact": [
+          40,
+          88
+        ]
+      },
+      "runtime_surfaces": [
+        "slurp|farRight:hina,left:rich@ramen_apron,right:okada",
+        "minigame:slurp"
+      ],
       "severity": "BLOCKING",
-      "expected_resolution": {"hold_screens": 1, "held_minigame_surfaces": 1, "problem_class": "incorrect detached component"},
-      "engineering_mapping": {"key": "characters.rich.states.ramen_apron", "proposed_path": "assets/before_the_fame/characters/rich/rich_ramen_apron_corrected_80x96.png", "replacement_policy": "after approval map runtime state id ramen_apron to the new file; preserve the old frozen file and registry history"},
+      "expected_resolution": {
+        "hold_screens": 1,
+        "held_minigame_surfaces": 1,
+        "problem_class": "incorrect detached component"
+      },
+      "engineering_mapping": {
+        "key": "characters.rich.states.ramen_apron",
+        "proposed_path": "assets/before_the_fame/characters/rich/rich_ramen_apron_corrected_80x96.png",
+        "replacement_policy": "after approval map runtime state id ramen_apron to the new file; preserve the old frozen file and registry history"
+      },
       "authorization_required": "Explicit HQ delta: only source rectangle x=13..18, y=56..73 may change; every pixel outside remains byte-identical; original frozen path is never overwritten",
-      "candidate_status": "GENERATED — CANDIDATE / HQ REVIEW REQUIRED"
+      "candidate_status": "APPROVED MASTER / FROZEN",
+      "approved_sha256": "9c2ba5ab7175cffb0d5c71040bf8461c3dd3e82320605009a0781ffc353d2019",
+      "runtime_integration_status": "PENDING ENGINEERING INTEGRATION AND RUNTIME QA"
     },
     {
       "request_id": "AS8-MOONIE-ENDPOINT",
@@ -99,16 +193,38 @@
       "asset_type": "CHARACTER_STATE",
       "state_condition_layer": "OPEN transformed endpoint",
       "authority_class": "OPEN",
-      "source_master": {"path": "assets/before_the_fame/characters/moonie/moonie_dorsey_neutral_80x96.png", "sha256": "28106700746dec289e896894d1be6ebf5e23cefc26bd15b58367836b17c43e49"},
-      "native_dimensions": [80, 96],
+      "source_master": {
+        "path": "assets/before_the_fame/characters/moonie/moonie_dorsey_neutral_80x96.png",
+        "sha256": "28106700746dec289e896894d1be6ebf5e23cefc26bd15b58367836b17c43e49"
+      },
+      "native_dimensions": [
+        80,
+        96
+      ],
       "alpha_opacity_contract": "RGBA; alpha values 0/255 only",
-      "contact_or_origin": {"contact": [40, 88]},
-      "runtime_surfaces": ["combat:werewolf@grave_closed"],
+      "contact_or_origin": {
+        "contact": [
+          40,
+          88
+        ]
+      },
+      "runtime_surfaces": [
+        "combat:werewolf@grave_closed"
+      ],
       "severity": "BLOCKING",
-      "expected_resolution": {"hold_fights": 1, "problem_class": "implemented transformed condition lacks approved state"},
-      "engineering_mapping": {"key": "characters.moonie.states.wolfed_out", "proposed_path": "assets/before_the_fame/characters/moonie/moonie_wolfed_out_80x96.png", "runtime_alias": "combat person werewolf -> moonie.wolfed_out"},
+      "expected_resolution": {
+        "hold_fights": 1,
+        "problem_class": "implemented transformed condition lacks approved state"
+      },
+      "engineering_mapping": {
+        "key": "characters.moonie.states.wolfed_out",
+        "proposed_path": "assets/before_the_fame/characters/moonie/moonie_wolfed_out_80x96.png",
+        "runtime_alias": "combat person werewolf -> moonie.wolfed_out"
+      },
       "authorization_required": "HQ generation authorization",
-      "candidate_status": "GENERATED — CANDIDATE / HQ REVIEW REQUIRED"
+      "candidate_status": "APPROVED MASTER / FROZEN",
+      "approved_sha256": "a85b867ceb9fb2d1b852e1df0bbec5c1439dbffdccf8163390a7058a0fca6747",
+      "runtime_integration_status": "PENDING ENGINEERING INTEGRATION AND RUNTIME QA"
     },
     {
       "request_id": "AS8-COFFE-GUIDED",
@@ -117,16 +233,38 @@
       "asset_type": "CHARACTER_STATE",
       "state_condition_layer": "GUIDED isolated variant",
       "authority_class": "GUIDED",
-      "source_master": {"path": "assets/before_the_fame/characters/coffe/coffe_neutral_80x96.png", "sha256": "d8c386770d3b57a7d0409b561aee02f62e92396dc12852510c470b04ec17e0dd"},
-      "native_dimensions": [80, 96],
+      "source_master": {
+        "path": "assets/before_the_fame/characters/coffe/coffe_neutral_80x96.png",
+        "sha256": "d8c386770d3b57a7d0409b561aee02f62e92396dc12852510c470b04ec17e0dd"
+      },
+      "native_dimensions": [
+        80,
+        96
+      ],
       "alpha_opacity_contract": "RGBA; alpha values 0/255 only",
-      "contact_or_origin": {"contact": [40, 88]},
-      "runtime_surfaces": ["combat:coffe@throne_party_mess"],
+      "contact_or_origin": {
+        "contact": [
+          40,
+          88
+        ]
+      },
+      "runtime_surfaces": [
+        "combat:coffe@throne_party_mess"
+      ],
       "severity": "BLOCKING",
-      "expected_resolution": {"hold_fights": 1, "dependency": "AS8-THRONE-MESS-LAYER", "problem_class": "implemented GUIDED condition lacks approved state"},
-      "engineering_mapping": {"key": "characters.coffe.states.rogue", "proposed_path": "assets/before_the_fame/characters/coffe/coffe_rogue_80x96.png"},
+      "expected_resolution": {
+        "hold_fights": 1,
+        "dependency": "AS8-THRONE-MESS-LAYER",
+        "problem_class": "implemented GUIDED condition lacks approved state"
+      },
+      "engineering_mapping": {
+        "key": "characters.coffe.states.rogue",
+        "proposed_path": "assets/before_the_fame/characters/coffe/coffe_rogue_80x96.png"
+      },
       "authorization_required": "Explicit named GUIDED authorization for AS8-COFFE-GUIDED in addition to general Ship generation authorization",
-      "candidate_status": "GENERATED — CANDIDATE / HQ REVIEW REQUIRED"
+      "candidate_status": "APPROVED MASTER / FROZEN",
+      "approved_sha256": "24c0789da9071eac3dc553a73b3df9d646c4d23d0829d054daa376095c6c350c",
+      "runtime_integration_status": "PENDING ENGINEERING INTEGRATION AND RUNTIME QA"
     },
     {
       "request_id": "AS8-RICH-HOOKAH",
@@ -135,16 +273,38 @@
       "asset_type": "CHARACTER_STATE",
       "state_condition_layer": "seated hookah participant state",
       "authority_class": "OPEN",
-      "source_master": {"path": "assets/before_the_fame/characters/rich/rich_laptop_seated_80x96.png", "sha256": "a18ecf0d5c57d74f2be77a671faea5a6c01e7c6c60b00787d3f08c22499637b0"},
-      "native_dimensions": [80, 96],
+      "source_master": {
+        "path": "assets/before_the_fame/characters/rich/rich_laptop_seated_80x96.png",
+        "sha256": "a18ecf0d5c57d74f2be77a671faea5a6c01e7c6c60b00787d3f08c22499637b0"
+      },
+      "native_dimensions": [
+        80,
+        96
+      ],
       "alpha_opacity_contract": "RGBA; alpha values 0/255 only",
-      "contact_or_origin": {"contact": [40, 88]},
-      "runtime_surfaces": ["minigame:hookah"],
+      "contact_or_origin": {
+        "contact": [
+          40,
+          88
+        ]
+      },
+      "runtime_surfaces": [
+        "minigame:hookah"
+      ],
       "severity": "BLOCKING",
-      "expected_resolution": {"held_minigame_surfaces": 1, "dependency_group": "NC-FA-08 three-state set", "problem_class": "placeholder seated participant"},
-      "engineering_mapping": {"key": "minigames.hookah.actors.rich", "proposed_path": "assets/before_the_fame/characters/rich/rich_hookah_seated_80x96.png"},
+      "expected_resolution": {
+        "held_minigame_surfaces": 1,
+        "dependency_group": "NC-FA-08 three-state set",
+        "problem_class": "placeholder seated participant"
+      },
+      "engineering_mapping": {
+        "key": "minigames.hookah.actors.rich",
+        "proposed_path": "assets/before_the_fame/characters/rich/rich_hookah_seated_80x96.png"
+      },
       "authorization_required": "HQ generation authorization",
-      "candidate_status": "GENERATED — CANDIDATE / HQ REVIEW REQUIRED"
+      "candidate_status": "APPROVED MASTER / FROZEN",
+      "approved_sha256": "c260180a4b3636fc2765534e0053abd1cab25b2ca2c43c83f800e6b55ee20696",
+      "runtime_integration_status": "PENDING ENGINEERING INTEGRATION AND RUNTIME QA"
     },
     {
       "request_id": "AS8-BLLAD33-HOOKAH",
@@ -153,16 +313,38 @@
       "asset_type": "CHARACTER_STATE",
       "state_condition_layer": "seated hookah companion state",
       "authority_class": "OPEN",
-      "source_master": {"path": "assets/bllad33/masters/bllad33_neutral_candidate_80x96.png", "sha256": "fcca67ce0a90a60f16854c3c5f8019a28d243aa2bf3bf86ecdf5631013198f5b"},
-      "native_dimensions": [80, 96],
+      "source_master": {
+        "path": "assets/bllad33/masters/bllad33_neutral_candidate_80x96.png",
+        "sha256": "fcca67ce0a90a60f16854c3c5f8019a28d243aa2bf3bf86ecdf5631013198f5b"
+      },
+      "native_dimensions": [
+        80,
+        96
+      ],
       "alpha_opacity_contract": "RGBA; alpha values 0/255 only",
-      "contact_or_origin": {"contact": [40, 88]},
-      "runtime_surfaces": ["minigame:hookah?company=BLLAD33"],
+      "contact_or_origin": {
+        "contact": [
+          40,
+          88
+        ]
+      },
+      "runtime_surfaces": [
+        "minigame:hookah?company=BLLAD33"
+      ],
       "severity": "BLOCKING",
-      "expected_resolution": {"held_minigame_surfaces": 1, "dependency_group": "NC-FA-08 three-state set", "problem_class": "placeholder seated companion"},
-      "engineering_mapping": {"key": "minigames.hookah.company.BLLAD33", "proposed_path": "assets/bllad33/states/bllad33_hookah_seated_80x96.png"},
+      "expected_resolution": {
+        "held_minigame_surfaces": 1,
+        "dependency_group": "NC-FA-08 three-state set",
+        "problem_class": "placeholder seated companion"
+      },
+      "engineering_mapping": {
+        "key": "minigames.hookah.company.BLLAD33",
+        "proposed_path": "assets/bllad33/states/bllad33_hookah_seated_80x96.png"
+      },
       "authorization_required": "HQ generation authorization",
-      "candidate_status": "GENERATED — CANDIDATE / HQ REVIEW REQUIRED"
+      "candidate_status": "APPROVED MASTER / FROZEN",
+      "approved_sha256": "bcc056454a2c1a234acbb427b5f53061c7d23b211dfb59079077b874e171b94c",
+      "runtime_integration_status": "PENDING ENGINEERING INTEGRATION AND RUNTIME QA"
     },
     {
       "request_id": "AS8-ROOKOKO-HOOKAH",
@@ -171,16 +353,42 @@
       "asset_type": "CHARACTER_STATE",
       "state_condition_layer": "default seated hookah companion state",
       "authority_class": "OPEN",
-      "source_master": {"path": "assets/before_the_fame/characters/rookoko/rookoko_neutral_80x96.png", "sha256": "ed315afe3431738962162ee58177c4f4cb9de9cdb246d22f57476bc200423ff1"},
-      "native_dimensions": [80, 96],
+      "source_master": {
+        "path": "assets/before_the_fame/characters/rookoko/rookoko_neutral_80x96.png",
+        "sha256": "ed315afe3431738962162ee58177c4f4cb9de9cdb246d22f57476bc200423ff1"
+      },
+      "native_dimensions": [
+        80,
+        96
+      ],
       "alpha_opacity_contract": "RGBA; alpha values 0/255 only",
-      "contact_or_origin": {"contact": [40, 88]},
-      "runtime_surfaces": ["minigame:hookah?company=ROOKOKO", "minigame:hookah?company=default"],
+      "contact_or_origin": {
+        "contact": [
+          40,
+          88
+        ]
+      },
+      "runtime_surfaces": [
+        "minigame:hookah?company=ROOKOKO",
+        "minigame:hookah?company=default"
+      ],
       "severity": "BLOCKING",
-      "expected_resolution": {"held_minigame_surfaces": 1, "dependency_group": "NC-FA-08 three-state set", "problem_class": "default companion has no native seated state"},
-      "engineering_mapping": {"key": "minigames.hookah.company.ROOKOKO", "proposed_path": "assets/before_the_fame/characters/rookoko/rookoko_hookah_seated_80x96.png", "default_alias": true},
+      "expected_resolution": {
+        "held_minigame_surfaces": 1,
+        "dependency_group": "NC-FA-08 three-state set",
+        "problem_class": "default companion has no native seated state"
+      },
+      "engineering_mapping": {
+        "key": "minigames.hookah.company.ROOKOKO",
+        "proposed_path": "assets/before_the_fame/characters/rookoko/rookoko_hookah_seated_80x96.png",
+        "default_alias": true,
+        "default_alias_verification": "VERIFY WITH RUNTIME/CONTENT INTENT DURING INTEGRATION",
+        "art_authority_boundary": "Art does not decide canon/gameplay default-companion behavior."
+      },
       "authorization_required": "HQ generation authorization",
-      "candidate_status": "GENERATED — CANDIDATE / HQ REVIEW REQUIRED"
+      "candidate_status": "APPROVED MASTER / FROZEN",
+      "approved_sha256": "35b1481a575cd853cbffaefc7b133ee67763158a01faf6c44834502036247ba0",
+      "runtime_integration_status": "PENDING ENGINEERING INTEGRATION AND RUNTIME QA"
     },
     {
       "request_id": "AS8-ENV-STREET-NIGHT",
@@ -191,12 +399,24 @@
       "authority_class": "OPEN",
       "source_master": null,
       "visual_references": [
-        {"path": "assets/powder_springs_night_270x480.png", "sha256": "b31e731120fb4536a090bad19fa9b6efd3f1c2fa77f76598c966b99e63260a8c"},
-        {"path": "assets/before_the_fame/environments/castle_exterior/castle_exterior_night_270x480.png", "sha256": "be4417926078581934f48bcfd80dd71a0985ecd0459a5ccbac767a1abd7e2873"}
+        {
+          "path": "assets/powder_springs_night_270x480.png",
+          "sha256": "b31e731120fb4536a090bad19fa9b6efd3f1c2fa77f76598c966b99e63260a8c"
+        },
+        {
+          "path": "assets/before_the_fame/environments/castle_exterior/castle_exterior_night_270x480.png",
+          "sha256": "be4417926078581934f48bcfd80dd71a0985ecd0459a5ccbac767a1abd7e2873"
+        }
       ],
-      "native_dimensions": [270, 480],
+      "native_dimensions": [
+        270,
+        480
+      ],
       "alpha_opacity_contract": "RGB; fully opaque",
-      "contact_or_origin": {"proposed_floor_contact_line": 372, "director_final_framing_authority": true},
+      "contact_or_origin": {
+        "proposed_floor_contact_line": 372,
+        "director_final_framing_authority": true
+      },
       "runtime_surfaces": [
         "street_night|left:rich",
         "street_night|left:rich,right:coffe",
@@ -209,10 +429,19 @@
         "combat:phil@street_night"
       ],
       "severity": "COVERAGE",
-      "expected_resolution": {"hold_screens": 9, "dependency": "AS8-PHIL-SPENT removes the remaining polish mismatch on one listed surface", "problem_class": "placeholder environment"},
-      "engineering_mapping": {"key": "environments.street_night", "proposed_path": "assets/before_the_fame/environments/street_night/street_night_270x480.png"},
+      "expected_resolution": {
+        "hold_screens": 9,
+        "dependency": "AS8-PHIL-SPENT removes the remaining polish mismatch on one listed surface",
+        "problem_class": "placeholder environment"
+      },
+      "engineering_mapping": {
+        "key": "environments.street_night",
+        "proposed_path": "assets/before_the_fame/environments/street_night/street_night_270x480.png"
+      },
       "authorization_required": "HQ generation authorization",
-      "candidate_status": "GENERATED — CANDIDATE / HQ REVIEW REQUIRED"
+      "candidate_status": "APPROVED MASTER / FROZEN",
+      "approved_sha256": "68aa0f2176e9c255083ebaaf8b4874fb19f61a9ece04921580cc78309694f13a",
+      "runtime_integration_status": "PENDING ENGINEERING INTEGRATION AND RUNTIME QA"
     },
     {
       "request_id": "AS8-PHIL-SPENT",
@@ -221,16 +450,39 @@
       "asset_type": "CHARACTER_STATE",
       "state_condition_layer": "spent/grounded endpoint preserving day-three identity",
       "authority_class": "OPEN",
-      "source_master": {"path": "assets/before_the_fame/characters/phil/phil_charging_day3_80x96.png", "sha256": "1609de089d3d893927752c98d6f9af6033dac77d1213a2ab518e4717ffb85af5"},
-      "native_dimensions": [80, 96],
+      "source_master": {
+        "path": "assets/before_the_fame/characters/phil/phil_charging_day3_80x96.png",
+        "sha256": "1609de089d3d893927752c98d6f9af6033dac77d1213a2ab518e4717ffb85af5"
+      },
+      "native_dimensions": [
+        80,
+        96
+      ],
       "alpha_opacity_contract": "RGBA; alpha values 0/255 only",
-      "contact_or_origin": {"contact": [40, 88]},
-      "runtime_surfaces": ["street_night|left:rich,right:phil@charging_day3"],
+      "contact_or_origin": {
+        "contact": [
+          40,
+          88
+        ]
+      },
+      "runtime_surfaces": [
+        "street_night|left:rich,right:phil@charging_day3"
+      ],
       "severity": "POLISH",
-      "expected_resolution": {"polish_screens": 1, "dependency": "AS8-ENV-STREET-NIGHT", "problem_class": "condition mismatch"},
-      "engineering_mapping": {"key": "characters.phil.states.spent_grounded", "proposed_path": "assets/before_the_fame/characters/phil/phil_spent_grounded_80x96.png", "content_state_change": "map only the listed terminal surface to spent_grounded; preserve charging_day3 elsewhere"},
+      "expected_resolution": {
+        "polish_screens": 1,
+        "dependency": "AS8-ENV-STREET-NIGHT",
+        "problem_class": "condition mismatch"
+      },
+      "engineering_mapping": {
+        "key": "characters.phil.states.spent_grounded",
+        "proposed_path": "assets/before_the_fame/characters/phil/phil_spent_grounded_80x96.png",
+        "content_state_change": "map only the listed terminal surface to spent_grounded; preserve charging_day3 elsewhere"
+      },
       "authorization_required": "HQ generation authorization",
-      "candidate_status": "GENERATED — CANDIDATE / HQ REVIEW REQUIRED"
+      "candidate_status": "APPROVED MASTER / FROZEN",
+      "approved_sha256": "0e17fac440e486ba4b0bc2f0ca1078c2b584ced86915c6469bab04c6a4b7476d",
+      "runtime_integration_status": "PENDING ENGINEERING INTEGRATION AND RUNTIME QA"
     },
     {
       "request_id": "AS8-THRONE-MESS-LAYER",
@@ -239,10 +491,22 @@
       "asset_type": "ENVIRONMENT_CONDITION_LAYER",
       "state_condition_layer": "post-party condition over approved throne base",
       "authority_class": "OPEN",
-      "source_master": {"path": "assets/throne_room_scene_portrait.png", "sha256": "08bd6a6cfcb53356e105505fb7754292c7a3c1491d7078f13b9881a4bb0f90c0"},
-      "native_dimensions": [765, 1024],
+      "source_master": {
+        "path": "assets/throne_room_scene_portrait.png",
+        "sha256": "08bd6a6cfcb53356e105505fb7754292c7a3c1491d7078f13b9881a4bb0f90c0"
+      },
+      "native_dimensions": [
+        765,
+        1024
+      ],
       "alpha_opacity_contract": "RGBA; alpha values 0/255 only",
-      "contact_or_origin": {"origin": [0, 0], "exact_origin": true},
+      "contact_or_origin": {
+        "origin": [
+          0,
+          0
+        ],
+        "exact_origin": true
+      },
       "runtime_surfaces": [
         "throne_party_mess|left:rich,right:vicky",
         "throne_party_mess|mid:rich",
@@ -253,10 +517,21 @@
         "combat:coffe@throne_party_mess"
       ],
       "severity": "COVERAGE",
-      "expected_resolution": {"hold_screens": 7, "dependency": "combat:coffe also requires AS8-COFFE-GUIDED", "problem_class": "placeholder environment condition"},
-      "engineering_mapping": {"key": "environments.throne_party_mess", "proposed_path": "assets/before_the_fame/environments/throne_party_mess/throne_party_mess_overlay_765x1024.png", "composition": "approved throne base + exact-origin overlay", "draw_order": "base -> condition layer -> actors -> UI"},
+      "expected_resolution": {
+        "hold_screens": 7,
+        "dependency": "combat:coffe also requires AS8-COFFE-GUIDED",
+        "problem_class": "placeholder environment condition"
+      },
+      "engineering_mapping": {
+        "key": "environments.throne_party_mess",
+        "proposed_path": "assets/before_the_fame/environments/throne_party_mess/throne_party_mess_overlay_765x1024.png",
+        "composition": "approved throne base + exact-origin overlay",
+        "draw_order": "base -> condition layer -> actors -> UI"
+      },
       "authorization_required": "HQ generation authorization",
-      "candidate_status": "GENERATED — CANDIDATE / HQ REVIEW REQUIRED"
+      "candidate_status": "APPROVED MASTER / FROZEN",
+      "approved_sha256": "3f0b874e19eacacb21babe3375b67c7ee1f071ecbe9a3d5acad2f5ad7f4ed265",
+      "runtime_integration_status": "PENDING ENGINEERING INTEGRATION AND RUNTIME QA"
     },
     {
       "request_id": "AS8-CAFE-SEAT-REAR",
@@ -265,20 +540,52 @@
       "asset_type": "ENVIRONMENT_SUPPORT_LAYER",
       "state_condition_layer": "rear seating support for Rich laptop states",
       "authority_class": "OPEN",
-      "source_master": {"path": "assets/before_the_fame/environments/cafe/bean_there_dead_that_cafe_270x480.png", "sha256": "792932fe68581e580d97fa066ec135860a4caadfed28a3a4b73b1c977c8ce161"},
+      "source_master": {
+        "path": "assets/before_the_fame/environments/cafe/bean_there_dead_that_cafe_270x480.png",
+        "sha256": "792932fe68581e580d97fa066ec135860a4caadfed28a3a4b73b1c977c8ce161"
+      },
       "related_character_sources": [
-        {"path": "assets/before_the_fame/characters/rich/rich_laptop_seated_80x96.png", "sha256": "a18ecf0d5c57d74f2be77a671faea5a6c01e7c6c60b00787d3f08c22499637b0"},
-        {"path": "assets/before_the_fame/characters/rich/rich_laptop_nod_80x96.png", "sha256": "601c3fb46a87a6a8843a7569ed978a46118ce94d7ff864a0dc7aeb5e0fb63379"}
+        {
+          "path": "assets/before_the_fame/characters/rich/rich_laptop_seated_80x96.png",
+          "sha256": "a18ecf0d5c57d74f2be77a671faea5a6c01e7c6c60b00787d3f08c22499637b0"
+        },
+        {
+          "path": "assets/before_the_fame/characters/rich/rich_laptop_nod_80x96.png",
+          "sha256": "601c3fb46a87a6a8843a7569ed978a46118ce94d7ff864a0dc7aeb5e0fb63379"
+        }
       ],
-      "native_dimensions": [270, 480],
+      "native_dimensions": [
+        270,
+        480
+      ],
       "alpha_opacity_contract": "RGBA; alpha values 0/255 only",
-      "contact_or_origin": {"origin": [0, 0], "exact_origin": true},
-      "runtime_surfaces": ["cafe|left:rich@laptop_seated", "cafe|left:rich@laptop_nod", "cafe|left:rich@laptop_seated,right:wispa"],
+      "contact_or_origin": {
+        "origin": [
+          0,
+          0
+        ],
+        "exact_origin": true
+      },
+      "runtime_surfaces": [
+        "cafe|left:rich@laptop_seated",
+        "cafe|left:rich@laptop_nod",
+        "cafe|left:rich@laptop_seated,right:wispa"
+      ],
       "severity": "POLISH",
-      "expected_resolution": {"polish_screens": 3, "dependency_group": "NC-FA-03 two-layer set", "problem_class": "unsupported seated pose"},
-      "engineering_mapping": {"key": "environments.cafe.layers.laptop_support_rear", "proposed_path": "assets/before_the_fame/environments/cafe/layers/cafe_laptop_seat_rear_270x480.png", "draw_order": "base -> rear support -> actors"},
+      "expected_resolution": {
+        "polish_screens": 3,
+        "dependency_group": "NC-FA-03 two-layer set",
+        "problem_class": "unsupported seated pose"
+      },
+      "engineering_mapping": {
+        "key": "environments.cafe.layers.laptop_support_rear",
+        "proposed_path": "assets/before_the_fame/environments/cafe/layers/cafe_laptop_seat_rear_270x480.png",
+        "draw_order": "base -> rear support -> actors"
+      },
       "authorization_required": "HQ generation authorization",
-      "candidate_status": "GENERATED — CANDIDATE / HQ REVIEW REQUIRED"
+      "candidate_status": "APPROVED MASTER / FROZEN",
+      "approved_sha256": "fed712ed5e22b0e652c0b18e2ca77fab8d755b82a65ddd8cfb9c1c031a4b9eb7",
+      "runtime_integration_status": "PENDING ENGINEERING INTEGRATION AND RUNTIME QA"
     },
     {
       "request_id": "AS8-CAFE-TABLE-FRONT",
@@ -287,20 +594,52 @@
       "asset_type": "ENVIRONMENT_SUPPORT_LAYER",
       "state_condition_layer": "foreground table/support occlusion for Rich laptop states",
       "authority_class": "OPEN",
-      "source_master": {"path": "assets/before_the_fame/environments/cafe/bean_there_dead_that_cafe_270x480.png", "sha256": "792932fe68581e580d97fa066ec135860a4caadfed28a3a4b73b1c977c8ce161"},
+      "source_master": {
+        "path": "assets/before_the_fame/environments/cafe/bean_there_dead_that_cafe_270x480.png",
+        "sha256": "792932fe68581e580d97fa066ec135860a4caadfed28a3a4b73b1c977c8ce161"
+      },
       "related_character_sources": [
-        {"path": "assets/before_the_fame/characters/rich/rich_laptop_seated_80x96.png", "sha256": "a18ecf0d5c57d74f2be77a671faea5a6c01e7c6c60b00787d3f08c22499637b0"},
-        {"path": "assets/before_the_fame/characters/rich/rich_laptop_nod_80x96.png", "sha256": "601c3fb46a87a6a8843a7569ed978a46118ce94d7ff864a0dc7aeb5e0fb63379"}
+        {
+          "path": "assets/before_the_fame/characters/rich/rich_laptop_seated_80x96.png",
+          "sha256": "a18ecf0d5c57d74f2be77a671faea5a6c01e7c6c60b00787d3f08c22499637b0"
+        },
+        {
+          "path": "assets/before_the_fame/characters/rich/rich_laptop_nod_80x96.png",
+          "sha256": "601c3fb46a87a6a8843a7569ed978a46118ce94d7ff864a0dc7aeb5e0fb63379"
+        }
       ],
-      "native_dimensions": [270, 480],
+      "native_dimensions": [
+        270,
+        480
+      ],
       "alpha_opacity_contract": "RGBA; alpha values 0/255 only",
-      "contact_or_origin": {"origin": [0, 0], "exact_origin": true},
-      "runtime_surfaces": ["cafe|left:rich@laptop_seated", "cafe|left:rich@laptop_nod", "cafe|left:rich@laptop_seated,right:wispa"],
+      "contact_or_origin": {
+        "origin": [
+          0,
+          0
+        ],
+        "exact_origin": true
+      },
+      "runtime_surfaces": [
+        "cafe|left:rich@laptop_seated",
+        "cafe|left:rich@laptop_nod",
+        "cafe|left:rich@laptop_seated,right:wispa"
+      ],
       "severity": "POLISH",
-      "expected_resolution": {"polish_screens": 3, "dependency_group": "NC-FA-03 two-layer set", "problem_class": "unsupported seated pose"},
-      "engineering_mapping": {"key": "environments.cafe.layers.laptop_table_foreground", "proposed_path": "assets/before_the_fame/environments/cafe/layers/cafe_laptop_table_foreground_270x480.png", "draw_order": "actors -> foreground table -> UI"},
+      "expected_resolution": {
+        "polish_screens": 3,
+        "dependency_group": "NC-FA-03 two-layer set",
+        "problem_class": "unsupported seated pose"
+      },
+      "engineering_mapping": {
+        "key": "environments.cafe.layers.laptop_table_foreground",
+        "proposed_path": "assets/before_the_fame/environments/cafe/layers/cafe_laptop_table_foreground_270x480.png",
+        "draw_order": "actors -> foreground table -> UI"
+      },
       "authorization_required": "HQ generation authorization",
-      "candidate_status": "GENERATED — CANDIDATE / HQ REVIEW REQUIRED"
+      "candidate_status": "APPROVED MASTER / FROZEN",
+      "approved_sha256": "819aa2407f727507337fa0cedcb9b9402e51b8a94d0cc3ef0394a43122f2f62c",
+      "runtime_integration_status": "PENDING ENGINEERING INTEGRATION AND RUNTIME QA"
     }
   ],
   "scope_summary": {
@@ -311,19 +650,46 @@
       "environment_masters": 1,
       "corrected_state_delta_candidates": 1
     },
-    "authority": {"OPEN": 12, "OPEN_HQ_DELTA_REQUIRED": 1, "GUIDED": 1},
-    "severity": {"BLOCKING": 9, "COVERAGE": 2, "POLISH": 3},
+    "authority": {
+      "OPEN": 12,
+      "OPEN_HQ_DELTA_REQUIRED": 1,
+      "GUIDED": 1
+    },
+    "severity": {
+      "BLOCKING": 9,
+      "COVERAGE": 2,
+      "POLISH": 3
+    },
     "adventure_fight_holds_potentially_cleared": 23,
     "held_minigame_surfaces_potentially_cleared": 2,
     "polish_note_screens_potentially_corrected": 3,
     "forecast_hold_after_success": 22
   },
-  "blocked_by_canon": ["family identity group", "god", "buckhead", "og_hooper"],
-  "explicit_exclusions": ["NC-FA-09", "no-surface asset usage work", "speculative poses", "speculative UI", "future content", "SEALED/HQ-only material"],
+  "blocked_by_canon": [
+    "family identity group",
+    "god",
+    "buckhead",
+    "og_hooper"
+  ],
+  "explicit_exclusions": [
+    "NC-FA-09",
+    "no-surface asset usage work",
+    "speculative poses",
+    "speculative UI",
+    "future content",
+    "SEALED/HQ-only material"
+  ],
   "spoiler_policy": "User-facing reports use neutral ticket ids and counts; exact surface keys are for Engineering/reviewer use only.",
   "generation_authorized": true,
-  "generation_authorization_received": "HQ PASS — ART SHIP 008 GENERATION AUTHORIZED",
-  "special_authorizations_received": ["AS8-RICH-APRON-FIX", "AS8-COFFE-GUIDED"],
-  "required_authorization_text": "HQ PASS — ART SHIP 008 GENERATION AUTHORIZED",
-  "approval_status": "14 CANDIDATES GENERATED; HQ REVIEW REQUIRED; NO APPROVAL OR FREEZE CLAIM"
+  "generation_authorization_received": "HQ PASS \u2014 ART SHIP 008 GENERATION AUTHORIZED",
+  "special_authorizations_received": [
+    "AS8-RICH-APRON-FIX",
+    "AS8-COFFE-GUIDED"
+  ],
+  "required_authorization_text": "HQ PASS \u2014 ART SHIP 008 GENERATION AUTHORIZED",
+  "approval_status": "14 APPROVED MASTER / FROZEN; NO RUNTIME INTEGRATION CLAIM",
+  "promotion_authorized": true,
+  "promotion_authority": "HQ PASS \u2014 ART SHIP 008 CANDIDATES APPROVED FOR PROMOTION",
+  "candidate_checkpoint": "d37e157b929f1a8ae8e690f30f73729e81e491bf",
+  "runtime_integrated": false
 }
