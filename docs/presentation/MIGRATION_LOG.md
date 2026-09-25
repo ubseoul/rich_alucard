@@ -25,3 +25,26 @@ Each wave follows the same cycle: migrate, then variant lint, deterministic cens
 - **Real player path:** an adventure fight node was played through Director-staged combat to victory and back through the adventure resolution, with no errors and no leftover Director state.
 - **Regression lock:** `docs/presentation/locks/wave2-combat.json`, enforced by `npm test`. Pilot baselines: docks, throne and curb are pixel-identical. The Combat 2.0 fixture golden was refreshed for the panel change (framing and lint unchanged).
 - **No new tickets.**
+
+## Wave 3 — legacy / special systems
+- **Migrated:**
+  - Desire Trip curb and stargazing (hero; cinematic mode, locked after an agreed two-pass judge)
+  - JDM docks story scenes (arrival / meet / aftermath) and the Supra payoff reveal (cinematic, the car as an object slot, the key prop kept in Rich's hand)
+  - Property exterior and interior (hotspots kept in frame; rats as floor objects)
+  - Ogun's Rave interior (the speaker foreground as a world layer) and exterior (the same adapter contract as its adventure screen; world-anchored neon sign)
+  - the bedroom hub (new `room` profile)
+  - UI-only Director entry for the trip travel/return cards and the character reveal
+- **Generic mechanisms added (no per-scene layout code):**
+  - `enterMounted` for image-based scenes
+  - UI roles (`data-pd-ui`) with a UI-band stack
+  - selector-based world layers
+  - stage objects (vehicles/props)
+  - per-beat modes
+  - shot `target` and `includeHotspots`
+  - stage-level accepted intent / exceptions
+  - `enterUi`
+- **New lint:** rendered-vs-camera placement, which caught a legacy transform displacing the trip sprite. All earlier waves were re-verified.
+- **New census check:** aspect integrity. It found and fixed two stretch regressions: adventure-launched minigames stretched to 2.16:1, and full-screen authored FX and the octopus tentacles stretched on tall screens. The tentacle stretch already existed in legacy (33%).
+- **Screen shape:** new game → prologue → throne → victory → bedroom → reveal → Desire Trip loop now stays one shape (no 9:16 jumps).
+- **Census:** all Wave 3 screens pass lint, variants and aspect integrity at 360/390/430.
+- **Tickets:** PD-W3-01 (property interior) and PD-W3-02 (rave interior) accept `shot-consistency` only.

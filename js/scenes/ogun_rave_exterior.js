@@ -9,9 +9,15 @@
     const sky=document.createElement('img');sky.className='rave-exterior-environment';sky.src=ENVIRONMENT;sky.alt='';sky.draggable=false;root.append(sky);
     const sign=document.createElement('div');sign.className='rave-exterior-sign';sign.textContent='IN-N-GHOUL';root.append(sign);
     const rich=document.createElement('img');rich.className='rave-exterior-rich';rich.src='assets/rich_standing_right.png';rich.alt='Rich';rich.draggable=false;root.append(rich);
-    const dialogue=document.createElement('div');dialogue.className='rave-dialogue rave-exterior-dialogue';dialogue.hidden=true;dialogue.setAttribute('role','status');root.append(dialogue);
-    const choices=document.createElement('div');choices.className='rave-choices rave-exterior-choices';choices.hidden=true;root.append(choices);
+    const dialogue=document.createElement('div');dialogue.className='rave-dialogue rave-exterior-dialogue';dialogue.dataset.pdUi='dialogue';dialogue.hidden=true;dialogue.setAttribute('role','status');root.append(dialogue);
+    const choices=document.createElement('div');choices.className='rave-choices rave-exterior-choices';choices.dataset.pdUi='choices';choices.hidden=true;root.append(choices);
     host.append(root);
+    // Presentation Director (Wave 3): same adapter contract as the adventure screens in this environment
+    // (Rich on the environment floor, conversation framing); the neon sign is world-anchored type.
+    if(window.RAPresentationDirector&&!window.__pdLegacy){
+     const stage=RAPresentationDirector.adventureStage(RAEnvironments.get('rave_exterior'),{left:{id:'rich',x:72}},{});stage.id=stageId;
+     RAPresentationDirector.enter({stage,mode:'dialogue',beat:'default',host:root,scope,env:sky,envAsset:ENVIRONMENT,actors:{left:rich},worldLayers:[{el:sign,rect:[150,178,98,16]}],autoShot:true});
+    }
     const previousFocus=document.activeElement;
     const siblings=[...host.children].filter(node=>node!==root).map(node=>[node,node.inert]);
     for(const [node] of siblings)node.inert=true;

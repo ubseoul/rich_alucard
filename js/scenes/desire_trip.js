@@ -24,7 +24,7 @@
  function button(label,handler){const b=document.createElement('button');b.type='button';b.className='trip-action';b.textContent=label;b.addEventListener('click',handler,{once:true});activityAction?.replaceChildren(b)}
  function delayAction(stage,label,handler,delay){clearTimer();if(activityAction)activityAction.replaceChildren();timer=sceneScope?.timeout(()=>{timer=0;if(RAScenes.current()==='powderSpringsCurb'&&curb.dataset.stage===stage)button(label,handler)},delay)||0}
  function enterTravel({scope}){
-  sceneScope=scope;
+  sceneScope=scope;if(directed())RAPresentationDirector.enterUi({mode:'cinematic',scope});
   document.body.classList.add('trip-mode');show(travel,true);RADesireTrips.setStatus('traveling');clearTimer();
   timer=scope.timeout(()=>{timer=0;const trip=RADesireTrips.current();if(!trip)return;RADesireTrips.setStatus('arrived');RAState.patch('life.world.location',`${trip.destination.name}, ${trip.destination.region}`);RAScenes.go('powderSpringsCurb')},720);
  }
@@ -42,7 +42,7 @@
  function exitCurb(){clearTimer();window.RAPresentationDirector?.exit();show(curb,false);if(activityAction)activityAction.replaceChildren()}
  function enterStars({scope}){sceneScope=scope;document.body.classList.add('trip-mode');show(stars,true);if(directed())stageDirector(stars,'stargazing',scope);RADesireTrips.setCurrentActivity('look at the stars');clearTimer();const done=document.querySelector('#stargazingDone');done?.classList.remove('visible');timer=scope.timeout(()=>{timer=0;if(RAScenes.current()==='stargazing')done?.classList.add('visible')},HOLDS.stargazing)}
  function exitStars(){clearTimer();window.RAPresentationDirector?.exit();show(stars,false);document.querySelector('#stargazingDone')?.classList.remove('visible')}
- function enterReturn({scope}){sceneScope=scope;document.body.classList.add('trip-mode');show(returnScene,true);clearTimer();timer=scope.timeout(async()=>{timer=0;RAState.patch('life.world.location','LA');await RAScenes.go('bedroom',{tripReturn:true})},HOLDS.returning)}
+ function enterReturn({scope}){sceneScope=scope;if(directed())RAPresentationDirector.enterUi({mode:'cinematic',scope});document.body.classList.add('trip-mode');show(returnScene,true);clearTimer();timer=scope.timeout(async()=>{timer=0;RAState.patch('life.world.location','LA');await RAScenes.go('bedroom',{tripReturn:true})},HOLDS.returning)}
  function exitReturn(){clearTimer();show(returnScene,false)}
  async function endStargazing(){clearTimer();RADesireTrips.completeActivity('look at the stars');RADesireTrips.finish();await RAScenes.go('tripReturn')}
  document.addEventListener('DOMContentLoaded',()=>{
