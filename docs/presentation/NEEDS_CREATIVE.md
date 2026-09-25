@@ -1,5 +1,25 @@
 # Presentation Director — exception and NEEDS CREATIVE tickets
 
+## ART SHIP 008 integration re-evaluation (branch `claude/art-ship-008-integration`)
+
+The 14 frozen ART SHIP 008 assets are integrated (`docs/art_integration/ART_SHIP_008_INTEGRATION.md`). Ticket status after live visual review:
+
+| Ticket | Status | Notes |
+|---|---|---|
+| NC-FA-01 | **4/5 RESOLVED** | Catacomb ×3 and `duchess_castle|left:rich` pass with their surface-scoped crowd layers. `hollow_bowl|left:rich` stays HOLD → NC-FA-10. |
+| NC-FA-02 | **RESOLVED** | `rich.ramen_apron` resolves to the corrected delta. The SLURP screen and minigame pass. |
+| NC-FA-03 | **RESOLVED** | The café seat (rear) and table (foreground) layers, with Rich on their registered contact zone, read as seated at a table. |
+| NC-FA-04 | **RESOLVED** | The A20 day-three wrap shows `phil@spent_grounded`. |
+| NC-FA-05 | **RESOLVED** | The werewolf and Coffe fights hold `moonie.wolfed_out` / `coffe.rogue`. |
+| NC-FA-06 | **2 of 16 RESOLVED** | `street_night` master and the `throne_party_mess` condition. 14 placeholder environments remain. |
+| NC-FA-08 | **RESOLVED for content** | HOOKAH (BLLAD33) passes. The default-company visual is an HQ decision (`docs/art_integration/HQ_DECISIONS.md` HQ-AS8-01), not an Art gap. |
+
+### New NEEDS CREATIVE
+
+| Ticket | Screens | Current assets | What fails | Asset needed | Severity |
+|---|---|---|---|---|---|
+| NC-FA-10 | `hollow_bowl|left:rich` (A41 arrive → finale; a companion joins at runtime) | Frozen `hollow_bowl_night` master + ART SHIP 008 `hollow_bowl_crowd_overlay` (integrated) | The narration says the amphitheater is packed, "every seat, every aisle". The crowd layer occupies the seating tiers (opaque y≈108–243) and is hollow around the stage shell. The Director's conversation framing of the staging floor (world ≈ x 40–225, y 160–400 at 390×844 with the companion; similar at 360/430) contains almost none of it, so the frame reads as an empty venue. | An exact-origin 270×480 additive condition layer (companion to the frozen seating crowd, no base repaint) that puts audience presence inside that framing band. For example: floor/aisle crowd behind the actors' contact line y=372, flanking the stage, and/or crowd filling the shell-adjacent tiers inside x 40–225. Named actors must stay unoccluded, and the layer draws below actors. The Director keeps final framing, so reframing to the seating would push the actors out of the conversation band. | Blocking for that screen (HOLD) |
+
 ## Frozen-art integration re-evaluation (branch `claude/frozen-art-integration`)
 
 Tickets were re-checked against the integrated frozen ART SHIP 004–007 art (docs/art_integration/README.md). With real sprite metadata the adventure adapter clamps each slot by the actor's actual visible body and closes spare space in a width-limited focal group (generic; no per-screen positions). Current state:

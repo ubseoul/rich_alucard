@@ -5,12 +5,13 @@
  const SLOTS={farLeft:34,left:72,mid:135,right:198,farRight:238};
  const imageCache=new Map();
  function loadImage(src){if(!imageCache.has(src)){const img=new Image();img.src=src;imageCache.set(src,img);}return imageCache.get(src);}
- let root=null,scope=null,envCanvas=null,actorLayer=null,box=null,choicesEl=null,titleEl=null,bubble=null,tapResolver=null,currentEnv=null;
+ let root=null,scope=null,envCanvas=null,actorLayer=null,foreground=null,box=null,choicesEl=null,titleEl=null,bubble=null,tapResolver=null,currentEnv=null;
  const personName=id=>{if(!id)return '';if(id==='rich')return 'RICH';const p=window.RABtfPeople?.get(id);return p?p.name:String(id).toUpperCase();};
  function build(host){
   root=document.createElement('section');root.id='adventureScene';root.className='adv-scene';root.setAttribute('aria-label','Adventure');
   const env=RAPixel.createCanvas(root,{className:'adv-env'});envCanvas=env;
   actorLayer=document.createElement('div');actorLayer.className='adv-actors';root.append(actorLayer);
+  foreground=document.createElement('canvas');foreground.width=270;foreground.height=480;foreground.className='adv-foreground';foreground.hidden=true;root.append(foreground);
   const loc=document.createElement('div');loc.className='adv-location';root.append(loc);
   bubble=document.createElement('div');bubble.className='adv-bubble';bubble.hidden=true;root.append(bubble);
   box=document.createElement('div');box.className='adv-box';box.hidden=true;box.innerHTML='<b class="adv-speaker"></b><p class="adv-text"></p><i class="adv-more" aria-hidden="true">▼</i>';root.append(box);
@@ -21,14 +22,23 @@
   scope.listen(document,'keydown',e=>{if((e.key==='Enter'||e.key===' ')&&tapResolver&&!e.target.closest?.('button')){e.preventDefault();const r=tapResolver;tapResolver=null;r();}});
  }
  function waitTap(){return new Promise(resolve=>{tapResolver=resolve;scope?.cleanup(()=>{if(tapResolver===resolve){tapResolver=null;resolve();}});});}
- function paintEnv(id){
+ function paintEnv(id,surface){
   const env=RAEnvironments.get(id)||RAEnvironments.get('street_night');currentEnv=env;const {ctx}=envCanvas;ctx.clearRect(0,0,270,480);
   root.querySelector('.adv-location').textContent=env.name||'';
-  if(env.image){const img=loadImage(env.image);const draw=()=>{if(currentEnv!==env)return;ctx.imageSmoothingEnabled=false;if(env.cover){const s=Math.max(270/img.naturalWidth,480/img.naturalHeight),w=img.naturalWidth*s,h=img.naturalHeight*s;ctx.drawImage(img,(270-w)/2,(480-h)/2,w,h);}else ctx.drawImage(img,0,0,270,480);
-    // Exact-origin frozen condition layers (e.g. the ocean-floor ladder) draw above the base, below actors.
-    for(const layer of env.layers||[]){const L=loadImage(layer);const put=()=>{if(currentEnv===env)ctx.drawImage(L,0,0,270,480)};if(L.complete&&L.naturalWidth)put();else L.addEventListener('load',()=>{if(img.complete)put()},{once:true});}};if(img.complete&&img.naturalWidth)draw();else img.addEventListener('load',draw,{once:true});}
+  // Exact-origin frozen layers: always-on (e.g. the ocean-floor ladder) plus surface-scoped conditions draw above the
+  // base, below actors; surface-scoped foreground layers draw on their own layer above actors, below the UI.
+  const scoped=RAEnvironments.surfaceLayers(env,surface);
+  const fctx=foreground.getContext('2d');fctx.clearRect(0,0,270,480);foreground.hidden=!scoped.over.length;
+  if(env.image){const img=loadImage(env.image);const draw=()=>{if(currentEnv!==env)return;RAEnvironments.drawImage(ctx,img,env);
+    for(const [layers,c] of [[[...(env.layers||[]),...scoped.under],ctx],[scoped.over,fctx]])for(const layer of layers){const L=loadImage(layer);const put=()=>{if(currentEnv===env)RAEnvironments.drawImage(c,L,env)};if(L.complete&&L.naturalWidth)put();else L.addEventListener('load',()=>{if(img.complete)put()},{once:true});}};if(img.complete&&img.naturalWidth)draw();else img.addEventListener('load',draw,{once:true});}
   else RAPixel.paintEnvironment(ctx,env.paint);
   root.dataset.env=env.id;root.classList.toggle('adv-placeholder-env',!!env.placeholder);
+  return scoped;
+ }
+ // Slot positions registered to active surface-scoped layers (a seat, a table) act as the slot's authored x.
+ function registeredActors(actors,slots){
+  if(!actors||!Object.keys(slots||{}).length)return actors;
+  return Object.fromEntries(Object.entries(actors).map(([slot,spec])=>[slot,spec&&slots[slot]?{...(typeof spec==='string'?{id:spec}:spec),...slots[slot]}:spec]));
  }
  function actorElement(spec){
   const id=typeof spec==='string'?spec:spec.id;const state=typeof spec==='object'?spec.state:null;
@@ -67,7 +77,7 @@
   const assets=Object.fromEntries(Object.entries(elements).map(([slot,el])=>[slot,RAPresentationDirector.assetOf(el)]));
   const stage=RAPresentationDirector.adventureStage(currentEnv,cast,{slots:SLOTS,node,assets});
   const exception=RAPresentationData.adventure.exceptions?.[RAPresentationData.screenKey(currentEnv.id,actors||{})]||null;
-  RAPresentationDirector.enter({stage,mode:'dialogue',beat:'default',scope,host:root,env:envCanvas.canvas||envCanvas,actors:elements,autoShot:!node?.shot,exception,envPlaceholder:!!currentEnv.placeholder});
+  RAPresentationDirector.enter({stage,mode:'dialogue',beat:'default',scope,host:root,env:envCanvas.canvas||envCanvas,actors:elements,worldLayers:foreground.hidden?[]:[{el:foreground,rect:[0,0,270,480]}],autoShot:!node?.shot,exception,envPlaceholder:!!currentEnv.placeholder});
   directorNode=true;
  }
  async function typeText(el,text){el.textContent=text;}
@@ -119,7 +129,7 @@
  async function run(nodeId){
   while(scope?.isActive()&&nodeId){
    const r=RAAdventures.enter(nodeId);if(!r){await leave();return;}
-   const {node,env,actors}=r;if(directorNode){window.RAPresentationDirector?.exit();directorNode=false;}paintEnv(typeof env==='function'?env(RAAdventures.context()):env);renderActors(actors);stageDirector(actors,node);
+   const {node,env,actors}=r;if(directorNode){window.RAPresentationDirector?.exit();directorNode=false;}const envId=typeof env==='function'?env(RAAdventures.context()):env;const staged=registeredActors(actors,paintEnv(envId,{key:window.RAPresentationData?.screenKey(RAEnvironments.get(envId)?.id||'street_night',actors||{}),node:`${r.def.id}:${nodeId}`}).slots);renderActors(staged);stageDirector(staged,node);
    const a=RAAdventures.active();
    if(node.title&&!(a.titles||[]).includes(nodeId)){hideDialogue();await showTitle(typeof node.title==='function'?node.title(RAAdventures.context()):node.title);RAAdventures.patchActive({titles:[...(RAAdventures.active()?.titles||[]),nodeId]});}
    const lines=typeof node.lines==='function'?node.lines(RAAdventures.context()):(node.lines||[]);

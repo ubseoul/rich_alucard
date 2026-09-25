@@ -80,11 +80,31 @@
  // --- frozen ART SHIP 004–007 masters: resolved through the generated Art Registry (never hard-coded paths) ---
  // A placeholder id becomes frozen art only when js/data/art_integration.js maps it AND the registry holds that
  // frozen master; the placeholder's display name is kept. Unmapped ids stay RAPixel placeholders.
+ // `baseEnv` composes an exact-origin condition over another runtime environment's approved base (image, contact
+ // line, depth and cover framing are inherited unchanged).
  const registry=window.RAArtRegistry?.environments||{};
  for(const [id,stage] of Object.entries(window.RAArtIntegration?.environments||{})){
-  const art=registry[stage.art];if(!art?.asset||!E[id])continue;
-  const layers=(stage.layers||[]).map(name=>{const path=art.layers?.[name];if(!path)throw new Error(`art integration: ${id} layer ${name} is not frozen`);return path;});
-  E[id]={id,name:E[id].name,image:art.asset,layers,floorY:stage.floorY,base:stage.base,approved:true,frozen:true,art:stage.art};
+  const art=registry[stage.art],base=stage.baseEnv?E[stage.baseEnv]:null;if(!E[id]||!(art?.asset||base?.image&&art?.over===base.image))continue;
+  const layer=name=>{const path=art.layers?.[name];if(!path)throw new Error(`art integration: ${id} layer ${name} is not frozen`);return path;};
+  const scoped=names=>Object.fromEntries((names||[]).map(name=>[name,layer(name)]));
+  E[id]={id,name:E[id].name,image:base?base.image:art.asset,cover:!!base?.cover,layers:(stage.layers||[]).map(layer),conditions:scoped(stage.conditions),foreground:scoped(stage.foreground),registered:stage.registered||null,
+   floorY:base?base.floorY:stage.floorY,base:base?base.base:stage.base,approved:true,frozen:true,art:stage.art};
  }
- window.RAEnvironments={get:id=>E[id]||null,all:()=>Object.values(E),placeholders:()=>Object.values(E).filter(e=>e.placeholder).map(e=>e.id)};
+ // Surface-scoped layers (ART SHIP 008): a condition/foreground layer is active only on the screens Art mapped it to.
+ // `surface` = {key} (live screen key) plus {node:'ADVENTURE:node'} for adventures, whose runtime-bound casts are
+ // resolved to their census screen through the generated RAArtSurfaces node table.
+ function surfaceLayers(env,surface={}){
+  const keys=new Set([surface.key,...(surface.node?window.RAArtSurfaces?.nodes?.[surface.node]||[]:[])].filter(Boolean));
+  const active=names=>Object.entries(names||{}).filter(([name])=>(registry[env?.art]?.surfaces?.[name]||[]).some(k=>keys.has(k))).map(([,path])=>path);
+  const under=active(env?.conditions),over=active(env?.foreground);
+  // Slots registered to the active layers (e.g. a seat) override the default slot position on those surfaces only.
+  return {under,over,slots:under.length||over.length?env.registered||{}:{}};
+ }
+ // Draws a base image or one of its exact-origin layers into a 270×480 environment canvas with the base's framing.
+ function drawImage(ctx,img,env){
+  ctx.imageSmoothingEnabled=false;
+  if(env?.cover){const s=Math.max(270/img.naturalWidth,480/img.naturalHeight),w=img.naturalWidth*s,h=img.naturalHeight*s;ctx.drawImage(img,(270-w)/2,(480-h)/2,w,h);}
+  else ctx.drawImage(img,0,0,270,480);
+ }
+ window.RAEnvironments={get:id=>E[id]||null,all:()=>Object.values(E),placeholders:()=>Object.values(E).filter(e=>e.placeholder).map(e=>e.id),surfaceLayers,drawImage};
 })();

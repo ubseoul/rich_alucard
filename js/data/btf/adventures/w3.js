@@ -75,7 +75,9 @@
   fightnow:{fight:{enemy:'phil',params:A=>({env:'street_night',invincible:A.vars.stage<3,intro:A.vars.stage<3?'PHIL IS INVINCIBLE WHILE HE CHARGES.':'PHIL IS AT FULL POWER. FINALLY.'}),win:'wrap',lose:'wrap',spared:'wrap'}},
   food:{actors:{left:'rich',right:{id:'phil',state:'sitting_plate'}},lines:[N('you leave and come back with garlic knots. phil is still screaming, but he stops to eat.'),S('phil','…thanks. nobody ever does that.')],
    enter:A=>{RARelations.add('phil',2,{reason:'fed him'});},next:'wrap'},
-  wrap:{lines:A=>A.vars.stage>=3?[N('phil is on the ground, gold hair fading back to brown, grinning.'),S('phil','WORTH IT.')]:[N('you leave phil to keep charging. he waves without breaking stance.')],
+  // Day three: the wrap narrates Phil spent on the ground (ART SHIP 008 phil.spent_grounded); earlier days keep the cast.
+  wrap:{actors:A=>A.vars.stage>=3?{left:'rich',right:{id:'phil',state:'spent_grounded'}}:undefined,
+   lines:A=>A.vars.stage>=3?[N('phil is on the ground, gold hair fading back to brown, grinning.'),S('phil','WORTH IT.')]:[N('you leave phil to keep charging. he waves without breaking stance.')],
    enter:A=>{const st=A.vars.stage;if(st>=3){RALife.setFlag('phil3Done',true);RALife.remember({text:'power level phil finally powered up',lane:'combat'});}else{RALife.setFlag('philProgress',st);RALife.setFlag('philLastDay',RALife.today().day);}},
    next:'end'},
   end:{end:{outcome:A=>A.vars.stage>=3?'done':'charging',

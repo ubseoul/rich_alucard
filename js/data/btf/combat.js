@@ -71,7 +71,7 @@
    octopus:{charisma:{label:'CORRECT HIS LYRICS',result:'skip',turns:1,text:'HE WRITES THEM DOWN.'},recruit:{label:'OFFER A FEATURE',result:'spared',text:'HE PUTS THE LUTE DOWN.'},roast:{label:'"THAT\'S NOT HOW IT GOES"',result:'damage',amount:20,text:'HE KNOWS.'}}},
   cleric:{name:'CLERIC',hp:70,person:'cleric',moves:{heal:m('heal','HEAL ALLY',0,{healAlly:25,telegraph:'THE CLERIC IS PRAYING FOR SOMEONE…'}),judge:m('judge','JUDGE',14)},pattern:['judge','heal'],
    octopus:{charisma:{label:'ASK FOR A BLESSING',result:'skip',turns:1,text:'SHE IS CONFUSED ENOUGH TO GIVE ONE.'},recruit:{label:'CONFESS SOMETHING',result:'skip',turns:1,text:'SHE HAS TO LISTEN.'},roast:{label:'JUDGE HER BACK',result:'damage',amount:18,text:'IT LANDS.'}}},
-  coffe:{name:'COFFE (ROGUE)',hp:90,person:'coffe',eats:true,moves:{backstab:m('backstab','BACKSTAB',34,{telegraph:'COFFE IS CIRCLING BEHIND YOU…'}),dagger:m('dagger','DAGGER',14),sip:m('sip','SIP',0,{heal:10})},pattern:['dagger','sip','backstab'],
+  coffe:{name:'COFFE (ROGUE)',hp:90,person:'coffe',state:'rogue',eats:true,moves:{backstab:m('backstab','BACKSTAB',34,{telegraph:'COFFE IS CIRCLING BEHIND YOU…'}),dagger:m('dagger','DAGGER',14),sip:m('sip','SIP',0,{heal:10})},pattern:['dagger','sip','backstab'],
    octopus:{charisma:{label:'"YOU DON\'T EVEN LIKE THEM"',result:'skip',turns:2,text:'HE DOES NOT.'},recruit:{label:'SEND HIM BACK AS YOUR SPY',result:'spared',text:'HE NODS. SLOWLY.'},roast:{label:'"I DON\'T EVEN DRINK COFFEE"',result:'damage',amount:24,text:'HE DROPS THE ICED COFFEE.'}}},
   lil_smack:{name:'LIL SMACK',hp:70,person:'lil_smack',eats:true,moves:{chew:m('chew','CHEW ATTACK',14,{effect:{accDown:.1,turns:1}}),crumb:m('crumb','CRUMB SPRAY',8)},pattern:['chew','crumb'],
    octopus:{charisma:{label:'"CLOSE YOUR MOUTH"',result:'skip',turns:1,text:'HE IS SO SHOCKED HE LOSES HIS TURN.'},recruit:{label:'"JOIN MY SQUAD… WITH YOUR MOUTH CLOSED"',result:'nothing',text:'HE CANNOT.'},roast:{label:'"WE CAN SEE YOUR FOOD."',result:'damage',amount:22,text:'EVERYONE CAN.'}}},
@@ -81,10 +81,21 @@
    octopus:{charisma:{label:'"I\'M NOT EVEN THAT KIND OF VAMPIRE"',result:'skip',turns:1,text:'HE CHECKS HIS NOTES.'},recruit:{label:'OFFER HIM A SHIFT AT SLURP',result:'spared',text:'HE NEEDED A JOB.'},roast:{label:'ROAST THE CROSSBOW',result:'damage',amount:16,text:'IT IS FROM AMAZON.'}}},
   groupies:{name:'GROUPIE RUSH',hp:60,person:'tasha',moves:{hug:m('hug','HUG',6,{hits:3})},pattern:['hug'],drop:{followers:20},
    octopus:{charisma:{label:'SIGN EVERYTHING',result:'spared',text:'EVERYONE IS SATISFIED.'},recruit:{label:'START A CHANT',result:'spared',text:'THEY CHANT. YOU LEAVE.'},roast:{label:'"Y\'ALL NEED JOBS"',result:'damage',amount:20,text:'THEY LOVE IT.'}}},
-  werewolf:{name:'MOONIE (FULL MOON)',hp:150,person:'moonie',moves:{swipe:m('swipe','SWIPE',20),howl:m('howl','HOWL',0,{effect:{accDown:.1,turns:2},telegraph:'SHE IS SNIFFING THE AIR FOR STEAK…'})},pattern:['howl','swipe','swipe'],
+  werewolf:{name:'MOONIE (FULL MOON)',hp:150,person:'moonie',state:'wolfed_out',moves:{swipe:m('swipe','SWIPE',20),howl:m('howl','HOWL',0,{effect:{accDown:.1,turns:2},telegraph:'SHE IS SNIFFING THE AIR FOR STEAK…'})},pattern:['howl','swipe','swipe'],
    octopus:{charisma:{label:'STAY CALM. LET HER HIT YOU.',result:'tame',text:'SHE STOPS. SHE REMEMBERS YOU.'},recruit:{label:'BUY HER A STEAK',result:'spared',text:'THE FOOD COURT IS CLOSED. RICH BREAKS IN.'},roast:{label:'"BAD DOG"',result:'enrage',text:'NO.'}}},
   training:{name:'TRAINING DUMMY',hp:60,moves:{bonk:m('bonk','BONK',8)},pattern:['bonk'],
    octopus:{charisma:{label:'BEFRIEND IT',result:'spared',text:'IT IS A DUMMY.'},recruit:{label:'RECRUIT IT',result:'spared',text:'IT JOINS. IT DOES NOTHING.'},roast:{label:'ROAST IT',result:'damage',amount:20,text:'IT HAS NO FEELINGS.'}}}
  };
- window.RACombatData={MOVES,ITEMS,GUNS,FITS,ENEMIES};
+ // Frozen enemy art (RAArtRegistry via RABtfPeople). `state` = the approved frozen state a fight is staged in (e.g. the
+ // transformed or variant form) and replaces the identity anchor for the whole fight; event states (telegraph → strike
+ // → hit → defeated) belong to the anchor identity, so they're used only when the fight has no named state.
+ const COMBAT_STATES={telegraph:['telegraph'],strike:['strike','attack'],hit:['hit'],defeated:['defeated','poof']};
+ function enemyArt(enemyId){
+  const def=ENEMIES[enemyId],person=window.RABtfPeople?.get(def?.person);
+  if(!person?.sprite)return {base:null,state:null,roles:{}};
+  if(def.state){const src=person.states?.[def.state];if(!src)throw new Error(`combat: ${enemyId} names ${def.person}@${def.state}, which has no approved frozen state`);return {base:src,state:def.state,roles:{}};}
+  const roles={};for(const [role,names] of Object.entries(COMBAT_STATES)){const name=names.find(n=>person.states?.[n]);if(name)roles[role]={state:name,src:person.states[name]};}
+  return {base:person.sprite,state:null,roles};
+ }
+ window.RACombatData={MOVES,ITEMS,GUNS,FITS,ENEMIES,COMBAT_STATES,enemyArt};
 })();

@@ -38,7 +38,8 @@ export async function dryRun(){
  const result={screens:0,nodes:0,pass:0,fail:0,profiles:{},failures:{},placeholderActors:0,byEnvironment:{},rows:[]};
  for(const [key,s] of screens){
   const envDef=ctx.RAEnvironments.get(s.env);if(!envDef)continue;
-  const cast={};for(const [slot,c] of Object.entries(s.cast)){const x=c.x??SLOTS[slot]??135;cast[slot]={...c,x,flip:c.flip||(c.id==='rich'&&x>150)}}
+  const registered=ctx.RAEnvironments.surfaceLayers(envDef,{key}).slots;
+  const cast={};for(const [slot,c] of Object.entries(s.cast)){const x=c.x??registered[slot]?.x??SLOTS[slot]??135;cast[slot]={...c,x,flip:c.flip||(c.id==='rich'&&x>150)}}
   const assets={};for(const [slot,c] of Object.entries(cast)){const person=c.id==='rich'?people?.rich:people?.get?.(c.id),sprite=c.src||(c.state&&person?.states?.[c.state])||(c.id==='rich'?'assets/rich_standing_right.png':person?.sprite);assets[slot]=sprite&&meta[sprite]?sprite:PROXY;if(!(sprite&&meta[sprite]))result.placeholderActors++}
   const stage=D.adventureStage(envDef,cast,{slots:SLOTS,node:s.shot?{shot:s.shot}:null,states:{},assets});
   let ok=true,profile=null;const fails=new Set();
@@ -86,10 +87,9 @@ export async function combatDryRun(){
    const key=`${node.fight.enemy}@${env}`;if(!fights.has(key))fights.set(key,{enemy:node.fight.enemy,env,refs:new Set()});fights.get(key).refs.add(`${def.id}:${id}`)}}
  const rows=[];
  for(const [key,f] of fights){
-  const def=E[f.enemy],envDef=ctx.RAEnvironments.get(f.env)||ctx.RAEnvironments.get('throne'),person=people.get(def?.person),sprite=person?.sprite;
-  // Runtime variant matrix: the enemy's identity anchor plus every approved frozen combat state (same mapping as js/scenes/combat2.js).
-  const roles={telegraph:['telegraph'],strike:['strike','attack'],hit:['hit'],defeated:['defeated','poof']};
-  const states=[sprite,...Object.values(roles).map(names=>names.map(n=>person?.states?.[n]).find(Boolean))].filter((s,i,a)=>s&&meta[s]&&a.indexOf(s)===i);
+  const def=E[f.enemy],envDef=ctx.RAEnvironments.get(f.env)||ctx.RAEnvironments.get('throne'),art=ctx.RACombatData.enemyArt(f.enemy),sprite=art.base;
+  // Runtime variant matrix: the enemy's base sprite plus every approved frozen combat state (RACombatData.enemyArt, as js/scenes/combat2.js).
+  const states=[sprite,...Object.values(art.roles).map(r=>r.src)].filter((s,i,a)=>s&&meta[s]&&a.indexOf(s)===i);
   const stage=D.combat2Stage(envDef,def?.person||f.enemy,{flip:!!sprite,minions:def?.minions?5:0,states});
   const fails=new Set();let body=null;
   for(const enemyAsset of states.length?states:['assets/rich_standing_right.png'])for(const [W,H] of SIZES){const assets={rich:'assets/rich_standing_right.png',enemy:enemyAsset};const L=D.screenLayout('combat',W,H),shot=stage.director.shots.default;
