@@ -111,3 +111,24 @@
   const previous=window.RAStages;
   window.RAStages={get:id=>id===throne.id?throne:previous.get(id),all:()=>[...previous.all(),throne]};
 })();
+
+(function(){
+  // Desire Trip #001 — Powder Springs curb (known, Ube-approved Milestone 5 composition). Presentation Director
+  // stage. The trip keeps its own approved depth (1.5 on the curb line, not the adventure ×1.85 rule): the
+  // Director's establishing shot at full width then reproduces "small Rich under a big sky".
+  const source={width:80,height:96,anchor:{x:40,y:88}};
+  const trip={
+    id:'powder-springs-trip',native:{width:270,height:480},environment:'assets/powder_springs_night_270x480.png',referenceScale:1.5,
+    contactLines:[{id:'curb',y:406,x1:0,x2:270,scale:1.5}],
+    actors:{rich:{source,anchor:{x:135,y:406,line:'curb'},facing:'right',layer:1}},
+    dialogueSafeZones:[],uiExclusionZones:[],layers:[{id:'environment',z:0},{id:'rich',z:1}],
+    director:{states:{rich:['assets/rich_curb_eating.png','assets/rich_curb_chilling.png','assets/rich_curb_stargazing.png']},
+     // Hero scene: cinematic mode (tall world, slim action band). Establishing near its lower end keeps a big sky
+     // while Rich's face stays ≥ 24 px at 360 wide; the sky is the subject.
+     mode:'cinematic',
+     shots:{curb:{profile:'establishing',target:.21,focal:['rich'],speakers:['rich'],reference:'rich'},stargazing:{profile:'establishing',target:.21,focal:['rich'],speakers:['rich'],reference:'rich'}},
+     accept:{checks:['dead-space'],reason:'INTENT: the night sky is the subject of this scene (stargazing)'}}
+  };
+  const previous=window.RAStages;
+  window.RAStages={get:id=>id===trip.id?trip:previous.get(id),all:()=>[...previous.all(),trip]};
+})();

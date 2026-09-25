@@ -20,6 +20,11 @@
      weaknesses:["Rich's wall portrait is cropped at the top in the combat framing (fully shown in the tableau beat)"]},
     golden:{body:.312}}
   }
+,
+  'powder-springs-trip':{
+   curb:{contact:.9,zoom:1,candidate:'c4',inputs:'62d6535097132a1e',judge:{rubric:'RAPresentationData.rubric',pass1:{order:'sealed',winner:'c4'},pass2:{order:'sealed',winner:'c4'},agreed:true,history:'Wave 3 hero scene. Dialogue-mode framing left ~40% of the screen as an empty UI band under a one-button scene; moved to cinematic mode (tall world, slim action band). Candidate keys were sealed until both passes were recorded.',reasons:['largest night sky of the legal set — the scene is about the stars','Rich small but grounded on the curb, face readable (≥24 px at 360)','road strip and houses keep Powder Springs readable; the single action sits just under the world']},golden:{body:.21}},
+   stargazing:{contact:.9,zoom:1,candidate:'c4',inputs:'62d6535097132a1e',judge:{rubric:'RAPresentationData.rubric',pass1:{order:'sealed',winner:'c4'},pass2:{order:'sealed',winner:'c4'},agreed:true,history:'Wave 3 hero scene. Dialogue-mode framing left ~40% of the screen as an empty UI band under a one-button scene; moved to cinematic mode (tall world, slim action band). Candidate keys were sealed until both passes were recorded.',reasons:['largest night sky of the legal set — the scene is about the stars','Rich small but grounded on the curb, face readable (≥24 px at 360)','road strip and houses keep Powder Springs readable; the single action sits just under the world']},golden:{body:.21}}
+  }
  };
  window.RAPresentationLocks={get:(stage,beat)=>locks[stage]?.[beat]||null,golden:(stage,beat)=>locks[stage]?.[beat]?.golden||null,all:()=>locks};
 })();

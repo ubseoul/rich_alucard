@@ -15,7 +15,7 @@ export async function loadPresentation(root){
 
 export function inputsHash(win,stageId,beat){
  const stage=win.RAStages.get(stageId),shot=stage.director.shots[beat],data=win.RAPresentationData,assets=win.RAPresentationAssets;
- const mode=data.modes[shot.mode||'combat'];
+ const mode=data.modes[shot.mode||stage.director.mode||'combat'];
  // Only this stage's approved states (its runtime variant matrix) affect its composition.
  const actorAssets=[...new Set(Object.values(stage.director.states||{}).flat())].sort();
  const payload={version:DIRECTOR_VERSION,stage:{id:stage.id,world:stage.world||stage.native,environment:stage.environment,contactLines:stage.contactLines,actors:Object.fromEntries(Object.entries(stage.actors).map(([slot,a])=>[slot,{anchor:a.anchor,flip:!!a.flip}])),director:stage.director},

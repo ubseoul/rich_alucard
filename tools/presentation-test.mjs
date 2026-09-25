@@ -22,9 +22,9 @@ export async function test(root){
   // for one content combination is not solved).
   let combos=[{}];for(const slot of shot.focal)combos=combos.flatMap(c=>(states[slot]||[null]).map(asset=>({...c,[slot]:asset})));
   for(const assets of combos)for(const [W,H] of [[360,740],[390,844],[430,932]]){
-   const L=D.screenLayout(shot.mode||'combat',W,H),cam=D.solve({stage,profile:shot.profile,focal:shot.focal,include:shot.include,reference:shot.reference,assets,states,view:{w:L.world.w,h:L.world.h},contact:lock.contact,zoom:lock.zoom});
+   const L=D.screenLayout(shot.mode||stage.director.mode||'combat',W,H),cam=D.solve({stage,profile:shot.profile,focal:shot.focal,include:shot.include,reference:shot.reference,target:shot.target,assets,states,view:{w:L.world.w,h:L.world.h},contact:lock.contact,zoom:lock.zoom});
    const frame=D.project(stage,L,cam,shot.focal.map(slot=>D.worldActor(stage,slot,assets[slot])),3);frame.layout=L;
-   const lint=D.lintFrame(stage,frame,{profile:shot.profile,focal:shot.focal,speakers:shot.speakers,reference:shot.reference,uiRects:[L.hud,L.ui],golden:lock.golden});
+   const lint=D.lintFrame(stage,frame,{profile:shot.profile,focal:shot.focal,speakers:shot.speakers,reference:shot.reference,uiRects:[L.hud,L.ui].filter(r=>r.h>0),golden:lock.golden});
    assert.ok(lint.pass,`locked ${stageId}/${beat} fails lint at ${W}x${H} with ${JSON.stringify(assets)}: ${lint.checks.filter(c=>!c.pass).map(c=>`${c.id}=${c.value}`).join(', ')}`);
   }
  }
