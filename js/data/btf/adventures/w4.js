@@ -349,7 +349,8 @@
   roof:{env:'roof',actors:A=>({left:'rich',right:A.vars.person}),title:'THE HOOKAH ROOF',
    lines:[N('the crew is already up here. hookah, low talk, the poster from tonight taped to the wall.')],
    choices:[{label:'HOOKAH WITH THE CREW',next:'roofgame'},{label:'SKIP TO THE END OF THE NIGHT',next:'crewleaves'}]},
-  roofgame:{minigame:{id:'hookah',params:A=>({}),next:(A,r)=>'crewleaves'}},
+  // HQ-AS8-01: the crew is on the roof, so the HOMIES company (its line set matches the beat).
+  roofgame:{minigame:{id:'hookah',params:A=>({company:'HOMIES'}),next:(A,r)=>'crewleaves'}},
   crewleaves:{lines:[N('one by one, the crew heads out. it gets quiet.')],next:'stay'},
   stay:{env:'bedroom',actors:A=>({left:'rich',right:A.vars.person}),
    lines:[N('she stays.'),N('non-graphic fade.')],

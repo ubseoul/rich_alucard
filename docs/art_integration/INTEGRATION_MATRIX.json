@@ -46,10 +46,10 @@
    "status": "PASS (final art)",
    "note": "Explicitly named ROOKOKO company draws frozen Rookoko hookah_seated beside Rich. No current content beat names ROOKOKO explicitly."
   },
-  "minigame:hookah?company=default": {
+  "minigame:hookah?company=HOMIES": {
    "status": "HOLD",
-   "ticket": "HQ-AS8-01",
-   "note": "No company param (the crew roof beat) keeps the existing ROOKOKO line set but draws only Rich: the Art default_alias (Rookoko) is not established by content intent. Awaiting HQ decision."
+   "ticket": "NC-FA-11",
+   "note": "A41 crew roof passes company HOMIES (HQ-AS8-01). Rich seated only: no approved seated crew states yet. Stays HOLD until the crew coverage exists and passes runtime review."
   },
   "minigame:jollof": {
    "status": "HOLD",

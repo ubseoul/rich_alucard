@@ -9,7 +9,7 @@ Branch `claude/art-ship-008-integration`, from the frozen Art checkpoint `art/ar
 | Registry (frozen files) | 153 | **167** (+14 Ship 008) |
 | Integrated frozen files | 132 | **145**: all 14 Ship 008 assets integrated. The original apron file is now `FROZEN + SUPERSEDED (history preserved)`. |
 | Adventure + fight screens | 120: **75 PASS / 45 HOLD** | 121: **98 PASS / 23 HOLD** |
-| Held minigame surfaces cleared | — | **2** (SLURP, HOOKAH content surface). A `minigame:hookah?company=default` surface is recorded HOLD for HQ-AS8-01. |
+| Held minigame surfaces cleared | — | **2** (SLURP, HOOKAH A21/BLLAD33). The A41 crew surface `minigame:hookah?company=HOMIES` is HOLD for NC-FA-11. |
 | Polish-note screens | 4 (3 café, 1 Phil wrap) | **0** |
 
 22 of the 45 held screens cleared. The 121st screen is new: the Phil day-three wrap (`street_night|left:rich,right:phil@spent_grounded`), which now has its own state and is PASS. Art forecast 23; the difference is `hollow_bowl|left:rich` (see NC-FA-10).
@@ -25,11 +25,21 @@ Branch `claude/art-ship-008-integration`, from the frozen Art checkpoint `art/ar
 | AS8-MOONIE-ENDPOINT | enemy `werewolf` held in `moonie.wolfed_out` | `combat:werewolf@grave_closed` | PASS |
 | AS8-COFFE-GUIDED | enemy `coffe` held in `coffe.rogue` | `combat:coffe@throne_party_mess` | PASS |
 | AS8-RICH/BLLAD33-HOOKAH | `rich.hookah_seated`, `bllad33.hookah_seated` | `minigame:hookah` (A21, company BLLAD33) | PASS |
-| AS8-ROOKOKO-HOOKAH | `rookoko.hookah_seated` | `minigame:hookah?company=ROOKOKO` only | PASS. Default alias not adopted (HQ-AS8-01). |
+| AS8-ROOKOKO-HOOKAH | `rookoko.hookah_seated` | `minigame:hookah?company=ROOKOKO` only (explicitly authored use) | PASS. Not a default alias (HQ-AS8-01 decided). |
 | AS8-ENV-STREET-NIGHT | `street_night` master, contact y=372 | 8 adventure screens + `combat:phil@street_night` | PASS ×9 |
 | AS8-PHIL-SPENT | `phil.spent_grounded` on the A20 day-three wrap only | new wrap screen; `charging_day3` kept on arrive/fork/ask/fight | PASS; NC-FA-04 resolved |
 | AS8-THRONE-MESS-LAYER | `throne_party_mess` = runtime `throne` base + exact-origin condition (same cover framing) | 2 adventure screens + 5 fights | PASS ×7 |
 | AS8-CAFE-SEAT-REAR / TABLE-FRONT | `cafe` condition `laptop_support_rear` + foreground `laptop_table_foreground` | 3 laptop screens | PASS ×3; NC-FA-03 resolved |
+
+## HQ decision patch (HQ-AS8-01 → HOMIES)
+
+HQ accepted `98ff0ac` (98 PASS / 23 HOLD). Decision patch:
+- A41 passes `company:'HOMIES'`.
+- Rookoko stays explicit-only.
+- New Art ticket NC-FA-11 covers the minimum seated crew: `tunde.hookah_seated` and `dre.hookah_seated`.
+- The HOMIES surface stays HOLD.
+
+The adventure and fight counts are unchanged.
 
 ## Engineering changes
 
@@ -78,4 +88,4 @@ Branch `claude/art-ship-008-integration`, from the frozen Art checkpoint `art/ar
 | NC-FA-10 (new Art ticket) | 1 | `hollow_bowl|left:rich` |
 | PD-FA-02 (staging, HQ) | 1 | `pier|left:rich@holding_fish_away,right:uncle_sunday@fishing` |
 
-Tickets: `docs/presentation/NEEDS_CREATIVE.md` (NC-FA-10 and the Ship 008 re-evaluation) and `docs/art_integration/HQ_DECISIONS.md` (HQ-AS8-01).
+Tickets: `docs/presentation/NEEDS_CREATIVE.md` (NC-FA-10, NC-FA-11 and the Ship 008 re-evaluation) and `docs/art_integration/HQ_DECISIONS.md` (HQ-AS8-01, decided).
