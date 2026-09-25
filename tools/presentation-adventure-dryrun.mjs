@@ -14,6 +14,7 @@ const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const SIZES=[[360,740],[390,844],[430,932]];
 const SLOTS={farLeft:34,left:72,mid:135,right:198,farRight:238};
 const PROXY='assets/rich_standing_right.png';
+export const LOCK='docs/presentation/locks/wave1-adventures.json';
 
 export async function dryRun(){
  const ctx=await loadBtf(root);
@@ -29,11 +30,11 @@ export async function dryRun(){
    if(typeof e==='string')env=e;if(a===null)actors={};else if(a&&typeof a==='object')actors={...(node.keepActors?actors:{}),...a};
    if(!env||node.end)continue;
    const cast={};for(const [slot,spec] of Object.entries(actors)){if(!spec)continue;const pid=typeof spec==='string'?spec:spec.id;cast[slot]={...(typeof spec==='object'?spec:{}),id:pid}}
-   const key=`${env}|${Object.entries(cast).map(([s,c])=>`${s}:${c.id}`).sort().join(',')}`;
-   const s=screens.get(key)||{env,cast,shot:node.shot||null,nodes:0,adventures:new Set()};s.nodes++;s.adventures.add(def.id);screens.set(key,s);
+   const key=ctx.RAPresentationData.screenKey(env,cast);
+   const s=screens.get(key)||{key,env,cast,castSpecs:JSON.parse(JSON.stringify(actors)),shot:node.shot||null,nodes:0,adventures:new Set(),first:`${def.id}:${id}`,refs:[]};s.nodes++;s.adventures.add(def.id);s.refs.push(`${def.id}:${id}`);screens.set(key,s);
   }
  }
- const result={screens:0,nodes:0,pass:0,fail:0,profiles:{},failures:{},placeholderActors:0,byEnvironment:{}};
+ const result={screens:0,nodes:0,pass:0,fail:0,profiles:{},failures:{},placeholderActors:0,byEnvironment:{},rows:[]};
  for(const [key,s] of screens){
   const envDef=ctx.RAEnvironments.get(s.env);if(!envDef)continue;
   const cast={};for(const [slot,c] of Object.entries(s.cast)){const x=c.x??SLOTS[slot]??135;cast[slot]={...c,x,flip:c.flip||(c.id==='rich'&&x>150)}}
@@ -54,12 +55,18 @@ export async function dryRun(){
   result.screens++;result.nodes+=s.nodes;result.profiles[profile]=(result.profiles[profile]||0)+1;
   const envRow=result.byEnvironment[s.env]||(result.byEnvironment[s.env]={screens:0,pass:0});envRow.screens++;
   if(ok){result.pass++;envRow.pass++}else{result.fail++;for(const f of fails)result.failures[f]=(result.failures[f]||0)+1}
+  const exception=ctx.RAPresentationData.adventure.exceptions?.[s.key]||null;
+  result.rows.push({key:s.key,env:s.env,castSpecs:s.castSpecs,cast:Object.keys(s.cast).length,first:s.first,refs:s.refs,profile,pass:ok,fails:[...fails],exception:exception?.ticket||null});
  }
+ result.unexpected=result.rows.filter(r=>!r.pass&&!r.exception).map(r=>r.key);
+ result.staleExceptions=Object.keys(ctx.RAPresentationData.adventure.exceptions||{}).filter(k=>!result.rows.some(r=>r.key===k&&!r.pass));
+ result.lock=Object.fromEntries(result.rows.map(r=>[r.key,r.exception?`${r.profile}!${r.exception}`:r.profile]).sort(([a],[b])=>a.localeCompare(b)));
  return result;
 }
 
 if(process.argv[1]===fileURLToPath(import.meta.url)){
- const r=await dryRun(),out=path.resolve(process.argv[2]||path.join(root,'work','presentation_census','REVIEWER_ONLY','adventure-dryrun.json'));
+ const r=await dryRun(),out=path.resolve(process.argv[2]&&process.argv[2]!=='--write-lock'?process.argv[2]:path.join(root,'work','presentation_census','REVIEWER_ONLY','adventure-dryrun.json'));
+ if(process.argv.includes('--write-lock')){await mkdir(path.join(root,'docs','presentation','locks'),{recursive:true});await writeFile(path.join(root,LOCK),JSON.stringify({about:'Wave 1 regression lock: adapter default shot per adventure screen (environment|slot:person). profile!ticket = accepted exception. Regenerate with node tools/presentation-adventure-dryrun.mjs --write-lock after a reviewed change.',screens:r.lock},null,1)+'\n');console.log(`wrote ${LOCK}`)}
  await mkdir(path.dirname(out),{recursive:true});await writeFile(out,JSON.stringify(r,null,1));
  console.log(`adapter dry run: ${r.screens} distinct screens (${r.nodes} nodes) — PASS ${r.pass} / FAIL ${r.fail}; profiles ${JSON.stringify(r.profiles)}; failing checks ${JSON.stringify(r.failures)}; placeholder actor slots ${r.placeholderActors}`);
 }

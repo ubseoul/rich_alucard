@@ -39,7 +39,7 @@
  const profiles={
   establishing:{id:'establishing',body:[.20,.25],target:.225,contact:[.78,.84,.9],headroom:.12,side:.03},
   combat:{id:'combat',body:[.30,.35],target:.325,reference:.325,contact:[.8,.85,.9],headroom:.16,side:.025},
-  conversation:{id:'conversation',body:[.35,.45],target:.40,contact:[.82,.88,.93],headroom:.14,side:.03},
+  conversation:{id:'conversation',body:[.35,.45],target:.40,reference:.392,contact:[.82,.88,.93],headroom:.14,side:.03},
   close:{id:'close',body:[.50,.60],target:.55,contact:[.9,.96,1.02],headroom:.08,side:.02}
  };
  // Reference character: profile body targets are expressed against Rich's standing visible height so that
@@ -79,7 +79,18 @@
  // Code-spawned effects (game.js in Director mode), same body units. Missiles leave Rich's chest in a spread and
  // travel the anchor-to-anchor distance plus missileFlight; impacts land on the enemy chest.
  const spawn={missileStarts:[[20,-50],[14,-30],[24,-10],[10,-40],[18,-20],[26,0]],impact:{dx:-32,dy:-53,step:14},missileFlight:-60,briefcaseFlight:18};
- // Adventure adapter pilot allowlist (js/scenes/adventure.js): only these environments are Director-staged.
- const adventure={environments:['curb']};
- window.RAPresentationData={modes,profiles,reference,acceptance,rubric,fx,fxReference,spawn,adventure};
+ // Adventure adapter (js/scenes/adventure.js). Wave 1: every adventure environment is Director-staged.
+ // `exceptions` = screens (environment|slot:person …) that cannot meet a shot band with the generic default; the
+ // Director still frames them best-effort (full-width cover) and lint records the accepted exception. Each has a
+ // ticket in docs/presentation/NEEDS_CREATIVE.md. The release gate requires this list to match the dry run exactly.
+ const adventure={environments:'all',exceptions:{
+  'ocean_floor|farLeft:soul,farRight:soul,mid:rich':{status:'EXCEPTION-LAYOUT',ticket:'PD-W1-01'},
+  'ocean_floor_collapsed|farLeft:soul,farRight:soul,mid:rich':{status:'EXCEPTION-LAYOUT',ticket:'PD-W1-01'},
+  'slurp|farRight:hina,left:rich,right:okada':{status:'EXCEPTION-LAYOUT',ticket:'PD-W1-02',accept:['face-visible']},
+  'pet_crypt|farRight:uncle_sunday,left:rich':{status:'EXCEPTION-LAYOUT',ticket:'PD-W1-03'},
+  'portobello_bedroom|farRight:portobello_kid2,left:portobello_wife,mid:rich_portobello,right:portobello_kid1':{status:'EXCEPTION-LAYOUT',ticket:'PD-W1-04'}
+ }};
+ // Canonical screen key for the adapter (shared by runtime, dry run and census).
+ const screenKey=(envId,cast)=>`${envId}|${Object.entries(cast).filter(([,c])=>c).map(([slot,c])=>`${slot}:${typeof c==='string'?c:c.id}`).sort().join(',')}`;
+ window.RAPresentationData={modes,profiles,reference,acceptance,rubric,fx,fxReference,spawn,adventure,screenKey};
 })();

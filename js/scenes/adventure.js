@@ -55,14 +55,15 @@
  // stage; the Director owns camera, actor size and the UI-aware world viewport. Other environments keep the
  // legacy full-frame staging until migrated.
  let directorNode=false;
- function directorEnabled(env){return !!window.RAPresentationDirector&&!window.__pdLegacy&&(window.RAPresentationData?.adventure?.environments||[]).includes(env?.id);}
+ function directorEnabled(env){const list=window.RAPresentationData?.adventure?.environments;return !!window.RAPresentationDirector&&!window.__pdLegacy&&!!env&&(list==='all'||(list||[]).includes(env.id));}
  function stageDirector(actors,node){
   directorNode=false;if(!directorEnabled(currentEnv)){window.RAPresentationDirector?.exit();return;}
   const cast={},elements={};
   for(const el of actorLayer.children){const slot=el.dataset.slot,spec=actors?.[slot];if(!slot||!spec)continue;const id=typeof spec==='string'?spec:spec.id;const x=typeof spec==='object'&&spec.x!=null?spec.x:SLOTS[slot]??135;
    cast[slot]={...(typeof spec==='object'?spec:{}),id,x,flip:(typeof spec==='object'&&spec.flip)||(id==='rich'&&x>150)};elements[slot]=el;}
   const stage=RAPresentationDirector.adventureStage(currentEnv,cast,{slots:SLOTS,node});
-  RAPresentationDirector.enter({stage,mode:'dialogue',beat:'default',scope,host:root,env:envCanvas.canvas||envCanvas,actors:elements,autoShot:!node?.shot});
+  const exception=RAPresentationData.adventure.exceptions?.[RAPresentationData.screenKey(currentEnv.id,actors||{})]||null;
+  RAPresentationDirector.enter({stage,mode:'dialogue',beat:'default',scope,host:root,env:envCanvas.canvas||envCanvas,actors:elements,autoShot:!node?.shot,exception,envPlaceholder:!!currentEnv.placeholder});
   directorNode=true;
  }
  async function typeText(el,text){el.textContent=text;}
