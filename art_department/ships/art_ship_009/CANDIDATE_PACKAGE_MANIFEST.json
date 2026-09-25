@@ -1,0 +1,202 @@
+{
+  "ship_id": "ART SHIP 009",
+  "package_status": "CANDIDATE PACKAGE READY FOR HQ REVIEW",
+  "base": {
+    "branch": "claude/art-ship-008-integration",
+    "commit": "a16196e4fbc0c7530a00bdfe915fb9c9c7cd1826"
+  },
+  "branch": "art/art_ship_009",
+  "native_candidate_count": 12,
+  "assets": [
+    {
+      "request_id": "AS9-ENV-ATL-HOUSE-PARTY",
+      "runtime_asset_id": "atl_house_party",
+      "candidate_path": "art_department/ships/art_ship_009/candidates/native/environments/atl_house_party_270x480.png",
+      "sha256": "56696dba8d204ee07bfaf64ca1e9b51824a2797e6a29509da8976c0525ee4f8a",
+      "dimensions": [
+        270,
+        480
+      ],
+      "mode": "RGB",
+      "status": "CANDIDATE \u2014 HQ REVIEW REQUIRED",
+      "runtime_surfaces": [
+        "atl_house_party|left:rich,right:bunmi"
+      ]
+    },
+    {
+      "request_id": "AS9-ENV-LA-SKY",
+      "runtime_asset_id": "la_sky",
+      "candidate_path": "art_department/ships/art_ship_009/candidates/native/environments/la_sky_270x480.png",
+      "sha256": "8cc18ec3b4d7f2d372d0fab77ecbfef45de55557ced4b892bf307c8bafc50aa6",
+      "dimensions": [
+        270,
+        480
+      ],
+      "mode": "RGB",
+      "status": "CANDIDATE \u2014 HQ REVIEW REQUIRED",
+      "runtime_surfaces": [
+        "la_sky|left:rich,right:mazda_human"
+      ]
+    },
+    {
+      "request_id": "AS9-ENV-NAIJA-LOT",
+      "runtime_asset_id": "naija_lot",
+      "candidate_path": "art_department/ships/art_ship_009/candidates/native/environments/naija_lot_270x480.png",
+      "sha256": "c8e46d74919eeb95e1edb89da3422cf1b17262b9fc273c5564d48d11270d05f4",
+      "dimensions": [
+        270,
+        480
+      ],
+      "mode": "RGB",
+      "status": "CANDIDATE \u2014 HQ REVIEW REQUIRED",
+      "runtime_surfaces": [
+        "naija_lot|left:rich,right:nneka"
+      ]
+    },
+    {
+      "request_id": "AS9-ENV-NEIGHBOR-CASTLE",
+      "runtime_asset_id": "neighbor_castle",
+      "candidate_path": "art_department/ships/art_ship_009/candidates/native/environments/neighbor_castle_270x480.png",
+      "sha256": "7d8d578602296b48dd3ed0d7b425e5a1295b16415aee1cd5fcf5784548012091",
+      "dimensions": [
+        270,
+        480
+      ],
+      "mode": "RGB",
+      "status": "CANDIDATE \u2014 HQ REVIEW REQUIRED",
+      "runtime_surfaces": [
+        "neighbor_castle|left:rich"
+      ]
+    },
+    {
+      "request_id": "AS9-ENV-PORTOBELLO-BEDROOM",
+      "runtime_asset_id": "portobello_bedroom",
+      "candidate_path": "art_department/ships/art_ship_009/candidates/native/environments/portobello_bedroom_270x480.png",
+      "sha256": "1713dc57c814ed1a428129f28a695b9d2ab22df05751949ca9e32c912154c4e4",
+      "dimensions": [
+        270,
+        480
+      ],
+      "mode": "RGB",
+      "status": "CANDIDATE \u2014 HQ REVIEW REQUIRED",
+      "runtime_surfaces": [
+        "portobello_bedroom|farRight:portobello_kid2,left:portobello_wife,mid:rich_portobello,right:portobello_kid1",
+        "portobello_bedroom|left:portobello_kid1,mid:rich_portobello,right:portobello_kid2",
+        "portobello_bedroom|left:portobello_wife,mid:rich_portobello"
+      ]
+    },
+    {
+      "request_id": "AS9-ENV-PORTOBELLO-OFFICE",
+      "runtime_asset_id": "portobello_office",
+      "candidate_path": "art_department/ships/art_ship_009/candidates/native/environments/portobello_office_270x480.png",
+      "sha256": "65861eabd71f798f2260958689ed6035a7cca70881e774a59b6708d6603f7526",
+      "dimensions": [
+        270,
+        480
+      ],
+      "mode": "RGB",
+      "status": "CANDIDATE \u2014 HQ REVIEW REQUIRED",
+      "runtime_surfaces": [
+        "portobello_office|left:rich_portobello,right:portobello_manager"
+      ]
+    },
+    {
+      "request_id": "AS9-ENV-PORTOBELLO-PORCH",
+      "runtime_asset_id": "portobello_porch",
+      "candidate_path": "art_department/ships/art_ship_009/candidates/native/environments/portobello_porch_270x480.png",
+      "sha256": "0c4b1b9aa8e2eb3c137b06a558c5ff5e30a6556f932c941148a6cd21b186377b",
+      "dimensions": [
+        270,
+        480
+      ],
+      "mode": "RGB",
+      "status": "CANDIDATE \u2014 HQ REVIEW REQUIRED",
+      "runtime_surfaces": [
+        "portobello_porch|left:rich_portobello,right:portobello_wife"
+      ]
+    },
+    {
+      "request_id": "AS9-ENV-ROOFTOP-DTLA",
+      "runtime_asset_id": "rooftop_dtla",
+      "candidate_path": "art_department/ships/art_ship_009/candidates/native/environments/rooftop_dtla_270x480.png",
+      "sha256": "af41cbb7c045a55848421434e14e9e122dabc61becc2d1c2dcc1fb1ceebf5ebf",
+      "dimensions": [
+        270,
+        480
+      ],
+      "mode": "RGB",
+      "status": "CANDIDATE \u2014 HQ REVIEW REQUIRED",
+      "runtime_surfaces": [
+        "rooftop_dtla|left:rich"
+      ]
+    },
+    {
+      "request_id": "AS9-ENV-TOKYO-TEASE",
+      "runtime_asset_id": "tokyo_tease",
+      "candidate_path": "art_department/ships/art_ship_009/candidates/native/environments/tokyo_tease_270x480.png",
+      "sha256": "98febff28278f87d2b477a3f8ed60e256fba2e595384371eb42fa12e5d41d039",
+      "dimensions": [
+        270,
+        480
+      ],
+      "mode": "RGB",
+      "status": "CANDIDATE \u2014 HQ REVIEW REQUIRED",
+      "runtime_surfaces": [
+        "tokyo_tease|mid:rich"
+      ]
+    },
+    {
+      "request_id": "AS9-HOLLOW-STAGE-BAND-CROWD",
+      "runtime_asset_id": "hollow_bowl_stage_band_crowd_condition",
+      "candidate_path": "art_department/ships/art_ship_009/candidates/native/layers/hollow_bowl_stage_band_crowd_overlay_270x480.png",
+      "sha256": "fb0dd0b070818db692999ed285d761d985f3dad66bc1e3ae4442425f2e8b846a",
+      "dimensions": [
+        270,
+        480
+      ],
+      "mode": "RGBA",
+      "status": "CANDIDATE \u2014 HQ REVIEW REQUIRED",
+      "runtime_surfaces": [
+        "hollow_bowl|left:rich"
+      ]
+    },
+    {
+      "request_id": "AS9-TUNDE-HOOKAH",
+      "runtime_asset_id": "tunde.hookah_seated",
+      "candidate_path": "art_department/ships/art_ship_009/candidates/native/characters/tunde_hookah_seated_80x96.png",
+      "sha256": "ae412ca4af2c117fadc85a53b1596aed9ce1412f8bcdc4d031a0c505faf4ef92",
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "status": "CANDIDATE \u2014 HQ REVIEW REQUIRED",
+      "runtime_surfaces": [
+        "minigame:hookah?company=HOMIES"
+      ]
+    },
+    {
+      "request_id": "AS9-DRE-HOOKAH",
+      "runtime_asset_id": "dre.hookah_seated",
+      "candidate_path": "art_department/ships/art_ship_009/candidates/native/characters/dre_hookah_seated_80x96.png",
+      "sha256": "a2d98b0d79037caa956b4b4a512b35e31098bd1e0fd76d95a91074d7c711dd9e",
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "status": "CANDIDATE \u2014 HQ REVIEW REQUIRED",
+      "runtime_surfaces": [
+        "minigame:hookah?company=HOMIES"
+      ]
+    }
+  ],
+  "zero_pixel_reuse": {
+    "request_id": "AS9-REUSE-LAN-NIGHT",
+    "runtime_asset_id": "lan_night",
+    "reuse_registry_id": "tristan_apt",
+    "source_path": "assets/before_the_fame/environments/tristan_apt/tristan_apartment_270x480.png",
+    "sha256": "7ee376bbf15019ac0c1b86b99403cf16a154e37a50ecc373cf9cb2bbac735e9f"
+  },
+  "approval_boundary": "No candidate is APPROVED MASTER or FROZEN; no runtime integration is included."
+}

@@ -1,0 +1,22 @@
+{
+  "ship_id": "ART SHIP 009",
+  "result": "PASS",
+  "art_package": {
+    "native_candidates_passed": 12,
+    "native_candidates_total": 12,
+    "source_hashes_passed": 18,
+    "source_hashes_total": 18,
+    "json_parse": "PASS",
+    "scope_audit": "PASS",
+    "internal_visual_review": "PASS"
+  },
+  "repository": {
+    "npm_test": "PASS",
+    "npm_build": "PASS",
+    "npm_verify_artifact": "PASS",
+    "artifact_release_id": "ra-a16196e4fbc0-20260925180310",
+    "artifact_commit": "a16196e4fbc0c7530a00bdfe915fb9c9c7cd1826"
+  },
+  "deployment_run": false,
+  "runtime_code_modified": false
+}
