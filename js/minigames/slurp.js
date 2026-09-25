@@ -222,7 +222,8 @@
    P.paintEnvironment(g,{sky:P.palette.night,wall:'#2a2340',floor:'#3a2f2a',horizon:150,seed:'slurp',
     props:[{type:'sign',x:8,y:24,w:180,h:20,text:'SLURP DYNASTY',glow:'#ff6fb5',size:7},
      {type:'counter',x:0,y:150,w:270,h:14,color:'#4a3a30'}]});
-   P.drawActor(g,{top:'#1b1824',bottom:'#111018',hair:'#0b0a12',hairShape:'locs',shades:true,accent:P.palette.green,prop:'food'},40,150,0.9);
+   // Frozen ART SHIP 006 Rich ramen-apron state at the counter (placeholder only until it loads / outside the game).
+   if(!P.drawSprite?.(g,P.personSprite?.('rich','ramen_apron'),40,150))P.drawActor(g,{top:'#1b1824',bottom:'#111018',hair:'#0b0a12',hairShape:'locs',shades:true,accent:P.palette.green,prop:'food'},40,150,0.9);
 
    const elapsed=now-startTime;
    if(!ended){

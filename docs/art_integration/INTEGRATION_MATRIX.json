@@ -3,11 +3,11 @@
  "summary": {
   "frozenFiles": 153,
   "assets": {
-   "FROZEN + ALREADY INTEGRATED": 113,
+   "FROZEN + ALREADY INTEGRATED": 132,
    "HANDOFF SHEET (placement uses individual masters)": 12,
-   "FROZEN + MAPPING AMBIGUOUS": 3,
-   "FROZEN STATE AVAILABLE": 6,
-   "FROZEN + READY TO INTEGRATE": 19
+   "FROZEN + MAPPING AMBIGUOUS": 4,
+   "FROZEN STATE AVAILABLE": 4,
+   "FROZEN + READY TO INTEGRATE": 1
   },
   "demand": {
    "environment: NO APPROVED ART YET": 16,
@@ -15,8 +15,55 @@
    "person: NO APPROVED ART YET": 2
   },
   "screens": {
-   "PASS": 74,
+   "PASS": 75,
    "HOLD": 45
+  }
+ },
+ "surfaces": {
+  "minigame:pier": {
+   "status": "PASS (final art)",
+   "note": "Rich fishing_cast / holding_fish_away and Uncle Sunday fishing (frozen states) on the minigame canvas at native 1:1."
+  },
+  "minigame:slurp": {
+   "status": "HOLD",
+   "ticket": "NC-FA-02",
+   "note": "Rich ramen_apron at the counter; the state's detached utensil reads as a stray object."
+  },
+  "minigame:bars": {
+   "status": "PASS (final art)",
+   "note": "Rich on_stage in battles, standing anchor otherwise; contact kept inside the canvas."
+  },
+  "minigame:pickup": {
+   "status": "HOLD",
+   "ticket": "NC-FA-07",
+   "note": "Mixed: frozen Rich with placeholder players (no approved art for the other players)."
+  },
+  "minigame:hookah": {
+   "status": "HOLD",
+   "ticket": "NC-FA-08",
+   "note": "Seated hookah scene: no approved seated state for Rich or the companions (CURRENT_OPEN_ART_GAPS lists Bllad33 hookah seated)."
+  },
+  "minigame:jollof": {
+   "status": "HOLD",
+   "ticket": "NC-FA-07",
+   "note": "The cook figure's identity is not specified by the minigame; not mapped (no guessing)."
+  },
+  "minigame:touge": {
+   "status": "PASS (final art)",
+   "note": "Player car uses the frozen TOUGE vehicle by runtime car id; rival cars have no approved art (placeholder)."
+  },
+  "minigame:hatch": {
+   "status": "PASS (final art) at the egg stage",
+   "note": "Frozen egg; hatchling/young/majestic dragon forms have no approved art (placeholder shapes)."
+  },
+  "phone:home": {
+   "status": "PASS (final art)",
+   "note": "Eight frozen app icons on existing tiles; RICHBOIMPORTS and other apps without an approved icon stay text-only."
+  },
+  "bedroom:company": {
+   "status": "HOLD",
+   "ticket": "NC-FA-07",
+   "note": "Bedroom company overlays have no approved art (CURRENT_OPEN_ART_GAPS)."
   }
  },
  "assets": [
@@ -536,9 +583,10 @@
    "path": "assets/before_the_fame/characters/rich/rich_fishing_cast_80x96.png",
    "kind": "character-state",
    "id": "rich.fishing_cast",
-   "status": "FROZEN STATE AVAILABLE",
-   "runtime": [],
-   "note": "The cast happens inside the PIER minigame; the repeat PIER adventure referenced by places/temptations is not defined in content."
+   "status": "FROZEN + ALREADY INTEGRATED",
+   "runtime": [
+    "state:rich.fishing_cast"
+   ]
   },
   {
    "path": "assets/before_the_fame/characters/rich/rich_holding_fish_away_80x96.png",
@@ -1123,15 +1171,15 @@
   {
    "path": "assets/before_the_fame/props/agege_bread/agege_bread_whole_32x24.png",
    "kind": "prop",
-   "id": "agege_bread_whole_32x24",
+   "id": "agege_bread",
    "status": "FROZEN + READY TO INTEGRATE",
    "runtime": [],
-   "note": "Inventory/item surface (Wave 4)."
+   "note": "No runtime visual surface yet: the bread appears only as text (HATCH food labels, items); wiring it needs a UI design decision, not a guess."
   },
   {
    "path": "assets/before_the_fame/props/dragon_maggi_cube/dragon_maggi_cube_24x24.png",
    "kind": "prop",
-   "id": "dragon_maggi_cube_24x24",
+   "id": "dragon_maggi_cube",
    "status": "FROZEN + MAPPING AMBIGUOUS",
    "runtime": [],
    "note": "Label spelling (MAGGI vs MAGI) is Ube-owned; the label must stay swappable (CURRENT_OPEN_ART_GAPS)."
@@ -1139,73 +1187,91 @@
   {
    "path": "assets/before_the_fame/props/mazda_egg/blueberry_mazda_egg_32x32.png",
    "kind": "prop",
-   "id": "blueberry_mazda_egg_32x32",
-   "status": "FROZEN + READY TO INTEGRATE",
-   "runtime": [],
-   "note": "Dragon egg surface (Wave 4)."
+   "id": "mazda_egg",
+   "status": "FROZEN + ALREADY INTEGRATED",
+   "runtime": [
+    "registry:prop:mazda_egg"
+   ]
   },
   {
    "path": "assets/before_the_fame/ui/apps/app_bars_24x24.png",
    "kind": "ui-icon",
-   "id": "app_bars_24x24",
-   "status": "FROZEN + READY TO INTEGRATE",
-   "runtime": []
+   "id": "bars",
+   "status": "FROZEN + ALREADY INTEGRATED",
+   "runtime": [
+    "registry:ui-icon:bars"
+   ]
   },
   {
    "path": "assets/before_the_fame/ui/apps/app_hatch_24x24.png",
    "kind": "ui-icon",
-   "id": "app_hatch_24x24",
-   "status": "FROZEN + READY TO INTEGRATE",
-   "runtime": []
+   "id": "hatch",
+   "status": "FROZEN + ALREADY INTEGRATED",
+   "runtime": [
+    "registry:ui-icon:hatch"
+   ]
   },
   {
    "path": "assets/before_the_fame/ui/apps/app_jdmimports_24x24.png",
    "kind": "ui-icon",
-   "id": "app_jdmimports_24x24",
-   "status": "FROZEN + READY TO INTEGRATE",
-   "runtime": []
+   "id": "jdmimports",
+   "status": "FROZEN + ALREADY INTEGRATED",
+   "runtime": [
+    "registry:ui-icon:jdmimports"
+   ]
   },
   {
    "path": "assets/before_the_fame/ui/apps/app_pickup_24x24.png",
    "kind": "ui-icon",
-   "id": "app_pickup_24x24",
-   "status": "FROZEN + READY TO INTEGRATE",
-   "runtime": []
+   "id": "pickup",
+   "status": "FROZEN + MAPPING AMBIGUOUS",
+   "runtime": [],
+   "note": "No PICKUP phone app exists at runtime (PICKUP is a minigame), and the icon's imagery does not obviously match that minigame. Needs an HQ call on which surface it belongs to."
   },
   {
    "path": "assets/before_the_fame/ui/apps/app_receipts_24x24.png",
    "kind": "ui-icon",
-   "id": "app_receipts_24x24",
-   "status": "FROZEN + READY TO INTEGRATE",
-   "runtime": []
+   "id": "receipts",
+   "status": "FROZEN + ALREADY INTEGRATED",
+   "runtime": [
+    "registry:ui-icon:receipts"
+   ]
   },
   {
    "path": "assets/before_the_fame/ui/apps/app_rich_radio_24x24.png",
    "kind": "ui-icon",
-   "id": "app_rich_radio_24x24",
-   "status": "FROZEN + READY TO INTEGRATE",
-   "runtime": []
+   "id": "rich_radio",
+   "status": "FROZEN + ALREADY INTEGRATED",
+   "runtime": [
+    "registry:ui-icon:rich_radio"
+   ]
   },
   {
    "path": "assets/before_the_fame/ui/apps/app_texts_24x24.png",
    "kind": "ui-icon",
-   "id": "app_texts_24x24",
-   "status": "FROZEN + READY TO INTEGRATE",
-   "runtime": []
+   "id": "texts",
+   "status": "FROZEN + ALREADY INTEGRATED",
+   "runtime": [
+    "registry:ui-icon:texts"
+   ]
   },
   {
    "path": "assets/before_the_fame/ui/apps/app_touge_24x24.png",
    "kind": "ui-icon",
-   "id": "app_touge_24x24",
-   "status": "FROZEN + READY TO INTEGRATE",
-   "runtime": []
+   "id": "touge",
+   "status": "FROZEN + ALREADY INTEGRATED",
+   "runtime": [
+    "registry:ui-icon:touge"
+   ]
   },
   {
    "path": "assets/before_the_fame/ui/apps/app_vampgpt_24x24.png",
    "kind": "ui-icon",
-   "id": "app_vampgpt_24x24",
-   "status": "FROZEN + READY TO INTEGRATE",
-   "runtime": []
+   "id": "vampgpt",
+   "status": "FROZEN + ALREADY INTEGRATED",
+   "runtime": [
+    "registry:ui-icon:vampgpt"
+   ]
   },
   {
    "path": "assets/before_the_fame/ui/apps/phone_app_icon_sheet_216x24.png",
@@ -1217,51 +1283,65 @@
   {
    "path": "assets/before_the_fame/vehicles/touge/aventador_purple_16x28.png",
    "kind": "vehicle",
-   "id": "aventador_purple_16x28",
-   "status": "FROZEN + READY TO INTEGRATE",
-   "runtime": []
+   "id": "aventador_purple",
+   "status": "FROZEN + ALREADY INTEGRATED",
+   "runtime": [
+    "registry:vehicle:aventador_purple"
+   ]
   },
   {
    "path": "assets/before_the_fame/vehicles/touge/ferrari_f40_red_16x28.png",
    "kind": "vehicle",
-   "id": "ferrari_f40_red_16x28",
-   "status": "FROZEN + READY TO INTEGRATE",
-   "runtime": []
+   "id": "ferrari_f40_red",
+   "status": "FROZEN + ALREADY INTEGRATED",
+   "runtime": [
+    "registry:vehicle:ferrari_f40_red"
+   ]
   },
   {
    "path": "assets/before_the_fame/vehicles/touge/r34_blue_16x28.png",
    "kind": "vehicle",
-   "id": "r34_blue_16x28",
-   "status": "FROZEN + READY TO INTEGRATE",
-   "runtime": []
+   "id": "r34_blue",
+   "status": "FROZEN + ALREADY INTEGRATED",
+   "runtime": [
+    "registry:vehicle:r34_blue"
+   ]
   },
   {
    "path": "assets/before_the_fame/vehicles/touge/s15_bodykit_16x28.png",
    "kind": "vehicle",
-   "id": "s15_bodykit_16x28",
-   "status": "FROZEN + READY TO INTEGRATE",
-   "runtime": []
+   "id": "s15_bodykit",
+   "status": "FROZEN + ALREADY INTEGRATED",
+   "runtime": [
+    "registry:vehicle:s15_bodykit"
+   ]
   },
   {
    "path": "assets/before_the_fame/vehicles/touge/s15_stock_16x28.png",
    "kind": "vehicle",
-   "id": "s15_stock_16x28",
-   "status": "FROZEN + READY TO INTEGRATE",
-   "runtime": []
+   "id": "s15_stock",
+   "status": "FROZEN + ALREADY INTEGRATED",
+   "runtime": [
+    "registry:vehicle:s15_stock"
+   ]
   },
   {
    "path": "assets/before_the_fame/vehicles/touge/s2000_pink_16x28.png",
    "kind": "vehicle",
-   "id": "s2000_pink_16x28",
-   "status": "FROZEN + READY TO INTEGRATE",
-   "runtime": []
+   "id": "s2000_pink",
+   "status": "FROZEN + ALREADY INTEGRATED",
+   "runtime": [
+    "registry:vehicle:s2000_pink"
+   ]
   },
   {
    "path": "assets/before_the_fame/vehicles/touge/supra_16x28.png",
    "kind": "vehicle",
-   "id": "supra_16x28",
-   "status": "FROZEN + READY TO INTEGRATE",
-   "runtime": []
+   "id": "supra",
+   "status": "FROZEN + ALREADY INTEGRATED",
+   "runtime": [
+    "registry:vehicle:supra"
+   ]
   },
   {
    "path": "assets/before_the_fame/vehicles/touge/touge_vehicle_sheet_128x28.png",
@@ -1273,9 +1353,11 @@
   {
    "path": "assets/before_the_fame/vehicles/touge/urus_oxblood_16x28.png",
    "kind": "vehicle",
-   "id": "urus_oxblood_16x28",
-   "status": "FROZEN + READY TO INTEGRATE",
-   "runtime": []
+   "id": "urus_oxblood",
+   "status": "FROZEN + ALREADY INTEGRATED",
+   "runtime": [
+    "registry:vehicle:urus_oxblood"
+   ]
   },
   {
    "path": "assets/goldfish_years/characters/octopus_sensei/octopus_sensei_neutral_96x96.png",
@@ -1290,8 +1372,10 @@
    "path": "assets/goldfish_years/characters/octopus_sensei/octopus_sensei_point_96x96.png",
    "kind": "character-state",
    "id": "octopus_sensei.point",
-   "status": "FROZEN STATE AVAILABLE",
-   "runtime": []
+   "status": "FROZEN + ALREADY INTEGRATED",
+   "runtime": [
+    "state:octopus_sensei.point"
+   ]
   },
   {
    "path": "assets/goldfish_years/characters/octopus_sensei/octopus_sensei_state_sheet_192x96.png",
@@ -1883,6 +1967,11 @@
    "lint": "pass"
   },
   "ocean_floor|left:rich,right:octopus_sensei": {
+   "status": "PASS (final art)",
+   "profile": "conversation",
+   "lint": "pass"
+  },
+  "ocean_floor|left:rich,right:octopus_sensei@point": {
    "status": "PASS (final art)",
    "profile": "conversation",
    "lint": "pass"

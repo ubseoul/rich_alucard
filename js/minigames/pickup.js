@@ -153,7 +153,7 @@
    opponentsTurn(dt);
    const rp=P(),pal=palette();
    rp.paintEnvironment(g,env());
-   rp.drawActor(g,{top:'#111018',bottom:'#0d0c14',hairShape:'locs',shades:true,accent:pal.green},80,400,1.15);
+   if(!rp.drawSprite?.(g,rp.personSprite?.('rich'),80,400))rp.drawActor(g,{top:'#111018',bottom:'#0d0c14',hairShape:'locs',shades:true,accent:pal.green},80,400,1.15);
    rp.drawActor(g,{top:'#213548',bottom:'#182430',hairShape:'spiky'},50,412,1.05);
    rp.drawActor(g,{top:'#3a1a1a',bottom:'#241212',hairShape:'short'},190,404,1.1);
    rp.drawActor(g,lilSmack?{top:'#4a4a1a',bottom:'#2a2a10',hairShape:'bald',height:.75,width:.85}:{top:'#1a3a2a',bottom:'#102418',hairShape:'hat'},220,414,1.05);

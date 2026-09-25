@@ -359,7 +359,8 @@
    P.rect(g,0,0,270,80,`rgba(125,25,75,${0.15+pulse*0.15})`);
    nodPhase+=0.05+state.combo*0.01;
    const nodY=94+Math.sin(nodPhase)*2*(1+state.combo*0.05);
-   P.drawActor(g,{top:'#1b1824',bottom:'#111018',hair:'#0b0a12',hairShape:'locs',shades:true,accent:P.palette.blood},40,nodY+390,1.05);
+   // Frozen Rich: the on-stage (mic) state in a battle, the standing anchor otherwise; the nod stays a whole-pixel bob.
+   if(!P.drawSprite?.(g,P.personSprite?.('rich',battle?'on_stage':null),40,Math.round(nodY)+382))P.drawActor(g,{top:'#1b1824',bottom:'#111018',hair:'#0b0a12',hairShape:'locs',shades:true,accent:P.palette.blood},40,nodY+390,1.05);
 
    // speaker toggle
    P.frame(g,4,4,30,16,{fill:muted?'#3a3550':'#20c66b',border:'#10101b'});

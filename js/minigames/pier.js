@@ -278,6 +278,11 @@
   }
   function drawRich(){
    const holding=S.phase==='result'&&S.result&&S.result.landed;
+   // Frozen ART SHIP 006 Rich states: casting while fishing; the fish held at arm's length on a landed fish (the
+   // approved hold shows a fish, so junk catches keep the standing anchor + the drawn catch).
+   const fish=holding&&S.result.caught?.category!=='junk';
+   const sprite=holding?(fish?R.personSprite?.('rich','holding_fish_away'):R.personSprite?.('rich')):S.phase!=='intro'?R.personSprite?.('rich','fishing_cast'):R.personSprite?.('rich');
+   if(R.drawSprite?.(g,sprite,70,392)){if(holding&&!fish){R.rect(g,104,356,26,3,'#211d33');drawFish(S.result.caught,124,352,0.7);}return;}
    R.drawActor(g,{top:'#111018',bottom:'#0c0a14',hair:'#050408',hairShape:'locs',shades:true,skin:'#7a5236',accent:'#3a6ff0'},70,392,1.05);
    if(holding){
     R.rect(g,104,356,26,3,'#211d33'); // extended arm bar
@@ -297,7 +302,7 @@
   }
   function drawUncle(now){
    if(!uncleSunday)return;
-   R.drawActor(g,{top:'#3a2f2a',bottom:'#26221f',hair:'#1a1410',hairShape:'hat',skin:'#6b4326',accent:'#c18b3c'},210,392,0.95);
+   if(!R.drawSprite?.(g,R.personSprite?.('uncle_sunday','fishing'),210,392))R.drawActor(g,{top:'#3a2f2a',bottom:'#26221f',hair:'#1a1410',hairShape:'hat',skin:'#6b4326',accent:'#c18b3c'},210,392,0.95);
    R.text(g,'UNCLE SUNDAY',176,404,{size:6,color:'rgba(246,239,217,.6)'});
    if(now<S.uncleLineUntil)R.text(g,S.uncleLine,135,420,{size:6,color:'#f6efd9',align:'center',maxWidth:120});
   }

@@ -26,19 +26,31 @@ All 44 frozen environments (43 masters plus the ocean-floor base) were inspected
 
 Screens that already reach the floor are untouched (11 of 102 screens move, all former exceptions or new state screens). Combat minions are observers, not speakers.
 
-## Status (checkpoint)
+## Status (frozen-art integration checkpoint)
 
 - **Registry:** 153 frozen files. **Runtime:**
-  - 113 are integrated.
+  - 132 are integrated. That covers 44 environments with layers, 48 identity anchors plus the creature, 20 approved states, 8 TOUGE cars, 8 app icons and the egg.
   - 12 are handoff sheets, not runtime sources.
-  - 19 are ready for Wave 4 (8 TOUGE cars, 9 app icons, 2 props).
-  - 6 are approved states with no current scene.
-  - 3 are mapping-ambiguous.
-- **Screens:** 102 adventure screens and 17 fights; 74 PASS on final art, 45 HOLD. Placeholder environments, unresolved cast art and the NEEDS CREATIVE tickets account for every HOLD.
+  - 4 are approved states with no current scene: two asleep states, Hilt walking away, Iron Jaw rapping.
+  - 4 are mapping-ambiguous: Bruce bow, Deacon blessing, the Maggi cube and the PICKUP icon.
+  - 1 is ready but has no visual surface (agege bread).
+- **Surfaces:**
+  - 103 adventure screens and 17 fights: 75 PASS on final art, 45 HOLD.
+  - Minigame, phone and bedroom surfaces are recorded in the matrix `surfaces`.
+  - Every HOLD traces to a placeholder environment, unresolved cast art or a NEEDS CREATIVE ticket.
+- **Minigames (9:16 canvases, not Director-staged):**
+  - Frozen character states via `RAPixel.personSprite` / `drawSprite`, at native 1:1 on the authored contact point.
+  - PIER: Rich casting and holding the fish away, Uncle Sunday fishing.
+  - SLURP: Rich's apron.
+  - BARS: Rich on stage in battles, standing otherwise.
+  - PICKUP: Rich.
+  - TOUGE: the player car.
+  - HATCH: the egg.
 - **QA:**
-  - `npm test`: registry freshness, register authority for every runtime art path, no handoff sheet or sealed path used, content states exist, matrix freshness, Wave 1/2 locks, dry runs with the full state matrix.
-  - Live sweeps: 102/102 adventure screens and 17/17 fights pass live lint at 360/390/430, with no PROVISIONAL notes.
-  - Internal visual review of every changed screen.
+  - `npm test`, `npm run build` and `npm run verify:artifact` pass.
+  - Live sweeps: 103/103 adventure screens and 17/17 fights pass live lint at 360/390/430, with 0 PROVISIONAL notes and 0 page errors.
+  - The census across all 11 Director scenes (33 captures) lints clean with 0 aspect-integrity problems.
+  - Internal visual review covered every changed screen and surface.
 - **Tickets:** see `docs/presentation/NEEDS_CREATIVE.md` (frozen-art re-evaluation section).
 
 ## Extending

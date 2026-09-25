@@ -64,6 +64,7 @@
   "ocean_floor_collapsed|farLeft:soul,farRight:soul,mid:rich": "conversation",
   "ocean_floor|farLeft:soul,farRight:soul,mid:rich": "conversation",
   "ocean_floor|left:rich,right:octopus_sensei": "conversation",
+  "ocean_floor|left:rich,right:octopus_sensei@point": "conversation",
   "onsen|left:rich": "conversation",
   "party_hall_packed|left:rich": "conversation",
   "party_hall|left:rich": "conversation",

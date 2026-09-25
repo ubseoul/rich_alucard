@@ -622,6 +622,8 @@ body.dev-enabled .dev-panel{max-height:72%;overflow:auto}
 .phone-button{display:block;width:100%;min-height:33px;padding:6px 4px;border:2px solid #28131c;box-shadow:2px 2px #7d194b;background:#17142c;color:#fff;font:7px/1.35 var(--font-system);text-align:center;overflow-wrap:anywhere;touch-action:manipulation}
 .phone-button:active{transform:translate(1px,1px);box-shadow:1px 1px #7d194b}
 .phone-app-grid .phone-button{min-height:50px;font-size:6px}
+/* Frozen app icons: native 24×24 at 1 CSS px per source px (integer device pixels), never smoothed or stretched. */
+.phone-app-icon{display:block;width:24px;height:24px;margin:0 auto 4px;image-rendering:pixelated;pointer-events:none}
 .phone-app-grid .phone-button:first-child{background:#d7193f}
 .phone-chat{padding:8px 7px;border:2px solid #28131c;background:#fff8df;font:8px/1.65 var(--font-system);overflow-wrap:anywhere}
 .phone-chat p{margin:0 0 9px}

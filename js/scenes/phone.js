@@ -25,10 +25,14 @@
   if(!window.RALife)return '';const i=RALife.today();const radio=window.RARadio?.miniPlayer?.()||'';
   return `<div class="phone-status"><span>$${cash()}</span><span>${i.weekday.slice(0,3)} ${i.dateLabel}</span></div>${radio}`;
  }
+ // Frozen ART SHIP 006 app icons (24×24, no baked text: the label stays UI text) by runtime app id → Art Registry id.
+ // PICKUP has no phone app at runtime and RICHBOIMPORTS has no approved icon; both stay text-only.
+ const APP_ICON={texts:'texts',hatch:'hatch',touge:'touge',bars:'bars',radio:'rich_radio',receipts:'receipts',vampgpt:'vampgpt',jdmImports:'jdmimports'};
+ function icon(id){const src=window.RAArtRegistry?.ui?.apps?.[APP_ICON[id]];return src?`<img class="phone-app-icon" src="${esc(src)}" alt="" width="24" height="24" draggable="false">`:''}
  function homeMarkup(){
   const extras=[...registry.values()].filter(a=>!a.canon&&isUnlocked(a.id)).sort((a,b)=>a.order-b.order);
-  const canon=CANON.map(([name,id])=>button(`${name}${badge(id)}`,`app:${id}`,`app-button${isUnlocked(id)?'':' app-dormant'}`)).join('');
-  const more=extras.map(a=>button(`${a.label}${badge(a.id)}`,`app:${a.id}`,'app-button app-extra')).join('');
+  const canon=CANON.map(([name,id])=>button(`${icon(id)}${name}${badge(id)}`,`app:${id}`,`app-button${isUnlocked(id)?'':' app-dormant'}`)).join('');
+  const more=extras.map(a=>button(`${icon(a.id)}${a.label}${badge(a.id)}`,`app:${a.id}`,'app-button app-extra')).join('');
   return `${header()}<h1>PHONE</h1>${incomingCard()}<div class="phone-app-grid">${canon}${more}</div><div class="phone-message" aria-live="polite"></div>${button('CLOSE PHONE','close','phone-close-button')}`;
  }
  // ---- VampGPT (canon flow + WHAT WE ON + the three lanes) ----
