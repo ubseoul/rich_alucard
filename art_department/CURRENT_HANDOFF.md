@@ -1,27 +1,54 @@
 # Current handoff
 
-**ART SHIP 007 — OPEN FOUNDATION COMPLETION: BE TASTE PASS / HQ VISUAL PASS / APPROVED MASTER / FROZEN / COMPLETE.** No Art Ship is active. Do not begin ART SHIP 008 in this chat.
+**ART SHIP 008 — RUNTIME COMPLETION PASS: ONBOARDING + DOCUMENTATION COMPLETE / GENERATION NOT AUTHORIZED.**
 
-## Frozen result
+## Branch and base
 
-- 18 canonical 80×96 RGBA identity anchors, binary alpha and contact `(40,88)`.
-- 20 canonical 270×480 opaque RGB reusable environment masters.
-- 38 total canonical PNGs; every canonical SHA-256 equals its accepted candidate SHA-256.
-- No regeneration or visual revision occurred during promotion.
-- The approximately 1.85× character presentation scale remains runtime-only nearest-neighbor guidance.
+- Working branch: `art/art_ship_008`
+- Exact base and runtime/art-integration authority: `origin/claude/frozen-art-integration` at `c887f5d6d1a417384d906a361e2b52c0f3423e3c`
+- No runtime/gameplay code, frozen pixel, merge or deployment is in scope.
 
-Exact ids, paths, hashes, dimensions, formats, alpha, contacts, provenance and freeze scopes are authoritative in [ART SHIP 007 manifest](ships/art_ship_007/ART_SHIP_MANIFEST.json), [Engineering Asset Map](ships/art_ship_007/ENGINEERING_ASSET_MAP.json), [Promotion Validation](ships/art_ship_007/VALIDATION_REPORT.json), and [Asset Register](ASSET_REGISTER.json).
+## Current runtime truth
 
-## Accepted deferrals
+- Frozen corpus: **173 assets**; Asset Register: **313 entries**.
+- ART SHIP 004–007 handoff files: **153**.
+- Runtime-integrated: **132**.
+- Handoff/reference sheets: **12**.
+- Approved state with no current scene: **4**.
+- Mapping-ambiguous: **4**.
+- Ready asset with no current visual surface: **1**.
+- Runtime census: **103 adventure screens + 17 fights**.
+- Final-art result: **75 PASS / 45 HOLD**.
+- Automated presentation result: all adventure/fight checks pass; HOLD represents creative coverage, identity/environment gaps or explicit NEEDS CREATIVE conditions.
 
-Ambiguous, likeness-sensitive, condition-dependent, crowd, overlay, GUIDED and presentation-dependent work remains deferred. Family identities, God, Buckhead Vampire and OG Hooper remain outside the promoted set. No inference or substitute art is authorized.
+`docs/art_integration/README.md`, `docs/art_integration/INTEGRATION_MATRIX.json` and `docs/presentation/NEEDS_CREATIVE.md` are the current implementation authority. The old Rough Complete snapshot remains historical context only.
 
-## Boundaries
+## Frozen source and presentation rule
 
-No runtime/gameplay code changed. Runtime integration was not performed. No SEALED/HQ-only content was accessed. Future pixel changes require an explicit HQ delta.
+Frozen source bytes remain immutable. On Presentation Director-managed scenes, the Director's shot/camera/framing metadata is the only final display-size authority. Approximately 1.85× is historical reference context, not a universal runtime multiplier and never a reason to resize source art.
 
-## Corpus and integration
+## Ship 008 proposed scope
 
-The frozen corpus is now **173 assets** and the register contains **313 entries**. ART SHIP 004–007 contribute 153 frozen handoff files that remain not runtime-integrated by their Ships. Engineering integration is the next highest-value independent task.
+The proposed 14-asset package is recorded in `ships/art_ship_008/RUNTIME_DEMAND_MAP.md` and `.json`:
 
-**STOP. ART SHIP 007 is FROZEN / COMPLETE. Retire this Art Agent after commit, push and clean-tree verification. Do not begin ART SHIP 008 in this chat.**
+- three exact-origin crowd/condition layers;
+- one corrected frozen-state derivative submitted as a new candidate, never an overwrite;
+- two condition/identity derivative states, one GUIDED;
+- three seated surface states;
+- one high-reuse OPEN environment master;
+- one matched polish state;
+- one exact-origin environment-condition layer;
+- two exact-origin seating-support layers.
+
+If accepted and integrated as mapped, the package is expected to move up to **23 of 45** adventure/fight screens out of HOLD, reduce the total to approximately **22 HOLD**, clear **two held minigame surfaces**, and correct **three PASS-with-polish-note screens**. Final counts require Engineering integration and runtime review.
+
+## Authorization still required
+
+- Pixel generation requires the exact HQ response named above.
+- The corrected frozen state requires an explicit delta authorization limited to the recorded disconnected component; the old frozen source remains untouched.
+- The GUIDED candidate requires explicit named authorization.
+- Nothing may be called APPROVED or FROZEN without later Ube/HQ decisions.
+
+## Stop
+
+**STOP. Wait for `HQ PASS — ART SHIP 008 GENERATION AUTHORIZED`. Do not generate pixels, merge, deploy or modify runtime code.**

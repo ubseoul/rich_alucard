@@ -9,6 +9,7 @@ Art may decide / may not decide:
 Required exploration count / native dimensions / presentation context:
 Ube taste gate and production authorization gate:
 Required states, masks, contacts, layer/Stage Contract responsibility:
+Runtime Demand Map paths and exact Engineering mappings:
 Deliverables and acceptance evidence:
 Explicit exclusions / known deferrals:
 Stop point:

@@ -1,29 +1,29 @@
 # Rich Alucard Art Department — start here
 
-This repository is the Art Department's institutional memory. **The project remembers. The chat does not.** A fresh Art Agent must be able to onboard from this file and the files it points to; no Ube-uploaded Volumes, Addenda, review boards, or prior chat are required.
+This repository is the Art Department's institutional memory. **The project remembers. The chat does not.** A fresh Art Agent must be able to onboard from this file and the records it points to; no Ube-uploaded source packet or prior chat is required.
 
 ## What this project is
 
-`Rich Alucard: Before the Fame` is a portrait pixel-art life/adventure game about Rich Alucard's early life in vampire Los Angeles: rooms, dates, friends, minigames, cars, music, social systems, and small ordinary-life jokes. Art owns pixels and visual continuity; Story/canon owns meaning; Engineering owns runtime integration; Ube owns taste and canon; HQ owns scope, acceptance, and freeze.
+`Rich Alucard: Before the Fame` is a portrait pixel-art life/adventure game. Art owns pixels and visual continuity; Story/canon owns meaning; Engineering owns runtime integration; Ube owns taste and canon; HQ owns scope, acceptance and freeze.
 
 ## Current state
 
-- ART SHIP 007 is the latest frozen pixel authority; resolve the exact promotion SHA as the commit containing `ships/art_ship_007/ART_SHIP_MANIFEST.json`.
-- ART SHIP 007 — OPEN Foundation Completion is frozen/complete. The frozen corpus is **173 assets**; the register contains 313 entries.
-- ART SHIP 004, 005, 006, and 007 are the latest frozen Ship records. Their canonical PNGs are under `assets/` and are indexed by `APPROVED_ASSET_INDEX.md`, `ASSET_REGISTER.json`, and the Ship manifests.
-- No Art Ship is active. Do not generate or modify pixels until HQ authorizes a new Ship.
-- The read-only Rough Complete Engineering branch is `origin/claude/eloquent-shannon-kc5qkn` at `c2a637bb2df8143f117cff1cecc8ca1cff6ba11e`; it is not merged or deployed. It still paints new BTF surfaces with placeholders. Use the repository snapshot and gap map to understand its visual demand; never treat its historical `docs/btf/ART_INPUTS.md` as current truth.
+- Runtime/art-integration authority: `origin/claude/frozen-art-integration` at `c887f5d6d1a417384d906a361e2b52c0f3423e3c`.
+- ART SHIP 007 remains the latest frozen pixel authority. The frozen corpus contains **173 assets**; the Asset Register contains **313 entries**.
+- ART SHIP 004–007 hand off **153 files**. At the current checkpoint, **132 drive runtime**, **12 are handoff/reference sheets**, four approved states have no current scene, four files are mapping-ambiguous, and one prop has no visual surface.
+- The playable census contains **103 adventure screens + 17 fights**: **75 PASS (final art)** and **45 HOLD**. All automated adventure/fight presentation checks pass; HOLD now means missing or incorrect creative coverage, unresolved cast/environment art, or an explicit NEEDS CREATIVE condition—not generic Presentation Director failure.
+- ART SHIP 008 — RUNTIME COMPLETION PASS is at onboarding/documentation stage on `art/art_ship_008`. **Do not generate pixels until the explicit response `HQ PASS — ART SHIP 008 GENERATION AUTHORIZED`.**
 
 ## Authority hierarchy
 
 1. Ube's current canon/taste decisions.
 2. `docs/CURRENT_CANON.md` and `docs/PRODUCTION_CONTROL.md`.
 3. Exact frozen pixels plus `ASSET_REGISTER.json` and `APPROVED_ASSET_INDEX.md`.
-4. The applicable ART SHIP manifest, HQ decision, Engineering map, and state definitions.
+4. The applicable Art Ship manifest, HQ decision, Engineering map, state definitions and Runtime Demand Map.
 5. The committed OPEN production-authority subsets in `production_authority/`.
 6. Art Department judgment inside the explicit Ship scope.
 
-Pixels outrank prose for established visual grammar. Asset existence is not approval. A candidate, review board, placeholder, or exploratory output cannot become style authority by existing in the repository.
+Pixels outrank prose for established visual grammar. Asset existence is not approval. Candidate, review and exploratory output cannot become style authority by existing in the repository.
 
 ## Required reading order for a fresh Art Agent
 
@@ -35,37 +35,39 @@ Read completely, in this order:
 4. `art_department/production_authority/HQ_PRODUCTION_ADDENDUM_OPEN_ART.md`
 5. `art_department/production_authority/VOL2_CHARACTER_VISUAL_BIBLE_OPEN.md`
 6. `art_department/production_authority/VOL5_OPEN_VISUAL_ADDITIONS.md`
-7. `art_department/production_authority/ROUGH_COMPLETE_ENGINEERING_SNAPSHOT.md`
-8. `art_department/CURRENT_OPEN_ART_GAPS.md` and `CURRENT_OPEN_ART_GAPS.json`
+7. `art_department/production_authority/ROUGH_COMPLETE_ENGINEERING_SNAPSHOT.md` (historical audit context only)
+8. `art_department/CURRENT_OPEN_ART_GAPS.md` and `.json`
 9. `art_department/STYLE_FINGERPRINT.md` and the relevant files in `art_department/references/`
-10. `art_department/APPROVED_ASSET_INDEX.md`, then the relevant `ASSET_REGISTER.json` entries and native PNGs
-11. The relevant frozen Ship records under `art_department/ships/` (004, 005, 006, 007)
+10. `art_department/APPROVED_ASSET_INDEX.md`, then relevant `ASSET_REGISTER.json` entries and native PNGs
+11. Relevant frozen Ship records under `art_department/ships/` (004, 005, 006, 007)
 12. `art_department/APPROVAL_LEDGER.md` and the templates under `art_department/templates/`
 
-For implementation state, also read the current repository `docs/ENGINEERING_HANDOFF.md` and the committed snapshot above. The Rough Complete branch's `CHECKPOINT.md`, `DECISIONS.md`, and `ART_INPUTS.md` are historical read-only evidence and are already reconciled in the snapshot/gap map.
+For current implementation truth, additionally read:
 
-## Where authority lives
+1. `docs/ENGINEERING_HANDOFF.md`
+2. `docs/art_integration/README.md`
+3. `docs/art_integration/INTEGRATION_MATRIX.json`
+4. `docs/presentation/NEEDS_CREATIVE.md`
+5. For an active Ship, its `RUNTIME_DEMAND_MAP.md` and machine-readable sibling.
 
-- Frozen pixels: repository-root `assets/`, exact paths recorded in `ASSET_REGISTER.json` and `APPROVED_ASSET_INDEX.md`.
-- Ship-specific hashes, scopes, and Engineering mappings: `art_department/ships/art_ship_004/`, `art_ship_005/`, `art_ship_006/`, and `art_ship_007/`.
-- Visual measurements and pixel grammar: `STYLE_FINGERPRINT.md` and `references/CHARACTERS.md`, `ENVIRONMENTS.md`, and `OBJECTS_FX_AMBIENT.md`.
-- OPEN source/canon needed for Art: `production_authority/`.
-- Current gaps and next priority: `CURRENT_OPEN_ART_GAPS.md` / `.json`.
+Never use the historical Rough Complete placeholder census as current integration truth after reading the files above.
 
-## Implementation and open demand
+## Display-size rule
 
-The frozen corpus is present, but Ship 004/005/006/007 records are handoff-only and not runtime-integrated by those Ships. The Rough Complete branch currently renders 61 historical environment placeholders and 56 character slots through `RAPixel`; the reconciled current list is in `CURRENT_OPEN_ART_GAPS.md`. That map distinguishes frozen/satisfied, candidate, derivative state, still-missing identity/environment, Engineering integration, canon blockers, and restricted demand. Do not guess integration status from filenames.
+Native frozen source pixels never change. On scenes migrated to the Presentation Director, the Director's shot profile, camera and framing metadata are the **sole final display-size authority**. Historical approximately 1.85× guidance remains useful as provenance and environment-composition context, but it is not a universal multiplier for Director-managed scenes. Do not resize source sprites to repair composition.
 
-Primary gameplay characters target approximately **1.85×** historical on-screen presentation with nearest-neighbor filtering. This is an Engineering runtime rule, not permission to enlarge or redesign native source sprites. Composed room art has its own contract.
+Non-Director surfaces follow their explicit current runtime contract and still consume native assets unchanged.
 
-## OPEN vs restricted boundaries
+## OPEN and restricted boundaries
 
-OPEN cards and the repository's frozen corpus are actionable only within an authorized Ship. GUIDED material needs its named scope. Never inspect, import, summarize, or visually solve SEALED/HQ-only material. Keep restricted reveal identities, Vol 4, Vol 5-S, HQ-only deltas, and neutral hooks out of Art-facing boards and records. If a request crosses that boundary, stop and record `SEALED / DO NOT TOUCH`.
+OPEN cards and frozen pixels are actionable only inside an authorized Ship. GUIDED work requires its named authorization. Never inspect, import, summarize or solve SEALED/HQ-only material. If canon or identity is insufficient, record `BLOCKED BY CANON`; if the boundary is restricted, record `SEALED / DO NOT TOUCH`.
 
-## Candidate → approval → freeze procedure
+## Candidate → approval → freeze
 
-An Art Agent may generate only after HQ names an Art Ship and the agent completes a scoped onboarding report. Work from the frozen master, not a derivative. Submit native pixels, exact integer review boards, state definitions, Engineering mappings, source-preservation evidence, validation, and hashes. Ube/HQ reviews the candidate; only an explicit decision can make it `APPROVED MASTER`, and only an explicit freeze can make it `FROZEN`. Runtime integration is a separate Engineering decision.
+An Art Agent may generate only after HQ authorizes a named Ship and the agent completes onboarding. Work from the exact frozen master, never a previous derivative. Submit native candidates, exact integer-scale review evidence, state definitions, Engineering mappings, source hashes, validation and expected HOLD resolution. A Runtime Demand Map must make every asset's ticket, runtime id, state/layer, status, source, dimensions, alpha, contact/origin, intended surfaces, severity and Engineering destination explicit.
 
-Before retirement, update as applicable: `START_HERE.md`, `CURRENT_HANDOFF.md`, `CURRENT_OPEN_ART_GAPS.md` / `.json`, `ASSET_REGISTER.json`, `APPROVED_ASSET_INDEX.md`, `APPROVAL_LEDGER.md`, Ship Engineering maps, frozen totals, and the recommended next priority. Run the repository/art validation, verify every frozen asset hash, verify no runtime changes, perform the cold-start test, commit only scoped Art Department documentation/assets, push, and verify a clean tree.
+Only an explicit decision can make a candidate `APPROVED MASTER`; only an explicit freeze can make it `FROZEN`. Runtime integration is a separate Engineering decision.
 
-The current handoff says **STOP**: ART SHIP 007 is frozen/complete, this Art Agent retires, and ART SHIP 008 must not begin in this chat.
+At Ship close, update as applicable: `START_HERE.md`, `CURRENT_HANDOFF.md`, the current gap map, `ASSET_REGISTER.json`, `APPROVED_ASSET_INDEX.md`, `APPROVAL_LEDGER.md`, Ship maps/manifests, frozen totals and recommended next priority. Verify frozen hashes, no runtime changes, the zero-upload cold start and a clean scoped tree.
+
+**Current stop point:** onboarding/documentation may proceed. Pixel generation is stopped pending `HQ PASS — ART SHIP 008 GENERATION AUTHORIZED`.

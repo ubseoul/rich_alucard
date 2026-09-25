@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "ship_id": null,
+  "status": "PLANNED — GENERATION NOT AUTHORIZED",
+  "runtime_authority": {"branch": null, "commit": null},
+  "assets": [
+    {
+      "request_id": null,
+      "source_ticket": null,
+      "runtime_asset_id": null,
+      "asset_type": null,
+      "state_condition_layer": null,
+      "authority_class": "OPEN",
+      "source_master": {"path": null, "sha256": null},
+      "native_dimensions": null,
+      "alpha_opacity_contract": null,
+      "contact_or_origin": null,
+      "runtime_surfaces": [],
+      "severity": null,
+      "expected_resolution": null,
+      "engineering_mapping": {"key": null, "proposed_path": null},
+      "authorization_required": null,
+      "candidate_status": "NOT GENERATED"
+    }
+  ]
+}
