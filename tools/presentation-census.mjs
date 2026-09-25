@@ -135,6 +135,13 @@ const SCENES={
   actors:{rich:'.rave-rich',ogun:'.rave-ogun'},focal:['rich','ogun'],ui:['.rave-dialogue','.rave-choices','.rave-party-panel'],
   variants:[{id:'advance',run:()=>{document.querySelector('.rave-dialogue')?.click()},wait:500},{id:'advance-2',run:()=>{document.querySelector('.rave-dialogue')?.click()},wait:500},{id:'advance-3',run:()=>{document.querySelector('.rave-dialogue')?.click()},wait:500}],moves:[]
  },
+ 'bedroom-hub':{
+  title:'Bedroom hub',url:'/?dev=1',
+  enter:async page=>{await page.evaluate(async()=>{document.querySelector('#startOverlay')?.remove();document.querySelector('#devPanel')?.classList.remove('show');await RAScenes.go('bedroom');document.querySelectorAll('.morning-mail,.wake-overlay').forEach(n=>n.remove())});await page.waitForTimeout(900)},
+  env:{selector:'.bedroom-base',asset:'assets/rich_bedroom_environment_270x480.png'},
+  actors:{rich:'#bedroomRich'},focal:['rich'],ui:['#checkPhone','.bedroom-life'],
+  variants:[{id:'phone-open',run:()=>{document.querySelector('#checkPhone')?.click()},wait:800}],moves:[]
+ },
  'throne-combat':{
   title:'Throne-room combat (CEO)',
   enter:async page=>{await page.evaluate(async()=>{document.querySelector('#startOverlay')?.remove();await RAScenes.go('battle')});await page.waitForTimeout(700)},
