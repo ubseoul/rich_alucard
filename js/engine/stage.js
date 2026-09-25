@@ -321,7 +321,7 @@
  function transitionWorld(ctl,els,ms,steps){const value=ms?`left ${ms}ms steps(${steps},end),top ${ms}ms steps(${steps},end),width ${ms}ms steps(${steps},end),height ${ms}ms steps(${steps},end)`:'';for(const el of els)if(el)el.style.transition=value}
  // UI-only screens (travel cards, reveal overlays): same tall screen shape as Director scenes, no world.
  function enterUi({mode='cinematic',scope}={}){
-  if(active)exit();const ctl={ui:true,mode,stage:{id:'ui'},actors:{},restore:[]};active=ctl;
+  if(active)exit();const ctl={uiOnly:true,mode,stage:{id:'ui'},actors:{},restore:[]};active=ctl;
   const screen=screenEl();document.body.classList.add('pd-active');screen.dataset.pdMode=mode;screen.dataset.pdStage='ui';
   scope?.cleanup(()=>{if(active===ctl)exit()});return ctl;
  }
@@ -418,6 +418,6 @@
  window.RAStageLayout={contract,actorRect,transform,layout,activate,drawOverlay,runSelfTest};
  window.RAPresentationDirector={screenLayout,worldActor,solve,search,project,lintFrame,enter,exit,fxPoint,runSelfTest:runDirectorSelfTest,
   active:()=>!!active,current:()=>active&&{stage:active.stage.id,mode:active.mode,beat:active.beat,frame:active.frame},
-  enterUi,worldRect:()=>active?.frame?.world||null,actorBox:slot=>active?.frame?.actors?.[slot]||null,adventureStage,combat2Stage,enterMounted,mark:(id,opts)=>active?mark(active,id,opts):Promise.resolve(false),resetMoves:()=>{if(active?.moved){active.moved={};relayout(active)}},moveTo:(slot,to,opts)=>active?moveTo(active,slot,to,opts):Promise.resolve(false),setBeat:(beat,opts)=>active?setBeat(active,beat,opts):null,relayout:()=>active&&!active.ui&&relayout(active),lint:opts=>active&&!active.ui?lintLive(active,opts):Promise.resolve(null),
+  enterUi,worldRect:()=>active?.frame?.world||null,actorBox:slot=>active?.frame?.actors?.[slot]||null,adventureStage,combat2Stage,enterMounted,mark:(id,opts)=>active?mark(active,id,opts):Promise.resolve(false),resetMoves:()=>{if(active?.moved){active.moved={};relayout(active)}},moveTo:(slot,to,opts)=>active?moveTo(active,slot,to,opts):Promise.resolve(false),setBeat:(beat,opts)=>active?setBeat(active,beat,opts):null,relayout:()=>active&&!active.uiOnly&&relayout(active),lint:opts=>active&&!active.uiOnly?lintLive(active,opts):Promise.resolve(null),
   preview:(beatOrShot)=>{if(!active)return null;const prev=active.shot;active.shot={...prev,...beatOrShot};const f=relayout(active);return {frame:f,restore:()=>{active.shot=prev;relayout(active)}}}};
 })();

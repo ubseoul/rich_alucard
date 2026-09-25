@@ -2,7 +2,7 @@
 
 The Presentation Director is the single presentation source of truth for migrated scenes: environment framing, actors, camera, depth, the UI-aware world viewport, world-attached FX, beats and presentation QA. It is an evolution of the Stage Contract system (`js/engine/stage.js`), not a second renderer. It changes how game state is displayed, never what it means: no save, gameplay, canon or frozen-pixel changes.
 
-Status: **pilot complete, awaiting HQ review.** Migrated: docks combat, throne-room combat, the `adventure.js` adapter (allowlist: `curb`), and a DEV-only Combat 2.0 fixture. Nothing else is migrated. Results are in [presentation/PILOT_REPORT.md](presentation/PILOT_REPORT.md).
+Status: **bulk migration complete (Waves 1–4), awaiting HQ QA review.** Every adventure screen, every Combat 2.0 fight, the legacy throne and docks fights, the docks story, Property, Ogun's Rave (interior and exterior), the Desire Trip, the bedroom hub and the UI-only cards are Director-staged. Records: [presentation/MIGRATION_LOG.md](presentation/MIGRATION_LOG.md), [presentation/BULK_QA_REPORT.md](presentation/BULK_QA_REPORT.md), [presentation/NEEDS_CREATIVE.md](presentation/NEEDS_CREATIVE.md). The pilot record is [presentation/PILOT_REPORT.md](presentation/PILOT_REPORT.md).
 
 ## Files
 
@@ -62,9 +62,33 @@ Each profile's `reference` is the locked cross-scene size. The pilot locked comb
 - **Placeholders:** RAPixel placeholder actors get runtime metadata, with visible bounds measured from their canvas pixels.
 - **Allowlist:** only environments listed in `RAPresentationData.adventure.environments` are Director-staged.
 
+## Scene types and entries
+
+| Entry | For | Notes |
+|---|---|---|
+| `enter({stage, mode, beat, host, env, actors, roles, worldLayers, …})` | Hand-built scenes | throne, docks combat, docks story, Supra payoff, trip, bedroom |
+| `adventureStage(env, cast, …)` plus `enter({autoShot})` | Every adventure node | automatic default shot; `RAPresentationData.adventure.exceptions` holds ticketed exceptions |
+| `combat2Stage(env, enemy, …)` | Every Combat 2.0 fight | combat mode |
+| `enterMounted({stage, host, env, actors, overlays, hotspots})` | Image-based scenes | Property, Rave |
+| `enterUi({mode})` | UI-only screens | trip travel/return cards, character reveal: same screen shape, no world |
+
+## Shared mechanisms
+
+- **Stage objects** (`stage.objects`): vehicles, props and composed poses with their own scale. They must be ≥ 90% in view (characters 100%).
+- **Per-beat screen modes** (`director.modes[beat]`) and per-beat exceptions (`director.exceptions[beat]`).
+- **Shot options:**
+  - `target`: a size inside the profile band
+  - `include`: secondary actors kept in frame
+  - `includeHotspots`: interaction hotspots kept in frame
+- **`room` profile:** a composed hub where the whole environment is the subject (no body band).
+- **UI roles** (`data-pd-ui` = `location` / `dialogue` / `choices` / `actions`): the Director stacks visible dialogue → choices → actions top-down in the UI band, and restacks when UI changes.
+- **World layers:** fixed elements, or `worldLayerSelectors` for DOM that scenes rebuild (e.g. the bedroom company overlay).
+- **Accepted intent / exceptions:** stage-level data with a ticket, for named checks only.
+- **Never stretched:** minigames keep a 9:16 stage; full-screen authored effects use aspect-preserving cover.
+
 ## Combat 2.0
 
-`RACombat2.run(enemy, {director:true})` stages the fight through the same adapter contract in combat mode. The legacy 0.9 × global multiplier and the fixed floor at y=318 aren't used on that path. It's pilot-gated: only the DEV fixture passes `director:true`.
+Every Combat 2.0 fight is Director-staged through `combat2Stage`. The legacy 0.9 × global multiplier and the fixed floor at y=318 aren't used. `params.director:false` opts out, and so does the census `--legacy` hook.
 
 ## SOLVE → SEARCH → LINT → AI JUDGE → LOCK
 
@@ -77,7 +101,8 @@ Each profile's `reference` is the locked cross-scene size. The pilot locked comb
    - UI overlap as opaque sprite pixels under the real rendered UI (0)
    - face visibility against UI, bubbles and front actors (100%)
    - headroom, contact-line validity, environment covers viewport, asset authority
-   - dialogue text fit, FX centre inside the world
+   - dialogue text fit (all tagged dialogue/choices), FX centre inside the world
+   - rendered-vs-camera placement (catches foreign transforms)
    - dead space ≤ 0.8 (locked from the pilot golden set)
 4. **AI JUDGE**: hero and composition-sensitive screens only. The legal candidates are rendered with the real UI into one contact sheet, then judged twice, the second time in a seeded shuffled order. The result is accepted only if both passes pick the same candidate for rubric reasons. Disagreement means **HOLD**. No confidence percentages.
 5. **LOCK**: `presentation_locks.js` stores the choice (not pixels), the reasons and an inputs hash (`tools/presentation/inputs.mjs`: contract, profile, mode, acceptance, asset hashes/metadata). The release gate fails if the hash goes stale. It also lints every locked screen across the runtime variant matrix (all combinations of approved focal states) at 360×740, 390×844 and 430×932.
@@ -111,6 +136,9 @@ RA_PLAYWRIGHT_PATH=<playwright-core dir> node tools/presentation-census.mjs --la
 - Never surface the output automatically to the player. Unseen and SEALED content stays spoiler-protected.
 - Candidate letter keys are written to `*-candidates-KEY.sealed.json`, so the judge doesn't see the mapping.
 - `--legacy` renders the DEV fixtures through the pre-Director staging, to produce baselines (test hook `window.__pdLegacy`).
+- **Aspect integrity:** every visible image, canvas and percent-sized background must keep its native aspect (±2%).
+- `tools/presentation-sweep.mjs` renders every adventure screen (and `--combat` every fight) through the real scene and live-lints it at all three sizes.
+- `tools/presentation-adventure-dryrun.mjs` (and `--combat`) are the numeric variant-lint dry runs behind the Wave 1/2 regression locks.
 
 ## Migrating a scene
 
