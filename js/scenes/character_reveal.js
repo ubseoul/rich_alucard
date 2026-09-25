@@ -26,7 +26,7 @@
     setText('revealDating',character.datingPreference);
     setText('revealBust',state.vampire?character.bust.vampire:character.bust.human);
   }
-  function show(mode){
+  function show(mode){if(window.RAPresentationDirector&&!window.__pdLegacy&&!RAPresentationDirector.current())RAPresentationDirector.enterUi({mode:'cinematic'});
     const overlay=el('revealOverlay');
     if(!overlay)return;
     overlay.classList.add('on');
@@ -87,7 +87,7 @@
       el('revealOverlay')._closeReveal=()=>{active=false;resolve();};
     });
   }
-  function close(){
+  function close(){if(RAPresentationDirector?.current?.()?.stage==='ui')RAPresentationDirector.exit();
     const overlay=el('revealOverlay');
     if(overlay){overlay.classList.remove('on');overlay._closeReveal?.();}
     RAState.patch('life.world.scene','throne_room');

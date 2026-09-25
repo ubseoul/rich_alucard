@@ -142,6 +142,12 @@ const SCENES={
   actors:{rich:'#bedroomRich'},focal:['rich'],ui:['#checkPhone','.bedroom-life'],
   variants:[{id:'phone-open',run:()=>{document.querySelector('#checkPhone')?.click()},wait:800}],moves:[]
  },
+ 'rave-exterior':{
+  title:"Ogun's rave exterior — REVIEWER ONLY / PLAYER-BLIND",url:'/?dev=1',
+  enter:async page=>{await page.evaluate(async()=>{document.querySelector('#startOverlay')?.remove();document.querySelector('#devPanel')?.classList.remove('show');await RAScenes.go('ogun-rave-exterior')});await page.waitForTimeout(900)},
+  env:{selector:'.rave-exterior-environment',asset:'assets/ogun_rave/masters/rave_exterior_270x480.png'},
+  actors:{rich:'.rave-exterior-rich'},focal:['rich'],ui:['.rave-exterior-dialogue','.rave-exterior-choices'],variants:[],moves:[]
+ },
  'throne-combat':{
   title:'Throne-room combat (CEO)',
   enter:async page=>{await page.evaluate(async()=>{document.querySelector('#startOverlay')?.remove();await RAScenes.go('battle')});await page.waitForTimeout(700)},
