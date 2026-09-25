@@ -4,6 +4,10 @@
 
 ## Current HEAD / build state
 
+### Presentation Director — HQ PASS (bulk migration accepted)
+
+Branch `claude/presentation-director` (pushed; not merged, not deployed). The accepted checkpoint is `c1ce9d010d8b1641700ab92bda57f71851f2e9b0`, plus a docs-only handoff commit on top. The branch contains Rough Complete plus `origin/main` b8ab4fe (Art Ship 007). Start with `docs/presentation/HANDOFF.md`. Sections below are historical context.
+
 ### Current checkpoint — ENGINEERING 02
 
 HQ granted PASS to `1905774afae66398c46ec55340c9d07f820b9c18` on `engineering/rave-stage-framework`. Accepted stage values and content-free hooks are recorded in `RAVE_STAGE_REVIEW.md` and `STAGE_CONTRACT_HANDOFF.md`. The follow-up checkpoint records that decision and reruns checks only; use `git rev-parse HEAD` for its final commit. Status: **READY FOR INTEGRATION REVIEW**. Do not merge, push, deploy, add story/framework or begin Engineering 03 without HQ authorization. Preserve the documented progressed-save World Events baseline failure. Sections below are historical handoff context and do not supersede this boundary.
