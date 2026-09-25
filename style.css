@@ -794,3 +794,10 @@ body.pd-active .briefcase-projectile.fly{animation:pdBriefcaseFly 430ms steps(4,
 #screen[data-pd-mode] [data-pd-ui="dialogue"]{left:var(--pd-ui-x);right:auto;width:var(--pd-ui-w);top:calc(var(--pd-ui-y) + 1.6em);bottom:auto;max-height:calc(var(--pd-ui-h) - 1.6em)}
 #screen[data-pd-mode] [data-pd-ui="choices"]{left:var(--pd-ui-x);right:auto;width:var(--pd-ui-w);top:var(--pd-ui-y);bottom:auto;max-height:var(--pd-ui-h)}
 #screen[data-pd-mode] .trip-scene{background:#080711}
+/* Minigames paint a fixed 270×480 canvas: on tall Director screens the stage keeps 9:16 (full width, centred);
+   it is never stretched. Surplus height stays the minigame's dark background. */
+body.pd-active .ra-minigame-stage{inset:auto;left:0;right:auto;width:100%;height:auto;aspect-ratio:9/16;top:50%;transform:translateY(-50%)}
+/* Full-screen authored effects are frozen 270×480 art: aspect-preserving cover on Director screens (never stretched).
+   The octopus tentacles (270×362) fit the width anchored to the bottom (the legacy 100%×100% stretch is removed). */
+body.pd-active .blood-bath-impact,body.pd-active .revenge-impact-authored,body.pd-active .vampire-bite-jaw,body.pd-active .vampire-bite-snap{background-size:cover!important;background-position:center!important}
+body.pd-active .tentacle-sprite{background-size:100% auto!important;background-position:center bottom!important}
