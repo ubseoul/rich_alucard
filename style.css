@@ -801,3 +801,5 @@ body.pd-active .ra-minigame-stage{inset:auto;left:0;right:auto;width:100%;height
    The octopus tentacles (270×362) fit the width anchored to the bottom (the legacy 100%×100% stretch is removed). */
 body.pd-active .blood-bath-impact,body.pd-active .revenge-impact-authored,body.pd-active .vampire-bite-jaw,body.pd-active .vampire-bite-snap{background-size:cover!important;background-position:center!important}
 body.pd-active .tentacle-sprite{background-size:100% auto!important;background-position:center bottom!important}
+/* The throne's legacy room layer is only shown when the throne scene adopts it into #pdWorld. */
+body.pd-active #screen > .room{display:none}
