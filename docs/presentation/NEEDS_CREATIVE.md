@@ -25,7 +25,9 @@ Tickets were re-checked against the integrated frozen ART SHIP 004–007 art (do
 | NC-FA-04 | `street_night|left:rich,right:phil@charging_day3` (wrap beat) | Phil day-3 charging state | The closing beat describes a spent, grounded figure but the only approved day-3 state is mid-charge | A spent/grounded Phil state | Polish |
 | NC-FA-05 | `combat:werewolf@grave_closed`, `combat:coffe@throne_party_mess` | Identity anchors | Both fights are a transformed or GUIDED variant of a known identity; only the default anchor is approved | The transformed endpoint and the GUIDED variant states (already in CURRENT_OPEN_ART_GAPS) | Blocking for final presentation (HOLD) |
 | NC-FA-06 | Environments with no frozen master (16 ids, e.g. `street_night`, `throne_party_mess`, `la_sky`) | RAPixel placeholders | Placeholder environments; any screen using them is HOLD | Environment masters per CURRENT_OPEN_ART_GAPS "STILL MISSING — environments" | Blocking (coverage) |
-| NC-FA-07 | Screens with family, God, Buckhead Vampire, OG, drowned souls, Portobello cast, ad-hoc extras | RAPixel placeholder actors | Mixed real/placeholder screens (HOLD per HQ) | Identity anchors (canon-owned where noted) | Blocking (coverage) |
+| NC-FA-07 | Screens with family, God, Buckhead Vampire, OG, drowned souls, Portobello cast, ad-hoc extras; PICKUP players, the JOLLOF cook, bedroom company | RAPixel placeholder actors | Mixed real/placeholder screens (HOLD per HQ) | Identity anchors (canon-owned where noted) | Blocking (coverage) |
+| NC-FA-08 | HOOKAH minigame | RAPixel placeholder figures | A seated hookah scene; no approved seated state exists for Rich or the companions | Seated hookah states (CURRENT_OPEN_ART_GAPS lists Bllad33 hookah seated) | Blocking for that surface (HOLD) |
+| NC-FA-09 | PICKUP phone icon (frozen), Bruce bow, Deacon blessing, Dragon Maggi Cube (frozen) | Frozen assets | Not a presentation failure: no runtime surface or scene is clearly theirs (MAPPING AMBIGUOUS) | An HQ/Story call on where each belongs — no new art | Polish |
 
 ---
 

@@ -89,5 +89,11 @@
   if(s.rain){for(let i=0;i<120;i++)rect(ctx,rand()*270,rand()*480,1,5,'rgba(170,200,255,.35)');}
   if(s.label)text(ctx,s.label,6,s.labelY??70,{size:6,color:'rgba(246,239,217,.8)'});
  }
- window.RAPixel={NATIVE,palette,FONT,createCanvas,text,wrap,rect,frame,rng,drawActor,paintEnvironment};
+ // Frozen character art on 9:16 minigame canvases: resolved by person id + approved state through RABtfPeople (which
+ // resolves the Art Registry), drawn at native 1:1 source pixels (never scaled or smoothed) on its authored contact
+ // point. Returns false until the image has loaded (or when no approved art exists) so callers keep their placeholder.
+ const spriteCache=new Map();
+ function personSprite(id,state=null){const p=id==='rich'?window.RABtfPeople?.rich:window.RABtfPeople?.get?.(id);const src=(state&&p?.states?.[state])||p?.sprite;if(!src)return null;if(!spriteCache.has(src))spriteCache.set(src,Object.assign(new Image(),{src}));return spriteCache.get(src);}
+ function drawSprite(ctx,img,x,y,{flip=false}={}){if(!(img?.complete&&img.naturalWidth))return false;const src=img.getAttribute('src'),[ax,ay]=window.RAPresentationAssets?.[src]?.anchor||[40,88];ctx.save();ctx.imageSmoothingEnabled=false;ctx.translate(Math.round(x),Math.round(y));if(flip)ctx.scale(-1,1);ctx.drawImage(img,-ax,-ay);ctx.restore();return true;}
+ window.RAPixel={NATIVE,palette,FONT,createCanvas,text,wrap,rect,frame,rng,drawActor,paintEnvironment,personSprite,drawSprite};
 })();

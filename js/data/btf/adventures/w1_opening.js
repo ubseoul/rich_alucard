@@ -12,7 +12,10 @@
   fall2:{env:'ocean_floor_collapsed',lines:[N('it collapses again.'),N('MONTH 19.')],next:'try3'},
   try3:climb(3,'again.'),
   fall3:{env:'ocean_floor_collapsed',lines:[N('YEAR 2.'),R("shi. at least it's something.")],next:'sensei'},
-  sensei:{env:'ocean_floor',actors:{left:'rich',right:'octopus_sensei'},lines:[E('octopus_sensei','…'),N('something old drifts in. it has been watching.'),S('octopus_sensei','USE YOUR HEAD.'),R('use my head.')],next:'merge'},
+  // ART SHIP 004 staging: Sensei neutral while arriving/listening, `point` only for the instruction line, then neutral.
+  sensei:{env:'ocean_floor',actors:{left:'rich',right:'octopus_sensei'},lines:[E('octopus_sensei','…'),N('something old drifts in. it has been watching.')],next:'sensei_point'},
+  sensei_point:{actors:{left:'rich',right:{id:'octopus_sensei',state:'point'}},lines:[S('octopus_sensei','USE YOUR HEAD.')],next:'sensei_listen'},
+  sensei_listen:{actors:{left:'rich',right:'octopus_sensei'},lines:[R('use my head.')],next:'merge'},
   merge:{lines:[N('rich does it literally.'),N('eight tentacles. bubbles. his head is full of ocean.'),R("…oh. there's other ways out.")],next:'fork'},
   fork:{choices:[{label:'CLIMB AGAIN',next:'out_climb'},{label:'SWIM',next:'out_swim'},{label:'ASK THE OCTOPUS WHERE THE EXIT IS',octopus:true,next:'out_ask'}]},
   out_climb:{lines:[N('he climbs. this time he uses the tentacles. the ladder is irrelevant.')],next:'out'},

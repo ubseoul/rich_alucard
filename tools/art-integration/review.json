@@ -10,7 +10,9 @@
   "dre.asleep_floor": {"status": "FROZEN STATE AVAILABLE", "note": "No current OPEN beat stages Dre on the floor."}
  },
  "assets": {
-  "assets/before_the_fame/props/agege_bread/agege_bread_whole_32x24.png": {"status": "FROZEN + READY TO INTEGRATE", "note": "Inventory/item surface (Wave 4)."},
+  "assets/before_the_fame/props/agege_bread/agege_bread_whole_32x24.png": {"status": "FROZEN + READY TO INTEGRATE", "note": "No runtime visual surface yet: the bread appears only as text (HATCH food labels, items); wiring it needs a UI design decision, not a guess."},
+  "assets/before_the_fame/ui/apps/app_pickup_24x24.png": {"status": "FROZEN + MAPPING AMBIGUOUS", "note": "No PICKUP phone app exists at runtime (PICKUP is a minigame), and the icon's imagery does not obviously match that minigame. Needs an HQ call on which surface it belongs to."},
+  "assets/before_the_fame/ui/apps/app_jdmimports_24x24.png": {"status": "FROZEN + READY TO INTEGRATE", "note": "Wired to the JDMIMPORTS app per the frozen asset id and HQ decision; CURRENT_OPEN_ART_GAPS prose names it RICHBOIIMPORTS — flagged for HQ confirmation."},
   "assets/before_the_fame/props/mazda_egg/blueberry_mazda_egg_32x32.png": {"status": "FROZEN + READY TO INTEGRATE", "note": "Dragon egg surface (Wave 4)."},
   "assets/before_the_fame/props/dragon_maggi_cube/dragon_maggi_cube_24x24.png": {"status": "FROZEN + MAPPING AMBIGUOUS", "note": "Label spelling (MAGGI vs MAGI) is Ube-owned; the label must stay swappable (CURRENT_OPEN_ART_GAPS)."}
  },
@@ -38,5 +40,17 @@
   "cafe|left:rich@laptop_nod": {"status": "PASS (POLISH NOTE)", "ticket": "NC-FA-03", "note": "The approved seated-laptop pose reads as sitting on the café floor."},
   "combat:werewolf@grave_closed": {"status": "HOLD", "ticket": "NC-FA-05", "note": "The fight is the transformed state; only the human identity anchor is approved."},
   "combat:coffe@throne_party_mess": {"status": "HOLD", "ticket": "NC-FA-05", "note": "GUIDED variant fight; only the default identity anchor is approved."}
+ },
+ "surfaces": {
+  "minigame:pier": {"status": "PASS (final art)", "note": "Rich fishing_cast / holding_fish_away and Uncle Sunday fishing (frozen states) on the minigame canvas at native 1:1."},
+  "minigame:slurp": {"status": "HOLD", "ticket": "NC-FA-02", "note": "Rich ramen_apron at the counter; the state's detached utensil reads as a stray object."},
+  "minigame:bars": {"status": "PASS (final art)", "note": "Rich on_stage in battles, standing anchor otherwise; contact kept inside the canvas."},
+  "minigame:pickup": {"status": "HOLD", "ticket": "NC-FA-07", "note": "Mixed: frozen Rich with placeholder players (no approved art for the other players)."},
+  "minigame:hookah": {"status": "HOLD", "ticket": "NC-FA-08", "note": "Seated hookah scene: no approved seated state for Rich or the companions (CURRENT_OPEN_ART_GAPS lists Bllad33 hookah seated)."},
+  "minigame:jollof": {"status": "HOLD", "ticket": "NC-FA-07", "note": "The cook figure's identity is not specified by the minigame; not mapped (no guessing)."},
+  "minigame:touge": {"status": "PASS (final art)", "note": "Player car uses the frozen TOUGE vehicle by runtime car id; rival cars have no approved art (placeholder)."},
+  "minigame:hatch": {"status": "PASS (final art) at the egg stage", "note": "Frozen egg; hatchling/young/majestic dragon forms have no approved art (placeholder shapes)."},
+  "phone:home": {"status": "PASS (final art)", "note": "Eight frozen app icons on existing tiles; RICHBOIMPORTS and other apps without an approved icon stay text-only."},
+  "bedroom:company": {"status": "HOLD", "ticket": "NC-FA-07", "note": "Bedroom company overlays have no approved art (CURRENT_OPEN_ART_GAPS)."}
  }
 }

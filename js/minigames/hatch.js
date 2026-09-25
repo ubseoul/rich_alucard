@@ -177,7 +177,11 @@
      props:[{type:'window',x:70,y:40,w:130,h:90,color:'#bfe0ff'},{type:'rect',x:0,y:356,w:270,h:124,color:'#c9a876'}]});
    }
   }
+  // Frozen ART SHIP 005 Blueberry Mazda egg (32×32 prop master) at an integer 2× nearest-neighbour scale, centred
+  // where the placeholder egg sat; the placeholder shape remains only until the image has loaded.
+  const eggSrc=window.RAArtRegistry?.props?.mazda_egg?.asset,eggImg=eggSrc?Object.assign(new Image(),{src:eggSrc}):null;
   function eggShape(){
+   if(eggImg?.complete&&eggImg.naturalWidth){const k=2,w=eggImg.naturalWidth*k,h=eggImg.naturalHeight*k;R.rect(g,135-w/2-4,220+h/2-6,w+8,10,'rgba(255,220,140,.15)');g.imageSmoothingEnabled=false;g.drawImage(eggImg,135-w/2,220-h/2,w,h);return;}
    R.rect(g,105,190,60,10,'rgba(255,220,140,.15)');
    R.rect(g,112,180,46,80,'#2540a0');R.rect(g,118,186,34,68,'#3a6ff0');
    for(let i=0;i<10;i++){const sx=118+((i*13)%34),sy=190+((i*23)%56);R.rect(g,sx,sy,3,3,'#8fb4ff');}

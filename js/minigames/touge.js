@@ -186,10 +186,17 @@
 
  const LESSON_WORD={1:'INITIATE.',2:'COUNTERSTEER.',3:'THROTTLE.',4:'CLIP.'};
 
+ // Frozen ART SHIP 006 TOUGE vehicles (top-down, nose up, 16×28 native) resolved by runtime car id through the Art
+ // Registry. Both R34 drivetrains share the one approved R34; the S15 uses its body-kit master when the kit is on.
+ // Rival cars have no approved art yet and stay placeholder shapes.
+ const FROZEN_CAR={supra:'supra',s15:'s15_stock',s2000:'s2000_pink',r34_awd:'r34_blue',r34_rwd:'r34_blue',urus:'urus_oxblood',aventador:'aventador_purple',ferrari:'ferrari_f40_red'};
+ function frozenCar(carId,parts){const key=carId==='s15'&&parts?.bodykit?'s15_bodykit':FROZEN_CAR[carId];const src=window.RAArtRegistry?.vehicles?.touge?.[key]?.asset;if(!src)return null;const img=new Image();img.src=src;return img;}
+
  function mount(root,ctx){
   const P=ctx.params||{};
   const carId=CARS[P.car]?P.car:'s15';
   const parts=P.parts||{};
+  const carSprite=frozenCar(carId,parts);
   const handling=computeHandling(carId,parts);
   const rain=!!P.rain;
   const tandem=P.tandem||null;
@@ -386,7 +393,7 @@
     const sx=screenXforWorld(course.xAt(clamp(rd,0,course.length)));
     if(sy>-20&&sy<500)drawCar(sx,sy,0,0,'#20c66b',0.85);
    }
-   drawCar(screenXforWorld(state.x),carY,state.heading,state.slideAngle,handling.color,1);
+   drawCar(screenXforWorld(state.x),carY,state.heading,state.slideAngle,handling.color,1,carSprite);
 
    // HUD (avoid top-right 60x24 quit zone)
    RAPixel.text(c,`${Math.round(score)}`,6,4,{size:10,color:'#f6efd9'});
@@ -400,8 +407,10 @@
 
    if(phase==='results')drawResults();
   }
-  function drawCar(x,y,heading,slide,color,alpha){
+  function drawCar(x,y,heading,slide,color,alpha,sprite=null){
    c.save();c.globalAlpha=alpha;c.translate(Math.round(x),Math.round(y));c.rotate((heading-slide*0.4)*Math.PI/180);
+   // Frozen sprite at native 1:1 pixels, centred on the car's physics centre (never stretched or smoothed).
+   if(sprite?.complete&&sprite.naturalWidth){c.imageSmoothingEnabled=false;c.drawImage(sprite,-sprite.naturalWidth/2,-sprite.naturalHeight/2);c.restore();return;}
    RAPixel.rect(c,-6,-11,12,22,color);
    RAPixel.rect(c,-6,-11,12,5,'rgba(0,0,0,.35)');
    RAPixel.rect(c,-6,4,12,4,'#151018');
