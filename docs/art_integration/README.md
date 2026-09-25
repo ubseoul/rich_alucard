@@ -30,7 +30,7 @@ Screens that already reach the floor are untouched (11 of 102 screens move, all 
 ## Status after ART SHIP 008 integration
 
 - **Registry:** 167 frozen files. 145 are integrated, 1 is superseded (the original apron, kept as history), 12 are handoff sheets, and the 4 available states, 4 mapping-ambiguous files and 1 no-surface prop are unchanged.
-- **Surfaces:** 104 adventure screens + 17 fights: **98 PASS / 23 HOLD** (before: 75 / 45 of 120). SLURP and HOOKAH (content) minigames pass. The HOOKAH default company is HQ-AS8-01.
+- **Surfaces:** 104 adventure screens + 17 fights: **98 PASS / 23 HOLD** (before: 75 / 45 of 120). SLURP and HOOKAH (A21) minigames pass. The A41 crew hookah (`company=HOMIES`, HQ-AS8-01) is HOLD for NC-FA-11.
 - **QA:**
   - `npm test`, `npm run build` and `npm run verify:artifact` pass.
   - Live sweeps: 104/104 adventures and 17/17 fights at 360/390/430.

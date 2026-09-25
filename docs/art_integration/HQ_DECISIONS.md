@@ -4,7 +4,14 @@ Spoiler-safe: ids, surface keys and runtime evidence only.
 
 ## HQ-AS8-01 — HOOKAH default company visual (Rookoko `default_alias`)
 
-**Status:** OPEN — awaiting HQ. Nothing was invented; the runtime keeps its existing behaviour.
+**Status:** DECIDED — HQ chose **Option 2 (HOMIES)**.
+
+**Decision as implemented:**
+- A41 `roofgame` passes `company:'HOMIES'` explicitly, since the beat stages the crew.
+- Rookoko is **not** a default alias. `AS8-ROOKOKO-HOOKAH` stays reserved for beats that explicitly author ROOKOKO.
+- Crew seated visuals are NEEDS CREATIVE **NC-FA-11** (`docs/presentation/NEEDS_CREATIVE.md`).
+- The `minigame:hookah?company=HOMIES` surface stays HOLD until that coverage exists and passes runtime review.
+- A launch without a company still falls back to the ROOKOKO line set with no figure. No content beat uses that path now.
 
 **Question:** When the HOOKAH minigame is launched without a `company` param, should a companion be drawn? If so, who?
 
@@ -21,11 +28,11 @@ Spoiler-safe: ids, surface keys and runtime evidence only.
 
 **Determination.** The runtime establishes ROOKOKO only as a mechanical fallback for the line set. It doesn't establish Rookoko as the intended default companion. The one beat that reaches the default contradicts it, because the content stages the crew and the date. Drawing Rookoko there would add a cast member the beat doesn't stage, so the alias was **not** made permanent.
 
-**What shipped**
+**What shipped at `98ff0ac` (before the decision)**
 - `minigame:hookah?company=ROOKOKO`: the frozen Rookoko seated state is drawn when a beat names ROOKOKO explicitly (integrated, PASS).
 - `minigame:hookah?company=default`: Rich is drawn alone and the existing ROOKOKO line set is unchanged. Matrix surface status is HOLD (HQ-AS8-01).
 
-**Options for HQ**
+**Options that were put to HQ**
 1. Accept Rookoko as the default companion. This is a one-line runtime change: draw on `company` instead of `namedCompany`.
 2. Have A41 pass `company:'HOMIES'` (crew line set). This is a content change. Crew figures would still need Art: a NEEDS CREATIVE ticket for crew seated states.
 3. Keep the default companion-less. HQ would accept Rich alone for the crew roof and close the surface.

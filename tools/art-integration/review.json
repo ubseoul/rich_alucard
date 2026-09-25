@@ -37,7 +37,7 @@
   "minigame:pickup": {"status": "HOLD", "ticket": "NC-FA-07", "note": "Mixed: frozen Rich with placeholder players (no approved art for the other players)."},
   "minigame:hookah": {"status": "PASS (final art)", "note": "Content surface (HOOKAH, company BLLAD33): frozen Rich and Bllad33 hookah_seated states at native 1:1, seated above the score lines and clear of the antenna target."},
   "minigame:hookah?company=ROOKOKO": {"status": "PASS (final art)", "note": "Explicitly named ROOKOKO company draws frozen Rookoko hookah_seated beside Rich. No current content beat names ROOKOKO explicitly."},
-  "minigame:hookah?company=default": {"status": "HOLD", "ticket": "HQ-AS8-01", "note": "No company param (the crew roof beat) keeps the existing ROOKOKO line set but draws only Rich: the Art default_alias (Rookoko) is not established by content intent. Awaiting HQ decision."},
+  "minigame:hookah?company=HOMIES": {"status": "HOLD", "ticket": "NC-FA-11", "note": "A41 crew roof passes company HOMIES (HQ-AS8-01). Rich seated only: no approved seated crew states yet. Stays HOLD until the crew coverage exists and passes runtime review."},
   "minigame:jollof": {"status": "HOLD", "ticket": "NC-FA-07", "note": "The cook figure's identity is not specified by the minigame; not mapped (no guessing)."},
   "minigame:touge": {"status": "PASS (final art)", "note": "Player car uses the frozen TOUGE vehicle by runtime car id; rival cars have no approved art (placeholder)."},
   "minigame:hatch": {"status": "PASS (final art) at the egg stage", "note": "Frozen egg; hatchling/young/majestic dragon forms have no approved art (placeholder shapes)."},

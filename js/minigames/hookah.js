@@ -49,8 +49,9 @@
  window.RAMinigames.register('hookah',{title:'HOOKAH RINGS',mount(root,ctx){
   const {canvas,ctx:g}=P().createCanvas(root);
   const params=ctx.params||{};
-  // No company param keeps the long-standing ROOKOKO line set; the Rookoko seated figure is drawn only when a beat
-  // names ROOKOKO explicitly (the default-company visual is an open HQ decision: docs/art_integration/HQ_DECISIONS.md).
+  // No company param keeps the long-standing ROOKOKO line set, but Rookoko is NOT a default companion (HQ-AS8-01):
+  // his seated figure is drawn only when a beat names ROOKOKO explicitly. HOMIES has no seated crew art yet
+  // (NEEDS CREATIVE NC-FA-11), so no crew figure is drawn — never a standing anchor on a seated surface.
   const company=params.company||'ROOKOKO',namedCompany=params.company||null;
   const dateName=params.dateName||'her';
   const song=params.song||'MONTANA';
