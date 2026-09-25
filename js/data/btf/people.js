@@ -70,6 +70,17 @@
   M('cat',{name:'THE CAT',role:'sphynx',look:{skin:'#e8c0b0',top:'#e8c0b0',bottom:'#e8c0b0',hair:'#e8c0b0',hairShape:'bald',height:.3,width:.9}})
  ];
  const rich={id:'rich',name:'RICH',sprite:'assets/rich_standing_right.png',look:{skin:'#6a4028',top:'#0c0c10',bottom:'#0c0c10',hair:'#0c0c10',hairShape:'locs',shades:true,accent:'#20c66b'}};
+ // Frozen ART SHIP 004–007 identity anchors and approved states, resolved by id through the generated Art Registry
+ // (never hard-coded paths). The anchor becomes the default sprite only where no earlier approved sprite exists;
+ // `states` lists every approved alternate (placement uses the individual masters, never the handoff sheets).
+ // Ids without frozen art keep their RAPixel placeholder `look`.
+ const art=window.RAArtRegistry||{};
+ for(const p of [rich,...people]){
+  const c=art.characters?.[p.id]||(art.creatures?.[p.id]&&{anchor:art.creatures[p.id].anchor,anchorPose:'sitting',states:{sitting:art.creatures[p.id].anchor}});
+  if(!c)continue;
+  if(c.anchor&&!p.sprite){p.sprite=c.anchor;p.anchorPose=c.anchorPose;}
+  p.states={...c.states};p.frozenArt=true;
+ }
  const byId=Object.fromEntries([rich,...people].map(p=>[p.id,p]));
  window.RABtfPeople={list:people,byId,get:id=>byId[id]||null,women:people.filter(p=>p.dateable),rich};
  // Register every cast member with the existing Persistent People catalog (additive).

@@ -86,13 +86,12 @@
  // Director still frames them best-effort (full-width cover) and lint records the accepted exception. Each has a
  // ticket in docs/presentation/NEEDS_CREATIVE.md. The release gate requires this list to match the dry run exactly.
  const adventure={environments:'all',exceptions:{
-  'ocean_floor|farLeft:soul,farRight:soul,mid:rich':{status:'EXCEPTION-LAYOUT',ticket:'PD-W1-01'},
-  'ocean_floor_collapsed|farLeft:soul,farRight:soul,mid:rich':{status:'EXCEPTION-LAYOUT',ticket:'PD-W1-01'},
-  'slurp|farRight:hina,left:rich,right:okada':{status:'EXCEPTION-LAYOUT',ticket:'PD-W1-02',accept:['face-visible']},
-  'pet_crypt|farRight:uncle_sunday,left:rich':{status:'EXCEPTION-LAYOUT',ticket:'PD-W1-03'},
+  // PD-W1-01/02/03 were resolved by frozen art + metadata-driven slot staging (docs/presentation/NEEDS_CREATIVE.md).
+  'pier|left:rich@holding_fish_away,right:uncle_sunday@fishing':{status:'EXCEPTION-LAYOUT',ticket:'PD-FA-02'},
   'portobello_bedroom|farRight:portobello_kid2,left:portobello_wife,mid:rich_portobello,right:portobello_kid1':{status:'EXCEPTION-LAYOUT',ticket:'PD-W1-04'}
  }};
- // Canonical screen key for the adapter (shared by runtime, dry run and census).
- const screenKey=(envId,cast)=>`${envId}|${Object.entries(cast).filter(([,c])=>c).map(([slot,c])=>`${slot}:${typeof c==='string'?c:c.id}`).sort().join(',')}`;
+ // Canonical screen key for the adapter (shared by runtime, dry run and census). An approved frozen state
+ // (RAArtRegistry) is part of the composition, so `slot:person@state` is its own screen.
+ const screenKey=(envId,cast)=>`${envId}|${Object.entries(cast).filter(([,c])=>c).map(([slot,c])=>`${slot}:${typeof c==='string'?c:c.id}${typeof c==='object'&&c.state?`@${c.state}`:''}`).sort().join(',')}`;
  window.RAPresentationData={modes,profiles,reference,acceptance,rubric,fx,fxReference,spawn,adventure,screenKey};
 })();

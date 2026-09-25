@@ -24,6 +24,13 @@
   const scale=RADisplay.scaled(1)*.9,floor=318;
   const richEl=actorEl('rich',70,floor,scale,false);const enemyEl=actorEl(def.person||enemyId,200,floor,scale,!!RABtfPeople.get(def.person)?.sprite);
   richEl.classList.add('c2-rich');enemyEl.classList.add('c2-enemy');root.append(richEl,enemyEl);
+  // Approved frozen combat states (RAArtRegistry, ART SHIP 006) follow the fight's own events: the enemy telegraphs,
+  // strikes when Rich is hurt, reacts when hit and stays defeated on a win; otherwise it returns to its anchor.
+  // Only states that exist are used; everything else keeps the identity anchor.
+  const enemyPerson=RABtfPeople.get(def.person),COMBAT_STATES={telegraph:['telegraph'],strike:['strike','attack'],hit:['hit'],defeated:['defeated','poof']};
+  const combatState=role=>(COMBAT_STATES[role]||[]).map(name=>enemyPerson?.states?.[name]).find(Boolean)||null;
+  const enemyStates=[enemyPerson?.sprite,...Object.keys(COMBAT_STATES).map(combatState)].filter((src,i,all)=>src&&all.indexOf(src)===i);
+  function setEnemyState(role){if(enemyEl.tagName!=='IMG'||!enemyPerson?.sprite)return;const src=(role&&combatState(role))||enemyPerson.sprite;if(enemyEl.getAttribute('src')===src)return;enemyEl.src=src;if(directed)RAPresentationDirector.relayout();}
   const minionEls=[];if(def.minions){for(let i=0;i<5;i++){const k=actorEl(def.person,150+i*22,floor-30+i*6,scale*.55,false);k.classList.add('c2-minion');root.append(k);minionEls.push(k);}}
   root.insertAdjacentHTML('beforeend',`<div class="c2-hud"><div class="c2-hp c2-hp-rich"><b>RICH ALUCARD</b><span>HP <i><em></em></i> <strong></strong></span></div><div class="c2-hp c2-hp-enemy"><b>${esc(state.enemy.name)}</b><span>HP <i><em></em></i> <strong></strong></span></div></div><div class="c2-telegraph" hidden></div><div class="c2-float" aria-hidden="true"></div><div class="c2-panel"><div class="c2-log" aria-live="polite"></div><div class="c2-menu"></div></div><div class="c2-octo" hidden></div>`);
   screen.append(root);document.body.classList.add('combat2-mode');
@@ -31,7 +38,7 @@
   function stageDirector(){
    // Same adapter contract as adventures: environment floor + depth scale, slot anchors; minions stand on a
    // farther depth band (0.55 of the floor scale — the legacy crowd depth made explicit).
-   const stage=RAPresentationDirector.combat2Stage(envDef,def.person||enemyId,{flip:!!RABtfPeople.get(def.person)?.sprite,minions:minionEls.length});
+   const stage=RAPresentationDirector.combat2Stage(envDef,def.person||enemyId,{flip:!!RABtfPeople.get(def.person)?.sprite,minions:minionEls.length,states:enemyStates});
    const actors={rich:richEl,enemy:enemyEl};minionEls.forEach((el,i)=>actors[`minion${i}`]=el);
    RAPresentationDirector.enter({stage,mode:'combat',beat:'default',host:root,env:env.canvas,actors,roles:stage.director.roles,fx:false,ui:{selectors:['.c2-hud .c2-hp','.c2-panel'],dialogue:['.c2-log'],bubbles:[]}});
   }
@@ -51,6 +58,7 @@
    busy=true;$('.c2-menu').innerHTML='';
    for(const ev of events){
     $('.c2-log').textContent=ev.text;
+    setEnemyState(ev.kind==='telegraph'?'telegraph':ev.kind==='hurt'?'strike':ev.kind==='hit'&&ev.target!=='rich'?'hit':ev.kind==='win'?'defeated':state.over&&state.outcome==='win'?'defeated':null);
     if(ev.kind==='hit'){enemyEl.classList.remove('c2-flash');void enemyEl.offsetWidth;enemyEl.classList.add('c2-flash');floatNum(ev.amount,'enemy');if(ev.fx==='revenge')flashScreen('c2-revenge');if(ev.heavy)shake();}
     if(ev.kind==='hurt'){richEl.classList.remove('c2-flash');void richEl.offsetWidth;richEl.classList.add('c2-flash');floatNum(ev.amount,'rich');if(ev.heavy)shake();}
     if(ev.kind==='heal')floatNum(ev.amount?`+${ev.amount}`:'+','heal',ev.target);

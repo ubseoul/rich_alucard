@@ -18,7 +18,7 @@ export async function loadBtf(root,{seedState=null}={}){
  context.window=context;vm.createContext(context);
  if(seedState)storage.setItem('rich_alucard_save_v1',JSON.stringify(seedState));
  const engine=['js/engine/state.js','js/data/save_fixtures.js','js/engine/scenes.js','js/engine/display.js','js/engine/pixel.js','js/engine/minigames.js','js/data/opportunities.js','js/data/people.js','js/systems/people.js','js/data/world_events.js','js/systems/world_events.js','js/systems/budget.js',
-  'js/systems/life.js','js/systems/life_clock.js','js/data/btf/people.js','js/systems/relations.js','js/systems/rewards.js','js/engine/adventures.js','js/data/btf/environments.js','js/systems/temptations.js','js/systems/places.js','js/systems/sealed.js','js/systems/fame.js','js/systems/vampgram.js','js/systems/radio.js','js/data/btf/dsl.js'];
+  'js/systems/life.js','js/systems/life_clock.js','js/data/art_registry.js','js/data/art_integration.js','js/data/btf/people.js','js/systems/relations.js','js/systems/rewards.js','js/engine/adventures.js','js/data/btf/environments.js','js/systems/temptations.js','js/systems/places.js','js/systems/sealed.js','js/systems/fame.js','js/systems/vampgram.js','js/systems/radio.js','js/data/btf/dsl.js'];
  for(const f of engine)vm.runInContext(await read(f),context,{filename:f});
  const {contentFiles}=await import(pathToFileURL(path.join(root,'tools','sync-index.mjs')).href);
  for(const f of await contentFiles()){if(f.startsWith('js/minigames/')||f==='js/data/bars_words.js')continue;vm.runInContext(await read(f),context,{filename:f});}
@@ -85,6 +85,11 @@ export async function test(root){
     assert(res&&res.id===def.id,`${def.id} did not complete`);assert(!fresh.RAAdventures.active(),`${def.id} left an active record`);
     assert(RAState.get().life.memoryLog.length>0,`${def.id} wrote no memory`);walks++;}}
   }
+  // Every node can be entered cold (dev/QA jumps, presentation sweeps) without throwing — FU-01 regression.
+  {const cold=await loadBtf(root);const A=cold.RAAdventures,bad=[];
+   for(const def of A.all())for(const id of Object.keys(def.nodes)){try{if(A.active())A.abandon();A.start(def.id,{from:'dev'});A.patchActive({node:id});const r=A.enter(id),C=A.context();
+    for(const f of [r.node.lines,r.node.title])if(typeof f==='function')f(C);}catch(e){bad.push(`${def.id}:${id} ${e.message}`)}}
+   assert.deepEqual(bad,[],'adventure nodes that crash when entered out of order');}
   console.log(`PASS btf (v12 migration + idempotency, calendar Oct 1/Oct 31/Nov 26/full moons/rain, clock budget+rent+family, ${all.length} adventures validated, ${walks} branch walks)`);
  }
 }

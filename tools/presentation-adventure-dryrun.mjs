@@ -19,10 +19,11 @@ export const LOCK='docs/presentation/locks/wave1-adventures.json';
 export async function dryRun(){
  const ctx=await loadBtf(root);
  for(const file of ['js/data/stages.js','js/data/presentation.js','js/data/presentation_assets.js','js/data/presentation_locks.js','js/engine/stage.js'])vm.runInContext(await readFile(path.join(root,file),'utf8'),ctx,{filename:file});
- const D=ctx.RAPresentationDirector,people=ctx.RABtfPeople,meta=ctx.RAPresentationAssets,dummy=new Proxy({},{get:(t,k)=>k==='vars'?{}:()=>false});
+ const D=ctx.RAPresentationDirector,people=ctx.RABtfPeople,meta=ctx.RAPresentationAssets,dummyWith=vars=>new Proxy({},{get:(t,k)=>k==='vars'?vars:()=>false});
  const screens=new Map();
- for(const def of ctx.RAAdventures.all()){
-  let env=null,actors={};
+ // Casts computed at runtime from adventure vars are also walked under each declared `presentationVariants` entry.
+ for(const [def,vars] of ctx.RAAdventures.all().flatMap(def=>[[def,{}],...(def.presentationVariants||[]).map(v=>[def,v])])){
+  const dummy=dummyWith(vars);let env=null,actors={};
   for(const [id,node] of Object.entries(def.nodes)){
    let e=node.env,a=node.actors;
    try{if(typeof e==='function')e=e(dummy)}catch{e=null}
@@ -38,8 +39,8 @@ export async function dryRun(){
  for(const [key,s] of screens){
   const envDef=ctx.RAEnvironments.get(s.env);if(!envDef)continue;
   const cast={};for(const [slot,c] of Object.entries(s.cast)){const x=c.x??SLOTS[slot]??135;cast[slot]={...c,x,flip:c.flip||(c.id==='rich'&&x>150)}}
-  const assets={};for(const [slot,c] of Object.entries(cast)){const sprite=c.src||(c.id==='rich'?'assets/rich_standing_right.png':people?.get?.(c.id)?.sprite);assets[slot]=sprite&&meta[sprite]?sprite:PROXY;if(!(sprite&&meta[sprite]))result.placeholderActors++}
-  const stage=D.adventureStage(envDef,cast,{slots:SLOTS,node:s.shot?{shot:s.shot}:null,states:{}});
+  const assets={};for(const [slot,c] of Object.entries(cast)){const person=c.id==='rich'?people?.rich:people?.get?.(c.id),sprite=c.src||(c.state&&person?.states?.[c.state])||(c.id==='rich'?'assets/rich_standing_right.png':person?.sprite);assets[slot]=sprite&&meta[sprite]?sprite:PROXY;if(!(sprite&&meta[sprite]))result.placeholderActors++}
+  const stage=D.adventureStage(envDef,cast,{slots:SLOTS,node:s.shot?{shot:s.shot}:null,states:{},assets});
   let ok=true,profile=null;const fails=new Set();
   for(const [W,H] of SIZES){
    const L=D.screenLayout('dialogue',W,H),view={w:L.world.w,h:L.world.h};
@@ -85,16 +86,18 @@ export async function combatDryRun(){
    const key=`${node.fight.enemy}@${env}`;if(!fights.has(key))fights.set(key,{enemy:node.fight.enemy,env,refs:new Set()});fights.get(key).refs.add(`${def.id}:${id}`)}}
  const rows=[];
  for(const [key,f] of fights){
-  const def=E[f.enemy],envDef=ctx.RAEnvironments.get(f.env)||ctx.RAEnvironments.get('throne'),sprite=people.get(def?.person)?.sprite;
-  const stage=D.combat2Stage(envDef,def?.person||f.enemy,{flip:!!sprite,minions:def?.minions?5:0});
-  const assets={rich:'assets/rich_standing_right.png',enemy:sprite&&meta[sprite]?sprite:'assets/rich_standing_right.png'};
+  const def=E[f.enemy],envDef=ctx.RAEnvironments.get(f.env)||ctx.RAEnvironments.get('throne'),person=people.get(def?.person),sprite=person?.sprite;
+  // Runtime variant matrix: the enemy's identity anchor plus every approved frozen combat state (same mapping as js/scenes/combat2.js).
+  const roles={telegraph:['telegraph'],strike:['strike','attack'],hit:['hit'],defeated:['defeated','poof']};
+  const states=[sprite,...Object.values(roles).map(names=>names.map(n=>person?.states?.[n]).find(Boolean))].filter((s,i,a)=>s&&meta[s]&&a.indexOf(s)===i);
+  const stage=D.combat2Stage(envDef,def?.person||f.enemy,{flip:!!sprite,minions:def?.minions?5:0,states});
   const fails=new Set();let body=null;
-  for(const [W,H] of SIZES){const L=D.screenLayout('combat',W,H),shot=stage.director.shots.default;
-   const cam=D.solve({stage,profile:'combat',focal:shot.focal,reference:'rich',assets,view:{w:L.world.w,h:L.world.h}});
+  for(const enemyAsset of states.length?states:['assets/rich_standing_right.png'])for(const [W,H] of SIZES){const assets={rich:'assets/rich_standing_right.png',enemy:enemyAsset};const L=D.screenLayout('combat',W,H),shot=stage.director.shots.default;
+   const cam=D.solve({stage,profile:'combat',focal:shot.focal,reference:'rich',assets,states:stage.director.states,view:{w:L.world.w,h:L.world.h}});
    const frame=D.project(stage,L,cam,['rich','enemy'].map(slot=>D.worldActor(stage,slot,assets[slot])),3);frame.layout=L;
    const lint=D.lintFrame(stage,frame,{profile:'combat',focal:shot.focal,reference:'rich',uiRects:[L.hud,L.ui]});body=lint.metrics.body;
    for(const c of lint.checks)if(!c.pass&&!c.id.startsWith('authority'))fails.add(c.id.split(':')[0])}
-  rows.push({key,enemy:f.enemy,env:f.env,refs:[...f.refs],pass:!fails.size,fails:[...fails],body,placeholderEnemy:!(sprite&&meta[sprite])});
+  rows.push({key,enemy:f.enemy,env:f.env,refs:[...f.refs],pass:!fails.size,fails:[...fails],body,states:states.length,placeholderEnemy:!(sprite&&meta[sprite])});
  }
  rows.sort((a,b)=>a.key.localeCompare(b.key));
  return {fights:rows.length,pass:rows.filter(r=>r.pass).length,rows,lock:Object.fromEntries(rows.map(r=>[r.key,r.pass?'combat':`FAIL:${r.fails.join('+')}`]))};

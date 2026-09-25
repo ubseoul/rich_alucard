@@ -33,6 +33,7 @@ async function test(){
   for(const name of minigameTests){const mod=await import(pathToFileURL(path.join(root,'tools','minigames',name)).href);await mod.test(root);}
   const btf=await import(pathToFileURL(path.join(root,'tools','btf-test.mjs')).href);await btf.test(root);
   const presentation=await import(pathToFileURL(path.join(root,'tools','presentation-test.mjs')).href);await presentation.test(root);
+  const artIntegration=await import(pathToFileURL(path.join(root,'tools','art-integration.mjs')).href);await artIntegration.test(root);
   const sources=await javascriptFiles(path.join(root,'js'));
   for(const file of [...sources,path.join(root,'game.js')])new vm.Script(await readFile(file,'utf8'),{filename:path.relative(root,file)});
   const listeners={};

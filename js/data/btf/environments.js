@@ -77,5 +77,14 @@
  paint('lan_night','TRISTAN\'S · 4 A.M.',{sky:'#08080c',wall:'#141820',floor:'#1a1a1a',horizon:320,wallTop:0,props:[{type:'rect',x:40,y:170,w:50,h:34,color:'#4a8ac8'},{type:'rect',x:110,y:160,w:50,h:40,color:'#4ac88a'},{type:'rect',x:180,y:170,w:50,h:34,color:'#c84a8a'}]});
  paint('halloween','VAMPIRE LA · HALLOWEEN',{...night,wall:'#2a1a0a',floor:'#2a2020',horizon:320,wallTop:180,props:Array.from({length:10},(_,i)=>({type:'lamp',x:14+i*27,y:170,h:6,r:8,color:'#ff8a1a',glow:'rgba(255,140,30,.2)'})),crowd:30,crowdColors:['#2a3a5a','#3a3a3a','#5a4a3a']});
  paint('tokyo_tease','TOKYO',{sky:'#08060e',stars:0,wall:null,floor:'#08060e',horizon:420,props:[{type:'text',x:135,y:200,text:'TOKYO',size:12,color:'#3a3450',align:'center'}]});
+ // --- frozen ART SHIP 004–007 masters: resolved through the generated Art Registry (never hard-coded paths) ---
+ // A placeholder id becomes frozen art only when js/data/art_integration.js maps it AND the registry holds that
+ // frozen master; the placeholder's display name is kept. Unmapped ids stay RAPixel placeholders.
+ const registry=window.RAArtRegistry?.environments||{};
+ for(const [id,stage] of Object.entries(window.RAArtIntegration?.environments||{})){
+  const art=registry[stage.art];if(!art?.asset||!E[id])continue;
+  const layers=(stage.layers||[]).map(name=>{const path=art.layers?.[name];if(!path)throw new Error(`art integration: ${id} layer ${name} is not frozen`);return path;});
+  E[id]={id,name:E[id].name,image:art.asset,layers,floorY:stage.floorY,base:stage.base,approved:true,frozen:true,art:stage.art};
+ }
  window.RAEnvironments={get:id=>E[id]||null,all:()=>Object.values(E),placeholders:()=>Object.values(E).filter(e=>e.placeholder).map(e=>e.id)};
 })();

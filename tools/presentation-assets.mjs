@@ -8,6 +8,7 @@ import {createHash} from 'node:crypto';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {decodePng,alphaBox} from './presentation/png.mjs';
+import {buildRegistry} from './art-registry.mjs';
 
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const target=path.join(root,'js/data/presentation_assets.js');
@@ -19,8 +20,14 @@ export async function buildAssets(){
  const annotations=JSON.parse(await readFile(path.join(root,'tools/presentation/annotations.json'),'utf8'));
  const register=JSON.parse(await readFile(path.join(root,'art_department/ASSET_REGISTER.json'),'utf8')).assets;
  const status=Object.fromEntries(register.map(item=>[item.path,{status:item.status,sha256:item.sha256}]));
+ // Every frozen ART SHIP 004–007 environment and actor in the generated Art Registry gets metadata automatically;
+ // annotations.json only adds authored detail (face boxes). Contacts come from the Ship manifests.
+ const registry=await buildRegistry(),notes={...annotations.assets};
+ for(const e of Object.values(registry.environments))for(const file of [e.asset,...Object.values(e.layers||{})])if(file)notes[file]={environment:true,...notes[file]};
+ for(const c of Object.values(registry.characters))for(const file of Object.values(c.states))notes[file]={...(c.contact?{anchor:c.contact}:{}),...notes[file]};
+ for(const c of Object.values(registry.creatures))notes[c.anchor]={...(c.contact?{anchor:c.contact}:{groundedAnchor:true}),...notes[c.anchor]};
  const assets={};
- for(const [file,note] of Object.entries(annotations.assets).sort(([a],[b])=>a.localeCompare(b))){
+ for(const [file,note] of Object.entries(notes).sort(([a],[b])=>a.localeCompare(b))){
   const bytes=await readFile(path.join(root,file)),png=decodePng(bytes),sha256=createHash('sha256').update(bytes).digest('hex');
   const registered=status[file];
   if(registered&&registered.sha256!==sha256)throw new Error(`${file}: bytes differ from ASSET_REGISTER.json (frozen authority)`);
@@ -36,9 +43,11 @@ export async function buildAssets(){
   else{
    const visible=alphaBox(png);
    entry.visible=visible;
-   entry.anchor=note.anchor||annotations.defaultAnchor;
+   // Creatures without an authored contact stand on the bottom-centre of their visible pixels.
+   entry.anchor=note.anchor||(note.groundedAnchor?[visible[0]+Math.floor(visible[2]/2),visible[1]+visible[3]]:annotations.defaultAnchor);
    entry.face=note.face||derivedFace(visible);
    entry.faceSource=note.face?'authored':'derived';
+   if(note.noFace)entry.noFace=true;
   }
   assets[file]=entry;
  }

@@ -24,7 +24,9 @@
  function paintEnv(id){
   const env=RAEnvironments.get(id)||RAEnvironments.get('street_night');currentEnv=env;const {ctx}=envCanvas;ctx.clearRect(0,0,270,480);
   root.querySelector('.adv-location').textContent=env.name||'';
-  if(env.image){const img=loadImage(env.image);const draw=()=>{if(currentEnv!==env)return;ctx.imageSmoothingEnabled=false;if(env.cover){const s=Math.max(270/img.naturalWidth,480/img.naturalHeight),w=img.naturalWidth*s,h=img.naturalHeight*s;ctx.drawImage(img,(270-w)/2,(480-h)/2,w,h);}else ctx.drawImage(img,0,0,270,480);};if(img.complete&&img.naturalWidth)draw();else img.addEventListener('load',draw,{once:true});}
+  if(env.image){const img=loadImage(env.image);const draw=()=>{if(currentEnv!==env)return;ctx.imageSmoothingEnabled=false;if(env.cover){const s=Math.max(270/img.naturalWidth,480/img.naturalHeight),w=img.naturalWidth*s,h=img.naturalHeight*s;ctx.drawImage(img,(270-w)/2,(480-h)/2,w,h);}else ctx.drawImage(img,0,0,270,480);
+    // Exact-origin frozen condition layers (e.g. the ocean-floor ladder) draw above the base, below actors.
+    for(const layer of env.layers||[]){const L=loadImage(layer);const put=()=>{if(currentEnv===env)ctx.drawImage(L,0,0,270,480)};if(L.complete&&L.naturalWidth)put();else L.addEventListener('load',()=>{if(img.complete)put()},{once:true});}};if(img.complete&&img.naturalWidth)draw();else img.addEventListener('load',draw,{once:true});}
   else RAPixel.paintEnvironment(ctx,env.paint);
   root.dataset.env=env.id;root.classList.toggle('adv-placeholder-env',!!env.placeholder);
  }
@@ -33,6 +35,7 @@
   const person=id==='rich'?window.RABtfPeople.rich:window.RABtfPeople.get(id);
   let src=null;
   if(person?.sprite){src=person.sprite;if(state==='vampire'&&person.spriteVampire)src=person.spriteVampire;if(id==='jdm_importer_daughter_001'&&RARelations?.get(id)?.conversionState==='converted')src='assets/jdm_imports/characters/daughter/daughter_vampire_reveal.png';if(id==='ceo_assistant_001'&&RARelations?.get(id)?.conversionState==='converted')src=person.spriteVampire;}
+  if(state&&person?.states?.[state])src=person.states[state];// approved frozen state by name (RAArtRegistry)
   if(typeof spec==='object'&&spec.src)src=spec.src;
   let el;
   if(src){el=document.createElement('img');el.src=src;el.alt='';el.draggable=false;}
@@ -61,7 +64,8 @@
   const cast={},elements={};
   for(const el of actorLayer.children){const slot=el.dataset.slot,spec=actors?.[slot];if(!slot||!spec)continue;const id=typeof spec==='string'?spec:spec.id;const x=typeof spec==='object'&&spec.x!=null?spec.x:SLOTS[slot]??135;
    cast[slot]={...(typeof spec==='object'?spec:{}),id,x,flip:(typeof spec==='object'&&spec.flip)||(id==='rich'&&x>150)};elements[slot]=el;}
-  const stage=RAPresentationDirector.adventureStage(currentEnv,cast,{slots:SLOTS,node});
+  const assets=Object.fromEntries(Object.entries(elements).map(([slot,el])=>[slot,RAPresentationDirector.assetOf(el)]));
+  const stage=RAPresentationDirector.adventureStage(currentEnv,cast,{slots:SLOTS,node,assets});
   const exception=RAPresentationData.adventure.exceptions?.[RAPresentationData.screenKey(currentEnv.id,actors||{})]||null;
   RAPresentationDirector.enter({stage,mode:'dialogue',beat:'default',scope,host:root,env:envCanvas.canvas||envCanvas,actors:elements,autoShot:!node?.shot,exception,envPlaceholder:!!currentEnv.placeholder});
   directorNode=true;
