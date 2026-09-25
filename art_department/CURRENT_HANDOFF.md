@@ -1,6 +1,6 @@
 # Current handoff
 
-**ART SHIP 008 — RUNTIME COMPLETION PASS: ONBOARDING + DOCUMENTATION COMPLETE / GENERATION NOT AUTHORIZED.**
+**ART SHIP 008 — RUNTIME COMPLETION PASS: 14-CANDIDATE PACKAGE COMPLETE / HQ REVIEW REQUIRED.**
 
 ## Branch and base
 
@@ -27,9 +27,9 @@
 
 Frozen source bytes remain immutable. On Presentation Director-managed scenes, the Director's shot/camera/framing metadata is the only final display-size authority. Approximately 1.85× is historical reference context, not a universal runtime multiplier and never a reason to resize source art.
 
-## Ship 008 proposed scope
+## Ship 008 candidate package
 
-The proposed 14-asset package is recorded in `ships/art_ship_008/RUNTIME_DEMAND_MAP.md` and `.json`:
+The authorized 14-asset candidate package is complete and recorded in `ships/art_ship_008/`:
 
 - three exact-origin crowd/condition layers;
 - one corrected frozen-state derivative submitted as a new candidate, never an overwrite;
@@ -40,15 +40,15 @@ The proposed 14-asset package is recorded in `ships/art_ship_008/RUNTIME_DEMAND_
 - one exact-origin environment-condition layer;
 - two exact-origin seating-support layers.
 
-If accepted and integrated as mapped, the package is expected to move up to **23 of 45** adventure/fight screens out of HOLD, reduce the total to approximately **22 HOLD**, clear **two held minigame surfaces**, and correct **three PASS-with-polish-note screens**. Final counts require Engineering integration and runtime review.
+All 14 native candidates pass technical validation and internal visual review. Every referenced source hash still matches; the authorized frozen-state correction changes 65 pixels inside its recorded rectangle and zero outside it. If accepted and integrated as mapped, the package is expected to move up to **23 of 45** adventure/fight screens out of HOLD, reduce the total to approximately **22 HOLD**, clear **two held minigame surfaces**, and correct **three PASS-with-polish-note screens**. Final counts require Engineering integration and runtime review.
 
-## Authorization still required
+## Review status
 
-- Pixel generation requires the exact HQ response named above.
-- The corrected frozen state requires an explicit delta authorization limited to the recorded disconnected component; the old frozen source remains untouched.
-- The GUIDED candidate requires explicit named authorization.
+- General, exact-delta and single named GUIDED generation authorizations were received and honored.
+- The package remains candidate-only. No item is APPROVED MASTER or FROZEN.
+- Engineering has a candidate mapping, but no runtime integration was performed.
 - Nothing may be called APPROVED or FROZEN without later Ube/HQ decisions.
 
 ## Stop
 
-**STOP. Wait for `HQ PASS — ART SHIP 008 GENERATION AUTHORIZED`. Do not generate pixels, merge, deploy or modify runtime code.**
+**STOP. Package is ready for HQ review. Do not promote, freeze, integrate, merge, deploy or modify runtime code without the next explicit decision.**

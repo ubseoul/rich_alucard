@@ -1,6 +1,6 @@
 # ART SHIP 008 — Runtime Demand Map
 
-**Status:** PLANNED — GENERATION NOT AUTHORIZED
+**Status:** CANDIDATE PACKAGE COMPLETE — HQ REVIEW REQUIRED
 **Runtime authority:** `origin/claude/frozen-art-integration` at `c887f5d6d1a417384d906a361e2b52c0f3423e3c`
 **Machine authority:** `RUNTIME_DEMAND_MAP.json`
 
@@ -19,7 +19,7 @@ This map is spoiler-safe at report level. Exact runtime surface keys live in the
 | AS8-THRONE-MESS-LAYER | gap map / NC-FA-06 | exact-origin condition layer | 1 | OPEN | COVERAGE | 7 held screens, including one NC-FA-05 dependency |
 | AS8-CAFE-* | NC-FA-03 | registered rear/foreground layers | 2 | OPEN | POLISH | 3 polish-note screens |
 
-**Total:** 14 planned candidates. **No candidate exists yet.**
+**Total:** 14 generated native candidates. All remain **CANDIDATE — HQ REVIEW REQUIRED**; none is approved, frozen or runtime-integrated.
 
 ## Native contracts
 
@@ -33,13 +33,24 @@ This map is spoiler-safe at report level. Exact runtime surface keys live in the
 
 `AS8-RICH-APRON-FIX` is a new candidate path, not an edit to the frozen file. The permitted correction is limited to removal or attachment of the disconnected component occupying source rectangle `x=13..18`, `y=56..73`. All pixels outside that rectangle must remain byte-identical to the frozen source after RGBA normalization. The original frozen path/hash remains immutable.
 
-## Authorization boundary
+## Authorization record
 
-- Named GUIDED authorization still required: `AS8-COFFE-GUIDED`.
-- Exact HQ delta authorization still required: `AS8-RICH-APRON-FIX`.
+- General generation authorization received: `HQ PASS — ART SHIP 008 GENERATION AUTHORIZED`.
+- Named GUIDED authorization received for `AS8-COFFE-GUIDED` for this Ship only.
+- Exact HQ delta authorization received for `AS8-RICH-APRON-FIX`; validation records zero changed pixels outside the frozen rectangle.
 - Family/culturally sensitive/underspecified identities are excluded as `BLOCKED BY CANON`.
 - `NC-FA-09`, no-surface assets, speculative poses/UI and future content are excluded.
 
+## Candidate package
+
+- Machine manifest: `CANDIDATE_PACKAGE_MANIFEST.json`
+- Engineering mappings: `ENGINEERING_ASSET_MAP.json`
+- State/layer contracts: `STATE_LAYER_DEFINITIONS.json`
+- Technical validation: `CANDIDATE_VALIDATION_REPORT.json` and `.md`
+- Source-preservation evidence: `SOURCE_PRESERVATION_EVIDENCE.json` and `.md`
+- Internal visual review: `INTERNAL_VISUAL_REVIEW.md` plus player-blind review boards
+- Expected runtime effect: `EXPECTED_HOLD_RESOLUTION_REPORT.md`
+
 ## Forecast
 
-If all 14 candidates pass, are approved/frozen and are integrated exactly as mapped, up to 23 of 45 current adventure/fight HOLD screens should leave HOLD, yielding approximately 22 remaining. Two held minigame surfaces should also clear, and three current PASS screens should lose their polish notes. This forecast is not approval or runtime acceptance.
+All 14 candidates passed internal technical and visual review. If they are later approved/frozen and integrated exactly as mapped, up to 23 of 45 current adventure/fight HOLD screens should leave HOLD, yielding approximately 22 remaining. Two held minigame surfaces should also clear, and three current PASS screens should lose their polish notes. This forecast is not approval or runtime acceptance.

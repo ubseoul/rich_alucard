@@ -1,0 +1,208 @@
+{
+  "schema_version": 1,
+  "ship_id": "ART SHIP 008",
+  "status": "CANDIDATE \u2014 DO NOT INTEGRATE BEFORE HQ APPROVAL",
+  "director_retains_final_framing_authority": true,
+  "mappings": [
+    {
+      "request_id": "AS8-CROWD-CATACOMB",
+      "engineering_key": "environments.catacomb.layers.crowd_condition",
+      "candidate_path": "assets/before_the_fame/environments/catacomb/layers/catacomb_crowd_overlay_270x480.png",
+      "candidate_sha256": "5468959ed5029d5202b09f2bc651f1b117d156a2fb1ea6b1acf6f72dda4bcd18",
+      "runtime_surfaces": [
+        "catacomb|left:rich,right:iron_jaw",
+        "catacomb|left:rich@on_stage",
+        "catacomb|left:rich@on_stage,right:tasha"
+      ],
+      "draw_order": "base -> crowd layer -> actors -> UI",
+      "activation": "only the listed surface keys",
+      "integration_notes": {}
+    },
+    {
+      "request_id": "AS8-CROWD-HOLLOW",
+      "engineering_key": "environments.hollow_bowl.layers.crowd_condition",
+      "candidate_path": "assets/before_the_fame/environments/hollow_bowl/layers/hollow_bowl_crowd_overlay_270x480.png",
+      "candidate_sha256": "8821c902ca448f3222f3d28f5f32cddafbd95b607a08bf48e73254cc4d7665d1",
+      "runtime_surfaces": [
+        "hollow_bowl|left:rich"
+      ],
+      "draw_order": "base -> crowd layer -> actors -> UI",
+      "activation": "only the listed surface key",
+      "integration_notes": {}
+    },
+    {
+      "request_id": "AS8-CROWD-DUCHESS",
+      "engineering_key": "environments.duchess_castle.layers.reception_condition",
+      "candidate_path": "assets/before_the_fame/environments/duchess_castle/layers/duchess_reception_crowd_overlay_270x480.png",
+      "candidate_sha256": "e28c5c9882ac51ee3f7a5d12480c9f59e83b48552c8f6413606c35a6937b0d7e",
+      "runtime_surfaces": [
+        "duchess_castle|left:rich"
+      ],
+      "draw_order": "base -> crowd layer -> actors -> UI",
+      "activation": "only the listed surface key",
+      "integration_notes": {}
+    },
+    {
+      "request_id": "AS8-RICH-APRON-FIX",
+      "engineering_key": "characters.rich.states.ramen_apron",
+      "candidate_path": "assets/before_the_fame/characters/rich/rich_ramen_apron_corrected_80x96.png",
+      "candidate_sha256": "9c2ba5ab7175cffb0d5c71040bf8461c3dd3e82320605009a0781ffc353d2019",
+      "runtime_surfaces": [
+        "slurp|farRight:hina,left:rich@ramen_apron,right:okada",
+        "minigame:slurp"
+      ],
+      "draw_order": null,
+      "activation": null,
+      "integration_notes": {
+        "replacement_policy": "after approval map runtime state id ramen_apron to the new file; preserve the old frozen file and registry history"
+      }
+    },
+    {
+      "request_id": "AS8-MOONIE-ENDPOINT",
+      "engineering_key": "characters.moonie.states.wolfed_out",
+      "candidate_path": "assets/before_the_fame/characters/moonie/moonie_wolfed_out_80x96.png",
+      "candidate_sha256": "a85b867ceb9fb2d1b852e1df0bbec5c1439dbffdccf8163390a7058a0fca6747",
+      "runtime_surfaces": [
+        "combat:werewolf@grave_closed"
+      ],
+      "draw_order": null,
+      "activation": null,
+      "integration_notes": {
+        "runtime_alias": "combat person werewolf -> moonie.wolfed_out"
+      }
+    },
+    {
+      "request_id": "AS8-COFFE-GUIDED",
+      "engineering_key": "characters.coffe.states.rogue",
+      "candidate_path": "assets/before_the_fame/characters/coffe/coffe_rogue_80x96.png",
+      "candidate_sha256": "24c0789da9071eac3dc553a73b3df9d646c4d23d0829d054daa376095c6c350c",
+      "runtime_surfaces": [
+        "combat:coffe@throne_party_mess"
+      ],
+      "draw_order": null,
+      "activation": null,
+      "integration_notes": {}
+    },
+    {
+      "request_id": "AS8-RICH-HOOKAH",
+      "engineering_key": "minigames.hookah.actors.rich",
+      "candidate_path": "assets/before_the_fame/characters/rich/rich_hookah_seated_80x96.png",
+      "candidate_sha256": "c260180a4b3636fc2765534e0053abd1cab25b2ca2c43c83f800e6b55ee20696",
+      "runtime_surfaces": [
+        "minigame:hookah"
+      ],
+      "draw_order": null,
+      "activation": null,
+      "integration_notes": {}
+    },
+    {
+      "request_id": "AS8-BLLAD33-HOOKAH",
+      "engineering_key": "minigames.hookah.company.BLLAD33",
+      "candidate_path": "assets/bllad33/states/bllad33_hookah_seated_80x96.png",
+      "candidate_sha256": "bcc056454a2c1a234acbb427b5f53061c7d23b211dfb59079077b874e171b94c",
+      "runtime_surfaces": [
+        "minigame:hookah?company=BLLAD33"
+      ],
+      "draw_order": null,
+      "activation": null,
+      "integration_notes": {}
+    },
+    {
+      "request_id": "AS8-ROOKOKO-HOOKAH",
+      "engineering_key": "minigames.hookah.company.ROOKOKO",
+      "candidate_path": "assets/before_the_fame/characters/rookoko/rookoko_hookah_seated_80x96.png",
+      "candidate_sha256": "35b1481a575cd853cbffaefc7b133ee67763158a01faf6c44834502036247ba0",
+      "runtime_surfaces": [
+        "minigame:hookah?company=ROOKOKO",
+        "minigame:hookah?company=default"
+      ],
+      "draw_order": null,
+      "activation": null,
+      "integration_notes": {
+        "default_alias": true
+      }
+    },
+    {
+      "request_id": "AS8-ENV-STREET-NIGHT",
+      "engineering_key": "environments.street_night",
+      "candidate_path": "assets/before_the_fame/environments/street_night/street_night_270x480.png",
+      "candidate_sha256": "68aa0f2176e9c255083ebaaf8b4874fb19f61a9ece04921580cc78309694f13a",
+      "runtime_surfaces": [
+        "street_night|left:rich",
+        "street_night|left:rich,right:coffe",
+        "street_night|left:rich,right:officer_nodd",
+        "street_night|left:rich,right:phil",
+        "street_night|left:rich,right:phil@charging_day3",
+        "street_night|left:rich,right:phil@sitting_plate",
+        "street_night|left:rich,right:shannon_001",
+        "street_night|mid:rich",
+        "combat:phil@street_night"
+      ],
+      "draw_order": null,
+      "activation": null,
+      "integration_notes": {}
+    },
+    {
+      "request_id": "AS8-PHIL-SPENT",
+      "engineering_key": "characters.phil.states.spent_grounded",
+      "candidate_path": "assets/before_the_fame/characters/phil/phil_spent_grounded_80x96.png",
+      "candidate_sha256": "0e17fac440e486ba4b0bc2f0ca1078c2b584ced86915c6469bab04c6a4b7476d",
+      "runtime_surfaces": [
+        "street_night|left:rich,right:phil@charging_day3"
+      ],
+      "draw_order": null,
+      "activation": null,
+      "integration_notes": {
+        "content_state_change": "map only the listed terminal surface to spent_grounded; preserve charging_day3 elsewhere"
+      }
+    },
+    {
+      "request_id": "AS8-THRONE-MESS-LAYER",
+      "engineering_key": "environments.throne_party_mess",
+      "candidate_path": "assets/before_the_fame/environments/throne_party_mess/throne_party_mess_overlay_765x1024.png",
+      "candidate_sha256": "3f0b874e19eacacb21babe3375b67c7ee1f071ecbe9a3d5acad2f5ad7f4ed265",
+      "runtime_surfaces": [
+        "throne_party_mess|left:rich,right:vicky",
+        "throne_party_mess|mid:rich",
+        "combat:bard@throne_party_mess",
+        "combat:bonesworth@throne_party_mess",
+        "combat:cleric@throne_party_mess",
+        "combat:paladin@throne_party_mess",
+        "combat:coffe@throne_party_mess"
+      ],
+      "draw_order": "base -> condition layer -> actors -> UI",
+      "activation": null,
+      "integration_notes": {
+        "composition": "approved throne base + exact-origin overlay"
+      }
+    },
+    {
+      "request_id": "AS8-CAFE-SEAT-REAR",
+      "engineering_key": "environments.cafe.layers.laptop_support_rear",
+      "candidate_path": "assets/before_the_fame/environments/cafe/layers/cafe_laptop_seat_rear_270x480.png",
+      "candidate_sha256": "fed712ed5e22b0e652c0b18e2ca77fab8d755b82a65ddd8cfb9c1c031a4b9eb7",
+      "runtime_surfaces": [
+        "cafe|left:rich@laptop_seated",
+        "cafe|left:rich@laptop_nod",
+        "cafe|left:rich@laptop_seated,right:wispa"
+      ],
+      "draw_order": "base -> rear support -> actors",
+      "activation": null,
+      "integration_notes": {}
+    },
+    {
+      "request_id": "AS8-CAFE-TABLE-FRONT",
+      "engineering_key": "environments.cafe.layers.laptop_table_foreground",
+      "candidate_path": "assets/before_the_fame/environments/cafe/layers/cafe_laptop_table_foreground_270x480.png",
+      "candidate_sha256": "819aa2407f727507337fa0cedcb9b9402e51b8a94d0cc3ef0394a43122f2f62c",
+      "runtime_surfaces": [
+        "cafe|left:rich@laptop_seated",
+        "cafe|left:rich@laptop_nod",
+        "cafe|left:rich@laptop_seated,right:wispa"
+      ],
+      "draw_order": "actors -> foreground table -> UI",
+      "activation": null,
+      "integration_notes": {}
+    }
+  ]
+}

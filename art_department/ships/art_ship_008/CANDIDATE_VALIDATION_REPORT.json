@@ -1,0 +1,162 @@
+{
+  "schema_version": 1,
+  "ship_id": "ART SHIP 008",
+  "result": "PASS",
+  "technical_pass": true,
+  "candidate_count": 14,
+  "source_integrity_pass": true,
+  "authorized_delta_pass": true,
+  "review_board_count": 5,
+  "checks": [
+    {
+      "request_id": "AS8-CROWD-CATACOMB",
+      "path": "assets/before_the_fame/environments/catacomb/layers/catacomb_crowd_overlay_270x480.png",
+      "checks": {
+        "dimensions": true,
+        "mode": true,
+        "binary_alpha": true
+      },
+      "pass": true
+    },
+    {
+      "request_id": "AS8-CROWD-HOLLOW",
+      "path": "assets/before_the_fame/environments/hollow_bowl/layers/hollow_bowl_crowd_overlay_270x480.png",
+      "checks": {
+        "dimensions": true,
+        "mode": true,
+        "binary_alpha": true
+      },
+      "pass": true
+    },
+    {
+      "request_id": "AS8-CROWD-DUCHESS",
+      "path": "assets/before_the_fame/environments/duchess_castle/layers/duchess_reception_crowd_overlay_270x480.png",
+      "checks": {
+        "dimensions": true,
+        "mode": true,
+        "binary_alpha": true
+      },
+      "pass": true
+    },
+    {
+      "request_id": "AS8-RICH-APRON-FIX",
+      "path": "assets/before_the_fame/characters/rich/rich_ramen_apron_corrected_80x96.png",
+      "checks": {
+        "dimensions": true,
+        "mode": true,
+        "binary_alpha": true,
+        "source_contact_row_preserved": true,
+        "outside_authorized_delta_unchanged": true,
+        "authorized_delta_changed": true
+      },
+      "pass": true
+    },
+    {
+      "request_id": "AS8-MOONIE-ENDPOINT",
+      "path": "assets/before_the_fame/characters/moonie/moonie_wolfed_out_80x96.png",
+      "checks": {
+        "dimensions": true,
+        "mode": true,
+        "binary_alpha": true,
+        "contact_y_88": true
+      },
+      "pass": true
+    },
+    {
+      "request_id": "AS8-COFFE-GUIDED",
+      "path": "assets/before_the_fame/characters/coffe/coffe_rogue_80x96.png",
+      "checks": {
+        "dimensions": true,
+        "mode": true,
+        "binary_alpha": true,
+        "contact_y_88": true
+      },
+      "pass": true
+    },
+    {
+      "request_id": "AS8-RICH-HOOKAH",
+      "path": "assets/before_the_fame/characters/rich/rich_hookah_seated_80x96.png",
+      "checks": {
+        "dimensions": true,
+        "mode": true,
+        "binary_alpha": true,
+        "contact_y_88": true
+      },
+      "pass": true
+    },
+    {
+      "request_id": "AS8-BLLAD33-HOOKAH",
+      "path": "assets/bllad33/states/bllad33_hookah_seated_80x96.png",
+      "checks": {
+        "dimensions": true,
+        "mode": true,
+        "binary_alpha": true,
+        "contact_y_88": true
+      },
+      "pass": true
+    },
+    {
+      "request_id": "AS8-ROOKOKO-HOOKAH",
+      "path": "assets/before_the_fame/characters/rookoko/rookoko_hookah_seated_80x96.png",
+      "checks": {
+        "dimensions": true,
+        "mode": true,
+        "binary_alpha": true,
+        "contact_y_88": true
+      },
+      "pass": true
+    },
+    {
+      "request_id": "AS8-ENV-STREET-NIGHT",
+      "path": "assets/before_the_fame/environments/street_night/street_night_270x480.png",
+      "checks": {
+        "dimensions": true,
+        "mode": true,
+        "binary_alpha": true
+      },
+      "pass": true
+    },
+    {
+      "request_id": "AS8-PHIL-SPENT",
+      "path": "assets/before_the_fame/characters/phil/phil_spent_grounded_80x96.png",
+      "checks": {
+        "dimensions": true,
+        "mode": true,
+        "binary_alpha": true,
+        "contact_y_88": true
+      },
+      "pass": true
+    },
+    {
+      "request_id": "AS8-THRONE-MESS-LAYER",
+      "path": "assets/before_the_fame/environments/throne_party_mess/throne_party_mess_overlay_765x1024.png",
+      "checks": {
+        "dimensions": true,
+        "mode": true,
+        "binary_alpha": true
+      },
+      "pass": true
+    },
+    {
+      "request_id": "AS8-CAFE-SEAT-REAR",
+      "path": "assets/before_the_fame/environments/cafe/layers/cafe_laptop_seat_rear_270x480.png",
+      "checks": {
+        "dimensions": true,
+        "mode": true,
+        "binary_alpha": true
+      },
+      "pass": true
+    },
+    {
+      "request_id": "AS8-CAFE-TABLE-FRONT",
+      "path": "assets/before_the_fame/environments/cafe/layers/cafe_laptop_table_foreground_270x480.png",
+      "checks": {
+        "dimensions": true,
+        "mode": true,
+        "binary_alpha": true
+      },
+      "pass": true
+    }
+  ],
+  "approval_note": "Technical PASS is not Approved Master, freeze, taste approval, or runtime acceptance."
+}
