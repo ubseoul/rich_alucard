@@ -27,3 +27,13 @@ Create one transparent simple battered fantasy training dummy for Rich Alucard's
 Create one transparent full-body adult male Buckhead vampire who reads instantly as a polished affluent brunch entrepreneur in a combat-capable neutral stance. Self-satisfied Black man in his late thirties; neat close-cropped hair and trimmed mustache; restrained pale-violet vampire cast and tiny fangs; cream knit polo, dark oxblood unstructured jacket, tailored charcoal trousers, unmistakable tan boat shoes with white soles and one gold watch. Hard-edged compact handheld-cartridge pixel art with sparse face marks and broad grouped planes. Funny stakes, never a ridiculous design; no cape, tuxedo, monster anatomy, mimosa prop, recipe, text, shadow or ground plane.
 
 Full structured prompts additionally specified centered isolated composition, generous transparent padding, one shared baseline, no antialiasing, no gradients, no photorealism, no painterly rendering and no watermark.
+
+## AS12-05R — HQ style/proportion revision
+
+HQ passed Buckhead's established character concept and requested only a style/proportion correction. The built-in image editor was attempted against the preserved Buckhead source render but returned an account usage-limit error and produced no file. No API/CLI fallback was used.
+
+The revision was therefore redrawn deterministically at the native grid by `tools/build_candidates.py`, using the preserved source render only as concept/provenance authority. The revision keeps the oxblood jacket, cream polo, fitted charcoal trousers, tan boat shoes, single gold watch, adult male identity, self-satisfied stance and restrained fang cue. It replaces the naturalistic anatomy and soft fold construction with a larger head mass, 59-pixel visible height, short planted legs, compact bent arms, broad connected jacket/trouser clusters, sparse face pixels and 14 opaque colors.
+
+Superseded candidate SHA-256: `26bc338ca53b12aac0b051189745dadba4b4fb6d29c745e85253fa8c8e01265c`.
+
+Revised candidate SHA-256: `f178b6b63a8d01f3acbbb9d38228da5b97be2fad9fcc8a6ccb7f8ffa0fc6333e`.

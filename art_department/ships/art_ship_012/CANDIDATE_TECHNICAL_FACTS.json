@@ -107,7 +107,7 @@
     {
       "runtime_asset_id": "buckhead",
       "path": "art_department/ships/art_ship_012/candidates/native/characters/buckhead_vampire_neutral_80x96.png",
-      "sha256": "26bc338ca53b12aac0b051189745dadba4b4fb6d29c745e85253fa8c8e01265c",
+      "sha256": "f178b6b63a8d01f3acbbb9d38228da5b97be2fad9fcc8a6ccb7f8ffa0fc6333e",
       "dimensions": [
         80,
         96
@@ -118,12 +118,12 @@
         255
       ],
       "opaque_bbox": [
-        25,
-        31,
-        55,
+        23,
+        30,
+        57,
         89
       ],
-      "opaque_rgb_colors": 17,
+      "opaque_rgb_colors": 14,
       "contact": [
         40,
         88

@@ -8,7 +8,7 @@
 
 ## ART SHIP 012 candidate coverage
 
-ART SHIP 012 supplies five **CANDIDATE — HQ REVIEW REQUIRED** anchors for `portobello_manager`, `auntie`, `soul`, `training_dummy` and `buckhead`. They cover dependencies on seven held surfaces. None is approved, frozen or runtime-integrated, so current PASS/HOLD status does not move. `portobello_wife`, `portobello_kid1` and `portobello_kid2` remain excluded and blocked.
+ART SHIP 012 supplies five candidate anchors for `portobello_manager`, `auntie`, `soul`, `training_dummy` and `buckhead`. HQ passed the first four exact byte streams; Buckhead has a style/proportion-only revision pending HQ review. Nothing is frozen or runtime-integrated, so current PASS/HOLD status does not move. `portobello_wife`, `portobello_kid1` and `portobello_kid2` remain excluded and blocked.
 
 This map uses the live post–Ship 008 Integration Matrix. Historical Rough Complete and pre-integration counts remain provenance only.
 
@@ -109,4 +109,4 @@ Audio dependencies remain outside Art scope.
 
 The Ship 009 forecast remains approximately **111 PASS / 10 HOLD** after its 12 assets and zero-pixel reuse are integrated and QA-accepted. For Ship 010, the rooftop candidate may clear one held screen, moving the current **105 PASS / 16 HOLD** baseline to approximately **106 PASS / 15 HOLD**. The five Portobello screens remain blocked by the four canon-sensitive companion identities and PD-W1-04 review. These are forecasts only; current runtime truth remains **105 PASS / 16 HOLD**.
 
-**Recommended next step:** HQ reviews the five exact ART SHIP 012 candidates. If accepted, record explicit promotion/freeze before any Engineering integration or PASS/HOLD update.
+**Recommended next step:** HQ reviews revised Buckhead. If the Ship is accepted, record explicit promotion/freeze before any Engineering integration or PASS/HOLD update.
