@@ -1,6 +1,6 @@
 # ART SHIP 010 — CAST + PARTY COMPLETION
 
-**Status:** IN PRODUCTION — NO APPROVAL OR FREEZE CLAIM
+**Status:** APPROVED MASTER / FROZEN / COMPLETE
 
 **Owner:** Art
 
@@ -9,6 +9,8 @@
 **Branch:** `art/art_ship_010`
 
 **Spoiler class:** OPEN package with GUIDED `rich_portobello` work and PLAYER-BLIND internal review evidence
+
+**HQ decision:** Explicit HQ PASS authorized exact-byte promotion of all four candidates on 2026-09-26. See `HQ_DECISION.md` and `HQ_TECHNICAL_PROMOTION_REVIEW.md`.
 
 ## Purpose
 
@@ -36,6 +38,14 @@ Produce the smallest candidate package for the five Portobello cast-held screens
 - Presentation Director retains final framing authority.
 - No runtime/gameplay code, merge, deployment, approval, freeze, SEALED/HQ-only material or excluded-ticket work.
 
+## Promotion and freeze
+
+- Candidate checkpoint: `a1e265d0f28a75d2e5f6a1dd67a0ebdff02cd4ab`.
+- Four candidate PNGs were copied byte-for-byte to the canonical paths named in `ART_SHIP_MANIFEST.json`.
+- Portobello Rich is recorded as an **INTENTIONAL VARIANT**: the authorized short-hair transformation is deliberate and is not identity drift. No other Rich state was reconciled or modified.
+- `portobello_wife`, `portobello_kid1`, `portobello_kid2` and `portobello_manager` remain `BLOCKED BY CANON`.
+- Runtime integration, PASS/HOLD movement, PD-W1-04 staging, merge and deployment remain out of scope.
+
 ## Stop point
 
-Prepare native candidates, hashes, Engineering mappings, source-integrity evidence, validation and PLAYER-BLIND internal review. Stop at **ART SHIP 010 — CANDIDATE PACKAGE READY FOR HQ REVIEW**.
+Prepare native candidates, hashes, Engineering mappings, source-integrity evidence, validation and PLAYER-BLIND internal review. After explicit HQ PASS, stop at **ART SHIP 010 — FROZEN**.

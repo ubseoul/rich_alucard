@@ -1,9 +1,9 @@
 {
   "schema_version": 3,
-  "recorded_date": "2026-09-25",
+  "recorded_date": "2026-09-26",
   "runtime_authority": {
-    "branch": "origin/claude/art-ship-008-integration",
-    "commit": "a16196e4fbc0c7530a00bdfe915fb9c9c7cd1826",
+    "branch": "origin/claude/art-ship-009-integration",
+    "commit": "5af730a132c035f6f2f5afb20eef5149ca3f2761",
     "sources": [
       "docs/art_integration/README.md",
       "docs/art_integration/INTEGRATION_MATRIX.json",
@@ -11,9 +11,8 @@
     ]
   },
   "frozen_snapshot": {
-    "frozen_corpus_assets": 199,
-    "register_entries": 339,
-    "ship_004_009_handoff_files": 179,
+    "frozen_corpus_assets": 203,
+    "register_entries": 343,
     "runtime_integrated_files": 145,
     "ship_009_approved_pending_integration_runtime_qa": 12,
     "ship_009_zero_pixel_reuse_mappings_pending_integration": 1,
@@ -21,13 +20,15 @@
     "handoff_reference_sheets": 12,
     "approved_states_without_current_scene": 4,
     "mapping_ambiguous_files": 4,
-    "ready_without_visual_surface": 1
+    "ready_without_visual_surface": 1,
+    "ship_004_010_handoff_files": 183,
+    "ship_010_approved_pending_integration_runtime_qa": 4
   },
   "runtime_snapshot": {
     "adventure_screens": 104,
     "fights": 17,
-    "pass_final_art": 98,
-    "hold": 23,
+    "pass_final_art": 105,
+    "hold": 16,
     "automated_presentation_checks_pass": true,
     "hold_definition": "missing or incorrect creative coverage, unresolved cast/environment art, or an explicit NEEDS CREATIVE condition"
   },
@@ -36,7 +37,7 @@
     "director_managed_scenes": "Presentation Director shot profile/camera/framing metadata is sole final display-size authority",
     "historical_1_85x": "reference and composition context only; not a universal Director multiplier",
     "resize_source_to_fix_composition": false,
-    "pd_w1_04_status": "PRESENTATION DIRECTOR / HQ OWNED — NOT RESOLVED BY ENVIRONMENT APPROVAL"
+    "pd_w1_04_status": "PRESENTATION DIRECTOR / HQ OWNED \u2014 NOT RESOLVED BY ENVIRONMENT APPROVAL"
   },
   "ship_009_pending_integration": [
     {
@@ -45,30 +46,49 @@
       "held_screens": 12,
       "frozen_assets": 9,
       "zero_pixel_reuse": "lan_night -> tristan_apt",
-      "art_status": "APPROVED MASTER / FROZEN — PENDING ENGINEERING INTEGRATION"
+      "art_status": "APPROVED MASTER / FROZEN \u2014 PENDING ENGINEERING INTEGRATION"
     },
     {
       "id": "NC-FA-10",
       "severity": "BLOCKING",
       "held_screens": 1,
       "frozen_assets": 1,
-      "art_status": "APPROVED MASTER / FROZEN — PENDING ENGINEERING INTEGRATION"
+      "art_status": "APPROVED MASTER / FROZEN \u2014 PENDING ENGINEERING INTEGRATION"
     },
     {
       "id": "NC-FA-11",
       "severity": "BLOCKING",
       "held_minigame_surfaces": 1,
       "frozen_assets": 2,
-      "art_status": "APPROVED MASTER / FROZEN — PENDING ENGINEERING INTEGRATION"
+      "art_status": "APPROVED MASTER / FROZEN \u2014 PENDING ENGINEERING INTEGRATION"
     }
   ],
-  "missing_environment_ids": ["catacomb_dead", "atl_airport", "ocean_night_flight", "halloween"],
-  "missing_identity_ids": ["mom", "dad", "sister", "brother1", "brother2", "god", "buckhead", "og_hooper"],
+  "missing_environment_ids": [
+    "catacomb_dead",
+    "atl_airport",
+    "ocean_night_flight",
+    "halloween"
+  ],
+  "missing_identity_ids": [
+    "mom",
+    "dad",
+    "sister",
+    "brother1",
+    "brother2",
+    "god",
+    "buckhead",
+    "og_hooper",
+    "portobello_wife",
+    "portobello_kid1",
+    "portobello_kid2",
+    "portobello_manager"
+  ],
   "blocked_by_canon": [
     "family identities and likeness details",
     "god culturally sensitive identity treatment",
     "buckhead underspecified identity",
-    "og_hooper underspecified identity"
+    "og_hooper underspecified identity",
+    "Portobello wife, kid1, kid2 and manager identities have no committed OPEN/GUIDED visual cards"
   ],
   "guided_requires_named_authorization": [
     "PD-W1-04 Portobello four-actor staging and progression",
@@ -95,8 +115,42 @@
   "generation_authorized": true,
   "promotion_authorized": true,
   "ship_009_status": "APPROVED MASTER / FROZEN / COMPLETE",
-  "accepted_candidate_checkpoint": "47da18d9984c4915d3325709364db9a442fb3b36",
-  "recommended_next_step": "Engineering integrates the 12 frozen Ship 009 assets plus the approved lan_night -> tristan_apt zero-pixel reuse, performs Presentation Director review including PD-W1-04, and reruns the Integration Matrix/runtime visual QA before PASS/HOLD changes or another Art Ship.",
+  "accepted_candidate_checkpoint": "a1e265d0f28a75d2e5f6a1dd67a0ebdff02cd4ab",
+  "recommended_next_step": "Engineering integrates the 16 pending frozen Ship 009/010 assets and mappings, performs Presentation Director review including PD-W1-04, and reruns Integration Matrix/runtime visual QA before PASS/HOLD changes.",
   "historical_rough_complete_map_is_current_truth": false,
-  "sealed_content_accessed": false
+  "sealed_content_accessed": false,
+  "ship_010_pending_integration": [
+    {
+      "id": "NC-FA-07",
+      "severity": "BLOCKING",
+      "held_screens": 5,
+      "frozen_assets": 3,
+      "blocked_identities": [
+        "portobello_wife",
+        "portobello_kid1",
+        "portobello_kid2",
+        "portobello_manager"
+      ],
+      "art_status": "Rich states APPROVED MASTER / FROZEN; four companion identities BLOCKED BY CANON \u2014 PENDING ENGINEERING INTEGRATION AND RUNTIME QA"
+    },
+    {
+      "id": "NC-FA-12",
+      "severity": "BLOCKING",
+      "held_screens": 1,
+      "frozen_assets": 1,
+      "art_status": "APPROVED MASTER / FROZEN \u2014 PENDING ENGINEERING INTEGRATION AND RUNTIME QA"
+    }
+  ],
+  "ship_010_forecast": {
+    "frozen_assets": 4,
+    "rooftop_hold_potentially_cleared": 1,
+    "projected_pass_after_rooftop_integration": 106,
+    "projected_hold_after_rooftop_integration": 15,
+    "portobello_screens_remain_blocked_until_companion_identities_exist": 5,
+    "promotion_complete": true,
+    "runtime_integration_complete": false,
+    "forecast_is_current_runtime_acceptance": false,
+    "map": "art_department/ships/art_ship_010/RUNTIME_DEMAND_MAP.json"
+  },
+  "ship_010_status": "APPROVED MASTER / FROZEN / COMPLETE"
 }

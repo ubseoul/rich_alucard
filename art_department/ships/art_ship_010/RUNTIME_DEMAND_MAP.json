@@ -2,7 +2,7 @@
   "schema_version": 1,
   "ship_id": "ART SHIP 010",
   "title": "CAST + PARTY COMPLETION",
-  "status": "GENERATION AUTHORIZED — IN PRODUCTION; NO APPROVAL OR FREEZE CLAIM",
+  "status": "APPROVED MASTER / FROZEN / COMPLETE — PENDING ENGINEERING INTEGRATION",
   "runtime_authority": {
     "branch": "claude/art-ship-009-integration",
     "commit": "5af730a132c035f6f2f5afb20eef5149ca3f2761",
@@ -37,7 +37,7 @@
       "severity": "BLOCKING",
       "expected_resolution": {"dependency": "supplies Rich cast art; no screen clears while the companion identities remain blocked"},
       "engineering_mapping": {"key": "people.rich_portobello.default", "candidate_path": "art_department/ships/art_ship_010/candidates/native/characters/rich_portobello_standing_80x96.png", "proposed_canonical_path": "assets/before_the_fame/characters/rich_portobello/rich_portobello_standing_80x96.png"},
-      "candidate_status": "CANDIDATE — HQ REVIEW REQUIRED"
+      "candidate_status": "APPROVED MASTER / FROZEN"
     },
     {
       "request_id": "AS10-RICH-PORTO-PRESENTING",
@@ -54,7 +54,7 @@
       "severity": "BLOCKING",
       "expected_resolution": {"dependency": "supplies Rich office state; screen remains blocked on manager identity"},
       "engineering_mapping": {"key": "people.rich_portobello.states.presenting", "candidate_path": "art_department/ships/art_ship_010/candidates/native/characters/rich_portobello_presenting_80x96.png", "proposed_canonical_path": "assets/before_the_fame/characters/rich_portobello/rich_portobello_presenting_80x96.png"},
-      "candidate_status": "CANDIDATE — HQ REVIEW REQUIRED"
+      "candidate_status": "APPROVED MASTER / FROZEN"
     },
     {
       "request_id": "AS10-RICH-PORTO-PORCH-SEATED",
@@ -71,7 +71,7 @@
       "severity": "BLOCKING",
       "expected_resolution": {"dependency": "supplies Rich porch state; screen remains blocked on wife identity"},
       "engineering_mapping": {"key": "people.rich_portobello.states.porch_seated", "candidate_path": "art_department/ships/art_ship_010/candidates/native/characters/rich_portobello_porch_seated_80x96.png", "proposed_canonical_path": "assets/before_the_fame/characters/rich_portobello/rich_portobello_porch_seated_80x96.png"},
-      "candidate_status": "CANDIDATE — HQ REVIEW REQUIRED"
+      "candidate_status": "APPROVED MASTER / FROZEN"
     },
     {
       "request_id": "AS10-PORTO-WIFE",
@@ -160,7 +160,7 @@
       "severity": "BLOCKING",
       "expected_resolution": {"hold_screens": 1, "problem_class": "party beat reads as an empty rooftop"},
       "engineering_mapping": {"key": "environments.rooftop_dtla.layers.party_crowd_condition", "candidate_path": "art_department/ships/art_ship_010/candidates/native/layers/rooftop_dtla_party_crowd_overlay_270x480.png", "proposed_canonical_path": "assets/before_the_fame/environments/rooftop_dtla/layers/rooftop_dtla_party_crowd_overlay_270x480.png", "draw_order": "frozen base -> party crowd condition -> named actors -> UI", "activation": "only rooftop_dtla|left:rich"},
-      "candidate_status": "CANDIDATE — HQ REVIEW REQUIRED"
+      "candidate_status": "APPROVED MASTER / FROZEN"
     }
   ],
   "scope_summary": {
@@ -176,6 +176,6 @@
   "explicit_exclusions": ["family x3", "Naija Mart auntie", "ocean-floor souls", "Buckhead", "training fights", "pier staging", "other canon-sensitive identities", "PLAYMAKERS", "SEALED/HQ-only material", "audio", "runtime/gameplay code", "speculative alternates"],
   "generation_authorized": true,
   "generation_authorization": "User-authorized ART SHIP 010 brief; GUIDED authorization applies to rich_portobello only",
-  "approval_status": "NO CANDIDATE IS APPROVED OR FROZEN",
+  "approval_status": "4 APPROVED MASTER / FROZEN; NO RUNTIME INTEGRATION CLAIM",
   "runtime_integrated": false
 }
