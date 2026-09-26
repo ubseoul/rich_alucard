@@ -1,0 +1,76 @@
+{
+  "status": "EXPLORATION — NOT APPROVED",
+  "records": [
+    {
+      "id": "A01_dancer",
+      "prompt": "Use case: stylized-concept. Create one anonymous adult female nightclub dancer candidate sprite, visibly age 28-35, full body, confident arms-overhead dancing pose, curvy adult proportions, deep brown skin, voluminous rounded natural hair, plum halter crop top and matching high-waisted shorts, opaque clothing covering breasts and pelvis, chunky black heeled boots. Sensual fashionable nightlife, not sexual activity. Match the supplied reference BOARD only for tiny cartridge pixel grammar: compact 50-60-pixel-tall visible sprite, slightly large head, tiny sparse face, broad 2-3 color planes per material, stepped single-pixel contour, compact hands/shoes, low fold density. Do not copy any named character or Rich identity, no green earring tell. Render one clean large nearest-neighbor enlargement of that tiny native sprite centered with ample transparent padding. Actual transparent background. No labels, ground, glow, gradients, antialiasing, decorative texture, watermark, props, other people. This is exploratory art only.",
+      "source_local": "C:\\Users\\Ube\\.codex\\generated_images\\01a0de89-4815-7cb0-a6bb-8d6e99e30624\\exec-a8ecd462-539a-400a-ba4f-06566a95c810.png",
+      "tool": "built-in image_gen",
+      "transparent_background_requested": true
+    },
+    {
+      "id": "A02_performer",
+      "prompt": "Use case: stylized-concept. One anonymous adult female club stage performer sprite, unmistakably age 30+, light olive skin, tall mature figure, short platinum blunt bob, black opaque structured stage bodysuit with red trim, bare arms and thighs, thigh-high black heeled boots; dynamic one hand on hip other arm extended sideways, hip-shift and bent knee, confident non-explicit cabaret/strip-club fashion. No nudity or sexual activity. Match reference board's compact low-resolution game grammar, NOT fashion illustration: 54-pixel-tall underlying silhouette, oversized-but-adult head, 2-3 tones each material, minimal face, broad black shapes, few folds, hard stair-step edges, compact hands. One figure only, no pole/scenery/text. Center as large nearest-neighbor enlargement with transparent padding and genuine alpha. Do not copy named identities; no green earring. No gradients, smooth edges, texture, glow, floor shadows.",
+      "source_local": "C:\\Users\\Ube\\.codex\\generated_images\\01a0de89-4815-7cb0-a6bb-8d6e99e30624\\exec-6b8bcebd-8621-48ae-b4b8-56c1791a7dad.png",
+      "tool": "built-in image_gen",
+      "transparent_background_requested": true
+    },
+    {
+      "id": "A03_queue_pair",
+      "prompt": "Use case: stylized-concept. A reusable anonymous nightclub queue / fashionable partygoer PAIR fragment, two visibly adult people age 30-40, standing with slight gap, full bodies: left a broad stocky brown-skinned man with shaved head and tiny beard, boxy muted cream overshirt over black tank, wide oxblood trousers and dark shoes, hands in pockets; right a tall dark-skinned adult woman with long high ponytail, silver-gray asymmetrical one-shoulder mini dress, black ankle boots, one bent arm holding tiny clutch. Casual cool waiting stance. No relationship story or names. Supplied board is style reference only; create extremely simple low-resolution cartridge pixel sprites each about 54 logical pixels tall, compact big heads like source game, sparse faces, tiny hands, 2-3 tones/material, no illustrated folds, no gradients, hard stepped edges. Large nearest-neighbor enlargement of tiny sprite pair, centered transparent background with generous padding. No environment/floor/shadow/text/labels. Do not copy canonical characters or signature green earring.",
+      "source_local": "C:\\Users\\Ube\\.codex\\generated_images\\01a0de89-4815-7cb0-a6bb-8d6e99e30624\\exec-e126a0b3-702c-4dff-be0d-bcbac9c1cef9.png",
+      "tool": "built-in image_gen",
+      "transparent_background_requested": true
+    },
+    {
+      "id": "A04_dancing_pair",
+      "prompt": "Use case: stylized-concept. One anonymous ADULT dancing couple crowd fragment, both clearly age 28-35. Brown-skinned woman with athletic build, burgundy braided updo, teal opaque sleeveless crop top and flared black pants; taller tan-skinned man with curly short dark hair, plum open-collar long sleeve shirt and charcoal trousers. Full bodies, facing each other in an energetic partnered two-step, one joined hand lifted making an arch, free arms relaxed, feet visibly apart. Clothes fully cover private areas, no sexual activity. No named likeness. Use reference board solely to match Rich Alucard's extremely low-resolution sprite grammar, each body ~54 logical pixels tall, compact head/body ratio, sparse tiny facial marks, hard black stepped outline, 2-3 flat tones per material, no detailed hair strands/folds/highlights. Large nearest-neighbor enlargement on genuine transparent background with empty padding. No stage, floor, shadow, text, effects or environment.",
+      "source_local": "C:\\Users\\Ube\\.codex\\generated_images\\01a0de89-4815-7cb0-a6bb-8d6e99e30624\\exec-1fada97d-8be7-437c-911d-3e711eaf4590.png",
+      "tool": "built-in image_gen",
+      "transparent_background_requested": true
+    },
+    {
+      "id": "A05_affectionate_pair",
+      "prompt": "Use case: stylized-concept. One reusable affectionate/flirting background pair of anonymous clearly adult women age 30-40. Full bodies, close standing three-quarter view, one rests her arm around the other's shoulder and they lean their heads slightly together. Left adult has light warm skin, short auburn wavy bob, fuller soft body, oxblood fitted midi dress with side slit and black heels. Right adult has medium brown skin, slim build, close-cropped hair, black sleeveless tailored jumpsuit, silver belt, black shoes, holding tiny drink low. Affectionate non-explicit nightlife, no kissing needed, no sexual activity, no nudity. Follow reference game's very low-resolution sprite grammar: 52 logical pixel body height, broad flat shapes, sparse face, compact heads/hands, 2-3 tones/material, black stair-step outline, NO gradients, anatomy rendering or texture. Large nearest-neighbor enlargement of sprite, real transparent background, ample padding, no floor/shadow/scenery/text, no named likenesses or signature green earring.",
+      "source_local": "C:\\Users\\Ube\\.codex\\generated_images\\01a0de89-4815-7cb0-a6bb-8d6e99e30624\\exec-76c9b98c-61cd-4634-971e-585c4ec637c3.png",
+      "tool": "built-in image_gen",
+      "transparent_background_requested": true
+    },
+    {
+      "id": "A06_bartender",
+      "prompt": "Use case: stylized-concept. Single anonymous visibly adult male bartender age 35-45, full body, medium tan skin, slicked-back dark hair with gray temples, small mustache, short-sleeve black shirt and muted ivory waistcoat, black trousers and black shoes. Broad adult torso. Turned three-quarter, both bent hands holding a small silver cocktail shaker at chest level, calm professional pose. Reusable service figure with NO counter, no environment, no furniture. Match source game's coarse small sprites, approx 54 logical pixels tall, compact head, extremely sparse face/hair, 2-3 flat tones per material, compact hands, almost no folds, black hard stepped outline. Output a big nearest-neighbor enlargement of tiny pixel sprite on true transparent background with generous padding. No gradients, shadows, labels, illustration-detail, named likeness or signature green earring.",
+      "source_local": "C:\\Users\\Ube\\.codex\\generated_images\\01a0de89-4815-7cb0-a6bb-8d6e99e30624\\exec-c9f336e0-cadd-4242-97fb-9d5f94151043.png",
+      "tool": "built-in image_gen",
+      "transparent_background_requested": true
+    },
+    {
+      "id": "A07_hookah_lounge",
+      "prompt": "Use case: stylized-concept. One anonymous adult VIP lounge/hookah group transparent sprite fragment, three clearly mature adults age 30-45 in quiet conversation, two women and one man. Left: plus-size dark-skinned woman, sculptural updo, opaque plum wrap dress, seated on low simple black stool. Middle: tan-skinned man with shaved head, dark teal tailored shirt, seated legs apart. Right: light brown-skinned woman with long straight dark hair, black sleeveless top and ivory wide-leg trousers, seated angled inward. Tiny low round table with a compact silver hookah between them, one person holds hose; short simple smoke ring above bowl, no glow. Full seated figures and tiny stools/table only, no environment or floor. Compact low-resolution game art, underlying group about 95x55 logical pixels, large heads, sparse faces, 2-3 flat tones per material, extremely minimal folds/hair, hard square stepped outlines, no gradients/texture. Nearest-neighbor enlarged, centered with padding on genuinely transparent background. No text or names, no resemblance to named cast, no green earring tell.",
+      "source_local": "C:\\Users\\Ube\\.codex\\generated_images\\01a0de89-4815-7cb0-a6bb-8d6e99e30624\\exec-9d7f2114-42a6-41bc-9ccd-0e749c87f9a6.png",
+      "tool": "built-in image_gen",
+      "transparent_background_requested": true
+    },
+    {
+      "id": "A08_dense_cluster",
+      "prompt": "Use case: stylized-concept. Anonymous nightclub DENSE DANCE-FLOOR CLUSTER sprite fragment of exactly six clearly adult people age 28-45, mixed men and women, varied brown/light skin tones, varied thick/slim/broad bodies. Full-height crowd in staggered two rows with intentional partial body occlusion, diverse dancing gestures: two raised arms, shoulder sway, sideways step. Modern fashionable opaque nightlife clothes in black, muted plum, teal and cream; one curvy woman in short black dress, one man in loose cream shirt, shaved head, afro, short bob and ponytail silhouettes. No named characters, no signature green earring, no children, no sexual acts. VERY SIMPLE coarse cartridge pixel grammar from reference, total group native design ~100x62 pixels, sparse facial marks, flat material blocks 2-3 tones each, minimal folds, chunky stair-steps. Output nearest-neighbor enlarged on actual transparent background with generous padding. No room, dance floor, lights, gradients, shadows, text or glow.",
+      "source_local": "C:\\Users\\Ube\\.codex\\generated_images\\01a0de89-4815-7cb0-a6bb-8d6e99e30624\\exec-d0ec5bcb-2e81-42b0-afa4-9c3a168b3de0.png",
+      "tool": "built-in image_gen",
+      "transparent_background_requested": true
+    },
+    {
+      "id": "A09_foreground_silhouettes",
+      "prompt": "Use case: stylized-concept. One reusable FOREGROUND NIGHTCLUB SILHOUETTE fragment: three anonymous clearly adult dancers, all age 30+ in mature proportions, rear or three-quarter backs, left curvy woman with large bun one arm raised, center broad man with short hair shoulders rolling, right tall woman with bob and bent arm. Full figures, sensual but clothed and non-explicit, no minors, no anatomy detail. Their silhouettes must be distinct and separated by thin transparent negative gaps; fashion silhouettes boots, wide trousers, short dress. Extremely coarse pixel art, native group ~85x65 pixels. Exactly near-black flat body mass with only a few muted purple rim blocks, no faces or internal details. Strong stepped outlines, no soft edges, glow, gradients. Output large nearest-neighbor enlargement on genuinely transparent background. No scene, floor, shadows, labels, light beams or named identities. Source board is grammar reference only.",
+      "source_local": "C:\\Users\\Ube\\.codex\\generated_images\\01a0de89-4815-7cb0-a6bb-8d6e99e30624\\exec-37ec6fd5-e41f-4fb0-93f1-9dea7be15f4c.png",
+      "tool": "built-in image_gen",
+      "transparent_background_requested": true
+    }
+  ],
+  "repair_attempts": [
+    {
+      "id": "A01",
+      "prompt": "Background extraction edit. Remove the entire baked white/gray checkerboard around this adult nightclub dancer and in every gap between arms, hair, and legs. Output actual transparent alpha, NOT a checkerboard image. Preserve the figure's exact silhouette, clothing, color, face, pose and pixel style. Do not redraw, add any background, shadow, glow, text or new person. Only background removal.",
+      "source": "C:/Users/Ube/.codex/generated_images/01a0de89-4815-7cb0-a6bb-8d6e99e30624/exec-a8ecd462-539a-400a-ba4f-06566a95c810.png"
+    }
+  ],
+  "repair_outcome": "First extraction returned RGB checkerboard again; second retry rejected by image service sexual safety filter. Awaiting user choice on deterministic alpha extraction. No filtered retry attempted."
+}
