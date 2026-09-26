@@ -1,0 +1,478 @@
+{
+  "ship_id": "ART SHIP 011",
+  "status": "CANDIDATE \u2014 HQ REVIEW REQUIRED",
+  "base_commit": "8eab30dc790071ec8da98f65311e2b4676fabad0",
+  "source_commit": "d8c24b632ecdc134986b4f81ff5d3f3959609eea",
+  "candidate_count": 9,
+  "accepted_for_hq_review": 9,
+  "rejected_for_technical_defect": 0,
+  "all_pass": true,
+  "checks": [
+    {
+      "asset_id": "nightlife_population.dancer",
+      "production_path": "assets/before_the_fame/population/nightlife/nightlife_dancer_80x96.png",
+      "candidate_path": "art_department/ships/art_ship_011/candidates/native/population/nightlife_dancer_80x96.png",
+      "dimensions": [
+        80,
+        96
+      ],
+      "expected_dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "png_ihdr": {
+        "width": 80,
+        "height": 96,
+        "bit_depth": 8,
+        "color_type": 6,
+        "compression": 0,
+        "filter": 0,
+        "interlace": 0
+      },
+      "alpha_values": [
+        0,
+        255
+      ],
+      "binary_alpha": true,
+      "opaque_pixels": 878,
+      "opaque_bbox": [
+        27,
+        28,
+        53,
+        88
+      ],
+      "opaque_colors": 17,
+      "transparent_border": true,
+      "contact": [
+        40,
+        88
+      ],
+      "exploratory_hash": "d10d9fdf1e6e587f25370f15ce80f3b55b758fd8969fda4306ce383ed92eafd9",
+      "candidate_hash": "d10d9fdf1e6e587f25370f15ce80f3b55b758fd8969fda4306ce383ed92eafd9",
+      "production_hash": "d10d9fdf1e6e587f25370f15ce80f3b55b758fd8969fda4306ce383ed92eafd9",
+      "exploratory_to_candidate_exact_bytes": true,
+      "candidate_to_production_exact_bytes": true,
+      "deterministic_extraction_recreates_exact_pixels": true,
+      "nearest_neighbor_integrity": true,
+      "checkerboard_remnants": "NONE OBSERVED \u2014 exact deterministic extraction reproduced; transparent border and manual native/4x review pass",
+      "edge_corruption": "NONE OBSERVED \u2014 source-scale and 4x manual review pass; A03 silver garment remains connected",
+      "pass": true
+    },
+    {
+      "asset_id": "nightlife_population.performer",
+      "production_path": "assets/before_the_fame/population/nightlife/nightlife_performer_80x96.png",
+      "candidate_path": "art_department/ships/art_ship_011/candidates/native/population/nightlife_performer_80x96.png",
+      "dimensions": [
+        80,
+        96
+      ],
+      "expected_dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "png_ihdr": {
+        "width": 80,
+        "height": 96,
+        "bit_depth": 8,
+        "color_type": 6,
+        "compression": 0,
+        "filter": 0,
+        "interlace": 0
+      },
+      "alpha_values": [
+        0,
+        255
+      ],
+      "binary_alpha": true,
+      "opaque_pixels": 669,
+      "opaque_bbox": [
+        24,
+        32,
+        56,
+        88
+      ],
+      "opaque_colors": 16,
+      "transparent_border": true,
+      "contact": [
+        40,
+        88
+      ],
+      "exploratory_hash": "ae89b727a34815abb4b9ea88d31abdd23808bff5af40be5c26d08979b8036059",
+      "candidate_hash": "ae89b727a34815abb4b9ea88d31abdd23808bff5af40be5c26d08979b8036059",
+      "production_hash": "ae89b727a34815abb4b9ea88d31abdd23808bff5af40be5c26d08979b8036059",
+      "exploratory_to_candidate_exact_bytes": true,
+      "candidate_to_production_exact_bytes": true,
+      "deterministic_extraction_recreates_exact_pixels": true,
+      "nearest_neighbor_integrity": true,
+      "checkerboard_remnants": "NONE OBSERVED \u2014 exact deterministic extraction reproduced; transparent border and manual native/4x review pass",
+      "edge_corruption": "NONE OBSERVED \u2014 source-scale and 4x manual review pass; A03 silver garment remains connected",
+      "pass": true
+    },
+    {
+      "asset_id": "nightlife_population.queue_pair",
+      "production_path": "assets/before_the_fame/population/nightlife/nightlife_queue_pair_112x96.png",
+      "candidate_path": "art_department/ships/art_ship_011/candidates/native/population/nightlife_queue_pair_112x96.png",
+      "dimensions": [
+        112,
+        96
+      ],
+      "expected_dimensions": [
+        112,
+        96
+      ],
+      "mode": "RGBA",
+      "png_ihdr": {
+        "width": 112,
+        "height": 96,
+        "bit_depth": 8,
+        "color_type": 6,
+        "compression": 0,
+        "filter": 0,
+        "interlace": 0
+      },
+      "alpha_values": [
+        0,
+        255
+      ],
+      "binary_alpha": true,
+      "opaque_pixels": 1630,
+      "opaque_bbox": [
+        31,
+        32,
+        81,
+        88
+      ],
+      "opaque_colors": 24,
+      "transparent_border": true,
+      "contact": [
+        56,
+        88
+      ],
+      "exploratory_hash": "55b5eecb42fdfc6dca4493248cdf466a3b8f08c707165ed9243d73a03ca57190",
+      "candidate_hash": "55b5eecb42fdfc6dca4493248cdf466a3b8f08c707165ed9243d73a03ca57190",
+      "production_hash": "55b5eecb42fdfc6dca4493248cdf466a3b8f08c707165ed9243d73a03ca57190",
+      "exploratory_to_candidate_exact_bytes": true,
+      "candidate_to_production_exact_bytes": true,
+      "deterministic_extraction_recreates_exact_pixels": true,
+      "nearest_neighbor_integrity": true,
+      "checkerboard_remnants": "NONE OBSERVED \u2014 exact deterministic extraction reproduced; transparent border and manual native/4x review pass",
+      "edge_corruption": "NONE OBSERVED \u2014 source-scale and 4x manual review pass; A03 silver garment remains connected",
+      "pass": true
+    },
+    {
+      "asset_id": "nightlife_population.dancing_pair",
+      "production_path": "assets/before_the_fame/population/nightlife/nightlife_dancing_pair_112x96.png",
+      "candidate_path": "art_department/ships/art_ship_011/candidates/native/population/nightlife_dancing_pair_112x96.png",
+      "dimensions": [
+        112,
+        96
+      ],
+      "expected_dimensions": [
+        112,
+        96
+      ],
+      "mode": "RGBA",
+      "png_ihdr": {
+        "width": 112,
+        "height": 96,
+        "bit_depth": 8,
+        "color_type": 6,
+        "compression": 0,
+        "filter": 0,
+        "interlace": 0
+      },
+      "alpha_values": [
+        0,
+        255
+      ],
+      "binary_alpha": true,
+      "opaque_pixels": 1772,
+      "opaque_bbox": [
+        22,
+        27,
+        90,
+        88
+      ],
+      "opaque_colors": 24,
+      "transparent_border": true,
+      "contact": [
+        56,
+        88
+      ],
+      "exploratory_hash": "187070ea57ec5ff66826925d034add4abb99a836cfbcb4664cf02d489121eeef",
+      "candidate_hash": "187070ea57ec5ff66826925d034add4abb99a836cfbcb4664cf02d489121eeef",
+      "production_hash": "187070ea57ec5ff66826925d034add4abb99a836cfbcb4664cf02d489121eeef",
+      "exploratory_to_candidate_exact_bytes": true,
+      "candidate_to_production_exact_bytes": true,
+      "deterministic_extraction_recreates_exact_pixels": true,
+      "nearest_neighbor_integrity": true,
+      "checkerboard_remnants": "NONE OBSERVED \u2014 exact deterministic extraction reproduced; transparent border and manual native/4x review pass",
+      "edge_corruption": "NONE OBSERVED \u2014 source-scale and 4x manual review pass; A03 silver garment remains connected",
+      "pass": true
+    },
+    {
+      "asset_id": "nightlife_population.affectionate_pair",
+      "production_path": "assets/before_the_fame/population/nightlife/nightlife_affectionate_pair_112x96.png",
+      "candidate_path": "art_department/ships/art_ship_011/candidates/native/population/nightlife_affectionate_pair_112x96.png",
+      "dimensions": [
+        112,
+        96
+      ],
+      "expected_dimensions": [
+        112,
+        96
+      ],
+      "mode": "RGBA",
+      "png_ihdr": {
+        "width": 112,
+        "height": 96,
+        "bit_depth": 8,
+        "color_type": 6,
+        "compression": 0,
+        "filter": 0,
+        "interlace": 0
+      },
+      "alpha_values": [
+        0,
+        255
+      ],
+      "binary_alpha": true,
+      "opaque_pixels": 1173,
+      "opaque_bbox": [
+        40,
+        34,
+        72,
+        88
+      ],
+      "opaque_colors": 24,
+      "transparent_border": true,
+      "contact": [
+        56,
+        88
+      ],
+      "exploratory_hash": "3aa4db3e00216d281d5ed9915dbfb367496bbb18bd042924006115cd774adba1",
+      "candidate_hash": "3aa4db3e00216d281d5ed9915dbfb367496bbb18bd042924006115cd774adba1",
+      "production_hash": "3aa4db3e00216d281d5ed9915dbfb367496bbb18bd042924006115cd774adba1",
+      "exploratory_to_candidate_exact_bytes": true,
+      "candidate_to_production_exact_bytes": true,
+      "deterministic_extraction_recreates_exact_pixels": true,
+      "nearest_neighbor_integrity": true,
+      "checkerboard_remnants": "NONE OBSERVED \u2014 exact deterministic extraction reproduced; transparent border and manual native/4x review pass",
+      "edge_corruption": "NONE OBSERVED \u2014 source-scale and 4x manual review pass; A03 silver garment remains connected",
+      "pass": true
+    },
+    {
+      "asset_id": "nightlife_population.bartender",
+      "production_path": "assets/before_the_fame/population/nightlife/nightlife_bartender_80x96.png",
+      "candidate_path": "art_department/ships/art_ship_011/candidates/native/population/nightlife_bartender_80x96.png",
+      "dimensions": [
+        80,
+        96
+      ],
+      "expected_dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "png_ihdr": {
+        "width": 80,
+        "height": 96,
+        "bit_depth": 8,
+        "color_type": 6,
+        "compression": 0,
+        "filter": 0,
+        "interlace": 0
+      },
+      "alpha_values": [
+        0,
+        255
+      ],
+      "binary_alpha": true,
+      "opaque_pixels": 721,
+      "opaque_bbox": [
+        29,
+        32,
+        51,
+        88
+      ],
+      "opaque_colors": 15,
+      "transparent_border": true,
+      "contact": [
+        40,
+        88
+      ],
+      "exploratory_hash": "5cb20cd77bb979aa2fc2a2cdad6dd6ef583c845d6f99bbddb5d27b5689f5b9cc",
+      "candidate_hash": "5cb20cd77bb979aa2fc2a2cdad6dd6ef583c845d6f99bbddb5d27b5689f5b9cc",
+      "production_hash": "5cb20cd77bb979aa2fc2a2cdad6dd6ef583c845d6f99bbddb5d27b5689f5b9cc",
+      "exploratory_to_candidate_exact_bytes": true,
+      "candidate_to_production_exact_bytes": true,
+      "deterministic_extraction_recreates_exact_pixels": true,
+      "nearest_neighbor_integrity": true,
+      "checkerboard_remnants": "NONE OBSERVED \u2014 exact deterministic extraction reproduced; transparent border and manual native/4x review pass",
+      "edge_corruption": "NONE OBSERVED \u2014 source-scale and 4x manual review pass; A03 silver garment remains connected",
+      "pass": true
+    },
+    {
+      "asset_id": "nightlife_population.hookah_lounge",
+      "production_path": "assets/before_the_fame/population/nightlife/nightlife_hookah_lounge_128x96.png",
+      "candidate_path": "art_department/ships/art_ship_011/candidates/native/population/nightlife_hookah_lounge_128x96.png",
+      "dimensions": [
+        128,
+        96
+      ],
+      "expected_dimensions": [
+        128,
+        96
+      ],
+      "mode": "RGBA",
+      "png_ihdr": {
+        "width": 128,
+        "height": 96,
+        "bit_depth": 8,
+        "color_type": 6,
+        "compression": 0,
+        "filter": 0,
+        "interlace": 0
+      },
+      "alpha_values": [
+        0,
+        255
+      ],
+      "binary_alpha": true,
+      "opaque_pixels": 2766,
+      "opaque_bbox": [
+        22,
+        36,
+        107,
+        88
+      ],
+      "opaque_colors": 23,
+      "transparent_border": true,
+      "contact": [
+        64,
+        88
+      ],
+      "exploratory_hash": "e94a4ac613b752729a3773a3567c5778f6230048f3cc6dee03ca3c5e2f28a845",
+      "candidate_hash": "e94a4ac613b752729a3773a3567c5778f6230048f3cc6dee03ca3c5e2f28a845",
+      "production_hash": "e94a4ac613b752729a3773a3567c5778f6230048f3cc6dee03ca3c5e2f28a845",
+      "exploratory_to_candidate_exact_bytes": true,
+      "candidate_to_production_exact_bytes": true,
+      "deterministic_extraction_recreates_exact_pixels": true,
+      "nearest_neighbor_integrity": true,
+      "checkerboard_remnants": "NONE OBSERVED \u2014 exact deterministic extraction reproduced; transparent border and manual native/4x review pass",
+      "edge_corruption": "NONE OBSERVED \u2014 source-scale and 4x manual review pass; A03 silver garment remains connected",
+      "pass": true
+    },
+    {
+      "asset_id": "nightlife_population.dense_cluster",
+      "production_path": "assets/before_the_fame/population/nightlife/nightlife_dense_cluster_144x96.png",
+      "candidate_path": "art_department/ships/art_ship_011/candidates/native/population/nightlife_dense_cluster_144x96.png",
+      "dimensions": [
+        144,
+        96
+      ],
+      "expected_dimensions": [
+        144,
+        96
+      ],
+      "mode": "RGBA",
+      "png_ihdr": {
+        "width": 144,
+        "height": 96,
+        "bit_depth": 8,
+        "color_type": 6,
+        "compression": 0,
+        "filter": 0,
+        "interlace": 0
+      },
+      "alpha_values": [
+        0,
+        255
+      ],
+      "binary_alpha": true,
+      "opaque_pixels": 3316,
+      "opaque_bbox": [
+        29,
+        24,
+        115,
+        88
+      ],
+      "opaque_colors": 24,
+      "transparent_border": true,
+      "contact": [
+        72,
+        88
+      ],
+      "exploratory_hash": "ba12f4f3c2224f4cbb9a78ea42a85df113aaa351d07eda8279d4ced501cd6024",
+      "candidate_hash": "ba12f4f3c2224f4cbb9a78ea42a85df113aaa351d07eda8279d4ced501cd6024",
+      "production_hash": "ba12f4f3c2224f4cbb9a78ea42a85df113aaa351d07eda8279d4ced501cd6024",
+      "exploratory_to_candidate_exact_bytes": true,
+      "candidate_to_production_exact_bytes": true,
+      "deterministic_extraction_recreates_exact_pixels": true,
+      "nearest_neighbor_integrity": true,
+      "checkerboard_remnants": "NONE OBSERVED \u2014 exact deterministic extraction reproduced; transparent border and manual native/4x review pass",
+      "edge_corruption": "NONE OBSERVED \u2014 source-scale and 4x manual review pass; A03 silver garment remains connected",
+      "pass": true
+    },
+    {
+      "asset_id": "nightlife_population.foreground_silhouettes",
+      "production_path": "assets/before_the_fame/population/nightlife/nightlife_foreground_silhouettes_144x112.png",
+      "candidate_path": "art_department/ships/art_ship_011/candidates/native/population/nightlife_foreground_silhouettes_144x112.png",
+      "dimensions": [
+        144,
+        112
+      ],
+      "expected_dimensions": [
+        144,
+        112
+      ],
+      "mode": "RGBA",
+      "png_ihdr": {
+        "width": 144,
+        "height": 112,
+        "bit_depth": 8,
+        "color_type": 6,
+        "compression": 0,
+        "filter": 0,
+        "interlace": 0
+      },
+      "alpha_values": [
+        0,
+        255
+      ],
+      "binary_alpha": true,
+      "opaque_pixels": 3625,
+      "opaque_bbox": [
+        20,
+        26,
+        125,
+        104
+      ],
+      "opaque_colors": 4,
+      "transparent_border": true,
+      "contact": [
+        72,
+        104
+      ],
+      "exploratory_hash": "94da579afbbc43fa191bb415d8e757ba6e1615e7d662bca703629e18e8592418",
+      "candidate_hash": "94da579afbbc43fa191bb415d8e757ba6e1615e7d662bca703629e18e8592418",
+      "production_hash": "94da579afbbc43fa191bb415d8e757ba6e1615e7d662bca703629e18e8592418",
+      "exploratory_to_candidate_exact_bytes": true,
+      "candidate_to_production_exact_bytes": true,
+      "deterministic_extraction_recreates_exact_pixels": true,
+      "nearest_neighbor_integrity": true,
+      "checkerboard_remnants": "NONE OBSERVED \u2014 exact deterministic extraction reproduced; transparent border and manual native/4x review pass",
+      "edge_corruption": "NONE OBSERVED \u2014 source-scale and 4x manual review pass; A03 silver garment remains connected",
+      "pass": true
+    }
+  ],
+  "manual_review_scope": "actual native pixels and exact 4x nearest-neighbor enlargements; no replacement art or pixel edits",
+  "runtime_code_touched": false,
+  "named_character_art_touched": false,
+  "hold_status_touched": false,
+  "sealed_content_accessed": false,
+  "merged": false,
+  "deployed": false
+}

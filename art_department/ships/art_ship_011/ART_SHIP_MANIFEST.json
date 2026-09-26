@@ -1,0 +1,334 @@
+{
+  "schema_version": 1,
+  "ship_id": "ART SHIP 011",
+  "title": "NIGHTLIFE POPULATION LIBRARY",
+  "status": "CANDIDATE \u2014 READY FOR HQ REVIEW",
+  "authorization": "HQ authorized A01\u2013A09 from POLISH PREPRODUCTION 001 to advance into a bounded production Art Ship; no replacement art or added characters authorized.",
+  "approval_claimed": false,
+  "frozen_claimed": false,
+  "runtime_integrated": false,
+  "base": {
+    "commit": "8eab30dc790071ec8da98f65311e2b4676fabad0",
+    "authority": "latest HQ-accepted Engineering checkpoint named in brief"
+  },
+  "exploratory_source": {
+    "branch": "art/polish_preproduction_001",
+    "commit": "d8c24b632ecdc134986b4f81ff5d3f3959609eea",
+    "authority": "evidence and candidate source material only"
+  },
+  "branch": "art/art_ship_011",
+  "native_asset_count": 9,
+  "adult_figure_count": 21,
+  "accepted_for_hq_review": 9,
+  "rejected_for_technical_defect": 0,
+  "promotion_policy": "Exact exploratory candidate bytes copied to Ship candidate and production asset paths; no regeneration, redraw, resize, retouch, palette change, or re-encoding.",
+  "files": [
+    {
+      "request_id": "AS11-NL-01",
+      "exploratory_id": "A01_dancer",
+      "asset_id": "nightlife_population.dancer",
+      "category": "ACTIVE_DANCE",
+      "role": "side-pocket / dance-floor energy",
+      "candidate_path": "art_department/ships/art_ship_011/candidates/native/population/nightlife_dancer_80x96.png",
+      "production_path": "assets/before_the_fame/population/nightlife/nightlife_dancer_80x96.png",
+      "sha256": "d10d9fdf1e6e587f25370f15ce80f3b55b758fd8969fda4306ce383ed92eafd9",
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "contact": [
+        40,
+        88
+      ],
+      "origin": [
+        0,
+        0
+      ],
+      "adult_figures": 1,
+      "placement_constraints": [
+        "clear named-actor lanes",
+        "prefer sparse or medium-density use"
+      ],
+      "approval_status": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "request_id": "AS11-NL-02",
+      "exploratory_id": "A02_performer",
+      "asset_id": "nightlife_population.performer",
+      "category": "STAGE_PERFORMANCE",
+      "role": "adult stage/nightlife performer; sensual and non-explicit",
+      "candidate_path": "art_department/ships/art_ship_011/candidates/native/population/nightlife_performer_80x96.png",
+      "production_path": "assets/before_the_fame/population/nightlife/nightlife_performer_80x96.png",
+      "sha256": "ae89b727a34815abb4b9ea88d31abdd23808bff5af40be5c26d08979b8036059",
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "contact": [
+        40,
+        88
+      ],
+      "origin": [
+        0,
+        0
+      ],
+      "adult_figures": 1,
+      "placement_constraints": [
+        "clear named-actor lanes",
+        "use only where a stage/performance context is credible"
+      ],
+      "approval_status": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "request_id": "AS11-NL-03",
+      "exploratory_id": "A03_queue_pair",
+      "asset_id": "nightlife_population.queue_pair",
+      "category": "ARRIVAL_QUEUE",
+      "role": "passive social / arrival pair",
+      "candidate_path": "art_department/ships/art_ship_011/candidates/native/population/nightlife_queue_pair_112x96.png",
+      "production_path": "assets/before_the_fame/population/nightlife/nightlife_queue_pair_112x96.png",
+      "sha256": "55b5eecb42fdfc6dca4493248cdf466a3b8f08c707165ed9243d73a03ca57190",
+      "dimensions": [
+        112,
+        96
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "contact": [
+        56,
+        88
+      ],
+      "origin": [
+        0,
+        0
+      ],
+      "adult_figures": 2,
+      "placement_constraints": [
+        "treat as one pair fragment",
+        "clear entrances and named-actor lanes"
+      ],
+      "approval_status": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "request_id": "AS11-NL-04",
+      "exploratory_id": "A04_dancing_pair",
+      "asset_id": "nightlife_population.dancing_pair",
+      "category": "PARTNERED_DANCE",
+      "role": "active partnered movement",
+      "candidate_path": "art_department/ships/art_ship_011/candidates/native/population/nightlife_dancing_pair_112x96.png",
+      "production_path": "assets/before_the_fame/population/nightlife/nightlife_dancing_pair_112x96.png",
+      "sha256": "187070ea57ec5ff66826925d034add4abb99a836cfbcb4664cf02d489121eeef",
+      "dimensions": [
+        112,
+        96
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "contact": [
+        56,
+        88
+      ],
+      "origin": [
+        0,
+        0
+      ],
+      "adult_figures": 2,
+      "placement_constraints": [
+        "requires a wide side-floor pocket",
+        "clear named-actor lanes"
+      ],
+      "approval_status": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "request_id": "AS11-NL-05",
+      "exploratory_id": "A05_affectionate_pair",
+      "asset_id": "nightlife_population.affectionate_pair",
+      "category": "AFFECTIONATE_SOCIAL",
+      "role": "adult flirting / affectionate background pair",
+      "candidate_path": "art_department/ships/art_ship_011/candidates/native/population/nightlife_affectionate_pair_112x96.png",
+      "production_path": "assets/before_the_fame/population/nightlife/nightlife_affectionate_pair_112x96.png",
+      "sha256": "3aa4db3e00216d281d5ed9915dbfb367496bbb18bd042924006115cd774adba1",
+      "dimensions": [
+        112,
+        96
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "contact": [
+        56,
+        88
+      ],
+      "origin": [
+        0,
+        0
+      ],
+      "adult_figures": 2,
+      "placement_constraints": [
+        "background behavior only",
+        "clear named-actor lanes"
+      ],
+      "approval_status": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "request_id": "AS11-NL-06",
+      "exploratory_id": "A06_bartender",
+      "asset_id": "nightlife_population.bartender",
+      "category": "HOSPITALITY_SERVICE",
+      "role": "bartender / service figure",
+      "candidate_path": "art_department/ships/art_ship_011/candidates/native/population/nightlife_bartender_80x96.png",
+      "production_path": "assets/before_the_fame/population/nightlife/nightlife_bartender_80x96.png",
+      "sha256": "5cb20cd77bb979aa2fc2a2cdad6dd6ef583c845d6f99bbddb5d27b5689f5b9cc",
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "contact": [
+        40,
+        88
+      ],
+      "origin": [
+        0,
+        0
+      ],
+      "adult_figures": 1,
+      "placement_constraints": [
+        "must have an appropriate bar or service context",
+        "do not place as a free-floating patron"
+      ],
+      "approval_status": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "request_id": "AS11-NL-07",
+      "exploratory_id": "A07_hookah_lounge",
+      "asset_id": "nightlife_population.hookah_lounge",
+      "category": "SEATED_LOUNGE_GROUP",
+      "role": "low seated social group with hookah, table, and seating included",
+      "candidate_path": "art_department/ships/art_ship_011/candidates/native/population/nightlife_hookah_lounge_128x96.png",
+      "production_path": "assets/before_the_fame/population/nightlife/nightlife_hookah_lounge_128x96.png",
+      "sha256": "e94a4ac613b752729a3773a3567c5778f6230048f3cc6dee03ca3c5e2f28a845",
+      "dimensions": [
+        128,
+        96
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "contact": [
+        64,
+        88
+      ],
+      "origin": [
+        0,
+        0
+      ],
+      "adult_figures": 3,
+      "placement_constraints": [
+        "included furniture must not be duplicated",
+        "check furniture scale against the host environment"
+      ],
+      "approval_status": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "request_id": "AS11-NL-08",
+      "exploratory_id": "A08_dense_cluster",
+      "asset_id": "nightlife_population.dense_cluster",
+      "category": "DENSE_CROWD_CLUSTER",
+      "role": "six-adult crowd-density tool",
+      "candidate_path": "art_department/ships/art_ship_011/candidates/native/population/nightlife_dense_cluster_144x96.png",
+      "production_path": "assets/before_the_fame/population/nightlife/nightlife_dense_cluster_144x96.png",
+      "sha256": "ba12f4f3c2224f4cbb9a78ea42a85df113aaa351d07eda8279d4ced501cd6024",
+      "dimensions": [
+        144,
+        96
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "contact": [
+        72,
+        88
+      ],
+      "origin": [
+        0,
+        0
+      ],
+      "adult_figures": 6,
+      "placement_constraints": [
+        "do not tile or repeat into wallpaper",
+        "use once per framed view unless a later explicit contract says otherwise",
+        "protect named-actor clearance"
+      ],
+      "approval_status": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "request_id": "AS11-NL-09",
+      "exploratory_id": "A09_foreground_silhouettes",
+      "asset_id": "nightlife_population.foreground_silhouettes",
+      "category": "FOREGROUND_DEPTH",
+      "role": "three-adult foreground/depth silhouette fragment",
+      "candidate_path": "art_department/ships/art_ship_011/candidates/native/population/nightlife_foreground_silhouettes_144x112.png",
+      "production_path": "assets/before_the_fame/population/nightlife/nightlife_foreground_silhouettes_144x112.png",
+      "sha256": "94da579afbbc43fa191bb415d8e757ba6e1615e7d662bca703629e18e8592418",
+      "dimensions": [
+        144,
+        112
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "contact": [
+        72,
+        104
+      ],
+      "origin": [
+        0,
+        0
+      ],
+      "adult_figures": 3,
+      "placement_constraints": [
+        "high occlusion risk",
+        "peripheral or deliberately framed placement only",
+        "use against a lighter band",
+        "never cover named actors or critical UI"
+      ],
+      "approval_status": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    }
+  ],
+  "review_boards": [
+    "art_department/ships/art_ship_011/review/01_isolated_native_1x.png",
+    "art_department/ships/art_ship_011/review/02_isolated_exact_4x.png",
+    "art_department/ships/art_ship_011/review/03_environment_compatibility_1x.png"
+  ],
+  "freeze_scope": null,
+  "stop_point": "ART SHIP 011 \u2014 READY FOR HQ REVIEW"
+}

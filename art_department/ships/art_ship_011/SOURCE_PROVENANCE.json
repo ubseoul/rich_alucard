@@ -1,0 +1,311 @@
+{
+  "source_commit": "d8c24b632ecdc134986b4f81ff5d3f3959609eea",
+  "records": [
+    {
+      "asset_id": "nightlife_population.dancer",
+      "exploratory_id": "A01_dancer",
+      "source_commit": "d8c24b632ecdc134986b4f81ff5d3f3959609eea",
+      "selected_design_source_path": "art_department/preproduction/polish_preproduction_001/selected_sources/A01_dancer_generated.png",
+      "selected_design_source_sha256": "81af4f1d69b9bd1fa5bc0c2e44d781e817f727e7965771ae7948e81062d421aa",
+      "exploratory_native_path": "art_department/preproduction/polish_preproduction_001/candidates/native/A01_dancer.png",
+      "exploratory_native_sha256": "d10d9fdf1e6e587f25370f15ce80f3b55b758fd8969fda4306ce383ed92eafd9",
+      "transform": {
+        "background": "connected checker regions: RGB spread <=20, minimum >=155, area >100, red-channel range >=40",
+        "crop": [
+          276,
+          100,
+          769,
+          1247
+        ],
+        "native_visible_size": [
+          26,
+          60
+        ],
+        "sampling": "nearest neighbor",
+        "palette_max": 18,
+        "dither": false
+      },
+      "source_mode": "RGB",
+      "contact": [
+        40,
+        88
+      ],
+      "origin": [
+        0,
+        0
+      ]
+    },
+    {
+      "asset_id": "nightlife_population.performer",
+      "exploratory_id": "A02_performer",
+      "source_commit": "d8c24b632ecdc134986b4f81ff5d3f3959609eea",
+      "selected_design_source_path": "art_department/preproduction/polish_preproduction_001/selected_sources/A02_performer_generated.png",
+      "selected_design_source_sha256": "687cf20626f205d65d3e13f3713da57c74558671fa72cc6242ce875d2b84e799",
+      "exploratory_native_path": "art_department/preproduction/polish_preproduction_001/candidates/native/A02_performer.png",
+      "exploratory_native_sha256": "ae89b727a34815abb4b9ea88d31abdd23808bff5af40be5c26d08979b8036059",
+      "transform": {
+        "background": "connected checker regions: RGB spread <=20, minimum >=155, area >100, red-channel range >=40",
+        "crop": [
+          236,
+          77,
+          979,
+          1373
+        ],
+        "native_visible_size": [
+          32,
+          56
+        ],
+        "sampling": "nearest neighbor",
+        "palette_max": 18,
+        "dither": false
+      },
+      "source_mode": "RGB",
+      "contact": [
+        40,
+        88
+      ],
+      "origin": [
+        0,
+        0
+      ]
+    },
+    {
+      "asset_id": "nightlife_population.queue_pair",
+      "exploratory_id": "A03_queue_pair",
+      "source_commit": "d8c24b632ecdc134986b4f81ff5d3f3959609eea",
+      "selected_design_source_path": "art_department/preproduction/polish_preproduction_001/selected_sources/A03_queue_pair_generated.png",
+      "selected_design_source_sha256": "126546a3499716ac2364ecba723b81f334d20c122fe8c66286cd49ada0135f60",
+      "exploratory_native_path": "art_department/preproduction/polish_preproduction_001/candidates/native/A03_queue_pair.png",
+      "exploratory_native_sha256": "55b5eecb42fdfc6dca4493248cdf466a3b8f08c707165ed9243d73a03ca57190",
+      "transform": {
+        "background": "connected checker regions: RGB spread <=20, minimum >=155, area >100, red-channel range >=40",
+        "crop": [
+          332,
+          167,
+          1055,
+          984
+        ],
+        "native_visible_size": [
+          50,
+          56
+        ],
+        "sampling": "nearest neighbor",
+        "palette_max": 24,
+        "dither": false
+      },
+      "source_mode": "RGB",
+      "contact": [
+        56,
+        88
+      ],
+      "origin": [
+        0,
+        0
+      ]
+    },
+    {
+      "asset_id": "nightlife_population.dancing_pair",
+      "exploratory_id": "A04_dancing_pair",
+      "source_commit": "d8c24b632ecdc134986b4f81ff5d3f3959609eea",
+      "selected_design_source_path": "art_department/preproduction/polish_preproduction_001/selected_sources/A04_dancing_pair_generated.png",
+      "selected_design_source_sha256": "867df8cbf39ebf118fc8ed1bc0539dcc0c7ba70c30c0874ec7f696e784108589",
+      "exploratory_native_path": "art_department/preproduction/polish_preproduction_001/candidates/native/A04_dancing_pair.png",
+      "exploratory_native_sha256": "187070ea57ec5ff66826925d034add4abb99a836cfbcb4664cf02d489121eeef",
+      "transform": {
+        "background": "connected checker regions: RGB spread <=20, minimum >=155, area >100, red-channel range >=40",
+        "crop": [
+          281,
+          82,
+          1245,
+          951
+        ],
+        "native_visible_size": [
+          68,
+          61
+        ],
+        "sampling": "nearest neighbor",
+        "palette_max": 24,
+        "dither": false
+      },
+      "source_mode": "RGB",
+      "contact": [
+        56,
+        88
+      ],
+      "origin": [
+        0,
+        0
+      ]
+    },
+    {
+      "asset_id": "nightlife_population.affectionate_pair",
+      "exploratory_id": "A05_affectionate_pair",
+      "source_commit": "d8c24b632ecdc134986b4f81ff5d3f3959609eea",
+      "selected_design_source_path": "art_department/preproduction/polish_preproduction_001/selected_sources/A05_affectionate_pair_generated.png",
+      "selected_design_source_sha256": "111151fe1494ac246c80e0f0fd1cf54a547df1f92f6b420f2d1b98cad66dfc09",
+      "exploratory_native_path": "art_department/preproduction/polish_preproduction_001/candidates/native/A05_affectionate_pair.png",
+      "exploratory_native_sha256": "3aa4db3e00216d281d5ed9915dbfb367496bbb18bd042924006115cd774adba1",
+      "transform": {
+        "background": "connected checker regions: RGB spread <=20, minimum >=155, area >100, red-channel range >=40",
+        "crop": [
+          336,
+          121,
+          961,
+          1184
+        ],
+        "native_visible_size": [
+          32,
+          54
+        ],
+        "sampling": "nearest neighbor",
+        "palette_max": 24,
+        "dither": false
+      },
+      "source_mode": "RGB",
+      "contact": [
+        56,
+        88
+      ],
+      "origin": [
+        0,
+        0
+      ]
+    },
+    {
+      "asset_id": "nightlife_population.bartender",
+      "exploratory_id": "A06_bartender",
+      "source_commit": "d8c24b632ecdc134986b4f81ff5d3f3959609eea",
+      "selected_design_source_path": "art_department/preproduction/polish_preproduction_001/selected_sources/A06_bartender_generated.png",
+      "selected_design_source_sha256": "ddf26a88c7cd17dbb6cdac11913180b7bce5b900868593da2d66ad3ca663e906",
+      "exploratory_native_path": "art_department/preproduction/polish_preproduction_001/candidates/native/A06_bartender.png",
+      "exploratory_native_sha256": "5cb20cd77bb979aa2fc2a2cdad6dd6ef583c845d6f99bbddb5d27b5689f5b9cc",
+      "transform": {
+        "background": "existing alpha threshold at 128",
+        "crop": [
+          294,
+          135,
+          799,
+          1415
+        ],
+        "native_visible_size": [
+          22,
+          56
+        ],
+        "sampling": "nearest neighbor",
+        "palette_max": 18,
+        "dither": false
+      },
+      "source_mode": "RGBA",
+      "contact": [
+        40,
+        88
+      ],
+      "origin": [
+        0,
+        0
+      ]
+    },
+    {
+      "asset_id": "nightlife_population.hookah_lounge",
+      "exploratory_id": "A07_hookah_lounge",
+      "source_commit": "d8c24b632ecdc134986b4f81ff5d3f3959609eea",
+      "selected_design_source_path": "art_department/preproduction/polish_preproduction_001/selected_sources/A07_hookah_lounge_generated.png",
+      "selected_design_source_sha256": "74f29694b396607a0fde42bd22a0e1d08e163ddf302edd8a8a8ecb1ac0231983",
+      "exploratory_native_path": "art_department/preproduction/polish_preproduction_001/candidates/native/A07_hookah_lounge.png",
+      "exploratory_native_sha256": "e94a4ac613b752729a3773a3567c5778f6230048f3cc6dee03ca3c5e2f28a845",
+      "transform": {
+        "background": "existing alpha threshold at 128",
+        "crop": [
+          355,
+          200,
+          1315,
+          789
+        ],
+        "native_visible_size": [
+          85,
+          52
+        ],
+        "sampling": "nearest neighbor",
+        "palette_max": 24,
+        "dither": false
+      },
+      "source_mode": "RGBA",
+      "contact": [
+        64,
+        88
+      ],
+      "origin": [
+        0,
+        0
+      ]
+    },
+    {
+      "asset_id": "nightlife_population.dense_cluster",
+      "exploratory_id": "A08_dense_cluster",
+      "source_commit": "d8c24b632ecdc134986b4f81ff5d3f3959609eea",
+      "selected_design_source_path": "art_department/preproduction/polish_preproduction_001/selected_sources/A08_dense_cluster_generated.png",
+      "selected_design_source_sha256": "c9d50664156e467e4fbb0e1f08c1069fee549cc3db03da63fe30f82304f09de8",
+      "exploratory_native_path": "art_department/preproduction/polish_preproduction_001/candidates/native/A08_dense_cluster.png",
+      "exploratory_native_sha256": "ba12f4f3c2224f4cbb9a78ea42a85df113aaa351d07eda8279d4ced501cd6024",
+      "transform": {
+        "background": "connected checker regions: RGB spread <=20, minimum >=155, area >100, red-channel range >=40",
+        "crop": [
+          226,
+          60,
+          1385,
+          922
+        ],
+        "native_visible_size": [
+          86,
+          64
+        ],
+        "sampling": "nearest neighbor",
+        "palette_max": 24,
+        "dither": false
+      },
+      "source_mode": "RGB",
+      "contact": [
+        72,
+        88
+      ],
+      "origin": [
+        0,
+        0
+      ]
+    },
+    {
+      "asset_id": "nightlife_population.foreground_silhouettes",
+      "exploratory_id": "A09_foreground_silhouettes",
+      "source_commit": "d8c24b632ecdc134986b4f81ff5d3f3959609eea",
+      "selected_design_source_path": "art_department/preproduction/polish_preproduction_001/selected_sources/A09_foreground_silhouettes_generated.png",
+      "selected_design_source_sha256": "ab168c41deabd263952945aa856473b7b6d4419c3ba51247d725a4d67d4e398d",
+      "exploratory_native_path": "art_department/preproduction/polish_preproduction_001/candidates/native/A09_foreground_silhouettes.png",
+      "exploratory_native_sha256": "94da579afbbc43fa191bb415d8e757ba6e1615e7d662bca703629e18e8592418",
+      "transform": {
+        "background": "existing alpha threshold at 128",
+        "crop": [
+          79,
+          73,
+          1403,
+          1052
+        ],
+        "native_visible_size": [
+          105,
+          78
+        ],
+        "sampling": "nearest neighbor",
+        "palette_max": 4,
+        "dither": false
+      },
+      "source_mode": "RGBA",
+      "contact": [
+        72,
+        104
+      ],
+      "origin": [
+        0,
+        0
+      ]
+    }
+  ]
+}

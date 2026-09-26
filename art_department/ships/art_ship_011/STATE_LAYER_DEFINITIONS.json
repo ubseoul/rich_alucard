@@ -1,0 +1,199 @@
+{
+  "ship_id": "ART SHIP 011",
+  "status": "CANDIDATE \u2014 HQ REVIEW REQUIRED",
+  "global_draw_rule": "Environment/base and contextual furniture first; ambient population fragments next according to framing; named actors and critical UI must remain clear. A09 is a deliberate foreground exception only when specifically framed.",
+  "states": [
+    {
+      "asset_id": "nightlife_population.dancer",
+      "category": "ACTIVE_DANCE",
+      "held_state": "side-pocket / dance-floor energy",
+      "production_path": "assets/before_the_fame/population/nightlife/nightlife_dancer_80x96.png",
+      "origin": [
+        0,
+        0
+      ],
+      "contact": [
+        40,
+        88
+      ],
+      "layer_role": "anonymous ambient adult population fragment",
+      "named_actor_clearance_required": true,
+      "placement_constraints": [
+        "clear named-actor lanes",
+        "prefer sparse or medium-density use"
+      ],
+      "runtime_assignment": null
+    },
+    {
+      "asset_id": "nightlife_population.performer",
+      "category": "STAGE_PERFORMANCE",
+      "held_state": "adult stage/nightlife performer; sensual and non-explicit",
+      "production_path": "assets/before_the_fame/population/nightlife/nightlife_performer_80x96.png",
+      "origin": [
+        0,
+        0
+      ],
+      "contact": [
+        40,
+        88
+      ],
+      "layer_role": "anonymous ambient adult population fragment",
+      "named_actor_clearance_required": true,
+      "placement_constraints": [
+        "clear named-actor lanes",
+        "use only where a stage/performance context is credible"
+      ],
+      "runtime_assignment": null
+    },
+    {
+      "asset_id": "nightlife_population.queue_pair",
+      "category": "ARRIVAL_QUEUE",
+      "held_state": "passive social / arrival pair",
+      "production_path": "assets/before_the_fame/population/nightlife/nightlife_queue_pair_112x96.png",
+      "origin": [
+        0,
+        0
+      ],
+      "contact": [
+        56,
+        88
+      ],
+      "layer_role": "anonymous ambient adult population fragment",
+      "named_actor_clearance_required": true,
+      "placement_constraints": [
+        "treat as one pair fragment",
+        "clear entrances and named-actor lanes"
+      ],
+      "runtime_assignment": null
+    },
+    {
+      "asset_id": "nightlife_population.dancing_pair",
+      "category": "PARTNERED_DANCE",
+      "held_state": "active partnered movement",
+      "production_path": "assets/before_the_fame/population/nightlife/nightlife_dancing_pair_112x96.png",
+      "origin": [
+        0,
+        0
+      ],
+      "contact": [
+        56,
+        88
+      ],
+      "layer_role": "anonymous ambient adult population fragment",
+      "named_actor_clearance_required": true,
+      "placement_constraints": [
+        "requires a wide side-floor pocket",
+        "clear named-actor lanes"
+      ],
+      "runtime_assignment": null
+    },
+    {
+      "asset_id": "nightlife_population.affectionate_pair",
+      "category": "AFFECTIONATE_SOCIAL",
+      "held_state": "adult flirting / affectionate background pair",
+      "production_path": "assets/before_the_fame/population/nightlife/nightlife_affectionate_pair_112x96.png",
+      "origin": [
+        0,
+        0
+      ],
+      "contact": [
+        56,
+        88
+      ],
+      "layer_role": "anonymous ambient adult population fragment",
+      "named_actor_clearance_required": true,
+      "placement_constraints": [
+        "background behavior only",
+        "clear named-actor lanes"
+      ],
+      "runtime_assignment": null
+    },
+    {
+      "asset_id": "nightlife_population.bartender",
+      "category": "HOSPITALITY_SERVICE",
+      "held_state": "bartender / service figure",
+      "production_path": "assets/before_the_fame/population/nightlife/nightlife_bartender_80x96.png",
+      "origin": [
+        0,
+        0
+      ],
+      "contact": [
+        40,
+        88
+      ],
+      "layer_role": "anonymous ambient adult population fragment",
+      "named_actor_clearance_required": true,
+      "placement_constraints": [
+        "must have an appropriate bar or service context",
+        "do not place as a free-floating patron"
+      ],
+      "runtime_assignment": null
+    },
+    {
+      "asset_id": "nightlife_population.hookah_lounge",
+      "category": "SEATED_LOUNGE_GROUP",
+      "held_state": "low seated social group with hookah, table, and seating included",
+      "production_path": "assets/before_the_fame/population/nightlife/nightlife_hookah_lounge_128x96.png",
+      "origin": [
+        0,
+        0
+      ],
+      "contact": [
+        64,
+        88
+      ],
+      "layer_role": "anonymous ambient adult population fragment",
+      "named_actor_clearance_required": true,
+      "placement_constraints": [
+        "included furniture must not be duplicated",
+        "check furniture scale against the host environment"
+      ],
+      "runtime_assignment": null
+    },
+    {
+      "asset_id": "nightlife_population.dense_cluster",
+      "category": "DENSE_CROWD_CLUSTER",
+      "held_state": "six-adult crowd-density tool",
+      "production_path": "assets/before_the_fame/population/nightlife/nightlife_dense_cluster_144x96.png",
+      "origin": [
+        0,
+        0
+      ],
+      "contact": [
+        72,
+        88
+      ],
+      "layer_role": "anonymous ambient adult population fragment",
+      "named_actor_clearance_required": true,
+      "placement_constraints": [
+        "do not tile or repeat into wallpaper",
+        "use once per framed view unless a later explicit contract says otherwise",
+        "protect named-actor clearance"
+      ],
+      "runtime_assignment": null
+    },
+    {
+      "asset_id": "nightlife_population.foreground_silhouettes",
+      "category": "FOREGROUND_DEPTH",
+      "held_state": "three-adult foreground/depth silhouette fragment",
+      "production_path": "assets/before_the_fame/population/nightlife/nightlife_foreground_silhouettes_144x112.png",
+      "origin": [
+        0,
+        0
+      ],
+      "contact": [
+        72,
+        104
+      ],
+      "layer_role": "anonymous ambient adult population fragment",
+      "named_actor_clearance_required": true,
+      "placement_constraints": [
+        "high occlusion risk",
+        "peripheral or deliberately framed placement only",
+        "use against a lighter band",
+        "never cover named actors or critical UI"
+      ],
+      "runtime_assignment": null
+    }
+  ]
+}
