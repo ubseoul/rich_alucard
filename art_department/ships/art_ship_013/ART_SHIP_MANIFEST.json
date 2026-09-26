@@ -1,25 +1,188 @@
 {
-  "ship_id":"ART SHIP 013",
-  "title":"CANON CAST COMPLETION + RICH CONTINUITY CLEANUP",
-  "status":"CANDIDATE — READY FOR HQ REVIEW",
-  "authorization":"Ube ART SHIP 013 brief, 2026-09-26",
-  "production_base":"c6a49410e558be34aa44703015556c00a4e592c9",
-  "spoiler_classification":"OPEN family + GUIDED Portobello; review package contains no SEALED material",
-  "files":[
-    {"id":"AS13-01","path":"art_department/ships/art_ship_013/candidates/native/characters/mom_neutral_80x96.png","sha256":"2fbbf02d8ddfc9c9fde5a967f54ab25765bf68f8dd569a76f11760d35178fa4d","role":"new identity anchor","dimensions":[80,96],"alpha":"binary","state":"default","contact":[40,88],"approval_status":"CANDIDATE — HQ REVIEW REQUIRED"},
-    {"id":"AS13-02","path":"art_department/ships/art_ship_013/candidates/native/characters/dad_neutral_80x96.png","sha256":"5d208ef3c344fa34a2450310ef331f5ae3c0b2e14ee734a3d4b83ffb644eca30","role":"new identity anchor","dimensions":[80,96],"alpha":"binary","state":"default","contact":[40,88],"approval_status":"CANDIDATE — HQ REVIEW REQUIRED"},
-    {"id":"AS13-03","path":"art_department/ships/art_ship_013/candidates/native/characters/sister_neutral_80x96.png","sha256":"ecfe922ea7d5c114246897e6050ff1c2d4c9503d151cf47fa41f93812cb1a321","role":"new adult identity anchor","dimensions":[80,96],"alpha":"binary","state":"default","contact":[40,88],"approval_status":"CANDIDATE — HQ REVIEW REQUIRED"},
-    {"id":"AS13-04","path":"art_department/ships/art_ship_013/candidates/native/characters/portobello_wife_neutral_80x96.png","sha256":"befad71977141eedcbb05db8d0f0f0f1e08018a54f609ab96c8c0c896f4381cb","role":"new Portobello-only identity anchor","dimensions":[80,96],"alpha":"binary","state":"default","contact":[40,88],"approval_status":"CANDIDATE — HQ REVIEW REQUIRED"},
-    {"id":"AS13-05","path":"art_department/ships/art_ship_013/candidates/native/characters/portobello_kid1_neutral_80x96.png","sha256":"cfa3487c650b6180a709d3741c92fdeabe91ed175d1bcf49f5e2a1e82f08b8c6","role":"new fictional child anchor","dimensions":[80,96],"alpha":"binary","state":"default","contact":[40,88],"approval_status":"CANDIDATE — HQ REVIEW REQUIRED"},
-    {"id":"AS13-06","path":"art_department/ships/art_ship_013/candidates/native/characters/portobello_kid2_neutral_80x96.png","sha256":"ae0d440f797bdeeae61d4884ae341df2a82bde2a1eac23f8a84b8c9ea5e322cb","role":"new fictional child anchor","dimensions":[80,96],"alpha":"binary","state":"default","contact":[40,88],"approval_status":"CANDIDATE — HQ REVIEW REQUIRED"},
-    {"id":"AS13-07","path":"art_department/ships/art_ship_013/candidates/native/characters/rich_hookah_seated_corrected_80x96.png","sha256":"c46f395004151d94365601fad9e72a8abba092ef03669dca71f2e492f8917634","role":"identity-continuity correction candidate","dimensions":[80,96],"alpha":"binary","state":"hookah_seated","contact":[40,88],"source_anchor":"assets/before_the_fame/characters/rich/rich_hookah_seated_80x96.png","approval_status":"CANDIDATE — HQ REVIEW REQUIRED"}
+  "ship_id": "ART SHIP 013",
+  "title": "CANON CAST COMPLETION + RICH CONTINUITY CLEANUP",
+  "status": "APPROVED MASTER / FROZEN / COMPLETE",
+  "authorization": "Ube ART SHIP 013 brief, 2026-09-26",
+  "production_base": "c6a49410e558be34aa44703015556c00a4e592c9",
+  "spoiler_classification": "OPEN family + GUIDED Portobello; review package contains no SEALED material",
+  "files": [
+    {
+      "id": "AS13-01",
+      "path": "assets/before_the_fame/characters/mom/mom_neutral_80x96.png",
+      "sha256": "2fbbf02d8ddfc9c9fde5a967f54ab25765bf68f8dd569a76f11760d35178fa4d",
+      "role": "new identity anchor",
+      "dimensions": [
+        80,
+        96
+      ],
+      "alpha": "binary",
+      "state": "default",
+      "contact": [
+        40,
+        88
+      ],
+      "approval_status": "APPROVED MASTER / FROZEN",
+      "candidate_path": "art_department/ships/art_ship_013/candidates/native/characters/mom_neutral_80x96.png",
+      "production_path": "assets/before_the_fame/characters/mom/mom_neutral_80x96.png"
+    },
+    {
+      "id": "AS13-02",
+      "path": "assets/before_the_fame/characters/dad/dad_neutral_80x96.png",
+      "sha256": "5d208ef3c344fa34a2450310ef331f5ae3c0b2e14ee734a3d4b83ffb644eca30",
+      "role": "new identity anchor",
+      "dimensions": [
+        80,
+        96
+      ],
+      "alpha": "binary",
+      "state": "default",
+      "contact": [
+        40,
+        88
+      ],
+      "approval_status": "APPROVED MASTER / FROZEN",
+      "candidate_path": "art_department/ships/art_ship_013/candidates/native/characters/dad_neutral_80x96.png",
+      "production_path": "assets/before_the_fame/characters/dad/dad_neutral_80x96.png"
+    },
+    {
+      "id": "AS13-03",
+      "path": "assets/before_the_fame/characters/sister/sister_neutral_80x96.png",
+      "sha256": "ecfe922ea7d5c114246897e6050ff1c2d4c9503d151cf47fa41f93812cb1a321",
+      "role": "new adult identity anchor",
+      "dimensions": [
+        80,
+        96
+      ],
+      "alpha": "binary",
+      "state": "default",
+      "contact": [
+        40,
+        88
+      ],
+      "approval_status": "APPROVED MASTER / FROZEN",
+      "candidate_path": "art_department/ships/art_ship_013/candidates/native/characters/sister_neutral_80x96.png",
+      "production_path": "assets/before_the_fame/characters/sister/sister_neutral_80x96.png"
+    },
+    {
+      "id": "AS13-04",
+      "path": "assets/before_the_fame/characters/portobello_wife/portobello_wife_neutral_80x96.png",
+      "sha256": "befad71977141eedcbb05db8d0f0f0f1e08018a54f609ab96c8c0c896f4381cb",
+      "role": "new Portobello-only identity anchor",
+      "dimensions": [
+        80,
+        96
+      ],
+      "alpha": "binary",
+      "state": "default",
+      "contact": [
+        40,
+        88
+      ],
+      "approval_status": "APPROVED MASTER / FROZEN",
+      "candidate_path": "art_department/ships/art_ship_013/candidates/native/characters/portobello_wife_neutral_80x96.png",
+      "production_path": "assets/before_the_fame/characters/portobello_wife/portobello_wife_neutral_80x96.png"
+    },
+    {
+      "id": "AS13-05",
+      "path": "assets/before_the_fame/characters/portobello_kid1/portobello_kid1_neutral_80x96.png",
+      "sha256": "cfa3487c650b6180a709d3741c92fdeabe91ed175d1bcf49f5e2a1e82f08b8c6",
+      "role": "new fictional child anchor",
+      "dimensions": [
+        80,
+        96
+      ],
+      "alpha": "binary",
+      "state": "default",
+      "contact": [
+        40,
+        88
+      ],
+      "approval_status": "APPROVED MASTER / FROZEN",
+      "candidate_path": "art_department/ships/art_ship_013/candidates/native/characters/portobello_kid1_neutral_80x96.png",
+      "production_path": "assets/before_the_fame/characters/portobello_kid1/portobello_kid1_neutral_80x96.png"
+    },
+    {
+      "id": "AS13-06",
+      "path": "assets/before_the_fame/characters/portobello_kid2/portobello_kid2_neutral_80x96.png",
+      "sha256": "ae0d440f797bdeeae61d4884ae341df2a82bde2a1eac23f8a84b8c9ea5e322cb",
+      "role": "new fictional child anchor",
+      "dimensions": [
+        80,
+        96
+      ],
+      "alpha": "binary",
+      "state": "default",
+      "contact": [
+        40,
+        88
+      ],
+      "approval_status": "APPROVED MASTER / FROZEN",
+      "candidate_path": "art_department/ships/art_ship_013/candidates/native/characters/portobello_kid2_neutral_80x96.png",
+      "production_path": "assets/before_the_fame/characters/portobello_kid2/portobello_kid2_neutral_80x96.png"
+    },
+    {
+      "id": "AS13-07",
+      "path": "assets/before_the_fame/characters/rich/rich_hookah_seated_corrected_80x96.png",
+      "sha256": "c46f395004151d94365601fad9e72a8abba092ef03669dca71f2e492f8917634",
+      "role": "approved identity-continuity correction",
+      "dimensions": [
+        80,
+        96
+      ],
+      "alpha": "binary",
+      "state": "hookah_seated",
+      "contact": [
+        40,
+        88
+      ],
+      "source_anchor": "assets/before_the_fame/characters/rich/rich_hookah_seated_80x96.png",
+      "approval_status": "APPROVED MASTER / FROZEN",
+      "candidate_path": "art_department/ships/art_ship_013/candidates/native/characters/rich_hookah_seated_corrected_80x96.png",
+      "production_path": "assets/before_the_fame/characters/rich/rich_hookah_seated_corrected_80x96.png"
+    }
   ],
-  "generation_and_transformations":["built-in ImageGen transparent source renders","deterministic significant-alpha crop","BOX downsample","16-color adaptive reduction for new identities","approved Rich palette remap for corrected state","binary-alpha threshold and contact alignment"],
-  "pixel_preservation_checks":["212/212 frozen corpus files match ART SHIP 011 baseline","original rich_hookah_seated hash unchanged","no canonical assets modified"],
-  "native_review_evidence":["review/01_family_native_1x.png","review/02_family_exact_6x.png","review/03_family_context_2x.png","review/04_portobello_household_native_1x.png","review/05_portobello_household_exact_6x.png","review/06_portobello_contexts_2x.png","review/07_rich_continuity_native_1x.png","review/08_rich_continuity_exact_6x.png"],
-  "runtime_test_scope":"documentation/candidate only; no runtime integration",
-  "taste_decision":null,
-  "hq_acceptance":null,
-  "freeze_scope":null,
-  "stop_point":"READY FOR HQ REVIEW"
+  "generation_and_transformations": [
+    "built-in ImageGen transparent source renders",
+    "deterministic significant-alpha crop",
+    "BOX downsample",
+    "16-color adaptive reduction for new identities",
+    "approved Rich palette remap for corrected state",
+    "binary-alpha threshold and contact alignment"
+  ],
+  "pixel_preservation_checks": [
+    "219/219 registered frozen corpus files match their recorded SHA-256 hashes",
+    "original rich_hookah_seated hash unchanged and preserved as superseded historical source",
+    "seven canonical production files equal accepted candidates byte-for-byte"
+  ],
+  "native_review_evidence": [
+    "review/01_family_native_1x.png",
+    "review/02_family_exact_6x.png",
+    "review/03_family_context_2x.png",
+    "review/04_portobello_household_native_1x.png",
+    "review/05_portobello_household_exact_6x.png",
+    "review/06_portobello_contexts_2x.png",
+    "review/07_rich_continuity_native_1x.png",
+    "review/08_rich_continuity_exact_6x.png"
+  ],
+  "runtime_test_scope": "Art promotion only; no runtime integration and no PASS/HOLD movement",
+  "taste_decision": "HQ PASS 7/7; no revisions requested",
+  "hq_acceptance": "Exact seven candidate byte streams accepted at eec5c40c45a40dd842ded38f9b87063d67965d3c",
+  "freeze_scope": "The seven exact submitted PNG byte streams, submitted roles, 80x96 RGBA binary-alpha contracts and contact (40,88). Runtime integration, PASS/HOLD movement, additional identities/states, merge and deployment are excluded.",
+  "stop_point": "ART SHIP 013 \u2014 APPROVED MASTER / FROZEN / COMPLETE \u2014 READY FOR HQ HANDOFF",
+  "accepted_candidate_checkpoint": "eec5c40c45a40dd842ded38f9b87063d67965d3c",
+  "promotion_authority": "HQ DECISION \u2014 ART SHIP 013: PASS 7/7 / PROMOTE + FREEZE AUTHORIZED",
+  "approval_claimed": true,
+  "frozen_claimed": true,
+  "frozen_corpus_before": 212,
+  "frozen_corpus_after": 219,
+  "register_entries_before": 352,
+  "register_entries_after": 359,
+  "current_runtime_authority": {
+    "branch": "claude/hold-clearance-001",
+    "commit": "a66170218375e52404715789dde48c23726a6044",
+    "pass": 108,
+    "hold": 13,
+    "changed_by_this_ship": false
+  },
+  "promotion_policy": "All seven exact candidate byte streams promoted without regeneration, redraw, retouch, resize, recolor, repalette, reinterpretation, optimization or re-encoding."
 }

@@ -1,6 +1,6 @@
 # ART SHIP 013 — Generation and provenance log
 
-Status: **CANDIDATE — HQ REVIEW REQUIRED**.
+Status: **PROVENANCE PRESERVED — HQ PASS 7/7 / APPROVED MASTER / FROZEN**.
 
 The built-in ImageGen workflow produced transparent source renders. Each selected render was generated from the explicit brief plus approved repository references. No real photographs or real-family likenesses were used.
 

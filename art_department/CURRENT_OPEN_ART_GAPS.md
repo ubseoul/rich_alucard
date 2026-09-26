@@ -1,16 +1,16 @@
-# Current OPEN Art gaps — Ship 013 candidate overlay on Ship 011 frozen authority
+# Current OPEN Art gaps — Ship 013 frozen authority
 
 **As of:** 2026-09-26
 
-## ART SHIP 013 candidate overlay
+## ART SHIP 013 frozen package
 
-ART SHIP 013 supplies seven **candidates awaiting HQ review**: `mom`, `dad`, `sister`, `portobello_wife`, `portobello_kid1`, `portobello_kid2` and a corrected `rich.hookah_seated`. Ube's current brief explicitly resolves the former visual-card blockers for those six fictional identities. They remain runtime-open until HQ acceptance/freeze, Engineering integration and runtime QA.
+ART SHIP 013 freezes seven HQ-approved exact candidate byte streams: `mom`, `dad`, `sister`, `portobello_wife`, `portobello_kid1`, `portobello_kid2` and corrected `rich.hookah_seated`. The six new identities and Rich correction remain runtime-open until Engineering integration and Presentation QA.
 
-The candidate package creates expected opportunities for all three held family-house keys and four Portobello bedroom/porch keys. `portobello_manager` remains outside scope and keeps the office key held. The Rich correction is polish on already-PASS hookah surfaces and clears no HOLD. Current runtime truth remains **106 PASS / 15 HOLD**.
+The frozen package creates expected opportunities for all three family-house keys and four Portobello bedroom/porch keys. `portobello_manager` remains outside scope and keeps the office opportunity held. The Rich correction is polish on already-PASS hookah surfaces and clears no HOLD. Current accepted Engineering truth remains **108 PASS / 13 HOLD**; this Art freeze changes neither count.
 
-**Frozen pixel authority:** ART SHIP 010 promotion records
+**Frozen pixel authority:** ART SHIP 013 promotion records
 
-**Runtime/art-integration authority:** `origin/claude/art-ship-009-integration` at `5af730a132c035f6f2f5afb20eef5149ca3f2761`
+**Runtime/art-integration authority:** `claude/hold-clearance-001` at `a66170218375e52404715789dde48c23726a6044`
 
 This map uses the live post–Ship 008 Integration Matrix. Historical Rough Complete and pre-integration counts remain provenance only.
 
@@ -18,7 +18,7 @@ This map uses the live post–Ship 008 Integration Matrix. Historical Rough Comp
 
 | Area | Current truth |
 |---|---|
-| Frozen corpus | 203 frozen assets; 343 registered entries |
+| Frozen corpus | 219 frozen assets; 359 registered entries |
 | Ship 004–010 handoff | 183 files |
 | Runtime-integrated | 145 files |
 | Approved Ship 009 + Ship 010 pending integration/QA | 16 files + one zero-pixel reuse mapping |
@@ -28,7 +28,7 @@ This map uses the live post–Ship 008 Integration Matrix. Historical Rough Comp
 | Mapping-ambiguous | 4 |
 | Ready but no visual surface | 1 |
 | Runtime census | 104 adventure screens + 17 fights |
-| Final-art review | 105 PASS / 16 HOLD |
+| Final-art review | 108 PASS / 13 HOLD |
 | Automated presentation | All adventure/fight checks pass; HOLD is creative coverage, not generic Director failure |
 
 ## Presentation authority
@@ -49,7 +49,7 @@ Do not mark these runtime tickets resolved or change PASS/HOLD totals until Engi
 
 ART SHIP 010 supplies and freezes the following Art-owned coverage, but runtime tickets remain open until Engineering integration and real Presentation QA:
 
-1. `NC-FA-07` — three frozen Portobello Rich states. The four companion identities `portobello_wife`, `portobello_kid1`, `portobello_kid2` and `portobello_manager` remain **BLOCKED BY CANON**.
+1. `NC-FA-07` — three frozen Portobello Rich states. Ship 013 now freezes wife and both children; `portobello_manager` remains outside scope and blocked.
 2. `NC-FA-12` — one frozen exact-origin additive rooftop party-crowd condition layer behind named actors; the frozen rooftop master remains unchanged.
 
 Portobello Rich’s short-hair treatment is an intentional authorized variant, not identity drift. No other Rich state was modified. Do not mark these runtime tickets resolved or change PASS/HOLD totals until Engineering integrates the frozen assets and runtime visual QA passes.
@@ -64,14 +64,14 @@ They were outside ART SHIP 009's named runtime-demand package. Do not generate t
 
 ## Missing identities / unresolved cast
 
-Before ART SHIP 013 review, current demand includes twelve identity slots without approved art:
+After ART SHIP 013 freeze, the remaining unresolved identity slots include:
 
-`mom`, `dad`, `sister`, `brother1`, `brother2`, `god`, `buckhead`, `og_hooper`, `portobello_wife`, `portobello_kid1`, `portobello_kid2`, `portobello_manager`.
+`brother1`, `brother2`, `god`, `buckhead`, `og_hooper`, `portobello_manager`.
 
-- Mom, Dad and Sister now have explicit Ube visual authority and Ship 013 candidates; Big Bro and Lil Bro remain outside this Ship and without approved art.
+- Mom, Dad and Sister are frozen Ship 013 anchors; Big Bro and Lil Bro remain outside this Ship and without approved art.
 - `god` is culturally sensitive and needs exact-card, named authorization: **BLOCKED BY CANON / NAMED REVIEW**.
 - `buckhead` and `og_hooper` remain underspecified accepted deferrals: **BLOCKED BY CANON**.
-- Portobello wife, kid1 and kid2 now have explicit Ube visual authority and Ship 013 candidates. The manager remains without a committed card and outside scope.
+- Portobello wife, kid1 and kid2 are frozen Ship 013 anchors. The manager remains without a committed card and outside scope.
 - Other ad-hoc runtime extras and neutral groups remain unresolved coverage; do not invent canon-sensitive identities.
 
 ## Derivative states still open
@@ -108,6 +108,6 @@ Audio dependencies remain outside Art scope.
 
 ## Frozen forecast
 
-The Ship 009 forecast remains approximately **111 PASS / 10 HOLD** after its 12 assets and zero-pixel reuse are integrated and QA-accepted. For Ship 010, the rooftop candidate may clear one held screen, moving the current **105 PASS / 16 HOLD** baseline to approximately **106 PASS / 15 HOLD**. The five Portobello screens remain blocked by the four canon-sensitive companion identities and PD-W1-04 review. These are forecasts only; current runtime truth remains **105 PASS / 16 HOLD**.
+Earlier Ship forecasts are provenance only. Current accepted runtime truth is **108 PASS / 13 HOLD** at `a66170218375e52404715789dde48c23726a6044`. Ship 013 promotion changes no runtime status. Its family and Portobello assets create future Engineering/QA opportunities only; the Portobello office still lacks the manager.
 
-**Recommended next step:** Engineering integrates the 16 pending frozen Ship 009/010 assets and mappings, performs Presentation Director review including PD-W1-04, and refreshes the Integration Matrix/runtime visual QA before any PASS/HOLD update or new Art Ship.
+**Recommended next step:** Engineering separately integrates the frozen Ship 013 assets where authorized, performs Presentation Director/runtime visual QA, and updates PASS/HOLD only from accepted runtime evidence. Do not self-authorize another Art Ship.

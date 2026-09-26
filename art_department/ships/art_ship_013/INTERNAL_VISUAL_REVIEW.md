@@ -1,6 +1,6 @@
 # ART SHIP 013 — Internal visual review
 
-Status: **INTERNAL PASS / CANDIDATE — HQ REVIEW REQUIRED**.
+Status: **INTERNAL PASS / HQ PASS 7/7 / APPROVED MASTER / FROZEN**.
 
 ## Workstream A — family
 
@@ -25,4 +25,4 @@ Status: **INTERNAL PASS / CANDIDATE — HQ REVIEW REQUIRED**.
 
 ## Decision
 
-All seven native candidates pass internal belonging, identity, silhouette and restraint review. This is not HQ acceptance or freeze.
+All seven native candidates passed internal belonging, identity, silhouette and restraint review and were explicitly accepted by HQ without revision. Exact bytes are now frozen.

@@ -1,15 +1,248 @@
 {
   "schema_version": 1,
   "ship_id": "ART SHIP 013",
-  "status": "CANDIDATE — HQ REVIEW REQUIRED",
-  "runtime_authority": {"base_commit": "c6a49410e558be34aa44703015556c00a4e592c9"},
+  "status": "APPROVED MASTER / FROZEN \u2014 PENDING ENGINEERING INTEGRATION AND RUNTIME QA",
+  "runtime_authority": {
+    "base_commit": "c6a49410e558be34aa44703015556c00a4e592c9"
+  },
   "assets": [
-    {"request_id":"AS13-01","source_ticket":"NC-FA-07","runtime_asset_id":"mom","asset_type":"character_anchor","state_condition_layer":"default/neutral","authority_class":"OPEN — explicit Ube visual card","source_master":{"path":null,"sha256":null},"source_candidate":"art_department/ships/art_ship_013/candidates/native/characters/mom_neutral_80x96.png","native_dimensions":[80,96],"alpha_opacity_contract":"RGBA binary alpha","contact_or_origin":[40,88],"runtime_surfaces":["family_house|left:mom,mid:rich,right:dad"],"severity":"BLOCKING","expected_resolution":"dependency toward 1 HOLD; Engineering QA owns clearance","engineering_mapping":{"key":"people.mom.default","proposed_path":"assets/before_the_fame/characters/mom/mom_neutral_80x96.png"},"candidate_status":"CANDIDATE — HQ REVIEW REQUIRED"},
-    {"request_id":"AS13-02","source_ticket":"NC-FA-07","runtime_asset_id":"dad","asset_type":"character_anchor","state_condition_layer":"default/neutral","authority_class":"OPEN — explicit Ube visual card","source_master":{"path":null,"sha256":null},"source_candidate":"art_department/ships/art_ship_013/candidates/native/characters/dad_neutral_80x96.png","native_dimensions":[80,96],"alpha_opacity_contract":"RGBA binary alpha","contact_or_origin":[40,88],"runtime_surfaces":["family_house|left:dad,mid:rich","family_house|left:mom,mid:rich,right:dad"],"severity":"BLOCKING","expected_resolution":"dependency toward 2 HOLD screens; Engineering QA owns clearance","engineering_mapping":{"key":"people.dad.default","proposed_path":"assets/before_the_fame/characters/dad/dad_neutral_80x96.png"},"candidate_status":"CANDIDATE — HQ REVIEW REQUIRED"},
-    {"request_id":"AS13-03","source_ticket":"NC-FA-07","runtime_asset_id":"sister","asset_type":"character_anchor","state_condition_layer":"default/neutral","authority_class":"OPEN — explicit Ube visual card","source_master":{"path":null,"sha256":null},"source_candidate":"art_department/ships/art_ship_013/candidates/native/characters/sister_neutral_80x96.png","native_dimensions":[80,96],"alpha_opacity_contract":"RGBA binary alpha","contact_or_origin":[40,88],"runtime_surfaces":["family_house|left:sister,mid:rich"],"severity":"BLOCKING","expected_resolution":"dependency toward 1 HOLD; Engineering QA owns clearance","engineering_mapping":{"key":"people.sister.default","proposed_path":"assets/before_the_fame/characters/sister/sister_neutral_80x96.png"},"candidate_status":"CANDIDATE — HQ REVIEW REQUIRED"},
-    {"request_id":"AS13-04","source_ticket":"NC-FA-07","runtime_asset_id":"portobello_wife","asset_type":"character_anchor","state_condition_layer":"default/neutral","authority_class":"GUIDED Portobello — explicit Ube visual card","source_master":{"path":"assets/before_the_fame/characters/rich_portobello/rich_portobello_standing_80x96.png","sha256":"022a83c5c5adae243820241af7eb4d66b7c1be9cb19ed4eaf1ed7973af38ce27"},"source_candidate":"art_department/ships/art_ship_013/candidates/native/characters/portobello_wife_neutral_80x96.png","native_dimensions":[80,96],"alpha_opacity_contract":"RGBA binary alpha","contact_or_origin":[40,88],"runtime_surfaces":["portobello_bedroom|left:portobello_wife,mid:rich_portobello","portobello_bedroom|farRight:portobello_kid2,left:portobello_wife,mid:rich_portobello,right:portobello_kid1","portobello_porch|left:rich_portobello@porch_seated,right:portobello_wife"],"severity":"BLOCKING","expected_resolution":"dependency toward 3 held surface keys; Engineering QA owns clearance","engineering_mapping":{"key":"people.portobello_wife.default","proposed_path":"assets/before_the_fame/characters/portobello_wife/portobello_wife_neutral_80x96.png"},"candidate_status":"CANDIDATE — HQ REVIEW REQUIRED"},
-    {"request_id":"AS13-05","source_ticket":"NC-FA-07","runtime_asset_id":"portobello_kid1","asset_type":"character_anchor","state_condition_layer":"default/neutral","authority_class":"GUIDED Portobello — explicit Ube visual card","source_master":{"path":"assets/before_the_fame/characters/rich_portobello/rich_portobello_standing_80x96.png","sha256":"022a83c5c5adae243820241af7eb4d66b7c1be9cb19ed4eaf1ed7973af38ce27"},"source_candidate":"art_department/ships/art_ship_013/candidates/native/characters/portobello_kid1_neutral_80x96.png","native_dimensions":[80,96],"alpha_opacity_contract":"RGBA binary alpha; child-height envelope","contact_or_origin":[40,88],"runtime_surfaces":["portobello_bedroom|farRight:portobello_kid2,left:portobello_wife,mid:rich_portobello,right:portobello_kid1","portobello_bedroom|left:portobello_kid1,mid:rich_portobello,right:portobello_kid2"],"severity":"BLOCKING","expected_resolution":"dependency toward 2 HOLD screens; Engineering QA owns clearance","engineering_mapping":{"key":"people.portobello_kid1.default","proposed_path":"assets/before_the_fame/characters/portobello_kid1/portobello_kid1_neutral_80x96.png"},"candidate_status":"CANDIDATE — HQ REVIEW REQUIRED"},
-    {"request_id":"AS13-06","source_ticket":"NC-FA-07","runtime_asset_id":"portobello_kid2","asset_type":"character_anchor","state_condition_layer":"default/neutral","authority_class":"GUIDED Portobello — explicit Ube visual card","source_master":{"path":"assets/before_the_fame/characters/rich_portobello/rich_portobello_standing_80x96.png","sha256":"022a83c5c5adae243820241af7eb4d66b7c1be9cb19ed4eaf1ed7973af38ce27"},"source_candidate":"art_department/ships/art_ship_013/candidates/native/characters/portobello_kid2_neutral_80x96.png","native_dimensions":[80,96],"alpha_opacity_contract":"RGBA binary alpha; child-height envelope","contact_or_origin":[40,88],"runtime_surfaces":["portobello_bedroom|farRight:portobello_kid2,left:portobello_wife,mid:rich_portobello,right:portobello_kid1","portobello_bedroom|left:portobello_kid1,mid:rich_portobello,right:portobello_kid2"],"severity":"BLOCKING","expected_resolution":"dependency toward 2 HOLD screens; Engineering QA owns clearance","engineering_mapping":{"key":"people.portobello_kid2.default","proposed_path":"assets/before_the_fame/characters/portobello_kid2/portobello_kid2_neutral_80x96.png"},"candidate_status":"CANDIDATE — HQ REVIEW REQUIRED"},
-    {"request_id":"AS13-07","source_ticket":"POLISH PREPRODUCTION 001","runtime_asset_id":"rich.hookah_seated","asset_type":"character_state_correction","state_condition_layer":"hookah_seated corrected","authority_class":"OPEN — explicit frozen-delta candidate authorization","source_master":{"path":"assets/before_the_fame/characters/rich/rich_hookah_seated_80x96.png","sha256":"c260180a4b3636fc2765534e0053abd1cab25b2ca2c43c83f800e6b55ee20696"},"source_candidate":"art_department/ships/art_ship_013/candidates/native/characters/rich_hookah_seated_corrected_80x96.png","native_dimensions":[80,96],"alpha_opacity_contract":"RGBA binary alpha","contact_or_origin":[40,88],"runtime_surfaces":["minigame:hookah","minigame:hookah?company=ROOKOKO","minigame:hookah?company=HOMIES"],"severity":"POLISH","expected_resolution":"identity continuity correction opportunity; no HOLD movement","engineering_mapping":{"key":"people.rich.states.hookah_seated","proposed_path":"assets/before_the_fame/characters/rich/rich_hookah_seated_corrected_80x96.png"},"candidate_status":"CANDIDATE — HQ REVIEW REQUIRED"}
-  ]
+    {
+      "request_id": "AS13-01",
+      "source_ticket": "NC-FA-07",
+      "runtime_asset_id": "mom",
+      "asset_type": "character_anchor",
+      "state_condition_layer": "default/neutral",
+      "authority_class": "OPEN \u2014 explicit Ube visual card",
+      "source_master": {
+        "path": null,
+        "sha256": null
+      },
+      "source_candidate": "art_department/ships/art_ship_013/candidates/native/characters/mom_neutral_80x96.png",
+      "native_dimensions": [
+        80,
+        96
+      ],
+      "alpha_opacity_contract": "RGBA binary alpha",
+      "contact_or_origin": [
+        40,
+        88
+      ],
+      "runtime_surfaces": [
+        "family_house|left:mom,mid:rich,right:dad"
+      ],
+      "severity": "BLOCKING",
+      "expected_resolution": "dependency toward 1 HOLD; Engineering QA owns clearance",
+      "engineering_mapping": {
+        "key": "people.mom.default",
+        "proposed_path": "assets/before_the_fame/characters/mom/mom_neutral_80x96.png"
+      },
+      "candidate_status": "APPROVED MASTER / FROZEN \u2014 PENDING ENGINEERING INTEGRATION AND RUNTIME QA"
+    },
+    {
+      "request_id": "AS13-02",
+      "source_ticket": "NC-FA-07",
+      "runtime_asset_id": "dad",
+      "asset_type": "character_anchor",
+      "state_condition_layer": "default/neutral",
+      "authority_class": "OPEN \u2014 explicit Ube visual card",
+      "source_master": {
+        "path": null,
+        "sha256": null
+      },
+      "source_candidate": "art_department/ships/art_ship_013/candidates/native/characters/dad_neutral_80x96.png",
+      "native_dimensions": [
+        80,
+        96
+      ],
+      "alpha_opacity_contract": "RGBA binary alpha",
+      "contact_or_origin": [
+        40,
+        88
+      ],
+      "runtime_surfaces": [
+        "family_house|left:dad,mid:rich",
+        "family_house|left:mom,mid:rich,right:dad"
+      ],
+      "severity": "BLOCKING",
+      "expected_resolution": "dependency toward 2 HOLD screens; Engineering QA owns clearance",
+      "engineering_mapping": {
+        "key": "people.dad.default",
+        "proposed_path": "assets/before_the_fame/characters/dad/dad_neutral_80x96.png"
+      },
+      "candidate_status": "APPROVED MASTER / FROZEN \u2014 PENDING ENGINEERING INTEGRATION AND RUNTIME QA"
+    },
+    {
+      "request_id": "AS13-03",
+      "source_ticket": "NC-FA-07",
+      "runtime_asset_id": "sister",
+      "asset_type": "character_anchor",
+      "state_condition_layer": "default/neutral",
+      "authority_class": "OPEN \u2014 explicit Ube visual card",
+      "source_master": {
+        "path": null,
+        "sha256": null
+      },
+      "source_candidate": "art_department/ships/art_ship_013/candidates/native/characters/sister_neutral_80x96.png",
+      "native_dimensions": [
+        80,
+        96
+      ],
+      "alpha_opacity_contract": "RGBA binary alpha",
+      "contact_or_origin": [
+        40,
+        88
+      ],
+      "runtime_surfaces": [
+        "family_house|left:sister,mid:rich"
+      ],
+      "severity": "BLOCKING",
+      "expected_resolution": "dependency toward 1 HOLD; Engineering QA owns clearance",
+      "engineering_mapping": {
+        "key": "people.sister.default",
+        "proposed_path": "assets/before_the_fame/characters/sister/sister_neutral_80x96.png"
+      },
+      "candidate_status": "APPROVED MASTER / FROZEN \u2014 PENDING ENGINEERING INTEGRATION AND RUNTIME QA"
+    },
+    {
+      "request_id": "AS13-04",
+      "source_ticket": "NC-FA-07",
+      "runtime_asset_id": "portobello_wife",
+      "asset_type": "character_anchor",
+      "state_condition_layer": "default/neutral",
+      "authority_class": "GUIDED Portobello \u2014 explicit Ube visual card",
+      "source_master": {
+        "path": "assets/before_the_fame/characters/rich_portobello/rich_portobello_standing_80x96.png",
+        "sha256": "022a83c5c5adae243820241af7eb4d66b7c1be9cb19ed4eaf1ed7973af38ce27"
+      },
+      "source_candidate": "art_department/ships/art_ship_013/candidates/native/characters/portobello_wife_neutral_80x96.png",
+      "native_dimensions": [
+        80,
+        96
+      ],
+      "alpha_opacity_contract": "RGBA binary alpha",
+      "contact_or_origin": [
+        40,
+        88
+      ],
+      "runtime_surfaces": [
+        "portobello_bedroom|left:portobello_wife,mid:rich_portobello",
+        "portobello_bedroom|farRight:portobello_kid2,left:portobello_wife,mid:rich_portobello,right:portobello_kid1",
+        "portobello_porch|left:rich_portobello@porch_seated,right:portobello_wife"
+      ],
+      "severity": "BLOCKING",
+      "expected_resolution": "dependency toward 3 held surface keys; Engineering QA owns clearance",
+      "engineering_mapping": {
+        "key": "people.portobello_wife.default",
+        "proposed_path": "assets/before_the_fame/characters/portobello_wife/portobello_wife_neutral_80x96.png"
+      },
+      "candidate_status": "APPROVED MASTER / FROZEN \u2014 PENDING ENGINEERING INTEGRATION AND RUNTIME QA"
+    },
+    {
+      "request_id": "AS13-05",
+      "source_ticket": "NC-FA-07",
+      "runtime_asset_id": "portobello_kid1",
+      "asset_type": "character_anchor",
+      "state_condition_layer": "default/neutral",
+      "authority_class": "GUIDED Portobello \u2014 explicit Ube visual card",
+      "source_master": {
+        "path": "assets/before_the_fame/characters/rich_portobello/rich_portobello_standing_80x96.png",
+        "sha256": "022a83c5c5adae243820241af7eb4d66b7c1be9cb19ed4eaf1ed7973af38ce27"
+      },
+      "source_candidate": "art_department/ships/art_ship_013/candidates/native/characters/portobello_kid1_neutral_80x96.png",
+      "native_dimensions": [
+        80,
+        96
+      ],
+      "alpha_opacity_contract": "RGBA binary alpha; child-height envelope",
+      "contact_or_origin": [
+        40,
+        88
+      ],
+      "runtime_surfaces": [
+        "portobello_bedroom|farRight:portobello_kid2,left:portobello_wife,mid:rich_portobello,right:portobello_kid1",
+        "portobello_bedroom|left:portobello_kid1,mid:rich_portobello,right:portobello_kid2"
+      ],
+      "severity": "BLOCKING",
+      "expected_resolution": "dependency toward 2 HOLD screens; Engineering QA owns clearance",
+      "engineering_mapping": {
+        "key": "people.portobello_kid1.default",
+        "proposed_path": "assets/before_the_fame/characters/portobello_kid1/portobello_kid1_neutral_80x96.png"
+      },
+      "candidate_status": "APPROVED MASTER / FROZEN \u2014 PENDING ENGINEERING INTEGRATION AND RUNTIME QA"
+    },
+    {
+      "request_id": "AS13-06",
+      "source_ticket": "NC-FA-07",
+      "runtime_asset_id": "portobello_kid2",
+      "asset_type": "character_anchor",
+      "state_condition_layer": "default/neutral",
+      "authority_class": "GUIDED Portobello \u2014 explicit Ube visual card",
+      "source_master": {
+        "path": "assets/before_the_fame/characters/rich_portobello/rich_portobello_standing_80x96.png",
+        "sha256": "022a83c5c5adae243820241af7eb4d66b7c1be9cb19ed4eaf1ed7973af38ce27"
+      },
+      "source_candidate": "art_department/ships/art_ship_013/candidates/native/characters/portobello_kid2_neutral_80x96.png",
+      "native_dimensions": [
+        80,
+        96
+      ],
+      "alpha_opacity_contract": "RGBA binary alpha; child-height envelope",
+      "contact_or_origin": [
+        40,
+        88
+      ],
+      "runtime_surfaces": [
+        "portobello_bedroom|farRight:portobello_kid2,left:portobello_wife,mid:rich_portobello,right:portobello_kid1",
+        "portobello_bedroom|left:portobello_kid1,mid:rich_portobello,right:portobello_kid2"
+      ],
+      "severity": "BLOCKING",
+      "expected_resolution": "dependency toward 2 HOLD screens; Engineering QA owns clearance",
+      "engineering_mapping": {
+        "key": "people.portobello_kid2.default",
+        "proposed_path": "assets/before_the_fame/characters/portobello_kid2/portobello_kid2_neutral_80x96.png"
+      },
+      "candidate_status": "APPROVED MASTER / FROZEN \u2014 PENDING ENGINEERING INTEGRATION AND RUNTIME QA"
+    },
+    {
+      "request_id": "AS13-07",
+      "source_ticket": "POLISH PREPRODUCTION 001",
+      "runtime_asset_id": "rich.hookah_seated",
+      "asset_type": "character_state_correction",
+      "state_condition_layer": "hookah_seated corrected",
+      "authority_class": "OPEN \u2014 explicit frozen-delta candidate authorization",
+      "source_master": {
+        "path": "assets/before_the_fame/characters/rich/rich_hookah_seated_80x96.png",
+        "sha256": "c260180a4b3636fc2765534e0053abd1cab25b2ca2c43c83f800e6b55ee20696"
+      },
+      "source_candidate": "art_department/ships/art_ship_013/candidates/native/characters/rich_hookah_seated_corrected_80x96.png",
+      "native_dimensions": [
+        80,
+        96
+      ],
+      "alpha_opacity_contract": "RGBA binary alpha",
+      "contact_or_origin": [
+        40,
+        88
+      ],
+      "runtime_surfaces": [
+        "minigame:hookah",
+        "minigame:hookah?company=ROOKOKO",
+        "minigame:hookah?company=HOMIES"
+      ],
+      "severity": "POLISH",
+      "expected_resolution": "identity continuity correction opportunity; no HOLD movement",
+      "engineering_mapping": {
+        "key": "people.rich.states.hookah_seated",
+        "proposed_path": "assets/before_the_fame/characters/rich/rich_hookah_seated_corrected_80x96.png"
+      },
+      "candidate_status": "APPROVED MASTER / FROZEN \u2014 PENDING ENGINEERING INTEGRATION AND RUNTIME QA"
+    }
+  ],
+  "current_runtime_authority": {
+    "branch": "claude/hold-clearance-001",
+    "commit": "a66170218375e52404715789dde48c23726a6044",
+    "pass": 108,
+    "hold": 13,
+    "changed_by_this_ship": false
+  }
 }
