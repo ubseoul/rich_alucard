@@ -1,0 +1,38 @@
+{
+  "ship_id": "ART SHIP 010",
+  "status": "CANDIDATE — HQ REVIEW REQUIRED",
+  "runtime_code_changed": false,
+  "maps": [
+    {
+      "runtime_key": "people.rich_portobello.default",
+      "candidate": "candidates/native/characters/rich_portobello_standing_80x96.png",
+      "native_contract": "80x96 RGBA; binary alpha; contact (40,88)",
+      "surfaces": ["portobello_bedroom"],
+      "draw_order": "named actor sprite in existing Director composition"
+    },
+    {
+      "runtime_key": "people.rich_portobello.states.presenting",
+      "candidate": "candidates/native/characters/rich_portobello_presenting_80x96.png",
+      "native_contract": "80x96 RGBA; binary alpha; contact (40,88)",
+      "surfaces": ["portobello_office"],
+      "draw_order": "named actor sprite in existing Director composition"
+    },
+    {
+      "runtime_key": "people.rich_portobello.states.porch_seated",
+      "candidate": "candidates/native/characters/rich_portobello_porch_seated_80x96.png",
+      "native_contract": "80x96 RGBA; binary alpha; contact (40,88)",
+      "surfaces": ["portobello_porch"],
+      "draw_order": "named actor sprite in existing Director composition"
+    },
+    {
+      "runtime_key": "environments.rooftop_dtla.layers.party_crowd_condition",
+      "candidate": "candidates/native/layers/rooftop_dtla_party_crowd_overlay_270x480.png",
+      "native_contract": "270x480 RGBA; binary alpha; exact origin (0,0)",
+      "surfaces": ["rooftop_dtla|left:rich"],
+      "draw_order": "frozen base -> party crowd condition -> named actors -> UI",
+      "protected_region": "x=38..110, y=196..371",
+      "actor_contact_line": 372
+    }
+  ],
+  "presentation_authority": "Presentation Director remains final framing authority; PD-W1-04 is not solved by this package"
+}

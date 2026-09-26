@@ -1,0 +1,88 @@
+{
+  "assets": [
+    {
+      "path": "art_department/ships/art_ship_010/candidates/native/characters/rich_portobello_standing_80x96.png",
+      "kind": "character_anchor",
+      "sha256": "022a83c5c5adae243820241af7eb4d66b7c1be9cb19ed4eaf1ed7973af38ce27",
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "alpha_values": [
+        0,
+        255
+      ],
+      "opaque_rgb_colors": 16,
+      "opaque_bbox": [
+        29,
+        33,
+        52,
+        89
+      ]
+    },
+    {
+      "path": "art_department/ships/art_ship_010/candidates/native/characters/rich_portobello_presenting_80x96.png",
+      "kind": "character_state",
+      "sha256": "3803ef5e8b3caa8cecc035613b2dd1f2d94901b505541a95b1eb7e320bcabb25",
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "alpha_values": [
+        0,
+        255
+      ],
+      "opaque_rgb_colors": 16,
+      "opaque_bbox": [
+        21,
+        33,
+        60,
+        89
+      ]
+    },
+    {
+      "path": "art_department/ships/art_ship_010/candidates/native/characters/rich_portobello_porch_seated_80x96.png",
+      "kind": "character_state",
+      "sha256": "855ee348e4d983292d2056d75cf50e441a33418e26ee67eba3839aec3d400f44",
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "alpha_values": [
+        0,
+        255
+      ],
+      "opaque_rgb_colors": 16,
+      "opaque_bbox": [
+        24,
+        38,
+        56,
+        89
+      ]
+    },
+    {
+      "path": "art_department/ships/art_ship_010/candidates/native/layers/rooftop_dtla_party_crowd_overlay_270x480.png",
+      "kind": "environment_condition_layer",
+      "sha256": "89125564e976fd72c60a08cc3ab3224b9bd4d2f3c3478ace8e274a441e8702e2",
+      "dimensions": [
+        270,
+        480
+      ],
+      "mode": "RGBA",
+      "alpha_values": [
+        0,
+        255
+      ],
+      "opaque_rgb_colors": 20,
+      "opaque_bbox": [
+        0,
+        194,
+        252,
+        269
+      ]
+    }
+  ]
+}

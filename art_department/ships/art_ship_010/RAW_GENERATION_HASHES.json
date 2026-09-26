@@ -1,0 +1,24 @@
+{
+  "source_renders": [
+    {
+      "path": "art_department/ships/art_ship_010/source_renders/rich_portobello_porch_seated_raw.png",
+      "sha256": "fb89a0e939f8f6e166bd921ca31caae1fd254e69b4650cb892a12067468d2f6c",
+      "selected": true
+    },
+    {
+      "path": "art_department/ships/art_ship_010/source_renders/rich_portobello_presenting_raw.png",
+      "sha256": "26502b7f6fc409e1990bb9344afcbc037e722070e0f7a08d6f7d63daedf4b087",
+      "selected": true
+    },
+    {
+      "path": "art_department/ships/art_ship_010/source_renders/rich_portobello_standing_raw.png",
+      "sha256": "122eb51d66983bb5477f8a306989f106b923d8af7fe0f87ac6855d5a59434aa6",
+      "selected": true
+    },
+    {
+      "path": "art_department/ships/art_ship_010/source_renders/rooftop_dtla_party_crowd_raw.png",
+      "sha256": "4e38e9285c39af9d544a651ee955a30ab06cc9d79dc4bf53259fa92484e1d15f",
+      "selected": true
+    }
+  ]
+}
