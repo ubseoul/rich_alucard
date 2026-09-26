@@ -119,6 +119,27 @@
   "recommended_next_step": "Engineering integrates the 16 pending frozen Ship 009/010 assets and mappings, performs Presentation Director review including PD-W1-04, and reruns Integration Matrix/runtime visual QA before PASS/HOLD changes.",
   "historical_rough_complete_map_is_current_truth": false,
   "sealed_content_accessed": false,
+  "ship_013_candidate": {
+    "status": "CANDIDATE — READY FOR HQ REVIEW",
+    "base_commit": "c6a49410e558be34aa44703015556c00a4e592c9",
+    "candidate_assets": 7,
+    "runtime_identities": [
+      "mom",
+      "dad",
+      "sister",
+      "portobello_wife",
+      "portobello_kid1",
+      "portobello_kid2",
+      "rich.hookah_seated"
+    ],
+    "expected_family_hold_opportunities": 3,
+    "expected_portobello_hold_opportunities": 4,
+    "portobello_office_still_blocked_by": "portobello_manager",
+    "rich_hookah_effect": "continuity polish only; no HOLD movement",
+    "hq_approved": false,
+    "frozen": false,
+    "runtime_integrated": false
+  },
   "ship_010_pending_integration": [
     {
       "id": "NC-FA-07",

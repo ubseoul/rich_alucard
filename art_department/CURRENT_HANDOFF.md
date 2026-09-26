@@ -1,6 +1,17 @@
 # Current handoff
 
-**ART SHIP 011 — NIGHTLIFE POPULATION LIBRARY: APPROVED MASTER / FROZEN / COMPLETE.**
+**ART SHIP 013 — CANON CAST COMPLETION + RICH CONTINUITY CLEANUP: CANDIDATE / READY FOR HQ REVIEW.**
+
+## Candidate handoff
+
+- Branch: `art/art_ship_013` from frozen checkpoint `c6a49410e558be34aa44703015556c00a4e592c9`.
+- Seven native 80×96/contact-`(40,88)` candidates: Mom, Dad, Sister, Portobello Wife, Portobello Kid 1, Portobello Kid 2 and corrected Rich hookah seated.
+- Eight review boards cover native 1×, exact 6×, unchanged Rich comparisons and review-only frozen-environment contexts.
+- Candidate contracts pass 7/7; frozen corpus verifies 212/212; no canonical asset or runtime code changed.
+- Expected opportunities: all three held family-house keys; four Portobello bedroom/porch keys; Rich hookah continuity polish. The Portobello office remains blocked by the out-of-scope manager.
+- HQ acceptance, freeze, Engineering integration and runtime QA remain pending. Do not update PASS/HOLD counts.
+
+The frozen authority beneath this candidate remains ART SHIP 011:
 
 ## Branch and authority
 

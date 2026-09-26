@@ -8,6 +8,7 @@ This repository is the Art Department's institutional memory. **The project reme
 
 ## Current state
 
+- **ART SHIP 013 is CANDIDATE — READY FOR HQ REVIEW** on `art/art_ship_013`. It proposes six new fictional family/Portobello identity anchors plus one corrected `rich.hookah_seated` continuity state. Nothing in Ship 013 is approved, frozen or runtime-integrated; the Approved Asset Index is unchanged.
 - Runtime/art-integration authority: `origin/claude/art-ship-010-integration` at `8eab30dc790071ec8da98f65311e2b4676fabad0`.
 - ART SHIP 011 is the latest frozen pixel authority. The frozen corpus contains **212 assets**; the Asset Register contains **352 entries**.
 - ART SHIP 004–011 hand off **192 frozen files**. At the current checkpoint, **159 drive runtime**, **9 Ship 011 population-library assets have no runtime assignment**, one historical file is superseded, **12 are handoff/reference sheets**, six approved states have no current scene, four files are mapping-ambiguous, and one prop has no visual surface.
@@ -70,4 +71,4 @@ Only an explicit decision can make a candidate `APPROVED MASTER`; only an explic
 
 At Ship close, update as applicable: `START_HERE.md`, `CURRENT_HANDOFF.md`, the current gap map, `ASSET_REGISTER.json`, `APPROVED_ASSET_INDEX.md`, `APPROVAL_LEDGER.md`, Ship maps/manifests, frozen totals and recommended next priority. Verify frozen hashes, no runtime changes, the zero-upload cold start and a clean scoped tree.
 
-**Current stop point:** ART SHIP 011 is FROZEN / COMPLETE. The nightlife population library remains unassigned; a later World Life / Nightlife integration task must choose actual runtime screens and Presentation Director framing while preserving every recorded placement constraint. Do not infer placement from asset availability, change the 106 PASS / 15 HOLD baseline, merge or deploy from this Art task.
+**Current stop point:** ART SHIP 013 is CANDIDATE — READY FOR HQ REVIEW. Review its two workstreams separately. Do not promote, freeze, runtime-integrate, change the 106 PASS / 15 HOLD baseline, merge or deploy without a subsequent explicit decision.
