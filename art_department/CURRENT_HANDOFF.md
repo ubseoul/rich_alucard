@@ -1,74 +1,34 @@
 # Current handoff
 
-**ART SHIP 013 — CANON CAST COMPLETION + RICH CONTINUITY CLEANUP: CANDIDATE / READY FOR HQ REVIEW.**
+**ART SHIP 013 — CANON CAST COMPLETION + RICH CONTINUITY CLEANUP: APPROVED MASTER / FROZEN / COMPLETE.**
 
-## Candidate handoff
+## Freeze result
 
-- Branch: `art/art_ship_013` from frozen checkpoint `c6a49410e558be34aa44703015556c00a4e592c9`.
-- Seven native 80×96/contact-`(40,88)` candidates: Mom, Dad, Sister, Portobello Wife, Portobello Kid 1, Portobello Kid 2 and corrected Rich hookah seated.
-- Eight review boards cover native 1×, exact 6×, unchanged Rich comparisons and review-only frozen-environment contexts.
-- Candidate contracts pass 7/7; frozen corpus verifies 212/212; no canonical asset or runtime code changed.
-- Expected opportunities: all three held family-house keys; four Portobello bedroom/porch keys; Rich hookah continuity polish. The Portobello office remains blocked by the out-of-scope manager.
-- HQ acceptance, freeze, Engineering integration and runtime QA remain pending. Do not update PASS/HOLD counts.
+- Branch: `art/art_ship_013`.
+- Accepted candidate checkpoint: `eec5c40c45a40dd842ded38f9b87063d67965d3c`.
+- HQ decision: PASS 7/7; exact-byte promotion and freeze authorized.
+- Seven native 80×96 RGBA/binary-alpha masters, all contact `(40,88)`: Mom, Dad, Sister, Portobello Wife, Portobello Kid 1, Portobello Kid 2 and corrected Rich hookah seated.
+- Every canonical file is byte-for-byte identical to its accepted candidate.
+- Frozen corpus: **219/219 verified**; Asset Register: **359 entries**.
+- The original `rich_hookah_seated_80x96.png` remains frozen and hash-preserved as the superseded historical source. The accepted correction is a separate canonical file.
+- Candidate, rejected, source-render and review evidence remains preserved under `art_department/ships/art_ship_013/`; review composites are not environment masters.
 
-The frozen authority beneath this candidate remains ART SHIP 011:
+## Runtime authority and boundary
 
-## Branch and authority
+Current accepted Engineering authority is `claude/hold-clearance-001` at `a66170218375e52404715789dde48c23726a6044`: **108 PASS / 13 HOLD**. This Art freeze changes neither count.
 
-- Art branch: `art/art_ship_011`.
-- Accepted candidate checkpoint: `28aa98c8ab04a643d175192b1aecb9ae7b372c76`.
-- Production base/runtime authority: `origin/claude/art-ship-010-integration` at `8eab30dc790071ec8da98f65311e2b4676fabad0`.
-- Exploratory source evidence: `art/polish_preproduction_001` at `d8c24b632ecdc134986b4f81ff5d3f3959609eea`.
-- Promotion is exact-byte Art/assets/docs work only. No runtime/gameplay code, merge or deployment was performed.
+Ship 013 creates pending Engineering opportunities for three family-house keys and four Portobello bedroom/porch keys. `portobello_manager` remains outside scope and the office opportunity remains blocked. Corrected Rich is continuity polish on already-PASS hookah surfaces. Engineering integration, Presentation Director mapping and runtime QA are separately required before any runtime movement.
 
-## Current runtime truth
+## Frozen scope
 
-- Frozen corpus: **212 assets**; Asset Register: **352 entries**.
-- ART SHIP 004–011 frozen registry files: **192**.
-- Runtime-integrated frozen files: **159**.
-- Ship 011 frozen library assets with no runtime assignment: **9**.
-- Historical superseded asset: **1**.
-- Handoff/reference sheets: **12**.
-- Approved states with no current scene: **6**.
-- Mapping-ambiguous files: **4**.
-- Ready asset with no visual surface: **1**.
-- Runtime census: **104 adventure screens + 17 fights**.
-- Final-art result: **106 PASS / 15 HOLD**.
+The six fictional family anchors are frozen only in their submitted roles. No names, additional states, personalities, likeness claims or further family canon are inferred. Portobello Rich remains the frozen intentional short-hair variant. Laptop Rich remains watch-only and unchanged.
 
-`docs/art_integration/README.md`, `docs/art_integration/INTEGRATION_MATRIX.json` and `docs/presentation/NEEDS_CREATIVE.md` remain current implementation authority. Ship 011 freeze changes none of those runtime statuses.
+The accepted Rich correction preserves the compact loc mass, shades, warm face, green earring, black fit, bright shoe grammar, seated hookah/hose function, 80×96 cell, binary alpha and contact `(40,88)` exactly as reviewed.
 
-## Ship 011 frozen package
+## Exclusions confirmed
 
-All nine HQ-approved candidate byte streams were frozen without regeneration, redraw, resizing, retouching, palette change, re-encoding or reinterpretation:
-
-- three single-adult fragments: dancer, performer and bartender;
-- three adult pair fragments: queue, dancing and affectionate;
-- one three-adult seated hookah-lounge group with included furniture;
-- one six-adult dense cluster;
-- one three-adult foreground silhouette group.
-
-Every production hash equals its approved candidate hash. The complete frozen corpus verifies **212/212**, and all **18/18** exploratory selected-source/native hashes remain intact at the recorded source commit.
-
-## Frozen IDs and placement constraints
-
-- `nightlife_population.dancer`: dance-floor side pocket; named-actor clearance.
-- `nightlife_population.performer`: credible stage/performance context; non-explicit adult presentation.
-- `nightlife_population.queue_pair`: preserve as a pair; keep entrances and named actors clear.
-- `nightlife_population.dancing_pair`: needs a wide side-floor pocket.
-- `nightlife_population.affectionate_pair`: anonymous adult background behavior only.
-- `nightlife_population.bartender`: requires a credible bar/service context; never free-floating.
-- `nightlife_population.hookah_lounge`: included hookah, table and seats; do not duplicate furniture.
-- `nightlife_population.dense_cluster`: one-off density tool; never tile or repeat as wallpaper.
-- `nightlife_population.foreground_silhouettes`: high occlusion risk; peripheral/deliberate foreground placement only; keep named actors and UI clear.
-
-## Integration boundary
-
-- No Ship 011 asset is assigned to a runtime screen.
-- The Runtime Demand Map intentionally lists no current surfaces, no Engineering destination and no HOLD cleared.
-- Presentation Director retains final framing authority; source pixels remain native.
-- Existing environment composites remain review evidence only. No environment master was changed or baked with population art.
-- Future World Life / Nightlife integration requires a separate runtime-demand and framing decision.
+No runtime/gameplay JavaScript, Presentation Director mapping, PASS/HOLD status, ART SHIP 012 work, Buckhead, laptop Rich, Portobello Rich, Portobello manager, additional family identity, nightlife population, Royal Glitch, PLAYMAKERS, SEALED/HQ-only content or audio was changed. No merge or deployment was performed.
 
 ## Stop
 
-**STOP. ART SHIP 011 is FROZEN / COMPLETE. Do not infer runtime placement from asset availability. Do not merge or deploy from this Art task.**
+**ART SHIP 013 — APPROVED MASTER / FROZEN / COMPLETE — READY FOR HQ HANDOFF. Do not self-authorize the next Art Ship.**

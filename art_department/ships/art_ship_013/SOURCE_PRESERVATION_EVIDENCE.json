@@ -1,12 +1,17 @@
 {
   "ship_id":"ART SHIP 013",
-  "status":"CANDIDATE — HQ REVIEW REQUIRED",
+  "status":"APPROVED MASTER / FROZEN / COMPLETE",
   "production_base":"c6a49410e558be34aa44703015556c00a4e592c9",
-  "frozen_baseline":"art_department/ships/art_ship_011/FROZEN_CORPUS_SHA256SUMS.txt",
-  "frozen_files_verified":212,
+  "accepted_candidate":"eec5c40c45a40dd842ded38f9b87063d67965d3c",
+  "frozen_files_verified":219,
   "frozen_integrity_pass":true,
-  "original_hookah":{"path":"assets/before_the_fame/characters/rich/rich_hookah_seated_80x96.png","sha256":"c260180a4b3636fc2765534e0053abd1cab25b2ca2c43c83f800e6b55ee20696","unchanged":true},
-  "canonical_assets_modified":false,
+  "original_hookah":{"path":"assets/before_the_fame/characters/rich/rich_hookah_seated_80x96.png","sha256":"c260180a4b3636fc2765534e0053abd1cab25b2ca2c43c83f800e6b55ee20696","unchanged":true,"preserved_as":"FROZEN / SUPERSEDED HISTORICAL SOURCE"},
+  "candidate_evidence_preserved":true,
+  "rejected_evidence_preserved":true,
+  "source_renders_preserved":true,
+  "review_evidence_preserved":true,
+  "review_composites_promoted_as_environment_masters":false,
+  "preexisting_frozen_assets_modified":false,
   "runtime_code_modified":false,
   "art_ship_012_touched":false
 }

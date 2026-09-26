@@ -1,15 +1,55 @@
 {
-  "ship_id":"ART SHIP 013",
-  "status":"CANDIDATE — HQ REVIEW REQUIRED",
-  "shared_contract":{"cell":[80,96],"mode":"RGBA","alpha":"binary","contact":[40,88],"presentation":"native pixels; nearest-neighbor only; Presentation Director controls final framing"},
-  "states":[
-    {"id":"mom","state":"default","role":"new identity anchor; neutral family-holiday standing state"},
-    {"id":"dad","state":"default","role":"new identity anchor; neutral family-holiday standing state"},
-    {"id":"sister","state":"default","role":"new adult identity anchor; neutral family-holiday standing state"},
-    {"id":"portobello_wife","state":"default","role":"new fictional Portobello-only spouse anchor"},
-    {"id":"portobello_kid1","state":"default","role":"new fictional older child anchor; 35px visible-height envelope"},
-    {"id":"portobello_kid2","state":"default","role":"new fictional younger child anchor; 32px visible-height envelope"},
-    {"id":"rich","state":"hookah_seated","role":"corrected alternate state; seated pose and hose included; no chair, base, smoke or environment"}
+  "ship_id": "ART SHIP 013",
+  "status": "APPROVED MASTER / FROZEN \u2014 PENDING ENGINEERING INTEGRATION AND RUNTIME QA",
+  "shared_contract": {
+    "cell": [
+      80,
+      96
+    ],
+    "mode": "RGBA",
+    "alpha": "binary",
+    "contact": [
+      40,
+      88
+    ],
+    "presentation": "native pixels; nearest-neighbor only; Presentation Director controls final framing"
+  },
+  "states": [
+    {
+      "id": "mom",
+      "state": "default",
+      "role": "new identity anchor; neutral family-holiday standing state"
+    },
+    {
+      "id": "dad",
+      "state": "default",
+      "role": "new identity anchor; neutral family-holiday standing state"
+    },
+    {
+      "id": "sister",
+      "state": "default",
+      "role": "new adult identity anchor; neutral family-holiday standing state"
+    },
+    {
+      "id": "portobello_wife",
+      "state": "default",
+      "role": "new fictional Portobello-only spouse anchor"
+    },
+    {
+      "id": "portobello_kid1",
+      "state": "default",
+      "role": "new fictional older child anchor; 35px visible-height envelope"
+    },
+    {
+      "id": "portobello_kid2",
+      "state": "default",
+      "role": "new fictional younger child anchor; 32px visible-height envelope"
+    },
+    {
+      "id": "rich",
+      "state": "hookah_seated",
+      "role": "corrected alternate state; seated pose and hose included; no chair, base, smoke or environment"
+    }
   ],
-  "layers":[]
+  "layers": []
 }

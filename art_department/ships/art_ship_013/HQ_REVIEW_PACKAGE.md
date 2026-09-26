@@ -1,6 +1,6 @@
 # ART SHIP 013 — HQ review package
 
-Status: **READY FOR HQ REVIEW**. No self-awarded PASS; no freeze.
+Status: **HQ PASS 7/7 / APPROVED MASTER / FROZEN / COMPLETE**. Accepted at `eec5c40c45a40dd842ded38f9b87063d67965d3c`; no revisions requested.
 
 Review Workstream A family in this order:
 

@@ -2,8 +2,8 @@
   "schema_version": 3,
   "recorded_date": "2026-09-26",
   "runtime_authority": {
-    "branch": "origin/claude/art-ship-009-integration",
-    "commit": "5af730a132c035f6f2f5afb20eef5149ca3f2761",
+    "branch": "claude/hold-clearance-001",
+    "commit": "a66170218375e52404715789dde48c23726a6044",
     "sources": [
       "docs/art_integration/README.md",
       "docs/art_integration/INTEGRATION_MATRIX.json",
@@ -11,8 +11,8 @@
     ]
   },
   "frozen_snapshot": {
-    "frozen_corpus_assets": 203,
-    "register_entries": 343,
+    "frozen_corpus_assets": 219,
+    "register_entries": 359,
     "runtime_integrated_files": 145,
     "ship_009_approved_pending_integration_runtime_qa": 12,
     "ship_009_zero_pixel_reuse_mappings_pending_integration": 1,
@@ -27,8 +27,8 @@
   "runtime_snapshot": {
     "adventure_screens": 104,
     "fights": 17,
-    "pass_final_art": 105,
-    "hold": 16,
+    "pass_final_art": 108,
+    "hold": 13,
     "automated_presentation_checks_pass": true,
     "hold_definition": "missing or incorrect creative coverage, unresolved cast/environment art, or an explicit NEEDS CREATIVE condition"
   },
@@ -70,25 +70,19 @@
     "halloween"
   ],
   "missing_identity_ids": [
-    "mom",
-    "dad",
-    "sister",
     "brother1",
     "brother2",
     "god",
     "buckhead",
     "og_hooper",
-    "portobello_wife",
-    "portobello_kid1",
-    "portobello_kid2",
     "portobello_manager"
   ],
   "blocked_by_canon": [
-    "family identities and likeness details",
+    "unapproved family identities and likeness details beyond frozen Mom, Dad and Sister",
     "god culturally sensitive identity treatment",
     "buckhead underspecified identity",
     "og_hooper underspecified identity",
-    "Portobello wife, kid1, kid2 and manager identities have no committed OPEN/GUIDED visual cards"
+    "Portobello manager identity has no committed OPEN/GUIDED visual card"
   ],
   "guided_requires_named_authorization": [
     "PD-W1-04 Portobello four-actor staging and progression",
@@ -115,14 +109,15 @@
   "generation_authorized": true,
   "promotion_authorized": true,
   "ship_009_status": "APPROVED MASTER / FROZEN / COMPLETE",
-  "accepted_candidate_checkpoint": "a1e265d0f28a75d2e5f6a1dd67a0ebdff02cd4ab",
-  "recommended_next_step": "Engineering integrates the 16 pending frozen Ship 009/010 assets and mappings, performs Presentation Director review including PD-W1-04, and reruns Integration Matrix/runtime visual QA before PASS/HOLD changes.",
+  "accepted_candidate_checkpoint": "eec5c40c45a40dd842ded38f9b87063d67965d3c",
+  "recommended_next_step": "Engineering separately integrates authorized frozen Ship 013 assets, performs Presentation Director/runtime visual QA, and updates PASS/HOLD only from accepted runtime evidence. Do not self-authorize another Art Ship.",
   "historical_rough_complete_map_is_current_truth": false,
   "sealed_content_accessed": false,
-  "ship_013_candidate": {
-    "status": "CANDIDATE — READY FOR HQ REVIEW",
+  "ship_013_freeze": {
+    "status": "APPROVED MASTER / FROZEN / COMPLETE",
     "base_commit": "c6a49410e558be34aa44703015556c00a4e592c9",
-    "candidate_assets": 7,
+    "frozen_assets": 7,
+    "accepted_candidate_checkpoint": "eec5c40c45a40dd842ded38f9b87063d67965d3c",
     "runtime_identities": [
       "mom",
       "dad",
@@ -136,8 +131,8 @@
     "expected_portobello_hold_opportunities": 4,
     "portobello_office_still_blocked_by": "portobello_manager",
     "rich_hookah_effect": "continuity polish only; no HOLD movement",
-    "hq_approved": false,
-    "frozen": false,
+    "hq_approved": true,
+    "frozen": true,
     "runtime_integrated": false
   },
   "ship_010_pending_integration": [
@@ -173,5 +168,6 @@
     "forecast_is_current_runtime_acceptance": false,
     "map": "art_department/ships/art_ship_010/RUNTIME_DEMAND_MAP.json"
   },
-  "ship_010_status": "APPROVED MASTER / FROZEN / COMPLETE"
+  "ship_010_status": "APPROVED MASTER / FROZEN / COMPLETE",
+  "ship_013_status": "APPROVED MASTER / FROZEN / COMPLETE"
 }

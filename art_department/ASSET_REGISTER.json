@@ -7315,7 +7315,7 @@
       "sha256": "c260180a4b3636fc2765534e0053abd1cab25b2ca2c43c83f800e6b55ee20696",
       "role": "approved production character state; ART SHIP 008 id rich.hookah_seated",
       "status": "FROZEN",
-      "default_style_reference": true,
+      "default_style_reference": false,
       "approval_evidence": [
         "art_department/APPROVAL_LEDGER.md",
         "art_department/ships/art_ship_008/ART_SHIP_MANIFEST.json",
@@ -7349,7 +7349,10 @@
       "source_master": {
         "path": "assets/before_the_fame/characters/rich/rich_laptop_seated_80x96.png",
         "sha256": "a18ecf0d5c57d74f2be77a671faea5a6c01e7c6c60b00787d3f08c22499637b0"
-      }
+      },
+      "superseded_by": "assets/before_the_fame/characters/rich/rich_hookah_seated_corrected_80x96.png",
+      "supersession_authority": "HQ DECISION \u2014 ART SHIP 013: PASS 7/7 / PROMOTE + FREEZE AUTHORIZED",
+      "historical_preservation": "Original frozen byte stream remains immutable provenance/history; do not delete or rewrite."
     },
     {
       "path": "assets/bllad33/states/bllad33_hookah_seated_80x96.png",
@@ -8729,6 +8732,320 @@
         "sha256": "94da579afbbc43fa191bb415d8e757ba6e1615e7d662bca703629e18e8592418"
       },
       "freeze_scope": "Exact approved candidate pixels, native dimensions, RGBA binary alpha, origin, contact, stable production ID, category and documented placement constraints for this anonymous adult population fragment. Runtime screen assignment, Presentation Director mapping, HOLD movement and environment modification are excluded."
+    },
+    {
+      "path": "assets/before_the_fame/characters/mom/mom_neutral_80x96.png",
+      "sha256": "2fbbf02d8ddfc9c9fde5a967f54ab25765bf68f8dd569a76f11760d35178fa4d",
+      "role": "approved fictional Nigerian-American family identity anchor; Mom",
+      "status": "FROZEN",
+      "default_style_reference": true,
+      "approval_evidence": [
+        "art_department/APPROVAL_LEDGER.md",
+        "art_department/ships/art_ship_013/ART_SHIP_MANIFEST.json",
+        "art_department/ships/art_ship_013/HQ_DECISION.md",
+        "art_department/ships/art_ship_013/PROMOTION_EVIDENCE.json",
+        "art_department/ships/art_ship_013/SOURCE_PRESERVATION_EVIDENCE.json"
+      ],
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "ship_id": "ART SHIP 013",
+      "asset_id": "mom",
+      "category": "CHARACTER_ANCHOR",
+      "state": "default/neutral family-holiday standing state",
+      "source_anchor": [
+        40,
+        88
+      ],
+      "presentation_scale": null,
+      "approval_status": "APPROVED MASTER",
+      "alpha": [
+        0,
+        255
+      ],
+      "freeze_scope": "Exact HQ-accepted 80x96 candidate pixels, RGBA binary alpha and contact (40,88) for the submitted role only. No additional state, name, personality, likeness or family canon is inferred. Runtime integration, Presentation Director mapping, PASS/HOLD movement, merge and deployment are excluded.",
+      "runtime_surfaces": [
+        "family_house|left:mom,mid:rich,right:dad"
+      ],
+      "runtime_integration_status": "PENDING ENGINEERING INTEGRATION AND RUNTIME QA",
+      "source_candidate": {
+        "commit": "eec5c40c45a40dd842ded38f9b87063d67965d3c",
+        "path": "art_department/ships/art_ship_013/candidates/native/characters/mom_neutral_80x96.png",
+        "sha256": "2fbbf02d8ddfc9c9fde5a967f54ab25765bf68f8dd569a76f11760d35178fa4d"
+      }
+    },
+    {
+      "path": "assets/before_the_fame/characters/dad/dad_neutral_80x96.png",
+      "sha256": "5d208ef3c344fa34a2450310ef331f5ae3c0b2e14ee734a3d4b83ffb644eca30",
+      "role": "approved fictional Nigerian-American family identity anchor; Dad",
+      "status": "FROZEN",
+      "default_style_reference": true,
+      "approval_evidence": [
+        "art_department/APPROVAL_LEDGER.md",
+        "art_department/ships/art_ship_013/ART_SHIP_MANIFEST.json",
+        "art_department/ships/art_ship_013/HQ_DECISION.md",
+        "art_department/ships/art_ship_013/PROMOTION_EVIDENCE.json",
+        "art_department/ships/art_ship_013/SOURCE_PRESERVATION_EVIDENCE.json"
+      ],
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "ship_id": "ART SHIP 013",
+      "asset_id": "dad",
+      "category": "CHARACTER_ANCHOR",
+      "state": "default/neutral family-holiday standing state",
+      "source_anchor": [
+        40,
+        88
+      ],
+      "presentation_scale": null,
+      "approval_status": "APPROVED MASTER",
+      "alpha": [
+        0,
+        255
+      ],
+      "freeze_scope": "Exact HQ-accepted 80x96 candidate pixels, RGBA binary alpha and contact (40,88) for the submitted role only. No additional state, name, personality, likeness or family canon is inferred. Runtime integration, Presentation Director mapping, PASS/HOLD movement, merge and deployment are excluded.",
+      "runtime_surfaces": [
+        "family_house|left:dad,mid:rich",
+        "family_house|left:mom,mid:rich,right:dad"
+      ],
+      "runtime_integration_status": "PENDING ENGINEERING INTEGRATION AND RUNTIME QA",
+      "source_candidate": {
+        "commit": "eec5c40c45a40dd842ded38f9b87063d67965d3c",
+        "path": "art_department/ships/art_ship_013/candidates/native/characters/dad_neutral_80x96.png",
+        "sha256": "5d208ef3c344fa34a2450310ef331f5ae3c0b2e14ee734a3d4b83ffb644eca30"
+      }
+    },
+    {
+      "path": "assets/before_the_fame/characters/sister/sister_neutral_80x96.png",
+      "sha256": "ecfe922ea7d5c114246897e6050ff1c2d4c9503d151cf47fa41f93812cb1a321",
+      "role": "approved fictional Nigerian-American adult sibling identity anchor; Sister",
+      "status": "FROZEN",
+      "default_style_reference": true,
+      "approval_evidence": [
+        "art_department/APPROVAL_LEDGER.md",
+        "art_department/ships/art_ship_013/ART_SHIP_MANIFEST.json",
+        "art_department/ships/art_ship_013/HQ_DECISION.md",
+        "art_department/ships/art_ship_013/PROMOTION_EVIDENCE.json",
+        "art_department/ships/art_ship_013/SOURCE_PRESERVATION_EVIDENCE.json"
+      ],
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "ship_id": "ART SHIP 013",
+      "asset_id": "sister",
+      "category": "CHARACTER_ANCHOR",
+      "state": "default/neutral family-holiday standing state",
+      "source_anchor": [
+        40,
+        88
+      ],
+      "presentation_scale": null,
+      "approval_status": "APPROVED MASTER",
+      "alpha": [
+        0,
+        255
+      ],
+      "freeze_scope": "Exact HQ-accepted 80x96 candidate pixels, RGBA binary alpha and contact (40,88) for the submitted role only. No additional state, name, personality, likeness or family canon is inferred. Runtime integration, Presentation Director mapping, PASS/HOLD movement, merge and deployment are excluded.",
+      "runtime_surfaces": [
+        "family_house|left:sister,mid:rich"
+      ],
+      "runtime_integration_status": "PENDING ENGINEERING INTEGRATION AND RUNTIME QA",
+      "source_candidate": {
+        "commit": "eec5c40c45a40dd842ded38f9b87063d67965d3c",
+        "path": "art_department/ships/art_ship_013/candidates/native/characters/sister_neutral_80x96.png",
+        "sha256": "ecfe922ea7d5c114246897e6050ff1c2d4c9503d151cf47fa41f93812cb1a321"
+      }
+    },
+    {
+      "path": "assets/before_the_fame/characters/portobello_wife/portobello_wife_neutral_80x96.png",
+      "sha256": "befad71977141eedcbb05db8d0f0f0f1e08018a54f609ab96c8c0c896f4381cb",
+      "role": "approved fictional Portobello-only wife identity anchor",
+      "status": "FROZEN",
+      "default_style_reference": true,
+      "approval_evidence": [
+        "art_department/APPROVAL_LEDGER.md",
+        "art_department/ships/art_ship_013/ART_SHIP_MANIFEST.json",
+        "art_department/ships/art_ship_013/HQ_DECISION.md",
+        "art_department/ships/art_ship_013/PROMOTION_EVIDENCE.json",
+        "art_department/ships/art_ship_013/SOURCE_PRESERVATION_EVIDENCE.json"
+      ],
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "ship_id": "ART SHIP 013",
+      "asset_id": "portobello_wife",
+      "category": "CHARACTER_ANCHOR",
+      "state": "default/neutral Portobello household state",
+      "source_anchor": [
+        40,
+        88
+      ],
+      "presentation_scale": null,
+      "approval_status": "APPROVED MASTER",
+      "alpha": [
+        0,
+        255
+      ],
+      "freeze_scope": "Exact HQ-accepted 80x96 candidate pixels, RGBA binary alpha and contact (40,88) for the submitted role only. No additional state, name, personality, likeness or family canon is inferred. Runtime integration, Presentation Director mapping, PASS/HOLD movement, merge and deployment are excluded.",
+      "runtime_surfaces": [
+        "portobello_bedroom|left:portobello_wife,mid:rich_portobello",
+        "portobello_bedroom|farRight:portobello_kid2,left:portobello_wife,mid:rich_portobello,right:portobello_kid1",
+        "portobello_porch|left:rich_portobello@porch_seated,right:portobello_wife"
+      ],
+      "runtime_integration_status": "PENDING ENGINEERING INTEGRATION AND RUNTIME QA",
+      "source_candidate": {
+        "commit": "eec5c40c45a40dd842ded38f9b87063d67965d3c",
+        "path": "art_department/ships/art_ship_013/candidates/native/characters/portobello_wife_neutral_80x96.png",
+        "sha256": "befad71977141eedcbb05db8d0f0f0f1e08018a54f609ab96c8c0c896f4381cb"
+      }
+    },
+    {
+      "path": "assets/before_the_fame/characters/portobello_kid1/portobello_kid1_neutral_80x96.png",
+      "sha256": "cfa3487c650b6180a709d3741c92fdeabe91ed175d1bcf49f5e2a1e82f08b8c6",
+      "role": "approved fictional Portobello-only older child identity anchor",
+      "status": "FROZEN",
+      "default_style_reference": true,
+      "approval_evidence": [
+        "art_department/APPROVAL_LEDGER.md",
+        "art_department/ships/art_ship_013/ART_SHIP_MANIFEST.json",
+        "art_department/ships/art_ship_013/HQ_DECISION.md",
+        "art_department/ships/art_ship_013/PROMOTION_EVIDENCE.json",
+        "art_department/ships/art_ship_013/SOURCE_PRESERVATION_EVIDENCE.json"
+      ],
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "ship_id": "ART SHIP 013",
+      "asset_id": "portobello_kid1",
+      "category": "CHARACTER_ANCHOR",
+      "state": "default/neutral older-child Portobello household state",
+      "source_anchor": [
+        40,
+        88
+      ],
+      "presentation_scale": null,
+      "approval_status": "APPROVED MASTER",
+      "alpha": [
+        0,
+        255
+      ],
+      "freeze_scope": "Exact HQ-accepted 80x96 candidate pixels, RGBA binary alpha and contact (40,88) for the submitted role only. No additional state, name, personality, likeness or family canon is inferred. Runtime integration, Presentation Director mapping, PASS/HOLD movement, merge and deployment are excluded.",
+      "runtime_surfaces": [
+        "portobello_bedroom|farRight:portobello_kid2,left:portobello_wife,mid:rich_portobello,right:portobello_kid1",
+        "portobello_bedroom|left:portobello_kid1,mid:rich_portobello,right:portobello_kid2"
+      ],
+      "runtime_integration_status": "PENDING ENGINEERING INTEGRATION AND RUNTIME QA",
+      "source_candidate": {
+        "commit": "eec5c40c45a40dd842ded38f9b87063d67965d3c",
+        "path": "art_department/ships/art_ship_013/candidates/native/characters/portobello_kid1_neutral_80x96.png",
+        "sha256": "cfa3487c650b6180a709d3741c92fdeabe91ed175d1bcf49f5e2a1e82f08b8c6"
+      }
+    },
+    {
+      "path": "assets/before_the_fame/characters/portobello_kid2/portobello_kid2_neutral_80x96.png",
+      "sha256": "ae0d440f797bdeeae61d4884ae341df2a82bde2a1eac23f8a84b8c9ea5e322cb",
+      "role": "approved fictional Portobello-only younger child identity anchor",
+      "status": "FROZEN",
+      "default_style_reference": true,
+      "approval_evidence": [
+        "art_department/APPROVAL_LEDGER.md",
+        "art_department/ships/art_ship_013/ART_SHIP_MANIFEST.json",
+        "art_department/ships/art_ship_013/HQ_DECISION.md",
+        "art_department/ships/art_ship_013/PROMOTION_EVIDENCE.json",
+        "art_department/ships/art_ship_013/SOURCE_PRESERVATION_EVIDENCE.json"
+      ],
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "ship_id": "ART SHIP 013",
+      "asset_id": "portobello_kid2",
+      "category": "CHARACTER_ANCHOR",
+      "state": "default/neutral younger-child Portobello household state",
+      "source_anchor": [
+        40,
+        88
+      ],
+      "presentation_scale": null,
+      "approval_status": "APPROVED MASTER",
+      "alpha": [
+        0,
+        255
+      ],
+      "freeze_scope": "Exact HQ-accepted 80x96 candidate pixels, RGBA binary alpha and contact (40,88) for the submitted role only. No additional state, name, personality, likeness or family canon is inferred. Runtime integration, Presentation Director mapping, PASS/HOLD movement, merge and deployment are excluded.",
+      "runtime_surfaces": [
+        "portobello_bedroom|farRight:portobello_kid2,left:portobello_wife,mid:rich_portobello,right:portobello_kid1",
+        "portobello_bedroom|left:portobello_kid1,mid:rich_portobello,right:portobello_kid2"
+      ],
+      "runtime_integration_status": "PENDING ENGINEERING INTEGRATION AND RUNTIME QA",
+      "source_candidate": {
+        "commit": "eec5c40c45a40dd842ded38f9b87063d67965d3c",
+        "path": "art_department/ships/art_ship_013/candidates/native/characters/portobello_kid2_neutral_80x96.png",
+        "sha256": "ae0d440f797bdeeae61d4884ae341df2a82bde2a1eac23f8a84b8c9ea5e322cb"
+      }
+    },
+    {
+      "path": "assets/before_the_fame/characters/rich/rich_hookah_seated_corrected_80x96.png",
+      "sha256": "c46f395004151d94365601fad9e72a8abba092ef03669dca71f2e492f8917634",
+      "role": "approved Rich identity-continuity correction; seated hookah state",
+      "status": "FROZEN",
+      "default_style_reference": true,
+      "approval_evidence": [
+        "art_department/APPROVAL_LEDGER.md",
+        "art_department/ships/art_ship_013/ART_SHIP_MANIFEST.json",
+        "art_department/ships/art_ship_013/HQ_DECISION.md",
+        "art_department/ships/art_ship_013/PROMOTION_EVIDENCE.json",
+        "art_department/ships/art_ship_013/SOURCE_PRESERVATION_EVIDENCE.json"
+      ],
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "ship_id": "ART SHIP 013",
+      "asset_id": "rich.hookah_seated.corrected",
+      "category": "CHARACTER_STATE_DELTA",
+      "state": "corrected seated hookah/hose state",
+      "source_anchor": [
+        40,
+        88
+      ],
+      "presentation_scale": null,
+      "approval_status": "APPROVED MASTER",
+      "alpha": [
+        0,
+        255
+      ],
+      "freeze_scope": "Exact HQ-accepted 80x96 candidate pixels, RGBA binary alpha and contact (40,88) for the submitted role only. Compact Rich loc mass, shades, warm face, green earring, black fit, bright shoe grammar and seated hookah/hose function are locked. Original source history is preserved. Runtime integration, Presentation Director mapping, PASS/HOLD movement, merge and deployment are excluded.",
+      "runtime_surfaces": [
+        "minigame:hookah",
+        "minigame:hookah?company=ROOKOKO",
+        "minigame:hookah?company=HOMIES"
+      ],
+      "runtime_integration_status": "PENDING ENGINEERING INTEGRATION AND RUNTIME QA",
+      "source_candidate": {
+        "commit": "eec5c40c45a40dd842ded38f9b87063d67965d3c",
+        "path": "art_department/ships/art_ship_013/candidates/native/characters/rich_hookah_seated_corrected_80x96.png",
+        "sha256": "c46f395004151d94365601fad9e72a8abba092ef03669dca71f2e492f8917634"
+      },
+      "source_master": {
+        "path": "assets/before_the_fame/characters/rich/rich_hookah_seated_80x96.png",
+        "sha256": "c260180a4b3636fc2765534e0053abd1cab25b2ca2c43c83f800e6b55ee20696"
+      },
+      "supersedes_at_runtime_mapping": "rich.hookah_seated",
+      "authorized_delta_evidence": "art_department/ships/art_ship_013/SOURCE_PRESERVATION_EVIDENCE.json"
     }
   ]
 }

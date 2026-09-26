@@ -193,3 +193,17 @@ Portobello Rich’s short-hair states are frozen only as the intentional Portobe
 All nine exact production PNGs named in `ships/art_ship_011/ART_SHIP_MANIFEST.json` are **APPROVED MASTER / FROZEN**. Each production SHA-256 equals its HQ-approved candidate SHA-256. The frozen corpus is now **212 assets across 352 Asset Register entries**.
 
 The nine assets remain a reusable, unassigned anonymous-adult population library. Bartender context, A07 included furniture, A08 no-tiling, A09 high-occlusion/peripheral use, density guidance and named-actor clearance are frozen metadata constraints. Runtime integration, Presentation Director placement, environment edits and PASS/HOLD movement remain future Engineering/World Life work. No runtime/gameplay code changed, no merge or deployment was performed. ART SHIP 011 is **FROZEN / COMPLETE**.
+
+## ART SHIP 013 — CANON CAST COMPLETION + RICH CONTINUITY CLEANUP (recorded 2026-09-26)
+
+42. ART SHIP 013 began from frozen Art checkpoint `c6a49410e558be34aa44703015556c00a4e592c9` and produced the minimum seven-state package: Mom, Dad, Sister, Portobello Wife, Portobello Kid 1, Portobello Kid 2 and corrected Rich hookah seated.
+43. Candidate checkpoint `eec5c40c45a40dd842ded38f9b87063d67965d3c` passed 7/7 native-contract checks, 212/212 baseline frozen-corpus checks, repository tests/build/artifact verification and internal visual review. Candidate/rejected/source-render/review evidence was preserved.
+44. Explicit user-supplied HQ decision:
+
+> HQ DECISION — ART SHIP 013: PASS 7/7 / PROMOTE + FREEZE AUTHORIZED
+>
+> HQ accepts all seven submitted candidate byte streams. Promote and freeze the exact bytes without regeneration, redraw, retouch, resize, recolor, repalette, reinterpretation, optimization or other pixel alteration. Preserve the original frozen `rich_hookah_seated` as the superseded source. This authorizes Art promotion only and no runtime integration or PASS/HOLD movement.
+
+All seven exact canonical PNGs named in `ships/art_ship_013/ART_SHIP_MANIFEST.json` are **APPROVED MASTER / FROZEN**. Every canonical SHA-256 equals its accepted candidate SHA-256. The complete frozen corpus is now **219 assets across 359 Asset Register entries**.
+
+The original hookah sprite remains frozen and hash-preserved in provenance; the corrected state is a separate canonical master. Six fictional family assets are frozen only in their submitted roles and imply no additional names, states, personalities or canon. Current Engineering authority is `claude/hold-clearance-001` at `a66170218375e52404715789dde48c23726a6044`, **108 PASS / 13 HOLD**, unchanged by this Art freeze. No runtime/gameplay code, Presentation Director mapping, ART SHIP 012, laptop Rich, Portobello Rich, restricted content, merge or deployment was touched. ART SHIP 013 is **FROZEN / COMPLETE**.

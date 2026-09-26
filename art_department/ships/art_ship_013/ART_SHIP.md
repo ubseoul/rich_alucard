@@ -1,51 +1,31 @@
 # ART SHIP 013 — CANON CAST COMPLETION + RICH CONTINUITY CLEANUP
 
-**Status:** CANDIDATE — READY FOR HQ REVIEW. No asset is approved or frozen by this package.
+**Status:** APPROVED MASTER / FROZEN / COMPLETE — READY FOR HQ HANDOFF.
 
 **Branch:** `art/art_ship_013`
 
-**Production base:** `c6a49410e558be34aa44703015556c00a4e592c9` (ART SHIP 011 frozen checkpoint)
+**Production base:** `c6a49410e558be34aa44703015556c00a4e592c9`
 
-**Authorization:** Ube's ART SHIP 013 brief dated 2026-09-26.
+**Accepted candidate:** `eec5c40c45a40dd842ded38f9b87063d67965d3c`
 
-## Mission and bounded scope
+**HQ decision:** PASS 7/7; promote and freeze exact candidate bytes.
 
-This Ship contains two separately reviewable workstreams:
+## Frozen package
 
-1. **Workstream A — canon cast completion:** one neutral/default state each for `mom`, `dad`, `sister`, `portobello_wife`, `portobello_kid1`, and `portobello_kid2`.
-2. **Workstream B — Rich identity continuity:** one corrected candidate for `rich.hookah_seated`, preserving the seated/hose function while restoring core Rich identity cues.
+Workstream A freezes one default state each for `mom`, `dad`, `sister`, `portobello_wife`, `portobello_kid1`, and `portobello_kid2`. Workstream B freezes the corrected `rich.hookah_seated` state while preserving the original frozen sprite as superseded historical provenance.
 
-The brief is the authoritative visual card for the fictional family and Portobello household. No real-family likeness was used. The Portobello manager, brothers, God, Buckhead, OG Hooper, auntie, souls, training actors and all other unresolved identities remain outside scope.
+All seven canonical assets are 80×96 RGBA with binary alpha and contact `(40,88)`. Promotion was a byte-for-byte copy: no regeneration, redraw, retouch, resize, recolor, repalette, reinterpretation, optimization or re-encoding occurred. Candidate/rejected/source-render/review evidence remains preserved. Review composites remain review-only.
 
-## Candidate package
+Exact paths, hashes, contracts and mappings are in `ART_SHIP_MANIFEST.json`, `PROMOTION_EVIDENCE.json`, `ENGINEERING_ASSET_MAP.json`, `STATE_LAYER_DEFINITIONS.json` and `RUNTIME_DEMAND_MAP.json`.
 
-Seven native 80×96 RGBA/binary-alpha candidates use contact `(40,88)`. They live only under this Ship's `candidates/` directory. Proposed production ids and paths are recorded in `ENGINEERING_ASSET_MAP.json`; canonical `assets/` files were not changed.
+## Runtime boundary
 
-The source renders were created with the built-in ImageGen workflow and deterministically prepared with `tools/build_candidates.py`: alpha thresholding, subject crop, BOX downsampling, palette reduction/remap, native centering and contact alignment. No baked checkerboard was present. The Rich correction is remapped only to the approved standing/curb Rich palette.
-
-## Review package
-
-- `review/01_family_native_1x.png`
-- `review/02_family_exact_6x.png`
-- `review/03_family_context_2x.png`
-- `review/04_portobello_household_native_1x.png`
-- `review/05_portobello_household_exact_6x.png`
-- `review/06_portobello_contexts_2x.png`
-- `review/07_rich_continuity_native_1x.png`
-- `review/08_rich_continuity_exact_6x.png`
-
-Context boards are review-only composites. Frozen environment and reference pixels are unchanged.
-
-## Runtime and approval boundary
-
-The six new identities create expected opportunities for three held family screens and four Portobello screens. The office Portobello screen remains held because `portobello_manager` is outside scope. The Rich hookah correction is a continuity/polish replacement opportunity on already-PASS minigame surfaces and does not clear a HOLD.
-
-Engineering/runtime QA owns integration, registry wiring, Presentation Director checks and any HOLD movement. HQ/Ube must explicitly accept exact candidate bytes before promotion. This Ship does not self-award HQ PASS, does not freeze, and does not modify the Approved Asset Index.
+Current accepted Engineering authority is `claude/hold-clearance-001` at `a66170218375e52404715789dde48c23726a6044`: **108 PASS / 13 HOLD**. This Art-only freeze changes no runtime mapping or PASS/HOLD status. Family and Portobello assets remain pending Engineering integration and Presentation QA. The Rich correction is continuity polish only.
 
 ## Explicit exclusions
 
-ART SHIP 012, laptop Rich, Portobello Rich, manager/auntie/soul/training dummy, Buckhead, additional nightlife population, PLAYMAKERS, Royal Glitch, audio, runtime JavaScript, SEALED/HQ-only content, merge and deployment were untouched.
+ART SHIP 012, Buckhead, laptop Rich, Portobello Rich, manager/auntie/soul/training dummy, additional family members, nightlife population, PLAYMAKERS, Royal Glitch, audio, runtime/gameplay JavaScript, Presentation Director mappings, SEALED/HQ-only content, merge and deployment were untouched.
 
 ## Stop point
 
-**ART SHIP 013 — READY FOR HQ REVIEW. STOP and await HQ decision.**
+**ART SHIP 013 — APPROVED MASTER / FROZEN / COMPLETE — READY FOR HQ HANDOFF.**

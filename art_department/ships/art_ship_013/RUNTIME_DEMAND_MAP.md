@@ -1,8 +1,8 @@
 # ART SHIP 013 — Runtime Demand Map
 
-Status: **CANDIDATE — HQ REVIEW REQUIRED**. This map is not approval and does not clear any HOLD.
+Status: **APPROVED MASTER / FROZEN — PENDING ENGINEERING INTEGRATION AND RUNTIME QA**. This Art freeze clears no HOLD.
 
-Runtime authority is the frozen-checkpoint integration record at production base `c6a49410e558be34aa44703015556c00a4e592c9`, including `docs/art_integration/INTEGRATION_MATRIX.json` and `docs/presentation/NEEDS_CREATIVE.md`.
+Current accepted runtime authority is `claude/hold-clearance-001` at `a66170218375e52404715789dde48c23726a6044`, 108 PASS / 13 HOLD. Ship 013 changes neither count.
 
 | Request | Ticket | Runtime identity/state | Authority | Source candidate | Native contract | Intended held surface(s) | Expected opportunity | Engineering key |
 |---|---|---|---|---|---|---|---|---|
@@ -16,8 +16,8 @@ Runtime authority is the frozen-checkpoint integration record at production base
 
 ## Dependency result
 
-- Family package is candidate-complete for all three currently held family-house surface keys.
-- Wife/kids are candidate-complete for the four Portobello bedroom/porch surface keys that do not require the manager. The office key remains blocked by the out-of-scope `portobello_manager`.
-- The existing hookah surfaces already pass final-art coverage. This candidate creates a replacement opportunity only after explicit HQ acceptance, frozen promotion, Engineering integration and runtime QA.
+- Family package is Art-complete and frozen for three family-house integration opportunities.
+- Wife/kids are Art-complete and frozen for four Portobello bedroom/porch integration opportunities that do not require the manager. The office key remains blocked by out-of-scope `portobello_manager`.
+- Existing hookah surfaces already pass final-art coverage. The corrected frozen master creates a continuity replacement opportunity only after separate Engineering integration and runtime QA.
 
-No screen status is changed by this candidate package.
+No screen status is changed by this Art promotion.

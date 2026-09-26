@@ -290,3 +290,19 @@ All nine native assets below are **APPROVED MASTER / FROZEN** at the exact candi
 | `assets/before_the_fame/population/nightlife/nightlife_foreground_silhouettes_144x112.png` | FROZEN | `nightlife_population.foreground_silhouettes`; foreground-depth fragment; contact `(72,104)`; peripheral/deliberate framing only due to high occlusion risk |
 
 Runtime placement, Presentation Director mapping, environment modification and HOLD movement were not authorized by the freeze.
+
+## ART SHIP 013 — Canon Cast Completion + Rich Continuity Cleanup
+
+All seven native assets below are **APPROVED MASTER / FROZEN** at the exact byte streams accepted at `eec5c40c45a40dd842ded38f9b87063d67965d3c`. Each is 80×96 RGBA, binary alpha, contact `(40,88)`. Runtime integration and PASS/HOLD movement are not authorized by this freeze.
+
+| Path | SHA-256 | Role |
+|---|---|---|
+| `assets/before_the_fame/characters/mom/mom_neutral_80x96.png` | `2fbbf02d8ddfc9c9fde5a967f54ab25765bf68f8dd569a76f11760d35178fa4d` | `mom.default`; fictional family anchor |
+| `assets/before_the_fame/characters/dad/dad_neutral_80x96.png` | `5d208ef3c344fa34a2450310ef331f5ae3c0b2e14ee734a3d4b83ffb644eca30` | `dad.default`; fictional family anchor |
+| `assets/before_the_fame/characters/sister/sister_neutral_80x96.png` | `ecfe922ea7d5c114246897e6050ff1c2d4c9503d151cf47fa41f93812cb1a321` | `sister.default`; fictional adult sibling anchor |
+| `assets/before_the_fame/characters/portobello_wife/portobello_wife_neutral_80x96.png` | `befad71977141eedcbb05db8d0f0f0f1e08018a54f609ab96c8c0c896f4381cb` | `portobello_wife.default`; submitted Portobello-only role |
+| `assets/before_the_fame/characters/portobello_kid1/portobello_kid1_neutral_80x96.png` | `cfa3487c650b6180a709d3741c92fdeabe91ed175d1bcf49f5e2a1e82f08b8c6` | `portobello_kid1.default`; submitted Portobello-only role |
+| `assets/before_the_fame/characters/portobello_kid2/portobello_kid2_neutral_80x96.png` | `ae0d440f797bdeeae61d4884ae341df2a82bde2a1eac23f8a84b8c9ea5e322cb` | `portobello_kid2.default`; submitted Portobello-only role |
+| `assets/before_the_fame/characters/rich/rich_hookah_seated_corrected_80x96.png` | `c46f395004151d94365601fad9e72a8abba092ef03669dca71f2e492f8917634` | `rich.hookah_seated.corrected`; identity-continuity correction |
+
+The original `assets/before_the_fame/characters/rich/rich_hookah_seated_80x96.png` remains frozen at `c260180a4b3636fc2765534e0053abd1cab25b2ca2c43c83f800e6b55ee20696` as the superseded historical source. It was not erased or modified. Candidate/rejected/source-render/review evidence remains provenance only.
