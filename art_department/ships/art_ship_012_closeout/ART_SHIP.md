@@ -1,6 +1,6 @@
-# ART SHIP 012 CLOSEOUT — CLEAN FOUNDATION
+# ART SHIP 012 — BUCKHEAD FINAL REVISION
 
-**Status:** CLEAN FOUNDATION READY — HQ REVIEW REQUIRED.
+**Status:** READY FOR HQ REVIEW — CANDIDATE ONLY.
 
 **Branch:** `art/art_ship_012_closeout`
 
@@ -10,9 +10,7 @@
 
 ## Scope
 
-This isolated package rebases ART SHIP 012 closeout work onto the exact ART SHIP 013 frozen checkpoint. It carries forward the four HQ-passed candidate PNG byte streams without pixel or encoding changes and preserves both prior Buckhead candidates as rejected provenance only.
-
-No Buckhead generation has been attempted on this branch. Buckhead remains the only unresolved ART SHIP 012 visual target.
+This isolated package rebases ART SHIP 012 closeout work onto the exact ART SHIP 013 frozen checkpoint. It carries forward the four HQ-passed candidate PNG byte streams without pixel or encoding changes, preserves both prior Buckhead candidates as rejected provenance only, and submits one new ImageGen-derived Buckhead candidate for HQ review.
 
 ## Carried forward exactly
 
@@ -34,6 +32,18 @@ Both historical Buckhead PNGs are preserved under `rejected/`, clearly renamed a
 
 Neither is eligible for promotion.
 
+## Buckhead final revision candidate
+
+`candidates/native/characters/buckhead_vampire_neutral_80x96.png`
+
+- SHA-256: `710bede4d4372f20cd27956313d6589df528c3ec9b795b3c4e5cc996ea033b97`
+- 80×96 RGBA, binary alpha
+- contact `(40,88)`; opaque bounding box `(24,31)–(55,88)`
+- 13 opaque RGB colors
+- status: **CANDIDATE — HQ REVIEW REQUIRED**
+
+The transparent source render was produced with built-in ImageGen from the accepted concept brief, using the initial rejected candidate as concept-only evidence and frozen Rich, Ms. Patrice, Uncle Sunday and Bllad33 sprites as style references. It was nativeized through significant-alpha crop, BOX downsample, 14-color adaptive reduction without dithering, binary-alpha thresholding and contact alignment. No deterministic pixel surgery, native-grid redraw, procedural body compression or scripted anatomy alteration was used.
+
 ## Authority boundary
 
 The ART SHIP 013 frozen corpus remains at 219 assets and its Asset Register remains at 359 entries. The current accepted Engineering runtime authority remains `claude/hold-clearance-001` at `a66170218375e52404715789dde48c23726a6044`, with 108 PASS / 13 HOLD.
@@ -42,6 +52,6 @@ This branch changes no shared current-authority file, frozen pixel, runtime/game
 
 ## Stop point
 
-**ART SHIP 012 CLOSEOUT — CLEAN FOUNDATION READY.**
+**ART SHIP 012 — BUCKHEAD FINAL REVISION — READY FOR HQ REVIEW.**
 
-Do not generate Buckhead until HQ has reviewed this foundation checkpoint. Do not freeze, merge, promote, runtime-integrate, or deploy.
+Do not self-PASS, freeze, merge, promote, runtime-integrate or deploy.

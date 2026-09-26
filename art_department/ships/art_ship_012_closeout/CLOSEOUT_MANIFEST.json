@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "ship_id": "ART SHIP 012 CLOSEOUT",
-  "status": "CLEAN FOUNDATION READY",
+  "status": "BUCKHEAD FINAL REVISION — READY FOR HQ REVIEW",
   "branch": "art/art_ship_012_closeout",
   "frozen_art_base": {
     "branch": "art/art_ship_013",
@@ -74,7 +74,22 @@
       "reason": "Deterministic native-grid revision was not accepted; this method is prohibited for the next revision."
     }
   ],
-  "unresolved_visual_targets": ["buckhead"],
-  "buckhead_generation_attempted_on_closeout_branch": false,
+  "buckhead_final_revision_candidate": {
+    "runtime_asset_id": "buckhead",
+    "path": "art_department/ships/art_ship_012_closeout/candidates/native/characters/buckhead_vampire_neutral_80x96.png",
+    "sha256": "710bede4d4372f20cd27956313d6589df528c3ec9b795b3c4e5cc996ea033b97",
+    "dimensions": [80, 96],
+    "contact": [40, 88],
+    "status": "CANDIDATE — HQ REVIEW REQUIRED",
+    "source_render": "art_department/ships/art_ship_012_closeout/source_renders/buckhead_final_revision_source.png",
+    "source_sha256": "1a66de8b753dab31f0d07e296d1dfbd1a0d6de1ff5593fd591b82797b9829f0f",
+    "production_method": "built-in ImageGen followed by established deterministic nativeization",
+    "self_passed": false,
+    "promoted": false,
+    "frozen": false,
+    "runtime_integrated": false
+  },
+  "unresolved_visual_targets": ["buckhead — HQ review pending"],
+  "buckhead_generation_attempted_on_closeout_branch": true,
   "shared_authority_files_modified": []
 }

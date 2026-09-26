@@ -8,4 +8,6 @@ The initial Buckhead candidate was restored from commit `4c7477f0d3c73951a3a8494
 
 The review boards are new review-only composites generated from those preserved PNGs. They are not candidate sources and must not be promoted.
 
+After HQ accepted clean foundation commit `34568801571244b75aeb6c698861a7bf4976fc30`, the final Buckhead revision source was generated with built-in ImageGen. The generated RGBA source is preserved unchanged at `source_renders/buckhead_final_revision_source.png`, SHA-256 `1a66de8b753dab31f0d07e296d1dfbd1a0d6de1ff5593fd591b82797b9829f0f`. The candidate was derived only after successful generation using the established crop/downsample/palette/alpha/contact nativeization pipeline. `BUCKHEAD_FINAL_PROVENANCE.json` records the prompt, source references and exact transformation contract.
+
 No stale ART SHIP 012 version of a shared current-authority file was copied. In particular, `CURRENT_HANDOFF.md`, `START_HERE.md`, `ASSET_REGISTER.json`, `APPROVAL_LEDGER.md`, and `CURRENT_OPEN_ART_GAPS.*` remain the versions inherited from ART SHIP 013.
