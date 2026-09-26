@@ -2,6 +2,12 @@
 
 This is a standalone transcription/summary of supplied authority, not new approval granted by the implementer. Historical session decisions below were explicitly supplied by Ube as HQ review. Where dates were not supplied, no exact decision timestamp is invented. Listed in decision order.
 
+## ART SHIP 012 — OPEN HOLD CLEARANCE partial review (recorded 2026-09-26)
+
+HQ issued a **PARTIAL PASS** for the submitted ART SHIP 012 candidate set. The exact candidate byte streams for `portobello_manager`, `auntie`, `soul` and `training_dummy` passed and must remain unchanged. Buckhead's character concept passed, but its first candidate required a style/proportion-only revision into the compact approved Rich Alucard character grammar. HQ explicitly prohibited Ship freeze, runtime integration, merge and deployment at this stage.
+
+The revised Buckhead candidate preserves the authorized character concept and replaces only the candidate pixels/provenance/review evidence. It remains **CANDIDATE — HQ REVIEW REQUIRED**. ART SHIP 011 remains the latest frozen authority until a later explicit Ship 012 freeze decision.
+
 1. Art Production Standard v1: **PASS / FROZEN**. Three-sheet essential kit accepted as current production authority. Adult Female Proportion Vocabulary remains TASTE PASS / APPROVED, non-canon vocabulary rather than character masters. Exact inherited record: sources/INHERITED_HQ_APPROVAL.md.
 2. Ogun VD01: UBE TASTE PASS / HQ PASS for Industrial Salon, A / Ivory Host, Rich/Ogun hierarchy and peripheral crowd/open-center direction. Ube reaction: “this shit blew me away yes”. Visual target frozen; study files not final production masters. B/C not production directions.
 3. Art Card 02: **PASS. OGUN MASTER: FROZEN. RAVE INTERIOR MASTER: FROZEN.** Specifically accepted ogun_neutral_80x96.png, rave_interior_270x480.png, supplied speaker separation, masks/registration, one-frame neutral state and exploratory crowd removal. Do not add density merely because architecture is empty. Future change requires HQ delta. The Art decision excluded runtime depth/placement/Stage Contract acceptance.

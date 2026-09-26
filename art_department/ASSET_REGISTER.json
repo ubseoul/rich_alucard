@@ -8800,8 +8800,8 @@
     },
     {
       "path": "art_department/ships/art_ship_012/candidates/native/characters/buckhead_vampire_neutral_80x96.png",
-      "sha256": "26bc338ca53b12aac0b051189745dadba4b4fb6d29c745e85253fa8c8e01265c",
-      "role": "ART SHIP 012 candidate Buckhead vampire combat-capable neutral anchor",
+      "sha256": "f178b6b63a8d01f3acbbb9d38228da5b97be2fad9fcc8a6ccb7f8ffa0fc6333e",
+      "role": "ART SHIP 012 revised candidate Buckhead vampire combat-capable neutral anchor",
       "status": "CANDIDATE — HQ REVIEW REQUIRED",
       "default_style_reference": false,
       "approval_evidence": [],
@@ -8813,7 +8813,12 @@
       "source_anchor": [40, 88],
       "alpha": [0, 255],
       "runtime_surfaces": ["combat:buckhead@lennox"],
-      "runtime_integration_status": "NOT INTEGRATED — CANDIDATE ONLY"
+      "runtime_integration_status": "NOT INTEGRATED — REVISED CANDIDATE ONLY",
+      "revision": {
+        "request_id": "AS12-05R",
+        "reason": "HQ style/proportion correction: more compact/chunky cast grammar; character concept preserved",
+        "superseded_candidate_sha256": "26bc338ca53b12aac0b051189745dadba4b4fb6d29c745e85253fa8c8e01265c"
+      }
     }
   ]
 }

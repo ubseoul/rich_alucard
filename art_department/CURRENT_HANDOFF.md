@@ -1,6 +1,6 @@
 # Current handoff
 
-**ART SHIP 012 — OPEN HOLD CLEARANCE: READY FOR HQ REVIEW.**
+**ART SHIP 012 — BUCKHEAD REVISION READY FOR HQ REVIEW.**
 
 ## Branch and authority
 
@@ -12,13 +12,13 @@
 
 ## Candidate package
 
-Five of five authorized anchors are present as 80×96 RGBA binary-alpha candidates with contact `(40,88)`:
+Five authorized anchors are present as 80×96 RGBA binary-alpha candidates with contact `(40,88)`. HQ passed the first four exact byte streams; Buckhead is the only revised candidate awaiting review:
 
 - `portobello_manager.neutral`
 - `auntie.register_neutral`
 - `soul.climbing`
 - `training_dummy.combat_neutral`
-- `buckhead.combat_neutral`
+- `buckhead.combat_neutral` — revised style/proportion candidate
 
 All generated sources are preserved. Native exports, source/candidate hashes, provenance, Asset Register candidate records, Runtime Demand Map, Engineering mappings, state definitions, technical facts, five review boards and validation live under `art_department/ships/art_ship_012/`.
 
@@ -36,4 +36,4 @@ No ART SHIP 011 frozen pixel, approved environment, Rich asset, Hookah Rich asse
 
 ## Stop
 
-**STOP. ART SHIP 012 is READY FOR HQ REVIEW. Do not self-freeze, change PASS/HOLD, merge or deploy.**
+**STOP. ART SHIP 012 — BUCKHEAD REVISION READY FOR HQ REVIEW. Do not self-freeze, change PASS/HOLD, merge or deploy.**

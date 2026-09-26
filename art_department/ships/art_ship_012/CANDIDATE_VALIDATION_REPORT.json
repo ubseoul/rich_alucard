@@ -1,6 +1,6 @@
 {
   "ship_id": "ART SHIP 012",
-  "status": "CANDIDATE \u2014 HQ REVIEW REQUIRED",
+  "status": "ART SHIP 012 \u2014 BUCKHEAD REVISION READY FOR HQ REVIEW",
   "candidate_count": 5,
   "candidate_contracts_pass": true,
   "candidates": [
@@ -129,22 +129,35 @@
         255
       ],
       "opaque_bbox": [
-        25,
-        31,
-        55,
+        23,
+        30,
+        57,
         89
       ],
-      "opaque_colors": 17,
-      "maximum_colors": 17,
+      "opaque_colors": 14,
+      "maximum_colors": 14,
       "contact": [
         40,
         88
       ],
-      "sha256": "26bc338ca53b12aac0b051189745dadba4b4fb6d29c745e85253fa8c8e01265c",
-      "expected_sha256": "26bc338ca53b12aac0b051189745dadba4b4fb6d29c745e85253fa8c8e01265c",
+      "sha256": "f178b6b63a8d01f3acbbb9d38228da5b97be2fad9fcc8a6ccb7f8ffa0fc6333e",
+      "expected_sha256": "f178b6b63a8d01f3acbbb9d38228da5b97be2fad9fcc8a6ccb7f8ffa0fc6333e",
       "pass": true
     }
   ],
+  "hq_partial_pass_locks": {
+    "portobello_manager": "0e69dc024e59fc9dbd5bed7944081fbc9f83226ba44d7c9c16b3c9b6d68ff26c",
+    "auntie": "cf5ae278f87c9a339ac15c115f9a754f78cd58d6efa2e289515f90036ae9836e",
+    "soul": "21b21879c070ba61944091683201eb89c57a18e05731f66f5fce3e687ed8dbd1",
+    "training_dummy": "e30e3189af01afdd05300fc913ea541aab0e0f1f8c88704a094afac2b5f9face"
+  },
+  "hq_partial_pass_bytes_preserved": true,
+  "buckhead_revision": {
+    "superseded_candidate_sha256": "26bc338ca53b12aac0b051189745dadba4b4fb6d29c745e85253fa8c8e01265c",
+    "revised_candidate_sha256": "f178b6b63a8d01f3acbbb9d38228da5b97be2fad9fcc8a6ccb7f8ffa0fc6333e",
+    "concept_redesigned": false,
+    "style_and_proportion_only": true
+  },
   "frozen_assets_checked": 212,
   "frozen_hash_failures": [],
   "source_integrity_pass": true,
@@ -152,7 +165,7 @@
   "runtime_boundary_pass": true,
   "forbidden_boundary_changes": [],
   "forbidden_boundary_pass": true,
-  "json_files_checked": 10,
+  "json_files_checked": 11,
   "json_failures": [],
   "json_pass": true,
   "review_boards": [
@@ -160,9 +173,11 @@
     "art_department/ships/art_ship_012/review/02_isolated_exact_4x.png",
     "art_department/ships/art_ship_012/review/03_approved_corpus_comparison_4x.png",
     "art_department/ships/art_ship_012/review/04_frozen_environment_contexts_2x.png",
-    "art_department/ships/art_ship_012/review/05_training_dummy_throne_context_1x.png"
+    "art_department/ships/art_ship_012/review/05_training_dummy_throne_context_1x.png",
+    "art_department/ships/art_ship_012/review/06_buckhead_corpus_comparison_native_1x.png",
+    "art_department/ships/art_ship_012/review/07_buckhead_corpus_comparison_exact_4x.png"
   ],
-  "review_board_count": 5,
+  "review_board_count": 7,
   "approval_claimed": false,
   "frozen_claimed": false,
   "runtime_status_changed": false,

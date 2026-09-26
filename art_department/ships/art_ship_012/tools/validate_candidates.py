@@ -19,7 +19,13 @@ EXPECTED = {
     "auntie": ("auntie_register_neutral_80x96.png", "cf5ae278f87c9a339ac15c115f9a754f78cd58d6efa2e289515f90036ae9836e", 18),
     "soul": ("ocean_soul_climbing_80x96.png", "21b21879c070ba61944091683201eb89c57a18e05731f66f5fce3e687ed8dbd1", 12),
     "training_dummy": ("training_dummy_combat_80x96.png", "e30e3189af01afdd05300fc913ea541aab0e0f1f8c88704a094afac2b5f9face", 14),
-    "buckhead": ("buckhead_vampire_neutral_80x96.png", "26bc338ca53b12aac0b051189745dadba4b4fb6d29c745e85253fa8c8e01265c", 17),
+    "buckhead": ("buckhead_vampire_neutral_80x96.png", "f178b6b63a8d01f3acbbb9d38228da5b97be2fad9fcc8a6ccb7f8ffa0fc6333e", 14),
+}
+PARTIAL_PASS_LOCKS = {
+    "portobello_manager": "0e69dc024e59fc9dbd5bed7944081fbc9f83226ba44d7c9c16b3c9b6d68ff26c",
+    "auntie": "cf5ae278f87c9a339ac15c115f9a754f78cd58d6efa2e289515f90036ae9836e",
+    "soul": "21b21879c070ba61944091683201eb89c57a18e05731f66f5fce3e687ed8dbd1",
+    "training_dummy": "e30e3189af01afdd05300fc913ea541aab0e0f1f8c88704a094afac2b5f9face",
 }
 
 
@@ -96,10 +102,21 @@ def main() -> int:
             json_failures.append({"path": path.relative_to(REPO).as_posix(), "error": str(exc)})
     report = {
         "ship_id": "ART SHIP 012",
-        "status": "CANDIDATE — HQ REVIEW REQUIRED",
+        "status": "ART SHIP 012 — BUCKHEAD REVISION READY FOR HQ REVIEW",
         "candidate_count": len(candidates),
         "candidate_contracts_pass": all(item["pass"] for item in candidates),
         "candidates": candidates,
+        "hq_partial_pass_locks": PARTIAL_PASS_LOCKS,
+        "hq_partial_pass_bytes_preserved": all(
+            next(item for item in candidates if item["runtime_asset_id"] == asset_id)["sha256"] == expected
+            for asset_id, expected in PARTIAL_PASS_LOCKS.items()
+        ),
+        "buckhead_revision": {
+            "superseded_candidate_sha256": "26bc338ca53b12aac0b051189745dadba4b4fb6d29c745e85253fa8c8e01265c",
+            "revised_candidate_sha256": "f178b6b63a8d01f3acbbb9d38228da5b97be2fad9fcc8a6ccb7f8ffa0fc6333e",
+            "concept_redesigned": False,
+            "style_and_proportion_only": True
+        },
         "frozen_assets_checked": frozen_count,
         "frozen_hash_failures": frozen_failures,
         "source_integrity_pass": not frozen_failures,
@@ -118,11 +135,12 @@ def main() -> int:
     }
     overall = all([
         report["candidate_contracts_pass"], report["source_integrity_pass"], report["runtime_boundary_pass"],
-        report["forbidden_boundary_pass"], report["json_pass"], report["review_board_count"] == 5,
+        report["forbidden_boundary_pass"], report["json_pass"], report["review_board_count"] == 7,
+        report["hq_partial_pass_bytes_preserved"],
     ])
     report["overall_pass"] = overall
     (SHIP / "CANDIDATE_VALIDATION_REPORT.json").write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8")
-    lines = ["# ART SHIP 012 candidate SHA-256", "", "Status: CANDIDATE — HQ REVIEW REQUIRED", ""]
+    lines = ["# ART SHIP 012 candidate SHA-256", "", "Status: BUCKHEAD REVISION READY FOR HQ REVIEW", ""]
     lines.extend(f"{item['sha256']}  {item['path']}" for item in candidates)
     (SHIP / "CANDIDATE_SHA256SUMS.txt").write_text("\n".join(lines) + "\n", encoding="utf-8")
     print(json.dumps({"overall_pass": overall, "candidate_contracts_pass": report["candidate_contracts_pass"], "frozen_assets_checked": frozen_count, "frozen_hash_failures": len(frozen_failures), "runtime_files_changed": len(runtime_changes), "review_boards": report["review_board_count"]}, indent=2))

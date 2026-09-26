@@ -1,6 +1,6 @@
 # ART SHIP 012 — OPEN HOLD CLEARANCE
 
-**Status:** ART SHIP 012 — READY FOR HQ REVIEW
+**Status:** ART SHIP 012 — BUCKHEAD REVISION READY FOR HQ REVIEW
 
 **Owner:** Art
 
@@ -18,6 +18,8 @@ Supply the five newly authorized OPEN/non-canon-sensitive runtime anchors that r
 
 The package contains exactly five native 80×96 RGBA candidates with binary alpha and contact `(40,88)`. Each has a preserved generated source render, deterministic nativeization record, SHA-256 provenance, Asset Register candidate record, Runtime Demand Map row, Engineering mapping, state definition, 1× evidence, exact 4× nearest-neighbor evidence, approved-corpus comparison and representative review-only frozen-environment composites.
 
+HQ partially passed the Portobello manager, auntie, soul and training dummy exact candidate byte streams. Their hashes remain unchanged. Buckhead's concept passed, but HQ requested a style/proportion-only correction. `AS12-05R` replaces only the Buckhead candidate with a compact native-grid redraw; the character concept, wardrobe, color direction, boat shoes, gold watch and restrained vampire cues remain intact.
+
 ## Immutable boundaries
 
 - No ART SHIP 011 or earlier frozen pixel changed.
@@ -29,4 +31,4 @@ The package contains exactly five native 80×96 RGBA candidates with binary alph
 
 ## Stop point
 
-**ART SHIP 012 — READY FOR HQ REVIEW.** HQ may accept, request revision or reject the exact candidate bytes. Do not self-freeze.
+**ART SHIP 012 — BUCKHEAD REVISION READY FOR HQ REVIEW.** HQ may accept, request revision or reject the exact revised Buckhead bytes. Do not self-freeze.
