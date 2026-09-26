@@ -2,7 +2,7 @@
   "schema_version": 1,
   "ship_id": "ART SHIP 012 CLOSEOUT",
   "request_id": "AS12-05 FINAL REVISION",
-  "status": "CANDIDATE — HQ REVIEW REQUIRED",
+  "status": "APPROVED MASTER / FROZEN",
   "foundation_commit": "34568801571244b75aeb6c698861a7bf4976fc30",
   "generation": {
     "method": "built-in ImageGen",
@@ -63,5 +63,12 @@
     "contact": [40, 88],
     "opaque_bbox": [24, 31, 56, 89],
     "opaque_rgb_colors": 13
+  },
+  "acceptance": {
+    "authority": "Ube Taste Pass / HQ final acceptance",
+    "accepted_as_is": true,
+    "accepted_candidate_commit": "da2c251be814a91fe89154d7a9fac02770e4f66d",
+    "production_path": "assets/before_the_fame/characters/buckhead/buckhead_vampire_neutral_80x96.png",
+    "promotion_byte_exact": true
   }
 }

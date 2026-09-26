@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "ship_id": "ART SHIP 012 CLOSEOUT",
-  "status": "BUCKHEAD FINAL REVISION — READY FOR HQ REVIEW",
+  "status": "APPROVED MASTER / FROZEN / COMPLETE",
   "branch": "art/art_ship_012_closeout",
   "frozen_art_base": {
     "branch": "art/art_ship_013",
@@ -27,7 +27,7 @@
       "sha256": "0e69dc024e59fc9dbd5bed7944081fbc9f83226ba44d7c9c16b3c9b6d68ff26c",
       "dimensions": [80, 96],
       "contact": [40, 88],
-      "status": "HQ VISUAL PASS / CANDIDATE"
+      "status": "APPROVED MASTER / FROZEN"
     },
     {
       "runtime_asset_id": "auntie",
@@ -35,7 +35,7 @@
       "sha256": "cf5ae278f87c9a339ac15c115f9a754f78cd58d6efa2e289515f90036ae9836e",
       "dimensions": [80, 96],
       "contact": [40, 88],
-      "status": "HQ VISUAL PASS / CANDIDATE"
+      "status": "APPROVED MASTER / FROZEN"
     },
     {
       "runtime_asset_id": "soul",
@@ -43,7 +43,7 @@
       "sha256": "21b21879c070ba61944091683201eb89c57a18e05731f66f5fce3e687ed8dbd1",
       "dimensions": [80, 96],
       "contact": [40, 88],
-      "status": "HQ VISUAL PASS / CANDIDATE"
+      "status": "APPROVED MASTER / FROZEN"
     },
     {
       "runtime_asset_id": "training_dummy",
@@ -51,7 +51,7 @@
       "sha256": "e30e3189af01afdd05300fc913ea541aab0e0f1f8c88704a094afac2b5f9face",
       "dimensions": [80, 96],
       "contact": [40, 88],
-      "status": "HQ VISUAL PASS / CANDIDATE"
+      "status": "APPROVED MASTER / FROZEN"
     }
   ],
   "buckhead_rejected_provenance": [
@@ -80,16 +80,28 @@
     "sha256": "710bede4d4372f20cd27956313d6589df528c3ec9b795b3c4e5cc996ea033b97",
     "dimensions": [80, 96],
     "contact": [40, 88],
-    "status": "CANDIDATE — HQ REVIEW REQUIRED",
+    "status": "APPROVED MASTER / FROZEN",
     "source_render": "art_department/ships/art_ship_012_closeout/source_renders/buckhead_final_revision_source.png",
     "source_sha256": "1a66de8b753dab31f0d07e296d1dfbd1a0d6de1ff5593fd591b82797b9829f0f",
     "production_method": "built-in ImageGen followed by established deterministic nativeization",
     "self_passed": false,
-    "promoted": false,
-    "frozen": false,
+    "promoted": true,
+    "frozen": true,
     "runtime_integrated": false
   },
-  "unresolved_visual_targets": ["buckhead — HQ review pending"],
+  "unresolved_visual_targets": [],
   "buckhead_generation_attempted_on_closeout_branch": true,
-  "shared_authority_files_modified": []
+  "shared_authority_files_modified": [
+    "art_department/START_HERE.md",
+    "art_department/CURRENT_HANDOFF.md",
+    "art_department/CURRENT_OPEN_ART_GAPS.md",
+    "art_department/CURRENT_OPEN_ART_GAPS.json",
+    "art_department/ASSET_REGISTER.json",
+    "art_department/APPROVED_ASSET_INDEX.md",
+    "art_department/APPROVAL_LEDGER.md",
+    "art_department/STYLE_FINGERPRINT.md",
+    "art_department/references/CHARACTERS.md"
+  ],
+  "frozen_corpus_after": 224,
+  "asset_register_entries_after": 364
 }

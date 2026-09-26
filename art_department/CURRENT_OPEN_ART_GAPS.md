@@ -1,4 +1,4 @@
-# Current OPEN Art gaps — Ship 013 frozen authority
+# Current OPEN Art gaps — Ship 012 closeout frozen authority
 
 **As of:** 2026-09-26
 
@@ -6,11 +6,17 @@
 
 ART SHIP 013 freezes seven HQ-approved exact candidate byte streams: `mom`, `dad`, `sister`, `portobello_wife`, `portobello_kid1`, `portobello_kid2` and corrected `rich.hookah_seated`. The six new identities and Rich correction remain runtime-open until Engineering integration and Presentation QA.
 
-The frozen package creates expected opportunities for all three family-house keys and four Portobello bedroom/porch keys. `portobello_manager` remains outside scope and keeps the office opportunity held. The Rich correction is polish on already-PASS hookah surfaces and clears no HOLD. Current accepted Engineering truth remains **108 PASS / 13 HOLD**; this Art freeze changes neither count.
+The frozen package creates expected opportunities for all three family-house keys and four Portobello bedroom/porch keys. The Rich correction is polish on already-PASS hookah surfaces and clears no HOLD. Current accepted Engineering truth remains **108 PASS / 13 HOLD**; this Art freeze changes neither count.
 
-**Frozen pixel authority:** ART SHIP 013 promotion records
+**Frozen pixel authority:** ART SHIP 013 and ART SHIP 012 closeout promotion records
 
 **Runtime/art-integration authority:** `claude/hold-clearance-001` at `a66170218375e52404715789dde48c23726a6044`
+
+## ART SHIP 012 closeout frozen package
+
+ART SHIP 012 closeout adds five Ube/HQ-approved exact masters: `portobello_manager`, `auntie`, `soul`, `training_dummy` and `buckhead`. They remain pending Engineering integration and real Presentation QA. Both earlier Buckhead candidates remain rejected provenance only.
+
+This promotion supplies Art coverage opportunities for the Portobello office, NAIJA MART register conversation, two ocean-floor soul screens, two training fights and Buckhead combat. It does not change the accepted **108 PASS / 13 HOLD** runtime count.
 
 This map uses the live post–Ship 008 Integration Matrix. Historical Rough Complete and pre-integration counts remain provenance only.
 
@@ -18,7 +24,7 @@ This map uses the live post–Ship 008 Integration Matrix. Historical Rough Comp
 
 | Area | Current truth |
 |---|---|
-| Frozen corpus | 219 frozen assets; 359 registered entries |
+| Frozen corpus | 224 frozen assets; 364 registered entries |
 | Ship 004–010 handoff | 183 files |
 | Runtime-integrated | 145 files |
 | Approved Ship 009 + Ship 010 pending integration/QA | 16 files + one zero-pixel reuse mapping |
@@ -49,7 +55,7 @@ Do not mark these runtime tickets resolved or change PASS/HOLD totals until Engi
 
 ART SHIP 010 supplies and freezes the following Art-owned coverage, but runtime tickets remain open until Engineering integration and real Presentation QA:
 
-1. `NC-FA-07` — three frozen Portobello Rich states. Ship 013 now freezes wife and both children; `portobello_manager` remains outside scope and blocked.
+1. `NC-FA-07` — three frozen Portobello Rich states. Ship 013 freezes wife and both children; Ship 012 closeout now freezes `portobello_manager`. All remain pending integration and QA.
 2. `NC-FA-12` — one frozen exact-origin additive rooftop party-crowd condition layer behind named actors; the frozen rooftop master remains unchanged.
 
 Portobello Rich’s short-hair treatment is an intentional authorized variant, not identity drift. No other Rich state was modified. Do not mark these runtime tickets resolved or change PASS/HOLD totals until Engineering integrates the frozen assets and runtime visual QA passes.
@@ -64,14 +70,14 @@ They were outside ART SHIP 009's named runtime-demand package. Do not generate t
 
 ## Missing identities / unresolved cast
 
-After ART SHIP 013 freeze, the remaining unresolved identity slots include:
+After ART SHIP 012 closeout freeze, the remaining unresolved identity slots include:
 
-`brother1`, `brother2`, `god`, `buckhead`, `og_hooper`, `portobello_manager`.
+`brother1`, `brother2`, `god`, `og_hooper`.
 
 - Mom, Dad and Sister are frozen Ship 013 anchors; Big Bro and Lil Bro remain outside this Ship and without approved art.
 - `god` is culturally sensitive and needs exact-card, named authorization: **BLOCKED BY CANON / NAMED REVIEW**.
-- `buckhead` and `og_hooper` remain underspecified accepted deferrals: **BLOCKED BY CANON**.
-- Portobello wife, kid1 and kid2 are frozen Ship 013 anchors. The manager remains without a committed card and outside scope.
+- `og_hooper` remains an underspecified accepted deferral: **BLOCKED BY CANON**.
+- Portobello wife, kid1 and kid2 are frozen Ship 013 anchors; Portobello Manager is now a frozen Ship 012 closeout anchor.
 - Other ad-hoc runtime extras and neutral groups remain unresolved coverage; do not invent canon-sensitive identities.
 
 ## Derivative states still open
@@ -108,6 +114,6 @@ Audio dependencies remain outside Art scope.
 
 ## Frozen forecast
 
-Earlier Ship forecasts are provenance only. Current accepted runtime truth is **108 PASS / 13 HOLD** at `a66170218375e52404715789dde48c23726a6044`. Ship 013 promotion changes no runtime status. Its family and Portobello assets create future Engineering/QA opportunities only; the Portobello office still lacks the manager.
+Earlier Ship forecasts are provenance only. Current accepted runtime truth is **108 PASS / 13 HOLD** at `a66170218375e52404715789dde48c23726a6044`. Ship 012 closeout promotion changes no runtime status. Its five assets and the Ship 013 family/Portobello assets create future Engineering/QA opportunities only.
 
-**Recommended next step:** Engineering separately integrates the frozen Ship 013 assets where authorized, performs Presentation Director/runtime visual QA, and updates PASS/HOLD only from accepted runtime evidence. Do not self-authorize another Art Ship.
+**Recommended next step:** Engineering separately integrates the frozen Ship 012 closeout and Ship 013 assets where authorized, performs Presentation Director/runtime visual QA, and updates PASS/HOLD only from accepted runtime evidence. Do not self-authorize another Art Ship.

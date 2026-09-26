@@ -1,6 +1,6 @@
-# ART SHIP 012 — BUCKHEAD FINAL REVISION
+# ART SHIP 012 CLOSEOUT — OPEN HOLD CLEARANCE
 
-**Status:** READY FOR HQ REVIEW — CANDIDATE ONLY.
+**Status:** APPROVED MASTER / FROZEN / COMPLETE.
 
 **Branch:** `art/art_ship_012_closeout`
 
@@ -40,7 +40,7 @@ Neither is eligible for promotion.
 - 80×96 RGBA, binary alpha
 - contact `(40,88)`; opaque bounding box `(24,31)–(55,88)`
 - 13 opaque RGB colors
-- status: **CANDIDATE — HQ REVIEW REQUIRED**
+- status: **APPROVED MASTER / FROZEN** by explicit Ube Taste Pass / HQ final acceptance
 
 The transparent source render was produced with built-in ImageGen from the accepted concept brief, using the initial rejected candidate as concept-only evidence and frozen Rich, Ms. Patrice, Uncle Sunday and Bllad33 sprites as style references. It was nativeized through significant-alpha crop, BOX downsample, 14-color adaptive reduction without dithering, binary-alpha thresholding and contact alignment. No deterministic pixel surgery, native-grid redraw, procedural body compression or scripted anatomy alteration was used.
 
@@ -48,10 +48,16 @@ The transparent source render was produced with built-in ImageGen from the accep
 
 The ART SHIP 013 frozen corpus remains at 219 assets and its Asset Register remains at 359 entries. The current accepted Engineering runtime authority remains `claude/hold-clearance-001` at `a66170218375e52404715789dde48c23726a6044`, with 108 PASS / 13 HOLD.
 
-This branch changes no shared current-authority file, frozen pixel, runtime/gameplay code, Presentation Director mapping, PASS/HOLD total, audio, SEALED material, PLAYMAKERS material, or deployment state.
+Closure updates only the required Art authority records and adds the five exact canonical masters. It changes no pre-existing frozen pixel, runtime/gameplay code, Presentation Director mapping, PASS/HOLD total, audio, SEALED material, PLAYMAKERS material or deployment state.
+
+## Final promotion
+
+Ube Taste Pass / HQ final acceptance approved the Buckhead candidate as-is at checkpoint `da2c251be814a91fe89154d7a9fac02770e4f66d` and authorized final promotion of all five Ship assets. Each canonical production PNG is byte-for-byte identical to its accepted candidate.
+
+The frozen corpus is now 224 assets across 364 Asset Register entries. Both earlier Buckhead attempts remain rejected provenance only. No runtime integration or PASS/HOLD movement is claimed.
 
 ## Stop point
 
-**ART SHIP 012 — BUCKHEAD FINAL REVISION — READY FOR HQ REVIEW.**
+**ART SHIP 012 CLOSEOUT — APPROVED MASTER / FROZEN / COMPLETE.**
 
-Do not self-PASS, freeze, merge, promote, runtime-integrate or deploy.
+Do not runtime-integrate, merge or deploy from this Art closure.

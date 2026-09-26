@@ -1,0 +1,118 @@
+{
+  "ship_id": "ART SHIP 012 CLOSEOUT",
+  "title": "OPEN HOLD CLEARANCE",
+  "status": "APPROVED MASTER / FROZEN / COMPLETE",
+  "authorization": "Ube Taste Pass / HQ final acceptance, 2026-09-26",
+  "production_base": "9d6f521bdfc404f03a5f5bba7c700860de1eb293",
+  "clean_foundation_checkpoint": "34568801571244b75aeb6c698861a7bf4976fc30",
+  "accepted_candidate_checkpoint": "da2c251be814a91fe89154d7a9fac02770e4f66d",
+  "spoiler_classification": "OPEN; no SEALED material accessed",
+  "files": [
+    {
+      "id": "AS12-01",
+      "runtime_asset_id": "portobello_manager",
+      "candidate_path": "art_department/ships/art_ship_012_closeout/candidates/native/characters/portobello_manager_neutral_80x96.png",
+      "path": "assets/before_the_fame/characters/portobello_manager/portobello_manager_neutral_80x96.png",
+      "sha256": "0e69dc024e59fc9dbd5bed7944081fbc9f83226ba44d7c9c16b3c9b6d68ff26c",
+      "dimensions": [80, 96],
+      "mode": "RGBA",
+      "alpha": [0, 255],
+      "contact": [40, 88],
+      "state": "neutral/conversation standing anchor",
+      "approval_status": "APPROVED MASTER / FROZEN"
+    },
+    {
+      "id": "AS12-02",
+      "runtime_asset_id": "auntie",
+      "candidate_path": "art_department/ships/art_ship_012_closeout/candidates/native/characters/auntie_register_neutral_80x96.png",
+      "path": "assets/before_the_fame/characters/auntie/auntie_register_neutral_80x96.png",
+      "sha256": "cf5ae278f87c9a339ac15c115f9a754f78cd58d6efa2e289515f90036ae9836e",
+      "dimensions": [80, 96],
+      "mode": "RGBA",
+      "alpha": [0, 255],
+      "contact": [40, 88],
+      "state": "neutral/register conversation anchor",
+      "approval_status": "APPROVED MASTER / FROZEN"
+    },
+    {
+      "id": "AS12-03",
+      "runtime_asset_id": "soul",
+      "candidate_path": "art_department/ships/art_ship_012_closeout/candidates/native/characters/ocean_soul_climbing_80x96.png",
+      "path": "assets/before_the_fame/characters/ocean_soul/ocean_soul_climbing_80x96.png",
+      "sha256": "21b21879c070ba61944091683201eb89c57a18e05731f66f5fce3e687ed8dbd1",
+      "dimensions": [80, 96],
+      "mode": "RGBA",
+      "alpha": [0, 255],
+      "contact": [40, 88],
+      "state": "neutral/climbing-compatible anonymous human anchor",
+      "approval_status": "APPROVED MASTER / FROZEN"
+    },
+    {
+      "id": "AS12-04",
+      "runtime_asset_id": "training_dummy",
+      "candidate_path": "art_department/ships/art_ship_012_closeout/candidates/native/characters/training_dummy_combat_80x96.png",
+      "path": "assets/before_the_fame/characters/training_dummy/training_dummy_combat_80x96.png",
+      "sha256": "e30e3189af01afdd05300fc913ea541aab0e0f1f8c88704a094afac2b5f9face",
+      "dimensions": [80, 96],
+      "mode": "RGBA",
+      "alpha": [0, 255],
+      "contact": [40, 88],
+      "state": "combat/default",
+      "approval_status": "APPROVED MASTER / FROZEN"
+    },
+    {
+      "id": "AS12-05",
+      "runtime_asset_id": "buckhead",
+      "candidate_path": "art_department/ships/art_ship_012_closeout/candidates/native/characters/buckhead_vampire_neutral_80x96.png",
+      "path": "assets/before_the_fame/characters/buckhead/buckhead_vampire_neutral_80x96.png",
+      "sha256": "710bede4d4372f20cd27956313d6589df528c3ec9b795b3c4e5cc996ea033b97",
+      "dimensions": [80, 96],
+      "mode": "RGBA",
+      "alpha": [0, 255],
+      "contact": [40, 88],
+      "state": "combat-capable neutral anchor",
+      "approval_status": "APPROVED MASTER / FROZEN"
+    }
+  ],
+  "generation_and_transformations": [
+    "built-in ImageGen transparent source renders",
+    "established significant-alpha crop and BOX downsample pipeline",
+    "adaptive palette reduction without dithering",
+    "binary-alpha threshold and contact alignment",
+    "byte-for-byte candidate-to-production promotion"
+  ],
+  "pixel_preservation_checks": [
+    "219/219 pre-existing registered frozen files retain their recorded SHA-256 hashes",
+    "five canonical production files equal their accepted candidates byte-for-byte",
+    "both rejected Buckhead candidates retain their rejected provenance hashes"
+  ],
+  "native_review_evidence": [
+    "review/01_hq_passed_candidates_native_1x.png",
+    "review/02_hq_passed_candidates_exact_4x.png",
+    "review/04_buckhead_final_native_1x.png",
+    "review/05_buckhead_final_exact_4x.png",
+    "review/06_buckhead_final_corpus_comparison_native_1x.png",
+    "review/07_buckhead_final_corpus_comparison_exact_4x.png",
+    "review/08_buckhead_final_lennox_context_1x.png",
+    "review/09_buckhead_revision_history_exact_4x.png"
+  ],
+  "taste_decision": "Portobello Manager, Auntie, Ocean Soul and Training Dummy retained prior HQ visual PASS; Buckhead received explicit Ube Taste Pass / HQ final acceptance as-is",
+  "hq_acceptance": "All five exact candidate byte streams accepted; promote and freeze byte-for-byte",
+  "freeze_scope": "The five exact submitted PNG byte streams, submitted roles, 80x96 RGBA binary-alpha contracts and contact (40,88). Runtime integration, Presentation Director changes, PASS/HOLD movement, additional states/canon, merge and deployment are excluded.",
+  "runtime_test_scope": "Art promotion only; no runtime integration and no PASS/HOLD movement",
+  "frozen_corpus_before": 219,
+  "frozen_corpus_after": 224,
+  "register_entries_before": 359,
+  "register_entries_after": 364,
+  "current_runtime_authority": {
+    "branch": "claude/hold-clearance-001",
+    "commit": "a66170218375e52404715789dde48c23726a6044",
+    "pass": 108,
+    "hold": 13,
+    "changed_by_this_ship": false
+  },
+  "rejected_buckhead_provenance_preserved": true,
+  "approval_claimed": true,
+  "frozen_claimed": true,
+  "stop_point": "ART SHIP 012 CLOSEOUT — APPROVED MASTER / FROZEN / COMPLETE"
+}

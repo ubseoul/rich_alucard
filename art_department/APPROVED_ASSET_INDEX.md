@@ -306,3 +306,17 @@ All seven native assets below are **APPROVED MASTER / FROZEN** at the exact byte
 | `assets/before_the_fame/characters/rich/rich_hookah_seated_corrected_80x96.png` | `c46f395004151d94365601fad9e72a8abba092ef03669dca71f2e492f8917634` | `rich.hookah_seated.corrected`; identity-continuity correction |
 
 The original `assets/before_the_fame/characters/rich/rich_hookah_seated_80x96.png` remains frozen at `c260180a4b3636fc2765534e0053abd1cab25b2ca2c43c83f800e6b55ee20696` as the superseded historical source. It was not erased or modified. Candidate/rejected/source-render/review evidence remains provenance only.
+
+## ART SHIP 012 CLOSEOUT — Open Hold Clearance
+
+All five native assets below are **APPROVED MASTER / FROZEN** at the exact byte streams accepted at `da2c251be814a91fe89154d7a9fac02770e4f66d`. Each is 80×96 RGBA, binary alpha, contact `(40,88)`. Runtime integration and PASS/HOLD movement are not authorized by this freeze.
+
+| Path | SHA-256 | Role |
+|---|---|---|
+| `assets/before_the_fame/characters/portobello_manager/portobello_manager_neutral_80x96.png` | `0e69dc024e59fc9dbd5bed7944081fbc9f83226ba44d7c9c16b3c9b6d68ff26c` | `portobello_manager.default`; office-manager conversation anchor |
+| `assets/before_the_fame/characters/auntie/auntie_register_neutral_80x96.png` | `cf5ae278f87c9a339ac15c115f9a754f78cd58d6efa2e289515f90036ae9836e` | `auntie.default`; NAIJA MART register anchor |
+| `assets/before_the_fame/characters/ocean_soul/ocean_soul_climbing_80x96.png` | `21b21879c070ba61944091683201eb89c57a18e05731f66f5fce3e687ed8dbd1` | `soul.default`; anonymous climbing-compatible extra |
+| `assets/before_the_fame/characters/training_dummy/training_dummy_combat_80x96.png` | `e30e3189af01afdd05300fc913ea541aab0e0f1f8c88704a094afac2b5f9face` | `training_dummy.default`; generic combat object |
+| `assets/before_the_fame/characters/buckhead/buckhead_vampire_neutral_80x96.png` | `710bede4d4372f20cd27956313d6589df528c3ec9b795b3c4e5cc996ea033b97` | `buckhead.default`; combat-capable vampire identity anchor |
+
+The two earlier Buckhead candidates remain **REJECTED / PROVENANCE ONLY** under the Ship package and are excluded from style authority and promotion.

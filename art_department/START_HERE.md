@@ -8,12 +8,14 @@ This repository is the Art Department's institutional memory. **The project reme
 
 ## Current state
 
-- **ART SHIP 013 — APPROVED MASTER / FROZEN / COMPLETE** on `art/art_ship_013`. HQ passed all 7/7 submitted byte streams at candidate commit `eec5c40c45a40dd842ded38f9b87063d67965d3c`.
-- The frozen corpus contains **219 assets**; the Asset Register contains **359 entries**.
+- **ART SHIP 012 CLOSEOUT — APPROVED MASTER / FROZEN / COMPLETE** on `art/art_ship_012_closeout`. Ube Taste Pass / HQ final acceptance approved all 5/5 exact byte streams at candidate commit `da2c251be814a91fe89154d7a9fac02770e4f66d`.
+- The closeout was rebased on frozen ART SHIP 013 checkpoint `9d6f521bdfc404f03a5f5bba7c700860de1eb293`; Ship 013 remains intact as the 219-file base.
+- The frozen corpus contains **224 assets**; the Asset Register contains **364 entries**.
+- Ship 012 freezes Portobello Manager, NAIJA MART Auntie, Ocean Soul, Training Dummy and the Ube-accepted Buckhead Vampire. Both earlier Buckhead attempts remain rejected provenance only.
 - Ship 013 freezes six fictional family/Portobello identity anchors and the corrected `rich.hookah_seated` state. The original hookah sprite remains preserved as a superseded historical source.
 - Current runtime authority is `claude/hold-clearance-001` at `a66170218375e52404715789dde48c23726a6044`: **108 PASS / 13 HOLD** across 104 adventure screens and 17 fights.
 - Ship 013 is Art promotion only. Its assets remain pending Engineering integration and Presentation QA; it changes no runtime PASS/HOLD status.
-- ART SHIP 012 is independent and is not authority for Ship 013.
+- Ship 012 closeout promotion is Art-only and changes no runtime PASS/HOLD status.
 
 ## Authority hierarchy
 
@@ -57,4 +59,4 @@ OPEN cards and frozen pixels are actionable only inside an authorized Ship. GUID
 
 Only an explicit HQ decision makes a candidate `APPROVED MASTER` and authorizes `FROZEN`. Runtime integration is a separate Engineering decision. At Ship close, update the handoff, gap map, register, approved index, approval ledger, manifests, totals and evidence; verify hashes, cold-start onboarding, runtime scope and a clean tree.
 
-**Current stop point:** ART SHIP 013 — APPROVED MASTER / FROZEN / COMPLETE — READY FOR HQ HANDOFF. Do not runtime-integrate, alter PASS/HOLD status, merge, deploy or self-authorize another Art Ship.
+**Current stop point:** ART SHIP 012 CLOSEOUT — APPROVED MASTER / FROZEN / COMPLETE. Do not runtime-integrate, alter PASS/HOLD status, merge, deploy or self-authorize another Art Ship.

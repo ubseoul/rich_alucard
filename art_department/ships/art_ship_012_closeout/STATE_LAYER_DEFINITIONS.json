@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "ship_id": "ART SHIP 012 CLOSEOUT",
+  "definitions": [
+    {"runtime_asset_id":"portobello_manager","state":"default","layer_role":"actor","cell":[80,96],"contact":[40,88]},
+    {"runtime_asset_id":"auntie","state":"default","layer_role":"actor","cell":[80,96],"contact":[40,88]},
+    {"runtime_asset_id":"soul","state":"default","layer_role":"anonymous actor extra; placement/mirroring supplies variation","cell":[80,96],"contact":[40,88]},
+    {"runtime_asset_id":"training_dummy","state":"default","layer_role":"combat object actor slot","cell":[80,96],"contact":[40,88]},
+    {"runtime_asset_id":"buckhead","state":"default","layer_role":"combat actor","cell":[80,96],"contact":[40,88]}
+  ]
+}

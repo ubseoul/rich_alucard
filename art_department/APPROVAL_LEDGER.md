@@ -207,3 +207,17 @@ The nine assets remain a reusable, unassigned anonymous-adult population library
 All seven exact canonical PNGs named in `ships/art_ship_013/ART_SHIP_MANIFEST.json` are **APPROVED MASTER / FROZEN**. Every canonical SHA-256 equals its accepted candidate SHA-256. The complete frozen corpus is now **219 assets across 359 Asset Register entries**.
 
 The original hookah sprite remains frozen and hash-preserved in provenance; the corrected state is a separate canonical master. Six fictional family assets are frozen only in their submitted roles and imply no additional names, states, personalities or canon. Current Engineering authority is `claude/hold-clearance-001` at `a66170218375e52404715789dde48c23726a6044`, **108 PASS / 13 HOLD**, unchanged by this Art freeze. No runtime/gameplay code, Presentation Director mapping, ART SHIP 012, laptop Rich, Portobello Rich, restricted content, merge or deployment was touched. ART SHIP 013 is **FROZEN / COMPLETE**.
+
+## ART SHIP 012 CLOSEOUT — OPEN HOLD CLEARANCE (recorded 2026-09-26)
+
+45. HQ accepted clean foundation checkpoint `34568801571244b75aeb6c698861a7bf4976fc30` on `art/art_ship_012_closeout`, preserving the four previously passed candidate byte streams, both rejected Buckhead attempts and all 219 ART SHIP 013 frozen hashes.
+46. Built-in ImageGen produced the sole final Buckhead revision. Candidate checkpoint `da2c251be814a91fe89154d7a9fac02770e4f66d` passed its 80×96 RGBA/binary-alpha/contact contract, source provenance validation, four immutable candidate checks, two rejected-provenance checks, 219/219 baseline frozen checks and the repository release gate.
+47. Explicit user-supplied final decision:
+
+> UBE TASTE PASS / HQ FINAL ACCEPTANCE — BUCKHEAD APPROVED
+>
+> Ube accepts `buckhead_vampire_neutral_80x96.png` at SHA-256 `710bede4d4372f20cd27956313d6589df528c3ec9b795b3c4e5cc996ea033b97` as-is. BUCKHEAD — TASTE PASS / APPROVED MASTER. Promote the five approved Ship 012 assets, preserving their byte streams exactly. Preserve both rejected Buckhead attempts as provenance only. Do not runtime-integrate, merge or deploy.
+
+All five exact canonical PNGs named in `ships/art_ship_012_closeout/ART_SHIP_MANIFEST.json` are **APPROVED MASTER / FROZEN**. Each canonical SHA-256 equals its accepted candidate SHA-256. The complete frozen corpus is now **224 assets across 364 Asset Register entries**.
+
+Both rejected Buckhead attempts remain hash-preserved and excluded from approval/style authority. Current Engineering authority remains `claude/hold-clearance-001` at `a66170218375e52404715789dde48c23726a6044`, **108 PASS / 13 HOLD**, unchanged by this Art freeze. No runtime/gameplay code, Presentation Director mapping, PLAYMAKERS, Royal Glitch, SEALED material, audio, merge or deployment was touched. ART SHIP 012 CLOSEOUT is **APPROVED MASTER / FROZEN / COMPLETE**.

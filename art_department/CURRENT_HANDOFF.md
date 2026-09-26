@@ -1,34 +1,35 @@
 # Current handoff
 
-**ART SHIP 013 — CANON CAST COMPLETION + RICH CONTINUITY CLEANUP: APPROVED MASTER / FROZEN / COMPLETE.**
+**ART SHIP 012 CLOSEOUT — OPEN HOLD CLEARANCE: APPROVED MASTER / FROZEN / COMPLETE.**
 
 ## Freeze result
 
-- Branch: `art/art_ship_013`.
-- Accepted candidate checkpoint: `eec5c40c45a40dd842ded38f9b87063d67965d3c`.
-- HQ decision: PASS 7/7; exact-byte promotion and freeze authorized.
-- Seven native 80×96 RGBA/binary-alpha masters, all contact `(40,88)`: Mom, Dad, Sister, Portobello Wife, Portobello Kid 1, Portobello Kid 2 and corrected Rich hookah seated.
+- Branch: `art/art_ship_012_closeout`.
+- Current frozen base: ART SHIP 013 checkpoint `9d6f521bdfc404f03a5f5bba7c700860de1eb293`.
+- Accepted candidate checkpoint: `da2c251be814a91fe89154d7a9fac02770e4f66d`.
+- Ube Taste Pass / HQ final acceptance: PASS 5/5; exact-byte promotion and freeze authorized.
+- Five native 80×96 RGBA/binary-alpha masters, all contact `(40,88)`: Portobello Manager, NAIJA MART Auntie, Ocean Soul, Training Dummy and Buckhead Vampire.
 - Every canonical file is byte-for-byte identical to its accepted candidate.
-- Frozen corpus: **219/219 verified**; Asset Register: **359 entries**.
-- The original `rich_hookah_seated_80x96.png` remains frozen and hash-preserved as the superseded historical source. The accepted correction is a separate canonical file.
-- Candidate, rejected, source-render and review evidence remains preserved under `art_department/ships/art_ship_013/`; review composites are not environment masters.
+- Frozen corpus: **224/224 verified**; Asset Register: **364 entries**.
+- Both earlier Buckhead candidates remain hash-preserved as **REJECTED / PROVENANCE ONLY**.
+- Candidate, rejected, generated-source and review evidence remains preserved under `art_department/ships/art_ship_012_closeout/`; review composites are not production masters.
 
 ## Runtime authority and boundary
 
-Current accepted Engineering authority is `claude/hold-clearance-001` at `a66170218375e52404715789dde48c23726a6044`: **108 PASS / 13 HOLD**. This Art freeze changes neither count.
+Current accepted Engineering authority remains `claude/hold-clearance-001` at `a66170218375e52404715789dde48c23726a6044`: **108 PASS / 13 HOLD**. This Art freeze changes neither count.
 
-Ship 013 creates pending Engineering opportunities for three family-house keys and four Portobello bedroom/porch keys. `portobello_manager` remains outside scope and the office opportunity remains blocked. Corrected Rich is continuity polish on already-PASS hookah surfaces. Engineering integration, Presentation Director mapping and runtime QA are separately required before any runtime movement.
+The five new frozen masters create pending Engineering opportunities for the Portobello office, NAIJA MART register conversation, two ocean-floor soul screens, two training fights and Buckhead combat. Engineering integration, Presentation Director mapping where applicable and runtime visual QA are separately required before any runtime movement.
 
 ## Frozen scope
 
-The six fictional family anchors are frozen only in their submitted roles. No names, additional states, personalities, likeness claims or further family canon are inferred. Portobello Rich remains the frozen intentional short-hair variant. Laptop Rich remains watch-only and unchanged.
+Each asset is frozen only in its submitted role and state. Portobello Manager and Auntie gain no invented biography; Ocean Soul remains anonymous and reuses one design; Training Dummy remains a non-person combat object; Buckhead is frozen only as the accepted combat-capable neutral identity anchor. The final Buckhead candidate supersedes the earlier visual concern, but both prior attempts remain rejected history and cannot be promoted.
 
-The accepted Rich correction preserves the compact loc mass, shades, warm face, green earring, black fit, bright shoe grammar, seated hookah/hose function, 80×96 cell, binary alpha and contact `(40,88)` exactly as reviewed.
+ART SHIP 013's 219-file frozen base remains byte-identical. Hookah Rich, laptop Rich, Portobello Rich, family assets, Royal Glitch, PLAYMAKERS, SEALED material and audio remain unchanged.
 
 ## Exclusions confirmed
 
-No runtime/gameplay JavaScript, Presentation Director mapping, PASS/HOLD status, ART SHIP 012 work, Buckhead, laptop Rich, Portobello Rich, Portobello manager, additional family identity, nightlife population, Royal Glitch, PLAYMAKERS, SEALED/HQ-only content or audio was changed. No merge or deployment was performed.
+No runtime/gameplay JavaScript, Presentation Director mapping, PASS/HOLD status, merge or deployment was changed. No rejected Buckhead candidate was promoted.
 
 ## Stop
 
-**ART SHIP 013 — APPROVED MASTER / FROZEN / COMPLETE — READY FOR HQ HANDOFF. Do not self-authorize the next Art Ship.**
+**ART SHIP 012 CLOSEOUT — APPROVED MASTER / FROZEN / COMPLETE. Do not runtime-integrate, merge or deploy from this Art closure.**

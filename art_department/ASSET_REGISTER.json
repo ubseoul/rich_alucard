@@ -9046,6 +9046,178 @@
       },
       "supersedes_at_runtime_mapping": "rich.hookah_seated",
       "authorized_delta_evidence": "art_department/ships/art_ship_013/SOURCE_PRESERVATION_EVIDENCE.json"
+    },
+    {
+      "path": "assets/before_the_fame/characters/portobello_manager/portobello_manager_neutral_80x96.png",
+      "sha256": "0e69dc024e59fc9dbd5bed7944081fbc9f83226ba44d7c9c16b3c9b6d68ff26c",
+      "role": "approved Portobello office-manager identity anchor",
+      "status": "FROZEN",
+      "default_style_reference": true,
+      "approval_evidence": [
+        "art_department/APPROVAL_LEDGER.md",
+        "art_department/ships/art_ship_012_closeout/ART_SHIP_MANIFEST.json",
+        "art_department/ships/art_ship_012_closeout/HQ_DECISION.md",
+        "art_department/ships/art_ship_012_closeout/PROMOTION_EVIDENCE.json",
+        "art_department/ships/art_ship_012_closeout/SOURCE_PRESERVATION_EVIDENCE.json"
+      ],
+      "dimensions": [80, 96],
+      "mode": "RGBA",
+      "ship_id": "ART SHIP 012 CLOSEOUT",
+      "asset_id": "portobello_manager",
+      "category": "CHARACTER_ANCHOR",
+      "state": "neutral/conversation standing anchor",
+      "source_anchor": [40, 88],
+      "presentation_scale": null,
+      "approval_status": "APPROVED MASTER",
+      "alpha": [0, 255],
+      "freeze_scope": "Exact Ube/HQ-accepted 80x96 candidate pixels, RGBA binary alpha and contact (40,88) for the submitted Portobello office-manager role only. No additional biography, state or Portobello redesign is inferred. Runtime integration, Presentation Director mapping, PASS/HOLD movement, merge and deployment are excluded.",
+      "runtime_surfaces": [
+        "portobello_office|left:rich_portobello@presenting,right:portobello_manager"
+      ],
+      "runtime_integration_status": "PENDING ENGINEERING INTEGRATION AND RUNTIME QA",
+      "source_candidate": {
+        "commit": "da2c251be814a91fe89154d7a9fac02770e4f66d",
+        "path": "art_department/ships/art_ship_012_closeout/candidates/native/characters/portobello_manager_neutral_80x96.png",
+        "sha256": "0e69dc024e59fc9dbd5bed7944081fbc9f83226ba44d7c9c16b3c9b6d68ff26c"
+      }
+    },
+    {
+      "path": "assets/before_the_fame/characters/auntie/auntie_register_neutral_80x96.png",
+      "sha256": "cf5ae278f87c9a339ac15c115f9a754f78cd58d6efa2e289515f90036ae9836e",
+      "role": "approved NAIJA MART register-auntie identity anchor",
+      "status": "FROZEN",
+      "default_style_reference": true,
+      "approval_evidence": [
+        "art_department/APPROVAL_LEDGER.md",
+        "art_department/ships/art_ship_012_closeout/ART_SHIP_MANIFEST.json",
+        "art_department/ships/art_ship_012_closeout/HQ_DECISION.md",
+        "art_department/ships/art_ship_012_closeout/PROMOTION_EVIDENCE.json",
+        "art_department/ships/art_ship_012_closeout/SOURCE_PRESERVATION_EVIDENCE.json"
+      ],
+      "dimensions": [80, 96],
+      "mode": "RGBA",
+      "ship_id": "ART SHIP 012 CLOSEOUT",
+      "asset_id": "auntie",
+      "category": "CHARACTER_ANCHOR",
+      "state": "neutral/register conversation anchor",
+      "source_anchor": [40, 88],
+      "presentation_scale": null,
+      "approval_status": "APPROVED MASTER",
+      "alpha": [0, 255],
+      "freeze_scope": "Exact Ube/HQ-accepted 80x96 candidate pixels, RGBA binary alpha and contact (40,88) for the NAIJA MART register role only. No additional biography or story is inferred. Runtime integration, Presentation Director mapping, PASS/HOLD movement, merge and deployment are excluded.",
+      "runtime_surfaces": [
+        "naija_mart|left:rich,right:auntie"
+      ],
+      "runtime_integration_status": "PENDING ENGINEERING INTEGRATION AND RUNTIME QA",
+      "source_candidate": {
+        "commit": "da2c251be814a91fe89154d7a9fac02770e4f66d",
+        "path": "art_department/ships/art_ship_012_closeout/candidates/native/characters/auntie_register_neutral_80x96.png",
+        "sha256": "cf5ae278f87c9a339ac15c115f9a754f78cd58d6efa2e289515f90036ae9836e"
+      }
+    },
+    {
+      "path": "assets/before_the_fame/characters/ocean_soul/ocean_soul_climbing_80x96.png",
+      "sha256": "21b21879c070ba61944091683201eb89c57a18e05731f66f5fce3e687ed8dbd1",
+      "role": "approved anonymous drowned-soul climbing-compatible anchor",
+      "status": "FROZEN",
+      "default_style_reference": true,
+      "approval_evidence": [
+        "art_department/APPROVAL_LEDGER.md",
+        "art_department/ships/art_ship_012_closeout/ART_SHIP_MANIFEST.json",
+        "art_department/ships/art_ship_012_closeout/HQ_DECISION.md",
+        "art_department/ships/art_ship_012_closeout/PROMOTION_EVIDENCE.json",
+        "art_department/ships/art_ship_012_closeout/SOURCE_PRESERVATION_EVIDENCE.json"
+      ],
+      "dimensions": [80, 96],
+      "mode": "RGBA",
+      "ship_id": "ART SHIP 012 CLOSEOUT",
+      "asset_id": "soul",
+      "category": "CHARACTER_EXTRA_ANCHOR",
+      "state": "neutral/climbing-compatible anonymous human anchor",
+      "source_anchor": [40, 88],
+      "presentation_scale": null,
+      "approval_status": "APPROVED MASTER",
+      "alpha": [0, 255],
+      "freeze_scope": "Exact Ube/HQ-accepted 80x96 candidate pixels, RGBA binary alpha and contact (40,88) for reuse as an anonymous drowned-soul extra. No named identity, gore, variant design or additional canon is inferred. Runtime integration, Presentation Director mapping, PASS/HOLD movement, merge and deployment are excluded.",
+      "runtime_surfaces": [
+        "ocean_floor|farLeft:soul,farRight:soul,mid:rich",
+        "ocean_floor_collapsed|farLeft:soul,farRight:soul,mid:rich"
+      ],
+      "runtime_integration_status": "PENDING ENGINEERING INTEGRATION AND RUNTIME QA",
+      "source_candidate": {
+        "commit": "da2c251be814a91fe89154d7a9fac02770e4f66d",
+        "path": "art_department/ships/art_ship_012_closeout/candidates/native/characters/ocean_soul_climbing_80x96.png",
+        "sha256": "21b21879c070ba61944091683201eb89c57a18e05731f66f5fce3e687ed8dbd1"
+      }
+    },
+    {
+      "path": "assets/before_the_fame/characters/training_dummy/training_dummy_combat_80x96.png",
+      "sha256": "e30e3189af01afdd05300fc913ea541aab0e0f1f8c88704a094afac2b5f9face",
+      "role": "approved generic battered fantasy training-dummy combat anchor",
+      "status": "FROZEN",
+      "default_style_reference": true,
+      "approval_evidence": [
+        "art_department/APPROVAL_LEDGER.md",
+        "art_department/ships/art_ship_012_closeout/ART_SHIP_MANIFEST.json",
+        "art_department/ships/art_ship_012_closeout/HQ_DECISION.md",
+        "art_department/ships/art_ship_012_closeout/PROMOTION_EVIDENCE.json",
+        "art_department/ships/art_ship_012_closeout/SOURCE_PRESERVATION_EVIDENCE.json"
+      ],
+      "dimensions": [80, 96],
+      "mode": "RGBA",
+      "ship_id": "ART SHIP 012 CLOSEOUT",
+      "asset_id": "training_dummy",
+      "category": "COMBAT_OBJECT_ANCHOR",
+      "state": "combat/default",
+      "source_anchor": [40, 88],
+      "presentation_scale": null,
+      "approval_status": "APPROVED MASTER",
+      "alpha": [0, 255],
+      "freeze_scope": "Exact Ube/HQ-accepted 80x96 candidate pixels, RGBA binary alpha and contact (40,88) for the generic training-fight object only. It is not a person or character identity. Runtime integration, Presentation Director mapping, PASS/HOLD movement, merge and deployment are excluded.",
+      "runtime_surfaces": [
+        "combat:training@maul",
+        "combat:training@throne"
+      ],
+      "runtime_integration_status": "PENDING ENGINEERING INTEGRATION AND RUNTIME QA",
+      "source_candidate": {
+        "commit": "da2c251be814a91fe89154d7a9fac02770e4f66d",
+        "path": "art_department/ships/art_ship_012_closeout/candidates/native/characters/training_dummy_combat_80x96.png",
+        "sha256": "e30e3189af01afdd05300fc913ea541aab0e0f1f8c88704a094afac2b5f9face"
+      }
+    },
+    {
+      "path": "assets/before_the_fame/characters/buckhead/buckhead_vampire_neutral_80x96.png",
+      "sha256": "710bede4d4372f20cd27956313d6589df528c3ec9b795b3c4e5cc996ea033b97",
+      "role": "approved Buckhead vampire combat-capable identity anchor",
+      "status": "FROZEN",
+      "default_style_reference": true,
+      "approval_evidence": [
+        "art_department/APPROVAL_LEDGER.md",
+        "art_department/ships/art_ship_012_closeout/ART_SHIP_MANIFEST.json",
+        "art_department/ships/art_ship_012_closeout/HQ_DECISION.md",
+        "art_department/ships/art_ship_012_closeout/PROMOTION_EVIDENCE.json",
+        "art_department/ships/art_ship_012_closeout/SOURCE_PRESERVATION_EVIDENCE.json"
+      ],
+      "dimensions": [80, 96],
+      "mode": "RGBA",
+      "ship_id": "ART SHIP 012 CLOSEOUT",
+      "asset_id": "buckhead",
+      "category": "CHARACTER_ANCHOR",
+      "state": "combat-capable neutral anchor",
+      "source_anchor": [40, 88],
+      "presentation_scale": null,
+      "approval_status": "APPROVED MASTER",
+      "alpha": [0, 255],
+      "freeze_scope": "Exact Ube Taste Pass/HQ-accepted 80x96 candidate pixels, RGBA binary alpha and contact (40,88) for the submitted Buckhead vampire role only. The previous two candidates remain rejected provenance. No additional story, state or vampire canon is inferred. Runtime integration, Presentation Director mapping, PASS/HOLD movement, merge and deployment are excluded.",
+      "runtime_surfaces": [
+        "combat:buckhead@lennox"
+      ],
+      "runtime_integration_status": "PENDING ENGINEERING INTEGRATION AND RUNTIME QA",
+      "source_candidate": {
+        "commit": "da2c251be814a91fe89154d7a9fac02770e4f66d",
+        "path": "art_department/ships/art_ship_012_closeout/candidates/native/characters/buckhead_vampire_neutral_80x96.png",
+        "sha256": "710bede4d4372f20cd27956313d6589df528c3ec9b795b3c4e5cc996ea033b97"
+      }
     }
   ]
 }
