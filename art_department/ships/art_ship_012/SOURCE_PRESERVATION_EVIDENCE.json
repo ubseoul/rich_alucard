@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "ship_id": "ART SHIP 012",
+  "base_commit": "c6a49410e558be34aa44703015556c00a4e592c9",
+  "source_renders_preserved": true,
+  "source_render_count": 5,
+  "native_candidate_count": 5,
+  "deterministic_transform": "art_department/ships/art_ship_012/tools/build_candidates.py",
+  "frozen_assets_checked": 212,
+  "frozen_hash_failures": 0,
+  "frozen_assets_overwritten": 0,
+  "runtime_files_changed": 0,
+  "environment_masters_modified": 0,
+  "sealed_material_accessed": false,
+  "playmakers_material_accessed": false,
+  "review_composites_are_production_assets": false
+}

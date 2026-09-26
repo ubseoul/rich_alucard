@@ -1,10 +1,14 @@
-# Current OPEN Art gaps — Ship 010 frozen reconciliation
+# Current OPEN Art gaps — Ship 012 candidate reconciliation
 
 **As of:** 2026-09-26
 
-**Frozen pixel authority:** ART SHIP 010 promotion records
+**Frozen pixel authority:** ART SHIP 011 promotion records
 
-**Runtime/art-integration authority:** `origin/claude/art-ship-009-integration` at `5af730a132c035f6f2f5afb20eef5149ca3f2761`
+**Runtime/art-integration authority:** `origin/claude/art-ship-010-integration` at `8eab30dc790071ec8da98f65311e2b4676fabad0`
+
+## ART SHIP 012 candidate coverage
+
+ART SHIP 012 supplies five **CANDIDATE — HQ REVIEW REQUIRED** anchors for `portobello_manager`, `auntie`, `soul`, `training_dummy` and `buckhead`. They cover dependencies on seven held surfaces. None is approved, frozen or runtime-integrated, so current PASS/HOLD status does not move. `portobello_wife`, `portobello_kid1` and `portobello_kid2` remain excluded and blocked.
 
 This map uses the live post–Ship 008 Integration Matrix. Historical Rough Complete and pre-integration counts remain provenance only.
 
@@ -64,8 +68,9 @@ Current demand still includes twelve identity slots without approved art:
 
 - Family details/likeness remain Ube-owned: **BLOCKED BY CANON**.
 - `god` is culturally sensitive and needs exact-card, named authorization: **BLOCKED BY CANON / NAMED REVIEW**.
-- `buckhead` and `og_hooper` remain underspecified accepted deferrals: **BLOCKED BY CANON**.
-- Portobello wife, kid1, kid2 and manager have no committed OPEN/GUIDED visual cards: **BLOCKED BY CANON**.
+- `og_hooper` remains an underspecified accepted deferral: **BLOCKED BY CANON**.
+- `buckhead` and `portobello_manager` now have named ART SHIP 012 authority and candidate anchors pending HQ review; they are not yet approved art.
+- Portobello wife, kid1 and kid2 remain without committed OPEN/GUIDED visual cards: **BLOCKED BY CANON**.
 - Other ad-hoc runtime extras and neutral groups remain unresolved coverage; do not invent canon-sensitive identities.
 
 ## Derivative states still open
@@ -104,4 +109,4 @@ Audio dependencies remain outside Art scope.
 
 The Ship 009 forecast remains approximately **111 PASS / 10 HOLD** after its 12 assets and zero-pixel reuse are integrated and QA-accepted. For Ship 010, the rooftop candidate may clear one held screen, moving the current **105 PASS / 16 HOLD** baseline to approximately **106 PASS / 15 HOLD**. The five Portobello screens remain blocked by the four canon-sensitive companion identities and PD-W1-04 review. These are forecasts only; current runtime truth remains **105 PASS / 16 HOLD**.
 
-**Recommended next step:** Engineering integrates the 16 pending frozen Ship 009/010 assets and mappings, performs Presentation Director review including PD-W1-04, and refreshes the Integration Matrix/runtime visual QA before any PASS/HOLD update or new Art Ship.
+**Recommended next step:** HQ reviews the five exact ART SHIP 012 candidates. If accepted, record explicit promotion/freeze before any Engineering integration or PASS/HOLD update.

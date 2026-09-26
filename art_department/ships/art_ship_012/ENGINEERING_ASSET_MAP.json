@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "ship_id": "ART SHIP 012",
+  "status": "PROPOSED — CANDIDATE ART ONLY",
+  "mappings": [
+    {"runtime_asset_id": "portobello_manager", "state": "default", "candidate_path": "art_department/ships/art_ship_012/candidates/native/characters/portobello_manager_neutral_80x96.png", "destination": "characters.portobello_manager.default", "contact": [40, 88]},
+    {"runtime_asset_id": "auntie", "state": "default", "candidate_path": "art_department/ships/art_ship_012/candidates/native/characters/auntie_register_neutral_80x96.png", "destination": "characters.auntie.default", "contact": [40, 88]},
+    {"runtime_asset_id": "soul", "state": "default", "candidate_path": "art_department/ships/art_ship_012/candidates/native/characters/ocean_soul_climbing_80x96.png", "destination": "characters.soul.default", "contact": [40, 88], "reuse": "same sprite may be mirrored by runtime"},
+    {"runtime_asset_id": "training", "state": "default", "candidate_path": "art_department/ships/art_ship_012/candidates/native/characters/training_dummy_combat_80x96.png", "destination": "combatants.training.default", "contact": [40, 88]},
+    {"runtime_asset_id": "buckhead", "state": "default", "candidate_path": "art_department/ships/art_ship_012/candidates/native/characters/buckhead_vampire_neutral_80x96.png", "destination": "combatants.buckhead.default", "contact": [40, 88]}
+  ],
+  "runtime_code_changed": false
+}

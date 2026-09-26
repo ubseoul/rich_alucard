@@ -8,6 +8,7 @@ This repository is the Art Department's institutional memory. **The project reme
 
 ## Current state
 
+- ART SHIP 012 — OPEN HOLD CLEARANCE is **READY FOR HQ REVIEW** on `art/art_ship_012`. It contains exactly five candidate 80×96 anchors: `portobello_manager`, `auntie`, `soul`, `training_dummy` and `buckhead`. None is approved, frozen or runtime-integrated; PASS/HOLD remains unchanged.
 - Runtime/art-integration authority: `origin/claude/art-ship-010-integration` at `8eab30dc790071ec8da98f65311e2b4676fabad0`.
 - ART SHIP 011 is the latest frozen pixel authority. The frozen corpus contains **212 assets**; the Asset Register contains **352 entries**.
 - ART SHIP 004–011 hand off **192 frozen files**. At the current checkpoint, **159 drive runtime**, **9 Ship 011 population-library assets have no runtime assignment**, one historical file is superseded, **12 are handoff/reference sheets**, six approved states have no current scene, four files are mapping-ambiguous, and one prop has no visual surface.
@@ -70,4 +71,4 @@ Only an explicit decision can make a candidate `APPROVED MASTER`; only an explic
 
 At Ship close, update as applicable: `START_HERE.md`, `CURRENT_HANDOFF.md`, the current gap map, `ASSET_REGISTER.json`, `APPROVED_ASSET_INDEX.md`, `APPROVAL_LEDGER.md`, Ship maps/manifests, frozen totals and recommended next priority. Verify frozen hashes, no runtime changes, the zero-upload cold start and a clean scoped tree.
 
-**Current stop point:** ART SHIP 011 is FROZEN / COMPLETE. The nightlife population library remains unassigned; a later World Life / Nightlife integration task must choose actual runtime screens and Presentation Director framing while preserving every recorded placement constraint. Do not infer placement from asset availability, change the 106 PASS / 15 HOLD baseline, merge or deploy from this Art task.
+**Current stop point:** ART SHIP 012 is READY FOR HQ REVIEW. Review the five exact candidate byte streams and their native/4×/context evidence; do not self-approve or self-freeze them. ART SHIP 011 remains the latest frozen authority and its nightlife population library remains unassigned. Do not change the 106 PASS / 15 HOLD baseline, merge or deploy from this Art task.

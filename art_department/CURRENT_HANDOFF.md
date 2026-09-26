@@ -1,63 +1,39 @@
 # Current handoff
 
-**ART SHIP 011 — NIGHTLIFE POPULATION LIBRARY: APPROVED MASTER / FROZEN / COMPLETE.**
+**ART SHIP 012 — OPEN HOLD CLEARANCE: READY FOR HQ REVIEW.**
 
 ## Branch and authority
 
-- Art branch: `art/art_ship_011`.
-- Accepted candidate checkpoint: `28aa98c8ab04a643d175192b1aecb9ae7b372c76`.
-- Production base/runtime authority: `origin/claude/art-ship-010-integration` at `8eab30dc790071ec8da98f65311e2b4676fabad0`.
-- Exploratory source evidence: `art/polish_preproduction_001` at `d8c24b632ecdc134986b4f81ff5d3f3959609eea`.
-- Promotion is exact-byte Art/assets/docs work only. No runtime/gameplay code, merge or deployment was performed.
+- Candidate branch: `art/art_ship_012`.
+- Exact production base: `c6a49410e558be34aa44703015556c00a4e592c9`.
+- Latest frozen pixel authority remains ART SHIP 011 on `art/art_ship_011`.
+- Runtime/art-integration authority remains `origin/claude/art-ship-010-integration` at `8eab30dc790071ec8da98f65311e2b4676fabad0`.
+- No runtime code, merge, deployment, approval or freeze was performed.
 
-## Current runtime truth
+## Candidate package
 
-- Frozen corpus: **212 assets**; Asset Register: **352 entries**.
-- ART SHIP 004–011 frozen registry files: **192**.
-- Runtime-integrated frozen files: **159**.
-- Ship 011 frozen library assets with no runtime assignment: **9**.
-- Historical superseded asset: **1**.
-- Handoff/reference sheets: **12**.
-- Approved states with no current scene: **6**.
-- Mapping-ambiguous files: **4**.
-- Ready asset with no visual surface: **1**.
-- Runtime census: **104 adventure screens + 17 fights**.
-- Final-art result: **106 PASS / 15 HOLD**.
+Five of five authorized anchors are present as 80×96 RGBA binary-alpha candidates with contact `(40,88)`:
 
-`docs/art_integration/README.md`, `docs/art_integration/INTEGRATION_MATRIX.json` and `docs/presentation/NEEDS_CREATIVE.md` remain current implementation authority. Ship 011 freeze changes none of those runtime statuses.
+- `portobello_manager.neutral`
+- `auntie.register_neutral`
+- `soul.climbing`
+- `training_dummy.combat_neutral`
+- `buckhead.combat_neutral`
 
-## Ship 011 frozen package
+All generated sources are preserved. Native exports, source/candidate hashes, provenance, Asset Register candidate records, Runtime Demand Map, Engineering mappings, state definitions, technical facts, five review boards and validation live under `art_department/ships/art_ship_012/`.
 
-All nine HQ-approved candidate byte streams were frozen without regeneration, redraw, resizing, retouching, palette change, re-encoding or reinterpretation:
+## Runtime truth and forecast
 
-- three single-adult fragments: dancer, performer and bartender;
-- three adult pair fragments: queue, dancing and affectionate;
-- one three-adult seated hookah-lounge group with included furniture;
-- one six-adult dense cluster;
-- one three-adult foreground silhouette group.
+- Frozen corpus remains **212 assets**; ART SHIP 011 remains the latest frozen authority.
+- Runtime census remains **104 adventure screens + 17 fights**, **106 PASS / 15 HOLD**.
+- The five candidates supply dependencies on seven held surfaces: Portobello office ×1, NAIJA MART ×1, ocean floor ×2, training fights ×2 and Buckhead fight ×1.
+- This is not HOLD resolution. HQ approval, explicit freeze, Engineering integration and runtime Presentation QA are still required.
+- Portobello wife and children remain outside scope; the manager candidate cannot clear those screens.
 
-Every production hash equals its approved candidate hash. The complete frozen corpus verifies **212/212**, and all **18/18** exploratory selected-source/native hashes remain intact at the recorded source commit.
+## Immutable boundaries
 
-## Frozen IDs and placement constraints
-
-- `nightlife_population.dancer`: dance-floor side pocket; named-actor clearance.
-- `nightlife_population.performer`: credible stage/performance context; non-explicit adult presentation.
-- `nightlife_population.queue_pair`: preserve as a pair; keep entrances and named actors clear.
-- `nightlife_population.dancing_pair`: needs a wide side-floor pocket.
-- `nightlife_population.affectionate_pair`: anonymous adult background behavior only.
-- `nightlife_population.bartender`: requires a credible bar/service context; never free-floating.
-- `nightlife_population.hookah_lounge`: included hookah, table and seats; do not duplicate furniture.
-- `nightlife_population.dense_cluster`: one-off density tool; never tile or repeat as wallpaper.
-- `nightlife_population.foreground_silhouettes`: high occlusion risk; peripheral/deliberate foreground placement only; keep named actors and UI clear.
-
-## Integration boundary
-
-- No Ship 011 asset is assigned to a runtime screen.
-- The Runtime Demand Map intentionally lists no current surfaces, no Engineering destination and no HOLD cleared.
-- Presentation Director retains final framing authority; source pixels remain native.
-- Existing environment composites remain review evidence only. No environment master was changed or baked with population art.
-- Future World Life / Nightlife integration requires a separate runtime-demand and framing decision.
+No ART SHIP 011 frozen pixel, approved environment, Rich asset, Hookah Rich asset or runtime JavaScript changed. No family member, nightlife extension, PLAYMAKERS or SEALED/HQ-only art was generated. Context composites are review-only and do not alter environment masters.
 
 ## Stop
 
-**STOP. ART SHIP 011 is FROZEN / COMPLETE. Do not infer runtime placement from asset availability. Do not merge or deploy from this Art task.**
+**STOP. ART SHIP 012 is READY FOR HQ REVIEW. Do not self-freeze, change PASS/HOLD, merge or deploy.**
