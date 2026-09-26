@@ -48,7 +48,10 @@
   // ART SHIP 009 masters (Art proposed contact line y=372; each checked with the live cast on the line at base depth 1).
   atl_house_party:env('atl_house_party'),la_sky:env('la_sky'),naija_lot:env('naija_lot'),neighbor_castle:env('neighbor_castle'),
   portobello_bedroom:env('portobello_bedroom'),portobello_office:env('portobello_office'),portobello_porch:env('portobello_porch'),
-  rooftop_dtla:env('rooftop_dtla'),tokyo_tease:env('tokyo_tease'),
+  // ART SHIP 010 (NC-FA-12): additive exact-origin party-crowd condition, surface-scoped to `rooftop_dtla|left:rich`.
+  // Draw order: frozen base -> party crowd condition -> named actors -> UI (condition layers always draw below actors).
+  // The layer leaves the protected Rich corridor (x=38..110, y=196..371) clear; the frozen rooftop master is unchanged.
+  rooftop_dtla:env('rooftop_dtla',{conditions:['party_crowd_condition']}),tokyo_tease:env('tokyo_tease'),
   // ART SHIP 009 approved zero-pixel reuse (AS9-REUSE-LAN-NIGHT): `lan_night` is the same authored location as
   // `tristan_apt` (Tristan's apartment at night), so it presents that exact frozen master. Only registry `aliases`
   // may share a master this way; the runtime id keeps its own display name.

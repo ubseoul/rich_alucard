@@ -4,12 +4,18 @@
  const {R,S,N,E}=RAContent;const D=RAAdventures.define;
 
  // A30 — BAD PORTOBELLOS. Rich lives a whole ordinary, good life, then wakes up screaming.
+ // ART SHIP 010: `rich_portobello` now resolves frozen art (standing/default, presenting, porch_seated) through
+ // js/data/btf/people.js + the Art Registry; the office/porch beats name their approved state explicitly. The
+ // wife/kids/manager stay RAPixel placeholders — BLOCKED BY CANON (NC-FA-07): no committed visual card exists for
+ // any of them, so no art is invented here.
  const RICH_PORTO={id:'rich_portobello',look:{skin:'#6a4028',top:'#c8b89a',bottom:'#5a4a3a',hair:'#3a2418',hairShape:'short',shades:false,accent:'#20c66b'}};
+ const RICH_PORTO_PRESENTING={...RICH_PORTO,state:'presenting'};
+ const RICH_PORTO_PORCH={...RICH_PORTO,state:'porch_seated'};
  const PORTO_WIFE={id:'portobello_wife',look:{skin:'#e0b896',top:'#d8a0b0',bottom:'#2a2a38',hair:'#3a2010',hairShape:'long'}};
  const PORTO_KID1={id:'portobello_kid1',look:{skin:'#c99a78',top:'#7ad0a0',bottom:'#3a3a3a',hair:'#2a1810',hairShape:'bun',height:.6}};
  const PORTO_KID2={id:'portobello_kid2',look:{skin:'#c99a78',top:'#f0c060',bottom:'#3a3a3a',hair:'#2a1810',hairShape:'spiky',height:.55}};
  const PORTO_MGR={id:'portobello_manager',look:{skin:'#d8b090',top:'#3a3a4a',bottom:'#1f2a44',hair:'#5a4a3a',hairShape:'hat'}};
- const kpiRound=(n,next)=>({env:'portobello_office',actors:{left:RICH_PORTO,right:PORTO_MGR},
+ const kpiRound=(n,next)=>({env:'portobello_office',actors:{left:RICH_PORTO_PRESENTING,right:PORTO_MGR},
   lines:[N(`SLIDE ${n}.`),S('portobello_manager','walk us through it.')],
   choices:[{label:'THE BAR CHART — REGIONAL GROWTH',next},{label:'THE LINE — QUARTER OVER QUARTER',next},{label:'THE PIE — MARKET SHARE',next}]});
  D({id:'A30',title:'BAD PORTOBELLOS',lane:'life',scope:'MUST',start:'wake',legend:false,nodes:{
@@ -19,11 +25,11 @@
    lines:[N('eggs. a mazda in the driveway — an actual, regular car. two kids arguing about cereal.'),S('portobello_wife',"you're gonna be late."),R("i'm never late.")],next:'commute'},
   commute:{lines:[N('the commute is fine. the radio plays something forgettable. it is a good song anyway.')],next:'kpi1'},
   kpi1:kpiRound(1,'kpi2'),kpi2:kpiRound(2,'kpi3'),kpi3:kpiRound(3,'approve'),
-  approve:{env:'portobello_office',actors:{left:RICH_PORTO,right:PORTO_MGR},
+  approve:{env:'portobello_office',actors:{left:RICH_PORTO_PRESENTING,right:PORTO_MGR},
    lines:[N('the room nods. actual nods.'),S('portobello_manager',"rich, that's... that's really good work."),R('i know my numbers.')],next:'bedtime'},
   bedtime:{env:'portobello_bedroom',actors:{mid:RICH_PORTO,left:PORTO_KID1,right:PORTO_KID2},
    lines:[N('bath. teeth. a book about a dragon that is not real.'),S('portobello_kid1','one more chapter?'),R('one more chapter.')],next:'porch'},
-  porch:{env:'portobello_porch',actors:{left:RICH_PORTO,right:PORTO_WIFE},
+  porch:{env:'portobello_porch',actors:{left:RICH_PORTO_PORCH,right:PORTO_WIFE},
    lines:[N('the sky goes orange, then grey. she leans on his shoulder.'),S('portobello_wife','good day?'),R('good day.'),N('it is a good life. nothing here is a joke on him.')],next:'bed'},
   bed:{env:'portobello_bedroom',actors:{mid:RICH_PORTO,left:PORTO_WIFE},
    lines:[R('what if.'),N('black.')],next:'wakeup'},

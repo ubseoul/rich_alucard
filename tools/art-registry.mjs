@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// Generates js/data/art_registry.js — the canonical runtime Art Registry for the frozen ART SHIP 004–009 corpus.
+// Generates js/data/art_registry.js — the canonical runtime Art Registry for the frozen ART SHIP 004–010 corpus.
 // Source of truth: each Ship's ART_SHIP_MANIFEST.json (paths, ids, categories, anchors, derivations) cross-checked
 // against art_department/ASSET_REGISTER.json (status FROZEN + sha256) and the actual bytes on disk.
 // ART SHIP 008 onward: runtime ids, layer names and activation surfaces come from the Ship's ENGINEERING_ASSET_MAP.json
@@ -15,7 +15,7 @@ import {decodePng} from './presentation/png.mjs';
 
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const target=path.join(root,'js/data/art_registry.js');
-export const SHIPS=['art_ship_004','art_ship_005','art_ship_006','art_ship_007','art_ship_008','art_ship_009'];
+export const SHIPS=['art_ship_004','art_ship_005','art_ship_006','art_ship_007','art_ship_008','art_ship_009','art_ship_010'];
 const json=async rel=>JSON.parse(await readFile(path.join(root,rel),'utf8'));
 const sorted=obj=>Object.fromEntries(Object.entries(obj).sort(([a],[b])=>a.localeCompare(b)).map(([k,v])=>[k,v&&typeof v==='object'&&!Array.isArray(v)?sorted(v):v]));
 
@@ -140,6 +140,57 @@ async function ship009(f,png,out,character,register){
  }
  throw new Error(`${f.path}: unknown ART SHIP 009 asset type ${m.asset_type}`);
 }
+// ART SHIP 010: identical contract discipline, from its ENGINEERING_ASSET_MAP `maps` (runtime_key + surfaces per
+// candidate) and STATE_LAYER_DEFINITIONS `states`/`layers` (existence only; contacts/origin come from the frozen
+// register entry, which the generic loop has already verified matches the manifest sha256). `people.<id>.default`
+// creates a new named identity anchor (distinct from `rich`); `people.<id>.states.<state>` adds an approved state to
+// that same identity; `environments.<env>.layers.<layer>` adds an exact-origin condition layer over an existing
+// frozen environment master.
+let ship010Maps=null;
+async function loadShip010(){
+ const eng=await json('art_department/ships/art_ship_010/ENGINEERING_ASSET_MAP.json'),defs=await json('art_department/ships/art_ship_010/STATE_LAYER_DEFINITIONS.json');
+ const prefix='art_department/ships/art_ship_010/',by=(arr,key)=>Object.fromEntries(arr.map(x=>[prefix+x[key],x]));
+ ship010Maps={eng:by(eng.maps,'candidate'),states:by(defs.states,'candidate'),layers:by(defs.layers,'candidate')};
+}
+async function ship010(f,png,out,character,reg){
+ const m=ship010Maps.eng[f.candidate_path];
+ if(!m)throw new Error(`${f.path}: ART SHIP 010 file without an Engineering Asset Map entry`);
+ if(!binaryAlpha(png))throw new Error(`${f.path}: alpha is not binary`);
+ let k;
+ if((k=m.runtime_key.match(/^people\.([a-z_0-9]+)\.default$/))){
+  const id=k[1];
+  if(!ship010Maps.states[f.candidate_path])throw new Error(`${f.path}: missing state definition for ${id}`);
+  const contact=reg[f.path].source_anchor;if(!contact)throw new Error(`${f.path}: no contact anchor recorded in the register`);
+  const c=character(id);
+  if(c.anchor)throw new Error(`${f.path}: ${id} already has a frozen identity anchor`);
+  c.anchor=f.path;c.anchorPose='default';c.cell=[png.width,png.height];c.contact=contact;c.states.default=f.path;
+  return;
+ }
+ if((k=m.runtime_key.match(/^people\.([a-z_0-9]+)\.states\.([a-z_0-9]+)$/))){
+  const [,id,state]=k;
+  if(!ship010Maps.states[f.candidate_path])throw new Error(`${f.path}: missing state definition for ${id}.${state}`);
+  const c=character(id);
+  if(!c.anchor)throw new Error(`${f.path}: ${id} has no frozen identity anchor yet`);
+  const contact=reg[f.path].source_anchor;
+  if(String(contact)!==String(c.contact))throw new Error(`${f.path}: contact ${contact} disagrees with ${id} anchor contact ${c.contact}`);
+  if(c.states[state])throw new Error(`${f.path}: ${id}.${state} already registered`);
+  c.states[state]=f.path;
+  return;
+ }
+ if((k=m.runtime_key.match(/^environments\.([a-z_0-9]+)\.layers\.([a-z_0-9]+)$/))){
+  const [,envId,layer]=k,e=out.environments[envId],ldef=ship010Maps.layers[f.candidate_path];
+  if(!ldef)throw new Error(`${f.path}: missing layer definition for ${envId}.${layer}`);
+  if(!e||!e.asset)throw new Error(`${f.path}: environment ${envId} has no frozen master yet`);
+  if(String(ldef.origin)!=='0,0')throw new Error(`${f.path}: layer without an exact (0,0) origin contract`);
+  const base=decodePng(await readFile(path.join(root,e.asset)));
+  if(base.width!==png.width||base.height!==png.height)throw new Error(`${f.path}: exact-origin layer size differs from its base ${e.asset}`);
+  if(e.layers?.[layer])throw new Error(`${f.path}: layer ${envId}.${layer} already registered`);
+  const surfaces=m.surfaces.filter(s=>!s.startsWith('minigame:'));
+  e.layers={...(e.layers||{}),[layer]:f.path};e.surfaces={...(e.surfaces||{}),[layer]:surfaces};
+  return;
+ }
+ throw new Error(`${f.path}: unsupported ART SHIP 010 key ${m.runtime_key}`);
+}
 function ship009Reuse(out,manifest){
  for(const r of ship009Maps.reuse){
   const target=r.engineering_mapping.reuse_registry_id,k=r.engineering_mapping.key.match(/^environments\.([a-z_0-9]+)$/),e=out.environments[target];
@@ -153,7 +204,7 @@ function ship009Reuse(out,manifest){
 }
 
 export async function buildRegistry(){
- await loadShip008();await loadShip009();
+ await loadShip008();await loadShip009();await loadShip010();
  const register=(await json('art_department/ASSET_REGISTER.json')).assets;
  const reg=Object.fromEntries(register.map(a=>[a.path,a]));
  const out={environments:{},characters:{},creatures:{},props:{},vehicles:{},ui:{},sheets:{},assets:{}};
@@ -178,6 +229,7 @@ export async function buildRegistry(){
   const cat=f.category||(SHIP_004_IDS[f.path]?.kind||'').toUpperCase();
   const id=f.open_id||f.asset_id;
   const character=(cid)=>out.characters[cid]||(out.characters[cid]={anchor:null,anchorPose:null,cell:null,contact:null,states:{}});
+  if(ship==='art_ship_010'){await ship010(f,png,out,character,reg);continue;}
   if(ship==='art_ship_009'){await ship009(f,png,out,character,reg);continue;}
   if(ship==='art_ship_008'){ship008(f,png,/LAYER$/.test(f.asset_type)?await ship008Base(f):null,out,character);continue;}
   if(ship==='art_ship_004'){
@@ -215,7 +267,7 @@ export async function buildRegistry(){
 export async function expectedRegistry(){
  const r=await buildRegistry();
  const counts=Object.fromEntries(['environments','characters','creatures','props','sheets'].map(k=>[k,Object.keys(r[k]).length]));
- return `(function(){\n // GENERATED by tools/art-registry.mjs from the ART SHIP 004–009 manifests + ASSET_REGISTER.json — do not edit by hand.\n // Canonical frozen art by runtime id. Every path is FROZEN in the register with a verified sha256; pixels are never modified.\n // Handoff state sheets are listed for provenance only: runtime placement uses the individual masters.\n // ${Object.keys(r.assets).length} frozen files: ${JSON.stringify(counts)}\n window.RAArtRegistry=${JSON.stringify(r,null,1).replace(/\n/g,'\n ')};\n})();\n`;
+ return `(function(){\n // GENERATED by tools/art-registry.mjs from the ART SHIP 004–010 manifests + ASSET_REGISTER.json — do not edit by hand.\n // Canonical frozen art by runtime id. Every path is FROZEN in the register with a verified sha256; pixels are never modified.\n // Handoff state sheets are listed for provenance only: runtime placement uses the individual masters.\n // ${Object.keys(r.assets).length} frozen files: ${JSON.stringify(counts)}\n window.RAArtRegistry=${JSON.stringify(r,null,1).replace(/\n/g,'\n ')};\n})();\n`;
 }
 
 if(process.argv[1]===fileURLToPath(import.meta.url)){await writeFile(target,await expectedRegistry());console.log('js/data/art_registry.js written');}
