@@ -12,4 +12,4 @@ For each of A01–A09:
 
 No selected-source render or review composite is promoted as a production asset. No frozen asset is used as an editable source, and no environment master is modified.
 
-See `SOURCE_PROVENANCE.json`, `SOURCE_PACKAGE_SHA256SUMS.txt`, `CANDIDATE_SHA256SUMS.txt`, `PRODUCTION_SHA256SUMS.txt` and `PROMOTION_EVIDENCE.json`.
+HQ freeze preserves the exact candidate bytes at checkpoint `28aa98c8ab04a643d175192b1aecb9ae7b372c76`. See `SOURCE_PROVENANCE.json`, `SOURCE_PRESERVATION_EVIDENCE.json`, `SOURCE_PACKAGE_SHA256SUMS.txt`, `CANDIDATE_SHA256SUMS.txt`, `PRODUCTION_SHA256SUMS.txt`, `FROZEN_CORPUS_SHA256SUMS.txt` and `PROMOTION_EVIDENCE.json`.

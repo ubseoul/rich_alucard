@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "ship_id": "ART SHIP 011",
-  "status": "CANDIDATE \u2014 HQ REVIEW REQUIRED",
-  "purpose": "Frozen reusable population-library candidate package; specific runtime screens are intentionally unassigned.",
+  "status": "APPROVED MASTER / FROZEN \u2014 NO RUNTIME ASSIGNMENT",
+  "purpose": "Frozen reusable population library; specific runtime screens remain intentionally unassigned.",
   "runtime_integration_authorized": false,
   "hold_resolution_authorized": false,
   "entries": [
@@ -13,7 +13,7 @@
       "asset_type": "POPULATION_FRAGMENT",
       "state_condition_layer": "side-pocket / dance-floor energy",
       "access": "OPEN",
-      "status": "CANDIDATE \u2014 HQ REVIEW REQUIRED; NO RUNTIME ASSIGNMENT",
+      "status": "APPROVED MASTER / FROZEN \u2014 NO RUNTIME ASSIGNMENT",
       "source": {
         "commit": "d8c24b632ecdc134986b4f81ff5d3f3959609eea",
         "path": "art_department/preproduction/polish_preproduction_001/candidates/native/A01_dancer.png",
@@ -60,7 +60,7 @@
       "asset_type": "POPULATION_FRAGMENT",
       "state_condition_layer": "adult stage/nightlife performer; sensual and non-explicit",
       "access": "OPEN",
-      "status": "CANDIDATE \u2014 HQ REVIEW REQUIRED; NO RUNTIME ASSIGNMENT",
+      "status": "APPROVED MASTER / FROZEN \u2014 NO RUNTIME ASSIGNMENT",
       "source": {
         "commit": "d8c24b632ecdc134986b4f81ff5d3f3959609eea",
         "path": "art_department/preproduction/polish_preproduction_001/candidates/native/A02_performer.png",
@@ -107,7 +107,7 @@
       "asset_type": "POPULATION_FRAGMENT",
       "state_condition_layer": "passive social / arrival pair",
       "access": "OPEN",
-      "status": "CANDIDATE \u2014 HQ REVIEW REQUIRED; NO RUNTIME ASSIGNMENT",
+      "status": "APPROVED MASTER / FROZEN \u2014 NO RUNTIME ASSIGNMENT",
       "source": {
         "commit": "d8c24b632ecdc134986b4f81ff5d3f3959609eea",
         "path": "art_department/preproduction/polish_preproduction_001/candidates/native/A03_queue_pair.png",
@@ -154,7 +154,7 @@
       "asset_type": "POPULATION_FRAGMENT",
       "state_condition_layer": "active partnered movement",
       "access": "OPEN",
-      "status": "CANDIDATE \u2014 HQ REVIEW REQUIRED; NO RUNTIME ASSIGNMENT",
+      "status": "APPROVED MASTER / FROZEN \u2014 NO RUNTIME ASSIGNMENT",
       "source": {
         "commit": "d8c24b632ecdc134986b4f81ff5d3f3959609eea",
         "path": "art_department/preproduction/polish_preproduction_001/candidates/native/A04_dancing_pair.png",
@@ -201,7 +201,7 @@
       "asset_type": "POPULATION_FRAGMENT",
       "state_condition_layer": "adult flirting / affectionate background pair",
       "access": "OPEN",
-      "status": "CANDIDATE \u2014 HQ REVIEW REQUIRED; NO RUNTIME ASSIGNMENT",
+      "status": "APPROVED MASTER / FROZEN \u2014 NO RUNTIME ASSIGNMENT",
       "source": {
         "commit": "d8c24b632ecdc134986b4f81ff5d3f3959609eea",
         "path": "art_department/preproduction/polish_preproduction_001/candidates/native/A05_affectionate_pair.png",
@@ -248,7 +248,7 @@
       "asset_type": "POPULATION_FRAGMENT",
       "state_condition_layer": "bartender / service figure",
       "access": "OPEN",
-      "status": "CANDIDATE \u2014 HQ REVIEW REQUIRED; NO RUNTIME ASSIGNMENT",
+      "status": "APPROVED MASTER / FROZEN \u2014 NO RUNTIME ASSIGNMENT",
       "source": {
         "commit": "d8c24b632ecdc134986b4f81ff5d3f3959609eea",
         "path": "art_department/preproduction/polish_preproduction_001/candidates/native/A06_bartender.png",
@@ -295,7 +295,7 @@
       "asset_type": "POPULATION_FRAGMENT",
       "state_condition_layer": "low seated social group with hookah, table, and seating included",
       "access": "OPEN",
-      "status": "CANDIDATE \u2014 HQ REVIEW REQUIRED; NO RUNTIME ASSIGNMENT",
+      "status": "APPROVED MASTER / FROZEN \u2014 NO RUNTIME ASSIGNMENT",
       "source": {
         "commit": "d8c24b632ecdc134986b4f81ff5d3f3959609eea",
         "path": "art_department/preproduction/polish_preproduction_001/candidates/native/A07_hookah_lounge.png",
@@ -342,7 +342,7 @@
       "asset_type": "POPULATION_FRAGMENT",
       "state_condition_layer": "six-adult crowd-density tool",
       "access": "OPEN",
-      "status": "CANDIDATE \u2014 HQ REVIEW REQUIRED; NO RUNTIME ASSIGNMENT",
+      "status": "APPROVED MASTER / FROZEN \u2014 NO RUNTIME ASSIGNMENT",
       "source": {
         "commit": "d8c24b632ecdc134986b4f81ff5d3f3959609eea",
         "path": "art_department/preproduction/polish_preproduction_001/candidates/native/A08_dense_cluster.png",
@@ -390,7 +390,7 @@
       "asset_type": "POPULATION_FRAGMENT",
       "state_condition_layer": "three-adult foreground/depth silhouette fragment",
       "access": "OPEN",
-      "status": "CANDIDATE \u2014 HQ REVIEW REQUIRED; NO RUNTIME ASSIGNMENT",
+      "status": "APPROVED MASTER / FROZEN \u2014 NO RUNTIME ASSIGNMENT",
       "source": {
         "commit": "d8c24b632ecdc134986b4f81ff5d3f3959609eea",
         "path": "art_department/preproduction/polish_preproduction_001/candidates/native/A09_foreground_silhouettes.png",

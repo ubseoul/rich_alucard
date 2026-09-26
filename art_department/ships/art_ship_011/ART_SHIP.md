@@ -1,6 +1,6 @@
 # ART SHIP 011 — NIGHTLIFE POPULATION LIBRARY
 
-**Status:** CANDIDATE — READY FOR HQ REVIEW
+**Status:** APPROVED MASTER / FROZEN / COMPLETE
 
 **Owner:** Art
 
@@ -11,6 +11,8 @@
 **Exploratory evidence:** `art/polish_preproduction_001` at `d8c24b632ecdc134986b4f81ff5d3f3959609eea`
 
 **Spoiler class:** OPEN
+
+**HQ decision:** Explicit HQ PASS approved all 9/9 exact candidate byte streams at `28aa98c8ab04a643d175192b1aecb9ae7b372c76`. See `HQ_DECISION.md`.
 
 ## Purpose
 
@@ -38,7 +40,7 @@ All assets use origin `(0,0)`, true 8-bit RGBA and alpha values exactly `0/255`.
 
 Nine of nine candidates pass. Zero were rejected. The exploratory candidate, Ship candidate and production-path file are byte-identical for every asset. Deterministic source extraction recreates the exact native pixel arrays. No file was regenerated, redrawn, resized, retouched, palette-shifted or re-encoded.
 
-The production paths remain **CANDIDATE — HQ REVIEW REQUIRED**. Their presence under `assets/` is production staging, not approval, freeze, runtime use or style authority.
+All nine production paths are **APPROVED MASTER / FROZEN** at their exact submitted candidate hashes. The frozen corpus is now **212 assets across 352 Asset Register entries**. Approval and freeze do not grant runtime use or screen placement.
 
 ## Placement authority
 
@@ -61,4 +63,4 @@ No runtime JavaScript, named-character art, Rich state, `rich_hookah_seated`, la
 
 ## Stop point
 
-**ART SHIP 011 — READY FOR HQ REVIEW.** Do not self-award HQ PASS, approve, freeze, integrate, merge or deploy.
+**ART SHIP 011 — FROZEN.** Runtime placement remains unassigned. Do not integrate, merge or deploy from this Art task.

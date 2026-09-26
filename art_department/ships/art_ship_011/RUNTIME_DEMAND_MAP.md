@@ -1,8 +1,8 @@
 # ART SHIP 011 — Runtime demand / use map
 
-**Status:** CANDIDATE — HQ REVIEW REQUIRED; NO RUNTIME ASSIGNMENT
+**Status:** APPROVED MASTER / FROZEN — NO RUNTIME ASSIGNMENT
 
-This is a reusable population-library contract, not a screen-integration plan. All nine entries have `COVERAGE` severity, clear no existing HOLD ticket, and intentionally leave Engineering destination and runtime surfaces unassigned for later World Life / Nightlife integration.
+This is a frozen reusable population-library contract, not a screen-integration plan. All nine entries have `COVERAGE` severity, clear no existing HOLD ticket, and intentionally leave Engineering destination and runtime surfaces unassigned for later World Life / Nightlife integration.
 
 | Request | Stable ID | Type / held state | Source / native contract | Intended future use | Placement constraint |
 |---|---|---|---|---|---|

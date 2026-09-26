@@ -8,11 +8,11 @@ This repository is the Art Department's institutional memory. **The project reme
 
 ## Current state
 
-- Runtime/art-integration authority: `origin/claude/art-ship-008-integration` at `a16196e4fbc0c7530a00bdfe915fb9c9c7cd1826`.
-- ART SHIP 009 is the latest frozen pixel authority. The frozen corpus contains **199 assets**; the Asset Register contains **339 entries**.
-- ART SHIP 004–009 hand off **179 files**. At the current checkpoint, **145 drive runtime**, **12 newly frozen Ship 009 assets await Engineering integration/runtime QA**, one historical file is superseded, **12 are handoff/reference sheets**, four approved states have no current scene, four files are mapping-ambiguous, and one prop has no visual surface.
-- The playable census contains **104 adventure screens + 17 fights**: **98 PASS (final art)** and **23 HOLD**. All automated adventure/fight presentation checks pass; HOLD means missing or incorrect creative coverage, unresolved cast/environment art, or an explicit NEEDS CREATIVE condition—not generic Presentation Director failure.
-- ART SHIP 009 — OPEN RUNTIME COMPLETION is APPROVED MASTER / FROZEN / COMPLETE on `art/art_ship_009`. The package adds nine environment masters, one additive Hollow Bowl companion layer and two seated HOMIES states. The approved `lan_night → tristan_apt` mapping is zero-pixel reuse. Runtime integration and PASS/HOLD movement remain pending Engineering and real Presentation QA; PD-W1-04 remains Presentation Director/HQ-owned.
+- Runtime/art-integration authority: `origin/claude/art-ship-010-integration` at `8eab30dc790071ec8da98f65311e2b4676fabad0`.
+- ART SHIP 011 is the latest frozen pixel authority. The frozen corpus contains **212 assets**; the Asset Register contains **352 entries**.
+- ART SHIP 004–011 hand off **192 frozen files**. At the current checkpoint, **159 drive runtime**, **9 Ship 011 population-library assets have no runtime assignment**, one historical file is superseded, **12 are handoff/reference sheets**, six approved states have no current scene, four files are mapping-ambiguous, and one prop has no visual surface.
+- The playable census contains **104 adventure screens + 17 fights**: **106 PASS (final art)** and **15 HOLD**. All automated adventure/fight presentation checks pass; HOLD means missing or incorrect creative coverage, unresolved cast/environment art, or an explicit NEEDS CREATIVE condition—not generic Presentation Director failure.
+- ART SHIP 011 — NIGHTLIFE POPULATION LIBRARY is APPROVED MASTER / FROZEN / COMPLETE on `art/art_ship_011`. The package adds nine reusable anonymous-adult population fragments with stable IDs and frozen placement constraints. No runtime screen, Presentation Director mapping or HOLD resolution is assigned by this freeze.
 
 ## Authority hierarchy
 
@@ -70,4 +70,4 @@ Only an explicit decision can make a candidate `APPROVED MASTER`; only an explic
 
 At Ship close, update as applicable: `START_HERE.md`, `CURRENT_HANDOFF.md`, the current gap map, `ASSET_REGISTER.json`, `APPROVED_ASSET_INDEX.md`, `APPROVAL_LEDGER.md`, Ship maps/manifests, frozen totals and recommended next priority. Verify frozen hashes, no runtime changes, the zero-upload cold start and a clean scoped tree.
 
-**Current stop point:** ART SHIP 009 is FROZEN / COMPLETE. Recommended next step is Engineering integration of the 12 frozen assets plus the approved zero-pixel `lan_night → tristan_apt` mapping, followed by Presentation Director review (including PD-W1-04) and a fresh Integration Matrix/runtime visual-QA pass. Do not update the 98 PASS / 23 HOLD baseline until that work earns the projected movement. Do not begin another Art Ship until the result refreshes demand; do not merge or deploy from this Art task.
+**Current stop point:** ART SHIP 011 is FROZEN / COMPLETE. The nightlife population library remains unassigned; a later World Life / Nightlife integration task must choose actual runtime screens and Presentation Director framing while preserving every recorded placement constraint. Do not infer placement from asset availability, change the 106 PASS / 15 HOLD baseline, merge or deploy from this Art task.

@@ -20,6 +20,6 @@ Review the exact nine production-staged candidate byte streams. HQ may accept, r
 - A09 is deliberately high-occlusion foreground vocabulary and is not an actor-scale reference.
 - No composite creates an environment master or authorizes a runtime screen.
 
-## Current result
+## Decision recorded
 
-Nine candidates are technically suitable for review; zero are withheld. Status remains **CANDIDATE — HQ REVIEW REQUIRED**.
+HQ approved all nine exact candidate byte streams at checkpoint `28aa98c8ab04a643d175192b1aecb9ae7b372c76`. The review set is closed at **APPROVED MASTER / FROZEN**; runtime placement remains unauthorized.

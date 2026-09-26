@@ -1,5 +1,5 @@
 {
-  "status": "CANDIDATE \u2014 HQ REVIEW REQUIRED",
+  "status": "PASS \u2014 APPROVED MASTER / FROZEN",
   "records": [
     {
       "asset_id": "nightlife_population.dancer",
@@ -10,7 +10,7 @@
       "sha256": "d10d9fdf1e6e587f25370f15ce80f3b55b758fd8969fda4306ce383ed92eafd9",
       "byte_identity": "source exploratory candidate == Ship 011 candidate == production-path candidate",
       "resized_or_reencoded": false,
-      "approval_status": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+      "approval_status": "APPROVED MASTER / FROZEN"
     },
     {
       "asset_id": "nightlife_population.performer",
@@ -21,7 +21,7 @@
       "sha256": "ae89b727a34815abb4b9ea88d31abdd23808bff5af40be5c26d08979b8036059",
       "byte_identity": "source exploratory candidate == Ship 011 candidate == production-path candidate",
       "resized_or_reencoded": false,
-      "approval_status": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+      "approval_status": "APPROVED MASTER / FROZEN"
     },
     {
       "asset_id": "nightlife_population.queue_pair",
@@ -32,7 +32,7 @@
       "sha256": "55b5eecb42fdfc6dca4493248cdf466a3b8f08c707165ed9243d73a03ca57190",
       "byte_identity": "source exploratory candidate == Ship 011 candidate == production-path candidate",
       "resized_or_reencoded": false,
-      "approval_status": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+      "approval_status": "APPROVED MASTER / FROZEN"
     },
     {
       "asset_id": "nightlife_population.dancing_pair",
@@ -43,7 +43,7 @@
       "sha256": "187070ea57ec5ff66826925d034add4abb99a836cfbcb4664cf02d489121eeef",
       "byte_identity": "source exploratory candidate == Ship 011 candidate == production-path candidate",
       "resized_or_reencoded": false,
-      "approval_status": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+      "approval_status": "APPROVED MASTER / FROZEN"
     },
     {
       "asset_id": "nightlife_population.affectionate_pair",
@@ -54,7 +54,7 @@
       "sha256": "3aa4db3e00216d281d5ed9915dbfb367496bbb18bd042924006115cd774adba1",
       "byte_identity": "source exploratory candidate == Ship 011 candidate == production-path candidate",
       "resized_or_reencoded": false,
-      "approval_status": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+      "approval_status": "APPROVED MASTER / FROZEN"
     },
     {
       "asset_id": "nightlife_population.bartender",
@@ -65,7 +65,7 @@
       "sha256": "5cb20cd77bb979aa2fc2a2cdad6dd6ef583c845d6f99bbddb5d27b5689f5b9cc",
       "byte_identity": "source exploratory candidate == Ship 011 candidate == production-path candidate",
       "resized_or_reencoded": false,
-      "approval_status": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+      "approval_status": "APPROVED MASTER / FROZEN"
     },
     {
       "asset_id": "nightlife_population.hookah_lounge",
@@ -76,7 +76,7 @@
       "sha256": "e94a4ac613b752729a3773a3567c5778f6230048f3cc6dee03ca3c5e2f28a845",
       "byte_identity": "source exploratory candidate == Ship 011 candidate == production-path candidate",
       "resized_or_reencoded": false,
-      "approval_status": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+      "approval_status": "APPROVED MASTER / FROZEN"
     },
     {
       "asset_id": "nightlife_population.dense_cluster",
@@ -87,7 +87,7 @@
       "sha256": "ba12f4f3c2224f4cbb9a78ea42a85df113aaa351d07eda8279d4ced501cd6024",
       "byte_identity": "source exploratory candidate == Ship 011 candidate == production-path candidate",
       "resized_or_reencoded": false,
-      "approval_status": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+      "approval_status": "APPROVED MASTER / FROZEN"
     },
     {
       "asset_id": "nightlife_population.foreground_silhouettes",
@@ -98,7 +98,8 @@
       "sha256": "94da579afbbc43fa191bb415d8e757ba6e1615e7d662bca703629e18e8592418",
       "byte_identity": "source exploratory candidate == Ship 011 candidate == production-path candidate",
       "resized_or_reencoded": false,
-      "approval_status": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+      "approval_status": "APPROVED MASTER / FROZEN"
     }
-  ]
+  ],
+  "accepted_candidate_checkpoint": "28aa98c8ab04a643d175192b1aecb9ae7b372c76"
 }

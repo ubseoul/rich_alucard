@@ -7663,8 +7663,16 @@
       "role": "approved production environment master; ART SHIP 009 id atl_house_party",
       "status": "FROZEN",
       "default_style_reference": true,
-      "approval_evidence": ["art_department/APPROVAL_LEDGER.md", "art_department/ships/art_ship_009/ART_SHIP_MANIFEST.json", "art_department/ships/art_ship_009/HQ_DECISION.md", "art_department/ships/art_ship_009/SOURCE_PRESERVATION_EVIDENCE.json"],
-      "dimensions": [270, 480],
+      "approval_evidence": [
+        "art_department/APPROVAL_LEDGER.md",
+        "art_department/ships/art_ship_009/ART_SHIP_MANIFEST.json",
+        "art_department/ships/art_ship_009/HQ_DECISION.md",
+        "art_department/ships/art_ship_009/SOURCE_PRESERVATION_EVIDENCE.json"
+      ],
+      "dimensions": [
+        270,
+        480
+      ],
       "mode": "RGB",
       "ship_id": "ART SHIP 009",
       "asset_id": "atl_house_party",
@@ -7673,9 +7681,13 @@
       "source_anchor": null,
       "presentation_scale": null,
       "approval_status": "APPROVED MASTER",
-      "alpha": [255],
+      "alpha": [
+        255
+      ],
       "freeze_scope": "Exact 270x480 opaque approved environment-master pixels for runtime id atl_house_party; Presentation Director retains final framing and runtime integration remains pending.",
-      "runtime_surfaces": ["atl_house_party|left:rich,right:bunmi"],
+      "runtime_surfaces": [
+        "atl_house_party|left:rich,right:bunmi"
+      ],
       "runtime_integration_status": "PENDING ENGINEERING INTEGRATION AND RUNTIME QA"
     },
     {
@@ -7684,8 +7696,16 @@
       "role": "approved production environment master; ART SHIP 009 id la_sky",
       "status": "FROZEN",
       "default_style_reference": true,
-      "approval_evidence": ["art_department/APPROVAL_LEDGER.md", "art_department/ships/art_ship_009/ART_SHIP_MANIFEST.json", "art_department/ships/art_ship_009/HQ_DECISION.md", "art_department/ships/art_ship_009/SOURCE_PRESERVATION_EVIDENCE.json"],
-      "dimensions": [270, 480],
+      "approval_evidence": [
+        "art_department/APPROVAL_LEDGER.md",
+        "art_department/ships/art_ship_009/ART_SHIP_MANIFEST.json",
+        "art_department/ships/art_ship_009/HQ_DECISION.md",
+        "art_department/ships/art_ship_009/SOURCE_PRESERVATION_EVIDENCE.json"
+      ],
+      "dimensions": [
+        270,
+        480
+      ],
       "mode": "RGB",
       "ship_id": "ART SHIP 009",
       "asset_id": "la_sky",
@@ -7694,9 +7714,13 @@
       "source_anchor": null,
       "presentation_scale": null,
       "approval_status": "APPROVED MASTER",
-      "alpha": [255],
+      "alpha": [
+        255
+      ],
       "freeze_scope": "Exact 270x480 opaque approved environment-master pixels for runtime id la_sky; Presentation Director retains final framing and runtime integration remains pending.",
-      "runtime_surfaces": ["la_sky|left:rich,right:mazda_human"],
+      "runtime_surfaces": [
+        "la_sky|left:rich,right:mazda_human"
+      ],
       "runtime_integration_status": "PENDING ENGINEERING INTEGRATION AND RUNTIME QA"
     },
     {
@@ -7705,8 +7729,16 @@
       "role": "approved production environment master; ART SHIP 009 id naija_lot",
       "status": "FROZEN",
       "default_style_reference": true,
-      "approval_evidence": ["art_department/APPROVAL_LEDGER.md", "art_department/ships/art_ship_009/ART_SHIP_MANIFEST.json", "art_department/ships/art_ship_009/HQ_DECISION.md", "art_department/ships/art_ship_009/SOURCE_PRESERVATION_EVIDENCE.json"],
-      "dimensions": [270, 480],
+      "approval_evidence": [
+        "art_department/APPROVAL_LEDGER.md",
+        "art_department/ships/art_ship_009/ART_SHIP_MANIFEST.json",
+        "art_department/ships/art_ship_009/HQ_DECISION.md",
+        "art_department/ships/art_ship_009/SOURCE_PRESERVATION_EVIDENCE.json"
+      ],
+      "dimensions": [
+        270,
+        480
+      ],
       "mode": "RGB",
       "ship_id": "ART SHIP 009",
       "asset_id": "naija_lot",
@@ -7715,9 +7747,13 @@
       "source_anchor": null,
       "presentation_scale": null,
       "approval_status": "APPROVED MASTER",
-      "alpha": [255],
+      "alpha": [
+        255
+      ],
       "freeze_scope": "Exact 270x480 opaque approved environment-master pixels for runtime id naija_lot; Presentation Director retains final framing and runtime integration remains pending.",
-      "runtime_surfaces": ["naija_lot|left:rich,right:nneka"],
+      "runtime_surfaces": [
+        "naija_lot|left:rich,right:nneka"
+      ],
       "runtime_integration_status": "PENDING ENGINEERING INTEGRATION AND RUNTIME QA"
     },
     {
@@ -7726,8 +7762,16 @@
       "role": "approved production environment master; ART SHIP 009 id neighbor_castle",
       "status": "FROZEN",
       "default_style_reference": true,
-      "approval_evidence": ["art_department/APPROVAL_LEDGER.md", "art_department/ships/art_ship_009/ART_SHIP_MANIFEST.json", "art_department/ships/art_ship_009/HQ_DECISION.md", "art_department/ships/art_ship_009/SOURCE_PRESERVATION_EVIDENCE.json"],
-      "dimensions": [270, 480],
+      "approval_evidence": [
+        "art_department/APPROVAL_LEDGER.md",
+        "art_department/ships/art_ship_009/ART_SHIP_MANIFEST.json",
+        "art_department/ships/art_ship_009/HQ_DECISION.md",
+        "art_department/ships/art_ship_009/SOURCE_PRESERVATION_EVIDENCE.json"
+      ],
+      "dimensions": [
+        270,
+        480
+      ],
       "mode": "RGB",
       "ship_id": "ART SHIP 009",
       "asset_id": "neighbor_castle",
@@ -7736,9 +7780,13 @@
       "source_anchor": null,
       "presentation_scale": null,
       "approval_status": "APPROVED MASTER",
-      "alpha": [255],
+      "alpha": [
+        255
+      ],
       "freeze_scope": "Exact 270x480 opaque approved environment-master pixels for runtime id neighbor_castle; Presentation Director retains final framing and runtime integration remains pending.",
-      "runtime_surfaces": ["neighbor_castle|left:rich"],
+      "runtime_surfaces": [
+        "neighbor_castle|left:rich"
+      ],
       "runtime_integration_status": "PENDING ENGINEERING INTEGRATION AND RUNTIME QA"
     },
     {
@@ -7747,8 +7795,16 @@
       "role": "approved production environment master; ART SHIP 009 id portobello_bedroom",
       "status": "FROZEN",
       "default_style_reference": true,
-      "approval_evidence": ["art_department/APPROVAL_LEDGER.md", "art_department/ships/art_ship_009/ART_SHIP_MANIFEST.json", "art_department/ships/art_ship_009/HQ_DECISION.md", "art_department/ships/art_ship_009/SOURCE_PRESERVATION_EVIDENCE.json"],
-      "dimensions": [270, 480],
+      "approval_evidence": [
+        "art_department/APPROVAL_LEDGER.md",
+        "art_department/ships/art_ship_009/ART_SHIP_MANIFEST.json",
+        "art_department/ships/art_ship_009/HQ_DECISION.md",
+        "art_department/ships/art_ship_009/SOURCE_PRESERVATION_EVIDENCE.json"
+      ],
+      "dimensions": [
+        270,
+        480
+      ],
       "mode": "RGB",
       "ship_id": "ART SHIP 009",
       "asset_id": "portobello_bedroom",
@@ -7757,9 +7813,15 @@
       "source_anchor": null,
       "presentation_scale": null,
       "approval_status": "APPROVED MASTER",
-      "alpha": [255],
+      "alpha": [
+        255
+      ],
       "freeze_scope": "Exact 270x480 opaque approved environment-master pixels for runtime id portobello_bedroom; PD-W1-04 four-actor staging remains Presentation Director/HQ-owned and runtime integration remains pending.",
-      "runtime_surfaces": ["portobello_bedroom|farRight:portobello_kid2,left:portobello_wife,mid:rich_portobello,right:portobello_kid1", "portobello_bedroom|left:portobello_kid1,mid:rich_portobello,right:portobello_kid2", "portobello_bedroom|left:portobello_wife,mid:rich_portobello"],
+      "runtime_surfaces": [
+        "portobello_bedroom|farRight:portobello_kid2,left:portobello_wife,mid:rich_portobello,right:portobello_kid1",
+        "portobello_bedroom|left:portobello_kid1,mid:rich_portobello,right:portobello_kid2",
+        "portobello_bedroom|left:portobello_wife,mid:rich_portobello"
+      ],
       "runtime_integration_status": "PENDING ENGINEERING INTEGRATION, PD-W1-04 REVIEW AND RUNTIME QA"
     },
     {
@@ -7768,8 +7830,16 @@
       "role": "approved production environment master; ART SHIP 009 id portobello_office",
       "status": "FROZEN",
       "default_style_reference": true,
-      "approval_evidence": ["art_department/APPROVAL_LEDGER.md", "art_department/ships/art_ship_009/ART_SHIP_MANIFEST.json", "art_department/ships/art_ship_009/HQ_DECISION.md", "art_department/ships/art_ship_009/SOURCE_PRESERVATION_EVIDENCE.json"],
-      "dimensions": [270, 480],
+      "approval_evidence": [
+        "art_department/APPROVAL_LEDGER.md",
+        "art_department/ships/art_ship_009/ART_SHIP_MANIFEST.json",
+        "art_department/ships/art_ship_009/HQ_DECISION.md",
+        "art_department/ships/art_ship_009/SOURCE_PRESERVATION_EVIDENCE.json"
+      ],
+      "dimensions": [
+        270,
+        480
+      ],
       "mode": "RGB",
       "ship_id": "ART SHIP 009",
       "asset_id": "portobello_office",
@@ -7778,9 +7848,13 @@
       "source_anchor": null,
       "presentation_scale": null,
       "approval_status": "APPROVED MASTER",
-      "alpha": [255],
+      "alpha": [
+        255
+      ],
       "freeze_scope": "Exact 270x480 opaque approved environment-master pixels for runtime id portobello_office; Presentation Director retains final framing and runtime integration remains pending.",
-      "runtime_surfaces": ["portobello_office|left:rich_portobello,right:portobello_manager"],
+      "runtime_surfaces": [
+        "portobello_office|left:rich_portobello,right:portobello_manager"
+      ],
       "runtime_integration_status": "PENDING ENGINEERING INTEGRATION AND RUNTIME QA"
     },
     {
@@ -7789,8 +7863,16 @@
       "role": "approved production environment master; ART SHIP 009 id portobello_porch",
       "status": "FROZEN",
       "default_style_reference": true,
-      "approval_evidence": ["art_department/APPROVAL_LEDGER.md", "art_department/ships/art_ship_009/ART_SHIP_MANIFEST.json", "art_department/ships/art_ship_009/HQ_DECISION.md", "art_department/ships/art_ship_009/SOURCE_PRESERVATION_EVIDENCE.json"],
-      "dimensions": [270, 480],
+      "approval_evidence": [
+        "art_department/APPROVAL_LEDGER.md",
+        "art_department/ships/art_ship_009/ART_SHIP_MANIFEST.json",
+        "art_department/ships/art_ship_009/HQ_DECISION.md",
+        "art_department/ships/art_ship_009/SOURCE_PRESERVATION_EVIDENCE.json"
+      ],
+      "dimensions": [
+        270,
+        480
+      ],
       "mode": "RGB",
       "ship_id": "ART SHIP 009",
       "asset_id": "portobello_porch",
@@ -7799,9 +7881,13 @@
       "source_anchor": null,
       "presentation_scale": null,
       "approval_status": "APPROVED MASTER",
-      "alpha": [255],
+      "alpha": [
+        255
+      ],
       "freeze_scope": "Exact 270x480 opaque approved environment-master pixels for runtime id portobello_porch; Presentation Director retains final framing and runtime integration remains pending.",
-      "runtime_surfaces": ["portobello_porch|left:rich_portobello,right:portobello_wife"],
+      "runtime_surfaces": [
+        "portobello_porch|left:rich_portobello,right:portobello_wife"
+      ],
       "runtime_integration_status": "PENDING ENGINEERING INTEGRATION AND RUNTIME QA"
     },
     {
@@ -7810,8 +7896,16 @@
       "role": "approved production environment master; ART SHIP 009 id rooftop_dtla",
       "status": "FROZEN",
       "default_style_reference": true,
-      "approval_evidence": ["art_department/APPROVAL_LEDGER.md", "art_department/ships/art_ship_009/ART_SHIP_MANIFEST.json", "art_department/ships/art_ship_009/HQ_DECISION.md", "art_department/ships/art_ship_009/SOURCE_PRESERVATION_EVIDENCE.json"],
-      "dimensions": [270, 480],
+      "approval_evidence": [
+        "art_department/APPROVAL_LEDGER.md",
+        "art_department/ships/art_ship_009/ART_SHIP_MANIFEST.json",
+        "art_department/ships/art_ship_009/HQ_DECISION.md",
+        "art_department/ships/art_ship_009/SOURCE_PRESERVATION_EVIDENCE.json"
+      ],
+      "dimensions": [
+        270,
+        480
+      ],
       "mode": "RGB",
       "ship_id": "ART SHIP 009",
       "asset_id": "rooftop_dtla",
@@ -7820,9 +7914,13 @@
       "source_anchor": null,
       "presentation_scale": null,
       "approval_status": "APPROVED MASTER",
-      "alpha": [255],
+      "alpha": [
+        255
+      ],
       "freeze_scope": "Exact 270x480 opaque approved environment-master pixels for runtime id rooftop_dtla; Presentation Director retains final framing and runtime integration remains pending.",
-      "runtime_surfaces": ["rooftop_dtla|left:rich"],
+      "runtime_surfaces": [
+        "rooftop_dtla|left:rich"
+      ],
       "runtime_integration_status": "PENDING ENGINEERING INTEGRATION AND RUNTIME QA"
     },
     {
@@ -7831,8 +7929,16 @@
       "role": "approved production environment master; ART SHIP 009 id tokyo_tease",
       "status": "FROZEN",
       "default_style_reference": true,
-      "approval_evidence": ["art_department/APPROVAL_LEDGER.md", "art_department/ships/art_ship_009/ART_SHIP_MANIFEST.json", "art_department/ships/art_ship_009/HQ_DECISION.md", "art_department/ships/art_ship_009/SOURCE_PRESERVATION_EVIDENCE.json"],
-      "dimensions": [270, 480],
+      "approval_evidence": [
+        "art_department/APPROVAL_LEDGER.md",
+        "art_department/ships/art_ship_009/ART_SHIP_MANIFEST.json",
+        "art_department/ships/art_ship_009/HQ_DECISION.md",
+        "art_department/ships/art_ship_009/SOURCE_PRESERVATION_EVIDENCE.json"
+      ],
+      "dimensions": [
+        270,
+        480
+      ],
       "mode": "RGB",
       "ship_id": "ART SHIP 009",
       "asset_id": "tokyo_tease",
@@ -7841,9 +7947,13 @@
       "source_anchor": null,
       "presentation_scale": null,
       "approval_status": "APPROVED MASTER",
-      "alpha": [255],
+      "alpha": [
+        255
+      ],
       "freeze_scope": "Exact 270x480 opaque approved environment-master pixels for runtime id tokyo_tease; no restricted reveal is added, Presentation Director retains final framing and runtime integration remains pending.",
-      "runtime_surfaces": ["tokyo_tease|mid:rich"],
+      "runtime_surfaces": [
+        "tokyo_tease|mid:rich"
+      ],
       "runtime_integration_status": "PENDING ENGINEERING INTEGRATION AND RUNTIME QA"
     },
     {
@@ -7852,22 +7962,44 @@
       "role": "approved production environment condition layer; ART SHIP 009 id hollow_bowl_stage_band_crowd_condition",
       "status": "FROZEN",
       "default_style_reference": true,
-      "approval_evidence": ["art_department/APPROVAL_LEDGER.md", "art_department/ships/art_ship_009/ART_SHIP_MANIFEST.json", "art_department/ships/art_ship_009/HQ_DECISION.md", "art_department/ships/art_ship_009/SOURCE_PRESERVATION_EVIDENCE.json"],
-      "dimensions": [270, 480],
+      "approval_evidence": [
+        "art_department/APPROVAL_LEDGER.md",
+        "art_department/ships/art_ship_009/ART_SHIP_MANIFEST.json",
+        "art_department/ships/art_ship_009/HQ_DECISION.md",
+        "art_department/ships/art_ship_009/SOURCE_PRESERVATION_EVIDENCE.json"
+      ],
+      "dimensions": [
+        270,
+        480
+      ],
       "mode": "RGBA",
       "ship_id": "ART SHIP 009",
       "asset_id": "hollow_bowl_stage_band_crowd_condition",
       "category": "ENVIRONMENT_CONDITION_LAYER",
       "state": "additional audience presence in the visible conversation/stage band",
-      "source_anchor": [0, 0],
+      "source_anchor": [
+        0,
+        0
+      ],
       "presentation_scale": null,
       "approval_status": "APPROVED MASTER",
-      "alpha": [0, 255],
+      "alpha": [
+        0,
+        255
+      ],
       "freeze_scope": "Exact 270x480 approved additive companion-layer pixels and exact origin (0,0) for NC-FA-10; the frozen Hollow Bowl master and Ship 008 crowd layer remain unchanged; no base repaint or runtime acceptance is implied.",
-      "runtime_surfaces": ["hollow_bowl|left:rich"],
+      "runtime_surfaces": [
+        "hollow_bowl|left:rich"
+      ],
       "runtime_integration_status": "PENDING ENGINEERING INTEGRATION AND RUNTIME QA",
-      "source_master": {"path": "assets/before_the_fame/environments/hollow_bowl/hollow_bowl_night_270x480.png", "sha256": "19d098d6d70c7228db164a23c2551a301667055977010392d1ff1d9f8420aa30"},
-      "related_frozen_layer": {"path": "assets/before_the_fame/environments/hollow_bowl/layers/hollow_bowl_crowd_overlay_270x480.png", "sha256": "8821c902ca448f3222f3d28f5f32cddafbd95b607a08bf48e73254cc4d7665d1"},
+      "source_master": {
+        "path": "assets/before_the_fame/environments/hollow_bowl/hollow_bowl_night_270x480.png",
+        "sha256": "19d098d6d70c7228db164a23c2551a301667055977010392d1ff1d9f8420aa30"
+      },
+      "related_frozen_layer": {
+        "path": "assets/before_the_fame/environments/hollow_bowl/layers/hollow_bowl_crowd_overlay_270x480.png",
+        "sha256": "8821c902ca448f3222f3d28f5f32cddafbd95b607a08bf48e73254cc4d7665d1"
+      },
       "layer_role": "stage-band crowd companion below named actors",
       "draw_order": "base -> frozen seating crowd -> stage-band crowd companion -> actors -> UI"
     },
@@ -7877,21 +8009,40 @@
       "role": "approved production character state; ART SHIP 009 id tunde.hookah_seated",
       "status": "FROZEN",
       "default_style_reference": true,
-      "approval_evidence": ["art_department/APPROVAL_LEDGER.md", "art_department/ships/art_ship_009/ART_SHIP_MANIFEST.json", "art_department/ships/art_ship_009/HQ_DECISION.md", "art_department/ships/art_ship_009/SOURCE_PRESERVATION_EVIDENCE.json"],
-      "dimensions": [80, 96],
+      "approval_evidence": [
+        "art_department/APPROVAL_LEDGER.md",
+        "art_department/ships/art_ship_009/ART_SHIP_MANIFEST.json",
+        "art_department/ships/art_ship_009/HQ_DECISION.md",
+        "art_department/ships/art_ship_009/SOURCE_PRESERVATION_EVIDENCE.json"
+      ],
+      "dimensions": [
+        80,
+        96
+      ],
       "mode": "RGBA",
       "ship_id": "ART SHIP 009",
       "asset_id": "tunde.hookah_seated",
       "category": "CHARACTER_STATE",
       "state": "seated HOMIES hookah companion",
-      "source_anchor": [40, 88],
+      "source_anchor": [
+        40,
+        88
+      ],
       "presentation_scale": null,
       "approval_status": "APPROVED MASTER",
-      "alpha": [0, 255],
+      "alpha": [
+        0,
+        255
+      ],
       "freeze_scope": "Exact 80x96 approved seated-state pixels, binary alpha and contact (40,88) for tunde.hookah_seated on company=HOMIES only; no additional crew or state authorization.",
-      "runtime_surfaces": ["minigame:hookah?company=HOMIES"],
+      "runtime_surfaces": [
+        "minigame:hookah?company=HOMIES"
+      ],
       "runtime_integration_status": "PENDING ENGINEERING INTEGRATION AND RUNTIME QA",
-      "source_master": {"path": "assets/before_the_fame/characters/tunde/tunde_neutral_80x96.png", "sha256": "12b9fa058d82caed91fc89b5fa6c3072875919239b107d79a477623e4de99ac9"}
+      "source_master": {
+        "path": "assets/before_the_fame/characters/tunde/tunde_neutral_80x96.png",
+        "sha256": "12b9fa058d82caed91fc89b5fa6c3072875919239b107d79a477623e4de99ac9"
+      }
     },
     {
       "path": "assets/before_the_fame/characters/dre/dre_hookah_seated_80x96.png",
@@ -7899,21 +8050,40 @@
       "role": "approved production character state; ART SHIP 009 id dre.hookah_seated",
       "status": "FROZEN",
       "default_style_reference": true,
-      "approval_evidence": ["art_department/APPROVAL_LEDGER.md", "art_department/ships/art_ship_009/ART_SHIP_MANIFEST.json", "art_department/ships/art_ship_009/HQ_DECISION.md", "art_department/ships/art_ship_009/SOURCE_PRESERVATION_EVIDENCE.json"],
-      "dimensions": [80, 96],
+      "approval_evidence": [
+        "art_department/APPROVAL_LEDGER.md",
+        "art_department/ships/art_ship_009/ART_SHIP_MANIFEST.json",
+        "art_department/ships/art_ship_009/HQ_DECISION.md",
+        "art_department/ships/art_ship_009/SOURCE_PRESERVATION_EVIDENCE.json"
+      ],
+      "dimensions": [
+        80,
+        96
+      ],
       "mode": "RGBA",
       "ship_id": "ART SHIP 009",
       "asset_id": "dre.hookah_seated",
       "category": "CHARACTER_STATE",
       "state": "seated HOMIES hookah companion",
-      "source_anchor": [40, 88],
+      "source_anchor": [
+        40,
+        88
+      ],
       "presentation_scale": null,
       "approval_status": "APPROVED MASTER",
-      "alpha": [0, 255],
+      "alpha": [
+        0,
+        255
+      ],
       "freeze_scope": "Exact 80x96 approved seated-state pixels, binary alpha and contact (40,88) for dre.hookah_seated on company=HOMIES only; no additional crew or state authorization.",
-      "runtime_surfaces": ["minigame:hookah?company=HOMIES"],
+      "runtime_surfaces": [
+        "minigame:hookah?company=HOMIES"
+      ],
       "runtime_integration_status": "PENDING ENGINEERING INTEGRATION AND RUNTIME QA",
-      "source_master": {"path": "assets/before_the_fame/characters/dre/dre_neutral_80x96.png", "sha256": "6945490fb4e31dd01afe594ee061a50d8ee354f92a073936c031e0b32f1e1875"}
+      "source_master": {
+        "path": "assets/before_the_fame/characters/dre/dre_neutral_80x96.png",
+        "sha256": "6945490fb4e31dd01afe594ee061a50d8ee354f92a073936c031e0b32f1e1875"
+      }
     },
     {
       "path": "assets/before_the_fame/characters/rich_portobello/rich_portobello_standing_80x96.png",
@@ -7921,22 +8091,43 @@
       "role": "approved production character state; ART SHIP 010 id rich_portobello",
       "status": "FROZEN",
       "default_style_reference": false,
-      "approval_evidence": ["art_department/APPROVAL_LEDGER.md", "art_department/ships/art_ship_010/ART_SHIP_MANIFEST.json", "art_department/ships/art_ship_010/HQ_DECISION.md", "art_department/ships/art_ship_010/SOURCE_PRESERVATION_EVIDENCE.json"],
-      "dimensions": [80, 96],
+      "approval_evidence": [
+        "art_department/APPROVAL_LEDGER.md",
+        "art_department/ships/art_ship_010/ART_SHIP_MANIFEST.json",
+        "art_department/ships/art_ship_010/HQ_DECISION.md",
+        "art_department/ships/art_ship_010/SOURCE_PRESERVATION_EVIDENCE.json"
+      ],
+      "dimensions": [
+        80,
+        96
+      ],
       "mode": "RGBA",
       "ship_id": "ART SHIP 010",
       "asset_id": "rich_portobello",
       "category": "CHARACTER_STATE",
       "state": "standing/default intentional Portobello transformation",
-      "source_anchor": [40, 88],
+      "source_anchor": [
+        40,
+        88
+      ],
       "presentation_scale": null,
       "approval_status": "APPROVED MASTER",
-      "alpha": [0, 255],
+      "alpha": [
+        0,
+        255
+      ],
       "intentional_variant": "Portobello Rich short-hair transformation is intentional and explicitly authorized by the Portobello visual contract; this is not identity drift. Other Rich states are outside this Ship and remain unchanged.",
       "freeze_scope": "Exact 80x96 approved candidate pixels, binary alpha and contact (40,88) for the named Portobello Rich state only; runtime integration remains pending.",
-      "runtime_surfaces": ["portobello_bedroom|farRight:portobello_kid2,left:portobello_wife,mid:rich_portobello,right:portobello_kid1", "portobello_bedroom|left:portobello_kid1,mid:rich_portobello,right:portobello_kid2", "portobello_bedroom|left:portobello_wife,mid:rich_portobello"],
+      "runtime_surfaces": [
+        "portobello_bedroom|farRight:portobello_kid2,left:portobello_wife,mid:rich_portobello,right:portobello_kid1",
+        "portobello_bedroom|left:portobello_kid1,mid:rich_portobello,right:portobello_kid2",
+        "portobello_bedroom|left:portobello_wife,mid:rich_portobello"
+      ],
       "runtime_integration_status": "PENDING ENGINEERING INTEGRATION AND RUNTIME QA",
-      "source_master": {"path": "assets/rich_standing_right.png", "sha256": "765170076e8d3a9af9e8857e176e079b2a68c7ee1daafb7c8d551482228f144b"}
+      "source_master": {
+        "path": "assets/rich_standing_right.png",
+        "sha256": "765170076e8d3a9af9e8857e176e079b2a68c7ee1daafb7c8d551482228f144b"
+      }
     },
     {
       "path": "assets/before_the_fame/characters/rich_portobello/rich_portobello_presenting_80x96.png",
@@ -7944,22 +8135,41 @@
       "role": "approved production character state; ART SHIP 010 id rich_portobello.presenting",
       "status": "FROZEN",
       "default_style_reference": false,
-      "approval_evidence": ["art_department/APPROVAL_LEDGER.md", "art_department/ships/art_ship_010/ART_SHIP_MANIFEST.json", "art_department/ships/art_ship_010/HQ_DECISION.md", "art_department/ships/art_ship_010/SOURCE_PRESERVATION_EVIDENCE.json"],
-      "dimensions": [80, 96],
+      "approval_evidence": [
+        "art_department/APPROVAL_LEDGER.md",
+        "art_department/ships/art_ship_010/ART_SHIP_MANIFEST.json",
+        "art_department/ships/art_ship_010/HQ_DECISION.md",
+        "art_department/ships/art_ship_010/SOURCE_PRESERVATION_EVIDENCE.json"
+      ],
+      "dimensions": [
+        80,
+        96
+      ],
       "mode": "RGBA",
       "ship_id": "ART SHIP 010",
       "asset_id": "rich_portobello.presenting",
       "category": "CHARACTER_STATE",
       "state": "presenting intentional Portobello transformation",
-      "source_anchor": [40, 88],
+      "source_anchor": [
+        40,
+        88
+      ],
       "presentation_scale": null,
       "approval_status": "APPROVED MASTER",
-      "alpha": [0, 255],
+      "alpha": [
+        0,
+        255
+      ],
       "intentional_variant": "Portobello Rich short-hair transformation is intentional and explicitly authorized by the Portobello visual contract; this is not identity drift. Other Rich states are outside this Ship and remain unchanged.",
       "freeze_scope": "Exact 80x96 approved candidate pixels, binary alpha and contact (40,88) for the named Portobello Rich state only; runtime integration remains pending.",
-      "runtime_surfaces": ["portobello_office|left:rich_portobello,right:portobello_manager"],
+      "runtime_surfaces": [
+        "portobello_office|left:rich_portobello,right:portobello_manager"
+      ],
       "runtime_integration_status": "PENDING ENGINEERING INTEGRATION AND RUNTIME QA",
-      "source_master": {"path": "assets/rich_standing_right.png", "sha256": "765170076e8d3a9af9e8857e176e079b2a68c7ee1daafb7c8d551482228f144b"}
+      "source_master": {
+        "path": "assets/rich_standing_right.png",
+        "sha256": "765170076e8d3a9af9e8857e176e079b2a68c7ee1daafb7c8d551482228f144b"
+      }
     },
     {
       "path": "assets/before_the_fame/characters/rich_portobello/rich_portobello_porch_seated_80x96.png",
@@ -7967,22 +8177,41 @@
       "role": "approved production character state; ART SHIP 010 id rich_portobello.porch_seated",
       "status": "FROZEN",
       "default_style_reference": false,
-      "approval_evidence": ["art_department/APPROVAL_LEDGER.md", "art_department/ships/art_ship_010/ART_SHIP_MANIFEST.json", "art_department/ships/art_ship_010/HQ_DECISION.md", "art_department/ships/art_ship_010/SOURCE_PRESERVATION_EVIDENCE.json"],
-      "dimensions": [80, 96],
+      "approval_evidence": [
+        "art_department/APPROVAL_LEDGER.md",
+        "art_department/ships/art_ship_010/ART_SHIP_MANIFEST.json",
+        "art_department/ships/art_ship_010/HQ_DECISION.md",
+        "art_department/ships/art_ship_010/SOURCE_PRESERVATION_EVIDENCE.json"
+      ],
+      "dimensions": [
+        80,
+        96
+      ],
       "mode": "RGBA",
       "ship_id": "ART SHIP 010",
       "asset_id": "rich_portobello.porch_seated",
       "category": "CHARACTER_STATE",
       "state": "porch seated intentional Portobello transformation",
-      "source_anchor": [40, 88],
+      "source_anchor": [
+        40,
+        88
+      ],
       "presentation_scale": null,
       "approval_status": "APPROVED MASTER",
-      "alpha": [0, 255],
+      "alpha": [
+        0,
+        255
+      ],
       "intentional_variant": "Portobello Rich short-hair transformation is intentional and explicitly authorized by the Portobello visual contract; this is not identity drift. Other Rich states are outside this Ship and remain unchanged.",
       "freeze_scope": "Exact 80x96 approved candidate pixels, binary alpha and contact (40,88) for the named Portobello Rich state only; runtime integration remains pending.",
-      "runtime_surfaces": ["portobello_porch|left:rich_portobello,right:portobello_wife"],
+      "runtime_surfaces": [
+        "portobello_porch|left:rich_portobello,right:portobello_wife"
+      ],
       "runtime_integration_status": "PENDING ENGINEERING INTEGRATION AND RUNTIME QA",
-      "source_master": {"path": "assets/rich_standing_right.png", "sha256": "765170076e8d3a9af9e8857e176e079b2a68c7ee1daafb7c8d551482228f144b"}
+      "source_master": {
+        "path": "assets/rich_standing_right.png",
+        "sha256": "765170076e8d3a9af9e8857e176e079b2a68c7ee1daafb7c8d551482228f144b"
+      }
     },
     {
       "path": "assets/before_the_fame/environments/rooftop_dtla/layers/rooftop_dtla_party_crowd_overlay_270x480.png",
@@ -7990,157 +8219,516 @@
       "role": "approved production environment condition layer; ART SHIP 010 id rooftop_dtla.party_crowd_condition",
       "status": "FROZEN",
       "default_style_reference": false,
-      "approval_evidence": ["art_department/APPROVAL_LEDGER.md", "art_department/ships/art_ship_010/ART_SHIP_MANIFEST.json", "art_department/ships/art_ship_010/HQ_DECISION.md", "art_department/ships/art_ship_010/SOURCE_PRESERVATION_EVIDENCE.json"],
-      "dimensions": [270, 480],
+      "approval_evidence": [
+        "art_department/APPROVAL_LEDGER.md",
+        "art_department/ships/art_ship_010/ART_SHIP_MANIFEST.json",
+        "art_department/ships/art_ship_010/HQ_DECISION.md",
+        "art_department/ships/art_ship_010/SOURCE_PRESERVATION_EVIDENCE.json"
+      ],
+      "dimensions": [
+        270,
+        480
+      ],
       "mode": "RGBA",
       "ship_id": "ART SHIP 010",
       "asset_id": "rooftop_dtla.party_crowd_condition",
       "category": "ENVIRONMENT_CONDITION_LAYER",
       "state": "anonymous rooftop party crowd condition",
-      "source_anchor": [0, 0],
+      "source_anchor": [
+        0,
+        0
+      ],
       "presentation_scale": null,
       "approval_status": "APPROVED MASTER",
-      "alpha": [0, 255],
+      "alpha": [
+        0,
+        255
+      ],
       "freeze_scope": "Exact 270x480 approved additive condition-layer pixels at exact origin (0,0) for NC-FA-12; frozen rooftop master remains unchanged; layer stays behind named actors and leaves the protected Rich corridor clear.",
-      "runtime_surfaces": ["rooftop_dtla|left:rich"],
+      "runtime_surfaces": [
+        "rooftop_dtla|left:rich"
+      ],
       "runtime_integration_status": "PENDING ENGINEERING INTEGRATION AND RUNTIME QA",
-      "source_master": {"path": "assets/before_the_fame/environments/rooftop_dtla/downtown_la_rooftop_party_270x480.png", "sha256": "af41cbb7c045a55848421434e14e9e122dabc61becc2d1c2dcc1fb1ceebf5ebf"},
-      "related_visual_references": [{"path": "assets/before_the_fame/environments/hollow_bowl/layers/hollow_bowl_stage_band_crowd_overlay_270x480.png", "sha256": "fb0dd0b070818db692999ed285d761d985f3dad66bc1e3ae4442425f2e8b846a"}, {"path": "assets/before_the_fame/environments/catacomb/layers/catacomb_crowd_overlay_270x480.png", "sha256": "5468959ed5029d5202b09f2bc651f1b117d156a2fb1ea6b1acf6f72dda4bcd18"}],
+      "source_master": {
+        "path": "assets/before_the_fame/environments/rooftop_dtla/downtown_la_rooftop_party_270x480.png",
+        "sha256": "af41cbb7c045a55848421434e14e9e122dabc61becc2d1c2dcc1fb1ceebf5ebf"
+      },
+      "related_visual_references": [
+        {
+          "path": "assets/before_the_fame/environments/hollow_bowl/layers/hollow_bowl_stage_band_crowd_overlay_270x480.png",
+          "sha256": "fb0dd0b070818db692999ed285d761d985f3dad66bc1e3ae4442425f2e8b846a"
+        },
+        {
+          "path": "assets/before_the_fame/environments/catacomb/layers/catacomb_crowd_overlay_270x480.png",
+          "sha256": "5468959ed5029d5202b09f2bc651f1b117d156a2fb1ea6b1acf6f72dda4bcd18"
+        }
+      ],
       "layer_role": "additive party crowd condition below named actors",
       "draw_order": "frozen base -> party crowd condition -> named actors -> UI",
-      "protected_rich_corridor": {"x": [38, 110], "y": [196, 371]},
+      "protected_rich_corridor": {
+        "x": [
+          38,
+          110
+        ],
+        "y": [
+          196,
+          371
+        ]
+      },
       "actor_contact_line": 372
     },
     {
       "path": "assets/before_the_fame/population/nightlife/nightlife_dancer_80x96.png",
       "sha256": "d10d9fdf1e6e587f25370f15ce80f3b55b758fd8969fda4306ce383ed92eafd9",
-      "role": "production-staged anonymous adult nightlife population fragment; dancer",
-      "status": "CANDIDATE — HQ REVIEW REQUIRED",
+      "role": "approved production anonymous adult nightlife population fragment; dancer",
+      "status": "FROZEN",
       "default_style_reference": false,
-      "approval_evidence": [],
-      "dimensions": [80, 96],
+      "approval_evidence": [
+        "art_department/APPROVAL_LEDGER.md",
+        "art_department/ships/art_ship_011/ART_SHIP_MANIFEST.json",
+        "art_department/ships/art_ship_011/HQ_DECISION.md",
+        "art_department/ships/art_ship_011/PROMOTION_EVIDENCE.json",
+        "art_department/ships/art_ship_011/SOURCE_PRESERVATION_EVIDENCE.json"
+      ],
+      "dimensions": [
+        80,
+        96
+      ],
       "mode": "RGBA",
       "ship_id": "ART SHIP 011",
       "asset_id": "nightlife_population.dancer",
       "category": "ACTIVE_DANCE",
       "state": "side-pocket / dance-floor energy",
-      "source_anchor": [40, 88],
-      "origin": [0, 0],
+      "source_anchor": [
+        40,
+        88
+      ],
+      "origin": [
+        0,
+        0
+      ],
       "presentation_scale": null,
-      "approval_status": "CANDIDATE — HQ REVIEW REQUIRED",
-      "alpha": [0, 255],
+      "approval_status": "APPROVED MASTER",
+      "alpha": [
+        0,
+        255
+      ],
       "adult_figures": 1,
-      "placement_constraints": ["clear named-actor lanes", "prefer sparse or medium-density use"],
+      "placement_constraints": [
+        "clear named-actor lanes",
+        "prefer sparse or medium-density use"
+      ],
       "runtime_surfaces": [],
-      "runtime_integration_status": "UNASSIGNED — LATER WORLD LIFE / NIGHTLIFE INTEGRATION",
-      "source_candidate": {"commit": "d8c24b632ecdc134986b4f81ff5d3f3959609eea", "path": "art_department/preproduction/polish_preproduction_001/candidates/native/A01_dancer.png", "sha256": "d10d9fdf1e6e587f25370f15ce80f3b55b758fd8969fda4306ce383ed92eafd9"}
+      "runtime_integration_status": "UNASSIGNED \u2014 LATER WORLD LIFE / NIGHTLIFE INTEGRATION",
+      "source_candidate": {
+        "commit": "d8c24b632ecdc134986b4f81ff5d3f3959609eea",
+        "path": "art_department/preproduction/polish_preproduction_001/candidates/native/A01_dancer.png",
+        "sha256": "d10d9fdf1e6e587f25370f15ce80f3b55b758fd8969fda4306ce383ed92eafd9"
+      },
+      "freeze_scope": "Exact approved candidate pixels, native dimensions, RGBA binary alpha, origin, contact, stable production ID, category and documented placement constraints for this anonymous adult population fragment. Runtime screen assignment, Presentation Director mapping, HOLD movement and environment modification are excluded."
     },
     {
       "path": "assets/before_the_fame/population/nightlife/nightlife_performer_80x96.png",
       "sha256": "ae89b727a34815abb4b9ea88d31abdd23808bff5af40be5c26d08979b8036059",
-      "role": "production-staged anonymous adult nightlife population fragment; performer",
-      "status": "CANDIDATE — HQ REVIEW REQUIRED",
+      "role": "approved production anonymous adult nightlife population fragment; performer",
+      "status": "FROZEN",
       "default_style_reference": false,
-      "approval_evidence": [],
-      "dimensions": [80, 96], "mode": "RGBA", "ship_id": "ART SHIP 011",
-      "asset_id": "nightlife_population.performer", "category": "STAGE_PERFORMANCE",
+      "approval_evidence": [
+        "art_department/APPROVAL_LEDGER.md",
+        "art_department/ships/art_ship_011/ART_SHIP_MANIFEST.json",
+        "art_department/ships/art_ship_011/HQ_DECISION.md",
+        "art_department/ships/art_ship_011/PROMOTION_EVIDENCE.json",
+        "art_department/ships/art_ship_011/SOURCE_PRESERVATION_EVIDENCE.json"
+      ],
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "ship_id": "ART SHIP 011",
+      "asset_id": "nightlife_population.performer",
+      "category": "STAGE_PERFORMANCE",
       "state": "adult stage/nightlife performer; sensual and non-explicit",
-      "source_anchor": [40, 88], "origin": [0, 0], "presentation_scale": null,
-      "approval_status": "CANDIDATE — HQ REVIEW REQUIRED", "alpha": [0, 255], "adult_figures": 1,
-      "placement_constraints": ["clear named-actor lanes", "use only where a stage/performance context is credible"],
-      "runtime_surfaces": [], "runtime_integration_status": "UNASSIGNED — LATER WORLD LIFE / NIGHTLIFE INTEGRATION",
-      "source_candidate": {"commit": "d8c24b632ecdc134986b4f81ff5d3f3959609eea", "path": "art_department/preproduction/polish_preproduction_001/candidates/native/A02_performer.png", "sha256": "ae89b727a34815abb4b9ea88d31abdd23808bff5af40be5c26d08979b8036059"}
+      "source_anchor": [
+        40,
+        88
+      ],
+      "origin": [
+        0,
+        0
+      ],
+      "presentation_scale": null,
+      "approval_status": "APPROVED MASTER",
+      "alpha": [
+        0,
+        255
+      ],
+      "adult_figures": 1,
+      "placement_constraints": [
+        "clear named-actor lanes",
+        "use only where a stage/performance context is credible"
+      ],
+      "runtime_surfaces": [],
+      "runtime_integration_status": "UNASSIGNED \u2014 LATER WORLD LIFE / NIGHTLIFE INTEGRATION",
+      "source_candidate": {
+        "commit": "d8c24b632ecdc134986b4f81ff5d3f3959609eea",
+        "path": "art_department/preproduction/polish_preproduction_001/candidates/native/A02_performer.png",
+        "sha256": "ae89b727a34815abb4b9ea88d31abdd23808bff5af40be5c26d08979b8036059"
+      },
+      "freeze_scope": "Exact approved candidate pixels, native dimensions, RGBA binary alpha, origin, contact, stable production ID, category and documented placement constraints for this anonymous adult population fragment. Runtime screen assignment, Presentation Director mapping, HOLD movement and environment modification are excluded."
     },
     {
       "path": "assets/before_the_fame/population/nightlife/nightlife_queue_pair_112x96.png",
       "sha256": "55b5eecb42fdfc6dca4493248cdf466a3b8f08c707165ed9243d73a03ca57190",
-      "role": "production-staged anonymous adult nightlife population fragment; queue pair",
-      "status": "CANDIDATE — HQ REVIEW REQUIRED", "default_style_reference": false, "approval_evidence": [],
-      "dimensions": [112, 96], "mode": "RGBA", "ship_id": "ART SHIP 011",
-      "asset_id": "nightlife_population.queue_pair", "category": "ARRIVAL_QUEUE", "state": "passive social / arrival pair",
-      "source_anchor": [56, 88], "origin": [0, 0], "presentation_scale": null,
-      "approval_status": "CANDIDATE — HQ REVIEW REQUIRED", "alpha": [0, 255], "adult_figures": 2,
-      "placement_constraints": ["treat as one pair fragment", "clear entrances and named-actor lanes"],
-      "runtime_surfaces": [], "runtime_integration_status": "UNASSIGNED — LATER WORLD LIFE / NIGHTLIFE INTEGRATION",
-      "source_candidate": {"commit": "d8c24b632ecdc134986b4f81ff5d3f3959609eea", "path": "art_department/preproduction/polish_preproduction_001/candidates/native/A03_queue_pair.png", "sha256": "55b5eecb42fdfc6dca4493248cdf466a3b8f08c707165ed9243d73a03ca57190"}
+      "role": "approved production anonymous adult nightlife population fragment; queue pair",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "art_department/APPROVAL_LEDGER.md",
+        "art_department/ships/art_ship_011/ART_SHIP_MANIFEST.json",
+        "art_department/ships/art_ship_011/HQ_DECISION.md",
+        "art_department/ships/art_ship_011/PROMOTION_EVIDENCE.json",
+        "art_department/ships/art_ship_011/SOURCE_PRESERVATION_EVIDENCE.json"
+      ],
+      "dimensions": [
+        112,
+        96
+      ],
+      "mode": "RGBA",
+      "ship_id": "ART SHIP 011",
+      "asset_id": "nightlife_population.queue_pair",
+      "category": "ARRIVAL_QUEUE",
+      "state": "passive social / arrival pair",
+      "source_anchor": [
+        56,
+        88
+      ],
+      "origin": [
+        0,
+        0
+      ],
+      "presentation_scale": null,
+      "approval_status": "APPROVED MASTER",
+      "alpha": [
+        0,
+        255
+      ],
+      "adult_figures": 2,
+      "placement_constraints": [
+        "treat as one pair fragment",
+        "clear entrances and named-actor lanes"
+      ],
+      "runtime_surfaces": [],
+      "runtime_integration_status": "UNASSIGNED \u2014 LATER WORLD LIFE / NIGHTLIFE INTEGRATION",
+      "source_candidate": {
+        "commit": "d8c24b632ecdc134986b4f81ff5d3f3959609eea",
+        "path": "art_department/preproduction/polish_preproduction_001/candidates/native/A03_queue_pair.png",
+        "sha256": "55b5eecb42fdfc6dca4493248cdf466a3b8f08c707165ed9243d73a03ca57190"
+      },
+      "freeze_scope": "Exact approved candidate pixels, native dimensions, RGBA binary alpha, origin, contact, stable production ID, category and documented placement constraints for this anonymous adult population fragment. Runtime screen assignment, Presentation Director mapping, HOLD movement and environment modification are excluded."
     },
     {
       "path": "assets/before_the_fame/population/nightlife/nightlife_dancing_pair_112x96.png",
       "sha256": "187070ea57ec5ff66826925d034add4abb99a836cfbcb4664cf02d489121eeef",
-      "role": "production-staged anonymous adult nightlife population fragment; dancing pair",
-      "status": "CANDIDATE — HQ REVIEW REQUIRED", "default_style_reference": false, "approval_evidence": [],
-      "dimensions": [112, 96], "mode": "RGBA", "ship_id": "ART SHIP 011",
-      "asset_id": "nightlife_population.dancing_pair", "category": "PARTNERED_DANCE", "state": "active partnered movement",
-      "source_anchor": [56, 88], "origin": [0, 0], "presentation_scale": null,
-      "approval_status": "CANDIDATE — HQ REVIEW REQUIRED", "alpha": [0, 255], "adult_figures": 2,
-      "placement_constraints": ["requires a wide side-floor pocket", "clear named-actor lanes"],
-      "runtime_surfaces": [], "runtime_integration_status": "UNASSIGNED — LATER WORLD LIFE / NIGHTLIFE INTEGRATION",
-      "source_candidate": {"commit": "d8c24b632ecdc134986b4f81ff5d3f3959609eea", "path": "art_department/preproduction/polish_preproduction_001/candidates/native/A04_dancing_pair.png", "sha256": "187070ea57ec5ff66826925d034add4abb99a836cfbcb4664cf02d489121eeef"}
+      "role": "approved production anonymous adult nightlife population fragment; dancing pair",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "art_department/APPROVAL_LEDGER.md",
+        "art_department/ships/art_ship_011/ART_SHIP_MANIFEST.json",
+        "art_department/ships/art_ship_011/HQ_DECISION.md",
+        "art_department/ships/art_ship_011/PROMOTION_EVIDENCE.json",
+        "art_department/ships/art_ship_011/SOURCE_PRESERVATION_EVIDENCE.json"
+      ],
+      "dimensions": [
+        112,
+        96
+      ],
+      "mode": "RGBA",
+      "ship_id": "ART SHIP 011",
+      "asset_id": "nightlife_population.dancing_pair",
+      "category": "PARTNERED_DANCE",
+      "state": "active partnered movement",
+      "source_anchor": [
+        56,
+        88
+      ],
+      "origin": [
+        0,
+        0
+      ],
+      "presentation_scale": null,
+      "approval_status": "APPROVED MASTER",
+      "alpha": [
+        0,
+        255
+      ],
+      "adult_figures": 2,
+      "placement_constraints": [
+        "requires a wide side-floor pocket",
+        "clear named-actor lanes"
+      ],
+      "runtime_surfaces": [],
+      "runtime_integration_status": "UNASSIGNED \u2014 LATER WORLD LIFE / NIGHTLIFE INTEGRATION",
+      "source_candidate": {
+        "commit": "d8c24b632ecdc134986b4f81ff5d3f3959609eea",
+        "path": "art_department/preproduction/polish_preproduction_001/candidates/native/A04_dancing_pair.png",
+        "sha256": "187070ea57ec5ff66826925d034add4abb99a836cfbcb4664cf02d489121eeef"
+      },
+      "freeze_scope": "Exact approved candidate pixels, native dimensions, RGBA binary alpha, origin, contact, stable production ID, category and documented placement constraints for this anonymous adult population fragment. Runtime screen assignment, Presentation Director mapping, HOLD movement and environment modification are excluded."
     },
     {
       "path": "assets/before_the_fame/population/nightlife/nightlife_affectionate_pair_112x96.png",
       "sha256": "3aa4db3e00216d281d5ed9915dbfb367496bbb18bd042924006115cd774adba1",
-      "role": "production-staged anonymous adult nightlife population fragment; affectionate pair",
-      "status": "CANDIDATE — HQ REVIEW REQUIRED", "default_style_reference": false, "approval_evidence": [],
-      "dimensions": [112, 96], "mode": "RGBA", "ship_id": "ART SHIP 011",
-      "asset_id": "nightlife_population.affectionate_pair", "category": "AFFECTIONATE_SOCIAL", "state": "adult flirting / affectionate background pair",
-      "source_anchor": [56, 88], "origin": [0, 0], "presentation_scale": null,
-      "approval_status": "CANDIDATE — HQ REVIEW REQUIRED", "alpha": [0, 255], "adult_figures": 2,
-      "placement_constraints": ["background behavior only", "clear named-actor lanes"],
-      "runtime_surfaces": [], "runtime_integration_status": "UNASSIGNED — LATER WORLD LIFE / NIGHTLIFE INTEGRATION",
-      "source_candidate": {"commit": "d8c24b632ecdc134986b4f81ff5d3f3959609eea", "path": "art_department/preproduction/polish_preproduction_001/candidates/native/A05_affectionate_pair.png", "sha256": "3aa4db3e00216d281d5ed9915dbfb367496bbb18bd042924006115cd774adba1"}
+      "role": "approved production anonymous adult nightlife population fragment; affectionate pair",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "art_department/APPROVAL_LEDGER.md",
+        "art_department/ships/art_ship_011/ART_SHIP_MANIFEST.json",
+        "art_department/ships/art_ship_011/HQ_DECISION.md",
+        "art_department/ships/art_ship_011/PROMOTION_EVIDENCE.json",
+        "art_department/ships/art_ship_011/SOURCE_PRESERVATION_EVIDENCE.json"
+      ],
+      "dimensions": [
+        112,
+        96
+      ],
+      "mode": "RGBA",
+      "ship_id": "ART SHIP 011",
+      "asset_id": "nightlife_population.affectionate_pair",
+      "category": "AFFECTIONATE_SOCIAL",
+      "state": "adult flirting / affectionate background pair",
+      "source_anchor": [
+        56,
+        88
+      ],
+      "origin": [
+        0,
+        0
+      ],
+      "presentation_scale": null,
+      "approval_status": "APPROVED MASTER",
+      "alpha": [
+        0,
+        255
+      ],
+      "adult_figures": 2,
+      "placement_constraints": [
+        "background behavior only",
+        "clear named-actor lanes"
+      ],
+      "runtime_surfaces": [],
+      "runtime_integration_status": "UNASSIGNED \u2014 LATER WORLD LIFE / NIGHTLIFE INTEGRATION",
+      "source_candidate": {
+        "commit": "d8c24b632ecdc134986b4f81ff5d3f3959609eea",
+        "path": "art_department/preproduction/polish_preproduction_001/candidates/native/A05_affectionate_pair.png",
+        "sha256": "3aa4db3e00216d281d5ed9915dbfb367496bbb18bd042924006115cd774adba1"
+      },
+      "freeze_scope": "Exact approved candidate pixels, native dimensions, RGBA binary alpha, origin, contact, stable production ID, category and documented placement constraints for this anonymous adult population fragment. Runtime screen assignment, Presentation Director mapping, HOLD movement and environment modification are excluded."
     },
     {
       "path": "assets/before_the_fame/population/nightlife/nightlife_bartender_80x96.png",
       "sha256": "5cb20cd77bb979aa2fc2a2cdad6dd6ef583c845d6f99bbddb5d27b5689f5b9cc",
-      "role": "production-staged anonymous adult nightlife population fragment; bartender",
-      "status": "CANDIDATE — HQ REVIEW REQUIRED", "default_style_reference": false, "approval_evidence": [],
-      "dimensions": [80, 96], "mode": "RGBA", "ship_id": "ART SHIP 011",
-      "asset_id": "nightlife_population.bartender", "category": "HOSPITALITY_SERVICE", "state": "bartender / service figure",
-      "source_anchor": [40, 88], "origin": [0, 0], "presentation_scale": null,
-      "approval_status": "CANDIDATE — HQ REVIEW REQUIRED", "alpha": [0, 255], "adult_figures": 1,
-      "placement_constraints": ["must have an appropriate bar or service context", "do not place as a free-floating patron"],
-      "runtime_surfaces": [], "runtime_integration_status": "UNASSIGNED — LATER WORLD LIFE / NIGHTLIFE INTEGRATION",
-      "source_candidate": {"commit": "d8c24b632ecdc134986b4f81ff5d3f3959609eea", "path": "art_department/preproduction/polish_preproduction_001/candidates/native/A06_bartender.png", "sha256": "5cb20cd77bb979aa2fc2a2cdad6dd6ef583c845d6f99bbddb5d27b5689f5b9cc"}
+      "role": "approved production anonymous adult nightlife population fragment; bartender",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "art_department/APPROVAL_LEDGER.md",
+        "art_department/ships/art_ship_011/ART_SHIP_MANIFEST.json",
+        "art_department/ships/art_ship_011/HQ_DECISION.md",
+        "art_department/ships/art_ship_011/PROMOTION_EVIDENCE.json",
+        "art_department/ships/art_ship_011/SOURCE_PRESERVATION_EVIDENCE.json"
+      ],
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "ship_id": "ART SHIP 011",
+      "asset_id": "nightlife_population.bartender",
+      "category": "HOSPITALITY_SERVICE",
+      "state": "bartender / service figure",
+      "source_anchor": [
+        40,
+        88
+      ],
+      "origin": [
+        0,
+        0
+      ],
+      "presentation_scale": null,
+      "approval_status": "APPROVED MASTER",
+      "alpha": [
+        0,
+        255
+      ],
+      "adult_figures": 1,
+      "placement_constraints": [
+        "must have an appropriate bar or service context",
+        "do not place as a free-floating patron"
+      ],
+      "runtime_surfaces": [],
+      "runtime_integration_status": "UNASSIGNED \u2014 LATER WORLD LIFE / NIGHTLIFE INTEGRATION",
+      "source_candidate": {
+        "commit": "d8c24b632ecdc134986b4f81ff5d3f3959609eea",
+        "path": "art_department/preproduction/polish_preproduction_001/candidates/native/A06_bartender.png",
+        "sha256": "5cb20cd77bb979aa2fc2a2cdad6dd6ef583c845d6f99bbddb5d27b5689f5b9cc"
+      },
+      "freeze_scope": "Exact approved candidate pixels, native dimensions, RGBA binary alpha, origin, contact, stable production ID, category and documented placement constraints for this anonymous adult population fragment. Runtime screen assignment, Presentation Director mapping, HOLD movement and environment modification are excluded."
     },
     {
       "path": "assets/before_the_fame/population/nightlife/nightlife_hookah_lounge_128x96.png",
       "sha256": "e94a4ac613b752729a3773a3567c5778f6230048f3cc6dee03ca3c5e2f28a845",
-      "role": "production-staged anonymous adult nightlife population fragment; hookah lounge group with included furniture",
-      "status": "CANDIDATE — HQ REVIEW REQUIRED", "default_style_reference": false, "approval_evidence": [],
-      "dimensions": [128, 96], "mode": "RGBA", "ship_id": "ART SHIP 011",
-      "asset_id": "nightlife_population.hookah_lounge", "category": "SEATED_LOUNGE_GROUP", "state": "low seated social group with hookah, table, and seating included",
-      "source_anchor": [64, 88], "origin": [0, 0], "presentation_scale": null,
-      "approval_status": "CANDIDATE — HQ REVIEW REQUIRED", "alpha": [0, 255], "adult_figures": 3,
-      "placement_constraints": ["included furniture must not be duplicated", "check furniture scale against the host environment"],
-      "runtime_surfaces": [], "runtime_integration_status": "UNASSIGNED — LATER WORLD LIFE / NIGHTLIFE INTEGRATION",
-      "source_candidate": {"commit": "d8c24b632ecdc134986b4f81ff5d3f3959609eea", "path": "art_department/preproduction/polish_preproduction_001/candidates/native/A07_hookah_lounge.png", "sha256": "e94a4ac613b752729a3773a3567c5778f6230048f3cc6dee03ca3c5e2f28a845"}
+      "role": "approved production anonymous adult nightlife population fragment; hookah lounge group with included furniture",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "art_department/APPROVAL_LEDGER.md",
+        "art_department/ships/art_ship_011/ART_SHIP_MANIFEST.json",
+        "art_department/ships/art_ship_011/HQ_DECISION.md",
+        "art_department/ships/art_ship_011/PROMOTION_EVIDENCE.json",
+        "art_department/ships/art_ship_011/SOURCE_PRESERVATION_EVIDENCE.json"
+      ],
+      "dimensions": [
+        128,
+        96
+      ],
+      "mode": "RGBA",
+      "ship_id": "ART SHIP 011",
+      "asset_id": "nightlife_population.hookah_lounge",
+      "category": "SEATED_LOUNGE_GROUP",
+      "state": "low seated social group with hookah, table, and seating included",
+      "source_anchor": [
+        64,
+        88
+      ],
+      "origin": [
+        0,
+        0
+      ],
+      "presentation_scale": null,
+      "approval_status": "APPROVED MASTER",
+      "alpha": [
+        0,
+        255
+      ],
+      "adult_figures": 3,
+      "placement_constraints": [
+        "included furniture must not be duplicated",
+        "check furniture scale against the host environment"
+      ],
+      "runtime_surfaces": [],
+      "runtime_integration_status": "UNASSIGNED \u2014 LATER WORLD LIFE / NIGHTLIFE INTEGRATION",
+      "source_candidate": {
+        "commit": "d8c24b632ecdc134986b4f81ff5d3f3959609eea",
+        "path": "art_department/preproduction/polish_preproduction_001/candidates/native/A07_hookah_lounge.png",
+        "sha256": "e94a4ac613b752729a3773a3567c5778f6230048f3cc6dee03ca3c5e2f28a845"
+      },
+      "freeze_scope": "Exact approved candidate pixels, native dimensions, RGBA binary alpha, origin, contact, stable production ID, category and documented placement constraints for this anonymous adult population fragment. Runtime screen assignment, Presentation Director mapping, HOLD movement and environment modification are excluded."
     },
     {
       "path": "assets/before_the_fame/population/nightlife/nightlife_dense_cluster_144x96.png",
       "sha256": "ba12f4f3c2224f4cbb9a78ea42a85df113aaa351d07eda8279d4ced501cd6024",
-      "role": "production-staged anonymous adult nightlife population fragment; dense cluster",
-      "status": "CANDIDATE — HQ REVIEW REQUIRED", "default_style_reference": false, "approval_evidence": [],
-      "dimensions": [144, 96], "mode": "RGBA", "ship_id": "ART SHIP 011",
-      "asset_id": "nightlife_population.dense_cluster", "category": "DENSE_CROWD_CLUSTER", "state": "six-adult crowd-density tool",
-      "source_anchor": [72, 88], "origin": [0, 0], "presentation_scale": null,
-      "approval_status": "CANDIDATE — HQ REVIEW REQUIRED", "alpha": [0, 255], "adult_figures": 6,
-      "placement_constraints": ["do not tile or repeat into wallpaper", "use once per framed view unless a later explicit contract says otherwise", "protect named-actor clearance"],
-      "runtime_surfaces": [], "runtime_integration_status": "UNASSIGNED — LATER WORLD LIFE / NIGHTLIFE INTEGRATION",
-      "source_candidate": {"commit": "d8c24b632ecdc134986b4f81ff5d3f3959609eea", "path": "art_department/preproduction/polish_preproduction_001/candidates/native/A08_dense_cluster.png", "sha256": "ba12f4f3c2224f4cbb9a78ea42a85df113aaa351d07eda8279d4ced501cd6024"}
+      "role": "approved production anonymous adult nightlife population fragment; dense cluster",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "art_department/APPROVAL_LEDGER.md",
+        "art_department/ships/art_ship_011/ART_SHIP_MANIFEST.json",
+        "art_department/ships/art_ship_011/HQ_DECISION.md",
+        "art_department/ships/art_ship_011/PROMOTION_EVIDENCE.json",
+        "art_department/ships/art_ship_011/SOURCE_PRESERVATION_EVIDENCE.json"
+      ],
+      "dimensions": [
+        144,
+        96
+      ],
+      "mode": "RGBA",
+      "ship_id": "ART SHIP 011",
+      "asset_id": "nightlife_population.dense_cluster",
+      "category": "DENSE_CROWD_CLUSTER",
+      "state": "six-adult crowd-density tool",
+      "source_anchor": [
+        72,
+        88
+      ],
+      "origin": [
+        0,
+        0
+      ],
+      "presentation_scale": null,
+      "approval_status": "APPROVED MASTER",
+      "alpha": [
+        0,
+        255
+      ],
+      "adult_figures": 6,
+      "placement_constraints": [
+        "do not tile or repeat into wallpaper",
+        "use once per framed view unless a later explicit contract says otherwise",
+        "protect named-actor clearance"
+      ],
+      "runtime_surfaces": [],
+      "runtime_integration_status": "UNASSIGNED \u2014 LATER WORLD LIFE / NIGHTLIFE INTEGRATION",
+      "source_candidate": {
+        "commit": "d8c24b632ecdc134986b4f81ff5d3f3959609eea",
+        "path": "art_department/preproduction/polish_preproduction_001/candidates/native/A08_dense_cluster.png",
+        "sha256": "ba12f4f3c2224f4cbb9a78ea42a85df113aaa351d07eda8279d4ced501cd6024"
+      },
+      "freeze_scope": "Exact approved candidate pixels, native dimensions, RGBA binary alpha, origin, contact, stable production ID, category and documented placement constraints for this anonymous adult population fragment. Runtime screen assignment, Presentation Director mapping, HOLD movement and environment modification are excluded."
     },
     {
       "path": "assets/before_the_fame/population/nightlife/nightlife_foreground_silhouettes_144x112.png",
       "sha256": "94da579afbbc43fa191bb415d8e757ba6e1615e7d662bca703629e18e8592418",
-      "role": "production-staged anonymous adult nightlife population fragment; foreground silhouettes",
-      "status": "CANDIDATE — HQ REVIEW REQUIRED", "default_style_reference": false, "approval_evidence": [],
-      "dimensions": [144, 112], "mode": "RGBA", "ship_id": "ART SHIP 011",
-      "asset_id": "nightlife_population.foreground_silhouettes", "category": "FOREGROUND_DEPTH", "state": "three-adult foreground/depth silhouette fragment",
-      "source_anchor": [72, 104], "origin": [0, 0], "presentation_scale": null,
-      "approval_status": "CANDIDATE — HQ REVIEW REQUIRED", "alpha": [0, 255], "adult_figures": 3,
-      "placement_constraints": ["high occlusion risk", "peripheral or deliberately framed placement only", "use against a lighter band", "never cover named actors or critical UI"],
-      "runtime_surfaces": [], "runtime_integration_status": "UNASSIGNED — LATER WORLD LIFE / NIGHTLIFE INTEGRATION",
-      "source_candidate": {"commit": "d8c24b632ecdc134986b4f81ff5d3f3959609eea", "path": "art_department/preproduction/polish_preproduction_001/candidates/native/A09_foreground_silhouettes.png", "sha256": "94da579afbbc43fa191bb415d8e757ba6e1615e7d662bca703629e18e8592418"}
+      "role": "approved production anonymous adult nightlife population fragment; foreground silhouettes",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "art_department/APPROVAL_LEDGER.md",
+        "art_department/ships/art_ship_011/ART_SHIP_MANIFEST.json",
+        "art_department/ships/art_ship_011/HQ_DECISION.md",
+        "art_department/ships/art_ship_011/PROMOTION_EVIDENCE.json",
+        "art_department/ships/art_ship_011/SOURCE_PRESERVATION_EVIDENCE.json"
+      ],
+      "dimensions": [
+        144,
+        112
+      ],
+      "mode": "RGBA",
+      "ship_id": "ART SHIP 011",
+      "asset_id": "nightlife_population.foreground_silhouettes",
+      "category": "FOREGROUND_DEPTH",
+      "state": "three-adult foreground/depth silhouette fragment",
+      "source_anchor": [
+        72,
+        104
+      ],
+      "origin": [
+        0,
+        0
+      ],
+      "presentation_scale": null,
+      "approval_status": "APPROVED MASTER",
+      "alpha": [
+        0,
+        255
+      ],
+      "adult_figures": 3,
+      "placement_constraints": [
+        "high occlusion risk",
+        "peripheral or deliberately framed placement only",
+        "use against a lighter band",
+        "never cover named actors or critical UI"
+      ],
+      "runtime_surfaces": [],
+      "runtime_integration_status": "UNASSIGNED \u2014 LATER WORLD LIFE / NIGHTLIFE INTEGRATION",
+      "source_candidate": {
+        "commit": "d8c24b632ecdc134986b4f81ff5d3f3959609eea",
+        "path": "art_department/preproduction/polish_preproduction_001/candidates/native/A09_foreground_silhouettes.png",
+        "sha256": "94da579afbbc43fa191bb415d8e757ba6e1615e7d662bca703629e18e8592418"
+      },
+      "freeze_scope": "Exact approved candidate pixels, native dimensions, RGBA binary alpha, origin, contact, stable production ID, category and documented placement constraints for this anonymous adult population fragment. Runtime screen assignment, Presentation Director mapping, HOLD movement and environment modification are excluded."
     }
   ]
 }
