@@ -32,8 +32,7 @@
   "portobello_bedroom|left:portobello_kid1,mid:rich_portobello,right:portobello_kid2": {"status": "HOLD", "ticket": "NC-FA-07", "note": "ART SHIP 010 rich_portobello (standing/default) integrated; portobello_kid1/kid2 remain RAPixel placeholders — BLOCKED BY CANON, no committed visual card exists for either."},
   "portobello_bedroom|left:portobello_wife,mid:rich_portobello": {"status": "HOLD", "ticket": "NC-FA-07", "note": "ART SHIP 010 rich_portobello (standing/default) integrated; portobello_wife remains a RAPixel placeholder — BLOCKED BY CANON, no committed visual card exists."},
   "portobello_office|left:rich_portobello@presenting,right:portobello_manager": {"status": "HOLD", "ticket": "NC-FA-07", "note": "ART SHIP 010 rich_portobello.presenting integrated; portobello_manager remains a RAPixel placeholder — BLOCKED BY CANON, no committed visual card exists."},
-  "portobello_porch|left:rich_portobello@porch_seated,right:portobello_wife": {"status": "HOLD", "ticket": "NC-FA-07", "note": "ART SHIP 010 rich_portobello.porch_seated integrated; portobello_wife remains a RAPixel placeholder — BLOCKED BY CANON, no committed visual card exists."},
-  "pier|left:rich@holding_fish_away,right:uncle_sunday@fishing": {"status": "HOLD", "ticket": "PD-FA-02", "note": "Two wide frozen poses; generic staging cannot reach a shot band."}
+  "portobello_porch|left:rich_portobello@porch_seated,right:portobello_wife": {"status": "HOLD", "ticket": "NC-FA-07", "note": "ART SHIP 010 rich_portobello.porch_seated integrated; portobello_wife remains a RAPixel placeholder — BLOCKED BY CANON, no committed visual card exists."}
  },
  "surfaces": {
   "minigame:pier": {"status": "PASS (final art)", "note": "Rich fishing_cast / holding_fish_away and Uncle Sunday fishing (frozen states) on the minigame canvas at native 1:1."},

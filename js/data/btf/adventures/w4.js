@@ -388,7 +388,8 @@
    lines:[N('night two: the food court at the maul. lil smack is running a table like it\'s his personal toll booth.'),
     S('lil_smack','you want the waffle intel? that\'ll cost you.')],
    choices:[{label:'FIGHT HIM FOR IT',next:'fight'},{label:'TALK YOUR WAY PAST HIM',octopus:true,next:'octo'}]},
-  fight:{fight:{enemy:'training',params:{env:'maul',intro:'LIL SMACK. FOOD COURT TABLE. HIGH STAKES.'},win:'won',lose:'won',spared:'won'}},
+  // Lil Smack's own enemy card (frozen art); `hp:60` keeps the encounter's authored difficulty (it was a training stub).
+  fight:{fight:{enemy:'lil_smack',params:{env:'maul',hp:60,intro:'LIL SMACK. FOOD COURT TABLE. HIGH STAKES.'},win:'won',lose:'won',spared:'won'}},
   octo:{lines:[S('lil_smack','…ok that was smooth. here.'),N('he hands over a napkin with a name on it.')],next:'won'},
   won:{lines:[N('you leave with a name: ms. patrice.')],enter:A=>RALife.setFlag('waffleNight',2),
    end:{outcome:'night2',nightEnder:true,memory:{text:'waffle saga, night two — the maul of georgia, lil smack',lane:'food'},chain:'A44_N3'}}

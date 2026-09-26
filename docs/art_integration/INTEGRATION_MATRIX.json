@@ -16,8 +16,8 @@
    "person: NO APPROVED ART YET": 2
   },
   "screens": {
-   "PASS": 106,
-   "HOLD": 15
+   "PASS": 108,
+   "HOLD": 13
   }
  },
  "surfaces": {
@@ -1923,6 +1923,12 @@
    "lint": "pass",
    "states": 1
   },
+  "combat:lil_smack@maul": {
+   "status": "PASS (final art)",
+   "profile": "combat",
+   "lint": "pass",
+   "states": 1
+  },
   "combat:paladin@throne_party_mess": {
    "status": "PASS (final art)",
    "profile": "combat",
@@ -1934,12 +1940,6 @@
    "profile": "combat",
    "lint": "pass",
    "states": 1
-  },
-  "combat:training@maul": {
-   "status": "HOLD (mixed: unresolved cast art)",
-   "profile": "combat",
-   "lint": "pass",
-   "states": 0
   },
   "combat:training@throne": {
    "status": "HOLD (mixed: unresolved cast art)",
@@ -2222,10 +2222,9 @@
    "lint": "pass"
   },
   "pier|left:rich@holding_fish_away,right:uncle_sunday@fishing": {
-   "status": "HOLD",
-   "profile": "establishing",
-   "lint": "exception PD-FA-02",
-   "ticket": "PD-FA-02"
+   "status": "PASS (final art)",
+   "profile": "conversation",
+   "lint": "pass"
   },
   "portobello_bedroom|farRight:portobello_kid2,left:portobello_wife,mid:rich_portobello,right:portobello_kid1": {
    "status": "HOLD (mixed: unresolved cast art)",

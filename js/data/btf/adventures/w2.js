@@ -122,7 +122,7 @@
    lines:[E('uncle_sunday','uncle sunday is already here. three lines out. a folding chair. a cooler.'),S('uncle_sunday','she won\'t eat treats. she wants fish. sit down. i teach you.')],next:'teach'},
   teach:{lines:[N('CAST. WAIT. REEL. he says it like a prayer.')],choices:[{label:'LEARN',next:'cast'}]},
   cast:{minigame:{id:'pier',params:()=>({tutorial:true,uncleSunday:true}),next:(A,r)=>{A.set('catch',r);return 'react';}}},
-  react:{actors:{left:{id:'rich',state:'holding_fish_away'},right:{id:'uncle_sunday',state:'fishing'}},lines:[N('you hold the fish at arm\'s length, visibly suffering.'),R('i\'m not looking at it. tell me when it\'s gone.')],next:'mazda'},
+  react:{actors:{left:{id:'rich',state:'holding_fish_away'},right:{id:'uncle_sunday',state:'fishing'}},shot:{profile:'conversation',focal:['left'],speakers:['left']},lines:[N('you hold the fish at arm\'s length, visibly suffering.'),R('i\'m not looking at it. tell me when it\'s gone.')],next:'mazda'},
   mazda:{actors:{left:'rich',right:{id:'uncle_sunday',state:'fishing'}},lines:A=>RALife.dragon()?.hatched?[N('blueberry mazda swoops down and eats it off the line before you can react.'),S('uncle_sunday','…she has good form.')]:[N('you set it down carefully, like it might still hurt you.')],next:'end'},
   end:{end:{outcome:'caught',memory:{text:'first cast at santa monica pier',lane:'dragons'},
    receipt:{id:'a12:first',caption:'first catch. i did not look at it once.'},

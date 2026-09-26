@@ -1,5 +1,12 @@
 # Presentation Director — exception and NEEDS CREATIVE tickets
 
+## HOLD CLEARANCE 001 (branch `claude/hold-clearance-001`)
+
+| Ticket | Status | Notes |
+|---|---|---|
+| PD-FA-02 | **RESOLVED** | `A12:react` has an authored node `shot` (conversation, Rich focal/speaker). Uncle Sunday stays on-frame at the right edge as the secondary figure, with both frozen poses unchanged. Dry run and live lint pass at 360/390/430. The exception and its review entry are retired; the adventure Director exception list is empty. `include` for Uncle Sunday was rejected: it only reaches the band when the poses overlap. |
+| NC-FA-07 (combat) | **1 of 3 cleared** | `combat:training@maul` was a wiring error: the Lil Smack encounter called the training dummy. It now calls the `lil_smack` enemy (frozen art, `params.hp:60`). `buckhead@lennox` and `training@throne` remain HOLD. |
+
 ## ART SHIP 010 integration re-evaluation (branch `claude/art-ship-010-integration`)
 
 The 4 frozen ART SHIP 010 assets are integrated (`docs/art_integration/ART_SHIP_010_INTEGRATION.md`). Ticket status after live visual review:

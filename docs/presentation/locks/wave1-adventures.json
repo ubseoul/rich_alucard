@@ -73,7 +73,7 @@
   "pet_crypt|farRight:uncle_sunday@melted,left:rich": "conversation",
   "pet_crypt|farRight:uncle_sunday@offended,left:rich": "conversation",
   "pier|left:rich,right:uncle_sunday@fishing": "conversation",
-  "pier|left:rich@holding_fish_away,right:uncle_sunday@fishing": "establishing!PD-FA-02",
+  "pier|left:rich@holding_fish_away,right:uncle_sunday@fishing": "conversation",
   "portobello_bedroom|farRight:portobello_kid2,left:portobello_wife,mid:rich_portobello,right:portobello_kid1": "conversation",
   "portobello_bedroom|left:portobello_kid1,mid:rich_portobello,right:portobello_kid2": "conversation",
   "portobello_bedroom|left:portobello_wife,mid:rich_portobello": "conversation",
