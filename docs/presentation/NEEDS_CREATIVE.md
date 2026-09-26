@@ -1,5 +1,21 @@
 # Presentation Director — exception and NEEDS CREATIVE tickets
 
+## ART SHIP 010 integration re-evaluation (branch `claude/art-ship-010-integration`)
+
+The 4 frozen ART SHIP 010 assets are integrated (`docs/art_integration/ART_SHIP_010_INTEGRATION.md`). Ticket status after live visual review:
+
+| Ticket | Status | Notes |
+|---|---|---|
+| NC-FA-12 | **RESOLVED** | The party-crowd condition layer draws behind Rich on `rooftop_dtla\|left:rich`. Visually confirmed at 360/390/430: silhouetted guests read as a party along both side walls, Rich stays fully readable, no occlusion, no UI obstruction. |
+| NC-FA-07 | **OPEN — partially supplied.** `rich_portobello` (standing/default, presenting, porch_seated) is now frozen and integrated on all 4 of its surfaces. `portobello_wife`, `portobello_kid1`, `portobello_kid2` and `portobello_manager` remain **BLOCKED BY CANON**: no committed visual card exists for any of them, and none was invented. All 5 Portobello screens stay HOLD because every one of them still has at least one placeholder actor. | 
+| PD-W1-04 | **Layout question RESOLVED (HQ-AS10-01); screen still HOLD** | The `EXCEPTION-LAYOUT` staging exception on the four-actor `breakfast` screen was retired: real Rich geometry lets the existing generic Director solver clear the shot band on its own (no authored tuning). The screen's PASS/HOLD status is unchanged — still HOLD under NC-FA-07 because the other three actors are still placeholders. See `docs/art_integration/HQ_DECISIONS.md` HQ-AS10-01. |
+
+### New tickets
+
+| Ticket | Screens | Current assets | What fails | Asset/decision needed | Severity |
+|---|---|---|---|---|---|
+| NC-FA-14 | The 3 new `rich_portobello` states (`standing`, `presenting`, `porch_seated`) | Frozen ART SHIP 010 character states, integrated | Their face boxes in `js/data/presentation_assets.js` are **derived** (generic upper-body-center heuristic), not **authored** by inspecting the actual pixels, unlike every other named character's states. No visual problem was observed in review, but authored boxes are the established quality bar for named-character dialogue framing. | Author 3 face boxes in `tools/presentation/annotations.json` by inspecting the frozen pixels, then re-run `node tools/presentation-assets.mjs`. | Polish (no screen is HOLD for this) |
+
 ## ART SHIP 009 integration re-evaluation (branch `claude/art-ship-009-integration`)
 
 The 12 frozen ART SHIP 009 assets and the `lan_night → tristan_apt` zero-pixel reuse are integrated (`docs/art_integration/ART_SHIP_009_INTEGRATION.md`). Ticket status after live visual review:

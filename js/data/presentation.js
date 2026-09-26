@@ -87,8 +87,11 @@
  // ticket in docs/presentation/NEEDS_CREATIVE.md. The release gate requires this list to match the dry run exactly.
  const adventure={environments:'all',exceptions:{
   // PD-W1-01/02/03 were resolved by frozen art + metadata-driven slot staging (docs/presentation/NEEDS_CREATIVE.md).
-  'pier|left:rich@holding_fish_away,right:uncle_sunday@fishing':{status:'EXCEPTION-LAYOUT',ticket:'PD-FA-02'},
-  'portobello_bedroom|farRight:portobello_kid2,left:portobello_wife,mid:rich_portobello,right:portobello_kid1':{status:'EXCEPTION-LAYOUT',ticket:'PD-W1-04'}
+  // PD-W1-04 (the four-actor Portobello bedroom) is resolved as of ART SHIP 010: rich_portobello now carries real
+  // frozen geometry (narrower than the generic placeholder silhouette it replaced), and the existing generic
+  // metadata-driven slot solver (no per-screen authoring) meets the shot band at 360/390/430 without an exception.
+  // portobello_wife/kid1/kid2 are still RAPixel placeholders (BLOCKED BY CANON, NC-FA-07); see HQ-AS10-01.
+  'pier|left:rich@holding_fish_away,right:uncle_sunday@fishing':{status:'EXCEPTION-LAYOUT',ticket:'PD-FA-02'}
  }};
  // Canonical screen key for the adapter (shared by runtime, dry run and census). An approved frozen state
  // (RAArtRegistry) is part of the composition, so `slot:person@state` is its own screen.

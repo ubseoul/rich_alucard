@@ -67,7 +67,14 @@
   M('cleric',{name:'CLERIC',role:"vicky's party",look:{skin:'#d8b090',top:'#f0ead0',bottom:'#f0ead0',hair:'#6a4a2a',hairShape:'hood'}}),
   M('buckhead',{name:'BUCKHEAD VAMPIRE',role:'rival',look:{skin:'#e8c8a8',top:'#f0e0c0',bottom:'#3a3a5a',hair:'#c8a060'}}),
   M('og_hooper',{name:'THE OG',role:'pickup regular',look:{skin:'#4a2a18',top:'#c8c8c8',hair:'#c8c8c8'}}),
-  M('cat',{name:'THE CAT',role:'sphynx',look:{skin:'#e8c0b0',top:'#e8c0b0',bottom:'#e8c0b0',hair:'#e8c0b0',hairShape:'bald',height:.3,width:.9}})
+  M('cat',{name:'THE CAT',role:'sphynx',look:{skin:'#e8c0b0',top:'#e8c0b0',bottom:'#e8c0b0',hair:'#e8c0b0',hairShape:'bald',height:.3,width:.9}}),
+  // ART SHIP 010: the Portobello-timeline Rich transformation (A30) is its own named identity, distinct from `rich` —
+  // GUIDED, explicitly authorized short-hair variant, not identity drift. The `look` here is the same placeholder
+  // spec w5.js used inline before this Ship; it is kept only as the RAPixel fallback if frozen art is ever missing.
+  // `portobello_wife`/`kid1`/`kid2`/`manager` stay OUT of this catalog: they remain BLOCKED BY CANON (NC-FA-07), no
+  // committed visual card exists, and w5.js already renders their RAPixel placeholder `look` inline without needing
+  // a catalog entry (this list only needs an entry when the Art Registry has frozen art to wire to it).
+  M('rich_portobello',{name:'RICH',role:'portobello timeline',look:{skin:'#6a4028',top:'#c8b89a',bottom:'#5a4a3a',hair:'#3a2418',hairShape:'short',shades:false,accent:'#20c66b'}})
  ];
  const rich={id:'rich',name:'RICH',sprite:'assets/rich_standing_right.png',look:{skin:'#6a4028',top:'#0c0c10',bottom:'#0c0c10',hair:'#0c0c10',hairShape:'locs',shades:true,accent:'#20c66b'}};
  // Frozen ART SHIP 004–007 identity anchors and approved states, resolved by id through the generated Art Registry
