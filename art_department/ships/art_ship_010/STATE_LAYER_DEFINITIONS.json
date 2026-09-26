@@ -1,0 +1,14 @@
+{
+  "ship_id": "ART SHIP 010",
+  "status": "CANDIDATE — HQ REVIEW REQUIRED",
+  "states": [
+    {"runtime_asset_id": "rich_portobello", "condition": "standing/default", "candidate": "candidates/native/characters/rich_portobello_standing_80x96.png", "minimum_surfaces": ["portobello_bedroom"]},
+    {"runtime_asset_id": "rich_portobello.presenting", "condition": "presenting", "candidate": "candidates/native/characters/rich_portobello_presenting_80x96.png", "minimum_surfaces": ["portobello_office"]},
+    {"runtime_asset_id": "rich_portobello.porch_seated", "condition": "porch seated", "candidate": "candidates/native/characters/rich_portobello_porch_seated_80x96.png", "minimum_surfaces": ["portobello_porch"]}
+  ],
+  "layers": [
+    {"runtime_asset_id": "rooftop_dtla.party_crowd_condition", "condition": "anonymous party crowd", "candidate": "candidates/native/layers/rooftop_dtla_party_crowd_overlay_270x480.png", "origin": [0, 0], "behind_named_actors": true, "preserves_frozen_master": true}
+  ],
+  "not_generated": ["portobello_wife", "portobello_kid1", "portobello_kid2", "portobello_manager"],
+  "excluded_states": ["speculative alternates", "wake scream state not required by a live Portobello surface"]
+}

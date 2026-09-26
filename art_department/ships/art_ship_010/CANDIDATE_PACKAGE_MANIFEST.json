@@ -1,0 +1,19 @@
+{
+  "ship_id": "ART SHIP 010",
+  "title": "CAST + PARTY COMPLETION",
+  "status": "CANDIDATE — HQ REVIEW REQUIRED",
+  "base": {"branch": "claude/art-ship-009-integration", "commit": "5af730a132c035f6f2f5afb20eef5149ca3f2761"},
+  "candidates": [
+    {"id": "AS10-RICH-PORTO-STANDING", "runtime_asset_id": "rich_portobello", "path": "candidates/native/characters/rich_portobello_standing_80x96.png", "status": "CANDIDATE — HQ REVIEW REQUIRED"},
+    {"id": "AS10-RICH-PORTO-PRESENTING", "runtime_asset_id": "rich_portobello.presenting", "path": "candidates/native/characters/rich_portobello_presenting_80x96.png", "status": "CANDIDATE — HQ REVIEW REQUIRED"},
+    {"id": "AS10-RICH-PORTO-PORCH-SEATED", "runtime_asset_id": "rich_portobello.porch_seated", "path": "candidates/native/characters/rich_portobello_porch_seated_80x96.png", "status": "CANDIDATE — HQ REVIEW REQUIRED"},
+    {"id": "AS10-ROOFTOP-PARTY-CROWD", "runtime_asset_id": "rooftop_dtla.party_crowd_condition", "path": "candidates/native/layers/rooftop_dtla_party_crowd_overlay_270x480.png", "status": "CANDIDATE — HQ REVIEW REQUIRED"}
+  ],
+  "blocked_by_canon": [
+    {"runtime_asset_id": "portobello_wife", "reason": "No committed OPEN/GUIDED visual card; inline RAPixel placeholder is not authority"},
+    {"runtime_asset_id": "portobello_kid1", "reason": "No committed OPEN/GUIDED visual card; inline RAPixel placeholder is not authority"},
+    {"runtime_asset_id": "portobello_kid2", "reason": "No committed OPEN/GUIDED visual card; inline RAPixel placeholder is not authority"},
+    {"runtime_asset_id": "portobello_manager", "reason": "No committed OPEN/GUIDED visual card; inline RAPixel placeholder is not authority"}
+  ],
+  "approval": {"approved": false, "frozen": false, "runtime_integrated": false}
+}
