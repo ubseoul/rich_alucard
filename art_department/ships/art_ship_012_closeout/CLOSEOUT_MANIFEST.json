@@ -1,0 +1,80 @@
+{
+  "schema_version": 1,
+  "ship_id": "ART SHIP 012 CLOSEOUT",
+  "status": "CLEAN FOUNDATION READY",
+  "branch": "art/art_ship_012_closeout",
+  "frozen_art_base": {
+    "branch": "art/art_ship_013",
+    "commit": "9d6f521bdfc404f03a5f5bba7c700860de1eb293",
+    "frozen_asset_count": 219,
+    "asset_register_entry_count": 359
+  },
+  "historical_stale_branch": {
+    "branch": "art/art_ship_012",
+    "commit": "fcf094b30d5f8288f7727e5faf3f61fed8ff5016",
+    "use": "historical/provenance evidence only"
+  },
+  "runtime_authority_unchanged": {
+    "branch": "claude/hold-clearance-001",
+    "commit": "a66170218375e52404715789dde48c23726a6044",
+    "pass": 108,
+    "hold": 13
+  },
+  "hq_passed_candidates": [
+    {
+      "runtime_asset_id": "portobello_manager",
+      "path": "art_department/ships/art_ship_012_closeout/candidates/native/characters/portobello_manager_neutral_80x96.png",
+      "sha256": "0e69dc024e59fc9dbd5bed7944081fbc9f83226ba44d7c9c16b3c9b6d68ff26c",
+      "dimensions": [80, 96],
+      "contact": [40, 88],
+      "status": "HQ VISUAL PASS / CANDIDATE"
+    },
+    {
+      "runtime_asset_id": "auntie",
+      "path": "art_department/ships/art_ship_012_closeout/candidates/native/characters/auntie_register_neutral_80x96.png",
+      "sha256": "cf5ae278f87c9a339ac15c115f9a754f78cd58d6efa2e289515f90036ae9836e",
+      "dimensions": [80, 96],
+      "contact": [40, 88],
+      "status": "HQ VISUAL PASS / CANDIDATE"
+    },
+    {
+      "runtime_asset_id": "soul",
+      "path": "art_department/ships/art_ship_012_closeout/candidates/native/characters/ocean_soul_climbing_80x96.png",
+      "sha256": "21b21879c070ba61944091683201eb89c57a18e05731f66f5fce3e687ed8dbd1",
+      "dimensions": [80, 96],
+      "contact": [40, 88],
+      "status": "HQ VISUAL PASS / CANDIDATE"
+    },
+    {
+      "runtime_asset_id": "training_dummy",
+      "path": "art_department/ships/art_ship_012_closeout/candidates/native/characters/training_dummy_combat_80x96.png",
+      "sha256": "e30e3189af01afdd05300fc913ea541aab0e0f1f8c88704a094afac2b5f9face",
+      "dimensions": [80, 96],
+      "contact": [40, 88],
+      "status": "HQ VISUAL PASS / CANDIDATE"
+    }
+  ],
+  "buckhead_rejected_provenance": [
+    {
+      "path": "art_department/ships/art_ship_012_closeout/rejected/buckhead_initial_naturalistic_rejected_80x96.png",
+      "source_commit": "4c7477f0d3c73951a3a8494634ead38129c7d685",
+      "sha256": "26bc338ca53b12aac0b051189745dadba4b4fb6d29c745e85253fa8c8e01265c",
+      "dimensions": [80, 96],
+      "contact": [40, 88],
+      "status": "REJECTED / PROVENANCE ONLY",
+      "reason": "Naturalistic proportions and rendering do not match the approved Rich Alucard character grammar."
+    },
+    {
+      "path": "art_department/ships/art_ship_012_closeout/rejected/buckhead_deterministic_native_grid_rejected_80x96.png",
+      "source_commit": "fcf094b30d5f8288f7727e5faf3f61fed8ff5016",
+      "sha256": "f178b6b63a8d01f3acbbb9d38228da5b97be2fad9fcc8a6ccb7f8ffa0fc6333e",
+      "dimensions": [80, 96],
+      "contact": [40, 88],
+      "status": "REJECTED / PROVENANCE ONLY",
+      "reason": "Deterministic native-grid revision was not accepted; this method is prohibited for the next revision."
+    }
+  ],
+  "unresolved_visual_targets": ["buckhead"],
+  "buckhead_generation_attempted_on_closeout_branch": false,
+  "shared_authority_files_modified": []
+}

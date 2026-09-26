@@ -1,0 +1,112 @@
+{
+  "ship_id": "ART SHIP 012 CLOSEOUT",
+  "status": "CLEAN FOUNDATION READY",
+  "base_commit": "9d6f521bdfc404f03a5f5bba7c700860de1eb293",
+  "current_frozen_art_authority": "ART SHIP 013",
+  "current_runtime_authority": {
+    "branch": "claude/hold-clearance-001",
+    "commit": "a66170218375e52404715789dde48c23726a6044",
+    "pass": 108,
+    "hold": 13
+  },
+  "passed_candidates": [
+    {
+      "path": "art_department/ships/art_ship_012_closeout/candidates/native/characters/portobello_manager_neutral_80x96.png",
+      "expected_sha256": "0e69dc024e59fc9dbd5bed7944081fbc9f83226ba44d7c9c16b3c9b6d68ff26c",
+      "actual_sha256": "0e69dc024e59fc9dbd5bed7944081fbc9f83226ba44d7c9c16b3c9b6d68ff26c",
+      "dimensions": [
+        80,
+        96
+      ],
+      "pass": true
+    },
+    {
+      "path": "art_department/ships/art_ship_012_closeout/candidates/native/characters/auntie_register_neutral_80x96.png",
+      "expected_sha256": "cf5ae278f87c9a339ac15c115f9a754f78cd58d6efa2e289515f90036ae9836e",
+      "actual_sha256": "cf5ae278f87c9a339ac15c115f9a754f78cd58d6efa2e289515f90036ae9836e",
+      "dimensions": [
+        80,
+        96
+      ],
+      "pass": true
+    },
+    {
+      "path": "art_department/ships/art_ship_012_closeout/candidates/native/characters/ocean_soul_climbing_80x96.png",
+      "expected_sha256": "21b21879c070ba61944091683201eb89c57a18e05731f66f5fce3e687ed8dbd1",
+      "actual_sha256": "21b21879c070ba61944091683201eb89c57a18e05731f66f5fce3e687ed8dbd1",
+      "dimensions": [
+        80,
+        96
+      ],
+      "pass": true
+    },
+    {
+      "path": "art_department/ships/art_ship_012_closeout/candidates/native/characters/training_dummy_combat_80x96.png",
+      "expected_sha256": "e30e3189af01afdd05300fc913ea541aab0e0f1f8c88704a094afac2b5f9face",
+      "actual_sha256": "e30e3189af01afdd05300fc913ea541aab0e0f1f8c88704a094afac2b5f9face",
+      "dimensions": [
+        80,
+        96
+      ],
+      "pass": true
+    }
+  ],
+  "passed_candidate_hashes_preserved": true,
+  "rejected_buckhead_provenance": [
+    {
+      "path": "art_department/ships/art_ship_012_closeout/rejected/buckhead_initial_naturalistic_rejected_80x96.png",
+      "expected_sha256": "26bc338ca53b12aac0b051189745dadba4b4fb6d29c745e85253fa8c8e01265c",
+      "actual_sha256": "26bc338ca53b12aac0b051189745dadba4b4fb6d29c745e85253fa8c8e01265c",
+      "dimensions": [
+        80,
+        96
+      ],
+      "pass": true
+    },
+    {
+      "path": "art_department/ships/art_ship_012_closeout/rejected/buckhead_deterministic_native_grid_rejected_80x96.png",
+      "expected_sha256": "f178b6b63a8d01f3acbbb9d38228da5b97be2fad9fcc8a6ccb7f8ffa0fc6333e",
+      "actual_sha256": "f178b6b63a8d01f3acbbb9d38228da5b97be2fad9fcc8a6ccb7f8ffa0fc6333e",
+      "dimensions": [
+        80,
+        96
+      ],
+      "pass": true
+    }
+  ],
+  "rejected_buckhead_hashes_preserved": true,
+  "frozen_assets_checked": 219,
+  "asset_register_entries": 359,
+  "frozen_hash_failures": [],
+  "ship_013_frozen_integrity_pass": true,
+  "changed_files": [
+    "art_department/ships/art_ship_012_closeout/ART_SHIP.md",
+    "art_department/ships/art_ship_012_closeout/CANDIDATE_SHA256SUMS.txt",
+    "art_department/ships/art_ship_012_closeout/CLOSEOUT_MANIFEST.json",
+    "art_department/ships/art_ship_012_closeout/PROVENANCE.md",
+    "art_department/ships/art_ship_012_closeout/REJECTED_SHA256SUMS.txt",
+    "art_department/ships/art_ship_012_closeout/VALIDATION_REPORT.json",
+    "art_department/ships/art_ship_012_closeout/VALIDATION_REPORT.md",
+    "art_department/ships/art_ship_012_closeout/candidates/native/characters/auntie_register_neutral_80x96.png",
+    "art_department/ships/art_ship_012_closeout/candidates/native/characters/ocean_soul_climbing_80x96.png",
+    "art_department/ships/art_ship_012_closeout/candidates/native/characters/portobello_manager_neutral_80x96.png",
+    "art_department/ships/art_ship_012_closeout/candidates/native/characters/training_dummy_combat_80x96.png",
+    "art_department/ships/art_ship_012_closeout/rejected/buckhead_deterministic_native_grid_rejected_80x96.png",
+    "art_department/ships/art_ship_012_closeout/rejected/buckhead_initial_naturalistic_rejected_80x96.png",
+    "art_department/ships/art_ship_012_closeout/review/01_hq_passed_candidates_native_1x.png",
+    "art_department/ships/art_ship_012_closeout/review/02_hq_passed_candidates_exact_4x.png",
+    "art_department/ships/art_ship_012_closeout/review/03_buckhead_rejected_provenance_exact_4x.png",
+    "art_department/ships/art_ship_012_closeout/tools/build_review.py",
+    "art_department/ships/art_ship_012_closeout/tools/validate_foundation.py"
+  ],
+  "out_of_scope_changes": [],
+  "shared_authority_files_overwritten": [],
+  "runtime_files_changed": [],
+  "buckhead_generation_attempted_on_closeout_branch": false,
+  "review_boards": [
+    "art_department/ships/art_ship_012_closeout/review/01_hq_passed_candidates_native_1x.png",
+    "art_department/ships/art_ship_012_closeout/review/02_hq_passed_candidates_exact_4x.png",
+    "art_department/ships/art_ship_012_closeout/review/03_buckhead_rejected_provenance_exact_4x.png"
+  ],
+  "overall_pass": true
+}
