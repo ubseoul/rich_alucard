@@ -90,8 +90,12 @@
   // PD-W1-04 (the four-actor Portobello bedroom) is resolved as of ART SHIP 010: rich_portobello now carries real
   // frozen geometry (narrower than the generic placeholder silhouette it replaced), and the existing generic
   // metadata-driven slot solver (no per-screen authoring) meets the shot band at 360/390/430 without an exception.
-  // portobello_wife/kid1/kid2 are still RAPixel placeholders (BLOCKED BY CANON, NC-FA-07); see HQ-AS10-01.
+  // The wife and kids gained frozen art in ART SHIP 013; the breakfast screen passes with a speakers-only node shot.
   // PD-FA-02 (pier fish reaction) is resolved by an authored node `shot` on A12:react (Rich focal; HOLD CLEARANCE 001).
+  // PD-FA-03 (FINAL ART INTEGRATION): the speaking kid's frozen child-scale face stays under the dialogue face floor at
+  // every conversation framing inside the consistency band; the passing close two-shot drops the other kid from frame,
+  // which is a staging call for HQ (docs/art_integration/HQ_DECISIONS.md HQ-FAI-01).
+  'portobello_bedroom|left:portobello_kid1,mid:rich_portobello,right:portobello_kid2':{status:'EXCEPTION-LAYOUT',ticket:'PD-FA-03'}
  }};
  // Canonical screen key for the adapter (shared by runtime, dry run and census). An approved frozen state
  // (RAArtRegistry) is part of the composition, so `slot:person@state` is its own screen.

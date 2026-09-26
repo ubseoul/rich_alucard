@@ -194,7 +194,8 @@
    const e=ext[slot]||{l:15*scale,r:15*scale};xs[slot]=Math.min(270-e.r-4,Math.max(e.l+4,spec.x??slots?.[slot]??135));
   }
   const focalSlots=Object.keys(cast).filter(slot=>!cast[slot].hidden&&!cast[slot].observer&&cast[slot].y==null);
-  if(!node?.shot&&focalSlots.length>=2&&focalSlots.every(slot=>ext[slot]&&(cast[slot].x==null||cast[slot].x===slots?.[slot]))){
+  // A node shot that only names its speakers keeps this generic staging; one that authors `focal` stages itself.
+  if(!node?.shot?.focal&&focalSlots.length>=2&&focalSlots.every(slot=>ext[slot]&&(cast[slot].x==null||cast[slot].x===slots?.[slot]))){
    const moved=compactSlots(Object.fromEntries(focalSlots.map(s=>[s,xs[s]])),ext,conversationWidth(scale));
    for(const slot of focalSlots){const e=ext[slot];xs[slot]=Math.min(270-e.r-4,Math.max(e.l+4,moved[slot]))}
   }

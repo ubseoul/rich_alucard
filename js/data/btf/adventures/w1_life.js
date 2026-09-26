@@ -51,7 +51,7 @@
   curb:{env:'naija_lot',actors:{left:'rich'},lines:[N('outside, on the curb of the lot. the malt is cold.'),N('a flyer on the door: JOLLOF WARS. FIRST SUNDAY. BRING YOUR POT.')],
    end:{outcome:'malt',memory:{text:'drinking malt on the naija mart curb',lane:'food',quality:1.5},receipt:{caption:'malt on the curb. hawthorne.'},home:['rich','that malt was religious.',{vp:true}]}}
  }});
- RABtfPeople.byId.auntie={id:'auntie',name:'THE AUNTIE',look:{skin:'#5a3420',top:'#2a8a5a',hair:'#1a1a1a',hairShape:'hat',width:1.2}};
+ RABtfPeople.byId.auntie=RABtfPeople.byId.auntie||{id:'auntie',name:'THE AUNTIE',look:{skin:'#5a3420',top:'#2a8a5a',hair:'#1a1a1a',hairShape:'hat',width:1.2}};
  D({id:'NAIJA',title:'NAIJA MART',lane:'food',repeatable:true,oncePerNight:true,available:L=>L.done('A43'),start:'store',nodes:{
   store:{...store('out'),env:'naija_mart',actors:{left:'rich',right:'auntie'}},
   out:{end:{outcome:'shop',memory:{text:'stocking up at naija mart',lane:'food',quality:.5}}}

@@ -83,7 +83,7 @@
    octopus:{charisma:{label:'SIGN EVERYTHING',result:'spared',text:'EVERYONE IS SATISFIED.'},recruit:{label:'START A CHANT',result:'spared',text:'THEY CHANT. YOU LEAVE.'},roast:{label:'"Y\'ALL NEED JOBS"',result:'damage',amount:20,text:'THEY LOVE IT.'}}},
   werewolf:{name:'MOONIE (FULL MOON)',hp:150,person:'moonie',state:'wolfed_out',moves:{swipe:m('swipe','SWIPE',20),howl:m('howl','HOWL',0,{effect:{accDown:.1,turns:2},telegraph:'SHE IS SNIFFING THE AIR FOR STEAK…'})},pattern:['howl','swipe','swipe'],
    octopus:{charisma:{label:'STAY CALM. LET HER HIT YOU.',result:'tame',text:'SHE STOPS. SHE REMEMBERS YOU.'},recruit:{label:'BUY HER A STEAK',result:'spared',text:'THE FOOD COURT IS CLOSED. RICH BREAKS IN.'},roast:{label:'"BAD DOG"',result:'enrage',text:'NO.'}}},
-  training:{name:'TRAINING DUMMY',hp:60,moves:{bonk:m('bonk','BONK',8)},pattern:['bonk'],
+  training:{name:'TRAINING DUMMY',hp:60,person:'training_dummy',moves:{bonk:m('bonk','BONK',8)},pattern:['bonk'],
    octopus:{charisma:{label:'BEFRIEND IT',result:'spared',text:'IT IS A DUMMY.'},recruit:{label:'RECRUIT IT',result:'spared',text:'IT JOINS. IT DOES NOTHING.'},roast:{label:'ROAST IT',result:'damage',amount:20,text:'IT HAS NO FEELINGS.'}}}
  };
  // Frozen enemy art (RAArtRegistry via RABtfPeople). `state` = the approved frozen state a fight is staged in (e.g. the

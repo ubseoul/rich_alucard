@@ -17,22 +17,15 @@
   "assets/before_the_fame/props/dragon_maggi_cube/dragon_maggi_cube_24x24.png": {"status": "FROZEN + MAPPING AMBIGUOUS", "note": "Label spelling (MAGGI vs MAGI) is Ube-owned; the label must stay swappable (CURRENT_OPEN_ART_GAPS)."}
  },
  "people": {
-  "mom": {"status": "NEEDS CREATIVE", "note": "Family identity: names/details await Ube; no invented portraits."},
-  "dad": {"status": "NEEDS CREATIVE", "note": "Family identity: names/details await Ube; no invented portraits."},
-  "sister": {"status": "NEEDS CREATIVE", "note": "Family identity: names/details await Ube; no invented portraits."},
   "brother1": {"status": "NEEDS CREATIVE", "note": "Family identity: names/details await Ube; no invented portraits."},
   "brother2": {"status": "NEEDS CREATIVE", "note": "Family identity: names/details await Ube; no invented portraits."},
   "god": {"status": "NEEDS CREATIVE", "note": "Culturally sensitive OPEN card; exact committed card only."},
-  "buckhead": {"status": "NO APPROVED ART YET", "note": "Deferred identity (ART SHIP 007 accepted deferral)."},
   "og_hooper": {"status": "NO APPROVED ART YET", "note": "Deferred identity (ART SHIP 007 accepted deferral)."}
  },
  "screens": {
   "la_sky|left:rich,right:mazda_human": {"status": "PASS (POLISH NOTE)", "ticket": "NC-FA-13", "note": "ART SHIP 009 la_sky master reads as over LA at night; the beat narrates Rich riding on Mazda's back mid-flight, but both approved anchors stand on the cloud-bank contact line."},
   "lan_night|left:rich,right:tristan": {"status": "PASS (POLISH NOTE)", "ticket": "PD-AS9-01", "note": "Approved zero-pixel reuse of the frozen tristan_apt master (AS9-REUSE-LAN-NIGHT). The apartment at night reads; the conversation framing crops the three monitors just above frame (desk chair and setup edge visible)."},
-  "portobello_bedroom|left:portobello_kid1,mid:rich_portobello,right:portobello_kid2": {"status": "HOLD", "ticket": "NC-FA-07", "note": "ART SHIP 010 rich_portobello (standing/default) integrated; portobello_kid1/kid2 remain RAPixel placeholders — BLOCKED BY CANON, no committed visual card exists for either."},
-  "portobello_bedroom|left:portobello_wife,mid:rich_portobello": {"status": "HOLD", "ticket": "NC-FA-07", "note": "ART SHIP 010 rich_portobello (standing/default) integrated; portobello_wife remains a RAPixel placeholder — BLOCKED BY CANON, no committed visual card exists."},
-  "portobello_office|left:rich_portobello@presenting,right:portobello_manager": {"status": "HOLD", "ticket": "NC-FA-07", "note": "ART SHIP 010 rich_portobello.presenting integrated; portobello_manager remains a RAPixel placeholder — BLOCKED BY CANON, no committed visual card exists."},
-  "portobello_porch|left:rich_portobello@porch_seated,right:portobello_wife": {"status": "HOLD", "ticket": "NC-FA-07", "note": "ART SHIP 010 rich_portobello.porch_seated integrated; portobello_wife remains a RAPixel placeholder — BLOCKED BY CANON, no committed visual card exists."}
+  "portobello_bedroom|left:portobello_kid1,mid:rich_portobello,right:portobello_kid2": {"status": "HOLD", "ticket": "PD-FA-03", "note": "All three figures resolve frozen art (ART SHIP 010 rich_portobello, ART SHIP 013 kid1/kid2). The speaking kid's child-scale face measures 22/24/26 px against the 24/26/28.7 px dialogue floor at 360/390/430 in the conversation band; a close two-shot that passes puts the other kid fully off-frame. HQ staging decision HQ-FAI-01."}
  },
  "surfaces": {
   "minigame:pier": {"status": "PASS (final art)", "note": "Rich fishing_cast / holding_fish_away and Uncle Sunday fishing (frozen states) on the minigame canvas at native 1:1."},
