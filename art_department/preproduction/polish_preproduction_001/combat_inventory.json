@@ -1,0 +1,391 @@
+{
+  "blood_bath": {
+    "manifest": "assets/blood_bath_manifest.json",
+    "readme": "assets/blood_bath_README.md",
+    "components": [
+      {
+        "path": "assets/blood_bath_floor_rise_01.png",
+        "sha256": "e2c88f6bc8ddb0200a696e985e622a859d6e566e5320a2fcde252ceee9c1a503",
+        "dimensions": [
+          270,
+          362
+        ],
+        "role": "behind_target"
+      },
+      {
+        "path": "assets/blood_bath_floor_rise_02.png",
+        "sha256": "b8eb7e8067feaeb5368deb57dff662cbb8655c83a5d621c057691114472cbe2d",
+        "dimensions": [
+          270,
+          362
+        ],
+        "role": "behind_target"
+      },
+      {
+        "path": "assets/blood_bath_floor_rise_03.png",
+        "sha256": "d8cdeca8b2861d0b20a07a35c51607870d7866df3c48ac340457c63d31011615",
+        "dimensions": [
+          270,
+          362
+        ],
+        "role": "behind_target"
+      },
+      {
+        "path": "assets/blood_bath_foreground_01.png",
+        "sha256": "2dd583969ec1d8407a95eaedc1ea41e382d1a9ae05b36b62b04acc3097ad0c1a",
+        "dimensions": [
+          270,
+          362
+        ],
+        "role": "in_front_of_target"
+      },
+      {
+        "path": "assets/blood_bath_contact_01.png",
+        "sha256": "eb243a5b4195307400ee0ee591e18a3980d57f8e9bf9d63a785ecd81a8f74c10",
+        "dimensions": [
+          96,
+          96
+        ],
+        "role": "contact_point"
+      },
+      {
+        "path": "assets/blood_bath_contact_02.png",
+        "sha256": "6f4e4e11dd76fb1e0014247fa3318a561803189223b72fbace8b2dbef689afc1",
+        "dimensions": [
+          96,
+          96
+        ],
+        "role": "contact_point"
+      },
+      {
+        "path": "assets/blood_bath_engulf_overlay_01.png",
+        "sha256": "e3a78f7c7c3026cbc2b9996311dd90750a02d15670f050042c5200e4c3d1d969",
+        "dimensions": [
+          96,
+          96
+        ],
+        "role": "optional_target_overlay"
+      },
+      {
+        "path": "assets/blood_bath_engulf_overlay_02.png",
+        "sha256": "9b7fe391bc5dfeb5cd4f89eb75cdfedfae4dc3a66ee5524fb991a21ec827f0e6",
+        "dimensions": [
+          96,
+          96
+        ],
+        "role": "optional_target_overlay"
+      },
+      {
+        "path": "assets/blood_bath_impact_fullscreen.png",
+        "sha256": "8291e3a4e76a49b4cf659811ab1931b3ee65b72935b31e8c23831f3fd19fa55e",
+        "dimensions": [
+          270,
+          480
+        ],
+        "role": "opaque_screen_overlay"
+      }
+    ],
+    "legacy_travel_impact_evidence": [
+      {
+        "path": "assets/blood_orb.png",
+        "sha256": "efb7366a09deae051b18e49995d5f8f3716b1dc069b2e104703b2374c6b6588d",
+        "dimensions": [
+          18,
+          12
+        ]
+      },
+      {
+        "path": "assets/blood_orb_sheet.png",
+        "sha256": "083b8f5b1733b624189de06caf05a1dea5ec162b4c71ffde40368841f9f65a0a",
+        "dimensions": [
+          96,
+          32
+        ]
+      },
+      {
+        "path": "assets/blood_missiles_detailed.png",
+        "sha256": "94dfc76ca153f9a764c92c37207d5a048b86dbc06e4eab8e9f6150230f0c68c6",
+        "dimensions": [
+          120,
+          144
+        ]
+      },
+      {
+        "path": "assets/blood_impact.png",
+        "sha256": "56e87ef566853fe45de10c37fef71b02b1b4f8b7fc18d222aa2d091b8091be35",
+        "dimensions": [
+          24,
+          24
+        ]
+      },
+      {
+        "path": "assets/blood_impact_detailed.png",
+        "sha256": "247be04fa8ffaa4b9f0d56bf9162622578cf0be6540354192e20fce5ff875f02",
+        "dimensions": [
+          384,
+          64
+        ]
+      },
+      {
+        "path": "assets/blood_impact_sheet.png",
+        "sha256": "a3c79866b98569982a2ee0013520e85c77991d10a127367555d3355c8908bf67",
+        "dimensions": [
+          320,
+          64
+        ]
+      }
+    ]
+  },
+  "vampire_bite": {
+    "manifest": "assets/vampire_bite_manifest.json",
+    "readme": "assets/vampire_bite_README.md",
+    "components": [
+      {
+        "path": "assets/vampire_bite_jaw_upper.png",
+        "sha256": "5e14781927eba0e8ed5fc0f1311701aaa9e82068500d791eb1c0d690237b3441",
+        "dimensions": [
+          270,
+          480
+        ],
+        "role": "screen_top_jaw"
+      },
+      {
+        "path": "assets/vampire_bite_jaw_lower.png",
+        "sha256": "8e19382756583157c468c758a0cfe425105b01741279812be1c422b2b69a5768",
+        "dimensions": [
+          270,
+          480
+        ],
+        "role": "screen_bottom_jaw"
+      },
+      {
+        "path": "assets/vampire_bite_snap_closed.png",
+        "sha256": "15618df382ab162a2f53a6263dddf9465ad7927f18ff07d329611c47b96811e8",
+        "dimensions": [
+          270,
+          480
+        ],
+        "role": "screen_snap_replacement"
+      },
+      {
+        "path": "assets/vampire_bite_contact.png",
+        "sha256": "df9a605f9a48a854b560247a25073ab4dec3ac298dac2b318210f96746a901c7",
+        "dimensions": [
+          64,
+          64
+        ],
+        "role": "runtime_contact_point"
+      },
+      {
+        "path": "assets/vampire_bite_lifesteal_drop_01.png",
+        "sha256": "781558b082aaad2dc545713470a6c247ddb621278189cdd04275f5a009a4356d",
+        "dimensions": [
+          16,
+          16
+        ],
+        "role": "runtime_lifesteal_particle"
+      },
+      {
+        "path": "assets/vampire_bite_lifesteal_orb_01.png",
+        "sha256": "5aad7b2626ec40a7effab26252df3479e6b0006de09bdfbdac235e7b8e36ca33",
+        "dimensions": [
+          16,
+          16
+        ],
+        "role": "runtime_lifesteal_particle"
+      },
+      {
+        "path": "assets/vampire_bite_lifesteal_drop_02.png",
+        "sha256": "8db81aa343d5b99703e421f34de97013e26681f9053e62feafc38f005cbf4ff4",
+        "dimensions": [
+          16,
+          16
+        ],
+        "role": "runtime_lifesteal_particle"
+      }
+    ]
+  },
+  "revenge": {
+    "manifest": "assets/revenge_manifest.json",
+    "readme": "assets/revenge_README.md",
+    "components": [
+      {
+        "path": "assets/revenge_stored_wound_01.png",
+        "sha256": "ca96c7c10ef573bcf87822ba4ecf08f80f7037cf0ff2716ede7990a8935183b9",
+        "dimensions": [
+          16,
+          16
+        ],
+        "role": "persistent_attacker_relative_fragment"
+      },
+      {
+        "path": "assets/revenge_stored_wound_02.png",
+        "sha256": "2efd5384e6ddfde320edf25a5642a00ea7cd95f6906250bf0a448ab082a048f6",
+        "dimensions": [
+          16,
+          16
+        ],
+        "role": "persistent_attacker_relative_fragment"
+      },
+      {
+        "path": "assets/revenge_stored_wound_03.png",
+        "sha256": "421f7c019f7b15b5255a0778398132cd007430374de905ab676280bef9648ad4",
+        "dimensions": [
+          16,
+          16
+        ],
+        "role": "persistent_attacker_relative_fragment"
+      },
+      {
+        "path": "assets/revenge_stored_wound_04.png",
+        "sha256": "6b76f70ab13980c9067118043e29a694cdc10827c201d79b833dab9091d80e86",
+        "dimensions": [
+          16,
+          16
+        ],
+        "role": "persistent_attacker_relative_fragment"
+      },
+      {
+        "path": "assets/revenge_extraction_01.png",
+        "sha256": "0c9b1eeb2fe283b9da79bc5739cd0c5cd947af124b07845a3fdf6a2c5745dbff",
+        "dimensions": [
+          24,
+          24
+        ],
+        "role": "runtime_extraction_particle"
+      },
+      {
+        "path": "assets/revenge_extraction_02.png",
+        "sha256": "22edcc194f85d11b9b6e5848a8afb68851bcb22dfeb3fe4e5bf3cad24d907929",
+        "dimensions": [
+          24,
+          24
+        ],
+        "role": "runtime_extraction_particle"
+      },
+      {
+        "path": "assets/revenge_extraction_03.png",
+        "sha256": "c96fb6795847689f4ca8af29dc3b768ed4c439a70dd0d70fd44846dbbe094b07",
+        "dimensions": [
+          24,
+          24
+        ],
+        "role": "runtime_extraction_particle"
+      },
+      {
+        "path": "assets/revenge_extraction_04.png",
+        "sha256": "27b9b533a0d2c4087b84f6df83ae7df19be96283f4de6d818f36e84a26ecc943",
+        "dimensions": [
+          24,
+          24
+        ],
+        "role": "runtime_extraction_particle"
+      },
+      {
+        "path": "assets/revenge_mass_01.png",
+        "sha256": "d8f8c47fbca456ce64a063993eaf721983cbd2480775572794bcac3bd9c271e0",
+        "dimensions": [
+          96,
+          96
+        ],
+        "role": "condensed_wound_mass"
+      },
+      {
+        "path": "assets/revenge_mass_02.png",
+        "sha256": "8e880fe980ec53186b33c4d975676a831e7b616e6ac5d010456e60a614f537f7",
+        "dimensions": [
+          96,
+          96
+        ],
+        "role": "condensed_wound_mass"
+      },
+      {
+        "path": "assets/revenge_mass_03.png",
+        "sha256": "0ceceb3462adb13f8a1a42549b76921641babdd1e09e1373102e36b14e5f1746",
+        "dimensions": [
+          96,
+          96
+        ],
+        "role": "condensed_wound_mass"
+      },
+      {
+        "path": "assets/revenge_target_crack_01.png",
+        "sha256": "9ef2d606d6b4a75fff4be557604d605ca7d0b1e218e6fdcd0be5fba9a746ba78",
+        "dimensions": [
+          96,
+          96
+        ],
+        "role": "runtime_target_alpha_overlay"
+      },
+      {
+        "path": "assets/revenge_target_crack_02.png",
+        "sha256": "e764dc72a13204fca72d889f3774ad7fcdb729804fba78efe22cdba4268c2c52",
+        "dimensions": [
+          96,
+          96
+        ],
+        "role": "runtime_target_alpha_overlay"
+      },
+      {
+        "path": "assets/revenge_target_crack_03.png",
+        "sha256": "a16d084874447fa832de2606fdfd268926db7df28d0192e00bfc06a37c3dba79",
+        "dimensions": [
+          96,
+          96
+        ],
+        "role": "runtime_target_alpha_overlay"
+      },
+      {
+        "path": "assets/revenge_impact_fullscreen.png",
+        "sha256": "e82097fc9472e0cc224999c69f8ce7d5b1dd02567b89ca0add3b693d18e6a008",
+        "dimensions": [
+          270,
+          480
+        ],
+        "role": "opaque_transient_screen_impact"
+      }
+    ]
+  },
+  "octopus_brain": {
+    "manifest": null,
+    "readme": null,
+    "components": [
+      {
+        "path": "assets/octopus_brain_a.png",
+        "sha256": "e8d149bf8a4242da5891cdde4402ca3539bbaade19ac0405b122d9212496ccb2",
+        "dimensions": [
+          270,
+          362
+        ],
+        "role": "authored held/emergence state"
+      },
+      {
+        "path": "assets/octopus_brain_b.png",
+        "sha256": "7118795e7cfcafa0d32938dd79c83ef6cd2d3cfcb4af6ab23b8a394c76359705",
+        "dimensions": [
+          270,
+          362
+        ],
+        "role": "authored held/emergence state"
+      },
+      {
+        "path": "assets/octopus_brain_c.png",
+        "sha256": "03bedd790a1276e41703f70413019ff6122be84f233f9ed1a3a01ffaae60cb92",
+        "dimensions": [
+          270,
+          362
+        ],
+        "role": "authored held/emergence state"
+      },
+      {
+        "path": "assets/octopus_brain_d.png",
+        "sha256": "daca9dffefca339f8d244b1be5ac8500d80c2482870c061a06cd4aa7c940d876",
+        "dimensions": [
+          270,
+          362
+        ],
+        "role": "authored held/emergence state"
+      }
+    ]
+  }
+}

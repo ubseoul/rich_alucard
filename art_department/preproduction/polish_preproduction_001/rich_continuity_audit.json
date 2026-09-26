@@ -1,0 +1,1167 @@
+{
+  "counting": "34 individual files: 33 sprite states and 1 portrait. Archive copies, sheets and empty props do not inflate state totals.",
+  "classification_counts": {
+    "CONSISTENT": 21,
+    "STRONG IDENTITY DRIFT": 1,
+    "POSSIBLE IDENTITY DRIFT": 2,
+    "INTENTIONAL VARIANT": 10
+  },
+  "states": [
+    {
+      "path": "assets/before_the_fame/characters/rich/rich_fishing_cast_80x96.png",
+      "sha256": "5a28fd47156b93f9282033eb84db2c6fab7ff362d6390e03ba452e3145c1fc65",
+      "dimensions": [
+        80,
+        96
+      ],
+      "bounds": [
+        14,
+        37,
+        66,
+        88
+      ],
+      "colors": 86,
+      "status": "FROZEN",
+      "individual_state": true,
+      "green_accent_pixels_heuristic": 9,
+      "classification": "CONSISTENT",
+      "observations": {
+        "hair_loc_silhouette": "Large jagged dark mass; still reads as established Rich loc/hair silhouette.",
+        "face": "Compact shades band, small exposed brown face, sparse white mouth/fang marks.",
+        "skin_tone": "Warm brown family; source-state lighting/pose changes do not break recognition.",
+        "green_earring": "Visible green accent near the ear; view-dependent pixel allocation.",
+        "body_proportions": "Compact body beneath dominant head/hair; posture changes explain envelope.",
+        "perceived_age": "Adult; consistent with established young-adult Rich, not an age redesign.",
+        "pixel_density": "86 opaque colors; more tonal variation than legacy, but silhouette, shades and earring still identify Rich.",
+        "clothing": "Black fit and dark shoes with small light sole accents.",
+        "recognition": "Strong same-character read."
+      },
+      "assessment": "Contextual prop/gesture is clear. More colors alone are insufficient evidence of identity drift.",
+      "future_cleanup_review": null
+    },
+    {
+      "path": "assets/before_the_fame/characters/rich/rich_holding_fish_away_80x96.png",
+      "sha256": "960a9a4bdbaee810640dccf91026f22e95a43ecf5c95ff54762a87aa2b86b4e6",
+      "dimensions": [
+        80,
+        96
+      ],
+      "bounds": [
+        9,
+        39,
+        71,
+        88
+      ],
+      "colors": 93,
+      "status": "FROZEN",
+      "individual_state": true,
+      "green_accent_pixels_heuristic": 9,
+      "classification": "CONSISTENT",
+      "observations": {
+        "hair_loc_silhouette": "Large jagged dark mass; still reads as established Rich loc/hair silhouette.",
+        "face": "Compact shades band, small exposed brown face, sparse white mouth/fang marks.",
+        "skin_tone": "Warm brown family; source-state lighting/pose changes do not break recognition.",
+        "green_earring": "Visible green accent near the ear; view-dependent pixel allocation.",
+        "body_proportions": "Compact body beneath dominant head/hair; posture changes explain envelope.",
+        "perceived_age": "Adult; consistent with established young-adult Rich, not an age redesign.",
+        "pixel_density": "93 opaque colors; more tonal variation than legacy, but silhouette, shades and earring still identify Rich.",
+        "clothing": "Black fit and dark shoes with small light sole accents.",
+        "recognition": "Strong same-character read."
+      },
+      "assessment": "Contextual prop/gesture is clear. More colors alone are insufficient evidence of identity drift.",
+      "future_cleanup_review": null
+    },
+    {
+      "path": "assets/before_the_fame/characters/rich/rich_hookah_seated_80x96.png",
+      "sha256": "c260180a4b3636fc2765534e0053abd1cab25b2ca2c43c83f800e6b55ee20696",
+      "dimensions": [
+        80,
+        96
+      ],
+      "bounds": [
+        19,
+        35,
+        61,
+        89
+      ],
+      "colors": 18,
+      "status": "FROZEN",
+      "individual_state": true,
+      "green_accent_pixels_heuristic": 0,
+      "classification": "STRONG IDENTITY DRIFT",
+      "observations": {
+        "hair_loc_silhouette": "Long radiating palm-like spikes replace the compact layered loc mass.",
+        "face": "More exposed/different facial construction; shades and fang read are weak compared with standing/curb.",
+        "skin_tone": "Darker muted brown at this pose; contributes to lost facial contrast.",
+        "green_earring": "No green accent pixels detected or visibly read.",
+        "body_proportions": "Broader crouched triangle with thick limbs; pose explains some breadth, not all head/face differences.",
+        "perceived_age": "Reads as a more mature/generic adult than the familiar compact Rich.",
+        "pixel_density": "18 colors but different cluster construction; low color count alone does not secure identity.",
+        "clothing": "Black clothes remain; brown shoe edges replace familiar bright sole accents.",
+        "recognition": "Recognizable as dark-haired seated man, substantially weaker as the same Rich."
+      },
+      "assessment": "Highest-priority future visual comparison; the frozen approval remains intact and this audit changes no pixels.",
+      "future_cleanup_review": "If HQ agrees, scope a fresh delta from standing/curb masters that preserves the seated action while restoring hair/face/earring/shoe cues."
+    },
+    {
+      "path": "assets/before_the_fame/characters/rich/rich_laptop_nod_80x96.png",
+      "sha256": "601c3fb46a87a6a8843a7569ed978a46118ce94d7ff864a0dc7aeb5e0fb63379",
+      "dimensions": [
+        80,
+        96
+      ],
+      "bounds": [
+        26,
+        43,
+        54,
+        88
+      ],
+      "colors": 113,
+      "status": "FROZEN",
+      "individual_state": true,
+      "green_accent_pixels_heuristic": 3,
+      "classification": "POSSIBLE IDENTITY DRIFT",
+      "observations": {
+        "hair_loc_silhouette": "More radiating separated spikes; less layered lobe shape than standing.",
+        "face": "Shades survive, but tiny warm/noisy facial marks alter the jaw/mouth read.",
+        "skin_tone": "Warm brown family; source-state lighting/pose changes do not break recognition.",
+        "green_earring": "Visible but reduced to 3 heuristic green pixels.",
+        "body_proportions": "Seated tuck is plausible; compare against the unchanged curb head rather than stretching the body.",
+        "perceived_age": "Adult; consistent with established young-adult Rich, not an age redesign.",
+        "pixel_density": "113 unique opaque colors versus standing 11; mixed small tones soften the face, a review cue rather than an automatic rejection.",
+        "clothing": "Black fit and dark shoes with small light sole accents.",
+        "recognition": "Likely same Rich at native size; head/face construction merits direct HQ comparison."
+      },
+      "assessment": "Review both laptop states together. Existing caf\u00e9 support-layer issue is already separate and is not reopened here.",
+      "future_cleanup_review": "Compare head/face at native and 6x; retain if HQ judges the difference to be pose compression. Do not regenerate merely to lower color count."
+    },
+    {
+      "path": "assets/before_the_fame/characters/rich/rich_laptop_seated_80x96.png",
+      "sha256": "a18ecf0d5c57d74f2be77a671faea5a6c01e7c6c60b00787d3f08c22499637b0",
+      "dimensions": [
+        80,
+        96
+      ],
+      "bounds": [
+        25,
+        40,
+        55,
+        88
+      ],
+      "colors": 109,
+      "status": "FROZEN",
+      "individual_state": true,
+      "green_accent_pixels_heuristic": 4,
+      "classification": "POSSIBLE IDENTITY DRIFT",
+      "observations": {
+        "hair_loc_silhouette": "More radiating separated spikes; less layered lobe shape than standing.",
+        "face": "Shades survive, but tiny warm/noisy facial marks alter the jaw/mouth read.",
+        "skin_tone": "Warm brown family; source-state lighting/pose changes do not break recognition.",
+        "green_earring": "Visible but reduced to 4 heuristic green pixels.",
+        "body_proportions": "Seated tuck is plausible; compare against the unchanged curb head rather than stretching the body.",
+        "perceived_age": "Adult; consistent with established young-adult Rich, not an age redesign.",
+        "pixel_density": "109 unique opaque colors versus standing 11; mixed small tones soften the face, a review cue rather than an automatic rejection.",
+        "clothing": "Black fit and dark shoes with small light sole accents.",
+        "recognition": "Likely same Rich at native size; head/face construction merits direct HQ comparison."
+      },
+      "assessment": "Review both laptop states together. Existing caf\u00e9 support-layer issue is already separate and is not reopened here.",
+      "future_cleanup_review": "Compare head/face at native and 6x; retain if HQ judges the difference to be pose compression. Do not regenerate merely to lower color count."
+    },
+    {
+      "path": "assets/before_the_fame/characters/rich/rich_on_stage_80x96.png",
+      "sha256": "c78240fa2c7952bc3a5c96189e2e99967e41fee6d05ca31b6a9ae9dce1917615",
+      "dimensions": [
+        80,
+        96
+      ],
+      "bounds": [
+        26,
+        36,
+        54,
+        88
+      ],
+      "colors": 86,
+      "status": "FROZEN",
+      "individual_state": true,
+      "green_accent_pixels_heuristic": 7,
+      "classification": "CONSISTENT",
+      "observations": {
+        "hair_loc_silhouette": "Large jagged dark mass; still reads as established Rich loc/hair silhouette.",
+        "face": "Compact shades band, small exposed brown face, sparse white mouth/fang marks.",
+        "skin_tone": "Warm brown family; source-state lighting/pose changes do not break recognition.",
+        "green_earring": "Visible green accent near the ear; view-dependent pixel allocation.",
+        "body_proportions": "Compact body beneath dominant head/hair; posture changes explain envelope.",
+        "perceived_age": "Adult; consistent with established young-adult Rich, not an age redesign.",
+        "pixel_density": "86 opaque colors; more tonal variation than legacy, but silhouette, shades and earring still identify Rich.",
+        "clothing": "Black fit and dark shoes with small light sole accents.",
+        "recognition": "Strong same-character read."
+      },
+      "assessment": "Contextual prop/gesture is clear. More colors alone are insufficient evidence of identity drift.",
+      "future_cleanup_review": null
+    },
+    {
+      "path": "assets/before_the_fame/characters/rich/rich_ramen_apron_80x96.png",
+      "sha256": "85881baef03dc2919c5f88b95db57dd9809d7e815ac4bc1878a61cae8fde05ac",
+      "dimensions": [
+        80,
+        96
+      ],
+      "bounds": [
+        13,
+        36,
+        68,
+        88
+      ],
+      "colors": 125,
+      "status": "FROZEN",
+      "individual_state": true,
+      "green_accent_pixels_heuristic": 8,
+      "classification": "CONSISTENT",
+      "observations": {
+        "hair_loc_silhouette": "Large jagged dark mass; still reads as established Rich loc/hair silhouette.",
+        "face": "Compact shades band, small exposed brown face, sparse white mouth/fang marks.",
+        "skin_tone": "Warm brown family; source-state lighting/pose changes do not break recognition.",
+        "green_earring": "Visible green accent near the ear; view-dependent pixel allocation.",
+        "body_proportions": "Body remains compact. The source is offset in its cell; do not recenter frozen art.",
+        "perceived_age": "Adult; consistent with established young-adult Rich, not an age redesign.",
+        "pixel_density": "125 opaque colors; softer than legacy master, but identity cues survive.",
+        "clothing": "Contextual apron over black fit; deliberate costume addition.",
+        "recognition": "Strong same-character read."
+      },
+      "assessment": "Corrected state removes the detached utensil; original remains historical/superseded. Neither needs a new identity redesign.",
+      "future_cleanup_review": null
+    },
+    {
+      "path": "assets/before_the_fame/characters/rich/rich_ramen_apron_corrected_80x96.png",
+      "sha256": "9c2ba5ab7175cffb0d5c71040bf8461c3dd3e82320605009a0781ffc353d2019",
+      "dimensions": [
+        80,
+        96
+      ],
+      "bounds": [
+        40,
+        36,
+        68,
+        88
+      ],
+      "colors": 109,
+      "status": "FROZEN",
+      "individual_state": true,
+      "green_accent_pixels_heuristic": 8,
+      "classification": "CONSISTENT",
+      "observations": {
+        "hair_loc_silhouette": "Large jagged dark mass; still reads as established Rich loc/hair silhouette.",
+        "face": "Compact shades band, small exposed brown face, sparse white mouth/fang marks.",
+        "skin_tone": "Warm brown family; source-state lighting/pose changes do not break recognition.",
+        "green_earring": "Visible green accent near the ear; view-dependent pixel allocation.",
+        "body_proportions": "Body remains compact. The source is offset in its cell; do not recenter frozen art.",
+        "perceived_age": "Adult; consistent with established young-adult Rich, not an age redesign.",
+        "pixel_density": "109 opaque colors; softer than legacy master, but identity cues survive.",
+        "clothing": "Contextual apron over black fit; deliberate costume addition.",
+        "recognition": "Strong same-character read."
+      },
+      "assessment": "Corrected state removes the detached utensil; original remains historical/superseded. Neither needs a new identity redesign.",
+      "future_cleanup_review": null
+    },
+    {
+      "path": "assets/before_the_fame/characters/rich_portobello/rich_portobello_porch_seated_80x96.png",
+      "sha256": "855ee348e4d983292d2056d75cf50e441a33418e26ee67eba3839aec3d400f44",
+      "dimensions": [
+        80,
+        96
+      ],
+      "bounds": [
+        24,
+        38,
+        56,
+        89
+      ],
+      "colors": 16,
+      "status": "FROZEN",
+      "individual_state": true,
+      "green_accent_pixels_heuristic": 0,
+      "classification": "INTENTIONAL VARIANT",
+      "observations": {
+        "hair_loc_silhouette": "Authorized short clean hair; do not flag it as loc drift.",
+        "face": "Open face without shades/fangs is part of authorized transformation.",
+        "skin_tone": "Warm medium brown; simpler brighter planes than standard Rich.",
+        "green_earring": "No visibly green accent found; heuristic count 0. Tiny tell needs a separate, narrowly scoped HQ check.",
+        "body_proportions": "Compact adult body; khaki legs and collar alter apparent proportions intentionally.",
+        "perceived_age": "Adult; consistent with established young-adult Rich, not an age redesign.",
+        "pixel_density": "16-color native sprite, grouped garment/skin planes.",
+        "clothing": "Authorized dark sweater/collared shirt, khakis, lanyard.",
+        "recognition": "Intentional identity suppression; current silhouette depends on contextual variant authority."
+      },
+      "assessment": "Hair, costume, no shades/fangs are explicitly authorized. Do not undo that design. Only the missing green tell merits future verification.",
+      "future_cleanup_review": "Verify green earring only against the accepted exact pixels and HQ intent; no automatic correction or reclassification."
+    },
+    {
+      "path": "assets/before_the_fame/characters/rich_portobello/rich_portobello_presenting_80x96.png",
+      "sha256": "3803ef5e8b3caa8cecc035613b2dd1f2d94901b505541a95b1eb7e320bcabb25",
+      "dimensions": [
+        80,
+        96
+      ],
+      "bounds": [
+        21,
+        33,
+        60,
+        89
+      ],
+      "colors": 16,
+      "status": "FROZEN",
+      "individual_state": true,
+      "green_accent_pixels_heuristic": 0,
+      "classification": "INTENTIONAL VARIANT",
+      "observations": {
+        "hair_loc_silhouette": "Authorized short clean hair; do not flag it as loc drift.",
+        "face": "Open face without shades/fangs is part of authorized transformation.",
+        "skin_tone": "Warm medium brown; simpler brighter planes than standard Rich.",
+        "green_earring": "No visibly green accent found; heuristic count 0. Tiny tell needs a separate, narrowly scoped HQ check.",
+        "body_proportions": "Compact adult body; khaki legs and collar alter apparent proportions intentionally.",
+        "perceived_age": "Adult; consistent with established young-adult Rich, not an age redesign.",
+        "pixel_density": "16-color native sprite, grouped garment/skin planes.",
+        "clothing": "Authorized dark sweater/collared shirt, khakis, lanyard.",
+        "recognition": "Intentional identity suppression; current silhouette depends on contextual variant authority."
+      },
+      "assessment": "Hair, costume, no shades/fangs are explicitly authorized. Do not undo that design. Only the missing green tell merits future verification.",
+      "future_cleanup_review": "Verify green earring only against the accepted exact pixels and HQ intent; no automatic correction or reclassification."
+    },
+    {
+      "path": "assets/before_the_fame/characters/rich_portobello/rich_portobello_standing_80x96.png",
+      "sha256": "022a83c5c5adae243820241af7eb4d66b7c1be9cb19ed4eaf1ed7973af38ce27",
+      "dimensions": [
+        80,
+        96
+      ],
+      "bounds": [
+        29,
+        33,
+        52,
+        89
+      ],
+      "colors": 16,
+      "status": "FROZEN",
+      "individual_state": true,
+      "green_accent_pixels_heuristic": 0,
+      "classification": "INTENTIONAL VARIANT",
+      "observations": {
+        "hair_loc_silhouette": "Authorized short clean hair; do not flag it as loc drift.",
+        "face": "Open face without shades/fangs is part of authorized transformation.",
+        "skin_tone": "Warm medium brown; simpler brighter planes than standard Rich.",
+        "green_earring": "No visibly green accent found; heuristic count 0. Tiny tell needs a separate, narrowly scoped HQ check.",
+        "body_proportions": "Compact adult body; khaki legs and collar alter apparent proportions intentionally.",
+        "perceived_age": "Adult; consistent with established young-adult Rich, not an age redesign.",
+        "pixel_density": "16-color native sprite, grouped garment/skin planes.",
+        "clothing": "Authorized dark sweater/collared shirt, khakis, lanyard.",
+        "recognition": "Intentional identity suppression; current silhouette depends on contextual variant authority."
+      },
+      "assessment": "Hair, costume, no shades/fangs are explicitly authorized. Do not undo that design. Only the missing green tell merits future verification.",
+      "future_cleanup_review": "Verify green earring only against the accepted exact pixels and HQ intent; no automatic correction or reclassification."
+    },
+    {
+      "path": "assets/rich_bedroom_drowsy_wake.png",
+      "sha256": "3a79718bd007885945fc1e34f50c44ae5c1b49b6fc980930cf7a7cb0d9818b3f",
+      "dimensions": [
+        128,
+        64
+      ],
+      "bounds": [
+        10,
+        11,
+        118,
+        56
+      ],
+      "colors": 9,
+      "status": "STATUS UNKNOWN \u2014 HQ REVIEW REQUIRED",
+      "individual_state": true,
+      "green_accent_pixels_heuristic": 6,
+      "classification": "INTENTIONAL VARIANT",
+      "observations": {
+        "hair_loc_silhouette": "Black bonnet intentionally replaces visible loc outline in the bedroom package.",
+        "face": "Compact shades band, small exposed brown face, sparse white mouth/fang marks.",
+        "skin_tone": "Warm brown family; source-state lighting/pose changes do not break recognition.",
+        "green_earring": "Visible green accent near the ear; view-dependent pixel allocation.",
+        "body_proportions": "Horizontal 128x64 lounge pose; compare head/marks, not total width, against standing.",
+        "perceived_age": "Adult; consistent with established young-adult Rich, not an age redesign.",
+        "pixel_density": "9-10 opaque colors, sparse face and garment clusters.",
+        "clothing": "All-black lounge clothes and socks; phone included in authored states.",
+        "recognition": "Shades, brown face, green earring and fang marks maintain identity under bonnet."
+      },
+      "assessment": "Documented bonnet/lounge treatment; state remains visually coherent. Register status and older manifest review wording are preserved, not reconciled into a new approval.",
+      "future_cleanup_review": null
+    },
+    {
+      "path": "assets/rich_bedroom_lounge_idle.png",
+      "sha256": "d2f19e4e9c3c7c60b4d570aea0708bbd854095526cb16ebbe3df4440cd92706d",
+      "dimensions": [
+        128,
+        64
+      ],
+      "bounds": [
+        10,
+        11,
+        118,
+        56
+      ],
+      "colors": 9,
+      "status": "APPROVED MASTER",
+      "individual_state": true,
+      "green_accent_pixels_heuristic": 6,
+      "classification": "INTENTIONAL VARIANT",
+      "observations": {
+        "hair_loc_silhouette": "Black bonnet intentionally replaces visible loc outline in the bedroom package.",
+        "face": "Compact shades band, small exposed brown face, sparse white mouth/fang marks.",
+        "skin_tone": "Warm brown family; source-state lighting/pose changes do not break recognition.",
+        "green_earring": "Visible green accent near the ear; view-dependent pixel allocation.",
+        "body_proportions": "Horizontal 128x64 lounge pose; compare head/marks, not total width, against standing.",
+        "perceived_age": "Adult; consistent with established young-adult Rich, not an age redesign.",
+        "pixel_density": "9-10 opaque colors, sparse face and garment clusters.",
+        "clothing": "All-black lounge clothes and socks; phone included in authored states.",
+        "recognition": "Shades, brown face, green earring and fang marks maintain identity under bonnet."
+      },
+      "assessment": "Documented bonnet/lounge treatment; state remains visually coherent. Register status and older manifest review wording are preserved, not reconciled into a new approval.",
+      "future_cleanup_review": null
+    },
+    {
+      "path": "assets/rich_bedroom_phone_reaction.png",
+      "sha256": "2c247e47aeac2ac6137d72cadac288dc4ec84488cca30ac443f7e7a24f74cfa9",
+      "dimensions": [
+        128,
+        64
+      ],
+      "bounds": [
+        10,
+        11,
+        118,
+        56
+      ],
+      "colors": 10,
+      "status": "STATUS UNKNOWN \u2014 HQ REVIEW REQUIRED",
+      "individual_state": true,
+      "green_accent_pixels_heuristic": 6,
+      "classification": "INTENTIONAL VARIANT",
+      "observations": {
+        "hair_loc_silhouette": "Black bonnet intentionally replaces visible loc outline in the bedroom package.",
+        "face": "Compact shades band, small exposed brown face, sparse white mouth/fang marks.",
+        "skin_tone": "Warm brown family; source-state lighting/pose changes do not break recognition.",
+        "green_earring": "Visible green accent near the ear; view-dependent pixel allocation.",
+        "body_proportions": "Horizontal 128x64 lounge pose; compare head/marks, not total width, against standing.",
+        "perceived_age": "Adult; consistent with established young-adult Rich, not an age redesign.",
+        "pixel_density": "9-10 opaque colors, sparse face and garment clusters.",
+        "clothing": "All-black lounge clothes and socks; phone included in authored states.",
+        "recognition": "Shades, brown face, green earring and fang marks maintain identity under bonnet."
+      },
+      "assessment": "Documented bonnet/lounge treatment; state remains visually coherent. Register status and older manifest review wording are preserved, not reconciled into a new approval.",
+      "future_cleanup_review": null
+    },
+    {
+      "path": "assets/rich_bedroom_phone_scroll.png",
+      "sha256": "447e31340f438137108a7680f782435df4a1819c7aba2185de1e9a8b77234202",
+      "dimensions": [
+        128,
+        64
+      ],
+      "bounds": [
+        10,
+        11,
+        118,
+        56
+      ],
+      "colors": 10,
+      "status": "STATUS UNKNOWN \u2014 HQ REVIEW REQUIRED",
+      "individual_state": true,
+      "green_accent_pixels_heuristic": 6,
+      "classification": "INTENTIONAL VARIANT",
+      "observations": {
+        "hair_loc_silhouette": "Black bonnet intentionally replaces visible loc outline in the bedroom package.",
+        "face": "Compact shades band, small exposed brown face, sparse white mouth/fang marks.",
+        "skin_tone": "Warm brown family; source-state lighting/pose changes do not break recognition.",
+        "green_earring": "Visible green accent near the ear; view-dependent pixel allocation.",
+        "body_proportions": "Horizontal 128x64 lounge pose; compare head/marks, not total width, against standing.",
+        "perceived_age": "Adult; consistent with established young-adult Rich, not an age redesign.",
+        "pixel_density": "9-10 opaque colors, sparse face and garment clusters.",
+        "clothing": "All-black lounge clothes and socks; phone included in authored states.",
+        "recognition": "Shades, brown face, green earring and fang marks maintain identity under bonnet."
+      },
+      "assessment": "Documented bonnet/lounge treatment; state remains visually coherent. Register status and older manifest review wording are preserved, not reconciled into a new approval.",
+      "future_cleanup_review": null
+    },
+    {
+      "path": "assets/rich_bedroom_sleeping.png",
+      "sha256": "4dad0a864528c9800e792e61905bb043825d442f6fbbeb5f10106e38242b2820",
+      "dimensions": [
+        128,
+        64
+      ],
+      "bounds": [
+        10,
+        11,
+        118,
+        56
+      ],
+      "colors": 9,
+      "status": "STATUS UNKNOWN \u2014 HQ REVIEW REQUIRED",
+      "individual_state": true,
+      "green_accent_pixels_heuristic": 6,
+      "classification": "INTENTIONAL VARIANT",
+      "observations": {
+        "hair_loc_silhouette": "Black bonnet intentionally replaces visible loc outline in the bedroom package.",
+        "face": "Compact shades band, small exposed brown face, sparse white mouth/fang marks.",
+        "skin_tone": "Warm brown family; source-state lighting/pose changes do not break recognition.",
+        "green_earring": "Visible green accent near the ear; view-dependent pixel allocation.",
+        "body_proportions": "Horizontal 128x64 lounge pose; compare head/marks, not total width, against standing.",
+        "perceived_age": "Adult; consistent with established young-adult Rich, not an age redesign.",
+        "pixel_density": "9-10 opaque colors, sparse face and garment clusters.",
+        "clothing": "All-black lounge clothes and socks; phone included in authored states.",
+        "recognition": "Shades, brown face, green earring and fang marks maintain identity under bonnet."
+      },
+      "assessment": "Documented bonnet/lounge treatment; state remains visually coherent. Register status and older manifest review wording are preserved, not reconciled into a new approval.",
+      "future_cleanup_review": null
+    },
+    {
+      "path": "assets/rich_bedroom_small_idle.png",
+      "sha256": "5f7a0b5fe631deac7f6528b1053c903b1912b0468f10bcabfc0a72f489a7750e",
+      "dimensions": [
+        128,
+        64
+      ],
+      "bounds": [
+        10,
+        13,
+        118,
+        56
+      ],
+      "colors": 9,
+      "status": "STATUS UNKNOWN \u2014 HQ REVIEW REQUIRED",
+      "individual_state": true,
+      "green_accent_pixels_heuristic": 6,
+      "classification": "INTENTIONAL VARIANT",
+      "observations": {
+        "hair_loc_silhouette": "Black bonnet intentionally replaces visible loc outline in the bedroom package.",
+        "face": "Compact shades band, small exposed brown face, sparse white mouth/fang marks.",
+        "skin_tone": "Warm brown family; source-state lighting/pose changes do not break recognition.",
+        "green_earring": "Visible green accent near the ear; view-dependent pixel allocation.",
+        "body_proportions": "Horizontal 128x64 lounge pose; compare head/marks, not total width, against standing.",
+        "perceived_age": "Adult; consistent with established young-adult Rich, not an age redesign.",
+        "pixel_density": "9-10 opaque colors, sparse face and garment clusters.",
+        "clothing": "All-black lounge clothes and socks; phone included in authored states.",
+        "recognition": "Shades, brown face, green earring and fang marks maintain identity under bonnet."
+      },
+      "assessment": "Documented bonnet/lounge treatment; state remains visually coherent. Register status and older manifest review wording are preserved, not reconciled into a new approval.",
+      "future_cleanup_review": null
+    },
+    {
+      "path": "assets/rich_curb_chilling.png",
+      "sha256": "fc42db9fb191c3201d1fe119c058d64a90a14ccdbbfefbc2897b9449c265c6d0",
+      "dimensions": [
+        80,
+        96
+      ],
+      "bounds": [
+        27,
+        40,
+        54,
+        88
+      ],
+      "colors": 13,
+      "status": "APPROVED MASTER",
+      "individual_state": true,
+      "green_accent_pixels_heuristic": 4,
+      "classification": "CONSISTENT",
+      "observations": {
+        "hair_loc_silhouette": "Large jagged dark mass; still reads as established Rich loc/hair silhouette.",
+        "face": "Compact shades band, small exposed brown face, sparse white mouth/fang marks.",
+        "skin_tone": "Warm brown family; source-state lighting/pose changes do not break recognition.",
+        "green_earring": "Visible green accent near the ear; view-dependent pixel allocation.",
+        "body_proportions": "Small seated pose with food bowl; head and earring maintain continuity.",
+        "perceived_age": "Adult; consistent with established young-adult Rich, not an age redesign.",
+        "pixel_density": "Sparse structural clusters; native geometry remains readable.",
+        "clothing": "Black fit and dark shoes with small light sole accents.",
+        "recognition": "Strong same-character read."
+      },
+      "assessment": "Preserve. Gesture variation does not justify regeneration.",
+      "future_cleanup_review": null
+    },
+    {
+      "path": "assets/rich_curb_eating.png",
+      "sha256": "437ae03f3234b2bf2502e4f05458f321fbbd5b63e3771e04dfcf34e132bf0249",
+      "dimensions": [
+        80,
+        96
+      ],
+      "bounds": [
+        27,
+        40,
+        54,
+        88
+      ],
+      "colors": 13,
+      "status": "APPROVED MASTER",
+      "individual_state": true,
+      "green_accent_pixels_heuristic": 4,
+      "classification": "CONSISTENT",
+      "observations": {
+        "hair_loc_silhouette": "Large jagged dark mass; still reads as established Rich loc/hair silhouette.",
+        "face": "Compact shades band, small exposed brown face, sparse white mouth/fang marks.",
+        "skin_tone": "Warm brown family; source-state lighting/pose changes do not break recognition.",
+        "green_earring": "Visible green accent near the ear; view-dependent pixel allocation.",
+        "body_proportions": "Small seated pose with food bowl; head and earring maintain continuity.",
+        "perceived_age": "Adult; consistent with established young-adult Rich, not an age redesign.",
+        "pixel_density": "Sparse structural clusters; native geometry remains readable.",
+        "clothing": "Black fit and dark shoes with small light sole accents.",
+        "recognition": "Strong same-character read."
+      },
+      "assessment": "Preserve. Gesture variation does not justify regeneration.",
+      "future_cleanup_review": null
+    },
+    {
+      "path": "assets/rich_curb_stargazing.png",
+      "sha256": "ebeb5d6621260b70907dd63374992ca575aebcc70a53533e284645f46910434f",
+      "dimensions": [
+        80,
+        96
+      ],
+      "bounds": [
+        28,
+        40,
+        54,
+        88
+      ],
+      "colors": 14,
+      "status": "APPROVED MASTER",
+      "individual_state": true,
+      "green_accent_pixels_heuristic": 5,
+      "classification": "CONSISTENT",
+      "observations": {
+        "hair_loc_silhouette": "Large jagged dark mass; still reads as established Rich loc/hair silhouette.",
+        "face": "Compact shades band, small exposed brown face, sparse white mouth/fang marks.",
+        "skin_tone": "Warm brown family; source-state lighting/pose changes do not break recognition.",
+        "green_earring": "Visible green accent near the ear; view-dependent pixel allocation.",
+        "body_proportions": "Small seated pose with food bowl; head and earring maintain continuity.",
+        "perceived_age": "Adult; consistent with established young-adult Rich, not an age redesign.",
+        "pixel_density": "Sparse structural clusters; native geometry remains readable.",
+        "clothing": "Black fit and dark shoes with small light sole accents.",
+        "recognition": "Strong same-character read."
+      },
+      "assessment": "Preserve. Gesture variation does not justify regeneration.",
+      "future_cleanup_review": null
+    },
+    {
+      "path": "assets/rich_getup_01.png",
+      "sha256": "b5ab2938d5fde6c7690e0a18ae68568c58983733c616c4d49e2c537bf54bbdb0",
+      "dimensions": [
+        80,
+        96
+      ],
+      "bounds": [
+        20,
+        39,
+        55,
+        88
+      ],
+      "colors": 11,
+      "status": "STATUS UNKNOWN \u2014 HQ REVIEW REQUIRED",
+      "individual_state": true,
+      "green_accent_pixels_heuristic": 7,
+      "classification": "CONSISTENT",
+      "observations": {
+        "hair_loc_silhouette": "Large jagged dark mass; still reads as established Rich loc/hair silhouette.",
+        "face": "Compact shades band, small exposed brown face, sparse white mouth/fang marks.",
+        "skin_tone": "Warm brown family; source-state lighting/pose changes do not break recognition.",
+        "green_earring": "Visible green accent near the ear; view-dependent pixel allocation.",
+        "body_proportions": "Compact body beneath dominant head/hair; posture changes explain envelope.",
+        "perceived_age": "Adult; consistent with established young-adult Rich, not an age redesign.",
+        "pixel_density": "Sparse structural clusters; native geometry remains readable.",
+        "clothing": "Black fit and dark shoes with small light sole accents.",
+        "recognition": "Strong same-character read."
+      },
+      "assessment": "Preserve. Gesture variation does not justify regeneration.",
+      "future_cleanup_review": null
+    },
+    {
+      "path": "assets/rich_getup_02.png",
+      "sha256": "c6dabb4b31033c10713c7abbd397ccaea109b5f59f6f2ffce8c41b06940c35f0",
+      "dimensions": [
+        80,
+        96
+      ],
+      "bounds": [
+        22,
+        40,
+        52,
+        88
+      ],
+      "colors": 11,
+      "status": "STATUS UNKNOWN \u2014 HQ REVIEW REQUIRED",
+      "individual_state": true,
+      "green_accent_pixels_heuristic": 6,
+      "classification": "CONSISTENT",
+      "observations": {
+        "hair_loc_silhouette": "Large jagged dark mass; still reads as established Rich loc/hair silhouette.",
+        "face": "Compact shades band, small exposed brown face, sparse white mouth/fang marks.",
+        "skin_tone": "Warm brown family; source-state lighting/pose changes do not break recognition.",
+        "green_earring": "Visible green accent near the ear; view-dependent pixel allocation.",
+        "body_proportions": "Compact body beneath dominant head/hair; posture changes explain envelope.",
+        "perceived_age": "Adult; consistent with established young-adult Rich, not an age redesign.",
+        "pixel_density": "Sparse structural clusters; native geometry remains readable.",
+        "clothing": "Black fit and dark shoes with small light sole accents.",
+        "recognition": "Strong same-character read."
+      },
+      "assessment": "Preserve. Gesture variation does not justify regeneration.",
+      "future_cleanup_review": null
+    },
+    {
+      "path": "assets/rich_getup_03.png",
+      "sha256": "05de9dc409a9bcc0fd003b1cca84515a76d7ba07d949ba5b2c474341283148f4",
+      "dimensions": [
+        80,
+        96
+      ],
+      "bounds": [
+        27,
+        36,
+        54,
+        88
+      ],
+      "colors": 11,
+      "status": "STATUS UNKNOWN \u2014 HQ REVIEW REQUIRED",
+      "individual_state": true,
+      "green_accent_pixels_heuristic": 8,
+      "classification": "CONSISTENT",
+      "observations": {
+        "hair_loc_silhouette": "Large jagged dark mass; still reads as established Rich loc/hair silhouette.",
+        "face": "Compact shades band, small exposed brown face, sparse white mouth/fang marks.",
+        "skin_tone": "Warm brown family; source-state lighting/pose changes do not break recognition.",
+        "green_earring": "Visible green accent near the ear; view-dependent pixel allocation.",
+        "body_proportions": "Compact body beneath dominant head/hair; posture changes explain envelope.",
+        "perceived_age": "Adult; consistent with established young-adult Rich, not an age redesign.",
+        "pixel_density": "Sparse structural clusters; native geometry remains readable.",
+        "clothing": "Black fit and dark shoes with small light sole accents.",
+        "recognition": "Strong same-character read."
+      },
+      "assessment": "Preserve. Gesture variation does not justify regeneration.",
+      "future_cleanup_review": null
+    },
+    {
+      "path": "assets/rich_portrait_pixel.png",
+      "sha256": "70893be77d2f4e9ba6c4f918a90d44714558d4af0b1bc6fbdcb69f9585335e17",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "bounds": [
+        0,
+        0,
+        1254,
+        1254
+      ],
+      "colors": 16754,
+      "status": "STATUS UNKNOWN \u2014 HQ REVIEW REQUIRED",
+      "individual_state": true,
+      "green_accent_pixels_heuristic": 1698,
+      "classification": "INTENTIONAL VARIANT",
+      "observations": {
+        "hair_loc_silhouette": "Authored profile loc silhouette for a self-portrait, not a full-body sprite master.",
+        "face": "Large shades, beard/jaw and fang interpreted at portrait scale.",
+        "skin_tone": "Warm brown family; source-state lighting/pose changes do not break recognition.",
+        "green_earring": "Green earring clearly visible.",
+        "body_proportions": "Bust-only image; full-body proportions not applicable.",
+        "perceived_age": "Adult; consistent with established young-adult Rich, not an age redesign.",
+        "pixel_density": "1254x1254 source with 16,754 colors; preview is explicitly reduced and not a native sprite comparison.",
+        "clothing": "Black shirt against red background, as documented in CURRENT_CANON.",
+        "recognition": "Strong intended Rich iconography at portrait scale."
+      },
+      "assessment": "The self-portrait format and source inspiration are documented canon. Do not impose 80x96 sprite construction on it.",
+      "future_cleanup_review": null
+    },
+    {
+      "path": "assets/rich_seated_cast.png",
+      "sha256": "515b65fe6e91844cc8f0f5bde5c81b5973e093355bf4fa9b309515b81dd201f0",
+      "dimensions": [
+        80,
+        96
+      ],
+      "bounds": [
+        20,
+        24,
+        69,
+        88
+      ],
+      "colors": 23,
+      "status": "STATUS UNKNOWN \u2014 HQ REVIEW REQUIRED",
+      "individual_state": true,
+      "green_accent_pixels_heuristic": 11,
+      "classification": "CONSISTENT",
+      "observations": {
+        "hair_loc_silhouette": "Large jagged dark mass; still reads as established Rich loc/hair silhouette.",
+        "face": "Compact shades band, small exposed brown face, sparse white mouth/fang marks.",
+        "skin_tone": "Warm brown family; source-state lighting/pose changes do not break recognition.",
+        "green_earring": "Visible green accent near the ear; view-dependent pixel allocation.",
+        "body_proportions": "Throne is included in alpha bounds; compare Rich head/body within it, not the whole 64px throne height.",
+        "perceived_age": "Adult; consistent with established young-adult Rich, not an age redesign.",
+        "pixel_density": "Sparse structural clusters; native geometry remains readable.",
+        "clothing": "Black fit and dark shoes with small light sole accents.",
+        "recognition": "Strong same-character read."
+      },
+      "assessment": "Preserve. Gesture variation does not justify regeneration.",
+      "future_cleanup_review": null
+    },
+    {
+      "path": "assets/rich_seated_hit.png",
+      "sha256": "6e3058fd5394b6af59f6880014d1affe60fd6162b3add46bf04f3ab95653295b",
+      "dimensions": [
+        80,
+        96
+      ],
+      "bounds": [
+        20,
+        24,
+        60,
+        88
+      ],
+      "colors": 24,
+      "status": "STATUS UNKNOWN \u2014 HQ REVIEW REQUIRED",
+      "individual_state": true,
+      "green_accent_pixels_heuristic": 7,
+      "classification": "CONSISTENT",
+      "observations": {
+        "hair_loc_silhouette": "Large jagged dark mass; still reads as established Rich loc/hair silhouette.",
+        "face": "Compact shades band, small exposed brown face, sparse white mouth/fang marks.",
+        "skin_tone": "Warm brown family; source-state lighting/pose changes do not break recognition.",
+        "green_earring": "Visible green accent near the ear; view-dependent pixel allocation.",
+        "body_proportions": "Throne is included in alpha bounds; compare Rich head/body within it, not the whole 64px throne height.",
+        "perceived_age": "Adult; consistent with established young-adult Rich, not an age redesign.",
+        "pixel_density": "Sparse structural clusters; native geometry remains readable.",
+        "clothing": "Black fit and dark shoes with small light sole accents.",
+        "recognition": "Strong same-character read."
+      },
+      "assessment": "Preserve. Gesture variation does not justify regeneration.",
+      "future_cleanup_review": null
+    },
+    {
+      "path": "assets/rich_seated_idle.png",
+      "sha256": "d0dbc3b07c112f9dc380df025ad987c003d9740e888caebee3a999a1b7c14eb4",
+      "dimensions": [
+        80,
+        96
+      ],
+      "bounds": [
+        20,
+        24,
+        60,
+        88
+      ],
+      "colors": 23,
+      "status": "APPROVED MASTER",
+      "individual_state": true,
+      "green_accent_pixels_heuristic": 7,
+      "classification": "CONSISTENT",
+      "observations": {
+        "hair_loc_silhouette": "Large jagged dark mass; still reads as established Rich loc/hair silhouette.",
+        "face": "Compact shades band, small exposed brown face, sparse white mouth/fang marks.",
+        "skin_tone": "Warm brown family; source-state lighting/pose changes do not break recognition.",
+        "green_earring": "Visible green accent near the ear; view-dependent pixel allocation.",
+        "body_proportions": "Throne is included in alpha bounds; compare Rich head/body within it, not the whole 64px throne height.",
+        "perceived_age": "Adult; consistent with established young-adult Rich, not an age redesign.",
+        "pixel_density": "Sparse structural clusters; native geometry remains readable.",
+        "clothing": "Black fit and dark shoes with small light sole accents.",
+        "recognition": "Strong same-character read."
+      },
+      "assessment": "Preserve. Gesture variation does not justify regeneration.",
+      "future_cleanup_review": null
+    },
+    {
+      "path": "assets/rich_seated_victory.png",
+      "sha256": "db02de7101316179ace71ef1e7cfa909daa567887b1321c0cac26f342e6c06ab",
+      "dimensions": [
+        80,
+        96
+      ],
+      "bounds": [
+        20,
+        24,
+        60,
+        88
+      ],
+      "colors": 23,
+      "status": "STATUS UNKNOWN \u2014 HQ REVIEW REQUIRED",
+      "individual_state": true,
+      "green_accent_pixels_heuristic": 7,
+      "classification": "CONSISTENT",
+      "observations": {
+        "hair_loc_silhouette": "Large jagged dark mass; still reads as established Rich loc/hair silhouette.",
+        "face": "Compact shades band, small exposed brown face, sparse white mouth/fang marks.",
+        "skin_tone": "Warm brown family; source-state lighting/pose changes do not break recognition.",
+        "green_earring": "Visible green accent near the ear; view-dependent pixel allocation.",
+        "body_proportions": "Throne is included in alpha bounds; compare Rich head/body within it, not the whole 64px throne height.",
+        "perceived_age": "Adult; consistent with established young-adult Rich, not an age redesign.",
+        "pixel_density": "Sparse structural clusters; native geometry remains readable.",
+        "clothing": "Black fit and dark shoes with small light sole accents.",
+        "recognition": "Strong same-character read."
+      },
+      "assessment": "Preserve. Gesture variation does not justify regeneration.",
+      "future_cleanup_review": null
+    },
+    {
+      "path": "assets/rich_standing_right.png",
+      "sha256": "765170076e8d3a9af9e8857e176e079b2a68c7ee1daafb7c8d551482228f144b",
+      "dimensions": [
+        80,
+        96
+      ],
+      "bounds": [
+        27,
+        36,
+        54,
+        88
+      ],
+      "colors": 11,
+      "status": "APPROVED MASTER",
+      "individual_state": true,
+      "green_accent_pixels_heuristic": 6,
+      "classification": "CONSISTENT",
+      "observations": {
+        "hair_loc_silhouette": "Large jagged dark mass; still reads as established Rich loc/hair silhouette.",
+        "face": "Compact shades band, small exposed brown face, sparse white mouth/fang marks.",
+        "skin_tone": "Warm brown family; source-state lighting/pose changes do not break recognition.",
+        "green_earring": "Visible green accent near the ear; view-dependent pixel allocation.",
+        "body_proportions": "Compact body beneath dominant head/hair; posture changes explain envelope.",
+        "perceived_age": "Adult; consistent with established young-adult Rich, not an age redesign.",
+        "pixel_density": "Sparse structural clusters; native geometry remains readable.",
+        "clothing": "Black fit and dark shoes with small light sole accents.",
+        "recognition": "Strong same-character read."
+      },
+      "assessment": "Preserve. Gesture variation does not justify regeneration.",
+      "future_cleanup_review": null
+    },
+    {
+      "path": "assets/rich_vampire_bite.png",
+      "sha256": "6095b00a669dcd72cd151e24a858b79006a767cdc3e954189edd1b8591c19736",
+      "dimensions": [
+        80,
+        96
+      ],
+      "bounds": [
+        26,
+        40,
+        71,
+        88
+      ],
+      "colors": 8,
+      "status": "APPROVED MASTER",
+      "individual_state": true,
+      "green_accent_pixels_heuristic": 4,
+      "classification": "CONSISTENT",
+      "observations": {
+        "hair_loc_silhouette": "Large jagged dark mass; still reads as established Rich loc/hair silhouette.",
+        "face": "Compact shades band, small exposed brown face, sparse white mouth/fang marks.",
+        "skin_tone": "Warm brown family; source-state lighting/pose changes do not break recognition.",
+        "green_earring": "Visible green accent near the ear; view-dependent pixel allocation.",
+        "body_proportions": "Compact body beneath dominant head/hair; posture changes explain envelope.",
+        "perceived_age": "Adult; consistent with established young-adult Rich, not an age redesign.",
+        "pixel_density": "Sparse structural clusters; native geometry remains readable.",
+        "clothing": "Black fit and dark shoes with small light sole accents.",
+        "recognition": "Strong same-character read."
+      },
+      "assessment": "Preserve. Gesture variation does not justify regeneration.",
+      "future_cleanup_review": null
+    },
+    {
+      "path": "assets/rich_walk_right_01.png",
+      "sha256": "7e2b82578999a351ff516be82ab45f22cae679cf297b64b279b5e5fcf6685e15",
+      "dimensions": [
+        80,
+        96
+      ],
+      "bounds": [
+        27,
+        39,
+        56,
+        88
+      ],
+      "colors": 12,
+      "status": "STATUS UNKNOWN \u2014 HQ REVIEW REQUIRED",
+      "individual_state": true,
+      "green_accent_pixels_heuristic": 7,
+      "classification": "CONSISTENT",
+      "observations": {
+        "hair_loc_silhouette": "Large jagged dark mass; still reads as established Rich loc/hair silhouette.",
+        "face": "Compact shades band, small exposed brown face, sparse white mouth/fang marks.",
+        "skin_tone": "Warm brown family; source-state lighting/pose changes do not break recognition.",
+        "green_earring": "Visible green accent near the ear; view-dependent pixel allocation.",
+        "body_proportions": "Compact body beneath dominant head/hair; posture changes explain envelope.",
+        "perceived_age": "Adult; consistent with established young-adult Rich, not an age redesign.",
+        "pixel_density": "Sparse structural clusters; native geometry remains readable.",
+        "clothing": "Black fit and dark shoes with small light sole accents.",
+        "recognition": "Strong same-character read."
+      },
+      "assessment": "Preserve. Gesture variation does not justify regeneration.",
+      "future_cleanup_review": null
+    },
+    {
+      "path": "assets/rich_walk_right_02.png",
+      "sha256": "6ae76fcdf9a4e584f04620d2b360beed850e384801c3f1668fff9f969061839e",
+      "dimensions": [
+        80,
+        96
+      ],
+      "bounds": [
+        27,
+        39,
+        54,
+        88
+      ],
+      "colors": 11,
+      "status": "STATUS UNKNOWN \u2014 HQ REVIEW REQUIRED",
+      "individual_state": true,
+      "green_accent_pixels_heuristic": 7,
+      "classification": "CONSISTENT",
+      "observations": {
+        "hair_loc_silhouette": "Large jagged dark mass; still reads as established Rich loc/hair silhouette.",
+        "face": "Compact shades band, small exposed brown face, sparse white mouth/fang marks.",
+        "skin_tone": "Warm brown family; source-state lighting/pose changes do not break recognition.",
+        "green_earring": "Visible green accent near the ear; view-dependent pixel allocation.",
+        "body_proportions": "Compact body beneath dominant head/hair; posture changes explain envelope.",
+        "perceived_age": "Adult; consistent with established young-adult Rich, not an age redesign.",
+        "pixel_density": "Sparse structural clusters; native geometry remains readable.",
+        "clothing": "Black fit and dark shoes with small light sole accents.",
+        "recognition": "Strong same-character read."
+      },
+      "assessment": "Preserve. Gesture variation does not justify regeneration.",
+      "future_cleanup_review": null
+    },
+    {
+      "path": "assets/rich_walk_right_03.png",
+      "sha256": "834e2af614019d798d7b8e0d75da552b1c0d64338f02c5072aa92cfaad9c1887",
+      "dimensions": [
+        80,
+        96
+      ],
+      "bounds": [
+        27,
+        39,
+        55,
+        88
+      ],
+      "colors": 12,
+      "status": "STATUS UNKNOWN \u2014 HQ REVIEW REQUIRED",
+      "individual_state": true,
+      "green_accent_pixels_heuristic": 7,
+      "classification": "CONSISTENT",
+      "observations": {
+        "hair_loc_silhouette": "Large jagged dark mass; still reads as established Rich loc/hair silhouette.",
+        "face": "Compact shades band, small exposed brown face, sparse white mouth/fang marks.",
+        "skin_tone": "Warm brown family; source-state lighting/pose changes do not break recognition.",
+        "green_earring": "Visible green accent near the ear; view-dependent pixel allocation.",
+        "body_proportions": "Compact body beneath dominant head/hair; posture changes explain envelope.",
+        "perceived_age": "Adult; consistent with established young-adult Rich, not an age redesign.",
+        "pixel_density": "Sparse structural clusters; native geometry remains readable.",
+        "clothing": "Black fit and dark shoes with small light sole accents.",
+        "recognition": "Strong same-character read."
+      },
+      "assessment": "Preserve. Gesture variation does not justify regeneration.",
+      "future_cleanup_review": null
+    },
+    {
+      "path": "assets/rich_walk_right_04.png",
+      "sha256": "14ea08b84ea198e66b15cf94a0843cef3ec91fafdd62f10f1b07ccbd11a0a53d",
+      "dimensions": [
+        80,
+        96
+      ],
+      "bounds": [
+        27,
+        39,
+        54,
+        88
+      ],
+      "colors": 12,
+      "status": "STATUS UNKNOWN \u2014 HQ REVIEW REQUIRED",
+      "individual_state": true,
+      "green_accent_pixels_heuristic": 7,
+      "classification": "CONSISTENT",
+      "observations": {
+        "hair_loc_silhouette": "Large jagged dark mass; still reads as established Rich loc/hair silhouette.",
+        "face": "Compact shades band, small exposed brown face, sparse white mouth/fang marks.",
+        "skin_tone": "Warm brown family; source-state lighting/pose changes do not break recognition.",
+        "green_earring": "Visible green accent near the ear; view-dependent pixel allocation.",
+        "body_proportions": "Compact body beneath dominant head/hair; posture changes explain envelope.",
+        "perceived_age": "Adult; consistent with established young-adult Rich, not an age redesign.",
+        "pixel_density": "Sparse structural clusters; native geometry remains readable.",
+        "clothing": "Black fit and dark shoes with small light sole accents.",
+        "recognition": "Strong same-character read."
+      },
+      "assessment": "Preserve. Gesture variation does not justify regeneration.",
+      "future_cleanup_review": null
+    }
+  ],
+  "archival_records": [
+    {
+      "path": "art_department/ships/art_ship_010/source_renders/rich_portobello_porch_seated_raw.png",
+      "sha256": "fb89a0e939f8f6e166bd921ca31caae1fd254e69b4650cb892a12067468d2f6c",
+      "dimensions": [
+        1145,
+        1374
+      ],
+      "role": "generation provenance, not separate state",
+      "classification": "INTENTIONAL VARIANT",
+      "counted_as_additional_state": false
+    },
+    {
+      "path": "art_department/ships/art_ship_010/source_renders/rich_portobello_presenting_raw.png",
+      "sha256": "26502b7f6fc409e1990bb9344afcbc037e722070e0f7a08d6f7d63daedf4b087",
+      "dimensions": [
+        1145,
+        1374
+      ],
+      "role": "generation provenance, not separate state",
+      "classification": "INTENTIONAL VARIANT",
+      "counted_as_additional_state": false
+    },
+    {
+      "path": "art_department/ships/art_ship_010/source_renders/rich_portobello_standing_raw.png",
+      "sha256": "122eb51d66983bb5477f8a306989f106b923d8af7fe0f87ac6855d5a59434aa6",
+      "dimensions": [
+        1145,
+        1374
+      ],
+      "role": "generation provenance, not separate state",
+      "classification": "INTENTIONAL VARIANT",
+      "counted_as_additional_state": false
+    },
+    {
+      "path": "art_department/ships/art_ship_010/candidates/native/characters/rich_portobello_porch_seated_80x96.png",
+      "sha256": "855ee348e4d983292d2056d75cf50e441a33418e26ee67eba3839aec3d400f44",
+      "dimensions": [
+        80,
+        96
+      ],
+      "role": "approved candidate duplicate of canonical state",
+      "classification": "INTENTIONAL VARIANT",
+      "counted_as_additional_state": false
+    },
+    {
+      "path": "art_department/ships/art_ship_010/candidates/native/characters/rich_portobello_presenting_80x96.png",
+      "sha256": "3803ef5e8b3caa8cecc035613b2dd1f2d94901b505541a95b1eb7e320bcabb25",
+      "dimensions": [
+        80,
+        96
+      ],
+      "role": "approved candidate duplicate of canonical state",
+      "classification": "INTENTIONAL VARIANT",
+      "counted_as_additional_state": false
+    },
+    {
+      "path": "art_department/ships/art_ship_010/candidates/native/characters/rich_portobello_standing_80x96.png",
+      "sha256": "022a83c5c5adae243820241af7eb4d66b7c1be9cb19ed4eaf1ed7973af38ce27",
+      "dimensions": [
+        80,
+        96
+      ],
+      "role": "approved candidate duplicate of canonical state",
+      "classification": "INTENTIONAL VARIANT",
+      "counted_as_additional_state": false
+    }
+  ]
+}
