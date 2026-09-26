@@ -1,0 +1,44 @@
+{
+  "source_renders": [
+    {
+      "path": "art_department/ships/art_ship_013/source_renders/dad_raw.png",
+      "sha256": "16993d32b85005716b987bab9245378c72635c17522bd794eaed0dd4ea5b3d2d",
+      "selected": true
+    },
+    {
+      "path": "art_department/ships/art_ship_013/source_renders/mom_raw.png",
+      "sha256": "fe6ea749cc292c0066b5de84f7ef67d6e2ce37f031ea830f96cdf4eca382fe35",
+      "selected": true
+    },
+    {
+      "path": "art_department/ships/art_ship_013/source_renders/portobello_kid1_raw.png",
+      "sha256": "e59c1fe104797fa199a4162d22d550344041a5020b987d7f150d78b30ca9867e",
+      "selected": true
+    },
+    {
+      "path": "art_department/ships/art_ship_013/source_renders/portobello_kid2_raw.png",
+      "sha256": "dd37d079b56b7668b7f77a5ddf1a285eebfbd4aaf0da17a135b029f9b2e2ca2b",
+      "selected": true
+    },
+    {
+      "path": "art_department/ships/art_ship_013/source_renders/portobello_wife_raw.png",
+      "sha256": "d3b18bab3c240c976fdf32eebaf161f2501f1d859a0e0b3175bdf5045dbefd81",
+      "selected": true
+    },
+    {
+      "path": "art_department/ships/art_ship_013/source_renders/rich_hookah_seated_raw.png",
+      "sha256": "e96ff008b9dd7e0ebe93b9cef2141c23ec12acc592da0e0acb84f983efa6222a",
+      "selected": true
+    },
+    {
+      "path": "art_department/ships/art_ship_013/source_renders/rich_hookah_seated_v1_rejected.png",
+      "sha256": "779def84be5cedce072e16eba66d045f9c87af1a1ba25b605016300737dc6aca",
+      "selected": false
+    },
+    {
+      "path": "art_department/ships/art_ship_013/source_renders/sister_raw.png",
+      "sha256": "2a21ca526e12aa499a6cadf81bf9c2c12894b3f8eb4cd4605f566325c95dd63d",
+      "selected": true
+    }
+  ]
+}

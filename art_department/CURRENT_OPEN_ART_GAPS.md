@@ -1,6 +1,12 @@
-# Current OPEN Art gaps — Ship 010 frozen reconciliation
+# Current OPEN Art gaps — Ship 013 candidate overlay on Ship 011 frozen authority
 
 **As of:** 2026-09-26
+
+## ART SHIP 013 candidate overlay
+
+ART SHIP 013 supplies seven **candidates awaiting HQ review**: `mom`, `dad`, `sister`, `portobello_wife`, `portobello_kid1`, `portobello_kid2` and a corrected `rich.hookah_seated`. Ube's current brief explicitly resolves the former visual-card blockers for those six fictional identities. They remain runtime-open until HQ acceptance/freeze, Engineering integration and runtime QA.
+
+The candidate package creates expected opportunities for all three held family-house keys and four Portobello bedroom/porch keys. `portobello_manager` remains outside scope and keeps the office key held. The Rich correction is polish on already-PASS hookah surfaces and clears no HOLD. Current runtime truth remains **106 PASS / 15 HOLD**.
 
 **Frozen pixel authority:** ART SHIP 010 promotion records
 
@@ -58,14 +64,14 @@ They were outside ART SHIP 009's named runtime-demand package. Do not generate t
 
 ## Missing identities / unresolved cast
 
-Current demand still includes twelve identity slots without approved art:
+Before ART SHIP 013 review, current demand includes twelve identity slots without approved art:
 
 `mom`, `dad`, `sister`, `brother1`, `brother2`, `god`, `buckhead`, `og_hooper`, `portobello_wife`, `portobello_kid1`, `portobello_kid2`, `portobello_manager`.
 
-- Family details/likeness remain Ube-owned: **BLOCKED BY CANON**.
+- Mom, Dad and Sister now have explicit Ube visual authority and Ship 013 candidates; Big Bro and Lil Bro remain outside this Ship and without approved art.
 - `god` is culturally sensitive and needs exact-card, named authorization: **BLOCKED BY CANON / NAMED REVIEW**.
 - `buckhead` and `og_hooper` remain underspecified accepted deferrals: **BLOCKED BY CANON**.
-- Portobello wife, kid1, kid2 and manager have no committed OPEN/GUIDED visual cards: **BLOCKED BY CANON**.
+- Portobello wife, kid1 and kid2 now have explicit Ube visual authority and Ship 013 candidates. The manager remains without a committed card and outside scope.
 - Other ad-hoc runtime extras and neutral groups remain unresolved coverage; do not invent canon-sensitive identities.
 
 ## Derivative states still open
