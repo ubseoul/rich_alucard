@@ -1,0 +1,50 @@
+{
+  "runtime_asset_id": "buckhead",
+  "path": "art_department/ships/art_ship_012_closeout/candidates/native/characters/buckhead_vampire_neutral_80x96.png",
+  "sha256": "710bede4d4372f20cd27956313d6589df528c3ec9b795b3c4e5cc996ea033b97",
+  "dimensions": [
+    80,
+    96
+  ],
+  "mode": "RGBA",
+  "alpha_values": [
+    0,
+    255
+  ],
+  "opaque_bbox": [
+    24,
+    31,
+    56,
+    89
+  ],
+  "opaque_rgb_colors": 13,
+  "contact": [
+    40,
+    88
+  ],
+  "contact_row_pass": true,
+  "source_render": {
+    "path": "art_department/ships/art_ship_012_closeout/source_renders/buckhead_final_revision_source.png",
+    "sha256": "1a66de8b753dab31f0d07e296d1dfbd1a0d6de1ff5593fd591b82797b9829f0f",
+    "dimensions": [
+      1145,
+      1374
+    ],
+    "method": "built-in ImageGen with transparent background"
+  },
+  "nativeization": {
+    "significant_alpha_crop_threshold": 48,
+    "maximum_opaque_envelope": [
+      36,
+      58
+    ],
+    "downsample": "Pillow BOX",
+    "palette": "14-color adaptive MEDIANCUT, no dither",
+    "alpha": "binary threshold at 96",
+    "contact_alignment": [
+      40,
+      88
+    ],
+    "manual_or_procedural_anatomy_alteration": false
+  }
+}
