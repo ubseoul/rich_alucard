@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "ship_id": "ART SHIP 012",
+  "title": "OPEN HOLD CLEARANCE",
+  "status": "CANDIDATE — HQ REVIEW REQUIRED",
+  "base": "c6a49410e558be34aa44703015556c00a4e592c9",
+  "branch": "art/art_ship_012",
+  "candidates": [
+    {"request_id": "AS12-01", "runtime_asset_id": "portobello_manager", "path": "candidates/native/characters/portobello_manager_neutral_80x96.png", "sha256": "0e69dc024e59fc9dbd5bed7944081fbc9f83226ba44d7c9c16b3c9b6d68ff26c"},
+    {"request_id": "AS12-02", "runtime_asset_id": "auntie", "path": "candidates/native/characters/auntie_register_neutral_80x96.png", "sha256": "cf5ae278f87c9a339ac15c115f9a754f78cd58d6efa2e289515f90036ae9836e"},
+    {"request_id": "AS12-03", "runtime_asset_id": "soul", "path": "candidates/native/characters/ocean_soul_climbing_80x96.png", "sha256": "21b21879c070ba61944091683201eb89c57a18e05731f66f5fce3e687ed8dbd1"},
+    {"request_id": "AS12-04", "runtime_asset_id": "training_dummy", "path": "candidates/native/characters/training_dummy_combat_80x96.png", "sha256": "e30e3189af01afdd05300fc913ea541aab0e0f1f8c88704a094afac2b5f9face"},
+    {"request_id": "AS12-05", "runtime_asset_id": "buckhead", "path": "candidates/native/characters/buckhead_vampire_neutral_80x96.png", "sha256": "26bc338ca53b12aac0b051189745dadba4b4fb6d29c745e85253fa8c8e01265c"}
+  ],
+  "approval": {"approved": false, "frozen": false, "runtime_integrated": false}
+}

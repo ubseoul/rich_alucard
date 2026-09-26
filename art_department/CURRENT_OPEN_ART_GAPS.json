@@ -2,8 +2,8 @@
   "schema_version": 3,
   "recorded_date": "2026-09-26",
   "runtime_authority": {
-    "branch": "origin/claude/art-ship-009-integration",
-    "commit": "5af730a132c035f6f2f5afb20eef5149ca3f2761",
+    "branch": "origin/claude/art-ship-010-integration",
+    "commit": "8eab30dc790071ec8da98f65311e2b4676fabad0",
     "sources": [
       "docs/art_integration/README.md",
       "docs/art_integration/INTEGRATION_MATRIX.json",
@@ -11,9 +11,9 @@
     ]
   },
   "frozen_snapshot": {
-    "frozen_corpus_assets": 203,
-    "register_entries": 343,
-    "runtime_integrated_files": 145,
+    "frozen_corpus_assets": 212,
+    "register_entries": 357,
+    "runtime_integrated_files": 159,
     "ship_009_approved_pending_integration_runtime_qa": 12,
     "ship_009_zero_pixel_reuse_mappings_pending_integration": 1,
     "historical_superseded_files": 1,
@@ -21,14 +21,14 @@
     "approved_states_without_current_scene": 4,
     "mapping_ambiguous_files": 4,
     "ready_without_visual_surface": 1,
-    "ship_004_010_handoff_files": 183,
+    "ship_004_011_handoff_files": 192,
     "ship_010_approved_pending_integration_runtime_qa": 4
   },
   "runtime_snapshot": {
     "adventure_screens": 104,
     "fights": 17,
-    "pass_final_art": 105,
-    "hold": 16,
+    "pass_final_art": 106,
+    "hold": 15,
     "automated_presentation_checks_pass": true,
     "hold_definition": "missing or incorrect creative coverage, unresolved cast/environment art, or an explicit NEEDS CREATIVE condition"
   },
@@ -86,9 +86,8 @@
   "blocked_by_canon": [
     "family identities and likeness details",
     "god culturally sensitive identity treatment",
-    "buckhead underspecified identity",
     "og_hooper underspecified identity",
-    "Portobello wife, kid1, kid2 and manager identities have no committed OPEN/GUIDED visual cards"
+    "Portobello wife, kid1 and kid2 identities have no committed OPEN/GUIDED visual cards"
   ],
   "guided_requires_named_authorization": [
     "PD-W1-04 Portobello four-actor staging and progression",
@@ -116,7 +115,7 @@
   "promotion_authorized": true,
   "ship_009_status": "APPROVED MASTER / FROZEN / COMPLETE",
   "accepted_candidate_checkpoint": "a1e265d0f28a75d2e5f6a1dd67a0ebdff02cd4ab",
-  "recommended_next_step": "Engineering integrates the 16 pending frozen Ship 009/010 assets and mappings, performs Presentation Director review including PD-W1-04, and reruns Integration Matrix/runtime visual QA before PASS/HOLD changes.",
+  "recommended_next_step": "HQ reviews the five exact ART SHIP 012 candidates. If accepted, record explicit promotion/freeze before Engineering integration or PASS/HOLD changes.",
   "historical_rough_complete_map_is_current_truth": false,
   "sealed_content_accessed": false,
   "ship_010_pending_integration": [
@@ -152,5 +151,18 @@
     "forecast_is_current_runtime_acceptance": false,
     "map": "art_department/ships/art_ship_010/RUNTIME_DEMAND_MAP.json"
   },
-  "ship_010_status": "APPROVED MASTER / FROZEN / COMPLETE"
+  "ship_010_status": "APPROVED MASTER / FROZEN / COMPLETE",
+  "ship_012_candidate": {
+    "status": "READY FOR HQ REVIEW",
+    "branch": "art/art_ship_012",
+    "base": "c6a49410e558be34aa44703015556c00a4e592c9",
+    "candidate_assets": 5,
+    "runtime_asset_ids": ["portobello_manager", "auntie", "soul", "training_dummy", "buckhead"],
+    "held_surfaces_with_dependencies_supplied": 7,
+    "approved": false,
+    "frozen": false,
+    "runtime_integrated": false,
+    "pass_hold_changed": false,
+    "map": "art_department/ships/art_ship_012/RUNTIME_DEMAND_MAP.json"
+  }
 }
