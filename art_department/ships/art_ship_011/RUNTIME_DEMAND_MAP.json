@@ -1,0 +1,436 @@
+{
+  "schema_version": 1,
+  "ship_id": "ART SHIP 011",
+  "status": "CANDIDATE \u2014 HQ REVIEW REQUIRED",
+  "purpose": "Frozen reusable population-library candidate package; specific runtime screens are intentionally unassigned.",
+  "runtime_integration_authorized": false,
+  "hold_resolution_authorized": false,
+  "entries": [
+    {
+      "request_id": "AS11-NL-01",
+      "source_ticket": "ART-SHIP-011-NIGHTLIFE-POPULATION-LIBRARY",
+      "runtime_asset_id": "nightlife_population.dancer",
+      "asset_type": "POPULATION_FRAGMENT",
+      "state_condition_layer": "side-pocket / dance-floor energy",
+      "access": "OPEN",
+      "status": "CANDIDATE \u2014 HQ REVIEW REQUIRED; NO RUNTIME ASSIGNMENT",
+      "source": {
+        "commit": "d8c24b632ecdc134986b4f81ff5d3f3959609eea",
+        "path": "art_department/preproduction/polish_preproduction_001/candidates/native/A01_dancer.png",
+        "sha256": "d10d9fdf1e6e587f25370f15ce80f3b55b758fd8969fda4306ce383ed92eafd9"
+      },
+      "candidate_path": "art_department/ships/art_ship_011/candidates/native/population/nightlife_dancer_80x96.png",
+      "production_path": "assets/before_the_fame/population/nightlife/nightlife_dancer_80x96.png",
+      "dimensions": [
+        80,
+        96
+      ],
+      "alpha_contract": "RGBA, alpha values exactly 0/255",
+      "contact": [
+        40,
+        88
+      ],
+      "origin": [
+        0,
+        0
+      ],
+      "intended_runtime_surfaces": [],
+      "future_use_families": [
+        "parties",
+        "clubs",
+        "rooftops",
+        "lounges",
+        "venue entrances",
+        "stage/performance environments",
+        "foreground depth",
+        "social background behavior"
+      ],
+      "severity": "COVERAGE",
+      "expected_hold_cleared": null,
+      "engineering_destination": "UNASSIGNED \u2014 LATER WORLD LIFE / NIGHTLIFE INTEGRATION",
+      "placement_constraints": [
+        "clear named-actor lanes",
+        "prefer sparse or medium-density use"
+      ]
+    },
+    {
+      "request_id": "AS11-NL-02",
+      "source_ticket": "ART-SHIP-011-NIGHTLIFE-POPULATION-LIBRARY",
+      "runtime_asset_id": "nightlife_population.performer",
+      "asset_type": "POPULATION_FRAGMENT",
+      "state_condition_layer": "adult stage/nightlife performer; sensual and non-explicit",
+      "access": "OPEN",
+      "status": "CANDIDATE \u2014 HQ REVIEW REQUIRED; NO RUNTIME ASSIGNMENT",
+      "source": {
+        "commit": "d8c24b632ecdc134986b4f81ff5d3f3959609eea",
+        "path": "art_department/preproduction/polish_preproduction_001/candidates/native/A02_performer.png",
+        "sha256": "ae89b727a34815abb4b9ea88d31abdd23808bff5af40be5c26d08979b8036059"
+      },
+      "candidate_path": "art_department/ships/art_ship_011/candidates/native/population/nightlife_performer_80x96.png",
+      "production_path": "assets/before_the_fame/population/nightlife/nightlife_performer_80x96.png",
+      "dimensions": [
+        80,
+        96
+      ],
+      "alpha_contract": "RGBA, alpha values exactly 0/255",
+      "contact": [
+        40,
+        88
+      ],
+      "origin": [
+        0,
+        0
+      ],
+      "intended_runtime_surfaces": [],
+      "future_use_families": [
+        "parties",
+        "clubs",
+        "rooftops",
+        "lounges",
+        "venue entrances",
+        "stage/performance environments",
+        "foreground depth",
+        "social background behavior"
+      ],
+      "severity": "COVERAGE",
+      "expected_hold_cleared": null,
+      "engineering_destination": "UNASSIGNED \u2014 LATER WORLD LIFE / NIGHTLIFE INTEGRATION",
+      "placement_constraints": [
+        "clear named-actor lanes",
+        "use only where a stage/performance context is credible"
+      ]
+    },
+    {
+      "request_id": "AS11-NL-03",
+      "source_ticket": "ART-SHIP-011-NIGHTLIFE-POPULATION-LIBRARY",
+      "runtime_asset_id": "nightlife_population.queue_pair",
+      "asset_type": "POPULATION_FRAGMENT",
+      "state_condition_layer": "passive social / arrival pair",
+      "access": "OPEN",
+      "status": "CANDIDATE \u2014 HQ REVIEW REQUIRED; NO RUNTIME ASSIGNMENT",
+      "source": {
+        "commit": "d8c24b632ecdc134986b4f81ff5d3f3959609eea",
+        "path": "art_department/preproduction/polish_preproduction_001/candidates/native/A03_queue_pair.png",
+        "sha256": "55b5eecb42fdfc6dca4493248cdf466a3b8f08c707165ed9243d73a03ca57190"
+      },
+      "candidate_path": "art_department/ships/art_ship_011/candidates/native/population/nightlife_queue_pair_112x96.png",
+      "production_path": "assets/before_the_fame/population/nightlife/nightlife_queue_pair_112x96.png",
+      "dimensions": [
+        112,
+        96
+      ],
+      "alpha_contract": "RGBA, alpha values exactly 0/255",
+      "contact": [
+        56,
+        88
+      ],
+      "origin": [
+        0,
+        0
+      ],
+      "intended_runtime_surfaces": [],
+      "future_use_families": [
+        "parties",
+        "clubs",
+        "rooftops",
+        "lounges",
+        "venue entrances",
+        "stage/performance environments",
+        "foreground depth",
+        "social background behavior"
+      ],
+      "severity": "COVERAGE",
+      "expected_hold_cleared": null,
+      "engineering_destination": "UNASSIGNED \u2014 LATER WORLD LIFE / NIGHTLIFE INTEGRATION",
+      "placement_constraints": [
+        "treat as one pair fragment",
+        "clear entrances and named-actor lanes"
+      ]
+    },
+    {
+      "request_id": "AS11-NL-04",
+      "source_ticket": "ART-SHIP-011-NIGHTLIFE-POPULATION-LIBRARY",
+      "runtime_asset_id": "nightlife_population.dancing_pair",
+      "asset_type": "POPULATION_FRAGMENT",
+      "state_condition_layer": "active partnered movement",
+      "access": "OPEN",
+      "status": "CANDIDATE \u2014 HQ REVIEW REQUIRED; NO RUNTIME ASSIGNMENT",
+      "source": {
+        "commit": "d8c24b632ecdc134986b4f81ff5d3f3959609eea",
+        "path": "art_department/preproduction/polish_preproduction_001/candidates/native/A04_dancing_pair.png",
+        "sha256": "187070ea57ec5ff66826925d034add4abb99a836cfbcb4664cf02d489121eeef"
+      },
+      "candidate_path": "art_department/ships/art_ship_011/candidates/native/population/nightlife_dancing_pair_112x96.png",
+      "production_path": "assets/before_the_fame/population/nightlife/nightlife_dancing_pair_112x96.png",
+      "dimensions": [
+        112,
+        96
+      ],
+      "alpha_contract": "RGBA, alpha values exactly 0/255",
+      "contact": [
+        56,
+        88
+      ],
+      "origin": [
+        0,
+        0
+      ],
+      "intended_runtime_surfaces": [],
+      "future_use_families": [
+        "parties",
+        "clubs",
+        "rooftops",
+        "lounges",
+        "venue entrances",
+        "stage/performance environments",
+        "foreground depth",
+        "social background behavior"
+      ],
+      "severity": "COVERAGE",
+      "expected_hold_cleared": null,
+      "engineering_destination": "UNASSIGNED \u2014 LATER WORLD LIFE / NIGHTLIFE INTEGRATION",
+      "placement_constraints": [
+        "requires a wide side-floor pocket",
+        "clear named-actor lanes"
+      ]
+    },
+    {
+      "request_id": "AS11-NL-05",
+      "source_ticket": "ART-SHIP-011-NIGHTLIFE-POPULATION-LIBRARY",
+      "runtime_asset_id": "nightlife_population.affectionate_pair",
+      "asset_type": "POPULATION_FRAGMENT",
+      "state_condition_layer": "adult flirting / affectionate background pair",
+      "access": "OPEN",
+      "status": "CANDIDATE \u2014 HQ REVIEW REQUIRED; NO RUNTIME ASSIGNMENT",
+      "source": {
+        "commit": "d8c24b632ecdc134986b4f81ff5d3f3959609eea",
+        "path": "art_department/preproduction/polish_preproduction_001/candidates/native/A05_affectionate_pair.png",
+        "sha256": "3aa4db3e00216d281d5ed9915dbfb367496bbb18bd042924006115cd774adba1"
+      },
+      "candidate_path": "art_department/ships/art_ship_011/candidates/native/population/nightlife_affectionate_pair_112x96.png",
+      "production_path": "assets/before_the_fame/population/nightlife/nightlife_affectionate_pair_112x96.png",
+      "dimensions": [
+        112,
+        96
+      ],
+      "alpha_contract": "RGBA, alpha values exactly 0/255",
+      "contact": [
+        56,
+        88
+      ],
+      "origin": [
+        0,
+        0
+      ],
+      "intended_runtime_surfaces": [],
+      "future_use_families": [
+        "parties",
+        "clubs",
+        "rooftops",
+        "lounges",
+        "venue entrances",
+        "stage/performance environments",
+        "foreground depth",
+        "social background behavior"
+      ],
+      "severity": "COVERAGE",
+      "expected_hold_cleared": null,
+      "engineering_destination": "UNASSIGNED \u2014 LATER WORLD LIFE / NIGHTLIFE INTEGRATION",
+      "placement_constraints": [
+        "background behavior only",
+        "clear named-actor lanes"
+      ]
+    },
+    {
+      "request_id": "AS11-NL-06",
+      "source_ticket": "ART-SHIP-011-NIGHTLIFE-POPULATION-LIBRARY",
+      "runtime_asset_id": "nightlife_population.bartender",
+      "asset_type": "POPULATION_FRAGMENT",
+      "state_condition_layer": "bartender / service figure",
+      "access": "OPEN",
+      "status": "CANDIDATE \u2014 HQ REVIEW REQUIRED; NO RUNTIME ASSIGNMENT",
+      "source": {
+        "commit": "d8c24b632ecdc134986b4f81ff5d3f3959609eea",
+        "path": "art_department/preproduction/polish_preproduction_001/candidates/native/A06_bartender.png",
+        "sha256": "5cb20cd77bb979aa2fc2a2cdad6dd6ef583c845d6f99bbddb5d27b5689f5b9cc"
+      },
+      "candidate_path": "art_department/ships/art_ship_011/candidates/native/population/nightlife_bartender_80x96.png",
+      "production_path": "assets/before_the_fame/population/nightlife/nightlife_bartender_80x96.png",
+      "dimensions": [
+        80,
+        96
+      ],
+      "alpha_contract": "RGBA, alpha values exactly 0/255",
+      "contact": [
+        40,
+        88
+      ],
+      "origin": [
+        0,
+        0
+      ],
+      "intended_runtime_surfaces": [],
+      "future_use_families": [
+        "parties",
+        "clubs",
+        "rooftops",
+        "lounges",
+        "venue entrances",
+        "stage/performance environments",
+        "foreground depth",
+        "social background behavior"
+      ],
+      "severity": "COVERAGE",
+      "expected_hold_cleared": null,
+      "engineering_destination": "UNASSIGNED \u2014 LATER WORLD LIFE / NIGHTLIFE INTEGRATION",
+      "placement_constraints": [
+        "must have an appropriate bar or service context",
+        "do not place as a free-floating patron"
+      ]
+    },
+    {
+      "request_id": "AS11-NL-07",
+      "source_ticket": "ART-SHIP-011-NIGHTLIFE-POPULATION-LIBRARY",
+      "runtime_asset_id": "nightlife_population.hookah_lounge",
+      "asset_type": "POPULATION_FRAGMENT",
+      "state_condition_layer": "low seated social group with hookah, table, and seating included",
+      "access": "OPEN",
+      "status": "CANDIDATE \u2014 HQ REVIEW REQUIRED; NO RUNTIME ASSIGNMENT",
+      "source": {
+        "commit": "d8c24b632ecdc134986b4f81ff5d3f3959609eea",
+        "path": "art_department/preproduction/polish_preproduction_001/candidates/native/A07_hookah_lounge.png",
+        "sha256": "e94a4ac613b752729a3773a3567c5778f6230048f3cc6dee03ca3c5e2f28a845"
+      },
+      "candidate_path": "art_department/ships/art_ship_011/candidates/native/population/nightlife_hookah_lounge_128x96.png",
+      "production_path": "assets/before_the_fame/population/nightlife/nightlife_hookah_lounge_128x96.png",
+      "dimensions": [
+        128,
+        96
+      ],
+      "alpha_contract": "RGBA, alpha values exactly 0/255",
+      "contact": [
+        64,
+        88
+      ],
+      "origin": [
+        0,
+        0
+      ],
+      "intended_runtime_surfaces": [],
+      "future_use_families": [
+        "parties",
+        "clubs",
+        "rooftops",
+        "lounges",
+        "venue entrances",
+        "stage/performance environments",
+        "foreground depth",
+        "social background behavior"
+      ],
+      "severity": "COVERAGE",
+      "expected_hold_cleared": null,
+      "engineering_destination": "UNASSIGNED \u2014 LATER WORLD LIFE / NIGHTLIFE INTEGRATION",
+      "placement_constraints": [
+        "included furniture must not be duplicated",
+        "check furniture scale against the host environment"
+      ]
+    },
+    {
+      "request_id": "AS11-NL-08",
+      "source_ticket": "ART-SHIP-011-NIGHTLIFE-POPULATION-LIBRARY",
+      "runtime_asset_id": "nightlife_population.dense_cluster",
+      "asset_type": "POPULATION_FRAGMENT",
+      "state_condition_layer": "six-adult crowd-density tool",
+      "access": "OPEN",
+      "status": "CANDIDATE \u2014 HQ REVIEW REQUIRED; NO RUNTIME ASSIGNMENT",
+      "source": {
+        "commit": "d8c24b632ecdc134986b4f81ff5d3f3959609eea",
+        "path": "art_department/preproduction/polish_preproduction_001/candidates/native/A08_dense_cluster.png",
+        "sha256": "ba12f4f3c2224f4cbb9a78ea42a85df113aaa351d07eda8279d4ced501cd6024"
+      },
+      "candidate_path": "art_department/ships/art_ship_011/candidates/native/population/nightlife_dense_cluster_144x96.png",
+      "production_path": "assets/before_the_fame/population/nightlife/nightlife_dense_cluster_144x96.png",
+      "dimensions": [
+        144,
+        96
+      ],
+      "alpha_contract": "RGBA, alpha values exactly 0/255",
+      "contact": [
+        72,
+        88
+      ],
+      "origin": [
+        0,
+        0
+      ],
+      "intended_runtime_surfaces": [],
+      "future_use_families": [
+        "parties",
+        "clubs",
+        "rooftops",
+        "lounges",
+        "venue entrances",
+        "stage/performance environments",
+        "foreground depth",
+        "social background behavior"
+      ],
+      "severity": "COVERAGE",
+      "expected_hold_cleared": null,
+      "engineering_destination": "UNASSIGNED \u2014 LATER WORLD LIFE / NIGHTLIFE INTEGRATION",
+      "placement_constraints": [
+        "do not tile or repeat into wallpaper",
+        "use once per framed view unless a later explicit contract says otherwise",
+        "protect named-actor clearance"
+      ]
+    },
+    {
+      "request_id": "AS11-NL-09",
+      "source_ticket": "ART-SHIP-011-NIGHTLIFE-POPULATION-LIBRARY",
+      "runtime_asset_id": "nightlife_population.foreground_silhouettes",
+      "asset_type": "POPULATION_FRAGMENT",
+      "state_condition_layer": "three-adult foreground/depth silhouette fragment",
+      "access": "OPEN",
+      "status": "CANDIDATE \u2014 HQ REVIEW REQUIRED; NO RUNTIME ASSIGNMENT",
+      "source": {
+        "commit": "d8c24b632ecdc134986b4f81ff5d3f3959609eea",
+        "path": "art_department/preproduction/polish_preproduction_001/candidates/native/A09_foreground_silhouettes.png",
+        "sha256": "94da579afbbc43fa191bb415d8e757ba6e1615e7d662bca703629e18e8592418"
+      },
+      "candidate_path": "art_department/ships/art_ship_011/candidates/native/population/nightlife_foreground_silhouettes_144x112.png",
+      "production_path": "assets/before_the_fame/population/nightlife/nightlife_foreground_silhouettes_144x112.png",
+      "dimensions": [
+        144,
+        112
+      ],
+      "alpha_contract": "RGBA, alpha values exactly 0/255",
+      "contact": [
+        72,
+        104
+      ],
+      "origin": [
+        0,
+        0
+      ],
+      "intended_runtime_surfaces": [],
+      "future_use_families": [
+        "parties",
+        "clubs",
+        "rooftops",
+        "lounges",
+        "venue entrances",
+        "stage/performance environments",
+        "foreground depth",
+        "social background behavior"
+      ],
+      "severity": "COVERAGE",
+      "expected_hold_cleared": null,
+      "engineering_destination": "UNASSIGNED \u2014 LATER WORLD LIFE / NIGHTLIFE INTEGRATION",
+      "placement_constraints": [
+        "high occlusion risk",
+        "peripheral or deliberately framed placement only",
+        "use against a lighter band",
+        "never cover named actors or critical UI"
+      ]
+    }
+  ]
+}
