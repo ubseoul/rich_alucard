@@ -27,7 +27,14 @@ All 44 frozen environments (43 masters plus the ocean-floor base) were inspected
 
 Screens that already reach the floor are untouched (11 of 102 screens move, all former exceptions or new state screens). Combat minions are observers, not speakers.
 
-## Status after ART SHIP 010 integration
+## Status after HOLD CLEARANCE 001
+
+See `HOLD_CLEARANCE_001.md`.
+- **Surfaces:** 104 adventure screens + 17 fights: **108 PASS / 13 HOLD** (before: 106 / 15).
+- **Cleared:** the A44_N2 Maul fight now uses the existing `lil_smack` enemy (frozen art; `params.hp:60` keeps the authored HP); pier `A12:react` passes with an authored Rich-focal node `shot` (PD-FA-02 retired; 0 Director exceptions).
+- **Remaining HOLD:** 11 adventure screens with unresolved cast art (NC-FA-07) and 2 combat screens (`buckhead@lennox`, `training@throne`).
+
+## Status after ART SHIP 010 integration (historical)
 
 - **Registry:** 183 frozen files. 159 are integrated, 1 is superseded, 12 are handoff sheets, and the 4 available states, 4 mapping-ambiguous files and 1 no-surface prop are unchanged.
 - **Surfaces:** 104 adventure screens + 17 fights: **106 PASS / 15 HOLD** (before: 105 / 16). `rooftop_dtla` cleared (NC-FA-12 resolved).
