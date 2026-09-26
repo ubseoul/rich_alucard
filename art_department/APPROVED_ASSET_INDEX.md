@@ -272,3 +272,51 @@ All four native assets below are **APPROVED MASTER / FROZEN** at the exact submi
 | `assets/before_the_fame/environments/rooftop_dtla/layers/rooftop_dtla_party_crowd_overlay_270x480.png` | FROZEN | APPROVED MASTER; ART SHIP 010 exact-origin additive NC-FA-12 party condition layer behind named actors; frozen rooftop base preserved; not runtime-integrated |
 
 `portobello_wife`, `portobello_kid1`, `portobello_kid2` and `portobello_manager` remain `BLOCKED BY CANON`; no placeholder identity was promoted.
+
+## ART SHIP 011 — Nightlife Population Library
+
+All nine native assets below are **APPROVED MASTER / FROZEN** at the exact candidate bytes accepted at `28aa98c8ab04a643d175192b1aecb9ae7b372c76`. They are reusable anonymous adult population fragments with no current runtime screen assignment.
+
+| Path | Status | Role |
+|---|---|---|
+| `assets/before_the_fame/population/nightlife/nightlife_dancer_80x96.png` | FROZEN | `nightlife_population.dancer`; active dance side-pocket; contact `(40,88)`; named-actor clearance required |
+| `assets/before_the_fame/population/nightlife/nightlife_performer_80x96.png` | FROZEN | `nightlife_population.performer`; adult stage/performance fragment; contact `(40,88)`; credible performance context only |
+| `assets/before_the_fame/population/nightlife/nightlife_queue_pair_112x96.png` | FROZEN | `nightlife_population.queue_pair`; passive arrival/queue pair; contact `(56,88)`; keep as one pair fragment |
+| `assets/before_the_fame/population/nightlife/nightlife_dancing_pair_112x96.png` | FROZEN | `nightlife_population.dancing_pair`; partnered dance fragment; contact `(56,88)`; wide side-floor pocket required |
+| `assets/before_the_fame/population/nightlife/nightlife_affectionate_pair_112x96.png` | FROZEN | `nightlife_population.affectionate_pair`; adult affectionate background behavior; contact `(56,88)` |
+| `assets/before_the_fame/population/nightlife/nightlife_bartender_80x96.png` | FROZEN | `nightlife_population.bartender`; hospitality/service figure; contact `(40,88)`; never free-floating outside a credible bar/service context |
+| `assets/before_the_fame/population/nightlife/nightlife_hookah_lounge_128x96.png` | FROZEN | `nightlife_population.hookah_lounge`; seated lounge group; contact `(64,88)`; hookah, table and seats are included furniture |
+| `assets/before_the_fame/population/nightlife/nightlife_dense_cluster_144x96.png` | FROZEN | `nightlife_population.dense_cluster`; six-adult density tool; contact `(72,88)`; never tile or repeat into wallpaper |
+| `assets/before_the_fame/population/nightlife/nightlife_foreground_silhouettes_144x112.png` | FROZEN | `nightlife_population.foreground_silhouettes`; foreground-depth fragment; contact `(72,104)`; peripheral/deliberate framing only due to high occlusion risk |
+
+Runtime placement, Presentation Director mapping, environment modification and HOLD movement were not authorized by the freeze.
+
+## ART SHIP 013 — Canon Cast Completion + Rich Continuity Cleanup
+
+All seven native assets below are **APPROVED MASTER / FROZEN** at the exact byte streams accepted at `eec5c40c45a40dd842ded38f9b87063d67965d3c`. Each is 80×96 RGBA, binary alpha, contact `(40,88)`. Runtime integration and PASS/HOLD movement are not authorized by this freeze.
+
+| Path | SHA-256 | Role |
+|---|---|---|
+| `assets/before_the_fame/characters/mom/mom_neutral_80x96.png` | `2fbbf02d8ddfc9c9fde5a967f54ab25765bf68f8dd569a76f11760d35178fa4d` | `mom.default`; fictional family anchor |
+| `assets/before_the_fame/characters/dad/dad_neutral_80x96.png` | `5d208ef3c344fa34a2450310ef331f5ae3c0b2e14ee734a3d4b83ffb644eca30` | `dad.default`; fictional family anchor |
+| `assets/before_the_fame/characters/sister/sister_neutral_80x96.png` | `ecfe922ea7d5c114246897e6050ff1c2d4c9503d151cf47fa41f93812cb1a321` | `sister.default`; fictional adult sibling anchor |
+| `assets/before_the_fame/characters/portobello_wife/portobello_wife_neutral_80x96.png` | `befad71977141eedcbb05db8d0f0f0f1e08018a54f609ab96c8c0c896f4381cb` | `portobello_wife.default`; submitted Portobello-only role |
+| `assets/before_the_fame/characters/portobello_kid1/portobello_kid1_neutral_80x96.png` | `cfa3487c650b6180a709d3741c92fdeabe91ed175d1bcf49f5e2a1e82f08b8c6` | `portobello_kid1.default`; submitted Portobello-only role |
+| `assets/before_the_fame/characters/portobello_kid2/portobello_kid2_neutral_80x96.png` | `ae0d440f797bdeeae61d4884ae341df2a82bde2a1eac23f8a84b8c9ea5e322cb` | `portobello_kid2.default`; submitted Portobello-only role |
+| `assets/before_the_fame/characters/rich/rich_hookah_seated_corrected_80x96.png` | `c46f395004151d94365601fad9e72a8abba092ef03669dca71f2e492f8917634` | `rich.hookah_seated.corrected`; identity-continuity correction |
+
+The original `assets/before_the_fame/characters/rich/rich_hookah_seated_80x96.png` remains frozen at `c260180a4b3636fc2765534e0053abd1cab25b2ca2c43c83f800e6b55ee20696` as the superseded historical source. It was not erased or modified. Candidate/rejected/source-render/review evidence remains provenance only.
+
+## ART SHIP 012 CLOSEOUT — Open Hold Clearance
+
+All five native assets below are **APPROVED MASTER / FROZEN** at the exact byte streams accepted at `da2c251be814a91fe89154d7a9fac02770e4f66d`. Each is 80×96 RGBA, binary alpha, contact `(40,88)`. Runtime integration and PASS/HOLD movement are not authorized by this freeze.
+
+| Path | SHA-256 | Role |
+|---|---|---|
+| `assets/before_the_fame/characters/portobello_manager/portobello_manager_neutral_80x96.png` | `0e69dc024e59fc9dbd5bed7944081fbc9f83226ba44d7c9c16b3c9b6d68ff26c` | `portobello_manager.default`; office-manager conversation anchor |
+| `assets/before_the_fame/characters/auntie/auntie_register_neutral_80x96.png` | `cf5ae278f87c9a339ac15c115f9a754f78cd58d6efa2e289515f90036ae9836e` | `auntie.default`; NAIJA MART register anchor |
+| `assets/before_the_fame/characters/ocean_soul/ocean_soul_climbing_80x96.png` | `21b21879c070ba61944091683201eb89c57a18e05731f66f5fce3e687ed8dbd1` | `soul.default`; anonymous climbing-compatible extra |
+| `assets/before_the_fame/characters/training_dummy/training_dummy_combat_80x96.png` | `e30e3189af01afdd05300fc913ea541aab0e0f1f8c88704a094afac2b5f9face` | `training_dummy.default`; generic combat object |
+| `assets/before_the_fame/characters/buckhead/buckhead_vampire_neutral_80x96.png` | `710bede4d4372f20cd27956313d6589df528c3ec9b795b3c4e5cc996ea033b97` | `buckhead.default`; combat-capable vampire identity anchor |
+
+The two earlier Buckhead candidates remain **REJECTED / PROVENANCE ONLY** under the Ship package and are excluded from style authority and promotion.

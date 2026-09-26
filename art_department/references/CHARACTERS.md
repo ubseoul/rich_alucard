@@ -121,3 +121,11 @@ Start with Rich standing, Ogun neutral, Shannon neutral and Assistant idle. Comp
 
 - [assets/before_the_fame/characters/tunde/tunde_hookah_seated_80x96.png](../../assets/before_the_fame/characters/tunde/tunde_hookah_seated_80x96.png) — APPROVED MASTER / FROZEN; [80, 96]; binary alpha; `tunde.hookah_seated`; contact (40,88); NC-FA-11 / `company=HOMIES` only; not runtime-integrated.
 - [assets/before_the_fame/characters/dre/dre_hookah_seated_80x96.png](../../assets/before_the_fame/characters/dre/dre_hookah_seated_80x96.png) — APPROVED MASTER / FROZEN; [80, 96]; binary alpha; `dre.hookah_seated`; contact (40,88); NC-FA-11 / `company=HOMIES` only; not runtime-integrated.
+
+## ART SHIP 012 closeout anchors
+
+- [assets/before_the_fame/characters/portobello_manager/portobello_manager_neutral_80x96.png](../../assets/before_the_fame/characters/portobello_manager/portobello_manager_neutral_80x96.png) — APPROVED MASTER / FROZEN; [80, 96]; `portobello_manager.default`; contact (40,88); not runtime-integrated.
+- [assets/before_the_fame/characters/auntie/auntie_register_neutral_80x96.png](../../assets/before_the_fame/characters/auntie/auntie_register_neutral_80x96.png) — APPROVED MASTER / FROZEN; [80, 96]; `auntie.default`; contact (40,88); not runtime-integrated.
+- [assets/before_the_fame/characters/ocean_soul/ocean_soul_climbing_80x96.png](../../assets/before_the_fame/characters/ocean_soul/ocean_soul_climbing_80x96.png) — APPROVED MASTER / FROZEN; [80, 96]; `soul.default`; anonymous extra; contact (40,88); not runtime-integrated.
+- [assets/before_the_fame/characters/training_dummy/training_dummy_combat_80x96.png](../../assets/before_the_fame/characters/training_dummy/training_dummy_combat_80x96.png) — APPROVED MASTER / FROZEN; [80, 96]; `training_dummy.default`; combat object; contact (40,88); not runtime-integrated.
+- [assets/before_the_fame/characters/buckhead/buckhead_vampire_neutral_80x96.png](../../assets/before_the_fame/characters/buckhead/buckhead_vampire_neutral_80x96.png) — APPROVED MASTER / FROZEN; [80, 96]; `buckhead.default`; contact (40,88); not runtime-integrated.

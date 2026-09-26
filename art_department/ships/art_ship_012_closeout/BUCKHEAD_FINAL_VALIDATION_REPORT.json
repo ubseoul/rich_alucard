@@ -1,0 +1,119 @@
+{
+  "ship_id": "ART SHIP 012 CLOSEOUT",
+  "status": "BUCKHEAD FINAL REVISION \u2014 READY FOR HQ REVIEW",
+  "foundation_commit": "34568801571244b75aeb6c698861a7bf4976fc30",
+  "candidate": {
+    "path": "art_department/ships/art_ship_012_closeout/candidates/native/characters/buckhead_vampire_neutral_80x96.png",
+    "sha256": "710bede4d4372f20cd27956313d6589df528c3ec9b795b3c4e5cc996ea033b97",
+    "dimensions": [
+      80,
+      96
+    ],
+    "mode": "RGBA",
+    "alpha_values": [
+      0,
+      255
+    ],
+    "opaque_bbox": [
+      24,
+      31,
+      56,
+      89
+    ],
+    "contact": [
+      40,
+      88
+    ],
+    "contact_row_pass": true,
+    "contract_pass": true
+  },
+  "generated_source": {
+    "path": "art_department/ships/art_ship_012_closeout/source_renders/buckhead_final_revision_source.png",
+    "sha256": "1a66de8b753dab31f0d07e296d1dfbd1a0d6de1ff5593fd591b82797b9829f0f",
+    "dimensions": [
+      1145,
+      1374
+    ],
+    "mode": "RGBA",
+    "method": "built-in ImageGen",
+    "contract_pass": true
+  },
+  "immutable_hq_passed_candidates": [
+    {
+      "path": "art_department/ships/art_ship_012_closeout/candidates/native/characters/portobello_manager_neutral_80x96.png",
+      "expected": "0e69dc024e59fc9dbd5bed7944081fbc9f83226ba44d7c9c16b3c9b6d68ff26c",
+      "actual": "0e69dc024e59fc9dbd5bed7944081fbc9f83226ba44d7c9c16b3c9b6d68ff26c",
+      "pass": true
+    },
+    {
+      "path": "art_department/ships/art_ship_012_closeout/candidates/native/characters/auntie_register_neutral_80x96.png",
+      "expected": "cf5ae278f87c9a339ac15c115f9a754f78cd58d6efa2e289515f90036ae9836e",
+      "actual": "cf5ae278f87c9a339ac15c115f9a754f78cd58d6efa2e289515f90036ae9836e",
+      "pass": true
+    },
+    {
+      "path": "art_department/ships/art_ship_012_closeout/candidates/native/characters/ocean_soul_climbing_80x96.png",
+      "expected": "21b21879c070ba61944091683201eb89c57a18e05731f66f5fce3e687ed8dbd1",
+      "actual": "21b21879c070ba61944091683201eb89c57a18e05731f66f5fce3e687ed8dbd1",
+      "pass": true
+    },
+    {
+      "path": "art_department/ships/art_ship_012_closeout/candidates/native/characters/training_dummy_combat_80x96.png",
+      "expected": "e30e3189af01afdd05300fc913ea541aab0e0f1f8c88704a094afac2b5f9face",
+      "actual": "e30e3189af01afdd05300fc913ea541aab0e0f1f8c88704a094afac2b5f9face",
+      "pass": true
+    }
+  ],
+  "immutable_rejected_provenance": [
+    {
+      "path": "art_department/ships/art_ship_012_closeout/rejected/buckhead_initial_naturalistic_rejected_80x96.png",
+      "expected": "26bc338ca53b12aac0b051189745dadba4b4fb6d29c745e85253fa8c8e01265c",
+      "actual": "26bc338ca53b12aac0b051189745dadba4b4fb6d29c745e85253fa8c8e01265c",
+      "pass": true
+    },
+    {
+      "path": "art_department/ships/art_ship_012_closeout/rejected/buckhead_deterministic_native_grid_rejected_80x96.png",
+      "expected": "f178b6b63a8d01f3acbbb9d38228da5b97be2fad9fcc8a6ccb7f8ffa0fc6333e",
+      "actual": "f178b6b63a8d01f3acbbb9d38228da5b97be2fad9fcc8a6ccb7f8ffa0fc6333e",
+      "pass": true
+    }
+  ],
+  "asset_register_entries": 359,
+  "frozen_assets_checked": 219,
+  "frozen_hash_failures": [],
+  "review_boards": [
+    "art_department/ships/art_ship_012_closeout/review/04_buckhead_final_native_1x.png",
+    "art_department/ships/art_ship_012_closeout/review/05_buckhead_final_exact_4x.png",
+    "art_department/ships/art_ship_012_closeout/review/06_buckhead_final_corpus_comparison_native_1x.png",
+    "art_department/ships/art_ship_012_closeout/review/07_buckhead_final_corpus_comparison_exact_4x.png",
+    "art_department/ships/art_ship_012_closeout/review/08_buckhead_final_lennox_context_1x.png",
+    "art_department/ships/art_ship_012_closeout/review/09_buckhead_revision_history_exact_4x.png"
+  ],
+  "changed_files_from_foundation": [
+    "art_department/ships/art_ship_012_closeout/ART_SHIP.md",
+    "art_department/ships/art_ship_012_closeout/BUCKHEAD_FINAL_PROVENANCE.json",
+    "art_department/ships/art_ship_012_closeout/BUCKHEAD_FINAL_TECHNICAL_FACTS.json",
+    "art_department/ships/art_ship_012_closeout/BUCKHEAD_FINAL_VALIDATION_REPORT.json",
+    "art_department/ships/art_ship_012_closeout/BUCKHEAD_FINAL_VALIDATION_REPORT.md",
+    "art_department/ships/art_ship_012_closeout/CANDIDATE_SHA256SUMS.txt",
+    "art_department/ships/art_ship_012_closeout/CLOSEOUT_MANIFEST.json",
+    "art_department/ships/art_ship_012_closeout/PROVENANCE.md",
+    "art_department/ships/art_ship_012_closeout/candidates/native/characters/buckhead_vampire_neutral_80x96.png",
+    "art_department/ships/art_ship_012_closeout/review/04_buckhead_final_native_1x.png",
+    "art_department/ships/art_ship_012_closeout/review/05_buckhead_final_exact_4x.png",
+    "art_department/ships/art_ship_012_closeout/review/06_buckhead_final_corpus_comparison_native_1x.png",
+    "art_department/ships/art_ship_012_closeout/review/07_buckhead_final_corpus_comparison_exact_4x.png",
+    "art_department/ships/art_ship_012_closeout/review/08_buckhead_final_lennox_context_1x.png",
+    "art_department/ships/art_ship_012_closeout/review/09_buckhead_revision_history_exact_4x.png",
+    "art_department/ships/art_ship_012_closeout/source_renders/buckhead_final_revision_source.png",
+    "art_department/ships/art_ship_012_closeout/tools/build_buckhead_final.py",
+    "art_department/ships/art_ship_012_closeout/tools/validate_buckhead_final.py"
+  ],
+  "out_of_scope_changes": [],
+  "runtime_files_changed": [],
+  "self_pass_claimed": false,
+  "promoted": false,
+  "frozen": false,
+  "runtime_integrated": false,
+  "overall_pass": true
+}

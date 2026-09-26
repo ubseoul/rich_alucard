@@ -8,11 +8,14 @@ This repository is the Art Department's institutional memory. **The project reme
 
 ## Current state
 
-- Runtime/art-integration authority: `origin/claude/art-ship-008-integration` at `a16196e4fbc0c7530a00bdfe915fb9c9c7cd1826`.
-- ART SHIP 009 is the latest frozen pixel authority. The frozen corpus contains **199 assets**; the Asset Register contains **339 entries**.
-- ART SHIP 004–009 hand off **179 files**. At the current checkpoint, **145 drive runtime**, **12 newly frozen Ship 009 assets await Engineering integration/runtime QA**, one historical file is superseded, **12 are handoff/reference sheets**, four approved states have no current scene, four files are mapping-ambiguous, and one prop has no visual surface.
-- The playable census contains **104 adventure screens + 17 fights**: **98 PASS (final art)** and **23 HOLD**. All automated adventure/fight presentation checks pass; HOLD means missing or incorrect creative coverage, unresolved cast/environment art, or an explicit NEEDS CREATIVE condition—not generic Presentation Director failure.
-- ART SHIP 009 — OPEN RUNTIME COMPLETION is APPROVED MASTER / FROZEN / COMPLETE on `art/art_ship_009`. The package adds nine environment masters, one additive Hollow Bowl companion layer and two seated HOMIES states. The approved `lan_night → tristan_apt` mapping is zero-pixel reuse. Runtime integration and PASS/HOLD movement remain pending Engineering and real Presentation QA; PD-W1-04 remains Presentation Director/HQ-owned.
+- **ART SHIP 012 CLOSEOUT — APPROVED MASTER / FROZEN / COMPLETE** on `art/art_ship_012_closeout`. Ube Taste Pass / HQ final acceptance approved all 5/5 exact byte streams at candidate commit `da2c251be814a91fe89154d7a9fac02770e4f66d`.
+- The closeout was rebased on frozen ART SHIP 013 checkpoint `9d6f521bdfc404f03a5f5bba7c700860de1eb293`; Ship 013 remains intact as the 219-file base.
+- The frozen corpus contains **224 assets**; the Asset Register contains **364 entries**.
+- Ship 012 freezes Portobello Manager, NAIJA MART Auntie, Ocean Soul, Training Dummy and the Ube-accepted Buckhead Vampire. Both earlier Buckhead attempts remain rejected provenance only.
+- Ship 013 freezes six fictional family/Portobello identity anchors and the corrected `rich.hookah_seated` state. The original hookah sprite remains preserved as a superseded historical source.
+- Current runtime authority is `claude/hold-clearance-001` at `a66170218375e52404715789dde48c23726a6044`: **108 PASS / 13 HOLD** across 104 adventure screens and 17 fights.
+- Ship 013 is Art promotion only. Its assets remain pending Engineering integration and Presentation QA; it changes no runtime PASS/HOLD status.
+- Ship 012 closeout promotion is Art-only and changes no runtime PASS/HOLD status.
 
 ## Authority hierarchy
 
@@ -39,24 +42,14 @@ Read completely, in this order:
 8. `art_department/CURRENT_OPEN_ART_GAPS.md` and `.json`
 9. `art_department/STYLE_FINGERPRINT.md` and the relevant files in `art_department/references/`
 10. `art_department/APPROVED_ASSET_INDEX.md`, then relevant `ASSET_REGISTER.json` entries and native PNGs
-11. Relevant frozen Ship records under `art_department/ships/` (004, 005, 006, 007, 008, 009)
+11. Relevant frozen Ship records under `art_department/ships/`, including Ship 013
 12. `art_department/APPROVAL_LEDGER.md` and the templates under `art_department/templates/`
 
-For current implementation truth, additionally read:
-
-1. `docs/ENGINEERING_HANDOFF.md`
-2. `docs/art_integration/README.md`
-3. `docs/art_integration/INTEGRATION_MATRIX.json`
-4. `docs/presentation/NEEDS_CREATIVE.md`
-5. For an active Ship, its `RUNTIME_DEMAND_MAP.md` and machine-readable sibling.
-
-Never use the historical Rough Complete placeholder census as current integration truth after reading the files above.
+For current implementation truth, additionally read `docs/ENGINEERING_HANDOFF.md`, `docs/art_integration/README.md`, `docs/art_integration/INTEGRATION_MATRIX.json`, and `docs/presentation/NEEDS_CREATIVE.md`. The later accepted Engineering authority named above outranks stale branch-local runtime counts. Never use the historical Rough Complete placeholder census as current integration truth.
 
 ## Display-size rule
 
-Native frozen source pixels never change. On scenes migrated to the Presentation Director, the Director's shot profile, camera and framing metadata are the **sole final display-size authority**. Historical approximately 1.85× guidance remains useful as provenance and environment-composition context, but it is not a universal multiplier for Director-managed scenes. Do not resize source sprites to repair composition.
-
-Non-Director surfaces follow their explicit current runtime contract and still consume native assets unchanged.
+Native frozen source pixels never change. On Presentation Director-managed scenes, the Director's shot profile/camera/framing metadata is the sole final display-size authority. Historical approximately 1.85× guidance remains reference context only. Non-Director surfaces follow their explicit current runtime contract.
 
 ## OPEN and restricted boundaries
 
@@ -64,10 +57,6 @@ OPEN cards and frozen pixels are actionable only inside an authorized Ship. GUID
 
 ## Candidate → approval → freeze
 
-An Art Agent may generate only after HQ authorizes a named Ship and the agent completes onboarding. Work from the exact frozen master, never a previous derivative. Submit native candidates, exact integer-scale review evidence, state definitions, Engineering mappings, source hashes, validation and expected HOLD resolution. A Runtime Demand Map must make every asset's ticket, runtime id, state/layer, status, source, dimensions, alpha, contact/origin, intended surfaces, severity and Engineering destination explicit.
+Only an explicit HQ decision makes a candidate `APPROVED MASTER` and authorizes `FROZEN`. Runtime integration is a separate Engineering decision. At Ship close, update the handoff, gap map, register, approved index, approval ledger, manifests, totals and evidence; verify hashes, cold-start onboarding, runtime scope and a clean tree.
 
-Only an explicit decision can make a candidate `APPROVED MASTER`; only an explicit freeze can make it `FROZEN`. Runtime integration is a separate Engineering decision.
-
-At Ship close, update as applicable: `START_HERE.md`, `CURRENT_HANDOFF.md`, the current gap map, `ASSET_REGISTER.json`, `APPROVED_ASSET_INDEX.md`, `APPROVAL_LEDGER.md`, Ship maps/manifests, frozen totals and recommended next priority. Verify frozen hashes, no runtime changes, the zero-upload cold start and a clean scoped tree.
-
-**Current stop point:** ART SHIP 009 is FROZEN / COMPLETE. Recommended next step is Engineering integration of the 12 frozen assets plus the approved zero-pixel `lan_night → tristan_apt` mapping, followed by Presentation Director review (including PD-W1-04) and a fresh Integration Matrix/runtime visual-QA pass. Do not update the 98 PASS / 23 HOLD baseline until that work earns the projected movement. Do not begin another Art Ship until the result refreshes demand; do not merge or deploy from this Art task.
+**Current stop point:** ART SHIP 012 CLOSEOUT — APPROVED MASTER / FROZEN / COMPLETE. Do not runtime-integrate, alter PASS/HOLD status, merge, deploy or self-authorize another Art Ship.

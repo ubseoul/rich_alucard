@@ -1,0 +1,222 @@
+{
+  "ship_id": "ART SHIP 013",
+  "status": "PASS \u2014 APPROVED MASTER / FROZEN / COMPLETE",
+  "accepted_candidate_commit": "eec5c40c45a40dd842ded38f9b87063d67965d3c",
+  "exact_byte_promotions": [
+    {
+      "id": "mom.default",
+      "production": "assets/before_the_fame/characters/mom/mom_neutral_80x96.png",
+      "sha256": "2fbbf02d8ddfc9c9fde5a967f54ab25765bf68f8dd569a76f11760d35178fa4d",
+      "exact_bytes": true,
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "contact": [
+        40,
+        88
+      ]
+    },
+    {
+      "id": "dad.default",
+      "production": "assets/before_the_fame/characters/dad/dad_neutral_80x96.png",
+      "sha256": "5d208ef3c344fa34a2450310ef331f5ae3c0b2e14ee734a3d4b83ffb644eca30",
+      "exact_bytes": true,
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "contact": [
+        40,
+        88
+      ]
+    },
+    {
+      "id": "sister.default",
+      "production": "assets/before_the_fame/characters/sister/sister_neutral_80x96.png",
+      "sha256": "ecfe922ea7d5c114246897e6050ff1c2d4c9503d151cf47fa41f93812cb1a321",
+      "exact_bytes": true,
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "contact": [
+        40,
+        88
+      ]
+    },
+    {
+      "id": "portobello_wife.default",
+      "production": "assets/before_the_fame/characters/portobello_wife/portobello_wife_neutral_80x96.png",
+      "sha256": "befad71977141eedcbb05db8d0f0f0f1e08018a54f609ab96c8c0c896f4381cb",
+      "exact_bytes": true,
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "contact": [
+        40,
+        88
+      ]
+    },
+    {
+      "id": "portobello_kid1.default",
+      "production": "assets/before_the_fame/characters/portobello_kid1/portobello_kid1_neutral_80x96.png",
+      "sha256": "cfa3487c650b6180a709d3741c92fdeabe91ed175d1bcf49f5e2a1e82f08b8c6",
+      "exact_bytes": true,
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "contact": [
+        40,
+        88
+      ]
+    },
+    {
+      "id": "portobello_kid2.default",
+      "production": "assets/before_the_fame/characters/portobello_kid2/portobello_kid2_neutral_80x96.png",
+      "sha256": "ae0d440f797bdeeae61d4884ae341df2a82bde2a1eac23f8a84b8c9ea5e322cb",
+      "exact_bytes": true,
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "contact": [
+        40,
+        88
+      ]
+    },
+    {
+      "id": "rich.hookah_seated.corrected",
+      "production": "assets/before_the_fame/characters/rich/rich_hookah_seated_corrected_80x96.png",
+      "sha256": "c46f395004151d94365601fad9e72a8abba092ef03669dca71f2e492f8917634",
+      "exact_bytes": true,
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "contact": [
+        40,
+        88
+      ]
+    }
+  ],
+  "exact_byte_pass": true,
+  "original_hookah_preserved": {
+    "path": "assets/before_the_fame/characters/rich/rich_hookah_seated_80x96.png",
+    "sha256": "c260180a4b3636fc2765534e0053abd1cab25b2ca2c43c83f800e6b55ee20696",
+    "pass": true
+  },
+  "frozen_corpus": {
+    "verified": 219,
+    "expected": 219,
+    "pass": true
+  },
+  "register": {
+    "entries": 359,
+    "expected": 359,
+    "pass": true
+  },
+  "cold_start_onboarding": {
+    "pass": true,
+    "required_records": [
+      "art_department/ART_SYSTEM.md",
+      "art_department/CURRENT_HANDOFF.md",
+      "art_department/CURRENT_OPEN_ART_GAPS.md",
+      "art_department/CURRENT_OPEN_ART_GAPS.json",
+      "art_department/APPROVED_ASSET_INDEX.md",
+      "art_department/APPROVAL_LEDGER.md",
+      "art_department/ships/art_ship_013/HQ_DECISION.md",
+      "art_department/ships/art_ship_013/PROMOTION_EVIDENCE.json"
+    ]
+  },
+  "runtime_authority": {
+    "branch": "claude/hold-clearance-001",
+    "commit": "a66170218375e52404715789dde48c23726a6044",
+    "pass": 108,
+    "hold": 13,
+    "changed_by_ship": false
+  },
+  "scope": {
+    "changed_paths": [
+      "art_department/APPROVAL_LEDGER.md",
+      "art_department/APPROVED_ASSET_INDEX.md",
+      "art_department/ASSET_REGISTER.json",
+      "art_department/CURRENT_HANDOFF.md",
+      "art_department/CURRENT_OPEN_ART_GAPS.json",
+      "art_department/CURRENT_OPEN_ART_GAPS.md",
+      "art_department/START_HERE.md",
+      "art_department/ships/art_ship_013/ART_SHIP.md",
+      "art_department/ships/art_ship_013/ART_SHIP_MANIFEST.json",
+      "art_department/ships/art_ship_013/CANDIDATE_PACKAGE_MANIFEST.json",
+      "art_department/ships/art_ship_013/COMMAND_VALIDATION.md",
+      "art_department/ships/art_ship_013/ENGINEERING_ASSET_MAP.json",
+      "art_department/ships/art_ship_013/EXPECTED_HOLD_RESOLUTION_REPORT.md",
+      "art_department/ships/art_ship_013/FROZEN_CORPUS_SHA256SUMS.txt",
+      "art_department/ships/art_ship_013/GENERATION_LOG.md",
+      "art_department/ships/art_ship_013/HQ_DECISION.md",
+      "art_department/ships/art_ship_013/HQ_REVIEW_PACKAGE.md",
+      "art_department/ships/art_ship_013/HQ_TECHNICAL_PROMOTION_REVIEW.md",
+      "art_department/ships/art_ship_013/INTERNAL_VISUAL_REVIEW.md",
+      "art_department/ships/art_ship_013/ONBOARDING_REPORT.md",
+      "art_department/ships/art_ship_013/PROMOTED_SHA256SUMS.txt",
+      "art_department/ships/art_ship_013/PROMOTION_EVIDENCE.json",
+      "art_department/ships/art_ship_013/PROMOTION_EVIDENCE.md",
+      "art_department/ships/art_ship_013/PROMOTION_VALIDATION_REPORT.json",
+      "art_department/ships/art_ship_013/RUNTIME_DEMAND_MAP.json",
+      "art_department/ships/art_ship_013/RUNTIME_DEMAND_MAP.md",
+      "art_department/ships/art_ship_013/SOURCE_PRESERVATION_EVIDENCE.json",
+      "art_department/ships/art_ship_013/SOURCE_PRESERVATION_EVIDENCE.md",
+      "art_department/ships/art_ship_013/STATE_LAYER_DEFINITIONS.json",
+      "art_department/ships/art_ship_013/VALIDATION_REPORT.md",
+      "art_department/ships/art_ship_013/tools/promote_freeze_records.py",
+      "art_department/ships/art_ship_013/tools/validate_promotion.py",
+      "assets/before_the_fame/characters/dad/dad_neutral_80x96.png",
+      "assets/before_the_fame/characters/mom/mom_neutral_80x96.png",
+      "assets/before_the_fame/characters/portobello_kid1/portobello_kid1_neutral_80x96.png",
+      "assets/before_the_fame/characters/portobello_kid2/portobello_kid2_neutral_80x96.png",
+      "assets/before_the_fame/characters/portobello_wife/portobello_wife_neutral_80x96.png",
+      "assets/before_the_fame/characters/rich/rich_hookah_seated_corrected_80x96.png",
+      "assets/before_the_fame/characters/sister/sister_neutral_80x96.png"
+    ],
+    "runtime_gameplay_files_changed": false,
+    "art_ship_012_touched": false,
+    "pass": true
+  }
+}

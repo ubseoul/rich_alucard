@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "ship_id": "ART SHIP 012 CLOSEOUT",
+  "status": "APPROVED MASTER / FROZEN — PENDING ENGINEERING INTEGRATION",
+  "mappings": {
+    "characters.portobello_manager.default": "assets/before_the_fame/characters/portobello_manager/portobello_manager_neutral_80x96.png",
+    "characters.auntie.default": "assets/before_the_fame/characters/auntie/auntie_register_neutral_80x96.png",
+    "characters.soul.default": "assets/before_the_fame/characters/ocean_soul/ocean_soul_climbing_80x96.png",
+    "characters.training_dummy.default": "assets/before_the_fame/characters/training_dummy/training_dummy_combat_80x96.png",
+    "characters.buckhead.default": "assets/before_the_fame/characters/buckhead/buckhead_vampire_neutral_80x96.png"
+  },
+  "runtime_integration_performed": false,
+  "presentation_director_changed": false,
+  "pass_hold_changed": false
+}

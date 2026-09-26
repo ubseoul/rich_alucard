@@ -116,6 +116,12 @@ The environment masters extend the reusable grammar across retail, restaurant, c
 
 The approximately 1.85x character scale remains a nearest-neighbor Engineering presentation rule and is not baked into any ART SHIP 007 source. Exact paths and hashes are controlled by the Ship manifest and Asset Register.
 
+## ART SHIP 012 closeout approved additions
+
+ART SHIP 012 closeout adds four contemporary/supporting human anchors and one combat object within the 80×96/contact-`(40,88)` grammar. Portobello Manager and Auntie extend ordinary professional/retail adult reads without costume caricature; Ocean Soul demonstrates subdued anonymous-extra readability; Buckhead extends the compact adult vampire/rival grammar through broad oxblood, cream and charcoal masses plus sparse identity accents; Training Dummy confirms a simple non-person combat object can occupy the same cell/contact convention.
+
+The accepted Buckhead master uses a 32×58 opaque envelope and 13 opaque RGB colors. Its broad jacket/polo/trouser planes, sparse face, short clustered hands and shoes and stepped silhouette are approved. The earlier naturalistic and deterministic-redraw Buckhead candidates remain rejected provenance and are excluded from style study.
+
 ## ART SHIP 009 approved additions
 
 ART SHIP 009 adds nine opaque 270x480 environment masters targeted to live runtime HOLD surfaces. They confirm the approved phone-first fixed-camera grammar: compact hard-edged clusters, limited 30-color reductions, readable lower staging bands and location-specific silhouettes without baked named actors, UI or post-processing effects. Presentation Director retains final framing authority.

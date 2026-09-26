@@ -1,0 +1,193 @@
+{
+  "ship_id": "ART SHIP 012 CLOSEOUT",
+  "status": "APPROVED MASTER / FROZEN / COMPLETE",
+  "accepted_candidate_commit": "da2c251be814a91fe89154d7a9fac02770e4f66d",
+  "baseline_frozen_assets_checked": 219,
+  "baseline_frozen_hash_failures": [],
+  "promoted_files": [
+    {
+      "asset_id": "portobello_manager",
+      "candidate": "art_department/ships/art_ship_012_closeout/candidates/native/characters/portobello_manager_neutral_80x96.png",
+      "production": "assets/before_the_fame/characters/portobello_manager/portobello_manager_neutral_80x96.png",
+      "expected_sha256": "0e69dc024e59fc9dbd5bed7944081fbc9f83226ba44d7c9c16b3c9b6d68ff26c",
+      "candidate_sha256": "0e69dc024e59fc9dbd5bed7944081fbc9f83226ba44d7c9c16b3c9b6d68ff26c",
+      "production_sha256": "0e69dc024e59fc9dbd5bed7944081fbc9f83226ba44d7c9c16b3c9b6d68ff26c",
+      "byte_exact": true,
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "alpha_values": [
+        0,
+        255
+      ],
+      "contact": [
+        40,
+        88
+      ],
+      "contact_row_pass": true,
+      "technical_contract_pass": true
+    },
+    {
+      "asset_id": "auntie",
+      "candidate": "art_department/ships/art_ship_012_closeout/candidates/native/characters/auntie_register_neutral_80x96.png",
+      "production": "assets/before_the_fame/characters/auntie/auntie_register_neutral_80x96.png",
+      "expected_sha256": "cf5ae278f87c9a339ac15c115f9a754f78cd58d6efa2e289515f90036ae9836e",
+      "candidate_sha256": "cf5ae278f87c9a339ac15c115f9a754f78cd58d6efa2e289515f90036ae9836e",
+      "production_sha256": "cf5ae278f87c9a339ac15c115f9a754f78cd58d6efa2e289515f90036ae9836e",
+      "byte_exact": true,
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "alpha_values": [
+        0,
+        255
+      ],
+      "contact": [
+        40,
+        88
+      ],
+      "contact_row_pass": true,
+      "technical_contract_pass": true
+    },
+    {
+      "asset_id": "soul",
+      "candidate": "art_department/ships/art_ship_012_closeout/candidates/native/characters/ocean_soul_climbing_80x96.png",
+      "production": "assets/before_the_fame/characters/ocean_soul/ocean_soul_climbing_80x96.png",
+      "expected_sha256": "21b21879c070ba61944091683201eb89c57a18e05731f66f5fce3e687ed8dbd1",
+      "candidate_sha256": "21b21879c070ba61944091683201eb89c57a18e05731f66f5fce3e687ed8dbd1",
+      "production_sha256": "21b21879c070ba61944091683201eb89c57a18e05731f66f5fce3e687ed8dbd1",
+      "byte_exact": true,
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "alpha_values": [
+        0,
+        255
+      ],
+      "contact": [
+        40,
+        88
+      ],
+      "contact_row_pass": true,
+      "technical_contract_pass": true
+    },
+    {
+      "asset_id": "training_dummy",
+      "candidate": "art_department/ships/art_ship_012_closeout/candidates/native/characters/training_dummy_combat_80x96.png",
+      "production": "assets/before_the_fame/characters/training_dummy/training_dummy_combat_80x96.png",
+      "expected_sha256": "e30e3189af01afdd05300fc913ea541aab0e0f1f8c88704a094afac2b5f9face",
+      "candidate_sha256": "e30e3189af01afdd05300fc913ea541aab0e0f1f8c88704a094afac2b5f9face",
+      "production_sha256": "e30e3189af01afdd05300fc913ea541aab0e0f1f8c88704a094afac2b5f9face",
+      "byte_exact": true,
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "alpha_values": [
+        0,
+        255
+      ],
+      "contact": [
+        40,
+        88
+      ],
+      "contact_row_pass": true,
+      "technical_contract_pass": true
+    },
+    {
+      "asset_id": "buckhead",
+      "candidate": "art_department/ships/art_ship_012_closeout/candidates/native/characters/buckhead_vampire_neutral_80x96.png",
+      "production": "assets/before_the_fame/characters/buckhead/buckhead_vampire_neutral_80x96.png",
+      "expected_sha256": "710bede4d4372f20cd27956313d6589df528c3ec9b795b3c4e5cc996ea033b97",
+      "candidate_sha256": "710bede4d4372f20cd27956313d6589df528c3ec9b795b3c4e5cc996ea033b97",
+      "production_sha256": "710bede4d4372f20cd27956313d6589df528c3ec9b795b3c4e5cc996ea033b97",
+      "byte_exact": true,
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "alpha_values": [
+        0,
+        255
+      ],
+      "contact": [
+        40,
+        88
+      ],
+      "contact_row_pass": true,
+      "technical_contract_pass": true
+    }
+  ],
+  "promoted_byte_exact_count": 5,
+  "rejected_buckhead_provenance": [
+    {
+      "path": "art_department/ships/art_ship_012_closeout/rejected/buckhead_initial_naturalistic_rejected_80x96.png",
+      "expected": "26bc338ca53b12aac0b051189745dadba4b4fb6d29c745e85253fa8c8e01265c",
+      "actual": "26bc338ca53b12aac0b051189745dadba4b4fb6d29c745e85253fa8c8e01265c",
+      "pass": true
+    },
+    {
+      "path": "art_department/ships/art_ship_012_closeout/rejected/buckhead_deterministic_native_grid_rejected_80x96.png",
+      "expected": "f178b6b63a8d01f3acbbb9d38228da5b97be2fad9fcc8a6ccb7f8ffa0fc6333e",
+      "actual": "f178b6b63a8d01f3acbbb9d38228da5b97be2fad9fcc8a6ccb7f8ffa0fc6333e",
+      "pass": true
+    }
+  ],
+  "asset_register_entries": 364,
+  "frozen_assets_checked": 224,
+  "frozen_hash_failures": [],
+  "changed_files_from_candidate": [
+    "art_department/APPROVAL_LEDGER.md",
+    "art_department/APPROVED_ASSET_INDEX.md",
+    "art_department/ASSET_REGISTER.json",
+    "art_department/CURRENT_HANDOFF.md",
+    "art_department/CURRENT_OPEN_ART_GAPS.json",
+    "art_department/CURRENT_OPEN_ART_GAPS.md",
+    "art_department/START_HERE.md",
+    "art_department/STYLE_FINGERPRINT.md",
+    "art_department/references/CHARACTERS.md",
+    "art_department/ships/art_ship_012_closeout/ART_SHIP.md",
+    "art_department/ships/art_ship_012_closeout/ART_SHIP_MANIFEST.json",
+    "art_department/ships/art_ship_012_closeout/BUCKHEAD_FINAL_PROVENANCE.json",
+    "art_department/ships/art_ship_012_closeout/CLOSEOUT_MANIFEST.json",
+    "art_department/ships/art_ship_012_closeout/COMMAND_VALIDATION.md",
+    "art_department/ships/art_ship_012_closeout/ENGINEERING_ASSET_MAP.json",
+    "art_department/ships/art_ship_012_closeout/FROZEN_CORPUS_SHA256SUMS.txt",
+    "art_department/ships/art_ship_012_closeout/HQ_DECISION.md",
+    "art_department/ships/art_ship_012_closeout/PROMOTED_SHA256SUMS.txt",
+    "art_department/ships/art_ship_012_closeout/PROMOTION_EVIDENCE.json",
+    "art_department/ships/art_ship_012_closeout/PROMOTION_EVIDENCE.md",
+    "art_department/ships/art_ship_012_closeout/PROMOTION_VALIDATION_REPORT.json",
+    "art_department/ships/art_ship_012_closeout/PROMOTION_VALIDATION_REPORT.md",
+    "art_department/ships/art_ship_012_closeout/RUNTIME_DEMAND_MAP.json",
+    "art_department/ships/art_ship_012_closeout/RUNTIME_DEMAND_MAP.md",
+    "art_department/ships/art_ship_012_closeout/SOURCE_PRESERVATION_EVIDENCE.json",
+    "art_department/ships/art_ship_012_closeout/SOURCE_PRESERVATION_EVIDENCE.md",
+    "art_department/ships/art_ship_012_closeout/STATE_LAYER_DEFINITIONS.json",
+    "art_department/ships/art_ship_012_closeout/tools/validate_promotion.py",
+    "assets/before_the_fame/characters/auntie/auntie_register_neutral_80x96.png",
+    "assets/before_the_fame/characters/buckhead/buckhead_vampire_neutral_80x96.png",
+    "assets/before_the_fame/characters/ocean_soul/ocean_soul_climbing_80x96.png",
+    "assets/before_the_fame/characters/portobello_manager/portobello_manager_neutral_80x96.png",
+    "assets/before_the_fame/characters/training_dummy/training_dummy_combat_80x96.png"
+  ],
+  "out_of_scope_changes": [],
+  "runtime_files_changed": [],
+  "presentation_director_changed": false,
+  "pass_hold_changed": false,
+  "runtime_authority": {
+    "branch": "claude/hold-clearance-001",
+    "commit": "a66170218375e52404715789dde48c23726a6044",
+    "pass": 108,
+    "hold": 13
+  },
+  "overall_pass": true
+}
