@@ -177,3 +177,19 @@ The approved `lan_night → tristan_apt` mapping creates no new bitmap. Runtime 
 All four exact canonical PNGs named in `ships/art_ship_010/ART_SHIP_MANIFEST.json` are **APPROVED MASTER / FROZEN**. Every canonical SHA-256 equals its approved candidate SHA-256. The frozen corpus is now **203 assets across 343 Asset Register entries**. The frozen rooftop master and referenced crowd sources remain unchanged.
 
 Portobello Rich’s short-hair states are frozen only as the intentional Portobello variant authorized by the visual contract. The four companion identities remain `BLOCKED BY CANON`. Runtime integration, PD-W1-04 staging approval and PASS/HOLD movement remain Engineering/runtime-QA work. No runtime/gameplay code changed, no SEALED/HQ-only content was accessed, and no merge or deployment was performed. ART SHIP 010 is **FROZEN / COMPLETE**.
+
+## ART SHIP 011 — NIGHTLIFE POPULATION LIBRARY (recorded 2026-09-26)
+
+39. ART SHIP 011 began from the latest HQ-accepted Engineering checkpoint `8eab30dc790071ec8da98f65311e2b4676fabad0` and productionized the nine HQ-selected POLISH PREPRODUCTION 001 nightlife candidates from `d8c24b632ecdc134986b4f81ff5d3f3959609eea`. The package established stable production IDs, native contacts/origins, categories, placement constraints, exact source provenance and reusable production paths without assigning runtime screens.
+40. Candidate checkpoint `28aa98c8ab04a643d175192b1aecb9ae7b372c76` passed 9/9 native-contract, deterministic-extraction, exact-byte promotion and source-pixel checks. All files are 8-bit RGBA with binary alpha; no checkerboard remnants or unintended extraction-edge corruption were found. No replacement art or additional nightlife figure was generated.
+41. Explicit user-supplied HQ decision:
+
+> HQ PASS — ART SHIP 011
+>
+> HQ approves all 9/9 candidate assets for production freeze at candidate commit `28aa98c8ab04a643d175192b1aecb9ae7b372c76`.
+>
+> Promote/freeze the exact candidate bytes. No regeneration, redraw, retouch, resize, palette changes, or reinterpretation. Preserve the established production IDs and constraints. This freeze does not authorize runtime placement, Presentation Director mappings, environments, HOLD statuses, screen assignments, merge or deployment.
+
+All nine exact production PNGs named in `ships/art_ship_011/ART_SHIP_MANIFEST.json` are **APPROVED MASTER / FROZEN**. Each production SHA-256 equals its HQ-approved candidate SHA-256. The frozen corpus is now **212 assets across 352 Asset Register entries**.
+
+The nine assets remain a reusable, unassigned anonymous-adult population library. Bartender context, A07 included furniture, A08 no-tiling, A09 high-occlusion/peripheral use, density guidance and named-actor clearance are frozen metadata constraints. Runtime integration, Presentation Director placement, environment edits and PASS/HOLD movement remain future Engineering/World Life work. No runtime/gameplay code changed, no merge or deployment was performed. ART SHIP 011 is **FROZEN / COMPLETE**.

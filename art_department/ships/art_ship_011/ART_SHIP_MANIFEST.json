@@ -2,10 +2,10 @@
   "schema_version": 1,
   "ship_id": "ART SHIP 011",
   "title": "NIGHTLIFE POPULATION LIBRARY",
-  "status": "CANDIDATE \u2014 READY FOR HQ REVIEW",
-  "authorization": "HQ authorized A01\u2013A09 from POLISH PREPRODUCTION 001 to advance into a bounded production Art Ship; no replacement art or added characters authorized.",
-  "approval_claimed": false,
-  "frozen_claimed": false,
+  "status": "APPROVED MASTER / FROZEN / COMPLETE",
+  "authorization": "Explicit HQ PASS supplied for all 9/9 exact candidate byte streams at the accepted candidate checkpoint.",
+  "approval_claimed": true,
+  "frozen_claimed": true,
   "runtime_integrated": false,
   "base": {
     "commit": "8eab30dc790071ec8da98f65311e2b4676fabad0",
@@ -21,7 +21,7 @@
   "adult_figure_count": 21,
   "accepted_for_hq_review": 9,
   "rejected_for_technical_defect": 0,
-  "promotion_policy": "Exact exploratory candidate bytes copied to Ship candidate and production asset paths; no regeneration, redraw, resize, retouch, palette change, or re-encoding.",
+  "promotion_policy": "All nine submitted native candidates promoted and frozen byte-for-byte; no regeneration, redraw, retouch, resize, palette change, re-encoding or reinterpretation.",
   "files": [
     {
       "request_id": "AS11-NL-01",
@@ -54,7 +54,7 @@
         "clear named-actor lanes",
         "prefer sparse or medium-density use"
       ],
-      "approval_status": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+      "approval_status": "APPROVED MASTER / FROZEN"
     },
     {
       "request_id": "AS11-NL-02",
@@ -87,7 +87,7 @@
         "clear named-actor lanes",
         "use only where a stage/performance context is credible"
       ],
-      "approval_status": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+      "approval_status": "APPROVED MASTER / FROZEN"
     },
     {
       "request_id": "AS11-NL-03",
@@ -120,7 +120,7 @@
         "treat as one pair fragment",
         "clear entrances and named-actor lanes"
       ],
-      "approval_status": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+      "approval_status": "APPROVED MASTER / FROZEN"
     },
     {
       "request_id": "AS11-NL-04",
@@ -153,7 +153,7 @@
         "requires a wide side-floor pocket",
         "clear named-actor lanes"
       ],
-      "approval_status": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+      "approval_status": "APPROVED MASTER / FROZEN"
     },
     {
       "request_id": "AS11-NL-05",
@@ -186,7 +186,7 @@
         "background behavior only",
         "clear named-actor lanes"
       ],
-      "approval_status": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+      "approval_status": "APPROVED MASTER / FROZEN"
     },
     {
       "request_id": "AS11-NL-06",
@@ -219,7 +219,7 @@
         "must have an appropriate bar or service context",
         "do not place as a free-floating patron"
       ],
-      "approval_status": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+      "approval_status": "APPROVED MASTER / FROZEN"
     },
     {
       "request_id": "AS11-NL-07",
@@ -252,7 +252,7 @@
         "included furniture must not be duplicated",
         "check furniture scale against the host environment"
       ],
-      "approval_status": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+      "approval_status": "APPROVED MASTER / FROZEN"
     },
     {
       "request_id": "AS11-NL-08",
@@ -286,7 +286,7 @@
         "use once per framed view unless a later explicit contract says otherwise",
         "protect named-actor clearance"
       ],
-      "approval_status": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+      "approval_status": "APPROVED MASTER / FROZEN"
     },
     {
       "request_id": "AS11-NL-09",
@@ -321,7 +321,7 @@
         "use against a lighter band",
         "never cover named actors or critical UI"
       ],
-      "approval_status": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+      "approval_status": "APPROVED MASTER / FROZEN"
     }
   ],
   "review_boards": [
@@ -329,6 +329,12 @@
     "art_department/ships/art_ship_011/review/02_isolated_exact_4x.png",
     "art_department/ships/art_ship_011/review/03_environment_compatibility_1x.png"
   ],
-  "freeze_scope": null,
-  "stop_point": "ART SHIP 011 \u2014 READY FOR HQ REVIEW"
+  "freeze_scope": "The exact nine production PNG byte streams, stable IDs, native dimensions, RGBA binary-alpha contracts, contacts/origins, categories and placement constraints. Runtime placement, Presentation Director mappings, environments, HOLD status, merge and deployment are excluded.",
+  "stop_point": "ART SHIP 011 \u2014 FROZEN",
+  "accepted_candidate_checkpoint": "28aa98c8ab04a643d175192b1aecb9ae7b372c76",
+  "promotion_authority": "HQ PASS \u2014 ART SHIP 011",
+  "frozen_corpus_before": 203,
+  "frozen_corpus_after": 212,
+  "register_entries_before": 352,
+  "register_entries_after": 352
 }

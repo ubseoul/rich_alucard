@@ -1,6 +1,6 @@
 {
   "ship_id": "ART SHIP 011",
-  "status": "CANDIDATE \u2014 HQ REVIEW REQUIRED",
+  "status": "APPROVED MASTER / FROZEN \u2014 NO RUNTIME ASSIGNMENT",
   "global_draw_rule": "Environment/base and contextual furniture first; ambient population fragments next according to framing; named actors and critical UI must remain clear. A09 is a deliberate foreground exception only when specifically framed.",
   "states": [
     {

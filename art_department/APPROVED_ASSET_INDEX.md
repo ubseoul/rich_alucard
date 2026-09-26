@@ -272,3 +272,21 @@ All four native assets below are **APPROVED MASTER / FROZEN** at the exact submi
 | `assets/before_the_fame/environments/rooftop_dtla/layers/rooftop_dtla_party_crowd_overlay_270x480.png` | FROZEN | APPROVED MASTER; ART SHIP 010 exact-origin additive NC-FA-12 party condition layer behind named actors; frozen rooftop base preserved; not runtime-integrated |
 
 `portobello_wife`, `portobello_kid1`, `portobello_kid2` and `portobello_manager` remain `BLOCKED BY CANON`; no placeholder identity was promoted.
+
+## ART SHIP 011 — Nightlife Population Library
+
+All nine native assets below are **APPROVED MASTER / FROZEN** at the exact candidate bytes accepted at `28aa98c8ab04a643d175192b1aecb9ae7b372c76`. They are reusable anonymous adult population fragments with no current runtime screen assignment.
+
+| Path | Status | Role |
+|---|---|---|
+| `assets/before_the_fame/population/nightlife/nightlife_dancer_80x96.png` | FROZEN | `nightlife_population.dancer`; active dance side-pocket; contact `(40,88)`; named-actor clearance required |
+| `assets/before_the_fame/population/nightlife/nightlife_performer_80x96.png` | FROZEN | `nightlife_population.performer`; adult stage/performance fragment; contact `(40,88)`; credible performance context only |
+| `assets/before_the_fame/population/nightlife/nightlife_queue_pair_112x96.png` | FROZEN | `nightlife_population.queue_pair`; passive arrival/queue pair; contact `(56,88)`; keep as one pair fragment |
+| `assets/before_the_fame/population/nightlife/nightlife_dancing_pair_112x96.png` | FROZEN | `nightlife_population.dancing_pair`; partnered dance fragment; contact `(56,88)`; wide side-floor pocket required |
+| `assets/before_the_fame/population/nightlife/nightlife_affectionate_pair_112x96.png` | FROZEN | `nightlife_population.affectionate_pair`; adult affectionate background behavior; contact `(56,88)` |
+| `assets/before_the_fame/population/nightlife/nightlife_bartender_80x96.png` | FROZEN | `nightlife_population.bartender`; hospitality/service figure; contact `(40,88)`; never free-floating outside a credible bar/service context |
+| `assets/before_the_fame/population/nightlife/nightlife_hookah_lounge_128x96.png` | FROZEN | `nightlife_population.hookah_lounge`; seated lounge group; contact `(64,88)`; hookah, table and seats are included furniture |
+| `assets/before_the_fame/population/nightlife/nightlife_dense_cluster_144x96.png` | FROZEN | `nightlife_population.dense_cluster`; six-adult density tool; contact `(72,88)`; never tile or repeat into wallpaper |
+| `assets/before_the_fame/population/nightlife/nightlife_foreground_silhouettes_144x112.png` | FROZEN | `nightlife_population.foreground_silhouettes`; foreground-depth fragment; contact `(72,104)`; peripheral/deliberate framing only due to high occlusion risk |
+
+Runtime placement, Presentation Director mapping, environment modification and HOLD movement were not authorized by the freeze.
