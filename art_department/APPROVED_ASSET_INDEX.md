@@ -259,3 +259,16 @@ All 12 native assets below are APPROVED MASTER / FROZEN at exact candidate bytes
 | `assets/before_the_fame/characters/dre/dre_hookah_seated_80x96.png` | FROZEN | APPROVED MASTER; ART SHIP 009 seated NC-FA-11 state for `company=HOMIES`; not runtime-integrated |
 
 The approved `lan_night → tristan_apt` recommendation creates no new bitmap and does not alter, duplicate or rename the frozen Tristan apartment master.
+
+## ART SHIP 010 — Cast + Party Completion
+
+All four native assets below are **APPROVED MASTER / FROZEN** at the exact submitted candidate bytes. Runtime integration and PASS/HOLD movement remain pending Engineering integration and runtime QA. Portobello Rich’s short-hair treatment is an intentional authorized variant; no other Rich state was modified.
+
+| Path | Status | Role |
+|---|---|---|
+| `assets/before_the_fame/characters/rich_portobello/rich_portobello_standing_80x96.png` | FROZEN | APPROVED MASTER; ART SHIP 010 `rich_portobello` standing/default intentional variant; contact `(40,88)`; not runtime-integrated |
+| `assets/before_the_fame/characters/rich_portobello/rich_portobello_presenting_80x96.png` | FROZEN | APPROVED MASTER; ART SHIP 010 `rich_portobello.presenting` intentional variant; contact `(40,88)`; not runtime-integrated |
+| `assets/before_the_fame/characters/rich_portobello/rich_portobello_porch_seated_80x96.png` | FROZEN | APPROVED MASTER; ART SHIP 010 `rich_portobello.porch_seated` intentional variant; contact `(40,88)`; not runtime-integrated |
+| `assets/before_the_fame/environments/rooftop_dtla/layers/rooftop_dtla_party_crowd_overlay_270x480.png` | FROZEN | APPROVED MASTER; ART SHIP 010 exact-origin additive NC-FA-12 party condition layer behind named actors; frozen rooftop base preserved; not runtime-integrated |
+
+`portobello_wife`, `portobello_kid1`, `portobello_kid2` and `portobello_manager` remain `BLOCKED BY CANON`; no placeholder identity was promoted.

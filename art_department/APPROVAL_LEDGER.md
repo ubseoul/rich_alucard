@@ -161,3 +161,19 @@ Runtime integration, Presentation Director framing, gameplay/content alias decis
 All 12 exact canonical PNGs named in `ships/art_ship_009/ART_SHIP_MANIFEST.json` are **APPROVED MASTER / FROZEN**. Every canonical SHA-256 equals its accepted candidate SHA-256. The frozen corpus is now 199 assets across 339 Asset Register entries. The 18 verified source hashes, existing Hollow Bowl layers and frozen Tristan apartment master remain unchanged.
 
 The approved `lan_night → tristan_apt` mapping creates no new bitmap. Runtime integration, Presentation Director staging approval, gameplay changes and PASS/HOLD movement remain Engineering/runtime-QA work. No runtime/gameplay code changed, no SEALED/HQ-only content was accessed, and no merge or deployment was performed. ART SHIP 009 is FROZEN / COMPLETE.
+
+## ART SHIP 010 — CAST + PARTY COMPLETION (recorded 2026-09-26)
+
+36. ART SHIP 010 began from `claude/art-ship-009-integration` at `5af730a132c035f6f2f5afb20eef5149ca3f2761`, reconciled the live **105 PASS / 16 HOLD** Integration Matrix, and produced the smallest authorized package for `NC-FA-07` and `NC-FA-12`: three Portobello Rich states and one rooftop party condition layer. The four companion Portobello identities remained explicitly ungenerated and `BLOCKED BY CANON`.
+37. Candidate checkpoint `a1e265d0f28a75d2e5f6a1dd67a0ebdff02cd4ab` passed native-contract validation, source-hash validation, repository tests/build/artifact verification and PLAYER-BLIND visual review. No frozen source pixel or runtime/gameplay file changed during candidate production.
+38. Explicit user-supplied HQ decision:
+
+> HQ DECISION — ART SHIP 010 PASS / PROMOTE + FREEZE
+>
+> All four ART SHIP 010 candidates are APPROVED for production promotion: `rich_portobello.standing`, `rich_portobello.presenting`, `rich_portobello.porch_seated` and `rooftop_dtla.party_crowd_condition`.
+>
+> Promote them using the established Art Department freeze procedure. Preserve candidate pixels exactly. Keep `portobello_wife`, `portobello_kid1`, `portobello_kid2` and `portobello_manager` `BLOCKED BY CANON`. Record Portobello Rich’s short-hair look as an intentional transformation, not identity drift. Do not alter other Rich states, mark runtime screens PASS, modify runtime code, merge or deploy.
+
+All four exact canonical PNGs named in `ships/art_ship_010/ART_SHIP_MANIFEST.json` are **APPROVED MASTER / FROZEN**. Every canonical SHA-256 equals its approved candidate SHA-256. The frozen corpus is now **203 assets across 343 Asset Register entries**. The frozen rooftop master and referenced crowd sources remain unchanged.
+
+Portobello Rich’s short-hair states are frozen only as the intentional Portobello variant authorized by the visual contract. The four companion identities remain `BLOCKED BY CANON`. Runtime integration, PD-W1-04 staging approval and PASS/HOLD movement remain Engineering/runtime-QA work. No runtime/gameplay code changed, no SEALED/HQ-only content was accessed, and no merge or deployment was performed. ART SHIP 010 is **FROZEN / COMPLETE**.

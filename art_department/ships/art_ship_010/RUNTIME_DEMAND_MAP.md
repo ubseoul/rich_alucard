@@ -1,6 +1,6 @@
 # ART SHIP 010 — Runtime Demand Map
 
-**Status:** GENERATION AUTHORIZED — IN PRODUCTION; NO APPROVAL OR FREEZE CLAIM
+**Status:** APPROVED MASTER / FROZEN / COMPLETE — PENDING ENGINEERING INTEGRATION
 
 **Runtime authority:** `claude/art-ship-009-integration` at `5af730a132c035f6f2f5afb20eef5149ca3f2761`
 
@@ -18,14 +18,14 @@ The frozen rooftop master is correct and remains immutable. NC-FA-12 is satisfie
 
 | Request | Ticket | Runtime id/state/layer | Authority | Native contract | Exact intended surfaces | Status / expected effect | Engineering mapping |
 |---|---|---|---|---|---|---|---|
-| AS10-RICH-PORTO-STANDING | NC-FA-07 | `rich_portobello.standing` / default anchor | GUIDED — named authorization | 80×96 RGBA; binary alpha; contact (40,88) | all three Portobello bedroom surface keys | **CANDIDATE — HQ REVIEW REQUIRED**; required cast dependency | `people.rich_portobello.default` |
-| AS10-RICH-PORTO-PRESENTING | NC-FA-07 | `rich_portobello.presenting` | GUIDED — named authorization | 80×96 RGBA; binary alpha; contact (40,88) | `portobello_office\|left:rich_portobello,right:portobello_manager` | **CANDIDATE — HQ REVIEW REQUIRED**; required office state | `people.rich_portobello.states.presenting` |
-| AS10-RICH-PORTO-PORCH-SEATED | NC-FA-07 | `rich_portobello.porch_seated` | GUIDED — named authorization | 80×96 RGBA; binary alpha; contact (40,88) | `portobello_porch\|left:rich_portobello,right:portobello_wife` | **CANDIDATE — HQ REVIEW REQUIRED**; required porch state | `people.rich_portobello.states.porch_seated` |
+| AS10-RICH-PORTO-STANDING | NC-FA-07 | `rich_portobello.standing` / default anchor | GUIDED — named authorization | 80×96 RGBA; binary alpha; contact (40,88) | all three Portobello bedroom surface keys | **APPROVED MASTER / FROZEN**; required cast dependency; intentional Rich variant | `people.rich_portobello.default` |
+| AS10-RICH-PORTO-PRESENTING | NC-FA-07 | `rich_portobello.presenting` | GUIDED — named authorization | 80×96 RGBA; binary alpha; contact (40,88) | `portobello_office\|left:rich_portobello,right:portobello_manager` | **APPROVED MASTER / FROZEN**; required office state; intentional Rich variant | `people.rich_portobello.states.presenting` |
+| AS10-RICH-PORTO-PORCH-SEATED | NC-FA-07 | `rich_portobello.porch_seated` | GUIDED — named authorization | 80×96 RGBA; binary alpha; contact (40,88) | `portobello_porch\|left:rich_portobello,right:portobello_wife` | **APPROVED MASTER / FROZEN**; required porch state; intentional Rich variant | `people.rich_portobello.states.porch_seated` |
 | AS10-PORTO-WIFE | NC-FA-07 | `portobello_wife` | no sufficient committed visual card | 80×96/contact (40,88) only after canon | three wife-present Portobello keys | **BLOCKED BY CANON** | `people.portobello_wife` |
 | AS10-PORTO-KID1 | NC-FA-07 | `portobello_kid1` | no sufficient committed visual card | 80×96/contact (40,88) only after canon | breakfast + bedtime keys | **BLOCKED BY CANON** | `people.portobello_kid1` |
 | AS10-PORTO-KID2 | NC-FA-07 | `portobello_kid2` | no sufficient committed visual card | 80×96/contact (40,88) only after canon | breakfast + bedtime keys | **BLOCKED BY CANON** | `people.portobello_kid2` |
 | AS10-PORTO-MANAGER | NC-FA-07 | `portobello_manager` | no sufficient committed visual card | 80×96/contact (40,88) only after canon | office key | **BLOCKED BY CANON** | `people.portobello_manager` |
-| AS10-ROOFTOP-PARTY-CROWD | NC-FA-12 | `rooftop_dtla.party_crowd_condition` | OPEN | 270×480 RGBA; binary alpha; exact origin (0,0); behind actors | `rooftop_dtla\|left:rich` | **CANDIDATE — HQ REVIEW REQUIRED**; projects 1 HOLD cleared | `environments.rooftop_dtla.layers.party_crowd_condition` |
+| AS10-ROOFTOP-PARTY-CROWD | NC-FA-12 | `rooftop_dtla.party_crowd_condition` | OPEN | 270×480 RGBA; binary alpha; exact origin (0,0); behind actors | `rooftop_dtla\|left:rich` | **APPROVED MASTER / FROZEN**; projects 1 HOLD cleared after integration | `environments.rooftop_dtla.layers.party_crowd_condition` |
 
 ## Source integrity
 
@@ -33,7 +33,7 @@ The frozen rooftop master is correct and remains immutable. NC-FA-12 is satisfie
 - Rooftop source master: `assets/before_the_fame/environments/rooftop_dtla/downtown_la_rooftop_party_270x480.png`, SHA-256 `af41cbb7c045a55848421434e14e9e122dabc61becc2d1c2dcc1fb1ceebf5ebf`.
 - Crowd grammar reference: `assets/before_the_fame/environments/hollow_bowl/layers/hollow_bowl_stage_band_crowd_overlay_270x480.png`, SHA-256 recorded in the Ship 009 manifest and Asset Register.
 
-Every source is read-only. Candidates are written only under this Ship until a later explicit HQ promotion decision.
+Every source remains read-only. The four approved canonical copies are byte-identical to the Ship candidates; runtime integration remains pending Engineering and QA.
 
 ## Projected runtime effect
 

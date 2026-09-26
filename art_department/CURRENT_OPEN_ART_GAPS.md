@@ -1,10 +1,10 @@
-# Current OPEN Art gaps — Ship 009 frozen reconciliation
+# Current OPEN Art gaps — Ship 010 frozen reconciliation
 
-**As of:** 2026-09-25
+**As of:** 2026-09-26
 
-**Frozen pixel authority:** ART SHIP 009 promotion records
+**Frozen pixel authority:** ART SHIP 010 promotion records
 
-**Runtime/art-integration authority:** `origin/claude/art-ship-008-integration` at `a16196e4fbc0c7530a00bdfe915fb9c9c7cd1826`
+**Runtime/art-integration authority:** `origin/claude/art-ship-009-integration` at `5af730a132c035f6f2f5afb20eef5149ca3f2761`
 
 This map uses the live post–Ship 008 Integration Matrix. Historical Rough Complete and pre-integration counts remain provenance only.
 
@@ -12,17 +12,17 @@ This map uses the live post–Ship 008 Integration Matrix. Historical Rough Comp
 
 | Area | Current truth |
 |---|---|
-| Frozen corpus | 199 frozen assets; 339 registered entries |
-| Ship 004–009 handoff | 179 files |
+| Frozen corpus | 203 frozen assets; 343 registered entries |
+| Ship 004–010 handoff | 183 files |
 | Runtime-integrated | 145 files |
-| Approved Ship 009 pending integration/QA | 12 files + one zero-pixel reuse mapping |
+| Approved Ship 009 + Ship 010 pending integration/QA | 16 files + one zero-pixel reuse mapping |
 | Historical superseded | 1 file |
 | Handoff/reference only | 12 state/asset sheets |
 | Approved states with no current scene | 4 |
 | Mapping-ambiguous | 4 |
 | Ready but no visual surface | 1 |
 | Runtime census | 104 adventure screens + 17 fights |
-| Final-art review | 98 PASS / 23 HOLD |
+| Final-art review | 105 PASS / 16 HOLD |
 | Automated presentation | All adventure/fight checks pass; HOLD is creative coverage, not generic Director failure |
 
 ## Presentation authority
@@ -39,6 +39,15 @@ ART SHIP 009 supplies and freezes the Art-owned coverage below, but these ticket
 
 Do not mark these runtime tickets resolved or change PASS/HOLD totals until Engineering integrates the mappings and runtime visual QA passes.
 
+## Ship 010 supplied / pending integration
+
+ART SHIP 010 supplies and freezes the following Art-owned coverage, but runtime tickets remain open until Engineering integration and real Presentation QA:
+
+1. `NC-FA-07` — three frozen Portobello Rich states. The four companion identities `portobello_wife`, `portobello_kid1`, `portobello_kid2` and `portobello_manager` remain **BLOCKED BY CANON**.
+2. `NC-FA-12` — one frozen exact-origin additive rooftop party-crowd condition layer behind named actors; the frozen rooftop master remains unchanged.
+
+Portobello Rich’s short-hair treatment is an intentional authorized variant, not identity drift. No other Rich state was modified. Do not mark these runtime tickets resolved or change PASS/HOLD totals until Engineering integrates the frozen assets and runtime visual QA passes.
+
 ## Environment masters still missing after Ship 009
 
 Four previously listed environment ids remain without approved masters:
@@ -49,13 +58,14 @@ They were outside ART SHIP 009's named runtime-demand package. Do not generate t
 
 ## Missing identities / unresolved cast
 
-Current demand still includes eight identity slots without approved art:
+Current demand still includes twelve identity slots without approved art:
 
-`mom`, `dad`, `sister`, `brother1`, `brother2`, `god`, `buckhead`, `og_hooper`.
+`mom`, `dad`, `sister`, `brother1`, `brother2`, `god`, `buckhead`, `og_hooper`, `portobello_wife`, `portobello_kid1`, `portobello_kid2`, `portobello_manager`.
 
 - Family details/likeness remain Ube-owned: **BLOCKED BY CANON**.
 - `god` is culturally sensitive and needs exact-card, named authorization: **BLOCKED BY CANON / NAMED REVIEW**.
 - `buckhead` and `og_hooper` remain underspecified accepted deferrals: **BLOCKED BY CANON**.
+- Portobello wife, kid1, kid2 and manager have no committed OPEN/GUIDED visual cards: **BLOCKED BY CANON**.
 - Other ad-hoc runtime extras and neutral groups remain unresolved coverage; do not invent canon-sensitive identities.
 
 ## Derivative states still open
@@ -90,8 +100,8 @@ Audio dependencies remain outside Art scope.
 - Laura: intentionally no art.
 - SEALED/HQ-only material: `SEALED / DO NOT TOUCH`; never inspect or enumerate.
 
-## Ship 009 frozen forecast
+## Frozen forecast
 
-If Engineering integrates the frozen mappings exactly and runtime QA accepts them, up to **13 adventure/fight HOLD screens** should clear, moving the matrix from **98 PASS / 23 HOLD** to approximately **111 PASS / 10 HOLD**. NC-FA-11 should separately clear one held minigame surface. This is forecast only; current runtime truth remains **98 PASS / 23 HOLD**.
+The Ship 009 forecast remains approximately **111 PASS / 10 HOLD** after its 12 assets and zero-pixel reuse are integrated and QA-accepted. For Ship 010, the rooftop candidate may clear one held screen, moving the current **105 PASS / 16 HOLD** baseline to approximately **106 PASS / 15 HOLD**. The five Portobello screens remain blocked by the four canon-sensitive companion identities and PD-W1-04 review. These are forecasts only; current runtime truth remains **105 PASS / 16 HOLD**.
 
-**Recommended next step:** Engineering integrates the 12 frozen Ship 009 assets plus the approved `lan_night → tristan_apt` zero-pixel reuse, performs Presentation Director review including PD-W1-04, and refreshes the Integration Matrix/runtime visual QA before any PASS/HOLD update or new Art Ship.
+**Recommended next step:** Engineering integrates the 16 pending frozen Ship 009/010 assets and mappings, performs Presentation Director review including PD-W1-04, and refreshes the Integration Matrix/runtime visual QA before any PASS/HOLD update or new Art Ship.
