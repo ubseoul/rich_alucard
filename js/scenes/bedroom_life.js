@@ -62,11 +62,17 @@
   if(e.detail?.id!=='bedroom'){clear();return;}
   setTimeout(()=>{if(RAScenes.current()==='bedroom')onBedroom(e);},0);
  });
+ // The wake adventure this morning already chose (goToSleep → RAWakeTriggers.pick), if it has not started yet today.
+ // A refresh during the Morning Mail re-shows the mail; without this the day's wake adventure was silently dropped.
+ function pendingWake(){
+  const w=RALife.flag('wakeTrigger'),day=RALife.today().day;if(!w?.id||w.day!==day||!RAAdventures.available(w.id))return null;
+  const rec=RAAdventures.record(w.id);return rec&&(rec.startedDay===day||rec.lastDay===day)?null:w.id;
+ }
  function onBedroom(e){
   if(!RALife.life().clock.started)return; // prologue/first wake owns the room until the life clock starts
   build();
   if(RAAdventures.active()){RAAdventureScene.resume();return;}
-  if(!showReturnBeat()){const unread=(RALife.life().clock.mail||[]).filter(m=>m.day===RALife.today().day&&!m.read&&m.kind!=='weekday');if(unread.length)showMail();}
+  if(!showReturnBeat()){const unread=(RALife.life().clock.mail||[]).filter(m=>m.day===RALife.today().day&&!m.read&&m.kind!=='weekday');const wake=pendingWake();if(unread.length||wake)showMail(null,wake);}
  }
  window.RABedroomLife={build,confirmBed,goToSleep,showMail,refresh:()=>{if(layer)build();}};
 })();

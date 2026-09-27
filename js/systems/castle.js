@@ -24,7 +24,11 @@
   const owned=ROOMS.filter(r=>RALife.hasRoom(r.id));
   const always=[{label:'THE THRONE ROOM',go:'castle:throne',verb:RALife.life().clock.hungover?'you are hungover. the throne is calling.':'sit on it. be the boss.'},{label:'OUTSIDE (DON CHUY\'S)',go:'tacos',verb:'tacos. $3 each. canciones until 3 a.m.'}];
   menu.innerHTML=`<h2>THE CASTLE</h2>${[...always,...owned].map(r=>`<button type="button" class="mail-card" data-castle="${r.go}"><b>${r.label}</b>${r.verb}</button>`).join('')}${owned.length?'':'<div class="mail-card" style="cursor:default"><b>MORE ROOMS</b>buy rooms in RealMoneyRealEstate → YOUR CASTLE.</div>'}<button type="button" class="mail-done" data-castle="close">BACK TO BED</button>`;
-  menu.addEventListener('click',e=>{const b=e.target.closest('[data-castle]');if(!b)return;menu.remove();if(b.dataset.castle!=='close')RAPlaces.go(b.dataset.castle,window.RAPhone?.api);});
+  // A room that can't open right now (cooldown, once a night, already done) answers like the phone does instead of
+  // closing the menu on nothing.
+  menu.addEventListener('click',async e=>{const b=e.target.closest('[data-castle]');if(!b||b.disabled||menu.dataset.busy)return;if(b.dataset.castle==='close'){menu.remove();return;}
+   menu.dataset.busy='1';const ok=await RAPlaces.go(b.dataset.castle,window.RAPhone?.api);delete menu.dataset.busy;
+   if(ok===false){b.disabled=true;b.lastChild.textContent='not tonight.';return;}menu.remove();});
   layer.append(menu);
  }
  window.RACastle={ROOMS,buy,markup,open};
