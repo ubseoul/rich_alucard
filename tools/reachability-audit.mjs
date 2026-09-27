@@ -40,6 +40,13 @@ export async function classify(root=here){
    const lines=text.split('\n');
    lines.forEach((line,i)=>{if(!q.test(line))return;if(new RegExp(`D\\(\\{id:'${id}'`).test(line)&&!line.slice(line.indexOf(`id:'${id}'`)+id.length+6).match(q))return;
     if(/devtools|btf_dev/.test(file)){dev=true;return}
+    // Not routes (Engineering 06): fame.js only lists ids for hidden momentum, and a `done('ID')` / `isDone('ID')` /
+    // `adventureRecord('ID')` read is a predicate about the id, not a way to reach it, and `meet(person,'ID')` only
+    // labels where someone was met. Treating these as "system-call" routes hid A29, A44, A50, A52 and A_CAMMILE1
+    // (no player entry) behind a PASS.
+    if(/js\/systems\/fame\.js$/.test(file))return;
+    const reads=new RegExp(String.raw`(done|isDone|adventureRecord|record)\(['"]`+id+String.raw`['"]\)|meet\(['"][^'"]*['"],\s*['"]`+id+String.raw`['"]\)`,'g');
+    if(!line.replace(reads,'').match(q))return;
     const ctxText=lines.slice(Math.max(0,i-12),i+1).join('\n');let kind=null;
     for(const [k,re] of ROUTES)if(re.test(line)){kind=k;break}
     if(!kind)for(const [k,re] of ROUTES)if(re.test(ctxText))kind=k;
@@ -159,11 +166,51 @@ export async function proofs(root=here){
   drive(ctx,'A12');assert.equal(ctx.RAPlaces.get('pier').adventure(ctx.RALife.L()),'PIER');assert(ctx.RAPlaces.visible().some(p=>p.id==='pier'),'pier place vanished after A12');
   const log=[];drive(ctx,'PIER',{log});assert(log.some(l=>l.endsWith('minigame:pier')));assert(!ctx.RAAdventures.available('PIER'),'PIER is once a night');
   ok('PIER','GO SOMEWHERE → SANTA MONICA PIER → PIER (repeatable, once a night) after A12',['a hatched dragon (A11 outcome)'],['A12 → PIER minigame']);}
+ // ---------------- Engineering 06 routes (each was NO PLAYER ENTRY at 9ae8fd7) ----------------
+ // Coffe arc: PT1 wake beat (days 2–8) → tells on days 20/23/26 → PT2 fork in WHAT WE ON → PT3 raid at a later wake.
+ {const ctx=await fresh();const {RAWakeTriggers,RALife,RAAdventures}=ctx;wakeTo(ctx,2);assert.equal(RAWakeTriggers.pick(),'A29','Coffe must knock on a morning in days 2–8');
+  drive(ctx,'A29');assert(ctx.RARelations.met('coffe'));
+  let t;for(let d=3;d<=27&&!t;d++){t=wakeTo(ctx,d).find(x=>x.id==='coffe_tells');if(d<23)assert(!t,`PT2 fork offered before two tells (day ${d})`);}
+  assert(t,'PT2 fork never offered');assert((Number(RALife.flag('coffeTells'))||0)>=2,'tells did not accumulate');
+  ctx.RATemptations.take('coffe_tells');drive(ctx,'A29B',{prefer:[/IGNORE IT/]});
+  const day=RALife.today().day;wakeTo(ctx,day+1);assert.equal(RAWakeTriggers.pick(),'A29C','the raid must come at a wake after PT2');drive(ctx,'A29C');
+  assert(!RAAdventures.available('A29')&&!RAAdventures.available('A29B')&&!RAAdventures.available('A29C'),'Coffe arc must not repeat');
+  // A life that never takes the fork still gets the raid once PT2's window (days 20–30) is over.
+  const lazy=await fresh();wakeTo(lazy,2);drive(lazy,'A29');let raid=null;for(let d=3;d<=34&&!raid;d++){wakeTo(lazy,d);if(lazy.RAWakeTriggers.pick()==='A29C')raid=d;}
+  assert(raid&&raid>=31,`raid without the fork should come on day 31+ (got ${raid})`);
+  ok('A29 → A29B → A29C','wake beat (days 2–8) → tells → WHAT WE ON "something is off about coffe." → wake raid',['none'],[`fork offered on day ${t.createdDay}; raid next wake; untaken fork → raid on day ${raid}`]);}
+ // Waffle Saga: GO SOMEWHERE → HEARTSFELT-JACKSUN, one night per trip, a sleep between nights.
+ {const ctx=await fresh();const {RAPlaces,RALife}=ctx;const place=()=>RAPlaces.get('heartsfelt').adventure(RALife.L());
+  assert(RAPlaces.visible().some(p=>p.id==='heartsfelt'),'HEARTSFELT-JACKSUN missing from GO SOMEWHERE');const log=[];
+  for(const [n,id] of [[1,'A44'],[2,'A44_N2'],[3,'A44_N3'],[4,'A44_N4']]){assert.equal(place(),id,`night ${n} not offered`);const res=drive(ctx,id,{log});assert(res.nightEnder,`night ${n} must end the night`);
+   assert(!ctx.RAAdventures.available(place()),`night ${n+1} offered the same night`);wakeTo(ctx,RALife.today().day+1);}
+  assert(ctx.RARelations.met('ms_patrice')&&RALife.hasProp('prop_waffle_mix'),'Ms. Patrice / waffle mix missing');assert(!place()&&!RAPlaces.visible().some(p=>p.id==='heartsfelt'),'saga offered after it ended');
+  ok('A44 (4 nights)','GO SOMEWHERE → HEARTSFELT-JACKSUN → one Waffle Saga night per trip',['none'],['A44 → sleep → A44_N2 → sleep → A44_N3 → sleep → A44_N4; waffle mix prop owned']);}
+ // LAN night: TRISTAN'S APARTMENT appears once Rich knows Tristan (and his text); one time.
+ {const ctx=await fresh();assert(!ctx.RAPlaces.visible().some(p=>p.id==='tristan_apt'),'apartment before meeting Tristan');drive(ctx,'A_TRISTAN');
+  assert.equal(ctx.RAPlaces.get('tristan_apt').adventure(ctx.RALife.L()),'A50');drive(ctx,'A50');assert(!ctx.RAPlaces.visible().some(p=>p.id==='tristan_apt'),'LAN night offered twice');
+  ok('A50',"GO SOMEWHERE → TRISTAN'S APARTMENT (after A_TRISTAN); Tristan's \"one more turn\" text",['none'],['A_TRISTAN → place → A50 → gone']);}
+ // Halloween: Day 31 invite only.
+ {const ctx=await fresh();for(let d=2;d<=30;d++)assert(!wakeTo(ctx,d).some(x=>x.id==='halloween_invite'),`halloween offered on day ${d}`);
+  const w=wakeTo(ctx,31).find(x=>x.id==='halloween_invite');assert(w?.adventure==='A52','halloween invite missing on day 31');ctx.RATemptations.take(w.id);drive(ctx,'A52');
+  assert(!wakeTo(ctx,32).some(x=>x.id==='halloween_invite'));ok('A52','Morning Mail INVITE on Day 31 → A52',['none (real calendar)'],['day 31 only']);}
+ // Cammile at the docks (legacy A04 meeting → bridge), one time.
+ {const ctx=await fresh();assert(!ctx.RAPlaces.visible().some(p=>p.id==='docks'));ctx.RARelations.meet('jdm_importer_daughter_001','jdm_imports_docks');
+  assert(ctx.RAPlaces.visible().some(p=>p.id==='docks'),'THE DOCKS missing after meeting Cammile');drive(ctx,'A_CAMMILE1');assert(!ctx.RAPlaces.visible().some(p=>p.id==='docks'));
+  ok('A_CAMMILE1','GO SOMEWHERE → THE DOCKS (after the A04 docks meeting)',['Cammile met (legacy A04 bridge field)'],['once']);}
+ // FIND A PARTY rotates the repeatable parties by day, so the neighbor castle surfaces.
+ {const ctx=await fresh();seedOgunsRave(ctx);drive(ctx,'A_LO1');drive(ctx,'A55');const seen=new Set();for(let d=2;d<12;d++){wakeTo(ctx,d);seen.add(ctx.RAParties.next(ctx.RALife.L()));}
+  assert(seen.has('ROOFTOP_DTLA')&&seen.has('NEIGHBOR_CASTLE'),`party lane offered only ${[...seen]}`);ok('NEIGHBOR_CASTLE','VampGPT → FIND A PARTY (repeatable parties rotate by day)',["Ogun's Rave outcome flags (PLAYER-BLIND flow)"],[[...seen].join(', ')]);}
+ // Maid Quarters: interviews repeat until Marisol is hired; then the owned room opens her scene every visit.
+ {const ctx=await fresh();ctx.RAState.patch('life.resources.money',500000);assert(ctx.RACastle.buy('maid_quarters'));const go=()=>ctx.RAPlaces.get('castle:maid').adventure(ctx.RALife.L());
+  assert.equal(go(),'A39');drive(ctx,'A39',{prefer:[/KEEP INTERVIEWING/]});assert(ctx.RAAdventures.available(go()),'room dead after KEEP INTERVIEWING');
+  drive(ctx,'A39',{prefer:[/HIRE MARISOL/]});assert.equal(go(),'MAID');drive(ctx,'MAID');drive(ctx,'MAID');
+  ok('MAID','⌂ CASTLE → MAID QUARTERS (A39 until hired, then MAID, repeatable)',['money for the room (bought through RACastle.buy)'],['A39 keep → A39 hire → MAID ×2']);}
  return results;
 }
 
 export async function test(root=here){
- const rows=await classify(root),targets=['A_EMBERLY1','A_JADE1','A_LO1','A_HINA1','A_ANFEESA1','A_VELVET1','A37','A46','A23R','VENICE','PIER'];
+ const rows=await classify(root),targets=['A29','A29B','A29C','A44','A44_N2','A44_N3','A44_N4','A50','A52','A_CAMMILE1','NEIGHBOR_CASTLE','MAID','A_EMBERLY1','A_JADE1','A_LO1','A_HINA1','A_ANFEESA1','A_VELVET1','A37','A46','A23R','VENICE','PIER'];
  for(const id of targets)assert.equal(rows[id]?.status,'PLAYER ROUTE',`${id} has no player route (${JSON.stringify(rows[id])})`);
  const none=Object.entries(rows).filter(([,r])=>r.status==='NO PLAYER ENTRY').map(([id])=>id);
  const p=await proofs(root);

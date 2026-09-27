@@ -10,7 +10,10 @@
  function choices(situation,next){return owned().map(b=>{const r=situation.results?.[b.id]||situation.fallback||{reaction:'the room shrugs.',score:0};return {label:b.label,sub:b.from?`FROM ${b.from.toUpperCase()}`:'',fx:A=>{A.set('lastReaction',r.reaction);A.set('partyScore',(A.vars.partyScore||0)+(r.score||0));if(r.fx)r.fx(A);},next};});}
  // Attendable parties this week (used by VampGPT MEET PEOPLE → FIND A PARTY).
  const listeners=[];function register(fn){listeners.push(fn);}
- function next(L){for(const fn of listeners){try{const id=fn(L);if(id&&RAAdventures.available(id))return id;}catch(e){}}return null;}
+ // One-time story parties (Lo, Ogun's second rave) come first, in registration order; otherwise the week's repeatable
+ // parties rotate by day so every attendable party surfaces (VOL 1 §9.3 lists four; "parties have dates").
+ function next(L){const ids=[];for(const fn of listeners){try{const id=fn(L);if(id&&RAAdventures.available(id)&&!ids.includes(id))ids.push(id);}catch(e){}}
+  const story=ids.find(id=>!RAAdventures.get(id)?.repeatable);if(story)return story;return ids.length?ids[(Number(L?.day)||0)%ids.length]:null;}
  function attended(kind='human'){RALife.addPoints('clout',5);if(kind==='vampire')RALife.addPoints('rep',5);RALife.light('connection',1,`party:${RALife.today().day}`);}
  window.RAParties={BASE,EARNED,owned,earn,choices,register,next,attended};
 })();

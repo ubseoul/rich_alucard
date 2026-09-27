@@ -385,6 +385,11 @@
    home:['rich','one more turn. every time. forever.',{vp:true}]}}
  },legend:true});
 
+ // ENGINEERING 06 route: A50 had no player entry. VOL 5 §6 lists TRISTAN'S APARTMENT (Echo Park) as the LAN NIGHT place,
+ // and §2.2 has Tristan texting invites ("one more turn"): a GO SOMEWHERE place once Rich knows him, and his text.
+ RAPlaces.define([{id:'tristan_apt',label:"TRISTAN'S APARTMENT",sub:'ECHO PARK',adventure:L=>RARelations.met('tristan')&&!L.done('A50')?'A50':null,order:51}]);
+ RATemptations.define([{id:'tristan_lan',source:'text',thread:'tristan',sender:'TRISTAN',line:'one more turn',adventure:'A50',weight:1.5,when:L=>RARelations.met('tristan')}]);
+
  // ============================================================================================
  // A51 — CANCIÓN NIGHT. Chained directly from TACOS on rain nights. Minigame 'bars' pool spanish.
  // ============================================================================================
@@ -404,10 +409,13 @@
  D({id:'KITCHEN',title:'THE CASTLE KITCHEN',lane:'home',memoryType:'home',repeatable:true,start:'pick',nodes:{
   pick:{env:'kitchen',actors:{left:'rich'},title:'THE CASTLE KITCHEN',lines:A=>[N('pots, cubes, a dragon somewhere upstairs who can smell all of it.'),...kevinCameo()],
    choices:A=>{const dr=RALife.dragon();const canCube=dr&&['young','majestic'].includes(dr.stage)&&RALife.count('maggi')>0&&(RALife.today().day-(dr.lastCubeDay||0))>=7;
-    return [{label:'PRACTICE JOLLOF',next:'practice'},...(canCube?[{label:'MAKE A DRAGON MAGGI CUBE',sub:'CONSUMES 1 SEASONING CUBE · ONCE PER ~7 SLEEPS',fx:X=>{RALife.consume('maggi');RALife.addItem('maggi_dragon_crumble',3,{cap:9});const next={...dr,lastCubeDay:RALife.today().day};RAState.patch('life.ownership.dragon',next);X.set('cubed',true);},next:'cubed'}]:[]),{label:'LEAVE IT',next:'end'}];}},
+    const waffles=RALife.hasProp('prop_waffle_mix')&&RALife.today().day-(Number(RALife.flag('waffleKitchenDay'))||-99)>=7;
+    return [{label:'PRACTICE JOLLOF',next:'practice'},...(waffles?[{label:'MAKE ATL WAFFLES',sub:"MS. PATRICE'S MIX · ONCE A WEEK",fx:X=>{RALife.setFlag('waffleKitchenDay',RALife.today().day);X.set('waffles',true);},next:'waffles'}]:[]),...(canCube?[{label:'MAKE A DRAGON MAGGI CUBE',sub:'CONSUMES 1 SEASONING CUBE · ONCE PER ~7 SLEEPS',fx:X=>{RALife.consume('maggi');RALife.addItem('maggi_dragon_crumble',3,{cap:9});const next={...dr,lastCubeDay:RALife.today().day};RAState.patch('life.ownership.dragon',next);X.set('cubed',true);},next:'cubed'}]:[]),{label:'LEAVE IT',next:'end'}];}},
   practice:{minigame:{id:'jollof',params:A=>({mode:'practice'}),next:(A,r)=>{A.set('score',r?.score||0);return 'end';}}},
+  // VOL 5 A44 leaves behind: WAFFLE MIX — ATL waffles at home once per week.
+  waffles:{lines:[N('you follow the note exactly. the kitchen smells like waffle haven at 1 a.m.'),R("don't tell nobody.")],next:'end'},
   cubed:{lines:[N('mazda, upstairs, makes a sound that can only be described as delighted.'),N('you have three dragon maggi crumbles now. peking naija just got interesting.')],next:'end'},
-  end:{end:{outcome:A=>A.vars.cubed?'cubed':A.vars.score!=null?'practiced':'left',memory:A=>({text:A.vars.cubed?'made dragon maggi cubes in the castle kitchen':'practiced jollof in the castle kitchen',lane:'home',quality:A.vars.cubed?1:.4})}}
+  end:{end:{outcome:A=>A.vars.cubed?'cubed':A.vars.waffles?'waffles':A.vars.score!=null?'practiced':'left',memory:A=>({text:A.vars.cubed?'made dragon maggi cubes in the castle kitchen':A.vars.waffles?'made atl waffles at home':'practiced jollof in the castle kitchen',lane:'home',quality:A.vars.cubed?1:.4})}}
  }});
  D({id:'MOVIE',title:'THE MOVIE ROOM',lane:'home',memoryType:'home',repeatable:true,start:'who',nodes:{
   who:{env:'movie_room',actors:{left:'rich'},title:'THE MOVIE ROOM',lines:[N('projector, real seats, a hoop nobody used tonight.')],

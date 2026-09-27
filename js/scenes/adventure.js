@@ -123,7 +123,9 @@
  }
  // ROUTE beat: 1–3 legible ways to get there.
  function routeOptions(dest){
-  const L=RALife.L(),out=[];const far=dest?.far;
+  const L=RALife.L(),out=[];
+  // Georgia is a flight away (VOL 1 A37 "fly or dragon to Atlanta"): string destinations 'atl' / 'POWDER SPRINGS' are far.
+  const far=typeof dest==='string'?/^(atl|powder springs)$/i.test(dest):dest?.far;
   if(far){out.push({id:'fly',label:'BOOK A FLIGHT',sub:'$420'});if(L.hasRoom('dragon_roost')&&L.dragon?.stage==='majestic')out.push({id:'dragon',label:'FLY ON MAZDA',sub:'FREE. SHE IS FAST.'});return out;}
   for(const car of RALife.ownedCars().slice(0,2))out.push({id:`car:${car.id}`,label:`DRIVE THE ${(car.short||car.model||'CAR').toUpperCase()}`,sub:car.kit?'BODY KIT ON':''});
   if(dest?.walkable!==false)out.push({id:'walk',label:dest?.walkLabel||'WALK IT',sub:''});
@@ -143,7 +145,9 @@
    if(!scope?.isActive())return;
    if(node.end){hideDialogue();const res=RAAdventures.complete(nodeId);await returnHome(res);return;}
    if(node.route){const opts=routeOptions(typeof node.route.dest==='function'?node.route.dest(RAAdventures.context()):node.route.dest);const pick=await showChoices(opts.map(o=>({...o})));if(!pick)return;applyRoute(pick);nodeId=node.route.next;continue;}
-   if(node.choices){const list=RAAdventures.choicesFor(nodeId);if(!list.length){nodeId=node.next?RAAdventures.nextOf(nodeId):null;continue;}const pick=await showChoices(list);if(!pick)return;nodeId=RAAdventures.choose(nodeId,pick.index);continue;}
+   // Every choice locked (e.g. nothing affordable) and no authored fallback: never strand the player on a screen with
+   // no control. They leave the way the castle menu answers — "not tonight." — and the night is not counted.
+   if(node.choices){const list=RAAdventures.choicesFor(nodeId);if(!list.length){if(node.next){nodeId=RAAdventures.nextOf(nodeId);continue;}const out=await showChoices([{label:'NOT TONIGHT',sub:'NOTHING HERE YOU CAN DO RIGHT NOW'}]);if(!out)return;RAAdventures.abandon();await leave();return;}const pick=await showChoices(list);if(!pick)return;nodeId=RAAdventures.choose(nodeId,pick.index);continue;}
    if(node.minigame){hideDialogue();const params=typeof node.minigame.params==='function'?node.minigame.params(RAAdventures.context()):(node.minigame.params||{});const result=await RAMinigames.launch(node.minigame.id,params);if(!scope?.isActive())return;nodeId=RAAdventures.afterMinigame(nodeId,result);continue;}
    if(node.fight){hideDialogue();const params=typeof node.fight.params==='function'?node.fight.params(RAAdventures.context()):(node.fight.params||{});const result=await RACombat2.run(node.fight.enemy,params);if(!scope?.isActive())return;nodeId=RAAdventures.afterFight(nodeId,result);continue;}
    nodeId=RAAdventures.nextOf(nodeId);

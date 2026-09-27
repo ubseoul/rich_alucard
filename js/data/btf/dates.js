@@ -12,6 +12,9 @@
  //  giftRight[] / giftWrong[]  homeLine[] [VP]
  // Non-Rich lines are functional drafts pending HQ Story; Rich lines are [VP].
  const C={};
+ // VOL 1 §9.3: new party behaviors are earned from people — THE SHMOOVE from Kiki. She teaches it once she is COOL with
+ // Rich (a date that reaches COOL or better). Called by the DATE adventure's end (window.RADateHooks.after).
+ window.RADateHooks={after(id,vars,res){if(id==='kiki'&&(res?.after||0)>=2)window.RAParties?.earn?.('shmoove');}};
  C.kiki={
   arrival:['she\'s outside the boba shop in platform sneakers, apron off, same clips.','she changed her clips. she wants you to notice.','she\'s already holding two cups. one of them is yours. probably.'],
   asks:[

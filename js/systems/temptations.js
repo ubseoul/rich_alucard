@@ -5,9 +5,11 @@
  function define(list){for(const d of list)defs.set(d.id,{life:[2,4],weight:1,source:'vampgpt',...d});}
  const T=()=>RAState.get().life.temptations;
  function cadence(day){return day<=10?{min:1,max:3,cap:4}:day<=30?{min:3,max:5,cap:8}:{min:5,max:8,cap:12};}
+ // `adventure` may be an id or (L)=>id, like a GO SOMEWHERE place (resolved when the want is generated).
+ const advOf=(def,L)=>{try{return typeof def.adventure==='function'?def.adventure(L):def.adventure}catch(e){return null}};
  function eligible(def,L,live){
   if(live.some(t=>t.id===def.id))return false;
-  if(def.adventure&&!RAAdventures.available(def.adventure))return false;
+  if(def.adventure&&!RAAdventures.available(advOf(def,L)))return false;
   const hist=T().history.filter(h=>h.id===def.id);
   if(!def.repeatable&&hist.some(h=>h.taken))return false;
   if(def.cooldown&&hist.length&&L.day-hist.at(-1).day<def.cooldown)return false;
@@ -18,7 +20,7 @@
  function materialize(def,day,rand){
   const [a,b]=def.life;const span=a+Math.floor(rand()*(b-a+1));const L=RALife.L();
   const line=typeof def.line==='function'?def.line(L):def.line;
-  return {id:def.id,line,sender:typeof def.sender==='function'?def.sender(L):(def.sender||null),source:def.source,adventure:def.adventure||null,action:def.action||null,thread:(typeof def.thread==='function'?def.thread(L):def.thread)||null,createdDay:day,expiresDay:day+span};
+  return {id:def.id,line,sender:typeof def.sender==='function'?def.sender(L):(def.sender||null),source:def.source,adventure:advOf(def,L)||null,action:def.action||null,thread:(typeof def.thread==='function'?def.thread(L):def.thread)||null,createdDay:day,expiresDay:day+span};
  }
  function deliver(t){
   if(t.thread){RALife.text(t.thread,t.sender||t.thread.toUpperCase(),t.line,{id:`tempt:${t.id}:${t.createdDay}`,choices:[{label:'SAY LESS',temptation:t.id}]});}

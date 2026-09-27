@@ -25,6 +25,9 @@
     home:['rich','that dude might be the funniest addition to this block.',{vp:true}]}}
  }});
 
+ // ENGINEERING 06 route: PT1 had no player entry. VOL 1 A29 "PT 1 — COFFE RUN (Days 2–8): Coffe shows up" — his
+ // knock is world-initiated, so it arrives as the morning's wake beat in that window (lowest priority).
+ RAWakeTriggers.define([{adventure:'A29',priority:5,when:L=>L.day>=2&&L.day<=8}]);
  // PT2 — ROGUE STATUS. Tells accumulate as mail/texts/VampGram over days 20-30, then the fork adventure.
  const TELLS=[
   {id:'tell1',day:20,line:'the back entrance is roped off now. "for fire safety," coffe says.'},
@@ -32,7 +35,7 @@
   {id:'tell3',day:26,line:'tokyo tony, texting: "coffe been moving different lately. you notice?"'}
  ];
  RAClock.onWake('a29-tells',55,({info})=>{
-  if(!RARelations.met('coffe')||RALife.flag('coffeRogue')||RALife.done('A29C'))return;
+  if(!RARelations.met('coffe')||RALife.done('A29B')||RALife.done('A29C'))return;
   if(info.day<20||info.day>30)return;
   const t=TELLS.find(x=>x.day===info.day);if(!t)return;
   RALife.counter('coffeTells');RALife.setFlag('coffeRogue','watching');
@@ -40,7 +43,7 @@
   else RALife.mail({id:`a29:${t.id}`,kind:'people',title:'THE BLOCK',body:t.line});
  });
  D({id:'A29B',title:'ROGUE STATUS',lane:'people',scope:'MUST',memoryType:'people',start:'weigh',
-  available:L=>L.done('A29')&&(L.count('coffeTells')||0)>=2&&L.day<=32,
+  available:L=>L.done('A29')&&(Number(L.flag('coffeTells'))||0)>=2&&!L.done('A29C'),
   nodes:{
   weigh:{env:'street_night',actors:{left:'rich'},title:'SOMETHING IS OFF ABOUT COFFE',
    lines:[N('three tells in a week. the fire-safety door. the blurred story. tokyo tony\'s text.'),
@@ -60,7 +63,11 @@
  }});
 
  // PT3 — THE RAID. A wake after PT2. Vicky's party breaks in; wave fight; Vicky doesn't fight; fork Coffe's fate.
- RAWakeTriggers.define([{adventure:'A29C',priority:70,when:L=>L.done('A29B')&&L.day>(RALife.adventureRecord('A29B')?.completedDay||0)}]);
+ RAWakeTriggers.define([{adventure:'A29C',priority:70,when:L=>L.done('A29')&&(L.done('A29B')?L.day>(RALife.adventureRecord('A29B')?.completedDay||0):(Number(L.flag('coffeTells'))||0)>=2&&L.day>=31)}]);
+ // PT2's FORK reaches the player as a WHAT WE ON line (the adventure's own words) once two tells have landed; it stays
+ // on offer until taken or the raid comes.
+ RATemptations.define([{id:'coffe_tells',source:'vampgpt',line:'something is off about coffe.',adventure:'A29B',priority:6,repeatable:false}]);
+ RAClock.onWake('a29b-fork',62,()=>RATemptations.ensure('coffe_tells'));
  D({id:'A29C',title:"THE RAID",lane:'combat',scope:'MUST',memoryType:'people',start:'hungover',
   nodes:{
   hungover:{env:'throne',actors:{mid:'rich'},title:'THE THRONE ROOM · MORNING',
@@ -220,9 +227,16 @@
  // ===================================================================================================
  // A39 — HIRING MARISOL
  // ===================================================================================================
- RAPlaces.define([{id:'castle:maid',hidden:true,adventure:'A39'}]);
- D({id:'A39',title:'HIRING MARISOL',lane:'home',scope:'MUST',memoryType:'home',start:'ghost',
-  available:L=>L.hasRoom('maid_quarters'),
+ // ENGINEERING 06: the owned MAID QUARTERS answered "not tonight." forever once A39 had run (and KEEP INTERVIEWING
+ // lost Marisol for good). VOL 1 §9.1: "Marisol lives in; hungover mornings get handled; she judges everything."
+ // Interviews repeat until she is hired; then the room opens her repeatable scene (flavor only — no new mechanic).
+ RAPlaces.define([{id:'castle:maid',hidden:true,adventure:L=>L.flag('marisolHired')?'MAID':'A39'}]);
+ D({id:'MAID',title:'THE MAID QUARTERS',lane:'home',repeatable:true,memoryType:'home',available:L=>!!L.flag('marisolHired'),start:'look',nodes:{
+  look:{env:'throne',actors:{mid:'rich',right:{id:'marisol',state:'disapproving'}},title:'THE MAID QUARTERS',
+   lines:A=>RALife.life().clock.hungover?[N('you are hungover. marisol already handled it: water on the armrest, the curtains shut, the throne pillow fluffed.'),S('marisol','drink that. then fix your face.')]:[N('marisol is judging the throne room. then she judges you.'),S('marisol','this castle was a disaster before me.')],
+   end:{outcome:'looked',memory:{text:'marisol, judging everything',lane:'home',quality:.3}}}}});
+ D({id:'A39',title:'HIRING MARISOL',lane:'home',scope:'MUST',memoryType:'home',start:'ghost',repeatable:true,
+  available:L=>L.hasRoom('maid_quarters')&&!L.flag('marisolHired'),
   nodes:{
   ghost:{env:'throne',actors:{mid:'rich'},title:'THE THRONE ROOM · INTERVIEWS',
    lines:[N('applicant one: a ghost. she picks up the mop. the mop passes through her hands.'),
@@ -242,6 +256,8 @@
  // ===================================================================================================
  // MEET ADVENTURES — the remaining women, so all 22 exist in play.
  // ===================================================================================================
+ // ENGINEERING 06 route: A_CAMMILE1 had no player entry. Its own words place it back at the docks, where A04 met her.
+ RAPlaces.define([{id:'docks',label:'THE DOCKS',sub:'CAMMILE',adventure:L=>RAAdventures.available('A_CAMMILE1')?'A_CAMMILE1':null,order:55}]);
  D({id:'A_CAMMILE1',title:'CAMMILE, AGAIN',lane:'people',repeatable:false,memoryType:'people',start:'shop',
   available:L=>RARelations.met('jdm_importer_daughter_001')&&!L.done('A_CAMMILE1'),
   nodes:{
@@ -329,11 +345,11 @@
  RATemptations.define([{id:'trippin_red',source:'friend',sender:'TRISTAN',thread:'tristan',
   line:"trippin red at the hollow bowl saturday. i got 2 extra.",minDay:12,adventure:'A41',priority:5}]);
  D({id:'A41',title:'THE PERFECT NIGHT',lane:'people',scope:'MUST',memoryType:'people',start:'pick',
-  available:L=>Object.keys(RALife.life().people.records||{}).some(id=>RARelations.level(id)>=2),
+  available:L=>RABtfPeople.women.some(w=>RARelations.level(w.id)>=2),
   nodes:{
   pick:{env:'street_night',actors:{left:'rich'},title:'A PLUS-ONE',
    lines:[N('tristan hit you with two extra tickets. trippin\' red. the hollow bowl. saturday.'),R('who am i bringing?')],
-   choices:A=>{const ids=Object.keys(RALife.life().people.records||{}).filter(id=>RARelations.level(id)>=2);
+   choices:A=>{const ids=RABtfPeople.women.map(w=>w.id).filter(id=>RARelations.level(id)>=2);
     return ids.map(id=>({label:(RABtfPeople.get(id)?.name||id).toUpperCase(),fx:X=>{X.set('person',id);RALife.setFlag('futureEx',id);},next:'route'}));}},
   route:{route:{dest:'hollow_bowl',next:'arrive'}},
   arrive:{env:'hollow_bowl',actors:A=>({left:'rich',right:A.vars.person}),title:'THE HOLLOW BOWL',
@@ -371,55 +387,84 @@
  }});
 
  // ===================================================================================================
- // A44 — THE WAFFLE SAGA (4 ATL nights, night-progress flag, each night a nightEnder)
+ // A44 — THE WAFFLE SAGA (VOL 5 A44: four ATL nights; the prize is waffle mix).
+ // ENGINEERING 06: rebuilt to the source beats — NIGHT 1 lands at HEARTSFELT-JACKSUN and meets Ms. Patrice at WAFFLE
+ // HAVEN (she laughs in his face); NIGHT 2 the perfume at the Maul of Georgia (Lil Smack in the food court); NIGHT 3 she
+ // wants somewhere nice — Lennox Scare, and a Buckhead vampire who wants the recipe; NIGHT 4 Centennial Park, her
+ // mother's recipe, the box on the pillow. Each night is its own trip (a night-ender) through GO SOMEWHERE →
+ // HEARTSFELT-JACKSUN ("airport arrival hub for every ATL trip", VOL 5 §6); a sleep separates the nights.
+ // Fights keep their prior cards/params. Non-Rich lines are functional drafts restating the source; Rich lines [VP].
  // ===================================================================================================
- D({id:'A44',title:'THE WAFFLE SAGA',lane:'food',scope:'MUST',memoryType:'food',start:'route',
+ const waffleNext=L=>(Number(L.flag('waffleNight'))||0)+1;
+ const waffleReady=n=>L=>waffleNext(L)===n&&(n===1||L.day>(Number(L.flag('waffleDay'))||0));
+ const waffleStep=n=>A=>{RALife.setFlag('waffleNight',n);RALife.setFlag('waffleDay',RALife.today().day);};
+ const flyIn=(title,next)=>({env:'street_night',actors:{left:'rich'},title,route:{dest:'atl',next}});
+ D({id:'A44',title:'THE WAFFLE SAGA',lane:'food',scope:'MUST',memoryType:'food',start:'route',available:waffleReady(1),
   nodes:{
-  route:{env:'street_night',actors:{left:'rich'},title:'NIGHT ONE',route:{dest:'atl',next:'heartsfelt'}},
-  heartsfelt:{env:'lennox',actors:{left:'rich'},title:'HEARTSFELT-JACKSUN',
-   lines:[N('night one: heartsfelt-jacksun, a soul food spot with a line out the door for waffles nobody talks about in the daylight.')],
-   enter:A=>RALife.setFlag('waffleNight',1),
-   end:{outcome:'night1',nightEnder:true,memory:{text:'waffle saga, night one — heartsfelt-jacksun',lane:'food'},chain:'A44_N2'}}
+  route:flyIn('NIGHT ONE','land'),
+  land:{env:'atl_airport',actors:{left:'rich'},title:'HEARTSFELT-JACKSUN · 1 A.M.',
+   lines:[N('you land at 1 a.m. the airport is huge, and somehow still packed.'),N('you are hungry.'),N('a group chat of atl vampires: the only thing open is waffle haven.')],next:'haven'},
+  haven:{env:'waffle_haven',actors:{left:'rich',right:'ms_patrice'},title:'WAFFLE HAVEN · 1 A.M.',
+   enter:A=>{RARelations.meet('ms_patrice','waffle_haven');},
+   lines:[E('ms_patrice','the night-shift manager looks up from the register. her name tag says MS. PATRICE.'),N('the waffle changes your life.'),R('…can i get the recipe?')],next:'laugh'},
+  laugh:{actors:{left:'rich',right:{id:'ms_patrice',state:'laugh'}},lines:[N('she laughs in your face.'),S('ms_patrice','no.')],
+   enter:waffleStep(1),
+   end:{outcome:'night1',nightEnder:true,memory:{text:'waffle saga, night one — waffle haven. ms. patrice laughed in my face',lane:'food'},
+    home:['rich','she laughed. i\'m going back.',{vp:true}]}}
  }});
- D({id:'A44_N2',title:'THE WAFFLE SAGA · MAUL OF GEORGIA',lane:'food',scope:'MUST',memoryType:'food',start:'maul',
-  available:L=>L.flag('waffleNight')===1,
+ D({id:'A44_N2',title:'THE WAFFLE SAGA · MAUL OF GEORGIA',lane:'food',scope:'MUST',memoryType:'food',start:'route',available:waffleReady(2),
+  testSetup:ctx=>{ctx.RALife.setFlag('waffleNight',1);ctx.RALife.setFlag('waffleDay',1);},
   nodes:{
+  route:flyIn('NIGHT TWO','ask'),
+  ask:{env:'waffle_haven',actors:{left:'rich',right:'ms_patrice'},title:'WAFFLE HAVEN',
+   lines:[S('ms_patrice','i\'ll consider it. bring me a perfume.'),N('a very specific one, from a store at the maul of georgia that closed in 2009.'),N('it didn\'t close. it moved to the basement level only vampires can see.')],next:'maul'},
   maul:{env:'maul',actors:{left:'rich'},title:'THE MAUL OF GEORGIA',
-   lines:[N('night two: the food court at the maul. lil smack is running a table like it\'s his personal toll booth.'),
-    S('lil_smack','you want the waffle intel? that\'ll cost you.')],
+   lines:[N('the biggest mall you have ever been in. you crawl it floor by floor.')],next:'smack'},
+  smack:{env:'maul',actors:{left:'rich',right:'lil_smack'},
+   enter:A=>{RARelations.meet('lil_smack','maul');},
+   lines:[E('lil_smack','the food court. lil smack is here, mouth open, between you and the escalator down.'),S('lil_smack','basement? that\'ll cost you.')],
    choices:[{label:'FIGHT HIM FOR IT',next:'fight'},{label:'TALK YOUR WAY PAST HIM',octopus:true,next:'octo'}]},
   // Lil Smack's own enemy card (frozen art); `hp:60` keeps the encounter's authored difficulty (it was a training stub).
   fight:{fight:{enemy:'lil_smack',params:{env:'maul',hp:60,intro:'LIL SMACK. FOOD COURT TABLE. HIGH STAKES.'},win:'won',lose:'won',spared:'won'}},
-  octo:{lines:[S('lil_smack','…ok that was smooth. here.'),N('he hands over a napkin with a name on it.')],next:'won'},
-  won:{lines:[N('you leave with a name: ms. patrice.')],enter:A=>RALife.setFlag('waffleNight',2),
-   end:{outcome:'night2',nightEnder:true,memory:{text:'waffle saga, night two — the maul of georgia, lil smack',lane:'food'},chain:'A44_N3'}}
+  octo:{lines:[S('lil_smack','…ok that was smooth. go.')],next:'won'},
+  won:{actors:{left:'rich'},lines:[N('the basement level. one store, lit like it\'s still 2009. the perfume is on the shelf.')],enter:waffleStep(2),
+   end:{outcome:'night2',nightEnder:true,memory:{text:'waffle saga, night two — the perfume from the maul\'s basement, lil smack in the way',lane:'food'}}}
  }});
- D({id:'A44_N3',title:'THE WAFFLE SAGA · LENNOX SCARE',lane:'food',scope:'MUST',memoryType:'food',start:'date',
-  available:L=>L.flag('waffleNight')===2,
+ D({id:'A44_N3',title:'THE WAFFLE SAGA · LENNOX SCARE',lane:'food',scope:'MUST',memoryType:'food',start:'route',available:waffleReady(3),
+  testSetup:ctx=>{ctx.RALife.setFlag('waffleNight',2);ctx.RALife.setFlag('waffleDay',1);},
   nodes:{
-  date:{env:'lennox',actors:{left:'rich'},title:'LENNOX SCARE',
-   lines:[N('night three: lennox scare. the vampire retail crowd, buckhead money.'),
-    E('buckhead','a buckhead vampire steps between you and the storefront.'),S('buckhead','you\'re not on the list for this shop.')],
+  route:flyIn('NIGHT THREE','haven'),
+  haven:{env:'waffle_haven',actors:{left:'rich',right:'ms_patrice'},title:'WAFFLE HAVEN',
+   lines:[N('she takes the perfume. she smells it. it isn\'t enough.'),S('ms_patrice','take me somewhere nice.')],next:'date'},
+  date:{env:'lennox',actors:{left:'rich',right:{id:'ms_patrice',state:'date'}},title:'LENNOX SCARE · BUCKHEAD',
+   lines:[N('she roasts every rich person in the mall. every single one.'),N('you fall for her a little.')],next:'rival'},
+  rival:{actors:{left:'rich',mid:{id:'ms_patrice',state:'date'},right:'buckhead'},
+   lines:[E('buckhead','a buckhead vampire steps in front of her.'),S('buckhead','the recipe. name your price. my brunch empire needs it.')],
    choices:[{label:'FIGHT HIM',next:'fight'},{label:'OCTOPUS: "SHE AIN\'T FOR SALE"',octopus:true,next:'octo'}]},
   fight:{fight:{enemy:'buckhead',params:{env:'lennox',intro:'THE BUCKHEAD VAMPIRE. BRUNCH EMPIRE.'},win:'won',lose:'won',spared:'won'}},
   octo:{lines:[R('"she ain\'t for sale."'),N('he blinks. steps aside. that landed harder than expected.')],next:'won'},
-  won:{lines:[N('you get past him. inside: ms. patrice, waiting.')],enter:A=>RALife.setFlag('waffleNight',3),
-   end:{outcome:'night3',nightEnder:true,memory:{text:'waffle saga, night three — lennox scare, the buckhead vampire',lane:'food'},chain:'A44_N4'}}
+  won:{actors:{left:'rich',right:{id:'ms_patrice',state:'date'}},lines:[N('the brunch empire walks away with nothing. she takes your arm on the way out.')],
+   enter:A=>{waffleStep(3)(A);RARelations.add('ms_patrice',12,{reason:'lennox scare'});},
+   end:{outcome:'night3',nightEnder:true,memory:{text:'waffle saga, night three — lennox scare with ms. patrice, the buckhead vampire',lane:'food'}}}
  }});
- D({id:'A44_N4',title:'THE WAFFLE SAGA · CENTENNIAL',lane:'food',scope:'MUST',memoryType:'food',start:'park',
-  available:L=>L.flag('waffleNight')===3,
+ D({id:'A44_N4',title:'THE WAFFLE SAGA · CENTENNIAL',lane:'food',scope:'MUST',memoryType:'food',start:'route',available:waffleReady(4),
+  testSetup:ctx=>{ctx.RALife.setFlag('waffleNight',3);ctx.RALife.setFlag('waffleDay',1);},
   nodes:{
+  route:flyIn('NIGHT FOUR','park'),
   park:{env:'centennial',actors:{left:'rich',right:'ms_patrice'},title:'CENTENNIAL VAMPIRIC PARK · 3 A.M.',
-   lines:[E('ms_patrice','ms. patrice is sitting on a bench, waiting like she knew you\'d make it.'),
-    S('ms_patrice','three nights for a recipe. you earned the story, at least.'),
-    N('she tells you where the waffle mix recipe came from — her grandmother, a diner that isn\'t there anymore, a fight over a name on a sign.'),
-    S('ms_patrice','don\'t tell nobody.')],
-   enter:A=>{RARelations.meet('ms_patrice','centennial');RALife.addItem('prop_waffle_mix',1);RALife.setFlag('waffleNight',0);},
-   next:'done'},
-  done:{end:{outcome:'prize',memory:{text:'the waffle saga — ms. patrice\'s recipe, don\'t tell nobody',lane:'food'},
-   receipt:{caption:'a bag of waffle mix. a note: "don\'t tell nobody."'},nightEnder:true,
-   home:['rich','three nights for a bag of mix. worth every second.',{vp:true}]}}
+   lines:[N('3 a.m. by the fountain rings.'),E('ms_patrice','she tells you the story of the recipe.'),N('it was her mother\'s. it survived her becoming a zombie.'),S('ms_patrice','don\'t tell nobody.')],
+   choices:A=>RARelations.level('ms_patrice')>=3?[{label:'CRACK 🔒',sub:'LOCKED',when:()=>false,hideLocked:false,next:'box'},{label:'STAY WITH HER',next:'stays'}]:[{label:'SIT WITH HER A WHILE',next:'sweet'}]},
+  // CRACK stays canon-locked (visible as locked); the beat uses the established fade: "she stays." (CONTENT_AUTHORING).
+  stays:{lines:[N('she stays.'),N('non-graphic fade.')],enter:A=>RALife.setFlag('stayedOver',{person:'ms_patrice',day:RALife.today().day}),next:'box'},
+  sweet:{lines:[N('the fountain rings go quiet. neither of you says anything for a long time. it\'s sweet.')],next:'box'},
+  box:{env:'bedroom',actors:{left:'rich'},lines:[N('wake. an atl hotel. there\'s a box on the pillow.'),N('a bag of homemade waffle mix, and a note in her handwriting: "don\'t tell nobody."')],
+   enter:A=>{waffleStep(4)(A);RALife.addProp('prop_waffle_mix');RARelations.memory('ms_patrice','a44_recipe');},
+   end:{outcome:'prize',memory:{text:'the waffle saga — ms. patrice\'s recipe, don\'t tell nobody',lane:'food'},
+    receipt:{caption:'a bag of waffle mix. a note: "don\'t tell nobody."'},nightEnder:true,
+    home:['rich','four nights for a bag of mix. worth every second.',{vp:true}]}}
  }});
+ RAPlaces.define([{id:'heartsfelt',label:'HEARTSFELT-JACKSUN',sub:L=>['ATL · A LATE FLIGHT','ATL · WAFFLE HAVEN, AGAIN','ATL · SOMEWHERE NICE','ATL · 3 A.M.'][waffleNext(L)-1]||'ATL',
+  adventure:L=>['A44','A44_N2','A44_N3','A44_N4'][waffleNext(L)-1]||null,order:60}]);
  RABtfPeople.byId.lil_smack=RABtfPeople.byId.lil_smack||{id:'lil_smack',name:'LIL SMACK',look:{skin:'#7a5030',top:'#e0c020',hair:'#0c0c10',hairShape:'spiky'}};
 
  // ===================================================================================================
@@ -429,11 +474,11 @@
  const a46Her=A=>RABtfPeople.get(A.vars.person)?.states?.date?{id:A.vars.person,state:'date'}:A.vars.person;
  D({id:'A46',title:'LITTLE TOKYO SPECIAL NIGHT',lane:'people',repeatable:true,memoryType:'people',start:'ask',
   presentationVariants:RABtfPeople.women.filter(p=>p.states?.date).map(p=>({person:p.id})),
-  available:L=>Object.keys(RALife.life().people.records||{}).some(id=>RARelations.level(id)>=3),
+  available:L=>RABtfPeople.women.some(w=>RARelations.level(w.id)>=3),
   nodes:{
   ask:{env:'street_night',actors:{left:'rich'},title:'"TAKE ME SOMEWHERE SPECIAL"',
    lines:[N('a text: "take me somewhere special."')],
-   choices:A=>Object.keys(RALife.life().people.records||{}).filter(id=>RARelations.level(id)>=3)
+   choices:A=>RABtfPeople.women.map(w=>w.id).filter(id=>RARelations.level(id)>=3).sort((a,b)=>(b===a46Asker(RALife.L()))-(a===a46Asker(RALife.L())))
     .map(id=>({label:(RABtfPeople.get(id)?.name||id).toUpperCase(),fx:X=>X.set('person',id),next:'plan'}))},
   plan:{env:'little_tokyo',actors:A=>({left:'rich',right:a46Her(A)}),title:'LITTLE TOKYO AT NIGHT',
    lines:[N('little tokyo at night. you plan three stops out of five.')],
@@ -471,7 +516,9 @@
   {id:'a23r_rematch',source:'vampgpt',line:'hilt again. same windbreaker.',adventure:'A23R',priority:1,repeatable:false,cooldown:4,when:L=>!!(L.done('A23')&&L.flag('armoryKnown')&&L.done('A24')&&(L.life.ownership.guns||[]).length>0)}
  ]);
  // The one-time routes are guaranteed a slot on the wake they become eligible (after the day's wants are generated).
- RAClock.onWake('e05-routed-wants',61,()=>{for(const id of ['a37_friday','velvet_dm','a23r_rematch'])RATemptations.ensure(id);});
+ // ENGINEERING 06 route: A52 had no player entry. Day 31 is Halloween (VOL 5 §9.2); the invite uses the adventure's title.
+ RATemptations.define([{id:'halloween_invite',source:'invite',sender:'VAMPIRE LA',line:'halloween in vampire la.',adventure:'A52',priority:9,life:[0,0],repeatable:false}]);
+ RAClock.onWake('e05-routed-wants',61,()=>{for(const id of ['a37_friday','velvet_dm','a23r_rematch','halloween_invite'])RATemptations.ensure(id);});
 
  // ===================================================================================================
  // A52 — HALLOWEEN IN VAMPIRE LA (Day 31 only)

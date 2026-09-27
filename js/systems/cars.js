@@ -33,7 +33,7 @@
  }
  function richboiMarkup(){const out=['<h1>RICHBOIMPORTS</h1><p class="phone-small">browse. dream. or don\'t.</p>'];for(const k of ['urus','aventador','ferrari']){const c=CATALOG[k];const lock=c.needsRep&&RALife.rep()<c.needsRep;out.push(owned(k)?`<div class="phone-card">${carImg(k)}<b>${c.short}</b>OWNED</div>`:listing(c,{label:lock?'NOT ON YOUR LEVEL YET':RALife.money()>=c.price?'BUY IT':'NOT ENOUGH CASH',action:`do:richboi:buy:${k}`,disabled:lock||RALife.money()<c.price,sub:k==='urus'?'an SUV. drifting it is a comedy of physics.':k==='aventador'?'absurd speed. awful drifter. max clout.':'the only exotic that actually drifts.'}));}return out.join('');}
  async function richboiAction(act,arg,api){if(act==='buy'&&buy(arg)){await api.close();RAAdventureScene.begin('RB_DELIVERY',{vars:{car:arg}});}}
- async function garage(api,carKey){const cars=RALife.ownedCars();const car=cars.find(c=>keyOf(c)===carKey)||cars.at(-1);if(!car)return;const k=keyOf(car);
+ async function garage(api,carKey){const cars=RALife.ownedCars();const car=cars.find(c=>keyOf(c)===carKey)||cars.find(c=>c.id===RALife.flag('tougeCar'))||cars.at(-1);if(!car)return;const k=keyOf(car);
   await api.launch('garage',{car:toTouge(car).replace('r34_awd','r34').replace('r34_rwd','r34'),owned:car.parts||{},parts:car.parts||{},money:RALife.money(),lessonsSeen:RALife.flag('garageLessons')||[]},result=>{if(result.rewards?.parts)installParts(car.id,result.rewards.parts);if(result.data?.testDrive)window.RACars.touge({course:'docks',car:car.id,short:true});});}
  window.RAPhoneApps?.register({id:'cars',label:'CARS',hidden:true});
  A_register();
@@ -41,21 +41,26 @@
   window.RAPhoneApps?.register({id:'touge',label:'TOUGE',order:14,
    render(sub){const best=RAMinigames.progress('touge').best||{};const courses=[['angeles_crest','ANGELES CREST'],['docks','THE DOCKS'],['grave_garage','THE GRAVE GARAGE']];
     const cars=RALife.ownedCars();const pick=RALife.flag('tougeCar')||cars[0]?.id;
-    return `<h1>TOUGE</h1><p class="phone-small">CAR: ${(cars.find(c=>c.id===pick)?.short||cars.find(c=>c.id===pick)?.model||'').toUpperCase()}</p><div class="phone-row">${cars.map(c=>`<button type="button" class="phone-button" data-phone-action="do:touge:car:${c.id}">${(c.short||c.model).toUpperCase()}${c.id===pick?' ✓':''}</button>`).join('')}</div>${courses.map(([id,label])=>`<div class="phone-card"><b>${label}</b>1. LAURA — ${id==='angeles_crest'?'184,220':id==='docks'?'121,400':'98,050'}<br>YOU: ${new Intl.NumberFormat('en-US').format(Math.max(0,...Object.entries(best).filter(([k])=>k.startsWith(id)).map(([,v])=>v)))}<button type="button" class="phone-button" data-phone-action="do:touge:run:${id}">RUN</button></div>`).join('')}${RALife.done('A13')?`<button type="button" class="phone-button" data-phone-action="do:touge:tandem">TANDEM · MIDNIGHT MAFIA</button>`:''}`;},
-   async onAction(act,arg,api){if(act==='car'){RALife.setFlag('tougeCar',arg);api.refresh();return;}if(act==='run'){await touge({course:arg},api);return;}if(act==='tandem'){await api.close();const adv=RAAdventures.available('A36')?'A36':'TANDEM_BATTLE';RAAdventureScene.begin(adv,{from:'touge'});}}});
+    const riders=passengers(),rider=RALife.flag('passenger')||null;
+    return `<h1>TOUGE</h1><p class="phone-small">CAR: ${(cars.find(c=>c.id===pick)?.short||cars.find(c=>c.id===pick)?.model||'').toUpperCase()}</p><div class="phone-row">${cars.map(c=>`<button type="button" class="phone-button" data-phone-action="do:touge:car:${c.id}">${(c.short||c.model).toUpperCase()}${c.id===pick?' ✓':''}</button>`).join('')}</div>${riders.length?`<p class="phone-small">PASSENGER SEAT</p><div class="phone-row">${['',...riders].map(r=>`<button type="button" class="phone-button" data-phone-action="do:touge:passenger:${r}">${r||'NOBODY'}${(r||null)===rider?' ✓':''}</button>`).join('')}</div>`:''}${RALife.hasRoom('garage')?`<button type="button" class="phone-button" data-phone-action="do:touge:garage">PARTS BAY (YOUR GARAGE)</button>`:''}${courses.map(([id,label])=>`<div class="phone-card"><b>${label}</b>1. LAURA — ${id==='angeles_crest'?'184,220':id==='docks'?'121,400':'98,050'}<br>YOU: ${new Intl.NumberFormat('en-US').format(Math.max(0,...Object.entries(best).filter(([k])=>k.startsWith(id)).map(([,v])=>v)))}<button type="button" class="phone-button" data-phone-action="do:touge:run:${id}">RUN</button></div>`).join('')}${RALife.done('A13')?`<button type="button" class="phone-button" data-phone-action="do:touge:tandem">TANDEM · MIDNIGHT MAFIA</button>`:''}`;},
+   async onAction(act,arg,api){if(act==='car'){RALife.setFlag('tougeCar',arg);api.refresh();return;}if(act==='passenger'){RALife.setFlag('passenger',passengers().includes(arg)?arg:null);api.refresh();return;}if(act==='garage'){await garage(api);return;}if(act==='run'){await touge({course:arg},api);return;}if(act==='tandem'){await api.close();const adv=RAAdventures.available('A36')?'A36':'TANDEM_BATTLE';RAAdventureScene.begin(adv,{from:'touge'});}}});
  }
  async function touge({course='angeles_crest',car=null,lesson=null,tandem=null,short=false}={},api=window.RAPhone?.api){
   const cars=RALife.ownedCars();const c=cars.find(x=>x.id===(car||RALife.flag('tougeCar')))||cars[0];if(!c)return null;
   const board=[{name:'LAURA',score:{angeles_crest:184220,docks:121400,grave_garage:98050}[course]||150000},{name:'TOKYO TONY',score:141000},{name:'PINKY',score:118500}];
-  const passenger=RALife.flag('passenger')||null;
-  const params={car:toTouge(c),parts:c.parts||{},course,lesson,tandem,rain:RALife.today().rain,leaderboard:board,passenger};
+  const passenger=passengers().includes(RALife.flag('passenger'))?RALife.flag('passenger'):null;
+  const passengerSprite=passenger==='TRISTAN'?window.RABtfPeople?.get('tristan')?.states?.passenger||null:null;
+  const params={car:toTouge(c),parts:c.parts||{},course,lesson,tandem,rain:RALife.today().rain,leaderboard:board,passenger,passengerSprite};
   const result=api?.launch?await api.launch('touge',params):await RAMinigames.launch('touge',params);
   if(result&&!result.quit){RALife.light('chaos',c.id===CATALOG.urus.id&&course==='grave_garage'?3:0,'urus-garage');if(result.score>30000)RALife.light('expression',1,`touge:${course}`);
    if(c.id===CATALOG.urus.id&&course==='grave_garage'&&!RALife.flag('urusViral')){RALife.setFlag('urusViral',true);RALife.addFollowers(150);window.RAVampGram?.post?.({handle:'grave.garage.cam',text:'somebody drifted an URUS in the grave parking garage. the crowd lost it.',likes:40000});RALife.light('chaos',3,'viral:urus');window.RANodd?.after?.('urus');}
    if(result.score>board[0].score)RALife.counter('lauraLedger');}
   return result;
  }
- window.RACars={carImg,CATALOG,SUPRA,keyOf,toTouge,owned,buy,installParts,jdmMarkup,richboiMarkup,richboiAction,garage,touge};
+ // Who can ride along (VOL 5 §5.1 PASSENGER SEAT; §2.2 Tristan "rides along ... as the passenger commentator";
+ // the sphynx cat in a tiny helmet). A date's reaction changing the date's read is not built (needs design).
+ function passengers(){const out=[];if(RARelations.met('tristan'))out.push('TRISTAN');if(RALife.life().ownership.cat)out.push('THE CAT');return out;}
+ window.RACars={carImg,passengers,CATALOG,SUPRA,keyOf,toTouge,owned,buy,installParts,jdmMarkup,richboiMarkup,richboiAction,garage,touge};
  // JDMIMPORTS page actions routed through the phone registry ("do:cars:...").
  window.RAPhoneApps?.register({id:'cars',label:'CARS',hidden:true,onAction:async(act,arg,api)=>{if(act==='buy'){if(buy(arg))api.refresh();else api.message('not enough cash.');}if(act==='garage')await garage(api);}});
  // RICHBOIMPORTS unlock: $500K net worth OR the Duchess tease.

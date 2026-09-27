@@ -209,6 +209,8 @@
   const hudFaces=Object.fromEntries(['touge_locked','touge_spun'].map(k=>{const src=window.RABtfPeople?.rich?.states?.[k]||window.RAArtRegistry?.characters?.rich?.states?.[k];return [k,src?Object.assign(new Image(),{src}):null];}));
   let spunAt=-9;
   const passengerName=P.passenger||null;
+  // ART SHIP 014 passenger portrait (e.g. Tristan), passed in by the app; drawn at native 1:1 while they react.
+  const passengerSprite=P.passengerSprite?Object.assign(new Image(),{src:P.passengerSprite}):null;
   const leaderboard=Array.isArray(P.leaderboard)?P.leaderboard:[];
   const lesson=P.lesson;
   const {canvas,ctx:c}=RAPixel.createCanvas(root);
@@ -409,7 +411,7 @@
    {const face=runElapsed-spunAt<1.2?hudFaces.touge_spun:state.sliding?hudFaces.touge_locked:null;if(face?.complete&&face.naturalWidth){c.imageSmoothingEnabled=false;c.drawImage(face,18,4,44,46,4,30,44,46);}}
    RAPixel.text(c,`${Math.round(state.slideAngle)}°`,6,468,{size:7,color:Math.abs(state.slideAngle)>15?'#20c66b':'#6b6780',baseline:'bottom'});
    RAPixel.text(c,`${runElapsed.toFixed(0)}s`,264,468,{size:7,align:'right',baseline:'bottom',color:'#f6efd9'});
-   if(passengerBubble&&passengerName){RAPixel.text(c,`${passengerName}: ${passengerBubble.text}`,135,40,{size:6,align:'center',color:'#ff6fb5'});}
+   if(passengerBubble&&passengerName){if(passengerSprite?.complete&&passengerSprite.naturalWidth){c.imageSmoothingEnabled=false;c.drawImage(passengerSprite,16,10,46,46,220,30,46,46);}RAPixel.text(c,`${passengerName}: ${passengerBubble.text}`,135,40,{size:6,align:'center',color:'#ff6fb5'});}
    if(lessonFlash.t>0&&lessonFlash.text){RAPixel.text(c,lessonFlash.text,135,220,{size:12,align:'center',color:'#20c66b'});}
    RAPixel.rect(c,EBRAKE_RECT.x,EBRAKE_RECT.y,EBRAKE_RECT.w,EBRAKE_RECT.h,ebrakeHeld?'#d7193f':'#7d194b');
    RAPixel.text(c,'E-BRAKE',EBRAKE_RECT.x+EBRAKE_RECT.w/2,EBRAKE_RECT.y+EBRAKE_RECT.h/2-4,{size:7,align:'center',color:'#f6efd9'});

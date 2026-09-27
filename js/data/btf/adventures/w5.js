@@ -41,8 +41,8 @@
    lines:[N('rich wakes up screaming.'),N('he touches his head. locs. all of them. still there.'),R('…ok. ok. good.')],
    end:{outcome:'woke',nightEnder:true,memory:{text:'a whole other life: a data analyst, a wife who loved him, two kids, a mazda',lane:'home',quality:2},receipt:{caption:'bad portobellos. good life. wrong one.'},home:['rich','i had a mazda. i had a WIFE.',{vp:true}]}}
  }});
- D({id:'A31',title:'GOD ON THE CURB',lane:'home',scope:'MUST',start:'start',
-  testSetup:ctx=>{ctx.RALife.setFlag('lastDefeatDay',ctx.RALife.today().day);},
+ D({id:'A31',title:'GOD ON THE CURB',lane:'home',scope:'MUST',start:'start',available:L=>L.info.sunday,
+  testSetup:ctx=>{ctx.RALife.setFlag('lastDefeatDay',ctx.RALife.today().day);ctx.RAState.patch('life.world.day',46);},
   nodes:{
   start:{env:'street_night',actors:{mid:'rich'},lines:[N("sunday night. rich wants to go somewhere he can't explain.")],route:{dest:'POWDER SPRINGS',next:'arrive'}},
   // ART SHIP 015 (Art's curb staging): she sits beside him on the curb (Rich left of her, as Art staged it), and fades
@@ -127,7 +127,7 @@
  // `adventure:` only for ids that exist (mine, or guarded with when() against ids other waves define).
  RATemptations.define([
   {id:'reggie_portobellos',source:'invite',sender:'REGGIE',line:"portobellos. they're bad. like good-bad.",minDay:31,priority:10,when:L=>!L.done('A30')&&(!RAAdventures.get('A09')||L.done('A09')),adventure:'A30'},
-  {id:'curb_pull',source:'craving',line:"you don't know why. powder springs, again.",minDay:28,priority:8,when:L=>!L.done('A31')&&(L.done('A30')||L.flag('lastDefeatDay')),adventure:'A31'},
+  {id:'curb_pull',source:'craving',line:"you don't know why. powder springs, again.",minDay:28,priority:8,when:L=>L.info.sunday&&!L.done('A31')&&(L.done('A30')||L.flag('lastDefeatDay')),adventure:'A31'},
   {id:'tokyo_dm',source:'vampgpt',line:'somebody in tokyo is drifting sideways into your dms.',minDay:30,weight:1,when:L=>!L.done('A34'),adventure:'A34'},
   {id:'jollof_wars_sunday',source:'vampgpt',line:'first sunday. bring your pot.',minDay:31,weight:2,cooldown:20,repeatable:true,when:L=>L.done('A43')&&L.info.sunday&&((L.day-1)%28)<7,adventure:'JOLLOF_WARS'},
   {id:'jollof_wars_final_ready',source:'vampgpt',line:'you already beat the block once. the final is next.',minDay:31,weight:2,when:L=>(Number(L.flag('jollofWarsWins'))||0)>=1&&!L.done('A54'),adventure:'A54'},
