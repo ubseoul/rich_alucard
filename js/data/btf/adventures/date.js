@@ -5,6 +5,8 @@
  const who=A=>A.vars.person;const P=A=>RABtfPeople.get(who(A));const C=A=>window.RADateContent?.get?.(who(A))||{};
  const nth=A=>(RARelations.get(who(A))?.datesCount||0);
  const pick=(arr,i)=>arr?.length?arr[Math.min(i,arr.length-1)]:null;
+ // VOL 5 A56 Lil Smack series #2: "Peking Naija, on a date" — once, after Rich has met him.
+ const smackAtPeking=A=>A.vars.spot==='peking_naija'&&RARelations.met('lil_smack')&&(!RALife.flag('smackPeking')||RALife.flag('smackPeking')===RALife.today().day)&&!RALife.flag('lilSmackGone');
  // ART SHIP 014: on a date she is staged in her approved frozen `date` state where one exists (else her anchor).
  const her=A=>P(A)?.states?.date?{id:who(A),state:'date'}:who(A);
  const GENERIC_ASKS=[
@@ -27,7 +29,8 @@
     const mk=(o,octopus)=>({label:o.label,octopus,fx:X=>{const right=o.right??!!reads[o.topic];X.set('readRight',right);X.set('octoFit',octopus&&right);X.set('reply',o.reply||null);if(o.topic)X.set('topic',o.topic);if(o.tendency)RALife.tendency(o.tendency);},next:'react'});
     return [mk(ask.a,false),mk(ask.b,false),mk(ask.o,true)];}},
   react:{lines:A=>{const right=A.vars.readRight;const c=C(A);const r=A.vars.reply||(right?pick(c.likesIt,nth(A))||'she laughs. for real.':pick(c.meh,nth(A))||'she nods. polite.');return [S(who(A),r)];},next:'moment'},
-  moment:{lines:A=>{const c=C(A);const spotMoment=c.spots?.[A.vars.spot];const m=spotMoment||pick(c.moments,nth(A))||P(A)?.moment||'a small good moment happens.';return [N(m),...(c.richLine?[R(pick(c.richLine,nth(A)))]:[])];},next:'close'},
+  moment:{lines:A=>{const c=C(A);const spotMoment=c.spots?.[A.vars.spot];const m=spotMoment||pick(c.moments,nth(A))||P(A)?.moment||'a small good moment happens.';return [N(m),...(c.richLine?[R(pick(c.richLine,nth(A)))]:[]),...(smackAtPeking(A)?[N('lil smack is at the next table. mouth open. he waves with a drumstick.'),R('not tonight, bro.')]:[])];},
+   enter:A=>{if(smackAtPeking(A)){RALife.setFlag('smackPeking',RALife.today().day);RALife.counter('lilSmack');}},next:'close'},
   close:{choices:A=>{const lvl=RARelations.level(who(A));const gifts=Object.keys(RALife.life().ownership.items).filter(k=>k.startsWith('gift_')&&RALife.count(k)>0);
     return [{label:'WALK HER HOME',next:'end'},...gifts.slice(0,2).map(g=>({label:`GIVE HER THE ${g.slice(5).replace(/_/g,' ').toUpperCase()} GIFT`,fx:X=>{RALife.consume(g);const right=RARelations.gift(who(X),g.slice(5));X.set('gift',right?'right':'wrong');},next:'gift'})),
      ...(lvl>=3&&(RARelations.get(who(A))?.datesCount||0)>=2?[{label:'CRACK 🔒',sub:'LOCKED',when:()=>false,hideLocked:false,next:'end'}]:[])];}},

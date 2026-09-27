@@ -331,7 +331,9 @@
   courts:{env:'venice',actors:{left:'rich'},
    choices:[{label:'RUN PICKUP',sub:'2V2 · FIRST TO 11',next:'pickup'},{label:'PULL-UPS ON THE RIM',when:()=>RAAdventures.available('MOONIE_MEET',{ignoreActive:true}),fx:X=>X.set('chain','MOONIE_MEET'),next:'rim'}]},
   pickup:{minigame:{id:'pickup',params:()=>({}),next:(A,r)=>{A.set('result',r?.quit?'quit':r?.outcome||'done');return 'done';}}},
-  done:{end:{outcome:A=>A.vars.result||'done',memory:A=>({text:A.vars.result==='win'?'won pickup at the venice courts':'pickup at the venice courts',lane:'life',quality:A.vars.result==='win'?.8:.4})}},
+  // VOL 5 A56 Lil Smack series #4: "Pickup at Venice (he plays for the other team)" — once, after Rich has met him.
+  done:{lines:A=>A.vars.smack?[N('lil smack played for the other team. mouth open the entire game.')]:[],enter:A=>{if(A.vars.result!=='quit'&&RARelations.met('lil_smack')&&!RALife.flag('smackVenice')&&!RALife.flag('lilSmackGone')){A.set('smack',true);RALife.setFlag('smackVenice',RALife.today().day);RALife.counter('lilSmack');}},
+   end:{outcome:A=>A.vars.result||'done',memory:A=>({text:A.vars.result==='win'?'won pickup at the venice courts':'pickup at the venice courts',lane:'life',quality:A.vars.result==='win'?.8:.4})}},
   rim:{end:{outcome:'rim',chain:A=>A.vars.chain||null,memory:{text:'the venice courts',lane:'life',quality:.2}}}
  }});
  RAPlaces.define([{id:'venice',label:'VENICE COURTS',sub:'PICKUP · PULL-UPS ON THE RIM',adventure:'VENICE',order:35}]);
