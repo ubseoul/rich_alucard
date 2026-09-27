@@ -8,7 +8,7 @@ ENGINEERING 03, branch `claude/final-art-integration`, 2026-09-26. **Spoiler-saf
 
 ## 0. The largest gap: none of this lineage is on `main`
 
-`main` (which Pages deploys, per `RELEASE_RUNBOOK.md`) is `b8ab4fe`, "Freeze Art Ship 007". Everything after it exists only on unmerged branches, 58 commits ahead:
+`main` (which Pages deploys, per `RELEASE_RUNBOOK.md`) is `b8ab4fe`, "Freeze Art Ship 007". Everything after it exists only on unmerged branches. At the HQ-reviewed tip `0f4378f`, the branch is **59** commits ahead (`git rev-list --count b8ab4fe..0f4378f`); the HQ closeout commit adds to that. It was stated as 58 at review, a count taken before the final documentation commit.
 - the BTF Rough Complete (save v12, 110 adventures, life clock, phone Life OS, Combat 2.0, minigames, lanes);
 - the Presentation Director;
 - Art Ship 004–013 runtime integration;
@@ -34,7 +34,7 @@ ENGINEERING 03, branch `claude/final-art-integration`, 2026-09-26. **Spoiler-saf
 
 ## IMPLEMENTED BY THIS CARD
 
-ART SHIP 013 (six identities plus the corrected hookah Rich) and ART SHIP 012 CLOSEOUT (five identities) are integrated: **120 PASS / 1 HOLD**. ART SHIP 011 is registered as a library with a gate against unauthorized use. See `docs/art_integration/FINAL_ART_INTEGRATION.md`.
+ART SHIP 013 (six identities plus the corrected hookah Rich) and ART SHIP 012 CLOSEOUT (five identities) are integrated: **121 PASS / 0 HOLD** after the HQ closeout (PD-FA-03 accepted). ART SHIP 011 is registered as a library with a gate against unauthorized use. See `docs/art_integration/FINAL_ART_INTEGRATION.md`.
 
 ## APPROVED / FROZEN BUT NOT RUNTIME-INTEGRATED
 
@@ -63,7 +63,7 @@ ART SHIP 013 (six identities plus the corrected hookah Rich) and ART SHIP 012 CL
   - PD-AS9-01 `lan_night` (monitors cropped);
   - NC-FAI-01 porch (standing wife vs "leans on his shoulder").
 - **Accepted Director exceptions** outside the adventure census: PD-W3-01 (Property inspect) and PD-W3-02 (Ogun's Rave composition).
-- **HQ-FAI-02:** the Portobello cast speaker labels show raw ids. **HQ-FAI-03:** the office manager is mirrored (for review). The two identical ocean souls could be mirrored for variety (optional).
+- **HQ-FAI-02 (deferred by HQ):** the Portobello cast speaker labels show raw ids. HQ-FAI-03 (the manager mirror) is accepted. The two identical ocean souls could be mirrored for variety (optional).
 - **Tuning:** momentum saturates quickly in very active play (Rough Complete note). Throne-room and bedroom composed art is deliberately not rescaled.
 - **Test harness debt:**
   - `party-browser-test` expects START → bedroom and fails identically on the accepted baseline;
@@ -98,5 +98,4 @@ ART SHIP 013 (six identities plus the corrected hookah Rich) and ART SHIP 012 CL
 ## Suggested inputs for HQ's next card (facts, not a plan)
 
 1. Merge and deploy sequencing for this lineage onto `main` (§0).
-2. HQ-FAI-01, the only remaining HOLD.
-3. Audio loops and the voice pass: the two largest content dependencies outside Art/Engineering.
+2. Audio loops and the voice pass: the two largest content dependencies outside Art/Engineering.

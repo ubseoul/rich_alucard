@@ -17,8 +17,7 @@
    "person: NO APPROVED ART YET": 1
   },
   "screens": {
-   "PASS": 120,
-   "HOLD": 1
+   "PASS": 121
   }
  },
  "surfaces": {
@@ -2383,7 +2382,7 @@
    "lint": "pass"
   },
   "portobello_bedroom|left:portobello_kid1,mid:rich_portobello,right:portobello_kid2": {
-   "status": "HOLD",
+   "status": "PASS (ACCEPTED EXCEPTION)",
    "profile": "conversation",
    "lint": "exception PD-FA-03",
    "ticket": "PD-FA-03"

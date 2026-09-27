@@ -4,7 +4,9 @@ Spoiler-safe: ids, surface keys and runtime evidence only.
 
 ## HQ-FAI-01 — A30 bedtime three-shot (PD-FA-03)
 
-**Status:** OPEN — HQ staging decision. The screen is HOLD. It is the only remaining HOLD of the 121.
+**Status:** DECIDED — **PASS: accept the `face-size` exception** (HQ review of `0f4378f`). The three-shot is kept. No close two-shot is authored, kid2 stays in the composition, and the authored face box is unchanged. `js/data/presentation.js` PD-FA-03 now carries `accept:['face-size']` for this exact screen only. Without the exception, face-size is the screen's only failing check (dry run). The screen is PASS (accepted exception).
+
+*Original evidence and options, as reviewed:*
 
 **Screen:** `portobello_bedroom|left:portobello_kid1,mid:rich_portobello,right:portobello_kid2` (A30 `bedtime`). The narration names the routine; kid1 speaks one line and Rich answers.
 
@@ -19,15 +21,15 @@ Spoiler-safe: ids, surface keys and runtime evidence only.
 2. Author a `close` kid1 + Rich shot for `bedtime`. Kid2 leaves the frame and is carried by narration only. This changes what the beat stages, so it is a creative call (see HQ-AS9-01 option 3).
 3. Keep HOLD.
 
-No choice was made by Engineering. The exception entry is recorded as `EXCEPTION-LAYOUT` / PD-FA-03 with no accepted checks, so the screen reports HOLD.
+HQ chose option 1.
 
 ## HQ-FAI-02 — Portobello cast speaker labels
 
-**Status:** OPEN — Story/HQ. The runtime speaker label falls back to the id when a person has no name, so A30 shows `PORTOBELLO_WIFE`, `PORTOBELLO_KID1` and `PORTOBELLO_MANAGER`. It showed these before this pass, too. Engineering kept those exact labels rather than inventing names. The wife, kids and manager need display names (or an explicit decision to keep ids) from Story/HQ.
+**Status:** DEFERRED by HQ. Out of scope for Art integration; handled later under Story/HQ authority. No names are invented, and there is no gameplay or canon change. The runtime speaker label falls back to the id when a person has no name, so A30 shows `PORTOBELLO_WIFE`, `PORTOBELLO_KID1` and `PORTOBELLO_MANAGER`. It showed these before this pass, too. Engineering kept those exact labels rather than inventing names. The wife, kids and manager need display names (or an explicit decision to keep ids) from Story/HQ.
 
 ## HQ-FAI-03 — Office manager mirrored on the right slot (for review)
 
-**Status:** IMPLEMENTED — Engineering staging, pending HQ review. The frozen `portobello_manager` pose turns to its right. On the right slot she gestured off-frame, away from the pitch she is receiving. A30's office nodes now set `flip:true` on her spec, a runtime mirror that leaves the pixels unchanged. Combat already mirrors every frozen enemy this way. Lint passes at 360/390/430. Reverting it is a one-token change in `js/data/btf/adventures/w5.js` if HQ prefers the native facing.
+**Status:** PASS (HQ). Frozen pixels are preserved byte-identically. The frozen `portobello_manager` pose turns to its right. On the right slot she gestured off-frame, away from the pitch she is receiving. A30's office nodes now set `flip:true` on her spec, a runtime mirror that leaves the pixels unchanged. Combat already mirrors every frozen enemy this way. Lint passes at 360/390/430. Reverting it is a one-token change in `js/data/btf/adventures/w5.js` if HQ prefers the native facing.
 
 ## HQ-AS10-01 — PD-W1-04 layout exception retired (Rich resolved, cast still blocked)
 

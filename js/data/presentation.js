@@ -92,10 +92,10 @@
   // metadata-driven slot solver (no per-screen authoring) meets the shot band at 360/390/430 without an exception.
   // The wife and kids gained frozen art in ART SHIP 013; the breakfast screen passes with a speakers-only node shot.
   // PD-FA-02 (pier fish reaction) is resolved by an authored node `shot` on A12:react (Rich focal; HOLD CLEARANCE 001).
-  // PD-FA-03 (FINAL ART INTEGRATION): the speaking kid's frozen child-scale face stays under the dialogue face floor at
-  // every conversation framing inside the consistency band; the passing close two-shot drops the other kid from frame,
-  // which is a staging call for HQ (docs/art_integration/HQ_DECISIONS.md HQ-FAI-01).
-  'portobello_bedroom|left:portobello_kid1,mid:rich_portobello,right:portobello_kid2':{status:'EXCEPTION-LAYOUT',ticket:'PD-FA-03'}
+  // PD-FA-03 (FINAL ART INTEGRATION): the speaking kid's frozen child-scale face stays a few px under the dialogue face
+  // floor at every conversation framing inside the consistency band. HQ-FAI-01 (PASS) keeps the three-shot and accepts
+  // `face-size` for this exact screen only; every other check must still pass on its own.
+  'portobello_bedroom|left:portobello_kid1,mid:rich_portobello,right:portobello_kid2':{status:'EXCEPTION-LAYOUT',ticket:'PD-FA-03',accept:['face-size']}
  }};
  // Canonical screen key for the adapter (shared by runtime, dry run and census). An approved frozen state
  // (RAArtRegistry) is part of the composition, so `slot:person@state` is its own screen.

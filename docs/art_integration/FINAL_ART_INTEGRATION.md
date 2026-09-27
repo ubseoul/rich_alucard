@@ -92,3 +92,14 @@ All three figures resolve frozen art and read correctly. The beat's speaking kid
   - `rave-browser-test` needs the `sharp` module, which this machine doesn't have; Rave sources are unchanged.
 
 Reconciliation audit: `docs/RUNTIME_RECONCILIATION_AUDIT.md`.
+
+## HQ closeout (review of `0f4378f`)
+
+- **HQ-FAI-01 PASS:** PD-FA-03 is an accepted exception: `accept:['face-size']` on that exact screen. Without the exception, the dry run shows face-size as the screen's only failing check.
+- **HQ-FAI-02 DEFERRED:** no names are invented.
+- **HQ-FAI-03 PASS:** the manager mirror stays; frozen pixels are unchanged.
+- **Count correction:** the audit's commit count now uses Git evidence.
+
+**Result:** **121 PASS / 0 HOLD**, 1 accepted adventure Director exception (PD-FA-03).
+- Dry run: 103 pass + 1 accepted exception; 0 placeholder actor slots; locks unchanged.
+- Live sweeps: adventures 104/104 (bedtime passes at 360/390/430 under PD-FA-03); fights 17/17; 0 page errors.

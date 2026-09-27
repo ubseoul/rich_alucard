@@ -31,12 +31,12 @@ Screens that already reach the floor are untouched (11 of 102 screens move, all 
 
 See `FINAL_ART_INTEGRATION.md`. Starting authority `a661702` (HOLD CLEARANCE 001); frozen Art `920912f` (ART SHIP 012 CLOSEOUT, including 011 and 013).
 - **Registry:** 204 files. 172 integrated, 2 superseded (history), 12 handoff sheets, 9 library (ART SHIP 011, no assignment), 4 states available, 4 mapping-ambiguous, 1 ready with no surface.
-- **Surfaces:** 104 adventure screens + 17 fights: **120 PASS / 1 HOLD** (before: 108 / 13). Adventure Director exceptions: **1** (PD-FA-03, HQ-FAI-01).
-- **Remaining HOLD:** `portobello_bedroom|left:portobello_kid1,mid:rich_portobello,right:portobello_kid2` (A30 `bedtime`, PD-FA-03).
+- **Surfaces:** 104 adventure screens + 17 fights: **121 PASS / 0 HOLD** after the HQ closeout (review tip `0f4378f`: 120 / 1; before this pass: 108 / 13).
+- **Adventure Director exceptions:** 1 accepted. PD-FA-03 (A30 `bedtime`, HQ-FAI-01) accepts `face-size` only.
 - **QA:**
   - `npm test`, `npm run build` and `npm run verify:artifact` pass.
   - 224/224 frozen hashes match.
-  - Live sweeps: 103 + 1 exception adventures and 17/17 fights at 360/390/430.
+  - Live sweeps: 104/104 adventures (1 accepted exception) and 17/17 fights at 360/390/430.
   - Built-game flows at all three sizes.
 
 ## Status after HOLD CLEARANCE 001 (historical)
