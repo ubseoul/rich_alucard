@@ -1,0 +1,44 @@
+{
+ "about": "ART SHIP 015 Engineering runtime map (authored by Engineering 05B). Rows are keyed by production file name (the manifest reuses asset id A-god for two states). Same contract as ship014_runtime_map.json: INTEGRATED rows name the surface and a code token tools/art-integration.mjs verifies (`content-state` = an adventure node stages it); every other row says why it is registered but not wired.",
+ "authority": {
+  "branch": "art/art_ship_015",
+  "commit": "d73946c0399485f7d4a6329966368c06cb368d3e"
+ },
+ "entries": {
+  "A-family-brother1": {
+   "key": "characters.brother1.anchor.neutral",
+   "status": "REGISTERED — PERSON NOT ON STAGE",
+   "note": "Identity anchor for BIG BRO (resolvable by id). His only OPEN appearance off the phone is a spoken line in A53 kitchen, whose authored cast is mom/Rich/dad; staging him would add a cast member to an authored beat."
+  },
+  "A-family-brother2": {
+   "key": "characters.brother2.anchor.neutral",
+   "status": "REGISTERED — PERSON NOT ON STAGE",
+   "note": "Identity anchor for LIL BRO (resolvable by id). His only OPEN appearance off the phone is a spoken line in A53 kitchen, whose authored cast is mom/Rich/dad; staging him would add a cast member to an authored beat."
+  },
+  "A-family-brother1-avatar": {
+   "key": "ui.avatars.family_brother1",
+   "use": {"surface": "TEXTS FAMILY thread: BIG BRO sender avatar (full visible bust, native pixels)", "consumer": "js/phone/apps_core.js", "token": "'BIG BRO':"},
+   "status": "INTEGRATED"
+  },
+  "A-family-brother2-avatar": {
+   "key": "ui.avatars.family_brother2",
+   "use": {"surface": "TEXTS FAMILY thread: LIL BRO sender avatar (full visible bust, native pixels)", "consumer": "js/phone/apps_core.js", "token": "'LIL BRO':"},
+   "status": "INTEGRATED"
+  },
+  "A-god-seated_on_curb": {
+   "key": "characters.god.anchor.seated_on_curb",
+   "use": {"surface": "adventure beat: A31 GOD ON THE CURB arrive/stars/silence (\"someone sits down next to him\"), per Art's curb staging review", "consumer": "js/data/btf/adventures", "token": "content-state"},
+   "status": "INTEGRATED"
+  },
+  "A-god-fading": {
+   "key": "characters.god.states.fading",
+   "use": {"surface": "adventure beat: A31 fade (\"she fades\")", "consumer": "js/data/btf/adventures", "token": "content-state"},
+   "status": "INTEGRATED"
+  },
+  "A-og-hooper": {
+   "key": "characters.og_hooper.anchor.court_ready",
+   "use": {"surface": "PICKUP minigame result: the OG on the sideline when the game ends (\"run it back?\")", "consumer": "js/minigames/pickup.js", "token": "personSprite?.('og_hooper')"},
+   "status": "INTEGRATED"
+  }
+ }
+}

@@ -108,16 +108,18 @@ export async function buildMatrix(){
 }
 export const SHIP014_MAP='tools/art-integration/ship014_runtime_map.json';
 export async function ship014Rows(code,usedStates){
- const map=JSON.parse(await readFile(path.join(root,SHIP014_MAP),'utf8')).entries;
- const items=JSON.parse(await readFile(path.join(root,'art_department/ships/art_ship_014/ART_SHIP_MANIFEST.json'),'utf8')).items;
  const out={};
- for(const it of items){const e=map[it.id];if(!e)throw new Error(`${it.id}: no ART SHIP 014 runtime key`);
+ // ART SHIP 014 and 015 share the runtime-map contract; rows are keyed by production file name.
+ for(const ship of ['art_ship_014','art_ship_015']){
+ const map=JSON.parse(await readFile(path.join(root,`tools/art-integration/${ship.replace('art_ship_','ship')}_runtime_map.json`),'utf8')).entries;
+ const items=JSON.parse(await readFile(path.join(root,`art_department/ships/${ship}/ART_SHIP_MANIFEST.json`),'utf8')).items;
+ for(const it of items){const e=map[path.basename(it.production_path,'.png')];if(!e)throw new Error(`${it.production_path}: no ${ship} runtime key`);
   const k=e.key.split('.'),kind=k[0]==='characters'?'character-state':k[0]==='environments'?'environment':k[1]==='treatments'?'ui-treatment':`${k[0]}${k[1]?'-'+k[1]:''}`;
   let live=false;
   if(e.use){live=e.use.token==='content-state'?usedStates.has(`${k[1]}.${k[3]}`):k[0]==='characters'&&usedStates.has(`${k[1]}.${k[3]}`)||(await readFile(path.join(root,e.use.consumer),'utf8').catch(()=>'')).includes(e.use.token);
   }
   out[it.production_path]={kind,id:e.key,status:live?'FROZEN + ALREADY INTEGRATED':e.use?'FROZEN + MAPPED BUT NOT CONSUMED':e.status,runtime:live?[e.use.surface]:[],note:live?null:e.note||null,claimed:!!e.use};
- }
+ }}
  return out;
 }
 export async function expectedMatrix(){return JSON.stringify(await buildMatrix(),null,1)+'\n'}
@@ -153,7 +155,7 @@ export async function test(){
  for(const m of content.matchAll(/\{id:'([a-z_0-9]+)',state:'([a-z_0-9]+)'\}/g)){if(m[2]==='vampire')continue;const p=m[1]==='rich'?ctx.RABtfPeople.rich:ctx.RABtfPeople.get(m[1]);assert.ok(p?.states?.[m[2]],`content asks for ${m[1]}@${m[2]}, which has no approved frozen state`)}
  assert.equal(eol(await readFile(path.join(root,MATRIX),'utf8')),eol(await expectedMatrix()),`${MATRIX} is stale — run node tools/art-integration.mjs`);
  // ART SHIP 014: every row the runtime map claims as integrated is really consumed; every other row carries a reason.
- {const m=JSON.parse(await readFile(path.join(root,MATRIX),'utf8'));for(const a of m.assets.filter(x=>/art_ship_014\//.test(x.path))){
+ {const m=JSON.parse(await readFile(path.join(root,MATRIX),'utf8'));for(const a of m.assets.filter(x=>/art_ship_01[45]\//.test(x.path))){
    assert.notEqual(a.status,'FROZEN + MAPPED BUT NOT CONSUMED',`${a.path} (${a.id}) is claimed INTEGRATED but the runtime does not consume it`);
    if(a.status!=='FROZEN + ALREADY INTEGRATED')assert.ok(a.note,`${a.path} is not integrated and has no recorded reason`);}}
  const m=JSON.parse(await readFile(path.join(root,MATRIX),'utf8'));

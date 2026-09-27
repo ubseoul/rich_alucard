@@ -8,10 +8,11 @@
  function threadName(id){if(id==='family')return 'FAMILY 🇳🇬';const p=RABtfPeople.get(id);return p?p.name:id.toUpperCase();}
  function unread(filter){let n=0;for(const [id,t] of Object.entries(threads()))if(filter(id))n+=t.filter(m=>!m.read&&m.from!=='RICH').length;return n;}
  const isDM=id=>!!RABtfPeople.get(id)?.dateable;
- // ART SHIP 014 FAMILY THREAD avatars (the frozen figure at 1:1, framed). The brothers have no approved art yet
- // (PENDING FROZEN ART AUTHORITY — SHIP 015), so their messages keep the name label only.
- const FAMILY_AVATAR={MOM:'family_mom',DAD:'family_dad',SISTER:'family_sister'};
- function familyAvatar(from){const src=window.RAArtRegistry?.ui?.avatars?.[FAMILY_AVATAR[from]]?.asset;return src?`<i class="family-avatar" style="background-image:url('${esc(src)}')" aria-hidden="true"></i>`:'';}
+ // FAMILY THREAD avatars at native pixels. ART SHIP 014 mom/dad/sister are full figures, framed to head and torso by the
+ // .family-avatar box; ART SHIP 015 brothers are authored busts, shown whole (their visible pixels, no crop).
+ const FAMILY_AVATAR={MOM:{key:'family_mom'},DAD:{key:'family_dad'},SISTER:{key:'family_sister'},'BIG BRO':{key:'family_brother1',frame:[21,28,37,40]},'LIL BRO':{key:'family_brother2',frame:[23,29,35,38]}};
+ function familyAvatar(from){const a=FAMILY_AVATAR[from],src=a&&window.RAArtRegistry?.ui?.avatars?.[a.key]?.asset;if(!src)return '';const f=a.frame;
+  return `<i class="family-avatar" style="background-image:url('${esc(src)}')${f?`;width:${f[2]}px;height:${f[3]}px;background-position:-${f[0]}px -${f[1]}px`:''}" aria-hidden="true"></i>`;}
  function threadMarkup(id,appId){
   const t=threads()[id]||[];markRead(id);
   const body=t.slice(-24).map(m=>`${m.from!=='RICH'&&id==='family'?`<p class="who">${familyAvatar(m.from)}${esc(m.from)}</p>`:''}<p class="msg ${m.from==='RICH'?'me':''}">${esc(m.text)}</p>`).join('');

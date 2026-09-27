@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// Generates js/data/art_registry.js — the canonical runtime Art Registry for the frozen ART SHIP 004–014 corpus
+// Generates js/data/art_registry.js — the canonical runtime Art Registry for the frozen ART SHIP 004–015 corpus
 // (ART SHIP 012 CLOSEOUT included; ART SHIP 011 is a library with no runtime assignment).
 // Source of truth: each Ship's ART_SHIP_MANIFEST.json (paths, ids, categories, anchors, derivations) cross-checked
 // against art_department/ASSET_REGISTER.json (status FROZEN + sha256) and the actual bytes on disk.
@@ -17,7 +17,7 @@ import {decodePng} from './presentation/png.mjs';
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const target=path.join(root,'js/data/art_registry.js');
 // Freeze order: a later Ship's corrected delta supersedes an earlier state (ART SHIP 013 rich.hookah_seated over 008).
-export const SHIPS=['art_ship_004','art_ship_005','art_ship_006','art_ship_007','art_ship_008','art_ship_009','art_ship_010','art_ship_011','art_ship_013','art_ship_012_closeout','art_ship_014'];
+export const SHIPS=['art_ship_004','art_ship_005','art_ship_006','art_ship_007','art_ship_008','art_ship_009','art_ship_010','art_ship_011','art_ship_013','art_ship_012_closeout','art_ship_014','art_ship_015'];
 const json=async rel=>JSON.parse(await readFile(path.join(root,rel),'utf8'));
 const sorted=obj=>Object.fromEntries(Object.entries(obj).sort(([a],[b])=>a.localeCompare(b)).map(([k,v])=>[k,v&&typeof v==='object'&&!Array.isArray(v)?sorted(v):v]));
 
@@ -244,20 +244,28 @@ function lateShip(ship,f,png,character){
 // (never create one); an identity whose runtime sprite predates the registry (Cammile, the Assistant, Bllad33) takes
 // states only if the manifest's frozen anchor is a registered file. Everything else lands in its own bucket at native
 // size. Nothing is ever overwritten.
+// ART SHIP 015 uses the same contract (tools/art-integration/ship015_runtime_map.json). Its manifest reuses one asset id
+// for two states, so rows are keyed by production file name; `characters.<id>.anchor.<pose>` creates a new identity
+// anchor from the manifest contact (refused if the identity already has one).
 let ship014Map=null;
-async function loadShip014(){ship014Map=(await json('tools/art-integration/ship014_runtime_map.json')).entries;}
+async function loadShip014(){ship014Map={art_ship_014:(await json('tools/art-integration/ship014_runtime_map.json')).entries,art_ship_015:(await json('tools/art-integration/ship015_runtime_map.json')).entries};}
 function setPath(obj,keys,value,file){
  let o=obj;for(const k of keys.slice(0,-1))o=o[k]||(o[k]={});
  if(o[keys.at(-1)]!==undefined)throw new Error(`${file}: runtime key ${keys.join('.')} already registered`);
  o[keys.at(-1)]=value;
 }
-function ship014(f,png,out,character,reg){
- const m=ship014Map[f.id];if(!m)throw new Error(`${f.path}: ART SHIP 014 file without an Engineering runtime key`);
+function ship014(ship,f,png,out,character,reg){
+ const m=ship014Map[ship][path.basename(f.path,'.png')];if(!m)throw new Error(`${f.path}: ${ship} file without an Engineering runtime key`);
  if(f.alpha!=='binary 0/255'||!binaryAlpha(png))throw new Error(`${f.path}: alpha is not binary`);
  const k=m.key.split('.');
  if(k[0]==='characters'){
-  if(k.length!==4||k[2]!=='states')throw new Error(`${f.path}: unsupported character key ${m.key}`);
-  const [,id,,state]=k,c=character(id);
+  if(k.length!==4||!['states','anchor'].includes(k[2]))throw new Error(`${f.path}: unsupported character key ${m.key}`);
+  const [,id,kind,state]=k,c=character(id);
+  if(kind==='anchor'){
+   if(c.anchor||id==='rich')throw new Error(`${f.path}: ${id} already has a frozen identity anchor`);
+   if(png.width!==80||png.height!==96||String(f.contact)!=='40,88')throw new Error(`${f.path}: identity anchor contract (80x96, contact 40,88)`);
+   c.anchor=f.path;c.anchorPose=state;c.cell=[png.width,png.height];c.contact=f.contact;c.states[state]=f.path;return;
+  }
   if(!c.anchor&&id!=='rich'&&!(f.frozen_anchor&&reg[f.frozen_anchor]))throw new Error(`${f.path}: ${id} has no frozen or registered anchor`);
   if(png.width!==80||png.height!==96)throw new Error(`${f.path}: character state is not 80x96`);
   if(c.states[state])throw new Error(`${f.path}: ${id}.${state} already registered`);
@@ -316,7 +324,7 @@ export async function buildRegistry(){
   const id=f.open_id||f.asset_id;
   const character=(cid)=>out.characters[cid]||(out.characters[cid]={anchor:null,anchorPose:null,cell:null,contact:null,states:{}});
   if(ship==='art_ship_011'){ship011(f,png,out);continue;}
-  if(ship==='art_ship_014'){ship014(f,png,out,character,reg);continue;}
+  if(ship==='art_ship_014'||ship==='art_ship_015'){ship014(ship,f,png,out,character,reg);continue;}
   if(ship==='art_ship_013'||ship==='art_ship_012_closeout'){lateShip(ship,f,png,character);continue;}
   if(ship==='art_ship_010'){await ship010(f,png,out,character,reg);continue;}
   if(ship==='art_ship_009'){await ship009(f,png,out,character,reg);continue;}
@@ -356,7 +364,7 @@ export async function buildRegistry(){
 export async function expectedRegistry(){
  const r=await buildRegistry();
  const counts=Object.fromEntries(['environments','characters','creatures','props','sheets','population'].map(k=>[k,Object.keys(r[k]).length]));
- return `(function(){\n // GENERATED by tools/art-registry.mjs from the ART SHIP 004–014 manifests (014 via tools/art-integration/ship014_runtime_map.json) + ASSET_REGISTER.json — do not edit by hand.\n // Canonical frozen art by runtime id. Every path is FROZEN in the register with a verified sha256; pixels are never modified.\n // Handoff state sheets are listed for provenance only: runtime placement uses the individual masters.\n // ${Object.keys(r.assets).length} frozen files: ${JSON.stringify(counts)}\n window.RAArtRegistry=${JSON.stringify(r,null,1).replace(/\n/g,'\n ')};\n})();\n`;
+ return `(function(){\n // GENERATED by tools/art-registry.mjs from the ART SHIP 004–015 manifests (014/015 via tools/art-integration/ship01[45]_runtime_map.json) + ASSET_REGISTER.json — do not edit by hand.\n // Canonical frozen art by runtime id. Every path is FROZEN in the register with a verified sha256; pixels are never modified.\n // Handoff state sheets are listed for provenance only: runtime placement uses the individual masters.\n // ${Object.keys(r.assets).length} frozen files: ${JSON.stringify(counts)}\n window.RAArtRegistry=${JSON.stringify(r,null,1).replace(/\n/g,'\n ')};\n})();\n`;
 }
 
 if(process.argv[1]===fileURLToPath(import.meta.url)){await writeFile(target,await expectedRegistry());console.log('js/data/art_registry.js written');}

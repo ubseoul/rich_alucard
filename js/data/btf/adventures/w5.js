@@ -45,10 +45,12 @@
   testSetup:ctx=>{ctx.RALife.setFlag('lastDefeatDay',ctx.RALife.today().day);},
   nodes:{
   start:{env:'street_night',actors:{mid:'rich'},lines:[N("sunday night. rich wants to go somewhere he can't explain.")],route:{dest:'POWDER SPRINGS',next:'arrive'}},
-  arrive:{env:'curb',actors:{mid:'rich'},lines:[N('the curb. the same curb, always.'),N('someone sits down next to him.'),E('god','…'),N('she is old. she is beautiful. she is, undeniably, a baddie.')],next:'stars'},
+  // ART SHIP 015 (Art's curb staging): she sits beside him on the curb (Rich left of her, as Art staged it), and fades
+  // on the node that says so.
+  arrive:{env:'curb',actors:{left:'rich',right:{id:'god',state:'seated_on_curb'}},lines:[N('the curb. the same curb, always.'),N('someone sits down next to him.'),E('god','…'),N('she is old. she is beautiful. she is, undeniably, a baddie.')],next:'stars'},
   stars:{lines:[N('the stars get brighter. just a little. just there.'),S('god','you are more than enough.')],next:'silence'},
   silence:{lines:[N('rich does not have a joke. for the first time in his life, rich does not have a joke.')],next:'fade'},
-  fade:{lines:[N("she fades. the way morning fades a dream — you don't see it happen, you just notice that it did."),N('the stars stay bright a little longer than they should.')],
+  fade:{actors:{left:'rich',right:{id:'god',state:'fading'}},lines:[N("she fades. the way morning fades a dream — you don't see it happen, you just notice that it did."),N('the stars stay bright a little longer than they should.')],
    end:{outcome:'sat',memory:{text:'a woman on the curb at powder springs told him he was enough',lane:'home',quality:2},receipt:{caption:'the curb. somebody was there.'},home:['rich','…',{vp:true}]}}
  }});
  D({id:'A34',title:'TOKYO TEASER',lane:'world',scope:'SIDE',available:L=>L.day>=30,start:'dm',nodes:{

@@ -15,10 +15,6 @@
   "assets/before_the_fame/props/dragon_maggi_cube/dragon_maggi_cube_24x24.png": {"status": "FROZEN + MAPPING AMBIGUOUS", "note": "Label spelling (MAGGI vs MAGI) is Ube-owned; the label must stay swappable (CURRENT_OPEN_ART_GAPS)."}
  },
  "people": {
-  "brother1": {"status": "NEEDS CREATIVE", "note": "Family identity: names/details await Ube; no invented portraits."},
-  "brother2": {"status": "NEEDS CREATIVE", "note": "Family identity: names/details await Ube; no invented portraits."},
-  "god": {"status": "NEEDS CREATIVE", "note": "Culturally sensitive OPEN card; exact committed card only."},
-  "og_hooper": {"status": "NO APPROVED ART YET", "note": "Deferred identity (ART SHIP 007 accepted deferral)."}
  },
  "screens": {
   "la_sky|left:rich,right:mazda_human": {"status": "PASS (POLISH NOTE)", "ticket": "NC-FA-13", "note": "ART SHIP 009 la_sky master reads as over LA at night; the beat narrates Rich riding on Mazda's back mid-flight, but both approved anchors stand on the cloud-bank contact line."},
@@ -30,7 +26,7 @@
   "minigame:pier": {"status": "PASS (final art)", "note": "Rich fishing_cast / holding_fish_away and Uncle Sunday fishing (frozen states) at native 1:1; ART SHIP 014 catch art on the result card and wallet/rare/chest prompts (BIG FISH keeps the drawn placeholder: mapping decision, no approved art)."},
   "minigame:slurp": {"status": "PASS (final art)", "note": "Rich ramen_apron resolves to the ART SHIP 008 corrected delta; no stray utensil."},
   "minigame:bars": {"status": "PASS (final art)", "note": "Rich on_stage in battles, standing anchor otherwise; contact kept inside the canvas."},
-  "minigame:pickup": {"status": "HOLD", "ticket": "NC-FA-07", "note": "Mixed: frozen Rich with placeholder players (no approved art for the other players)."},
+  "minigame:pickup": {"status": "HOLD", "ticket": "NC-FA-07", "note": "Frozen Rich; the other three players stay placeholders (no approved art). ART SHIP 015: the OG (og_hooper court_ready) stands on the right sideline at native 1:1 when the game ends and he calls \"run it back?\"."},
   "minigame:hookah": {"status": "PASS (final art)", "note": "Content surface (HOOKAH, company BLLAD33): frozen Rich and Bllad33 hookah_seated states at native 1:1, seated above the score lines and clear of the antenna target."},
   "minigame:hookah?company=ROOKOKO": {"status": "PASS (final art)", "note": "Explicitly named ROOKOKO company draws frozen Rookoko hookah_seated beside Rich. No current content beat names ROOKOKO explicitly."},
   "minigame:hookah?company=HOMIES": {"status": "PASS (final art)", "note": "A41 crew roof (company HOMIES, HQ-AS8-01): frozen ART SHIP 009 tunde.hookah_seated (company seat) and dre.hookah_seated (Rich's other side) flank frozen rich.hookah_seated at native 1:1 on their contacts, above the score lines and clear of the antenna target. NC-FA-11 resolved; Rookoko stays explicit-only."},
@@ -39,7 +35,7 @@
   "minigame:hatch": {"status": "PASS (final art)", "note": "Egg: ART SHIP 005 master. Hatchling/young/majestic: ART SHIP 014 Blueberry Mazda stages at integer 2×/2×/3× on the placeholder ground line (hungry reads neutral; majestic sulk uses perched — no approved majestic sulk)."},
   "phone:home": {"status": "PASS (final art)", "note": "Eight frozen app icons on existing tiles; RICHBOIMPORTS and other apps without an approved icon stay text-only."},
   "bedroom:company": {"status": "PARTIAL (final art where approved)", "ticket": "NC-FA-07", "note": "ART SHIP 014: covered bedroom_company pose for 13 women + Mazda human (on the bed right of Rich), frozen asleep-floor homies (Tunde, Dre, Tristan), the cat on the bed, Mazda fly-by, 8 room props and the rain window. Company without an approved bedroom state (e.g. Brenda, Hina, Jade, Lo, Marisol, Nightshade, Velvet, Wispa, Anfeesa, or a non-woman stay-over) keeps the placeholder: F-covered_companion does not register with the runtime bed (Art geometry ambiguity)."},
-  "phone:cards": {"status": "PASS (final art)", "note": "ART SHIP 014: car LISTING art on JDMIMPORTS/RICHBOIMPORTS cards (Supra store card included), RICH RADIO covers, FAMILY thread avatars for mom/dad/sister (brothers: PENDING FROZEN ART AUTHORITY — SHIP 015), @dragoon_of_the_north VampGram avatar."},
+  "phone:cards": {"status": "PASS (final art)", "note": "ART SHIP 014: car LISTING art on JDMIMPORTS/RICHBOIMPORTS cards (Supra store card included), RICH RADIO covers, FAMILY thread avatars for mom/dad/sister (ART SHIP 014, framed) and BIG BRO / LIL BRO (ART SHIP 015 busts, whole), @dragoon_of_the_north VampGram avatar."},
   "choices:items": {"status": "PASS (final art)", "note": "ART SHIP 014 fit/item art on store choices, gun case art on ARMORY choices, item and held-gun art on Combat 2.0 ITEM/FIGHT buttons (native pixels; items without frozen art stay text-only)."}
  }
 }

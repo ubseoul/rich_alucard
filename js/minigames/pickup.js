@@ -172,6 +172,8 @@
     rp.rect(g,20,150,230,180,'rgba(8,7,15,.9)');
     rp.text(g,score.rich>score.them?'YOU WON':'YOU LOST',135,180,{size:9,align:'center',color:score.rich>score.them?pal.green:pal.red});
     rp.text(g,`${score.rich} — ${score.them}`,135,205,{size:8,align:'center'});
+    // ART SHIP 015: the OG himself stands on the sideline (right edge, native 1:1 on his contact) when he calls it.
+    if(ogInvite)rp.drawSprite?.(g,rp.personSprite?.('og_hooper'),252,404);
     if(ogInvite)rp.wrap(g,'an OG on the sideline: "run it back?"',200,7).forEach((ln,i)=>rp.text(g,ln,135,235+i*12,{size:7,align:'center',color:pal.grey}));
     rp.frame(g,95,290,80,34,{fill:pal.gold});rp.text(g,'DONE',135,303,{size:7,align:'center',color:pal.ink});
    }
