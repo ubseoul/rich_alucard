@@ -58,7 +58,7 @@ export async function dryRun(){
   for(const {id,node,env,actors} of visibleNodes(def,dummy)){if(vars.nodes&&!vars.nodes.includes(id))continue;
    const cast={};for(const [slot,spec] of Object.entries(actors)){if(!spec)continue;const pid=typeof spec==='string'?spec:spec.id;cast[slot]={...(typeof spec==='object'?spec:{}),id:pid}}
    const key=ctx.RAPresentationData.screenKey(env,cast);
-   const s=screens.get(key)||{key,env,cast,castSpecs:JSON.parse(JSON.stringify(actors)),shot:node.shot||null,nodes:0,adventures:new Set(),first:`${def.id}:${id}`,refs:[]};s.nodes++;s.adventures.add(def.id);s.refs.push(`${def.id}:${id}`);screens.set(key,s);
+   const {nodes:_n,...variantVars}=vars;const s=screens.get(key)||{key,env,cast,vars:variantVars,castSpecs:JSON.parse(JSON.stringify(actors)),shot:node.shot||null,nodes:0,adventures:new Set(),first:`${def.id}:${id}`,refs:[]};s.nodes++;s.adventures.add(def.id);s.refs.push(`${def.id}:${id}`);screens.set(key,s);
   }
  }
  const result={screens:0,nodes:0,pass:0,fail:0,profiles:{},failures:{},placeholderActors:0,byEnvironment:{},rows:[]};
@@ -84,7 +84,7 @@ export async function dryRun(){
   const envRow=result.byEnvironment[s.env]||(result.byEnvironment[s.env]={screens:0,pass:0});envRow.screens++;
   if(ok){result.pass++;envRow.pass++}else{result.fail++;for(const f of fails)result.failures[f]=(result.failures[f]||0)+1}
   const exception=ctx.RAPresentationData.adventure.exceptions?.[s.key]||null;
-  result.rows.push({key:s.key,env:s.env,castSpecs:s.castSpecs,cast:Object.keys(s.cast).length,first:s.first,refs:s.refs,profile,pass:ok,fails:[...fails],exception:exception?.ticket||null});
+  result.rows.push({key:s.key,env:s.env,vars:s.vars,castSpecs:s.castSpecs,cast:Object.keys(s.cast).length,first:s.first,refs:s.refs,profile,pass:ok,fails:[...fails],exception:exception?.ticket||null});
  }
  result.unexpected=result.rows.filter(r=>!r.pass&&!r.exception).map(r=>r.key);
  result.staleExceptions=Object.keys(ctx.RAPresentationData.adventure.exceptions||{}).filter(k=>!result.rows.some(r=>r.key===k&&!r.pass));

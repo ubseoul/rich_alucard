@@ -35,7 +35,7 @@ async function test(){
   const presentation=await import(pathToFileURL(path.join(root,'tools','presentation-test.mjs')).href);await presentation.test(root);
   const artIntegration=await import(pathToFileURL(path.join(root,'tools','art-integration.mjs')).href);await artIntegration.test(root);
   const reachability=await import(pathToFileURL(path.join(root,'tools','reachability-audit.mjs')).href);await reachability.test(root);
-  const fixtures=await import(pathToFileURL(path.join(root,'tools','pilot','fixtures-test.mjs')).href);await fixtures.test(root);
+  const pilotFixtures=await import(pathToFileURL(path.join(root,'tools','pilot','fixtures-test.mjs')).href);await pilotFixtures.test(root);
   const sources=await javascriptFiles(path.join(root,'js'));
   for(const file of [...sources,path.join(root,'game.js')])new vm.Script(await readFile(file,'utf8'),{filename:path.relative(root,file)});
   const listeners={};

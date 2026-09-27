@@ -23,7 +23,7 @@ function serve(){return new Promise(resolve=>{const s=http.createServer(async(re
 
 // In-page: jump the real adventure scene to a node of this screen and return the live lint.
 async function showScreen(page,row){
- return page.evaluate(async ({refs,env,cast})=>{
+ return page.evaluate(async ({refs,env,cast,vars})=>{
   const skip=n=>!n||n.end||n.minigame||n.fight||(!n.lines&&!n.choices&&!n.route);
   let ref=refs.find(r=>{const [a,id]=r.split(':');return !skip(RAAdventures.get(a)?.nodes?.[id])})||refs[0];
   const [adv,node]=ref.split(':');
@@ -35,7 +35,9 @@ async function showScreen(page,row){
   document.querySelectorAll('.ra-minigame,.c2-scene').forEach(n=>n.remove());
   if(RAAdventures.active())RAAdventures.abandon();
   // Seed the environment/cast real play would have inherited from earlier nodes.
-  RAAdventures.start(adv,{from:'dev'});RAAdventures.patchActive({node,titles:[node],env,actors:cast});
+  // Runtime-bound casts (DATE, A46, A41, party guests) exist only with their variant vars: without them the node's cast
+  // function dropped the person and a one-actor frame was linted as that screen (Engineering 06 fix).
+  RAAdventures.start(adv,{from:'dev',vars:vars||{}});RAAdventures.patchActive({node,titles:[node],env,actors:cast});
   await RAScenes.go('adventure',{node});await new Promise(r=>setTimeout(r,700));
   document.querySelectorAll('.adv-title:not([hidden])').forEach(t=>t.hidden=true);
   document.getAnimations().forEach(a=>{a.pause();a.currentTime=0});
@@ -43,7 +45,7 @@ async function showScreen(page,row){
   const lint=await RAPresentationDirector.lint();
   const a=RAAdventures.active();const key=a?RAPresentationData.screenKey(a.env,a.actors):null;
   return {ref,key,lint:lint&&{pass:lint.pass,failed:lint.checks.filter(c=>!c.pass).map(c=>`${c.id}=${c.value}`),metrics:lint.metrics,profile:lint.profile,exception:lint.exception?.ticket||null},director:!!RAPresentationDirector.current()};
- },{refs:row.refs,env:row.env,cast:row.castSpecs});
+ },{refs:row.refs,env:row.env,cast:row.castSpecs,vars:row.vars});
 }
 
 export async function sweep(){
@@ -58,7 +60,7 @@ export async function sweep(){
    await page.goto(base+'/?dev=1');await page.waitForTimeout(600);
    await page.evaluate(()=>{document.querySelector('#startOverlay')?.remove();document.querySelector('#devPanel')?.classList.remove('show')});
    for(const [i,row] of rows.entries()){
-    try{const r=await showScreen(page,row);results[row.key].sizes[`${W}x${H}`]=r;
+    try{const r=await showScreen(page,row);if(r.key!==row.key){r.lint={...(r.lint||{}),pass:false,failed:[...(r.lint?.failed||[]),`rendered-key=${r.key}`]};errors.push(`${row.key} @${W}: rendered as ${r.key}`);}results[row.key].sizes[`${W}x${H}`]=r;
      if(W===390){const file=`screen-${String(i).padStart(3,'0')}.png`;await page.screenshot({path:path.join(out,file)});results[row.key].file=file}}
     catch(e){errors.push(`${row.key} @${W}: ${e.message}`)}
    }
