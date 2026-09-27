@@ -2395,9 +2395,10 @@
    "lint": "pass"
   },
   "portobello_porch|left:rich_portobello@porch_seated,right:portobello_wife": {
-   "status": "PASS (final art)",
+   "status": "PASS (POLISH NOTE)",
    "profile": "conversation",
-   "lint": "pass"
+   "lint": "pass",
+   "ticket": "NC-FAI-01"
   },
   "rave_interior|left:rich": {
    "status": "PASS (final art)",

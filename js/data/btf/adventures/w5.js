@@ -14,7 +14,8 @@
  const PORTO_WIFE={id:'portobello_wife',look:{skin:'#e0b896',top:'#d8a0b0',bottom:'#2a2a38',hair:'#3a2010',hairShape:'long'}};
  const PORTO_KID1={id:'portobello_kid1',look:{skin:'#c99a78',top:'#7ad0a0',bottom:'#3a3a3a',hair:'#2a1810',hairShape:'bun',height:.6}};
  const PORTO_KID2={id:'portobello_kid2',look:{skin:'#c99a78',top:'#f0c060',bottom:'#3a3a3a',hair:'#2a1810',hairShape:'spiky',height:.55}};
- const PORTO_MGR={id:'portobello_manager',look:{skin:'#d8b090',top:'#3a3a4a',bottom:'#1f2a44',hair:'#5a4a3a',hairShape:'hat'}};
+ // The frozen manager pose turns to its right; on the right slot it is mirrored (runtime only) to face Rich's pitch.
+ const PORTO_MGR={id:'portobello_manager',flip:true,look:{skin:'#d8b090',top:'#3a3a4a',bottom:'#1f2a44',hair:'#5a4a3a',hairShape:'hat'}};
  // Breakfast table: every figure stays framed by the generic staging, but only the wife and Rich speak here, so only
  // their faces carry the dialogue face-size floor (the kids read at the frozen child-height scale).
  const BREAKFAST_SPEAKERS={speakers:['mid','left']};

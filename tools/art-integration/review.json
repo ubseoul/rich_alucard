@@ -25,6 +25,7 @@
  "screens": {
   "la_sky|left:rich,right:mazda_human": {"status": "PASS (POLISH NOTE)", "ticket": "NC-FA-13", "note": "ART SHIP 009 la_sky master reads as over LA at night; the beat narrates Rich riding on Mazda's back mid-flight, but both approved anchors stand on the cloud-bank contact line."},
   "lan_night|left:rich,right:tristan": {"status": "PASS (POLISH NOTE)", "ticket": "PD-AS9-01", "note": "Approved zero-pixel reuse of the frozen tristan_apt master (AS9-REUSE-LAN-NIGHT). The apartment at night reads; the conversation framing crops the three monitors just above frame (desk chair and setup edge visible)."},
+  "portobello_porch|left:rich_portobello@porch_seated,right:portobello_wife": {"status": "PASS (POLISH NOTE)", "ticket": "NC-FAI-01", "note": "Frozen rich_portobello.porch_seated and ART SHIP 013 portobello_wife read correctly on the porch at dusk. The narration has her leaning on his shoulder; the wife's only frozen state is standing, so she stands apart on the walk (same class as NC-FA-13)."},
   "portobello_bedroom|left:portobello_kid1,mid:rich_portobello,right:portobello_kid2": {"status": "HOLD", "ticket": "PD-FA-03", "note": "All three figures resolve frozen art (ART SHIP 010 rich_portobello, ART SHIP 013 kid1/kid2). The speaking kid's child-scale face measures 22/24/26 px against the 24/26/28.7 px dialogue floor at 360/390/430 in the conversation band; a close two-shot that passes puts the other kid fully off-frame. HQ staging decision HQ-FAI-01."}
  },
  "surfaces": {

@@ -77,7 +77,7 @@
   const assets=Object.fromEntries(Object.entries(elements).map(([slot,el])=>[slot,RAPresentationDirector.assetOf(el)]));
   const stage=RAPresentationDirector.adventureStage(currentEnv,cast,{slots:SLOTS,node,assets});
   const exception=RAPresentationData.adventure.exceptions?.[RAPresentationData.screenKey(currentEnv.id,actors||{})]||null;
-  RAPresentationDirector.enter({stage,mode:'dialogue',beat:'default',scope,host:root,env:envCanvas.canvas||envCanvas,actors:elements,worldLayers:foreground.hidden?[]:[{el:foreground,rect:[0,0,270,480]}],autoShot:!node?.shot,exception,envPlaceholder:!!currentEnv.placeholder});
+  RAPresentationDirector.enter({stage,mode:'dialogue',beat:'default',scope,host:root,env:envCanvas.canvas||envCanvas,actors:elements,worldLayers:foreground.hidden?[]:[{el:foreground,rect:[0,0,270,480]}],autoShot:!node?.shot?.profile,exception,envPlaceholder:!!currentEnv.placeholder});
   directorNode=true;
  }
  async function typeText(el,text){el.textContent=text;}
