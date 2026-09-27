@@ -347,7 +347,7 @@
  RATemptations.define([{id:'trippin_red',source:'friend',sender:'TRISTAN',thread:'tristan',
   line:"trippin red at the hollow bowl saturday. i got 2 extra.",minDay:12,adventure:'A41',priority:5}]);
  const trippinOnStage=()=>({src:RABtfPeople.get('trippin_red')?.states?.stage_ready,x:135,y:292});
- D({id:'A41',title:'THE PERFECT NIGHT',lane:'people',scope:'MUST',memoryType:'people',start:'pick',
+ D({id:'A41',title:'THE PERFECT NIGHT',lane:'people',scope:'MUST',memoryType:'people',start:'pick',presentationVariants:RABtfPeople.women.map(p=>({person:p.id,nodes:['drive','roof','stay']})),
   available:L=>RABtfPeople.women.some(w=>RARelations.level(w.id)>=2),
   nodes:{
   pick:{env:'street_night',actors:{left:'rich'},title:'A PLUS-ONE',
@@ -365,7 +365,9 @@
   drive:{env:'street_night',actors:A=>({left:'rich',right:A.vars.person}),title:'THE DRIVE HOME',
    lines:[N('windows down, montana playing loud enough to feel it in the seats.'),
     S(null,'"that was… actually the best night i\'ve had in a while."')],next:'roof'},
-  roof:{env:'roof',actors:A=>({left:'rich',right:A.vars.person}),title:'THE HOOKAH ROOF',
+  // "the crew is already up here" (VOL 5 A41: Tunde, Dre, Tristan): Tunde, seated at the hookah, between Rich and her —
+  // the most people the roof frames at phone size with every possible plus-one.
+  roof:{env:'roof',actors:A=>({left:'rich',mid:{id:'tunde',state:'hookah_seated'},right:A.vars.person}),title:'THE HOOKAH ROOF',
    lines:[N('the crew is already up here. hookah, low talk, the poster from tonight taped to the wall.')],
    choices:[{label:'HOOKAH WITH THE CREW',next:'roofgame'},{label:'SKIP TO THE END OF THE NIGHT',next:'crewleaves'}]},
   // HQ-AS8-01: the crew is on the roof, so the HOMIES company (its line set matches the beat).

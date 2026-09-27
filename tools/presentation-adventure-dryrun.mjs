@@ -53,7 +53,9 @@ export async function dryRun(){
  // Casts computed at runtime from adventure vars are also walked under each declared `presentationVariants` entry.
  for(const [def,vars] of ctx.RAAdventures.all().flatMap(def=>[[def,{}],...(def.presentationVariants||[]).map(v=>[def,v])])){
   const dummy=dummyWith(vars);
-  for(const {id,node,env,actors} of visibleNodes(def,dummy)){
+  // A variant may name the nodes it applies to (`nodes`): a runtime-bound cast on an Art-mapped node resolves through the
+  // node (tools/art-integration.mjs buildSurfaces), so such nodes are linted with their authored default cast only.
+  for(const {id,node,env,actors} of visibleNodes(def,dummy)){if(vars.nodes&&!vars.nodes.includes(id))continue;
    const cast={};for(const [slot,spec] of Object.entries(actors)){if(!spec)continue;const pid=typeof spec==='string'?spec:spec.id;cast[slot]={...(typeof spec==='object'?spec:{}),id:pid}}
    const key=ctx.RAPresentationData.screenKey(env,cast);
    const s=screens.get(key)||{key,env,cast,castSpecs:JSON.parse(JSON.stringify(actors)),shot:node.shot||null,nodes:0,adventures:new Set(),first:`${def.id}:${id}`,refs:[]};s.nodes++;s.adventures.add(def.id);s.refs.push(`${def.id}:${id}`);screens.set(key,s);

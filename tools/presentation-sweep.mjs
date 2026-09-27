@@ -27,12 +27,19 @@ async function showScreen(page,row){
   const skip=n=>!n||n.end||n.minigame||n.fight||(!n.lines&&!n.choices&&!n.route);
   let ref=refs.find(r=>{const [a,id]=r.split(':');return !skip(RAAdventures.get(a)?.nodes?.[id])})||refs[0];
   const [adv,node]=ref.split(':');
+  // Engineering 06: a screen reached only through a minigame/fight node (e.g. PIER `fish`) must be captured as the
+  // staged adventure frame, never by running the action — a launched minigame stayed on top of every later capture
+  // while lint (which reads the adventure stage underneath) still passed. Actions are held for the sweep; any capture
+  // with a minigame/fight layer present is reported as an error.
+  if(!window.__sweepHold){window.__sweepHold=true;RAMinigames.launch=()=>new Promise(()=>{});if(window.RACombat2)RACombat2.run=()=>new Promise(()=>{});}
+  document.querySelectorAll('.ra-minigame,.c2-scene').forEach(n=>n.remove());
   if(RAAdventures.active())RAAdventures.abandon();
   // Seed the environment/cast real play would have inherited from earlier nodes.
   RAAdventures.start(adv,{from:'dev'});RAAdventures.patchActive({node,titles:[node],env,actors:cast});
   await RAScenes.go('adventure',{node});await new Promise(r=>setTimeout(r,700));
   document.querySelectorAll('.adv-title:not([hidden])').forEach(t=>t.hidden=true);
   document.getAnimations().forEach(a=>{a.pause();a.currentTime=0});
+  if(document.querySelector('.ra-minigame,.c2-scene'))throw new Error(`action layer on top of ${ref}`);
   const lint=await RAPresentationDirector.lint();
   const a=RAAdventures.active();const key=a?RAPresentationData.screenKey(a.env,a.actors):null;
   return {ref,key,lint:lint&&{pass:lint.pass,failed:lint.checks.filter(c=>!c.pass).map(c=>`${c.id}=${c.value}`),metrics:lint.metrics,profile:lint.profile,exception:lint.exception?.ticket||null},director:!!RAPresentationDirector.current()};
