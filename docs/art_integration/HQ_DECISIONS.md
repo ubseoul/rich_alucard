@@ -2,6 +2,33 @@
 
 Spoiler-safe: ids, surface keys and runtime evidence only.
 
+## HQ-FAI-01 — A30 bedtime three-shot (PD-FA-03)
+
+**Status:** OPEN — HQ staging decision. The screen is HOLD. It is the only remaining HOLD of the 121.
+
+**Screen:** `portobello_bedroom|left:portobello_kid1,mid:rich_portobello,right:portobello_kid2` (A30 `bedtime`). The narration names the routine; kid1 speaks one line and Rich answers.
+
+**Evidence (frozen ART SHIP 010/013 geometry, contact y=372):**
+- Generic default (conversation, all three focal): body 0.407/0.410/0.403. Every check passes except `face-size` for the kids. Kid1's authored face box (6 source px tall) projects to 22/24/26 px against the 24/26/28.7 px floor at 360/390/430. Kid2 does not speak, but it is a default speaker too.
+- Kid1's face clears the floor only at body ≈ 0.444, and the conversation consistency ceiling is 0.412 (0.392 ± 5%).
+- `close` two-shot of kid1 + Rich: body 0.547–0.558, faces 30/32/36 px, lint passes. Kid2 is fully off-frame (in-view 0).
+- `close` with kid2 included: body 0.479 fails the close band.
+
+**Options**
+1. Accept the `face-size` check for this beat (like PD-W3-01/02 accepted checks). The generic three-shot stays unchanged; kid1's face reads at the frozen child scale, a few px under the floor.
+2. Author a `close` kid1 + Rich shot for `bedtime`. Kid2 leaves the frame and is carried by narration only. This changes what the beat stages, so it is a creative call (see HQ-AS9-01 option 3).
+3. Keep HOLD.
+
+No choice was made by Engineering. The exception entry is recorded as `EXCEPTION-LAYOUT` / PD-FA-03 with no accepted checks, so the screen reports HOLD.
+
+## HQ-FAI-02 — Portobello cast speaker labels
+
+**Status:** OPEN — Story/HQ. The runtime speaker label falls back to the id when a person has no name, so A30 shows `PORTOBELLO_WIFE`, `PORTOBELLO_KID1` and `PORTOBELLO_MANAGER`. It showed these before this pass, too. Engineering kept those exact labels rather than inventing names. The wife, kids and manager need display names (or an explicit decision to keep ids) from Story/HQ.
+
+## HQ-FAI-03 — Office manager mirrored on the right slot (for review)
+
+**Status:** IMPLEMENTED — Engineering staging, pending HQ review. The frozen `portobello_manager` pose turns to its right. On the right slot she gestured off-frame, away from the pitch she is receiving. A30's office nodes now set `flip:true` on her spec, a runtime mirror that leaves the pixels unchanged. Combat already mirrors every frozen enemy this way. Lint passes at 360/390/430. Reverting it is a one-token change in `js/data/btf/adventures/w5.js` if HQ prefers the native facing.
+
 ## HQ-AS10-01 — PD-W1-04 layout exception retired (Rich resolved, cast still blocked)
 
 **Status:** LAYOUT RESOLVED / SCREEN STILL HOLD. ART SHIP 010 supplied `rich_portobello`'s real frozen geometry (80×96,

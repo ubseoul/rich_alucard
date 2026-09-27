@@ -1,5 +1,16 @@
 # Presentation Director — exception and NEEDS CREATIVE tickets
 
+## FINAL ART INTEGRATION (branch `claude/final-art-integration`)
+
+ART SHIP 013 and ART SHIP 012 CLOSEOUT are integrated (`docs/art_integration/FINAL_ART_INTEGRATION.md`). Result: **120 PASS / 1 HOLD**.
+
+| Ticket | Status | Notes |
+|---|---|---|
+| NC-FA-07 | **RESOLVED for every census screen** | The family, Portobello wife/kids/manager, auntie, ocean soul, training dummy and Buckhead now resolve frozen art. 0 placeholder actor slots remain in the adventure census, and both combat HOLDs cleared. The Maul fight stays Lil Smack. Non-census surfaces (PICKUP players, JOLLOF cook, bedroom company) are unchanged. |
+| PD-FA-03 | **NEW — EXCEPTION-LAYOUT, HOLD** | `portobello_bedroom\|left:portobello_kid1,mid:rich_portobello,right:portobello_kid2` (A30 `bedtime`). The speaking kid's frozen child-scale face is under the dialogue face floor at every framing inside the conversation band. The passing `close` shot drops the other kid from frame. HQ-FAI-01. |
+| NC-FAI-01 | **NEW — Polish (screen PASS)** | `portobello_porch\|left:rich_portobello@porch_seated,right:portobello_wife`: the narration has her leaning on his shoulder, but her only frozen state is standing. Same class as NC-FA-13. A seated/leaning wife state would be an Art/Story call. |
+| NC-FA-14 | Unchanged (resolved) | The 11 new frozen actors got authored face boxes (`noFace` for the ocean soul and training dummy). |
+
 ## HOLD CLEARANCE 001 (branch `claude/hold-clearance-001`)
 
 | Ticket | Status | Notes |
