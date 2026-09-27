@@ -49,6 +49,9 @@ export async function buildMatrix(){
  const envs=ctx.RAEnvironments.all(),people=[ctx.RABtfPeople.rich,...ctx.RABtfPeople.list,...(ctx.RABtfPeople.extras||[])];
  const content=(await Promise.all((await readdir(path.join(root,'js/data/btf/adventures'))).map(f=>readFile(path.join(root,'js/data/btf/adventures',f),'utf8')))).join('\n');
  const usedStates=new Set([...content.matchAll(/\{id:'([a-z_0-9]+)',state:'([a-z_0-9]+)'\}/g)].map(m=>`${m[1]}.${m[2]}`));
+ // States the live adventure census actually stages (covers casts built by spreading a shared actor spec).
+ const dr=await dryRun(),cr=await combatDryRun();
+ for(const r of dr.rows)for(const spec of Object.values(r.castSpecs))if(spec&&typeof spec==='object'&&spec.id&&spec.state&&spec.state!=='vampire')usedStates.add(`${spec.id}.${spec.state}`);
  // Minigame canvases resolve frozen states through RAPixel.personSprite(id, state).
  for(const m of code.matchAll(/personSprite\?\.\('([a-z_0-9]+)','([a-z_0-9]+)'/g))usedStates.add(`${m[1]}.${m[2]}`);
  for(const m of code.matchAll(/personSprite\?\.\('([a-z_0-9]+)',[a-zA-Z_]+\?'([a-z_0-9]+)':/g))usedStates.add(`${m[1]}.${m[2]}`);
@@ -82,7 +85,7 @@ export async function buildMatrix(){
  for(const e of envs)if(e.placeholder)demand.push({kind:'environment',id:e.id,status:'NO APPROVED ART YET'});
  for(const p of people)if(!p.sprite)demand.push({kind:'person',id:p.id,status:review.people[p.id]?.status||'NO APPROVED ART YET',...(review.people[p.id]?.note?{note:review.people[p.id].note}:{})});
  // Screens: every adventure screen and Combat 2.0 fight, with final-art status.
- const dr=await dryRun(),cr=await combatDryRun(),screens={};
+ const screens={};
  const placeholderEnv=id=>!!ctx.RAEnvironments.get(id)?.placeholder;
  const hasArt=spec=>{const id=typeof spec==='string'?spec:spec?.id;if(!id)return true;const p=id==='rich'?ctx.RABtfPeople.rich:ctx.RABtfPeople.get(id);return !!p?.sprite};
  for(const r of dr.rows){const missing=Object.values(r.castSpecs).filter(s=>s&&!hasArt(s)).length,a=review.screens[r.key];

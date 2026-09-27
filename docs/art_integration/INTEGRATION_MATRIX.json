@@ -3,10 +3,10 @@
  "summary": {
   "frozenFiles": 204,
   "assets": {
-   "FROZEN + ALREADY INTEGRATED": 170,
+   "FROZEN + ALREADY INTEGRATED": 172,
    "HANDOFF SHEET (placement uses individual masters)": 12,
    "FROZEN + MAPPING AMBIGUOUS": 4,
-   "FROZEN STATE AVAILABLE": 6,
+   "FROZEN STATE AVAILABLE": 4,
    "FROZEN + SUPERSEDED (history preserved)": 2,
    "FROZEN LIBRARY (no authorized runtime assignment)": 9,
    "FROZEN + READY TO INTEGRATE": 1
@@ -701,15 +701,19 @@
    "path": "assets/before_the_fame/characters/rich_portobello/rich_portobello_porch_seated_80x96.png",
    "kind": "character-state",
    "id": "rich_portobello.porch_seated",
-   "status": "FROZEN STATE AVAILABLE",
-   "runtime": []
+   "status": "FROZEN + ALREADY INTEGRATED",
+   "runtime": [
+    "state:rich_portobello.porch_seated"
+   ]
   },
   {
    "path": "assets/before_the_fame/characters/rich_portobello/rich_portobello_presenting_80x96.png",
    "kind": "character-state",
    "id": "rich_portobello.presenting",
-   "status": "FROZEN STATE AVAILABLE",
-   "runtime": []
+   "status": "FROZEN + ALREADY INTEGRATED",
+   "runtime": [
+    "state:rich_portobello.presenting"
+   ]
   },
   {
    "path": "assets/before_the_fame/characters/rich_portobello/rich_portobello_standing_80x96.png",
