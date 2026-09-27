@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Rich Alucard HQ — Road to Shipping BTF</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="shell">
+    <header class="hero">
+      <div>
+        <p class="eyebrow">ROADMAP</p>
+        <h1>Rich Alucard HQ</h1>
+        <p class="subtitle">The road to shipping <strong>BEFORE THE FAME.</strong></p>
+      </div>
+      <aside class="status">
+        <span class="status-pill" id="projectStatus">BUILDING</span>
+        <p>Current</p>
+        <strong id="currentObjective">Finish OPEN construction</strong>
+        <p class="updated">Updated <span id="updated">Sep 27, 2026</span></p>
+      </aside>
+    </header>
+
+    <section class="roadmap" aria-label="Before the Fame release roadmap">
+      <div class="track" aria-hidden="true"><div class="track-fill" id="trackFill"></div></div>
+      <div class="phases" id="phases"></div>
+    </section>
+
+    <section class="now-card">
+      <div class="now-mark"></div>
+      <div>
+        <p class="eyebrow">RIGHT NOW</p>
+        <h2 id="nowTitle">Finish OPEN construction</h2>
+        <p id="nowBody">Close the remaining authorized build gaps and reach a stable OPEN checkpoint.</p>
+      </div>
+      <div class="now-phase" id="nowPhase">01 / BUILD THE GAME</div>
+    </section>
+
+    <footer>
+      <span>BEFORE THE FAME</span>
+      <span>FULFILLMENT IS GAMEPLAY.</span>
+    </footer>
+  </main>
+
+<script>
+async function boot() {
+  const data = await fetch('hq-state.json', {cache:'no-store'}).then(r => r.json());
+  document.getElementById('projectStatus').textContent = data.status;
+  document.getElementById('currentObjective').textContent = data.currentObjective;
+  document.getElementById('updated').textContent = data.updated;
+  document.getElementById('nowTitle').textContent = data.currentObjective;
+  document.getElementById('nowBody').textContent = data.currentDescription;
+
+  const phases = document.getElementById('phases');
+  const currentIndex = data.phases.findIndex(p => p.state === 'current');
+  const completedMajor = data.phases.filter(p => p.state === 'complete').length;
+  const progress = ((completedMajor + Math.max(currentIndex >= 0 ? .78 : 0, 0)) / (data.phases.length - 1)) * 100;
+  document.getElementById('trackFill').style.width = Math.min(progress,100) + '%';
+
+  data.phases.forEach((phase, i) => {
+    const el = document.createElement('article');
+    el.className = 'phase ' + phase.state;
+    const tasks = phase.tasks.map(t => {
+      const cls = t.state === 'done' ? 'done' : t.state === 'current' ? 'task-current' : '';
+      const mark = t.state === 'done' ? '✓' : t.state === 'current' ? '→' : '';
+      return `<li class="${cls}"><span class="check">${mark}</span><span>${t.label}</span></li>`;
+    }).join('');
+    el.innerHTML = `
+      <div class="node"><span>${i+1}</span></div>
+      <div class="phase-heading">
+        <h3>${phase.title}</h3>
+        <p>${phase.subtitle}</p>
+      </div>
+      <ul>${tasks}</ul>`;
+    phases.appendChild(el);
+    if (phase.state === 'current') document.getElementById('nowPhase').textContent =
+      String(i+1).padStart(2,'0') + ' / ' + phase.title;
+  });
+}
+boot().catch(err => {
+  document.body.insertAdjacentHTML('beforeend','<p class="load-error">HQ state failed to load.</p>');
+  console.error(err);
+});
+</script>
+</body>
+</html>
