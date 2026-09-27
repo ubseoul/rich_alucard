@@ -319,6 +319,8 @@ const MG_ROUTES={
  bars:{setup:()=>{RALife.unlockApp('bars',{silent:true});},enter:async p=>{await openPhone(p);await phoneClick(p,'app:bars');const b=p.locator('#phoneContent [data-phone-action^="do:bars:"]');await b.first().click();await settle(p,300);}},
  slurp:{setup:()=>{},enter:async p=>{await openPhone(p);await phoneClick(p,'app:vampgpt');await phoneClick(p,'prompt');await phoneClick(p,'somewhere');await phoneClick(p,'go:slurp');},adventure:true},
  jollof:{setup:()=>{RALife.addMoney(100000);RACastle.buy('kitchen');},enter:async p=>{await p.locator('.bedroom-castle').click();await settle(p,300);await p.locator('.castle-menu [data-castle="castle:kitchen"]').click();await settle(p,500);},adventure:true},
+ // Engineering 05: PICKUP's real route — GO SOMEWHERE → VENICE COURTS → RUN PICKUP (first choice).
+ pickup:{setup:()=>{},enter:async p=>{await openPhone(p);await phoneClick(p,'app:vampgpt');await phoneClick(p,'prompt');await phoneClick(p,'somewhere');await phoneClick(p,'go:venice');},adventure:true},
  hookah:{setup:()=>{RALife.addMoney(100000);RACastle.buy('hookah_roof');},enter:async p=>{await p.locator('.bedroom-castle').click();await settle(p,300);await p.locator('.castle-menu [data-castle="castle:roof"]').click();await settle(p,500);},adventure:true},
 };
 async function scenarioMinigames(save){
@@ -349,13 +351,7 @@ async function scenarioMinigames(save){
    flushErrors(p,`mg-${id}-${mode}`);await p.context().close();
   }
  }
- if(args.mg&&!String(args.mg).includes('pickup'))return results;
- // PICKUP has no in-game route; its intended surface is the feel-batch lab (docs/btf/PLAY_WINDOW_A.md).
- for(const mode of ['play','quit']){const p=await newPage(390,{fresh:false});const rng=rngFrom(SEED+99+(mode==='quit'?1:0));await p.goto(base+'/minigame-lab.html');await settle(p,800);
-  await p.locator('#labList [data-game="pickup"]').click();await settle(p,400);const r=await playMinigame(p,'pickup',rng,{budgetMs:mode==='quit'?1500:25000,preferQuit:mode==='quit'});
-  const lab=await p.evaluate(()=>({menu:getComputedStyle(document.querySelector('#labMenu')).display!=='none',result:document.querySelector('#labResult')?.textContent||'',store:localStorage.getItem('rich_alucard_minigame_lab_v1')}));
-  results.pickup={...(results.pickup||{}),[mode]:{exit:r.exit,canvasResponded:r.changed,backToMenu:lab.menu,result:lab.result.replace(/\s+/g,' '),progressSaved:!!lab.store}};note(`[minigame] pickup ${mode}: ${JSON.stringify(results.pickup[mode])}`);
-  flushErrors(p,`mg-pickup-${mode}`);await p.context().close();}
+ if(args.mg)return results;
  // Every lab entry also opens and quits cleanly (Play Window A surface).
  const p=await newPage(390,{fresh:false});await p.goto(base+'/minigame-lab.html');await settle(p,800);const labIds=await p.evaluate(()=>[...document.querySelectorAll('#labList [data-game]')].map(b=>b.dataset.game));
  for(const id of labIds){await p.locator(`#labList [data-game="${id}"]`).click();await settle(p,500);await p.locator('.ra-minigame-quit').click();await settle(p,300);const back=await p.evaluate(()=>getComputedStyle(document.querySelector('#labMenu')).display!=='none'&&!document.querySelector('.ra-minigame'));if(!back)finding('PLAYTEST BLOCKER','LAB-QUIT',id);}
@@ -375,6 +371,9 @@ async function scenarioMigration(){
   const s2=await probe(q);let rl={diff:[]};if(s2.scene==='bedroom'&&s2.started)rl=await reloadCheck(q,`migration-${id}`);
   note(`[migration] ${id}: load ${status.source}${status.migrated?' (migrated)':''}${status.recovered?' (recovered)':''} → v${status.version}, START → ${s.scene}${s.adv?'/'+s.adv:''} → ${s2.scene} day ${s2.day}, refresh diff ${rl.diff.length}`);
   if(status.version!==12)finding('PLAYTEST BLOCKER','MIGRATION',`${id} → v${status.version}`);
+  // HQ (Engineering 05): a paused Supra acquisition is existing progress — START must not replay the new prologue.
+  if(id==='supraPaused'&&(!status.started||s.adv==='A00'||s.scene==='battle'))finding('PLAYTEST BLOCKER','MIGRATION-PROLOGUE',`supraPaused replays the prologue (started ${status.started}, START → ${s.scene}/${s.adv||'-'})`);
+  if(id==='supraPaused')note(`[migration] supraPaused: clock started ${status.started}, START → ${s.scene}/${s.adv||'-'} (no prologue)`);
   flushErrors(q,`migration-${id}`);await q.context().close();}
 }
 
@@ -491,6 +490,46 @@ async function scenarioEnding(save){
 
 // Static: every authored adventure id should be named by some entry (place, lane, temptation, wake trigger, chain,
 // system call). Ids named nowhere but their own definition have no player path (DEV only).
+// ---------- Engineering 05: the HQ routes, each encountered through real player taps ----------
+async function advPrefer(p,rng,where,prefer,{maxSteps=400}={}){
+ // Tap through the current adventure; at a choice, take the one whose text matches `prefer` (else any enabled).
+ for(let i=0;i<maxSteps;i++){const s=await probe(p);if(!(s.scene==='adventure'||s.advScene)||s.minigame||s.c2)return s;
+  if(s.choices.length){const texts=await p.locator('.adv-choice').allInnerTexts();let k=texts.findIndex((t,j)=>prefer.test(t)&&!s.choices[j]?.disabled);if(k<0)k=s.choices.findIndex(c=>!c.disabled);await p.locator('.adv-choice').nth(Math.max(0,k)).click();await settle(p,160);continue}
+  await p.locator('#adventureScene').click({position:{x:Math.round(p.viewportSize().width/2),y:Math.round(p.viewportSize().height*.4)}}).catch(()=>{});await settle(p,110);}
+ return probe(p);
+}
+// Recorded outcome of the PLAYER-BLIND Ogun's Rave (exercised for function in --only legacy); routes build on it.
+const ogunSeed=()=>{RAState.patch('life.world.flags.ogunsRaveCompleted',true);RAState.patch('life.world.flags.castlePartyHostingUnlocked',true);RALife.unlockApp('vampgram',{silent:true});};
+async function routeOpen(p,save,setup){await p.evaluate(s=>localStorage.setItem('rich_alucard_save_v1',s),save);await p.goto(base+'/');await settle(p,400);if(setup)await p.evaluate(`(${setup.toString()})()`);await p.reload();await settle(p,400);await instrument(p);await p.locator('#startButton').click();await settle(p,900);await drive(p,rngFrom(5),'route-open');}
+async function wakeWith(p,rng,where,cardRe){for(let n=0;n<16;n++){await drive(p,rng,`${where}-pre${n}`);await sleepNight(p,where);const card=p.locator('.morning-mail .mail-card',{hasText:cardRe});if(await card.count()){await card.first().click();await settle(p,600);return true}await drive(p,rng,`${where}-mail${n}`);}return false}
+const toVamp=async(p,...steps)=>{await openPhone(p);await phoneClick(p,'app:vampgpt');for(const a of steps)await phoneClick(p,a);};
+async function scenarioRoutes(save){
+ const results={};
+ const check=async(p,name,ids)=>{const rng=rngFrom(SEED+name.length);const d=await drive(p,rng,`route-${name}-return`);await invariants(p,`route-${name}`,{idle:!d.night});const rl=await reloadCheck(p,`route-${name}`);
+  const got=await p.evaluate(ids=>Object.fromEntries(ids.map(i=>[i,!!RAAdventures.isDone(i)])),ids);results[name]={completed:got,reloadDiff:rl.diff.length};note(`[route] ${name}: ${JSON.stringify(results[name])}`);
+  for(const [i,v] of Object.entries(got))if(!v)finding('PLAYTEST BLOCKER','ROUTE',`${name}: ${i} was not reached through its player route`);await snap(p,`route-${name}`);flushErrors(p,`route-${name}`);await p.context().close();};
+ const want=n=>!args.route||String(args.route).split(',').includes(n);
+ if(want('emberly')){const p=await newPage(390),rng=rngFrom(11);await routeOpen(p,save,()=>{RADragon.adoptEgg();const r={...RAState.get().life.adventures.records,A09:{status:'completed',count:1,completedDay:1}};RAState.patch('life.adventures.records',r);});
+  await toVamp(p,'prompt','somewhere','go:kush');await advPrefer(p,rng,'emberly',/THE BACK ROOM/);await check(p,'emberly',['KUSH','A_EMBERLY1']);}
+ if(want('hina')){const p=await newPage(390);await routeOpen(p,save);await toVamp(p,'prompt','somewhere','go:slurp');await check(p,'hina',['A08','A_HINA1']);}
+ if(want('jade')){const p=await newPage(390),rng=rngFrom(13);await routeOpen(p,save,()=>{RAState.patch('life.world.flags.ogunsRaveCompleted',true);RAState.patch('life.world.flags.castlePartyHostingUnlocked',true);RADragon.adoptEgg();RALife.addMoney(1000000);RACastle.buy('party_hall');RACastle.buy('dragon_roost');});
+  await p.locator('.bedroom-castle').click();await settle(p,300);await p.locator('.castle-menu [data-castle="castle:party"]').click();await settle(p,500);await advPrefer(p,rng,'jade',/DRAGON NIGHT|THAT'S THE LIST|NO MUSIC|OPEN BAR|TUNDE|TWO STEP|LET IT GO/);await check(p,'jade',['A26','A_JADE1']);}
+ if(want('lo')){const p=await newPage(390),rng=rngFrom(14);await routeOpen(p,save,ogunSeed);await toVamp(p,'prompt','people','go:lane:party');await drive(p,rng,'lo-1');
+  await sleepNight(p,'lo');await drive(p,rng,'lo-wake');await toVamp(p,'prompt','people','go:lane:party');await check(p,'lo-anfeesa',['A_LO1','A55','A_ANFEESA1']);}
+ if(want('velvet')){const p=await newPage(390),rng=rngFrom(15);await routeOpen(p,save,ogunSeed);const ok=await wakeWith(p,rng,'velvet',/VELVET/);if(!ok)finding('PLAYTEST BLOCKER','ROUTE','velvet: DM card never reached Morning Mail');
+  await p.locator('#phoneContent [data-phone-action="tempt:velvet_dm"]').first().click().catch(()=>{});await settle(p,600);await drive(p,rng,'velvet-dm');
+  await openPhone(p);await phoneClick(p,'app:onlyvamps');const ov=await p.evaluate(()=>document.querySelector('#phoneContent')?.innerText||'');if(/invite only/i.test(ov))finding('PLAYTEST BLOCKER','ROUTE','ONLYVAMPS still invite-only after Velvet');results.onlyvamps={opens:!/invite only/i.test(ov)};await closePhone(p);await check(p,'velvet',['A_VELVET1']);}
+ if(want('a37')){const p=await newPage(390),rng=rngFrom(16);await routeOpen(p,save,()=>{let d=16;while(!RALife.dayInfo(d).friday&&RALife.dayInfo(d).weekday!=='FRIDAY')d++;RAState.patch('life.world.day',d-1);});
+  const ok=await wakeWith(p,rng,'a37',/ATLANTA/);if(!ok)finding('PLAYTEST BLOCKER','ROUTE','a37: Friday invite never reached Morning Mail');await p.locator('#phoneContent [data-phone-action="tempt:a37_friday"]').first().click().catch(()=>{});await settle(p,600);await check(p,'a37',['A37']);}
+ if(want('a46')){const p=await newPage(390),rng=rngFrom(17);await routeOpen(p,save,()=>{RALife.unlockApp('instahoe',{silent:true});RARelations.meet('kiki','qa');RARelations.add('kiki',60);});const ok=await wakeWith(p,rng,'a46',/take me somewhere special/i);if(!ok)finding('PLAYTEST BLOCKER','ROUTE','a46: her ask never reached Morning Mail');
+  await openPhone(p);await phoneClick(p,'app:instahoe');await phoneClick(p,'app:instahoe:p:kiki');await phoneClick(p,'app:instahoe:dm:kiki');const reply=p.locator('#phoneContent [data-phone-action^="do:instahoe:reply:kiki|tempt:a46_special"]');if(await reply.count()){await reply.first().click();await settle(p,800);}
+  await advPrefer(p,rng,'a46',/KIKI/);await check(p,'a46',['A46']);}
+ if(want('a23r')){const p=await newPage(390),rng=rngFrom(18);await routeOpen(p,save,()=>{const r={...RAState.get().life.adventures.records};for(const id of ['A23','A19','A24'])r[id]={status:'completed',count:1,completedDay:1};RAState.patch('life.adventures.records',r);RALife.setFlag('armoryKnown',true);RALife.addGun('lil_oga');});
+  for(let n=0;n<6;n++){await drive(p,rng,`a23r-${n}`);await sleepNight(p,'a23r');await drive(p,rng,`a23r-w${n}`);await openPhone(p);await phoneClick(p,'app:vampgpt');if(await p.locator('#phoneContent [data-phone-action="tempt:a23r_rematch"]').count()){await phoneClick(p,'tempt:a23r_rematch');break}await closePhone(p);}
+  await check(p,'a23r',['A23R']);}
+ return results;
+}
+
 async function reachability(){
  const files=[];const walk=async d=>{for(const e of await readdir(d,{withFileTypes:true})){const p=path.join(d,e.name);if(e.isDirectory())await walk(p);else if(p.endsWith('.js'))files.push(p);}};await walk(path.join(root,'js'));
  const src=await Promise.all(files.map(async f=>[f,await readFile(f,'utf8')]));const ids=[];
@@ -510,7 +549,7 @@ async function main(){
  if(want('reachability'))report.results.orphans=await reachability();
  try{
   if(args.save&&existsSync(String(args.save))){save=await readFile(String(args.save),'utf8');progressed=save;note(`using saved progressed life ${args.save}`);}
-  else if(want('newgame')||want('life')||want('minigames')||want('widths')||want('ending')||want('legacy')||want('systems')||want('wake-reload')){const saves={};for(const [size,steal] of [[360,'no'],[390,'yes'],[430,'no']]){if(!want('newgame')&&size!==390)continue;saves[size]=await scenarioNewGame(size,{steal});}save=saves[390];}
+  else if(want('newgame')||want('life')||want('minigames')||want('widths')||want('ending')||want('legacy')||want('systems')||want('wake-reload')||want('routes')){const saves={};for(const [size,steal] of [[360,'no'],[390,'yes'],[430,'no']]){if(!want('newgame')&&size!==390)continue;saves[size]=await scenarioNewGame(size,{steal});}save=saves[390];}
   if(want('prologue-reload')){await scenarioPrologueReload();await scenarioThroneDefeat();}
   if(want('life')&&save){progressed=await scenarioLife(save);await writeFile(path.join(out,'progressed-save.json'),progressed);}
   if(want('minigames')&&save)report.results.minigames=await scenarioMinigames(progressed||save);
@@ -520,6 +559,7 @@ async function main(){
   if(want('legacy')&&save)await scenarioLegacy(save);
   if(want('systems')&&save)await scenarioSystems(save);
   if(want('wake-reload')&&save)await scenarioWakeReload(save);
+  if(want('routes')&&save)report.results.routes=await scenarioRoutes(progressed||save);
  }finally{
   if(server.missing.size)for(const m of server.missing)finding('ENGINEERING BUG — NON-BLOCKING','MISSING-ASSET',m);
   await browser.close();server.close();

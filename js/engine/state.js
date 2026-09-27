@@ -122,7 +122,9 @@
     ensureBtf(Object.assign(life,{resources:objectOr(life.resources,{}),ownership:objectOr(life.ownership,{}),phone:objectOr(life.phone,{}),creativeLife:objectOr(life.creativeLife,{music:{}})}));
     life.creativeLife.music=objectOr(life.creativeLife.music,{songs:[],progress:{}});ensureBtf(life);
     const flags=life.world.flags,own=life.ownership;
-    const progressed=!!(life.phone.learned||arrayOr(life.desires?.completed).length||arrayOr(own.cars).length||arrayOr(own.properties).length||arrayOr(life.night?.completed).length||next.encounters?.ceo_prince?.defeated);
+    // HQ (Engineering 05): a paused Supra acquisition is existing progress too, so that life never replays the prologue.
+    const acq=life.acquisitions?.active,pausedSupra=isObject(acq)&&acq.status==='paused'&&acq.vehicleId==='toyota_supra_mk4_001';
+    const progressed=!!(life.phone.learned||arrayOr(life.desires?.completed).length||arrayOr(own.cars).length||arrayOr(own.properties).length||arrayOr(life.night?.completed).length||next.encounters?.ceo_prince?.defeated||pausedSupra);
     if(progressed){life.clock.started=true;flags.prologueDone=true;flags.throneDone=true;flags.firstWakeDone=true;flags.ogunInviteWindow=true;}
     const day=isFiniteNumber(life.world.day)&&life.world.day>=1?Math.floor(life.world.day):1;life.world.day=day;life.world.month=Math.floor((day-1)/28)+1;
     if(!life.clock.lastWakeDay)life.clock.lastWakeDay=progressed?day:0;

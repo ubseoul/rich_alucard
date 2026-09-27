@@ -200,6 +200,14 @@
   const handling=computeHandling(carId,parts);
   const rain=!!P.rain;
   const tandem=P.tandem||null;
+  // ART SHIP 014: tandem rivals drive frozen TOUGE cars — Pinky her pink S2000 (ART SHIP 006), Tokyo Tony the Midnight
+  // Mafia rival car (rival A; content has only one Midnight Mafia driver, so rival B stays unassigned).
+  const RIVAL_CAR={'PINKY':'s2000_pink','TOKYO TONY':'rival_a'};
+  const rivalSrc=tandem&&window.RAArtRegistry?.vehicles?.touge?.[RIVAL_CAR[tandem.rival]]?.asset,rivalSprite=rivalSrc?Object.assign(new Image(),{src:rivalSrc}):null;
+  // HUD face (ART SHIP 014 Rich states): locked in while a drift holds, spun out for a beat after a spin. Drawn at
+  // native 1:1 as a head-and-shoulders crop, under the score and clear of the quit zone.
+  const hudFaces=Object.fromEntries(['touge_locked','touge_spun'].map(k=>{const src=window.RABtfPeople?.rich?.states?.[k]||window.RAArtRegistry?.characters?.rich?.states?.[k];return [k,src?Object.assign(new Image(),{src}):null];}));
+  let spunAt=-9;
   const passengerName=P.passenger||null;
   const leaderboard=Array.isArray(P.leaderboard)?P.leaderboard:[];
   const lesson=P.lesson;
@@ -279,7 +287,7 @@
    course=buildCourse(P.course&&COURSE_THEME[P.course]?P.course:'angeles_crest',Math.floor(Math.random()*1e9));
    state={heading:0,slideAngle:0,speed:0,x:0,distance:0,sliding:false,spinning:false};
    score=0;chain=1;spins=0;maxAngleSeen=0;clipHits=0;wallCooldown=0;tandemScore=0;
-   runElapsed=0;phase='run';resultShown=null;cleanTimer=0;rewardedClean=false;
+   runElapsed=0;phase='run';resultShown=null;cleanTimer=0;rewardedClean=false;spunAt=-9;
    lessonCounts={1:0,2:0,3:0,4:0};
    lessonFlash={text:LESSON_WORD[lesson]||null,t:LESSON_WORD[lesson]?1.6:0};
   }
@@ -323,7 +331,7 @@
     if(input.throttle>0.6&&absAngle>lastAbsAngle){if(!episodeThrottleOk){lessonCounts[3]++;episodeThrottleOk=true;}}
    } else {episodeCounterOk=false;episodeThrottleOk=false;}
    lastAbsAngle=absAngle;
-   if(state.spinning){spins++;chain=1;episodeCounterOk=false;episodeThrottleOk=false;}
+   if(state.spinning){spins++;chain=1;episodeCounterOk=false;episodeThrottleOk=false;spunAt=runElapsed;}
    if(lesson&&LESSON_WORD[lesson]&&lessonCounts[lesson]===1&&lessonFlash.t<=0){lessonFlash={text:LESSON_WORD[lesson],t:1.1};}
    if(lessonFlash.t>0)lessonFlash.t-=dt;
 
@@ -391,13 +399,14 @@
     const rd=tandem.role==='lead'?state.distance+90:state.distance-90;
     const sy=carY-(rd-state.distance);
     const sx=screenXforWorld(course.xAt(clamp(rd,0,course.length)));
-    if(sy>-20&&sy<500)drawCar(sx,sy,0,0,'#20c66b',0.85);
+    if(sy>-20&&sy<500)drawCar(sx,sy,0,0,'#20c66b',0.85,rivalSprite);
    }
    drawCar(screenXforWorld(state.x),carY,state.heading,state.slideAngle,handling.color,1,carSprite);
 
    // HUD (avoid top-right 60x24 quit zone)
    RAPixel.text(c,`${Math.round(score)}`,6,4,{size:10,color:'#f6efd9'});
    RAPixel.text(c,`x${chain.toFixed(1)}`,6,18,{size:7,color:'#c18b3c'});
+   {const face=runElapsed-spunAt<1.2?hudFaces.touge_spun:state.sliding?hudFaces.touge_locked:null;if(face?.complete&&face.naturalWidth){c.imageSmoothingEnabled=false;c.drawImage(face,18,4,44,46,4,30,44,46);}}
    RAPixel.text(c,`${Math.round(state.slideAngle)}°`,6,468,{size:7,color:Math.abs(state.slideAngle)>15?'#20c66b':'#6b6780',baseline:'bottom'});
    RAPixel.text(c,`${runElapsed.toFixed(0)}s`,264,468,{size:7,align:'right',baseline:'bottom',color:'#f6efd9'});
    if(passengerBubble&&passengerName){RAPixel.text(c,`${passengerName}: ${passengerBubble.text}`,135,40,{size:6,align:'center',color:'#ff6fb5'});}

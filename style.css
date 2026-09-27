@@ -726,7 +726,13 @@ body.jdm-battle .production-ceo.state-hit{filter:brightness(1.25)}
 .jdm-panel-action,.jdm-action{width:100%;min-height:28px;padding:5px 3px;background:#17142c;color:#fff;border:2px solid #fff;font:6px/1.35 var(--font-command);cursor:pointer}
 .jdm-action:disabled{opacity:.55;cursor:default}
 .jdm-store-actions{display:grid;gap:5px;margin-top:8px}
-.supra-product{display:block;width:136px;height:50px;margin:4px auto 7px;image-rendering:pixelated;object-fit:fill}
+.supra-product{display:block;width:136px;height:auto;margin:4px auto 7px;image-rendering:pixelated}
+/* ART SHIP 014 frozen UI art on phone cards (native pixels, integer scale only). */
+.car-listing{display:block;width:68px;height:50px;margin:0 auto 4px;image-rendering:pixelated}
+.radio-cover,.family-avatar,.vg-avatar,.adv-choice-icon,.c2-icon{image-rendering:pixelated;flex:none}
+.radio-cover{float:left;width:32px;height:32px;margin:0 8px 2px 0}
+.vg-avatar{float:left;width:40px;height:44px;margin:0 6px 2px 0;background:no-repeat -20px -6px}
+.family-avatar{display:inline-block;vertical-align:middle;width:22px;height:28px;margin-right:4px;background:no-repeat -29px -34px}
 .jdm-price{margin:7px 0;font-size:9px;color:#7d194b}
 .jdm-access-note{font-size:7px;color:#544757}
 .supra-payoff-panel{position:absolute;z-index:6;left:4%;right:4%;bottom:4%;padding:7px;background:#f1e5c5;color:#17142c;border:3px solid #28131c;box-shadow:3px 3px #7d194b;text-align:center;font:7px/1.5 var(--font-dialogue)}

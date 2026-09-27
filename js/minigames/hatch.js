@@ -220,9 +220,25 @@
    R.rect(g,40,378,190,8,'rgba(0,0,0,.25)');
    if(pose==='sulk'){R.rect(g,168,150,50,44,'#1c356e');}
   }
+  // Frozen ART SHIP 014 Blueberry Mazda life stages at an integer nearest-neighbour scale (the young dragon one step larger so growth reads), standing on the placeholder's
+  // ground line (x centred). Hungry reads as neutral; the majestic dragon has no approved sulk, so she sulks perched
+  // (on the roof). The placeholder shapes remain only until the image has loaded.
+  const FORM={hatchling:{k:2,ground:270,bottom:35},young:{k:3,ground:290,bottom:35},majestic:{k:3,ground:380,bottom:63}}; // bottom = last opaque row of the frozen cell
+  const formImages={};
+  function frozenForm(pose){
+   const f=FORM[dragon.stage],stage=window.RAArtRegistry?.dragon?.[dragon.stage];if(!f||!stage)return false;
+   const key=dragon.stage==='majestic'?(pose==='happy'?'happy':'perched'):(pose==='hungry'?'neutral':pose);
+   const src=stage[key]?.asset;if(!src)return false;
+   const img=formImages[src]||(formImages[src]=Object.assign(new Image(),{src}));if(!(img.complete&&img.naturalWidth))return false;
+   const bob=pose==='happy'?Math.round(Math.sin(performance.now()/260)*3):0,w=img.naturalWidth*f.k,h=img.naturalHeight*f.k;
+   g.imageSmoothingEnabled=false;g.drawImage(img,Math.round(135-w/2),f.ground-f.bottom*f.k+bob,w,h);
+   if(sparks.length&&dragon.stage==='hatchling')for(const s of sparks)R.rect(g,s.x,s.y,2,2,'#ffd98a');
+   return true;
+  }
   function drawDragon(){
    const pose=poseFor(dragon);
    if(dragon.stage==='egg')eggShape();
+   else if(frozenForm(pose)){}
    else if(dragon.stage==='hatchling')hatchlingShape(pose);
    else if(dragon.stage==='young')youngShape(pose);
    else majesticShape(pose);

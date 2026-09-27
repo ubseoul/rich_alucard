@@ -50,7 +50,7 @@
     N('he lies well. smooth. barely a beat missed.')],
    choices:[{label:'LET IT GO',fx:A=>RALife.setFlag('coffeRogue','confronted'),next:'letgo'},
     {label:'EXPOSE HIM',octopus:true,when:()=>RALife.L().known3cool,sub:'3+ PEOPLE AT COOL+ HAVE TO VOUCH',next:'expose'}]},
-  expose:{lines:[N('you pull three people who know coffe — real ones, cool with you — into the group chat at once.'),
+  expose:{actors:{left:'rich',right:{id:'coffe',state:'caught'}},lines:[N('you pull three people who know coffe — real ones, cool with you — into the group chat at once.'),
     S('coffe','…y\'all really did that. ok. ok, real talk—'),N('he cracks. not all the way. but enough.'),
     S('coffe','vicky\'s party been paying me to keep tabs on the castle. i drink the coffee for real though. that part\'s true.'),
     R("that's the least surprising part of this whole story.")],
@@ -118,7 +118,7 @@
  // A33 — THE DUCHESS'S SOIRÉE
  // ===================================================================================================
  RAWakeTriggers.define([{adventure:'A33',priority:35,when:L=>L.rep>=2&&!L.done('A33')}]);
- D({id:'A33',title:"THE DUCHESS'S SOIRÉE",lane:'people',scope:'MUST',memoryType:'people',start:'invite',
+ D({id:'A33',title:"THE DUCHESS'S SOIRÉE",lane:'people',scope:'MUST',memoryType:'people',start:'invite',presentationVariants:[{answer:'nothing'}],
   nodes:{
   invite:{env:'street_night',actors:{left:'rich'},title:'VAMPGRAM',
    lines:[N('an invite on VampGram: gold text, no handle. "THE DUCHESS REQUESTS YOUR PRESENCE."')],next:'arrive'},
@@ -138,7 +138,7 @@
     if(!opts.length)opts.push({label:'BE HONEST — NOTHING YET',fx:X=>X.set('answer','nothing'),next:'react'});
     opts.push({label:'DEFLECT WITH CHARM',octopus:true,fx:X=>X.set('answer','charm'),next:'react'});
     return opts;}},
-  react:{lines:A=>{const a=A.vars.answer;const lines={cooked:"i cooked something real, about a real night.",show:'i played a show. people showed up.',drop:'i actually dropped something.',nothing:"…nothing yet. honestly.",charm:"does it matter what i've done, or that i\'m interesting?"};
+  react:{actors:A=>({left:'rich',right:{id:'duchess',state:A.vars.answer==='nothing'?'unimpressed':'impressed'}}),lines:A=>{const a=A.vars.answer;const lines={cooked:"i cooked something real, about a real night.",show:'i played a show. people showed up.',drop:'i actually dropped something.',nothing:"…nothing yet. honestly.",charm:"does it matter what i've done, or that i\'m interesting?"};
     return [R(lines[a]),S('duchess',a==='nothing'?'honesty. how refreshingly poor of you.':a==='charm'?'…she likes that answer the most.':'good. do more of that.'),
      S('duchess','RICHBOIMPORTS should know your name. i\'ll see to it.')];},
    enter:A=>{RARelations.meet('duchess','duchess_castle');RALife.setFlag('duchessTease',true);RALife.addPoints('rep',30);RALife.addPoints('clout',10);},next:'done'},
@@ -161,7 +161,7 @@
     next:(A,r)=>{A.set('chaseWin',r.outcome==='win');return 'result';}}},
   result:{lines:A=>{const won=A.vars.leadWin&&A.vars.chaseWin;return [S('tokyo_tony',won?'…yeah. you can run r34 lines now.':'close. not there yet.')];},
    choices:A=>(A.vars.leadWin&&A.vars.chaseWin)?[{label:'CONTINUE',next:'pinky'}]:[{label:'CONTINUE',next:'done'}]},
-  pinky:{env:'grave_closed',actors:{left:'rich',right:'pinky'},
+  pinky:{env:'grave_closed',actors:{left:'rich',right:{id:'pinky',state:'impressed'}},
    lines:A=>{const close=RARelations.level('pinky')>=3;return [N('pinky was watching from the top of the ramp.'),
     S('pinky',close?"you drive it better than me. take the s2000. i\'ll get another one.":'clean run. i saw the whole thing.')];},
    choices:A=>RARelations.level('pinky')>=3?[{label:'TAKE THE S2000',fx:X=>{if(RACars.buy('s2000'))X.set('gotCar',true);},next:'done'}]:[{label:'CONTINUE',next:'done'}]},
@@ -228,7 +228,7 @@
    lines:[N('applicant one: a ghost. she picks up the mop. the mop passes through her hands.'),
     S(null,'"…i used to be so good at this."'),R('it\'s ok. thank you for coming.')],next:'bones'},
   bones:{lines:A=>RALife.flag('bonesworthResident')?[N('applicant two: sir bonesworth, in an apron over his armor.'),S('bonesworth','I SHALL CLEAN AS I ONCE CONQUERED.'),N('he breaks a vase immediately.')]:[N('no second applicant today. the list is short.')],next:'marisol'},
-  marisol:{env:'throne',actors:{mid:'rich',right:'marisol'},
+  marisol:{env:'throne',actors:{mid:'rich',right:{id:'marisol',state:'disapproving'}},
    lines:[E('marisol','the third applicant walks in and starts reorganizing the throne room before she even sits down.'),
     S('marisol','this room is a disaster. the throne should face the door, not the window. who arranged this?'),
     R("…nobody, technically."),S('marisol','that explains everything.')],
@@ -425,14 +425,17 @@
  // ===================================================================================================
  // A46 — LITTLE TOKYO SPECIAL NIGHT
  // ===================================================================================================
+ // ART SHIP 014: she is staged in her approved frozen `date` state where one exists (a planned night out is a date).
+ const a46Her=A=>RABtfPeople.get(A.vars.person)?.states?.date?{id:A.vars.person,state:'date'}:A.vars.person;
  D({id:'A46',title:'LITTLE TOKYO SPECIAL NIGHT',lane:'people',repeatable:true,memoryType:'people',start:'ask',
+  presentationVariants:RABtfPeople.women.filter(p=>p.states?.date).map(p=>({person:p.id})),
   available:L=>Object.keys(RALife.life().people.records||{}).some(id=>RARelations.level(id)>=3),
   nodes:{
   ask:{env:'street_night',actors:{left:'rich'},title:'"TAKE ME SOMEWHERE SPECIAL"',
    lines:[N('a text: "take me somewhere special."')],
    choices:A=>Object.keys(RALife.life().people.records||{}).filter(id=>RARelations.level(id)>=3)
     .map(id=>({label:(RABtfPeople.get(id)?.name||id).toUpperCase(),fx:X=>X.set('person',id),next:'plan'}))},
-  plan:{env:'little_tokyo',actors:A=>({left:'rich',right:A.vars.person}),title:'LITTLE TOKYO AT NIGHT',
+  plan:{env:'little_tokyo',actors:A=>({left:'rich',right:a46Her(A)}),title:'LITTLE TOKYO AT NIGHT',
    lines:[N('little tokyo at night. you plan three stops out of five.')],
    choices:[
     {label:'RAMEN COUNTER',fx:X=>X.set('stops',[...(X.vars.stops||[]),'ramen']),next:'stop2'},
@@ -445,7 +448,7 @@
   stop3:{lines:[N('third stop.')],choices:A=>['ramen','arcade','photo','roof','bar'].filter(s=>!(A.vars.stops||[]).includes(s))
    .map(s=>({label:s.toUpperCase(),fx:X=>X.set('stops',[...(X.vars.stops||[]),s]),next:'photo'}))},
   photo:{lines:[N('a photo booth strip, unplanned — you both duck in on the way to the last stop.')],next:'bench'},
-  bench:{env:'little_tokyo',actors:A=>({left:'rich',right:A.vars.person}),
+  bench:{env:'little_tokyo',actors:A=>({left:'rich',right:a46Her(A)}),
    lines:A=>[N('you end up on a bench, the strip of photos between you.'),
     S(A.vars.person,'nobody\'s ever planned a night like this for me. three whole stops.'),
     R("you deserve more than three."),N('she says something real — quiet, not for anyone else.')],next:'done'},
@@ -453,6 +456,22 @@
    receipt:{caption:'a photo booth strip. little tokyo, at night.'},
    home:['rich','three stops. worth planning again.',{vp:true}]}}
  }});
+
+ // ENGINEERING 05 (HQ routes) through the existing wake-time want system (WHAT WE ON / Morning Mail / DMs):
+ // - A37: a one-time opportunity on any eligible Friday after Day 15 (its own availability decides the day).
+ // - A46: an eligible woman (CLOSE or better) asks Rich, in her InstaHoe DMs, to take her somewhere special.
+ // - A_VELVET1: after Ogun's Rave and VampGram, Velvet reaches out; her DM scene opens ONLYVAMPS.
+ // - A23R: once Rich is prepared (A23 done, the Armory known and visited, at least one gun) the rematch is on offer.
+ // Lines reuse each adventure's own authored words.
+ const a46Asker=L=>RABtfPeople.women.map(p=>p.id).filter(id=>RARelations.level(id)>=3).sort((a,b)=>RARelations.level(b)-RARelations.level(a)||a.localeCompare(b))[0]||null;
+ RATemptations.define([
+  {id:'a37_friday',source:'invite',sender:'ATLANTA',line:"it's a friday. atlanta is calling.",adventure:'A37',priority:4,life:[1,1],repeatable:false},
+  {id:'a46_special',source:'invite',sender:L=>RABtfPeople.get(a46Asker(L))?.name||'SOMEONE',thread:a46Asker,line:'take me somewhere special.',adventure:'A46',weight:1.5,repeatable:true,cooldown:7,when:L=>!!a46Asker(L)},
+  {id:'velvet_dm',source:'vampgram',sender:'VELVET VANTABLACK',line:'a DM from a locked account: velvet vantablack.',adventure:'A_VELVET1',priority:3,repeatable:false,when:L=>!!(L.flag('ogunsRaveCompleted')&&L.app('vampgram'))},
+  {id:'a23r_rematch',source:'vampgpt',line:'hilt again. same windbreaker.',adventure:'A23R',priority:1,repeatable:false,cooldown:4,when:L=>!!(L.done('A23')&&L.flag('armoryKnown')&&L.done('A24')&&(L.life.ownership.guns||[]).length>0)}
+ ]);
+ // The one-time routes are guaranteed a slot on the wake they become eligible (after the day's wants are generated).
+ RAClock.onWake('e05-routed-wants',61,()=>{for(const id of ['a37_friday','velvet_dm','a23r_rematch'])RATemptations.ensure(id);});
 
  // ===================================================================================================
  // A52 — HALLOWEEN IN VAMPIRE LA (Day 31 only)
@@ -480,6 +499,9 @@
  // ===================================================================================================
  // A55 — OGUN'S SECOND RAVE with DJ ANFEESA. Plus attendable parties: rooftop_dtla, neighbor_castle.
  // ===================================================================================================
+ // ENGINEERING 05 (HQ route): after Ogun's Rave, the first large vampire party FIND A PARTY offers is the one where Lo
+ // is met (A_LO1, one time); Ogun's second rave (A55) follows on a later party night.
+ RAParties.register(L=>L.flag('ogunsRaveCompleted')&&RAAdventures.available('A_LO1')?'A_LO1':null);
  RAParties.register(L=>L.flag('ogunsRaveCompleted')&&!L.done('A55')?'A55':null);
  D({id:'A55',title:"OGUN'S SECOND RAVE",lane:'people',repeatable:false,memoryType:'people',start:'arrive',
   available:L=>L.flag('ogunsRaveCompleted'),
@@ -493,7 +515,8 @@
     if(dropped&&viral)return [N('mid-set, anfeesa drops a techno remix of your song. the crowd doesn\'t know it\'s yours. you do.')];
     return [N('the set rolls on. no remix tonight — maybe next time.')];},
    enter:A=>RAParties.attended('human'),next:'done'},
-  done:{end:{outcome:'attended',memory:{text:"ogun's second rave — techno, dj anfeesa",lane:'people'},
+  // ENGINEERING 05 (HQ route): the DJ waves Rich up to the booth afterwards (A_ANFEESA1, one time).
+  done:{end:{outcome:'attended',chain:()=>RAAdventures.available('A_ANFEESA1')?'A_ANFEESA1':null,memory:{text:"ogun's second rave — techno, dj anfeesa",lane:'people'},
    home:['rich','a crowd that didn\'t care who i was. weirdly relaxing.',{vp:true}]}}
  }});
  D({id:'ROOFTOP_DTLA',title:'A ROOFTOP IN DTLA',lane:'people',repeatable:true,memoryType:'people',start:'arrive',
@@ -518,7 +541,7 @@
     line:b.text,adventure:id,repeatable:false,when:L=>RARelations.level(person)>=needLevel&&L.done(id)===false&&(i===0||L.done(`ARC_${tag}_${i}`))}]);
    D({id,title:b.title,lane:'people',repeatable:false,memoryType:'people',start:'scene',
     available:L=>RARelations.level(person)>=needLevel&&(i===0||L.done(`ARC_${tag}_${i}`)),
-    nodes:{scene:{env:b.env,actors:{left:'rich',right:person},title:b.title,
+    nodes:{scene:{env:b.env,actors:{left:'rich',right:b.state?{id:person,state:b.state}:person},title:b.title,
      lines:[N(b.beat),...(b.rich?[R(b.rich)]:[])],
      enter:A=>{RARelations.memory(person,b.memory);},next:'done'},
      done:{end:{outcome:'done',memory:{text:b.memory,lane:'people'},home:b.home?['rich',b.home,{vp:true}]:null}}}});
@@ -573,7 +596,7 @@
    beat:'she makes you the waffle off the books — the one that isn\'t on the menu, ever.',
    rich:"this doesn't taste like anything else in this city.",memory:'ms. patrice made him the off-menu waffle',home:'i think i just had the best thing i\'ve eaten all year.'},
   {title:'ROASTING THE ROOM',text:'come watch me embarrass some rich people tonight.',env:'lennox',
-   beat:'she roasts every rich person in the diner with total precision. you fall for her a little more each line.',
+   state:'laugh',beat:'she roasts every rich person in the diner with total precision. you fall for her a little more each line.',
    rich:'remind me to never make you mad.',memory:'watched ms. patrice roast a room full of rich people',home:'terrifying. incredible. both.'},
   {title:'THE RECIPE BOX',text:'i want to show you where it all started. all of it.',env:'centennial',
    beat:'she opens the real recipe box — the one behind the one she showed you before. grandmother\'s handwriting, edges worn soft.',

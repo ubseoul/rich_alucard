@@ -22,7 +22,9 @@
   scope.listen(document,'keydown',e=>{if((e.key==='Enter'||e.key===' ')&&tapResolver&&!e.target.closest?.('button')){e.preventDefault();const r=tapResolver;tapResolver=null;r();}});
  }
  function waitTap(){return new Promise(resolve=>{tapResolver=resolve;scope?.cleanup(()=>{if(tapResolver===resolve){tapResolver=null;resolve();}});});}
- function paintEnv(id,surface){
+ // `props`: frozen world art a node names ([{src,x,y}] — x centre, y contact line), drawn at native 1:1 in the
+ // environment's 270×480 space above the base and its layers, below actors (e.g. a delivered car).
+ function paintEnv(id,surface,props=[]){
   const env=RAEnvironments.get(id)||RAEnvironments.get('street_night');currentEnv=env;const {ctx}=envCanvas;ctx.clearRect(0,0,270,480);
   root.querySelector('.adv-location').textContent=env.name||'';
   // Exact-origin frozen layers: always-on (e.g. the ocean-floor ladder) plus surface-scoped conditions draw above the
@@ -30,7 +32,10 @@
   const scoped=RAEnvironments.surfaceLayers(env,surface);
   const fctx=foreground.getContext('2d');fctx.clearRect(0,0,270,480);foreground.hidden=!scoped.over.length;
   if(env.image){const img=loadImage(env.image);const draw=()=>{if(currentEnv!==env)return;RAEnvironments.drawImage(ctx,img,env);
-    for(const [layers,c] of [[[...(env.layers||[]),...scoped.under],ctx],[scoped.over,fctx]])for(const layer of layers){const L=loadImage(layer);const put=()=>{if(currentEnv===env)RAEnvironments.drawImage(c,L,env)};if(L.complete&&L.naturalWidth)put();else L.addEventListener('load',()=>{if(img.complete)put()},{once:true});}};if(img.complete&&img.naturalWidth)draw();else img.addEventListener('load',draw,{once:true});}
+    for(const [layers,c] of [[[...(env.layers||[]),...scoped.under],ctx],[scoped.over,fctx]])for(const layer of layers){const L=loadImage(layer);const put=()=>{if(currentEnv===env)RAEnvironments.drawImage(c,L,env)};if(L.complete&&L.naturalWidth)put();else L.addEventListener('load',()=>{if(img.complete)put()},{once:true});}
+    const pending=props.map(p=>loadImage(p.src)).filter(P=>!(P.complete&&P.naturalWidth));
+    if(pending.length){for(const P of pending)P.addEventListener('load',()=>{if(currentEnv===env&&pending.every(q=>q.complete&&q.naturalWidth))draw();},{once:true});}
+    else for(const p of props){const P=loadImage(p.src);ctx.imageSmoothingEnabled=false;ctx.drawImage(P,Math.round(p.x-P.naturalWidth/2),Math.round(p.y-P.naturalHeight));}};if(img.complete&&img.naturalWidth)draw();else img.addEventListener('load',draw,{once:true});}
   else RAPixel.paintEnvironment(ctx,env.paint);
   root.dataset.env=env.id;root.classList.toggle('adv-placeholder-env',!!env.placeholder);
   return scoped;
@@ -110,7 +115,8 @@
   hideDialogue();choicesEl.hidden=false;choicesEl.replaceChildren();
   return new Promise(resolve=>{
    for(const c of list){const b=document.createElement('button');b.type='button';b.className='adv-choice'+(c.octopus?' adv-octopus':'')+(c.locked?' adv-locked':'');
-    b.innerHTML=`${c.octopus?'<em>OCTOPUS BRAIN</em>':''}<span>${c.label}</span>${c.sub?`<small>${c.sub}</small>`:''}`;b.disabled=!!c.locked;
+    // A choice may carry frozen item art (a store's fit/item, the armory's gun case), shown at native pixels.
+    b.innerHTML=`${c.icon?`<img class="adv-choice-icon" src="${c.icon}" alt="" draggable="false">`:''}${c.octopus?'<em>OCTOPUS BRAIN</em>':''}<span>${c.label}</span>${c.sub?`<small>${c.sub}</small>`:''}`;b.disabled=!!c.locked;
     b.addEventListener('click',()=>{choicesEl.hidden=true;choicesEl.replaceChildren();resolve(c);},{once:true});choicesEl.append(b);}
    scope?.cleanup(()=>resolve(null));
   });
@@ -129,7 +135,7 @@
  async function run(nodeId){
   while(scope?.isActive()&&nodeId){
    const r=RAAdventures.enter(nodeId);if(!r){await leave();return;}
-   const {node,env,actors}=r;if(directorNode){window.RAPresentationDirector?.exit();directorNode=false;}const envId=typeof env==='function'?env(RAAdventures.context()):env;const staged=registeredActors(actors,paintEnv(envId,{key:window.RAPresentationData?.screenKey(RAEnvironments.get(envId)?.id||'street_night',actors||{}),node:`${r.def.id}:${nodeId}`}).slots);renderActors(staged);stageDirector(staged,node);
+   const {node,env,actors}=r;if(directorNode){window.RAPresentationDirector?.exit();directorNode=false;}const envId=typeof env==='function'?env(RAAdventures.context()):env;const props=(typeof node.props==='function'?node.props(RAAdventures.context()):node.props||[]).filter(p=>p?.src);const staged=registeredActors(actors,paintEnv(envId,{key:window.RAPresentationData?.screenKey(RAEnvironments.get(envId)?.id||'street_night',actors||{}),node:`${r.def.id}:${nodeId}`},props).slots);renderActors(staged);stageDirector(staged,node);
    const a=RAAdventures.active();
    if(node.title&&!(a.titles||[]).includes(nodeId)){hideDialogue();await showTitle(typeof node.title==='function'?node.title(RAAdventures.context()):node.title);RAAdventures.patchActive({titles:[...(RAAdventures.active()?.titles||[]),nodeId]});}
    const lines=typeof node.lines==='function'?node.lines(RAAdventures.context()):(node.lines||[]);

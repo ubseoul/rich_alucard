@@ -55,7 +55,10 @@
   // ART SHIP 009 approved zero-pixel reuse (AS9-REUSE-LAN-NIGHT): `lan_night` is the same authored location as
   // `tristan_apt` (Tristan's apartment at night), so it presents that exact frozen master. Only registry `aliases`
   // may share a master this way; the runtime id keeps its own display name.
-  lan_night:env('tristan_apt')
+  lan_night:env('tristan_apt'),
+  // ART SHIP 014 Vol. 5 location master for the existing HEARTSFELT-JACKSUN INTERNATIONAL id (contact line y=372 sits on
+  // the concourse floor). No current node stages the airport, so it has no census screen yet.
+  atl_airport:env('atl_airport')
  };
  window.RAArtIntegration={environments};
 })();

@@ -30,8 +30,10 @@
  function saveRecord(id,rec){const recs={...life().adventures.records,[id]:rec};RAState.patch('life.adventures.records',recs);}
  function patchActive(fields){const a=active();if(!a)return null;const next={...a,...fields};RAState.patch('life.adventures.active',next);return next;}
  function isDone(id){const r=record(id);return !!r&&(r.status==='completed'||(r.count||0)>0);}
- function available(id){
-  const def=get(id);if(!def)return false;const a=active();if(a&&a.id!==id)return false;
+ // {ignoreActive:true}: eligibility of a follow-up offered from INSIDE a running adventure (a hub choice that chains);
+ // without it every other id reads unavailable while the current run is active.
+ function available(id,{ignoreActive=false}={}){
+  const def=get(id);if(!def)return false;const a=active();if(a&&a.id!==id&&!ignoreActive)return false;
   if(!def.repeatable&&isDone(id))return false;
   if(def.cooldown&&record(id)?.completedDay&&RALife.today().day-record(id).completedDay<def.cooldown)return false;
   if(def.oncePerNight&&record(id)?.lastDay===RALife.today().day)return false;
@@ -85,6 +87,8 @@
  // EXIT + RETURN + MEMORY. Every authored adventure writes at least one later-readable memory.
  function complete(nodeId){
   const a=active();if(!a)return null;const def=get(a.id);const end=def.nodes[nodeId]?.end||{};const A=context();
+  // A chained continuation inherits the night-ending of the adventure it continues (chainNightEnder).
+  const nightEnder=!!(end.nightEnder||def.nightEnder||a.vars?.chainNightEnder);
   if(end.fx)try{end.fx(A)}catch(e){console.error('end fx',e)}
   const outcome=typeof end.outcome==='function'?end.outcome(A):(end.outcome||'done');
   const mem=typeof end.memory==='function'?end.memory(A):(end.memory||{text:def.memory||def.title.toLowerCase(),lane:def.lane});
@@ -96,12 +100,12 @@
   saveRecord(def.id,{...rec,status:'completed',count:(rec.count||0)+1,completedDay:RALife.today().day,lastDay:RALife.today().day,outcome,picks:a.vars?.picks||{}});
   RAState.recordEvent({id:`adventure:${def.id}:${(rec.count||0)+1}`,type:'adventure_completed',adventureId:def.id,outcome,day:RALife.today().day});
   const home=typeof end.home==='function'?end.home(A):end.home;
-  RAState.patch('life.clock.returnBeat',home?{speaker:home[0],text:home[1],vp:!!home[2]?.vp,adventure:def.id,nightEnder:!!(end.nightEnder||def.nightEnder)}:{adventure:def.id,nightEnder:!!(end.nightEnder||def.nightEnder)});
+  RAState.patch('life.clock.returnBeat',home?{speaker:home[0],text:home[1],vp:!!home[2]?.vp,adventure:def.id,nightEnder}:{adventure:def.id,nightEnder});
   RAState.patch('life.adventures.active',null);
   document.dispatchEvent(new CustomEvent('ra:adventure-complete',{detail:{id:def.id,outcome}}));
   const chain=typeof end.chain==='function'?end.chain(A):end.chain;
   if(chain)RAState.patch('life.clock.returnBeat',null);
-  return {id:def.id,outcome,nightEnder:!!(end.nightEnder||def.nightEnder),location:end.location,chain:chain||null,chainVars:end.chainVars?end.chainVars(A):{}};
+  return {id:def.id,outcome,nightEnder,location:end.location,chain:chain||null,chainVars:{...(end.chainVars?end.chainVars(A):{}),...(chain&&nightEnder?{chainNightEnder:true}:{})}};
  }
  function abandon(){const a=active();if(!a)return;const rec=record(a.id)||{};saveRecord(a.id,{...rec,status:rec.count?'completed':'available'});RAState.patch('life.adventures.active',null);}
  // Static validation used by tests: every node reachable target exists, every adventure has an end + memory.

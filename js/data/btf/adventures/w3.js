@@ -36,8 +36,8 @@
 
  // GRAVE hub + street encounters. Composable — later waves may add more via the same pattern.
  (function(){const prev=window.RAGraveEncounters;window.RAGraveEncounters=L=>[...(prev?prev(L):[]),
-  ...(RAAdventures.available('A18')?[{label:'THE FOOD COURT LINE IS ALL ONE GUY',fx:A=>A.set('chain','A18'),next:'out'}]:[]),
-  ...(RAAdventures.available('A19')?[{label:'SOMEONE IS FIGHTING OVER ORANGE CHICKEN',fx:A=>A.set('chain','A19'),next:'out'}]:[])
+  ...(RAAdventures.available('A18',{ignoreActive:true})?[{label:'THE FOOD COURT LINE IS ALL ONE GUY',fx:A=>A.set('chain','A18'),next:'out'}]:[]),
+  ...(RAAdventures.available('A19',{ignoreActive:true})?[{label:'SOMEONE IS FIGHTING OVER ORANGE CHICKEN',fx:A=>A.set('chain','A19'),next:'out'}]:[])
  ];})();
 
  // ============================================================================================
@@ -187,7 +187,7 @@
  D({id:'ARMORY',title:'THE ARMORY',lane:'combat',memoryType:'combat',repeatable:true,available:L=>L.flag('armoryKnown'),start:'shop',nodes:{
   shop:{env:'armory',actors:{left:'rich',right:'deacon_brass'},title:'THE ARMORY',
    lines:A=>[N(A.vars.bought?`${RALife.fmt(RALife.money())} left. deacon brass nods.`:'the wall of guns. deacon brass watches, hands folded.'),...kevinCameo()],
-   choices:A=>[...Object.values(RACombatData.GUNS).filter(g=>!g.dev).map(g=>({label:`${g.label}${RALife.hasGun(g.id)?' (OWNED)':''}`,sub:RALife.fmt(g.price),when:()=>!RALife.hasGun(g.id)&&RALife.money()>=g.price,fx:X=>{if(RALife.addGun(g.id)){RALife.spend(g.price);X.set('bought',(X.vars.bought||0)+1);}},next:'shop'})),{label:'THAT\'S ENOUGH GRACE FOR TODAY',next:'out'}]},
+   choices:A=>[...Object.values(RACombatData.GUNS).filter(g=>!g.dev).map(g=>({icon:window.RAArtRegistry?.items?.guns?.[g.id]?.case?.asset||null,label:`${g.label}${RALife.hasGun(g.id)?' (OWNED)':''}`,sub:RALife.fmt(g.price),when:()=>!RALife.hasGun(g.id)&&RALife.money()>=g.price,fx:X=>{if(RALife.addGun(g.id)){RALife.spend(g.price);X.set('bought',(X.vars.bought||0)+1);}},next:'shop'})),{label:'THAT\'S ENOUGH GRACE FOR TODAY',next:'out'}]},
   out:{end:{outcome:A=>A.vars.bought?'bought':'browsed',memory:A=>({text:A.vars.bought?'bought a gun at the armory':'looked at guns at the armory',lane:'combat',quality:A.vars.bought?1:.4}),
    home:A=>A.vars.bought?['rich','guns and grace.',{vp:true}]:null}}
  }});
@@ -220,6 +220,8 @@
  // A26 — CASTLE PARTY #1 (nightEnder). PLAN via sequential choices → SURFACE narration → ESCALATE
  // beats → RESOLVE (VampGram decides reputation). Then repeatable 'HOST' for later parties.
  // ============================================================================================
+ // ENGINEERING 05 (HQ route): Jade Wyrmwood is surfaced at the first eligible DRAGON NIGHT hosted party (one time).
+ const dragonNightJade=A=>A.vars.theme==='dragon'&&RAAdventures.available('A_JADE1')?'A_JADE1':null;
  function partyPlan(nextNode){return {
   guests:{lines:[N('who\'s on the list?')],
    choices:A=>{const known=RARelations.known({dateable:true}).slice(0,4);const list=known.length?known:[{id:'kiki'},{id:'moonie'}];
@@ -265,14 +267,14 @@
   available:L=>L.hasRoom('party_hall'),
   nodes:{...partyPlan('surface'),...partyRun(),
   end:{end:{outcome:A=>A.vars.partyOutcome||'good',memory:A=>({text:`threw the first castle party — it went ${A.vars.partyOutcome||'fine'}`,lane:'people',quality:A.vars.partyOutcome==='legendary'?2:1}),
-   receipt:A=>({id:'a26',caption:`the first castle party. ${A.vars.partyOutcome||'fine'}.`}),nightEnder:true,fx:A=>{RALife.setFlag('castlePartyHostingUnlocked',true);},
+   receipt:A=>({id:'a26',caption:`the first castle party. ${A.vars.partyOutcome||'fine'}.`}),nightEnder:true,chain:dragonNightJade,fx:A=>{RALife.setFlag('castlePartyHostingUnlocked',true);},
    home:['rich','the castle earned its name tonight.',{vp:true}]}}
  }});
  D({id:'HOST',title:'HOST A PARTY',lane:'people',memoryType:'people',repeatable:true,start:'guests',
   available:L=>L.done('A26'),
   nodes:{...partyPlan('surface'),...partyRun(),
   end:{end:{outcome:A=>A.vars.partyOutcome||'good',memory:A=>({text:`hosted a castle party — it went ${A.vars.partyOutcome||'fine'}`,lane:'people',quality:A.vars.partyOutcome==='legendary'?1.6:.8}),
-   nightEnder:true,home:null}}
+   nightEnder:true,chain:dragonNightJade,home:null}}
  }});
  RAPlaces.define([{id:'castle:party',hidden:true,adventure:L=>L.done('A26')?'HOST':'A26'}]);
  RAWakeTriggers.define([{adventure:'A27',priority:90,when:L=>{const pn=L.flag('partyNight');return pn===L.day-1&&!L.done('A27');}}]);
@@ -323,7 +325,16 @@
    home:['rich','a werewolf ate my fries and then apologized about it.',{vp:true}]}}
  }});
  RAWakeTriggers.define([{adventure:'A28',priority:50,when:L=>L.info.fullMoon&&L.level('moonie')>=1&&!L.done('A28')}]);
- RAPlaces.define([{id:'venice',label:'VENICE COURTS',sub:'PULL-UPS ON THE RIM',adventure:'MOONIE_MEET',order:35}]);
+ // ENGINEERING 05 (HQ route): GO SOMEWHERE → VENICE COURTS → PICKUP. The courts offer the existing PICKUP minigame
+ // (repeatable) and, as before, the rim where Moonie does pull-ups (MOONIE_MEET, chained unchanged).
+ D({id:'VENICE',title:'VENICE COURTS',lane:'life',repeatable:true,memoryType:'life',start:'courts',nodes:{
+  courts:{env:'venice',actors:{left:'rich'},
+   choices:[{label:'RUN PICKUP',sub:'2V2 · FIRST TO 11',next:'pickup'},{label:'PULL-UPS ON THE RIM',when:()=>RAAdventures.available('MOONIE_MEET',{ignoreActive:true}),fx:X=>X.set('chain','MOONIE_MEET'),next:'rim'}]},
+  pickup:{minigame:{id:'pickup',params:()=>({}),next:(A,r)=>{A.set('result',r?.quit?'quit':r?.outcome||'done');return 'done';}}},
+  done:{end:{outcome:A=>A.vars.result||'done',memory:A=>({text:A.vars.result==='win'?'won pickup at the venice courts':'pickup at the venice courts',lane:'life',quality:A.vars.result==='win'?.8:.4})}},
+  rim:{end:{outcome:'rim',chain:A=>A.vars.chain||null,memory:{text:'the venice courts',lane:'life',quality:.2}}}
+ }});
+ RAPlaces.define([{id:'venice',label:'VENICE COURTS',sub:'PICKUP · PULL-UPS ON THE RIM',adventure:'VENICE',order:35}]);
 
  // ============================================================================================
  // VOL 5 W3 — A47 THE HAIRLESS VISITOR. First rain night after Day 12.
@@ -354,7 +365,7 @@
    home:A=>A.vars.bought?['rich','he painted the curb. he painted where i started.',{vp:true}]:null}}
  },legend:true});
  D({id:'GALLERY',title:"ROOKOKO'S GALLERY",lane:'people',memoryType:'people',repeatable:true,available:L=>L.done('A49'),start:'look',nodes:{
-  look:{env:'gallery',actors:{left:'rich',right:'rookoko'},lines:A=>[N(RALife.hasProp('prop_rookoko_painting')?'the curb painting hangs at the castle now. rookoko has new work up here every time.':'rookoko is always painting something new.'),...kevinCameo()],end:{outcome:'visited',memory:{text:'back at rookoko\'s gallery',lane:'people',quality:.3}}}}});
+  look:{env:'gallery',actors:{left:'rich',right:{id:'rookoko',state:'painting'}},lines:A=>[N(RALife.hasProp('prop_rookoko_painting')?'the curb painting hangs at the castle now. rookoko has new work up here every time.':'rookoko is always painting something new.'),...kevinCameo()],end:{outcome:'visited',memory:{text:'back at rookoko\'s gallery',lane:'people',quality:.3}}}}});
  RAPlaces.define([{id:'gallery',label:"ROOKOKO'S GALLERY",sub:'ARTS DISTRICT',adventure:L=>L.done('A49')?'GALLERY':'A49',order:50}]);
 
  // ============================================================================================
@@ -378,7 +389,7 @@
  // A51 — CANCIÓN NIGHT. Chained directly from TACOS on rain nights. Minigame 'bars' pool spanish.
  // ============================================================================================
  D({id:'A51',title:'CANCIÓN NIGHT',lane:'people',memoryType:'people',start:'sing',nodes:{
-  sing:{env:'taco_truck',actors:{left:'rich',right:'don_chuy'},title:"DON CHUY'S · RAIN",
+  sing:{env:'taco_truck',actors:{left:'rich',right:{id:'don_chuy',state:'singing'}},title:"DON CHUY'S · RAIN",
    lines:[N('the rain doesn\'t stop the radio. don chuy turns it up instead.'),S('don_chuy','¡vecino! you know this one?'),R('not even a little.')],next:'bars'},
   bars:{minigame:{id:'bars',params:A=>({pool:'spanish',partner:'DON CHUY'}),next:(A,r)=>{A.set('score',r?.score||0);return 'after';}}},
   after:{lines:[N('you get maybe two words right. don chuy does not care. he hands you a sixth taco you didn\'t order.'),S('don_chuy','six. for the effort.')],
@@ -415,13 +426,13 @@
  // ============================================================================================
  // A57 — OFFICER NODD SERIES. 10-second moment on a pending stop. 5th: one word. 10th: a picture.
  // ============================================================================================
- D({id:'A57',title:'OFFICER NODD',lane:'people',memoryType:'people',repeatable:true,start:'stop',nodes:{
-  stop:{env:'street_night',actors:{left:'rich',right:'officer_nodd'},title:'PULLED OVER',
+ D({id:'A57',title:'OFFICER NODD',lane:'people',memoryType:'people',repeatable:true,start:'stop',presentationVariants:[{n:10}],nodes:{
+  stop:{env:'street_night',actors:{left:'rich',right:{id:'officer_nodd',state:'nod'}},title:'PULLED OVER',
    enter:A=>{RARelations.meet('officer_nodd','A57');const n=RALife.counter('noddStops');A.set('n',n);},
    lines:A=>{const n=A.vars.n;const lines=[N('officer nodd walks up, looks at rich for a long second, and nods.')];
     if(n===5)lines.push(S('officer_nodd','…drive safe.'));else if(n>=10)lines.push(S('officer_nodd','can i get a picture?'));else lines.push(N('he says nothing. he never says anything.'));
     return lines;},next:'leave'},
-  leave:{lines:A=>A.vars.n>=10?[N('he takes the picture, nods once more, and walks back to his cruiser like it never happened.')]:[N('ten seconds later he\'s back in the cruiser. the stop is over.')],
+  leave:{actors:A=>A.vars.n>=10?{left:'rich',right:{id:'officer_nodd',state:'phone'}}:undefined,lines:A=>A.vars.n>=10?[N('he takes the picture, nods once more, and walks back to his cruiser like it never happened.')]:[N('ten seconds later he\'s back in the cruiser. the stop is over.')],
    enter:A=>{RALife.setFlag('noddPending',false);},next:'end'},
   end:{end:{outcome:'nodded',memory:A=>({text:A.vars.n>=10?'officer nodd asked for a picture':A.vars.n===5?'officer nodd said "drive safe"':'officer nodd. the nod. nothing else.',lane:'people',quality:A.vars.n>=10?1:.3})}}
  }});

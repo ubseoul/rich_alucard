@@ -34,6 +34,7 @@ async function test(){
   const btf=await import(pathToFileURL(path.join(root,'tools','btf-test.mjs')).href);await btf.test(root);
   const presentation=await import(pathToFileURL(path.join(root,'tools','presentation-test.mjs')).href);await presentation.test(root);
   const artIntegration=await import(pathToFileURL(path.join(root,'tools','art-integration.mjs')).href);await artIntegration.test(root);
+  const reachability=await import(pathToFileURL(path.join(root,'tools','reachability-audit.mjs')).href);await reachability.test(root);
   const sources=await javascriptFiles(path.join(root,'js'));
   for(const file of [...sources,path.join(root,'game.js')])new vm.Script(await readFile(file,'utf8'),{filename:path.relative(root,file)});
   const listeners={};
@@ -44,6 +45,12 @@ async function test(){
   const v6=RAState.migrateWithReport(fixtures.lifeV6),owned=RAState.migrateWithReport(fixtures.supraOwned),partial=RAState.migrateWithReport(fixtures.partialCorrupt);
   assert(v6.ok&&v6.state.version===RAState.version&&v6.state.life.resources.money===86000,'v6 migration did not preserve life progress');
   assert(owned.ok&&owned.state.life.ownership.cars.filter(item=>item.id===ids.supraId).length===1,'owned Supra fixture was not preserved');
+  // Engineering 05 / HQ: a paused Supra acquisition is existing progress — no prologue replay; migration stays additive + idempotent.
+  const paused=RAState.migrateWithReport(fixtures.supraPaused),pf=paused.state?.life?.world?.flags||{};
+  assert(paused.ok&&paused.state.life.clock.started===true&&pf.prologueDone===true&&pf.throneDone===true&&pf.firstWakeDone===true,'paused Supra save would replay the new-game prologue');
+  assert(paused.state.life.acquisitions.active?.status==='paused'&&paused.state.life.acquisitions.active.vehicleId===ids.supraId&&paused.state.life.ownership.cars.length===0&&paused.state.life.resources.money===100000,'paused Supra migration changed the acquisition, cars or money');
+  assert(JSON.stringify(RAState.migrateRecord(paused.state))===JSON.stringify(paused.state)&&JSON.stringify(RAState.migrateRecord(fixtures.supraPaused))===JSON.stringify(RAState.migrateRecord(fixtures.supraPaused)),'paused Supra migration is not idempotent');
+  const freshRun=RAState.migrateRecord(fixtures.fresh);assert(!freshRun.life.world.flags.prologueDone&&!freshRun.life.clock.started,'fresh save must still play the prologue');
   assert(owned.state.life.world.flags.jdmHomeDelivery===true&&owned.state.characters.jdm_importer_daughter_001.conversionOutcome==='converted','one-time acquisition consequences were not preserved');
   assert(partial.ok&&partial.state.life.ownership.cars.length===1&&partial.state.life.desires.completed.length===1,'partial save normalization failed');
   const storage=RASaveFixtures.memoryStorage();const known=RAState.migrateRecord(fixtures.supraOwned);

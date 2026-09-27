@@ -119,3 +119,8 @@ body.dev-enabled .adv-placeholder-env .adv-location::after{content:" · PLACEHOL
 .c2-octo-choice{position:relative;text-align:left;background:#f1e5c5;color:#21151a;border:3px solid #28131c;box-shadow:2px 2px #7d194b;padding:.8em;font-family:var(--font-command);font-size:clamp(6px,2.6cqw,11px);cursor:pointer}
 .c2-octo-choice b{display:block;color:#7d194b;font-size:.8em;margin-bottom:.3em}
 .c2-scene [hidden]{display:none!important}
+/* ART SHIP 014 item art on choices/combat buttons: native pixels, never scaled; the label keeps its own space. */
+.adv-choice-icon{float:right;margin:-.2em 0 .2em .6em;image-rendering:pixelated}
+.c2-btn:has(.c2-icon){position:relative;padding-right:calc(var(--c2-icon-w,32px) + .9em)}
+.c2-icon{position:absolute;right:.4em;top:50%;transform:translateY(-50%);image-rendering:pixelated;pointer-events:none}
+.c2-btn:has(.c2-icon[width="64"]){--c2-icon-w:64px}

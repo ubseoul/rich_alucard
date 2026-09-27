@@ -8,9 +8,13 @@
  function threadName(id){if(id==='family')return 'FAMILY 🇳🇬';const p=RABtfPeople.get(id);return p?p.name:id.toUpperCase();}
  function unread(filter){let n=0;for(const [id,t] of Object.entries(threads()))if(filter(id))n+=t.filter(m=>!m.read&&m.from!=='RICH').length;return n;}
  const isDM=id=>!!RABtfPeople.get(id)?.dateable;
+ // ART SHIP 014 FAMILY THREAD avatars (the frozen figure at 1:1, framed). The brothers have no approved art yet
+ // (PENDING FROZEN ART AUTHORITY — SHIP 015), so their messages keep the name label only.
+ const FAMILY_AVATAR={MOM:'family_mom',DAD:'family_dad',SISTER:'family_sister'};
+ function familyAvatar(from){const src=window.RAArtRegistry?.ui?.avatars?.[FAMILY_AVATAR[from]]?.asset;return src?`<i class="family-avatar" style="background-image:url('${esc(src)}')" aria-hidden="true"></i>`:'';}
  function threadMarkup(id,appId){
   const t=threads()[id]||[];markRead(id);
-  const body=t.slice(-24).map(m=>`${m.from!=='RICH'&&id==='family'?`<p class="who">${esc(m.from)}</p>`:''}<p class="msg ${m.from==='RICH'?'me':''}">${esc(m.text)}</p>`).join('');
+  const body=t.slice(-24).map(m=>`${m.from!=='RICH'&&id==='family'?`<p class="who">${familyAvatar(m.from)}${esc(m.from)}</p>`:''}<p class="msg ${m.from==='RICH'?'me':''}">${esc(m.text)}</p>`).join('');
   const last=[...t].reverse().find(m=>m.choices&&!m.answered);
   const choices=last?last.choices.map((c,i)=>btn(esc(c.label),`do:${appId}:reply:${id}|${last.id}|${i}`)).join(''):'';
   return `<h1>${esc(threadName(id))}</h1><div class="phone-thread">${body||'<p class="phone-small">no messages.</p>'}</div>${choices?`<div class="phone-option-list">${choices}</div>`:''}`;
@@ -43,10 +47,13 @@
    return `<h1>INSTAHOE</h1><p class="phone-small">FOLLOWERS ${new Intl.NumberFormat('en-US').format(life().resources.followers||0)}</p>${known.map(p=>{const u=(threads()[p.id]||[]).filter(m=>!m.read&&m.from!=='RICH').length;return btn(`${esc(p.catalog.name)}${u?` <i class="phone-badge">${u}</i>`:''}<br><small>${esc(p.catalog.species)}</small>`,`app:instahoe:p:${p.id}`);}).join('')||'<p class="phone-small">nobody yet.</p>'}`;
   },
   async onAction(act,arg,api){if(act==='reply')reply(arg,api);if(act==='date'){await api.close();window.RADating?.plan?.(arg);}}});
+ // ART SHIP 014 VampGram avatar by handle: Dragoon of the North posts as his frozen silhouette (framed to the head).
+ const VG_AVATAR={dragoon_of_the_north:'dragoon_of_the_north'};
+ function vgAvatar(handle){const src=window.RAArtRegistry?.ui?.avatars?.[VG_AVATAR[handle]]?.asset;return src?`<i class="vg-avatar" style="background-image:url('${esc(src)}')" aria-hidden="true"></i>`:'';}
  // VAMPGRAM — red/black vampire feed; headlines reflect the world; Obas post; Rich's drops land here.
  A.register({id:'vampgram',label:'VampGram',canon:true,badge:()=>window.RAVampGram?.unseen?.()||0,
   render(sub){const feed=window.RAVampGram?.feed?.()||[];window.RAVampGram?.markSeen?.();
-   return `<h1>VAMPGRAM</h1><p class="phone-small">@richalucard · ${new Intl.NumberFormat('en-US').format(life().resources.followers||0)} followers</p>${feed.slice(0,24).map(p=>`<div class="phone-card vg-post"><b>@${esc(p.handle)}</b>${esc(p.text)}${p.likes?`<br><span class="phone-small">♥ ${p.likes}${p.elder?' · an elder commented "'+esc(p.elder)+'"':''}</span>`:''}${p.action?btn(esc(p.action.label),p.action.go):''}</div>`).join('')||'<p class="phone-small">quiet night.</p>'}`;}});
+   return `<h1>VAMPGRAM</h1><p class="phone-small">@richalucard · ${new Intl.NumberFormat('en-US').format(life().resources.followers||0)} followers</p>${feed.slice(0,24).map(p=>`<div class="phone-card vg-post">${vgAvatar(p.handle)}<b>@${esc(p.handle)}</b>${esc(p.text)}${p.likes?`<br><span class="phone-small">♥ ${p.likes}${p.elder?' · an elder commented "'+esc(p.elder)+'"':''}</span>`:''}${p.action?btn(esc(p.action.label),p.action.go):''}</div>`).join('')||'<p class="phone-small">quiet night.</p>'}`;}});
  // RECEIPTS — the memoir app (VOL 5 §9.3). Automatic photo-cards; share one to VampGram.
  A.register({id:'receipts',label:'RECEIPTS',order:40,
   render(sub){const list=[...(life().receipts||[])].reverse();const byMonth={};for(const r of list){const m=`MONTH ${Math.floor((r.day-1)/28)+1}`;(byMonth[m]=byMonth[m]||[]).push(r);}

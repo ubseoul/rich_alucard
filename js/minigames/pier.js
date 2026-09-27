@@ -292,8 +292,19 @@
     R.rect(g,84,332,42,2,'#c9bfa6'); // line hint
    }
   }
+  // Frozen ART SHIP 014 catch art by what was caught (native 1:1, centred on x,y). BIG FISH has no approved art
+  // (mapping decision) and keeps the drawn placeholder, as does anything else without a frozen file.
+  const catchImages={};
+  function catchArt(caught){
+   if(!caught)return null;const C=window.RAArtRegistry?.items?.catches||{};
+   const key=caught.category==='chest'?'chest':caught.category==='wallet'?'waterlogged_wallet':caught.category==='junk'?caught.itemId:caught.category==='rare'?caught.itemId?.replace('fish_rare_',''):caught.category==='common'?String(caught.name||'').toLowerCase().replace(/ /g,'_'):null;
+   const src=C[key]?.icon?.asset;if(!src)return null;
+   const img=catchImages[src]||(catchImages[src]=Object.assign(new Image(),{src}));return img.complete&&img.naturalWidth?img:null;
+  }
+  function drawCatchArt(caught,x,y){const img=catchArt(caught);if(!img)return false;g.imageSmoothingEnabled=false;g.drawImage(img,Math.round(x-img.naturalWidth/2),Math.round(y-img.naturalHeight/2));return true;}
   function drawFish(caught,x,y,scale){
    if(!caught)return;
+   if(drawCatchArt(caught,x,y))return;
    const cat=caught.category;
    const col=cat==='rare'?'#f4c95d':cat==='big'?'#7fa8ff':cat==='junk'?'#8a8a8a':'#c7d6e8';
    g.save();g.translate(x,y);g.scale(scale,scale);
@@ -357,6 +368,7 @@
     } else {
      const c=S.result.caught;
      R.text(g,(c.name||c.category||'').toUpperCase(),34,y+16,{size:8,color:'#10101b',maxWidth:200});
+     drawCatchArt(c,214,y+30);
      if(c.value)R.text(g,`WORTH $${c.value}`,34,y+34,{size:7,color:'#10101b'});
      if(S.result.foundText)R.text(g,`text on it: ${S.result.foundText}`,34,y+50,{size:6,color:'#10101b',maxWidth:200});
      if(log.length===1&&c.category==='common'){
@@ -372,6 +384,7 @@
    if(S.phase==='wallet'){
     R.frame(g,20,190,230,120,{});
     R.text(g,'A WALLET.',34,206,{size:8,color:'#10101b'});
+    drawCatchArt({category:'wallet'},214,236);
     R.text(g,`$${S.walletPrompt.value} INSIDE.`,34,224,{size:7,color:'#10101b'});
     buttons.push({id:'walletKeep',x:30,y:268,w:100,h:24});buttons.push({id:'walletReturn',x:140,y:268,w:100,h:24});
     R.rect(g,30,268,100,24,'#c18b3c');R.text(g,'KEEP CASH',35,276,{size:7,color:'#10101b'});
@@ -380,6 +393,7 @@
    if(S.phase==='rare'){
     R.frame(g,20,190,230,120,{});
     R.text(g,S.rarePrompt.name,34,206,{size:7,color:'#10101b',maxWidth:200});
+    drawCatchArt({category:'rare',itemId:`fish_rare_${/koi/i.test(S.rarePrompt.name)?'moon_koi':'old_barnacle_grouper'}`},214,236);
     R.text(g,`WORTH $${S.rarePrompt.value}`,34,224,{size:7,color:'#10101b'});
     buttons.push({id:'rareSell',x:30,y:268,w:100,h:24});buttons.push({id:'rareKeep',x:140,y:268,w:100,h:24});
     R.rect(g,30,268,100,24,'#c18b3c');R.text(g,'SELL',60,276,{size:7,color:'#10101b'});
@@ -388,7 +402,7 @@
    if(S.phase==='chest'){
     R.frame(g,20,190,230,120,{});
     const c=S.chestReveal;
-    R.rect(g,116,206,38,30,'#6b6780');R.rect(g,116,206,38,4,'#c18b3c');
+    if(!drawCatchArt({category:'chest'},135,221)){R.rect(g,116,206,38,30,'#6b6780');R.rect(g,116,206,38,4,'#c18b3c');}
     if(c.kind==='sealed')R.text(g,'...',126,246,{size:10,color:'#10101b'});
     else if(c.kind==='gun_part')R.text(g,'GUN PART (-20% ARMORY)',34,246,{size:6,color:'#10101b',maxWidth:200});
     else R.text(g,"OCTOPUS SENSEI MEMENTO",34,246,{size:6,color:'#10101b',maxWidth:200});

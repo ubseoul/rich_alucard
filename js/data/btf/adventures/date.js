@@ -5,6 +5,8 @@
  const who=A=>A.vars.person;const P=A=>RABtfPeople.get(who(A));const C=A=>window.RADateContent?.get?.(who(A))||{};
  const nth=A=>(RARelations.get(who(A))?.datesCount||0);
  const pick=(arr,i)=>arr?.length?arr[Math.min(i,arr.length-1)]:null;
+ // ART SHIP 014: on a date she is staged in her approved frozen `date` state where one exists (else her anchor).
+ const her=A=>P(A)?.states?.date?{id:who(A),state:'date'}:who(A);
  const GENERIC_ASKS=[
   {q:'so what do you actually do?',a:{label:"I'M A MUSIC ARTIST.",topic:'music'},b:{label:'I OWN A CASTLE.',topic:'castle'},o:{label:"HONESTLY? I'M TRYING DIFFERENT LANES.",topic:'honest'}},
   {q:"what's the weirdest thing that happened to you this week?",a:{label:'TELL HER ABOUT THE FIGHT.',topic:'fight'},b:{label:'TELL HER ABOUT THE FOOD.',topic:'food'},o:{label:'TELL HER THE TRUTH. ALL OF IT.',topic:'weird'}},
@@ -12,10 +14,12 @@
  ];
  RAAdventures.define({id:'DATE',title:'A DATE',lane:'dating',repeatable:true,scope:'MUST',memoryType:'date',start:'where',
   testSetup:ctx=>{ctx.RARelations.meet('kiki','test');ctx.RARelations.add('kiki',60);},testVars:{person:'kiki'},
+  // Census: the date cast is bound at runtime, so every woman with an approved date state is walked as a variant.
+  presentationVariants:RABtfPeople.women.filter(p=>p.states?.date).map(p=>({person:p.id})),
   nodes:{
   where:{env:'street_night',actors:{left:'rich'},lines:A=>[N(`${P(A)?.name||'she'} said yes. where you taking her?`)],
    choices:A=>RADating.availableSpots(who(A)).map(s=>({label:s.label,sub:`${s.cost?RALife.fmt(s.cost):'FREE'}${s.liked?' · SHE LIKES THIS':''}`,when:()=>RALife.money()>=s.cost,fx:X=>{X.set('spot',s.id);RALife.spend(s.cost);},next:'arrive'}))},
-  arrive:{env:A=>RADating.SPOTS[A.vars.spot]?.env||'street_night',actors:A=>({left:'rich',right:who(A)}),title:A=>RADating.spotLabel(A.vars.spot),
+  arrive:{env:A=>RADating.SPOTS[A.vars.spot]?.env||'street_night',actors:A=>({left:'rich',right:her(A)}),title:A=>RADating.spotLabel(A.vars.spot),
    enter:A=>{RAClock.logOuting({type:'date',person:who(A),spot:A.vars.spot});},
    lines:A=>{const c=C(A);const line=pick(c.arrival,nth(A))||'she looks good tonight. she knows it.';return [E(who(A),'…'),N(line)];},next:'talk'},
   talk:{lines:A=>{const ask=pick(C(A).asks,nth(A))||GENERIC_ASKS[nth(A)%GENERIC_ASKS.length];return [S(who(A),ask.q)];},

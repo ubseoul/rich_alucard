@@ -32,7 +32,7 @@
  function storeMarkup(){const owned=car(),current=active(),access=RAOpportunities.get('jdm_home_delivery');let label,action,disabled='';
   if(owned){label='VIEW YOUR SUPRA';action='payoff'}else if(current&&current.status!=='completed'){label='RETURN TO COLLECTION';action='resume'}else if(RABudget.balance()<SUPRA_MK4_PRICE_FOR_TESTING){label='NOT ENOUGH CASH';action='cannotAfford';disabled='disabled'}else{label='BUY';action='begin'}
   const note=owned?`<p>YOU OWN THE SUPRA.</p><p>${access?.available?'FUTURE DELIVERIES TO YOUR PLACE ARE AVAILABLE.':'FIRST COLLECTION COMPLETE.'}</p>`:`<p>TOYOTA SUPRA MK4</p><p class="jdm-price">$${new Intl.NumberFormat('en-US').format(SUPRA_MK4_PRICE_FOR_TESTING)}</p><p class="jdm-access-note">FIRST COLLECTION AT THE IMPORTER</p>${current?.status==='paused'?'<p>PICK UP WHERE YOU LEFT OFF.</p>':''}`;
-  return `<h1>JDMIMPORTS</h1><img class="supra-product" src="assets/jdm_imports/ui/supra_mk4_listing.png" alt="" draggable="false" />${note}<div class="jdm-store-actions">${button(label,action,disabled)}${button('HOME','home')}</div>`;
+  return `<h1>JDMIMPORTS</h1><img class="supra-product" src="${window.RAArtRegistry?.vehicles?.listing?.supra?.asset||'assets/jdm_imports/ui/supra_mk4_listing.png'}" alt="" draggable="false" />${note}<div class="jdm-store-actions">${button(label,action,disabled)}${button('HOME','home')}</div>`;
  }
  function patchActive(fields){const prior=active();if(!prior)return false;return RAState.patch('life.acquisitions.active',{...prior,...fields})}
  function renderDock(){if(!dockPanel)return;const a=active();if(!a)return;const stage=a.stage;setDockActors(stage);

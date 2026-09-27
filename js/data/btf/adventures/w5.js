@@ -79,7 +79,7 @@
   lose:{lines:[N('mom mutes herself. that is worse than anything she could have said.')],end:{outcome:'lose',memory:{text:'lost the jollof wars final',lane:'food',quality:.3}}}
  }});
  D({id:'A56',title:'LIL SMACK #5',lane:'food',scope:'MUST',start:'arrive',nodes:{
-  arrive:{env:'kitchen',actors:{left:'rich',right:'lil_smack'},lines:[E('lil_smack','…'),N('lil smack takes one bite. mouth closed. actually closed.')],next:'react'},
+  arrive:{env:'kitchen',actors:{left:'rich',right:{id:'lil_smack',state:'finale'}},lines:[E('lil_smack','…'),N('lil smack takes one bite. mouth closed. actually closed.')],next:'react'},
   react:{lines:[N('it might be the most emotional moment of his entire life.'),S('lil_smack',"…it's good, man."),R('…thank you.')],next:'leave'},
   leave:{lines:[N('he leaves. not dramatically. just — gone. no more crumbs on the porch. not until the fame.')],
    end:{outcome:'closedMouth',memory:{text:'lil smack ate with his mouth closed, once, and then he left',lane:'food',quality:2},receipt:{caption:'lil smack, mouth closed. once.'},fx:()=>RALife.setFlag('lilSmackGone',true)}}

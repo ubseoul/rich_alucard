@@ -22,11 +22,13 @@
   if(it.kind==='fit'){RALife.addFit(it.id);const f=F()[it.id];RALife.equipFit(f.slot,it.id);RALife.remember({text:`bought the ${f.label.toLowerCase()}`,lane:'mall',type:'mall'});if(it.id==='duoqlo_airism')RALife.setFlag('duoqloFit',true);}
   else if(it.kind==='prop'){RALife.addProp(it.id);}else RALife.addItem(it.id,1,{cap:it.kind==='item'?9:undefined});
   RALife.counter('mallSpend',info.price);return true;}
- window.RAStores={STORES,buy,itemInfo};
+ // ART SHIP 014 item art on the choice that sells it (fits, bag items; nothing is drawn for items without frozen art).
+ function itemIcon(it){const I=window.RAArtRegistry?.items||{};return (it.kind==='fit'?I.fits?.[it.id]:it.kind==='item'?I.combat?.[it.id]:null)?.asset||null;}
+ window.RAStores={STORES,buy,itemInfo,itemIcon};
  D({id:'SHOP',title:'SHOPPING',lane:'mall',repeatable:true,memoryType:'mall',testVars:{store:'krada'},start:'store',nodes:{
   store:{env:A=>STORES[A.vars.store]?.env||'grave',actors:A=>({left:'rich',...(STORES[A.vars.store]?.clerk?{right:STORES[A.vars.store].clerk}:{})}),title:A=>STORES[A.vars.store]?.label||'THE STORE',
    lines:A=>[N(A.vars.bought?`${RALife.fmt(RALife.money())} left.`:`${STORES[A.vars.store]?.label.toLowerCase()}. what you want?`)],
-   choices:A=>[...(STORES[A.vars.store]?.items||[]).map(it=>{const info=itemInfo(it);return {label:`${info.label}${info.owned?' (OWNED)':''}`,sub:it.kind==='fit'?`${RALife.fmt(info.price)} · ${fitNote(it.id)}`:RALife.fmt(info.price),when:()=>!info.owned&&RALife.money()>=info.price,fx:X=>{if(buy(it))X.set('bought',(X.vars.bought||0)+1);},next:'store'};}),{label:"I'M GOOD",next:'out'}]},
+   choices:A=>[...(STORES[A.vars.store]?.items||[]).map(it=>{const info=itemInfo(it);return {icon:itemIcon(it),label:`${info.label}${info.owned?' (OWNED)':''}`,sub:it.kind==='fit'?`${RALife.fmt(info.price)} · ${fitNote(it.id)}`:RALife.fmt(info.price),when:()=>!info.owned&&RALife.money()>=info.price,fx:X=>{if(buy(it))X.set('bought',(X.vars.bought||0)+1);},next:'store'};}),{label:"I'M GOOD",next:'out'}]},
   out:{end:{outcome:A=>A.vars.bought?'bought':'browsed',memory:A=>({text:A.vars.bought?`shopping at ${STORES[A.vars.store]?.label.toLowerCase()}`:`window shopping at ${STORES[A.vars.store]?.label.toLowerCase()}`,lane:'mall',quality:A.vars.bought?1:.5}),home:A=>A.vars.bought?['rich','…i ain\'t even need that. i wanted it.',{vp:true}]:null,location:'bedroom'}}
  }});
  function fitNote(id){const f=F()[id];if(f.maxhp)return `+${f.maxhp} MAX HP`;if(f.def)return `+${Math.round(f.def*100)}% DEFENSE`;if(f.crit)return `+${Math.round(f.crit*100)}% CRIT`;if(f.charisma)return 'CHARISMA ALWAYS LANDS ONCE';if(f.style)return '+5% TOUGE STYLE';if(f.gun)return '+10% GUN DAMAGE';if(id==='grave_hoodie')return 'NOTHING. IT\'S COMFY.';if(id==='slides')return 'UNCLE SUNDAY RESPECTS YOU';return 'NO STATS. JUST RIGHT.';}
@@ -52,7 +54,8 @@
   done:{lines:A=>[S('shannon_001',A.vars.bought?'congratulations. I will text you on friday.':'it will still be here. probably.')],end:{outcome:A=>A.vars.bought?'bought':'passed',memory:A=>({text:A.vars.bought?'bought another building':'walked a building with shannon',lane:'property'}),home:A=>A.vars.bought?['rich','landlord shit.',{vp:true}]:null}}
  }});
  D({id:'RB_DELIVERY',title:'RICHBOIMPORTS DELIVERY',lane:'cars',repeatable:true,testVars:{car:'urus'},start:'arrive',nodes:{
-  arrive:{env:'castle_exterior',actors:{left:'rich'},title:'OUTSIDE THE CASTLE',lines:A=>{const c=RACars.CATALOG[A.vars.car];return [N(`a truck pulls up. the whole block comes outside.`),N(`the ${c?.short.toLowerCase()} rolls off the ramp.`),S('don_chuy','¡ÁNDALE!'),R(A.vars.car==='urus'?'it\'s an suv. it\'s fine. it\'s fine.':'…yeah.')];},
+  // ART SHIP 014: the delivered car's frozen WORLD surface rolls off the ramp beside Rich.
+  arrive:{env:'castle_exterior',actors:{left:'rich'},props:A=>[{src:window.RAArtRegistry?.vehicles?.world?.[A.vars.car]?.asset,x:150,y:372}],title:'OUTSIDE THE CASTLE',lines:A=>{const c=RACars.CATALOG[A.vars.car];return [N(`a truck pulls up. the whole block comes outside.`),N(`the ${c?.short.toLowerCase()} rolls off the ramp.`),S('don_chuy','¡ÁNDALE!'),R(A.vars.car==='urus'?'it\'s an suv. it\'s fine. it\'s fine.':'…yeah.')];},
    end:{outcome:'delivered',memory:A=>({text:`the ${RACars.CATALOG[A.vars.car]?.short.toLowerCase()} got delivered`,lane:'cars'}),receipt:A=>({id:`rb:${A.vars.car}`,caption:`the whole block came outside for the ${RACars.CATALOG[A.vars.car]?.short.toLowerCase()}.`})}}
  }});
  D({id:'TANDEM_BATTLE',title:'MIDNIGHT MAFIA · TANDEM',lane:'cars',repeatable:true,oncePerNight:true,available:L=>L.done('A13'),start:'meet',nodes:{

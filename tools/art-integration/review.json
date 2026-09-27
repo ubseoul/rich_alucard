@@ -5,9 +5,7 @@
   "deacon_brass.blessing": {"status": "FROZEN + MAPPING AMBIGUOUS", "note": "Armory beats mention grace but never narrate a blessing gesture."},
   "hilt.walk_away": {"status": "FROZEN STATE AVAILABLE", "note": "A23 'leave' narrates Hilt leaving, but Hilt is never on stage in that adventure (entrance line only); wiring it would add a cast member to the beat."},
   "iron_jaw.rapping": {"status": "FROZEN STATE AVAILABLE", "note": "The battle itself is the BARS minigame (UI overlay); no adventure beat shows him mid-verse."},
-  "rich.fishing_cast": {"status": "FROZEN STATE AVAILABLE", "note": "The cast happens inside the PIER minigame; the repeat PIER adventure referenced by places/temptations is not defined in content."},
-  "tunde.asleep_floor": {"status": "FROZEN STATE AVAILABLE", "note": "No current OPEN beat stages Tunde on the floor."},
-  "dre.asleep_floor": {"status": "FROZEN STATE AVAILABLE", "note": "No current OPEN beat stages Dre on the floor."}
+  "rich.fishing_cast": {"status": "FROZEN STATE AVAILABLE", "note": "The cast happens inside the PIER minigame; the repeat PIER adventure referenced by places/temptations is not defined in content."}
  },
  "assets": {
   "assets/before_the_fame/props/agege_bread/agege_bread_whole_32x24.png": {"status": "FROZEN + READY TO INTEGRATE", "note": "No runtime visual surface yet: the bread appears only as text (HATCH food labels, items); wiring it needs a UI design decision, not a guess."},
@@ -29,7 +27,7 @@
   "portobello_bedroom|left:portobello_kid1,mid:rich_portobello,right:portobello_kid2": {"status": "PASS (ACCEPTED EXCEPTION)", "ticket": "PD-FA-03", "note": "All three figures resolve frozen art (ART SHIP 010 rich_portobello, ART SHIP 013 kid1/kid2). The speaking kid's child-scale face measures 22/24/26 px against the 24/26/28.7 px dialogue floor at 360/390/430; every other check passes. HQ-FAI-01 PASS: the three-shot is kept and face-size is accepted for this screen only (no close two-shot, kid2 stays in frame, face box unchanged)."}
  },
  "surfaces": {
-  "minigame:pier": {"status": "PASS (final art)", "note": "Rich fishing_cast / holding_fish_away and Uncle Sunday fishing (frozen states) on the minigame canvas at native 1:1."},
+  "minigame:pier": {"status": "PASS (final art)", "note": "Rich fishing_cast / holding_fish_away and Uncle Sunday fishing (frozen states) at native 1:1; ART SHIP 014 catch art on the result card and wallet/rare/chest prompts (BIG FISH keeps the drawn placeholder: mapping decision, no approved art)."},
   "minigame:slurp": {"status": "PASS (final art)", "note": "Rich ramen_apron resolves to the ART SHIP 008 corrected delta; no stray utensil."},
   "minigame:bars": {"status": "PASS (final art)", "note": "Rich on_stage in battles, standing anchor otherwise; contact kept inside the canvas."},
   "minigame:pickup": {"status": "HOLD", "ticket": "NC-FA-07", "note": "Mixed: frozen Rich with placeholder players (no approved art for the other players)."},
@@ -37,9 +35,11 @@
   "minigame:hookah?company=ROOKOKO": {"status": "PASS (final art)", "note": "Explicitly named ROOKOKO company draws frozen Rookoko hookah_seated beside Rich. No current content beat names ROOKOKO explicitly."},
   "minigame:hookah?company=HOMIES": {"status": "PASS (final art)", "note": "A41 crew roof (company HOMIES, HQ-AS8-01): frozen ART SHIP 009 tunde.hookah_seated (company seat) and dre.hookah_seated (Rich's other side) flank frozen rich.hookah_seated at native 1:1 on their contacts, above the score lines and clear of the antenna target. NC-FA-11 resolved; Rookoko stays explicit-only."},
   "minigame:jollof": {"status": "HOLD", "ticket": "NC-FA-07", "note": "The cook figure's identity is not specified by the minigame; not mapped (no guessing)."},
-  "minigame:touge": {"status": "PASS (final art)", "note": "Player car uses the frozen TOUGE vehicle by runtime car id; rival cars have no approved art (placeholder)."},
-  "minigame:hatch": {"status": "PASS (final art) at the egg stage", "note": "Frozen egg; hatchling/young/majestic dragon forms have no approved art (placeholder shapes)."},
+  "minigame:touge": {"status": "PASS (final art)", "note": "Player car: frozen TOUGE vehicle by runtime car id. Tandem rivals: PINKY → frozen s2000_pink, TOKYO TONY → ART SHIP 014 Midnight Mafia rival A. HUD: ART SHIP 014 Rich locked-in / spun-out face crop (native 1:1) under the score."},
+  "minigame:hatch": {"status": "PASS (final art)", "note": "Egg: ART SHIP 005 master. Hatchling/young/majestic: ART SHIP 014 Blueberry Mazda stages at integer 2×/2×/3× on the placeholder ground line (hungry reads neutral; majestic sulk uses perched — no approved majestic sulk)."},
   "phone:home": {"status": "PASS (final art)", "note": "Eight frozen app icons on existing tiles; RICHBOIMPORTS and other apps without an approved icon stay text-only."},
-  "bedroom:company": {"status": "HOLD", "ticket": "NC-FA-07", "note": "Bedroom company overlays have no approved art (CURRENT_OPEN_ART_GAPS)."}
+  "bedroom:company": {"status": "PARTIAL (final art where approved)", "ticket": "NC-FA-07", "note": "ART SHIP 014: covered bedroom_company pose for 13 women + Mazda human (on the bed right of Rich), frozen asleep-floor homies (Tunde, Dre, Tristan), the cat on the bed, Mazda fly-by, 8 room props and the rain window. Company without an approved bedroom state (e.g. Brenda, Hina, Jade, Lo, Marisol, Nightshade, Velvet, Wispa, Anfeesa, or a non-woman stay-over) keeps the placeholder: F-covered_companion does not register with the runtime bed (Art geometry ambiguity)."},
+  "phone:cards": {"status": "PASS (final art)", "note": "ART SHIP 014: car LISTING art on JDMIMPORTS/RICHBOIMPORTS cards (Supra store card included), RICH RADIO covers, FAMILY thread avatars for mom/dad/sister (brothers: PENDING FROZEN ART AUTHORITY — SHIP 015), @dragoon_of_the_north VampGram avatar."},
+  "choices:items": {"status": "PASS (final art)", "note": "ART SHIP 014 fit/item art on store choices, gun case art on ARMORY choices, item and held-gun art on Combat 2.0 ITEM/FIGHT buttons (native pixels; items without frozen art stay text-only)."}
  }
 }

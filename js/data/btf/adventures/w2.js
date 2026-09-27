@@ -41,14 +41,15 @@
   special:{lines:A=>[N('a ticket comes back with no order on it. just: "THE RICH SPECIAL."'),R('…that ain\'t a real thing.'),N('you put jollof in the broth anyway. it works. hina tries it. she does not say anything nice, which from her is everything.'),S('hina','it\'s on the menu now.')],
    enter:A=>{RALife.setFlag('jollofRamenOnMenu',true);},next:'clockout'},
   clockout:{lines:[S('okada','good shift.'),N('he pays you out of a coffee can.')],
-   end:{outcome:'done',fx:A=>{},memory:{text:'first shift at slurp dynasty',lane:'money'},
+   // ENGINEERING 05 (HQ route): Hina's own first beat follows the first Slurp Dynasty experience (one time).
+   end:{outcome:'done',fx:A=>{},chain:()=>RAAdventures.available('A_HINA1')?'A_HINA1':null,memory:{text:'first shift at slurp dynasty',lane:'money'},
     receipt:{id:'a08:first',caption:'jollof ramen. on the menu now. because of you.'},
     home:['rich','my hands smell like broth. i respect it.',{vp:true}]}}
  }});
  D({id:'SLURP',title:'SLURP DYNASTY',lane:'money',repeatable:true,oncePerNight:true,memoryType:'money',available:L=>L.done('A08'),start:'shift',nodes:{
   shift:{env:'slurp',actors:{left:'rich',right:'okada'},lines:[N('the fryers are loud. okada nods once. that\'s your clock-in.')],
    minigame:{id:'slurp',params:()=>({hinaBest:RAMinigames.progress('slurp').hinaBest||0,kevinChance:RALife.done('A18')?0.06:0}),next:(A,r)=>{A.set('res',r);return 'done';}}},
-  done:{end:{outcome:'done',memory:{text:'a shift at slurp dynasty',lane:'money',quality:.6},home:['rich','my feet hurt. worth it.',{vp:true}]}}
+  done:{end:{outcome:'done',chain:()=>RAAdventures.available('A_HINA1')?'A_HINA1':null,memory:{text:'a shift at slurp dynasty',lane:'money',quality:.6},home:['rich','my feet hurt. worth it.',{vp:true}]}}
  }});
  RAPlaces.define([{id:'slurp',label:'SLURP DYNASTY',sub:'LITTLE TOKYO',adventure:L=>L.done('A08')?'SLURP':'A08',order:21}]);
 
@@ -76,8 +77,9 @@
  D({id:'KUSH',title:'KUSH & CRYPT',lane:'dragons',repeatable:true,memoryType:'dragons',available:L=>L.done('A09'),start:'store',nodes:{
   store:{env:'kush_crypt',actors:{left:'rich',right:'reggie'},title:'KUSH & CRYPT · MELROSE',
    lines:A=>[N(A.vars.bought?`${RALife.fmt(RALife.money())} left.`:'reggie nods. "for the dragon?"')],
-   choices:A=>[...(RAStores.STORES.kush.items||[]).map(it=>{const info=RAStores.itemInfo(it);return {label:`${info.label}${info.owned?' (OWNED)':''}`,sub:RALife.fmt(info.price),when:()=>!info.owned&&RALife.money()>=info.price,fx:X=>{if(RAStores.buy(it))X.set('bought',(X.vars.bought||0)+1);},next:'store'};}),{label:"I'M GOOD",next:'out'}]},
-  out:{end:{outcome:A=>A.vars.bought?'bought':'browsed',memory:A=>({text:A.vars.bought?'stocking up at kush & crypt':'checking in on reggie',lane:'dragons',quality:A.vars.bought?1:.4})}}
+   choices:A=>[...(RAStores.STORES.kush.items||[]).map(it=>{const info=RAStores.itemInfo(it);return {icon:RAStores.itemIcon?.(it),label:`${info.label}${info.owned?' (OWNED)':''}`,sub:RALife.fmt(info.price),when:()=>!info.owned&&RALife.money()>=info.price,fx:X=>{if(RAStores.buy(it))X.set('bought',(X.vars.bought||0)+1);},next:'store'};}),...(RAAdventures.available('A_EMBERLY1',{ignoreActive:true})?[{label:'THE BACK ROOM',fx:X=>X.set('chain','A_EMBERLY1'),next:'out'}]:[]),{label:"I'M GOOD",next:'out'}]},
+  // ENGINEERING 05 (HQ route): Emberly is met in the back room — a one-time chain into A_EMBERLY1.
+  out:{end:{chain:A=>A.vars.chain||null,outcome:A=>A.vars.bought?'bought':'browsed',memory:A=>({text:A.vars.bought?'stocking up at kush & crypt':'checking in on reggie',lane:'dragons',quality:A.vars.bought?1:.4})}}
  }});
  RAPlaces.define([{id:'kush',label:'KUSH & CRYPT',sub:'MELROSE',adventure:L=>L.done('A09')?'KUSH':'A09',order:12}]);
 
@@ -128,13 +130,20 @@
    receipt:{id:'a12:first',caption:'first catch. i did not look at it once.'},
    home:['rich','i fish now, apparently.',{vp:true}]}}
  }});
+ // ENGINEERING 05 incidental fix: the repeatable PIER that the pier place, the VampGPT money lane and the pier_money want
+ // already route to was never defined, so fishing vanished after A12. The existing PIER minigame, once a night.
+ D({id:'PIER',title:'SANTA MONICA PIER',lane:'dragons',repeatable:true,oncePerNight:true,memoryType:'dragons',available:L=>L.done('A12'),start:'fish',nodes:{
+  fish:{env:'pier',actors:{left:'rich'},minigame:{id:'pier',params:()=>({rain:RALife.today().rain}),next:(A,r)=>'done'}},
+  done:{end:{outcome:'fished',memory:{text:'night fishing at the pier',lane:'dragons',quality:.5}}}
+ }});
  RAPlaces.define([{id:'pier',label:'SANTA MONICA PIER',sub:'NIGHT FISHING',when:L=>!!L.dragon,adventure:L=>L.done('A12')?'PIER':'A12',order:22}]);
 
  // ---------------------------------------------------------------- A13 — ANGELES CREST AT MIDNIGHT
  D({id:'A13',title:'ANGELES CREST AT MIDNIGHT',lane:'cars',memoryType:'cars',available:L=>(L.life.ownership.cars||[]).length>0,
   testSetup:ctx=>{ctx.RALife.addCar({id:ctx.RACars.SUPRA,make:'Toyota',model:'Supra MK4',short:'SUPRA',price:0});},
   start:'meet',nodes:{
-  meet:{env:'crest',title:'ANGELES CREST · MIDNIGHT',actors:{left:'rich',right:'pinky'},
+  // ART SHIP 014: "leaning on a pink s2000" — her car's frozen WORLD surface behind her.
+  meet:{env:'crest',title:'ANGELES CREST · MIDNIGHT',actors:{left:'rich',right:'pinky'},props:[{src:window.RAArtRegistry?.vehicles?.world?.s2000?.asset,x:200,y:372}],
    enter:A=>{RARelations.meet('pinky','a13');},
    lines:[E('pinky','a woman is leaning on a pink s2000, fuzzy wheels and all.'),S('pinky','u drive that or just own it?'),N('she does not believe you can drive stick.')],
    choices:[{label:'PROVE IT',next:'lesson1'}]},
@@ -212,7 +221,7 @@
  D({id:'CAFE',title:'BEAN THERE DEAD THAT',lane:'music',repeatable:true,oncePerNight:true,memoryType:'music',available:L=>L.done('A16'),start:'sit',nodes:{
   sit:{env:'cafe',actors:{left:'rich',right:'wispa'},
    lines:A=>[N(RALife.today().rain?'rain on the window. wispa stays longer tonight.':'lofi. the outlet flickers. wispa is by the window, same as always.')],
-   choices:A=>[{label:'COOK A TRACK',when:()=>RAAdventures.available('COOK'),fx:X=>X.set('wantCook',true),next:'done'},{label:'JUST SIT',next:'done'}]},
+   choices:A=>[{label:'COOK A TRACK',when:()=>RAAdventures.available('COOK',{ignoreActive:true}),fx:X=>X.set('wantCook',true),next:'done'},{label:'JUST SIT',next:'done'}]},
   done:{end:{outcome:'hangout',chain:A=>A.vars.wantCook&&RAAdventures.available('COOK')?'COOK':null,
    memory:{text:'a quiet night at the café',lane:'music',quality:.5},
    home:A=>A.vars.wantCook?null:['rich','the calmest place in LA. i needed that.',{vp:true}]}}
@@ -226,8 +235,8 @@
   wake:{env:'blood_bank',title:'LIFEBLOOD BLOOD BANK · CRENSHAW',actors:{left:'rich',right:'nneka'},
    enter:A=>{const p=RALife.flag('a17Pending')||{};A.set('bill',p.bill||2000);A.set('enemy',p.enemy||'someone');RARelations.meet('nneka','a17');},
    lines:[N('fluorescent lights. a cot. a very disappointed nurse.'),E('nneka','she doesn\'t look up from her clipboard.'),S('nneka','my patients are vampires. sit down.')],next:'bill'},
-  bill:{lines:A=>[N(`she hands you the bill. ${RALife.fmt(A.vars.bill)}. itemized.`),S('nneka','ADEOLUWA. sit. down.')],next:'donor'},
-  donor:{lines:[R('i can donate. i mean, you know. i\'m a vampire, you\'re — never mind.')],choices:[{label:'…NEVER MIND.',next:'refuse'}]},
+  bill:{actors:{left:'rich',right:{id:'nneka',state:'handing_bill'}},lines:A=>[N(`she hands you the bill. ${RALife.fmt(A.vars.bill)}. itemized.`),S('nneka','ADEOLUWA. sit. down.')],next:'donor'},
+  donor:{actors:{left:'rich',right:'nneka'},lines:[R('i can donate. i mean, you know. i\'m a vampire, you\'re — never mind.')],choices:[{label:'…NEVER MIND.',next:'refuse'}]},
   refuse:{lines:[S('nneka','no. and don\'t ask again.'),N('she checks your pulse anyway. out of habit, not permission.')],next:'end'},
   end:{end:{outcome:'woke',
    fx:A=>{RARelations.add('nneka',10,{reason:'a17'});RARelations.memory('nneka','a17_woke_up_here');RALife.setFlag('a17Pending',null);},

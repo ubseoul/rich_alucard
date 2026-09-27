@@ -18,7 +18,7 @@
  function materialize(def,day,rand){
   const [a,b]=def.life;const span=a+Math.floor(rand()*(b-a+1));const L=RALife.L();
   const line=typeof def.line==='function'?def.line(L):def.line;
-  return {id:def.id,line,sender:typeof def.sender==='function'?def.sender(L):(def.sender||null),source:def.source,adventure:def.adventure||null,action:def.action||null,thread:def.thread||null,createdDay:day,expiresDay:day+span};
+  return {id:def.id,line,sender:typeof def.sender==='function'?def.sender(L):(def.sender||null),source:def.source,adventure:def.adventure||null,action:def.action||null,thread:(typeof def.thread==='function'?def.thread(L):def.thread)||null,createdDay:day,expiresDay:day+span};
  }
  function deliver(t){
   if(t.thread){RALife.text(t.thread,t.sender||t.thread.toUpperCase(),t.line,{id:`tempt:${t.id}:${t.createdDay}`,choices:[{label:'SAY LESS',temptation:t.id}]});}
@@ -26,6 +26,9 @@
  }
  // Forced (story-authored) temptations bypass cadence but still respect "max live".
  function push(id,{quiet=false}={}){const def=defs.get(id);if(!def)return false;const live=[...T().live];if(live.some(t=>t.id===id))return false;const t=materialize(def,RALife.today().day,RAPixel.rng(`${id}:${RALife.today().day}`));live.push(t);RAState.patch('life.temptations.live',live);if(!quiet)deliver(t);return t;}
+ // A story-routed want that must reach the player (never lost to the cadence cap): delivered through push() only
+ // while its own eligibility rules (availability, when, minDay, cooldown, one-time) hold.
+ function ensure(id){const def=defs.get(id);if(!def||!eligible(def,RALife.L(),T().live))return false;return push(id);}
  function generate(day){
   const L=RALife.L(),rand=RAPixel.rng(day*7919+13);
   let live=T().live.filter(t=>t.expiresDay>=day&&(!t.adventure||RAAdventures.available(t.adventure)));
@@ -61,6 +64,6 @@
   for(const w of wakeDefs){try{if(RAAdventures.available(w.adventure)&&w.when(L)){RALife.setFlag('wakeTrigger',{day:L.day,id:w.adventure});return w.adventure;}}catch(e){console.error(e)}}
   RALife.setFlag('wakeTrigger',{day:L.day,id:null});return null;
  }
- window.RATemptations={define,push,generate,take,act,whatWeOn,defs:()=>[...defs.values()],cadence};
+ window.RATemptations={define,push,ensure,generate,take,act,whatWeOn,defs:()=>[...defs.values()],cadence};
  window.RAWakeTriggers={define:defineWake,pick,list:()=>wakeDefs};
 })();

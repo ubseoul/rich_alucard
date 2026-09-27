@@ -18,18 +18,20 @@
   RALife.remember({text:`bought the ${c.short.toLowerCase()}`,lane:'cars'});RALife.receipt({id:`car:${key}`,caption:`the ${c.short.toLowerCase()}. mine.`,lane:'cars'});return true;}
  function installParts(carId,parts){const car=RALife.ownedCars().find(c=>c.id===carId||keyOf(c)===carId);if(!car)return;RALife.patchCar(car.id,{parts:{...(car.parts||{}),...parts}});}
  const supraCar=()=>RALife.ownedCars().find(c=>c.id===SUPRA);
- function listing(c,{label,sub,action,disabled}){return `<div class="phone-card"><b>${c.make.toUpperCase()} ${c.model.toUpperCase()}</b>${RALife.fmt(c.price)}${sub?`<br><span class="phone-small">${sub}</span>`:''}<button type="button" class="phone-button" data-phone-action="${action}" ${disabled?'disabled':''}>${label}</button></div>`;}
+ // ART SHIP 014 LISTING surfaces (68×50 frozen art, shown at native pixel scale) on every car card that has one.
+ function carImg(key){const src=window.RAArtRegistry?.vehicles?.listing?.[key]?.asset;return src?`<img class="car-listing" src="${src}" alt="" width="68" height="50" draggable="false">`:'';}
+ function listing(c,{label,sub,action,disabled}){return `<div class="phone-card">${carImg(c.key)}<b>${c.make.toUpperCase()} ${c.model.toUpperCase()}</b>${RALife.fmt(c.price)}${sub?`<br><span class="phone-small">${sub}</span>`:''}<button type="button" class="phone-button" data-phone-action="${action}" ${disabled?'disabled':''}>${label}</button></div>`;}
  function jdmMarkup(){
   const base=window.RAJDMImports?.storeMarkup?.()||'<h1>JDMIMPORTS</h1>';
   if(!supraCar())return base;
   const out=[];const L=RALife.L();
-  out.push(owned('s15')?`<div class="phone-card"><b>SILVIA S15</b>OWNED${RALife.ownedCars().find(c=>c.id===CATALOG.s15.id)?.parts?.bodykit?' · BODY KIT':''}</div>`:listing(CATALOG.s15,{label:RALife.money()>=38000?'BUY':'NOT ENOUGH CASH',action:'do:cars:buy:s15',disabled:RALife.money()<38000,sub:'the drift queen. forgiving.'}));
+  out.push(owned('s15')?`<div class="phone-card">${carImg(RALife.ownedCars().find(c=>c.id===CATALOG.s15.id)?.parts?.bodykit?'s15_bodykit':'s15')}<b>SILVIA S15</b>OWNED${RALife.ownedCars().find(c=>c.id===CATALOG.s15.id)?.parts?.bodykit?' · BODY KIT':''}</div>`:listing(CATALOG.s15,{label:RALife.money()>=38000?'BUY':'NOT ENOUGH CASH',action:'do:cars:buy:s15',disabled:RALife.money()<38000,sub:'the drift queen. forgiving.'}));
   if(L.flag('r34Lead')&&!owned('r34'))out.push(listing(CATALOG.r34,{label:RALife.money()>=185000?'WIN THE AUCTION':'NOT ENOUGH CASH',action:'do:cars:buy:r34',disabled:RALife.money()<185000,sub:'auction lead from tokyo tony. AWD — it grips. conversion sold separately.'}));
   out.push(`<button type="button" class="phone-button" data-phone-action="do:cars:garage">SHOP BAY (PARTS)</button>`);
   const importLine=L.done('A13')?'"SO YOU CAN DRIVE STICK. STILL WON\'T TIP."':'"I BET YOU DON\'T EVEN KNOW HOW TO DRIVE STICK!"';
   return base.replace(/<div class="jdm-store-actions">[\s\S]*$/,'')+`<p class="phone-speaker">IMPORT GUY</p><p class="phone-small">${importLine}</p>${out.join('')}<div class="jdm-store-actions"><button type="button" class="phone-button jdm-action" data-jdm-action="home">HOME</button></div>`;
  }
- function richboiMarkup(){const out=['<h1>RICHBOIMPORTS</h1><p class="phone-small">browse. dream. or don\'t.</p>'];for(const k of ['urus','aventador','ferrari']){const c=CATALOG[k];const lock=c.needsRep&&RALife.rep()<c.needsRep;out.push(owned(k)?`<div class="phone-card"><b>${c.short}</b>OWNED</div>`:listing(c,{label:lock?'NOT ON YOUR LEVEL YET':RALife.money()>=c.price?'BUY IT':'NOT ENOUGH CASH',action:`do:richboi:buy:${k}`,disabled:lock||RALife.money()<c.price,sub:k==='urus'?'an SUV. drifting it is a comedy of physics.':k==='aventador'?'absurd speed. awful drifter. max clout.':'the only exotic that actually drifts.'}));}return out.join('');}
+ function richboiMarkup(){const out=['<h1>RICHBOIMPORTS</h1><p class="phone-small">browse. dream. or don\'t.</p>'];for(const k of ['urus','aventador','ferrari']){const c=CATALOG[k];const lock=c.needsRep&&RALife.rep()<c.needsRep;out.push(owned(k)?`<div class="phone-card">${carImg(k)}<b>${c.short}</b>OWNED</div>`:listing(c,{label:lock?'NOT ON YOUR LEVEL YET':RALife.money()>=c.price?'BUY IT':'NOT ENOUGH CASH',action:`do:richboi:buy:${k}`,disabled:lock||RALife.money()<c.price,sub:k==='urus'?'an SUV. drifting it is a comedy of physics.':k==='aventador'?'absurd speed. awful drifter. max clout.':'the only exotic that actually drifts.'}));}return out.join('');}
  async function richboiAction(act,arg,api){if(act==='buy'&&buy(arg)){await api.close();RAAdventureScene.begin('RB_DELIVERY',{vars:{car:arg}});}}
  async function garage(api,carKey){const cars=RALife.ownedCars();const car=cars.find(c=>keyOf(c)===carKey)||cars.at(-1);if(!car)return;const k=keyOf(car);
   await api.launch('garage',{car:toTouge(car).replace('r34_awd','r34').replace('r34_rwd','r34'),owned:car.parts||{},parts:car.parts||{},money:RALife.money(),lessonsSeen:RALife.flag('garageLessons')||[]},result=>{if(result.rewards?.parts)installParts(car.id,result.rewards.parts);if(result.data?.testDrive)window.RACars.touge({course:'docks',car:car.id,short:true});});}
@@ -53,7 +55,7 @@
    if(result.score>board[0].score)RALife.counter('lauraLedger');}
   return result;
  }
- window.RACars={CATALOG,SUPRA,keyOf,toTouge,owned,buy,installParts,jdmMarkup,richboiMarkup,richboiAction,garage,touge};
+ window.RACars={carImg,CATALOG,SUPRA,keyOf,toTouge,owned,buy,installParts,jdmMarkup,richboiMarkup,richboiAction,garage,touge};
  // JDMIMPORTS page actions routed through the phone registry ("do:cars:...").
  window.RAPhoneApps?.register({id:'cars',label:'CARS',hidden:true,onAction:async(act,arg,api)=>{if(act==='buy'){if(buy(arg))api.refresh();else api.message('not enough cash.');}if(act==='garage')await garage(api);}});
  // RICHBOIMPORTS unlock: $500K net worth OR the Duchess tease.

@@ -55,12 +55,18 @@ export async function buildMatrix(){
  // Minigame canvases resolve frozen states through RAPixel.personSprite(id, state).
  for(const m of code.matchAll(/personSprite\?\.\('([a-z_0-9]+)','([a-z_0-9]+)'/g))usedStates.add(`${m[1]}.${m[2]}`);
  for(const m of code.matchAll(/personSprite\?\.\('([a-z_0-9]+)',[a-zA-Z_]+\?'([a-z_0-9]+)':/g))usedStates.add(`${m[1]}.${m[2]}`);
+ // Bedroom company homies sleep on the floor in their approved floor state (js/systems/world_life.js HOMIE_FLOOR).
+ for(const m of code.matchAll(/const HOMIE_FLOOR=\{([^}]*)\}/g))for(const x of m[1].matchAll(/([a-z_0-9]+):'([a-z_0-9]+)'/g))usedStates.add(`${x[1]}.${x[2]}`);
  for(const [id,e] of Object.entries(ctx.RACombatData?.ENEMIES||{})){const art=ctx.RACombatData.enemyArt(id);if(art.state)usedStates.add(`${e.person}.${art.state}`);for(const r of Object.values(art.roles))usedStates.add(`${e.person}.${r.state}`)}
  // Registry-mediated runtime uses (by id, not path): TOUGE car map, phone app-icon map, prop lookups.
  const mapValues=name=>{const m=code.match(new RegExp(`const ${name}=\{([^}]*)\}`));return new Set(m?[...m[1].matchAll(/:'([a-z_0-9]+)'/g)].map(x=>x[1]):[])};
  const registryUse={vehicle:new Set([...mapValues('FROZEN_CAR'),...(code.includes("'s15_bodykit'")?['s15_bodykit']:[])]),'ui-icon':mapValues('APP_ICON'),prop:new Set([...code.matchAll(/RAArtRegistry\?\.props\?\.([a-z_0-9]+)/g)].map(x=>x[1]))};
  const assets=[];const row=(pathName,kind,id,status,where=[],note=null)=>assets.push({path:pathName,kind,id,status,runtime:where,...(note?{note}:{})});
+ // ART SHIP 014 rows come from the Engineering runtime map: INTEGRATED only when the live runtime really consumes
+ // the file (a content state the census stages, or the consumer's code token), otherwise its recorded reason.
+ const s14=await ship014Rows(code,usedStates);
  for(const file of Object.keys(R.assets)){
+  if(s14[file]){const r=s14[file];row(file,r.kind,r.id,r.status,r.runtime,r.note);continue}
   const reviewed=review.assets[file];
   const env=Object.entries(R.environments).find(([,e])=>e.asset===file||Object.values(e.layers||{}).includes(file));
   if(env){const users=envs.filter(e=>e.image===file||envLayers(e).includes(file)).map(e=>e.id);row(file,env[1].asset===file?'environment':'environment-layer',env[0],users.length?'FROZEN + ALREADY INTEGRATED':'FROZEN + READY TO INTEGRATE',users);continue}
@@ -100,6 +106,20 @@ export async function buildMatrix(){
   summary:{frozenFiles:assets.length,assets:count(assets,a=>a.status),demand:count(demand,d=>`${d.kind}: ${d.status}`),screens:count(Object.values(screens),s=>bucket(s.status))},
   surfaces:review.surfaces||{},assets:assets.sort((a,b)=>a.path.localeCompare(b.path)),demand,screens:Object.fromEntries(Object.entries(screens).sort(([a],[b])=>a.localeCompare(b)))};
 }
+export const SHIP014_MAP='tools/art-integration/ship014_runtime_map.json';
+export async function ship014Rows(code,usedStates){
+ const map=JSON.parse(await readFile(path.join(root,SHIP014_MAP),'utf8')).entries;
+ const items=JSON.parse(await readFile(path.join(root,'art_department/ships/art_ship_014/ART_SHIP_MANIFEST.json'),'utf8')).items;
+ const out={};
+ for(const it of items){const e=map[it.id];if(!e)throw new Error(`${it.id}: no ART SHIP 014 runtime key`);
+  const k=e.key.split('.'),kind=k[0]==='characters'?'character-state':k[0]==='environments'?'environment':k[1]==='treatments'?'ui-treatment':`${k[0]}${k[1]?'-'+k[1]:''}`;
+  let live=false;
+  if(e.use){live=e.use.token==='content-state'?usedStates.has(`${k[1]}.${k[3]}`):k[0]==='characters'&&usedStates.has(`${k[1]}.${k[3]}`)||(await readFile(path.join(root,e.use.consumer),'utf8').catch(()=>'')).includes(e.use.token);
+  }
+  out[it.production_path]={kind,id:e.key,status:live?'FROZEN + ALREADY INTEGRATED':e.use?'FROZEN + MAPPED BUT NOT CONSUMED':e.status,runtime:live?[e.use.surface]:[],note:live?null:e.note||null,claimed:!!e.use};
+ }
+ return out;
+}
 export async function expectedMatrix(){return JSON.stringify(await buildMatrix(),null,1)+'\n'}
 
 export async function test(){
@@ -132,6 +152,10 @@ export async function test(){
  const content=(await Promise.all((await readdir(path.join(root,'js/data/btf/adventures'))).map(f=>readFile(path.join(root,'js/data/btf/adventures',f),'utf8')))).join('\n');
  for(const m of content.matchAll(/\{id:'([a-z_0-9]+)',state:'([a-z_0-9]+)'\}/g)){if(m[2]==='vampire')continue;const p=m[1]==='rich'?ctx.RABtfPeople.rich:ctx.RABtfPeople.get(m[1]);assert.ok(p?.states?.[m[2]],`content asks for ${m[1]}@${m[2]}, which has no approved frozen state`)}
  assert.equal(eol(await readFile(path.join(root,MATRIX),'utf8')),eol(await expectedMatrix()),`${MATRIX} is stale — run node tools/art-integration.mjs`);
+ // ART SHIP 014: every row the runtime map claims as integrated is really consumed; every other row carries a reason.
+ {const m=JSON.parse(await readFile(path.join(root,MATRIX),'utf8'));for(const a of m.assets.filter(x=>/art_ship_014\//.test(x.path))){
+   assert.notEqual(a.status,'FROZEN + MAPPED BUT NOT CONSUMED',`${a.path} (${a.id}) is claimed INTEGRATED but the runtime does not consume it`);
+   if(a.status!=='FROZEN + ALREADY INTEGRATED')assert.ok(a.note,`${a.path} is not integrated and has no recorded reason`);}}
  const m=JSON.parse(await readFile(path.join(root,MATRIX),'utf8'));
  console.log(`PASS art integration (registry ${Object.keys(R.assets).length} frozen files, ${paths.length} runtime art refs resolve to the register, matrix: ${JSON.stringify(m.summary.screens)})`);
 }

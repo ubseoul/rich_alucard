@@ -6,7 +6,7 @@
  let layer=null,scope=null;
  const el=(tag,cls,html)=>{const n=document.createElement(tag);if(cls)n.className=cls;if(html!=null)n.innerHTML=html;return n;};
  function dayLabel(){const i=RALife.today();return `DAY ${i.day} · ${i.weekday.slice(0,3)} ${i.dateLabel}${i.rain?' · RAIN':''}`;}
- function clear(){layer?.remove();layer=null;}
+ function clear(){layer?.remove();layer=null;window.RABedroomCompany?.clear?.();}
  function build(){
   clear();layer=el('div','bedroom-life-layer');Object.assign(layer.style,{position:'absolute',inset:'0',zIndex:'6',pointerEvents:'none'});
   const bar=el('div','bedroom-daybar',dayLabel());bar.dataset.pdUi='location';layer.append(bar);

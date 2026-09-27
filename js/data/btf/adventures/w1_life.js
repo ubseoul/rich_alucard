@@ -36,7 +36,7 @@
  }});
  // DON CHUY'S — the taco truck outside the castle. Canciones until 3 a.m.
  D({id:'TACOS',title:"DON CHUY'S",lane:'food',repeatable:true,oncePerNight:true,start:'arrive',nodes:{
-  arrive:{env:'taco_truck',actors:{left:'rich',right:'don_chuy'},lines:A=>[N('the radio is playing a canción. don chuy is singing along, badly, beautifully.'),S('don_chuy',RALife.counter('tacoVisits')<=1?'¡vecino! the castle guy! finally.':'¿lo de siempre, vecino?')],
+  arrive:{env:'taco_truck',actors:{left:'rich',right:{id:'don_chuy',state:'singing'}},lines:A=>[N('the radio is playing a canción. don chuy is singing along, badly, beautifully.'),S('don_chuy',RALife.counter('tacoVisits')<=1?'¡vecino! the castle guy! finally.':'¿lo de siempre, vecino?')],
    choices:[{label:'THREE TACOS ($9)',when:()=>RALife.money()>=9,fx:()=>RALife.spend(9),next:'eat'},{label:'SIX TACOS ($18)',when:()=>RALife.money()>=18,fx:A=>{RALife.spend(18);A.set('six',true);},next:'eat'}]},
   eat:{lines:A=>[N(A.vars.six?'six tacos. the song ends. another one starts.':'the tacos are $3 each and better than anything in the grave.'),...(RALife.today().rain?[N('rain on the awning. his cousins are here with a guitar.')]:[])],end:{outcome:'ate',memory:{text:'tacos at don chuy\'s truck',lane:'food',quality:.6},chain:A=>RALife.today().rain&&RAAdventures.available('A51')?'A51':null}}
  }});
