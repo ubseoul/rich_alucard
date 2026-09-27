@@ -1,0 +1,1805 @@
+{
+  "gate": "IDENTITY / STYLE / SEMANTIC READ / DISTINCTNESS / POLISH",
+  "items": [
+    {
+      "id": "A-RICH-riding_mazda",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_A_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "A-RICH-touge_locked",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_A_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "A-RICH-touge_spun",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_A_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "A-anfeesa-dj",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_A_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "A-bllad33-dry",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_A_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "A-brenda-date",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_A_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "A-brenda-gossiping",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_A_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "A-britney-profile",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_A_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "A-bunmi-bedroom_company",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_A_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "A-bunmi-date",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_A_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "A-cammile-bedroom",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_A_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "A-cammile-date",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_A_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "A-cammile-touge_spectator",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_A_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "A-ceo_assistant-bedroom",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_A_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "A-ceo_assistant-date",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_A_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "A-coffe-caught",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_A_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "A-coffe-hype",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_A_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "A-don_chuy-singing",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_A_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "A-dragoon-silhouette",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_A_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "A-duchess-bedroom_company",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_A_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "A-duchess-impressed",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_A_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "A-duchess-unimpressed",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_A_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "A-emberly-bedroom_company",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_A_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "A-emberly-date",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_A_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "A-family-dad-avatar",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_A_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "A-family-mom-avatar",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_A_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "A-family-sister-avatar",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_A_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "A-hina-date",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_A_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "A-hina-smug",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_A_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "A-jade-impressed",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_A_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "A-june-bedroom",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_A_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "A-june-date",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_A_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "A-june-working",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_A_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "A-kaede-bedroom_company",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_A_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "A-kaede-ceiling_drop",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_A_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "A-kaede-date",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_A_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "A-kiki-bedroom_company",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_A_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "A-kiki-date",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_A_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "A-kiki-laughing",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_A_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "A-lil_smack-diss",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_A_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "A-lil_smack-finale",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_A_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "A-lo-arm_fall",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_A_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "A-lo-date",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_A_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "A-marisol-date",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_A_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "A-marisol-disapproving",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_A_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "A-moonie-bedroom_company",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_A_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "A-moonie-date",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_A_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "A-ms_patrice-bedroom",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_A_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "A-ms_patrice-date",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_A_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "A-ms_patrice-laugh",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_A_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "A-nightshade-casting",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_A_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "A-nightshade-date",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_A_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "A-nneka-bedroom_company",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_A_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "A-nneka-date",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_A_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "A-nneka-handing_bill",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_A_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "A-officer_nodd-nod",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_A_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "A-officer_nodd-phone",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_A_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "A-pinky-bedroom_company",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_A_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "A-pinky-date",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_A_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "A-pinky-impressed",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_A_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "A-pinky-neutral",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_A_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "A-rookoko-painting",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_A_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "A-tasha-bedroom_company",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_A_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "A-tasha-date",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_A_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "A-tasha-stage_rush",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_A_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "A-tristan-floor",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_A_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "A-tristan-laugh",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_A_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "A-tristan-passenger",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_A_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "A-velvet-date",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_A_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "A-vicky-doorway",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_A_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "A-wispa-date",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_A_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "A-wispa-wave",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_A_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "B-hatchling-happy",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_B_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "B-hatchling-neutral",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_B_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "B-hatchling-sulk",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_B_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "B-human-bedroom",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_B_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "B-human-eating",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_B_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "B-majestic-flying",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_B_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "B-majestic-happy",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_B_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "B-majestic-perched",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_B_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "B-riding-composite",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_B_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "B-young-happy",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_B_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "B-young-neutral",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_B_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "B-young-sulk",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_B_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "C-cat-judging_combat",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_C_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "C-cat-on_bed",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_C_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "C-chest",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_C_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "C-common-pier_perch-held",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_C_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "C-common-pier_perch-icon",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_C_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "C-common-silver_grunt-held",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_C_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "C-common-silver_grunt-icon",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_C_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "C-common-ugly_mackerel-held",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_C_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "C-common-ugly_mackerel-icon",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_C_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "C-junk-boot",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_C_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "C-junk-flip_phone",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_C_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "C-junk-waterlogged_wallet",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_C_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "C-rare-moon_koi",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_C_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "C-rare-old_barnacle_grouper",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_C_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "D-aventador-listing",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_D_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "D-aventador-world",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_D_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "D-ferrari_f40-listing",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_D_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "D-ferrari_f40-world",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_D_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "D-portobello-world",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_D_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "D-r34-listing",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_D_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "D-r34-world",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_D_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "D-rival_a-touge",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_D_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "D-rival_b-touge",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_D_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "D-s15_bodykit-listing",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_D_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "D-s15_bodykit-world",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_D_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "D-s15_stock-listing",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_D_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "D-s15_stock-world",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_D_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "D-s2000_pink-listing",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_D_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "D-s2000_pink-world",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_D_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "D-supra-listing",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_D_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "D-urus-listing",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_D_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "D-urus-world",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_D_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "E-blood_bill",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_E_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "E-blood_held",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_E_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "E-bonesworth_sword",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_E_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "E-bread-torn",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_E_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "E-egg-bed",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_E_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "E-egg-cracking",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_E_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "E-egg-held",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_E_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "E-fit-black_leather_trench",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_E_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "E-fit-boughi_v_blazer",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_E_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "E-fit-church_shoes",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_E_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "E-fit-drift_sneakers",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_E_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "E-fit-grave_hoodie",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_E_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "E-fit-krada_shades",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_E_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "E-fit-slides",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_E_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "E-fit-tradeya_hoes_chain",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_E_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "E-gun-chopstick_sniper-case",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_E_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "E-gun-chopstick_sniper-held",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_E_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "E-gun-holy_baby_drake-case",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_E_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "E-gun-holy_baby_drake-held",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_E_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "E-gun-lil_oga-case",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_E_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "E-gun-lil_oga-held",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_E_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "E-gun-sapporo_shotgun-case",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_E_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "E-gun-sapporo_shotgun-held",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_E_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "E-gun-the_rpg-case",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_E_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "E-gun-the_rpg-held",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_E_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "E-item-boba",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_E_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "E-item-dragon_keef",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_E_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "E-item-garlic_knots",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_E_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "E-item-jollof_takeout",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_E_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "E-item-sapporo",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_E_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "E-item-smelling_salts",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_E_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "E-radio-bloodbath",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_E_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "E-radio-montana",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_E_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "E-radio-octopus_brain",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_E_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "E-radio-playmakers",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_E_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "E-radio-shopping_addict",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_E_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "F-company_system",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_F_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "F-covered_companion",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_F_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "F-homie_floor",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_F_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "F-mazda_flyby",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_F_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "F-prop-duoqlo_bag",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_F_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "F-prop-jollof_trophy",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_F_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "F-prop-michigan_pennant",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_F_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "F-prop-plant",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_F_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "F-prop-rookoko_painting",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_F_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "F-prop-trippin_red_poster",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_F_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "F-prop-unused_cat_bed",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_F_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "F-prop-waffle_mix_bag",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_F_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "F-rain_night_window",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_F_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "F-stars_night_sky",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_F_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "G-vol5-airport",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_G_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "H-bars",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_H_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "H-blood_bank_bill",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_H_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "H-garage",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_H_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "H-hatch",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_H_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "H-hookah_rings",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_H_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "H-jollof_wars",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_H_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "H-pickup",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_H_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "H-pier",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_H_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "H-receipts",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_H_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "H-rich_radio",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_H_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "H-touge",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_H_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "H-vehicle_listing_cards",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_H_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    },
+    {
+      "id": "H-what_we_on",
+      "identity": "PASS \u2014 anchor/subject identity preserved",
+      "style": "PASS \u2014 cartridge-native pixel grammar",
+      "semantic_read": "PASS \u2014 authored subject/state visibly depicted",
+      "distinctness": "PASS \u2014 no unrelated byte-identical candidate; package-board comparison",
+      "polish": "PASS \u2014 candidate-art review level",
+      "evidence_board": "PACKAGE_H_REVIEW.png",
+      "review_status": "CANDIDATE ONLY \u2014 HQ decides"
+    }
+  ]
+}

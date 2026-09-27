@@ -1,0 +1,126 @@
+# Count reconciliation
+
+The provisional ledger contained **245** rows. The Addendum-first full OPEN rerun contains **308** rows, a net change of **+63**.
+
+The correction is not a blanket scope increase. It resolves provisional state placeholders into exact Vol. 2 states, corrects vehicle topology, expands the five public guns into case/held surfaces, splits common fish into icon/held surfaces, adds Vol. 3 fit/item art, enumerates Vol. 5 location masters, and removes three false source blockers plus stale vehicle/environment surfaces.
+
+## Added IDs (89)
+
+- `A-brenda-date`
+- `A-brenda-gossiping`
+- `A-bunmi-bedroom_company`
+- `A-bunmi-date`
+- `A-dragoon-silhouette`
+- `A-duchess-bedroom_company`
+- `A-duchess-impressed`
+- `A-duchess-unimpressed`
+- `A-emberly-bedroom_company`
+- `A-emberly-date`
+- `A-hina-date`
+- `A-hina-smug`
+- `A-jade-impressed`
+- `A-kaede-bedroom_company`
+- `A-kaede-ceiling_drop`
+- `A-kaede-date`
+- `A-kiki-bedroom_company`
+- `A-kiki-date`
+- `A-kiki-laughing`
+- `A-lo-date`
+- `A-marisol-date`
+- `A-marisol-disapproving`
+- `A-moonie-bedroom_company`
+- `A-moonie-date`
+- `A-nightshade-casting`
+- `A-nightshade-date`
+- `A-nneka-bedroom_company`
+- `A-nneka-date`
+- `A-nneka-handing_bill`
+- `A-pinky-bedroom_company`
+- `A-pinky-date`
+- `A-pinky-impressed`
+- `A-pinky-neutral`
+- `A-tasha-bedroom_company`
+- `A-tasha-date`
+- `A-tasha-stage_rush`
+- `A-velvet-date`
+- `A-wispa-date`
+- `A-wispa-wave`
+- `C-common-pier_perch-held`
+- `C-common-pier_perch-icon`
+- `C-common-silver_grunt-held`
+- `C-common-silver_grunt-icon`
+- `C-common-ugly_mackerel-held`
+- `C-common-ugly_mackerel-icon`
+- `E-fit-black_leather_trench`
+- `E-fit-boughi_v_blazer`
+- `E-fit-church_shoes`
+- `E-fit-drift_sneakers`
+- `E-fit-grave_hoodie`
+- `E-fit-krada_shades`
+- `E-fit-slides`
+- `E-fit-tradeya_hoes_chain`
+- `E-gun-chopstick_sniper-case`
+- `E-gun-chopstick_sniper-held`
+- `E-gun-holy_baby_drake-case`
+- `E-gun-holy_baby_drake-held`
+- `E-gun-lil_oga-case`
+- `E-gun-lil_oga-held`
+- `E-gun-sapporo_shotgun-case`
+- `E-gun-sapporo_shotgun-held`
+- `E-gun-the_rpg-case`
+- `E-gun-the_rpg-held`
+- `E-item-boba`
+- `E-item-dragon_keef`
+- `E-item-garlic_knots`
+- `E-item-jollof_takeout`
+- `E-item-sapporo`
+- `E-item-smelling_salts`
+- `G-vol5-airport`
+- `G-vol5-brunch`
+- `G-vol5-centennial`
+- `G-vol5-don_chuy_truck`
+- `G-vol5-duoqlo`
+- `G-vol5-family_house`
+- `G-vol5-gallery`
+- `G-vol5-hollow_bowl`
+- `G-vol5-kitchen`
+- `G-vol5-lennox`
+- `G-vol5-little_tokyo`
+- `G-vol5-maul`
+- `G-vol5-movie_room`
+- `G-vol5-naija_lot`
+- `G-vol5-naija_mart`
+- `G-vol5-onsen`
+- `G-vol5-salon`
+- `G-vol5-tristan_apt`
+- `G-vol5-venice`
+- `G-vol5-waffle_haven`
+
+## Removed/replaced IDs (26)
+
+- `A-bunmi-unspecified`
+- `A-hina-unspecified`
+- `A-kaede-unspecified`
+- `A-kiki-unspecified`
+- `A-mazda_human-unspecified`
+- `A-moonie-unspecified`
+- `A-nightshade-unspecified`
+- `A-nneka-unspecified`
+- `A-pinky-unspecified`
+- `A-tasha-unspecified`
+- `A-wispa-unspecified`
+- `C-common-pier_perch`
+- `C-common-silver_grunt`
+- `C-common-ugly_mackerel`
+- `D-portobello-listing`
+- `D-portobello-touge`
+- `D-rival_a-listing`
+- `D-rival_a-world`
+- `D-rival_b-listing`
+- `D-rival_b-world`
+- `E-weapon_case`
+- `E-weapon_held`
+- `G-env-atl_airport`
+- `SRC-full_hq_addendum_v1`
+- `SRC-vol_1`
+- `SRC-vol_3`

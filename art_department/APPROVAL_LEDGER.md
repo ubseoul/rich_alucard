@@ -221,3 +221,11 @@ The original hookah sprite remains frozen and hash-preserved in provenance; the 
 All five exact canonical PNGs named in `ships/art_ship_012_closeout/ART_SHIP_MANIFEST.json` are **APPROVED MASTER / FROZEN**. Each canonical SHA-256 equals its accepted candidate SHA-256. The complete frozen corpus is now **224 assets across 364 Asset Register entries**.
 
 Both rejected Buckhead attempts remain hash-preserved and excluded from approval/style authority. Current Engineering authority remains `claude/hold-clearance-001` at `a66170218375e52404715789dde48c23726a6044`, **108 PASS / 13 HOLD**, unchanged by this Art freeze. No runtime/gameplay code, Presentation Director mapping, PLAYMAKERS, Royal Glitch, SEALED material, audio, merge or deployment was touched. ART SHIP 012 CLOSEOUT is **APPROVED MASTER / FROZEN / COMPLETE**.
+
+## ART SHIP 014 — OPEN VISUAL COMPLETION (recorded 2026-09-27)
+
+48. ART SHIP 014 audited 308 sourced OPEN requirements and produced 180 native candidates while retaining 6 canon blockers, 5 Engineering mapping decisions, 6 conditional existing-art tests and 1 SEALED exclusion. Frozen-source authority, candidate comparison evidence and Ship provenance remain under `ships/art_ship_014/`.
+49. Final native validation passed 180/180; candidate duplicates were 0; semantic derivative/frozen unintended equalities were 0; the pre-Ship-014 frozen corpus verified 224/224. The corrected `A-lo-arm_fall` passed Ube/HQ Taste Pass at `8da6cea7350c6bc395971067ac0e7f31810fe8fb4263e4a041df4fd65ff0e9ed`, while the other 179 accepted candidate bytes remained unchanged.
+50. Explicit Ube/HQ decision: **ART SHIP 014 — UBE/HQ TASTE PASS: PASS; APPROVED FOR PROMOTION + FREEZE.** All 180 exact accepted byte streams are now **APPROVED MASTER / FROZEN**. The frozen corpus is **404 assets across 544 Asset Register entries**.
+
+No accepted image was regenerated, decoded/re-encoded, resized, optimized or modified during promotion. Package H is visual-treatment authority only, not runtime-data authority. Unresolved blockers and mapping decisions remain open. Runtime/gameplay integration, PASS/HOLD movement, Engineering/main merge and deployment are excluded. No SEALED material was accessed. ART SHIP 014 is **APPROVED MASTER / FROZEN / COMPLETE**.

@@ -1,0 +1,4089 @@
+{
+  "schema_version": 2,
+  "ship": "ART SHIP 014",
+  "art_authority_commit": "920912ff3d006c33d9b002d2436b8e1b0ed83f72",
+  "runtime_authority_commit": "06d378846d98347715800624d76bf619df1465ac",
+  "total_sourced_open_requirements_audited": 308,
+  "counts": {
+    "BLOCKED BY CANON": 6,
+    "CONDITIONAL \u2014 EXISTING ART MUST BE TESTED FIRST": 6,
+    "FROZEN \u2014 COMPLETE": 105,
+    "FROZEN \u2014 REUSE SATISFIES REQUIREMENT": 5,
+    "MAPPING / ENGINEERING DECISION": 5,
+    "NATIVE CANDIDATE \u2014 PRODUCED": 180,
+    "SEALED / DO NOT TOUCH": 1
+  },
+  "requirements": [
+    {
+      "id": "A-RICH-fishing_cast",
+      "package": "A",
+      "requirement": "Fishing: cast/hold rod",
+      "status": "FROZEN \u2014 COMPLETE",
+      "source": "VOL2 \u00a7 Rich \u2014 OPEN contextual states",
+      "evidence_path": "assets/before_the_fame/characters/rich/rich_fishing_cast_80x96.png",
+      "note": "",
+      "native_contract": "80x96/contact (40,88) unless HUD/composite mapping says otherwise",
+      "evidence_sha256": "5a28fd47156b93f9282033eb84db2c6fab7ff362d6390e03ba452e3145c1fc65",
+      "evidence_registry_status": "FROZEN",
+      "evidence_dimensions": [
+        80,
+        96
+      ]
+    },
+    {
+      "id": "A-RICH-holding_fish",
+      "package": "A",
+      "requirement": "Fishing: hold caught fish away",
+      "status": "FROZEN \u2014 COMPLETE",
+      "source": "VOL2 \u00a7 Rich \u2014 OPEN contextual states",
+      "evidence_path": "assets/before_the_fame/characters/rich/rich_holding_fish_away_80x96.png",
+      "note": "",
+      "native_contract": "80x96/contact (40,88) unless HUD/composite mapping says otherwise",
+      "evidence_sha256": "960a9a4bdbaee810640dccf91026f22e95a43ecf5c95ff54762a87aa2b86b4e6",
+      "evidence_registry_status": "FROZEN",
+      "evidence_dimensions": [
+        80,
+        96
+      ]
+    },
+    {
+      "id": "A-RICH-ramen",
+      "package": "A",
+      "requirement": "Ramen apron standing counter state",
+      "status": "FROZEN \u2014 COMPLETE",
+      "source": "VOL2 \u00a7 Rich \u2014 OPEN contextual states",
+      "evidence_path": "assets/before_the_fame/characters/rich/rich_ramen_apron_corrected_80x96.png",
+      "note": "",
+      "native_contract": "80x96/contact (40,88) unless HUD/composite mapping says otherwise",
+      "evidence_sha256": "9c2ba5ab7175cffb0d5c71040bf8461c3dd3e82320605009a0781ffc353d2019",
+      "evidence_registry_status": "FROZEN",
+      "evidence_dimensions": [
+        80,
+        96
+      ]
+    },
+    {
+      "id": "A-RICH-laptop_seated",
+      "package": "A",
+      "requirement": "Laptop seated",
+      "status": "FROZEN \u2014 COMPLETE",
+      "source": "VOL2 \u00a7 Rich \u2014 OPEN contextual states",
+      "evidence_path": "assets/before_the_fame/characters/rich/rich_laptop_seated_80x96.png",
+      "note": "",
+      "native_contract": "80x96/contact (40,88) unless HUD/composite mapping says otherwise",
+      "evidence_sha256": "a18ecf0d5c57d74f2be77a671faea5a6c01e7c6c60b00787d3f08c22499637b0",
+      "evidence_registry_status": "FROZEN",
+      "evidence_dimensions": [
+        80,
+        96
+      ]
+    },
+    {
+      "id": "A-RICH-laptop_nod",
+      "package": "A",
+      "requirement": "Laptop nod",
+      "status": "FROZEN \u2014 COMPLETE",
+      "source": "VOL2 \u00a7 Rich \u2014 OPEN contextual states",
+      "evidence_path": "assets/before_the_fame/characters/rich/rich_laptop_nod_80x96.png",
+      "note": "",
+      "native_contract": "80x96/contact (40,88) unless HUD/composite mapping says otherwise",
+      "evidence_sha256": "601c3fb46a87a6a8843a7569ed978a46118ce94d7ff864a0dc7aeb5e0fb63379",
+      "evidence_registry_status": "FROZEN",
+      "evidence_dimensions": [
+        80,
+        96
+      ]
+    },
+    {
+      "id": "A-RICH-on_stage",
+      "package": "A",
+      "requirement": "On-stage mic performance",
+      "status": "FROZEN \u2014 COMPLETE",
+      "source": "VOL2 \u00a7 Rich \u2014 OPEN contextual states",
+      "evidence_path": "assets/before_the_fame/characters/rich/rich_on_stage_80x96.png",
+      "note": "",
+      "native_contract": "80x96/contact (40,88) unless HUD/composite mapping says otherwise",
+      "evidence_sha256": "c78240fa2c7952bc3a5c96189e2e99967e41fee6d05ca31b6a9ae9dce1917615",
+      "evidence_registry_status": "FROZEN",
+      "evidence_dimensions": [
+        80,
+        96
+      ]
+    },
+    {
+      "id": "A-RICH-touge_locked",
+      "package": "A",
+      "requirement": "TOUGE HUD locked-in face",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "VOL2 \u00a7 Rich \u2014 OPEN contextual states",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/A-RICH-touge_locked.png",
+      "note": "Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "80x96/contact (40,88) unless HUD/composite mapping says otherwise",
+      "evidence_sha256": "4928b3a5b83e430fd2e2e44af9a3ab1d8adf6b78d9265a3fe9b4b8d7d5b7bafc"
+    },
+    {
+      "id": "A-RICH-touge_spun",
+      "package": "A",
+      "requirement": "TOUGE HUD spun-out face",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "VOL2 \u00a7 Rich \u2014 OPEN contextual states",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/A-RICH-touge_spun.png",
+      "note": "Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "80x96/contact (40,88) unless HUD/composite mapping says otherwise",
+      "evidence_sha256": "4928b3a5b83e430fd2e2e44af9a3ab1d8adf6b78d9265a3fe9b4b8d7d5b7bafc"
+    },
+    {
+      "id": "A-RICH-riding_mazda",
+      "package": "A",
+      "requirement": "Riding Mazda composite",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "VOL2 \u00a7 Rich \u2014 OPEN contextual states",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/A-RICH-riding_mazda.png",
+      "note": "Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "80x96/contact (40,88) unless HUD/composite mapping says otherwise",
+      "evidence_sha256": "e365edfafe3852d99df503eea4ebf89609bbfabe6ca3814f3959cbe0e6cf130b"
+    },
+    {
+      "id": "A-RICH-hungover",
+      "package": "A",
+      "requirement": "Hungover throne/bedroom read",
+      "status": "CONDITIONAL \u2014 EXISTING ART MUST BE TESTED FIRST",
+      "source": "VOL2 \u00a7 Rich \u2014 OPEN contextual states",
+      "evidence_path": null,
+      "note": "",
+      "native_contract": "80x96/contact (40,88) unless HUD/composite mapping says otherwise"
+    },
+    {
+      "id": "A-RICH-portobello_standing",
+      "package": "A",
+      "requirement": "Portobello standing",
+      "status": "FROZEN \u2014 COMPLETE",
+      "source": "VOL2 \u00a7 Rich \u2014 OPEN contextual states",
+      "evidence_path": "assets/before_the_fame/characters/rich_portobello/rich_portobello_standing_80x96.png",
+      "note": "",
+      "native_contract": "80x96/contact (40,88) unless HUD/composite mapping says otherwise",
+      "evidence_sha256": "022a83c5c5adae243820241af7eb4d66b7c1be9cb19ed4eaf1ed7973af38ce27",
+      "evidence_registry_status": "FROZEN",
+      "evidence_dimensions": [
+        80,
+        96
+      ]
+    },
+    {
+      "id": "A-RICH-portobello_presenting",
+      "package": "A",
+      "requirement": "Portobello presenting",
+      "status": "FROZEN \u2014 COMPLETE",
+      "source": "VOL2 \u00a7 Rich \u2014 OPEN contextual states",
+      "evidence_path": "assets/before_the_fame/characters/rich_portobello/rich_portobello_presenting_80x96.png",
+      "note": "",
+      "native_contract": "80x96/contact (40,88) unless HUD/composite mapping says otherwise",
+      "evidence_sha256": "3803ef5e8b3caa8cecc035613b2dd1f2d94901b505541a95b1eb7e320bcabb25",
+      "evidence_registry_status": "FROZEN",
+      "evidence_dimensions": [
+        80,
+        96
+      ]
+    },
+    {
+      "id": "A-RICH-portobello_porch",
+      "package": "A",
+      "requirement": "Portobello porch seated",
+      "status": "FROZEN \u2014 COMPLETE",
+      "source": "VOL2 \u00a7 Rich \u2014 OPEN contextual states",
+      "evidence_path": "assets/before_the_fame/characters/rich_portobello/rich_portobello_porch_seated_80x96.png",
+      "note": "",
+      "native_contract": "80x96/contact (40,88) unless HUD/composite mapping says otherwise",
+      "evidence_sha256": "855ee348e4d983292d2056d75cf50e441a33418e26ee67eba3839aec3d400f44",
+      "evidence_registry_status": "FROZEN",
+      "evidence_dimensions": [
+        80,
+        96
+      ]
+    },
+    {
+      "id": "A-RICH-portobello_wake",
+      "package": "A",
+      "requirement": "Portobello wake scream, only if needed",
+      "status": "CONDITIONAL \u2014 EXISTING ART MUST BE TESTED FIRST",
+      "source": "VOL2 \u00a7 Rich \u2014 OPEN contextual states",
+      "evidence_path": null,
+      "note": "",
+      "native_contract": "80x96/contact (40,88) unless HUD/composite mapping says otherwise"
+    },
+    {
+      "id": "A-ceo_assistant-date",
+      "package": "A",
+      "requirement": "ceo_assistant: date",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "VOL2 \u00a7 Existing identities \u2014 matched-state requests",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/A-ceo_assistant-date.png",
+      "note": "Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "80x96/contact (40,88)",
+      "evidence_sha256": "ae43183d26aefc5123c891927c39a86d817612a840a888b688822d707cdb2bc7"
+    },
+    {
+      "id": "A-ceo_assistant-bedroom",
+      "package": "A",
+      "requirement": "ceo_assistant: covered bedroom-company pose",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "VOL2 \u00a7 Existing identities \u2014 matched-state requests",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/A-ceo_assistant-bedroom.png",
+      "note": "Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "80x96/contact (40,88)",
+      "evidence_sha256": "369b783c6cd0d9192596b6e66468c0d0b0fb0d118e6199256da8f771283255f9"
+    },
+    {
+      "id": "A-cammile-date",
+      "package": "A",
+      "requirement": "cammile: date",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "VOL2 \u00a7 Existing identities \u2014 matched-state requests",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/A-cammile-date.png",
+      "note": "Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "80x96/contact (40,88)",
+      "evidence_sha256": "ad972dc3c7142a0ae360a69b750dfff2f853b5a529de8c9fc2315842873a7470"
+    },
+    {
+      "id": "A-cammile-bedroom",
+      "package": "A",
+      "requirement": "cammile: covered bedroom-company pose",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "VOL2 \u00a7 Existing identities \u2014 matched-state requests",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/A-cammile-bedroom.png",
+      "note": "Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "80x96/contact (40,88)",
+      "evidence_sha256": "71de4e7ad45be69763b13d863ef70d659cca72701b83776d04cad3e5a03a843d"
+    },
+    {
+      "id": "A-cammile-touge_spectator",
+      "package": "A",
+      "requirement": "cammile: TOUGE spectator",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "VOL2 \u00a7 Existing identities \u2014 matched-state requests",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/A-cammile-touge_spectator.png",
+      "note": "Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "80x96/contact (40,88)",
+      "evidence_sha256": "21bacf97a75ea7550560901c5d2dff4e1aa9df90afb1d4cbd39f28f8664e8951"
+    },
+    {
+      "id": "A-bllad33-hookah",
+      "package": "A",
+      "requirement": "bllad33: seated with hookah",
+      "status": "FROZEN \u2014 COMPLETE",
+      "source": "VOL2 \u00a7 Existing identities \u2014 matched-state requests",
+      "evidence_path": "assets/bllad33/states/bllad33_hookah_seated_80x96.png",
+      "note": "",
+      "native_contract": "80x96/contact (40,88)",
+      "evidence_sha256": "bcc056454a2c1a234acbb427b5f53061c7d23b211dfb59079077b874e171b94c",
+      "evidence_registry_status": "FROZEN",
+      "evidence_dimensions": [
+        80,
+        96
+      ]
+    },
+    {
+      "id": "A-bllad33-dry",
+      "package": "A",
+      "requirement": "bllad33: dry reaction",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "VOL2 \u00a7 Existing identities \u2014 matched-state requests",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/A-bllad33-dry.png",
+      "note": "Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "80x96/contact (40,88)",
+      "evidence_sha256": "d34091ced073a5bdf5d83c73e9e38ec9a9239bd8fd6821afe9fa780fc083a259"
+    },
+    {
+      "id": "A-coffe-hype",
+      "package": "A",
+      "requirement": "coffe: hype",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "VOL2 \u00a7 Existing identities \u2014 matched-state requests",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/A-coffe-hype.png",
+      "note": "Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "80x96/contact (40,88)",
+      "evidence_sha256": "46fe1455680450280404ae4e6e7aaffcec23e557b57340fa45a4a10abc38d409"
+    },
+    {
+      "id": "A-coffe-caught",
+      "package": "A",
+      "requirement": "coffe: caught",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "VOL2 \u00a7 Existing identities \u2014 matched-state requests",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/A-coffe-caught.png",
+      "note": "Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "80x96/contact (40,88)",
+      "evidence_sha256": "ac6c068f7041088a1b647e6dda249eded2c25d1450dc446fb3791d8a292939de"
+    },
+    {
+      "id": "A-uncle_sunday-neutral",
+      "package": "A",
+      "requirement": "uncle_sunday: neutral",
+      "status": "FROZEN \u2014 COMPLETE",
+      "source": "VOL2 \u00a7 Existing identities \u2014 matched-state requests",
+      "evidence_path": "assets/before_the_fame/characters/uncle_sunday/uncle_sunday_neutral_80x96.png",
+      "note": "",
+      "native_contract": "80x96/contact (40,88)",
+      "evidence_sha256": "79ee0ada6bbc4044180fefbd8371ee7ce16d2aa1eeaba998e83c471371ee4f63",
+      "evidence_registry_status": "FROZEN",
+      "evidence_dimensions": [
+        80,
+        96
+      ]
+    },
+    {
+      "id": "A-uncle_sunday-offended",
+      "package": "A",
+      "requirement": "uncle_sunday: offended",
+      "status": "FROZEN \u2014 COMPLETE",
+      "source": "VOL2 \u00a7 Existing identities \u2014 matched-state requests",
+      "evidence_path": "assets/before_the_fame/characters/uncle_sunday/uncle_sunday_offended_80x96.png",
+      "note": "",
+      "native_contract": "80x96/contact (40,88)",
+      "evidence_sha256": "9d641470dd0e533600f9b6cda719142cca4d799c4e9ae82366af465df6c6bd43",
+      "evidence_registry_status": "FROZEN",
+      "evidence_dimensions": [
+        80,
+        96
+      ]
+    },
+    {
+      "id": "A-uncle_sunday-melted",
+      "package": "A",
+      "requirement": "uncle_sunday: melted",
+      "status": "FROZEN \u2014 COMPLETE",
+      "source": "VOL2 \u00a7 Existing identities \u2014 matched-state requests",
+      "evidence_path": "assets/before_the_fame/characters/uncle_sunday/uncle_sunday_melted_80x96.png",
+      "note": "",
+      "native_contract": "80x96/contact (40,88)",
+      "evidence_sha256": "0e23acfa3ade6c1045906cabecaf423f4f581d11d0085b4cff6d56188e86d332",
+      "evidence_registry_status": "FROZEN",
+      "evidence_dimensions": [
+        80,
+        96
+      ]
+    },
+    {
+      "id": "A-uncle_sunday-fishing",
+      "package": "A",
+      "requirement": "uncle_sunday: fishing",
+      "status": "FROZEN \u2014 COMPLETE",
+      "source": "VOL2 \u00a7 Existing identities \u2014 matched-state requests",
+      "evidence_path": "assets/before_the_fame/characters/uncle_sunday/uncle_sunday_fishing_80x96.png",
+      "note": "",
+      "native_contract": "80x96/contact (40,88)",
+      "evidence_sha256": "9e61dc82c076bf88f9d7080ed192351dc14ff2bd7341d05b3cc3d538979ab060",
+      "evidence_registry_status": "FROZEN",
+      "evidence_dimensions": [
+        80,
+        96
+      ]
+    },
+    {
+      "id": "A-deacon_brass-behind_glass",
+      "package": "A",
+      "requirement": "deacon_brass: behind glass case",
+      "status": "FROZEN \u2014 REUSE SATISFIES REQUIREMENT",
+      "source": "VOL2 \u00a7 Existing identities \u2014 matched-state requests",
+      "evidence_path": "assets/before_the_fame/characters/deacon_brass/deacon_brass_neutral_80x96.png",
+      "note": "",
+      "native_contract": "80x96/contact (40,88)",
+      "evidence_sha256": "746fae3011c67286822941ba67505bb063b8c695169a2baf23e4eb84783bfdce",
+      "evidence_registry_status": "FROZEN",
+      "evidence_dimensions": [
+        80,
+        96
+      ]
+    },
+    {
+      "id": "A-deacon_brass-blessing",
+      "package": "A",
+      "requirement": "deacon_brass: blessing merchandise",
+      "status": "FROZEN \u2014 COMPLETE",
+      "source": "VOL2 \u00a7 Existing identities \u2014 matched-state requests",
+      "evidence_path": "assets/before_the_fame/characters/deacon_brass/deacon_brass_blessing_80x96.png",
+      "note": "",
+      "native_contract": "80x96/contact (40,88)",
+      "evidence_sha256": "270ab35b2df0229d72c2af91be5b6b393ac0c8a2051559c3c8637f81532d5364",
+      "evidence_registry_status": "FROZEN",
+      "evidence_dimensions": [
+        80,
+        96
+      ]
+    },
+    {
+      "id": "A-bonesworth-neutral",
+      "package": "A",
+      "requirement": "bonesworth: neutral hungover",
+      "status": "FROZEN \u2014 COMPLETE",
+      "source": "VOL2 \u00a7 Existing identities \u2014 matched-state requests",
+      "evidence_path": "assets/before_the_fame/characters/bonesworth/sir_bonesworth_hungover_80x96.png",
+      "note": "",
+      "native_contract": "80x96/contact (40,88)",
+      "evidence_sha256": "42b1acd8247bf855f73cce165246c2b4079ae1f2070f137800ffe89997f7cafe",
+      "evidence_registry_status": "FROZEN",
+      "evidence_dimensions": [
+        80,
+        96
+      ]
+    },
+    {
+      "id": "A-bonesworth-telegraph",
+      "package": "A",
+      "requirement": "bonesworth: telegraph",
+      "status": "FROZEN \u2014 COMPLETE",
+      "source": "VOL2 \u00a7 Existing identities \u2014 matched-state requests",
+      "evidence_path": "assets/before_the_fame/characters/bonesworth/bonesworth_telegraph_80x96.png",
+      "note": "",
+      "native_contract": "80x96/contact (40,88)",
+      "evidence_sha256": "726af2a7b70533aacd98038a3fe380a1146b0c9151ffb9872c508e4265626e6d",
+      "evidence_registry_status": "FROZEN",
+      "evidence_dimensions": [
+        80,
+        96
+      ]
+    },
+    {
+      "id": "A-bonesworth-strike",
+      "package": "A",
+      "requirement": "bonesworth: strike",
+      "status": "FROZEN \u2014 COMPLETE",
+      "source": "VOL2 \u00a7 Existing identities \u2014 matched-state requests",
+      "evidence_path": "assets/before_the_fame/characters/bonesworth/bonesworth_strike_80x96.png",
+      "note": "",
+      "native_contract": "80x96/contact (40,88)",
+      "evidence_sha256": "4c4327cbebbeaa7592e1e70114b04670af553dd1e2eab4173d6fb7f567e908d6",
+      "evidence_registry_status": "FROZEN",
+      "evidence_dimensions": [
+        80,
+        96
+      ]
+    },
+    {
+      "id": "A-bonesworth-hit",
+      "package": "A",
+      "requirement": "bonesworth: hit",
+      "status": "FROZEN \u2014 COMPLETE",
+      "source": "VOL2 \u00a7 Existing identities \u2014 matched-state requests",
+      "evidence_path": "assets/before_the_fame/characters/bonesworth/bonesworth_hit_80x96.png",
+      "note": "",
+      "native_contract": "80x96/contact (40,88)",
+      "evidence_sha256": "32a2be64e45d60fb9480ca229a23275ff70e2a4c13de1379af26fdfa1f5d587c",
+      "evidence_registry_status": "FROZEN",
+      "evidence_dimensions": [
+        80,
+        96
+      ]
+    },
+    {
+      "id": "A-bonesworth-defeated",
+      "package": "A",
+      "requirement": "bonesworth: defeated",
+      "status": "FROZEN \u2014 COMPLETE",
+      "source": "VOL2 \u00a7 Existing identities \u2014 matched-state requests",
+      "evidence_path": "assets/before_the_fame/characters/bonesworth/bonesworth_defeated_80x96.png",
+      "note": "",
+      "native_contract": "80x96/contact (40,88)",
+      "evidence_sha256": "38ce0b4f5a6eb0008207bb7643adaa58a0eb3e4fb365c112843a42f09047f862",
+      "evidence_registry_status": "FROZEN",
+      "evidence_dimensions": [
+        80,
+        96
+      ]
+    },
+    {
+      "id": "A-bruce_loose-neutral",
+      "package": "A",
+      "requirement": "bruce_loose: neutral stance",
+      "status": "FROZEN \u2014 COMPLETE",
+      "source": "VOL2 \u00a7 Existing identities \u2014 matched-state requests",
+      "evidence_path": "assets/before_the_fame/characters/bruce_loose/bruce_loose_neutral_80x96.png",
+      "note": "",
+      "native_contract": "80x96/contact (40,88)",
+      "evidence_sha256": "f3f21e5b8919f46b84a918a32abdd77e07a632dc5fcdcc6c12db9e310f278d46",
+      "evidence_registry_status": "FROZEN",
+      "evidence_dimensions": [
+        80,
+        96
+      ]
+    },
+    {
+      "id": "A-bruce_loose-strike",
+      "package": "A",
+      "requirement": "bruce_loose: strike",
+      "status": "FROZEN \u2014 COMPLETE",
+      "source": "VOL2 \u00a7 Existing identities \u2014 matched-state requests",
+      "evidence_path": "assets/before_the_fame/characters/bruce_loose/bruce_strike_80x96.png",
+      "note": "",
+      "native_contract": "80x96/contact (40,88)",
+      "evidence_sha256": "ae869b1cff22a81cbf43d0500488ca969b4f6ee1d158949852cc66cc08fb8ef9",
+      "evidence_registry_status": "FROZEN",
+      "evidence_dimensions": [
+        80,
+        96
+      ]
+    },
+    {
+      "id": "A-bruce_loose-bow",
+      "package": "A",
+      "requirement": "bruce_loose: bow",
+      "status": "FROZEN \u2014 COMPLETE",
+      "source": "VOL2 \u00a7 Existing identities \u2014 matched-state requests",
+      "evidence_path": "assets/before_the_fame/characters/bruce_loose/bruce_bow_80x96.png",
+      "note": "",
+      "native_contract": "80x96/contact (40,88)",
+      "evidence_sha256": "7db0b9ccbd9d6e206bdf22400921750ebe7427f0e09187e765f6cc5e75ace4d9",
+      "evidence_registry_status": "FROZEN",
+      "evidence_dimensions": [
+        80,
+        96
+      ]
+    },
+    {
+      "id": "A-kevin-neutral",
+      "package": "A",
+      "requirement": "kevin: one neutral sprite repeated \u00d740",
+      "status": "FROZEN \u2014 COMPLETE",
+      "source": "VOL2 \u00a7 Existing identities \u2014 matched-state requests",
+      "evidence_path": "assets/before_the_fame/characters/kevin/kagebunshin_kevin_neutral_80x96.png",
+      "note": "",
+      "native_contract": "80x96/contact (40,88)",
+      "evidence_sha256": "a009d371273a5d6d617eb05bb6582f8007fdfaab46b0c5775725c0ba3a5288c2",
+      "evidence_registry_status": "FROZEN",
+      "evidence_dimensions": [
+        80,
+        96
+      ]
+    },
+    {
+      "id": "A-kevin-attack",
+      "package": "A",
+      "requirement": "kevin: attack",
+      "status": "FROZEN \u2014 COMPLETE",
+      "source": "VOL2 \u00a7 Existing identities \u2014 matched-state requests",
+      "evidence_path": "assets/before_the_fame/characters/kevin/kevin_attack_80x96.png",
+      "note": "",
+      "native_contract": "80x96/contact (40,88)",
+      "evidence_sha256": "1492b2bba948b19b37f82422984e8cff36bd74310568134e8d7b90515c4705cc",
+      "evidence_registry_status": "FROZEN",
+      "evidence_dimensions": [
+        80,
+        96
+      ]
+    },
+    {
+      "id": "A-kevin-poof",
+      "package": "A",
+      "requirement": "kevin: cheap smoke-puff poof",
+      "status": "FROZEN \u2014 COMPLETE",
+      "source": "VOL2 \u00a7 Existing identities \u2014 matched-state requests",
+      "evidence_path": "assets/before_the_fame/characters/kevin/kevin_poof_80x96.png",
+      "note": "",
+      "native_contract": "80x96/contact (40,88)",
+      "evidence_sha256": "04507581e14ce5fae8e91b53fa6be2900006173bc02154c294fe4da1736880a5",
+      "evidence_registry_status": "FROZEN",
+      "evidence_dimensions": [
+        80,
+        96
+      ]
+    },
+    {
+      "id": "A-phil-day1",
+      "package": "A",
+      "requirement": "phil: charging day 1",
+      "status": "FROZEN \u2014 COMPLETE",
+      "source": "VOL2 \u00a7 Existing identities \u2014 matched-state requests",
+      "evidence_path": "assets/before_the_fame/characters/phil/power_level_phil_charging_day1_80x96.png",
+      "note": "",
+      "native_contract": "80x96/contact (40,88)",
+      "evidence_sha256": "fdbbe7b0665dc1ff63e33b7774a2976963a8c9ef5e4b408fc86d581bae2cfa8e",
+      "evidence_registry_status": "FROZEN",
+      "evidence_dimensions": [
+        80,
+        96
+      ]
+    },
+    {
+      "id": "A-phil-day3",
+      "package": "A",
+      "requirement": "phil: charging day 3",
+      "status": "FROZEN \u2014 COMPLETE",
+      "source": "VOL2 \u00a7 Existing identities \u2014 matched-state requests",
+      "evidence_path": "assets/before_the_fame/characters/phil/phil_charging_day3_80x96.png",
+      "note": "",
+      "native_contract": "80x96/contact (40,88)",
+      "evidence_sha256": "1609de089d3d893927752c98d6f9af6033dac77d1213a2ab518e4717ffb85af5",
+      "evidence_registry_status": "FROZEN",
+      "evidence_dimensions": [
+        80,
+        96
+      ]
+    },
+    {
+      "id": "A-phil-plate",
+      "package": "A",
+      "requirement": "phil: sitting with a plate",
+      "status": "FROZEN \u2014 COMPLETE",
+      "source": "VOL2 \u00a7 Existing identities \u2014 matched-state requests",
+      "evidence_path": "assets/before_the_fame/characters/phil/phil_sitting_plate_80x96.png",
+      "note": "",
+      "native_contract": "80x96/contact (40,88)",
+      "evidence_sha256": "58c1a059a421366f8de562f71f016472451a1f46aa3ebc2f150e4b0a69df0095",
+      "evidence_registry_status": "FROZEN",
+      "evidence_dimensions": [
+        80,
+        96
+      ]
+    },
+    {
+      "id": "A-iron_jaw-neutral",
+      "package": "A",
+      "requirement": "iron_jaw: neutral mic",
+      "status": "FROZEN \u2014 COMPLETE",
+      "source": "VOL2 \u00a7 Existing identities \u2014 matched-state requests",
+      "evidence_path": "assets/before_the_fame/characters/iron_jaw/iron_jaw_neutral_80x96.png",
+      "note": "",
+      "native_contract": "80x96/contact (40,88)",
+      "evidence_sha256": "2b0ebc264fbb9a38f17e048897c1a203072f1bbafa76cf47da866b71bfb1bd61",
+      "evidence_registry_status": "FROZEN",
+      "evidence_dimensions": [
+        80,
+        96
+      ]
+    },
+    {
+      "id": "A-iron_jaw-rapping",
+      "package": "A",
+      "requirement": "iron_jaw: rapping",
+      "status": "FROZEN \u2014 COMPLETE",
+      "source": "VOL2 \u00a7 Existing identities \u2014 matched-state requests",
+      "evidence_path": "assets/before_the_fame/characters/iron_jaw/iron_jaw_rapping_80x96.png",
+      "note": "",
+      "native_contract": "80x96/contact (40,88)",
+      "evidence_sha256": "9dd750ae491c6bd51a499004172626b2676f9f2afdf0c0f72571e1ed1d314ebf",
+      "evidence_registry_status": "FROZEN",
+      "evidence_dimensions": [
+        80,
+        96
+      ]
+    },
+    {
+      "id": "A-iron_jaw-defeated",
+      "package": "A",
+      "requirement": "iron_jaw: defeated eating chips",
+      "status": "FROZEN \u2014 COMPLETE",
+      "source": "VOL2 \u00a7 Existing identities \u2014 matched-state requests",
+      "evidence_path": "assets/before_the_fame/characters/iron_jaw/iron_jaw_defeated_80x96.png",
+      "note": "",
+      "native_contract": "80x96/contact (40,88)",
+      "evidence_sha256": "b28b634aee59de9cfa3fc3b25510fd8e0cbc9b0ea84796e2bc1b3adaaba6aab1",
+      "evidence_registry_status": "FROZEN",
+      "evidence_dimensions": [
+        80,
+        96
+      ]
+    },
+    {
+      "id": "A-hilt-neutral",
+      "package": "A",
+      "requirement": "hilt: neutral lunchbox",
+      "status": "FROZEN \u2014 COMPLETE",
+      "source": "VOL2 \u00a7 Existing identities \u2014 matched-state requests",
+      "evidence_path": "assets/before_the_fame/characters/hilt/hilt_neutral_80x96.png",
+      "note": "",
+      "native_contract": "80x96/contact (40,88)",
+      "evidence_sha256": "e179293708207d5dbe7892dc71bd120ce270490c22141aaf6245d5bf4b46a4e9",
+      "evidence_registry_status": "FROZEN",
+      "evidence_dimensions": [
+        80,
+        96
+      ]
+    },
+    {
+      "id": "A-hilt-strike",
+      "package": "A",
+      "requirement": "hilt: heavy strike",
+      "status": "FROZEN \u2014 COMPLETE",
+      "source": "VOL2 \u00a7 Existing identities \u2014 matched-state requests",
+      "evidence_path": "assets/before_the_fame/characters/hilt/hilt_strike_80x96.png",
+      "note": "",
+      "native_contract": "80x96/contact (40,88)",
+      "evidence_sha256": "4fe312f8a0e96e63f8463825d5d4e7cbc0f24bf6b7af2df27c6169bb5aefc6c7",
+      "evidence_registry_status": "FROZEN",
+      "evidence_dimensions": [
+        80,
+        96
+      ]
+    },
+    {
+      "id": "A-hilt-walk",
+      "package": "A",
+      "requirement": "hilt: walking away",
+      "status": "FROZEN \u2014 COMPLETE",
+      "source": "VOL2 \u00a7 Existing identities \u2014 matched-state requests",
+      "evidence_path": "assets/before_the_fame/characters/hilt/hilt_walk_away_80x96.png",
+      "note": "",
+      "native_contract": "80x96/contact (40,88)",
+      "evidence_sha256": "d3e6c0c838cf4cf39912c7b2b9b1c64ee1ae14567d7a425bd4efd78823793742",
+      "evidence_registry_status": "FROZEN",
+      "evidence_dimensions": [
+        80,
+        96
+      ]
+    },
+    {
+      "id": "A-marisol-anchor",
+      "package": "A",
+      "requirement": "marisol: authored OPEN anchor/read",
+      "status": "FROZEN \u2014 COMPLETE",
+      "source": "VOL2 \u00a7 OPEN identities without frozen masters; later frozen Art authority",
+      "evidence_path": "assets/before_the_fame/characters/marisol/marisol_neutral_80x96.png",
+      "note": "",
+      "native_contract": "80x96/contact (40,88)",
+      "evidence_sha256": "a906c82b5796e0a6ac7931790c88f7c235672d4b16b977175a10c446a1d80bb7",
+      "evidence_registry_status": "FROZEN",
+      "evidence_dimensions": [
+        80,
+        96
+      ]
+    },
+    {
+      "id": "A-duchess-anchor",
+      "package": "A",
+      "requirement": "duchess: authored OPEN anchor/read",
+      "status": "FROZEN \u2014 COMPLETE",
+      "source": "VOL2 \u00a7 OPEN identities without frozen masters; later frozen Art authority",
+      "evidence_path": "assets/before_the_fame/characters/duchess/duchess_bathory_brown_neutral_80x96.png",
+      "note": "",
+      "native_contract": "80x96/contact (40,88)",
+      "evidence_sha256": "487aa9ce49c009a6a30fdc20a6d69ae8f40c908f85adeedb16fc1e7e94a8d6c8",
+      "evidence_registry_status": "FROZEN",
+      "evidence_dimensions": [
+        80,
+        96
+      ]
+    },
+    {
+      "id": "A-emberly-anchor",
+      "package": "A",
+      "requirement": "emberly: authored OPEN anchor/read",
+      "status": "FROZEN \u2014 COMPLETE",
+      "source": "VOL2 \u00a7 OPEN identities without frozen masters; later frozen Art authority",
+      "evidence_path": "assets/before_the_fame/characters/emberly/emberly_neutral_80x96.png",
+      "note": "",
+      "native_contract": "80x96/contact (40,88)",
+      "evidence_sha256": "57b0d61d3a7b7b2a7811fd1c382e18b715464701da8f388982d4350be0109e85",
+      "evidence_registry_status": "FROZEN",
+      "evidence_dimensions": [
+        80,
+        96
+      ]
+    },
+    {
+      "id": "A-jade-anchor",
+      "package": "A",
+      "requirement": "jade: authored OPEN anchor/read",
+      "status": "FROZEN \u2014 COMPLETE",
+      "source": "VOL2 \u00a7 OPEN identities without frozen masters; later frozen Art authority",
+      "evidence_path": "assets/before_the_fame/characters/jade/jade_wyrmwood_neutral_80x96.png",
+      "note": "",
+      "native_contract": "80x96/contact (40,88)",
+      "evidence_sha256": "f9fe8221111c534170bb595908dd1008ac3f3c5753e51a87ba68a47b7d21482c",
+      "evidence_registry_status": "FROZEN",
+      "evidence_dimensions": [
+        80,
+        96
+      ]
+    },
+    {
+      "id": "A-lo-anchor",
+      "package": "A",
+      "requirement": "lo: authored OPEN anchor/read",
+      "status": "FROZEN \u2014 COMPLETE",
+      "source": "VOL2 \u00a7 OPEN identities without frozen masters; later frozen Art authority",
+      "evidence_path": "assets/before_the_fame/characters/lo/lo_dolores_neutral_80x96.png",
+      "note": "",
+      "native_contract": "80x96/contact (40,88)",
+      "evidence_sha256": "c69902507388bb4c81259baccde552170422b62f07ce9c44b88f9ad850c1a882",
+      "evidence_registry_status": "FROZEN",
+      "evidence_dimensions": [
+        80,
+        96
+      ]
+    },
+    {
+      "id": "A-brenda-anchor",
+      "package": "A",
+      "requirement": "brenda: authored OPEN anchor/read",
+      "status": "FROZEN \u2014 COMPLETE",
+      "source": "VOL2 \u00a7 OPEN identities without frozen masters; later frozen Art authority",
+      "evidence_path": "assets/before_the_fame/characters/brenda/brenda_neutral_80x96.png",
+      "note": "",
+      "native_contract": "80x96/contact (40,88)",
+      "evidence_sha256": "bf394cabb65b4951fefc8d1ba3910f85e3cdbad870310802bfce407b5609222a",
+      "evidence_registry_status": "FROZEN",
+      "evidence_dimensions": [
+        80,
+        96
+      ]
+    },
+    {
+      "id": "A-velvet-anchor",
+      "package": "A",
+      "requirement": "velvet: authored OPEN anchor/read",
+      "status": "FROZEN \u2014 COMPLETE",
+      "source": "VOL2 \u00a7 OPEN identities without frozen masters; later frozen Art authority",
+      "evidence_path": "assets/before_the_fame/characters/velvet/velvet_vantablack_profile_80x96.png",
+      "note": "",
+      "native_contract": "80x96/contact (40,88)",
+      "evidence_sha256": "6ec938de55fa0eee45ed4d5decd30661c1899b85effdac82873ed25ca7355610",
+      "evidence_registry_status": "FROZEN",
+      "evidence_dimensions": [
+        80,
+        96
+      ]
+    },
+    {
+      "id": "A-anfeesa-anchor",
+      "package": "A",
+      "requirement": "anfeesa: authored OPEN anchor/read",
+      "status": "FROZEN \u2014 COMPLETE",
+      "source": "VOL2 \u00a7 OPEN identities without frozen masters; later frozen Art authority",
+      "evidence_path": "assets/before_the_fame/characters/anfeesa/dj_anfeesa_neutral_80x96.png",
+      "note": "",
+      "native_contract": "80x96/contact (40,88)",
+      "evidence_sha256": "7c896d24097a7e6d98edf07ea1113ee4750d1147b6b1ab5c5cbe60bd126d9f0f",
+      "evidence_registry_status": "FROZEN",
+      "evidence_dimensions": [
+        80,
+        96
+      ]
+    },
+    {
+      "id": "A-rookoko-anchor",
+      "package": "A",
+      "requirement": "rookoko: authored OPEN anchor/read",
+      "status": "FROZEN \u2014 COMPLETE",
+      "source": "VOL2 \u00a7 OPEN identities without frozen masters; later frozen Art authority",
+      "evidence_path": "assets/before_the_fame/characters/rookoko/rookoko_neutral_80x96.png",
+      "note": "",
+      "native_contract": "80x96/contact (40,88)",
+      "evidence_sha256": "ed315afe3431738962162ee58177c4f4cb9de9cdb246d22f57476bc200423ff1",
+      "evidence_registry_status": "FROZEN",
+      "evidence_dimensions": [
+        80,
+        96
+      ]
+    },
+    {
+      "id": "A-officer_nodd-anchor",
+      "package": "A",
+      "requirement": "officer_nodd: authored OPEN anchor/read",
+      "status": "FROZEN \u2014 COMPLETE",
+      "source": "VOL2 \u00a7 OPEN identities without frozen masters; later frozen Art authority",
+      "evidence_path": "assets/before_the_fame/characters/officer_nodd/officer_nodd_neutral_80x96.png",
+      "note": "",
+      "native_contract": "80x96/contact (40,88)",
+      "evidence_sha256": "07c4fc9ca7aa09588d0dff63aa61e82dcf6405fd5d7ef2be591dd11a90b1c58c",
+      "evidence_registry_status": "FROZEN",
+      "evidence_dimensions": [
+        80,
+        96
+      ]
+    },
+    {
+      "id": "A-don_chuy-anchor",
+      "package": "A",
+      "requirement": "don_chuy: authored OPEN anchor/read",
+      "status": "FROZEN \u2014 COMPLETE",
+      "source": "VOL2 \u00a7 OPEN identities without frozen masters; later frozen Art authority",
+      "evidence_path": "assets/before_the_fame/characters/don_chuy/don_chuy_neutral_80x96.png",
+      "note": "",
+      "native_contract": "80x96/contact (40,88)",
+      "evidence_sha256": "875b39b8a253c9b80a01f8d372a0a488deefa083755503f892eaa85ea30c3d74",
+      "evidence_registry_status": "FROZEN",
+      "evidence_dimensions": [
+        80,
+        96
+      ]
+    },
+    {
+      "id": "A-tokyo_tony-anchor",
+      "package": "A",
+      "requirement": "tokyo_tony: authored OPEN anchor/read",
+      "status": "FROZEN \u2014 COMPLETE",
+      "source": "VOL2 \u00a7 OPEN identities without frozen masters; later frozen Art authority",
+      "evidence_path": "assets/before_the_fame/characters/tokyo_tony/tokyo_tony_smug_80x96.png",
+      "note": "",
+      "native_contract": "80x96/contact (40,88)",
+      "evidence_sha256": "f95a433eac260b298fe14a95cf0e54086cbb6689d6f4ed4126ac98f5d596c442",
+      "evidence_registry_status": "FROZEN",
+      "evidence_dimensions": [
+        80,
+        96
+      ]
+    },
+    {
+      "id": "A-vicky-anchor",
+      "package": "A",
+      "requirement": "vicky: authored OPEN anchor/read",
+      "status": "FROZEN \u2014 COMPLETE",
+      "source": "VOL2 \u00a7 OPEN identities without frozen masters; later frozen Art authority",
+      "evidence_path": "assets/before_the_fame/characters/vicky/vicky_neutral_80x96.png",
+      "note": "",
+      "native_contract": "80x96/contact (40,88)",
+      "evidence_sha256": "13a707e3a8ecdb43882adb0a688b02500a8f75776cf7ec658c8c37d0d8bd8efb",
+      "evidence_registry_status": "FROZEN",
+      "evidence_dimensions": [
+        80,
+        96
+      ]
+    },
+    {
+      "id": "A-j_circle-anchor",
+      "package": "A",
+      "requirement": "j_circle: authored OPEN anchor/read",
+      "status": "FROZEN \u2014 COMPLETE",
+      "source": "VOL2 \u00a7 OPEN identities without frozen masters; later frozen Art authority",
+      "evidence_path": "assets/before_the_fame/characters/j_circle/j_circle_entrance_80x96.png",
+      "note": "",
+      "native_contract": "80x96/contact (40,88)",
+      "evidence_sha256": "07a729dad918a2e14b4004d80a07c305bf367ec05770961477543100d779423b",
+      "evidence_registry_status": "FROZEN",
+      "evidence_dimensions": [
+        80,
+        96
+      ]
+    },
+    {
+      "id": "A-trippin_red-anchor",
+      "package": "A",
+      "requirement": "trippin_red: authored OPEN anchor/read",
+      "status": "FROZEN \u2014 COMPLETE",
+      "source": "VOL2 \u00a7 OPEN identities without frozen masters; later frozen Art authority",
+      "evidence_path": "assets/before_the_fame/characters/trippin_red/trippin_red_stage_ready_80x96.png",
+      "note": "",
+      "native_contract": "80x96/contact (40,88)",
+      "evidence_sha256": "f127040b06122ea5f6f6e32d0706dc35fd106b287c3c5b5960671318ce922697",
+      "evidence_registry_status": "FROZEN",
+      "evidence_dimensions": [
+        80,
+        96
+      ]
+    },
+    {
+      "id": "A-paladin-anchor",
+      "package": "A",
+      "requirement": "paladin: authored OPEN anchor/read",
+      "status": "FROZEN \u2014 COMPLETE",
+      "source": "VOL2 \u00a7 OPEN identities without frozen masters; later frozen Art authority",
+      "evidence_path": "assets/before_the_fame/characters/paladin/paladin_neutral_80x96.png",
+      "note": "",
+      "native_contract": "80x96/contact (40,88)",
+      "evidence_sha256": "cc7122015ee7750f24978763671f774101563231ead98c934380e60d8f9c6aa1",
+      "evidence_registry_status": "FROZEN",
+      "evidence_dimensions": [
+        80,
+        96
+      ]
+    },
+    {
+      "id": "A-bard-anchor",
+      "package": "A",
+      "requirement": "bard: authored OPEN anchor/read",
+      "status": "FROZEN \u2014 COMPLETE",
+      "source": "VOL2 \u00a7 OPEN identities without frozen masters; later frozen Art authority",
+      "evidence_path": "assets/before_the_fame/characters/bard/bard_neutral_80x96.png",
+      "note": "",
+      "native_contract": "80x96/contact (40,88)",
+      "evidence_sha256": "5213c311932331809945f0efc95aa3befe3049a8173d3ba1aa021b17ce8826dd",
+      "evidence_registry_status": "FROZEN",
+      "evidence_dimensions": [
+        80,
+        96
+      ]
+    },
+    {
+      "id": "A-cleric-anchor",
+      "package": "A",
+      "requirement": "cleric: authored OPEN anchor/read",
+      "status": "FROZEN \u2014 COMPLETE",
+      "source": "VOL2 \u00a7 OPEN identities without frozen masters; later frozen Art authority",
+      "evidence_path": "assets/before_the_fame/characters/cleric/cleric_neutral_80x96.png",
+      "note": "",
+      "native_contract": "80x96/contact (40,88)",
+      "evidence_sha256": "4b81e630e4fd2c45202eaf3e2812781558bd3f6bc015c761a24309003c59ecda",
+      "evidence_registry_status": "FROZEN",
+      "evidence_dimensions": [
+        80,
+        96
+      ]
+    },
+    {
+      "id": "A-buckhead-anchor",
+      "package": "A",
+      "requirement": "buckhead: authored OPEN anchor/read",
+      "status": "FROZEN \u2014 COMPLETE",
+      "source": "VOL2 \u00a7 OPEN identities without frozen masters; later frozen Art authority",
+      "evidence_path": "assets/before_the_fame/characters/buckhead/buckhead_vampire_neutral_80x96.png",
+      "note": "",
+      "native_contract": "80x96/contact (40,88)",
+      "evidence_sha256": "710bede4d4372f20cd27956313d6589df528c3ec9b795b3c4e5cc996ea033b97",
+      "evidence_registry_status": "FROZEN",
+      "evidence_dimensions": [
+        80,
+        96
+      ]
+    },
+    {
+      "id": "A-lo-arm_fall",
+      "package": "A",
+      "requirement": "lo: arm-falls-off reaction, non-gory",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "VOL2 \u00a7 OPEN identities without frozen masters",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/A-lo-arm_fall.png",
+      "note": "Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "80x96/contact (40,88)",
+      "evidence_sha256": "a21bec2690961aab84200d7ea3b4f6ad0542b09445e1b663c2edd14607c0bb18"
+    },
+    {
+      "id": "A-anfeesa-dj",
+      "package": "A",
+      "requirement": "anfeesa: DJ state",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "VOL2 \u00a7 OPEN identities without frozen masters",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/A-anfeesa-dj.png",
+      "note": "Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "80x96/contact (40,88)",
+      "evidence_sha256": "4fba00e2846158f69116a48c08c29a85c78a9f9a8e6043f8e9304f49faa70d64"
+    },
+    {
+      "id": "A-rookoko-painting",
+      "package": "A",
+      "requirement": "rookoko: painting state",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "VOL2 \u00a7 OPEN identities without frozen masters",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/A-rookoko-painting.png",
+      "note": "Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "80x96/contact (40,88)",
+      "evidence_sha256": "ca345fe733edb7ed1887b02e47db324e622a0b0b6703293f22504a7e78bc6950"
+    },
+    {
+      "id": "A-officer_nodd-nod",
+      "package": "A",
+      "requirement": "officer_nodd: nod state",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "VOL2 \u00a7 OPEN identities without frozen masters",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/A-officer_nodd-nod.png",
+      "note": "Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "80x96/contact (40,88)",
+      "evidence_sha256": "07c4fc9ca7aa09588d0dff63aa61e82dcf6405fd5d7ef2be591dd11a90b1c58c"
+    },
+    {
+      "id": "A-officer_nodd-phone",
+      "package": "A",
+      "requirement": "officer_nodd: phone-out state",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "VOL2 \u00a7 OPEN identities without frozen masters",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/A-officer_nodd-phone.png",
+      "note": "Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "80x96/contact (40,88)",
+      "evidence_sha256": "d2a1255a3ccf10088f02e243563670b068a401983be7d9c2bde858cec6317243"
+    },
+    {
+      "id": "A-don_chuy-singing",
+      "package": "A",
+      "requirement": "don_chuy: singing state",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "VOL2 \u00a7 OPEN identities without frozen masters",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/A-don_chuy-singing.png",
+      "note": "Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "80x96/contact (40,88)",
+      "evidence_sha256": "12c2abbb856e5ad90ccb1dd4f1e8cc91d635c58f3676b366fe88ad6921082fd1"
+    },
+    {
+      "id": "A-vicky-doorway",
+      "package": "A",
+      "requirement": "vicky: doorway/controlled reaction",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "VOL2 \u00a7 OPEN identities without frozen masters",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/A-vicky-doorway.png",
+      "note": "Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "80x96/contact (40,88)",
+      "evidence_sha256": "13a707e3a8ecdb43882adb0a688b02500a8f75776cf7ec658c8c37d0d8bd8efb"
+    },
+    {
+      "id": "A-june-neutral",
+      "package": "A",
+      "requirement": "june: neutral at salon chair",
+      "status": "FROZEN \u2014 COMPLETE",
+      "source": "VOL5 \u00a7 New OPEN visual cards",
+      "evidence_path": "assets/before_the_fame/characters/june/june_neutral_80x96.png",
+      "note": "",
+      "native_contract": "80x96/contact (40,88), except paired/portrait mapping",
+      "evidence_sha256": "89bae51dba181a599446150d1df64494e71ad0646b3782ce1fde3738eb5d5c76",
+      "evidence_registry_status": "FROZEN",
+      "evidence_dimensions": [
+        80,
+        96
+      ]
+    },
+    {
+      "id": "A-june-working",
+      "package": "A",
+      "requirement": "june: working in Rich's locs, paired",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "VOL5 \u00a7 New OPEN visual cards",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/A-june-working.png",
+      "note": "Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "80x96/contact (40,88), except paired/portrait mapping",
+      "evidence_sha256": "c11800b3c150048978edbcf5d21a041d8651213abeef4b28836c81d97a01cfdd"
+    },
+    {
+      "id": "A-june-date",
+      "package": "A",
+      "requirement": "june: date",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "VOL5 \u00a7 New OPEN visual cards",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/A-june-date.png",
+      "note": "Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "80x96/contact (40,88), except paired/portrait mapping",
+      "evidence_sha256": "0b973a187c9b95ec64feb514ea3f9147e2f8c677186a046a5b80394f68be8c90"
+    },
+    {
+      "id": "A-june-bedroom",
+      "package": "A",
+      "requirement": "june: bedroom company",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "VOL5 \u00a7 New OPEN visual cards",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/A-june-bedroom.png",
+      "note": "Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "80x96/contact (40,88), except paired/portrait mapping",
+      "evidence_sha256": "c4188e7ca406b5bbbf9192f418cfb287114b6d0a4908a040a72bcc49eba09a18"
+    },
+    {
+      "id": "A-tristan-neutral",
+      "package": "A",
+      "requirement": "tristan: neutral",
+      "status": "FROZEN \u2014 COMPLETE",
+      "source": "VOL5 \u00a7 New OPEN visual cards",
+      "evidence_path": "assets/before_the_fame/characters/tristan/tristan_neutral_80x96.png",
+      "note": "",
+      "native_contract": "80x96/contact (40,88), except paired/portrait mapping",
+      "evidence_sha256": "2f430846238a4d02f139e72d1ce94f2086519ed0775d74d50bcc9fa3ad57e36d",
+      "evidence_registry_status": "FROZEN",
+      "evidence_dimensions": [
+        80,
+        96
+      ]
+    },
+    {
+      "id": "A-tristan-laugh",
+      "package": "A",
+      "requirement": "tristan: laughing",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "VOL5 \u00a7 New OPEN visual cards",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/A-tristan-laugh.png",
+      "note": "Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "80x96/contact (40,88), except paired/portrait mapping",
+      "evidence_sha256": "7173063c7188eb39fa6fd88f6b8bc7db63aef177d9fd8dd7e640958ffee31804"
+    },
+    {
+      "id": "A-tristan-floor",
+      "package": "A",
+      "requirement": "tristan: asleep on floor",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "VOL5 \u00a7 New OPEN visual cards",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/A-tristan-floor.png",
+      "note": "Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "80x96/contact (40,88), except paired/portrait mapping",
+      "evidence_sha256": "fa2ad9a091142409b74ce5dcba094fb1baf0162eaadb21614d91d4bad65fee88"
+    },
+    {
+      "id": "A-tristan-passenger",
+      "package": "A",
+      "requirement": "tristan: TOUGE passenger portrait",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "VOL5 \u00a7 New OPEN visual cards",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/A-tristan-passenger.png",
+      "note": "Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "80x96/contact (40,88), except paired/portrait mapping",
+      "evidence_sha256": "43b372492f1d825fc016a3cf7883ef98cff8822359383a2e5b266c474f62da19"
+    },
+    {
+      "id": "A-ms_patrice-neutral",
+      "package": "A",
+      "requirement": "ms_patrice: neutral",
+      "status": "FROZEN \u2014 COMPLETE",
+      "source": "VOL5 \u00a7 New OPEN visual cards",
+      "evidence_path": "assets/before_the_fame/characters/ms_patrice/ms_patrice_neutral_80x96.png",
+      "note": "",
+      "native_contract": "80x96/contact (40,88), except paired/portrait mapping",
+      "evidence_sha256": "b565bd37630f630080892acb4e6c48498b314d168778d31d0d93d7a65fdde5a3",
+      "evidence_registry_status": "FROZEN",
+      "evidence_dimensions": [
+        80,
+        96
+      ]
+    },
+    {
+      "id": "A-ms_patrice-laugh",
+      "package": "A",
+      "requirement": "ms_patrice: laugh",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "VOL5 \u00a7 New OPEN visual cards",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/A-ms_patrice-laugh.png",
+      "note": "Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "80x96/contact (40,88), except paired/portrait mapping",
+      "evidence_sha256": "08909fe775edcca03724645457071b8e3e77aadad3dbdcf4fe2c0e8c05efeaed"
+    },
+    {
+      "id": "A-ms_patrice-date",
+      "package": "A",
+      "requirement": "ms_patrice: date",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "VOL5 \u00a7 New OPEN visual cards",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/A-ms_patrice-date.png",
+      "note": "Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "80x96/contact (40,88), except paired/portrait mapping",
+      "evidence_sha256": "7799c77619875b642eff7090682ba3bcdcd5bd896a4db18191c28cf80dc568cc"
+    },
+    {
+      "id": "A-ms_patrice-bedroom",
+      "package": "A",
+      "requirement": "ms_patrice: bedroom company",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "VOL5 \u00a7 New OPEN visual cards",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/A-ms_patrice-bedroom.png",
+      "note": "Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "80x96/contact (40,88), except paired/portrait mapping",
+      "evidence_sha256": "4f67fac9cd589c085529a597e8e1502f651eb8493555fac22aaeef06bcaaa909"
+    },
+    {
+      "id": "A-lil_smack-neutral",
+      "package": "A",
+      "requirement": "lil_smack: neutral chew",
+      "status": "FROZEN \u2014 COMPLETE",
+      "source": "VOL5 \u00a7 New OPEN visual cards",
+      "evidence_path": "assets/before_the_fame/characters/lil_smack/lil_smack_eating_80x96.png",
+      "note": "",
+      "native_contract": "80x96/contact (40,88), except paired/portrait mapping",
+      "evidence_sha256": "7640a3607d61bfdf28fd1169b80e784614a2376ff28fb2ee0277f80485fab0d8",
+      "evidence_registry_status": "FROZEN",
+      "evidence_dimensions": [
+        80,
+        96
+      ]
+    },
+    {
+      "id": "A-lil_smack-diss",
+      "package": "A",
+      "requirement": "lil_smack: diss",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "VOL5 \u00a7 New OPEN visual cards",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/A-lil_smack-diss.png",
+      "note": "Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "80x96/contact (40,88), except paired/portrait mapping",
+      "evidence_sha256": "f522f74cbe181caa82e45c52e1e41918ddb875bfe86a76971c2c69c6bfa4aecf"
+    },
+    {
+      "id": "A-lil_smack-finale",
+      "package": "A",
+      "requirement": "lil_smack: mouth-closed finale",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "VOL5 \u00a7 New OPEN visual cards",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/A-lil_smack-finale.png",
+      "note": "Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "80x96/contact (40,88), except paired/portrait mapping",
+      "evidence_sha256": "a1b5ff01955c8632f1a98ea7f1ddc783ee4cc968999f5ba1d2e5518ddb970d39"
+    },
+    {
+      "id": "A-britney-profile",
+      "package": "A",
+      "requirement": "Britney Stakes parody-only VampGram profile",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "VOL5 \u00a7 New OPEN visual cards",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/A-britney-profile.png",
+      "note": "Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "MAPPING / ENGINEERING native phone portrait contract required",
+      "evidence_sha256": "2cc89ac56e03c180f0563c468df0c2a14dc9361043e5ec7537fe2a36416ab468"
+    },
+    {
+      "id": "A-kiki-anchor",
+      "package": "A",
+      "requirement": "kiki: existing identity anchor",
+      "status": "FROZEN \u2014 COMPLETE",
+      "source": "Frozen corpus",
+      "evidence_path": "assets/before_the_fame/characters/kiki/kiki_neutral_work_80x96.png",
+      "note": "",
+      "native_contract": "80x96/contact (40,88)",
+      "evidence_sha256": "fdc064d97ecf53e99b6f3a8bfea850609901f27b017dce0bccbea0b4882f8054",
+      "evidence_registry_status": "FROZEN",
+      "evidence_dimensions": [
+        80,
+        96
+      ]
+    },
+    {
+      "id": "A-nneka-anchor",
+      "package": "A",
+      "requirement": "nneka: existing identity anchor",
+      "status": "FROZEN \u2014 COMPLETE",
+      "source": "Frozen corpus",
+      "evidence_path": "assets/before_the_fame/characters/nneka/nneka_neutral_80x96.png",
+      "note": "",
+      "native_contract": "80x96/contact (40,88)",
+      "evidence_sha256": "cdf57badf9a9961af5a971d9c222c95152343d1f2debcd6959eb96615b83e6ef",
+      "evidence_registry_status": "FROZEN",
+      "evidence_dimensions": [
+        80,
+        96
+      ]
+    },
+    {
+      "id": "A-pinky-anchor",
+      "package": "A",
+      "requirement": "pinky: existing identity anchor",
+      "status": "FROZEN \u2014 COMPLETE",
+      "source": "Frozen corpus",
+      "evidence_path": "assets/before_the_fame/characters/pinky/pinky_arms_crossed_80x96.png",
+      "note": "",
+      "native_contract": "80x96/contact (40,88)",
+      "evidence_sha256": "ce8cb2b12f2f85730fb637f3bb751c3876fce8747a38a2ba28021e7bcea1925d",
+      "evidence_registry_status": "FROZEN",
+      "evidence_dimensions": [
+        80,
+        96
+      ]
+    },
+    {
+      "id": "A-moonie-anchor",
+      "package": "A",
+      "requirement": "moonie: existing identity anchor",
+      "status": "FROZEN \u2014 COMPLETE",
+      "source": "Frozen corpus",
+      "evidence_path": "assets/before_the_fame/characters/moonie/moonie_dorsey_neutral_80x96.png",
+      "note": "",
+      "native_contract": "80x96/contact (40,88)",
+      "evidence_sha256": "28106700746dec289e896894d1be6ebf5e23cefc26bd15b58367836b17c43e49",
+      "evidence_registry_status": "FROZEN",
+      "evidence_dimensions": [
+        80,
+        96
+      ]
+    },
+    {
+      "id": "A-kaede-anchor",
+      "package": "A",
+      "requirement": "kaede: existing identity anchor",
+      "status": "FROZEN \u2014 COMPLETE",
+      "source": "Frozen corpus",
+      "evidence_path": "assets/before_the_fame/characters/kaede/kaede_neutral_80x96.png",
+      "note": "",
+      "native_contract": "80x96/contact (40,88)",
+      "evidence_sha256": "74aab07edffac683482517ca48fb0ffafc63ad9492c9adf14de88d4d442a3251",
+      "evidence_registry_status": "FROZEN",
+      "evidence_dimensions": [
+        80,
+        96
+      ]
+    },
+    {
+      "id": "A-wispa-anchor",
+      "package": "A",
+      "requirement": "wispa: existing identity anchor",
+      "status": "FROZEN \u2014 COMPLETE",
+      "source": "Frozen corpus",
+      "evidence_path": "assets/before_the_fame/characters/wispa/wispa_neutral_80x96.png",
+      "note": "",
+      "native_contract": "80x96/contact (40,88)",
+      "evidence_sha256": "e80a09c69320db06a2816d64bf515652cd84d4d899df9c438ec00b36c820b319",
+      "evidence_registry_status": "FROZEN",
+      "evidence_dimensions": [
+        80,
+        96
+      ]
+    },
+    {
+      "id": "A-tasha-anchor",
+      "package": "A",
+      "requirement": "tasha: existing identity anchor",
+      "status": "FROZEN \u2014 COMPLETE",
+      "source": "Frozen corpus",
+      "evidence_path": "assets/before_the_fame/characters/tasha/tasha_tastemaker_filming_80x96.png",
+      "note": "",
+      "native_contract": "80x96/contact (40,88)",
+      "evidence_sha256": "744c37144d01cec4eb8e4bebf06f1eb664a8326772178f0795b35d02360096df",
+      "evidence_registry_status": "FROZEN",
+      "evidence_dimensions": [
+        80,
+        96
+      ]
+    },
+    {
+      "id": "A-nightshade-anchor",
+      "package": "A",
+      "requirement": "nightshade: existing identity anchor",
+      "status": "FROZEN \u2014 COMPLETE",
+      "source": "Frozen corpus",
+      "evidence_path": "assets/before_the_fame/characters/nightshade/nightshade_neutral_80x96.png",
+      "note": "",
+      "native_contract": "80x96/contact (40,88)",
+      "evidence_sha256": "09d8c0f67cff92740e292cf86a5d223bb055a241bf6e635e274d7baae85eb04c",
+      "evidence_registry_status": "FROZEN",
+      "evidence_dimensions": [
+        80,
+        96
+      ]
+    },
+    {
+      "id": "A-hina-anchor",
+      "package": "A",
+      "requirement": "hina: existing identity anchor",
+      "status": "FROZEN \u2014 COMPLETE",
+      "source": "Frozen corpus",
+      "evidence_path": "assets/before_the_fame/characters/hina/hina_neutral_80x96.png",
+      "note": "",
+      "native_contract": "80x96/contact (40,88)",
+      "evidence_sha256": "c7bacc6885281fd0bb41cf7f633613fb88b8176d164b75fe56cf71a05356c23b",
+      "evidence_registry_status": "FROZEN",
+      "evidence_dimensions": [
+        80,
+        96
+      ]
+    },
+    {
+      "id": "A-bunmi-anchor",
+      "package": "A",
+      "requirement": "bunmi: existing identity anchor",
+      "status": "FROZEN \u2014 COMPLETE",
+      "source": "Frozen corpus",
+      "evidence_path": "assets/before_the_fame/characters/bunmi/bunmi_neutral_80x96.png",
+      "note": "",
+      "native_contract": "80x96/contact (40,88)",
+      "evidence_sha256": "72b14eed28c57c93343a4fbe2c40e23ac99e4006f53cc57484f1d58e73cad414",
+      "evidence_registry_status": "FROZEN",
+      "evidence_dimensions": [
+        80,
+        96
+      ]
+    },
+    {
+      "id": "A-mazda_human-anchor",
+      "package": "A",
+      "requirement": "mazda_human: existing identity anchor",
+      "status": "FROZEN \u2014 COMPLETE",
+      "source": "Frozen corpus",
+      "evidence_path": "assets/before_the_fame/characters/mazda_human/blueberry_mazda_human_neutral_80x96.png",
+      "note": "",
+      "native_contract": "80x96/contact (40,88)",
+      "evidence_sha256": "2e2c7246ca6d1dc583c814659bbb0d0df18688db5c86adcad6c6767ddb979290",
+      "evidence_registry_status": "FROZEN",
+      "evidence_dimensions": [
+        80,
+        96
+      ]
+    },
+    {
+      "id": "A-family-mom",
+      "package": "A",
+      "requirement": "Family neutral: mom",
+      "status": "FROZEN \u2014 COMPLETE",
+      "source": "VOL2/VOL5 family card + Ship 013",
+      "evidence_path": "assets/before_the_fame/characters/mom/mom_neutral_80x96.png",
+      "note": "",
+      "native_contract": "80x96/contact (40,88)",
+      "evidence_sha256": "2fbbf02d8ddfc9c9fde5a967f54ab25765bf68f8dd569a76f11760d35178fa4d",
+      "evidence_registry_status": "FROZEN",
+      "evidence_dimensions": [
+        80,
+        96
+      ]
+    },
+    {
+      "id": "A-family-dad",
+      "package": "A",
+      "requirement": "Family neutral: dad",
+      "status": "FROZEN \u2014 COMPLETE",
+      "source": "VOL2/VOL5 family card + Ship 013",
+      "evidence_path": "assets/before_the_fame/characters/dad/dad_neutral_80x96.png",
+      "note": "",
+      "native_contract": "80x96/contact (40,88)",
+      "evidence_sha256": "5d208ef3c344fa34a2450310ef331f5ae3c0b2e14ee734a3d4b83ffb644eca30",
+      "evidence_registry_status": "FROZEN",
+      "evidence_dimensions": [
+        80,
+        96
+      ]
+    },
+    {
+      "id": "A-family-sister",
+      "package": "A",
+      "requirement": "Family neutral: sister",
+      "status": "FROZEN \u2014 COMPLETE",
+      "source": "VOL2/VOL5 family card + Ship 013",
+      "evidence_path": "assets/before_the_fame/characters/sister/sister_neutral_80x96.png",
+      "note": "",
+      "native_contract": "80x96/contact (40,88)",
+      "evidence_sha256": "ecfe922ea7d5c114246897e6050ff1c2d4c9503d151cf47fa41f93812cb1a321",
+      "evidence_registry_status": "FROZEN",
+      "evidence_dimensions": [
+        80,
+        96
+      ]
+    },
+    {
+      "id": "A-family-brother1",
+      "package": "A",
+      "requirement": "Family neutral: brother1",
+      "status": "BLOCKED BY CANON",
+      "source": "VOL2/VOL5 family card; current canon gap",
+      "evidence_path": null,
+      "note": "Ube-owned identity details; do not invent.",
+      "native_contract": ""
+    },
+    {
+      "id": "A-family-brother2",
+      "package": "A",
+      "requirement": "Family neutral: brother2",
+      "status": "BLOCKED BY CANON",
+      "source": "VOL2/VOL5 family card; current canon gap",
+      "evidence_path": null,
+      "note": "Ube-owned identity details; do not invent.",
+      "native_contract": ""
+    },
+    {
+      "id": "A-family-mom-avatar",
+      "package": "A",
+      "requirement": "Family phone avatar: mom",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "VOL2/VOL5 family card",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/A-family-mom-avatar.png",
+      "note": "Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "Engineering phone-avatar contract required before final cut",
+      "evidence_sha256": "8322ce370a4d1f6570a117a4210cf4023bb3252ae77537eed12c33373079d180"
+    },
+    {
+      "id": "A-family-dad-avatar",
+      "package": "A",
+      "requirement": "Family phone avatar: dad",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "VOL2/VOL5 family card",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/A-family-dad-avatar.png",
+      "note": "Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "Engineering phone-avatar contract required before final cut",
+      "evidence_sha256": "dd63f61bb755bde91edcfb3b0db2d86eb606816a921f448a075ce3fe717008d0"
+    },
+    {
+      "id": "A-family-sister-avatar",
+      "package": "A",
+      "requirement": "Family phone avatar: sister",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "VOL2/VOL5 family card",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/A-family-sister-avatar.png",
+      "note": "Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "Engineering phone-avatar contract required before final cut",
+      "evidence_sha256": "15393971a06d44fe280354ef01ebfd4141963b269146a210e8c392f1d8173fa8"
+    },
+    {
+      "id": "A-family-brother1-avatar",
+      "package": "A",
+      "requirement": "Family phone avatar: brother1",
+      "status": "BLOCKED BY CANON",
+      "source": "VOL2/VOL5 family card",
+      "evidence_path": null,
+      "note": "Blocked with identity.",
+      "native_contract": ""
+    },
+    {
+      "id": "A-family-brother2-avatar",
+      "package": "A",
+      "requirement": "Family phone avatar: brother2",
+      "status": "BLOCKED BY CANON",
+      "source": "VOL2/VOL5 family card",
+      "evidence_path": null,
+      "note": "Blocked with identity.",
+      "native_contract": ""
+    },
+    {
+      "id": "A-god",
+      "package": "A",
+      "requirement": "God culturally sensitive card",
+      "status": "BLOCKED BY CANON",
+      "source": "VOL2 + explicit Ship 014 hold",
+      "evidence_path": null,
+      "note": "Separate named HQ authorization required.",
+      "native_contract": ""
+    },
+    {
+      "id": "A-og-hooper",
+      "package": "A",
+      "requirement": "OG Hooper identity",
+      "status": "BLOCKED BY CANON",
+      "source": "VOL2 + current canon gap",
+      "evidence_path": null,
+      "note": "Underspecified accepted deferral.",
+      "native_contract": ""
+    },
+    {
+      "id": "A-laura",
+      "package": "A",
+      "requirement": "Laura visual asset",
+      "status": "FROZEN \u2014 REUSE SATISFIES REQUIREMENT",
+      "source": "VOL2/VOL5",
+      "evidence_path": null,
+      "note": "The authored requirement is intentional absence: no sprite, portrait, voice, or photo.",
+      "native_contract": ""
+    },
+    {
+      "id": "B-egg",
+      "package": "B",
+      "requirement": "Blue speckled dragon egg identity",
+      "status": "FROZEN \u2014 COMPLETE",
+      "source": "VOL2 \u00a7 Dragon life stages",
+      "evidence_path": "assets/before_the_fame/props/mazda_egg/blueberry_mazda_egg_32x32.png",
+      "note": "",
+      "native_contract": "32x32 binary alpha",
+      "evidence_sha256": "d2ee91eef7c9941a18f2d6488d1dab53cdb152071f07d3089bf90650d619c6d8",
+      "evidence_registry_status": "FROZEN",
+      "evidence_dimensions": [
+        32,
+        32
+      ]
+    },
+    {
+      "id": "B-hatchling-neutral",
+      "package": "B",
+      "requirement": "Blueberry Mazda hatchling \u2014 neutral",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "VOL2 + explicit Ship 014 brief",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/B-hatchling-neutral.png",
+      "note": "Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "transparent creature sprite; exact native contract proposed in candidate manifest",
+      "evidence_sha256": "e43490bf5d1036fcd1325897b290f6746ce790a32d351af3b542c249af52b190"
+    },
+    {
+      "id": "B-hatchling-happy",
+      "package": "B",
+      "requirement": "Blueberry Mazda hatchling \u2014 happy",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "VOL2 + explicit Ship 014 brief",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/B-hatchling-happy.png",
+      "note": "Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "transparent creature sprite; exact native contract proposed in candidate manifest",
+      "evidence_sha256": "777900c610777ad7b0deb33323979e89f18cf585550645a0e698eec1f6d90832"
+    },
+    {
+      "id": "B-hatchling-sulk",
+      "package": "B",
+      "requirement": "Blueberry Mazda hatchling \u2014 sulk",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "VOL2 + explicit Ship 014 brief",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/B-hatchling-sulk.png",
+      "note": "Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "transparent creature sprite; exact native contract proposed in candidate manifest",
+      "evidence_sha256": "cc0bae697d6fbf8345c3a19e87c4b5f9cbdc732201d25d32b8dd04b731f2e68e"
+    },
+    {
+      "id": "B-young-neutral",
+      "package": "B",
+      "requirement": "Blueberry Mazda young \u2014 neutral",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "VOL2 + explicit Ship 014 brief",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/B-young-neutral.png",
+      "note": "Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "transparent creature sprite; exact native contract proposed in candidate manifest",
+      "evidence_sha256": "e43490bf5d1036fcd1325897b290f6746ce790a32d351af3b542c249af52b190"
+    },
+    {
+      "id": "B-young-happy",
+      "package": "B",
+      "requirement": "Blueberry Mazda young \u2014 happy",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "VOL2 + explicit Ship 014 brief",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/B-young-happy.png",
+      "note": "Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "transparent creature sprite; exact native contract proposed in candidate manifest",
+      "evidence_sha256": "777900c610777ad7b0deb33323979e89f18cf585550645a0e698eec1f6d90832"
+    },
+    {
+      "id": "B-young-sulk",
+      "package": "B",
+      "requirement": "Blueberry Mazda young \u2014 sulk",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "VOL2 + explicit Ship 014 brief",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/B-young-sulk.png",
+      "note": "Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "transparent creature sprite; exact native contract proposed in candidate manifest",
+      "evidence_sha256": "cc0bae697d6fbf8345c3a19e87c4b5f9cbdc732201d25d32b8dd04b731f2e68e"
+    },
+    {
+      "id": "B-majestic-perched",
+      "package": "B",
+      "requirement": "Blueberry Mazda majestic \u2014 perched",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "VOL2 + explicit Ship 014 brief",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/B-majestic-perched.png",
+      "note": "Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "transparent creature sprite; exact native contract proposed in candidate manifest",
+      "evidence_sha256": "e43490bf5d1036fcd1325897b290f6746ce790a32d351af3b542c249af52b190"
+    },
+    {
+      "id": "B-majestic-flying",
+      "package": "B",
+      "requirement": "Blueberry Mazda majestic \u2014 flying",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "VOL2 + explicit Ship 014 brief",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/B-majestic-flying.png",
+      "note": "Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "transparent creature sprite; exact native contract proposed in candidate manifest",
+      "evidence_sha256": "e43490bf5d1036fcd1325897b290f6746ce790a32d351af3b542c249af52b190"
+    },
+    {
+      "id": "B-majestic-happy",
+      "package": "B",
+      "requirement": "Blueberry Mazda majestic \u2014 happy",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "VOL2 + explicit Ship 014 brief",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/B-majestic-happy.png",
+      "note": "Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "transparent creature sprite; exact native contract proposed in candidate manifest",
+      "evidence_sha256": "777900c610777ad7b0deb33323979e89f18cf585550645a0e698eec1f6d90832"
+    },
+    {
+      "id": "B-riding-composite",
+      "package": "B",
+      "requirement": "Rich riding majestic Mazda composite",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "VOL2 + explicit Ship 014 brief",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/B-riding-composite.png",
+      "note": "Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "composite contract requires Engineering origin confirmation",
+      "evidence_sha256": "e365edfafe3852d99df503eea4ebf89609bbfabe6ca3814f3959cbe0e6cf130b"
+    },
+    {
+      "id": "B-human-neutral",
+      "package": "B",
+      "requirement": "Mazda human \u2014 neutral",
+      "status": "FROZEN \u2014 COMPLETE",
+      "source": "VOL2 \u00a7 Dragon life stages",
+      "evidence_path": "assets/before_the_fame/characters/mazda_human/blueberry_mazda_human_neutral_80x96.png",
+      "note": "",
+      "native_contract": "80x96/contact (40,88)",
+      "evidence_sha256": "2e2c7246ca6d1dc583c814659bbb0d0df18688db5c86adcad6c6767ddb979290",
+      "evidence_registry_status": "FROZEN",
+      "evidence_dimensions": [
+        80,
+        96
+      ]
+    },
+    {
+      "id": "B-human-eating",
+      "package": "B",
+      "requirement": "Mazda human \u2014 eating Agege bread",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "VOL2 \u00a7 Dragon life stages",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/B-human-eating.png",
+      "note": "Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "80x96/contact (40,88)",
+      "evidence_sha256": "2e2c7246ca6d1dc583c814659bbb0d0df18688db5c86adcad6c6767ddb979290"
+    },
+    {
+      "id": "B-human-bedroom",
+      "package": "B",
+      "requirement": "Mazda human \u2014 covered bedroom-company",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "VOL2 \u00a7 Dragon life stages",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/B-human-bedroom.png",
+      "note": "Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "80x96/contact/bed support mapping",
+      "evidence_sha256": "1cdf239a587d113040344139ac6847d9e1f9ee8b563dc8c1786b80bcdf4d5298"
+    },
+    {
+      "id": "C-common-silver_grunt-icon",
+      "package": "C",
+      "requirement": "Common fish: silver grunt \u2014 catch icon",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "VOL2 \u00a7 Pier catches + js/minigames/pier.js",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/C-common-silver_grunt-icon.png",
+      "note": "Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "32x24 binary-alpha catch icon",
+      "evidence_sha256": "4a662016157ba405f90f212cd56217865eaa5417dcd2ce619538c5abc19fd6b7"
+    },
+    {
+      "id": "C-common-pier_perch-icon",
+      "package": "C",
+      "requirement": "Common fish: pier perch \u2014 catch icon",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "VOL2 \u00a7 Pier catches + js/minigames/pier.js",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/C-common-pier_perch-icon.png",
+      "note": "Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "32x24 binary-alpha catch icon",
+      "evidence_sha256": "ea6d4539fb38393338ff43104302c4352cde35178b6804158bf5c4c8cfb85a66"
+    },
+    {
+      "id": "C-common-ugly_mackerel-icon",
+      "package": "C",
+      "requirement": "Common fish: ugly mackerel \u2014 catch icon",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "VOL2 \u00a7 Pier catches + js/minigames/pier.js",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/C-common-ugly_mackerel-icon.png",
+      "note": "Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "32x24 binary-alpha catch icon",
+      "evidence_sha256": "252745adc353615c1864d01914bcf86d7742529c25f2e9e4cc226cbeba9a5cd4"
+    },
+    {
+      "id": "C-junk-boot",
+      "package": "C",
+      "requirement": "Pier catch: boot",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "VOL2 \u00a7 Pier catches + js/minigames/pier.js",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/C-junk-boot.png",
+      "note": "Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "transparent catch art",
+      "evidence_sha256": "077cd4357448947b973714b71291f1581d0d979ab09c21b32cad34a90e8f0e14"
+    },
+    {
+      "id": "C-junk-flip_phone",
+      "package": "C",
+      "requirement": "Pier catch: flip phone",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "VOL2 \u00a7 Pier catches + js/minigames/pier.js",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/C-junk-flip_phone.png",
+      "note": "Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "transparent catch art",
+      "evidence_sha256": "9cfc28eae229a3ad2375bf6f642c3e1d3454ca571dfb11d9292fdcd7e22b90e0"
+    },
+    {
+      "id": "C-junk-waterlogged_wallet",
+      "package": "C",
+      "requirement": "Pier catch: waterlogged wallet",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "VOL2 \u00a7 Pier catches + js/minigames/pier.js",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/C-junk-waterlogged_wallet.png",
+      "note": "Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "transparent catch art",
+      "evidence_sha256": "63a88bb6984219a905abc67cd08e5fe6cf88d4345f61f1b8f6644d988ae542a5"
+    },
+    {
+      "id": "C-rare-moon_koi",
+      "package": "C",
+      "requirement": "Rare fish: moon koi",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "VOL2 \u00a7 Pier catches + js/minigames/pier.js",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/C-rare-moon_koi.png",
+      "note": "Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "transparent catch art",
+      "evidence_sha256": "88b7bbfe509631b2e8d41f33b8eb5cca641e63456bb0a12910923b188095d66f"
+    },
+    {
+      "id": "C-rare-old_barnacle_grouper",
+      "package": "C",
+      "requirement": "Rare fish: old barnacle grouper",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "VOL2 \u00a7 Pier catches + js/minigames/pier.js",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/C-rare-old_barnacle_grouper.png",
+      "note": "Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "transparent catch art",
+      "evidence_sha256": "90320fddfc39f5e93a43a67db616d9fea495027f3624e52e134ec0e5d25f8cc0"
+    },
+    {
+      "id": "C-chest",
+      "package": "C",
+      "requirement": "Rare rusted barnacled chest",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "VOL2 \u00a7 Pier catches + js/minigames/pier.js",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/C-chest.png",
+      "note": "Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "transparent catch art; sealed contents excluded",
+      "evidence_sha256": "dd80202b19e49432dff2e1343291ebfeffd09bd507ba465fdad903112dc000c6"
+    },
+    {
+      "id": "C-big-fish",
+      "package": "C",
+      "requirement": "Runtime BIG FISH catch visual",
+      "status": "MAPPING / ENGINEERING DECISION",
+      "source": "js/minigames/pier.js",
+      "evidence_path": null,
+      "note": "Runtime contains a sourced category not separately specified by VOL2; exact art/mapping call required.",
+      "native_contract": ""
+    },
+    {
+      "id": "C-cat-sit",
+      "package": "C",
+      "requirement": "Sphynx cat sitting",
+      "status": "FROZEN \u2014 COMPLETE",
+      "source": "VOL5 \u00a7 Sphynx cat",
+      "evidence_path": "assets/before_the_fame/creatures/cat/sphynx_cat_sitting_48x32.png",
+      "note": "",
+      "native_contract": "48x32 binary alpha",
+      "evidence_sha256": "9dd8b1fea654aeda7f956e3c3338c1e58bd7ebfee3738f8e8e3fcf62dffa9b7c",
+      "evidence_registry_status": "FROZEN",
+      "evidence_dimensions": [
+        48,
+        32
+      ]
+    },
+    {
+      "id": "C-cat-on_bed",
+      "package": "C",
+      "requirement": "Sphynx cat on bed",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "VOL5 \u00a7 Sphynx cat",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/C-cat-on_bed.png",
+      "note": "Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "48x32 binary alpha unless combat mapping differs",
+      "evidence_sha256": "bc7a8bf3f3425b9167d599627b6c0ac9ddfac21581d1ef5a78cabca093ae1311"
+    },
+    {
+      "id": "C-cat-judging_combat",
+      "package": "C",
+      "requirement": "Sphynx cat judging combat",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "VOL5 \u00a7 Sphynx cat",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/C-cat-judging_combat.png",
+      "note": "Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "48x32 binary alpha unless combat mapping differs",
+      "evidence_sha256": "1c360ed9f4948a3420bd3ac767fe592d3893bc126ea35a7097c382edfa365351"
+    },
+    {
+      "id": "D-supra-touge",
+      "package": "D",
+      "requirement": "supra TOUGE identity",
+      "status": "FROZEN \u2014 COMPLETE",
+      "source": "VOL2 vehicle matrix + Ship 006",
+      "evidence_path": "assets/before_the_fame/vehicles/touge/supra_16x28.png",
+      "note": "",
+      "native_contract": "16x28 binary alpha",
+      "evidence_sha256": "6ea8a06099fdb2eb6a7fa7511c4fedf9e71e850f26c91ac515be52233adaf5de",
+      "evidence_registry_status": "FROZEN",
+      "evidence_dimensions": [
+        16,
+        28
+      ]
+    },
+    {
+      "id": "D-supra-world",
+      "package": "D",
+      "requirement": "supra WORLD surface",
+      "status": "CONDITIONAL \u2014 EXISTING ART MUST BE TESTED FIRST",
+      "source": "VOL2 vehicle matrix",
+      "evidence_path": "assets/jdm_imports/vehicles/supra_mk4_world.png",
+      "note": "Existing Supra asset is REFERENCE/STATUS UNKNOWN and must be tested; other cars need derived surfaces.",
+      "native_contract": "Supra reference: world 136x50/listing 68x25; other exact contracts need Engineering mapping",
+      "evidence_sha256": "156445b526073b6906cae7330203f19d8edbf8a6574dfe6aea042db1c1575418",
+      "evidence_registry_status": "REFERENCE",
+      "evidence_dimensions": [
+        136,
+        50
+      ]
+    },
+    {
+      "id": "D-supra-listing",
+      "package": "D",
+      "requirement": "supra LISTING surface",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "VOL2 vehicle matrix",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/D-supra-listing.png",
+      "note": "OPEN Vol. 2: listing art is a deterministic crop/derivative of the WORLD master, not a separately painted master. Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "Supra reference: world 136x50/listing 68x25; other exact contracts need Engineering mapping",
+      "evidence_sha256": "cbb428bd0a79a505ff274d41b3f01a5272c88c0dec841cbf10ca1f0ed309d51e",
+      "evidence_registry_status": "STATUS UNKNOWN \u2014 HQ REVIEW REQUIRED",
+      "evidence_dimensions": [
+        68,
+        25
+      ]
+    },
+    {
+      "id": "D-s15_stock-touge",
+      "package": "D",
+      "requirement": "s15_stock TOUGE identity",
+      "status": "FROZEN \u2014 COMPLETE",
+      "source": "VOL2 vehicle matrix + Ship 006",
+      "evidence_path": "assets/before_the_fame/vehicles/touge/s15_stock_16x28.png",
+      "note": "",
+      "native_contract": "16x28 binary alpha",
+      "evidence_sha256": "043cc33c95685d8767ccc8a472da10bd3fc8cd72e7587659b42941739d0bb670",
+      "evidence_registry_status": "FROZEN",
+      "evidence_dimensions": [
+        16,
+        28
+      ]
+    },
+    {
+      "id": "D-s15_stock-world",
+      "package": "D",
+      "requirement": "s15_stock WORLD surface",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "VOL2 vehicle matrix",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/D-s15_stock-world.png",
+      "note": "Existing Supra asset is REFERENCE/STATUS UNKNOWN and must be tested; other cars need derived surfaces. Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "Supra reference: world 136x50/listing 68x25; other exact contracts need Engineering mapping",
+      "evidence_sha256": "bad5b1fb8b3fb2aa915d84796488ffa28d6c66987767254341bcd805be51eab6"
+    },
+    {
+      "id": "D-s15_stock-listing",
+      "package": "D",
+      "requirement": "s15_stock LISTING surface",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "VOL2 vehicle matrix",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/D-s15_stock-listing.png",
+      "note": "OPEN Vol. 2: listing art is a deterministic crop/derivative of the WORLD master, not a separately painted master. Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "Supra reference: world 136x50/listing 68x25; other exact contracts need Engineering mapping",
+      "evidence_sha256": "cbb428bd0a79a505ff274d41b3f01a5272c88c0dec841cbf10ca1f0ed309d51e"
+    },
+    {
+      "id": "D-s15_bodykit-touge",
+      "package": "D",
+      "requirement": "s15_bodykit TOUGE identity",
+      "status": "FROZEN \u2014 COMPLETE",
+      "source": "VOL2 vehicle matrix + Ship 006",
+      "evidence_path": "assets/before_the_fame/vehicles/touge/s15_bodykit_16x28.png",
+      "note": "",
+      "native_contract": "16x28 binary alpha",
+      "evidence_sha256": "93e615e305c8ff8ae181185b0be6af3ac5d0ffb22883314f721c0a623bee623b",
+      "evidence_registry_status": "FROZEN",
+      "evidence_dimensions": [
+        16,
+        28
+      ]
+    },
+    {
+      "id": "D-s15_bodykit-world",
+      "package": "D",
+      "requirement": "s15_bodykit WORLD surface",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "VOL2 vehicle matrix",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/D-s15_bodykit-world.png",
+      "note": "Existing Supra asset is REFERENCE/STATUS UNKNOWN and must be tested; other cars need derived surfaces. Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "Supra reference: world 136x50/listing 68x25; other exact contracts need Engineering mapping",
+      "evidence_sha256": "bad5b1fb8b3fb2aa915d84796488ffa28d6c66987767254341bcd805be51eab6"
+    },
+    {
+      "id": "D-s15_bodykit-listing",
+      "package": "D",
+      "requirement": "s15_bodykit LISTING surface",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "VOL2 vehicle matrix",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/D-s15_bodykit-listing.png",
+      "note": "OPEN Vol. 2: listing art is a deterministic crop/derivative of the WORLD master, not a separately painted master. Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "Supra reference: world 136x50/listing 68x25; other exact contracts need Engineering mapping",
+      "evidence_sha256": "cbb428bd0a79a505ff274d41b3f01a5272c88c0dec841cbf10ca1f0ed309d51e"
+    },
+    {
+      "id": "D-r34-touge",
+      "package": "D",
+      "requirement": "r34 TOUGE identity",
+      "status": "FROZEN \u2014 COMPLETE",
+      "source": "VOL2 vehicle matrix + Ship 006",
+      "evidence_path": "assets/before_the_fame/vehicles/touge/r34_blue_16x28.png",
+      "note": "",
+      "native_contract": "16x28 binary alpha",
+      "evidence_sha256": "024c136cf7d62c94e0772addf57588d5c58c41b2abd84339ba1963fc87b04660",
+      "evidence_registry_status": "FROZEN",
+      "evidence_dimensions": [
+        16,
+        28
+      ]
+    },
+    {
+      "id": "D-r34-world",
+      "package": "D",
+      "requirement": "r34 WORLD surface",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "VOL2 vehicle matrix",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/D-r34-world.png",
+      "note": "Existing Supra asset is REFERENCE/STATUS UNKNOWN and must be tested; other cars need derived surfaces. Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "Supra reference: world 136x50/listing 68x25; other exact contracts need Engineering mapping",
+      "evidence_sha256": "d3c45fb101e460c927c651f54a9fd951579259132115773734379067613f6e0a"
+    },
+    {
+      "id": "D-r34-listing",
+      "package": "D",
+      "requirement": "r34 LISTING surface",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "VOL2 vehicle matrix",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/D-r34-listing.png",
+      "note": "OPEN Vol. 2: listing art is a deterministic crop/derivative of the WORLD master, not a separately painted master. Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "Supra reference: world 136x50/listing 68x25; other exact contracts need Engineering mapping",
+      "evidence_sha256": "cbb428bd0a79a505ff274d41b3f01a5272c88c0dec841cbf10ca1f0ed309d51e"
+    },
+    {
+      "id": "D-s2000_pink-touge",
+      "package": "D",
+      "requirement": "s2000_pink TOUGE identity",
+      "status": "FROZEN \u2014 COMPLETE",
+      "source": "VOL2 vehicle matrix + Ship 006",
+      "evidence_path": "assets/before_the_fame/vehicles/touge/s2000_pink_16x28.png",
+      "note": "",
+      "native_contract": "16x28 binary alpha",
+      "evidence_sha256": "e05a9872cece4d4b2293544d2c599c5ae5fbca542fc2d38afee6023e73b2943e",
+      "evidence_registry_status": "FROZEN",
+      "evidence_dimensions": [
+        16,
+        28
+      ]
+    },
+    {
+      "id": "D-s2000_pink-world",
+      "package": "D",
+      "requirement": "s2000_pink WORLD surface",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "VOL2 vehicle matrix",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/D-s2000_pink-world.png",
+      "note": "Existing Supra asset is REFERENCE/STATUS UNKNOWN and must be tested; other cars need derived surfaces. Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "Supra reference: world 136x50/listing 68x25; other exact contracts need Engineering mapping",
+      "evidence_sha256": "e2d90f61ebd9c959e1c30df6680796dfdedf392c76338947e2419070e3f32bfa"
+    },
+    {
+      "id": "D-s2000_pink-listing",
+      "package": "D",
+      "requirement": "s2000_pink LISTING surface",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "VOL2 vehicle matrix",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/D-s2000_pink-listing.png",
+      "note": "OPEN Vol. 2: listing art is a deterministic crop/derivative of the WORLD master, not a separately painted master. Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "Supra reference: world 136x50/listing 68x25; other exact contracts need Engineering mapping",
+      "evidence_sha256": "cbb428bd0a79a505ff274d41b3f01a5272c88c0dec841cbf10ca1f0ed309d51e"
+    },
+    {
+      "id": "D-urus-touge",
+      "package": "D",
+      "requirement": "urus TOUGE identity",
+      "status": "FROZEN \u2014 COMPLETE",
+      "source": "VOL2 vehicle matrix + Ship 006",
+      "evidence_path": "assets/before_the_fame/vehicles/touge/urus_oxblood_16x28.png",
+      "note": "",
+      "native_contract": "16x28 binary alpha",
+      "evidence_sha256": "478d745544eb9f746f9b41d55dc16b1921fffccfa47f7ccfaaf8ebd568f99c92",
+      "evidence_registry_status": "FROZEN",
+      "evidence_dimensions": [
+        16,
+        28
+      ]
+    },
+    {
+      "id": "D-urus-world",
+      "package": "D",
+      "requirement": "urus WORLD surface",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "VOL2 vehicle matrix",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/D-urus-world.png",
+      "note": "Existing Supra asset is REFERENCE/STATUS UNKNOWN and must be tested; other cars need derived surfaces. Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "Supra reference: world 136x50/listing 68x25; other exact contracts need Engineering mapping",
+      "evidence_sha256": "50a976fe35528c966dfb3bd00ed9c0bfb13ddcf224233699c7b752d0e3b8f238"
+    },
+    {
+      "id": "D-urus-listing",
+      "package": "D",
+      "requirement": "urus LISTING surface",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "VOL2 vehicle matrix",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/D-urus-listing.png",
+      "note": "OPEN Vol. 2: listing art is a deterministic crop/derivative of the WORLD master, not a separately painted master. Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "Supra reference: world 136x50/listing 68x25; other exact contracts need Engineering mapping",
+      "evidence_sha256": "cbb428bd0a79a505ff274d41b3f01a5272c88c0dec841cbf10ca1f0ed309d51e"
+    },
+    {
+      "id": "D-aventador-touge",
+      "package": "D",
+      "requirement": "aventador TOUGE identity",
+      "status": "FROZEN \u2014 COMPLETE",
+      "source": "VOL2 vehicle matrix + Ship 006",
+      "evidence_path": "assets/before_the_fame/vehicles/touge/aventador_purple_16x28.png",
+      "note": "",
+      "native_contract": "16x28 binary alpha",
+      "evidence_sha256": "e4cee12291aa9377934d6ac2b75edef87b32ee7ade4f68d4c2017162bd0292d5",
+      "evidence_registry_status": "FROZEN",
+      "evidence_dimensions": [
+        16,
+        28
+      ]
+    },
+    {
+      "id": "D-aventador-world",
+      "package": "D",
+      "requirement": "aventador WORLD surface",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "VOL2 vehicle matrix",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/D-aventador-world.png",
+      "note": "Existing Supra asset is REFERENCE/STATUS UNKNOWN and must be tested; other cars need derived surfaces. Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "Supra reference: world 136x50/listing 68x25; other exact contracts need Engineering mapping",
+      "evidence_sha256": "35ec7fd27078680382001914b6ee33bd7fa7e3a058307aaaebefbe9f8934d6d1"
+    },
+    {
+      "id": "D-aventador-listing",
+      "package": "D",
+      "requirement": "aventador LISTING surface",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "VOL2 vehicle matrix",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/D-aventador-listing.png",
+      "note": "OPEN Vol. 2: listing art is a deterministic crop/derivative of the WORLD master, not a separately painted master. Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "Supra reference: world 136x50/listing 68x25; other exact contracts need Engineering mapping",
+      "evidence_sha256": "cbb428bd0a79a505ff274d41b3f01a5272c88c0dec841cbf10ca1f0ed309d51e"
+    },
+    {
+      "id": "D-ferrari_f40-touge",
+      "package": "D",
+      "requirement": "ferrari_f40 TOUGE identity",
+      "status": "FROZEN \u2014 COMPLETE",
+      "source": "VOL2 vehicle matrix + Ship 006",
+      "evidence_path": "assets/before_the_fame/vehicles/touge/ferrari_f40_red_16x28.png",
+      "note": "",
+      "native_contract": "16x28 binary alpha",
+      "evidence_sha256": "054d4f22f247c405bdae6fdfaad209337982d015a41c38af624df1927accd28c",
+      "evidence_registry_status": "FROZEN",
+      "evidence_dimensions": [
+        16,
+        28
+      ]
+    },
+    {
+      "id": "D-ferrari_f40-world",
+      "package": "D",
+      "requirement": "ferrari_f40 WORLD surface",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "VOL2 vehicle matrix",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/D-ferrari_f40-world.png",
+      "note": "Existing Supra asset is REFERENCE/STATUS UNKNOWN and must be tested; other cars need derived surfaces. Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "Supra reference: world 136x50/listing 68x25; other exact contracts need Engineering mapping",
+      "evidence_sha256": "ceaf166a0d60cf6abae5c2151a1ca6c947cdb0fe39323120e863ac6e9a8907dd"
+    },
+    {
+      "id": "D-ferrari_f40-listing",
+      "package": "D",
+      "requirement": "ferrari_f40 LISTING surface",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "VOL2 vehicle matrix",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/D-ferrari_f40-listing.png",
+      "note": "OPEN Vol. 2: listing art is a deterministic crop/derivative of the WORLD master, not a separately painted master. Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "Supra reference: world 136x50/listing 68x25; other exact contracts need Engineering mapping",
+      "evidence_sha256": "cbb428bd0a79a505ff274d41b3f01a5272c88c0dec841cbf10ca1f0ed309d51e"
+    },
+    {
+      "id": "D-portobello-world",
+      "package": "D",
+      "requirement": "Portobello beige Mazda/crossover WORLD surface",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "VOL2 vehicle matrix",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/D-portobello-world.png",
+      "note": "Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "TOUGE 16x28; WORLD/LISTING contract pending Engineering",
+      "evidence_sha256": "89b3ff3e769f813a9f1c9683cd31be01aa24e2b2638ee95e1c3ec92b323d4662"
+    },
+    {
+      "id": "D-rival_a-touge",
+      "package": "D",
+      "requirement": "Midnight Mafia rival A TOUGE surface",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "VOL2 vehicle matrix",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/D-rival_a-touge.png",
+      "note": "Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "TOUGE 16x28; WORLD/LISTING contract pending Engineering",
+      "evidence_sha256": "ab0d155592834fd2faf5a7a53e4d2a633de5933a14796c375927fd993b043a70"
+    },
+    {
+      "id": "D-rival_b-touge",
+      "package": "D",
+      "requirement": "Midnight Mafia rival B TOUGE surface",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "VOL2 vehicle matrix",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/D-rival_b-touge.png",
+      "note": "Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "TOUGE 16x28; WORLD/LISTING contract pending Engineering",
+      "evidence_sha256": "289de0f7c843ea7a24ee14b627868f0262d4436e105740c99fa342e9b002aa71"
+    },
+    {
+      "id": "D-runtime-delivery",
+      "package": "D",
+      "requirement": "Sourced vehicle delivery states actually required by current content",
+      "status": "MAPPING / ENGINEERING DECISION",
+      "source": "Ship 014 brief",
+      "evidence_path": null,
+      "note": "No exact car/state list in committed OPEN authority; SOURCE REQUIRED \u2014 NOT RECONSTRUCTED.",
+      "native_contract": ""
+    },
+    {
+      "id": "D-runtime-damaged",
+      "package": "D",
+      "requirement": "Sourced vehicle damaged states actually required by current content",
+      "status": "MAPPING / ENGINEERING DECISION",
+      "source": "Ship 014 brief",
+      "evidence_path": null,
+      "note": "No exact car/state list in committed OPEN authority; SOURCE REQUIRED \u2014 NOT RECONSTRUCTED.",
+      "native_contract": ""
+    },
+    {
+      "id": "E-egg-held",
+      "package": "E",
+      "requirement": "Dragon egg HELD",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "VOL2 \u00a7 Vehicles and props",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/E-egg-held.png",
+      "note": "Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "transparent prop/actor composite mapping",
+      "evidence_sha256": "6432d03a943b8641ad47c2b2740b56ce13f9dea1d39b95c82ff79b93b9ed4902"
+    },
+    {
+      "id": "E-egg-bed",
+      "package": "E",
+      "requirement": "Dragon egg ON BED",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "VOL2 \u00a7 Vehicles and props",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/E-egg-bed.png",
+      "note": "Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "additive bedroom overlay",
+      "evidence_sha256": "01395f3f77f9c659439d86401bcf7dbfb097936d7c0bb5ac8b7ef6c7e8b5d3bb"
+    },
+    {
+      "id": "E-egg-cracking",
+      "package": "E",
+      "requirement": "Dragon egg CRACKING",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "VOL2 \u00a7 Vehicles and props",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/E-egg-cracking.png",
+      "note": "Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "32x32 binary alpha",
+      "evidence_sha256": "18361014476ed1250f5f10919f6e3b0ea9d756613425b94dde354c301cfc9eeb"
+    },
+    {
+      "id": "E-bread-whole",
+      "package": "E",
+      "requirement": "Agege bread whole",
+      "status": "FROZEN \u2014 COMPLETE",
+      "source": "VOL2 \u00a7 Vehicles and props",
+      "evidence_path": "assets/before_the_fame/props/agege_bread/agege_bread_whole_32x24.png",
+      "note": "",
+      "native_contract": "32x24 binary alpha",
+      "evidence_sha256": "144e7048cf423821c7de7afed3c7bd703500c107f48d77ca69b3ae0b4e89aeca",
+      "evidence_registry_status": "FROZEN",
+      "evidence_dimensions": [
+        32,
+        24
+      ]
+    },
+    {
+      "id": "E-bread-torn",
+      "package": "E",
+      "requirement": "Agege bread torn",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "VOL2 \u00a7 Vehicles and props",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/E-bread-torn.png",
+      "note": "Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "32x24 binary alpha",
+      "evidence_sha256": "c789d662d917f8afdd2639582dcddb86308745542d9198b0fbf5bfbc61c5e433"
+    },
+    {
+      "id": "E-blood_bill",
+      "package": "E",
+      "requirement": "Blood Bank bill/receipt card",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "VOL2 \u00a7 Vehicles and props + Ship 014 brief",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/E-blood_bill.png",
+      "note": "Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "Original design only; exact native/runtime mapping required",
+      "evidence_sha256": "d98db883c811110702efcbbc6dc0f1d1caed6dff599e78b959701f9d3e648bab"
+    },
+    {
+      "id": "E-blood_held",
+      "package": "E",
+      "requirement": "Nneka-held long receipt",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "VOL2 \u00a7 Vehicles and props + Ship 014 brief",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/E-blood_held.png",
+      "note": "Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "Original design only; exact native/runtime mapping required",
+      "evidence_sha256": "e4acc1982c057c31edd859976f5b8c62c88886e311430515e880b9c2aacec294"
+    },
+    {
+      "id": "E-bonesworth_sword",
+      "package": "E",
+      "requirement": "Bonesworth sword trophy",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "VOL2 \u00a7 Vehicles and props + Ship 014 brief",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/E-bonesworth_sword.png",
+      "note": "Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "Original design only; exact native/runtime mapping required",
+      "evidence_sha256": "bd5837a039f2f4efae42a5d3e2bf434a05571375481669aae49e8d4a0603bf9d"
+    },
+    {
+      "id": "E-radio-playmakers",
+      "package": "E",
+      "requirement": "Rich Radio cover tile: PLAYMAKERS",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "VOL2 \u00a7 Vehicles and props",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/E-radio-playmakers.png",
+      "note": "Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "small square phone tile; exact native contract pending Engineering",
+      "evidence_sha256": "785cf2d6e3091626c384487e2b31cde5091cc86577cc7c33c80208a57ee8e908"
+    },
+    {
+      "id": "E-radio-bloodbath",
+      "package": "E",
+      "requirement": "Rich Radio cover tile: BLOODBATH",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "VOL2 \u00a7 Vehicles and props",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/E-radio-bloodbath.png",
+      "note": "Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "small square phone tile; exact native contract pending Engineering",
+      "evidence_sha256": "7202f43afd7b03d3531bec8e3e97fc824a482430c7529796fe385798358f227f"
+    },
+    {
+      "id": "E-radio-octopus_brain",
+      "package": "E",
+      "requirement": "Rich Radio cover tile: OCTOPUS BRAIN",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "VOL2 \u00a7 Vehicles and props",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/E-radio-octopus_brain.png",
+      "note": "Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "small square phone tile; exact native contract pending Engineering",
+      "evidence_sha256": "66c9aca692039cc382d189a9edb5a7a2e14ec5e14845197a36279c33fad3bedd"
+    },
+    {
+      "id": "E-radio-montana",
+      "package": "E",
+      "requirement": "Rich Radio cover tile: MONTANA",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "VOL2 \u00a7 Vehicles and props",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/E-radio-montana.png",
+      "note": "Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "small square phone tile; exact native contract pending Engineering",
+      "evidence_sha256": "7ec947548624716784c3baf6fbcfd113c66f91b23198e857282eb8d722b2dc65"
+    },
+    {
+      "id": "E-radio-shopping_addict",
+      "package": "E",
+      "requirement": "Rich Radio cover tile: SHOPPING ADDICT",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "VOL2 \u00a7 Vehicles and props",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/E-radio-shopping_addict.png",
+      "note": "Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "small square phone tile; exact native contract pending Engineering",
+      "evidence_sha256": "c95b69489571d5e5b88b3162b1481c826e576bb6828a51b5086311b95d63f468"
+    },
+    {
+      "id": "E-cube",
+      "package": "E",
+      "requirement": "Dragon Maggi/Magi Cube presentation",
+      "status": "CONDITIONAL \u2014 EXISTING ART MUST BE TESTED FIRST",
+      "source": "VOL5 \u00a7 Dragon Maggi Cube",
+      "evidence_path": "assets/before_the_fame/props/dragon_maggi_cube/dragon_maggi_cube_24x24.png",
+      "note": "Frozen icon exists; spelling remains swappable and runtime surface is mapping-ambiguous.",
+      "native_contract": "24x24 binary alpha",
+      "evidence_sha256": "48c7b3f4a866ddf2c94fdecbb7117a146a736d87e8c688aab8302bf995de45be",
+      "evidence_registry_status": "FROZEN",
+      "evidence_dimensions": [
+        24,
+        24
+      ]
+    },
+    {
+      "id": "F-prop-plant",
+      "package": "F",
+      "requirement": "Bedroom unlockable prop: plant",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "VOL5 \u00a7 Dragon Maggi Cube and prop treatment",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/F-prop-plant.png",
+      "note": "Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "additive overlay preserving frozen bedroom base",
+      "evidence_sha256": "cfa886bb3bc33593d5c7afa4ba6dc0975841eb356ab627b17a0ce9f7e012300a"
+    },
+    {
+      "id": "F-prop-trippin_red_poster",
+      "package": "F",
+      "requirement": "Bedroom unlockable prop: trippin red poster",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "VOL5 \u00a7 Dragon Maggi Cube and prop treatment",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/F-prop-trippin_red_poster.png",
+      "note": "Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "additive overlay preserving frozen bedroom base",
+      "evidence_sha256": "185a4f50e28241155558c51e48f22a8c42a611f83e69993cd2a8e9de1a22f9ae"
+    },
+    {
+      "id": "F-prop-rookoko_painting",
+      "package": "F",
+      "requirement": "Bedroom unlockable prop: rookoko painting",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "VOL5 \u00a7 Dragon Maggi Cube and prop treatment",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/F-prop-rookoko_painting.png",
+      "note": "Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "additive overlay preserving frozen bedroom base",
+      "evidence_sha256": "d5391f14735ca813920f4a5b688cd4823698350c734a0c512ab08d72eaf4f404"
+    },
+    {
+      "id": "F-prop-jollof_trophy",
+      "package": "F",
+      "requirement": "Bedroom unlockable prop: jollof trophy",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "VOL5 \u00a7 Dragon Maggi Cube and prop treatment",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/F-prop-jollof_trophy.png",
+      "note": "Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "additive overlay preserving frozen bedroom base",
+      "evidence_sha256": "71370cd703c295e39bc915022e3fddfa28fcd43141308db93af3eccbf3528ed6"
+    },
+    {
+      "id": "F-prop-duoqlo_bag",
+      "package": "F",
+      "requirement": "Bedroom unlockable prop: duoqlo bag",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "VOL5 \u00a7 Dragon Maggi Cube and prop treatment",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/F-prop-duoqlo_bag.png",
+      "note": "Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "additive overlay preserving frozen bedroom base",
+      "evidence_sha256": "71370cd703c295e39bc915022e3fddfa28fcd43141308db93af3eccbf3528ed6"
+    },
+    {
+      "id": "F-prop-unused_cat_bed",
+      "package": "F",
+      "requirement": "Bedroom unlockable prop: unused cat bed",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "VOL5 \u00a7 Dragon Maggi Cube and prop treatment",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/F-prop-unused_cat_bed.png",
+      "note": "Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "additive overlay preserving frozen bedroom base",
+      "evidence_sha256": "71370cd703c295e39bc915022e3fddfa28fcd43141308db93af3eccbf3528ed6"
+    },
+    {
+      "id": "F-prop-michigan_pennant",
+      "package": "F",
+      "requirement": "Bedroom unlockable prop: michigan pennant",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "VOL5 \u00a7 Dragon Maggi Cube and prop treatment",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/F-prop-michigan_pennant.png",
+      "note": "Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "additive overlay preserving frozen bedroom base",
+      "evidence_sha256": "ec832136d53be0680842d5aad16bc20c820768425f8786cafe30a0e21217d7c7"
+    },
+    {
+      "id": "F-prop-waffle_mix_bag",
+      "package": "F",
+      "requirement": "Bedroom unlockable prop: waffle mix bag",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "VOL5 \u00a7 Dragon Maggi Cube and prop treatment",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/F-prop-waffle_mix_bag.png",
+      "note": "Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "additive overlay preserving frozen bedroom base",
+      "evidence_sha256": "71370cd703c295e39bc915022e3fddfa28fcd43141308db93af3eccbf3528ed6"
+    },
+    {
+      "id": "F-company_system",
+      "package": "F",
+      "requirement": "company system",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "VOL2 bedroom conditions + VOL5 weather",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/F-company_system.png",
+      "note": "Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "additive overlay/state; preserve frozen bedroom base",
+      "evidence_sha256": "71370cd703c295e39bc915022e3fddfa28fcd43141308db93af3eccbf3528ed6"
+    },
+    {
+      "id": "F-covered_companion",
+      "package": "F",
+      "requirement": "covered companion",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "VOL2 bedroom conditions + VOL5 weather",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/F-covered_companion.png",
+      "note": "Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "additive overlay/state; preserve frozen bedroom base",
+      "evidence_sha256": "71370cd703c295e39bc915022e3fddfa28fcd43141308db93af3eccbf3528ed6"
+    },
+    {
+      "id": "F-homie_floor",
+      "package": "F",
+      "requirement": "homie floor",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "VOL2 bedroom conditions + VOL5 weather",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/F-homie_floor.png",
+      "note": "Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "additive overlay/state; preserve frozen bedroom base",
+      "evidence_sha256": "71370cd703c295e39bc915022e3fddfa28fcd43141308db93af3eccbf3528ed6"
+    },
+    {
+      "id": "F-mazda_flyby",
+      "package": "F",
+      "requirement": "mazda flyby",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "VOL2 bedroom conditions + VOL5 weather",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/F-mazda_flyby.png",
+      "note": "Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "additive overlay/state; preserve frozen bedroom base",
+      "evidence_sha256": "71370cd703c295e39bc915022e3fddfa28fcd43141308db93af3eccbf3528ed6"
+    },
+    {
+      "id": "F-rain_night_window",
+      "package": "F",
+      "requirement": "rain night window",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "VOL2 bedroom conditions + VOL5 weather",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/F-rain_night_window.png",
+      "note": "Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "additive overlay/state; preserve frozen bedroom base",
+      "evidence_sha256": "d89ba8a59786db5cabccbf9b984f38f170de2139a8008e99c8bfbf493c1934da"
+    },
+    {
+      "id": "F-stars_night_sky",
+      "package": "F",
+      "requirement": "stars night sky",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "VOL2 bedroom conditions + VOL5 weather",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/F-stars_night_sky.png",
+      "note": "Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "additive overlay/state; preserve frozen bedroom base",
+      "evidence_sha256": "fbc56aaf1168737ca35a134a61eeaadefcf63fcb5af63a5ed40aac1754159751"
+    },
+    {
+      "id": "G-catacomb",
+      "package": "G",
+      "requirement": "Crowd condition: catacomb",
+      "status": "FROZEN \u2014 COMPLETE",
+      "source": "VOL2 \u00a7 Crowds + Ship 011",
+      "evidence_path": "assets/before_the_fame/environments/catacomb/layers/catacomb_crowd_overlay_270x480.png",
+      "note": "Ship 011 library has no runtime assignment; conditional entries require HQ/Engineering surface mapping.",
+      "native_contract": "exact-origin layer or mapped population placement",
+      "evidence_sha256": "5468959ed5029d5202b09f2bc651f1b117d156a2fb1ea6b1acf6f72dda4bcd18",
+      "evidence_registry_status": "FROZEN",
+      "evidence_dimensions": [
+        270,
+        480
+      ]
+    },
+    {
+      "id": "G-hollow_bowl",
+      "package": "G",
+      "requirement": "Crowd condition: hollow bowl",
+      "status": "FROZEN \u2014 COMPLETE",
+      "source": "VOL2 \u00a7 Crowds + Ship 011",
+      "evidence_path": "assets/before_the_fame/environments/hollow_bowl/layers/hollow_bowl_crowd_overlay_270x480.png",
+      "note": "Ship 011 library has no runtime assignment; conditional entries require HQ/Engineering surface mapping.",
+      "native_contract": "exact-origin layer or mapped population placement",
+      "evidence_sha256": "8821c902ca448f3222f3d28f5f32cddafbd95b607a08bf48e73254cc4d7665d1",
+      "evidence_registry_status": "FROZEN",
+      "evidence_dimensions": [
+        270,
+        480
+      ]
+    },
+    {
+      "id": "G-duchess_soiree",
+      "package": "G",
+      "requirement": "Crowd condition: duchess soiree",
+      "status": "FROZEN \u2014 COMPLETE",
+      "source": "VOL2 \u00a7 Crowds + Ship 011",
+      "evidence_path": "assets/before_the_fame/environments/duchess_castle/layers/duchess_reception_crowd_overlay_270x480.png",
+      "note": "Ship 011 library has no runtime assignment; conditional entries require HQ/Engineering surface mapping.",
+      "native_contract": "exact-origin layer or mapped population placement",
+      "evidence_sha256": "e28c5c9882ac51ee3f7a5d12480c9f59e83b48552c8f6413606c35a6937b0d7e",
+      "evidence_registry_status": "FROZEN",
+      "evidence_dimensions": [
+        270,
+        480
+      ]
+    },
+    {
+      "id": "G-castle_party",
+      "package": "G",
+      "requirement": "Crowd condition: castle party",
+      "status": "CONDITIONAL \u2014 EXISTING ART MUST BE TESTED FIRST",
+      "source": "VOL2 \u00a7 Crowds + Ship 011",
+      "evidence_path": "assets/before_the_fame/population/nightlife/nightlife_dense_cluster_144x96.png",
+      "note": "Ship 011 library has no runtime assignment; conditional entries require HQ/Engineering surface mapping.",
+      "native_contract": "exact-origin layer or mapped population placement",
+      "evidence_sha256": "ba12f4f3c2224f4cbb9a78ea42a85df113aaa351d07eda8279d4ced501cd6024",
+      "evidence_registry_status": "FROZEN",
+      "evidence_dimensions": [
+        144,
+        96
+      ]
+    },
+    {
+      "id": "G-grave",
+      "package": "G",
+      "requirement": "Crowd condition: grave",
+      "status": "CONDITIONAL \u2014 EXISTING ART MUST BE TESTED FIRST",
+      "source": "VOL2 \u00a7 Crowds + Ship 011",
+      "evidence_path": "assets/before_the_fame/population/nightlife/nightlife_queue_pair_112x96.png",
+      "note": "Ship 011 library has no runtime assignment; conditional entries require HQ/Engineering surface mapping.",
+      "native_contract": "exact-origin layer or mapped population placement",
+      "evidence_sha256": "55b5eecb42fdfc6dca4493248cdf466a3b8f08c707165ed9243d73a03ca57190",
+      "evidence_registry_status": "FROZEN",
+      "evidence_dimensions": [
+        112,
+        96
+      ]
+    },
+    {
+      "id": "G-trippin-crowd",
+      "package": "G",
+      "requirement": "Trippin' Red large concert crowd requirement",
+      "status": "FROZEN \u2014 REUSE SATISFIES REQUIREMENT",
+      "source": "VOL2/VOL5; Hollow Bowl frozen crowd layers",
+      "evidence_path": "assets/before_the_fame/environments/hollow_bowl/layers/hollow_bowl_stage_band_crowd_overlay_270x480.png",
+      "note": "",
+      "native_contract": "270x480 exact origin",
+      "evidence_sha256": "fb0dd0b070818db692999ed285d761d985f3dad66bc1e3ae4442425f2e8b846a",
+      "evidence_registry_status": "FROZEN",
+      "evidence_dimensions": [
+        270,
+        480
+      ]
+    },
+    {
+      "id": "G-env-catacomb_dead",
+      "package": "G",
+      "requirement": "Historically listed environment id: catacomb_dead",
+      "status": "MAPPING / ENGINEERING DECISION",
+      "source": "CURRENT_OPEN_ART_GAPS + Ship 014 environment rule",
+      "evidence_path": null,
+      "note": "No current census surface; generate only after live-surface proof. LA sky night-flight frozen master may satisfy ocean-flight beat only after mapping decision.",
+      "native_contract": ""
+    },
+    {
+      "id": "G-env-ocean_night_flight",
+      "package": "G",
+      "requirement": "Historically listed environment id: ocean_night_flight",
+      "status": "FROZEN \u2014 REUSE SATISFIES REQUIREMENT",
+      "source": "CURRENT_OPEN_ART_GAPS + Ship 014 environment rule",
+      "evidence_path": "assets/before_the_fame/environments/la_sky/la_sky_night_flight_270x480.png",
+      "note": "VOL5 ocean-flight beat maps directly to the frozen LA night-flight master.",
+      "native_contract": ""
+    },
+    {
+      "id": "G-env-halloween",
+      "package": "G",
+      "requirement": "Historically listed environment id: halloween",
+      "status": "MAPPING / ENGINEERING DECISION",
+      "source": "CURRENT_OPEN_ART_GAPS + Ship 014 environment rule",
+      "evidence_path": null,
+      "note": "No current census surface; generate only after live-surface proof. LA sky night-flight frozen master may satisfy ocean-flight beat only after mapping decision.",
+      "native_contract": ""
+    },
+    {
+      "id": "H-hatch",
+      "package": "H",
+      "requirement": "Full UI treatment: HATCH",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "VOL2/VOL5 UI surfaces + Ship 014 brief",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/H-hatch.png",
+      "note": "Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "Art visual asset; Engineering owns behavior/layout. Native phone contract must be confirmed.",
+      "evidence_sha256": "94253839eb58fb961227085f7dc31109b98d40f01599caaeae14be61e19378bf"
+    },
+    {
+      "id": "H-touge",
+      "package": "H",
+      "requirement": "Full UI treatment: TOUGE",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "VOL2/VOL5 UI surfaces + Ship 014 brief",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/H-touge.png",
+      "note": "Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "Art visual asset; Engineering owns behavior/layout. Native phone contract must be confirmed.",
+      "evidence_sha256": "d080772695d54cc5c2336fb304654d5cdeac6a3acc9c3c053887cd16daa8d82d"
+    },
+    {
+      "id": "H-pier",
+      "package": "H",
+      "requirement": "Full UI treatment: PIER",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "VOL2/VOL5 UI surfaces + Ship 014 brief",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/H-pier.png",
+      "note": "Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "Art visual asset; Engineering owns behavior/layout. Native phone contract must be confirmed.",
+      "evidence_sha256": "f5130ccea5666660415445b7501b0714d4714a3863813dcef763edc4d8d8e08f"
+    },
+    {
+      "id": "H-bars",
+      "package": "H",
+      "requirement": "Full UI treatment: BARS",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "VOL2/VOL5 UI surfaces + Ship 014 brief",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/H-bars.png",
+      "note": "Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "Art visual asset; Engineering owns behavior/layout. Native phone contract must be confirmed.",
+      "evidence_sha256": "791dc23f18ae8484ed48fb296849afc2f3a2436d18aaca8a6bf1ed898c870650"
+    },
+    {
+      "id": "H-rich_radio",
+      "package": "H",
+      "requirement": "Full UI treatment: RICH RADIO",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "VOL2/VOL5 UI surfaces + Ship 014 brief",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/H-rich_radio.png",
+      "note": "Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "Art visual asset; Engineering owns behavior/layout. Native phone contract must be confirmed.",
+      "evidence_sha256": "5f22bad37b47d3209752e8da5a9b9f68911f8fb9f6917148e716879fc019e92a"
+    },
+    {
+      "id": "H-what_we_on",
+      "package": "H",
+      "requirement": "Full UI treatment: WHAT WE ON",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "VOL2/VOL5 UI surfaces + Ship 014 brief",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/H-what_we_on.png",
+      "note": "Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "Art visual asset; Engineering owns behavior/layout. Native phone contract must be confirmed.",
+      "evidence_sha256": "4a95eae485e2d96cb2fdd2737747819c67fa703ed162c64c0d087ad030599799"
+    },
+    {
+      "id": "H-blood_bank_bill",
+      "package": "H",
+      "requirement": "Full UI treatment: Blood Bank bill",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "VOL2/VOL5 UI surfaces + Ship 014 brief",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/H-blood_bank_bill.png",
+      "note": "Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "Art visual asset; Engineering owns behavior/layout. Native phone contract must be confirmed.",
+      "evidence_sha256": "df2c4826c14afc711490b2801439ab274c90d554c6ac1f809eaf6b61b14216d0"
+    },
+    {
+      "id": "H-vehicle_listing_cards",
+      "package": "H",
+      "requirement": "Full UI treatment: vehicle listing cards",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "VOL2/VOL5 UI surfaces + Ship 014 brief",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/H-vehicle_listing_cards.png",
+      "note": "Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "Art visual asset; Engineering owns behavior/layout. Native phone contract must be confirmed.",
+      "evidence_sha256": "8e4cc7d9efaaeeb424224593459f5975e71597096fa239f62decdf618bc2d05c"
+    },
+    {
+      "id": "H-receipts",
+      "package": "H",
+      "requirement": "Full UI treatment: RECEIPTS",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "VOL2/VOL5 UI surfaces + Ship 014 brief",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/H-receipts.png",
+      "note": "Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "Art visual asset; Engineering owns behavior/layout. Native phone contract must be confirmed.",
+      "evidence_sha256": "e934f6b84b558e0117c8b4719e7ff6bca1c57171928665e3be5528962051e3aa"
+    },
+    {
+      "id": "H-jollof_wars",
+      "package": "H",
+      "requirement": "Minigame visual treatment: JOLLOF WARS",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "VOL5 \u00a7 UI and minigame surfaces",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/H-jollof_wars.png",
+      "note": "Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "Current runtime canvas dimensions/layout must be used; no behavior changes",
+      "evidence_sha256": "8a5f4c276fdc1b77a85f5da356858c55d9a7a09788b6b00b6332b6203e2d0256"
+    },
+    {
+      "id": "H-garage",
+      "package": "H",
+      "requirement": "Minigame visual treatment: GARAGE",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "VOL5 \u00a7 UI and minigame surfaces",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/H-garage.png",
+      "note": "Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "Current runtime canvas dimensions/layout must be used; no behavior changes",
+      "evidence_sha256": "959cecb22f02e16f51ae22cd77d7993fd59760e3dea94445cc3023b7f55d6a18"
+    },
+    {
+      "id": "H-hookah_rings",
+      "package": "H",
+      "requirement": "Minigame visual treatment: HOOKAH RINGS",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "VOL5 \u00a7 UI and minigame surfaces",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/H-hookah_rings.png",
+      "note": "Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "Current runtime canvas dimensions/layout must be used; no behavior changes",
+      "evidence_sha256": "765895601826735479bfb794013d576141d9d24eb7d034eca6158fd3ab29bdda"
+    },
+    {
+      "id": "H-pickup",
+      "package": "H",
+      "requirement": "Minigame visual treatment: PICKUP",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "VOL5 \u00a7 UI and minigame surfaces",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/H-pickup.png",
+      "note": "Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "Current runtime canvas dimensions/layout must be used; no behavior changes",
+      "evidence_sha256": "51322a3696b0b503479be6dcff69518763605d728619e6bb13a3402216e8b08d"
+    },
+    {
+      "id": "SEALED",
+      "package": "SOURCE",
+      "requirement": "All SEALED/HQ-only visual requirements",
+      "status": "SEALED / DO NOT TOUCH",
+      "source": "HQ production boundary",
+      "evidence_path": null,
+      "note": "Not inspected, enumerated, summarized, or exposed.",
+      "native_contract": ""
+    },
+    {
+      "id": "A-kiki-date",
+      "package": "A",
+      "requirement": "kiki: date",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "VOL2 OPEN exact state card",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/A-kiki-date.png",
+      "note": "Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "80x96 binary-alpha sprite; contact (40,88)",
+      "evidence_sha256": "89380655dc2ea2a69504df2e3040bfea8a6a89333f41400c733688f8cb98bb02",
+      "evidence_registry_status": "",
+      "evidence_dimensions": []
+    },
+    {
+      "id": "A-kiki-laughing",
+      "package": "A",
+      "requirement": "kiki: laughing",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "VOL2 OPEN exact state card",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/A-kiki-laughing.png",
+      "note": "Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "80x96 binary-alpha sprite; contact (40,88)",
+      "evidence_sha256": "c82b854c2ebb65d912e8b7d345ab583f2c880378df711263624cf6ad60c2387b",
+      "evidence_registry_status": "",
+      "evidence_dimensions": []
+    },
+    {
+      "id": "A-kiki-bedroom_company",
+      "package": "A",
+      "requirement": "kiki: bedroom company",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "VOL2 OPEN exact state card",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/A-kiki-bedroom_company.png",
+      "note": "Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "80x96 binary-alpha sprite; contact (40,88)",
+      "evidence_sha256": "350b72adff7135359a05ada692ba85f7183136995f270eea8d363c3bddd8865a",
+      "evidence_registry_status": "",
+      "evidence_dimensions": []
+    },
+    {
+      "id": "A-nneka-handing_bill",
+      "package": "A",
+      "requirement": "nneka: handing bill",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "VOL2 OPEN exact state card",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/A-nneka-handing_bill.png",
+      "note": "Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "80x96 binary-alpha sprite; contact (40,88)",
+      "evidence_sha256": "491ad1d0557986aa66fba19fb2cfae266c2dd4ba1b132ae5b6b25ee6697640f0",
+      "evidence_registry_status": "",
+      "evidence_dimensions": []
+    },
+    {
+      "id": "A-nneka-date",
+      "package": "A",
+      "requirement": "nneka: date",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "VOL2 OPEN exact state card",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/A-nneka-date.png",
+      "note": "Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "80x96 binary-alpha sprite; contact (40,88)",
+      "evidence_sha256": "1d3e5a3c2ce7012f10f64f0887628ac38d84d73f7b2c8cb45d56b0ec87623edf",
+      "evidence_registry_status": "",
+      "evidence_dimensions": []
+    },
+    {
+      "id": "A-nneka-bedroom_company",
+      "package": "A",
+      "requirement": "nneka: bedroom company",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "VOL2 OPEN exact state card",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/A-nneka-bedroom_company.png",
+      "note": "Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "80x96 binary-alpha sprite; contact (40,88)",
+      "evidence_sha256": "afcaf2016885341633e319522508e35a29d6b0b74ede1e44b3f2bbcb92f84aac",
+      "evidence_registry_status": "",
+      "evidence_dimensions": []
+    },
+    {
+      "id": "A-pinky-neutral",
+      "package": "A",
+      "requirement": "pinky: neutral",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "VOL2 OPEN exact state card",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/A-pinky-neutral.png",
+      "note": "Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "80x96 binary-alpha sprite; contact (40,88)",
+      "evidence_sha256": "ce8cb2b12f2f85730fb637f3bb751c3876fce8747a38a2ba28021e7bcea1925d",
+      "evidence_registry_status": "",
+      "evidence_dimensions": []
+    },
+    {
+      "id": "A-pinky-impressed",
+      "package": "A",
+      "requirement": "pinky: impressed",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "VOL2 OPEN exact state card",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/A-pinky-impressed.png",
+      "note": "Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "80x96 binary-alpha sprite; contact (40,88)",
+      "evidence_sha256": "0dd5b3be3c74951072c3615910bf4235bb5abb139c5d2067e65e8f4ed721992c",
+      "evidence_registry_status": "",
+      "evidence_dimensions": []
+    },
+    {
+      "id": "A-pinky-date",
+      "package": "A",
+      "requirement": "pinky: date",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "VOL2 OPEN exact state card",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/A-pinky-date.png",
+      "note": "Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "80x96 binary-alpha sprite; contact (40,88)",
+      "evidence_sha256": "5fb1fca87bb9133feda0f62857f081a694ee96620af6d6f0c251bdec2c9ac597",
+      "evidence_registry_status": "",
+      "evidence_dimensions": []
+    },
+    {
+      "id": "A-pinky-bedroom_company",
+      "package": "A",
+      "requirement": "pinky: bedroom company",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "VOL2 OPEN exact state card",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/A-pinky-bedroom_company.png",
+      "note": "Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "80x96 binary-alpha sprite; contact (40,88)",
+      "evidence_sha256": "6de7455f3ee20a6e2fb53f96d22054c8e9ad2b80d5a21e6e8a06337a2ea7eb6b",
+      "evidence_registry_status": "",
+      "evidence_dimensions": []
+    },
+    {
+      "id": "A-moonie-date",
+      "package": "A",
+      "requirement": "moonie: date",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "VOL2 OPEN exact state card",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/A-moonie-date.png",
+      "note": "Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "80x96 binary-alpha sprite; contact (40,88)",
+      "evidence_sha256": "ba4f74142550086ba0f068f89287d87db679ffa96c277e2ebc3b67bfec125d3f",
+      "evidence_registry_status": "",
+      "evidence_dimensions": []
+    },
+    {
+      "id": "A-moonie-bedroom_company",
+      "package": "A",
+      "requirement": "moonie: bedroom company",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "VOL2 OPEN exact state card",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/A-moonie-bedroom_company.png",
+      "note": "Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "80x96 binary-alpha sprite; contact (40,88)",
+      "evidence_sha256": "72252a78a61cb316b5aceeaf2f6b68fca533e14d6da5e07f2026000464268536",
+      "evidence_registry_status": "",
+      "evidence_dimensions": []
+    },
+    {
+      "id": "A-kaede-ceiling_drop",
+      "package": "A",
+      "requirement": "kaede: ceiling drop",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "VOL2 OPEN exact state card",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/A-kaede-ceiling_drop.png",
+      "note": "Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "80x96 binary-alpha sprite; contact (40,88)",
+      "evidence_sha256": "d7630acbab80959abcfc9eb67742ba842fab3749d831590e0fddcb9d2a335c8f",
+      "evidence_registry_status": "",
+      "evidence_dimensions": []
+    },
+    {
+      "id": "A-kaede-date",
+      "package": "A",
+      "requirement": "kaede: date",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "VOL2 OPEN exact state card",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/A-kaede-date.png",
+      "note": "Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "80x96 binary-alpha sprite; contact (40,88)",
+      "evidence_sha256": "e26696f76b3089ae795beff77c9d746674767a6fb332639371d19c493a09aaff",
+      "evidence_registry_status": "",
+      "evidence_dimensions": []
+    },
+    {
+      "id": "A-kaede-bedroom_company",
+      "package": "A",
+      "requirement": "kaede: bedroom company",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "VOL2 OPEN exact state card",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/A-kaede-bedroom_company.png",
+      "note": "Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "80x96 binary-alpha sprite; contact (40,88)",
+      "evidence_sha256": "0bdcc133b1aebba607446b6bc56d8c2a5314cab1d221bd26eeb7dd4177d14bd7",
+      "evidence_registry_status": "",
+      "evidence_dimensions": []
+    },
+    {
+      "id": "A-wispa-wave",
+      "package": "A",
+      "requirement": "wispa: wave",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "VOL2 OPEN exact state card",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/A-wispa-wave.png",
+      "note": "Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "80x96 binary-alpha sprite; contact (40,88)",
+      "evidence_sha256": "9d49ee61c537b1da8a3cfd23493d5f646c2b3fe058fc46a79fb650694116f694",
+      "evidence_registry_status": "",
+      "evidence_dimensions": []
+    },
+    {
+      "id": "A-wispa-date",
+      "package": "A",
+      "requirement": "wispa: date",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "VOL2 OPEN exact state card",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/A-wispa-date.png",
+      "note": "Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "80x96 binary-alpha sprite; contact (40,88)",
+      "evidence_sha256": "4268a0a09f81e17e268184bddbbfc334c9cf414239c8f18e116b656e2d1b323f",
+      "evidence_registry_status": "",
+      "evidence_dimensions": []
+    },
+    {
+      "id": "A-tasha-stage_rush",
+      "package": "A",
+      "requirement": "tasha: stage rush",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "VOL2 OPEN exact state card",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/A-tasha-stage_rush.png",
+      "note": "Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "80x96 binary-alpha sprite; contact (40,88)",
+      "evidence_sha256": "a92cae62cbba7204ad2d8bc3d51bf5efb41d8f6f11214f617400445091ae87cb",
+      "evidence_registry_status": "",
+      "evidence_dimensions": []
+    },
+    {
+      "id": "A-tasha-date",
+      "package": "A",
+      "requirement": "tasha: date",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "VOL2 OPEN exact state card",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/A-tasha-date.png",
+      "note": "Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "80x96 binary-alpha sprite; contact (40,88)",
+      "evidence_sha256": "7a9e7892fd54af55dca2d83db326f54d9120de82c0a73d1dadca14e240760b02",
+      "evidence_registry_status": "",
+      "evidence_dimensions": []
+    },
+    {
+      "id": "A-tasha-bedroom_company",
+      "package": "A",
+      "requirement": "tasha: bedroom company",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "VOL2 OPEN exact state card",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/A-tasha-bedroom_company.png",
+      "note": "Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "80x96 binary-alpha sprite; contact (40,88)",
+      "evidence_sha256": "56b12787f23f006e78a3fa9fddf996d9eedb998ffd23ebc1009d13c3dbf86ad9",
+      "evidence_registry_status": "",
+      "evidence_dimensions": []
+    },
+    {
+      "id": "A-marisol-disapproving",
+      "package": "A",
+      "requirement": "marisol: disapproving",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "VOL2 OPEN exact state card",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/A-marisol-disapproving.png",
+      "note": "Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "80x96 binary-alpha sprite; contact (40,88)",
+      "evidence_sha256": "32e1b7f7092bbfd3794c039d7a8792f976cf2eab18e07ceec9299f968fe84340",
+      "evidence_registry_status": "",
+      "evidence_dimensions": []
+    },
+    {
+      "id": "A-marisol-date",
+      "package": "A",
+      "requirement": "marisol: date",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "VOL2 OPEN exact state card",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/A-marisol-date.png",
+      "note": "Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "80x96 binary-alpha sprite; contact (40,88)",
+      "evidence_sha256": "44a6369cdde23d39991ce2389e45d589eb6100e6e8668bcace3dc597fa367c8a",
+      "evidence_registry_status": "",
+      "evidence_dimensions": []
+    },
+    {
+      "id": "A-duchess-unimpressed",
+      "package": "A",
+      "requirement": "duchess: unimpressed",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "VOL2 OPEN exact state card",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/A-duchess-unimpressed.png",
+      "note": "Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "80x96 binary-alpha sprite; contact (40,88)",
+      "evidence_sha256": "df11681d857f17f47c5ab13207fad962be06bfebfc2a7af4c1d43ddf43ddafdb",
+      "evidence_registry_status": "",
+      "evidence_dimensions": []
+    },
+    {
+      "id": "A-duchess-impressed",
+      "package": "A",
+      "requirement": "duchess: impressed",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "VOL2 OPEN exact state card",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/A-duchess-impressed.png",
+      "note": "Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "80x96 binary-alpha sprite; contact (40,88)",
+      "evidence_sha256": "ca39fbdb381b7fbabbd20776716138eb9945a5f00acd7f6c5591ff1eecd6e6d0",
+      "evidence_registry_status": "",
+      "evidence_dimensions": []
+    },
+    {
+      "id": "A-duchess-bedroom_company",
+      "package": "A",
+      "requirement": "duchess: bedroom company",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "VOL2 OPEN exact state card",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/A-duchess-bedroom_company.png",
+      "note": "Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "80x96 binary-alpha sprite; contact (40,88)",
+      "evidence_sha256": "ac0a5afc6f520b0c9d9aee2b1b8704769e0106687787487ed378775974d68912",
+      "evidence_registry_status": "",
+      "evidence_dimensions": []
+    },
+    {
+      "id": "A-nightshade-casting",
+      "package": "A",
+      "requirement": "nightshade: casting",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "VOL2 OPEN exact state card",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/A-nightshade-casting.png",
+      "note": "Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "80x96 binary-alpha sprite; contact (40,88)",
+      "evidence_sha256": "5535b95e458492534ba450834aa535eecd82556680820c91062d3cb19a0f9105",
+      "evidence_registry_status": "",
+      "evidence_dimensions": []
+    },
+    {
+      "id": "A-nightshade-date",
+      "package": "A",
+      "requirement": "nightshade: date",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "VOL2 OPEN exact state card",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/A-nightshade-date.png",
+      "note": "Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "80x96 binary-alpha sprite; contact (40,88)",
+      "evidence_sha256": "75f1d72649bf82f38a2541987b2e058135b42eec843d4a9b93120a81ec073e8b",
+      "evidence_registry_status": "",
+      "evidence_dimensions": []
+    },
+    {
+      "id": "A-emberly-date",
+      "package": "A",
+      "requirement": "emberly: date",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "VOL2 OPEN exact state card",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/A-emberly-date.png",
+      "note": "Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "80x96 binary-alpha sprite; contact (40,88)",
+      "evidence_sha256": "2c26617c7938c943f08114fdb7920bd4749d97322aaa2b66f53cf86e115cfcb7",
+      "evidence_registry_status": "",
+      "evidence_dimensions": []
+    },
+    {
+      "id": "A-emberly-bedroom_company",
+      "package": "A",
+      "requirement": "emberly: bedroom company",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "VOL2 OPEN exact state card",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/A-emberly-bedroom_company.png",
+      "note": "Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "80x96 binary-alpha sprite; contact (40,88)",
+      "evidence_sha256": "cdb56c015ce151ccc5efe674f443bf7eb0b3909ec7697a95d067665229a71d5c",
+      "evidence_registry_status": "",
+      "evidence_dimensions": []
+    },
+    {
+      "id": "A-jade-impressed",
+      "package": "A",
+      "requirement": "jade: impressed",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "VOL2 OPEN exact state card",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/A-jade-impressed.png",
+      "note": "Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "80x96 binary-alpha sprite; contact (40,88)",
+      "evidence_sha256": "7941c45ba2520e7fb6e786d0e98157a954755066b8fb644a8aeb1e0a9fab1020",
+      "evidence_registry_status": "",
+      "evidence_dimensions": []
+    },
+    {
+      "id": "A-lo-date",
+      "package": "A",
+      "requirement": "lo: date",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "VOL2 OPEN exact state card",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/A-lo-date.png",
+      "note": "Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "80x96 binary-alpha sprite; contact (40,88)",
+      "evidence_sha256": "09de2f2f7b1b7a9255d5eaf4b6cca95b957d0e48b6e97a888c9da625643d8ba0",
+      "evidence_registry_status": "",
+      "evidence_dimensions": []
+    },
+    {
+      "id": "A-brenda-gossiping",
+      "package": "A",
+      "requirement": "brenda: gossiping",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "VOL2 OPEN exact state card",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/A-brenda-gossiping.png",
+      "note": "Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "80x96 binary-alpha sprite; contact (40,88)",
+      "evidence_sha256": "85c57402b2d128fb11dcce5564ea1794a51f55f54e3d1c567d5136e758ae3b16",
+      "evidence_registry_status": "",
+      "evidence_dimensions": []
+    },
+    {
+      "id": "A-brenda-date",
+      "package": "A",
+      "requirement": "brenda: date",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "VOL2 OPEN exact state card",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/A-brenda-date.png",
+      "note": "Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "80x96 binary-alpha sprite; contact (40,88)",
+      "evidence_sha256": "e8e450d8c31c3fd98cacfbc9c0b31c8f1a3213d1f956f4e493f42b98ef1eea26",
+      "evidence_registry_status": "",
+      "evidence_dimensions": []
+    },
+    {
+      "id": "A-hina-smug",
+      "package": "A",
+      "requirement": "hina: smug",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "VOL2 OPEN exact state card",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/A-hina-smug.png",
+      "note": "Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "80x96 binary-alpha sprite; contact (40,88)",
+      "evidence_sha256": "fd02e077de4c5c20e6afdc26c53ade74ce5e69356b5c7f1a6547546c0e59b3a1",
+      "evidence_registry_status": "",
+      "evidence_dimensions": []
+    },
+    {
+      "id": "A-hina-date",
+      "package": "A",
+      "requirement": "hina: date",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "VOL2 OPEN exact state card",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/A-hina-date.png",
+      "note": "Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "80x96 binary-alpha sprite; contact (40,88)",
+      "evidence_sha256": "578253e854d7ec5519ef913aedc6d4751faa0896a04f410538c5af12213ddd70",
+      "evidence_registry_status": "",
+      "evidence_dimensions": []
+    },
+    {
+      "id": "A-bunmi-date",
+      "package": "A",
+      "requirement": "bunmi: date",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "VOL2 OPEN exact state card",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/A-bunmi-date.png",
+      "note": "Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "80x96 binary-alpha sprite; contact (40,88)",
+      "evidence_sha256": "ca34ff57b8b0479aa6d21a752e642cc3a3ca352e0b6b0cd76f30d6ee56fabcb8",
+      "evidence_registry_status": "",
+      "evidence_dimensions": []
+    },
+    {
+      "id": "A-bunmi-bedroom_company",
+      "package": "A",
+      "requirement": "bunmi: bedroom company",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "VOL2 OPEN exact state card",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/A-bunmi-bedroom_company.png",
+      "note": "Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "80x96 binary-alpha sprite; contact (40,88)",
+      "evidence_sha256": "2543d7e0c5d8bc73dc30acd906e6c44f8c6d8209f56f4c4960f8374891732521",
+      "evidence_registry_status": "",
+      "evidence_dimensions": []
+    },
+    {
+      "id": "A-velvet-date",
+      "package": "A",
+      "requirement": "velvet: date",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "VOL2 OPEN exact state card",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/A-velvet-date.png",
+      "note": "Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "80x96 binary-alpha sprite; contact (40,88)",
+      "evidence_sha256": "3684f2aa094e4ee9f08371cf069010fb6643ddd3d74b66359a193780dedefbfc",
+      "evidence_registry_status": "",
+      "evidence_dimensions": []
+    },
+    {
+      "id": "E-gun-lil_oga-case",
+      "package": "E",
+      "requirement": "LIL OGA: armory case icon",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "OPEN corpus",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/E-gun-lil_oga-case.png",
+      "note": "Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "48x32 binary-alpha prop",
+      "evidence_sha256": "a72e2183a804615da49580894d160eb331b928ebeb9ecd128e516edc11339a65",
+      "evidence_registry_status": "",
+      "evidence_dimensions": []
+    },
+    {
+      "id": "E-gun-lil_oga-held",
+      "package": "E",
+      "requirement": "LIL OGA: combat-held art",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "OPEN corpus",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/E-gun-lil_oga-held.png",
+      "note": "Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "64x32 binary-alpha prop",
+      "evidence_sha256": "ee687c9958c9bf0991fad6359c95938c57893ea4b982d72fdcb25c68394e9821",
+      "evidence_registry_status": "",
+      "evidence_dimensions": []
+    },
+    {
+      "id": "E-gun-sapporo_shotgun-case",
+      "package": "E",
+      "requirement": "SAPPORO SHOTGUN: armory case icon",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "OPEN corpus",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/E-gun-sapporo_shotgun-case.png",
+      "note": "Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "48x32 binary-alpha prop",
+      "evidence_sha256": "0ec1b60293fe250d9f15ac47c17df231514aef82bf46d322aefa1421e93d225b",
+      "evidence_registry_status": "",
+      "evidence_dimensions": []
+    },
+    {
+      "id": "E-gun-sapporo_shotgun-held",
+      "package": "E",
+      "requirement": "SAPPORO SHOTGUN: combat-held art",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "OPEN corpus",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/E-gun-sapporo_shotgun-held.png",
+      "note": "Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "64x32 binary-alpha prop",
+      "evidence_sha256": "8cf2f4d7a1d51633a1834a8b027c96e3692a1b13dcdcfdfe3052eed03fc80333",
+      "evidence_registry_status": "",
+      "evidence_dimensions": []
+    },
+    {
+      "id": "E-gun-chopstick_sniper-case",
+      "package": "E",
+      "requirement": "CHOPSTICK SNIPER: armory case icon",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "OPEN corpus",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/E-gun-chopstick_sniper-case.png",
+      "note": "Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "48x32 binary-alpha prop",
+      "evidence_sha256": "3e7d9d5d847b20321ca518bbfaa4c95fcd1053e9757b1754bd091faa66c6a9d7",
+      "evidence_registry_status": "",
+      "evidence_dimensions": []
+    },
+    {
+      "id": "E-gun-chopstick_sniper-held",
+      "package": "E",
+      "requirement": "CHOPSTICK SNIPER: combat-held art",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "OPEN corpus",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/E-gun-chopstick_sniper-held.png",
+      "note": "Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "64x32 binary-alpha prop",
+      "evidence_sha256": "7818f70ad0ac386b74a174633969ce653d4fd8f8509a87759d1f2dbd0af6f233",
+      "evidence_registry_status": "",
+      "evidence_dimensions": []
+    },
+    {
+      "id": "E-gun-holy_baby_drake-case",
+      "package": "E",
+      "requirement": "HOLY BABY DRAKE: armory case icon",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "OPEN corpus",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/E-gun-holy_baby_drake-case.png",
+      "note": "Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "48x32 binary-alpha prop",
+      "evidence_sha256": "6d05bc3ffea6866a0b86c00502513d36bebc3dd5918a05d36b7f6eec94e1873a",
+      "evidence_registry_status": "",
+      "evidence_dimensions": []
+    },
+    {
+      "id": "E-gun-holy_baby_drake-held",
+      "package": "E",
+      "requirement": "HOLY BABY DRAKE: combat-held art",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "OPEN corpus",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/E-gun-holy_baby_drake-held.png",
+      "note": "Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "64x32 binary-alpha prop",
+      "evidence_sha256": "23319843924f8ce397ee4198e9c24f51591de03b10cc54d8ad378dca83a82c2c",
+      "evidence_registry_status": "",
+      "evidence_dimensions": []
+    },
+    {
+      "id": "E-gun-the_rpg-case",
+      "package": "E",
+      "requirement": "THE RPG: armory case icon",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "OPEN corpus",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/E-gun-the_rpg-case.png",
+      "note": "Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "48x32 binary-alpha prop",
+      "evidence_sha256": "74f03d646fc7e98c6f548131ef7902fef2ab3a7f3dea8a7dead1d073b34392d1",
+      "evidence_registry_status": "",
+      "evidence_dimensions": []
+    },
+    {
+      "id": "E-gun-the_rpg-held",
+      "package": "E",
+      "requirement": "THE RPG: combat-held art",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "OPEN corpus",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/E-gun-the_rpg-held.png",
+      "note": "Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "64x32 binary-alpha prop",
+      "evidence_sha256": "637ac90204f7388b8f910711e907c8858ffb9c2f0a1f8a5e38a9912923b789bc",
+      "evidence_registry_status": "",
+      "evidence_dimensions": []
+    },
+    {
+      "id": "A-dragoon-silhouette",
+      "package": "A",
+      "requirement": "Dragoon silhouette",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "OPEN corpus",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/A-dragoon-silhouette.png",
+      "note": "Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "80x96 binary-alpha silhouette; contact (40,88)",
+      "evidence_sha256": "e402694e8bbddbd28c2f3c64781d363553d72a1c729b38f024bab6f8f2cd5d04",
+      "evidence_registry_status": "",
+      "evidence_dimensions": []
+    },
+    {
+      "id": "C-common-silver_grunt-held",
+      "package": "C",
+      "requirement": "Common fish: silver grunt \u2014 held version",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "OPEN corpus",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/C-common-silver_grunt-held.png",
+      "note": "Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "48x24 binary-alpha held prop",
+      "evidence_sha256": "a729cf84b8472d5de7cc2977ec269f540f68445d26ce62565a6edab9068d1a6b",
+      "evidence_registry_status": "",
+      "evidence_dimensions": []
+    },
+    {
+      "id": "C-common-pier_perch-held",
+      "package": "C",
+      "requirement": "Common fish: pier perch \u2014 held version",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "OPEN corpus",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/C-common-pier_perch-held.png",
+      "note": "Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "48x24 binary-alpha held prop",
+      "evidence_sha256": "739273a7b58800d6885543b40fa829678b3b766f0d6343a08c259e7bee844c8b",
+      "evidence_registry_status": "",
+      "evidence_dimensions": []
+    },
+    {
+      "id": "C-common-ugly_mackerel-held",
+      "package": "C",
+      "requirement": "Common fish: ugly mackerel \u2014 held version",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "OPEN corpus",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/C-common-ugly_mackerel-held.png",
+      "note": "Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "48x24 binary-alpha held prop",
+      "evidence_sha256": "ad69854eb72c85efe193dfd0594c9d985adc68cb651beb9c4d9cc1a982dd2648",
+      "evidence_registry_status": "",
+      "evidence_dimensions": []
+    },
+    {
+      "id": "E-fit-boughi_v_blazer",
+      "package": "E",
+      "requirement": "Fit inventory visual: Boughi-V blazer",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "VOL3 OPEN fits",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/E-fit-boughi_v_blazer.png",
+      "note": "Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "32x32 binary-alpha inventory icon",
+      "evidence_sha256": "65301ed03aa95fee6dee1f1798820307eee2b3b923112e3a2b8aff48a439985b",
+      "evidence_registry_status": "",
+      "evidence_dimensions": []
+    },
+    {
+      "id": "E-fit-krada_shades",
+      "package": "E",
+      "requirement": "Fit inventory visual: Krada shades",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "VOL3 OPEN fits",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/E-fit-krada_shades.png",
+      "note": "Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "32x32 binary-alpha inventory icon",
+      "evidence_sha256": "b0eafd4148ae36653e80d8b3b57f36b6a53dbb63e56d25eb98d711d93c3df4e1",
+      "evidence_registry_status": "",
+      "evidence_dimensions": []
+    },
+    {
+      "id": "E-fit-tradeya_hoes_chain",
+      "package": "E",
+      "requirement": "Fit inventory visual: Tradeya-Hoes chain",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "VOL3 OPEN fits",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/E-fit-tradeya_hoes_chain.png",
+      "note": "Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "32x32 binary-alpha inventory icon",
+      "evidence_sha256": "4aac3bef0806060e9a5322ed32a14b38eed2f7fd1a4e366318ff7d6d7181126f",
+      "evidence_registry_status": "",
+      "evidence_dimensions": []
+    },
+    {
+      "id": "E-fit-black_leather_trench",
+      "package": "E",
+      "requirement": "Fit inventory visual: black leather trench",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "VOL3 OPEN fits",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/E-fit-black_leather_trench.png",
+      "note": "Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "32x32 binary-alpha inventory icon",
+      "evidence_sha256": "621577576475260ca8bdbea69906f738378c3a0865d613c979f881e851333cc5",
+      "evidence_registry_status": "",
+      "evidence_dimensions": []
+    },
+    {
+      "id": "E-fit-grave_hoodie",
+      "package": "E",
+      "requirement": "Fit inventory visual: Grave hoodie",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "VOL3 OPEN fits",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/E-fit-grave_hoodie.png",
+      "note": "Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "32x32 binary-alpha inventory icon",
+      "evidence_sha256": "add7d01a3ebe8a0507f945cfd28017e047e36a0277ff4f8d78998daa1085192a",
+      "evidence_registry_status": "",
+      "evidence_dimensions": []
+    },
+    {
+      "id": "E-fit-drift_sneakers",
+      "package": "E",
+      "requirement": "Fit inventory visual: drift sneakers",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "VOL3 OPEN fits",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/E-fit-drift_sneakers.png",
+      "note": "Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "32x32 binary-alpha inventory icon",
+      "evidence_sha256": "c91e89701e03b04c748e6a6f1d4d490c9d181ec3b99a5332b8aa13fe129fb198",
+      "evidence_registry_status": "",
+      "evidence_dimensions": []
+    },
+    {
+      "id": "E-fit-church_shoes",
+      "package": "E",
+      "requirement": "Fit inventory visual: church shoes",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "VOL3 OPEN fits",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/E-fit-church_shoes.png",
+      "note": "Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "32x32 binary-alpha inventory icon",
+      "evidence_sha256": "ffdcf6686d7af869b9624442c6707ffd446a24242e59c7ea92aa5b0c5bd194b0",
+      "evidence_registry_status": "",
+      "evidence_dimensions": []
+    },
+    {
+      "id": "E-fit-slides",
+      "package": "E",
+      "requirement": "Fit inventory visual: slides",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "VOL3 OPEN fits",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/E-fit-slides.png",
+      "note": "Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "32x32 binary-alpha inventory icon",
+      "evidence_sha256": "132b35f6c6758456f3a608c674e4a889119ea4c411a19168834537d5546afa3d",
+      "evidence_registry_status": "",
+      "evidence_dimensions": []
+    },
+    {
+      "id": "E-item-sapporo",
+      "package": "E",
+      "requirement": "Combat/item visual: Sapporo",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "VOL3 OPEN items",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/E-item-sapporo.png",
+      "note": "Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "32x32 binary-alpha item icon",
+      "evidence_sha256": "b00134756a6b400e3797af13ed21698f0ed983e402f38b121faa70eeacb064b4",
+      "evidence_registry_status": "",
+      "evidence_dimensions": []
+    },
+    {
+      "id": "E-item-jollof_takeout",
+      "package": "E",
+      "requirement": "Combat/item visual: jollof takeout",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "VOL3 OPEN items",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/E-item-jollof_takeout.png",
+      "note": "Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "32x32 binary-alpha item icon",
+      "evidence_sha256": "1e75cff42261a9db0b7ce3b2b6c0d160b840833dd49e01a4f08e46c79968de83",
+      "evidence_registry_status": "",
+      "evidence_dimensions": []
+    },
+    {
+      "id": "E-item-garlic_knots",
+      "package": "E",
+      "requirement": "Combat/item visual: garlic knots",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "VOL3 OPEN items",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/E-item-garlic_knots.png",
+      "note": "Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "32x32 binary-alpha item icon",
+      "evidence_sha256": "711e8e3a272cf92812b83e29f0cd3c386bce010bc9cc25fea53829f9da492b70",
+      "evidence_registry_status": "",
+      "evidence_dimensions": []
+    },
+    {
+      "id": "E-item-boba",
+      "package": "E",
+      "requirement": "Combat/item visual: boba",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "VOL3 OPEN items",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/E-item-boba.png",
+      "note": "Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "32x32 binary-alpha item icon",
+      "evidence_sha256": "3638f73ca990c7a9cda7d1bce908ecdb7b73faae81068d199b4d6d2d95eb4935",
+      "evidence_registry_status": "",
+      "evidence_dimensions": []
+    },
+    {
+      "id": "E-item-smelling_salts",
+      "package": "E",
+      "requirement": "Combat/item visual: smelling salts",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "VOL3 OPEN items",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/E-item-smelling_salts.png",
+      "note": "Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "32x32 binary-alpha item icon",
+      "evidence_sha256": "863bf3ca075e746bc7daad99546a8d35522b52d0d03d5a087557cf975381c3cc",
+      "evidence_registry_status": "",
+      "evidence_dimensions": []
+    },
+    {
+      "id": "E-item-dragon_keef",
+      "package": "E",
+      "requirement": "Combat/item visual: dragon keef",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "VOL3 OPEN items",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/E-item-dragon_keef.png",
+      "note": "Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "32x32 binary-alpha item icon",
+      "evidence_sha256": "ac09d96dc486bc87f04bab3660fa945857cb3c961feb50a7f703c33b7a7049d1",
+      "evidence_registry_status": "",
+      "evidence_dimensions": []
+    },
+    {
+      "id": "G-vol5-salon",
+      "package": "G",
+      "requirement": "Vol. 5 location master: salon",
+      "status": "FROZEN \u2014 COMPLETE",
+      "source": "VOL5 OPEN \u00a711",
+      "evidence_path": "assets/before_the_fame/environments/salon/twist_and_shout_salon_270x480.png",
+      "note": "",
+      "native_contract": "270x480",
+      "evidence_sha256": "240e6a9244d27df5947624b47ee2e3a142bbca2405ea7be74cc5c7856be2e63a",
+      "evidence_registry_status": "FROZEN",
+      "evidence_dimensions": [
+        270,
+        480
+      ]
+    },
+    {
+      "id": "G-vol5-naija_mart",
+      "package": "G",
+      "requirement": "Vol. 5 location master: naija mart",
+      "status": "FROZEN \u2014 COMPLETE",
+      "source": "VOL5 OPEN \u00a711",
+      "evidence_path": "assets/before_the_fame/environments/naija_mart/naija_mart_interior_270x480.png",
+      "note": "",
+      "native_contract": "270x480",
+      "evidence_sha256": "197b2a7e1793a7edec7d8d650ae09282a78c28f55d8c7c2eba3357693f748565",
+      "evidence_registry_status": "FROZEN",
+      "evidence_dimensions": [
+        270,
+        480
+      ]
+    },
+    {
+      "id": "G-vol5-naija_lot",
+      "package": "G",
+      "requirement": "Vol. 5 location master: naija lot",
+      "status": "FROZEN \u2014 COMPLETE",
+      "source": "VOL5 OPEN \u00a711",
+      "evidence_path": "assets/before_the_fame/environments/naija_lot/naija_mart_parking_lot_270x480.png",
+      "note": "",
+      "native_contract": "270x480",
+      "evidence_sha256": "c8e46d74919eeb95e1edb89da3422cf1b17262b9fc273c5564d48d11270d05f4",
+      "evidence_registry_status": "FROZEN",
+      "evidence_dimensions": [
+        270,
+        480
+      ]
+    },
+    {
+      "id": "G-vol5-brunch",
+      "package": "G",
+      "requirement": "Vol. 5 location master: brunch",
+      "status": "FROZEN \u2014 COMPLETE",
+      "source": "VOL5 OPEN \u00a711",
+      "evidence_path": "assets/before_the_fame/environments/brunch/eggs_benedead_brunch_270x480.png",
+      "note": "",
+      "native_contract": "270x480",
+      "evidence_sha256": "5bf2d7a132b820d62fe20cf3a603d32070a0f2f7ea2bdc62afb4a7ae92424396",
+      "evidence_registry_status": "FROZEN",
+      "evidence_dimensions": [
+        270,
+        480
+      ]
+    },
+    {
+      "id": "G-vol5-onsen",
+      "package": "G",
+      "requirement": "Vol. 5 location master: onsen",
+      "status": "FROZEN \u2014 COMPLETE",
+      "source": "VOL5 OPEN \u00a711",
+      "evidence_path": "assets/before_the_fame/environments/onsen/yu_and_me_onsen_270x480.png",
+      "note": "",
+      "native_contract": "270x480",
+      "evidence_sha256": "78e02cbb6b58cc21c6499b36cb6cd94d3f34770b7a02364c011581c3482ed3c5",
+      "evidence_registry_status": "FROZEN",
+      "evidence_dimensions": [
+        270,
+        480
+      ]
+    },
+    {
+      "id": "G-vol5-little_tokyo",
+      "package": "G",
+      "requirement": "Vol. 5 location master: little tokyo",
+      "status": "FROZEN \u2014 COMPLETE",
+      "source": "VOL5 OPEN \u00a711",
+      "evidence_path": "assets/before_the_fame/environments/little_tokyo/little_tokyo_night_270x480.png",
+      "note": "",
+      "native_contract": "270x480",
+      "evidence_sha256": "d15659b840e96e94d8478ec2d26efa85c0bf82f3e9cc2892c352e8ac3de33caa",
+      "evidence_registry_status": "FROZEN",
+      "evidence_dimensions": [
+        270,
+        480
+      ]
+    },
+    {
+      "id": "G-vol5-hollow_bowl",
+      "package": "G",
+      "requirement": "Vol. 5 location master: hollow bowl",
+      "status": "FROZEN \u2014 COMPLETE",
+      "source": "VOL5 OPEN \u00a711",
+      "evidence_path": "assets/before_the_fame/environments/hollow_bowl/hollow_bowl_night_270x480.png",
+      "note": "",
+      "native_contract": "270x480",
+      "evidence_sha256": "19d098d6d70c7228db164a23c2551a301667055977010392d1ff1d9f8420aa30",
+      "evidence_registry_status": "FROZEN",
+      "evidence_dimensions": [
+        270,
+        480
+      ]
+    },
+    {
+      "id": "G-vol5-venice",
+      "package": "G",
+      "requirement": "Vol. 5 location master: venice",
+      "status": "FROZEN \u2014 COMPLETE",
+      "source": "VOL5 OPEN \u00a711",
+      "evidence_path": "assets/before_the_fame/environments/venice/venice_courts_night_270x480.png",
+      "note": "",
+      "native_contract": "270x480",
+      "evidence_sha256": "6d8f23749069ce597b0dbbb91265c9e24da4566e21177665f2c520a245e0df35",
+      "evidence_registry_status": "FROZEN",
+      "evidence_dimensions": [
+        270,
+        480
+      ]
+    },
+    {
+      "id": "G-vol5-tristan_apt",
+      "package": "G",
+      "requirement": "Vol. 5 location master: tristan apt",
+      "status": "FROZEN \u2014 COMPLETE",
+      "source": "VOL5 OPEN \u00a711",
+      "evidence_path": "assets/before_the_fame/environments/tristan_apt/tristan_apartment_270x480.png",
+      "note": "",
+      "native_contract": "270x480",
+      "evidence_sha256": "7ee376bbf15019ac0c1b86b99403cf16a154e37a50ecc373cf9cb2bbac735e9f",
+      "evidence_registry_status": "FROZEN",
+      "evidence_dimensions": [
+        270,
+        480
+      ]
+    },
+    {
+      "id": "G-vol5-gallery",
+      "package": "G",
+      "requirement": "Vol. 5 location master: gallery",
+      "status": "FROZEN \u2014 COMPLETE",
+      "source": "VOL5 OPEN \u00a711",
+      "evidence_path": "assets/before_the_fame/environments/gallery/rookoko_gallery_270x480.png",
+      "note": "",
+      "native_contract": "270x480",
+      "evidence_sha256": "fdcfbfb68c83c0c9e7677bd95b4fed322d1f7af3023c857dae2b5de48b44f216",
+      "evidence_registry_status": "FROZEN",
+      "evidence_dimensions": [
+        270,
+        480
+      ]
+    },
+    {
+      "id": "G-vol5-waffle_haven",
+      "package": "G",
+      "requirement": "Vol. 5 location master: waffle haven",
+      "status": "FROZEN \u2014 COMPLETE",
+      "source": "VOL5 OPEN \u00a711",
+      "evidence_path": "assets/before_the_fame/environments/waffle_haven/waffle_haven_1am_270x480.png",
+      "note": "",
+      "native_contract": "270x480",
+      "evidence_sha256": "572c9c1b3a45a639030140aa7daf2bfa8509d0c2acd05fd4eb815595ed2b85c9",
+      "evidence_registry_status": "FROZEN",
+      "evidence_dimensions": [
+        270,
+        480
+      ]
+    },
+    {
+      "id": "G-vol5-maul",
+      "package": "G",
+      "requirement": "Vol. 5 location master: maul",
+      "status": "FROZEN \u2014 COMPLETE",
+      "source": "VOL5 OPEN \u00a711",
+      "evidence_path": "assets/before_the_fame/environments/maul/maul_of_georgia_270x480.png",
+      "note": "",
+      "native_contract": "270x480",
+      "evidence_sha256": "02dbe701b4bd5fad14d1127f9403e956c5ba89580dffaae47ddfceda6bc8d0bb",
+      "evidence_registry_status": "FROZEN",
+      "evidence_dimensions": [
+        270,
+        480
+      ]
+    },
+    {
+      "id": "G-vol5-lennox",
+      "package": "G",
+      "requirement": "Vol. 5 location master: lennox",
+      "status": "FROZEN \u2014 COMPLETE",
+      "source": "VOL5 OPEN \u00a711",
+      "evidence_path": "assets/before_the_fame/environments/lennox/lennox_scare_270x480.png",
+      "note": "",
+      "native_contract": "270x480",
+      "evidence_sha256": "911128f91cc0a286b1cf0d2e79fd362117b9f2ff3a6bc4df66e49c6d53a0ab2a",
+      "evidence_registry_status": "FROZEN",
+      "evidence_dimensions": [
+        270,
+        480
+      ]
+    },
+    {
+      "id": "G-vol5-centennial",
+      "package": "G",
+      "requirement": "Vol. 5 location master: centennial",
+      "status": "FROZEN \u2014 COMPLETE",
+      "source": "VOL5 OPEN \u00a711",
+      "evidence_path": "assets/before_the_fame/environments/centennial/centennial_vampiric_park_270x480.png",
+      "note": "",
+      "native_contract": "270x480",
+      "evidence_sha256": "6046b91576e548f878fe41372c7410913b5a006bbcd39377e044247cb58d16fd",
+      "evidence_registry_status": "FROZEN",
+      "evidence_dimensions": [
+        270,
+        480
+      ]
+    },
+    {
+      "id": "G-vol5-family_house",
+      "package": "G",
+      "requirement": "Vol. 5 location master: family house",
+      "status": "FROZEN \u2014 COMPLETE",
+      "source": "VOL5 OPEN \u00a711",
+      "evidence_path": "assets/before_the_fame/environments/family_house/family_house_atl_kitchen_270x480.png",
+      "note": "",
+      "native_contract": "270x480",
+      "evidence_sha256": "1e5394f975438e52b8cacff3a37f5e1b3842f6a9788136f1da513c9787a37edf",
+      "evidence_registry_status": "FROZEN",
+      "evidence_dimensions": [
+        270,
+        480
+      ]
+    },
+    {
+      "id": "G-vol5-kitchen",
+      "package": "G",
+      "requirement": "Vol. 5 location master: kitchen",
+      "status": "FROZEN \u2014 COMPLETE",
+      "source": "VOL5 OPEN \u00a711",
+      "evidence_path": "assets/before_the_fame/environments/kitchen/castle_kitchen_270x480.png",
+      "note": "",
+      "native_contract": "270x480",
+      "evidence_sha256": "5f30a6257b785e266901bcf206e1deb829caf64af8ce77b3805a976103cd83a8",
+      "evidence_registry_status": "FROZEN",
+      "evidence_dimensions": [
+        270,
+        480
+      ]
+    },
+    {
+      "id": "G-vol5-movie_room",
+      "package": "G",
+      "requirement": "Vol. 5 location master: movie room",
+      "status": "FROZEN \u2014 COMPLETE",
+      "source": "VOL5 OPEN \u00a711",
+      "evidence_path": "assets/before_the_fame/environments/movie_room/castle_movie_room_270x480.png",
+      "note": "",
+      "native_contract": "270x480",
+      "evidence_sha256": "e3fd09b81a3bed3173b1435d1b1efc8bd467ed84982e192ea901358b3b7c9560",
+      "evidence_registry_status": "FROZEN",
+      "evidence_dimensions": [
+        270,
+        480
+      ]
+    },
+    {
+      "id": "G-vol5-don_chuy_truck",
+      "package": "G",
+      "requirement": "Vol. 5 location master: don chuy truck",
+      "status": "FROZEN \u2014 COMPLETE",
+      "source": "VOL5 OPEN \u00a711",
+      "evidence_path": "assets/before_the_fame/environments/taco_truck/don_chuy_taco_truck_270x480.png",
+      "note": "",
+      "native_contract": "270x480",
+      "evidence_sha256": "a0b694d79170a8cfe27ccad7f4c3d454faf7de46dc3d51cc9fcdb755c465d15a",
+      "evidence_registry_status": "FROZEN",
+      "evidence_dimensions": [
+        270,
+        480
+      ]
+    },
+    {
+      "id": "G-vol5-airport",
+      "package": "G",
+      "requirement": "Vol. 5 location master: HEARTSFELT-JACKSUN international airport",
+      "status": "NATIVE CANDIDATE \u2014 PRODUCED",
+      "source": "VOL5 OPEN \u00a76/\u00a711",
+      "evidence_path": "art_department/ships/art_ship_014/native_candidates/G-vol5-airport.png",
+      "note": "Native candidate only; not approved/frozen/runtime-integrated.",
+      "native_contract": "270x480 binary-alpha/opaque environment master",
+      "evidence_sha256": "492597bf3d77f33d4be724516b86a18714fc65b92b16b1c2c65f83f34f6e88bb",
+      "evidence_registry_status": "",
+      "evidence_dimensions": []
+    },
+    {
+      "id": "G-vol5-duoqlo",
+      "package": "G",
+      "requirement": "Vol. 5 DUOQLO store treatment within The Grave",
+      "status": "FROZEN \u2014 REUSE SATISFIES REQUIREMENT",
+      "source": "VOL5 OPEN \u00a76",
+      "evidence_path": "assets/before_the_fame/environments/grave/grave_hub_night_270x480.png",
+      "note": "Store treatment maps into frozen Grave hub; no standalone environment master required.",
+      "native_contract": "270x480",
+      "evidence_sha256": "b2919f7181268d83160231a803307e3afd0c35a1485396d1677440da1262ffbd",
+      "evidence_registry_status": "FROZEN",
+      "evidence_dimensions": [
+        270,
+        480
+      ]
+    }
+  ]
+}

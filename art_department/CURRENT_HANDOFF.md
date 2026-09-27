@@ -1,35 +1,32 @@
 # Current handoff
 
-**ART SHIP 012 CLOSEOUT — OPEN HOLD CLEARANCE: APPROVED MASTER / FROZEN / COMPLETE.**
+**ART SHIP 014 — APPROVED MASTER / FROZEN / COMPLETE.**
 
 ## Freeze result
 
-- Branch: `art/art_ship_012_closeout`.
-- Current frozen base: ART SHIP 013 checkpoint `9d6f521bdfc404f03a5f5bba7c700860de1eb293`.
-- Accepted candidate checkpoint: `da2c251be814a91fe89154d7a9fac02770e4f66d`.
-- Ube Taste Pass / HQ final acceptance: PASS 5/5; exact-byte promotion and freeze authorized.
-- Five native 80×96 RGBA/binary-alpha masters, all contact `(40,88)`: Portobello Manager, NAIJA MART Auntie, Ocean Soul, Training Dummy and Buckhead Vampire.
-- Every canonical file is byte-for-byte identical to its accepted candidate.
-- Frozen corpus: **224/224 verified**; Asset Register: **364 entries**.
-- Both earlier Buckhead candidates remain hash-preserved as **REJECTED / PROVENANCE ONLY**.
-- Candidate, rejected, generated-source and review evidence remains preserved under `art_department/ships/art_ship_012_closeout/`; review composites are not production masters.
+- Branch: `art/art_ship_014`.
+- Ube/HQ Taste Pass: **PASS**; exact-byte promotion and freeze authorized.
+- Promoted masters: **180/180**, all byte-for-byte identical to accepted `native_candidates_v4` sources.
+- Corrected `A-lo-arm_fall`: `assets/before_the_fame/art_ship_014/package_a/A-lo-arm_fall.png` at `8da6cea7350c6bc395971067ac0e7f31810fe8fb4263e4a041df4fd65ff0e9ed`.
+- Frozen corpus: **404/404 verified**; Asset Register: **544 entries**.
+- Candidate duplicates: 0. Semantic derivative/frozen unintended equalities: 0. Pre-Ship-014 frozen corpus: 224/224 unchanged.
+- The 308-row completion ledger is preserved in `ships/art_ship_014/FINAL_COMPLETION_LEDGER.json`.
 
-## Runtime authority and boundary
+## Remaining requirements
 
-Current accepted Engineering authority remains `claude/hold-clearance-001` at `a66170218375e52404715789dde48c23726a6044`: **108 PASS / 13 HOLD**. This Art freeze changes neither count.
+- `BLOCKED BY CANON` (6): `A-family-brother1`, `A-family-brother2`, `A-family-brother1-avatar`, `A-family-brother2-avatar`, `A-god`, `A-og-hooper`.
+- `MAPPING / ENGINEERING DECISION` (5): `C-big-fish`, `D-runtime-delivery`, `D-runtime-damaged`, `G-env-catacomb_dead`, `G-env-halloween`.
+- `CONDITIONAL — EXISTING ART MUST BE TESTED FIRST` (6): `A-RICH-hungover`, `A-RICH-portobello_wake`, `D-supra-world`, `E-cube`, `G-castle_party`, `G-grave`.
+- SEALED remains excluded and untouched.
 
-The five new frozen masters create pending Engineering opportunities for the Portobello office, NAIJA MART register conversation, two ocean-floor soul screens, two training fights and Buckhead combat. Engineering integration, Presentation Director mapping where applicable and runtime visual QA are separately required before any runtime movement.
+## Runtime boundary
 
-## Frozen scope
+Current Engineering authority remains `claude/hold-clearance-001` at `a66170218375e52404715789dde48c23726a6044`: **108 PASS / 13 HOLD**, unchanged. The Ship 014 masters are pending separate Engineering mapping/integration and runtime/Presentation QA.
 
-Each asset is frozen only in its submitted role and state. Portobello Manager and Auntie gain no invented biography; Ocean Soul remains anonymous and reuses one design; Training Dummy remains a non-person combat object; Buckhead is frozen only as the accepted combat-capable neutral identity anchor. The final Buckhead candidate supersedes the earlier visual concern, but both prior attempts remain rejected history and cannot be promoted.
+Package H remains UI visual-treatment authority only. Do not encode its example text, values, listings, balances, messages or other sample information as runtime truth. Ship 011 remains separately frozen/unassigned.
 
-ART SHIP 013's 219-file frozen base remains byte-identical. Hookah Rich, laptop Rich, Portobello Rich, family assets, Royal Glitch, PLAYMAKERS, SEALED material and audio remain unchanged.
-
-## Exclusions confirmed
-
-No runtime/gameplay JavaScript, Presentation Director mapping, PASS/HOLD status, merge or deployment was changed. No rejected Buckhead candidate was promoted.
+No runtime/gameplay file, Presentation Director mapping, PASS/HOLD state, Engineering/main branch, deployment or SEALED material was changed.
 
 ## Stop
 
-**ART SHIP 012 CLOSEOUT — APPROVED MASTER / FROZEN / COMPLETE. Do not runtime-integrate, merge or deploy from this Art closure.**
+**ART SHIP 014 — APPROVED MASTER / FROZEN / COMPLETE. ART AGENT RETIRES AFTER HQ VERIFIES THE RETURN.**
