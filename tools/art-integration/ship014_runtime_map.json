@@ -1,5 +1,5 @@
 {
- "about": "ART SHIP 014 Engineering runtime map (authored by Engineering 05). Each frozen Ship 014 file (exact bytes, art/art_ship_014 @ f1ae59a) has exactly one runtime registry key. INTEGRATED rows name the surface and a code token tools/art-integration.mjs verifies in the consumer (`content-state` = an adventure node stages it); every other row says why it is registered but not wired.",
+ "about": "ART SHIP 014 Engineering runtime map (authored by Engineering 05). Each frozen Ship 014 file (exact bytes, art/art_ship_014 @ f1ae59a) has exactly one runtime registry key. INTEGRATED rows name the surface and a code token tools/art-integration.mjs verifies in the consumer (`content-state` = an adventure node stages it); every other row says why it is registered but not wired. ENGINEERING 06 wired the states whose beats narrate the person on stage (entrance-cue closure) and the TOUGE passenger seat.",
  "authority": {
   "branch": "art/art_ship_014",
   "commit": "f1ae59a3f342a30fc09a3c4659198795ef867178"
@@ -30,8 +30,12 @@
   },
   "A-anfeesa-dj": {
    "key": "characters.anfeesa.states.dj",
-   "status": "REGISTERED — PERSON NOT ON STAGE",
-   "note": "The matching beat names her in an entrance/speaker line but never stages her (actors: Rich only). Staging would add a cast member to an authored beat."
+   "use": {
+    "surface": "adventure beat: A_ANFEESA1 and A55 arrive (behind the booth)",
+    "consumer": "js/data/btf/adventures/w4.js",
+    "token": "content-state"
+   },
+   "status": "INTEGRATED"
   },
   "A-bllad33-dry": {
    "key": "characters.bllad33.states.dry",
@@ -49,8 +53,12 @@
   },
   "A-brenda-gossiping": {
    "key": "characters.brenda.states.gossiping",
-   "status": "REGISTERED — PERSON NOT ON STAGE",
-   "note": "The matching beat names her in an entrance/speaker line but never stages her (actors: Rich only). Staging would add a cast member to an authored beat."
+   "use": {
+    "surface": "adventure beat: A38 gossip",
+    "consumer": "js/data/btf/adventures/w4.js",
+    "token": "content-state"
+   },
+   "status": "INTEGRATED"
   },
   "A-britney-profile": {
    "key": "ui.avatars.britney_stakes",
@@ -127,8 +135,12 @@
   },
   "A-coffe-hype": {
    "key": "characters.coffe.states.hype",
-   "status": "REGISTERED — NO OBJECTIVE BEAT",
-   "note": "No current OPEN beat narrates this exact reaction with the person on stage; placing it would be a guess."
+   "use": {
+    "surface": "adventure beat: A29 drink (he drinks both iced coffees)",
+    "consumer": "js/data/btf/adventures/w4.js",
+    "token": "content-state"
+   },
+   "status": "INTEGRATED"
   },
   "A-don_chuy-singing": {
    "key": "characters.don_chuy.states.singing",
@@ -231,8 +243,12 @@
   },
   "A-hina-smug": {
    "key": "characters.hina.states.smug",
-   "status": "REGISTERED — PERSON NOT ON STAGE",
-   "note": "The matching beat names her in an entrance/speaker line but never stages her (actors: Rich only). Staging would add a cast member to an authored beat."
+   "use": {
+    "surface": "adventure beat: A_HINA1 arrive (she times him eating: \"that's slow\")",
+    "consumer": "js/data/btf/adventures/w4.js",
+    "token": "content-state"
+   },
+   "status": "INTEGRATED"
   },
   "A-jade-impressed": {
    "key": "characters.jade.states.impressed",
@@ -273,8 +289,12 @@
   },
   "A-kaede-ceiling_drop": {
    "key": "characters.kaede.states.ceiling_drop",
-   "status": "REGISTERED — PERSON NOT ON STAGE",
-   "note": "The matching beat names her in an entrance/speaker line but never stages her (actors: Rich only). Staging would add a cast member to an authored beat."
+   "use": {
+    "surface": "adventure beat: A18 drop (she drops from the ceiling vent)",
+    "consumer": "js/data/btf/adventures/w3.js",
+    "token": "content-state"
+   },
+   "status": "INTEGRATED"
   },
   "A-kaede-date": {
    "key": "characters.kaede.states.date",
@@ -324,8 +344,12 @@
   },
   "A-lo-arm_fall": {
    "key": "characters.lo.states.arm_fall",
-   "status": "REGISTERED — PERSON NOT ON STAGE",
-   "note": "The matching beat names her in an entrance/speaker line but never stages her (actors: Rich only). Staging would add a cast member to an authored beat."
+   "use": {
+    "surface": "adventure beat: A_LO1 arrive (her arm falls off on the dance floor)",
+    "consumer": "js/data/btf/adventures/w4.js",
+    "token": "content-state"
+   },
+   "status": "INTEGRATED"
   },
   "A-lo-date": {
    "key": "characters.lo.states.date",
@@ -401,8 +425,12 @@
   },
   "A-nightshade-casting": {
    "key": "characters.nightshade.states.casting",
-   "status": "REGISTERED — PERSON NOT ON STAGE",
-   "note": "The matching beat names her in an entrance/speaker line but never stages her (actors: Rich only). Staging would add a cast member to an authored beat."
+   "use": {
+    "surface": "adventure beat: A25 cast (she teaches the spell)",
+    "consumer": "js/data/btf/adventures/w3.js",
+    "token": "content-state"
+   },
+   "status": "INTEGRATED"
   },
   "A-nightshade-date": {
    "key": "characters.nightshade.states.date",
@@ -538,8 +566,12 @@
   },
   "A-tristan-passenger": {
    "key": "characters.tristan.states.passenger",
-   "status": "REGISTERED — DORMANT SURFACE",
-   "note": "The TOUGE passenger slot reads RALife.flag('passenger'), which nothing in play ever sets."
+   "use": {
+    "surface": "TOUGE passenger seat: Tristan's portrait while he reacts (TOUGE app → PASSENGER SEAT)",
+    "consumer": "js/systems/cars.js",
+    "token": "states?.passenger"
+   },
+   "status": "INTEGRATED"
   },
   "A-velvet-date": {
    "key": "characters.velvet.states.date",
@@ -607,8 +639,12 @@
   },
   "B-human-eating": {
    "key": "characters.mazda_human.states.eating",
-   "status": "REGISTERED — PERSON NOT ON STAGE",
-   "note": "A32 bed narrates her eating the bread but stages Rich only."
+   "use": {
+    "surface": "adventure beat: A32 bed (finishing the agege bread)",
+    "consumer": "js/data/btf/adventures/w4.js",
+    "token": "content-state"
+   },
+   "status": "INTEGRATED"
   },
   "B-majestic-flying": {
    "key": "dragon.majestic.flying",

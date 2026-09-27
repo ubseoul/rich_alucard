@@ -88,9 +88,11 @@
  }});
  D({id:'A53',title:'THE FAMILY HOLIDAY',lane:'home',scope:'MUST',available:L=>L.day>=57&&!L.life.momentum.fameFired,
   testSetup:ctx=>{ctx.RAState.patch('life.world.day',57);},start:'kitchen',nodes:{
-  kitchen:{env:'family_house',actors:{left:'mom',mid:'rich',right:'dad'},title:'THANKSGIVING · ATLANTA',
+  // VOL 5 A53: the whole family is here. Five people cannot be framed at phone size, so each beat stages who is in it:
+  // the brothers arguing (ART SHIP 015 anchors), then Mom and Dad for "the music thing", then the sister.
+  kitchen:{env:'family_house',actors:{left:'rich',mid:'brother1',right:'brother2'},title:'THANKSGIVING · ATLANTA',
    lines:[N('the kitchen is packed. jollof sits right next to the turkey, unbothered.'),S('brother1',"the falcons WOULD have won-"),S('brother2','stop it. stop talking.')],next:'dad'},
-  dad:{actors:{left:'dad',mid:'rich'},lines:[S('dad',"so. the music thing. how's that going."),R("it's going. trust me, it's going.")],next:'sister'},
+  dad:{actors:{left:'mom',mid:'rich',right:'dad'},lines:[S('dad',"so. the music thing. how's that going."),R("it's going. trust me, it's going.")],next:'sister'},
   sister:{actors:{left:'sister',mid:'rich'},
    lines:A=>{const partner=RABtfPeople.women.find(w=>A.rel.level(w.id)===4);const out=[S('sister','ok let me read the comments on your last post.'),N('she reads them out loud, badly, gleefully.')];if(partner)out.push(N(`${(partner.name||'she').toLowerCase()} is on the video call with mom in the background. mom already loves her.`));return out;},next:'nap'},
   nap:{lines:[N('nobody mentions vampires. nobody ever mentions vampires.'),N('rich falls asleep on the couch before dessert is even cut.')],

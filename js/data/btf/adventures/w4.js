@@ -10,11 +10,11 @@
  D({id:'A29',title:'COFFE RUN',lane:'people',scope:'MUST',memoryType:'people',start:'arrive',
   available:L=>L.day>=2&&L.day<=8,
   nodes:{
-  arrive:{env:'street_night',actors:{left:'rich'},title:'THE FRONT GATE',
+  arrive:{env:'street_night',actors:{left:'rich',right:'coffe'},title:'THE FRONT GATE',
    lines:[N('somebody is banging on the gate. it is not a vampire hunter. it is a guy with two iced coffees.'),
     E('coffe','he holds them up like trophies.'),S('coffe',"YO. RICH ALUCARD. I GOT YOU. TWO ICED COFFEES, ONE FOR EACH OF US."),
     R("i can't drink coffee. i'm a vampire."),S('coffe','…oh. OH. say less.')],next:'drink'},
-  drink:{lines:[N('he drinks both. back to back. no hands shaking. eyes wide the whole castle block.'),
+  drink:{actors:{left:'rich',right:{id:'coffe',state:'hype'}},lines:[N('he drinks both. back to back. no hands shaking. eyes wide the whole castle block.'),
     S('coffe','I\'M COFFE. I JUST MOVED ON THE BLOCK. I KNEW WE WAS GONNA BE HOMIES.'),
     R('…you good, bro?'),S('coffe','NEVER BETTER. NEVER BETTER. WANNA SEE SOMETHING?')],
    choices:[{label:'"…SURE."',next:'hype'},{label:'WATCH HIM VIBRATE IN SILENCE',octopus:true,next:'hype'}]},
@@ -70,17 +70,17 @@
  RAClock.onWake('a29b-fork',62,()=>RATemptations.ensure('coffe_tells'));
  D({id:'A29C',title:"THE RAID",lane:'combat',scope:'MUST',memoryType:'people',start:'hungover',
   nodes:{
-  hungover:{env:'throne',actors:{mid:'rich'},title:'THE THRONE ROOM · MORNING',
+  hungover:{env:'throne',actors:{left:'rich',right:'bard'},title:'THE THRONE ROOM · MORNING',
    lines:[N('you are hungover in the throne room. the door does not knock. it just opens.'),
     E('bard','a bard walks in first, already strumming something threatening.')],next:'breakin'},
   breakin:{lines:[N("vicky's party. armored, loud, uninvited."),S('bard','THIS IS THE PART WHERE YOU FIGHT US.'),
     R("i haven't even had blood yet."),N('nobody cares.')],
    fight:{enemy:'bard',params:{env:'throne_party_mess',intro:"THE BARD. TERRIBLE COVER OF PLAYMAKERS."},win:'cleric',lose:'cleric',spared:'cleric'}},
-  cleric:{lines:[E('cleric','the cleric steps over the bard, already praying for backup.')],
+  cleric:{actors:{left:'rich',right:'cleric'},lines:[E('cleric','the cleric steps over the bard, already praying for backup.')],
    fight:{enemy:'cleric',params:{env:'throne_party_mess',intro:'THE CLERIC. PRAYING FOR SOMEONE.'},win:'paladin',lose:'paladin',spared:'paladin'}},
-  paladin:{lines:[E('paladin','the paladin raises a sword like the ceiling owes him something.')],
+  paladin:{actors:{left:'rich',right:'paladin'},lines:[E('paladin','the paladin raises a sword like the ceiling owes him something.')],
    fight:{enemy:'paladin',params:{env:'throne_party_mess',intro:'THE PALADIN. HOLY SWING.'},win:'coffefight',lose:'coffefight',spared:'coffefight'}},
-  coffefight:{lines:[E('coffe','coffe steps in last. dagger out. still holding a fourth iced coffee, somehow.'),
+  coffefight:{actors:{left:'rich',right:{id:'coffe',state:'rogue'}},lines:[E('coffe','coffe steps in last. dagger out. still holding a fourth iced coffee, somehow.'),
     S('coffe','sorry, bro. contract\'s a contract. also this coffee is SO good.'),R('bro.')],
    fight:{enemy:'coffe',params:{env:'throne_party_mess',intro:'COFFE (ROGUE). BACKSTAB INCOMING.'},win:'vicky',lose:'vicky',spared:'vicky'}},
   vicky:{env:'throne_party_mess',actors:{left:'rich',right:'vicky'},
@@ -105,7 +105,7 @@
  RAWakeTriggers.define([{adventure:'A32',priority:40,when:L=>L.dragon?.stage==='majestic'&&(L.dragon.streak||0)>=5}]);
  D({id:'A32',title:"BLUEBERRY MAZDA'S NIGHT",lane:'dragons',scope:'MUST',memoryType:'dragons',start:'bed',
   nodes:{
-  bed:{env:'bedroom',actors:{left:'rich'},title:'THE BEDROOM · MORNING',
+  bed:{env:'bedroom',actors:{left:'rich',right:{id:'mazda_human',state:'eating'}},title:'THE BEDROOM · MORNING',
    lines:[N('a thick blue woman with horns and a tail is sitting on your bed, finishing the last of the agege bread.'),
     N('there is no dragon anywhere in the room.'),R('…mazda?'),S('mazda_human','who else eats your bread like this?')],next:'discover'},
   discover:{env:'grave',actors:{left:'rich',right:'mazda_human'},title:'THE GRAVE',
@@ -129,6 +129,8 @@
   nodes:{
   invite:{env:'street_night',actors:{left:'rich'},title:'VAMPGRAM',
    lines:[N('an invite on VampGram: gold text, no handle. "THE DUCHESS REQUESTS YOUR PRESENCE."')],next:'arrive'},
+  // J-Circle's entrance stays unstaged: the frozen reception crowd layer (ART SHIP 009) is keyed to this exact screen
+  // (duchess_castle|left:rich) and its foreground couple stands where a second actor would. Art/HQ item, not a code gap.
   arrive:{env:'duchess_castle',actors:{left:'rich'},title:'THE DUCHESS\'S SOIRÉE',
    lines:[N('staged status. a receiving line. the room is very good at pretending not to be watching the door.'),
     E('j_circle','j-circle arrives. the room stops. actually stops.'),N('nobody moves until he does.')],next:'duchess'},
@@ -186,7 +188,7 @@
   nodes:{
   route:{env:'street_night',actors:{left:'rich'},title:'ATLANTA',lines:[N('it\'s a friday. atlanta is calling.')],
    route:{dest:'atl',next:'arrive'}},
-  arrive:{env:'suya_spot',actors:{left:'rich'},title:'THE SUYA SPOT · ATL',
+  arrive:{env:'suya_spot',actors:{left:'rich',right:'bunmi'},title:'THE SUYA SPOT · ATL',
    lines:[N('smoke, pepper, the radio turned up too loud for the size of the stand.'),
     E('bunmi','a woman at the counter turns around before you order.'),S('bunmi','…rich? RICH ALUCARD?'),
     R("do i know you?"),S('bunmi','you used to walk to school with a backpack held together by duct tape.')],
@@ -212,12 +214,12 @@
   ...(!L.done('A38')?[{label:'THE FOOD COURT (SOMEONE IS STARING)',fx:X=>X.set('chain','A38'),next:'out'}]:[])];})();
  D({id:'A38',title:'BRENDA FROM ACCOUNTING',lane:'people',scope:'MUST',memoryType:'people',start:'arrive',
   nodes:{
-  arrive:{env:'food_court',actors:{left:'rich'},title:'THE FOOD COURT · LUNCH',
+  arrive:{env:'food_court',actors:{left:'rich',right:'brenda'},title:'THE FOOD COURT · LUNCH',
    lines:[N('a zombie on her lunch break, spreadsheet open on her phone, eating alone.'),
     E('brenda','she looks up.'),S('brenda','you\'re the castle guy. i do the numbers on half the businesses in this mall. i know your numbers too.'),
     R('…that\'s either impressive or deeply concerning.'),S('brenda','both.')],
    enter:A=>{RARelations.meet('brenda','food_court');},next:'gossip'},
-  gossip:{lines:[S('brenda','you want real gossip? the CEO — Zombie Prince — his numbers are worse than yours. way worse.'),
+  gossip:{actors:{left:'rich',right:{id:'brenda',state:'gossiping'}},lines:[S('brenda','you want real gossip? the CEO — Zombie Prince — his numbers are worse than yours. way worse.'),
     R('the CEO of what?'),S('brenda','everything. he owns everything and somehow still can\'t make payroll.'),
     N('she goes back to her spreadsheet. she does not stop talking while she eats.')],next:'done'},
   done:{end:{outcome:'met',memory:{text:'met brenda from accounting — gossip about the CEO Zombie Prince',lane:'people'},
@@ -268,7 +270,7 @@
  }});
  D({id:'A_EMBERLY1',title:'THE BACK ROOM AT KUSH & CRYPT',lane:'people',scope:'MEET',memoryType:'people',start:'arrive',
   nodes:{
-  arrive:{env:'kush_back',actors:{left:'rich'},title:'KUSH & CRYPT · BACK ROOM',
+  arrive:{env:'kush_back',actors:{left:'rich',right:'emberly'},title:'KUSH & CRYPT · BACK ROOM',
    lines:[N('past the counter, through a curtain that smells like dragon keef, a woman is warming her hands over nothing.'),
     E('emberly','the seat next to her is already warm before you sit.'),S('emberly','you\'re the first one tonight who didn\'t flinch.')],
    enter:A=>{RARelations.meet('emberly','kush_back');},next:'done'},
@@ -276,7 +278,7 @@
  }});
  D({id:'A_JADE1',title:'DRAGON NIGHT',lane:'people',scope:'MEET',memoryType:'people',start:'arrive',
   nodes:{
-  arrive:{env:'party_hall_packed',actors:{left:'rich'},title:'DRAGON NIGHT',
+  arrive:{env:'party_hall_packed',actors:{left:'rich',right:'jade'},title:'DRAGON NIGHT',
    lines:[N('the theme is dragons. half the room is in costume. one woman is not — because she doesn\'t need to be.'),
     E('jade','she keeps the receipt from her drink in her hand like it matters.'),S('jade','jade wyrmwood. i keep everything. you\'ll learn that.')],
    enter:A=>{RARelations.meet('jade','party_hall_packed');},next:'done'},
@@ -284,7 +286,7 @@
  }});
  D({id:'A_LO1',title:'A PARTY, A ARM',lane:'people',scope:'MEET',memoryType:'people',start:'arrive',
   nodes:{
-  arrive:{env:'rave_interior',actors:{left:'rich'},title:'A PARTY',
+  arrive:{env:'rave_interior',actors:{left:'rich',right:{id:'lo',state:'arm_fall'}},title:'A PARTY',
    lines:[N('a woman\'s arm falls off on the dance floor. she picks it up without stopping the song.'),
     E('lo','she apologizes to you specifically, mid-song.'),S('lo','sorry. it does that. i\'m lo.')],
    enter:A=>{RARelations.meet('lo','rave_interior');},next:'done'},
@@ -292,7 +294,7 @@
  }});
  D({id:'A_HINA1',title:'TIMED',lane:'people',scope:'MEET',memoryType:'people',start:'arrive',
   nodes:{
-  arrive:{env:'little_tokyo',actors:{left:'rich'},title:'SLURP · LITTLE TOKYO',
+  arrive:{env:'little_tokyo',actors:{left:'rich',right:{id:'hina',state:'smug'}},title:'SLURP · LITTLE TOKYO',
    lines:[N('a woman behind the counter is timing something on her phone. it\'s you. she\'s timing you eat.'),
     E('hina','she flips the phone around.'),S('hina','forty-one seconds. that\'s slow. i\'m hina.')],
    enter:A=>{RARelations.meet('hina','little_tokyo');},next:'done'},
@@ -301,7 +303,7 @@
  D({id:'A_ANFEESA1',title:'ONE RECORD',lane:'people',scope:'MEET',memoryType:'people',start:'arrive',
   available:L=>L.flag('ogunsRaveCompleted')||L.done('A55'),
   nodes:{
-  arrive:{env:'rave_interior',actors:{left:'rich'},title:'BOOTH SIDE',
+  arrive:{env:'rave_interior',actors:{left:'rich',right:{id:'anfeesa',state:'dj'}},title:'BOOTH SIDE',
    lines:[N('the DJ waves you up to the booth between sets.'),E('anfeesa','she doesn\'t say much. she just plays one record, low, just for you.'),S('anfeesa','that one\'s not for the crowd. i\'m anfeesa.')],
    enter:A=>{RARelations.meet('anfeesa','rave_interior');},next:'done'},
   done:{end:{outcome:'met',memory:{text:'met dj anfeesa — one record just for him',lane:'people'},home:['rich','i still don\'t know what song that was.',{vp:true}]}}
@@ -344,6 +346,7 @@
  // ===================================================================================================
  RATemptations.define([{id:'trippin_red',source:'friend',sender:'TRISTAN',thread:'tristan',
   line:"trippin red at the hollow bowl saturday. i got 2 extra.",minDay:12,adventure:'A41',priority:5}]);
+ const trippinOnStage=()=>({src:RABtfPeople.get('trippin_red')?.states?.stage_ready,x:135,y:292});
  D({id:'A41',title:'THE PERFECT NIGHT',lane:'people',scope:'MUST',memoryType:'people',start:'pick',
   available:L=>RABtfPeople.women.some(w=>RARelations.level(w.id)>=2),
   nodes:{
@@ -352,13 +355,13 @@
    choices:A=>{const ids=RABtfPeople.women.map(w=>w.id).filter(id=>RARelations.level(id)>=2);
     return ids.map(id=>({label:(RABtfPeople.get(id)?.name||id).toUpperCase(),fx:X=>{X.set('person',id);RALife.setFlag('futureEx',id);},next:'route'}));}},
   route:{route:{dest:'hollow_bowl',next:'arrive'}},
-  arrive:{env:'hollow_bowl',actors:A=>({left:'rich',right:A.vars.person}),title:'THE HOLLOW BOWL',
+  arrive:{env:'hollow_bowl',actors:A=>({left:'rich',right:A.vars.person}),props:()=>[trippinOnStage()],title:'THE HOLLOW BOWL',
    lines:A=>[N('the amphitheater is packed. every seat, every aisle. the bass starts before the lights even change.'),
     E('trippin_red','trippin\' red walks out to a wall of sound.')],next:'mosh'},
-  mosh:{lines:[N('the crowd surges. you both get pulled into it, laughing, shoved, alive.')],
+  mosh:{props:()=>[trippinOnStage()],lines:[N('the crowd surges. you both get pulled into it, laughing, shoved, alive.')],
    minigame:{id:'bars',params:A=>({mode:'mosh',env:'hollow_bowl'}),next:(A,r)=>'slow'}},
-  slow:{lines:[N('the set slows down. a quiet song. everyone in the bowl sways the same direction.')],next:'finale'},
-  finale:{lines:[N('the finale hits like weather. lights, noise, everyone screaming the hook back at the stage.')],next:'drive'},
+  slow:{props:()=>[trippinOnStage()],lines:[N('the set slows down. a quiet song. everyone in the bowl sways the same direction.')],next:'finale'},
+  finale:{props:()=>[trippinOnStage()],lines:[N('the finale hits like weather. lights, noise, everyone screaming the hook back at the stage.')],next:'drive'},
   drive:{env:'street_night',actors:A=>({left:'rich',right:A.vars.person}),title:'THE DRIVE HOME',
    lines:[N('windows down, montana playing loud enough to feel it in the seats.'),
     S(null,'"that was… actually the best night i\'ve had in a while."')],next:'roof'},
@@ -553,7 +556,7 @@
  D({id:'A55',title:"OGUN'S SECOND RAVE",lane:'people',repeatable:false,memoryType:'people',start:'arrive',
   available:L=>L.flag('ogunsRaveCompleted'),
   nodes:{
-  arrive:{env:'rave_interior',actors:{left:'rich'},title:"OGUN'S SECOND RAVE",
+  arrive:{env:'rave_interior',actors:{left:'rich',right:{id:'anfeesa',state:'dj'}},title:"OGUN'S SECOND RAVE",
    lines:[N('techno this time. a different crowd — one that has never heard of any rapper, ever, on purpose.'),
     E('anfeesa','dj anfeesa is behind the booth.')],
    enter:A=>{if(!RARelations.met('anfeesa'))RARelations.meet('anfeesa','rave_interior');},next:'dance'},
@@ -581,72 +584,82 @@
  // TOP-5 WOMEN ARCS (VOL 5 §8): MAZDA, NNEKA, CAMMILE, JUNE, MS. PATRICE — 3 beats each, unlocking at
  // COOL(2)/CLOSE(3)/RIDE-OR-DIE(4), reached via temptation (she texts) when the level is met.
  // ===================================================================================================
- function arc(person,tag,beats){
-  for(let i=0;i<beats.length;i++){
-   const b=beats[i];const id=`ARC_${tag}_${i+1}`;const needLevel=i+2; // beat1@cool(2) beat2@close(3) beat3@ride(4)
+ // ENGINEERING 06: the 15 beats now follow VOL 5 §8's table (the previous beats were placeholders that did not match
+ // the source). Same mechanism: each beat is a normal night she texts Rich about, unlocking at COOL / CLOSE /
+ // RIDE-OR-DIE in order. Non-Rich lines are functional drafts restating the source beat; Rich lines are [VP].
+ // Options: from (first beat number, default 1), after (an adventure the first defined beat also needs).
+ function arc(person,tag,beats,{from=1,after=null}={}){
+  for(let k=0;k<beats.length;k++){
+   const n=from+k,b=beats[k],id=`ARC_${tag}_${n}`,needLevel=n+1; // beat1@cool(2) beat2@close(3) beat3@ride(4)
+   const prior=L=>k===0?(!after||L.done(after)):L.done(`ARC_${tag}_${n-1}`);
    RATemptations.define([{id:`${id}_tempt`,source:'invite',sender:(RABtfPeople.get(person)?.name||person),thread:person,
-    line:b.text,adventure:id,repeatable:false,when:L=>RARelations.level(person)>=needLevel&&L.done(id)===false&&(i===0||L.done(`ARC_${tag}_${i}`))}]);
-   D({id,title:b.title,lane:'people',repeatable:false,memoryType:'people',start:'scene',
-    available:L=>RARelations.level(person)>=needLevel&&(i===0||L.done(`ARC_${tag}_${i}`)),
-    nodes:{scene:{env:b.env,actors:{left:'rich',right:b.state?{id:person,state:b.state}:person},title:b.title,
-     lines:[N(b.beat),...(b.rich?[R(b.rich)]:[])],
-     enter:A=>{RARelations.memory(person,b.memory);},next:'done'},
-     done:{end:{outcome:'done',memory:{text:b.memory,lane:'people'},home:b.home?['rich',b.home,{vp:true}]:null}}}});
+    line:b.text,adventure:id,repeatable:false,when:L=>RARelations.level(person)>=needLevel&&L.done(id)===false&&prior(L)}]);
+   const scene={env:b.env,actors:b.actors||{left:'rich',right:b.state?{id:person,state:b.state}:person},title:b.title,
+    lines:[...b.lines,...(b.rich?[R(b.rich)]:[])],enter:A=>{RARelations.memory(person,b.memory);},next:b.minigame?'run':b.choices?undefined:'done'};
+   if(b.choices)scene.choices=b.choices.map(label=>({label,next:'done'}));
+   const nodes={scene,done:{...(b.after?{lines:b.after}:{}),end:{outcome:'done',memory:{text:b.memory,lane:'people'},home:b.home?['rich',b.home,{vp:true}]:null}}};
+   if(b.minigame)nodes.run={minigame:{id:b.minigame.id,params:b.minigame.params,next:()=>'done'}};
+   // Gate walks: reach her level and the prior beat the way a life would have (records only).
+   const testSetup=ctx=>{ctx.RARelations.meet(person,'test');ctx.RARelations.add(person,[0,0,25,55,95][needLevel]);const recs={...ctx.RAState.get().life.adventures.records};for(const need of [after,...Array.from({length:k},(_,j)=>`ARC_${tag}_${from+j}`)].filter(Boolean))recs[need]={status:'completed',count:1,completedDay:1};ctx.RAState.patch('life.adventures.records',recs);if(!ctx.RALife.ownedCars().length)ctx.RALife.addCar({id:ctx.RACars.SUPRA,make:'Toyota',model:'Supra MK4',short:'SUPRA',price:0});};
+   D({id,title:b.title,lane:'people',repeatable:false,memoryType:'people',start:'scene',testSetup,
+    available:L=>RARelations.level(person)>=needLevel&&prior(L),nodes});
   }
  }
  arc('mazda_human','MAZDA',[
-  {title:'THE FIRST FLIGHT SHE PLANNED',text:'meet me on the roof. bring nothing.',env:'la_sky',
-   beat:'she planned the whole route this time — over the coast, past the pier, back before sunrise.',
-   rich:"you're a better pilot than most humans i've met.",memory:'mazda planned a whole flight route herself',home:'she had the whole night mapped out. i just held on.'},
-  {title:'THE HOARD',text:'i want to show you something. it\'s embarrassing.',env:'fish_tank',
-   beat:'she shows you where she keeps things — small, stolen-back trinkets from every night you\'ve had together.',
-   rich:"that's not embarrassing. that's just you.",memory:'mazda showed him her hoard',home:'dragons keep receipts too, apparently.'},
-  {title:'BOTH FORMS, ONE NIGHT',text:'i want you to see both of me tonight. all the way.',env:'la_sky',
-   beat:'she shifts back and forth over the city, testing whether it changes anything between you. it doesn\'t.',
-   rich:'you\'re still you. both ways.',memory:'mazda tested both forms with him — it changed nothing',home:'ride or die with a literal dragon. sure, why not.'}
+  {title:'HER FIRST JOLLOF',text:'what is that smell in the kitchen. i want it.',env:'kitchen',
+   lines:[N('her first time eating jollof, straight from the castle kitchen.'),N('she eats the whole pot. she does not understand why you cook near fish.')],
+   rich:'…that was supposed to last a week.',memory:'mazda\'s first jollof, from the castle kitchen',home:'she ate the whole pot. respect.'},
+  {title:'WHERE YOU WERE BANISHED',text:'show me where they put you. the ocean.',env:'ocean_night_flight',
+   lines:[N('she wants to see where you were banished. a night flight over the ocean.'),N('she won\'t go near the water either. she flies high the whole way.')],
+   rich:'yeah. down there. it was a lot of years.',memory:'flew mazda over the ocean where he was banished',home:'she stayed high above the water the whole time. same.'},
+  {title:'VERY BLUE',text:'i want to meet your family.',env:'bedroom',
+   lines:[N('she asks to meet your family. you call mom on video.'),S('mom','…she is very blue.'),N('mom asks if she has eaten.')],
+   rich:'mom, this is mazda.',memory:'mom met mazda on video. "very blue."',home:'mom said she\'s very blue. that\'s approval, i think.'}
  ]);
  arc('nneka','NNEKA',[
-  {title:'THE WRONG JOLLOF, CORRECTED',text:'come over. i\'m cooking it right this time.',env:'naija_lot',
-   beat:'she cooks jollof her way, in her kitchen, and dares you to say it\'s not better.',
-   rich:"it is better. don't tell peking naija.",memory:'nneka cooked jollof her way',home:'she was right. it was better.'},
-  {title:'SIT DOWN',text:'you look like you need someone to tell you to sit down.',env:'naija_mart',
-   beat:'she makes you sit still for an hour, no phone, just talking, until you actually relax.',
-   rich:'…i needed that.',memory:'nneka made him sit down and actually rest',home:'first real break i\'ve had in weeks.'},
-  {title:'HER FAMILY\'S TABLE',text:'come meet everybody. no pressure. (pressure.)',env:'naija_lot',
-   beat:'her whole family is at the table. they grill you the way the auntie at naija mart did, times ten.',
-   rich:'i think i passed.',memory:'nneka brought him to meet her whole family',home:'i think that went well. i think.'}
+  {title:'FOR RESEARCH',text:'ok. one date. for research.',env:'blood_bank',
+   lines:[N('you offer to donate again. she refuses again.'),S('nneka','fine. one date. for research, adeoluwa.')],
+   rich:'i\'ll take research.',memory:'nneka agreed to a date "for research"',home:'research. i\'ll take it.'},
+  {title:'THE POTLUCK',text:'my mother\'s church potluck. sunday. wear something nice.',env:'naija_lot',
+   lines:[N('she takes you to her mother\'s church potluck. foil trays everywhere.'),N('you eat everything. nobody asks.')],
+   rich:'…i\'m going back for thirds.',memory:'nneka took him to her mother\'s church potluck',home:'i ate everything. nobody asked a single question.'},
+  {title:'YOUR BLOOD TYPE',text:'come by the blood bank. i need to tell you something.',env:'blood_bank',
+   lines:[N('she tells you she has known since the first visit.'),S('nneka','your blood type says VAMPIRE, Adeoluwa. I just didn\'t want to make it weird.')],
+   rich:'…you could\'ve said something.',memory:'nneka always knew he was a vampire',home:'she knew the whole time. she just didn\'t make it weird.'}
  ]);
  arc('jdm_importer_daughter_001','CAMMILE',[
-  {title:'THE FASTER LINE',text:'crest. tonight. bring the car.',env:'crest',
-   beat:'she rides shotgun and calls your lines before you take them. she\'s right every time.',
-   rich:'you should be driving.',memory:'cammile called his lines up the crest, correctly, every time',home:'she\'s a better driver than me and we both know it.'},
-  {title:'THE PARTS BOX',text:'i found something. it\'s yours if you want it.',env:'docks',
-   beat:'she hands you a box of parts she\'s been saving off the docks — nothing for sale, all for you.',
-   rich:'you kept these? for me?',memory:'cammile gave him a box of saved parts',home:'she\'s been thinking about my car longer than i have.'},
-  {title:'HER NAME ON THE INVOICE',text:'i\'m putting my name on the next shipment. come see.',env:'docks',
-   beat:'she\'s taking over more of the import business. she wants you there when her name goes on the paperwork.',
-   rich:"that's your name. that's real.",memory:"stood with cammile as her name went on the docks paperwork",home:'she\'s building something. i got to watch.'}
+  {title:'THE SUPRA',text:'give me a ride in the supra. i want to see how you drive it.',env:'street_night',
+   lines:[N('she rides in the supra and critiques your driving the whole way.'),S('jdm_importer_daughter_001','you\'re lifting too early. again.')],
+   rich:'…it\'s my car.',memory:'cammile critiqued his driving from the passenger seat',home:'she corrected every shift. she was right every time.'},
+  {title:'SHE CHASES',text:'crest. tonight. you lead, i chase.',env:'crest',
+   lines:[N('a touge tandem up the crest. you lead; she chases.'),N('she\'s better than pinky. she knows it.')],
+   minigame:{id:'touge',params:()=>({course:'angeles_crest',car:RACars.toTouge(RALife.ownedCars().find(c=>c.id===RALife.flag('tougeCar'))||RALife.ownedCars()[0]||{}),tandem:{rival:'CAMMILE',role:'lead',threshold:20000},rain:RALife.today().rain})},
+   memory:'cammile chased him up the crest. better than pinky.',home:'she was on my bumper the whole way up.'},
+  {title:'DINNER WITH THE IMPORT GUY',text:'my dad wants you at dinner. don\'t be weird.',env:'docks',actors:{left:'rich',mid:'jdm_importer_daughter_001',right:'importer'},
+   lines:[N('her father, the import guy, invites you to dinner.'),N('he doesn\'t insult you once. it is terrifying.')],
+   rich:'…is he ok?',memory:'dinner with cammile\'s father. no insults. terrifying.',home:'the import guy was nice to me. i\'m scared.'}
  ]);
  arc('june','JUNE',[
-  {title:'ONE LOC AT A TIME',text:'salon\'s closed tonight. come anyway.',env:'salon',
-   beat:'she fixes one loc while you talk, the way she always does. tonight she doesn\'t stop at one.',
-   rich:"you don't have to do that.",memory:'june fixed his locs after hours at the salon',home:'i look better and i talked through something i needed to.'},
-  {title:'THE CAFÉ AFTER CLOSE',text:'meet me at bean there dead that. i\'m locking up after.',env:'cafe',
-   beat:'the café empties out around you. she talks about the shop she wants to open one day.',
-   rich:'you should open it. i\'ll be your first regular.',memory:'june told him about the salon she wants to open',home:'she\'s got a plan. i want to be part of it.'},
-  {title:'STILL WATER',text:'sit still. actually still, this time.',env:'salon',
-   beat:'no small talk. just her working, quiet, and you letting yourself be still for once.',
-   rich:'…this is the calmest i\'ve felt in months.',memory:'sat still with june — the calmest he\'s felt in months',home:'ride or die means someone who lets you be quiet too.'}
+  {title:'SOMETHING NEW',text:'come to the salon. i want to try something on you.',env:'salon',
+   lines:[N('she restyles your locs into something new, just for one night.'),S('june','tomorrow they go back. tonight, this.')],
+   rich:'i look expensive.',memory:'june restyled his locs for one night',home:'one night with new locs. she\'s an artist.'},
+  // VOL 5 names this "a small, careful minigame"; no such minigame exists, so the beat plays as a choice (deferred).
+  {title:'HER LOCS',text:'your turn. retwist mine. carefully.',env:'salon',
+   lines:[N('she lets you retwist HER locs. you are bad at it.'),N('she loves it anyway.')],choices:['PALM ROLL. SLOW.','ASK HER HOW.','DO YOUR BEST.'],
+   after:[S('june','…that\'s the worst retwist i\'ve ever had. do the next one.')],
+   memory:'retwisted june\'s locs. badly. she loved it.',home:'i was terrible at it. she let me keep going.'},
+  {title:'UNTIL 4 A.M.',text:'i\'m closing early tonight. come by.',env:'salon',
+   lines:[N('she closes the salon early for you.'),N('you sit in the empty salon chairs and talk until 4 a.m.')],
+   rich:'…it\'s four already?',memory:'talked with june in the empty salon until 4 a.m.',home:'the salon was empty and we talked till four.'}
  ]);
+ // Ms. Patrice's beat 1 is the Waffle Saga itself (VOL 5 §8: "Beat 1 (COOL): The Waffle Saga (A44)"); her arc
+ // continues from its last night.
  arc('ms_patrice','PATRICE',[
-  {title:'ORDER UP',text:'come by after close. i\'ll make you the real one.',env:'waffle_haven',
-   beat:'she makes you the waffle off the books — the one that isn\'t on the menu, ever.',
-   rich:"this doesn't taste like anything else in this city.",memory:'ms. patrice made him the off-menu waffle',home:'i think i just had the best thing i\'ve eaten all year.'},
-  {title:'ROASTING THE ROOM',text:'come watch me embarrass some rich people tonight.',env:'lennox',
-   state:'laugh',beat:'she roasts every rich person in the diner with total precision. you fall for her a little more each line.',
-   rich:'remind me to never make you mad.',memory:'watched ms. patrice roast a room full of rich people',home:'terrifying. incredible. both.'},
-  {title:'THE RECIPE BOX',text:'i want to show you where it all started. all of it.',env:'centennial',
-   beat:'she opens the real recipe box — the one behind the one she showed you before. grandmother\'s handwriting, edges worn soft.',
-   rich:'you don\'t have to show me this.',memory:'ms. patrice showed him the real recipe box',home:'ride or die, and she just handed me her grandmother\'s handwriting.'}
- ]);
+  {title:'WHERE\'S THE WAFFLE HAVEN',text:'i\'m in LA. come get me. i already hate it.',env:'street_night',
+   lines:[N('she visits LA. she hates it.'),S('ms_patrice','where\'s the waffle haven.')],
+   rich:'there is no waffle haven.',memory:'ms. patrice visited LA and hated it',home:'she hates LA. she still stayed the whole night.'},
+  {title:'THE RECIPE',text:'your castle has a kitchen, right? i\'m coming over.',env:'kitchen',
+   lines:[N('she teaches you the recipe in person, in your castle kitchen.'),S('ms_patrice','don\'t tell nobody.')],
+   rich:'i won\'t. ever.',memory:'ms. patrice taught him the waffle recipe in his kitchen',home:'i know the recipe now. i can never tell anyone.'}
+ ],{from:2,after:'A44_N4'});
 })();

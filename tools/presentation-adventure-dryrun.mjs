@@ -16,6 +16,35 @@ const SLOTS={farLeft:34,left:72,mid:135,right:198,farRight:238};
 const PROXY='assets/rich_standing_right.png';
 export const LOCK='docs/presentation/locks/wave1-adventures.json';
 
+// Every player-visible node of an adventure with the env/cast it actually has when the player reaches it.
+// Engineering 06: (1) end nodes are included when they show a title or lines (the scene renders them before
+// completing — e.g. A31 `fade`, A30 `wakeup`); (2) inherited env/actors follow the adventure's GRAPH from its start
+// (string edges, plus function edges evaluated against the dummy context and synthetic win/lose results), so a node is
+// never linted with a cast it cannot have. Nodes the walk cannot reach statically keep the old declaration-order
+// inheritance as a fallback (recorded as `inherit:'declaration'`).
+export function visibleNodes(def,dummy){
+ const evalOr=(f,...args)=>{try{return typeof f==='function'?f(dummy,...args):f}catch{return undefined}};
+ const own=(node,from)=>{const e=evalOr(node.env),a=evalOr(node.actors);
+  return {env:typeof e==='string'?e:from.env,actors:a===null?{}:a&&typeof a==='object'?{...(node.keepActors?from.actors:{}),...a}:from.actors};};
+ const targets=node=>{const t=[];const add=x=>{if(typeof x==='string')t.push(x)};
+  add(node.next);if(typeof node.next==='function')add(evalOr(node.next));
+  const cs=Array.isArray(node.choices)?node.choices:evalOr(node.choices)||[];for(const c of Array.isArray(cs)?cs:[]){add(c?.next);if(typeof c?.next==='function')add(evalOr(c.next))}
+  if(node.route){add(node.route.next);if(typeof node.route.next==='function')add(evalOr(node.route.next))}
+  if(node.fight)for(const k of ['win','lose','spared','run'])add(node.fight[k]);
+  if(node.minigame&&typeof node.minigame.next==='function')for(const outcome of ['win','lose','done'])add(evalOr(node.minigame.next,{outcome,score:outcome==='win'?9999:1,data:{},rewards:{}}));
+  return t;};
+ const out=[],seen=new Set(),reached=new Set(),queue=[[def.start,{env:null,actors:{}}]];
+ while(queue.length){const [id,from]=queue.shift();const node=def.nodes[id];if(!node)continue;const c=own(node,from);
+  const key=`${id}|${c.env}|${JSON.stringify(c.actors)}`;if(seen.has(key)||seen.size>400)continue;seen.add(key);reached.add(id);
+  if(c.env&&(!node.end||node.title||typeof node.lines==='function'||(Array.isArray(node.lines)&&node.lines.length)))out.push({id,node,...c});
+  for(const t of targets(node))queue.push([t,c]);}
+ let env=null,actors={};
+ for(const [id,node] of Object.entries(def.nodes)){const c=own(node,{env,actors});env=c.env;actors=c.actors;
+  if(reached.has(id)||!env)continue;if(node.end&&!node.title&&!(typeof node.lines==='function'||(Array.isArray(node.lines)&&node.lines.length)))continue;
+  out.push({id,node,env,actors,inherit:'declaration'});}
+ return out;
+}
+
 export async function dryRun(){
  const ctx=await loadBtf(root);
  for(const file of ['js/data/stages.js','js/data/presentation.js','js/data/presentation_assets.js','js/data/presentation_locks.js','js/engine/stage.js'])vm.runInContext(await readFile(path.join(root,file),'utf8'),ctx,{filename:file});
@@ -23,13 +52,8 @@ export async function dryRun(){
  const screens=new Map();
  // Casts computed at runtime from adventure vars are also walked under each declared `presentationVariants` entry.
  for(const [def,vars] of ctx.RAAdventures.all().flatMap(def=>[[def,{}],...(def.presentationVariants||[]).map(v=>[def,v])])){
-  const dummy=dummyWith(vars);let env=null,actors={};
-  for(const [id,node] of Object.entries(def.nodes)){
-   let e=node.env,a=node.actors;
-   try{if(typeof e==='function')e=e(dummy)}catch{e=null}
-   try{if(typeof a==='function')a=a(dummy)}catch{a=undefined}
-   if(typeof e==='string')env=e;if(a===null)actors={};else if(a&&typeof a==='object')actors={...(node.keepActors?actors:{}),...a};
-   if(!env||node.end)continue;
+  const dummy=dummyWith(vars);
+  for(const {id,node,env,actors} of visibleNodes(def,dummy)){
    const cast={};for(const [slot,spec] of Object.entries(actors)){if(!spec)continue;const pid=typeof spec==='string'?spec:spec.id;cast[slot]={...(typeof spec==='object'?spec:{}),id:pid}}
    const key=ctx.RAPresentationData.screenKey(env,cast);
    const s=screens.get(key)||{key,env,cast,castSpecs:JSON.parse(JSON.stringify(actors)),shot:node.shot||null,nodes:0,adventures:new Set(),first:`${def.id}:${id}`,refs:[]};s.nodes++;s.adventures.add(def.id);s.refs.push(`${def.id}:${id}`);screens.set(key,s);

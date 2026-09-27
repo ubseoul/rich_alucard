@@ -3,20 +3,19 @@
  "summary": {
   "frozenFiles": 391,
   "assets": {
-   "REGISTERED — PERSON NOT ON STAGE": 10,
-   "REGISTERED — NO OBJECTIVE BEAT": 7,
-   "FROZEN + ALREADY INTEGRATED": 300,
+   "FROZEN + ALREADY INTEGRATED": 312,
+   "REGISTERED — NO OBJECTIVE BEAT": 6,
    "REGISTERED — NO LIVE SURFACE": 19,
+   "REGISTERED — PERSON NOT ON STAGE": 1,
    "REGISTERED — CAST CHANGE REQUIRED": 1,
    "REGISTERED — ART-MAPPED SURFACE CONFLICT": 2,
-   "REGISTERED — DORMANT SURFACE": 1,
    "REGISTERED — MAPPING AMBIGUOUS": 3,
    "REGISTERED — COVERED BY STATE": 2,
    "REGISTERED — ART GEOMETRY AMBIGUITY": 3,
    "REFERENCE — UI VISUAL-TREATMENT AUTHORITY ONLY": 13,
    "HANDOFF SHEET (placement uses individual masters)": 12,
    "FROZEN + MAPPING AMBIGUOUS": 4,
-   "FROZEN STATE AVAILABLE": 2,
+   "FROZEN STATE AVAILABLE": 1,
    "FROZEN + SUPERSEDED (history preserved)": 2,
    "FROZEN LIBRARY (no authorized runtime assignment)": 9,
    "FROZEN + READY TO INTEGRATE": 1
@@ -25,7 +24,8 @@
    "environment: NO APPROVED ART YET": 3
   },
   "screens": {
-   "PASS": 169
+   "PASS": 197,
+   "HOLD": 1
   }
  },
  "surfaces": {
@@ -94,9 +94,10 @@
    "path": "assets/before_the_fame/art_ship_014/package_a/A-anfeesa-dj.png",
    "kind": "character-state",
    "id": "characters.anfeesa.states.dj",
-   "status": "REGISTERED — PERSON NOT ON STAGE",
-   "runtime": [],
-   "note": "The matching beat names her in an entrance/speaker line but never stages her (actors: Rich only). Staging would add a cast member to an authored beat."
+   "status": "FROZEN + ALREADY INTEGRATED",
+   "runtime": [
+    "adventure beat: A_ANFEESA1 and A55 arrive (behind the booth)"
+   ]
   },
   {
    "path": "assets/before_the_fame/art_ship_014/package_a/A-bllad33-dry.png",
@@ -119,9 +120,10 @@
    "path": "assets/before_the_fame/art_ship_014/package_a/A-brenda-gossiping.png",
    "kind": "character-state",
    "id": "characters.brenda.states.gossiping",
-   "status": "REGISTERED — PERSON NOT ON STAGE",
-   "runtime": [],
-   "note": "The matching beat names her in an entrance/speaker line but never stages her (actors: Rich only). Staging would add a cast member to an authored beat."
+   "status": "FROZEN + ALREADY INTEGRATED",
+   "runtime": [
+    "adventure beat: A38 gossip"
+   ]
   },
   {
    "path": "assets/before_the_fame/art_ship_014/package_a/A-britney-profile.png",
@@ -206,9 +208,10 @@
    "path": "assets/before_the_fame/art_ship_014/package_a/A-coffe-hype.png",
    "kind": "character-state",
    "id": "characters.coffe.states.hype",
-   "status": "REGISTERED — NO OBJECTIVE BEAT",
-   "runtime": [],
-   "note": "No current OPEN beat narrates this exact reaction with the person on stage; placing it would be a guess."
+   "status": "FROZEN + ALREADY INTEGRATED",
+   "runtime": [
+    "adventure beat: A29 drink (he drinks both iced coffees)"
+   ]
   },
   {
    "path": "assets/before_the_fame/art_ship_014/package_a/A-don_chuy-singing.png",
@@ -313,9 +316,10 @@
    "path": "assets/before_the_fame/art_ship_014/package_a/A-hina-smug.png",
    "kind": "character-state",
    "id": "characters.hina.states.smug",
-   "status": "REGISTERED — PERSON NOT ON STAGE",
-   "runtime": [],
-   "note": "The matching beat names her in an entrance/speaker line but never stages her (actors: Rich only). Staging would add a cast member to an authored beat."
+   "status": "FROZEN + ALREADY INTEGRATED",
+   "runtime": [
+    "adventure beat: A_HINA1 arrive (she times him eating: \"that's slow\")"
+   ]
   },
   {
    "path": "assets/before_the_fame/art_ship_014/package_a/A-jade-impressed.png",
@@ -364,9 +368,10 @@
    "path": "assets/before_the_fame/art_ship_014/package_a/A-kaede-ceiling_drop.png",
    "kind": "character-state",
    "id": "characters.kaede.states.ceiling_drop",
-   "status": "REGISTERED — PERSON NOT ON STAGE",
-   "runtime": [],
-   "note": "The matching beat names her in an entrance/speaker line but never stages her (actors: Rich only). Staging would add a cast member to an authored beat."
+   "status": "FROZEN + ALREADY INTEGRATED",
+   "runtime": [
+    "adventure beat: A18 drop (she drops from the ceiling vent)"
+   ]
   },
   {
    "path": "assets/before_the_fame/art_ship_014/package_a/A-kaede-date.png",
@@ -424,9 +429,10 @@
    "path": "assets/before_the_fame/art_ship_014/package_a/A-lo-arm_fall.png",
    "kind": "character-state",
    "id": "characters.lo.states.arm_fall",
-   "status": "REGISTERED — PERSON NOT ON STAGE",
-   "runtime": [],
-   "note": "The matching beat names her in an entrance/speaker line but never stages her (actors: Rich only). Staging would add a cast member to an authored beat."
+   "status": "FROZEN + ALREADY INTEGRATED",
+   "runtime": [
+    "adventure beat: A_LO1 arrive (her arm falls off on the dance floor)"
+   ]
   },
   {
    "path": "assets/before_the_fame/art_ship_014/package_a/A-lo-date.png",
@@ -504,9 +510,10 @@
    "path": "assets/before_the_fame/art_ship_014/package_a/A-nightshade-casting.png",
    "kind": "character-state",
    "id": "characters.nightshade.states.casting",
-   "status": "REGISTERED — PERSON NOT ON STAGE",
-   "runtime": [],
-   "note": "The matching beat names her in an entrance/speaker line but never stages her (actors: Rich only). Staging would add a cast member to an authored beat."
+   "status": "FROZEN + ALREADY INTEGRATED",
+   "runtime": [
+    "adventure beat: A25 cast (she teaches the spell)"
+   ]
   },
   {
    "path": "assets/before_the_fame/art_ship_014/package_a/A-nightshade-date.png",
@@ -679,9 +686,10 @@
    "path": "assets/before_the_fame/art_ship_014/package_a/A-tristan-passenger.png",
    "kind": "character-state",
    "id": "characters.tristan.states.passenger",
-   "status": "REGISTERED — DORMANT SURFACE",
-   "runtime": [],
-   "note": "The TOUGE passenger slot reads RALife.flag('passenger'), which nothing in play ever sets."
+   "status": "FROZEN + ALREADY INTEGRATED",
+   "runtime": [
+    "TOUGE passenger seat: Tristan's portrait while he reacts (TOUGE app → PASSENGER SEAT)"
+   ]
   },
   {
    "path": "assets/before_the_fame/art_ship_014/package_a/A-velvet-date.png",
@@ -757,9 +765,10 @@
    "path": "assets/before_the_fame/art_ship_014/package_b/B-human-eating.png",
    "kind": "character-state",
    "id": "characters.mazda_human.states.eating",
-   "status": "REGISTERED — PERSON NOT ON STAGE",
-   "runtime": [],
-   "note": "A32 bed narrates her eating the bread but stages Rich only."
+   "status": "FROZEN + ALREADY INTEGRATED",
+   "runtime": [
+    "adventure beat: A32 bed (finishing the agege bread)"
+   ]
   },
   {
    "path": "assets/before_the_fame/art_ship_014/package_b/B-majestic-flying.png",
@@ -1664,9 +1673,10 @@
    "path": "assets/before_the_fame/art_ship_015/package_a/A-family-brother1.png",
    "kind": "character-state",
    "id": "characters.brother1.anchor.neutral",
-   "status": "REGISTERED — PERSON NOT ON STAGE",
-   "runtime": [],
-   "note": "Identity anchor for BIG BRO (resolvable by id). His only OPEN appearance off the phone is a spoken line in A53 kitchen, whose authored cast is mom/Rich/dad; staging him would add a cast member to an authored beat."
+   "status": "FROZEN + ALREADY INTEGRATED",
+   "runtime": [
+    "adventure beat: A53 kitchen (the brothers arguing; VOL 5 A53)"
+   ]
   },
   {
    "path": "assets/before_the_fame/art_ship_015/package_a/A-family-brother2-avatar.png",
@@ -1681,9 +1691,10 @@
    "path": "assets/before_the_fame/art_ship_015/package_a/A-family-brother2.png",
    "kind": "character-state",
    "id": "characters.brother2.anchor.neutral",
-   "status": "REGISTERED — PERSON NOT ON STAGE",
-   "runtime": [],
-   "note": "Identity anchor for LIL BRO (resolvable by id). His only OPEN appearance off the phone is a spoken line in A53 kitchen, whose authored cast is mom/Rich/dad; staging him would add a cast member to an authored beat."
+   "status": "FROZEN + ALREADY INTEGRATED",
+   "runtime": [
+    "adventure beat: A53 kitchen (the brothers arguing; VOL 5 A53)"
+   ]
   },
   {
    "path": "assets/before_the_fame/art_ship_015/package_a/A-god-fading.png",
@@ -1987,9 +1998,10 @@
    "path": "assets/before_the_fame/characters/hilt/hilt_walk_away_80x96.png",
    "kind": "character-state",
    "id": "hilt.walk_away",
-   "status": "FROZEN STATE AVAILABLE",
-   "runtime": [],
-   "note": "A23 'leave' narrates Hilt leaving, but Hilt is never on stage in that adventure (entrance line only); wiring it would add a cast member to the beat."
+   "status": "FROZEN + ALREADY INTEGRATED",
+   "runtime": [
+    "state:hilt.walk_away"
+   ]
   },
   {
    "path": "assets/before_the_fame/characters/hina/hina_neutral_80x96.png",
@@ -3518,6 +3530,11 @@
   }
  ],
  "screens": {
+  "armory|left:rich": {
+   "status": "PASS (final art)",
+   "profile": "conversation",
+   "lint": "pass"
+  },
   "armory|left:rich,right:deacon_brass": {
    "status": "PASS (final art)",
    "profile": "conversation",
@@ -3533,7 +3550,12 @@
    "profile": "conversation",
    "lint": "pass"
   },
-  "ballroom|left:rich": {
+  "ballroom|left:rich,right:nightshade": {
+   "status": "PASS (final art)",
+   "profile": "conversation",
+   "lint": "pass"
+  },
+  "ballroom|left:rich,right:nightshade@casting": {
    "status": "PASS (final art)",
    "profile": "conversation",
    "lint": "pass"
@@ -3544,6 +3566,26 @@
    "lint": "pass"
   },
   "bedroom|left:rich": {
+   "status": "PASS (final art)",
+   "profile": "conversation",
+   "lint": "pass"
+  },
+  "bedroom|left:rich,right:hilt": {
+   "status": "PASS (final art)",
+   "profile": "conversation",
+   "lint": "pass"
+  },
+  "bedroom|left:rich,right:hilt@walk_away": {
+   "status": "PASS (final art)",
+   "profile": "conversation",
+   "lint": "pass"
+  },
+  "bedroom|left:rich,right:mazda_human": {
+   "status": "PASS (final art)",
+   "profile": "conversation",
+   "lint": "pass"
+  },
+  "bedroom|left:rich,right:mazda_human@eating": {
    "status": "PASS (final art)",
    "profile": "conversation",
    "lint": "pass"
@@ -3573,11 +3615,6 @@
    "profile": "conversation",
    "lint": "pass"
   },
-  "cafe|left:rich,right:june": {
-   "status": "PASS (final art)",
-   "profile": "conversation",
-   "lint": "pass"
-  },
   "cafe|left:rich,right:wispa": {
    "status": "PASS (final art)",
    "profile": "conversation",
@@ -3603,12 +3640,22 @@
    "profile": "conversation",
    "lint": "pass"
   },
+  "castle_exterior|left:rich": {
+   "status": "PASS (final art)",
+   "profile": "conversation",
+   "lint": "pass"
+  },
   "catacomb|left:rich": {
    "status": "PASS (final art)",
    "profile": "conversation",
    "lint": "pass"
   },
   "catacomb|left:rich,right:iron_jaw": {
+   "status": "PASS (final art)",
+   "profile": "conversation",
+   "lint": "pass"
+  },
+  "catacomb|left:rich,right:iron_jaw@defeated": {
    "status": "PASS (final art)",
    "profile": "conversation",
    "lint": "pass"
@@ -3750,7 +3797,17 @@
    "profile": "conversation",
    "lint": "pass"
   },
+  "curb|left:rich,right:god@fading": {
+   "status": "PASS (final art)",
+   "profile": "conversation",
+   "lint": "pass"
+  },
   "curb|left:rich,right:god@seated_on_curb": {
+   "status": "PASS (final art)",
+   "profile": "conversation",
+   "lint": "pass"
+  },
+  "docks|left:rich,mid:jdm_importer_daughter_001,right:importer": {
    "status": "PASS (final art)",
    "profile": "conversation",
    "lint": "pass"
@@ -3785,12 +3842,12 @@
    "profile": "conversation",
    "lint": "pass"
   },
-  "family_house|left:dad,mid:rich": {
+  "family_house|left:mom,mid:rich,right:dad": {
    "status": "PASS (final art)",
    "profile": "conversation",
    "lint": "pass"
   },
-  "family_house|left:mom,mid:rich,right:dad": {
+  "family_house|left:rich,mid:brother1,right:brother2": {
    "status": "PASS (final art)",
    "profile": "conversation",
    "lint": "pass"
@@ -3800,12 +3857,17 @@
    "profile": "conversation",
    "lint": "pass"
   },
-  "fish_tank|left:rich,right:mazda_human": {
+  "fish_tank|": {
    "status": "PASS (final art)",
    "profile": "conversation",
    "lint": "pass"
   },
-  "food_court|left:rich": {
+  "food_court|left:rich,right:brenda": {
+   "status": "PASS (final art)",
+   "profile": "conversation",
+   "lint": "pass"
+  },
+  "food_court|left:rich,right:brenda@gossiping": {
    "status": "PASS (final art)",
    "profile": "conversation",
    "lint": "pass"
@@ -3830,6 +3892,11 @@
    "profile": "conversation",
    "lint": "pass"
   },
+  "gallery|left:rich,right:rookoko@painting": {
+   "status": "PASS (final art)",
+   "profile": "conversation",
+   "lint": "pass"
+  },
   "grave_closed|left:rich": {
    "status": "PASS (final art)",
    "profile": "conversation",
@@ -3846,6 +3913,16 @@
    "lint": "pass"
   },
   "grave|left:rich": {
+   "status": "PASS (final art)",
+   "profile": "conversation",
+   "lint": "pass"
+  },
+  "grave|left:rich,right:kaede": {
+   "status": "PASS (final art)",
+   "profile": "conversation",
+   "lint": "pass"
+  },
+  "grave|left:rich,right:kaede@ceiling_drop": {
    "status": "PASS (final art)",
    "profile": "conversation",
    "lint": "pass"
@@ -3875,7 +3952,17 @@
    "profile": "conversation",
    "lint": "pass"
   },
-  "kush_back|left:rich": {
+  "kitchen|left:rich,right:mazda_human": {
+   "status": "PASS (final art)",
+   "profile": "conversation",
+   "lint": "pass"
+  },
+  "kitchen|left:rich,right:ms_patrice": {
+   "status": "PASS (final art)",
+   "profile": "conversation",
+   "lint": "pass"
+  },
+  "kush_back|left:rich,right:emberly": {
    "status": "PASS (final art)",
    "profile": "conversation",
    "lint": "pass"
@@ -3912,11 +3999,6 @@
    "profile": "conversation",
    "lint": "pass"
   },
-  "lennox|left:rich,right:ms_patrice@laugh": {
-   "status": "PASS (final art)",
-   "profile": "conversation",
-   "lint": "pass"
-  },
   "little_tokyo|left:rich": {
    "status": "PASS (final art)",
    "profile": "conversation",
@@ -3943,6 +4025,11 @@
    "lint": "pass"
   },
   "little_tokyo|left:rich,right:hina@date": {
+   "status": "PASS (final art)",
+   "profile": "conversation",
+   "lint": "pass"
+  },
+  "little_tokyo|left:rich,right:hina@smug": {
    "status": "PASS (final art)",
    "profile": "conversation",
    "lint": "pass"
@@ -4032,17 +4119,17 @@
    "profile": "conversation",
    "lint": "pass"
   },
+  "naija_lot|left:rich": {
+   "status": "PASS (final art)",
+   "profile": "conversation",
+   "lint": "pass"
+  },
   "naija_lot|left:rich,right:nneka": {
    "status": "PASS (final art)",
    "profile": "conversation",
    "lint": "pass"
   },
   "naija_mart|left:rich,right:auntie": {
-   "status": "PASS (final art)",
-   "profile": "conversation",
-   "lint": "pass"
-  },
-  "naija_mart|left:rich,right:nneka": {
    "status": "PASS (final art)",
    "profile": "conversation",
    "lint": "pass"
@@ -4072,17 +4159,32 @@
    "profile": "conversation",
    "lint": "pass"
   },
+  "ocean_night_flight|left:rich,right:mazda_human": {
+   "status": "HOLD (placeholder environment)",
+   "profile": "conversation",
+   "lint": "pass"
+  },
   "onsen|left:rich": {
    "status": "PASS (final art)",
    "profile": "conversation",
    "lint": "pass"
   },
-  "party_hall_packed|left:rich": {
+  "party_hall_packed|left:rich,right:jade": {
    "status": "PASS (final art)",
    "profile": "conversation",
    "lint": "pass"
   },
   "party_hall|left:rich": {
+   "status": "PASS (final art)",
+   "profile": "conversation",
+   "lint": "pass"
+  },
+  "party_hall|left:rich,mid:kiki": {
+   "status": "PASS (final art)",
+   "profile": "conversation",
+   "lint": "pass"
+  },
+  "party_hall|left:rich,mid:kiki,right:moonie": {
    "status": "PASS (final art)",
    "profile": "conversation",
    "lint": "pass"
@@ -4149,7 +4251,17 @@
    "lint": "pass",
    "ticket": "NC-FAI-01"
   },
-  "rave_interior|left:rich": {
+  "rave_interior|left:rich,right:anfeesa@dj": {
+   "status": "PASS (final art)",
+   "profile": "conversation",
+   "lint": "pass"
+  },
+  "rave_interior|left:rich,right:lo@arm_fall": {
+   "status": "PASS (final art)",
+   "profile": "conversation",
+   "lint": "pass"
+  },
+  "roof|": {
    "status": "PASS (final art)",
    "profile": "conversation",
    "lint": "pass"
@@ -4214,12 +4326,22 @@
    "profile": "conversation",
    "lint": "pass"
   },
+  "street_night|left:rich,right:coffe@hype": {
+   "status": "PASS (final art)",
+   "profile": "conversation",
+   "lint": "pass"
+  },
   "street_night|left:rich,right:emberly@date": {
    "status": "PASS (final art)",
    "profile": "conversation",
    "lint": "pass"
   },
   "street_night|left:rich,right:hina@date": {
+   "status": "PASS (final art)",
+   "profile": "conversation",
+   "lint": "pass"
+  },
+  "street_night|left:rich,right:jdm_importer_daughter_001": {
    "status": "PASS (final art)",
    "profile": "conversation",
    "lint": "pass"
@@ -4255,6 +4377,11 @@
    "lint": "pass"
   },
   "street_night|left:rich,right:moonie@date": {
+   "status": "PASS (final art)",
+   "profile": "conversation",
+   "lint": "pass"
+  },
+  "street_night|left:rich,right:ms_patrice": {
    "status": "PASS (final art)",
    "profile": "conversation",
    "lint": "pass"
@@ -4334,7 +4461,7 @@
    "profile": "conversation",
    "lint": "pass"
   },
-  "suya_spot|left:rich": {
+  "suya_spot|left:rich,right:bunmi": {
    "status": "PASS (final art)",
    "profile": "conversation",
    "lint": "pass"
@@ -4350,6 +4477,26 @@
    "lint": "pass"
   },
   "throne_party_mess|mid:rich": {
+   "status": "PASS (final art)",
+   "profile": "conversation",
+   "lint": "pass"
+  },
+  "throne|left:rich,right:bard": {
+   "status": "PASS (final art)",
+   "profile": "conversation",
+   "lint": "pass"
+  },
+  "throne|left:rich,right:cleric": {
+   "status": "PASS (final art)",
+   "profile": "conversation",
+   "lint": "pass"
+  },
+  "throne|left:rich,right:coffe@rogue": {
+   "status": "PASS (final art)",
+   "profile": "conversation",
+   "lint": "pass"
+  },
+  "throne|left:rich,right:paladin": {
    "status": "PASS (final art)",
    "profile": "conversation",
    "lint": "pass"
@@ -4379,7 +4526,17 @@
    "profile": "conversation",
    "lint": "pass"
   },
+  "venice|left:rich,right:moonie": {
+   "status": "PASS (final art)",
+   "profile": "conversation",
+   "lint": "pass"
+  },
   "waffle_haven|left:rich,right:ms_patrice": {
+   "status": "PASS (final art)",
+   "profile": "conversation",
+   "lint": "pass"
+  },
+  "waffle_haven|left:rich,right:ms_patrice@laugh": {
    "status": "PASS (final art)",
    "profile": "conversation",
    "lint": "pass"

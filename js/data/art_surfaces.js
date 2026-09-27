@@ -18,6 +18,9 @@
   "A15:battle": [
    "catacomb|left:rich,right:iron_jaw"
   ],
+  "A15:lose": [
+   "catacomb|left:rich,right:iron_jaw"
+  ],
   "A16:wispa2": [
    "cafe|left:rich@laptop_seated,right:wispa"
   ],
@@ -36,7 +39,16 @@
   "A27:sword": [
    "throne_party_mess|mid:rich"
   ],
+  "A29C:forgive": [
+   "throne_party_mess|left:rich,right:vicky"
+  ],
   "A29C:fork": [
+   "throne_party_mess|left:rich,right:vicky"
+  ],
+  "A29C:roast": [
+   "throne_party_mess|left:rich,right:vicky"
+  ],
+  "A29C:spy": [
    "throne_party_mess|left:rich,right:vicky"
   ],
   "A29C:vicky": [

@@ -20,9 +20,9 @@
   arrive:{env:A=>A.vars.where==='slurp'?'slurp':'grave',actors:{left:'rich'},title:'WAIT, WHY ARE THERE FORTY OF THEM',
    lines:A=>[N(A.vars.where==='slurp'?'a ticket comes through: KEVIN x40. the whole line is one guy, forty times.':'the grave is full of the same guy. same hoodie. same haircut. all named kevin.'),N('they are all bowing to each other.')],
    next:'drop'},
-  drop:{lines:[N('something drops from the ceiling vent above the food court sign.'),E('kaede','a woman in all black lands in a crouch, then immediately falls over sideways.'),S('kaede','…i meant to do that.'),N('the kevins do not notice. she notices you noticing.')],
+  drop:{actors:{left:'rich',right:{id:'kaede',state:'ceiling_drop'}},lines:[N('something drops from the ceiling vent above the food court sign.'),E('kaede','a woman in all black lands in a crouch, then immediately falls over sideways.'),S('kaede','…i meant to do that.'),N('the kevins do not notice. she notices you noticing.')],
    enter:A=>{RARelations.meet('kaede','A18');},next:'talk'},
-  talk:{lines:[S('kaede','i was tailing one of them. they multiplied. this is not my first forty kevins.'),R('you just gonna lay there?')],
+  talk:{actors:{left:'rich',right:'kaede'},lines:[S('kaede','i was tailing one of them. they multiplied. this is not my first forty kevins.'),R('you just gonna lay there?')],
    choices:[{label:'HELP HER UP',fx:A=>RARelations.add('kaede',5,{reason:'helped her up'}),next:'fight'},{label:'"…WHY WERE YOU IN THE CEILING?"',fx:A=>RARelations.add('kaede',3,{reason:'asked'}),next:'fight'}]},
   fight:{lines:[N('the kevins turn, all forty heads at once.')],fight:{enemy:'kevins',params:{env:A=>A.vars.where==='slurp'?'slurp':'grave',intro:'FORTY KEVINS WANT TO FIGHT. ALL OF THEM.'},win:'after',lose:'after',spared:'after'}},
   after:{lines:A=>[N(A.vars.fight==='spared'?'the kevins disperse, satisfied in some way you will never understand.':A.vars.fight==='win'?'thirty-nine kevins scatter. one keeps bowing.':'the kevins pin you down and take turns apologizing while doing it.'),S('kaede','you handled that. weirdly well.'),R('i don\'t make the rules. i just live here.')],next:'behavior'},
@@ -141,14 +141,14 @@
  // Hilt arrives somewhere comfortable, Rich loses without a speech, cash taken, no penalty text.
  // ============================================================================================
  D({id:'A23',title:'HILT DOESN\'T PLAY',lane:'combat',memoryType:'combat',start:'arrive',nodes:{
-  arrive:{env:A=>RALife.hasRoom('party_hall')&&RALife.flag('partyNight')?'throne':'bedroom',actors:{mid:'rich'},title:'HE DOESN\'T KNOCK',
+  arrive:{env:A=>RALife.hasRoom('party_hall')&&RALife.flag('partyNight')?'throne':'bedroom',actors:{left:'rich',right:'hilt'},title:'HE DOESN\'T KNOCK',
    lines:[N('the door was locked. it does not matter.'),E('hilt','a very large man in a windbreaker is standing where a wall used to have room for one.'),S('hilt','you\'re rich alucard.'),R('…yeah?'),S('hilt','my brother told me about you.')],
    enter:A=>{RARelations.meet('hilt','A23');},next:'fight'},
   fight:{fight:{enemy:'hilt',params:{env:A=>A.vars.env||'bedroom',noPenalty:true,intro:'HILT DOESN\'T PLAY.'},win:'take',lose:'take',spared:'take'}},
   take:{lines:[N('however it went, hilt is still standing when it\'s over.'),N('he goes through your pockets, takes a stack, and does not count it.'),R('you gonna say something cool?'),S('hilt','no.')],
    enter:A=>{const cash=RALife.money();const cut=Math.round(cash*.25);RALife.addMoney(-cut);A.set('cut',cut);RALife.setFlag('hiltTook',{day:RALife.today().day,amount:cut});RALife.light('chaos',1,'a23:hilt');},
    next:'leave'},
-  leave:{lines:[N('he leaves the way he came, which is unclear, since the door is still locked.')],next:'end'},
+  leave:{actors:{left:'rich',right:{id:'hilt',state:'walk_away'}},lines:[N('he leaves the way he came, which is unclear, since the door is still locked.')],next:'end'},
   end:{end:{outcome:'lost',memory:A=>({text:`hilt took ${RALife.fmt(A.vars.cut||0)} and left without a speech`,lane:'combat',quality:1.3}),
    receipt:A=>({id:'hilt',caption:`hilt took ${RALife.fmt(A.vars.cut||0)}. no speech.`}),nightEnder:true,
    home:['rich','he really didn\'t say anything cool.',{vp:true}]}}
@@ -198,7 +198,7 @@
  // if Rich brings gift_flowers. Spell added to learnedMoves + magic.
  // ============================================================================================
  D({id:'A25',title:'NIGHTSHADE\'S SÉANCE',lane:'combat',memoryType:'combat',repeatable:true,start:'arrive',nodes:{
-  arrive:{env:'ballroom',actors:{left:'rich'},title:'THE EMPTY BALLROOM',
+  arrive:{env:'ballroom',actors:{left:'rich',right:'nightshade'},title:'THE EMPTY BALLROOM',
    lines:A=>{const met=RARelations.met('nightshade');const has=RALife.count('gift_flowers')>0;
     return [N(met?'the ballroom is empty except for her, standing exactly where you left her.':'a hotel ballroom nobody has booked in a decade. dust sheets over everything. one chandelier, still lit.'),
      ...(met?[]:[E('nightshade','a translucent woman in violet turns to face you before you\'ve made a sound.'),S('nightshade','you brought nothing.'),R('i didn\'t know i needed to.')]),
@@ -208,7 +208,7 @@
   spell:{lines:[N('she looks at the flowers for a long time before taking them.')],
    choices:[{label:'HEX',sub:'WEAKEN',fx:X=>X.set('spell','hex'),next:'cast'},{label:'VIOLET VEIL',sub:'BLOCK',fx:X=>X.set('spell','veil'),next:'cast'},
     {label:'SÉANCE',sub:'DOT',fx:X=>X.set('spell','seance'),next:'cast'},{label:'DEAD RINGER',sub:'STUN A BOSS',fx:X=>X.set('spell','ringer'),next:'cast'}]},
-  cast:{lines:A=>[N(`she teaches you ${RACombatData.MOVES[A.vars.spell]?.label||'a spell'}.`),S('nightshade','one per visit. that is how it works.')],
+  cast:{actors:{left:'rich',right:{id:'nightshade',state:'casting'}},lines:A=>[N(`she teaches you ${RACombatData.MOVES[A.vars.spell]?.label||'a spell'}.`),S('nightshade','one per visit. that is how it works.')],
    enter:A=>{RALife.consume('gift_flowers');learnMove(A.vars.spell,{magic:true});RARelations.add('nightshade',6,{reason:'brought flowers'});},next:'end'},
   end:{end:{outcome:A=>A.vars.spell||'empty-handed',memory:A=>({text:A.vars.spell?`learned ${RACombatData.MOVES[A.vars.spell].label.toLowerCase()} from nightshade`:'visited nightshade with nothing to give',lane:'combat',quality:A.vars.spell?1.2:.3}),
    home:A=>A.vars.spell?['rich','magic. actual magic.',{vp:true}]:null}}
@@ -239,7 +239,7 @@
     ...(RALife.hasRoom('dragon_roost')?[{label:'DRAGON NIGHT',fx:X=>X.set('theme','dragon'),next:nextNode}]:[])]}
  };}
  function partyRun(){return {
-  surface:{env:A=>(A.vars.tier==='extra'||(A.vars.guests||[]).length>=3)?'party_hall_packed':'party_hall',actors:{left:'rich'},
+  surface:{env:A=>(A.vars.tier==='extra'||(A.vars.guests||[]).length>=3)?'party_hall_packed':'party_hall',actors:A=>{const g=[...new Set(A.vars.guests||[])];return {left:'rich',...(g[0]?{mid:g[0]}:{}),...(g[1]?{right:g[1]}:{})};},
    title:A=>A.vars.theme==='black_tie'?'BLACK TIE. PACKED.':A.vars.theme==='dragon'?'DRAGON NIGHT.':'THE PARTY HALL',
    lines:A=>{const big=(A.vars.tier==='extra'||(A.vars.guests||[]).length>=3);const out=[N(big?'the party hall is packed. the bass is doing structural damage.':'a solid turnout. music, drinks, not a disaster yet.')];
     if(A.vars.song)out.push(N(`${RARadio.TRACKS.find(t=>t.id===A.vars.song)?.title||'the song'} is on repeat and everyone knows the words.`));
@@ -263,14 +263,14 @@
     for(const g of A.vars.guests||[])RARelations.add(g,4,{reason:'came to the party'});},
    next:'end'}
  };}
- D({id:'A26',title:'THE FIRST CASTLE PARTY',lane:'people',memoryType:'people',start:'guests',
+ D({id:'A26',title:'THE FIRST CASTLE PARTY',lane:'people',memoryType:'people',start:'guests',presentationVariants:[{guests:['kiki']},{guests:['kiki','moonie']}],
   available:L=>L.hasRoom('party_hall'),
   nodes:{...partyPlan('surface'),...partyRun(),
   end:{end:{outcome:A=>A.vars.partyOutcome||'good',memory:A=>({text:`threw the first castle party — it went ${A.vars.partyOutcome||'fine'}`,lane:'people',quality:A.vars.partyOutcome==='legendary'?2:1}),
    receipt:A=>({id:'a26',caption:`the first castle party. ${A.vars.partyOutcome||'fine'}.`}),nightEnder:true,chain:dragonNightJade,fx:A=>{RALife.setFlag('castlePartyHostingUnlocked',true);},
    home:['rich','the castle earned its name tonight.',{vp:true}]}}
  }});
- D({id:'HOST',title:'HOST A PARTY',lane:'people',memoryType:'people',repeatable:true,start:'guests',
+ D({id:'HOST',title:'HOST A PARTY',lane:'people',memoryType:'people',repeatable:true,start:'guests',presentationVariants:[{guests:['kiki']},{guests:['kiki','moonie']}],
   available:L=>L.done('A26'),
   nodes:{...partyPlan('surface'),...partyRun(),
   end:{end:{outcome:A=>A.vars.partyOutcome||'good',memory:A=>({text:`hosted a castle party — it went ${A.vars.partyOutcome||'fine'}`,lane:'people',quality:A.vars.partyOutcome==='legendary'?1.6:.8}),
@@ -301,7 +301,7 @@
  // closed mall. Also: meet Moonie via the gym on Venice or the Grave.
  // ============================================================================================
  D({id:'MOONIE_MEET',title:'THE GYM AT VENICE',lane:'people',memoryType:'people',repeatable:true,start:'arrive',nodes:{
-  arrive:{env:'venice',actors:{left:'rich'},title:'VENICE COURTS',
+  arrive:{env:'venice',actors:{left:'rich',right:'moonie'},title:'VENICE COURTS',
    lines:A=>{const met=RARelations.met('moonie');
     return met?[N('moonie is doing pull-ups on the rim.')]:[N('a woman is doing pull-ups on the basketball rim itself. the rim.'),E('moonie','she drops down, lands hard, grins with too many teeth.'),S('moonie','you gonna play or you gonna stare?'),R('bit of both.')];},
    enter:A=>{RARelations.meet('moonie','venice');},next:'end'},
