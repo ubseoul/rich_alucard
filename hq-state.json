@@ -1,0 +1,76 @@
+{
+  "status": "BUILDING",
+  "updated": "Sep 27, 2026",
+  "currentObjective": "Finish OPEN construction",
+  "currentDescription": "Close the remaining authorized build gaps and reach a stable OPEN checkpoint.",
+  "phases": [
+    {
+      "title": "BUILD THE GAME",
+      "subtitle": "Get the complete game assembled.",
+      "state": "current",
+      "tasks": [
+        {"label":"Core game + world","state":"done"},
+        {"label":"Adventures & systems","state":"done"},
+        {"label":"Characters & art","state":"done"},
+        {"label":"Combat & minigames","state":"done"},
+        {"label":"Finish OPEN construction","state":"current"}
+      ]
+    },
+    {
+      "title": "COMPLETE THE WORLD",
+      "subtitle": "Lock the build and install everything required before testing.",
+      "state": "future",
+      "tasks": [
+        {"label":"HQ final build review","state":"todo"},
+        {"label":"Fix remaining build gaps","state":"todo"},
+        {"label":"Lock OPEN game","state":"todo"},
+        {"label":"Install hidden content","state":"todo"},
+        {"label":"Integration sanity check","state":"todo"}
+      ]
+    },
+    {
+      "title": "BREAK THE GAME",
+      "subtitle": "Prove that it works — and find out whether it is fun.",
+      "state": "future",
+      "tasks": [
+        {"label":"Automated QA","state":"todo"},
+        {"label":"Multi-agent testing","state":"todo"},
+        {"label":"DeepSeek mass playtesting","state":"todo"},
+        {"label":"Long-life simulations","state":"todo"},
+        {"label":"Economy + progression testing","state":"todo"},
+        {"label":"Fun, repetition + discovery review","state":"todo"},
+        {"label":"Bug fixing","state":"todo"}
+      ]
+    },
+    {
+      "title": "MAKE IT HIT",
+      "subtitle": "Polish only what survives testing.",
+      "state": "future",
+      "tasks": [
+        {"label":"Cut / rebalance weak content","state":"todo"},
+        {"label":"Combat juice + enemy animations","state":"todo"},
+        {"label":"Music + audio pass","state":"todo"},
+        {"label":"Dialogue + presentation cleanup","state":"todo"},
+        {"label":"Visual polish","state":"todo"},
+        {"label":"Final performance pass","state":"todo"},
+        {"label":"UBE BLIND PLAYTEST","state":"todo"},
+        {"label":"Final fixes","state":"todo"}
+      ]
+    },
+    {
+      "title": "SHIP IT",
+      "subtitle": "Turn the finished game into something people can buy and play.",
+      "state": "future",
+      "tasks": [
+        {"label":"Release Candidate","state":"todo"},
+        {"label":"Payment / Stripe","state":"todo"},
+        {"label":"Buyer access + security","state":"todo"},
+        {"label":"Hosting","state":"todo"},
+        {"label":"Domain + release page","state":"todo"},
+        {"label":"Final production test","state":"todo"},
+        {"label":"PUBLIC RELEASE","state":"todo"},
+        {"label":"Monitor launch issues","state":"todo"}
+      ]
+    }
+  ]
+}
