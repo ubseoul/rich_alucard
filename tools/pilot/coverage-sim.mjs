@@ -26,6 +26,8 @@ const PERSONAS={
  party:{outings:3,dates:2,rooms:['party_hall','hookah_roof','music_room'],cars:[],properties:false,curious:.5,lanes:['people','dating','music','food','combat']},
  // Saves for the Party Hall first (VOL 1 A26 → A27 Bonesworth → hosting), to measure whether hosting fits a normal life.
  host:{outings:2,dates:1,rooms:['party_hall','dragon_roost','hookah_roof','kitchen'],cars:[],properties:false,curious:.6,saveFor:'party_hall'},
+ // Dates the woman closest to him whenever she can go out (the relationship ladder MET→COOL→CLOSE→RIDE-OR-DIE).
+ devoted:{outings:2,dates:1,rooms:['kitchen','movie_room'],cars:[],properties:false,curious:.3,devoted:true},
  landlord:{outings:2,dates:1,rooms:['garage','armory_wall','fish_tank','party_hall','coffin_upgrade'],cars:['s15','urus','aventador'],properties:true,curious:.4,lanes:['property','cars','mall','money','home','food']}
 };
 
@@ -69,7 +71,8 @@ export async function live(persona='explorer',{days=60,seed:runSeed=1,keepState=
    for(const o of list){if(o.adventure)firstOffer(o.adventure,day,o.kind);if(o.dead)report.dead.push({day,kind:o.kind,key:o.key});}
    // Rank: never-completed targets first (curiosity), then persona lanes, then anything.
    const cands=list.filter(o=>o.adventure&&!tried.has(o.key)&&RAAdventures.available(o.adventure)&&!(P.saveFor&&!RALife.hasRoom(P.saveFor)&&o.kind==='phone:realestate'));
-   const score=o=>{const def=RAAdventures.get(o.adventure);const neverDone=!report.completed[o.adventure];return (neverDone?2*P.curious:0)+((P.lanes||[def?.lane]).includes(def?.lane)?1:0)+(o.kind==='want'?.5:0)+R()*.8;};
+   const fav=P.devoted?RARelations.known({dateable:true}).sort((x,y)=>(y.points||0)-(x.points||0))[0]?.id:null;
+   const score=o=>{const def=RAAdventures.get(o.adventure);if(fav&&o.key===`date:${fav}`)return 99;const neverDone=!report.completed[o.adventure];return (neverDone?2*P.curious:0)+((P.lanes||[def?.lane]).includes(def?.lane)?1:0)+(o.kind==='want'?.5:0)+R()*.8;};
    cands.sort((a,b)=>score(b)-score(a));const o=cands[0];if(!o)break;tried.add(o.key);
    if(o.kind==='want')RATemptations.take(o.key);
    const r=run(o.adventure,o.vars||{},o.kind);if(r){outings++;night.taken.push(o.adventure);if(r==='night')nightOver=true;}

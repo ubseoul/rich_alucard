@@ -62,8 +62,12 @@
   },
   "A-britney-profile": {
    "key": "ui.avatars.britney_stakes",
-   "status": "REGISTERED — NO LIVE SURFACE",
-   "note": "A58 is a notification beat; no VampGram post by Britney Stakes exists to carry a profile."
+   "use": {
+    "surface": "VampGram: @britney_stakes posts carry her profile image (VOL 5 §2.11)",
+    "consumer": "js/phone/apps_core.js",
+    "token": "britney_stakes:'britney_stakes'"
+   },
+   "status": "INTEGRATED"
   },
   "A-bunmi-bedroom_company": {
    "key": "characters.bunmi.states.bedroom_company",
@@ -598,8 +602,12 @@
   },
   "A-wispa-wave": {
    "key": "characters.wispa.states.wave",
-   "status": "REGISTERED — NO OBJECTIVE BEAT",
-   "note": "No current OPEN beat narrates this exact reaction with the person on stage; placing it would be a guess."
+   "use": {
+    "surface": "adventure beat: first cook at the café closes, Wispa waves (VOL 1 A16)",
+    "consumer": "js/data/btf/adventures/systems.js",
+    "token": "content-state"
+   },
+   "status": "INTEGRATED"
   },
   "B-hatchling-happy": {
    "key": "dragon.hatchling.happy",
@@ -863,8 +871,12 @@
   },
   "D-r34-world": {
    "key": "vehicles.world.r34",
-   "status": "REGISTERED — NO LIVE SURFACE",
-   "note": "These cars are bought on the phone (no delivery beat); the GARAGE lift band is 32 px tall and cannot host a 50 px WORLD sprite without a minigame layout change; the Portobello Mazda is narrated at breakfast indoors (A30, protected PD-FA-03 scope)."
+   "use": {
+    "surface": "⌂ CASTLE → GARAGE trophy view",
+    "consumer": "js/data/btf/adventures/w1_life.js",
+    "token": "nissan_skyline_r34:'r34'"
+   },
+   "status": "INTEGRATED"
   },
   "D-rival_a-touge": {
    "key": "vehicles.touge.rival_a",
@@ -891,8 +903,12 @@
   },
   "D-s15_bodykit-world": {
    "key": "vehicles.world.s15_bodykit",
-   "status": "REGISTERED — NO LIVE SURFACE",
-   "note": "These cars are bought on the phone (no delivery beat); the GARAGE lift band is 32 px tall and cannot host a 50 px WORLD sprite without a minigame layout change; the Portobello Mazda is narrated at breakfast indoors (A30, protected PD-FA-03 scope)."
+   "use": {
+    "surface": "⌂ CASTLE → GARAGE trophy view (S15 with body kit)",
+    "consumer": "js/data/btf/adventures/w1_life.js",
+    "token": "'s15_bodykit'"
+   },
+   "status": "INTEGRATED"
   },
   "D-s15_stock-listing": {
    "key": "vehicles.listing.s15",
@@ -905,13 +921,21 @@
   },
   "D-s15_stock-world": {
    "key": "vehicles.world.s15",
-   "status": "REGISTERED — NO LIVE SURFACE",
-   "note": "These cars are bought on the phone (no delivery beat); the GARAGE lift band is 32 px tall and cannot host a 50 px WORLD sprite without a minigame layout change; the Portobello Mazda is narrated at breakfast indoors (A30, protected PD-FA-03 scope)."
+   "use": {
+    "surface": "⌂ CASTLE → GARAGE trophy view (every owned car, native 1:1)",
+    "consumer": "js/data/btf/adventures/w1_life.js",
+    "token": "nissan_silvia_s15:'s15'"
+   },
+   "status": "INTEGRATED"
   },
   "D-s2000_pink-listing": {
    "key": "vehicles.listing.s2000",
-   "status": "REGISTERED — NO LIVE SURFACE",
-   "note": "The S2000 is never listed for sale (Pinky gives it in A36)."
+   "use": {
+    "surface": "A36: Pinky's TAKE THE S2000 choice carries the listing art",
+    "consumer": "js/data/btf/adventures/w4.js",
+    "token": "listing?.s2000"
+   },
+   "status": "INTEGRATED"
   },
   "D-s2000_pink-world": {
    "key": "vehicles.world.s2000",
@@ -961,8 +985,12 @@
   },
   "E-bonesworth_sword": {
    "key": "props.bonesworth_sword",
-   "status": "REGISTERED — NO LIVE SURFACE",
-   "note": "Adventures have no item layer for these beats (A27 sword, A10 bread, A11/A09 egg); HATCH shows the Ship 005 egg master. Wiring them needs a placement decision."
+   "use": {
+    "surface": "⌂ CASTLE → ARMORY WALL: Sir Bonesworth's sword hangs on the wall (after A27 sword choice)",
+    "consumer": "js/data/btf/adventures/w1_life.js",
+    "token": "props?.bonesworth_sword"
+   },
+   "status": "INTEGRATED"
   },
   "E-bread-torn": {
    "key": "props.agege_bread_torn",
@@ -971,13 +999,21 @@
   },
   "E-egg-bed": {
    "key": "props.mazda_egg_bed",
-   "status": "REGISTERED — NO LIVE SURFACE",
-   "note": "Adventures have no item layer for these beats (A27 sword, A10 bread, A11/A09 egg); HATCH shows the Ship 005 egg master. Wiring them needs a placement decision."
+   "use": {
+    "surface": "A11 wake: the egg on the red bed (world art, native 1:1)",
+    "consumer": "js/data/btf/adventures/w2.js",
+    "token": "props?.mazda_egg_bed"
+   },
+   "status": "INTEGRATED"
   },
   "E-egg-cracking": {
    "key": "props.mazda_egg_cracking",
-   "status": "REGISTERED — NO LIVE SURFACE",
-   "note": "Adventures have no item layer for these beats (A27 sword, A10 bread, A11/A09 egg); HATCH shows the Ship 005 egg master. Wiring them needs a placement decision."
+   "use": {
+    "surface": "A11 crack: the egg cracks on the bed",
+    "consumer": "js/data/btf/adventures/w2.js",
+    "token": "props?.mazda_egg_cracking"
+   },
+   "status": "INTEGRATED"
   },
   "E-egg-held": {
    "key": "props.mazda_egg_held",
@@ -1004,8 +1040,12 @@
   },
   "E-fit-church_shoes": {
    "key": "items.fits.church_shoes",
-   "status": "REGISTERED — NO LIVE SURFACE",
-   "note": "CHURCH SHOES is a fit whose store (armory) sells guns only; no player can buy it, so there is no choice to carry its art."
+   "use": {
+    "surface": "THE ARMORY sells CHURCH SHOES (VOL 3 §2.1); choice icon",
+    "consumer": "js/data/btf/adventures/w3.js",
+    "token": "id:'church_shoes',kind:'fit'"
+   },
+   "status": "INTEGRATED"
   },
   "E-fit-drift_sneakers": {
    "key": "items.fits.drift_sneakers",

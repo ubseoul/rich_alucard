@@ -173,7 +173,7 @@
   pinky:{env:'grave_closed',actors:{left:'rich',right:{id:'pinky',state:'impressed'}},
    lines:A=>{const close=RARelations.level('pinky')>=3;return [N('pinky was watching from the top of the ramp.'),
     S('pinky',close?"you drive it better than me. take the s2000. i\'ll get another one.":'clean run. i saw the whole thing.')];},
-   choices:A=>RARelations.level('pinky')>=3?[{label:'TAKE THE S2000',fx:X=>{if(RACars.buy('s2000'))X.set('gotCar',true);},next:'done'}]:[{label:'CONTINUE',next:'done'}]},
+   choices:A=>RARelations.level('pinky')>=3?[{icon:window.RAArtRegistry?.vehicles?.listing?.s2000?.asset||null,label:'TAKE THE S2000',fx:X=>{if(RACars.buy('s2000'))X.set('gotCar',true);},next:'done'}]:[{label:'CONTINUE',next:'done'}]},
   done:{end:{outcome:A=>(A.vars.leadWin&&A.vars.chaseWin)?'win':'lose',
    fx:A=>{if(A.vars.leadWin&&A.vars.chaseWin)RALife.setFlag('r34Lead',true);},
    memory:A=>({text:(A.vars.leadWin&&A.vars.chaseWin)?'ran a tandem with tokyo tony in the grave garage — and won':'lost the tandem with tokyo tony',lane:'cars'}),

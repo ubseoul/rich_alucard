@@ -3,9 +3,9 @@
  "summary": {
   "frozenFiles": 391,
   "assets": {
-   "FROZEN + ALREADY INTEGRATED": 312,
-   "REGISTERED — NO OBJECTIVE BEAT": 6,
-   "REGISTERED — NO LIVE SURFACE": 19,
+   "FROZEN + ALREADY INTEGRATED": 322,
+   "REGISTERED — NO OBJECTIVE BEAT": 5,
+   "REGISTERED — NO LIVE SURFACE": 10,
    "REGISTERED — PERSON NOT ON STAGE": 1,
    "REGISTERED — CAST CHANGE REQUIRED": 1,
    "REGISTERED — ART-MAPPED SURFACE CONFLICT": 2,
@@ -24,7 +24,7 @@
    "environment: NO APPROVED ART YET": 3
   },
   "screens": {
-   "PASS": 263,
+   "PASS": 265,
    "HOLD": 1
   }
  },
@@ -129,9 +129,10 @@
    "path": "assets/before_the_fame/art_ship_014/package_a/A-britney-profile.png",
    "kind": "ui-avatars",
    "id": "ui.avatars.britney_stakes",
-   "status": "REGISTERED — NO LIVE SURFACE",
-   "runtime": [],
-   "note": "A58 is a notification beat; no VampGram post by Britney Stakes exists to carry a profile."
+   "status": "FROZEN + ALREADY INTEGRATED",
+   "runtime": [
+    "VampGram: @britney_stakes posts carry her profile image (VOL 5 §2.11)"
+   ]
   },
   {
    "path": "assets/before_the_fame/art_ship_014/package_a/A-bunmi-bedroom_company.png",
@@ -721,9 +722,10 @@
    "path": "assets/before_the_fame/art_ship_014/package_a/A-wispa-wave.png",
    "kind": "character-state",
    "id": "characters.wispa.states.wave",
-   "status": "REGISTERED — NO OBJECTIVE BEAT",
-   "runtime": [],
-   "note": "No current OPEN beat narrates this exact reaction with the person on stage; placing it would be a guess."
+   "status": "FROZEN + ALREADY INTEGRATED",
+   "runtime": [
+    "adventure beat: first cook at the café closes, Wispa waves (VOL 1 A16)"
+   ]
   },
   {
    "path": "assets/before_the_fame/art_ship_014/package_b/B-hatchling-happy.png",
@@ -1010,9 +1012,10 @@
    "path": "assets/before_the_fame/art_ship_014/package_d/D-r34-world.png",
    "kind": "vehicles-world",
    "id": "vehicles.world.r34",
-   "status": "REGISTERED — NO LIVE SURFACE",
-   "runtime": [],
-   "note": "These cars are bought on the phone (no delivery beat); the GARAGE lift band is 32 px tall and cannot host a 50 px WORLD sprite without a minigame layout change; the Portobello Mazda is narrated at breakfast indoors (A30, protected PD-FA-03 scope)."
+   "status": "FROZEN + ALREADY INTEGRATED",
+   "runtime": [
+    "⌂ CASTLE → GARAGE trophy view"
+   ]
   },
   {
    "path": "assets/before_the_fame/art_ship_014/package_d/D-rival_a-touge.png",
@@ -1044,9 +1047,10 @@
    "path": "assets/before_the_fame/art_ship_014/package_d/D-s15_bodykit-world.png",
    "kind": "vehicles-world",
    "id": "vehicles.world.s15_bodykit",
-   "status": "REGISTERED — NO LIVE SURFACE",
-   "runtime": [],
-   "note": "These cars are bought on the phone (no delivery beat); the GARAGE lift band is 32 px tall and cannot host a 50 px WORLD sprite without a minigame layout change; the Portobello Mazda is narrated at breakfast indoors (A30, protected PD-FA-03 scope)."
+   "status": "FROZEN + ALREADY INTEGRATED",
+   "runtime": [
+    "⌂ CASTLE → GARAGE trophy view (S15 with body kit)"
+   ]
   },
   {
    "path": "assets/before_the_fame/art_ship_014/package_d/D-s15_stock-listing.png",
@@ -1061,17 +1065,19 @@
    "path": "assets/before_the_fame/art_ship_014/package_d/D-s15_stock-world.png",
    "kind": "vehicles-world",
    "id": "vehicles.world.s15",
-   "status": "REGISTERED — NO LIVE SURFACE",
-   "runtime": [],
-   "note": "These cars are bought on the phone (no delivery beat); the GARAGE lift band is 32 px tall and cannot host a 50 px WORLD sprite without a minigame layout change; the Portobello Mazda is narrated at breakfast indoors (A30, protected PD-FA-03 scope)."
+   "status": "FROZEN + ALREADY INTEGRATED",
+   "runtime": [
+    "⌂ CASTLE → GARAGE trophy view (every owned car, native 1:1)"
+   ]
   },
   {
    "path": "assets/before_the_fame/art_ship_014/package_d/D-s2000_pink-listing.png",
    "kind": "vehicles-listing",
    "id": "vehicles.listing.s2000",
-   "status": "REGISTERED — NO LIVE SURFACE",
-   "runtime": [],
-   "note": "The S2000 is never listed for sale (Pinky gives it in A36)."
+   "status": "FROZEN + ALREADY INTEGRATED",
+   "runtime": [
+    "A36: Pinky's TAKE THE S2000 choice carries the listing art"
+   ]
   },
   {
    "path": "assets/before_the_fame/art_ship_014/package_d/D-s2000_pink-world.png",
@@ -1129,9 +1135,10 @@
    "path": "assets/before_the_fame/art_ship_014/package_e/E-bonesworth_sword.png",
    "kind": "props-bonesworth_sword",
    "id": "props.bonesworth_sword",
-   "status": "REGISTERED — NO LIVE SURFACE",
-   "runtime": [],
-   "note": "Adventures have no item layer for these beats (A27 sword, A10 bread, A11/A09 egg); HATCH shows the Ship 005 egg master. Wiring them needs a placement decision."
+   "status": "FROZEN + ALREADY INTEGRATED",
+   "runtime": [
+    "⌂ CASTLE → ARMORY WALL: Sir Bonesworth's sword hangs on the wall (after A27 sword choice)"
+   ]
   },
   {
    "path": "assets/before_the_fame/art_ship_014/package_e/E-bread-torn.png",
@@ -1145,17 +1152,19 @@
    "path": "assets/before_the_fame/art_ship_014/package_e/E-egg-bed.png",
    "kind": "props-mazda_egg_bed",
    "id": "props.mazda_egg_bed",
-   "status": "REGISTERED — NO LIVE SURFACE",
-   "runtime": [],
-   "note": "Adventures have no item layer for these beats (A27 sword, A10 bread, A11/A09 egg); HATCH shows the Ship 005 egg master. Wiring them needs a placement decision."
+   "status": "FROZEN + ALREADY INTEGRATED",
+   "runtime": [
+    "A11 wake: the egg on the red bed (world art, native 1:1)"
+   ]
   },
   {
    "path": "assets/before_the_fame/art_ship_014/package_e/E-egg-cracking.png",
    "kind": "props-mazda_egg_cracking",
    "id": "props.mazda_egg_cracking",
-   "status": "REGISTERED — NO LIVE SURFACE",
-   "runtime": [],
-   "note": "Adventures have no item layer for these beats (A27 sword, A10 bread, A11/A09 egg); HATCH shows the Ship 005 egg master. Wiring them needs a placement decision."
+   "status": "FROZEN + ALREADY INTEGRATED",
+   "runtime": [
+    "A11 crack: the egg cracks on the bed"
+   ]
   },
   {
    "path": "assets/before_the_fame/art_ship_014/package_e/E-egg-held.png",
@@ -1187,9 +1196,10 @@
    "path": "assets/before_the_fame/art_ship_014/package_e/E-fit-church_shoes.png",
    "kind": "items-fits",
    "id": "items.fits.church_shoes",
-   "status": "REGISTERED — NO LIVE SURFACE",
-   "runtime": [],
-   "note": "CHURCH SHOES is a fit whose store (armory) sells guns only; no player can buy it, so there is no choice to carry its art."
+   "status": "FROZEN + ALREADY INTEGRATED",
+   "runtime": [
+    "THE ARMORY sells CHURCH SHOES (VOL 3 §2.1); choice icon"
+   ]
   },
   {
    "path": "assets/before_the_fame/art_ship_014/package_e/E-fit-drift_sneakers.png",
@@ -3730,6 +3740,11 @@
    "profile": "conversation",
    "lint": "pass"
   },
+  "cafe|left:rich,right:wispa@wave": {
+   "status": "PASS (final art)",
+   "profile": "conversation",
+   "lint": "pass"
+  },
   "cafe|left:rich@laptop_nod": {
    "status": "PASS (final art)",
    "profile": "conversation",
@@ -4003,6 +4018,11 @@
    "lint": "pass"
   },
   "gallery|left:rich,right:rookoko@painting": {
+   "status": "PASS (final art)",
+   "profile": "conversation",
+   "lint": "pass"
+  },
+  "garage|": {
    "status": "PASS (final art)",
    "profile": "conversation",
    "lint": "pass"

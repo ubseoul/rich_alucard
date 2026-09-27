@@ -104,8 +104,8 @@
 
  // ---------------------------------------------------------------- A11 — HATCH NIGHT
  D({id:'A11',title:'HATCH NIGHT',lane:'dragons',memoryType:'dragons',available:L=>L.dragon?.stage==='egg',testSetup:ctx=>{ctx.RADragon.adoptEgg();},start:'wake',nodes:{
-  wake:{env:'bedroom',actors:{left:'rich'},lines:[N('something on the red bed is moving.')],next:'crack'},
-  crack:{lines:[N('the egg cracks. a small blue dragon flops onto the bed, soaked and furious about it.')],next:'name'},
+  wake:{env:'bedroom',actors:{left:'rich'},props:()=>[{src:window.RAArtRegistry?.props?.mazda_egg_bed?.asset,x:200,y:346}],lines:[N('something on the red bed is moving.')],next:'crack'},
+  crack:{props:()=>[{src:window.RAArtRegistry?.props?.mazda_egg_cracking?.asset,x:200,y:346}],lines:[N('the egg cracks. a small blue dragon flops onto the bed, soaked and furious about it.')],next:'name'},
   name:{lines:[N('a name suggests itself, like it was always true.')],
    choices:[{label:'BLUEBERRY MAZDA',octopus:true,next:'confirm'}]},
   confirm:{lines:[R('blueberry mazda. that\'s your name. don\'t ask me why.'),N('…MAZDA. BLUEBERRY MAZDA.')],next:'sneeze'},

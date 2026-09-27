@@ -115,7 +115,9 @@ async function playMinigame(p,id,rng,{budgetMs=9000,preferQuit=false}={}){
  const done=async()=>!(await mgActive(p));
  const until=async(fn)=>{while(Date.now()-t0<budgetMs){if(await done())return true;await fn();}return done();};
  if(preferQuit){await tapN(p,b,135,300);await settle(p,300);}
- else if(id==='touge'){await until(async()=>{const [X,Y]=nat(b,230,420);await p.mouse.move(X,Y);await p.mouse.down();await p.waitForTimeout(700+rng()*500);await p.mouse.up();await tapN(p,b,40+rng()*40,420,150+rng()*150);await tapN(p,b,200,418);});}
+ // TOUGE: drive until the minigame itself reports `results` (read-only data-phase marker; a 90 game-second run takes
+ // longer in real time under headless load), then tap DONE. Engineering 06; earlier runs always hit the budget and QUIT.
+ else if(id==='touge'){await until(async()=>{const phase=await p.evaluate(()=>document.querySelector('.ra-minigame [data-phase]')?.dataset.phase||document.querySelector('.ra-minigame-stage')?.dataset.phase||null);if(phase==='results'){await tapN(p,b,200,418);await settle(p,400);return;}const [X,Y]=nat(b,230,420);await p.mouse.move(X,Y);await p.mouse.down();await p.waitForTimeout(1500+rng()*800);await p.mouse.up();await tapN(p,b,40+rng()*40,420,150+rng()*150);});}
  else if(id==='garage'){await until(async()=>{await tapN(p,b,30+rng()*210,90+rng()*300);await settle(p,120);await tapN(p,b,200,457);await settle(p,200);});}
  else if(id==='pier'){await until(async()=>{await tapN(p,b,135,300,500+rng()*800);await settle(p,500+rng()*900);for(let i=0;i<4;i++){await tapN(p,b,135,300,250);await settle(p,120);}if(Date.now()-t0>budgetMs*.4)for(let y=200;y<=440;y+=16)await tapN(p,b,190,y,30);});}
  else if(id==='hatch'){let n=0;await until(async()=>{n++;if(n===1){await tapN(p,b,135,445);await settle(p,300);await tapN(p,b,40,445);await settle(p,400);for(let y=150;y<=420;y+=12){await tapN(p,b,135,y,30);await settle(p,60);}await settle(p,400);await tapN(p,b,125,445);await settle(p,500);await tapN(p,b,210,445);await settle(p,500);return;}await tapN(p,b,40,402);await settle(p,300);});}
@@ -338,7 +340,7 @@ async function scenarioMinigames(save){
    const t0=Date.now();while(!s.minigame&&Date.now()-t0<25000&&(s.scene==='adventure'||s.advScene)){if(s.choices.length)await p.locator('.adv-choice:not([disabled])').first().click();else await p.locator('#adventureScene').click({position:{x:195,y:340}}).catch(()=>{});await settle(p,150);s=await probe(p);}
    if(!s.minigame){finding('PLAYTEST BLOCKER','MINIGAME-ROUTE',`${id}: player route did not launch the minigame (scene ${s.scene}/${s.adv||'-'}/${s.node||'-'}, phone ${s.phonePage||'-'})`);await snap(p,`mg-route-${id}`);flushErrors(p,`mg-${id}`);await p.context().close();results[id]={...(results[id]||{}),[mode]:'ROUTE FAIL'};continue;}
    await snap(p,`mg-${id}-${mode}-in`);
-   const r=await playMinigame(p,id,rng,{budgetMs:mode==='quit'?1500:({touge:Number(args.tougeMs||110000),bars:80000,slurp:70000,pier:70000,jollof:60000}[id]||40000),preferQuit:mode==='quit'});
+   const r=await playMinigame(p,id,rng,{budgetMs:mode==='quit'?1500:({touge:Number(args.tougeMs||300000),bars:80000,slurp:70000,pier:70000,jollof:60000}[id]||40000),preferQuit:mode==='quit'});
    await snap(p,`mg-${id}-${mode}-out`);
    const d=await drive(p,rng,`mg-${id}-${mode}-return`);
    const after=await p.evaluate(()=>({money:RALife.money(),progress:JSON.stringify(RAState.get().life.minigames||{}),mg:window.__mg,scene:RAScenes.current(),items:JSON.stringify(RAState.get().life.ownership.items),dragon:JSON.stringify(RAState.get().life.ownership.dragon)}));

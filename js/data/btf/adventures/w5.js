@@ -107,6 +107,10 @@
    end:{outcome:'liked',memory:{text:'britney stakes liked his post',lane:'world',quality:1},receipt:{caption:'britney stakes liked it. once.'}}}
  }});
 
+ // BRITNEY STAKES (VOL 5 §2.11): "only on VampGram (she posts; Rich reacts)". Her feed posts carry her frozen profile image
+ // (ART SHIP 014 A-britney-profile). Functional draft captions; the late-game like stays A58.
+ RAClock.onWake('britney-stakes',66,({info})=>{if(!info.friday||info.day<8)return;const lines=['new era. same fangs. 💋','tour rehearsal at 3 a.m. like always.','they said vampire pop was over. they were wrong.','throwback to when i invented glitter.'];
+  window.RAVampGram?.post?.({id:`britney:${info.day}`,handle:'britney_stakes',text:lines[Math.floor(info.day/7)%lines.length],likes:250000+RALife.hash(info.day)%90000});});
  // Late-game wake triggers.
  RAWakeTriggers.define([
   {adventure:'A53',when:L=>L.day===57&&!L.life.momentum.fameFired,priority:90},

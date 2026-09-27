@@ -33,6 +33,8 @@
  }});
  function fitNote(id){const f=F()[id];if(f.maxhp)return `+${f.maxhp} MAX HP`;if(f.def)return `+${Math.round(f.def*100)}% DEFENSE`;if(f.crit)return `+${Math.round(f.crit*100)}% CRIT`;if(f.charisma)return 'CHARISMA ALWAYS LANDS ONCE';if(f.style)return '+5% TOUGE STYLE';if(f.gun)return '+10% GUN DAMAGE';if(id==='grave_hoodie')return 'NOTHING. IT\'S COMFY.';if(id==='slides')return 'UNCLE SUNDAY RESPECTS YOU';return 'NO STATS. JUST RIGHT.';}
  // COOK A TRACK — the 60-second choice ritual (café laptop or Music Room).
+ // VOL 1 A16: the first cook at the café ends with "the café closes; Wispa waves."
+ const waves=A=>A.vars.where!=='music_room'&&!RALife.flag('wispaWaved')&&RALife.done('A16');
  D({id:'COOK',title:'COOK A TRACK',lane:'music',repeatable:true,oncePerNight:true,memoryType:'music',start:'memory',
   available:L=>RALife.recentMemories(10).length>0,
   nodes:{
@@ -43,7 +45,8 @@
   title:{lines:[N('what is it called?')],choices:A=>{const mem=RAState.get().life.memoryLog.find(m=>m.id===A.vars.mem)||RAMusic.memories()[0];return RAMusic.titles(mem).map(t=>({label:t.title,sub:'TITLE · VOICE PASS',fx:X=>X.set('title',t.title),next:'cooked'}));}},
   cooked:{actors:{left:{id:'rich',state:'laptop_nod'}},enter:A=>{const r=RAMusic.cook({memoryId:A.vars.mem,beat:A.vars.beat,hookIndex:A.vars.hook,title:A.vars.title});A.set('song',r?.song?.id||null);A.set('unlocked',r?.unlocked||null);},
    lines:A=>{const tr=RARadio.TRACKS.find(t=>t.id===A.vars.unlocked);return [N(`"${A.vars.title}" is cooked.`),...(tr?[N(`this is the song that came out of that night: ${tr.title}.`)]:[])];},
-   choices:[{label:'DROP IT ON VAMPGRAM',fx:A=>RAMusic.drop(A.vars.song,'vampgram'),next:'done'},{label:'SIT ON IT',next:'done'}]},
+   choices:[{label:'DROP IT ON VAMPGRAM',fx:A=>RAMusic.drop(A.vars.song,'vampgram'),next:A=>waves(A)?'closing':'done'},{label:'SIT ON IT',next:A=>waves(A)?'closing':'done'}]},
+  closing:{env:'cafe',actors:{left:'rich',right:{id:'wispa',state:'wave'}},lines:[N('the café closes.'),N('wispa waves.')],enter:A=>RALife.setFlag('wispaWaved',true),next:'done'},
   done:{end:{outcome:'cooked',memory:A=>({text:`cooked a song about ${(RAState.get().life.memoryLog.find(m=>m.id===A.vars.mem)?.text||'that night')}`,lane:'music'}),home:['rich','…that one might be something.',{vp:true}]}}
  }});
  // Shannon walkthrough for the repeatable property listings.

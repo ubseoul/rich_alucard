@@ -219,7 +219,9 @@
 
   let state={heading:0,slideAngle:0,speed:0,x:0,distance:0,sliding:false,spinning:false};
   let score=0,chain=1,spins=0,maxAngleSeen=0,clipHits=0,wallCooldown=0,tandemScore=0;
-  let phase='run',runElapsed=0,resultShown=null;
+  // Read-only marker for test harnesses (Engineering 06): headless frame rates stretch the 90 game-second run past any
+  // fixed real-time budget, so drivers wait for `results` instead of guessing. No gameplay effect.
+  let phase='run',runElapsed=0,resultShown=null;root.dataset.phase=phase;
   let cleanTimer=0,rewardedClean=false;
   let lessonFlash={text:LESSON_WORD[lesson]||null,t:LESSON_WORD[lesson]?1.6:0};
   let lessonCounts={1:0,2:0,3:0,4:0};
@@ -289,12 +291,12 @@
    course=buildCourse(P.course&&COURSE_THEME[P.course]?P.course:'angeles_crest',Math.floor(Math.random()*1e9));
    state={heading:0,slideAngle:0,speed:0,x:0,distance:0,sliding:false,spinning:false};
    score=0;chain=1;spins=0;maxAngleSeen=0;clipHits=0;wallCooldown=0;tandemScore=0;
-   runElapsed=0;phase='run';resultShown=null;cleanTimer=0;rewardedClean=false;spunAt=-9;
+   runElapsed=0;phase='run';root.dataset.phase=phase;resultShown=null;cleanTimer=0;rewardedClean=false;spunAt=-9;
    lessonCounts={1:0,2:0,3:0,4:0};
    lessonFlash={text:LESSON_WORD[lesson]||null,t:LESSON_WORD[lesson]?1.6:0};
   }
   function endRun(){
-   phase='results';
+   phase='results';root.dataset.phase=phase;
    const prev=ctx.progress();
    const best=Math.max(score,(prev.best&&prev.best[bestKey()])||0);
    const nextBest={...(prev.best||{}),[bestKey()]:best};

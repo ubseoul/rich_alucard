@@ -70,12 +70,23 @@
   {id:'peking',label:'PEKING NAIJA',sub:'THE USUAL',adventure:'PEKING',order:11},
   {id:'naija_mart',label:'NAIJA MART',sub:'HAWTHORNE',adventure:L=>L.done('A43')?'NAIJA':null,order:30},
   {id:'castle:music',hidden:true,go:api=>RAAdventureScene.begin('COOK',{vars:{where:'music_room'}})},
-  {id:'castle:garage',hidden:true,go:async api=>{window.RAPhone?.openApp?.('touge');return true;}},
+  {id:'castle:garage',hidden:true,adventure:'GARAGE_VIEW'},
   {id:'castle:armory',hidden:true,go:api=>RAAdventureScene.begin('ARMORY_WALL')},
   {id:'castle:coffin',hidden:true,go:api=>RAAdventureScene.begin('COFFIN')},
   {id:'castle:fishtank',hidden:true,go:api=>RAAdventureScene.begin('FISHTANK')}
  ]);
- D({id:'ARMORY_WALL',title:'THE ARMORY WALL',lane:'combat',repeatable:true,start:'look',nodes:{look:{env:'armory',actors:{left:'rich'},lines:A=>{const g=RALife.life().ownership.guns||[];return [N(g.length?`on the wall: ${g.map(x=>RACombatData.GUNS[x.id]?.label).filter(Boolean).join(', ').toLowerCase()}.`:'an empty wall. it wants guns.'),...(RALife.flag('bonesworthSword')?[N("sir bonesworth's sword hangs in the middle. it is rusted. it is perfect.")]:[])];},end:{outcome:'looked',memory:{text:'looking at the armory wall',lane:'combat',quality:.3}}}}});
+ D({id:'ARMORY_WALL',title:'THE ARMORY WALL',lane:'combat',repeatable:true,start:'look',nodes:{look:{env:'armory',actors:{left:'rich'},props:()=>RALife.flag('bonesworthSword')?[{src:window.RAArtRegistry?.props?.bonesworth_sword?.asset,x:190,y:160}]:[],lines:A=>{const g=RALife.life().ownership.guns||[];return [N(g.length?`on the wall: ${g.map(x=>RACombatData.GUNS[x.id]?.label).filter(Boolean).join(', ').toLowerCase()}.`:'an empty wall. it wants guns.'),...(RALife.flag('bonesworthSword')?[N("sir bonesworth's sword hangs in the middle. it is rusted. it is perfect.")]:[])];},end:{outcome:'looked',memory:{text:'looking at the armory wall',lane:'combat',quality:.3}}}}});
+ // THE GARAGE (castle room): every owned car on the floor as its frozen WORLD sprite (native 1:1), pick tonight's TOUGE
+ // car, or open the parts bay. VOL 1 §9.1 "Trophy view of every car; TOUGE car select from home"; VOL 5 §4.2 GARAGE.
+ const WORLD_KEY={toyota_supra_mk4_001:null,nissan_silvia_s15:'s15',honda_s2000_pink:'s2000',nissan_skyline_r34:'r34',lambo_urus_oxblood:'urus',lambo_aventador:'aventador',ferrari_f40:'ferrari'};
+ const garageCars=()=>RALife.ownedCars().slice(0,4).map((c,i)=>{const k=c.id===RACars.CATALOG.s15.id&&c.parts?.bodykit?'s15_bodykit':WORLD_KEY[c.id];return {src:k?window.RAArtRegistry?.vehicles?.world?.[k]?.asset:null,x:[68,202,68,202][i],y:[300,300,370,370][i]};}).filter(p=>p.src);
+ D({id:'GARAGE_VIEW',title:'THE GARAGE',lane:'cars',repeatable:true,memoryType:'cars',start:'look',nodes:{
+  look:{env:'garage',actors:null,props:()=>garageCars(),title:'THE GARAGE',lines:A=>{const n=RALife.ownedCars().length;return [N(n?`every car you own, lined up. ${n===1?'one car.':n+' cars.'}`:'an empty garage. it wants cars.')];},
+   choices:A=>[...RALife.ownedCars().map(c=>({label:`TONIGHT: THE ${(c.short||c.model||'CAR').toUpperCase()}${RALife.flag('tougeCar')===c.id?' ✓':''}`,sub:'TOUGE CAR',fx:()=>RALife.setFlag('tougeCar',c.id),next:'look'})),
+    ...(RALife.ownedCars().length?[{label:'PARTS BAY',sub:'TUNE TONIGHT\'S CAR',next:'parts'}]:[]),{label:"I'M GOOD",next:'out'}]},
+  parts:{minigame:{id:'garage',params:()=>{const cars=RALife.ownedCars();const car=cars.find(c=>c.id===RALife.flag('tougeCar'))||cars.at(-1);return {car:RACars.toTouge(car).replace('r34_awd','r34').replace('r34_rwd','r34'),owned:car.parts||{},parts:car.parts||{},money:RALife.money(),lessonsSeen:RALife.flag('garageLessons')||[]};},next:()=>'look'}},
+  out:{end:{outcome:'looked',memory:{text:'looking at the cars in the garage',lane:'cars',quality:.3}}}
+ }});
  D({id:'COFFIN',title:'THE COFFIN',lane:'home',repeatable:true,start:'look',nodes:{look:{env:'bedroom',actors:{left:'rich'},lines:A=>[N(RALife.life().clock.hungover?'you are hungover. you get in the coffin. perfect darkness.':'a very nice coffin. you only sleep in it when hungover.')],end:{outcome:'looked',memory:{text:'the coffin upgrade',lane:'home',quality:.2}}}}});
  D({id:'FISHTANK',title:'THE FISH TANK ROOM',lane:'home',repeatable:true,start:'look',nodes:{look:{env:'fish_tank',actors:null,lines:A=>{const n=RALife.count('fish_rare_moon_koi')+RALife.count('fish_rare_grouper');return [N('you stand in the doorway. you do not go in.'),N(n?`${n} rare fish. guests love it.`:'it is empty. it is still a flex.'),R('i\'m good right here.')];},end:{outcome:'looked',memory:{text:'the fish tank room (from the doorway)',lane:'home',quality:.3}}}}});
  // VampGPT lanes: 2–3 real ways to pursue each want (Octopus Brain as UI).
