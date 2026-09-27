@@ -1,0 +1,172 @@
+# Explicit visual incompletion after ART SHIP 014
+The concept boards do not silently clear ledger rows. Until Ube/HQ selects directions and a native reconstruction/validation pass succeeds, every row below remains open under its ledger classification.
+
+## MISSING — PRODUCE (120)
+
+- `A-RICH-touge_locked` — TOUGE HUD locked-in face
+- `A-RICH-touge_spun` — TOUGE HUD spun-out face
+- `A-RICH-riding_mazda` — Riding Mazda composite
+- `A-ceo_assistant-date` — ceo_assistant: date
+- `A-ceo_assistant-bedroom` — ceo_assistant: covered bedroom-company pose
+- `A-cammile-date` — cammile: date
+- `A-cammile-bedroom` — cammile: covered bedroom-company pose
+- `A-cammile-touge_spectator` — cammile: TOUGE spectator
+- `A-bllad33-dry` — bllad33: dry reaction
+- `A-coffe-hype` — coffe: hype
+- `A-coffe-caught` — coffe: caught
+- `A-lo-arm_fall` — lo: arm-falls-off reaction, non-gory
+- `A-anfeesa-dj` — anfeesa: DJ state
+- `A-rookoko-painting` — rookoko: painting state
+- `A-officer_nodd-nod` — officer_nodd: nod state
+- `A-officer_nodd-phone` — officer_nodd: phone-out state
+- `A-don_chuy-singing` — don_chuy: singing state
+- `A-vicky-doorway` — vicky: doorway/controlled reaction
+- `A-june-working` — june: working in Rich's locs, paired
+- `A-june-date` — june: date
+- `A-june-bedroom` — june: bedroom company
+- `A-tristan-laugh` — tristan: laughing
+- `A-tristan-floor` — tristan: asleep on floor
+- `A-tristan-passenger` — tristan: TOUGE passenger portrait
+- `A-ms_patrice-laugh` — ms_patrice: laugh
+- `A-ms_patrice-date` — ms_patrice: date
+- `A-ms_patrice-bedroom` — ms_patrice: bedroom company
+- `A-lil_smack-diss` — lil_smack: diss
+- `A-lil_smack-finale` — lil_smack: mouth-closed finale
+- `A-britney-profile` — Britney Stakes parody-only VampGram profile
+- `A-family-mom-avatar` — Family phone avatar: mom
+- `A-family-dad-avatar` — Family phone avatar: dad
+- `A-family-sister-avatar` — Family phone avatar: sister
+- `B-hatchling-neutral` — Blueberry Mazda hatchling — neutral
+- `B-hatchling-happy` — Blueberry Mazda hatchling — happy
+- `B-hatchling-sulk` — Blueberry Mazda hatchling — sulk
+- `B-young-neutral` — Blueberry Mazda young — neutral
+- `B-young-happy` — Blueberry Mazda young — happy
+- `B-young-sulk` — Blueberry Mazda young — sulk
+- `B-majestic-perched` — Blueberry Mazda majestic — perched
+- `B-majestic-flying` — Blueberry Mazda majestic — flying
+- `B-majestic-happy` — Blueberry Mazda majestic — happy
+- `B-riding-composite` — Rich riding majestic Mazda composite
+- `B-human-eating` — Mazda human — eating Agege bread
+- `B-human-bedroom` — Mazda human — covered bedroom-company
+- `C-common-silver_grunt` — Common fish: silver grunt
+- `C-common-pier_perch` — Common fish: pier perch
+- `C-common-ugly_mackerel` — Common fish: ugly mackerel
+- `C-junk-boot` — Pier catch: boot
+- `C-junk-flip_phone` — Pier catch: flip phone
+- `C-junk-waterlogged_wallet` — Pier catch: waterlogged wallet
+- `C-rare-moon_koi` — Rare fish: moon koi
+- `C-rare-old_barnacle_grouper` — Rare fish: old barnacle grouper
+- `C-chest` — Rare rusted barnacled chest
+- `C-cat-on_bed` — Sphynx cat on bed
+- `C-cat-judging_combat` — Sphynx cat judging combat
+- `D-s15_stock-world` — s15_stock WORLD surface — Existing Supra asset is REFERENCE/STATUS UNKNOWN and must be tested; other cars need derived surfaces.
+- `D-s15_stock-listing` — s15_stock LISTING surface — Existing Supra asset is REFERENCE/STATUS UNKNOWN and must be tested; other cars need derived surfaces.
+- `D-s15_bodykit-world` — s15_bodykit WORLD surface — Existing Supra asset is REFERENCE/STATUS UNKNOWN and must be tested; other cars need derived surfaces.
+- `D-s15_bodykit-listing` — s15_bodykit LISTING surface — Existing Supra asset is REFERENCE/STATUS UNKNOWN and must be tested; other cars need derived surfaces.
+- `D-r34-world` — r34 WORLD surface — Existing Supra asset is REFERENCE/STATUS UNKNOWN and must be tested; other cars need derived surfaces.
+- `D-r34-listing` — r34 LISTING surface — Existing Supra asset is REFERENCE/STATUS UNKNOWN and must be tested; other cars need derived surfaces.
+- `D-s2000_pink-world` — s2000_pink WORLD surface — Existing Supra asset is REFERENCE/STATUS UNKNOWN and must be tested; other cars need derived surfaces.
+- `D-s2000_pink-listing` — s2000_pink LISTING surface — Existing Supra asset is REFERENCE/STATUS UNKNOWN and must be tested; other cars need derived surfaces.
+- `D-urus-world` — urus WORLD surface — Existing Supra asset is REFERENCE/STATUS UNKNOWN and must be tested; other cars need derived surfaces.
+- `D-urus-listing` — urus LISTING surface — Existing Supra asset is REFERENCE/STATUS UNKNOWN and must be tested; other cars need derived surfaces.
+- `D-aventador-world` — aventador WORLD surface — Existing Supra asset is REFERENCE/STATUS UNKNOWN and must be tested; other cars need derived surfaces.
+- `D-aventador-listing` — aventador LISTING surface — Existing Supra asset is REFERENCE/STATUS UNKNOWN and must be tested; other cars need derived surfaces.
+- `D-ferrari_f40-world` — ferrari_f40 WORLD surface — Existing Supra asset is REFERENCE/STATUS UNKNOWN and must be tested; other cars need derived surfaces.
+- `D-ferrari_f40-listing` — ferrari_f40 LISTING surface — Existing Supra asset is REFERENCE/STATUS UNKNOWN and must be tested; other cars need derived surfaces.
+- `D-portobello-world` — Portobello beige Mazda/crossover WORLD surface
+- `D-portobello-touge` — Portobello beige Mazda/crossover TOUGE surface
+- `D-portobello-listing` — Portobello beige Mazda/crossover LISTING surface
+- `D-rival_a-world` — Midnight Mafia rival A WORLD surface
+- `D-rival_a-touge` — Midnight Mafia rival A TOUGE surface
+- `D-rival_a-listing` — Midnight Mafia rival A LISTING surface
+- `D-rival_b-world` — Midnight Mafia rival B WORLD surface
+- `D-rival_b-touge` — Midnight Mafia rival B TOUGE surface
+- `D-rival_b-listing` — Midnight Mafia rival B LISTING surface
+- `E-egg-held` — Dragon egg HELD
+- `E-egg-bed` — Dragon egg ON BED
+- `E-egg-cracking` — Dragon egg CRACKING
+- `E-bread-torn` — Agege bread torn
+- `E-blood_bill` — Blood Bank bill/receipt card
+- `E-blood_held` — Nneka-held long receipt
+- `E-weapon_case` — Armory weapon-case art
+- `E-weapon_held` — combat-held weapon art
+- `E-bonesworth_sword` — Bonesworth sword trophy
+- `E-radio-playmakers` — Rich Radio cover tile: PLAYMAKERS
+- `E-radio-bloodbath` — Rich Radio cover tile: BLOODBATH
+- `E-radio-octopus_brain` — Rich Radio cover tile: OCTOPUS BRAIN
+- `E-radio-montana` — Rich Radio cover tile: MONTANA
+- `E-radio-shopping_addict` — Rich Radio cover tile: SHOPPING ADDICT
+- `F-prop-plant` — Bedroom unlockable prop: plant
+- `F-prop-trippin_red_poster` — Bedroom unlockable prop: trippin red poster
+- `F-prop-rookoko_painting` — Bedroom unlockable prop: rookoko painting
+- `F-prop-jollof_trophy` — Bedroom unlockable prop: jollof trophy
+- `F-prop-duoqlo_bag` — Bedroom unlockable prop: duoqlo bag
+- `F-prop-unused_cat_bed` — Bedroom unlockable prop: unused cat bed
+- `F-prop-michigan_pennant` — Bedroom unlockable prop: michigan pennant
+- `F-prop-waffle_mix_bag` — Bedroom unlockable prop: waffle mix bag
+- `F-company_system` — company system
+- `F-covered_companion` — covered companion
+- `F-homie_floor` — homie floor
+- `F-mazda_flyby` — mazda flyby
+- `F-rain_night_window` — rain night window
+- `F-stars_night_sky` — stars night sky
+- `H-hatch` — Full UI treatment: HATCH
+- `H-touge` — Full UI treatment: TOUGE
+- `H-pier` — Full UI treatment: PIER
+- `H-bars` — Full UI treatment: BARS
+- `H-rich_radio` — Full UI treatment: RICH RADIO
+- `H-what_we_on` — Full UI treatment: WHAT WE ON
+- `H-blood_bank_bill` — Full UI treatment: Blood Bank bill
+- `H-vehicle_listing_cards` — Full UI treatment: vehicle listing cards
+- `H-receipts` — Full UI treatment: RECEIPTS
+- `H-jollof_wars` — Minigame visual treatment: JOLLOF WARS
+- `H-garage` — Minigame visual treatment: GARAGE
+- `H-hookah_rings` — Minigame visual treatment: HOOKAH RINGS
+- `H-pickup` — Minigame visual treatment: PICKUP
+
+## CONDITIONAL — EXISTING ART MUST BE TESTED FIRST (7)
+
+- `A-RICH-hungover` — Hungover throne/bedroom read
+- `A-RICH-portobello_wake` — Portobello wake scream, only if needed
+- `D-supra-world` — supra WORLD surface — Existing Supra asset is REFERENCE/STATUS UNKNOWN and must be tested; other cars need derived surfaces.
+- `D-supra-listing` — supra LISTING surface — Existing Supra asset is REFERENCE/STATUS UNKNOWN and must be tested; other cars need derived surfaces.
+- `E-cube` — Dragon Maggi/Magi Cube presentation — Frozen icon exists; spelling remains swappable and runtime surface is mapping-ambiguous.
+- `G-castle_party` — Crowd condition: castle party — Ship 011 library has no runtime assignment; conditional entries require HQ/Engineering surface mapping.
+- `G-grave` — Crowd condition: grave — Ship 011 library has no runtime assignment; conditional entries require HQ/Engineering surface mapping.
+
+## MAPPING / ENGINEERING DECISION (18)
+
+- `A-kiki-unspecified` — kiki: remaining scene-required OPEN states — SOURCE REQUIRED — NOT RECONSTRUCTED: committed OPEN authority names the identity but not exact missing state(s).
+- `A-nneka-unspecified` — nneka: remaining scene-required OPEN states — SOURCE REQUIRED — NOT RECONSTRUCTED: committed OPEN authority names the identity but not exact missing state(s).
+- `A-pinky-unspecified` — pinky: remaining scene-required OPEN states — SOURCE REQUIRED — NOT RECONSTRUCTED: committed OPEN authority names the identity but not exact missing state(s).
+- `A-moonie-unspecified` — moonie: remaining scene-required OPEN states — SOURCE REQUIRED — NOT RECONSTRUCTED: committed OPEN authority names the identity but not exact missing state(s).
+- `A-kaede-unspecified` — kaede: remaining scene-required OPEN states — SOURCE REQUIRED — NOT RECONSTRUCTED: committed OPEN authority names the identity but not exact missing state(s).
+- `A-wispa-unspecified` — wispa: remaining scene-required OPEN states — SOURCE REQUIRED — NOT RECONSTRUCTED: committed OPEN authority names the identity but not exact missing state(s).
+- `A-tasha-unspecified` — tasha: remaining scene-required OPEN states — SOURCE REQUIRED — NOT RECONSTRUCTED: committed OPEN authority names the identity but not exact missing state(s).
+- `A-nightshade-unspecified` — nightshade: remaining scene-required OPEN states — SOURCE REQUIRED — NOT RECONSTRUCTED: committed OPEN authority names the identity but not exact missing state(s).
+- `A-hina-unspecified` — hina: remaining scene-required OPEN states — SOURCE REQUIRED — NOT RECONSTRUCTED: committed OPEN authority names the identity but not exact missing state(s).
+- `A-bunmi-unspecified` — bunmi: remaining scene-required OPEN states — SOURCE REQUIRED — NOT RECONSTRUCTED: committed OPEN authority names the identity but not exact missing state(s).
+- `A-mazda_human-unspecified` — mazda_human: remaining scene-required OPEN states — SOURCE REQUIRED — NOT RECONSTRUCTED: committed OPEN authority names the identity but not exact missing state(s).
+- `C-big-fish` — Runtime BIG FISH catch visual — Runtime contains a sourced category not separately specified by VOL2; exact art/mapping call required.
+- `D-runtime-delivery` — Sourced vehicle delivery states actually required by current content — No exact car/state list in committed OPEN authority; SOURCE REQUIRED — NOT RECONSTRUCTED.
+- `D-runtime-damaged` — Sourced vehicle damaged states actually required by current content — No exact car/state list in committed OPEN authority; SOURCE REQUIRED — NOT RECONSTRUCTED.
+- `G-env-catacomb_dead` — Historically listed environment id: catacomb_dead — No current census surface; generate only after live-surface proof. LA sky night-flight frozen master may satisfy ocean-flight beat only after mapping decision.
+- `G-env-atl_airport` — Historically listed environment id: atl_airport — No current census surface; generate only after live-surface proof. LA sky night-flight frozen master may satisfy ocean-flight beat only after mapping decision.
+- `G-env-ocean_night_flight` — Historically listed environment id: ocean_night_flight — No current census surface; generate only after live-surface proof. LA sky night-flight frozen master may satisfy ocean-flight beat only after mapping decision.
+- `G-env-halloween` — Historically listed environment id: halloween — No current census surface; generate only after live-surface proof. LA sky night-flight frozen master may satisfy ocean-flight beat only after mapping decision.
+
+## BLOCKED BY CANON (9)
+
+- `A-family-brother1` — Family neutral: brother1 — Ube-owned identity details; do not invent.
+- `A-family-brother2` — Family neutral: brother2 — Ube-owned identity details; do not invent.
+- `A-family-brother1-avatar` — Family phone avatar: brother1 — Blocked with identity.
+- `A-family-brother2-avatar` — Family phone avatar: brother2 — Blocked with identity.
+- `A-god` — God culturally sensitive card — Separate named HQ authorization required.
+- `A-og-hooper` — OG Hooper identity — Underspecified accepted deferral.
+- `SRC-vol_1` — Completeness audit against VOL 1 — SOURCE REQUIRED — NOT RECONSTRUCTED. Not present in repository/history.
+- `SRC-vol_3` — Completeness audit against VOL 3 — SOURCE REQUIRED — NOT RECONSTRUCTED. Not present in repository/history.
+- `SRC-full_hq_addendum_v1` — Completeness audit against full HQ Addendum v1 — SOURCE REQUIRED — NOT RECONSTRUCTED. Not present in repository/history.
+
+## SEALED / DO NOT TOUCH (1)
+
+- `SEALED` — All SEALED/HQ-only visual requirements — Not inspected, enumerated, summarized, or exposed.

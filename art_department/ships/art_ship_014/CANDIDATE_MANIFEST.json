@@ -1,0 +1,322 @@
+{
+  "schema_version": 1,
+  "ship": "ART SHIP 014",
+  "status": "CANDIDATE CONCEPT PACKAGE \u2014 NOT APPROVED / NOT FROZEN / NOT RUNTIME READY",
+  "generator": "built-in image generation tool",
+  "candidate_board_count": 10,
+  "candidate_cell_count": 114,
+  "boards": [
+    {
+      "path": "art_department/ships/art_ship_014/candidate_boards/dragon_lifecycle_candidates.png",
+      "sha256": "531b5060aea3ad9bad3a2ed16ff67fe09dc4459383bc3e758889104c27077111",
+      "candidate_cells": 12,
+      "package": "B/A",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "binary_alpha": false,
+      "source_anchors": [
+        {
+          "path": "assets/before_the_fame/characters/mazda_human/blueberry_mazda_human_neutral_80x96.png",
+          "sha256": "2e2c7246ca6d1dc583c814659bbb0d0df18688db5c86adcad6c6767ddb979290",
+          "exists": true
+        },
+        {
+          "path": "assets/before_the_fame/props/mazda_egg/blueberry_mazda_egg_32x32.png",
+          "sha256": "d2ee91eef7c9941a18f2d6488d1dab53cdb152071f07d3089bf90650d619c6d8",
+          "exists": true
+        }
+      ],
+      "note": "Second pass; first attempt rejected for glossy modern-indie drift.",
+      "status": "CANDIDATE BOARD \u2014 UBE/HQ TASTE PASS REQUIRED"
+    },
+    {
+      "path": "art_department/ships/art_ship_014/candidate_boards/pier_cat_prop_candidates.png",
+      "sha256": "27ff3c36dcc3a31f42c47b22508557d083607e5da8bfb9f6244187f319063daa",
+      "candidate_cells": 16,
+      "package": "C/E",
+      "dimensions": [
+        1448,
+        1086
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "binary_alpha": false,
+      "source_anchors": [
+        {
+          "path": "assets/before_the_fame/creatures/cat/sphynx_cat_sitting_48x32.png",
+          "sha256": "9dd8b1fea654aeda7f956e3c3338c1e58bd7ebfee3738f8e8e3fcf62dffa9b7c",
+          "exists": true
+        },
+        {
+          "path": "assets/before_the_fame/props/agege_bread/agege_bread_whole_32x24.png",
+          "sha256": "144e7048cf423821c7de7afed3c7bd703500c107f48d77ca69b3ae0b4e89aeca",
+          "exists": true
+        },
+        {
+          "path": "assets/before_the_fame/props/mazda_egg/blueberry_mazda_egg_32x32.png",
+          "sha256": "d2ee91eef7c9941a18f2d6488d1dab53cdb152071f07d3089bf90650d619c6d8",
+          "exists": true
+        }
+      ],
+      "note": "Concept cells for catches, cat, bread, egg and trophy.",
+      "status": "CANDIDATE BOARD \u2014 UBE/HQ TASTE PASS REQUIRED"
+    },
+    {
+      "path": "art_department/ships/art_ship_014/candidate_boards/owned_vehicle_surface_candidates.png",
+      "sha256": "c3bbb631dc626ea3ecbc02dcb84545b33008e372e88a19fd10e2432126dc3114",
+      "candidate_cells": 16,
+      "package": "D",
+      "dimensions": [
+        1448,
+        1086
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "binary_alpha": false,
+      "source_anchors": [
+        {
+          "path": "assets/before_the_fame/vehicles/touge/touge_vehicle_sheet_128x28.png",
+          "sha256": "68b7a0e84a5a858cb129dcf70aeaf563db57e76e4c7befb69d54222342b2170d",
+          "exists": true
+        }
+      ],
+      "note": "WORLD/LISTING derivation board for eight frozen TOUGE identities.",
+      "status": "CANDIDATE BOARD \u2014 UBE/HQ TASTE PASS REQUIRED"
+    },
+    {
+      "path": "art_department/ships/art_ship_014/candidate_boards/company_states_assistant_cammile_june.png",
+      "sha256": "2f2f54cf32852f77cd1fba4c9978cf9c99f30818f41ac4819d01f308bc235ce1",
+      "candidate_cells": 8,
+      "package": "A/F",
+      "dimensions": [
+        1448,
+        1086
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "binary_alpha": false,
+      "source_anchors": [
+        {
+          "path": "assets/assistant_idle.png",
+          "sha256": "a4f4d7b73814d30bb7f1c79e5beac3954e57d6133cb181617e8aae0c7a4683a5",
+          "exists": true
+        },
+        {
+          "path": "assets/jdm_imports/characters/daughter/daughter_neutral.png",
+          "sha256": "6454e833dace10f8efbd49351346ea9babf22ad9c006a1bb789cf62c156a48c6",
+          "exists": true
+        },
+        {
+          "path": "assets/before_the_fame/characters/june/june_neutral_80x96.png",
+          "sha256": "89bae51dba181a599446150d1df64494e71ad0646b3782ce1fde3738eb5d5c76",
+          "exists": true
+        }
+      ],
+      "note": "Identity-sensitive relationship-state concepts; requires strict Ube comparison.",
+      "status": "CANDIDATE BOARD \u2014 UBE/HQ TASTE PASS REQUIRED"
+    },
+    {
+      "path": "art_department/ships/art_ship_014/candidate_boards/relationship_states_tristan_patrice_smack.png",
+      "sha256": "02b959a4b2329bd09ed53177497acd4ce1735efc6da63106697760aaad0202df",
+      "candidate_cells": 8,
+      "package": "A/F",
+      "dimensions": [
+        1402,
+        1122
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "binary_alpha": false,
+      "source_anchors": [
+        {
+          "path": "assets/before_the_fame/characters/tristan/tristan_neutral_80x96.png",
+          "sha256": "2f430846238a4d02f139e72d1ce94f2086519ed0775d74d50bcc9fa3ad57e36d",
+          "exists": true
+        },
+        {
+          "path": "assets/before_the_fame/characters/ms_patrice/ms_patrice_neutral_80x96.png",
+          "sha256": "b565bd37630f630080892acb4e6c48498b314d168778d31d0d93d7a65fdde5a3",
+          "exists": true
+        },
+        {
+          "path": "assets/before_the_fame/characters/lil_smack/lil_smack_eating_80x96.png",
+          "sha256": "7640a3607d61bfdf28fd1169b80e784614a2376ff28fb2ee0277f80485fab0d8",
+          "exists": true
+        }
+      ],
+      "note": "Identity-sensitive state concepts; requires strict Ube comparison.",
+      "status": "CANDIDATE BOARD \u2014 UBE/HQ TASTE PASS REQUIRED"
+    },
+    {
+      "path": "art_department/ships/art_ship_014/candidate_boards/open_reaction_state_candidates.png",
+      "sha256": "ed05b6f155b4d0a6cf5489020813cb1c4ba269d2143eed01d162ac56c8eb350d",
+      "candidate_cells": 8,
+      "package": "A",
+      "dimensions": [
+        1448,
+        1086
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "binary_alpha": false,
+      "source_anchors": [
+        {
+          "path": "assets/before_the_fame/characters/lo/lo_dolores_neutral_80x96.png",
+          "sha256": "c69902507388bb4c81259baccde552170422b62f07ce9c44b88f9ad850c1a882",
+          "exists": true
+        },
+        {
+          "path": "assets/before_the_fame/characters/anfeesa/dj_anfeesa_neutral_80x96.png",
+          "sha256": "7c896d24097a7e6d98edf07ea1113ee4750d1147b6b1ab5c5cbe60bd126d9f0f",
+          "exists": true
+        },
+        {
+          "path": "assets/before_the_fame/characters/rookoko/rookoko_neutral_80x96.png",
+          "sha256": "ed315afe3431738962162ee58177c4f4cb9de9cdb246d22f57476bc200423ff1",
+          "exists": true
+        },
+        {
+          "path": "assets/before_the_fame/characters/officer_nodd/officer_nodd_neutral_80x96.png",
+          "sha256": "07c4fc9ca7aa09588d0dff63aa61e82dcf6405fd5d7ef2be591dd11a90b1c58c",
+          "exists": true
+        },
+        {
+          "path": "assets/before_the_fame/characters/don_chuy/don_chuy_neutral_80x96.png",
+          "sha256": "875b39b8a253c9b80a01f8d372a0a488deefa083755503f892eaa85ea30c3d74",
+          "exists": true
+        }
+      ],
+      "note": "Open reaction/activity concepts.",
+      "status": "CANDIDATE BOARD \u2014 UBE/HQ TASTE PASS REQUIRED"
+    },
+    {
+      "path": "art_department/ships/art_ship_014/candidate_boards/bedroom_prop_condition_candidates.png",
+      "sha256": "f348b87ca5cba0ccd3829db207c91f75a2011da1b1f4a023f59b912f6aed232b",
+      "candidate_cells": 16,
+      "package": "F",
+      "dimensions": [
+        1374,
+        1145
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "binary_alpha": false,
+      "source_anchors": [
+        {
+          "path": "assets/rich_bedroom_environment_270x480.png",
+          "sha256": "f82bbdf9372c0b8e0f71b63d79867c805dbab0d25e631e5f36160c29f435c493",
+          "exists": true
+        }
+      ],
+      "note": "Additive prop/window/company concepts; base not repainted.",
+      "status": "CANDIDATE BOARD \u2014 UBE/HQ TASTE PASS REQUIRED"
+    },
+    {
+      "path": "art_department/ships/art_ship_014/candidate_boards/phone_ui_visual_treatments.png",
+      "sha256": "5a709884a77edf887412c663b87ff6f6d831f7e03461d291bd9407f3f9748234",
+      "candidate_cells": 16,
+      "package": "H",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "mode": "RGB",
+      "alpha_extrema": [
+        255,
+        255
+      ],
+      "binary_alpha": true,
+      "source_anchors": [
+        {
+          "path": "assets/before_the_fame/ui/apps/phone_app_icon_sheet_216x24.png",
+          "sha256": "e5b3eb4b734a41ae77e5d5930c4ae7612dbbbf0ed5b52e4b418b708b272b8908",
+          "exists": true
+        }
+      ],
+      "note": "Visual-treatment concepts only; Engineering behavior/layout unchanged.",
+      "status": "CANDIDATE BOARD \u2014 UBE/HQ TASTE PASS REQUIRED"
+    },
+    {
+      "path": "art_department/ships/art_ship_014/candidate_boards/rich_radio_cover_candidates.png",
+      "sha256": "f805157de0dc1a19f7d0695eeeee1f23465b022f3acc9ff956c0d4f2338f84cd",
+      "candidate_cells": 5,
+      "package": "E/H",
+      "dimensions": [
+        2172,
+        724
+      ],
+      "mode": "RGB",
+      "alpha_extrema": [
+        255,
+        255
+      ],
+      "binary_alpha": true,
+      "source_anchors": [
+        {
+          "path": "assets/before_the_fame/ui/apps/phone_app_icon_sheet_216x24.png",
+          "sha256": "e5b3eb4b734a41ae77e5d5930c4ae7612dbbbf0ed5b52e4b418b708b272b8908",
+          "exists": true
+        }
+      ],
+      "note": "Five titled cover concepts.",
+      "status": "CANDIDATE BOARD \u2014 UBE/HQ TASTE PASS REQUIRED"
+    },
+    {
+      "path": "art_department/ships/art_ship_014/candidate_boards/portobello_rival_vehicle_candidates.png",
+      "sha256": "b24b9a79d46e9ed6d27c85b79a733406d900e875eb8921a3b371275d2e65895a",
+      "candidate_cells": 9,
+      "package": "D",
+      "dimensions": [
+        1374,
+        1145
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "binary_alpha": false,
+      "source_anchors": [
+        {
+          "path": "assets/before_the_fame/vehicles/touge/touge_vehicle_sheet_128x28.png",
+          "sha256": "68b7a0e84a5a858cb129dcf70aeaf563db57e76e4c7befb69d54222342b2170d",
+          "exists": true
+        }
+      ],
+      "note": "Three-surface concepts for Portobello and two fictional rivals.",
+      "status": "CANDIDATE BOARD \u2014 UBE/HQ TASTE PASS REQUIRED"
+    }
+  ],
+  "rejected_provenance": [
+    {
+      "path": "art_department/ships/art_ship_014/rejected_provenance/dragon_lifecycle_attempt_01_rejected.png",
+      "sha256": "9d29715b5fb916bd5297e523d910c3b81ed224dd63a1d91a3b6627a595f58b10",
+      "reason": "Glossy modern-indie rendering, oversized illustrated faces, omitted/merged cells; excluded from review manifest."
+    }
+  ]
+}
