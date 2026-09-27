@@ -3,6 +3,10 @@
 Status: **READY FOR HQ OPEN-CLOSURE REVIEW.** Not a release candidate; no FUN/TASTE verdict; nothing merged or deployed.
 Spoiler-safe: ids, systems, routes and outcomes only.
 
+**Subsequent HQ disposition (OPEN micro-closure, 2026-09-27):** The Engineering 06 findings below remain the historical
+record. Ube/HQ has since decided and dispositioned D1–D6; the resulting D4-only runtime delta and all no-change
+dispositions are recorded in `BTF_OPEN_UBE_DECISIONS_001.md` and the closure ledger. No Ube/HQ decision remains open.
+
 ## 1. Authority
 
 | | |
@@ -105,7 +109,7 @@ checks should run alone.
 ## 11. Deferred, decisions, blockers
 
 - **Deferred polish:** audio loops, voice pass, draft dialogue, PICKUP teammates, June's retwist minigame, party song change mid-party, InstaHoe drops, ONLYVAMPS cancel scene, night-sky trigger, possession-unlocked Octopus options, Art states without a beat.
-- **UBE/HQ decisions:** `BTF_OPEN_UBE_DECISIONS_001.md` — D1 CRACK, D2 economy vs fame floor, D3 pressure/Hilt, D4 ONLYVAMPS pages, D5 adult nightlife scope, D6 Art-mapped staging conflicts.
+- **UBE/HQ decisions (subsequently decided / dispositioned):** `BTF_OPEN_UBE_DECISIONS_001.md` — D1 CRACK remains locked; D2 economy/fame remains unchanged with affordability reserved for rigorous playtesting; D3 Hilt waits for protected content with A23 DEV-reachable; D4 uses anonymous creators plus Velvet as the sole known-person collision; D5 adult nightlife is deferred to a future expansion; D6 conflicting optional Art layers remain unwired without altering frozen Art.
 - **Art requests:** `BTF_OPEN_ART_REQUESTS_001.md` — AR-01 ocean night-flight environment.
 - **Blockers:** none.
 

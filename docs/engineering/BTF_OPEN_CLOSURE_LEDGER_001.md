@@ -4,9 +4,13 @@ Branch `claude/giga-open-closure-001` (from `9ae8fd7`). Spoiler-safe: ids, syste
 PLAYER-BLIND material was not opened; PLAYER-BLIND flows (Ogun's Rave, The Property, world events) appear only as
 outcome flags and function checks.
 
+**Subsequent HQ disposition (OPEN micro-closure, 2026-09-27):** D1–D6 are now DECIDED / DISPOSITIONED. The original
+Engineering 06 findings remain below; their later dispositions are marked explicitly and recorded in
+`BTF_OPEN_UBE_DECISIONS_001.md`.
+
 **Statuses.** `CLOSED` implemented, connected and testable · `DEFERRED` real work that belongs after serious playtesting
-and does not block it · `UBE/HQ` needs a decision existing OPEN authority does not make (see
-`BTF_OPEN_UBE_DECISIONS_001.md`) · `BLOCKED` a technical/source dependency prevents completion.
+and does not block it · `DECIDED / DISPOSITIONED` an original Engineering 06 finding resolved by the subsequent HQ
+decision without necessarily requiring runtime work · `BLOCKED` a technical/source dependency prevents completion.
 **No `GAP — IMPLEMENTATION AUTHORIZED` item remains open.** Every gap found was either fixed (marked *fixed E06*) or
 classified below.
 
@@ -44,7 +48,7 @@ project authority — not opened).
 | RECEIPTS memoir app (V5 §9.3) | CLOSED | PLAYER | apps_core; share to VampGram |
 | Weather: rain nights + rain window (V5 §9.1) | CLOSED | PLAYER | world_life (frozen rain window) |
 | Save v12, migrations, recovery | CLOSED | PLAYER | 8 legacy fixtures + **4 new mid-life v12 fixtures** from simulated lives (fixtures gate); no schema change |
-| CRACK (canon: threshold/roll/outcome TBD) | UBE/HQ | — | shown locked; "she stays." fade used where beats call for it (D1) |
+| CRACK (canon: threshold/roll/outcome TBD) | DECIDED / DISPOSITIONED | — | Original finding: OPEN did not authorize behavior. HQ D1: keep locked; no threshold, roll, outcome, progression, or new behavior added. |
 
 ## 2. Lanes (V1 §9, V5)
 
@@ -57,7 +61,7 @@ project authority — not opened).
 | MAID QUARTERS "Marisol lives in… judges everything" | CLOSED *fixed E06* | PLAYER | the owned room answered "not tonight." forever after A39, and KEEP INTERVIEWING lost Marisol; A39 repeats until hired, then MAID (browser route `maid`) |
 | GARAGE "trophy view of every car; TOUGE car select from home" + GARAGE parts bay (V1 §9.1, V5 §4.2) | CLOSED *fixed E06* | PLAYER+PRES | castle GARAGE is the trophy view (frozen WORLD cars), picks tonight's car, opens PARTS BAY; GARAGE now tunes the selected car (it always tuned the last-bought one) |
 | MUSIC ROOM, KITCHEN, MOVIE ROOM, DRAGON ROOST, HOOKAH ROOF, ARMORY WALL, COFFIN, FISH TANK, PARTY HALL verbs | CLOSED | PLAYER | route map; kitchen adds ATL waffles once a week (V5 A44 leave-behind) *E06* |
-| Castle room affordability inside a typical life | UBE/HQ | PLAYER (saver) | D2: no simulated persona afforded the Party Hall before fame fires at Day 36 |
+| Castle room affordability inside a typical life | DECIDED / DISPOSITIONED | PLAYER (saver) | Original finding: no simulated persona afforded the Party Hall before fame fired at Day 36. HQ D2 preserves economy/fame tuning and records Party Hall / Bonesworth / castle-room affordability as a major rigorous-playtest question. |
 | 2 Phone: canon seven + TEXTS, unlock-by-event, no dead icons (V1 §7) | CLOSED | PLAYER | playtest-qa `newgame` home actions |
 | VampGPT lanes MAKE MONEY / MEET PEOPLE / GO SOMEWHERE | CLOSED | PLAYER | |
 | 3 Nightlife: Ogun's Rave (PLAYER-BLIND, function only) | CLOSED | PLAYER | playtest-qa `legacy` |
@@ -67,11 +71,11 @@ project authority — not opened).
 | Host changes the song mid-party (V1 CSPT) | DEFERRED | — | song chosen in PLAN only; polish |
 | 4 Dating: InstaHoe, date loop, per-woman content, gifts, neglect | CLOSED | PLAYER | "devoted" life reached RIDE-OR-DIE (35 dates) and A46 |
 | 22+1 women exist, 10 FULL loops | CLOSED | PLAYER | people.js, dates*.js |
-| Conversion of BTF women (V1 §9.4 "each conversion feeds ecology") | UBE/HQ | — | D3: only the two legacy conversions exist; no OPEN trigger for others |
+| Conversion of BTF women (V1 §9.4 "each conversion feeds ecology") | DECIDED / DISPOSITIONED | — | Original finding: only the two legacy conversions exist; no OPEN trigger for others. HQ D3: invent no new conversion flows; Hilt waits for protected content. |
 | ONLYVAMPS: unlock via Velvet, $4,999/mo, renewal, cancel | CLOSED | PLAYER | "cancelling is its own tiny scene" → DEFERRED (cancel works) |
-| ONLYVAMPS collisions ("someone you know has a page") | UBE/HQ | REG | D4: which women have pages is not specified; code path exists, never granted |
+| ONLYVAMPS collisions ("someone you know has a page") | CLOSED *HQ micro-closure* | PLAYER | Original finding: names were unspecified and the dormant roster was an Engineering guess. HQ D4: anonymous creator tiles remain functional; Velvet is the sole person-linked/known collision and appears through ordinary browsing. |
 | 5 Vampire ecology: headlines, Obas post, Bllad33 hookah | CLOSED | PLAYER | |
-| Hilt A23 / A23R | UBE/HQ | PLAYER (A23R route) · DEV (A23) | D3: OPEN pressure sources cannot reach the provisional (sealed-owned) warning level |
+| Hilt A23 / A23R | DECIDED / DISPOSITIONED | PLAYER (A23R route) · DEV (A23) | Original finding: OPEN pressure sources cannot reach the provisional protected-content warning level. HQ D3 keeps the threshold unchanged and A23 DEV-reachable until hidden/protected content is installed. |
 | 6 Property: The Property (PLAYER-BLIND, function), 4 listings, 30% down, events, drift, Cryptrat hook | CLOSED | PLAYER | playtest-qa `legacy`, `systems` |
 | 7 Music: cook, real catalog, drops, shows, Iron Jaw, RICH RADIO, castle song | CLOSED *fixed E06* | PLAYER | a song Rich "sat on" could never be dropped; RICH RADIO now has DROP |
 | DROP on InstaHoe (V1 "VampGram or InstaHoe") | DEFERRED | — | InstaHoe has no feed surface; the VampGram drop provides the function |
@@ -95,7 +99,7 @@ project authority — not opened).
 | Family thread; A53 Thanksgiving; Rich's family on screen | CLOSED *staging E06* | PLAYER (D57) | both brothers staged in A53 |
 | Officer Nodd, Don Chuy, Laura, Britney Stakes, Lil Smack series | CLOSED *fixed E06* | PLAYER | Lil Smack #2 (Peking Naija date) and #4 (Venice pickup) were missing; Britney now posts on VampGram with her frozen profile |
 | Octopus Brain options unlocked by possession (JUST FLY AWAY, NEGOTIATE LIKE SHANNON — V1 §8.2 "e.g.") | DEFERRED | — | examples without placement; 18 authored octopus forks exist |
-| Adult nightlife / strip club | UBE/HQ (scope only) | — | D5: OPEN authority establishes no such system (only Lane 3 parties and ONLYVAMPS with swappable packages) — nothing built |
+| Adult nightlife / strip club | DECIDED / DEFERRED EXPANSION | — | Original finding: OPEN authority establishes no such system. HQ D5 defers it to a future expansion; nothing built. Existing parties/raves/shows/ONLYVAMPS remain. |
 
 ## 3. Adventure inventory (A00–A58 + systems) — reachability after E06
 
@@ -144,7 +148,7 @@ tree, the fixed classifier reports exactly `A29 A29B A44 A50 A52 A_CAMMILE1`; on
 | A29 Coffe | staged (+ `hype`) |
 | A55 Anfeesa | staged (`dj`) |
 | A41 Trippin' Red | drawn **on the Hollow Bowl stage** as world art (never beside Rich) |
-| A33 J-Circle | **not staged — UBE/HQ (Art)**: the frozen reception crowd layer is keyed to `duchess_castle\|left:rich` and its foreground couple stands where a second actor would (D6) |
+| A33 J-Circle | **DISPOSITIONED (HQ D6)**: the original finding remains—the frozen reception crowd layer is keyed to `duchess_castle\|left:rich` and its foreground couple stands where a second actor would. The conflicting optional entrance layer remains unwired; frozen Art is unchanged. |
 
 Also staged where the text puts the person on screen: A32 Mazda eating the bread; A53 both brothers; A41 roof crew
 (Tunde, `hookah_seated`); A26/HOST invited guests. Face boxes for newly staged states were read by eye (their derived
@@ -159,8 +163,8 @@ church shoes (Armory), Britney profile (VampGram), riding composite (A32). Ship 
 
 | File(s) | Class | Reason |
 |---|---|---|
-| A-tasha-stage_rush, A-vicky-doorway | BLOCKED BY DESIGN → UBE/HQ D6 | Art-mapped Ship 008 condition-layer keys |
-| A-june-working | BLOCKED BY DESIGN → UBE/HQ D6 | paired composite replaces the two-actor cast |
+| A-tasha-stage_rush, A-vicky-doorway | DISPOSITIONED (FROZEN ART) | Original finding: Art-mapped Ship 008 condition-layer keys conflict. Existing valid staging remains; conflicting optional layers stay unwired (HQ D6). |
+| A-june-working | DISPOSITIONED (FROZEN ART) | Original finding: paired composite replaces the two-actor cast. The conflicting optional layer stays unwired (HQ D6). |
 | A-jade-impressed, A-kiki-laughing, A-lil_smack-diss, A-tristan-laugh, A-bllad33-dry | FUTURE/POLISH | no OPEN beat narrates the exact reaction with the person on stage |
 | A-pinky-neutral | INTENTIONALLY UNUSED | her approved Ship 006 anchor covers neutral |
 | A-RICH-riding_mazda, B-majestic-flying | FUTURE/POLISH | the composite now carries the one staged ride; FLY ON MAZDA is a route choice |
@@ -170,7 +174,7 @@ church shoes (Armory), Britney profile (VampGram), riding composite (A32). Ship 
 | E-blood_bill, E-blood_held | INTENTIONALLY UNUSED | covered by nneka `handing_bill` |
 | E-bread-torn, E-egg-held | FUTURE/POLISH | no item layer at those beats; placement decision |
 | D-portobello-world | INTENTIONALLY UNUSED | the Portobello Mazda is not Rich's car (A30 is protected PD-FA-03 scope) |
-| F-company_system, F-covered_companion, F-homie_floor | BLOCKED BY DESIGN (Art) | exact-origin overlays draw a second bed/blanket over Rich |
+| F-company_system, F-covered_companion, F-homie_floor | DISPOSITIONED (FROZEN ART) | Original finding: exact-origin overlays draw a second bed/blanket over Rich. The conflicting optional overlays stay unwired (HQ D6). |
 | F-stars_night_sky | FUTURE/POLISH | approved variant, no trigger defined |
 | Package H (13) | REFERENCE ONLY | UI treatment authority, never runtime images |
 

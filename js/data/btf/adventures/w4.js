@@ -324,10 +324,12 @@
  // tiny cancel scene, locked (non-graphic) tiles, and a collision when a known woman has a page.
  (function(){
   const PRICE=4999;
-  const CREATORS=()=>{const list=[{id:'velvet',person:'velvet',locked:false}];
-   for(const id of ['mazda_human','nneka','june','ms_patrice','duchess','jade','emberly'])
-    if(RARelations.met(id)&&(RALife.flag('onlyvamps_pages')||[]).includes(id))list.push({id,person:id,locked:true});
-   return list;};
+  // Stable anonymous ids keep subscriptions deterministic; Velvet is the sole person-linked collision.
+  const CREATORS=()=>[
+   {id:'anonymous_01',label:'ANONYMOUS CREATOR'},
+   {id:'anonymous_02',label:'ANONYMOUS CREATOR'},
+   {id:'velvet',person:'velvet',locked:true},
+   {id:'anonymous_03',label:'ANONYMOUS CREATOR'}];
   function subbed(id){return (RALife.flag('onlyvamps_subs')||[]).includes(id);}
   function subscribe(id){const subs=new Set(RALife.flag('onlyvamps_subs')||[]);if(subs.has(id))return false;if(!RALife.spend(PRICE))return false;
    subs.add(id);RALife.setFlag('onlyvamps_subs',[...subs]);RALife.setFlag('onlyvamps_renew',{...(RALife.flag('onlyvamps_renew')||{}),[id]:RALife.today().day});
@@ -336,8 +338,8 @@
   RAClock.onWake('onlyvamps-renew',45,({info})=>{if(info.dayOfMonth!==1)return;
    for(const id of RALife.flag('onlyvamps_subs')||[]){if(RALife.money()>=PRICE)RALife.spend(PRICE);else{cancel(id);RALife.mail({id:`ov-cancel:${id}:${info.day}`,kind:'app',title:'ONLYVAMPS',body:'a subscription lapsed. not enough funds.',app:'onlyvamps'});}}});
   window.RAOnlyVamps={PRICE,creators:CREATORS,subbed,subscribe,cancel,
-   markup(){const tiles=CREATORS().map(c=>{const p=RABtfPeople.get(c.person);const collision=RARelations.met(c.person)&&c.locked;
-    return `<div class="phone-card"><b>${(p?.name||'CREATOR').toUpperCase()}</b>${collision?'you know her. this is weird now.':'creator on ONLYVAMPS.'}<br>${RALife.fmt(PRICE)}/MONTH<button type="button" class="phone-button" data-phone-action="do:onlyvamps:${subbed(c.id)?'cancel':'sub'}:${c.id}">${subbed(c.id)?'CANCEL':'SUBSCRIBE'}</button></div>`;}).join('');
+   markup(){const tiles=CREATORS().map(c=>{const p=c.person?RABtfPeople.get(c.person):null;const collision=!!c.person&&RARelations.met(c.person)&&c.locked;
+    return `<div class="phone-card"><b>${(p?.name||c.label||'CREATOR').toUpperCase()}</b>${collision?'you know her. this is weird now.':'creator on ONLYVAMPS.'}<br>${RALife.fmt(PRICE)}/MONTH<button type="button" class="phone-button" data-phone-action="do:onlyvamps:${subbed(c.id)?'cancel':'sub'}:${c.id}">${subbed(c.id)?'CANCEL':'SUBSCRIBE'}</button></div>`;}).join('');
     return `<h1>ONLYVAMPS</h1><p class="phone-small">non-graphic. tiles only. you know how this goes.</p>${tiles}`;},
    action(a,arg,api){if(a==='sub')subscribe(arg);else if(a==='cancel')cancel(arg);api?.refresh?.();return true;}};
   window.RAPhoneApps?.register?.({id:'onlyvamps',label:'ONLYVAMPS',order:20,render:()=>window.RAOnlyVamps.markup(),onAction:(a,arg,api)=>window.RAOnlyVamps.action(a,arg,api)});

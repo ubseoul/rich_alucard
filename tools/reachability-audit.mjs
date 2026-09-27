@@ -122,15 +122,22 @@ export async function proofs(root=here){
   const after=ctx.RAParties.next(ctx.RALife.L());assert(!['A_LO1','A55','A_ANFEESA1'].includes(after),'one-time party content offered again');assert(after,'repeatable parties must remain');
   ok('A_LO1','VampGPT → MEET PEOPLE → FIND A PARTY (first large vampire party after Ogun\'s Rave)',["Ogun's Rave outcome flags (PLAYER-BLIND flow)"],[`party lane → A_LO1 → A55 → ${after}`]);
   ok('A_ANFEESA1',"FIND A PARTY → OGUN'S SECOND RAVE (A55) → A_ANFEESA1 (chain)",["Ogun's Rave outcome flags (PLAYER-BLIND flow)"],['A55 → A_ANFEESA1']);}
- // A_VELVET1 + ONLYVAMPS — her DM after Ogun's Rave / VampGram.
+ // ONLYVAMPS roster is browsing data, not a relationship/date/progression grant. Legacy guessed flags cannot add names.
+ {const roster=await fresh();const named=()=>roster.RAOnlyVamps.creators().filter(c=>c.person).map(c=>c.person);
+  assert.equal(JSON.stringify(named()),'["velvet"]');roster.RARelations.meet('june','qa');roster.RARelations.add('june',100);roster.RALife.setFlag('onlyvamps_pages',['june']);
+  assert.equal(JSON.stringify(named()),'["velvet"]','meeting/progress and the retired guessed-page flag must not add named creators');}
+ // A_VELVET1 + ONLYVAMPS — her DM after Ogun's Rave / VampGram; the player then browses the app.
  {const ctx=await fresh();let wants=wakeTo(ctx,3);assert(!wants.some(t=>t.id==='velvet_dm'),'Velvet before Ogun\'s Rave');
   assert(!ctx.RALife.appUnlocked('onlyvamps'));seedOgunsRave(ctx);wants=wakeTo(ctx,4);const t=wants.find(x=>x.id==='velvet_dm');assert(t,'Velvet DM not offered');
   const mail=ctx.RAState.get().life.clock.mail.find(m=>String(m.id).startsWith('tempt:velvet_dm'));assert(mail?.app==='vampgpt','Velvet DM must reach Morning Mail');
   ctx.RATemptations.take('velvet_dm');driveChain(ctx,drive(ctx,t.adventure));assert(ctx.RALife.appUnlocked('onlyvamps'),'ONLYVAMPS not unlocked');
-  assert(!/invite only/.test(ctx.RAOnlyVamps.markup()),'ONLYVAMPS still invite-only');
+  const creators=ctx.RAOnlyVamps.creators(),named=creators.filter(c=>c.person).map(c=>c.person),anonymous=creators.filter(c=>!c.person);
+  assert.equal(JSON.stringify(named),'["velvet"]','Velvet must be the sole named ONLYVAMPS creator');assert(anonymous.length>0,'anonymous ONLYVAMPS creators missing');
+  const markup=ctx.RAOnlyVamps.markup();assert(!/invite only/.test(markup),'ONLYVAMPS still invite-only');assert.equal((markup.match(/you know her\. this is weird now\./g)||[]).length,1,'Velvet must be the sole known-person collision');
+  assert(ctx.RAOnlyVamps.subscribe(anonymous[0].id),'anonymous creator subscription failed');assert(ctx.RAOnlyVamps.subbed(anonymous[0].id),'anonymous creator subscription was not stored');assert(ctx.RAOnlyVamps.cancel(anonymous[0].id),'anonymous creator cancellation failed');
   for(let d=5;d<20;d++)assert(!wakeTo(ctx,d).some(x=>x.id==='velvet_dm'),'Velvet DM repeated');
   ok('A_VELVET1','Morning Mail / VampGPT WHAT WE ON: "a DM from a locked account" → A_VELVET1',["Ogun's Rave outcome flags + VampGram (PLAYER-BLIND flow)"],['wake → velvet_dm → A_VELVET1 → ONLYVAMPS unlocked']);
-  ok('ONLYVAMPS','A_VELVET1 unlocks the ONLYVAMPS app (creator tiles, subscriptions)',['as A_VELVET1'],['appUnlocked(onlyvamps) true; markup is the creator page']);}
+  ok('ONLYVAMPS','A_VELVET1 unlocks the ONLYVAMPS app (anonymous creator tiles, Velvet-only collision, subscriptions)',['as A_VELVET1'],['appUnlocked(onlyvamps) true; anonymous subscribe/cancel; Velvet is the sole known-person collision']);}
  // A37 — one-time opportunity on an eligible Friday after Day 15.
  {const ctx=await fresh();for(let d=2;d<=15;d++)assert(!wakeTo(ctx,d).some(x=>x.id==='a37_friday'),`A37 offered on day ${d}`);
   const fri=firstFridayAfter(ctx,15),sat=fri+1;const w=wakeTo(ctx,fri);assert(w.some(x=>x.id==='a37_friday'),'A37 not offered on the first eligible Friday');

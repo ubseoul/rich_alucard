@@ -1,40 +1,69 @@
-# BTF OPEN — UBE/HQ DECISIONS 001 (Engineering 06)
+# BTF OPEN — UBE/HQ DECISIONS 001
 
-Short on purpose. Each item is something existing OPEN authority does not decide. Spoiler-safe. D1, D4 and D5 touch
-canon/scope (Ube); D2, D3 and D6 are HQ tuning/staging calls. None blocks installing hidden patches or starting
-rigorous testing: every affected item is DEV-reachable through the Test Pilot scenarios.
+Status: **D1–D6 DECIDED / DISPOSITIONED** by Ube/HQ for the rough-complete OPEN build on 2026-09-27.
+
+This record preserves the Engineering 06 finding beneath each decision, then records the subsequent HQ disposition.
+Spoiler-safe. No disposition authorizes SEALED / PLAYER-BLIND inspection, hidden-patch installation, frozen-Art changes,
+Combat 2.0 changes, economy/fame rebalancing, deployment, or rigorous testing in this pass.
 
 ### D1 — CRACK
-- **Exists:** `CRACK 🔒` shown locked at the end of CLOSE+ dates and at A44 night 4; beats that call for it use "she stays." + a non-graphic fade + next-WAKE bedroom company.
-- **Source:** CURRENT_CANON — "threshold, roll, outcome and progression are TBD and must not be invented"; VOL 3 §6.1 numbers are proposals pending Ube.
-- **Missing:** whether it unlocks, when, and what it does.
-- **Why not Engineering:** canon-locked.
-- **Decide:** keep locked for rough-complete testing, or approve VOL 3's proposal (CLOSE+ and 3+ dates → fade → bedroom company).
+- **Status:** DECIDED / DISPOSITIONED.
+- **Engineering 06 finding:** `CRACK 🔒` is shown locked at the end of CLOSE+ dates and at A44 night 4; beats that call
+  for it use “she stays.” + a non-graphic fade + next-WAKE bedroom company. CURRENT_CANON says the threshold, roll,
+  outcome, and progression are TBD; VOL 3 §6.1 numbers are proposals pending Ube.
+- **HQ decision:** Keep CRACK locked for the current build. Do not implement the proposed threshold, roll, outcome,
+  progression, or any new CRACK behavior.
+- **Runtime disposition:** No change required; the existing locked presentation remains authoritative for OPEN.
 
 ### D2 — Economy/pacing against the fame floor
-- **Exists:** VOL 3 prices (Party Hall $250K, rooms $40K–$400K), $100K per 28 days, fame eligible from Day 35 with the provisional spark.
-- **Observed:** in simulated ordinary lives (5 personas × seeds, including one that saves only for the Party Hall) fame fires on Day 36 and **no life afforded the Party Hall**, so A26 → **A27 Sir Bonesworth (MUST, the Combat 2.0 boss)**, hosting, DRAGON NIGHT/Jade and most castle rooms are out of reach before the ending. A33 (needs Vampire Rep HIGH, 70 points) was also never reached. Everything works when reached (DEV scenario `party-host`; route proofs).
-- **Why not Engineering:** HQ owns tuning; the brief forbids rebalancing without a call.
-- **Decide (smallest):** which lever for rough-complete testing — lower room/Party Hall prices, raise income (rent/drops), or let the fame floor land later — or accept that hosting/Bonesworth is a "saver" path.
+- **Status:** DECIDED / DISPOSITIONED; major rigorous-playtest question recorded.
+- **Engineering 06 finding:** VOL 3 prices include Party Hall $250K and rooms $40K–$400K, against $100K per 28 days
+  and fame eligibility from Day 35. In simulated ordinary lives (5 personas × seeds, including a Party Hall saver),
+  fame fired on Day 36 and no life afforded the Party Hall. That kept A26 → A27 Sir Bonesworth, hosting,
+  DRAGON NIGHT/Jade, and most castle rooms outside the ordinary pre-ending path; A33 also was not reached. The paths
+  work when reached through DEV/saver setup.
+- **HQ decision:** Preserve the current economy, prices, income, fame floor, and progression tuning.
+- **Testing disposition:** Party Hall / Bonesworth / castle-room affordability is a major rigorous-playtest question.
+  Testing—not this closure pass—will determine whether prices, income, or fame timing should eventually change.
+- **Runtime disposition:** No change required; no rebalance was made.
 
 ### D3 — Vampire pressure sources (Hilt, A23)
-- **Exists:** A21 → A23 Hilt trigger at the pressure "warning" level; A23R rematch (routed); provisional OPEN tuning visible 2 / warning 4.
-- **Source:** VOL 1 §9.5 — pressure rises when converted women are released/kept; thresholds and timing are SEALED.
-- **Missing:** OPEN has only two conversions (the legacy Assistant and Cammile, max pressure 3), and no OPEN trigger to convert any other woman, so A23 never fires in OPEN play.
-- **Why not Engineering:** thresholds are sealed-owned; a conversion flow for the other women is unspecified design.
-- **Decide (smallest):** either set the provisional OPEN warning to 3 until the sealed pack installs, or state that Hilt waits for the pack (A23 stays DEV-reachable for testing).
+- **Status:** DECIDED / DISPOSITIONED.
+- **Engineering 06 finding:** A21 → A23 Hilt triggers at pressure warning; A23R is player-routed. OPEN’s two existing
+  conversions can reach only pressure 3 while the provisional warning is 4. VOL 1 §9.5 establishes pressure, but
+  thresholds/timing belong to protected content and no OPEN conversion flow exists for the other women.
+- **HQ decision:** Hilt waits for the hidden/protected content installation. Do not lower the OPEN warning threshold
+  and do not invent additional conversion flows. Keep A23 DEV-reachable for testing.
+- **Runtime disposition:** No change required; A23 remains DEV-reachable and A23R remains player-routed.
 
 ### D4 — ONLYVAMPS collisions
-- **Exists:** ONLYVAMPS creator tiles, subscriptions, a "you know her. this is weird now." collision tile.
-- **Source:** VOL 1 — "some [women] have ONLYVAMPS pages"; "discovering someone you know has a page".
-- **Missing:** which women have pages and when it is discovered. The runtime candidate list is Engineering's guess and is never granted.
-- **Decide:** the names (or "none in rough complete").
+- **Status:** DECIDED / IMPLEMENTED.
+- **Engineering 06 finding:** ONLYVAMPS already had creator tiles, subscriptions, and the “you know her. this is weird
+  now.” collision path. VOL 1 says some women have pages and Rich may discover someone he knows, but did not name
+  them; the dormant runtime candidate roster was an Engineering guess and was never granted.
+- **HQ decision:** Velvet is the sole named/known woman with an ONLYVAMPS page in the rough-complete OPEN build. All
+  remaining creator tiles are anonymous adult creators with no relationship arc or broader canon significance. Rich
+  encounters Velvet’s page through ordinary ONLYVAMPS browsing, not as a relationship/date/progression unlock. Do not
+  add other named creators.
+- **Runtime disposition:** Replaced the guessed named roster with stable anonymous creator tiles and one person-linked
+  Velvet tile. Velvet is the sole known-person collision; anonymous subscriptions, cancellation, renewal, and save
+  behavior continue to use the existing system.
 
 ### D5 — Adult nightlife beyond parties
-- **Source:** OPEN establishes Lane 3 (attending/hosting parties, raves, shows, one concert) and ONLYVAMPS with custom material "as separate swappable packages". No strip club, dancers or loop exists in OPEN authority; nothing was built.
-- **Decide (only if wanted):** whether such a system is in scope for this chapter. If yes, it needs a design spec.
+- **Status:** DECIDED / DEFERRED TO FUTURE EXPANSION.
+- **Engineering 06 finding:** OPEN establishes Lane 3 parties, raves, shows, one concert, and ONLYVAMPS with separate
+  swappable packages. It supplies no strip-club, dancer, or adult-nightlife loop; Engineering 06 built none.
+- **HQ decision:** Adult nightlife is deferred to a future expansion. Do not build a strip-club/dancer/nightlife system
+  in this pass. Existing OPEN parties, raves, shows, and ONLYVAMPS remain.
+- **Runtime disposition:** No change required.
 
-### D6 — Art-mapped staging conflicts
-- **Exists:** approved states whose surface is frozen elsewhere: Tasha `stage_rush` (A14, Ship 008 catacomb crowd key), Vicky `doorway` (A29C, Ship 008 throne-mess key), J-Circle's entrance in A33 (Ship 009 reception crowd key, foreground couple where he would stand), June `working` (paired composite that replaces the Rich + June cast), and three Ship 014 bedroom overlays that draw a second bed over Rich.
-- **Why not Engineering:** changing a frozen surface key or a cast composition is an Art/HQ call.
-- **Decide:** per item, re-key the layer / accept staging without the layer / leave unwired.
+### D6 — Frozen-Art staging conflicts
+- **Status:** DECIDED / DISPOSITIONED.
+- **Engineering 06 finding:** Approved optional states conflicted with already frozen surfaces or cast composition:
+  Tasha `stage_rush`, Vicky `doorway`, J-Circle’s A33 entrance, June `working`, and three Ship 014 bedroom overlays.
+- **HQ decision:** Do not modify frozen Art. Prefer valid staging without the conflicting layer where that requires no
+  change to approved/frozen art; otherwise leave the conflicting optional asset/layer unwired. Do not reopen Art
+  production solely to close these presentation conflicts.
+- **Runtime disposition:** No art or runtime change required. Existing valid non-conflicting staging remains; the
+  conflicting optional J-Circle, June, and bedroom layers remain unwired, as do any Tasha/Vicky condition layers that
+  cannot be used without changing their frozen surface keys.
