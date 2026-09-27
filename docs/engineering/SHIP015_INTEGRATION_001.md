@@ -32,7 +32,7 @@ Spoiler-safe: ids, surfaces and results only. OPEN content only — no SEALED do
 
 ## 3. Changes
 
-Seven Engineering files plus the imported Art, generated data and this document:
+Eight hand-authored Engineering files, plus the imported Art, generated data and this document:
 
 | File | Change |
 |---|---|
