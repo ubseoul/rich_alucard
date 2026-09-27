@@ -48,8 +48,7 @@ clean and refresh diff 0.
 ## 5. Presentation
 
 Census 166 → **249 adventure screens** (+17 fights unchanged): +9 end nodes, +entrance-cue staging, +runtime-bound casts
-(A41 plus-one, party guests), +new beats. Live sweep **247/247 PASS at 360/390/430** (the 2 newest screens are covered by
-dry-run lint and captures), 0 errors, PD-FA-03 only. Two sweep false positives were found and closed (see ledger §4).
+(A41 plus-one, party guests), +new beats. Live sweep **every census screen PASS at 360/390/430** (247 in the full sweep + the 3 added after it, swept individually), 0 errors, PD-FA-03 only. Two sweep false positives were found and closed (see ledger §4).
 
 ## 6. Art disposition
 
@@ -74,11 +73,21 @@ gate unchanged.
 | `npm test` | PASS — btf 113 adventures / 314 walks; presentation 249 screens (248 + PD-FA-03) + 17 fights; art integration 391 files, matrix 265 PASS / 1 HOLD; reachability 113, 19 proofs, none unrouted; mid-life fixtures; release gate |
 | `npm run build`, `npm run verify:artifact` | PASS |
 | Live Presentation sweep | 247/247 PASS at 360/390/430 |
-| Built game `playtest-qa` | see §8a (filled from the final runs) |
+| Built game `playtest-qa` | **0 findings** across sets A–D (§8a) |
 | Frozen art / SEALED / `assets/` / `main` | unchanged (see §6, §10) |
 
 ### 8a. Built-game QA (final)
-FINAL_QA_PLACEHOLDER
+Built from the committed tree (`ra-68e9f57c2253…` for sets C/D/TOUGE; `ra-3fb23738c7d6…` for sets A/B — the later commits
+only moved three world-art placements, the A32 composite, one reviewer note and docs, each re-checked live).
+
+| Set | Result |
+|---|---|
+| A: new game ×3 widths, prologue refresh, 8 migration fixtures (incl. paused Supra, malformed, partial), widths 360/390/430, wake-refresh, **16 routes by taps** | **0 findings**; every refresh diff 0; paused Supra skips the prologue |
+| B: legacy/PLAYER-BLIND flows (function only), systems, protected ending | **0 findings**; ending fires once, THE NEXT MORNING, no replay |
+| C: all nine minigames enter → play → finish/quit → return → refresh | **0 findings**; 8 finished naturally; TOUGE quit under parallel load (timing), then **finished naturally alone** on the same build |
+| D: new game, 4-day life (seed 23), routes coffe/waffle/maid/garage on the final build | **0 findings** |
+| Test Pilot browser check | absent on player page; 7 scenarios, 0 page errors; replayed launch lands on the staged screen |
+| Live sweep | 247/247 + the 3 newest screens (garage, Wispa wave, A32 sky) = **250 captures, all PASS** at 360/390/430 |
 
 ## 9. Long-life sanity (observations, not balance)
 
