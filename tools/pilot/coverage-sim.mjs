@@ -29,7 +29,7 @@ const PERSONAS={
  landlord:{outings:2,dates:1,rooms:['garage','armory_wall','fish_tank','party_hall','coffin_upgrade'],cars:['s15','urus','aventador'],properties:true,curious:.4,lanes:['property','cars','mall','money','home','food']}
 };
 
-export async function live(persona='explorer',{days=60,seed:runSeed=1}={}){
+export async function live(persona='explorer',{days=60,seed:runSeed=1,keepState=false}={}){
  const P=PERSONAS[persona];const ctx=await loadBtf(root);const {RAState,RAClock,RALife,RAAdventures,RARelations,RACastle,RARealEstate,RACars,RAFame,RAPlaces,RATemptations,RAStores}=ctx;
  const R=rng(runSeed*7919+persona.length);
  const report={persona,seed:runSeed,days:0,seeds:[],offered:{},completed:{},errors:[],dead:[],leftovers:[],stale:[],nights:[],fameDay:null};
@@ -88,6 +88,7 @@ export async function live(persona='explorer',{days=60,seed:runSeed=1}={}){
  for(const id of Object.keys(report.completed))if(!report.offered[id])report.offered[id]={first:null,count:0,kinds:{'hub/chain':1}};
  report.neverOffered=all.filter(id=>!report.offered[id]);report.neverCompleted=all.filter(id=>!report.completed[id]);
  report.summary={days:report.days,fameDay:report.fameDay,adventures:all.length,offered:Object.keys(report.offered).length,completed:Object.keys(report.completed).length,errors:report.errors.length,dead:[...new Set(report.dead.map(d=>d.key))],leftovers:report.leftovers.length,money:RALife.money(),followers:RALife.life().resources.followers,met:RARelations.known().length};
+ if(keepState)report.state=JSON.parse(JSON.stringify(RAState.get()));
  return report;
 }
 
