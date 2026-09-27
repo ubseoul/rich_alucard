@@ -1,0 +1,8 @@
+{
+  "baseline": "art_department/ships/art_ship_014/FROZEN_CORPUS_SHA256SUMS.txt",
+  "expected_count": 404,
+  "verified_count": 404,
+  "failure_count": 0,
+  "failures": [],
+  "pass": true
+}

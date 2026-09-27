@@ -229,3 +229,9 @@ Both rejected Buckhead attempts remain hash-preserved and excluded from approval
 50. Explicit Ube/HQ decision: **ART SHIP 014 — UBE/HQ TASTE PASS: PASS; APPROVED FOR PROMOTION + FREEZE.** All 180 exact accepted byte streams are now **APPROVED MASTER / FROZEN**. The frozen corpus is **404 assets across 544 Asset Register entries**.
 
 No accepted image was regenerated, decoded/re-encoded, resized, optimized or modified during promotion. Package H is visual-treatment authority only, not runtime-data authority. Unresolved blockers and mapping decisions remain open. Runtime/gameplay integration, PASS/HOLD movement, Engineering/main merge and deployment are excluded. No SEALED material was accessed. ART SHIP 014 is **APPROVED MASTER / FROZEN / COMPLETE**.
+
+## ART SHIP 015 — FINAL OPEN CANON BLOCKERS (recorded 2026-09-27)
+
+51. Ube/HQ supplied final canon decisions for the two adult brothers, their same-identity FAMILY THREAD avatars, original Vol. 2 God, and OG Hooper. ART SHIP 015 produced seven 80×96 RGBA binary-alpha candidates resolving the six Ship 014 canon blockers.
+52. Surgical HQ review preserved the four Brother candidates byte-for-byte, accepted God after a restrained native edge-light correction, and accepted OG Hooper after an upper-garment-only sleeveless-top correction. Mechanical regression verified the previous frozen corpus 404/404 unchanged.
+53. Explicit final decision: **ART SHIP 015 — UBE/HQ TASTE PASS: PASS.** All seven exact current candidate byte streams are **APPROVED MASTER / FROZEN**. The resulting frozen corpus is 411 assets; the Asset Register contains 551 entries. Runtime/gameplay integration, Ship 011 assignment, Engineering/main merge and deployment remain excluded. SEALED access was zero.

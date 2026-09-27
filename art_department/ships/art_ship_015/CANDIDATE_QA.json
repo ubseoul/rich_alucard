@@ -1,0 +1,261 @@
+{
+  "ship": "ART SHIP 015 \u2014 SURGICAL CORRECTIONS",
+  "status": "CANDIDATE \u2014 READY FOR FINAL UBE/HQ TASTE PASS",
+  "candidate_count": 7,
+  "all_candidate_technical_checks_pass": true,
+  "all_alpha_binary": true,
+  "duplicate_audit_pass": true,
+  "preexisting_frozen_corpus_unchanged": true,
+  "derivative_audit_pass": true,
+  "surgical_regression_pass": true,
+  "candidates": [
+    {
+      "id": "A-family-brother1",
+      "file": "A-family-brother1.png",
+      "state": "NEUTRAL",
+      "contact_or_origin": {
+        "contact": [
+          40,
+          88
+        ]
+      },
+      "canon": "Ube/HQ Art Ship 015 older-brother decision + VOL2/VOL5 OPEN family card",
+      "source": "source_generation/brother1_source.png",
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "alpha_values": [
+        0,
+        255
+      ],
+      "binary_alpha": true,
+      "visible_bbox": [
+        21,
+        24,
+        59,
+        88
+      ],
+      "visible_pixels": 1625,
+      "opaque_rgb_colors": 13,
+      "sha256": "8ca1f2505a29b00df7629c5258921e58c820d1b97c3dd7bdb1df03bce56b71ef",
+      "path": "art_department/ships/art_ship_015/candidates/native/A-family-brother1.png",
+      "technical_pass": true
+    },
+    {
+      "id": "A-family-brother2",
+      "file": "A-family-brother2.png",
+      "state": "NEUTRAL",
+      "contact_or_origin": {
+        "contact": [
+          40,
+          88
+        ]
+      },
+      "canon": "Ube/HQ Art Ship 015 younger-brother decision + VOL2/VOL5 OPEN family card",
+      "source": "source_generation/brother2_source.png",
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "alpha_values": [
+        0,
+        255
+      ],
+      "binary_alpha": true,
+      "visible_bbox": [
+        23,
+        27,
+        58,
+        88
+      ],
+      "visible_pixels": 1306,
+      "opaque_rgb_colors": 12,
+      "sha256": "9afe9279d0fcde25a7d24e9063ce73f0084ef7d3dd4b6c186b165164a271ec2d",
+      "path": "art_department/ships/art_ship_015/candidates/native/A-family-brother2.png",
+      "technical_pass": true
+    },
+    {
+      "id": "A-family-brother1-avatar",
+      "file": "A-family-brother1-avatar.png",
+      "state": "FAMILY_THREAD_AVATAR",
+      "contact_or_origin": {
+        "origin": [
+          0,
+          0
+        ],
+        "contact": null
+      },
+      "canon": "Exact-pixel portrait derivative of A-family-brother1; no new identity",
+      "source": "candidates/native/A-family-brother1.png",
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "alpha_values": [
+        0,
+        255
+      ],
+      "binary_alpha": true,
+      "visible_bbox": [
+        21,
+        28,
+        58,
+        68
+      ],
+      "visible_pixels": 1031,
+      "opaque_rgb_colors": 7,
+      "sha256": "70f46469eba728c9aa9383654bfee46b722c2abe07cedfecc1dda65daf899d20",
+      "path": "art_department/ships/art_ship_015/candidates/native/A-family-brother1-avatar.png",
+      "technical_pass": true
+    },
+    {
+      "id": "A-family-brother2-avatar",
+      "file": "A-family-brother2-avatar.png",
+      "state": "FAMILY_THREAD_AVATAR",
+      "contact_or_origin": {
+        "origin": [
+          0,
+          0
+        ],
+        "contact": null
+      },
+      "canon": "Exact-pixel portrait derivative of A-family-brother2; no new identity",
+      "source": "candidates/native/A-family-brother2.png",
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "alpha_values": [
+        0,
+        255
+      ],
+      "binary_alpha": true,
+      "visible_bbox": [
+        23,
+        29,
+        58,
+        67
+      ],
+      "visible_pixels": 884,
+      "opaque_rgb_colors": 9,
+      "sha256": "3bfa7ab316eb03c6913b9869ba5dbf666273036d1c9c659eb94861af78d82dc3",
+      "path": "art_department/ships/art_ship_015/candidates/native/A-family-brother2-avatar.png",
+      "technical_pass": true
+    },
+    {
+      "id": "A-god",
+      "file": "A-god-seated_on_curb.png",
+      "state": "SEATED_ON_CURB",
+      "contact_or_origin": {
+        "contact": [
+          40,
+          88
+        ],
+        "stage_contact": [
+          158,
+          406
+        ]
+      },
+      "canon": "Original VOL2 God definition reaffirmed by Ube/HQ; pure-light proposal revoked",
+      "source": "source_generation/god_states_source.png",
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "alpha_values": [
+        0,
+        255
+      ],
+      "binary_alpha": true,
+      "visible_bbox": [
+        21,
+        39,
+        59,
+        88
+      ],
+      "visible_pixels": 1339,
+      "opaque_rgb_colors": 15,
+      "sha256": "f911276542fc4a6f0537d4f1972fc234dcce13f215a48626d1e5aca34a2b0923",
+      "path": "art_department/ships/art_ship_015/candidates/native/A-god-seated_on_curb.png",
+      "technical_pass": true
+    },
+    {
+      "id": "A-god",
+      "file": "A-god-fading.png",
+      "state": "FADING",
+      "contact_or_origin": {
+        "contact": [
+          40,
+          88
+        ],
+        "stage_contact": [
+          158,
+          406
+        ]
+      },
+      "canon": "Exact-identity subtractive derivative of SEATED_ON_CURB with sparse edge motes",
+      "source": "candidates/native/A-god-seated_on_curb.png",
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "alpha_values": [
+        0,
+        255
+      ],
+      "binary_alpha": true,
+      "visible_bbox": [
+        21,
+        39,
+        64,
+        88
+      ],
+      "visible_pixels": 1196,
+      "opaque_rgb_colors": 15,
+      "sha256": "e22f2be9f041219959c9cf1ad81996de0551b21d5c525937b2b08209e3ec6ccf",
+      "path": "art_department/ships/art_ship_015/candidates/native/A-god-fading.png",
+      "technical_pass": true
+    },
+    {
+      "id": "A-og-hooper",
+      "file": "A-og-hooper.png",
+      "state": "NEUTRAL / COURT_READY",
+      "contact_or_origin": {
+        "contact": [
+          40,
+          88
+        ]
+      },
+      "canon": "Ube/HQ Art Ship 015 OG Hooper decision + VOL2 OPEN identity row",
+      "source": "source_generation/og_hooper_source.png",
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "alpha_values": [
+        0,
+        255
+      ],
+      "binary_alpha": true,
+      "visible_bbox": [
+        22,
+        23,
+        58,
+        88
+      ],
+      "visible_pixels": 1415,
+      "opaque_rgb_colors": 20,
+      "sha256": "dfb70a4661b6768c468dcd5553a3dc49ddccbfc6a85a627a54e8f87601a90cc3",
+      "path": "art_department/ships/art_ship_015/candidates/native/A-og-hooper.png",
+      "technical_pass": true
+    }
+  ]
+}
