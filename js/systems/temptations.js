@@ -56,7 +56,10 @@
   if(t.action){take(id);return window.RAPlaces?.go?.(t.action);}
   return false;
  }
- function whatWeOn(){const live=T().live.filter(t=>!t.adventure||RAAdventures.available(t.adventure));return live.slice(-6).reverse();}
+ // WHAT WE ON shows up to 6 lines (VOL 1 §6.3). Story-priority wants always make the six, then the newest: on busy
+ // late-game mornings (5–8 new wants) the one-time invites generated first were pushed off the list and unreachable.
+ function whatWeOn(){const live=T().live.filter(t=>!t.adventure||RAAdventures.available(t.adventure));const pr=t=>Number(defs.get(t.id)?.priority)||0;
+  return live.map((t,i)=>({t,i})).sort((a,b)=>pr(b.t)-pr(a.t)||b.i-a.i).slice(0,6).map(x=>x.t);}
  RAClock.onWake('temptations',60,({info})=>{if(T().lastGeneratedDay!==info.day)generate(info.day);});
  // WAKE-triggered adventures: at most one world-initiated interruption per morning.
  const wakeDefs=[];

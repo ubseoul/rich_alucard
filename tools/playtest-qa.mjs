@@ -529,6 +529,18 @@ async function scenarioRoutes(save){
  if(want('a23r')){const p=await newPage(390),rng=rngFrom(18);await routeOpen(p,save,()=>{const r={...RAState.get().life.adventures.records};for(const id of ['A23','A19','A24'])r[id]={status:'completed',count:1,completedDay:1};RAState.patch('life.adventures.records',r);RALife.setFlag('armoryKnown',true);RALife.addGun('lil_oga');});
   for(let n=0;n<6;n++){await drive(p,rng,`a23r-${n}`);await sleepNight(p,'a23r');await drive(p,rng,`a23r-w${n}`);await openPhone(p);await phoneClick(p,'app:vampgpt');if(await p.locator('#phoneContent [data-phone-action="tempt:a23r_rematch"]').count()){await phoneClick(p,'tempt:a23r_rematch');break}await closePhone(p);}
   await check(p,'a23r',['A23R']);}
+ // ---------- Engineering 06 routes (NO PLAYER ENTRY before this pass) — taps only after the declared setup ----------
+ const castleGo=async(p,go)=>{await p.locator('.bedroom-castle').click();await settle(p,300);await p.locator(`.castle-menu [data-castle="${go}"]`).click();await settle(p,500);};
+ if(want('coffe')){const p=await newPage(390),rng=rngFrom(21);await routeOpen(p,save);await sleepNight(p,'coffe');const done=p.locator('.morning-mail .mail-done');if(await done.count()){await done.click();await settle(p,700);}
+  await advPrefer(p,rng,'coffe',/SURE/);await check(p,'coffe',['A29']);}
+ if(want('waffle')){const p=await newPage(390),rng=rngFrom(22);await routeOpen(p,save);await toVamp(p,'prompt','somewhere','go:heartsfelt');await advPrefer(p,rng,'waffle',/BOOK A FLIGHT/);await check(p,'waffle',['A44']);}
+ if(want('lan')){const p=await newPage(390),rng=rngFrom(23);await routeOpen(p,save,()=>{RARelations.meet('tristan','qa-seed');});await toVamp(p,'prompt','somewhere','go:tristan_apt');await advPrefer(p,rng,'lan',/./);await check(p,'lan',['A50']);}
+ if(want('halloween')){const p=await newPage(390),rng=rngFrom(24);await routeOpen(p,save,()=>{RAState.patch('life.world.day',30);});const ok=await wakeWith(p,rng,'halloween',/HALLOWEEN/i);if(!ok)finding('PLAYTEST BLOCKER','ROUTE','halloween: Day 31 invite never reached Morning Mail');
+  await p.locator('#phoneContent [data-phone-action="tempt:halloween_invite"]').first().click().catch(()=>{});await settle(p,600);await advPrefer(p,rng,'halloween',/DUOQLO|TWO STEP/);await check(p,'halloween',['A52']);}
+ if(want('docks')){const p=await newPage(390),rng=rngFrom(25);await routeOpen(p,save,()=>{RARelations.meet('jdm_importer_daughter_001','qa-seed');});await toVamp(p,'prompt','somewhere','go:docks');await advPrefer(p,rng,'docks',/./);await check(p,'docks',['A_CAMMILE1']);}
+ if(want('maid')){const p=await newPage(390),rng=rngFrom(26);await routeOpen(p,save,()=>{RALife.addMoney(100000);RACastle.buy('maid_quarters');});await castleGo(p,'castle:maid');await advPrefer(p,rng,'maid',/HIRE MARISOL/);await drive(p,rng,'maid-back');
+  await castleGo(p,'castle:maid');await advPrefer(p,rng,'maid-room',/./);await check(p,'maid',['A39','MAID']);}
+ if(want('garage')){const p=await newPage(390),rng=rngFrom(27);await routeOpen(p,save,()=>{RALife.addMoney(300000);RACastle.buy('garage');RACars.buy('s15');});await castleGo(p,'castle:garage');await snap(p,'garage-view');await advPrefer(p,rng,'garage',/I'M GOOD/);await check(p,'garage',['GARAGE_VIEW']);}
  return results;
 }
 
