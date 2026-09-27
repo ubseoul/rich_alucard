@@ -3,9 +3,9 @@
  "summary": {
   "frozenFiles": 391,
   "assets": {
-   "FROZEN + ALREADY INTEGRATED": 322,
+   "FROZEN + ALREADY INTEGRATED": 323,
    "REGISTERED — NO OBJECTIVE BEAT": 5,
-   "REGISTERED — NO LIVE SURFACE": 10,
+   "REGISTERED — NO LIVE SURFACE": 9,
    "REGISTERED — PERSON NOT ON STAGE": 1,
    "REGISTERED — CAST CHANGE REQUIRED": 1,
    "REGISTERED — ART-MAPPED SURFACE CONFLICT": 2,
@@ -802,9 +802,10 @@
    "path": "assets/before_the_fame/art_ship_014/package_b/B-riding-composite.png",
    "kind": "dragon-riding_composite",
    "id": "dragon.riding_composite",
-   "status": "REGISTERED — NO LIVE SURFACE",
-   "runtime": [],
-   "note": "FLY ON MAZDA is a route choice with no staged beat; A32/arc flights stage her human form. The bedroom Mazda uses the fly-by overlay; HATCH majestic uses happy/perched."
+   "status": "FROZEN + ALREADY INTEGRATED",
+   "runtime": [
+    "A32 night: Rich on majestic Mazda's back over LA (world art in the sky, native 1:1)"
+   ]
   },
   {
    "path": "assets/before_the_fame/art_ship_014/package_b/B-young-happy.png",
@@ -4107,8 +4108,8 @@
    "profile": "conversation",
    "lint": "pass"
   },
-  "la_sky|left:rich,right:mazda_human": {
-   "status": "PASS (POLISH NOTE)",
+  "la_sky|": {
+   "status": "PASS (final art)",
    "profile": "conversation",
    "lint": "pass",
    "ticket": "NC-FA-13"

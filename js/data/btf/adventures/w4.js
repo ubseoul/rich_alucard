@@ -111,7 +111,9 @@
   discover:{env:'grave',actors:{left:'rich',right:'mazda_human'},title:'THE GRAVE',
    lines:[N('you take her to the grave to figure this out like normal people. she orders boba immediately.'),
     S('mazda_human','i\'ve been able to do this for a while. i just liked being a dragon more.')],next:'night'},
-  night:{env:'la_sky',actors:{left:'rich',right:'mazda_human'},title:'OVER LOS ANGELES',
+  // "she changes back mid-air with Rich on her back over LA" (VOL 5 A32): ART SHIP 014 B-riding-composite (Rich riding
+  // majestic Mazda), drawn as world art in the sky at native 1:1 — a 96×80 composite, not a standing actor.
+  night:{env:'la_sky',actors:null,props:()=>[{src:window.RAArtRegistry?.dragon?.riding_composite?.asset,x:135,y:250}],title:'OVER LOS ANGELES',
    lines:[N('at night she flies. mid-air, she changes back — you\'re still on her back, over the whole city.'),
     R("this is either the best or worst decision i've made this year."),S('mazda_human','it\'s both. that\'s the fun part.')],
    enter:A=>{RARelations.meet('mazda_human','la_sky');RALife.setFlag('mazdaHuman',true);RALife.patchDragon({form:'both'});RALife.remember({text:'mazda changes into a human — flew over LA with her',lane:'dragons'});},

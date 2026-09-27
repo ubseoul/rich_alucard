@@ -679,8 +679,12 @@
   },
   "B-riding-composite": {
    "key": "dragon.riding_composite",
-   "status": "REGISTERED — NO LIVE SURFACE",
-   "note": "FLY ON MAZDA is a route choice with no staged beat; A32/arc flights stage her human form. The bedroom Mazda uses the fly-by overlay; HATCH majestic uses happy/perched."
+   "use": {
+    "surface": "A32 night: Rich on majestic Mazda's back over LA (world art in the sky, native 1:1)",
+    "consumer": "js/data/btf/adventures/w4.js",
+    "token": "dragon?.riding_composite"
+   },
+   "status": "INTEGRATED"
   },
   "B-young-happy": {
    "key": "dragon.young.happy",
