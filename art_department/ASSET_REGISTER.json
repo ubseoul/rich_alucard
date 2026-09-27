@@ -14496,6 +14496,231 @@
         "accepted_set": "NATIVE_CANDIDATE_MANIFEST_V4.json"
       },
       "ui_data_authority": false
+    },
+    {
+      "path": "assets/before_the_fame/art_ship_015/package_a/A-family-brother1.png",
+      "sha256": "8ca1f2505a29b00df7629c5258921e58c820d1b97c3dd7bdb1df03bce56b71ef",
+      "role": "ART SHIP 015 approved Family neutral: brother1 — NEUTRAL",
+      "status": "FROZEN",
+      "default_style_reference": true,
+      "approval_evidence": [
+        "ART SHIP 015 — UBE/HQ TASTE PASS: PASS",
+        "ART SHIP 015 FINAL OPEN CANON BLOCKERS — PROMOTION / FREEZE authorization",
+        "art_department/ships/art_ship_015/HQ_DECISION.md"
+      ],
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "ship_id": "ART SHIP 015",
+      "asset_id": "A-family-brother1",
+      "category": "CHARACTER_STATE_OR_VISUAL",
+      "state": "NEUTRAL",
+      "source_anchor": [
+        40,
+        88
+      ],
+      "alpha": "binary 0/255",
+      "approval_status": "APPROVED MASTER",
+      "freeze_scope": "Exact Ube/HQ-approved ART SHIP 015 candidate byte stream for the submitted identity/state only; no additional canon, state, runtime mapping or placement is inferred.",
+      "runtime_integration_status": "PENDING ENGINEERING MAPPING/INTEGRATION/QA",
+      "source_candidate": {
+        "path": "art_department/ships/art_ship_015/candidates/native/A-family-brother1.png",
+        "sha256": "8ca1f2505a29b00df7629c5258921e58c820d1b97c3dd7bdb1df03bce56b71ef"
+      }
+    },
+    {
+      "path": "assets/before_the_fame/art_ship_015/package_a/A-family-brother2.png",
+      "sha256": "9afe9279d0fcde25a7d24e9063ce73f0084ef7d3dd4b6c186b165164a271ec2d",
+      "role": "ART SHIP 015 approved Family neutral: brother2 — NEUTRAL",
+      "status": "FROZEN",
+      "default_style_reference": true,
+      "approval_evidence": [
+        "ART SHIP 015 — UBE/HQ TASTE PASS: PASS",
+        "ART SHIP 015 FINAL OPEN CANON BLOCKERS — PROMOTION / FREEZE authorization",
+        "art_department/ships/art_ship_015/HQ_DECISION.md"
+      ],
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "ship_id": "ART SHIP 015",
+      "asset_id": "A-family-brother2",
+      "category": "CHARACTER_STATE_OR_VISUAL",
+      "state": "NEUTRAL",
+      "source_anchor": [
+        40,
+        88
+      ],
+      "alpha": "binary 0/255",
+      "approval_status": "APPROVED MASTER",
+      "freeze_scope": "Exact Ube/HQ-approved ART SHIP 015 candidate byte stream for the submitted identity/state only; no additional canon, state, runtime mapping or placement is inferred.",
+      "runtime_integration_status": "PENDING ENGINEERING MAPPING/INTEGRATION/QA",
+      "source_candidate": {
+        "path": "art_department/ships/art_ship_015/candidates/native/A-family-brother2.png",
+        "sha256": "9afe9279d0fcde25a7d24e9063ce73f0084ef7d3dd4b6c186b165164a271ec2d"
+      }
+    },
+    {
+      "path": "assets/before_the_fame/art_ship_015/package_a/A-family-brother1-avatar.png",
+      "sha256": "70f46469eba728c9aa9383654bfee46b722c2abe07cedfecc1dda65daf899d20",
+      "role": "ART SHIP 015 approved Family phone avatar: brother1 — FAMILY_THREAD_AVATAR",
+      "status": "FROZEN",
+      "default_style_reference": true,
+      "approval_evidence": [
+        "ART SHIP 015 — UBE/HQ TASTE PASS: PASS",
+        "ART SHIP 015 FINAL OPEN CANON BLOCKERS — PROMOTION / FREEZE authorization",
+        "art_department/ships/art_ship_015/HQ_DECISION.md"
+      ],
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "ship_id": "ART SHIP 015",
+      "asset_id": "A-family-brother1-avatar",
+      "category": "CHARACTER_STATE_OR_VISUAL",
+      "state": "FAMILY_THREAD_AVATAR",
+      "source_anchor": null,
+      "alpha": "binary 0/255",
+      "approval_status": "APPROVED MASTER",
+      "freeze_scope": "Exact Ube/HQ-approved ART SHIP 015 candidate byte stream for the submitted identity/state only; no additional canon, state, runtime mapping or placement is inferred.",
+      "runtime_integration_status": "PENDING ENGINEERING MAPPING/INTEGRATION/QA",
+      "source_candidate": {
+        "path": "art_department/ships/art_ship_015/candidates/native/A-family-brother1-avatar.png",
+        "sha256": "70f46469eba728c9aa9383654bfee46b722c2abe07cedfecc1dda65daf899d20"
+      }
+    },
+    {
+      "path": "assets/before_the_fame/art_ship_015/package_a/A-family-brother2-avatar.png",
+      "sha256": "3bfa7ab316eb03c6913b9869ba5dbf666273036d1c9c659eb94861af78d82dc3",
+      "role": "ART SHIP 015 approved Family phone avatar: brother2 — FAMILY_THREAD_AVATAR",
+      "status": "FROZEN",
+      "default_style_reference": true,
+      "approval_evidence": [
+        "ART SHIP 015 — UBE/HQ TASTE PASS: PASS",
+        "ART SHIP 015 FINAL OPEN CANON BLOCKERS — PROMOTION / FREEZE authorization",
+        "art_department/ships/art_ship_015/HQ_DECISION.md"
+      ],
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "ship_id": "ART SHIP 015",
+      "asset_id": "A-family-brother2-avatar",
+      "category": "CHARACTER_STATE_OR_VISUAL",
+      "state": "FAMILY_THREAD_AVATAR",
+      "source_anchor": null,
+      "alpha": "binary 0/255",
+      "approval_status": "APPROVED MASTER",
+      "freeze_scope": "Exact Ube/HQ-approved ART SHIP 015 candidate byte stream for the submitted identity/state only; no additional canon, state, runtime mapping or placement is inferred.",
+      "runtime_integration_status": "PENDING ENGINEERING MAPPING/INTEGRATION/QA",
+      "source_candidate": {
+        "path": "art_department/ships/art_ship_015/candidates/native/A-family-brother2-avatar.png",
+        "sha256": "3bfa7ab316eb03c6913b9869ba5dbf666273036d1c9c659eb94861af78d82dc3"
+      }
+    },
+    {
+      "path": "assets/before_the_fame/art_ship_015/package_a/A-god-seated_on_curb.png",
+      "sha256": "f911276542fc4a6f0537d4f1972fc234dcce13f215a48626d1e5aca34a2b0923",
+      "role": "ART SHIP 015 approved God culturally sensitive card — SEATED_ON_CURB + FADING — SEATED_ON_CURB",
+      "status": "FROZEN",
+      "default_style_reference": true,
+      "approval_evidence": [
+        "ART SHIP 015 — UBE/HQ TASTE PASS: PASS",
+        "ART SHIP 015 FINAL OPEN CANON BLOCKERS — PROMOTION / FREEZE authorization",
+        "art_department/ships/art_ship_015/HQ_DECISION.md"
+      ],
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "ship_id": "ART SHIP 015",
+      "asset_id": "A-god",
+      "category": "CHARACTER_STATE_OR_VISUAL",
+      "state": "SEATED_ON_CURB",
+      "source_anchor": [
+        40,
+        88
+      ],
+      "alpha": "binary 0/255",
+      "approval_status": "APPROVED MASTER",
+      "freeze_scope": "Exact Ube/HQ-approved ART SHIP 015 candidate byte stream for the submitted identity/state only; no additional canon, state, runtime mapping or placement is inferred.",
+      "runtime_integration_status": "PENDING ENGINEERING MAPPING/INTEGRATION/QA",
+      "source_candidate": {
+        "path": "art_department/ships/art_ship_015/candidates/native/A-god-seated_on_curb.png",
+        "sha256": "f911276542fc4a6f0537d4f1972fc234dcce13f215a48626d1e5aca34a2b0923"
+      }
+    },
+    {
+      "path": "assets/before_the_fame/art_ship_015/package_a/A-god-fading.png",
+      "sha256": "e22f2be9f041219959c9cf1ad81996de0551b21d5c525937b2b08209e3ec6ccf",
+      "role": "ART SHIP 015 approved God culturally sensitive card — SEATED_ON_CURB + FADING — FADING",
+      "status": "FROZEN",
+      "default_style_reference": true,
+      "approval_evidence": [
+        "ART SHIP 015 — UBE/HQ TASTE PASS: PASS",
+        "ART SHIP 015 FINAL OPEN CANON BLOCKERS — PROMOTION / FREEZE authorization",
+        "art_department/ships/art_ship_015/HQ_DECISION.md"
+      ],
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "ship_id": "ART SHIP 015",
+      "asset_id": "A-god",
+      "category": "CHARACTER_STATE_OR_VISUAL",
+      "state": "FADING",
+      "source_anchor": [
+        40,
+        88
+      ],
+      "alpha": "binary 0/255",
+      "approval_status": "APPROVED MASTER",
+      "freeze_scope": "Exact Ube/HQ-approved ART SHIP 015 candidate byte stream for the submitted identity/state only; no additional canon, state, runtime mapping or placement is inferred.",
+      "runtime_integration_status": "PENDING ENGINEERING MAPPING/INTEGRATION/QA",
+      "source_candidate": {
+        "path": "art_department/ships/art_ship_015/candidates/native/A-god-fading.png",
+        "sha256": "e22f2be9f041219959c9cf1ad81996de0551b21d5c525937b2b08209e3ec6ccf"
+      }
+    },
+    {
+      "path": "assets/before_the_fame/art_ship_015/package_a/A-og-hooper.png",
+      "sha256": "dfb70a4661b6768c468dcd5553a3dc49ddccbfc6a85a627a54e8f87601a90cc3",
+      "role": "ART SHIP 015 approved OG Hooper identity — NEUTRAL / COURT_READY — NEUTRAL / COURT_READY",
+      "status": "FROZEN",
+      "default_style_reference": true,
+      "approval_evidence": [
+        "ART SHIP 015 — UBE/HQ TASTE PASS: PASS",
+        "ART SHIP 015 FINAL OPEN CANON BLOCKERS — PROMOTION / FREEZE authorization",
+        "art_department/ships/art_ship_015/HQ_DECISION.md"
+      ],
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "ship_id": "ART SHIP 015",
+      "asset_id": "A-og-hooper",
+      "category": "CHARACTER_STATE_OR_VISUAL",
+      "state": "NEUTRAL / COURT_READY",
+      "source_anchor": [
+        40,
+        88
+      ],
+      "alpha": "binary 0/255",
+      "approval_status": "APPROVED MASTER",
+      "freeze_scope": "Exact Ube/HQ-approved ART SHIP 015 candidate byte stream for the submitted identity/state only; no additional canon, state, runtime mapping or placement is inferred.",
+      "runtime_integration_status": "PENDING ENGINEERING MAPPING/INTEGRATION/QA",
+      "source_candidate": {
+        "path": "art_department/ships/art_ship_015/candidates/native/A-og-hooper.png",
+        "sha256": "dfb70a4661b6768c468dcd5553a3dc49ddccbfc6a85a627a54e8f87601a90cc3"
+      }
     }
   ]
 }

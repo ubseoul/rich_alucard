@@ -1,0 +1,79 @@
+{
+  "status": "PASS",
+  "errors": [],
+  "summary": {
+    "promoted_bytes": {
+      "passed": 7,
+      "expected": 7,
+      "failures": [],
+      "pass": true
+    },
+    "candidate_duplicates": {
+      "exact": [],
+      "semantic": [],
+      "pass": true
+    },
+    "brother_hashes": {
+      "expected": {
+        "A-family-brother1:NEUTRAL": "8ca1f2505a29b00df7629c5258921e58c820d1b97c3dd7bdb1df03bce56b71ef",
+        "A-family-brother2:NEUTRAL": "9afe9279d0fcde25a7d24e9063ce73f0084ef7d3dd4b6c186b165164a271ec2d",
+        "A-family-brother1-avatar:FAMILY_THREAD_AVATAR": "70f46469eba728c9aa9383654bfee46b722c2abe07cedfecc1dda65daf899d20",
+        "A-family-brother2-avatar:FAMILY_THREAD_AVATAR": "3bfa7ab316eb03c6913b9869ba5dbf666273036d1c9c659eb94861af78d82dc3"
+      },
+      "actual": {
+        "A-family-brother1:NEUTRAL": "8ca1f2505a29b00df7629c5258921e58c820d1b97c3dd7bdb1df03bce56b71ef",
+        "A-family-brother2:NEUTRAL": "9afe9279d0fcde25a7d24e9063ce73f0084ef7d3dd4b6c186b165164a271ec2d",
+        "A-family-brother1-avatar:FAMILY_THREAD_AVATAR": "70f46469eba728c9aa9383654bfee46b722c2abe07cedfecc1dda65daf899d20",
+        "A-family-brother2-avatar:FAMILY_THREAD_AVATAR": "3bfa7ab316eb03c6913b9869ba5dbf666273036d1c9c659eb94861af78d82dc3"
+      },
+      "pass": true
+    },
+    "corrected_hashes": {
+      "expected": {
+        "A-god:SEATED_ON_CURB": "f911276542fc4a6f0537d4f1972fc234dcce13f215a48626d1e5aca34a2b0923",
+        "A-god:FADING": "e22f2be9f041219959c9cf1ad81996de0551b21d5c525937b2b08209e3ec6ccf",
+        "A-og-hooper:NEUTRAL / COURT_READY": "dfb70a4661b6768c468dcd5553a3dc49ddccbfc6a85a627a54e8f87601a90cc3"
+      },
+      "actual": {
+        "A-god:SEATED_ON_CURB": "f911276542fc4a6f0537d4f1972fc234dcce13f215a48626d1e5aca34a2b0923",
+        "A-god:FADING": "e22f2be9f041219959c9cf1ad81996de0551b21d5c525937b2b08209e3ec6ccf",
+        "A-og-hooper:NEUTRAL / COURT_READY": "dfb70a4661b6768c468dcd5553a3dc49ddccbfc6a85a627a54e8f87601a90cc3"
+      },
+      "pass": true
+    },
+    "pre_ship_015_frozen": {
+      "passed": 404,
+      "expected": 404,
+      "failures": [],
+      "pass": true
+    },
+    "resulting_frozen_corpus": {
+      "passed": 411,
+      "expected": 411,
+      "failures": [],
+      "pass": true
+    },
+    "candidate_to_prior_frozen_semantic_equality": {
+      "equalities": [],
+      "pass": true
+    },
+    "asset_register": {
+      "entries": 551,
+      "expected_entries": 551,
+      "ship_015_entries": 7,
+      "expected_ship_015_entries": 7,
+      "pass": true
+    },
+    "completion_ledger": {
+      "rows": 308,
+      "blocked_by_canon": [],
+      "approved_master_frozen": 186,
+      "pass": true
+    },
+    "sealed_access": {
+      "count": 0,
+      "pass": true,
+      "basis": "Only OPEN/current Art records, approved candidates, and checksum registries were read."
+    }
+  }
+}

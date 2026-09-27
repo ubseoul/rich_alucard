@@ -1,0 +1,80 @@
+{
+  "brother_files": {
+    "A-family-brother1.png": true,
+    "A-family-brother2.png": true,
+    "A-family-brother1-avatar.png": true,
+    "A-family-brother2-avatar.png": true
+  },
+  "god": {
+    "A-god-seated_on_curb.png": {
+      "changed_pixel_count": 9,
+      "changed_only_allowed_edge_pixels": true,
+      "changed_pixels": [
+        [
+          22,
+          59
+        ],
+        [
+          24,
+          48
+        ],
+        [
+          30,
+          40
+        ],
+        [
+          33,
+          39
+        ],
+        [
+          40,
+          39
+        ],
+        [
+          48,
+          43
+        ],
+        [
+          54,
+          82
+        ],
+        [
+          57,
+          70
+        ],
+        [
+          58,
+          62
+        ]
+      ]
+    },
+    "A-god-fading.png": {
+      "changed_pixel_count": 4,
+      "changed_only_allowed_edge_pixels": true,
+      "changed_pixels": [
+        [
+          30,
+          40
+        ],
+        [
+          33,
+          39
+        ],
+        [
+          40,
+          39
+        ],
+        [
+          48,
+          43
+        ]
+      ]
+    }
+  },
+  "og_hooper": {
+    "changed_pixel_count": 336,
+    "changed_only_upper_garment_region": true,
+    "alpha_and_silhouette_unchanged": true
+  },
+  "pass": true
+}
