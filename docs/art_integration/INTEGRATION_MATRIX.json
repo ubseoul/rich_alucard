@@ -21,12 +21,12 @@
    "FROZEN + READY TO INTEGRATE": 1
   },
   "demand": {
-   "environment: NO APPROVED ART YET": 5,
-   "person: NO APPROVED ART YET": 6
+   "environment: NO APPROVED ART YET": 7,
+   "person: NO APPROVED ART YET": 7
   },
   "screens": {
    "PASS": 265,
-   "HOLD": 14
+   "HOLD": 17
   }
  },
  "surfaces": {
@@ -3532,6 +3532,16 @@
   },
   {
    "kind": "environment",
+   "id": "gbenga_house_dining",
+   "status": "NO APPROVED ART YET"
+  },
+  {
+   "kind": "environment",
+   "id": "gbenga_house_patio",
+   "status": "NO APPROVED ART YET"
+  },
+  {
+   "kind": "environment",
    "id": "carson_owambe",
    "status": "NO APPROVED ART YET"
   },
@@ -3563,6 +3573,11 @@
   {
    "kind": "person",
    "id": "gbenga",
+   "status": "NO APPROVED ART YET"
+  },
+  {
+   "kind": "person",
+   "id": "mama_gbenga",
    "status": "NO APPROVED ART YET"
   },
   {
@@ -4113,6 +4128,21 @@
   },
   "garage|": {
    "status": "PASS (final art)",
+   "profile": "conversation",
+   "lint": "pass"
+  },
+  "gbenga_house_dining|left:rich,mid:mama_gbenga,right:gbenga": {
+   "status": "HOLD (placeholder environment)",
+   "profile": "conversation",
+   "lint": "pass"
+  },
+  "gbenga_house_dining|left:rich,right:mama_gbenga": {
+   "status": "HOLD (placeholder environment)",
+   "profile": "conversation",
+   "lint": "pass"
+  },
+  "gbenga_house_patio|left:rich,right:gbenga": {
+   "status": "HOLD (placeholder environment)",
    "profile": "conversation",
    "lint": "pass"
   },

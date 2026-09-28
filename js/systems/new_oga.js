@@ -84,5 +84,10 @@
   patch({status:'rank4_pending',mission:6,m6Progress:'resolved',m6Outcome:walked?'walked':'lost',m6CareResult:{feed:care.feed===true,walk:walked,joko:care.joko===true},senatorLost:!walked,m6Completed:true,m6ConsequencesApplied:true,trust,gangClout:current().gangClout+T().clout.M6_ALL,heat:current().heat+T().heat.M6_ALL,trustAtM6:trust,senatorCommands:trust>=T().trustThresholds.HIGH_MIN,lastMissionDay:RALife.today().day});
   return grantRank4IfReady();
  }
- window.RANewOga={current,patch,tier,adjust,close,backOutM1,completeM1,answerM2,payM2,workOffM2,ensureCarlosMutual,observeTouge,decorateVampGramPost,completeM3,completeM4,completeAlternative,m5Payout,completeM5,completeM6,grantRank4IfReady};
+ function completeM7(outcome){
+  if(current().m7ConsequencesApplied)return current();
+  if(!['take','refuse'].includes(outcome))throw new Error(`Unknown M7 outcome ${outcome}`);
+  return patch({status:'m8_hold',mission:7,m7Eligible:false,m7Progress:'resolved',m7Outcome:outcome,m7Completed:true,m7ConsequencesApplied:true,vaultKnown:true,businessStructureKnown:true,misterDecemberHierarchyKnown:true,leftoversAte:outcome==='take',refusedMama:outcome==='refuse',m8Held:true,trust:current().trust+T().trust[outcome==='take'?'M7_TAKE':'M7_REFUSE'],lastMissionDay:RALife.today().day});
+ }
+ window.RANewOga={current,patch,tier,adjust,close,backOutM1,completeM1,answerM2,payM2,workOffM2,ensureCarlosMutual,observeTouge,decorateVampGramPost,completeM3,completeM4,completeAlternative,m5Payout,completeM5,completeM6,grantRank4IfReady,completeM7};
 })();
