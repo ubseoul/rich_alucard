@@ -126,7 +126,8 @@
  const COURSE_THEME={
   angeles_crest:{sky:'#233a6b',floor:'#3a4a3a',road:'#332f3f',stars:1,label:'ANGELES CREST'},
   docks:{sky:'#1c2433',floor:'#26302e',road:'#2c2d38',stars:0,label:'THE DOCKS'},
-  grave_garage:{sky:'#17142c',floor:'#241f2e',road:'#2e2838',stars:0,label:'GRAVE GARAGE'}
+  grave_garage:{sky:'#17142c',floor:'#241f2e',road:'#2e2838',stars:0,label:'GRAVE GARAGE'},
+  warehouse_alleys:{sky:'#15131c',floor:'#29262d',road:'#302d35',stars:0,label:'KOREATOWN · WAREHOUSE ALLEYS'}
  };
  function buildCourse(id,seed){
   const rng=(window.RAPixel&&RAPixel.rng)?RAPixel.rng(`${id}:${seed}`):(()=>{let s=(seed>>>0)||1;return()=>{s^=s<<13;s>>>=0;s^=s>>17;s^=s<<5;s>>>=0;return s/4294967296;};})();
@@ -309,9 +310,10 @@
   function handleResultsTap(p){
    if(inRect(p,RESULT_BTN_BACK)){runItBack();return;}
    if(inRect(p,RESULT_BTN_DONE)){
-    ctx.finish({outcome:tandem?(tandemScore>=(tandem.threshold||3000)?'win':'lose'):'done',score,
+    const result={outcome:tandem?(tandemScore>=(tandem.threshold||3000)?'win':'lose'):'done',score,
      summary:`${Math.round(score)} pts on ${course.theme.label}`,
-     data:{course:course.id,car:carId,lessonPassed:lesson?lessonCounts[lesson]>=2:undefined,spins,maxAngle:Math.round(maxAngleSeen),tandemWin:tandem?tandemScore>=(tandem.threshold||3000):undefined}});
+     data:{course:course.id,car:carId,lessonPassed:lesson?lessonCounts[lesson]>=2:undefined,spins,maxAngle:Math.round(maxAngleSeen),tandemWin:tandem?tandemScore>=(tandem.threshold||3000):undefined}};
+    window.RANewOga?.observeTouge?.({course:course.id,result});ctx.finish(result);
    }
   }
 
@@ -405,6 +407,11 @@
     const sy=carY-(rd-state.distance);
     const sx=screenXforWorld(course.xAt(clamp(rd,0,course.length)));
     if(sy>-20&&sy<500)drawCar(sx,sy,0,0,'#20c66b',0.85,rivalSprite);
+   }
+   if(P.escapeRunner){
+    const runnerY=170+Math.sin(runElapsed*9)*2,runnerX=screenXforWorld(course.xAt(Math.min(course.length,state.distance+230)));
+    RAPixel.rect(c,runnerX-3,runnerY-7,6,7,'#777');RAPixel.rect(c,runnerX-4,runnerY,3,7,'#555');RAPixel.rect(c,runnerX+1,runnerY,3,7,'#555');
+    RAPixel.text(c,String(P.escapeRunner).toUpperCase(),runnerX,runnerY-14,{size:5,align:'center',color:'#f6efd9'});
    }
    drawCar(screenXforWorld(state.x),carY,state.heading,state.slideAngle,handling.color,1,carSprite);
 

@@ -3,7 +3,7 @@
  // (vampire pressure headlines, Obas, elders who address Rich by his rep tier).
  const life=()=>RAState.get().life;
  const feedState=()=>{const f=life().phone.feed;return Array.isArray(f)?f:[];};
- function post(p){const list=[...feedState()];const id=p.id||`vg:${RALife.today().day}:${list.length}`;if(list.some(x=>x.id===id))return false;list.unshift({day:RALife.today().day,likes:0,...p,id,seen:false});RAState.patch('life.phone.feed',list.slice(0,80));return true;}
+ function post(p){const list=[...feedState()];const id=p.id||`vg:${RALife.today().day}:${list.length}`;if(list.some(x=>x.id===id))return false;const decorated=window.RANewOga?.decorateVampGramPost?.(p)||p;list.unshift({day:RALife.today().day,likes:0,...decorated,id,seen:false});RAState.patch('life.phone.feed',list.slice(0,80));return true;}
  function ambient(){
   const L=RALife.L(),d=L.day,out=[],pressure=life().ecology.pressure||0,t=RASealed.tuning('pressure');
   const heads=['BAT SIGHTINGS UP IN SILVER LAKE','HUNTER SEEN ON SUNSET','A CONVERTED GIRL STOPPED POSTING. NOBODY SAYS WHY.'];

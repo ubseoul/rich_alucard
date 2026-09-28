@@ -54,7 +54,7 @@
  // VAMPGRAM — red/black vampire feed; headlines reflect the world; Obas post; Rich's drops land here.
  A.register({id:'vampgram',label:'VampGram',canon:true,badge:()=>window.RAVampGram?.unseen?.()||0,
   render(sub){const feed=window.RAVampGram?.feed?.()||[];window.RAVampGram?.markSeen?.();
-   return `<h1>VAMPGRAM</h1><p class="phone-small">@richalucard · ${new Intl.NumberFormat('en-US').format(life().resources.followers||0)} followers</p>${feed.slice(0,24).map(p=>`<div class="phone-card vg-post">${vgAvatar(p.handle)}<b>@${esc(p.handle)}</b>${esc(p.text)}${p.likes?`<br><span class="phone-small">♥ ${p.likes}${p.elder?' · an elder commented "'+esc(p.elder)+'"':''}</span>`:''}${p.action?btn(esc(p.action.label),p.action.go):''}</div>`).join('')||'<p class="phone-small">quiet night.</p>'}`;}});
+   return `<h1>VAMPGRAM</h1><p class="phone-small">@richalucard · ${new Intl.NumberFormat('en-US').format(life().resources.followers||0)} followers</p>${feed.slice(0,24).map(p=>`<div class="phone-card vg-post">${vgAvatar(p.handle)}<b>@${esc(p.handle)}</b>${esc(p.text)}${p.likes?`<br><span class="phone-small">♥ ${p.likes}${p.elder?' · an elder commented "'+esc(p.elder)+'"':''}</span>`:''}${(p.comments||[]).map(c=>`<br><span class="phone-small">@${esc(c.handle)} · ${esc(c.text)}</span>`).join('')}${p.action?btn(esc(p.action.label),p.action.go):''}</div>`).join('')||'<p class="phone-small">quiet night.</p>'}`;}});
  // RECEIPTS — the memoir app (VOL 5 §9.3). Automatic photo-cards; share one to VampGram.
  A.register({id:'receipts',label:'RECEIPTS',order:40,
   render(sub){const list=[...(life().receipts||[])].reverse();const byMonth={};for(const r of list){const m=`MONTH ${Math.floor((r.day-1)/28)+1}`;(byMonth[m]=byMonth[m]||[]).push(r);}

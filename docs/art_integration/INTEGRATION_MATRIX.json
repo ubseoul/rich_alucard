@@ -22,11 +22,11 @@
   },
   "demand": {
    "environment: NO APPROVED ART YET": 5,
-   "person: NO APPROVED ART YET": 3
+   "person: NO APPROVED ART YET": 4
   },
   "screens": {
    "PASS": 265,
-   "HOLD": 6
+   "HOLD": 10
   }
  },
  "surfaces": {
@@ -3564,6 +3564,11 @@
    "kind": "person",
    "id": "gbenga",
    "status": "NO APPROVED ART YET"
+  },
+  {
+   "kind": "person",
+   "id": "carlos",
+   "status": "NO APPROVED ART YET"
   }
  ],
  "screens": {
@@ -3619,6 +3624,11 @@
   },
   "bedroom|left:rich,right:bunmi": {
    "status": "PASS (final art)",
+   "profile": "conversation",
+   "lint": "pass"
+  },
+  "bedroom|left:rich,right:carlos": {
+   "status": "HOLD (mixed: unresolved cast art)",
    "profile": "conversation",
    "lint": "pass"
   },
@@ -4073,6 +4083,16 @@
   },
   "garage|": {
    "status": "PASS (final art)",
+   "profile": "conversation",
+   "lint": "pass"
+  },
+  "gbenga_rentals|left:carlos,right:gbenga": {
+   "status": "HOLD (placeholder environment)",
+   "profile": "conversation",
+   "lint": "pass"
+  },
+  "gbenga_rentals|left:rich,right:carlos": {
+   "status": "HOLD (placeholder environment)",
    "profile": "conversation",
    "lint": "pass"
   },
@@ -4622,6 +4642,11 @@
   },
   "street_night|left:rich,right:bunmi@date": {
    "status": "PASS (final art)",
+   "profile": "conversation",
+   "lint": "pass"
+  },
+  "street_night|left:rich,right:carlos": {
+   "status": "HOLD (mixed: unresolved cast art)",
    "profile": "conversation",
    "lint": "pass"
   },

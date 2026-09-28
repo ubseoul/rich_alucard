@@ -16,11 +16,45 @@
  function answerM2(answer){const key={honest:'M2_HONEST',flex:'M2_FLEX',fish:'M2_FISH'}[answer];return patch({m2Answer:answer,trust:current().trust+(key?T().trust[key]:0)});}
  function payM2(){if(!RALife.spend(20000))return false;patch({status:'closed',mission:2,m2Outcome:'paid',debt:0,trust:current().trust+T().trust.M2_PAY_END,lastMissionDay:RALife.today().day});return true;}
  function workOffM2(){return patch({status:'intern',mission:2,rank:1,title:'INTERN',businessCard:true,debt:20000,m2Outcome:'work_off',trust:current().trust+T().trust.M2_WORK_OFF,lastMissionDay:RALife.today().day});}
+ function ensureCarlosMutual(source='m3_fallback'){
+  if(current().carlosMutual||current().carlosUnfollowed)return current();
+  const day=RALife.today().day;
+  patch({carlosMutual:true,carlosMutualDay:day,carlosMutualSource:source});
+  window.RAVampGram?.post?.({id:`new-oga:carlos-mutual:${day}`,handle:'carlos',text:source==='grave_garage'?'clips from the garage. 🔥🔥🔥':'saw you at the garage. 🔥',likes:42});
+  return current();
+ }
+ function observeTouge({course,result}={}){if(course==='grave_garage'&&result&&!result.quit)ensureCarlosMutual('grave_garage');return current();}
+ function decorateVampGramPost(post){
+  const handle=String(post?.handle||'').replace(/[^a-z0-9]/gi,'').toLowerCase();
+  if(handle!=='richalucard'||!current().carlosMutual||current().carlosUnfollowed)return post;
+  const comments=Array.isArray(post.comments)?post.comments:[];
+  return {...post,comments:[...comments,{handle:'carlos',text:'🔥🔥🔥'}]};
+ }
  function completeM3(outcome){
-  if(outcome==='backout')return patch({status:'intern',mission:3,m3Outcome:'chairs_only',trust:current().trust+T().trust.M3_BACKOUT,gangClout:current().gangClout+T().clout.M3_BACKOUT,lastMissionDay:RALife.today().day});
+  if(outcome==='backout'){patch({status:'intern',mission:3,m3Outcome:'chairs_only',trust:current().trust+T().trust.M3_BACKOUT,gangClout:current().gangClout+T().clout.M3_BACKOUT,lastMissionDay:RALife.today().day});return ensureCarlosMutual('m3_fallback');}
   if(current().m3Rewarded)return current();
   RALife.addMoney(3000);RALife.addItem('jollof_plate',1);
-  return patch({status:'intern',mission:3,m3Outcome:'complete',m3Rewarded:true,trust:current().trust+T().trust.M3_COMPLETE,gangClout:current().gangClout+T().clout.M3_COMPLETE,lastMissionDay:RALife.today().day});
+  patch({status:'intern',mission:3,m3Outcome:'complete',m3Rewarded:true,trust:current().trust+T().trust.M3_COMPLETE,gangClout:current().gangClout+T().clout.M3_COMPLETE,lastMissionDay:RALife.today().day});
+  return ensureCarlosMutual('m3_fallback');
  }
- window.RANewOga={current,patch,tier,adjust,close,backOutM1,completeM1,answerM2,payM2,workOffM2,completeM3};
+ function completeM4(outcome,{tougeBand=null}={}){
+  if(current().m4Outcome)return current();
+  const day=RALife.today().day;
+  if(outcome==='walk_in'){
+   if(!current().m4Rewarded)RALife.addMoney(T().m4.AUTHORED_WALK_IN_PAY);
+   RALife.tendency('messy',T().tendency.M4_WALK_IN_MESSY);
+   patch({status:'associate',mission:4,rank:3,title:'ASSOCIATE',m4Outcome:'walk_in',m4Rewarded:true,gangClout:current().gangClout+T().clout.M4_WALK_IN,trust:current().trust+T().trust.M4_WALK_IN,carlosUnfollowed:true,carlosCanopyApron:true,carlosLaterParty:true,carlosLaterStage:'canopy_apron',alternativePending:false,lastMissionDay:day});
+   window.RAVampGram?.post?.({id:`new-oga:carlos-unfollow:${day}`,handle:'vampgram.system',text:'carlos unfollowed @richalucard.',likes:0});
+   return current();
+  }
+  const trustKey={beat_1:'M4_BEAT_1',beat_2:'M4_BEAT_2',beat_3:'M4_BEAT_3',run:'M4_RUN'}[outcome];
+  if(outcome==='run')RALife.tendency('solid',T().tendency.M4_RUN_SOLID);
+  return patch({status:'alternative_pending',mission:4,m4Outcome:outcome,m4TougeBand:tougeBand,carlosEscaped:outcome==='run',alternativePending:true,carlosLaterParty:true,carlosLaterStage:outcome==='run'?'escaped':'mutual',trust:current().trust+(trustKey?T().trust[trustKey]:0),lastMissionDay:day});
+ }
+ function completeAlternative(){
+  if(!current().alternativePending||current().alternativeCompleted)return current();
+  if(!current().alternativeRewarded)RALife.addMoney(T().m4.AUTHORED_ALTERNATIVE_PAY);
+  return patch({status:'associate',rank:3,title:'ASSOCIATE',alternativePending:false,alternativeCompleted:true,alternativeRewarded:true,gangClout:current().gangClout+T().clout.ALTERNATIVE,lastMissionDay:RALife.today().day});
+ }
+ window.RANewOga={current,patch,tier,adjust,close,backOutM1,completeM1,answerM2,payM2,workOffM2,ensureCarlosMutual,observeTouge,decorateVampGramPost,completeM3,completeM4,completeAlternative};
 })();

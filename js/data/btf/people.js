@@ -85,6 +85,8 @@
   {id:'smallie',name:'SMALLIE',look:{skin:'#70442c',top:'#15151c',bottom:'#303038',hair:'#130d0a',hairShape:'spiky',height:.86,accent:'#c18b3c'}},
   {id:'smallie_cousin',name:"SMALLIE'S COUSIN",look:{skin:'#7a4b31',top:'#3a263e',bottom:'#24242c',hair:'#17100d',hairShape:'hat',height:.94}},
   {id:'gbenga',name:'GBENGA',look:{skin:'#623a25',top:'#e8e0cc',bottom:'#24242c',hair:'#100b08',hairShape:'bald',height:1.08,width:1.08,accent:'#c18b3c'}},
+  // F2 PLACEHOLDER — intentionally neutral silhouette until the recurring Carlos identity package is approved.
+  {id:'carlos',name:'CARLOS',look:{skin:'#777777',top:'#45454d',bottom:'#2c2c32',hair:'#202025',hairShape:'short'}},
   {id:'soul',name:'SOUL',look:{top:'#1c2c44',bottom:'#1c2c44',hair:'#1c2c44',skin:'#2a3a54'}},
   {id:'training_dummy',name:'TRAINING DUMMY',look:{skin:'#b08a5a',top:'#b08a5a',bottom:'#6a4a2a',hair:'#6a4a2a',hairShape:'bald'}}
  ];
