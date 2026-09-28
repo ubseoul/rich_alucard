@@ -14,7 +14,7 @@
     const click=selector=>{const node=document.querySelector(selector);if(!node)return false;node.click();return true};
     const open=async()=>{RAPhone.open();await sleep(270);return RAPhone.isOpen()};
     const closeBy=async selector=>{if(!click(selector))return false;await sleep(280);return !RAPhone.isOpen()};
-    const goAtlanta=async()=>{if(!click('[data-phone-action="vampgpt"]'))return false;await sleep(20);if(!click('[data-phone-action="prompt"]'))return false;await sleep(20);if(!click('[data-phone-action="somewhere"]'))return false;await sleep(20);if(!click('[data-phone-action="atlanta"]'))return false;await sleep(20);return !!document.querySelector('[data-phone-action="letsGo"]')&&!!document.querySelector('[data-phone-action="nah"]')};
+    const goAtlanta=async()=>{if(!click('[data-phone-action="app:vampgpt"]'))return false;await sleep(20);if(!click('[data-phone-action="prompt"]'))return false;await sleep(20);if(!click('[data-phone-action="somewhere"]'))return false;await sleep(20);if(!click('[data-phone-action="atlanta"]'))return false;await sleep(20);return !!document.querySelector('[data-phone-action="letsGo"]')&&!!document.querySelector('[data-phone-action="nah"]')};
     try{
       RAWorldEvents.reset(eventId);RADesireTrips.reset();RAState.patch('life.world.location','LA');await RAScenes.go('bedroom',{smoke:true});
       for(let i=0;i<3;i++){if(!await open())return false;if(!await closeBy('#phoneClose'))return false;if(!await open())return false;if(!await closeBy('[data-phone-action="close"]'))return false}
@@ -66,6 +66,48 @@
     ['native bedroom cloud canvas',()=>{const c=document.querySelector('#bedroomCloudCanvas');return c?.width===270&&c?.height===480&&getComputedStyle(c).imageRendering==='pixelated'}],
     ['bedroom authored state controls',()=>document.querySelectorAll('[data-bedroom-state]').length===6],
     ['bedroom source assets load at authored sizes',async()=>{const specs=[['rich_bedroom_environment_270x480.png',270,480],...['lounge_idle','phone_scroll','small_idle','phone_reaction','sleeping','drowsy_wake'].map(n=>[`rich_bedroom_${n}.png`,128,64]),['bedroom_cloud_large.png',136,40],['bedroom_cloud_medium.png',88,44],['bedroom_cloud_small.png',52,24]];const loaded=await Promise.all(specs.map(([file,w,h])=>new Promise(resolve=>{const i=new Image();i.onload=()=>resolve(i.naturalWidth===w&&i.naturalHeight===h);i.onerror=()=>resolve(false);i.src=`assets/${file}`})));return loaded.every(Boolean)}],
+    ['audio engine foundation: M1-M2 manifest, buses and slots',()=>{
+      const A=window.RAAudio,M=window.RAAudioManifest;if(!A||!M)return false;
+      const d=A.defaults();
+      const required=['UI_TAP','UI_MOVE','UI_CONFIRM','UI_BACK','UI_ERROR','UI_DIALOG_ADVANCE','PHONE_OPEN','PHONE_CLOSE','PHONE_APP_OPEN','NOTIF_GENERIC','NOTIF_TEXT','NOTIF_FAMILY','NOTIF_STORM','CASH_IN','CASH_OUT','APP_UNLOCK','CONTACT_ADDED','WHATWEON_UPDATE','RADIO_SWITCH','TRAVEL_WHOOSH','REWARD_STINGER','SAVE','AMB_BEDROOM','AMB_THRONE','AMB_CASTLE_STREET','BED_RUSTLE','WAKE_STRETCH','STEPS_STONE','DOOR_CASTLE','BAT_FLUTTER','ROOM_BUILT','CAT_MEOW','CAT_PURR','KITCHEN_AMB','TV_ROOM','BATTLE_START','TELEGRAPH','HIT_LIGHT','HIT_HEAVY','MISS','CRIT','HEAL','BUFF','DEBUFF','STUN','KO','VICTORY','DEFEAT','MOVE_BLOODBATH','MOVE_BITE','MOVE_OCTOPUS','MOVE_REVENGE','EN_BRIEFCASE','EN_SHOVE','EN_BONES','EN_HOLY','GUN_LILOGA','MAGIC_HEX'];
+      const missing=required.filter(id=>!M.has(id));
+      return M.schema==='2.1'&&d.MUSIC===.70&&d.SFX===.90&&d.UI===.60&&d.VOICE===.80&&d.AMBIENCE===.45&&missing.length===0&&M.resident.length>=6&&Object.keys(M.scenes).length>=4&&M.list().length>=80;
+    }],
+    ['audio engine test path: routing, settings persistence, ducking',()=>{
+      const A=window.RAAudio;if(!A)return false;const before=JSON.parse(JSON.stringify(RAState.get().life.settings.audio));
+      A.unlock();A.installTestTone('UI_TAP',{freq:660,duration:.03});A.setVolume('UI',1);A.setMuted(false);
+      const played=A.sfx('UI_TAP')===true;const ui=A.describe().busGains.UI;
+      A.setVolume('UI',.5);const halved=A.describe().busGains.UI;const persisted=RAState.get().life.settings.audio.sfx===.5;
+      A.setMuted(true);const muted=A.describe().muted===true;
+      A.duckMusic(12,60);const ducked=A.describe().ducked===true;A.restoreMusic(60);
+      A.setVolume('UI',before.sfx);A.setMuted(before.muted);const restored=RAState.get().life.settings.audio.sfx===before.sfx;
+      return played&&Math.abs(ui-.6)<.001&&Math.abs(halved-.3)<.001&&persisted&&muted&&ducked&&restored;
+    }],
+    ['phone hierarchy sections and concise lock communication',async()=>{
+      const H=window.RAPhoneHierarchy;if(!H)return false;
+      const ids=H.sectionIds(),sections=['now','social','money','life','system'].every(id=>ids.includes(id));
+      const placed=H.sectionFor('vampgpt')==='now'&&H.sectionFor('realEstate')==='money';
+      const only=H.lockFor('onlyvamps'),concise=only.short.split(' ').length<=3&&only.line==='invite only.';
+      const slots=H.reserved().length>=4;
+      const snapshot=JSON.parse(JSON.stringify(RAState.get()));
+      try{RAState.patch('life.phone.apps',{});await RAScenes.go('bedroom',{smoke:true});RAPhone.open();await new Promise(r=>setTimeout(r,260));
+        const labels=document.querySelectorAll('.phone-app-grid .phone-section-label').length;
+        const locked=document.querySelector('.phone-app-grid [data-locked="1"]');
+        const short=document.querySelector('.phone-app-grid .phone-lock-short');
+        return sections&&placed&&concise&&slots&&labels>=3&&!!locked&&!!short&&/^LOCKED · /.test(short.textContent)&&RAPhone.apps.length===7;
+      }finally{await RAPhone.close?.();RAState.write(localStorage,snapshot,false);RAState.load();await RAScenes.go('battle',{smokeRestore:true});}
+    }],
+    ['phone audio settings surface persists to save',async()=>{
+      const snapshot=JSON.parse(JSON.stringify(RAState.get()));
+      try{await RAScenes.go('bedroom',{smoke:true});RAPhone.open();await new Promise(r=>setTimeout(r,260));
+        const gear=document.querySelector('#phoneSettingsButton');if(!gear)return false;gear.click();await new Promise(r=>setTimeout(r,30));
+        const slider=document.querySelector('[data-audio-bus="SFX"]');if(!slider)return false;slider.value='40';slider.dispatchEvent(new Event('input',{bubbles:true}));await new Promise(r=>setTimeout(r,10));
+        const persisted=RAState.get().life.settings.audio.sfx===.4;
+        const muteButton=document.querySelector('[data-phone-action="toggleMute"]');if(!muteButton)return false;muteButton.click();await new Promise(r=>setTimeout(r,10));
+        const muted=RAState.get().life.settings.audio.muted===true;
+        return persisted&&muted&&document.querySelectorAll('.phone-settings input[type=range]').length===3;
+      }finally{await RAPhone.close?.();RAState.write(localStorage,snapshot,false);RAState.load();await RAScenes.go('battle',{smokeRestore:true});}
+    }],
     ['state foundation',()=>!!window.RAState&&!!window.RACharacterSystem]
   ];
   async function run(){

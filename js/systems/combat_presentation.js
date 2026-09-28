@@ -16,7 +16,10 @@
   }
   async function play(spec={}){
     const profile=profiles[spec.severity||'normal']||profiles.normal, target=targetNode(spec.target), attacker=targetNode(spec.attacker), stage=document.querySelector('#screen'), kind=spec.kind||'blood';
+    const RAA=window.RAAudio;
+    if(RAA){const move={blood:'MOVE_BLOODBATH',bite:'MOVE_BITE',revenge:'MOVE_REVENGE',octopus:'MOVE_OCTOPUS','importer-shove':'EN_SHOVE',briefcase:'EN_BRIEFCASE'}[kind];if(move)RAA.sfx(move);}
     spec.onPhase?.('CONTACT'); target?.classList.add('combat-contact'); await wait(spec.contactMs??45);
+    if(RAA)RAA.sfx(spec.severity==='lethal'?'KO':spec.severity==='heavy'?'HIT_HEAVY':'HIT_LIGHT');
     spec.onPhase?.('HIT-STOP'); stage?.classList.add('combat-hit-stop'); await wait(profile.stop); stage?.classList.remove('combat-hit-stop');
     spec.onPhase?.('WHITE/SILHOUETTE FLASH'); target?.classList.add(profile.flash==='silhouette'?'combat-silhouette-flash':'combat-white-flash'); await wait(70); target?.classList.remove('combat-white-flash','combat-silhouette-flash');
     spec.onPhase?.('CONTACT BURST'); burst(target,kind,profile.fragments);

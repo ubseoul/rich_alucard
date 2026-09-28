@@ -391,6 +391,7 @@ audio.addEventListener('ended',()=>{
 
 start.addEventListener('click',async()=>{
   overlay.style.display='none';
+  try{window.RAAudio?.unlock?.();}catch(e){}
   const routed=await window.RANewGame?.onStart?.();
   if(!routed)await window.RAScenes?.go?.('bedroom',{start:true});
   try{

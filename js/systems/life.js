@@ -31,7 +31,7 @@
  const elderName=()=>['baby','young man','Rich','Mr. Alucard'][rep()];
  // ---- money ----
  const money=()=>Number(life().resources.money)||0;
- function addMoney(n){RAState.patch('life.resources.money',Math.round(money()+n));return money();}
+ function addMoney(n){RAState.patch('life.resources.money',Math.round(money()+n));try{window.RAAudio?.sfx?.(Number(n)>=0?'CASH_IN':'CASH_OUT');}catch(e){}return money();}
  function spend(n){if(n>money())return false;addMoney(-n);return true;}
  const fmt=n=>'$'+new Intl.NumberFormat('en-US').format(Math.round(n));
  function netWorth(){const o=life().ownership;let w=money();for(const p of o.properties||[])if(p.ownershipStatus==='owned')w+=Number(p.value||p.purchasePrice)||0;for(const c of o.cars||[])w+=Number(c.value||c.price)||0;for(const r of o.castleRooms||[])w+=(Number(r.price)||0)*.5;return Math.round(w);}
@@ -63,7 +63,7 @@
  function patchDragon(fields){const d=dragon();if(!d)return null;const next={...d,...fields};RAState.patch('life.ownership.dragon',next);return next;}
  // ---- apps ----
  const appUnlocked=id=>!!life().phone.apps?.[id]?.unlocked;
- function unlockApp(id,{silent=false}={}){if(appUnlocked(id))return false;const apps={...life().phone.apps,[id]:{unlocked:true,unlockedDay:today().day}};RAState.patch('life.phone.apps',apps);if(!silent)mail({id:`app:${id}`,kind:'app',title:'NEW APP',body:`${(window.RAPhoneApps?.label?.(id)||id).toUpperCase()} is on your phone now.`});return true;}
+ function unlockApp(id,{silent=false}={}){if(appUnlocked(id))return false;const apps={...life().phone.apps,[id]:{unlocked:true,unlockedDay:today().day}};RAState.patch('life.phone.apps',apps);try{window.RAAudio?.sfx?.('APP_UNLOCK');}catch(e){}if(!silent)mail({id:`app:${id}`,kind:'app',title:'NEW APP',body:`${(window.RAPhoneApps?.label?.(id)||id).toUpperCase()} is on your phone now.`});return true;}
  // ---- memory / receipts / history ----
  function remember({id,text,lane=null,type='moment',quality=1,quiet=false}={}){
   if(!text)return null;const log=[...life().memoryLog];const key=id||`mem:${today().day}:${text}`;if(log.some(m=>m.id===key))return null;

@@ -93,6 +93,7 @@
   });
   async function finish(){
    const outcome=state.outcome;
+   if(outcome==='win'||outcome==='lose'){try{window.RAAudio?.sfx?.(outcome==='win'?'VICTORY':'DEFEAT');}catch(e){}}
    // Persist what the fight used/earned (items spent, moves learned, drops, people who saw it).
    const life=RAState.get().life;const items={...life.ownership.items};for(const [id,n] of Object.entries(state.items))if(D().ITEMS[id]){if(n>0)items[id]=n;else delete items[id];}RAState.patch('life.ownership.items',items);
    if(state.learned){const learned=[...new Set([...(life.combat.learnedMoves||[]),state.learned])];RAState.patch('life.combat.learnedMoves',learned);const eq=[...life.combat.equippedMoves];if(!eq.includes(state.learned)){if(eq.length<4)eq.push(state.learned);RAState.patch('life.combat.equippedMoves',eq);}}
@@ -106,6 +107,7 @@
    close({outcome,octopus:state.octopusUsed,recruited:!!state.recruited,learned:state.learned||null,turns:state.turn});
   }
   function close(result){if(directed)RAPresentationDirector.exit();root.remove();document.body.classList.remove('combat2-mode');active=null;resolveRun(result);}
+  try{window.RAAudio?.sfx?.('BATTLE_START');}catch(e){}
   hud();$('.c2-log').textContent=params.intro||`${state.enemy.name} WANTS TO FIGHT.`;renderMenu();
   if(state.telegraph){$('.c2-telegraph').hidden=false;}
   return new Promise(resolve=>{resolveRun=resolve;active={abort:()=>close({outcome:'run'}),state,debugResolve:o=>{RACombat2Rules.forceEnd(state,o);finish();}};});

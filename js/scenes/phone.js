@@ -29,12 +29,24 @@
  // PICKUP has no phone app at runtime and RICHBOIMPORTS has no approved icon; both stay text-only.
  const APP_ICON={texts:'texts',hatch:'hatch',touge:'touge',bars:'bars',radio:'rich_radio',receipts:'receipts',vampgpt:'vampgpt',jdmImports:'jdmimports'};
  function icon(id){const src=window.RAArtRegistry?.ui?.apps?.[APP_ICON[id]];return src?`<img class="phone-app-icon" src="${esc(src)}" alt="" width="24" height="24" draggable="false">`:''}
- function homeMarkup(){
-  const extras=[...registry.values()].filter(a=>!a.canon&&isUnlocked(a.id)).sort((a,b)=>a.order-b.order);
-  const canon=CANON.map(([name,id])=>button(`${icon(id)}${name}${badge(id)}`,`app:${id}`,`app-button${isUnlocked(id)?'':' app-dormant'}`)).join('');
-  const more=extras.map(a=>button(`${icon(a.id)}${a.label}${badge(a.id)}`,`app:${a.id}`,'app-button app-extra')).join('');
-  return `${header()}<h1>PHONE</h1>${incomingCard()}<div class="phone-app-grid">${canon}${more}</div><div class="phone-message" aria-live="polite"></div>${button('CLOSE PHONE','close','phone-close-button')}`;
- }
+ function lockMeta(id){return window.RAPhoneHierarchy?.lockFor?.(id,registry.get(id))||{short:'LOCKED',line:registry.get(id)?.lockedLine||CANON_LOCKED[id]||'not yet.'};}
+  function appButton(id,label,isCanon){
+   const unlocked=isUnlocked(id),lock=unlocked?null:lockMeta(id);
+   const cls=`app-button${isCanon?'':' app-extra'}${unlocked?'':' app-dormant'}`;
+   const sub=unlocked?badge(id):`<small class="phone-lock-short">LOCKED · ${esc(lock.short)}</small>`;
+   const extra=unlocked?'':`data-locked="1" aria-label="${esc(label)} — locked: ${esc(lock.short)}"`;
+   return button(`${icon(id)}${label}${sub}`,`app:${id}`,cls,extra);
+  }
+  function homeMarkup(){
+   const entries=CANON.map(([name,id])=>({id,label:name,canon:true}));
+   for(const a of [...registry.values()].filter(x=>!x.canon&&isUnlocked(x.id)).sort((a,b)=>a.order-b.order))entries.push({id:a.id,label:a.label,canon:false});
+   const hierarchy=window.RAPhoneHierarchy;
+   const sections=hierarchy?.sections?.()||[{id:'life',label:'APPS'}];
+   const groups=new Map(sections.map(s=>[s.id,[]]));
+   for(const entry of entries){const key=hierarchy?.sectionFor?.(entry.id,registry.get(entry.id))||'life';(groups.get(key)||groups.get('life')).push(entry);}
+   const grid=sections.map(section=>{const items=groups.get(section.id)||[];if(!items.length)return '';return `<p class="phone-section-label" data-phone-section="${esc(section.id)}">${esc(section.label)}</p>`+items.map(e=>appButton(e.id,e.label,e.canon)).join('');}).join('');
+   return `${header()}<h1>PHONE</h1>${incomingCard()}<div class="phone-app-grid">${grid}</div><div class="phone-message" aria-live="polite"></div>${button('CLOSE PHONE','close','phone-close-button')}`;
+  }
  // ---- VampGPT (canon flow + WHAT WE ON + the three lanes) ----
  function whatWeOn(){
   const lines=window.RATemptations?.whatWeOn?.()||[];if(!lines.length)return '';
@@ -54,7 +66,19 @@
    content.innerHTML=`<h1>VAMPGPT</h1><div class="phone-chat"><p class="phone-speaker">RICH</p><p>${page==='money'?'how i make money':'i wanna meet people'}</p><p class="phone-speaker">VAMPGPT</p><p>${esc(window.RAVampGPT?.laneIntro?.(page)||'ok. options.')}</p><div class="phone-option-list">${opts.map(o=>button(`${esc(o.label)}${o.sub?`<br><small>${esc(o.sub)}</small>`:''}`,`go:${o.go}`,o.octopus?'octo-option':'')).join('')||'<p>nothing yet. give it a day.</p>'}</div></div>${button('BACK','options','phone-back')}${button('HOME','home','phone-home')}`;
   }else if(page==='somewhere'){
    const places=window.RAPlaces?.visible?.()||[];
-   content.innerHTML=`<h1>VAMPGPT</h1><div class="phone-chat"><p>where you tryna go</p><div class="phone-option-list">${opportunities().map(o=>button(`${o.label}<br><small>${o.available?'AVAILABLE':'LOCKED'}</small>`,o.id,o.available?'destination-available':'destination-locked')).join('')}${places.map(p=>button(`${esc(p.label)}<br><small>${esc(p.sub||'AVAILABLE')}</small>`,`go:${p.id}`,'destination-available')).join('')}</div><div class="phone-message" aria-live="polite"></div></div>${button('BACK','options','phone-back')}${button('HOME','home','phone-home')}`;
+   const options=opportunities();
+   const available=options.filter(o=>o.available),locked=options.filter(o=>!o.available);
+   const destLockShort=o=>{const f=(o.failures||[]).join(' '),m=String(o.lockedMessage||'').toLowerCase();if(/money/.test(f))return 'NEED CASH';if(/clout/.test(f)||/clout/.test(m))return 'NEED CLOUT';if(/location/.test(f))return 'NOT HERE';if(/contact/.test(f))return 'NO CONTACT';if(/relationship/.test(f))return 'NOT CLOSE';return 'LOCKED';};
+   const destination=(o,unlocked)=>button(`${o.label}<br><small>${unlocked?'AVAILABLE':`LOCKED · ${esc(destLockShort(o))}`}</small>`,o.id,unlocked?'destination-available':'destination-locked',unlocked?'':'data-locked="1"');
+   const groups=[];
+   if(available.length)groups.push(`<p class="phone-section-label" data-phone-section="go-available">AVAILABLE</p>${available.map(o=>destination(o,true)).join('')}`);
+   if(places.length)groups.push(`<p class="phone-section-label" data-phone-section="go-open">OPEN NOW</p>${places.map(p=>button(`${esc(p.label)}<br><small>${esc(p.sub||'AVAILABLE')}</small>`,`go:${p.id}`,'destination-available')).join('')}`);
+   if(locked.length)groups.push(`<p class="phone-section-label" data-phone-section="go-locked">LOCKED</p>${locked.map(o=>destination(o,false)).join('')}`);
+   content.innerHTML=`<h1>VAMPGPT</h1><div class="phone-chat"><p>where you tryna go</p><div class="phone-option-list">${groups.join('')||'<p>nothing yet.</p>'}</div><div class="phone-message" aria-live="polite"></div></div>${button('BACK','options','phone-back')}${button('HOME','home','phone-home')}`;
+  }else if(page==='settings'){
+   const a=window.RAAudio?.settings?.()||{music:1,sfx:1,ambience:1,muted:false,haptics:true};
+   const slider=(bus,label,value)=>`<label class="phone-setting"><span>${label}</span><input type="range" min="0" max="100" step="5" value="${Math.round(value*100)}" data-audio-bus="${bus}" aria-label="${label} volume"></label>`;
+   content.innerHTML=`<h1>AUDIO</h1><div class="phone-card phone-settings">${slider('MUSIC','MUSIC',a.music)}${slider('SFX','SFX',a.sfx)}${slider('AMBIENCE','AMBIENCE',a.ambience)}${button(a.muted?'UNMUTE':'MUTE','toggleMute','phone-toggle-mute')}<label class="phone-setting phone-toggle"><span>HAPTICS</span><input type="checkbox" data-audio-toggle="haptics" ${a.haptics?'checked':''}></label></div><div class="phone-message" aria-live="polite"></div>`;
   }else if(page==='ogunRaveIntro'){
    content.innerHTML=`<h1>VAMPGPT</h1><div class="phone-chat"><p class="phone-speaker">VAMPGPT</p><p>ogun's rave.<br>meatpacking district.<br>you already got the invite.</p><p class="phone-speaker">RICH</p><p>say less</p></div><div class="phone-trip-choice">${button("LET'S GO",'ogunRaveGo')}${button('NAH','nah')}</div>${button('BACK','somewhere','phone-back')}`;
   }else if(page==='butterChicken'){
@@ -82,6 +106,7 @@
   window.RAWorldEvents?.deliver?.('phone');
   opened=true;phoneScope=window.RAScenes?.currentScope?.()?.child('phone-overlay')||window.RAScenes?.createScope?.('phone-overlay');closeSceneExitCleanup=null;page='home';window.RABedroom?.holdForPhone?.();window.RAState.patch('life.phone.learned',true);updateEntry();
   overlay.setAttribute('aria-hidden','false');overlay.classList.remove('closing');overlay.classList.add('open');render();
+  window.RAAudio?.sfx?.('PHONE_OPEN');if(incoming().length)window.RAAudio?.sfx?.('NOTIF_GENERIC');
   phoneScope?.timeout(()=>document.querySelector('#phoneClose')?.focus({preventScroll:true}),240);
  }
  function openApp(id,sub=''){if(!opened)showPhone();if(!opened)return false;if(id==='vampgpt'||id==='realEstate'||id==='jdmImports'){page=id;}else page=`app:${id}${sub?`:${sub}`:''}`;render();return true;}
@@ -96,6 +121,7 @@
     closeSceneExitCleanup?.();closeSceneExitCleanup=null;
     overlay.classList.remove('closing');
     opened=false;phoneScope=null;closePromise=null;
+    window.RAAudio?.sfx?.('PHONE_CLOSE');
     window.RABedroom?.releasePhone?.();entry?.focus({preventScroll:true});updateEntry();
     scope?.cancel?.();
     resolve(ok);
@@ -111,6 +137,8 @@
   async launch(minigameId,params={},after){await closePhone();const result=await RAMinigames.launch(minigameId,params);window.RALifeRewards?.apply?.(result);if(after)after(result);return result;}};
  async function action(name){
   if(name==='close'){closePhone();return}if(name==='home'){page='home';render();return}if(name==='vampgpt'){page='vampgpt';render();return}if(name==='prompt'){page='options';render();return}if(name==='somewhere'){page='somewhere';render();return}if(name==='options'){page='options';render();return}if(name==='jdmImports'){page='jdmImports';render();return}if(name==='realEstate'){page='realEstate';render();return}
+  if(name==='settings'){page='settings';render();return}
+  if(name==='toggleMute'){window.RAAudio?.toggleMuted?.();window.RAAudio?.sfx?.('UI_CONFIRM');render();return}
   if(name.startsWith('openWorldEvent:')){page=`worldEvent:${name.slice('openWorldEvent:'.length)}`;render();return}
   if(name.startsWith('resolveWorldEvent:')){const [,id,actionId]=name.split(':');window.RAWorldEvents?.resolve?.(id,actionId);page='home';render();return}
   if(name.startsWith('tempt:')){const id=name.slice(6);const t=(window.RATemptations?.whatWeOn?.()||[]).find(x=>x.id===id);if(!t)return;
@@ -118,13 +146,14 @@
    window.RATemptations.take(id);const ok=await window.RAPlaces?.go?.(t.action,api);if(ok===false)setMessage('not tonight.');return}
   if(name.startsWith('go:')){const id=name.slice(3);const ok=await window.RAPlaces?.go?.(id,api);if(ok===false){setMessage('not tonight.');}return}
   if(name.startsWith('app:')){const [,id,...rest]=name.split(':');
+   if(!isUnlocked(id)){const lock=lockMeta(id);window.RAAudio?.sfx?.('UI_ERROR');setMessage(lock.line);return}
+   window.RAAudio?.sfx?.('PHONE_APP_OPEN');
    if(id==='vampgpt'||id==='realEstate'||id==='jdmImports'){page=id;render();return}
-   if(!isUnlocked(id)){setMessage(registry.get(id)?.lockedLine||CANON_LOCKED[id]||'not yet.');return}
    page=`app:${id}${rest.length?':'+rest.join(':'):''}`;render();return}
   if(name.startsWith('do:')){const [,id,act,...args]=name.split(':');const app=registry.get(id);if(app?.onAction){await app.onAction(act,args.join(':'),api);}return}
   if(name==='money'||name==='people'){page=name;render();return}
   if(name==='atlanta'){const option=window.RAOpportunities?.get('atlanta');if(option?.available&&option.action?.type==='dialogue'&&option.action.id==='butter_chicken'){page='butterChicken';render()}return}
-  if(name==='tokyo'){const option=window.RAOpportunities?.get('tokyo');if(!option?.available)setMessage(window.RALife&&RALife.rep()>=2?'almost. not yet.':(option?.lockedMessage||"tokyo vampires don't fw you yet. get your clout up."));return}
+  if(name==='tokyo'){const option=window.RAOpportunities?.get('tokyo');if(!option?.available){window.RAAudio?.sfx?.('UI_ERROR');setMessage(window.RALife&&RALife.rep()>=2?'almost. not yet.':(option?.lockedMessage||"tokyo vampires don't fw you yet. get your clout up."));}return}
   if(name==='ogun_rave'){const option=window.RAOpportunities?.get('ogun_rave');if(option?.available&&option.action?.type==='dialogue'&&option.action.id==='ogun_rave_intro'){page='ogunRaveIntro';render()}return}
   if(name==='nah'){page='somewhere';render();return}
   if(name==='letsGo'){
@@ -142,6 +171,7 @@
   document.addEventListener('ra:scene',e=>{if(e.detail?.id!=='bedroom'&&opened)closePhone()});
   document.querySelector('#phoneClose')?.addEventListener('click',closePhone);
   overlay?.addEventListener('click',e=>{const jdm=e.target.closest('[data-jdm-action]');if(jdm){window.RAJDMImports?.action(jdm.dataset.jdmAction);return}const property=e.target.closest('[data-property-action]');if(property){window.RAPropertyQuest?.action(property.dataset.propertyAction);return}const target=e.target.closest('[data-phone-action]');if(target&&!target.disabled)action(target.dataset.phoneAction)});
+  overlay?.addEventListener('input',e=>{const bus=e.target?.dataset?.audioBus;if(bus)window.RAAudio?.setVolume?.(bus,Number(e.target.value)/100);if(e.target?.dataset?.audioToggle==='haptics')window.RAAudio?.setHaptics?.(e.target.checked);});
   document.querySelector('#devResetPhone')?.addEventListener('click',()=>{window.RAState.patch('life.resources.money',100000);window.RAState.patch('life.world.location','LA');window.RAState.patch('life.resources.clout','LOW');window.RAState.patch('life.phone.learned',false);page='home';if(opened)closePhone();updateEntry();entry?.focus({preventScroll:true});});
   document.addEventListener('keydown',e=>{if(opened&&e.key==='Escape')closePhone()});
  });

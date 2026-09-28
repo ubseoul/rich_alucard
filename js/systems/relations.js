@@ -15,7 +15,7 @@
   const had=met(id);if(window.RAPeople?.meetPerson)window.RAPeople.meetPerson(id,source);
   const rec=base(id);rec.met=true;if(!had){rec.lastSeenDay=RALife.today().day;if(source)rec.firstMeetingSource=rec.firstMeetingSource||source;}
   save(id,rec);
-  if(!had&&catalog(id)?.dateable&&RALife.appUnlocked('instahoe'))RALife.mail({id:`contact:${id}`,kind:'people',title:'NEW CONTACT',body:`${catalog(id).name} followed you on InstaHoe.`,app:'instahoe'});
+  if(!had&&catalog(id)?.dateable&&RALife.appUnlocked('instahoe')){RALife.mail({id:`contact:${id}`,kind:'people',title:'NEW CONTACT',body:`${catalog(id).name} followed you on InstaHoe.`,app:'instahoe'});try{window.RAAudio?.sfx?.('CONTACT_ADDED');}catch(e){}}
   return get(id);
  }
  function add(id,points,{reason,quiet=false}={}){
