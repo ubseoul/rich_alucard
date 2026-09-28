@@ -106,9 +106,9 @@ async function runWidth(size){
  // ---- in-page smoke suite ----
  const smoke=await page.evaluate(async()=>await window.RASmoke.run());
  const failLines=smoke.filter(l=>l.startsWith('FAIL'));
- const newChecks=smoke.filter(l=>/audio engine|ambience|specific phone sounds|phone hierarchy|phone audio settings/.test(l));
+ const newChecks=smoke.filter(l=>/audio engine|ambience|specific phone sounds|phone hierarchy|phone audio settings|library registration|registered SFX|missing or unapproved|MAGIC_SEANCE|variation and loop-set|loops use measured|sealed\/reserved/.test(l));
  check(where,'in-page smoke suite has no failures',failLines.length===0,failLines.join(' ; ')||'0 fails');
- check(where,'new audio/phone smoke checks pass',newChecks.length>=4&&newChecks.every(l=>l.startsWith('PASS')),newChecks.map(l=>l.split(' — ')[0]).join(' | '));
+ check(where,'new audio/phone smoke checks pass',newChecks.length>=10&&newChecks.every(l=>l.startsWith('PASS')),`${newChecks.length} checks: `+newChecks.map(l=>`${l.startsWith('PASS')?'P':'F'}`).join(''));
 
  // reset save so each width starts clean
  await page.evaluate(()=>localStorage.clear());

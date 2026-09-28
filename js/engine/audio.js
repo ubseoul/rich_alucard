@@ -24,7 +24,7 @@
   // ---- Web Audio graph ----
   let ctx=null,master=null,duckNode=null;const busNodes={};
   let unlocked=false,ducked=false,duckTimeout=null;
-  const buffers=new Map(),missing=new Set(),active=new Map(),loops=new Map(),plays=new Map();
+  const buffers=new Map(),missing=new Set(),active=new Map(),loops=new Map(),plays=new Map(),variantBuffers=new Map();
   let sceneState={id:null,preload:[]},sceneToken=0,ambienceAttempts=0,pendingAmbience=false,pendingToken=0,residentPreloaded=false;
 
   function ensureCtx(){
@@ -79,10 +79,22 @@
   document.addEventListener('click',uiClick);
 
   // ---- loading ----
+  function preloadVariant(path){
+    if(!unlocked||!path)return Promise.resolve(null);
+    const c=ensureCtx();if(!c)return Promise.resolve(null);
+    if(variantBuffers.has(path))return Promise.resolve(variantBuffers.get(path));
+    if(missing.has(path))return Promise.resolve(null);
+    return fetch(path,{cache:'force-cache'}).then(response=>{if(!response.ok)throw new Error(`audio ${path}: ${response.status}`);return response.arrayBuffer();})
+      .then(data=>new Promise((resolve,reject)=>c.decodeAudioData(data,b=>resolve(b),reject)))
+      .then(buffer=>{variantBuffers.set(path,buffer);return buffer;})
+      .catch(()=>{missing.add(path);return null;});
+  }
   function preload(id){
     if(!unlocked)return Promise.resolve(null); // never create an AudioContext before the first user gesture (§3.3)
     const c=ensureCtx(),entry=manifest()?.get?.(id);
-    if(!c||!entry||!entry.file||!entry.registered)return Promise.resolve(null);
+    if(!c||!entry)return Promise.resolve(null);
+    for(const variant of entry.variations||[])preloadVariant(variant);
+    if(!entry.file||!entry.registered)return Promise.resolve(null);
     if(buffers.has(id))return Promise.resolve(buffers.get(id));
     if(missing.has(id))return Promise.resolve(null);
     return fetch(entry.file,{cache:'force-cache'}).then(response=>{if(!response.ok)throw new Error(`audio ${id}: ${response.status}`);return response.arrayBuffer();})
@@ -107,15 +119,26 @@
   // ---- playback ----
   function nodeGainFor(entry){return entry.gain==null?1:clamp01(entry.gain);}
   function busFor(entry){return busNodes[entry.bus]||busNodes.SFX;}
+  // Variation sets (schema 2.1 `variations`) pick one candidate at random; loop sets (`parts`) are never played as a whole.
+  function candidate(entry){
+    const list=[];
+    if(entry.file)list.push({primary:true,path:entry.file});
+    for(const v of entry.variations||[])list.push({primary:false,path:v});
+    if(!list.length)return null;
+    return list.length===1?list[0]:list[Math.floor(Math.random()*list.length)];
+  }
+  function candidateBuffer(id,cand){if(!cand)return null;return cand.primary?(buffers.get(id)||null):(variantBuffers.get(cand.path)||null);}
   function oneShot(id,opts={}){
     if(!unlocked)return false;
     const c=ensureCtx(),entry=manifest()?.get?.(id);
     if(!c||!entry)return false;
     if(entry.type==='loop')return loop(id,opts);
-    if(!buffers.has(id)){if(entry.file&&entry.registered)preload(id);return false;}
+    if(entry.type==='loop set')return false;
+    const cand=candidate(entry),buffer=candidateBuffer(id,cand);
+    if(!buffer){if(entry.registered)preload(id);return false;}
     const limit=Math.max(1,entry.maxVoices||3);
     if((active.get(id)||0)>=limit)return false;
-    const source=c.createBufferSource();source.buffer=buffers.get(id);
+    const source=c.createBufferSource();source.buffer=buffer;
     const jitter=entry.pitchJitter||0;if(jitter)source.playbackRate.value=1+(Math.random()*2-1)*jitter;
     const gain=c.createGain();gain.gain.value=clamp01(nodeGainFor(entry)*(opts.gain==null?1:clamp01(opts.gain)));
     source.connect(gain).connect(busFor(entry));
@@ -130,10 +153,11 @@
   function loop(id,opts={}){
     if(!unlocked)return false;
     const c=ensureCtx(),entry=manifest()?.get?.(id);
-    if(!c||!entry)return false;
+    if(!c||!entry||entry.type==='loop set')return false;
     if(loops.has(id))return true;
-    if(!buffers.has(id)){if(entry.file&&entry.registered)preload(id);return false;}
-    const source=c.createBufferSource();source.buffer=buffers.get(id);source.loop=true;
+    const cand=candidate(entry),buffer=candidateBuffer(id,cand);
+    if(!buffer){if(entry.registered)preload(id);return false;}
+    const source=c.createBufferSource();source.buffer=buffer;source.loop=true;
     if(Number.isFinite(entry.loopStart))source.loopStart=entry.loopStart;
     if(Number.isFinite(entry.loopEnd))source.loopEnd=entry.loopEnd;
     const gain=c.createGain();gain.gain.value=clamp01(nodeGainFor(entry)*(opts.gain==null?1:clamp01(opts.gain)));
@@ -210,7 +234,7 @@
 
   function describe(){
     const s=readSettings();
-    return {schema:manifest()?.schema||null,unlocked,context:ctx?ctx.state:'none',scene:sceneState.id,sceneToken,ducked,muted:!!s.muted,settings:s,busGains:BUSSES.reduce((acc,bus)=>({...acc,[bus]:busNodes[bus]?.gain.value??(busDefaults()[bus]??1)}),{}),loaded:[...buffers.keys()],missing:[...missing.keys()],playing:[...loops.keys()],voices:[...active.entries()].filter(([,n])=>n>0).reduce((acc,[id,n])=>({...acc,[id]:n}),{}),plays:[...plays.entries()].reduce((acc,[id,n])=>({...acc,[id]:n}),{}),ambienceAttempts,pendingAmbience};
+    return {schema:manifest()?.schema||null,unlocked,context:ctx?ctx.state:'none',scene:sceneState.id,sceneToken,ducked,muted:!!s.muted,settings:s,busGains:BUSSES.reduce((acc,bus)=>({...acc,[bus]:busNodes[bus]?.gain.value??(busDefaults()[bus]??1)}),{}),loaded:[...buffers.keys()],missing:[...missing.keys()],playing:[...loops.keys()],voices:[...active.entries()].filter(([,n])=>n>0).reduce((acc,[id,n])=>({...acc,[id]:n}),{}),plays:[...plays.entries()].reduce((acc,[id,n])=>({...acc,[id]:n}),{}),ambienceAttempts,pendingAmbience,variants:[...variantBuffers.keys()]};
   }
 
   // ---- original element helpers (unchanged behavior) ----
@@ -221,6 +245,8 @@
   window.RAAudio={get,play,pause,unlock,isUnlocked:()=>unlocked,sfx:oneShot,oneShot,loop,stop,stopAll,isPlaying,duckMusic,restoreMusic,duckFor,preload,preloadScene,releaseScene,installBuffer,installTestTone,enterScene,startSceneAmbience,scene:()=>sceneState.id,setVolume,setMuted,toggleMuted,setHaptics,settings,applyMix,applyElementMix,describe,
     buses:{...{MUSIC:'MUSIC',SFX:'SFX',UI:'UI',VOICE:'VOICE',AMBIENCE:'AMBIENCE'}},defaults:()=>({...busDefaults()})};
   document.addEventListener('ra:scene',event=>{if(event.detail?.id)enterScene(event.detail.id);});
+  // CDB note: RAState.load() can be called by DEV restore/reset after the engine loaded; re-apply element settings.
+  try{const originalLoad=window.RAState?.load;if(typeof originalLoad==='function'&&!originalLoad.__raAudioWrapped){const wrapped=function(...rest){const result=originalLoad.apply(this,rest);applyElementMix();return result;};wrapped.__raAudioWrapped=true;window.RAState.load=wrapped;}}catch(e){}
   applyElementMix();
   document.addEventListener('DOMContentLoaded',applyElementMix);
 })();

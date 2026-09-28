@@ -91,11 +91,11 @@
       const d=A.describe();return d.ambienceAttempts===before&&d.pendingAmbience===false;
     }],
     ['pending ambience cannot start after a scene change',async()=>{
-      const A=window.RAAudio,M=window.RAAudioManifest;if(!A||!M)return false;const saved={...M.get('AMB_BEDROOM')};
-      try{M.register({id:'AMB_BEDROOM',file:'data:audio/wav;base64,UklGRiUAAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQEAAACA',registered:true});A.unlock();
-        A.enterScene('bedroom');A.enterScene('battle');await new Promise(r=>setTimeout(r,150));
-        return A.scene()==='battle'&&!A.isPlaying('AMB_BEDROOM')&&A.describe().pendingAmbience===false;
-      }finally{M.register({id:'AMB_BEDROOM',file:saved.file,registered:saved.registered});}
+      const A=window.RAAudio,M=window.RAAudioManifest;if(!A||!M)return false;
+      try{M.register({id:'__TEST_AMB__',bus:'AMBIENCE',type:'loop',file:'data:audio/wav;base64,UklGRiUAAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQEAAACA',registered:true,loopStart:0,loopEnd:0.0002});M.scenes.__test__={ambience:'__TEST_AMB__',preload:[]};
+        A.unlock();A.enterScene('__test__');A.enterScene('battle');await new Promise(r=>setTimeout(r,150));
+        return A.scene()==='battle'&&!A.isPlaying('__TEST_AMB__')&&A.describe().pendingAmbience===false;
+      }finally{delete M.scenes.__test__;}
     }],
     ['specific phone sounds do not also fire generic UI_TAP',async()=>{
       const A=window.RAAudio;if(!A)return false;A.unlock();A.installTestTone('UI_TAP',{freq:440,duration:.02});A.installTestTone('PHONE_APP_OPEN',{freq:520,duration:.02});
@@ -107,6 +107,40 @@
         const t1=A.describe().plays.UI_TAP||0,p1=A.describe().plays.PHONE_APP_OPEN||0;
         return t1===t0&&p1>p0;
       }finally{await RAPhone.close?.();RAState.write(localStorage,snapshot,false);RAState.load();await RAScenes.go('battle',{smokeRestore:true});}
+    }],
+    ['library registration totals: 244 planned, 241 registered, 3 inert',()=>{
+      const M=window.RAAudioManifest;if(!M)return false;const rows=M.list(),reg=rows.filter(e=>e.registered).length,unreg=rows.filter(e=>!e.registered).map(e=>e.id);
+      return rows.length===244&&reg===241&&unreg.length===3&&['BARS_PUNCHLINE','DRAGON_WINGS','MAGIC_SEANCE'].every(id=>unreg.includes(id));
+    }],
+    ['registered SFX resolve to real files and decode',async()=>{
+      const A=window.RAAudio,M=window.RAAudioManifest;if(!A||!M)return false;A.unlock();
+      const ids=['UI_TAP','PHONE_OPEN','HIT_LIGHT','MOVE_BLOODBATH','CAT_MEOW'];
+      if(ids.some(id=>{const e=M.get(id);return !e||!e.registered||!e.file;}))return false;
+      const decoded=await Promise.all(ids.map(id=>A.preload(id)));const loaded=A.describe().loaded;
+      return decoded.every(Boolean)&&ids.every(id=>loaded.includes(id));
+    }],
+    ['missing or unapproved IDs safely no-op',()=>{
+      const A=window.RAAudio;if(!A)return false;A.unlock();
+      return A.sfx('DRAGON_WINGS')===false&&A.sfx('BARS_PUNCHLINE')===false&&A.sfx('__NOT_A_REAL_ID__')===false&&A.loop('DRAGON_WINGS')===false;
+    }],
+    ['MAGIC_SEANCE remains unwired',()=>{
+      const A=window.RAAudio,M=window.RAAudioManifest;if(!A||!M)return false;A.unlock();const e=M.get('MAGIC_SEANCE');
+      return !!e&&e.registered===false&&e.file===null&&A.sfx('MAGIC_SEANCE')===false;
+    }],
+    ['variation and loop-set IDs register correctly',()=>{
+      const M=window.RAAudioManifest;if(!M)return false;
+      const combo=M.get('COMBO_UP'),purr=M.get('CAT_PURR'),sprinkler=M.get('BLOOD_SPRINKLER'),car=M.get('CAR_I6_TURBO'),squeal=M.get('TIRE_SQUEAL'),dribble=M.get('DRIBBLE'),seal6=M.get('SEAL_06');
+      return combo?.type==='one-shot'&&combo.variations.length===2&&purr?.type==='loop'&&purr.variations.length===1&&sprinkler?.variations.length===1&&car?.type==='loop set'&&car.parts.length===3&&squeal?.parts.length===3&&dribble?.parts.length===2&&seal6?.type==='loop set'&&seal6.parts.length===2;
+    }],
+    ['loops use measured loop points, never blind full-file looping',()=>{
+      const M=window.RAAudioManifest;if(!M)return false;const loops=[];
+      for(const e of M.list()){if(e.type==='loop')loops.push(e);for(const p of e.parts||[])if(p.type==='loop')loops.push(p);}
+      return loops.length>=80&&loops.every(l=>Number.isFinite(l.loopStart)&&Number.isFinite(l.loopEnd)&&l.loopEnd>0&&l.loopEnd>l.loopStart);
+    }],
+    ['sealed/reserved IDs stay neutral',()=>{
+      const M=window.RAAudioManifest;if(!M)return false;const seals=M.list().filter(e=>/^SEAL_\d{2}$/.test(e.id));
+      const leak=seals.some(e=>e.content||e.label||e.title||e.spoiler||e.meaning||(e.credit&&/vol\s*\d|sealed/i.test(e.credit)));
+      return seals.length===18&&seals.every(e=>e.registered===true)&&!leak;
     }],
     ['phone hierarchy sections and concise lock communication',async()=>{
       const H=window.RAPhoneHierarchy;if(!H)return false;

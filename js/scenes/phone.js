@@ -137,7 +137,7 @@
   async launch(minigameId,params={},after){await closePhone();const result=await RAMinigames.launch(minigameId,params);window.RALifeRewards?.apply?.(result);if(after)after(result);return result;}};
  async function action(name){
   if(name==='close'){closePhone();return}if(name==='home'){page='home';render();return}if(name==='vampgpt'){page='vampgpt';render();return}if(name==='prompt'){page='options';render();return}if(name==='somewhere'){page='somewhere';render();return}if(name==='options'){page='options';render();return}if(name==='jdmImports'){page='jdmImports';render();return}if(name==='realEstate'){page='realEstate';render();return}
-  if(name==='settings'){page='settings';render();return}
+  if(name==='settings'){window.RAAudio?.sfx?.('UI_CONFIRM');page='settings';render();return}
   if(name==='toggleMute'){window.RAAudio?.toggleMuted?.();window.RAAudio?.sfx?.('UI_CONFIRM');render();return}
   if(name.startsWith('openWorldEvent:')){page=`worldEvent:${name.slice('openWorldEvent:'.length)}`;render();return}
   if(name.startsWith('resolveWorldEvent:')){const [,id,actionId]=name.split(':');window.RAWorldEvents?.resolve?.(id,actionId);page='home';render();return}
@@ -153,7 +153,7 @@
   if(name.startsWith('do:')){const [,id,act,...args]=name.split(':');const app=registry.get(id);if(app?.onAction){await app.onAction(act,args.join(':'),api);}return}
   if(name==='money'||name==='people'){page=name;render();return}
   if(name==='atlanta'){const option=window.RAOpportunities?.get('atlanta');if(option?.available&&option.action?.type==='dialogue'&&option.action.id==='butter_chicken'){page='butterChicken';render()}return}
-  if(name==='tokyo'){const option=window.RAOpportunities?.get('tokyo');if(!option?.available){window.RAAudio?.sfx?.('UI_ERROR');setMessage(window.RALife&&RALife.rep()>=2?'almost. not yet.':(option?.lockedMessage||"tokyo vampires don't fw you yet. get your clout up."));}return}
+  if(name==='tokyo'){const option=window.RAOpportunities?.get('tokyo');if(!option?.available){window.RAAudio?.sfx?.('UI_ERROR');setMessage(window.RALife&&RALife.rep()>=2?'almost. not yet.':(option?.lockedMessage||"tokyo vampires don't fw you yet. get your clout up."));}else window.RAAudio?.sfx?.('UI_CONFIRM');return}
   if(name==='ogun_rave'){const option=window.RAOpportunities?.get('ogun_rave');if(option?.available&&option.action?.type==='dialogue'&&option.action.id==='ogun_rave_intro'){page='ogunRaveIntro';render()}return}
   if(name==='nah'){page='somewhere';render();return}
   if(name==='letsGo'){
@@ -169,8 +169,8 @@
   updateEntry();document.addEventListener('ra:scene',e=>{if(e.detail?.id==='bedroom')updateEntry()});
   entry?.addEventListener('click',showPhone);
   document.addEventListener('ra:scene',e=>{if(e.detail?.id!=='bedroom'&&opened)closePhone()});
-  document.querySelector('#phoneClose')?.addEventListener('click',closePhone);
-  overlay?.addEventListener('click',e=>{const jdm=e.target.closest('[data-jdm-action]');if(jdm){window.RAJDMImports?.action(jdm.dataset.jdmAction);return}const property=e.target.closest('[data-property-action]');if(property){window.RAPropertyQuest?.action(property.dataset.propertyAction);return}const target=e.target.closest('[data-phone-action]');if(!target||target.disabled)return;const act=target.dataset.phoneAction;if(/^(app:|settings$|toggleMute$|tokyo$)/.test(act))e.__raSfxHandled=true;action(act)});
+  document.querySelector('#phoneClose')?.addEventListener('click',e=>{if(e)e.__raSfxHandled=true;closePhone();});
+  overlay?.addEventListener('click',e=>{const jdm=e.target.closest('[data-jdm-action]');if(jdm){window.RAJDMImports?.action(jdm.dataset.jdmAction);return}const property=e.target.closest('[data-property-action]');if(property){window.RAPropertyQuest?.action(property.dataset.propertyAction);return}const target=e.target.closest('[data-phone-action]');if(!target||target.disabled)return;const act=target.dataset.phoneAction;if(/^(app:|settings$|toggleMute$|tokyo$|close$)/.test(act))e.__raSfxHandled=true;action(act)});
   overlay?.addEventListener('input',e=>{const bus=e.target?.dataset?.audioBus;if(bus)window.RAAudio?.setVolume?.(bus,Number(e.target.value)/100);if(e.target?.dataset?.audioToggle==='haptics')window.RAAudio?.setHaptics?.(e.target.checked);});
   document.querySelector('#devResetPhone')?.addEventListener('click',()=>{window.RAState.patch('life.resources.money',100000);window.RAState.patch('life.world.location','LA');window.RAState.patch('life.resources.clout','LOW');window.RAState.patch('life.phone.learned',false);page='home';if(opened)closePhone();updateEntry();entry?.focus({preventScroll:true});});
   document.addEventListener('keydown',e=>{if(opened&&e.key==='Escape')closePhone()});
