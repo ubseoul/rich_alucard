@@ -56,6 +56,7 @@ export async function test(root) {
   const window = makeWindow();
   const context = vm.createContext(window);
   loadFile(context, 'js/engine/pixel.js');
+  loadFile(context, 'js/data/btf/new_oga_tunables.js');
   // RAMinigames stub is not needed for logic-only assertions, but touge.js checks
   // for window.RAMinigames before mounting UI, so provide a minimal stub too.
   context.window.RAMinigames = { register(id, def) { context.window.__registered = { id, def }; } };
@@ -63,7 +64,7 @@ export async function test(root) {
 
   const logic = context.window.RAMinigameLogic && context.window.RAMinigameLogic.touge;
   assert.ok(logic, 'RAMinigameLogic.touge missing');
-  const { cars, computeHandling, scoreSlideFrame, clipBonus, nextChain, buildCourse, step } = logic;
+  const { cars, computeHandling, scoreSlideFrame, clipBonus, nextChain, scoreDrift, scoreClip, scoreTrace, noviceBotScores, noviceBotMedianScore, buildCourse, step } = logic;
 
   // --- cars table ---
   assert.ok(cars.s15 && cars.supra && cars.r34_awd && cars.r34_rwd, 'expected car ids present');
@@ -83,6 +84,10 @@ export async function test(root) {
   assert.equal(clipBonus(2), 1000);
   assert.equal(nextChain(3.8), 4, 'chain caps at 4');
   assert.equal(nextChain(1), 1.5);
+  const drifted=scoreDrift({score:0,chain:2,clips:0},30,70,1,60);assert.equal(drifted.score,scoreSlideFrame(30,70,1,60)*2,'shared drift scorer must apply chain');
+  const clipped=scoreClip(drifted);assert.equal(clipped.score,drifted.score+clipBonus(2),'shared clip scorer must apply live clip bonus');assert.equal(clipped.chain,nextChain(2),'shared clip scorer must advance chain');
+  const novice=noviceBotScores(30),median=noviceBotMedianScore(30);assert.equal(novice.length,5);assert.equal(median,novice[2]);assert(novice[0]<median,'a realistic novice run must land below its median');
+  const strong=scoreTrace([[32,72,.28,2],[38,82,.30,2],[42,90,.24,2]],30);assert(strong.score>median,'materially stronger real-scored run must clear novice median');assert(strong.clips===6&&strong.chain===4,'strong trace must exercise clip bonuses and chain cap');
 
   // --- buildCourse ---
   const course = buildCourse('angeles_crest', 'seed-1');
@@ -129,7 +134,7 @@ export async function test(root) {
       `countersteer should hold a controllable slide, got ${state.slideAngle}`);
   }
 
-  console.log('PASS touge (cars, computeHandling, scoring, buildCourse, step: spin-out / AWD grip / countersteer hold)');
+  console.log(`PASS touge (cars, computeHandling, shared drift/chain/clip scoring, novice median ${median}, buildCourse, step: spin-out / AWD grip / countersteer hold)`);
 }
 
 if (import.meta.url === `file://${process.argv[1]}`) {

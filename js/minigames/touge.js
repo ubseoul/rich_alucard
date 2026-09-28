@@ -121,6 +121,15 @@
  }
  function clipBonus(mult){return 500*(mult||1);}
  function nextChain(mult){return Math.min(4,(mult||1)+0.5);}
+ function scoreDrift(state,angleDeg,speedKmh,dt,maxAngle=60){return {...state,score:(Number(state.score)||0)+scoreSlideFrame(Math.abs(angleDeg),speedKmh,dt,maxAngle)*(Number(state.chain)||1)};}
+ function scoreClip(state){const chain=Number(state.chain)||1;return {score:(Number(state.score)||0)+clipBonus(chain),chain:nextChain(chain),clips:(Number(state.clips)||0)+1};}
+ function scoreTrace(trace,durationSeconds=30){
+  const duration=Math.max(1,Number(durationSeconds)||30);let state={score:0,chain:1,clips:0};
+  for(const [angle,speed,share,clips=0] of trace||[]){state=scoreDrift(state,angle,speed,duration*Math.max(0,Number(share)||0),60);for(let i=0;i<clips;i++)state=scoreClip(state);}
+  return {...state,score:Math.round(state.score)};
+ }
+ function noviceBotScores(durationSeconds=30,runs=window.RANewOgaTunables?.m4?.NOVICE_BOT_RUNS||[]){return runs.map(run=>scoreTrace(run,durationSeconds).score).sort((a,b)=>a-b);}
+ function noviceBotMedianScore(durationSeconds=30,runs){const scores=noviceBotScores(durationSeconds,runs);return scores.length?scores[Math.floor(scores.length/2)]:0;}
 
  // ---- Courses ------------------------------------------------------------
  const COURSE_THEME={
@@ -180,7 +189,7 @@
  }
 
  window.RAMinigameLogic=window.RAMinigameLogic||{};
- window.RAMinigameLogic.touge={cars:CARS,computeHandling,scoreSlideFrame,clipBonus,nextChain,buildCourse,step};
+ window.RAMinigameLogic.touge={cars:CARS,computeHandling,scoreSlideFrame,clipBonus,nextChain,scoreDrift,scoreClip,scoreTrace,noviceBotScores,noviceBotMedianScore,buildCourse,step};
 
  // ---- Rendering / mount ----------------------------------------------------
  if(typeof window.RAMinigames==='undefined'||typeof document==='undefined')return;
@@ -326,7 +335,7 @@
    const absAngle=Math.abs(state.slideAngle);
    maxAngleSeen=Math.max(maxAngleSeen,absAngle);
    if(state.sliding&&!state.spinning){
-    score+=scoreSlideFrame(absAngle,state.speed,dt,handling.maxAngle)*chain;
+    ({score,chain}=scoreDrift({score,chain},absAngle,state.speed,dt,handling.maxAngle));
     if(absAngle>30){cleanTimer+=dt;if(cleanTimer>1.5&&!rewardedClean){ctx.reward({memories:['first clean drift']});rewardedClean=true;}}
     else cleanTimer=0;
    } else cleanTimer=0;
@@ -356,7 +365,7 @@
     if(clip.hit)continue;
     if(Math.abs(clip.distance-state.distance)<14&&state.sliding&&Math.abs(state.x-clip.x)<clip.range){
      clip.hit=true;clipHits++;lessonCounts[4]++;
-     score+=clipBonus(chain);chain=nextChain(chain);
+     ({score,chain}=scoreClip({score,chain}));
     }
    }
 

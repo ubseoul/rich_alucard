@@ -2,16 +2,15 @@
 // Keep every discretionary number for this lane here. Authored prices, rewards and HP are labeled separately.
 (function(){
  'use strict';
- const NOVICE_BOT_PROFILES=Object.freeze([
-  Object.freeze([[20,42,.24],[27,48,.16]]),Object.freeze([[22,45,.26],[31,52,.14]]),
-  Object.freeze([[24,48,.28],[34,55,.12]]),Object.freeze([[19,44,.22],[29,50,.18]]),
-  Object.freeze([[25,46,.25],[32,54,.15]])
+ // Deterministic novice telemetry: [angle degrees, speed km/h, share of run, clips cleared after segment].
+ // Scoring is deliberately not implemented here; TOUGE consumes these traces through its live score primitives.
+ const NOVICE_BOT_RUNS=Object.freeze([
+  Object.freeze([[20,52,.22,0],[24,58,.20,0],[18,48,.12,0]]),
+  Object.freeze([[22,56,.24,1],[27,62,.22,0],[19,50,.12,0]]),
+  Object.freeze([[24,60,.25,0],[29,66,.22,1],[21,54,.14,0]]),
+  Object.freeze([[21,55,.20,1],[26,64,.24,0],[31,68,.16,0]]),
+  Object.freeze([[25,62,.24,1],[30,69,.24,1],[34,72,.18,0]])
  ]);
- function noviceBotMedianScore(durationSeconds=30){
-  const seconds=Math.max(1,Number(durationSeconds)||30),frame=(angle,speed,dt)=>Math.max(0,Math.min(60,angle)-15)*(Math.max(0,speed)/10)*.1*dt;
-  const scores=NOVICE_BOT_PROFILES.map(parts=>Math.round(parts.reduce((sum,[angle,speed,share])=>sum+frame(angle,speed,seconds*share),0))).sort((a,b)=>a-b);
-  return scores[Math.floor(scores.length/2)];
- }
  window.RANewOgaTunables=Object.freeze({
   trustThresholds:Object.freeze({LOW_MAX:0,HIGH_MIN:3}),
   clout:Object.freeze({M1_SUCCESS:1,M1_BACKOUT:0,M2_ALL_PATHS:0,M3_COMPLETE:1,M3_BACKOUT:0,M4_WALK_IN:3,M4_BACKOUT:0,M4_RUN:0,ALTERNATIVE:1}),
@@ -31,8 +30,7 @@
    ESCAPE_DURATION_SECONDS:30,
    LOW_SCORE_REFERENCE:'NOVICE_BOT_MEDIAN',
    LOW_SCORE_RATIO:1,
-   NOVICE_BOT_PROFILES
+   NOVICE_BOT_RUNS
   })
  });
- window.RANewOgaTougeBenchmark=Object.freeze({noviceBotMedianScore});
 })();

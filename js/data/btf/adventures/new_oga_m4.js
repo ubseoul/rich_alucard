@@ -4,7 +4,7 @@
  const hasCar=L=>(L.life.ownership.cars||[]).some(c=>c.ownershipStatus!=='sold');
  const m4Ready=L=>L.life.newOga.status==='intern'&&L.life.newOga.mission===3&&L.life.newOga.carlosMutual&&hasCar(L)&&L.day>L.life.newOga.lastMissionDay;
  const alternativeReady=L=>L.life.newOga.alternativePending&&L.day>L.life.newOga.lastMissionDay;
- const escapeThreshold=()=>RANewOgaTougeBenchmark.noviceBotMedianScore(T().m4.ESCAPE_DURATION_SECONDS)*T().m4.LOW_SCORE_RATIO;
+ const escapeThreshold=()=>RAMinigameLogic.touge.noviceBotMedianScore(T().m4.ESCAPE_DURATION_SECONDS)*T().m4.LOW_SCORE_RATIO;
  const escapeBand=result=>result?.quit||result?.error||result?.outcome==='fail'||result?.outcome==='lose'||result?.data?.crashed?'LOW':Number(result?.score)<escapeThreshold()?'LOW':'HIGH';
  const backout=outcome=>()=>RANewOga.completeM4(outcome);
 
