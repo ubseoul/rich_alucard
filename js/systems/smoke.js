@@ -73,15 +73,40 @@
       const missing=required.filter(id=>!M.has(id));
       return M.schema==='2.1'&&d.MUSIC===.70&&d.SFX===.90&&d.UI===.60&&d.VOICE===.80&&d.AMBIENCE===.45&&missing.length===0&&M.resident.length>=6&&Object.keys(M.scenes).length>=4&&M.list().length>=80;
     }],
-    ['audio engine test path: routing, settings persistence, ducking',()=>{
-      const A=window.RAAudio;if(!A)return false;const before=JSON.parse(JSON.stringify(RAState.get().life.settings.audio));
+    ['audio engine test path: routing, settings persistence, ducking, soundtrack control',()=>{
+      const A=window.RAAudio;if(!A)return false;const before=JSON.parse(JSON.stringify(RAState.get().life.settings.audio));const el=document.querySelector('#soundtrack');
       A.unlock();A.installTestTone('UI_TAP',{freq:660,duration:.03});A.setVolume('UI',1);A.setMuted(false);
       const played=A.sfx('UI_TAP')===true;const ui=A.describe().busGains.UI;
       A.setVolume('UI',.5);const halved=A.describe().busGains.UI;const persisted=RAState.get().life.settings.audio.sfx===.5;
       A.setMuted(true);const muted=A.describe().muted===true;
+      A.setVolume('MUSIC',.4);const elVolume=!!el&&Math.abs(el.volume-.4)<.01;A.setMuted(true);const elMuted=!!el&&el.muted===true;
       A.duckMusic(12,60);const ducked=A.describe().ducked===true;A.restoreMusic(60);
-      A.setVolume('UI',before.sfx);A.setMuted(before.muted);const restored=RAState.get().life.settings.audio.sfx===before.sfx;
-      return played&&Math.abs(ui-.6)<.001&&Math.abs(halved-.3)<.001&&persisted&&muted&&ducked&&restored;
+      A.setVolume('UI',before.sfx);A.setVolume('MUSIC',before.music);A.setMuted(before.muted);const restored=RAState.get().life.settings.audio.sfx===before.sfx;
+      return played&&Math.abs(ui-.6)<.001&&Math.abs(halved-.3)<.001&&persisted&&muted&&ducked&&restored&&elVolume&&elMuted;
+    }],
+    ['ambience never retries while its entry is unregistered',async()=>{
+      const A=window.RAAudio,M=window.RAAudioManifest;if(!A||!M)return false;A.unlock();
+      const entry=M.get('AMB_BEDROOM');if(entry?.file)return true; // registered assets are not part of this phase
+      const before=A.describe().ambienceAttempts;A.enterScene('bedroom');await new Promise(r=>setTimeout(r,300));
+      const d=A.describe();return d.ambienceAttempts===before&&d.pendingAmbience===false;
+    }],
+    ['pending ambience cannot start after a scene change',async()=>{
+      const A=window.RAAudio,M=window.RAAudioManifest;if(!A||!M)return false;const saved={...M.get('AMB_BEDROOM')};
+      try{M.register({id:'AMB_BEDROOM',file:'data:audio/wav;base64,UklGRiUAAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQEAAACA',registered:true});A.unlock();
+        A.enterScene('bedroom');A.enterScene('battle');await new Promise(r=>setTimeout(r,150));
+        return A.scene()==='battle'&&!A.isPlaying('AMB_BEDROOM')&&A.describe().pendingAmbience===false;
+      }finally{M.register({id:'AMB_BEDROOM',file:saved.file,registered:saved.registered});}
+    }],
+    ['specific phone sounds do not also fire generic UI_TAP',async()=>{
+      const A=window.RAAudio;if(!A)return false;A.unlock();A.installTestTone('UI_TAP',{freq:440,duration:.02});A.installTestTone('PHONE_APP_OPEN',{freq:520,duration:.02});
+      const snapshot=JSON.parse(JSON.stringify(RAState.get()));
+      try{await RAScenes.go('bedroom',{smoke:true});RAPhone.open();await new Promise(r=>setTimeout(r,260));
+        const button=document.querySelector('[data-phone-action="app:jdmImports"]');if(!button)return false;
+        const t0=A.describe().plays.UI_TAP||0,p0=A.describe().plays.PHONE_APP_OPEN||0;
+        button.click();await new Promise(r=>setTimeout(r,40));
+        const t1=A.describe().plays.UI_TAP||0,p1=A.describe().plays.PHONE_APP_OPEN||0;
+        return t1===t0&&p1>p0;
+      }finally{await RAPhone.close?.();RAState.write(localStorage,snapshot,false);RAState.load();await RAScenes.go('battle',{smokeRestore:true});}
     }],
     ['phone hierarchy sections and concise lock communication',async()=>{
       const H=window.RAPhoneHierarchy;if(!H)return false;

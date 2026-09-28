@@ -124,14 +124,14 @@
   combat('EN_HOWL',{maxVoices:1,priority:4});
 
   // ---- world/life seams ---- (M1.5 wiring hooks for budget/life/relations/phone; slots are M1 UI rows)
-  // Scene preload/bed declarations (§3.3 Preload by scene). Engine preloads on scene enter, releases on exit.
+  // Scene preload/bed declarations (§3.3 Preload by scene). Keys are ACTUAL runtime RAScenes ids (throne room is
+  // the `battle` scene; there is no `throne`/`phone`/`castle` scene). UI/phone/combat-core entries are resident.
   const resident=['UI_TAP','UI_MOVE','UI_CONFIRM','UI_BACK','UI_ERROR','PHONE_OPEN','PHONE_CLOSE','PHONE_APP_OPEN','NOTIF_GENERIC'];
   const scenes={
     bedroom:{ambience:'AMB_BEDROOM',preload:['BED_RUSTLE','WAKE_STRETCH','CAT_MEOW']},
-    throne:{ambience:'AMB_THRONE',preload:['DOOR_CASTLE','STEPS_STONE','BAT_FLUTTER']},
-    battle:{ambience:null,preload:['BATTLE_START','TELEGRAPH','HIT_LIGHT','HIT_HEAVY','CRIT','KO','VICTORY','DEFEAT','MOVE_BLOODBATH','MOVE_BITE','MOVE_OCTOPUS','MOVE_REVENGE']},
-    phone:{ambience:null,preload:['NOTIF_TEXT','NOTIF_VAMPGRAM','CASH_IN','CASH_OUT','APP_UNLOCK','SAVE']},
-    castle:{ambience:'AMB_CASTLE_STREET',preload:['DOOR_CASTLE','ROOM_BUILT']}
+    battle:{ambience:'AMB_THRONE',preload:['BATTLE_START','TELEGRAPH','HIT_LIGHT','HIT_HEAVY','CRIT','KO','VICTORY','DEFEAT','MOVE_BLOODBATH','MOVE_BITE','MOVE_OCTOPUS','MOVE_REVENGE']},
+    adventure:{ambience:null,preload:['UI_DIALOG_ADVANCE','UI_TEXT_BLIP_RICH','UI_TEXT_BLIP_NPC_MID']},
+    tripTravel:{ambience:null,preload:['TRAVEL_WHOOSH']}
   };
 
   const index=new Map(rows.map(entry=>[entry.id,entry]));

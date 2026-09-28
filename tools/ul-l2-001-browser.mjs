@@ -85,13 +85,17 @@ async function runWidth(size){
  const settingsUi=await page.evaluate(()=>({sliders:document.querySelectorAll('.phone-settings input[type=range]').length,mute:!!document.querySelector('[data-phone-action="toggleMute"]')}));
  check(where,'phone audio settings surface renders',settingsUi.sliders===3&&settingsUi.mute,JSON.stringify(settingsUi));
  await snap(page,'phone-settings');
- await page.evaluate(()=>{const s=document.querySelector('[data-audio-bus="SFX"]');s.value='40';s.dispatchEvent(new Event('input',{bubbles:true}));});
+ await page.evaluate(()=>{const s=document.querySelector('[data-audio-bus="SFX"]');s.value='40';s.dispatchEvent(new Event('input',{bubbles:true}));const m=document.querySelector('[data-audio-bus="MUSIC"]');m.value='50';m.dispatchEvent(new Event('input',{bubbles:true}));});
+ await sleep(30);
+ const soundtrack=await page.evaluate(()=>({volume:document.querySelector('#soundtrack').volume,music:RAState.get().life.settings.audio.music}));
+ check(where,'MUSIC setting drives #soundtrack.volume',Math.abs(soundtrack.volume-.5)<.01&&soundtrack.music===.5,JSON.stringify(soundtrack));
  await page.click('[data-phone-action="toggleMute"]');await sleep(30);
- const persisted=await page.evaluate(()=>({sfx:RAState.get().life.settings.audio.sfx,muted:RAState.get().life.settings.audio.muted}));
+ const persisted=await page.evaluate(()=>({sfx:RAState.get().life.settings.audio.sfx,muted:RAState.get().life.settings.audio.muted,elMuted:document.querySelector('#soundtrack').muted}));
  check(where,'audio settings persist into the save block',persisted.sfx===.4&&persisted.muted===true,JSON.stringify(persisted));
+ check(where,'MUTE drives #soundtrack.muted',persisted.elMuted===true,String(persisted.elMuted));
  await page.reload();await page.evaluate(()=>{});
- const afterReload=await page.evaluate(()=>({sfx:RAState.get().life.settings.audio.sfx,muted:RAState.get().life.settings.audio.muted}));
- check(where,'audio settings survive a reload',afterReload.sfx===.4&&afterReload.muted===true,JSON.stringify(afterReload));
+ const afterReload=await page.evaluate(()=>({sfx:RAState.get().life.settings.audio.sfx,muted:RAState.get().life.settings.audio.muted,music:RAState.get().life.settings.audio.music,elVolume:document.querySelector('#soundtrack').volume,elMuted:document.querySelector('#soundtrack').muted}));
+ check(where,'audio settings survive a reload',afterReload.sfx===.4&&afterReload.muted===true&&afterReload.music===.5&&Math.abs(afterReload.elVolume-.5)<.01&&afterReload.elMuted===true,JSON.stringify(afterReload));
 
  // ---- Part A: engine routing / duck state in the browser ----
  await page.evaluate(()=>{RAState.patch('life.settings.audio',{music:1,sfx:1,ambience:1,muted:false,haptics:true});window.RAAudio?.applyMix?.();});
@@ -102,9 +106,9 @@ async function runWidth(size){
  // ---- in-page smoke suite ----
  const smoke=await page.evaluate(async()=>await window.RASmoke.run());
  const failLines=smoke.filter(l=>l.startsWith('FAIL'));
- const newChecks=smoke.filter(l=>/audio engine|phone hierarchy|phone audio settings/.test(l));
+ const newChecks=smoke.filter(l=>/audio engine|ambience|specific phone sounds|phone hierarchy|phone audio settings/.test(l));
  check(where,'in-page smoke suite has no failures',failLines.length===0,failLines.join(' ; ')||'0 fails');
- check(where,'new audio/phone smoke checks pass',newChecks.length>=3&&newChecks.every(l=>l.startsWith('PASS')),newChecks.map(l=>l.split(' — ')[0]).join(' | '));
+ check(where,'new audio/phone smoke checks pass',newChecks.length>=4&&newChecks.every(l=>l.startsWith('PASS')),newChecks.map(l=>l.split(' — ')[0]).join(' | '));
 
  // reset save so each width starts clean
  await page.evaluate(()=>localStorage.clear());

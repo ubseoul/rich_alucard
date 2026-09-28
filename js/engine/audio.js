@@ -24,8 +24,8 @@
   // ---- Web Audio graph ----
   let ctx=null,master=null,duckNode=null;const busNodes={};
   let unlocked=false,ducked=false,duckTimeout=null;
-  const buffers=new Map(),missing=new Set(),active=new Map(),loops=new Map();
-  let sceneState={id:null,preload:[]};
+  const buffers=new Map(),missing=new Set(),active=new Map(),loops=new Map(),plays=new Map();
+  let sceneState={id:null,preload:[]},sceneToken=0,ambienceAttempts=0,pendingAmbience=false,pendingToken=0,residentPreloaded=false;
 
   function ensureCtx(){
     if(ctx)return ctx;
@@ -38,7 +38,14 @@
     applyMix();
     return ctx;
   }
+  // The shipped soundtrack is a plain <audio> element, not a Web Audio node, so MUSIC + MUTE are mirrored onto it
+  // (R2). This is applied even before an AudioContext exists so settings control the current soundtrack immediately.
+  function applyElementMix(){
+    const element=get('soundtrack');if(!element)return;
+    const s=readSettings();element.volume=clamp01(s.music);element.muted=!!s.muted;
+  }
   function applyMix(){
+    applyElementMix();
     if(!ctx)return;
     const s=readSettings();
     for(const bus of BUSSES){const node=busNodes[bus];if(!node)continue;const base=busDefaults()[bus]??1;const user=bus==='MUSIC'?s.music:bus==='AMBIENCE'?s.ambience:s.sfx;node.gain.value=clamp01(base)*clamp01(user);}
@@ -46,26 +53,34 @@
   }
   function ramp(node,value,ms){if(!ctx||!node)return;const at=ctx.currentTime;const dur=Math.max(0.01,(Number(ms)||0)/1000);try{node.gain.cancelScheduledValues(at);node.gain.setValueAtTime(node.gain.value,at);node.gain.linearRampToValueAtTime(value,at+dur);}catch(e){node.gain.value=value;}}
 
+  const UNLOCK_EVENTS=['pointerdown','touchstart','keydown'];
   function unlock(){
     const c=ensureCtx();if(!c)return false;
     if(c.state==='suspended')c.resume().catch(()=>{});
     unlocked=true;
-    if(sceneState.id===null){const current=window.RAScenes?.current?.();if(current)enterScene(current);}
+    detachUnlockListeners();
+    if(!residentPreloaded){residentPreloaded=true;preloadScene(manifest()?.resident||[]);}
+    const known=sceneState.id!==null?sceneState.id:window.RAScenes?.current?.()||null;
+    if(known)enterScene(known);
     return true;
   }
   function unlockOnce(){if(!unlocked)unlock();}
-  ['pointerdown','touchstart','keydown'].forEach(event=>document.addEventListener(event,unlockOnce,{capture:true,passive:true}));
-  // M1 UI_TAP / UI_BACK seam: any button press. Contextual IDs (UI_CONFIRM/UI_ERROR/UI_MOVE) are played by their
-  // owning systems; this guarantees "no silent buttons" once the sounds are registered.
-  document.addEventListener('click',event=>{
+  function detachUnlockListeners(){for(const event of UNLOCK_EVENTS)document.removeEventListener(event,unlockOnce,{capture:true});}
+  UNLOCK_EVENTS.forEach(event=>document.addEventListener(event,unlockOnce,{capture:true,passive:true}));
+  // M1 UI_TAP / UI_BACK seam: any button press, in the bubble phase. An owning handler can claim the click with
+  // event.__raSfxHandled so a specific sound (UI_CONFIRM/UI_ERROR/PHONE_APP_OPEN) does not also fire generic UI_TAP.
+  function uiClick(event){
+    if(event.__raSfxHandled)return;
     const target=event.target?.closest?.('button,[role="button"],[data-phone-action],[data-move],[data-c2]');
     if(!target||target.disabled)return;
     const action=target.dataset?.phoneAction||'';
     oneShot(/^(close|home|back|nah)$/.test(action)?'UI_BACK':'UI_TAP');
-  },{capture:true});
+  }
+  document.addEventListener('click',uiClick);
 
   // ---- loading ----
   function preload(id){
+    if(!unlocked)return Promise.resolve(null); // never create an AudioContext before the first user gesture (§3.3)
     const c=ensureCtx(),entry=manifest()?.get?.(id);
     if(!c||!entry||!entry.file||!entry.registered)return Promise.resolve(null);
     if(buffers.has(id))return Promise.resolve(buffers.get(id));
@@ -107,6 +122,7 @@
     active.set(id,(active.get(id)||0)+1);
     source.onended=()=>active.set(id,Math.max(0,(active.get(id)||1)-1));
     try{source.start();}catch(e){active.set(id,Math.max(0,(active.get(id)||1)-1));return false;}
+    plays.set(id,(plays.get(id)||0)+1);
     if(entry.ducksMusic)duckMusic(12,entry.duckMs||1200);
     haptic(id);
     return true;
@@ -124,6 +140,7 @@
     source.connect(gain).connect(busFor(entry));
     try{source.start();}catch(e){return false;}
     loops.set(id,{source,gain});
+    plays.set(id,(plays.get(id)||0)+1);
     return true;
   }
   function stop(id,fadeMs=250){
@@ -159,11 +176,28 @@
   }
 
   // ---- scene binding (§3.3 preload by scene) ----
+  // Ambience starts through a single bounded async attempt tied to the current scene visit. Unregistered entries
+  // (file:null) never retry, and a scene change invalidates the attempt so stale ambience cannot start.
+  function startSceneAmbience(sceneId,ambienceId,token){
+    if(!ambienceId)return false;
+    const entry=manifest()?.get?.(ambienceId);
+    if(!entry||!entry.file||!entry.registered)return false;
+    if(loops.has(ambienceId))return true;
+    if(!unlocked)return false;
+    ambienceAttempts+=1;pendingAmbience=true;pendingToken=token;
+    preload(ambienceId).then(buffer=>{
+      if(pendingToken===token)pendingAmbience=false;
+      if(token!==sceneToken||sceneState.id!==sceneId)return; // scene changed: never start stale ambience
+      if(buffer&&unlocked)loop(ambienceId,{});
+    }).catch(()=>{if(pendingToken===token)pendingAmbience=false;});
+    return true;
+  }
   function enterScene(id){
     const table=manifest()?.scenes||{},next=table[id];
     if(sceneState.id&&sceneState.id!==id){const previous=table[sceneState.id]||{};if(previous.ambience)stop(previous.ambience,300);releaseScene(previous.preload||[]);}
+    sceneToken+=1;
     sceneState={id,preload:(next?.preload||[]).slice()};
-    if(next?.ambience){(function waitForAmbience(){if(!loop(next.ambience,{})&&unlocked)setTimeout(waitForAmbience,120);})();}
+    startSceneAmbience(id,next?.ambience||null,sceneToken);
     return preloadScene(sceneState.preload);
   }
 
@@ -176,7 +210,7 @@
 
   function describe(){
     const s=readSettings();
-    return {schema:manifest()?.schema||null,unlocked,context:ctx?ctx.state:'none',scene:sceneState.id,ducked,muted:!!s.muted,settings:s,busGains:BUSSES.reduce((acc,bus)=>({...acc,[bus]:busNodes[bus]?.gain.value??(busDefaults()[bus]??1)}),{}),loaded:[...buffers.keys()],missing:[...missing.keys()],playing:[...loops.keys()],voices:[...active.entries()].filter(([,n])=>n>0).reduce((acc,[id,n])=>({...acc,[id]:n}),{})};
+    return {schema:manifest()?.schema||null,unlocked,context:ctx?ctx.state:'none',scene:sceneState.id,sceneToken,ducked,muted:!!s.muted,settings:s,busGains:BUSSES.reduce((acc,bus)=>({...acc,[bus]:busNodes[bus]?.gain.value??(busDefaults()[bus]??1)}),{}),loaded:[...buffers.keys()],missing:[...missing.keys()],playing:[...loops.keys()],voices:[...active.entries()].filter(([,n])=>n>0).reduce((acc,[id,n])=>({...acc,[id]:n}),{}),plays:[...plays.entries()].reduce((acc,[id,n])=>({...acc,[id]:n}),{}),ambienceAttempts,pendingAmbience};
   }
 
   // ---- original element helpers (unchanged behavior) ----
@@ -184,7 +218,9 @@
   async function play(id='soundtrack'){const element=get(id);if(element)try{await element.play();}catch(e){}}
   function pause(id='soundtrack'){const element=get(id);if(element)element.pause();}
 
-  window.RAAudio={get,play,pause,unlock,isUnlocked:()=>unlocked,sfx:oneShot,oneShot,loop,stop,stopAll,isPlaying,duckMusic,restoreMusic,duckFor,preload,preloadScene,releaseScene,installBuffer,installTestTone,enterScene,scene:()=>sceneState.id,setVolume,setMuted,toggleMuted,setHaptics,settings,applyMix,describe,
+  window.RAAudio={get,play,pause,unlock,isUnlocked:()=>unlocked,sfx:oneShot,oneShot,loop,stop,stopAll,isPlaying,duckMusic,restoreMusic,duckFor,preload,preloadScene,releaseScene,installBuffer,installTestTone,enterScene,startSceneAmbience,scene:()=>sceneState.id,setVolume,setMuted,toggleMuted,setHaptics,settings,applyMix,applyElementMix,describe,
     buses:{...{MUSIC:'MUSIC',SFX:'SFX',UI:'UI',VOICE:'VOICE',AMBIENCE:'AMBIENCE'}},defaults:()=>({...busDefaults()})};
   document.addEventListener('ra:scene',event=>{if(event.detail?.id)enterScene(event.detail.id);});
+  applyElementMix();
+  document.addEventListener('DOMContentLoaded',applyElementMix);
 })();
