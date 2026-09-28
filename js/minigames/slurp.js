@@ -52,13 +52,14 @@
   const t=Math.min(1,el/90000);
   return Math.round(6000-t*3000);
  }
- function chairProgress(stacked,total=60){const safe=Math.max(1,Number(total)||60),done=Math.max(0,Math.min(safe,Number(stacked)||0));return {stacked:done,total:safe,remaining:safe-done,success:done>=safe};}
+ function chairProgress(stacked,total=window.RANewOgaTunables?.chairs?.AUTHORED_TOTAL){const safe=Math.max(1,Number(total)),done=Math.max(0,Math.min(safe,Number(stacked)||0));return {stacked:done,total:safe,remaining:safe-done,success:done>=safe};}
  window.RAMinigameLogic=window.RAMinigameLogic||{};
  window.RAMinigameLogic.slurp={makeOrder,checkBowl,tipFor,orderInterval,chairProgress,BROTHS,NOODLES,TOPPINGS};
 
  function mountCanopy(root,ctx){
   const P=RAPixel,{canvas,ctx:g,toNative}=P.createCanvas(root),params=ctx.params||{};
-  const total=Math.max(1,Number(params.totalChairs)||60),bundle=Math.max(1,Number(params.bundleSize)||10),duration=Math.max(1000,Number(params.durationMs)||45000);
+  const defaults=window.RANewOgaTunables?.chairs||{};
+  const total=Math.max(1,Number(params.totalChairs||defaults.AUTHORED_TOTAL)),bundle=Math.max(1,Number(params.bundleSize||defaults.BUNDLE_SIZE)),duration=Math.max(1000,Number(params.durationMs||defaults.DURATION_MS));
   const STACK={x:18,y:370,w:92,h:62},CANOPY={x:156,y:122,w:96,h:142};
   let stacked=0,dragging=false,dragPos=null,start=performance.now(),ended=false,raf=null;
   const inRect=(p,r)=>p.x>=r.x&&p.x<=r.x+r.w&&p.y>=r.y&&p.y<=r.y+r.h;

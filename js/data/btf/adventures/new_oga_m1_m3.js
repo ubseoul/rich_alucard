@@ -21,8 +21,8 @@
    fight_cousin:{fight:{enemy:'smallie_cousin',params:{env:'boba_shop',intro:"SMALLIE'S COUSIN · 40 HP"},win:'stick_done',lose:'table',run:'table'}},
    stick_done:{lines:[N('the route is loud. the Blood X cases, cash, and chain leave with Rich.')],end:{outcome:'stick_up',fx:m1Success('STICK_UP'),memory:{text:'JUG THE PLUG — stick-up route',lane:'money'}}},
    switch:{lines:[N('Kiki keeps Smallie talking while Rich switches the bag. quiet and clean.')],end:{outcome:'switch_the_bag',fx:m1Success('SWITCH_THE_BAG'),memory:{text:'JUG THE PLUG — switched the bag',lane:'money'}}},
-   touge:{lines:[N('the bag is in the car. Smallie and his cousin are behind him.')],minigame:{id:'touge',params:()=>({course:'angeles_crest',car:RACars.toTouge(RALife.ownedCars()[0]),tandem:{rival:'SMALLIE',role:'chase',threshold:T().touge.SUCCESS_THRESHOLD},durationSeconds:T().touge.DURATION_SECONDS}),next:(A,r)=>r.outcome==='win'?'touge_done':'table'}},
-   touge_done:{lines:[N('forty-five seconds. the pursuit falls away.')],end:{outcome:'touge_escape',fx:m1Success('TOUGE_ESCAPE'),memory:{text:'JUG THE PLUG — escaped by TOUGE',lane:'cars'}}},
+   touge:{lines:[N('the bag is in the car. Smallie and his cousin are behind him.')],minigame:{id:'touge',params:()=>({course:'angeles_crest',car:RACars.toTouge(RALife.ownedCars()[0]),tandem:{rival:'SMALLIE',role:'chase',threshold:T().touge.SUCCESS_THRESHOLD},durationSeconds:T().touge.AUTHORED_DURATION_SECONDS}),next:(A,r)=>r.outcome==='win'?'touge_done':'table'}},
+   touge_done:{lines:()=>[N(`${T().touge.AUTHORED_DURATION_SECONDS} seconds. the pursuit falls away.`)],end:{outcome:'touge_escape',fx:m1Success('TOUGE_ESCAPE'),memory:{text:'JUG THE PLUG — escaped by TOUGE',lane:'cars'}}},
    leave:{lines:[N('Rich buys a boba and leaves. the arc closes here.')],end:{outcome:'backout',fx:()=>{RALife.spend(RACombatData.ITEMS.boba.price);RALife.addItem('boba',1);RANewOga.backOutM1();},memory:{text:'bought a boba and left JUG THE PLUG',lane:'money'}}}
   }});
 
@@ -46,7 +46,7 @@
  D({id:'NEW_OGA_M3',title:'CANOPY DUTY',lane:'money',memoryType:'money',start:'voice',available:L=>L.life.newOga.status==='intern'&&L.life.newOga.mission===2&&L.day>L.life.newOga.lastMissionDay,
   testSetup:ctx=>ctx.RAState.patch('life.newOga',{...ctx.RAState.get().life.newOga,status:'intern',mission:2,rank:1,title:'INTERN',businessCard:true,lastMissionDay:1}),nodes:{
    voice:{env:'gbenga_rentals',actors:{left:'rich',right:'gbenga'},title:'VOICE NOTE · CANOPY DUTY',lines:[N('sixty chairs, one canopy, and six Blood X coolers are assigned to a Carson owambe.')],next:'chairs'},
-   chairs:{minigame:{id:'slurp',params:()=>({canopyDuty:true,totalChairs:T().chairs.TOTAL,durationMs:T().chairs.DURATION_MS,bundleSize:T().chairs.BUNDLE_SIZE}),next:(A,r)=>{A.set('chairs',r.data||{});return 'critique';}}},
+   chairs:{minigame:{id:'slurp',params:()=>({canopyDuty:true,totalChairs:T().chairs.AUTHORED_TOTAL,durationMs:T().chairs.DURATION_MS,bundleSize:T().chairs.BUNDLE_SIZE}),next:(A,r)=>{A.set('chairs',r.data||{});return 'critique';}}},
    critique:{env:'carson_owambe',actors:{left:'rich',right:'auntie'},title:'CARSON OWAMBE',lines:A=>A.vars.chairs?.success?[N('all sixty chairs are stacked and carried in.')]:[N('the aunties critique the chair stacks. the rank is not blocked.')],next:'delivery'},
    delivery:{lines:[N('the chairs are inside. the six Blood X coolers are still in the car.')],choices:[
     {label:'COMPLETE THE DELIVERY',next:'complete'},

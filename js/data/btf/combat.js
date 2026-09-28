@@ -1,5 +1,6 @@
 (function(){
  // COMBAT 2.0 data (VOL 3 §1–4, VOL 5 §10). v1 tuning — HQ owns numbers; playtest changes them.
+ const F6=window.RANewOgaTunables;if(!F6)throw new Error('F6-TUNABLE NEW OGA data must load before combat data');
  const MOVES={
   blood:{id:'blood',label:'BLOOD BATH',base:26,pp:8,kind:'power',aoe:.6,canon:true},
   octopus:{id:'octopus',label:'OCTOPUS BRAIN',base:18,pp:8,kind:'weird',canon:true},
@@ -75,8 +76,8 @@
    octopus:{charisma:{label:'"YOU DON\'T EVEN LIKE THEM"',result:'skip',turns:2,text:'HE DOES NOT.'},recruit:{label:'SEND HIM BACK AS YOUR SPY',result:'spared',text:'HE NODS. SLOWLY.'},roast:{label:'"I DON\'T EVEN DRINK COFFEE"',result:'damage',amount:24,text:'HE DROPS THE ICED COFFEE.'}}},
   lil_smack:{name:'LIL SMACK',hp:70,person:'lil_smack',eats:true,moves:{chew:m('chew','CHEW ATTACK',14,{effect:{accDown:.1,turns:1}}),crumb:m('crumb','CRUMB SPRAY',8)},pattern:['chew','crumb'],
    octopus:{charisma:{label:'"CLOSE YOUR MOUTH"',result:'skip',turns:1,text:'HE IS SO SHOCKED HE LOSES HIS TURN.'},recruit:{label:'"JOIN MY SQUAD… WITH YOUR MOUTH CLOSED"',result:'nothing',text:'HE CANNOT.'},roast:{label:'"WE CAN SEE YOUR FOOD."',result:'damage',amount:22,text:'EVERYONE CAN.'}}},
-  smallie:{name:'SMALLIE',hp:50,person:'smallie',noRun:true,moves:{chew:m('chew','CHEW ATTACK',14,{effect:{accDown:.1,turns:1},telegraph:'SMALLIE LEANS OVER THE TABLE…'}),crumb:m('crumb','CRUMB SPRAY',10)},pattern:['crumb','chew'],octopus:{}},
-  smallie_cousin:{name:"SMALLIE'S COUSIN",hp:40,person:'smallie_cousin',noRun:true,moves:{dagger:m('dagger','DAGGER',14,{telegraph:"SMALLIE'S COUSIN CIRCLES BEHIND YOU…"}),feint:m('feint','FEINT',10)},pattern:['feint','dagger'],octopus:{}},
+  smallie:{name:'SMALLIE',hp:50,person:'smallie',noRun:true,archetype:F6.combat.SMALLIE.archetype,moves:{chew:m('chew','CHEW ATTACK',F6.combat.SMALLIE.attacks.primary,{effect:{accDown:.1,turns:1},telegraph:'SMALLIE LEANS OVER THE TABLE…'}),crumb:m('crumb','CRUMB SPRAY',F6.combat.SMALLIE.attacks.secondary)},pattern:['crumb','chew'],octopus:{}},
+  smallie_cousin:{name:"SMALLIE'S COUSIN",hp:40,person:'smallie_cousin',noRun:true,archetype:F6.combat.COUSIN.archetype,moves:{dagger:m('dagger','DAGGER',F6.combat.COUSIN.attacks.primary,{telegraph:"SMALLIE'S COUSIN CIRCLES BEHIND YOU…"}),feint:m('feint','FEINT',F6.combat.COUSIN.attacks.secondary)},pattern:['feint','dagger'],octopus:{}},
   buckhead:{name:'BUCKHEAD VAMPIRE',hp:110,person:'buckhead',moves:{empire:m('empire','BRUNCH EMPIRE',22,{telegraph:'HE IS PITCHING A FRANCHISE…'}),mimosa:m('mimosa','MIMOSA TOSS',12)},pattern:['mimosa','empire'],
    octopus:{charisma:{label:'"SHE AIN\'T FOR SALE"',result:'spared',text:'MS. PATRICE HEARD THAT.'},recruit:{label:'OFFER HIM A FRANCHISE IN LA',result:'skip',turns:1,text:'HE CONSIDERS IT.'},roast:{label:'ROAST HIS BOAT SHOES',result:'damage',amount:20,text:'DEVASTATING.'}}},
   hunter:{name:'HUNTER',hp:70,person:'hilt',vampireHunter:true,moves:{bolt:m('bolt','CROSSBOW',18)},pattern:['bolt'],drop:{money:300},
