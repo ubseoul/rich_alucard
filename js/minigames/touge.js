@@ -222,7 +222,7 @@
   // Read-only marker for test harnesses (Engineering 06): headless frame rates stretch the 90 game-second run past any
   // fixed real-time budget, so drivers wait for `results` instead of guessing. No gameplay effect.
   let phase='run',runElapsed=0,resultShown=null;root.dataset.phase=phase;
-  let cleanTimer=0,rewardedClean=false;
+  let cleanTimer=0,rewardedClean=false,cueUsed=false;
   let lessonFlash={text:LESSON_WORD[lesson]||null,t:LESSON_WORD[lesson]?1.6:0};
   let lessonCounts={1:0,2:0,3:0,4:0};
   let episodeCounterOk=false,episodeThrottleOk=false,lastAbsAngle=0;
@@ -280,6 +280,7 @@
    if(keys.has('ArrowLeft'))steer=-1;
    if(keys.has('ArrowRight'))steer=1;
    if(keys.has('ArrowUp'))throttle=1;
+   if(throttle>0.01||steer!==0)cueUsed=true; // first-time control cue hides as soon as the player uses input
    input.steer=steer;input.throttle=throttle;input.ebrake=ebrakeHeld;
    clutchKick=handling.manual&&ebrakeHeld&&throttle>0.5&&!prevThrottleHeld;
    prevThrottleHeld=throttle>0.5;
@@ -415,6 +416,10 @@
    RAPixel.text(c,`${runElapsed.toFixed(0)}s`,264,468,{size:7,align:'right',baseline:'bottom',color:'#f6efd9'});
    if(passengerBubble&&passengerName){if(passengerSprite?.complete&&passengerSprite.naturalWidth){c.imageSmoothingEnabled=false;c.drawImage(passengerSprite,16,10,46,46,220,30,46,46);}RAPixel.text(c,`${passengerName}: ${passengerBubble.text}`,135,40,{size:6,align:'center',color:'#ff6fb5'});}
    if(lessonFlash.t>0&&lessonFlash.text){RAPixel.text(c,lessonFlash.text,135,220,{size:12,align:'center',color:'#20c66b'});}
+   // First-time control cue (presentation only; hidden once the player has used any input) so a new player can make the
+   // car move and steer. No physics, scoring or difficulty change.
+   if(!cueUsed&&runElapsed<8){RAPixel.text(c,'HOLD UP = GAS',135,266,{size:6,align:'center',color:'#c9c0a8'});RAPixel.text(c,'LEFT / RIGHT = STEER',135,278,{size:6,align:'center',color:'#c9c0a8'});RAPixel.text(c,'E-BRAKE = SLIDE',135,290,{size:6,align:'center',color:'#c9c0a8'});}
+   if(state.sliding&&!state.spinning&&Math.abs(state.slideAngle)>15)RAPixel.text(c,'DRIFT',135,352,{size:6,align:'center',color:'#20c66b'});
    RAPixel.rect(c,EBRAKE_RECT.x,EBRAKE_RECT.y,EBRAKE_RECT.w,EBRAKE_RECT.h,ebrakeHeld?'#d7193f':'#7d194b');
    RAPixel.text(c,'E-BRAKE',EBRAKE_RECT.x+EBRAKE_RECT.w/2,EBRAKE_RECT.y+EBRAKE_RECT.h/2-4,{size:7,align:'center',color:'#f6efd9'});
 

@@ -342,7 +342,10 @@
     return `<div class="phone-card"><b>${(p?.name||c.label||'CREATOR').toUpperCase()}</b>${collision?'you know her. this is weird now.':'creator on ONLYVAMPS.'}<br>${RALife.fmt(PRICE)}/MONTH<button type="button" class="phone-button" data-phone-action="do:onlyvamps:${subbed(c.id)?'cancel':'sub'}:${c.id}">${subbed(c.id)?'CANCEL':'SUBSCRIBE'}</button></div>`;}).join('');
     return `<h1>ONLYVAMPS</h1><p class="phone-small">non-graphic. tiles only. you know how this goes.</p>${tiles}`;},
    action(a,arg,api){if(a==='sub')subscribe(arg);else if(a==='cancel')cancel(arg);api?.refresh?.();return true;}};
-  window.RAPhoneApps?.register?.({id:'onlyvamps',label:'ONLYVAMPS',order:20,render:()=>window.RAOnlyVamps.markup(),onAction:(a,arg,api)=>window.RAOnlyVamps.action(a,arg,api)});
+  // E1 (BREAK I): this is the canon ONLYVAMPS app (phone.js CANON row + apps_core's canon placeholder). Registering it
+  // with `canon:true` keeps the real renderer in the canon row and OUT of the `extras` grid — without it the phone home
+  // rendered a second, duplicate ONLYVAMPS launcher once the app was unlocked.
+  window.RAPhoneApps?.register?.({id:'onlyvamps',label:'ONLYVAMPS',canon:true,order:20,render:()=>window.RAOnlyVamps.markup(),onAction:(a,arg,api)=>window.RAOnlyVamps.action(a,arg,api)});
  })();
 
  // ===================================================================================================

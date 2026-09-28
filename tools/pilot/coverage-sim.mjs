@@ -100,13 +100,26 @@ export async function simulate({personas=Object.keys(PERSONAS),seeds=[1,2,3],day
  const ids=new Set(runs.flatMap(r=>Object.keys(r.offered).concat(r.neverOffered)));
  const neverOfferedAnywhere=[...ids].filter(id=>runs.every(r=>!r.offered[id])).sort();
  const neverCompletedAnywhere=[...ids].filter(id=>runs.every(r=>!r.completed[id])).sort();
- return {runs,neverOfferedAnywhere,neverCompletedAnywhere,errors:runs.flatMap(r=>r.errors.map(e=>({...e,persona:r.persona,seed:r.seed}))),dead:[...new Set(runs.flatMap(r=>r.dead.map(d=>d.key)))]};
+ const dead=[...new Set(runs.flatMap(r=>r.dead.map(d=>d.key)))];
+ // QA HARNESS HARDENING 001 (A6): make starvation/dead-button diagnostics explicit WARNINGS instead of hiding behind
+ // "no errors". Evidence-based categories, NOT a release failure: practical exposure is intentionally not balanced in
+ // this pass, and simulation frequency is gating behaviour, not human probability.
+ //  - NEVER-OFFERED: no simulated life ever had a route surface the adventure.
+ //  - OFFERED-NOT-TAKEN: some life saw it on offer, none completed it (reachable but never selected).
+ //  - DEAD-BUTTONS: a visible room/place that starts nothing.
+ const offeredNotTaken=[...ids].filter(id=>!neverOfferedAnywhere.includes(id)&&runs.every(r=>!r.completed[id])).sort();
+ const warnings=[];
+ if(neverOfferedAnywhere.length)warnings.push({code:'NEVER-OFFERED',count:neverOfferedAnywhere.length,detail:neverOfferedAnywhere});
+ if(offeredNotTaken.length)warnings.push({code:'OFFERED-NOT-TAKEN',count:offeredNotTaken.length,detail:offeredNotTaken});
+ if(dead.length)warnings.push({code:'DEAD-BUTTONS',count:dead.length,detail:dead});
+ return {runs,neverOfferedAnywhere,neverCompletedAnywhere,offeredNotTaken,dead,warnings,errors:runs.flatMap(r=>r.errors.map(e=>({...e,persona:r.persona,seed:r.seed})))};
 }
 
 if(process.argv[1]===fileURLToPath(import.meta.url)){
  const arg=(k,d)=>{const i=process.argv.indexOf(k);return i>0?process.argv[i+1]:d};
  const out=await simulate({personas:arg('--personas',Object.keys(PERSONAS).join(',')).split(','),seeds:arg('--seeds','1,2,3').split(',').map(Number),days:Number(arg('--days',60))});
  if(!process.argv.includes('--quiet'))for(const r of out.runs)console.log(JSON.stringify({persona:r.persona,seed:r.seed,...r.summary,seeds:r.seeds.map(s=>`${s.seed}@${s.day}`)}));
+ for(const w of out.warnings)console.log(`WARNING [${w.code}] ${w.count} — ${w.detail.join(' ')}`);
  console.log('NEVER OFFERED (all runs):',out.neverOfferedAnywhere.join(' ')||'none');
  console.log('NEVER COMPLETED (all runs):',out.neverCompletedAnywhere.join(' ')||'none');
  console.log('DEAD BUTTONS:',out.dead.join(' ')||'none');

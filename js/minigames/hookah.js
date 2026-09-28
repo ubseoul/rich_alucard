@@ -67,6 +67,7 @@
   const rings=[]; // {ring, prevPassed}
   let lastRing=null;
   let toast=null,toastT=0;
+ let fb=null,fbT=0,thrown=false; // first-time feedback: which release was smooth vs wobbly
   let bllad33Ring=null,bllad33T=0;
   let raf=null,lastT=performance.now();
 
@@ -101,6 +102,7 @@
     sessionStack++;bestStack=Math.max(bestStack,sessionStack);ctx.saveProgress({bestStack,moonHits,antennaHits});say('stack');
    } else if(!ring.wobble) sessionStack=1; else sessionStack=0;
    rings.push(ring);lastRing=ring;lung=0;
+   thrown=true;fb={text:ring.wobble?'WOBBLY - FLICK UP, SMOOTH':(sessionStack>1?'STACKED!':'CLEAN RING'),color:ring.wobble?palette().red:palette().green};fbT=performance.now();
    if(rings.length>6)rings.shift();
   }
   function finishUp(){
@@ -165,7 +167,9 @@
    rp.text(g,'INHALE',25,150,{size:5,align:'center',color:pal.grey});
    rp.text(g,`STACK ${sessionStack}  BEST ${bestStack}`,135,392,{size:6,align:'center'});
    rp.text(g,`MOON ${moonHits}  ANTENNA ${antennaHits}`,135,405,{size:5,align:'center',color:pal.grey});
-   if(toast&&now-toastT<2600)rp.wrap(g,toast,220,7).forEach((ln,i)=>rp.text(g,ln,135,200+i*12,{size:7,align:'center',color:pal.gold}));
+   if(!thrown)rp.text(g,'HOLD TO INHALE / FLICK UP SMOOTH',135,182,{size:6,align:'center',color:pal.grey});
+ if(fb&&now-fbT<900)rp.text(g,fb.text,135,166,{size:7,align:'center',color:fb.color});
+ if(toast&&now-toastT<2600)rp.wrap(g,toast,220,7).forEach((ln,i)=>rp.text(g,ln,135,200+i*12,{size:7,align:'center',color:pal.gold}));
    rp.frame(g,75,436,120,34,{fill:pal.bone});rp.text(g,"I'M GOOD",135,449,{size:7,align:'center',color:pal.ink});
    if(!dead)raf=requestAnimationFrame(draw);
   }

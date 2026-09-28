@@ -85,6 +85,35 @@ export async function test(root){
     assert(res&&res.id===def.id,`${def.id} did not complete`);assert(!fresh.RAAdventures.active(),`${def.id} left an active record`);
     assert(RAState.get().life.memoryLog.length>0,`${def.id} wrote no memory`);walks++;}}
   }
+  // FU-03 (BREAK I — QA HARNESS HARDENING 001): a synthetic minigame/fight result must be CONSUMED by the adventure,
+  // not silently dropped. The branch walker above feeds fixed outcomes; without these assertions a node that ignores
+  // its result would still walk green. Minigame: reward -> life record, result -> adventure vars, routing -> authored
+  // next node. Fight: outcome -> `fight` var and the win/lose/spared branch. (Headless result substitution stays.)
+  {const g=await loadBtf(root);const {RAAdventures,RALife,RAState,RAClock}=g;RAClock.wake({first:true});
+   RAState.patch('life.resources.money',10000);
+   // A08 'shift' is the first-shift minigame node; its `next` stores the result and routes to 'special'.
+   RAAdventures.start('A08',{from:'test'});RAAdventures.patchActive({node:'shift'});RAAdventures.enter('shift');
+   const moneyBefore=RALife.money();
+   assert.equal(RAAdventures.afterMinigame('shift',{outcome:'done',score:7,rewards:{money:1234}}),'special','A08: a synthetic minigame result must route to the authored next node');
+   assert.equal(RALife.money()-moneyBefore,1234,'A08: a synthetic minigame reward must reach the life money record');
+   assert.equal(RAAdventures.context().get('res')?.score,7,'A08: a synthetic minigame result must be stored in the adventure vars');
+   RAAdventures.abandon();
+   // A10 'fight' routes win/lose/spared down different authored branches and records the outcome in `fight`.
+   RAAdventures.start('A10',{from:'test'});RAAdventures.patchActive({node:'fight'});RAAdventures.enter('fight');
+   assert.equal(RAAdventures.afterFight('fight',{outcome:'win'}),'winbread','A10: a synthetic win must route to the win branch');
+   assert.equal(RAAdventures.context().get('fight'),'win','A10: a synthetic fight outcome must be stored in the adventure vars');
+   assert.equal(RAAdventures.afterFight('fight',{outcome:'lose'}),'losebread','A10: a synthetic loss must route to the lose branch');
+   assert.equal(RAAdventures.afterFight('fight',{outcome:'spared'}),'sparedbread','A10: a synthetic spare must route to the spared branch');
+   RAAdventures.abandon();
+   console.log('PASS btf propagation (synthetic minigame reward+result and fight outcome are consumed by the adventure; FU-03)');}
+  // FU-04 (BREAK I): the Thanksgiving gate must not be self-defeating. Post-fame continuation keeps fameFired=true, so
+  // A53 must still become eligible at Day 57 (the family holiday is authored for the continuation, not before the ending).
+  {const t=await loadBtf(root);const {RAState,RALife,RAAdventures,RAWakeTriggers,RAClock}=t;RAClock.wake({first:true});
+   RAState.patch('life.world.day',57);RAState.patch('life.momentum.fameFired',true);RAState.patch('life.momentum.fameEligible',false);
+   assert.equal(RALife.today().day,57,'A53 regression: day patch');
+   assert(RAAdventures.available('A53',{ignoreActive:true}),'A53 must be eligible at Day 57 during post-fame continuation (fameFired true)');
+   const w=RAWakeTriggers.list().find(x=>x.adventure==='A53');assert(w&&w.when(RALife.L())===true,'A53 wake trigger must fire at Day 57 with fameFired set');
+   console.log('PASS btf thanksgiving gate (A53 eligible at Day 57 with fameFired true; FU-04)');}
   // Every node can be entered cold (dev/QA jumps, presentation sweeps) without throwing — FU-01 regression.
   {const cold=await loadBtf(root);const A=cold.RAAdventures,bad=[];
    for(const def of A.all())for(const id of Object.keys(def.nodes)){try{if(A.active())A.abandon();A.start(def.id,{from:'dev'});A.patchActive({node:id});const r=A.enter(id),C=A.context();

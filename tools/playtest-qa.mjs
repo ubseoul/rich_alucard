@@ -105,6 +105,7 @@ async function canvasBox(p){const c=p.locator('.ra-minigame canvas').first();if(
 const nat=(box,x,y)=>[box.x+x/270*box.width,box.y+y/480*box.height];
 async function tapN(p,box,x,y,hold=40){const [X,Y]=nat(box,x,y);await p.mouse.move(X,Y);await p.mouse.down();await p.waitForTimeout(hold);await p.mouse.up();}
 async function dragN(p,box,[x1,y1],[x2,y2],steps=8){const [X1,Y1]=nat(box,x1,y1),[X2,Y2]=nat(box,x2,y2);await p.mouse.move(X1,Y1);await p.mouse.down();for(let i=1;i<=steps;i++){await p.mouse.move(X1+(X2-X1)*i/steps,Y1+(Y2-Y1)*i/steps);await p.waitForTimeout(25);}await p.mouse.up();}
+async function holdAt(p,box,x,y,ms){const [X,Y]=nat(box,x,y);await p.mouse.move(X,Y);await p.mouse.down();await p.waitForTimeout(ms);await p.mouse.up();}
 async function mgActive(p){return p.evaluate(()=>window.RAMinigames?.active?.()?.id||null);}
 async function canvasHash(p){return p.evaluate(()=>{const c=document.querySelector('.ra-minigame canvas');if(!c)return null;try{const d=c.getContext('2d').getImageData(0,0,c.width,c.height).data;let h=0;for(let i=0;i<d.length;i+=97)h=(h*31+d[i])|0;return h;}catch{return 'x'}});}
 // Plays a minigame with simple player-like input. Returns 'finished' | 'quit' | 'left'.
@@ -117,25 +118,97 @@ async function playMinigame(p,id,rng,{budgetMs=9000,preferQuit=false}={}){
  if(preferQuit){await tapN(p,b,135,300);await settle(p,300);}
  // TOUGE: drive until the minigame itself reports `results` (read-only data-phase marker; a 90 game-second run takes
  // longer in real time under headless load), then tap DONE. Engineering 06; earlier runs always hit the budget and QUIT.
- else if(id==='touge'){await until(async()=>{const phase=await p.evaluate(()=>document.querySelector('.ra-minigame[data-phase],.ra-minigame [data-phase]')?.dataset.phase||null);if(phase==='results'){await tapN(p,b,200,418);await settle(p,400);return;}const [X,Y]=nat(b,230,420);await p.mouse.move(X,Y);await p.mouse.down();await p.waitForTimeout(1500+rng()*800);await p.mouse.up();await tapN(p,b,40+rng()*40,420,150+rng()*150);});}
- else if(id==='garage'){await until(async()=>{await tapN(p,b,30+rng()*210,90+rng()*300);await settle(p,120);await tapN(p,b,200,457);await settle(p,200);});}
- else if(id==='pier'){await until(async()=>{await tapN(p,b,135,300,500+rng()*800);await settle(p,500+rng()*900);for(let i=0;i<4;i++){await tapN(p,b,135,300,250);await settle(p,120);}if(Date.now()-t0>budgetMs*.4)for(let y=200;y<=440;y+=16)await tapN(p,b,190,y,30);});}
- else if(id==='hatch'){let n=0;await until(async()=>{n++;if(n===1){await tapN(p,b,135,445);await settle(p,300);await tapN(p,b,40,445);await settle(p,400);for(let y=150;y<=420;y+=12){await tapN(p,b,135,y,30);await settle(p,60);}await settle(p,400);await tapN(p,b,125,445);await settle(p,500);await tapN(p,b,210,445);await settle(p,500);return;}await tapN(p,b,40,402);await settle(p,300);});}
- else if(id==='bars'){await until(async()=>{const btn=p.locator('.ra-minigame button:not(.ra-minigame-quit)');const n=await btn.count();if(n){const labels=await btn.allInnerTexts();const i=labels.findIndex(t=>/DONE|FINISH|CASH/i.test(t));if(i>=0){await btn.nth(i).click({force:true});await settle(p,200);return;}}await tapN(p,b,40+rng()*190,300+rng()*160);await settle(p,150);});}
- else if(id==='slurp'){await until(async()=>{const btn=p.locator('.ra-minigame button:not(.ra-minigame-quit)');const n=await btn.count();if(n){const labels=await btn.allInnerTexts();const i=labels.findIndex(t=>/^s*DONE/i.test(t));const c=labels.findIndex(t=>/CLOCK/i.test(t));if(i>=0){await btn.nth(i).click({force:true});await settle(p,300);return;}if(c>=0&&Date.now()-t0>budgetMs*.5){await btn.nth(c).click({force:true});await settle(p,400);return;}}await dragN(p,b,[40+rng()*190,380+rng()*80],[40+rng()*190,140+rng()*180]);await settle(p,100);});}
+ // QA HARNESS HARDENING 001 (A1/A2/A3): a green run must mean the mechanic actually happened. Every scoring minigame is
+ // driven through its OWN real controls (derived from each minigame's source) to a legitimate scoring action; success is
+ // asserted from the returned result/reward/state (see MG_EXPECT), never from a canvas merely changing.
+ else if(id==='touge'){
+  // TOUGE reads keyboard (ArrowUp throttle, Space e-brake) and pointer (left half = steer by horizontal drag). Build
+  // speed, kick the e-brake to initiate a slide, hold it with countersteer; wait for the game's own `results`, then DONE.
+  await until(async()=>{
+   const phase=await p.evaluate(()=>document.querySelector('.ra-minigame[data-phase],.ra-minigame [data-phase]')?.dataset.phase||null);
+   if(phase==='results'){await tapN(p,b,200,418);await settle(p,500);return;}
+   await p.keyboard.down('ArrowUp');
+   const [px,py]=nat(b,100,300);
+   await p.mouse.move(px,py);await p.mouse.down();
+   await p.mouse.move(px-40,py);await p.waitForTimeout(150);                 // steer hard into the corner
+   await p.keyboard.down(' ');await p.waitForTimeout(260);await p.keyboard.up(' '); // e-brake initiation
+   await p.mouse.move(px+40,py);await p.waitForTimeout(650);                 // countersteer to hold the drift
+   await p.mouse.up();await p.keyboard.up('ArrowUp');
+   await settle(p,120);
+  });
+ }
+ else if(id==='garage'){
+  // Buy one part through the real store (money leaves the account, the part installs), close the detail, then DONE.
+  let bought=false;
+  await until(async()=>{
+   if(!bought){await tapN(p,b,30,80);await settle(p,220);await tapN(p,b,95,413);await settle(p,260);await tapN(p,b,243,160);await settle(p,220);bought=true;return;}
+   await tapN(p,b,200,457);await settle(p,300);
+  });
+ }
+ else if(id==='pier'){
+  // Pulse the line: cast, tap the real bite, then hold/release to reel without snapping. A landing opens the result
+  // card; the periodic I'M GOOD tap ends the session once a catch resolves (harmless while casting/waiting/reeling).
+  let pn=0;
+  await until(async()=>{
+   pn++;
+   if(pn%5===0){await tapN(p,b,190,310);await settle(p,400);return;}
+   const [X,Y]=nat(b,135,300);await p.mouse.move(X,Y);await p.mouse.down();await p.waitForTimeout(300);await p.mouse.up();await p.waitForTimeout(430);
+  });
+ }
+ else if(id==='hatch'){
+  // PLAY always resolves a `play` care action after its ~10s mini-moment (inventory-independent, unlike FEED), then DONE.
+  let acted=false;
+  await until(async()=>{
+   if(!acted){await tapN(p,b,134,445);await settle(p,11000);acted=true;return;}
+   await tapN(p,b,40,402);await settle(p,300);
+  });
+ }
+ else if(id==='bars'){
+  // Tap every choice-chip cell (a 2x2 grid at x=69/197, y=217/281); at least one is correct each round, so the rhyme
+  // chain genuinely scores. Click the end-card DONE when it appears.
+  await until(async()=>{
+   const btns=p.locator('.ra-minigame button:not(.ra-minigame-quit)');const cnt=await btns.count();
+   if(cnt){const labels=await btns.allInnerTexts();const di=labels.findIndex(t=>String(t).trim().toUpperCase()==='DONE');if(di>=0){await btns.nth(di).click({force:true});await settle(p,200);return;}}
+   for(const [cx,cy] of [[69,217],[197,217],[69,281],[197,281]]){await tapN(p,b,cx,cy,40);await settle(p,90);}
+  });
+ }
+ else if(id==='slurp'){
+  // Serve the opening ticket through the real bowl zone (BOWL_ZONE x190-254, y150-206) — the tutorial order accepts any
+  // bowl and pays — then clock out. No longer drags ingredients into nowhere.
+  let served=false;
+  await until(async()=>{
+   const btns=p.locator('.ra-minigame button:not(.ra-minigame-quit)');const cnt=await btns.count();
+   if(cnt){const labels=await btns.allInnerTexts();const di=labels.findIndex(t=>/^\s*DONE/i.test(t));const ci=labels.findIndex(t=>/CLOCK/i.test(t));
+    if(di>=0){await btns.nth(di).click({force:true});await settle(p,300);return;}
+    if(ci>=0&&Date.now()-t0>budgetMs*.35){await btns.nth(ci).click({force:true});await settle(p,400);return;}}
+   if(!served){await settle(p,400);await tapN(p,b,222,178);await settle(p,500);served=true;return;}
+   await settle(p,250);
+  });
+ }
  else if(id==='jollof'){const seq=async()=>{const [X,Y]=nat(b,135,300);await p.mouse.move(X,Y);await p.mouse.down();await p.waitForTimeout(1800);await p.mouse.up();await settle(p,500);
    for(let i=0;i<14;i++){await tapN(p,b,i%2?200:70,300,30);await settle(p,90);}await tapN(p,b,135,400);await settle(p,900);
    for(let i=0;i<5;i++){await tapN(p,b,30+(i%5)*48,210);await settle(p,80);}await tapN(p,b,135,420);await settle(p,5800);await tapN(p,b,135,410);await settle(p,900);
    for(let i=0;i<8;i++){await tapN(p,b,135,300);await settle(p,500);}await tapN(p,b,135,414);await settle(p,400);};await until(seq);}
- else if(id==='hookah'){await until(async()=>{await dragN(p,b,[135,380],[135+rng()*60-30,300],6);await settle(p,400);if(Date.now()-t0>budgetMs*.6)await tapN(p,b,135,450);});}
- else if(id==='pickup'){await until(async()=>{await tapN(p,b,60+rng()*150,200+rng()*200,100+rng()*500);await settle(p,300);await tapN(p,b,135,307);await tapN(p,b,220,440);});}
+ else if(id==='hookah'){
+  // Two smooth, centred releases: a full-lung big ring, then a short-lung smaller one that passes through it (a stack).
+  // A long stable hold has no pointer jitter, so it reads as smooth; the size gap satisfies the stack rule.
+  let stacked=false;
+  await until(async()=>{
+   if(!stacked){await holdAt(p,b,135,380,1600);await settle(p,300);await holdAt(p,b,135,380,300);await settle(p,500);stacked=true;return;}
+   await tapN(p,b,135,449);await settle(p,250); // I'M GOOD (native y>436, 75<x<195)
+  });
+ }
+ else if(id==='pickup'){
+  // Hold-release to shoot (the meter fills over ~0.9s); once the game is decided the same spot is the DONE button.
+  await until(async()=>{await tapN(p,b,135,307,900);await settle(p,220);});
+ }
  else await until(async()=>{await tapN(p,b,rng()*270,rng()*480);await settle(p,100);});
  const h1=await canvasHash(p);
  if(await done())return {exit:'finished',changed:h0!==h1};
  await p.locator('.ra-minigame-quit').click();await settle(p,300);
  return {exit:(await mgActive(p))?'stuck':'quit',changed:h0!==h1};
 }
-async function instrument(p){await p.evaluate(()=>{if(window.__qaWrapped)return;window.__qaWrapped=true;window.__mg=[];const launch=RAMinigames.launch;RAMinigames.launch=async function(id,params,opts){const r=await launch.call(this,id,params,opts);window.__mg.push({id,quit:!!r.quit,outcome:r.outcome,score:r.score??null,rewards:r.rewards||{},error:r.error||null});return r;};});}
+async function instrument(p){await p.evaluate(()=>{if(window.__qaWrapped)return;window.__qaWrapped=true;window.__mg=[];const launch=RAMinigames.launch;RAMinigames.launch=async function(id,params,opts){const r=await launch.call(this,id,params,opts);window.__mg.push({id,quit:!!r.quit,outcome:r.outcome,score:r.score??null,rewards:r.rewards||{},data:r.data??null,error:r.error||null});return r;};});}
 
 // ---------- the player brain: drive whatever is on screen until back at an idle bedroom ----------
 async function drive(p,rng,where,{maxSteps=900,mgBudget=7000,preferQuit=false,throneSteal='no'}={}){
@@ -316,7 +389,7 @@ async function scenarioLife(save){
 const MG_ROUTES={
  touge:{setup:()=>{RALife.unlockApp('touge',{silent:true});RACars.buy('s15');},enter:async p=>{await openPhone(p);await phoneClick(p,'app:touge');await phoneClick(p,'do:touge:run:angeles_crest');}},
  garage:{setup:()=>{if(!RACars.owned('supra'))RALife.addCar({id:RACars.SUPRA,make:'Toyota',model:'Supra MK4',short:'SUPRA',price:0,parts:{}});RALife.addMoney(50000);},enter:async p=>{await openPhone(p);await phoneClick(p,'app:jdmImports');await phoneClick(p,'do:cars:garage');}},
- pier:{setup:()=>{RADragon.adoptEgg();RAState.patch('life.ownership.dragon',{...RALife.dragon(),stage:'hatchling',hatched:true});},enter:async p=>{await openPhone(p);await phoneClick(p,'app:vampgpt');await phoneClick(p,'prompt');await phoneClick(p,'somewhere');await phoneClick(p,'go:pier');},adventure:true},
+ pier:{setup:()=>{RADragon.adoptEgg();RAState.patch('life.ownership.dragon',{...RALife.dragon(),stage:'hatchling',hatched:true});const mm={...(RAState.get().life.minigames||{})};delete mm.pier;RAState.patch('life.minigames',mm);},enter:async p=>{await openPhone(p);await phoneClick(p,'app:vampgpt');await phoneClick(p,'prompt');await phoneClick(p,'somewhere');await phoneClick(p,'go:pier');},adventure:true},
  hatch:{setup:()=>{RADragon.adoptEgg();RAState.patch('life.ownership.dragon',{...RALife.dragon(),stage:'hatchling',hatched:true});RALife.addItem('fish_common',3);},enter:async p=>{await openPhone(p);await phoneClick(p,'app:hatch');await phoneClick(p,'do:hatch:open');}},
  bars:{setup:()=>{RALife.unlockApp('bars',{silent:true});},enter:async p=>{await openPhone(p);await phoneClick(p,'app:bars');const b=p.locator('#phoneContent [data-phone-action^="do:bars:"]');await b.first().click();await settle(p,300);}},
  slurp:{setup:()=>{},enter:async p=>{await openPhone(p);await phoneClick(p,'app:vampgpt');await phoneClick(p,'prompt');await phoneClick(p,'somewhere');await phoneClick(p,'go:slurp');},adventure:true},
@@ -325,6 +398,36 @@ const MG_ROUTES={
  pickup:{setup:()=>{},enter:async p=>{await openPhone(p);await phoneClick(p,'app:vampgpt');await phoneClick(p,'prompt');await phoneClick(p,'somewhere');await phoneClick(p,'go:venice');},adventure:true},
  hookah:{setup:()=>{RALife.addMoney(100000);RACastle.buy('hookah_roof');},enter:async p=>{await p.locator('.bedroom-castle').click();await settle(p,300);await p.locator('.castle-menu [data-castle="castle:roof"]').click();await settle(p,500);},adventure:true},
 };
+// QA HARNESS HARDENING 001 (A1/A3): the semantic success condition each scored minigame must actually produce when
+// played with real input. Read from the returned launch result (score / accumulated rewards / finish data) — never from
+// the canvas changing (every minigame animates while idle). A run that only times out, quits, or waits for an exit fails.
+const MG_EXPECT={
+ touge:{kind:'score',min:1,what:'a drift score'},
+ slurp:{kind:'score',min:1,what:'a served bowl (bowlsServed)'},
+ hookah:{kind:'score',min:2,what:'a stacked ring (sessionStack)'},
+ bars:{kind:'score',min:1,what:'a landed rhyme (score)'},
+ jollof:{kind:'score',min:1,what:'a scored dish (average)'},
+ pickup:{kind:'score',min:1,what:'a made basket (score)'},
+ hatch:{kind:'reward',key:'dragonActions',what:'a dragon care action'},
+ pier:{kind:'catch',what:'a landed catch'},
+ garage:{kind:'parts',what:'an installed part'}
+};
+function assertMinigameResult(id,mode,res){
+ if(mode!=='play'||!res)return;
+ const exp=MG_EXPECT[id];if(!exp)return;
+ const rew=res.rewards||{};
+ if(exp.kind==='score'){
+  if(typeof res.score!=='number'||res.score<exp.min)finding('PLAYTEST BLOCKER','MINIGAME-NO-SCORE',`${id}: finished naturally with score ${res.score} — expected ${exp.what}; the mechanic did not land`);
+ } else if(exp.kind==='reward'){
+  if(!(rew[exp.key]||[]).length)finding('PLAYTEST BLOCKER','MINIGAME-NO-REWARD',`${id}: finished without ${exp.what} (rewards ${JSON.stringify(rew)})`);
+ } else if(exp.kind==='catch'){
+  const counts=(res.data&&res.data.counts)||{},items=Object.keys(rew.items||{});
+  if(!Object.keys(counts).length&&!items.length&&!rew.money)finding('PLAYTEST BLOCKER','MINIGAME-NO-CATCH',`${id}: finished without landing a catch (counts ${JSON.stringify(counts)}, rewards ${JSON.stringify(rew)})`);
+ } else if(exp.kind==='parts'){
+  const parts=(res.data&&res.data.parts)||{};
+  if(!Object.keys(parts).length)finding('PLAYTEST BLOCKER','MINIGAME-NO-CONSEQUENCE',`${id}: finished with no installed part (data ${JSON.stringify(res.data)})`);
+ }
+}
 async function scenarioMinigames(save){
  const results={};
  for(const [id,route] of Object.entries(MG_ROUTES).filter(([id])=>!args.mg||String(args.mg).split(',').includes(id))){
@@ -340,7 +443,7 @@ async function scenarioMinigames(save){
    const t0=Date.now();while(!s.minigame&&Date.now()-t0<25000&&(s.scene==='adventure'||s.advScene)){if(s.choices.length)await p.locator('.adv-choice:not([disabled])').first().click();else await p.locator('#adventureScene').click({position:{x:195,y:340}}).catch(()=>{});await settle(p,150);s=await probe(p);}
    if(!s.minigame){finding('PLAYTEST BLOCKER','MINIGAME-ROUTE',`${id}: player route did not launch the minigame (scene ${s.scene}/${s.adv||'-'}/${s.node||'-'}, phone ${s.phonePage||'-'})`);await snap(p,`mg-route-${id}`);flushErrors(p,`mg-${id}`);await p.context().close();results[id]={...(results[id]||{}),[mode]:'ROUTE FAIL'};continue;}
    await snap(p,`mg-${id}-${mode}-in`);
-   const r=await playMinigame(p,id,rng,{budgetMs:mode==='quit'?1500:({touge:Number(args.tougeMs||300000),bars:80000,slurp:70000,pier:70000,jollof:60000}[id]||40000),preferQuit:mode==='quit'});
+   const r=await playMinigame(p,id,rng,{budgetMs:mode==='quit'?1500:({touge:Number(args.tougeMs||300000),bars:80000,slurp:70000,pier:70000,jollof:60000,pickup:90000}[id]||40000),preferQuit:mode==='quit'});
    await snap(p,`mg-${id}-${mode}-out`);
    const d=await drive(p,rng,`mg-${id}-${mode}-return`);
    const after=await p.evaluate(()=>({money:RALife.money(),progress:JSON.stringify(RAState.get().life.minigames||{}),mg:window.__mg,scene:RAScenes.current(),items:JSON.stringify(RAState.get().life.ownership.items),dragon:JSON.stringify(RAState.get().life.ownership.dragon)}));
@@ -349,7 +452,10 @@ async function scenarioMinigames(save){
    const res=after.mg.find(m=>m.id===id);
    results[id]={...(results[id]||{}),[mode]:{exit:r.exit,canvasResponded:r.changed,outcome:res?.outcome,quit:res?.quit,score:res?.score,rewards:res?.rewards,moneyDelta:after.money-before.money,progressSaved:after.progress!==before.progress,itemsChanged:after.items!==before.items,dragonChanged:after.dragon!==before.dragon,returnScene:after.scene,advAfter:[...d.adventures].join(','),reloadDiff:rl.diff.length}};
    note(`[minigame] ${id} ${mode}: ${JSON.stringify(results[id][mode])}`);
-   if(!r.changed&&mode==='play')finding('ENGINEERING BUG — NON-BLOCKING','MINIGAME-STATIC',`${id}: canvas did not change under input`);
+   // A1/A3: success is proven by the returned result/reward/state, not by the canvas animating. Canvas change is kept
+   // only as a rendering diagnostic (idle animations change it too, so it is never the proof that input was accepted).
+   if(!r.changed&&mode==='play')note(`[minigame] ${id}: canvas hash unchanged (rendering diagnostic only)`);
+   assertMinigameResult(id,mode,res);
    flushErrors(p,`mg-${id}-${mode}`);await p.context().close();
   }
  }
@@ -486,6 +592,12 @@ async function scenarioEnding(save){
  await reloadCheck(p,'ending-after');await drive(p,rngFrom(7),'ending-after-reload');
  await p.locator('.bedroom-sleep').click();await p.locator('[data-bed="yes"]').click();await settle(p,4000);
  const again=await p.locator('.fame-ending').count();if(again)finding('PLAYTEST BLOCKER','ENDING-REPEATS','the ending replayed on the next sleep');
+ // PHASE D: the Thanksgiving gate. Confirm the runtime semantics, then that A53 stays eligible at Day 57 during
+ // legitimate post-fame continuation (no `!fameFired` exclusion). This is the regression for the dead-gate fix.
+ const a53=await p.evaluate(()=>{RAState.patch('life.world.day',57);RAState.patch('life.clock.lastWakeDay',57);const L=RAState.get().life;return {fameFired:!!L.momentum.fameFired,available:RAAdventures.available('A53',{ignoreActive:true})};});
+ if(!a53.fameFired)finding('ENGINEERING BUG — NON-BLOCKING','ENDING-FLAG','fameFired was not set after the ending');
+ if(!a53.available)finding('PLAYTEST BLOCKER','A53-DEAD-GATE','A53 is not eligible at Day 57 after the fame ending (dead gate)');
+ else note('[thanksgiving] A53 becomes eligible at Day 57 during post-fame continuation');
  const s2=await probe(p);note(`[ending] continue → ${s.scene} day ${st.day} (fameFired ${st.fired}); refresh ok; next sleep → ${s2.scene} day ${s2.day}, ending replay ${again?'YES':'no'}`);
  flushErrors(p,'ending');await p.context().close();
 }
@@ -556,6 +668,139 @@ async function reachability(){
  return orphans;
 }
 
+// PHASE B: a non-prologue Combat 2 win through REAL browser decisions. ⌂ CASTLE → THRONE → SPAR WITH A TRAINING
+// DUMMY is an ordinary OPEN Combat 2 encounter (not Hilt/A23, not the prologue). The dummy (60 HP) is beaten with
+// FIGHT → BLOOD BATH; the win must be RECORDED (life.history), not merely that the scene closed.
+async function scenarioCombatWin(save){
+ const p=await newPage(390);const rng=rngFrom(SEED+41);
+ await p.evaluate(s=>localStorage.setItem('rich_alucard_save_v1',s),save);await p.goto(base+'/');await settle(p,400);
+ await p.locator('#startButton').click();await settle(p,900);await drive(p,rng,'combat-pre');
+ await p.locator('.bedroom-castle').click();await settle(p,300);
+ await p.locator('.castle-menu [data-castle="castle:throne"]').click();await settle(p,500);
+ let s=await probe(p);const t0=Date.now();
+ while(!s.c2&&Date.now()-t0<20000&&(s.scene==='adventure'||s.advScene)){const spar=p.locator('.adv-choice',{hasText:/SPAR/});if(await spar.count())await spar.first().click();else if(s.choices.length)await p.locator('.adv-choice:not([disabled])').first().click();else await p.locator('#adventureScene').click({position:{x:195,y:340}}).catch(()=>{});await settle(p,170);s=await probe(p);}
+ if(!await p.locator('.c2-scene').count()){finding('PLAYTEST BLOCKER','COMBAT-ROUTE','SPAR did not reach a Combat 2 fight');await p.context().close();return false;}
+ const t1=Date.now();let turns=0;
+ while(Date.now()-t1<60000&&!(await p.locator('.c2-scene [data-c2="done"]').count())){
+  const octo=p.locator('.c2-octo:not([hidden]) [data-octo]');if(await octo.count()){await octo.first().click().catch(()=>{});await settle(p,400);continue;}
+  const fight=p.locator('.c2-scene [data-c2="fight"]');if(await fight.count()){await fight.first().click();await settle(p,120);const blood=p.locator('.c2-scene [data-c2="move:blood"]:not(.c2-off)');if(await blood.count()){await blood.first().click();turns++;}await settle(p,820);continue;}
+  await settle(p,200);
+ }
+ if(await p.locator('.c2-scene [data-c2="done"]').count())await p.locator('.c2-scene [data-c2="done"]').click();
+ await settle(p,700);
+ const fights=await p.evaluate(()=>(RAState.get().life.history||[]).filter(e=>e.type==='fight').slice(-3));
+ const won=fights.some(e=>e.enemy==='training'&&e.outcome==='win');
+ if(!won)finding('PLAYTEST BLOCKER','COMBAT-NO-WIN',`SPAR finished without a recorded win (turns ${turns}; ${JSON.stringify(fights)})`);
+ else note(`[combat] throne SPAR won through real decisions (FIGHT -> BLOOD BATH) in ${turns} turns; win recorded in life.history`);
+ await drive(p,rng,'combat-post');await invariants(p,'combat',{idle:true});flushErrors(p,'combat');await p.context().close();
+ return won;
+}
+
+// PHASE C1: the real Combat 2 LOSS path → a17Pending → survives refresh → A17 on the next wake. A18 (Forty Kevins,
+// 260 HP) is reached through its real GRAVE hub encounter; Rich is lost on purpose by only returning stored damage
+// (REVENGE), which cannot out-damage a higher-HP enemy. No balance change.
+async function scenarioA17(save){
+ const p=await newPage(390);const rng=rngFrom(SEED+42);
+ await p.evaluate(s=>localStorage.setItem('rich_alucard_save_v1',s),save);await p.goto(base+'/');await settle(p,400);
+ await p.locator('#startButton').click();await settle(p,900);await drive(p,rng,'a17-pre');
+ await openPhone(p);await phoneClick(p,'app:vampgpt');await phoneClick(p,'prompt');await phoneClick(p,'somewhere');await phoneClick(p,'go:grave');
+ // Advance the GRAVE hub to the A18 encounter, then keep advancing until the fight appears.
+ const t0=Date.now();let inFight=false;
+ while(Date.now()-t0<30000){const pr=await probe(p);if(pr.c2){inFight=true;break;}const hub=p.locator('.adv-choice',{hasText:/FOOD COURT LINE/});if(await hub.count())await hub.first().click();else if(pr.choices.length)await p.locator('.adv-choice:not([disabled])').first().click();else await p.locator('#adventureScene').click({position:{x:195,y:340}}).catch(()=>{});await settle(p,180);}
+ if(!inFight){finding('PLAYTEST BLOCKER','A17-ROUTE','the GRAVE hub never reached the A18 fight');await p.context().close();return false;}
+ const t1=Date.now();
+ while(Date.now()-t1<90000&&!(await p.locator('.c2-scene [data-c2="done"]').count())){
+  const octo=p.locator('.c2-octo:not([hidden]) [data-octo]');if(await octo.count()){await octo.first().click().catch(()=>{});await settle(p,400);continue;}
+  const fight=p.locator('.c2-scene [data-c2="fight"]');if(await fight.count()){await fight.first().click();await settle(p,120);
+   const rev=p.locator('.c2-scene [data-c2="move:revenge"]:not(.c2-off)');if(await rev.count())await rev.first().click();else{const oct=p.locator('.c2-scene [data-c2="move:octopus"]:not(.c2-off)');if(await oct.count())await oct.first().click();}
+   await settle(p,860);continue;}
+  await settle(p,200);
+ }
+ if(await p.locator('.c2-scene [data-c2="done"]').count())await p.locator('.c2-scene [data-c2="done"]').click();
+ await settle(p,700);
+ const st=await p.evaluate(()=>({pending:RAState.get().life.world.flags.a17Pending||null,lastDefeatDay:RAState.get().life.world.flags.lastDefeatDay||null,lost:(RAState.get().life.history||[]).some(e=>e.type==='fight'&&e.outcome==='lose')}));
+ if(!st.pending)finding('PLAYTEST BLOCKER','A17-FLAG',`a Combat 2 loss did not set a17Pending (${JSON.stringify(st)})`);
+ await p.reload();await settle(p,400);if(await p.locator('#startButton').count())await p.locator('#startButton').click();await settle(p,900);
+ const persisted=await p.evaluate(()=>!!RAState.get().life.world.flags.a17Pending);
+ if(!persisted)finding('PLAYTEST BLOCKER','A17-PERSIST','a17Pending did not survive a refresh');
+ await drive(p,rng,'a17-wake');await sleepNight(p,'a17');await drive(p,rng,'a17-reach');
+ const done=await p.evaluate(()=>({done:!!RAAdventures.isDone('A17'),active:RAAdventures.active()?.id||null,met:!!RAState.get().life.people.records.nneka}));
+ if(!done.done)finding('PLAYTEST BLOCKER','A17-NOWAKE',`A17 was not reached on the next wake (active ${done.active||'-'})`);
+ else note(`[a17] real loss -> a17Pending set -> survived refresh -> A17 on the next wake (nneka met ${done.met})`);
+ flushErrors(p,'a17');await p.context().close();
+ return {pending:!!st.pending,persisted,completed:done.done};
+}
+
+// PHASE C2: Officer Nodd through the real travel flow. A07's route beat offers DRIVE THE <car> for an owned car; the
+// real applyRoute() increments drives and, at the 3rd drive, sets noddPending. Two prior drives are seeded (state only)
+// because OPEN offers car routes only on A07/A41 — the milestone logic itself is what is under test; pacing unchanged.
+async function scenarioA57(save){
+ const p=await newPage(390);const rng=rngFrom(SEED+54);
+ await p.evaluate(s=>localStorage.setItem('rich_alucard_save_v1',s),save);
+ await p.goto(base+'/?dev=1');await settle(p,600);await p.locator('#startButton').click();await settle(p,900);await drive(p,rng,'a57-pre');
+ if(!await p.evaluate(()=>!!window.RATestPilot)){finding('ENGINEERING BUG — NON-BLOCKING','A57-DEV','RATestPilot unavailable with ?dev=1');await p.context().close();return false;}
+ await p.evaluate(()=>{if(!RALife.ownedCars().length)RALife.addCar({id:RACars.SUPRA,make:'Toyota',model:'Supra MK4',short:'SUPRA',price:0,parts:{}});RALife.setFlag('drives',2);});
+ await p.evaluate(async()=>{await window.RATestPilot.launch('A07',{node:'route'});});await settle(p,700);
+ const driveBtn=p.locator('.adv-choice',{hasText:/DRIVE THE/});
+ if(!await driveBtn.count()){finding('PLAYTEST BLOCKER','A57-ROUTE','A07 route beat offered no DRIVE option with a car owned');await p.context().close();return false;}
+ await driveBtn.first().click();await settle(p,500);
+ const st=await p.evaluate(()=>({drives:Number(RAState.get().life.world.flags.drives)||0,pending:!!RAState.get().life.world.flags.noddPending}));
+ if(st.drives!==3)finding('PLAYTEST BLOCKER','A57-COUNTER',`a real car route did not advance drives to 3 (got ${st.drives})`);
+ if(!st.pending)finding('PLAYTEST BLOCKER','A57-TRIGGER','the 3rd real car drive did not set noddPending');
+ await p.reload();await settle(p,400);if(await p.locator('#startButton').count())await p.locator('#startButton').click();await settle(p,900);
+ const persisted=await p.evaluate(()=>!!RAState.get().life.world.flags.noddPending);
+ if(!persisted)finding('PLAYTEST BLOCKER','A57-PERSIST','noddPending did not survive a refresh');
+ // The ?dev=1 DEV panel overlays the bedroom controls, so hide it before driving back to the bedroom and sleeping.
+ await p.evaluate(()=>{const d=document.querySelector('#devPanel');if(d){d.classList.remove('show');d.style.display='none';}});
+ await drive(p,rng,'a57-wake');await sleepNight(p,'a57');await drive(p,rng,'a57-reach');
+ const done=await p.evaluate(()=>({done:!!RAAdventures.isDone('A57'),active:RAAdventures.active()?.id||null}));
+ if(!done.done)finding('PLAYTEST BLOCKER','A57-NOWAKE',`A57 was not reached on the next wake (active ${done.active||'-'})`);
+ else note('[a57] real car route -> drives 3 -> noddPending -> survived refresh -> A57 on the next wake');
+ flushErrors(p,'a57');await p.context().close();
+ return {drives:st.drives,pending:st.pending,persisted,completed:done.done};
+}
+
+// PHASE C3: the real-estate viewing route (headless cannot exercise RAPropertyQuest). With the Shannon lane open the
+// listings must appear, SEE IT opens RE_VIEWING, the adventure resolves without a dead end, and refresh stays clean.
+async function scenarioRealEstate(save){
+ const p=await newPage(390);const rng=rngFrom(SEED+53);
+ await p.evaluate(s=>localStorage.setItem('rich_alucard_save_v1',s),save);await p.goto(base+'/');await settle(p,400);
+ await p.evaluate(()=>{RAState.patch('life.ownership.properties',[{id:'property_la_4p_01',label:'PALOMA FOURPLEX',ownershipStatus:'owned',weeklyRent:1400,rentDue:0,purchasePrice:34000,value:34000}]);RALife.setFlag('propertyOwned',true);RALife.addMoney(250000);});
+ await p.reload();await settle(p,400);await p.locator('#startButton').click();await settle(p,900);await drive(p,rng,'re-pre');
+ await openPhone(p);await phoneClick(p,'app:realEstate');
+ const see=await p.evaluate(()=>[...document.querySelectorAll('#phoneContent [data-phone-action^="do:realestate:see:"]')].map(b=>({a:b.dataset.phoneAction,disabled:b.disabled})));
+ if(!see.length)finding('PLAYTEST BLOCKER','RE-LISTINGS','no listings offered with the Shannon lane open');
+ const pick=see.find(x=>!x.disabled);
+ if(see.length&&!pick)finding('ENGINEERING BUG — NON-BLOCKING','RE-LISTINGS','all listings disabled (cash below every 30% down)');
+ if(pick){await phoneClick(p,pick.a);await settle(p,700);const s=await probe(p);
+  if(!(s.scene==='adventure'||s.advScene))finding('PLAYTEST BLOCKER','RE-ROUTE',`SEE IT did not open a viewing (scene ${s.scene})`);
+  else{const r=await drive(p,rng,'re-viewing');if(r.stuck||r.budget)finding('PLAYTEST BLOCKER','RE-DEADEND','the viewing did not resolve to an idle bedroom');}
+  const rl=await reloadCheck(p,'re-viewing');if(rl.diff.length)finding('PLAYTEST BLOCKER','RE-REFRESH',`viewing refresh diff ${rl.diff.slice(0,6).join(', ')}`);
+  note(`[realestate] ${see.length} listings offered; viewing ${pick.a} resolved, refresh diff ${rl.diff.length}`);}
+ await closePhone(p);flushErrors(p,'realestate');await p.context().close();
+ return {listings:see.length,disabled:see.filter(x=>x.disabled).length};
+}
+
+// PHASE E1: the ONLYVAMPS launcher must appear exactly once on the phone home when the app is unlocked (apps_core
+// registers it as a canon app; w4 re-registers the real renderer and must stay in the canon row, not the extras grid).
+async function scenarioOnlyVamps(save){
+ const p=await newPage(390);const rng=rngFrom(SEED+51);
+ await p.evaluate(s=>localStorage.setItem('rich_alucard_save_v1',s),save);await p.goto(base+'/');await settle(p,400);
+ await p.evaluate(()=>{RALife.unlockApp('onlyvamps',{silent:true});});
+ await p.reload();await settle(p,400);await p.locator('#startButton').click();await settle(p,900);await drive(p,rng,'onlyvamps-pre');
+ await openPhone(p);
+ const n=await p.evaluate(()=>[...document.querySelectorAll('#phoneContent [data-phone-action="app:onlyvamps"]')].length);
+ if(n>1)finding('PLAYTEST BLOCKER','ONLYVAMPS-DUPLICATE',`${n} ONLYVAMPS launchers on the phone home (expected 1)`);
+ else if(n<1)finding('PLAYTEST BLOCKER','ONLYVAMPS-MISSING','ONLYVAMPS launcher missing after unlock');
+ else note('[onlyvamps] exactly one launcher on the phone home');
+ await phoneClick(p,'app:onlyvamps');
+ const ov=await p.evaluate(()=>({title:document.querySelector('#phoneContent h1')?.textContent||'',cards:document.querySelectorAll('#phoneContent .phone-card').length,velvet:/VELVET/.test(document.querySelector('#phoneContent')?.innerText||'')}));
+ if(!/ONLYVAMPS/.test(ov.title))finding('PLAYTEST BLOCKER','ONLYVAMPS-OPEN',`ONLYVAMPS page did not open (title "${ov.title}")`);
+ else note(`[onlyvamps] page opens, ${ov.cards} creator tiles, Velvet present ${ov.velvet}`);
+ await closePhone(p);flushErrors(p,'onlyvamps');await p.context().close();
+ return {launchers:n,...ov};
+}
+
 async function main(){
  await mkdir(out,{recursive:true});
  if(!existsSync(path.join(dist,'index.html')))throw new Error('dist/ missing: run npm run build first');
@@ -566,7 +811,7 @@ async function main(){
  if(want('reachability'))report.results.orphans=await reachability();
  try{
   if(args.save&&existsSync(String(args.save))){save=await readFile(String(args.save),'utf8');progressed=save;note(`using saved progressed life ${args.save}`);}
-  else if(want('newgame')||want('life')||want('minigames')||want('widths')||want('ending')||want('legacy')||want('systems')||want('wake-reload')||want('routes')){const saves={};for(const [size,steal] of [[360,'no'],[390,'yes'],[430,'no']]){if(!want('newgame')&&size!==390)continue;saves[size]=await scenarioNewGame(size,{steal});}save=saves[390];}
+  else if(want('newgame')||want('life')||want('minigames')||want('widths')||want('ending')||want('legacy')||want('systems')||want('wake-reload')||want('routes')||want('combat')||want('a17')||want('a57')||want('realestate')||want('onlyvamps')){const saves={};for(const [size,steal] of [[360,'no'],[390,'yes'],[430,'no']]){if(!want('newgame')&&size!==390)continue;saves[size]=await scenarioNewGame(size,{steal});}save=saves[390];}
   if(want('prologue-reload')){await scenarioPrologueReload();await scenarioThroneDefeat();}
   if(want('life')&&save){progressed=await scenarioLife(save);await writeFile(path.join(out,'progressed-save.json'),progressed);}
   if(want('minigames')&&save)report.results.minigames=await scenarioMinigames(progressed||save);
@@ -577,6 +822,11 @@ async function main(){
   if(want('systems')&&save)await scenarioSystems(save);
   if(want('wake-reload')&&save)await scenarioWakeReload(save);
   if(want('routes')&&save)report.results.routes=await scenarioRoutes(progressed||save);
+  if(want('combat')&&save)report.results.combat=await scenarioCombatWin(progressed||save);
+  if(want('a17')&&save)report.results.a17=await scenarioA17(progressed||save);
+  if(want('a57')&&save)report.results.a57=await scenarioA57(progressed||save);
+  if(want('realestate')&&save)report.results.realestate=await scenarioRealEstate(progressed||save);
+  if(want('onlyvamps')&&save)report.results.onlyvamps=await scenarioOnlyVamps(progressed||save);
  }finally{
   if(server.missing.size)for(const m of server.missing)finding('ENGINEERING BUG — NON-BLOCKING','MISSING-ASSET',m);
   await browser.close();server.close();

@@ -86,7 +86,7 @@
   leave:{lines:[N('he leaves. not dramatically. just — gone. no more crumbs on the porch. not until the fame.')],
    end:{outcome:'closedMouth',memory:{text:'lil smack ate with his mouth closed, once, and then he left',lane:'food',quality:2},receipt:{caption:'lil smack, mouth closed. once.'},fx:()=>RALife.setFlag('lilSmackGone',true)}}
  }});
- D({id:'A53',title:'THE FAMILY HOLIDAY',lane:'home',scope:'MUST',available:L=>L.day>=57&&!L.life.momentum.fameFired,
+ D({id:'A53',title:'THE FAMILY HOLIDAY',lane:'home',scope:'MUST',available:L=>L.day>=57,
   testSetup:ctx=>{ctx.RAState.patch('life.world.day',57);},start:'kitchen',nodes:{
   // VOL 5 A53: the whole family is here. Five people cannot be framed at phone size, so each beat stages who is in it:
   // the brothers arguing (ART SHIP 015 anchors), then Mom and Dad for "the music thing", then the sister.
@@ -113,7 +113,7 @@
   window.RAVampGram?.post?.({id:`britney:${info.day}`,handle:'britney_stakes',text:lines[Math.floor(info.day/7)%lines.length],likes:250000+RALife.hash(info.day)%90000});});
  // Late-game wake triggers.
  RAWakeTriggers.define([
-  {adventure:'A53',when:L=>L.day===57&&!L.life.momentum.fameFired,priority:90},
+  {adventure:'A53',when:L=>L.day===57,priority:90},
   {adventure:'A58',when:L=>L.day>=35&&L.followers>=300,priority:20}
  ]);
 
