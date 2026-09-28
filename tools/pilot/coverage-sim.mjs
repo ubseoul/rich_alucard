@@ -100,13 +100,22 @@ export async function simulate({personas=Object.keys(PERSONAS),seeds=[1,2,3],day
  const ids=new Set(runs.flatMap(r=>Object.keys(r.offered).concat(r.neverOffered)));
  const neverOfferedAnywhere=[...ids].filter(id=>runs.every(r=>!r.offered[id])).sort();
  const neverCompletedAnywhere=[...ids].filter(id=>runs.every(r=>!r.completed[id])).sort();
- return {runs,neverOfferedAnywhere,neverCompletedAnywhere,errors:runs.flatMap(r=>r.errors.map(e=>({...e,persona:r.persona,seed:r.seed}))),dead:[...new Set(runs.flatMap(r=>r.dead.map(d=>d.key)))]};
+ // QA HARNESS HARDENING 001: content ordinary lives never OFFER is a false-green risk — route/reachability tests prove
+ // an entry EXISTS, not that a normal player will ever see it (want caps and weighting can starve a one-time beat).
+ // Surface starvation and dead buttons as explicit warnings so a clean run cannot hide them behind "no errors".
+ const warnings=[];
+ if(neverOfferedAnywhere.length)warnings.push({code:'NEVER-OFFERED',detail:neverOfferedAnywhere});
+ if(neverCompletedAnywhere.length)warnings.push({code:'NEVER-COMPLETED',detail:neverCompletedAnywhere});
+ const dead=[...new Set(runs.flatMap(r=>r.dead.map(d=>d.key)))];
+ if(dead.length)warnings.push({code:'DEAD-BUTTONS',detail:dead});
+ return {runs,neverOfferedAnywhere,neverCompletedAnywhere,errors:runs.flatMap(r=>r.errors.map(e=>({...e,persona:r.persona,seed:r.seed}))),dead,warnings};
 }
 
 if(process.argv[1]===fileURLToPath(import.meta.url)){
  const arg=(k,d)=>{const i=process.argv.indexOf(k);return i>0?process.argv[i+1]:d};
  const out=await simulate({personas:arg('--personas',Object.keys(PERSONAS).join(',')).split(','),seeds:arg('--seeds','1,2,3').split(',').map(Number),days:Number(arg('--days',60))});
  if(!process.argv.includes('--quiet'))for(const r of out.runs)console.log(JSON.stringify({persona:r.persona,seed:r.seed,...r.summary,seeds:r.seeds.map(s=>`${s.seed}@${s.day}`)}));
+ for(const w of out.warnings)console.log(`WARNING [${w.code}] ${w.detail.join(' ')}`);
  console.log('NEVER OFFERED (all runs):',out.neverOfferedAnywhere.join(' ')||'none');
  console.log('NEVER COMPLETED (all runs):',out.neverCompletedAnywhere.join(' ')||'none');
  console.log('DEAD BUTTONS:',out.dead.join(' ')||'none');

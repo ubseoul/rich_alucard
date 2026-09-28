@@ -86,6 +86,28 @@ export async function test(root){
     assert(RAState.get().life.memoryLog.length>0,`${def.id} wrote no memory`);walks++;}}
   }
   // Every node can be entered cold (dev/QA jumps, presentation sweeps) without throwing — FU-01 regression.
+  // FU-03 (QA HARNESS HARDENING 001): a synthetic minigame/fight result must actually reach adventure state, not just
+  // end the node. The branch walker above feeds fixed outcomes; without these assertions a minigame node that drops its
+  // result (or a fight that ignores the outcome) would still walk green. Minigame: reward -> life record, result ->
+  // adventure vars, routing -> the authored next node. Fight: outcome -> adventure vars, routing -> the authored branch.
+  {const ctx=await loadBtf(root);const {RAAdventures,RALife,RAState,RAClock}=ctx;RAClock.wake({first:true});
+   RAState.patch('life.resources.money',10000);
+   // A08 'shift' is SLURP's first-shift minigame node (next stores the result and routes to 'special').
+   RAAdventures.start('A08',{from:'test'});RAAdventures.patchActive({node:'shift'});RAAdventures.enter('shift');
+   const m0=RALife.money();
+   const mgNext=RAAdventures.afterMinigame('shift',{outcome:'done',score:1,rewards:{money:3210}});
+   assert.equal(mgNext,'special','A08: minigame result must route to the authored next node');
+   assert.equal(RALife.money()-m0,3210,'A08: minigame reward must reach the life money record');
+   assert.equal(RAAdventures.context().get('res')?.score,1,'A08: minigame result must be stored in the adventure vars');
+   RAAdventures.abandon();
+   // A10 'fight' routes win/lose/spared down different authored branches and records the outcome in vars.
+   RAAdventures.start('A10',{from:'test'});RAAdventures.patchActive({node:'fight'});RAAdventures.enter('fight');
+   assert.equal(RAAdventures.afterFight('fight',{outcome:'win'}),'winbread','A10: a win must route to the win branch');
+   assert.equal(RAAdventures.context().get('fight'),'win','A10: the fight outcome must be stored in the adventure vars');
+   assert.equal(RAAdventures.afterFight('fight',{outcome:'lose'}),'losebread','A10: a loss must route to the lose branch');
+   assert.equal(RAAdventures.afterFight('fight',{outcome:'spared'}),'sparedbread','A10: a spare must route to the spared branch');
+   RAAdventures.abandon();
+   console.log('PASS btf propagation (minigame reward+result reach life/adventure state; fight outcome routes win/lose/spared)');}
   {const cold=await loadBtf(root);const A=cold.RAAdventures,bad=[];
    for(const def of A.all())for(const id of Object.keys(def.nodes)){try{if(A.active())A.abandon();A.start(def.id,{from:'dev'});A.patchActive({node:id});const r=A.enter(id),C=A.context();
     for(const f of [r.node.lines,r.node.title])if(typeof f==='function')f(C);}catch(e){bad.push(`${def.id}:${id} ${e.message}`)}}

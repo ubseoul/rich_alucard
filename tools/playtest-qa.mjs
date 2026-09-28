@@ -4,7 +4,9 @@
 // minigame canvases, QUIT) and checks engineering invariants + save/reload after every outing and night.
 // Evidence is REVIEWER-ONLY (screenshots may show authored content); the printed report uses ids and codes only.
 // Usage: RA_PLAYWRIGHT_PATH=… RA_CHROMIUM_PATH=… node tools/playtest-qa.mjs [--out dir] [--only a,b] [--days N] [--seed N]
-// Scenarios: newgame, prologue-reload, life, minigames, migration, widths.
+// Scenarios: newgame, prologue-reload, life, minigames, migration, widths, ending, legacy, systems, wake-reload, routes, combat.
+// QA HARNESS HARDENING 001: minigames are asserted on the RESULT they produce (score/reward/installed parts), not on the
+// canvas changing; `combat` wins a non-prologue fight through real taps. See docs/engineering/QA_HARNESS_HARDENING_001.md.
 import {createRequire} from 'node:module';
 import http from 'node:http';
 import {readFile,writeFile,mkdir,readdir} from 'node:fs/promises';
@@ -105,6 +107,7 @@ async function canvasBox(p){const c=p.locator('.ra-minigame canvas').first();if(
 const nat=(box,x,y)=>[box.x+x/270*box.width,box.y+y/480*box.height];
 async function tapN(p,box,x,y,hold=40){const [X,Y]=nat(box,x,y);await p.mouse.move(X,Y);await p.mouse.down();await p.waitForTimeout(hold);await p.mouse.up();}
 async function dragN(p,box,[x1,y1],[x2,y2],steps=8){const [X1,Y1]=nat(box,x1,y1),[X2,Y2]=nat(box,x2,y2);await p.mouse.move(X1,Y1);await p.mouse.down();for(let i=1;i<=steps;i++){await p.mouse.move(X1+(X2-X1)*i/steps,Y1+(Y2-Y1)*i/steps);await p.waitForTimeout(25);}await p.mouse.up();}
+async function holdAt(p,box,x,y,ms){const [X,Y]=nat(box,x,y);await p.mouse.move(X,Y);await p.mouse.down();await p.waitForTimeout(ms);await p.mouse.up();}
 async function mgActive(p){return p.evaluate(()=>window.RAMinigames?.active?.()?.id||null);}
 async function canvasHash(p){return p.evaluate(()=>{const c=document.querySelector('.ra-minigame canvas');if(!c)return null;try{const d=c.getContext('2d').getImageData(0,0,c.width,c.height).data;let h=0;for(let i=0;i<d.length;i+=97)h=(h*31+d[i])|0;return h;}catch{return 'x'}});}
 // Plays a minigame with simple player-like input. Returns 'finished' | 'quit' | 'left'.
@@ -117,25 +120,62 @@ async function playMinigame(p,id,rng,{budgetMs=9000,preferQuit=false}={}){
  if(preferQuit){await tapN(p,b,135,300);await settle(p,300);}
  // TOUGE: drive until the minigame itself reports `results` (read-only data-phase marker; a 90 game-second run takes
  // longer in real time under headless load), then tap DONE. Engineering 06; earlier runs always hit the budget and QUIT.
- else if(id==='touge'){await until(async()=>{const phase=await p.evaluate(()=>document.querySelector('.ra-minigame[data-phase],.ra-minigame [data-phase]')?.dataset.phase||null);if(phase==='results'){await tapN(p,b,200,418);await settle(p,400);return;}const [X,Y]=nat(b,230,420);await p.mouse.move(X,Y);await p.mouse.down();await p.waitForTimeout(1500+rng()*800);await p.mouse.up();await tapN(p,b,40+rng()*40,420,150+rng()*150);});}
- else if(id==='garage'){await until(async()=>{await tapN(p,b,30+rng()*210,90+rng()*300);await settle(p,120);await tapN(p,b,200,457);await settle(p,200);});}
+ else if(id==='touge'){await until(async()=>{const phase=await p.evaluate(()=>document.querySelector('.ra-minigame[data-phase],.ra-minigame [data-phase]')?.dataset.phase||null);if(phase==='results'){await tapN(p,b,200,418);await settle(p,400);return;}
+  // Real driving input: keyboard allows simultaneous throttle + e-brake + steer (the game reads ArrowUp/Space/arrows).
+  // Build speed, initiate a slide with the e-brake, then countersteer to hold it through the scoring angle.
+  await p.keyboard.down('ArrowUp');await p.waitForTimeout(450);
+  await p.keyboard.down(' ');await p.keyboard.down('ArrowLeft');await p.waitForTimeout(250);
+  await p.keyboard.up(' ');await p.keyboard.up('ArrowLeft');
+  await p.keyboard.down('ArrowRight');await p.waitForTimeout(600);
+  await p.keyboard.up('ArrowRight');await p.keyboard.up('ArrowUp');await settle(p,120);});}
+ else if(id==='garage'){let bought=false;await until(async()=>{
+  // Buy one part (money leaves the account and the part installs), close the detail, then finish — proves the store
+  // path, not just that a menu opened. TIRES row(30,80) -> BUY INSTALL(95,413) -> CLOSE(243,160) -> DONE(200,457).
+  if(!bought){await tapN(p,b,30,80);await settle(p,220);await tapN(p,b,95,413);await settle(p,260);await tapN(p,b,243,160);await settle(p,220);bought=true;return;}
+  await tapN(p,b,200,457);await settle(p,300);});}
  else if(id==='pier'){await until(async()=>{await tapN(p,b,135,300,500+rng()*800);await settle(p,500+rng()*900);for(let i=0;i<4;i++){await tapN(p,b,135,300,250);await settle(p,120);}if(Date.now()-t0>budgetMs*.4)for(let y=200;y<=440;y+=16)await tapN(p,b,190,y,30);});}
- else if(id==='hatch'){let n=0;await until(async()=>{n++;if(n===1){await tapN(p,b,135,445);await settle(p,300);await tapN(p,b,40,445);await settle(p,400);for(let y=150;y<=420;y+=12){await tapN(p,b,135,y,30);await settle(p,60);}await settle(p,400);await tapN(p,b,125,445);await settle(p,500);await tapN(p,b,210,445);await settle(p,500);return;}await tapN(p,b,40,402);await settle(p,300);});}
- else if(id==='bars'){await until(async()=>{const btn=p.locator('.ra-minigame button:not(.ra-minigame-quit)');const n=await btn.count();if(n){const labels=await btn.allInnerTexts();const i=labels.findIndex(t=>/DONE|FINISH|CASH/i.test(t));if(i>=0){await btn.nth(i).click({force:true});await settle(p,200);return;}}await tapN(p,b,40+rng()*190,300+rng()*160);await settle(p,150);});}
- else if(id==='slurp'){await until(async()=>{const btn=p.locator('.ra-minigame button:not(.ra-minigame-quit)');const n=await btn.count();if(n){const labels=await btn.allInnerTexts();const i=labels.findIndex(t=>/^s*DONE/i.test(t));const c=labels.findIndex(t=>/CLOCK/i.test(t));if(i>=0){await btn.nth(i).click({force:true});await settle(p,300);return;}if(c>=0&&Date.now()-t0>budgetMs*.5){await btn.nth(c).click({force:true});await settle(p,400);return;}}await dragN(p,b,[40+rng()*190,380+rng()*80],[40+rng()*190,140+rng()*180]);await settle(p,100);});}
+ else if(id==='hatch'){let acted=false;await until(async()=>{
+  // Play with the dragon: PLAY(132,445) runs a ~10s fetch/goldfish moment that always resolves to a 'play' care action
+  // (and a dragonActions reward). It is inventory-independent, unlike FEED which needs food in the bag. Then DONE(40,402).
+  if(!acted){await tapN(p,b,132,445);await settle(p,11000);acted=true;return;}
+  await tapN(p,b,40,402);await settle(p,300);});}
+ else if(id==='bars'){await until(async()=>{const btn=p.locator('.ra-minigame button:not(.ra-minigame-quit)');const n=await btn.count();if(n){const labels=await btn.allInnerTexts();const i=labels.findIndex(t=>/DONE|FINISH|CASH/i.test(t));if(i>=0){await btn.nth(i).click({force:true});await settle(p,200);return;}}
+  // Tap EVERY rhyme chip (at least one is correct each round) so the chain genuinely scores. Chips live at y190-308
+  // (2x2 grid), not y300-460 where the old script tapped and silently missed.
+  for(const [cx,cy] of [[69,217],[197,217],[69,281],[197,281]]){await tapN(p,b,cx,cy,40);await settle(p,110);}});}
+ else if(id==='slurp'){let served=false;await until(async()=>{
+  const btn=p.locator('.ra-minigame button:not(.ra-minigame-quit)');const n=await btn.count();
+  if(n){const labels=await btn.allInnerTexts();const i=labels.findIndex(t=>/^\s*DONE/i.test(t));const c=labels.findIndex(t=>/CLOCK/i.test(t));
+   if(i>=0){await btn.nth(i).click({force:true});await settle(p,300);return;}
+   if(c>=0&&Date.now()-t0>budgetMs*.35){await btn.nth(c).click({force:true});await settle(p,400);return;}}
+  // Assemble a bowl: drag a broth bin and a topping bin into the bowl zone (x190-254,y150-206), then tap SERVE. The
+  // first (RICH SPECIAL) ticket accepts any bowl, so this is a real assemble+serve that pays and bumps bowlsServed.
+  // The old script dragged to x40-230 (never reaching the bowl) and never served at all.
+  if(!served){await settle(p,300);
+   await dragN(p,b,[49,413],[222,178]);await settle(p,220);   // SHOYU broth bin -> bowl
+   await dragN(p,b,[36,230],[222,178]);await settle(p,220);   // first topping bin -> bowl
+   await tapN(p,b,222,178);served=true;await settle(p,500);return;}
+  await settle(p,200);});}
  else if(id==='jollof'){const seq=async()=>{const [X,Y]=nat(b,135,300);await p.mouse.move(X,Y);await p.mouse.down();await p.waitForTimeout(1800);await p.mouse.up();await settle(p,500);
    for(let i=0;i<14;i++){await tapN(p,b,i%2?200:70,300,30);await settle(p,90);}await tapN(p,b,135,400);await settle(p,900);
    for(let i=0;i<5;i++){await tapN(p,b,30+(i%5)*48,210);await settle(p,80);}await tapN(p,b,135,420);await settle(p,5800);await tapN(p,b,135,410);await settle(p,900);
    for(let i=0;i<8;i++){await tapN(p,b,135,300);await settle(p,500);}await tapN(p,b,135,414);await settle(p,400);};await until(seq);}
- else if(id==='hookah'){await until(async()=>{await dragN(p,b,[135,380],[135+rng()*60-30,300],6);await settle(p,400);if(Date.now()-t0>budgetMs*.6)await tapN(p,b,135,450);});}
- else if(id==='pickup'){await until(async()=>{await tapN(p,b,60+rng()*150,200+rng()*200,100+rng()*500);await settle(p,300);await tapN(p,b,135,307);await tapN(p,b,220,440);});}
+ else if(id==='hookah'){let stacked=false;await until(async()=>{
+  // Two smooth rings: inhale to full (a big ring), then a brief inhale (a smaller ring). The second passes through the
+  // first (size < prev*0.92, same x) so the stack counter lands. The old 80px drag read as "wobbly" and never stacked.
+  if(!stacked){await holdAt(p,b,135,380,1600);await settle(p,300);await holdAt(p,b,135,380,300);await settle(p,500);stacked=true;return;}
+  if(Date.now()-t0>budgetMs*.5)await tapN(p,b,135,450);await settle(p,200);});}
+ else if(id==='pickup'){let shots=0;await until(async()=>{
+  // Shoot at full meter repeatedly (scoring is RNG-gated) so the game genuinely accumulates points, then stop once decided.
+  if(shots<10){await tapN(p,b,135,300,900);shots++;await settle(p,220);return;}
+  await tapN(p,b,135,307);await settle(p,150);await tapN(p,b,220,440);});}
  else await until(async()=>{await tapN(p,b,rng()*270,rng()*480);await settle(p,100);});
  const h1=await canvasHash(p);
  if(await done())return {exit:'finished',changed:h0!==h1};
  await p.locator('.ra-minigame-quit').click();await settle(p,300);
  return {exit:(await mgActive(p))?'stuck':'quit',changed:h0!==h1};
 }
-async function instrument(p){await p.evaluate(()=>{if(window.__qaWrapped)return;window.__qaWrapped=true;window.__mg=[];const launch=RAMinigames.launch;RAMinigames.launch=async function(id,params,opts){const r=await launch.call(this,id,params,opts);window.__mg.push({id,quit:!!r.quit,outcome:r.outcome,score:r.score??null,rewards:r.rewards||{},error:r.error||null});return r;};});}
+async function instrument(p){await p.evaluate(()=>{if(window.__qaWrapped)return;window.__qaWrapped=true;window.__mg=[];const launch=RAMinigames.launch;RAMinigames.launch=async function(id,params,opts){const r=await launch.call(this,id,params,opts);window.__mg.push({id,quit:!!r.quit,outcome:r.outcome,score:r.score??null,rewards:r.rewards||{},data:r.data??null,error:r.error||null});return r;};});}
 
 // ---------- the player brain: drive whatever is on screen until back at an idle bedroom ----------
 async function drive(p,rng,where,{maxSteps=900,mgBudget=7000,preferQuit=false,throneSteal='no'}={}){
@@ -325,6 +365,40 @@ const MG_ROUTES={
  pickup:{setup:()=>{},enter:async p=>{await openPhone(p);await phoneClick(p,'app:vampgpt');await phoneClick(p,'prompt');await phoneClick(p,'somewhere');await phoneClick(p,'go:venice');},adventure:true},
  hookah:{setup:()=>{RALife.addMoney(100000);RACastle.buy('hookah_roof');},enter:async p=>{await p.locator('.bedroom-castle').click();await settle(p,300);await p.locator('.castle-menu [data-castle="castle:roof"]').click();await settle(p,500);},adventure:true},
 };
+// What each minigame must actually produce when played with real input. A minigame that merely ends (a timer, CLOCK
+// OUT, I'M GOOD, a quit) without the mechanic is a false green; these turn the recorded score/reward/state into
+// assertions. 'score' = ctx.finish score; 'reward' = keys that must appear in the accumulated rewards; 'catch' = a
+// landed fishing catch; 'parts' = installed car parts; 'outcome' = a decided terminal outcome.
+// See docs/engineering/QA_HARNESS_HARDENING_001.md.
+const MG_EXPECT={
+ touge:{kind:'score',min:1,what:'a drift score'},
+ slurp:{kind:'score',min:1,what:'a bowl served (bowlsServed)'},
+ hookah:{kind:'score',min:2,what:'a stacked ring (sessionStack)'},
+ bars:{kind:'score',min:1,what:'a landed rhyme (score)'},
+ jollof:{kind:'score',min:1,what:'a scored dish (average)'},
+ pickup:{kind:'outcome',what:'a decided game'},
+ hatch:{kind:'reward',key:'dragonActions',what:'a dragon care action'},
+ pier:{kind:'catch',what:'a landed catch'},
+ garage:{kind:'parts',what:'an installed part'}
+};
+function assertMinigameResult(id,mode,res,before,after){
+ if(mode!=='play'||!res)return;
+ const exp=MG_EXPECT[id];if(!exp)return;
+ const rew=res.rewards||{};
+ if(exp.kind==='score'){
+  if(typeof res.score!=='number'||res.score<exp.min)finding('PLAYTEST BLOCKER','MINIGAME-NO-SCORE',`${id}: finished naturally with score ${res.score} — expected ${exp.what}; the mechanic did not land`);
+ } else if(exp.kind==='reward'){
+  if(!(rew[exp.key]||[]).length)finding('PLAYTEST BLOCKER','MINIGAME-NO-REWARD',`${id}: finished with no ${exp.what} (rewards ${JSON.stringify(rew)})`);
+ } else if(exp.kind==='catch'){
+  const caught=Object.keys(rew.items||{}).length||rew.money||(rew.memories||[]).length||Object.keys(rew.flags||{}).length;
+  if(!caught)finding('PLAYTEST BLOCKER','MINIGAME-NO-REWARD',`${id}: finished without landing a catch (rewards ${JSON.stringify(rew)})`);
+ } else if(exp.kind==='parts'){
+  const owns=res.data&&res.data.parts&&Object.keys(res.data.parts).length;
+  if(!owns)finding('PLAYTEST BLOCKER','MINIGAME-NO-CONSEQUENCE',`${id}: finished with no installed part (data ${JSON.stringify(res.data)})`);
+ } else if(exp.kind==='outcome'){
+  if(!['win','lose'].includes(res.outcome))finding('PLAYTEST BLOCKER','MINIGAME-NO-OUTCOME',`${id}: finished without a decided outcome (${res.outcome})`);
+ }
+}
 async function scenarioMinigames(save){
  const results={};
  for(const [id,route] of Object.entries(MG_ROUTES).filter(([id])=>!args.mg||String(args.mg).split(',').includes(id))){
@@ -349,7 +423,9 @@ async function scenarioMinigames(save){
    const res=after.mg.find(m=>m.id===id);
    results[id]={...(results[id]||{}),[mode]:{exit:r.exit,canvasResponded:r.changed,outcome:res?.outcome,quit:res?.quit,score:res?.score,rewards:res?.rewards,moneyDelta:after.money-before.money,progressSaved:after.progress!==before.progress,itemsChanged:after.items!==before.items,dragonChanged:after.dragon!==before.dragon,returnScene:after.scene,advAfter:[...d.adventures].join(','),reloadDiff:rl.diff.length}};
    note(`[minigame] ${id} ${mode}: ${JSON.stringify(results[id][mode])}`);
-   if(!r.changed&&mode==='play')finding('ENGINEERING BUG — NON-BLOCKING','MINIGAME-STATIC',`${id}: canvas did not change under input`);
+   // QA HARNESS HARDENING 001: prove the mechanic actually produced score/progress/reward, not just that the run ended.
+  // This replaces the old canvas-change-as-input-success check (every minigame animates, so that check never fired).
+  assertMinigameResult(id,mode,res,before,after);
    flushErrors(p,`mg-${id}-${mode}`);await p.context().close();
   }
  }
@@ -556,6 +632,46 @@ async function reachability(){
  return orphans;
 }
 
+// A non-prologue fight won through REAL browser interaction (the prologue CEO fight is covered elsewhere). Route:
+// ⌂ CASTLE -> THE THRONE ROOM -> SPAR WITH A TRAINING DUMMY. The dummy is 60 HP; FIGHT -> BLOOD BATH (base 26) is a
+// knockout in a few turns. Asserts the win is RECORDED (life.history), not merely that the combat scene closed.
+async function scenarioCombatWin(save){
+ const p=await newPage(390);const rng=rngFrom(SEED+41);
+ await p.evaluate(s=>localStorage.setItem('rich_alucard_save_v1',s),save);await p.goto(base+'/');await settle(p,400);
+ await p.locator('#startButton').click();await settle(p,900);await drive(p,rng,'combat-pre');
+ await p.locator('.bedroom-castle').click();await settle(p,300);
+ if(!await p.locator('.castle-menu [data-castle="castle:throne"]').count()){finding('PLAYTEST BLOCKER','COMBAT-ROUTE','castle menu has no THRONE room');await p.context().close();return false;}
+ await p.locator('.castle-menu [data-castle="castle:throne"]').click();await settle(p,500);
+ // Walk the THRONE adventure to the SPAR choice.
+ let s=await probe(p);const t0=Date.now();
+ while(!s.c2&&Date.now()-t0<20000&&(s.scene==='adventure'||s.advScene)){
+  const spar=p.locator('.adv-choice',{hasText:/SPAR/});
+  if(await spar.count())await spar.first().click();
+  else if(s.choices.length)await p.locator('.adv-choice:not([disabled])').first().click();
+  else await p.locator('#adventureScene').click({position:{x:195,y:340}}).catch(()=>{});
+  await settle(p,170);s=await probe(p);
+ }
+ if(!await p.locator('.c2-scene').count()){finding('PLAYTEST BLOCKER','COMBAT-ROUTE','SPAR did not reach a fight');await snap(p,'combat-route-fail');await p.context().close();return false;}
+ await snap(p,'combat-in');
+ // Fight: FIGHT -> BLOOD BATH until the CONTINUE button appears; answer any octopus prompt.
+ const t1=Date.now();let turns=0;
+ while(Date.now()-t1<60000&&!(await p.locator('.c2-scene [data-c2="done"]').count())){
+  const octo=p.locator('.c2-octo:not([hidden]) [data-octo]');if(await octo.count()){await octo.first().click().catch(()=>{});await settle(p,400);continue;}
+  const fight=p.locator('.c2-scene [data-c2="fight"]');
+  if(await fight.count()){await fight.first().click();await settle(p,120);const blood=p.locator('.c2-scene [data-c2="move:blood"]');if(await blood.count()){await blood.first().click();turns++;}await settle(p,700);continue;}
+  await settle(p,200);
+ }
+ if(await p.locator('.c2-scene [data-c2="done"]').count())await p.locator('.c2-scene [data-c2="done"]').click();
+ await settle(p,700);
+ const fights=await p.evaluate(()=>(RAState.get().life.history||[]).filter(e=>e.type==='fight').slice(-3));
+ const won=fights.some(e=>e.enemy==='training'&&e.outcome==='win');
+ if(!won)finding('PLAYTEST BLOCKER','COMBAT-NO-WIN',`SPAR finished without a recorded win (turns ${turns}; events ${JSON.stringify(fights)})`);
+ else note(`[combat] throne SPAR won through FIGHT -> BLOOD BATH in ${turns} turns (win recorded in life.history)`);
+ await snap(p,'combat-win');
+ await drive(p,rng,'combat-post');await invariants(p,'combat',{idle:true});flushErrors(p,'combat');await p.context().close();
+ return won;
+}
+
 async function main(){
  await mkdir(out,{recursive:true});
  if(!existsSync(path.join(dist,'index.html')))throw new Error('dist/ missing: run npm run build first');
@@ -566,7 +682,7 @@ async function main(){
  if(want('reachability'))report.results.orphans=await reachability();
  try{
   if(args.save&&existsSync(String(args.save))){save=await readFile(String(args.save),'utf8');progressed=save;note(`using saved progressed life ${args.save}`);}
-  else if(want('newgame')||want('life')||want('minigames')||want('widths')||want('ending')||want('legacy')||want('systems')||want('wake-reload')||want('routes')){const saves={};for(const [size,steal] of [[360,'no'],[390,'yes'],[430,'no']]){if(!want('newgame')&&size!==390)continue;saves[size]=await scenarioNewGame(size,{steal});}save=saves[390];}
+  else if(want('newgame')||want('life')||want('minigames')||want('widths')||want('ending')||want('legacy')||want('systems')||want('wake-reload')||want('routes')||want('combat')){const saves={};for(const [size,steal] of [[360,'no'],[390,'yes'],[430,'no']]){if(!want('newgame')&&size!==390)continue;saves[size]=await scenarioNewGame(size,{steal});}save=saves[390];}
   if(want('prologue-reload')){await scenarioPrologueReload();await scenarioThroneDefeat();}
   if(want('life')&&save){progressed=await scenarioLife(save);await writeFile(path.join(out,'progressed-save.json'),progressed);}
   if(want('minigames')&&save)report.results.minigames=await scenarioMinigames(progressed||save);
@@ -577,6 +693,7 @@ async function main(){
   if(want('systems')&&save)await scenarioSystems(save);
   if(want('wake-reload')&&save)await scenarioWakeReload(save);
   if(want('routes')&&save)report.results.routes=await scenarioRoutes(progressed||save);
+  if(want('combat')&&save)report.results.combat=await scenarioCombatWin(progressed||save);
  }finally{
   if(server.missing.size)for(const m of server.missing)finding('ENGINEERING BUG — NON-BLOCKING','MISSING-ASSET',m);
   await browser.close();server.close();
