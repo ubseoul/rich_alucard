@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>MAKE IT RAIN — Responsive Review Harness (F06-A)</title>
+<style>
+  body { background:#0b0b10; color:#f2ede2; font-family:ui-monospace,"Courier New",monospace; margin:0; padding:16px; }
+  h1 { font-size:15px; letter-spacing:2px; color:#ffd76a; margin:0 0 12px; }
+  p { font-size:11px; color:#8b8fa0; margin:0 0 14px; }
+  .row { display:flex; gap:16px; align-items:flex-start; flex-wrap:wrap; }
+  .col { display:flex; flex-direction:column; gap:6px; }
+  .cap { font-size:12px; color:#8b8fa0; }
+  iframe { border:1px solid #2b2b38; border-radius:8px; background:#15151c; display:block; }
+</style>
+</head>
+<body>
+  <h1>MAKE IT RAIN — RESPONSIVE REVIEW (360 / 390 / 430)</h1>
+  <p>Each frame is a real viewport at the project widths. Same-origin. Development harness only.</p>
+  <div class="row">
+    <div class="col"><span class="cap">360</span><iframe data-w="360" src="make_it_rain_sandbox.html" width="360" height="740"></iframe></div>
+    <div class="col"><span class="cap">390</span><iframe data-w="390" src="make_it_rain_sandbox.html" width="390" height="780"></iframe></div>
+    <div class="col"><span class="cap">430</span><iframe data-w="430" src="make_it_rain_sandbox.html" width="430" height="820"></iframe></div>
+  </div>
+</body>
+</html>

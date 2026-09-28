@@ -1,0 +1,178 @@
+/* RAINMAKER / MAKE IT RAIN — SANDBOX STYLES (F06-A, OL-011 PARALLEL_SAFE Wave 0)
+   Dedicated stylesheet. Does not touch shared style.css. Grey-box review harness. */
+
+:root {
+  --bg: #0b0b10;
+  --panel: #17171f;
+  --panel-edge: #2b2b38;
+  --text: #f2ede2;
+  --dim: #8b8fa0;
+  --hype: #ff5fa2;
+  --crowd: #7ad6ff;
+  --waste: #e05a5a;
+  --accent: #ffd76a;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: ui-monospace, "Courier New", monospace;
+  -webkit-text-size-adjust: 100%;
+  overscroll-behavior: none;
+}
+
+body { min-height: 100vh; }
+
+.app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 10px 32px;
+}
+
+.app__head { text-align: center; }
+
+.app__title {
+  margin: 0;
+  font-size: 20px;
+  letter-spacing: 3px;
+  color: var(--accent);
+}
+
+.app__sub {
+  margin: 4px 0 0;
+  font-size: 10px;
+  letter-spacing: 1px;
+  color: var(--dim);
+}
+
+/* ---- stage ---- */
+.stage {
+  position: relative;
+  width: min(94vw, 430px);
+  height: min(72vh, 720px);
+  min-height: 380px;
+  border: 1px solid var(--panel-edge);
+  border-radius: 10px;
+  overflow: hidden;
+  background: #15151c;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+}
+
+#stage-canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  touch-action: none;
+  -webkit-user-select: none;
+  user-select: none;
+  cursor: crosshair;
+}
+
+/* ---- player bar (part of the mechanic surface) ---- */
+.player-bar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  width: min(94vw, 430px);
+}
+
+.btn {
+  font-family: inherit;
+  font-size: 13px;
+  letter-spacing: 1px;
+  color: var(--text);
+  background: var(--panel);
+  border: 1px solid var(--panel-edge);
+  border-radius: 8px;
+  padding: 10px 14px;
+  min-height: 44px;           /* touch target */
+  cursor: pointer;
+  touch-action: manipulation;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.btn:active { transform: translateY(1px); }
+
+.btn--budget { flex: 1 1 auto; min-width: 72px; border-color: var(--accent); color: var(--accent); }
+.btn--ghost { flex: 0 0 auto; color: var(--dim); }
+.btn--dev { font-size: 11px; padding: 8px 10px; min-height: 36px; }
+
+/* ---- development panel (visually separate) ---- */
+.dev {
+  width: min(94vw, 430px);
+  margin-top: 6px;
+  padding: 10px;
+  border: 1px dashed #3a3f4a;
+  border-radius: 8px;
+  background: #101018;
+}
+
+.dev__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.dev__tag { font-size: 11px; letter-spacing: 2px; color: var(--accent); }
+.dev__note { font-size: 9px; color: var(--dim); }
+
+.dev__row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.dev__seed,
+.dev__toggle {
+  font-size: 11px;
+  color: var(--dim);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.dev__seed input {
+  width: 64px;
+  font-family: inherit;
+  font-size: 12px;
+  color: var(--text);
+  background: #0d0d14;
+  border: 1px solid var(--panel-edge);
+  border-radius: 6px;
+  padding: 6px;
+}
+
+.dev__state,
+.dev__tunables {
+  margin: 8px 0 0;
+  padding: 8px;
+  max-height: 180px;
+  overflow: auto;
+  font-size: 10px;
+  line-height: 1.45;
+  color: #a9ffb0;
+  background: #0a0a10;
+  border: 1px solid var(--panel-edge);
+  border-radius: 6px;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.dev__hint { margin: 8px 0 0; font-size: 9px; color: var(--dim); }
+
+@media (max-width: 380px) {
+  .app__title { font-size: 17px; }
+  .btn { font-size: 12px; padding: 9px 11px; }
+  .stage { height: min(66vh, 640px); }
+}

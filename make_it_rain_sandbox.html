@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>MAKE IT RAIN — Sandbox (F06-A)</title>
+<link rel="stylesheet" href="make_it_rain_sandbox.css" />
+</head>
+<body>
+  <!--
+    RAINMAKER / MAKE IT RAIN — SANDBOX HARNESS (F06-A, OL-011 PARALLEL_SAFE Wave 0)
+    Standalone dev/review page. Isolated from index.html and all shared surfaces.
+    Mechanical fidelity: STACK + TARGET + BEAT. Neutral placeholder art only. No dancers. No audio.
+  -->
+  <main class="app">
+    <header class="app__head">
+      <h1 class="app__title">MAKE IT RAIN</h1>
+      <p class="app__sub">SANDBOX · STACK + TARGET + BEAT · GREY-BOX FEEL GATE</p>
+    </header>
+
+    <div class="stage" id="stage">
+      <canvas id="stage-canvas" aria-label="Make It Rain sandbox stage"></canvas>
+    </div>
+
+    <div class="player-bar" id="player-bar" role="group" aria-label="Budget presets">
+      <button type="button" class="btn btn--budget" data-budget="5000">$5K</button>
+      <button type="button" class="btn btn--budget" data-budget="10000">$10K</button>
+      <button type="button" class="btn btn--budget" data-budget="25000">$25K</button>
+      <button type="button" class="btn btn--ghost" id="player-restart">RESTART</button>
+    </div>
+
+    <!-- DEVELOPMENT CONTROLS — visually separated, NOT part of the mechanic. -->
+    <aside class="dev" id="dev" aria-label="Development controls">
+      <div class="dev__head">
+        <span class="dev__tag">DEVELOPMENT CONTROLS</span>
+        <span class="dev__note">not part of the mechanic · no persistence</span>
+      </div>
+      <div class="dev__row">
+        <button type="button" class="btn btn--dev" id="dev-reset">RESET</button>
+        <label class="dev__seed">
+          SEED
+          <input type="number" id="dev-seed" value="1" min="1" step="1" />
+        </label>
+        <button type="button" class="btn btn--dev" id="dev-seed-apply">APPLY SEED + RESET</button>
+        <label class="dev__toggle">
+          <input type="checkbox" id="dev-show-tunables" /> SHOW TUNABLES
+        </label>
+      </div>
+      <pre class="dev__state" id="dev-state">state…</pre>
+      <pre class="dev__tunables" id="dev-tunables" hidden></pre>
+      <p class="dev__hint">AUDIO HOOKS: INERT (no sound sourced or played). ART: neutral placeholders.</p>
+    </aside>
+  </main>
+
+  <script src="js/systems/rainmaker/make_it_rain_tunables.js"></script>
+  <script src="js/systems/rainmaker/make_it_rain_core.js"></script>
+  <script src="js/minigames/make_it_rain.js"></script>
+  <script>
+    (function () {
+      'use strict';
+      function boot() {
+        var canvas = document.getElementById('stage-canvas');
+        var game = window.RAMakeItRainSandbox.mount(canvas, { seed: 1 });
+        // Exposed for the real-browser review harness only.
+        window.makeItRainGame = game;
+
+        var stateEl = document.getElementById('dev-state');
+        var tunEl = document.getElementById('dev-tunables');
+        var showTun = document.getElementById('dev-show-tunables');
+        if (showTun) showTun.addEventListener('change', function () {
+          tunEl.hidden = !showTun.checked;
+          tunEl.textContent = showTun.checked
+            ? JSON.stringify(game.tunables, null, 2)
+            : '';
+        });
+        setInterval(function () {
+          if (stateEl) stateEl.textContent = JSON.stringify(game.getState());
+        }, 200);
+
+        Array.prototype.forEach.call(document.querySelectorAll('[data-budget]'), function (btn) {
+          btn.addEventListener('click', function () { game.startRound(Number(btn.getAttribute('data-budget'))); });
+        });
+        var restart = document.getElementById('player-restart');
+        if (restart) restart.addEventListener('click', function () { game.startRound(game.core.budget); });
+        var reset = document.getElementById('dev-reset');
+        if (reset) reset.addEventListener('click', function () { game.reset(); });
+        var apply = document.getElementById('dev-seed-apply');
+        if (apply) apply.addEventListener('click', function () {
+          var seed = Number(document.getElementById('dev-seed').value) || 1;
+          game.setSeed(seed);
+          game.startRound(game.core.budget);
+        });
+
+        game.startRound();
+      }
+      if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot);
+      else boot();
+    })();
+  </script>
+</body>
+</html>
