@@ -27,8 +27,9 @@
   if(!outcome){attention=decayAttention(attention,cfg.SONG_SECONDS*1000-lastTime,cfg);outcome=resolve({amountCaught,attention,elapsedMs:cfg.SONG_SECONDS*1000},cfg);}
   return {outcome,amountCaught:Math.min(amountCaught,cfg.AUTHORED_DEBT_TARGET),attention,payout:outcome==='SUCCESS'||outcome==='SHORT'?payout(amountCaught,cfg):0};
  }
+ function backOutHit(x,y){return x>=20&&x<=250&&y>=430&&y<=460;}
  window.RAMinigameLogic=window.RAMinigameLogic||{};
- window.RAMinigameLogic.owambeCollection={config,payout,catchAttention,decayAttention,resolve,simulateCatchSchedule};
+ window.RAMinigameLogic.owambeCollection={config,payout,catchAttention,decayAttention,resolve,simulateCatchSchedule,backOutHit};
 
  function mount(root,ctx){
   if(!R||!root)return {dispose(){}};
@@ -53,8 +54,8 @@
    for(let i=0;i<caught;i++){amountCaught=Math.min(cfg.AUTHORED_DEBT_TARGET,amountCaught+cfg.BILL_VALUE);attention=catchAttention(attention,elapsedMs-lastCatch,cfg);lastCatch=elapsedMs;}
    const outcome=resolve({amountCaught,attention,elapsedMs},cfg);if(outcome)finish(outcome);
   }
-  function pointer(e){const p=toNative(e.clientX,e.clientY);if(p.y>=430){finish('BACK_OUT');return;}catchAt(p.x,p.y);}
-  const pointerMove=e=>{if(e.buttons||e.pressure>0)pointer(e);};canvas.addEventListener('pointerdown',pointer);canvas.addEventListener('pointermove',pointerMove);
+  function pointerDown(e){const p=toNative(e.clientX,e.clientY);if(backOutHit(p.x,p.y)){finish('BACK_OUT');return;}catchAt(p.x,p.y);}
+  const pointerMove=e=>{if(e.buttons||e.pressure>0){const p=toNative(e.clientX,e.clientY);catchAt(p.x,p.y);}};canvas.addEventListener('pointerdown',pointerDown);canvas.addEventListener('pointermove',pointerMove);
   function draw(){
    R.paintEnvironment(g,{sky:'#170d27',wall:'#4d214b',floor:'#3d302d',horizon:326,seed:'bamidele-60',props:[{type:'string',x1:8,x2:262,y:70,color:'#ffd36a'},{type:'sign',x:38,y:98,w:194,h:20,text:"UNCLE BAMIDELE'S 60TH",glow:'#ffb040'}],crowd:18,crowdColors:['#9d5ca8','#2b8c75','#d18b3f']});
    R.text(g,`COLLECT $${amountCaught.toLocaleString()} / $${cfg.AUTHORED_DEBT_TARGET.toLocaleString()}`,10,12,{size:7,color:'#f6efd9'});
@@ -68,7 +69,7 @@
    const real=Math.min(50,now-last);last=now;if(!terminal){const dt=real*scale;elapsedMs+=dt;spawnClock+=dt;attention=decayAttention(attention,dt,cfg);while(spawnClock>=cfg.BILL_SPAWN_MS){spawnClock-=cfg.BILL_SPAWN_MS;spawn();}for(const b of bills)b.y+=b.v*dt/1000;for(let i=bills.length-1;i>=0;i--)if(elapsedMs-bills[i].born>=cfg.BILL_LIFETIME_MS||bills[i].y>412)bills.splice(i,1);const outcome=resolve({amountCaught,attention,elapsedMs},cfg);if(outcome)finish(outcome);draw();}raf=requestAnimationFrame(loop);
   }
   raf=requestAnimationFrame(loop);
-  return {dispose(){if(raf)cancelAnimationFrame(raf);canvas.removeEventListener('pointerdown',pointer);canvas.removeEventListener('pointermove',pointerMove);}};
+  return {dispose(){if(raf)cancelAnimationFrame(raf);canvas.removeEventListener('pointerdown',pointerDown);canvas.removeEventListener('pointermove',pointerMove);}};
  }
  if(window.RAMinigames)RAMinigames.register('owambe_collection',{title:'OWAMBE COLLECTION',mount});
 })();

@@ -17,7 +17,7 @@ export async function test(root){
 
  const {RAMinigameLogic,RAMinigames}=context;
  assert(RAMinigameLogic&&RAMinigameLogic.hatch,'hatch logic API missing');
- const {stages,poseFor,availableActions,chirp,carePrompts,careOutcome}=RAMinigameLogic.hatch;
+ const {stages,poseFor,availableActions,chirp,carePrompts,careOutcome,irreversibleCareFailure}=RAMinigameLogic.hatch;
 
  assert.equal(Array.from(stages).join(','),'egg,hatchling,young,majestic');
 
@@ -51,6 +51,7 @@ export async function test(root){
  assert.equal(walked.walked,true);assert.equal(walked.senatorLost,false);assert.deepEqual({...walked.care},{feed:false,walk:true,joko:false});
  const lost=careOutcome([{prompt:'FEED',success:true},{prompt:'WALK',success:false},{prompt:'JOKO',success:true}]);
  assert.equal(lost.walked,false);assert.equal(lost.senatorLost,true);
+ assert.equal(irreversibleCareFailure('WALK',false),true);assert.equal(irreversibleCareFailure('WALK',true),false);assert.equal(irreversibleCareFailure('JOKO',false),false);
 
  // registration + mount contract
  const game=RAMinigames.get('hatch');

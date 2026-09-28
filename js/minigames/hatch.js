@@ -33,9 +33,10 @@
   for(const item of actions){const key=String(item?.prompt||'').toLowerCase();if(key in care)care[key]=item?.success===true;}
   return {care,walked:care.walk,senatorLost:!care.walk,missed:CARE_PROMPTS.filter(p=>!care[p.toLowerCase()])};
  }
+ function irreversibleCareFailure(prompt,success){return prompt==='WALK'&&!success;}
 
  window.RAMinigameLogic=window.RAMinigameLogic||{};
- window.RAMinigameLogic.hatch={stages:STAGES,poseFor,availableActions,chirp,carePrompts:CARE_PROMPTS,careOutcome};
+ window.RAMinigameLogic.hatch={stages:STAGES,poseFor,availableActions,chirp,carePrompts:CARE_PROMPTS,careOutcome,irreversibleCareFailure};
 
  function truthy(v){return v===true||v==='true'||v===1||v==='1';}
  function numOr(v,def){const n=Number(v);return Number.isFinite(n)?n:def;}
@@ -69,10 +70,12 @@
   function advance(action=null){
    if(terminal)return;const prompt=CARE_PROMPTS[index],success=action===prompt;actions.push({prompt,action,success});
    feedback=success?`${prompt} · GOOD`:prompt==='WALK'?'SQUIRREL. SENATOR IS GONE.':prompt==='FEED'?'HE EATS THE AGEGE BREAD ANYWAY.':'HE IGNORES THE COMMAND.';feedbackMs=900;index++;elapsed=0;
+   if(irreversibleCareFailure(prompt,success)){finish(true);return;}
    if(index>=CARE_PROMPTS.length)finish();
   }
-  function finish(){
+  function finish(commit=false){
    terminal=true;const result=careOutcome(actions);root.dataset.phase='results';root.dataset.outcome=result.walked?'walked':'lost';
+   if(commit){ctx.finish({outcome:'lost',data:{...result,actions}});return;}
    const card=document.createElement('div');card.className='hatch-care-result';card.style.cssText='position:absolute;inset:0;z-index:6;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:22px;background:rgba(8,7,15,.94);color:#f6efd9;text-align:center;font-family:"Press Start 2P",monospace';
    card.innerHTML=`<div style="color:#c18b3c;font-size:11px">${result.walked?'NIGHT COMPLETE':'SENATOR LOST'}</div><div style="font-size:7px">FEED ${result.care.feed?'✓':'—'} · WALK ${result.care.walk?'✓':'—'} · JOKO ${result.care.joko?'✓':'—'}</div>`;
    const done=document.createElement('button');done.type='button';done.className='hatch-care-done';done.textContent='DONE';done.style.cssText='font:8px "Press Start 2P";padding:.8em 1em;background:#f6efd9;color:#10101b;border:2px solid #10101b;cursor:pointer';done.addEventListener('click',()=>ctx.finish({outcome:result.walked?'walked':'lost',data:{...result,actions}}));card.append(done);root.append(card);

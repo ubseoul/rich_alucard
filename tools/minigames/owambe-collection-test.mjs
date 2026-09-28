@@ -16,6 +16,8 @@ export async function test(root){
  assert.equal(greedy.outcome,'GREEDY');assert(greedy.amountCaught<30000);assert.equal(greedy.payout,0);
  assert.equal(short.outcome,'SHORT');assert.equal(short.amountCaught,5000);assert.equal(short.payout,1000);
  assert.equal(logic.payout(12345,cfg),2469,'20% payout must use deterministic integer math');
+ assert.equal(logic.backOutHit(20,430),true);assert.equal(logic.backOutHit(250,460),true);
+ assert.equal(logic.backOutHit(19,445),false);assert.equal(logic.backOutHit(251,445),false);assert.equal(logic.backOutHit(100,429),false);assert.equal(logic.backOutHit(100,461),false);
  assert(cfg.SONG_SECONDS>=45&&cfg.SONG_SECONDS<=75);assert.equal(context.RANewOgaTunables.heat.M5_GREEDY,8);assert.equal(context.RANewOgaTunables.heat.M5_SUCCESS,3);
  assert(context.RAMinigames.get('owambe_collection'),'OWAMBE COLLECTION minigame not registered');
  console.log('PASS owambe collection (configured SUCCESS/SHORT/GREEDY reachability, exact payout math, bounds, registration)');
