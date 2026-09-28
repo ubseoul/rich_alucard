@@ -7,7 +7,7 @@ touched. Nothing merged or deployed.
 |---|---|
 | Branch | `qa-harness-hardening-001` (from the accepted runtime baseline) |
 | Base SHA | `627d85a2691e978e5b8e026070317d6365c6eb55` |
-| Final SHA | the commit that adds this report — reported in the handoff (branch head) |
+| Final SHA | `f0cfabd5dc67315e1ad983f5bb5d7ebe1db0cc57` (the hardening changeset; the branch head carries this report plus the one-line follow-up that records this value) |
 | Files changed | `tools/playtest-qa.mjs`, `tools/btf-test.mjs`, `tools/pilot/coverage-sim.mjs` (3 files) |
 | Gameplay changed | none |
 | Worktree | clean apart from the commit (generated `dist/` and `work/` are gitignored) |
