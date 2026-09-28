@@ -81,6 +81,8 @@ async function test(){
   const beforeReset=JSON.stringify(context.RAState.get().life.people.records);context.RAWorldEvents.reset('player_blind_proof_event_001');
   assert(!context.RAWorldEvents.record('player_blind_proof_event_001')&&JSON.stringify(context.RAState.get().life.people.records)===beforeReset,'event reset damaged unrelated people state');
   const index=await read('index.html');assert(index.includes('__BUILD_ASSET_VERSION__'),'index is missing the build asset placeholder');
+  const audioContext={window:{}};audioContext.window=audioContext;vm.createContext(audioContext);vm.runInContext(await read('js/data/audio_manifest.js'),audioContext,{filename:'js/data/audio_manifest.js'});
+  for(const id of ['NO_01','NO_02','NO_03','NO_04','NO_05','NO_06']){const hook=audioContext.RAAudioManifest.get(id);assert(hook&&hook.registered===false&&hook.file===null&&hook.expectedPath===`assets/audio/sfx/new_oga/${id}.mp3`,`NEW OGA audio hook ${id} is not inert/drop-in ready`);}
   console.log(`PASS deterministic release gate (${sources.length+1} JavaScript syntax checks, save fixtures, recovery, opportunity access)`);
 }
 

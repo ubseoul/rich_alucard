@@ -21,11 +21,12 @@
    "FROZEN + READY TO INTEGRATE": 1
   },
   "demand": {
-   "environment: NO APPROVED ART YET": 3
+   "environment: NO APPROVED ART YET": 5,
+   "person: NO APPROVED ART YET": 3
   },
   "screens": {
    "PASS": 265,
-   "HOLD": 1
+   "HOLD": 6
   }
  },
  "surfaces": {
@@ -3526,6 +3527,16 @@
  "demand": [
   {
    "kind": "environment",
+   "id": "gbenga_rentals",
+   "status": "NO APPROVED ART YET"
+  },
+  {
+   "kind": "environment",
+   "id": "carson_owambe",
+   "status": "NO APPROVED ART YET"
+  },
+  {
+   "kind": "environment",
    "id": "catacomb_dead",
    "status": "NO APPROVED ART YET"
   },
@@ -3537,6 +3548,21 @@
   {
    "kind": "environment",
    "id": "halloween",
+   "status": "NO APPROVED ART YET"
+  },
+  {
+   "kind": "person",
+   "id": "smallie",
+   "status": "NO APPROVED ART YET"
+  },
+  {
+   "kind": "person",
+   "id": "smallie_cousin",
+   "status": "NO APPROVED ART YET"
+  },
+  {
+   "kind": "person",
+   "id": "gbenga",
    "status": "NO APPROVED ART YET"
   }
  ],
@@ -3731,6 +3757,11 @@
    "profile": "conversation",
    "lint": "pass"
   },
+  "boba_shop|left:rich,right:smallie": {
+   "status": "HOLD (mixed: unresolved cast art)",
+   "profile": "conversation",
+   "lint": "pass"
+  },
   "brunch|left:rich": {
    "status": "PASS (final art)",
    "profile": "conversation",
@@ -3758,6 +3789,11 @@
   },
   "cafe|left:rich@laptop_seated,right:wispa": {
    "status": "PASS (final art)",
+   "profile": "conversation",
+   "lint": "pass"
+  },
+  "carson_owambe|left:rich,right:auntie": {
+   "status": "HOLD (placeholder environment)",
    "profile": "conversation",
    "lint": "pass"
   },
@@ -3884,6 +3920,18 @@
    "profile": "combat",
    "lint": "pass",
    "states": 1
+  },
+  "combat:smallie_cousin@boba_shop": {
+   "status": "HOLD (mixed: unresolved cast art)",
+   "profile": "combat",
+   "lint": "pass",
+   "states": 0
+  },
+  "combat:smallie@boba_shop": {
+   "status": "HOLD (mixed: unresolved cast art)",
+   "profile": "combat",
+   "lint": "pass",
+   "states": 0
   },
   "combat:training@throne": {
    "status": "PASS (final art)",
@@ -4025,6 +4073,11 @@
   },
   "garage|": {
    "status": "PASS (final art)",
+   "profile": "conversation",
+   "lint": "pass"
+  },
+  "gbenga_rentals|left:rich,right:gbenga": {
+   "status": "HOLD (placeholder environment)",
    "profile": "conversation",
    "lint": "pass"
   },

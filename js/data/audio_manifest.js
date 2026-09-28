@@ -6259,6 +6259,8 @@
   ]
  }
 ];
+  // F2 NEW OGA drop-in hooks. Deliberately silent until approved final files are supplied.
+  for(const id of ['NO_01','NO_02','NO_03','NO_04','NO_05','NO_06'])rows.push({id,bus:'SFX',type:'one-shot',category:'new_oga',gain:1,pitchJitter:0,maxVoices:1,priority:3,loopStart:null,loopEnd:null,variations:[],parts:[],file:null,expectedPath:`assets/audio/sfx/new_oga/${id}.mp3`,registered:false,reason:'inert-drop-in-hook',licenseClass:'PENDING',attributionRequired:false,license:'',credit:'',author:'',sourceSite:'',sourceUrl:'',restrictions:[]});
   const index=new Map(rows.map(entry=>[entry.id,entry]));
   function get(id){return index.get(id)||null}
   function list(){return rows.map(entry=>({...entry}))}

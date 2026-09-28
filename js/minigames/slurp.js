@@ -52,11 +52,29 @@
   const t=Math.min(1,el/90000);
   return Math.round(6000-t*3000);
  }
+ function chairProgress(stacked,total=60){const safe=Math.max(1,Number(total)||60),done=Math.max(0,Math.min(safe,Number(stacked)||0));return {stacked:done,total:safe,remaining:safe-done,success:done>=safe};}
  window.RAMinigameLogic=window.RAMinigameLogic||{};
- window.RAMinigameLogic.slurp={makeOrder,checkBowl,tipFor,orderInterval,BROTHS,NOODLES,TOPPINGS};
+ window.RAMinigameLogic.slurp={makeOrder,checkBowl,tipFor,orderInterval,chairProgress,BROTHS,NOODLES,TOPPINGS};
+
+ function mountCanopy(root,ctx){
+  const P=RAPixel,{canvas,ctx:g,toNative}=P.createCanvas(root),params=ctx.params||{};
+  const total=Math.max(1,Number(params.totalChairs)||60),bundle=Math.max(1,Number(params.bundleSize)||10),duration=Math.max(1000,Number(params.durationMs)||45000);
+  const STACK={x:18,y:370,w:92,h:62},CANOPY={x:156,y:122,w:96,h:142};
+  let stacked=0,dragging=false,dragPos=null,start=performance.now(),ended=false,raf=null;
+  const inRect=(p,r)=>p.x>=r.x&&p.x<=r.x+r.w&&p.y>=r.y&&p.y<=r.y+r.h;
+  function down(ev){if(ended)return;const p=toNative(ev.clientX,ev.clientY);if(inRect(p,STACK)&&stacked<total){dragging=true;dragPos=p;}}
+  function move(ev){if(dragging)dragPos=toNative(ev.clientX,ev.clientY);}
+  function up(){if(!dragging)return;if(inRect(dragPos||{},CANOPY))stacked=Math.min(total,stacked+bundle);dragging=false;dragPos=null;if(stacked>=total)finish();}
+  canvas.addEventListener('pointerdown',down);canvas.addEventListener('pointermove',move);window.addEventListener('pointerup',up);
+  const clock=document.createElement('button');clock.className='canopy-finish';clock.textContent='FINISH STACK';clock.style.cssText='position:absolute;right:4%;top:58%;z-index:4;font:6px "Press Start 2P";padding:.5em .6em;background:#f6efd9;color:#10101b;border:2px solid #10101b;box-shadow:2px 2px #7d194b;cursor:pointer';clock.addEventListener('click',finish);root.append(clock);
+  function finish(){if(ended)return;ended=true;const result=chairProgress(stacked,total);const card=document.createElement('div');card.className='canopy-result';card.style.cssText='position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;background:rgba(8,7,15,.92);color:#f6efd9;font-family:"Press Start 2P",monospace;text-align:center;padding:20px;z-index:6';card.innerHTML=`<div style="font-size:11px;color:#c18b3c">CHAIRS ${result.stacked}/${result.total}</div><div style="font-size:7px">${result.success?'DELIVERY STACKED':'AUNTIE CRITIQUE'}</div>`;const done=document.createElement('button');done.className='canopy-done';done.textContent='DONE';done.style.cssText='font:8px "Press Start 2P";padding:.7em .9em;background:#f6efd9;color:#10101b;border:2px solid #10101b;cursor:pointer';done.addEventListener('click',()=>ctx.finish({outcome:'done',score:result.stacked,data:result}));card.append(done);root.append(card);}
+  function frame(now){if(raf===null)return;g.clearRect(0,0,270,480);P.paintEnvironment(g,{sky:'#191027',wall:'#4a234c',floor:'#4a3a36',horizon:330,seed:'canopy-duty',props:[{type:'string',x1:8,x2:262,y:76,color:'#ffd36a'},{type:'sign',x:65,y:36,w:140,h:18,text:'CANOPY DUTY',glow:'#ffb040'}]});P.frame(g,STACK.x,STACK.y,STACK.w,STACK.h,{fill:'#d9d2c7',border:'#10101b',accent:'#8e8578'});P.text(g,'CHAIR STACK',64,390,{size:6,align:'center',color:'#10101b'});P.text(g,`${Math.max(0,total-stacked)} LEFT`,64,407,{size:6,align:'center',color:'#10101b'});P.frame(g,CANOPY.x,CANOPY.y,CANOPY.w,CANOPY.h,{fill:'rgba(240,225,205,.18)',border:'#f6efd9',accent:'#ffd36a'});P.text(g,'DROP HERE',204,180,{size:7,align:'center',color:'#f6efd9'});P.text(g,`${stacked}/${total}`,204,204,{size:9,align:'center',color:'#ffd36a'});if(dragging&&dragPos){P.frame(g,dragPos.x-28,dragPos.y-12,56,24,{fill:'#d9d2c7',border:'#10101b'});P.text(g,`+${bundle}`,dragPos.x,dragPos.y,{size:7,align:'center',baseline:'middle',color:'#10101b'});}const left=Math.max(0,Math.ceil((duration-(now-start))/1000));P.text(g,`${left}s`,262,466,{size:7,align:'right',color:'#f6efd9'});if(!ended&&now-start>=duration)finish();raf=requestAnimationFrame(frame);}raf=requestAnimationFrame(frame);
+  return {dispose(){const r=raf;raf=null;if(r)cancelAnimationFrame(r);canvas.removeEventListener('pointerdown',down);canvas.removeEventListener('pointermove',move);window.removeEventListener('pointerup',up);try{clock.remove();}catch(e){}}};
+ }
 
  // ---------- mount (DOM/game) ----------
  function mount(root,ctx){
+  if(ctx.params?.canopyDuty)return mountCanopy(root,ctx);
   const P=RAPixel;
   const {canvas,ctx:g,toNative}=P.createCanvas(root);
   const params=ctx.params||{};

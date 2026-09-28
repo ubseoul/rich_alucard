@@ -373,7 +373,7 @@
    if(passengerBubble){passengerBubble.t-=dt;if(passengerBubble.t<=0)passengerBubble=null;}
 
    runElapsed+=dt;
-   if(state.distance>=course.length||runElapsed>90)endRun();
+   if(state.distance>=course.length||runElapsed>(Number(P.durationSeconds)||90))endRun();
   }
 
   // ---- draw -------------------------------------------------------------

@@ -1,4 +1,4 @@
-// BTF Rough Complete deterministic gate: schema v12 migration, life clock/calendar, temptation cadence,
+// BTF Rough Complete deterministic gate: schema v13 migration, life clock/calendar, temptation cadence,
 // adventure graph validation, and a headless walker that drives every adventure branch to completion.
 import assert from 'node:assert/strict';
 import {readFile} from 'node:fs/promises';
@@ -47,7 +47,7 @@ export async function test(root){
  {const {expectedIndex}=await import(pathToFileURL(path.join(root,'tools','sync-index.mjs')).href);const lf=text=>text.replace(/\r\n/g,'\n');assert.equal(lf(await readFile(path.join(root,'index.html'),'utf8')),lf(await expectedIndex()),'index.html BTF script block is stale — run node tools/sync-index.mjs');}
  // --- migration ---
  {const ctx=await loadBtf(root);const {RAState,RASaveFixtures}=ctx;
-  assert.equal(RAState.version,12);
+  assert.equal(RAState.version,13);
   const fresh=RAState.migrateRecord(RASaveFixtures.fixtures.fresh);assert.equal(fresh.life.clock.started,false,'fresh saves start before the prologue');
   const v11={...RASaveFixtures.fixtures.supraOwned,version:11};v11.life={...v11.life,property:{active:null,completed:[]},ownership:{...v11.life.ownership,properties:[{id:'property_la_4p_01',label:'PALOMA FOURPLEX',ownershipStatus:'owned',monthlyIncome:1400,purchasePrice:34000,nextCollectionAt:'2000-01-01T00:00:00.000Z'}]},world:{...v11.life.world,flags:{...v11.life.world.flags,propertyOwned:true,ogunsRaveCompleted:true}},night:{active:null,completed:[{id:'ogun_rave_001'}]}};
   const m=RAState.migrateWithReport(v11);assert(m.ok,'v11 migration failed');const L=m.state.life;
@@ -56,8 +56,9 @@ export async function test(root){
   assert(L.phone.apps.vampgram?.unlocked&&L.phone.apps.jdmImports?.unlocked,'apps must derive from existing progress');
   assert(L.adventures.records.ogun_rave_001?.status==='completed'&&L.adventures.records.property_la_4p_01_acquisition,'existing Rave/Property history must enter adventure records');
   assert.equal(m.state.characters.jdm_importer_daughter_001.conversionOutcome,'converted','legacy consequences preserved');
-  const again=RAState.migrateWithReport(m.state);assert.equal(JSON.stringify(again.state),JSON.stringify(m.state),'v12 normalization must be idempotent');
-  for(const [name,fx] of Object.entries(RASaveFixtures.fixtures)){if(typeof fx==='string')continue;const r=RAState.migrateWithReport(fx);assert(r.ok&&r.state.version===12&&Array.isArray(r.state.life.memoryLog),`fixture ${name} failed v12`);}
+  const again=RAState.migrateWithReport(m.state);assert.equal(JSON.stringify(again.state),JSON.stringify(m.state),'v13 normalization must be idempotent');
+  for(const [name,fx] of Object.entries(RASaveFixtures.fixtures)){if(typeof fx==='string')continue;const r=RAState.migrateWithReport(fx);assert(r.ok&&r.state.version===13&&Array.isArray(r.state.life.memoryLog),`fixture ${name} failed v13`);}
+  assert.equal(m.state.life.newOga.status,'unstarted','v12 -> v13 migration must add the NEW OGA domain without changing prior progress');
  }
  // --- calendar + clock ---
  {const ctx=await loadBtf(root);const {RALife,RAClock,RAState}=ctx;
@@ -106,6 +107,16 @@ export async function test(root){
    assert.equal(RAAdventures.afterFight('fight',{outcome:'spared'}),'sparedbread','A10: a synthetic spare must route to the spared branch');
    RAAdventures.abandon();
    console.log('PASS btf propagation (synthetic minigame reward+result and fight outcome are consumed by the adventure; FU-03)');}
+  // F2 NEW OGA M1–M3: every authored route/back-out, exact money/item consequences and reload persistence.
+  {const choose=(label)=>list=>Math.max(0,list.findIndex(c=>c.label===label));
+   const fresh=async()=>{const c=await loadBtf(root);c.RAClock.wake({first:true});c.RAState.patch('life.world.day',8);c.RAState.patch('life.adventures.records.A08',{status:'completed',count:1,completedDay:7});return c;};
+   for(const [label,route,heat] of [['STICK-UP','STICK_UP',12],['GRAB AND GO','TOUGE_ESCAPE',7]]){const c=await fresh();c.RALife.addCar({id:'toyota_supra_mk4_001'});const before=c.RALife.money();walk(c,'NEW_OGA_M1',{pick:choose(label),fight:()=>({outcome:'win'}),minigame:()=>({outcome:'win',data:{}})});const s=c.RAState.get();assert.equal(s.life.resources.money,before+6000);assert.equal(s.life.ownership.items.blood_x_case,5);assert.equal(s.life.ownership.items.smallies_chain,1);assert.equal(s.life.newOga.m1Route,route);assert.equal(s.life.newOga.heat,heat);assert.equal(c.RAState.migrateRecord(s).life.newOga.m1Route,route);}
+   {const c=await fresh();c.RARelations.meet('kiki','f2-test');c.RARelations.add('kiki',60);const before=c.RALife.money();walk(c,'NEW_OGA_M1',{pick:choose('SWITCH THE BAG')});const s=c.RAState.get();assert.equal(s.life.resources.money,before+6000);assert.equal(s.life.newOga.m1Route,'SWITCH_THE_BAG');assert.equal(s.life.newOga.heat,3);assert.equal(c.RAState.migrateRecord(s).life.ownership.items.blood_x_case,5);}
+   {const c=await fresh(),before=c.RALife.money();walk(c,'NEW_OGA_M1',{pick:choose('BUY A BOBA AND LEAVE')});const s=c.RAState.get();assert.equal(s.life.resources.money,before-c.RACombatData.ITEMS.boba.price);assert.equal(s.life.ownership.items.boba,1);assert.equal(s.life.newOga.status,'closed');assert.equal(s.life.newOga.heat,0);assert.equal(s.life.ownership.items.blood_x_case,undefined);assert.equal(c.RAState.migrateRecord(s).life.newOga.status,'closed');}
+   for(const answer of ['HONEST','FLEX','MY GREATEST WEAKNESS IS FISH']){const c=await fresh();c.RAState.patch('life.newOga',{...c.RAState.get().life.newOga,status:'awaiting_interview',mission:1,lastMissionDay:1});const before=c.RALife.money();walk(c,'NEW_OGA_M2',{pick:list=>{const wanted=list.some(x=>x.label===answer)?answer:'PAY $20,000 · END';return Math.max(0,list.findIndex(x=>x.label===wanted));}});const s=c.RAState.get();assert.equal(s.life.resources.money,before-20000);assert.equal(s.life.newOga.status,'closed');assert.equal(s.life.newOga.rank,0);assert.equal(c.RAState.migrateRecord(s).life.newOga.m2Outcome,'paid');}
+   {const c=await fresh();c.RAState.patch('life.newOga',{...c.RAState.get().life.newOga,status:'awaiting_interview',mission:1,lastMissionDay:1});const before=c.RALife.money();walk(c,'NEW_OGA_M2',{pick:list=>Math.max(0,list.findIndex(x=>x.label==='WORK OFF THE DEBT · CONTINUE'||x.label==='HONEST'))});const s=c.RAState.get();assert.equal(s.life.resources.money,before);assert.equal(s.life.newOga.rank,1);assert.equal(s.life.newOga.title,'INTERN');assert.equal(s.life.newOga.businessCard,true);assert.equal(s.life.newOga.debt,20000);assert.equal(c.RAState.migrateRecord(s).life.newOga.businessCard,true);}
+   for(const [label,outcome,pay,trust] of [['COMPLETE THE DELIVERY','complete',3000,1],['LEAVE THE COOLERS · CHAIRS ONLY','chairs_only',0,-1]]){const c=await fresh();c.RAState.patch('life.newOga',{...c.RAState.get().life.newOga,status:'intern',mission:2,rank:1,title:'INTERN',businessCard:true,lastMissionDay:1});const before=c.RALife.money();walk(c,'NEW_OGA_M3',{pick:choose(label),minigame:()=>({outcome:'done',data:{stacked:0,total:60,success:false}})});const s=c.RAState.get();assert.equal(s.life.resources.money,before+pay);assert.equal(s.life.newOga.m3Outcome,outcome);assert.equal(s.life.newOga.trust,trust);assert.equal(s.life.newOga.rank,1,'chair failure/back-out must not block rank');assert.equal(s.life.ownership.items.jollof_plate,outcome==='complete'?1:undefined);assert.equal(c.RAState.migrateRecord(s).life.newOga.m3Outcome,outcome);}
+   console.log('PASS NEW OGA M1–M3 routes, back-outs, authored rewards/costs, rank and reload persistence');}
   // FU-04 (BREAK I): the Thanksgiving gate must not be self-defeating. Post-fame continuation keeps fameFired=true, so
   // A53 must still become eligible at Day 57 (the family holiday is authored for the continuation, not before the ending).
   {const t=await loadBtf(root);const {RAState,RALife,RAAdventures,RAWakeTriggers,RAClock}=t;RAClock.wake({first:true});
@@ -119,7 +130,7 @@ export async function test(root){
    for(const def of A.all())for(const id of Object.keys(def.nodes)){try{if(A.active())A.abandon();A.start(def.id,{from:'dev'});A.patchActive({node:id});const r=A.enter(id),C=A.context();
     for(const f of [r.node.lines,r.node.title])if(typeof f==='function')f(C);}catch(e){bad.push(`${def.id}:${id} ${e.message}`)}}
    assert.deepEqual(bad,[],'adventure nodes that crash when entered out of order');}
-  console.log(`PASS btf (v12 migration + idempotency, calendar Oct 1/Oct 31/Nov 26/full moons/rain, clock budget+rent+family, ${all.length} adventures validated, ${walks} branch walks)`);
+  console.log(`PASS btf (v13 migration + idempotency, calendar Oct 1/Oct 31/Nov 26/full moons/rain, clock budget+rent+family, ${all.length} adventures validated, ${walks} branch walks)`);
  }
 }
 if(process.argv[1]&&import.meta.url===pathToFileURL(process.argv[1]).href){await test(path.resolve(path.dirname(new URL(import.meta.url).pathname),'..'));}

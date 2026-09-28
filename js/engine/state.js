@@ -2,8 +2,8 @@
   const KEY='rich_alucard_save_v1';
   const RECOVERY_KEY='rich_alucard_save_v1_recovery';
   const QUARANTINE_KEY='rich_alucard_save_v1_invalid';
-  const VERSION=12;
-  const defaults={version:VERSION,life:{identity:{name:'Rich Alucard'},world:{location:'LA',day:1,month:1,scene:'bedroom',flags:{}},resources:{money:100000,clout:'LOW',vampireReputation:'LOW',followers:0,cloutPoints:0,vampRepPoints:0},ownership:{cars:[],properties:[],possessions:[],castleRooms:[],guns:[],fits:{owned:[],equipped:{}},items:{},props:[],dragon:null,cat:null},people:{contacts:[],relationships:[],records:{}},events:{records:{}},creativeLife:{music:{songs:[],progress:{},cooked:[],drops:[],shows:[],hooks:[],castleSong:null}},phone:{learned:false,apps:{},threads:{},radio:{track:null,castleSong:null}},desires:{activeTrip:null,completed:[]},acquisitions:{active:null,completed:[]},night:{active:null,completed:[]},property:{active:null,completed:[]},opportunities:{},history:[],clock:{started:false,lastWakeDay:0,nightOutings:[],mail:[],interruptionsTonight:0,hungover:false,returnBeat:null},temptations:{live:[],history:[],lastGeneratedDay:0},adventures:{active:null,records:{}},memoryLog:[],receipts:[],ecology:{pressure:0,headlinesSeen:[],hiltStatus:'none'},momentum:{expression:0,connection:0,ownership:0,legend:0,chaos:0,counts:{},sparkId:null,fameEligible:false,fameFired:false},minigames:{},tendencies:{solid:0,messy:0},combat:{learnedMoves:[],equippedMoves:['blood','octopus','bite','revenge'],magic:[],defeats:0},sealed:{slots:{}},laura:{ledger:0},settings:{audio:{music:1,sfx:1,ambience:1,muted:false,haptics:true}}},characters:{ceo_assistant_001:{met:true,stolen:false,vampire:false,cracked:false}},encounters:{ceo_prince:{defeated:false,completed:false}}};
+  const VERSION=13;
+  const defaults={version:VERSION,life:{identity:{name:'Rich Alucard'},world:{location:'LA',day:1,month:1,scene:'bedroom',flags:{}},resources:{money:100000,clout:'LOW',vampireReputation:'LOW',followers:0,cloutPoints:0,vampRepPoints:0},ownership:{cars:[],properties:[],possessions:[],castleRooms:[],guns:[],fits:{owned:[],equipped:{}},items:{},props:[],dragon:null,cat:null},people:{contacts:[],relationships:[],records:{}},events:{records:{}},creativeLife:{music:{songs:[],progress:{},cooked:[],drops:[],shows:[],hooks:[],castleSong:null}},phone:{learned:false,apps:{},threads:{},radio:{track:null,castleSong:null}},desires:{activeTrip:null,completed:[]},acquisitions:{active:null,completed:[]},night:{active:null,completed:[]},property:{active:null,completed:[]},opportunities:{},history:[],clock:{started:false,lastWakeDay:0,nightOutings:[],mail:[],interruptionsTonight:0,hungover:false,returnBeat:null},temptations:{live:[],history:[],lastGeneratedDay:0},adventures:{active:null,records:{}},memoryLog:[],receipts:[],ecology:{pressure:0,headlinesSeen:[],hiltStatus:'none'},momentum:{expression:0,connection:0,ownership:0,legend:0,chaos:0,counts:{},sparkId:null,fameEligible:false,fameFired:false},minigames:{},tendencies:{solid:0,messy:0},combat:{learnedMoves:[],equippedMoves:['blood','octopus','bite','revenge'],magic:[],defeats:0},sealed:{slots:{}},laura:{ledger:0},newOga:{status:'unstarted',mission:0,rank:0,title:null,businessCard:false,gangClout:0,trust:0,heat:0,debt:0,m1Route:null,m2Answer:null,m2Outcome:null,m3Outcome:null,m1Rewarded:false,m3Rewarded:false,lastMissionDay:0},settings:{audio:{music:1,sfx:1,ambience:1,muted:false,haptics:true}}},characters:{ceo_assistant_001:{met:true,stolen:false,vampire:false,cracked:false}},encounters:{ceo_prince:{defeated:false,completed:false}}};
   const clone=value=>JSON.parse(JSON.stringify(value));
   const isObject=value=>value!==null&&typeof value==='object'&&!Array.isArray(value);
   const isFiniteNumber=value=>typeof value==='number'&&Number.isFinite(value);
@@ -65,7 +65,7 @@
   // BTF (Before the Fame) Rough Complete sections. Additive: never removes or rewrites existing structures.
   function ensureBtf(life){
     const d=defaults.life;
-    for(const key of ['clock','temptations','adventures','ecology','momentum','minigames','tendencies','combat','sealed','laura'])life[key]=objectOr(life[key],clone(d[key]));
+    for(const key of ['clock','temptations','adventures','ecology','momentum','minigames','tendencies','combat','sealed','laura','newOga'])life[key]=objectOr(life[key],clone(d[key]));
     for(const [key,value] of Object.entries(d.clock))if(life.clock[key]===undefined)life.clock[key]=clone(value);
     life.clock.nightOutings=arrayOr(life.clock.nightOutings);life.clock.mail=arrayOr(life.clock.mail);
     life.temptations.live=arrayOr(life.temptations.live).filter(isObject);life.temptations.history=arrayOr(life.temptations.history);
@@ -75,6 +75,7 @@
     for(const [key,value] of Object.entries(d.ecology))if(life.ecology[key]===undefined)life.ecology[key]=clone(value);
     for(const [key,value] of Object.entries(d.momentum))if(life.momentum[key]===undefined)life.momentum[key]=clone(value);
     for(const [key,value] of Object.entries(d.combat))if(life.combat[key]===undefined)life.combat[key]=clone(value);
+    for(const [key,value] of Object.entries(d.newOga))if(life.newOga[key]===undefined)life.newOga[key]=clone(value);
     life.sealed.slots=objectOr(life.sealed.slots,{});
     for(const [key,value] of Object.entries(d.resources))if(life.resources[key]===undefined)life.resources[key]=clone(value);
     for(const key of ['followers','cloutPoints','vampRepPoints'])if(!isFiniteNumber(life.resources[key]))life.resources[key]=0;
@@ -142,7 +143,8 @@
     if(flags.propertyOwned&&!life.adventures.records.property_la_4p_01_acquisition)life.adventures.records.property_la_4p_01_acquisition={status:'completed',completedDay:day,migrated:true};
     next.version=12;return next;
   }
-  const migrations={5:migrateV5ToV6,6:migrateV6ToV7,7:migrateV7ToV8,8:migrateV8ToV9,9:migrateV9ToV10,10:migrateV10ToV11,11:migrateV11ToV12};
+  function migrateV12ToV13(saved){const next=clone(saved),life=next.life=objectOr(next.life,{});life.newOga=objectOr(life.newOga,clone(defaults.life.newOga));next.version=13;return next;}
+  const migrations={5:migrateV5ToV6,6:migrateV6ToV7,7:migrateV7ToV8,8:migrateV8ToV9,9:migrateV9ToV10,10:migrateV10ToV11,11:migrateV11ToV12,12:migrateV12ToV13};
   function migrateWithReport(saved){
     if(!isObject(saved))return {ok:false,error:'root-not-object'};
     let next=clone(saved),from=Number.isInteger(next.version)?next.version:0;

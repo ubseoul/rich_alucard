@@ -81,7 +81,10 @@
   {id:'portobello_kid1',name:'PORTOBELLO_KID1',look:{skin:'#c99a78',top:'#7ad0a0',bottom:'#3a3a3a',hair:'#2a1810',hairShape:'bun',height:.6}},
   {id:'portobello_kid2',name:'PORTOBELLO_KID2',look:{skin:'#c99a78',top:'#f0c060',bottom:'#3a3a3a',hair:'#2a1810',hairShape:'spiky',height:.55}},
   {id:'portobello_manager',name:'PORTOBELLO_MANAGER',look:{skin:'#d8b090',top:'#3a3a4a',bottom:'#1f2a44',hair:'#5a4a3a',hairShape:'hat'}},
-  {id:'auntie',name:'THE AUNTIE',look:{skin:'#5a3420',top:'#2a8a5a',hair:'#1a1a1a',hairShape:'hat',width:1.2}},
+ {id:'auntie',name:'THE AUNTIE',look:{skin:'#5a3420',top:'#2a8a5a',hair:'#1a1a1a',hairShape:'hat',width:1.2}},
+  {id:'smallie',name:'SMALLIE',look:{skin:'#70442c',top:'#15151c',bottom:'#303038',hair:'#130d0a',hairShape:'spiky',height:.86,accent:'#c18b3c'}},
+  {id:'smallie_cousin',name:"SMALLIE'S COUSIN",look:{skin:'#7a4b31',top:'#3a263e',bottom:'#24242c',hair:'#17100d',hairShape:'hat',height:.94}},
+  {id:'gbenga',name:'GBENGA',look:{skin:'#623a25',top:'#e8e0cc',bottom:'#24242c',hair:'#100b08',hairShape:'bald',height:1.08,width:1.08,accent:'#c18b3c'}},
   {id:'soul',name:'SOUL',look:{top:'#1c2c44',bottom:'#1c2c44',hair:'#1c2c44',skin:'#2a3a54'}},
   {id:'training_dummy',name:'TRAINING DUMMY',look:{skin:'#b08a5a',top:'#b08a5a',bottom:'#6a4a2a',hair:'#6a4a2a',hairShape:'bald'}}
  ];

@@ -81,7 +81,11 @@ export async function test() {
   assert.ok(logic.orderInterval(90000) <= 3000 + 1, 'interval shrinks to ~3000ms at rush');
   assert.ok(logic.orderInterval(45000) < logic.orderInterval(0), 'interval should shrink over time');
 
-  console.log('PASS slurp (makeOrder, checkBowl, tipFor, orderInterval)');
+  assert.deepStrictEqual(JSON.parse(JSON.stringify(logic.chairProgress(0,60))),{stacked:0,total:60,remaining:60,success:false});
+  assert.deepStrictEqual(JSON.parse(JSON.stringify(logic.chairProgress(60,60))),{stacked:60,total:60,remaining:0,success:true});
+  assert.strictEqual(logic.chairProgress(90,60).stacked,60,'chair progress caps at the authored total');
+
+  console.log('PASS slurp (makeOrder, checkBowl, tipFor, orderInterval, canopy chair harness)');
 }
 
 if (import.meta.url === `file://${process.argv[1]}`) {

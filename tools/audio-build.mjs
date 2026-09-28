@@ -73,6 +73,7 @@ const EXCLUDED={
   DRAGON_WINGS:{reason:'missing-from-delivery',file:false},
   BARS_PUNCHLINE:{reason:'missing-from-delivery',file:false}
 };
+const INERT_HOOKS=['NO_01','NO_02','NO_03','NO_04','NO_05','NO_06'];
 // Split-part IDs the audit says are really one runtime id (loop sets).
 const MERGE={DRIBBLE:{from:['DRIBBLE__loop','DRIBBLE__bounce']},GRILL_LAND:{from:['GRILL_LAND__loop','GRILL_LAND__land']}};
 const PLAN_LABELS={}; // neutral: no per-ID content text is stored for sealed IDs
@@ -159,6 +160,7 @@ for(const [id,group] of byId){
 }
 // Add planned-but-absent IDs as inert slots.
 for(const id of Object.keys(EXCLUDED))if(!byId.has(id)){const e=EXCLUDED[id];entries.push({id,bus:busFor(id,'combat'),type:'one-shot',category:'combat',gain:1,pitchJitter:0,maxVoices:3,priority:3,loopStart:null,loopEnd:null,variations:[],parts:[],file:null,expectedPath:null,registered:false,reason:e.reason,licenseClass:'N/A',attributionRequired:false,license:'',credit:'',author:'',sourceSite:'',sourceUrl:'',restrictions:[],_sources:[]});}
+for(const id of INERT_HOOKS)if(!byId.has(id))entries.push({id,bus:'SFX',type:'one-shot',category:'new_oga',gain:1,pitchJitter:0,maxVoices:1,priority:3,loopStart:null,loopEnd:null,variations:[],parts:[],file:null,expectedPath:`assets/audio/sfx/new_oga/${id}.mp3`,registered:false,reason:'inert-drop-in-hook',licenseClass:'PENDING',attributionRequired:false,license:'',credit:'',author:'',sourceSite:'',sourceUrl:'',restrictions:[],_sources:[]});
 entries.sort((a,b)=>a.id<b.id?-1:a.id>b.id?1:0);
 
 // ---- audio processing ----
