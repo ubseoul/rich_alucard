@@ -27,9 +27,15 @@
   if(stage==='majestic')return rng()<0.5?pick(rng,words):pick(rng,early);
   return pick(rng,early);
  }
+ const CARE_PROMPTS=Object.freeze(['FEED','WALK','JOKO']);
+ function careOutcome(actions=[]){
+  const care={feed:false,walk:false,joko:false};
+  for(const item of actions){const key=String(item?.prompt||'').toLowerCase();if(key in care)care[key]=item?.success===true;}
+  return {care,walked:care.walk,senatorLost:!care.walk,missed:CARE_PROMPTS.filter(p=>!care[p.toLowerCase()])};
+ }
 
  window.RAMinigameLogic=window.RAMinigameLogic||{};
- window.RAMinigameLogic.hatch={stages:STAGES,poseFor,availableActions,chirp};
+ window.RAMinigameLogic.hatch={stages:STAGES,poseFor,availableActions,chirp,carePrompts:CARE_PROMPTS,careOutcome};
 
  function truthy(v){return v===true||v==='true'||v===1||v==='1';}
  function numOr(v,def){const n=Number(v);return Number.isFinite(n)?n:def;}
@@ -55,11 +61,46 @@
   return inv;
  }
 
+ function mountCare(root,ctx){
+  const params=ctx.params||{},windowMs=window.RANewOgaTunables?.m6?.PROMPT_WINDOW_MS||10000,scale=Math.max(1,Math.min(20,Number(params.timeScale)||1));
+  const {canvas,ctx:g,toNative}=R.createCanvas(root),actions=[];
+  let index=0,elapsed=0,feedback='',feedbackMs=0,terminal=false,raf=null,last=performance.now(),buttons=[];
+  root.dataset.phase='prompt';
+  function advance(action=null){
+   if(terminal)return;const prompt=CARE_PROMPTS[index],success=action===prompt;actions.push({prompt,action,success});
+   feedback=success?`${prompt} · GOOD`:prompt==='WALK'?'SQUIRREL. SENATOR IS GONE.':prompt==='FEED'?'HE EATS THE AGEGE BREAD ANYWAY.':'HE IGNORES THE COMMAND.';feedbackMs=900;index++;elapsed=0;
+   if(index>=CARE_PROMPTS.length)finish();
+  }
+  function finish(){
+   terminal=true;const result=careOutcome(actions);root.dataset.phase='results';root.dataset.outcome=result.walked?'walked':'lost';
+   const card=document.createElement('div');card.className='hatch-care-result';card.style.cssText='position:absolute;inset:0;z-index:6;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:22px;background:rgba(8,7,15,.94);color:#f6efd9;text-align:center;font-family:"Press Start 2P",monospace';
+   card.innerHTML=`<div style="color:#c18b3c;font-size:11px">${result.walked?'NIGHT COMPLETE':'SENATOR LOST'}</div><div style="font-size:7px">FEED ${result.care.feed?'✓':'—'} · WALK ${result.care.walk?'✓':'—'} · JOKO ${result.care.joko?'✓':'—'}</div>`;
+   const done=document.createElement('button');done.type='button';done.className='hatch-care-done';done.textContent='DONE';done.style.cssText='font:8px "Press Start 2P";padding:.8em 1em;background:#f6efd9;color:#10101b;border:2px solid #10101b;cursor:pointer';done.addEventListener('click',()=>ctx.finish({outcome:result.walked?'walked':'lost',data:{...result,actions}}));card.append(done);root.append(card);
+  }
+  function hit(x,y){for(const b of buttons)if(x>=b.x&&x<=b.x+b.w&&y>=b.y&&y<=b.y+b.h)return b.id;return null;}
+  function onDown(e){if(terminal)return;const p=toNative(e.clientX,e.clientY),id=hit(p.x,p.y);if(id)advance(id);}
+  canvas.addEventListener('pointerdown',onDown);
+  function drawDog(){
+   R.rect(g,74,224,122,72,'#4d4d55');R.rect(g,154,190,56,52,'#5b5b63');R.rect(g,164,176,12,22,'#3a3a42');R.rect(g,194,176,12,22,'#3a3a42');R.rect(g,168,208,8,6,'#d7193f');R.rect(g,194,208,8,6,'#d7193f');R.rect(g,167,238,36,7,'#c18b3c');R.text(g,'SENATOR',170,240,{size:5,color:'#10101b'});
+  }
+  function draw(){
+   R.paintEnvironment(g,{sky:'#0b1024',wall:'#1d1a33',floor:'#141225',horizon:360,seed:'senator-care',stars:18,props:[{type:'rect',x:0,y:346,w:270,h:134,color:'#1a1730'}]});drawDog();
+   const prompt=CARE_PROMPTS[Math.min(index,CARE_PROMPTS.length-1)];R.text(g,'SENATOR CARE',10,12,{size:8,color:'#f6efd9'});R.text(g,`PROMPT ${Math.min(index+1,3)}/3 · ${prompt}!`,10,34,{size:8,color:'#ffd36a'});R.text(g,`${Math.max(0,Math.ceil((windowMs-elapsed)/1000))}`,248,34,{size:7,color:'#f6efd9',align:'right'});
+   if(feedback&&feedbackMs>0)R.text(g,feedback,135,326,{size:6,color:'#f6efd9',align:'center',maxWidth:230});
+   buttons=[];for(const [i,id] of CARE_PROMPTS.entries()){const x=10+i*86;buttons.push({id,x,y:420,w:78,h:32});R.rect(g,x,420,78,32,id===prompt?'#c18b3c':'#3a6ff0');R.text(g,id==='JOKO'?'JOKO!':id,x+39,432,{size:7,color:'#f6efd9',align:'center'});}
+   root.dataset.prompt=prompt;root.dataset.elapsed=String(Math.round(elapsed));
+  }
+  function loop(now){const dt=Math.min(50,now-last)*scale;last=now;if(!terminal){elapsed+=dt;feedbackMs=Math.max(0,feedbackMs-dt);if(elapsed>=windowMs)advance(null);if(!terminal)draw();}raf=requestAnimationFrame(loop);}
+  raf=requestAnimationFrame(loop);
+  return {dispose(){if(raf)cancelAnimationFrame(raf);canvas.removeEventListener('pointerdown',onDown);}};
+ }
+
  const FOOD_LABEL={fish_common:'FISH',treats:'TREATS',dragon_keef:'DRAGON KEEF',agege_bread:'AGEGE BREAD',maggi_dragon_crumble:'DRAGON MAGGI CRUMBLE'};
 
  function mount(root,ctx){
   if(!window.RAPixel||!root)return {dispose(){}};
   const params=ctx.params||{};
+  if(params.mode==='senator')return mountCare(root,ctx);
   const lab=truthy(params.lab);
   const dragon=normalizeDragon(params);
   const inventory=normalizeInventory(params);

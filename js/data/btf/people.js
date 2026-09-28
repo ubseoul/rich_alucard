@@ -87,6 +87,9 @@
   {id:'gbenga',name:'GBENGA',look:{skin:'#623a25',top:'#e8e0cc',bottom:'#24242c',hair:'#100b08',hairShape:'bald',height:1.08,width:1.08,accent:'#c18b3c'}},
   // F2 PLACEHOLDER — intentionally neutral silhouette until the recurring Carlos identity package is approved.
   {id:'carlos',name:'CARLOS',look:{skin:'#777777',top:'#45454d',bottom:'#2c2c32',hair:'#202025',hairShape:'short'}},
+  // F2 PLACEHOLDERS — no finished identity encoded; CGA-F2-013 / CGA-F2-015 own final production art.
+  {id:'uncle_bamidele',name:'UNCLE BAMIDELE',look:{skin:'#777777',top:'#55555d',bottom:'#3c3c42',hair:'#2a2a30',hairShape:'bald',width:1.12}},
+  {id:'senator',name:'SENATOR',look:{skin:'#55555d',top:'#55555d',bottom:'#3c3c42',hair:'#2a2a30',hairShape:'bald',height:.55,width:1.45,accent:'#777777'}},
   {id:'soul',name:'SOUL',look:{top:'#1c2c44',bottom:'#1c2c44',hair:'#1c2c44',skin:'#2a3a54'}},
   {id:'training_dummy',name:'TRAINING DUMMY',look:{skin:'#b08a5a',top:'#b08a5a',bottom:'#6a4a2a',hair:'#6a4a2a',hairShape:'bald'}}
  ];

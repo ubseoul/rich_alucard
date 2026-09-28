@@ -22,11 +22,11 @@
   },
   "demand": {
    "environment: NO APPROVED ART YET": 5,
-   "person: NO APPROVED ART YET": 4
+   "person: NO APPROVED ART YET": 6
   },
   "screens": {
    "PASS": 265,
-   "HOLD": 10
+   "HOLD": 14
   }
  },
  "surfaces": {
@@ -3569,6 +3569,16 @@
    "kind": "person",
    "id": "carlos",
    "status": "NO APPROVED ART YET"
+  },
+  {
+   "kind": "person",
+   "id": "uncle_bamidele",
+   "status": "NO APPROVED ART YET"
+  },
+  {
+   "kind": "person",
+   "id": "senator",
+   "status": "NO APPROVED ART YET"
   }
  ],
  "screens": {
@@ -3604,6 +3614,16 @@
   },
   "bedroom|": {
    "status": "PASS (final art)",
+   "profile": "conversation",
+   "lint": "pass"
+  },
+  "bedroom|left:cat,right:senator": {
+   "status": "HOLD (mixed: unresolved cast art)",
+   "profile": "conversation",
+   "lint": "pass"
+  },
+  "bedroom|left:mazda_human,right:senator": {
+   "status": "HOLD (mixed: unresolved cast art)",
    "profile": "conversation",
    "lint": "pass"
   },
@@ -3732,6 +3752,11 @@
    "profile": "conversation",
    "lint": "pass"
   },
+  "bedroom|left:rich,right:senator": {
+   "status": "HOLD (mixed: unresolved cast art)",
+   "profile": "conversation",
+   "lint": "pass"
+  },
   "bedroom|left:rich,right:tasha": {
    "status": "PASS (final art)",
    "profile": "conversation",
@@ -3803,6 +3828,11 @@
    "lint": "pass"
   },
   "carson_owambe|left:rich,right:auntie": {
+   "status": "HOLD (placeholder environment)",
+   "profile": "conversation",
+   "lint": "pass"
+  },
+  "carson_owambe|left:rich,right:uncle_bamidele": {
    "status": "HOLD (placeholder environment)",
    "profile": "conversation",
    "lint": "pass"

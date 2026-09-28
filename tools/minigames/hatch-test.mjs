@@ -17,7 +17,7 @@ export async function test(root){
 
  const {RAMinigameLogic,RAMinigames}=context;
  assert(RAMinigameLogic&&RAMinigameLogic.hatch,'hatch logic API missing');
- const {stages,poseFor,availableActions,chirp}=RAMinigameLogic.hatch;
+ const {stages,poseFor,availableActions,chirp,carePrompts,careOutcome}=RAMinigameLogic.hatch;
 
  assert.equal(Array.from(stages).join(','),'egg,hatchling,young,majestic');
 
@@ -46,12 +46,18 @@ export async function test(root){
  for(let i=0;i<200;i++){const line=chirp('majestic',rng);if(/rich\. fish\./.test(line))sawWords=true;}
  assert(sawWords,'majestic dragon should eventually grow chirps into words');
 
+ assert.equal(Array.from(carePrompts).join(','),'FEED,WALK,JOKO');
+ const walked=careOutcome([{prompt:'FEED',success:false},{prompt:'WALK',success:true},{prompt:'JOKO',success:false}]);
+ assert.equal(walked.walked,true);assert.equal(walked.senatorLost,false);assert.deepEqual({...walked.care},{feed:false,walk:true,joko:false});
+ const lost=careOutcome([{prompt:'FEED',success:true},{prompt:'WALK',success:false},{prompt:'JOKO',success:true}]);
+ assert.equal(lost.walked,false);assert.equal(lost.senatorLost,true);
+
  // registration + mount contract
  const game=RAMinigames.get('hatch');
  assert(game,'hatch must self-register with RAMinigames');
  assert.equal(typeof game.mount,'function');
 
- console.log('PASS hatch (stage list, pose-from-state precedence, per-stage action gating incl. cat, chirp-vs-words by stage, registered)');
+ console.log('PASS hatch (Mazda behavior + generic FEED/WALK/JOKO care result, registered)');
 }
 
 if(process.argv[1]&&process.argv[1].endsWith('hatch-test.mjs')){

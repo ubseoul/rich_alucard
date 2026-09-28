@@ -56,5 +56,33 @@
   if(!current().alternativeRewarded)RALife.addMoney(T().m4.AUTHORED_ALTERNATIVE_PAY);
   return patch({status:'associate',rank:3,title:'ASSOCIATE',alternativePending:false,alternativeCompleted:true,alternativeRewarded:true,gangClout:current().gangClout+T().clout.ALTERNATIVE,lastMissionDay:RALife.today().day});
  }
- window.RANewOga={current,patch,tier,adjust,close,backOutM1,completeM1,answerM2,payM2,workOffM2,ensureCarlosMutual,observeTouge,decorateVampGramPost,completeM3,completeM4,completeAlternative};
+ function m5Payout(amount){
+  const value=Math.max(0,Math.min(T().m5.AUTHORED_DEBT_TARGET,Math.trunc(Number(amount)||0)));
+  return Math.floor(value*T().m5.AUTHORED_KEEP_NUMERATOR/T().m5.AUTHORED_KEEP_DENOMINATOR);
+ }
+ function grantRank4IfReady(){
+  const s=current();if(s.rank4Granted||!s.m5Completed||!s.m6Completed)return s;
+  return patch({status:'senior_associate',mission:6,rank:4,title:'SENIOR ASSOCIATE',rank4Granted:true,m7Eligible:true});
+ }
+ function completeM5(result={}){
+  if(current().m5Completed)return current();
+  const outcome=String(result.outcome||'SHORT').toUpperCase();
+  if(!['SUCCESS','SHORT','GREEDY','BACK_OUT'].includes(outcome))throw new Error(`Unknown M5 outcome ${outcome}`);
+  const target=T().m5.AUTHORED_DEBT_TARGET;
+  const caught=outcome==='SUCCESS'?target:outcome==='GREEDY'||outcome==='BACK_OUT'?0:Math.max(0,Math.min(target,Math.trunc(Number(result.amountCaught)||0)));
+  const payout=outcome==='SUCCESS'||outcome==='SHORT'?m5Payout(caught):0;
+  const keys={SUCCESS:['M5_SUCCESS','M5_SUCCESS','M5_SUCCESS','M5_SUCCESS_MESSY'],SHORT:['M5_SHORT','M5_SHORT','M5_SHORT','M5_SHORT_MESSY'],GREEDY:['M5_GREEDY','M5_GREEDY','M5_GREEDY','M5_GREEDY_MESSY'],BACK_OUT:['M5_BACKOUT','M5_BACKOUT','M5_BACKOUT','M5_BACKOUT_SOLID']}[outcome];
+  if(payout)RALife.addMoney(payout);
+  if(outcome==='BACK_OUT')RALife.tendency('solid',T().tendency[keys[3]]);else RALife.tendency('messy',T().tendency[keys[3]]);
+  return patch({status:'senator_pending',mission:5,m5Progress:'resolved',m5Outcome:outcome,m5AmountCaught:caught,m5Attention:Math.max(0,Math.min(T().m5.ATTENTION_MAX,Number(result.attention)||0)),m5Completed:true,m5Rewarded:true,gangClout:current().gangClout+T().clout[keys[0]],trust:current().trust+T().trust[keys[1]],heat:current().heat+T().heat[keys[2]],lastMissionDay:RALife.today().day});
+ }
+ function completeM6(result={}){
+  if(current().m6Completed)return current();
+  const care=result.care&&typeof result.care==='object'?result.care:{};
+  const walked=care.walk===true||result.walked===true;
+  const trust=current().trust+T().trust[walked?'M6_WALKED':'M6_LOST'];
+  patch({status:'rank4_pending',mission:6,m6Progress:'resolved',m6Outcome:walked?'walked':'lost',m6CareResult:{feed:care.feed===true,walk:walked,joko:care.joko===true},senatorLost:!walked,m6Completed:true,m6ConsequencesApplied:true,trust,gangClout:current().gangClout+T().clout.M6_ALL,heat:current().heat+T().heat.M6_ALL,trustAtM6:trust,senatorCommands:trust>=T().trustThresholds.HIGH_MIN,lastMissionDay:RALife.today().day});
+  return grantRank4IfReady();
+ }
+ window.RANewOga={current,patch,tier,adjust,close,backOutM1,completeM1,answerM2,payM2,workOffM2,ensureCarlosMutual,observeTouge,decorateVampGramPost,completeM3,completeM4,completeAlternative,m5Payout,completeM5,completeM6,grantRank4IfReady};
 })();
