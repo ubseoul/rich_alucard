@@ -8,6 +8,8 @@
     "build": "node tools/release.mjs build",
     "verify:artifact": "node tools/release.mjs verify-artifact",
     "test:fragments": "node tools/run-tests.mjs",
+    "test:f13": "node tools/run-tests.mjs --fragment f13",
+    "sim:f13": "node tools/f13/cli.mjs",
     "loader:sync": "node tools/loader.mjs sync",
     "loader:verify": "node tools/loader.mjs verify",
     "leak-check": "node tools/leak-check.mjs",
