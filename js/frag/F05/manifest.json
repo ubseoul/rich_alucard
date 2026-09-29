@@ -1,0 +1,30 @@
+{
+  "schema": 1,
+  "fragment": "F05",
+  "name": "THE_TRAP",
+  "flag": "F05.the_trap",
+  "reservedFlag": "F05.trap",
+  "files": [
+    "js/frag/F05/tunables.js",
+    "js/frag/F05/util.js",
+    "js/frag/F05/state.js",
+    "js/frag/F05/heat.js",
+    "js/frag/F05/weapons.js",
+    "js/frag/F05/crew.js",
+    "js/frag/F05/unlock.js",
+    "js/frag/F05/production.js",
+    "js/frag/F05/sales.js",
+    "js/frag/F05/levels.js",
+    "js/frag/F05/reactions.js",
+    "js/frag/F05/raids.js",
+    "js/frag/F05/wake.js",
+    "js/frag/F05/minigame_cook.js",
+    "js/frag/F05/minigame_counter.js",
+    "js/frag/F05/phone_app.js",
+    "js/frag/F05/trap.js"
+  ],
+  "css": [
+    "js/frag/F05/the_trap.css"
+  ],
+  "note": "migrations.js is loaded before js/engine/state.js by the loader glob js/frag/*/migrations.js; it is deliberately NOT listed here."
+}
