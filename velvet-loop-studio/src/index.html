@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' blob: data:;">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Velvet Loop Studio</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="titlebar"><span class="brand">VELVET LOOP STUDIO</span><span class="sub">Rich Alucard · Sprite Preview</span></header>
+
+  <main class="viewport">
+    <canvas id="stage"></canvas>
+    <div id="empty" class="empty">
+      <div class="empty-title">No sprite sheet loaded</div>
+      <div class="empty-hint">Click <b>Upload Sprite Sheet</b> and choose a horizontal PNG strip.</div>
+    </div>
+  </main>
+
+  <footer class="bar">
+    <input id="file-input" type="file" accept="image/png,.png" hidden>
+    <button id="upload" class="primary">Upload Sprite Sheet</button>
+
+    <div class="group">
+      <button id="play" disabled>Play</button>
+      <button id="pause" disabled>Pause</button>
+      <button id="restart" disabled>Restart</button>
+    </div>
+
+    <label class="fps">
+      <span>FPS</span>
+      <input id="fps" type="range" min="1" max="60" step="1">
+      <output id="fps-value"></output>
+    </label>
+
+    <label class="toggle"><input id="loop" type="checkbox"><span>Loop</span></label>
+
+    <span id="status" class="status"></span>
+  </footer>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>

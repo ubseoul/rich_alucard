@@ -1,0 +1,29 @@
+name: Velvet Loop Studio (Windows installer)
+
+on:
+  push:
+    paths: ['velvet-loop-studio/**', '.github/workflows/velvet-loop-studio.yml']
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: windows-latest
+    defaults:
+      run:
+        working-directory: velvet-loop-studio
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: velvet-loop-studio/package-lock.json
+      - run: npm ci
+      - run: npm test
+      - run: npm run dist
+        env:
+          CSC_IDENTITY_AUTO_DISCOVERY: 'false'
+      - uses: actions/upload-artifact@v4
+        with:
+          name: Velvet-Loop-Studio-Setup
+          path: velvet-loop-studio/dist/*.exe
