@@ -11,7 +11,7 @@
 1. **OPEN Visual Concept Cards are identity authority.**
 2. **Discretion within boundaries:** When a card is silent on exact face, skin tone, hair, or minor palette details, normal art-director discretion may fill the gap inside MUST / MUST NOT boundaries.
 3. **Hierarchy of Truth:** Frozen pixels outrank prose for established visual grammar. Asset existence is not approval.
-4. **Adult Age Rule:** All human characters are adults (21+). No child or juvenile proportions or presentation.
+4. **Adult Age Rule:** All human characters are adults. Authored ages remain authoritative (e.g. Young Mazi age 19 adult). Characters subject to the project's explicit 21+ requirement must read clearly 21+. No child or juvenile proportions or presentation.
 5. **Ube Judgment Gates:** Mama Gbenga and Auntie Grit require explicit Ube judgment before freeze.
 6. **Sealed Boundary:** Do not expose, inspect, or import SEALED or HQ-only material into OPEN Art Department records.
 

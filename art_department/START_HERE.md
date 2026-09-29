@@ -26,7 +26,7 @@ The repo is institutional memory. Prior chats are not required. Ube should not n
   - Standing rule: **OPEN Visual Concept Cards are identity authority.**
   - When a card is silent on exact face, skin tone, hair, or minor palette details, normal art-director discretion may fill the gap inside MUST / MUST NOT boundaries.
   - **Frozen pixels outrank prose.**
-  - **All human characters are adults (21+).**
+  - **All human characters are adults. Authored ages remain authoritative. Characters subject to the project's explicit 21+ requirement must read clearly 21+.**
   - **Mama Gbenga and Auntie Grit require Ube judgment before freeze.**
   - Current Visual A production order:
     1. Gbenga — **DONE / FROZEN**

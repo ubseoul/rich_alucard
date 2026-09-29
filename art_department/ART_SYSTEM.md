@@ -61,7 +61,7 @@ Fresh art sessions are preferred between major coherent batches. Do not maintain
 
 - **OPEN Visual Concept Cards are identity authority.**
 - **Art-Director Discretion:** When a card is silent on exact face, skin tone, hair, or minor palette details, normal art-director discretion may fill the gap inside MUST / MUST NOT boundaries.
-- **Adult Age Rule:** All human characters are adults (21+). No juvenile or childlike proportions or styling.
+- **Adult Age Rule:** All human characters are adults. Authored ages remain authoritative. Characters subject to the project's explicit 21+ requirement must read clearly 21+. No juvenile or childlike proportions or styling.
 - **Ube Judgment Gates:** Mama Gbenga and Auntie Grit require explicit Ube judgment before freeze.
 - **Visual A Production Order:** 1. Gbenga (DONE) $\to$ 2. Carlos (DONE) $\to$ 3. Senator $\to$ 4. Mama Gbenga $\to$ 5. Half-Pint $\to$ 6. Sunday Best $\to$ 7. Young Mazi $\to$ 8. Auntie Grit $\to$ 9. Open Mouth Gang $\to$ 10. Gbenga's boys $\to$ 11. Uncle Bamidele $\to$ 12. Mister December $\to$ 13. hunters $\to$ 14. HOA president $\to$ 15. trap crew.
 

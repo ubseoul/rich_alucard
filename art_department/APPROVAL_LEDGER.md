@@ -238,7 +238,7 @@ No accepted image was regenerated, decoded/re-encoded, resized, optimized or mod
 
 ## VISUAL LANE A — OVERLORD OL-012 SOURCE CLOSURE & WORKFLOW RULES (recorded 2026-09-28)
 
-54. OVERLORD OL-012 established standing identity authority for Visual Lane A. OPEN Visual Concept Cards are binding identity authority. When a card is silent on exact face, skin tone, hair, or minor palette details, normal art-director discretion may fill the gap inside MUST / MUST NOT boundaries. Frozen pixels outrank prose. All human characters are adults (21+). Mama Gbenga and Auntie Grit require explicit Ube judgment before freeze. Standard workflow protocols established: Whole-Package Generation, Identity-Preserving Derivation, Local Repair Rule, Batching without silhouette homogenization, and Drift Control via fresh sessions.
+54. OVERLORD OL-012 established standing identity authority for Visual Lane A. OPEN Visual Concept Cards are binding identity authority. When a card is silent on exact face, skin tone, hair, or minor palette details, normal art-director discretion may fill the gap inside MUST / MUST NOT boundaries. Frozen pixels outrank prose. All human characters are adults (authored ages remain authoritative; characters subject to explicit 21+ requirements must read clearly 21+). Mama Gbenga and Auntie Grit require explicit Ube judgment before freeze. Standard workflow protocols established: Whole-Package Generation, Identity-Preserving Derivation, Local Repair Rule, Batching without silhouette homogenization, and Drift Control via fresh sessions.
 
 ## VISUAL LANE A — GBENGA (recorded 2026-09-28)
 
