@@ -42,6 +42,30 @@ You can also just open `make_it_rain_sandbox.html` in a browser that allows loca
 Budget presets `$5K / $10K / $25K` and `RESTART` sit below the stage. Development controls are in a
 separate dashed panel and are not part of the mechanic.
 
+## Presentation pass (F06-A-P1)
+
+A bounded UX/UI pass before the human feel gate. **No mechanics changed**: `make_it_rain_core.js` and
+`make_it_rain_tunables.js` are byte-identical to the F06-A base (`a22b254`). Only the adapter, page and
+stylesheet were replaced/polished.
+
+- Look: cold-neon-noir over the game's own palette (bone cream / near-black / nocturnal purple / dried blood /
+  muted gold), Monogram + Press Start 2P (existing `assets/fonts`), hard offset shadows, double edge frame.
+  Rendered on a low-res logical canvas at an integer 2x with nearest-neighbour scaling. The palette lives in
+  the adapter, not in the tunables.
+- Read without prose: the cash stack is the dominant object and visibly thins; drag loads bills along the drag
+  path (a qualifying FAN opens into a fan of bigger gold bills); the spotlight beam + gold pool = LIT, cold pool +
+  red cross = DARK (with a flicker just before it changes); the beat is a converging ring and outline on the roll
+  under the thumb plus a rim glow; HYPE/CROWD are the room (crowd silhouettes bob, raise arms, STORM strobes) with
+  numbers kept.
+- Feedback hierarchy: outcome at the target (`HIT +N`, `MISS`, `OVERTHROW`), timing at the roll (`PERFECT` >
+  `ON BEAT`, `FAN +CROWD`), cost at the stack (`-$N`), streak as a persistent badge. One live message per group.
+- Money: CASH (big, flashes on spend), SPENT and WASTED always visible; wasted bills stay on the floor.
+- Result card: RAIN SCORE counts up, rows reveal in order, bill rain; all required stats retained; `RUN IT BACK`.
+- Dev controls moved below a hazard-striped divider ("NOT THE GAME"). IDs unchanged.
+- `tools/minigames/make-it-rain-browser-check.mjs`: real-browser check (real mouse + CDP touch, 360/390/430).
+  Not part of `npm test` (needs a browser). Env: `RA_PLAYWRIGHT_PATH`, `RA_CHROMIUM_PATH`; `--natural` waits out
+  a real 30 s round.
+
 ## Files
 
 | File | Role |
@@ -53,6 +77,7 @@ separate dashed panel and are not part of the mechanic.
 | `make_it_rain_sandbox.css` | sandbox-only styles |
 | `make_it_rain_review.html` | responsive review harness (360 / 390 / 430 iframes) |
 | `tools/minigames/make-it-rain-test.mjs` | core tests (auto-discovered by newer `tools/release.mjs`) |
+| `tools/minigames/make-it-rain-browser-check.mjs` | real-browser presentation/input check (manual, needs Playwright) |
 
 ## Integration boundary (for the full RAINMAKER build)
 
