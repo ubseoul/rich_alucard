@@ -28,7 +28,7 @@ check "library registration totals: 244 planned…" counted the whole audio mani
 | F1 exit-gate item | Finding |
 |---|---|
 | **H1 pass on existing Rich lines** | **NOT COMPLETED — and not completable in OPEN.** F1 (UL-L2-001/002) delivered the audio engine, SFX library and phone hierarchy; no packet touched existing Rich lines. H1 is sealed/agent-only authority; F2 applied it only to *new* NEW OGA Rich lines (UL_F2_001–004). The accepted W1–W5 content still carries **243 Rich `[VP]` lines** (`node tools/vp-lines.mjs`; `docs/btf/VP_LINES.md` is stale at 239 — 4 lines added by NEW OGA are missing from the list). **Source-sensitive gap: not fixed here.** Owner: the private/sealed H1 authority. |
-| **Phone readability / hierarchy** | **Implemented and re-verified on the integrated trunk.** Grouped sections (`NOW/PEOPLE/MONEY/LIFE/SYSTEM`), ≤3-word lock reasons, one in-world line on tap, GO SOMEWHERE grouping — 51/51 phone/audio checks pass at 360/390/430 (the only failures were the stale library-count assertion above). Placement is provisional by design: final placement review is after F4 (OL-001). |
+| **Phone readability / hierarchy** | **Implemented and re-verified on the integrated trunk.** Grouped sections (`NOW/PEOPLE/MONEY/LIFE/SYSTEM`), ≤3-word lock reasons, one in-world line on tap, GO SOMEWHERE grouping — UL-L2-001 browser evidence **57/57** at 360/390/430 on the integrated build (it was 51/57 before the reconciliation in §1: every failure was the one stale library-count assertion). Placement is provisional by design: final placement review is after F4 (OL-001). |
 | Ordinary technical cleanup logged (not source-sensitive) | (a) `docs/btf/VP_LINES.md` stale (239 vs 243) — regenerate. (b) UL-F2 CDB non-blocking notes carried forward for the **F03 NEW_OGA_LADDER_CLOSE** owner: debt paydown behavior, boba insufficient-funds, pointer-cancel on canopy drag, TOUGE record pollution, days 8–12 start window, `newOga` type/clamp hardening, placeholder/F10 runtime enforcement, cousin-loss retry structure. (c) Fixed in F00 test layer only: `tools/playtest-qa.mjs` compared the save version to the literal `12`. (d) Pre-existing: `tools/party-browser-test.mjs` fails at baseline; `tools/rave-browser-test.mjs` needs `sharp`. |
 
 ## 3. CUT-FALLBACK AUDIT (SR-6 / OL-011 freeze)
@@ -59,7 +59,21 @@ OL-011 itself is not in the repository; findings are from the accepted code and 
 
 None blocking. Non-blocking: **SOURCE_REQUIRED** — Vol 7 HEAT numeric tier floors; **H1 pass on existing Rich lines** needs the sealed authority (see §2).
 
-## 6. Freeze status
+## 6. Verification evidence (tip of integration/ube-portal; tag if1-v1.0-rc1 is the code-identical predecessor)
+
+| Gate | Result |
+|---|---|
+| `npm run verify:all -- --require-browser` | PASS — loader · build (all regression + 9 IF-1 suites + zero-change replay + leak) · artifact verification · artifact leak check · EMPTY-pack private overlay == OPEN · real-browser smoke (22 checks) |
+| Existing `npm test` suites | PASS unchanged (party, rave, Ogun, property, 10 minigames, BTF 121 adventures / 348 walks, NEW OGA M1–M7, presentation, art integration, reachability, mid-life fixtures) |
+| Historical migrations | PASS — real v7…v16 saves generated from git history load, additive + idempotent; legacy fixtures + 4 mid-life v12 fixtures too |
+| Zero behavior change | PASS — 4 lives × 6 nights (72 route plays) byte-identical saves/traces with IF-1 present and every flag OFF; NEW OGA M1–M3 identical |
+| Real browser: New Game → Day 4 | PASS — `playtest-qa --only newgame,life --days 3` at 360/390/430, 0 findings |
+| Real browser: NEW OGA M1–M7 | PASS — UL-F2-001…004 harnesses 12/12 + 8/8 + 10/10 + 4/4 |
+| Real browser: F1 phone + audio/settings | PASS — UL-L2-001 57/57 (3 widths); IF-1 smoke: settings persist across reload, reserved apps absent |
+| Owner surfaces / leak range | PASS — `check-owner-surfaces --as-owner`, `leak-check --range 54930b2..HEAD` |
+| Private HQ | `RA_HQ_PRIVATE=1` IF-1 suites PASS on `hq/integration`; the OPEN leak check correctly FAILS there (overlay directory) |
+
+## 7. Freeze status
 
 IF-1 **v1.0 candidate**: `RAIF1.freeze.status==='candidate'`, surface snapshot `tools/tests/if1/contract-v1.0.json`. On acceptance the integration
 owner flips the status to `frozen` and tags `if1-v1.0`; from then on IF-1 changes are additive and owner-only.
