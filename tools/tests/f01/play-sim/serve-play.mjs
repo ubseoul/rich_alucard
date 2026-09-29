@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 // Tiny static server for the THE PLAY sandbox (serves .mjs as JavaScript; no dependencies).
-//   node tools/serve-play.mjs [port]      → http://localhost:8123/assets/f01/play/index.html
+//   node tools/tests/f01/play-sim/serve-play.mjs [port]      → http://localhost:8123/assets/f01/play/index.html
 import http from 'node:http';import fs from 'node:fs';import path from 'node:path';import {fileURLToPath} from 'node:url';
-const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
+const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..','..','..','..');
 const MIME={'.html':'text/html; charset=utf-8','.js':'text/javascript; charset=utf-8','.mjs':'text/javascript; charset=utf-8','.css':'text/css; charset=utf-8','.json':'application/json','.ttf':'font/ttf','.png':'image/png','.svg':'image/svg+xml'};
 export function serve(port=8123){
  const srv=http.createServer((req,res)=>{

@@ -10,7 +10,7 @@ PITCH → CAR → SLIDE-IN → BEATS → CALLS → GETAWAY → THE TRUNK → HIT
 ## 1. Run it
 
 ```
-node tools/serve-play.mjs            # → http://localhost:8123/assets/f01/play/index.html
+node tools/tests/f01/play-sim/serve-play.mjs            # → http://localhost:8123/assets/f01/play/index.html
 ```
 
 ES modules do not load from `file://`; use any static server that serves `.mjs` as JavaScript (`serve-play.mjs` does, zero dependencies).
@@ -56,7 +56,7 @@ Rich (the player) appears as PULL UP / PAY calls. Turning: a free seat only (cap
 
 ## 3. Screens and the UX decisions behind them
 
-I own the UX/UI outright. Priorities, in order: clarity, pace, emotional rhythm, readable causality, crew personality, a satisfying trunk, a tempting greed choice, an honest aftermath, one tap back to the pitch. The screenshots are in `docs/engineering/play_feel_gate_shots/` (390 px).
+I own the UX/UI outright. Priorities, in order: clarity, pace, emotional rhythm, readable causality, crew personality, a satisfying trunk, a tempting greed choice, an honest aftermath, one tap back to the pitch. The screenshots are in `assets/f01/play/shots/` (390 px).
 
 1. **PITCH** — the pitcher's face and voice sell the job (six distinct voices; ≥ 4 variants each, no repeats within 3 PLAYs). The job card is a fixed grammar: THE TAKE ("up to $40K" + the shown loot icon + a `?`), HOW UGLY (dots), WHO, the enemy's tell in italics, crew size. Retaliation arrives as a red pulsing *notice*, and it cannot be laid low. Captive banners sit above the pitches: clock, EXTRACT card, and — on the last night — PAY RANSOM with the exact cost and whether Rich can afford it.
 2. **CAR** — the screen where the game is won. Cars are tabs (disabled cars say why). **WHAT'S WAITING** lists each enemy tell with its counter in plain words and a live verdict: `SEATED ✔` / `aboard — wrong seat` / `somebody at home could do it` / `nobody in your crew is built for it` (T5). Seats glow **green with a shield** when a counter sits in them, **amber** when an empty seat is where a still-unmet counter belongs; Ogas who could counter a tell wear a COUNTER badge in the tray. Tap a seat, then an Oga (or just tap an Oga: it takes the seat a tell wants). Approach cards (QUIET / LOUD / OCTOPUS BRAIN) state what they do in one line and mark the job's favourite. Known combos glow gold as they form. Gun chips open the armory. GO always says *why* it is disabled.
@@ -114,7 +114,7 @@ Pace (unhurried, bot never taps): a full PLAY with a HIT ONE MORE ≈ 65 s from 
 
 ## 7. Google QA handoff packet
 
-**Build**: branch `frag/showdown-core/play-sandbox-001` → `assets/f01/play/index.html` (see the SHA in the return message). Serve with `node tools/serve-play.mjs`, open on a phone-sized viewport (360 / 390 / 430) and once at desktop width.
+**Build**: branch `frag/showdown-core/play-sandbox-001` → `assets/f01/play/index.html` (see the SHA in the return message). Serve with `node tools/tests/f01/play-sim/serve-play.mjs`, open on a phone-sized viewport (360 / 390 / 430) and once at desktop width.
 
 **Please verify** (expected in parentheses):
 

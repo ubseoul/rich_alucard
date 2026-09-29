@@ -5,7 +5,7 @@ import {createRequire} from 'node:module';import fs from 'node:fs';import path f
 const here=path.dirname(fileURLToPath(import.meta.url));
 const require=createRequire(process.env.RA_PLAYWRIGHT_PATH||'/opt/node22/lib/node_modules/');
 const {chromium}=require('playwright');
-import {serve} from '../../../serve-play.mjs';
+import {serve} from './serve-play.mjs';
 const arg=(k,d)=>{const i=process.argv.indexOf('--'+k);return i>=0?process.argv[i+1]:d;};
 const PLAYS=+arg('plays',6),WIDTHS=arg('widths','390').split(',').map(Number),POLICY=arg('policy','careful'),SHOTS=arg('shots',''),SEED=+arg('seed',4242),PORT=+arg('port',8123),FAST=arg('fast','0.04'),OUT=arg('out','');
 const NOHURRY=arg('noHurry','')==='1';
