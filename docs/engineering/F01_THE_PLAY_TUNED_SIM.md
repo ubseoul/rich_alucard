@@ -7,6 +7,30 @@ The sim and the browser sandbox now run **one engine** (`js/frag/F01/play/engine
 
 Matrix: 10 job specs × 20 seeds × 4 policies (careful / greedy / naive / random) = 800 PLAYs; careers: 40 careers × 24 nights per policy on the new world layer (nights, captives + EXTRACT clock, RANSOM, turning v1, line memory).
 
+## 00. OL-022 — FALL BACK v1 (HOLD THE HOUSE) and the T2 bands
+
+T2 is now judged in three bands (OL-022). FALL BACK is the defense-only last-stand exit: HOLD THE HOUSE / defense only (never routine offense, never BIG PLAY) · crew at start ≥ 2 · exactly 1 able Oga and ≥ 1 downed · nobody already dead · before the resolution phase · automatic. 0 able stays the WASH-equivalent defense loss. Outcome: the house resolves BREACHED, the raid product is lost, banked money untouched, 0 captures, 0 deaths, the downed come home WOUNDED, base HEAT only, own state (`fellBack` / klass `FELL_BACK` / getaway `FALL_BACK`) — never BAILED / ROBBED / JUGGED, and separate in stats, telemetry, lines (`fallback:line`, 8 variants) and the report card. Headline: **FELL BACK — THE HOUSE IS HIT, THE CREW ISN'T**. Predicate: `engine.mjs › fallBackEligible`.
+
+| metric | OL-020 | OL-022 | target | |
+|---|---|---|---|---|
+| T2 routine offense | 5.5% | **5.5%** | ≤ 8% | ✔ |
+| T2 BIG PLAY | 20.0% | **20.0%** | ≤ 20% | ✔ (at the line) |
+| T2 HOLD THE HOUSE | 26.3% | **6.3%** | ≤ 8% | ✔ |
+| T2 global (informational) | 9.0% | 7.0% | — | |
+| T1 generic death | 10.8% | **10.4%** | 10–12% | ✔ |
+| T3 SPLIT | 5.9% | 5.9% | 4–6% | ✔ |
+| T5 player-attributable | 35.7% | **36.3%** | ≥ 35% | ✔ |
+| T13 careful / naive / gap | 83.5 / 67.5 / 16.0 | **83.0 / 67.0 / 16.0** | 70–85 / 55–70 / ≥ 12 | ✔ |
+| strict-call gap | 0.55 | 0.54 | ≥ 0.4 | ✔ |
+| R1 random mean / ≥ 6 / worst | 8.30 / 100% / 6 | **8.25 / 100% / 6** | ≥ 95% ≥ 6, worst ≥ 4 | ✔ |
+| R1 careful ≥ 6 | 100% | 100% | 100% | ✔ |
+| T9 repeats within 3 PLAYs | 0 | **0** of 73,635 (182 triggers all pool > 3 × max) | 0 | ✔ |
+| HOLD careful / naive win | — | **90.0% / 65.0%** (greedy 5.0%, random 50.0%; n = 20 each) | — | |
+
+HOLD FALL BACK rate by policy: careful 5.0% · naive 30.0% · greedy 45.0% · random 40.0% (30.0% overall; WASH 8.8%). Invariants: 0 violations over 39 FELL BACK PLAYs; 0 BAILED on defense. `tools/tests/f01/fallback.test.mjs` (15 requirement groups, 1,000 PLAYs, 27 FELL BACK) — **invariant violations: 0**. Note a FELL BACK HOLD is a non-win (the win-rate figures above count only HELD / COSTLY). The HOLD sample is 20 PLAYs per policy; treat those win rates as directional.
+
+BIG PLAY presentation: the pitch card carries a gold BIG PLAY tag, and the CAR screen shows a BIG PLAY plate + a crew line about the stakes before GO (no percentages; J.1 unchanged — a named Oga lost on a BIG PLAY is GONE, never DEAD). The gate board ships no BIG PLAY, so a QA-only hook offers it: `?devbig=1` or ☰ → DEV MODE → OFFER THE BIG PLAY, or `window.__raPlay.forceBig()`.
+
 ## 0. OL-020 correction pass (supersedes §1 and §3.1 where they differ)
 
 BAILED is **RATIFIED WITH BOUNDS** (canonical v1). One predicate owns it (`engine.mjs › bailEligible`): routine OFFENSE PLAY only (never BIG PLAY, never HOLD THE HOUSE) · crew at start ≥ 2 · **exactly 1** able Oga and ≥ 1 downed · nobody already dead · GETAWAY has not begun · automatic (no player call). 0 able is a WASH, always. Outcome: the unbanked pot is lost, banked money untouched, 0 captures, 0 deaths, the downed come home WOUNDED, job base HEAT only, no retaliation credit, own state (never robbed / ROBBED / JUGGED). The bailer gets one CREW BOOK memory, **GOT EVERYBODY OUT** (no stat, no XP). Headline everywhere: **BAILED — NOBODY LEFT BEHIND**. T9 pools resized (181 triggers, every pool > 3 × its max uses in one PLAY; 116 genuinely new lines; no Rich lines).

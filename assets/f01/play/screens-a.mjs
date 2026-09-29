@@ -7,6 +7,7 @@ import {S,plate,setScreen,hud,saveWorld,statusLabel} from './ui-state.mjs';
 import {carSVG,CAR_SEAT_POS,carNote,lootIcon,gunIcon} from './faces.mjs';
 import * as SFX from './sfx.mjs';
 
+const BIG_LINE={tunde:'[stops chewing] this is the one we don’t all get back from.',dre:'ok so this is the one where I say “we’re good” and mean a little less of it',half_pint:'everybody knows what this costs, right. I’m asking for me.',sunday_best:'We are not paid enough to be sentimental. We are about to be.',young_mazi:'it’s literally fine. (it is the least fine it has ever been)',auntie_grit:'Nobody here is promised. Sit up straight and come back anyway.',_:'I’ll go. Somebody remember that I went.'};
 const UGLY={EASY:1,TOUGH:2,NASTY:3,'BIG PLAY':4};
 const oga=(w,id)=>w.roster.find(o=>o.id===id);
 const TW=k=>C.TRAIT_WORD[k]||k;
@@ -17,7 +18,7 @@ export function pitchCardHTML(w,p,k){
  const job=p.job,card=p.card,who=oga(w,p.pitcher)||{id:p.pitcher,short:p.pitcher};
  const ready=W.readyOnes(w).length;const need=job.size[0];const locked=ready<need;
  const dots=[1,2,3,4].map(i=>`<i class="${i<=(UGLY[job.ugly]||2)?'on':''}"></i>`).join('');
- const kind=p.extract?'<span class="tag cyan">EXTRACT · FREE</span>':p.notice?'<span class="tag red">RETALIATION · NO APPOINTMENT</span>':job.shape==='TAKE THE BLOCK'?'<span class="tag pink">LOUD</span>':'<span class="tag green">QUIET</span>';
+ const kind=p.extract?'<span class="tag cyan">EXTRACT · FREE</span>':job.bigPlay?'<span class="tag gold">BIG PLAY · NAMED OGAS CAN BE LOST FOR GOOD</span>':p.notice?'<span class="tag red">RETALIATION · NO APPOINTMENT</span>':job.shape==='TAKE THE BLOCK'?'<span class="tag pink">LOUD</span>':'<span class="tag green">QUIET</span>';
  return `<div class="card pitch ${locked?'locked':''} ${p.notice?'notice':''}" data-k="${k}" role="button" tabindex="0" aria-label="${esc(card.name)}">
   <div class="quote">${plate(who,{},'lg')}<div class="bubble"><span class="who">${esc(who.short||'')}</span>${esc(p.quote)}</div></div>
   <div class="jobbody">
@@ -119,7 +120,10 @@ export function carScreen(pr){
       <span class="tr">${esc(TW(o.traits[0]))}${o.traits[1]?' · '+esc(TW(o.traits[1])):''}${o.scars[0]?`<br>${esc(o.scars[0])}`:''}</span>
       <span class="ne"><span class="zone ${zoneKey(z)}"></span>${z}</span>
       <button class="gunbtn" data-gun="${o.id}">${gunIcon(11)} ${esc(g.name)}</button></div>`;}).join('');
-   sc.innerHTML=`<div class="h1">${esc(P.jobName)}</div>
+   const seatedNamed=placed().map(id=>avail.find(o=>o.id===id)).filter(o=>o&&o.named);
+   const voice=seatedNamed[0]||avail.find(o=>o.named)||avail[0];
+   const bigHTML=job.bigPlay?`<div class="bigplay"><span class="tag gold">BIG PLAY</span><b>Everybody who goes is on the line.</b> A named Oga who falls here can be <b>GONE</b> for good. Nobody is coming to get them.<div class="greedq" style="margin-top:8px">${plate(voice)}<div class="bubble"><span class="who">${esc(voice.short)}</span>${esc(BIG_LINE[voice.id]||BIG_LINE._)}</div></div></div>`:'';
+   sc.innerHTML=`<div class="h1">${esc(P.jobName)}</div>${bigHTML}
     <div class="dim small" style="margin-bottom:6px">${esc(job.tell)}. ${castle?'They are coming to you.':''}</div>
     ${carTabs}
     ${tellHTML}
@@ -189,7 +193,7 @@ export function carScreen(pr){
 }
 
 // ---------------------------------------------------------------------------------------------------------------- menu / crew book
-export function menuPanel({onReset,onHold}){
+export function menuPanel({onReset,onHold,onBig}){
  const w=S.w;const p=prefs.get();
  const roster=w.roster.map(o=>{const g=C.GUNS[o.gun]||C.GUNS.pistol;const cd=o.perks.filter(x=>x&&!String(x).startsWith('saved:'));
   return `<div class="ent ${o.status!=='READY'?'away':''}">${plate(o,{state:o.status==='READY'?'UP':'DOWN'},'lg')}<div class="txt"><b>${esc(o.name)}${o.nick?` · “${esc(o.nick)}”`:''}</b>${esc(o.cls)} · ${o.vampire?'VAMPIRE':'HUMAN'} · ${esc(traitLine(o))}<br>${esc(g.name)} [${esc(g.role)}] · ${esc(statusLabel(o,w))}${o.scars.length?'<br>'+esc(o.scars.join(', ')):''}${cd.length?'<br><span class="dim">'+cd.map(x=>esc(String(x).replace(/_/g,' '))).join(' · ')+'</span>':''}<br><span class="dim">${o.plays||0} PLAYs</span></div></div>`;}).join('');
@@ -206,7 +210,7 @@ export function menuPanel({onReset,onHold}){
   <button class="switch ${p.sound?'on':''}" data-sw="sound">SOUND (placeholder synth)<i></i></button>
   <button class="switch ${p.calm?'on':''}" data-sw="calm">NIGHT MODE (dim, frozen motion)<i></i></button>
   <button class="switch ${p.dev?'on':''}" data-sw="dev">DEV MODE (seed, log, telemetry)<i></i></button>
-  ${p.dev?`<div class="devbox" id="devbox">${esc(JSON.stringify({seed:w.seed,night:w.night,plays:w.plays,counter:counter.get().plays,tele:tele.summary()},null,1))}</div><button class="btn ghost sm" id="copytele">COPY TELEMETRY JSON</button><button class="btn ghost sm" id="forcehold" style="margin-top:8px">DEV · MAKE TONIGHT “HOLD THE HOUSE”</button>`:''}
+  ${p.dev?`<div class="devbox" id="devbox">${esc(JSON.stringify({seed:w.seed,night:w.night,plays:w.plays,counter:counter.get().plays,tele:tele.summary()},null,1))}</div><button class="btn ghost sm" id="copytele">COPY TELEMETRY JSON</button><button class="btn ghost sm" id="forcehold" style="margin-top:8px">DEV · MAKE TONIGHT “HOLD THE HOUSE”</button><button class="btn ghost sm" id="forcebig" style="margin-top:8px">DEV · OFFER THE BIG PLAY TONIGHT</button>`:''}
   <div class="h2">THE UBE GATE</div>
   <div class="mnote" style="color:var(--ink);font-size:14px">Did you immediately want to run another PLAY?</div>
   <div class="row"><button class="btn good sm" data-gate="YES">YES</button><button class="btn ghost sm" data-gate="MAYBE">MAYBE</button><button class="btn danger sm" data-gate="NO">NO</button></div>
@@ -218,8 +222,9 @@ export function menuPanel({onReset,onHold}){
   <div class="dock"><button class="btn primary" id="closemenu">BACK TO THE NIGHT</button></div></div>`);
  $('#stage').appendChild(el);
  tap($('#closemenu',el),()=>{el.remove();S.menuOpen=false;});
- $$('[data-sw]',el).forEach(b=>tap(b,()=>{const k=b.dataset.sw;const v=!prefs.get()[k];prefs.set({[k]:v});b.classList.toggle('on',v);applyPrefs();if(k==='dev'){el.remove();S.menuOpen=false;menuPanel({onReset,onHold});S.menuOpen=true;}}));
+ $$('[data-sw]',el).forEach(b=>tap(b,()=>{const k=b.dataset.sw;const v=!prefs.get()[k];prefs.set({[k]:v});b.classList.toggle('on',v);applyPrefs();if(k==='dev'){el.remove();S.menuOpen=false;menuPanel({onReset,onHold,onBig});S.menuOpen=true;}}));
  $$('[data-gate]',el).forEach(b=>tap(b,()=>{tele.log('GATE_Q',{a:b.dataset.gate,plays:counter.get().plays,m2p:tele.summary().medianMorningToPitchTapMs});$('#gateans',el).textContent='Logged: '+b.dataset.gate;},'select'));
+ const fbg=$('#forcebig',el);if(fbg)tap(fbg,()=>onBig&&onBig(),'go');
  const fh=$('#forcehold',el);if(fh)tap(fh,()=>onHold&&onHold(),'go');
  const ct=$('#copytele',el);if(ct)tap(ct,()=>{try{navigator.clipboard.writeText(JSON.stringify({summary:tele.summary(),events:tele.events},null,1));toast('Copied.');}catch(e){toast('Copy blocked — use window.__raPlay.tele');}});
  tap($('#reset',el),()=>{if(confirm('Wipe this career and start a new one?')){onReset();}},'deny');

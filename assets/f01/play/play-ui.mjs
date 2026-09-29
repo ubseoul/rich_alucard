@@ -12,8 +12,8 @@ import * as SFX from './sfx.mjs';
 const oga=id=>S.w.roster.find(o=>o.id===id)||S.curRoster&&S.curRoster.find(o=>o.id===id);
 const STAGE_PIPS=['ENTRY','CONTACT','TROUBLE','PRIZE','GETAWAY'];
 const MOM_IC={CLUTCH:'★',FUNNY:'☺',SCARY:'▲',WARM:'♥',STUPID:'✖',DRAMATIC:'!'};
-const KLASS_HEAD={CLEAN:'CLEAN WIN',MESSY:'A WIN WITH A STORY',COSTLY:'A WIN — AND IT COST',FOLDED:'FOLDED — WALKED AWAY WITH SOMETHING',GREED:'GREED — JUGGED',ROBBED:'JUGGED ON THE WAY BACK',BAILED:'BAILED — NOBODY LEFT BEHIND',WASH:'WASH'};
-const KLASS_TONE={CLEAN:'win',MESSY:'win',COSTLY:'mid',FOLDED:'mid',GREED:'lose',ROBBED:'lose',BAILED:'mid',WASH:'lose'};
+const KLASS_HEAD={CLEAN:'CLEAN WIN',MESSY:'A WIN WITH A STORY',COSTLY:'A WIN — AND IT COST',FOLDED:'FOLDED — WALKED AWAY WITH SOMETHING',GREED:'GREED — JUGGED',ROBBED:'JUGGED ON THE WAY BACK',BAILED:'BAILED — NOBODY LEFT BEHIND',FELL_BACK:'FELL BACK — THE HOUSE IS HIT, THE CREW ISN\'T',WASH:'WASH'};
+const KLASS_TONE={CLEAN:'win',MESSY:'win',COSTLY:'mid',FOLDED:'mid',GREED:'lose',ROBBED:'lose',BAILED:'mid',FELL_BACK:'mid',WASH:'lose'};
 const VERB_SUB={TALK:'talk your way through',BUST:'go loud, right through',SNEAK:'slip past, quiet',PAY:'cash out of Rich’s pocket',PUSH:'no slowing down',FOLD:'call it off — walk with something',SAVE:'somebody is down',PULL_UP:'Rich steps out of the car. Once a night.'};
 let SC=null,T=null,late={};
 
@@ -109,7 +109,7 @@ async function playBeat(d){
  await wait(500);
 }
 async function playEnd(d){
- const map={FOLD:['FOLD','You called it off. Everybody walks.','cyan'],WASH:['WASH','Nobody is left standing.','red'],BAIL:['BAILED — NOBODY LEFT BEHIND','The last one standing gets everybody out.','gold']}[d.kind]||['END','','pink'];
+ const map={FOLD:['FOLD','You called it off. Everybody walks.','cyan'],WASH:['WASH','Nobody is left standing.','red'],FALLBACK:['FELL BACK — THE HOUSE IS HIT, THE CREW ISN\'T','The last one standing gets the crew out of the halls.','gold'],BAIL:['BAILED — NOBODY LEFT BEHIND','The last one standing gets everybody out.','gold']}[d.kind]||['END','','pink'];
  updateCrew(d.snap);
  SC.feed.insertAdjacentHTML('beforeend',`<div class="cardtxt" style="border-left-color:var(--${map[2]==='gold'?'gold':map[2]==='red'?'red':'cyan'})"><small>${map[0]}</small>${esc(d.line||map[1])}</div>`);
  SFX.play(d.kind==='FOLD'?'freeze':'lose');await wait(2200);
@@ -308,7 +308,7 @@ function reportScreen(out,rec,job,sel){
   const losses=(rp.losses||[]).filter(l=>l.kind!=='WOUNDED'||rp.losses.length<3).map(l=>{const c=l.cause||{};const yours=YOURS.has(c.c);const who=l.who&&oga(l.who)?oga(l.who).short:'';
    return `<div class="loss ${yours?'you':''}"><b>${esc(l.kind)}</b> — ${esc(l.text)}${c.t?`<span class="why"><b>${esc(c.c)}</b>because ${esc(c.t)}</span>`:''}${yours&&TRY[c.c]?`<span class="try">${esc(TRY[c.c](c))}</span>`:!yours&&c.c==='ENEMY'?'<span class="try">Every enemy trick has a counter on the CAR screen.</span>':''}</div>`;}).join('');
   const lines=(rp.lines||[]).filter((l,i)=>i>0&&(/^(MVP|NO SCRATCH|FOLD)/.test(l)||rp.turnMoment&&l===rp.turnMoment)).map(l=>`<div class="line ${/^NO SCRATCH/.test(l)?'green':/^MVP/.test(l)?'gold':''}">${esc(l)}</div>`).join('');
-  const banked=rp.klass==='BAILED'?'THE POT STAYED BEHIND · what you already banked is safe':rp.win?`BANKED $${Math.round(rp.cash)}K + ${rp.crates} crate${rp.crates===1?'':'s'} · street value ~$${rp.final}K`:'NOTHING BANKED'+(rp.pocketLoss?` · −$${rp.pocketLoss}K from Rich’s pocket`:'');
+  const banked=rp.klass==='FELL_BACK'?'THE RAID PRODUCT IS GONE · what you already banked is safe':rp.klass==='BAILED'?'THE POT STAYED BEHIND · what you already banked is safe':rp.win?`BANKED $${Math.round(rp.cash)}K + ${rp.crates} crate${rp.crates===1?'':'s'} · street value ~$${rp.final}K`:'NOTHING BANKED'+(rp.pocketLoss?` · −$${rp.pocketLoss}K from Rich’s pocket`:'');
   const replay=out.log.map(l=>`<div class="r"><b>${esc(l.stage)}</b>${esc(l.text)}${l.opt&&l.opt!=='DEFAULT'?` <span class="tag cyan">CALL ${esc(l.opt)}</span>`:''}${l.smartVerb&&l.opt!==l.smartVerb&&l.smart?`<br><span class="dim">the angle was: ${esc(l.smart)}</span>`:''}${l.moments.map(m=>`<br>· ${esc(m)}`).join('')}</div>`).join('');
   const dev=prefs.get().dev&&rec.script?`<details class="replay"><summary>ENGINE LOG (dev)</summary><div class="devbox">${esc(rec.script.map(s=>'['+s.sec+'] '+s.line).join('\n'))}</div></details>`:'';
   const el=h(`<div class="screen" id="report"><div class="scroll">
@@ -426,17 +426,18 @@ export async function boot(){
  if(q.get('fresh')==='1'){store.del('world');store.del('tele');store.del('lastCrew');store.del('counter');try{const u=new URL(location.href);u.searchParams.delete('fresh');history.replaceState(null,'',u.toString());}catch(e){}}
  if(q.get('dev')==='1')prefs.set({dev:true});
  if(q.get('calm')==='1')prefs.set({calm:true});
+ if(q.get('devbig')==='1'){const w0=store.get('world',null);if(w0){w0.devBig=true;store.set('world',w0);}}
  if(q.get('mute')==='1')prefs.set({sound:false});
  if(q.get('fast')){pace.speed=+q.get('fast')||0.05;}
  const seed=q.get('seed')?+q.get('seed'):(Math.floor(Math.random()*90000)+1000);
  let w=store.get('world',null);if(!w||w.v!==1){w=W.newWorld(seed);w.v=1;}
  S.w=w;applyPrefs();hud();
- $('#hud').addEventListener('click',e=>{if(e.target.closest('#menubtn')){SFX.unlock();SFX.play('tap');if(S.menuOpen)return;S.menuOpen=true;menuPanel({onReset:resetCareer,onHold:forceHold});}});
+ $('#hud').addEventListener('click',e=>{if(e.target.closest('#menubtn')){SFX.unlock();SFX.play('tap');if(S.menuOpen)return;S.menuOpen=true;menuPanel({onReset:resetCareer,onHold:forceHold,onBig:forceBig});}});
  window.addEventListener('keydown',e=>{if(e.key==='Escape'){const m=$('.menu-panel');if(m){m.remove();S.menuOpen=false;}}});
  // dev bar
  app.insertAdjacentHTML('beforeend',`<div class="devbar ${prefs.get().dev?'':'hidden'}" id="devbar"></div>`);
  setInterval(()=>{const d=$('#devbar');if(d&&!d.classList.contains('hidden'))d.textContent=`seed ${S.w.seed} · night ${S.w.night} · plays ${counter.get().plays} · M2P ${JSON.stringify(tele.summary().morningToPitchTapMs.slice(-3))}`;},500);
- window.__raPlay={S,W,E,C,tele,counter,store,SFX,pace,replayCheck,forceHold,boot:null,get scene(){return SC;},get trunk(){return T;}};
+ window.__raPlay={S,W,E,C,tele,counter,store,SFX,pace,replayCheck,forceHold,forceBig,boot:null,get scene(){return SC;},get trunk(){return T;}};
  if(!(counter.get().plays>0||w.night>0))await splash();
  try{await mainLoop();}catch(err){
   console.error(err);tele.log('ERROR',{msg:String(err&&err.stack||err)});
@@ -446,6 +447,9 @@ export async function boot(){
 
 // QA helper: make tonight's pitch board the HOLD THE HOUSE raid (also in the menu under DEV MODE)
 export function forceHold(){S.w.pending={night:S.w.night,kind:'HOLD'};saveWorld();location.reload();}
+
+// QA helper: offer the BIG PLAY on the board (dev only) so its stakes presentation can be inspected
+export function forceBig(){S.w.devBig=true;S.board=null;if(S.w.ui)S.w.ui.used=false;saveWorld();location.reload();}
 
 // deterministic replay: rerun the last PLAY headlessly from its recorded answers and compare the outcome
 export function replayCheck(){

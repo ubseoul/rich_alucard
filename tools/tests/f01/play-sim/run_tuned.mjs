@@ -97,6 +97,23 @@ console.log('temptations',JSON.stringify(PM.temptation));
  console.log('T2 named CAPTURED by job:',JSON.stringify(byJob),'| routine offense only',pct(cap(routine)),'| BIG PLAY + HOLD only',pct(cap(primary.filter(r=>bigIds.has(r.job)||defIds.has(r.job)))));
  console.log('WASH rate by job class: routine',pct(routine.filter(r=>r.klass==='WASH').length/routine.length),'| BIG PLAY + HOLD',pct(primary.filter(r=>bigIds.has(r.job)||defIds.has(r.job)).filter(r=>r.klass==='WASH').length/primary.filter(r=>bigIds.has(r.job)||defIds.has(r.job)).length));
  }
+ {
+ const cap2=(recs)=>recs.length?recs.filter(r=>r.namedCaptured>0).length/recs.length:0;
+ const routine=primary.filter(r=>!bigIds.has(r.job)&&!defIds.has(r.job)),big=primary.filter(r=>bigIds.has(r.job)),hold=primary.filter(r=>defIds.has(r.job));
+ console.log('OL-022 T2 BANDS: routine offense',pct(cap2(routine)),'(target <=8%) | BIG PLAY',pct(cap2(big)),'(target <=20%) | HOLD THE HOUSE',pct(cap2(hold)),'(target <=8%)');
+ const wr=(recs,pol)=>{const a=recs.filter(r=>r.policy===pol);return a.length?a.filter(r=>r.win).length/a.length:0;};
+ console.log('HOLD THE HOUSE win rate: careful',pct(wr(hold,'careful')),'naive',pct(wr(hold,'naive')),'greedy',pct(wr(hold,'greedy')),'random',pct(wr(hold,'random')),'| n',hold.length,'| FELL BACK rate',pct(hold.filter(r=>r.fellBack).length/hold.length),'| WASH rate',pct(hold.filter(r=>r.klass==='WASH').length/hold.length));
+ const fb=[...primary,...allCareerRecs].filter(r=>r.fellBack),fbBad=[];
+ for(const r of fb){const fs=Object.values(r.finalStatus);
+  if(!defIds.has(r.job))fbBad.push('FALL BACK outside defense');if(bigIds.has(r.job))fbBad.push('FALL BACK on BIG PLAY');
+  if(r.bailed)fbBad.push('BAILED contamination');if(r.robbed)fbBad.push('robbed set');if(r.losses.some(l=>l.kind==='ROBBED'||l.kind==='BAILED'))fbBad.push('ROBBED/BAILED loss entry');
+  if(r.crew.length<2)fbBad.push('crew<2');if(r.getaway!=='FALL_BACK')fbBad.push('getaway kind '+r.getaway);if(r.klass!=='FELL_BACK'||r.win)fbBad.push('klass/win');
+  if(fs.some(x=>['CAPTURED','DEAD','GONE','SHOT'].includes(x)))fbBad.push('capture/death/shot');
+  if(r.pot.cash||r.pot.crates.length)fbBad.push('product survived');if(r.heatDelta!==(JOBS.find(j=>j.id===r.job)||{}).heat)fbBad.push('heat');}
+ const bailedOnDefense=[...primary,...allCareerRecs].filter(r=>r.bailed&&defIds.has(r.job)).length;
+ console.log('FALL BACK by policy (HOLD matrix):',POLICY_NAMES.map(pl=>pl+' '+pct(hold.filter(r=>r.policy===pl&&r.fellBack).length/Math.max(1,hold.filter(r=>r.policy===pl).length))).join(' | '),'| careers all',fb.filter(r=>!primary.includes(r)).length,'FELL BACK PLAYs');
+ console.log('FALL BACK invariants (defense only, never offense/BIG PLAY, not BAILED/ROBBED, 0 capture/death/shot, product lost, base heat, exact klass):',fbBad.length?'VIOLATIONS '+JSON.stringify([...new Set(fbBad)]):'0 violations over '+fb.length+' FELL BACK PLAYs','| BAILED on defense:',bailedOnDefense);
+ }
  // T9 pool sizing
  const maxUse={};for(const r of [...primary,...allCareerRecs]){const c={};for(const id of (r.lineLog||[])){const k=id.split('#')[0];c[k]=(c[k]||0)+1;}for(const [k,v] of Object.entries(c))maxUse[k]=Math.max(maxUse[k]||0,v);}
  const short=Object.entries(maxUse).filter(([k,m])=>(LINES[k]||[]).length<=3*m).map(([k,m])=>k+' pool '+(LINES[k]||[]).length+' <= 3x'+m);

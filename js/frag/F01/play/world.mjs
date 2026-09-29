@@ -98,6 +98,8 @@ export function gateBoard(w){
   const intel=w.intel.find(x=>x.job===id);
   pitches.push({job:j,pitcher:pid,nameIdx:(w.night+pitches.length)%j.names.length,intel:!!intel});
  }
+ // QA only (?devbig=1 / DEV MODE): the BIG PLAY is offered so the stakes presentation can be inspected. Off by default; the gate board ships 3 jobs.
+ if(w.devBig&&avail.length>=4){const bj=BIG();const pid=bj.pitchers.find(p=>avail.some(o=>o.id===p))||avail.find(o=>o.named&&C.PITCH_LINES[o.id]).id;pitches.push({job:bj,pitcher:pid,nameIdx:w.night%bj.names.length,intel:false});}
  return {notice:false,pitches};
 }
 

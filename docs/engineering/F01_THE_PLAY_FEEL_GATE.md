@@ -134,6 +134,9 @@ Send back: any console output, the telemetry JSON (`☰ → COPY TELEMETRY JSON`
 ### Google adversarial additions (OL-020)
 Try to force BAILED in: (1) BIG PLAY — impossible; (2) HOLD THE HOUSE — impossible (`forceHold()`); (3) 0 able Ogas — always WASH; (4) once GETAWAY has begun — impossible. On every BAILED verify: never ROBBED / JUGGED; banked cash unchanged; unbanked pot gone; 0 captures / 0 deaths; downed Ogas WOUNDED; headline exactly *BAILED — NOBODY LEFT BEHIND*; GOT EVERYBODY OUT appears once (morning pill + crew book) and changes no stat.
 
+### Google adversarial additions (OL-022 — FALL BACK)
+Attack: (1) FALL BACK at 0 able — must be WASH, never FALL BACK; (2) BAILED on HOLD — impossible; (3) FALL BACK on offense — impossible; (4) FALL BACK on BIG PLAY (`forceBig()`) — impossible; (5) state isolation on a FELL BACK card: headline exactly *FELL BACK — THE HOUSE IS HIT, THE CREW ISN'T*, no BAILED text, no GOT EVERYBODY OUT memory, never ROBBED / JUGGED, raid product gone, banked cash unchanged, 0 captures / 0 deaths, downed WOUNDED. Force a raid with `window.__raPlay.forceHold()`; FALL BACK fired in about 30% of HOLD PLAYs in the sim (naive / random crews most).
+
 ## 8. Recommendation for the Ube feel gate
 
 **Proceed, after Google QA clears item 3 and 6 — with three things named up front.**

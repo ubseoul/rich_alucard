@@ -41,7 +41,8 @@ export async function runBot(browser,width,opts){
  const page=await ctx.newPage();const errs=[];
  page.on('console',m=>{if(m.type()==='error')errs.push('console: '+m.text());});page.on('pageerror',e=>errs.push('pageerror: '+e.message));
  page.on('response',r=>{if(r.status()>=400&&!/favicon/.test(r.url()))errs.push('HTTP '+r.status()+' '+r.url());});
- await page.goto(`http://localhost:${PORT}/assets/f01/play/index.html?fresh=1&seed=${opts.seed}&fast=${FAST}&mute=0`);
+ await page.addInitScript(()=>{window.__botWantBig=new URLSearchParams(location.search).get('wantbig')==='1'||false;});
+ await page.goto(`http://localhost:${PORT}/assets/f01/play/index.html?fresh=1&seed=${opts.seed}&fast=${FAST}&mute=0${opts.big?'&wantbig=1':''}`);
  const stats={width,leaks:[],replays:[],plays:0,screens:new Set(),jobs:{},klass:{},calls:0,replay:[],stuck:false,overflow:[]};
  let lastKind='',same=0,t0=Date.now();
  const deadline=Date.now()+(opts.timeoutMs||240000);
@@ -57,6 +58,8 @@ export async function runBot(browser,width,opts){
   if(k==='tip'){await page.click('.tip [data-ok]');continue;}
   if(k==='splash'){await page.click('.splash #start');continue;}
   if(k==='pitch'&&opts.trim&&!stats.trimmed){stats.trimmed=true;try{await page.evaluate(n=>{const P=window.__raPlay;const w=P.S.w;while(w.roster.length>n){const i=w.roster.findIndex(o=>!o.named);if(i<0)break;w.roster.splice(i,1);}P.store.set('world',w);location.reload();},opts.trim);}catch(e){}await page.waitForTimeout(700);continue;}
+  if(k==='pitch'&&opts.big&&!stats.bigged){stats.bigged=true;PFX='big_';try{await page.evaluate(()=>window.__raPlay.forceBig());}catch(e){}await page.waitForTimeout(700);continue;}
+  if(k==='pitch'&&opts.holdEvery){const has=await page.evaluate(()=>!!document.querySelector('.card.notice'));const pl=await page.evaluate(()=>window.__raPlay.counter.get().plays);if(!has&&stats.lastForce!==pl&&pl<wantPlays){stats.lastForce=pl;try{await page.evaluate(()=>window.__raPlay.forceHold());}catch(e){}await page.waitForTimeout(700);continue;}}
   if(k==='pitch'&&opts.hold&&!stats.held){stats.held=true;PFX='hold_';try{await page.evaluate(()=>window.__raPlay.forceHold());}catch(e){}await page.waitForTimeout(700);continue;}
   if(k==='pitch'){
    const plays=await page.evaluate(()=>window.__raPlay.counter.get().plays);
@@ -64,6 +67,7 @@ export async function runBot(browser,width,opts){
    const idx=await page.evaluate(pol=>{const cs=[...document.querySelectorAll('#pitch .card.pitch')];const ok=cs.map((c,i)=>[c,i]).filter(([c])=>!c.classList.contains('locked'));
      if(!ok.length)return -1;
      const ext=ok.find(([c])=>c.textContent.includes('EXTRACT'));if(ext)return ext[1];
+     const bg=ok.find(([c])=>c.textContent.includes('BIG PLAY'));if(bg&&window.__botWantBig)return bg[1];
      const notice=ok.find(([c])=>c.classList.contains('notice'));if(notice)return notice[1];
      return ok[Math.floor(Math.random()*ok.length)][1];},POLICY);
    if(idx<0){await page.evaluate(()=>{const b=document.querySelector('#laylow');if(b)b.click();});await page.waitForTimeout(50);continue;}
@@ -115,7 +119,7 @@ export async function runBot(browser,width,opts){
   if(k==='turn'){await page.click(Math.random()<.5?'#turn':'#letgo');continue;}
   if(k==='gun'){await page.click('#trunk [data-g]');continue;}
   if(k==='count'){await page.click('#count');continue;}
-  if(k==='report'){stats.playMs=(stats.playMs||[]);stats.playMs.push(await page.evaluate(()=>{const e=window.__raPlay.tele.events.filter(x=>x.ev==='PLAY_START').pop();return Date.now()-e.t;}));const rc=await page.evaluate(()=>window.__raPlay.replayCheck());stats.replays.push(rc.ok);await page.click('#rc');stats.plays++;continue;}
+  if(k==='report'){stats.playMs=(stats.playMs||[]);stats.playMs.push(await page.evaluate(()=>{const e=window.__raPlay.tele.events.filter(x=>x.ev==='PLAY_START').pop();return Date.now()-e.t;}));const rc=await page.evaluate(()=>window.__raPlay.replayCheck());stats.replays.push(rc.ok);await page.click('#rc');stats.plays++;stats.klasses=(stats.klasses||[]);stats.klasses.push(await page.evaluate(()=>{const e=window.__raPlay.tele.events.filter(x=>x.ev==='PLAY_END').pop();return e&&e.klass;}));continue;}
   if(k==='morning'){await page.waitForTimeout(400);await shot(page,'morning_settled',width);await page.click('#nextnight');continue;}
   if(k==='turned'){await page.waitForTimeout(100);continue;}
   if(k==='scene'&&SHOTS&&!seen.has(PFX+'scene_beat@'+width)){await page.waitForTimeout(+arg('sceneWait',1500));await shot(page,'scene_beat',width);}
@@ -140,7 +144,7 @@ export async function runBot(browser,width,opts){
 const srv=await serve(PORT);
 const browser=await chromium.launch({executablePath:CHROME,args:['--no-sandbox']});
 const results=[];
-for(const w of WIDTHS)results.push(await runBot(browser,w,{seed:SEED,plays:PLAYS,hold:arg('hold','')==='1',trim:+arg('trim',0)}));
+for(const w of WIDTHS)results.push(await runBot(browser,w,{seed:SEED,plays:PLAYS,hold:arg('hold','')==='1',big:arg('big','')==='1',holdEvery:arg('holdEvery','')==='1',trim:+arg('trim',0)}));
 await browser.close();srv.close();
 for(const r of results)console.log(JSON.stringify(r));
 if(OUT)fs.writeFileSync(OUT,JSON.stringify(results,null,1));
