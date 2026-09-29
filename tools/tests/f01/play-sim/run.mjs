@@ -4,7 +4,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {stream} from './load.mjs';
-import {runPlay} from './sim.mjs';
+import {runPlay} from './driver.mjs';
 import * as C from './content.mjs';
 import {POLICY_NAMES} from './policy.mjs';
 import {runCareer,EMO,boardsOnly} from './campaign.mjs';

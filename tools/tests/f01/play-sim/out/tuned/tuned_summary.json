@@ -1,0 +1,2014 @@
+{
+ "T": {
+  "T1_genericDeath": {
+   "now": 0.10596026490066225,
+   "was": 0.249,
+   "target": "10–12%"
+  },
+  "T2_namedCaptured": {
+   "now": 0.0575,
+   "was": 0.18,
+   "target": "≤ 8%"
+  },
+  "T3_split": {
+   "now": 0.05375,
+   "was": 0.018,
+   "target": "4–6%",
+   "byCar": {
+    "SUPRA": 0.025157232704402517,
+    "URUS": 0.032388663967611336,
+    "HOOPTIE": 0.11524163568773234,
+    "S2000": 0,
+    "CASTLE": 0
+   }
+  },
+  "T4_hitOneMore": {
+   "steps": {
+    "1": {
+     "n": 2000,
+     "p": 0.748,
+     "before": 74.42030000000024,
+     "gainOnWin": 45.44582219251387,
+     "ev": 15.966199999999759,
+     "evRel": 0.2447478011821108
+    },
+    "2": {
+     "n": 1367,
+     "p": 0.5771762984637894,
+     "before": 120.42242136064382,
+     "gainOnWin": 77.8148922686946,
+     "ev": -7.837454279443999,
+     "evRel": -0.03183361896814556
+    },
+    "3": {
+     "n": 699,
+     "p": 0.3419170243204578,
+     "before": 191.99241773962805,
+     "gainOnWin": 95.26987447698745,
+     "ev": -93.58690987124467,
+     "evRel": -0.4786260877949885
+    }
+   },
+   "was": {
+    "1": {
+     "ev": 11.2,
+     "rel": 0.218
+    },
+    "2": {
+     "ev": -35.5,
+     "rel": -0.293
+    },
+    "3": {
+     "ev": -102.2,
+     "rel": -0.644
+    }
+   },
+   "target": "step1 +EV; step2 −10%..0% of pot & ~15% jackpot; step3 clearly negative + LEGENDARY on success"
+  },
+  "T5_playerAttributable": {
+   "now": 0.3583081570996979,
+   "was": 0.185,
+   "target": "≥ 35%"
+  },
+  "T9_lines": {
+   "uses": 72852,
+   "violationsIn3": 8,
+   "triggersSeen": 242,
+   "uncoveredTriggers": [],
+   "thinKeys": [],
+   "distinctLinesShown": 1299,
+   "shownTotal": 6940,
+   "topLineShare": 0.018011527377521614,
+   "top": [
+    [
+     "Tunde watched it all like a weather report — CALM",
+     125
+    ],
+    [
+     "Tunde stayed exactly as calm as Tunde was — CALM",
+     125
+    ],
+    [
+     "Tunde did not blink — CALM",
+     119
+    ],
+    [
+     "Tunde's shoulders never moved — CALM",
+     112
+    ],
+    [
+     "a door goes down first",
+     112
+    ],
+    [
+     "Sunday Best's pocket square stayed perfect through it — DRESSED TO KILL",
+     112
+    ],
+    [
+     "Tunde took a bite and the world got smaller — ALWAYS EATING",
+     110
+    ],
+    [
+     "Sunday Best killed a man in a clean shirt — DRESSED TO KILL",
+     97
+    ]
+   ]
+  },
+  "R1_retention": {
+   "careers": {
+    "careful": {
+     "careers": 40,
+     "plays": 987,
+     "rosterEnd": 8.7,
+     "rosterGE6": 1,
+     "minRoster": 7,
+     "lostPerCareer": 0.025,
+     "lostNamed": 0.025,
+     "ransomPaid": 0,
+     "extractWins": 0.65,
+     "extracts": 0.675,
+     "readyMean": 8.636458333333334,
+     "readyLt4": 0,
+     "skipped": 0,
+     "cash": 895.7899999999997,
+     "win": 0.8490374873353597
+    },
+    "greedy": {
+     "careers": 40,
+     "plays": 1015,
+     "rosterEnd": 7.35,
+     "rosterGE6": 0.8,
+     "minRoster": 3,
+     "lostPerCareer": 0.775,
+     "lostNamed": 0.625,
+     "ransomPaid": 0.425,
+     "extractWins": 0.3,
+     "extracts": 1.675,
+     "readyMean": 7.00625,
+     "readyLt4": 0.08333333333333333,
+     "skipped": 0.3,
+     "cash": 430.62750000000005,
+     "win": 0.1852216748768473
+    },
+    "naive": {
+     "careers": 40,
+     "plays": 1007,
+     "rosterEnd": 9,
+     "rosterGE6": 1,
+     "minRoster": 9,
+     "lostPerCareer": 0.025,
+     "lostNamed": 0.025,
+     "ransomPaid": 0,
+     "extractWins": 0.85,
+     "extracts": 1.2,
+     "readyMean": 8.522916666666667,
+     "readyLt4": 0.0010416666666666667,
+     "skipped": 0.025,
+     "cash": 447.19249999999994,
+     "win": 0.6703078450844091
+    },
+    "random": {
+     "careers": 40,
+     "plays": 1008,
+     "rosterEnd": 8.125,
+     "rosterGE6": 0.95,
+     "minRoster": 4,
+     "lostPerCareer": 0.45,
+     "lostNamed": 0.325,
+     "ransomPaid": 0.25,
+     "extractWins": 0.625,
+     "extracts": 1.2,
+     "readyMean": 7.869791666666667,
+     "readyLt4": 0.013541666666666667,
+     "skipped": 0,
+     "cash": 452.0825,
+     "win": 0.5406746031746031
+    }
+   },
+   "randomArms": {
+    "all OL-016 brakes": {
+     "careers": 40,
+     "plays": 1008,
+     "rosterEnd": 8.125,
+     "rosterGE6": 0.95,
+     "minRoster": 4,
+     "lostPerCareer": 0.45,
+     "lostNamed": 0.325,
+     "ransomPaid": 0.25,
+     "extractWins": 0.625,
+     "extracts": 1.2,
+     "readyMean": 7.869791666666667,
+     "readyLt4": 0.013541666666666667,
+     "skipped": 0,
+     "cash": 452.0825,
+     "win": 0.5406746031746031
+    },
+    "no EXTRACT/RANSOM brakes": {
+     "careers": 40,
+     "plays": 959,
+     "rosterEnd": 7.375,
+     "rosterGE6": 0.825,
+     "minRoster": 4,
+     "lostPerCareer": 1.7,
+     "lostNamed": 1.075,
+     "ransomPaid": 0,
+     "extractWins": 0,
+     "extracts": 0,
+     "readyMean": 7.485416666666667,
+     "readyLt4": 0.01875,
+     "skipped": 0.025,
+     "cash": 451.3100000000001,
+     "win": 0.5422314911366006
+    },
+    "no last-stand bail-out": {
+     "careers": 40,
+     "plays": 1122,
+     "rosterEnd": 7.1,
+     "rosterGE6": 0.875,
+     "minRoster": 1,
+     "lostPerCareer": 1,
+     "lostNamed": 0.6,
+     "ransomPaid": 0.75,
+     "extractWins": 3,
+     "extracts": 4.575,
+     "readyMean": 6.873958333333333,
+     "readyLt4": 0.06770833333333333,
+     "skipped": 0.525,
+     "cash": 467.37000000000006,
+     "win": 0.6078431372549019
+    },
+    "neither (approved sim rules)": {
+     "careers": 40,
+     "plays": 910,
+     "rosterEnd": 4.975,
+     "rosterGE6": 0.425,
+     "minRoster": 1,
+     "lostPerCareer": 4.4,
+     "lostNamed": 2.6,
+     "ransomPaid": 0,
+     "extractWins": 0,
+     "extracts": 0,
+     "readyMean": 5.783333333333333,
+     "readyLt4": 0.16145833333333334,
+     "skipped": 1.25,
+     "cash": 466.5424999999999,
+     "win": 0.6
+    }
+   },
+   "brakesOffRandom": {
+    "careers": 40,
+    "plays": 959,
+    "rosterEnd": 7.375,
+    "rosterGE6": 0.825,
+    "minRoster": 4,
+    "lostPerCareer": 1.7,
+    "lostNamed": 1.075,
+    "ransomPaid": 0,
+    "extractWins": 0,
+    "extracts": 0,
+    "readyMean": 7.485416666666667,
+    "readyLt4": 0.01875,
+    "skipped": 0.025,
+    "cash": 451.3100000000001,
+    "win": 0.5422314911366006
+   },
+   "was": {
+    "randomRosterEnd": 2.25
+   },
+   "target": "random ≥ 6 of 9"
+  },
+  "skillGap": {
+   "strict": 0.5450000000000004,
+   "callsOff": 0.19500000000000028,
+   "atLoose": 0.58,
+   "target": "≥ 0.4"
+  },
+  "winBands": {
+   "careful": 0.815,
+   "naive": 0.66,
+   "gap": 0.15499999999999992,
+   "random": 0.5,
+   "greedy": 0.205,
+   "target": "careful 70–85, naive 55–70, gap ≥ 12 pts"
+  }
+ },
+ "metrics": {
+  "n": 800,
+  "win": 0.545,
+  "byPolicy": {
+   "careful": {
+    "n": 200,
+    "win": 0.815,
+    "clean": 0.305,
+    "costly": 0.14,
+    "wash": 0.045,
+    "greed": 0.035,
+    "robbed": 0,
+    "score": 2.75,
+    "final": 76.73049999999998
+   },
+   "greedy": {
+    "n": 200,
+    "win": 0.205,
+    "clean": 0.025,
+    "costly": 0.09,
+    "wash": 0.035,
+    "greed": 0.545,
+    "robbed": 0.06,
+    "score": 1.31,
+    "final": 42.25750000000001
+   },
+   "naive": {
+    "n": 200,
+    "win": 0.66,
+    "clean": 0.095,
+    "costly": 0.235,
+    "wash": 0.055,
+    "greed": 0,
+    "robbed": 0.075,
+    "score": 2.125,
+    "final": 47.18950000000001
+   },
+   "random": {
+    "n": 200,
+    "win": 0.5,
+    "clean": 0.065,
+    "costly": 0.155,
+    "wash": 0.065,
+    "greed": 0.12,
+    "robbed": 0.065,
+    "score": 1.74,
+    "final": 34.9375
+   }
+  },
+  "byJob": {
+   "boba_backroom": {
+    "win": 0.5125,
+    "wash": 0.0125,
+    "careful": 0.8,
+    "naive": 0.65
+   },
+   "tupperware": {
+    "win": 0.425,
+    "wash": 0.025,
+    "careful": 0.7,
+    "naive": 0.5
+   },
+   "vampire_dentist": {
+    "win": 0.4,
+    "wash": 0.1,
+    "careful": 0.65,
+    "naive": 0.4
+   },
+   "dock_restock": {
+    "win": 0.6125,
+    "wash": 0.0125,
+    "careful": 0.8,
+    "naive": 0.65
+   },
+   "car_wash_stickup": {
+    "win": 0.575,
+    "wash": 0.025,
+    "careful": 0.9,
+    "naive": 0.75
+   },
+   "quiet_lift": {
+    "win": 0.6,
+    "wash": 0.0375,
+    "careful": 0.85,
+    "naive": 0.75
+   },
+   "vampire_gala": {
+    "win": 0.575,
+    "wash": 0.1125,
+    "careful": 0.85,
+    "naive": 0.55
+   },
+   "smack_crib": {
+    "win": 0.6125,
+    "wash": 0.0125,
+    "careful": 0.95,
+    "naive": 0.9
+   },
+   "counting_house": {
+    "win": 0.6125,
+    "wash": 0.075,
+    "careful": 0.75,
+    "naive": 0.8
+   },
+   "hold_the_house": {
+    "win": 0.525,
+    "wash": 0.0875,
+    "careful": 0.9,
+    "naive": 0.65
+   }
+  },
+  "klass": {
+   "BAILED": 144,
+   "CLEAN": 98,
+   "MESSY": 193,
+   "COSTLY": 124,
+   "GREED": 140,
+   "ROBBED": 40,
+   "FOLDED": 21,
+   "WASH": 40
+  },
+  "memRate": 0.995,
+  "mem2": 0.97375,
+  "memCount": 6.90625,
+  "storyGrade": 0.94125,
+  "nothing": 0.05125,
+  "nothingLenient": 0.00375,
+  "strictNothing": 0.05125,
+  "signature": {
+   "distinct": 228,
+   "seenBefore": 0.555,
+   "top": [
+    [
+     "robbed + reversal:lost-clean",
+     61
+    ],
+    [
+     "(none)",
+     47
+    ],
+    [
+     "bond:save + neardeath:saved",
+     24
+    ],
+    [
+     "robbed",
+     24
+    ],
+    [
+     "greed:fail",
+     19
+    ],
+    [
+     "neardeath:saved + robbed",
+     18
+    ],
+    [
+     "greed:fail + loot:legendary",
+     15
+    ],
+    [
+     "call:turned-it",
+     14
+    ]
+   ]
+  },
+  "wow": 0.50375,
+  "novelty": 24.6522453125,
+  "hiFamPerPlay": 2.7425,
+  "losses": {
+   "n": 1655,
+   "nonWounded": 1035,
+   "perPlay": 2.06875,
+   "blameBroad": 0.972809667673716,
+   "blameStrict": 0.3583081570996979,
+   "blameBroadNonWounded": 0.9855072463768116,
+   "funnyOrDramatic": 0.5510574018126888,
+   "funny": 0.10453172205438066,
+   "dramatic": 0.44652567975830815,
+   "byKind": {
+    "ROBBED": 364,
+    "SHOT": 436,
+    "WOUNDED": 620,
+    "CRASH": 39,
+    "DEAD": 59,
+    "SPLIT": 43,
+    "CAPTURED": 70,
+    "GONE": 9,
+    "STASH RAIDED": 15
+   },
+   "byCause": {
+    "EARLIER": 487,
+    "ENEMY": 386,
+    "SEAT": 256,
+    "HAZARD": 144,
+    "LUCK": 45,
+    "CAR": 56,
+    "GREED": 140,
+    "WEAPON": 33,
+    "TRAIT": 28,
+    "CHOICE": 80
+   },
+   "playLevelClear": 0.9288025889967637
+  },
+  "swings": {
+   "n": 8480,
+   "perPlay": 10.6,
+   "visible": 0.9109669811320755,
+   "strict": 0.25695754716981134,
+   "byCause": {
+    "EARLIER": 4777,
+    "TRAIT": 1087,
+    "LUCK": 755,
+    "SEAT": 357,
+    "RELATIONSHIP": 116,
+    "ENEMY": 450,
+    "CHOICE": 298,
+    "HAZARD": 319,
+    "GREED": 192,
+    "WEAPON": 45,
+    "CAR": 84
+   },
+   "byKind": {
+    "tier": {
+     "n": 3290,
+     "visible": 0.8911854103343465
+    },
+    "pressure": {
+     "n": 807,
+     "visible": 0.9752168525402726
+    },
+    "beat": {
+     "n": 768,
+     "visible": 0.6315104166666666
+    },
+    "nerve": {
+     "n": 1860,
+     "visible": 0.9940860215053764
+    },
+    "down": {
+     "n": 906,
+     "visible": 0.977924944812362
+    },
+    "bond-save": {
+     "n": 39,
+     "visible": 1
+    },
+    "prize": {
+     "n": 133,
+     "visible": 0.706766917293233
+    },
+    "sticky": {
+     "n": 17,
+     "visible": 1
+    },
+    "getaway": {
+     "n": 312,
+     "visible": 0.9871794871794872
+    },
+    "climb": {
+     "n": 140,
+     "visible": 1
+    },
+    "entry": {
+     "n": 154,
+     "visible": 0.8701298701298701
+    },
+    "left": {
+     "n": 34,
+     "visible": 1
+    },
+    "save": {
+     "n": 4,
+     "visible": 1
+    },
+    "loyal": {
+     "n": 1,
+     "visible": 1
+    },
+    "aftermath": {
+     "n": 15,
+     "visible": 1
+    }
+   }
+  },
+  "diversity": {
+   "perCell": 40.125,
+   "minCell": 21,
+   "maxCell": 56,
+   "totalFamilies": 85,
+   "totalRawIds": 243,
+   "perPlay": 6.7425,
+   "top": [
+    [
+     "loss:shot",
+     296
+    ],
+    [
+     "nerve:lost",
+     231
+    ],
+    [
+     "chain",
+     204
+    ],
+    [
+     "trait:eat:fail",
+     204
+    ],
+    [
+     "robbed",
+     184
+    ],
+    [
+     "trait:church:fail",
+     174
+    ],
+    [
+     "class:lt:drop",
+     173
+    ],
+    [
+     "climb:win",
+     171
+    ],
+    [
+     "combo:door",
+     139
+    ],
+    [
+     "loot:weird",
+     139
+    ],
+    [
+     "greed:fail",
+     131
+    ],
+    [
+     "weapon:mac:friendly",
+     129
+    ]
+   ],
+   "maxShare": 0.37,
+   "totalEv": 5394,
+   "families": {
+    "trait:impatient:fail": 21,
+    "combo:day_ones": 78,
+    "trait:rookie:up": 126,
+    "bond:witness": 76,
+    "trait:rookie:fail": 73,
+    "nerve:lost": 231,
+    "bond:save": 38,
+    "chain": 204,
+    "neardeath:saved": 120,
+    "loss:shot": 296,
+    "robbed": 184,
+    "call:turned-it": 114,
+    "combo:doors_suggestion": 105,
+    "combo:door": 139,
+    "trait:eat:fail": 204,
+    "rich:octopus": 29,
+    "trait:calm:slow": 102,
+    "climb:win": 171,
+    "rich:pullup": 57,
+    "loot:weird": 139,
+    "call:talk": 31,
+    "trait:small:fail": 107,
+    "trait:sticky:up": 37,
+    "weapon:mac:friendly": 129,
+    "trait:sticky:fail": 17,
+    "loot:legendary": 97,
+    "car:crash": 39,
+    "nerve:fumble": 39,
+    "class:wheels:corner": 27,
+    "greed:retreat": 9,
+    "trait:mazi:showoff": 26,
+    "reversal:lost-clean": 110,
+    "reversal:won-from-all-hands": 76,
+    "trait:showboat:up": 56,
+    "greed:fail": 131,
+    "trait:church:fail": 174,
+    "trait:dressed:fail": 94,
+    "death:generic": 22,
+    "class:lt:drop": 173,
+    "loot:jackpot": 55,
+    "sure:fail": 52,
+    "trait:loyal:up": 16,
+    "nodd:chase": 38,
+    "class:patch": 47,
+    "combo:hands_free": 55,
+    "split:panic": 43,
+    "loss:captured": 51,
+    "trait:phone:fail2": 36,
+    "trait:mouth:up": 73,
+    "car:stall": 23,
+    "trait:mouth:fail": 32,
+    "trait:phone:fail": 41,
+    "combo:handsfree": 30,
+    "combo:leash": 29,
+    "trait:showboat:fail": 20,
+    "trait:seen:up": 50,
+    "octopus:win": 33,
+    "weapon:slipper": 106,
+    "wash": 40,
+    "combo:coin_flip": 11,
+    "combo:coin:up": 10,
+    "combo:coin:fail": 12,
+    "octopus:fail": 14,
+    "trait:seen:fail": 54,
+    "trait:skittish:fail": 34,
+    "rich:bite": 17,
+    "trait:sitdown:fail": 24,
+    "call:sneak": 2,
+    "call:backfired": 14,
+    "trait:sitdown:up": 34,
+    "turn:takes_weird": 22,
+    "trait:steady:fail": 15,
+    "combo:snack_break": 22,
+    "rich:bloodbath": 7,
+    "rich:revenge": 4,
+    "trait:hothead:fail": 23,
+    "turn:takes": 49,
+    "combo:the_leash": 19,
+    "split:bus": 16,
+    "combo:sunday_service": 83,
+    "call:save": 3,
+    "boss:smack:flee": 111,
+    "loss:gone": 7,
+    "trait:loyal:fail": 1,
+    "defense:breached": 15
+   }
+  },
+  "generics": {
+   "playsWith": 453,
+   "deathPerPlay": 0.11037527593818984,
+   "anyDeath": 0.10596026490066225,
+   "perGenericAboard": 0.07886435331230283,
+   "byPolicy": {
+    "careful": 0.03731343283582089,
+    "greedy": 0.17575757575757575,
+    "random": 0.09090909090909091
+   }
+  },
+  "named": {
+   "shotPerPlay": 0.53125,
+   "anyShot": 0.37,
+   "shotPerNamedAboard": 0.2037392138063279,
+   "captured": 0.06875,
+   "anyCaptured": 0.0575,
+   "gone": 9,
+   "namedDead": 0,
+   "goneOutsideBigPlay": 0,
+   "wounded": 0.8475
+  },
+  "car": {
+   "crash": 0.04875,
+   "split": 0.05375,
+   "robbedGetaway": 0.04875,
+   "byCar": {
+    "SUPRA": {
+     "n": 159,
+     "crash": 0.050314465408805034,
+     "split": 0.025157232704402517,
+     "robbed": 0.012578616352201259,
+     "clean": 0.6352201257861635,
+     "win": 0.710691823899371
+    },
+    "URUS": {
+     "n": 247,
+     "crash": 0.048582995951417005,
+     "split": 0.032388663967611336,
+     "robbed": 0.05263157894736842,
+     "clean": 0.3319838056680162,
+     "win": 0.39271255060728744
+    },
+    "HOOPTIE": {
+     "n": 269,
+     "crash": 0.05204460966542751,
+     "split": 0.11524163568773234,
+     "robbed": 0.08921933085501858,
+     "clean": 0.17472118959107807,
+     "win": 0.6059479553903345
+    },
+    "S2000": {
+     "n": 45,
+     "crash": 0.1111111111111111,
+     "split": 0,
+     "robbed": 0,
+     "clean": 0.5777777777777777,
+     "win": 0.4666666666666667
+    },
+    "CASTLE": {
+     "n": 80,
+     "crash": 0,
+     "split": 0,
+     "robbed": 0,
+     "clean": 0,
+     "win": 0.525
+    }
+   },
+   "stall": 23
+  },
+  "turn": {
+   "recruitCrate": 0.11625,
+   "offered": 0.11125,
+   "offeredOfRecruit": 0.956989247311828,
+   "accepted": 0.1,
+   "results": {
+    "TAKES WEIRD": 22,
+    "TAKES": 49,
+    "BAILS": 9,
+    "LET GO": 9
+   },
+   "noVampire": 4,
+   "seatFree": 1,
+   "per20": 2.225
+  },
+  "calls": {
+   "evaluated": 3621,
+   "potential": 3621,
+   "meaningful": 391,
+   "surfaced": 387,
+   "suppressedNoDiv": 3230,
+   "suppressedBudget": 4,
+   "surfacedPerPlay": 0.48375,
+   "meaningfulShare": 0.107981220657277,
+   "meanBestWorst": 1.9388732394366255,
+   "meanRealized": 1.7348837209302337,
+   "meanAbsRealized": 2.11503875968992,
+   "shareRealizedMeaningful": 0.3333333333333333,
+   "byPolicy": {
+    "careful": {
+     "surfaced": 81,
+     "realized": 4.1027160493827175,
+     "abs": 4.606419753086421
+    },
+    "greedy": {
+     "surfaced": 63,
+     "realized": 0.9609523809523807,
+     "abs": 1.5469841269841276
+    },
+    "naive": {
+     "surfaced": 112,
+     "realized": 0,
+     "abs": 0
+    },
+    "random": {
+     "surfaced": 131,
+     "realized": 2.1262595419847323,
+     "abs": 2.656030534351145
+    }
+   },
+   "byBeat": {
+    "0": 6,
+    "1": 11,
+    "2": 294,
+    "3": 60,
+    "4": 16
+   },
+   "playsWithCall": 0.4325,
+   "playsWith2": 0.05125,
+   "choices": {
+    "PUSH": 100,
+    "BUST": 21,
+    "PULL_UP": 57,
+    "TALK": 36,
+    "DEFAULT": 142,
+    "FOLD": 25,
+    "SNEAK": 3,
+    "SAVE": 3
+   },
+   "smartPick": 0.2558139534883721
+  },
+  "climb": {
+   "byStep": {
+    "1": {
+     "n": 2000,
+     "p": 0.748,
+     "before": 74.42030000000024,
+     "gainOnWin": 45.44582219251387,
+     "ev": 15.966199999999759,
+     "evRel": 0.2447478011821108
+    },
+    "2": {
+     "n": 1367,
+     "p": 0.5771762984637894,
+     "before": 120.42242136064382,
+     "gainOnWin": 77.8148922686946,
+     "ev": -7.837454279443999,
+     "evRel": -0.03183361896814556
+    },
+    "3": {
+     "n": 699,
+     "p": 0.3419170243204578,
+     "before": 191.99241773962805,
+     "gainOnWin": 95.26987447698745,
+     "ev": -93.58690987124467,
+     "evRel": -0.4786260877949885
+    }
+   },
+   "byRead": {
+    "FRESH": {
+     "1": {
+      "n": 1036,
+      "p": 0.8156370656370656,
+      "before": 76.93281853281866,
+      "gainOnWin": 44.64905325443762,
+      "ev": 22.09039575289563,
+      "evRel": 0.3284391506185233
+     },
+     "2": {
+      "n": 597,
+      "p": 0.7068676716917923,
+      "before": 118.07118927973217,
+      "gainOnWin": 76.10829383886231,
+      "ev": 18.600083752093756,
+      "evRel": 0.17776908207553474
+     }
+    },
+    "BANGED UP": {
+     "1": {
+      "n": 916,
+      "p": 0.6866812227074236,
+      "before": 71.74061135371169,
+      "gainOnWin": 46.71494435612064,
+      "ev": 11.042358078602694,
+      "evRel": 0.17474747256578443
+     },
+     "2": {
+      "n": 728,
+      "p": 0.4835164835164835,
+      "before": 122.66703296703314,
+      "gainOnWin": 80.12286931818166,
+      "ev": -27.024313186813202,
+      "evRel": -0.18284279986669347
+     }
+    },
+    "RAGGED": {
+     "1": {
+      "n": 48,
+      "p": 0.4583333333333333,
+      "before": 71.32916666666667,
+      "gainOnWin": 39.76363636363636,
+      "ev": -22.25104166666667,
+      "evRel": -0.22575088639225285
+     },
+     "2": {
+      "n": 42,
+      "p": 0.35714285714285715,
+      "before": 114.93690476190474,
+      "gainOnWin": 71.66666666666667,
+      "ev": -51.05595238095238,
+      "evRel": -0.3936938291808672
+     }
+    }
+   },
+   "offered": 0.625,
+   "actual": {
+    "careful": {
+     "offers": 203,
+     "go": 48,
+     "win": 43,
+     "lose": 5,
+     "greedFail": 0.035
+    },
+    "greedy": {
+     "offers": 307,
+     "go": 307,
+     "win": 200,
+     "lose": 107,
+     "greedFail": 0.545
+    },
+    "naive": {
+     "offers": 110,
+     "go": 0,
+     "win": 0,
+     "lose": 0,
+     "greedFail": 0
+    },
+    "random": {
+     "offers": 107,
+     "go": 49,
+     "win": 30,
+     "lose": 19,
+     "greedFail": 0.12
+    }
+   },
+   "teaseMismatch": 0,
+   "teaseChecks": 273,
+   "jackpotShare": 0.24175824175824176,
+   "tooHot": 0.0675
+  },
+  "truth": {
+   "checked": 414,
+   "shownIn": 414,
+   "hiddenIn": 414,
+   "fake": 0
+  },
+  "variance": {
+   "outcomeSD": 0.9633278223979704,
+   "finalSD": 52.49758804235829,
+   "gapCarefulNaive": 0.625,
+   "gapCarefulRandom": 1.01,
+   "reversal": 0.2325,
+   "reversalWon": 0.095
+  },
+  "moments": {
+   "perPlay": 8.675,
+   "traitMoments": 5.65,
+   "tags": {
+    "STUPID": 163,
+    "WARM": 1079,
+    "FUNNY": 1906,
+    "CLUTCH": 1996,
+    "SCARY": 1796
+   }
+  },
+  "turnings": {
+   "recruitCrate": 0.11625,
+   "offered": 0.11125,
+   "offeredOfRecruit": 0.956989247311828,
+   "accepted": 0.1,
+   "results": {
+    "TAKES WEIRD": 22,
+    "TAKES": 49,
+    "BAILS": 9,
+    "LET GO": 9
+   },
+   "noVampire": 4,
+   "seatFree": 1,
+   "per20": 2.225
+  },
+  "beats": {
+   "empty": 0.24844398340248963,
+   "beats": 3856
+  },
+  "temptation": {
+   "RECRUIT": 123,
+   "RARE_PITCH": 446,
+   "DEMAND": 105,
+   "RETALIATION": 50,
+   "RESCUE": 51,
+   "INTEL": 25
+  },
+  "spread": {
+   "splitPer100": 5.375,
+   "crashPer100": 4.875
+  },
+  "traits": {
+   "CALM": {
+    "aboard": 619,
+    "up": 0.777059773828756,
+    "fail": 0.050080775444264945,
+    "silentUp": false
+   },
+   "ALWAYS_EATING": {
+    "aboard": 619,
+    "up": 0.5589660743134087,
+    "fail": 0.3295638126009693,
+    "silentUp": false
+   },
+   "MOUTHPIECE": {
+    "aboard": 339,
+    "up": 0.2153392330383481,
+    "fail": 0.0943952802359882,
+    "silentUp": false
+   },
+   "PHONE_OUT": {
+    "aboard": 339,
+    "up": 0.35693215339233036,
+    "fail": 0.20058997050147492,
+    "silentUp": false
+   },
+   "SMALL": {
+    "aboard": 297,
+    "up": 0.44107744107744107,
+    "fail": 0.3602693602693603,
+    "silentUp": false
+   },
+   "IMPATIENT": {
+    "aboard": 297,
+    "up": 0.27946127946127947,
+    "fail": 0.0707070707070707,
+    "silentUp": false
+   },
+   "DRESSED_TO_KILL": {
+    "aboard": 424,
+    "up": 0.8891509433962265,
+    "fail": 0.22169811320754718,
+    "silentUp": false
+   },
+   "CHURCH_SHOES": {
+    "aboard": 424,
+    "up": 0.07075471698113207,
+    "fail": 0.41037735849056606,
+    "silentUp": false
+   },
+   "ROOKIE": {
+    "aboard": 258,
+    "up": 0.4883720930232558,
+    "fail": 0.28294573643410853,
+    "silentUp": false
+   },
+   "BIG_POTENTIAL": {
+    "aboard": 258,
+    "up": 0,
+    "fail": 0.10077519379844961,
+    "silentUp": true
+   },
+   "SEEN_IT_ALL": {
+    "aboard": 149,
+    "up": 0.33557046979865773,
+    "fail": 0.3624161073825503,
+    "silentUp": false
+   },
+   "SIT_DOWN": {
+    "aboard": 149,
+    "up": 0.22818791946308725,
+    "fail": 0.1610738255033557,
+    "silentUp": false
+   },
+   "SKITTISH": {
+    "aboard": 115,
+    "up": 0.1565217391304348,
+    "fail": 0.2956521739130435,
+    "silentUp": false
+   },
+   "SHOWBOAT": {
+    "aboard": 87,
+    "up": 0.6436781609195402,
+    "fail": 0.22988505747126436,
+    "silentUp": false
+   },
+   "LOYAL": {
+    "aboard": 113,
+    "up": 0.1415929203539823,
+    "fail": 0.008849557522123894,
+    "silentUp": false
+   },
+   "STICKY_FINGERS": {
+    "aboard": 98,
+    "up": 0.37755102040816324,
+    "fail": 0.17346938775510204,
+    "silentUp": false
+   },
+   "HOTHEAD": {
+    "aboard": 93,
+    "up": 0.45161290322580644,
+    "fail": 0.24731182795698925,
+    "silentUp": false
+   },
+   "STEADY": {
+    "aboard": 98,
+    "up": 0.5816326530612245,
+    "fail": 0.15306122448979592,
+    "silentUp": false
+   }
+  }
+ },
+ "repMetrics": {
+  "n": 1600,
+  "win": 0.534375,
+  "byPolicy": {
+   "careful": {
+    "n": 400,
+    "win": 0.81,
+    "clean": 0.2675,
+    "costly": 0.1825,
+    "wash": 0.025,
+    "greed": 0.0325,
+    "robbed": 0.005,
+    "score": 2.6775,
+    "final": 72.07999999999996
+   },
+   "greedy": {
+    "n": 400,
+    "win": 0.185,
+    "clean": 0.0175,
+    "costly": 0.08,
+    "wash": 0.0275,
+    "greed": 0.575,
+    "robbed": 0.0575,
+    "score": 1.28,
+    "final": 39.021250000000016
+   },
+   "naive": {
+    "n": 400,
+    "win": 0.6575,
+    "clean": 0.0925,
+    "costly": 0.2225,
+    "wash": 0.0525,
+    "greed": 0,
+    "robbed": 0.065,
+    "score": 2.1325,
+    "final": 44.944500000000005
+   },
+   "random": {
+    "n": 400,
+    "win": 0.485,
+    "clean": 0.055,
+    "costly": 0.155,
+    "wash": 0.0725,
+    "greed": 0.1125,
+    "robbed": 0.065,
+    "score": 1.71,
+    "final": 33.06600000000001
+   }
+  },
+  "byJob": {
+   "boba_backroom": {
+    "win": 0.50625,
+    "wash": 0.01875,
+    "careful": 0.75,
+    "naive": 0.65
+   },
+   "tupperware": {
+    "win": 0.4625,
+    "wash": 0.025,
+    "careful": 0.725,
+    "naive": 0.55
+   },
+   "vampire_dentist": {
+    "win": 0.36875,
+    "wash": 0.09375,
+    "careful": 0.525,
+    "naive": 0.5
+   },
+   "dock_restock": {
+    "win": 0.58125,
+    "wash": 0.00625,
+    "careful": 0.85,
+    "naive": 0.6
+   },
+   "car_wash_stickup": {
+    "win": 0.58125,
+    "wash": 0.03125,
+    "careful": 0.875,
+    "naive": 0.725
+   },
+   "quiet_lift": {
+    "win": 0.6,
+    "wash": 0.01875,
+    "careful": 0.9,
+    "naive": 0.8
+   },
+   "vampire_gala": {
+    "win": 0.56875,
+    "wash": 0.05625,
+    "careful": 0.9,
+    "naive": 0.575
+   },
+   "smack_crib": {
+    "win": 0.60625,
+    "wash": 0.0375,
+    "careful": 0.9,
+    "naive": 0.85
+   },
+   "counting_house": {
+    "win": 0.53125,
+    "wash": 0.0625,
+    "careful": 0.775,
+    "naive": 0.675
+   },
+   "hold_the_house": {
+    "win": 0.5375,
+    "wash": 0.09375,
+    "careful": 0.9,
+    "naive": 0.65
+   }
+  },
+  "klass": {
+   "BAILED": 309,
+   "CLEAN": 173,
+   "MESSY": 390,
+   "COSTLY": 256,
+   "GREED": 288,
+   "ROBBED": 77,
+   "FOLDED": 36,
+   "WASH": 71
+  },
+  "memRate": 0.995,
+  "mem2": 0.9775,
+  "memCount": 7.03125,
+  "storyGrade": 0.94375,
+  "nothing": 0.05,
+  "nothingLenient": 0.00375,
+  "strictNothing": 0.05,
+  "signature": {
+   "distinct": 298,
+   "seenBefore": 0.705625,
+   "top": [
+    [
+     "robbed + reversal:lost-clean",
+     125
+    ],
+    [
+     "(none)",
+     90
+    ],
+    [
+     "bond:save + neardeath:saved",
+     57
+    ],
+    [
+     "neardeath:saved + robbed",
+     48
+    ],
+    [
+     "robbed",
+     46
+    ],
+    [
+     "greed:fail",
+     43
+    ],
+    [
+     "greed:fail + loot:legendary",
+     28
+    ],
+    [
+     "rich:octopus + call:turned-it",
+     27
+    ]
+   ]
+  },
+  "wow": 0.5,
+  "novelty": 24.854366796875002,
+  "hiFamPerPlay": 2.766875,
+  "losses": {
+   "n": 3399,
+   "nonWounded": 2137,
+   "perPlay": 2.124375,
+   "blameBroad": 0.979994115916446,
+   "blameStrict": 0.353045013239188,
+   "blameBroadNonWounded": 0.985493682732803,
+   "funnyOrDramatic": 0.558693733451015,
+   "funny": 0.1059135039717564,
+   "dramatic": 0.4527802294792586,
+   "byKind": {
+    "ROBBED": 745,
+    "SHOT": 924,
+    "WOUNDED": 1262,
+    "CRASH": 90,
+    "DEAD": 120,
+    "SPLIT": 82,
+    "CAPTURED": 125,
+    "GONE": 27,
+    "STASH RAIDED": 24
+   },
+   "byCause": {
+    "EARLIER": 981,
+    "ENEMY": 826,
+    "SEAT": 494,
+    "HAZARD": 324,
+    "LUCK": 68,
+    "CAR": 123,
+    "GREED": 288,
+    "WEAPON": 71,
+    "TRAIT": 59,
+    "CHOICE": 165
+   },
+   "playLevelClear": 0.9469096671949286
+  },
+  "swings": {
+   "n": 17204,
+   "perPlay": 10.7525,
+   "visible": 0.9122878400372006,
+   "strict": 0.2555800976517089,
+   "byCause": {
+    "EARLIER": 9643,
+    "TRAIT": 2163,
+    "LUCK": 1509,
+    "SEAT": 692,
+    "RELATIONSHIP": 266,
+    "ENEMY": 974,
+    "CHOICE": 627,
+    "HAZARD": 681,
+    "GREED": 380,
+    "WEAPON": 94,
+    "CAR": 175
+   },
+   "byKind": {
+    "tier": {
+     "n": 6598,
+     "visible": 0.8904213397999394
+    },
+    "pressure": {
+     "n": 1642,
+     "visible": 0.9774665042630938
+    },
+    "beat": {
+     "n": 1578,
+     "visible": 0.6337135614702155
+    },
+    "nerve": {
+     "n": 3799,
+     "visible": 0.9949986838641748
+    },
+    "down": {
+     "n": 1901,
+     "visible": 0.9805365597054182
+    },
+    "bond-save": {
+     "n": 91,
+     "visible": 1
+    },
+    "prize": {
+     "n": 264,
+     "visible": 0.7272727272727273
+    },
+    "sticky": {
+     "n": 27,
+     "visible": 1
+    },
+    "getaway": {
+     "n": 632,
+     "visible": 0.990506329113924
+    },
+    "climb": {
+     "n": 288,
+     "visible": 1
+    },
+    "entry": {
+     "n": 288,
+     "visible": 0.8715277777777778
+    },
+    "left": {
+     "n": 58,
+     "visible": 1
+    },
+    "loyal": {
+     "n": 4,
+     "visible": 1
+    },
+    "save": {
+     "n": 10,
+     "visible": 1
+    },
+    "aftermath": {
+     "n": 24,
+     "visible": 1
+    }
+   }
+  },
+  "diversity": {
+   "perCell": 40.125,
+   "minCell": 21,
+   "maxCell": 56,
+   "totalFamilies": 85,
+   "totalRawIds": 333,
+   "perPlay": 6.853125,
+   "top": [
+    [
+     "loss:shot",
+     627
+    ],
+    [
+     "nerve:lost",
+     477
+    ],
+    [
+     "trait:eat:fail",
+     427
+    ],
+    [
+     "chain",
+     411
+    ],
+    [
+     "robbed",
+     386
+    ],
+    [
+     "trait:church:fail",
+     349
+    ],
+    [
+     "climb:win",
+     347
+    ],
+    [
+     "class:lt:drop",
+     335
+    ],
+    [
+     "loot:weird",
+     298
+    ],
+    [
+     "neardeath:saved",
+     278
+    ],
+    [
+     "greed:fail",
+     272
+    ],
+    [
+     "weapon:mac:friendly",
+     270
+    ]
+   ],
+   "maxShare": 0.391875,
+   "totalEv": 10965,
+   "families": {
+    "trait:impatient:fail": 38,
+    "combo:day_ones": 161,
+    "trait:rookie:up": 251,
+    "bond:witness": 176,
+    "trait:rookie:fail": 155,
+    "nerve:lost": 477,
+    "bond:save": 90,
+    "chain": 411,
+    "neardeath:saved": 278,
+    "loss:shot": 627,
+    "robbed": 386,
+    "call:turned-it": 231,
+    "combo:doors_suggestion": 182,
+    "combo:door": 254,
+    "trait:eat:fail": 427,
+    "rich:octopus": 70,
+    "trait:calm:slow": 202,
+    "climb:win": 347,
+    "rich:pullup": 115,
+    "loot:weird": 298,
+    "call:talk": 47,
+    "trait:small:fail": 203,
+    "trait:sticky:up": 64,
+    "weapon:mac:friendly": 270,
+    "trait:sticky:fail": 27,
+    "loot:legendary": 187,
+    "car:crash": 90,
+    "nerve:fumble": 95,
+    "class:wheels:corner": 49,
+    "greed:retreat": 16,
+    "trait:mazi:showoff": 47,
+    "reversal:lost-clean": 232,
+    "reversal:won-from-all-hands": 145,
+    "greed:fail": 272,
+    "rich:bloodbath": 12,
+    "turn:takes_weird": 35,
+    "trait:mouth:up": 175,
+    "sure:fail": 116,
+    "trait:steady:fail": 20,
+    "trait:mouth:fail": 68,
+    "trait:showboat:up": 134,
+    "trait:church:fail": 349,
+    "trait:dressed:fail": 199,
+    "death:generic": 51,
+    "class:lt:drop": 335,
+    "loot:jackpot": 98,
+    "trait:loyal:up": 31,
+    "nodd:chase": 66,
+    "class:patch": 98,
+    "combo:hands_free": 108,
+    "split:panic": 82,
+    "loss:captured": 91,
+    "trait:showboat:fail": 50,
+    "trait:hothead:fail": 47,
+    "call:backfired": 32,
+    "trait:phone:fail2": 57,
+    "car:stall": 41,
+    "trait:phone:fail": 72,
+    "combo:handsfree": 63,
+    "combo:leash": 59,
+    "trait:seen:up": 113,
+    "octopus:win": 67,
+    "weapon:slipper": 230,
+    "wash": 71,
+    "combo:coin_flip": 19,
+    "combo:coin:up": 19,
+    "combo:coin:fail": 23,
+    "octopus:fail": 23,
+    "trait:seen:fail": 111,
+    "trait:skittish:fail": 57,
+    "rich:bite": 26,
+    "trait:sitdown:up": 89,
+    "trait:sitdown:fail": 54,
+    "call:sneak": 5,
+    "combo:the_leash": 36,
+    "combo:snack_break": 45,
+    "rich:revenge": 7,
+    "trait:loyal:fail": 4,
+    "call:save": 9,
+    "split:bus": 35,
+    "turn:takes": 83,
+    "combo:sunday_service": 171,
+    "boss:smack:flee": 214,
+    "loss:gone": 21,
+    "defense:breached": 24
+   }
+  },
+  "generics": {
+   "playsWith": 901,
+   "deathPerPlay": 0.10987791342952276,
+   "anyDeath": 0.10543840177580466,
+   "perGenericAboard": 0.07932692307692307,
+   "byPolicy": {
+    "careful": 0.047244094488188976,
+    "greedy": 0.1712538226299694,
+    "random": 0.084375
+   }
+  },
+  "named": {
+   "shotPerPlay": 0.5675,
+   "anyShot": 0.391875,
+   "shotPerNamedAboard": 0.21660305343511452,
+   "captured": 0.055625,
+   "anyCaptured": 0.046875,
+   "gone": 27,
+   "namedDead": 0,
+   "goneOutsideBigPlay": 0,
+   "wounded": 0.8525
+  },
+  "car": {
+   "crash": 0.05625,
+   "split": 0.05125,
+   "robbedGetaway": 0.045,
+   "byCar": {
+    "SUPRA": {
+     "n": 319,
+     "crash": 0.0438871473354232,
+     "split": 0.05329153605015674,
+     "robbed": 0.012539184952978056,
+     "clean": 0.5830721003134797,
+     "win": 0.6959247648902821
+    },
+    "URUS": {
+     "n": 493,
+     "crash": 0.04665314401622718,
+     "split": 0.036511156186612576,
+     "robbed": 0.0486815415821501,
+     "clean": 0.33874239350912777,
+     "win": 0.3691683569979716
+    },
+    "HOOPTIE": {
+     "n": 538,
+     "crash": 0.07063197026022305,
+     "split": 0.08736059479553904,
+     "robbed": 0.08178438661710037,
+     "clean": 0.1654275092936803,
+     "win": 0.5985130111524164
+    },
+    "S2000": {
+     "n": 90,
+     "crash": 0.16666666666666666,
+     "split": 0,
+     "robbed": 0,
+     "clean": 0.5333333333333333,
+     "win": 0.4777777777777778
+    },
+    "CASTLE": {
+     "n": 160,
+     "crash": 0,
+     "split": 0,
+     "robbed": 0,
+     "clean": 0,
+     "win": 0.5375
+    }
+   },
+   "stall": 41
+  },
+  "turn": {
+   "recruitCrate": 0.108125,
+   "offered": 0.103125,
+   "offeredOfRecruit": 0.953757225433526,
+   "accepted": 0.09,
+   "results": {
+    "TAKES WEIRD": 35,
+    "TAKES": 83,
+    "BAILS": 26,
+    "LET GO": 21
+   },
+   "noVampire": 8,
+   "seatFree": 1,
+   "per20": 2.0625
+  },
+  "calls": {
+   "evaluated": 7231,
+   "potential": 7231,
+   "meaningful": 767,
+   "surfaced": 760,
+   "suppressedNoDiv": 6464,
+   "suppressedBudget": 7,
+   "surfacedPerPlay": 0.475,
+   "meaningfulShare": 0.10607108283778177,
+   "meanBestWorst": 1.9563624210574886,
+   "meanRealized": 1.7933684210526355,
+   "meanAbsRealized": 2.2364736842105226,
+   "shareRealizedMeaningful": 0.3473684210526316,
+   "byPolicy": {
+    "careful": {
+     "surfaced": 161,
+     "realized": 3.9233540372670808,
+     "abs": 4.616521739130432
+    },
+    "greedy": {
+     "surfaced": 129,
+     "realized": 1.253953488372093,
+     "abs": 1.796279069767442
+    },
+    "naive": {
+     "surfaced": 207,
+     "realized": 0,
+     "abs": 0
+    },
+    "random": {
+     "surfaced": 263,
+     "realized": 2.165551330798478,
+     "abs": 2.755665399239542
+    }
+   },
+   "byBeat": {
+    "0": 17,
+    "1": 27,
+    "2": 561,
+    "3": 118,
+    "4": 37
+   },
+   "playsWithCall": 0.41625,
+   "playsWith2": 0.05875,
+   "choices": {
+    "PUSH": 194,
+    "BUST": 42,
+    "PULL_UP": 115,
+    "TALK": 72,
+    "DEFAULT": 274,
+    "FOLD": 47,
+    "SNEAK": 6,
+    "PAY": 1,
+    "SAVE": 9
+   },
+   "smartPick": 0.275
+  },
+  "climb": {
+   "byStep": {
+    "1": {
+     "n": 3992,
+     "p": 0.7369739478957916,
+     "before": 71.57845691382803,
+     "gainOnWin": 44.82168592794159,
+     "ev": 14.940631262525187,
+     "evRel": 0.24305638942842434
+    },
+    "2": {
+     "n": 2674,
+     "p": 0.5732984293193717,
+     "before": 116.8286649214655,
+     "gainOnWin": 79.84993476842934,
+     "ev": -5.2369483919222155,
+     "evRel": -0.02052802627059533
+    },
+    "3": {
+     "n": 1363,
+     "p": 0.3565663976522377,
+     "before": 191.66984592809973,
+     "gainOnWin": 94.98611111111111,
+     "ev": -88.11570066030822,
+     "evRel": -0.4577935804984212
+    }
+   },
+   "byRead": {
+    "FRESH": {
+     "1": {
+      "n": 2008,
+      "p": 0.8202191235059761,
+      "before": 73.36324701195205,
+      "gainOnWin": 44.15928961748696,
+      "ev": 23.125971115537915,
+      "evRel": 0.36528040559807456
+     },
+     "2": {
+      "n": 1169,
+      "p": 0.6877673224978614,
+      "before": 113.7516680923867,
+      "gainOnWin": 78.15472636815922,
+      "ev": 18.66206159110334,
+      "evRel": 0.16876163702304509
+     }
+    },
+    "BANGED UP": {
+     "1": {
+      "n": 1848,
+      "p": 0.6682900432900433,
+      "before": 70.61266233766229,
+      "gainOnWin": 46.11898785425102,
+      "ev": 8.261823593073576,
+      "evRel": 0.14816758941521196
+     },
+     "2": {
+      "n": 1421,
+      "p": 0.4933145672061928,
+      "before": 119.54929627023222,
+      "gainOnWin": 81.6209700427959,
+      "ev": -22.237614356087366,
+      "evRel": -0.15395205156253414
+     }
+    },
+    "RAGGED": {
+     "1": {
+      "n": 136,
+      "p": 0.4411764705882353,
+      "before": 58.35000000000003,
+      "gainOnWin": 36.301666666666634,
+      "ev": -15.16029411764706,
+      "evRel": -0.2721739197204199
+     },
+     "2": {
+      "n": 84,
+      "p": 0.3333333333333333,
+      "before": 113.62619047619046,
+      "gainOnWin": 84.18749999999997,
+      "ev": -50.23690476190477,
+      "evRel": -0.3977194125851252
+     }
+    }
+   },
+   "offered": 0.62375,
+   "actual": {
+    "careful": {
+     "offers": 389,
+     "go": 91,
+     "win": 80,
+     "lose": 11,
+     "greedFail": 0.0325
+    },
+    "greedy": {
+     "offers": 628,
+     "go": 628,
+     "win": 405,
+     "lose": 223,
+     "greedFail": 0.575
+    },
+    "naive": {
+     "offers": 226,
+     "go": 0,
+     "win": 0,
+     "lose": 0,
+     "greedFail": 0
+    },
+    "random": {
+     "offers": 218,
+     "go": 98,
+     "win": 60,
+     "lose": 38,
+     "greedFail": 0.1125
+    }
+   },
+   "teaseMismatch": 0,
+   "teaseChecks": 545,
+   "jackpotShare": 0.20917431192660552,
+   "tooHot": 0.066875
+  },
+  "truth": {
+   "checked": 817,
+   "shownIn": 817,
+   "hiddenIn": 817,
+   "fake": 0
+  },
+  "variance": {
+   "outcomeSD": 0.9567234023109779,
+   "finalSD": 53.07200329249408,
+   "gapCarefulNaive": 0.5450000000000004,
+   "gapCarefulRandom": 0.9675000000000002,
+   "reversal": 0.235625,
+   "reversalWon": 0.090625
+  },
+  "moments": {
+   "perPlay": 8.833125,
+   "traitMoments": 5.773125,
+   "tags": {
+    "STUPID": 351,
+    "WARM": 2131,
+    "FUNNY": 3859,
+    "CLUTCH": 4073,
+    "SCARY": 3719
+   }
+  },
+  "turnings": {
+   "recruitCrate": 0.108125,
+   "offered": 0.103125,
+   "offeredOfRecruit": 0.953757225433526,
+   "accepted": 0.09,
+   "results": {
+    "TAKES WEIRD": 35,
+    "TAKES": 83,
+    "BAILS": 26,
+    "LET GO": 21
+   },
+   "noVampire": 8,
+   "seatFree": 1,
+   "per20": 2.0625
+  },
+  "beats": {
+   "empty": 0.24796380090497738,
+   "beats": 7735
+  },
+  "temptation": {
+   "RECRUIT": 274,
+   "RARE_PITCH": 840,
+   "DEMAND": 229,
+   "RETALIATION": 123,
+   "RESCUE": 91,
+   "INTEL": 43
+  },
+  "spread": {
+   "splitPer100": 5.125,
+   "crashPer100": 5.625
+  },
+  "traits": {
+   "CALM": {
+    "aboard": 1251,
+    "up": 0.7825739408473221,
+    "fail": 0.04316546762589928,
+    "silentUp": false
+   },
+   "ALWAYS_EATING": {
+    "aboard": 1251,
+    "up": 0.5555555555555556,
+    "fail": 0.3413269384492406,
+    "silentUp": false
+   },
+   "MOUTHPIECE": {
+    "aboard": 694,
+    "up": 0.2521613832853026,
+    "fail": 0.09798270893371758,
+    "silentUp": false
+   },
+   "PHONE_OUT": {
+    "aboard": 694,
+    "up": 0.37175792507204614,
+    "fail": 0.17002881844380405,
+    "silentUp": false
+   },
+   "SMALL": {
+    "aboard": 585,
+    "up": 0.42735042735042733,
+    "fail": 0.347008547008547,
+    "silentUp": false
+   },
+   "IMPATIENT": {
+    "aboard": 585,
+    "up": 0.27521367521367524,
+    "fail": 0.06495726495726496,
+    "silentUp": false
+   },
+   "DRESSED_TO_KILL": {
+    "aboard": 821,
+    "up": 0.8891595615103532,
+    "fail": 0.24238733252131547,
+    "silentUp": false
+   },
+   "CHURCH_SHOES": {
+    "aboard": 821,
+    "up": 0.08404384896467722,
+    "fail": 0.42509135200974424,
+    "silentUp": false
+   },
+   "ROOKIE": {
+    "aboard": 518,
+    "up": 0.48455598455598453,
+    "fail": 0.29922779922779924,
+    "silentUp": false
+   },
+   "BIG_POTENTIAL": {
+    "aboard": 518,
+    "up": 0,
+    "fail": 0.09073359073359073,
+    "silentUp": true
+   },
+   "SEEN_IT_ALL": {
+    "aboard": 323,
+    "up": 0.3498452012383901,
+    "fail": 0.34365325077399383,
+    "silentUp": false
+   },
+   "SIT_DOWN": {
+    "aboard": 323,
+    "up": 0.2755417956656347,
+    "fail": 0.16718266253869968,
+    "silentUp": false
+   },
+   "SKITTISH": {
+    "aboard": 186,
+    "up": 0.16666666666666666,
+    "fail": 0.3064516129032258,
+    "silentUp": false
+   },
+   "SHOWBOAT": {
+    "aboard": 203,
+    "up": 0.6600985221674877,
+    "fail": 0.24630541871921183,
+    "silentUp": false
+   },
+   "LOYAL": {
+    "aboard": 210,
+    "up": 0.14761904761904762,
+    "fail": 0.01904761904761905,
+    "silentUp": false
+   },
+   "STICKY_FINGERS": {
+    "aboard": 199,
+    "up": 0.32160804020100503,
+    "fail": 0.135678391959799,
+    "silentUp": false
+   },
+   "HOTHEAD": {
+    "aboard": 208,
+    "up": 0.5,
+    "fail": 0.22596153846153846,
+    "silentUp": false
+   },
+   "STEADY": {
+    "aboard": 178,
+    "up": 0.5337078651685393,
+    "fail": 0.12359550561797752,
+    "silentUp": false
+   }
+  }
+ }
+}

@@ -1,14 +1,17 @@
 // Player policies for the PLAY paper-sim. Policies only see what a player sees (faces, words, reads) — never the hidden odds.
+import './globals.mjs';
 import * as C from './content.mjs';
+import {adjSeats,crewRead,seatsForCar} from '../../../../js/frag/F01/play/engine.mjs';
+export {adjSeats,crewRead};
 
 export const POLICY_NAMES=['careful','greedy','naive','random'];
 const perms=(a)=>a.length<=1?[a]:a.flatMap((x,i)=>perms([...a.slice(0,i),...a.slice(i+1)]).map(r=>[x,...r]));
 const power=o=>o.hp*o.aim/100+((C.GUNS[o.gun]||C.GUNS.pistol).dmg[0]+(C.GUNS[o.gun]||C.GUNS.pistol).dmg[1])/2;
-const ADJ=[['DRIVER','SHOTGUN'],['DRIVER','BACK_L'],['SHOTGUN','BACK_R'],['BACK_L','BACK_M'],['BACK_M','BACK_R'],['BACK_L','BACK_R'],['SHOTGUN','BACK_M']];
-export const adjSeats=(a,b)=>ADJ.some(([x,y])=>(x===a&&y===b)||(x===b&&y===a));
 const jobFit=(o,job)=>{const w=job.favors==='LOUD'?{MUSCLE:1,SHOOTER:.9,WHEELS:.5,TALKER:.3,GHOST:.3,DOC:.5}:job.favors==='QUIET'?{MUSCLE:.3,SHOOTER:.5,WHEELS:.6,TALKER:.9,GHOST:1,DOC:.5}:{MUSCLE:.7,SHOOTER:.7,WHEELS:.7,TALKER:.7,GHOST:.7,DOC:.7};return w[o.cls]||.5;};
+export const relevantTells=job=>Object.values(C.TELLS).filter(t=>Object.values(job.pods).flat().includes(t.enemy));
 export function seatScore(P,assign,cars=P.carId){ // assign: {seat:oga}
  let s=0;
+ if(P.job)for(const t of relevantTells(P.job)){if(Object.entries(assign).some(([sn,o])=>t.ok(o,C.SEAT_LANE[sn])))s+=1.6;}
  for(const [seat,o] of Object.entries(assign)){
   const lane=C.SEAT_LANE[seat];s+=C.FIT[o.cls][lane]*2;
   const g=C.GUNS[o.gun]||C.GUNS.pistol;
@@ -26,13 +29,13 @@ export function bestSeating(P,crew,seats,dir=1){
  for(const p of perms(crew)){const as={};seats.forEach((s,i)=>as[s]=p[i]);const sc=dir*seatScore(P,as);if(sc>bs){bs=sc;best=as;}}
  return best;
 }
-const seatsOf=(car,n)=>{const all=C.CARS[car].seats;if(n>=all.length)return all.slice();const pr=['DRIVER','SHOTGUN','BACK_L','BACK_R','BACK_M'];return pr.filter(s=>all.includes(s)).slice(0,n);};
+const seatsOf=(car,n)=>seatsForCar(car,n);
 
 export const POLICIES={
  careful:{
   crew(P,avail,n,job){
    const bigPlay=!!job.bigPlay;
-   const sc=o=>jobFit(o,job)*2+(o.id===P.pitcher?.8:0)+(bigPlay&&o.named?-2.2:0)+(o.nerve/100)-(o.hp<o.maxhp?.6:0)+power(o)*.15+(o.nick?.2:0);
+   const tl=relevantTells(job);const sc=o=>jobFit(o,job)*2+tl.filter(t=>t.any(o)).length*.5+(o.id===P.pitcher?.8:0)+(bigPlay&&o.named?-2.2:0)+(o.nerve/100)-(o.hp<o.maxhp?.6:0)+power(o)*.15+(o.nick?.2:0);
    const pool=[...avail].sort((a,b)=>sc(b)-sc(a));
    const crew=pool.slice(0,n);
    if(!crew.some(o=>o.cls==='WHEELS')){const w=pool.find(o=>o.cls==='WHEELS'&&!crew.includes(o));if(w&&n>=3)crew[crew.length-1]=w;}
@@ -97,8 +100,3 @@ export const POLICIES={
   gun(P,gun,crew,R){return R.pick(crew);}
  }
 };
-export function crewRead(P){
- const cs=P.crew.filter(o=>!o.out);if(!cs.length)return 'RAGGED';
- const hurt=cs.filter(o=>o.hp<=0||o.hp<o.maxhp*.5).length+cs.filter(o=>o.nerve<30).length*.5+P.crew.filter(o=>o.out).length;
- const r=hurt/P.crew.length;return r>=.7?'RAGGED':r>=.25?'BANGED UP':'FRESH';
-}
