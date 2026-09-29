@@ -19,7 +19,7 @@ export async function test(root){
     const mk=async name=>{const dir=path.join(tmp,name);await mkdir(path.join(dir,'tools','if1'),{recursive:true});await cp(path.join(root,'tools','if1','leak-rules.json'),path.join(dir,'tools','if1','leak-rules.json'));
       await write(path.join(dir,'js','sealed','pack.js'),await readFile(path.join(root,'js','sealed','pack.js'),'utf8'));await write(path.join(dir,'js','systems','sealed.js'),'function install(){}window.RASealed={install};');
       await write(path.join(dir,'index.html'),'<!doctype html><!-- SEALED:OVERLAY:BEGIN -->\n<!-- SEALED:OVERLAY:END -->');await write(path.join(dir,'js','ok.js'),'window.x=1;');return dir;};
-    const clean=await mk('clean');assert((await leak.checkTree({root:clean})).ok,'synthetic clean tree passes');
+    const clean=await mk('clean');assert((await leak.checkTree({root:clean,hqPrivate:false})).ok,'synthetic clean tree passes');
     const cases=[
       ['forbidden-path',async d=>write(path.join(d,'private_overlay','overlay.json'),'{}')],
       ['forbidden-path',async d=>write(path.join(d,'assets','sealed','a.png'),'x')],
@@ -28,15 +28,15 @@ export async function test(root){
       ['sealed-install-call',async d=>write(path.join(d,'js','leaky.js'),'RASealed.install({adventures:[]});')],
       ['overlay-slot-not-empty',async d=>write(path.join(d,'index.html'),'<!-- SEALED:OVERLAY:BEGIN -->\n<script src="js/x.js"></script>\n<!-- SEALED:OVERLAY:END -->')]
     ];
-    for(const [rule,mutate] of cases){const d=await mk(`case-${rule}-${Math.random().toString(36).slice(2,7)}`);await mutate(d);const r=await leak.checkTree({root:d});assert(!r.ok&&r.violations.some(v=>v.rule===rule),`leak check must catch ${rule}`);}
+    for(const [rule,mutate] of cases){const d=await mk(`case-${rule}-${Math.random().toString(36).slice(2,7)}`);await mutate(d);const r=await leak.checkTree({root:d,hqPrivate:false});assert(!r.ok&&r.violations.some(v=>v.rule===rule),`leak check must catch ${rule}`);}
     // HQ-private mode permits ONLY the private_overlay/ directory (never on artifacts, never the sealed slot / assets/sealed)
     {const d=await mk('hq');await write(path.join(d,'private_overlay','overlay.json'),'{}');assert(!(await leak.checkTree({root:d,hqPrivate:false})).ok,'public: overlay dir forbidden');assert((await leak.checkTree({root:d,hqPrivate:true})).ok,'HQ-private: overlay dir allowed');
      await write(path.join(d,'assets','sealed','a.png'),'x');assert(!(await leak.checkTree({root:d,hqPrivate:true})).ok,'HQ-private still forbids assets/sealed in the source tree');}
     // private denylist: hits are reported WITHOUT echoing the matched text (so a log can't itself leak)
     const secret='zx-neutral-canary-4471';const d=await mk('deny');await write(path.join(d,'js','doc.js'),`// ${secret} appears here\nwindow.y=2;`);
-    const denied=await leak.checkTree({root:d,denylist:{literals:[secret],regex:['canary-\\d+'],sha256Tokens:[leak.sha256(secret)]}});
+    const denied=await leak.checkTree({root:d,hqPrivate:false,denylist:{literals:[secret],regex:['canary-\\d+'],sha256Tokens:[leak.sha256(secret)]}});
     assert(!denied.ok);same([...new Set(denied.violations.map(v=>v.detail))].sort(),['literal#0','regex#0','token']);assert(!JSON.stringify(denied.violations).includes(secret),'a denylist hit never echoes the matched text');
-    assert((await leak.checkTree({root:clean,denylist:{literals:[secret]}})).ok,'no hit -> clean');
+    assert((await leak.checkTree({root:clean,hqPrivate:false,denylist:{literals:[secret]}})).ok,'no hit -> clean');
     // ---- overlay builder on a synthetic OPEN artifact
     const dist=path.join(tmp,'dist');await write(path.join(dist,'index.html'),'<!doctype html>\r\n<script src="js/a.js?v=ra-1"></script>\r\n<!-- SEALED:OVERLAY:BEGIN -->\r\n<!-- SEALED:OVERLAY:END -->\r\n');
     await write(path.join(dist,'js','a.js'),'a');await write(path.join(dist,'js','sealed','pack.js'),await readFile(path.join(root,'js','sealed','pack.js'),'utf8'));await write(path.join(dist,'build.json'),JSON.stringify({schemaVersion:1,releaseId:'ra-1',commit:'c0ffee',assetVersion:'ra-1'}));await write(path.join(dist,'assets','b.png'),'png');
