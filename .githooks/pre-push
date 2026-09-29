@@ -1,0 +1,16 @@
+#!/bin/sh
+# OL-019 H — pre-push guard: reject protected-material paths before anything leaves the machine.
+# Install once per clone:  git config core.hooksPath .githooks
+# Bypass is intentional friction only: HQ_PATH_GUARD_SKIP=1 git push
+if [ "$HQ_PATH_GUARD_SKIP" = "1" ]; then
+  echo "HQ_PATH_GUARD skipped (HQ_PATH_GUARD_SKIP=1)"
+  exit 0
+fi
+
+node tools/guards/hq-path-guard.mjs --tracked || {
+  echo ""
+  echo "PUSH REJECTED: protected-material path detected (HQ_ONLY / SEALED / DO_NOT_OPEN)."
+  echo "See tools/guards/hq-path-guard.mjs. Do not push HQ/SEALED material to the public repo."
+  exit 1
+}
+node tools/guards/hq-path-guard.test.mjs || exit 1

@@ -13,6 +13,8 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20
+      - run: npm run guard:hq
+      - run: npm run guard:hq:test
       - run: npm test
       - run: npm run build -- --commit "$GITHUB_SHA"
       - run: npm run verify:artifact

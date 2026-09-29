@@ -6,7 +6,9 @@
   "scripts": {
     "test": "node tools/release.mjs test",
     "build": "node tools/release.mjs build",
-    "verify:artifact": "node tools/release.mjs verify-artifact"
+    "verify:artifact": "node tools/release.mjs verify-artifact",
+    "guard:hq": "node tools/guards/hq-path-guard.mjs --tracked",
+    "guard:hq:test": "node tools/guards/hq-path-guard.test.mjs"
   },
   "engines": {
     "node": ">=20"
