@@ -213,6 +213,40 @@ export const LINES={
  'tempt:RANSOM':["A text: '{a} comes home for ${cost}K. Tonight only.'","'You want {a} back? ${cost}K. Don't be clever.'","A voice memo, {a} in the background: '${cost}K, or the clock runs out'.","'${cost}K.' That's the whole message. {a} is the reason."]
 };
 
+
+// ---- OL-020 / T9: pool resizing. Rule: every trigger's pool must exceed 3 x (the most times that trigger fires in one PLAY) so no line can repeat inside
+// the 3-PLAY memory. Appended (never inserted) so existing variant ids stay stable. Each addition is a new beat of meaning, not a word-order shuffle.
+// No Rich lines are added here (H1 stays sealed; none of the resized triggers is a Rich voice).
+const MORE={
+ 'combo:crewbook':["{combo} — the crew book has a new page and it's smudged","Somebody's going to tell this story wrong: {combo}","That's on the record now: {combo}","{combo}. Nobody has to pretend they meant it","The book gets heavier: {combo}","{combo} — the kind of thing you find out about yourself in a van"],
+ 'bond:witness':["{a} saw {b} go down and stopped hearing the room"],
+ 'nerve:lost':["{a} discovered a whole new kind of quiet"],
+ 'bond:save':["{a} was three steps into the wrong direction and turned around for {b}","{a} left cover the way you leave a burning house — for {b}","{a} answered {b}'s silence with his whole body","{a} owed {b} nothing and paid it anyway","{a} came for {b} and brought the noise with him"],
+ 'chain':["{list}: one beat, no one was the boring one","Count them: {list}","{list}. Four hands, one plan, none of it working together","The whole team showed up at once: {list}","{list} — and nobody took a breath in between"],
+ 'call:save:win':["{a} got under {b}'s arm and simply did not leave","{a} argued with the floor until it gave {b} back","{a} read {b}'s name off the ground and lifted"],
+ 'prize':["the prize was there and then it was a story: {because}","they got to the good part late, and {because}","less than promised, and the reason was: {because}"],
+ 'greed:half_pint':["there's a window in there. I fit in windows","I already have a spot picked. it's small","I counted the steps. it's not many steps"],
+ 'greed:generic':["…I mean, we're already here","the next room can't be worse than this one. can it","I keep looking at the door and then at the pot"],
+ 'greed:tunde':["[swallows] there is a shelf in there that wants me","[sets the food down] okay. one more.","[chewing stops] [chewing resumes] we can leave. we can not leave."],
+ 'greed:dre':["what's the worst that happens. don't answer that","I put us at seventy percent fine. maybe eighty","I'm not saying go. I'm saying my feet are already inside"],
+ 'greed:young_mazi':["I have literally never lost a second room","the second room is basically a hallway","trust me, I'm the one with the car"],
+ 'greed:sunday_best':["I have prayed on it, briefly, in the doorway.","A man may be tempted and remain well dressed.","I shall pretend this was a reluctant decision."],
+ 'greed:auntie_grit':["The car is warm. The room is not. Choose warm.","I've buried better plans than this one. Get in.","One more room, one more funeral. Get in the car."],
+ 'cap:PRIZE:2':["The last room paid the way rooms used to.","Nobody argues with what is sitting on the table.","The pitch was honest. That happens once a year.","It is not a great take. It is an honest one.","Everything on the list is in the bag. Amazing."],
+ 'cap:TROUBLE:2':["The trouble leans in, hears the fight, and leans back out.","One good minute and the whole block was over it.","The lights come back on and nobody wants to be the first to speak.","The worst of it walks itself out the back.","Whatever was coming decides tomorrow works too."],
+ 'call:talk:win':["{a} said the number and {n} did the math the wrong way","{a} sounded so reasonable that {n} thanked him","{a} gave {n} the speech he'd wanted all night"],
+ 'nerve:fumble':["{a} tried to holster a gun that was in his hand","{a} counted the rounds out loud, wrongly","{a} remembered the safety a second after the safety remembered him","{a} loaded the last clip backwards, with confidence"],
+ 'prize:luck':["the vault door was open and the vault had been generous to somebody else","they found the envelope; the envelope had found a cheaper owner","the crate was stamped, sealed, and full of ceramic frogs"],
+ 'death:generic':["{a} got up too quickly and the night took the rest","{a} made it to the doorway. That was his whole distance","{a} was on the plan. Then he wasn't. Nobody had time to say why"],
+ 'sure:fail':["They called it a lock. Somebody hadn't checked the lock","SURE THING??? (a very confident silence followed)","The surest thing in the building turned out to be the floor","It was a sure thing until it met a person","SURE THING??? The sure thing left through the back","Nobody has ever been so certain and so wrong in one sentence","It was a sure thing the way a coin is a sure thing","The plan said sure. The room said watch this","SURE THING??? Somebody make that a T-shirt"],
+ 'trait:mouth:up':["{a} added a zero to the number and a smile to the zero","{a} promised a discount, then a discount on the discount, then a bigger number","{a} put the word 'exclusive' on a cardboard box"],
+ 'combo:handsfree':["Dre put the whole chase on hold to leave a voicemail","Dre said 'one sec' to a stunt driver","Dre took the turn with his ear and the mirror with his prayers","Dre gave directions to a stranger while being chased","Dre did the corner one-handed and the second hand was texting","Dre asked the passenger seat to hold the wheel — there was no passenger seat"],
+ 'combo:coin:up':["{a} called heads at the door and the door said heads","{a} bet the whole front seat on a hinge and won","{a} threw the shoulder and the lock threw up its hands","{a} gambled on the frame and the frame folded first","{a} trusted a spinning coin and a rotting hinge, in that order","{a} hit the door at the exact wrong angle for the door","{a} did the reckless thing loudly enough that it counted as a plan","{a} took the coin's side against the building and the coin won","{a} kicked once and the whole room agreed"],
+ 'combo:coin:fail':["{a} called tails and the door said nobody","{a} bet the whole front seat on a hinge and the hinge did not care","{a} threw the shoulder at a wall that looked like a door","{a} gambled on a rotten frame; the frame was fine","{a} trusted a spinning coin and got a spinning room","{a} went in like a decision and came out like a lesson","{a} got lucky twice earlier and the universe wanted it back","{a} took the coin's side against the building and the building had a lawyer","{a} kicked once and the whole crew learned about doorframes"],
+ 'split:bus':["{a} is on the Metro, looking at the map like it owes him rent","{a} found a bench and a very long lunch","{a} put a hood up and a transfer card out"],
+ 'boss:smack:flee':["LIL SMACK sent a text that said 'brb' and did not brb","LIL SMACK went out the window with his napkin still tucked in","LIL SMACK ran so fast his echo had to catch a cab","LIL SMACK dropped a chicken wing and a threat and took neither back","LIL SMACK retreated with his mouth still full — forgivable","LIL SMACK left a note that just said 'later, chewing'","LIL SMACK went out the kitchen door and into a rumor","LIL SMACK ran; the lieutenants applauded, sarcastically","LIL SMACK vanished like the last fry"]
+};
+for(const [k,v] of Object.entries(MORE)){if(!LINES[k])throw new Error('T9 extension for unknown key '+k);LINES[k].push(...v);}
 const POOL_KEYS=Object.keys(LINES);
 export const lineCoverage=()=>POOL_KEYS.filter(k=>LINES[k].length<4);
 

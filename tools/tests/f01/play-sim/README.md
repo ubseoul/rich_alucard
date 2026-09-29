@@ -7,11 +7,11 @@
                                                         # Playwright drives the real page; exit 0 = pass (needs playwright + chromium; RA_PLAYWRIGHT_PATH / RA_CHROME override)
     node tools/tests/f01/play-sim/serve-play.mjs                          # serve the sandbox at http://localhost:8123/assets/f01/play/index.html
 
-Files: `driver.mjs` (sim driver: answers the engine's prompts with the four policies) · `policy.mjs` · `campaign.mjs` (careers on the world layer) · `metrics.mjs` (T1–T13, R1, skill gap) · `globals.mjs`/`load.mjs` (publish the preserved F01 `rng.js`+`data.js` globals in node) · `sim_v1.mjs`/`content_v1.mjs` (the approved 3abc08c engine, kept for the regression) · `regress*.mjs` (800-PLAY old↔new regression: 0 mismatches at the port commit, i.e. before the OL-016 changes; **expected to differ now** — the tuned engine diverges on purpose). Results: `out/tuned/` (`tuned_summary.json`, `run_tuned.log`), `out/bot/` (bot-gate JSON). Write-up: `docs/engineering/F01_THE_PLAY_TUNED_SIM.md`, `F01_THE_PLAY_FEEL_GATE.md`.
+Files: `driver.mjs` (sim driver: answers the engine's prompts with the four policies) · `policy.mjs` · `campaign.mjs` (careers on the world layer) · `metrics.mjs` (T1–T13, R1, skill gap) · `globals.mjs`/`load.mjs` (publish the preserved F01 `rng.js`+`data.js` globals in node) · `sim_v1.mjs`/`content_v1.mjs` (the approved fb3ff8a engine, kept for the regression) · `regress*.mjs` (800-PLAY old↔new regression: 0 mismatches at the port commit, i.e. before the OL-016 changes; **expected to differ now** — the tuned engine diverges on purpose). Results: `out/tuned/` (`tuned_summary.json`, `run_tuned.log`), `out/bot/` (bot-gate JSON). Write-up: `docs/engineering/F01_THE_PLAY_TUNED_SIM.md`, `F01_THE_PLAY_FEEL_GATE.md`.
 
 ---
 
-## Historical: the OL-014 / OL-015 paper-sim (3abc08c)
+## Historical: the OL-014 / OL-015 paper-sim (fb3ff8a)
 
 Design evidence for `docs/engineering/F01_THE_PLAY_SPEC.md`. **Not** a game and not the browser sandbox; no UI, no grid, no LOS/pathing/cover, no hit-% display, no difficulty selector.
 

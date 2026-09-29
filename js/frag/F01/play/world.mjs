@@ -132,7 +132,9 @@ export function applyResult(w,rec,job){
  // morning-after: nickname, story seed (nerve baseline nudge), scars
  if(rec.morning){
   for(const n of rec.morning.nicks){const o=so.roster.find(x=>x.id===n.id);if(o&&!o.nick)o.nick=n.nick;}
-  for(const sd of rec.morning.seeds){const o=so.roster.find(x=>x.id===sd.who);if(o&&o.perks.length<D.STORY_NUMBERS.maxStories){o.perks.push(sd.perk);o.base=Math.min(85,o.base+(o.traits.includes('BIG_POTENTIAL')?4:2));}}
+  for(const sd of rec.morning.seeds){const o=so.roster.find(x=>x.id===sd.who);if(!o)continue;
+   if(sd.perk==='got_everybody_out'){if(!o.perks.includes(sd.perk))o.perks.push(sd.perk);continue;} // OL-020: a CREW BOOK memory only — no stat, no XP, no nerve nudge
+   if(o.perks.length<D.STORY_NUMBERS.maxStories){o.perks.push(sd.perk);o.base=Math.min(85,o.base+(o.traits.includes('BIG_POTENTIAL')?4:2));}}
  }
  w.roster=so.roster.filter(o=>o.status!=='DEAD'&&o.status!=='GONE');
  for(const o of w.roster){o.nerve=o.base;o.fled=false;o.out=null;}

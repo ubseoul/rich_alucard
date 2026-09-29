@@ -33,6 +33,10 @@ const markSaved=(r,d)=>{r.mvp++;r.saved=r.saved||[];r.saved.push(d.id);r.savedNo
 const has=(P,o,t)=>P.opts.traits!==false&&o.traits.includes(t);
 const laneOf=(P,o)=>P.opts.carOff?'MID':C.SEAT_LANE[Object.keys(P.seat).find(s=>P.seat[s]===o.id)]||'MID';
 const seatOf=(P,o)=>Object.keys(P.seat).find(s=>P.seat[s]===o.id);
+// BAILED (OL-020 canonical v1). ALL must hold: routine OFFENSE PLAY (never BIG PLAY, never HOLD THE HOUSE) · crew at start >= 2 ·
+// EXACTLY 1 able Oga and >= 1 downed Oga (0 able is a WASH, always) · nobody already dead (BAILED produces 0 deaths) · GETAWAY has not begun.
+// Automatic: no player call. The single owner of the rule — every trigger goes through here.
+export const bailEligible=P=>!P.opts.noBail&&!P.job.bigPlay&&!P.job.defense&&!P.getawayStarted&&P.crew.length>=2&&able(P).length===1&&dropping(P).length>=1&&!P.crew.some(o=>o.out==='DEAD');
 const able=(P)=>P.crew.filter(o=>o.hp>0&&!o.out&&!o.fled);
 const dropping=(P)=>P.crew.filter(o=>o.hp<=0&&!o.out&&!o.fled&&!o.rescued);
 const say=(P,sec,line)=>{if(!P.sim)P.script.push({sec,line});};
@@ -412,7 +416,7 @@ function fightBeat(ctx){
   const enemyPhase=()=>{for(const e of enemies.filter(x=>!x.dead&&!x.fled))enemyAttack(ctx,e,r);};
   if(ctx.ambush&&r===0){enemyPhase();crewPhase();}else if(crewFirst&&r===0){crewPhase();enemyPhase();}else{crewPhase();enemyPhase();}
   // LAST STAND (T2): when one Oga is left on their feet and others are down, the crew retreats instead of being wiped — nobody is left behind
-  if(!P.opts.noBail&&P.crew.length>=2&&able(P).length===1&&dropping(P).length>=1&&enemies.some(e=>!e.dead&&!e.fled)){ctx.bailNow=true;break;}
+  if(bailEligible(P)&&enemies.some(e=>!e.dead&&!e.fled)){ctx.bailNow=true;break;}
  }
  const left=enemies.filter(e=>!e.dead&&!e.fled);
  ctx.left=left;
@@ -586,7 +590,7 @@ function afterFightDrops(ctx){
   {const lo=able(P).find(x=>x!==d&&has(P,x,'LOYAL'));if(lo&&R.chance(.55)){if(R.chance(.65)){d.hp=1;d.rescued=true;d.wasSaved=true;d.dropBeat=null;markSaved(lo,d);moment(P,ctx,'trait',`${lo.short} went back for ${d.short} — LOYAL`,'trait:loyal:up','CLUTCH',5);continue;}else{hurt(ctx,lo,2,{by:'GOING BACK',cause:cz(CAUSE.TRAIT,'LOYAL')});moment(P,ctx,'trait',`${lo.short} stayed at ${d.short}'s shoulder — LOYAL`,'trait:loyal:stay','WARM',3);}}}
   const partner=able(P).find(x=>P.bonds.some(b=>b.includes(d.id)&&b.includes(x.id)));
   if(partner&&R.chance(.5)){d.hp=1;d.rescued=true;d.wasSaved=true;d.dropBeat=null;markSaved(partner,d);nerveAdd(P,ctx,partner,-6,null);pressAdd(P,ctx,5,cz(CAUSE.REL,'DAY ONES went back'));moment(P,ctx,'bond',`${partner.short} went back for ${d.short} without being asked — DAY ONES`,'bond:save','CLUTCH',9);swing(P,'bond-save',cz(CAUSE.REL,'DAY ONES'));continue;}
-  if(!d.named&&R.chance(P.opts.deathP??.10)){ // sudden generic death
+  if(!d.named&&!ctx.bailNow&&R.chance(P.opts.deathP??.10)){ // sudden generic death
    d.out='DEAD';d.dropBeat=null;moment(P,ctx,'death',`${d.short} caught one. He's gone.`,'death:generic','SCARY',9,d.dropCause);P.losses.push({who:d.id,kind:'DEAD',cause:d.dropCause||cz(CAUSE.LUCK,''),tag:causeTag(P,d.dropCause,'DEAD_SUDDEN'),beat:ctx.i,text:`${d.short} caught one. He's gone.`});
    for(const x of able(P))nerveAdd(P,ctx,x,-8,cz(CAUSE.EARLIER,`${d.short} caught one`));}
  }
@@ -764,6 +768,7 @@ function aftermath(P){
  if(kind==='HELD')for(const o of able(P))nerveAdd(P,{moments:[]},o,6,null);
 }
 function* getaway(P){
+ P.getawayStarted=true;
  if(P.job.defense){aftermath(P);return;}
  const R=RS(P,'getaway|'+P.step);
  const gc=getawayCard(P,R);P.card=gc;
@@ -846,6 +851,7 @@ function finalizeCrew(P,wash){
   if(o.fled){o.finalStatus='READY';o.nerve=Math.max(0,o.nerve-8);continue;}
   if(o.hp<=0&&!o.rescued){
    const leftBehind=o.left||wash;const cause=o.dropCause||cz(CAUSE.LUCK,'');
+   if(P.bailed){o.finalStatus='WOUNDED';P.losses.push({who:o.id,kind:'WOUNDED',cause,tag:causeTag(P,cause,'WOUNDED'),beat:o.dropBeat??4,text:`${o.short} was carried out hurt`});continue;} // BAILED: 0 captures, 0 deaths — the downed come home WOUNDED
    if(leftBehind){
     if(o.named){
      if(!P.job.bigPlay&&(namedCap>=1||(wash&&!o.left&&RSf(P,o.id).chance(.55))))pk(o,'SHOT',cause,`${o.short} was dragged out at the last second`);
@@ -1104,13 +1110,13 @@ function report(P){
  const seen=new Set();P.mem=P.mem.filter(m=>seen.has(m.id)?false:seen.add(m.id));
  // report card
  const lines=[];
- const cashS=`$${Math.round(P.pot.cash)}K cash + ${P.pot.crates.length} crate${P.pot.crates.length===1?'':'s'} (~$${P.final}K street value)`;lines.push(`${klass==='CLEAN'?'CLEAN WIN':klass==='MESSY'?'A WIN WITH A STORY':klass==='COSTLY'?'A WIN — AND IT COST':klass==='FOLDED'?'FOLDED — WALKED AWAY WITH SOMETHING':klass==='GREED'?'GREED — JUGGED':klass==='ROBBED'?'JUGGED ON THE WAY BACK':klass==='BAILED'?'BAILED — EVERYBODY GOT OUT':'WASH'}   ·   ${P.win?'BANKED '+cashS:'nothing banked'}${P.pocketLoss?`  (−$${P.pocketLoss}K from Rich's pocket)`:''}`);
+ const cashS=`$${Math.round(P.pot.cash)}K cash + ${P.pot.crates.length} crate${P.pot.crates.length===1?'':'s'} (~$${P.final}K street value)`;lines.push(`${klass==='CLEAN'?'CLEAN WIN':klass==='MESSY'?'A WIN WITH A STORY':klass==='COSTLY'?'A WIN — AND IT COST':klass==='FOLDED'?'FOLDED — WALKED AWAY WITH SOMETHING':klass==='GREED'?'GREED — JUGGED':klass==='ROBBED'?'JUGGED ON THE WAY BACK':klass==='BAILED'?'BAILED — NOBODY LEFT BEHIND':'WASH'}   ·   ${P.win?'BANKED '+cashS:'nothing banked'}${P.pocketLoss?`  (−$${P.pocketLoss}K from Rich's pocket)`:''}`);
  const mvp=[...P.crew].sort((a,b)=>b.mvp-a.mvp||(b.kills||0)-(a.kills||0))[0];
  if(mvp&&((mvp.savedNow||[]).length||mvp.kills))lines.push(`MVP: ${mvp.short}${(mvp.savedNow||[]).length?' (pulled '+mvp.savedNow.map(id=>P.roster.find(o=>o.id===id)?.short).join(', ')+' back)':''}`);
  if(P.turnMoment)lines.push(P.turnMoment);
  if(P.noScratch){const fx=P.crew[Math.abs(P.seed)%P.crew.length];P.flexLine=`${fx.short}: ${pickLine(P,'flex:clean',{a:fx.short}).replace(/^[^:]*: /,'')}`;lines.push('NO SCRATCH — bonus crate. '+P.flexLine);}
  if(P.folded){const fx=P.crew.find(o=>o.hp>0)||P.crew[0];P.foldLine=pickLine(P,'fold:intel',{a:fx.short});lines.push('FOLD: '+P.foldLine);}
- if(P.bailed)lines.push('BAILED: '+P.bailBy+' got everybody out. Nobody was left behind.');
+ if(P.bailed)lines.push(P.bailBy+' got everybody out. The pot stayed behind; the money already banked is safe.');
  for(const l of P.losses.filter(l=>l.kind!=='WOUNDED'||P.losses.length<3))lines.push(`${l.kind}: ${l.text}${l.cause&&l.cause.t?' — because '+l.cause.t:''}${l.cause&&l.cause.c==='GREED'?'  [GREED]':''}`);
  for(const o of P.crew){const s=o.finalStatus;if(s==='WOUNDED'&&!P.losses.some(l=>l.who===o.id))lines.push(`WOUNDED: ${o.short}`);}
  P.reportLines=lines;for(const l of lines)say(P,'REPORT',l);
@@ -1150,11 +1156,12 @@ function morning(P){
  if(P.noScratch)out.seeds.push({perk:'no_scratch',who:P.crew[0].id,text:'WALKED OUT WITHOUT A SCRATCH'});
  if(!out.seeds.length&&P.turnMoment)out.seeds.push({perk:'turn',who:P.crew[0].id,text:'ONE MORE'});
  if(!out.seeds.length&&P.mem[0])out.seeds.push({perk:'mem',who:P.crew[0].id,text:P.mem.slice().sort((a,b)=>b.w-a.w)[0].text.slice(0,40).toUpperCase()});
+ if(P.bailed&&P.bailerId)out.seeds.unshift({perk:'got_everybody_out',who:P.bailerId,text:'GOT EVERYBODY OUT'}); // one memory, no stat, no XP
  out.seeds=out.seeds.slice(0,1);
  out.district=P.job.shape==='TAKE THE BLOCK'&&P.win?`${P.job.faction.split(' +')[0]} lose a corner of ${C.DISTRICTS[P.seed%3]}. Rival pressure drops.`:P.win?`${C.DISTRICTS[P.seed%3]} hears about it. Demand ticks up.`:`${C.DISTRICTS[P.seed%3]} hears about it too.`;
  // next temptation — exactly one; retaliation capped (T8)
  const cap=P.crew.find(o=>o.finalStatus==='CAPTURED');
- const hot=P.job.heat>=6||P.greedFail||P.stashRaided||P.step>=2;
+ const hot=!P.bailed&&(P.job.heat>=6||P.greedFail||P.stashRaided||P.step>=2); // BAILED never feeds retaliation
  const recruit=P.pot.crates.some(c=>c.recruit);
  const rare=P.kicker&&(P.kicker.rar!=='COMMON'||P.kicker.cat==='WEIRD');
  let ty;
@@ -1192,16 +1199,16 @@ export function* playGen(cfg){
   if(P.pressure>=67)P.stress=true;
   if(res.fold){P.folded=true;P.endLine=pickLine(P,'fold:line',{});say(P,'BEATS','  '+P.endLine);emit(P,'END',{kind:'FOLD',line:P.endLine,snap:snap(P)});break;}
   if(res.wipe||!able(P).length){P.wash=true;P.endLine=pickLine(P,'wash:line',{});say(P,'BEATS','  '+P.endLine);emit(P,'END',{kind:'WASH',line:P.endLine,snap:snap(P)});break;}
-  if(res.bail||(!P.opts.noBail&&i<3&&P.crew.length>=2&&able(P).length<=1&&dropping(P).length>=1&&res.tier<=1)){P.bailed=true;const lastUp=able(P)[0];P.bailBy=lastUp?lastUp.short:'the last one standing';P.endLine=pickLine(P,'bail:line',{a:P.bailBy});say(P,'BEATS','  '+P.endLine);emit(P,'END',{kind:'BAIL',line:P.endLine,by:P.bailBy,snap:snap(P)});break;}
+  if(bailEligible(P)){P.bailed=true;const lastUp=able(P)[0];P.bailerId=lastUp.id;P.bailBy=lastUp.short;P.endLine=pickLine(P,'bail:line',{a:P.bailBy});say(P,'BEATS','  '+P.endLine);emit(P,'END',{kind:'BAIL',line:P.endLine,by:P.bailBy,snap:snap(P)});break;}
  }
- if(P.bailed){P.gaway={kind:'BAILED'};P.robbed=true;P.pot.lost=true;P.losses.push({who:'pot',kind:'ROBBED',cause:cz(CAUSE.EARLIER,'they were down to one on their feet'),tag:'DRAMATIC',beat:3,text:'they left with nothing but each other'});say(P,'GETAWAY','  No prize. No getaway to speak of. Everybody gets out — that is the win.');}
+ if(P.bailed){P.gaway={kind:'BAILED'};P.pot.cash=0;P.pot.crates=[];P.pot.lost=true;P.losses.push({who:'pot',kind:'BAILED',cause:cz(CAUSE.EARLIER,'they were down to one on their feet'),tag:'DRAMATIC',beat:3,text:'they left with nothing but each other'});say(P,'GETAWAY','  No prize. No getaway to speak of. Everybody gets out.');} // BAILED has its own state: never robbed / ROBBED / JUGGED
  else if(!P.wash){yield* getaway(P);}
  else{P.gaway={kind:'WASH'};P.robbed=true;P.pot.lost=true;P.losses.push({who:'pot',kind:'ROBBED',cause:cz(CAUSE.EARLIER,'everybody went down'),tag:'DRAMATIC',beat:3,text:'nobody made it out with anything'});say(P,'GETAWAY','  There is no getaway. Somebody else drives the car home.');}
  finalizeCrew(P,P.wash);
- if(!P.robbed){for(const o of able(P))nerveAdd(P,{moments:[]},o,6,null); // the trunk is the release
+ if(!P.robbed&&!P.bailed){for(const o of able(P))nerveAdd(P,{moments:[]},o,6,null); // the trunk is the release
   trunk(P,0);yield* turning(P);}else{P.pot.cash=0;P.pot.crates=[];}
- if(!P.robbed&&!P.folded){yield* hitOneMore(P);}
- if(!P.robbed)yield* assignGuns(P);
+ if(!P.robbed&&!P.bailed&&!P.folded){yield* hitOneMore(P);}
+ if(!P.robbed&&!P.bailed)yield* assignGuns(P);
  // crew statuses may change after a climb; re-finalize newly dropped
  if(P.step>0)refinalize(P);
  report(P);morning(P);
@@ -1228,14 +1235,14 @@ function summarizeRecord(P){
   turn:P.turn||null,calls:{...P.stat,diff:P.stat.diff,bestWorst:P.stat.bestWorst,realized:P.stat.realized},callLog:P.callLog||[],
   climbs:P.climbs||[],shadow:P.shadow||[],teaseAudit:P.teaseAudit||[],truth:P.truth||null,
   pressureEnd:P.pressure,nerveEnd:crew.map(o=>[o.id,o.nerve]),newCombos:P.newCombos,combosActive:[...P.combos],
-  heat:(P.job.heat+(P.approach==='LOUD'?4:P.approach==='QUIET'?-2:0)+(P.heatBonus||0)+P.step*3),
+  heat:P.bailed?P.job.heat:(P.job.heat+(P.approach==='LOUD'?4:P.approach==='QUIET'?-2:0)+(P.heatBonus||0)+P.step*3),
   script:P.script,report:P.reportLines,morning:P.morning,moments:P.moments.map(m=>({t:m.text,tag:m.tag,w:m.w,k:m.key})),
   losses:lossEvents,
   swingList:P.swings,
   finalStatus:Object.fromEntries(crew.map(o=>[o.id,o.finalStatus])),
   temptation:P.morning?.temptation?.type,emptyBeats:P.emptyBeats,beatCount:P.beatLog.length,crewTraits:crew.flatMap(o=>o.traits),crewCls:crew.map(o=>o.cls),pot:{cash:P.pot.cash,crates:P.pot.crates.map(c=>({cat:c.cat,rar:c.rar,name:c.name,val:c.val}))},
   kicker:P.kicker?{cat:P.kicker.cat,rar:P.kicker.rar,name:P.kicker.name}:null,
-  stateOut:{roster:P.roster,bonds:P.bonds,known:{...P.known,...Object.fromEntries(P.newCombos.map(c=>[c,true]))},cars:P.cars,weirdSeen:P.weirdSeen,armory:P.armory},acceptedNamed:P.acceptedNamed,lineLog:P.lineLog,firedCombos:[...P.fired],gunGifts:P.gunGifts||[],armoryOut:P.armory,noScratch:!!P.noScratch,bailed:!!P.bailed,foldIntel:!!P.foldIntel,captives:P.crew.filter(o=>o.finalStatus==='CAPTURED').map(o=>o.id),answers:P.answers,heatDelta:(P.job.heat+(P.approach==='LOUD'?4:P.approach==='QUIET'?-2:0)+(P.heatBonus||0)+P.step*3),pocketLoss:P.pocketLoss||0,memWt:Object.fromEntries(P.mem.map(m=>[m.id,m.w])),beef:P.beef||[],beefSettled:P.beefSettled||[],beefFired:P.beefFired||null,beefSeen:P.beefSeen||0,beefsLive:P.beefs||[],crashOut:P.crashOut||0,spent:P.spent||0,
+  stateOut:{roster:P.roster,bonds:P.bonds,known:{...P.known,...Object.fromEntries(P.newCombos.map(c=>[c,true]))},cars:P.cars,weirdSeen:P.weirdSeen,armory:P.armory},acceptedNamed:P.acceptedNamed,lineLog:P.lineLog,firedCombos:[...P.fired],gunGifts:P.gunGifts||[],armoryOut:P.armory,noScratch:!!P.noScratch,bailed:!!P.bailed,bailerId:P.bailerId||null,foldIntel:!!P.foldIntel,captives:P.crew.filter(o=>o.finalStatus==='CAPTURED').map(o=>o.id),answers:P.answers,heatDelta:P.bailed?P.job.heat:(P.job.heat+(P.approach==='LOUD'?4:P.approach==='QUIET'?-2:0)+(P.heatBonus||0)+P.step*3),pocketLoss:P.pocketLoss||0,memWt:Object.fromEntries(P.mem.map(m=>[m.id,m.w])),beef:P.beef||[],beefSettled:P.beefSettled||[],beefFired:P.beefFired||null,beefSeen:P.beefSeen||0,beefsLive:P.beefs||[],crashOut:P.crashOut||0,spent:P.spent||0,
   stateAfter:{roster:P.roster.map(o=>({id:o.id,nerve:o.nerve,hp:o.hp,status:o.finalStatus||o.status,mvp:o.mvp,scars:o.scars,nick:o.nick,perks:o.perks})),weirdSeen:P.weirdSeen,known:{...P.known,...Object.fromEntries(P.newCombos.map(c=>[c,true]))}}
  };
 }

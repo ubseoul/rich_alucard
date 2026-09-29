@@ -1,35 +1,41 @@
-primary 800 (16509 ms)
-replicate baseline (46120 ms)
-calls off (50694 ms)
-careers careful (75455 ms)
-careers greedy (99951 ms)
-careers naive (123116 ms)
-careers random (144595 ms)
-retention arms (212283 ms)
+primary 800 (15324 ms)
+replicate baseline (44409 ms)
+calls off (49334 ms)
+careers careful (74065 ms)
+careers greedy (97561 ms)
+careers naive (122196 ms)
+careers random (146401 ms)
+retention arms (212387 ms)
 
 === TUNED SIM ===
-T1 generic death (PLAYs w/ generics aboard): 10.6% | was 24.9% | target 10–12%
-T2 named CAPTURED (share of PLAYs): 5.8% | was 18.0% | target ≤8%
-T3 SPLIT: 5.4% by car {"SUPRA":"2.5%","URUS":"3.2%","HOOPTIE":"11.5%","S2000":"0.0%","CASTLE":"0.0%"} | was 1.8% | target 4–6%
-T4 step 1: n=2000 P(success)=74.8% pot=74.42 EV=15.97 (24.5% of pot mean-rel)
-T4 step 2: n=1367 P(success)=57.7% pot=120.42 EV=-7.84 (-3.2% of pot mean-rel)
-T4 step 3: n=699 P(success)=34.2% pot=191.99 EV=-93.59 (-47.9% of pot mean-rel)
-   step-2 visible jackpot share: 14.0% | step-2 aggregate EV/pot: -6.5%
-   step-3 aggregate EV/pot: -48.7%
-   step-1 aggregate EV/pot: 21.5%
-   top loss causes: SEAT: the counter was aboard but in the wrong seat ( 227 | ENEMY: hunters go straight for vampires 189 | EARLIER: they were down to one on their feet 144 | GREED: they went back in 131 | ENEMY: the lieutenant lifted his crew 92 | ENEMY: enforcers charge the front seat 78 | EARLIER: the mercy rule 60 | LUCK:  45 | EARLIER: Tunde was already hurt 45 | EARLIER: everybody went down 40
-T5 player-attributable losses: 35.8% | was 18.5% | target ≥35%; causes {"EARLIER":487,"ENEMY":386,"SEAT":256,"HAZARD":144,"LUCK":45,"CAR":56,"GREED":140,"WEAPON":33,"TRAIT":28,"CHOICE":80}
-T9 lines: repeats-within-3: 8 of 72852 uses | uncovered triggers [] | thin keys [] | distinct lines 1492 top share 1.8% [["Tunde watched it all like a weather report — CALM",125],["Tunde stayed exactly as calm as Tunde was — CALM",125],["Tunde did not blink — CALM",119]]
-R1 careful  roster end 8.70 of 9 | ≥6: 100% | min 7 | lost/career 0.03 (named 0.03) | ransom paid 0.00 | extract wins 0.65 / 0.68 | READY 8.64 | cash 896
-R1 greedy   roster end 7.35 of 9 | ≥6: 80% | min 3 | lost/career 0.78 (named 0.63) | ransom paid 0.42 | extract wins 0.30 / 1.68 | READY 7.01 | cash 431
-R1 naive    roster end 9.00 of 9 | ≥6: 100% | min 9 | lost/career 0.03 (named 0.03) | ransom paid 0.00 | extract wins 0.85 / 1.20 | READY 8.52 | cash 447
-R1 random   roster end 8.13 of 9 | ≥6: 95% | min 4 | lost/career 0.45 (named 0.33) | ransom paid 0.25 | extract wins 0.63 / 1.20 | READY 7.87 | cash 452
-R1 random arm: all OL-016 brakes              roster end 8.13 | ≥6: 95% | min 4 | lost/career 0.45
-R1 random arm: no EXTRACT/RANSOM brakes       roster end 7.38 | ≥6: 83% | min 4 | lost/career 1.70
+T1 generic death (PLAYs w/ generics aboard): 10.8% | was 24.9% | target 10–12%
+T2 named CAPTURED (share of PLAYs): 9.0% | was 18.0% | target ≤8%
+T3 SPLIT: 5.9% by car {"SUPRA":"3.1%","URUS":"4.0%","HOOPTIE":"11.9%","S2000":"0.0%","CASTLE":"0.0%"} | was 1.8% | target 4–6%
+T4 step 1: n=2004 P(success)=75.0% pot=74.34 EV=16.19 (24.9% of pot mean-rel)
+T4 step 2: n=1370 P(success)=56.9% pot=120.36 EV=-8.47 (-4.4% of pot mean-rel)
+T4 step 3: n=694 P(success)=34.0% pot=192.85 EV=-94.69 (-48.3% of pot mean-rel)
+   step-2 visible jackpot share: 14.0% | step-2 aggregate EV/pot: -7.0%
+   step-3 aggregate EV/pot: -49.1%
+   step-1 aggregate EV/pot: 21.8%
+   top loss causes: SEAT: the counter was aboard but in the wrong seat ( 236 | ENEMY: hunters go straight for vampires 190 | GREED: they went back in 131 | EARLIER: they were down to one on their feet 101 | ENEMY: the lieutenant lifted his crew 93 | ENEMY: enforcers charge the front seat 83 | EARLIER: the mercy rule 76 | EARLIER: everybody went down 68 | EARLIER: Tunde was already hurt 46 | LUCK:  43
+T5 player-attributable losses: 35.7% | was 18.5% | target ≥35%; causes {"EARLIER":507,"ENEMY":396,"SEAT":267,"HAZARD":144,"LUCK":43,"CAR":57,"GREED":140,"WEAPON":32,"TRAIT":28,"CHOICE":80}
+T9 lines: repeats-within-3: 0 of 73760 uses | uncovered triggers [] | thin keys [] | distinct lines 1608 top share 1.8% [["Tunde watched it all like a weather report — CALM",126],["Tunde stayed exactly as calm as Tunde was — CALM",125],["Tunde did not blink — CALM",119]]
+R1 careful  roster end 8.82 of 9 | ≥6: 100% | min 7 | lost/career 0.05 (named 0.05) | ransom paid 0.00 | extract wins 1.00 / 1.05 | READY 8.72 | cash 910
+R1 greedy   roster end 6.20 of 9 | ≥6: 70% | min 1 | lost/career 1.55 (named 1.20) | ransom paid 0.95 | extract wins 0.53 / 3.10 | READY 6.40 | cash 371
+R1 naive    roster end 9.00 of 9 | ≥6: 100% | min 9 | lost/career 0.05 (named 0.05) | ransom paid 0.00 | extract wins 1.65 / 2.27 | READY 8.69 | cash 481
+R1 random   roster end 8.30 of 9 | ≥6: 100% | min 6 | lost/career 0.23 (named 0.17) | ransom paid 0.40 | extract wins 1.07 / 1.57 | READY 8.13 | cash 479
+R1 random arm: all OL-016 brakes              roster end 8.30 | ≥6: 100% | min 6 | lost/career 0.23
+R1 random arm: no EXTRACT/RANSOM brakes       roster end 7.00 | ≥6: 85% | min 2 | lost/career 2.23
 R1 random arm: no last-stand bail-out         roster end 7.10 | ≥6: 88% | min 1 | lost/career 1.00
 R1 random arm: neither (approved sim rules)   roster end 4.97 | ≥6: 43% | min 1 | lost/career 4.40
-skill gap strict: 0.55 | calls off: 0.20 | calls/PLAY 0.47
-win bands: careful 81.5% naive 66.0% gap 15.50 pts | random 50.0% greedy 20.5% | wash careful/naive 4.5% 5.5%
-nothing-happened strict: 5.1% | story-beat 94.1% | blame broad 97.3% | funny/dramatic 55.1% | retaliation share 6.3%
-temptations {"RECRUIT":123,"RARE_PITCH":446,"DEMAND":105,"RETALIATION":50,"RESCUE":51,"INTEL":25}
-done (212380 ms)
+skill gap strict: 0.55 | calls off: 0.19 | calls/PLAY 0.49
+win bands: careful 83.5% naive 67.5% gap 16.00 pts | random 50.5% greedy 22.0% | wash careful/naive 5.5% 9.5%
+nothing-happened strict: 7.0% | story-beat 93.0% | blame broad 97.5% | funny/dramatic 56.0% | retaliation share 6.1%
+temptations {"RARE_PITCH":429,"RECRUIT":109,"DEMAND":105,"RETALIATION":49,"RESCUE":82,"INTEL":26}
+BAILED rate (800-PLAY matrix) by policy: careful 7.5% | greedy 10.5% | naive 14.5% | random 18.0% | all 12.6% (101 of 800)
+BAILED rate (careers) by policy: careful 5.8% | greedy 10.7% | naive 14.5% | random 14.2% | all 11.3%
+BAILED invariants (BIG PLAY/HOLD excluded, crew>=2, no capture/death/shot, not robbed, pot lost, base heat only, no retaliation): 0 violations over 563 BAILED PLAYs
+T2 named CAPTURED by job: {"boba_backroom":"5.0%","tupperware":"0.0%","vampire_dentist":"13.8%","dock_restock":"0.0%","car_wash_stickup":"2.5%","quiet_lift":"5.0%","vampire_gala":"12.5%","smack_crib":"5.0%","counting_house[BIG PLAY]":"20.0%","hold_the_house[HOLD]":"26.3%"} | routine offense only 5.5% | BIG PLAY + HOLD only 23.1%
+WASH rate by job class: routine 4.5% | BIG PLAY + HOLD 24.4%
+T9 pool sizing (pool > 3 x max uses per PLAY): all 181 triggers satisfy it
+done (212620 ms)

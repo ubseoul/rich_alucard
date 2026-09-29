@@ -109,7 +109,7 @@ async function playBeat(d){
  await wait(500);
 }
 async function playEnd(d){
- const map={FOLD:['FOLD','You called it off. Everybody walks.','cyan'],WASH:['WASH','Nobody is left standing.','red'],BAIL:['BAILED','The last one standing gets everybody out.','gold']}[d.kind]||['END','','pink'];
+ const map={FOLD:['FOLD','You called it off. Everybody walks.','cyan'],WASH:['WASH','Nobody is left standing.','red'],BAIL:['BAILED — NOBODY LEFT BEHIND','The last one standing gets everybody out.','gold']}[d.kind]||['END','','pink'];
  updateCrew(d.snap);
  SC.feed.insertAdjacentHTML('beforeend',`<div class="cardtxt" style="border-left-color:var(--${map[2]==='gold'?'gold':map[2]==='red'?'red':'cyan'})"><small>${map[0]}</small>${esc(d.line||map[1])}</div>`);
  SFX.play(d.kind==='FOLD'?'freeze':'lose');await wait(2200);
@@ -307,8 +307,8 @@ function reportScreen(out,rec,job,sel){
   const crew=rec.crew.map(id=>{const o=oga(id)||S.curRoster.find(x=>x.id===id)||{id,short:id,cls:'MUSCLE',traits:[]};const st=rp.status[id]||'READY';return `<div class="rc ${st}">${plate(o,{state:['DEAD','CAPTURED','GONE','SHOT'].includes(st)?'DOWN':'UP',hurt:st==='WOUNDED'})}<span class="nm">${esc(o.short)}</span><span class="st">${esc(st)}</span></div>`;}).join('');
   const losses=(rp.losses||[]).filter(l=>l.kind!=='WOUNDED'||rp.losses.length<3).map(l=>{const c=l.cause||{};const yours=YOURS.has(c.c);const who=l.who&&oga(l.who)?oga(l.who).short:'';
    return `<div class="loss ${yours?'you':''}"><b>${esc(l.kind)}</b> — ${esc(l.text)}${c.t?`<span class="why"><b>${esc(c.c)}</b>because ${esc(c.t)}</span>`:''}${yours&&TRY[c.c]?`<span class="try">${esc(TRY[c.c](c))}</span>`:!yours&&c.c==='ENEMY'?'<span class="try">Every enemy trick has a counter on the CAR screen.</span>':''}</div>`;}).join('');
-  const lines=(rp.lines||[]).filter((l,i)=>i>0&&(/^(MVP|NO SCRATCH|FOLD|BAILED)/.test(l)||rp.turnMoment&&l===rp.turnMoment)).map(l=>`<div class="line ${/^NO SCRATCH/.test(l)?'green':/^MVP/.test(l)?'gold':''}">${esc(l)}</div>`).join('');
-  const banked=rp.win?`BANKED $${Math.round(rp.cash)}K + ${rp.crates} crate${rp.crates===1?'':'s'} · street value ~$${rp.final}K`:'NOTHING BANKED'+(rp.pocketLoss?` · −$${rp.pocketLoss}K from Rich’s pocket`:'');
+  const lines=(rp.lines||[]).filter((l,i)=>i>0&&(/^(MVP|NO SCRATCH|FOLD)/.test(l)||rp.turnMoment&&l===rp.turnMoment)).map(l=>`<div class="line ${/^NO SCRATCH/.test(l)?'green':/^MVP/.test(l)?'gold':''}">${esc(l)}</div>`).join('');
+  const banked=rp.klass==='BAILED'?'THE POT STAYED BEHIND · what you already banked is safe':rp.win?`BANKED $${Math.round(rp.cash)}K + ${rp.crates} crate${rp.crates===1?'':'s'} · street value ~$${rp.final}K`:'NOTHING BANKED'+(rp.pocketLoss?` · −$${rp.pocketLoss}K from Rich’s pocket`:'');
   const replay=out.log.map(l=>`<div class="r"><b>${esc(l.stage)}</b>${esc(l.text)}${l.opt&&l.opt!=='DEFAULT'?` <span class="tag cyan">CALL ${esc(l.opt)}</span>`:''}${l.smartVerb&&l.opt!==l.smartVerb&&l.smart?`<br><span class="dim">the angle was: ${esc(l.smart)}</span>`:''}${l.moments.map(m=>`<br>· ${esc(m)}`).join('')}</div>`).join('');
   const dev=prefs.get().dev&&rec.script?`<details class="replay"><summary>ENGINE LOG (dev)</summary><div class="devbox">${esc(rec.script.map(s=>'['+s.sec+'] '+s.line).join('\n'))}</div></details>`:'';
   const el=h(`<div class="screen" id="report"><div class="scroll">

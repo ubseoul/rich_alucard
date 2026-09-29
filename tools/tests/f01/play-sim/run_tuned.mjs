@@ -35,7 +35,7 @@ function lineStats(){
  return {uses,violationsIn3:viol,triggersSeen:keys.size,uncoveredTriggers:uncovered,thinKeys:thin,distinctLinesShown:Object.keys(freq).length,shownTotal:shown.length,topLineShare:top.length?top[0][1]/shown.length:0,top};
 }
 const LS=lineStats();
-// tuned-run numbers vs the approved baseline (3abc08c)
+// tuned-run numbers vs the approved baseline (fb3ff8a)
 const gap=RM.variance.gapCarefulNaive,gapOff=ROFF.variance.gapCarefulNaive;
 const P=(k)=>PM.byPolicy[k];
 const T={
@@ -68,4 +68,38 @@ console.log('skill gap strict:',f2(gap),'| calls off:',f2(gapOff),'| calls/PLAY'
 console.log('win bands: careful',pct(P('careful').win),'naive',pct(P('naive').win),'gap',f2((P('careful').win-P('naive').win)*100),'pts | random',pct(P('random').win),'greedy',pct(P('greedy').win),'| wash careful/naive',pct(P('careful').wash),pct(P('naive').wash));
 console.log('nothing-happened strict:',pct(PM.nothing),'| story-beat',pct(PM.storyGrade),'| blame broad',pct(PM.losses.blameBroad),'| funny/dramatic',pct(PM.losses.funnyOrDramatic),'| retaliation share',pct((PM.temptation.RETALIATION||0)/PM.n));
 console.log('temptations',JSON.stringify(PM.temptation));
+
+// ---- OL-020: BAILED rate by policy + invariants + T9 pool sizing (pool must exceed 3 x max uses of that trigger in one PLAY)
+{
+ const allCareerRecs=POLICY_NAMES.flatMap(pol=>careers[pol].flatMap(c=>c.recs));
+ const rate=(recs)=>recs.length?recs.filter(r=>r.bailed).length/recs.length:0;
+ console.log('BAILED rate (800-PLAY matrix) by policy:',POLICY_NAMES.map(pl=>pl+' '+pct(rate(primary.filter(r=>r.policy===pl)))).join(' | '),'| all',pct(rate(primary)),'('+primary.filter(r=>r.bailed).length+' of '+primary.length+')');
+ console.log('BAILED rate (careers) by policy:',POLICY_NAMES.map(pl=>pl+' '+pct(rate(careers[pl].flatMap(c=>c.recs)))).join(' | '),'| all',pct(rate(allCareerRecs)));
+ const bigIds=new Set(JOBS.filter(j=>j.bigPlay).map(j=>j.id)),defIds=new Set(JOBS.filter(j=>j.defense).map(j=>j.id));
+ const bad=[];
+ for(const r of [...primary,...allCareerRecs].filter(r=>r.bailed)){
+  const fs=Object.values(r.finalStatus);
+  if(bigIds.has(r.job))bad.push('BIG PLAY bailed');if(defIds.has(r.job))bad.push('HOLD THE HOUSE bailed');
+  if(r.crew.length<2)bad.push('crew<2');
+  if(r.robbed)bad.push('robbed set');if(r.getaway!=='BAILED')bad.push('getaway kind '+r.getaway);
+  if(fs.some(x=>['CAPTURED','DEAD','GONE','SHOT'].includes(x)))bad.push('capture/death/shot on BAILED');
+  if(r.win)bad.push('counted as win');if(r.pot.cash||r.pot.crates.length)bad.push('pot survived');
+  if(r.losses.some(l=>l.kind==='ROBBED'))bad.push('ROBBED loss on BAILED');
+  if(r.heatDelta!==(JOBS.find(j=>j.id===r.job)||{heat:r.heatDelta}).heat&&r.job!=='extract')bad.push('heat bonus applied');
+  if(fs.filter(x=>x==='READY'||x==='WOUNDED').length!==fs.length)bad.push('odd status');
+  if(r.morning&&r.morning.temptation&&r.morning.temptation.type==='RETALIATION')bad.push('retaliation after BAILED');
+ }
+ console.log('BAILED invariants (BIG PLAY/HOLD excluded, crew>=2, no capture/death/shot, not robbed, pot lost, base heat only, no retaliation):',bad.length?'VIOLATIONS '+JSON.stringify([...new Set(bad)]):'0 violations over '+[...primary,...allCareerRecs].filter(r=>r.bailed).length+' BAILED PLAYs');
+ {
+ const cap=(recs)=>recs.length?recs.filter(r=>r.namedCaptured>0).length/recs.length:0;
+ const byJob=Object.fromEntries(JOBS.map(j=>[j.id+(j.bigPlay?'[BIG PLAY]':j.defense?'[HOLD]':''),pct(cap(primary.filter(r=>r.job===j.id)))]));
+ const routine=primary.filter(r=>!bigIds.has(r.job)&&!defIds.has(r.job));
+ console.log('T2 named CAPTURED by job:',JSON.stringify(byJob),'| routine offense only',pct(cap(routine)),'| BIG PLAY + HOLD only',pct(cap(primary.filter(r=>bigIds.has(r.job)||defIds.has(r.job)))));
+ console.log('WASH rate by job class: routine',pct(routine.filter(r=>r.klass==='WASH').length/routine.length),'| BIG PLAY + HOLD',pct(primary.filter(r=>bigIds.has(r.job)||defIds.has(r.job)).filter(r=>r.klass==='WASH').length/primary.filter(r=>bigIds.has(r.job)||defIds.has(r.job)).length));
+ }
+ // T9 pool sizing
+ const maxUse={};for(const r of [...primary,...allCareerRecs]){const c={};for(const id of (r.lineLog||[])){const k=id.split('#')[0];c[k]=(c[k]||0)+1;}for(const [k,v] of Object.entries(c))maxUse[k]=Math.max(maxUse[k]||0,v);}
+ const short=Object.entries(maxUse).filter(([k,m])=>(LINES[k]||[]).length<=3*m).map(([k,m])=>k+' pool '+(LINES[k]||[]).length+' <= 3x'+m);
+ console.log('T9 pool sizing (pool > 3 x max uses per PLAY):',short.length?short.length+' short: '+short.join('; '):'all '+Object.keys(maxUse).length+' triggers satisfy it');
+}
 log('done');

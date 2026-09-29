@@ -1,15 +1,48 @@
 # F01 — THE PLAY: OL-016 tuned sim (feel-gate build, step 1)
 
-Authority: OL-014 + OL-015 + OL-016. Baseline: `frag/showdown-core/play-spec-001` @ `3abc08c` (the approved 800-PLAY digest, `F01_PLAY_SIM_DIGEST.md`).
+Authority: OL-014 + OL-015 + OL-016. Baseline: `frag/showdown-core/play-spec-001` @ `fb3ff8a` (the approved 800-PLAY digest, `F01_PLAY_SIM_DIGEST.md`).
 Reproduce: `node tools/tests/f01/play-sim/run_tuned.mjs` (≈3.5 min; deterministic — two consecutive runs are identical). Raw output: `tools/tests/f01/play-sim/out/tuned/run_full3.log`, `tuned_summary.json`.
 
 The sim and the browser sandbox now run **one engine** (`js/frag/F01/play/engine.mjs`, world layer `world.mjs`). The port was regression-checked against the approved sim before any OL-016 change was applied (800/800 PLAYs identical on outcome fields; `regress.mjs` now differs by design).
 
 Matrix: 10 job specs × 20 seeds × 4 policies (careful / greedy / naive / random) = 800 PLAYs; careers: 40 careers × 24 nights per policy on the new world layer (nights, captives + EXTRACT clock, RANSOM, turning v1, line memory).
 
-## 1. Result vs. OL-016 targets
+## 0. OL-020 correction pass (supersedes §1 and §3.1 where they differ)
 
-| Target | OL-016 | 3abc08c | tuned | verdict |
+BAILED is **RATIFIED WITH BOUNDS** (canonical v1). One predicate owns it (`engine.mjs › bailEligible`): routine OFFENSE PLAY only (never BIG PLAY, never HOLD THE HOUSE) · crew at start ≥ 2 · **exactly 1** able Oga and ≥ 1 downed · nobody already dead · GETAWAY has not begun · automatic (no player call). 0 able is a WASH, always. Outcome: the unbanked pot is lost, banked money untouched, 0 captures, 0 deaths, the downed come home WOUNDED, job base HEAT only, no retaliation credit, own state (never robbed / ROBBED / JUGGED). The bailer gets one CREW BOOK memory, **GOT EVERYBODY OUT** (no stat, no XP). Headline everywhere: **BAILED — NOBODY LEFT BEHIND**. T9 pools resized (181 triggers, every pool > 3 × its max uses in one PLAY; 116 genuinely new lines; no Rich lines).
+
+Rerun (`run_tuned.mjs`, deterministic, base fb3ff8a + OL-020):
+
+| metric | OL-016 build | OL-020 | target | |
+|---|---|---|---|---|
+| T1 generic death | 10.6% | **10.8%** | 10–12% | ✔ |
+| **T2 named CAPTURED** | 5.8% | **9.0%** | ≤ 8% | **✖ FAIL** |
+| T3 SPLIT | 5.4% | **5.9%** (HOOPTIE 11.9%, URUS 4.0%, SUPRA 3.1%) | 4–6% | ✔ |
+| T4 step 1 / 2 / 3 EV | +16.0 / −7.8 / −93.6 | **+16.2 / −8.5 / −94.7** (aggregate +21.8% / −7.0% / −49.1% of pot; step-2 jackpot 14.0%) | + / −10…0% / clearly − | ✔ |
+| T5 player-attributable | 35.8% | **35.7%** | ≥ 35% | ✔ (thin) |
+| T13 careful / naive / gap | 81.5 / 66.0 / 15.5 | **83.5 / 67.5 / 16.0** | 70–85 / 55–70 / ≥ 12 | ✔ |
+| strict-call careful−naive gap | 0.55 | **0.55** (calls off 0.19) | ≥ 0.4 | ✔ |
+| R1 random: mean / ≥ 6 / worst | 8.13 / 95% / 4 | **8.30 / 100% / 6** | ≥ 6 in ≥ 95%, worst ≥ 4 | ✔ |
+| R1 careful ≥ 6 | 100% | **100%** (mean 8.82, worst 7) | 100% | ✔ |
+| T9 repeats within 3 PLAYs | 8 | **0** of 73,760 uses | 0 | ✔ |
+
+BAILED rate — 800-PLAY matrix by policy: careful 7.5% · greedy 10.5% · naive 14.5% · random 18.0% (all 12.6%, 101 of 800). Careers: careful 5.8% · greedy 10.7% · naive 14.5% · random 14.2% (all 11.3%). Invariants checked on all 563 BAILED PLAYs in the run: 0 violations (`tools/tests/f01/bailed.test.mjs` asserts the same on a 480-PLAY matrix that includes BIG PLAY and HOLD THE HOUSE).
+
+**T2 fails, and the cause is the ruling itself, not a tuning slip.** Excluding BIG PLAY and HOLD THE HOUSE from BAILED removes the last-stand exit from the two jobs whose crews are most often overrun:
+
+| named CAPTURED share | |
+|---|---|
+| routine offense jobs (8 specs) | **5.5%** (≤ 8% ✔) |
+| BIG PLAY (counting_house) | 20.0% |
+| HOLD THE HOUSE | 26.3% |
+| BIG PLAY + HOLD pooled | 23.1% (WASH 24.4% vs 4.5% routine) |
+| all 800 PLAYs | **9.0%** |
+
+Per OL-020 no other rule was loosened to compensate. The gate build itself ships no BIG PLAY (HOLD THE HOUSE is one of its three jobs). Rulings needed: (a) measure T2 on routine offense PLAYs only (5.5% ✔) with BIG PLAY / HOLD tracked as their own bands, or (b) a different exit for those two job classes. Not chosen here.
+
+## 1. Result vs. OL-016 targets (the OL-016 build; see §0 for OL-020)
+
+| Target | OL-016 | fb3ff8a | tuned | verdict |
 |---|---|---|---|---|
 | T1 generic death (PLAYs with a generic aboard) | ~10–12% | 24.9% | **10.6%** | ✔ |
 | T2 named CAPTURED (share of PLAYs) | ≤ 8% | 18.0% | **5.8%** | ✔ |
@@ -44,7 +77,7 @@ Ablation on the random policy (what actually carries retention):
 | all OL-016 brakes | 8.13 | 95% | 0.45 |
 | no EXTRACT/RANSOM brakes | 7.38 | 83% | 1.70 |
 | no last-stand bail-out | 7.10 | 88% | 1.00 |
-| neither (the approved 3abc08c rules) | 4.97 | 43% | 4.40 |
+| neither (the approved fb3ff8a rules) | 4.97 | 43% | 4.40 |
 
 ## 2. What was implemented
 
@@ -59,7 +92,7 @@ Ablation on the random policy (what actually carries retention):
 
 ## 3. Honest caveats — read before ratifying
 
-1. **Bail-out is a new rule, not an OL-016 line item.** Retention leans on it more than on the EXTRACT/RANSOM brakes (ablation above). When the last Oga standing is the only one still up after a bad beat, the crew *bails*: no prize, no getaway, everybody out (new failure class **BAILED**, non-win, no captures). It is what let T2 (≤ 8%) and R1 be met without softening the fights. **Underlord/Overlord: ratify or veto.** The alternative is a softer mercy rule; that costs T5 headroom.
+1. **(Superseded by OL-020 — see §0.)** *Bail-out was a new rule, not an OL-016 line item.* Retention leans on it more than on the EXTRACT/RANSOM brakes (ablation above). When the last Oga standing is the only one still up after a bad beat, the crew *bails*: no prize, no getaway, everybody out (new failure class **BAILED**, non-win, no captures). It is what let T2 (≤ 8%) and R1 be met without softening the fights. **Underlord/Overlord: ratify or veto.** The alternative is a softer mercy rule; that costs T5 headroom.
 2. **T5 is 35.8% against a ≥ 35% floor and leans on one cause.** 256 of the attributable losses are SEAT ("the counter was aboard but in the wrong seat"). That is a real, learnable player choice, but the margin is thin; a small change to tell strength moves it under 35%.
 3. **T9 is 8 repeats, not 0.** They occur where a trigger's pool is exhausted inside the 3-PLAY window and the LRU fallback re-serves the oldest line. More variants on the ~5 busiest keys would take it to zero; a sandbox pass does not need it.
 4. **R1 tail:** the mean (8.13) and the 95% ≥ 6 clear the target; 2 of 40 random careers still finish below 6 (worst 4). Greedy careers (which take HIT ONE MORE constantly) sit at 7.35 and 80% ≥ 6 — greed *should* cost.

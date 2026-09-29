@@ -1,6 +1,6 @@
 # F01 — THE PLAY: browser feel-gate sandbox
 
-Authority: OL-014 + OL-015 + OL-016. Spec/sim baseline: `frag/showdown-core/play-spec-001` @ `3abc08c`. Tuned sim: `F01_THE_PLAY_TUNED_SIM.md`.
+Authority: OL-014 + OL-015 + OL-016. Spec/sim baseline: `frag/showdown-core/play-spec-001` @ `fb3ff8a`. Tuned sim: `F01_THE_PLAY_TUNED_SIM.md`.
 **Not FCPB.** This is the first browser build of the PLAY loop, exactly the OL-014 scope: Koreatown only, no grid, no LOS/pathing/cover, no hit-% UI, no HARD, no War Room / district economy / TRAP / final art.
 
 ```
@@ -106,9 +106,9 @@ Pace (unhurried, bot never taps): a full PLAY with a HIT ONE MORE ≈ 65 s from 
 4. **TURN cannot fire on a fresh roster** (9/9 = cap). It needs a free seat, i.e. someone lost. Verified by trimming the roster.
 5. **Board shapes:** only two normal shapes exist, so "never the same shape twice" is suspended; expect repeats within a few nights.
 6. **Content pool (T10):** 3 hand-authored jobs by scope. Open Mouth Gang is ~58% of the sim pool — flagged for F04. Expect the gate to feel repetitive after ~10 nights; that is a content limit, not a systems one.
-7. **BAILED** (last-stand bail-out) is a rule I added to hit T2/R1; needs ratification (see `F01_THE_PLAY_TUNED_SIM.md` §3).
+7. **BAILED** was ratified with bounds by OL-020 (canonical v1: routine offense only, exactly 1 able + ≥ 1 downed, pre-GETAWAY, automatic; headline *BAILED — NOBODY LEFT BEHIND*; memory *GOT EVERYBODY OUT*). **T2 (named CAPTURED) is 9.0% after the correction — escalated; see `F01_THE_PLAY_TUNED_SIM.md` §0.**
 8. **T5 margin is thin** (35.8% vs ≥ 35%) and R1's worst random career keeps only 4.
-9. **Pre-existing test failure, not from this branch:** `tools/tests/if1/loader.test.mjs › new files land in their slots` fails identically on `3abc08c` (its fixture expects `js/frag/F01/migrations.js` to be a *new* file; F01 already ships one). Every other fragment test passes. Left alone — IF-1 owner surface.
+9. **Pre-existing test failure, not from this branch:** `tools/tests/if1/loader.test.mjs › new files land in their slots` fails identically on `fb3ff8a` (its fixture expects `js/frag/F01/migrations.js` to be a *new* file; F01 already ships one). Every other fragment test passes. Left alone — IF-1 owner surface.
 10. Desktop is a centred 480 px column (phone-first). `navigator.vibrate` is a no-op on iOS. Crew book shows story-seed ids in raw form.
 11. Not in this build, by ruling: grid, LOS/pathing/cover, hit-% UI, HARD, other districts, War Room, TRAP, final art. **R2** (Vol 7 errata) is the Underlord's document. An Arcade mirror was **not** made (offered below).
 
@@ -130,6 +130,9 @@ Pace (unhurried, bot never taps): a full PLAY with a HIT ONE MORE ≈ 65 s from 
 10. *Determinism.* `window.__raPlay.replayCheck()` → `{ok:true}` after every PLAY.
 
 Send back: any console output, the telemetry JSON (`☰ → COPY TELEMETRY JSON`), and the `M2P_TAP` list.
+
+### Google adversarial additions (OL-020)
+Try to force BAILED in: (1) BIG PLAY — impossible; (2) HOLD THE HOUSE — impossible (`forceHold()`); (3) 0 able Ogas — always WASH; (4) once GETAWAY has begun — impossible. On every BAILED verify: never ROBBED / JUGGED; banked cash unchanged; unbanked pot gone; 0 captures / 0 deaths; downed Ogas WOUNDED; headline exactly *BAILED — NOBODY LEFT BEHIND*; GOT EVERYBODY OUT appears once (morning pill + crew book) and changes no stat.
 
 ## 8. Recommendation for the Ube feel gate
 
