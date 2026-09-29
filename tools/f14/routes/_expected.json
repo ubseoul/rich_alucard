@@ -1,0 +1,96 @@
+{
+ "schema": 1,
+ "note": "Declared campaign routes. NONE of this is implemented at IF-1: every entry is PENDING_FRAGMENT. A fragment later submits tools/f14/routes/<FRAGMENT>.json with executable steps and the same id; that file replaces the declaration. Do not implement unavailable routes here.",
+ "routes": [
+  {
+   "id": "F01.showdown.success",
+   "fragment": "F01",
+   "title": "SHOWDOWN — success path",
+   "kind": "success",
+   "status": "PENDING_FRAGMENT",
+   "flag": "F01.showdown",
+   "entry": "F01 submits the player-facing route that resolves SHOWDOWN successfully"
+  },
+  {
+   "id": "F01.showdown.failure",
+   "fragment": "F01",
+   "title": "SHOWDOWN — authored failure",
+   "kind": "failure",
+   "status": "PENDING_FRAGMENT",
+   "flag": "F01.showdown",
+   "entry": "F01 submits the authored failure branch and its resolution"
+  },
+  {
+   "id": "F01.showdown.retreat",
+   "fragment": "F01",
+   "title": "SHOWDOWN — retreat / backout",
+   "kind": "retreat",
+   "status": "PENDING_FRAGMENT",
+   "flag": "F01.showdown",
+   "entry": "F01 submits the retreat path and proves a clean return to the bedroom"
+  },
+  {
+   "id": "F02.armory.open",
+   "fragment": "F02",
+   "title": "ARMORY — open the app",
+   "kind": "mechanic",
+   "status": "PENDING_FRAGMENT",
+   "flag": "F02.armory",
+   "entry": "F02 submits the ARMORY phone app route (weapon slot surfaces)"
+  },
+  {
+   "id": "F02.range_day.run",
+   "fragment": "F02",
+   "title": "RANGE DAY — run the mechanic",
+   "kind": "mechanic",
+   "status": "PENDING_FRAGMENT",
+   "flag": "F02.iron_and_grace",
+   "entry": "F02 submits the Range Day run through its player-facing controls"
+  },
+  {
+   "id": "F03.m9.tribute",
+   "fragment": "F03",
+   "title": "M9 THE TRIBUTE",
+   "kind": "mission",
+   "status": "PENDING_FRAGMENT",
+   "flag": "F03.new_oga_ladder_close",
+   "entry": "F03 submits the M9 wake → choices → resolution route"
+  },
+  {
+   "id": "F03.m10.vice_president",
+   "fragment": "F03",
+   "title": "M10 VICE PRESIDENT",
+   "kind": "mission",
+   "status": "PENDING_FRAGMENT",
+   "flag": "F03.new_oga_ladder_close",
+   "entry": "F03 submits the M10 grant path and the VampGPT re-ask"
+  },
+  {
+   "id": "F04.war_room.open",
+   "fragment": "F04",
+   "title": "WAR ROOM — open the app",
+   "kind": "mission",
+   "status": "PENDING_FRAGMENT",
+   "flag": "F04.war_room",
+   "entry": "F04 submits the WAR ROOM phone app route"
+  },
+  {
+   "id": "F05.trap.run",
+   "fragment": "F05",
+   "title": "THE TRAP — run the mechanic",
+   "kind": "mechanic",
+   "status": "PENDING_FRAGMENT",
+   "flag": "F05.trap",
+   "entry": "F05 submits the Trap / Counting phone app route"
+  },
+  {
+   "id": "F06.rainmaker.run",
+   "fragment": "F06",
+   "title": "RAINMAKER — run the mechanic",
+   "kind": "mechanic",
+   "status": "PENDING_FRAGMENT",
+   "flag": "F06.rainmaker",
+   "entry": "F06 submits the RAINMAKER phone app route"
+  }
+ ]
+}

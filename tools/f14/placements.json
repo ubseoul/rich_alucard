@@ -1,0 +1,34 @@
+{
+ "schema": 1,
+ "note": "PHONE PLACEMENT VALIDATION HOOK. The harness always installs a baseline validator (every rendered phone control is on-screen and tappable). Fragments add their own validators here when they ship phone surfaces; until then they are PENDING_FRAGMENT — never a failure. This hook REPORTS only; Claude is the sole final UX/UI owner.",
+ "validators": [
+  {
+   "id": "F01.showdown.placement",
+   "fragment": "F01",
+   "title": "SHOWDOWN phone placement",
+   "status": "PENDING_FRAGMENT",
+   "description": "F01 declares the phone surfaces SHOWDOWN adds and their placement expectations"
+  },
+  {
+   "id": "F04.war_room.placement",
+   "fragment": "F04",
+   "title": "WAR ROOM phone placement",
+   "status": "PENDING_FRAGMENT",
+   "description": "F04 declares the WAR ROOM app placement expectations"
+  },
+  {
+   "id": "F05.trap.placement",
+   "fragment": "F05",
+   "title": "THE TRAP phone placement",
+   "status": "PENDING_FRAGMENT",
+   "description": "F05 declares the Trap / Counting app placement expectations"
+  },
+  {
+   "id": "F06.rainmaker.placement",
+   "fragment": "F06",
+   "title": "RAINMAKER phone placement",
+   "status": "PENDING_FRAGMENT",
+   "description": "F06 declares the RAINMAKER app placement expectations"
+  }
+ ]
+}
