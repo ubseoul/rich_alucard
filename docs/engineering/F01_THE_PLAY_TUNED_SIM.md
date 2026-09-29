@@ -7,6 +7,10 @@ The sim and the browser sandbox now run **one engine** (`js/frag/F01/play/engine
 
 Matrix: 10 job specs × 20 seeds × 4 policies (careful / greedy / naive / random) = 800 PLAYs; careers: 40 careers × 24 nights per policy on the new world layer (nights, captives + EXTRACT clock, RANSOM, turning v1, line memory).
 
+## 000. OL-023 — FEEL LOCK re-run
+
+Seating is now automatic and visible presentation is the feel lock; the full re-run (T1–T5, T9, T13, R1, BAILED / FALL BACK invariants) and the T5 lever breakdown are in **`F01_THE_PLAY_FEEL_LOCK.md` §11**. Reproduce: `node tools/tests/f01/play-sim/run_tuned.mjs`. Headline: T2 3.9 / 18.8 / 7.5 % · T5 **36.9 %** (SWAP 220, WEAPON 130, CAR 55, CALLS 144, TRAIT 45) · T13 80.0 / 67.5 / 12.5.
+
 ## 00. OL-022 — FALL BACK v1 (HOLD THE HOUSE) and the T2 bands
 
 T2 is now judged in three bands (OL-022). FALL BACK is the defense-only last-stand exit: HOLD THE HOUSE / defense only (never routine offense, never BIG PLAY) · crew at start ≥ 2 · exactly 1 able Oga and ≥ 1 downed · nobody already dead · before the resolution phase · automatic. 0 able stays the WASH-equivalent defense loss. Outcome: the house resolves BREACHED, the raid product is lost, banked money untouched, 0 captures, 0 deaths, the downed come home WOUNDED, base HEAT only, own state (`fellBack` / klass `FELL_BACK` / getaway `FALL_BACK`) — never BAILED / ROBBED / JUGGED, and separate in stats, telemetry, lines (`fallback:line`, 8 variants) and the report card. Headline: **FELL BACK — THE HOUSE IS HIT, THE CREW ISN'T**. Predicate: `engine.mjs › fallBackEligible`.

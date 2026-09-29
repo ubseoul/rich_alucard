@@ -19,11 +19,14 @@ function pickPitch(pol,board,w,R){
 export function runCareer({seed,nights,policy,opts={},big=true,brakes=true}){
  const w=W.newWorld(seed);const R=stream(seed,'career');const recs=[];const boards=[];
  const playOne=(job,pitcher,nameIdx,tag)=>{
-  const rec=runPlay({seed:seed*1000+w.night*10+tag,job,policy,opts,night:w.night,pitcher,nameIdx,state:w,intel:w.intel.some(x=>x.job===job.id)});
+  const rec=runPlay({seed:seed*1000+w.night*10+tag,job,policy,opts,night:w.night,pitcher,nameIdx,state:w,intel:w.intel.some(x=>x.job===job.id),oba:opts.noOba?false:W.obaDue(w,job)});
   rec.night=w.night;rec.career=seed;W.applyResult(w,rec,job);recs.push(rec);return rec;
  };
  for(let night=1;night<=nights;night++){
   W.advanceNight(w);
+  // OL-023 possessions: what was lost is recovered through the existing routes (weapons: the weapon source at its authored price; cars: dealer / impound, sandbox fee 0 until F13)
+  for(const l of W.lostCars(w))W.recoverCar(w,l.id,{fee:0});
+  for(let gi=(w.lostGuns||[]).length-1;gi>=0;gi--)W.rebuyGun(w,gi);
   // captives: EXTRACT (free of the nightly cap) then, on the last night, RANSOM
   if(brakes)for(const g0 of [...w.captives]){
    const ready=W.readyOnes(w);

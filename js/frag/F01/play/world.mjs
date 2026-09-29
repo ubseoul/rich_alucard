@@ -2,7 +2,7 @@
 // pitch boards, line-repeat memory. Shared by the paper-sim careers and the browser sandbox (one source of truth). JSON-serialisable.
 import {stream,D} from './env.mjs';
 import * as C from './content.mjs';
-import {startRoster} from './engine.mjs';
+import {startRoster,obaEligible} from './engine.mjs';
 import {pickLine} from './lines.mjs';
 
 export const CAP=9;                       // J.2: 8 base seats + 1 district (Koreatown) — F13 tunes
@@ -11,7 +11,7 @@ const shuffle=(R,a)=>{a=[...a];for(let i=a.length-1;i>0;i--){const j=R.int(0,i);
 
 export function newWorld(seed,{cap=CAP}={}){
  const w=startRoster(seed,{cap});
- Object.assign(w,{seed,night:0,cash:25,heat:0,captives:[],corun:{},gone:[],dead:[],recruited:0,plays:0,recent:[],comboCd:{},turnCd:0,intel:[],pending:null,lastShape:null,lastBoardSpecs:[],armory:[],stats:{extracts:0,extractWins:0,ransomsPaid:0,ransomsMissed:0,jobs:0},telemetry:[]});
+ Object.assign(w,{seed,night:0,cash:25,heat:0,captives:[],corun:{},gone:[],dead:[],recruited:0,plays:0,recent:[],comboCd:{},turnCd:0,intel:[],pending:null,lastShape:null,lastBoardSpecs:[],armory:[],stats:{extracts:0,extractWins:0,ransomsPaid:0,ransomsMissed:0,jobs:0},telemetry:[],inventory:[],flags:{},feel:{obaFirst:null,obaSeen:0,obaLast:0,faLast:-99,sibDone:false,sibLast:-99}});
  return w;
 }
 
@@ -103,12 +103,27 @@ export function gateBoard(w){
  return {notice:false,pitches};
 }
 
+// ---- the production board (OL-023): every offense spec, the HOLD THE HOUSE notice when retaliation lands, EXTRACT cards beside (not among) the night's pitches.
+// Jobs the garage cannot roll (no owned car that seats the minimum crew) are not offered. ?devbig shows the BIG PLAY.
+export function productionBoard(w){
+ const avail=readyOnes(w);const R=stream(w.seed,'board|'+w.night);
+ if(w.pending&&w.pending.night<=w.night&&avail.length>=3){const j=HOLD();return {notice:true,pitches:[{job:j,pitcher:'auntie_grit',nameIdx:R.int(0,j.names.length-1),notice:true}]};}
+ const pool=C.JOBS.filter(j=>!j.defense&&!j.bigPlay&&canRoll(w,j).ok);
+ const big=!!w.devBig||(w.night>=4&&R.chance(.35));
+ let pitches=pool.length&&avail.length?makeBoard(w,pool,R,{big:big&&canRoll(w,BIG()).ok}):[];
+ if(w.devBig&&BIG()&&avail.length>=4&&!pitches.some(p=>p.job.bigPlay)){const bj=BIG();const pid=bj.pitchers.find(p=>avail.some(o=>o.id===p))||(avail.find(o=>o.named&&C.PITCH_LINES[o.id])||avail[0]).id;pitches.push({job:bj,pitcher:pid,nameIdx:w.night%bj.names.length,big:true});}
+ for(const p of pitches){if(w.intel.some(x=>x.job===p.job.id))p.intel=true;}
+ return {notice:false,pitches};
+}
+
 // ---- applying a finished PLAY to the world
 const addGeneric=(w,R,turnedBy)=>{
  const used=new Set(w.roster.map(o=>o.name.toLowerCase()));const nm=C.GENERIC_NAMES.find(n=>!used.has(n.toUpperCase()))||('Cousin '+R.int(10,99));
  const cl=R.pick(['SHOOTER','MUSCLE','TALKER','GHOST','WHEELS','DOC']);const c=D.CLASSES[cl];const q=R.pick(C.QUIRKS);
  w.roster.push({id:'g'+(100+w.recruited++),name:nm.toUpperCase(),short:nm,cls:cl,named:false,human:!turnedBy,vampire:!!turnedBy,traits:[q],quirk:q,gun:'pistol',maxhp:c.hp,hp:c.hp,aim:c.aim,nerve:50,base:50,scars:[],nick:null,perks:[],status:'READY',away:0,mvp:0,saved:[],hist:[],plays:0,turnedBy:turnedBy||null});
 };
+// M6 truth rule: everything the return scene shows is something applyResult ACTUALLY granted. rec.received is that list.
+export const potBank=rec=>Math.round((rec.pot.cash+(rec.pot.crates||[]).filter(c=>c.cat==='CASH').reduce((a,c)=>a+(c.cash||c.val||0),0))*10)/10;
 export function applyResult(w,rec,job){
  const R=stream(w.seed,'apply|'+w.night+'|'+w.plays);
  const so=rec.stateOut;
@@ -141,12 +156,16 @@ export function applyResult(w,rec,job){
  w.roster=so.roster.filter(o=>o.status!=='DEAD'&&o.status!=='GONE');
  for(const o of w.roster){o.nerve=o.base;o.fled=false;o.out=null;}
  w.bonds=so.bonds;w.known=so.known;w.cars=so.cars;w.weirdSeen=so.weirdSeen;w.armory=so.armory||w.armory;
+ if(so.garage)w.garage=so.garage;
+ feelState(w);w.lostGuns=w.lostGuns||[];
+ for(const g of ((rec.lost&&rec.lost.guns)||[]))w.lostGuns.push({...g,night:w.night});
+ for(const f of (rec.storyFlags||[]))w.flags[f]=(w.flags[f]||0)+1;
  // DAY ONES: two Ogas who run 3 jobs together
  for(let i=0;i<rec.crew.length;i++)for(let j=i+1;j<rec.crew.length;j++){const k=[rec.crew[i],rec.crew[j]].sort().join('+');w.corun[k]=(w.corun[k]||0)+1;
   if(w.corun[k]>=3&&!w.bonds.some(b=>b.includes(rec.crew[i])&&b.includes(rec.crew[j]))&&w.roster.some(o=>o.id===rec.crew[i])&&w.roster.some(o=>o.id===rec.crew[j])){w.bonds.push([rec.crew[i],rec.crew[j]]);rec.newBond=[rec.crew[i],rec.crew[j]];}}
  if(rec.crashOut)w.cars[rec.car]=rec.crashOut;
  // economy: banked cash only; jugged/robbed PLAYs bank nothing; Rich's pocket pays call costs and a small ROBBED share
- if(rec.win)w.cash+=rec.pot.cash;
+ if(rec.win)w.cash+=potBank(rec);
  w.cash=Math.max(0,w.cash-(rec.spent||0)-(rec.pocketLoss||0));
  w.heat+=rec.heatDelta||0;
  // turning v1: only with a free seat, 3-night cooldown; a fresh willing generic joins
@@ -167,9 +186,72 @@ export function applyResult(w,rec,job){
  // combo cooldown: a combo that just revealed itself rests for 10 nights so a signature combo stays a discovery
  for(const c of rec.firedCombos||[])w.comboCd[c]=10;
  // line memory: no line repeats within 3 PLAYs
- w.recent=[...w.recent.slice(-2),[...(rec.lineLog||[]),...(w.boardSeen||[])]];w.boardSeen=[];
+ w.recent=[...w.recent.slice(-2),[...(rec.lineLog||[]),...((rec.feel&&rec.feel.lineLog)||[]),...(w.boardSeen||[])]];w.boardSeen=[];
+ {const F=feelState(w);const idx=w.plays+1;if(rec.oba){F.obaSeen++;F.obaLast=idx;}if(rec.feel&&rec.feel.falseAlarm)F.faLast=idx;if(rec.feel&&rec.feel.sibling){F.sibDone=true;F.sibLast=idx;}}
+ // what actually came home (M6): banked cash, guns handed out at WHO GETS IT, recruits that really joined, everything else into the inventory
+ {const got=[];w.inventory=w.inventory||[];
+  if(rec.win){
+   for(const c of rec.pot.crates){
+    if(c.cat==='CASH'){got.push({kind:'CASH',cat:'CASH',rar:c.rar,name:c.name,cash:c.cash||c.val||0});continue;}
+    if(c.cat==='GUN'){if((rec.gunGifts||[]).some(g=>g.gun===c.gun))got.push({kind:'GUN',cat:'GUN',rar:c.rar,name:c.name,lore:c.lore,gun:c.gun,to:((rec.gunGifts||[]).find(g=>g.gun===c.gun)||{}).to});continue;}
+    if(c.cat==='RECRUIT'){if(rec.recruited||rec.turned)got.push({kind:'ITEM',cat:'RECRUIT',rar:c.rar,name:c.name,lore:c.lore});continue;}
+    const it={kind:'ITEM',cat:c.cat,rar:c.rar,name:c.name,lore:c.lore,night:w.night};got.push(it);w.inventory.push({cat:c.cat,rar:c.rar,name:c.name,lore:c.lore,night:w.night});
+   }
+  }
+  rec.received={cash:rec.win?potBank(rec):0,items:got.filter(g=>g.kind!=='CASH'),all:got,kicker:rec.kicker?rec.kicker.name:null};}
  w.plays++;
  w.lastShape=job.shape;
+}
+
+// ---- RETURN (OL-023): the base scene shows what the state says. Who comes home, and how big the haul looks (bag scale thresholds are F13-tunable, in $K).
+export const BAG_TIERS={smallMax:14,mediumMax:32};
+export const bagTier=cashK=>cashK<=0?0:cashK<=BAG_TIERS.smallMax?1:cashK<=BAG_TIERS.mediumMax?2:3;                       // 1 duffel / 2-3 bags / a stacked haul
+export const bagCount=cashK=>{const t=bagTier(cashK);return t===0?0:t===1?1:t===2?(cashK>23?3:2):5;};
+export function returnRoster(rec){
+ const back=rec.crew.filter(id=>['READY','WOUNDED','SHOT'].includes(rec.finalStatus[id]));
+ const carLost=((rec.lost&&rec.lost.cars)||[]).some(c=>c.id===rec.car);
+ return {back,missing:rec.crew.filter(id=>!back.includes(id)),car:!!rec.car&&rec.car!=='CASTLE'&&!carLost&&rec.shape!=='HOLD THE HOUSE',alone:back.length===0};
+}
+
+// ---- FEEL LOCK scheduling (OL-023). Everything here is deterministic from the world seed and the PLAY counter.
+export const feelState=w=>{w.feel=w.feel||{obaFirst:null,obaSeen:0,obaLast:0,faLast:-99,sibDone:false,sibLast:-99};w.flags=w.flags||{};return w.feel;};
+// OBA DE GWINNETT: first encounter guaranteed in PLAYs 3-6 (the player is never told the count); afterwards at most 1 in 25 and never twice within 10 PLAYs.
+export function obaDue(w,job){
+ const F=feelState(w);const idx=w.plays+1;if(!obaEligible(job))return false;
+ if(F.obaFirst==null)F.obaFirst=3+stream(w.seed,'obafirst').int(0,3);
+ if(F.obaSeen===0)return idx>=F.obaFirst;
+ if(idx-F.obaLast<10)return false;
+ return stream(w.seed,'oba|'+idx).chance(1/25);
+}
+// FALSE ALARM silence: at most 1 in 8 PLAYs (min gap 8), only ever consumed on a run that is actually going fine (the feed decides when).
+export function falseAlarmDue(w){const F=feelState(w);const idx=w.plays+1;return idx>=3&&idx-F.faLast>=8&&stream(w.seed,'fa|'+idx).chance(.35);} // never in the first two PLAYs: run 1 stays extremely simple
+// SIBLING MEME: guaranteed exactly once on the very first PLAY; afterwards a rare callback, at most 1 in 15.
+export function siblingDue(w){const F=feelState(w);const idx=w.plays+1;if(!F.sibDone)return 'FIRST';return idx-F.sibLast>=15&&stream(w.seed,'sib|'+idx).chance(1/20)?'CALLBACK':null;}
+export function feelPlan(w,job){return {oba:obaDue(w,job),falseAlarm:falseAlarmDue(w),sibling:siblingDue(w)};}
+// The CREW / CAR screen shows only cars Rich owns. If none can seat the job's minimum crew the PLAY cannot roll (no loaner cars).
+export const ownedCars=w=>(w.garage&&w.garage.owned||Object.keys(w.cars||{})).filter(id=>C.CARS[id]);
+export function canRoll(w,job){
+ if(job.defense)return {ok:true};
+ const ready=readyOnes(w).length;const need=Math.min(job.size[0],ready);
+ const cars=ownedCars(w).filter(id=>!(w.cars[id]>0)&&C.CARS[id].seats.length>=need);
+ return cars.length?{ok:true}:{ok:false,reason:ownedCars(w).length?'NO CAR THAT SEATS THIS CREW':'NO CAR'};
+}
+// Recovery. F01 does NOT invent prices: weapons use the existing weapon source (GUN_PRICE); cars have NO authored price (SOURCE_REQUIRED, F03/F13),
+// so the sandbox recovers a car for the fee the caller supplies (default 0 = free until F13 tunes it). Canon-unique cars only via IMPOUND/RECOVERY.
+export const lostCars=w=>Object.entries((w.garage&&w.garage.lost)||{}).map(([id,v])=>({id,...v,unique:(w.garage.unique||[]).includes(id)}));
+// the dealer only ever relists cars that were WRECKED and are not canon-unique; a unique car is recovered only through its recovery route (impound)
+export const dealerList=w=>lostCars(w).filter(c=>c.route==='DEALER'&&!c.unique);
+export function recoverCar(w,id,{fee=0}={}){
+ const L0=w.garage&&w.garage.lost&&w.garage.lost[id];if(L0&&L0.route==='DEALER'&&(w.garage.unique||[]).includes(id))return {ok:false,reason:'unique cars are never relisted'};
+ const L=w.garage&&w.garage.lost&&w.garage.lost[id];if(!L)return {ok:false,reason:'not lost'};
+ if(w.cash<fee)return {ok:false,reason:'cash'};
+ w.cash-=fee;delete w.garage.lost[id];w.garage.owned.push(id);w.cars[id]=0;return {ok:true,route:L.route,fee};
+}
+export const gunQuote=g=>C.GUN_PRICE[g]==null?null:C.GUN_PRICE[g];
+export function rebuyGun(w,idx){
+ const g=(w.lostGuns||[])[idx];if(!g)return {ok:false,reason:'none'};
+ const fee=gunQuote(g.gun)||0;if(w.cash<fee)return {ok:false,reason:'cash',fee};
+ w.cash-=fee;w.lostGuns.splice(idx,1);w.armory.push(g.gun);return {ok:true,fee,gun:g.gun};
 }
 
 // ---- pitch cards (the board shows these before the PLAY exists)

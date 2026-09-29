@@ -19,7 +19,7 @@ export const sd=a=>{if(a.length<2)return 0;const m=mean(a);return Math.sqrt(mean
 export const pct=(x,d=1)=>(100*x).toFixed(d)+'%';
 export const f2=x=>(+x).toFixed(2);
 export const SCORE={BAILED:1,FELL_BACK:1,CLEAN:4,MESSY:3,COSTLY:2,FOLDED:2,GREED:1,ROBBED:1,WASH:0};
-export const STRICT=new Set(['TRAIT','CHOICE','GREED','CAR','WEAPON','SEAT','RELATIONSHIP']);
+export const STRICT=new Set(['TRAIT','CHOICE','GREED','CAR','WEAPON','SWAP','SEAT','RELATIONSHIP']);
 export const seedOf=(ji,k)=>ji*1000+k;
 
 export function matrix(seeds,opts={}){

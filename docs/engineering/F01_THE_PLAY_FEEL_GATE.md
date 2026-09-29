@@ -1,3 +1,5 @@
+> **SUPERSEDED PRESENTATION (OL-023).** The pitch board, CAR-screen seating puzzle, NERVE meter, moment cards, freeze-frame call screen, trunk dashboard and report card described below are RETIRED. The browser build is now the FEEL LOCK: see `F01_THE_PLAY_FEEL_LOCK.md`. The engine, world layer and tuned-sim machinery described here are preserved.
+
 # F01 — THE PLAY: browser feel-gate sandbox
 
 Authority: OL-014 + OL-015 + OL-016. Spec/sim baseline: `frag/showdown-core/play-spec-001` @ `fb3ff8a`. Tuned sim: `F01_THE_PLAY_TUNED_SIM.md`.
@@ -94,7 +96,7 @@ Playwright + Chromium drives the real page through whole careers; per width it f
 | roster trimmed to 7 (so TURN can fire) | 390 | 45 | **PASS** — TURN prompt reached; 45/45 replays identical |
 
 Screens exercised: splash, tips, pitch (incl. EXTRACT + RANSOM banners), car, scene, call freeze, getaway, trunk, greed, step ok/fail, turn, gun, count, report, morning, menu. Run it yourself:
-`node tools/tests/f01/play-sim/bot_gate.mjs --plays 15 --widths 360,390,430 --shots /tmp/shots` (exit 0 = pass). Raw results: `tools/tests/f01/play-sim/out/bot/*.json`.
+(retired with the old presentation) — the browser gate is now `node tools/tests/f01/play-sim/feel_gate.mjs` (OL-023). Raw results: `tools/tests/f01/play-sim/out/bot/*.json`.
 
 Pace (unhurried, bot never taps): a full PLAY with a HIT ONE MORE ≈ 65 s from GO to REPORT; a bailed PLAY ≈ 25 s. Tap-to-hurry cuts every wait to ~0.2 s.
 

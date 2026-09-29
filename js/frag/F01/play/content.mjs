@@ -38,7 +38,8 @@ export const GUNS={
  sapporo_shotgun:{name:'SAPPORO SHOTGUN',role:'BREACHER',dmg:[4,6],lane:'FRONT',flavor:'Doors are a suggestion.',eff:'breach'},
  chopstick_sniper:{name:'CHOPSTICK SNIPER',role:'SNIPER',dmg:[4,6],lane:'BACK',flavor:'Patience, then a lot of sound.',eff:'pick'},
  mac_and_cheese:{name:'MAC & CHEESE',role:'CHAOS',dmg:[3,6],lane:'ANY',flavor:'Aim is a state of mind.',eff:'spray'},
- auntie_slipper:{name:"AUNTIE'S SLIPPER",role:'CHAOS',dmg:[1,2],lane:'FRONT',flavor:"Every auntie's final answer.",eff:'flinch'}
+ auntie_slipper:{name:"AUNTIE'S SLIPPER",role:'CHAOS',dmg:[1,2],lane:'FRONT',flavor:"Every auntie's final answer.",eff:'flinch'},
+ hands:{name:'BARE HANDS',role:'FISTS',dmg:[1,2],lane:'ANY',flavor:'Whatever is left.',eff:null}
 };
 export const GUN_PRICE={pistol:0,lil_oga:25,sapporo_shotgun:60,chopstick_sniper:90,mac_and_cheese:75,auntie_slipper:0.012};
 
@@ -181,12 +182,22 @@ export {D};
 // ---------------------------------------------------------------------------------------------------------------- enemy tells and their visible counters (OL-016 T5)
 // Every tell printed on the pitch card has at least one counter the player can SEE on the CAR screen: the seat glows when a counter sits in it.
 export const TELLS={
- charge:{enemy:'ENFORCER',line:'ENFORCERS charge the front seat',counterLine:'SMALL or a MUSCLE up front',
-  ok:(o,lane)=>lane==='FRONT'&&(o.traits.includes('SMALL')||o.cls==='MUSCLE'),any:o=>o.traits.includes('SMALL')||o.cls==='MUSCLE',seatLane:'FRONT'},
- flank:{enemy:'CHEWER',line:'CHEWERS flank the back rows',counterLine:'a MUSCLE, a DOC or Auntie in the back',
-  ok:(o,lane)=>(lane==='MID'||lane==='BACK')&&(o.cls==='MUSCLE'||o.cls==='DOC'||o.traits.includes('SIT_DOWN')),any:o=>o.cls==='MUSCLE'||o.cls==='DOC'||o.traits.includes('SIT_DOWN'),seatLane:'BACK'},
+ charge:{enemy:'ENFORCER',line:'ENFORCERS charge the front seat',counterLine:'SMALL, a MUSCLE or a shotgun up front',
+  ok:(o,lane)=>lane==='FRONT'&&(o.traits.includes('SMALL')||o.cls==='MUSCLE'||o.gun==='sapporo_shotgun'),any:o=>o.traits.includes('SMALL')||o.cls==='MUSCLE'||o.gun==='sapporo_shotgun',
+  guns:['sapporo_shotgun'],cars:['URUS'],seatLane:'FRONT'},
+ flank:{enemy:'CHEWER',line:'CHEWERS flank the back rows',counterLine:'a MUSCLE, a DOC, Auntie or a MAC & CHEESE in the back',
+  ok:(o,lane)=>(lane==='MID'||lane==='BACK')&&(o.cls==='MUSCLE'||o.cls==='DOC'||o.traits.includes('SIT_DOWN')||o.gun==='mac_and_cheese'),any:o=>o.cls==='MUSCLE'||o.cls==='DOC'||o.traits.includes('SIT_DOWN')||o.gun==='mac_and_cheese',
+  guns:['mac_and_cheese'],cars:[],seatLane:'BACK'},
  silver:{enemy:'HUNTER',line:'HUNTERS go straight for vampires',counterLine:'a human up front draws them off',
-  ok:(o,lane)=>!o.vampire&&(lane==='FRONT'||lane==='DRIVER'),any:o=>!o.vampire,seatLane:'FRONT'},
- aura:{enemy:'LIEUTENANT',line:'the LIEUTENANT lifts his crew',counterLine:'a SHOOTER in the back picks him off',
-  ok:(o,lane)=>lane==='BACK'&&(o.cls==='SHOOTER'||o.gun==='chopstick_sniper'),any:o=>o.cls==='SHOOTER'||o.gun==='chopstick_sniper',seatLane:'BACK'}
+  ok:(o,lane)=>!o.vampire&&(lane==='FRONT'||lane==='DRIVER'),any:o=>!o.vampire,guns:[],cars:[],seatLane:'FRONT'},
+ aura:{enemy:'LIEUTENANT',line:'the LIEUTENANT lifts his crew',counterLine:'a SHOOTER or a sniper in the back picks him off',
+  ok:(o,lane)=>lane==='BACK'&&(o.cls==='SHOOTER'||o.gun==='chopstick_sniper'),any:o=>o.cls==='SHOOTER'||o.gun==='chopstick_sniper',guns:['chopstick_sniper'],cars:[],seatLane:'BACK'}
 };
+
+// ---------------------------------------------------------------------------------------------------------------- possessions (OL-023)
+// Canon-UNIQUE cars stay unique: never re-listed at a dealer, recovered only through an impound/recovery route. Which cars are canon-unique is
+// SOURCE_REQUIRED (owner F03); F01 honours the flag wherever it is set on a garage (`garage.unique`).
+export const UNIQUE_CARS=[];
+// OBA DE GWINNETT (OL-023) — the rare hunter. Existing OPEN canon has the HUNTERS faction (enemy type HUNTER, BTF people BLLAD33 / HILT) but no
+// named hunter authority, so there is no collision; he is a top-tier of that faction. Visual identity is F12 Visual A / Ube — placeholder silhouette only.
+export const OBA={id:'oba_de_gwinnett',name:'OBA DE GWINNETT',faction:'HUNTERS',placeholder:true};

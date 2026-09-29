@@ -2,6 +2,7 @@
 // Drafted under H1 for Underlord review; deadpan, in the crew's world. Trait words / combo names are appended by the engine as " — WORD".
 // No line repeats within 3 consecutive PLAYs (engine passes the last 3 PLAYs' used ids); a trigger never repeats a variant inside one PLAY while another is free.
 import {stream} from './env.mjs';
+import {FEED} from './feedlines.mjs';
 
 export const LINES={
  // ---- moments (memId keys)
@@ -248,6 +249,18 @@ const MORE={
  'boss:smack:flee':["LIL SMACK sent a text that said 'brb' and did not brb","LIL SMACK went out the window with his napkin still tucked in","LIL SMACK ran so fast his echo had to catch a cab","LIL SMACK dropped a chicken wing and a threat and took neither back","LIL SMACK retreated with his mouth still full — forgivable","LIL SMACK left a note that just said 'later, chewing'","LIL SMACK went out the kitchen door and into a rumor","LIL SMACK ran; the lieutenants applauded, sarcastically","LIL SMACK vanished like the last fry"]
 };
 for(const [k,v] of Object.entries(MORE)){if(!LINES[k])throw new Error('T9 extension for unknown key '+k);LINES[k].push(...v);}
+const MORE2={
+ 'sure:fail':["It was a sure thing right up until it wasn't","SURE THING??? The door had a second opinion","Everyone agreed it was a lock. The lock disagreed","The surest thing in the room stood up and left"],
+ 'combo:coin:up':["{a} put a shoulder through it and the coin was already in the air","{a} kicked once and the whole doorframe agreed","{a} went first, loud, and it was the right kind of loud","{a} bet on the door being weaker than him. It was","{a} hit it like a decision and the decision held","{a} took the dare and the dare paid out"], // OL-023 T9: pools resized after the feel-lock changed how often these fire (every pool > 3x its max uses in one PLAY)
+ 'combo:crewbook':["{combo}. The book now has a page for it","Somebody underlined {combo} twice","{combo} — the crew will retell this until it is true","New page: {combo}, written in the margin of a bad night"],
+ 'nerve:fumble':["{a} tried to reload with an empty hand","{a} pointed the wrong gun at the right problem","{a} dropped everything and then apologised to it","{a} froze mid-word, and the word was 'go'"],
+ 'prize':["the prize was right there, and then {because}","they reached for it, and {because}","half of it left with them; {because}","the good part was smaller in person: {because}"],
+ 'combo:handsfree':["Dre put the getaway on hold to argue with a voicemail","Dre steered around a pothole by telling the pothole to hold","Dre said 'talk to me' to the road and the phone at the same time","Dre took the exit on a video call"],
+ 'combo:coin:fail':["{a} flipped it, and the door flipped first","{a} kicked the wrong side of a hinge","{a} rammed the frame and the frame kept the change","{a} shouldered the door like it owed him money; the door did not","{a} learned the difference between a door and a wall the hard way"],
+ 'call:save:fail':["{a} went back for {b}. The room closed behind them.","{a} got to {b} and the trouble got to {a}","{a} dragged {b} three steps and the fourth was a wall","{a} did not leave {b}. Now nobody was leaving"]
+};
+for(const [k,v] of Object.entries(MORE2)){if(!LINES[k])throw new Error('T9 extension for unknown key '+k);LINES[k].push(...v);}
+for(const [k,v] of Object.entries(FEED)){if(LINES[k])throw new Error('feed line key collides with an existing pool: '+k);LINES[k]=[...v];}
 const POOL_KEYS=Object.keys(LINES);
 export const lineCoverage=()=>POOL_KEYS.filter(k=>LINES[k].length<4);
 
@@ -262,13 +275,14 @@ export function lineKey(memId){
  return null;
 }
 // pick a variant deterministically from the PLAY seed; avoid variants used in the last 3 PLAYs (P.recentSet) and this PLAY (P.usedLines)
-export function pickLine(P,key,tok={}){
+export function pickLine(P,key,tok={},ok=null){
  const arr=LINES[key];if(!arr)return null;
  const ban=P.recentSet||new Set(),now=P.usedLines,ages=P.recentAge||{};
- let c=arr.map((_,i)=>i).filter(i=>!ban.has(key+'#'+i)&&!now.has(key+'#'+i));
+ const gate=i=>!ok||ok(arr[i]);
+ let c=arr.map((_,i)=>i).filter(i=>!ban.has(key+'#'+i)&&!now.has(key+'#'+i)&&gate(i));
  if(!c.length){ // every variant is recent: take the least-recently used one that is not already on screen this PLAY
-  const free=arr.map((_,i)=>i).filter(i=>!now.has(key+'#'+i));
-  const pool=free.length?free:arr.map((_,i)=>i);
+  const free=arr.map((_,i)=>i).filter(i=>!now.has(key+'#'+i)&&gate(i));
+  const pool=free.length?free:arr.map((_,i)=>i).filter(gate).length?arr.map((_,i)=>i).filter(gate):arr.map((_,i)=>i);
   const worst=Math.max(...pool.map(i=>ages[key+'#'+i]??9));c=pool.filter(i=>(ages[key+'#'+i]??9)===worst);}
  const R=stream(P.seed,'line|'+key+'|'+(P.lineN=(P.lineN||0)+1));
  const i=R.pick(c);now.add(key+'#'+i);

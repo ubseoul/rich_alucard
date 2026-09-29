@@ -49,6 +49,9 @@ const T={
  skillGap:{strict:gap,callsOff:gapOff,atLoose:.58,target:'≥ 0.4'},
  winBands:{careful:P('careful').win,naive:P('naive').win,gap:P('careful').win-P('naive').win,random:P('random').win,greedy:P('greedy').win,target:'careful 70–85, naive 55–70, gap ≥ 12 pts'}
 };
+{const big=new Set(JOBS.filter(j=>j.bigPlay).map(j=>j.id)),def=new Set(JOBS.filter(j=>j.defense).map(j=>j.id));const cap=fn=>{const a=primary.filter(fn);return a.length?a.filter(r=>r.namedCaptured>0).length/a.length:0;};
+ T.T2_namedCapturedByJob={routine:cap(r=>!big.has(r.job)&&!def.has(r.job)),big:cap(r=>big.has(r.job)),hold:cap(r=>def.has(r.job))};
+ T.T5_levers={byCause:PM.losses.byCause,n:PM.losses.n,swap:PM.losses.byCause.SWAP||0,weapon:PM.losses.byCause.WEAPON||0,car:PM.losses.byCause.CAR||0,calls:(PM.losses.byCause.CHOICE||0)+(PM.losses.byCause.GREED||0),trait:PM.losses.byCause.TRAIT||0};}
 fs.writeFileSync(path.join(OD,'tuned_summary.json'),JSON.stringify({T,metrics:PM,repMetrics:RM},null,1));
 const jp=(k)=>{const a=PM.climb.byStep[k];return a;};
 console.log('\n=== TUNED SIM ===');

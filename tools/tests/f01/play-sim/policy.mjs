@@ -1,8 +1,9 @@
 // Player policies for the PLAY paper-sim. Policies only see what a player sees (faces, words, reads) — never the hidden odds.
 import './globals.mjs';
 import * as C from './content.mjs';
-import {adjSeats,crewRead,seatsForCar} from '../../../../js/frag/F01/play/engine.mjs';
+import {adjSeats,crewRead,seatsForCar,ownedGuns} from '../../../../js/frag/F01/play/engine.mjs';
 export {adjSeats,crewRead};
+const gunAvg=g=>{const x=(C.GUNS[g]||C.GUNS.pistol).dmg;return (x[0]+x[1])/2;};
 
 export const POLICY_NAMES=['careful','greedy','naive','random'];
 const perms=(a)=>a.length<=1?[a]:a.flatMap((x,i)=>perms([...a.slice(0,i),...a.slice(i+1)]).map(r=>[x,...r]));
@@ -42,7 +43,12 @@ export const POLICIES={
    return crew;
   },
   car(P,n,job){if(n<=2)return job.favors==='QUIET'?'S2000':'SUPRA';if(n===5)return 'URUS';return job.favors==='LOUD'?(n>=4?'URUS':'SUPRA'):'SUPRA';},
-  seats(P,crew,car){return bestSeating(P,crew,seatsOf(car,crew.length));},
+  guns(P,crew,job){ // counters first (a gun that answers a printed tell), then the strongest owned gun to the strongest hand
+   const pool=ownedGuns(P);const out={};const held=new Set();
+   for(const t of relevantTells(job)){if(crew.some(o=>t.guns&&t.guns.includes(o.gun)))continue;const g=(t.guns||[]).find(x=>pool.includes(x));if(!g)continue;
+    const who=[...crew].sort((a,b)=>b.hp*b.aim-a.hp*a.aim).find(o=>!out[o.id]&&!(o.gun&&o.gun!=='pistol'&&o.gun!=='hands'&&relevantTells(job).some(tt=>tt.guns&&tt.guns.includes(o.gun))));
+    if(who){out[who.id]=g;pool.splice(pool.indexOf(g),1);}}
+   return out;},
   approach(P){const cs=P.crew;const ghost=cs.some(o=>o.cls==='GHOST'),talker=cs.some(o=>o.cls==='TALKER'),good=cs.filter(o=>o.cls==='GHOST'||o.cls==='TALKER').length,f=P.job.favors;
    if(P.job.octopus&&good>=2)return 'OCTOPUS';
    if(f==='LOUD')return 'LOUD';
@@ -70,9 +76,7 @@ export const POLICIES={
  greedy:{
   crew(P,avail,n,job){return [...avail].sort((a,b)=>power(b)-power(a)+(b.named?.5:0)-(a.named?.5:0)).slice(0,n);},
   car(P,n,job){return n<=2?'S2000':'URUS';},
-  seats(P,crew,car){const seats=seatsOf(car,crew.length);const sorted=[...crew].sort((a,b)=>power(b)-power(a));const as={};
-   const drv=sorted.find(o=>o.cls==='WHEELS')||sorted[sorted.length-1];as.DRIVER=drv;const rest=sorted.filter(o=>o!==drv);
-   const order=seats.filter(s=>s!=='DRIVER');rest.forEach((o,i)=>as[order[i]]=o);return as;},
+  guns(P,crew,job){const pool=ownedGuns(P).sort((a,b)=>gunAvg(b)-gunAvg(a));const out={};for(const o of [...crew].sort((a,b)=>power(b)-power(a))){const g=pool.shift();if(g)out[o.id]=g;}return out;},
   approach(P){return 'LOUD';},
   call(P,i,opts,ctx){const pref=['PUSH','BUST','PULL_UP','PAY','TALK','SNEAK','SAVE','FOLD'];for(const p of pref)if(opts.includes(p))return p;return 'DEFAULT';},
   climb(P,info){return true;},
@@ -82,7 +86,7 @@ export const POLICIES={
  naive:{
   crew(P,avail,n,job){const first=avail.find(o=>o.id===P.pitcher);const rest=avail.filter(o=>o!==first&&o.named).concat(avail.filter(o=>!o.named));return (first?[first,...rest]:rest).slice(0,n);},
   car(P,n){return 'HOOPTIE';},
-  seats(P,crew,car){const seats=seatsOf(car,crew.length);const as={};crew.forEach((o,i)=>as[seats[i]]=o);return as;},
+  guns(){return {};},
   approach(P){return 'QUIET';},
   call(P){return 'DEFAULT';},
   climb(P,info){return false;},
@@ -92,7 +96,7 @@ export const POLICIES={
  random:{
   crew(P,avail,n,job,R){const a=[...avail];const out=[];while(out.length<n&&a.length)out.push(a.splice(R.int(0,a.length-1),1)[0]);return out;},
   car(P,n,job,R){const opts=Object.keys(C.CARS).filter(c=>C.CARS[c].seats.length>=n);return R.pick(opts);},
-  seats(P,crew,car,R){const seats=seatsOf(car,crew.length);const c=[...crew];const as={};seats.forEach(s=>as[s]=c.splice(R.int(0,c.length-1),1)[0]);return as;},
+  guns(P,crew,job,R){const pool=[...ownedGuns(P),'pistol'];const out={};for(const o of crew){if(!pool.length)break;out[o.id]=pool.splice(R.int(0,pool.length-1),1)[0];}return out;},
   approach(P,R){return R.pick(P.job.octopus?['QUIET','LOUD','OCTOPUS']:['QUIET','LOUD']);},
   call(P,i,opts,R){return R.pick(['DEFAULT',...opts]);},
   climb(P,info,R){return R.chance(.5);},

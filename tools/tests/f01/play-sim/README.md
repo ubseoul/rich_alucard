@@ -3,7 +3,7 @@
 **Current (OL-016 build):** the sim and the browser sandbox share one engine — `js/frag/F01/play/{engine,world,content,lines}.mjs`.
 
     node tools/tests/f01/play-sim/run_tuned.mjs        # tuned sim: 800 PLAYs + 40×24-night careers ×4 policies + R1 ablations (~3.5 min, deterministic)
-    node tools/tests/f01/play-sim/bot_gate.mjs --plays 15 --widths 360,390,430 [--policy careful|random] [--hold 1] [--trim 7] [--shots DIR]
+    node tools/tests/f01/play-sim/feel_gate.mjs [--only first,timeout,access,silence,oba,hold,big,layout] [--shots dir]   # OL-023 browser gate (replaces bot_gate)
                                                         # Playwright drives the real page; exit 0 = pass (needs playwright + chromium; RA_PLAYWRIGHT_PATH / RA_CHROME override)
     node tools/tests/f01/play-sim/serve-play.mjs                          # serve the sandbox at http://localhost:8123/assets/f01/play/index.html
 

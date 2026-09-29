@@ -44,7 +44,7 @@ export const fallBackEligible=P=>!P.opts.noFallBack&&!!P.job.defense&&!P.job.big
 const able=(P)=>P.crew.filter(o=>o.hp>0&&!o.out&&!o.fled);
 const dropping=(P)=>P.crew.filter(o=>o.hp<=0&&!o.out&&!o.fled&&!o.rescued);
 const say=(P,sec,line)=>{if(!P.sim)P.script.push({sec,line});};
-const CAUSE={TRAIT:'TRAIT',EARLIER:'EARLIER',CHOICE:'CHOICE',WEAPON:'WEAPON',CAR:'CAR',GREED:'GREED',REL:'RELATIONSHIP',SEAT:'SEAT',HAZARD:'HAZARD',ENEMY:'ENEMY',LUCK:'LUCK'};
+const CAUSE={TRAIT:'TRAIT',EARLIER:'EARLIER',CHOICE:'CHOICE',WEAPON:'WEAPON',CAR:'CAR',GREED:'GREED',REL:'RELATIONSHIP',SWAP:'SWAP',SEAT:'SEAT',HAZARD:'HAZARD',ENEMY:'ENEMY',LUCK:'LUCK'};
 const cz=(c,t)=>({c,t});
 
 // -------------------------------------------------------------------------------------------------------------------------- roster
@@ -59,7 +59,7 @@ export function startRoster(seed,extra={}){
  const bonds=[];if(R.chance(.5))bonds.push(['dre','tunde']);if(R.chance(.4))bonds.push(['half_pint','young_mazi']);if(R.chance(.25))bonds.push(['auntie_grit','sunday_best']);
  if(R.chance(.15)){const o=R.pick(r);o.status='WOUNDED';o.away=1;o.hp=Math.ceil(o.maxhp/2);}
  const known=Object.fromEntries(COMBO_IDS.map(id=>[id,R.chance(.3)]));
- return {roster:r,bonds,known,cars:{HOOPTIE:0,SUPRA:0,URUS:0,S2000:0},weirdSeen:[],dry:0,armory:[],recent:[],cap:9,...extra};
+ return {roster:r,bonds,known,cars:{HOOPTIE:0,SUPRA:0,URUS:0,S2000:0},garage:{owned:['HOOPTIE','SUPRA','URUS','S2000'],lost:{},unique:[...C.UNIQUE_CARS]},lostGuns:[],weirdSeen:[],dry:0,armory:[],recent:[],cap:9,...extra};
 }
 const COMBO_IDS=['day_ones','doors_suggestion','sunday_service','the_slipper','the_leash','sit_down_baby','snack_break','hands_free','coin_flip'];
 export {COMBO_IDS};
@@ -129,7 +129,7 @@ export function initPlay(cfg){
  const {seed,job,policy='driver',opts={},night=1}=cfg;const src=cfg.state||startRoster(seed);
  const S=structuredClone(src);
  const idx=cfg.nameIdx!=null?cfg.nameIdx:(seed%job.names.length+job.names.length)%job.names.length;
- const P={seed,job,jobName:job.names[idx],polName:policy,opts,night,roster:S.roster,bonds:S.bonds,known:S.known,cars:S.cars,beefs:S.beefs||[],weirdSeen:S.weirdSeen,dry:S.dry||0,
+ const P={seed,job,jobName:job.names[idx],polName:policy,opts,night,roster:S.roster,bonds:S.bonds,known:S.known,cars:S.cars,garage:S.garage||{owned:Object.keys(S.cars||{}),lost:{},unique:[...C.UNIQUE_CARS]},oba:!!cfg.oba,flags:[],quiet:[],timedUsed:0,obaHit:false,gunsDropped:[],beefs:S.beefs||[],weirdSeen:S.weirdSeen,dry:S.dry||0,
   crew:[],seat:{},carId:null,car:null,approach:null,pressure:0,pot:{cash:0,crates:[],lost:false,floor:false},promise:[],mem:[],swings:[],script:[],losses:[],stat:{evaluated:0,potential:0,meaningful:0,surfaced:0,suppressedNoDiv:0,suppressedBudget:0,diff:[],bestWorst:[],realized:[]},
   callsLeft:job.bigPlay?3:2,richUsed:false,ambush:false,crewFirst:false,carry:[],step:0,fired:new Set(),newCombos:[],combos:new Set(),acceptedNamed:[],result:null,tags:[],pitcher:null,card:null,cards:{},sim:false,
   answers:[],usedLines:new Set(),lineLog:[],lineN:0,recentSet:new Set((S.recent||[]).flat()),recentAge:Object.fromEntries((S.recent||[]).flatMap((ids,n,a)=>ids.map(id=>[id,a.length-n]))),armory:[...(S.armory||[])],comboCd:{...(S.comboCd||{})},turnCd:S.turnCd||0,cap:S.cap||9,moments:[],seenText:new Set(),emptyBeats:0,noThingCount:0,pitcherFixed:cfg.pitcher||null,pitchTextFixed:cfg.pitchText||null,intel:!!cfg.intel,beatLog:[],usedPatch:false,trait:{},turn:null,climb:[],gods:[]};
@@ -158,30 +158,85 @@ function pitch(P){
 function weighted(R,tilt,exclude=[]){const es=Object.entries(tilt).filter(([k,w])=>w>0&&!exclude.includes(k));const tot=es.reduce((a,[,w])=>a+w,0);let x=R.next()*tot;for(const [k,w] of es){x-=w;if(x<=0)return k;}return es[0][0];}
 
 // -------------------------------------------------------------------------------------------------------------------------- CAR (crew + seats + guns + approach)
+const ownedCarIds=P=>P.garage&&P.garage.owned?P.garage.owned:Object.keys(P.cars||{});
 function computeCounters(P){
  const types=new Set(Object.values(P.job.pods).flat());const out={};
+ const owned=ownedCarIds(P);
  for(const [k,t] of Object.entries(C.TELLS)){
   if(!types.has(t.enemy))continue;
   const seated=P.crew.some(o=>t.ok(o,laneOf(P,o)));
   const aboardWrong=!seated&&P.crew.some(o=>t.any(o));
   const bench=!seated&&!aboardWrong&&P.roster.some(o=>o.status==='READY'&&!P.crew.includes(o)&&t.any(o));
-  out[k]={seated,aboardWrong,bench,line:t.line,counterLine:t.counterLine,enemy:t.enemy};
+  const armory=!seated&&!aboardWrong&&!bench&&(t.guns||[]).some(g=>P.armory.includes(g));
+  const car=!seated&&!aboardWrong&&!bench&&!armory&&(t.cars||[]).some(c=>c!==P.carId&&owned.includes(c)&&C.CARS[c].seats.length>=P.crew.length&&!((P.cars||{})[c]>0));
+  out[k]={seated,aboardWrong,bench,armory,car,line:t.line,counterLine:t.counterLine,enemy:t.enemy,guns:t.guns||[],cars:t.cars||[]};
  }
  return out;
 }
+// A tell the crew did not counter is attributed to the lever that WOULD have countered it: SWAP (a different Oga), WEAPON (a gun already owned),
+// CAR (a different owned car). Seating is automatic (OL-023) and is never a cause.
 const tellCause=(P,k,fallback)=>{const c=P.counters&&P.counters[k];if(!c)return cz(CAUSE.ENEMY,fallback);
  if(c.seated)return cz(CAUSE.ENEMY,fallback);
- if(c.aboardWrong)return cz(CAUSE.SEAT,`the counter was aboard but in the wrong seat (${c.counterLine})`);
- if(c.bench)return cz(CAUSE.CHOICE,`${c.counterLine} — left at the castle`);
+ if(c.aboardWrong)return cz(CAUSE.SWAP,`the crew could not cover every side (${c.counterLine})`);
+ if(c.bench)return cz(CAUSE.SWAP,`${c.counterLine} — left at the castle`);
+ if(c.armory)return cz(CAUSE.WEAPON,`the right gun was sitting in the armory (${c.counterLine})`);
+ if(c.car)return cz(CAUSE.CAR,`a different car would have shrugged it off`);
  return cz(CAUSE.ENEMY,fallback);};
 export const seatsForCar=(carId,n)=>{const all=C.CARS[carId].seats;if(n>=all.length)return all.slice();const pr=['DRIVER','SHOTGUN','DOOR','BACK_L','HALL_L','BACK_R','HALL_R','BACK_M','INNER'];return pr.filter(s=>all.includes(s)).slice(0,n);};
 export function carOptions(P){
  const job=P.job;const avail=P.roster.filter(o=>o.status==='READY'&&o.hp>0).length;const [smin]=job.size;
- const ids=job.defense&&C.CARS.CASTLE?['CASTLE']:['HOOPTIE','SUPRA','URUS','S2000'];
+ const ids=job.defense&&C.CARS.CASTLE?['CASTLE']:ownedCarIds(P).filter(id=>C.CARS[id]&&id!=='CASTLE');
  return ids.map(id=>{const c=C.CARS[id];let disabled=null;
   if((P.cars[id]||0)>0&&id!=='HOOPTIE')disabled=`OUT ${P.cars[id]} NIGHT${P.cars[id]>1?'S':''} (crashed)`;
   else if(c.seats.length<Math.min(smin,avail))disabled=`${c.seats.length} SEATS — this job needs ${smin}+`;
   return {id,word:c.word,seats:c.seats.length,disabled};});
+}
+// ---- AUTO-SEAT (OL-023): seating is backstage. The best seating for the chosen crew, cars and guns is computed here, never asked of the player.
+const permsOf=a=>a.length<=1?[a]:a.flatMap((x,i)=>permsOf([...a.slice(0,i),...a.slice(i+1)]).map(r=>[x,...r]));
+const relevantTells=job=>Object.values(C.TELLS).filter(t=>Object.values(job.pods).flat().includes(t.enemy));
+export function seatScore(P,assign){ // assign: {seat:oga}
+ let s=0;
+ for(const t of relevantTells(P.job)){if(Object.entries(assign).some(([sn,o])=>t.ok(o,C.SEAT_LANE[sn])))s+=1.6;}
+ for(const [seat,o] of Object.entries(assign)){
+  const lane=C.SEAT_LANE[seat];s+=C.FIT[o.cls][lane]*2;
+  const g=C.GUNS[o.gun]||C.GUNS.pistol;
+  if(g.lane==='FRONT'&&lane==='FRONT')s+=1.2;if(g.lane==='BACK'&&lane==='BACK')s+=1.2;if(g.lane==='FRONT'&&lane!=='FRONT')s-=.6;if(g.lane==='BACK'&&lane!=='BACK')s-=.6;
+ }
+ for(const [sa,a] of Object.entries(assign))for(const [sb,b] of Object.entries(assign)){
+  if(a.id>=b.id)continue;
+  if(P.bonds.some(([x,y])=>(x===a.id&&y===b.id)||(x===b.id&&y===a.id))&&adjSeats(sa,sb))s+=1.5;
+ }
+ return s;
+}
+export function autoSeat(P,crew,carId){
+ const seats=seatsForCar(carId,crew.length);let best=null,bs=-1e9;
+ for(const p of permsOf(crew)){const as={};seats.forEach((sn,i)=>as[sn]=p[i]);const sc=seatScore(P,as);if(sc>bs+1e-9){bs=sc;best=as;}}
+ return Object.fromEntries(Object.entries(best).map(([sn,o])=>[sn,o.id]));
+}
+// ---- AUTO-APPROACH (OL-023): QUIET / LOUD / OCTOPUS is no longer a button. It follows from the job, who is aboard and what they carry.
+export function autoApproach(P){
+ const cs=P.crew;const job=P.job;const n=(f)=>cs.filter(f).length;
+ let q=n(o=>o.cls==='GHOST'||o.cls==='TALKER')+n(o=>o.gun==='lil_oga')*1.2-n(o=>['sapporo_shotgun','mac_and_cheese'].includes(o.gun))*.8;
+ let l=n(o=>o.cls==='MUSCLE'||o.cls==='SHOOTER')+n(o=>['sapporo_shotgun','chopstick_sniper','mac_and_cheese'].includes(o.gun))*1.2-n(o=>o.gun==='lil_oga')*.6;
+ if(job.favors==='QUIET')q+=1.5;if(job.favors==='LOUD')l+=1.5;
+ if(job.octopus&&n(o=>o.cls==='GHOST'||o.cls==='TALKER')>=2)return 'OCTOPUS';
+ return l>q?'LOUD':'QUIET';
+}
+// WEAPONS (OL-023): every Oga carries one weapon or BARE HANDS. The owned pool is the armory plus whatever the roster holds; a requested loadout may
+// move any owned gun to any Oga (each gun once). Pistol and bare hands are always available. Whatever nobody carries returns to the armory.
+export const ownedGuns=P=>{const pool=[...P.armory];for(const o of P.roster)if(o.gun&&o.gun!=='pistol'&&o.gun!=='hands')pool.push(o.gun);return pool;};
+function applyLoadout(P,req){
+ const avail={};for(const g of ownedGuns(P))avail[g]=(avail[g]||0)+1;
+ const target={};
+ for(const [oid,g] of Object.entries(req||{})){const o=P.roster.find(x=>x.id===oid);if(!o||!C.GUNS[g])continue;
+  if(g==='pistol'||g==='hands'){target[oid]=g;continue;}
+  if(avail[g]>0){avail[g]--;target[oid]=g;}}
+ for(const o of P.roster){if(target[o.id])continue;const g0=o.gun;
+  if(!g0||g0==='pistol'||g0==='hands'){target[o.id]=g0||'pistol';continue;}
+  if(avail[g0]>0){avail[g0]--;target[o.id]=g0;}else target[o.id]='pistol';}
+ const rest=[];for(const [g,n] of Object.entries(avail))for(let k=0;k<n;k++)rest.push(g);
+ for(const o of P.roster)o.gun=target[o.id];
+ P.armory=rest;
 }
 function* carStage(P){
  const job=P.job;
@@ -190,7 +245,7 @@ function* carStage(P){
  const options=carOptions(P);
  const R=RS(P,'car');
  let ans=yield {type:'CAR',P,R,avail,options,minCrew:smin,maxCrew:smax,armory:P.armory,tells:Object.values(C.TELLS).filter(t=>Object.values(job.pods).flat().includes(t.enemy)),job};ans=ans||{};
- for(const [oid,g] of Object.entries(ans.guns||{})){const o=P.roster.find(x=>x.id===oid);const ix=P.armory.indexOf(g);if(o&&(ix>=0||g==='pistol')){if(ix>=0)P.armory.splice(ix,1);if(o.gun&&o.gun!=='pistol')P.armory.push(o.gun);o.gun=g;}}
+ applyLoadout(P,ans.guns);
  P.answers.push({t:'CAR',a:ans});
  // validate the answer; anything invalid falls back to a safe default (first legal car, first READY Ogas in order)
  let carId=ans.car;let opt=options.find(o=>o.id===carId);
@@ -206,13 +261,15 @@ function* carStage(P){
  const seatList=seatsForCar(carId,P.crew.length);
  let seat={};const seatAns=ans.seats||{};
  const sk=Object.keys(seatAns);
- const okSeats=sk.length===P.crew.length&&sk.every(sn=>C.CARS[carId].seats.includes(sn))&&P.crew.every(o=>sk.filter(sn=>seatAns[sn]===o.id).length===1);
- if(okSeats)for(const sn of sk)seat[sn]=seatAns[sn];else{const c=[...P.crew];for(const sn of seatList)seat[sn]=c.shift().id;}
+ const okSeats=P.opts.manualSeats&&sk.length===P.crew.length&&sk.every(sn=>C.CARS[carId].seats.includes(sn))&&P.crew.every(o=>sk.filter(sn=>seatAns[sn]===o.id).length===1);
+ if(okSeats)for(const sn of sk)seat[sn]=seatAns[sn];
+ else if(P.opts.carOff&&!job.defense){const c=[...P.crew];for(const sn of seatList)seat[sn]=c.shift().id;}
+ else seat=autoSeat(P,P.crew,carId);
  P.seat=seat;
  P.combos=activeCombos(P);
  P.counters=P.opts.carOff&&!job.defense?{}:computeCounters(P);
  P.shortHanded=P.crew.length<Math.min(job.size[1],seatsN,avail.length);
- P.approach=ans.approach||'QUIET';
+ P.approach=(P.opts.manualApproach&&ans.approach)?ans.approach:autoApproach(P);
  if(P.approach==='OCTOPUS'&&!job.octopus)P.approach='QUIET';
  P.pressure=P.opts.flat?30:({QUIET:10,LOUD:40,OCTOPUS:20}[P.approach])+job.heat;
  for(const o of P.crew){o.plays++;o.nerve=P.opts.flat?60:o.base;}
@@ -250,10 +307,10 @@ function drawCard(P,i,rk='real'){
 function windowOptions(P,i){
  const card=P.card;const list=[];
  if(dropping(P).length&&i>=1)list.push('SAVE');
- const ctxPull=i>=2&&!P.richUsed&&(P.pressure>=34||dropping(P).length||P.crew.some(o=>o.hp<o.maxhp*.5));
+ const ctxPull=P.opts.rich===true&&i>=2&&!P.richUsed&&(P.pressure>=34||dropping(P).length||P.crew.some(o=>o.hp<o.maxhp*.5));
  if(ctxPull)list.push('PULL_UP');
- for(const v of card.calls){if(v==='SAVE'&&!dropping(P).length)continue;if(v==='PULL_UP'&&(P.richUsed||i<2))continue;if(v==='FOLD'&&i===0)continue;list.push(v);}
- return [...new Set(list)].slice(0,3);
+ for(const v of card.calls){if(v==='SAVE'&&!dropping(P).length)continue;if(v==='PULL_UP'&&(P.opts.rich!==true||P.richUsed||i<2))continue;if(v==='FOLD'&&i===0)continue;list.push(v);}
+ return [...new Set(list)].slice(0,2);
 }
 
 // -------------------------------------------------------------------------------------------------------------------------- enemies
@@ -276,7 +333,7 @@ function podsFor(P,st,card){
 // -------------------------------------------------------------------------------------------------------------------------- one beat
 function resolveBeat(P,i,opt,rk){
  const R=stream(P.seed,`b${i}|${rk}|${P.step}`);const st=STAGES[i];
- const ctx={P,R,i,st,card:P.card,opt,moments:[],aimB:0,dmgB:0,eAimB:0,talk:false,pay:false,sneak:false,pull:null,noise:0,tier:2,downs0:P.crew.filter(o=>o.hp<=0||o.out).length,pot0:potValue(P),p0:P.pressure,dmg:0,traitFail:0,traitMoments:0,ambush:P.ambush,crewFirst:P.crewFirst,cleared:true,wipe:false,foldNow:false,hazardHit:false};
+ const ctx={P,R,i,st,card:P.card,opt,callOffer:!!(P.surfaced&&P.surfaced.includes(i)),moments:[],aimB:0,dmgB:0,eAimB:0,talk:false,pay:false,sneak:false,pull:null,noise:0,tier:2,downs0:P.crew.filter(o=>o.hp<=0||o.out).length,pot0:potValue(P),p0:P.pressure,dmg:0,traitFail:0,traitMoments:0,ambush:P.ambush,crewFirst:P.crewFirst,cleared:true,wipe:false,foldNow:false,hazardHit:false};
  P.ambush=false;P.crewFirst=false;
  optionPre(ctx);
  beatStartTraits(ctx);
@@ -332,7 +389,7 @@ function entryBeat(ctx){
  let mode=P.approach;if(ctx.opt==='BUST')mode='LOUD';else if(ctx.opt==='SNEAK')mode='QUIET';
  if(ctx.pay){const cost=3;ctx.paid=cost;P.pot.cash-=0;P.spent=(P.spent||0)+cost;P.pot.cash=Math.max(0,P.pot.cash-0);ctx.tier=2;moment(P,ctx,'call',`Rich's pocket pays $${cost}K — the door opens`,'call:pay','WARM',3);nerveAdd(P,ctx,P.crew[0],2,null);ctx.entryOK=true;P.crewFirst=true;return;}
  if(mode==='LOUD'){
-  pressAdd(P,ctx,20,cz(CAUSE.CHOICE,'they chose LOUD'));ctx.entryOK=true;
+  {const lg=able(P).some(o=>['sapporo_shotgun','mac_and_cheese','chopstick_sniper'].includes(o.gun));pressAdd(P,ctx,20,ctx.opt==='BUST'?cz(CAUSE.CHOICE,'they chose LOUD'):lg?cz(CAUSE.WEAPON,'the loud guns made it a loud entry'):cz(CAUSE.SWAP,'this crew goes in loud'));}ctx.entryOK=true;
   if(firing(P,'doors_suggestion')&&(card.tags.includes('door')||card.tags.includes('dock'))&&fire(P,'doors_suggestion',ctx)){if(!(P.comboCd.doors_suggestion>0))moment(P,ctx,'combo',"the door was a suggestion — DOOR'S A SUGGESTION",'combo:door','CLUTCH',5);P.crewFirst=true;pressAdd(P,ctx,-8,null);}
   else if(P.crew.some(o=>o.cls==='MUSCLE'&&o.hp>0)){P.crewFirst=R.chance(.5);if(P.crewFirst)moment(P,ctx,'class','a door goes down first',null,'CLUTCH',2);}
   else P.crewFirst=false;
@@ -510,6 +567,14 @@ function crewAttack(ctx,o,enemies,r){
   }
  }
 }
+// tell strength when NOT countered (F13 tunable): the multiplier on being the target, and a flat aim bonus for the enemy
+const TELL_K={flank:3,charge:4,silver:4,aim:4};
+const gunAvg=g=>{const x=(C.GUNS[g]||C.GUNS.pistol).dmg;return (x[0]+x[1])/2;};
+// WEAPON lever: an owned gun that clearly outclasses what this Oga carries is sitting at home (the armory, or a benched Oga's hands).
+function goodGunHome(P,o){
+ const pool=[...P.armory];for(const r of P.roster)if(!P.crew.includes(r)&&r.gun&&r.gun!=='pistol'&&r.gun!=='hands')pool.push(r.gun);
+ const best=pool.reduce((a,g)=>Math.max(a,gunAvg(g)),0);return best>gunAvg(o.gun||'pistol')+.7;
+}
 function enemyAttack(ctx,e,r){
  const {P,R,card}=ctx;if(e.flinch){e.flinch=false;moment(P,ctx,'weapon',"Auntie's Slipper connected. He forgot what he was doing.",'weapon:slipper','FUNNY',5);return;}
  const live=able(P);if(!live.length)return;
@@ -517,13 +582,14 @@ function enemyAttack(ctx,e,r){
  const T=P.opts.traits!==false;
  const ws=live.map(o=>{let w=laneW(P,o);
   const cn=P.counters||{};
-  if(e.type==='CHEWER'&&(laneOf(P,o)==='BACK'||laneOf(P,o)==='MID'))w*=cn.flank?.seated?1.2:2;
-  if(e.type==='ENFORCER'&&laneOf(P,o)==='FRONT')w*=cn.charge?.seated?1.5:3;if(e.type==='LIL_SMACK'&&laneOf(P,o)==='FRONT')w*=2;
-  if(e.type==='HUNTER'&&o.vampire)w*=cn.silver?.seated?1.8:3;if(o.marked)w*=2;if(T&&has(P,o,'CALM'))w*=.9;return w;});
+  if(e.type==='CHEWER'&&(laneOf(P,o)==='BACK'||laneOf(P,o)==='MID'))w*=cn.flank?.seated?1.2:TELL_K.flank;
+  if(e.type==='ENFORCER'&&laneOf(P,o)==='FRONT')w*=cn.charge?.seated?1.5:TELL_K.charge;if(e.type==='LIL_SMACK'&&laneOf(P,o)==='FRONT')w*=2;
+  if(e.type==='HUNTER'&&o.vampire)w*=cn.silver?.seated?1.8:TELL_K.silver;if(o.marked)w*=2;if(T&&has(P,o,'CALM'))w*=.9;return w;});
  const tot=ws.reduce((a,b)=>a+b,0);let x=R.next()*tot;let tgt=live[0];for(let k=0;k<live.length;k++){x-=ws[k];if(x<=0){tgt=live[k];break;}}
  const lt=P.carryTypes?.includes('LIEUTENANT')?(P.counters?.aura?.seated?D.ENEMY_NUMBERS.lieutenantAura/2:D.ENEMY_NUMBERS.lieutenantAura):0;
  let hit=e.aim-3+2*(P.tired||0)+lt+(P.approach==='LOUD'?5:0)+(!P.opts.flat&&P.pressure>=67?5:0)+ctx.eAimB+(ctx.ambush&&r===0?6:0)-(T&&has(P,tgt,'SMALL')?-D.TRAIT_NUMBERS.smallDefense:0)+(e.type==='LIL_SMACK'?D.ENEMY_NUMBERS.chewAim:0);
- {const tk={ENFORCER:'charge',CHEWER:'flank',HUNTER:'silver'}[e.type];const cn2=tk&&P.counters&&P.counters[tk];if(cn2&&cn2.seated&&C.TELLS[tk].ok(tgt,laneOf(P,tgt)))hit-=6;}
+ {const tk={ENFORCER:'charge',CHEWER:'flank',HUNTER:'silver'}[e.type];const cn2=tk&&P.counters&&P.counters[tk];if(cn2&&cn2.seated&&C.TELLS[tk].ok(tgt,laneOf(P,tgt)))hit-=6;
+  else if(cn2&&!cn2.seated&&((tk==='charge'&&laneOf(P,tgt)==='FRONT')||(tk==='flank'&&laneOf(P,tgt)!=='FRONT')||(tk==='silver'&&tgt.vampire)))hit+=TELL_K.aim;}
  if(T&&has(P,tgt,'SMALL')){hit+=D.TRAIT_NUMBERS.smallDefense;if(R.chance(.15))moment(P,ctx,'trait',`${tgt.short} wasn't there — SMALL`,'trait:small:dodge','FUNNY',3);}
  hit=clamp(hit,5,95);
  if(R.next()*100<hit){
@@ -539,12 +605,15 @@ function enemyAttack(ctx,e,r){
   else if(lt>0&&e.type!=='LIEUTENANT')cause=tellCause(P,'aura','the lieutenant lifted his crew');
   else if(ctx.hazard&&ctx.hazard.mod<=-.05)cause=cz(CAUSE.HAZARD,ctx.hazard.word);
   else if(tgt.marked)cause=cz(CAUSE.TRAIT,'SHOWBOAT drew the fire');
+  else if(tgt.gun==='hands')cause=cz(CAUSE.WEAPON,`${tgt.short} went in bare-handed`);
+  else if(goodGunHome(P,tgt))cause=cz(CAUSE.WEAPON,`the better gun stayed at the castle`);
+  else if(ctx.callOffer&&ctx.opt==='DEFAULT')cause=cz(CAUSE.CHOICE,'the call went unanswered');
   else if(!P.opts.flat&&tgt.nerve<30)cause=cz(CAUSE.EARLIER,'he lost his nerve');
   else if(P.shortHanded&&!P.opts.carOff)cause=cz(CAUSE.CHOICE,'they went in a body short');
   else if(tgt.hp<tgt.maxhp)cause=cz(CAUSE.EARLIER,`${tgt.short} was already hurt`);
-  else if(!P.opts.carOff&&C.FIT[tgt.cls][laneOf(P,tgt)]<.4)cause=cz(CAUSE.SEAT,`${tgt.short} was in the wrong seat`);
+  else if(!P.opts.carOff&&C.FIT[tgt.cls][laneOf(P,tgt)]<.4)cause=cz(CAUSE.SWAP,`${tgt.short} was the wrong Oga for that side of the car`);
   else if(ctx.push||ctx.bust)cause=cz(CAUSE.CHOICE,'they chose to push');
-  else if(laneOf(P,tgt)==='FRONT'&&!P.opts.carOff)cause=cz(CAUSE.SEAT,'the front seat takes the first shots');
+  else if(laneOf(P,tgt)==='FRONT'&&!P.opts.carOff)cause=cz(CAUSE.ENEMY,'the front takes the first shots');
   hurt(ctx,tgt,dmg,{by:D.ENEMIES[e.type].label,cause});
  }
 }
@@ -614,8 +683,8 @@ function prizeBeat(ctx){
  let p=.93+(card.hazard?card.hazard.mod:0);const why=[];
  if(card.hazard)why.push(cz(CAUSE.HAZARD,card.hazard.word));
  if(ctx.talk)p+=.04+(ctx.smart?.05:0);if(ctx.sneak)p+=.03+(ctx.smart?.05:0);if(ctx.push)p+=.03;
- if(card.tags.includes('talk')&&!able(P).some(o=>o.cls==='TALKER')){p-=.1;why.push(cz(CAUSE.SEAT,'nobody in the car could talk the client down'));}
- if(card.tags.includes('safe')&&!able(P).some(o=>o.cls==='MUSCLE'||o.gun==='sapporo_shotgun')){p-=.1;why.push(cz(CAUSE.SEAT,'nobody in the car could open it'));}
+ if(card.tags.includes('talk')&&!able(P).some(o=>o.cls==='TALKER')){p-=.1;why.push(cz(CAUSE.SWAP,'nobody in the car could talk the client down'));}
+ if(card.tags.includes('safe')&&!able(P).some(o=>o.cls==='MUSCLE'||o.gun==='sapporo_shotgun')){p-=.1;why.push(cz(CAUSE.SWAP,'nobody in the car could open it'));}
  if(!P.opts.flat){if(P.pressure>=67){p-=.12;why.push(cz(CAUSE.EARLIER,'the whole block was closing in'));}
   const avg=able(P).reduce((a,o)=>a+o.nerve,0)/(able(P).length||1);if(avg<30){p-=.1;why.push(cz(CAUSE.EARLIER,'the crew had lost its nerve'));}}
  if(P.crew.filter(o=>o.hp<=0||o.out).length){p-=.05;why.push(cz(CAUSE.EARLIER,'they were a body short'));}
@@ -691,22 +760,39 @@ export function callButtons(P,opts){
  return opts.map(v=>{const f=({TALK:pick('TALKER')||a.find(o=>P.opts.traits!==false&&o.traits.includes('MOUTHPIECE')),BUST:pick('MUSCLE')||pick('SHOOTER'),SNEAK:pick('GHOST'),SAVE:a.find(o=>o.cls==='DOC')||a[0],PUSH:a.slice().sort((x,y)=>y.nerve-x.nerve)[0]})[v];
   return {id:v,verb:VERB_LABEL[v]||v,face:f?f.id:(v==='PULL_UP'||v==='PAY'?'rich':null),faceName:f?f.short:(v==='PULL_UP'||v==='PAY'?'Rich':null)};});
 }
+// TIMED CALLS (OL-023): when the bar runs out the crew decides from its own nerve — steady crews trust their instincts, a shaky crew does the
+// default, a crew that is losing it pulls back. Never the worst option. The engine records that Rich went quiet.
+export function crewDecides(P,opts,dv){
+ const a=able(P);const avg=a.reduce((x,o)=>x+o.nerve,0)/(a.length||1);
+ let c=['DEFAULT',...opts].filter(v=>v!==(dv&&dv.worst));if(!c.length)c=['DEFAULT'];
+ const dflt=c.includes('DEFAULT')?'DEFAULT':(dv&&c.includes(dv.best)?dv.best:c[0]);
+ if(avg<30){const x=c.find(v=>['SAVE','FOLD','SNEAK'].includes(v));return x||dflt;}
+ if(avg>=55&&dv&&c.includes(dv.best)&&dv.best!=='DEFAULT')return dv.best;
+ return dflt;
+}
+const CALL_GAP=3.0; // strict gap between the best and worst button before a call surfaces (F13 tunable; two-option calls need a slightly lower bar than the three-option ones did)
+const TIMED_MAX=3; // hard cap on timed prompts (calls + HIT ONE MORE) per PLAY
+function noteQuiet(P,kind,i,picked,dv){(P.quiet=P.quiet||[]).push({kind,i,picked,worst:dv?dv.worst:null,best:dv?dv.best:null});(P.flags=P.flags||[]);if(!P.flags.includes('RICH_WENT_QUIET'))P.flags.push('RICH_WENT_QUIET');}
+function noteChoice(P,verb){(P.flags=P.flags||[]);
+ if(verb==='PUSH'&&!P.flags.includes('MADE_US_STAY'))P.flags.push('MADE_US_STAY');
+ if(verb==='FOLD'){if(!P.flags.includes('PULLED_US_OUT'))P.flags.push('PULLED_US_OUT');P.explicitOut=true;}}
 function* callWindow(P,i){
  const band=(P.job.band[0]+P.job.band[1])/2;P.stat.evaluated++;
  const opts=windowOptions(P,i);
  if(opts.length<1)return 'DEFAULT';
  P.stat.potential++;
  if(P.opts.calls===false){P.stat.suppressedNoDiv++;return 'DEFAULT';}
- const dv=diverge(P,i,opts,null,P.opts.callGap||3.6);
+ const dv=diverge(P,i,opts,null,P.opts.callGap||CALL_GAP);
  P.stat.bestWorst.push(dv.diff);
  if(!dv.meaningful){P.stat.suppressedNoDiv++;return 'DEFAULT';}
  P.stat.meaningful++;
- if(P.callsLeft<=0){P.stat.suppressedBudget++;return 'DEFAULT';}
+ if(P.callsLeft<=0||(P.timedUsed||0)>=TIMED_MAX){P.stat.suppressedBudget++;return 'DEFAULT';}
  // SURFACE: the world freezes, faces + verbs
- P.callsLeft--;P.stat.surfaced++;
+ P.callsLeft--;P.timedUsed=(P.timedUsed||0)+1;P.stat.surfaced++;(P.surfaced=P.surfaced||[]).push(i);
  const buttons=callButtons(P,opts);
- const choice=(yield {type:'CALL',P,i,opts,buttons,card:P.card,R:RS(P,'callpick|'+i)})||'DEFAULT';
- P.answers.push({t:'CALL',i,a:choice});
+ const raw=(yield {type:'CALL',P,i,opts,buttons,card:P.card,R:RS(P,'callpick|'+i)})||'DEFAULT';
+ P.answers.push({t:'CALL',i,a:raw});
+ let choice=raw;if(raw==='TIMEOUT'){choice=crewDecides(P,opts,dv);noteQuiet(P,'CALL',i,choice,dv);}else noteChoice(P,raw);
  const btn=v=>{const b=buttons.find(x=>x.id===v);return b&&b.faceName?`${b.faceName.toUpperCase()} — ${b.verb}`:(b?b.verb:v);};
  say(P,'CALLS',`  ⏸  THE WORLD FREEZES · ${P.card.text}`);
  say(P,'CALLS','     '+opts.map(btn).join('   |   ')+'   |   let them handle it');
@@ -759,7 +845,7 @@ function getawayCore(P,R,opt,mini){
  else if(G<46||stall)kind='MESSY';
  if(stall&&kind==='CLEAN')kind='MESSY';
  if(stall&&P.pressure>=67&&kind==='MESSY'&&R.chance(.35)&&!P.opts.flat)kind='ROBBED';
- const cause=kind==='SPLIT'?cz(CAUSE.EARLIER,`${drv.short} lost his nerve`):stall?cz(CAUSE.CAR,`${P.carId}: ${car.word}`):fail.includes('trait')?cz(CAUSE.TRAIT,''):kind==='CRASH'&&(car.crash||0)>.1?cz(CAUSE.CAR,`${P.carId}: ${car.word}`):P.pressure>=67&&kind!=='CLEAN'?cz(CAUSE.EARLIER,'the whole block was after them'):(nodd&&kind!=='CLEAN')?cz(CAUSE.EARLIER,'Officer Nodd'):wrongDriver&&kind!=='CLEAN'?cz(CAUSE.SEAT,'the wrong hands were on the wheel'):(opt==='PUSH'&&kind!=='CLEAN')?cz(CAUSE.CHOICE,'they floored it'):kind!=='CLEAN'&&(crates>=5||P.step>0)?cz(CAUSE.CHOICE,'the trunk was full'):kind!=='CLEAN'&&dropping(P).length?cz(CAUSE.EARLIER,'they were carrying a body'):kind!=='CLEAN'&&(car.grip||0)<0&&!P.opts.carOff?cz(CAUSE.CAR,`${P.carId}: ${car.word}`):kind!=='CLEAN'&&F<.5&&!P.opts.carOff?cz(CAUSE.SEAT,`${drv.short} is not a driver`):kind!=='CLEAN'?cz(CAUSE.LUCK,''):null;
+ const cause=kind==='SPLIT'?cz(CAUSE.EARLIER,`${drv.short} lost his nerve`):stall?cz(CAUSE.CAR,`${P.carId}: ${car.word}`):fail.includes('trait')?cz(CAUSE.TRAIT,''):kind==='CRASH'&&(car.crash||0)>.1?cz(CAUSE.CAR,`${P.carId}: ${car.word}`):P.pressure>=67&&kind!=='CLEAN'?cz(CAUSE.EARLIER,'the whole block was after them'):(nodd&&kind!=='CLEAN')?cz(CAUSE.EARLIER,'Officer Nodd'):wrongDriver&&kind!=='CLEAN'?cz(CAUSE.EARLIER,'the wrong hands were on the wheel'):(opt==='PUSH'&&kind!=='CLEAN')?cz(CAUSE.CHOICE,'they floored it'):kind!=='CLEAN'&&(crates>=5||P.step>0)?cz(CAUSE.CHOICE,'the trunk was full'):kind!=='CLEAN'&&dropping(P).length?cz(CAUSE.EARLIER,'they were carrying a body'):kind!=='CLEAN'&&(car.grip||0)<0&&!P.opts.carOff?cz(CAUSE.CAR,`${P.carId}: ${car.word}`):kind!=='CLEAN'&&F<.5&&!P.opts.carOff?cz(CAUSE.SWAP,`${drv.short} is not a driver`):kind!=='CLEAN'?cz(CAUSE.LUCK,''):null;
  return {kind,G,drv,stall,nodd,cause,ctx,panic,fail};
 }
 function aftermath(P){
@@ -784,7 +870,7 @@ function* getaway(P){
    const dv=diverge(P,4,opts,(c,v,rep)=>K[getawayCore(c,stream(P.seed,'gaf|'+rep),v).kind],3.0);const hits=dv.meaningful?2:0;const diffs=[dv.diff];
    P.stat.bestWorst.push(dv.diff);
    if(hits>=2){P.stat.meaningful++;
-    if(P.callsLeft>0){P.callsLeft--;P.stat.surfaced++;opt=(yield {type:'CALL',P,i:4,opts,buttons:callButtons(P,opts).map(b=>({...b,verb:b.id==='PUSH'?'FLOOR IT':b.id==='FOLD'?'DUMP THE LOAD':b.verb})),card:gc,R:RS(P,'callpick|4')})||'DEFAULT';P.answers.push({t:'CALL',i:4,a:opt});
+    if(P.callsLeft>0&&(P.timedUsed||0)<TIMED_MAX){P.callsLeft--;P.timedUsed=(P.timedUsed||0)+1;P.stat.surfaced++;const rawOpt=(yield {type:'CALL',P,i:4,opts,buttons:callButtons(P,opts).map(b=>({...b,verb:b.id==='PUSH'?'FLOOR IT':b.id==='FOLD'?'DUMP THE LOAD':b.verb})),card:gc,R:RS(P,'callpick|4')})||'DEFAULT';P.answers.push({t:'CALL',i:4,a:rawOpt});opt=rawOpt;if(rawOpt==='TIMEOUT'){opt=crewDecides(P,opts,dv);noteQuiet(P,'CALL',4,opt,dv);}
      say(P,'CALLS',`  ⏸  THE WORLD FREEZES · ${gc.text}`);say(P,'CALLS',`     FLOOR IT   |   DUMP THE LOAD   |   let them handle it   → you tap: ${opt==='PUSH'?'FLOOR IT':opt==='FOLD'?'DUMP THE LOAD':'let them handle it'}`);
      const a=getawayCore(fork(P),stream(P.seed,'gaf|real'),opt),b=getawayCore(fork(P),stream(P.seed,'gaf|real'),'DEFAULT');const sc=k=>({CLEAN:4,MESSY:3,CRASH:0,SPLIT:-1,ROBBED:-4}[k]);P.stat.realized.push(sc(a.kind)-sc(b.kind));
      P.callLog=(P.callLog||[]);P.callLog.push({i:4,choice:opt,opts,diff:diffs[0],realized:sc(a.kind)-sc(b.kind),smart:opt==='PUSH'});
@@ -809,12 +895,12 @@ function* getaway(P){
   swing(P,'getaway:messy',g.cause||cz(CAUSE.LUCK,''));
  }
  else if(kind==='CRASH'){
-  const out=P.carId==='URUS'?1:2;P.crashOut=out;P.crashCost=4;P.heatBonus=(P.heatBonus||0)+6;
+  const out=0;P.crashOut=0;P.crashCost=0;P.crashLost=true;P.heatBonus=(P.heatBonus||0)+6;
   for(const o of able(P))if(R.chance(.4)&&o.hp>1){o.hp=Math.max(1,o.hp-3);o.crashHurt=true;}
   swing(P,'getaway:crash',g.cause||cz(CAUSE.LUCK,''));
   moment(P,ctx,'car',`the ${P.carId} hit something in the dark — ${C.CARS[P.carId].word}`,'car:crash:'+P.carId,'FUNNY',8,g.cause||cz(CAUSE.LUCK,''));
-  P.gLine=pickLine(P,'getaway:crash',{})+` The ${P.carId} is out ${out} night${out>1?'s':''} (or $4K to fix).`;say(P,'GETAWAY','  '+P.gLine);
-  P.losses.push({who:'car',kind:'CRASH',cause:g.cause||cz(CAUSE.LUCK,''),tag:causeTag(P,g.cause,'CRASH'),beat:4,text:`the ${P.carId} is out ${out} nights`});
+  P.gLine=pickLine(P,'getaway:crash',{})+` The ${P.carId} is wrecked.`;say(P,'GETAWAY','  '+P.gLine);
+  P.losses.push({who:'car',kind:'CRASH',cause:g.cause||cz(CAUSE.LUCK,''),tag:causeTag(P,g.cause,'CRASH'),beat:4,text:`the ${P.carId} is wrecked`});
   if(P.pressure>=67&&R.chance(.25)&&!P.opts.flat){finishRobbed(P,ctx,{...g,kind:'ROBBED',cause:cz(CAUSE.EARLIER,'the block was after them')});return;}
  }
  else if(kind==='SPLIT'){
@@ -878,7 +964,7 @@ function finalizeCrew(P,wash){
  // mercy rule: a routine PLAY puts at most 2 Ogas away (SHOT / CAPTURED / bled-out DEAD); extras downgrade to WOUNDED
  if(!P.job.bigPlay){
   const cand=P.crew.filter(o=>['SHOT','CAPTURED','DEAD'].includes(o.finalStatus)&&o.out!=='DEAD');
-  if(cand.length>2){for(const o of cand.slice(2)){P.losses=P.losses.filter(l=>!(l.who===o.id&&l.kind===o.finalStatus));o.finalStatus='WOUNDED';P.mercy=(P.mercy||0)+1;P.losses.push({who:o.id,kind:'WOUNDED',cause:cz(CAUSE.EARLIER,'the mercy rule'),tag:'PLAIN',beat:4,text:`${o.short} was hurt (mercy rule)`});}}
+  if(cand.length>2){for(const o of cand.slice(2)){P.losses=P.losses.filter(l=>!(l.who===o.id&&l.kind===o.finalStatus));o.finalStatus='WOUNDED';P.mercy=(P.mercy||0)+1;P.losses.push({who:o.id,kind:'WOUNDED',cause:o.dropCause||o.lastHitCause||cz(CAUSE.EARLIER,'the mercy rule'),tag:'PLAIN',beat:4,text:`${o.short} was hurt (mercy rule)`});}}
  }
 }
 
@@ -954,7 +1040,8 @@ function trunk(P,stepIdx=0){
 }
 
 // -------------------------------------------------------------------------------------------------------------------------- HIT ONE MORE
-const BLOCK_CLOSES=[.05,.05,.30];const STEP_CASH=[.9,1.9,2.0];const STEP_CRATES=[2,2,3];
+// OL-023: auto-seat lifted every crew's step-2 odds, so the block closes a little sooner at step 2 (F13 tunable; T4 keeps step 2 in -10%..0% of the pot)
+const BLOCK_CLOSES=[.05,.10,.30];const STEP_CASH=[.9,1.9,2.0];const STEP_CRATES=[2,2,3];
 function tease(P,k){
  // honest tease (M6/M7): what is lit in the back room is exactly what a successful step pays. Step 1: sometimes a rare. Step 2: a visible ~15% JACKPOT.
  // Step 3: a success guarantees a LEGENDARY crate — so the third step is a real temptation, and usually a costly one.
@@ -984,7 +1071,7 @@ function climbStep(P,k,rk){
  if(ok&&R.chance(BLOCK_CLOSES[k]||.4)){ok=false;why='block';P.blockClosed=true;}
  let g=null;
  if(ok){g=getawayCore(P,stream(P.seed,'cga|'+k+'|'+rk),'DEFAULT',true);if(g.kind==='ROBBED'){ok=false;why='getaway';}if(g.kind==='SPLIT'){P.split=true;const d=g.drv;const rear=P.crew.filter(o=>o!==d&&!o.out&&!o.fled&&seatOf(P,o)!=='SHOTGUN');const l=rear.slice(0,1);for(const o of l){o.left=true;o.leftFate=R.chance(.5)?'CAPTURED':'BUS';}}
-  if(g.kind==='CRASH'){P.crashOut=Math.max(P.crashOut||0,2);}}
+  if(g.kind==='CRASH'){P.crashLost=true;}}
  return {ok,T,g,last,why};
 }
 function stepReward(P,k,Tk){
@@ -1016,7 +1103,10 @@ function* hitOneMore(P){
   const lit=T.jackpot?'a GOLD crate and a fat envelope are lit — JACKPOT':T.rar==='LEGENDARY'?'a GOLD crate is lit in the back room':T.rar==='RARE'?'a teal-lit crate':'nothing lit';P.lastLit=lit;
   say(P,'HIT ONE MORE',`${stake}   ·   crew: ${read}   ·   ${lit}`);
   say(P,'HIT ONE MORE',`  ${gl}`);
-  const go=!!(yield {type:'CLIMB',P,R,info:{step:P.step,read,tease:T.rar,stake,line:gl,who:lineO.id,T}});P.answers.push({t:'CLIMB',step:P.step,a:go});
+  if((P.timedUsed||0)>=TIMED_MAX){say(P,'HIT ONE MORE','  (the crew already has the car running)');break;}
+  P.timedUsed=(P.timedUsed||0)+1;
+  const rawGo=(yield {type:'CLIMB',P,R,info:{step:P.step,read,tease:T.rar,stake,line:gl,who:lineO.id,T}});P.answers.push({t:'CLIMB',step:P.step,a:rawGo});
+  let go;if(rawGo==='TIMEOUT'){go=read==='FRESH'&&T.rar!=='COMMON';noteQuiet(P,'CLIMB',P.step,go?'GO':'OUT');}else{go=!!rawGo;(P.flags=P.flags||[]);if(go){if(!P.flags.includes('MADE_US_STAY'))P.flags.push('MADE_US_STAY');}else{if(!P.flags.includes('PULLED_US_OUT'))P.flags.push('PULLED_US_OUT');P.explicitOut=true;}}
   P.climbs.push({step:P.step+1,offered:true,go,read,tease:T.rar,jackpot:!!T.jackpot,pot:potValue(P)});
   if(!go){say(P,'HIT ONE MORE','  → TAKE THE WIN.');break;}
   say(P,'HIT ONE MORE','  → HIT ONE MORE.');
@@ -1083,7 +1173,7 @@ function* assignGuns(P){
   let to=yield {type:'GUN',P,crate:c,cands,R:RS(P,'gun|'+c.gun+'|'+P.gunGifts.length)};
   if(!cands.includes(to))to=(P.crew.find(o=>cands.includes(o.id))||{id:cands[0]}).id;
   P.answers.push({t:'GUN',a:to});
-  const o=P.roster.find(x=>x.id===to);if(o.gun&&o.gun!=='pistol')P.armory.push(o.gun);o.gun=c.gun;P.gunGifts.push({gun:c.gun,to:o.id,name:c.name});
+  const o=P.roster.find(x=>x.id===to);if(o.gun&&o.gun!=='pistol'&&o.gun!=='hands')P.armory.push(o.gun);o.gun=c.gun;P.gunGifts.push({gun:c.gun,to:o.id,name:c.name});
   say(P,'TRUNK',`  WHO GETS IT? → ${o.short} gets the ${C.GUNS[c.gun].name}.`);emit(P,'GUN_GIVEN',{to:o.id,short:o.short,gun:c.gun,name:C.GUNS[c.gun].name,role:C.GUNS[c.gun].role});
  }
 }
@@ -1093,11 +1183,11 @@ function report(P){
  const R=RS(P,'report');
  const g=P.gaway?.kind;
  let klass;
- if(P.wash)klass='WASH';else if(P.fellBack)klass='FELL_BACK';else if(P.bailed)klass='BAILED';else if(P.greedFail)klass='GREED';else if(P.job.defense&&g==='BREACHED')klass='COSTLY';else if(P.robbed)klass='ROBBED';else if(P.folded)klass='FOLDED';
+ if(P.obaHit)klass='OBA';else if(P.wash)klass='WASH';else if(P.fellBack)klass='FELL_BACK';else if(P.bailed)klass='BAILED';else if(P.greedFail)klass='GREED';else if(P.job.defense&&g==='BREACHED')klass='COSTLY';else if(P.robbed)klass='ROBBED';else if(P.folded)klass='FOLDED';
  else if(g==='CLEAN'&&P.crew.every(o=>o.finalStatus==='READY'))klass='CLEAN';
  else if(P.losses.some(l=>['SHOT','CAPTURED','DEAD','GONE'].includes(l.kind))||g==='SPLIT'||g==='CRASH')klass='COSTLY';
  else klass='MESSY';
- P.klass=klass;P.win=!(klass==='WASH'||klass==='ROBBED'||klass==='GREED'||klass==='BAILED'||klass==='FELL_BACK');
+ P.klass=klass;P.win=!(klass==='WASH'||klass==='ROBBED'||klass==='GREED'||klass==='BAILED'||klass==='FELL_BACK'||klass==='OBA');
  const final=P.win?potValue(P):0;P.final=Math.round(final*10)/10;
  // memorable derivations
  if(P.win&&P.stress&&klass!=='CLEAN')P.mem.push({id:'reversal:won-from-all-hands',tag:'REV',w:8,text:'won from ALL HANDS'});
@@ -1114,7 +1204,7 @@ function report(P){
  const seen=new Set();P.mem=P.mem.filter(m=>seen.has(m.id)?false:seen.add(m.id));
  // report card
  const lines=[];
- const cashS=`$${Math.round(P.pot.cash)}K cash + ${P.pot.crates.length} crate${P.pot.crates.length===1?'':'s'} (~$${P.final}K street value)`;lines.push(`${klass==='CLEAN'?'CLEAN WIN':klass==='MESSY'?'A WIN WITH A STORY':klass==='COSTLY'?'A WIN — AND IT COST':klass==='FOLDED'?'FOLDED — WALKED AWAY WITH SOMETHING':klass==='GREED'?'GREED — JUGGED':klass==='ROBBED'?'JUGGED ON THE WAY BACK':klass==='BAILED'?'BAILED — NOBODY LEFT BEHIND':klass==='FELL_BACK'?'FELL BACK — THE HOUSE IS HIT, THE CREW ISN\'T':'WASH'}   ·   ${P.win?'BANKED '+cashS:'nothing banked'}${P.pocketLoss?`  (−$${P.pocketLoss}K from Rich's pocket)`:''}`);
+ const cashS=`$${Math.round(P.pot.cash)}K cash + ${P.pot.crates.length} crate${P.pot.crates.length===1?'':'s'} (~$${P.final}K street value)`;lines.push(`${klass==='CLEAN'?'CLEAN WIN':klass==='MESSY'?'A WIN WITH A STORY':klass==='COSTLY'?'A WIN — AND IT COST':klass==='FOLDED'?'FOLDED — WALKED AWAY WITH SOMETHING':klass==='GREED'?'GREED — JUGGED':klass==='ROBBED'?'JUGGED ON THE WAY BACK':klass==='BAILED'?'BAILED — NOBODY LEFT BEHIND':klass==='FELL_BACK'?'FELL BACK — THE HOUSE IS HIT, THE CREW ISN\'T':klass==='OBA'?'THE RUN COLLAPSED':'WASH'}   ·   ${P.win?'BANKED '+cashS:'nothing banked'}${P.pocketLoss?`  (−$${P.pocketLoss}K from Rich's pocket)`:''}`);
  const mvp=[...P.crew].sort((a,b)=>b.mvp-a.mvp||(b.kills||0)-(a.kills||0))[0];
  if(mvp&&((mvp.savedNow||[]).length||mvp.kills))lines.push(`MVP: ${mvp.short}${(mvp.savedNow||[]).length?' (pulled '+mvp.savedNow.map(id=>P.roster.find(o=>o.id===id)?.short).join(', ')+' back)':''}`);
  if(P.turnMoment)lines.push(P.turnMoment);
@@ -1166,7 +1256,7 @@ function morning(P){
  out.district=P.job.shape==='TAKE THE BLOCK'&&P.win?`${P.job.faction.split(' +')[0]} lose a corner of ${C.DISTRICTS[P.seed%3]}. Rival pressure drops.`:P.win?`${C.DISTRICTS[P.seed%3]} hears about it. Demand ticks up.`:`${C.DISTRICTS[P.seed%3]} hears about it too.`;
  // next temptation — exactly one; retaliation capped (T8)
  const cap=P.crew.find(o=>o.finalStatus==='CAPTURED');
- const hot=!P.bailed&&(P.job.heat>=6||P.greedFail||P.stashRaided||P.step>=2); // BAILED never feeds retaliation
+ const hot=!P.bailed&&!P.obaHit&&(P.job.heat>=6||P.greedFail||P.stashRaided||P.step>=2); // BAILED never feeds retaliation
  const recruit=P.pot.crates.some(c=>c.recruit);
  const rare=P.kicker&&(P.kicker.rar!=='COMMON'||P.kicker.cat==='WEIRD');
  let ty;
@@ -1190,6 +1280,15 @@ function morning(P){
 }
 
 // -------------------------------------------------------------------------------------------------------------------------- main
+// A collapse (BAILED / FALL BACK / WASH) has the same ROOT CAUSE as the hits that produced it: the loss is traced to the most common cause among the
+// Ogas who went down (ties go to the player-attributable cause). No relabelling: the cause objects are the ones the hits already carried.
+const LEVER=new Set(['TRAIT','CHOICE','GREED','CAR','WEAPON','SWAP','RELATIONSHIP']);
+function rootCause(P,text,fallback){
+ const cs=P.crew.filter(o=>o.hp<=0||o.out).map(o=>o.dropCause||o.lastHitCause).filter(Boolean);
+ if(!cs.length)return fallback;const m={};for(const c of cs){(m[c.c]=m[c.c]||{n:0,c}).n++;}
+ const top=Object.values(m).sort((a,b)=>b.n-a.n||(LEVER.has(b.c.c)?1:0)-(LEVER.has(a.c.c)?1:0))[0].c;
+ return cz(top.c,`${text}${top.t?' — '+top.t:''}`);
+}
 export function* playGen(cfg){
  const P=initPlay(cfg);
  pitch(P);yield* carStage(P);slideIn(P);
@@ -1197,9 +1296,11 @@ export function* playGen(cfg){
  const rec=(x)=>x;
  for(let i=0;i<4;i++){
   P.card=drawCard(P,i);P.card.weight=3;
+  if(P.oba&&i===2&&obaEligible(P.job)){obaCollapse(P);break;}
   if(P.pressure>=67)P.stress=true;
   const choice=yield* callWindow(P,i);
   const res=resolveBeat(P,i,choice,'real');
+  if(P.opts.qaWash&&i===2){for(const o of P.crew){o.hp=0;o.dropBeat=2;o.dropCause=o.dropCause||cz(CAUSE.ENEMY,'qa');}res.wipe=true;} // QA hook only (?qa=wash): a total wipe at TROUBLE, to exercise the catastrophic silence
   if(i===0)P.startedClean=res.tier===2;
   if(P.pressure>=67)P.stress=true;
   if(res.fold){P.folded=true;P.endLine=pickLine(P,'fold:line',{});say(P,'BEATS','  '+P.endLine);emit(P,'END',{kind:'FOLD',line:P.endLine,snap:snap(P)});break;}
@@ -1207,19 +1308,48 @@ export function* playGen(cfg){
   if(bailEligible(P)){P.bailed=true;const lastUp=able(P)[0];P.bailerId=lastUp.id;P.bailBy=lastUp.short;P.endLine=pickLine(P,'bail:line',{a:P.bailBy});say(P,'BEATS','  '+P.endLine);emit(P,'END',{kind:'BAIL',line:P.endLine,by:P.bailBy,snap:snap(P)});break;}
   if(fallBackEligible(P)){P.fellBack=true;const lastUp=able(P)[0];P.fallBackerId=lastUp.id;P.fallBackBy=lastUp.short;P.endLine=pickLine(P,'fallback:line',{a:P.fallBackBy});say(P,'BEATS','  '+P.endLine);emit(P,'END',{kind:'FALLBACK',line:P.endLine,by:P.fallBackBy,snap:snap(P)});break;}
  }
- if(P.fellBack){P.getawayStarted=true;P.gaway={kind:'FALL_BACK',G:0,drv:null};P.stashRaided=true;P.pot.cash=0;P.pot.crates=[];P.pot.lost=true;P.losses.push({who:'stash',kind:'STASH RAIDED',cause:cz(CAUSE.EARLIER,'they were down to one on their feet'),tag:'DRAMATIC',beat:3,text:'the product for this raid is gone'});say(P,'GETAWAY','  No stand at the door. The house is hit; the crew is out of the halls.');} // FALL BACK has its own state: never BAILED / robbed / ROBBED / JUGGED
- else if(P.bailed){P.gaway={kind:'BAILED'};P.pot.cash=0;P.pot.crates=[];P.pot.lost=true;P.losses.push({who:'pot',kind:'BAILED',cause:cz(CAUSE.EARLIER,'they were down to one on their feet'),tag:'DRAMATIC',beat:3,text:'they left with nothing but each other'});say(P,'GETAWAY','  No prize. No getaway to speak of. Everybody gets out.');} // BAILED has its own state: never robbed / ROBBED / JUGGED
+ if(P.fellBack){P.getawayStarted=true;P.gaway={kind:'FALL_BACK',G:0,drv:null};P.stashRaided=true;P.pot.cash=0;P.pot.crates=[];P.pot.lost=true;P.losses.push({who:'stash',kind:'STASH RAIDED',cause:rootCause(P,'they were down to one on their feet',cz(CAUSE.EARLIER,'they were down to one on their feet')),tag:'DRAMATIC',beat:3,text:'the product for this raid is gone'});say(P,'GETAWAY','  No stand at the door. The house is hit; the crew is out of the halls.');} // FALL BACK has its own state: never BAILED / robbed / ROBBED / JUGGED
+ else if(P.obaHit){P.getawayStarted=true;P.gaway={kind:'OBA',G:0,drv:null};P.pot.cash=0;P.pot.crates=[];P.pot.lost=true;P.losses.push({who:'pot',kind:'OBA',cause:cz(CAUSE.ENEMY,'OBA DE GWINNETT'),tag:'DRAMATIC',beat:2,text:'the run collapsed. nothing came out.'});say(P,'GETAWAY','  Nobody argues. Everybody goes. The car is already moving.');}
+ else if(P.bailed){P.gaway={kind:'BAILED'};P.pot.cash=0;P.pot.crates=[];P.pot.lost=true;P.losses.push({who:'pot',kind:'BAILED',cause:rootCause(P,'they were down to one on their feet',cz(CAUSE.EARLIER,'they were down to one on their feet')),tag:'DRAMATIC',beat:3,text:'they left with nothing but each other'});say(P,'GETAWAY','  No prize. No getaway to speak of. Everybody gets out.');} // BAILED has its own state: never robbed / ROBBED / JUGGED
  else if(!P.wash){yield* getaway(P);}
- else{P.gaway={kind:'WASH'};P.robbed=true;P.pot.lost=true;P.losses.push({who:'pot',kind:'ROBBED',cause:cz(CAUSE.EARLIER,'everybody went down'),tag:'DRAMATIC',beat:3,text:'nobody made it out with anything'});say(P,'GETAWAY','  There is no getaway. Somebody else drives the car home.');}
+ else{P.gaway={kind:'WASH'};P.robbed=true;P.pot.lost=true;P.losses.push({who:'pot',kind:'ROBBED',cause:rootCause(P,'everybody went down',cz(CAUSE.EARLIER,'everybody went down')),tag:'DRAMATIC',beat:3,text:'nobody made it out with anything'});say(P,'GETAWAY','  There is no getaway. Somebody else drives the car home.');}
  finalizeCrew(P,P.wash);
- if(!P.robbed&&!P.bailed&&!P.fellBack){for(const o of able(P))nerveAdd(P,{moments:[]},o,6,null); // the trunk is the release
+ if(P.obaHit)for(const o of P.crew){if(o.finalStatus!=='DEAD')o.finalStatus='WOUNDED';}
+ if(!P.robbed&&!P.bailed&&!P.fellBack&&!P.obaHit){for(const o of able(P))nerveAdd(P,{moments:[]},o,6,null); // the trunk is the release
   trunk(P,0);yield* turning(P);}else{P.pot.cash=0;P.pot.crates=[];}
- if(!P.robbed&&!P.bailed&&!P.fellBack&&!P.folded){yield* hitOneMore(P);}
- if(!P.robbed&&!P.bailed&&!P.fellBack)yield* assignGuns(P);
+ if(!P.robbed&&!P.bailed&&!P.fellBack&&!P.obaHit&&!P.folded){yield* hitOneMore(P);}
+ if(!P.robbed&&!P.bailed&&!P.fellBack&&!P.obaHit)yield* assignGuns(P);
  // crew statuses may change after a climb; re-finalize newly dropped
  if(P.step>0)refinalize(P);
+ if((P.explicitOut)&&P.crew.some(o=>o.finalStatus==='CAPTURED'||(o.hp<=0&&o.left&&!o.rescued))&&!P.flags.includes('LEFT_SOMEONE'))P.flags.push('LEFT_SOMEONE');
+ possessions(P);
  report(P);morning(P);
  return summarizeRecord(P);
+}
+export const obaEligible=job=>!!job&&!job.defense&&!job.bigPlay&&job.id!=='extract';
+function obaCollapse(P){
+ const R=RS(P,'oba');const lead=able(P)[0]||P.crew[0];
+ P.obaHit=true;P.flags.push('OBA_DE_GWINNETT_SEEN');
+ P.obaLineIn=pickLine(P,'oba:appear',{a:lead.short});P.endLine=pickLine(P,'oba:collapse',{a:lead.short});
+ say(P,'BEATS','  '+P.obaLineIn);say(P,'BEATS','  '+P.endLine);
+ for(const o of P.crew){o.out=null;o.fled=false;o.left=false;o.rescued=true;o.wasSaved=false;o.dropBeat=null;o.dropCause=null;o.hp=Math.max(1,Math.min(o.hp>0?o.hp:1,Math.ceil(o.maxhp*.4)));o.nerve=Math.max(0,o.nerve-30);
+  if(o.gun&&o.gun!=='hands'&&R.chance(.65)){P.gunsDropped.push({gun:o.gun,from:o.id,route:'SOURCE',cause:'OBA'});}}
+ emit(P,'OBA',{line:P.obaLineIn,end:P.endLine,dropped:P.gunsDropped.map(g=>({...g})),snap:snap(P)});
+ emit(P,'END',{kind:'OBA',line:P.endLine,by:lead.short,snap:snap(P)});
+}
+// ---- POSSESSIONS (OL-023): cars and carried weapons are lost on approved outcomes and the loss persists in the returned state.
+function possessions(P){
+ const lost={cars:[],guns:[]};const uniq=id=>(P.garage.unique||[]).includes(id);
+ const carGone=(cause,route)=>{if(P.job.defense||!P.carId||P.carId==='CASTLE')return;lost.cars.push({id:P.carId,cause,route:uniq(P.carId)?'IMPOUND':route});};
+ const gunGone=(o,cause,route)=>{if(!o.gun||o.gun==='hands')return;lost.guns.push({gun:o.gun,from:o.id,cause,route});};
+ if(P.crashLost)carGone('CRASH','DEALER');
+ if(P.wash){carGone('WASH','IMPOUND');if(!P.job.defense)for(const o of P.crew)gunGone(o,'WASH','SOURCE');}
+ if(P.split)for(const o of P.crew)if(o.left)gunGone(o,'SPLIT','IMPOUND');
+ if(P.obaHit)for(const d of P.gunsDropped)lost.guns.push({...d});
+ // apply: the gun is gone from the Oga (bare hands) and from nowhere else; the car leaves the garage
+ for(const g of lost.guns){const o=P.roster.find(x=>x.id===g.from);if(o&&o.gun===g.gun)o.gun='pistol';} // the good gun is gone; the Oga grabs a sidearm (price 0 at the weapon source)
+ for(const c of lost.cars){P.garage.owned=P.garage.owned.filter(x=>x!==c.id);P.garage.lost[c.id]={route:c.route,cause:c.cause};delete P.cars[c.id];}
+ P.lost=lost;
 }
 function refinalize(P){for(const o of P.crew){if(o.finalStatus==='READY'&&(o.hp<o.maxhp*.5))o.finalStatus='WOUNDED';if(o.hp<=0&&!o.rescued&&o.finalStatus!=='DEAD'&&!['SHOT','CAPTURED','GONE'].includes(o.finalStatus)){if(o.named)o.finalStatus=o.left?'CAPTURED':'SHOT';else o.finalStatus=RSf(P,o.id+'2').chance(.4)?'DEAD':'WOUNDED';P.losses.push({who:o.id,kind:o.finalStatus,cause:o.dropCause||cz(CAUSE.GREED,'they went back in'),tag:'DRAMATIC',beat:5,text:`${o.short} paid for the extra step`});}}
  if(!P.job.bigPlay){const cand=P.crew.filter(o=>['SHOT','CAPTURED'].includes(o.finalStatus));if(cand.length>2)for(const o of cand.slice(2)){o.finalStatus='WOUNDED';P.mercy=(P.mercy||0)+1;}}}
@@ -1231,7 +1361,7 @@ function summarizeRecord(P){
  const clear=lossEvents.filter(l=>l.cause&&l.cause.c!==CAUSE.LUCK).length;
  return {
   seed:P.seed,night:P.night,opts:P.opts,job:P.job.id,jobName:P.jobName,promise:P.promise,shape:P.job.shape,policy:P.polName,pitcher:P.pitcher,car:P.carId,approach:P.approach,crew:crew.map(o=>o.id),seats:P.seat,
-  klass:P.klass,win:P.win,final:P.final,getaway:P.gaway?.kind,steps:P.step,tookWin:!P.greedFail,greedFail:!!P.greedFail,folded:!!P.folded,
+  klass:P.klass,win:P.win,final:P.final,oba:!!P.obaHit,obaAsked:!!P.oba,lost:P.lost||{cars:[],guns:[]},storyFlags:[...(P.flags||[])],quiet:P.quiet||[],timedUsed:P.timedUsed||0,getaway:P.gaway?.kind,steps:P.step,tookWin:!P.greedFail,greedFail:!!P.greedFail,folded:!!P.folded,
   gens:gens.length,genDead:gens.filter(o=>o.finalStatus==='DEAD').length,namedShot:crew.filter(o=>o.named&&o.finalStatus==='SHOT').length,namedCaptured:crew.filter(o=>o.named&&o.finalStatus==='CAPTURED').length,namedGone:crew.filter(o=>o.named&&o.finalStatus==='GONE').length,namedDead:crew.filter(o=>o.named&&o.finalStatus==='DEAD').length,
   wounded:crew.filter(o=>o.finalStatus==='WOUNDED').length,crash:P.gaway?.kind==='CRASH',split:P.gaway?.kind==='SPLIT',robbed:!!P.robbed,mercy:P.mercy||0,
   losses:lossEvents.length,lossesClear:clear,lossFunny:lossEvents.filter(l=>l.tag==='FUNNY'||l.tag==='DRAMATIC').length,
@@ -1249,7 +1379,7 @@ function summarizeRecord(P){
   finalStatus:Object.fromEntries(crew.map(o=>[o.id,o.finalStatus])),
   temptation:P.morning?.temptation?.type,emptyBeats:P.emptyBeats,beatCount:P.beatLog.length,crewTraits:crew.flatMap(o=>o.traits),crewCls:crew.map(o=>o.cls),pot:{cash:P.pot.cash,crates:P.pot.crates.map(c=>({cat:c.cat,rar:c.rar,name:c.name,val:c.val}))},
   kicker:P.kicker?{cat:P.kicker.cat,rar:P.kicker.rar,name:P.kicker.name}:null,
-  stateOut:{roster:P.roster,bonds:P.bonds,known:{...P.known,...Object.fromEntries(P.newCombos.map(c=>[c,true]))},cars:P.cars,weirdSeen:P.weirdSeen,armory:P.armory},acceptedNamed:P.acceptedNamed,lineLog:P.lineLog,firedCombos:[...P.fired],gunGifts:P.gunGifts||[],armoryOut:P.armory,noScratch:!!P.noScratch,bailed:!!P.bailed,bailerId:P.bailerId||null,fellBack:!!P.fellBack,fallBackerId:P.fallBackerId||null,foldIntel:!!P.foldIntel,captives:P.crew.filter(o=>o.finalStatus==='CAPTURED').map(o=>o.id),answers:P.answers,heatDelta:(P.bailed||P.fellBack)?P.job.heat:(P.job.heat+(P.approach==='LOUD'?4:P.approach==='QUIET'?-2:0)+(P.heatBonus||0)+P.step*3),pocketLoss:P.pocketLoss||0,memWt:Object.fromEntries(P.mem.map(m=>[m.id,m.w])),beef:P.beef||[],beefSettled:P.beefSettled||[],beefFired:P.beefFired||null,beefSeen:P.beefSeen||0,beefsLive:P.beefs||[],crashOut:P.crashOut||0,spent:P.spent||0,
+  stateOut:{roster:P.roster,bonds:P.bonds,known:{...P.known,...Object.fromEntries(P.newCombos.map(c=>[c,true]))},cars:P.cars,garage:P.garage,weirdSeen:P.weirdSeen,armory:P.armory},acceptedNamed:P.acceptedNamed,lineLog:P.lineLog,firedCombos:[...P.fired],gunGifts:P.gunGifts||[],armoryOut:P.armory,noScratch:!!P.noScratch,bailed:!!P.bailed,bailerId:P.bailerId||null,fellBack:!!P.fellBack,fallBackerId:P.fallBackerId||null,foldIntel:!!P.foldIntel,captives:P.crew.filter(o=>o.finalStatus==='CAPTURED').map(o=>o.id),answers:P.answers,heatDelta:(P.bailed||P.fellBack)?P.job.heat:(P.job.heat+(P.approach==='LOUD'?4:P.approach==='QUIET'?-2:0)+(P.heatBonus||0)+P.step*3),pocketLoss:P.pocketLoss||0,memWt:Object.fromEntries(P.mem.map(m=>[m.id,m.w])),beef:P.beef||[],beefSettled:P.beefSettled||[],beefFired:P.beefFired||null,beefSeen:P.beefSeen||0,beefsLive:P.beefs||[],crashOut:P.crashOut||0,spent:P.spent||0,
   stateAfter:{roster:P.roster.map(o=>({id:o.id,nerve:o.nerve,hp:o.hp,status:o.finalStatus||o.status,mvp:o.mvp,scars:o.scars,nick:o.nick,perks:o.perks})),weirdSeen:P.weirdSeen,known:{...P.known,...Object.fromEntries(P.newCombos.map(c=>[c,true]))}}
  };
 }
