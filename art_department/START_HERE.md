@@ -1,46 +1,114 @@
 # Rich Alucard Art Department — start here
 
-This repository is the Art Department's institutional memory. **The project remembers. The chat does not.** Art owns pixels and visual continuity; Story/canon owns meaning; Engineering owns runtime integration; Ube owns taste and canon; HQ owns scope, acceptance and freeze.
+This repository is the Art Department's institutional memory. **The project remembers. The chat does not.** Art owns pixels and visual continuity; Story/canon owns meaning; Engineering owns runtime integration; Ube owns taste and canon; HQ / UNDERLORD owns scope, acceptance and freeze.
 
-## Current state
+---
 
-- **ART SHIP 015 — APPROVED MASTER / FROZEN / COMPLETE** on `art/art_ship_015`.
-- Ube/HQ approved seven exact candidate byte streams resolving all six former Ship 014 canon blockers.
-- Frozen corpus: **411 assets**; Asset Register: **551 entries**.
-- Every Ship 015 master is byte-for-byte identical to its accepted candidate; the four Brother assets remained unchanged.
-- Pre-Ship-015 frozen authority verified **404/404 unchanged**.
-- Ship 014 remains historical. Its five Engineering mapping decisions, six conditional existing-art tests and one SEALED exclusion remain outside Ship 015.
-- Runtime authority remains `claude/hold-clearance-001` at `a66170218375e52404715789dde48c23726a6044`: **108 PASS / 13 HOLD**, unchanged.
-- Ship 011 remains separately frozen/unassigned.
+## Fresh Chat Onboarding
 
-## Authority hierarchy
+Every fresh Art Agent must begin with:
+1. Open the latest Rich Alucard repository.
+2. Read `art_department/START_HERE.md` completely.
+3. Complete the onboarding it specifies in the Required Reading Order.
+4. Execute the authorized Art Ship or production brief.
 
-1. Ube's current canon/taste decisions.
-2. `docs/CURRENT_CANON.md` and `docs/PRODUCTION_CONTROL.md`.
-3. Exact frozen pixels plus `ASSET_REGISTER.json` and `APPROVED_ASSET_INDEX.md`.
-4. The applicable Art Ship manifest, HQ decision, Engineering map and completion ledger.
-5. The committed OPEN subsets in `production_authority/`.
-6. Art judgment inside explicit Ship scope.
+The repo is institutional memory. Prior chats are not required. Ube should not need to manually re-upload the visual corpus for every fresh art session.
 
-Pixels outrank prose for established visual grammar. Asset existence is not approval.
+---
 
-## Required reading order
+## Current State & Authority
 
-1. `ART_SYSTEM.md`
-2. `CURRENT_HANDOFF.md`
-3. `ships/art_ship_015/ART_SHIP_MANIFEST.json`
-4. `ships/art_ship_015/HQ_DECISION.md`
-5. `ships/art_ship_015/FINAL_COMPLETION_LEDGER.json`
-6. `ships/art_ship_015/ENGINEERING_ASSET_MAP.md` and `.json`
-7. `CURRENT_OPEN_ART_GAPS.md` and `.json`
-8. `APPROVED_ASSET_INDEX.md`, `ASSET_REGISTER.json`, and relevant native PNGs
-9. `APPROVAL_LEDGER.md`
-10. `production_authority/README.md` and only relevant OPEN sources
+- **ART SHIP 015 — APPROVED MASTER / FROZEN / COMPLETE** (Ship 015 closed out final canon blockers).
+- **VISUAL LANE A — CURRENT PRODUCTION AUTHORITY:**
+  - **GBENGA — ACCEPTED / FROZEN:** Full six-state package accepted. Anchor: `VA-GBENGA-NEUTRAL-v2`. Corrected Neutral v2 supersedes Neutral v1. Other five states (Voice Note, "My Son", Adjusting Sleeves, Golden Draco, Defeated) remained byte-identical.
+  - **CARLOS — ACCEPTED / FROZEN:** Full three-state package accepted. Anchor: `VA-CARLOS-NEUTRAL-HAPPY-v1`. Accepted states: Neutral / Happy, Betrayed, Canopy Apron.
+- **VISUAL A SOURCE AUTHORITY (OVERLORD OL-012):**
+  - Standing rule: **OPEN Visual Concept Cards are identity authority.**
+  - When a card is silent on exact face, skin tone, hair, or minor palette details, normal art-director discretion may fill the gap inside MUST / MUST NOT boundaries.
+  - **Frozen pixels outrank prose.**
+  - **All human characters are adults (21+).**
+  - **Mama Gbenga and Auntie Grit require Ube judgment before freeze.**
+  - Current Visual A production order:
+    1. Gbenga — **DONE / FROZEN**
+    2. Carlos — **DONE / FROZEN**
+    3. Senator — **NEXT QUEUED**
+    4. Mama Gbenga
+    5. Half-Pint
+    6. Sunday Best
+    7. Young Mazi
+    8. Auntie Grit
+    9. Open Mouth Gang
+    10. Gbenga's boys
+    11. Uncle Bamidele
+    12. Mister December
+    13. hunters
+    14. HOA president
+    15. trap crew
+- **Frozen Corpus:** **429 assets**; **Asset Register:** **571 entries**.
+- **Baseline frozen verification:** 411/411 unchanged.
+- **Ship 011** remains separately frozen/unassigned.
 
-For implementation truth, read `docs/ENGINEERING_HANDOFF.md`, `docs/art_integration/README.md`, `docs/art_integration/INTEGRATION_MATRIX.json`, and `docs/presentation/NEEDS_CREATIVE.md`.
+---
+
+## Art Production Workflow Rules
+
+### Whole-Package Generation
+Default behavior for a character:
+$$\text{SOURCE REVIEW} \longrightarrow \text{INTERNAL IDENTITY ANCHOR} \longrightarrow \text{ALL AUTHORIZED STATES} \longrightarrow \text{INTERNAL QA} \longrightarrow \text{PACKAGE} \longrightarrow \text{UNDERLORD / UBE GATE}$$
+Do NOT stop after every ordinary state. The purpose is to reduce conversational drift and produce coherent state families.
+
+### Identity-Preserving Derivation
+After the identity anchor is established, derive ordinary states from that same identity. Preserve:
+- Face, skin, and hair
+- Proportions and silhouette
+- Palette and wardrobe identity
+- Accessories and key visual signifiers
+- Native pixel grammar and contact/origin conventions (`contact (40,88)` default for 80×96 actors)
+
+### Local Repair Rule
+If one state fails QA:
+- Repair **only** that state.
+- Do NOT regenerate already-good states.
+- Do NOT regenerate a full accepted family unless the identity anchor itself is defective.
+
+### Batching
+Multiple related characters may be produced in one coherent batch when:
+- Sources are complete
+- Shared art grammar is stable
+- Characters remain individually distinguishable
+- Each character is still reviewed/frozen independently
+- Batching must never homogenize silhouettes or body types.
+
+### Drift Control
+Fresh art sessions are preferred between major coherent batches. Do not maintain one indefinitely growing production chat when clean re-onboarding from repository authority is available.
+
+---
+
+## Style & Display Authority
+
+- **Frozen pixels outrank prose** for established visual grammar.
+- **Core grammar:** Compact figures, strong identity silhouettes, small identity accents, limited material tones, low fold density, forgotten-cartridge cohesion.
+- **Native pixels remain unchanged.** Never resize or resample native source pixels to repair runtime staging.
+- **Display Scale:** For Presentation Director-managed scenes, final on-screen scale and framing are controlled by the Director's shot profile and camera metadata. Historical $\approx 1.85\times$ guidance is reference/composition context only, not a universal Director multiplier.
+
+---
+
+## Required Reading Order
+
+1. `START_HERE.md`
+2. `ART_SYSTEM.md`
+3. `CURRENT_HANDOFF.md`
+4. `production_authority/OVERLORD_OL012_VISUAL_A_OPEN_AUTHORITY.md` & `production_authority/UBE_PORTAL_VISUAL_LANE_A_PRODUCTION_LEDGER.md`
+5. `CURRENT_OPEN_ART_GAPS.md` and `.json`
+6. `APPROVED_ASSET_INDEX.md`, `ASSET_REGISTER.json`, and relevant native PNGs
+7. `APPROVAL_LEDGER.md`
+8. `production_authority/README.md` and only relevant OPEN sources
+9. Historical Ship manifests and records under `ships/` as needed
+
+---
 
 ## Boundaries
 
 Frozen source pixels never change. Runtime integration, Presentation framing, gameplay mapping and PASS/HOLD movement are separate Engineering/runtime-QA work. Never inspect or import SEALED/HQ-only material.
 
-**Current stop point:** ART SHIP 015 — APPROVED MASTER / FROZEN / COMPLETE. Art production is dormant. Do not begin Ship 016, runtime-integrate, merge into Engineering/main, or deploy without new explicit authorization.
+**Current priority:** Visual Lane A character production continues with **Senator** (sitting, charging, asleep on throne).

@@ -1,30 +1,51 @@
 # Current handoff
 
-**ART SHIP 015 — APPROVED MASTER / FROZEN / COMPLETE.**
+**ART DEPARTMENT REFRESH 2026 — VISUAL LANE A INGESTION & WORKFLOW UPDATE.**
 
-## Freeze result
+## Freeze Result
 
-- Branch: `art/art_ship_015`.
-- Ube/HQ Taste Pass: **PASS**; exact-byte promotion and freeze authorized.
-- Promoted masters: **7/7**, all byte-for-byte identical to accepted candidates.
-- Resolved: `A-family-brother1`, `A-family-brother2`, `A-family-brother1-avatar`, `A-family-brother2-avatar`, `A-god`, `A-og-hooper`.
-- Frozen corpus: **411/411 verified**; Asset Register: **551 entries**.
-- Pre-Ship-015 frozen corpus: **404/404 unchanged**.
-- Candidate duplicate and frozen semantic-equality audits: PASS.
-- Four Brother files remained byte-identical through correction and promotion.
+- **Visual Lane A — GBENGA:**
+  - Status: **ACCEPTED / FROZEN**.
+  - Anchor: `VA-GBENGA-NEUTRAL-v2` (`assets/before_the_fame/characters/gbenga/gbenga_neutral_anchor_v2.png` / `runtime_80x96/gbenga_neutral_anchor_80x96_v2.png`).
+  - Accepted full six-state package: Neutral v2, Voice Note v2, "My Son" v2, Adjusting Sleeves v2, Golden Draco v2, Defeated v2.
+  - Corrected Neutral v2 supersedes Neutral v1 (repaired desk foreground/contact). The other five states remained byte-identical.
+- **Visual Lane A — CARLOS:**
+  - Status: **ACCEPTED / FROZEN**.
+  - Anchor: `VA-CARLOS-NEUTRAL-HAPPY-v1` (`assets/before_the_fame/characters/carlos/carlos_neutral_happy_anchor_v1.png` / `runtime_80x96/carlos_neutral_happy_anchor_80x96_review_v1.png`).
+  - Accepted three-state package: Neutral / Happy, Betrayed, Canopy Apron.
+- **Corpus Snapshot:**
+  - Frozen corpus: **429 verified assets** (411 prior baseline + 18 Visual A production masters and runtime sprites).
+  - Asset Register: **571 entries**.
+  - Baseline frozen corpus: 411/411 verified unchanged.
+  - Candidate provenance, review boards, and transparent 80×96 boards preserved in `art_department/visual_a/`.
 
-## Remaining non-Ship-015 requirements
+## Active Workflow Rules
 
-- `MAPPING / ENGINEERING DECISION` (5): `C-big-fish`, `D-runtime-delivery`, `D-runtime-damaged`, `G-env-catacomb_dead`, `G-env-halloween`.
-- `CONDITIONAL — EXISTING ART MUST BE TESTED FIRST` (6): `A-RICH-hungover`, `A-RICH-portobello_wake`, `D-supra-world`, `E-cube`, `G-castle_party`, `G-grave`.
-- SEALED remains excluded and untouched.
+1. **Fresh Chat Onboarding:** Start from `art_department/START_HERE.md` alone. Zero manual re-upload required.
+2. **Whole-Package Generation:** Complete full authorized character state packages in one continuous pass (`SOURCE REVIEW → IDENTITY ANCHOR → AUTHORIZED STATES → QA → PACKAGE → UNDERLORD GATE`).
+3. **Identity-Preserving Derivation:** Derive subsequent states from the established identity anchor.
+4. **Local Repair Rule:** Repair only defective states; do not regenerate good states or full families.
+5. **Batching:** Coherent batches allowed when sources are complete, without homogenizing silhouettes.
+6. **Drift Control:** Fresh art sessions between major batches.
 
-## Runtime boundary
+## Visual Lane A Queue
 
-Runtime authority remains `claude/hold-clearance-001` at `a66170218375e52404715789dde48c23726a6044`: **108 PASS / 13 HOLD**, unchanged. Ship 015 requires separate Engineering mapping/integration and runtime/Presentation QA.
+1. Gbenga — **DONE / FROZEN**
+2. Carlos — **DONE / FROZEN**
+3. Senator — **NEXT QUEUED** (sitting, charging, asleep on throne)
+4. Mama Gbenga (requires Ube judgment before freeze)
+5. Half-Pint
+6. Sunday Best
+7. Young Mazi
+8. Auntie Grit (requires Ube judgment before freeze)
+9. Open Mouth Gang (Chewer, Enforcer, Lieutenant)
+10. Gbenga's boys
+11. Uncle Bamidele (age 60 owambe costume)
+12. Mister December
+13. hunters
+14. HOA president
+15. trap crew (cooks, runners, lookout)
 
-Ship 011 remains separately frozen/unassigned. No runtime/gameplay file, Presentation mapping, PASS/HOLD state, Engineering/main branch, deployment or SEALED material changed.
+## Boundaries
 
-## Stop
-
-**ART SHIP 015 — APPROVED MASTER / FROZEN / COMPLETE. ART PRODUCTION IS DORMANT.**
+Runtime integration, Presentation framing, and gameplay code remain separate Engineering/runtime-QA work. Never inspect or import SEALED/HQ-only material.

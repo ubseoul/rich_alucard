@@ -235,3 +235,23 @@ No accepted image was regenerated, decoded/re-encoded, resized, optimized or mod
 51. Ube/HQ supplied final canon decisions for the two adult brothers, their same-identity FAMILY THREAD avatars, original Vol. 2 God, and OG Hooper. ART SHIP 015 produced seven 80×96 RGBA binary-alpha candidates resolving the six Ship 014 canon blockers.
 52. Surgical HQ review preserved the four Brother candidates byte-for-byte, accepted God after a restrained native edge-light correction, and accepted OG Hooper after an upper-garment-only sleeveless-top correction. Mechanical regression verified the previous frozen corpus 404/404 unchanged.
 53. Explicit final decision: **ART SHIP 015 — UBE/HQ TASTE PASS: PASS.** All seven exact current candidate byte streams are **APPROVED MASTER / FROZEN**. The resulting frozen corpus is 411 assets; the Asset Register contains 551 entries. Runtime/gameplay integration, Ship 011 assignment, Engineering/main merge and deployment remain excluded. SEALED access was zero.
+
+## VISUAL LANE A — OVERLORD OL-012 SOURCE CLOSURE & WORKFLOW RULES (recorded 2026-09-28)
+
+54. OVERLORD OL-012 established standing identity authority for Visual Lane A. OPEN Visual Concept Cards are binding identity authority. When a card is silent on exact face, skin tone, hair, or minor palette details, normal art-director discretion may fill the gap inside MUST / MUST NOT boundaries. Frozen pixels outrank prose. All human characters are adults (21+). Mama Gbenga and Auntie Grit require explicit Ube judgment before freeze. Standard workflow protocols established: Whole-Package Generation, Identity-Preserving Derivation, Local Repair Rule, Batching without silhouette homogenization, and Drift Control via fresh sessions.
+
+## VISUAL LANE A — GBENGA (recorded 2026-09-28)
+
+55. Explicit UNDERLORD / Ube Decision: **GBENGA — ACCEPTED / FROZEN**.
+    - Anchor: `VA-GBENGA-NEUTRAL-v2` (`assets/before_the_fame/characters/gbenga/gbenga_neutral_anchor_v2.png` / `runtime_80x96/gbenga_neutral_anchor_80x96_v2.png`).
+    - Accepted family: Full six-state package (`VA-GBENGA-NEUTRAL-v2`, `VA-GBENGA-VOICE-NOTE-v2`, `VA-GBENGA-MY-SON-v2`, `VA-GBENGA-ADJUSTING-SLEEVES-v2`, `VA-GBENGA-GOLDEN-DRACO-v2`, `VA-GBENGA-DEFEATED-v2`).
+    - Corrected Neutral v2 supersedes Neutral v1 (desk foreground/occlusion repaired). The other five accepted states remained byte-identical.
+    - All six production masters and six 80×96 native sprites are **APPROVED MASTER / FROZEN**. Native pixel structure preserved.
+
+## VISUAL LANE A — CARLOS (recorded 2026-09-28)
+
+56. Explicit UNDERLORD / Ube Decision: **CARLOS — ACCEPTED / FROZEN**.
+    - Anchor: `VA-CARLOS-NEUTRAL-HAPPY-v1` (`assets/before_the_fame/characters/carlos/carlos_neutral_happy_anchor_v1.png` / `runtime_80x96/carlos_neutral_happy_anchor_80x96_review_v1.png`).
+    - Accepted family: Full three-state package (`VA-CARLOS-NEUTRAL-HAPPY-v1`, `VA-CARLOS-BETRAYED-v1`, `VA-CARLOS-CANOPY-APRON-v1`).
+    - All three production masters and three 80×96 native sprites are **APPROVED MASTER / FROZEN**. Native pixel structure preserved.
+

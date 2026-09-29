@@ -1,27 +1,46 @@
-# Current OPEN Art gaps — ART SHIP 015 frozen authority
+# Current OPEN Art gaps — Visual Lane A & ART SHIP 015 frozen authority
 
-**As of:** 2026-09-27
+**As of:** 2026-09-28
 
-ART SHIP 015 freezes seven exact candidate byte streams, resolving the six canon blockers carried from Ship 014. It changes no runtime PASS/HOLD result.
+Visual Lane A incorporates OVERLORD OL-012 OPEN identity authority. Gbenga and Carlos are accepted and frozen. Future Visual Lane A production proceeds along the authorized queue starting with Senator.
 
 | Area | Current truth |
 |---|---|
-| Frozen corpus | 411 frozen assets; 551 registered entries |
+| Frozen corpus | 429 frozen assets; 571 registered entries |
+| Visual Lane A | Gbenga (6 states) and Carlos (3 states) ACCEPTED / FROZEN |
 | Ship 015 | 7 approved masters resolving 6 requirements; integration pending |
-| Previous frozen verification | 404/404 unchanged |
+| Baseline frozen verification | 411/411 unchanged |
 | Runtime census | 104 adventure screens + 17 fights |
 | Final-art review | 108 PASS / 13 HOLD, unchanged |
 | Ship 011 | Separately frozen/unassigned, unchanged |
 
-## Canon blockers resolved
+## Visual Lane A Status & Queue
 
-`A-family-brother1`, `A-family-brother2`, `A-family-brother1-avatar`, `A-family-brother2-avatar`, `A-god`, and `A-og-hooper` are **APPROVED MASTER / FROZEN**. God has two states, so seven assets resolve six requirements.
+1. **Gbenga:** **DONE / FROZEN** — Full six-state family frozen (`VA-GBENGA-NEUTRAL-v2` anchor; Neutral v2 supersedes Neutral v1).
+2. **Carlos:** **DONE / FROZEN** — Three-state family frozen (`VA-CARLOS-NEUTRAL-HAPPY-v1` anchor; Neutral/Happy, Betrayed, Canopy Apron).
+3. **Senator:** **NEXT QUEUED** — Dog companion identity anchor and states (sitting, charging, asleep on throne).
+4. **Mama Gbenga:** QUEUED (requires Ube judgment before freeze; adult 21+ appearance).
+5. **Half-Pint:** QUEUED (OPEN Visual Concept Card authority).
+6. **Sunday Best:** QUEUED (OPEN Visual Concept Card authority).
+7. **Young Mazi:** QUEUED (OPEN Visual Concept Card authority).
+8. **Auntie Grit:** QUEUED (requires Ube judgment before freeze).
+9. **Open Mouth Gang:** QUEUED (Chewer, Enforcer, Lieutenant).
+10. **Gbenga's boys:** QUEUED (OPEN Visual Concept Card authority).
+11. **Uncle Bamidele:** QUEUED (age 60 owambe costume; neutral, dancing, suspicious).
+12. **Mister December:** QUEUED (OPEN Visual Concept Card authority).
+13. **hunters:** QUEUED (OPEN Visual Concept Card authority).
+14. **HOA president:** QUEUED (adult female identity).
+15. **trap crew:** QUEUED (cooks, runners, lookout).
 
-## Mapping / Engineering decisions
+## Historical Canon Blockers (Resolved in Ship 015)
+
+`A-family-brother1`, `A-family-brother2`, `A-family-brother1-avatar`, `A-family-brother2-avatar`, `A-god`, and `A-og-hooper` are **APPROVED MASTER / FROZEN**.
+
+## Mapping / Engineering Decisions
 
 `C-big-fish`, `D-runtime-delivery`, `D-runtime-damaged`, `G-env-catacomb_dead`, and `G-env-halloween` remain **MAPPING / ENGINEERING DECISION**.
 
-## Conditional existing-art tests
+## Conditional Existing-Art Tests
 
 `A-RICH-hungover`, `A-RICH-portobello_wake`, `D-supra-world`, `E-cube`, `G-castle_party`, and `G-grave` remain **CONDITIONAL — EXISTING ART MUST BE TESTED FIRST**.
 
@@ -32,4 +51,4 @@ ART SHIP 015 freezes seven exact candidate byte streams, resolving the six canon
 - Runtime/gameplay code, Presentation mappings, Engineering/main merge and deployment were excluded.
 - Ship 011 remains separately frozen/unassigned.
 
-**Recommended next step:** Engineering may later perform a separately authorized integration against `ships/art_ship_015/ENGINEERING_ASSET_MAP.json`. Art production is dormant.
+**Recommended next step:** Fresh Art session may onboard from `START_HERE.md` and execute Visual Lane A production for **Senator**.
