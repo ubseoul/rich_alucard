@@ -29,6 +29,9 @@ export async function test(root){
       ['overlay-slot-not-empty',async d=>write(path.join(d,'index.html'),'<!-- SEALED:OVERLAY:BEGIN -->\n<script src="js/x.js"></script>\n<!-- SEALED:OVERLAY:END -->')]
     ];
     for(const [rule,mutate] of cases){const d=await mk(`case-${rule}-${Math.random().toString(36).slice(2,7)}`);await mutate(d);const r=await leak.checkTree({root:d});assert(!r.ok&&r.violations.some(v=>v.rule===rule),`leak check must catch ${rule}`);}
+    // HQ-private mode permits ONLY the private_overlay/ directory (never on artifacts, never the sealed slot / assets/sealed)
+    {const d=await mk('hq');await write(path.join(d,'private_overlay','overlay.json'),'{}');assert(!(await leak.checkTree({root:d,hqPrivate:false})).ok,'public: overlay dir forbidden');assert((await leak.checkTree({root:d,hqPrivate:true})).ok,'HQ-private: overlay dir allowed');
+     await write(path.join(d,'assets','sealed','a.png'),'x');assert(!(await leak.checkTree({root:d,hqPrivate:true})).ok,'HQ-private still forbids assets/sealed in the source tree');}
     // private denylist: hits are reported WITHOUT echoing the matched text (so a log can't itself leak)
     const secret='zx-neutral-canary-4471';const d=await mk('deny');await write(path.join(d,'js','doc.js'),`// ${secret} appears here\nwindow.y=2;`);
     const denied=await leak.checkTree({root:d,denylist:{literals:[secret],regex:['canary-\\d+'],sha256Tokens:[leak.sha256(secret)]}});

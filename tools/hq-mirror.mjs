@@ -48,6 +48,7 @@ node tools/overlay.mjs init-empty --dir private_overlay && git add -f private_ov
 git push private hq/integration                                                   # NEVER push hq/integration to origin
 # private build: OPEN trunk + overlay = complete private build
 npm run build && node tools/overlay.mjs build --overlay private_overlay           # -> dist-private/ (git-ignored)
+# on hq/integration the OPEN gates need the HQ-private allowance for the overlay DIRECTORY only:  RA_HQ_PRIVATE=1 npm test
 `;
 if(process.argv[1]===fileURLToPath(import.meta.url)){
   const cmd=process.argv[2];

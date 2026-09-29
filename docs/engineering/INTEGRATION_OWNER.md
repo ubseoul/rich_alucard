@@ -56,4 +56,4 @@ Anything else — including accepted content files — is changed only through a
 
 Sealed implementation exists only in the private repository as an **overlay** (`private_overlay/`), applied to a copy of the OPEN
 artifact by `tools/overlay.mjs`. The public repository never receives overlay files, the sealed pack, sealed strings or logs.
-`tools/leak-check.mjs` runs in `npm test`, on every built artifact and in CI. See `node tools/hq-mirror.mjs plan`.
+`tools/leak-check.mjs` runs in `npm test`, on every built artifact and in CI. It FAILS on `hq/integration` by design (the overlay directory is forbidden in OPEN); private tests run with `RA_HQ_PRIVATE=1`, which permits that one directory and nothing else. See `node tools/hq-mirror.mjs plan`.

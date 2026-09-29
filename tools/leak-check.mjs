@@ -54,11 +54,13 @@ function scanText(text,deny,report){
     if(deny.tokens.size)for(const tok of lower.match(/[a-z0-9_.'-]{3,}/g)||[])if(deny.tokens.has(sha256(tok)))report(n+1,'token');
   }
 }
-export async function checkTree({root=defaultRoot,dist=null,denylist=null,rules=null}={}){
+// hqPrivate (env RA_HQ_PRIVATE=1 / --hq-private): ONLY for the private HQ repository's own tests — permits the private_overlay/ directory
+// on hq/integration and nothing else (sealed slot, assets/sealed, install calls and artifacts are still enforced). Never set in the public repo.
+export async function checkTree({root=defaultRoot,dist=null,denylist=null,rules=null,hqPrivate=process.env.RA_HQ_PRIVATE==='1'}={}){
   rules=rules||await loadRules(root);const violations=[];const bad=(rule,file,extra)=>violations.push({rule,file,...(extra?{detail:extra}:{})});
   const target=dist?path.resolve(root,dist):root;
   const files=await listFiles(target,{rules,dist:!!dist});
-  const forbidden=rules.forbiddenPaths.map(globToRegExp),allowed=rules.allowedPaths.map(globToRegExp);
+  const forbidden=rules.forbiddenPaths.filter(p=>!(hqPrivate&&!dist&&p==='private_overlay/**')).map(globToRegExp),allowed=rules.allowedPaths.map(globToRegExp);
   for(const f of files)if(forbidden.some(re=>re.test(f))&&!allowed.some(re=>re.test(f)))bad('forbidden-path',f);
   // empty slot must be pristine
   const slot=path.join(target,rules.emptySlot.path);
@@ -97,7 +99,7 @@ if(process.argv[1]===fileURLToPath(import.meta.url)){
     if(process.argv.includes('--print-empty-slot-hash')){console.log(sha256(lf(await readFile(path.join(defaultRoot,'js/sealed/pack.js'),'utf8'))));process.exit(0);}
     const denyFile=arg('--denylist'),denylist=denyFile?JSON.parse(await readFile(denyFile,'utf8')):null;
     const dist=arg('--dist'),range=arg('--range');let ok=true;
-    const tree=await checkTree({dist,denylist});report(tree,dist?`artifact ${dist}`:'source tree');ok=ok&&tree.ok;
+    const tree=await checkTree({dist,denylist,hqPrivate:process.argv.includes('--hq-private')||process.env.RA_HQ_PRIVATE==='1'});report(tree,dist?`artifact ${dist}`:'source tree');ok=ok&&tree.ok;
     if(range){const r=await checkRange({range,denylist});report(r,`range ${range}`);ok=ok&&r.ok;}
     process.exitCode=ok?0:1;
   }catch(error){console.error(`FAIL ${error.message}`);process.exitCode=1;}
