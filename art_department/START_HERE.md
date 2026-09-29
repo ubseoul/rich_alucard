@@ -23,7 +23,16 @@ This repository is the Art Department's institutional memory. **The project reme
 5. The committed OPEN production-authority subsets in `production_authority/`.
 6. Art Department judgment inside the explicit Ship scope.
 
-Pixels outrank prose for established visual grammar. Asset existence is not approval. A candidate, review board, placeholder, or exploratory output cannot become style authority by existing in the repository.
+Pixels outrank prose for established visual grammar. Asset existence is not approval.
+
+## Named OPEN characters — identity authority (OL-017)
+
+For any character listed in `production_authority/OL017_OPEN_VISUAL_CHARACTER_AUTHORITY.md`:
+
+1. **OL-017 is the repo-resident identity authority.** Read it before generating; do not search Drive/chat/external sources for identity.
+2. **Frozen pixels outrank OL-017 prose.** If a frozen asset contradicts the text, the pixels win — flag the conflict, do not repaint.
+3. **If OL-017 says ADD, discretion stays inside the listed bounds** (MUST / MUST NOT, project style, Ship 015 pixel language). Record every ADD choice in the ship DISCRETION LOG.
+4. **If information is absent and not ADD-authorized, return `SOURCE_REQUIRED`** — never invent identity. A candidate, review board, placeholder, or exploratory output cannot become style authority by existing in the repository.
 
 ## Required reading order for a fresh Art Agent
 
@@ -41,6 +50,7 @@ Read completely, in this order:
 10. `art_department/APPROVED_ASSET_INDEX.md`, then the relevant `ASSET_REGISTER.json` entries and native PNGs
 11. The relevant frozen Ship records under `art_department/ships/` (004, 005, 006, 007)
 12. `art_department/APPROVAL_LEDGER.md` and the templates under `art_department/templates/`
+13. `art_department/production_authority/OL017_OPEN_VISUAL_CHARACTER_AUTHORITY.md` — the repo-resident identity authority for every named OPEN character. **Required before generating any named OPEN character.**
 
 For implementation state, also read the current repository `docs/ENGINEERING_HANDOFF.md` and the committed snapshot above. The Rough Complete branch's `CHECKPOINT.md`, `DECISIONS.md`, and `ART_INPUTS.md` are historical read-only evidence and are already reconciled in the snapshot/gap map.
 
