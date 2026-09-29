@@ -19,7 +19,7 @@ Machine-readable source of truth: [`tools/if1/owner-surfaces.json`](../../tools/
 | Phone registry / phone core / hierarchy | `js/scenes/phone.js`, `js/phone/apps_core.js`, `js/data/phone_hierarchy.js`, `js/if1/phone_registry.js` |
 | Combat 2.0 core extension surface | `js/engine/combat2.js`, `js/scenes/combat2.js`, `js/if1/combat2_ext.js` |
 | Art / audio shared registries | `js/data/art_registry.js`, `js/data/art/registry_parts.js`, `js/data/audio_manifest.js`, `js/data/audio/manifest_parts.js`, `js/engine/audio.js` |
-| Sealed slot + private overlay / leak protection | `js/sealed/**`, `js/systems/sealed.js`, `tools/overlay.mjs`, `tools/leak-check.mjs`, `tools/if1/leak-rules.json`, `tools/hq-mirror.mjs` |
+| Sealed slot + private overlay / leak protection | `js/sealed/**`, `js/systems/sealed.js`, `js/systems/smoke.js` (in-page DEV self-checks), `tools/overlay.mjs`, `tools/leak-check.mjs`, `tools/if1/leak-rules.json`, `tools/hq-mirror.mjs` |
 | Regression / CI architecture | `tools/release.mjs`, `tools/run-tests.mjs`, `tools/verify-all.mjs`, `tools/nightly-smoke.mjs`, `tools/btf-test.mjs`, `tools/if1/**`, `tools/tests/if1/**`, `package.json`, `.github/**`, `.gitignore` |
 | Feature-flag defaults | `js/if1/flag_defaults.js` (the only place a flag ships ON) |
 | IF-2 coordination (later) | this document + `docs/engineering/IF1_*.md` |

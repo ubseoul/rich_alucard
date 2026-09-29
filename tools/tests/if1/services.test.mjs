@@ -19,7 +19,7 @@ async function money(root){
   assert.equal(e.at(-1).balance,RALife.money());
   same(L.byFamily().trap,{in:50,out:0,net:50,count:1});assert.equal(L.query({family:'war_room'}).length,1);assert.equal(L.query({source:'trap'}).length,1);
   // explicit tagged API + async source scope
-  L.credit(10,{source:'rainmaker:bing'});assert.equal(L.entries().at(-1).source,'rainmaker:bing');assert.equal(L.debit(1e9,{source:'trap:x'}),false,'overspend refused exactly as RALife.spend');
+  L.credit(10,{source:'rainmaker:bing'});assert.equal(L.entries().at(-1).source,'rainmaker:bing');assert.equal(L.debit(1e9,{source:'trap:x'}),false,'overspend refused exactly as RALife.spend');L.credit(3,{source:'trap:sale',memo:'batch 7'});assert.equal(L.entries().at(-1).memo,'batch 7','memo travels with the tagged mutation');
   await L.withSource('trap:async',async()=>{RALife.addMoney(1);});assert.equal(L.entries().at(-1).source,'trap:async');RALife.addMoney(1);assert.equal(L.entries().at(-1).source,'untagged','source scope pops after async work');
   // adventure fallback + NEW OGA compatibility adapter (accepted function, identical result, tagged)
   const a=await game(root),b=await game(root,{if1:false});

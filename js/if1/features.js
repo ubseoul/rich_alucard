@@ -34,19 +34,20 @@
   return spec.id;
  }
  function baseValue(id){return owners[id]===true;}
- function raw(id,seen=new Set()){
+ function raw(id){
   if(session.has(id))return session.get(id);
   const spec=specs.get(id);
   if(spec?.persist&&typeof persisted[id]==='boolean')return persisted[id];
   return baseValue(id);
  }
- function enabled(id,seen=new Set()){
+ function resolve(id,stack){
   if(typeof id!=='string'||!specs.has(id))return false;
-  if(seen.has(id))return false;seen.add(id);
+  if(stack.includes(id))return false; // dependency cycle => OFF (a diamond of requires is fine: the stack is per path)
   if(!raw(id))return false;
-  for(const dep of specs.get(id).requires)if(!enabled(dep,seen))return false;
+  for(const dep of specs.get(id).requires)if(!resolve(dep,[...stack,id]))return false;
   return true;
  }
+ const enabled=id=>resolve(id,[]);
  function emit(id,value){for(const fn of [...listeners]){try{fn({id,value,enabled:enabled(id)});}catch(e){console.error('feature listener',e);}}try{document.dispatchEvent(new CustomEvent('ra:feature',{detail:{id,value}}));}catch(e){}}
  // set(id,value,{persist}) — DEV/test control. persist only sticks for flags registered persist:true.
  function set(id,value,{persist=false}={}){

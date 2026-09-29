@@ -3,7 +3,7 @@
 // pack EMPTY and must never carry sealed implementation content. This check fails an OPEN tree/artifact when:
 //   1. a forbidden path exists (private overlay folders, assets/sealed, js/sealed/* other than the empty slot, …)
 //   2. js/sealed/pack.js is anything but the committed EMPTY slot (byte-identical after LF normalization)
-//   3. RASealed.install( is called anywhere except the sealed API itself
+//   3. the sealed pack install entry point is invoked anywhere except the sealed API itself
 //   4. the overlay slot in index.html is non-empty
 //   5. (optional) a private denylist matches — supplied with --denylist <file> from the PRIVATE repository.
 // Reports NEVER echo matched text: a denylist hit prints only the rule kind/index and file:line, so a leak in a log can't

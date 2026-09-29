@@ -19,14 +19,14 @@
  const today=()=>{try{return window.RALife.today().day;}catch(e){return null;}};
  function familyOf(source){for(const [rule,family] of FAMILY_RULES)if(rule.test(source))return family;return String(source).split(':')[0]||'untagged';}
  function registerFamily(pattern,family){if(!(pattern instanceof RegExp)||!family)throw new Error('registerFamily(RegExp,family)');FAMILY_RULES.unshift([pattern,String(family)]);}
- function ambientSource(){if(stack.length)return stack.at(-1);const id=window.RAAdventures?.active?.()?.id;return id?`adventure:${id}`:'untagged';}
- function withSource(tag,fn){
-  stack.push(String(tag));let popped=false;const pop=()=>{if(!popped){popped=true;stack.pop();}};
+ function ambientSource(){if(stack.length)return stack.at(-1).tag;const id=window.RAAdventures?.active?.()?.id;return id?`adventure:${id}`:'untagged';}
+ function withSource(tag,fn,{memo=null}={}){
+  stack.push({tag:String(tag),memo});let popped=false;const pop=()=>{if(!popped){popped=true;stack.pop();}};
   try{const result=fn();if(result&&typeof result.then==='function')return result.finally(pop);pop();return result;}catch(e){pop();throw e;}
  }
  function record({delta,source=null,memo=null,via='service'}){
   if(!Number.isFinite(delta)||delta===0)return null;
-  const tag=source||ambientSource();
+  const tag=source||ambientSource();if(memo===null&&stack.length)memo=stack.at(-1).memo;
   const entry={seq:++seq,day:today(),delta:Math.round(delta),balance:balance(),source:tag,family:familyOf(tag),via};if(memo)entry.memo=String(memo);
   entries.push(entry);if(entries.length>MAX)entries.shift();
   const t=totals[tag]||(totals[tag]={in:0,out:0,net:0,count:0});if(entry.delta>0)t.in+=entry.delta;else t.out+=-entry.delta;t.net+=entry.delta;t.count++;
@@ -43,8 +43,8 @@
   entries.splice(0,entries.length,...(saved.recent||[]));seq=Number(saved.seq)||entries.length;return true;
  }
  // Explicit, tagged mutations for new fragments (these call the accepted RALife API; the watcher records them).
- const credit=(amount,{source,memo}={})=>withSource(source||'untagged',()=>window.RALife.addMoney(Math.abs(Number(amount)||0)));
- const debit=(amount,{source,memo}={})=>withSource(source||'untagged',()=>window.RALife.spend(Math.abs(Number(amount)||0)));
+ const credit=(amount,{source,memo=null}={})=>withSource(source||'untagged',()=>window.RALife.addMoney(Math.abs(Number(amount)||0)),{memo});
+ const debit=(amount,{source,memo=null}={})=>withSource(source||'untagged',()=>window.RALife.spend(Math.abs(Number(amount)||0)),{memo});
  const query=({source=null,family=null,fromSeq=0}={})=>entries.filter(e=>e.seq>fromSeq&&(!source||e.source===source||e.source.startsWith(`${source}:`))&&(!family||e.family===family)).map(e=>({...e}));
  function byFamily(){const out={};for(const [tag,t] of Object.entries(totals)){const f=familyOf(tag),o=out[f]||(out[f]={in:0,out:0,net:0,count:0});o.in+=t.in;o.out+=t.out;o.net+=t.net;o.count+=t.count;}return out;}
  function reset(){entries.length=0;for(const k of Object.keys(totals))delete totals[k];seq=0;}

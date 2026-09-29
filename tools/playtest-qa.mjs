@@ -62,7 +62,7 @@ async function probe(p){return p.evaluate(()=>{
 async function invariants(p,where,{idle=false}={}){
  const v=await p.evaluate(({idle})=>{
   const out=[];const S=RAState.get(),L=S.life;
-  if(S.version!==12)out.push(`version ${S.version}`);
+  if(S.version!==RAState.version)out.push(`version ${S.version}`); // IF-1 (F00): was a stale literal 12
   if(!Number.isFinite(L.resources.money))out.push('money not finite');
   if(!Number.isInteger(L.world.day)||L.world.day<1)out.push(`bad day ${L.world.day}`);
   const dup=(list,key='id')=>{const seen=new Set(),d=[];for(const x of list||[]){const k=x?.[key];if(k==null)continue;if(seen.has(k))d.push(k);seen.add(k);}return d;};
@@ -478,7 +478,7 @@ async function scenarioMigration(){
   const r=await drive(q,rngFrom(3),`migration-${id}`,{maxSteps:300});
   const s2=await probe(q);let rl={diff:[]};if(s2.scene==='bedroom'&&s2.started)rl=await reloadCheck(q,`migration-${id}`);
   note(`[migration] ${id}: load ${status.source}${status.migrated?' (migrated)':''}${status.recovered?' (recovered)':''} → v${status.version}, START → ${s.scene}${s.adv?'/'+s.adv:''} → ${s2.scene} day ${s2.day}, refresh diff ${rl.diff.length}`);
-  if(status.version!==12)finding('PLAYTEST BLOCKER','MIGRATION',`${id} → v${status.version}`);
+  if(status.version!==await q.evaluate(()=>RAState.version))finding('PLAYTEST BLOCKER','MIGRATION',`${id} → v${status.version}`); // IF-1 (F00): was a stale literal 12
   // HQ (Engineering 05): a paused Supra acquisition is existing progress — START must not replay the new prologue.
   if(id==='supraPaused'&&(!status.started||s.adv==='A00'||s.scene==='battle'))finding('PLAYTEST BLOCKER','MIGRATION-PROLOGUE',`supraPaused replays the prologue (started ${status.started}, START → ${s.scene}/${s.adv||'-'})`);
   if(id==='supraPaused')note(`[migration] supraPaused: clock started ${status.started}, START → ${s.scene}/${s.adv||'-'} (no prologue)`);

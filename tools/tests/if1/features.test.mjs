@@ -25,6 +25,9 @@ export async function test(root){
    F.set('F09.b',true);assert.equal(F.enabled('F09.b'),false,'b needs a');
    F.set('F09.a',true);assert.equal(F.enabled('F09.b'),true);assert.equal(F.enabled('F04.war_room'),false,'other fragments unaffected');
    F.clear('F09.a');assert.equal(F.enabled('F09.b'),false);assert(seen.length>=3);}
+  // --- diamond requires (a->b,c ; b,c->d) resolves; a dependency cycle reads OFF
+  {const c=await run(root,sandbox(),FILES);const F=c.RAFeatures;for(const n of ['d','b','c','a','x','y'])F.register({id:'F09.'+n,fragment:'F09',requires:{d:[],b:['F09.d'],c:['F09.d'],a:['F09.b','F09.c'],x:['F09.y'],y:['F09.x']}[n]});
+   for(const n of ['a','b','c','d','x','y'])F.set('F09.'+n,true);assert.equal(F.enabled('F09.a'),true,'diamond of requires is satisfied');assert.equal(F.enabled('F09.x'),false,'cycle reads OFF');F.set('F09.d',false);assert.equal(F.enabled('F09.a'),false);assert.deepEqual(['F09.d','F09.a'].map(F.enabled),[false,false],'enabled is safe to pass to Array.map');}
   // --- persistence only for persist:true, in its OWN storage key (never the save)
   {const c=await run(root,sandbox(),FILES);const F=c.RAFeatures;F.register({id:'F09.p',fragment:'F09',persist:true});F.register({id:'F09.q',fragment:'F09'});
    F.set('F09.p',true,{persist:true});F.set('F09.q',true,{persist:true});
