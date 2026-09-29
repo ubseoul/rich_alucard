@@ -1,22 +1,20 @@
 (function(){
  'use strict';
- // F05 - THE TRAP - audio manifest part.
- // THE TRAP sec.10: "Sound (append to Sound Finder, neutral codes TR_01-TR_06)". The masters are NOT delivered on
- // this branch, so each id stays an INERT drop-in hook (file:null, registered:false) exactly like the accepted NEW
- // OGA NO_01-NO_06 hooks. Nothing plays until a master lands at the expected path.
- //
- // F11 READINESS (frag/audio-completion/001, docs/engineering/F11_AUDIO_COMPLETION_001.md): F11 registers TR_01-TR_06
- // as REAL audio at `assets/audio/sfx/trap/TR_0X.mp3` (categories `trap`) and supersedes this same-path file on
- // merge. The expectedPath below is corrected to that delivered runtime location so a dropped-in master resolves
- // without a second edit. The masters themselves are F11-owned: SOURCE_REQUIRED until F11 is merged.
- if(!window.RAAudioParts)return;
- var P='assets/audio/sfx/trap/';
+ // F05 THE TRAP / COUNTING — fragment audio part (IF-1 4P RAAudioParts).
+ // F11-A audio completion (frag/audio-completion/001): TR_01–TR_06 are sourced from PATCH_SOUND_FINDER_DELIVERY
+ // (source masters: CC0 1.0, original in-project synthesis) and encoded to the accepted runtime MP3 convention by
+ // tools/audio-build.mjs. TR ids are new to the manifest (they were not in RA_SFX_DELIVERY_v1). The F05 consumer
+ // branch is not present on the frozen IF-1 base, so these are REGISTERED — CONSUMER_PENDING; no call site is invented.
+ if(!window.RAAudioParts)throw new Error('F05 audio part must load after js/data/audio/manifest_parts.js');
+ const LIC={licenseClass:'CC0',attributionRequired:false,license:'CC0 1.0 Universal',credit:'',author:'Antigravity',sourceSite:'Original work — synthesized in-project',sourceUrl:''};
+ const oneShot=(id,pj,mv,pri)=>({id,bus:'SFX',type:'one-shot',category:'trap',gain:1,pitchJitter:pj,maxVoices:mv,priority:pri,file:`assets/audio/sfx/trap/${id}.mp3`,expectedPath:`assets/audio/sfx/trap/${id}.mp3`,registered:true,loopStart:null,loopEnd:null,variations:[],parts:[],...LIC});
+ const loop=(id,loopEnd,pri)=>({id,bus:'SFX',type:'loop',category:'trap',gain:1,pitchJitter:0,maxVoices:1,priority:pri,file:`assets/audio/sfx/trap/${id}.mp3`,expectedPath:`assets/audio/sfx/trap/${id}.mp3`,registered:true,loopStart:0,loopEnd,variations:[],parts:[],...LIC});
  window.RAAudioParts.register('F05',{entries:[
-  {id:'TR_01',bus:'AMBIENCE',type:'loop',category:'the_trap',file:null,registered:false,expectedPath:P+'TR_01.mp3',reason:'inert-drop-in-hook'},
-  {id:'TR_02',bus:'SFX',type:'one-shot',category:'the_trap',file:null,registered:false,expectedPath:P+'TR_02.mp3',reason:'inert-drop-in-hook'},
-  {id:'TR_03',bus:'SFX',type:'one-shot',category:'the_trap',file:null,registered:false,expectedPath:P+'TR_03.mp3',reason:'inert-drop-in-hook'},
-  {id:'TR_04',bus:'SFX',type:'one-shot',category:'the_trap',file:null,registered:false,expectedPath:P+'TR_04.mp3',reason:'inert-drop-in-hook'},
-  {id:'TR_05',bus:'AMBIENCE',type:'loop',category:'the_trap',file:null,registered:false,expectedPath:P+'TR_05.mp3',reason:'inert-drop-in-hook'},
-  {id:'TR_06',bus:'SFX',type:'one-shot',category:'the_trap',file:null,registered:false,expectedPath:P+'TR_06.mp3',reason:'inert-drop-in-hook'}
- ],scenes:{the_trap:{ambience:'TR_01',preload:['TR_02','TR_03','TR_04','TR_05','TR_06']}}});
+  loop('TR_01',3.477,3),
+  oneShot('TR_02',0.03,2,3),
+  oneShot('TR_03',0.04,3,3),
+  oneShot('TR_04',0.02,2,4),
+  loop('TR_05',2.632,3),
+  oneShot('TR_06',0.04,3,3)
+ ]});
 })();

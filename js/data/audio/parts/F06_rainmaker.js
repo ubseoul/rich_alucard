@@ -7,8 +7,8 @@
  // present on the frozen IF-1 base, so these are REGISTERED — CONSUMER_PENDING; no call site is invented.
  if(!window.RAAudioParts)throw new Error('F06 audio part must load after js/data/audio/manifest_parts.js');
  const LIC={licenseClass:'CC0',attributionRequired:false,license:'CC0 1.0 Universal',credit:'',author:'Antigravity',sourceSite:'Original work — synthesized in-project',sourceUrl:''};
- const oneShot=(id,pj,mv,pri)=>({id,bus:'SFX',type:'one-shot',category:'rainmaker',gain:1,pitchJitter:pj,maxVoices:mv,priority:pri,file:`assets/f06/audio/${id}.mp3`,expectedPath:`assets/f06/audio/${id}.mp3`,registered:true,loopStart:null,loopEnd:null,variations:[],parts:[],...LIC});
- const loop=(id,bus,loopEnd,pri)=>({id,bus,type:'loop',category:'rainmaker',gain:1,pitchJitter:0,maxVoices:1,priority:pri,file:`assets/f06/audio/${id}.mp3`,expectedPath:`assets/f06/audio/${id}.mp3`,registered:true,loopStart:0,loopEnd,variations:[],parts:[],...LIC});
+ const oneShot=(id,pj,mv,pri)=>({id,bus:'SFX',type:'one-shot',category:'rainmaker',gain:1,pitchJitter:pj,maxVoices:mv,priority:pri,file:`assets/audio/sfx/rainmaker/${id}.mp3`,expectedPath:`assets/audio/sfx/rainmaker/${id}.mp3`,registered:true,loopStart:null,loopEnd:null,variations:[],parts:[],...LIC});
+ const loop=(id,bus,loopEnd,pri)=>({id,bus,type:'loop',category:'rainmaker',gain:1,pitchJitter:0,maxVoices:1,priority:pri,file:`assets/audio/sfx/rainmaker/${id}.mp3`,expectedPath:`assets/audio/sfx/rainmaker/${id}.mp3`,registered:true,loopStart:0,loopEnd,variations:[],parts:[],...LIC});
  window.RAAudioParts.register('F06',{entries:[
   oneShot('RM_01',0.03,3,4),
   oneShot('RM_02',0.04,4,4),

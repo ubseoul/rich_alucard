@@ -20,6 +20,14 @@ const REPORT=path.resolve(args.report||path.join(root,'work','audio_build_report
 const DRY=!!args.dry;
 const ONLY=args.only?String(args.only).split(','):null;
 const LIMIT=args.limit?Number(args.limit):0;
+// F11-A patch ingest (additive). Each --patch DIR supplies MANIFEST.csv rows that are merged into the same
+// approved-library build: existing inert ids become drop-in registrations; genuinely new ids are added. Ids whose
+// runtime registration is owned by a fragment audio part (js/data/audio/parts/<ID>_*.js) are still encoded here but
+// omitted from the generated manifest via --manifest-exclude. No F1 source row is altered.
+const PATCH_DIRS=(()=>{const out=[],a=process.argv.slice(2);for(let i=0;i<a.length;i++)if(a[i]==='--patch'){const v=a[i+1];if(v&&!v.startsWith('--'))out.push(path.resolve(v));}return out;})();
+const MANIFEST_EXCLUDE=new Set(String(args['manifest-exclude']||'').split(',').map(s=>s.trim()).filter(Boolean));
+// Runtime folder remap so patch categories land where the owning fragment/legacy entry expects them.
+const OUT_CATEGORY={guns:'iron_and_grace',legacy:'combat'};
 
 // ---- plan-derived metadata ----
 const BUS_DEFAULTS={MUSIC:.70,SFX:.90,UI:.60,VOICE:.80,AMBIENCE:.45};
@@ -112,13 +120,30 @@ function parseCsv(text){
 function num(v){const n=Number(v);return Number.isFinite(n)?n:null;}
 
 // ---- read + group ----
-const csvPath=path.join(SRC,'MANIFEST.csv');
-if(!existsSync(csvPath))throw new Error(`MANIFEST.csv not found at ${csvPath}`);
-const table=parseCsv(readFileSync(csvPath,'utf8'));
-const header=table[0].map(h=>h.trim());
-const col=Object.fromEntries(header.map((h,i)=>[h,i]));
-const rawRows=table.slice(1).map(r=>({id:String(r[col.id]).trim(),filename:String(r[col.filename]).trim(),category:String(r[col.category]).trim(),sourceSite:String(r[col.source_site]||'').trim(),sourceUrl:String(r[col.source_url]||'').trim(),author:String(r[col.author]||'').trim(),license:String(r[col.license]||'').trim(),attribution:String(r[col.attribution_line]||'').trim(),loop:String(r[col.loop]||'').trim()==='yes',notes:String(r[col.notes]||'').trim()}));
-if(rawRows.length!==262)console.warn(`WARN expected 262 rows, found ${rawRows.length}`);
+const loopYes=v=>/^\s*yes/i.test(String(v||''));
+const outCat=c=>OUT_CATEGORY[c]||c;
+const isVariationCell=v=>{const s=String(v||'').trim();return !(s===''||s==='0'||s==='1'||/^no$/i.test(s));};
+function readManifestRows(dir){
+  const abs=path.resolve(dir),csvPath=path.join(abs,'MANIFEST.csv');
+  if(!existsSync(csvPath))throw new Error(`MANIFEST.csv not found at ${csvPath}`);
+  const table=parseCsv(readFileSync(csvPath,'utf8'));
+  const header=table[0].map(h=>h.trim());
+  const col=name=>header.indexOf(name);
+  const iId=col('id'),iFile=col('filename')>=0?col('filename'):col('file'),iCat=col('category'),iSite=col('source_site'),iUrl=col('source_url'),iAuth=col('author'),iLic=col('license'),iAttr=col('attribution_line'),iLoop=col('loop'),iNotes=col('notes'),iVar=col('variations'),iBus=col('bus'),iType=col('type');
+  const patch=abs!==path.resolve(SRC),out=[];
+  for(const r of table.slice(1)){
+    if(!r.some(v=>String(v).trim()!==''))continue;
+    const filename=String(r[iFile]||'').trim();if(!filename)continue;
+    const cat=String(r[iCat]||'').trim(),rel=filename.replace(/\\/g,'/');
+    const base={id:String(r[iId]||'').trim(),filename,category:cat,sourceSite:String(r[iSite]||'').trim(),sourceUrl:String(r[iUrl]||'').trim(),author:String(r[iAuth]||'').trim(),license:String(r[iLic]||'').trim(),attribution:String(r[iAttr]||'').trim(),loop:loopYes(r[iLoop]),notes:String(r[iNotes]||'').trim(),_rel:rel.includes('/')?path.posix.normalize(rel):path.posix.join(cat,rel),_dir:abs,_patch:patch,_bus:iBus>=0?String(r[iBus]||'').trim().toUpperCase():'',_type:iType>=0?String(r[iType]||'').trim():''};
+    out.push(base);
+    if(iVar>=0&&isVariationCell(r[iVar]))for(const v of String(r[iVar]||'').split(',').map(s=>s.trim()).filter(Boolean))out.push({...base,filename:path.posix.join(path.posix.dirname(filename),v),_rel:rel.includes('/')?path.posix.normalize(path.posix.join(path.posix.dirname(rel),v)):path.posix.join(cat,v),loop:false,_variation:true});
+  }
+  return out;
+}
+const f1Rows=readManifestRows(SRC);
+if(f1Rows.filter(r=>!r._variation).length!==262)console.warn(`WARN expected 262 source rows, found ${f1Rows.filter(r=>!r._variation).length}`);
+const rawRows=[...f1Rows,...PATCH_DIRS.flatMap(readManifestRows)];
 
 // Apply MERGE: replace split ids with their parent once.
 const mergedIds=new Set();
@@ -136,26 +161,29 @@ function busFor(id,category){if(VOICE_IDS.has(id))return 'VOICE';if(MUSIC_IDS.ha
 
 function relPath(file){const category=rawRows.find(r=>r.filename===file)?.category||'misc';return `assets/audio/sfx/${category}/${path.basename(file).replace(/\.wav$/i,'.mp3')}`;}
 
+const PATCH_TYPE={composite:'loop','one-shot':'one-shot',loop:'loop'};
 const entries=[];
 for(const [id,group] of byId){
-  const excluded=EXCLUDED[id];
+  const excluded=group.some(g=>g._patch)?null:EXCLUDED[id];
   const first=group[0];
   const allLoop=group.every(g=>g.loop),anyLoop=group.some(g=>g.loop),mixed=anyLoop&&!allLoop;
   let type=first.loop?'loop':'one-shot';
   if(group.length>1)type=mixed?'loop set':(allLoop?'loop':'one-shot');
-  const bus=busFor(id,first.category);
+  if(first._patch&&first._type&&PATCH_TYPE[first._type.toLowerCase()])type=PATCH_TYPE[first._type.toLowerCase()];
+  const bus=first._bus||busFor(id,first.category);
+  const cat=outCat(first.category);
   const meta={...DEFAULT_META[bus],...(META_OVERRIDES[id]||{})};
-  const entry={id,bus,type,category:first.category,gain:meta.gain,pitchJitter:meta.pitchJitter,maxVoices:meta.maxVoices,priority:meta.priority,loopStart:null,loopEnd:null,variations:[],parts:[],file:null,expectedPath:`assets/audio/sfx/${first.category}/${id}.mp3`,registered:false,licenseClass:licenseClass(first.license),attributionRequired:attributionRequiredFor(first.license),license:first.license,credit:first.attribution||'',author:first.author||'',sourceSite:first.sourceSite||'',sourceUrl:first.sourceUrl||'',restrictions:restrictionsFor(first.license)};
+  const entry={id,bus,type,category:cat,gain:meta.gain,pitchJitter:meta.pitchJitter,maxVoices:meta.maxVoices,priority:meta.priority,loopStart:null,loopEnd:null,variations:[],parts:[],file:null,expectedPath:`assets/audio/sfx/${cat}/${id}.mp3`,registered:false,licenseClass:licenseClass(first.license),attributionRequired:attributionRequiredFor(first.license),license:first.license,credit:first.attribution||'',author:first.author||'',sourceSite:first.sourceSite||'',sourceUrl:first.sourceUrl||'',restrictions:restrictionsFor(first.license)};
   if(excluded){entry.reason=excluded.reason;entry.expectedPath=null;}
   else if(type==='loop set'){
-    entry.parts=group.map(g=>({id:g.part||g.id,file:(DRY?`assets/audio/sfx/${g.category}/${path.basename(g.filename).replace(/\.wav$/i,'.mp3')}`:null),type:g.loop?'loop':'one-shot',sourceFile:g.filename,category:g.category}));
+    entry.parts=group.map(g=>({id:g.part||g.id,file:(DRY?`assets/audio/sfx/${outCat(g.category)}/${path.basename(g.filename).replace(/\.wav$/i,'.mp3')}`:null),type:g.loop?'loop':'one-shot',sourceFile:g.filename,category:g.category,dir:g._dir,rel:g._rel,outCategory:outCat(g.category)}));
   }else if(group.length>1){
-    entry.file=DRY?`assets/audio/sfx/${first.category}/${path.basename(first.filename).replace(/\.wav$/i,'.mp3')}`:null;
-    entry.variations=group.slice(1).map(g=>DRY?`assets/audio/sfx/${g.category}/${path.basename(g.filename).replace(/\.wav$/i,'.mp3')}`:null);
+    entry.file=DRY?`assets/audio/sfx/${cat}/${path.basename(first.filename).replace(/\.wav$/i,'.mp3')}`:null;
+    entry.variations=group.slice(1).map(g=>DRY?`assets/audio/sfx/${outCat(g.category)}/${path.basename(g.filename).replace(/\.wav$/i,'.mp3')}`:null);
   }else{
-    entry.file=DRY?`assets/audio/sfx/${first.category}/${path.basename(first.filename).replace(/\.wav$/i,'.mp3')}`:null;
+    entry.file=DRY?`assets/audio/sfx/${cat}/${path.basename(first.filename).replace(/\.wav$/i,'.mp3')}`:null;
   }
-  entry._sources=group.map(g=>({file:g.filename,category:g.category,loop:g.loop}));
+  entry._sources=group.map(g=>({file:g.filename,category:g.category,dir:g._dir,rel:g._rel,outCategory:outCat(g.category),loop:g.loop}));
   entries.push(entry);
 }
 // Add planned-but-absent IDs as inert slots.
@@ -197,26 +225,27 @@ function processLoop(srcFile,outFile,probe){
   return outFrames/probe.sampleRate;
 }
 
-const report={src:SRC,generatedAt:new Date().toISOString(),entries:entries.length,processed:0,failed:[],excluded:Object.keys(EXCLUDED),loops:0,oneShots:0,loopSets:0,sealed:0,attributionRequired:[],restricted:[],totalRuntimeBytes:0,maxLoopSeconds:0};
+const report={src:SRC,patches:PATCH_DIRS,manifestExcluded:[...MANIFEST_EXCLUDE],generatedAt:new Date().toISOString(),entries:entries.length,processed:0,failed:[],excluded:Object.keys(EXCLUDED),loops:0,oneShots:0,loopSets:0,sealed:0,attributionRequired:[],restricted:[],totalRuntimeBytes:0,maxLoopSeconds:0,measured:[]};
 if(!DRY){
   for(const entry of entries){
     if(entry.reason)continue;
     const jobs=[];
     if(entry.type==='loop set'){
-      for(const part of entry.parts)jobs.push({srcFile:part.sourceFile,category:part.category,out:`assets/audio/sfx/${part.category}/${path.basename(part.sourceFile).replace(/\.wav$/i,'.mp3')}`,loop:part.type==='loop',part});
+      for(const part of entry.parts)jobs.push({srcFile:part.sourceFile,category:part.category,dir:part.dir,rel:part.rel,out:`assets/audio/sfx/${part.outCategory}/${path.basename(part.sourceFile).replace(/\.wav$/i,'.mp3')}`,loop:part.type==='loop',part});
     }else{
-      entry._sources.forEach((s,i)=>{jobs.push({srcFile:s.file,category:s.category,out:`assets/audio/sfx/${s.category}/${path.basename(s.file).replace(/\.wav$/i,'.mp3')}`,loop:entry.type==='loop',primary:i===0});});
+      entry._sources.forEach((s,i)=>{jobs.push({srcFile:s.file,category:s.category,dir:s.dir,rel:s.rel,out:`assets/audio/sfx/${s.outCategory}/${path.basename(s.file).replace(/\.wav$/i,'.mp3')}`,loop:entry._patch?s.loop:entry.type==='loop',primary:i===0});});
     }
     let ok=true;const measured=[];
     for(const job of jobs){
       if(ONLY&&!ONLY.some(x=>job.out.includes(x)||job.srcFile.includes(x)))continue;
-      const srcPath=path.join(SRC,job.category,job.srcFile);
+      const srcPath=path.join(job.dir,job.rel);
       const probe=ffprobe(srcPath);
       if(!probe){report.failed.push({id:entry.id,file:job.srcFile,error:'probe-failed'});ok=false;continue;}
       if(job.loop){const seconds=processLoop(srcPath,path.join(root,job.out),probe);if(seconds==null){report.failed.push({id:entry.id,file:job.srcFile,error:'loop-encode-failed'});ok=false;}else{report.loops++;measured.push({...job,seconds});if(seconds>report.maxLoopSeconds)report.maxLoopSeconds=seconds;}}
       else{if(!processOneShot(srcPath,path.join(root,job.out))){report.failed.push({id:entry.id,file:job.srcFile,error:'oneshot-encode-failed'});ok=false;}else{report.oneShots++;measured.push({...job,loop:false});}}
     }
     if(!ok)continue;
+    for(const m of measured)report.measured.push({id:entry.id,out:m.out,type:m.loop?'loop':'one-shot',seconds:m.seconds??null});
     if(entry.type==='loop set'){
       entry.parts=entry.parts.map(part=>{const m=measured.find(x=>x.part===part);const o={id:part.id,file:m?m.out:null,type:part.type};if(part.type==='loop'&&m){o.loopStart=0;o.loopEnd=Math.round(m.seconds*1000)/1000;}return o;});
       entry.registered=entry.parts.every(p=>p.file);report.loopSets++;
@@ -232,7 +261,8 @@ for(const e of entries){if(e.attributionRequired)report.attributionRequired.push
 for(const e of entries){delete e._sources;}
 
 // ---- emit manifest ----
-const clean=entries.map(e=>{const o={id:e.id,bus:e.bus,type:e.type,category:e.category,gain:e.gain,pitchJitter:e.pitchJitter,maxVoices:e.maxVoices,priority:e.priority,loopStart:e.loopStart,loopEnd:e.loopEnd,variations:e.variations,parts:e.parts,file:e.file,expectedPath:e.expectedPath,registered:e.registered};if(e.reason)o.reason=e.reason;o.licenseClass=e.licenseClass;o.attributionRequired=!!e.attributionRequired;o.license=e.license;o.credit=e.credit;o.author=e.author;o.sourceSite=e.sourceSite;o.sourceUrl=e.sourceUrl;if(e.restrictions.length)o.restrictions=e.restrictions;return o;});
+const emitted=entries.filter(e=>!MANIFEST_EXCLUDE.has(e.id));
+const clean=emitted.map(e=>{const o={id:e.id,bus:e.bus,type:e.type,category:e.category,gain:e.gain,pitchJitter:e.pitchJitter,maxVoices:e.maxVoices,priority:e.priority,loopStart:e.loopStart,loopEnd:e.loopEnd,variations:e.variations,parts:e.parts,file:e.file,expectedPath:e.expectedPath,registered:e.registered};if(e.reason)o.reason=e.reason;o.licenseClass=e.licenseClass;o.attributionRequired=!!e.attributionRequired;o.license=e.license;o.credit=e.credit;o.author=e.author;o.sourceSite=e.sourceSite;o.sourceUrl=e.sourceUrl;if(e.restrictions.length)o.restrictions=e.restrictions;return o;});
 const src=`(function(){
   // RA AUDIO MANIFEST — schema 2.1. GENERATED by tools/audio-build.mjs from the approved RA_SFX_DELIVERY_v1.
   // Do not hand-edit: re-run the tool to regenerate. Callers use IDs only (docs/RA_Sound_Deployment_Plan_HQ.md).
@@ -254,5 +284,5 @@ mkdirSync(path.dirname(MANIFEST),{recursive:true});
 writeFileSync(MANIFEST,src,'utf8');
 mkdirSync(path.dirname(REPORT),{recursive:true});
 writeFileSync(REPORT,JSON.stringify(report,null,2),'utf8');
-console.log(JSON.stringify({dry:DRY,entries:entries.length,processed:report.processed,loops:report.loops,oneShots:report.oneShots,loopSets:report.loopSets,sealed:report.sealed,failed:report.failed.length,runtimeMB:Math.round(report.totalRuntimeBytes/1e6*10)/10,maxLoopSeconds:Math.round(report.maxLoopSeconds*10)/10,attributionRequired:report.attributionRequired.length,restricted:report.restricted.length},null,2));
+console.log(JSON.stringify({dry:DRY,entries:emitted.length,encoded:entries.length,manifestExcluded:[...MANIFEST_EXCLUDE].length,processed:report.processed,loops:report.loops,oneShots:report.oneShots,loopSets:report.loopSets,sealed:report.sealed,failed:report.failed.length,runtimeMB:Math.round(report.totalRuntimeBytes/1e6*10)/10,maxLoopSeconds:Math.round(report.maxLoopSeconds*10)/10,attributionRequired:report.attributionRequired.length,restricted:report.restricted.length},null,2));
 if(report.failed.length)console.log('FAILED:',JSON.stringify(report.failed.slice(0,20),null,1));

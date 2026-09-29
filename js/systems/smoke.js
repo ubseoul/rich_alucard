@@ -108,11 +108,13 @@
         return t1===t0&&p1>p0;
       }finally{await RAPhone.close?.();RAState.write(localStorage,snapshot,false);RAState.load();await RAScenes.go('battle',{smokeRestore:true});}
     }],
-    ['library registration totals: 244 planned, 241 registered, 3 inert',()=>{
-      // IF-1 reconciliation: this asserts the accepted F1 SFX LIBRARY (244 planned). The accepted F2 inert NEW OGA drop-in hooks
-      // NO_01..NO_06 (added after this check was written) and any fragment audio-part entries are not part of that library.
+    ['library registration totals: 244 planned, 243 registered, 1 inert',()=>{
+      // F11 audio completion reconciliation: the accepted F1 SFX LIBRARY is 244 planned. The F2 NEW OGA hooks NO_01..NO_06 and
+      // every fragment audio-part entry (F02/F04/F05/F06) are excluded from this count. F11-A sourced the two former legacy
+      // gaps through the accepted pipeline, so DRAGON_WINGS and BARS_PUNCHLINE are now registered; only the defective
+      // MAGIC_SEANCE render stays inert (pipeline: tools/audio-build.mjs; evidence: docs/engineering/F11_AUDIO_COMPLETION_001.md).
       const M=window.RAAudioManifest;if(!M)return false;const parts=new Set((window.RAAudioParts?.provenance?.()||[]).flatMap(p=>p.ids));const rows=M.list().filter(e=>!parts.has(e.id)&&!/^NO_0[1-6]$/.test(e.id)),reg=rows.filter(e=>e.registered).length,unreg=rows.filter(e=>!e.registered).map(e=>e.id);
-      return rows.length===244&&reg===241&&unreg.length===3&&['BARS_PUNCHLINE','DRAGON_WINGS','MAGIC_SEANCE'].every(id=>unreg.includes(id));
+      return rows.length===244&&reg===243&&unreg.length===1&&unreg[0]==='MAGIC_SEANCE';
     }],
     ['registered SFX resolve to real files and decode',async()=>{
       const A=window.RAAudio,M=window.RAAudioManifest;if(!A||!M)return false;A.unlock();
