@@ -32,7 +32,9 @@ const P = {
   hipPx: 24,       // sway distance in source px at amp=1
   bobPx: 10,        // bounce in source px at amp=1
   hairPx: 30,      // ponytail lag at amp=1
-  fps: 24,         // 0 = every display frame
+  fps: 12,         // 0 = every display frame
+  snap: true,      // move in whole pixel-blocks (q px) so blocks are never sheared
+  q: 9,            // block size in source px
   hair: true,
 };
 
@@ -74,19 +76,22 @@ class Sprite {
     const hairLift = 0.5 + 0.5 * Math.cos(2 * phase - 1.2);
 
     // ---- build per-output-row tables ----
+    const q = P.snap ? P.q : 1;
+    const qz = (v) => Math.round(v / q) * q;
     const srcRowOf = new Int32Array(oh), offOf = new Int32Array(oh);
     for (let yo = 0; yo < oh; yo++) {
-      // vertical: sample source row = yo - dy, dy grows from 0 (feet) to bobA*bob (upper body)
-      const uOut = (yo - margin) / bbox.h;
-      const dy = Math.round(bobA * bob * smooth(R.feetU, R.bobFullU, uOut) * (1 - 0) - bobA * 0.5 * smooth(R.feetU, R.bobFullU, uOut));
+      // rows are grouped in bands of q px so every band moves as one rigid strip
+      const bo = Math.floor((yo - margin) / q);
+      const uOut = ((bo + 0.5) * q) / bbox.h;
+      const dy = qz(bobA * (bob - 0.5) * smooth(R.feetU, R.bobFullU, uOut));
       const ys = yo - margin + bbox.y0 - dy;
       srcRowOf[yo] = ys;
-      const u = (ys - bbox.y0) / bbox.h;
-      const hipW = smooth(R.feetU, R.hipU, u);              // 0 at feet -> 1 at hips
-      const c = smooth(R.hipU, R.shoulderU, u);             // 0 at hips -> 1 at shoulders
-      const hd = smooth(R.shoulderU, R.headU, u);           // 0 at shoulders -> 1 at head
+      const u = ((Math.floor((ys - bbox.y0) / q) + 0.5) * q) / bbox.h;
+      const hipW = smooth(R.feetU, R.hipU, u);
+      const c = smooth(R.hipU, R.shoulderU, u);
+      const hd = smooth(R.shoulderU, R.headU, u);
       const off = hipA * (hipW * s - c * R.counter * sLag) + hipA * 0.45 * hd * sHead;
-      offOf[yo] = Math.round(off);
+      offOf[yo] = qz(off);
     }
 
     // ---- hair band ----
@@ -104,11 +109,11 @@ class Sprite {
         const v = (ys - hy0) / (hy1 - hy0);
         xa = bbox.x0 + (H.xStartTop + (H.xStartBot - H.xStartTop) * v) * bbox.w;
         xb = hxTip;
-        hairE = hairA * (hairSway * 0.8 + 0.2 * (hairLift - 0.5)) * (0.35 + 0.65 * v);
+        hairE = qz(hairA * (hairSway * 0.8 + 0.2 * (hairLift - 0.5)) * (0.35 + 0.65 * v));
       }
       for (let xo = 0; xo < ow; xo++) {
         let xs = xo - margin + bbox.x0 - off;
-        if (hairE !== 0 && xs > xa) xs -= Math.round(hairE * smooth(xa, xb, xs));
+        if (hairE !== 0 && xs > xa) xs -= qz(hairE * smooth(xa, xb, xs));
         if (xs < 0 || xs >= w) continue;
         out[oo + xo] = src[so + xs];
       }
@@ -180,12 +185,13 @@ class Sprite {
   $('speed').oninput = (e) => { P.speed = +e.target.value; $('speedv').textContent = P.speed.toFixed(2) + '×'; };
   $('amp').oninput = (e) => { P.amp = +e.target.value; $('ampv').textContent = P.amp.toFixed(2) + '×'; lastFrameIdx = -1; };
   $('fps').onchange = (e) => { P.fps = +e.target.value; lastFrameIdx = -1; };
+  $('snap').onchange = (e) => { P.snap = e.target.checked; lastFrameIdx = -1; };
   $('hair').onchange = (e) => { P.hair = e.target.checked; lastFrameIdx = -1; };
   $('zoom').onchange = setZoom;
   $('showref').onchange = (e) => { $('refwrap').style.display = e.target.checked ? '' : 'none'; };
   $('reset').onclick = () => {
-    P.amp = 1; P.speed = 1; P.fps = 24; P.hair = true; tAcc = 0; playing = true; manualPhase = null; lastFrameIdx = -1;
-    $('amp').value = 1; $('speed').value = 1; $('fps').value = 24; $('hair').checked = true; $('zoom').value = '0.5';
+    P.amp = 1; P.speed = 1; P.fps = 12; P.snap = true; P.hair = true; tAcc = 0; playing = true; manualPhase = null; lastFrameIdx = -1;
+    $('amp').value = 1; $('speed').value = 1; $('fps').value = 12; $('snap').checked = true; $('hair').checked = true; $('zoom').value = '0.5';
     $('play').textContent = 'Pause'; $('amp').oninput({ target: $('amp') }); $('speed').oninput({ target: $('speed') }); setZoom();
   };
   $('file').onchange = (e) => { const f = e.target.files[0]; if (f) load(URL.createObjectURL(f)); };
