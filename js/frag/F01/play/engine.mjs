@@ -649,7 +649,7 @@ function postBeat(ctx){
  else if(tier===2)swing(P,'tier:'+st+':CLEAN',ctx.traitFail||ctx.opt!=='DEFAULT'?cz(ctx.opt!=='DEFAULT'?CAUSE.CHOICE:CAUSE.TRAIT,''):cz(CAUSE.EARLIER,'the crew was set up right'));
  // trait chain
  const traitMs=ctx.moments.filter(m=>(m.kind==='trait'||m.kind==='combo')&&m.text.includes(' — '));
- if(traitMs.length>=2&&traitMs.some(m=>m.tag==='FUNNY'||m.tag==='STUPID'||m.tag==='SCARY')&&traitMs.filter(m=>m.w>=4).length>=2&&new Set(traitMs.map(m=>whoOf(P,m.text))).size>=2)moment(P,ctx,'chain',`${traitMs.length} traits in one beat: ${traitMs.map(m=>m.text.split(' — ').pop()).join(' + ')}`,'chain:'+traitMs.map(m=>m.text.split(' — ').pop()).sort().join('+'),'FUNNY',6);
+ if(traitMs.length>=2&&traitMs.some(m=>m.tag==='FUNNY'||m.tag==='STUPID'||m.tag==='SCARY')&&traitMs.filter(m=>m.w>=4).length>=2&&new Set(traitMs.map(m=>whoOf(P,m.text))).size>=2)moment(P,ctx,'chain',`${traitMs.length} traits in one beat: ${traitMs.map(m=>m.text.split(' — ').pop()).join(' + ')}`,'chain:'+traitMs.map(m=>m.text.split(' — ').pop()).sort().join('+'),'FUNNY',6,null,{n:String(traitMs.length),list:traitMs.map(m=>m.text.split(' — ').pop()).join(' + ')});
  // staging: at most 3 moment cards per beat
  if(!P.sim){
   const rank=[...ctx.moments].sort((a,b)=>b.w-a.w).slice(0,3);
@@ -658,7 +658,7 @@ function postBeat(ctx){
   if(!rank.length){P.emptyBeats++;P.lastCaption=pickLine(P,'cap:'+st+':'+tier,{});say(P,'BEATS','    '+P.lastCaption);ctx.caption=P.lastCaption;}
   P.beatLog.push({st,tier,card:P.card.id,moments:ctx.moments.length});
   {const idxOf=new Map(ctx.moments.map((m,k)=>[m,k]));const shown=[...rank].sort((a,b)=>idxOf.get(a)-idxOf.get(b));
-   emit(P,'BEAT',{i,stage:st,step:P.step,opt:ctx.opt,card:{id:P.card.id,text:P.card.text,hazard:P.card.hazard?P.card.hazard.word:null,smart:P.card.smart||null},tier,caption:rank.length?null:P.lastCaption,
+   emit(P,'BEAT',{i,stage:st,step:P.step,opt:ctx.opt,card:{id:P.card.id,text:P.card.text,hazard:P.card.hazard?P.card.hazard.word:null,smart:P.card.smart||null,smartVerb:P.card.smartVerb||null,calls:P.card.calls||null},tier,caption:rank.length?null:P.lastCaption,
     moments:shown.map(m=>({text:m.text,tag:m.tag,w:m.w,who:m.who,key:m.key,kind:m.kind,cause:m.cause?{c:m.cause.c,t:m.cause.t}:null})),
     pods0:ctx.pods0||null,pods1:ctx.podsAll?ctx.podsAll.map(e=>({type:e.type,state:e.dead?'DOWN':e.fled?'RAN':'UP'})):null,snap:snap(P),approach:P.approach});}
   ctx.moments.forEach(m=>P.moments.push(m));
@@ -1020,7 +1020,7 @@ function* hitOneMore(P){
    const cause=cz(CAUSE.GREED,'they went back in');swing(P,'climb:fail',cause);
    const dn=dropping(P);
    P.losses.push({who:'pot',kind:'ROBBED',cause,tag:'DRAMATIC',beat:5+k,text:`HIT ONE MORE #${k+1} turned: ${before?('$'+Math.round(potValue(P)*0+before)+'K'):''} jugged`,greed:true});
-   P.turnMoment=`It turned at HIT ONE MORE #${k+1}: ${r.last?'the '+(dn.length?dn[0].short+' went down and':'crew was ragged and')+' the room closed':'the room closed'}. The ${Math.round(before)}K-equivalent pot went with it.`;
+   P.turnMoment=`It turned at HIT ONE MORE #${k+1}: ${r.last?(dn.length?dn[0].short+' went down and':'the crew was ragged and')+' the room closed':'the room closed'}. The ${Math.round(before)}K-equivalent pot went with it.`;
    P.mem.push({id:'greed:fail:'+(k+1),tag:'GREED',w:9,text:'HIT ONE MORE went wrong'});
    P.greedLine=pickLine(P,'greed:fail',{});say(P,'HIT ONE MORE',`  ✖ ${dn.length?dn[0].short+' goes down. ':''}`+P.greedLine);emit(P,'STEP_FAIL',{k,why:r.why,line:P.greedLine,down:dn.map(o=>o.short),turnMoment:P.turnMoment,snap:snap(P)});
    break;

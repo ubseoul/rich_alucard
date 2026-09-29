@@ -240,4 +240,5 @@ export function pickLine(P,key,tok={}){
  if(!P.sim){P.lineLog.push(key+'#'+i);}
  return fill(arr[i],tok);
 }
-export const fill=(t,tok)=>t.replace(/\{(\w+)\}/g,(m,k)=>tok[k]!==undefined?tok[k]:m);
+const TOK_DEFAULT={a:'Somebody',b:'somebody',n:'a few',list:'a few traits',because:'a reason',car:'the car',word:'the car',plan:'a plan',spot:'the spot',left:'the rest',isare:'is',combo:'a combo',d:'the district',cost:'a lot'};
+export const fill=(t,tok)=>t.replace(/\{(\w+)\}/g,(m,k)=>tok[k]!==undefined?tok[k]:(TOK_DEFAULT[k]!==undefined?TOK_DEFAULT[k]:''));

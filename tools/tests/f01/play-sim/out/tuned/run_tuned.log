@@ -1,11 +1,11 @@
-primary 800 (15172 ms)
-replicate baseline (44834 ms)
-calls off (48986 ms)
-careers careful (72331 ms)
-careers greedy (96062 ms)
-careers naive (119635 ms)
-careers random (142625 ms)
-retention arms (208029 ms)
+primary 800 (16509 ms)
+replicate baseline (46120 ms)
+calls off (50694 ms)
+careers careful (75455 ms)
+careers greedy (99951 ms)
+careers naive (123116 ms)
+careers random (144595 ms)
+retention arms (212283 ms)
 
 === TUNED SIM ===
 T1 generic death (PLAYs w/ generics aboard): 10.6% | was 24.9% | target 10–12%
@@ -19,7 +19,7 @@ T4 step 3: n=699 P(success)=34.2% pot=191.99 EV=-93.59 (-47.9% of pot mean-rel)
    step-1 aggregate EV/pot: 21.5%
    top loss causes: SEAT: the counter was aboard but in the wrong seat ( 227 | ENEMY: hunters go straight for vampires 189 | EARLIER: they were down to one on their feet 144 | GREED: they went back in 131 | ENEMY: the lieutenant lifted his crew 92 | ENEMY: enforcers charge the front seat 78 | EARLIER: the mercy rule 60 | LUCK:  45 | EARLIER: Tunde was already hurt 45 | EARLIER: everybody went down 40
 T5 player-attributable losses: 35.8% | was 18.5% | target ≥35%; causes {"EARLIER":487,"ENEMY":386,"SEAT":256,"HAZARD":144,"LUCK":45,"CAR":56,"GREED":140,"WEAPON":33,"TRAIT":28,"CHOICE":80}
-T9 lines: repeats-within-3: 8 of 72852 uses | uncovered triggers [] | thin keys [] | distinct lines 1299 top share 1.8% [["Tunde watched it all like a weather report — CALM",125],["Tunde stayed exactly as calm as Tunde was — CALM",125],["Tunde did not blink — CALM",119]]
+T9 lines: repeats-within-3: 8 of 72852 uses | uncovered triggers [] | thin keys [] | distinct lines 1492 top share 1.8% [["Tunde watched it all like a weather report — CALM",125],["Tunde stayed exactly as calm as Tunde was — CALM",125],["Tunde did not blink — CALM",119]]
 R1 careful  roster end 8.70 of 9 | ≥6: 100% | min 7 | lost/career 0.03 (named 0.03) | ransom paid 0.00 | extract wins 0.65 / 0.68 | READY 8.64 | cash 896
 R1 greedy   roster end 7.35 of 9 | ≥6: 80% | min 3 | lost/career 0.78 (named 0.63) | ransom paid 0.42 | extract wins 0.30 / 1.68 | READY 7.01 | cash 431
 R1 naive    roster end 9.00 of 9 | ≥6: 100% | min 9 | lost/career 0.03 (named 0.03) | ransom paid 0.00 | extract wins 0.85 / 1.20 | READY 8.52 | cash 447
@@ -32,4 +32,4 @@ skill gap strict: 0.55 | calls off: 0.20 | calls/PLAY 0.47
 win bands: careful 81.5% naive 66.0% gap 15.50 pts | random 50.0% greedy 20.5% | wash careful/naive 4.5% 5.5%
 nothing-happened strict: 5.1% | story-beat 94.1% | blame broad 97.3% | funny/dramatic 55.1% | retaliation share 6.3%
 temptations {"RECRUIT":123,"RARE_PITCH":446,"DEMAND":105,"RETALIATION":50,"RESCUE":51,"INTEL":25}
-done (208101 ms)
+done (212380 ms)
