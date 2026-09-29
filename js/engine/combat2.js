@@ -20,7 +20,7 @@
    rich:{hp:lo.maxHp,max:lo.maxHp,def,crit:.08+lo.fits.reduce((a,f)=>a+(f.crit||0),0),acc:.95+lo.fits.reduce((a,f)=>a+(f.acc||0),0),accDown:null,weak:null,block:0,stun:0,buffNext:1,doubleNext:false,sureNext:false,guardHits:0,shield:0,revenge:lo.rooms.includes('hookah_roof')?10:0,revengeDouble:false,extraTurn:false,
     pp:Object.fromEntries(lo.moves.map(id=>[id,D().MOVES[id]?.pp||8])),charismaFree:lo.fits.some(f=>f.charisma),gunBonus:lo.fits.reduce((a,f)=>a+(f.gun||0),0)},
    moves:lo.moves.filter(id=>D().MOVES[id]),items:{...lo.items},guns:lo.guns.map(id=>({id,ammo:D().GUNS[id].ammo})),companions:lo.companions,hoesUsed:{},itemsUsed:{},octopusUsed:false,companionHurt:[]};
-  s.telegraph=telegraphFor(s);return s;
+  s.telegraph=telegraphFor(s);window.RACombat2Ext?.boss(s,'onCreate',helpers());return s;
  }
  const E=s=>D().ENEMIES[s.enemyId];
  function say(s,text,kind='info',extra={}){s.log.push({text,kind,...extra});}
@@ -92,6 +92,7 @@
   if(t==='item'){
    const it=D().ITEMS[action.id];if(!it||!(s.items[action.id]>0)){say(s,'NONE LEFT.','block');return s;}
    if(it.oncePerFight&&s.itemsUsed[action.id]){say(s,'ONCE PER FIGHT.','block');return s;}
+   if(window.RACombat2Ext?.itemHook(s,action.id,'before',helpers())===false){say(s,'NOTHING HAPPENS.','block');return s;} // IF-1 item-hook seam (inert unless registered)
    s.items[action.id]--;s.itemsUsed[action.id]=(s.itemsUsed[action.id]||0)+1;say(s,`RICH USES ${it.label}.`,'item');
    if(it.healFull){s.rich.hp=s.rich.max;say(s,'FULL HEAL.','heal',{target:'rich'});}
    if(it.heal){s.rich.hp=clampHp(s.rich.hp+it.heal,s.rich.max);say(s,`+${it.heal} HP.`,'heal',{target:'rich'});}
@@ -101,6 +102,7 @@
    if(it.vsVampire){if(E(s).vampire){damageToEnemy(s,it.vsVampire,{label:'GARLIC',crit:false});}else say(s,"IT'S JUST BREAD. HE EATS IT.",'info');}
    if(it.roostFire){if(s.companions.some(c=>c.id==='mazda_dragon')){damageToEnemy(s,it.roostFire,{label:'MAZDA FIRE PASS',crit:false});}else say(s,'MAZDA IS NOT ON THE ROOST.','info');}
    if(it.double)s.rich.doubleNext=true;
+   window.RACombat2Ext?.itemHook(s,action.id,'after',helpers());
    if(it.feedsEaters&&E(s).eats){say(s,`${E(s).name} SMELLS HOME. KEEP FIGHTING, OR SIT DOWN AND EAT?`,'weird');if(roll(s,.7)){say(s,'THEY SIT DOWN AND EAT.','weird');s.over=true;s.outcome='spared';return s;}say(s,'THEY KEEP FIGHTING. RESPECT.','info');}
    return endPlayer(s);
   }
@@ -114,6 +116,8 @@
    if(roll(s,.8)){say(s,'RICH LEAVES. CALMLY.','info');s.over=true;s.outcome='run';return s;}
    say(s,"DIDN'T GET AWAY.",'miss');return endPlayer(s);
   }
+  // IF-1 weapon-slot / custom-action seam (inert unless a fragment registered one and its flag is ON).
+  if(window.RACombat2Ext?.handles(t))return window.RACombat2Ext.dispatch(s,action,helpers());
   return s;
  }
  function applyMagic(s,mv){const f=mv.effect,e=s.enemy;
@@ -175,6 +179,7 @@
  }
  function enemyTurn(s){
   const e=s.enemy,def=E(s);
+  window.RACombat2Ext?.boss(s,'beforeEnemyTurn',helpers());
   // damage-over-time ticks
   for(const d of e.dot){if(d.amt<0){s.rich.hp=clampHp(s.rich.hp-d.amt,s.rich.max);say(s,`${d.label}: +${-d.amt} HP.`,'heal',{target:'rich'});}else{e.hp=clampHp(e.hp-d.amt,e.max);say(s,`${d.label}: ${d.amt} DAMAGE.`,'hit',{target:'enemy'});}d.turns--;}
   e.dot=e.dot.filter(d=>d.turns>0);
@@ -201,6 +206,7 @@
  function advance(s){if(s.enemy.queue.length)s.enemy.queue.shift();else s.enemy.step++;}
  function afterEnemy(s){
   const r=s.rich,e=s.enemy;
+  window.RACombat2Ext?.boss(s,'afterEnemyTurn',helpers());
   if(r.hp<=0){s.over=true;s.outcome='lose';say(s,'RICH IS DOWN.','lose');return s;}
   if(e.hp<=0){s.over=true;s.outcome='win';return s;}
   for(const k of ['accDown','weak']){if(r[k]){r[k].turns--;if(r[k].turns<=0)r[k]=null;}}
@@ -211,5 +217,8 @@
   return s;
  }
  function forceEnd(s,outcome){s.over=true;s.outcome=outcome;return s;}
- window.RACombat2Rules={create,act,loadout,forceEnd};
+ // IF-1 (additive): the rule primitives handed to registered weapon / boss-script / item-hook handlers.
+ function helpers(){return {say,damageToEnemy,rollHit,hurtRich,endPlayer,enemyTurn,clampHp,roll,E};}
+ const finish=s=>window.RACombat2Ext?.boss(s,'onEnd',helpers());
+ window.RACombat2Rules={create,act,loadout,forceEnd,finish};
 })();

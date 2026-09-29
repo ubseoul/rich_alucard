@@ -1,11 +1,10 @@
 #!/usr/bin/env node
-// Regenerates the BTF content <script> block in index.html from js/btf_content.js (single source of truth).
-import {readFile,writeFile} from 'node:fs/promises';
-import path from 'node:path';
-import vm from 'node:vm';
+// Regenerates the generated <script> region of index.html. Since IF-1 (F00) the ordered script list is owned by
+// js/loader/manifest.json (tools/loader.mjs); the BTF content block inside it is still expanded from
+// js/btf_content.js (single source of truth for BTF adventure/content files). This file keeps its historical API.
 import {fileURLToPath} from 'node:url';
-const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
-export async function contentFiles(){const ctx={window:{}};vm.createContext(ctx);vm.runInContext(await readFile(path.join(root,'js/btf_content.js'),'utf8'),ctx);return [...ctx.window.RABtfContentFiles];}
+import {btfFiles,expectedIndex as loaderExpectedIndex,sync} from './loader.mjs';
+export async function contentFiles(){return btfFiles('js/btf_content.js');}
 export function block(files){return ['<!-- BTF:CONTENT:BEGIN -->',...files.map(f=>`<script src="${f}?v=__BUILD_ASSET_VERSION__"></script>`),'<!-- BTF:CONTENT:END -->'].join('\n');}
-export async function expectedIndex(){const index=await readFile(path.join(root,'index.html'),'utf8');return index.replace(/<!-- BTF:CONTENT:BEGIN -->[\s\S]*<!-- BTF:CONTENT:END -->/,block(await contentFiles()));}
-if(process.argv[1]===fileURLToPath(import.meta.url)){await writeFile(path.join(root,'index.html'),await expectedIndex());console.log('index.html BTF block synced');}
+export async function expectedIndex(){return loaderExpectedIndex();}
+if(process.argv[1]===fileURLToPath(import.meta.url)){await sync();console.log('index.html loader block synced');}

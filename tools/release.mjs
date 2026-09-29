@@ -9,6 +9,7 @@ import {testParty} from './party-test.mjs';
 import {testRave} from './rave-test.mjs';
 import {testOgunRaveAdventure} from './ogun-rave-adventure-test.mjs';
 import {testProperty} from './property-test.mjs';
+import {withIf1} from './if1/harness.mjs';
 
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const output=path.join(root,'dist');
@@ -40,7 +41,7 @@ async function test(){
   for(const file of [...sources,path.join(root,'game.js')])new vm.Script(await readFile(file,'utf8'),{filename:path.relative(root,file)});
   const listeners={};
   const context={window:{},console,localStorage:memoryStorage(),setTimeout,clearTimeout,setInterval,clearInterval,requestAnimationFrame:fn=>setTimeout(()=>fn(0),0),cancelAnimationFrame:clearTimeout,document:{addEventListener(type,fn){listeners[type]=listeners[type]||[];listeners[type].push(fn)},removeEventListener(type,fn){listeners[type]=(listeners[type]||[]).filter(item=>item!==fn)},dispatchEvent(event){for(const fn of listeners[event.type]||[])fn(event)}},CustomEvent:function(type,init){this.type=type;this.detail=init?.detail;}};context.window=context;vm.createContext(context);
-  for(const file of ['js/engine/state.js','js/data/save_fixtures.js','js/data/opportunities.js','js/engine/scenes.js','js/data/stages.js','js/data/presentation.js','js/data/presentation_assets.js','js/data/presentation_locks.js','js/engine/stage.js','js/data/combat.js','js/engine/combat_foundation.js','js/data/people.js','js/systems/people.js','js/data/world_events.js','js/systems/world_events.js'])vm.runInContext(await read(file,'utf8'),context,{filename:file});
+  for(const file of withIf1(['js/engine/state.js','js/data/save_fixtures.js','js/data/opportunities.js','js/engine/scenes.js','js/data/stages.js','js/data/presentation.js','js/data/presentation_assets.js','js/data/presentation_locks.js','js/engine/stage.js','js/data/combat.js','js/engine/combat_foundation.js','js/data/people.js','js/systems/people.js','js/data/world_events.js','js/systems/world_events.js']))vm.runInContext(await read(file,'utf8'),context,{filename:file});
   const {RAState,RASaveFixtures,RAOpportunities}=context;
   const fixtures=RASaveFixtures.fixtures,ids=RASaveFixtures.ids;
   const v6=RAState.migrateWithReport(fixtures.lifeV6),owned=RAState.migrateWithReport(fixtures.supraOwned),partial=RAState.migrateWithReport(fixtures.partialCorrupt);
@@ -83,6 +84,10 @@ async function test(){
   const index=await read('index.html');assert(index.includes('__BUILD_ASSET_VERSION__'),'index is missing the build asset placeholder');
   const audioContext={window:{}};audioContext.window=audioContext;vm.createContext(audioContext);vm.runInContext(await read('js/data/audio_manifest.js'),audioContext,{filename:'js/data/audio_manifest.js'});
   for(const id of ['NO_01','NO_02','NO_03','NO_04','NO_05','NO_06']){const hook=audioContext.RAAudioManifest.get(id);assert(hook&&hook.registered===false&&hook.file===null&&hook.expectedPath===`assets/audio/sfx/new_oga/${id}.mp3`,`NEW OGA audio hook ${id} is not inert/drop-in ready`);}
+  // IF-1 (F00) integration gates: ordered script loader, every fragment's auto-discovered tests, OPEN-build sealed-leak check.
+  const loader=await import(pathToFileURL(path.join(root,'tools','loader.mjs')).href);const loaded=await loader.verify({quiet:true});assert(loaded.ok,`loader verification failed: ${loaded.problems.join('; ')}`);
+  const {runFragmentTests}=await import(pathToFileURL(path.join(root,'tools','run-tests.mjs')).href);await runFragmentTests(root);
+  const leak=await import(pathToFileURL(path.join(root,'tools','leak-check.mjs')).href);const clean=await leak.checkTree({root});assert(clean.ok,`sealed leak check failed: ${clean.violations.map(v=>`${v.rule}:${v.file}`).join(', ')}`);
   console.log(`PASS deterministic release gate (${sources.length+1} JavaScript syntax checks, save fixtures, recovery, opportunity access)`);
 }
 
@@ -107,6 +112,10 @@ async function verifyArtifact(expected=null){
   const index=await readFile(path.join(output,'index.html'),'utf8'),info=await readFile(path.join(output,'js','build-info.js'),'utf8');
   assert(!index.includes('__BUILD_ASSET_VERSION__')&&index.includes(build.assetVersion),'artifact has inconsistent cache identity');
   assert(info.includes(build.commit)&&info.includes(build.releaseId),'DEV build metadata disagrees with build.json');
+  // IF-1 artifact gates: static deployment must be self-contained (every <script>/<link> in the generated index exists), and an
+  // OPEN artifact must carry no sealed implementation content.
+  for(const match of index.matchAll(/<(?:script|link)[^>]+(?:src|href)="([^"?#]+)(?:\?[^"]*)?"/g)){const ref=match[1];if(/^(?:https?:|data:)/.test(ref))continue;assert(existsSync(path.join(output,ref)),`artifact index.html references a missing file: ${ref}`);}
+  const leak=await import(pathToFileURL(path.join(root,'tools','leak-check.mjs')).href);const leakResult=await leak.checkTree({root,dist:path.relative(root,output)});assert(leakResult.ok,`OPEN artifact leak check failed: ${leakResult.violations.map(v=>`${v.rule}:${v.file}`).join(', ')}`);
   const party=await readFile(path.join(output,'party-dev.html'),'utf8');
   assert(!party.includes('__BUILD_ASSET_VERSION__')&&party.includes(build.assetVersion),'party artifact has inconsistent cache identity');
   const rave=await readFile(path.join(output,'rave-review.html'),'utf8');

@@ -1,0 +1,14 @@
+# INTEGRATION-OWNER-ONLY surfaces (see tools/if1/owner-surfaces.json and docs/engineering/INTEGRATION_OWNER.md).
+# Fragment builders produce branches and commits; the integration owner alone merges.
+/js/if1/ @ubseoul
+/js/loader/ @ubseoul
+/index.html @ubseoul
+/js/engine/state.js @ubseoul
+/js/systems/life_clock.js @ubseoul
+/js/scenes/phone.js @ubseoul
+/js/engine/combat2.js @ubseoul
+/js/scenes/combat2.js @ubseoul
+/js/sealed/ @ubseoul
+/tools/ @ubseoul
+/package.json @ubseoul
+/.github/ @ubseoul

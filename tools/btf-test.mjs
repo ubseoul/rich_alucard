@@ -5,8 +5,9 @@ import {readFile} from 'node:fs/promises';
 import path from 'node:path';
 import vm from 'node:vm';
 import {pathToFileURL} from 'node:url';
+import {withIf1,IF1_TAIL} from './if1/harness.mjs';
 
-export async function loadBtf(root,{seedState=null}={}){
+export async function loadBtf(root,{seedState=null,if1=true}={}){
  const read=file=>readFile(path.join(root,file),'utf8');
  const store=new Map();const storage={getItem:k=>store.has(k)?store.get(k):null,setItem:(k,v)=>store.set(k,String(v)),removeItem:k=>store.delete(k)};
  const listeners={};
@@ -19,9 +20,10 @@ export async function loadBtf(root,{seedState=null}={}){
  if(seedState)storage.setItem('rich_alucard_save_v1',JSON.stringify(seedState));
  const engine=['js/engine/state.js','js/data/save_fixtures.js','js/engine/scenes.js','js/engine/display.js','js/engine/pixel.js','js/engine/minigames.js','js/data/opportunities.js','js/data/people.js','js/systems/people.js','js/data/world_events.js','js/systems/world_events.js','js/systems/budget.js',
   'js/systems/life.js','js/systems/life_clock.js','js/data/art_registry.js','js/data/art_integration.js','js/data/art_surfaces.js','js/data/btf/people.js','js/systems/relations.js','js/systems/rewards.js','js/engine/adventures.js','js/data/btf/environments.js','js/systems/temptations.js','js/systems/places.js','js/systems/sealed.js','js/systems/fame.js','js/systems/vampgram.js','js/systems/radio.js','js/data/btf/dsl.js'];
- for(const f of engine)vm.runInContext(await read(f),context,{filename:f});
+ for(const f of (if1?withIf1(engine):engine))vm.runInContext(await read(f),context,{filename:f}); // IF-1 modules at production anchors (all fragment flags OFF)
  const {contentFiles}=await import(pathToFileURL(path.join(root,'tools','sync-index.mjs')).href);
  for(const f of await contentFiles()){if((f.startsWith('js/minigames/')&&f!=='js/minigames/touge.js')||f==='js/data/bars_words.js')continue;vm.runInContext(await read(f),context,{filename:f});}
+ for(const f of (if1?IF1_TAIL:[]))vm.runInContext(await read(f),context,{filename:f});
  return context;
 }
 

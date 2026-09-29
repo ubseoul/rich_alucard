@@ -2,7 +2,12 @@
   const KEY='rich_alucard_save_v1';
   const RECOVERY_KEY='rich_alucard_save_v1_recovery';
   const QUARANTINE_KEY='rich_alucard_save_v1_invalid';
-  const VERSION=16;
+  // IF-1 (F00): schema authority is split. Versions up to BASE_VERSION are the accepted migrations below; anything above is
+  // assigned ONLY by the integration owner in js/if1/migration_ledger.js and supplied by RAMigrations. Without the registry
+  // loaded (legacy harnesses) the schema is exactly the accepted v16.
+  const REGISTRY=window.RAMigrations||null;
+  const BASE_VERSION=16;
+  const VERSION=REGISTRY?REGISTRY.target():BASE_VERSION;
   const defaults={version:VERSION,life:{identity:{name:'Rich Alucard'},world:{location:'LA',day:1,month:1,scene:'bedroom',flags:{}},resources:{money:100000,clout:'LOW',vampireReputation:'LOW',followers:0,cloutPoints:0,vampRepPoints:0},ownership:{cars:[],properties:[],possessions:[],castleRooms:[],guns:[],fits:{owned:[],equipped:{}},items:{},props:[],dragon:null,cat:null},people:{contacts:[],relationships:[],records:{}},events:{records:{}},creativeLife:{music:{songs:[],progress:{},cooked:[],drops:[],shows:[],hooks:[],castleSong:null}},phone:{learned:false,apps:{},threads:{},radio:{track:null,castleSong:null}},desires:{activeTrip:null,completed:[]},acquisitions:{active:null,completed:[]},night:{active:null,completed:[]},property:{active:null,completed:[]},opportunities:{},history:[],clock:{started:false,lastWakeDay:0,nightOutings:[],mail:[],interruptionsTonight:0,hungover:false,returnBeat:null},temptations:{live:[],history:[],lastGeneratedDay:0},adventures:{active:null,records:{}},memoryLog:[],receipts:[],ecology:{pressure:0,headlinesSeen:[],hiltStatus:'none'},momentum:{expression:0,connection:0,ownership:0,legend:0,chaos:0,counts:{},sparkId:null,fameEligible:false,fameFired:false},minigames:{},tendencies:{solid:0,messy:0},combat:{learnedMoves:[],equippedMoves:['blood','octopus','bite','revenge'],magic:[],defeats:0},sealed:{slots:{}},laura:{ledger:0},newOga:{status:'unstarted',mission:0,rank:0,title:null,businessCard:false,gangClout:0,trust:0,heat:0,debt:0,m1Route:null,m2Answer:null,m2Outcome:null,m3Outcome:null,m1Rewarded:false,m3Rewarded:false,lastMissionDay:0,carlosMutual:false,carlosMutualDay:0,carlosMutualSource:null,carlosUnfollowed:false,m4Outcome:null,m4Rewarded:false,m4TougeBand:null,carlosEscaped:false,alternativePending:false,alternativeCompleted:false,alternativeRewarded:false,carlosCanopyApron:false,carlosLaterParty:false,carlosLaterStage:null,m5Progress:null,m5Outcome:null,m5AmountCaught:0,m5Attention:0,m5Completed:false,m5Rewarded:false,m6Progress:null,m6Outcome:null,m6CareResult:null,senatorLost:false,m6Completed:false,m6ConsequencesApplied:false,trustAtM6:null,senatorCommands:false,rank4Granted:false,m7Eligible:false,m7Progress:null,m7Outcome:null,m7Completed:false,m7ConsequencesApplied:false,vaultKnown:false,businessStructureKnown:false,misterDecemberHierarchyKnown:false,leftoversAte:false,refusedMama:false,m8Held:false},settings:{audio:{music:1,sfx:1,ambience:1,muted:false,haptics:true}}},characters:{ceo_assistant_001:{met:true,stolen:false,vampire:false,cracked:false}},encounters:{ceo_prince:{defeated:false,completed:false}}};
   const clone=value=>JSON.parse(JSON.stringify(value));
   const isObject=value=>value!==null&&typeof value==='object'&&!Array.isArray(value);
@@ -60,6 +65,7 @@
     if(typeof life.resources.vampireReputation!=='string')life.resources.vampireReputation=defaults.life.resources.vampireReputation;
     life.phone.learned=!!life.phone.learned;
     ensureBtf(life);
+    if(REGISTRY)REGISTRY.normalize(normalized);
     return normalized;
   }
   // BTF (Before the Fame) Rough Complete sections. Additive: never removes or rewrites existing structures.
@@ -147,7 +153,7 @@
   function migrateV13ToV14(saved){const next=clone(saved),life=next.life=objectOr(next.life,{});life.newOga=merge(clone(defaults.life.newOga),objectOr(life.newOga,{}));next.version=14;return next;}
   function migrateV14ToV15(saved){const next=clone(saved),life=next.life=objectOr(next.life,{});life.newOga=merge(clone(defaults.life.newOga),objectOr(life.newOga,{}));next.version=15;return next;}
   function migrateV15ToV16(saved){const next=clone(saved),life=next.life=objectOr(next.life,{});life.newOga=merge(clone(defaults.life.newOga),objectOr(life.newOga,{}));next.version=16;return next;}
-  const migrations={5:migrateV5ToV6,6:migrateV6ToV7,7:migrateV7ToV8,8:migrateV8ToV9,9:migrateV9ToV10,10:migrateV10ToV11,11:migrateV11ToV12,12:migrateV12ToV13,13:migrateV13ToV14,14:migrateV14ToV15,15:migrateV15ToV16};
+  const migrations={5:migrateV5ToV6,6:migrateV6ToV7,7:migrateV7ToV8,8:migrateV8ToV9,9:migrateV9ToV10,10:migrateV10ToV11,11:migrateV11ToV12,12:migrateV12ToV13,13:migrateV13ToV14,14:migrateV14ToV15,15:migrateV15ToV16,...(REGISTRY?REGISTRY.steps():{})};
   function migrateWithReport(saved){
     if(!isObject(saved))return {ok:false,error:'root-not-object'};
     let next=clone(saved),from=Number.isInteger(next.version)?next.version:0;

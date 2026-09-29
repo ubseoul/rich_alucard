@@ -49,5 +49,6 @@
  });
  function markMailRead(id){RAState.patch('life.clock.mail',(L().clock.mail||[]).map(m=>!id||m.id===id?{...m,read:true}:m));}
  function setHungover(){RAState.patch('life.clock.hungoverPending',true);}
- window.RAClock={onWake,sleep,wake,logOuting,markMailRead,setHungover,handlers:()=>handlers.map(h=>h.id)};
+ // handlerInfo (IF-1, additive): ids WITH priorities, in execution order — the WAKE/NIGHT bus reads it to guarantee deterministic ordering.
+ window.RAClock={onWake,sleep,wake,logOuting,markMailRead,setHungover,handlers:()=>handlers.map(h=>h.id),handlerInfo:()=>handlers.map(h=>({id:h.id,priority:h.priority}))};
 })();

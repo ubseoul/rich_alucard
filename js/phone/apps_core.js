@@ -50,7 +50,7 @@
   async onAction(act,arg,api){if(act==='reply')reply(arg,api);if(act==='date'){await api.close();window.RADating?.plan?.(arg);}}});
  // ART SHIP 014 VampGram avatar by handle: Dragoon of the North posts as his frozen silhouette (framed to the head).
  const VG_AVATAR={dragoon_of_the_north:'dragoon_of_the_north',britney_stakes:'britney_stakes'};
- function vgAvatar(handle){const src=window.RAArtRegistry?.ui?.avatars?.[VG_AVATAR[handle]]?.asset;return src?`<i class="vg-avatar" style="background-image:url('${esc(src)}')" aria-hidden="true"></i>`:'';}
+ function vgAvatar(handle){const src=window.RAArtRegistry?.ui?.avatars?.[VG_AVATAR[handle]||window.RAVampGramAPI?.avatarKey?.(handle)]?.asset;return src?`<i class="vg-avatar" style="background-image:url('${esc(src)}')" aria-hidden="true"></i>`:'';}
  // VAMPGRAM — red/black vampire feed; headlines reflect the world; Obas post; Rich's drops land here.
  A.register({id:'vampgram',label:'VampGram',canon:true,badge:()=>window.RAVampGram?.unseen?.()||0,
   render(sub){const feed=window.RAVampGram?.feed?.()||[];window.RAVampGram?.markSeen?.();

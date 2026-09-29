@@ -1,0 +1,72 @@
+{
+ "version": 8,
+ "life": {
+  "identity": {
+   "name": "Rich Alucard"
+  },
+  "world": {
+   "location": "LA",
+   "day": 9,
+   "month": 1,
+   "scene": "bedroom",
+   "flags": {
+    "historicalMarker": "v8"
+   }
+  },
+  "resources": {
+   "money": 12353,
+   "clout": "LOW",
+   "vampireReputation": "LOW"
+  },
+  "ownership": {
+   "cars": [
+    {
+     "id": "marker_car_v8",
+     "make": "TEST",
+     "model": "V8",
+     "ownershipStatus": "owned"
+    }
+   ],
+   "properties": [],
+   "possessions": []
+  },
+  "people": {
+   "contacts": [],
+   "relationships": [],
+   "records": {}
+  },
+  "creativeLife": {
+   "music": {
+    "songs": [],
+    "progress": {}
+   }
+  },
+  "phone": {
+   "learned": false
+  },
+  "desires": {
+   "activeTrip": null,
+   "completed": []
+  },
+  "acquisitions": {
+   "active": null,
+   "completed": []
+  },
+  "opportunities": {},
+  "history": []
+ },
+ "characters": {
+  "ceo_assistant_001": {
+   "met": true,
+   "stolen": false,
+   "vampire": false,
+   "cracked": false
+  }
+ },
+ "encounters": {
+  "ceo_prince": {
+   "defeated": false,
+   "completed": false
+  }
+ }
+}

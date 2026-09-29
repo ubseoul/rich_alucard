@@ -52,7 +52,7 @@
   function renderMenu(){
    const m=$('.c2-menu');if(state.over){m.innerHTML='';return;}
    if(state.awaitingOctopus){showOcto();m.innerHTML='';return;}
-   if(menu==='main')m.innerHTML=btn('▶ FIGHT','fight')+btn('ITEM','item')+btn('HOES','hoes')+btn('RUN','run');
+   if(menu==='main')m.innerHTML=btn('▶ FIGHT','fight')+btn('ITEM','item')+btn('HOES','hoes')+btn('RUN','run')+(window.RACombat2Ext?.menuButtons(state)||[]).map(b=>btn(esc(b.label),b.act,b.cls)).join(''); // IF-1 weapon-slot button seam (empty unless registered + flag ON)
    else if(menu==='fight'){m.innerHTML=state.moves.map(id=>{const mv=D().MOVES[id];return btn(`${mv.label}<small>PP ${state.rich.pp[id]}/${mv.pp}${id==='revenge'?` · ${state.rich.revenge}`:''}</small>`,`move:${id}`,state.rich.pp[id]>0?'':'c2-off');}).join('')+state.guns.map(g=>btn(`${icon(window.RAArtRegistry?.items?.guns?.[g.id]?.held)}GUN: ${D().GUNS[g.id].label}<small>AMMO ${g.ammo}</small>`,`gun:${g.id}`,g.ammo>0?'c2-gun':'c2-off')).join('')+btn('BACK','back','c2-back');}
    else if(menu==='item'){const list=Object.entries(state.items).filter(([id,n])=>n>0&&D().ITEMS[id]);m.innerHTML=(list.map(([id,n])=>btn(`${icon(window.RAArtRegistry?.items?.combat?.[id])}${D().ITEMS[id].label}<small>×${n}</small>`,`item:${id}`)).join('')||'<p class="c2-empty">BAG IS EMPTY.</p>')+btn('BACK','back','c2-back');}
    else if(menu==='hoes'){const list=state.companions;m.innerHTML=(list.flatMap(c=>c.moves.map(mv=>btn(`${c.name}: ${mv.label}<small>${2-(state.hoesUsed[c.id]||0)} LEFT</small>`,`hoe:${c.id}:${mv.id}`,(state.hoesUsed[c.id]||0)>=2?'c2-off':''))).join('')||'<p class="c2-empty">NOBODY CLOSE ENOUGH YET.</p>')+btn('BACK','back','c2-back');}
@@ -90,9 +90,11 @@
    if(kind==='run'){doAction({type:'run'});return;}
    if(kind==='move'){doAction({type:'move',id:a});return;}if(kind==='gun'){doAction({type:'gun',id:a});return;}
    if(kind==='item'){doAction({type:'item',id:a});return;}if(kind==='hoe'){doAction({type:'hoe',companion:a,move:c});return;}
+   const ext=window.RACombat2Ext?.actionFromButton(b.dataset.c2,state);if(ext){doAction(ext);return;}
   });
   async function finish(){
    const outcome=state.outcome;
+   RACombat2Rules.finish?.(state); // IF-1 boss-script onEnd seam (inert unless registered)
    if(outcome==='win'||outcome==='lose'){try{window.RAAudio?.sfx?.(outcome==='win'?'VICTORY':'DEFEAT');}catch(e){}}
    // Persist what the fight used/earned (items spent, moves learned, drops, people who saw it).
    const life=RAState.get().life;const items={...life.ownership.items};for(const [id,n] of Object.entries(state.items))if(D().ITEMS[id]){if(n>0)items[id]=n;else delete items[id];}RAState.patch('life.ownership.items',items);

@@ -6,7 +6,16 @@
   "scripts": {
     "test": "node tools/release.mjs test",
     "build": "node tools/release.mjs build",
-    "verify:artifact": "node tools/release.mjs verify-artifact"
+    "verify:artifact": "node tools/release.mjs verify-artifact",
+    "test:fragments": "node tools/run-tests.mjs",
+    "loader:sync": "node tools/loader.mjs sync",
+    "loader:verify": "node tools/loader.mjs verify",
+    "leak-check": "node tools/leak-check.mjs",
+    "build:private": "node tools/overlay.mjs build",
+    "verify:all": "node tools/verify-all.mjs",
+    "verify:nightly": "node tools/nightly-smoke.mjs",
+    "check:owner-surfaces": "node tools/check-owner-surfaces.mjs",
+    "hq:status": "node tools/hq-mirror.mjs status"
   },
   "engines": {
     "node": ">=20"

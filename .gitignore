@@ -1,2 +1,6 @@
 dist/
 work/
+
+dist-private/
+reports/
+private_overlay/

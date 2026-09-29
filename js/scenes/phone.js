@@ -175,6 +175,7 @@
   document.querySelector('#devResetPhone')?.addEventListener('click',()=>{window.RAState.patch('life.resources.money',100000);window.RAState.patch('life.world.location','LA');window.RAState.patch('life.resources.clout','LOW');window.RAState.patch('life.phone.learned',false);page='home';if(opened)closePhone();updateEntry();entry?.focus({preventScroll:true});});
   document.addEventListener('keydown',e=>{if(opened&&e.key==='Escape')closePhone()});
  });
- window.RAPhoneApps={register,get:id=>registry.get(id)||null,label:appLabel,isUnlocked,list:()=>[...registry.values()]};
+ // unregister (IF-1, additive): lets RAPhoneRegistry retract a flag-gated app when its feature flag goes OFF.
+ window.RAPhoneApps={register,unregister:id=>registry.delete(id),get:id=>registry.get(id)||null,label:appLabel,isUnlocked,list:()=>[...registry.values()]};
  window.RAPhone={open:showPhone,close:closePhone,openApp,home(){page='home';render()},refresh:render,reset(){window.RAState.patch('life.phone.learned',false);updateEntry()},isOpen:()=>opened,apps:CANON.map(([name])=>name),api,page:()=>page,updateEntry};
 })();
