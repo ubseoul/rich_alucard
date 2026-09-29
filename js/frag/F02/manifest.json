@@ -1,0 +1,15 @@
+{
+  "files": [
+    "js/frag/F02/flags.js",
+    "js/frag/F02/catalog.js",
+    "js/frag/F02/registry.js",
+    "js/frag/F02/combat.js",
+    "js/frag/F02/range.js",
+    "js/frag/F02/armory.js",
+    "js/frag/F02/showdown.js",
+    "js/frag/F02/iron_and_grace.js"
+  ],
+  "css": [
+    "js/frag/F02/armory.css"
+  ]
+}
