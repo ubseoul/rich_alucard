@@ -2,7 +2,8 @@
  'use strict';
  // F04 — PLAYMAKERS WAR ROOM — jobs.js
  // The full jobs framework: authored RUN job types + SHOWDOWN stubs.
- // SOURCE: Vol 7 §3.2 (job menu), §3.3 (RUNS vs SHOWDOWNS), §4 (RUN SEQUENCES).
+ // SOURCE: Vol 7 §3.2 (job menu, authored reward/heat tables), §3.3 (RUNS vs SHOWDOWNS),
+ //         §4 (RUN SEQUENCES), §8 (strategy test).
  //
  // SHOWDOWN BOUNDARY: Jobs of type TAKE_THE_BLOCK, EXTRACT, and retaliation raids
  // have their authored setup, state, eligibility and entry hooks implemented here,
@@ -10,25 +11,64 @@
 
  if (!window.RAFeatures?.get('F04.war_room')) return;
 
- // ── Job type catalogue (Vol 7 §3.2) ──────────────────────────────────────────
+ // ── Job type catalogue — Vol 7 §3.2 (authored) ─────────────────────────
  // RUN types (resolve as RUN SEQUENCE — non-Showdown):
- //   DROP, RE_UP, COLLECT, PROTECT, BAIT
- // SHOWDOWN types (full tactical battle — F01_INTEGRATION_PENDING for final execution):
- //   TAKE_THE_BLOCK, EXTRACT (+ retaliation raids)
+ //   DROP, RE_UP, COLLECT, PROTECT, BAIT, LAY_LOW
+ // SHOWDOWN types (full tactical battle — F01_INTEGRATION_PENDING):
+ //   TAKE_THE_BLOCK, EXTRACT, RETALIATION
+ //
+ // AUTHORED REWARD / HEAT TABLE (Vol 7 §3.2):
+ //   DROP         Reward: $8K–$25K              HEAT: +4
+ //   RE-UP        Reward: +3–6 SUPPLY           HEAT: +3
+ //   COLLECT      Reward: $10K–$40K             HEAT: +5
+ //   PROTECT      Reward: $15K + STREET REP     HEAT: +2
+ //   BAIT         Reward: Rival Pressure −2     HEAT: +6
+ //   LAY LOW      Cost: $−10K   Effect: HEAT−15  Squad: 0
  const JOB_TYPES = Object.freeze({
   // RUN types
-  DROP:         { kind: 'run',      label: 'DROP' },
-  RE_UP:        { kind: 'run',      label: 'RE-UP' },
-  COLLECT:      { kind: 'run',      label: 'COLLECT' },
-  PROTECT:      { kind: 'run',      label: 'PROTECT' },
-  BAIT:         { kind: 'run',      label: 'BAIT' },
+  DROP: {
+   kind: 'run',   label: 'DROP',
+   squadSize: 2,
+   reward: { type: 'cash_range', min: 8000, max: 25000 },
+   heat: 4
+  },
+  RE_UP: {
+   kind: 'run',   label: 'RE-UP',
+   squadSize: 2,
+   reward: { type: 'supply_range', min: 3, max: 6 },
+   heat: 3
+  },
+  COLLECT: {
+   kind: 'run',   label: 'COLLECT',
+   squadSize: 3,
+   reward: { type: 'cash_range', min: 10000, max: 40000 },
+   heat: 5
+  },
+  PROTECT: {
+   kind: 'run',   label: 'PROTECT',
+   squadSize: 3,
+   reward: { type: 'cash_and_rep', cash: 15000, rep: true },
+   heat: 2
+  },
+  BAIT: {
+   kind: 'run',   label: 'BAIT',
+   squadSize: 2,
+   reward: { type: 'pressure_reduce', pressureDelta: -2 },
+   heat: 6
+  },
+  LAY_LOW: {
+   kind: 'run',   label: 'LAY LOW',
+   squadSize: 0,
+   reward: { type: 'heat_reduce', heatDelta: -15, cashCost: 10000 },
+   heat: 0  // net effect: HEAT −15 (from reward), cost $10K
+  },
   // SHOWDOWN types
-  TAKE_THE_BLOCK: { kind: 'showdown', label: 'TAKE THE BLOCK' },
-  EXTRACT:      { kind: 'showdown', label: 'EXTRACT' },
-  RETALIATION:  { kind: 'showdown', label: 'RETALIATION RAID' }
+  TAKE_THE_BLOCK: { kind: 'showdown', label: 'TAKE THE BLOCK', squadSize: 3, reward: { type: 'showdown' }, heat: 0 },
+  EXTRACT:        { kind: 'showdown', label: 'EXTRACT',         squadSize: 2, reward: { type: 'showdown' }, heat: 0 },
+  RETALIATION:    { kind: 'showdown', label: 'RETALIATION RAID',squadSize: 3, reward: { type: 'showdown' }, heat: 0 }
  });
 
- // ── Night modifier table (Vol 7 §3.2) ──────────────────────────────────────
+ // ── Night modifier table (Vol 7 §3.2) ──────────────────────────────────
  function nightModifiers() {
   const life = window.RALife.today();
   const day = life.day;
@@ -38,11 +78,11 @@
    mods.push({ id: 'rain', label: 'RAIN', stealth: +10, wheels: -10 });
   }
   // FULL MOON: werewolf trouble on Inglewood jobs
-  if (day % 28 === 0) { // placeholder; actual moon cycle from life_clock if available
+  if (day % 28 === 0) {
    mods.push({ id: 'full_moon', label: 'FULL MOON', inglewood_penalty: true });
   }
   // FRIDAY: demand ×1.5, heat ×1.5
-  const weekday = ((day - 1) % 7); // 0=Mon … 6=Sun; 4=Fri (placeholder)
+  const weekday = ((day - 1) % 7);
   if (weekday === 4) {
    mods.push({ id: 'friday', label: 'FRIDAY', demand_mult: 1.5, heat_mult: 1.5 });
   }
@@ -51,31 +91,26 @@
   if (nodd) {
    mods.push({ id: 'officer_nodd', label: 'OFFICER NODD ON PATROL', wheels_risk: +10 });
   }
-  // HOT DISTRICT: heat ×2 (checked per district in job generation)
+  // HOT DISTRICT: heat ×2 (checked per district in job card)
   return mods;
  }
 
- // ── RUN SEQUENCE resolution ─────────────────────────────────────────────────
+ // ── RUN SEQUENCE resolution ─────────────────────────────────────────────
  // Vol 7 §4: 3–4 decision beats, each with 2–3 choices driven by squad composition.
  // Approach: QUIET | LOUD | OCTOPUS_BRAIN
  const APPROACHES = Object.freeze(['QUIET', 'LOUD', 'OCTOPUS_BRAIN']);
 
- // Authored beat pool (Vol 7 §4 examples + genre patterns).
- // Each beat: {id, text, options: [{label, stat, baseOdds, heatDelta, cashMod, notes}]}
- // Odds are computed from the squad's actual stats — shown to the player honestly (Vol 7 §5.3).
+ // Beat pool (Vol 7 §4 examples + genre patterns).
  function beatOdds(base, squad, stat) {
-  // Each Oga with the matching class adds a bonus; stories add +5 each (Vol 7 §6.1).
   let bonus = 0;
   for (const oga of squad) {
    if (oga.class === stat) bonus += 10;
-   // Count active stories for this Oga
    const storyCount = Object.keys(oga.stories || {}).length;
-   bonus += storyCount * 2; // minor; authored story perks are per-perk in crew.js
+   bonus += storyCount * 2;
   }
   return Math.min(98, Math.max(5, base + bonus));
  }
 
- // Beat library (subset — enough for a full 3-job rotation).
  const BEAT_LIBRARY = [
   {
    id: 'beat_doorman',
@@ -124,33 +159,46 @@
   }
  ];
 
+ // ── Authored reward range computation ────────────────────────────────────
+ // Where Vol 7 §3.2 specifies a RANGE, the rolled value is uniformly distributed
+ // within the authored min/max, using the project's existing hash-based seeded
+ // randomization convention (RALife.hash) for determinism in tests.
+ function rollRange(min, max, seed) {
+  if (min === max) return min;
+  const h = typeof window._testRoll === 'function'
+   ? window._testRoll('range', seed)
+   : Math.floor(Math.random() * 100) + 1;
+  const span = max - min;
+  return min + Math.round((h / 100) * span);
+ }
+
  // ── Job card builder ──────────────────────────────────────────────────────
- // Builds a job card object (shown in the War Room UI).
- // Vol 7 §3.2: "DISTRICT · TYPE · SQUAD SIZE · ODDS · REWARD · HEAT · MODIFIERS · who's recommended"
- function buildJobCard({ type, district, squadSize = 2, approach = 'LOUD', night = null }) {
+ function buildJobCard({ type, district, approach = 'LOUD', night = null }) {
+  const typeDef = JOB_TYPES[type];
+  if (!typeDef) return null;
   const distDef = window.RADistricts.get(district);
-  if (!distDef) return null;
-  const isShowdown = JOB_TYPES[type]?.kind === 'showdown';
+  const isShowdown = typeDef.kind === 'showdown';
   const mods = night || nightModifiers();
   const heat_mult = mods.find(m => m.heat_mult)?.heat_mult || 1;
-  const distHeat = window.RAHeat.district(district);
+  const distHeat = district ? window.RAHeat.district(district) : 0;
   const isHotDistrict = window.RAHeat.tierFor(distHeat) === 'HOT' || window.RAHeat.tierFor(distHeat) === 'ON FIRE';
 
   return {
-   id: `${district}_${type}_${window.RALife.today().day}`,
+   id: `${district || 'global'}_${type}_${window.RALife.today().day}`,
    type,
-   kind: JOB_TYPES[type]?.kind || 'run',
+   kind: typeDef.kind,
    district,
-   districtLabel: distDef.label,
-   squadSize,
+   districtLabel: distDef?.label || district || '—',
+   squadSize: typeDef.squadSize,
    approach,
    modifiers: mods,
    heat_mult: isHotDistrict ? heat_mult * 2 : heat_mult,
    isShowdown,
-   // For showdown jobs: authored setup data (tactical execution is F01_INTEGRATION_PENDING)
+   authoredHeat: typeDef.heat,
+   authoredReward: typeDef.reward,
    showdownSetup: isShowdown ? buildShowdownSetup({ type, district }) : null,
    recommended: recommendedClasses(type),
-   label: JOB_TYPES[type]?.label || type
+   label: typeDef.label
   };
  }
 
@@ -161,6 +209,7 @@
    COLLECT: ['MUSCLE', 'TALKER'],
    PROTECT: ['MUSCLE', 'SHOOTER'],
    BAIT: ['TALKER', 'GHOST'],
+   LAY_LOW: [],
    TAKE_THE_BLOCK: ['MUSCLE', 'SHOOTER'],
    EXTRACT: ['DOC', 'GHOST'],
    RETALIATION: ['MUSCLE', 'SHOOTER']
@@ -169,54 +218,114 @@
  }
 
  // ── SHOWDOWN setup stubs (F01_INTEGRATION_PENDING) ─────────────────────
- // SOURCE: Vol 7 §3.3, §5
- // These produce authored state/data for hand-off to SHOWDOWN_CORE.
- // The grid, turn execution and resolution are F01_INTEGRATION_PENDING.
  function buildShowdownSetup({ type, district }) {
   return {
-   // Authored location description (Vol 7 §5.1)
    location: {
-    TAKE_THE_BLOCK: `${district.replace(/_/g,' ')} — contested corner`,
-    EXTRACT:        `${district.replace(/_/g,' ')} — hostile zone`,
+    TAKE_THE_BLOCK: `${(district||'').replace(/_/g,' ')} — contested corner`,
+    EXTRACT:        `${(district||'').replace(/_/g,' ')} — hostile zone`,
     RETALIATION:    'the castle\'s own halls'
    }[type] || district,
-   gridSize: { cols: 6, rows: 9 }, // Vol 7 §5.1: 6×9 portrait grid
-   // F01_INTEGRATION_PENDING: grid, cover, enemy pods, turn execution, result
+   gridSize: { cols: 6, rows: 9 },
    f01Pending: 'F01_INTEGRATION_PENDING',
-   // Entry hook contract (to be called by SHOWDOWN_CORE when F01 is integrated)
    entryContract: {
     requiredFields: ['squadIds', 'carId', 'approach', 'district', 'jobId'],
-    richCanPullUp: true,          // Vol 7 §5.6
+    richCanPullUp: true,
     pullUpFrom: 'turn_3',
-    richStats: {
-     hp: 12,
-     moves: ['BLOOD_BATH','VAMPIRE_BITE','OCTOPUS_BRAIN','REVENGE'] // Vol 7 §5.6
-    }
+    richStats: { hp: 12, moves: ['BLOOD_BATH','VAMPIRE_BITE','OCTOPUS_BRAIN','REVENGE'] }
    },
-   // Resolution interface (what SHOWDOWN_CORE must return to the War Room)
    resolutionContract: {
     fields: ['outcome','ogas_status','heat_delta','cash_delta','stories','rich_used_pullup','rich_visible']
    }
   };
  }
 
+ // ── Resolve authored reward for a successful RUN ────────────────────────
+ function resolveReward(typeDef, district, day) {
+  const r = typeDef.reward;
+  if (!r) return { cashDelta: 0, heatDelta: typeDef.heat, supplyDelta: 0, effects: [] };
+
+  const result = {
+   cashDelta: 0,
+   heatDelta: typeDef.heat,
+   supplyDelta: 0,
+   pressureDelta: 0,
+   effects: []
+  };
+
+  switch (r.type) {
+   case 'cash_range':
+    result.cashDelta = rollRange(r.min, r.max, day);
+    result.effects.push(`+$${result.cashDelta.toLocaleString()}`);
+    break;
+
+   case 'supply_range':
+    result.supplyDelta = rollRange(r.min, r.max, day);
+    result.effects.push(`+${result.supplyDelta} SUPPLY`);
+    break;
+
+   case 'cash_and_rep':
+    result.cashDelta = r.cash;
+    result.effects.push(`+$${r.cash.toLocaleString()}`);
+    if (r.rep) {
+     result.effects.push('+STREET REP');
+    }
+    break;
+
+   case 'pressure_reduce':
+    result.pressureDelta = r.pressureDelta; // −2
+    result.effects.push(`RIVAL PRESSURE ${r.pressureDelta}`);
+    break;
+
+   case 'heat_reduce':
+    // LAY LOW: cost $10K, HEAT −15, no squad
+    result.cashDelta = -(r.cashCost || 10000);
+    result.heatDelta = r.heatDelta; // −15
+    result.effects.push(`HEAT ${r.heatDelta}`, `-$${r.cashCost?.toLocaleString() || '10,000'}`);
+    break;
+  }
+
+  return result;
+ }
+
  // ── RUN SEQUENCE executor ─────────────────────────────────────────────────
- // Resolves a run (non-Showdown) job through 3–4 beat decisions.
- // Called by the War Room phone app when a job is confirmed.
- // Returns a resolution object that feeds into report_card.js.
  function executeRun({ jobCard, squad, carId, approach, playerChoices }) {
-  // playerChoices: array of {beatId, optionIndex}
+  const typeDef = JOB_TYPES[jobCard.type];
   const results = [];
-  let cashDelta = 0;
-  let heatDelta = 0;
+  let beatCashDelta = 0;
+  let beatHeatDelta = 0;
   let success = true;
   let escalatedToShowdown = false;
   const newStories = {};
 
   const mods = jobCard.modifiers || [];
-  const fraudMult = mods.find(m => m.heat_mult)?.heat_mult || 1;
+  const heatMult = mods.find(m => m.heat_mult)?.heat_mult || 1;
 
-  // Select beats for this run (3 for QUIET, 4 for LOUD; OCTOPUS_BRAIN uses special beats)
+  // LAY LOW: no beats, no squad. Immediate resolution.
+  if (jobCard.type === 'LAY_LOW') {
+   const reward = resolveReward(typeDef, jobCard.district, window.RALife.today().day);
+   return {
+    type: 'run',
+    jobId: jobCard.id,
+    district: jobCard.district,
+    approach: 'LAY_LOW',
+    success: true,
+    escalatedToShowdown: false,
+    escalatedShowdownSetup: null,
+    f01Pending: null,
+    beats: [],
+    cashDelta: reward.cashDelta,
+    heatDelta: reward.heatDelta,
+    supplyDelta: reward.supplyDelta || 0,
+    pressureDelta: reward.pressureDelta || 0,
+    rewardEffects: reward.effects,
+    newStories: {},
+    squadIds: [],
+    carId: null,
+    day: window.RALife.today().day
+   };
+  }
+
+  // Normal run: 3–4 beats
   const beatCount = approach === 'LOUD' ? 4 : 3;
   const beats = selectBeats(jobCard.type, beatCount);
 
@@ -226,10 +335,7 @@
    const option = choice != null ? beat.options[choice.optionIndex] : beat.options[0];
    if (!option) { success = false; break; }
 
-   // Compute odds
    const odds = option.stat ? beatOdds(option.baseOdds, squad, option.stat) : option.baseOdds;
-
-   // Roll (deterministic in tests; live uses Math.random)
    const roll = typeof window._testRoll === 'function'
     ? window._testRoll(beat.id, i)
     : Math.floor(Math.random() * 100) + 1;
@@ -238,33 +344,26 @@
    results.push({ beatId: beat.id, optionLabel: option.label, odds, roll, passed });
 
    if (!passed) {
-    // Beat failure
     if (option.splitSquad) {
-     // Each Oga rolls alone — simplified: 50% chance each
      for (const oga of squad) {
       const ogaRoll = Math.floor(Math.random() * 100) + 1;
       if (ogaRoll > 50) {
-       // Oga at risk
        window.RAWarRoomCrew.setDowned(oga.id, { reason: `beat_fail_${beat.id}` });
       }
      }
     }
-    // Bad beat can escalate to Showdown (Vol 7 §4: "Complications can escalate...")
     if (Math.random() < 0.2 && jobCard.kind !== 'showdown') {
      escalatedToShowdown = true;
-     // F01_INTEGRATION_PENDING: escalation leads to emergency Showdown
      success = false;
      break;
     }
-    heatDelta += Math.round(2 * fraudMult);
+    beatHeatDelta += Math.round(2 * heatMult);
     if (!option.abort) success = false;
     if (option.abort) break;
    } else {
-    // Passed — accumulate results
-    cashDelta += option.cashMod || 0;
-    heatDelta += Math.round((option.heatDelta || 0) * fraudMult);
+    beatCashDelta += option.cashMod || 0;
+    beatHeatDelta += Math.round((option.heatDelta || 0) * heatMult);
 
-    // Story opportunity: first time passing a beat with this stat earns a story
     if (option.stat && squad.length > 0) {
      const heroOga = squad.find(o => o.class === option.stat) || squad[0];
      const storyKey = `beat_${beat.id}`;
@@ -277,18 +376,24 @@
    }
   }
 
-  // Base cash reward for successful run
+  // Authored reward resolution on success (Vol 7 §3.2)
+  const reward = success && !escalatedToShowdown
+   ? resolveReward(typeDef, jobCard.district, window.RALife.today().day)
+   : { cashDelta: 0, heatDelta: 0, supplyDelta: 0, pressureDelta: 0, effects: [] };
+
   if (success && !escalatedToShowdown) {
-   cashDelta += baseReward(jobCard.type, jobCard.district);
-   // Record jobs-together for bond tracking
    for (let a = 0; a < squad.length; a++) {
     for (let b = a + 1; b < squad.length; b++) {
      window.RAWarRoomCrew.recordJobTogether(squad[a].id, squad[b].id);
     }
    }
-   // Vehicle drive count
    if (carId) window.RAVehicles?.recordDrive?.(carId, { by: 1 });
   }
+
+  // Total HEAT: authored job heat + beat heat adjustments
+  const totalHeat = Math.round((reward.heatDelta + beatHeatDelta) * (jobCard.heat_mult || 1));
+  // Total cash: authored reward + beat cash adjustments
+  const totalCash = reward.cashDelta + beatCashDelta;
 
   return {
    type: 'run',
@@ -300,8 +405,11 @@
    escalatedShowdownSetup: escalatedToShowdown ? buildShowdownSetup({ type: jobCard.type, district: jobCard.district }) : null,
    f01Pending: escalatedToShowdown ? 'F01_INTEGRATION_PENDING' : null,
    beats: results,
-   cashDelta,
-   heatDelta,
+   cashDelta: totalCash,
+   heatDelta: totalHeat,
+   supplyDelta: reward.supplyDelta || 0,
+   pressureDelta: reward.pressureDelta || 0,
+   rewardEffects: reward.effects,
    newStories,
    squadIds: squad.map(o => o.id),
    carId,
@@ -310,7 +418,6 @@
  }
 
  function selectBeats(type, count) {
-  // Rotate through the library deterministically based on type hash
   const seed = type.charCodeAt(0) + (type.charCodeAt(1) || 0);
   const out = [];
   for (let i = 0; i < count; i++) {
@@ -330,34 +437,12 @@
   return lines[beatId] || `survived the run`;
  }
 
- function baseReward(type, district) {
-  // Authored base cash by type. SOURCE_REQUIRED: authored numbers not in OPEN; provisional.
-  const base = { DROP: 8000, RE_UP: 6000, COLLECT: 10000, PROTECT: 7000, BAIT: 5000 };
-  const distMult = { koreatown: 1.2, arts_district: 1.5, inglewood: 1.0 };
-  return Math.round((base[type] || 5000) * (distMult[district] || 1));
- }
-
  // ── Night job menu builder ───────────────────────────────────────────────
- // Produces 2–4 job cards for tonight (Vol 7 §3.1).
+ // Vol 7 §3.1: "each in-game night the War Room offers 2–4 JOBS"
  function buildNightMenu() {
-  const activeDistricts = window.RADistricts.list()
-   .filter(d => d.fragment === 'F04' && d.state !== 'CONTROLLED' || d.holder === 'rich');
   const cards = [];
 
-  for (const dist of activeDistricts) {
-   // One run job per controlled/contested district
-   const runType = pickRunType(dist.id);
-   cards.push(buildJobCard({ type: runType, district: dist.id }));
-
-   // Roughly 1-in-4 chance of a Showdown job (Vol 7 §3.3)
-   const day = window.RALife.today().day;
-   const showdownSeed = (day * 7 + dist.id.charCodeAt(0)) % 4;
-   if (showdownSeed === 0) {
-    cards.push(buildJobCard({ type: 'TAKE_THE_BLOCK', district: dist.id }));
-   }
-  }
-
-  // EXTRACT jobs for any CAPTURED Ogas (Vol 7 §5.7: expires in 3 nights)
+  // EXTRACT jobs for any CAPTURED Ogas (high priority)
   const captured = window.RACrew.list({ status: 'CAPTURED', fragment: 'F04' });
   for (const oga of captured) {
    const timer = oga.timers?.extract_window;
@@ -366,43 +451,82 @@
    }
   }
 
-  return cards.slice(0, 4); // max 4 per night
+  // District jobs (RUN or SHOWDOWN)
+  const activeDistricts = window.RADistricts.list()
+   .filter(d => d.fragment === 'F04' && (d.state !== 'CONTROLLED' || d.holder === 'rich'));
+
+  for (const dist of activeDistricts) {
+   if (cards.length >= 3) break; // keep room for LAY LOW within 4 total jobs
+   const day = window.RALife.today().day;
+   const showdownSeed = (day * 7 + dist.id.charCodeAt(0)) % 4;
+   if (showdownSeed === 0) {
+    cards.push(buildJobCard({ type: 'TAKE_THE_BLOCK', district: dist.id }));
+   } else {
+    const runType = pickRunType(dist.id);
+    cards.push(buildJobCard({ type: runType, district: dist.id }));
+   }
+  }
+
+  // LAY LOW is always available as a standing job option (Vol 7 §3.2, §8)
+  cards.push(buildJobCard({ type: 'LAY_LOW', district: null }));
+
+  return cards;
  }
 
  function pickRunType(districtId) {
-  const types = ['DROP', 'RE_UP', 'COLLECT', 'PROTECT'];
+  const types = ['DROP', 'RE_UP', 'COLLECT', 'PROTECT', 'BAIT'];
   const day = window.RALife.today().day;
   return types[(day + districtId.charCodeAt(0)) % types.length];
  }
 
  function extractDistrict(ogaId) {
-  // Look up where the Oga was captured (stored in job log)
   const log = window.RAFrag.read('F04', 'jobs.log', []);
   const entry = [...log].reverse().find(e => e.ogas?.includes(ogaId) && e.result === 'captured');
-  return entry?.district || 'koreatown'; // fallback
+  return entry?.district || 'koreatown';
  }
 
  // ── Apply run resolution to world state ─────────────────────────────────
  function applyRunResult(resolution) {
   if (!resolution) return;
 
-  // Heat
+  // HEAT: authored per-type delta, already computed in resolution.heatDelta
   if (resolution.heatDelta) {
-   window.RAHeat.add(resolution.heatDelta, { district: resolution.district, source: 'war_room:run' });
-   // Also adjust global heat for being seen (Vol 7 §10)
-   window.RAHeat.add(Math.round(resolution.heatDelta * 0.3), { source: 'war_room:run:global' });
+   if (resolution.district) {
+    window.RAHeat.add(resolution.heatDelta, { district: resolution.district, source: `war_room:${resolution.approach}` });
+   }
+   // Global heat contribution (scaled fraction of district heat for visibility)
+   const globalDelta = Math.round(Math.abs(resolution.heatDelta) * 0.3) * Math.sign(resolution.heatDelta);
+   if (globalDelta) {
+    window.RAHeat.add(globalDelta, { source: `war_room:${resolution.approach}:global` });
+   }
   }
 
-  // Cash
-  if (resolution.cashDelta) {
-   if (resolution.cashDelta > 0) {
-    window.RAMoneyLedger.credit(resolution.cashDelta, { source: 'war_room:run' });
-    window.RAState.patch('life.resources.money',
-     (window.RAState.get().life.resources.money || 0) + resolution.cashDelta);
-   } else {
-    window.RAMoneyLedger.debit(-resolution.cashDelta, { source: 'war_room:run' });
-    window.RALife.spend?.(-resolution.cashDelta);
-   }
+  // CASH
+  if (resolution.cashDelta > 0) {
+   window.RAMoneyLedger.credit(resolution.cashDelta, { source: 'war_room:run' });
+  } else if (resolution.cashDelta < 0) {
+   window.RAMoneyLedger.debit(-resolution.cashDelta, { source: 'war_room:run' });
+  }
+
+  // SUPPLY: RE-UP reward (Vol 7 §3.2: "+3–6 SUPPLY")
+  if (resolution.supplyDelta && resolution.supplyDelta > 0) {
+   // Supply is Blood X cases: tracked in frag state
+   const current = window.RAFrag.read('F04', 'supply', 0);
+   window.RAFrag.patch('F04', 'supply', current + resolution.supplyDelta);
+   // Each case sold lowers vampire pressure (Vol 7 §10)
+   window.RAWarRoomHeat?.recordSale?.(resolution.supplyDelta);
+  }
+
+  // STREET REP: PROTECT reward (Vol 7 §3.2: "+STREET REP")
+  if (resolution.rewardEffects?.includes('+STREET REP') && resolution.success) {
+   window.RASocial?.streetClout?.add?.(1);
+  }
+
+  // RIVAL PRESSURE: BAIT reward (Vol 7 §3.2: "Rival Pressure −2")
+  if (resolution.pressureDelta && resolution.district) {
+   const current = window.RAWarRoomDistricts.pressure(resolution.district);
+   const next = Math.max(0, current + resolution.pressureDelta);
+   window.RAFrag.patch('F04', `districts.${resolution.district}.rivalPressure`, next);
   }
 
   // New stories
@@ -413,7 +537,7 @@
   }
 
   // District pressure reset (successfully serviced this district tonight)
-  if (resolution.success) {
+  if (resolution.success && resolution.district) {
    window.RAWarRoomDistricts.resetPressure(resolution.district);
   }
 
@@ -422,24 +546,21 @@
   log.push({
    day: resolution.day,
    jobId: resolution.jobId,
-   type: resolution.type,
+   type: resolution.approach === 'LAY_LOW' ? 'LAY_LOW' : resolution.type,
    district: resolution.district,
    result: resolution.success ? 'success' : 'failed',
    ogas: resolution.squadIds,
    heatDelta: resolution.heatDelta,
    cashDelta: resolution.cashDelta,
+   supplyDelta: resolution.supplyDelta || 0,
+   pressureDelta: resolution.pressureDelta || 0,
    newStories: Object.keys(resolution.newStories || {}).length
   });
   if (log.length > 50) log.shift();
   window.RAFrag.patch('F04', 'jobs.log', log);
-
-  // VampGram: notable runs may generate a report card post (handled by report_card.js)
  }
 
  // ── HAND BACK ────────────────────────────────────────────────────────────
- // Vol 7 §9: Rich goes to December and HAND BACK THE BLOCKS.
- // One final SHOWDOWN job; after it the route closes.
- // Rich keeps money, cars, stories and surviving Ogas.
  function initiateHandBack() {
   if (!window.RAFeatures.enabled('F04.war_room')) return { ok: false, reason: 'flag-off' };
   const offer = window.RAFrag.read('F04', 'offer', {});
@@ -450,7 +571,6 @@
   const day = window.RALife.today().day;
   window.RAFrag.patch('F04', 'handBack', { pending: true, startedOnDay: day, resolved: false });
 
-  // Build the hand-back Showdown job card
   const handBackJob = buildJobCard({ type: 'TAKE_THE_BLOCK', district: 'koreatown' });
   handBackJob.id = `hand_back_${day}`;
   handBackJob.isHandBack = true;
@@ -464,13 +584,9 @@
  }
 
  function resolveHandBack({ outcome } = {}) {
-  // Called after the hand-back Showdown resolves (or after F01 integration).
   window.RAFrag.patch('F04', 'handBack', { pending: false, resolved: true });
   window.RAFrag.patch('F04', 'offer.status', 'closed_fame');
   window.RAFrag.patch('F04', 'active', false);
-  // Rich keeps his money, cars, stories and surviving Ogas — nothing is reset.
-  // Heat decays normally (Vol 7 §9).
-  // What December says is sealed (Vol 7 §9).
  }
 
  // Expose the jobs framework.
@@ -482,10 +598,10 @@
   buildNightMenu,
   executeRun,
   applyRunResult,
+  resolveReward,
   initiateHandBack,
   resolveHandBack,
-  // For test access
   _beatLibrary: BEAT_LIBRARY,
-  _baseReward: baseReward
+  _rollRange: rollRange
  });
 })();

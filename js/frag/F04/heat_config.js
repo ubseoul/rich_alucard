@@ -1,19 +1,35 @@
 (function(){
  'use strict';
  // F04 — PLAYMAKERS WAR ROOM — heat_config.js
- // Configures RAHeat with Vol 7 authored context and registers the vampire pressure connection.
+ // Configures RAHeat with the authored Vol 7 §8 HEAT tier floors and registers the
+ // vampire pressure connection (Vol 7 §10).
  //
- // SOURCE_REQUIRED NOTE (from RAHeat source code and IF-1 spine §4F):
- // "Vol 7 numeric tier floors are not in the OPEN repository."
- // The floors shipped by RAHeat are provisional engineering placeholders.
- // THIS FILE does NOT override them — that requires authored numbers from the owner.
- // We call configure() only to mark provisional=false AFTER the owner supplies canonical floors.
- // Until then, provisional remains true and no canonical floors are touched.
+ // HEAT FLOORS — AUTHORED, Vol 7 §8:
+ //   COOL:    0–29
+ //   WARM:   30–59
+ //   HOT:    60–84
+ //   ON FIRE: 85+
+ //
+ // RAHeat.configure() is the authorized mechanism (IF-1 §4F) for a fragment to supply
+ // the authored numbers. The IF-1 core default floors are provisional engineering
+ // placeholders; this call replaces them at F04 load time without modifying frozen
+ // owner surfaces. No IF-1 source file is edited.
  //
  // SOURCE: Vol 7 §10 — "every case of Blood X sold lowers city vampire pressure slightly
  // (vampires hunt less) while HEAT rises — two meters pulling opposite directions."
 
  if (!window.RAFeatures?.get('F04.war_room')) return;
+
+ // ── Apply authored HEAT tier floors (Vol 7 §8) ──────────────────────────
+ window.RAHeat.configure({
+  floors: {
+   COOL:      0,
+   WARM:     30,
+   HOT:      60,
+   'ON FIRE': 85
+  },
+  provisional: false
+ });
 
  // Register a heat tier-change listener for War Room effects.
  window.RAHeat.onTierChange(event => {
@@ -39,13 +55,15 @@
  function recordSale(casesCount = 1) {
   if (!window.RAFeatures.enabled('F04.war_room')) return;
   const current = window.RAFrag.read('F04', VP_PATH, 50); // starts at 50 (midpoint)
-  const next = Math.max(0, current - casesCount * 2); // provisional; authored delta SOURCE_REQUIRED
+  const next = Math.max(0, current - casesCount * 2);
   window.RAFrag.patch('F04', VP_PATH, next);
  }
 
  window.RAWarRoomHeat = Object.freeze({
   recordSale,
   vampirePressure: () => window.RAFrag.read('F04', VP_PATH, 50),
+  // Authored floor constants exposed for tests and UI.
+  AUTHORED_FLOORS: Object.freeze({ COOL: 0, WARM: 30, HOT: 60, 'ON FIRE': 85 }),
   // Expose for testing / UI
   snapshot: () => ({
    heat: window.RAHeat.snapshot(),

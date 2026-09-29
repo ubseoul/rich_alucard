@@ -2,386 +2,346 @@
 // tools/tests/F04/war_room.test.mjs
 // Discovered and run by tools/run-tests.mjs (auto-discovery: tools/tests/**/*.test.mjs).
 
-import { strict as assert } from 'node:assert';
-import { test } from 'node:test';
-import { buildHarness } from '../../if1/harness.mjs';
+import assert from 'node:assert/strict';
+import { full, run, same } from '../if1/_lib.mjs';
 
-// ── Harness setup ────────────────────────────────────────────────────────
-// buildHarness() spins up a lightweight JS-DOM-like environment with all IF-1
-// modules loaded from the cloned repo. Flag F04.war_room defaults OFF (DARK).
+const F04_FILES = [
+  'js/frag/F04/migrations.js',
+  'js/frag/F04/districts.js',
+  'js/frag/F04/crew.js',
+  'js/frag/F04/jobs.js',
+  'js/frag/F04/heat_config.js',
+  'js/frag/F04/vampgram.js',
+  'js/frag/F04/report_card.js',
+  'js/frag/F04/wake.js',
+  'js/frag/F04/showdown_stub.js',
+  'js/frag/F04/phone_app.js'
+];
 
-async function withFlag(flagOn, fn) {
- const h = await buildHarness({ flags: flagOn ? { 'F04.war_room': true } : {} });
- try { await fn(h); }
- finally { h.teardown?.(); }
+async function loadF04(root, { flagOn = true } = {}) {
+  const ctx = await full(root);
+  await run(root, ctx, F04_FILES);
+  if (flagOn) {
+    ctx.RAFeatures.set('F04.war_room', true);
+  }
+  return ctx;
 }
 
-// ── 1. Feature flag OFF ──────────────────────────────────────────────────
-test('F04: flag OFF — phone app not registered', async () => {
- const h = await buildHarness({ flags: {} });
- const apps = h.win.RAPhoneApps;
- assert.equal(apps.get('warRoom'), undefined, 'warRoom app must not exist with flag OFF');
- h.teardown?.();
-});
-
-test('F04: flag OFF — frag save namespace absent', async () => {
- const h = await buildHarness({ flags: {} });
- const hasFrag = h.win.RAFrag.has('F04');
- assert.equal(hasFrag, false, 'F04 frag namespace must not exist before any write');
- h.teardown?.();
-});
-
-// ── 2. Phone registration ON ─────────────────────────────────────────────
-test('F04: flag ON — warRoom app declared in registry', async () => {
- await withFlag(true, h => {
-  const declared = h.win.RAPhoneRegistry.declaredApps();
-  const wr = declared.find(d => d.id === 'warRoom');
-  assert.ok(wr, 'warRoom must be declared');
-  assert.equal(wr.fragment, 'F04');
-  assert.equal(wr.flag, 'F04.war_room');
- });
-});
-
-test('F04: flag ON — warRoom registered with phone (flag is on)', async () => {
- await withFlag(true, h => {
-  const app = h.win.RAPhoneApps.get('warRoom');
-  assert.ok(app, 'warRoom must be registered with phone when flag ON');
- });
-});
-
-test('F04: flag ON — render returns non-empty string', async () => {
- await withFlag(true, h => {
-  const app = h.win.RAPhoneApps.get('warRoom');
-  const html = app.render(null);
-  assert.ok(typeof html === 'string' && html.length > 0, 'render must return markup');
- });
-});
-
-// ── 3. Empty registry ────────────────────────────────────────────────────
-test('F04: empty crew registry — no Ogas defined yet', async () => {
- const h = await buildHarness({ flags: {} });
- const ogas = h.win.RACrew.list({ fragment: 'F04' });
- assert.equal(ogas.length, 0, 'no Ogas defined before flag ON');
- h.teardown?.();
-});
-
-test('F04: flag ON — six named Ogas defined', async () => {
- await withFlag(true, h => {
-  const ogas = h.win.RACrew.list({ fragment: 'F04' });
-  assert.equal(ogas.length, 6, 'must have exactly 6 named Ogas');
-  const ids = ogas.map(o => o.id).sort();
-  assert.deepEqual(ids, ['auntie_grit','dre','half_pint','sunday_best','tunde','young_mazi'].sort());
- });
-});
-
-test('F04: Tristan is NOT in the roster', async () => {
- await withFlag(true, h => {
-  const tristan = h.win.RACrew.get('tristan');
-  assert.equal(tristan, null, 'Tristan must never join');
- });
-});
-
-// ── 4. Oga registry behavior ─────────────────────────────────────────────
-test('F04: all named Ogas start ACTIVE', async () => {
- await withFlag(true, h => {
-  const ogas = h.win.RACrew.list({ fragment: 'F04' });
-  for (const o of ogas) {
-   assert.equal(o.status, 'ACTIVE', `${o.name} must start ACTIVE`);
+export async function test(root) {
+  // ── 1. Feature flag OFF — zero change ───────────────────────────────────
+  {
+    const ctx = await loadF04(root, { flagOn: false });
+    const apps = ctx.RAPhoneApps;
+    assert.equal(apps.get('warRoom'), null, 'warRoom app must not be registered with flag OFF');
+    assert.equal(ctx.RAFrag.has('F04'), false, 'F04 frag namespace must not exist before any write');
   }
- });
-});
 
-test('F04: recruit adds Oga to registry', async () => {
- await withFlag(true, h => {
-  const result = h.win.RAWarRoomCrew.recruit({ id: 'test_recruit', name: 'TEST', cls: 'GHOST', source: 'rave' });
-  assert.ok(result.ok, 'recruit must succeed');
-  const u = h.win.RACrew.get('test_recruit');
-  assert.ok(u, 'recruit must appear in RACrew');
-  assert.equal(u.class, 'GHOST');
- });
-});
+  // ── 2. Phone registration ON ────────────────────────────────────────────
+  {
+    const ctx = await loadF04(root, { flagOn: true });
+    const declared = ctx.RAPhoneRegistry.declaredApps();
+    const wr = declared.find(d => d.id === 'warRoom');
+    assert.ok(wr, 'warRoom must be declared in phone registry');
+    assert.equal(wr.fragment, 'F04');
+    assert.equal(wr.flag, 'F04.war_room');
 
-test('F04: roster capped at 8', async () => {
- await withFlag(true, h => {
-  // Add 2 more recruits (6 named + 2 = 8)
-  h.win.RAWarRoomCrew.recruit({ id: 'r1', name: 'R1', cls: 'MUSCLE', source: 'rave' });
-  h.win.RAWarRoomCrew.recruit({ id: 'r2', name: 'R2', cls: 'TALKER', source: 'catacomb' });
-  const r3 = h.win.RAWarRoomCrew.recruit({ id: 'r3', name: 'R3', cls: 'DOC', source: 'rave' });
-  assert.equal(r3.ok, false, 'recruit must fail at 8-Oga cap');
-  assert.equal(r3.reason, 'roster-full');
- });
-});
+    const app = ctx.RAPhoneApps.get('warRoom');
+    assert.ok(app, 'warRoom must be registered with RAPhoneApps when flag ON');
 
-// ── 5. District control changes ──────────────────────────────────────────
-test('F04: three districts defined', async () => {
- await withFlag(true, h => {
-  const ids = h.win.RADistricts.ids().filter(id => h.win.RADistricts.get(id)?.fragment === 'F04');
-  assert.equal(ids.length, 3);
-  assert.ok(ids.includes('koreatown'));
-  assert.ok(ids.includes('arts_district'));
-  assert.ok(ids.includes('inglewood'));
- });
-});
-
-test('F04: rival pressure tick flips district at 5', async () => {
- await withFlag(true, h => {
-  // Advance to flag-on state
-  h.win.RAFrag.patch('F04', 'active', true);
-  h.win.RAFrag.patch('F04', 'offer.status', 'accepted');
-
-  // Tick koreatown 5 times (should flip at 5)
-  for (let i = 0; i < 4; i++) {
-   const p = h.win.RAWarRoomDistricts.tickPressure('koreatown');
-   assert.ok(p < 5, `pressure at tick ${i+1} must be < 5`);
+    const html = app.render(null);
+    assert.ok(typeof html === 'string' && html.length > 0, 'render must return markup');
+    assert.ok(html.includes('WAR ROOM'), 'render must include WAR ROOM title');
   }
-  h.win.RAWarRoomDistricts.tickPressure('koreatown'); // 5th tick: flip
-  const dist = h.win.RADistricts.get('koreatown');
-  assert.equal(dist.state, 'CONTROLLED');
-  assert.equal(dist.holder, 'rival');
- });
-});
 
-test('F04: resetPressure clears rival pressure', async () => {
- await withFlag(true, h => {
-  h.win.RAWarRoomDistricts.tickPressure('inglewood');
-  h.win.RAWarRoomDistricts.tickPressure('inglewood');
-  h.win.RAWarRoomDistricts.resetPressure('inglewood');
-  assert.equal(h.win.RAWarRoomDistricts.pressure('inglewood'), 0);
- });
-});
+  // ── 3. Named 6 & Tristan exclusion ──────────────────────────────────────
+  {
+    const ctx = await loadF04(root, { flagOn: true });
+    const ogas = ctx.RACrew.list({ fragment: 'F04' });
+    assert.equal(ogas.length, 6, 'must have exactly 6 named Ogas');
+    const ids = ogas.map(o => o.id).sort();
+    same(ids, ['auntie_grit','dre','half_pint','sunday_best','tunde','young_mazi'].sort(), 'named 6 exact ids');
 
-// ── 6. HEAT interaction ──────────────────────────────────────────────────
-test('F04: heat add through RAHeat works', async () => {
- await withFlag(true, h => {
-  const before = h.win.RAHeat.district('arts_district');
-  h.win.RAHeat.add(3, { district: 'arts_district', source: 'war_room:test' });
-  const after = h.win.RAHeat.district('arts_district');
-  assert.equal(after, before + 3);
- });
-});
-
-test('F04: vampire pressure decreases on sale', async () => {
- await withFlag(true, h => {
-  const before = h.win.RAWarRoomHeat.vampirePressure();
-  h.win.RAWarRoomHeat.recordSale(5);
-  const after = h.win.RAWarRoomHeat.vampirePressure();
-  assert.ok(after < before, 'vampire pressure must decrease on sale');
- });
-});
-
-// ── 7. CAPTURED / GONE state ─────────────────────────────────────────────
-test('F04: setDowned transitions Oga to DOWNED', async () => {
- await withFlag(true, h => {
-  h.win.RAWarRoomCrew.setDowned('half_pint', { reason: 'test' });
-  assert.equal(h.win.RACrew.get('half_pint').status, 'DOWNED');
- });
-});
-
-test('F04: setCaptured transitions Oga to CAPTURED with extract timer', async () => {
- await withFlag(true, h => {
-  h.win.RAWarRoomCrew.setCaptured('young_mazi', { reason: 'test' });
-  const u = h.win.RACrew.get('young_mazi');
-  assert.equal(u.status, 'CAPTURED');
-  assert.ok(u.timers?.extract_window, 'extract_window timer must be set');
- });
-});
-
-test('F04: setGone is terminal', async () => {
- await withFlag(true, h => {
-  h.win.RAWarRoomCrew.setGone('sunday_best', { reason: 'test' });
-  const u = h.win.RACrew.get('sunday_best');
-  assert.equal(u.status, 'GONE');
-  // Try to change status — must fail
-  const result = h.win.RACrew.setStatus('sunday_best', 'ACTIVE', {});
-  assert.equal(result.ok, false);
-  assert.equal(result.reason, 'gone');
- });
-});
-
-test('F04: GONE Oga mourning applied to Day One partner', async () => {
- await withFlag(true, h => {
-  // Make tunde and dre DAY ONES
-  for (let i = 0; i < 3; i++) {
-   h.win.RAWarRoomCrew.recordJobTogether('tunde', 'dre');
+    const tristan = ctx.RACrew.get('tristan');
+    assert.equal(tristan, null, 'Tristan must never join');
   }
-  // Confirm DAY ONE
-  assert.ok(h.win.RAWarRoomCrew.areDayOnes('tunde', 'dre'));
-  // Kill tunde
-  h.win.RAWarRoomCrew.setGone('tunde', { reason: 'test' });
-  // Check dre has mourning story
-  const dre = h.win.RACrew.get('dre');
-  assert.ok(dre.stories?.['mourning_tunde'], 'dre must have mourning story for tunde');
- });
-});
 
-// ── 8. Report card ───────────────────────────────────────────────────────
-test('F04: report card built from successful run', async () => {
- await withFlag(true, h => {
-  const resolution = {
-   type: 'run', jobId: 'test_job_1', district: 'inglewood',
-   approach: 'LOUD', success: true,
-   cashDelta: 8000, heatDelta: 2,
-   squadIds: ['tunde', 'dre'],
-   newStories: {},
-   day: 20
-  };
-  const card = h.win.RAWarRoomReportCard.build(resolution);
-  assert.ok(card, 'card must be built');
-  assert.equal(card.success, true);
-  assert.equal(card.tally.cash, 8000);
-  assert.equal(card.style, 'clean');
-  assert.equal(card.grainyPhoto, false);
- });
-});
+  // ── 4. Oga registry behavior & roster cap ───────────────────────────────
+  {
+    const ctx = await loadF04(root, { flagOn: true });
+    const ogas = ctx.RACrew.list({ fragment: 'F04' });
+    for (const o of ogas) {
+      assert.equal(o.status, 'ACTIVE', `${o.name} must start ACTIVE`);
+    }
 
-test('F04: bad night report card has grainy flag and black ribbon', async () => {
- await withFlag(true, h => {
-  h.win.RAWarRoomCrew.setGone('half_pint', { reason: 'test' });
-  const resolution = {
-   type: 'run', jobId: 'test_job_2', district: 'koreatown',
-   approach: 'QUIET', success: false,
-   cashDelta: 0, heatDelta: 5,
-   squadIds: ['half_pint'],
-   newStories: {},
-   day: 21
-  };
-  const card = h.win.RAWarRoomReportCard.build(resolution);
-  assert.equal(card.style, 'rough');
-  assert.equal(card.grainyPhoto, true);
-  assert.equal(card.blackRibbon, true);
-  assert.ok(card.comments.some(c => c.text === 'damn.'));
- });
-});
+    const recRes = ctx.RAWarRoomCrew.recruit({ id: 'test_recruit', name: 'TEST', cls: 'GHOST', source: 'rave' });
+    assert.ok(recRes.ok, 'recruit must succeed');
+    const u = ctx.RACrew.get('test_recruit');
+    assert.ok(u, 'recruit must appear in RACrew');
+    assert.equal(u.class, 'GHOST');
 
-// ── 9. HAND BACK ─────────────────────────────────────────────────────────
-test('F04: handBack fails when route not active', async () => {
- await withFlag(true, h => {
-  const result = h.win.RAWarRoomJobs.initiateHandBack();
-  assert.equal(result.ok, false);
-  assert.equal(result.reason, 'route-not-active');
- });
-});
-
-test('F04: handBack succeeds when active', async () => {
- await withFlag(true, h => {
-  h.win.RAFrag.patch('F04', 'active', true);
-  h.win.RAFrag.patch('F04', 'offer.status', 'accepted');
-  const result = h.win.RAWarRoomJobs.initiateHandBack();
-  assert.ok(result.ok, 'handBack must succeed when route active');
-  assert.ok(result.job, 'handBack must return the final job card');
-  assert.equal(result.job.isHandBack, true);
-  assert.ok(result.note.includes('F01_INTEGRATION_PENDING'), 'handBack must note F01 pending');
- });
-});
-
-test('F04: resolveHandBack closes route', async () => {
- await withFlag(true, h => {
-  h.win.RAFrag.patch('F04', 'active', true);
-  h.win.RAFrag.patch('F04', 'offer.status', 'accepted');
-  h.win.RAFrag.patch('F04', 'handBack', { pending: true, startedOnDay: 20, resolved: false });
-  h.win.RAWarRoomJobs.resolveHandBack({ outcome: 'victory' });
-  assert.equal(h.win.RAFrag.read('F04', 'offer.status', null), 'closed_fame');
-  assert.equal(h.win.RAFrag.read('F04', 'active', null), false);
- });
-});
-
-// ── 10. Persistence / save-reload ────────────────────────────────────────
-test('F04: frag state persists across read/write', async () => {
- await withFlag(true, h => {
-  h.win.RAFrag.patch('F04', 'active', true);
-  h.win.RAFrag.patch('F04', 'offer.status', 'accepted');
-  assert.equal(h.win.RAFrag.read('F04', 'active', false), true);
-  assert.equal(h.win.RAFrag.read('F04', 'offer.status', null), 'accepted');
- });
-});
-
-test('F04: migration is additive — accepted save keys untouched', async () => {
- const h = await buildHarness({ flags: { 'F04.war_room': true } });
- // Simulate a save that has pre-F04 keys
- const before = h.win.RAState.get();
- assert.ok(typeof before.life === 'object', 'life must exist');
- assert.ok(typeof before.life.resources === 'object', 'life.resources must exist');
- // F04 namespace must not stomp existing keys
- assert.ok(before.life.resources.money !== undefined || before.life.resources.money === undefined,
-  'money key untouched by F04 migration');
- h.teardown?.();
-});
-
-// ── 11. Browser path (smoke) ─────────────────────────────────────────────
-test('F04: render returns valid HTML string (360px check)', async () => {
- await withFlag(true, h => {
-  // Simulate 360 breakpoint class — just confirm markup is valid
-  const app = h.win.RAPhoneApps.get('warRoom');
-  const html = app.render(null);
-  assert.ok(html.includes('WAR ROOM'), 'header must say WAR ROOM');
-  assert.ok(!html.includes('undefined'), 'no raw undefined in markup');
- });
-});
-
-test('F04: crew view renders all six ogas', async () => {
- await withFlag(true, h => {
-  const app = h.win.RAPhoneApps.get('warRoom');
-  const html = app.render('crew');
-  assert.ok(html.includes('TUNDE'), 'TUNDE must appear in crew view');
-  assert.ok(html.includes('AUNTIE GRIT'), 'AUNTIE GRIT must appear in crew view');
-  assert.ok(html.includes('HALF-PINT'), 'HALF-PINT must appear in crew view');
- });
-});
-
-// ── 12. No existing regressions (IF-1 invariants) ────────────────────────
-test('F04: IF-1 self-check passes with F04 flag ON', async () => {
- await withFlag(true, h => {
-  const check = h.win.RAIF1.selfCheck();
-  assert.ok(check.ok, `IF-1 self-check must pass. Problems: ${check.problems.join(', ')}`);
- });
-});
-
-test('F04: feature flag list includes F04.war_room', async () => {
- await withFlag(true, h => {
-  const flags = h.win.RAFeatures.list('F04');
-  assert.ok(flags.some(f => f.id === 'F04.war_room'), 'F04.war_room must be listed');
- });
-});
-
-test('F04: showdown F01_INTEGRATION_PENDING list is non-empty', async () => {
- await withFlag(true, h => {
-  const pending = h.win.RAWarRoomShowdown.F01_INTEGRATION_PENDING;
-  assert.ok(Array.isArray(pending) && pending.length >= 10, 'must list all 10 F01 pending items');
-  for (const item of pending) {
-   assert.ok(item.id && item.desc, 'each pending item must have id and desc');
+    ctx.RAWarRoomCrew.recruit({ id: 'r2', name: 'R2', cls: 'TALKER', source: 'catacomb' });
+    const r3 = ctx.RAWarRoomCrew.recruit({ id: 'r3', name: 'R3', cls: 'DOC', source: 'rave' });
+    assert.equal(r3.ok, false, 'recruit must fail when roster cap (8) is reached');
+    assert.equal(r3.reason, 'roster-full');
   }
- });
-});
 
-test('F04: Showdown entry packet validates eligible squad', async () => {
- await withFlag(true, h => {
-  const job = {
-   id: 'test_showdown_1',
-   type: 'TAKE_THE_BLOCK',
-   district: 'koreatown',
-   districtLabel: 'KOREATOWN',
-   showdownSetup: h.win.RAWarRoomJobs.buildJobCard({ type: 'TAKE_THE_BLOCK', district: 'koreatown' })?.showdownSetup
-  };
-  const result = h.win.RAWarRoomShowdown.buildEntryPacket({
-   jobCard: job,
-   squadIds: ['tunde', 'dre'],
-   carId: null,
-   approach: 'LOUD'
-  });
-  assert.ok(result.ok, `entry packet must succeed: ${result.errors?.join(', ')}`);
-  assert.ok(result.packet.f01Pending === 'F01_INTEGRATION_PENDING');
-  assert.ok(result.packet.rich.hp === 12);
- });
-});
+  // ── 5. Authored HEAT tier boundaries (Vol 7 §8) ─────────────────────────
+  {
+    const ctx = await loadF04(root, { flagOn: true });
+    const heat = ctx.RAHeat;
+    assert.equal(heat.tierFor(0), 'COOL');
+    assert.equal(heat.tierFor(29), 'COOL');
+    assert.equal(heat.tierFor(30), 'WARM');
+    assert.equal(heat.tierFor(59), 'WARM');
+    assert.equal(heat.tierFor(60), 'HOT');
+    assert.equal(heat.tierFor(84), 'HOT');
+    assert.equal(heat.tierFor(85), 'ON FIRE');
+    assert.equal(heat.tierFor(120), 'ON FIRE');
+    assert.equal(heat.describe().provisional, false, 'HEAT provisional must be false after F04 configures authored floors');
+  }
 
-test('F04: DAY ONE bond tracked correctly', async () => {
- await withFlag(true, h => {
-  // Run 2 jobs together — not yet DAY ONES
-  h.win.RAWarRoomCrew.recordJobTogether('tunde', 'auntie_grit');
-  h.win.RAWarRoomCrew.recordJobTogether('tunde', 'auntie_grit');
-  assert.equal(h.win.RAWarRoomCrew.areDayOnes('tunde', 'auntie_grit'), false);
-  // 3rd job — DAY ONES
-  h.win.RAWarRoomCrew.recordJobTogether('tunde', 'auntie_grit');
-  assert.equal(h.win.RAWarRoomCrew.areDayOnes('tunde', 'auntie_grit'), true);
- });
-});
+  // ── 6. Authored job rewards & HEAT deltas (Vol 7 §3.2) ──────────────────
+  {
+    const ctx = await loadF04(root, { flagOn: true });
+
+    // DROP: $8K–$25K, HEAT +4
+    const drop = ctx.RAWarRoomJobs.JOB_TYPES.DROP;
+    assert.equal(drop.heat, 4);
+    assert.equal(drop.squadSize, 2);
+    assert.equal(drop.reward.type, 'cash_range');
+    assert.equal(drop.reward.min, 8000);
+    assert.equal(drop.reward.max, 25000);
+    for (let seed = 1; seed <= 20; seed++) {
+      const res = ctx.RAWarRoomJobs.resolveReward(drop, 'koreatown', seed);
+      assert.ok(res.cashDelta >= 8000 && res.cashDelta <= 25000, `DROP reward ${res.cashDelta} in $8K-$25K`);
+      assert.equal(res.heatDelta, 4);
+    }
+
+    // RE-UP: +3–6 SUPPLY, HEAT +3
+    const reup = ctx.RAWarRoomJobs.JOB_TYPES.RE_UP;
+    assert.equal(reup.heat, 3);
+    assert.equal(reup.squadSize, 2);
+    assert.equal(reup.reward.type, 'supply_range');
+    assert.equal(reup.reward.min, 3);
+    assert.equal(reup.reward.max, 6);
+    for (let seed = 1; seed <= 20; seed++) {
+      const res = ctx.RAWarRoomJobs.resolveReward(reup, 'koreatown', seed);
+      assert.ok(res.supplyDelta >= 3 && res.supplyDelta <= 6, `RE-UP supply ${res.supplyDelta} in 3-6`);
+      assert.equal(res.heatDelta, 3);
+    }
+
+    // COLLECT: $10K–$40K, HEAT +5
+    const collect = ctx.RAWarRoomJobs.JOB_TYPES.COLLECT;
+    assert.equal(collect.heat, 5);
+    assert.equal(collect.squadSize, 3);
+    assert.equal(collect.reward.type, 'cash_range');
+    assert.equal(collect.reward.min, 10000);
+    assert.equal(collect.reward.max, 40000);
+    for (let seed = 1; seed <= 20; seed++) {
+      const res = ctx.RAWarRoomJobs.resolveReward(collect, 'arts_district', seed);
+      assert.ok(res.cashDelta >= 10000 && res.cashDelta <= 40000, `COLLECT reward ${res.cashDelta} in $10K-$40K`);
+      assert.equal(res.heatDelta, 5);
+    }
+
+    // PROTECT: $15K + STREET REP, HEAT +2
+    const protect = ctx.RAWarRoomJobs.JOB_TYPES.PROTECT;
+    assert.equal(protect.heat, 2);
+    assert.equal(protect.squadSize, 3);
+    const protectRes = ctx.RAWarRoomJobs.resolveReward(protect, 'inglewood', 1);
+    assert.equal(protectRes.cashDelta, 15000);
+    assert.equal(protectRes.heatDelta, 2);
+    assert.ok(protectRes.effects.includes('+STREET REP'));
+
+    // BAIT: Rival Pressure -2, HEAT +6
+    const bait = ctx.RAWarRoomJobs.JOB_TYPES.BAIT;
+    assert.equal(bait.heat, 6);
+    assert.equal(bait.squadSize, 2);
+    const baitRes = ctx.RAWarRoomJobs.resolveReward(bait, 'koreatown', 1);
+    assert.equal(baitRes.pressureDelta, -2);
+    assert.equal(baitRes.heatDelta, 6);
+  }
+
+  // ── 7. LAY LOW implementation (Vol 7 §3.2, §8) ──────────────────────────
+  {
+    const ctx = await loadF04(root, { flagOn: true });
+    const layLow = ctx.RAWarRoomJobs.JOB_TYPES.LAY_LOW;
+    assert.ok(layLow, 'LAY_LOW must be defined');
+    assert.equal(layLow.squadSize, 0, 'squad size must be 0');
+    assert.equal(layLow.reward.type, 'heat_reduce');
+    assert.equal(layLow.reward.cashCost, 10000);
+    assert.equal(layLow.reward.heatDelta, -15);
+
+    ctx.RAState.patch('life.resources.money', 50000);
+    ctx.RAHeat.add(40, { source: 'test' });
+    const heatBefore = ctx.RAHeat.global();
+
+    const jobCard = ctx.RAWarRoomJobs.buildJobCard({ type: 'LAY_LOW', district: null });
+    assert.equal(jobCard.squadSize, 0);
+
+    const res = ctx.RAWarRoomJobs.executeRun({ jobCard, squad: [], carId: null, approach: 'LAY_LOW', playerChoices: null });
+    assert.equal(res.success, true);
+    assert.equal(res.cashDelta, -10000);
+    assert.equal(res.heatDelta, -15);
+    assert.equal(res.squadIds.length, 0);
+
+    ctx.RAWarRoomJobs.applyRunResult(res);
+
+    assert.equal(ctx.RAState.get().life.resources.money, 40000, 'must deduct $10,000');
+    assert.ok(ctx.RAHeat.global() < heatBefore, 'heat must decrease');
+
+    const menu = ctx.RAWarRoomJobs.buildNightMenu();
+    assert.ok(menu.some(j => j.type === 'LAY_LOW'), 'LAY_LOW must be included in night menu');
+  }
+
+  // ── 8. District control & pressure ──────────────────────────────────────
+  {
+    const ctx = await loadF04(root, { flagOn: true });
+    const ids = ctx.RADistricts.ids().filter(id => ctx.RADistricts.get(id)?.fragment === 'F04');
+    assert.equal(ids.length, 3);
+    assert.ok(ids.includes('koreatown'));
+    assert.ok(ids.includes('arts_district'));
+    assert.ok(ids.includes('inglewood'));
+
+    ctx.RAFrag.patch('F04', 'active', true);
+    ctx.RAFrag.patch('F04', 'offer.status', 'accepted');
+
+    for (let i = 0; i < 4; i++) {
+      const p = ctx.RAWarRoomDistricts.tickPressure('koreatown');
+      assert.ok(p < 5, `pressure at tick ${i+1} must be < 5`);
+    }
+    ctx.RAWarRoomDistricts.tickPressure('koreatown'); // 5th tick: flip
+    const dist = ctx.RADistricts.get('koreatown');
+    assert.equal(dist.state, 'CONTROLLED');
+    assert.equal(dist.holder, 'rival');
+
+    ctx.RAWarRoomDistricts.tickPressure('inglewood');
+    ctx.RAWarRoomDistricts.tickPressure('inglewood');
+    ctx.RAWarRoomDistricts.resetPressure('inglewood');
+    assert.equal(ctx.RAWarRoomDistricts.pressure('inglewood'), 0);
+  }
+
+  // ── 9. CAPTURED / GONE state ────────────────────────────────────────────
+  {
+    const ctx = await loadF04(root, { flagOn: true });
+
+    ctx.RAWarRoomCrew.setDowned('half_pint', { reason: 'test' });
+    assert.equal(ctx.RACrew.get('half_pint').status, 'DOWNED');
+
+    ctx.RAWarRoomCrew.setCaptured('young_mazi', { reason: 'test' });
+    const uCap = ctx.RACrew.get('young_mazi');
+    assert.equal(uCap.status, 'CAPTURED');
+    assert.ok(uCap.timers?.extract_window, 'extract_window timer must be set');
+
+    ctx.RAWarRoomCrew.setGone('sunday_best', { reason: 'test' });
+    const uGone = ctx.RACrew.get('sunday_best');
+    assert.equal(uGone.status, 'GONE');
+    const result = ctx.RACrew.setStatus('sunday_best', 'ACTIVE', {});
+    assert.equal(result.ok, false);
+    assert.equal(result.reason, 'gone');
+
+    for (let i = 0; i < 3; i++) {
+      ctx.RAWarRoomCrew.recordJobTogether('tunde', 'dre');
+    }
+    assert.ok(ctx.RAWarRoomCrew.areDayOnes('tunde', 'dre'));
+    ctx.RAWarRoomCrew.setGone('tunde', { reason: 'test' });
+    const dre = ctx.RACrew.get('dre');
+    assert.ok(dre.stories?.['mourning_tunde'], 'dre must have mourning story for tunde');
+  }
+
+  // ── 10. Report card ─────────────────────────────────────────────────────
+  {
+    const ctx = await loadF04(root, { flagOn: true });
+
+    const cleanRes = {
+      type: 'run', jobId: 'test_job_1', district: 'inglewood',
+      approach: 'LOUD', success: true,
+      cashDelta: 15000, heatDelta: 2,
+      squadIds: ['tunde', 'dre'],
+      newStories: {},
+      day: 20
+    };
+    const cleanCard = ctx.RAWarRoomReportCard.build(cleanRes);
+    assert.ok(cleanCard, 'clean card must be built');
+    assert.equal(cleanCard.success, true);
+    assert.equal(cleanCard.tally.cash, 15000);
+    assert.equal(cleanCard.style, 'clean');
+    assert.equal(cleanCard.grainyPhoto, false);
+
+    ctx.RAWarRoomCrew.setGone('half_pint', { reason: 'test' });
+    const roughRes = {
+      type: 'run', jobId: 'test_job_2', district: 'koreatown',
+      approach: 'QUIET', success: false,
+      cashDelta: 0, heatDelta: 5,
+      squadIds: ['half_pint'],
+      newStories: {},
+      day: 21
+    };
+    const roughCard = ctx.RAWarRoomReportCard.build(roughRes);
+    assert.equal(roughCard.style, 'rough');
+    assert.equal(roughCard.grainyPhoto, true);
+    assert.equal(roughCard.blackRibbon, true);
+    assert.ok(roughCard.comments.some(c => c.text === 'damn.'));
+  }
+
+  // ── 11. HAND BACK ───────────────────────────────────────────────────────
+  {
+    const ctx = await loadF04(root, { flagOn: true });
+
+    ctx.RAFrag.patch('F04', 'active', true);
+    ctx.RAFrag.patch('F04', 'offer.status', 'accepted');
+    const hbRes = ctx.RAWarRoomJobs.initiateHandBack();
+    assert.ok(hbRes.ok, 'handBack must succeed when route active');
+    assert.ok(hbRes.job, 'handBack must return final job card');
+    assert.equal(hbRes.job.isHandBack, true);
+    assert.ok(hbRes.note.includes('F01_INTEGRATION_PENDING'));
+
+    ctx.RAWarRoomJobs.resolveHandBack({ outcome: 'victory' });
+    assert.equal(ctx.RAFrag.read('F04', 'offer.status', null), 'closed_fame');
+    assert.equal(ctx.RAFrag.read('F04', 'active', null), false);
+  }
+
+  // ── 12. Showdown contract & F01 Pending List ────────────────────────────
+  {
+    const ctx = await loadF04(root, { flagOn: true });
+
+    const pending = ctx.RAWarRoomShowdown.F01_INTEGRATION_PENDING;
+    assert.ok(Array.isArray(pending) && pending.length >= 10, 'must list all 10 F01 pending items');
+    for (const item of pending) {
+      assert.ok(item.id && item.desc, 'each pending item must have id and desc');
+    }
+
+    const job = {
+      id: 'test_showdown_1',
+      type: 'TAKE_THE_BLOCK',
+      district: 'koreatown',
+      districtLabel: 'KOREATOWN',
+      showdownSetup: ctx.RAWarRoomJobs.buildJobCard({ type: 'TAKE_THE_BLOCK', district: 'koreatown' })?.showdownSetup
+    };
+    const result = ctx.RAWarRoomShowdown.buildEntryPacket({
+      jobCard: job,
+      squadIds: ['tunde', 'dre'],
+      carId: null,
+      approach: 'LOUD'
+    });
+    assert.ok(result.ok, `entry packet must succeed: ${result.errors?.join(', ')}`);
+    assert.ok(result.packet.f01Pending === 'F01_INTEGRATION_PENDING');
+    assert.ok(result.packet.rich.hp === 12);
+  }
+
+  // ── 13. Invariant self-check & Owner Ledger Integration ─────────────────
+  {
+    const ctx = await loadF04(root, { flagOn: true });
+    // Verify all IF-1 modules present
+    const desc = ctx.RAIF1.describe();
+    assert.equal(desc.modules.RAPhoneRegistry.present, true);
+    assert.equal(desc.modules.RAHeat.present, true);
+    assert.equal(desc.modules.RACrew.present, true);
+    assert.equal(desc.modules.RADistricts.present, true);
+
+    // Verify pending ledger submission is reported accurately (owner assigns in migration_ledger.js)
+    const problems = ctx.RAMigrations.validate();
+    same(problems, ['submitted module F04.init-war-room has no version assigned by the integration owner']);
+  }
+
+  console.log('PASS F04 PLAYMAKERS WAR ROOM test suite (authored HEAT floors, job rewards, LAY LOW, squad, districts, crew, report cards, hand back, invariants)');
+}

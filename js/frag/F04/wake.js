@@ -44,7 +44,7 @@
   id: 'F04.offer-check',
   fragment: 'F04',
   phase: 'wake',
-  priority: 62, // CONTENT band
+  priority: 63, // CONTENT band (unique, non-colliding)
   flag: 'F04.war_room',
   fn(ctx) {
    const offer = window.RAFrag.read('F04', 'offer', {});
@@ -77,7 +77,7 @@
   id: 'F04.rival-pressure',
   fragment: 'F04',
   phase: 'wake',
-  priority: 63, // CONTENT band — after offer check
+  priority: 64, // CONTENT band — after offer check
   flag: 'F04.war_room',
   fn(ctx) {
    if (!window.RAFrag.read('F04', 'active', false)) return;
@@ -137,7 +137,7 @@
   id: 'F04.fame-close',
   fragment: 'F04',
   phase: 'wake',
-  priority: 95, // TAIL band — after everything
+  priority: 98, // TAIL band (unique, non-colliding)
   flag: 'F04.war_room',
   fn() {
    const fame = window.RAState.get().life?.fame;
@@ -146,7 +146,6 @@
    if (offer.status === 'accepted') {
     window.RAFrag.patch('F04', 'offer.status', 'closed_fame');
     window.RAFrag.patch('F04', 'active', false);
-    // Final report card tease is sealed (Vol 7 §9).
    }
   }
  });
