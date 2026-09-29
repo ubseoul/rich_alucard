@@ -6,7 +6,7 @@
  // SOURCE: Vol 7 §3 (War Room UI), §7.4 (War Room table visual language).
  //
  // Browser UX: 360/390/430 mobile widths supported via class-based responsive layout.
- // The War Room app renders: BOARD (district map), JOBS (tonight's menu), CREW, REPORTS.
+ // The War Room app renders: BOARD (district map), JOBS (tonight's menu), CREW, REPORTS, HAND BACK.
 
  const FLAG = 'F04.war_room';
  const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
@@ -87,16 +87,38 @@ ${btn('← BACK', 'app:warRoom')}`;
  }
 
  function renderJobCard(job, i) {
+  if (job.type === 'LAY_LOW') {
+   return `<div class="phone-card war-room-job">
+<b>${esc(job.label)}</b>
+<br>💤 NO SQUAD · COST: $10,000 · HEAT: −15
+${btn('LAY LOW TONIGHT', `do:warRoom:runJob:${i}`)}
+</div>`;
+  }
   const kindLabel = job.isShowdown ? '⚔ SHOWDOWN' : '🚗 RUN';
   const recs = (job.recommended || []).join(' / ');
   const showdownNote = job.isShowdown ? `<br><span class="phone-small">⚠ F01_INTEGRATION_PENDING</span>` : '';
+  const rewardLine = job.authoredReward ? formatRewardLine(job) : '';
+  const heatLine = job.authoredHeat ? `HEAT: +${job.authoredHeat}` : '';
   return `<div class="phone-card war-room-job">
 <b>${esc(job.label)}</b> · ${esc(job.districtLabel)}
 <br>${kindLabel} · SQUAD: ${job.squadSize}
+${rewardLine ? `<br>${esc(rewardLine)}` : ''}${heatLine ? ` · ${esc(heatLine)}` : ''}
 ${recs ? `<br>REC: ${esc(recs)}` : ''}
 ${showdownNote}
 ${btn('SELECT SQUAD', `do:warRoom:selectSquad:${i}`)}
 </div>`;
+ }
+
+ function formatRewardLine(job) {
+  const r = job.authoredReward;
+  if (!r) return '';
+  switch (r.type) {
+   case 'cash_range':     return `REWARD: $${(r.min/1000)}K–$${(r.max/1000)}K`;
+   case 'supply_range':   return `REWARD: +${r.min}–${r.max} SUPPLY`;
+   case 'cash_and_rep':   return `REWARD: $${(r.cash/1000)}K + STREET REP`;
+   case 'pressure_reduce':return `REWARD: RIVAL PRESSURE ${r.pressureDelta}`;
+   default:               return '';
+  }
  }
 
  function renderCrew() {
@@ -169,15 +191,12 @@ ${btn('← BACK', 'app:warRoom:jobs')}`;
  // ── Action handler ────────────────────────────────────────────────────────
  function onAction(act, arg, api) {
   if (act === 'accept') {
-   // Rich accepts The Offer
    window.RAFrag.patch('F04', 'offer.status', 'accepted');
    window.RAFrag.patch('F04', 'offer.acceptedOnDay', window.RALife.today().day);
    window.RAFrag.patch('F04', 'active', true);
    window.RAFrag.patch('F04', 'jobs.nightsSinceStart', 0);
-   // Fire world reactions
    window.RAWarRoomVG.fireWorldReactions();
    window.RAWarRoomVG.postYoungPlaymaker();
-   // Unlock the phone app with a badge
    window.RAPhoneRegistry.unlock('warRoom', { badge: true });
    api.refresh();
    return;
@@ -200,19 +219,31 @@ ${btn('← BACK', 'app:warRoom:jobs')}`;
     api.refresh();
     return;
    }
-   // The hand-back Showdown is F01_INTEGRATION_PENDING
-   // We show the pending state; when F01 resolves it calls RAWarRoomShowdown.receiveResolution
    api.refresh();
    return;
   }
 
   if (act === 'runJob') {
-   // Simplified: in the real UI, the player selects squad/car/approach from the squad-select form.
-   // Here we pick auto-defaults for the MVP (form parsing requires native DOM; handled by a future
-   // bridge when the phone scene supports multi-input forms).
    const jobs = window.RAWarRoomJobs.buildNightMenu();
    const job = jobs[Number(arg)];
    if (!job) { api.refresh(); return; }
+
+   // LAY LOW: no squad, no car, immediate resolution (Vol 7 §3.2: squad 0)
+   if (job.type === 'LAY_LOW') {
+    const resolution = window.RAWarRoomJobs.executeRun({
+     jobCard: job,
+     squad: [],
+     carId: null,
+     approach: 'LAY_LOW',
+     playerChoices: null
+    });
+    window.RAWarRoomJobs.applyRunResult(resolution);
+    window.RAWarRoomReportCard.record(resolution);
+    const nights = window.RAFrag.read('F04', 'jobs.nightsSinceStart', 0);
+    window.RAFrag.patch('F04', 'jobs.nightsSinceStart', nights + 1);
+    api.refresh();
+    return;
+   }
 
    const active = window.RAWarRoomCrew.activeOgas();
    const squadIds = active.slice(0, job.squadSize).map(o => o.id);
@@ -221,27 +252,24 @@ ${btn('← BACK', 'app:warRoom:jobs')}`;
    const approach = 'LOUD';
 
    if (job.isShowdown) {
-    // Showdown: build entry packet; tactical execution is F01_INTEGRATION_PENDING
     const packet = window.RAWarRoomShowdown.buildEntryPacket({ jobCard: job, squadIds, carId, approach });
-    // Store the pending job for when F01 is ready
     window.RAFrag.patch('F04', 'showdown.pendingJob', { jobCard: job, packet });
     api.refresh();
     return;
    }
 
-   // RUN job: execute beats (auto-player for MVP — real choices come from beat UI sub-view)
+   // RUN job: execute beats
    const squad = squadIds.map(id => window.RACrew.get(id));
    const resolution = window.RAWarRoomJobs.executeRun({
     jobCard: job,
     squad,
     carId,
     approach,
-    playerChoices: null // auto-choose first option for now
+    playerChoices: null
    });
    window.RAWarRoomJobs.applyRunResult(resolution);
    window.RAWarRoomReportCard.record(resolution);
 
-   // Track nights in
    const nights = window.RAFrag.read('F04', 'jobs.nightsSinceStart', 0);
    window.RAFrag.patch('F04', 'jobs.nightsSinceStart', nights + 1);
 
