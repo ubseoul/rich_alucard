@@ -7,9 +7,9 @@
  // legacy value PLUS the service-held component (save.frag.if1.heat.global) that TRAP / War Room write through add().
  // Nothing in NEW OGA changes; a watcher only turns its writes into tier-change events.
  //
- // SOURCE_REQUIRED (non-blocking): the Vol 7 numeric tier floors are not in the OPEN repository. TIER_FLOORS below are a
- // PROVISIONAL engineering placeholder so the plumbing runs; the integration owner replaces them via configure() the
- // moment the authored numbers are supplied. Deltas are always the authored numbers — the service never scales them.
+ // SOURCE_REQUIRED · NON-CANON · CONFIGURABLE · NON-BLOCKING: the Vol 7 numeric tier floors are not in the OPEN repository.
+ // The floors below are NOT Vol 7 canon and must never be cited as such; they are a PROVISIONAL engineering placeholder so the
+ // plumbing runs, and the integration owner replaces them via configure() the moment the authored numbers are supplied. Deltas are always the authored numbers — the service never scales them.
  const TIERS=Object.freeze(['COOL','WARM','HOT','ON FIRE']);
  let floors={COOL:0,WARM:6,HOT:12,'ON FIRE':24};let provisional=true;
  const listeners=new Set();let privateSub=null;

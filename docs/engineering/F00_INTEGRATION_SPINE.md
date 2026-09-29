@@ -1,6 +1,6 @@
 # F00 — UBE_PORTAL_FRAGMENT_INTEGRATION_SPINE (engineering record)
 
-Branch `integration/ube-portal` · IF-1 v1.0 (candidate; freezes when F00 is accepted) · main untouched.
+Branch `integration/ube-portal` · IF-1 v1.0 **FROZEN** (F00 accepted; tag `if1-v1.0`) · main untouched.
 API reference: [IF1_INTEGRATION_SPINE.md](IF1_INTEGRATION_SPINE.md) · ownership: [INTEGRATION_OWNER.md](INTEGRATION_OWNER.md).
 
 ## 1. Lineage reconciliation
@@ -27,9 +27,9 @@ check "library registration totals: 244 planned…" counted the whole audio mani
 
 | F1 exit-gate item | Finding |
 |---|---|
-| **H1 pass on existing Rich lines** | **NOT COMPLETED — and not completable in OPEN.** F1 (UL-L2-001/002) delivered the audio engine, SFX library and phone hierarchy; no packet touched existing Rich lines. H1 is sealed/agent-only authority; F2 applied it only to *new* NEW OGA Rich lines (UL_F2_001–004). The accepted W1–W5 content still carries **243 Rich `[VP]` lines** (`node tools/vp-lines.mjs`; `docs/btf/VP_LINES.md` is stale at 239 — 4 lines added by NEW OGA are missing from the list). **Source-sensitive gap: not fixed here.** Owner: the private/sealed H1 authority. |
+| **H1 pass on existing Rich lines** | **NOT COMPLETED — and not completable in OPEN.** F1 (UL-L2-001/002) delivered the audio engine, SFX library and phone hierarchy; no packet touched existing Rich lines. H1 is sealed/agent-only authority; F2 applied it only to *new* NEW OGA Rich lines (UL_F2_001–004). The accepted W1–W5 content still carries **243 Rich `[VP]` lines** (`node tools/vp-lines.mjs`; `docs/btf/VP_LINES.md` is stale at 239 — 4 lines added by NEW OGA are missing from the list). **Source-sensitive gap: not fixed here.** **PRIVATE PRE-FCPB H1 REVIEW REQUIRED** for these existing 243 Rich `[VP]` lines (owner: the private/sealed H1 authority; non-blocking to the IF-1 freeze; the review itself is not performed in OPEN). |
 | **Phone readability / hierarchy** | **Implemented and re-verified on the integrated trunk.** Grouped sections (`NOW/PEOPLE/MONEY/LIFE/SYSTEM`), ≤3-word lock reasons, one in-world line on tap, GO SOMEWHERE grouping — UL-L2-001 browser evidence **57/57** at 360/390/430 on the integrated build (it was 51/57 before the reconciliation in §1: every failure was the one stale library-count assertion). Placement is provisional by design: final placement review is after F4 (OL-001). |
-| Ordinary technical cleanup logged (not source-sensitive) | (a) `docs/btf/VP_LINES.md` stale (239 vs 243) — regenerate. (b) UL-F2 CDB non-blocking notes carried forward for the **F03 NEW_OGA_LADDER_CLOSE** owner: debt paydown behavior, boba insufficient-funds, pointer-cancel on canopy drag, TOUGE record pollution, days 8–12 start window, `newOga` type/clamp hardening, placeholder/F10 runtime enforcement, cousin-loss retry structure. (c) Fixed in F00 test layer only: `tools/playtest-qa.mjs` compared the save version to the literal `12`. (d) Pre-existing: `tools/party-browser-test.mjs` fails at baseline; `tools/rave-browser-test.mjs` needs `sharp`. |
+| Ordinary technical cleanup logged (not source-sensitive) | (a) `docs/btf/VP_LINES.md` was stale (239 vs 243) — **synced to 243 in the closure commit** (regenerated with `node tools/vp-lines.mjs`). (b) UL-F2 CDB non-blocking notes carried forward for the **F03 NEW_OGA_LADDER_CLOSE** owner: debt paydown behavior, boba insufficient-funds, pointer-cancel on canopy drag, TOUGE record pollution, days 8–12 start window, `newOga` type/clamp hardening, placeholder/F10 runtime enforcement, cousin-loss retry structure. (c) Fixed in F00 test layer only: `tools/playtest-qa.mjs` compared the save version to the literal `12`. (d) Pre-existing: `tools/party-browser-test.mjs` fails at baseline; `tools/rave-browser-test.mjs` needs `sharp`. |
 
 ## 3. CUT-FALLBACK AUDIT (SR-6 / OL-011 freeze)
 
@@ -38,7 +38,7 @@ OL-011 itself is not in the repository; findings are from the accepted code and 
 | Item | Result | Downstream restoration |
 |---|---|---|
 | **M3 chairs** (`NEW_OGA_M3`) | **No cut fallback used.** Interactive SLURP canopy-chair harness (authored total 60, bundles of 10, 45 s); the accepted fail-forward is an authored "auntie critique, rank not blocked". | none |
-| **M4 THE ALTERNATIVE** (`NEW_OGA_ALTERNATIVE`) | **Cut fallback IS used**: UL_F2_002 records "authorized scene fallback rather than replaying the chair activity"; the node is `The rental delivery is completed as a scene.` | **Restore the chair activity in THE ALTERNATIVE after the First Complete Playable Build** (frozen by OL-011). Owner: F03 NEW_OGA_LADDER_CLOSE (or a post-FCPB restoration ticket). |
+| **M4 THE ALTERNATIVE** (`NEW_OGA_ALTERNATIVE`) | **Cut fallback IS used**: UL_F2_002 records "authorized scene fallback rather than replaying the chair activity"; the node is `The rental delivery is completed as a scene.` | **MANDATORY PRE-FCPB — owner F03 NEW_OGA_LADDER_CLOSE.** The scene fallback must be replaced by the full chair activity before the First Complete Playable Build (doctrine: FULL IMPLEMENTATION → FCPB → CUT / KEEP / EXPAND / REWORK). Not restored in F00. |
 | **M5 MAKE IT RAIN** (`owambe_collection`) | **No fallback used.** Interactive reverse-make-it-rain minigame with equivalent pointer/touch input; UL_F2_003: "the scene fallback was not used". No fallback node exists in `new_oga_m5_m6.js`. | none |
 | M6 beats | Egusi/Mazda beats are authored conditionals (skipped when the pet is absent); Agege bread is scene-only per the authored text ("No inventory changes hands"). Not cuts. | none |
 
@@ -49,7 +49,7 @@ OL-011 itself is not in the repository; findings are from the accepted code and 
 * **`RAStateWatch`** wraps `RAState.patch/save/reset/load` once (behavior-preserving) so money/HEAT/trust observe accepted writes without editing accepted systems.
 * **Flag namespace assumption:** `F02.armory` (Armory phone app) is assigned to F02 IRON_AND_GRACE; War Room `F04`, Trap/Counting `F05`, RAINMAKER `F06`. Reassignable additively by the owner.
 * **Mission voice-note band 75–89** with ladder 85→78 recorded; 77–75 reserved; ties refused.
-* **HEAT tier floors are PROVISIONAL** (`COOL 0 · WARM 6 · HOT 12 · ON FIRE 24`) — **SOURCE_REQUIRED**: Vol 7 numeric floors are not in the repo. Isolated behind `RAHeat.configure`; deltas are never scaled.
+* **HEAT tier floors: SOURCE_REQUIRED · NON-CANON · CONFIGURABLE · NON-BLOCKING.** Vol 7 numeric floors are not in the repo. The placeholder values (`COOL 0 · WARM 6 · HOT 12 · ON FIRE 24`) are engineering scaffolding, **not authoritative Vol 7 canon**. Isolated behind `RAHeat.configure`; deltas are never scaled.
 * **Crew statuses** ACTIVE/DOWNED/CAPTURED/GONE and **district states** UNCONTROLLED/CONTROLLED are minimal, extensible (`registerStatus/registerState`); no crew member, class, district or outcome was invented.
 * **Loader** is manifest → generated static `<script>` tags (no runtime loader) so static deployment is unchanged.
 * **Private overlay** is a copy-on-build layer confined to `js/sealed/` and `assets/sealed/`; the OPEN `dist/` is never modified.
@@ -57,7 +57,7 @@ OL-011 itself is not in the repository; findings are from the accepted code and 
 
 ## 5. Blockers / escalations
 
-None blocking. Non-blocking: **SOURCE_REQUIRED** — Vol 7 HEAT numeric tier floors; **H1 pass on existing Rich lines** needs the sealed authority (see §2).
+None blocking. Non-blocking: **SOURCE_REQUIRED / NON-CANON / CONFIGURABLE** — Vol 7 HEAT numeric tier floors; **PRIVATE PRE-FCPB H1 REVIEW REQUIRED** — existing 243 Rich `[VP]` lines (see §2). **MANDATORY PRE-FCPB (F03)** — THE ALTERNATIVE chair activity (see §3).
 
 ## 6. Verification evidence (tip of integration/ube-portal; tag if1-v1.0-rc1 is the code-identical predecessor)
 
@@ -75,5 +75,5 @@ None blocking. Non-blocking: **SOURCE_REQUIRED** — Vol 7 HEAT numeric tier flo
 
 ## 7. Freeze status
 
-IF-1 **v1.0 candidate**: `RAIF1.freeze.status==='candidate'`, surface snapshot `tools/tests/if1/contract-v1.0.json`. On acceptance the integration
-owner flips the status to `frozen` and tags `if1-v1.0`; from then on IF-1 changes are additive and owner-only.
+IF-1 **v1.0 FROZEN**: `RAIF1.freeze.status==='frozen'` (flipped at F00 acceptance after the independent audit: PASS, no P0/P1), surface snapshot
+`tools/tests/if1/contract-v1.0.json`, tag `if1-v1.0`. IF-1 changes are additive and owner-only. (`if1-v1.0-rc1` marks the pre-freeze code.)

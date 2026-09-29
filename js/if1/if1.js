@@ -4,11 +4,11 @@
  // fragment slot. It (a) names the frozen module surface, (b) installs the compatibility adapters that let IF-1 services
  // observe accepted systems without editing them, and (c) exposes a self-check used by the contract tests and DEV.
  //
- // FREEZE: v1.0 becomes FROZEN when the F00 integration is accepted. After freeze, changes are ADDITIVE ONLY and are made
+ // FREEZE: v1.0 is FROZEN (F00 accepted). Changes are ADDITIVE ONLY and are made
  // only by the integration owner (see docs/engineering/IF1_INTEGRATION_SPINE.md). tools/tests/if1/contract-v1.0.json is
  // the machine-readable frozen surface; a missing member fails the contract test, a new member is fine.
  const VERSION='1.0.0';
- const FREEZE=Object.freeze({status:'candidate',note:'flips to frozen (tag if1-v1.0) when F00 is accepted'});
+ const FREEZE=Object.freeze({status:'frozen',note:'IF-1 v1.0 FROZEN at F00 acceptance (tag if1-v1.0); changes are additive-only and owner-only'});
  const MODULES=Object.freeze({
   RAFeatures:'4A feature-flag registry',RAFlagDefaults:'4A owner-promoted flag defaults',
   RAMigrations:'4B migration registry',RAMigrationLedger:'4B owner-assigned version ledger',RAFrag:'4B per-fragment save namespaces',RAStateWatch:'IF-1 state observation seam',

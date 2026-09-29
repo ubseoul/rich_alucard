@@ -2,10 +2,11 @@
 
 Every line below is a drafted placeholder for Rich. Ube converts them to canon in a Voice Harvest. Engineering does not write final Rich dialogue.
 
-Total: 239
+Total: 243
 
 | File | Draft line |
 |---|---|
+| js/data/btf/adventures/date.js | not tonight, bro. |
 | js/data/btf/adventures/systems.js | …i ain\'t even need that. i wanted it. |
 | js/data/btf/adventures/systems.js | …that one might be something. |
 | js/data/btf/adventures/systems.js | landlord shit. |
@@ -73,6 +74,7 @@ Total: 239
 | js/data/btf/adventures/w3.js | …how did you even know about that. |
 | js/data/btf/adventures/w3.js | one more turn? |
 | js/data/btf/adventures/w3.js | not even a little. |
+| js/data/btf/adventures/w3.js | don't tell nobody. |
 | js/data/btf/adventures/w3.js | you\'ve seen this before, haven\'t you. |
 | js/data/btf/adventures/w3.js | just fly away. |
 | js/data/btf/adventures/w3.js | kevin. all of them. kevin. |
@@ -111,6 +113,7 @@ Total: 239
 | js/data/btf/adventures/w4.js | …nobody, technically. |
 | js/data/btf/adventures/w4.js | i liked the parts talk. |
 | js/data/btf/adventures/w4.js | who am i bringing? |
+| js/data/btf/adventures/w4.js | …can i get the recipe? |
 | js/data/btf/adventures/w4.js | "she ain\'t for sale." |
 | js/data/btf/adventures/w4.js | you deserve more than three. |
 | js/data/btf/adventures/w4.js | it happens. it\'s a good cube though. |
@@ -133,7 +136,8 @@ Total: 239
 | js/data/btf/adventures/w4.js | i still don\'t know what song that was. |
 | js/data/btf/adventures/w4.js | i have an app now that i am definitely not telling my mother about. |
 | js/data/btf/adventures/w4.js | best morning i\'ve had in a long time. |
-| js/data/btf/adventures/w4.js | three nights for a bag of mix. worth every second. |
+| js/data/btf/adventures/w4.js | she laughed. i\'m going back. |
+| js/data/btf/adventures/w4.js | four nights for a bag of mix. worth every second. |
 | js/data/btf/adventures/w4.js | three stops. worth planning again. |
 | js/data/btf/adventures/w4.js | best costume night this city has ever had. |
 | js/data/btf/adventures/w4.js | a crowd that didn\'t care who i was. weirdly relaxing. |

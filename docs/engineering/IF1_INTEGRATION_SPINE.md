@@ -4,7 +4,7 @@ IF-1 is **code**, not a spec: `js/if1/**` plus additive seams in accepted files,
 (`tools/tests/if1/`). Everything is inert with all fragment flags OFF; `tools/tests/if1/zero-change.test.mjs` proves the
 accepted game (saves, wake traces, economy, NEW OGA) is byte-identical with IF-1 present.
 
-Load order is owned by `js/loader/manifest.json` (see §N). Module surface is frozen in `tools/tests/if1/contract-v1.0.json`.
+**Status: FROZEN (v1.0).** Load order is owned by `js/loader/manifest.json` (see §N). Module surface is frozen in `tools/tests/if1/contract-v1.0.json`.
 
 ## 4A `RAFeatures` — feature flags (`js/if1/features.js`, `flag_defaults.js`)
 `register({id:'F03.thing',fragment:'F03',persist?,requires?,description?})` · `enabled(id)` · `set(id,bool,{persist})` ·
@@ -44,8 +44,9 @@ Never changes an amount; the economy stays frozen until F13.
 ## 4F `RAHeat` (`heat.js`)
 Scale COOL · WARM · HOT · ON FIRE. `global()` = accepted `life.newOga.heat` + service component; `district(id)`;
 `add(delta,{district,source})`; `onTierChange(fn)`; `snapshot()`; `configure({floors})`; `subscribePrivate(fn)` (accepted only once a
-pack is installed — inert in OPEN). **SOURCE_REQUIRED:** Vol 7 numeric tier floors are not in the OPEN repository; the shipped
-floors are PROVISIONAL (`describe().provisional===true`) and are replaced by the owner via `configure`.
+pack is installed — inert in OPEN). **SOURCE_REQUIRED · NON-CANON · CONFIGURABLE · NON-BLOCKING:** Vol 7 numeric tier floors are not in the OPEN
+repository. The shipped floors are provisional engineering placeholders (`describe().provisional===true`), **not Vol 7 canon**, and are
+replaced by the owner via `configure` once the authored numbers are supplied.
 
 ## 4G `RASocial` (`social.js`)
 `trust` / `gangClout` / `streetClout` / `tendency` wrappers that delegate every write to the accepted functions

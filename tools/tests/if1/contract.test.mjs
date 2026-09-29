@@ -16,7 +16,7 @@ export async function test(root){
     for(const member of def.api){assert(live.modules[name].api.includes(member),`IF-1 v1.0 member ${name}.${member} was removed or renamed (frozen surface is additive-only)`);members++;}
   }
   for(const name of ctx.RAIF1.modules)assert(snapshot.modules[name],`module ${name} is not in the frozen snapshot — run tools/tests/if1/make-contract.mjs (owner only)`);
-  assert.equal(live.freeze.status==='candidate'||live.freeze.status==='frozen',true);
+  assert.equal(live.freeze.status,'frozen','IF-1 v1.0 is FROZEN (owner-controlled: js/if1/if1.js FREEZE)');
   const check=ctx.RAIF1.selfCheck();assert(check.ok,`RAIF1.selfCheck: ${check.problems.join('; ')}`);
   // ---- single-owner surfaces
   const S=await load(root,'tools/check-owner-surfaces.mjs');const surfaces=await S.loadSurfaces();
