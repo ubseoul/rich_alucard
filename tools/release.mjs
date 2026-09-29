@@ -83,7 +83,10 @@ async function test(){
   assert(!context.RAWorldEvents.record('player_blind_proof_event_001')&&JSON.stringify(context.RAState.get().life.people.records)===beforeReset,'event reset damaged unrelated people state');
   const index=await read('index.html');assert(index.includes('__BUILD_ASSET_VERSION__'),'index is missing the build asset placeholder');
   const audioContext={window:{}};audioContext.window=audioContext;vm.createContext(audioContext);vm.runInContext(await read('js/data/audio_manifest.js'),audioContext,{filename:'js/data/audio_manifest.js'});
-  for(const id of ['NO_01','NO_02','NO_03','NO_04','NO_05','NO_06']){const hook=audioContext.RAAudioManifest.get(id);assert(hook&&hook.registered===false&&hook.file===null&&hook.expectedPath===`assets/audio/sfx/new_oga/${id}.mp3`,`NEW OGA audio hook ${id} is not inert/drop-in ready`);}
+  // F11-A audio completion: the NEW OGA drop-in hooks are now filled from the approved patch delivery, so they must be registered.
+  for(const id of ['NO_01','NO_02','NO_03','NO_04','NO_05','NO_06']){const hook=audioContext.RAAudioManifest.get(id);assert(hook&&hook.registered===true&&hook.file===`assets/audio/sfx/new_oga/${id}.mp3`,`NEW OGA audio hook ${id} is not registered/drop-in ready`);}
+  // The defective MAGIC_SEANCE render must never be silently repaired or activated.
+  const seance=audioContext.RAAudioManifest.get('MAGIC_SEANCE');assert(seance&&seance.registered===false&&seance.file===null&&seance.reason==='defective-render-do-not-wire','MAGIC_SEANCE must stay inert (defective render)');
   // IF-1 (F00) integration gates: ordered script loader, every fragment's auto-discovered tests, OPEN-build sealed-leak check.
   const loader=await import(pathToFileURL(path.join(root,'tools','loader.mjs')).href);const loaded=await loader.verify({quiet:true});assert(loaded.ok,`loader verification failed: ${loaded.problems.join('; ')}`);
   const {runFragmentTests}=await import(pathToFileURL(path.join(root,'tools','run-tests.mjs')).href);await runFragmentTests(root);
