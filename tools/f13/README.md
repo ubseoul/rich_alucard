@@ -81,8 +81,9 @@ activity    { actions, changed, stalls{longest,start} }
 
 money finite · rank legal (source-derived ladder) · trust within authored-delta bounds · HEAT non-negative + tier
 contract · NEW OGA once-only guard consistency · GONE crew is terminal · no illegal/unavailable content selected ·
-no infinite action loop · no duplicate once-only payout · unique history ids · feature OFF creates no fragment
-progression · save namespace allowlist · money ledger conservation.
+harness daily action cap (internal adventure loops are bounded separately by the `drive()` step ceiling, the
+`driveChain` chain-depth guard, and the repeated-failure metrics) · no duplicate once-only payout · unique history
+ids · feature OFF creates no fragment progression · save namespace allowlist · money ledger conservation.
 
 ## Missing fragments today
 

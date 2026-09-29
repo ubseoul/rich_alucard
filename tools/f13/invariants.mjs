@@ -88,7 +88,7 @@ export function makeInvariants(ctx, run = {}) {
     },
     {
       id: 'no-infinite-action-loop',
-      description: 'a day never exceeds the configured action cap',
+      description: 'a day never exceeds the harness daily action cap (this checks only the harness per-day cap; internal adventure loops are bounded separately by the drive() step ceiling, the driveChain chain-depth guard, and the repeated-failure metrics)',
       check: () => ({ ok: (run.maxActionsObserved || 0) <= (run.maxActionsPerDay || 0), detail: { observed: run.maxActionsObserved, cap: run.maxActionsPerDay } })
     },
     {

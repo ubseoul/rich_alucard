@@ -169,10 +169,14 @@ export function executeAction(ctx, action, env) {
         const chain = driveChain(ctx, result, { choose, minigame, fight });
         const abandoned = chain.some(r => r?.abandoned);
         const nightEnded = chain.some(r => !!r?.nightEnder);
+        // A chain that hit the hard depth cap is reported as a failure, never a silent success.
+        const chainError = chain.find(r => r && r.chainError) || chain.chainError || null;
         if (ctx.RAAdventures.active()) ctx.RAAdventures.abandon();
         return {
-          ...base, ok: true, changed: true, abandoned, nightEnded,
-          results: chain.map(r => r && { id: r.id, outcome: r.outcome || null, abandoned: !!r.abandoned, nightEnder: !!r.nightEnder, chain: r.chain || null })
+          ...base, ok: !chainError, changed: true, abandoned, nightEnded,
+          error: chainError ? chainError.message : null,
+          chainError: chainError || null,
+          results: chain.map(r => r && { id: r.id, outcome: r.outcome || null, abandoned: !!r.abandoned, nightEnder: !!r.nightEnder, chain: r.chain || null, chainError: r.chainError || null })
         };
       }
       case 'buy:room': {

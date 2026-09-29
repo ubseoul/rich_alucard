@@ -5,7 +5,10 @@
 // real games are canvas-driven and cannot run headless); by default no synthetic rewards are injected, so the
 // economy metrics only ever see rewards the accepted code grants.
 
-const EXIT = /LEAVE|BACK|NOT TODAY|^\s*NO\b|NAH|DECLINE|WALK AWAY|I'?M GOOD|THAT'?S ENOUGH|CANCEL|SKIP|STAY|REFUSE|DON'?T|GIVE IT BACK|NEVER MIND|BAIL|ABOUT FACE/i;
+// Intentional exits only. Bare `STAY` must NOT count as an exit: looping stays ("STAY LONGER" in A45, "STAY OUT HERE
+// A WHILE", "STAY WITH HER", "STAY CALM…") would otherwise be picked by the cautious policies and walk the pilot
+// step ceiling. Bounded safe-stay wording ("STAY HOME"/"STAY PUT"/"STAY HERE") remains a legitimate exit.
+const EXIT = /LEAVE|BACK|NOT TODAY|^\s*NO\b|NAH|DECLINE|WALK AWAY|I'?M GOOD|THAT'?S ENOUGH|CANCEL|SKIP|REFUSE|DON'?T|GIVE IT BACK|NEVER MIND|BAIL|ABOUT FACE|GET OUT|STAY HOME|STAY PUT|STAY HERE/i;
 const AGGRO = /FIGHT|ATTACK|PUSH|CHASE|TAKE IT|HIT|STRIKE|STEAL|GRAB|RISK|ALL IN|DO IT|RUN|HANDLE|COLLECT|HUSTLE/i;
 const PROGRESS = /CONTINUE|KEEP|YES|ACCEPT|AGREE|MORE|GO|ENTER|INSIDE|TAKE THE|WORK|SHIFT|DELIVER|HANDLE|TALK|ASK/i;
 

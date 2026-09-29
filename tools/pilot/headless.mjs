@@ -41,8 +41,20 @@ export function drive(ctx,id,{vars={},prefer=[],choose=null,from='route',minigam
  }
  throw new Error(`${id}: did not reach an end (stuck at ${node})`);
 }
-// Follow a completion's chain the way the adventure scene's returnHome does.
-export function driveChain(ctx,res,opts={}){const out=[res];while(res?.chain&&ctx.RAAdventures.available(res.chain)){res=drive(ctx,res.chain,{...opts,vars:res.chainVars||{},from:'chain'});out.push(res)}return out}
+// Follow a completion's chain the way the adventure scene's returnHome does. A deterministic hard depth cap
+// (default 10) means a cyclical or overlong authored chain terminates cleanly instead of looping forever; the last
+// entry is an explicit failure sentinel carrying `chainError:'MAX_CHAIN_DEPTH'` (never a silent success).
+export const DEFAULT_MAX_CHAINS=10;
+export function driveChain(ctx,res,opts={}){
+ const {maxChains:requested,...driveOpts}=opts;
+ const maxChains=Number.isFinite(requested)?Math.max(0,Math.floor(requested)):DEFAULT_MAX_CHAINS;
+ const out=[res];let depth=0;
+ while(res?.chain&&ctx.RAAdventures.available(res.chain)){
+  if(depth>=maxChains){const failure={id:res.chain,chainError:'MAX_CHAIN_DEPTH',message:`chain depth exceeded ${maxChains} at ${res.chain}`,maxChains,depth};out.push(failure);out.chainError=failure;return out;}
+  res=drive(ctx,res.chain,{...driveOpts,vars:res.chainVars||{},from:'chain'});out.push(res);depth+=1;
+ }
+ return out;
+}
 export const chained=list=>list.slice(1).map(r=>r.id);
 // Sleep through to a morning with the real clock (every wake handler runs); returns WHAT WE ON.
 export function wakeTo(ctx,day){const {RAClock,RALife,RATemptations}=ctx;assert(day>=RALife.today().day,'cannot wake in the past');while(RALife.today().day<day)RAClock.sleep();return RATemptations.whatWeOn()}
