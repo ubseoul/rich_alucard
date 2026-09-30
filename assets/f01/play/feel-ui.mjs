@@ -205,7 +205,9 @@ export async function runEmbedded(req){
  const v=CT.validateRequest(req);if(!v.ok)return AD.refusedResult(req,'BAD_REQUEST','the request does not match the contract',v.errors);
  const w=AD.prepareWorld(req,store.get(EMBED_KEY,null));G.w=w;
  const before=Object.fromEntries(req.roster.map(o=>[o.id,o.status]));const cash0=w.cash;
- const picked=AD.pitchFor(w,req);if(picked.refuse)return AD.refusedResult(req,picked.refuse.code,picked.refuse.reason);
+ let picked=AD.pitchFor(w,req);
+ const viaHome=AD.needsRecovery(w,picked); // NO CAR refuses the job, never the way back: a recoverable lost car sends Rich through the home scene (GET IT BACK) before the refusal is final
+ if(picked.refuse&&!viaHome)return AD.refusedResult(req,picked.refuse.code,picked.refuse.reason);
  let result=null;
  const commit=(res)=>{const c=store.get(RESULTS_KEY,{});c[req.requestId]=res;const keys=Object.keys(c);for(const k of keys.slice(0,Math.max(0,keys.length-AD.RESULT_KEEP)))delete c[k];store.set(RESULTS_KEY,c);store.set(EMBED_KEY,G.w);};
  G.embed={req,onApplied:(rec,wNow)=>{result=AD.buildResult(req,{rec,w:wNow,before,cash0});wNow.morningTexts=G.texts.slice();commit(result);}};
@@ -214,10 +216,14 @@ export async function runEmbedded(req){
   await K.fadeTo(1,1);
   const items=homeItems();
   if(G.texts.length||w.morningTexts.length||items.recover.length){await V.homeScene({w,texts:w.morningTexts.length?w.morningTexts:G.texts,recover:items.recover,ransom:[],bank:w.cash});w.morningTexts=[];G.texts=[];}
-  const offer=decorate(picked.pitch);
-  const c=await V.offerScene({...offer,bank:w.cash,again:false});
-  if(c!=='answer'){result=AD.declinedResult(req,{cash0,w});commit(result);}
-  else await playOne(offer);
+  if(viaHome){picked=AD.pitchFor(w,req);store.set(EMBED_KEY,G.w);} // judge the job again with whatever was got back; what was got back is kept even if the job still refuses
+  if(picked.refuse)result=AD.refusedResult(req,picked.refuse.code,picked.refuse.reason);
+  else{
+   const offer=decorate(picked.pitch);
+   const c=await V.offerScene({...offer,bank:w.cash,again:false});
+   if(c!=='answer'){result=AD.declinedResult(req,{cash0,w});commit(result);}
+   else await playOne(offer);
+  }
  }catch(err){
   console.error(err);tele.log('ERROR',{msg:String(err&&err.stack||err)});
   if(!result)result=AD.refusedResult(req,'PLAY_ERROR',String(err&&err.message||err));

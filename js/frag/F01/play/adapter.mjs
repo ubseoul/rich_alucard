@@ -63,6 +63,13 @@ export function prepareWorld(req,saved){
  return w;
 }
 
+// ---- NO CAR REFUSES THE JOB, NEVER THE WAY BACK. The refusal below is correct for the job; but a lost car is got back at home (GET IT BACK = W.recoverCar, the
+// authored recovery, unchanged, fee 0), so before a car refusal is final the controller offers that surface first. Same gate for the browser and the headless runner.
+const carRefusal=can=>({refuse:{code:can.reason==='NO CAR'?'NO_CAR':'NO_CAR_FITS',reason:can.reason}});
+export const isCarRefusal=r=>!!r&&(r.code==='NO_CAR'||r.code==='NO_CAR_FITS');
+export const recoverableCars=w=>W.lostCars(w).filter(c=>!(c.route==='DEALER'&&c.unique));
+export const needsRecovery=(w,picked)=>!!(picked&&picked.refuse&&isCarRefusal(picked.refuse)&&recoverableCars(w).length);
+
 // ---- the ONE job F04 chose, as the pitch the phone offer renders. {pitch} or {refuse:{code,reason}}
 export function pitchFor(w,req){
  const ready=W.readyOnes(w);
@@ -70,12 +77,14 @@ export function pitchFor(w,req){
  const id=req.job.f01JobId;
  if(id==='extract'){
   const g=w.captives[0];if(!g)return {refuse:{code:'NO_CAPTIVE',reason:'NOBODY TO GET BACK'}};
-  return {pitch:extractPitch(w,g)};
+  const pitch=extractPitch(w,g);const can=W.canRoll(w,pitch.job); // EXTRACT goes through CREW / CAR like every other job: no car -> a refusal, never a crash in carStage
+  if(!can.ok)return carRefusal(can);
+  return {pitch};
  }
  const job=C.JOBS.find(j=>j.id===id);
  if(!job)return {refuse:{code:'UNKNOWN_JOB',reason:`no such play: ${id}`}};
  const can=W.canRoll(w,job);
- if(!can.ok)return {refuse:{code:can.reason==='NO CAR'?'NO_CAR':'NO_CAR_FITS',reason:can.reason}};
+ if(!can.ok)return carRefusal(can);
  const pid=job.pitchers.find(p=>ready.some(o=>o.id===p))||(ready.find(o=>o.named&&C.PITCH_LINES[o.id])||ready[0]).id;
  const nameIdx=((req.seed%job.names.length)+job.names.length)%job.names.length;
  return {pitch:{job,pitcher:pid,nameIdx,notice:!!job.defense,big:!!job.bigPlay}};
@@ -139,7 +148,9 @@ export const seedFor=(req,isExtract)=>req.seed*10+(isExtract?1:2);
 export function runHeadless(req,driver,saved=null){
  const v=CT().validateRequest(req);if(!v.ok)return {result:refusedResult(req,'BAD_REQUEST','the request does not match the contract',v.errors),world:saved};
  const w=prepareWorld(req,saved);const before=Object.fromEntries(req.roster.map(o=>[o.id,o.status]));const cash0=w.cash;
- const picked=pitchFor(w,req);if(picked.refuse)return {result:refusedResult(req,picked.refuse.code,picked.refuse.reason),world:saved};
+ let picked=pitchFor(w,req);
+ if(needsRecovery(w,picked)){for(const c of recoverableCars(w))W.recoverCar(w,c.id,{fee:0});picked=pitchFor(w,req);} // the player takes GET IT BACK at home (same call as the home scene), then the job is judged again
+ if(picked.refuse)return {result:refusedResult(req,picked.refuse.code,picked.refuse.reason),world:saved};
  const pitch=picked.pitch,isX=!!pitch.extract;
  const cfg={seed:seedFor(req,isX),job:pitch.job,policy:'driver',opts:{},night:w.night,pitcher:pitch.pitcher,nameIdx:pitch.nameIdx,pitchText:null,state:w,intel:false,oba:false};
  const rec=E.runPlay(cfg,driver);
