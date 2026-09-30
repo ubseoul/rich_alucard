@@ -12,7 +12,7 @@ export class Renderer {
     this.ctx = canvas.getContext('2d', { alpha: false });
     this.animator = animator;
     this.scene = scene;
-    this.sprite = null; // { bitmap, frames, content }
+    this.sprite = null; // { bitmap?, frames, content }
     this._stage = document.createElement('canvas');
     this._layout = null;
     this._dirty = true;
@@ -71,6 +71,6 @@ export class Renderer {
 
     const f = this.sprite.frames[this.animator.frame];
     const L = this._layout;
-    ctx.drawImage(this.sprite.bitmap, f.x, f.y, f.w, f.h, L.x, L.y, f.w * L.scale, f.h * L.scale);
+    ctx.drawImage(f.image || this.sprite.bitmap, f.x, f.y, f.w, f.h, L.x, L.y, f.w * L.scale, f.h * L.scale);
   }
 }

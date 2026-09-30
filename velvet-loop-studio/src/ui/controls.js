@@ -1,6 +1,6 @@
 // UI controls: wires the control bar to callbacks. No knowledge of canvas or sprites.
 
-export function bindControls({ onFile, onPlay, onPause, onRestart, onFps, onLoop }, { fps, loop }) {
+export function bindControls({ onFile, onPlay, onPause, onRestart, onFps, onLoop, onStyle }, { fps, loop }) {
   const $ = (id) => document.getElementById(id);
   const upload = $('upload');
   const picker = $('file-input');
@@ -10,6 +10,8 @@ export function bindControls({ onFile, onPlay, onPause, onRestart, onFps, onLoop
   const fpsSlider = $('fps');
   const fpsValue = $('fps-value');
   const loopBox = $('loop');
+  const richify = $('richify');
+  const colors = $('colors');
   const status = $('status');
   const empty = $('empty');
 
@@ -31,13 +33,27 @@ export function bindControls({ onFile, onPlay, onPause, onRestart, onFps, onLoop
     onFps(Number(fpsSlider.value));
   });
   loopBox.addEventListener('change', () => onLoop(loopBox.checked));
+  const styleChanged = () => {
+    colors.disabled = !richify.checked;
+    onStyle({ richify: richify.checked, colors: Number(colors.value) });
+  };
+  richify.addEventListener('change', styleChanged);
+  colors.addEventListener('change', styleChanged);
 
   return {
+    setFps(value) {
+      fpsSlider.value = value;
+      fpsValue.textContent = value;
+    },
+    setBusy(message) {
+      status.classList.remove('error');
+      status.textContent = message;
+    },
     setLoaded(info) {
       upload.textContent = 'Replace Sprite Sheet';
       empty.hidden = true;
       status.classList.remove('error');
-      status.textContent = `${info.name} · ${info.frameCount} frames · ${info.frameWidth}×${info.frameHeight}px`;
+      status.textContent = `${info.name} · ${info.frameCount} frames · ${info.frameWidth}×${info.frameHeight}px${info.note ? ' · ' + info.note : ''}`;
       for (const b of [play, pause, restart]) b.disabled = false;
     },
     setError(message) {

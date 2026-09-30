@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' blob: data:;">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' blob: data:; media-src blob:;">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Velvet Loop Studio</title>
   <link rel="stylesheet" href="styles.css">
@@ -14,12 +14,12 @@
     <canvas id="stage"></canvas>
     <div id="empty" class="empty">
       <div class="empty-title">No sprite sheet loaded</div>
-      <div class="empty-hint">Click <b>Upload Sprite Sheet</b> and choose a horizontal sprite strip (PNG, WebP or JPG).</div>
+      <div class="empty-hint">Click <b>Upload Sprite Sheet</b> and choose a sprite strip (PNG, WebP, JPG) or an animation (GIF, WebM, MP4).</div>
     </div>
   </main>
 
   <footer class="bar">
-    <input id="file-input" type="file" accept="image/png,image/webp,image/jpeg,.png,.webp,.jpg,.jpeg" hidden>
+    <input id="file-input" type="file" accept="image/*,video/*,.png,.webp,.jpg,.jpeg,.gif,.apng,.mp4,.webm,.mov" hidden>
     <button id="upload" class="primary">Upload Sprite Sheet</button>
 
     <div class="group">
@@ -35,6 +35,17 @@
     </label>
 
     <label class="toggle"><input id="loop" type="checkbox"><span>Loop</span></label>
+
+    <div class="group style">
+      <label class="toggle"><input id="richify" type="checkbox"><span>Rich Alucard-ify</span></label>
+      <select id="colors" title="Palette size" disabled>
+        <option value="8">8 colors</option>
+        <option value="12">12 colors</option>
+        <option value="16" selected>16 colors</option>
+        <option value="24">24 colors</option>
+        <option value="32">32 colors</option>
+      </select>
+    </div>
 
     <span id="status" class="status"></span>
   </footer>

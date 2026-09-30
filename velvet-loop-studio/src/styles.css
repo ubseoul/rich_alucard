@@ -47,3 +47,8 @@ button:focus-visible, input:focus-visible { outline: 2px solid var(--accent-hi);
 
 .status { margin-left: auto; color: var(--dim); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; }
 .status.error { color: #ff6b81; }
+
+.style { align-items: center; gap: 10px; padding-left: 18px; border-left: 1px solid var(--line); }
+select { font: inherit; color: var(--text); background: #1d1d25; border: 1px solid #30303a; border-radius: 5px; padding: 6px 8px; }
+select:disabled { opacity: .4; }
+.bar { flex-wrap: wrap; row-gap: 10px; }

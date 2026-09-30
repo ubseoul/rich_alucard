@@ -63,3 +63,38 @@ test('white background is keyed out but interior white is kept', () => {
 test('transparent images are left alone', () => {
   assert.equal(keyOutSolidBackground(new Uint8ClampedArray(4 * 4 * 4), 4, 4), false);
 });
+
+import { richify } from '../src/core/richify.js';
+
+test('richify: native cell, feet on contact row, binary alpha, limited palette, outline', () => {
+  // 100x200 figure with a smooth gradient torso, on transparent
+  const W = 120, H = 220;
+  const frames = [0, 1].map((f) => {
+    const data = new Uint8ClampedArray(W * H * 4);
+    for (let y = 10; y < 210; y++)
+      for (let x = 30 + f * 4; x < 90 + f * 4; x++) {
+        const i = (y * W + x) * 4;
+        data.set([x * 2 % 256, y, 120 + (x % 40), 255], i);
+      }
+    return { width: W, height: H, data };
+  });
+  const out = richify(frames, { colors: 12 });
+  assert.equal(out.width, 80);
+  assert.equal(out.height, 96);
+  const d = out.frames[0].data;
+  const colors = new Set();
+  let lastOpaqueRow = -1, bodyTop = 999;
+  for (let y = 0; y < 96; y++)
+    for (let x = 0; x < 80; x++) {
+      const a = d[(y * 80 + x) * 4 + 3];
+      assert.ok(a === 0 || a === 255);
+      if (a === 255) {
+        colors.add(d[(y * 80 + x) * 4] + ',' + d[(y * 80 + x) * 4 + 1] + ',' + d[(y * 80 + x) * 4 + 2]);
+        lastOpaqueRow = Math.max(lastOpaqueRow, y);
+        bodyTop = Math.min(bodyTop, y);
+      }
+    }
+  assert.ok(colors.size <= 13, `palette ${colors.size}`);
+  assert.equal(lastOpaqueRow, 87); // outline sits on the row above the y88 contact edge
+  assert.ok(lastOpaqueRow - bodyTop + 1 >= 54 && lastOpaqueRow - bodyTop + 1 <= 57);
+});

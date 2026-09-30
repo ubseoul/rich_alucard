@@ -112,3 +112,15 @@ export function sliceSpriteSheet({ pixels, width, height }) {
     content: measureContentBounds(pixels, width, frames),
   };
 }
+
+/** Copy each frame rectangle of a sheet out as its own RGBA image. */
+export function extractFrames(pixels, sheetWidth, frames) {
+  return frames.map((f) => {
+    const data = new Uint8ClampedArray(f.w * f.h * 4);
+    for (let y = 0; y < f.h; y++) {
+      const from = ((f.y + y) * sheetWidth + f.x) * 4;
+      data.set(pixels.subarray(from, from + f.w * 4), y * f.w * 4);
+    }
+    return { width: f.w, height: f.h, data };
+  });
+}

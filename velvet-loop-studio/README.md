@@ -17,6 +17,18 @@ Running the installer takes one click, no prompts. It installs per-user, creates
 **Velvet Loop Studio** desktop shortcut (plus Start Menu entry) and starts the app.
 After that, double-click the desktop icon. Nothing else needs to be installed.
 
+## Video, GIF and the Rich Alucard look
+
+Besides sprite-sheet strips, you can load animations: GIF, APNG, animated WebP, and video
+(MP4/WebM; **WebM with alpha keeps its transparency**, other clips with a flat background get it keyed out).
+Clips are sampled at up to 12 fps / 240 frames and play at their own rate.
+
+**Rich Alucard-ify** (checkbox, works on sheets and clips) restyles the loaded art toward the
+native grammar in `art_department/STYLE_FINGERPRINT.md`: 80×96 cell, ~54px visible body, feet on the y88
+contact edge, hard binary alpha, one flat palette per clip (8–32 colors, default 16), stray pixels cleaned,
+and a 1px dark contour. It is an automatic approximation for judging motion and silhouette at game scale,
+not a repaint. Logic lives in `src/core/richify.js`.
+
 ## Development
 
 ```
