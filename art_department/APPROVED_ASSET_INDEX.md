@@ -575,3 +575,64 @@ UNDERLORD / Ube approved the exact submitted NEUTRAL / CALLING NUMBERS candidate
 |---|---|---|---|---|
 | `VA-GRANNY-BING-CGA-F2-032-NEUTRAL-CALLING-NUMBERS-v1` | `NEUTRAL / CALLING NUMBERS` (Anchor) | `assets/before_the_fame/characters/granny_bing/cga_f2_032/granny_bing_neutral_calling_numbers_anchor_80x96_v1.png` | `6f042de972f6fe7fa89178095829ac44e96650cf7b067ad0004f2ca208ddf4ee` | FROZEN |
 
+
+## F01 FEEL-LOCK — UBE APPROVED / FROZEN 2026-09-30
+
+Exact hashes and scope: `art_department/f01_feel_lock/FREEZE_RECORD.json`. Delivered subset only; SOURCE_REQUIRED items remain open.
+
+| Path | Status | Role |
+|---|---|---|
+| `assets/f01/feel_lock/FL-A01/bedroom_pov_base_270x480.png` | FROZEN | APPROVED MASTER; FL-A01; runtime integration pending |
+| `assets/f01/feel_lock/FL-A01/hand_phone_idle_270x480.png` | FROZEN | APPROVED MASTER; FL-A01; runtime integration pending |
+| `assets/f01/feel_lock/FL-A01/thumb_typing_overlay_270x480.png` | FROZEN | APPROVED MASTER; FL-A01; runtime integration pending |
+| `assets/f01/feel_lock/FL-A02/base_return_270x480.png` | FROZEN | APPROVED MASTER; FL-A02; runtime integration pending |
+| `assets/f01/feel_lock/FL-A02/base_return_empty_270x480.png` | FROZEN | APPROVED MASTER; FL-A02; runtime integration pending |
+| `assets/f01/feel_lock/FL-A03/cash_large_closed_128x96.png` | FROZEN | APPROVED MASTER; FL-A03; runtime integration pending |
+| `assets/f01/feel_lock/FL-A03/cash_large_open_128x96.png` | FROZEN | APPROVED MASTER; FL-A03; runtime integration pending |
+| `assets/f01/feel_lock/FL-A03/cash_medium_closed_128x96.png` | FROZEN | APPROVED MASTER; FL-A03; runtime integration pending |
+| `assets/f01/feel_lock/FL-A03/cash_medium_open_128x96.png` | FROZEN | APPROVED MASTER; FL-A03; runtime integration pending |
+| `assets/f01/feel_lock/FL-A03/cash_small_closed_128x96.png` | FROZEN | APPROVED MASTER; FL-A03; runtime integration pending |
+| `assets/f01/feel_lock/FL-A03/cash_small_open_128x96.png` | FROZEN | APPROVED MASTER; FL-A03; runtime integration pending |
+| `assets/f01/feel_lock/FL-A03/rich_counting_hands_128x96.png` | FROZEN | APPROVED MASTER; FL-A03; runtime integration pending |
+| `assets/f01/feel_lock/FL-A04/oba_de_gwinnett_visual_a_card_270x480.png` | FROZEN | APPROVED MASTER; FL-A04; runtime integration pending |
+| `assets/f01/feel_lock/FL-A04/oba_de_gwinnett_visual_a_native_80x96.png` | FROZEN | APPROVED MASTER; FL-A04; runtime integration pending |
+| `assets/f01/feel_lock/FL-A05/boba_backroom_exterior_270x480.png` | FROZEN | APPROVED MASTER; FL-A05; runtime integration pending |
+| `assets/f01/feel_lock/FL-A05/car_wash_stickup_exterior_270x480.png` | FROZEN | APPROVED MASTER; FL-A05; runtime integration pending |
+| `assets/f01/feel_lock/FL-A05/counting_house_exterior_270x480.png` | FROZEN | APPROVED MASTER; FL-A05; runtime integration pending |
+| `assets/f01/feel_lock/FL-A05/dock_restock_exterior_270x480.png` | FROZEN | APPROVED MASTER; FL-A05; runtime integration pending |
+| `assets/f01/feel_lock/FL-A05/quiet_lift_exterior_270x480.png` | FROZEN | APPROVED MASTER; FL-A05; runtime integration pending |
+| `assets/f01/feel_lock/FL-A05/smack_crib_exterior_270x480.png` | FROZEN | APPROVED MASTER; FL-A05; runtime integration pending |
+| `assets/f01/feel_lock/FL-A05/tupperware_exterior_270x480.png` | FROZEN | APPROVED MASTER; FL-A05; runtime integration pending |
+| `assets/f01/feel_lock/FL-A05/vampire_dentist_exterior_270x480.png` | FROZEN | APPROVED MASTER; FL-A05; runtime integration pending |
+| `assets/f01/feel_lock/FL-A05/vampire_gala_exterior_270x480.png` | FROZEN | APPROVED MASTER; FL-A05; runtime integration pending |
+| `assets/f01/feel_lock/FL-A06/hooptie_headlight_on_136x50.png` | FROZEN | APPROVED MASTER; FL-A06; runtime integration pending |
+| `assets/f01/feel_lock/FL-A06/hooptie_impounded_136x50.png` | FROZEN | APPROVED MASTER; FL-A06; runtime integration pending |
+| `assets/f01/feel_lock/FL-A06/hooptie_left_136x50.png` | FROZEN | APPROVED MASTER; FL-A06; runtime integration pending |
+| `assets/f01/feel_lock/FL-A06/hooptie_wrecked_136x50.png` | FROZEN | APPROVED MASTER; FL-A06; runtime integration pending |
+| `assets/f01/feel_lock/FL-A06/s2000_headlight_on_136x50.png` | FROZEN | APPROVED MASTER; FL-A06; runtime integration pending |
+| `assets/f01/feel_lock/FL-A06/s2000_impounded_136x50.png` | FROZEN | APPROVED MASTER; FL-A06; runtime integration pending |
+| `assets/f01/feel_lock/FL-A06/s2000_left_136x50.png` | FROZEN | APPROVED MASTER; FL-A06; runtime integration pending |
+| `assets/f01/feel_lock/FL-A06/s2000_wrecked_136x50.png` | FROZEN | APPROVED MASTER; FL-A06; runtime integration pending |
+| `assets/f01/feel_lock/FL-A06/supra_headlight_on_overlay_136x50.png` | FROZEN | APPROVED MASTER; FL-A06; runtime integration pending |
+| `assets/f01/feel_lock/FL-A06/supra_impounded_overlay_136x50.png` | FROZEN | APPROVED MASTER; FL-A06; runtime integration pending |
+| `assets/f01/feel_lock/FL-A06/supra_wrecked_overlay_136x50.png` | FROZEN | APPROVED MASTER; FL-A06; runtime integration pending |
+| `assets/f01/feel_lock/FL-A06/urus_headlight_on_136x50.png` | FROZEN | APPROVED MASTER; FL-A06; runtime integration pending |
+| `assets/f01/feel_lock/FL-A06/urus_impounded_136x50.png` | FROZEN | APPROVED MASTER; FL-A06; runtime integration pending |
+| `assets/f01/feel_lock/FL-A06/urus_left_136x50.png` | FROZEN | APPROVED MASTER; FL-A06; runtime integration pending |
+| `assets/f01/feel_lock/FL-A06/urus_wrecked_136x50.png` | FROZEN | APPROVED MASTER; FL-A06; runtime integration pending |
+| `assets/f01/feel_lock/FL-A07/generic_oga_boarding_80x96.png` | FROZEN | APPROVED MASTER; FL-A07; runtime integration pending |
+| `assets/f01/feel_lock/FL-A07/generic_oga_carried_80x96.png` | FROZEN | APPROVED MASTER; FL-A07; runtime integration pending |
+| `assets/f01/feel_lock/FL-A07/generic_oga_standing_80x96.png` | FROZEN | APPROVED MASTER; FL-A07; runtime integration pending |
+| `assets/f01/feel_lock/FL-A07/generic_oga_walking_80x96.png` | FROZEN | APPROVED MASTER; FL-A07; runtime integration pending |
+| `assets/f01/feel_lock/FL-A07/generic_oga_wounded_80x96.png` | FROZEN | APPROVED MASTER; FL-A07; runtime integration pending |
+| `assets/f01/feel_lock/FL-A08/bare_hands_24x24.png` | FROZEN | APPROVED MASTER; FL-A08; runtime integration pending |
+| `assets/f01/feel_lock/FL-A08/pistol_24x24.png` | FROZEN | APPROVED MASTER; FL-A08; runtime integration pending |
+| `assets/f01/feel_lock/FL-A08/slipper_24x24.png` | FROZEN | APPROVED MASTER; FL-A08; runtime integration pending |
+| `assets/f01/feel_lock/FL-A08/sprayer_24x24.png` | FROZEN | APPROVED MASTER; FL-A08; runtime integration pending |
+| `assets/f01/feel_lock/FL-A09/chat_bubble_64x24.png` | FROZEN | APPROVED MASTER; FL-A09; runtime integration pending |
+| `assets/f01/feel_lock/FL-A09/phone_bezel_270x480.png` | FROZEN | APPROVED MASTER; FL-A09; runtime integration pending |
+| `assets/f01/feel_lock/FL-A10/blood_x_48x48.png` | FROZEN | APPROVED MASTER; FL-A10; runtime integration pending |
+| `assets/f01/feel_lock/FL-A10/cash_48x48.png` | FROZEN | APPROVED MASTER; FL-A10; runtime integration pending |
+| `assets/f01/feel_lock/FL-A10/gun_48x48.png` | FROZEN | APPROVED MASTER; FL-A10; runtime integration pending |
+| `assets/f01/feel_lock/FL-A10/mod_48x48.png` | FROZEN | APPROVED MASTER; FL-A10; runtime integration pending |
+| `assets/f01/feel_lock/FL-A10/weird_48x48.png` | FROZEN | APPROVED MASTER; FL-A10; runtime integration pending |

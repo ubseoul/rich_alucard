@@ -18,6 +18,8 @@ The repo is institutional memory. Prior chats are not required. Ube should not n
 
 ## Current State & Authority
 
+- **F01 FEEL-LOCK — UBE APPROVED / FROZEN DELIVERED SUBSET:** 54 native PNGs. Start at `art_department/f01_feel_lock/FREEZE_RECORD.md` and `.json`; use `FL-A01_COMPOSITOR_CONTRACT.json` for the live phone opening. FL-A07 named states and FL-A10 abstract physical loot remain `SOURCE_REQUIRED`. Runtime integration remains pending.
+
 - **ART SHIP 015 — APPROVED MASTER / FROZEN / COMPLETE** (Ship 015 closed out final canon blockers).
 - **VISUAL LANE A — CURRENT PRODUCTION AUTHORITY:**
   - **GBENGA — ACCEPTED / FROZEN:** Full six-state package accepted. Anchor: `VA-GBENGA-NEUTRAL-v2`. Corrected Neutral v2 supersedes Neutral v1. Other five states (Voice Note, "My Son", Adjusting Sleeves, Golden Draco, Defeated) remained byte-identical.
@@ -48,8 +50,8 @@ The repo is institutional memory. Prior chats are not required. Ube should not n
     15. trap crew
     16. Big Bing — **NEUTRAL + NO DONE / FROZEN / CLOSED**
     17. Granny Bing — **NEUTRAL / CALLING NUMBERS DONE / FROZEN / CLOSED**
-- **Frozen Corpus:** **432 assets**; **Asset Register:** **574 entries**.
-- **Baseline frozen verification:** 411/411 unchanged.
+- **Frozen Corpus:** **486 assets**; **Asset Register:** **628 entries**. F01 feel-lock added 54 exact-byte frozen PNGs.
+- **Baseline frozen verification:** 432/432 pre-F01 frozen files unchanged.
 - **Ship 011** remains separately frozen/unassigned.
 
 ---

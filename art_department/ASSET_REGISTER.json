@@ -15414,6 +15414,1194 @@
         "sha256": "6f042de972f6fe7fa89178095829ac44e96650cf7b067ad0004f2ca208ddf4ee",
         "promotion": "byte-for-byte copy"
       }
+    },
+    {
+      "path": "assets/f01/feel_lock/FL-A01/bedroom_pov_base_270x480.png",
+      "sha256": "78311626d8f404ba220a24d117c072815faea5460634d0131efdf21c0d3996b4",
+      "role": "F01 THE PLAY feel-lock FL-A01 native asset",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "Ube: \"besides that everythings good to be frozen\" (F01 feel-lock batch approval, 2026-09-30)",
+        "Ube: \"the second one is perfect\" (revised FL-A01 close-up approval, 2026-09-30)",
+        "art_department/f01_feel_lock/FREEZE_RECORD.json"
+      ],
+      "dimensions": [
+        270,
+        480
+      ],
+      "mode": "RGB",
+      "ticket": "FL-A01",
+      "alpha": "opaque",
+      "approval_status": "APPROVED MASTER",
+      "freeze_scope": "Exact byte stream at the named production path only; no runtime mapping or missing ticket subasset is approved by this record.",
+      "runtime_integration_status": "PENDING ENGINEERING REGISTRATION / RUNTIME QA"
+    },
+    {
+      "path": "assets/f01/feel_lock/FL-A01/hand_phone_idle_270x480.png",
+      "sha256": "4dbad494977b75dae94f4378e7c976d4033cf3373c1c71c1052103439a6ee56d",
+      "role": "F01 THE PLAY feel-lock FL-A01 native asset",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "Ube: \"besides that everythings good to be frozen\" (F01 feel-lock batch approval, 2026-09-30)",
+        "Ube: \"the second one is perfect\" (revised FL-A01 close-up approval, 2026-09-30)",
+        "art_department/f01_feel_lock/FREEZE_RECORD.json"
+      ],
+      "dimensions": [
+        270,
+        480
+      ],
+      "mode": "RGBA",
+      "ticket": "FL-A01",
+      "alpha": "binary 0/255",
+      "approval_status": "APPROVED MASTER",
+      "freeze_scope": "Exact byte stream at the named production path only; no runtime mapping or missing ticket subasset is approved by this record.",
+      "runtime_integration_status": "PENDING ENGINEERING REGISTRATION / RUNTIME QA"
+    },
+    {
+      "path": "assets/f01/feel_lock/FL-A01/thumb_typing_overlay_270x480.png",
+      "sha256": "b3d0d276fdabafd0b2e94c24925829d2d9c58f9236941bd843538a4c89f27964",
+      "role": "F01 THE PLAY feel-lock FL-A01 native asset",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "Ube: \"besides that everythings good to be frozen\" (F01 feel-lock batch approval, 2026-09-30)",
+        "Ube: \"the second one is perfect\" (revised FL-A01 close-up approval, 2026-09-30)",
+        "art_department/f01_feel_lock/FREEZE_RECORD.json"
+      ],
+      "dimensions": [
+        270,
+        480
+      ],
+      "mode": "RGBA",
+      "ticket": "FL-A01",
+      "alpha": "binary 0/255",
+      "approval_status": "APPROVED MASTER",
+      "freeze_scope": "Exact byte stream at the named production path only; no runtime mapping or missing ticket subasset is approved by this record.",
+      "runtime_integration_status": "PENDING ENGINEERING REGISTRATION / RUNTIME QA"
+    },
+    {
+      "path": "assets/f01/feel_lock/FL-A02/base_return_270x480.png",
+      "sha256": "7f209e21d36284ff238eaa06627f4ff04e469804dfd81370461e9f6e7019162e",
+      "role": "F01 THE PLAY feel-lock FL-A02 native asset",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "Ube: \"besides that everythings good to be frozen\" (F01 feel-lock batch approval, 2026-09-30)",
+        "art_department/f01_feel_lock/FREEZE_RECORD.md",
+        "art_department/f01_feel_lock/FREEZE_RECORD.json"
+      ],
+      "dimensions": [
+        270,
+        480
+      ],
+      "mode": "RGB",
+      "ticket": "FL-A02",
+      "alpha": "opaque",
+      "approval_status": "APPROVED MASTER",
+      "freeze_scope": "Exact byte stream at the named production path only; no runtime mapping or missing ticket subasset is approved by this record.",
+      "runtime_integration_status": "PENDING ENGINEERING REGISTRATION / RUNTIME QA"
+    },
+    {
+      "path": "assets/f01/feel_lock/FL-A02/base_return_empty_270x480.png",
+      "sha256": "6a155a7a8d4fc6dd63140e1deb77b8ecabc55fae12ac1c9c4047b10036db35df",
+      "role": "F01 THE PLAY feel-lock FL-A02 native asset",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "Ube: \"besides that everythings good to be frozen\" (F01 feel-lock batch approval, 2026-09-30)",
+        "art_department/f01_feel_lock/FREEZE_RECORD.md",
+        "art_department/f01_feel_lock/FREEZE_RECORD.json"
+      ],
+      "dimensions": [
+        270,
+        480
+      ],
+      "mode": "RGB",
+      "ticket": "FL-A02",
+      "alpha": "opaque",
+      "approval_status": "APPROVED MASTER",
+      "freeze_scope": "Exact byte stream at the named production path only; no runtime mapping or missing ticket subasset is approved by this record.",
+      "runtime_integration_status": "PENDING ENGINEERING REGISTRATION / RUNTIME QA"
+    },
+    {
+      "path": "assets/f01/feel_lock/FL-A03/cash_large_closed_128x96.png",
+      "sha256": "e09b02dcef6c78574ae0e90e9b1aca13285adcf165049a4805d27e9e5aca6f56",
+      "role": "F01 THE PLAY feel-lock FL-A03 native asset",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "Ube: \"besides that everythings good to be frozen\" (F01 feel-lock batch approval, 2026-09-30)",
+        "art_department/f01_feel_lock/FREEZE_RECORD.md",
+        "art_department/f01_feel_lock/FREEZE_RECORD.json"
+      ],
+      "dimensions": [
+        128,
+        96
+      ],
+      "mode": "RGBA",
+      "ticket": "FL-A03",
+      "alpha": "binary 0/255",
+      "approval_status": "APPROVED MASTER",
+      "freeze_scope": "Exact byte stream at the named production path only; no runtime mapping or missing ticket subasset is approved by this record.",
+      "runtime_integration_status": "PENDING ENGINEERING REGISTRATION / RUNTIME QA"
+    },
+    {
+      "path": "assets/f01/feel_lock/FL-A03/cash_large_open_128x96.png",
+      "sha256": "6fc41ee72334a124ff60a0e2965189e8da7cbad0bc6599402bd610c06cae994c",
+      "role": "F01 THE PLAY feel-lock FL-A03 native asset",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "Ube: \"besides that everythings good to be frozen\" (F01 feel-lock batch approval, 2026-09-30)",
+        "art_department/f01_feel_lock/FREEZE_RECORD.md",
+        "art_department/f01_feel_lock/FREEZE_RECORD.json"
+      ],
+      "dimensions": [
+        128,
+        96
+      ],
+      "mode": "RGBA",
+      "ticket": "FL-A03",
+      "alpha": "binary 0/255",
+      "approval_status": "APPROVED MASTER",
+      "freeze_scope": "Exact byte stream at the named production path only; no runtime mapping or missing ticket subasset is approved by this record.",
+      "runtime_integration_status": "PENDING ENGINEERING REGISTRATION / RUNTIME QA"
+    },
+    {
+      "path": "assets/f01/feel_lock/FL-A03/cash_medium_closed_128x96.png",
+      "sha256": "17dbe5003f560b2caae74e03b49b74ae38ae96040b7cf76a2a91e7d7474e67b9",
+      "role": "F01 THE PLAY feel-lock FL-A03 native asset",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "Ube: \"besides that everythings good to be frozen\" (F01 feel-lock batch approval, 2026-09-30)",
+        "art_department/f01_feel_lock/FREEZE_RECORD.md",
+        "art_department/f01_feel_lock/FREEZE_RECORD.json"
+      ],
+      "dimensions": [
+        128,
+        96
+      ],
+      "mode": "RGBA",
+      "ticket": "FL-A03",
+      "alpha": "binary 0/255",
+      "approval_status": "APPROVED MASTER",
+      "freeze_scope": "Exact byte stream at the named production path only; no runtime mapping or missing ticket subasset is approved by this record.",
+      "runtime_integration_status": "PENDING ENGINEERING REGISTRATION / RUNTIME QA"
+    },
+    {
+      "path": "assets/f01/feel_lock/FL-A03/cash_medium_open_128x96.png",
+      "sha256": "0c455eeb1287c6e58e7a991f72f38fbec902c1e9f3fab7cf3ddb4b32de6e3575",
+      "role": "F01 THE PLAY feel-lock FL-A03 native asset",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "Ube: \"besides that everythings good to be frozen\" (F01 feel-lock batch approval, 2026-09-30)",
+        "art_department/f01_feel_lock/FREEZE_RECORD.md",
+        "art_department/f01_feel_lock/FREEZE_RECORD.json"
+      ],
+      "dimensions": [
+        128,
+        96
+      ],
+      "mode": "RGBA",
+      "ticket": "FL-A03",
+      "alpha": "binary 0/255",
+      "approval_status": "APPROVED MASTER",
+      "freeze_scope": "Exact byte stream at the named production path only; no runtime mapping or missing ticket subasset is approved by this record.",
+      "runtime_integration_status": "PENDING ENGINEERING REGISTRATION / RUNTIME QA"
+    },
+    {
+      "path": "assets/f01/feel_lock/FL-A03/cash_small_closed_128x96.png",
+      "sha256": "b96254960af4e73b55978f6eff9e14ca6e6ea602b498d4ae0e4667606e85df67",
+      "role": "F01 THE PLAY feel-lock FL-A03 native asset",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "Ube: \"besides that everythings good to be frozen\" (F01 feel-lock batch approval, 2026-09-30)",
+        "art_department/f01_feel_lock/FREEZE_RECORD.md",
+        "art_department/f01_feel_lock/FREEZE_RECORD.json"
+      ],
+      "dimensions": [
+        128,
+        96
+      ],
+      "mode": "RGBA",
+      "ticket": "FL-A03",
+      "alpha": "binary 0/255",
+      "approval_status": "APPROVED MASTER",
+      "freeze_scope": "Exact byte stream at the named production path only; no runtime mapping or missing ticket subasset is approved by this record.",
+      "runtime_integration_status": "PENDING ENGINEERING REGISTRATION / RUNTIME QA"
+    },
+    {
+      "path": "assets/f01/feel_lock/FL-A03/cash_small_open_128x96.png",
+      "sha256": "f07c83324eb973da6756bb815e4133188404408245569ac832020ceffb686452",
+      "role": "F01 THE PLAY feel-lock FL-A03 native asset",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "Ube: \"besides that everythings good to be frozen\" (F01 feel-lock batch approval, 2026-09-30)",
+        "art_department/f01_feel_lock/FREEZE_RECORD.md",
+        "art_department/f01_feel_lock/FREEZE_RECORD.json"
+      ],
+      "dimensions": [
+        128,
+        96
+      ],
+      "mode": "RGBA",
+      "ticket": "FL-A03",
+      "alpha": "binary 0/255",
+      "approval_status": "APPROVED MASTER",
+      "freeze_scope": "Exact byte stream at the named production path only; no runtime mapping or missing ticket subasset is approved by this record.",
+      "runtime_integration_status": "PENDING ENGINEERING REGISTRATION / RUNTIME QA"
+    },
+    {
+      "path": "assets/f01/feel_lock/FL-A03/rich_counting_hands_128x96.png",
+      "sha256": "744687d4f42f2dc8d359a5d946779eba4e9cea2038951ab14bc353e5713523a9",
+      "role": "F01 THE PLAY feel-lock FL-A03 native asset",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "Ube: \"besides that everythings good to be frozen\" (F01 feel-lock batch approval, 2026-09-30)",
+        "art_department/f01_feel_lock/FREEZE_RECORD.md",
+        "art_department/f01_feel_lock/FREEZE_RECORD.json"
+      ],
+      "dimensions": [
+        128,
+        96
+      ],
+      "mode": "RGBA",
+      "ticket": "FL-A03",
+      "alpha": "binary 0/255",
+      "approval_status": "APPROVED MASTER",
+      "freeze_scope": "Exact byte stream at the named production path only; no runtime mapping or missing ticket subasset is approved by this record.",
+      "runtime_integration_status": "PENDING ENGINEERING REGISTRATION / RUNTIME QA"
+    },
+    {
+      "path": "assets/f01/feel_lock/FL-A04/oba_de_gwinnett_visual_a_card_270x480.png",
+      "sha256": "0b3631a518b16858835f02ee68d81f0e963bb64d8a8b8898aa74cf79dc02ae24",
+      "role": "F01 THE PLAY feel-lock FL-A04 native asset",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "Ube: \"besides that everythings good to be frozen\" (F01 feel-lock batch approval, 2026-09-30)",
+        "art_department/f01_feel_lock/FREEZE_RECORD.md",
+        "art_department/f01_feel_lock/FREEZE_RECORD.json"
+      ],
+      "dimensions": [
+        270,
+        480
+      ],
+      "mode": "RGB",
+      "ticket": "FL-A04",
+      "alpha": "opaque",
+      "approval_status": "APPROVED MASTER",
+      "freeze_scope": "Exact byte stream at the named production path only; no runtime mapping or missing ticket subasset is approved by this record.",
+      "runtime_integration_status": "PENDING ENGINEERING REGISTRATION / RUNTIME QA"
+    },
+    {
+      "path": "assets/f01/feel_lock/FL-A04/oba_de_gwinnett_visual_a_native_80x96.png",
+      "sha256": "77d990099cac18be0977f7d7c1c396325cccfc5af86b41fb797b275f4454bd22",
+      "role": "F01 THE PLAY feel-lock FL-A04 native asset",
+      "status": "FROZEN",
+      "default_style_reference": true,
+      "approval_evidence": [
+        "Ube: \"besides that everythings good to be frozen\" (F01 feel-lock batch approval, 2026-09-30)",
+        "art_department/f01_feel_lock/FREEZE_RECORD.md",
+        "art_department/f01_feel_lock/FREEZE_RECORD.json"
+      ],
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "ticket": "FL-A04",
+      "alpha": "binary 0/255",
+      "approval_status": "APPROVED MASTER",
+      "freeze_scope": "Exact byte stream at the named production path only; no runtime mapping or missing ticket subasset is approved by this record.",
+      "runtime_integration_status": "PENDING ENGINEERING REGISTRATION / RUNTIME QA"
+    },
+    {
+      "path": "assets/f01/feel_lock/FL-A05/boba_backroom_exterior_270x480.png",
+      "sha256": "d1a4f662a276061ebd9739cced53e58de2586ea8825c1f30be8ce59e86b8303b",
+      "role": "F01 THE PLAY feel-lock FL-A05 native asset",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "Ube: \"besides that everythings good to be frozen\" (F01 feel-lock batch approval, 2026-09-30)",
+        "art_department/f01_feel_lock/FREEZE_RECORD.md",
+        "art_department/f01_feel_lock/FREEZE_RECORD.json"
+      ],
+      "dimensions": [
+        270,
+        480
+      ],
+      "mode": "RGB",
+      "ticket": "FL-A05",
+      "alpha": "opaque",
+      "approval_status": "APPROVED MASTER",
+      "freeze_scope": "Exact byte stream at the named production path only; no runtime mapping or missing ticket subasset is approved by this record.",
+      "runtime_integration_status": "PENDING ENGINEERING REGISTRATION / RUNTIME QA"
+    },
+    {
+      "path": "assets/f01/feel_lock/FL-A05/car_wash_stickup_exterior_270x480.png",
+      "sha256": "89bab82852224a9f9384d338f5174ff96189961f8dae547b2a21111b2711ed5e",
+      "role": "F01 THE PLAY feel-lock FL-A05 native asset",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "Ube: \"besides that everythings good to be frozen\" (F01 feel-lock batch approval, 2026-09-30)",
+        "art_department/f01_feel_lock/FREEZE_RECORD.md",
+        "art_department/f01_feel_lock/FREEZE_RECORD.json"
+      ],
+      "dimensions": [
+        270,
+        480
+      ],
+      "mode": "RGB",
+      "ticket": "FL-A05",
+      "alpha": "opaque",
+      "approval_status": "APPROVED MASTER",
+      "freeze_scope": "Exact byte stream at the named production path only; no runtime mapping or missing ticket subasset is approved by this record.",
+      "runtime_integration_status": "PENDING ENGINEERING REGISTRATION / RUNTIME QA"
+    },
+    {
+      "path": "assets/f01/feel_lock/FL-A05/counting_house_exterior_270x480.png",
+      "sha256": "0a876d261a479a8c0d48b8a328ee2c5afd41a1a26ef4739f633ba5dcbd5d522e",
+      "role": "F01 THE PLAY feel-lock FL-A05 native asset",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "Ube: \"besides that everythings good to be frozen\" (F01 feel-lock batch approval, 2026-09-30)",
+        "art_department/f01_feel_lock/FREEZE_RECORD.md",
+        "art_department/f01_feel_lock/FREEZE_RECORD.json"
+      ],
+      "dimensions": [
+        270,
+        480
+      ],
+      "mode": "RGB",
+      "ticket": "FL-A05",
+      "alpha": "opaque",
+      "approval_status": "APPROVED MASTER",
+      "freeze_scope": "Exact byte stream at the named production path only; no runtime mapping or missing ticket subasset is approved by this record.",
+      "runtime_integration_status": "PENDING ENGINEERING REGISTRATION / RUNTIME QA"
+    },
+    {
+      "path": "assets/f01/feel_lock/FL-A05/dock_restock_exterior_270x480.png",
+      "sha256": "a8b711082a994e3c72b9a95f5f71aa367bd4f025430765ec0f5012a6d8f242bb",
+      "role": "F01 THE PLAY feel-lock FL-A05 native asset",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "Ube: \"besides that everythings good to be frozen\" (F01 feel-lock batch approval, 2026-09-30)",
+        "art_department/f01_feel_lock/FREEZE_RECORD.md",
+        "art_department/f01_feel_lock/FREEZE_RECORD.json"
+      ],
+      "dimensions": [
+        270,
+        480
+      ],
+      "mode": "RGB",
+      "ticket": "FL-A05",
+      "alpha": "opaque",
+      "approval_status": "APPROVED MASTER",
+      "freeze_scope": "Exact byte stream at the named production path only; no runtime mapping or missing ticket subasset is approved by this record.",
+      "runtime_integration_status": "PENDING ENGINEERING REGISTRATION / RUNTIME QA"
+    },
+    {
+      "path": "assets/f01/feel_lock/FL-A05/quiet_lift_exterior_270x480.png",
+      "sha256": "3c6b9861ca5a9660cec4b15d5aa0381602f621bff7727b1d01fc94d3f10dbd83",
+      "role": "F01 THE PLAY feel-lock FL-A05 native asset",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "Ube: \"besides that everythings good to be frozen\" (F01 feel-lock batch approval, 2026-09-30)",
+        "art_department/f01_feel_lock/FREEZE_RECORD.md",
+        "art_department/f01_feel_lock/FREEZE_RECORD.json"
+      ],
+      "dimensions": [
+        270,
+        480
+      ],
+      "mode": "RGB",
+      "ticket": "FL-A05",
+      "alpha": "opaque",
+      "approval_status": "APPROVED MASTER",
+      "freeze_scope": "Exact byte stream at the named production path only; no runtime mapping or missing ticket subasset is approved by this record.",
+      "runtime_integration_status": "PENDING ENGINEERING REGISTRATION / RUNTIME QA"
+    },
+    {
+      "path": "assets/f01/feel_lock/FL-A05/smack_crib_exterior_270x480.png",
+      "sha256": "0d9930a0b11e153bffea858f5acb87b7c8600b40a09c0376f1f805d1f5280030",
+      "role": "F01 THE PLAY feel-lock FL-A05 native asset",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "Ube: \"besides that everythings good to be frozen\" (F01 feel-lock batch approval, 2026-09-30)",
+        "art_department/f01_feel_lock/FREEZE_RECORD.md",
+        "art_department/f01_feel_lock/FREEZE_RECORD.json"
+      ],
+      "dimensions": [
+        270,
+        480
+      ],
+      "mode": "RGB",
+      "ticket": "FL-A05",
+      "alpha": "opaque",
+      "approval_status": "APPROVED MASTER",
+      "freeze_scope": "Exact byte stream at the named production path only; no runtime mapping or missing ticket subasset is approved by this record.",
+      "runtime_integration_status": "PENDING ENGINEERING REGISTRATION / RUNTIME QA"
+    },
+    {
+      "path": "assets/f01/feel_lock/FL-A05/tupperware_exterior_270x480.png",
+      "sha256": "39adbd2597901d6800f2f5600bba41568ca9a6e44d52b8a644da4b690f69775e",
+      "role": "F01 THE PLAY feel-lock FL-A05 native asset",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "Ube: \"besides that everythings good to be frozen\" (F01 feel-lock batch approval, 2026-09-30)",
+        "art_department/f01_feel_lock/FREEZE_RECORD.md",
+        "art_department/f01_feel_lock/FREEZE_RECORD.json"
+      ],
+      "dimensions": [
+        270,
+        480
+      ],
+      "mode": "RGB",
+      "ticket": "FL-A05",
+      "alpha": "opaque",
+      "approval_status": "APPROVED MASTER",
+      "freeze_scope": "Exact byte stream at the named production path only; no runtime mapping or missing ticket subasset is approved by this record.",
+      "runtime_integration_status": "PENDING ENGINEERING REGISTRATION / RUNTIME QA"
+    },
+    {
+      "path": "assets/f01/feel_lock/FL-A05/vampire_dentist_exterior_270x480.png",
+      "sha256": "1057311aae50ea9b900969a608a6ff5eec47bc92c26da8bc2326a31df01ac0d9",
+      "role": "F01 THE PLAY feel-lock FL-A05 native asset",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "Ube: \"besides that everythings good to be frozen\" (F01 feel-lock batch approval, 2026-09-30)",
+        "art_department/f01_feel_lock/FREEZE_RECORD.md",
+        "art_department/f01_feel_lock/FREEZE_RECORD.json"
+      ],
+      "dimensions": [
+        270,
+        480
+      ],
+      "mode": "RGB",
+      "ticket": "FL-A05",
+      "alpha": "opaque",
+      "approval_status": "APPROVED MASTER",
+      "freeze_scope": "Exact byte stream at the named production path only; no runtime mapping or missing ticket subasset is approved by this record.",
+      "runtime_integration_status": "PENDING ENGINEERING REGISTRATION / RUNTIME QA"
+    },
+    {
+      "path": "assets/f01/feel_lock/FL-A05/vampire_gala_exterior_270x480.png",
+      "sha256": "110fc3263a273f2f2fc27650fd6230d99d5a70d391c38de3c51cdd3e1ecd846d",
+      "role": "F01 THE PLAY feel-lock FL-A05 native asset",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "Ube: \"besides that everythings good to be frozen\" (F01 feel-lock batch approval, 2026-09-30)",
+        "art_department/f01_feel_lock/FREEZE_RECORD.md",
+        "art_department/f01_feel_lock/FREEZE_RECORD.json"
+      ],
+      "dimensions": [
+        270,
+        480
+      ],
+      "mode": "RGB",
+      "ticket": "FL-A05",
+      "alpha": "opaque",
+      "approval_status": "APPROVED MASTER",
+      "freeze_scope": "Exact byte stream at the named production path only; no runtime mapping or missing ticket subasset is approved by this record.",
+      "runtime_integration_status": "PENDING ENGINEERING REGISTRATION / RUNTIME QA"
+    },
+    {
+      "path": "assets/f01/feel_lock/FL-A06/hooptie_headlight_on_136x50.png",
+      "sha256": "0b6aeba780cc618d8d3c1cb1377449e0f10e96f42141f0d6be8acc3638b68c68",
+      "role": "F01 THE PLAY feel-lock FL-A06 native asset",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "Ube: \"besides that everythings good to be frozen\" (F01 feel-lock batch approval, 2026-09-30)",
+        "art_department/f01_feel_lock/FREEZE_RECORD.md",
+        "art_department/f01_feel_lock/FREEZE_RECORD.json"
+      ],
+      "dimensions": [
+        136,
+        50
+      ],
+      "mode": "RGBA",
+      "ticket": "FL-A06",
+      "alpha": "binary 0/255",
+      "approval_status": "APPROVED MASTER",
+      "freeze_scope": "Exact byte stream at the named production path only; no runtime mapping or missing ticket subasset is approved by this record.",
+      "runtime_integration_status": "PENDING ENGINEERING REGISTRATION / RUNTIME QA"
+    },
+    {
+      "path": "assets/f01/feel_lock/FL-A06/hooptie_impounded_136x50.png",
+      "sha256": "e15367b320d446e19408ffd5b67ca767e28c88edfc4f0cddcd96ce4b99d99064",
+      "role": "F01 THE PLAY feel-lock FL-A06 native asset",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "Ube: \"besides that everythings good to be frozen\" (F01 feel-lock batch approval, 2026-09-30)",
+        "art_department/f01_feel_lock/FREEZE_RECORD.md",
+        "art_department/f01_feel_lock/FREEZE_RECORD.json"
+      ],
+      "dimensions": [
+        136,
+        50
+      ],
+      "mode": "RGBA",
+      "ticket": "FL-A06",
+      "alpha": "binary 0/255",
+      "approval_status": "APPROVED MASTER",
+      "freeze_scope": "Exact byte stream at the named production path only; no runtime mapping or missing ticket subasset is approved by this record.",
+      "runtime_integration_status": "PENDING ENGINEERING REGISTRATION / RUNTIME QA"
+    },
+    {
+      "path": "assets/f01/feel_lock/FL-A06/hooptie_left_136x50.png",
+      "sha256": "6021ac2de118b5d60e5b9903aeedce3c2f5b19577928f182a7da7d2326374326",
+      "role": "F01 THE PLAY feel-lock FL-A06 native asset",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "Ube: \"besides that everythings good to be frozen\" (F01 feel-lock batch approval, 2026-09-30)",
+        "art_department/f01_feel_lock/FREEZE_RECORD.md",
+        "art_department/f01_feel_lock/FREEZE_RECORD.json"
+      ],
+      "dimensions": [
+        136,
+        50
+      ],
+      "mode": "RGBA",
+      "ticket": "FL-A06",
+      "alpha": "binary 0/255",
+      "approval_status": "APPROVED MASTER",
+      "freeze_scope": "Exact byte stream at the named production path only; no runtime mapping or missing ticket subasset is approved by this record.",
+      "runtime_integration_status": "PENDING ENGINEERING REGISTRATION / RUNTIME QA"
+    },
+    {
+      "path": "assets/f01/feel_lock/FL-A06/hooptie_wrecked_136x50.png",
+      "sha256": "a75ebf59d13d418975702b4a9e5b0cc907bf7ae45475d3376d87a25e2d63eb3f",
+      "role": "F01 THE PLAY feel-lock FL-A06 native asset",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "Ube: \"besides that everythings good to be frozen\" (F01 feel-lock batch approval, 2026-09-30)",
+        "art_department/f01_feel_lock/FREEZE_RECORD.md",
+        "art_department/f01_feel_lock/FREEZE_RECORD.json"
+      ],
+      "dimensions": [
+        136,
+        50
+      ],
+      "mode": "RGBA",
+      "ticket": "FL-A06",
+      "alpha": "binary 0/255",
+      "approval_status": "APPROVED MASTER",
+      "freeze_scope": "Exact byte stream at the named production path only; no runtime mapping or missing ticket subasset is approved by this record.",
+      "runtime_integration_status": "PENDING ENGINEERING REGISTRATION / RUNTIME QA"
+    },
+    {
+      "path": "assets/f01/feel_lock/FL-A06/s2000_headlight_on_136x50.png",
+      "sha256": "fdf60484354bc16fba616ef1d8c8066fe40fcc0110568975a3bcc1f47923a05b",
+      "role": "F01 THE PLAY feel-lock FL-A06 native asset",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "Ube: \"besides that everythings good to be frozen\" (F01 feel-lock batch approval, 2026-09-30)",
+        "art_department/f01_feel_lock/FREEZE_RECORD.md",
+        "art_department/f01_feel_lock/FREEZE_RECORD.json"
+      ],
+      "dimensions": [
+        136,
+        50
+      ],
+      "mode": "RGBA",
+      "ticket": "FL-A06",
+      "alpha": "binary 0/255",
+      "approval_status": "APPROVED MASTER",
+      "freeze_scope": "Exact byte stream at the named production path only; no runtime mapping or missing ticket subasset is approved by this record.",
+      "runtime_integration_status": "PENDING ENGINEERING REGISTRATION / RUNTIME QA"
+    },
+    {
+      "path": "assets/f01/feel_lock/FL-A06/s2000_impounded_136x50.png",
+      "sha256": "3a168dc498325a35736d1a11ed39f2cb3a6ed38ccf109986d6b2623a2ce32281",
+      "role": "F01 THE PLAY feel-lock FL-A06 native asset",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "Ube: \"besides that everythings good to be frozen\" (F01 feel-lock batch approval, 2026-09-30)",
+        "art_department/f01_feel_lock/FREEZE_RECORD.md",
+        "art_department/f01_feel_lock/FREEZE_RECORD.json"
+      ],
+      "dimensions": [
+        136,
+        50
+      ],
+      "mode": "RGBA",
+      "ticket": "FL-A06",
+      "alpha": "binary 0/255",
+      "approval_status": "APPROVED MASTER",
+      "freeze_scope": "Exact byte stream at the named production path only; no runtime mapping or missing ticket subasset is approved by this record.",
+      "runtime_integration_status": "PENDING ENGINEERING REGISTRATION / RUNTIME QA"
+    },
+    {
+      "path": "assets/f01/feel_lock/FL-A06/s2000_left_136x50.png",
+      "sha256": "51020a911aff63d327d6e9f020137caa4f51a219b5e5dfd801ee34ea1605d651",
+      "role": "F01 THE PLAY feel-lock FL-A06 native asset",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "Ube: \"besides that everythings good to be frozen\" (F01 feel-lock batch approval, 2026-09-30)",
+        "art_department/f01_feel_lock/FREEZE_RECORD.md",
+        "art_department/f01_feel_lock/FREEZE_RECORD.json"
+      ],
+      "dimensions": [
+        136,
+        50
+      ],
+      "mode": "RGBA",
+      "ticket": "FL-A06",
+      "alpha": "binary 0/255",
+      "approval_status": "APPROVED MASTER",
+      "freeze_scope": "Exact byte stream at the named production path only; no runtime mapping or missing ticket subasset is approved by this record.",
+      "runtime_integration_status": "PENDING ENGINEERING REGISTRATION / RUNTIME QA"
+    },
+    {
+      "path": "assets/f01/feel_lock/FL-A06/s2000_wrecked_136x50.png",
+      "sha256": "caf972e161e1bf8268986f2b7ea9229c7b0cf130a62c4f82c3276716ba54c02d",
+      "role": "F01 THE PLAY feel-lock FL-A06 native asset",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "Ube: \"besides that everythings good to be frozen\" (F01 feel-lock batch approval, 2026-09-30)",
+        "art_department/f01_feel_lock/FREEZE_RECORD.md",
+        "art_department/f01_feel_lock/FREEZE_RECORD.json"
+      ],
+      "dimensions": [
+        136,
+        50
+      ],
+      "mode": "RGBA",
+      "ticket": "FL-A06",
+      "alpha": "binary 0/255",
+      "approval_status": "APPROVED MASTER",
+      "freeze_scope": "Exact byte stream at the named production path only; no runtime mapping or missing ticket subasset is approved by this record.",
+      "runtime_integration_status": "PENDING ENGINEERING REGISTRATION / RUNTIME QA"
+    },
+    {
+      "path": "assets/f01/feel_lock/FL-A06/supra_headlight_on_overlay_136x50.png",
+      "sha256": "c5318af669107f7939b6576735cce5c094e80422f080a96ddea457aa18018b6e",
+      "role": "F01 THE PLAY feel-lock FL-A06 native asset",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "Ube: \"besides that everythings good to be frozen\" (F01 feel-lock batch approval, 2026-09-30)",
+        "art_department/f01_feel_lock/FREEZE_RECORD.md",
+        "art_department/f01_feel_lock/FREEZE_RECORD.json"
+      ],
+      "dimensions": [
+        136,
+        50
+      ],
+      "mode": "RGBA",
+      "ticket": "FL-A06",
+      "alpha": "binary 0/255",
+      "approval_status": "APPROVED MASTER",
+      "freeze_scope": "Exact byte stream at the named production path only; no runtime mapping or missing ticket subasset is approved by this record.",
+      "runtime_integration_status": "PENDING ENGINEERING REGISTRATION / RUNTIME QA"
+    },
+    {
+      "path": "assets/f01/feel_lock/FL-A06/supra_impounded_overlay_136x50.png",
+      "sha256": "6044d565e886f83b76c301526371c7c62dbc23623b9b4134ebc21f9f138968cf",
+      "role": "F01 THE PLAY feel-lock FL-A06 native asset",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "Ube: \"besides that everythings good to be frozen\" (F01 feel-lock batch approval, 2026-09-30)",
+        "art_department/f01_feel_lock/FREEZE_RECORD.md",
+        "art_department/f01_feel_lock/FREEZE_RECORD.json"
+      ],
+      "dimensions": [
+        136,
+        50
+      ],
+      "mode": "RGBA",
+      "ticket": "FL-A06",
+      "alpha": "binary 0/255",
+      "approval_status": "APPROVED MASTER",
+      "freeze_scope": "Exact byte stream at the named production path only; no runtime mapping or missing ticket subasset is approved by this record.",
+      "runtime_integration_status": "PENDING ENGINEERING REGISTRATION / RUNTIME QA"
+    },
+    {
+      "path": "assets/f01/feel_lock/FL-A06/supra_wrecked_overlay_136x50.png",
+      "sha256": "0e35244529741513a865d624741e1b6e96484d78f027a7d5fbe6459f301d34bf",
+      "role": "F01 THE PLAY feel-lock FL-A06 native asset",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "Ube: \"besides that everythings good to be frozen\" (F01 feel-lock batch approval, 2026-09-30)",
+        "art_department/f01_feel_lock/FREEZE_RECORD.md",
+        "art_department/f01_feel_lock/FREEZE_RECORD.json"
+      ],
+      "dimensions": [
+        136,
+        50
+      ],
+      "mode": "RGBA",
+      "ticket": "FL-A06",
+      "alpha": "binary 0/255",
+      "approval_status": "APPROVED MASTER",
+      "freeze_scope": "Exact byte stream at the named production path only; no runtime mapping or missing ticket subasset is approved by this record.",
+      "runtime_integration_status": "PENDING ENGINEERING REGISTRATION / RUNTIME QA"
+    },
+    {
+      "path": "assets/f01/feel_lock/FL-A06/urus_headlight_on_136x50.png",
+      "sha256": "ef3ca5293f776166bb158972a738170bdedd949fb0f44b913e4da068fe4f8114",
+      "role": "F01 THE PLAY feel-lock FL-A06 native asset",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "Ube: \"besides that everythings good to be frozen\" (F01 feel-lock batch approval, 2026-09-30)",
+        "art_department/f01_feel_lock/FREEZE_RECORD.md",
+        "art_department/f01_feel_lock/FREEZE_RECORD.json"
+      ],
+      "dimensions": [
+        136,
+        50
+      ],
+      "mode": "RGBA",
+      "ticket": "FL-A06",
+      "alpha": "binary 0/255",
+      "approval_status": "APPROVED MASTER",
+      "freeze_scope": "Exact byte stream at the named production path only; no runtime mapping or missing ticket subasset is approved by this record.",
+      "runtime_integration_status": "PENDING ENGINEERING REGISTRATION / RUNTIME QA"
+    },
+    {
+      "path": "assets/f01/feel_lock/FL-A06/urus_impounded_136x50.png",
+      "sha256": "076788d30c28cdde98b737ab49ab7a8b37abe258d721c49b3783e401b39d929f",
+      "role": "F01 THE PLAY feel-lock FL-A06 native asset",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "Ube: \"besides that everythings good to be frozen\" (F01 feel-lock batch approval, 2026-09-30)",
+        "art_department/f01_feel_lock/FREEZE_RECORD.md",
+        "art_department/f01_feel_lock/FREEZE_RECORD.json"
+      ],
+      "dimensions": [
+        136,
+        50
+      ],
+      "mode": "RGBA",
+      "ticket": "FL-A06",
+      "alpha": "binary 0/255",
+      "approval_status": "APPROVED MASTER",
+      "freeze_scope": "Exact byte stream at the named production path only; no runtime mapping or missing ticket subasset is approved by this record.",
+      "runtime_integration_status": "PENDING ENGINEERING REGISTRATION / RUNTIME QA"
+    },
+    {
+      "path": "assets/f01/feel_lock/FL-A06/urus_left_136x50.png",
+      "sha256": "ff212d258c93e3fc1675dc6b42e89b008f0e50c08655df552f96ce3a6d078829",
+      "role": "F01 THE PLAY feel-lock FL-A06 native asset",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "Ube: \"besides that everythings good to be frozen\" (F01 feel-lock batch approval, 2026-09-30)",
+        "art_department/f01_feel_lock/FREEZE_RECORD.md",
+        "art_department/f01_feel_lock/FREEZE_RECORD.json"
+      ],
+      "dimensions": [
+        136,
+        50
+      ],
+      "mode": "RGBA",
+      "ticket": "FL-A06",
+      "alpha": "binary 0/255",
+      "approval_status": "APPROVED MASTER",
+      "freeze_scope": "Exact byte stream at the named production path only; no runtime mapping or missing ticket subasset is approved by this record.",
+      "runtime_integration_status": "PENDING ENGINEERING REGISTRATION / RUNTIME QA"
+    },
+    {
+      "path": "assets/f01/feel_lock/FL-A06/urus_wrecked_136x50.png",
+      "sha256": "6f06cd3d718fc2e03737402cc134997bb3a19f10a1904e900fc594c494cd8f41",
+      "role": "F01 THE PLAY feel-lock FL-A06 native asset",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "Ube: \"besides that everythings good to be frozen\" (F01 feel-lock batch approval, 2026-09-30)",
+        "art_department/f01_feel_lock/FREEZE_RECORD.md",
+        "art_department/f01_feel_lock/FREEZE_RECORD.json"
+      ],
+      "dimensions": [
+        136,
+        50
+      ],
+      "mode": "RGBA",
+      "ticket": "FL-A06",
+      "alpha": "binary 0/255",
+      "approval_status": "APPROVED MASTER",
+      "freeze_scope": "Exact byte stream at the named production path only; no runtime mapping or missing ticket subasset is approved by this record.",
+      "runtime_integration_status": "PENDING ENGINEERING REGISTRATION / RUNTIME QA"
+    },
+    {
+      "path": "assets/f01/feel_lock/FL-A07/generic_oga_boarding_80x96.png",
+      "sha256": "35c75aef62cb4c2944f0e2715b0a459b526279815f185e2e8ea9b2548c8b9701",
+      "role": "F01 THE PLAY feel-lock FL-A07 native asset",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "Ube: \"besides that everythings good to be frozen\" (F01 feel-lock batch approval, 2026-09-30)",
+        "art_department/f01_feel_lock/FREEZE_RECORD.md",
+        "art_department/f01_feel_lock/FREEZE_RECORD.json"
+      ],
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "ticket": "FL-A07",
+      "alpha": "binary 0/255",
+      "approval_status": "APPROVED MASTER",
+      "freeze_scope": "Exact byte stream at the named production path only; no runtime mapping or missing ticket subasset is approved by this record.",
+      "runtime_integration_status": "PENDING ENGINEERING REGISTRATION / RUNTIME QA"
+    },
+    {
+      "path": "assets/f01/feel_lock/FL-A07/generic_oga_carried_80x96.png",
+      "sha256": "01c5297da2d67ee3e9113175dc57e37807fa8020e7d7ad50d5ff61fa98500651",
+      "role": "F01 THE PLAY feel-lock FL-A07 native asset",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "Ube: \"besides that everythings good to be frozen\" (F01 feel-lock batch approval, 2026-09-30)",
+        "art_department/f01_feel_lock/FREEZE_RECORD.md",
+        "art_department/f01_feel_lock/FREEZE_RECORD.json"
+      ],
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "ticket": "FL-A07",
+      "alpha": "binary 0/255",
+      "approval_status": "APPROVED MASTER",
+      "freeze_scope": "Exact byte stream at the named production path only; no runtime mapping or missing ticket subasset is approved by this record.",
+      "runtime_integration_status": "PENDING ENGINEERING REGISTRATION / RUNTIME QA"
+    },
+    {
+      "path": "assets/f01/feel_lock/FL-A07/generic_oga_standing_80x96.png",
+      "sha256": "f2aaa70c7f337fa9c7e83e6c2dacb935a9f240b9edde58d0a86815c3f2e7d1af",
+      "role": "F01 THE PLAY feel-lock FL-A07 native asset",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "Ube: \"besides that everythings good to be frozen\" (F01 feel-lock batch approval, 2026-09-30)",
+        "art_department/f01_feel_lock/FREEZE_RECORD.md",
+        "art_department/f01_feel_lock/FREEZE_RECORD.json"
+      ],
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "ticket": "FL-A07",
+      "alpha": "binary 0/255",
+      "approval_status": "APPROVED MASTER",
+      "freeze_scope": "Exact byte stream at the named production path only; no runtime mapping or missing ticket subasset is approved by this record.",
+      "runtime_integration_status": "PENDING ENGINEERING REGISTRATION / RUNTIME QA"
+    },
+    {
+      "path": "assets/f01/feel_lock/FL-A07/generic_oga_walking_80x96.png",
+      "sha256": "b64299805cd2b8bdf3af170d32cfe9949dfa8e8ca72b4715652d0c828e5b4f3d",
+      "role": "F01 THE PLAY feel-lock FL-A07 native asset",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "Ube: \"besides that everythings good to be frozen\" (F01 feel-lock batch approval, 2026-09-30)",
+        "art_department/f01_feel_lock/FREEZE_RECORD.md",
+        "art_department/f01_feel_lock/FREEZE_RECORD.json"
+      ],
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "ticket": "FL-A07",
+      "alpha": "binary 0/255",
+      "approval_status": "APPROVED MASTER",
+      "freeze_scope": "Exact byte stream at the named production path only; no runtime mapping or missing ticket subasset is approved by this record.",
+      "runtime_integration_status": "PENDING ENGINEERING REGISTRATION / RUNTIME QA"
+    },
+    {
+      "path": "assets/f01/feel_lock/FL-A07/generic_oga_wounded_80x96.png",
+      "sha256": "e939e0bec7eae37c7d87fd79e1780469f423368b98b36a253a9af783c2c4acc1",
+      "role": "F01 THE PLAY feel-lock FL-A07 native asset",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "Ube: \"besides that everythings good to be frozen\" (F01 feel-lock batch approval, 2026-09-30)",
+        "art_department/f01_feel_lock/FREEZE_RECORD.md",
+        "art_department/f01_feel_lock/FREEZE_RECORD.json"
+      ],
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "ticket": "FL-A07",
+      "alpha": "binary 0/255",
+      "approval_status": "APPROVED MASTER",
+      "freeze_scope": "Exact byte stream at the named production path only; no runtime mapping or missing ticket subasset is approved by this record.",
+      "runtime_integration_status": "PENDING ENGINEERING REGISTRATION / RUNTIME QA"
+    },
+    {
+      "path": "assets/f01/feel_lock/FL-A08/bare_hands_24x24.png",
+      "sha256": "b0cbb83211d86fb9350f541d58e231201b4b193f98da6f2176d7f87227d6995b",
+      "role": "F01 THE PLAY feel-lock FL-A08 native asset",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "Ube: \"besides that everythings good to be frozen\" (F01 feel-lock batch approval, 2026-09-30)",
+        "art_department/f01_feel_lock/FREEZE_RECORD.md",
+        "art_department/f01_feel_lock/FREEZE_RECORD.json"
+      ],
+      "dimensions": [
+        24,
+        24
+      ],
+      "mode": "RGBA",
+      "ticket": "FL-A08",
+      "alpha": "binary 0/255",
+      "approval_status": "APPROVED MASTER",
+      "freeze_scope": "Exact byte stream at the named production path only; no runtime mapping or missing ticket subasset is approved by this record.",
+      "runtime_integration_status": "PENDING ENGINEERING REGISTRATION / RUNTIME QA"
+    },
+    {
+      "path": "assets/f01/feel_lock/FL-A08/pistol_24x24.png",
+      "sha256": "099af33298467c5b9d136837f78b9f794770dfc94da94cbacf7bdb130f9596d7",
+      "role": "F01 THE PLAY feel-lock FL-A08 native asset",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "Ube: \"besides that everythings good to be frozen\" (F01 feel-lock batch approval, 2026-09-30)",
+        "art_department/f01_feel_lock/FREEZE_RECORD.md",
+        "art_department/f01_feel_lock/FREEZE_RECORD.json"
+      ],
+      "dimensions": [
+        24,
+        24
+      ],
+      "mode": "RGBA",
+      "ticket": "FL-A08",
+      "alpha": "binary 0/255",
+      "approval_status": "APPROVED MASTER",
+      "freeze_scope": "Exact byte stream at the named production path only; no runtime mapping or missing ticket subasset is approved by this record.",
+      "runtime_integration_status": "PENDING ENGINEERING REGISTRATION / RUNTIME QA"
+    },
+    {
+      "path": "assets/f01/feel_lock/FL-A08/slipper_24x24.png",
+      "sha256": "ddfad8ff244c6c7532492b464f66e80f07722d5f3c917e0bbcf743b27448807a",
+      "role": "F01 THE PLAY feel-lock FL-A08 native asset",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "Ube: \"besides that everythings good to be frozen\" (F01 feel-lock batch approval, 2026-09-30)",
+        "art_department/f01_feel_lock/FREEZE_RECORD.md",
+        "art_department/f01_feel_lock/FREEZE_RECORD.json"
+      ],
+      "dimensions": [
+        24,
+        24
+      ],
+      "mode": "RGBA",
+      "ticket": "FL-A08",
+      "alpha": "binary 0/255",
+      "approval_status": "APPROVED MASTER",
+      "freeze_scope": "Exact byte stream at the named production path only; no runtime mapping or missing ticket subasset is approved by this record.",
+      "runtime_integration_status": "PENDING ENGINEERING REGISTRATION / RUNTIME QA"
+    },
+    {
+      "path": "assets/f01/feel_lock/FL-A08/sprayer_24x24.png",
+      "sha256": "a772059bda8bfaabb62fe6a403472f9fe61cadde2623a6854f2ba8477a52666e",
+      "role": "F01 THE PLAY feel-lock FL-A08 native asset",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "Ube: \"besides that everythings good to be frozen\" (F01 feel-lock batch approval, 2026-09-30)",
+        "art_department/f01_feel_lock/FREEZE_RECORD.md",
+        "art_department/f01_feel_lock/FREEZE_RECORD.json"
+      ],
+      "dimensions": [
+        24,
+        24
+      ],
+      "mode": "RGBA",
+      "ticket": "FL-A08",
+      "alpha": "binary 0/255",
+      "approval_status": "APPROVED MASTER",
+      "freeze_scope": "Exact byte stream at the named production path only; no runtime mapping or missing ticket subasset is approved by this record.",
+      "runtime_integration_status": "PENDING ENGINEERING REGISTRATION / RUNTIME QA"
+    },
+    {
+      "path": "assets/f01/feel_lock/FL-A09/chat_bubble_64x24.png",
+      "sha256": "46bb858bef278b160862c4df27dc692c854fe207ad55250f307537fe19a3e732",
+      "role": "F01 THE PLAY feel-lock FL-A09 native asset",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "Ube: \"besides that everythings good to be frozen\" (F01 feel-lock batch approval, 2026-09-30)",
+        "art_department/f01_feel_lock/FREEZE_RECORD.md",
+        "art_department/f01_feel_lock/FREEZE_RECORD.json"
+      ],
+      "dimensions": [
+        64,
+        24
+      ],
+      "mode": "RGBA",
+      "ticket": "FL-A09",
+      "alpha": "binary 0/255",
+      "approval_status": "APPROVED MASTER",
+      "freeze_scope": "Exact byte stream at the named production path only; no runtime mapping or missing ticket subasset is approved by this record.",
+      "runtime_integration_status": "PENDING ENGINEERING REGISTRATION / RUNTIME QA"
+    },
+    {
+      "path": "assets/f01/feel_lock/FL-A09/phone_bezel_270x480.png",
+      "sha256": "f98b23c9f35d3c8c849f6494472cc6189e95cad1b4ebf9dcdd3845cb47cfb59c",
+      "role": "F01 THE PLAY feel-lock FL-A09 native asset",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "Ube: \"besides that everythings good to be frozen\" (F01 feel-lock batch approval, 2026-09-30)",
+        "art_department/f01_feel_lock/FREEZE_RECORD.md",
+        "art_department/f01_feel_lock/FREEZE_RECORD.json"
+      ],
+      "dimensions": [
+        270,
+        480
+      ],
+      "mode": "RGBA",
+      "ticket": "FL-A09",
+      "alpha": "binary 0/255",
+      "approval_status": "APPROVED MASTER",
+      "freeze_scope": "Exact byte stream at the named production path only; no runtime mapping or missing ticket subasset is approved by this record.",
+      "runtime_integration_status": "PENDING ENGINEERING REGISTRATION / RUNTIME QA"
+    },
+    {
+      "path": "assets/f01/feel_lock/FL-A10/blood_x_48x48.png",
+      "sha256": "16fb83a4f579e6e4957226fa4bdbbabb0e40eeac22aad9c18b9d89c226d9085d",
+      "role": "F01 THE PLAY feel-lock FL-A10 native asset",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "Ube: \"besides that everythings good to be frozen\" (F01 feel-lock batch approval, 2026-09-30)",
+        "art_department/f01_feel_lock/FREEZE_RECORD.md",
+        "art_department/f01_feel_lock/FREEZE_RECORD.json"
+      ],
+      "dimensions": [
+        48,
+        48
+      ],
+      "mode": "RGBA",
+      "ticket": "FL-A10",
+      "alpha": "binary 0/255",
+      "approval_status": "APPROVED MASTER",
+      "freeze_scope": "Exact byte stream at the named production path only; no runtime mapping or missing ticket subasset is approved by this record.",
+      "runtime_integration_status": "PENDING ENGINEERING REGISTRATION / RUNTIME QA"
+    },
+    {
+      "path": "assets/f01/feel_lock/FL-A10/cash_48x48.png",
+      "sha256": "ebb1f425acff32e23170323bd81e8ff9f864233f842dda0f6ae5035d159bddd5",
+      "role": "F01 THE PLAY feel-lock FL-A10 native asset",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "Ube: \"besides that everythings good to be frozen\" (F01 feel-lock batch approval, 2026-09-30)",
+        "art_department/f01_feel_lock/FREEZE_RECORD.md",
+        "art_department/f01_feel_lock/FREEZE_RECORD.json"
+      ],
+      "dimensions": [
+        48,
+        48
+      ],
+      "mode": "RGBA",
+      "ticket": "FL-A10",
+      "alpha": "binary 0/255",
+      "approval_status": "APPROVED MASTER",
+      "freeze_scope": "Exact byte stream at the named production path only; no runtime mapping or missing ticket subasset is approved by this record.",
+      "runtime_integration_status": "PENDING ENGINEERING REGISTRATION / RUNTIME QA"
+    },
+    {
+      "path": "assets/f01/feel_lock/FL-A10/gun_48x48.png",
+      "sha256": "55cf44e4eb73111373a1bddaef7801ee3ee47c6fd6052f006a2dca47b8fdbbc5",
+      "role": "F01 THE PLAY feel-lock FL-A10 native asset",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "Ube: \"besides that everythings good to be frozen\" (F01 feel-lock batch approval, 2026-09-30)",
+        "art_department/f01_feel_lock/FREEZE_RECORD.md",
+        "art_department/f01_feel_lock/FREEZE_RECORD.json"
+      ],
+      "dimensions": [
+        48,
+        48
+      ],
+      "mode": "RGBA",
+      "ticket": "FL-A10",
+      "alpha": "binary 0/255",
+      "approval_status": "APPROVED MASTER",
+      "freeze_scope": "Exact byte stream at the named production path only; no runtime mapping or missing ticket subasset is approved by this record.",
+      "runtime_integration_status": "PENDING ENGINEERING REGISTRATION / RUNTIME QA"
+    },
+    {
+      "path": "assets/f01/feel_lock/FL-A10/mod_48x48.png",
+      "sha256": "df54a225fe6aafdb618fc29a36a1a5a2e9d261e5c5972371fc2e9351f648f2a7",
+      "role": "F01 THE PLAY feel-lock FL-A10 native asset",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "Ube: \"besides that everythings good to be frozen\" (F01 feel-lock batch approval, 2026-09-30)",
+        "art_department/f01_feel_lock/FREEZE_RECORD.md",
+        "art_department/f01_feel_lock/FREEZE_RECORD.json"
+      ],
+      "dimensions": [
+        48,
+        48
+      ],
+      "mode": "RGBA",
+      "ticket": "FL-A10",
+      "alpha": "binary 0/255",
+      "approval_status": "APPROVED MASTER",
+      "freeze_scope": "Exact byte stream at the named production path only; no runtime mapping or missing ticket subasset is approved by this record.",
+      "runtime_integration_status": "PENDING ENGINEERING REGISTRATION / RUNTIME QA"
+    },
+    {
+      "path": "assets/f01/feel_lock/FL-A10/weird_48x48.png",
+      "sha256": "8eb83ea5dc98210df7696d1383ae8c8963b92b69ac3b610be408d3f3e722f425",
+      "role": "F01 THE PLAY feel-lock FL-A10 native asset",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "Ube: \"besides that everythings good to be frozen\" (F01 feel-lock batch approval, 2026-09-30)",
+        "art_department/f01_feel_lock/FREEZE_RECORD.md",
+        "art_department/f01_feel_lock/FREEZE_RECORD.json"
+      ],
+      "dimensions": [
+        48,
+        48
+      ],
+      "mode": "RGBA",
+      "ticket": "FL-A10",
+      "alpha": "binary 0/255",
+      "approval_status": "APPROVED MASTER",
+      "freeze_scope": "Exact byte stream at the named production path only; no runtime mapping or missing ticket subasset is approved by this record.",
+      "runtime_integration_status": "PENDING ENGINEERING REGISTRATION / RUNTIME QA"
     }
   ]
 }

@@ -276,3 +276,7 @@ No accepted image was regenerated, decoded/re-encoded, resized, optimized or mod
 67. The exact accepted native was promoted without re-encoding to `assets/before_the_fame/characters/big_bing/cga_f2_031/big_bing_no_80x96_v1.png`; the exact nearest-neighbor 4× preview is `art_department/visual_a/big_bing_cga_f2_031/review/big_bing_no_4x_nearest_v1.png`, SHA-256 `0a45b0b51386f09e94e0d1d1d56a46b1dedcd77bd3e9afc369984321a5426a6a`.
 68. The resulting cumulative frozen corpus is **432 assets across 574 Asset Register entries**. Runtime integration, gameplay placement, merge and deployment remain excluded.
 
+
+## F01 feel-lock asset batch — Ube approval and freeze (2026-09-30)
+
+Ube directed: “besides that everythings good to be frozen,” subject to FL-A01 making the bed background a matching red and the phone filling approximately 80% of the view while the hand remains visible. After seeing the revised close-up, Ube said: “the second one is perfect.” The 54 exact native PNGs listed in `art_department/f01_feel_lock/FREEZE_RECORD.json` are APPROVED MASTER / FROZEN. Unproduced named Oga states and abstract loot object silhouettes remain SOURCE_REQUIRED. Runtime integration remains pending.

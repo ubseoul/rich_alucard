@@ -1,5 +1,15 @@
 # Current handoff
 
+**F01 FEEL-LOCK ASSET BATCH — UBE APPROVED / FROZEN DELIVERED SUBSET.**
+
+- Exact frozen production pixels: **54 PNGs** under `assets/f01/feel_lock/`, manifest and decision in `art_department/f01_feel_lock/FREEZE_RECORD.json`.
+- FL-A01 uses the Ube-accepted second close-up: deep red bed, phone approximately 80% of frame height, visible hand and live DOM cutout. JOLT uses code shake; thumb-typing overlay is separate.
+- Source-required remainder: named Oga state families (FL-A07) and physical RECRUIT/STORY/DISTRICT loot silhouettes (FL-A10). They are not frozen.
+- Frozen corpus **486**, Asset Register **628**. Prior **432/432** frozen files verified unchanged.
+- Runtime registration, Presentation, audio and QA remain separate Engineering work. No SEALED material was accessed.
+
+## Prior Visual Lane A handoff
+
 **ART DEPARTMENT REFRESH 2026 — VISUAL LANE A INGESTION & WORKFLOW UPDATE.**
 
 ## Freeze Result

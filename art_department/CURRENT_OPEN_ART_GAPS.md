@@ -6,7 +6,7 @@ Visual Lane A incorporates OVERLORD OL-012 and OL-017 OPEN identity authority. G
 
 | Area | Current truth |
 |---|---|
-| Frozen corpus | 432 frozen assets; 574 registered entries |
+| Frozen corpus | 486 frozen assets; 628 registered entries |
 | Visual Lane A | Gbenga (6 states), Carlos (3 states), Big Bing NEUTRAL + NO, and Granny Bing NEUTRAL / CALLING NUMBERS ACCEPTED / FROZEN |
 | Ship 015 | 7 approved masters resolving 6 requirements; integration pending |
 | Baseline frozen verification | 411/411 unchanged |
@@ -54,3 +54,7 @@ Visual Lane A incorporates OVERLORD OL-012 and OL-017 OPEN identity authority. G
 - Ship 011 remains separately frozen/unassigned.
 
 **Recommended next step:** Fresh Art session may onboard from `START_HERE.md` and execute Visual Lane A production for **Senator**.
+
+## F01 feel-lock — frozen delivered subset / remaining source
+
+54 exact PNGs are frozen under `assets/f01/feel_lock/` per `art_department/f01_feel_lock/FREEZE_RECORD.json`. FL-A07 named Oga state families and FL-A10 physical RECRUIT/STORY/DISTRICT silhouettes remain `SOURCE_REQUIRED`. Runtime integration and QA are pending.
