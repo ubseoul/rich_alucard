@@ -3,7 +3,7 @@
 Audit date: 2026-09-28  
 Lane: Non-dancer character identity authority  
 Approval authority: Ube / UNDERLORD  
-Current disposition: **GBENGA ACCEPTED/FROZEN — CARLOS ACCEPTED/FROZEN**
+Current disposition: **GBENGA ACCEPTED/FROZEN — CARLOS ACCEPTED/FROZEN — BIG BING NEUTRAL ACCEPTED/FROZEN/CLOSED**
 
 The earlier source stop was closed by OVERLORD OL-012. An OPEN Visual Concept Card is now binding identity authority, with ordinary art-director discretion allowed inside its MUST / MUST NOT constraints. No generated identity is canon-frozen without UNDERLORD/Ube acceptance.
 
@@ -24,6 +24,7 @@ The earlier source stop was closed by OVERLORD OL-012. An OPEN Visual Concept Ca
 | hunters | Identity anchors and states | OPEN Visual Concept Card authority | QUEUED | QUEUED | All | Approved visual identity source |
 | HOA president | Identity anchor and states | OPEN Visual Concept Card authority | QUEUED | QUEUED | All | Canonical identity brief/reference, adult age if depicted as a woman, clothing/palette, and exact states |
 | trap crew | Cooks, runners, lookout | OPEN Visual Concept Card authority | QUEUED | QUEUED | All | Count, names if any, approved appearance/costume guidance, exact states |
+| Big Bing | NEUTRAL; NO | OL-017 BIG BING / `CGA-F2-031` | `VA-BIG-BING-CGA-F2-031-NEUTRAL-v1` ACCEPTED / FROZEN / CLOSED | NEUTRAL APPROVED / FROZEN | `NO` remains unproduced and requires a separate task | NONE |
 | Lil Smack | Existing EATING, DISS, and FINALE identity-bearing states located | Frozen `lil_smack_eating_80x96.png`; frozen `A-lil_smack-diss.png`; frozen `A-lil_smack-finale.png` | EXISTING FROZEN IDENTITY — untouched | Existing assets remain FROZEN; no new asset submitted | Only specifically authorized future state derivatives; tactical/top-down belongs to Visual C | Exact non-tactical derivative/state assignment, if any. No redesign authorized |
 | Deacon Brass | Existing NEUTRAL and BLESSING | Frozen `deacon_brass_neutral_80x96.png`; frozen `deacon_brass_blessing_80x96.png` | EXISTING FROZEN IDENTITY — untouched | Existing assets remain FROZEN; no new asset submitted | None established by supplied brief | Exact additional authored state assignment, if one is required; otherwise no work |
 

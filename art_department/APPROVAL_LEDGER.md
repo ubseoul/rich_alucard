@@ -255,3 +255,10 @@ No accepted image was regenerated, decoded/re-encoded, resized, optimized or mod
     - Accepted family: Full three-state package (`VA-CARLOS-NEUTRAL-HAPPY-v1`, `VA-CARLOS-BETRAYED-v1`, `VA-CARLOS-CANOPY-APRON-v1`).
     - All three production masters and three 80×96 native sprites are **APPROVED MASTER / FROZEN**. Native pixel structure preserved.
 
+## VISUAL LANE A — CGA-F2-031 BIG BING (recorded 2026-09-30)
+
+57. UNDERLORD / Ube disposition: **PASS — FREEZE APPROVED** for BIG BING — NEUTRAL, exact candidate SHA-256 `a133f44b9cd4c232cda4b6d779ce295da64a18dc9cdf671bc7f2531087e90ccd`.
+58. The accepted native candidate was promoted byte-for-byte to `assets/before_the_fame/characters/big_bing/cga_f2_031/big_bing_neutral_anchor_80x96_v1.png`. No regeneration, reinterpretation, recoloring, resizing, optimization, or improvement occurred.
+59. OL-017 authorizes `NEUTRAL` and `NO`; this decision freezes **NEUTRAL only**. The `NO` state was not created. No Granny Bing asset, alternate pose, environment, prop asset, or additional state was created. `SOURCE_REQUIRED = none`.
+60. The resulting frozen corpus is **430 assets across 572 Asset Register entries**. Post-registration verification passed 430/430 registered frozen hashes, including the exact accepted Big Bing byte stream. Runtime integration, gameplay placement, merge, and deployment remain excluded.
+

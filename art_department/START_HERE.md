@@ -22,6 +22,7 @@ The repo is institutional memory. Prior chats are not required. Ube should not n
 - **VISUAL LANE A — CURRENT PRODUCTION AUTHORITY:**
   - **GBENGA — ACCEPTED / FROZEN:** Full six-state package accepted. Anchor: `VA-GBENGA-NEUTRAL-v2`. Corrected Neutral v2 supersedes Neutral v1. Other five states (Voice Note, "My Son", Adjusting Sleeves, Golden Draco, Defeated) remained byte-identical.
   - **CARLOS — ACCEPTED / FROZEN:** Full three-state package accepted. Anchor: `VA-CARLOS-NEUTRAL-HAPPY-v1`. Accepted states: Neutral / Happy, Betrayed, Canopy Apron.
+  - **BIG BING / `CGA-F2-031` — NEUTRAL ACCEPTED / FROZEN / CLOSED:** Exact 80×96 anchor `VA-BIG-BING-CGA-F2-031-NEUTRAL-v1`, SHA-256 `a133f44b9cd4c232cda4b6d779ce295da64a18dc9cdf671bc7f2531087e90ccd`. OL-017 also names `NO`; it remains unproduced.
 - **VISUAL A SOURCE AUTHORITY (OVERLORD OL-012):**
   - Standing rule: **OPEN Visual Concept Cards are identity authority.**
   - When a card is silent on exact face, skin tone, hair, or minor palette details, normal art-director discretion may fill the gap inside MUST / MUST NOT boundaries.
@@ -44,7 +45,8 @@ The repo is institutional memory. Prior chats are not required. Ube should not n
     13. hunters
     14. HOA president
     15. trap crew
-- **Frozen Corpus:** **429 assets**; **Asset Register:** **571 entries**.
+    16. Big Bing — **NEUTRAL DONE / FROZEN / CLOSED** (`NO` remains unproduced)
+- **Frozen Corpus:** **430 assets**; **Asset Register:** **572 entries**.
 - **Baseline frozen verification:** 411/411 unchanged.
 - **Ship 011** remains separately frozen/unassigned.
 

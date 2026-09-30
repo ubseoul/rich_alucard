@@ -15305,6 +15305,42 @@
       "approval_status": "APPROVED MASTER",
       "freeze_scope": "Exact 80x96 pixel-reduced sprite for Carlos Canopy Apron state.",
       "runtime_integration_status": "PENDING ENGINEERING REGISTRATION / RUNTIME QA"
+    },
+    {
+      "path": "assets/before_the_fame/characters/big_bing/cga_f2_031/big_bing_neutral_anchor_80x96_v1.png",
+      "sha256": "a133f44b9cd4c232cda4b6d779ce295da64a18dc9cdf671bc7f2531087e90ccd",
+      "role": "Visual Lane A approved CGA-F2-031 Big Bing identity anchor — NEUTRAL",
+      "status": "FROZEN",
+      "default_style_reference": true,
+      "approval_evidence": [
+        "UNDERLORD / Ube Disposition: CGA-F2-031 BIG BING — PASS — FREEZE APPROVED",
+        "origin/main @ 625f3c60aeb11d1df3b140eb802cbd2758e2ebed: art_department/production_authority/OL017_OPEN_VISUAL_CHARACTER_AUTHORITY.md",
+        "art_department/visual_a/big_bing_cga_f2_031/FREEZE_RECORD.md",
+        "art_department/visual_a/big_bing_cga_f2_031/CGA_F2_031_BIG_BING_MANIFEST.json",
+        "art_department/APPROVAL_LEDGER.md"
+      ],
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "lane_id": "VISUAL_LANE_A",
+      "ticket": "CGA-F2-031",
+      "asset_id": "VA-BIG-BING-CGA-F2-031-NEUTRAL-v1",
+      "category": "CHARACTER_IDENTITY_ANCHOR",
+      "state": "NEUTRAL",
+      "source_anchor": [
+        40,
+        88
+      ],
+      "alpha": "binary 0/255",
+      "approval_status": "APPROVED MASTER",
+      "freeze_scope": "Exact UNDERLORD/Ube-approved 80x96 Big Bing NEUTRAL candidate bytes only. OL-017 also names NO, but NO was not created or frozen. No Granny Bing asset, alternate pose, environment or prop asset is included.",
+      "runtime_integration_status": "PENDING ENGINEERING REGISTRATION / RUNTIME QA",
+      "source_candidate": {
+        "sha256": "a133f44b9cd4c232cda4b6d779ce295da64a18dc9cdf671bc7f2531087e90ccd",
+        "promotion": "byte-for-byte copy"
+      }
     }
   ]
 }

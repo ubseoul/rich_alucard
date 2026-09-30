@@ -2,12 +2,12 @@
 
 **As of:** 2026-09-28
 
-Visual Lane A incorporates OVERLORD OL-012 OPEN identity authority. Gbenga and Carlos are accepted and frozen. Future Visual Lane A production proceeds along the authorized queue starting with Senator.
+Visual Lane A incorporates OVERLORD OL-012 and OL-017 OPEN identity authority. Gbenga and Carlos are accepted and frozen; Big Bing NEUTRAL is accepted/frozen/closed under `CGA-F2-031`. Future Visual Lane A production proceeds along the authorized queue starting with Senator.
 
 | Area | Current truth |
 |---|---|
-| Frozen corpus | 429 frozen assets; 571 registered entries |
-| Visual Lane A | Gbenga (6 states) and Carlos (3 states) ACCEPTED / FROZEN |
+| Frozen corpus | 430 frozen assets; 572 registered entries |
+| Visual Lane A | Gbenga (6 states), Carlos (3 states), and Big Bing NEUTRAL ACCEPTED / FROZEN |
 | Ship 015 | 7 approved masters resolving 6 requirements; integration pending |
 | Baseline frozen verification | 411/411 unchanged |
 | Runtime census | 104 adventure screens + 17 fights |
@@ -31,6 +31,7 @@ Visual Lane A incorporates OVERLORD OL-012 OPEN identity authority. Gbenga and C
 13. **hunters:** QUEUED (OPEN Visual Concept Card authority).
 14. **HOA president:** QUEUED (adult female identity).
 15. **trap crew:** QUEUED (cooks, runners, lookout).
+16. **Big Bing / `CGA-F2-031`:** **NEUTRAL DONE / FROZEN / CLOSED** — `NO` remains OL-017-authorized but unproduced.
 
 ## Historical Canon Blockers (Resolved in Ship 015)
 

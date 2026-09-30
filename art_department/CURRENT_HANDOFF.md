@@ -13,9 +13,14 @@
   - Status: **ACCEPTED / FROZEN**.
   - Anchor: `VA-CARLOS-NEUTRAL-HAPPY-v1` (`assets/before_the_fame/characters/carlos/carlos_neutral_happy_anchor_v1.png` / `runtime_80x96/carlos_neutral_happy_anchor_80x96_review_v1.png`).
   - Accepted three-state package: Neutral / Happy, Betrayed, Canopy Apron.
+- **Visual Lane A — BIG BING / `CGA-F2-031`:**
+  - Status: **NEUTRAL ACCEPTED / FROZEN / CLOSED**.
+  - Anchor: `VA-BIG-BING-CGA-F2-031-NEUTRAL-v1` (`assets/before_the_fame/characters/big_bing/cga_f2_031/big_bing_neutral_anchor_80x96_v1.png`).
+  - Exact SHA-256: `a133f44b9cd4c232cda4b6d779ce295da64a18dc9cdf671bc7f2531087e90ccd`.
+  - OL-017 also authorizes `NO`; it was not created or frozen by this closeout.
 - **Corpus Snapshot:**
-  - Frozen corpus: **429 verified assets** (411 prior baseline + 18 Visual A production masters and runtime sprites).
-  - Asset Register: **571 entries**.
+  - Frozen corpus: **430 verified assets** (429 prior frozen assets + Big Bing NEUTRAL).
+  - Asset Register: **572 entries**.
   - Baseline frozen corpus: 411/411 verified unchanged.
   - Candidate provenance, review boards, and transparent 80×96 boards preserved in `art_department/visual_a/`.
 
@@ -45,6 +50,7 @@
 13. hunters
 14. HOA president
 15. trap crew (cooks, runners, lookout)
+16. Big Bing — **NEUTRAL DONE / FROZEN / CLOSED** (`NO` remains unproduced)
 
 ## Boundaries
 
