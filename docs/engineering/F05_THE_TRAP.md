@@ -1,7 +1,7 @@
 # F05 - THE TRAP (engineering record)
 
 Fragment: `F05` - `THE_TRAP` (TRAPHOUSE & BLOOD X PRODUCTION)
-Base: `integration/ube-portal` @ frozen IF-1 `101a394b5fa9c41ec089bc7022ee86ff43f5f31c`
+Base: `integration/ube-portal` @ frozen IF-1 `5e4b3a31f96624f1e8dc87b4412a9b23fdc4bf79` (post-OL-019 rewrite of the pre-rewrite SHA `101a394b5fa9c41ec089bc7022ee86ff43f5f31c`; see `docs/engineering/OL019_HISTORY_REWRITE_SHA_MAP.md`)
 Branch: `frag/the-trap/001`
 Feature flag: `F05.the_trap` (master, dark) mirrored onto the frozen reserved flag `F05.trap`
 Status: READY FOR F05 NON-RAID AUDIT (see disposition in the hand-off)
@@ -104,7 +104,7 @@ Nothing is globally retuned. These are the F13 balance program's to replace.
 
 - `node tools/run-tests.mjs --fragment f05` - **PASS** (19 PASS lines: flags OFF zero-change; boot; namespace; unlock; listing/buy; production/aging/rare; sales/pricing/wholesale/bad-product/COUNT; robbery+vault; shared HEAT; levels/upgrades; crew roles; reactions; raids/F01 boundary; F02 weapon seam; persistence; edge/malformed; minigame logic; audio/art honesty).
 - `npm test` - **PASS** (all existing suites + F05 + IF-1 contracts + zero-behavior-change + leak).
-- `npm run build` - **PASS** (`ra-101a394b5fa9-20260929043207`).
+- `npm run build` - **PASS** (`ra-101a394b5fa9-20260929043207`; historical pre-OL-019 build id, base rewritten to `5e4b3a3`).
 - `node tools/leak-check.mjs` - **PASS** (1586 files, no sealed content).
 - `node tools/check-owner-surfaces.mjs --base <frozen> --fragment F05` - see the hand-off (expects the generated `index.html` only).
 
