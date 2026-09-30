@@ -145,6 +145,7 @@ button:disabled{opacity:.4;cursor:default}
 .bill{position:absolute;width:10px;height:5px;background:#6fd07d;border:1px solid #2c7a3a;pointer-events:none;z-index:4}
 .lootitem{position:absolute;text-align:center;z-index:5}
 .lootlab{position:absolute;left:50%;bottom:100%;transform:translateX(-50%);white-space:nowrap;font-size:8px;letter-spacing:1.5px;padding:2px 6px;border-radius:3px;background:#000c;border:1px solid;animation:pop .2s}
+.lootlab.lane{top:232px;bottom:auto;z-index:6}
 .again{position:absolute;left:24px;width:170px;bottom:8px;height:28px;border-radius:6px;background:#1c1c28;border:1px solid var(--gold);color:var(--gold);font-size:11px;letter-spacing:2px;z-index:8;animation:pop .3s}
 .again:hover{background:#2a2a3c}
 /* settings */
@@ -159,7 +160,8 @@ button:disabled{opacity:.4;cursor:default}
 .reduce .buzzing,.reduce .vib{animation:none}
 .reduce .bub{animation:none}
 
-.obashade{position:absolute;left:150px;top:150px;width:160px;height:192px;z-index:8;pointer-events:none;opacity:0}
+/* QA REPAIR 001: the FL-A04 sprite is composited INSIDE the rig, between the live phone and the FL-A01 hand/phone layer, so the feed 'cuts to him' on the screen itself (the bezel and hand stay in front). 2x sprite, figure centred in the 159x352 screen opening, whole 160x192 box inside the 270x480 stage. */
+.obashade{position:absolute;left:51px;top:103px;width:160px;height:192px;pointer-events:none;opacity:0}
 .obashade img{display:block;width:160px;height:192px;image-rendering:pixelated}
 .bust.sprite .ogs{position:absolute;width:80px;height:96px;max-width:none;image-rendering:pixelated}
 .counthands{position:absolute;width:128px;height:96px;z-index:5;pointer-events:none}

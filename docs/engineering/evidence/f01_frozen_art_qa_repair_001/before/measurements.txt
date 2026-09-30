@@ -1,0 +1,62 @@
+PASS 360: five loot pieces on screen — a Sapporo Shotgun | a cash crate | a mod | BLOOD X | Church Bake-Sale Float, Sealed
+PASS 360: every loot piece (box and drawn art) is fully inside the 270x480 stage
+FAIL 360: no loot piece overlaps Rich (drawn body, ≥3px clear) — 136-176x353-370 183-219x345-365 228-261x344-373 157-192x388-417 200-237x383-414 | Rich 213-247x378-440
+FAIL 360: no two loot slots overlap each other
+FAIL 360: no loot piece touches the cash haul (haul stays the focal read) — haul 47-162x375-427
+PASS 360: every label is fully inside the stage (readable, not clipped) — SAPPORO SHOTGUN → TUNDE@81-231x318-332 | CASH CRATE@173-245x314-328 | MOD@228-259x318-332 | BLOOD X@155-210x362-376 | CHURCH BAKE-SALE FLOAT, SE@82-249x358-372
+FAIL 360: no label runs over Rich or the cash haul
+FAIL 360: no label covers any loot piece
+PASS 360: the TAKE line is unchanged and still readable — TAKE: $40,000
+PASS 360: RETURN zero console errors / 404s
+PASS 360: Oba sprite sampled across the flash — 12 frames
+FAIL 360: Oba sprite is fully inside the 270x480 stage on every frame — 152..312 / 151..312 / 149..309
+FAIL 360: the drawn Oba figure sits inside the phone screen (reads as the feed cutting to him) — figure 204-270x184-330 in phone 59-218x41-393
+PASS 360: same opacity curve — peaks at .85 — peak 0.85
+PASS 360: OBA zero console errors / 404s
+PASS 360: three crew members spawned — g101,g102,g103
+FAIL 360: each crew member's feet land on the pavement at the vehicle's side (feet ≥ 6px below the car body's bottom edge), not on the roof — feet 357 vs car 334..377 | feet 357 vs car 334..377 | feet 357 vs car 334..377
+PASS 360: crew figures stay inside the stage at spawn
+PASS 360: arrival sequence unchanged (standing → walking) — standing,standing,standing
+PASS 360: ARRIVAL zero console errors / 404s
+PASS 390: five loot pieces on screen — a Sapporo Shotgun | a cash crate | a mod | BLOOD X | Church Bake-Sale Float, Sealed
+PASS 390: every loot piece (box and drawn art) is fully inside the 270x480 stage
+FAIL 390: no loot piece overlaps Rich (drawn body, ≥3px clear) — 136-176x353-370 183-219x345-365 228-261x344-373 157-192x388-417 200-237x383-414 | Rich 213-247x378-440
+FAIL 390: no two loot slots overlap each other
+FAIL 390: no loot piece touches the cash haul (haul stays the focal read) — haul 47-162x375-427
+PASS 390: every label is fully inside the stage (readable, not clipped) — SAPPORO SHOTGUN → TUNDE@81-231x318-332 | CASH CRATE@173-245x314-328 | MOD@228-259x318-332 | BLOOD X@155-210x362-376 | CHURCH BAKE-SALE FLOAT, SE@82-249x358-372
+FAIL 390: no label runs over Rich or the cash haul
+FAIL 390: no label covers any loot piece
+PASS 390: the TAKE line is unchanged and still readable — TAKE: $40,000
+PASS 390: RETURN zero console errors / 404s
+PASS 390: Oba sprite sampled across the flash — 12 frames
+FAIL 390: Oba sprite is fully inside the 270x480 stage on every frame — 151..313 / 149..310 / 150..311
+FAIL 390: the drawn Oba figure sits inside the phone screen (reads as the feed cutting to him) — figure 204-271x179-326 in phone 57-219x37-390
+PASS 390: same opacity curve — peaks at .85 — peak 0.85
+PASS 390: OBA zero console errors / 404s
+PASS 390: three crew members spawned — g101,g102,g103
+FAIL 390: each crew member's feet land on the pavement at the vehicle's side (feet ≥ 6px below the car body's bottom edge), not on the roof — feet 357 vs car 334..377 | feet 359 vs car 334..377 | feet 359 vs car 334..377
+PASS 390: crew figures stay inside the stage at spawn
+PASS 390: arrival sequence unchanged (standing → walking) — standing,standing,standing
+PASS 390: ARRIVAL zero console errors / 404s
+PASS 430: five loot pieces on screen — a Sapporo Shotgun | a cash crate | a mod | BLOOD X | Church Bake-Sale Float, Sealed
+PASS 430: every loot piece (box and drawn art) is fully inside the 270x480 stage
+FAIL 430: no loot piece overlaps Rich (drawn body, ≥3px clear) — 136-176x353-370 183-219x345-365 228-261x344-373 157-192x388-417 200-237x383-414 | Rich 213-247x378-440
+FAIL 430: no two loot slots overlap each other
+FAIL 430: no loot piece touches the cash haul (haul stays the focal read) — haul 47-162x375-427
+PASS 430: every label is fully inside the stage (readable, not clipped) — SAPPORO SHOTGUN → TUNDE@81-231x318-332 | CASH CRATE@173-245x314-328 | MOD@228-259x318-332 | BLOOD X@155-210x362-376 | CHURCH BAKE-SALE FLOAT, SE@81-249x358-372
+FAIL 430: no label runs over Rich or the cash haul
+FAIL 430: no label covers any loot piece
+PASS 430: the TAKE line is unchanged and still readable — TAKE: $40,000
+PASS 430: RETURN zero console errors / 404s
+PASS 430: Oba sprite sampled across the flash — 12 frames
+FAIL 430: Oba sprite is fully inside the 270x480 stage on every frame — 147..308 / 150..311 / 150..310
+FAIL 430: the drawn Oba figure sits inside the phone screen (reads as the feed cutting to him) — figure 200-266x181-328 in phone 54-215x39-391
+PASS 430: same opacity curve — peaks at .85 — peak 0.85
+PASS 430: OBA zero console errors / 404s
+PASS 430: three crew members spawned — g101,g102,g103
+FAIL 430: each crew member's feet land on the pavement at the vehicle's side (feet ≥ 6px below the car body's bottom edge), not on the roof — feet 359 vs car 334..377 | feet 357 vs car 334..377 | feet 359 vs car 334..377
+PASS 430: crew figures stay inside the stage at spawn
+PASS 430: arrival sequence unchanged (standing → walking) — standing,standing,standing
+PASS 430: ARRIVAL zero console errors / 404s
+
+24 FAILED

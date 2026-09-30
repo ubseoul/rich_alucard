@@ -29,3 +29,14 @@ Single source of truth for paths: `assets/f01/play/feel-frozen.mjs` (pure data).
 - `tools/tests/f01/feel_lock_art.test.mjs` (in `npm run test:fragments`): 54 files present, SHA-256 and size match the record, runtime references = drawn + explicitly unwired = the frozen set, nothing else hard-codes a path, the screen opening is the recorded 54 925 binary-alpha pixels inside the DOM rectangle and `.phone` equals that rectangle, the SOURCE_REQUIRED gaps are unfilled.
 - `tools/tests/f01/play-sim/feel_lock_art_browser.mjs` (real Chromium, not in `npm test`): whole PLAYs at 360 / 390 / 430, JOLT, typing overlay, Oba, reload, scene matrix, all 54 files fetched, zero broken images / 4xx / console errors.
 - `tools/tests/f01/play-sim/feel_gate.mjs` (unchanged): the existing 45 feel-lock browser checks.
+
+## QA REPAIR 001 — layout only (base `aebb34d`)
+Three composition defects found by the adversarial QA were repaired. Presentation geometry only: **no frozen PNG byte, gameplay, timing, economy, copy, encounter logic, reward or state changed**; the SOURCE_REQUIRED named-Oga and RECRUIT / STORY / DISTRICT loot gaps are still unfilled.
+
+| Defect | Repair (`assets/f01/play/feel-scenes.mjs`, `feel.css`) |
+|---|---|
+| Return: the five FL-A10 loot spots sat on Rich, on each other and on the haul | Spots are now `[4,256] [52,256] [100,256]` (open courtyard above the car) and `[142,330] [196,330]` (pavement between the car and Rich). Measured on drawn pixels: ≥3 px clear of Rich (body 213–247 × 378–441), the haul, each other and the crew's feet. The label moved from "above its piece" to one caption lane (`.lootlab.lane`, `top:232px`, under the TAKE line) so a 26-character name can never run over Rich, the haul or another piece. Drop animation, beat count, sounds and timing untouched. |
+| Oba flash: the 2× sprite was at `left:150` (box 150–310, past the 270 px stage edge) and painted over the bezel and bed | The sprite is composited **inside the FL-A01 rig**, between the live phone and the hand/phone layer, at `left:51 top:103` (box 51–211 × 103–295; figure centred in the 159×352 screen opening). Same 2× sprite, same 1500 ms opacity curve (peak .85); the bezel and hand stay in front, so it reads as the feed cutting to him. |
+| Arrival: crew appeared with their feet on the car roof (feet ≈ 357 on a body spanning 334–377) | Spawn/walk origin moved from `top 322→328` to `top 361→367` (feet ≈ 392, below the car body and its ground shadow). Same 250 ms fade-in, same 900 ms walk, same door targets, same `standing → walking` poses. |
+
+Evidence: `docs/engineering/evidence/f01_frozen_art_qa_repair_001/{before,after}/` — the three scenes at 360 / 390 / 430 plus the measurement logs. Gate: `tools/tests/f01/play-sim/feel_lock_qa_repair_browser.mjs` (real Chromium, not in `npm test`; before 24 FAIL → after ALL PASSED, 60 checks).

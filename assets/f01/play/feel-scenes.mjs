@@ -223,10 +223,11 @@ export async function arriveScene({slide,crewObjs,carId,defense,job}){
  S.engine(carId,'idle',.35);
  await drive(car,128,1500,'cubic-bezier(.1,.7,.3,1)');puffs(car,4);await sleep(600);car.classList.remove('on');S.thud();await sleep(350);
  for(let i=0;i<seatsOrder.length;i++){
-  const b=bust(seatsOrder[i],30,{pose:'standing'});pos(b,172-i*4,322);
-  await anim(b,[{top:'322px',opacity:0},{top:'328px',opacity:1}],250);
+  // QA REPAIR 001: the crew step out onto the pavement at the car's near side (feet ~392 = 15px below the car body's bottom edge, clear of its ground shadow), not onto its roof (feet were ~357)
+  const b=bust(seatsOrder[i],30,{pose:'standing'});pos(b,172-i*4,361);
+  await anim(b,[{top:'361px',opacity:0},{top:'367px',opacity:1}],250);
   setPose(b,'walking');
-  await anim(b,[{left:172-i*4+'px',top:'328px',transform:'scale(1)',opacity:1},{left:door[0]-15+i*3+'px',top:door[1]-30+'px',transform:'scale(.55)',opacity:1}],900,{easing:'ease-in'});
+  await anim(b,[{left:172-i*4+'px',top:'367px',transform:'scale(1)',opacity:1},{left:door[0]-15+i*3+'px',top:door[1]-30+'px',transform:'scale(.55)',opacity:1}],900,{easing:'ease-in'});
   await anim(b,[{opacity:1},{opacity:0}],240);b.remove();S.door();await sleep(110);
  }
  await sleep(800);await fadeTo(1,700);
@@ -267,7 +268,7 @@ export async function roomScene({crewObjs,defense}){
   async cut(step){
    clearTyping();
    const b=el('bub ev',`${label(step.who)}${esc(step.text)}`,msgs);fade();shake(2,world);S.ko();
-   if(step.oba){const sh=el('obashade',A.obaSprite(),world);anim(sh,[{opacity:0},{opacity:.85,offset:.3},{opacity:.85,offset:.7},{opacity:0}],1500).then(()=>sh.remove());} // FL-A04 frozen native sprite
+   if(step.oba){const sh=el('obashade',A.obaSprite(),rig);rig.insertBefore(sh,rig.querySelector('.handpov'));anim(sh,[{opacity:0},{opacity:.85,offset:.3},{opacity:.85,offset:.7},{opacity:0}],1500).then(()=>sh.remove());} // FL-A04 frozen native sprite
    await sleep(step.pause||500);
    alive=false;K.duck(true);       // the sudden sound drop: the room goes dead
   },
@@ -410,7 +411,10 @@ export async function returnScene({rec,crewObjs,w,bankBefore}){
   await sleep(1400);
  }
  // ---- the trunk: one item at a time, physically dropped beside the bags (kicker last). Spots fit the 48px FL-A10 pieces inside the 270px stage.
- const spots=[[132,334],[176,330],[220,334],[150,378],[194,374]];let prevLab=null;
+ // QA REPAIR 001: the five spots keep clear of Rich (drawn body ~213-247 x 378-441), the cash haul (~47-162 x 375-427), the parked car (~8-137 x 325-364)
+ // and the crew's feet (~323): three in the open courtyard above the car, two on the pavement between the car and Rich. The label sits in one caption lane
+ // (`.lootlab.lane`, between the TAKE line and the crew's heads) so a long name can never run over Rich, the haul or another piece.
+ const spots=[[4,256],[52,256],[100,256],[142,330],[196,330]];let prevLab=null;
  const shownList=[];
  for(let i=0;i<items.length;i++){
   const it=items[i],[x,y]=spots[i]||[30+i*24,352];
@@ -428,7 +432,7 @@ export async function returnScene({rec,crewObjs,w,bankBefore}){
   const short=String(it.name).replace(/^an? /i,'').toUpperCase().slice(0,26);
   const who=it.cat==='GUN'&&it.to?` → ${(crewObjs.find(o=>o.id===it.to)||{short:''}).short.toUpperCase()}`:'';
   if(prevLab)anim(prevLab,[{opacity:1},{opacity:0}],250);
-  prevLab=el('lootlab',esc(short+who),node,{color:col,borderColor:col,marginBottom:'3px'});
+  prevLab=el('lootlab lane',esc(short+who),null,{color:col,borderColor:col});
   {const r=prevLab.getBoundingClientRect(),sr=stage.getBoundingClientRect(),sc=sr.width/270;const L=(r.left-sr.left)/sc,R=(r.right-sr.left)/sc;if(R>266)prevLab.style.transform=`translateX(calc(-50% - ${Math.round(R-266)}px))`;else if(L<4)prevLab.style.transform=`translateX(calc(-50% + ${Math.round(4-L)}px))`;}
   node.dataset.loot=it.name;shownList.push({name:it.name,cat:it.cat,rar:it.rar});
   await sleep(1500);
