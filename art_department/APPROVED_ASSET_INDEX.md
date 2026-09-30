@@ -566,3 +566,11 @@ UNDERLORD / Ube approved the exact submitted NEUTRAL candidate under OL-017. The
 |---|---|---|---|---|
 | `VA-BIG-BING-CGA-F2-031-NEUTRAL-v1` | `NEUTRAL` (Anchor) | `assets/before_the_fame/characters/big_bing/cga_f2_031/big_bing_neutral_anchor_80x96_v1.png` | `a133f44b9cd4c232cda4b6d779ce295da64a18dc9cdf671bc7f2531087e90ccd` | FROZEN |
 
+### Granny Bing (`CGA-F2-032` — Neutral / Calling Numbers Anchor FROZEN)
+
+UNDERLORD / Ube approved the exact submitted NEUTRAL / CALLING NUMBERS candidate under OL-017. No alternate state was created or frozen in this closeout.
+
+| Asset ID | State | Path | SHA-256 | Status |
+|---|---|---|---|---|
+| `VA-GRANNY-BING-CGA-F2-032-NEUTRAL-CALLING-NUMBERS-v1` | `NEUTRAL / CALLING NUMBERS` (Anchor) | `assets/before_the_fame/characters/granny_bing/cga_f2_032/granny_bing_neutral_calling_numbers_anchor_80x96_v1.png` | `6f042de972f6fe7fa89178095829ac44e96650cf7b067ad0004f2ca208ddf4ee` | FROZEN |
+

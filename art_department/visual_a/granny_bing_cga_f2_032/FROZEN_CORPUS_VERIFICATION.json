@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "ticket": "CGA-F2-032",
+  "recorded_date": "2026-09-30",
+  "status": "PASS",
+  "registered_entries": 573,
+  "registered_frozen_assets": 431,
+  "verified_frozen_assets": 431,
+  "missing_registered_files": 0,
+  "hash_mismatches": 0,
+  "baseline_ship015": {
+    "expected": 411,
+    "verified": 411,
+    "hash_mismatches": 0
+  },
+  "visual_lane_a_ingested_assets": {
+    "expected": 22,
+    "verified": 22,
+    "hash_mismatches": 0
+  },
+  "accepted_native": {
+    "path": "assets/before_the_fame/characters/granny_bing/cga_f2_032/granny_bing_neutral_calling_numbers_anchor_80x96_v1.png",
+    "sha256": "6f042de972f6fe7fa89178095829ac44e96650cf7b067ad0004f2ca208ddf4ee",
+    "byte_for_byte_candidate_match": true
+  },
+  "no_runtime_code_changes": true,
+  "validator": "art_department/tools/validate_art_department_refresh.py",
+  "validator_result": "OVERALL STATUS: PASS"
+}

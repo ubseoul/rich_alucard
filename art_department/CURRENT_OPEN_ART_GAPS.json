@@ -11,8 +11,8 @@
     ]
   },
   "frozen_snapshot": {
-    "frozen_corpus_assets": 430,
-    "register_entries": 572,
+    "frozen_corpus_assets": 431,
+    "register_entries": 573,
     "runtime_integrated_files": 145,
     "ship_009_approved_pending_integration_runtime_qa": 12,
     "ship_009_zero_pixel_reuse_mappings_pending_integration": 1,
@@ -23,7 +23,7 @@
     "ready_without_visual_surface": 1,
     "ship_004_010_handoff_files": 183,
     "ship_010_approved_pending_integration_runtime_qa": 4,
-    "visual_lane_a_frozen_assets": 19
+    "visual_lane_a_frozen_assets": 20
   },
   "runtime_snapshot": {
     "adventure_screens": 104,
@@ -82,6 +82,16 @@
         "unproduced_authorized_states": [
           "NO"
         ]
+      },
+      {
+        "name": "Granny Bing",
+        "ticket": "CGA-F2-032",
+        "anchor": "VA-GRANNY-BING-CGA-F2-032-NEUTRAL-CALLING-NUMBERS-v1",
+        "status": "NEUTRAL / CALLING NUMBERS ACCEPTED / FROZEN / CLOSED",
+        "states_count": 1,
+        "states": [
+          "NEUTRAL / CALLING NUMBERS"
+        ]
       }
     ],
     "production_order": [
@@ -100,7 +110,8 @@
       {"order": 13, "character": "hunters", "status": "QUEUED"},
       {"order": 14, "character": "HOA president", "status": "QUEUED"},
       {"order": 15, "character": "trap crew", "status": "QUEUED", "roles": ["Cooks", "Runners", "Lookout"]},
-      {"order": 16, "character": "Big Bing", "ticket": "CGA-F2-031", "status": "NEUTRAL DONE / FROZEN / CLOSED", "unproduced_states": ["NO"]}
+      {"order": 16, "character": "Big Bing", "ticket": "CGA-F2-031", "status": "NEUTRAL DONE / FROZEN / CLOSED", "unproduced_states": ["NO"]},
+      {"order": 17, "character": "Granny Bing", "ticket": "CGA-F2-032", "status": "NEUTRAL / CALLING NUMBERS DONE / FROZEN / CLOSED"}
     ]
   },
   "ship_009_pending_integration": [

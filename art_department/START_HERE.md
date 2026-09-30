@@ -23,6 +23,7 @@ The repo is institutional memory. Prior chats are not required. Ube should not n
   - **GBENGA — ACCEPTED / FROZEN:** Full six-state package accepted. Anchor: `VA-GBENGA-NEUTRAL-v2`. Corrected Neutral v2 supersedes Neutral v1. Other five states (Voice Note, "My Son", Adjusting Sleeves, Golden Draco, Defeated) remained byte-identical.
   - **CARLOS — ACCEPTED / FROZEN:** Full three-state package accepted. Anchor: `VA-CARLOS-NEUTRAL-HAPPY-v1`. Accepted states: Neutral / Happy, Betrayed, Canopy Apron.
   - **BIG BING / `CGA-F2-031` — NEUTRAL ACCEPTED / FROZEN / CLOSED:** Exact 80×96 anchor `VA-BIG-BING-CGA-F2-031-NEUTRAL-v1`, SHA-256 `a133f44b9cd4c232cda4b6d779ce295da64a18dc9cdf671bc7f2531087e90ccd`. OL-017 also names `NO`; it remains unproduced.
+  - **GRANNY BING / `CGA-F2-032` — NEUTRAL / CALLING NUMBERS ACCEPTED / FROZEN / CLOSED:** Exact 80×96 anchor `VA-GRANNY-BING-CGA-F2-032-NEUTRAL-CALLING-NUMBERS-v1`, SHA-256 `6f042de972f6fe7fa89178095829ac44e96650cf7b067ad0004f2ca208ddf4ee`.
 - **VISUAL A SOURCE AUTHORITY (OVERLORD OL-012):**
   - Standing rule: **OPEN Visual Concept Cards are identity authority.**
   - When a card is silent on exact face, skin tone, hair, or minor palette details, normal art-director discretion may fill the gap inside MUST / MUST NOT boundaries.
@@ -46,7 +47,8 @@ The repo is institutional memory. Prior chats are not required. Ube should not n
     14. HOA president
     15. trap crew
     16. Big Bing — **NEUTRAL DONE / FROZEN / CLOSED** (`NO` remains unproduced)
-- **Frozen Corpus:** **430 assets**; **Asset Register:** **572 entries**.
+    17. Granny Bing — **NEUTRAL / CALLING NUMBERS DONE / FROZEN / CLOSED**
+- **Frozen Corpus:** **431 assets**; **Asset Register:** **573 entries**.
 - **Baseline frozen verification:** 411/411 unchanged.
 - **Ship 011** remains separately frozen/unassigned.
 

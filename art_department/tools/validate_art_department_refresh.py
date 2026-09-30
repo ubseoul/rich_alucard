@@ -72,6 +72,7 @@ def main():
         "assets/before_the_fame/characters/carlos/runtime_80x96/carlos_betrayed_80x96_review_v1.png": ("46e325b2102811469898a9c5cd4d2c9c84dd4aff01058accf0294da51a588b14", (80, 96), "RGBA"),
         "assets/before_the_fame/characters/carlos/runtime_80x96/carlos_canopy_apron_80x96_review_v1.png": ("edf2bb23b9d235edf07588032fa6480017083b470d841e7e355691d6eb36388a", (80, 96), "RGBA"),
         "assets/before_the_fame/characters/big_bing/cga_f2_031/big_bing_neutral_anchor_80x96_v1.png": ("a133f44b9cd4c232cda4b6d779ce295da64a18dc9cdf671bc7f2531087e90ccd", (80, 96), "RGBA"),
+        "assets/before_the_fame/characters/granny_bing/cga_f2_032/granny_bing_neutral_calling_numbers_anchor_80x96_v1.png": ("6f042de972f6fe7fa89178095829ac44e96650cf7b067ad0004f2ca208ddf4ee", (80, 96), "RGBA"),
     }
     va_failures = []
     for rel, (expected_sha, expected_dims, expected_mode) in va_assets.items():
@@ -91,7 +92,7 @@ def main():
         "failures": va_failures,
         "pass": len(va_failures) == 0
     }
-    print(f"2. Visual Lane A Ingested Assets (21/21): {'PASS' if checks['va_assets_ingested']['pass'] else 'FAIL'}")
+    print(f"2. Visual Lane A Ingested Assets (22/22): {'PASS' if checks['va_assets_ingested']['pass'] else 'FAIL'}")
 
     # 3. Asset register integrity and frozen count
     reg = json.loads((ROOT / "art_department/ASSET_REGISTER.json").read_text(encoding="utf-8"))
@@ -108,14 +109,14 @@ def main():
     all_exist = [x["path"] for x in reg_assets if not (ROOT / x["path"]).is_file()]
     checks["asset_register_integrity"] = {
         "total_entries": len(reg_assets),
-        "expected_entries": 572,
+        "expected_entries": 573,
         "frozen_count": len(frozen_reg),
-        "expected_frozen": 430,
+        "expected_frozen": 431,
         "frozen_failures": frozen_failures,
         "missing_files": all_exist,
-        "pass": len(reg_assets) == 572 and len(frozen_reg) == 430 and len(frozen_failures) == 0 and len(all_exist) == 0
+        "pass": len(reg_assets) == 573 and len(frozen_reg) == 431 and len(frozen_failures) == 0 and len(all_exist) == 0
     }
-    print(f"3. Asset Register Integrity (572 entries, 430 frozen verified): {'PASS' if checks['asset_register_integrity']['pass'] else 'FAIL'}")
+    print(f"3. Asset Register Integrity (573 entries, 431 frozen verified): {'PASS' if checks['asset_register_integrity']['pass'] else 'FAIL'}")
 
 
     # 4. Onboarding file chain existence

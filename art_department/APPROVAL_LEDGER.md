@@ -262,3 +262,10 @@ No accepted image was regenerated, decoded/re-encoded, resized, optimized or mod
 59. OL-017 authorizes `NEUTRAL` and `NO`; this decision freezes **NEUTRAL only**. The `NO` state was not created. No Granny Bing asset, alternate pose, environment, prop asset, or additional state was created. `SOURCE_REQUIRED = none`.
 60. The resulting frozen corpus is **430 assets across 572 Asset Register entries**. Post-registration verification passed 430/430 registered frozen hashes, including the exact accepted Big Bing byte stream. Runtime integration, gameplay placement, merge, and deployment remain excluded.
 
+## VISUAL LANE A — CGA-F2-032 GRANNY BING (recorded 2026-09-30)
+
+61. UNDERLORD / Ube disposition: **PASS — FREEZE APPROVED** for GRANNY BING — NEUTRAL / CALLING NUMBERS anchor, exact candidate SHA-256 `6f042de972f6fe7fa89178095829ac44e96650cf7b067ad0004f2ca208ddf4ee`.
+62. The accepted native candidate was promoted byte-for-byte to `assets/before_the_fame/characters/granny_bing/cga_f2_032/granny_bing_neutral_calling_numbers_anchor_80x96_v1.png`. No regeneration, reinterpretation, recoloring, resizing, optimization, or improvement occurred.
+63. Exactly one Granny Bing identity anchor is frozen. No alternate state, alternate pose, environment, additional character, or extra prop asset was created. `SOURCE_REQUIRED = none`.
+64. The resulting cumulative frozen corpus is **431 assets across 573 Asset Register entries**. Post-registration verification passed 431/431 registered frozen hashes, including the exact accepted Granny Bing byte stream. Runtime integration, gameplay placement, merge, and deployment remain excluded.
+

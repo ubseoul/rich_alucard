@@ -15341,6 +15341,42 @@
         "sha256": "a133f44b9cd4c232cda4b6d779ce295da64a18dc9cdf671bc7f2531087e90ccd",
         "promotion": "byte-for-byte copy"
       }
+    },
+    {
+      "path": "assets/before_the_fame/characters/granny_bing/cga_f2_032/granny_bing_neutral_calling_numbers_anchor_80x96_v1.png",
+      "sha256": "6f042de972f6fe7fa89178095829ac44e96650cf7b067ad0004f2ca208ddf4ee",
+      "role": "Visual Lane A approved CGA-F2-032 Granny Bing identity anchor — NEUTRAL / CALLING NUMBERS",
+      "status": "FROZEN",
+      "default_style_reference": true,
+      "approval_evidence": [
+        "UNDERLORD / Ube Disposition: CGA-F2-032 GRANNY BING — PASS — FREEZE APPROVED",
+        "origin/main @ 625f3c60aeb11d1df3b140eb802cbd2758e2ebed: art_department/production_authority/OL017_OPEN_VISUAL_CHARACTER_AUTHORITY.md",
+        "art_department/visual_a/granny_bing_cga_f2_032/FREEZE_RECORD.md",
+        "art_department/visual_a/granny_bing_cga_f2_032/CGA_F2_032_GRANNY_BING_MANIFEST.json",
+        "art_department/APPROVAL_LEDGER.md"
+      ],
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "lane_id": "VISUAL_LANE_A",
+      "ticket": "CGA-F2-032",
+      "asset_id": "VA-GRANNY-BING-CGA-F2-032-NEUTRAL-CALLING-NUMBERS-v1",
+      "category": "CHARACTER_IDENTITY_ANCHOR",
+      "state": "NEUTRAL / CALLING NUMBERS",
+      "source_anchor": [
+        40,
+        88
+      ],
+      "alpha": "binary 0/255",
+      "approval_status": "APPROVED MASTER",
+      "freeze_scope": "Exact UNDERLORD/Ube-approved 80x96 Granny Bing NEUTRAL / CALLING NUMBERS candidate bytes only. No alternate state, alternate pose, environment or extra prop asset is included.",
+      "runtime_integration_status": "PENDING ENGINEERING REGISTRATION / RUNTIME QA",
+      "source_candidate": {
+        "sha256": "6f042de972f6fe7fa89178095829ac44e96650cf7b067ad0004f2ca208ddf4ee",
+        "promotion": "byte-for-byte copy"
+      }
     }
   ]
 }

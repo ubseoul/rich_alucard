@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "ticket": "CGA-F2-032",
+  "character": "GRANNY BING",
+  "state": "NEUTRAL / CALLING NUMBERS",
+  "status": "APPROVED MASTER / FROZEN / CLOSED",
+  "decision_authority": "UNDERLORD / Ube",
+  "decision": "PASS — FREEZE APPROVED",
+  "freeze_date": "2026-09-30",
+  "native": {
+    "path": "assets/before_the_fame/characters/granny_bing/cga_f2_032/granny_bing_neutral_calling_numbers_anchor_80x96_v1.png",
+    "sha256": "6f042de972f6fe7fa89178095829ac44e96650cf7b067ad0004f2ca208ddf4ee",
+    "dimensions": [80, 96],
+    "mode": "RGBA",
+    "alpha": [0, 255],
+    "contact": [40, 88],
+    "last_opaque_row": 87,
+    "opaque_envelope": [34, 68],
+    "opaque_rgb_colors": 16
+  },
+  "preview": {
+    "path": "art_department/visual_a/granny_bing_cga_f2_032/review/granny_bing_neutral_calling_numbers_anchor_4x_nearest_v1.png",
+    "sha256": "2a71ea721f6943d035ed14fab28c9ee330f1099fce87fae7a824b64aad7db9e0",
+    "dimensions": [320, 384],
+    "scale": 4,
+    "resampling": "nearest-neighbor",
+    "exact_from_native": true
+  },
+  "authority": {
+    "art_department": "origin/art/art_department_refresh_2026 @ f4adbafd9c7e0f99f8df971358ecfbcf6a60b148",
+    "open_production": "origin/main @ 625f3c60aeb11d1df3b140eb802cbd2758e2ebed",
+    "identity_card": "OL017_OPEN_VISUAL_CHARACTER_AUTHORITY.md — GRANNY BING / CGA-F2-032",
+    "precedence": "frozen pixels > OL-017 current OPEN production authority > other OPEN references",
+    "sealed_material_accessed": false
+  },
+  "accepted_candidate_checkpoint": {
+    "sha256": "6f042de972f6fe7fa89178095829ac44e96650cf7b067ad0004f2ca208ddf4ee",
+    "approval": "UNDERLORD / UBE DISPOSITION — CGA-F2-032 GRANNY BING — PASS — FREEZE APPROVED"
+  },
+  "qa_result": "PASS",
+  "source_required": "none",
+  "frozen_states": ["NEUTRAL / CALLING NUMBERS"],
+  "unauthorized_assets_or_states_created": false,
+  "promotion": "byte-for-byte copy only; no regeneration, reinterpretation, recoloring, resizing, optimization, or improvement",
+  "runtime_integration_status": "PENDING SEPARATE ENGINEERING REGISTRATION / RUNTIME QA"
+}
+
