@@ -8,14 +8,38 @@
 
 const ALPHA_THRESHOLD = 8;
 
-export const RICHIFY_DEFAULTS = {
-  bodyHeight: 54, // visible body height in native pixels (Rich 52, Ogun 56, CEO 61)
-  colors: 16, // palette size before the outline colour is added
-  cellWidth: 80,
-  cellHeight: 96,
-  contactFromBottom: 8, // cell 96 -> contact y88
-  outline: true,
+const NATIVE_BODY = 54; // Rich 52, Ogun 56, CEO 61
+const NATIVE_CELL = { w: 80, h: 96, contactFromBottom: 8 }; // cell 96 -> contact y88
+
+/**
+ * Strength levels, lightest to heaviest. "full" is the project's native grammar;
+ * lighter levels keep the same rules but at a higher working resolution, with a
+ * bigger palette and softer treatment, so the source stays recognisable.
+ * The cell grows with bodyHeight so proportions and the contact edge stay consistent.
+ */
+export const LEVELS = {
+  whisper: { label: 'Whisper', bodyHeight: 200, colors: 64, outline: false, cleanup: false },
+  light: { label: 'Light', bodyHeight: 130, colors: 40, outline: false, cleanup: true },
+  medium: { label: 'Medium', bodyHeight: 84, colors: 24, outline: true, cleanup: true },
+  full: { label: 'Full', bodyHeight: NATIVE_BODY, colors: 16, outline: true, cleanup: true },
 };
+
+/** Options for a level; `colors` (optional) overrides the level's palette size. */
+export function levelOptions(level = 'full', colors = null) {
+  const l = LEVELS[level] ?? LEVELS.full;
+  const k = l.bodyHeight / NATIVE_BODY;
+  return {
+    bodyHeight: l.bodyHeight,
+    colors: colors || l.colors,
+    outline: l.outline,
+    cleanup: l.cleanup,
+    cellWidth: Math.round(NATIVE_CELL.w * k),
+    cellHeight: Math.round(NATIVE_CELL.h * k),
+    contactFromBottom: Math.round(NATIVE_CELL.contactFromBottom * k),
+  };
+}
+
+export const RICHIFY_DEFAULTS = levelOptions('full');
 
 const blank = (width, height) => ({ width, height, data: new Uint8ClampedArray(width * height * 4) });
 
@@ -210,10 +234,11 @@ export function richify(frames, options = {}) {
   const palette = buildPalette(out, o.colors);
   for (const f of out) {
     applyPalette(f, palette);
-    cleanup(f);
+    if (o.cleanup) cleanup(f);
   }
   if (o.outline) {
-    const line = darkest(palette).map((v) => Math.round(v * 0.45));
+    // Lighter levels get a softer contour (a dark tone of the art) than the native near-black.
+    const line = darkest(palette).map((v) => Math.round(v * (o.bodyHeight > NATIVE_BODY ? 0.7 : 0.45)));
     for (const f of out) addOutline(f, line);
     palette.push(line);
   }

@@ -38,13 +38,23 @@
 
     <div class="group style">
       <label class="toggle"><input id="richify" type="checkbox"><span>Rich Alucard-ify</span></label>
+      <select id="level" title="Strength" disabled>
+        <option value="whisper">Whisper</option>
+        <option value="light">Light</option>
+        <option value="medium" selected>Medium</option>
+        <option value="full">Full</option>
+      </select>
       <select id="colors" title="Palette size" disabled>
+        <option value="">Auto colors</option>
         <option value="8">8 colors</option>
         <option value="12">12 colors</option>
-        <option value="16" selected>16 colors</option>
+        <option value="16">16 colors</option>
         <option value="24">24 colors</option>
         <option value="32">32 colors</option>
+        <option value="48">48 colors</option>
+        <option value="64">64 colors</option>
       </select>
+      <button id="download" disabled title="Save the restyled result as a PNG (sprite strip if animated)">Download PNG</button>
     </div>
 
     <span id="status" class="status"></span>

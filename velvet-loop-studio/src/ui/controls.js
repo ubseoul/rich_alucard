@@ -1,6 +1,6 @@
 // UI controls: wires the control bar to callbacks. No knowledge of canvas or sprites.
 
-export function bindControls({ onFile, onPlay, onPause, onRestart, onFps, onLoop, onStyle }, { fps, loop }) {
+export function bindControls({ onFile, onPlay, onPause, onRestart, onFps, onLoop, onStyle, onDownload }, { fps, loop }) {
   const $ = (id) => document.getElementById(id);
   const upload = $('upload');
   const picker = $('file-input');
@@ -12,6 +12,8 @@ export function bindControls({ onFile, onPlay, onPause, onRestart, onFps, onLoop
   const loopBox = $('loop');
   const richify = $('richify');
   const colors = $('colors');
+  const level = $('level');
+  const download = $('download');
   const status = $('status');
   const empty = $('empty');
 
@@ -34,11 +36,13 @@ export function bindControls({ onFile, onPlay, onPause, onRestart, onFps, onLoop
   });
   loopBox.addEventListener('change', () => onLoop(loopBox.checked));
   const styleChanged = () => {
-    colors.disabled = !richify.checked;
-    onStyle({ richify: richify.checked, colors: Number(colors.value) });
+    colors.disabled = level.disabled = download.disabled = !richify.checked;
+    onStyle({ richify: richify.checked, level: level.value, colors: Number(colors.value) || null });
   };
   richify.addEventListener('change', styleChanged);
+  level.addEventListener('change', styleChanged);
   colors.addEventListener('change', styleChanged);
+  download.addEventListener('click', onDownload);
 
   return {
     setFps(value) {

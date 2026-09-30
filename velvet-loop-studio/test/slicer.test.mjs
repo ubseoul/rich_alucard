@@ -98,3 +98,16 @@ test('richify: native cell, feet on contact row, binary alpha, limited palette, 
   assert.equal(lastOpaqueRow, 87); // outline sits on the row above the y88 contact edge
   assert.ok(lastOpaqueRow - bodyTop + 1 >= 54 && lastOpaqueRow - bodyTop + 1 <= 57);
 });
+
+import { levelOptions, LEVELS } from '../src/core/richify.js';
+
+test('lighter levels keep more resolution and colours than full', () => {
+  const order = ['whisper', 'light', 'medium', 'full'].map((l) => levelOptions(l));
+  for (let i = 1; i < order.length; i++) {
+    assert.ok(order[i].bodyHeight < order[i - 1].bodyHeight);
+    assert.ok(order[i].colors < order[i - 1].colors);
+  }
+  assert.deepEqual([order[3].cellWidth, order[3].cellHeight], [80, 96]);
+  assert.equal(levelOptions('light', 12).colors, 12);
+  assert.ok(LEVELS.whisper.outline === false);
+});

@@ -23,7 +23,7 @@ Besides sprite-sheet strips, you can load animations: GIF, APNG, animated WebP, 
 (MP4/WebM; **WebM with alpha keeps its transparency**, other clips with a flat background get it keyed out).
 Clips are sampled at up to 12 fps / 240 frames and play at their own rate.
 
-**Rich Alucard-ify** (checkbox, works on sheets and clips) restyles the loaded art toward the
+**Rich Alucard-ify** (checkbox, works on sheets, clips and single images) has four strengths — Whisper, Light, Medium, Full — plus an optional palette-size override, and **Download PNG** saves the result (a left-to-right sprite strip if animated). At full strength it restyles the loaded art toward the
 native grammar in `art_department/STYLE_FINGERPRINT.md`: 80×96 cell, ~54px visible body, feet on the y88
 contact edge, hard binary alpha, one flat palette per clip (8–32 colors, default 16), stray pixels cleaned,
 and a 1px dark contour. It is an automatic approximation for judging motion and silhouette at game scale,

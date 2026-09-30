@@ -2,7 +2,7 @@
 import { loadSpriteSheet } from './core/spriteLoader.js';
 import { loadAnimation } from './core/animationLoader.js';
 import { sliceSpriteSheet, extractFrames } from './core/spriteSlicer.js';
-import { richify, unionBounds } from './core/richify.js';
+import { richify, levelOptions, LEVELS, unionBounds } from './core/richify.js';
 import { Animator } from './core/animator.js';
 import { Renderer } from './render/renderer.js';
 import { defaultScene } from './scenes/index.js';
@@ -15,7 +15,8 @@ const renderer = new Renderer(document.getElementById('stage'), animator, defaul
 
 // What is currently loaded, kept so the restyle toggle can rebuild without re-picking the file.
 let source = null; // { name, sheet?, slices?, frames? }
-let style = { richify: false, colors: 16 };
+let style = { richify: false, level: 'medium', colors: null };
+let restyled = null; // last Rich Alucard-ified output, for download
 
 const toCanvas = ({ width, height, data }) => {
   const canvas = document.createElement('canvas');
@@ -39,16 +40,18 @@ const nextPaint = () => new Promise((r) => requestAnimationFrame(() => setTimeou
 /** Turn `source` + `style` into a sprite on screen. Scene, FPS and loop setting carry over. */
 async function present() {
   let sprite, info, note = '';
+  restyled = null;
 
   if (style.richify) {
     ui.setBusy('Rich Alucard-ifying…');
     await nextPaint();
     const raw = source.sheet ? extractFrames(source.sheet.pixels, source.sheet.width, source.slices.frames) : source.frames;
-    const out = richify(raw, { colors: style.colors });
+    const out = richify(raw, levelOptions(style.level, style.colors));
+    restyled = out;
     if (!out) throw new Error('No visible pixels found in this file.');
     sprite = framesToSprite(out.frames);
     info = { frameCount: out.frames.length, frameWidth: out.width, frameHeight: out.height };
-    note = `Rich Alucard · ${out.palette.length} colors`;
+    note = `Rich Alucard ${LEVELS[style.level].label} · ${out.palette.length} colors`;
   } else if (source.sheet) {
     const { frames, content, frameCount, frameWidth, frameHeight } = source.slices;
     sprite = { bitmap: source.sheet.bitmap, frames, content };
@@ -87,6 +90,22 @@ const ui = bindControls(
     onRestart: () => animator.restart(),
     onFps: (fps) => animator.setFps(fps),
     onLoop: (loop) => animator.setLoop(loop),
+    onDownload() {
+      if (!restyled) return;
+      const { frames, width, height } = restyled;
+      const sheet = document.createElement('canvas'); // frames side by side: loads straight back into this tool
+      sheet.width = width * frames.length;
+      sheet.height = height;
+      const ctx = sheet.getContext('2d');
+      frames.forEach((f, i) => ctx.putImageData(new ImageData(f.data, width, height), i * width, 0));
+      sheet.toBlob((blob) => {
+        const a = document.createElement('a');
+        a.href = URL.createObjectURL(blob);
+        a.download = `${source.name.replace(/\.[^.]+$/, '')}_richalucard_${style.level}.png`;
+        a.click();
+        setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+      }, 'image/png');
+    },
     async onStyle(next) {
       style = next;
       if (!source) return;
