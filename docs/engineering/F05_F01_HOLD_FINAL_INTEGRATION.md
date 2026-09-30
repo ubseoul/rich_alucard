@@ -4,6 +4,8 @@ Branch: `integration/f05-trap-hold-final-001`
 Inputs: `prep/f05-trap-hold-postrewrite-ready-001` @ `ae83cf0` (F05) + `frag/showdown-core/play-sandbox-001` @ `039bcae` (F01 THE PLAY, OL-023), both on OPEN baseline `integration/ube-portal` @ `5e4b3a3`.
 Scope: F05 only. No F01 code, no main, no economy, no art, no F06/F07.
 
+> **FCPB CONVERGENCE UPDATE.** The OWNER_REQUIRED / SOURCE_REQUIRED items below were resolved at convergence — see `docs/engineering/FCPB_CONVERGENCE_001.md`: the host bridge now exists (`js/if1/hold_bridge.js`); `RAHeat.configure` has one owner (`js/if1/heat_floors.js`); `F05.trap` is the single flag identity; the capture window is one timer (3 nights, F01 counter derived); the traphouse HOLD is the existing castle HOLD (Ube); the trap-side loss is F05's stash + 30% (Ube); HEAT/cash from a HOLD are applied once by the host; the night `-20` tie does not exist on the composed branch. The text below is the historical record of the standalone branch and is kept unchanged.
+
 ## Ownership (unchanged, now enforced by tests)
 
 | F05 owns | F01 owns |

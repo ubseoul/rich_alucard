@@ -12,7 +12,7 @@ import {existsSync} from 'node:fs';
 import path from 'node:path';
 
 const require=createRequire(import.meta.url);
-const TYPES={'.html':'text/html','.js':'text/javascript','.css':'text/css','.png':'image/png','.json':'application/json','.ttf':'font/ttf','.mp3':'audio/mpeg','.wav':'audio/wav','.ogg':'audio/ogg','.webp':'image/webp','.woff2':'font/woff2','.svg':'image/svg+xml'};
+const TYPES={'.html':'text/html','.js':'text/javascript','.mjs':'text/javascript','.css':'text/css','.png':'image/png','.json':'application/json','.ttf':'font/ttf','.mp3':'audio/mpeg','.wav':'audio/wav','.ogg':'audio/ogg','.webp':'image/webp','.woff2':'font/woff2','.svg':'image/svg+xml'};
 
 export function detectPlaywright(root){
   for(const id of [process.env.RA_PLAYWRIGHT_PATH,path.join(root,'work','browser_deps','node_modules','playwright-core'),'playwright-core','playwright'].filter(Boolean)){
