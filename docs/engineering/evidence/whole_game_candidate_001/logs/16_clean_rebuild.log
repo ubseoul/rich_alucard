@@ -1,0 +1,149 @@
+PASS party foundation (9 resolutions, 3 openings, switching/reset/repeat/leave; no persistence globals available)
+PASS rave foundation (7 frozen files + Rich hashes/dimensions, stage geometry, 3 adapter resolutions, phases/choices, explicit consequence boundary, review isolation)
+PASS ogun's rave adventure (11 authored phases, 8 interior / 3 exterior choice-graph steps, 3 party situations replayed across all behaviors, Bllad33 stage slot + frozen hash, world-event/opportunity gating, save v10 persistence)
+PASS property foundation (9 frozen assets, exterior/interior stage geometry, 11 authored phases, hotspot auto-advance, cut/as-is/curb offer paths, Shannon contact, FOURPLEX opportunity, PB-01 event, save v11 persistence)
+PASS bars (rhymes, isFalseFriend, buildChoices, scoreTap, speedFor)
+PASS garage (parts table, canBuy, feelOf, pinkyRating)
+PASS hatch (Mazda behavior + generic FEED/WALK/JOKO care result, registered)
+PASS hookah (makeRing scaling/wobble, stack-through, stepRing immutability, moon/antenna hit tests)
+PASS jollof (blend/fry/steam stages, 5 judges, dragon crumble, mom cap, scoreDish/total shapes)
+PASS owambe collection (configured SUCCESS/SHORT/GREEDY reachability, exact payout math, bounds, registration)
+PASS pickup (shotChance monotonicity, aiStep progression, scoreAfterShot 1s/2s + immutability)
+PASS pier (catch table sums to 100, rain doubles big-fish odds x1.82, sealed chest stays neutral, tension rise/fall + snap-after-1.5s verified, registered)
+PASS slurp (makeOrder, checkBowl, tipFor, orderInterval, canopy chair harness)
+PASS touge (cars, computeHandling, shared drift/chain/clip scoring, novice median 622, buildCourse, step: spin-out / AWD grip / countersteer hold)
+PASS btf propagation (synthetic minigame reward+result and fight outcome are consumed by the adventure; FU-03)
+PASS NEW OGA F6 single-source consumers + generic zero-option Octopus fallback
+PASS NEW OGA M1–M3 routes, back-outs, authored rewards/costs, rank and reload persistence
+PASS NEW OGA M4 routes + OL-006 no-car hold + Alternative + VampGram + reward guards
+PASS NEW OGA M5–M6 outcomes + timing + no-pet handling + snapshot + guarded Rank 4
+PASS NEW OGA M7 timing + TAKE/REFUSE + knowledge + reload + one-shot consequence guard + M8 hold
+PASS btf thanksgiving gate (A53 eligible at Day 57 with fameFired true; FU-04)
+PASS btf (v16 migration + idempotency, calendar Oct 1/Oct 31/Nov 26/full moons/rain, clock budget+rent+family, 121 adventures validated, 348 branch walks)
+PASS presentation (19 Combat 2.0 fight screens vs Wave 2 lock)
+PASS presentation (asset metadata vs frozen register, Director self-test, locked shots × runtime variant matrix lint at 360/390/430, 263 adventure screens vs Wave 1 lock: 262 pass, 1 accepted exceptions)
+PASS art integration (registry 391 frozen files, 318 runtime art refs resolve to the register, matrix: {"PASS":265,"HOLD":17})
+PASS reachability (121 adventures; 19 route proofs; no player entry: none)
+PASS mid-life fixtures (4 simulated v12 saves: idempotent migration, load, 4 sleeps each, 52 route plays, round trip)
+PASS F04/F03 district-provider contract (Koreatown F03-owned and consumed, never redefined; arts_district + inglewood register in every load order; F03 absent degrades without inventing; no duplicate district state)
+PASS F04 -> F01 -> F04 round trip (real F01 engine: request contract, single application, no duplicate rewards, banked money safe, crew/HEAT/district/vehicle state, reload incl. crash window, EXTRACT / RETALIATION / HAND BACK, refusals inert, no tactical RUN UI)
+PASS F04 PLAYMAKERS WAR ROOM test suite (authored HEAT floors, job tables, LAY LOW, F03-owned Koreatown consumed, crew, report cards, hand back, tactical RUN retired, invariants)
+PASS F01 x WAR ROOM adapter (versioned contract both ways, F04-authoritative world sync, refusals invent nothing, 300 real PLAYs: cash/crew/car/recruit invariants, determinism, continuity, embed page wired)
+PASS F01 BAILED v1 (predicate: 11 cases; 480 PLAYs incl. BIG PLAY + HOLD THE HOUSE, 65 BAILED [boba_backroom 5, tupperware 11, vampire_dentist 11, dock_restock 13, car_wash_stickup 3, quiet_lift 6, vampire_gala 8, smack_crib 8]: isolation, outcomes, headline, memory once)
+PASS F01 classes (authored stats, six signature abilities incl. once-per-showdown CAR, honest 60% talk, VANISH/SILENCER/HUNTER, PATCH UP, traits, stories, DAY ONES)
+PASS F01 determinism (seedable RNG, identical replay, divergent seeds, immutable apply, save/reload mid-fight, store autosave, result receipt)
+     soak: 91 downings, 68 captured, 10 carried out across 50 fights
+PASS F01 downed/carry/capture (0 HP -> DOWNED, 3-turn bleed -> TAKEN, DOC stabilize, CARRY penalty + CARRIED TUNDE, EXTRACTED, left-behind -> CAPTURED, retreat, failure, EXTRACT + SURVIVE + turn-limit objectives, never GONE)
+PASS F01 enemies (5 authored stat lines, CHEWER flank, ENFORCER charge + shrug, HUNTER silver/ignores VANISH, LIEUTENANT aura, LIL SMACK CHEW + flee-not-die, pod discipline, deterministic AI)
+PASS F01 FALL BACK v1 (15 requirement groups; 1000 PLAYs, 21 FELL BACK on HOLD [HOLD n=100, WASH 3]; 8 line variants; invariant violations: 0)
+PASS F01 FEEL LOCK (OL-023: auto-seat, owned cars only, weapon/hands loadout, timed calls + timeout, story flags, Oba cadence + collapse, possession loss, return = state, trunk = award, feed voice + caps + silence + false alarm + sibling meme, T9 feed lines, replay; violations: 0)
+PASS F01 grid (6x9 field, movement/climb costs, props, squeeze rule, LOS, directional cover, flank vs open, POD reveal)
+PASS F01 hit model (base aim, HALF/FULL, FLANKED +30 crit, height +15 ignoring HALF, overwatch -15, shotgun close +15, pistol long -10/tile past 5, hunker -20, clamp, crit x1.5, honest 95% => 5% real misses + earned caption)
+PASS F01 integration (flag registered DARK, refuses while OFF, save/WAKE/phone/Combat2 untouched, 6 nights byte-identical, ON persists only in save.frag.F01, F04 delivery, back to dark)
+PASS F01 no-car recovery (carless job refuses but GET IT BACK stays reachable; recovery is the authored fee-0 call, unchanged; recovered car restores the job; reload / repeat interaction duplicate nothing; EXTRACT with zero cars refuses without a crash and keeps the captive)
+PASS F01 seams (F04 packet in / resolution out with no HEAT double-count, profiles, F05/F07 entry, flag gate, F02 stats: multi-hit, two taps, condition, scope/silencer, conflicts reported)
+PASS F01 Rich pull-up (turn>=3 once, edge entry, +15 HEAT hook, BLOOD BATH/VAMPIRE BITE/REVENGE exact, OCTOPUS BRAIN => SOURCE_REQUIRED, knocked down => RETREAT never GONE, F04 no-double-count)
+PASS F01 soak (64 full fights, 1314 actions, invariants after every action; smart V/R/F 30/2/0, random 0/31/1; 2960ms)
+PASS F01 turn system (2 actions, dash rule, end-turn/enemy phase/refresh, ammo/reload/drum mag, sniper move rule, hunker, overwatch, LIL OGA, RPG once/area/cover, ITEM SOURCE_REQUIRED, refusals inert)
+PASS F05 x F01 record reader: 240 real HOLD records map to F01's own HELD/BREACHED/FELL_BACK/WASH (COSTLY|HELD stays HELD)
+PASS F05 x F01 consequences: HELD/BREACHED/FELL_BACK/WASH from real records; no balance, no HEAT, no loot applied by F05
+PASS F05 x F01 exactly-once: no raid id refused, stale refused, duplicate = receipt, late record cannot hit the next raid
+PASS F05 pending raid is never silently replaced by the next schedule()
+PASS F05 x F01 reload: before HOLD / pending / handed / result-unconsumed / consumed / repeated delivery after reload
+PASS F05 x F01 crew: F05 never resets a capture timer F01 (or an earlier raid) already set
+PASS F05 legacy: no trap_report_card code path in raids/phone/wake/trap (art need only, unchanged)
+PASS F05 wake: F05 night priorities unique on the current base; a second -20 handler is rejected by RAWakeBus (collision reproduced)
+PASS F05 x F01 HOLD THE HOUSE final integration
+PASS F05 flags OFF: no boot, no namespace, no phone app, no channel, no WAKE handlers, RAHeat untouched
+PASS F05 flags ON: boot, phone app, channel, heat floors, WAKE handlers, minigames, crew status
+PASS F05 namespace defaults
+PASS F05 unlock: NEW OGA associate / F04 December offer / Day14+JUG THE PLUG
+PASS F05 listing/buy: authored prices, warehouse chair gate, duplicate guard, ledger tag
+PASS F05 production: grade gating, aging, rare ingredient, capacity, hot, quality pricing
+PASS F05 rare ingredient: weekly lock, fish handled by Rich, dragon source
+PASS F05 sales: channels, authored pricing/wholesale, heat, bad product, unbanked->COUNT THE MONEY
+PASS F05 robbery: skim on low loyalty, night report line, confront verbs, vault protection
+PASS F05 heat: shared RAHeat, Vol 7 floors, provisional per-channel weights, -3 decay
+PASS F05 levels: cases-sold gate, level-up job interface, COUNTING ROOM, upgrades
+PASS F05 crew: authored slots, placeholder workers (artSourceRequired), slot cap, confront verbs
+PASS F05 reactions: one-time people-notice, contentSourceRequired, no invented lines
+PASS F05 raids: F01_INTEGRATION_PENDING setup only, authored losses, panic room, BIG RAID
+PASS F05 weapons seam: F02 delegate or isolated adapter, owner prefix, holdTurns, no duplication
+PASS F05 persistence: lazy namespace, migration-safe, save round trip, declaration-only
+PASS F05 edge/malformed: unknown ids, bad quantities, over-assignment, malformed frag value
+PASS F05 minigame logic: COOK blend/heat/bottle quality, COUNT bands
+PASS F05 audio hooks + art/crew honesty
+PASS F05 outcome vocabulary: F01 canonical tokens, aliases, PLAY-record reader, no invented types
+PASS F05 HOLD win: HELD is a clean hold (no stash/cash loss, no house hot)
+PASS F05 HOLD breach: stash + 30% unbanked at risk, house hot, banked money safe
+PASS F05 FALL BACK: house hit, 0 captures, banked money safe, own FELL BACK state
+PASS F05 WASH: 0 able uses the authored fallback crew rule
+PASS F05 outcome record: F01 captives authoritative, lost gun released, no duplicate ownership
+PASS F05 outcome idempotency: a resolved raid is not applied twice, repeated delivery is a receipt
+PASS F05 outcome persistence: canonical outcome + history survive a reload
+PASS F05 handoff: canonical HOLD THE HOUSE request for the pending raid (slim, idempotent, persisted handed state)
+PASS F05 holdTurns: normalized to F02's array shape in both modes
+PASS F05 THE TRAP (authored traphouse/production/sales loop, F01 raid boundary, F02 seam, shared HEAT, ledger, persistence)
+PASS make-it-rain core (20 groups: stack, aim, target, beat, quality, streak, waste, score, reset, determinism, safety)
+PASS F06 production: dark save invariant, ledger expense, duplicate charge/completion, persisted reload, no payout, shared state, budget, flag teardown
+PASS F06 source fidelity: core/tunables byte-identical; RM_01–RM_08 registered, path-resolved and F11 byte-identical
+PASS F13 balance lock (War Room SLOTS cap + EXTRACT exempt, LAY LOW applied = shown, trap cases/night + BUY BASE, margin shape, repetition past a cap buys nothing, reload-invariant incl. recruits, no corrupted state)
+PASS f14 asset validation (decode/markers/duplicates/missing-reference; 509 real references clean)
+PASS f14 audio availability (241 registered sounds clean; 9 declared pending; synthetic missing detected)
+PASS f14 reproduction bundles (deterministic fingerprint, required fields, redaction + write guard)
+PASS f14 detection (invariants, duplicate resolutions, softlock, dead apps/links, backout, retry)
+PASS f14 route executor (steps, assertions, screenshots, console capture, backout, failure records)
+PASS f14 harness orchestration (checklist, PENDING_FRAGMENT, viewport sweep, screenshots, failure bundles)
+PASS f14 leak-scan integration (OPEN tree clean over 1924 files; planted forbidden path caught; range gate)
+PASS f14 route registry (18 authorized, 4 PENDING_FRAGMENT, validation + override)
+PASS IF-1 v1.0 contract (19 modules, 151 frozen members present, self-check, single-owner surface rules)
+PASS convergence dark: selfCheck + migrations clean, HEAT provisional, no apps, no namespaces, schema v16
+PASS convergence F04 migration: orphan submission removed, lazy namespace defaults intact, ledger untouched
+PASS convergence HEAT: RAHeatFloors is the single owner (0/30/60/85); F04 and F05 delegate; identical for every flag combination
+PASS convergence flags: F05.trap is the one F05 identity; F01.showdown_core is live, F01.showdown inert/reserved; stale F14 tactical routes retired
+PASS convergence wake bus: NIGHT priorities unique (-35 heat-decay, -30 sales, -20 raid-schedule, -10 fame); only the two historical accepted ties remain
+PASS convergence phone: cars single registration; onlyvamps + realEstate/realestate preserved; reserved slots dark; F04/F05/F06 apps register only with their flags
+PASS convergence RAINMAKER unlock: dark until the first RAWorldEvents-resolved event; once; persisted; reload-safe; flag alone/other conditions never unlock
+PASS convergence audio: F01 duplicate BX hooks removed, F11 master registers clean, F06 RM_01-08 wired, BX_STEP inert, TR_01/TR_05 unchanged
+PASS convergence F07 parked: no F07 playable content composed
+PASS IF-1 features (dark defaults, namespace guard, requires, persistence scope, DEV-only overrides, owner promotion)
+PASS HOLD bridge happy path: 16 real F01 HOLDs ({"HELD":9,"FELL_BACK":5,"BREACHED":1,"WASH":1}): F01 once, shared cash/HEAT once, F05 stash + 30% only, receipt, one capture timer, RACrew ids end to end
+PASS HOLD bridge refusals: F05 off / F01 off / no raid change nothing
+PASS HOLD bridge reload before handoff / after handoff before launch: raid intact and launchable
+PASS HOLD bridge reload during HOLD: nothing applied, same launch id relaunched, F01 record reused not replayed
+PASS HOLD bridge result held / crash during delivery / repeated delivery: recovered once, HEAT+cash+capture+stash exactly once, F05 receipt final
+PASS HOLD bridge shared-step failure: F05 not applied, retried idempotently
+PASS HOLD bridge stale / malformed / unknown-crew / non-HOLD / unreadable results and back-out: all inert, raid kept, relaunch completes once
+PASS HOLD bridge persistence: shared namespaces only, no sandbox keys, schema v16, transaction cleared
+PASS IF-1 loader (190 scripts, manifest==index.html, legacy order preserved, slots/globs/css/overlay markers, dependency rules, duplicate/orphan/stale detection)
+PASS IF-1 migrations (10 historical schemas v07–v16 load additively+idempotently, lazy frag namespaces, owner-assigned ordering, orphan/gap/claim rejection)
+PASS IF-1 phone/art/audio registries (reserved apps stay dark, additive art+audio parts, frozen-asset collision refused, part folders clean)
+PASS IF-1 sealed architecture (OPEN runs with empty pack; leak check catches forbidden paths/dirty slot/install calls/overlay slot/denylist without echo; overlay builder: empty pack == OPEN, payload confined to sealed roots, OPEN dist untouched, tamper + traversal rejected)
+PASS IF-1 services (money ledger, HEAT, trust/clout/tendency, crew, vehicles, districts, VampGram API, sales channels, Combat2 extension points)
+PASS IF-1 wake/night bus (accepted roster intact, deterministic priority order, flag gating, no double-fire, night-report slot, one voice note per WAKE)
+PASS IF-1 zero-behavior-change (4 lives × 6 nights, 72 route plays: byte-identical saves/traces/wake rosters with IF-1 present + all flags OFF; NEW OGA M1–M3 identical)
+PASS deterministic release gate (194 JavaScript syntax checks, save fixtures, recovery, opportunity access)
+PASS built ra-1f2c53a19a02-20260930212859 for 1f2c53a19a02e59ba309b1a2b4cbcdaa16536611
+PASS artifact verification ra-1f2c53a19a02-20260930212859 (1f2c53a19a02e59ba309b1a2b4cbcdaa16536611)
+PASS leak check artifact dist (1113 files, no sealed implementation content)
+PASS loader (190 scripts, deterministic order, index.html in sync)
+PASS NEW OGA M1: adventure scene mounts and its choices are reachable on the integrated trunk
+PASS NEW OGA M1 path: zero page/console/network errors
+PASS phone @360px: opens, no horizontal overflow — scrollWidth 360 / 360
+PASS phone @390px: opens, no horizontal overflow — scrollWidth 390 / 390
+PASS phone @430px: opens, no horizontal overflow — scrollWidth 430 / 430
+PASS IF-1 browser smoke (22 checks)
+
+PASS verify:all
+  PASS    loader verification (0s)
+  PASS    artifact verification (0s)
+  PASS    OPEN artifact leak check (0s)
+  PASS    private overlay build with EMPTY pack (must equal OPEN) (1s)
+  PASS    OPEN artifact still clean after overlay build (0s)
+  PASS    browser smoke
+PASS P7 IF-1 self-check still OK at the end of the run
+PASS ZERO console / page errors / failed requests across the whole traversal
+PASS candidate smoke traversal: 64/64 checks
+PASS F14 FCPB QA HARNESS — dist @ 1f2c53a19a02
+  routes: 18/18 authorized passed, 4 PENDING_FRAGMENT
+  browser: PASSED
