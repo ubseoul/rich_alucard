@@ -64,6 +64,9 @@
  // "Styled as a VampGram post from @whosrunninLA"
  function postReportCard({ jobId, district, success, cashDelta, heatDelta, crewStatus, newStories }) {
   if (!window.RAFeatures.enabled('F04.war_room')) return false;
+  // F13: a districtless job (LAY LOW) has no block to caption. It never produced a post (the caption threw on the null district and
+  // aborted the LAY LOW phone action half-way); it now simply produces none.
+  if (!district) return false;
   // Deduplicate by jobId
   const posted = window.RAFrag.read('F04', 'vgPosts', {});
   const key = `report:${jobId}`;

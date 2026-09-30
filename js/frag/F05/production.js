@@ -76,6 +76,11 @@
 
  function crewQuality(){return U.num(P().crewCookQuality);}
 
+ // Cases cooked at a house today (its batches made today). THE TRAP sec.2 capacity is cases per NIGHT (the listing shows
+ // "N cases/night"); the phone's COOK spends what is left of it (F13: the cook action never checked, so one night could cook without limit).
+ function cookedTonight(houseId,day=U.day()){return R.store.batches().filter(b=>b.houseId===houseId&&U.int(b.madeDay)===day).reduce((n,b)=>n+U.int(b.cases),0);}
+ function capacityLeft(houseId,day=U.day()){const h=A().houses[houseId];return h?Math.max(0,U.int(h.capacity)-cookedTonight(houseId,day)):0;}
+
  // Ready stock grouped by quality band, highest quality first (used by sales to price per case).
  function readyGroups({houseId,grade,day=U.day()}={}){
   const list=R.store.readyBatches(day).filter(b=>b.houseId===houseId&&b.grade===grade).sort(U.byQuality);
@@ -130,6 +135,6 @@
  }
 
  R.production={GRADE_LEVEL,BASE_OF,gradeUnlocked,unlockedGrades,ingredients,addIngredient,purchaseIngredients,
-  hot,resolveGrade,qualityBand,cook,crewQuality,readyGroups,readyCases,stockSummary,takeStock,unitPrice,
+  hot,resolveGrade,qualityBand,cook,crewQuality,cookedTonight,capacityLeft,readyGroups,readyCases,stockSummary,takeStock,unitPrice,
   RARE_SOURCES,gainRare,rareHeld:()=>U.int(ingredients().rare)};
 })();

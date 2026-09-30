@@ -42,12 +42,19 @@
  function house(sub){
   const id=sub,h=A().houses[id];if(!h)return '<p>gone.</p>';
   const hot=R.production.hot(id);const grades=R.production.unlockedGrades();
-  const stock=R.production.readyBatches().filter(b=>b.houseId===id);
+  const stock=R.store.readyBatches().filter(b=>b.houseId===id);
   return `<h1>${esc(h.label)}</h1>${hot?'<p class="phone-small">HOT - no production 5 nights.</p>':''}`+
    `<p class="phone-small">${esc(h.where)} - ${h.capacity} cases/night</p>`+
    `<p class="phone-small">INGREDIENTS synth ${U.int(R.production.ingredients().synth)} std ${U.int(R.production.ingredients().standard)} good ${U.int(R.production.ingredients().good)} premium ${U.int(R.production.ingredients().premium)} rare ${U.int(R.production.ingredients().rare)}</p>`+
    (hot?'':grades.map(g=>btn(`COOK ${g} - ${esc(A().grades[g].street)}`,`do:trap:cook:${id}|${g}`)).join(''))+
+   (hot?'':buyBaseButtons(id,grades))+
    (stock.length?`<p class="phone-speaker">STOCK</p>${stock.map(b=>`<p class="phone-small">${esc(b.grade)} q${Math.round(b.quality)} x${b.cases}${b.readyDay>U.day()?' (aging)':''}</p>`).join('')}`:'<p class="phone-small">no stock.</p>');
+ }
+ // BUY BASE (THE TRAP sec.5 loop "BUY BASE -> COOK", sec.9 Gbenga base ingredients): one night of this house at the provisional
+ // (F13) unit cost. F13: production.purchaseIngredients existed but no phone action called it, so no player could ever cook.
+ function buyBaseButtons(id,grades){
+  const h=A().houses[id];const bases=[...new Set(grades.filter(g=>!A().grades[g].rare).map(g=>R.production.BASE_OF[g]))];
+  return bases.map(b=>btn(`BUY BASE ${b.toUpperCase()} x${h.capacity} - ${RALife.fmt(U.num(R.PROVISIONAL.ingredientCost[b])*h.capacity)}`,`do:trap:buyBase:${id}|${b}`)).join('');
  }
  function salesPage(){
   const houses=R.store.ownedHouses();const rows=[];
@@ -118,13 +125,21 @@
    const [houseId,grade]=(arg||'').split('|');const h=A().houses[houseId];
    if(!h)return {ok:false,reason:'unknown-house'};
    const base=R.production.BASE_OF[grade];const avail=U.int(R.production.ingredients()[base]);
-   const cases=Math.min(U.int(h.capacity),avail);
+   const left=R.production.capacityLeft(houseId);
+   if(left<1){api.message&&api.message('cooked tonight.');return {ok:false,reason:'capacity-used-tonight'};}
+   const cases=Math.min(left,avail);
    if(cases<1){api.message&&api.message('no base ingredients.');return {ok:false,reason:'no-ingredients'};}
    api.launch('f05_cook',{houseId,grade,cases},result=>{
     if(!result||result.quit)return;
     R.production.cook({houseId,grade,cases,quality:result.quality});
    });
    return {ok:true};
+  }
+  if(act==='buyBase'){
+   const [houseId,base]=(arg||'').split('|');const h=A().houses[houseId];
+   if(!h||!R.store.hasHouse(houseId))return {ok:false,reason:'not-owned'};
+   const r=R.production.purchaseIngredients(base,h.capacity);if(!r.ok&&api.message)api.message(r.reason==='no-money'?'need cash.':(r.reason||'cannot buy'));
+   if(api.refresh)api.refresh();return r;
   }
   if(act==='assign'){const [houseId,grade,channel]=(arg||'').split('|');const ready=R.production.readyCases({houseId,grade});const r=R.sales.assign({houseId,grade,cases:ready,channel});if(!r.ok&&api.message)api.message(r.reason||'cannot assign');api.refresh();return r;}
   if(act==='count'){const amount=R.sales.pending();if(amount<=0){if(api.message)api.message('nothing to count.');return {ok:false};}
