@@ -49,7 +49,7 @@
   recordSale,
   vampirePressure: () => window.RAFrag.read('F04', VP_PATH, 50),
   // true when the shared owner (RAHeatFloors) has configured the authored floors
-  configured: () => window.RAHeatFloors.applied(),
+  get configured() { return window.RAHeatFloors.applied(); },
   // Authored floor constants exposed for tests and UI.
   AUTHORED_FLOORS: window.RAHeatFloors.FLOORS,
   // Expose for testing / UI
