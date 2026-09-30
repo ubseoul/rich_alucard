@@ -1,0 +1,18 @@
+F13 balance population — reverify_ui — 5 seeds x 42 days per persona (distributions p10/p50/p90)
+
+NORMAL  final 2.16M/2.32M/2.61M  min cash 38K/54K/56K  d23 55K/136K/290K  d30 353K/471K/813K
+  WAR ROOM in 1.25M/1.40M/1.64M  PLAYs 42/42/42 win 93%  max/night 1  refused 0  LAY LOW 8x avg drop 15
+  WAR ROOM DEATH  NO_CAR in 0/5 lives (first day 0/0/0)  EXTRACT crashes in 0/5 lives (0)  last night with a PLAY 42/42/42
+  CARS lost 3 recovered 2.4 (fee 0)  lives with a loss 5/5 first 18/22/42  War Room net after first loss 544K/1.16M/1.37M = 75% of War Room income
+  TRAP in 1.29M/1.32M/1.39M out 644K/662K/680K net 642K/663K/706K  sold 206/214/224  cooks/house-night 0.94  ingredients 409K/427K/445K  upgrades 50K/50K/50K  level 3/3/3  L2 day 26/27/28 L3 day 41/42/43
+  RAIDS 5/5 lives  scheduled 3 answered 3 pendingDays 3  first 36/38/39  stash 0 unbanked 0 holdNet 67K  {"HELD":17}
+  HEAT peak 75/76/78 end 56/68/76  CREW gone 0.4 captured 1.2 activeEnd 7.6  RAIN 27K  invariants 0 softlock 0 errors 0
+
+AGGRESSIVE  final 2.32M/4.16M/7.21M  min cash 21K/54K/74K  d23 21K/286K/663K  d30 515K/1.11M/1.77M
+  WAR ROOM in 561K/2.45M/5.59M  PLAYs 19/71/79 win 41%  max/night 2  refused 6  LAY LOW 0x avg drop 0
+  WAR ROOM DEATH  NO_CAR in 0/5 lives (first day 0/0/0)  EXTRACT crashes in 0/5 lives (0)  last night with a PLAY 16/40/42
+  CARS lost 10.2 recovered 9.6 (fee 0)  lives with a loss 5/5 first 16/18/23  War Room net after first loss 540K/2.16M/5.44M = 87% of War Room income
+  TRAP in 2.59M/2.82M/2.95M out 1.45M/1.49M/1.56M net 1.13M/1.33M/1.39M  sold 386/414/440  cooks/house-night 0.92  ingredients 1.01M/1.05M/1.11M  upgrades 0/0/0  level 4/4/4  L2 day 22/24/24 L3 day 30/32/32
+  RAIDS 5/5 lives  scheduled 6 answered 5 pendingDays 5  first 22/23/24  stash 6 unbanked 0 holdNet 121K  {"HELD":23,"FELL_BACK":2,"WASH":1,"BREACHED":1}
+  HEAT peak 677/904/1K end 677/904/1K  CREW gone 1.8 captured 2.2 activeEnd 6  RAIN 0  invariants 0 softlock 0 errors 0
+

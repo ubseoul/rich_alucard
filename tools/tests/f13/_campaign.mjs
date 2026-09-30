@@ -52,7 +52,7 @@ async function playHostFor(root,seed,policy){
  if(!globalThis.RAPlayContract)vm.runInThisContext(await read(root,'js/frag/F01/play_contract.js'));
  const {makeDriver}=await import(url('tools/tests/f01/play-sim/driver.mjs'));
  const AD=await import(url('js/frag/F01/play/adapter.mjs'));
- const host={saved:null,cache:new Map(),calls:0,crashes:[],
+ const host={saved:null,cache:new Map(),calls:0,crashes:[],cars:{lost:0,recovered:0,firstLossDay:null,gainAfterLoss:0,gainAll:0},
   transport(req){
    const plain=JSON.parse(JSON.stringify(req));
    if(host.cache.has(plain.requestId))return JSON.parse(JSON.stringify(host.cache.get(plain.requestId)));
@@ -60,6 +60,11 @@ async function playHostFor(root,seed,policy){
    plain.seed=(hash(`${seed}|${plain.requestId}`)%90000)+1000;
    host.calls++;
    let r;try{r=AD.runHeadless(plain,makeDriver(policy),host.saved);}catch(e){host.crashes.push({job:plain.job&&plain.job.f01JobId,day:plain.day,error:String(e.message||e).slice(0,120),at:String(e.stack||'').split('\n').slice(1,4).map(x=>x.trim()).join(' < ')});throw e;}
+   // cars (F13 S1 measurement): what the PLAY lost, and what GET IT BACK (fee 0) recovered before it
+   const lost=w=>Object.keys((w&&w.garage&&w.garage.lost)||{}).length;
+   if(r.result.status==='COMPLETE'){const newly=r.result.car&&r.result.car.lost?1:0;host.cars.lost+=newly;host.cars.recovered+=Math.max(0,lost(host.saved)+newly-lost(r.world));
+    if(newly&&host.cars.firstLossDay==null)host.cars.firstLossDay=plain.day;const raidHold=!!(plain.job&&plain.job.context&&plain.job.context.source==='F05.raid');const net=Math.max(0,r.result.cash.gain-r.result.cash.spent);
+    if(!raidHold){host.cars.gainAll+=net;if(host.cars.firstLossDay!=null&&plain.day>host.cars.firstLossDay)host.cars.gainAfterLoss+=net;}}
    if(r.result.status==='COMPLETE'||r.result.status==='DECLINED'){host.cache.set(plain.requestId,r.result);if(r.result.status==='COMPLETE')host.saved=r.world;}
    return JSON.parse(JSON.stringify(r.result));
   }};
@@ -231,7 +236,7 @@ export async function campaign(root,{persona='normal',seed=1,days=42,reloadAt=nu
  m.minMoney=Math.min(...m.daily.map(x=>x.money));
  m.peakHeat=Math.max(...m.daily.map(x=>x.heat));
  m.firstRaidDay=(m.daily.find(x=>x.raidPending)||{}).day||null;
- m.f01Crashes=host.crashes;
+ m.f01Crashes=host.crashes;m.cars={...host.cars};
  m.digest=hash(JSON.stringify({daily:m.daily,flows:m.flows,plays:m.plays,trap:m.trap}));
  return m;
  }finally{Math.random=realMath;}

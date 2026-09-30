@@ -9,6 +9,7 @@ const rows=[
  ['final cash (p10/p50/p90)',s=>D(s.final)],['lowest cash in the life',s=>D(s.minMoney)],['cash on day 23',s=>D(s.money.d23)],
  ['War Room income',s=>D(s.warIn)],['PLAYs run',s=>D(s.plays)],['most PLAYs in one night',s=>s.maxPlaysPerNight],['PLAY win %',s=>s.winRate+'%'],
  ['War Room dead (NO_CAR) lives',s=>s.noCar?`${s.noCar.lives}/${s.n}`:'-'],['EXTRACT crashes (lives)',s=>s.extractCrash?`${s.extractCrash.lives}/${s.n}`:'-'],['last night with a PLAY',s=>s.lastPlayNight?D(s.lastPlayNight):'-'],
+ ['cars lost / recovered (mean, fee 0)',s=>s.cars?`${s.cars.lost} / ${s.cars.recovered}`:'-'],['War Room net after 1st car loss (share)',s=>s.cars?`${D(s.cars.gainAfterLoss)} (${s.cars.shareAfterLoss}%)`:'-'],
  ['LAY LOWs / avg HEAT drop',s=>`${s.layLow.n} / ${s.layLow.avgDrop}`],
  ['trap income',s=>D(s.trapIn)],['trap spend (houses+base+upgrades)',s=>D(s.trapOut)],['trap net',s=>D(s.trapNet)],['cooks per house-night',s=>s.cooksPerHouseNight],
  ['cases sold',s=>D(s.casesSold)],['ingredients spent',s=>D(s.ingredients)],['upgrades spent',s=>D(s.upgrades)],['trap level',s=>D(s.level)],['day of Level 2',s=>D(s.l2Day)],
