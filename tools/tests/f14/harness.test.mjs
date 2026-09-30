@@ -35,7 +35,7 @@ export async function test(root){
     assert(shots.length>0,'screenshots must be generated');
     // checklist never fails on missing fragment content
     assert.equal(report.checklistSummary.ok,true,`unexpected failures: ${report.checklistSummary.failed}`);
-    assert(report.registry.pending>=8,'campaign routes are PENDING_FRAGMENT (8 declared after the retired tactical SHOWDOWN routes were replaced)');
+    assert(report.registry.pending>=4,'the campaign routes whose fragment is not composed (F02 ARMORY / RANGE DAY, F03 M9 / M10) stay PENDING_FRAGMENT; F01 HOLD, F04, F05, F06 are authorized by the FCPB convergence');
     assert.equal(report.routes.pending,report.registry.pending);
     const auth=report.checklist.find(c=>c.id==='authorized-missions');
     assert(['PASS','PENDING_FRAGMENT','SKIPPED'].includes(auth.status),'pending missions are never a failure');
