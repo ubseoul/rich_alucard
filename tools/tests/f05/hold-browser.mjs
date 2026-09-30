@@ -1,5 +1,5 @@
 // F05 THE TRAP x F01 HOLD THE HOUSE - real-Chromium flow check (STOVE J). Not part of `npm test` (needs a browser).
-//   node tools/f05-hold-browser.mjs [--shots dir]
+//   node tools/tests/f05/hold-browser.mjs [--shots dir]
 // Two REAL pages on one static server:
 //   GAME  /index.html?dev=1&ff=F05.the_trap        THE TRAP: setup -> real sleep()/NIGHT bus -> raid pending -> WAKE notice -> handoff()
 //   PLAY  /assets/f01/play/index.html?hold=1       F01 THE PLAY runs HOLD THE HOUSE through its own UI and produces the record
@@ -7,7 +7,7 @@
 // Then: repeated delivery, a real page reload at every stage, a second raid, a stale record, responsive widths.
 // Exit 0 = every check passed: no console/page errors, no dead end, no duplicate processing.
 import fs from 'node:fs';import path from 'node:path';
-import {serve,loadPlaywright} from './f05-hold-browser-lib.mjs';
+import {serve,loadPlaywright} from './_browser-lib.mjs';
 const arg=(k,d)=>{const i=process.argv.indexOf('--'+k);return i>=0?process.argv[i+1]:d;};
 const SHOTS=arg('shots','');if(SHOTS)fs.mkdirSync(SHOTS,{recursive:true});
 const {chromium}=loadPlaywright();

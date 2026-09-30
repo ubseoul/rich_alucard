@@ -64,3 +64,25 @@ Banked money is never touched by F05. `pot`, `heatDelta`, `spent`, `pocketLoss` 
 ## Wake priorities
 
 On the current base every night priority is unique (`fame-night -10`, `f05.raid-schedule -20`, `f05.sales-resolve -30`, `f05.heat-decay -35`). `RAWakeBus.subscribe` rejects any second handler at `-20` (`priority -20 already used by f05.raid-schedule`); the test reproduces that. No priority was changed: choosing which fragment moves is an ownership decision.
+
+## Verification
+
+| Check | Command | Result |
+|---|---|---|
+| F05 suites | `node tools/run-tests.mjs --fragment f05` | PASS (`the_trap`: 32 groups; `hold_integration`: 8 groups over 240 real F01 HOLD records) |
+| F01 suites (incl. FALL BACK, FEEL LOCK) | `node tools/run-tests.mjs --fragment f01` | PASS (14 suites) |
+| Every suite, individually | all 25 discovered suites | 24 PASS, 1 FAIL: `if1/loader.test.mjs` (pre-existing, below) |
+| Loader / leak | `node tools/loader.mjs verify`, `node tools/leak-check.mjs` | PASS (170 scripts; 1697 files) |
+| Owner surfaces | `node tools/check-owner-surfaces.mjs --base <merge> --fragment F05` | PASS |
+| Real Chromium | `node tools/tests/f05/hold-browser.mjs` | 30/30: game page + F01 PLAY UI, real `sleep()` NIGHT/WAKE, reload at every stage, repeat and stale delivery, 360/390/430 widths, zero console/page errors |
+| Build | `node tools/release.mjs build` + `verify-artifact` | PASS only with `if1/loader.test.mjs` removed in a scratch copy (see below) |
+
+Mutation checks (each broken in turn, each caught by the F05 suite): no receipt check, no stale-raid check, COSTLY read as breach, pending raid overwritten, F05 credits pot to balance, F05 adds record `heatDelta`, `trap_report_card` reintroduced, `holdTurns` object shape, `handed` not persisted, wake priority tie (`-30` to `-20`), capture timer re-stamped.
+
+### Pre-existing failure (not introduced here)
+
+`tools/tests/if1/loader.test.mjs` "new files land in their slots" fails on the accepted F01 branch (`039bcae`) alone and passes on `integration/ube-portal` and on the F05 readiness branch. The fixture invents a "new F01 fragment" containing `js/frag/F01/migrations.js`; the accepted F01 has a real one, so it is no longer a new file. `npm test` and `npm run build` stop there. That file is an IF-1 owner surface, so it was not edited; the integration owner should move the fixture to an unused fragment id.
+
+### Real-browser note
+
+HEAT must be above HOT (60) when the night begins: the NIGHT bus decays 3 at `-35`, before the raid check at `-20`. The browser check uses 70.
