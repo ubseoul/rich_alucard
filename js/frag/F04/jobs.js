@@ -296,11 +296,15 @@
   if (resolution.heatDelta) {
    if (resolution.district) {
     window.RAHeat.add(resolution.heatDelta, { district: resolution.district, source: `war_room:${resolution.approach}` });
-   }
-   // Global heat contribution (scaled fraction of district heat for visibility)
-   const globalDelta = Math.round(Math.abs(resolution.heatDelta) * 0.3) * Math.sign(resolution.heatDelta);
-   if (globalDelta) {
-    window.RAHeat.add(globalDelta, { source: `war_room:${resolution.approach}:global` });
+    // Global heat contribution (scaled fraction of district heat for visibility)
+    const globalDelta = Math.round(Math.abs(resolution.heatDelta) * 0.3) * Math.sign(resolution.heatDelta);
+    if (globalDelta) {
+     window.RAHeat.add(globalDelta, { source: `war_room:${resolution.approach}:global` });
+    }
+   } else {
+    // F13: a districtless job (LAY LOW, the only one) has no district to hold the delta, so its whole authored delta is GLOBAL
+    // (Vol 7 §3.2 "HEAT −15", as its card shows). The 30% share above was an artifact of every other job having a district.
+    window.RAHeat.add(resolution.heatDelta, { source: `war_room:${resolution.approach}:global` });
    }
   }
 
@@ -363,6 +367,26 @@
   window.RAFrag.patch('F04', 'jobs.log', log);
  }
 
+ // ── Nightly SLOTS (Vol 7 §3.1: 1 job slot a night, 2 once 6+ Ogas are active) ─────────────────
+ // F13: the board always showed SLOTS but nothing spent them, so a night could run any number of paid PLAYs / LAY LOWs.
+ // A slot is spent by a job that happened tonight (a consumed PLAY or a LAY LOW in the job log). EXTRACT stays off the cap
+ // (F01 R1 brake: one EXTRACT per capture group, EXTRACT off the nightly cap) and HAND BACK, the one-time closing job, is exempt.
+ const OFF_CAP = ['EXTRACT'];
+ function slotsUsedTonight(day = window.RALife.today().day) {
+  return window.RAFrag.read('F04', 'jobs.log', [])
+   .filter(e => e.day === day && !OFF_CAP.includes(e.type) && !String(e.jobId || '').startsWith('hand_back_')).length;
+ }
+ // Tonight's SLOTS are the number the board shows (set at WAKE from the active roster), so a PLAY that wounds an Oga does not
+ // take back a slot the player was already shown.
+ const slotsTonight = () => Math.max(1, Number(window.RAFrag.read('F04', 'jobs.slotsPerNight', 1)) || 1);
+ function canRunTonight(jobCard) {
+  const slots = slotsTonight();
+  if (!jobCard) return { ok: false, reason: 'no-job', slots, used: slotsUsedTonight() };
+  if (OFF_CAP.includes(jobCard.type) || jobCard.isHandBack) return { ok: true, exempt: true, slots, used: slotsUsedTonight() };
+  const used = slotsUsedTonight();
+  return used < slots ? { ok: true, slots, used } : { ok: false, reason: 'no-slot', slots, used };
+ }
+
  // ── HAND BACK ────────────────────────────────────────────────────────────
  function buildHandBackJob() {
   const dist = window.RAWarRoomDistricts.usable('koreatown') ? 'koreatown' : (window.RAWarRoomDistricts.activeIds()[0] || null);
@@ -410,6 +434,9 @@
   initiateHandBack,
   buildHandBackJob,
   resolveHandBack,
+  slotsTonight,
+  slotsUsedTonight,
+  canRunTonight,
   _rollRange: rollRange
  });
 })();

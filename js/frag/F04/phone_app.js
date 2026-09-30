@@ -166,6 +166,14 @@ ${btn('HAND BACK', 'do:warRoom:handBack', 'phone-button-danger')}
 ${btn('NOT YET', 'app:warRoom')}`;
  }
 
+ // ── Nightly SLOTS (F13): the board spends the SLOTS it shows. A full night answers on the board's existing refusal line. ──
+ function slotOpen(job) {
+  const can = window.RAWarRoomJobs.canRunTonight(job);
+  if (can.ok) return true;
+  window.RAFrag.patch('F04', 'play.lastRefusal', { day: window.RALife.today().day, code: 'NO_SLOT', reason: 'no slots left' });
+  return false;
+ }
+
  // ── Action handler ────────────────────────────────────────────────────────
  function onAction(act, arg, api) {
   if (act === 'accept') {
@@ -203,6 +211,7 @@ ${btn('NOT YET', 'app:warRoom')}`;
    // LAY LOW is the only job the War Room resolves itself (no squad, no car, no PLAY).
    const job = window.RAWarRoomJobs.buildNightMenu()[Number(arg)];
    if (!job || job.type !== 'LAY_LOW') { api.refresh(); return; }
+   if (!slotOpen(job)) { api.refresh(); return; }
    const resolution = window.RAWarRoomJobs.executeRun({ jobCard: job });
    window.RAWarRoomJobs.applyRunResult(resolution);
    window.RAWarRoomReportCard.record(resolution);
@@ -216,6 +225,7 @@ ${btn('NOT YET', 'app:warRoom')}`;
    const P = window.RAWarRoomPlay;
    const job = act === 'play' ? window.RAWarRoomJobs.buildNightMenu()[Number(arg)] : null;
    if (act === 'play' && !job) { api.refresh(); return; }
+   if (act === 'play' && !slotOpen(job)) { api.refresh(); return; }
    const started = act === 'play' ? P.launch(job) : P.resume();
    return Promise.resolve(started).then(() => api.refresh(), () => api.refresh());
   }

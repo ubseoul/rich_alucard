@@ -153,9 +153,17 @@
   // The trap level reports jobSourceRequired when no authored scene is registered; with F13/authoring the gate
   // becomes cases + job. Until then level-up uses the cases-sold thresholds below.
   casesSoldForLevel:{2:40,3:120,4:300,5:700},
-  // Base ingredient acquisition costs (Gbenga's "markup" is not numbered). Zero keeps the loop source-faithful.
-  ingredientCost:{synth:0,standard:0,good:0,premium:0,rare:0},
-  upgradeCost:{better_burner:0,aging_racks:0,vault:0,cameras:0,money_counter:0,panic_room:0},
+  // Base ingredient acquisition costs per case (Gbenga's "markup" is not numbered). F13 BALANCE LOCK (was 0 across the board):
+  // 20% of the base's reference grade price (synth->D $1,200, standard->C $3,500, good->B $7,000, premium->A $14,000), i.e. a third
+  // of its WHOLESALE price. Measured: at $0 a case was pure profit, so the trap out-earned the War Room 2-3.5x with no working capital
+  // and a raided stash cost nothing to replace. Every standard-quality sale stays profitable on every channel; the rare stays free
+  // (it is gated weekly by the source). Evidence: docs/engineering/F13_BALANCE_LOCK.md.
+  ingredientCost:{synth:250,standard:700,good:1400,premium:2800,rare:0},
+  // Upgrade prices. F13: only BETTER BURNER has a wired economic effect (sale HEAT x betterBurnerHeatMult); it is priced against the
+  // authored LAY LOW rate ($10K per 15 HEAT): $50K ~ 75 HEAT points. The other five have no wired economic effect in the integrated
+  // game (VAULT: skimming never triggers; PANIC ROOM: the HOLD bridge always supplies F01's captive list; CAMERAS: a warning flag;
+  // MONEY COUNTER / AGING RACKS: no economic effect), so they stay free rather than charge the player for nothing (SOURCE_REQUIRED).
+  upgradeCost:{better_burner:50000,aging_racks:0,vault:0,cameras:0,money_counter:0,panic_room:0},
   // Runner skimming (THE TRAP sec.7 "a runner with low loyalty can skim").
   loyalty:{start:3,max:5,lowMax:2},
   robbery:{chance:0.25,amountPct:0.1},

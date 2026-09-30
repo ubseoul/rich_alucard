@@ -73,6 +73,15 @@
   window.RACrew.define({ ...def, fragment: 'F04' });
  }
 
+ // Recruits who already joined (F13 repair): RACrew keeps unit DEFINITIONS in memory only, so a recruit defined at runtime
+ // vanished from the War Room on the next page load (their saved state stayed, orphaned). F04 records each recruit's identity
+ // in its own namespace when they join (save.frag.F04.recruits, read lazily with a [] default) and re-defines them here.
+ const RECRUITS = 'recruits';
+ for (const r of window.RAFrag.read('F04', RECRUITS, []) || []) {
+  try { if (r && r.id && !window.RACrew.get(r.id)) window.RACrew.define({ id: r.id, name: r.name, class: r.cls, fragment: 'F04', meta: { recruit: true, source: r.source || 'recruit' } }); }
+  catch (e) { console.error('F04 recruit restore', r && r.id, e); }
+ }
+
  // Recruit registry: vampires from Catacomb, Rave, or Tokyo Tony's crew.
  // Recruits are defined dynamically by the game systems; they are registered here
  // using the same RACrew.define path when they join, so "Any Ogas" = RACrew.list({fragment:'F04'}).
@@ -193,6 +202,7 @@
    if (window.RACrew.get(id)) return { ok: false, reason: 'already-defined' };
    if (this.allOgas().length >= 8) return { ok: false, reason: 'roster-full' }; // Vol 7 §6.3: max 8
    window.RACrew.define({ id, name, class: cls, fragment: 'F04', meta: { recruit: true, source } });
+   window.RAFrag.patch('F04', RECRUITS, [...(window.RAFrag.read('F04', RECRUITS, []) || []).filter(r => r && r.id !== id), { id, name, cls, source }]);
    return { ok: true, id };
   }
  });
