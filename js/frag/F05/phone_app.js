@@ -91,7 +91,7 @@
  function raidSection(){
   const p=R.raids.pending();
   if(!p)return '<p class="phone-speaker">RAIDS</p><p class="phone-small">none pending.</p>';
-  return `<p class="phone-speaker">RAIDS</p><div class="phone-card"><b>${esc(p.attacker.label)}</b><br><span class="phone-small">${esc(p.houseId)} - ${esc(R.raids.F01_PENDING)}</span></div>`;
+  return `<p class="phone-speaker">RAIDS</p><div class="phone-card"><b>${esc(p.attacker.label)}</b><br><span class="phone-small">${esc(p.houseId)} - ${p.state==='handed'?'HOLD THE HOUSE under way':'incoming'}</span></div>`;
  }
 
  function render(sub){

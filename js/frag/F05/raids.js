@@ -32,6 +32,7 @@
   if(!R.on())return {ok:false,reason:'flag-off'};
   if(!R.store.route().active)return {ok:false,reason:'route-inactive'};
   if(daysSinceLast()<U.int(A().cost.raidCadenceNights))return {ok:false,reason:'cadence'};
+  if(pending())return {ok:false,reason:'raid-pending'};   // an unanswered raid is never silently replaced by the next one
   if(!heatTierOk())return {ok:false,reason:'heat-below-'+P().raidHeatTier};
   if(R.store.ownedHouses().length===0)return {ok:false,reason:'no-house'};
   return {ok:true,attacker:attackerFor()};
@@ -97,19 +98,37 @@
   if(rec.klass==='WASH'||g==='WASH')return 'WASH';
   const defense=rec.defense===true||rec.shape==='HOLD THE HOUSE'||rec.job==='hold_the_house';
   if(defense){
-   if(g==='BREACHED'||rec.klass==='COSTLY')return 'BREACHED';
-   if(g==='HELD'||rec.win)return 'HELD';
+   // F01's aftermath() sets getaway to HELD | BREACHED. klass COSTLY is NOT a breach signal: it also covers a HELD door with a
+   // shot Oga (real records: COSTLY|HELD), so the getaway kind alone decides HELD vs BREACHED.
+   if(g==='BREACHED')return 'BREACHED';
+   if(g==='HELD')return 'HELD';
+   return null;
   }
   if(rec.klass==='CLEAN'||rec.klass==='MESSY')return 'HELD';
   return null;
  }
- // F05 -> F01 handoff: the defense PLAY request (the cinematic HOLD THE HOUSE) plus the F01-facing entry packet.
+ // F05 -> F01 handoff: the canonical request to run the PLAY's HOLD THE HOUSE for the PENDING raid. It carries authored/state
+ // data only (raid id, house, attacker id/label, the defenders' roles + weapons, the F02 door-hold turns, F05 supports) and no
+ // presentation: no map, no board, no tactical packet, no pending marker. Idempotent: the same pending raid always yields the
+ // same raidId; the first call marks it 'handed' (persisted, so a reload mid-HOLD keeps it pending and re-launchable).
  const DEFENSE_JOB='hold_the_house';
- function handoff({houseId=null}={}){
-  const built=buildEntryPacket({houseId});if(!built.ok)return built;
-  return {ok:true,f01Pending:F01_PENDING,
-   play:{job:DEFENSE_JOB,shape:'HOLD THE HOUSE',defense:true,map:'traphouse',houseId:built.packet.houseId},
-   packet:built.packet};
+ function handoff(){
+  if(!R.on())return {ok:false,reason:'flag-off'};
+  const p=pending();if(!p)return {ok:false,reason:'no-pending-raid'};
+  if(p.state!=='handed')R.patch('raids.pending',{...p,state:'handed',handedDay:U.day()});
+  const request={raidId:p.id,day:p.day,houseId:p.houseId,attacker:{id:p.attacker.id,label:p.attacker.label},
+   defenders:defenders().map(d=>({id:d.id,role:d.role,weapon:d.weapon})),holdTurns:R.weapons.holdTurns(),
+   supports:{cameras:!!(p.supports&&p.supports.cameras),panicRoom:!!(p.supports&&p.supports.panicRoom)},bigRaid:!!p.bigRaid};
+  return {ok:true,raidId:p.id,play:{job:DEFENSE_JOB,shape:'HOLD THE HOUSE',defense:true,houseId:p.houseId,raidId:p.id},request};
+ }
+
+ // Capture is a shared RACrew status. Never re-stamp someone already CAPTURED/GONE: that would reset their extract timer.
+ function capture(id){
+  try{
+   const cur=window.RACrew?.get(id);
+   if(cur&&(cur.status==='CAPTURED'||cur.status==='GONE'))return false;
+   window.RACrew?.setStatus(id,'CAPTURED',{reason:'trap:raid',timer:{name:'extract_window',days:3,onExpire:'GONE'}});return true;
+  }catch(e){return false;}
  }
 
  // Resolution interface. F01 or an authored source calls resolve() with an outcome; F05 applies only its AUTHORED
@@ -141,11 +160,11 @@
    // unless the outcome forbids capture (FALL BACK: 0 captures/deaths, downed WOUNDED on F01's side)
    if(Array.isArray(captives)){
     result.crewCaptured=captives.map(c=>typeof c==='string'?c:(c&&(c.id||c.who))).filter(Boolean);
-    for(const id of result.crewCaptured){try{window.RACrew?.setStatus(id,'CAPTURED',{reason:'trap:raid',timer:{name:'extract_window',days:3,onExpire:'GONE'}});}catch(e){}}
+    for(const id of result.crewCaptured)capture(id);
     result.crewLost=result.crewCaptured[0]||null;
    }else if(!zeroCapture&&!(p.supports&&p.supports.panicRoom)&&p.defenders&&p.defenders.length){
     const victim=p.defenders[0].id;
-    try{window.RACrew?.setStatus(victim,'CAPTURED',{reason:'trap:raid',timer:{name:'extract_window',days:3,onExpire:'GONE'}});}catch(e){}
+    capture(victim);
     result.crewLost=victim;result.crewCaptured=[victim];
    }
   }
@@ -156,16 +175,32 @@
    R.patch(`houses.${house}.lostDay`,day);
   }
   const history=(R.read('raids.history',[])||[]).slice();history.push(result);R.patch('raids.history',history.slice(-20));
+  // exactly-once receipt keyed by raid id (last 20), written before the pending raid is cleared: a repeated or late delivery of
+  // the same F01 record is answered from the receipt and never re-applies a loss, a capture or a state change
+  const applied={...(R.read('raids.applied',{})||{})};applied[p.id]={canonical:canonical||null,day,result};
+  for(const k of Object.keys(applied).slice(0,-20))delete applied[k];
+  R.patch('raids.applied',applied);
   R.patch('raids.pending',null);
   R.patch('flags.raidWarning',false);
   if(canonical)R.patch('raids.lastOutcome',{canonical,day,houseId:house});   // F05 records its own view of the last outcome
   return {ok:true,result};
  }
 
- // F01 -> F05: consume a canonical defense outcome (a token or an F01 THE PLAY record) and apply the authored
- // consequences. Never invents an outcome and never double-applies: resolve() clears the pending raid, so a second
- // call is a no-op ('no-pending-raid').
- function applyDefense({canonical=null,record=null,houseId=null,state=null}={}){
+ // F01 -> F05: consume the canonical result of the HOLD F05 handed off (a token or an F01 THE PLAY record) and apply THE TRAP's
+ // authored consequences, exactly once per raid. The result must name its raid (raidId, from handoff()):
+ //   * raidId already applied            -> {ok:true,duplicate:true,...} from the receipt, nothing re-applied
+ //   * no pending raid / other raid id   -> refused ('no-pending-raid' / 'stale-raid'); a stale record can never hit the next raid
+ // F05 applies ONLY what it owns: the traphouse stash + unbanked cash, the house heat window, the raid history, and crew capture
+ // state. It applies NO money to the balance, NO HEAT, NO XP and no loot: the record's pot/heatDelta/spent/pocketLoss are F01's.
+ function applyDefense({canonical=null,record=null,raidId=null,houseId=null,state=null}={}){
+  if(!R.on())return {ok:false,reason:'flag-off'};
+  const id=raidId||(record&&record.raidId)||null;
+  if(!id)return {ok:false,reason:'raid-id-required'};
+  const done=(R.read('raids.applied',{})||{})[id];
+  if(done)return {ok:true,duplicate:true,canonical:done.canonical,result:done.result};
+  const p=pending();
+  if(!p)return {ok:false,reason:'no-pending-raid'};
+  if(p.id!==id)return {ok:false,reason:'stale-raid'};
   const c=canonical?canonicalOutcome(canonical):fromPlayRecord(record);
   if(!c)return {ok:false,reason:'unknown-outcome'};
   const captives=record&&Array.isArray(record.captives)?record.captives:null;
@@ -173,7 +208,7 @@
   if(!res.ok)return res;
   // a gun F01 says was lost is released from the F02/F05 weapon seam (no duplicate ownership)
   if(record&&record.lost&&Array.isArray(record.lost.guns))for(const g of record.lost.guns){if(g&&g.from)try{R.weapons.clear(g.from);}catch(e){}}
-  return {ok:true,canonical:c,result:res.result};
+  return {ok:true,duplicate:false,canonical:c,result:res.result};
  }
 
  function cancel(reason='cancelled'){

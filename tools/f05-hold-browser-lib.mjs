@@ -1,0 +1,9 @@
+// Shared helpers for the F05 x F01 HOLD real-browser check: static server + Playwright/Chromium launcher.
+import http from 'node:http';import {readFile,stat} from 'node:fs/promises';import path from 'node:path';import {existsSync} from 'node:fs';import {createRequire} from 'node:module';import {fileURLToPath} from 'node:url';
+const here=path.dirname(fileURLToPath(import.meta.url));export const root=path.resolve(here,'..');
+const MIME={'.html':'text/html','.js':'text/javascript','.mjs':'text/javascript','.css':'text/css','.json':'application/json','.png':'image/png','.svg':'image/svg+xml','.mp3':'audio/mpeg','.webp':'image/webp','.jpg':'image/jpeg','.gif':'image/gif'};
+export function serve(dir=root){
+ return new Promise(res=>{const s=http.createServer(async(req,rsp)=>{try{let p=decodeURIComponent(new URL(req.url,'http://x').pathname);if(p.endsWith('/'))p+='index.html';const f=path.join(dir,p);if(!f.startsWith(dir)){rsp.writeHead(403).end();return;}const st=await stat(f);if(st.isDirectory()){rsp.writeHead(302,{location:p+'/'}).end();return;}rsp.writeHead(200,{'content-type':MIME[path.extname(f)]||'application/octet-stream','cache-control':'no-store'});rsp.end(await readFile(f));}catch{rsp.writeHead(404).end();}}).listen(0,'127.0.0.1',()=>res(s));});
+}
+export function loadPlaywright(){const require=createRequire(import.meta.url);for(const id of [process.env.RA_PLAYWRIGHT_PATH,'playwright-core','playwright','/opt/node22/lib/node_modules/playwright'].filter(Boolean))try{return require(id);}catch{}throw new Error('Playwright not found: set RA_PLAYWRIGHT_PATH');}
+export function chromiumPath(){if(process.env.RA_CHROMIUM_PATH)return process.env.RA_CHROMIUM_PATH;const base=process.env.PLAYWRIGHT_BROWSERS_PATH||path.join(process.env.HOME||'','.cache','ms-playwright');if(!existsSync(base))return undefined;return undefined;}
