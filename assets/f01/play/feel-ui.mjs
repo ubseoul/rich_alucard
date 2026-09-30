@@ -38,7 +38,7 @@ const named=(w,id)=>w.roster.find(o=>o.id===id)||{id,short:id,name:String(id).to
 function homeItems(){
  const w=G.w;const recover=[],ransom=[];
  for(const l of W.lostCars(w)){
-  recover.push({title:l.id,line:l.route==='IMPOUND'?'towed. it can be got back.':'wrecked. the dealer has more, if you want it back.',button:'GET IT BACK',act:()=>{W.recoverCar(w,l.id,{fee:0});save();}});
+  recover.push({title:l.id,car:{id:l.id,state:l.route==='IMPOUND'?'impounded':'wrecked'},line:l.route==='IMPOUND'?'towed. it can be got back.':'wrecked. the dealer has more, if you want it back.',button:'GET IT BACK',act:()=>{W.recoverCar(w,l.id,{fee:0});save();}});
  }
  for(let gi=(w.lostGuns||[]).length-1;gi>=0;gi--){if(w.lostGuns[gi].gun==='pistol')W.rebuyGun(w,gi);} // a sidearm costs nothing at the weapon source: no need to bother Rich
  for(const [i,g] of (w.lostGuns||[]).entries()){

@@ -17,3 +17,5 @@ Permanent art goes through F12 Visual A/B. Ube judges identity. Native canvas fo
 | FL-A10 | Trunk loot pieces | payoff | procedural crate SVGs + the frozen Blood X sprite | per-category loot silhouettes for the physical drop beside the bags |
 
 Sound: only approved library sounds are used (`ui_phone`, `combat`, `touge`, `home_castle`, `locations`); no SEAL_* / BX stingers. A dedicated distant-gunshot bed, a phone-jolt and a cash-count loop are nice-to-have F12 audio tickets, not blockers.
+
+**Status (frozen art integrated):** FL-A01..FL-A10 are frozen (`art/f01-feel-lock-freeze @ 61a8a55`) and wired — see `F01_FEEL_LOCK_FROZEN_ART_INTEGRATION.md`. The "Placeholder today" column above is the pre-integration state. Still `SOURCE_REQUIRED` and still placeholders: named-Oga state sprites (FL-A07) and RECRUIT / STORY / DISTRICT physical loot (FL-A10).
