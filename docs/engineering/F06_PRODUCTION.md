@@ -39,3 +39,9 @@ If F11 is also integrated, the owner must use ONE F06_rainmaker part and reconci
 3. Reconcile the existing OL-019 guard rejection of the IF-1 sealed architecture test; install current guard enforcement on the integration lineage if required. Do not weaken it in F06.
 
 Final disposition: REPAIR REQUIRED pending owner integration. No main merge, no F07, no sealed content or frozen art change.
+
+## Final validation evidence
+
+Separate detached validation checkout: ../f06_validation. Only that checkout's generated index was synchronized. Full npm test: PASS (146 JavaScript syntax checks, 121 adventures / 348 branch walks, presentation/art/reachability, all F06 and IF-1 suites, containment). The deliverable branch index remains unchanged and its loader gate remains pending owner work.
+
+Source-fidelity tests use approved golden hashes so they work in shallow CI checkouts without fetching the source branches. Exact core/tunable Git blob equality was separately verified. Owner-surface audit: PASS, 25 F06-owned changed files. Leak source and commit-range checks: PASS. Branch remains local; no push attempted while the owner handoff is incomplete.
