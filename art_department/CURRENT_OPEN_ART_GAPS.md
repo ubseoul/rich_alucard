@@ -1,13 +1,13 @@
 # Current OPEN Art gaps — Visual Lane A & ART SHIP 015 frozen authority
 
-**As of:** 2026-09-28
+**As of:** 2026-09-30
 
-Visual Lane A incorporates OVERLORD OL-012 and OL-017 OPEN identity authority. Gbenga and Carlos are accepted and frozen; Big Bing NEUTRAL and Granny Bing NEUTRAL / CALLING NUMBERS are accepted/frozen/closed under `CGA-F2-031` and `CGA-F2-032`. Future Visual Lane A production proceeds along the authorized queue starting with Senator.
+Visual Lane A incorporates OVERLORD OL-012 and OL-017 OPEN identity authority. Gbenga and Carlos are accepted and frozen; Big Bing NEUTRAL + NO and Granny Bing NEUTRAL / CALLING NUMBERS are accepted/frozen/closed under `CGA-F2-031` and `CGA-F2-032`. Future Visual Lane A production proceeds along the authorized queue starting with Senator.
 
 | Area | Current truth |
 |---|---|
-| Frozen corpus | 431 frozen assets; 573 registered entries |
-| Visual Lane A | Gbenga (6 states), Carlos (3 states), Big Bing NEUTRAL, and Granny Bing NEUTRAL / CALLING NUMBERS ACCEPTED / FROZEN |
+| Frozen corpus | 432 frozen assets; 574 registered entries |
+| Visual Lane A | Gbenga (6 states), Carlos (3 states), Big Bing NEUTRAL + NO, and Granny Bing NEUTRAL / CALLING NUMBERS ACCEPTED / FROZEN |
 | Ship 015 | 7 approved masters resolving 6 requirements; integration pending |
 | Baseline frozen verification | 411/411 unchanged |
 | Runtime census | 104 adventure screens + 17 fights |
@@ -31,7 +31,7 @@ Visual Lane A incorporates OVERLORD OL-012 and OL-017 OPEN identity authority. G
 13. **hunters:** QUEUED (OPEN Visual Concept Card authority).
 14. **HOA president:** QUEUED (adult female identity).
 15. **trap crew:** QUEUED (cooks, runners, lookout).
-16. **Big Bing / `CGA-F2-031`:** **NEUTRAL DONE / FROZEN / CLOSED** — `NO` remains OL-017-authorized but unproduced.
+16. **Big Bing / `CGA-F2-031`:** **NEUTRAL + NO DONE / FROZEN / CLOSED**.
 17. **Granny Bing / `CGA-F2-032`:** **NEUTRAL / CALLING NUMBERS DONE / FROZEN / CLOSED**.
 
 ## Historical Canon Blockers (Resolved in Ship 015)

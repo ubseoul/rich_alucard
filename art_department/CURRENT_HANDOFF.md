@@ -14,18 +14,20 @@
   - Anchor: `VA-CARLOS-NEUTRAL-HAPPY-v1` (`assets/before_the_fame/characters/carlos/carlos_neutral_happy_anchor_v1.png` / `runtime_80x96/carlos_neutral_happy_anchor_80x96_review_v1.png`).
   - Accepted three-state package: Neutral / Happy, Betrayed, Canopy Apron.
 - **Visual Lane A — BIG BING / `CGA-F2-031`:**
-  - Status: **NEUTRAL ACCEPTED / FROZEN / CLOSED**.
+  - Status: **NEUTRAL + NO ACCEPTED / FROZEN / CLOSED**.
   - Anchor: `VA-BIG-BING-CGA-F2-031-NEUTRAL-v1` (`assets/before_the_fame/characters/big_bing/cga_f2_031/big_bing_neutral_anchor_80x96_v1.png`).
   - Exact SHA-256: `a133f44b9cd4c232cda4b6d779ce295da64a18dc9cdf671bc7f2531087e90ccd`.
-  - OL-017 also authorizes `NO`; it was not created or frozen by this closeout.
+  - Derived state: `VA-BIG-BING-CGA-F2-031-NO-v1` (`assets/before_the_fame/characters/big_bing/cga_f2_031/big_bing_no_80x96_v1.png`).
+  - Exact `NO` SHA-256: `3cce5b05bed65fcb891857916eb07bab7bafd6dd9bbbcb839dd658558b926168`.
+  - Ube accepted the exact speech-only derivative: three mouth pixels changed; all other native pixels remain identical to the frozen neutral anchor.
 - **Visual Lane A — GRANNY BING / `CGA-F2-032`:**
   - Status: **NEUTRAL / CALLING NUMBERS ACCEPTED / FROZEN / CLOSED**.
   - Anchor: `VA-GRANNY-BING-CGA-F2-032-NEUTRAL-CALLING-NUMBERS-v1` (`assets/before_the_fame/characters/granny_bing/cga_f2_032/granny_bing_neutral_calling_numbers_anchor_80x96_v1.png`).
   - Exact SHA-256: `6f042de972f6fe7fa89178095829ac44e96650cf7b067ad0004f2ca208ddf4ee`.
   - No alternate Granny Bing state was created or frozen.
 - **Corpus Snapshot:**
-  - Frozen corpus: **431 verified assets** (430 prior frozen assets + Granny Bing NEUTRAL / CALLING NUMBERS).
-  - Asset Register: **573 entries**.
+  - Frozen corpus: **432 verified assets** (431 prior frozen assets + Big Bing `NO`).
+  - Asset Register: **574 entries**.
   - Baseline frozen corpus: 411/411 verified unchanged.
   - Candidate provenance, review boards, and transparent 80×96 boards preserved in `art_department/visual_a/`.
 
@@ -55,7 +57,7 @@
 13. hunters
 14. HOA president
 15. trap crew (cooks, runners, lookout)
-16. Big Bing — **NEUTRAL DONE / FROZEN / CLOSED** (`NO` remains unproduced)
+16. Big Bing — **NEUTRAL + NO DONE / FROZEN / CLOSED**
 17. Granny Bing — **NEUTRAL / CALLING NUMBERS DONE / FROZEN / CLOSED**
 
 ## Boundaries

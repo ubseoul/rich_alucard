@@ -558,13 +558,14 @@ Visual Lane A character packages accepted and frozen by UNDERLORD / Ube under OV
 | `VA-CARLOS-CANOPY-APRON-v1` | `CANOPY APRON` | `assets/before_the_fame/characters/carlos/carlos_canopy_apron_v1.png` | `88d2a67d528d28fb7ffb5878af219460da28e4cd2607ff34d46d511f00009174` | FROZEN |
 | `VA-CARLOS-CANOPY-APRON-80x96-REVIEW-v1` | `CANOPY APRON` (80×96) | `assets/before_the_fame/characters/carlos/runtime_80x96/carlos_canopy_apron_80x96_review_v1.png` | `edf2bb23b9d235edf07588032fa6480017083b470d841e7e355691d6eb36388a` | FROZEN |
 
-### Big Bing (`CGA-F2-031` — Neutral Anchor FROZEN)
+### Big Bing (`CGA-F2-031` — Neutral Anchor + `NO` FROZEN)
 
-UNDERLORD / Ube approved the exact submitted NEUTRAL candidate under OL-017. The `NO` state remains authorized by OL-017 but was not created or frozen in this closeout.
+UNDERLORD / Ube approved the exact submitted NEUTRAL candidate under OL-017, then accepted the exact speech-only `NO` derivative. The derived state changes only three mouth pixels from the frozen neutral anchor.
 
 | Asset ID | State | Path | SHA-256 | Status |
 |---|---|---|---|---|
 | `VA-BIG-BING-CGA-F2-031-NEUTRAL-v1` | `NEUTRAL` (Anchor) | `assets/before_the_fame/characters/big_bing/cga_f2_031/big_bing_neutral_anchor_80x96_v1.png` | `a133f44b9cd4c232cda4b6d779ce295da64a18dc9cdf671bc7f2531087e90ccd` | FROZEN |
+| `VA-BIG-BING-CGA-F2-031-NO-v1` | `NO` | `assets/before_the_fame/characters/big_bing/cga_f2_031/big_bing_no_80x96_v1.png` | `3cce5b05bed65fcb891857916eb07bab7bafd6dd9bbbcb839dd658558b926168` | FROZEN |
 
 ### Granny Bing (`CGA-F2-032` — Neutral / Calling Numbers Anchor FROZEN)
 
