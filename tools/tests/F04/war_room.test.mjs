@@ -308,9 +308,10 @@ export async function test(root) {
     assert.equal(desc.modules.RACrew.present, true);
     assert.equal(desc.modules.RADistricts.present, true);
 
-    // Verify pending ledger submission is reported accurately (owner assigns in migration_ledger.js)
-    const problems = ctx.RAMigrations.validate();
-    same(problems, ['submitted module F04.init-war-room has no version assigned by the integration owner']);
+    // F04 is declaration-only for saves (FCPB convergence): no orphan submission, the ledger validates clean
+    same(ctx.RAMigrations.validate(), []);
+    same(ctx.RAMigrations.submissions().filter(m => m.fragment === 'F04'), []);
+    assert.equal(ctx.RAIF1.selfCheck().ok, true, 'RAIF1.selfCheck is clean with F04 loaded');
   }
 
   console.log('PASS F04 PLAYMAKERS WAR ROOM test suite (authored HEAT floors, job tables, LAY LOW, F03-owned Koreatown consumed, crew, report cards, hand back, tactical RUN retired, invariants)');

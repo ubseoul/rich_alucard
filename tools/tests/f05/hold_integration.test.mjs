@@ -12,7 +12,7 @@ async function load(root,{seedState=null}={}){
  const ctx=await full(root,seedState?{seedState}:{});
  const files=JSON.parse(await read(root,'js/frag/F05/manifest.json')).files;
  await run(root,ctx,['js/frag/F05/migrations.js',...files]);
- ctx.RAFeatures.set('F05.the_trap',true);
+ ctx.RAFeatures.set('F05.trap',true);
  return ctx;
 }
 const money=(c,n)=>c.RAState.patch('life.resources.money',n);

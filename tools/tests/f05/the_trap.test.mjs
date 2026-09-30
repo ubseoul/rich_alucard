@@ -11,7 +11,7 @@ async function load(root,{flag=false}={}){
  const ctx=await full(root);
  const files=await fragmentFiles(root);
  await run(root,ctx,['js/frag/F05/migrations.js',...files]);
- if(flag)ctx.RAFeatures.set('F05.the_trap',true);
+ if(flag)ctx.RAFeatures.set('F05.trap',true);
  return ctx;
 }
 function money(ctx,n){ctx.RAState.patch('life.resources.money',n);}
@@ -24,8 +24,8 @@ export async function test(root){
   const R=c.RAF05;
   assert.equal(R.on(),false,'master flag is dark by default');
   assert.equal(c.RATrap.isBooted(),false,'nothing boots with the flag OFF');
-  assert.equal(c.RAFeatures.enabled('F05.the_trap'),false);
-  assert.equal(c.RAFeatures.enabled('F05.trap'),false,'the reserved flag stays dark too');
+  assert.equal(c.RAFeatures.enabled('F05.trap'),false);
+  assert.equal(c.RAFeatures.get('F05.the_trap'),null,'the retired second flag identity is not registered (one identity: F05.trap)');
   assert.equal(c.RAFrag.has('F05'),false,'no save namespace is created while OFF');
   assert.equal(c.RAPhoneApps.get('trap'),null,'no phone app while OFF');
   assert.equal(c.RASalesChannels.get('trap').claimed,false,'reserved sales channel stays unclaimed while OFF');
@@ -50,7 +50,7 @@ export async function test(root){
   const R=c.RAF05;
   assert.equal(R.on(),true);
   assert.equal(c.RATrap.isBooted(),true,'boot runs when the flag turns ON');
-  assert.equal(c.RAFeatures.enabled('F05.trap'),true,'master mirrors onto the reserved flag');
+  assert.equal(c.RAFeatures.enabled('F05.trap'),true,'the single flag identity F05.trap drives everything');
   assert.ok(c.RAPhoneApps.get('trap'),'trap app registered with the phone');
   assert.equal(c.RAPhoneApps.get('trap').section,'money','reserved section');
   assert.equal(c.RASalesChannels.get('trap').claimed,true,'reserved sales channel claimed');

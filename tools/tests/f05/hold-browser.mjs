@@ -1,7 +1,7 @@
 // F05 THE TRAP x F01 HOLD THE HOUSE - real-Chromium flow check (STOVE J). Not part of `npm test` (needs a browser).
 //   node tools/tests/f05/hold-browser.mjs [--shots dir]
 // Two REAL pages on one static server:
-//   GAME  /index.html?dev=1&ff=F05.the_trap        THE TRAP: setup -> real sleep()/NIGHT bus -> raid pending -> WAKE notice -> handoff()
+//   GAME  /index.html?dev=1&ff=F05.trap        THE TRAP: setup -> real sleep()/NIGHT bus -> raid pending -> WAKE notice -> handoff()
 //   PLAY  /assets/f01/play/index.html?hold=1       F01 THE PLAY runs HOLD THE HOUSE through its own UI and produces the record
 // The record is carried from PLAY to GAME (what a host bridge would do) and delivered to RATrap.raids.applyDefense({record, raidId}).
 // Then: repeated delivery, a real page reload at every stage, a second raid, a stale record, responsive widths.
@@ -23,7 +23,7 @@ function watch(page,tag){
  page.on('response',r=>{if(r.status()>=400&&!/favicon/.test(r.url()))errs.push(`${tag} http ${r.status()} ${r.url()}`);});
 }
 const shot=async(page,n)=>{if(SHOTS)await page.screenshot({path:path.join(SHOTS,n+'.png')});};
-const GAME=`${origin}/index.html?dev=1&ff=F05.the_trap`;
+const GAME=`${origin}/index.html?dev=1&ff=F05.trap`;
 const game=await ctx.newPage();watch(game,'GAME');
 const ready=()=>game.waitForFunction(()=>window.RATrap&&window.RATrap.isBooted&&window.RATrap.isBooted()&&window.RAClock&&window.RAState,null,{timeout:30000});
 const f05=fn=>game.evaluate(fn);
@@ -54,7 +54,7 @@ async function playHold(seed){
 try{
  // ================================================================ GAME: boot + authored setup
  await game.goto(GAME);await ready();
- log(await f05(()=>window.RAFeatures.enabled('F05.the_trap')&&window.RAFeatures.enabled('F05.trap')),'GAME: flag ON via ff=F05.the_trap, reserved F05.trap mirrored');
+ log(await f05(()=>window.RAFeatures.enabled('F05.trap')&&!window.RAFeatures.get('F05.the_trap')),'GAME: flag ON via ff=F05.trap (single identity)');
  log(await f05(()=>!!window.RAPhoneApps.get('trap')&&window.RAPhoneApps.get('trap').section==='money'),'GAME: TRAP phone app declared in the reserved slot');
  log(await f05(()=>window.RAWakeBus.order('night').filter(id=>id.startsWith('f05.')).length===3),'GAME: F05 NIGHT handlers registered on the bus (no collision at boot)');
  // HEAT 70, not 60: HOT is 60 and the NIGHT bus decays 3 (priority -35) BEFORE the raid check (-20)

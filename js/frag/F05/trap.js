@@ -23,8 +23,7 @@
    const S=window.RASalesChannels;
    if(S&&!S.get('trap')?.claimed)S.claim('trap',{fragment:'F05'});
   }catch(e){}
-  // 5. declare the phone app. The reserved app slot carries the frozen F05.trap flag; mirror() keeps that flag in
-  //    step with the master flag, so either flag drives the app.
+  // 5. declare the phone app on the reserved slot; it carries the one flag identity, F05.trap.
   try{
    window.RAPhoneRegistry?.declare?.('F05',{id:'trap',flag:R.RESERVED,render:R.phoneApp.render,onAction:R.phoneApp.onAction});
   }catch(e){}
@@ -34,13 +33,9 @@
  }
  function boot(){if(!R.on())return false;return bootOnce();}
 
- // Load-time wiring. Only mirror master -> reserved when the master is ON; never clear an auditor-set reserved flag.
+ // Load-time wiring: boot when the (single) flag is ON now or turns ON later.
  if(window.RAFeatures&&typeof window.RAFeatures.enabled==='function'){
-  if(window.RAFeatures.enabled(R.MASTER))R.mirror(true);
-  window.RAFeatures.onChange(ev=>{
-   if(ev&&ev.id===R.MASTER)R.mirror(!!ev.enabled);
-   if(R.on())boot();
-  });
+  window.RAFeatures.onChange(()=>{if(R.on())boot();});
   boot();
  }
 

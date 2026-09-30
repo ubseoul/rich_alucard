@@ -15,10 +15,12 @@ export async function test(root){
   for(const r of reg.authorized)assert(r.steps.length>0,`${r.id} authorized but has no steps`);
   for(const r of reg.pending)assert(!r.steps.length,`${r.id} is PENDING_FRAGMENT but carries steps`);
   // the mission's campaign routes are declared, never silently absent
-  for(const id of ['F01.showdown.success','F01.showdown.failure','F01.showdown.retreat','F02.armory.open','F02.range_day.run','F03.m9.tribute','F03.m10.vice_president','F04.war_room.open','F05.trap.run','F06.rainmaker.run']){
+  // (FCPB convergence: the retired tactical SHOWDOWN routes were replaced by F01.play.hold; a route is PENDING_FRAGMENT until a fragment
+  // file upgrades it to AUTHORIZED, which is checked by the loops above)
+  for(const id of ['F01.play.hold','F02.armory.open','F02.range_day.run','F03.m9.tribute','F03.m10.vice_president','F04.war_room.open','F05.trap.run','F06.rainmaker.run']){
     assert(reg.byId.has(id),`expected campaign route ${id} is not declared`);
-    assert.equal(reg.byId.get(id).status,'PENDING_FRAGMENT',`${id} must be PENDING_FRAGMENT until its fragment merges`);
   }
+  for(const id of ['F01.showdown.success','F01.showdown.failure','F01.showdown.retreat'])assert(!reg.byId.has(id),`retired tactical route ${id} must not be declared`);
   // ---- validation rejects bad descriptors
   assert(validateRoute({id:'F01.x',fragment:'F01',title:'t',kind:'mission',status:'AUTHORIZED',steps:[]}).some(p=>/non-empty steps/.test(p)),'AUTHORIZED without steps must be rejected');
   assert(validateRoute({id:'bad',fragment:'F01',title:'t',kind:'mission'}).some(p=>/invalid route id/.test(p)),'bad id must be rejected');

@@ -12,9 +12,8 @@
  const A=()=>R.AUTHORED,P=()=>R.PROVISIONAL;
 
  function configure(){
-  const H=window.RAHeat;if(!H)return false;
-  H.configure({floors:{...A().heat.floors},provisional:false});
-  return true;
+  // FCPB convergence: the floors have ONE owner (RAHeatFloors, js/if1/heat_floors.js); F05 no longer configures HEAT itself.
+  return !!(window.RAHeatFloors&&window.RAHeatFloors.ensure());
  }
 
  function tier(value){try{return window.RAHeat.tierFor(value==null?window.RAHeat.global():value);}catch(e){return 'COOL';}}

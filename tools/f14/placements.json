@@ -3,9 +3,9 @@
  "note": "PHONE PLACEMENT VALIDATION HOOK. The harness always installs a baseline validator (every rendered phone control is on-screen and tappable). Fragments add their own validators here when they ship phone surfaces; until then they are PENDING_FRAGMENT — never a failure. This hook REPORTS only; Claude is the sole final UX/UI owner.",
  "validators": [
   {
-   "id": "F01.showdown.placement",
+   "id": "F01.play.placement",
    "fragment": "F01",
-   "title": "SHOWDOWN phone placement",
+   "title": "THE PLAY phone/embed placement",
    "status": "PENDING_FRAGMENT",
    "description": "F01 declares the phone surfaces SHOWDOWN adds and their placement expectations"
   },

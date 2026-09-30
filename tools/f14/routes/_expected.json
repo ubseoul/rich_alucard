@@ -1,33 +1,15 @@
 {
  "schema": 1,
- "note": "Declared campaign routes. NONE of this is implemented at IF-1: every entry is PENDING_FRAGMENT. A fragment later submits tools/f14/routes/<FRAGMENT>.json with executable steps and the same id; that file replaces the declaration. Do not implement unavailable routes here.",
+ "note": "Declared campaign routes. NONE of this is implemented at IF-1: every entry is PENDING_FRAGMENT. A fragment later submits tools/f14/routes/<FRAGMENT>.json with executable steps and the same id; that file replaces the declaration. Do not implement unavailable routes here. FCPB convergence: the retired tactical SHOWDOWN routes (F01.showdown.success / .failure / .retreat, flag F01.showdown) are removed: the live F01 flag is F01.showdown_core and the tactical RUN flows are retired (THE PLAY owns outcomes; a FALL BACK / retreat is an outcome inside the PLAY, not a separate route).",
  "routes": [
   {
-   "id": "F01.showdown.success",
+   "id": "F01.play.hold",
    "fragment": "F01",
-   "title": "SHOWDOWN — success path",
-   "kind": "success",
+   "title": "THE PLAY — HOLD THE HOUSE (via the shared HOLD bridge)",
+   "kind": "mechanic",
    "status": "PENDING_FRAGMENT",
-   "flag": "F01.showdown",
-   "entry": "F01 submits the player-facing route that resolves SHOWDOWN successfully"
-  },
-  {
-   "id": "F01.showdown.failure",
-   "fragment": "F01",
-   "title": "SHOWDOWN — authored failure",
-   "kind": "failure",
-   "status": "PENDING_FRAGMENT",
-   "flag": "F01.showdown",
-   "entry": "F01 submits the authored failure branch and its resolution"
-  },
-  {
-   "id": "F01.showdown.retreat",
-   "fragment": "F01",
-   "title": "SHOWDOWN — retreat / backout",
-   "kind": "retreat",
-   "status": "PENDING_FRAGMENT",
-   "flag": "F01.showdown",
-   "entry": "F01 submits the retreat path and proves a clean return to the bedroom"
+   "flag": "F01.showdown_core",
+   "entry": "the F05 raid surface launches the F01 castle HOLD through js/if1/hold_bridge.js and the canonical result is delivered to F05 exactly once"
   },
   {
    "id": "F02.armory.open",

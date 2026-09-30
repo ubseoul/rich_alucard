@@ -91,7 +91,11 @@
  function raidSection(){
   const p=R.raids.pending();
   if(!p)return '<p class="phone-speaker">RAIDS</p><p class="phone-small">none pending.</p>';
-  return `<p class="phone-speaker">RAIDS</p><div class="phone-card"><b>${esc(p.attacker.label)}</b><br><span class="phone-small">${esc(p.houseId)} - ${p.state==='handed'?'HOLD THE HOUSE under way':'incoming'}</span></div>`;
+  // The launch control belongs to the shared HOLD host (RAHoldBridge, js/if1/hold_bridge.js): F05 only offers the surface and delegates.
+  // Ignoring the raid costs nothing; it stays here, launchable, until it is answered.
+  const host=window.RAHoldBridge&&window.RAHoldBridge.available();
+  return `<p class="phone-speaker">RAIDS</p><div class="phone-card"><b>${esc(p.attacker.label)}</b><br><span class="phone-small">${esc(p.houseId)} - ${p.state==='handed'?'HOLD THE HOUSE under way':'incoming'}</span></div>`+
+   (host?btn(p.state==='handed'?'BACK IN':'HOLD THE HOUSE','do:trap:holdRaid'):'');
  }
 
  function render(sub){
@@ -130,6 +134,10 @@
   if(act==='crewRecruit'){const r=R.crew.recruit(arg);api.refresh();return r;}
   if(act==='confront'){const [crewId,method]=(arg||'').split('|');const r=R.crew.confront(crewId,method);R.patch('robbery',{...R.read('robbery',{}),resolved:method});api.refresh();return r;}
   if(act==='levelUp'){const r=R.levels.levelUp();api.refresh();return r;}
+  if(act==='holdRaid'){
+   const host=window.RAHoldBridge;if(!host||!host.available())return {ok:false,reason:'no-hold-host'};
+   return host.start({origin:{app:'trap',scene:window.RAScenes?.current?.()||null}}).then(r=>{if(api.refresh)api.refresh();if(!r.ok&&api.message)api.message('cannot hold the house right now.');return r;});
+  }
   return {ok:false,reason:'unknown-action'};
  }
 

@@ -2,8 +2,7 @@
   "schema": 1,
   "fragment": "F05",
   "name": "THE_TRAP",
-  "flag": "F05.the_trap",
-  "reservedFlag": "F05.trap",
+  "flag": "F05.trap",
   "files": [
     "js/frag/F05/tunables.js",
     "js/frag/F05/util.js",

@@ -1,41 +1,21 @@
 (function(){
  'use strict';
  // F04 — PLAYMAKERS WAR ROOM — heat_config.js
- // Configures RAHeat with the authored Vol 7 §8 HEAT tier floors and registers the
- // vampire pressure connection (Vol 7 §10).
+ // Registers the War Room HEAT tier listener and the vampire pressure connection (Vol 7 §10).
  //
- // HEAT FLOORS — AUTHORED, Vol 7 §8:
- //   COOL:    0–29
- //   WARM:   30–59
- //   HOT:    60–84
- //   ON FIRE: 85+
- //
- // RAHeat.configure() is the authorized mechanism (IF-1 §4F) for a fragment to supply
- // the authored numbers. The IF-1 core default floors are provisional engineering
- // placeholders; this call replaces them at F04 load time without modifying frozen
- // owner surfaces. No IF-1 source file is edited.
+ // HEAT FLOORS — AUTHORED, Vol 7 §8 (COOL 0–29, WARM 30–59, HOT 60–84, ON FIRE 85+) are configured by the shared,
+ // integration-owned RAHeatFloors (js/if1/heat_floors.js), the single owner for F04 and F05. This file never calls
+ // RAHeat.configure().
  //
  // SOURCE: Vol 7 §10 — "every case of Blood X sold lowers city vampire pressure slightly
  // (vampires hunt less) while HEAT rises — two meters pulling opposite directions."
 
  if (!window.RAFeatures?.get('F04.war_room')) return;
 
- // ── Apply authored HEAT tier floors (Vol 7 §8) ──────────────────────────
- // OWNER_REQUIRED (global): who owns RAHeat.configure is unresolved. The IF-1 default is PROVISIONAL; F04 keeps its existing
- // compatible behaviour LOCALLY: it applies these floors only while HEAT is still provisional, and never overrides floors an
- // owner configured earlier. `configured` reports what actually happened so nothing reads F04's numbers as global authority.
- const heatWasProvisional = window.RAHeat.tiers().provisional !== false;
- if (heatWasProvisional) {
-  window.RAHeat.configure({
-   floors: {
-    COOL:      0,
-    WARM:     30,
-    HOT:      60,
-    'ON FIRE': 85
-   },
-   provisional: false
-  });
- }
+ // ── HEAT tier floors ─────────────────────────────────────────────────────
+ // FCPB convergence: the authored floors are configured by ONE integration-owned module, RAHeatFloors (js/if1/heat_floors.js),
+ // shared with F05. F04 no longer calls RAHeat.configure(); ensure() applies them (idempotently) while this fragment is ON.
+ window.RAHeatFloors.ensure();
 
  // Register a heat tier-change listener for War Room effects.
  window.RAHeat.onTierChange(event => {
@@ -68,10 +48,10 @@
  window.RAWarRoomHeat = Object.freeze({
   recordSale,
   vampirePressure: () => window.RAFrag.read('F04', VP_PATH, 50),
-  // true when F04 applied its floors; false when an owner had already configured HEAT (F04 then defers)
-  configured: heatWasProvisional,
+  // true when the shared owner (RAHeatFloors) has configured the authored floors
+  configured: () => window.RAHeatFloors.applied(),
   // Authored floor constants exposed for tests and UI.
-  AUTHORED_FLOORS: Object.freeze({ COOL: 0, WARM: 30, HOT: 60, 'ON FIRE': 85 }),
+  AUTHORED_FLOORS: window.RAHeatFloors.FLOORS,
   // Expose for testing / UI
   snapshot: () => ({
    heat: window.RAHeat.snapshot(),

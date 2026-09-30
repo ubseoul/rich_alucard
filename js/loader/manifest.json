@@ -48,6 +48,7 @@
   "js/if1/wake_bus.js",
   "js/if1/money_ledger.js",
   "js/if1/heat.js",
+  "js/if1/heat_floors.js",
   "js/if1/social.js",
   "js/if1/crew.js",
   "js/if1/vehicles.js",
@@ -107,6 +108,7 @@
   "js/systems/combat_presentation.js",
   "js/scenes/character_reveal.js",
   "js/if1/if1.js",
+  "js/if1/first_event_unlock.js",
   {
    "fragments": [
     "F01",
@@ -118,6 +120,7 @@
     "F07"
    ]
   },
+  "js/if1/hold_bridge.js",
   {
    "overlay": true
   },
@@ -190,6 +193,14 @@
    "js/if1/districts.js"
   ],
   [
+   "js/if1/heat.js",
+   "js/if1/heat_floors.js"
+  ],
+  [
+   "js/if1/features.js",
+   "js/if1/heat_floors.js"
+  ],
+  [
    "js/scenes/phone.js",
    "js/if1/phone_registry.js"
   ],
@@ -244,6 +255,26 @@
   [
    "js/if1/vehicles.js",
    "js/if1/if1.js"
+  ],
+  [
+   "js/systems/world_events.js",
+   "js/if1/first_event_unlock.js"
+  ],
+  [
+   "js/frag/F01/showdown.js",
+   "js/if1/hold_bridge.js"
+  ],
+  [
+   "js/frag/F05/trap.js",
+   "js/if1/hold_bridge.js"
+  ],
+  [
+   "js/frag/F04/crew.js",
+   "js/if1/hold_bridge.js"
+  ],
+  [
+   "js/if1/phone_registry.js",
+   "js/if1/first_event_unlock.js"
   ]
  ],
  "unloadedAllowed": []
