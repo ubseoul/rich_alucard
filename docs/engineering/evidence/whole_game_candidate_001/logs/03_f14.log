@@ -1,0 +1,50 @@
+PASS F01.play.hold
+PASS F04.war_room.open
+PASS F05.trap.run
+PASS F06.rainmaker.run
+PASS IF1.boot
+PASS IF1.minigame.bars
+PASS IF1.minigame.garage
+PASS IF1.minigame.hatch
+PASS IF1.minigame.hookah
+PASS IF1.minigame.jollof
+PASS IF1.minigame.owambe_collection
+PASS IF1.minigame.pickup
+PASS IF1.minigame.pier
+PASS IF1.minigame.slurp
+PASS IF1.minigame.touge
+PASS IF1.phone
+PASS IF1.prologue
+PASS IF1.start-life
+PASS flag F01.showdown_core
+PASS flag F04.war_room
+PASS flag F05.trap
+PASS flag F06.rainmaker
+PASS viewport mobile-360 (360x740)
+PASS viewport mobile-390 (390x844)
+PASS viewport mobile-430 (430x932)
+
+PASS F14 FCPB QA HARNESS — dist @ 2fbf120c97c3
+  routes: 18/18 authorized passed, 4 PENDING_FRAGMENT
+  browser: PASSED
+  PASS              [AUTOMATED] authorized-missions — 3 mission(s) passed; 2 PENDING_FRAGMENT (F03.m10.vice_president, F03.m9.tribute)
+  PASS              [AUTOMATED] mechanics-reachable — 14 mechanic(s) passed; 2 PENDING_FRAGMENT (F02.armory.open, F02.range_day.run)
+  PENDING_FRAGMENT  [AUTOMATED] authored-failures — no failure branchs registered
+  PENDING_FRAGMENT  [AUTOMATED] retreat — 0 backout path(s) declared, none authorized
+  PASS              [AUTOMATED] feature-flag-matrix — 4 check(s) passed
+  PASS              [AUTOMATED] persistence — 4 check(s) passed
+  PASS              [AUTOMATED] browser-routes — 18 route(s) passed; 4 PENDING_FRAGMENT (F02.armory.open, F02.range_day.run, F03.m10.vice_president, F03.m9.tribute)
+  PASS              [AUTOMATED] migration-reload — 8 check(s) passed
+  PASS              [AUTOMATED] no-starvation — 1 check(s) passed
+  PASS              [AUTOMATED] asset-integrity — 528 references, 858 files decoded
+  PENDING_FRAGMENT  [AUTOMATED] authored-audio — 3 unregistered sound(s): BARS_PUNCHLINE(missing-from-delivery), DRAGON_WINGS(missing-from-delivery), MAGIC_SEANCE(defective-render-do-not-wire); 6 inert hook(s)
+  PASS              [AUTOMATED] mobile-viewports — 4 viewport(s) clean
+  PENDING_FRAGMENT  [AUTOMATED] phone-placement-hook — hook ready; no fragment validators registered yet
+  PASS              [AUTOMATED] placeholder-final-mode — no placeholder markers
+  PASS              [AUTOMATED] leak-scan — 1894
+  MANUAL            [MANUAL] no-p0-p1 — human sign-off required; automated inputs are green/pending
+
+
+real	0m52.529s
+user	0m28.627s
+sys	0m12.452s

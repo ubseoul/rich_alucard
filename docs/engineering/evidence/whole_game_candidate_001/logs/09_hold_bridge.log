@@ -1,0 +1,46 @@
+PASS S1 a real NIGHT scheduled the pending raid - raid:9:the_bando
+PASS S1 the phone raid surface offers HOLD THE HOUSE (host bridge available)
+PASS S1 raid card is player-facing
+PASS S1 the transaction was persisted BEFORE F01 was asked - {"phase":"LAUNCHED","launchId":"hold:raid:9:the_bando#1","raidId":"raid:9:the_bando"}
+PASS S1 F05 handoff() ran (raid handed)
+PASS S1 during the HOLD nothing is applied
+PASS S1 F01 ran the existing castle HOLD (job hold_the_house)
+PASS S1 shared cash applied once (955000 -> 967400, F01 gain 12400 spend 0)
+PASS S1 HEAT delta applied once to global (67 -> 65, delta -2)
+PASS S1 F05 applied its receipt once -> HELD; raid cleared; transaction cleared
+PASS S1 F05 trap-side rule: door held: stash and unbanked kept
+PASS S1 the player is back on the phone, safe
+PASS S1 the game save holds no F01 sandbox/embed keys - ra.f01.play.v1.counter,ra.f01.play.v1.tele,ra.f01.play.v1.embed_results,ra.f01.play.v1.world_f04,rich_alucard_save_v1,rich_alucard_save_v1_recovery,ra.f01.play.v1.feel_settings
+PASS S6 repeated delivery is inert (bridge) and a receipt (F05)
+PASS S6 repeated delivery: no second HEAT, cash, capture, stash loss or receipt
+PASS S1 reload after completion: state survived, nothing stranded, nothing re-applied
+PASS S2 reload after handoff, before launch: raid intact and launchable
+PASS S2 the handed raid offers BACK IN
+PASS S2 the handed raid completed once
+PASS S3 mid-HOLD: transaction LAUNCHED
+PASS S3 mid-HOLD: no loss / payout applied
+PASS S3 reload during the HOLD: raid + transaction intact, nothing applied
+PASS S3 the interrupted HOLD offers BACK IN (backing out costs nothing; the raid is still pending)
+PASS S3 the relaunch reused the SAME launch id (same raid identity)
+PASS S3 the relaunched HOLD applied once
+PASS S4 result durably held, nothing applied yet
+PASS S4 reload after result before consumption: recovered and delivered exactly once
+PASS S5 shared consequences landed, F05 not yet consumed
+PASS S5 reload during delivery: F05 consumed once; shared money + HEAT NOT applied twice
+PASS S5 a further reload changes nothing
+PASS S6 a stale result is ignored and leaves the open HOLD alone
+PASS S6 a malformed result is refused; the raid is kept, nothing applied
+PASS S6 the relaunch after the refused result completes once under a new launch id
+PASS S7 360x640 phone raid surface: no horizontal overflow, HOLD button on-screen - 360/360
+PASS S7 390x844 phone raid surface: no horizontal overflow, HOLD button on-screen - 390/390
+PASS S7 430x932 phone raid surface: no horizontal overflow, HOLD button on-screen - 430/430
+PASS S7 360x640 HOLD embed: no horizontal overflow - frame 360/360, page 360/360
+PASS S7 390x844 HOLD embed: no horizontal overflow - frame 390/390, page 390/390
+PASS S7 430x932 HOLD embed: no horizontal overflow - frame 430/430, page 430/430
+PASS zero console errors / page errors / failed requests across every scenario
+
+40/40 checks passed
+
+real	1m29.224s
+user	0m18.695s
+sys	0m8.080s

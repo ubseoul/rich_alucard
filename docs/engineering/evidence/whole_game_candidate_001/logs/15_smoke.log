@@ -1,0 +1,65 @@
+PASS P0 fresh boot on an empty save: IF-1 1.0.0 loaded, self-check OK
+PASS P0 the four accepted flags are ON for this session (dev session override; shipped defaults are dark) - {"F01.showdown_core":true,"F04.war_room":true,"F05.trap":true,"F06.rainmaker":true}
+PASS P0 the page is the built artifact - ra-2fbf120c97c3-20260930204254 2fbf120c97c313a4105db71898402b1a993ea116
+PASS P0 START on a fresh save mounts the prologue adventure
+PASS P0 the prologue advances by a real tap
+PASS P1 saved life resumes into the bedroom on Day 16
+PASS P1 phone opens and lists apps - app:vampgpt app:warRoom app:vampgram app:instahoe app:onlyvamps app:realEstate app:jdmImports app:richboi app:trap close
+PASS P1 RAINMAKER is locked on this life (no event completed yet)
+PASS P2 an event that is merely SEEN does not unlock RAINMAKER
+PASS P2 the first RESOLVED event unlocks RAINMAKER
+PASS P2 unlock is exactly-once (a second unlock/check changes nothing) - {"warRoom":{"unlocked":true,"unlockedDay":16},"trap":{"unlocked":true,"unlockedDay":16},"jdmImports":{"unlocked":true,"unlockedDay":16},"rainmaker":{"unlocked":
+PASS P2 the unlock survives a reload
+PASS P2 RAINMAKER opens from the phone - RAINMAKER MAKE IT RAIN HOME
+PASS P3 WAR ROOM lists a PLAY-routed job and MAKE THIS PLAY launches it - do:warRoom:play:0
+PASS P3 F04 consumed the canonical F01 record - vampire_gala ROBBED win=false
+PASS P3 bank moved by exactly the PLAY pot minus its cost (no duplicate reward) - 300000 -> 298000 (gain 0, spent 2000)
+PASS P3 crew consequences match the record, per member, once - auntie_grit:WOUNDED dre:WOUNDED half_pint:WOUNDED sunday_best:WOUNDED
+PASS P3 exactly one job-log entry + one report card
+PASS P3 HEAT moved once and is a number - 0 -> 4
+PASS P3 back in the WAR ROOM, no percentages
+PASS P4 F01 persisted its garage world after the first PLAY - {"owned":["URUS"],"lost":{"SUPRA":{"route":"DEALER","cause":"CRASH"}},"unique":[]}
+PASS P4 a real PLAY lost a car (organic, unseeded): the loss is persisted in F01's garage world - {"SUPRA":{"route":"DEALER","cause":"CRASH"}}
+PASS P4 a real NIGHT advanced the day by exactly one (War Room SLOTS cap: one job a night) - 16 -> 17
+PASS P4 crew statuses after the night are all valid - auntie_grit:ACTIVE dre:ACTIVE half_pint:ACTIVE sunday_best:ACTIVE tunde:ACTIVE young_mazi:ACTIVE
+PASS P4 the next War Room job shows the GET IT BACK scene with the lost car offered - SUPRA
+PASS P4 one tap per car recovers exactly one car each
+PASS P4 with the car back the job offer is playable again
+PASS P4 recovery moved no money (existing fee: 0 carried forward)
+PASS P4 the recovered car ran a second PLAY, consumed once - ROBBED win=false
+PASS P4 second PLAY: bank moved by exactly pot minus cost
+PASS P4 second PLAY crew consequences match the record
+PASS P4 garage after the recovered-car PLAY: no car duplicated or vanished (owned+lost == the original two, each once) - {"owned":["URUS","SUPRA"],"lost":{},"unique":[]}
+PASS P4 two PLAYs -> exactly two job-log entries (no duplicate consume)
+PASS P5 TRAP opens from the phone with player-facing copy - TRAP $0 BANDO HEAT COOL (7) BANDO Plywood, one lamp no traphouse yet. BUY A TRAP
+PASS P5 the listing offers the first house through the phone
+PASS P5 BUY HOUSE through the UI gives the house once
+PASS P5 buying a house cost money (never gave any) - 296000 -> 251000
+PASS P5 BUY BASE through the UI stocks ingredients - {"synth":2,"standard":0,"good":0,"premium":0,"rare":0}
+PASS P5 a cook produced cases ready to sell - 2
+PASS P5 ASSIGN through the UI queued tonight's sale (resolves at NIGHT) - {"houseId":"the_bando","grade":"D","cases":2,"channel":"wholesale","day":17}
+PASS P5 COUNT/bank completed - cash 296000 -> 250500, unbanked 0
+PASS P6 the NIGHT resolved the queued sale exactly once (assignment cleared, one night report) - 2xD $1800
+PASS P6 a real NIGHT scheduled the pending raid - raid:17:the_bando
+PASS P6 the phone raid surface offers HOLD THE HOUSE
+PASS P6 HOLD handoff: transaction persisted before F01 ran; F05 marked the raid handed
+PASS P6 nothing applied while the HOLD is running
+PASS P6 F01 ran the existing castle HOLD
+PASS P6 shared cash applied exactly once - 250500 -> 271100
+PASS P6 shared HEAT applied exactly once - 74 -> 72 (delta -2)
+PASS P6 F05 applied its receipt once; raid cleared; transaction cleared
+PASS P6 F05 trap-side rule matches the HOLD outcome - door held
+PASS P6 the player is back on the phone after the HOLD
+PASS P6 crew consequences of the HOLD match the F01 record, per member - auntie_grit:READY dre:READY half_pint:WOUNDED sunday_best:READY
+PASS P7 reload: money, day, crew, HEAT, job log, raid receipts, RAINMAKER unlock all identical - money 271100 day 18 jobs 2
+PASS P7 reload leaves nothing pending (no stranded PLAY or HOLD transaction)
+PASS P7 reload added/removed no storage keys - ra.f01.play.v1.counter,ra.f01.play.v1.embed_results,ra.f01.play.v1.feel_settings,ra.f01.play.v1.lastCar,ra.f01.play.v1.tele,ra.f01.play.v1.world_f04,rich_alucard_save_v1,rich_alucard_save_v1_recovery
+PASS P7 state namespaces: earlier namespaces all still present, none overwritten - F04,F05,if1
+PASS P7 the game save holds no F01 sandbox/embed keys (shared namespaces only) - 14665 bytes
+PASS P7 continued play after reload: a new PLAY completed and was consumed once
+PASS P7 continued play: bank moved by exactly pot minus cost - 271100 -> 271100
+PASS P7 job log grew by exactly one
+PASS P7 continued play: a further NIGHT advanced the day by exactly one - 18 -> 19
+PASS P7 IF-1 self-check still OK at the end of the run
+PASS ZERO console / page errors / failed requests across the whole traversal
+PASS candidate smoke traversal: 64/64 checks

@@ -1,0 +1,36 @@
+PASS GAME: flag ON via ff=F05.trap (single identity)
+PASS GAME: TRAP phone app declared in the reserved slot
+PASS GAME: F05 NIGHT handlers registered on the bus (no collision at boot)
+PASS GAME: authored setup - traphouse owned, product cooked, unbanked cash, HEAT HOT
+PASS GAME: TRAP app renders the house - <div class="phone-status"><span>TRAP $1,000</span><span>BAND
+PASS GAME: real sleep() ran the NIGHT bus and scheduled the raid - raid:1:the_bando
+PASS GAME: WAKE delivered exactly one RAID notice
+PASS GAME: raid card is player-facing (no dev marker)
+PASS GAME: handoff() -> canonical HOLD THE HOUSE request for the pending raid
+PASS GAME: request carries authored/state data only
+PASS RELOAD (HOLD under way): raid still pending + handed, nothing applied
+PASS RELOAD: handoff() re-launches the same raid
+PASS PLAY: F01 ran HOLD THE HOUSE through its UI -> klass MESSY, getaway HELD
+PASS GAME: applyDefense consumed the real F01 record -> HELD
+PASS GAME: balance untouched by F05 (F01 owns HOLD money)
+PASS GAME: HEAT untouched by F05 (F01 owns HOLD heat)
+PASS GAME: stash/unbanked kept (door held)
+PASS GAME: return to F05 flow - no pending raid, one history entry
+PASS GAME: 3x repeated delivery changes nothing in save.frag.F05
+PASS RELOAD (after consume): state survived, no stranded pending
+PASS RELOAD: redelivery after reload is a receipt (no double application)
+PASS GAME: second raid scheduled by the real NIGHT bus after the cadence - raid:8:the_bando
+PASS GAME: raid-1 record replayed against raid 2 is a receipt - raid 2 untouched
+PASS GAME: a record naming a different raid is refused (stale-raid)
+PASS RELOAD (raid 2 handed): pending survives
+PASS GAME: second HOLD consumed once -> HELD; history 2, none stranded
+PASS GAME: 360x640 no horizontal overflow - 360/360
+PASS GAME: 390x844 no horizontal overflow - 390/390
+PASS GAME: 430x932 no horizontal overflow - 430/430
+PASS no console errors / page errors / failed requests across GAME and PLAY
+
+30/30 checks passed
+
+real	0m23.141s
+user	0m4.207s
+sys	0m1.462s

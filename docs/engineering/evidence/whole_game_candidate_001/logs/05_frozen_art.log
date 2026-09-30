@@ -1,0 +1,80 @@
+PASS 390: ARRIVAL shows the frozen FL-A05 exterior of the rolled job — vampire_dentist -> vampire_dentist_exterior_270x480.png
+PASS 390: LIVE FEED = FL-A01 red bed base + idle hand/phone layer
+PASS 390: live phone DOM sits exactly in the transparent screen opening — [57,39,159,352]
+PASS 390: JOLT — the rig (phone + hand) shook in code during the feed
+PASS 390: live chat uses the frozen FL-A09 bubble skin
+PASS 390: headlights-on car art showed on departure/arrival — HOOPTIE
+PASS 390: crew weapon slots draw frozen icons — E-gun-sapporo_shotgun-held.png,E-gun-lil_oga-held.png,pistol_24x24.png
+PASS 390: RETURN uses the FL-A02 base (with)
+PASS 390: bags = frozen FL-A03 haul, opened to count — cash_medium_closed_128x96.png,cash_medium_open_128x96.png
+PASS 390: trunk shows exactly the awarded items — 3
+PASS 390: loot pieces are frozen FL-A10 art (RECRUIT/STORY/DISTRICT stay placeholder crates) — mod_48x48.png,weird_48x48.png,blood_x_48x48.png
+PASS 390: zero broken images
+PASS 390x844: no scroll — {"sw":390,"iw":390,"sh":844,"ih":844}
+PASS 390: zero 404s / console errors
+PASS 360: ARRIVAL shows the frozen FL-A05 exterior of the rolled job — vampire_dentist -> vampire_dentist_exterior_270x480.png
+PASS 360: LIVE FEED = FL-A01 red bed base + idle hand/phone layer
+PASS 360: live phone DOM sits exactly in the transparent screen opening — [57,39,159,352]
+PASS 360: JOLT — the rig (phone + hand) shook in code during the feed
+PASS 360: live chat uses the frozen FL-A09 bubble skin
+PASS 360: headlights-on car art showed on departure/arrival — HOOPTIE
+PASS 360: crew weapon slots draw frozen icons — E-gun-sapporo_shotgun-held.png,E-gun-lil_oga-held.png,pistol_24x24.png
+PASS 360: RETURN uses the FL-A02 base (with)
+PASS 360: bags = frozen FL-A03 haul, opened to count — cash_medium_closed_128x96.png,cash_medium_open_128x96.png
+PASS 360: trunk shows exactly the awarded items — 3
+PASS 360: loot pieces are frozen FL-A10 art (RECRUIT/STORY/DISTRICT stay placeholder crates) — mod_48x48.png,weird_48x48.png,blood_x_48x48.png
+PASS 360: zero broken images
+PASS 360x640: no scroll — {"sw":360,"iw":360,"sh":640,"ih":640}
+PASS 360: zero 404s / console errors
+PASS 430: ARRIVAL shows the frozen FL-A05 exterior of the rolled job — vampire_dentist -> vampire_dentist_exterior_270x480.png
+PASS 430: LIVE FEED = FL-A01 red bed base + idle hand/phone layer
+PASS 430: live phone DOM sits exactly in the transparent screen opening — [57,39,159,352]
+PASS 430: JOLT — the rig (phone + hand) shook in code during the feed
+PASS 430: live chat uses the frozen FL-A09 bubble skin
+PASS 430: headlights-on car art showed on departure/arrival — HOOPTIE
+PASS 430: crew weapon slots draw frozen icons — E-gun-sapporo_shotgun-held.png,E-gun-lil_oga-held.png,pistol_24x24.png
+PASS 430: RETURN uses the FL-A02 base (with)
+PASS 430: bags = frozen FL-A03 haul, opened to count — cash_medium_closed_128x96.png,cash_medium_open_128x96.png
+PASS 430: trunk shows exactly the awarded items — 3
+PASS 430: loot pieces are frozen FL-A10 art (RECRUIT/STORY/DISTRICT stay placeholder crates) — mod_48x48.png,weird_48x48.png,blood_x_48x48.png
+PASS 430: zero broken images
+PASS 430x932: no scroll — {"sw":430,"iw":430,"sh":932,"ih":932}
+PASS 430: zero 404s / console errors
+PASS TYPING: the frozen thumb overlay shows while Rich texts (WASH silence beat)
+PASS WASH: no bags, no loot
+PASS RELOAD: the lost-car recovery card draws the frozen impounded car art — HOOPTIE impounded :: HOOPTIE:impounded:hooptie_impounded_136x50.png
+PASS RELOAD: zero broken images
+PASS WASH + reload: zero 404s / console errors
+PASS OBA: the frozen FL-A04 native sprite flashes when the feed cuts — oba_de_gwinnett_visual_a_native_80x96.png
+PASS OBA: zero broken images / 404s / console errors
+PASS HOLD THE HOUSE: castle arrival kept (no job exterior applies) — portobello_beige_bedroom_270x480.png,castle_exterior_night_270x480.png,bedroom_pov_base_270x480.png,base_return_270x480.png
+PASS HOLD THE HOUSE: return uses the FL-A02 base
+PASS HOLD: zero 404s / console errors
+PASS ARRIVAL boba_backroom: boba_backroom_exterior_270x480.png — g103:walking
+PASS ARRIVAL tupperware: tupperware_exterior_270x480.png — g103:walking
+PASS ARRIVAL vampire_dentist: vampire_dentist_exterior_270x480.png — g103:walking
+PASS ARRIVAL dock_restock: dock_restock_exterior_270x480.png — g103:walking
+PASS ARRIVAL car_wash_stickup: car_wash_stickup_exterior_270x480.png — g103:walking
+PASS ARRIVAL quiet_lift: quiet_lift_exterior_270x480.png — g103:walking
+PASS ARRIVAL vampire_gala: vampire_gala_exterior_270x480.png — g103:walking
+PASS ARRIVAL smack_crib: smack_crib_exterior_270x480.png — g103:walking
+PASS ARRIVAL counting_house: counting_house_exterior_270x480.png — g103:walking
+PASS ARRIVAL hold_the_house: castle_exterior_night_270x480.png — g102:walking
+PASS FL-A07: generic Ogas -> frozen template poses; NAMED Ogas keep the face bust (SOURCE_REQUIRED) — {"walking":"generic_oga_walking_80x96.png","boarding":"generic_oga_boarding_80x96.png","standing":"generic_oga_standing_80x96.png","wounded":"generic_oga_wounded_80x96.png","carried":"generic_oga_carried_80x96.png","named":"face"}
+PASS FL-A06: base + headlight + wrecked + impounded for HOOPTIE / S2000 / URUS / SUPRA — 12 states
+PASS FL-A03 small haul: closed then opened to count — cash_small_closed_128x96.png,cash_small_open_128x96.png
+PASS FL-A03 medium haul: closed then opened to count — cash_small_closed_128x96.png,cash_small_open_128x96.png,cash_medium_closed_128x96.png,cash_medium_open_128x96.png
+PASS FL-A03 large haul: closed then opened to count — cash_small_closed_128x96.png,cash_small_open_128x96.png,cash_medium_closed_128x96.png,cash_medium_open_128x96.png,cash_large_closed_128x96.png,cash_large_open_128x96.png
+PASS FL-A10: GUN / CASH / MOD / BLOOD_X / WEIRD drawn as the frozen pieces — gun_48x48.png,cash_48x48.png,mod_48x48.png,blood_x_48x48.png,weird_48x48.png
+PASS FL-A07: READY / WOUNDED / SHOT generic Ogas return as standing / wounded / carried — standing,walking,boarding,wounded,carried
+PASS FL-A02 empty variant: Rich alone
+PASS FL-A06: impounded + wrecked art for every car on the recovery card (SUPRA = existing sprite + overlay) — 8 cards
+PASS scene matrix: zero broken images / 404s / console errors
+PASS all 54 frozen PNGs load (200) at their recorded size
+PASS every feel_lock request made by the game is one of the 54 frozen paths — 54 distinct frozen files requested
+
+ALL PASSED
+
+real	1m26.985s
+user	0m6.450s
+sys	0m1.963s

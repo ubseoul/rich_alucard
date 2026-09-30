@@ -1,0 +1,23 @@
+PASS game loads F04 play adapter + F01 play facade + contract
+PASS district registration in the real game: arts_district + inglewood register; Koreatown is F03's (not defined by F04) — {"ids":["arts_district","inglewood"],"missing":["koreatown"],"arts":"F04","ing":"F04","kt":null}
+PASS WAR ROOM answers "what play?": MAKE THIS PLAY
+PASS no squad / car / approach UI, no pending marker, no percentages, no authored cash card
+PASS a PLAY-routed job button exists — do:warRoom:play:0
+PASS canonical F01 PHONE OFFER shown (no percentages) — BANK $150,000 TUNDE INCOMING CALL SOAP AND SHOTGUNS UP TO $40,000 3 OGA MIN. “mi
+PASS no title screen in embed: WAR ROOM goes straight to the offer
+PASS canonical F01 CREW / CAR shown (no seating, no percentages)
+PASS return scene ends with BACK TO THE WAR ROOM (no "run another play" loop) — BACK TO THE WAR ROOM
+PASS PLAY finished and the iframe closed — with timed calls answered
+PASS F04 consumed F01's canonical result record with no errors — CLEAN win=true
+PASS bank moved by exactly the PLAY's pot minus its cost (no duplicate reward) — 150000 -> 188300 (gain 38300, spent 0)
+PASS crew statuses match the record — auntie_grit:READY dre:READY half_pint:READY sunday_best:READY
+PASS one job-log entry + one report card
+PASS back in the WAR ROOM
+PASS reload: money, crew and consumed record persisted; nothing pending
+PASS re-delivering the same result after a reload pays nothing
+PASS no console / page errors during the whole round trip
+BROWSER SMOKE PASS (18 checks)
+
+real	0m16.296s
+user	0m3.534s
+sys	0m1.638s

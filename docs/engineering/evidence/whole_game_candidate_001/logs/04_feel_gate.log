@@ -1,0 +1,51 @@
+PASS offer: name, potential cash, minimum Ogas — no percentages — BANK $25,000 DRE INCOMING CALL THE VAMPIRE DENTIST UP TO $25,000 2 OGA MIN. “oga. OGA. a d
+PASS crew/car: 2-4 preselected Ogas, one trait word each — ["CALM","MOUTHPIECE","SMALL"]
+PASS crew/car: no stat sheet, no seating, no percentages
+PASS departure shows the car that was selected — HOOPTIE
+PASS live feed: Rich in bed, hand on the phone, the room behind it, the group chat in front
+PASS first PLAY: the sibling meme fires exactly once
+PASS return: the ACTUAL survivors are the ones on screen — 3 vs 3
+PASS return: everyone who did not come back is absent (empty outline)
+PASS return: the selected car pulls in (and does not if it was lost) — HOOPTIE lost=false
+PASS return: bags on the ground and the trunk shows exactly the awarded items — 1 bags, 3/3 items
+PASS live feed stays sparse: <= 12 bubbles + the sibling pair outside calls (max 13)
+PASS audio: only approved library sounds (no SEAL_* / BX stingers)
+PASS first run: no console errors
+PASS timeout: every unanswered call is recorded as Rich going quiet, and the PLAY finished — seed 3: CALL:SAVE,CLIMB:OUT
+PASS timeout: the crew never picks the worst option
+PASS timeout: no console errors
+PASS timeout scenario reached a timed prompt
+PASS MORE TIME doubles the call clock (off by default) — 1400 vs 700
+PASS REDUCE MOTION: no shake movement on the stage
+PASS WASH: the feed cuts, the call goes unanswered, and the PLAY ends (no softlock)
+PASS WASH: no bags, no loot, no celebration
+PASS WASH: no console errors
+PASS loss persistence: the car is out of the garage and the weapons are recorded lost
+PASS loss persistence: after a reload Rich is told what is gone and can get it back — HOOPTIE towed. it can be got back.GET IT BACK SHOTGUN · Sapporo Shotgun gone. th
+PASS OBA DE GWINNETT: the run collapses, the feed cuts mid-event, then goes silent
+PASS OBA: nobody is captured, gone, shot or dead
+PASS OBA: payout $0
+PASS OBA: OBA_DE_GWINNETT_SEEN set
+PASS OBA: no console errors
+PASS HOLD THE HOUSE arrives as a NOTICE: nothing to decline
+PASS HOLD THE HOUSE: plays through — MESSY
+PASS HOLD THE HOUSE: no car — the crew never left home
+PASS HOLD: no console errors
+PASS BIG PLAY is offered with its red tag
+PASS BIG PLAY: named Ogas carry a skull and SEND is hold-to-confirm
+PASS BIG PLAY: a plain tap does NOT send
+PASS BIG: no console errors
+PASS 360x640: the stage fits with no scroll
+PASS 360x640: touch controls exist and are usable — wslot:76x26 sw:20x20 wslot:76x26 sw:20x20 wslot:76x26 sw:20x20 carpick:137x26 send:222x28
+PASS 390x844: the stage fits with no scroll
+PASS 390x844: touch controls exist and are usable — wslot:76x26 sw:20x20 wslot:76x26 sw:20x20 wslot:76x26 sw:20x20 carpick:137x26 send:222x28
+PASS 430x932: the stage fits with no scroll
+PASS 430x932: touch controls exist and are usable — wslot:76x26 sw:20x20 wslot:76x26 sw:20x20 wslot:76x26 sw:20x20 carpick:137x26 send:222x28
+PASS 1280x800: the stage fits with no scroll
+PASS 1280x800: touch controls exist and are usable — wslot:76x26 sw:20x20 wslot:76x26 sw:20x20 wslot:76x26 sw:20x20 carpick:137x26 send:222x28
+
+45/45 passed
+
+real	1m16.331s
+user	0m8.945s
+sys	0m3.501s

@@ -1,0 +1,92 @@
+PASS 360x640: no horizontal overflow — 360/360
+PASS 360x640: no vertical page scroll — 640/640
+PASS 360x640: board fits above the command panel — board bottom 470 cmd top 477
+PASS 360x640: tile is a usable touch target — 42px
+PASS 360x640: every control is at least 32px
+PASS 360x640: zero console/page/network errors
+PASS 360x780: no horizontal overflow — 360/360
+PASS 360x780: no vertical page scroll — 780/780
+PASS 360x780: board fits above the command panel — board bottom 530 cmd top 540
+PASS 360x780: tile is a usable touch target — 47px
+PASS 360x780: every control is at least 32px
+PASS 360x780: zero console/page/network errors
+PASS 390x844: no horizontal overflow — 390/390
+PASS 390x844: no vertical page scroll — 844/844
+PASS 390x844: board fits above the command panel — board bottom 593 cmd top 604
+PASS 390x844: tile is a usable touch target — 54px
+PASS 390x844: every control is at least 32px
+PASS 390x844: zero console/page/network errors
+PASS 430x932: no horizontal overflow — 430/430
+PASS 430x932: no vertical page scroll — 932/932
+PASS 430x932: board fits above the command panel — board bottom 692 cmd top 702
+PASS 430x932: tile is a usable touch target — 65px
+PASS 430x932: every control is at least 32px
+PASS 430x932: zero console/page/network errors
+PASS 1280x800: no horizontal overflow — 1280/1280
+PASS 1280x800: no vertical page scroll — 800/800
+PASS 1280x800: board fits above the command panel — board bottom 790 cmd top 116
+PASS 1280x800: tile is a usable touch target — 81px
+PASS 1280x800: every control is at least 32px
+PASS 1280x800: zero console/page/network errors
+PASS boot: turn 1, your phase, 2 actions each
+PASS turn order strip shows the squad
+PASS tap a chip selects that Oga
+PASS first tap on a teal tile PREVIEWS the path (no move yet)
+PASS ...and nothing has moved
+PASS second tap commits the move (1 action)
+PASS closing in reveals the POD (enemies spotted)
+PASS revealed enemies appear on the field
+PASS cover / flank shields are drawn on units
+PASS target sheet shows the honest hit chance — 58% TO HIT vs engine 58%
+PASS the sheet lists every modifier
+PASS confirming fires: ammo -1, action -1 — clip 2->1 ap 2->1
+PASS OVERWATCH button sets the stance
+PASS HUNKER button sets the stance
+PASS ABILITY enters target mode for the class ability (SHOULDER CHECK)
+PASS END TURN warns when Ogas still have actions
+PASS ...and did not end the turn
+PASS enemy phase is announced
+PASS the enemy turn plays out and hands control back
+PASS B-F: zero errors
+PASS a downed Oga shows its bleed clock
+PASS CARRY targets the downed ally
+PASS the carrier lifts them (1 action)
+PASS costs an action
+PASS carried onto the exit zone: EXTRACTED
+PASS DOC PATCH UP stabilizes a downed Oga
+PASS G: zero errors
+PASS PULL UP is locked before turn 3
+PASS pull-up plays the neutral slide-in cut
+PASS Rich is on the field and SEEN (the +15 HEAT hook)
+PASS Rich has a token
+PASS Rich gets his own move buttons
+PASS BLOOD BATH / VAMP BITE / REVENGE / OCTOPUS are offered
+PASS H: zero errors
+PASS RETREAT: result screen — RETREAT
+PASS RETREAT: crew status is listed
+PASS RETREAT: result card fits the phone
+PASS RETREAT: zero errors
+PASS VICTORY: result screen — VICTORY
+PASS VICTORY: crew status is listed
+PASS VICTORY: result card fits the phone
+PASS VICTORY: zero errors
+PASS FAILURE: result screen — FAILURE
+PASS FAILURE: crew status is listed
+PASS FAILURE: result card fits the phone
+PASS FAILURE: zero errors
+PASS reload mid-fight -> CONTINUE resumes the exact tactical state — 777efbc3 == 777efbc3
+PASS J: zero errors
+PASS same seed + same taps => identical fight in the browser — ca085af3 == ca085af3
+PASS game: F01.showdown_core registered and DARK
+PASS game: no save namespace written, schema still v16
+PASS game: F01 refuses to run and draws nothing while OFF; IF-1 self-check OK
+PASS game (flag OFF): zero errors
+PASS game (?dev=1&ff=F01.showdown_core): the sandbox opens as an overlay
+PASS game overlay: no horizontal overflow
+PASS game (flag ON via DEV): zero errors
+
+PASS F01 browser path: 86/86 checks (/home/user/rich_alucard/dist)
+
+real	0m48.926s
+user	0m8.110s
+sys	0m1.905s

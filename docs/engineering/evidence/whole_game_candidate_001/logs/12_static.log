@@ -1,0 +1,19 @@
+## loader verify
+PASS loader (190 scripts, deterministic order, index.html in sync)
+exit=0
+## leak-check (tree)
+PASS leak check source tree (1894 files, no sealed implementation content)
+exit=0
+## leak-check dist
+PASS leak check artifact dist (1113 files, no sealed implementation content)
+exit=0
+## owner-surfaces vs start base d5c7869
+PASS owner surfaces (38 changed files)
+exit=0
+## owner-surfaces (no base)
+Usage: node tools/check-owner-surfaces.mjs --base <ref> [--head <ref>] [--fragment F01] [--as-owner]
+exit=2
+## f13 fragment
+PASS F13 balance lock (War Room SLOTS cap + EXTRACT exempt, LAY LOW applied = shown, trap cases/night + BUY BASE, margin shape, repetition past a cap buys nothing, reload-invariant incl. recruits, no corrupted state)
+PASS fragment test discovery (1 suites for f13)
+exit=0

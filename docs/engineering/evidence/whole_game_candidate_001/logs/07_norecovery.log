@@ -1,0 +1,20 @@
+PASS carless request reaches the home scene with both lost cars offered (not a NO_CAR refusal) — SUPRA+URUS
+PASS reload while carless: the same two cars are offered again — SUPRA+URUS
+PASS one tap recovers exactly one car — URUS
+PASS with the cars got back, the job offer is shown (recovered car restores valid job access)
+PASS declining the restored offer is a clean DECLINED — DECLINED 
+PASS committed world: both cars back exactly once, nothing lost, nothing duplicated — {"owned":["SUPRA","URUS"],"lost":{},"unique":[]}
+PASS recovery moved no money — cash 50K spent 0
+PASS not taking GET IT BACK: the job that needs a car still refuses NO_CAR — REFUSED NO_CAR
+PASS ...and nothing was granted or lost by refusing — {"owned":[],"lost":{"SUPRA":{"route":"DEALER","cause":"CRASH"},"URUS":{"route":"IMPOUND","cause":"WASH"}},"unique":[]}
+PASS the next carless request offers GET IT BACK again (the way back stays open)
+PASS EXTRACT with zero cars reaches recovery, then the EXTRACT offer itself — GET HALF-PINT BACK
+PASS declining the EXTRACT offer consumes nothing — DECLINED
+PASS EXTRACT with zero cars and nothing to recover refuses NO_CAR (not PLAY_ERROR) — REFUSED NO_CAR
+PASS no F01 state was committed or altered by the refusal
+PASS no page error / console error in any scenario
+PASS F01 no-car recovery browser
+
+real	0m2.525s
+user	0m1.389s
+sys	0m0.534s
