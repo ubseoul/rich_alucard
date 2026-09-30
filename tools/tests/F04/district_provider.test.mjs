@@ -62,7 +62,7 @@ export async function test(root){
   assert.ok(ctx.RADistricts.get('arts_district')&&ctx.RADistricts.get('inglewood'));}
 
  // 5. static guard: F04 source never calls define for koreatown
- {const src=(await readFile(path.join(root,'js/frag/F04/districts.js'),'utf8')).split('\n').map(l=>l.replace(/\/\/.*$/,'')).join('\n');
+ {const src=(await readFile(path.join(root,'js/frag/F04/districts.js'),'utf8')).split(/\r?\n/).map(l=>l.replace(/\/\/.*$/,'')).join('\n');
   const defines=[...src.matchAll(/RADistricts\.define\(([^)]*)\)/g)].map(m=>m[1]);
   assert.ok(defines.length>=1&&defines.every(d=>!/koreatown/i.test(d)),'F04 districts.js must not define koreatown');
   assert.ok(!/id:\s*'koreatown'[^}]*fragment:\s*'F04'/.test(src));}
