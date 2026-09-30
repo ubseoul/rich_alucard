@@ -1,0 +1,156 @@
+{
+ "routes": [
+  {
+   "id": "F01.play.hold",
+   "fragment": "F01",
+   "title": "THE PLAY \u2014 HOLD THE HOUSE via the shared HOLD bridge (F05 raid -> castle HOLD -> shared result -> F05)",
+   "kind": "mechanic",
+   "status": "AUTHORIZED",
+   "flag": "F01.showdown_core",
+   "steps": [
+    {
+     "action": "goto",
+     "url": "/index.html?dev=1&ff=F01.showdown_core,F04.war_room,F05.trap&speed=10&mute=1"
+    },
+    {
+     "action": "waitFor",
+     "expression": "()=>window.RAIF1&&window.RAState&&window.RAF05&&window.RAHoldBridge&&window.RATrap&&RATrap.isBooted()",
+     "timeout": 25000
+    },
+    {
+     "action": "eval",
+     "script": "()=>{localStorage.clear();RAState.reset();RAState.patch('life.clock.started',true);for(const k of ['prologueDone','throneDone','firstWakeDone'])RALife.setFlag(k,true);RAState.patch('life.world.day',9);RAState.patch('life.resources.money',1000000);}",
+     "saveAs": "seed"
+    },
+    {
+     "action": "reload"
+    },
+    {
+     "action": "waitFor",
+     "expression": "()=>window.RAIF1&&window.RAState&&window.RAF05&&window.RAHoldBridge&&window.RATrap&&RATrap.isBooted()",
+     "timeout": 25000
+    },
+    {
+     "action": "eval",
+     "script": "()=>{RAFrag.patch('F04','active',true);RAFrag.patch('F04','offer.status','accepted');const R=RAF05;RAState.patch('life.newOga',{...RAState.get().life.newOga,rank:3,status:'associate'});R.unlock.tick();R.unlock.buy('the_bando');R.production.addIngredient('synth',2);R.production.cook({houseId:'the_bando',grade:'D',cases:2,quality:95});R.store.addUnbanked(1000);RAHeat.add(70,{source:'f14'});return R.raids.schedule().ok;}",
+     "saveAs": "setup-raid-scheduled"
+    },
+    {
+     "action": "reload"
+    },
+    {
+     "action": "waitFor",
+     "expression": "()=>window.RAIF1&&window.RAState&&window.RAF05&&window.RAHoldBridge&&window.RATrap&&RATrap.isBooted()",
+     "timeout": 25000
+    },
+    {
+     "action": "click",
+     "selector": "#startButton"
+    },
+    {
+     "action": "waitFor",
+     "expression": "()=>document.body.classList.contains('bedroom-mode')",
+     "timeout": 20000
+    },
+    {
+     "action": "eval",
+     "script": "()=>{const b=document.querySelector('.mail-done');if(b)b.click();return !!b;}",
+     "saveAs": "dismiss-morning-mail"
+    },
+    {
+     "action": "wait",
+     "ms": 500
+    },
+    {
+     "action": "click",
+     "selector": "#checkPhone"
+    },
+    {
+     "action": "waitFor",
+     "expression": "()=>window.RAPhone&&RAPhone.isOpen()",
+     "timeout": 10000
+    },
+    {
+     "action": "eval",
+     "script": "()=>RAPhone.openApp('trap','world')"
+    },
+    {
+     "action": "expect",
+     "expression": "()=>!!document.querySelector('#phoneContent [data-phone-action=\"do:trap:holdRaid\"]')",
+     "equals": true,
+     "message": "the raid surface offers HOLD THE HOUSE"
+    },
+    {
+     "action": "screenshot",
+     "name": "raid-surface"
+    },
+    {
+     "action": "eval",
+     "script": "()=>{window.__pre={money:RALife.money(),heat:RAHeat.snapshot().global.service};return window.__pre;}",
+     "saveAs": "pre"
+    },
+    {
+     "action": "click",
+     "selector": "#phoneContent [data-phone-action=\"do:trap:holdRaid\"]"
+    },
+    {
+     "action": "waitFor",
+     "expression": "()=>!!document.querySelector('#f01-play-frame')",
+     "timeout": 30000
+    },
+    {
+     "action": "expect",
+     "expression": "()=>RAHoldBridge.transaction()&&RAHoldBridge.transaction().phase==='LAUNCHED'",
+     "equals": true,
+     "message": "the HOLD transaction was persisted before F01 was asked"
+    },
+    {
+     "action": "eval",
+     "script": "async ()=>{\n const sleep=ms=>new Promise(r=>setTimeout(r,ms));\n const until=async(f,ms=60000)=>{const t=Date.now();for(;;){const v=f();if(v)return v;if(Date.now()-t>ms)throw new Error('timeout');await sleep(100);}};\n const fr=await until(()=>document.querySelector('#f01-play-frame'));const d=()=>fr.contentDocument;\n const ans=await until(()=>d()&&d().querySelector('.b-ans'));await sleep(300);ans.click();\n const send=await until(()=>d().querySelector('.send'));await sleep(400);\n if(send.classList.contains('hold'))send.dispatchEvent(new fr.contentWindow.PointerEvent('pointerdown',{bubbles:true,cancelable:true}));else send.click();\n const t0=Date.now();\n for(;;){\n  if(!document.querySelector('#f01-play-frame'))return 'done';\n  if(Date.now()-t0>240000)throw new Error('the HOLD did not finish');\n  const doc=d();\n  if(doc){const box=doc.querySelector('.decide');const btns=box?box.querySelectorAll('button'):[];\n   if(btns.length){if(box.dataset.kind==='CLIMB')box.querySelector('button[data-id=OUT]').click();else btns[0].click();}\n   const fb=doc.querySelector('.decide .fb');if(fb)fb.click();\n   const again=doc.querySelector('.again');if(again)again.click();}\n  await sleep(200);\n }\n}",
+     "saveAs": "castle-hold-played"
+    },
+    {
+     "action": "waitFor",
+     "expression": "()=>!RAHoldBridge.transaction()",
+     "timeout": 20000
+    },
+    {
+     "action": "expect",
+     "expression": "()=>RATrap.raids.pending()===null&&Object.keys(RAFrag.read('F05','raids.applied',{})).length===1",
+     "equals": true,
+     "message": "F05 applied the canonical result exactly once"
+    },
+    {
+     "action": "expect",
+     "expression": "()=>RAF05.raids.history().length===1",
+     "equals": true,
+     "message": "one raid in the history"
+    },
+    {
+     "action": "expect",
+     "expression": "()=>RAPhone.isOpen()",
+     "equals": true,
+     "message": "the player is back on the phone, safe"
+    },
+    {
+     "action": "reload"
+    },
+    {
+     "action": "waitFor",
+     "expression": "()=>window.RAIF1&&window.RAState&&window.RAF05&&window.RAHoldBridge&&window.RATrap&&RATrap.isBooted()",
+     "timeout": 25000
+    },
+    {
+     "action": "expect",
+     "expression": "()=>RAHoldBridge.transaction()===null&&Object.keys(RAFrag.read('F05','raids.applied',{})).length===1",
+     "equals": true,
+     "message": "reload after completion: nothing stranded, nothing re-applied"
+    },
+    {
+     "action": "screenshot",
+     "name": "after-reload"
+    }
+   ]
+  }
+ ]
+}

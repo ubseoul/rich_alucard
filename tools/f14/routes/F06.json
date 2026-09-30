@@ -1,0 +1,111 @@
+{
+ "routes": [
+  {
+   "id": "F06.rainmaker.run",
+   "fragment": "F06",
+   "title": "RAINMAKER \u2014 dark until the first completed event, then MAKE IT RAIN opens and closes cleanly",
+   "kind": "mechanic",
+   "status": "AUTHORIZED",
+   "flag": "F06.rainmaker",
+   "steps": [
+    {
+     "action": "goto",
+     "url": "/"
+    },
+    {
+     "action": "waitFor",
+     "expression": "()=>window.RAIF1&&window.RAState&&window.RAF05&&window.RAWarRoomPlay",
+     "timeout": 25000
+    },
+    {
+     "action": "eval",
+     "script": "()=>{localStorage.clear();RAState.reset();RAState.patch('life.clock.started',true);for(const k of ['prologueDone','throneDone','firstWakeDone'])RALife.setFlag(k,true);RAState.patch('life.world.day',9);RAState.patch('life.resources.money',1000000);}",
+     "saveAs": "seed"
+    },
+    {
+     "action": "reload"
+    },
+    {
+     "action": "waitFor",
+     "expression": "()=>window.RAIF1&&window.RAState&&window.RAF05&&window.RAWarRoomPlay",
+     "timeout": 25000
+    },
+    {
+     "action": "eval",
+     "script": "()=>{RAState.patch('life.resources.money',1000000);}",
+     "saveAs": "setup"
+    },
+    {
+     "action": "reload"
+    },
+    {
+     "action": "waitFor",
+     "expression": "()=>window.RAIF1&&window.RAState&&window.RAF05&&window.RAWarRoomPlay",
+     "timeout": 25000
+    },
+    {
+     "action": "click",
+     "selector": "#startButton"
+    },
+    {
+     "action": "waitFor",
+     "expression": "()=>document.body.classList.contains('bedroom-mode')",
+     "timeout": 20000
+    },
+    {
+     "action": "expect",
+     "expression": "()=>!RALife.appUnlocked('rainmaker')",
+     "equals": true,
+     "message": "RAINMAKER is dark before the first completed event"
+    },
+    {
+     "action": "eval",
+     "script": "()=>{RAWorldEvents.resolve('property_pb01_001','ok');return RALife.appUnlocked('rainmaker');}",
+     "saveAs": "first-event"
+    },
+    {
+     "action": "expect",
+     "expression": "()=>RALife.appUnlocked('rainmaker')&&RAPhoneApps.isUnlocked('rainmaker')",
+     "equals": true,
+     "message": "the first completed event unlocked RAINMAKER"
+    },
+    {
+     "action": "click",
+     "selector": "#checkPhone"
+    },
+    {
+     "action": "waitFor",
+     "expression": "()=>window.RAPhone&&RAPhone.isOpen()",
+     "timeout": 10000
+    },
+    {
+     "action": "eval",
+     "script": "()=>RAPhone.openApp('rainmaker')"
+    },
+    {
+     "action": "click",
+     "selector": "#phoneContent [data-phone-action=\"do:rainmaker:launch\"]"
+    },
+    {
+     "action": "waitFor",
+     "expression": "()=>!!document.querySelector('[aria-label=\"MAKE IT RAIN\"]')",
+     "timeout": 10000
+    },
+    {
+     "action": "screenshot",
+     "name": "rainmaker-open"
+    },
+    {
+     "action": "eval",
+     "script": "()=>RAF06Rainmaker.close()"
+    },
+    {
+     "action": "expect",
+     "expression": "()=>!document.querySelector('[aria-label=\"MAKE IT RAIN\"]')",
+     "equals": true,
+     "message": "MAKE IT RAIN closes back to the phone"
+    }
+   ]
+  }
+ ]
+}
