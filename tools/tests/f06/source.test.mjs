@@ -7,7 +7,8 @@ export async function test(root) {
   const source='fd7b5f5ca9bb8baad93a3d0a6bee492d41a79397';
   for(const name of ['make_it_rain_core.js','make_it_rain_tunables.js']) {
     const approved=execFileSync('git',['show',`${source}:js/systems/rainmaker/${name}`],{cwd:root});
-    assert.deepEqual(await readFile(path.join(root,'js/frag/F06',name)),approved,'approved mechanics preserved byte-for-byte');
+    const checkout=await readFile(path.join(root,'js/frag/F06',name),'utf8');
+    assert.equal(checkout.replace(/\r\n/g,'\n'),approved.toString('utf8').replace(/\r\n/g,'\n'),'approved mechanics preserved (allow Git checkout CRLF conversion)');
   }
   const c=await full(root);
   await run(root,c,['js/data/audio/parts/F06_rainmaker.js']);
