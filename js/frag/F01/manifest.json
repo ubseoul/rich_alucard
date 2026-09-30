@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "fragment": "F01",
+  "name": "SHOWDOWN_CORE",
+  "flag": "F01.showdown_core",
+  "files": [
+    "js/frag/F01/rng.js",
+    "js/frag/F01/data.js",
+    "js/frag/F01/rules.js",
+    "js/frag/F01/engine.js",
+    "js/frag/F01/ai.js",
+    "js/frag/F01/maps.js",
+    "js/frag/F01/packets.js",
+    "js/frag/F01/showdown.js",
+    "js/frag/F01/sprites.js",
+    "js/frag/F01/sfx.js",
+    "js/frag/F01/ui.js",
+    "js/frag/F01/sandbox.js",
+    "js/frag/F01/integration.js"
+  ],
+  "css": [
+    "js/frag/F01/showdown.css"
+  ]
+}
