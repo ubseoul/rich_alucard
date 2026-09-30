@@ -47,3 +47,19 @@ test('animator loops, stops when not looping, keeps fps on new sheet', () => {
   a.play();
   assert.equal(a.frame, 0);
 });
+
+import { keyOutSolidBackground } from '../src/core/backgroundKey.js';
+
+test('white background is keyed out but interior white is kept', () => {
+  const w = 12, h = 12;
+  const px = new Uint8ClampedArray(w * h * 4).fill(255); // opaque white
+  const paint = (x, y, r, g, b) => px.set([r, g, b, 255], (y * w + x) * 4);
+  for (let y = 3; y < 9; y++) for (let x = 3; x < 9; x++) paint(x, y, 200, 20, 60);
+  paint(5, 5, 255, 255, 255); // enclosed highlight
+  assert.equal(keyOutSolidBackground(px, w, h), true);
+  assert.equal(px[3], 0); // corner now transparent
+  assert.equal(px[(5 * w + 5) * 4 + 3], 255); // highlight survives
+});
+test('transparent images are left alone', () => {
+  assert.equal(keyOutSolidBackground(new Uint8ClampedArray(4 * 4 * 4), 4, 4), false);
+});

@@ -1,7 +1,7 @@
 # Velvet Loop Studio
 
 Internal preview tool for Rich Alucard sprite sheets. Upload a horizontal PNG strip
-(equal-size frames, transparent background) and it plays in a nightclub stage next to a chrome pole.
+(equal-size frames; a transparent or solid-colour background both work, PNG/WebP/JPG) and it plays in a nightclub stage next to a chrome pole.
 Frame count and size are detected automatically; rendering is nearest-neighbor only.
 
 ## Getting the Windows app (one-time)

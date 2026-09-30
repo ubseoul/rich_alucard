@@ -2,7 +2,7 @@
 // computes per-frame source rectangles. Pure functions, no DOM access.
 
 const ALPHA_THRESHOLD = 8;
-const MAX_CUT_BLEED = 0.004; // fraction of boundary pixels allowed to be opaque
+const MAX_CUT_BLEED = 0.12; // cut columns may hold at most this share of an average column's pixels
 const MIN_FRAME_WIDTH = 4;
 
 function opaqueInColumn(pixels, width, height, x) {
@@ -13,15 +13,32 @@ function opaqueInColumn(pixels, width, height, x) {
   return count;
 }
 
-/** Fraction of opaque pixels along the cut lines if the strip were split into `n` frames. */
-function cutBleed(columnOpacity, height, width, n) {
+/**
+ * How much of the character a set of cut lines would slice through, relative to
+ * an average column (0 = every cut lands in a gap, ~1 = cuts go through bodies).
+ * Relative, so a stray ponytail tip crossing one cut doesn't disqualify the layout.
+ */
+function cutBleed(columnOpacity, width, n) {
   if (n <= 1) return 0;
   const fw = width / n;
-  let opaque = 0;
-  for (let i = 1; i < n; i++) {
-    opaque += columnOpacity[i * fw - 1] + columnOpacity[i * fw];
+  let total = 0;
+  for (let x = 0; x < width; x++) total += columnOpacity[x];
+  if (total === 0) return 0;
+  let atCuts = 0;
+  for (let i = 1; i < n; i++) atCuts += columnOpacity[i * fw - 1] + columnOpacity[i * fw];
+  return atCuts / (2 * (n - 1)) / (total / width);
+}
+
+/** Number of runs of non-empty columns, ignoring gaps narrower than 2px. */
+function countFigures(columnOpacity) {
+  let figures = 0, gap = Infinity;
+  for (const c of columnOpacity) {
+    if (c > 0) {
+      if (gap >= 2) figures++;
+      gap = 0;
+    } else gap++;
   }
-  return opaque / ((n - 1) * 2 * height);
+  return figures;
 }
 
 /**
@@ -36,7 +53,7 @@ export function detectFrameCount(pixels, width, height) {
 
   const candidates = [];
   for (let n = 1; n <= width / MIN_FRAME_WIDTH; n++) {
-    if (width % n === 0) candidates.push({ n, bleed: cutBleed(columnOpacity, height, width, n) });
+    if (width % n === 0) candidates.push({ n, bleed: cutBleed(columnOpacity, width, n) });
   }
   const clean = candidates.filter((c) => c.bleed <= MAX_CUT_BLEED);
 
@@ -44,6 +61,10 @@ export function detectFrameCount(pixels, width, height) {
   // the true count are also clean (their cuts are a subset of the real ones),
   // while multiples cut through the character, so the largest clean count wins.
   if (clean.length > 1) return clean[clean.length - 1].n;
+
+  // Uneven width (frames not exactly equal): count the separated figures instead.
+  const figures = countFigures(columnOpacity);
+  if (figures > 1) return figures;
 
   // Nothing is clean (e.g. opaque background): fall back to nearest-to-square.
   if (width % height === 0) return width / height;
