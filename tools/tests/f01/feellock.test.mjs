@@ -214,7 +214,8 @@ export async function test(root){
  // ---- 13 the recorded tuned-sim numbers meet the OL-023 gates (T2 bands, T5)
  {const f=path.join(dir,'out','tuned','tuned_summary.json');
   if(fs.existsSync(f)){const T=JSON.parse(fs.readFileSync(f,'utf8')).T;
-   check(T.T5_playerAttributable.now>=.35,`T5 >= 35% (recorded ${(T.T5_playerAttributable.now*100).toFixed(1)}%)`);
+   check(T.T5_fourLever&&T.T5_fourLever.now>=.35,`T5 OL-023 four-lever (SWAP+WEAPON+CAR+CALLS, no TRAIT) >= 35% (recorded ${T.T5_fourLever?(T.T5_fourLever.now*100).toFixed(1):'missing'}%)`);
+   check(T.T5_playerAttributable.now>=.35,`legacy T5 >= 35% (recorded ${(T.T5_playerAttributable.now*100).toFixed(1)}%)`);
    const byJob=T.T2_namedCapturedByJob||null;if(byJob){check(byJob.routine<=.08,'T2 routine offense <= 8%');check(byJob.big<=.20,'T2 BIG PLAY <= 20%');check(byJob.hold<=.08,'T2 HOLD THE HOUSE <= 8%');}}
   else console.log('   (no recorded tuned summary — run tools/tests/f01/play-sim/run_tuned.mjs)');}
 

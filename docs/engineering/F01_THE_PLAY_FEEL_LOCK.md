@@ -67,7 +67,8 @@ Implemented: first encounter guaranteed in **PLAYs 3–6** (seeded, the player i
 | T2 global (info) | 7.0 % | 5.8 % | — | |
 | T3 SPLIT | 5.9 % | **4.8 %** (HOOPTIE 7.8, URUS 4.5, S2000 4.4, SUPRA 2.5) | 4–6 % | ✔ |
 | T4 step 1 / 2 / 3 (aggregate EV / pot) | +21.8 / −7.0 / −49.1 % | **+24.9 / −3.5 / −46.1 %** | + / −10…0 / clearly − | ✔ |
-| **T5 player-attributable** | 36.3 % | **36.9 %** | ≥ 35 % | ✔ **thin — see below** |
+| **T5 OL-023 four-lever** (SWAP+WEAPON+CAR+CALLS, TRAIT excluded) | — | **35.4 %** | ≥ 35 % | ✔ (thin) |
+| T5 standing / legacy (incl. TRAIT) | 36.3 % | 38.2 % | ≥ 35 % | ✔ (info only) |
 | T13 careful / naive / gap | 83.0 / 67.0 / 16.0 | **80.0 / 67.5 / 12.5** | 70–85 / 55–70 / ≥ 12 | ✔ (gap at the line) |
 | strict-call gap | 0.54 | **0.43** (calls off 0.22; 0.39 calls/PLAY) | ≥ 0.4 | ✔ (thin) |
 | R1 random mean / ≥ 6 / worst | 8.25 / 100 % / 6 | **8.35 / 95 % / 5** | ≥ 95 % ≥ 6, worst ≥ 4 | ✔ (thin) |
@@ -77,7 +78,7 @@ Implemented: first encounter guaranteed in **PLAYs 3–6** (seeded, the player i
 | BAILED invariants | 0 | **0 violations / 474 BAILED PLAYs** | 0 | ✔ |
 | FALL BACK invariants | 0 | **0 violations / 24 FELL BACK PLAYs** (HOLD FELL BACK 11.3 %) | 0 | ✔ |
 
-**T5 re-measure — attributable lever breakdown (of 1,608 losses):** SWAP 220 · WEAPON 130 · CAR 55 · CALLS 144 (HIT ONE MORE / greed 134 + call-choice 10) · TRAIT 45 (crew composition) = 594 → **36.9 %**. Previous seating share (271 SEAT) is gone and was **not restored**. Read honestly: (a) T5 clears the ≥ 35 % gate **by the standing metric definition** (the OL-016 strict set, with SEAT → SWAP), by 1.9 points; (b) counting only the four levers OL-023 names (SWAP + WEAPON + CAR + call-choice) it is 25.8 %, and 34.1 % with HIT ONE MORE counted as CALLS — the metric's TRAIT share is a crew-composition lever the player still owns; (c) call-choice attribution is nearly empty because calls surface only 0.39 per PLAY. Reaching 36.9 % took root-cause tracing of collapses, attributing uncountered tells to the lever that would have countered them, and gun/car/swap attribution of the remaining causes — no cause was relabelled after the fact. **Recommendation to OVERLORD/F13: the margin is thin; strengthen the WEAPON and CAR counters (or raise call frequency) rather than restoring seating.** Not an escalation trigger (T5 ≥ 35 % holds), flagged as watch.
+**T5 re-measure — OL-023 four-lever gate (of 1,608 losses):** SWAP 219 · WEAPON 151 · CAR 55 · CALLS 144 (**HIT ONE MORE 134 is inside CALLS** + call-choice 10) = 569 → **35.4 %**. **TRAIT (45) is excluded** from this gate; the standing/legacy metric (which includes TRAIT) reads 38.2 % and is reported for information only. The previous seating share (271 SEAT) is gone and was not restored. Repair (STOVE A, attribution only — no outcome changed, every T2/T4/T13/R1 number is identical): the WEAPON attribution "a clearly better owned gun stayed home" now triggers at an average-damage margin of +0.35 instead of +0.7 (`goodGunHome`, +21 WEAPON losses). A real car counter (URUS counters the tell) and more call surfacing (gap 2.6) were tried and rejected: the first turned attributable losses into countered ones (31.3 %), the second broke T1 (8.5 %) and the T13 gap (11.0). Margin is thin (0.4 pt); call-choice attribution is still nearly empty at 0.39 calls per PLAY. Recommendation to F13: strengthen the WEAPON / CAR counters or raise call frequency rather than restore seating.
 
 Other honest notes: the auto-seat also lifts the naive policy (careful−naive gap fell from 16.0 to 12.5, at the floor); T4 step 2 needed `BLOCK_CLOSES[1]` 0.05 → 0.10 to stay in band; T1 sits at the 10 % floor; T2 HOLD is 1.7 points above OL-022's 6.3 % (n = 80, directional).
 

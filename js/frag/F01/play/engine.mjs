@@ -573,7 +573,7 @@ const gunAvg=g=>{const x=(C.GUNS[g]||C.GUNS.pistol).dmg;return (x[0]+x[1])/2;};
 // WEAPON lever: an owned gun that clearly outclasses what this Oga carries is sitting at home (the armory, or a benched Oga's hands).
 function goodGunHome(P,o){
  const pool=[...P.armory];for(const r of P.roster)if(!P.crew.includes(r)&&r.gun&&r.gun!=='pistol'&&r.gun!=='hands')pool.push(r.gun);
- const best=pool.reduce((a,g)=>Math.max(a,gunAvg(g)),0);return best>gunAvg(o.gun||'pistol')+.7;
+ const best=pool.reduce((a,g)=>Math.max(a,gunAvg(g)),0);return best>gunAvg(o.gun||'pistol')+.35;
 }
 function enemyAttack(ctx,e,r){
  const {P,R,card}=ctx;if(e.flinch){e.flinch=false;moment(P,ctx,'weapon',"Auntie's Slipper connected. He forgot what he was doing.",'weapon:slipper','FUNNY',5);return;}

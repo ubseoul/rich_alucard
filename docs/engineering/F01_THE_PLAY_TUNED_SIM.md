@@ -9,7 +9,7 @@ Matrix: 10 job specs × 20 seeds × 4 policies (careful / greedy / naive / rando
 
 ## 000. OL-023 — FEEL LOCK re-run
 
-Seating is now automatic and visible presentation is the feel lock; the full re-run (T1–T5, T9, T13, R1, BAILED / FALL BACK invariants) and the T5 lever breakdown are in **`F01_THE_PLAY_FEEL_LOCK.md` §11**. Reproduce: `node tools/tests/f01/play-sim/run_tuned.mjs`. Headline: T2 3.9 / 18.8 / 7.5 % · T5 **36.9 %** (SWAP 220, WEAPON 130, CAR 55, CALLS 144, TRAIT 45) · T13 80.0 / 67.5 / 12.5.
+Seating is now automatic and visible presentation is the feel lock; the full re-run (T1–T5, T9, T13, R1, BAILED / FALL BACK invariants) and the T5 lever breakdown are in **`F01_THE_PLAY_FEEL_LOCK.md` §11**. Reproduce: `node tools/tests/f01/play-sim/run_tuned.mjs`. Headline: T2 3.9 / 18.8 / 7.5 % · T5 OL-023 four-lever **35.4 %** (SWAP 219, WEAPON 151, CAR 55, CALLS 144 incl. HIT ONE MORE 134; TRAIT excluded; legacy 38.2 %) · T13 80.0 / 67.5 / 12.5.
 
 ## 00. OL-022 — FALL BACK v1 (HOLD THE HOUSE) and the T2 bands
 

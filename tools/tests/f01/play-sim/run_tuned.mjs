@@ -51,6 +51,7 @@ const T={
 };
 {const big=new Set(JOBS.filter(j=>j.bigPlay).map(j=>j.id)),def=new Set(JOBS.filter(j=>j.defense).map(j=>j.id));const cap=fn=>{const a=primary.filter(fn);return a.length?a.filter(r=>r.namedCaptured>0).length/a.length:0;};
  T.T2_namedCapturedByJob={routine:cap(r=>!big.has(r.job)&&!def.has(r.job)),big:cap(r=>big.has(r.job)),hold:cap(r=>def.has(r.job))};
+ {const b=PM.losses.byCause,n=PM.losses.n;const cc=(b.CHOICE||0),gr=(b.GREED||0);T.T5_fourLever={now:((b.SWAP||0)+(b.WEAPON||0)+(b.CAR||0)+cc+gr)/n,SWAP:b.SWAP||0,WEAPON:b.WEAPON||0,CAR:b.CAR||0,CALLS:cc+gr,callChoice:cc,hitOneMore:gr,n,legacy:PM.losses.blameStrict,trait:b.TRAIT||0,target:'>= 35% (OL-023: SWAP + WEAPON + CAR + CALLS incl. HIT ONE MORE; TRAIT excluded)'};}
  T.T5_levers={byCause:PM.losses.byCause,n:PM.losses.n,swap:PM.losses.byCause.SWAP||0,weapon:PM.losses.byCause.WEAPON||0,car:PM.losses.byCause.CAR||0,calls:(PM.losses.byCause.CHOICE||0)+(PM.losses.byCause.GREED||0),trait:PM.losses.byCause.TRAIT||0};}
 fs.writeFileSync(path.join(OD,'tuned_summary.json'),JSON.stringify({T,metrics:PM,repMetrics:RM},null,1));
 const jp=(k)=>{const a=PM.climb.byStep[k];return a;};
@@ -63,7 +64,8 @@ for(const k of [1,2,3]){const s=PM.climb.byStep[k];console.log(`T4 step ${k}: n=
  const s3=primary.flatMap(r=>r.shadow).filter(s=>s.k===3);console.log('   step-3 aggregate EV/pot:',pct(s3.reduce((a,s)=>a+(s.ok?s.after-s.before:-s.before),0)/Math.max(1,s3.reduce((a,s)=>a+s.before,0))));
  const s1=primary.flatMap(r=>r.shadow).filter(s=>s.k===1);console.log('   step-1 aggregate EV/pot:',pct(s1.reduce((a,s)=>a+(s.ok?s.after-s.before:-s.before),0)/s1.reduce((a,s)=>a+s.before,0)));}
 {const L=primary.flatMap(r=>r.losses);const by={};for(const l of L){const k=l.cause?l.cause.c+': '+(l.cause.t||'').slice(0,46):'NONE';by[k]=(by[k]||0)+1;}const top=Object.entries(by).sort((a,b)=>b[1]-a[1]).slice(0,10);console.log('   top loss causes:',top.map(([k,v])=>k+' '+v).join(' | '));}
-console.log('T5 player-attributable losses:',pct(PM.losses.blameStrict),'| was 18.5% | target ≥35%; causes',JSON.stringify(PM.losses.byCause));
+{const f=T.T5_fourLever;console.log('T5 OL-023 FOUR-LEVER (SWAP+WEAPON+CAR+CALLS, TRAIT excluded):',pct(f.now),'| SWAP',f.SWAP,'WEAPON',f.WEAPON,'CAR',f.CAR,'CALLS',f.CALLS,'(call-choice',f.callChoice,'+ HIT ONE MORE',f.hitOneMore+')','of',f.n,'losses | target ≥35%');}
+console.log('T5 player-attributable losses (standing/legacy metric incl. TRAIT):',pct(PM.losses.blameStrict),'| was 18.5% | target ≥35%; causes',JSON.stringify(PM.losses.byCause));
 console.log('T9 lines: repeats-within-3:',LS.violationsIn3,'of',LS.uses,'uses | uncovered triggers',JSON.stringify(LS.uncoveredTriggers),'| thin keys',JSON.stringify(LS.thinKeys),'| distinct lines',LS.distinctLinesShown,'top share',pct(LS.topLineShare),JSON.stringify(LS.top.slice(0,3)));
 for(const p of POLICY_NAMES)console.log('R1',p.padEnd(8),'roster end',f2(CR[p].rosterEnd),'of 9 | ≥6:',pct(CR[p].rosterGE6,0),'| min',CR[p].minRoster,'| lost/career',f2(CR[p].lostPerCareer),'(named',f2(CR[p].lostNamed)+')','| ransom paid',f2(CR[p].ransomPaid),'| extract wins',f2(CR[p].extractWins),'/',f2(CR[p].extracts),'| READY',f2(CR[p].readyMean),'| cash',Math.round(CR[p].cash));
 for(const [k,v] of Object.entries(CRarms()))console.log('R1 random arm:',k.padEnd(30),'roster end',f2(v.rosterEnd),'| ≥6:',pct(v.rosterGE6,0),'| min',v.minRoster,'| lost/career',f2(v.lostPerCareer));

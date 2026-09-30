@@ -66,7 +66,7 @@
    "target": "step1 +EV; step2 −10%..0% of pot & ~15% jackpot; step3 clearly negative + LEGENDARY on success"
   },
   "T5_playerAttributable": {
-   "now": 0.3694029850746269,
+   "now": 0.3818407960199005,
    "was": 0.185,
    "target": "≥ 35%"
   },
@@ -296,22 +296,35 @@
    "big": 0.1875,
    "hold": 0.075
   },
+  "T5_fourLever": {
+   "now": 0.35385572139303484,
+   "SWAP": 219,
+   "WEAPON": 151,
+   "CAR": 55,
+   "CALLS": 144,
+   "callChoice": 10,
+   "hitOneMore": 134,
+   "n": 1608,
+   "legacy": 0.3818407960199005,
+   "trait": 45,
+   "target": ">= 35% (OL-023: SWAP + WEAPON + CAR + CALLS incl. HIT ONE MORE; TRAIT excluded)"
+  },
   "T5_levers": {
    "byCause": {
     "ENEMY": 622,
-    "SWAP": 220,
+    "SWAP": 219,
     "HAZARD": 160,
-    "EARLIER": 204,
-    "WEAPON": 130,
-    "LUCK": 28,
+    "WEAPON": 151,
+    "EARLIER": 194,
+    "LUCK": 18,
     "CAR": 55,
     "GREED": 134,
     "TRAIT": 45,
     "CHOICE": 10
    },
    "n": 1608,
-   "swap": 220,
-   "weapon": 130,
+   "swap": 219,
+   "weapon": 151,
    "car": 55,
    "calls": 144,
    "trait": 45
@@ -491,12 +504,12 @@
    "n": 1608,
    "nonWounded": 840,
    "perPlay": 2.01,
-   "blameBroad": 0.9825870646766169,
-   "blameStrict": 0.3694029850746269,
-   "blameBroadNonWounded": 0.9892857142857143,
-   "funnyOrDramatic": 0.5485074626865671,
-   "funny": 0.15236318407960198,
-   "dramatic": 0.39614427860696516,
+   "blameBroad": 0.9888059701492538,
+   "blameStrict": 0.3818407960199005,
+   "blameBroadNonWounded": 0.9916666666666667,
+   "funnyOrDramatic": 0.5578358208955224,
+   "funny": 0.16355721393034825,
+   "dramatic": 0.39427860696517414,
    "byKind": {
     "SHOT": 257,
     "WOUNDED": 768,
@@ -511,33 +524,33 @@
    },
    "byCause": {
     "ENEMY": 622,
-    "SWAP": 220,
+    "SWAP": 219,
     "HAZARD": 160,
-    "EARLIER": 204,
-    "WEAPON": 130,
-    "LUCK": 28,
+    "WEAPON": 151,
+    "EARLIER": 194,
+    "LUCK": 18,
     "CAR": 55,
     "GREED": 134,
     "TRAIT": 45,
     "CHOICE": 10
    },
-   "playLevelClear": 0.9592169657422512
+   "playLevelClear": 0.9738988580750407
   },
   "swings": {
    "n": 7992,
    "perPlay": 9.99,
-   "visible": 0.9270520520520521,
-   "strict": 0.25287787787787785,
+   "visible": 0.9278028028028028,
+   "strict": 0.255005005005005,
    "byCause": {
-    "EARLIER": 4550,
+    "EARLIER": 4540,
     "TRAIT": 994,
-    "LUCK": 583,
+    "LUCK": 577,
     "SWAP": 271,
     "RELATIONSHIP": 91,
-    "ENEMY": 580,
+    "ENEMY": 579,
     "HAZARD": 258,
+    "WEAPON": 261,
     "CHOICE": 154,
-    "WEAPON": 244,
     "GREED": 183,
     "CAR": 84
    },
@@ -556,11 +569,11 @@
     },
     "nerve": {
      "n": 1611,
-     "visible": 0.9962756052141527
+     "visible": 0.9987585350713842
     },
     "down": {
      "n": 894,
-     "visible": 0.9899328859060402
+     "visible": 0.9921700223713646
     },
     "bond-save": {
      "n": 27,
@@ -1345,12 +1358,12 @@
    "n": 3252,
    "nonWounded": 1677,
    "perPlay": 2.0325,
-   "blameBroad": 0.9837023370233703,
-   "blameStrict": 0.3816113161131611,
-   "blameBroadNonWounded": 0.9898628503279666,
-   "funnyOrDramatic": 0.5535055350553506,
-   "funny": 0.15559655596555966,
-   "dramatic": 0.3979089790897909,
+   "blameBroad": 0.9883148831488315,
+   "blameStrict": 0.3929889298892989,
+   "blameBroadNonWounded": 0.9916517590936196,
+   "funnyOrDramatic": 0.5615006150061501,
+   "funny": 0.16512915129151293,
+   "dramatic": 0.39637146371463716,
    "byKind": {
     "SHOT": 516,
     "WOUNDED": 1575,
@@ -1365,33 +1378,33 @@
    },
    "byCause": {
     "ENEMY": 1209,
-    "SWAP": 470,
+    "SWAP": 469,
     "HAZARD": 330,
-    "EARLIER": 419,
-    "WEAPON": 257,
-    "LUCK": 53,
+    "WEAPON": 296,
+    "EARLIER": 397,
+    "LUCK": 38,
     "CAR": 125,
     "GREED": 289,
     "TRAIT": 77,
-    "CHOICE": 23
+    "CHOICE": 22
    },
-   "playLevelClear": 0.961352657004831
+   "playLevelClear": 0.9726247987117552
   },
   "swings": {
    "n": 16205,
    "perPlay": 10.128125,
-   "visible": 0.9298364702252391,
-   "strict": 0.25535328602283247,
+   "visible": 0.9304535637149028,
+   "strict": 0.2570194384449244,
    "byCause": {
-    "EARLIER": 9288,
+    "EARLIER": 9272,
     "TRAIT": 2020,
-    "LUCK": 1137,
+    "LUCK": 1127,
     "SWAP": 558,
     "RELATIONSHIP": 220,
-    "ENEMY": 1139,
+    "ENEMY": 1138,
     "HAZARD": 503,
-    "CHOICE": 304,
-    "WEAPON": 481,
+    "WEAPON": 509,
+    "CHOICE": 303,
     "GREED": 397,
     "CAR": 158
    },
@@ -1410,11 +1423,11 @@
     },
     "nerve": {
      "n": 3303,
-     "visible": 0.9951559188616409
+     "visible": 0.9969724492885256
     },
     "down": {
      "n": 1788,
-     "visible": 0.9871364653243848
+     "visible": 0.9893736017897091
     },
     "bond-save": {
      "n": 66,
