@@ -69,9 +69,7 @@
     const u = window.RACrew.get(id);
     return u ? { id, name: u.name, status: u.status, class: u.class } : { id, status: 'unknown' };
    }),
-   newStories: stories,
-   // Showdown pending note
-   f01Pending: resolution.f01Pending || null
+   newStories: stories
   };
 
   return card;
@@ -137,7 +135,6 @@ HEAT: ${tally.heat >= 0 ? '+' : ''}${tally.heat}
 ${tally.newStories ? `<br>NEW STORIES: ${tally.newStories}` : ''}
 ${card.comments.map(c => `<br><span class="phone-small">@${esc(c.handle)} · ${esc(c.text)}</span>`).join('')}
 ${card.newStories.map(s => `<br><span class="phone-small">${esc(s.oga)}: <i>${esc(s.line)}</i></span>`).join('')}
-${card.f01Pending ? `<br><span class="phone-small">⚠ SHOWDOWN: F01_INTEGRATION_PENDING</span>` : ''}
 </div>`;
  }
 

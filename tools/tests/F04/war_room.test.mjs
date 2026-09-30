@@ -3,28 +3,11 @@
 // Discovered and run by tools/run-tests.mjs (auto-discovery: tools/tests/**/*.test.mjs).
 
 import assert from 'node:assert/strict';
-import { full, run, same } from '../if1/_lib.mjs';
-
-const F04_FILES = [
-  'js/frag/F04/migrations.js',
-  'js/frag/F04/districts.js',
-  'js/frag/F04/crew.js',
-  'js/frag/F04/jobs.js',
-  'js/frag/F04/heat_config.js',
-  'js/frag/F04/vampgram.js',
-  'js/frag/F04/report_card.js',
-  'js/frag/F04/wake.js',
-  'js/frag/F04/showdown_stub.js',
-  'js/frag/F04/phone_app.js'
-];
+import { same } from '../if1/_lib.mjs';
+import { loadWar } from './_lib.mjs';
 
 async function loadF04(root, { flagOn = true } = {}) {
-  const ctx = await full(root);
-  await run(root, ctx, F04_FILES);
-  if (flagOn) {
-    ctx.RAFeatures.set('F04.war_room', true);
-  }
-  return ctx;
+  return loadWar(root, { flagOn });
 }
 
 export async function test(root) {
@@ -178,7 +161,7 @@ export async function test(root) {
     const jobCard = ctx.RAWarRoomJobs.buildJobCard({ type: 'LAY_LOW', district: null });
     assert.equal(jobCard.squadSize, 0);
 
-    const res = ctx.RAWarRoomJobs.executeRun({ jobCard, squad: [], carId: null, approach: 'LAY_LOW', playerChoices: null });
+    const res = ctx.RAWarRoomJobs.executeRun({ jobCard });
     assert.equal(res.success, true);
     assert.equal(res.cashDelta, -10000);
     assert.equal(res.heatDelta, -15);
@@ -193,14 +176,14 @@ export async function test(root) {
     assert.ok(menu.some(j => j.type === 'LAY_LOW'), 'LAY_LOW must be included in night menu');
   }
 
-  // ── 8. District control & pressure ──────────────────────────────────────
+  // ── 8. District control & pressure (Koreatown is F03's: F04 consumes it) ───────────
   {
     const ctx = await loadF04(root, { flagOn: true });
-    const ids = ctx.RADistricts.ids().filter(id => ctx.RADistricts.get(id)?.fragment === 'F04');
-    assert.equal(ids.length, 3);
-    assert.ok(ids.includes('koreatown'));
-    assert.ok(ids.includes('arts_district'));
-    assert.ok(ids.includes('inglewood'));
+    const owner = id => ctx.RADistricts.get(id)?.fragment;
+    assert.equal(owner('koreatown'), 'F03', 'Koreatown stays F03-owned');
+    assert.equal(owner('arts_district'), 'F04');
+    assert.equal(owner('inglewood'), 'F04');
+    same([...ctx.RAWarRoomDistricts.activeIds()], ['koreatown', 'arts_district', 'inglewood'], 'all three districts usable by the War Room');
 
     ctx.RAFrag.patch('F04', 'active', true);
     ctx.RAFrag.patch('F04', 'offer.status', 'accepted');
@@ -218,6 +201,7 @@ export async function test(root) {
     ctx.RAWarRoomDistricts.tickPressure('inglewood');
     ctx.RAWarRoomDistricts.resetPressure('inglewood');
     assert.equal(ctx.RAWarRoomDistricts.pressure('inglewood'), 0);
+    assert.ok(ctx.RAWarRoomDistricts.demand('arts_district') > 0 && ctx.RAWarRoomDistricts.demand('koreatown') === 0, 'a lost district has no demand; strategic weights are F04-owned data');
   }
 
   // ── 9. CAPTURED / GONE state ────────────────────────────────────────────
@@ -293,39 +277,25 @@ export async function test(root) {
     assert.ok(hbRes.ok, 'handBack must succeed when route active');
     assert.ok(hbRes.job, 'handBack must return final job card');
     assert.equal(hbRes.job.isHandBack, true);
-    assert.ok(hbRes.note.includes('F01_INTEGRATION_PENDING'));
+    assert.ok(hbRes.note.includes('F01 THE PLAY'));
 
     ctx.RAWarRoomJobs.resolveHandBack({ outcome: 'victory' });
     assert.equal(ctx.RAFrag.read('F04', 'offer.status', null), 'closed_fame');
     assert.equal(ctx.RAFrag.read('F04', 'active', null), false);
   }
 
-  // ── 12. Showdown contract & F01 Pending List ────────────────────────────
+  // ── 12. The old tactical RUN / SHOWDOWN-stub surfaces are retired (OL-023) ───────────
   {
     const ctx = await loadF04(root, { flagOn: true });
-
-    const pending = ctx.RAWarRoomShowdown.F01_INTEGRATION_PENDING;
-    assert.ok(Array.isArray(pending) && pending.length >= 10, 'must list all 10 F01 pending items');
-    for (const item of pending) {
-      assert.ok(item.id && item.desc, 'each pending item must have id and desc');
-    }
-
-    const job = {
-      id: 'test_showdown_1',
-      type: 'TAKE_THE_BLOCK',
-      district: 'koreatown',
-      districtLabel: 'KOREATOWN',
-      showdownSetup: ctx.RAWarRoomJobs.buildJobCard({ type: 'TAKE_THE_BLOCK', district: 'koreatown' })?.showdownSetup
-    };
-    const result = ctx.RAWarRoomShowdown.buildEntryPacket({
-      jobCard: job,
-      squadIds: ['tunde', 'dre'],
-      carId: null,
-      approach: 'LOUD'
-    });
-    assert.ok(result.ok, `entry packet must succeed: ${result.errors?.join(', ')}`);
-    assert.ok(result.packet.f01Pending === 'F01_INTEGRATION_PENDING');
-    assert.ok(result.packet.rich.hp === 12);
+    assert.equal(ctx.RAWarRoomShowdown, undefined, 'the showdown stub is gone');
+    assert.equal(ctx.RAWarRoomJobs._beatLibrary, undefined, 'the RUN SEQUENCE beat library is gone');
+    assert.equal(ctx.RAWarRoomJobs.APPROACHES, undefined, 'QUIET / LOUD / OCTOPUS approach picking is gone (F01 backstage)');
+    assert.throws(() => ctx.RAWarRoomJobs.executeRun({ jobCard: ctx.RAWarRoomJobs.buildJobCard({ type: 'DROP', district: 'inglewood' }) }), /RUN_RETIRED/, 'F04 no longer resolves a crew job itself');
+    const c = ctx.RAWarRoomJobs.buildJobCard({ type: 'TAKE_THE_BLOCK', district: 'inglewood' });
+    assert.equal(c.routesToPlay, true);
+    assert.equal(c.showdownSetup, undefined, 'no F01_INTEGRATION_PENDING setup blob');
+    assert.equal(ctx.RAWarRoomJobs.buildJobCard({ type: 'LAY_LOW', district: null }).routesToPlay, false, 'LAY LOW is the only job F04 resolves itself');
+    assert.ok(ctx.RAWarRoomPlay && typeof ctx.RAWarRoomPlay.launch === 'function', 'RAWarRoomPlay is the single seam');
   }
 
   // ── 13. Invariant self-check & Owner Ledger Integration ─────────────────
@@ -343,5 +313,5 @@ export async function test(root) {
     same(problems, ['submitted module F04.init-war-room has no version assigned by the integration owner']);
   }
 
-  console.log('PASS F04 PLAYMAKERS WAR ROOM test suite (authored HEAT floors, job rewards, LAY LOW, squad, districts, crew, report cards, hand back, invariants)');
+  console.log('PASS F04 PLAYMAKERS WAR ROOM test suite (authored HEAT floors, job tables, LAY LOW, F03-owned Koreatown consumed, crew, report cards, hand back, tactical RUN retired, invariants)');
 }

@@ -146,6 +146,15 @@
    });
   },
 
+  // DOWNED but carried home (a PLAY brought them back hurt): recoverable, NOT the bleed-out clock. Back to ACTIVE after `days` nights.
+  // (setDowned above is the un-carried case: bleed timer -> GONE.)
+  setRecovering(id, { days = 1, reason = null } = {}) {
+   return window.RACrew.setStatus(id, 'DOWNED', {
+    reason,
+    timer: { name: 'recovery', days: Math.max(1, Number(days) || 1), onExpire: 'ACTIVE' }
+   });
+  },
+
   // CAPTURED: set status + 3-night EXTRACT window timer (Vol 7 §5.7).
   setCaptured(id, { reason = null } = {}) {
    return window.RACrew.setStatus(id, 'CAPTURED', {

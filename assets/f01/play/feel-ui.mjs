@@ -4,6 +4,7 @@
 import * as E from '../../../js/frag/F01/play/engine.mjs';
 import * as W from '../../../js/frag/F01/play/world.mjs';
 import * as C from '../../../js/frag/F01/play/content.mjs';
+import * as AD from '../../../js/frag/F01/play/adapter.mjs';
 import {createFeed,offerHints} from '../../../js/frag/F01/play/feed.mjs';
 import {store,counter,tele} from './ui-core.mjs';
 import * as K from './feel-core.mjs';
@@ -13,7 +14,7 @@ import * as A from './feel-art.mjs';
 const Q=new URLSearchParams(location.search);
 export const G={w:null,last:null,texts:[],plan:null,ctx:null,params:Q};
 const money=k=>'$'+Math.round(k*1000).toLocaleString('en-US');
-const save=()=>store.set('world2',G.w);
+const save=()=>{if(G.embed)return;store.set('world2',G.w);}; // embed (F04 request): nothing is persisted mid-PLAY; the world is committed with the result
 
 // ------------------------------------------------------------------------------------------------ world
 function loadWorld(){
@@ -44,26 +45,23 @@ function homeItems(){
   const gv=A.gunView(g.gun);const fee=W.gunQuote(g.gun)||0;
   recover.push({title:gv.type+(gv.nick?` · ${gv.nick}`:''),line:g.route==='IMPOUND'?'the cops have it.':'gone. the armory has more.',button:fee?`BUY ${money(fee)}`:'REPLACE',disabled:w.cash<fee,act:()=>{const idx=(w.lostGuns||[]).findIndex(x=>x===g);if(idx>=0)W.rebuyGun(w,idx);save();}});
  }
- for(const c of W.captiveInfo(w)){
+ for(const c of (G.embed?[]:W.captiveInfo(w))){ // embed: F04 owns the EXTRACT window; F01's RANSOM surface is not routed
   if(c.lastNight)ransom.push({title:c.names.join(' & '),line:'last night. they want money.',button:`PAY ${money(c.cost)}`,disabled:!c.affordable,act:()=>{W.payRansom(w,c.gid);save();}});
  }
  return {recover,ransom};
 }
 
 // ------------------------------------------------------------------------------------------------ offers: a contact calls Rich
+function decorate(p){
+ const w=G.w,job=p.job,pit=named(w,p.pitcher);
+ const t=p.extract?{text:p.quote,full:p.quote}:W.pitchText(w,job,p.pitcher);
+ return {...p,caller:(pit.short||'SOMEONE').toUpperCase(),name:p.extract?job.names[0]:job.names[p.nameIdx],cashK:job.band[1],min:job.size[0],big:!!job.bigPlay,notice:!!p.notice,
+  quote:p.notice?"they're coming to the castle. lock the good door.":t.text,full:t.full,hints:p.extract?[]:offerHints(w,job,p.pitcher)};
+}
 function buildOffers(){
- const w=G.w;const board=W.productionBoard(w);const ready=W.readyOnes(w);
- const extracts=(w.captives||[]).map(g=>{
-  const job=W.extractJob(w,g);const pid=['dre','tunde','half_pint','young_mazi'].find(id=>ready.some(o=>o.id===id))||(ready[0]&&ready[0].id)||'dre';
-  const names=g.ids.map(id=>named(w,id).short).join(' and ');
-  return {job,pitcher:pid,nameIdx:0,extract:true,g,quote:`${g.clock===1?'This is the last night.':'The clock is running.'} They’re holding ${names}.`,full:`${names}`};
- });
- return [...board.pitches.filter(p=>p.notice),...extracts,...board.pitches.filter(p=>!p.notice)].map(p=>{
-  const job=p.job,pit=named(w,p.pitcher);
-  const t=p.extract?{text:p.quote,full:p.quote}:W.pitchText(w,job,p.pitcher);
-  return {...p,caller:(pit.short||'SOMEONE').toUpperCase(),name:p.extract?job.names[0]:job.names[p.nameIdx],cashK:job.band[1],min:job.size[0],big:!!job.bigPlay,notice:!!p.notice,
-   quote:p.notice?"they're coming to the castle. lock the good door.":t.text,full:t.full,hints:p.extract?[]:offerHints(w,job,p.pitcher)};
- });
+ const w=G.w;const board=W.productionBoard(w);
+ const extracts=(w.captives||[]).map(g=>AD.extractPitch(w,g));
+ return [...board.pitches.filter(p=>p.notice),...extracts,...board.pitches.filter(p=>!p.notice)].map(decorate);
 }
 
 // ------------------------------------------------------------------------------------------------ one PLAY
@@ -72,7 +70,7 @@ async function playOne(offer){
  const plan=isX?{oba:false,falseAlarm:false,sibling:null}:W.feelPlan(w,job);
  if(Q.get('oba')==='1'&&E.obaEligible(job)){plan.oba=true;}
  if(Q.get('falsealarm')==='1')plan.falseAlarm=true;
- const qa=Q.get('qa');const cfg={seed:w.seed*1000+w.night*10+(isX?1:2),job,policy:'driver',opts:qa==='wash'?{qaWash:true}:{},night:w.night,pitcher:offer.pitcher,nameIdx:offer.nameIdx,pitchText:offer.full,state:w,intel:!!offer.intel,oba:!!plan.oba};
+ const qa=Q.get('qa');const cfg={seed:G.embed?AD.seedFor(G.embed.req,isX):w.seed*1000+w.night*10+(isX?1:2),job,policy:'driver',opts:qa==='wash'?{qaWash:true}:{},night:w.night,pitcher:offer.pitcher,nameIdx:offer.nameIdx,pitchText:offer.full,state:w,intel:!!offer.intel,oba:!!plan.oba};
  G.plan=plan;G.curCfg={...cfg,state:structuredClone(w)};G.curRoster=structuredClone(w.roster);
  tele.log('PLAY_START',{job:job.id,seed:cfg.seed,night:w.night});tele.start('play');
  const out=await drive(cfg,plan,offer);
@@ -84,6 +82,7 @@ async function playOne(offer){
  counter.bump();tele.log('PLAY_END',{job:job.id,win:rec.win,klass:rec.klass,ms:tele.since('play')});
  G.texts=rec.morning&&rec.morning.texts&&rec.morning.texts[0]?[splitText(rec.morning.texts[0])]:[];
  save();
+ if(G.embed&&G.embed.onApplied)G.embed.onApplied(rec,w); // embed: build + COMMIT the canonical result before the return scene, so a reload here cannot lose or repeat the PLAY
  await returnFlow(out,rec,bankBefore);
  return rec;
 }
@@ -164,7 +163,7 @@ async function returnFlow(out,rec,bankBefore){
  const res=await V.returnScene({rec,crewObjs:objs,w,bankBefore});
  G.lastReturn=res;
  tele.start('again');
- await V.againButton();
+ await V.againButton(G.embed?'BACK TO THE WAR ROOM':undefined);
 }
 
 // ------------------------------------------------------------------------------------------------ nights
@@ -195,12 +194,59 @@ async function mainLoop(){
  }
 }
 
+// ------------------------------------------------------------------------------------------------ embed: the WAR ROOM asks for ONE play (contract: js/frag/F01/play_contract.js)
+// WAR ROOM -> PHONE (this one offer) -> CREW / CAR -> DEPARTURE -> ARRIVAL -> LIVE FEED -> RETURN -> back to the WAR ROOM with a canonical result.
+// The whole canonical presentation is reused unchanged; only the loop around it (the board, the nights, the title) is replaced by the request.
+const EMBED_KEY='world_f04',RESULTS_KEY='embed_results';
+export async function runEmbedded(req){
+ const CT=globalThis.RAPlayContract;
+ const cache=store.get(RESULTS_KEY,{});
+ if(req&&cache[req.requestId])return cache[req.requestId]; // idempotent: an already-completed request is answered from the record, never replayed
+ const v=CT.validateRequest(req);if(!v.ok)return AD.refusedResult(req,'BAD_REQUEST','the request does not match the contract',v.errors);
+ const w=AD.prepareWorld(req,store.get(EMBED_KEY,null));G.w=w;
+ const before=Object.fromEntries(req.roster.map(o=>[o.id,o.status]));const cash0=w.cash;
+ const picked=AD.pitchFor(w,req);if(picked.refuse)return AD.refusedResult(req,picked.refuse.code,picked.refuse.reason);
+ let result=null;
+ const commit=(res)=>{const c=store.get(RESULTS_KEY,{});c[req.requestId]=res;const keys=Object.keys(c);for(const k of keys.slice(0,Math.max(0,keys.length-AD.RESULT_KEEP)))delete c[k];store.set(RESULTS_KEY,c);store.set(EMBED_KEY,G.w);};
+ G.embed={req,onApplied:(rec,wNow)=>{result=AD.buildResult(req,{rec,w:wNow,before,cash0});wNow.morningTexts=G.texts.slice();commit(result);}};
+ w.ui={open:w.night,used:false};
+ try{
+  await K.fadeTo(1,1);
+  const items=homeItems();
+  if(G.texts.length||w.morningTexts.length||items.recover.length){await V.homeScene({w,texts:w.morningTexts.length?w.morningTexts:G.texts,recover:items.recover,ransom:[],bank:w.cash});w.morningTexts=[];G.texts=[];}
+  const offer=decorate(picked.pitch);
+  const c=await V.offerScene({...offer,bank:w.cash,again:false});
+  if(c!=='answer'){result=AD.declinedResult(req,{cash0,w});commit(result);}
+  else await playOne(offer);
+ }catch(err){
+  console.error(err);tele.log('ERROR',{msg:String(err&&err.stack||err)});
+  if(!result)result=AD.refusedResult(req,'PLAY_ERROR',String(err&&err.message||err));
+ }finally{G.embed=null;}
+ return result;
+}
+// Host wiring: the WAR ROOM opens this page in an iframe (RAShowdown.play.launch); the request arrives by postMessage, the result goes back the same way.
+async function bootEmbed(){
+ K.applySettings();
+ V.settingsButton({onNewCareer:null}); // the War Room owns the career: no NEW CAREER in embed
+ const host=window.parent!==window?window.parent:null;const origin=location.origin;
+ window.__raPlayEmbed={run:runEmbedded,G};
+ window.__raPlay={G,W,E,C,K,V,A,AD,store,counter,tele,replayCheck};
+ if(!host)return; // opened directly: driven through window.__raPlayEmbed.run(request)
+ window.addEventListener('message',async ev=>{
+  if(ev.origin!==origin||ev.source!==host||!ev.data||ev.data.type!=='F04.play_request')return;
+  const res=await runEmbedded(ev.data.request);
+  host.postMessage({type:'F01.play_result',result:res},origin);
+ });
+ host.postMessage({type:'F01.play_ready'},origin);
+}
+
 // ------------------------------------------------------------------------------------------------ boot
 export async function boot(){
  if(Q.get('fresh')==='1'){store.del('world2');store.del('tele');store.del('counter');store.del('lastCar');try{const u=new URL(location.href);u.searchParams.delete('fresh');history.replaceState(null,'',u.toString());}catch(e){}}
  if(Q.get('mute')==='1')K.settings.set({sound:false});
  if(Q.get('reduce')==='1')K.settings.set({reduceMotion:true});
  if(Q.get('moretime')==='1')K.settings.set({moreTime:true});
+ if(Q.get('embed')==='1'){await bootEmbed();return;}
  K.applySettings();
  G.w=loadWorld();if(Q.get('devbig')==='1')G.w.devBig=true;if(Q.get('hold')==='1'&&!(G.w.pending))G.w.pending={night:G.w.night,kind:'HOLD'};
  save();

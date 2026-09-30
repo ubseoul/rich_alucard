@@ -18,7 +18,7 @@
  function renderBoard() {
   const active = window.RAFrag.read('F04', 'active', false);
   if (!active) return renderOffer();
-  const districts = (window.RAWarRoomDistricts?.IDS || []).map(id => {
+  const districts = (window.RAWarRoomDistricts?.activeIds?.() || []).map(id => {
    const d = window.RADistricts.get(id);
    const pressure = window.RAWarRoomDistricts.pressure(id);
    const heatSnap = window.RAHeat.snapshot().districts[id] || { value: 0, tier: 'COOL' };
@@ -76,10 +76,18 @@ ${btn('NAH.', 'do:warRoom:decline')}`;
   const nightsIn = window.RAFrag.read('F04', 'jobs.nightsSinceStart', 0);
   if (!jobs.length) return `<h1>JOBS</h1><p class="phone-small">quiet tonight.</p>`;
 
+  const P = window.RAWarRoomPlay;
+  const pend = P?.pending();
+  const refusal = P?.lastRefusal();
+  const pendLine = pend ? `<div class="phone-card"><b>A PLAY IS ON.</b><br>${esc(pend.jobMeta?.label || '')}
+${btn('RESUME', 'do:warRoom:resume')}</div>` : '';
+  const refuseLine = !pend && refusal && refusal.day === window.RALife.today().day ? `<p class="phone-small">not tonight: ${esc(String(refusal.reason || refusal.code).toLowerCase())}.</p>` : '';
+
   const mods = window.RAWarRoomJobs.nightModifiers();
   const modLine = mods.length ? `<p class="phone-small">TONIGHT: ${mods.map(m => esc(m.label)).join(' · ')}</p>` : '';
 
   return `<h1>TONIGHT'S JOBS</h1>
+${pendLine}${refuseLine}
 ${modLine}
 <p class="phone-small">SLOTS: ${slots} · NIGHT ${nightsIn}</p>
 ${jobs.map((job, i) => renderJobCard(job, i)).join('')}
@@ -94,30 +102,26 @@ ${btn('← BACK', 'app:warRoom')}`;
 ${btn('LAY LOW TONIGHT', `do:warRoom:runJob:${i}`)}
 </div>`;
   }
-  const kindLabel = job.isShowdown ? '⚔ SHOWDOWN' : '🚗 RUN';
+  // WAR ROOM answers "what play do I want to make?". Crew, car, danger and money are THE PLAY's (F01) — nothing about them here.
   const recs = (job.recommended || []).join(' / ');
-  const showdownNote = job.isShowdown ? `<br><span class="phone-small">⚠ F01_INTEGRATION_PENDING</span>` : '';
-  const rewardLine = job.authoredReward ? formatRewardLine(job) : '';
-  const heatLine = job.authoredHeat ? `HEAT: +${job.authoredHeat}` : '';
+  const fx = strategicEffectLine(job);
   return `<div class="phone-card war-room-job">
 <b>${esc(job.label)}</b> · ${esc(job.districtLabel)}
-<br>${kindLabel} · SQUAD: ${job.squadSize}
-${rewardLine ? `<br>${esc(rewardLine)}` : ''}${heatLine ? ` · ${esc(heatLine)}` : ''}
+${fx ? `<br>${esc(fx)}` : ''}
 ${recs ? `<br>REC: ${esc(recs)}` : ''}
-${showdownNote}
-${btn('SELECT SQUAD', `do:warRoom:selectSquad:${i}`)}
+${btn('MAKE THIS PLAY', `do:warRoom:play:${i}`)}
 </div>`;
  }
 
- function formatRewardLine(job) {
+ // Only the authored strategic (non-cash) consequences are shown; cash and HEAT come from the PLAY itself.
+ function strategicEffectLine(job) {
   const r = job.authoredReward;
   if (!r) return '';
   switch (r.type) {
-   case 'cash_range':     return `REWARD: $${(r.min/1000)}K–$${(r.max/1000)}K`;
-   case 'supply_range':   return `REWARD: +${r.min}–${r.max} SUPPLY`;
-   case 'cash_and_rep':   return `REWARD: $${(r.cash/1000)}K + STREET REP`;
-   case 'pressure_reduce':return `REWARD: RIVAL PRESSURE ${r.pressureDelta}`;
-   default:               return '';
+   case 'supply_range':    return `WIN: +${r.min}–${r.max} SUPPLY`;
+   case 'cash_and_rep':    return 'WIN: STREET REP';
+   case 'pressure_reduce': return `WIN: RIVAL PRESSURE ${r.pressureDelta}`;
+   default:                return '';
   }
  }
 
@@ -152,7 +156,7 @@ ${btn('← BACK', 'app:warRoom')}`;
  function renderHandBack() {
   const hb = window.RAFrag.read('F04', 'handBack', {});
   if (hb.resolved) return `<h1>HAND BACK</h1><p class="phone-small">it's done.</p>${btn('← BACK','app:warRoom')}`;
-  if (hb.pending) return `<h1>HAND BACK</h1><p class="phone-small">the job is set. waiting on the showdown (F01_INTEGRATION_PENDING).</p>${btn('← BACK','app:warRoom')}`;
+  if (hb.pending) return `<h1>HAND BACK</h1><p class="phone-small">the last play is set. finish it.</p>${window.RAWarRoomPlay?.pending() ? btn('RESUME', 'do:warRoom:resume') : btn('MAKE THE LAST PLAY', 'do:warRoom:handBackPlay', 'phone-button-danger')}${btn('← BACK','app:warRoom')}`;
   return `<h1>HAND BACK THE BLOCKS</h1>
 <div class="phone-card">
 <b>RETURN TO DECEMBER.</b><br>
@@ -160,32 +164,6 @@ You keep everything. One last job.
 </div>
 ${btn('HAND BACK', 'do:warRoom:handBack', 'phone-button-danger')}
 ${btn('NOT YET', 'app:warRoom')}`;
- }
-
- function renderSquadSelect(jobIndex) {
-  const jobs = window.RAWarRoomJobs.buildNightMenu();
-  const job = jobs[Number(jobIndex)];
-  if (!job) return `<h1>SELECT SQUAD</h1><p class="phone-small">job not found.</p>${btn('← BACK','app:warRoom:jobs')}`;
-
-  const active = window.RAWarRoomCrew.activeOgas();
-  const cars = window.RAVehicles.list().filter(c => !c.service?.tributed);
-
-  return `<h1>SELECT SQUAD</h1>
-<b>${esc(job.label)}</b> · ${esc(job.districtLabel)}
-<p class="phone-small">SQUAD SIZE: ${job.squadSize}</p>
-${active.map(o => `<label class="phone-label">
-<input type="checkbox" name="oga" value="${esc(o.id)}"> ${esc(o.name)} (${esc(o.class)})
-</label>`).join('')}
-<p class="phone-small">CAR:</p>
-${cars.map(c => `<label class="phone-label">
-<input type="radio" name="car" value="${esc(c.id)}"> ${esc(c.model || c.id)}
-</label>`).join('')}
-<p class="phone-small">APPROACH:</p>
-${['QUIET','LOUD','OCTOPUS_BRAIN'].map(a => `<label class="phone-label">
-<input type="radio" name="approach" value="${esc(a)}" ${a==='LOUD'?'checked':''}> ${a}
-</label>`).join('')}
-${btn(`RUN THE JOB`, `do:warRoom:runJob:${jobIndex}`)}
-${btn('← BACK', 'app:warRoom:jobs')}`;
  }
 
  // ── Action handler ────────────────────────────────────────────────────────
@@ -213,68 +191,33 @@ ${btn('← BACK', 'app:warRoom:jobs')}`;
    return;
   }
 
-  if (act === 'handBack') {
-   const result = window.RAWarRoomJobs.initiateHandBack();
-   if (!result.ok) {
-    api.refresh();
-    return;
-   }
+  if (act === 'handBack' || act === 'handBackPlay') {
+   const J = window.RAWarRoomJobs;
+   const started = act === 'handBack' ? J.initiateHandBack() : { ok: window.RAFrag.read('F04', 'handBack', {}).pending, job: J.buildHandBackJob() };
+   if (!started.ok) { api.refresh(); return; }
+   // the last play is made by THE PLAY like any other; the route closes when its result is consumed
+   return Promise.resolve(window.RAWarRoomPlay.launch(started.job)).then(() => api.refresh(), () => api.refresh());
+  }
+
+  if (act === 'runJob') {
+   // LAY LOW is the only job the War Room resolves itself (no squad, no car, no PLAY).
+   const job = window.RAWarRoomJobs.buildNightMenu()[Number(arg)];
+   if (!job || job.type !== 'LAY_LOW') { api.refresh(); return; }
+   const resolution = window.RAWarRoomJobs.executeRun({ jobCard: job });
+   window.RAWarRoomJobs.applyRunResult(resolution);
+   window.RAWarRoomReportCard.record(resolution);
+   window.RAFrag.patch('F04', 'jobs.nightsSinceStart', window.RAFrag.read('F04', 'jobs.nightsSinceStart', 0) + 1);
    api.refresh();
    return;
   }
 
-  if (act === 'runJob') {
-   const jobs = window.RAWarRoomJobs.buildNightMenu();
-   const job = jobs[Number(arg)];
-   if (!job) { api.refresh(); return; }
-
-   // LAY LOW: no squad, no car, immediate resolution (Vol 7 §3.2: squad 0)
-   if (job.type === 'LAY_LOW') {
-    const resolution = window.RAWarRoomJobs.executeRun({
-     jobCard: job,
-     squad: [],
-     carId: null,
-     approach: 'LAY_LOW',
-     playerChoices: null
-    });
-    window.RAWarRoomJobs.applyRunResult(resolution);
-    window.RAWarRoomReportCard.record(resolution);
-    const nights = window.RAFrag.read('F04', 'jobs.nightsSinceStart', 0);
-    window.RAFrag.patch('F04', 'jobs.nightsSinceStart', nights + 1);
-    api.refresh();
-    return;
-   }
-
-   const active = window.RAWarRoomCrew.activeOgas();
-   const squadIds = active.slice(0, job.squadSize).map(o => o.id);
-   const cars = window.RAVehicles.list();
-   const carId = cars[0]?.id || null;
-   const approach = 'LOUD';
-
-   if (job.isShowdown) {
-    const packet = window.RAWarRoomShowdown.buildEntryPacket({ jobCard: job, squadIds, carId, approach });
-    window.RAFrag.patch('F04', 'showdown.pendingJob', { jobCard: job, packet });
-    api.refresh();
-    return;
-   }
-
-   // RUN job: execute beats
-   const squad = squadIds.map(id => window.RACrew.get(id));
-   const resolution = window.RAWarRoomJobs.executeRun({
-    jobCard: job,
-    squad,
-    carId,
-    approach,
-    playerChoices: null
-   });
-   window.RAWarRoomJobs.applyRunResult(resolution);
-   window.RAWarRoomReportCard.record(resolution);
-
-   const nights = window.RAFrag.read('F04', 'jobs.nightsSinceStart', 0);
-   window.RAFrag.patch('F04', 'jobs.nightsSinceStart', nights + 1);
-
-   api.refresh();
-   return;
+  // Every job that sends crew out: hand off to F01 THE PLAY (phone -> crew / car -> play -> return), then consume its result.
+  if (act === 'play' || act === 'resume') {
+   const P = window.RAWarRoomPlay;
+   const job = act === 'play' ? window.RAWarRoomJobs.buildNightMenu()[Number(arg)] : null;
+   if (act === 'play' && !job) { api.refresh(); return; }
+   const started = act === 'play' ? P.launch(job) : P.resume();
+   return Promise.resolve(started).then(() => api.refresh(), () => api.refresh());
   }
 
   api.refresh();
@@ -289,7 +232,6 @@ ${btn('← BACK', 'app:warRoom:jobs')}`;
   if (sub === 'crew') return renderCrew();
   if (sub === 'reports') return renderReports();
   if (sub === 'handback') return renderHandBack();
-  if (sub?.startsWith('squad:')) return renderSquadSelect(sub.slice(6));
   return renderBoard();
  }
 

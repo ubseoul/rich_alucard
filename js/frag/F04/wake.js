@@ -89,7 +89,7 @@
     log.filter(e => e.day === day - 1 && e.result === 'success').map(e => e.district)
    );
 
-   for (const distId of window.RAWarRoomDistricts.IDS) {
+   for (const distId of window.RAWarRoomDistricts.activeIds()) {
     const dist = window.RADistricts.get(distId);
     if (!dist) continue;
     // Only tick districts that Rich has some interest in (not already lost)
@@ -103,7 +103,7 @@
    window.RAFrag.patch('F04', 'jobs.slotsPerNight', window.RAWarRoomCrew.slotsPerNight());
 
    // Retaliation: check if a retaliation event is due
-   for (const distId of window.RAWarRoomDistricts.IDS) {
+   for (const distId of window.RAWarRoomDistricts.activeIds()) {
     const retDay = window.RAFrag.read('F04', `districts.${distId}.retaliationDay`, null);
     if (retDay != null && day >= retDay) {
      window.RAFrag.patch('F04', `districts.${distId}.retaliationDay`, null);

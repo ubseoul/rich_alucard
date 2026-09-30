@@ -6,6 +6,7 @@
   "files": [
     "js/frag/F01/rng.js",
     "js/frag/F01/data.js",
+    "js/frag/F01/play_contract.js",
     "js/frag/F01/rules.js",
     "js/frag/F01/engine.js",
     "js/frag/F01/ai.js",

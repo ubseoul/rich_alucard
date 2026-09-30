@@ -428,9 +428,9 @@ export function settingsButton({onNewCareer,onDev}){
    <label><input type="checkbox" data-k="sound" ${s.sound?'checked':''}> SOUND</label>
    <label><input type="checkbox" data-k="moreTime" ${s.moreTime?'checked':''}> MORE TIME on calls</label>
    <label><input type="checkbox" data-k="reduceMotion" ${s.reduceMotion?'checked':''}> REDUCE MOTION</label>
-   <button data-new>NEW CAREER</button><button data-close>CLOSE</button>`,stage);p.id='setpanel';
+   ${onNewCareer?'<button data-new>NEW CAREER</button>':''}<button data-close>CLOSE</button>`,stage);p.id='setpanel';
   p.querySelectorAll('input').forEach(i=>i.onchange=()=>settings.set({[i.dataset.k]:i.checked}));
-  p.querySelector('[data-new]').onclick=()=>{if(confirm('Start a new career? This clears the save.'))onNewCareer();};
+  if(onNewCareer)p.querySelector('[data-new]').onclick=()=>{if(confirm('Start a new career? This clears the save.'))onNewCareer();};
   p.querySelector('[data-close]').onclick=()=>p.remove();
  };
  return b;

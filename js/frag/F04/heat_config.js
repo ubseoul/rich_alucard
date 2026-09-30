@@ -21,15 +21,21 @@
  if (!window.RAFeatures?.get('F04.war_room')) return;
 
  // ── Apply authored HEAT tier floors (Vol 7 §8) ──────────────────────────
- window.RAHeat.configure({
-  floors: {
-   COOL:      0,
-   WARM:     30,
-   HOT:      60,
-   'ON FIRE': 85
-  },
-  provisional: false
- });
+ // OWNER_REQUIRED (global): who owns RAHeat.configure is unresolved. The IF-1 default is PROVISIONAL; F04 keeps its existing
+ // compatible behaviour LOCALLY: it applies these floors only while HEAT is still provisional, and never overrides floors an
+ // owner configured earlier. `configured` reports what actually happened so nothing reads F04's numbers as global authority.
+ const heatWasProvisional = window.RAHeat.tiers().provisional !== false;
+ if (heatWasProvisional) {
+  window.RAHeat.configure({
+   floors: {
+    COOL:      0,
+    WARM:     30,
+    HOT:      60,
+    'ON FIRE': 85
+   },
+   provisional: false
+  });
+ }
 
  // Register a heat tier-change listener for War Room effects.
  window.RAHeat.onTierChange(event => {
@@ -62,6 +68,8 @@
  window.RAWarRoomHeat = Object.freeze({
   recordSale,
   vampirePressure: () => window.RAFrag.read('F04', VP_PATH, 50),
+  // true when F04 applied its floors; false when an owner had already configured HEAT (F04 then defers)
+  configured: heatWasProvisional,
   // Authored floor constants exposed for tests and UI.
   AUTHORED_FLOORS: Object.freeze({ COOL: 0, WARM: 30, HOT: 60, 'ON FIRE': 85 }),
   // Expose for testing / UI
