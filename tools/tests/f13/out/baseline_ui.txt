@@ -1,0 +1,16 @@
+F13 balance population — baseline_ui — 5 seeds x 42 days per persona (distributions p10/p50/p90)
+
+NORMAL  final 570K/758K/1.47M  min cash 47K/69K/86K  d23 72K/147K/281K  d30 290K/416K/572K
+  WAR ROOM in 480K/674K/1.38M  PLAYs 13/22/42 win 91%  max/night 1  refused 3  LAY LOW 0x avg drop 0
+  WAR ROOM DEATH  NO_CAR in 4/5 lives (first day 28/39/55)  EXTRACT crashes in 1/5 lives (2)  last night with a PLAY 21/29/42
+  TRAP in 0/0/0 out 185K/185K/185K net -185K/-185K/-185K  sold 0/0/0  cooks/house-night 0  ingredients 0/0/0  upgrades 0/0/0  level 1/1/1  L2 day 0/0/0 L3 day 0/0/0
+  RAIDS 0/5 lives  scheduled 0 answered 0 pendingDays 0  first 0/0/0  stash 0 unbanked 0 holdNet 0  {}
+  HEAT peak 2/3/4 end 0/0/0  CREW gone 0.4 captured 0.6 activeEnd 7.4  RAIN 29K  invariants 0 softlock 0 errors 0
+
+AGGRESSIVE  final 112K/132K/622K  min cash 12K/19K/48K  d23 53K/74K/129K  d30 12K/32K/523K
+  WAR ROOM in 0/20K/787K  PLAYs 6/9/23 win 18%  max/night 2  refused 5  LAY LOW 0x avg drop 0
+  WAR ROOM DEATH  NO_CAR in 4/5 lives (first day 17/20/27)  EXTRACT crashes in 2/5 lives (7)  last night with a PLAY 10/12/19
+  TRAP in 0/0/0 out 185K/185K/445K net -445K/-185K/-185K  sold 0/0/0  cooks/house-night 0  ingredients 0/0/0  upgrades 0/0/0  level 1/1/1  L2 day 0/0/0 L3 day 0/0/0
+  RAIDS 1/5 lives  scheduled 0 answered 0 pendingDays 0  first 26/26/26  stash 0 unbanked 0 holdNet -200  {"HELD":1}
+  HEAT peak 0/5/70 end 0/0/0  CREW gone 1 captured 0.8 activeEnd 5.4  RAIN 0  invariants 0 softlock 0 errors 0
+

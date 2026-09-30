@@ -1,0 +1,76 @@
+F13 before/after — baseline_ui (5x42d, mode ui) vs after_ui (5x42d, mode ui)
+
+## normal
+| metric | before | after |
+|---|---|---|
+| final cash (p10/p50/p90) | 570K/758K/1.47M | 1.40M/1.65M/2.20M |
+| lowest cash in the life | 47K/69K/86K | 38K/54K/56K |
+| cash on day 23 | 72K/147K/281K | 55K/136K/290K |
+| War Room income | 480K/674K/1.38M | 480K/673K/1.28M |
+| PLAYs run | 13/22/42 | 13/22/39 |
+| most PLAYs in one night | 1 | 1 |
+| PLAY win % | 91% | 90% |
+| War Room dead (NO_CAR) lives | 4/5 | 5/5 |
+| EXTRACT crashes (lives) | 1/5 | 2/5 |
+| last night with a PLAY | 21/29/42 | 21/29/39 |
+| LAY LOWs / avg HEAT drop | 0 / 0 | 5 / 15 |
+| trap income | 0/0/0 | 1.29M/1.32M/1.39M |
+| trap spend (houses+base+upgrades) | 185K/185K/185K | 644K/662K/680K |
+| trap net | -185K/-185K/-185K | 642K/663K/706K |
+| cooks per house-night | 0 | 0.94 |
+| cases sold | 0/0/0 | 206/214/224 |
+| ingredients spent | 0/0/0 | 409K/427K/445K |
+| upgrades spent | 0/0/0 | 50K/50K/50K |
+| trap level | 1/1/1 | 3/3/3 |
+| day of Level 2 | 0/0/0 | 26/27/28 |
+| lives with a raid | 0/5 | 5/5 |
+| first raid day | 0/0/0 | 37/38/41 |
+| raids answered (mean) | 0 | 3 |
+| raid pending-days (mean) | 0 | 3 |
+| stash cases lost / unbanked lost (mean) | 0 / 0 | 0 / 0 |
+| HOLD net cash (mean) | 0 | 52K |
+| peak HEAT | 2/3/4 | 70/74/77 |
+| Ogas GONE (mean) | 0.4 | 0.8 |
+| Ogas active at end (mean) | 7.4 | 7.2 |
+| RAINMAKER spent (mean) | 29K | 27K |
+| invariant violations | 0 | 0 |
+| softlocks | 0 | 0 |
+| UI errors | 0 | 0 |
+
+## aggressive
+| metric | before | after |
+|---|---|---|
+| final cash (p10/p50/p90) | 112K/132K/622K | 1.81M/2.02M/2.51M |
+| lowest cash in the life | 12K/19K/48K | 13K/21K/54K |
+| cash on day 23 | 53K/74K/129K | 13K/134K/663K |
+| War Room income | 0/20K/787K | 307K/422K/907K |
+| PLAYs run | 6/9/23 | 5/12/17 |
+| most PLAYs in one night | 2 | 2 |
+| PLAY win % | 18% | 43% |
+| War Room dead (NO_CAR) lives | 4/5 | 5/5 |
+| EXTRACT crashes (lives) | 2/5 | 3/5 |
+| last night with a PLAY | 10/12/19 | 11/15/19 |
+| LAY LOWs / avg HEAT drop | 0 / 0 | 0 / 0 |
+| trap income | 0/0/0 | 2.45M/2.70M/2.87M |
+| trap spend (houses+base+upgrades) | 185K/185K/445K | 1.35M/1.49M/1.53M |
+| trap net | -445K/-185K/-185K | 1.10M/1.22M/1.38M |
+| cooks per house-night | 0 | 0.91 |
+| cases sold | 0/0/0 | 362/402/426 |
+| ingredients spent | 0/0/0 | 902K/1.05M/1.09M |
+| upgrades spent | 0/0/0 | 0/0/0 |
+| trap level | 1/1/1 | 4/4/4 |
+| day of Level 2 | 0/0/0 | 22/24/24 |
+| lives with a raid | 1/5 | 5/5 |
+| first raid day | 26/26/26 | 22/24/28 |
+| raids answered (mean) | 0 | 5 |
+| raid pending-days (mean) | 0 | 5 |
+| stash cases lost / unbanked lost (mean) | 0 / 0 | 8 / 0 |
+| HOLD net cash (mean) | -200 | 58K |
+| peak HEAT | 0/5/70 | 579/638/665 |
+| Ogas GONE (mean) | 1 | 0.6 |
+| Ogas active at end (mean) | 5.4 | 5.8 |
+| RAINMAKER spent (mean) | 0 | 0 |
+| invariant violations | 0 | 0 |
+| softlocks | 0 | 0 |
+| UI errors | 0 | 0 |
+

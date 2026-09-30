@@ -186,7 +186,7 @@ export async function campaign(root,{persona='normal',seed=1,days=42,reloadAt=nu
    for(let k=0;k<P.cooks;k++){
     if(R().production.capacityLeft&&R().production.capacityLeft(h)<1){m.trap.cookRefused++;break;}   // the house is done tonight: no point buying base
     const need=cap-(Number(R().production.ingredients()[base])||0);
-    if(need>0&&mode==='ui'&&!R().phoneApp.house(h).includes(':buyBase:'))break;
+    if(need>0&&mode==='ui'&&!R().phoneApp.render('house:'+h).includes(':buyBase:'))break;   // exactly what the phone shows (render catches a page error)
     if(need>0){const cost=(Number(R().PROVISIONAL.ingredientCost[base])||0)*need;if(money(c)-cost<Math.min(P.reserve,20000)&&cost>0)break;
      const b=money(c);const r=act('trap:ingredients',()=>R().production.purchaseIngredients(base,need));if(r.ok)m.trap.ingredientsSpent+=b-money(c);else break;}
     const stock=()=>R().store.batches().filter(x=>x.houseId===h).reduce((n,x)=>n+x.cases,0);const s0=stock();

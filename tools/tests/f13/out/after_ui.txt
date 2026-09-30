@@ -1,0 +1,16 @@
+F13 balance population — after_ui — 5 seeds x 42 days per persona (distributions p10/p50/p90)
+
+NORMAL  final 1.40M/1.65M/2.20M  min cash 38K/54K/56K  d23 55K/136K/290K  d30 353K/471K/662K
+  WAR ROOM in 480K/673K/1.28M  PLAYs 13/22/39 win 90%  max/night 1  refused 4  LAY LOW 5x avg drop 15
+  WAR ROOM DEATH  NO_CAR in 5/5 lives (first day 28/39/56)  EXTRACT crashes in 2/5 lives (4)  last night with a PLAY 21/29/39
+  TRAP in 1.29M/1.32M/1.39M out 644K/662K/680K net 642K/663K/706K  sold 206/214/224  cooks/house-night 0.94  ingredients 409K/427K/445K  upgrades 50K/50K/50K  level 3/3/3  L2 day 26/27/28 L3 day 41/42/43
+  RAIDS 5/5 lives  scheduled 3 answered 3 pendingDays 3  first 37/38/41  stash 0 unbanked 0 holdNet 52K  {"HELD":15}
+  HEAT peak 70/74/77 end 61/62/64  CREW gone 0.8 captured 1.2 activeEnd 7.2  RAIN 27K  invariants 0 softlock 0 errors 0
+
+AGGRESSIVE  final 1.81M/2.02M/2.51M  min cash 13K/21K/54K  d23 13K/134K/663K  d30 142K/456K/975K
+  WAR ROOM in 307K/422K/907K  PLAYs 5/12/17 win 43%  max/night 2  refused 9  LAY LOW 0x avg drop 0
+  WAR ROOM DEATH  NO_CAR in 5/5 lives (first day 18/22/26)  EXTRACT crashes in 3/5 lives (7)  last night with a PLAY 11/15/19
+  TRAP in 2.45M/2.70M/2.87M out 1.35M/1.49M/1.53M net 1.10M/1.22M/1.38M  sold 362/402/426  cooks/house-night 0.91  ingredients 902K/1.05M/1.09M  upgrades 0/0/0  level 4/4/4  L2 day 22/24/24 L3 day 30/32/37
+  RAIDS 5/5 lives  scheduled 5 answered 5 pendingDays 5  first 22/24/28  stash 8 unbanked 0 holdNet 58K  {"HELD":22,"FELL_BACK":2,"BREACHED":1,"WASH":1}
+  HEAT peak 579/638/665 end 579/638/662  CREW gone 0.6 captured 1 activeEnd 5.8  RAIN 0  invariants 0 softlock 0 errors 0
+

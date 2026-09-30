@@ -1,0 +1,9536 @@
+{
+ "label": "after",
+ "mode": "api",
+ "seeds": 10,
+ "days": 42,
+ "start": {
+  "day": 16,
+  "money": 100000,
+  "clout": "MID",
+  "cars": [
+   "toyota_supra_mk4_001",
+   "lambo_urus_oxblood"
+  ]
+ },
+ "summary": {
+  "normal": {
+   "n": 10,
+   "final": {
+    "p10": 1308300,
+    "p50": 1652050,
+    "p90": 2156650,
+    "mean": 1638925
+   },
+   "net": {
+    "p10": 1208300,
+    "p50": 1552050,
+    "p90": 2056650,
+    "mean": 1538925
+   },
+   "minMoney": {
+    "p10": 38250,
+    "p50": 54500,
+    "p90": 62400,
+    "mean": 51610
+   },
+   "money": {
+    "d23": {
+     "p10": 69900,
+     "p50": 116350,
+     "p90": 290300,
+     "mean": 141940
+    },
+    "d30": {
+     "p10": 353150,
+     "p50": 423300,
+     "p90": 593450,
+     "mean": 435415
+    },
+    "d44": {
+     "p10": 832300,
+     "p50": 1170000,
+     "p90": 1381950,
+     "mean": 1089045
+    }
+   },
+   "warIn": {
+    "p10": 341900,
+    "p50": 673200,
+    "p90": 1237600,
+    "mean": 692860
+   },
+   "plays": {
+    "p10": 12,
+    "p50": 22,
+    "p90": 38,
+    "mean": 23
+   },
+   "winRate": 87,
+   "maxPlaysPerNight": 1,
+   "noCar": {
+    "lives": 10,
+    "day": {
+     "p10": 27,
+     "p50": 39,
+     "p90": 55,
+     "mean": 39
+    }
+   },
+   "extractCrash": {
+    "lives": 4,
+    "count": 10
+   },
+   "lastPlayNight": {
+    "p10": 20,
+    "p50": 29,
+    "p90": 38,
+    "mean": 28
+   },
+   "refused": 5,
+   "layLow": {
+    "n": 4,
+    "avgDrop": 15
+   },
+   "trapIn": {
+    "p10": 1286250,
+    "p50": 1349250,
+    "p90": 1386000,
+    "mean": 1321425
+   },
+   "trapOut": {
+    "p10": 643800,
+    "p50": 662000,
+    "p90": 680200,
+    "mean": 654580
+   },
+   "trapNet": {
+    "p10": 642450,
+    "p50": 687250,
+    "p90": 705800,
+    "mean": 666845
+   },
+   "casesSold": {
+    "p10": 206,
+    "p50": 214,
+    "p90": 220,
+    "mean": 212
+   },
+   "cooksPerHouseNight": 0.93,
+   "ingredients": {
+    "p10": 408800,
+    "p50": 427000,
+    "p90": 445200,
+    "mean": 419580
+   },
+   "upgrades": {
+    "p10": 50000,
+    "p50": 50000,
+    "p90": 50000,
+    "mean": 50000
+   },
+   "level": {
+    "p10": 3,
+    "p50": 3,
+    "p90": 3,
+    "mean": 3
+   },
+   "l2Day": {
+    "p10": 26,
+    "p50": 27,
+    "p90": 28,
+    "mean": 27
+   },
+   "l3Day": {
+    "p10": 41,
+    "p50": 42,
+    "p90": 43,
+    "mean": 43
+   },
+   "raids": {
+    "scheduled": 3,
+    "answered": 3,
+    "pendingDays": 3,
+    "stashLost": 0,
+    "unbankedLost": 0,
+    "holdNet": 50920,
+    "firstRaidDay": {
+     "p10": 38,
+     "p50": 41,
+     "p90": 46,
+     "mean": 42
+    },
+    "withRaid": 10,
+    "outcomes": {
+     "HELD": 27
+    }
+   },
+   "heatPeak": {
+    "p10": 70,
+    "p50": 73,
+    "p90": 76,
+    "mean": 73
+   },
+   "heatEnd": {
+    "p10": 61,
+    "p50": 64,
+    "p90": 71,
+    "mean": 65
+   },
+   "rainSpent": 28000,
+   "crew": {
+    "gone": 0.8,
+    "captured": 1,
+    "activeEnd": 7.1
+   },
+   "invariants": 0,
+   "errors": 0,
+   "errorKinds": [],
+   "softlock": 0
+  },
+  "aggressive": {
+   "n": 10,
+   "final": {
+    "p10": 961900,
+    "p50": 2004250,
+    "p90": 2436200,
+    "mean": 1783695
+   },
+   "net": {
+    "p10": 861900,
+    "p50": 1904250,
+    "p90": 2336200,
+    "mean": 1683695
+   },
+   "minMoney": {
+    "p10": 11550,
+    "p50": 25900,
+    "p90": 52600,
+    "mean": 27760
+   },
+   "money": {
+    "d23": {
+     "p10": 20950,
+     "p50": 134150,
+     "p90": 210950,
+     "mean": 170815
+    },
+    "d30": {
+     "p10": 135650,
+     "p50": 418650,
+     "p90": 691100,
+     "mean": 371120
+    },
+    "d44": {
+     "p10": 270300,
+     "p50": 1019350,
+     "p90": 1436600,
+     "mean": 903455
+    }
+   },
+   "warIn": {
+    "p10": 42400,
+    "p50": 416600,
+    "p90": 579800,
+    "mean": 357900
+   },
+   "plays": {
+    "p10": 6,
+    "p50": 13,
+    "p90": 17,
+    "mean": 13
+   },
+   "winRate": 30,
+   "maxPlaysPerNight": 2,
+   "noCar": {
+    "lives": 9,
+    "day": {
+     "p10": 18,
+     "p50": 22,
+     "p90": 26,
+     "mean": 23
+    }
+   },
+   "extractCrash": {
+    "lives": 4,
+    "count": 8
+   },
+   "lastPlayNight": {
+    "p10": 11,
+    "p50": 14,
+    "p90": 19,
+    "mean": 14
+   },
+   "refused": 8,
+   "layLow": {
+    "n": 0,
+    "avgDrop": 0
+   },
+   "trapIn": {
+    "p10": 1680000,
+    "p50": 2658250,
+    "p90": 2871750,
+    "mean": 2402225
+   },
+   "trapOut": {
+    "p10": 1068000,
+    "p50": 1440400,
+    "p90": 1502000,
+    "mean": 1337780
+   },
+   "trapNet": {
+    "p10": 612000,
+    "p50": 1200000,
+    "p90": 1379550,
+    "mean": 1064445
+   },
+   "casesSold": {
+    "p10": 248,
+    "p50": 384,
+    "p90": 416,
+    "mean": 354
+   },
+   "cooksPerHouseNight": 0.84,
+   "ingredients": {
+    "p10": 623000,
+    "p50": 995400,
+    "p90": 1057000,
+    "mean": 892780
+   },
+   "upgrades": {
+    "p10": 0,
+    "p50": 0,
+    "p90": 0,
+    "mean": 0
+   },
+   "level": {
+    "p10": 3,
+    "p50": 4,
+    "p90": 4,
+    "mean": 4
+   },
+   "l2Day": {
+    "p10": 23,
+    "p50": 24,
+    "p90": 31,
+    "mean": 26
+   },
+   "l3Day": {
+    "p10": 31,
+    "p50": 37,
+    "p90": 44,
+    "mean": 37
+   },
+   "raids": {
+    "scheduled": 5,
+    "answered": 5,
+    "pendingDays": 5,
+    "stashLost": 7,
+    "unbankedLost": 0,
+    "holdNet": 68150,
+    "firstRaidDay": {
+     "p10": 23,
+     "p50": 27,
+     "p90": 38,
+     "mean": 29
+    },
+    "withRaid": 10,
+    "outcomes": {
+     "HELD": 38,
+     "FELL_BACK": 2,
+     "BREACHED": 4,
+     "WASH": 1
+    }
+   },
+   "heatPeak": {
+    "p10": 313,
+    "p50": 638,
+    "p90": 655,
+    "mean": 548
+   },
+   "heatEnd": {
+    "p10": 310,
+    "p50": 638,
+    "p90": 655,
+    "mean": 547
+   },
+   "rainSpent": 0,
+   "crew": {
+    "gone": 0.7,
+    "captured": 0.8,
+    "activeEnd": 6
+   },
+   "invariants": 0,
+   "errors": 0,
+   "errorKinds": [],
+   "softlock": 0
+  },
+  "conservative": {
+   "n": 10,
+   "final": {
+    "p10": 862500,
+    "p50": 1310700,
+    "p90": 1496350,
+    "mean": 1204730
+   },
+   "net": {
+    "p10": 762500,
+    "p50": 1210700,
+    "p90": 1396350,
+    "mean": 1104730
+   },
+   "minMoney": {
+    "p10": 81700,
+    "p50": 95100,
+    "p90": 122900,
+    "mean": 97430
+   },
+   "money": {
+    "d23": {
+     "p10": 273000,
+     "p50": 327500,
+     "p90": 391100,
+     "mean": 328615
+    },
+    "d30": {
+     "p10": 593500,
+     "p50": 674000,
+     "p90": 738100,
+     "mean": 677455
+    },
+    "d44": {
+     "p10": 684100,
+     "p50": 1095200,
+     "p90": 1162700,
+     "mean": 952500
+    }
+   },
+   "warIn": {
+    "p10": 453500,
+    "p50": 899600,
+    "p90": 1086300,
+    "mean": 795910
+   },
+   "plays": {
+    "p10": 15,
+    "p50": 26,
+    "p90": 28,
+    "mean": 24
+   },
+   "winRate": 92,
+   "maxPlaysPerNight": 1,
+   "noCar": {
+    "lives": 9,
+    "day": {
+     "p10": 28,
+     "p50": 39,
+     "p90": 41,
+     "mean": 36
+    }
+   },
+   "extractCrash": {
+    "lives": 1,
+    "count": 2
+   },
+   "lastPlayNight": {
+    "p10": 21,
+    "p50": 33,
+    "p90": 35,
+    "mean": 30
+   },
+   "refused": 4,
+   "layLow": {
+    "n": 0,
+    "avgDrop": 0
+   },
+   "trapIn": {
+    "p10": 237300,
+    "p50": 244650,
+    "p90": 247800,
+    "mean": 243180
+   },
+   "trapOut": {
+    "p10": 131800,
+    "p50": 134600,
+    "p90": 134600,
+    "mean": 133760
+   },
+   "trapNet": {
+    "p10": 105500,
+    "p50": 110050,
+    "p90": 113200,
+    "mean": 109420
+   },
+   "casesSold": {
+    "p10": 78,
+    "p50": 80,
+    "p90": 80,
+    "mean": 79
+   },
+   "cooksPerHouseNight": 1,
+   "ingredients": {
+    "p10": 86800,
+    "p50": 89600,
+    "p90": 89600,
+    "mean": 88760
+   },
+   "upgrades": {
+    "p10": 0,
+    "p50": 0,
+    "p90": 0,
+    "mean": 0
+   },
+   "level": {
+    "p10": 2,
+    "p50": 2,
+    "p90": 2,
+    "mean": 2
+   },
+   "l2Day": {
+    "p10": 36,
+    "p50": 36,
+    "p90": 37,
+    "mean": 36
+   },
+   "l3Day": {
+    "p10": 0,
+    "p50": 0,
+    "p90": 0,
+    "mean": 0
+   },
+   "raids": {
+    "scheduled": 0,
+    "answered": 0,
+    "pendingDays": 0,
+    "stashLost": 0,
+    "unbankedLost": 0,
+    "holdNet": 0,
+    "firstRaidDay": {
+     "p10": 0,
+     "p50": 0,
+     "p90": 0,
+     "mean": 0
+    },
+    "withRaid": 0,
+    "outcomes": {}
+   },
+   "heatPeak": {
+    "p10": 1,
+    "p50": 2,
+    "p90": 4,
+    "mean": 2
+   },
+   "heatEnd": {
+    "p10": 0,
+    "p50": 0,
+    "p90": 0,
+    "mean": 0
+   },
+   "rainSpent": 0,
+   "crew": {
+    "gone": 0.1,
+    "captured": 0.6,
+    "activeEnd": 7.8
+   },
+   "invariants": 0,
+   "errors": 0,
+   "errorKinds": [],
+   "softlock": 0
+  },
+  "loser": {
+   "n": 10,
+   "final": {
+    "p10": 505800,
+    "p50": 713700,
+    "p90": 806400,
+    "mean": 674880
+   },
+   "net": {
+    "p10": 405800,
+    "p50": 613700,
+    "p90": 706400,
+    "mean": 574880
+   },
+   "minMoney": {
+    "p10": 45800,
+    "p50": 48600,
+    "p90": 71800,
+    "mean": 54190
+   },
+   "money": {
+    "d23": {
+     "p10": 121200,
+     "p50": 264100,
+     "p90": 332800,
+     "mean": 231780
+    },
+    "d30": {
+     "p10": 271300,
+     "p50": 461600,
+     "p90": 509300,
+     "mean": 410960
+    },
+    "d44": {
+     "p10": 327000,
+     "p50": 541900,
+     "p90": 627600,
+     "mean": 493280
+    }
+   },
+   "warIn": {
+    "p10": 88900,
+    "p50": 313300,
+    "p90": 382500,
+    "mean": 256280
+   },
+   "plays": {
+    "p10": 7,
+    "p50": 10,
+    "p90": 14,
+    "mean": 11
+   },
+   "winRate": 63,
+   "maxPlaysPerNight": 1,
+   "noCar": {
+    "lives": 9,
+    "day": {
+     "p10": 21,
+     "p50": 23,
+     "p90": 31,
+     "mean": 26
+    }
+   },
+   "extractCrash": {
+    "lives": 3,
+    "count": 6
+   },
+   "lastPlayNight": {
+    "p10": 13,
+    "p50": 16,
+    "p90": 21,
+    "mean": 17
+   },
+   "refused": 4,
+   "layLow": {
+    "n": 0,
+    "avgDrop": 0
+   },
+   "trapIn": {
+    "p10": 280000,
+    "p50": 297500,
+    "p90": 308000,
+    "mean": 299600
+   },
+   "trapOut": {
+    "p10": 134600,
+    "p50": 134600,
+    "p90": 134600,
+    "mean": 134600
+   },
+   "trapNet": {
+    "p10": 145400,
+    "p50": 162900,
+    "p90": 173400,
+    "mean": 165000
+   },
+   "casesSold": {
+    "p10": 80,
+    "p50": 80,
+    "p90": 80,
+    "mean": 80
+   },
+   "cooksPerHouseNight": 1,
+   "ingredients": {
+    "p10": 89600,
+    "p50": 89600,
+    "p90": 89600,
+    "mean": 89600
+   },
+   "upgrades": {
+    "p10": 0,
+    "p50": 0,
+    "p90": 0,
+    "mean": 0
+   },
+   "level": {
+    "p10": 2,
+    "p50": 2,
+    "p90": 2,
+    "mean": 2
+   },
+   "l2Day": {
+    "p10": 36,
+    "p50": 36,
+    "p90": 36,
+    "mean": 36
+   },
+   "l3Day": {
+    "p10": 0,
+    "p50": 0,
+    "p90": 0,
+    "mean": 0
+   },
+   "raids": {
+    "scheduled": 0,
+    "answered": 0,
+    "pendingDays": 0,
+    "stashLost": 0,
+    "unbankedLost": 0,
+    "holdNet": 0,
+    "firstRaidDay": {
+     "p10": 0,
+     "p50": 0,
+     "p90": 0,
+     "mean": 0
+    },
+    "withRaid": 0,
+    "outcomes": {}
+   },
+   "heatPeak": {
+    "p10": 23,
+    "p50": 23,
+    "p90": 31,
+    "mean": 26
+   },
+   "heatEnd": {
+    "p10": 23,
+    "p50": 23,
+    "p90": 31,
+    "mean": 26
+   },
+   "rainSpent": 45000,
+   "crew": {
+    "gone": 1,
+    "captured": 0.5,
+    "activeEnd": 6
+   },
+   "invariants": 0,
+   "errors": 0,
+   "errorKinds": [],
+   "softlock": 0
+  },
+  "winner": {
+   "n": 10,
+   "final": {
+    "p10": 3097250,
+    "p50": 3696300,
+    "p90": 4736700,
+    "mean": 3771790
+   },
+   "net": {
+    "p10": 2997250,
+    "p50": 3596300,
+    "p90": 4636700,
+    "mean": 3671790
+   },
+   "minMoney": {
+    "p10": 24250,
+    "p50": 38550,
+    "p90": 46300,
+    "mean": 38520
+   },
+   "money": {
+    "d23": {
+     "p10": 91250,
+     "p50": 155450,
+     "p90": 231700,
+     "mean": 172085
+    },
+    "d30": {
+     "p10": 695250,
+     "p50": 986850,
+     "p90": 1036550,
+     "mean": 864250
+    },
+    "d44": {
+     "p10": 1661650,
+     "p50": 2250300,
+     "p90": 2838450,
+     "mean": 2183790
+    }
+   },
+   "warIn": {
+    "p10": 687300,
+    "p50": 1274000,
+    "p90": 2318100,
+    "mean": 1419350
+   },
+   "plays": {
+    "p10": 21,
+    "p50": 37,
+    "p90": 58,
+    "mean": 38
+   },
+   "winRate": 94,
+   "maxPlaysPerNight": 2,
+   "noCar": {
+    "lives": 9,
+    "day": {
+     "p10": 26,
+     "p50": 35,
+     "p90": 49,
+     "mean": 36
+    }
+   },
+   "extractCrash": {
+    "lives": 2,
+    "count": 4
+   },
+   "lastPlayNight": {
+    "p10": 19,
+    "p50": 31,
+    "p90": 41,
+    "mean": 29
+   },
+   "refused": 12,
+   "layLow": {
+    "n": 7,
+    "avgDrop": 15
+   },
+   "trapIn": {
+    "p10": 3475500,
+    "p50": 3655750,
+    "p90": 3731000,
+    "mean": 3597650
+   },
+   "trapOut": {
+    "p10": 1511400,
+    "p50": 1543600,
+    "p90": 1575800,
+    "mean": 1532960
+   },
+   "trapNet": {
+    "p10": 1964100,
+    "p50": 2112150,
+    "p90": 2155200,
+    "mean": 2064690
+   },
+   "casesSold": {
+    "p10": 400,
+    "p50": 406,
+    "p90": 416,
+    "mean": 403
+   },
+   "cooksPerHouseNight": 0.94,
+   "ingredients": {
+    "p10": 1016400,
+    "p50": 1048600,
+    "p90": 1080800,
+    "mean": 1037960
+   },
+   "upgrades": {
+    "p10": 50000,
+    "p50": 50000,
+    "p90": 50000,
+    "mean": 50000
+   },
+   "level": {
+    "p10": 4,
+    "p50": 4,
+    "p90": 4,
+    "mean": 4
+   },
+   "l2Day": {
+    "p10": 23,
+    "p50": 24,
+    "p90": 25,
+    "mean": 24
+   },
+   "l3Day": {
+    "p10": 31,
+    "p50": 32,
+    "p90": 33,
+    "mean": 32
+   },
+   "raids": {
+    "scheduled": 2,
+    "answered": 2,
+    "pendingDays": 2,
+    "stashLost": 0,
+    "unbankedLost": 0,
+    "holdNet": 61250,
+    "firstRaidDay": {
+     "p10": 26,
+     "p50": 26,
+     "p90": 27,
+     "mean": 27
+    },
+    "withRaid": 10,
+    "outcomes": {
+     "HELD": 24
+    }
+   },
+   "heatPeak": {
+    "p10": 67,
+    "p50": 76,
+    "p90": 81,
+    "mean": 75
+   },
+   "heatEnd": {
+    "p10": 0,
+    "p50": 4,
+    "p90": 35,
+    "mean": 14
+   },
+   "rainSpent": 0,
+   "crew": {
+    "gone": 0.3,
+    "captured": 0.3,
+    "activeEnd": 7.4
+   },
+   "invariants": 0,
+   "errors": 0,
+   "errorKinds": [],
+   "softlock": 0
+  },
+  "spender": {
+   "n": 10,
+   "final": {
+    "p10": 117500,
+    "p50": 697200,
+    "p90": 920000,
+    "mean": 616445
+   },
+   "net": {
+    "p10": 17500,
+    "p50": 597200,
+    "p90": 820000,
+    "mean": 516445
+   },
+   "minMoney": {
+    "p10": 300,
+    "p50": 1100,
+    "p90": 3400,
+    "mean": 1675
+   },
+   "money": {
+    "d23": {
+     "p10": 20800,
+     "p50": 67400,
+     "p90": 141800,
+     "mean": 71170
+    },
+    "d30": {
+     "p10": 900,
+     "p50": 89900,
+     "p90": 96600,
+     "mean": 70405
+    },
+    "d44": {
+     "p10": 70250,
+     "p50": 299200,
+     "p90": 484400,
+     "mean": 271655
+    }
+   },
+   "warIn": {
+    "p10": 341900,
+    "p50": 667100,
+    "p90": 1040000,
+    "mean": 656240
+   },
+   "plays": {
+    "p10": 12,
+    "p50": 22,
+    "p90": 33,
+    "mean": 21
+   },
+   "winRate": 88,
+   "maxPlaysPerNight": 1,
+   "noCar": {
+    "lives": 10,
+    "day": {
+     "p10": 27,
+     "p50": 39,
+     "p90": 48,
+     "mean": 37
+    }
+   },
+   "extractCrash": {
+    "lives": 3,
+    "count": 11
+   },
+   "lastPlayNight": {
+    "p10": 20,
+    "p50": 29,
+    "p90": 41,
+    "mean": 28
+   },
+   "refused": 5,
+   "layLow": {
+    "n": 9,
+    "avgDrop": 15
+   },
+   "trapIn": {
+    "p10": 1114750,
+    "p50": 1841000,
+    "p90": 2324000,
+    "mean": 1677725
+   },
+   "trapOut": {
+    "p10": 566800,
+    "p50": 1171200,
+    "p90": 1365800,
+    "mean": 1043040
+   },
+   "trapNet": {
+    "p10": 224900,
+    "p50": 657900,
+    "p90": 958200,
+    "mean": 634685
+   },
+   "casesSold": {
+    "p10": 186,
+    "p50": 294,
+    "p90": 364,
+    "mean": 272
+   },
+   "cooksPerHouseNight": 0.69,
+   "ingredients": {
+    "p10": 331800,
+    "p50": 676200,
+    "p90": 870800,
+    "mean": 614040
+   },
+   "upgrades": {
+    "p10": 50000,
+    "p50": 50000,
+    "p90": 50000,
+    "mean": 50000
+   },
+   "level": {
+    "p10": 3,
+    "p50": 3,
+    "p90": 4,
+    "mean": 3
+   },
+   "l2Day": {
+    "p10": 26,
+    "p50": 31,
+    "p90": 33,
+    "mean": 31
+   },
+   "l3Day": {
+    "p10": 38,
+    "p50": 43,
+    "p90": 46,
+    "mean": 42
+   },
+   "raids": {
+    "scheduled": 3,
+    "answered": 3,
+    "pendingDays": 3,
+    "stashLost": 1,
+    "unbankedLost": 0,
+    "holdNet": 40420,
+    "firstRaidDay": {
+     "p10": 36,
+     "p50": 42,
+     "p90": 48,
+     "mean": 42
+    },
+    "withRaid": 9,
+    "outcomes": {
+     "WASH": 2,
+     "HELD": 22,
+     "BREACHED": 1
+    }
+   },
+   "heatPeak": {
+    "p10": 70,
+    "p50": 82,
+    "p90": 85,
+    "mean": 73
+   },
+   "heatEnd": {
+    "p10": 58,
+    "p50": 69,
+    "p90": 74,
+    "mean": 62
+   },
+   "rainSpent": 927500,
+   "crew": {
+    "gone": 0.7,
+    "captured": 0.9,
+    "activeEnd": 7.2
+   },
+   "invariants": 0,
+   "errors": 0,
+   "errorKinds": [],
+   "softlock": 0
+  },
+  "hoarder": {
+   "n": 10,
+   "final": {
+    "p10": 753500,
+    "p50": 1199600,
+    "p90": 1386300,
+    "mean": 1095310
+   },
+   "net": {
+    "p10": 653500,
+    "p50": 1099600,
+    "p90": 1286300,
+    "mean": 995310
+   },
+   "minMoney": {
+    "p10": 122900,
+    "p50": 128100,
+    "p90": 141500,
+    "mean": 130680
+   },
+   "money": {
+    "d23": {
+     "p10": 305400,
+     "p50": 357100,
+     "p90": 423500,
+     "mean": 358950
+    },
+    "d30": {
+     "p10": 601400,
+     "p50": 684000,
+     "p90": 748700,
+     "mean": 687980
+    },
+    "d44": {
+     "p10": 653500,
+     "p50": 1064600,
+     "p90": 1132100,
+     "mean": 922950
+    }
+   },
+   "warIn": {
+    "p10": 453500,
+    "p50": 899600,
+    "p90": 1086300,
+    "mean": 795910
+   },
+   "plays": {
+    "p10": 15,
+    "p50": 26,
+    "p90": 28,
+    "mean": 24
+   },
+   "winRate": 92,
+   "maxPlaysPerNight": 1,
+   "noCar": {
+    "lives": 9,
+    "day": {
+     "p10": 28,
+     "p50": 39,
+     "p90": 41,
+     "mean": 36
+    }
+   },
+   "extractCrash": {
+    "lives": 1,
+    "count": 2
+   },
+   "lastPlayNight": {
+    "p10": 21,
+    "p50": 33,
+    "p90": 35,
+    "mean": 30
+   },
+   "refused": 4,
+   "layLow": {
+    "n": 0,
+    "avgDrop": 0
+   },
+   "trapIn": {
+    "p10": 0,
+    "p50": 0,
+    "p90": 0,
+    "mean": 0
+   },
+   "trapOut": {
+    "p10": 0,
+    "p50": 0,
+    "p90": 0,
+    "mean": 0
+   },
+   "trapNet": {
+    "p10": 0,
+    "p50": 0,
+    "p90": 0,
+    "mean": 0
+   },
+   "casesSold": {
+    "p10": 0,
+    "p50": 0,
+    "p90": 0,
+    "mean": 0
+   },
+   "cooksPerHouseNight": 0,
+   "ingredients": {
+    "p10": 0,
+    "p50": 0,
+    "p90": 0,
+    "mean": 0
+   },
+   "upgrades": {
+    "p10": 0,
+    "p50": 0,
+    "p90": 0,
+    "mean": 0
+   },
+   "level": {
+    "p10": 1,
+    "p50": 1,
+    "p90": 1,
+    "mean": 1
+   },
+   "l2Day": {
+    "p10": 0,
+    "p50": 0,
+    "p90": 0,
+    "mean": 0
+   },
+   "l3Day": {
+    "p10": 0,
+    "p50": 0,
+    "p90": 0,
+    "mean": 0
+   },
+   "raids": {
+    "scheduled": 0,
+    "answered": 0,
+    "pendingDays": 0,
+    "stashLost": 0,
+    "unbankedLost": 0,
+    "holdNet": 0,
+    "firstRaidDay": {
+     "p10": 0,
+     "p50": 0,
+     "p90": 0,
+     "mean": 0
+    },
+    "withRaid": 0,
+    "outcomes": {}
+   },
+   "heatPeak": {
+    "p10": 37,
+    "p50": 65,
+    "p90": 71,
+    "mean": 59
+   },
+   "heatEnd": {
+    "p10": 37,
+    "p50": 65,
+    "p90": 71,
+    "mean": 59
+   },
+   "rainSpent": 0,
+   "crew": {
+    "gone": 0.1,
+    "captured": 0.6,
+    "activeEnd": 7.8
+   },
+   "invariants": 0,
+   "errors": 0,
+   "errorKinds": [],
+   "softlock": 0
+  },
+  "repeater": {
+   "n": 10,
+   "final": {
+    "p10": 1860250,
+    "p50": 2218850,
+    "p90": 3137900,
+    "mean": 2308845
+   },
+   "net": {
+    "p10": 1760250,
+    "p50": 2118850,
+    "p90": 3037900,
+    "mean": 2208845
+   },
+   "minMoney": {
+    "p10": 22200,
+    "p50": 31700,
+    "p90": 45100,
+    "mean": 32645
+   },
+   "money": {
+    "d23": {
+     "p10": 336600,
+     "p50": 410150,
+     "p90": 471050,
+     "mean": 416900
+    },
+    "d30": {
+     "p10": 908150,
+     "p50": 1086200,
+     "p90": 1182200,
+     "mean": 1048395
+    },
+    "d44": {
+     "p10": 1411550,
+     "p50": 1752150,
+     "p90": 2202250,
+     "mean": 1761445
+    }
+   },
+   "warIn": {
+    "p10": 837000,
+    "p50": 1180500,
+    "p90": 2126300,
+    "mean": 1293710
+   },
+   "plays": {
+    "p10": 25,
+    "p50": 31,
+    "p90": 56,
+    "mean": 36
+   },
+   "winRate": 94,
+   "maxPlaysPerNight": 3,
+   "noCar": {
+    "lives": 9,
+    "day": {
+     "p10": 28,
+     "p50": 29,
+     "p90": 40,
+     "mean": 33
+    }
+   },
+   "extractCrash": {
+    "lives": 0,
+    "count": 0
+   },
+   "lastPlayNight": {
+    "p10": 20,
+    "p50": 25,
+    "p90": 42,
+    "mean": 28
+   },
+   "refused": 24,
+   "layLow": {
+    "n": 8,
+    "avgDrop": 15
+   },
+   "trapIn": {
+    "p10": 1309000,
+    "p50": 1450750,
+    "p90": 1466500,
+    "mean": 1420125
+   },
+   "trapOut": {
+    "p10": 667600,
+    "p50": 695600,
+    "p90": 695600,
+    "mean": 686640
+   },
+   "trapNet": {
+    "p10": 642100,
+    "p50": 755150,
+    "p90": 769150,
+    "mean": 733485
+   },
+   "casesSold": {
+    "p10": 206,
+    "p50": 222,
+    "p90": 224,
+    "mean": 219
+   },
+   "cooksPerHouseNight": 0.96,
+   "ingredients": {
+    "p10": 432600,
+    "p50": 460600,
+    "p90": 460600,
+    "mean": 451640
+   },
+   "upgrades": {
+    "p10": 50000,
+    "p50": 50000,
+    "p90": 50000,
+    "mean": 50000
+   },
+   "level": {
+    "p10": 3,
+    "p50": 3,
+    "p90": 3,
+    "mean": 3
+   },
+   "l2Day": {
+    "p10": 25,
+    "p50": 25,
+    "p90": 26,
+    "mean": 25
+   },
+   "l3Day": {
+    "p10": 40,
+    "p50": 40,
+    "p90": 41,
+    "mean": 40
+   },
+   "raids": {
+    "scheduled": 3,
+    "answered": 3,
+    "pendingDays": 3,
+    "stashLost": 1,
+    "unbankedLost": 0,
+    "holdNet": 62350,
+    "firstRaidDay": {
+     "p10": 28,
+     "p50": 30,
+     "p90": 31,
+     "mean": 30
+    },
+    "withRaid": 10,
+    "outcomes": {
+     "HELD": 29,
+     "BREACHED": 2
+    }
+   },
+   "heatPeak": {
+    "p10": 62,
+    "p50": 64,
+    "p90": 68,
+    "mean": 65
+   },
+   "heatEnd": {
+    "p10": 34,
+    "p50": 43,
+    "p90": 57,
+    "mean": 43
+   },
+   "rainSpent": 0,
+   "crew": {
+    "gone": 0.3,
+    "captured": 0,
+    "activeEnd": 7.6
+   },
+   "invariants": 0,
+   "errors": 0,
+   "errorKinds": [],
+   "softlock": 0
+  },
+  "raid_dodger": {
+   "n": 10,
+   "final": {
+    "p10": 1516250,
+    "p50": 1899100,
+    "p90": 2494450,
+    "mean": 1954920
+   },
+   "net": {
+    "p10": 1416250,
+    "p50": 1799100,
+    "p90": 2394450,
+    "mean": 1854920
+   },
+   "minMoney": {
+    "p10": 25800,
+    "p50": 31700,
+    "p90": 45100,
+    "mean": 33130
+   },
+   "money": {
+    "d23": {
+     "p10": 75450,
+     "p50": 133550,
+     "p90": 235250,
+     "mean": 158095
+    },
+    "d30": {
+     "p10": 453050,
+     "p50": 606050,
+     "p90": 659200,
+     "mean": 566610
+    },
+    "d44": {
+     "p10": 1080950,
+     "p50": 1365700,
+     "p90": 1650150,
+     "mean": 1334780
+    }
+   },
+   "warIn": {
+    "p10": 543000,
+    "p50": 850600,
+    "p90": 1480700,
+    "mean": 936900
+   },
+   "plays": {
+    "p10": 14,
+    "p50": 25,
+    "p90": 38,
+    "mean": 26
+   },
+   "winRate": 92,
+   "maxPlaysPerNight": 1,
+   "noCar": {
+    "lives": 9,
+    "day": {
+     "p10": 28,
+     "p50": 38,
+     "p90": 54,
+     "mean": 39
+    }
+   },
+   "extractCrash": {
+    "lives": 1,
+    "count": 2
+   },
+   "lastPlayNight": {
+    "p10": 21,
+    "p50": 32,
+    "p90": 38,
+    "mean": 31
+   },
+   "refused": 4,
+   "layLow": {
+    "n": 0,
+    "avgDrop": 0
+   },
+   "trapIn": {
+    "p10": 1352750,
+    "p50": 1407000,
+    "p90": 1435000,
+    "mean": 1390900
+   },
+   "trapOut": {
+    "p10": 662000,
+    "p50": 677400,
+    "p90": 680200,
+    "mean": 672080
+   },
+   "trapNet": {
+    "p10": 675350,
+    "p50": 729600,
+    "p90": 754800,
+    "mean": 718820
+   },
+   "casesSold": {
+    "p10": 212,
+    "p50": 214,
+    "p90": 220,
+    "mean": 215
+   },
+   "cooksPerHouseNight": 0.95,
+   "ingredients": {
+    "p10": 427000,
+    "p50": 442400,
+    "p90": 445200,
+    "mean": 437080
+   },
+   "upgrades": {
+    "p10": 50000,
+    "p50": 50000,
+    "p90": 50000,
+    "mean": 50000
+   },
+   "level": {
+    "p10": 3,
+    "p50": 3,
+    "p90": 3,
+    "mean": 3
+   },
+   "l2Day": {
+    "p10": 26,
+    "p50": 26,
+    "p90": 27,
+    "mean": 26
+   },
+   "l3Day": {
+    "p10": 41,
+    "p50": 41,
+    "p90": 42,
+    "mean": 41
+   },
+   "raids": {
+    "scheduled": 1,
+    "answered": 0,
+    "pendingDays": 20,
+    "stashLost": 0,
+    "unbankedLost": 0,
+    "holdNet": 0,
+    "firstRaidDay": {
+     "p10": 36,
+     "p50": 38,
+     "p90": 41,
+     "mean": 38
+    },
+    "withRaid": 10,
+    "outcomes": {}
+   },
+   "heatPeak": {
+    "p10": 98,
+    "p50": 123,
+    "p90": 166,
+    "mean": 127
+   },
+   "heatEnd": {
+    "p10": 98,
+    "p50": 123,
+    "p90": 163,
+    "mean": 125
+   },
+   "rainSpent": 0,
+   "crew": {
+    "gone": 0.2,
+    "captured": 0.8,
+    "activeEnd": 7.4
+   },
+   "invariants": 0,
+   "errors": 0,
+   "errorKinds": [],
+   "softlock": 0
+  }
+ },
+ "rows": [
+  {
+   "persona": "aggressive",
+   "seed": 1,
+   "days": 42,
+   "final": 2108050,
+   "minMoney": 20950,
+   "net": 2008050,
+   "money": {
+    "d23": 20950,
+    "d30": 456250,
+    "d37": 826650,
+    "d44": 1101450,
+    "d58": 2108050
+   },
+   "warRoom": {
+    "in": 443500,
+    "out": 10000,
+    "plays": 17,
+    "noCarDay": 26,
+    "playErrorDay": null,
+    "f01Crashes": 0,
+    "lastPlayNight": 19,
+    "attempted": 27,
+    "refused": 10,
+    "won": 6,
+    "maxPerNight": 2
+   },
+   "layLow": {
+    "n": 0,
+    "avgDrop": 0
+   },
+   "trap": {
+    "in": 2871750,
+    "out": 1492200,
+    "houses": 3,
+    "cooks": 119,
+    "cookRefused": 0,
+    "casesCooked": 464,
+    "casesSold": 414,
+    "revenue": 2983750,
+    "ingredients": 1047200,
+    "upgrades": 0,
+    "level": 4,
+    "levelDays": {
+     "2": 24,
+     "3": 32,
+     "4": 50
+    },
+    "raids": {
+     "scheduled": 6,
+     "held": 0,
+     "answered": 5,
+     "outcomes": {
+      "HELD": 5
+     },
+     "stashLost": 0,
+     "unbankedLost": 0,
+     "holdNet": -5000,
+     "pendingDays": 5
+    },
+    "firstRaidDay": 23
+   },
+   "heat": {
+    "peak": 638,
+    "final": 638
+   },
+   "rain": {
+    "rounds": 0,
+    "spent": 0
+   },
+   "crew": {
+    "gone": 0,
+    "capturedEvents": 2,
+    "downedEvents": 9,
+    "activeEnd": 6
+   },
+   "flows": {
+    "trap:house": -445000,
+    "trap:ingredients": -1047200,
+    "trap:count": 2871750,
+    "war_room:play": 433500,
+    "hold": -5000,
+    "wake": 200000
+   },
+   "invariants": 0,
+   "errors": 0,
+   "errorKinds": [],
+   "softlock": 0,
+   "digest": 3385369866
+  },
+  {
+   "persona": "aggressive",
+   "seed": 2,
+   "days": 42,
+   "final": 2004250,
+   "minMoney": 41400,
+   "net": 1904250,
+   "money": {
+    "d23": 134150,
+    "d30": 489050,
+    "d37": 826850,
+    "d44": 1192650,
+    "d58": 2004250
+   },
+   "warRoom": {
+    "in": 379400,
+    "out": 1000,
+    "plays": 6,
+    "noCarDay": 18,
+    "playErrorDay": 25,
+    "f01Crashes": 2,
+    "lastPlayNight": 12,
+    "attempted": 14,
+    "refused": 8,
+    "won": 2,
+    "maxPerNight": 2
+   },
+   "layLow": {
+    "n": 0,
+    "avgDrop": 0
+   },
+   "trap": {
+    "in": 2861250,
+    "out": 1531400,
+    "houses": 3,
+    "cooks": 118,
+    "cookRefused": 0,
+    "casesCooked": 478,
+    "casesSold": 426,
+    "revenue": 2945250,
+    "ingredients": 1086400,
+    "upgrades": 0,
+    "level": 4,
+    "levelDays": {
+     "2": 22,
+     "3": 30,
+     "4": 47
+    },
+    "raids": {
+     "scheduled": 5,
+     "held": 0,
+     "answered": 5,
+     "outcomes": {
+      "HELD": 4,
+      "FELL_BACK": 1
+     },
+     "stashLost": 16,
+     "unbankedLost": 0,
+     "holdNet": -4000,
+     "pendingDays": 5
+    },
+    "firstRaidDay": 24
+   },
+   "heat": {
+    "peak": 665,
+    "final": 662
+   },
+   "rain": {
+    "rounds": 0,
+    "spent": 0
+   },
+   "crew": {
+    "gone": 1,
+    "capturedEvents": 1,
+    "downedEvents": 6,
+    "activeEnd": 6
+   },
+   "flows": {
+    "trap:house": -445000,
+    "trap:ingredients": -1086400,
+    "trap:count": 2861250,
+    "war_room:play": 378400,
+    "hold": -4000,
+    "wake": 200000
+   },
+   "invariants": 0,
+   "errors": 0,
+   "errorKinds": [],
+   "softlock": 0,
+   "digest": 2743475565
+  },
+  {
+   "persona": "aggressive",
+   "seed": 3,
+   "days": 42,
+   "final": 2513400,
+   "minMoney": 53600,
+   "net": 2413400,
+   "money": {
+    "d23": 663400,
+    "d30": 975300,
+    "d37": 1423400,
+    "d44": 1690800,
+    "d58": 2513400
+   },
+   "warRoom": {
+    "in": 906800,
+    "out": 3000,
+    "plays": 14,
+    "noCarDay": 25,
+    "playErrorDay": 23,
+    "f01Crashes": 2,
+    "lastPlayNight": 15,
+    "attempted": 21,
+    "refused": 7,
+    "won": 7,
+    "maxPerNight": 2
+   },
+   "layLow": {
+    "n": 0,
+    "avgDrop": 0
+   },
+   "trap": {
+    "in": 2702000,
+    "out": 1502000,
+    "houses": 3,
+    "cooks": 117,
+    "cookRefused": 0,
+    "casesCooked": 472,
+    "casesSold": 402,
+    "revenue": 2786000,
+    "ingredients": 1057000,
+    "upgrades": 0,
+    "level": 4,
+    "levelDays": {
+     "2": 23,
+     "3": 31,
+     "4": 48
+    },
+    "raids": {
+     "scheduled": 6,
+     "held": 0,
+     "answered": 6,
+     "outcomes": {
+      "HELD": 5,
+      "FELL_BACK": 1
+     },
+     "stashLost": 10,
+     "unbankedLost": 0,
+     "holdNet": 109600,
+     "pendingDays": 6
+    },
+    "firstRaidDay": 22
+   },
+   "heat": {
+    "peak": 638,
+    "final": 638
+   },
+   "rain": {
+    "rounds": 0,
+    "spent": 0
+   },
+   "crew": {
+    "gone": 1,
+    "capturedEvents": 1,
+    "downedEvents": 8,
+    "activeEnd": 6
+   },
+   "flows": {
+    "trap:house": -445000,
+    "trap:ingredients": -1057000,
+    "trap:count": 2702000,
+    "war_room:play": 903800,
+    "hold": 109600,
+    "wake": 200000
+   },
+   "invariants": 0,
+   "errors": 0,
+   "errorKinds": [],
+   "softlock": 0,
+   "digest": 1719321496
+  },
+  {
+   "persona": "aggressive",
+   "seed": 4,
+   "days": 42,
+   "final": 1808850,
+   "minMoney": 14550,
+   "net": 1708850,
+   "money": {
+    "d23": 210950,
+    "d30": 141550,
+    "d37": 502750,
+    "d44": 921250,
+    "d58": 1808850
+   },
+   "warRoom": {
+    "in": 306500,
+    "out": 7000,
+    "plays": 12,
+    "noCarDay": 22,
+    "playErrorDay": null,
+    "f01Crashes": 0,
+    "lastPlayNight": 15,
+    "attempted": 20,
+    "refused": 8,
+    "won": 4,
+    "maxPerNight": 2
+   },
+   "layLow": {
+    "n": 0,
+    "avgDrop": 0
+   },
+   "trap": {
+    "in": 2448250,
+    "out": 1346600,
+    "houses": 3,
+    "cooks": 107,
+    "cookRefused": 0,
+    "casesCooked": 414,
+    "casesSold": 362,
+    "revenue": 2532250,
+    "ingredients": 901600,
+    "upgrades": 0,
+    "level": 4,
+    "levelDays": {
+     "2": 24,
+     "3": 37,
+     "4": 53
+    },
+    "raids": {
+     "scheduled": 5,
+     "held": 0,
+     "answered": 5,
+     "outcomes": {
+      "BREACHED": 1,
+      "HELD": 4
+     },
+     "stashLost": 6,
+     "unbankedLost": 0,
+     "holdNet": 107700,
+     "pendingDays": 5
+    },
+    "firstRaidDay": 27
+   },
+   "heat": {
+    "peak": 584,
+    "final": 584
+   },
+   "rain": {
+    "rounds": 0,
+    "spent": 0
+   },
+   "crew": {
+    "gone": 0,
+    "capturedEvents": 0,
+    "downedEvents": 5,
+    "activeEnd": 6
+   },
+   "flows": {
+    "trap:house": -445000,
+    "trap:ingredients": -901600,
+    "trap:count": 2448250,
+    "war_room:play": 299500,
+    "hold": 107700,
+    "wake": 200000
+   },
+   "invariants": 0,
+   "errors": 0,
+   "errorKinds": [],
+   "softlock": 0,
+   "digest": 831224728
+  },
+  {
+   "persona": "aggressive",
+   "seed": 5,
+   "days": 42,
+   "final": 2021450,
+   "minMoney": 13200,
+   "net": 1921450,
+   "money": {
+    "d23": 13200,
+    "d30": 418650,
+    "d37": 762050,
+    "d44": 1019350,
+    "d58": 2021450
+   },
+   "warRoom": {
+    "in": 422100,
+    "out": 1000,
+    "plays": 5,
+    "noCarDay": 18,
+    "playErrorDay": 28,
+    "f01Crashes": 3,
+    "lastPlayNight": 11,
+    "attempted": 15,
+    "refused": 10,
+    "won": 4,
+    "maxPerNight": 1
+   },
+   "layLow": {
+    "n": 0,
+    "avgDrop": 0
+   },
+   "trap": {
+    "in": 2658250,
+    "out": 1440400,
+    "houses": 3,
+    "cooks": 113,
+    "cookRefused": 0,
+    "casesCooked": 448,
+    "casesSold": 384,
+    "revenue": 2714250,
+    "ingredients": 995400,
+    "upgrades": 0,
+    "level": 4,
+    "levelDays": {
+     "2": 24,
+     "3": 34,
+     "4": 51
+    },
+    "raids": {
+     "scheduled": 5,
+     "held": 0,
+     "answered": 5,
+     "outcomes": {
+      "WASH": 1,
+      "HELD": 4
+     },
+     "stashLost": 8,
+     "unbankedLost": 0,
+     "holdNet": 82500,
+     "pendingDays": 5
+    },
+    "firstRaidDay": 28
+   },
+   "heat": {
+    "peak": 579,
+    "final": 579
+   },
+   "rain": {
+    "rounds": 0,
+    "spent": 0
+   },
+   "crew": {
+    "gone": 1,
+    "capturedEvents": 1,
+    "downedEvents": 5,
+    "activeEnd": 5
+   },
+   "flows": {
+    "war_room:play": 421100,
+    "trap:house": -445000,
+    "trap:ingredients": -995400,
+    "trap:count": 2658250,
+    "wake": 200000,
+    "hold": 82500
+   },
+   "invariants": 0,
+   "errors": 0,
+   "errorKinds": [],
+   "softlock": 0,
+   "digest": 3559365118
+  },
+  {
+   "persona": "aggressive",
+   "seed": 6,
+   "days": 42,
+   "final": 961900,
+   "minMoney": 10800,
+   "net": 861900,
+   "money": {
+    "d23": 113100,
+    "d30": 135650,
+    "d37": 13900,
+    "d44": 270300,
+    "d58": 961900
+   },
+   "warRoom": {
+    "in": 42400,
+    "out": 4000,
+    "plays": 9,
+    "noCarDay": 21,
+    "playErrorDay": null,
+    "f01Crashes": 0,
+    "lastPlayNight": 11,
+    "attempted": 15,
+    "refused": 6,
+    "won": 2,
+    "maxPerNight": 2
+   },
+   "layLow": {
+    "n": 0,
+    "avgDrop": 0
+   },
+   "trap": {
+    "in": 1680000,
+    "out": 1068000,
+    "houses": 3,
+    "cooks": 83,
+    "cookRefused": 0,
+    "casesCooked": 310,
+    "casesSold": 248,
+    "revenue": 1736000,
+    "ingredients": 623000,
+    "upgrades": 0,
+    "level": 3,
+    "levelDays": {
+     "2": 31,
+     "3": 44
+    },
+    "raids": {
+     "scheduled": 3,
+     "held": 0,
+     "answered": 3,
+     "outcomes": {
+      "BREACHED": 2,
+      "HELD": 1
+     },
+     "stashLost": 20,
+     "unbankedLost": 0,
+     "holdNet": 11500,
+     "pendingDays": 3
+    },
+    "firstRaidDay": 38
+   },
+   "heat": {
+    "peak": 306,
+    "final": 306
+   },
+   "rain": {
+    "rounds": 0,
+    "spent": 0
+   },
+   "crew": {
+    "gone": 0,
+    "capturedEvents": 0,
+    "downedEvents": 11,
+    "activeEnd": 7
+   },
+   "flows": {
+    "war_room:play": 38400,
+    "trap:house": -445000,
+    "trap:ingredients": -623000,
+    "trap:count": 1680000,
+    "wake": 200000,
+    "hold": 11500
+   },
+   "invariants": 0,
+   "errors": 0,
+   "errorKinds": [],
+   "softlock": 0,
+   "digest": 1508385792
+  },
+  {
+   "persona": "aggressive",
+   "seed": 7,
+   "days": 42,
+   "final": 1807550,
+   "minMoney": 25900,
+   "net": 1707550,
+   "money": {
+    "d23": 139450,
+    "d30": 141800,
+    "d37": 660150,
+    "d44": 933950,
+    "d58": 1807550
+   },
+   "warRoom": {
+    "in": 416600,
+    "out": 19000,
+    "plays": 25,
+    "noCarDay": 31,
+    "playErrorDay": null,
+    "f01Crashes": 0,
+    "lastPlayNight": 24,
+    "attempted": 36,
+    "refused": 11,
+    "won": 5,
+    "maxPerNight": 2
+   },
+   "layLow": {
+    "n": 0,
+    "avgDrop": 0
+   },
+   "trap": {
+    "in": 2420250,
+    "out": 1336800,
+    "houses": 3,
+    "cooks": 108,
+    "cookRefused": 0,
+    "casesCooked": 410,
+    "casesSold": 356,
+    "revenue": 2483250,
+    "ingredients": 891800,
+    "upgrades": 0,
+    "level": 4,
+    "levelDays": {
+     "2": 28,
+     "3": 37,
+     "4": 53
+    },
+    "raids": {
+     "scheduled": 5,
+     "held": 0,
+     "answered": 5,
+     "outcomes": {
+      "HELD": 5
+     },
+     "stashLost": 0,
+     "unbankedLost": 0,
+     "holdNet": 26500,
+     "pendingDays": 5
+    },
+    "firstRaidDay": 26
+   },
+   "heat": {
+    "peak": 645,
+    "final": 642
+   },
+   "rain": {
+    "rounds": 0,
+    "spent": 0
+   },
+   "crew": {
+    "gone": 1,
+    "capturedEvents": 0,
+    "downedEvents": 16,
+    "activeEnd": 7
+   },
+   "flows": {
+    "war_room:play": 397600,
+    "trap:house": -445000,
+    "trap:ingredients": -891800,
+    "trap:count": 2420250,
+    "hold": 26500,
+    "wake": 200000
+   },
+   "invariants": 0,
+   "errors": 0,
+   "errorKinds": [],
+   "softlock": 0,
+   "digest": 3098202224
+  },
+  {
+   "persona": "aggressive",
+   "seed": 8,
+   "days": 42,
+   "final": 1274450,
+   "minMoney": 11550,
+   "net": 1174450,
+   "money": {
+    "d23": 106300,
+    "d30": 156050,
+    "d37": 22750,
+    "d44": 314350,
+    "d58": 1274450
+   },
+   "warRoom": {
+    "in": 51600,
+    "out": 11000,
+    "plays": 16,
+    "noCarDay": null,
+    "playErrorDay": null,
+    "f01Crashes": 0,
+    "lastPlayNight": 11,
+    "attempted": 21,
+    "refused": 5,
+    "won": 3,
+    "maxPerNight": 2
+   },
+   "layLow": {
+    "n": 0,
+    "avgDrop": 0
+   },
+   "trap": {
+    "in": 1930250,
+    "out": 1139400,
+    "houses": 3,
+    "cooks": 94,
+    "cookRefused": 0,
+    "casesCooked": 338,
+    "casesSold": 294,
+    "revenue": 2014250,
+    "ingredients": 694400,
+    "upgrades": 0,
+    "level": 3,
+    "levelDays": {
+     "2": 30,
+     "3": 43
+    },
+    "raids": {
+     "scheduled": 4,
+     "held": 0,
+     "answered": 3,
+     "outcomes": {
+      "HELD": 3
+     },
+     "stashLost": 0,
+     "unbankedLost": 0,
+     "holdNet": 143000,
+     "pendingDays": 3
+    },
+    "firstRaidDay": 37
+   },
+   "heat": {
+    "peak": 452,
+    "final": 452
+   },
+   "rain": {
+    "rounds": 0,
+    "spent": 0
+   },
+   "crew": {
+    "gone": 1,
+    "capturedEvents": 1,
+    "downedEvents": 10,
+    "activeEnd": 5
+   },
+   "flows": {
+    "war_room:play": 40600,
+    "trap:house": -445000,
+    "trap:ingredients": -694400,
+    "trap:count": 1930250,
+    "wake": 200000,
+    "hold": 143000
+   },
+   "invariants": 0,
+   "errors": 0,
+   "errorKinds": [],
+   "softlock": 0,
+   "digest": 1069176325
+  },
+  {
+   "persona": "aggressive",
+   "seed": 9,
+   "days": 42,
+   "final": 900850,
+   "minMoney": 33050,
+   "net": 800850,
+   "money": {
+    "d23": 114250,
+    "d30": 105800,
+    "d37": 179650,
+    "d44": 153850,
+    "d58": 900850
+   },
+   "warRoom": {
+    "in": 30300,
+    "out": 6000,
+    "plays": 11,
+    "noCarDay": 22,
+    "playErrorDay": 21,
+    "f01Crashes": 1,
+    "lastPlayNight": 11,
+    "attempted": 16,
+    "refused": 5,
+    "won": 1,
+    "maxPerNight": 2
+   },
+   "layLow": {
+    "n": 0,
+    "avgDrop": 0
+   },
+   "trap": {
+    "in": 1573250,
+    "out": 1026000,
+    "houses": 3,
+    "cooks": 84,
+    "cookRefused": 0,
+    "casesCooked": 302,
+    "casesSold": 242,
+    "revenue": 1636250,
+    "ingredients": 581000,
+    "upgrades": 0,
+    "level": 3,
+    "levelDays": {
+     "2": 32,
+     "3": 46
+    },
+    "raids": {
+     "scheduled": 3,
+     "held": 0,
+     "answered": 3,
+     "outcomes": {
+      "HELD": 2,
+      "BREACHED": 1
+     },
+     "stashLost": 10,
+     "unbankedLost": 0,
+     "holdNet": 29300,
+     "pendingDays": 3
+    },
+    "firstRaidDay": 41
+   },
+   "heat": {
+    "peak": 313,
+    "final": 310
+   },
+   "rain": {
+    "rounds": 0,
+    "spent": 0
+   },
+   "crew": {
+    "gone": 2,
+    "capturedEvents": 2,
+    "downedEvents": 11,
+    "activeEnd": 4
+   },
+   "flows": {
+    "trap:house": -445000,
+    "trap:ingredients": -581000,
+    "trap:count": 1573250,
+    "war_room:play": 24300,
+    "wake": 200000,
+    "hold": 29300
+   },
+   "invariants": 0,
+   "errors": 0,
+   "errorKinds": [],
+   "softlock": 0,
+   "digest": 2093484070
+  },
+  {
+   "persona": "aggressive",
+   "seed": 10,
+   "days": 42,
+   "final": 2436200,
+   "minMoney": 52600,
+   "net": 2336200,
+   "money": {
+    "d23": 192400,
+    "d30": 691100,
+    "d37": 1080000,
+    "d44": 1436600,
+    "d58": 2436200
+   },
+   "warRoom": {
+    "in": 579800,
+    "out": 6000,
+    "plays": 13,
+    "noCarDay": 22,
+    "playErrorDay": null,
+    "f01Crashes": 0,
+    "lastPlayNight": 14,
+    "attempted": 18,
+    "refused": 5,
+    "won": 4,
+    "maxPerNight": 2
+   },
+   "layLow": {
+    "n": 0,
+    "avgDrop": 0
+   },
+   "trap": {
+    "in": 2877000,
+    "out": 1495000,
+    "houses": 3,
+    "cooks": 119,
+    "cookRefused": 0,
+    "casesCooked": 468,
+    "casesSold": 416,
+    "revenue": 2961000,
+    "ingredients": 1050000,
+    "upgrades": 0,
+    "level": 4,
+    "levelDays": {
+     "2": 24,
+     "3": 32,
+     "4": 49
+    },
+    "raids": {
+     "scheduled": 5,
+     "held": 0,
+     "answered": 5,
+     "outcomes": {
+      "HELD": 5
+     },
+     "stashLost": 0,
+     "unbankedLost": 0,
+     "holdNet": 180400,
+     "pendingDays": 5
+    },
+    "firstRaidDay": 24
+   },
+   "heat": {
+    "peak": 655,
+    "final": 655
+   },
+   "rain": {
+    "rounds": 0,
+    "spent": 0
+   },
+   "crew": {
+    "gone": 0,
+    "capturedEvents": 0,
+    "downedEvents": 3,
+    "activeEnd": 8
+   },
+   "flows": {
+    "war_room:play": 573800,
+    "trap:house": -445000,
+    "trap:ingredients": -1050000,
+    "trap:count": 2877000,
+    "hold": 180400,
+    "wake": 200000
+   },
+   "invariants": 0,
+   "errors": 0,
+   "errorKinds": [],
+   "softlock": 0,
+   "digest": 1263299016
+  },
+  {
+   "persona": "conservative",
+   "seed": 1,
+   "days": 42,
+   "final": 1322600,
+   "minMoney": 94400,
+   "net": 1222600,
+   "money": {
+    "d23": 311400,
+    "d30": 688100,
+    "d37": 933900,
+    "d44": 1104000,
+    "d58": 1322600
+   },
+   "warRoom": {
+    "in": 909400,
+    "out": 0,
+    "plays": 27,
+    "noCarDay": 41,
+    "playErrorDay": null,
+    "f01Crashes": 0,
+    "lastPlayNight": 34,
+    "attempted": 32,
+    "refused": 5,
+    "won": 25,
+    "maxPerNight": 1
+   },
+   "layLow": {
+    "n": 0,
+    "avgDrop": 0
+   },
+   "trap": {
+    "in": 247800,
+    "out": 134600,
+    "houses": 1,
+    "cooks": 42,
+    "cookRefused": 0,
+    "casesCooked": 84,
+    "casesSold": 80,
+    "revenue": 256200,
+    "ingredients": 89600,
+    "upgrades": 0,
+    "level": 2,
+    "levelDays": {
+     "2": 36
+    },
+    "raids": {
+     "scheduled": 0,
+     "held": 0,
+     "answered": 0,
+     "outcomes": {},
+     "stashLost": 0,
+     "unbankedLost": 0,
+     "holdNet": 0,
+     "pendingDays": 0
+    },
+    "firstRaidDay": null
+   },
+   "heat": {
+    "peak": 1,
+    "final": 0
+   },
+   "rain": {
+    "rounds": 0,
+    "spent": 0
+   },
+   "crew": {
+    "gone": 0,
+    "capturedEvents": 0,
+    "downedEvents": 3,
+    "activeEnd": 8
+   },
+   "flows": {
+    "war_room:play": 909400,
+    "trap:house": -45000,
+    "trap:ingredients": -89600,
+    "trap:count": 247800,
+    "wake": 200000
+   },
+   "invariants": 0,
+   "errors": 0,
+   "errorKinds": [],
+   "softlock": 0,
+   "digest": 3381386988
+  },
+  {
+   "persona": "conservative",
+   "seed": 2,
+   "days": 42,
+   "final": 1358200,
+   "minMoney": 96300,
+   "net": 1258200,
+   "money": {
+    "d23": 379100,
+    "d30": 674000,
+    "d37": 922100,
+    "d44": 1162700,
+    "d58": 1358200
+   },
+   "warRoom": {
+    "in": 952200,
+    "out": 3000,
+    "plays": 28,
+    "noCarDay": 42,
+    "playErrorDay": null,
+    "f01Crashes": 0,
+    "lastPlayNight": 35,
+    "attempted": 33,
+    "refused": 5,
+    "won": 24,
+    "maxPerNight": 1
+   },
+   "layLow": {
+    "n": 0,
+    "avgDrop": 0
+   },
+   "trap": {
+    "in": 243600,
+    "out": 134600,
+    "houses": 1,
+    "cooks": 42,
+    "cookRefused": 0,
+    "casesCooked": 84,
+    "casesSold": 80,
+    "revenue": 252000,
+    "ingredients": 89600,
+    "upgrades": 0,
+    "level": 2,
+    "levelDays": {
+     "2": 36
+    },
+    "raids": {
+     "scheduled": 0,
+     "held": 0,
+     "answered": 0,
+     "outcomes": {},
+     "stashLost": 0,
+     "unbankedLost": 0,
+     "holdNet": 0,
+     "pendingDays": 0
+    },
+    "firstRaidDay": null
+   },
+   "heat": {
+    "peak": 1,
+    "final": 0
+   },
+   "rain": {
+    "rounds": 0,
+    "spent": 0
+   },
+   "crew": {
+    "gone": 0,
+    "capturedEvents": 0,
+    "downedEvents": 3,
+    "activeEnd": 8
+   },
+   "flows": {
+    "war_room:play": 949200,
+    "trap:house": -45000,
+    "trap:ingredients": -89600,
+    "trap:count": 243600,
+    "wake": 200000
+   },
+   "invariants": 0,
+   "errors": 0,
+   "errorKinds": [],
+   "softlock": 0,
+   "digest": 93801626
+  },
+  {
+   "persona": "conservative",
+   "seed": 3,
+   "days": 42,
+   "final": 1828700,
+   "minMoney": 110900,
+   "net": 1728700,
+   "money": {
+    "d23": 391100,
+    "d30": 735900,
+    "d37": 909700,
+    "d44": 1101500,
+    "d58": 1828700
+   },
+   "warRoom": {
+    "in": 1425200,
+    "out": 2000,
+    "plays": 42,
+    "noCarDay": null,
+    "playErrorDay": null,
+    "f01Crashes": 0,
+    "lastPlayNight": 42,
+    "attempted": 42,
+    "refused": 0,
+    "won": 38,
+    "maxPerNight": 1
+   },
+   "layLow": {
+    "n": 0,
+    "avgDrop": 0
+   },
+   "trap": {
+    "in": 237300,
+    "out": 131800,
+    "houses": 1,
+    "cooks": 41,
+    "cookRefused": 0,
+    "casesCooked": 82,
+    "casesSold": 78,
+    "revenue": 245700,
+    "ingredients": 86800,
+    "upgrades": 0,
+    "level": 2,
+    "levelDays": {
+     "2": 37
+    },
+    "raids": {
+     "scheduled": 0,
+     "held": 0,
+     "answered": 0,
+     "outcomes": {},
+     "stashLost": 0,
+     "unbankedLost": 0,
+     "holdNet": 0,
+     "pendingDays": 0
+    },
+    "firstRaidDay": null
+   },
+   "heat": {
+    "peak": 4,
+    "final": 0
+   },
+   "rain": {
+    "rounds": 0,
+    "spent": 0
+   },
+   "crew": {
+    "gone": 0,
+    "capturedEvents": 1,
+    "downedEvents": 3,
+    "activeEnd": 8
+   },
+   "flows": {
+    "war_room:play": 1423200,
+    "trap:house": -45000,
+    "trap:ingredients": -86800,
+    "trap:count": 237300,
+    "wake": 200000
+   },
+   "invariants": 0,
+   "errors": 0,
+   "errorKinds": [],
+   "softlock": 0,
+   "digest": 3073211213
+  },
+  {
+   "persona": "conservative",
+   "seed": 4,
+   "days": 42,
+   "final": 896900,
+   "minMoney": 124800,
+   "net": 796900,
+   "money": {
+    "d23": 273000,
+    "d30": 647900,
+    "d37": 685800,
+    "d44": 716400,
+    "d58": 896900
+   },
+   "warRoom": {
+    "in": 491400,
+    "out": 0,
+    "plays": 17,
+    "noCarDay": 33,
+    "playErrorDay": 31,
+    "f01Crashes": 2,
+    "lastPlayNight": 23,
+    "attempted": 21,
+    "refused": 4,
+    "won": 14,
+    "maxPerNight": 1
+   },
+   "layLow": {
+    "n": 0,
+    "avgDrop": 0
+   },
+   "trap": {
+    "in": 237300,
+    "out": 131800,
+    "houses": 1,
+    "cooks": 41,
+    "cookRefused": 0,
+    "casesCooked": 82,
+    "casesSold": 78,
+    "revenue": 245700,
+    "ingredients": 86800,
+    "upgrades": 0,
+    "level": 2,
+    "levelDays": {
+     "2": 37
+    },
+    "raids": {
+     "scheduled": 0,
+     "held": 0,
+     "answered": 0,
+     "outcomes": {},
+     "stashLost": 0,
+     "unbankedLost": 0,
+     "holdNet": 0,
+     "pendingDays": 0
+    },
+    "firstRaidDay": null
+   },
+   "heat": {
+    "peak": 3,
+    "final": 0
+   },
+   "rain": {
+    "rounds": 0,
+    "spent": 0
+   },
+   "crew": {
+    "gone": 1,
+    "capturedEvents": 3,
+    "downedEvents": 3,
+    "activeEnd": 7
+   },
+   "flows": {
+    "war_room:play": 491400,
+    "trap:house": -45000,
+    "trap:ingredients": -86800,
+    "trap:count": 237300,
+    "wake": 200000
+   },
+   "invariants": 0,
+   "errors": 0,
+   "errorKinds": [],
+   "softlock": 0,
+   "digest": 480622925
+  },
+  {
+   "persona": "conservative",
+   "seed": 5,
+   "days": 42,
+   "final": 1310700,
+   "minMoney": 79200,
+   "net": 1210700,
+   "money": {
+    "d23": 345700,
+    "d30": 738100,
+    "d37": 952100,
+    "d44": 1095200,
+    "d58": 1310700
+   },
+   "warRoom": {
+    "in": 899600,
+    "out": 0,
+    "plays": 26,
+    "noCarDay": 40,
+    "playErrorDay": null,
+    "f01Crashes": 0,
+    "lastPlayNight": 33,
+    "attempted": 31,
+    "refused": 5,
+    "won": 25,
+    "maxPerNight": 1
+   },
+   "layLow": {
+    "n": 0,
+    "avgDrop": 0
+   },
+   "trap": {
+    "in": 245700,
+    "out": 134600,
+    "houses": 1,
+    "cooks": 42,
+    "cookRefused": 0,
+    "casesCooked": 84,
+    "casesSold": 80,
+    "revenue": 254100,
+    "ingredients": 89600,
+    "upgrades": 0,
+    "level": 2,
+    "levelDays": {
+     "2": 36
+    },
+    "raids": {
+     "scheduled": 0,
+     "held": 0,
+     "answered": 0,
+     "outcomes": {},
+     "stashLost": 0,
+     "unbankedLost": 0,
+     "holdNet": 0,
+     "pendingDays": 0
+    },
+    "firstRaidDay": null
+   },
+   "heat": {
+    "peak": 2,
+    "final": 0
+   },
+   "rain": {
+    "rounds": 0,
+    "spent": 0
+   },
+   "crew": {
+    "gone": 0,
+    "capturedEvents": 1,
+    "downedEvents": 3,
+    "activeEnd": 8
+   },
+   "flows": {
+    "war_room:play": 899600,
+    "trap:house": -45000,
+    "trap:ingredients": -89600,
+    "trap:count": 245700,
+    "wake": 200000
+   },
+   "invariants": 0,
+   "errors": 0,
+   "errorKinds": [],
+   "softlock": 0,
+   "digest": 1424224530
+  },
+  {
+   "persona": "conservative",
+   "seed": 6,
+   "days": 42,
+   "final": 854250,
+   "minMoney": 81700,
+   "net": 754250,
+   "money": {
+    "d23": 265450,
+    "d30": 593500,
+    "d37": 649250,
+    "d44": 673750,
+    "d58": 854250
+   },
+   "warRoom": {
+    "in": 438900,
+    "out": 1000,
+    "plays": 15,
+    "noCarDay": 28,
+    "playErrorDay": null,
+    "f01Crashes": 0,
+    "lastPlayNight": 21,
+    "attempted": 19,
+    "refused": 4,
+    "won": 14,
+    "maxPerNight": 1
+   },
+   "layLow": {
+    "n": 0,
+    "avgDrop": 0
+   },
+   "trap": {
+    "in": 250950,
+    "out": 134600,
+    "houses": 1,
+    "cooks": 42,
+    "cookRefused": 0,
+    "casesCooked": 84,
+    "casesSold": 80,
+    "revenue": 259350,
+    "ingredients": 89600,
+    "upgrades": 0,
+    "level": 2,
+    "levelDays": {
+     "2": 36
+    },
+    "raids": {
+     "scheduled": 0,
+     "held": 0,
+     "answered": 0,
+     "outcomes": {},
+     "stashLost": 0,
+     "unbankedLost": 0,
+     "holdNet": 0,
+     "pendingDays": 0
+    },
+    "firstRaidDay": null
+   },
+   "heat": {
+    "peak": 3,
+    "final": 0
+   },
+   "rain": {
+    "rounds": 0,
+    "spent": 0
+   },
+   "crew": {
+    "gone": 0,
+    "capturedEvents": 0,
+    "downedEvents": 3,
+    "activeEnd": 8
+   },
+   "flows": {
+    "war_room:play": 437900,
+    "trap:house": -45000,
+    "trap:ingredients": -89600,
+    "trap:count": 250950,
+    "wake": 200000
+   },
+   "invariants": 0,
+   "errors": 0,
+   "errorKinds": [],
+   "softlock": 0,
+   "digest": 1968273588
+  },
+  {
+   "persona": "conservative",
+   "seed": 7,
+   "days": 42,
+   "final": 946300,
+   "minMoney": 95100,
+   "net": 846300,
+   "money": {
+    "d23": 312500,
+    "d30": 670200,
+    "d37": 725100,
+    "d44": 765800,
+    "d58": 946300
+   },
+   "warRoom": {
+    "in": 535200,
+    "out": 0,
+    "plays": 17,
+    "noCarDay": 30,
+    "playErrorDay": null,
+    "f01Crashes": 0,
+    "lastPlayNight": 23,
+    "attempted": 21,
+    "refused": 4,
+    "won": 16,
+    "maxPerNight": 1
+   },
+   "layLow": {
+    "n": 0,
+    "avgDrop": 0
+   },
+   "trap": {
+    "in": 245700,
+    "out": 134600,
+    "houses": 1,
+    "cooks": 42,
+    "cookRefused": 0,
+    "casesCooked": 84,
+    "casesSold": 80,
+    "revenue": 254100,
+    "ingredients": 89600,
+    "upgrades": 0,
+    "level": 2,
+    "levelDays": {
+     "2": 36
+    },
+    "raids": {
+     "scheduled": 0,
+     "held": 0,
+     "answered": 0,
+     "outcomes": {},
+     "stashLost": 0,
+     "unbankedLost": 0,
+     "holdNet": 0,
+     "pendingDays": 0
+    },
+    "firstRaidDay": null
+   },
+   "heat": {
+    "peak": 2,
+    "final": 0
+   },
+   "rain": {
+    "rounds": 0,
+    "spent": 0
+   },
+   "crew": {
+    "gone": 0,
+    "capturedEvents": 0,
+    "downedEvents": 0,
+    "activeEnd": 8
+   },
+   "flows": {
+    "war_room:play": 535200,
+    "trap:house": -45000,
+    "trap:ingredients": -89600,
+    "trap:count": 245700,
+    "wake": 200000
+   },
+   "invariants": 0,
+   "errors": 0,
+   "errorKinds": [],
+   "softlock": 0,
+   "digest": 2967552249
+  },
+  {
+   "persona": "conservative",
+   "seed": 8,
+   "days": 42,
+   "final": 862500,
+   "minMoney": 87300,
+   "net": 762500,
+   "money": {
+    "d23": 327500,
+    "d30": 562400,
+    "d37": 661700,
+    "d44": 684100,
+    "d58": 862500
+   },
+   "warRoom": {
+    "in": 453500,
+    "out": 0,
+    "plays": 14,
+    "noCarDay": 27,
+    "playErrorDay": null,
+    "f01Crashes": 0,
+    "lastPlayNight": 20,
+    "attempted": 18,
+    "refused": 4,
+    "won": 13,
+    "maxPerNight": 1
+   },
+   "layLow": {
+    "n": 0,
+    "avgDrop": 0
+   },
+   "trap": {
+    "in": 243600,
+    "out": 134600,
+    "houses": 1,
+    "cooks": 42,
+    "cookRefused": 0,
+    "casesCooked": 84,
+    "casesSold": 80,
+    "revenue": 252000,
+    "ingredients": 89600,
+    "upgrades": 0,
+    "level": 2,
+    "levelDays": {
+     "2": 36
+    },
+    "raids": {
+     "scheduled": 0,
+     "held": 0,
+     "answered": 0,
+     "outcomes": {},
+     "stashLost": 0,
+     "unbankedLost": 0,
+     "holdNet": 0,
+     "pendingDays": 0
+    },
+    "firstRaidDay": null
+   },
+   "heat": {
+    "peak": 2,
+    "final": 0
+   },
+   "rain": {
+    "rounds": 0,
+    "spent": 0
+   },
+   "crew": {
+    "gone": 0,
+    "capturedEvents": 0,
+    "downedEvents": 0,
+    "activeEnd": 7
+   },
+   "flows": {
+    "war_room:play": 453500,
+    "trap:house": -45000,
+    "trap:ingredients": -89600,
+    "trap:count": 243600,
+    "wake": 200000
+   },
+   "invariants": 0,
+   "errors": 0,
+   "errorKinds": [],
+   "softlock": 0,
+   "digest": 2754826181
+  },
+  {
+   "persona": "conservative",
+   "seed": 9,
+   "days": 42,
+   "final": 1170800,
+   "minMoney": 122900,
+   "net": 1070800,
+   "money": {
+    "d23": 276500,
+    "d30": 657400,
+    "d37": 860600,
+    "d44": 941000,
+    "d58": 1170800
+   },
+   "warRoom": {
+    "in": 767400,
+    "out": 0,
+    "plays": 25,
+    "noCarDay": 39,
+    "playErrorDay": null,
+    "f01Crashes": 0,
+    "lastPlayNight": 32,
+    "attempted": 30,
+    "refused": 5,
+    "won": 22,
+    "maxPerNight": 1
+   },
+   "layLow": {
+    "n": 0,
+    "avgDrop": 0
+   },
+   "trap": {
+    "in": 235200,
+    "out": 131800,
+    "houses": 1,
+    "cooks": 41,
+    "cookRefused": 0,
+    "casesCooked": 82,
+    "casesSold": 78,
+    "revenue": 243600,
+    "ingredients": 86800,
+    "upgrades": 0,
+    "level": 2,
+    "levelDays": {
+     "2": 37
+    },
+    "raids": {
+     "scheduled": 0,
+     "held": 0,
+     "answered": 0,
+     "outcomes": {},
+     "stashLost": 0,
+     "unbankedLost": 0,
+     "holdNet": 0,
+     "pendingDays": 0
+    },
+    "firstRaidDay": null
+   },
+   "heat": {
+    "peak": 2,
+    "final": 0
+   },
+   "rain": {
+    "rounds": 0,
+    "spent": 0
+   },
+   "crew": {
+    "gone": 0,
+    "capturedEvents": 1,
+    "downedEvents": 3,
+    "activeEnd": 8
+   },
+   "flows": {
+    "war_room:play": 767400,
+    "trap:house": -45000,
+    "trap:ingredients": -86800,
+    "trap:count": 235200,
+    "wake": 200000
+   },
+   "invariants": 0,
+   "errors": 0,
+   "errorKinds": [],
+   "softlock": 0,
+   "digest": 585987907
+  },
+  {
+   "persona": "conservative",
+   "seed": 10,
+   "days": 42,
+   "final": 1496350,
+   "minMoney": 81700,
+   "net": 1396350,
+   "money": {
+    "d23": 403900,
+    "d30": 807050,
+    "d37": 1093950,
+    "d44": 1280550,
+    "d58": 1496350
+   },
+   "warRoom": {
+    "in": 1086300,
+    "out": 0,
+    "plays": 26,
+    "noCarDay": 40,
+    "playErrorDay": null,
+    "f01Crashes": 0,
+    "lastPlayNight": 33,
+    "attempted": 31,
+    "refused": 5,
+    "won": 26,
+    "maxPerNight": 1
+   },
+   "layLow": {
+    "n": 0,
+    "avgDrop": 0
+   },
+   "trap": {
+    "in": 244650,
+    "out": 134600,
+    "houses": 1,
+    "cooks": 42,
+    "cookRefused": 0,
+    "casesCooked": 84,
+    "casesSold": 80,
+    "revenue": 253050,
+    "ingredients": 89600,
+    "upgrades": 0,
+    "level": 2,
+    "levelDays": {
+     "2": 36
+    },
+    "raids": {
+     "scheduled": 0,
+     "held": 0,
+     "answered": 0,
+     "outcomes": {},
+     "stashLost": 0,
+     "unbankedLost": 0,
+     "holdNet": 0,
+     "pendingDays": 0
+    },
+    "firstRaidDay": null
+   },
+   "heat": {
+    "peak": 4,
+    "final": 0
+   },
+   "rain": {
+    "rounds": 0,
+    "spent": 0
+   },
+   "crew": {
+    "gone": 0,
+    "capturedEvents": 0,
+    "downedEvents": 0,
+    "activeEnd": 8
+   },
+   "flows": {
+    "war_room:play": 1086300,
+    "trap:house": -45000,
+    "trap:ingredients": -89600,
+    "trap:count": 244650,
+    "wake": 200000
+   },
+   "invariants": 0,
+   "errors": 0,
+   "errorKinds": [],
+   "softlock": 0,
+   "digest": 944078403
+  },
+  {
+   "persona": "hoarder",
+   "seed": 1,
+   "days": 42,
+   "final": 1209400,
+   "minMoney": 140800,
+   "net": 1109400,
+   "money": {
+    "d23": 341000,
+    "d30": 698100,
+    "d37": 925700,
+    "d44": 1073400,
+    "d58": 1209400
+   },
+   "warRoom": {
+    "in": 909400,
+    "out": 0,
+    "plays": 27,
+    "noCarDay": 41,
+    "playErrorDay": null,
+    "f01Crashes": 0,
+    "lastPlayNight": 34,
+    "attempted": 32,
+    "refused": 5,
+    "won": 25,
+    "maxPerNight": 1
+   },
+   "layLow": {
+    "n": 0,
+    "avgDrop": 0
+   },
+   "trap": {
+    "in": 0,
+    "out": 0,
+    "houses": 0,
+    "cooks": 0,
+    "cookRefused": 0,
+    "casesCooked": 0,
+    "casesSold": 0,
+    "revenue": 0,
+    "ingredients": 0,
+    "upgrades": 0,
+    "level": 1,
+    "levelDays": {},
+    "raids": {
+     "scheduled": 0,
+     "held": 0,
+     "answered": 0,
+     "outcomes": {},
+     "stashLost": 0,
+     "unbankedLost": 0,
+     "holdNet": 0,
+     "pendingDays": 0
+    },
+    "firstRaidDay": null
+   },
+   "heat": {
+    "peak": 65,
+    "final": 65
+   },
+   "rain": {
+    "rounds": 0,
+    "spent": 0
+   },
+   "crew": {
+    "gone": 0,
+    "capturedEvents": 0,
+    "downedEvents": 3,
+    "activeEnd": 8
+   },
+   "flows": {
+    "war_room:play": 909400,
+    "wake": 200000
+   },
+   "invariants": 0,
+   "errors": 0,
+   "errorKinds": [],
+   "softlock": 0,
+   "digest": 963211756
+  },
+  {
+   "persona": "hoarder",
+   "seed": 2,
+   "days": 42,
+   "final": 1249200,
+   "minMoney": 142700,
+   "net": 1149200,
+   "money": {
+    "d23": 408700,
+    "d30": 684000,
+    "d37": 913900,
+    "d44": 1132100,
+    "d58": 1249200
+   },
+   "warRoom": {
+    "in": 952200,
+    "out": 3000,
+    "plays": 28,
+    "noCarDay": 42,
+    "playErrorDay": null,
+    "f01Crashes": 0,
+    "lastPlayNight": 35,
+    "attempted": 33,
+    "refused": 5,
+    "won": 24,
+    "maxPerNight": 1
+   },
+   "layLow": {
+    "n": 0,
+    "avgDrop": 0
+   },
+   "trap": {
+    "in": 0,
+    "out": 0,
+    "houses": 0,
+    "cooks": 0,
+    "cookRefused": 0,
+    "casesCooked": 0,
+    "casesSold": 0,
+    "revenue": 0,
+    "ingredients": 0,
+    "upgrades": 0,
+    "level": 1,
+    "levelDays": {},
+    "raids": {
+     "scheduled": 0,
+     "held": 0,
+     "answered": 0,
+     "outcomes": {},
+     "stashLost": 0,
+     "unbankedLost": 0,
+     "holdNet": 0,
+     "pendingDays": 0
+    },
+    "firstRaidDay": null
+   },
+   "heat": {
+    "peak": 71,
+    "final": 71
+   },
+   "rain": {
+    "rounds": 0,
+    "spent": 0
+   },
+   "crew": {
+    "gone": 0,
+    "capturedEvents": 0,
+    "downedEvents": 3,
+    "activeEnd": 8
+   },
+   "flows": {
+    "war_room:play": 949200,
+    "wake": 200000
+   },
+   "invariants": 0,
+   "errors": 0,
+   "errorKinds": [],
+   "softlock": 0,
+   "digest": 410902454
+  },
+  {
+   "persona": "hoarder",
+   "seed": 3,
+   "days": 42,
+   "final": 1723200,
+   "minMoney": 118600,
+   "net": 1623200,
+   "money": {
+    "d23": 423500,
+    "d30": 748700,
+    "d37": 902900,
+    "d44": 1076500,
+    "d58": 1723200
+   },
+   "warRoom": {
+    "in": 1425200,
+    "out": 2000,
+    "plays": 42,
+    "noCarDay": null,
+    "playErrorDay": null,
+    "f01Crashes": 0,
+    "lastPlayNight": 42,
+    "attempted": 42,
+    "refused": 0,
+    "won": 38,
+    "maxPerNight": 1
+   },
+   "layLow": {
+    "n": 0,
+    "avgDrop": 0
+   },
+   "trap": {
+    "in": 0,
+    "out": 0,
+    "houses": 0,
+    "cooks": 0,
+    "cookRefused": 0,
+    "casesCooked": 0,
+    "casesSold": 0,
+    "revenue": 0,
+    "ingredients": 0,
+    "upgrades": 0,
+    "level": 1,
+    "levelDays": {},
+    "raids": {
+     "scheduled": 0,
+     "held": 0,
+     "answered": 0,
+     "outcomes": {},
+     "stashLost": 0,
+     "unbankedLost": 0,
+     "holdNet": 0,
+     "pendingDays": 0
+    },
+    "firstRaidDay": null
+   },
+   "heat": {
+    "peak": 104,
+    "final": 104
+   },
+   "rain": {
+    "rounds": 0,
+    "spent": 0
+   },
+   "crew": {
+    "gone": 0,
+    "capturedEvents": 1,
+    "downedEvents": 3,
+    "activeEnd": 8
+   },
+   "flows": {
+    "war_room:play": 1423200,
+    "wake": 200000
+   },
+   "invariants": 0,
+   "errors": 0,
+   "errorKinds": [],
+   "softlock": 0,
+   "digest": 4168283691
+  },
+  {
+   "persona": "hoarder",
+   "seed": 4,
+   "days": 42,
+   "final": 791400,
+   "minMoney": 124800,
+   "net": 691400,
+   "money": {
+    "d23": 305400,
+    "d30": 660700,
+    "d37": 679000,
+    "d44": 691400,
+    "d58": 791400
+   },
+   "warRoom": {
+    "in": 491400,
+    "out": 0,
+    "plays": 17,
+    "noCarDay": 33,
+    "playErrorDay": 31,
+    "f01Crashes": 2,
+    "lastPlayNight": 23,
+    "attempted": 21,
+    "refused": 4,
+    "won": 14,
+    "maxPerNight": 1
+   },
+   "layLow": {
+    "n": 0,
+    "avgDrop": 0
+   },
+   "trap": {
+    "in": 0,
+    "out": 0,
+    "houses": 0,
+    "cooks": 0,
+    "cookRefused": 0,
+    "casesCooked": 0,
+    "casesSold": 0,
+    "revenue": 0,
+    "ingredients": 0,
+    "upgrades": 0,
+    "level": 1,
+    "levelDays": {},
+    "raids": {
+     "scheduled": 0,
+     "held": 0,
+     "answered": 0,
+     "outcomes": {},
+     "stashLost": 0,
+     "unbankedLost": 0,
+     "holdNet": 0,
+     "pendingDays": 0
+    },
+    "firstRaidDay": null
+   },
+   "heat": {
+    "peak": 39,
+    "final": 39
+   },
+   "rain": {
+    "rounds": 0,
+    "spent": 0
+   },
+   "crew": {
+    "gone": 1,
+    "capturedEvents": 3,
+    "downedEvents": 3,
+    "activeEnd": 7
+   },
+   "flows": {
+    "war_room:play": 491400,
+    "wake": 200000
+   },
+   "invariants": 0,
+   "errors": 0,
+   "errorKinds": [],
+   "softlock": 0,
+   "digest": 1425036814
+  },
+  {
+   "persona": "hoarder",
+   "seed": 5,
+   "days": 42,
+   "final": 1199600,
+   "minMoney": 125600,
+   "net": 1099600,
+   "money": {
+    "d23": 375300,
+    "d30": 748100,
+    "d37": 943900,
+    "d44": 1064600,
+    "d58": 1199600
+   },
+   "warRoom": {
+    "in": 899600,
+    "out": 0,
+    "plays": 26,
+    "noCarDay": 40,
+    "playErrorDay": null,
+    "f01Crashes": 0,
+    "lastPlayNight": 33,
+    "attempted": 31,
+    "refused": 5,
+    "won": 25,
+    "maxPerNight": 1
+   },
+   "layLow": {
+    "n": 0,
+    "avgDrop": 0
+   },
+   "trap": {
+    "in": 0,
+    "out": 0,
+    "houses": 0,
+    "cooks": 0,
+    "cookRefused": 0,
+    "casesCooked": 0,
+    "casesSold": 0,
+    "revenue": 0,
+    "ingredients": 0,
+    "upgrades": 0,
+    "level": 1,
+    "levelDays": {},
+    "raids": {
+     "scheduled": 0,
+     "held": 0,
+     "answered": 0,
+     "outcomes": {},
+     "stashLost": 0,
+     "unbankedLost": 0,
+     "holdNet": 0,
+     "pendingDays": 0
+    },
+    "firstRaidDay": null
+   },
+   "heat": {
+    "peak": 69,
+    "final": 69
+   },
+   "rain": {
+    "rounds": 0,
+    "spent": 0
+   },
+   "crew": {
+    "gone": 0,
+    "capturedEvents": 1,
+    "downedEvents": 3,
+    "activeEnd": 8
+   },
+   "flows": {
+    "war_room:play": 899600,
+    "wake": 200000
+   },
+   "invariants": 0,
+   "errors": 0,
+   "errorKinds": [],
+   "softlock": 0,
+   "digest": 3904176739
+  },
+  {
+   "persona": "hoarder",
+   "seed": 6,
+   "days": 42,
+   "final": 737900,
+   "minMoney": 128100,
+   "net": 637900,
+   "money": {
+    "d23": 294000,
+    "d30": 601400,
+    "d37": 637900,
+    "d44": 637900,
+    "d58": 737900
+   },
+   "warRoom": {
+    "in": 438900,
+    "out": 1000,
+    "plays": 15,
+    "noCarDay": 28,
+    "playErrorDay": null,
+    "f01Crashes": 0,
+    "lastPlayNight": 21,
+    "attempted": 19,
+    "refused": 4,
+    "won": 14,
+    "maxPerNight": 1
+   },
+   "layLow": {
+    "n": 0,
+    "avgDrop": 0
+   },
+   "trap": {
+    "in": 0,
+    "out": 0,
+    "houses": 0,
+    "cooks": 0,
+    "cookRefused": 0,
+    "casesCooked": 0,
+    "casesSold": 0,
+    "revenue": 0,
+    "ingredients": 0,
+    "upgrades": 0,
+    "level": 1,
+    "levelDays": {},
+    "raids": {
+     "scheduled": 0,
+     "held": 0,
+     "answered": 0,
+     "outcomes": {},
+     "stashLost": 0,
+     "unbankedLost": 0,
+     "holdNet": 0,
+     "pendingDays": 0
+    },
+    "firstRaidDay": null
+   },
+   "heat": {
+    "peak": 36,
+    "final": 36
+   },
+   "rain": {
+    "rounds": 0,
+    "spent": 0
+   },
+   "crew": {
+    "gone": 0,
+    "capturedEvents": 0,
+    "downedEvents": 3,
+    "activeEnd": 8
+   },
+   "flows": {
+    "war_room:play": 437900,
+    "wake": 200000
+   },
+   "invariants": 0,
+   "errors": 0,
+   "errorKinds": [],
+   "softlock": 0,
+   "digest": 2556570212
+  },
+  {
+   "persona": "hoarder",
+   "seed": 7,
+   "days": 42,
+   "final": 835200,
+   "minMoney": 141500,
+   "net": 735200,
+   "money": {
+    "d23": 342100,
+    "d30": 680200,
+    "d37": 716900,
+    "d44": 735200,
+    "d58": 835200
+   },
+   "warRoom": {
+    "in": 535200,
+    "out": 0,
+    "plays": 17,
+    "noCarDay": 30,
+    "playErrorDay": null,
+    "f01Crashes": 0,
+    "lastPlayNight": 23,
+    "attempted": 21,
+    "refused": 4,
+    "won": 16,
+    "maxPerNight": 1
+   },
+   "layLow": {
+    "n": 0,
+    "avgDrop": 0
+   },
+   "trap": {
+    "in": 0,
+    "out": 0,
+    "houses": 0,
+    "cooks": 0,
+    "cookRefused": 0,
+    "casesCooked": 0,
+    "casesSold": 0,
+    "revenue": 0,
+    "ingredients": 0,
+    "upgrades": 0,
+    "level": 1,
+    "levelDays": {},
+    "raids": {
+     "scheduled": 0,
+     "held": 0,
+     "answered": 0,
+     "outcomes": {},
+     "stashLost": 0,
+     "unbankedLost": 0,
+     "holdNet": 0,
+     "pendingDays": 0
+    },
+    "firstRaidDay": null
+   },
+   "heat": {
+    "peak": 43,
+    "final": 43
+   },
+   "rain": {
+    "rounds": 0,
+    "spent": 0
+   },
+   "crew": {
+    "gone": 0,
+    "capturedEvents": 0,
+    "downedEvents": 0,
+    "activeEnd": 8
+   },
+   "flows": {
+    "war_room:play": 535200,
+    "wake": 200000
+   },
+   "invariants": 0,
+   "errors": 0,
+   "errorKinds": [],
+   "softlock": 0,
+   "digest": 2697561360
+  },
+  {
+   "persona": "hoarder",
+   "seed": 8,
+   "days": 42,
+   "final": 753500,
+   "minMoney": 133700,
+   "net": 653500,
+   "money": {
+    "d23": 357100,
+    "d30": 572400,
+    "d37": 653500,
+    "d44": 653500,
+    "d58": 753500
+   },
+   "warRoom": {
+    "in": 453500,
+    "out": 0,
+    "plays": 14,
+    "noCarDay": 27,
+    "playErrorDay": null,
+    "f01Crashes": 0,
+    "lastPlayNight": 20,
+    "attempted": 18,
+    "refused": 4,
+    "won": 13,
+    "maxPerNight": 1
+   },
+   "layLow": {
+    "n": 0,
+    "avgDrop": 0
+   },
+   "trap": {
+    "in": 0,
+    "out": 0,
+    "houses": 0,
+    "cooks": 0,
+    "cookRefused": 0,
+    "casesCooked": 0,
+    "casesSold": 0,
+    "revenue": 0,
+    "ingredients": 0,
+    "upgrades": 0,
+    "level": 1,
+    "levelDays": {},
+    "raids": {
+     "scheduled": 0,
+     "held": 0,
+     "answered": 0,
+     "outcomes": {},
+     "stashLost": 0,
+     "unbankedLost": 0,
+     "holdNet": 0,
+     "pendingDays": 0
+    },
+    "firstRaidDay": null
+   },
+   "heat": {
+    "peak": 37,
+    "final": 37
+   },
+   "rain": {
+    "rounds": 0,
+    "spent": 0
+   },
+   "crew": {
+    "gone": 0,
+    "capturedEvents": 0,
+    "downedEvents": 0,
+    "activeEnd": 7
+   },
+   "flows": {
+    "war_room:play": 453500,
+    "wake": 200000
+   },
+   "invariants": 0,
+   "errors": 0,
+   "errorKinds": [],
+   "softlock": 0,
+   "digest": 2886455585
+  },
+  {
+   "persona": "hoarder",
+   "seed": 9,
+   "days": 42,
+   "final": 1067400,
+   "minMoney": 122900,
+   "net": 967400,
+   "money": {
+    "d23": 308900,
+    "d30": 670200,
+    "d37": 853800,
+    "d44": 916000,
+    "d58": 1067400
+   },
+   "warRoom": {
+    "in": 767400,
+    "out": 0,
+    "plays": 25,
+    "noCarDay": 39,
+    "playErrorDay": null,
+    "f01Crashes": 0,
+    "lastPlayNight": 32,
+    "attempted": 30,
+    "refused": 5,
+    "won": 22,
+    "maxPerNight": 1
+   },
+   "layLow": {
+    "n": 0,
+    "avgDrop": 0
+   },
+   "trap": {
+    "in": 0,
+    "out": 0,
+    "houses": 0,
+    "cooks": 0,
+    "cookRefused": 0,
+    "casesCooked": 0,
+    "casesSold": 0,
+    "revenue": 0,
+    "ingredients": 0,
+    "upgrades": 0,
+    "level": 1,
+    "levelDays": {},
+    "raids": {
+     "scheduled": 0,
+     "held": 0,
+     "answered": 0,
+     "outcomes": {},
+     "stashLost": 0,
+     "unbankedLost": 0,
+     "holdNet": 0,
+     "pendingDays": 0
+    },
+    "firstRaidDay": null
+   },
+   "heat": {
+    "peak": 62,
+    "final": 62
+   },
+   "rain": {
+    "rounds": 0,
+    "spent": 0
+   },
+   "crew": {
+    "gone": 0,
+    "capturedEvents": 1,
+    "downedEvents": 3,
+    "activeEnd": 8
+   },
+   "flows": {
+    "war_room:play": 767400,
+    "wake": 200000
+   },
+   "invariants": 0,
+   "errors": 0,
+   "errorKinds": [],
+   "softlock": 0,
+   "digest": 2247989463
+  },
+  {
+   "persona": "hoarder",
+   "seed": 10,
+   "days": 42,
+   "final": 1386300,
+   "minMoney": 128100,
+   "net": 1286300,
+   "money": {
+    "d23": 433500,
+    "d30": 816000,
+    "d37": 1084700,
+    "d44": 1248900,
+    "d58": 1386300
+   },
+   "warRoom": {
+    "in": 1086300,
+    "out": 0,
+    "plays": 26,
+    "noCarDay": 40,
+    "playErrorDay": null,
+    "f01Crashes": 0,
+    "lastPlayNight": 33,
+    "attempted": 31,
+    "refused": 5,
+    "won": 26,
+    "maxPerNight": 1
+   },
+   "layLow": {
+    "n": 0,
+    "avgDrop": 0
+   },
+   "trap": {
+    "in": 0,
+    "out": 0,
+    "houses": 0,
+    "cooks": 0,
+    "cookRefused": 0,
+    "casesCooked": 0,
+    "casesSold": 0,
+    "revenue": 0,
+    "ingredients": 0,
+    "upgrades": 0,
+    "level": 1,
+    "levelDays": {},
+    "raids": {
+     "scheduled": 0,
+     "held": 0,
+     "answered": 0,
+     "outcomes": {},
+     "stashLost": 0,
+     "unbankedLost": 0,
+     "holdNet": 0,
+     "pendingDays": 0
+    },
+    "firstRaidDay": null
+   },
+   "heat": {
+    "peak": 67,
+    "final": 67
+   },
+   "rain": {
+    "rounds": 0,
+    "spent": 0
+   },
+   "crew": {
+    "gone": 0,
+    "capturedEvents": 0,
+    "downedEvents": 0,
+    "activeEnd": 8
+   },
+   "flows": {
+    "war_room:play": 1086300,
+    "wake": 200000
+   },
+   "invariants": 0,
+   "errors": 0,
+   "errorKinds": [],
+   "softlock": 0,
+   "digest": 1700921133
+  },
+  {
+   "persona": "loser",
+   "seed": 1,
+   "days": 42,
+   "final": 907100,
+   "minMoney": 44800,
+   "net": 807100,
+   "money": {
+    "d23": 195200,
+    "d30": 461600,
+    "d37": 665000,
+    "d44": 728300,
+    "d58": 907100
+   },
+   "warRoom": {
+    "in": 492200,
+    "out": 3000,
+    "plays": 20,
+    "noCarDay": 35,
+    "playErrorDay": null,
+    "f01Crashes": 0,
+    "lastPlayNight": 28,
+    "attempted": 25,
+    "refused": 5,
+    "won": 13,
+    "maxPerNight": 1
+   },
+   "layLow": {
+    "n": 0,
+    "avgDrop": 0
+   },
+   "trap": {
+    "in": 297500,
+    "out": 134600,
+    "houses": 1,
+    "cooks": 42,
+    "cookRefused": 0,
+    "casesCooked": 84,
+    "casesSold": 80,
+    "revenue": 318500,
+    "ingredients": 89600,
+    "upgrades": 0,
+    "level": 2,
+    "levelDays": {
+     "2": 36
+    },
+    "raids": {
+     "scheduled": 0,
+     "held": 0,
+     "answered": 0,
+     "outcomes": {},
+     "stashLost": 0,
+     "unbankedLost": 0,
+     "holdNet": 0,
+     "pendingDays": 0
+    },
+    "firstRaidDay": null
+   },
+   "heat": {
+    "peak": 44,
+    "final": 44
+   },
+   "rain": {
+    "rounds": 9,
+    "spent": 45000
+   },
+   "crew": {
+    "gone": 2,
+    "capturedEvents": 0,
+    "downedEvents": 4,
+    "activeEnd": 6
+   },
+   "flows": {
+    "war_room:play": 489200,
+    "trap:house": -45000,
+    "trap:ingredients": -89600,
+    "rainmaker": -45000,
+    "trap:count": 297500,
+    "wake": 200000
+   },
+   "invariants": 0,
+   "errors": 0,
+   "errorKinds": [],
+   "softlock": 0,
+   "digest": 3577315791
+  },
+  {
+   "persona": "loser",
+   "seed": 2,
+   "days": 42,
+   "final": 713700,
+   "minMoney": 45800,
+   "net": 613700,
+   "money": {
+    "d23": 345300,
+    "d30": 482900,
+    "d37": 510500,
+    "d44": 541900,
+    "d58": 713700
+   },
+   "warRoom": {
+    "in": 313300,
+    "out": 0,
+    "plays": 10,
+    "noCarDay": 23,
+    "playErrorDay": null,
+    "f01Crashes": 0,
+    "lastPlayNight": 16,
+    "attempted": 13,
+    "refused": 3,
+    "won": 6,
+    "maxPerNight": 1
+   },
+   "layLow": {
+    "n": 0,
+    "avgDrop": 0
+   },
+   "trap": {
+    "in": 280000,
+    "out": 134600,
+    "houses": 1,
+    "cooks": 42,
+    "cookRefused": 0,
+    "casesCooked": 84,
+    "casesSold": 80,
+    "revenue": 315000,
+    "ingredients": 89600,
+    "upgrades": 0,
+    "level": 2,
+    "levelDays": {
+     "2": 36
+    },
+    "raids": {
+     "scheduled": 0,
+     "held": 0,
+     "answered": 0,
+     "outcomes": {},
+     "stashLost": 0,
+     "unbankedLost": 0,
+     "holdNet": 0,
+     "pendingDays": 0
+    },
+    "firstRaidDay": null
+   },
+   "heat": {
+    "peak": 23,
+    "final": 23
+   },
+   "rain": {
+    "rounds": 9,
+    "spent": 45000
+   },
+   "crew": {
+    "gone": 0,
+    "capturedEvents": 0,
+    "downedEvents": 1,
+    "activeEnd": 7
+   },
+   "flows": {
+    "trap:house": -45000,
+    "trap:ingredients": -89600,
+    "rainmaker": -45000,
+    "trap:count": 280000,
+    "war_room:play": 313300,
+    "wake": 200000
+   },
+   "invariants": 0,
+   "errors": 0,
+   "errorKinds": [],
+   "softlock": 0,
+   "digest": 1353818958
+  },
+  {
+   "persona": "loser",
+   "seed": 3,
+   "days": 42,
+   "final": 505800,
+   "minMoney": 45800,
+   "net": 405800,
+   "money": {
+    "d23": 121200,
+    "d30": 271300,
+    "d37": 285100,
+    "d44": 327000,
+    "d58": 505800
+   },
+   "warRoom": {
+    "in": 88900,
+    "out": 1000,
+    "plays": 8,
+    "noCarDay": 21,
+    "playErrorDay": null,
+    "f01Crashes": 0,
+    "lastPlayNight": 14,
+    "attempted": 11,
+    "refused": 3,
+    "won": 4,
+    "maxPerNight": 1
+   },
+   "layLow": {
+    "n": 0,
+    "avgDrop": 0
+   },
+   "trap": {
+    "in": 297500,
+    "out": 134600,
+    "houses": 1,
+    "cooks": 42,
+    "cookRefused": 0,
+    "casesCooked": 84,
+    "casesSold": 80,
+    "revenue": 325500,
+    "ingredients": 89600,
+    "upgrades": 0,
+    "level": 2,
+    "levelDays": {
+     "2": 36
+    },
+    "raids": {
+     "scheduled": 0,
+     "held": 0,
+     "answered": 0,
+     "outcomes": {},
+     "stashLost": 0,
+     "unbankedLost": 0,
+     "holdNet": 0,
+     "pendingDays": 0
+    },
+    "firstRaidDay": null
+   },
+   "heat": {
+    "peak": 23,
+    "final": 23
+   },
+   "rain": {
+    "rounds": 9,
+    "spent": 45000
+   },
+   "crew": {
+    "gone": 1,
+    "capturedEvents": 0,
+    "downedEvents": 2,
+    "activeEnd": 5
+   },
+   "flows": {
+    "trap:house": -45000,
+    "trap:ingredients": -89600,
+    "rainmaker": -45000,
+    "trap:count": 297500,
+    "war_room:play": 87900,
+    "wake": 200000
+   },
+   "invariants": 0,
+   "errors": 0,
+   "errorKinds": [],
+   "softlock": 0,
+   "digest": 3114370599
+  },
+  {
+   "persona": "loser",
+   "seed": 4,
+   "days": 42,
+   "final": 663800,
+   "minMoney": 89500,
+   "net": 563800,
+   "money": {
+    "d23": 296300,
+    "d30": 415200,
+    "d37": 450100,
+    "d44": 485000,
+    "d58": 663800
+   },
+   "warRoom": {
+    "in": 246900,
+    "out": 1000,
+    "plays": 9,
+    "noCarDay": 22,
+    "playErrorDay": null,
+    "f01Crashes": 0,
+    "lastPlayNight": 15,
+    "attempted": 12,
+    "refused": 3,
+    "won": 7,
+    "maxPerNight": 1
+   },
+   "layLow": {
+    "n": 0,
+    "avgDrop": 0
+   },
+   "trap": {
+    "in": 297500,
+    "out": 134600,
+    "houses": 1,
+    "cooks": 42,
+    "cookRefused": 0,
+    "casesCooked": 84,
+    "casesSold": 80,
+    "revenue": 325500,
+    "ingredients": 89600,
+    "upgrades": 0,
+    "level": 2,
+    "levelDays": {
+     "2": 36
+    },
+    "raids": {
+     "scheduled": 0,
+     "held": 0,
+     "answered": 0,
+     "outcomes": {},
+     "stashLost": 0,
+     "unbankedLost": 0,
+     "holdNet": 0,
+     "pendingDays": 0
+    },
+    "firstRaidDay": null
+   },
+   "heat": {
+    "peak": 23,
+    "final": 23
+   },
+   "rain": {
+    "rounds": 9,
+    "spent": 45000
+   },
+   "crew": {
+    "gone": 1,
+    "capturedEvents": 0,
+    "downedEvents": 4,
+    "activeEnd": 7
+   },
+   "flows": {
+    "war_room:play": 245900,
+    "trap:house": -45000,
+    "trap:ingredients": -89600,
+    "rainmaker": -45000,
+    "trap:count": 297500,
+    "wake": 200000
+   },
+   "invariants": 0,
+   "errors": 0,
+   "errorKinds": [],
+   "softlock": 0,
+   "digest": 4109417444
+  },
+  {
+   "persona": "loser",
+   "seed": 5,
+   "days": 42,
+   "final": 421400,
+   "minMoney": 45800,
+   "net": 321400,
+   "money": {
+    "d23": 66700,
+    "d30": 183400,
+    "d37": 193700,
+    "d44": 235600,
+    "d58": 421400
+   },
+   "warRoom": {
+    "in": 0,
+    "out": 0,
+    "plays": 6,
+    "noCarDay": null,
+    "playErrorDay": 19,
+    "f01Crashes": 2,
+    "lastPlayNight": 11,
+    "attempted": 8,
+    "refused": 2,
+    "won": 0,
+    "maxPerNight": 1
+   },
+   "layLow": {
+    "n": 0,
+    "avgDrop": 0
+   },
+   "trap": {
+    "in": 301000,
+    "out": 134600,
+    "houses": 1,
+    "cooks": 42,
+    "cookRefused": 0,
+    "casesCooked": 84,
+    "casesSold": 80,
+    "revenue": 343000,
+    "ingredients": 89600,
+    "upgrades": 0,
+    "level": 2,
+    "levelDays": {
+     "2": 36
+    },
+    "raids": {
+     "scheduled": 0,
+     "held": 0,
+     "answered": 0,
+     "outcomes": {},
+     "stashLost": 0,
+     "unbankedLost": 0,
+     "holdNet": 0,
+     "pendingDays": 0
+    },
+    "firstRaidDay": null
+   },
+   "heat": {
+    "peak": 23,
+    "final": 23
+   },
+   "rain": {
+    "rounds": 9,
+    "spent": 45000
+   },
+   "crew": {
+    "gone": 1,
+    "capturedEvents": 1,
+    "downedEvents": 3,
+    "activeEnd": 5
+   },
+   "flows": {
+    "trap:house": -45000,
+    "trap:ingredients": -89600,
+    "rainmaker": -45000,
+    "trap:count": 301000,
+    "wake": 200000
+   },
+   "invariants": 0,
+   "errors": 0,
+   "errorKinds": [],
+   "softlock": 0,
+   "digest": 335664267
+  },
+  {
+   "persona": "loser",
+   "seed": 6,
+   "days": 42,
+   "final": 774300,
+   "minMoney": 48600,
+   "net": 674300,
+   "money": {
+    "d23": 211400,
+    "d30": 509300,
+    "d37": 522100,
+    "d44": 574500,
+    "d58": 774300
+   },
+   "warRoom": {
+    "in": 321900,
+    "out": 4000,
+    "plays": 13,
+    "noCarDay": 28,
+    "playErrorDay": null,
+    "f01Crashes": 0,
+    "lastPlayNight": 21,
+    "attempted": 18,
+    "refused": 5,
+    "won": 9,
+    "maxPerNight": 1
+   },
+   "layLow": {
+    "n": 0,
+    "avgDrop": 0
+   },
+   "trap": {
+    "in": 336000,
+    "out": 134600,
+    "houses": 1,
+    "cooks": 42,
+    "cookRefused": 0,
+    "casesCooked": 84,
+    "casesSold": 80,
+    "revenue": 364000,
+    "ingredients": 89600,
+    "upgrades": 0,
+    "level": 2,
+    "levelDays": {
+     "2": 36
+    },
+    "raids": {
+     "scheduled": 0,
+     "held": 0,
+     "answered": 0,
+     "outcomes": {},
+     "stashLost": 0,
+     "unbankedLost": 0,
+     "holdNet": 0,
+     "pendingDays": 0
+    },
+    "firstRaidDay": null
+   },
+   "heat": {
+    "peak": 31,
+    "final": 31
+   },
+   "rain": {
+    "rounds": 9,
+    "spent": 45000
+   },
+   "crew": {
+    "gone": 1,
+    "capturedEvents": 0,
+    "downedEvents": 2,
+    "activeEnd": 7
+   },
+   "flows": {
+    "trap:house": -45000,
+    "trap:ingredients": -89600,
+    "rainmaker": -45000,
+    "war_room:play": 317900,
+    "trap:count": 336000,
+    "wake": 200000
+   },
+   "invariants": 0,
+   "errors": 0,
+   "errorKinds": [],
+   "softlock": 0,
+   "digest": 3973009875
+  },
+  {
+   "persona": "loser",
+   "seed": 7,
+   "days": 42,
+   "final": 762900,
+   "minMoney": 71800,
+   "net": 662900,
+   "money": {
+    "d23": 332800,
+    "d30": 507900,
+    "d37": 545700,
+    "d44": 577100,
+    "d58": 762900
+   },
+   "warRoom": {
+    "in": 349500,
+    "out": 1000,
+    "plays": 13,
+    "noCarDay": 30,
+    "playErrorDay": 28,
+    "f01Crashes": 2,
+    "lastPlayNight": 20,
+    "attempted": 17,
+    "refused": 4,
+    "won": 7,
+    "maxPerNight": 1
+   },
+   "layLow": {
+    "n": 0,
+    "avgDrop": 0
+   },
+   "trap": {
+    "in": 294000,
+    "out": 134600,
+    "houses": 1,
+    "cooks": 42,
+    "cookRefused": 0,
+    "casesCooked": 84,
+    "casesSold": 80,
+    "revenue": 329000,
+    "ingredients": 89600,
+    "upgrades": 0,
+    "level": 2,
+    "levelDays": {
+     "2": 36
+    },
+    "raids": {
+     "scheduled": 0,
+     "held": 0,
+     "answered": 0,
+     "outcomes": {},
+     "stashLost": 0,
+     "unbankedLost": 0,
+     "holdNet": 0,
+     "pendingDays": 0
+    },
+    "firstRaidDay": null
+   },
+   "heat": {
+    "peak": 23,
+    "final": 23
+   },
+   "rain": {
+    "rounds": 9,
+    "spent": 45000
+   },
+   "crew": {
+    "gone": 2,
+    "capturedEvents": 2,
+    "downedEvents": 4,
+    "activeEnd": 6
+   },
+   "flows": {
+    "war_room:play": 348500,
+    "trap:house": -45000,
+    "trap:ingredients": -89600,
+    "rainmaker": -45000,
+    "trap:count": 294000,
+    "wake": 200000
+   },
+   "invariants": 0,
+   "errors": 0,
+   "errorKinds": [],
+   "softlock": 0,
+   "digest": 453970285
+  },
+  {
+   "persona": "loser",
+   "seed": 8,
+   "days": 42,
+   "final": 806400,
+   "minMoney": 54600,
+   "net": 706400,
+   "money": {
+    "d23": 326600,
+    "d30": 550100,
+    "d37": 585700,
+    "d44": 627600,
+    "d58": 806400
+   },
+   "warRoom": {
+    "in": 382500,
+    "out": 1000,
+    "plays": 14,
+    "noCarDay": 31,
+    "playErrorDay": 29,
+    "f01Crashes": 2,
+    "lastPlayNight": 21,
+    "attempted": 18,
+    "refused": 4,
+    "won": 12,
+    "maxPerNight": 1
+   },
+   "layLow": {
+    "n": 0,
+    "avgDrop": 0
+   },
+   "trap": {
+    "in": 304500,
+    "out": 134600,
+    "houses": 1,
+    "cooks": 42,
+    "cookRefused": 0,
+    "casesCooked": 84,
+    "casesSold": 80,
+    "revenue": 332500,
+    "ingredients": 89600,
+    "upgrades": 0,
+    "level": 2,
+    "levelDays": {
+     "2": 36
+    },
+    "raids": {
+     "scheduled": 0,
+     "held": 0,
+     "answered": 0,
+     "outcomes": {},
+     "stashLost": 0,
+     "unbankedLost": 0,
+     "holdNet": 0,
+     "pendingDays": 0
+    },
+    "firstRaidDay": null
+   },
+   "heat": {
+    "peak": 27,
+    "final": 27
+   },
+   "rain": {
+    "rounds": 9,
+    "spent": 45000
+   },
+   "crew": {
+    "gone": 2,
+    "capturedEvents": 2,
+    "downedEvents": 1,
+    "activeEnd": 5
+   },
+   "flows": {
+    "war_room:play": 381500,
+    "trap:house": -45000,
+    "trap:ingredients": -89600,
+    "rainmaker": -45000,
+    "trap:count": 304500,
+    "wake": 200000
+   },
+   "invariants": 0,
+   "errors": 0,
+   "errorKinds": [],
+   "softlock": 0,
+   "digest": 2940158990
+  },
+  {
+   "persona": "loser",
+   "seed": 9,
+   "days": 42,
+   "final": 541500,
+   "minMoney": 48600,
+   "net": 441500,
+   "money": {
+    "d23": 158200,
+    "d30": 300000,
+    "d37": 313800,
+    "d44": 348700,
+    "d58": 541500
+   },
+   "warRoom": {
+    "in": 114100,
+    "out": 1000,
+    "plays": 7,
+    "noCarDay": 20,
+    "playErrorDay": null,
+    "f01Crashes": 0,
+    "lastPlayNight": 13,
+    "attempted": 11,
+    "refused": 4,
+    "won": 4,
+    "maxPerNight": 1
+   },
+   "layLow": {
+    "n": 0,
+    "avgDrop": 0
+   },
+   "trap": {
+    "in": 308000,
+    "out": 134600,
+    "houses": 1,
+    "cooks": 42,
+    "cookRefused": 0,
+    "casesCooked": 84,
+    "casesSold": 80,
+    "revenue": 336000,
+    "ingredients": 89600,
+    "upgrades": 0,
+    "level": 2,
+    "levelDays": {
+     "2": 36
+    },
+    "raids": {
+     "scheduled": 0,
+     "held": 0,
+     "answered": 0,
+     "outcomes": {},
+     "stashLost": 0,
+     "unbankedLost": 0,
+     "holdNet": 0,
+     "pendingDays": 0
+    },
+    "firstRaidDay": null
+   },
+   "heat": {
+    "peak": 23,
+    "final": 23
+   },
+   "rain": {
+    "rounds": 9,
+    "spent": 45000
+   },
+   "crew": {
+    "gone": 0,
+    "capturedEvents": 0,
+    "downedEvents": 5,
+    "activeEnd": 6
+   },
+   "flows": {
+    "trap:house": -45000,
+    "trap:ingredients": -89600,
+    "rainmaker": -45000,
+    "war_room:play": 113100,
+    "trap:count": 308000,
+    "wake": 200000
+   },
+   "invariants": 0,
+   "errors": 0,
+   "errorKinds": [],
+   "softlock": 0,
+   "digest": 2117628654
+  },
+  {
+   "persona": "loser",
+   "seed": 10,
+   "days": 42,
+   "final": 651900,
+   "minMoney": 46600,
+   "net": 551900,
+   "money": {
+    "d23": 264100,
+    "d30": 427900,
+    "d37": 438200,
+    "d44": 487100,
+    "d58": 651900
+   },
+   "warRoom": {
+    "in": 253500,
+    "out": 2000,
+    "plays": 8,
+    "noCarDay": 21,
+    "playErrorDay": null,
+    "f01Crashes": 0,
+    "lastPlayNight": 14,
+    "attempted": 11,
+    "refused": 3,
+    "won": 6,
+    "maxPerNight": 1
+   },
+   "layLow": {
+    "n": 0,
+    "avgDrop": 0
+   },
+   "trap": {
+    "in": 280000,
+    "out": 134600,
+    "houses": 1,
+    "cooks": 42,
+    "cookRefused": 0,
+    "casesCooked": 84,
+    "casesSold": 80,
+    "revenue": 308000,
+    "ingredients": 89600,
+    "upgrades": 0,
+    "level": 2,
+    "levelDays": {
+     "2": 36
+    },
+    "raids": {
+     "scheduled": 0,
+     "held": 0,
+     "answered": 0,
+     "outcomes": {},
+     "stashLost": 0,
+     "unbankedLost": 0,
+     "holdNet": 0,
+     "pendingDays": 0
+    },
+    "firstRaidDay": null
+   },
+   "heat": {
+    "peak": 23,
+    "final": 23
+   },
+   "rain": {
+    "rounds": 9,
+    "spent": 45000
+   },
+   "crew": {
+    "gone": 0,
+    "capturedEvents": 0,
+    "downedEvents": 1,
+    "activeEnd": 6
+   },
+   "flows": {
+    "war_room:play": 251500,
+    "trap:house": -45000,
+    "trap:ingredients": -89600,
+    "rainmaker": -45000,
+    "trap:count": 280000,
+    "wake": 200000
+   },
+   "invariants": 0,
+   "errors": 0,
+   "errorKinds": [],
+   "softlock": 0,
+   "digest": 1313838252
+  },
+  {
+   "persona": "normal",
+   "seed": 1,
+   "days": 42,
+   "final": 1398050,
+   "minMoney": 38250,
+   "net": 1298050,
+   "money": {
+    "d23": 136050,
+    "d30": 353150,
+    "d37": 695350,
+    "d44": 930650,
+    "d58": 1398050
+   },
+   "warRoom": {
+    "in": 480300,
+    "out": 40000,
+    "plays": 22,
+    "noCarDay": 39,
+    "playErrorDay": 37,
+    "f01Crashes": 2,
+    "lastPlayNight": 29,
+    "attempted": 26,
+    "refused": 4,
+    "won": 18,
+    "maxPerNight": 1
+   },
+   "layLow": {
+    "n": 4,
+    "avgDrop": 15
+   },
+   "trap": {
+    "in": 1286250,
+    "out": 643800,
+    "houses": 2,
+    "cooks": 77,
+    "cookRefused": 0,
+    "casesCooked": 224,
+    "casesSold": 206,
+    "revenue": 1314250,
+    "ingredients": 408800,
+    "upgrades": 50000,
+    "level": 3,
+    "levelDays": {
+     "2": 28,
+     "3": 43
+    },
+    "raids": {
+     "scheduled": 3,
+     "held": 0,
+     "answered": 3,
+     "outcomes": {
+      "HELD": 3
+     },
+     "stashLost": 0,
+     "unbankedLost": 0,
+     "holdNet": 35300,
+     "pendingDays": 3
+    },
+    "firstRaidDay": 41
+   },
+   "heat": {
+    "peak": 74,
+    "final": 62
+   },
+   "rain": {
+    "rounds": 4,
+    "spent": 20000
+   },
+   "crew": {
+    "gone": 1,
+    "capturedEvents": 2,
+    "downedEvents": 4,
+    "activeEnd": 7
+   },
+   "flows": {
+    "war_room:play": 480300,
+    "trap:house": -185000,
+    "trap:upgrade": -50000,
+    "trap:ingredients": -408800,
+    "trap:count": 1286250,
+    "wake": 200000,
+    "rainmaker": -20000,
+    "hold": 35300,
+    "war_room:lay_low": -40000
+   },
+   "invariants": 0,
+   "errors": 0,
+   "errorKinds": [],
+   "softlock": 0,
+   "digest": 758373419
+  },
+  {
+   "persona": "normal",
+   "seed": 2,
+   "days": 42,
+   "final": 1652050,
+   "minMoney": 46300,
+   "net": 1552050,
+   "money": {
+    "d23": 197400,
+    "d30": 593450,
+    "d37": 984950,
+    "d44": 1241250,
+    "d58": 1652050
+   },
+   "warRoom": {
+    "in": 673200,
+    "out": 51000,
+    "plays": 20,
+    "noCarDay": 35,
+    "playErrorDay": null,
+    "f01Crashes": 0,
+    "lastPlayNight": 28,
+    "attempted": 25,
+    "refused": 5,
+    "won": 19,
+    "maxPerNight": 1
+   },
+   "layLow": {
+    "n": 5,
+    "avgDrop": 15
+   },
+   "trap": {
+    "in": 1380750,
+    "out": 680200,
+    "houses": 2,
+    "cooks": 81,
+    "cookRefused": 0,
+    "casesCooked": 240,
+    "casesSold": 224,
+    "revenue": 1436750,
+    "ingredients": 445200,
+    "upgrades": 50000,
+    "level": 3,
+    "levelDays": {
+     "2": 26,
+     "3": 41
+    },
+    "raids": {
+     "scheduled": 4,
+     "held": 0,
+     "answered": 3,
+     "outcomes": {
+      "HELD": 3
+     },
+     "stashLost": 0,
+     "unbankedLost": 0,
+     "holdNet": 54300,
+     "pendingDays": 3
+    },
+    "firstRaidDay": 37
+   },
+   "heat": {
+    "peak": 73,
+    "final": 61
+   },
+   "rain": {
+    "rounds": 5,
+    "spent": 25000
+   },
+   "crew": {
+    "gone": 0,
+    "capturedEvents": 0,
+    "downedEvents": 1,
+    "activeEnd": 8
+   },
+   "flows": {
+    "war_room:play": 672200,
+    "trap:house": -185000,
+    "trap:upgrade": -50000,
+    "trap:ingredients": -445200,
+    "trap:count": 1380750,
+    "rainmaker": -25000,
+    "wake": 200000,
+    "hold": 54300,
+    "war_room:lay_low": -50000
+   },
+   "invariants": 0,
+   "errors": 0,
+   "errorKinds": [],
+   "softlock": 0,
+   "digest": 2382298106
+  },
+  {
+   "persona": "normal",
+   "seed": 3,
+   "days": 42,
+   "final": 1586200,
+   "minMoney": 56400,
+   "net": 1486200,
+   "money": {
+    "d23": 290300,
+    "d30": 661600,
+    "d37": 903700,
+    "d44": 1141100,
+    "d58": 1586200
+   },
+   "warRoom": {
+    "in": 586200,
+    "out": 30000,
+    "plays": 13,
+    "noCarDay": 28,
+    "playErrorDay": null,
+    "f01Crashes": 0,
+    "lastPlayNight": 21,
+    "attempted": 18,
+    "refused": 5,
+    "won": 13,
+    "maxPerNight": 1
+   },
+   "layLow": {
+    "n": 3,
+    "avgDrop": 15
+   },
+   "trap": {
+    "in": 1386000,
+    "out": 680200,
+    "houses": 2,
+    "cooks": 81,
+    "cookRefused": 0,
+    "casesCooked": 240,
+    "casesSold": 220,
+    "revenue": 1428000,
+    "ingredients": 445200,
+    "upgrades": 50000,
+    "level": 3,
+    "levelDays": {
+     "2": 26,
+     "3": 41
+    },
+    "raids": {
+     "scheduled": 3,
+     "held": 0,
+     "answered": 3,
+     "outcomes": {
+      "HELD": 3
+     },
+     "stashLost": 0,
+     "unbankedLost": 0,
+     "holdNet": 54200,
+     "pendingDays": 3
+    },
+    "firstRaidDay": 41
+   },
+   "heat": {
+    "peak": 70,
+    "final": 64
+   },
+   "rain": {
+    "rounds": 6,
+    "spent": 30000
+   },
+   "crew": {
+    "gone": 0,
+    "capturedEvents": 0,
+    "downedEvents": 1,
+    "activeEnd": 8
+   },
+   "flows": {
+    "war_room:play": 586200,
+    "trap:house": -185000,
+    "trap:ingredients": -445200,
+    "rainmaker": -30000,
+    "trap:count": 1386000,
+    "trap:upgrade": -50000,
+    "wake": 200000,
+    "hold": 54200,
+    "war_room:lay_low": -30000
+   },
+   "invariants": 0,
+   "errors": 0,
+   "errorKinds": [],
+   "softlock": 0,
+   "digest": 3935572869
+  },
+  {
+   "persona": "normal",
+   "seed": 4,
+   "days": 42,
+   "final": 2156650,
+   "minMoney": 54500,
+   "net": 2056650,
+   "money": {
+    "d23": 54500,
+    "d30": 407250,
+    "d37": 921150,
+    "d44": 1381950,
+    "d58": 2156650
+   },
+   "warRoom": {
+    "in": 1237600,
+    "out": 71000,
+    "plays": 39,
+    "noCarDay": 55,
+    "playErrorDay": null,
+    "f01Crashes": 0,
+    "lastPlayNight": 39,
+    "attempted": 42,
+    "refused": 3,
+    "won": 35,
+    "maxPerNight": 1
+   },
+   "layLow": {
+    "n": 7,
+    "avgDrop": 15
+   },
+   "trap": {
+    "in": 1310750,
+    "out": 650800,
+    "houses": 2,
+    "cooks": 78,
+    "cookRefused": 0,
+    "casesCooked": 228,
+    "casesSold": 210,
+    "revenue": 1366750,
+    "ingredients": 415800,
+    "upgrades": 50000,
+    "level": 3,
+    "levelDays": {
+     "2": 27,
+     "3": 43
+    },
+    "raids": {
+     "scheduled": 3,
+     "held": 0,
+     "answered": 3,
+     "outcomes": {
+      "HELD": 3
+     },
+     "stashLost": 0,
+     "unbankedLost": 0,
+     "holdNet": 60100,
+     "pendingDays": 3
+    },
+    "firstRaidDay": 38
+   },
+   "heat": {
+    "peak": 77,
+    "final": 61
+   },
+   "rain": {
+    "rounds": 6,
+    "spent": 30000
+   },
+   "crew": {
+    "gone": 1,
+    "capturedEvents": 1,
+    "downedEvents": 0,
+    "activeEnd": 7
+   },
+   "flows": {
+    "war_room:play": 1236600,
+    "trap:house": -185000,
+    "trap:ingredients": -415800,
+    "rainmaker": -30000,
+    "trap:count": 1310750,
+    "trap:upgrade": -50000,
+    "wake": 200000,
+    "hold": 60100,
+    "war_room:lay_low": -70000
+   },
+   "invariants": 0,
+   "errors": 0,
+   "errorKinds": [],
+   "softlock": 0,
+   "digest": 1872491745
+  },
+  {
+   "persona": "normal",
+   "seed": 5,
+   "days": 42,
+   "final": 2202350,
+   "minMoney": 54200,
+   "net": 2102350,
+   "money": {
+    "d23": 116350,
+    "d30": 471050,
+    "d37": 877250,
+    "d44": 1386350,
+    "d58": 2202350
+   },
+   "warRoom": {
+    "in": 1282800,
+    "out": 70000,
+    "plays": 38,
+    "noCarDay": 56,
+    "playErrorDay": 54,
+    "f01Crashes": 2,
+    "lastPlayNight": 38,
+    "attempted": 42,
+    "refused": 4,
+    "won": 34,
+    "maxPerNight": 1
+   },
+   "layLow": {
+    "n": 7,
+    "avgDrop": 15
+   },
+   "trap": {
+    "in": 1324750,
+    "out": 662000,
+    "houses": 2,
+    "cooks": 79,
+    "cookRefused": 0,
+    "casesCooked": 232,
+    "casesSold": 214,
+    "revenue": 1380750,
+    "ingredients": 427000,
+    "upgrades": 50000,
+    "level": 3,
+    "levelDays": {
+     "2": 27,
+     "3": 42
+    },
+    "raids": {
+     "scheduled": 3,
+     "held": 0,
+     "answered": 3,
+     "outcomes": {
+      "HELD": 3
+     },
+     "stashLost": 0,
+     "unbankedLost": 0,
+     "holdNet": 56800,
+     "pendingDays": 3
+    },
+    "firstRaidDay": 38
+   },
+   "heat": {
+    "peak": 75,
+    "final": 64
+   },
+   "rain": {
+    "rounds": 6,
+    "spent": 30000
+   },
+   "crew": {
+    "gone": 2,
+    "capturedEvents": 3,
+    "downedEvents": 3,
+    "activeEnd": 6
+   },
+   "flows": {
+    "war_room:play": 1282800,
+    "trap:house": -185000,
+    "trap:ingredients": -427000,
+    "rainmaker": -30000,
+    "trap:count": 1324750,
+    "trap:upgrade": -50000,
+    "wake": 200000,
+    "hold": 56800,
+    "war_room:lay_low": -70000
+   },
+   "invariants": 0,
+   "errors": 0,
+   "errorKinds": [],
+   "softlock": 0,
+   "digest": 2608209702
+  },
+  {
+   "persona": "normal",
+   "seed": 6,
+   "days": 42,
+   "final": 2023450,
+   "minMoney": 37550,
+   "net": 1923450,
+   "money": {
+    "d23": 75550,
+    "d30": 408050,
+    "d37": 866150,
+    "d44": 1357350,
+    "d58": 2023450
+   },
+   "warRoom": {
+    "in": 1083700,
+    "out": 73000,
+    "plays": 38,
+    "noCarDay": 54,
+    "playErrorDay": null,
+    "f01Crashes": 0,
+    "lastPlayNight": 38,
+    "attempted": 42,
+    "refused": 4,
+    "won": 33,
+    "maxPerNight": 1
+   },
+   "layLow": {
+    "n": 7,
+    "avgDrop": 15
+   },
+   "trap": {
+    "in": 1349250,
+    "out": 662000,
+    "houses": 2,
+    "cooks": 79,
+    "cookRefused": 0,
+    "casesCooked": 232,
+    "casesSold": 218,
+    "revenue": 1405250,
+    "ingredients": 427000,
+    "upgrades": 50000,
+    "level": 3,
+    "levelDays": {
+     "2": 27,
+     "3": 42
+    },
+    "raids": {
+     "scheduled": 3,
+     "held": 0,
+     "answered": 3,
+     "outcomes": {
+      "HELD": 3
+     },
+     "stashLost": 0,
+     "unbankedLost": 0,
+     "holdNet": 55500,
+     "pendingDays": 3
+    },
+    "firstRaidDay": 38
+   },
+   "heat": {
+    "peak": 76,
+    "final": 71
+   },
+   "rain": {
+    "rounds": 6,
+    "spent": 30000
+   },
+   "crew": {
+    "gone": 1,
+    "capturedEvents": 0,
+    "downedEvents": 1,
+    "activeEnd": 7
+   },
+   "flows": {
+    "war_room:play": 1080700,
+    "trap:house": -185000,
+    "trap:ingredients": -427000,
+    "rainmaker": -30000,
+    "trap:count": 1349250,
+    "trap:upgrade": -50000,
+    "wake": 200000,
+    "hold": 55500,
+    "war_room:lay_low": -70000
+   },
+   "invariants": 0,
+   "errors": 0,
+   "errorKinds": [],
+   "softlock": 0,
+   "digest": 1904446463
+  },
+  {
+   "persona": "normal",
+   "seed": 7,
+   "days": 42,
+   "final": 1308300,
+   "minMoney": 45100,
+   "net": 1208300,
+   "money": {
+    "d23": 69900,
+    "d30": 394300,
+    "d37": 617500,
+    "d44": 832300,
+    "d58": 1308300
+   },
+   "warRoom": {
+    "in": 341900,
+    "out": 20000,
+    "plays": 14,
+    "noCarDay": 31,
+    "playErrorDay": 29,
+    "f01Crashes": 2,
+    "lastPlayNight": 21,
+    "attempted": 18,
+    "refused": 4,
+    "won": 11,
+    "maxPerNight": 1
+   },
+   "layLow": {
+    "n": 2,
+    "avgDrop": 15
+   },
+   "trap": {
+    "in": 1326500,
+    "out": 650800,
+    "houses": 2,
+    "cooks": 78,
+    "cookRefused": 0,
+    "casesCooked": 228,
+    "casesSold": 214,
+    "revenue": 1382500,
+    "ingredients": 415800,
+    "upgrades": 50000,
+    "level": 3,
+    "levelDays": {
+     "2": 27,
+     "3": 43
+    },
+    "raids": {
+     "scheduled": 2,
+     "held": 0,
+     "answered": 2,
+     "outcomes": {
+      "HELD": 2
+     },
+     "stashLost": 0,
+     "unbankedLost": 0,
+     "holdNet": 35700,
+     "pendingDays": 2
+    },
+    "firstRaidDay": 46
+   },
+   "heat": {
+    "peak": 72,
+    "final": 72
+   },
+   "rain": {
+    "rounds": 5,
+    "spent": 25000
+   },
+   "crew": {
+    "gone": 1,
+    "capturedEvents": 2,
+    "downedEvents": 4,
+    "activeEnd": 7
+   },
+   "flows": {
+    "war_room:play": 341900,
+    "trap:house": -185000,
+    "trap:upgrade": -50000,
+    "trap:ingredients": -415800,
+    "trap:count": 1326500,
+    "rainmaker": -25000,
+    "wake": 200000,
+    "hold": 35700,
+    "war_room:lay_low": -20000
+   },
+   "invariants": 0,
+   "errors": 0,
+   "errorKinds": [],
+   "softlock": 0,
+   "digest": 437250252
+  },
+  {
+   "persona": "normal",
+   "seed": 8,
+   "days": 42,
+   "final": 1524900,
+   "minMoney": 66700,
+   "net": 1424900,
+   "money": {
+    "d23": 303050,
+    "d30": 554400,
+    "d37": 806100,
+    "d44": 1047100,
+    "d58": 1524900
+   },
+   "warRoom": {
+    "in": 493800,
+    "out": 31000,
+    "plays": 12,
+    "noCarDay": 27,
+    "playErrorDay": null,
+    "f01Crashes": 0,
+    "lastPlayNight": 20,
+    "attempted": 17,
+    "refused": 5,
+    "won": 10,
+    "maxPerNight": 1
+   },
+   "layLow": {
+    "n": 3,
+    "avgDrop": 15
+   },
+   "trap": {
+    "in": 1400000,
+    "out": 677400,
+    "houses": 2,
+    "cooks": 80,
+    "cookRefused": 0,
+    "casesCooked": 236,
+    "casesSold": 218,
+    "revenue": 1428000,
+    "ingredients": 442400,
+    "upgrades": 50000,
+    "level": 3,
+    "levelDays": {
+     "2": 26,
+     "3": 41
+    },
+    "raids": {
+     "scheduled": 3,
+     "held": 0,
+     "answered": 3,
+     "outcomes": {
+      "HELD": 3
+     },
+     "stashLost": 0,
+     "unbankedLost": 0,
+     "holdNet": 69500,
+     "pendingDays": 3
+    },
+    "firstRaidDay": 43
+   },
+   "heat": {
+    "peak": 72,
+    "final": 65
+   },
+   "rain": {
+    "rounds": 6,
+    "spent": 30000
+   },
+   "crew": {
+    "gone": 0,
+    "capturedEvents": 0,
+    "downedEvents": 2,
+    "activeEnd": 8
+   },
+   "flows": {
+    "war_room:play": 492800,
+    "trap:house": -185000,
+    "trap:ingredients": -442400,
+    "rainmaker": -30000,
+    "trap:count": 1400000,
+    "trap:upgrade": -50000,
+    "wake": 200000,
+    "hold": 69500,
+    "war_room:lay_low": -30000
+   },
+   "invariants": 0,
+   "errors": 0,
+   "errorKinds": [],
+   "softlock": 0,
+   "digest": 871540660
+  },
+  {
+   "persona": "normal",
+   "seed": 9,
+   "days": 42,
+   "final": 865100,
+   "minMoney": 54700,
+   "net": 765100,
+   "money": {
+    "d23": 82700,
+    "d30": 87600,
+    "d37": 151200,
+    "d44": 402400,
+    "d58": 865100
+   },
+   "warRoom": {
+    "in": 64000,
+    "out": 10000,
+    "plays": 6,
+    "noCarDay": 21,
+    "playErrorDay": 19,
+    "f01Crashes": 4,
+    "lastPlayNight": 13,
+    "attempted": 12,
+    "refused": 6,
+    "won": 3,
+    "maxPerNight": 1
+   },
+   "layLow": {
+    "n": 1,
+    "avgDrop": 15
+   },
+   "trap": {
+    "in": 1099000,
+    "out": 576600,
+    "houses": 2,
+    "cooks": 71,
+    "cookRefused": 0,
+    "casesCooked": 200,
+    "casesSold": 184,
+    "revenue": 1155000,
+    "ingredients": 341600,
+    "upgrades": 50000,
+    "level": 3,
+    "levelDays": {
+     "2": 32,
+     "3": 47
+    },
+    "raids": {
+     "scheduled": 1,
+     "held": 0,
+     "answered": 1,
+     "outcomes": {
+      "HELD": 1
+     },
+     "stashLost": 0,
+     "unbankedLost": 0,
+     "holdNet": 18700,
+     "pendingDays": 1
+    },
+    "firstRaidDay": 55
+   },
+   "heat": {
+    "peak": 70,
+    "final": 60
+   },
+   "rain": {
+    "rounds": 6,
+    "spent": 30000
+   },
+   "crew": {
+    "gone": 2,
+    "capturedEvents": 2,
+    "downedEvents": 2,
+    "activeEnd": 5
+   },
+   "flows": {
+    "war_room:play": 64000,
+    "trap:house": -185000,
+    "trap:ingredients": -341600,
+    "rainmaker": -30000,
+    "trap:count": 1099000,
+    "trap:upgrade": -50000,
+    "wake": 200000,
+    "hold": 18700,
+    "war_room:lay_low": -10000
+   },
+   "invariants": 0,
+   "errors": 0,
+   "errorKinds": [],
+   "softlock": 0,
+   "digest": 3105359872
+  },
+  {
+   "persona": "normal",
+   "seed": 10,
+   "days": 42,
+   "final": 1672200,
+   "minMoney": 62400,
+   "net": 1572200,
+   "money": {
+    "d23": 93600,
+    "d30": 423300,
+    "d37": 862200,
+    "d44": 1170000,
+    "d58": 1672200
+   },
+   "warRoom": {
+    "in": 685100,
+    "out": 41000,
+    "plays": 24,
+    "noCarDay": 39,
+    "playErrorDay": null,
+    "f01Crashes": 0,
+    "lastPlayNight": 32,
+    "attempted": 29,
+    "refused": 5,
+    "won": 21,
+    "maxPerNight": 1
+   },
+   "layLow": {
+    "n": 4,
+    "avgDrop": 15
+   },
+   "trap": {
+    "in": 1351000,
+    "out": 662000,
+    "houses": 2,
+    "cooks": 79,
+    "cookRefused": 0,
+    "casesCooked": 232,
+    "casesSold": 214,
+    "revenue": 1379000,
+    "ingredients": 427000,
+    "upgrades": 50000,
+    "level": 3,
+    "levelDays": {
+     "2": 27,
+     "3": 42
+    },
+    "raids": {
+     "scheduled": 3,
+     "held": 0,
+     "answered": 3,
+     "outcomes": {
+      "HELD": 3
+     },
+     "stashLost": 0,
+     "unbankedLost": 0,
+     "holdNet": 69100,
+     "pendingDays": 3
+    },
+    "firstRaidDay": 39
+   },
+   "heat": {
+    "peak": 72,
+    "final": 66
+   },
+   "rain": {
+    "rounds": 6,
+    "spent": 30000
+   },
+   "crew": {
+    "gone": 0,
+    "capturedEvents": 0,
+    "downedEvents": 2,
+    "activeEnd": 8
+   },
+   "flows": {
+    "war_room:play": 684100,
+    "trap:house": -185000,
+    "trap:ingredients": -427000,
+    "rainmaker": -30000,
+    "trap:count": 1351000,
+    "trap:upgrade": -50000,
+    "wake": 200000,
+    "hold": 69100,
+    "war_room:lay_low": -40000
+   },
+   "invariants": 0,
+   "errors": 0,
+   "errorKinds": [],
+   "softlock": 0,
+   "digest": 3275954138
+  },
+  {
+   "persona": "raid_dodger",
+   "seed": 1,
+   "days": 42,
+   "final": 1613200,
+   "minMoney": 44400,
+   "net": 1513200,
+   "money": {
+    "d23": 125550,
+    "d30": 423000,
+    "d37": 857900,
+    "d44": 1102000,
+    "d58": 1613200
+   },
+   "warRoom": {
+    "in": 630100,
+    "out": 1000,
+    "plays": 23,
+    "noCarDay": 38,
+    "playErrorDay": null,
+    "f01Crashes": 0,
+    "lastPlayNight": 31,
+    "attempted": 28,
+    "refused": 5,
+    "won": 19,
+    "maxPerNight": 1
+   },
+   "layLow": {
+    "n": 0,
+    "avgDrop": 0
+   },
+   "trap": {
+    "in": 1361500,
+    "out": 677400,
+    "houses": 2,
+    "cooks": 80,
+    "cookRefused": 0,
+    "casesCooked": 236,
+    "casesSold": 212,
+    "revenue": 1403500,
+    "ingredients": 442400,
+    "upgrades": 50000,
+    "level": 3,
+    "levelDays": {
+     "2": 26,
+     "3": 41
+    },
+    "raids": {
+     "scheduled": 1,
+     "held": 0,
+     "answered": 0,
+     "outcomes": {},
+     "stashLost": 0,
+     "unbankedLost": 0,
+     "holdNet": 0,
+     "pendingDays": 21
+    },
+    "firstRaidDay": 37
+   },
+   "heat": {
+    "peak": 114,
+    "final": 111
+   },
+   "rain": {
+    "rounds": 0,
+    "spent": 0
+   },
+   "crew": {
+    "gone": 0,
+    "capturedEvents": 2,
+    "downedEvents": 2,
+    "activeEnd": 7
+   },
+   "flows": {
+    "war_room:play": 629100,
+    "trap:house": -185000,
+    "trap:upgrade": -50000,
+    "trap:ingredients": -442400,
+    "trap:count": 1361500,
+    "wake": 200000
+   },
+   "invariants": 0,
+   "errors": 0,
+   "errorKinds": [],
+   "softlock": 0,
+   "digest": 1450128052
+  },
+  {
+   "persona": "raid_dodger",
+   "seed": 2,
+   "days": 42,
+   "final": 2535500,
+   "minMoney": 46300,
+   "net": 2435500,
+   "money": {
+    "d23": 235250,
+    "d30": 674500,
+    "d37": 1132900,
+    "d44": 1711500,
+    "d58": 2535500
+   },
+   "warRoom": {
+    "in": 1480700,
+    "out": 0,
+    "plays": 38,
+    "noCarDay": 54,
+    "playErrorDay": null,
+    "f01Crashes": 0,
+    "lastPlayNight": 38,
+    "attempted": 42,
+    "refused": 4,
+    "won": 37,
+    "maxPerNight": 1
+   },
+   "layLow": {
+    "n": 0,
+    "avgDrop": 0
+   },
+   "trap": {
+    "in": 1435000,
+    "out": 680200,
+    "houses": 2,
+    "cooks": 81,
+    "cookRefused": 0,
+    "casesCooked": 240,
+    "casesSold": 214,
+    "revenue": 1477000,
+    "ingredients": 445200,
+    "upgrades": 50000,
+    "level": 3,
+    "levelDays": {
+     "2": 26,
+     "3": 41
+    },
+    "raids": {
+     "scheduled": 1,
+     "held": 0,
+     "answered": 0,
+     "outcomes": {},
+     "stashLost": 0,
+     "unbankedLost": 0,
+     "holdNet": 0,
+     "pendingDays": 22
+    },
+    "firstRaidDay": 36
+   },
+   "heat": {
+    "peak": 139,
+    "final": 135
+   },
+   "rain": {
+    "rounds": 0,
+    "spent": 0
+   },
+   "crew": {
+    "gone": 0,
+    "capturedEvents": 0,
+    "downedEvents": 0,
+    "activeEnd": 8
+   },
+   "flows": {
+    "war_room:play": 1480700,
+    "trap:house": -185000,
+    "trap:upgrade": -50000,
+    "trap:ingredients": -445200,
+    "trap:count": 1435000,
+    "wake": 200000
+   },
+   "invariants": 0,
+   "errors": 0,
+   "errorKinds": [],
+   "softlock": 0,
+   "digest": 2110932166
+  },
+  {
+   "persona": "raid_dodger",
+   "seed": 3,
+   "days": 42,
+   "final": 1516250,
+   "minMoney": 22200,
+   "net": 1416250,
+   "money": {
+    "d23": 133550,
+    "d30": 606050,
+    "d37": 848250,
+    "d44": 1080950,
+    "d58": 1516250
+   },
+   "warRoom": {
+    "in": 543000,
+    "out": 0,
+    "plays": 15,
+    "noCarDay": 29,
+    "playErrorDay": null,
+    "f01Crashes": 0,
+    "lastPlayNight": 22,
+    "attempted": 20,
+    "refused": 5,
+    "won": 13,
+    "maxPerNight": 1
+   },
+   "layLow": {
+    "n": 0,
+    "avgDrop": 0
+   },
+   "trap": {
+    "in": 1335250,
+    "out": 662000,
+    "houses": 2,
+    "cooks": 79,
+    "cookRefused": 0,
+    "casesCooked": 232,
+    "casesSold": 212,
+    "revenue": 1391250,
+    "ingredients": 427000,
+    "upgrades": 50000,
+    "level": 3,
+    "levelDays": {
+     "2": 27,
+     "3": 42
+    },
+    "raids": {
+     "scheduled": 1,
+     "held": 0,
+     "answered": 0,
+     "outcomes": {},
+     "stashLost": 0,
+     "unbankedLost": 0,
+     "holdNet": 0,
+     "pendingDays": 16
+    },
+    "firstRaidDay": 42
+   },
+   "heat": {
+    "peak": 98,
+    "final": 98
+   },
+   "rain": {
+    "rounds": 0,
+    "spent": 0
+   },
+   "crew": {
+    "gone": 0,
+    "capturedEvents": 1,
+    "downedEvents": 3,
+    "activeEnd": 8
+   },
+   "flows": {
+    "war_room:play": 543000,
+    "trap:house": -185000,
+    "trap:upgrade": -50000,
+    "trap:ingredients": -427000,
+    "trap:count": 1335250,
+    "wake": 200000
+   },
+   "invariants": 0,
+   "errors": 0,
+   "errorKinds": [],
+   "softlock": 0,
+   "digest": 3742140764
+  },
+  {
+   "persona": "raid_dodger",
+   "seed": 4,
+   "days": 42,
+   "final": 2494450,
+   "minMoney": 28400,
+   "net": 2394450,
+   "money": {
+    "d23": 76250,
+    "d30": 608650,
+    "d37": 1141650,
+    "d44": 1650150,
+    "d58": 2494450
+   },
+   "warRoom": {
+    "in": 1500200,
+    "out": 0,
+    "plays": 38,
+    "noCarDay": 54,
+    "playErrorDay": null,
+    "f01Crashes": 0,
+    "lastPlayNight": 38,
+    "attempted": 42,
+    "refused": 4,
+    "won": 37,
+    "maxPerNight": 1
+   },
+   "layLow": {
+    "n": 0,
+    "avgDrop": 0
+   },
+   "trap": {
+    "in": 1356250,
+    "out": 662000,
+    "houses": 2,
+    "cooks": 79,
+    "cookRefused": 0,
+    "casesCooked": 232,
+    "casesSold": 212,
+    "revenue": 1440250,
+    "ingredients": 427000,
+    "upgrades": 50000,
+    "level": 3,
+    "levelDays": {
+     "2": 27,
+     "3": 42
+    },
+    "raids": {
+     "scheduled": 1,
+     "held": 0,
+     "answered": 0,
+     "outcomes": {},
+     "stashLost": 0,
+     "unbankedLost": 0,
+     "holdNet": 0,
+     "pendingDays": 22
+    },
+    "firstRaidDay": 36
+   },
+   "heat": {
+    "peak": 159,
+    "final": 156
+   },
+   "rain": {
+    "rounds": 0,
+    "spent": 0
+   },
+   "crew": {
+    "gone": 0,
+    "capturedEvents": 2,
+    "downedEvents": 2,
+    "activeEnd": 8
+   },
+   "flows": {
+    "war_room:play": 1500200,
+    "trap:house": -185000,
+    "trap:upgrade": -50000,
+    "trap:ingredients": -427000,
+    "trap:count": 1356250,
+    "wake": 200000
+   },
+   "invariants": 0,
+   "errors": 0,
+   "errorKinds": [],
+   "softlock": 0,
+   "digest": 603211364
+  },
+  {
+   "persona": "raid_dodger",
+   "seed": 5,
+   "days": 42,
+   "final": 1490200,
+   "minMoney": 29200,
+   "net": 1390200,
+   "money": {
+    "d23": 164950,
+    "d30": 527600,
+    "d37": 809900,
+    "d44": 1037400,
+    "d58": 1490200
+   },
+   "warRoom": {
+    "in": 462600,
+    "out": 2000,
+    "plays": 14,
+    "noCarDay": 28,
+    "playErrorDay": null,
+    "f01Crashes": 0,
+    "lastPlayNight": 21,
+    "attempted": 19,
+    "refused": 5,
+    "won": 12,
+    "maxPerNight": 1
+   },
+   "layLow": {
+    "n": 0,
+    "avgDrop": 0
+   },
+   "trap": {
+    "in": 1407000,
+    "out": 677400,
+    "houses": 2,
+    "cooks": 80,
+    "cookRefused": 0,
+    "casesCooked": 236,
+    "casesSold": 218,
+    "revenue": 1463000,
+    "ingredients": 442400,
+    "upgrades": 50000,
+    "level": 3,
+    "levelDays": {
+     "2": 26,
+     "3": 41
+    },
+    "raids": {
+     "scheduled": 1,
+     "held": 0,
+     "answered": 0,
+     "outcomes": {},
+     "stashLost": 0,
+     "unbankedLost": 0,
+     "holdNet": 0,
+     "pendingDays": 17
+    },
+    "firstRaidDay": 41
+   },
+   "heat": {
+    "peak": 98,
+    "final": 98
+   },
+   "rain": {
+    "rounds": 0,
+    "spent": 0
+   },
+   "crew": {
+    "gone": 0,
+    "capturedEvents": 0,
+    "downedEvents": 0,
+    "activeEnd": 6
+   },
+   "flows": {
+    "war_room:play": 460600,
+    "trap:house": -185000,
+    "trap:upgrade": -50000,
+    "trap:ingredients": -442400,
+    "trap:count": 1407000,
+    "wake": 200000
+   },
+   "invariants": 0,
+   "errors": 0,
+   "errorKinds": [],
+   "softlock": 0,
+   "digest": 2975764130
+  },
+  {
+   "persona": "raid_dodger",
+   "seed": 6,
+   "days": 42,
+   "final": 2265950,
+   "minMoney": 31700,
+   "net": 2165950,
+   "money": {
+    "d23": 122600,
+    "d30": 562650,
+    "d37": 1064550,
+    "d44": 1585250,
+    "d58": 2265950
+   },
+   "warRoom": {
+    "in": 1291600,
+    "out": 1000,
+    "plays": 38,
+    "noCarDay": 54,
+    "playErrorDay": null,
+    "f01Crashes": 0,
+    "lastPlayNight": 38,
+    "attempted": 42,
+    "refused": 4,
+    "won": 36,
+    "maxPerNight": 1
+   },
+   "layLow": {
+    "n": 0,
+    "avgDrop": 0
+   },
+   "trap": {
+    "in": 1352750,
+    "out": 677400,
+    "houses": 2,
+    "cooks": 80,
+    "cookRefused": 0,
+    "casesCooked": 236,
+    "casesSold": 214,
+    "revenue": 1394750,
+    "ingredients": 442400,
+    "upgrades": 50000,
+    "level": 3,
+    "levelDays": {
+     "2": 26,
+     "3": 41
+    },
+    "raids": {
+     "scheduled": 1,
+     "held": 0,
+     "answered": 0,
+     "outcomes": {},
+     "stashLost": 0,
+     "unbankedLost": 0,
+     "holdNet": 0,
+     "pendingDays": 23
+    },
+    "firstRaidDay": 35
+   },
+   "heat": {
+    "peak": 166,
+    "final": 163
+   },
+   "rain": {
+    "rounds": 0,
+    "spent": 0
+   },
+   "crew": {
+    "gone": 0,
+    "capturedEvents": 0,
+    "downedEvents": 2,
+    "activeEnd": 8
+   },
+   "flows": {
+    "war_room:play": 1290600,
+    "trap:house": -185000,
+    "trap:upgrade": -50000,
+    "trap:ingredients": -442400,
+    "trap:count": 1352750,
+    "wake": 200000
+   },
+   "invariants": 0,
+   "errors": 0,
+   "errorKinds": [],
+   "softlock": 0,
+   "digest": 435002447
+  },
+  {
+   "persona": "raid_dodger",
+   "seed": 7,
+   "days": 42,
+   "final": 1627500,
+   "minMoney": 45100,
+   "net": 1527500,
+   "money": {
+    "d23": 218250,
+    "d30": 642800,
+    "d37": 899500,
+    "d44": 1174700,
+    "d58": 1627500
+   },
+   "warRoom": {
+    "in": 579700,
+    "out": 0,
+    "plays": 16,
+    "noCarDay": 30,
+    "playErrorDay": null,
+    "f01Crashes": 0,
+    "lastPlayNight": 23,
+    "attempted": 21,
+    "refused": 5,
+    "won": 15,
+    "maxPerNight": 1
+   },
+   "layLow": {
+    "n": 0,
+    "avgDrop": 0
+   },
+   "trap": {
+    "in": 1428000,
+    "out": 680200,
+    "houses": 2,
+    "cooks": 81,
+    "cookRefused": 0,
+    "casesCooked": 240,
+    "casesSold": 220,
+    "revenue": 1484000,
+    "ingredients": 445200,
+    "upgrades": 50000,
+    "level": 3,
+    "levelDays": {
+     "2": 26,
+     "3": 41
+    },
+    "raids": {
+     "scheduled": 1,
+     "held": 0,
+     "answered": 0,
+     "outcomes": {},
+     "stashLost": 0,
+     "unbankedLost": 0,
+     "holdNet": 0,
+     "pendingDays": 19
+    },
+    "firstRaidDay": 39
+   },
+   "heat": {
+    "peak": 99,
+    "final": 99
+   },
+   "rain": {
+    "rounds": 0,
+    "spent": 0
+   },
+   "crew": {
+    "gone": 0,
+    "capturedEvents": 0,
+    "downedEvents": 0,
+    "activeEnd": 8
+   },
+   "flows": {
+    "war_room:play": 579700,
+    "trap:house": -185000,
+    "trap:upgrade": -50000,
+    "trap:ingredients": -445200,
+    "trap:count": 1428000,
+    "wake": 200000
+   },
+   "invariants": 0,
+   "errors": 0,
+   "errorKinds": [],
+   "softlock": 0,
+   "digest": 2767049493
+  },
+  {
+   "persona": "raid_dodger",
+   "seed": 8,
+   "days": 42,
+   "final": 1633200,
+   "minMoney": 25800,
+   "net": 1533200,
+   "money": {
+    "d23": 360600,
+    "d30": 659200,
+    "d37": 928400,
+    "d44": 1180400,
+    "d58": 1633200
+   },
+   "warRoom": {
+    "in": 572400,
+    "out": 1000,
+    "plays": 13,
+    "noCarDay": 27,
+    "playErrorDay": null,
+    "f01Crashes": 0,
+    "lastPlayNight": 20,
+    "attempted": 18,
+    "refused": 5,
+    "won": 11,
+    "maxPerNight": 1
+   },
+   "layLow": {
+    "n": 0,
+    "avgDrop": 0
+   },
+   "trap": {
+    "in": 1442000,
+    "out": 680200,
+    "houses": 2,
+    "cooks": 81,
+    "cookRefused": 0,
+    "casesCooked": 240,
+    "casesSold": 222,
+    "revenue": 1498000,
+    "ingredients": 445200,
+    "upgrades": 50000,
+    "level": 3,
+    "levelDays": {
+     "2": 26,
+     "3": 41
+    },
+    "raids": {
+     "scheduled": 1,
+     "held": 0,
+     "answered": 0,
+     "outcomes": {},
+     "stashLost": 0,
+     "unbankedLost": 0,
+     "holdNet": 0,
+     "pendingDays": 17
+    },
+    "firstRaidDay": 41
+   },
+   "heat": {
+    "peak": 98,
+    "final": 98
+   },
+   "rain": {
+    "rounds": 0,
+    "spent": 0
+   },
+   "crew": {
+    "gone": 0,
+    "capturedEvents": 0,
+    "downedEvents": 0,
+    "activeEnd": 7
+   },
+   "flows": {
+    "war_room:play": 571400,
+    "trap:house": -185000,
+    "trap:upgrade": -50000,
+    "trap:ingredients": -445200,
+    "trap:count": 1442000,
+    "wake": 200000
+   },
+   "invariants": 0,
+   "errors": 0,
+   "errorKinds": [],
+   "softlock": 0,
+   "digest": 1462737915
+  },
+  {
+   "persona": "raid_dodger",
+   "seed": 9,
+   "days": 42,
+   "final": 2473850,
+   "minMoney": 26500,
+   "net": 2373850,
+   "money": {
+    "d23": 68500,
+    "d30": 453050,
+    "d37": 970350,
+    "d44": 1459750,
+    "d58": 2473850
+   },
+   "warRoom": {
+    "in": 1458100,
+    "out": 3000,
+    "plays": 42,
+    "noCarDay": null,
+    "playErrorDay": null,
+    "f01Crashes": 0,
+    "lastPlayNight": 42,
+    "attempted": 42,
+    "refused": 0,
+    "won": 38,
+    "maxPerNight": 1
+   },
+   "layLow": {
+    "n": 0,
+    "avgDrop": 0
+   },
+   "trap": {
+    "in": 1380750,
+    "out": 662000,
+    "houses": 2,
+    "cooks": 79,
+    "cookRefused": 0,
+    "casesCooked": 232,
+    "casesSold": 214,
+    "revenue": 1408750,
+    "ingredients": 427000,
+    "upgrades": 50000,
+    "level": 3,
+    "levelDays": {
+     "2": 27,
+     "3": 42
+    },
+    "raids": {
+     "scheduled": 1,
+     "held": 0,
+     "answered": 0,
+     "outcomes": {},
+     "stashLost": 0,
+     "unbankedLost": 0,
+     "holdNet": 0,
+     "pendingDays": 20
+    },
+    "firstRaidDay": 38
+   },
+   "heat": {
+    "peak": 171,
+    "final": 171
+   },
+   "rain": {
+    "rounds": 0,
+    "spent": 0
+   },
+   "crew": {
+    "gone": 1,
+    "capturedEvents": 1,
+    "downedEvents": 2,
+    "activeEnd": 7
+   },
+   "flows": {
+    "war_room:play": 1455100,
+    "trap:house": -185000,
+    "trap:upgrade": -50000,
+    "trap:ingredients": -427000,
+    "trap:count": 1380750,
+    "wake": 200000
+   },
+   "invariants": 0,
+   "errors": 0,
+   "errorKinds": [],
+   "softlock": 0,
+   "digest": 646638187
+  },
+  {
+   "persona": "raid_dodger",
+   "seed": 10,
+   "days": 42,
+   "final": 1899100,
+   "minMoney": 31700,
+   "net": 1799100,
+   "money": {
+    "d23": 75450,
+    "d30": 508600,
+    "d37": 1043500,
+    "d44": 1365700,
+    "d58": 1899100
+   },
+   "warRoom": {
+    "in": 850600,
+    "out": 0,
+    "plays": 25,
+    "noCarDay": 39,
+    "playErrorDay": 48,
+    "f01Crashes": 2,
+    "lastPlayNight": 32,
+    "attempted": 32,
+    "refused": 7,
+    "won": 23,
+    "maxPerNight": 1
+   },
+   "layLow": {
+    "n": 0,
+    "avgDrop": 0
+   },
+   "trap": {
+    "in": 1410500,
+    "out": 662000,
+    "houses": 2,
+    "cooks": 79,
+    "cookRefused": 0,
+    "casesCooked": 232,
+    "casesSold": 216,
+    "revenue": 1438500,
+    "ingredients": 427000,
+    "upgrades": 50000,
+    "level": 3,
+    "levelDays": {
+     "2": 27,
+     "3": 42
+    },
+    "raids": {
+     "scheduled": 1,
+     "held": 0,
+     "answered": 0,
+     "outcomes": {},
+     "stashLost": 0,
+     "unbankedLost": 0,
+     "holdNet": 0,
+     "pendingDays": 22
+    },
+    "firstRaidDay": 36
+   },
+   "heat": {
+    "peak": 123,
+    "final": 123
+   },
+   "rain": {
+    "rounds": 0,
+    "spent": 0
+   },
+   "crew": {
+    "gone": 1,
+    "capturedEvents": 2,
+    "downedEvents": 3,
+    "activeEnd": 7
+   },
+   "flows": {
+    "war_room:play": 850600,
+    "trap:house": -185000,
+    "trap:upgrade": -50000,
+    "trap:ingredients": -427000,
+    "trap:count": 1410500,
+    "wake": 200000
+   },
+   "invariants": 0,
+   "errors": 0,
+   "errorKinds": [],
+   "softlock": 0,
+   "digest": 3054012128
+  },
+  {
+   "persona": "repeater",
+   "seed": 1,
+   "days": 42,
+   "final": 1728700,
+   "minMoney": 44400,
+   "net": 1628700,
+   "money": {
+    "d23": 384550,
+    "d30": 784500,
+    "d37": 1057300,
+    "d44": 1250400,
+    "d58": 1728700
+   },
+   "warRoom": {
+    "in": 671300,
+    "out": 61000,
+    "plays": 21,
+    "noCarDay": 26,
+    "playErrorDay": null,
+    "f01Crashes": 0,
+    "lastPlayNight": 19,
+    "attempted": 37,
+    "refused": 16,
+    "won": 18,
+    "maxPerNight": 2
+   },
+   "layLow": {
+    "n": 6,
+    "avgDrop": 15
+   },
+   "trap": {
+    "in": 1459500,
+    "out": 695600,
+    "houses": 2,
+    "cooks": 82,
+    "cookRefused": 82,
+    "casesCooked": 244,
+    "casesSold": 224,
+    "revenue": 1501500,
+    "ingredients": 460600,
+    "upgrades": 50000,
+    "level": 3,
+    "levelDays": {
+     "2": 25,
+     "3": 40
+    },
+    "raids": {
+     "scheduled": 3,
+     "held": 0,
+     "answered": 3,
+     "outcomes": {
+      "HELD": 3
+     },
+     "stashLost": 0,
+     "unbankedLost": 0,
+     "holdNet": 54500,
+     "pendingDays": 3
+    },
+    "firstRaidDay": 33
+   },
+   "heat": {
+    "peak": 64,
+    "final": 38
+   },
+   "rain": {
+    "rounds": 0,
+    "spent": 0
+   },
+   "crew": {
+    "gone": 0,
+    "capturedEvents": 0,
+    "downedEvents": 0,
+    "activeEnd": 7
+   },
+   "flows": {
+    "war_room:play": 670300,
+    "trap:house": -185000,
+    "trap:upgrade": -50000,
+    "trap:ingredients": -460600,
+    "trap:count": 1459500,
+    "wake": 200000,
+    "hold": 54500,
+    "war_room:lay_low": -60000
+   },
+   "invariants": 0,
+   "errors": 0,
+   "errorKinds": [],
+   "softlock": 0,
+   "digest": 3000960759
+  },
+  {
+   "persona": "repeater",
+   "seed": 2,
+   "days": 42,
+   "final": 1860250,
+   "minMoney": 46300,
+   "net": 1760250,
+   "money": {
+    "d23": 358000,
+    "d30": 908150,
+    "d37": 1178750,
+    "d44": 1411550,
+    "d58": 1860250
+   },
+   "warRoom": {
+    "in": 837000,
+    "out": 62000,
+    "plays": 25,
+    "noCarDay": 28,
+    "playErrorDay": null,
+    "f01Crashes": 0,
+    "lastPlayNight": 20,
+    "attempted": 41,
+    "refused": 16,
+    "won": 22,
+    "maxPerNight": 3
+   },
+   "layLow": {
+    "n": 6,
+    "avgDrop": 15
+   },
+   "trap": {
+    "in": 1412250,
+    "out": 680200,
+    "houses": 2,
+    "cooks": 81,
+    "cookRefused": 81,
+    "casesCooked": 240,
+    "casesSold": 216,
+    "revenue": 1454250,
+    "ingredients": 445200,
+    "upgrades": 50000,
+    "level": 3,
+    "levelDays": {
+     "2": 26,
+     "3": 41
+    },
+    "raids": {
+     "scheduled": 3,
+     "held": 0,
+     "answered": 3,
+     "outcomes": {
+      "HELD": 3
+     },
+     "stashLost": 0,
+     "unbankedLost": 0,
+     "holdNet": 53200,
+     "pendingDays": 3
+    },
+    "firstRaidDay": 27
+   },
+   "heat": {
+    "peak": 64,
+    "final": 43
+   },
+   "rain": {
+    "rounds": 0,
+    "spent": 0
+   },
+   "crew": {
+    "gone": 0,
+    "capturedEvents": 0,
+    "downedEvents": 1,
+    "activeEnd": 8
+   },
+   "flows": {
+    "war_room:play": 835000,
+    "trap:house": -185000,
+    "trap:upgrade": -50000,
+    "trap:ingredients": -445200,
+    "trap:count": 1412250,
+    "hold": 53200,
+    "war_room:lay_low": -60000,
+    "wake": 200000
+   },
+   "invariants": 0,
+   "errors": 0,
+   "errorKinds": [],
+   "softlock": 0,
+   "digest": 131742265
+  },
+  {
+   "persona": "repeater",
+   "seed": 3,
+   "days": 42,
+   "final": 2530750,
+   "minMoney": 22200,
+   "net": 2430750,
+   "money": {
+    "d23": 455650,
+    "d30": 1153750,
+    "d37": 1707250,
+    "d44": 2065950,
+    "d58": 2530750
+   },
+   "warRoom": {
+    "in": 1542300,
+    "out": 100000,
+    "plays": 43,
+    "noCarDay": 40,
+    "playErrorDay": null,
+    "f01Crashes": 0,
+    "lastPlayNight": 33,
+    "attempted": 72,
+    "refused": 29,
+    "won": 42,
+    "maxPerNight": 3
+   },
+   "layLow": {
+    "n": 10,
+    "avgDrop": 15
+   },
+   "trap": {
+    "in": 1422750,
+    "out": 695600,
+    "houses": 2,
+    "cooks": 82,
+    "cookRefused": 82,
+    "casesCooked": 244,
+    "casesSold": 220,
+    "revenue": 1464750,
+    "ingredients": 460600,
+    "upgrades": 50000,
+    "level": 3,
+    "levelDays": {
+     "2": 25,
+     "3": 40
+    },
+    "raids": {
+     "scheduled": 3,
+     "held": 0,
+     "answered": 3,
+     "outcomes": {
+      "HELD": 3
+     },
+     "stashLost": 0,
+     "unbankedLost": 0,
+     "holdNet": 61300,
+     "pendingDays": 3
+    },
+    "firstRaidDay": 29
+   },
+   "heat": {
+    "peak": 64,
+    "final": 34
+   },
+   "rain": {
+    "rounds": 0,
+    "spent": 0
+   },
+   "crew": {
+    "gone": 1,
+    "capturedEvents": 0,
+    "downedEvents": 4,
+    "activeEnd": 7
+   },
+   "flows": {
+    "war_room:play": 1542300,
+    "trap:house": -185000,
+    "trap:upgrade": -50000,
+    "trap:ingredients": -460600,
+    "trap:count": 1422750,
+    "wake": 200000,
+    "hold": 61300,
+    "war_room:lay_low": -100000
+   },
+   "invariants": 0,
+   "errors": 0,
+   "errorKinds": [],
+   "softlock": 0,
+   "digest": 2545178781
+  },
+  {
+   "persona": "repeater",
+   "seed": 4,
+   "days": 42,
+   "final": 2201900,
+   "minMoney": 28400,
+   "net": 2101900,
+   "money": {
+    "d23": 410150,
+    "d30": 1086200,
+    "d37": 1626300,
+    "d44": 1823700,
+    "d58": 2201900
+   },
+   "warRoom": {
+    "in": 1275600,
+    "out": 60000,
+    "plays": 36,
+    "noCarDay": 35,
+    "playErrorDay": null,
+    "f01Crashes": 0,
+    "lastPlayNight": 29,
+    "attempted": 61,
+    "refused": 25,
+    "won": 34,
+    "maxPerNight": 2
+   },
+   "layLow": {
+    "n": 6,
+    "avgDrop": 15
+   },
+   "trap": {
+    "in": 1309000,
+    "out": 667600,
+    "houses": 2,
+    "cooks": 77,
+    "cookRefused": 77,
+    "casesCooked": 234,
+    "casesSold": 206,
+    "revenue": 1365000,
+    "ingredients": 432600,
+    "upgrades": 50000,
+    "level": 3,
+    "levelDays": {
+     "2": 25,
+     "3": 40
+    },
+    "raids": {
+     "scheduled": 2,
+     "held": 0,
+     "answered": 2,
+     "outcomes": {
+      "HELD": 1,
+      "BREACHED": 1
+     },
+     "stashLost": 6,
+     "unbankedLost": 0,
+     "holdNet": 44900,
+     "pendingDays": 2
+    },
+    "firstRaidDay": 30
+   },
+   "heat": {
+    "peak": 66,
+    "final": 57
+   },
+   "rain": {
+    "rounds": 0,
+    "spent": 0
+   },
+   "crew": {
+    "gone": 1,
+    "capturedEvents": 0,
+    "downedEvents": 1,
+    "activeEnd": 7
+   },
+   "flows": {
+    "war_room:play": 1275600,
+    "trap:house": -185000,
+    "trap:upgrade": -50000,
+    "trap:ingredients": -432600,
+    "trap:count": 1309000,
+    "wake": 200000,
+    "hold": 44900,
+    "war_room:lay_low": -60000
+   },
+   "invariants": 0,
+   "errors": 0,
+   "errorKinds": [],
+   "softlock": 0,
+   "digest": 3880179658
+  },
+  {
+   "persona": "repeater",
+   "seed": 5,
+   "days": 42,
+   "final": 3137900,
+   "minMoney": 29200,
+   "net": 3037900,
+   "money": {
+    "d23": 471050,
+    "d30": 1182200,
+    "d37": 1901300,
+    "d44": 2431500,
+    "d58": 3137900
+   },
+   "warRoom": {
+    "in": 2126300,
+    "out": 120000,
+    "plays": 56,
+    "noCarDay": 49,
+    "playErrorDay": null,
+    "f01Crashes": 0,
+    "lastPlayNight": 42,
+    "attempted": 94,
+    "refused": 38,
+    "won": 54,
+    "maxPerNight": 3
+   },
+   "layLow": {
+    "n": 12,
+    "avgDrop": 15
+   },
+   "trap": {
+    "in": 1466500,
+    "out": 711000,
+    "houses": 2,
+    "cooks": 83,
+    "cookRefused": 83,
+    "casesCooked": 248,
+    "casesSold": 222,
+    "revenue": 1508500,
+    "ingredients": 476000,
+    "upgrades": 50000,
+    "level": 3,
+    "levelDays": {
+     "2": 24,
+     "3": 39
+    },
+    "raids": {
+     "scheduled": 4,
+     "held": 0,
+     "answered": 4,
+     "outcomes": {
+      "HELD": 4
+     },
+     "stashLost": 0,
+     "unbankedLost": 0,
+     "holdNet": 76100,
+     "pendingDays": 4
+    },
+    "firstRaidDay": 29
+   },
+   "heat": {
+    "peak": 68,
+    "final": 34
+   },
+   "rain": {
+    "rounds": 0,
+    "spent": 0
+   },
+   "crew": {
+    "gone": 0,
+    "capturedEvents": 0,
+    "downedEvents": 4,
+    "activeEnd": 8
+   },
+   "flows": {
+    "war_room:play": 2126300,
+    "trap:house": -185000,
+    "trap:upgrade": -50000,
+    "trap:ingredients": -476000,
+    "trap:count": 1466500,
+    "wake": 200000,
+    "hold": 76100,
+    "war_room:lay_low": -120000
+   },
+   "invariants": 0,
+   "errors": 0,
+   "errorKinds": [],
+   "softlock": 0,
+   "digest": 1608745506
+  },
+  {
+   "persona": "repeater",
+   "seed": 6,
+   "days": 42,
+   "final": 1914300,
+   "minMoney": 31700,
+   "net": 1814300,
+   "money": {
+    "d23": 336600,
+    "d30": 976300,
+    "d37": 1156000,
+    "d44": 1463300,
+    "d58": 1914300
+   },
+   "warRoom": {
+    "in": 981500,
+    "out": 60000,
+    "plays": 28,
+    "noCarDay": 29,
+    "playErrorDay": null,
+    "f01Crashes": 0,
+    "lastPlayNight": 23,
+    "attempted": 47,
+    "refused": 19,
+    "won": 27,
+    "maxPerNight": 3
+   },
+   "layLow": {
+    "n": 6,
+    "avgDrop": 15
+   },
+   "trap": {
+    "in": 1291500,
+    "out": 649400,
+    "houses": 2,
+    "cooks": 76,
+    "cookRefused": 76,
+    "casesCooked": 230,
+    "casesSold": 204,
+    "revenue": 1333500,
+    "ingredients": 414400,
+    "upgrades": 50000,
+    "level": 3,
+    "levelDays": {
+     "2": 26,
+     "3": 43
+    },
+    "raids": {
+     "scheduled": 3,
+     "held": 0,
+     "answered": 3,
+     "outcomes": {
+      "BREACHED": 1,
+      "HELD": 2
+     },
+     "stashLost": 4,
+     "unbankedLost": 0,
+     "holdNet": 50700,
+     "pendingDays": 3
+    },
+    "firstRaidDay": 30
+   },
+   "heat": {
+    "peak": 65,
+    "final": 43
+   },
+   "rain": {
+    "rounds": 0,
+    "spent": 0
+   },
+   "crew": {
+    "gone": 0,
+    "capturedEvents": 0,
+    "downedEvents": 5,
+    "activeEnd": 8
+   },
+   "flows": {
+    "war_room:play": 981500,
+    "trap:house": -185000,
+    "trap:upgrade": -50000,
+    "trap:ingredients": -414400,
+    "trap:count": 1291500,
+    "wake": 200000,
+    "hold": 50700,
+    "war_room:lay_low": -60000
+   },
+   "invariants": 0,
+   "errors": 0,
+   "errorKinds": [],
+   "softlock": 0,
+   "digest": 2768845569
+  },
+  {
+   "persona": "repeater",
+   "seed": 7,
+   "days": 42,
+   "final": 2218850,
+   "minMoney": 45100,
+   "net": 2118850,
+   "money": {
+    "d23": 452350,
+    "d30": 1105150,
+    "d37": 1530050,
+    "d44": 1749950,
+    "d58": 2218850
+   },
+   "warRoom": {
+    "in": 1180500,
+    "out": 80000,
+    "plays": 31,
+    "noCarDay": 31,
+    "playErrorDay": null,
+    "f01Crashes": 0,
+    "lastPlayNight": 25,
+    "attempted": 52,
+    "refused": 21,
+    "won": 29,
+    "maxPerNight": 3
+   },
+   "layLow": {
+    "n": 8,
+    "avgDrop": 15
+   },
+   "trap": {
+    "in": 1447250,
+    "out": 695600,
+    "houses": 2,
+    "cooks": 82,
+    "cookRefused": 82,
+    "casesCooked": 244,
+    "casesSold": 224,
+    "revenue": 1489250,
+    "ingredients": 460600,
+    "upgrades": 50000,
+    "level": 3,
+    "levelDays": {
+     "2": 25,
+     "3": 40
+    },
+    "raids": {
+     "scheduled": 3,
+     "held": 0,
+     "answered": 3,
+     "outcomes": {
+      "HELD": 3
+     },
+     "stashLost": 0,
+     "unbankedLost": 0,
+     "holdNet": 66700,
+     "pendingDays": 3
+    },
+    "firstRaidDay": 29
+   },
+   "heat": {
+    "peak": 64,
+    "final": 41
+   },
+   "rain": {
+    "rounds": 0,
+    "spent": 0
+   },
+   "crew": {
+    "gone": 0,
+    "capturedEvents": 0,
+    "downedEvents": 4,
+    "activeEnd": 8
+   },
+   "flows": {
+    "war_room:play": 1180500,
+    "trap:house": -185000,
+    "trap:upgrade": -50000,
+    "trap:ingredients": -460600,
+    "trap:count": 1447250,
+    "wake": 200000,
+    "hold": 66700,
+    "war_room:lay_low": -80000
+   },
+   "invariants": 0,
+   "errors": 0,
+   "errorKinds": [],
+   "softlock": 0,
+   "digest": 453438307
+  },
+  {
+   "persona": "repeater",
+   "seed": 8,
+   "days": 42,
+   "final": 3272550,
+   "minMoney": 20950,
+   "net": 3172550,
+   "money": {
+    "d23": 399350,
+    "d30": 1064050,
+    "d37": 1725050,
+    "d44": 2202250,
+    "d58": 3272550
+   },
+   "warRoom": {
+    "in": 2274900,
+    "out": 142000,
+    "plays": 69,
+    "noCarDay": null,
+    "playErrorDay": null,
+    "f01Crashes": 0,
+    "lastPlayNight": 42,
+    "attempted": 111,
+    "refused": 42,
+    "won": 66,
+    "maxPerNight": 3
+   },
+   "layLow": {
+    "n": 14,
+    "avgDrop": 15
+   },
+   "trap": {
+    "in": 1450750,
+    "out": 695600,
+    "houses": 2,
+    "cooks": 82,
+    "cookRefused": 82,
+    "casesCooked": 244,
+    "casesSold": 222,
+    "revenue": 1492750,
+    "ingredients": 460600,
+    "upgrades": 50000,
+    "level": 3,
+    "levelDays": {
+     "2": 25,
+     "3": 40
+    },
+    "raids": {
+     "scheduled": 4,
+     "held": 0,
+     "answered": 4,
+     "outcomes": {
+      "HELD": 4
+     },
+     "stashLost": 0,
+     "unbankedLost": 0,
+     "holdNet": 84500,
+     "pendingDays": 4
+    },
+    "firstRaidDay": 30
+   },
+   "heat": {
+    "peak": 69,
+    "final": 40
+   },
+   "rain": {
+    "rounds": 0,
+    "spent": 0
+   },
+   "crew": {
+    "gone": 1,
+    "capturedEvents": 0,
+    "downedEvents": 4,
+    "activeEnd": 7
+   },
+   "flows": {
+    "war_room:play": 2272900,
+    "trap:house": -185000,
+    "trap:upgrade": -50000,
+    "trap:ingredients": -460600,
+    "trap:count": 1450750,
+    "wake": 200000,
+    "hold": 84500,
+    "war_room:lay_low": -140000
+   },
+   "invariants": 0,
+   "errors": 0,
+   "errorKinds": [],
+   "softlock": 0,
+   "digest": 2606565695
+  },
+  {
+   "persona": "repeater",
+   "seed": 9,
+   "days": 42,
+   "final": 2253350,
+   "minMoney": 26500,
+   "net": 2153350,
+   "money": {
+    "d23": 593650,
+    "d30": 1277650,
+    "d37": 1543750,
+    "d44": 1752150,
+    "d58": 2253350
+   },
+   "warRoom": {
+    "in": 1167400,
+    "out": 61000,
+    "plays": 25,
+    "noCarDay": 29,
+    "playErrorDay": null,
+    "f01Crashes": 0,
+    "lastPlayNight": 21,
+    "attempted": 42,
+    "refused": 17,
+    "won": 24,
+    "maxPerNight": 2
+   },
+   "layLow": {
+    "n": 6,
+    "avgDrop": 15
+   },
+   "trap": {
+    "in": 1464750,
+    "out": 695600,
+    "houses": 2,
+    "cooks": 82,
+    "cookRefused": 82,
+    "casesCooked": 244,
+    "casesSold": 226,
+    "revenue": 1520750,
+    "ingredients": 460600,
+    "upgrades": 50000,
+    "level": 3,
+    "levelDays": {
+     "2": 25,
+     "3": 40
+    },
+    "raids": {
+     "scheduled": 3,
+     "held": 0,
+     "answered": 3,
+     "outcomes": {
+      "HELD": 3
+     },
+     "stashLost": 0,
+     "unbankedLost": 0,
+     "holdNet": 77800,
+     "pendingDays": 3
+    },
+    "firstRaidDay": 28
+   },
+   "heat": {
+    "peak": 62,
+    "final": 58
+   },
+   "rain": {
+    "rounds": 0,
+    "spent": 0
+   },
+   "crew": {
+    "gone": 0,
+    "capturedEvents": 0,
+    "downedEvents": 1,
+    "activeEnd": 8
+   },
+   "flows": {
+    "war_room:play": 1166400,
+    "trap:house": -185000,
+    "trap:upgrade": -50000,
+    "trap:ingredients": -460600,
+    "trap:count": 1464750,
+    "hold": 77800,
+    "war_room:lay_low": -60000,
+    "wake": 200000
+   },
+   "invariants": 0,
+   "errors": 0,
+   "errorKinds": [],
+   "softlock": 0,
+   "digest": 11507589
+  },
+  {
+   "persona": "repeater",
+   "seed": 10,
+   "days": 42,
+   "final": 1969900,
+   "minMoney": 31700,
+   "net": 1869900,
+   "money": {
+    "d23": 307650,
+    "d30": 946000,
+    "d37": 1217000,
+    "d44": 1463700,
+    "d58": 1969900
+   },
+   "warRoom": {
+    "in": 880300,
+    "out": 61000,
+    "plays": 25,
+    "noCarDay": 28,
+    "playErrorDay": null,
+    "f01Crashes": 0,
+    "lastPlayNight": 21,
+    "attempted": 42,
+    "refused": 17,
+    "won": 23,
+    "maxPerNight": 2
+   },
+   "layLow": {
+    "n": 6,
+    "avgDrop": 15
+   },
+   "trap": {
+    "in": 1477000,
+    "out": 680200,
+    "houses": 2,
+    "cooks": 81,
+    "cookRefused": 81,
+    "casesCooked": 240,
+    "casesSold": 222,
+    "revenue": 1505000,
+    "ingredients": 445200,
+    "upgrades": 50000,
+    "level": 3,
+    "levelDays": {
+     "2": 26,
+     "3": 41
+    },
+    "raids": {
+     "scheduled": 3,
+     "held": 0,
+     "answered": 3,
+     "outcomes": {
+      "HELD": 3
+     },
+     "stashLost": 0,
+     "unbankedLost": 0,
+     "holdNet": 53800,
+     "pendingDays": 3
+    },
+    "firstRaidDay": 31
+   },
+   "heat": {
+    "peak": 62,
+    "final": 43
+   },
+   "rain": {
+    "rounds": 0,
+    "spent": 0
+   },
+   "crew": {
+    "gone": 0,
+    "capturedEvents": 0,
+    "downedEvents": 0,
+    "activeEnd": 8
+   },
+   "flows": {
+    "war_room:play": 879300,
+    "trap:house": -185000,
+    "trap:upgrade": -50000,
+    "trap:ingredients": -445200,
+    "trap:count": 1477000,
+    "wake": 200000,
+    "hold": 53800,
+    "war_room:lay_low": -60000
+   },
+   "invariants": 0,
+   "errors": 0,
+   "errorKinds": [],
+   "softlock": 0,
+   "digest": 2761105564
+  },
+  {
+   "persona": "spender",
+   "seed": 1,
+   "days": 42,
+   "final": 117500,
+   "minMoney": 0,
+   "net": 17500,
+   "money": {
+    "d23": 34300,
+    "d30": 38600,
+    "d37": 114200,
+    "d44": 188400,
+    "d58": 117500
+   },
+   "warRoom": {
+    "in": 480100,
+    "out": 30000,
+    "plays": 22,
+    "noCarDay": 39,
+    "playErrorDay": 37,
+    "f01Crashes": 2,
+    "lastPlayNight": 29,
+    "attempted": 26,
+    "refused": 4,
+    "won": 18,
+    "maxPerNight": 1
+   },
+   "layLow": {
+    "n": 3,
+    "avgDrop": 15
+   },
+   "trap": {
+    "in": 1148000,
+    "out": 948600,
+    "houses": 3,
+    "cooks": 74,
+    "cookRefused": 0,
+    "casesCooked": 240,
+    "casesSold": 198,
+    "revenue": 1232000,
+    "ingredients": 453600,
+    "upgrades": 50000,
+    "level": 3,
+    "levelDays": {
+     "2": 32,
+     "3": 47
+    },
+    "raids": {
+     "scheduled": 2,
+     "held": 0,
+     "answered": 2,
+     "outcomes": {
+      "WASH": 1,
+      "HELD": 1
+     },
+     "stashLost": 4,
+     "unbankedLost": 0,
+     "holdNet": 18000,
+     "pendingDays": 2
+    },
+    "firstRaidDay": 48
+   },
+   "heat": {
+    "peak": 76,
+    "final": 67
+   },
+   "rain": {
+    "rounds": 34,
+    "spent": 850000
+   },
+   "crew": {
+    "gone": 1,
+    "capturedEvents": 2,
+    "downedEvents": 6,
+    "activeEnd": 7
+   },
+   "flows": {
+    "war_room:play": 480100,
+    "trap:house": -445000,
+    "trap:upgrade": -50000,
+    "trap:ingredients": -453600,
+    "rainmaker": -850000,
+    "trap:count": 1148000,
+    "wake": 200000,
+    "war_room:lay_low": -30000,
+    "hold": 18000
+   },
+   "invariants": 0,
+   "errors": 0,
+   "errorKinds": [],
+   "softlock": 0,
+   "digest": 1468919166
+  },
+  {
+   "persona": "spender",
+   "seed": 2,
+   "days": 42,
+   "final": 844200,
+   "minMoney": 300,
+   "net": 744200,
+   "money": {
+    "d23": 20800,
+    "d30": 300,
+    "d37": 257200,
+    "d44": 484400,
+    "d58": 844200
+   },
+   "warRoom": {
+    "in": 667100,
+    "out": 141000,
+    "plays": 20,
+    "noCarDay": 35,
+    "playErrorDay": null,
+    "f01Crashes": 0,
+    "lastPlayNight": 28,
+    "attempted": 25,
+    "refused": 5,
+    "won": 19,
+    "maxPerNight": 1
+   },
+   "layLow": {
+    "n": 14,
+    "avgDrop": 15
+   },
+   "trap": {
+    "in": 2275000,
+    "out": 1356000,
+    "houses": 3,
+    "cooks": 106,
+    "cookRefused": 0,
+    "casesCooked": 396,
+    "casesSold": 354,
+    "revenue": 2345000,
+    "ingredients": 861000,
+    "upgrades": 50000,
+    "level": 4,
+    "levelDays": {
+     "2": 27,
+     "3": 38,
+     "4": 54
+    },
+    "raids": {
+     "scheduled": 4,
+     "held": 0,
+     "answered": 4,
+     "outcomes": {
+      "HELD": 4
+     },
+     "stashLost": 0,
+     "unbankedLost": 0,
+     "holdNet": 99100,
+     "pendingDays": 4
+    },
+    "firstRaidDay": 36
+   },
+   "heat": {
+    "peak": 82,
+    "final": 69
+   },
+   "rain": {
+    "rounds": 40,
+    "spent": 1000000
+   },
+   "crew": {
+    "gone": 0,
+    "capturedEvents": 0,
+    "downedEvents": 2,
+    "activeEnd": 8
+   },
+   "flows": {
+    "war_room:play": 666100,
+    "trap:house": -445000,
+    "trap:upgrade": -50000,
+    "trap:ingredients": -861000,
+    "rainmaker": -1000000,
+    "trap:count": 2275000,
+    "wake": 200000,
+    "hold": 99100,
+    "war_room:lay_low": -140000
+   },
+   "invariants": 0,
+   "errors": 0,
+   "errorKinds": [],
+   "softlock": 0,
+   "digest": 2507864977
+  },
+  {
+   "persona": "spender",
+   "seed": 3,
+   "days": 42,
+   "final": 815000,
+   "minMoney": 6500,
+   "net": 715000,
+   "money": {
+    "d23": 141800,
+    "d30": 89900,
+    "d37": 267200,
+    "d44": 455100,
+    "d58": 815000
+   },
+   "warRoom": {
+    "in": 585300,
+    "out": 140000,
+    "plays": 13,
+    "noCarDay": 28,
+    "playErrorDay": null,
+    "f01Crashes": 0,
+    "lastPlayNight": 21,
+    "attempted": 18,
+    "refused": 5,
+    "won": 13,
+    "maxPerNight": 1
+   },
+   "layLow": {
+    "n": 14,
+    "avgDrop": 15
+   },
+   "trap": {
+    "in": 2394000,
+    "out": 1396600,
+    "houses": 3,
+    "cooks": 110,
+    "cookRefused": 0,
+    "casesCooked": 416,
+    "casesSold": 384,
+    "revenue": 2520000,
+    "ingredients": 901600,
+    "upgrades": 50000,
+    "level": 4,
+    "levelDays": {
+     "2": 26,
+     "3": 37,
+     "4": 52
+    },
+    "raids": {
+     "scheduled": 4,
+     "held": 0,
+     "answered": 4,
+     "outcomes": {
+      "HELD": 4
+     },
+     "stashLost": 0,
+     "unbankedLost": 0,
+     "holdNet": 72300,
+     "pendingDays": 4
+    },
+    "firstRaidDay": 36
+   },
+   "heat": {
+    "peak": 81,
+    "final": 74
+   },
+   "rain": {
+    "rounds": 40,
+    "spent": 1000000
+   },
+   "crew": {
+    "gone": 0,
+    "capturedEvents": 0,
+    "downedEvents": 2,
+    "activeEnd": 8
+   },
+   "flows": {
+    "war_room:play": 585300,
+    "trap:house": -445000,
+    "trap:upgrade": -50000,
+    "trap:ingredients": -901600,
+    "trap:count": 2394000,
+    "rainmaker": -1000000,
+    "wake": 200000,
+    "hold": 72300,
+    "war_room:lay_low": -140000
+   },
+   "invariants": 0,
+   "errors": 0,
+   "errorKinds": [],
+   "softlock": 0,
+   "digest": 141773351
+  },
+  {
+   "persona": "spender",
+   "seed": 4,
+   "days": 42,
+   "final": 920000,
+   "minMoney": 3400,
+   "net": 820000,
+   "money": {
+    "d23": 73800,
+    "d30": 96600,
+    "d37": 55900,
+    "d44": 504500,
+    "d58": 920000
+   },
+   "warRoom": {
+    "in": 1040000,
+    "out": 121000,
+    "plays": 33,
+    "noCarDay": 48,
+    "playErrorDay": null,
+    "f01Crashes": 0,
+    "lastPlayNight": 41,
+    "attempted": 38,
+    "refused": 5,
+    "won": 29,
+    "maxPerNight": 1
+   },
+   "layLow": {
+    "n": 12,
+    "avgDrop": 15
+   },
+   "trap": {
+    "in": 1841000,
+    "out": 1171200,
+    "houses": 3,
+    "cooks": 91,
+    "cookRefused": 0,
+    "casesCooked": 336,
+    "casesSold": 294,
+    "revenue": 1897000,
+    "ingredients": 676200,
+    "upgrades": 50000,
+    "level": 3,
+    "levelDays": {
+     "2": 31,
+     "3": 43
+    },
+    "raids": {
+     "scheduled": 3,
+     "held": 0,
+     "answered": 3,
+     "outcomes": {
+      "HELD": 2,
+      "BREACHED": 1
+     },
+     "stashLost": 6,
+     "unbankedLost": 0,
+     "holdNet": 31200,
+     "pendingDays": 3
+    },
+    "firstRaidDay": 41
+   },
+   "heat": {
+    "peak": 85,
+    "final": 64
+   },
+   "rain": {
+    "rounds": 40,
+    "spent": 1000000
+   },
+   "crew": {
+    "gone": 1,
+    "capturedEvents": 2,
+    "downedEvents": 2,
+    "activeEnd": 7
+   },
+   "flows": {
+    "war_room:play": 1039000,
+    "trap:house": -445000,
+    "trap:upgrade": -50000,
+    "trap:ingredients": -676200,
+    "rainmaker": -1000000,
+    "trap:count": 1841000,
+    "wake": 200000,
+    "hold": 31200,
+    "war_room:lay_low": -120000
+   },
+   "invariants": 0,
+   "errors": 0,
+   "errorKinds": [],
+   "softlock": 0,
+   "digest": 3150967082
+  },
+  {
+   "persona": "spender",
+   "seed": 5,
+   "days": 42,
+   "final": 1345100,
+   "minMoney": 300,
+   "net": 1245100,
+   "money": {
+    "d23": 83200,
+    "d30": 165300,
+    "d37": 38400,
+    "d44": 379900,
+    "d58": 1345100
+   },
+   "warRoom": {
+    "in": 1438900,
+    "out": 130000,
+    "plays": 41,
+    "noCarDay": 57,
+    "playErrorDay": null,
+    "f01Crashes": 0,
+    "lastPlayNight": 41,
+    "attempted": 42,
+    "refused": 1,
+    "won": 38,
+    "maxPerNight": 1
+   },
+   "layLow": {
+    "n": 13,
+    "avgDrop": 15
+   },
+   "trap": {
+    "in": 1844500,
+    "out": 1186600,
+    "houses": 3,
+    "cooks": 94,
+    "cookRefused": 0,
+    "casesCooked": 338,
+    "casesSold": 298,
+    "revenue": 1928500,
+    "ingredients": 691600,
+    "upgrades": 50000,
+    "level": 3,
+    "levelDays": {
+     "2": 31,
+     "3": 43
+    },
+    "raids": {
+     "scheduled": 3,
+     "held": 0,
+     "answered": 3,
+     "outcomes": {
+      "HELD": 3
+     },
+     "stashLost": 0,
+     "unbankedLost": 0,
+     "holdNet": 53300,
+     "pendingDays": 3
+    },
+    "firstRaidDay": 42
+   },
+   "heat": {
+    "peak": 87,
+    "final": 70
+   },
+   "rain": {
+    "rounds": 39,
+    "spent": 975000
+   },
+   "crew": {
+    "gone": 0,
+    "capturedEvents": 0,
+    "downedEvents": 2,
+    "activeEnd": 8
+   },
+   "flows": {
+    "war_room:play": 1438900,
+    "trap:house": -445000,
+    "trap:upgrade": -50000,
+    "trap:ingredients": -691600,
+    "rainmaker": -975000,
+    "trap:count": 1844500,
+    "wake": 200000,
+    "hold": 53300,
+    "war_room:lay_low": -130000
+   },
+   "invariants": 0,
+   "errors": 0,
+   "errorKinds": [],
+   "softlock": 0,
+   "digest": 775340556
+  },
+  {
+   "persona": "spender",
+   "seed": 6,
+   "days": 42,
+   "final": 646800,
+   "minMoney": 1000,
+   "net": 546800,
+   "money": {
+    "d23": 67400,
+    "d30": 91600,
+    "d37": 210300,
+    "d44": 253600,
+    "d58": 646800
+   },
+   "warRoom": {
+    "in": 760100,
+    "out": 90000,
+    "plays": 26,
+    "noCarDay": 41,
+    "playErrorDay": null,
+    "f01Crashes": 0,
+    "lastPlayNight": 34,
+    "attempted": 31,
+    "refused": 5,
+    "won": 24,
+    "maxPerNight": 1
+   },
+   "layLow": {
+    "n": 9,
+    "avgDrop": 15
+   },
+   "trap": {
+    "in": 1715000,
+    "out": 1132000,
+    "houses": 3,
+    "cooks": 90,
+    "cookRefused": 0,
+    "casesCooked": 322,
+    "casesSold": 286,
+    "revenue": 1841000,
+    "ingredients": 637000,
+    "upgrades": 50000,
+    "level": 3,
+    "levelDays": {
+     "2": 33,
+     "3": 45
+    },
+    "raids": {
+     "scheduled": 3,
+     "held": 0,
+     "answered": 3,
+     "outcomes": {
+      "HELD": 3
+     },
+     "stashLost": 0,
+     "unbankedLost": 0,
+     "holdNet": 43700,
+     "pendingDays": 3
+    },
+    "firstRaidDay": 42
+   },
+   "heat": {
+    "peak": 82,
+    "final": 82
+   },
+   "rain": {
+    "rounds": 38,
+    "spent": 950000
+   },
+   "crew": {
+    "gone": 1,
+    "capturedEvents": 0,
+    "downedEvents": 1,
+    "activeEnd": 7
+   },
+   "flows": {
+    "war_room:play": 760100,
+    "trap:house": -445000,
+    "trap:upgrade": -50000,
+    "trap:ingredients": -637000,
+    "rainmaker": -950000,
+    "trap:count": 1715000,
+    "wake": 200000,
+    "hold": 43700,
+    "war_room:lay_low": -90000
+   },
+   "invariants": 0,
+   "errors": 0,
+   "errorKinds": [],
+   "softlock": 0,
+   "digest": 95423092
+  },
+  {
+   "persona": "spender",
+   "seed": 7,
+   "days": 42,
+   "final": 179850,
+   "minMoney": 1450,
+   "net": 79850,
+   "money": {
+    "d23": 62700,
+    "d30": 85650,
+    "d37": 24050,
+    "d44": 70250,
+    "d58": 179850
+   },
+   "warRoom": {
+    "in": 341900,
+    "out": 10000,
+    "plays": 14,
+    "noCarDay": 31,
+    "playErrorDay": 29,
+    "f01Crashes": 5,
+    "lastPlayNight": 21,
+    "attempted": 21,
+    "refused": 7,
+    "won": 11,
+    "maxPerNight": 1
+   },
+   "layLow": {
+    "n": 1,
+    "avgDrop": 15
+   },
+   "trap": {
+    "in": 1114750,
+    "out": 566800,
+    "houses": 2,
+    "cooks": 68,
+    "cookRefused": 0,
+    "casesCooked": 198,
+    "casesSold": 186,
+    "revenue": 1142750,
+    "ingredients": 331800,
+    "upgrades": 50000,
+    "level": 3,
+    "levelDays": {
+     "2": 31,
+     "3": 46
+    },
+    "raids": {
+     "scheduled": 1,
+     "held": 0,
+     "answered": 1,
+     "outcomes": {
+      "WASH": 1
+     },
+     "stashLost": 4,
+     "unbankedLost": 0,
+     "holdNet": 0,
+     "pendingDays": 1
+    },
+    "firstRaidDay": 53
+   },
+   "heat": {
+    "peak": 70,
+    "final": 58
+   },
+   "rain": {
+    "rounds": 40,
+    "spent": 1000000
+   },
+   "crew": {
+    "gone": 2,
+    "capturedEvents": 3,
+    "downedEvents": 5,
+    "activeEnd": 6
+   },
+   "flows": {
+    "war_room:play": 341900,
+    "trap:house": -185000,
+    "trap:upgrade": -50000,
+    "trap:ingredients": -331800,
+    "rainmaker": -1000000,
+    "trap:count": 1114750,
+    "wake": 200000,
+    "war_room:lay_low": -10000
+   },
+   "invariants": 0,
+   "errors": 0,
+   "errorKinds": [],
+   "softlock": 0,
+   "digest": 2446693680
+  },
+  {
+   "persona": "spender",
+   "seed": 8,
+   "days": 42,
+   "final": 697200,
+   "minMoney": 900,
+   "net": 597200,
+   "money": {
+    "d23": 156300,
+    "d30": 900,
+    "d37": 143300,
+    "d44": 299200,
+    "d58": 697200
+   },
+   "warRoom": {
+    "in": 493800,
+    "out": 131000,
+    "plays": 12,
+    "noCarDay": 27,
+    "playErrorDay": null,
+    "f01Crashes": 0,
+    "lastPlayNight": 20,
+    "attempted": 17,
+    "refused": 5,
+    "won": 10,
+    "maxPerNight": 1
+   },
+   "layLow": {
+    "n": 13,
+    "avgDrop": 15
+   },
+   "trap": {
+    "in": 2324000,
+    "out": 1365800,
+    "houses": 3,
+    "cooks": 108,
+    "cookRefused": 0,
+    "casesCooked": 404,
+    "casesSold": 364,
+    "revenue": 2408000,
+    "ingredients": 870800,
+    "upgrades": 50000,
+    "level": 4,
+    "levelDays": {
+     "2": 26,
+     "3": 38,
+     "4": 53
+    },
+    "raids": {
+     "scheduled": 4,
+     "held": 0,
+     "answered": 3,
+     "outcomes": {
+      "HELD": 3
+     },
+     "stashLost": 0,
+     "unbankedLost": 0,
+     "holdNet": 51200,
+     "pendingDays": 3
+    },
+    "firstRaidDay": 37
+   },
+   "heat": {
+    "peak": 81,
+    "final": 66
+   },
+   "rain": {
+    "rounds": 39,
+    "spent": 975000
+   },
+   "crew": {
+    "gone": 0,
+    "capturedEvents": 0,
+    "downedEvents": 2,
+    "activeEnd": 8
+   },
+   "flows": {
+    "war_room:play": 492800,
+    "trap:house": -445000,
+    "trap:upgrade": -50000,
+    "trap:ingredients": -870800,
+    "rainmaker": -975000,
+    "trap:count": 2324000,
+    "wake": 200000,
+    "hold": 51200,
+    "war_room:lay_low": -130000
+   },
+   "invariants": 0,
+   "errors": 0,
+   "errorKinds": [],
+   "softlock": 0,
+   "digest": 1209330164
+  },
+  {
+   "persona": "spender",
+   "seed": 9,
+   "days": 42,
+   "final": 88900,
+   "minMoney": 1100,
+   "net": -11100,
+   "money": {
+    "d23": 12700,
+    "d30": 90400,
+    "d37": 6700,
+    "d44": 7100,
+    "d58": 88900
+   },
+   "warRoom": {
+    "in": 64000,
+    "out": 0,
+    "plays": 6,
+    "noCarDay": 21,
+    "playErrorDay": 19,
+    "f01Crashes": 4,
+    "lastPlayNight": 13,
+    "attempted": 12,
+    "refused": 6,
+    "won": 3,
+    "maxPerNight": 1
+   },
+   "layLow": {
+    "n": 0,
+    "avgDrop": 0
+   },
+   "trap": {
+    "in": 409500,
+    "out": 184600,
+    "houses": 1,
+    "cooks": 42,
+    "cookRefused": 0,
+    "casesCooked": 84,
+    "casesSold": 80,
+    "revenue": 423500,
+    "ingredients": 89600,
+    "upgrades": 50000,
+    "level": 2,
+    "levelDays": {
+     "2": 36
+    },
+    "raids": {
+     "scheduled": 0,
+     "held": 0,
+     "answered": 0,
+     "outcomes": {},
+     "stashLost": 0,
+     "unbankedLost": 0,
+     "holdNet": 0,
+     "pendingDays": 0
+    },
+    "firstRaidDay": null
+   },
+   "heat": {
+    "peak": 3,
+    "final": 2
+   },
+   "rain": {
+    "rounds": 20,
+    "spent": 500000
+   },
+   "crew": {
+    "gone": 2,
+    "capturedEvents": 2,
+    "downedEvents": 2,
+    "activeEnd": 5
+   },
+   "flows": {
+    "war_room:play": 64000,
+    "trap:house": -45000,
+    "trap:upgrade": -50000,
+    "trap:ingredients": -89600,
+    "rainmaker": -500000,
+    "trap:count": 409500,
+    "wake": 200000
+   },
+   "invariants": 0,
+   "errors": 0,
+   "errorKinds": [],
+   "softlock": 0,
+   "digest": 4237461399
+  },
+  {
+   "persona": "spender",
+   "seed": 10,
+   "days": 42,
+   "final": 509900,
+   "minMoney": 1800,
+   "net": 409900,
+   "money": {
+    "d23": 58700,
+    "d30": 44800,
+    "d37": 154100,
+    "d44": 74100,
+    "d58": 509900
+   },
+   "warRoom": {
+    "in": 691200,
+    "out": 81000,
+    "plays": 24,
+    "noCarDay": 39,
+    "playErrorDay": null,
+    "f01Crashes": 0,
+    "lastPlayNight": 32,
+    "attempted": 29,
+    "refused": 5,
+    "won": 21,
+    "maxPerNight": 1
+   },
+   "layLow": {
+    "n": 8,
+    "avgDrop": 15
+   },
+   "trap": {
+    "in": 1711500,
+    "out": 1122200,
+    "houses": 3,
+    "cooks": 89,
+    "cookRefused": 0,
+    "casesCooked": 314,
+    "casesSold": 278,
+    "revenue": 1795500,
+    "ingredients": 627200,
+    "upgrades": 50000,
+    "level": 3,
+    "levelDays": {
+     "2": 32,
+     "3": 45
+    },
+    "raids": {
+     "scheduled": 2,
+     "held": 0,
+     "answered": 2,
+     "outcomes": {
+      "HELD": 2
+     },
+     "stashLost": 0,
+     "unbankedLost": 0,
+     "holdNet": 35400,
+     "pendingDays": 2
+    },
+    "firstRaidDay": 45
+   },
+   "heat": {
+    "peak": 84,
+    "final": 72
+   },
+   "rain": {
+    "rounds": 41,
+    "spent": 1025000
+   },
+   "crew": {
+    "gone": 0,
+    "capturedEvents": 0,
+    "downedEvents": 2,
+    "activeEnd": 8
+   },
+   "flows": {
+    "war_room:play": 690200,
+    "trap:house": -445000,
+    "trap:upgrade": -50000,
+    "trap:ingredients": -627200,
+    "rainmaker": -1025000,
+    "trap:count": 1711500,
+    "wake": 200000,
+    "hold": 35400,
+    "war_room:lay_low": -80000
+   },
+   "invariants": 0,
+   "errors": 0,
+   "errorKinds": [],
+   "softlock": 0,
+   "digest": 1561774272
+  },
+  {
+   "persona": "winner",
+   "seed": 1,
+   "days": 42,
+   "final": 3097250,
+   "minMoney": 44400,
+   "net": 2997250,
+   "money": {
+    "d23": 137150,
+    "d30": 695250,
+    "d37": 1140850,
+    "d44": 1661650,
+    "d58": 3097250
+   },
+   "warRoom": {
+    "in": 687300,
+    "out": 51000,
+    "plays": 21,
+    "noCarDay": 26,
+    "playErrorDay": null,
+    "f01Crashes": 0,
+    "lastPlayNight": 19,
+    "attempted": 27,
+    "refused": 6,
+    "won": 19,
+    "maxPerNight": 2
+   },
+   "layLow": {
+    "n": 5,
+    "avgDrop": 15
+   },
+   "trap": {
+    "in": 3655750,
+    "out": 1543600,
+    "houses": 3,
+    "cooks": 119,
+    "cookRefused": 0,
+    "casesCooked": 466,
+    "casesSold": 406,
+    "revenue": 3739750,
+    "ingredients": 1048600,
+    "upgrades": 50000,
+    "level": 4,
+    "levelDays": {
+     "2": 24,
+     "3": 32,
+     "4": 50
+    },
+    "raids": {
+     "scheduled": 2,
+     "held": 0,
+     "answered": 2,
+     "outcomes": {
+      "HELD": 2
+     },
+     "stashLost": 0,
+     "unbankedLost": 0,
+     "holdNet": 48800,
+     "pendingDays": 2
+    },
+    "firstRaidDay": 26
+   },
+   "heat": {
+    "peak": 67,
+    "final": 0
+   },
+   "rain": {
+    "rounds": 0,
+    "spent": 0
+   },
+   "crew": {
+    "gone": 0,
+    "capturedEvents": 0,
+    "downedEvents": 0,
+    "activeEnd": 7
+   },
+   "flows": {
+    "war_room:play": 686300,
+    "trap:house": -445000,
+    "trap:upgrade": -50000,
+    "trap:ingredients": -1048600,
+    "trap:count": 3655750,
+    "hold": 48800,
+    "war_room:lay_low": -50000,
+    "wake": 200000
+   },
+   "invariants": 0,
+   "errors": 0,
+   "errorKinds": [],
+   "softlock": 0,
+   "digest": 3130065787
+  },
+  {
+   "persona": "winner",
+   "seed": 2,
+   "days": 42,
+   "final": 3194000,
+   "minMoney": 46300,
+   "net": 3094000,
+   "money": {
+    "d23": 91250,
+    "d30": 893400,
+    "d37": 1375100,
+    "d44": 1863400,
+    "d58": 3194000
+   },
+   "warRoom": {
+    "in": 946500,
+    "out": 73000,
+    "plays": 26,
+    "noCarDay": 29,
+    "playErrorDay": null,
+    "f01Crashes": 0,
+    "lastPlayNight": 23,
+    "attempted": 35,
+    "refused": 9,
+    "won": 22,
+    "maxPerNight": 2
+   },
+   "layLow": {
+    "n": 7,
+    "avgDrop": 15
+   },
+   "trap": {
+    "in": 3475500,
+    "out": 1511400,
+    "houses": 3,
+    "cooks": 117,
+    "cookRefused": 0,
+    "casesCooked": 456,
+    "casesSold": 400,
+    "revenue": 3664500,
+    "ingredients": 1016400,
+    "upgrades": 50000,
+    "level": 4,
+    "levelDays": {
+     "2": 25,
+     "3": 33,
+     "4": 50
+    },
+    "raids": {
+     "scheduled": 2,
+     "held": 0,
+     "answered": 2,
+     "outcomes": {
+      "HELD": 2
+     },
+     "stashLost": 0,
+     "unbankedLost": 0,
+     "holdNet": 56400,
+     "pendingDays": 2
+    },
+    "firstRaidDay": 26
+   },
+   "heat": {
+    "peak": 70,
+    "final": 0
+   },
+   "rain": {
+    "rounds": 0,
+    "spent": 0
+   },
+   "crew": {
+    "gone": 0,
+    "capturedEvents": 0,
+    "downedEvents": 3,
+    "activeEnd": 8
+   },
+   "flows": {
+    "war_room:play": 943500,
+    "trap:house": -445000,
+    "trap:upgrade": -50000,
+    "trap:ingredients": -1016400,
+    "trap:count": 3475500,
+    "hold": 56400,
+    "war_room:lay_low": -70000,
+    "wake": 200000
+   },
+   "invariants": 0,
+   "errors": 0,
+   "errorKinds": [],
+   "softlock": 0,
+   "digest": 3231961424
+  },
+  {
+   "persona": "winner",
+   "seed": 3,
+   "days": 42,
+   "final": 5258750,
+   "minMoney": 38550,
+   "net": 5158750,
+   "money": {
+    "d23": 226450,
+    "d30": 986850,
+    "d37": 1717150,
+    "d44": 2838450,
+    "d58": 5258750
+   },
+   "warRoom": {
+    "in": 2800700,
+    "out": 110000,
+    "plays": 68,
+    "noCarDay": null,
+    "playErrorDay": 56,
+    "f01Crashes": 2,
+    "lastPlayNight": 41,
+    "attempted": 83,
+    "refused": 15,
+    "won": 67,
+    "maxPerNight": 2
+   },
+   "layLow": {
+    "n": 11,
+    "avgDrop": 15
+   },
+   "trap": {
+    "in": 3725750,
+    "out": 1554800,
+    "houses": 3,
+    "cooks": 120,
+    "cookRefused": 0,
+    "casesCooked": 470,
+    "casesSold": 410,
+    "revenue": 3809750,
+    "ingredients": 1059800,
+    "upgrades": 50000,
+    "level": 4,
+    "levelDays": {
+     "2": 23,
+     "3": 32,
+     "4": 49
+    },
+    "raids": {
+     "scheduled": 5,
+     "held": 0,
+     "answered": 5,
+     "outcomes": {
+      "HELD": 5
+     },
+     "stashLost": 0,
+     "unbankedLost": 0,
+     "holdNet": 97100,
+     "pendingDays": 5
+    },
+    "firstRaidDay": 26
+   },
+   "heat": {
+    "peak": 81,
+    "final": 56
+   },
+   "rain": {
+    "rounds": 0,
+    "spent": 0
+   },
+   "crew": {
+    "gone": 1,
+    "capturedEvents": 1,
+    "downedEvents": 4,
+    "activeEnd": 6
+   },
+   "flows": {
+    "war_room:play": 2800700,
+    "trap:house": -445000,
+    "trap:ingredients": -1059800,
+    "trap:count": 3725750,
+    "trap:upgrade": -50000,
+    "hold": 97100,
+    "war_room:lay_low": -110000,
+    "wake": 200000
+   },
+   "invariants": 0,
+   "errors": 0,
+   "errorKinds": [],
+   "softlock": 0,
+   "digest": 3600439417
+  },
+  {
+   "persona": "winner",
+   "seed": 4,
+   "days": 42,
+   "final": 3696300,
+   "minMoney": 22150,
+   "net": 3596300,
+   "money": {
+    "d23": 185500,
+    "d30": 1008600,
+    "d37": 1627900,
+    "d44": 2250300,
+    "d58": 3696300
+   },
+   "warRoom": {
+    "in": 1274000,
+    "out": 70000,
+    "plays": 38,
+    "noCarDay": 40,
+    "playErrorDay": 38,
+    "f01Crashes": 2,
+    "lastPlayNight": 31,
+    "attempted": 51,
+    "refused": 13,
+    "won": 33,
+    "maxPerNight": 2
+   },
+   "layLow": {
+    "n": 7,
+    "avgDrop": 15
+   },
+   "trap": {
+    "in": 3731000,
+    "out": 1575800,
+    "houses": 3,
+    "cooks": 121,
+    "cookRefused": 0,
+    "casesCooked": 476,
+    "casesSold": 416,
+    "revenue": 3857000,
+    "ingredients": 1080800,
+    "upgrades": 50000,
+    "level": 4,
+    "levelDays": {
+     "2": 23,
+     "3": 31,
+     "4": 49
+    },
+    "raids": {
+     "scheduled": 2,
+     "held": 0,
+     "answered": 2,
+     "outcomes": {
+      "HELD": 2
+     },
+     "stashLost": 0,
+     "unbankedLost": 0,
+     "holdNet": 37100,
+     "pendingDays": 2
+    },
+    "firstRaidDay": 26
+   },
+   "heat": {
+    "peak": 80,
+    "final": 4
+   },
+   "rain": {
+    "rounds": 0,
+    "spent": 0
+   },
+   "crew": {
+    "gone": 2,
+    "capturedEvents": 1,
+    "downedEvents": 3,
+    "activeEnd": 6
+   },
+   "flows": {
+    "war_room:play": 1274000,
+    "trap:house": -445000,
+    "trap:ingredients": -1080800,
+    "trap:count": 3731000,
+    "trap:upgrade": -50000,
+    "hold": 37100,
+    "war_room:lay_low": -70000,
+    "wake": 200000
+   },
+   "invariants": 0,
+   "errors": 0,
+   "errorKinds": [],
+   "softlock": 0,
+   "digest": 37678965
+  },
+  {
+   "persona": "winner",
+   "seed": 5,
+   "days": 42,
+   "final": 4736700,
+   "minMoney": 24250,
+   "net": 4636700,
+   "money": {
+    "d23": 231700,
+    "d30": 1024900,
+    "d37": 1748500,
+    "d44": 2906400,
+    "d58": 4736700
+   },
+   "warRoom": {
+    "in": 2318100,
+    "out": 90000,
+    "plays": 58,
+    "noCarDay": 50,
+    "playErrorDay": null,
+    "f01Crashes": 0,
+    "lastPlayNight": 35,
+    "attempted": 75,
+    "refused": 17,
+    "won": 57,
+    "maxPerNight": 2
+   },
+   "layLow": {
+    "n": 9,
+    "avgDrop": 15
+   },
+   "trap": {
+    "in": 3731000,
+    "out": 1575800,
+    "houses": 3,
+    "cooks": 121,
+    "cookRefused": 0,
+    "casesCooked": 476,
+    "casesSold": 416,
+    "revenue": 3857000,
+    "ingredients": 1080800,
+    "upgrades": 50000,
+    "level": 4,
+    "levelDays": {
+     "2": 23,
+     "3": 31,
+     "4": 49
+    },
+    "raids": {
+     "scheduled": 3,
+     "held": 0,
+     "answered": 3,
+     "outcomes": {
+      "HELD": 3
+     },
+     "stashLost": 0,
+     "unbankedLost": 0,
+     "holdNet": 53400,
+     "pendingDays": 3
+    },
+    "firstRaidDay": 26
+   },
+   "heat": {
+    "peak": 81,
+    "final": 35
+   },
+   "rain": {
+    "rounds": 0,
+    "spent": 0
+   },
+   "crew": {
+    "gone": 0,
+    "capturedEvents": 0,
+    "downedEvents": 2,
+    "activeEnd": 8
+   },
+   "flows": {
+    "war_room:play": 2318100,
+    "trap:house": -445000,
+    "trap:upgrade": -50000,
+    "trap:ingredients": -1080800,
+    "trap:count": 3731000,
+    "hold": 53400,
+    "war_room:lay_low": -90000,
+    "wake": 200000
+   },
+   "invariants": 0,
+   "errors": 0,
+   "errorKinds": [],
+   "softlock": 0,
+   "digest": 283248881
+  },
+  {
+   "persona": "winner",
+   "seed": 6,
+   "days": 42,
+   "final": 2281500,
+   "minMoney": 31700,
+   "net": 2181500,
+   "money": {
+    "d23": 126850,
+    "d30": 117800,
+    "d37": 525200,
+    "d44": 866900,
+    "d58": 2281500
+   },
+   "warRoom": {
+    "in": 243400,
+    "out": 20000,
+    "plays": 9,
+    "noCarDay": 19,
+    "playErrorDay": null,
+    "f01Crashes": 0,
+    "lastPlayNight": 13,
+    "attempted": 16,
+    "refused": 7,
+    "won": 8,
+    "maxPerNight": 2
+   },
+   "layLow": {
+    "n": 2,
+    "avgDrop": 15
+   },
+   "trap": {
+    "in": 3139500,
+    "out": 1393800,
+    "houses": 3,
+    "cooks": 110,
+    "cookRefused": 0,
+    "casesCooked": 414,
+    "casesSold": 354,
+    "revenue": 3223500,
+    "ingredients": 898800,
+    "upgrades": 50000,
+    "level": 4,
+    "levelDays": {
+     "2": 26,
+     "3": 37,
+     "4": 54
+    },
+    "raids": {
+     "scheduled": 1,
+     "held": 0,
+     "answered": 1,
+     "outcomes": {
+      "HELD": 1
+     },
+     "stashLost": 0,
+     "unbankedLost": 0,
+     "holdNet": 12400,
+     "pendingDays": 1
+    },
+    "firstRaidDay": 37
+   },
+   "heat": {
+    "peak": 66,
+    "final": 6
+   },
+   "rain": {
+    "rounds": 0,
+    "spent": 0
+   },
+   "crew": {
+    "gone": 0,
+    "capturedEvents": 0,
+    "downedEvents": 1,
+    "activeEnd": 7
+   },
+   "flows": {
+    "war_room:play": 243400,
+    "trap:house": -445000,
+    "trap:upgrade": -50000,
+    "trap:ingredients": -898800,
+    "trap:count": 3139500,
+    "wake": 200000,
+    "hold": 12400,
+    "war_room:lay_low": -20000
+   },
+   "invariants": 0,
+   "errors": 0,
+   "errorKinds": [],
+   "softlock": 0,
+   "digest": 1575523384
+  },
+  {
+   "persona": "winner",
+   "seed": 7,
+   "days": 42,
+   "final": 3665250,
+   "minMoney": 45100,
+   "net": 3565250,
+   "money": {
+    "d23": 154050,
+    "d30": 1036550,
+    "d37": 1669950,
+    "d44": 2229650,
+    "d58": 3665250
+   },
+   "warRoom": {
+    "in": 1236400,
+    "out": 80000,
+    "plays": 32,
+    "noCarDay": 35,
+    "playErrorDay": null,
+    "f01Crashes": 0,
+    "lastPlayNight": 28,
+    "attempted": 45,
+    "refused": 13,
+    "won": 30,
+    "maxPerNight": 2
+   },
+   "layLow": {
+    "n": 8,
+    "avgDrop": 15
+   },
+   "trap": {
+    "in": 3655750,
+    "out": 1543600,
+    "houses": 3,
+    "cooks": 119,
+    "cookRefused": 0,
+    "casesCooked": 466,
+    "casesSold": 406,
+    "revenue": 3739750,
+    "ingredients": 1048600,
+    "upgrades": 50000,
+    "level": 4,
+    "levelDays": {
+     "2": 24,
+     "3": 32,
+     "4": 50
+    },
+    "raids": {
+     "scheduled": 2,
+     "held": 0,
+     "answered": 2,
+     "outcomes": {
+      "HELD": 2
+     },
+     "stashLost": 0,
+     "unbankedLost": 0,
+     "holdNet": 96700,
+     "pendingDays": 2
+    },
+    "firstRaidDay": 27
+   },
+   "heat": {
+    "peak": 76,
+    "final": 0
+   },
+   "rain": {
+    "rounds": 0,
+    "spent": 0
+   },
+   "crew": {
+    "gone": 0,
+    "capturedEvents": 1,
+    "downedEvents": 3,
+    "activeEnd": 8
+   },
+   "flows": {
+    "war_room:play": 1236400,
+    "trap:house": -445000,
+    "trap:upgrade": -50000,
+    "trap:ingredients": -1048600,
+    "trap:count": 3655750,
+    "hold": 96700,
+    "war_room:lay_low": -80000,
+    "wake": 200000
+   },
+   "invariants": 0,
+   "errors": 0,
+   "errorKinds": [],
+   "softlock": 0,
+   "digest": 3218394199
+  },
+  {
+   "persona": "winner",
+   "seed": 8,
+   "days": 42,
+   "final": 4483950,
+   "minMoney": 37300,
+   "net": 4383950,
+   "money": {
+    "d23": 155450,
+    "d30": 921150,
+    "d37": 1660350,
+    "d44": 2677050,
+    "d58": 4483950
+   },
+   "warRoom": {
+    "in": 2012500,
+    "out": 90000,
+    "plays": 57,
+    "noCarDay": 49,
+    "playErrorDay": null,
+    "f01Crashes": 0,
+    "lastPlayNight": 42,
+    "attempted": 72,
+    "refused": 15,
+    "won": 54,
+    "maxPerNight": 2
+   },
+   "layLow": {
+    "n": 9,
+    "avgDrop": 15
+   },
+   "trap": {
+    "in": 3655750,
+    "out": 1543600,
+    "houses": 3,
+    "cooks": 119,
+    "cookRefused": 0,
+    "casesCooked": 466,
+    "casesSold": 406,
+    "revenue": 3739750,
+    "ingredients": 1048600,
+    "upgrades": 50000,
+    "level": 4,
+    "levelDays": {
+     "2": 24,
+     "3": 32,
+     "4": 50
+    },
+    "raids": {
+     "scheduled": 3,
+     "held": 0,
+     "answered": 3,
+     "outcomes": {
+      "HELD": 3
+     },
+     "stashLost": 0,
+     "unbankedLost": 0,
+     "holdNet": 149300,
+     "pendingDays": 3
+    },
+    "firstRaidDay": 27
+   },
+   "heat": {
+    "peak": 83,
+    "final": 33
+   },
+   "rain": {
+    "rounds": 0,
+    "spent": 0
+   },
+   "crew": {
+    "gone": 0,
+    "capturedEvents": 0,
+    "downedEvents": 1,
+    "activeEnd": 8
+   },
+   "flows": {
+    "war_room:play": 2012500,
+    "trap:house": -445000,
+    "trap:upgrade": -50000,
+    "trap:ingredients": -1048600,
+    "trap:count": 3655750,
+    "hold": 149300,
+    "war_room:lay_low": -90000,
+    "wake": 200000
+   },
+   "invariants": 0,
+   "errors": 0,
+   "errorKinds": [],
+   "softlock": 0,
+   "digest": 2647819579
+  },
+  {
+   "persona": "winner",
+   "seed": 9,
+   "days": 42,
+   "final": 3906900,
+   "minMoney": 63750,
+   "net": 3806900,
+   "money": {
+    "d23": 358500,
+    "d30": 1157500,
+    "d37": 1788900,
+    "d44": 2477400,
+    "d58": 3906900
+   },
+   "warRoom": {
+    "in": 1501300,
+    "out": 80000,
+    "plays": 37,
+    "noCarDay": 38,
+    "playErrorDay": null,
+    "f01Crashes": 0,
+    "lastPlayNight": 31,
+    "attempted": 51,
+    "refused": 14,
+    "won": 37,
+    "maxPerNight": 2
+   },
+   "layLow": {
+    "n": 8,
+    "avgDrop": 15
+   },
+   "trap": {
+    "in": 3731000,
+    "out": 1575800,
+    "houses": 3,
+    "cooks": 121,
+    "cookRefused": 0,
+    "casesCooked": 476,
+    "casesSold": 416,
+    "revenue": 3857000,
+    "ingredients": 1080800,
+    "upgrades": 50000,
+    "level": 4,
+    "levelDays": {
+     "2": 23,
+     "3": 31,
+     "4": 49
+    },
+    "raids": {
+     "scheduled": 2,
+     "held": 0,
+     "answered": 2,
+     "outcomes": {
+      "HELD": 2
+     },
+     "stashLost": 0,
+     "unbankedLost": 0,
+     "holdNet": 30400,
+     "pendingDays": 2
+    },
+    "firstRaidDay": 26
+   },
+   "heat": {
+    "peak": 72,
+    "final": 2
+   },
+   "rain": {
+    "rounds": 0,
+    "spent": 0
+   },
+   "crew": {
+    "gone": 0,
+    "capturedEvents": 0,
+    "downedEvents": 1,
+    "activeEnd": 8
+   },
+   "flows": {
+    "war_room:play": 1501300,
+    "trap:house": -445000,
+    "trap:ingredients": -1080800,
+    "trap:count": 3731000,
+    "trap:upgrade": -50000,
+    "hold": 30400,
+    "war_room:lay_low": -80000,
+    "wake": 200000
+   },
+   "invariants": 0,
+   "errors": 0,
+   "errorKinds": [],
+   "softlock": 0,
+   "digest": 31282627
+  },
+  {
+   "persona": "winner",
+   "seed": 10,
+   "days": 42,
+   "final": 3397300,
+   "minMoney": 31700,
+   "net": 3297300,
+   "money": {
+    "d23": 53950,
+    "d30": 800500,
+    "d37": 1556400,
+    "d44": 2066700,
+    "d58": 3397300
+   },
+   "warRoom": {
+    "in": 1173300,
+    "out": 71000,
+    "plays": 32,
+    "noCarDay": 34,
+    "playErrorDay": null,
+    "f01Crashes": 0,
+    "lastPlayNight": 27,
+    "attempted": 43,
+    "refused": 11,
+    "won": 29,
+    "maxPerNight": 2
+   },
+   "layLow": {
+    "n": 7,
+    "avgDrop": 15
+   },
+   "trap": {
+    "in": 3475500,
+    "out": 1511400,
+    "houses": 3,
+    "cooks": 117,
+    "cookRefused": 0,
+    "casesCooked": 456,
+    "casesSold": 400,
+    "revenue": 3664500,
+    "ingredients": 1016400,
+    "upgrades": 50000,
+    "level": 4,
+    "levelDays": {
+     "2": 25,
+     "3": 33,
+     "4": 50
+    },
+    "raids": {
+     "scheduled": 2,
+     "held": 0,
+     "answered": 2,
+     "outcomes": {
+      "HELD": 2
+     },
+     "stashLost": 0,
+     "unbankedLost": 0,
+     "holdNet": 30900,
+     "pendingDays": 2
+    },
+    "firstRaidDay": 27
+   },
+   "heat": {
+    "peak": 74,
+    "final": 0
+   },
+   "rain": {
+    "rounds": 0,
+    "spent": 0
+   },
+   "crew": {
+    "gone": 0,
+    "capturedEvents": 0,
+    "downedEvents": 0,
+    "activeEnd": 8
+   },
+   "flows": {
+    "war_room:play": 1172300,
+    "trap:house": -445000,
+    "trap:upgrade": -50000,
+    "trap:ingredients": -1016400,
+    "trap:count": 3475500,
+    "hold": 30900,
+    "war_room:lay_low": -70000,
+    "wake": 200000
+   },
+   "invariants": 0,
+   "errors": 0,
+   "errorKinds": [],
+   "softlock": 0,
+   "digest": 2630737159
+  }
+ ]
+}
