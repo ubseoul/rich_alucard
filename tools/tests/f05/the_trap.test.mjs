@@ -465,8 +465,148 @@ export async function test(root){
   vm.createContext(admin);await run(root,admin,['js/data/audio_manifest.js','js/data/audio/manifest_parts.js','js/data/audio/parts/F05_trap.js']);
   const TR=admin.RAAudioManifest.get('TR_01');
   assert.ok(TR,'TR_01 registered as an inert hook');assert.equal(TR.registered,false);assert.equal(TR.file,null);
+  assert.equal(TR.expectedPath,'assets/audio/sfx/trap/TR_01.mp3','hook points at the F11 delivered runtime path');
   assert.equal(admin.RAAudioManifest.ids.filter(id=>/^TR_0[1-6]$/.test(id)).length,6,'TR_01-TR_06 registered');
   console.log('PASS F05 audio hooks + art/crew honesty');
+ }
+
+ // ============================================================================================ T. F01 OL-023 canonical outcome adapter
+ {
+  const c=await load(root,{flag:true});const R=c.RAF05;
+  // F01's canonical tokens only; aliases collapse onto them; F05 invents nothing
+  same(R.raids.DEFENSE_OUTCOMES,['HELD','BREACHED','FELL_BACK','WASH']);
+  assert.equal(R.raids.canonicalOutcome('FELL_BACK'),'FELL_BACK');
+  assert.equal(R.raids.canonicalOutcome('fall_back'),'FELL_BACK');
+  assert.equal(R.raids.canonicalOutcome('hold_breach'),'BREACHED');
+  assert.equal(R.raids.canonicalOutcome('wash'),'WASH');
+  assert.equal(R.raids.canonicalOutcome('nonsense'),null);
+  // fromPlayRecord reads F01 summarizeRecord shapes (js/frag/F01/play/engine.mjs)
+  assert.equal(R.raids.fromPlayRecord({fellBack:true,klass:'FELL_BACK',getaway:'FALL_BACK'}),'FELL_BACK');
+  assert.equal(R.raids.fromPlayRecord({klass:'WASH',getaway:'WASH'}),'WASH');
+  assert.equal(R.raids.fromPlayRecord({shape:'HOLD THE HOUSE',getaway:'BREACHED',klass:'COSTLY',win:true}),'BREACHED');
+  assert.equal(R.raids.fromPlayRecord({shape:'HOLD THE HOUSE',getaway:'HELD',klass:'MESSY',win:true}),'HELD');
+  assert.equal(R.raids.fromPlayRecord({klass:'BAILED',bailed:true,getaway:'BAILED'}),null,'BAILED is an offense-only outcome');
+  assert.equal(R.raids.fromPlayRecord(null),null);
+  console.log('PASS F05 outcome vocabulary: F01 canonical tokens, aliases, PLAY-record reader, no invented types');
+ }
+
+ // ---- HOLD win (HELD): the door held - no loss
+ {
+  const c=await load(root,{flag:true});const R=c.RAF05;
+  unlockRich(c);money(c,1e6);R.unlock.buy('the_bando');
+  R.production.addIngredient('synth',2);R.production.cook({houseId:'the_bando',grade:'D',cases:2,quality:95});
+  R.store.addUnbanked(1000);c.RAHeat.add(60,{source:'test'});
+  assert.equal(R.raids.schedule().ok,true);
+  const res=R.raids.applyDefense({canonical:'HELD'});
+  assert.equal(res.ok,true);assert.equal(res.canonical,'HELD');
+  assert.equal(res.result.stashCases,0,'HELD loses no stash');
+  assert.equal(R.production.readyCases({houseId:'the_bando'}),2,'stock intact after a hold');
+  assert.equal(R.sales.pending(),1000,'unbanked intact after a hold');
+  assert.equal(R.production.hot('the_bando'),false,'the house is not hot after a hold');
+  assert.equal(R.sales.banked(),0,'a hold banks nothing by itself');
+  assert.equal(R.raids.pending(),null,'the raid resolves');
+  console.log('PASS F05 HOLD win: HELD is a clean hold (no stash/cash loss, no house hot)');
+ }
+
+ // ---- HOLD breach (BREACHED): stash + 30% unbanked + hot; banked safe
+ {
+  const c=await load(root,{flag:true});const R=c.RAF05;
+  unlockRich(c);money(c,1e6);R.unlock.buy('the_bando');
+  R.production.addIngredient('synth',2);R.production.cook({houseId:'the_bando',grade:'D',cases:2,quality:95});
+  R.store.addUnbanked(1000);R.patch('banked',5000);c.RAHeat.add(60,{source:'test'});
+  assert.equal(R.raids.schedule().ok,true);
+  const res=R.raids.applyDefense({canonical:'BREACHED'});
+  assert.equal(res.result.stashCases,2,'stash lost on a breach');
+  assert.equal(res.result.unbankedLost,300,'30% of unbanked lost');
+  assert.equal(R.sales.pending(),700);
+  assert.equal(R.sales.banked(),5000,'banked money is safe');
+  assert.equal(R.production.hot('the_bando'),true,'the house is hot after a breach');
+  assert.equal(res.result.hotUntilDay,c.RALife.today().day+5);
+  console.log('PASS F05 HOLD breach: stash + 30% unbanked at risk, house hot, banked money safe');
+ }
+
+ // ---- FALL BACK (OL-022): the same hit, 0 captures, own state
+ {
+  const c=await load(root,{flag:true});const R=c.RAF05;
+  unlockRich(c);money(c,1e6);R.unlock.buy('the_bando');c.RAF05.patch('route.level',2);
+  R.crew.recruit('cook');R.crew.recruit('runner');   // defenders exist, no panic room
+  R.production.addIngredient('synth',2);R.production.cook({houseId:'the_bando',grade:'D',cases:2,quality:95});
+  R.store.addUnbanked(1000);R.patch('banked',5000);c.RAHeat.add(60,{source:'test'});
+  assert.equal(R.raids.schedule().ok,true);
+  const res=R.raids.applyDefense({canonical:'FELL_BACK'});
+  assert.equal(res.ok,true);assert.equal(res.canonical,'FELL_BACK');
+  assert.equal(res.result.state,'FELL_BACK','own FELL BACK state recorded');
+  assert.equal(res.result.crewCaptured.length,0,'FALL BACK: 0 captures');
+  assert.equal(res.result.crewLost,null);
+  assert.equal(res.result.stashCases,2,'the raid product is lost');
+  assert.equal(res.result.unbankedLost,300);
+  assert.equal(R.sales.pending(),700);assert.equal(R.sales.banked(),5000,'banked money safe');
+  assert.equal(R.production.hot('the_bando'),true);
+  assert.equal(R.raids.lastOutcome().canonical,'FELL_BACK');
+  assert.equal(R.read('robbery.resolved',null),null,'a raid does not fabricate a robbery');
+  console.log('PASS F05 FALL BACK: house hit, 0 captures, banked money safe, own FELL BACK state');
+ }
+
+ // ---- WASH (0 able): the authored fallback capture rule applies
+ {
+  const c=await load(root,{flag:true});const R=c.RAF05;
+  unlockRich(c);money(c,1e6);R.unlock.buy('the_bando');R.crew.recruit('cook');
+  R.production.addIngredient('synth',2);R.production.cook({houseId:'the_bando',grade:'D',cases:2,quality:95});
+  c.RAHeat.add(60,{source:'test'});assert.equal(R.raids.schedule().ok,true);
+  const res=R.raids.applyDefense({canonical:'WASH'});
+  assert.equal(res.canonical,'WASH');assert.equal(res.result.crewCaptured.length,1,'0 able -> a defender can be taken');
+  console.log('PASS F05 WASH: 0 able uses the authored fallback crew rule');
+ }
+
+ // ---- F01 record is authoritative: real captives + a lost gun is released
+ {
+  const c=await load(root,{flag:true});const R=c.RAF05;
+  unlockRich(c);money(c,1e6);R.unlock.buy('the_bando');R.crew.recruit('cook');
+  const def=R.store.crewByRole('cook')[0];R.weapons.assign(def,'lil_oga');
+  R.production.addIngredient('synth',2);R.production.cook({houseId:'the_bando',grade:'D',cases:2,quality:95});
+  R.store.addUnbanked(1000);c.RAHeat.add(60,{source:'test'});R.raids.schedule();
+  const rec={fellBack:false,klass:'WASH',shape:'HOLD THE HOUSE',getaway:'WASH',win:false,captives:[def],lost:{cars:[],guns:[{from:def,gun:'lil_oga'}]}};
+  const res=R.raids.applyDefense({record:rec});
+  assert.equal(res.ok,true);assert.equal(res.canonical,'WASH');
+  assert.equal(res.result.crewCaptured[0],def,'F01 record supplies the real captive');
+  assert.equal(R.weapons.owner(def),null,'a lost gun is released from the weapon seam');
+  console.log('PASS F05 outcome record: F01 captives authoritative, lost gun released, no duplicate ownership');
+ }
+
+ // ---- idempotency: a resolved raid cannot be applied twice
+ {
+  const c=await load(root,{flag:true});const R=c.RAF05;
+  unlockRich(c);money(c,1e6);R.unlock.buy('the_bando');c.RAHeat.add(60,{source:'test'});R.raids.schedule();
+  assert.equal(R.raids.applyDefense({canonical:'HELD'}).ok,true);
+  const again=R.raids.applyDefense({canonical:'HELD'});
+  assert.equal(again.ok,false);assert.equal(again.reason,'no-pending-raid','no duplicate application');
+  assert.equal(R.raids.history().length,1,'exactly one history entry');
+  console.log('PASS F05 outcome idempotency: a resolved raid is not applied twice');
+ }
+
+ // ---- persistence: the canonical outcome survives a save round trip
+ {
+  const c=await load(root,{flag:true});const R=c.RAF05;
+  unlockRich(c);money(c,1e6);R.unlock.buy('the_bando');c.RAHeat.add(60,{source:'test'});R.raids.schedule();
+  R.raids.applyDefense({canonical:'FELL_BACK'});
+  const store=c.RASaveFixtures.memoryStorage();c.RAState.write(store,c.RAState.get());
+  const loaded=c.RAState.read(store);
+  assert.equal(loaded.state.frag.F05.raids.lastOutcome.canonical,'FELL_BACK','last outcome persists');
+  assert.equal(loaded.state.frag.F05.raids.history.length,1);
+  console.log('PASS F05 outcome persistence: canonical outcome + history survive a reload');
+ }
+
+ // ---- F05 -> F01 handoff payload shape (the PLAY request F01 consumes)
+ {
+  const c=await load(root,{flag:true});const R=c.RAF05;
+  unlockRich(c);money(c,1e6);R.unlock.buy('the_bando');c.RAHeat.add(60,{source:'test'});
+  const h=R.raids.handoff();
+  assert.equal(h.ok,true);assert.equal(h.f01Pending,'F01_INTEGRATION_PENDING');
+  assert.equal(h.play.job,'hold_the_house');assert.equal(h.play.defense,true);assert.equal(h.play.shape,'HOLD THE HOUSE');
+  assert.equal(h.play.map,'traphouse');assert.equal(h.play.houseId,'the_bando');
+  assert.equal(h.packet.kind,'trap_raid');
+  assert.equal(h.packet.weapons.hasOwnProperty('holdTurns'),true,'F02 weapon handoff preserved');
+  console.log('PASS F05 handoff: cinematic HOLD THE HOUSE request + F01 entry packet shape');
  }
 
  console.log('PASS F05 THE TRAP (authored traphouse/production/sales loop, F01 raid boundary, F02 seam, shared HEAT, ledger, persistence)');

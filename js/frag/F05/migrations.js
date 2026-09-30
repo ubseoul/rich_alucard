@@ -42,8 +42,8 @@
   reactions:{},
   // Elite clients: clientId -> {lost,lostDay}
   clients:{},
-  // Raids (F01_INTEGRATION_PENDING: setup/state only, no tactical execution)
-  raids:{lastDay:null,pending:null,history:[]},
+  // Raids (F01 OL-023: setup/state + canonical defense-outcome consumption; no tactical execution)
+  raids:{lastDay:null,pending:null,history:[],lastOutcome:null},
   // Night reports (last 10)
   reports:[],
   // F02 seam local fallback (used ONLY when F02 is absent, to avoid duplicating F02 ownership)
