@@ -51,7 +51,12 @@ button:disabled{opacity:.4;cursor:default}
 .hints div{border-left:2px solid #ff2a3d88;padding-left:6px;margin-bottom:3px}
 .car{position:absolute}
 .car .body{width:100%;height:100%;transform:scaleX(-1);display:block}
-.car .body svg,.car .body img{display:block;width:100%;height:100%}
+.car .body{position:relative}
+.car .body img{position:absolute;left:0;top:0;width:100%;height:100%;display:block}
+.car .c-on{opacity:0}
+.car.on .c-on{opacity:1}
+.lostcar{position:relative;width:136px;height:50px;margin:3px 0 4px}
+.lostcar img{position:absolute;left:0;top:0;width:136px;height:50px;display:block}
 .car .hl{position:absolute;right:-70px;top:14px;width:80px;height:22px;background:linear-gradient(90deg,#fff7c2aa,transparent);clip-path:polygon(0 30%,100% 0,100% 100%,0 70%);opacity:0}
 .car.on .hl{opacity:1}
 .carpick{position:absolute;font-size:9px;letter-spacing:2px;color:#cfd3e6;background:#000a;padding:3px 8px;border-radius:10px;cursor:pointer;z-index:4;border:1px solid #fff3}
@@ -90,28 +95,30 @@ button:disabled{opacity:.4;cursor:default}
 .hbeam{position:absolute;width:70px;height:16px;background:radial-gradient(ellipse,#fff7c2cc,transparent 70%)}
 .missing{position:absolute;width:30px;height:34px;border:1px dashed #ffffff33;border-radius:50% 50% 4px 4px}
 /* live room */
-.redwash{position:absolute;inset:0;background:rgba(200,0,24,.5);mix-blend-mode:multiply}
-.vig{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 45%,transparent 30%,#300006ee 100%);pointer-events:none}
 .flash{position:absolute;inset:0;background:#ff4a4a;opacity:0;pointer-events:none;mix-blend-mode:screen}
-.bedwrap,.handwrap{position:absolute;inset:0;pointer-events:none}
-.bedwrap{z-index:3}.handwrap{z-index:12}
-.bedpov,.handpov{width:270px;height:480px;display:block}
-.phone{position:absolute;left:30px;top:56px;width:206px;height:326px;background:#08080c;border:3px solid #2b2b36;border-radius:24px;overflow:hidden;box-shadow:0 0 40px #ff001f55,0 10px 40px #000;z-index:6;transform:rotate(-1.4deg)}
+.bedwrap{position:absolute;inset:0;pointer-events:none;z-index:3}
+/* FL-A01 rig: phone DOM (behind) + frozen idle layer (opaque hand/phone, transparent screen) + thumb overlay. JOLT shakes the whole rig in code. */
+.rig{position:absolute;inset:0;z-index:6;pointer-events:none;transform-origin:50% 55%}
+.rig>*{pointer-events:auto}
+.rig .handpov,.rig .thumbpov{position:absolute;left:0;top:0;width:270px;height:480px;display:block;pointer-events:none}
+.rig .thumbpov{opacity:0}.rig .thumbpov.on{opacity:1}
+/* the live screen sits exactly in the FL-A01 cutout: compositor contract DOM rectangle [57,39,216,391] */
+.phone{position:absolute;left:57px;top:39px;width:159px;height:352px;background:#08080c;overflow:hidden}
 .ph-head{height:42px;background:#12121a;border-bottom:1px solid #222;display:flex;align-items:center;gap:6px;padding:12px 10px 0}
 .ph-head .av{width:20px;height:20px;border-radius:50%;overflow:hidden;background:#222;margin-left:-6px;border:1px solid #08080c}
-.ph-head .t{font-size:10px;letter-spacing:2px;margin-left:8px}
-.ph-head .s{font-size:7px;color:#9aa0b8;letter-spacing:1px;margin-left:auto}
+.ph-head .t{font-size:10px;letter-spacing:1px;margin-left:4px;white-space:nowrap}
+.ph-head .s{font-size:7px;color:#9aa0b8;letter-spacing:1px;margin-left:auto;white-space:nowrap}
 .msgs{position:absolute;left:0;right:0;top:42px;bottom:0;display:flex;flex-direction:column;justify-content:flex-end;padding:8px 8px 10px;gap:6px;overflow:hidden}
-.bub{max-width:90%;align-self:flex-start;background:#22232e;border-radius:12px 12px 12px 3px;padding:5px 9px 6px;font-size:12.5px;line-height:1.15;letter-spacing:.3px;animation:pop .18s ease-out;transition:opacity .6s;font-weight:700;word-break:break-word}
+.bub{max-width:90%;align-self:flex-start;background:transparent;border:6px solid transparent;border-image:url(../feel_lock/FL-A09/chat_bubble_64x24.png) 6 fill/6px;image-rendering:pixelated;padding:0 3px;font-size:12.5px;line-height:1.15;letter-spacing:.3px;animation:pop .18s ease-out;transition:opacity .6s;font-weight:700;word-break:break-word}
 .bub.ev{letter-spacing:.6px}
 .bub .fr{display:block;font-size:7px;letter-spacing:1px;margin-bottom:2px;opacity:.85}
-.bub.me{align-self:flex-end;background:#a3101f;border-radius:12px 12px 3px 12px}
-.bub.typing{padding:8px 10px}
+.bub.me{align-self:flex-end;background:#a3101f;border:0;border-image:none;border-radius:12px 12px 3px 12px;padding:5px 9px 6px}
+.bub.typing{padding:3px 4px}
 .dots span{display:inline-block;width:5px;height:5px;margin:0 1.5px;border-radius:50%;background:#aaa;animation:dot 1s infinite}
 .dots span:nth-child(2){animation-delay:.15s}.dots span:nth-child(3){animation-delay:.3s}
 @keyframes dot{0%,60%,100%{transform:translateY(0);opacity:.4}30%{transform:translateY(-3px);opacity:1}}
 @keyframes pop{from{transform:scale(.8) translateY(6px);opacity:0}}
-@keyframes vib{0%,100%{transform:rotate(-1.4deg) translate(0,0)}20%{transform:rotate(-2.2deg) translate(-2px,1px)}40%{transform:rotate(-.6deg) translate(2px,-1px)}60%{transform:rotate(-1.8deg) translate(-1px,1px)}80%{transform:rotate(-1deg) translate(1px,0)}}
+@keyframes vib{0%,100%{transform:rotate(0) translate(0,0)}20%{transform:rotate(-.9deg) translate(-2px,1px)}40%{transform:rotate(.8deg) translate(2px,-1px)}60%{transform:rotate(-.5deg) translate(-1px,1px)}80%{transform:rotate(.3deg) translate(1px,0)}}
 .vib{animation:vib .28s}
 .decide{position:absolute;left:8px;right:8px;bottom:8px;background:#000d;border-radius:12px;padding:8px;z-index:3;animation:pop .2s}
 .decide .row{display:flex;gap:6px}
@@ -152,4 +159,9 @@ button:disabled{opacity:.4;cursor:default}
 .reduce .buzzing,.reduce .vib{animation:none}
 .reduce .bub{animation:none}
 
-.obashade{position:absolute;right:-6px;top:70px;width:90px;height:165px;z-index:2;pointer-events:none;opacity:0}
+.obashade{position:absolute;left:150px;top:150px;width:160px;height:192px;z-index:8;pointer-events:none;opacity:0}
+.obashade img{display:block;width:160px;height:192px;image-rendering:pixelated}
+.bust.sprite .ogs{position:absolute;width:80px;height:96px;max-width:none;image-rendering:pixelated}
+.counthands{position:absolute;width:128px;height:96px;z-index:5;pointer-events:none}
+.counthands img,.bag img{display:block;image-rendering:pixelated}
+.lp-rare{filter:drop-shadow(0 0 3px #37d5e8)}.lp-legendary{filter:drop-shadow(0 0 4px #ffd23f)}

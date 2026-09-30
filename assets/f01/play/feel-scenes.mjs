@@ -31,7 +31,7 @@ export async function homeScene({w,texts=[],recover=[],ransom=[],bank}){
  const card=el('lock','',null);
  const draw=()=>{
   card.innerHTML=texts.map(t=>`<div class="lt"><b>${esc(t.who)}</b>${esc(t.text)}</div>`).join('')+
-   recover.map((r,i)=>`<div class="lt rec"><b>${esc(r.title)}</b>${esc(r.line)}<button data-rec="${i}" ${r.disabled?'disabled':''}>${esc(r.button)}</button></div>`).join('')+
+   recover.map((r,i)=>`<div class="lt rec"><b>${esc(r.title)}</b>${r.car?`<div class="lostcar" data-car="${esc(r.car.id)}" data-state="${esc(r.car.state)}">${A.carHTML(r.car.id,r.car.state)}</div>`:''}${esc(r.line)}<button data-rec="${i}" ${r.disabled?'disabled':''}>${esc(r.button)}</button></div>`).join('')+
    ransom.map((r,i)=>`<div class="lt rec"><b>${esc(r.title)}</b>${esc(r.line)}<button data-ran="${i}" ${r.disabled?'disabled':''}>${esc(r.button)}</button></div>`).join('')+
    `<button class="ok" data-done>OK</button>`;
   card.querySelectorAll('[data-rec]').forEach(b=>b.onclick=()=>{K.unlock();S.confirm();recover[+b.dataset.rec].act();recover.splice(+b.dataset.rec,1);draw();});
@@ -151,11 +151,11 @@ export async function departScene({ui,slide,crewObjs,carId,defense}){
  await sleep(420);for(const n of [ui.cards,ui.btn,ui.carPick,ui.hintBox,ui.top,ui.grad])if(n)n.remove();
  const seatsOrder=(slide.seats||[]).map(s=>crewObjs.find(o=>o.id===s.id)).filter(Boolean);
  const car=ui.car;const cx=parseFloat(car&&car.style.left||8);
- const busts=seatsOrder.map((o,i)=>{const b=bust(o,34);pos(b,26+i*34,420);return b;});
+ const busts=seatsOrder.map((o,i)=>{const b=bust(o,34,{pose:'walking'});pos(b,26+i*34,420);return b;});
  await Promise.all(busts.map((b,i)=>anim(b,[{top:'420px'},{top:'344px'}],650+i*130,{easing:'ease-out'})));
  await sleep(350);
  for(let i=0;i<busts.length;i++){
-  const b=busts[i],o=seatsOrder[i];
+  const b=busts[i],o=seatsOrder[i];setPose(b,'boarding');
   slam(o);S.thud();shake(1);
   await anim(b,[{transform:'translate(0,0) scale(1)',opacity:1},{transform:`translate(${cx+52+i*6-parseFloat(b.style.left)}px,-14px) scale(.35)`,opacity:0}],420,{easing:'ease-in'});
   b.remove();if(car)anim(car,[{transform:'translateY(0)'},{transform:'translateY(2px)'},{transform:'translateY(0)'}],200);
@@ -174,7 +174,17 @@ function slam(o){
  const p=el('slam',`<span>${esc(o.name)}</span>`,null,{background:classColor(o.cls)});
  anim(p,[{transform:'translateX(-280px) skewX(-12deg)',opacity:0},{transform:'translateX(0) skewX(-12deg)',opacity:1,offset:.25},{transform:'translateX(0) skewX(-12deg)',opacity:1,offset:.75},{transform:'translateX(280px) skewX(-12deg)',opacity:0}],900,{easing:'ease-out'}).then(()=>p.remove());
 }
+// FL-A07: a GENERIC Oga is drawn as the frozen full-body template (pose: walking / boarding / standing / wounded / carried), feet on the bust box's base.
+// NAMED Ogas have no frozen state sprites yet (SOURCE_REQUIRED) and keep their face bust + gun overlay — no substitute is invented for them.
+const FEET={boarding:78,carried:68};
+function place(im,size,pose){im.style.left=Math.round(size/2-39)+'px';im.style.top=Math.round(size-(FEET[pose]||88))+'px';}
+export function setPose(b,pose){const im=b&&b.querySelector('.ogs');if(im){im.src=A.ogaSprite(pose);place(im,parseFloat(b.style.width)||34,pose);b.dataset.pose=pose;}}
 export function bust(o,size=34,st={}){
+ if(A.hasSprite(o)){
+  const b=el('bust sprite','');b.dataset.oga=o.id;b.style.width=b.style.height=size+'px';
+  const im=document.createElement('img');im.className='ogs';im.alt='';b.appendChild(im);im.src=A.ogaSprite(st.pose||'standing');place(im,size,st.pose||'standing');b.dataset.pose=st.pose||'standing';
+  return b;
+ }
  const b=el('bust',faceOf(o,st));b.dataset.oga=o.id;b.style.width=b.style.height=size+'px';
  const g=o.gun&&o.gun!=='hands'?A.gunView(o.gun):null;
  if(g&&g.img&&!st.noGun){const im=document.createElement('img');im.className='wp';im.src=g.img;im.style.cssText=`width:${size*.85}px;height:${size*.42}px;left:${size*.42}px;top:${size*.62}px`;b.appendChild(im);}
@@ -195,24 +205,28 @@ async function drive(car,to,ms,easing){
 }
 
 // ------------------------------------------------------------------------------------------------ 4. ARRIVAL — "they actually went in there."
+// FL-A05: one frozen exterior per offense job. DOOR = where the crew's feet end up (270x480 stage px): the door / gate / bay of THAT exterior.
+const DOOR={boba_backroom:[68,280],tupperware:[177,242],vampire_dentist:[184,292],dock_restock:[232,300],car_wash_stickup:[124,264],quiet_lift:[139,280],vampire_gala:[131,264],smack_crib:[156,294],counting_house:[134,314]};
 export async function arriveScene({slide,crewObjs,carId,defense,job}){
- clear();bg(defense?BG.castle:BG.museum);
+ const ext=!defense&&A.FL_ART.exterior[job&&job.id];const door=!defense&&DOOR[job&&job.id]||[153,300];
+ clear();bg(defense?BG.castle:ext||BG.museum);
  const seatsOrder=(slide.seats||[]).map(s=>crewObjs.find(o=>o.id===s.id)).filter(Boolean);
  el('cap',esc((slide.job&&slide.job.name||job.name||'').toUpperCase()),null,{top:'16px'});
  await fadeTo(0,700);
  if(defense){ // the house is the target: headlights swing across the gate, the crew takes the door
   for(let i=0;i<3;i++){const g=el('hbeam','',null,{left:(-70)+'px',top:(345+i*9)+'px'});anim(g,[{transform:'translateX(0)',opacity:0},{transform:'translateX(190px)',opacity:.9,offset:.6},{transform:'translateX(260px)',opacity:.6}],1800+i*400,{easing:'ease-out'});}
   S.engine('URUS','idle',.35);
-  for(let i=0;i<seatsOrder.length;i++){const b=bust(seatsOrder[i],30);pos(b,60+i*34,420);await anim(b,[{top:'420px',left:60+i*34+'px',opacity:1},{top:'268px',left:132+i*4+'px',transform:'scale(.55)',opacity:0}],900,{easing:'ease-in'});b.remove();S.door();await sleep(150);}
+  for(let i=0;i<seatsOrder.length;i++){const b=bust(seatsOrder[i],30,{pose:'walking'});pos(b,60+i*34,420);await anim(b,[{top:'420px',left:60+i*34+'px',opacity:1},{top:'268px',left:132+i*4+'px',transform:'scale(.55)',opacity:0}],900,{easing:'ease-in'});b.remove();S.door();await sleep(150);}
   await sleep(700);await fadeTo(1,600);return;
  }
  const car=makeCar(carId,-160,330);car.classList.add('on');
  S.engine(carId,'idle',.35);
  await drive(car,128,1500,'cubic-bezier(.1,.7,.3,1)');puffs(car,4);await sleep(600);car.classList.remove('on');S.thud();await sleep(350);
  for(let i=0;i<seatsOrder.length;i++){
-  const b=bust(seatsOrder[i],30);pos(b,172-i*4,322);
+  const b=bust(seatsOrder[i],30,{pose:'standing'});pos(b,172-i*4,322);
   await anim(b,[{top:'322px',opacity:0},{top:'328px',opacity:1}],250);
-  await anim(b,[{left:172-i*4+'px',top:'328px',transform:'scale(1)',opacity:1},{left:138+i*3+'px',top:'270px',transform:'scale(.55)',opacity:1}],900,{easing:'ease-in'});
+  setPose(b,'walking');
+  await anim(b,[{left:172-i*4+'px',top:'328px',transform:'scale(1)',opacity:1},{left:door[0]-15+i*3+'px',top:door[1]-30+'px',transform:'scale(.55)',opacity:1}],900,{easing:'ease-in'});
   await anim(b,[{opacity:1},{opacity:0}],240);b.remove();S.door();await sleep(110);
  }
  await sleep(800);await fadeTo(1,700);
@@ -223,42 +237,46 @@ export async function arriveScene({slide,crewObjs,carId,defense,job}){
 const CLS_COL={MUSCLE:'#e0603a',SHOOTER:'#e8c14a',WHEELS:'#3fd0e0',TALKER:'#b07ae8',GHOST:'#7f8cff',DOC:'#5fe08a'};
 export async function roomScene({crewObjs,defense}){
  clear();
- bg(BG.room,'brightness(.34) saturate(.55) blur(1.2px)');
- const wash=el('redwash');el('vig');
- el('bedwrap',A.richBed());
+ el('bedwrap',A.bedBase());                       // FL-A01 base: the deep-red bed (never moves, never tinted)
  const flash=el('flash');
- const phone=el('phone',`<div class="ph-head">${crewObjs.map(o=>`<div class="av">${faceOf(o)}</div>`).join('')}<span class="t">THE PLAY</span><span class="s">LIVE</span></div>`);
+ // the RIG = phone DOM + FL-A01 idle layer + thumb overlay. JOLT shakes the rig in code; the idle layer's screen is transparent so the live chat shows through.
+ const rig=el('rig');
+ const phone=el('phone',`<div class="ph-head">${crewObjs.map(o=>`<div class="av">${faceOf(o)}</div>`).join('')}<span class="t">THE PLAY</span><span class="s">LIVE</span></div>`,rig);
  const msgs=el('msgs','',phone);
- el('handwrap',A.richHand());
+ rig.insertAdjacentHTML('beforeend',A.handIdle()+A.thumbOverlay());
+ const thumb=rig.querySelector('.thumbpov');
  let alive=true,typingNode=null;
  const byId=id=>crewObjs.find(o=>o.id===id);
  const heart=setInterval(()=>{if(alive)S.heart();},1300/K.SPEED);
  const amb=S.room();
  const fade=()=>{[...msgs.children].reverse().forEach((c,i)=>{c.style.opacity=i<4?1:Math.max(.15,1-(i-3)*.28);});};
- const vib=()=>{phone.classList.remove('vib');void phone.offsetWidth;phone.classList.add('vib');};
+ const vib=()=>{rig.classList.remove('vib');void rig.offsetWidth;rig.classList.add('vib');};
  const label=id=>{const o=byId(id);return o?`<span class="fr" style="color:${CLS_COL[o.cls]||'#9aa0b8'}">${esc(o.name)}</span>`:'';};
  const showTyping=async(who,ms)=>{clearTyping();typingNode=el('bub typing',`${label(who)}<span class="dots"><span></span><span></span><span></span></span>`,msgs);fade();await sleep(ms);clearTyping();};
  const clearTyping=()=>{if(typingNode){typingNode.remove();typingNode=null;fade();}};
  const ctl={
-  phone,msgs,wash,flash,
+  phone,rig,thumb,msgs,flash,
   async say(step){
    if(step.typing){await showTyping(step.who,step.typing);if(step.interrupted){await sleep(650);await showTyping(step.who,Math.max(400,step.typing*.6));}}
    const b=el('bub'+(step.kind==='EVENT'?' ev':'')+(step.call?' call':''),`${label(step.who)}${esc(step.text)}`,msgs);fade();vib();
    (step.shake>=2?S.ko:step.shake?S.hit:S.text)();
    if(step.shake){const o=crewObjs[Math.floor(Math.random()*crewObjs.length)];S.gun(o&&o.gun);shake(step.shake,world);}
    else if(step.red)K.pulse(1);
-   if(step.red>=2)wash.animate([{opacity:1},{opacity:1.0}],{duration:1});
    await sleep(step.pause||1500);
   },
   async cut(step){
    clearTyping();
    const b=el('bub ev',`${label(step.who)}${esc(step.text)}`,msgs);fade();shake(2,world);S.ko();
-   if(step.oba){const sh=el('obashade',A.obaSilhouette(90,165),world);anim(sh,[{opacity:0},{opacity:.85,offset:.3},{opacity:.85,offset:.7},{opacity:0}],1500).then(()=>sh.remove());} // placeholder silhouette only (F12 Visual A / Ube own his look)
+   if(step.oba){const sh=el('obashade',A.obaSprite(),world);anim(sh,[{opacity:0},{opacity:.85,offset:.3},{opacity:.85,offset:.7},{opacity:0}],1500).then(()=>sh.remove());} // FL-A04 frozen native sprite
    await sleep(step.pause||500);
    alive=false;K.duck(true);       // the sudden sound drop: the room goes dead
   },
   async typing(step){await showTyping(step.who,step.ms);},
-  async rich(step){el('bub me',esc(step.text),msgs);fade();S.rich();await sleep(1600);},
+  async rich(step){
+   thumb.classList.add('on');const tap=reduced()?null:thumb.animate([{transform:'translateY(0)'},{transform:'translateY(2px)'},{transform:'translateY(0)'}],{duration:220/K.SPEED,iterations:Infinity});
+   el('bub me',esc(step.text),msgs);fade();S.rich();await sleep(1600);
+   if(tap)tap.cancel();thumb.classList.remove('on');
+  },
   async silence(ms){alive=false;K.duck(true);await sleep(ms);},
   async dial(){
    const d=el('dial','<div class="dn">CALLING…</div><div class="ds"></div>',phone);S.buzz();await sleep(1200);S.buzz();await sleep(1200);S.buzz();await sleep(1200);
@@ -334,10 +352,11 @@ export async function roomScene({crewObjs,defense}){
 // Fade to black, then the base. The car pulls in (if there is a car), the ACTUAL survivors step out, physical CASH BAGS sized to the score,
 // Rich COUNTS while the total rolls upward, then the trunk reveals ONE ITEM AT A TIME — everything shown is what was really awarded (M6).
 export async function returnScene({rec,crewObjs,w,bankBefore}){
- clear();bg(BG.street,'brightness(.9)');
+ const RR=W.returnRoster(rec);
+ clear();bg(RR.alone?A.FL_ART.base.empty:A.FL_ART.base.home);   // FL-A02: the base curb/driveway; the empty variant is Rich alone
  const rich=richEl({left:'206px',top:'354px',transform:'scale(1.2)'});
  await fadeTo(0,900);await sleep(1100);
- const RR=W.returnRoster(rec);const back=crewObjs.filter(o=>RR.back.includes(o.id));
+ const back=crewObjs.filter(o=>RR.back.includes(o.id));
  const carLost=!RR.car&&rec.shape!=='HOLD THE HOUSE';
  const defense=rec.shape==='HOLD THE HOUSE';
  const nothing=RR.alone;
@@ -355,7 +374,7 @@ export async function returnScene({rec,crewObjs,w,bankBefore}){
   if(!back.includes(o)){const g=el('missing','',null,{left:slots[i]+'px',top:'288px',opacity:0});anim(g,[{opacity:0},{opacity:1}],900);continue;}
   const gunNow=(rec.gunGifts||[]).find(g=>g.to===o.id);
   const oo={...o,gun:gunNow?gunNow.gun:(rec.lost&&rec.lost.guns||[]).some(g=>g.from===o.id)?'hands':o.gun};
-  const b=bust(oo,32,{hurt:st!=='READY',zone:st==='READY'?'STEADY':'SHAKY'});pos(b,car?110:-40,322);b.style.opacity=0;if(st==='SHOT')b.style.transform='rotate(-12deg)';
+  const b=bust(oo,32,{hurt:st!=='READY',zone:st==='READY'?'STEADY':'SHAKY',pose:st==='SHOT'?'carried':st==='READY'?'standing':'wounded'});pos(b,car?110:-40,322);b.style.opacity=0;if(st==='SHOT'&&!A.hasSprite(oo))b.style.transform='rotate(-12deg)';
   anim(b,[{opacity:0,left:(car?110:-40)+'px',top:'322px'},{opacity:1,left:slots[i]+'px',top:'290px'}],car?600:1300,{easing:'ease-out'});holders[o.id]=b;
   S.thud();await sleep(car?420:520);
  }
@@ -364,18 +383,21 @@ export async function returnScene({rec,crewObjs,w,bankBefore}){
  const items=(rec.received&&rec.received.items)||[];
  if(cashK<=0&&!items.length){await sleep(1800);return {alone:false,empty:true};}
  // ---- bags
+ // FL-A03: the tier IS the haul (1 duffel / 2-3 bags / a stacked pile). bagCount() still sets the beat count, so the drop keeps its old length and thuds.
  const n=A.bagCount(cashK),tier=A.bagTier(cashK);
- const bagW=tier>=3?40:tier===2?36:30;const bags=[];
- for(let i=0;i<n;i++){
-  const h=bagW*26/40;const stack=tier>=3&&i>=3;
-  const x=96+(i%3)*(bagW*.78)+(stack?bagW*.4:0),y=404-(stack?h*.85:0)+(i%2)*3;
-  const bag=el('bag',A.duffelSVG(i===0||(tier>=3&&i===2)),null,{left:x+'px',top:y+'px',width:bagW+'px',height:h+'px',opacity:0});bags.push(bag);
-  await anim(bag,[{opacity:1,transform:'translateY(-70px)'},{opacity:1,transform:'translateY(0)'}],360,{easing:'cubic-bezier(.5,0,1,.6)'});S.thud();await sleep(200);
- }
+ const HAUL={1:{cx:63,top:43,bot:70},2:{cx:60,top:29,bot:70},3:{cx:67,top:28,bot:79}}[tier];   // content box inside the 128x96 canvas
+ const hx=Math.round(104-HAUL.cx),hy=426-HAUL.bot;
+ const bag=el('bag',`<img src="${A.cashHaul(tier,false)}" alt="" width="128" height="96">`,null,{left:hx+'px',top:hy+'px',width:'128px',height:'96px',opacity:0});bag.dataset.tier=tier;
+ const bagImg=bag.querySelector('img');new Image().src=A.cashHaul(tier,true);
+ await anim(bag,[{opacity:1,transform:'translateY(-70px)'},{opacity:1,transform:'translateY(0)'}],360,{easing:'cubic-bezier(.5,0,1,.6)'});S.thud();await sleep(200);
+ for(let i=1;i<n;i++){S.thud();await sleep(560);}
  // ---- Rich counts
  if(cashK>0){
   await sleep(700);
   const cnt=el('count','<div class="amt"></div><div class="sub"></div>');const amt=cnt.querySelector('.amt'),sub=cnt.querySelector('.sub');
+  bagImg.src=A.cashHaul(tier,true);     // the haul is opened to be counted; Rich's frozen counting-hands overlay works over it
+  const hands=el('counthands',`<img src="${A.FL_ART.counting}" alt="" width="128" height="96">`,null,{left:hx+'px',top:hy+HAUL.top-50+'px'});
+  const handsBob=reduced()?null:hands.animate([{transform:'translateY(0)'},{transform:'translateY(-3px)'},{transform:'translateY(0)'}],{duration:220/K.SPEED,iterations:Infinity});
   const bob=reduced()?null:rich.animate([{transform:'scale(1.2) translateY(0) rotate(0)'},{transform:'scale(1.2) translateY(3px) rotate(-2deg)'},{transform:'scale(1.2) translateY(0) rotate(2deg)'}],{duration:260/K.SPEED,iterations:Infinity});
   let flick=null;const startFlick=()=>{flick=setInterval(()=>{const b=el('bill','',null,{left:130+(Math.random()*60-30)+'px',top:'405px'});anim(b,[{transform:'translate(0,0) rotate(0)',opacity:1},{transform:`translate(${20+Math.random()*30}px,${-(35+Math.random()*35)}px) rotate(${Math.random()*240-120}deg)`,opacity:0}],700,{easing:'ease-out'}).then(()=>b.remove());S.tick();},110/K.SPEED);};
   const stopFlick=()=>{clearInterval(flick);flick=null;};
@@ -383,19 +405,20 @@ export async function returnScene({rec,crewObjs,w,bankBefore}){
   const roll=async(to,ms)=>{const t0=performance.now(),from=cur;await new Promise(res=>{const step=()=>{const p=Math.min(1,(performance.now()-t0)*K.SPEED/ms);cur=Math.round((from+(to-from)*p)/100)*100;amt.textContent='$'+cur.toLocaleString('en-US');p<1?requestAnimationFrame(step):res();};step();});};
   startFlick();
   for(const m of marks){await roll(m,1400);stopFlick();sub.textContent='. . .';await sleep(1000);sub.textContent='';startFlick();}
-  await roll(total,1200);stopFlick();if(bob)bob.cancel();
+  await roll(total,1200);stopFlick();if(bob)bob.cancel();if(handsBob)handsBob.cancel();hands.remove();
   amt.classList.add('final');amt.textContent='TAKE: $'+total.toLocaleString('en-US');S.cashIn();
   await sleep(1400);
  }
- // ---- the trunk: one item at a time, physically dropped beside the bags (kicker last)
- const spots=[[146,338],[190,334],[230,338],[152,376],[198,372]];let prevLab=null;
+ // ---- the trunk: one item at a time, physically dropped beside the bags (kicker last). Spots fit the 48px FL-A10 pieces inside the 270px stage.
+ const spots=[[132,334],[176,330],[220,334],[150,378],[194,374]];let prevLab=null;
  const shownList=[];
  for(let i=0;i<items.length;i++){
   const it=items[i],[x,y]=spots[i]||[30+i*24,352];
-  let inner,wd=44,ht=44;
-  if(it.cat==='GUN'){const gv=A.gunView(it.gun);inner=A.gunImg(it.gun,54,27);wd=54;ht=27;}
-  else if(it.cat==='BLOOD_X'){inner=`<img src="${K.BTF}art_ship_014/package_e/E-blood_held.png" style="width:30px;height:40px">`;wd=30;ht=40;}
-  else inner=crate({cat:it.cat==='RECRUIT'?'RECRUIT':it.cat,rar:it.rar},44);
+  // FL-A10: the frozen 48x48 piece for GUN / CASH / MOD / BLOOD_X / WEIRD (rarity reads as a glow + the label colour, the art itself is never recoloured).
+  // RECRUIT / STORY / DISTRICT have no authored physical object yet (SOURCE_REQUIRED): they keep the labelled placeholder crate — nothing is invented for them.
+  let inner,wd=48,ht=48;const piece=A.loot(it.cat);
+  if(piece)inner=`<img class="lp lp-${String(it.rar||'COMMON').toLowerCase()}" src="${piece}" alt="" width="48" height="48">`;
+  else{inner=crate({cat:it.cat==='RECRUIT'?'RECRUIT':it.cat,rar:it.rar},44);wd=ht=44;}
   const node=el('lootitem',inner,null,{left:x+'px',top:y+'px',width:wd+'px',height:ht+'px',opacity:0});
   el('shadow','',null,{left:x+'px',top:y+ht-3+'px',width:wd+'px',height:'7px'});
   await anim(node,[{opacity:1,transform:'translateY(-120px) rotate(-20deg)'},{opacity:1,transform:'translateY(0) rotate(0)'},{opacity:1,transform:'translateY(-10px)'},{opacity:1,transform:'translateY(0)'}],620,{easing:'ease-in'});

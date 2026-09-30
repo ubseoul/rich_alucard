@@ -43,7 +43,7 @@ export function anim(e,kf,ms,o={}){
 export const fadeTo=(v,ms)=>anim(fadeEl,[{opacity:+getComputedStyle(fadeEl).opacity},{opacity:v}],ms,{easing:'linear'}).then(()=>{fadeEl.style.opacity=v;});
 export const clear=()=>{world.innerHTML='';world.style.transform='';};
 export function bg(name,filter){
- const i=document.createElement('img');i.className='bg';i.src=BTF+'environments/'+name;if(filter)i.style.filter=filter;world.appendChild(i);return i;
+ const i=document.createElement('img');i.className='bg';i.src=/^\.\.?\//.test(name)?name:BTF+'environments/'+name;if(filter)i.style.filter=filter;world.appendChild(i);return i;
 }
 export const BG={street:'street_night/street_night_270x480.png',room:'portobello_bedroom/portobello_beige_bedroom_270x480.png',museum:'castle_exterior/castle_exterior_night_270x480.png',castle:'castle_exterior/castle_exterior_night_270x480.png',garage:'garage/castle_garage_empty_270x480.png'};
 export const wait=ms=>sleep(ms);
