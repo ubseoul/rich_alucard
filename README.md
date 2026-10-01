@@ -39,6 +39,10 @@ Vanilla HTML, CSS, and JavaScript. No framework required.
 
 ## Development
 
+For source discovery, authority, provenance and missing inputs, start at the
+[Source Vault](source_vault/README.md). Run `npm run sources:check` or
+`npm run sources:missing` before source-dependent work.
+
 The game runtime remains vanilla HTML, CSS and JavaScript. Build-time tooling only creates the static Pages artifact.
 
 ```powershell
