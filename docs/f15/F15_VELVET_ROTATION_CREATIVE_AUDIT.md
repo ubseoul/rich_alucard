@@ -1,6 +1,6 @@
 # F15 VELVET ROTATION — Creative Audit + Design Spec (DESIGN ONLY)
 
-**Status:** DRAFT — design only. No runtime code, data, art or save changes are proposed in this commit.
+**Status:** **F15 CREATIVE AUDIT — COMPLETE / PARKED.** Design only. CREATOR SOURCE 001 is recorded in §0.2. No runtime code, data, art or save changes. UNDERLORD will reconcile the SOURCE_REQUIRED items against the current F15 production board before any implementation.
 **Scope:** Roxy, Emerald, Rosalyn — the three RAINMAKER dancer routes ("She fw Me Levels" 1–4) in *Rich Alucard: Before the Fame*.
 **Spoiler class:** OPEN to Ube (Ube authored the routes).
 **Companion file:** [`F15_RECONCILIATION_ITEMS.md`](F15_RECONCILIATION_ITEMS.md) — every missing, uncertain or board-dependent item, kept separate so UNDERLORD can check it against the current production board.
@@ -14,8 +14,7 @@
 | Source | Where | How it's treated |
 |---|---|---|
 | UNDERLORD Character Relationship Packet (file `v0_2_1`; the title inside says `V0.1`) | Ube upload (not in repo) | **Canon intent, verbatim.** Levels 1–4, Core Thoughts, the "WHAT WE CURRENTLY AGREE ON" list. Nothing in it is rewritten here. |
-| Final pixel art: Roxy, Emerald, Rosalyn | Ube uploads plus the packet's embedded images (not in repo) | **Visual authority, per the brief.** It has **not** been ingested, registered or frozen. See §7. |
-| `dragon-dance-loop-twice.mp4` (Emerald), `gold.mp4` (Rosalyn) | Ube uploads (not in repo) | **Dancer animation authority, per the brief.** Each is 496×592, 24 fps, about 6 s and 144–145 frames, with an audio track. |
+| Character art and dancer videos: Roxy, Emerald, Rosalyn | **EXTERNAL SOURCE TO BE SUPPLIED.** Approved production art and dancer-video work exist outside this checkout and will be supplied during F15 production (CREATOR SOURCE 001). The session uploads and packet images are reference only. | Visual authority is that external production work. **Do not redesign the women, create replacement dancer art, or infer their appearance from OL-017.** Any visual description in this audit is a non-authoritative observation of session uploads. |
 | Brief "known authority" list (money thrown, one date per WAKE, REQUEST at L1, etc.) | The OVERLORD prompt for this task | Binding for this audit. Where the list depends on board detail I wasn't given, it's marked `SOURCE_REQUIRED — BOARD NOT PROVIDED`. |
 | OL-017 Open Visual Character Authority | `art_department/production_authority/OL017_…md` | Used **only within its stated scope.** It covers Lane A characters. The ten RAINMAKER dancers are explicitly **out of its scope** (Lane B, governed by `RAINMAKER_Dancer_Generation_Sheets_and_Wardrobe_Levels`, which is **not in the repo**). For this audit it is authoritative only for Big Bing, Granny Bing, DJ Peachtree and the 21+ adults rule. |
 | Frozen Big Bing (NEUTRAL and NO) and Granny Bing (CALLING NUMBERS) | `origin/art/f01-feel-lock-freeze` (`art_department/visual_a/…`) | **Frozen pixel authority.** Frozen 2026-09-30. Not yet on `main`. |
@@ -25,7 +24,23 @@
 
 Not used and not reconstructed: the RAINMAKER OPEN patch text (THE BING, REQUEST, BIG TIPPER, POLE/FLOOR/VIP modes, wardrobe levels), the Dancer Generation Sheets, and any F12/R4/F15 production-board text. Any requirement that would need one of those is marked **`SOURCE_REQUIRED — BOARD NOT PROVIDED`**. No SEALED, HQ-only or PLAYER-BLIND material was opened.
 
-### 0.2 Tags used in this document
+### 0.2 CREATOR SOURCE 001 (Ube; binding canon for F15)
+
+1. **Emerald L4 is explicitly romantic.**
+2. **Roxy L3 hard hit: another fighter delivers it, not Rich.**
+   - Rich is never the person who hurts her.
+   - Preserve the intended beat: she takes the hard hit differently than before.
+   - The other fighter's identity is **not established** by any existing source and is not invented here. If production needs it: **SOURCE_REQUIRED.**
+3. **Emerald L1: she asks Rich to help clean his own castle.** Rich lives in a castle.
+   - Do not create a new chores system for this scene.
+   - Express it with existing location, scene and interaction machinery (§2.2, §8.6).
+4. **Visual inputs for all three women: EXTERNAL SOURCE TO BE SUPPLIED** (see §0.1 and §7).
+5. **The money-characterization finding is ACCEPTED and protected:**
+   - Roxy won't let Rich pay.
+   - Rosalyn splits exactly 50/50.
+   - Emerald sends her money home.
+
+### 0.3 Tags used in this document
 
 - **[SOURCE]** — CAN IMPLEMENT FROM SOURCE. The packet, the brief, frozen art or existing code already settles it.
 - **[COOK]** — UBE COOK WINDOW. The space is deliberately left for Ube. Seeds are deliberately unfinished.
@@ -38,12 +53,12 @@ Not used and not reconstructed: the RAINMAKER OPEN patch text (THE BING, REQUEST
 
 ## 1. Character diagnosis
 
-The three routes already have something most romance routes don't: **each woman's Core Thought is a different relationship to depending on someone.** The packet's money details line up with this too, which is the key to telling them apart (see §3). The visual designs share one template, so **personality, behavior and animation have to do all the differentiation work.**
+The three routes already have something most romance routes don't: **each woman's Core Thought is a different relationship to depending on someone.** The packet's money details line up with this too, and that is the key to telling them apart. **This money characterization is ACCEPTED and protected** (CREATOR SOURCE 001; see §3). The session uploads suggest a shared visual template. Re-check that against the externally supplied production art; either way, **personality, behavior and animation carry the differentiation**, never a redesign.
 
 ### 1.1 ROXY — anthro wolf
 **Core Thought (canon):** *"If I rely on someone, I'll get hurt."*
 
-**What the art says (visual authority, not frozen):**
+**Session-upload observation (non-authoritative; production visuals are EXTERNAL SOURCE TO BE SUPPLIED):**
 - Dark charcoal fur with lighter grey markings.
 - A huge wild near-black mane pulled into a high ponytail with a gold hair cuff.
 - Red-brown eyes and a small black nose. Upright wolf ears.
@@ -76,7 +91,7 @@ The three routes already have something most romance routes don't: **each woman'
 ### 1.2 EMERALD — dragon / anthro dragon (horns, scales, tail)
 **Core Thought (canon):** *"My responsibilities matter more than my dreams."*
 
-**What the art says:**
+**Session-upload observation (non-authoritative; production visuals are EXTERNAL SOURCE TO BE SUPPLIED):**
 - Green scaled skin, with a lighter belly and inner-limb scale pattern.
 - A long dark-green mane in a high ponytail with a gold band.
 - Two small cream horns, plus **finned or frilled ears** (flagged in CW-E12).
@@ -89,11 +104,11 @@ The three routes already have something most romance routes don't: **each woman'
 **First impression (target):** warm, hard-working and a little tired. **She works the floor, she doesn't perform to the room.** Her face is hidden in her routine, and that's a gift: the one dancer whose face you don't see is the one whose real self is somewhere else (singing).
 
 **Chemistry with Rich:**
-- She asks *him* for help on day one (L1 cleaning).
+- She asks *him* for help on day one: cleaning **his own castle** (CREATOR SOURCE 001).
 - She treats Rich like a coworker before anything else, which is very different from a client.
 - Rich is a working man in BTF too: he pulls ramen shifts at SLURP DYNASTY for tips. Their bond is **two people who work.**
 
-**Progression shape:** coworker → learning her obligations (pre-med, the daily calls to her father, the money she sends home) → she depends on someone for the first time (L3 lost item) → a dream of her own (L4 recital, singing).
+**Progression shape:** coworker → learning her obligations (pre-med, the daily calls to her father, the money she sends home) → she depends on someone for the first time (L3 lost item) → a dream of her own, and romance (L4 recital, singing; **explicitly romantic**, CREATOR SOURCE 001).
 
 **Emotional specificity risk:**
 - The "sacrificing daughter" trope.
@@ -107,7 +122,7 @@ The three routes already have something most romance routes don't: **each woman'
 ### 1.3 ROSALYN — human
 **Core Thought (canon):** *"The real me isn't enough."*
 
-**What the art says:**
+**Session-upload observation (non-authoritative; production visuals are EXTERNAL SOURCE TO BE SUPPLIED):**
 - Dark-brown skin and long black hair: a high ponytail with a gold tie and a long braided and curled tail.
 - Gold hoop earrings and a gold bracelet.
 - A magenta sleeveless top, black shorts and sheer dark tights.
@@ -166,7 +181,7 @@ Legend: **Canon** = packet, verbatim intent. **System** = the existing system th
 |---|---|---|---|---|---|---|
 | 1 | Confident. Strips for ownership of her future. Studies data science. Doesn't split the bill; pays the whole thing. Gives Rich her number. | Venue unspecified **[SOURCE_REQUIRED]**. It starts at the club. | Club approach → short date scene (adventure DSL). **Money ledger:** Rich's spend for the date is **$0** [PROPOSED]. | The receipt and ledger show she paid. Her number arrives as a new InstaHoe/TEXTS contact (the existing `RARelations.meet` path). | Lets her. Gets out-controlled. | CW-R1, CW-R2, CW-R13 |
 | 2 | Boxing gym date. Surprisingly competitive. Ramen afterward. Talks about loving animals. Says she hates cats. | **Boxing gym: no environment exists** (§7). Ramen: SLURP DYNASTY or Little Tokyo (both frozen). | **Existing combat 2.0** as a spar (`noPenalty`, like the existing training-dummy spar). Her enemy card has a pattern, telegraphs and three Octopus options. Ramen is a scene (see §3.3). | Her pattern **escalates** when Rich lands hits. That's "surprisingly competitive," and it's *played*. Her hit reactions are normal and readable here. That sets up L3. | Sparring partner, then dinner guest. | CW-R4, CW-R5, CW-R3 |
-| 3 | Rich notices something feels different. A hard hit during boxing. "Rich asks if she's okay." She says quietly: **"...I've gotten used to it."** She changes the subject. Nothing explained. | Same gym as L2. **Repeating the place is deliberate.** | Same combat setup as L2. The **existing heavy-reaction rule** (one hit ≥ 20% of max HP → heavy presentation) is the instrument. | **The difference from L2 is the story.** The heavy reaction fires, but her response doesn't match it. She resets her stance with no flinch. Who delivers the hit is **Ube's call** (CW-R6). The one explanatory line is spoken once and never repeated anywhere in the game. | Asks. Doesn't push. Doesn't fix. | CW-R6, CW-R7, CW-R8 |
+| 3 | Rich notices something feels different. A hard hit during boxing. "Rich asks if she's okay." She says quietly: **"...I've gotten used to it."** She changes the subject. Nothing explained. | Same gym as L2. **Repeating the place is deliberate.** | Existing combat 2.0 staging. The **existing, target-agnostic heavy-reaction rule** (one hit ≥ 20% of max HP → heavy presentation) is the instrument. | **CREATOR SOURCE 001: another fighter delivers the hit, never Rich.** **The difference from L2 is the story:** the heavy reaction plays on her, and she takes it differently than before. **SOURCE_REQUIRED:** the other fighter's identity (no existing source names one; it is not invented here), and how the L3 session is framed in combat (who Rich is fighting at that moment, if anyone). The one explanatory line is spoken once and never repeated anywhere in the game. | Watches. Asks. Doesn't push. Doesn't fix. | CW-R6 (partly resolved), CW-R7, CW-R8 |
 | 4 | Roxy gets sick. Rich brings food over. Vampire movies together. Becomes romantic naturally. | **Roxy's apartment: no environment exists.** | Scene. Optionally the existing kitchen or SLURP to make the food. **Money ledger:** the first Roxy beat where *Rich* pays [PROPOSED]. | She can't refuse help, so the ledger finally shows Rich's spend. That's her first reliance, shown by a number instead of a speech. | Shows up. Stays. | CW-R9, CW-R10, CW-R11, CW-R14 |
 | post | — | Existing date spots. Movie room. Pet Crypt. | Date loop (`RADateContent`). Companion at CLOSE+. Posts. Neglect text. Club reactions. | — | — | CW-R12, CW-R15, CW-C9 |
 
@@ -174,13 +189,13 @@ Legend: **Canon** = packet, verbatim intent. **System** = the existing system th
 
 | L | Canon beat | Location (existing?) | System | Played, not told | Rich's role | Cook windows |
 |---|---|---|---|---|---|---|
-| 1 | Asks Rich to help clean the castle. They bond while working. Ramen afterward. | **Which castle is ambiguous [SOURCE_REQUIRED].** Candidates that exist: Rich's throne room as `throne_party_mess` (frozen overlay), or `neighbor_castle` "THE CASTLE DOWN THE BLOCK" (frozen). | **"Existing chores": no chores system was found in the repository** (§7, reconciliation list). The closest existing pieces are the `MAID` / Marisol scene (flavor only) and the `throne_party_mess` environment. | Cleaning should be *done*, not described. Tap-to-clean through an existing minigame or interaction **[SOURCE_REQUIRED — BOARD NOT PROVIDED: which chores system]**. | Coworker, not boss. | CW-E1, CW-E2, CW-E3 |
+| 1 | Asks Rich to help clean **his own castle** (CREATOR SOURCE 001; Rich lives in a castle). They bond while working. Ramen afterward. | **Rich's castle.** The frozen `throne_party_mess` environment already exists and is already used by adventure A27, "the morning after." | **No new chores system** (CREATOR SOURCE 001). Existing machinery that can carry it, as shown in §8.6: castle entry through the ⌂ CASTLE menu or a hidden `castle:*` place (as `castle:maid` does), plus an adventure-DSL choice loop for the tasks. | Cleaning is *done*, not described: each task is a player choice that resolves into a short shared beat. | Coworker, not boss, in his own house. | CW-E2, CW-E3 (CW-E1 resolved) |
 | 2 | Pre-med. Calls her father every day. Sends money home. Works because her family depends on her. | Open. | Scene, plus the phone. **Action, not exposition:** she steps away mid-date to take the daily call [PROPOSED]. | Rich overhears or watches the call. He isn't told. | Witness. **Never pays her family's bills** (§5 "Do not"). | CW-E4, CW-E5, CW-E6 |
 | 3 | Panics after losing something very important. Asks Rich for help. One of the first times she truly depends on someone. | **Existing locations** (brief). Proposed search set: places the route has already been. | Search through existing `RAPlaces` hotspots or locations. **The item and where it's found are Ube's.** | The *ask* is the climax. Searching is how Rich answers it. Finding it at a place that hints at singing would set up L4 [PROPOSED, seed only]. | Searches. Doesn't lecture. | CW-E7, CW-E8, CW-E9 |
-| 4 | Invites Rich to a recital. Rich discovers singing, not medicine, is her true passion. Rich encourages her to believe she deserves dreams of her own. | **Recital venue is open.** Existing candidates: Hollywood Hotel Ballroom, Hollow Bowl, the Catacomb (all frozen). | Scene. Optional audio (her voice). | **The single most important rule:** she performs something that isn't for money, and Rich doesn't throw money at it. (Whether his hand *goes for the stack* is CW-E10.) Rich's encouragement should be an action. A speech would turn it into "fixing." | Audience. Not a sponsor. | CW-E10, CW-E11, CW-E14 |
+| 4 | Invites Rich to a recital. Rich discovers singing, not medicine, is her true passion. Rich encourages her to believe she deserves dreams of her own. **Explicitly romantic** (CREATOR SOURCE 001). | **Recital venue is open.** Existing candidates: Hollywood Hotel Ballroom, Hollow Bowl, the Catacomb (all frozen). | Scene. Optional audio (her voice). | **The single most important rule:** she performs something that isn't for money, and Rich doesn't throw money at it. (Whether his hand *goes for the stack* is CW-E10.) Rich's encouragement should be an action. A speech would turn it into "fixing." The romance lands at the current content tier. | Audience. Not a sponsor. | CW-E10, CW-E11 (CW-E14 resolved) |
 | post | — | Existing music room (castle). | Date loop. Companion. Posts. | — | — | CW-E15, CW-E16, CW-E17 |
 
-**Note — [SOURCE_REQUIRED]:** the packet does **not** say Emerald's L4 becomes romantic. Roxy and Rosalyn's L4s explicitly do. Do not assume Emerald's does (CW-E14).
+**Note:** all three L4s are now romantic (CREATOR SOURCE 001). Differentiation has to come from *what* each L4 is about: Roxy is cared for, Emerald gets a dream of her own, Rosalyn is seen. See D3 in §3.1.
 
 ### 2.3 ROSALYN
 
@@ -200,11 +215,11 @@ Legend: **Canon** = packet, verbatim intent. **System** = the existing system th
 
 | # | Problem | Evidence | Proposed handling |
 |---|---|---|---|
-| D1 | **One visual template** | All three art pieces share the same 3/4 standing pose and a high ponytail with a gold tie. All have a gold bracelet, crop top plus shorts, and platform/heeled footwear. Roxy and Rosalyn both wear gold hoops. Species and palette are the only big differences. | Don't redesign. Difference has to come from **dance language** (Emerald: floor, face hidden, tail; Rosalyn: choreographed turn and walk-off; Roxy: **missing**), **derivative states and props** (gloves; scrubs or phone; glasses or cosplay), and behavior. |
+| D1 | **Possible shared visual template** (observed in session uploads only; **re-check against the externally supplied production art**) | In the uploads, all three share a 3/4 standing pose, a high ponytail with a gold tie, a gold bracelet, crop top plus shorts and platform/heeled footwear. | **Don't redesign.** If the production art confirms it, the difference comes from **dance language**, **derivative states and props**, and behavior. Production visuals are **EXTERNAL SOURCE TO BE SUPPLIED**. |
 | D2 | **Two ramens** (Roxy L2, Emerald L1) | Canon requires both. The brief says they must feel meaningfully different. | **[PROPOSED] Ramen axis = who serves whom.** **Roxy:** Rich is the *customer*. She picks the spot, she pays, and Hina's existing stopwatch gives competitive Roxy something to beat. **Emerald:** Rich is the *cook*. He makes it at SLURP (his workplace) through the existing SLURP ticket, or in the castle kitchen. Each one maps onto her Core Thought: Roxy won't be served, Emerald is never served. |
 | D3 | **Two "watch something at her place → romantic" L4s** (Roxy: vampire movies; Rosalyn: Yuck Wars) | Canon. | Same structure, opposite meaning. **Roxy's** is about *being cared for*: she's sick, she can't perform strength, Rich stays. **Rosalyn's** is about *being seen*: she talks, explains and rewinds, and her voice finally isn't a mirror. Keep the texture different: quiet vs. talkative, dim vs. bright collectibles. |
 | D4 | **Rosalyn runs away twice** (L2, L3) | Canon. | Escalate (sentence → whole self) and make **Rich's response** after L3 the differentiator (CW-S10). L4 is her calling him. Running → reaching out is the arc. |
-| D5 | **Three different money relationships** (this is the asset, not the problem) | Canon: Roxy pays everything. Rosalyn splits exactly half. Emerald sends money home. | Use the **money ledger and receipts** to show it. **Protect:** in a route system gated by money Rich throws at them, each woman redefining Rich's money is the thematic spine. |
+| D5 | **Three different money relationships** (the asset, not the problem). **ACCEPTED and PROTECTED** (CREATOR SOURCE 001). | Roxy won't let Rich pay. Rosalyn splits exactly 50/50. Emerald sends her money home. | Use the **money ledger and receipts** to show it. In a route system gated by money Rich throws at them, each woman redefining Rich's money is the thematic spine. |
 | D6 | **Two boxing levels** (Roxy L2, L3) | Canon. | Same place on purpose. L2 sets the baseline (normal hit reactions). L3 breaks it. Don't change the venue. |
 
 ### 3.2 Against the existing BTF roster (repo evidence)
@@ -231,7 +246,8 @@ Legend: **Canon** = packet, verbatim intent. **System** = the existing system th
 ## 4. Strongest existing moments — protect these
 
 1. **"...I've gotten used to it."** Exact text. Played, not narrated (brief). Said once and never quoted back. No callback text anywhere: posts, receipts, memories, neglect texts, home lines. The **only** explanatory line. *Nothing is explicitly explained.*
-2. **Roxy pays the whole thing.** A woman whose job is collecting Rich's money refuses his money. Don't soften it into "she let him get the tip."
+2. **The money characterization — ACCEPTED (CREATOR SOURCE 001).** Roxy won't let Rich pay: a woman whose job is collecting Rich's money refuses his money, so don't soften it into "she let him get the tip." Rosalyn splits exactly 50/50. Emerald sends her money home.
+2a. **Rich is never the one who hurts Roxy** (CREATOR SOURCE 001). Her L3 hard hit comes from another fighter.
 3. **Rosalyn: "I like what you like." → "...something felt off."** Both exact. The player should notice the wrongness through play before Rich says the line.
 4. **Rosalyn's exact-half split.** "Exactly" is the joke and the character. Precise, not approximate.
 5. **Emerald asking for help** at L1 (a chore) and again at L3 (something that matters). The first ask is casual, the second is vulnerable. That echo is built in. Protect both asks as *her* initiative.
@@ -241,7 +257,7 @@ Legend: **Canon** = packet, verbatim intent. **System** = the existing system th
 9. **The packet's agreement list:** different emotional journeys, Rich doesn't fix them, actions over exposition, gameplay in every relationship, personalities over visuals.
 10. **F06 MAKE IT RAIN feel.** Approved core and tunables, byte-for-byte: 30 s rounds, $100 bills, 120 BPM beat, spotlight, fan, streak up to ×5, RAIN SCORE. F15 adds **presentation and attribution only**.
 11. **Frozen Big Bing (NEUTRAL, NO) and Granny Bing (CALLING NUMBERS).** Club identity that already exists. Use the pixels exactly as frozen.
-12. **Ube's dance loops.** Emerald's tail-led floor loop and Rosalyn's "gold" routine with its turn and walk-off. These are personality, not decoration.
+12. **Ube's dance work** (EXTERNAL SOURCE TO BE SUPPLIED). The session references showed Emerald's tail-led floor loop and Rosalyn's "gold" routine with its turn and walk-off. These are personality, not decoration.
 
 ---
 
@@ -274,6 +290,8 @@ Everything below exists in the repository (integration branch), and every item i
 - Don't give Rich money from any F15 beat. No tips back, no dancer favor currency, no club-income system.
 - Don't let Rich solve anything with money: Emerald's family obligations, Roxy's situation, Rosalyn's rent. Rich's money is what brought him in. It is never the answer.
 - Don't make "I've gotten used to it" into a mechanic (no "absorbs hits" companion move for Roxy).
+- Don't let Rich deliver Roxy's L3 hit, and don't invent the other fighter's identity (CREATOR SOURCE 001; SOURCE_REQUIRED if production needs one).
+- Don't build a chores system for Emerald L1. Use existing castle, scene and adventure machinery (CREATOR SOURCE 001).
 - Don't use Vampire Bite or conversion on any F15 woman. Conversion is an existing system, but here it would be "fixing" and a canon shift. **Ube ruling if ever.**
 - Don't connect Emerald's scales to the Trap (dragon-scale ingredient).
 - Don't put Vampireflix in Roxy L4. It's on the **rejected** list (`CURRENT_CANON.md`).
@@ -380,14 +398,10 @@ Format: **CONTEXT** (spoiler-safe) · **WHY IT'S JUICY** · **SEEDS** (deliberat
 - **SEEDS:** she wants to beat Hina's time · she orders for both ___ · she pays again, and Rich ___.
 - **QUESTION:** Slurp or another spot, and who pays this time?
 
-**CW-R6 — L3: who delivers the hard hit, and what's different before it**
-- **CONTEXT:** "Played, not narrated." The existing heavy reaction (≥ 20% max HP) is the tool.
-- **WHY:** This is the heaviest beat in F15. The mechanism decides what the player *feels responsible for*.
-- **SEEDS:**
-  - **(a)** Rich's own move lands heavy, and she just resets her stance.
-  - **(b)** She's hit by ___ while Rich ___.
-  - Before the spar, the tell is ___ (an animation, a missing habit, she doesn't ___).
-- **QUESTION:** Who throws it? What's the first tell Rich notices ("something feels different")?
+**CW-R6 — L3: the hard hit — RESOLVED IN PART by CREATOR SOURCE 001**
+- **RESOLVED:** another fighter delivers the hit, never Rich. She takes it differently than before.
+- **STILL OPEN (this window, unchanged):** the first tell Rich notices ("something feels different").
+- **SOURCE_REQUIRED (not a cook question):** the other fighter's identity, if production needs one.
 
 **CW-R7 — L3: the subject change**
 - **CONTEXT:** Canon: "She immediately changes the subject."
@@ -445,11 +459,8 @@ Format: **CONTEXT** (spoiler-safe) · **WHY IT'S JUICY** · **SEEDS** (deliberat
 
 ### 6.3 Emerald
 
-**CW-E1 — L1: which castle and why**
-- **CONTEXT:** Canon: "asks Rich to help clean the castle."
-- **WHY:** If it's Rich's own castle, it's a role reversal. If it's someone else's, it's a side hustle.
-- **SEEDS:** she has a cleaning gig at ___ · Rich's castle after a party (the `throne_party_mess` art exists) · the castle down the block (art exists).
-- **QUESTION:** Whose castle, and why does she ask *Rich*?
+**CW-E1 — L1: which castle — RESOLVED by CREATOR SOURCE 001**
+- Rich's own castle. Rich lives in a castle.
 
 **CW-E2 — Marisol**
 - **CONTEXT:** If Marisol is hired, she "judges everything."
@@ -523,11 +534,8 @@ Format: **CONTEXT** (spoiler-safe) · **WHY IT'S JUICY** · **SEEDS** (deliberat
 - **SEEDS:** they've met · they never share a scene · Mazda ___.
 - **QUESTION:** Any crossover? Should Jade's or Emerald's palette or name be re-checked?
 
-**CW-E14 — Is Emerald's L4 romantic?**
-- **CONTEXT:** The packet doesn't say. Roxy's and Rosalyn's do.
-- **WHY:** Leaving it non-romantic could be the strongest choice, or a gap.
-- **SEEDS:** —
-- **QUESTION:** Romantic at L4, later, or never?
+**CW-E14 — Is Emerald's L4 romantic? — RESOLVED by CREATOR SOURCE 001**
+- Yes. Emerald's L4 is explicitly romantic.
 
 **CW-E15 — Companion move: a song, not medicine?**
 - **CONTEXT:** [PROPOSED] Her move kind is buff or regen, framed as singing, not healing. That's the L4 payoff, shown in play.
@@ -661,6 +669,8 @@ Format: **CONTEXT** (spoiler-safe) · **WHY IT'S JUICY** · **SEEDS** (deliberat
 
 ## 7. Asset audit (repository evidence only)
 
+**Scope note (CREATOR SOURCE 001):** this audit covers only what *this checkout* contains. Approved character art and dancer-video work for Roxy, Emerald and Rosalyn exist **outside this checkout** and will be supplied during F15 production. Their absence here is **not** a production gap.
+
 ### 7.1 What the repository proves exists
 
 | Asset | Status | Where |
@@ -673,12 +683,17 @@ Format: **CONTEXT** (spoiler-safe) · **WHY IT'S JUICY** · **SEEDS** (deliberat
 | Nightlife population (dancer, performer, bartender, crowds) | **FROZEN** | requires named-actor clearance; not for F15 leads |
 | F06 audio RM_01–RM_08; AMB_RAMEN; AMB_BOBA | in the audio manifest | integration branch |
 
-### 7.2 What the repository proves is missing
+### 7.2 External, and not in this checkout
 
-| Missing | Notes |
+| Item | Status |
 |---|---|
-| **Any Roxy, Emerald or Rosalyn asset** (anchor, state, dance loop) | Not in any register or branch. Ube's uploads are the visual authority, but they're **not ingested, registered or frozen**. Native pixel grid and anchor/contact not established. |
-| **Roxy's dance loop** | No video supplied. |
+| Roxy, Emerald, Rosalyn character art: anchors, states, all derivative states | **EXTERNAL SOURCE TO BE SUPPLIED.** Don't redesign. Don't create replacement art. Don't infer appearance from OL-017. |
+| Dancer videos for all three, including Roxy's | **EXTERNAL SOURCE TO BE SUPPLIED.** |
+
+### 7.3 Not found in this repository (for UNDERLORD to reconcile against the board)
+
+| Not found | Notes |
+|---|---|
 | **THE BING club interior** | No environment found on any branch. |
 | **DJ Peachtree** | OL-017 card exists (CGA-F2-033). No art. |
 | **Boxing gym** | — |
@@ -687,13 +702,13 @@ Format: **CONTEXT** (spoiler-safe) · **WHY IT'S JUICY** · **SEEDS** (deliberat
 | **Yuck Wars convention** | Only reuse plus composited dressing, which needs Ube approval. |
 | **Recital setting** | Reuse candidates only. |
 | **Giant cockroach** (combat states) | — |
-| **Derivative states** | Roxy: boxing stance, jab, normal hit, L3 no-flinch, sick in bed, ramen. Emerald: cleaning, phone call, panicked, singing, recital outfit. Rosalyn: restaurant, boba, run, cosplay + glasses, terrified call, home + glasses, watching. Rich: bringing food, at a convention, at a recital. |
+| **Beat coverage the scenes will need** (to check against the externally supplied package, **not** new art requests) | Roxy: boxing, a normal hit, the L3 heavy hit taken differently, sick in bed. Emerald: cleaning, phone call, panicked, singing. Rosalyn: restaurant, boba, run, cosplay + glasses, terrified call, home. Rich: bringing food, at a convention, at a recital. Roxy's L3 other fighter: identity is SOURCE_REQUIRED. |
 | **Props** | Yuck Wars collectibles, Emerald's lost item (TBD), boxing gloves. |
 | **Audio** | Emerald's voice and song (CW-E11), cockroach SFX, glove impacts, convention ambience. |
-| **"Existing chores" system** | No chores system found in code. The closest pieces are the MAID scene (flavor) and the `throne_party_mess` environment. |
+| **A chores system** | None exists, and **none is to be created** (CREATOR SOURCE 001). Emerald L1 uses existing castle, scene and adventure machinery (§8.6). |
 
-### 7.3 Reuse first
-Before any new art: SLURP and Little Tokyo for ramen. Kiki's Boba for Rosalyn L2. Ballroom, Hollow Bowl or Catacomb for the recital. `throne_party_mess` or `neighbor_castle` for cleaning. The movie room for post-L4. Any composited delta on frozen environments needs Ube approval (`CURRENT_CANON.md`: surgical edits only).
+### 7.4 Reuse first
+Before any new art: SLURP and Little Tokyo for ramen. Kiki's Boba for Rosalyn L2. Ballroom, Hollow Bowl or Catacomb for the recital. **Rich's castle** (`throne_party_mess`, or the castle rooms) for Emerald's cleaning. The movie room for post-L4. Any composited delta on frozen environments needs Ube approval (`CURRENT_CANON.md`: surgical edits only).
 
 ---
 
@@ -730,7 +745,17 @@ lastF15DateWake
   - a `receipt` (caption is [COOK]);
   - a `home` line marked [VP].
 
-**8.6 Systems per beat** — the tables in §2.
+**8.6 Systems per beat** — the tables in §2, plus these CREATOR SOURCE 001 specifics:
+
+- **Emerald L1 — cleaning Rich's own castle with existing machinery only.** These pieces are confirmed in the integration branch:
+  - **Entry:** the ⌂ CASTLE menu (`RACastle.open`), and/or a hidden place `castle:<id>` registered through `RAPlaces.define`, the same pattern as `castle:maid` and `castle:throne`.
+  - **Setting:** the frozen environment `throne_party_mess` (already used by A27), with the existing throne room as the clean state.
+  - **The tasks:** an adventure-DSL choice loop. Each choice is one cleaning task with a short beat, and finished tasks are filtered out of the next set. Precedent: the multi-stop picker in `js/data/btf/adventures/w4.js` (`choices: A => [...].filter(s => !(A.vars.stops || []).includes(s))`).
+  - **Then:** chain into the ramen beat.
+  - **Not recommended as the first option:** the Property scene's hotspot "inspect" mode (`js/scenes/property.js`) is tied to that one scene and would need generalizing.
+  - **If Marisol is hired,** she's already resident (the `MAID` scene) and can appear (CW-E2).
+- **Roxy L3:** the heavy hit comes from another fighter (CREATOR SOURCE 001). The existing heavy-reaction presentation is target-agnostic (LOCKED reaction language). Still to be reconciled: the other fighter's identity and the L3 combat framing — SOURCE_REQUIRED.
+- **Emerald L4:** explicitly romantic (CREATOR SOURCE 001).
 
 **8.7 Post-L4**
 - Each woman joins the date loop (`RADateContent`) and becomes a combat companion through an existing move kind.
@@ -741,7 +766,7 @@ lastF15DateWake
 1. F06 feel is unchanged (core and tunable hashes, the 34-check browser suite).
 2. No money is added from any F15 beat.
 3. At most one F15 date per WAKE.
-4. The Roxy L3 line text is exact, and no other text explains it.
+4. The Roxy L3 line text is exact, and no other text explains it. Rich never delivers her L3 hit.
 5. Rosalyn's L1 home line text is exact.
 6. The two ramens use different roles and staging.
 7. Combat Staging QA for the spar and the cockroach.
@@ -749,7 +774,10 @@ lastF15DateWake
 9. All Rich lines are marked [VP].
 10. No Vampireflix, no conversion, no Trap link.
 11. Content stays within the current tier.
+12. No new chores system. Emerald L1 runs on existing castle, place and adventure machinery.
+13. The money characterization holds everywhere: Roxy won't let Rich pay, Rosalyn splits exactly 50/50, Emerald sends her money home.
+14. Character art and dancer video come only from the externally supplied approved package. No redesign, no replacement art.
 
 ---
 
-*Design only. Nothing in this file is canon until Ube/HQ accepts it. All seeds are optional and deliberately unfinished.*
+**F15 CREATIVE AUDIT — COMPLETE / PARKED.** Design only. CREATOR SOURCE 001 is canon. Everything else stays PROPOSED until Ube/HQ accepts it. UNDERLORD reconciles the SOURCE_REQUIRED items against the current F15 board before implementation. All seeds are optional and deliberately unfinished.
