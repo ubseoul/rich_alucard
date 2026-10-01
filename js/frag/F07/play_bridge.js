@@ -29,7 +29,7 @@
  // ----------------------------------------------------------------- the loan squad
  // M8: "Rich leads a squad of Gbenga's boys + any Ogas." The boys are ON LOAN: RACrew units owned by F07 (never F04's roster, so
  // they take no War Room slot and never appear in a War Room job). Names/classes are PLACEHOLDERS: the source authors neither.
- const loanSpec=i=>({id:`f07_loan_${i}`,name:`GBENGA BOY ${i}`,class:T().m8.LOAN_CLASSES[(i-1)%T().m8.LOAN_CLASSES.length]});
+ const loanSpec=i=>({id:`f07_loan_${i}`,name:`GBENGA’S BOY ${i}`,class:T().m8.LOAN_CLASSES[(i-1)%T().m8.LOAN_CLASSES.length]});
  const loanIds=()=>Array.from({length:T().m8.LOAN_SQUAD},(_,i)=>`f07_loan_${i+1}`);
  function defineLoan(){
   for(const i of loanIds().map((_,n)=>n+1)){
@@ -63,11 +63,14 @@
  }
  // The F01 job. M8: Lil Smack is there (smack_crib) — unless he has left (flag lilSmackGone, A56), in which case the LIEUTENANT leads.
  function jobFor(kind){
-  if(kind==='finale_p1')return T().finale.FINALE_JOB;
+  if(kind==='finale_p1')return T().finale.FINALE_JOB;     // 'owambe_party': F07-owned PLAY job (assets/f07/play), see js/frag/F07/play/owambe.mjs
   return window.RALife.flag('lilSmackGone')?T().m8.JOB_LIEUTENANT:T().m8.JOB_SMACK;
  }
- function buildRequest(kind){
+ function buildRequest(kind,{lanes=null}={}){
   if(!window.RAPlayContract)return {ok:false,code:'NO_CONTRACT',errors:['RAPlayContract not loaded']};
+  // Phase 1's squad is THE OGAS lane (Patch 1 §4.1 "THE OGAS (squad)"). The source does not say who fights Phase 1 when it is not picked,
+  // and no default is invented: the PLAY is refused (NO_SQUAD) and the plan can be remade. Creator decision recorded (F07 D-queue).
+  if(kind==='finale_p1'&&!(Array.isArray(lanes)&&lanes.includes('ogas')))return {ok:false,code:'NO_SQUAD',reason:'THE OGAS ARE NOT IN THE PLAN',errors:['THE OGAS lane was not picked']};
   if(kind==='m8')ensureLoan();
   const seq=Number(rd(`${K}.seq`,0))+1,requestId=`f07:${kind}:${day()}#${seq}`,g=garage();
   const req={schema:window.RAPlayContract.REQUEST_SCHEMA,version:window.RAPlayContract.VERSION,requestId,seed:hashSeed(requestId),day:day(),
@@ -129,16 +132,41 @@
  const refusal=(r,kind)=>({ok:true,refused:true,win:false,code:r.code,reason:r.reason||(r.errors||[]).join('; ')||r.code,kind});
  // run(kind): the pending request of THIS kind is re-issued after a reload (F01 answers a completed one from its record); otherwise a
  // new one is built and persisted BEFORE F01 is asked.
+ // Phase 1 runs on F07's own PLAY page (F01's controller unchanged; F07's job + stage cards installed first). Same protocol as F01's
+ // iframe transport: F01.play_ready -> F04.play_request -> F01.play_result, same-origin postMessage, only the LOAD is time-boxed.
+ const F07_PLAY_URL='assets/f07/play/index.html?embed=1';
+ function f07Transport(request){
+  return new Promise(resolve=>{
+   const doc=window.document;if(!doc||!window.addEventListener)return resolve({schema:window.RAPlayContract.RESULT_SCHEMA,version:window.RAPlayContract.VERSION,requestId:request.requestId,status:'REFUSED',code:'NO_HOST',reason:'no browser to show THE PLAY',errors:[],cash:{gain:0,spent:0}});
+   let src=F07_PLAY_URL;try{const q=new URLSearchParams(window.location.search);for(const k of ['speed','mute','reduce','moretime'])if(q.has(k))src+='&'+k+'='+encodeURIComponent(q.get(k));}catch(e){}
+   const frame=doc.createElement('iframe');frame.src=src;frame.setAttribute('title','THE PLAY');frame.id='f01-play-frame';
+   frame.style.cssText='position:fixed;inset:0;width:100%;height:100%;border:0;z-index:2147483000;background:#000';
+   let done=false;const origin=window.location.origin;
+   const finish=res=>{if(done)return;done=true;clearTimeout(timer);window.removeEventListener('message',on);frame.remove();resolve(res);};
+   const on=ev=>{
+    if(ev.origin!==origin||ev.source!==frame.contentWindow||!ev.data)return;
+    if(ev.data.type==='F01.play_ready'){clearTimeout(timer);frame.contentWindow.postMessage({type:'F04.play_request',request},origin);}
+    else if(ev.data.type==='F01.play_result')finish(ev.data.result);
+   };
+   const timer=setTimeout(()=>finish({schema:window.RAPlayContract.RESULT_SCHEMA,version:window.RAPlayContract.VERSION,requestId:request.requestId,status:'REFUSED',code:'PLAY_UNAVAILABLE',reason:'THE PLAY page did not answer',errors:[],cash:{gain:0,spent:0}}),20000);
+   window.addEventListener('message',on);doc.body.appendChild(frame);
+  });
+ }
+ // run(kind,{lanes,transport}): the pending request of THIS kind is re-issued after a reload (F01 answers a completed one from its record);
+ // otherwise a new one is built and persisted BEFORE F01 is asked.
+ let injected=null;   // headless hosts / tests only: a transport that replaces the iframe for every F07 PLAY
  async function run(kind,opts={}){
   const off=unavailable();if(off)return refusal(off,kind);
   let pending=rd(`${K}.pending`,null);
   if(pending&&pending.kind!==kind){wr(`${K}.pending`,null);pending=null;} // a request of another mission is stale: never mixed
   if(!pending){
-   const built=buildRequest(kind);if(!built.ok)return refusal(built,kind);
+   const built=buildRequest(kind,{lanes:opts.lanes});if(!built.ok)return refusal(built,kind);
    pending={request:built.request,carMap:built.carMap,seq:built.seq,kind,startedDay:day()};
    wr(`${K}.pending`,pending);
   }
-  const result=await window.RAShowdown.play.launch(pending.request,opts);
+  // a real browser page gets F07's page for Phase 1; a headless host (no DOM) uses whatever transport F01 was given (tests)
+  const launchOpts=injected?{transport:injected}:kind==='finale_p1'&&typeof window.document?.createElement==='function'?{transport:f07Transport}:{};
+  const result=await window.RAShowdown.play.launch(pending.request,{...launchOpts,...(opts.transport?{transport:opts.transport}:{})});
   const out=consume(result);
   return out.ok?out:refusal(out,kind);
  }
@@ -146,11 +174,11 @@
  // The adventure host: a minigame whose only job is to run the PLAY and report {win|lose|refused}. The PLAY page covers the host.
  window.RAMinigames?.register?.('f07_play',{title:'THE PLAY',mount(root,ctx){
   let alive=true;
-  run(ctx.params?.kind).then(r=>{if(alive)ctx.finish({outcome:r.refused?'refused':(r.win?'win':'lose'),data:{refused:!!r.refused,code:r.code||null,reason:r.reason||null,win:!!r.win}});},
+  run(ctx.params?.kind,{lanes:ctx.params?.lanes}).then(r=>{if(alive)ctx.finish({outcome:r.refused?'refused':(r.win?'win':'lose'),data:{refused:!!r.refused,code:r.code||null,reason:r.reason||null,win:!!r.win}});},
    e=>{console.error('F07 play',e);if(alive)ctx.finish({outcome:'refused',data:{refused:true,code:'PLAY_ERROR',reason:String(e?.message||e)}});});
   return {dispose(){alive=false;}};
  }});
 
- window.RAF07Play={FLAG,buildRequest,consume,run,pending:()=>rd(`${K}.pending`,null),lastRefusal:()=>rd(`${K}.lastRefusal`,null),
+ window.RAF07Play={FLAG,useTransport:fn=>{injected=typeof fn==='function'?fn:null;},buildRequest,consume,run,pending:()=>rd(`${K}.pending`,null),lastRefusal:()=>rd(`${K}.lastRefusal`,null),
   consumed:id=>rd(`${K}.consumed`,{})[id]||null,jobFor,roster,ensureLoan,loanIds,defineLoan,CAR_FALLBACK};
 })();

@@ -2,9 +2,9 @@
 // F07 M8_AND_FINALE — M8 THE TURF WAR and the finale "NEW OGA" (OPEN source: Rich_Alucard_PLAYMAKERS_Patch1_NEW_OGA §3 M8, §4, §5).
 // DARK behind F07.m8_and_finale.
 //
-// M8 (voice-note priority 77, reserved by F03): a normal PLAY / Showdown-class mission on F01's PLAY seam (see play_bridge.js) —
+// M8 (WAKE arbiter priority 77, reserved by F03; delivered as JOB TEXT ONLY — no voice note, no voice UI): a normal PLAY / Showdown-class mission on F01's PLAY seam (see play_bridge.js) —
 // NOT a BIG PLAY. Rich leads a squad of Gbenga's boys (on loan) + any Ogas against the Open Mouth Gang's Koreatown block. $18K, +12 HEAT.
-// A loss resolves nothing (retry). SEND THE BOYS is the back-out path. It writes the canonical `life.newOga.m8Resolved`, the exact
+// A loss resolves nothing (retry). SEND THE BOYS is the back-out path (no cost value is authored: none is invented, see the D-queue). It writes the canonical `life.newOga.m8Resolved`, the exact
 // field F03's M9 prerequisite reads (ANY resolved outcome, SEND THE BOYS included) — F03 is not modified.
 //
 // FINALE (arrives on the WAKE after VampGPT's ...SAY LESS. wrote `finaleBegun`): plan (pick 3 lanes) → Phase 1 THE PARTY (PLAY) →
@@ -88,28 +88,14 @@
   try{window.RAPhoneRegistry?.unlock?.('warRoom',{badge:true});}catch(e){console.error('F07 war room phone',e);}
   return 'started';
  }
- // Gbenga's boys "can join Rich's crew as recruits after the finale": generic recruits through the War Room's normal recruit path
- // (normal cap of 8; QUEUED while the War Room is inactive or the crew is full). Name/class are PLACEHOLDERS (the source authors none).
- const recruitSpec=n=>{const C=window.RAWarRoomCrew?.CLASSES||['MUSCLE'];return {id:`f07_recruit_${n}`,name:`GBENGA BOY ${n}`,cls:C[(day()+n)%C.length],source:'f07_finale'};};
- function drainRecruits(){
-  const q=[...(rd('recruits.queue',[])||[])];
-  if(!q.length||!F()?.enabled?.(F04_FLAG)||!warRoomRunning()||!window.RAWarRoomCrew)return {recruited:[],queued:q.length};
-  const got=[],left=[];
-  for(const spec of q){
-   if(left.length){left.push(spec);continue;}
-   const r=window.RAWarRoomCrew.recruit(spec);
-   if(r.ok||r.reason==='already-defined')got.push(spec.id);else left.push(spec);
-  }
-  wr('recruits',{queue:left,recruited:[...(rd('recruits.recruited',[])||[]),...got]});
-  return {recruited:got,queued:left.length};
- }
  const HEADLINES=Object.freeze(['WHO IS THE NEW OGA OF LA','GBENGA’S FORMER INTERN TAKES OVER','CARLOS SPEAKS OUT']);
  // Completion. `ending`: 'blessing' (RETIRE, UNCLE) | 'consigliere' (WORK FOR ME) | 'takeover' (win the fight). All three make Rich the NEW OGA.
  function completeFinale(ending,{lanes=[]}={}){
   const s=state();if(s.finaleDone)return s;
   if(!['blessing','consigliere','takeover'].includes(ending))throw new Error(`Unknown finale ending ${ending}`);
   const d=day();
-  O().patch({status:'new_oga',mission:11,rank:6,title:'NEW OGA',finaleDone:true,finaleEnding:ending,finaleDay:d,finaleCrew:[...lanes],
+  // "Gbenga's boys can join Rich's crew as recruits after the finale": recorded as available; no recruit identity or class is invented (D-queue D5).
+  O().patch({status:'new_oga',mission:11,rank:6,title:'NEW OGA',gbengasBoysCanJoin:true,finaleDone:true,finaleEnding:ending,finaleDay:d,finaleCrew:[...lanes],
    finaleHighTrust:s.trust>=window.RANewOgaTunables.trustThresholds.HIGH_MIN,enterprisesRenamed:true,gbengaEnterprises:'RICH ENTERPRISES',lastMissionDay:d});
   const blocks=takeBlocks();
   if(ending==='takeover'){
@@ -125,8 +111,6 @@
   // §4.3 "Every ending": the Blood X operation begins immediately with Gbenga's blocks already his.
   const wr8=startWarRoom();
   wr('finale',{applied:true,warRoom:wr8,tributeReturned:rd('finale.tributeReturned',false),fameFloorDay:T().finale.FAME_FLOOR_DAY,blocks});
-  wr('recruits',{queue:Array.from({length:T().finale.RECRUITS},(_,i)=>recruitSpec(i+1)),recruited:[]});
-  drainRecruits();
   // §5 FAME: taking the chair is a SPARK; the headlines ride the fame ending's receipt roll (the accepted fame system, unchanged).
   const m=window.RAState.get().life.momentum||{};
   if(!m.sparkId)window.RAState.patch('life.momentum.sparkId','new_oga:chair');
@@ -136,10 +120,9 @@
 
  // ------------------------------------------------------------- WAKE / NIGHT handlers
  const bus=window.RAWakeBus;
- // Queued grants (War Room start, recruits) land the first WAKE their system is available.
+ // The queued War Room start lands the first WAKE F04 is available.
  bus?.subscribe?.({id:'F07.queued-grants',fragment:'F07',phase:'wake',priority:68,flag:FLAG,fn:()=>{
   if(rd('finale.warRoom',null)==='queued'&&F()?.enabled?.(F04_FLAG)){wr('finale.warRoom',startWarRoom());}
-  drainRecruits();
  }});
  // "Hello. Hello. Oga. Hello." — THE CONSIGLIERE's voice notes continue, addressed to the new oga.
  bus?.subscribe?.({id:'F07.consigliere',fragment:'F07',phase:'wake',priority:69,flag:FLAG,fn:()=>{
@@ -158,19 +141,25 @@
  // --------------------------------------------------------------- adventures
  const {S,N,E}=window.RAContent,D=window.RAAdventures.define;
  const smackThere=()=>!window.RALife.flag('lilSmackGone');
- const REASONS=new Set(['NO_CAR','NO_CAR_FITS','NOBODY_READY']);
- const refusalLine=A=>{const c=A.get('refusal');return REASONS.has(c)?`THE PLAY WILL NOT RUN: ${A.get('refusalReason')||c}.`:'THE PLAY IS NOT AVAILABLE RIGHT NOW.';};
+ // Player-facing explanations for the PLAY refusals (UI strings only; F01's rules are unchanged, no loaner is offered).
+ const REFUSAL_TEXT={
+  NO_CAR:'THE PLAY WILL NOT RUN: RICH HAS NO CAR. THE PLAY NEEDS A CAR.',
+  NO_CAR_FITS:'THE PLAY WILL NOT RUN: NO CAR THAT SEATS THIS CREW. THE PLAY NEEDS A CAR THAT SEATS THE SQUAD.',
+  NOBODY_READY:'THE PLAY WILL NOT RUN: NOBODY IS READY.',
+  NO_SQUAD:'THE PARTY HAS NO SQUAD: THE OGAS ARE NOT IN THE PLAN.'
+ };
+ const refusalLine=A=>REFUSAL_TEXT[A.get('refusal')]||'THE PLAY IS NOT AVAILABLE RIGHT NOW.';
  const playNext=(A,res)=>{
   const r=res||{},d=r.data||{};
   if(r.quit||r.outcome==='refused'||d.refused){A.set('refusal',d.code||'QUIT');A.set('refusalReason',d.reason||'');return 'refused';}
   return r.outcome==='win'?'won':'lost';
  };
 
- D({id:'NEW_OGA_M8',title:'THE TURF WAR',lane:'money',memoryType:'money',start:'voice',repeatable:true,oncePerNight:true,available:m8Ready,
+ D({id:'NEW_OGA_M8',title:'THE TURF WAR',lane:'money',memoryType:'money',start:'job',repeatable:true,oncePerNight:true,available:m8Ready,
   testSetup:ctx=>{ctx.RAState.patch('life.world.day',15);ctx.RALife.addCar({id:ctx.RACars.SUPRA,short:'SUPRA'});
    ctx.RAState.patch('life.newOga',{...ctx.RAState.get().life.newOga,status:'m8_hold',mission:7,rank:4,title:'SENIOR ASSOCIATE',rank4Granted:true,m5Completed:true,m6Completed:true,m7Completed:true,lastMissionDay:14});},
   nodes:{
-   voice:{env:'bedroom',actors:{left:'rich'},title:'VOICE NOTE · THE TURF WAR',
+   job:{env:'bedroom',actors:{left:'rich'},title:'JOB TEXT · THE TURF WAR',
     lines:()=>[N('Gbenga’s first real Showdown for Rich: take a Koreatown block from the Open Mouth Gang.'),
      N('Rich leads a squad of Gbenga’s boys and any Ogas.'),
      ...(smackThere()?[N('Lil Smack is there, chewing.')]:[]),
@@ -226,9 +215,11 @@
    party:{env:'gbenga_rentals',actors:{left:'rich'},title:'THE PARTY',
     lines:[N('Rich clears Gbenga’s boys through a warehouse full of canopies and stacked chairs without disrupting the owambe.'),
      N('A canopy pole collapses on whoever is under it, Rich included. The aunties are non-combatants: they block lines of fire and critique Rich’s tactics out loud.')],next:'p1'},
-   p1:{minigame:{id:'f07_play',params:{kind:'finale_p1'},next:(A,res)=>{const n=playNext(A,res);return n==='won'?'office':n==='lost'?'p1_lost':'p1_refused';}}},
+   p1:{minigame:{id:'f07_play',params:A=>({kind:'finale_p1',lanes:A.get('lanes')||[]}),next:(A,res)=>{const n=playNext(A,res);return n==='won'?'office':n==='lost'?'p1_lost':'p1_refused';}}},
    p1_lost:{lines:[N('Gbenga’s boys hold the warehouse.')],choices:[{label:'TRY AGAIN',next:'p1'}]},
-   p1_refused:{lines:A=>[N(refusalLine(A))],choices:[{label:'NOT YET',next:'postponed'}]},
+   p1_refused:{lines:A=>[N(refusalLine(A))],choices:A=>[
+    ...(A.get('refusal')==='NO_SQUAD'?[{label:'REMAKE THE PLAN',fx:X=>X.set('lanes',[]),next:'plan'}]:[]),
+    {label:'NOT YET',next:'postponed'}]},
    postponed:{lines:[N('The owambe waits.')],end:{outcome:'postponed',memory:{text:'put off taking Gbenga’s chair',lane:'money'}}},
    office:{env:'gbenga_rentals',actors:{left:'rich',right:'gbenga'},title:'THE OFFICE',
     lines:[N('A glass office, and a framed photo of Gbenga shaking hands with himself.')],next:'duel'},
@@ -251,10 +242,11 @@
     end:{outcome:'takeover',fx:finish('takeover'),memory:{text:'became the NEW OGA: took Gbenga’s chair and his warehouse',lane:'money'}}}
   }});
 
- // Mission voice notes (accepted ladder 85 … 78, F03 76/75; 77 is reserved for NEW_OGA_M8).
- window.RAWakeBus?.voiceNotes?.define?.('F07',[{adventure:'NEW_OGA_M8',priority:77,when:m8Ready,flag:FLAG}]);
+ // M8 rides the accepted one-per-WAKE arbiter at the priority F03 reserved for it (77). It is registered as a plain WAKE trigger, not as
+ // a voice note: M8 is JOB TEXT ONLY.
+ window.RAWakeTriggers?.define?.([{adventure:'NEW_OGA_M8',priority:77,when:m8Ready}]);
  // The finale rides the same one-per-WAKE arbiter just below VampGPT (74), which must complete first.
  window.RAWakeTriggers?.define?.([{adventure:'NEW_OGA_FINALE',priority:72,when:finaleReady}]);
 
- window.RAF07={FLAG,enabled,m8Ready,finaleReady,completeM8,completeFinale,lanes:LANES,lanesAvailable,takeBlocks,startWarRoom,drainRecruits,HEADLINES};
+ window.RAF07={FLAG,enabled,m8Ready,finaleReady,completeM8,completeFinale,lanes:LANES,lanesAvailable,takeBlocks,startWarRoom,HEADLINES};
 })();

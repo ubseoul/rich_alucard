@@ -8,7 +8,6 @@
 //   play     the THE PLAY seam: the one pending request (persisted BEFORE F01 is asked, so a reload cannot lose or duplicate it),
 //            consumed results keyed by requestId (idempotent), and the request sequence
 //   loan     M8's squad of Gbenga's boys ON LOAN (re-defined on load; never a War Room slot)
-//   recruits Gbenga's boys offered as recruits after the finale (queued until the War Room is active and has room)
 //   finale   one-time grants applied once (districts, War Room start, tribute return, receipts)
 // Lazy (IF-1 RAFrag): with the flag OFF nothing is written and save.frag.F07 never exists.
 (function(){
@@ -16,7 +15,6 @@
  window.RAMigrations?.namespace?.('F07',{
   play:{pending:null,consumed:{},seq:0},
   loan:{defined:false},
-  recruits:{queue:[],recruited:[]},
   finale:{applied:false,warRoom:null,tributeReturned:false,fameFloorDay:null}
  });
 })();
