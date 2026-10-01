@@ -6,17 +6,17 @@ import {readFile,readdir} from 'node:fs/promises';
 import path from 'node:path';
 import vm from 'node:vm';
 import {full,run,read} from './_lib.mjs';
-import {F01_FILES,F04_FILES,F03_PROVIDER} from '../F04/_lib.mjs';
+import {F01_FILES,F04_FILES} from '../F04/_lib.mjs';
 
 const J=v=>JSON.parse(JSON.stringify(v));
 const eq=(a,b,m)=>assert.deepEqual(J(a),J(b),m);   // vm objects are cross-realm: compare canonical JSON
 const frag=async(root,id)=>JSON.parse(await read(root,`js/frag/${id}/manifest.json`)).files;
 
-// The composed game: production load order for F01, F04, F05, F06 (+ IF-1 owner modules), every flag OFF until the caller sets them.
+// The composed game: production load order for F01, F03, F04, F05, F06 (+ IF-1 owner modules), every flag OFF until the caller sets them.
 async function boot(root,{seedState=null,f03=true}={}){
  const ctx=await full(root,seedState?{seedState}:{});
  await run(root,ctx,[...F01_FILES]);
- if(f03)vm.runInContext(F03_PROVIDER,ctx,{filename:'F03-provider-fixture'});   // F03 is not composed in production; the fixture is its documented provider contract
+ if(f03)await run(root,ctx,['js/frag/F03/migrations.js',...await frag(root,'F03')]);   // the REAL F03 (production order: before F04); it is the sole definer of Koreatown
  await run(root,ctx,[...F04_FILES]);
  await run(root,ctx,['js/frag/F05/migrations.js',...await frag(root,'F05')]);
  await run(root,ctx,['js/frag/F06/migrations.js',...await frag(root,'F06')]);
@@ -171,24 +171,28 @@ export async function test(root){
 
  // ============================================================================================ 8b. F04 Koreatown shadow (OL-027 B)
  {
-  // Koreatown is F03-owned. On the composed tree (F03 not composed) NOTHING may define it: no F04 shadow, no F05/F06/IF-1/bridge definition.
+  // Koreatown is F03-owned. In shipped code ONLY js/frag/F03 defines it: no F04 shadow, no F05/F06/IF-1/bridge definition.
   const defs=[];for(const dir of ['js/frag','js/if1','js/systems','js/scenes','js/data'])for(const f of await walk(path.join(root,dir))){
    const src=(await readFile(f,'utf8')).replace(/^\s*\/\/.*$/gm,'');
-   if(/RADistricts\??\.define\([^)]*koreatown/i.test(src)||/define\(\{[^}]*id:\s*['"]koreatown['"]/i.test(src))defs.push(path.relative(root,f));
+   if(/RADistricts\??\.define\??\.?\([^)]*koreatown/i.test(src)||/define\??\.?\(\{[^}]*id:\s*['"]koreatown['"]/i.test(src))defs.push(path.relative(root,f));
   }
-  eq(defs,[],'no shipped code defines koreatown');
+  eq(defs,['js/frag/F03/new_oga_ladder_close.js'],'only F03 defines koreatown');
+  {const c=await boot(root);on(c,'F04.war_room');
+   assert.equal(c.RADistricts.get('koreatown').fragment,'F03','F03-owned, never shadowed by F04');
+   eq(c.RAWarRoomDistricts.provider().owned.koreatown,'F03');eq(c.RAWarRoomDistricts.provider().missing,[],'F04 consumes the F03 definition');eq(c.RAWarRoomDistricts.provider().errors,[]);
+   assert.throws(()=>c.RADistricts.define({id:'koreatown',fragment:'F04',label:'KOREATOWN'}),/already defined by F03/,'a F04 shadow definition is refused');}
   const c=await boot(root,{f03:false});on(c,'F04.war_room');
   assert.equal(c.RADistricts.get('koreatown'),null,'no Koreatown shadow exists without its F03 owner');
   eq(c.RAWarRoomDistricts.provider().missing.map(m=>m.id),['koreatown'],'reported PROVIDER_MISSING, not invented');
   eq(c.RAWarRoomDistricts.activeIds(),['arts_district','inglewood'],'the War Room skips what nobody owns');
   eq(c.RAWarRoomDistricts.provider().errors,[],'no district define error');
-  console.log('PASS convergence Koreatown: F03-owned, never shadowed by F04 or anyone; absent owner reports PROVIDER_MISSING and is skipped');
+  console.log('PASS convergence Koreatown: F03-owned, never shadowed by F04 or anyone; an absent owner reports PROVIDER_MISSING and is skipped');
  }
 
  // ============================================================================================ 9. F07 parked; sealed/private material not introduced
  {
   const frags=(await readdir(path.join(root,'js/frag'))).filter(f=>/^F\d\d$/.test(f)).sort();
-  assert.deepEqual(frags,['F01','F04','F05','F06'],'F07 (and F02/F03) playable content is not in this convergence');
+  assert.deepEqual(frags,['F01','F03','F04','F05','F06'],'F07 (and F02) playable content is not in this convergence; F03 is the bounded R3 port');
   console.log('PASS convergence F07 parked: no F07 playable content composed');
  }
 }

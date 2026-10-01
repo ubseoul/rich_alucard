@@ -49,7 +49,10 @@
  const hasCar=id=>(life().ownership.cars||[]).some(c=>c.id===id||c.model===id||c.kind===id);
  function addCar(car){const cars=[...(life().ownership.cars||[])];if(cars.some(c=>c.id===car.id))return false;cars.push({ownershipStatus:'owned',acquiredDay:today().day,...car});RAState.patch('life.ownership.cars',cars);return true;}
  function patchCar(id,fields){const cars=(life().ownership.cars||[]).map(c=>c.id===id?{...c,...fields}:c);RAState.patch('life.ownership.cars',cars);}
- const ownedCars=()=>(life().ownership.cars||[]).filter(c=>c.ownershipStatus!=='sold');
+ // heldCars = every unsold record (a TRIBUTED car stays represented); ownedCars = the cars normally available to Rich.
+ // TRIBUTED is recorded by RAVehicles in save.frag.if1.vehicles (the ownership record itself is never edited). Pure read.
+ const heldCars=()=>(life().ownership.cars||[]).filter(c=>c.ownershipStatus!=='sold');
+ const ownedCars=()=>{const t=RAState.get().frag?.if1?.vehicles;return heldCars().filter(c=>!t?.[c.id]?.tributed);};
  const hasRoom=id=>(life().ownership.castleRooms||[]).some(r=>r.id===id);
  function addRoom(room){if(hasRoom(room.id))return false;RAState.patch('life.ownership.castleRooms',[...life().ownership.castleRooms,{...room,boughtDay:today().day}]);return true;}
  const hasGun=id=>(life().ownership.guns||[]).some(g=>g.id===id);
@@ -95,5 +98,5 @@
  const doneCount=ids=>ids.filter(done).length;
  // Query helper handed to content predicates: keeps authored conditions short and readable.
  function L(){return {life:life(),day:today().day,info:today(),money:money(),clout:clout(),rep:rep(),flag,done,count,hasCar,hasRoom,hasGun,hasProp,hasFit,dragon:dragon(),app:appUnlocked,person:id=>window.RARelations?.get?.(id)||null,level:id=>window.RARelations?.level?.(id)||0,followers:Number(life().resources.followers)||0,netWorth:netWorth(),lit:litDimensions(),leaning:leaning(),get coolCount(){return (window.RARelations?.known?.()||[]).filter(p=>p.level>=2).length;},get known3cool(){return this.coolCount>=3;}};}
- window.RALife={life,dayInfo,today,TIERS,addPoints,clout,rep,elderName,money,addMoney,spend,fmt,netWorth,addFollowers,flag,setFlag,counter,count,addItem,consume,hasCar,addCar,patchCar,ownedCars,hasRoom,addRoom,hasGun,addGun,hasProp,addProp,hasFit,addFit,equipFit,dragon,patchDragon,appUnlocked,unlockApp,remember,recentMemories,receipt,mail,text,light,litDimensions,tendency,leaning,adventureRecord,done,doneCount,L,hash};
+ window.RALife={life,dayInfo,today,TIERS,addPoints,clout,rep,elderName,money,addMoney,spend,fmt,netWorth,addFollowers,flag,setFlag,counter,count,addItem,consume,hasCar,addCar,patchCar,ownedCars,heldCars,hasRoom,addRoom,hasGun,addGun,hasProp,addProp,hasFit,addFit,equipFit,dragon,patchDragon,appUnlocked,unlockApp,remember,recentMemories,receipt,mail,text,light,litDimensions,tendency,leaning,adventureRecord,done,doneCount,L,hash};
 })();

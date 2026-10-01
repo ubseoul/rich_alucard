@@ -9,9 +9,9 @@
  const L=()=>window.RALife;
  const stateAll=()=>window.RAFrag.read('if1','vehicles',{});
  const idOf=car=>typeof car==='string'?car:car?.id;
- const owned=()=>L().ownedCars().map(clone);
+ const owned=()=>L().heldCars().map(clone);   // every unsold record: a TRIBUTED car stays represented (RALife.ownedCars hides it)
  const has=id=>L().hasCar(id);
- const own=id=>L().ownedCars().find(c=>c.id===id||c.model===id||c.kind===id)||null;
+ const own=id=>L().heldCars().find(c=>c.id===id||c.model===id||c.kind===id)||null;
  function emit(event){for(const fn of [...listeners]){try{fn(event);}catch(e){console.error('vehicle listener',e);}}}
  function record(id){return {tributed:false,tributedDay:null,drives:0,...(stateAll()[id]||{})};}
  function write(id,mutate){const all=clone(stateAll()),rec=record(id);mutate(rec);all[id]=rec;window.RAFrag.patch('if1','vehicles',all);return rec;}
@@ -31,5 +31,9 @@
  const globalDrives=()=>Number(L().flag('drives'))||0;
  const list=()=>owned().map(c=>({...c,service:record(c.id)}));
  const onChange=fn=>{listeners.add(fn);return ()=>listeners.delete(fn);};
- window.RAVehicles={owned,has,list,tribute,isTributed,recordDrive,driveCount,totalDrives,globalDrives,onChange};
+ // PURE READER (F07 reads the tribute here; it never calls a mutator): the car F03's M9 tributed, or null. Written only by F03 (life.newOga.m9TributedCar).
+ const tributedCar=()=>window.RAState.get().life?.newOga?.m9TributedCar||null;
+ // The TAKEOVER ending returns the tributed car: the TRIBUTED mark is cleared; the ownership record was never touched.
+ function returnTribute(idOrCar){const id=resolve(idOrCar);if(!id||!record(id).tributed)return {ok:false,reason:'not-tributed'};write(id,r=>{r.tributed=false;r.returnedDay=L().today().day;});emit({type:'return',id});return {ok:true,id};}
+ window.RAVehicles={owned,has,list,tribute,isTributed,tributedCar,returnTribute,recordDrive,driveCount,totalDrives,globalDrives,onChange};
 })();

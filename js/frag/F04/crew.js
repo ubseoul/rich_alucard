@@ -200,7 +200,7 @@
    if (!id || !name || !cls) return { ok: false, reason: 'missing-fields' };
    if (!CLASSES.includes(cls)) return { ok: false, reason: `unknown-class-${cls}` };
    if (window.RACrew.get(id)) return { ok: false, reason: 'already-defined' };
-   if (this.allOgas().length >= 8) return { ok: false, reason: 'roster-full' }; // Vol 7 §6.3: max 8
+   if (this.allOgas().filter(u => !u.meta?.onLoan).length >= 8) return { ok: false, reason: 'roster-full' }; // Vol 7 §6.3: max 8 (an M8 squad ON LOAN, meta.onLoan, never takes a slot)
    window.RACrew.define({ id, name, class: cls, fragment: 'F04', meta: { recruit: true, source } });
    window.RAFrag.patch('F04', RECRUITS, [...(window.RAFrag.read('F04', RECRUITS, []) || []).filter(r => r && r.id !== id), { id, name, cls, source }]);
    return { ok: true, id };

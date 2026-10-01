@@ -38,8 +38,14 @@
 
  D({id:'NEW_OGA_ALTERNATIVE',title:'THE ALTERNATIVE',lane:'money',memoryType:'money',start:'voice',available:alternativeReady,
   testSetup:ctx=>{ctx.RAState.patch('life.world.day',11);ctx.RAState.patch('life.newOga',{...ctx.RAState.get().life.newOga,status:'alternative_pending',mission:4,rank:1,title:'INTERN',carlosMutual:true,m4Outcome:'beat_1',alternativePending:true,lastMissionDay:10});},nodes:{
-   voice:{env:'gbenga_rentals',actors:{left:'rich',right:'gbenga'},title:'THE ALTERNATIVE · VOICE NOTE',lines:[N("Another GBENGA'S EVENT RENTALS delivery is waiting.")],next:'delivery'},
-   delivery:{lines:[N('The rental delivery is completed as a scene.')],end:{outcome:'complete',fx:()=>RANewOga.completeAlternative(),memory:{text:'completed The Alternative delivery',lane:'money'}}}
+   // PRE-FCPB restoration (F03, OL-011): with F03.new_oga_ladder_close ON the authored chair activity replaces the scene fallback,
+   // through the SAME accepted SLURP canopyDuty harness and critique lines NEW_OGA_M3 uses (no second chair system, no new text).
+   // With the flag OFF the frozen fallback is byte-identical to the accepted build.
+   voice:{env:'gbenga_rentals',actors:{left:'rich',right:'gbenga'},title:'THE ALTERNATIVE · VOICE NOTE',lines:[N("Another GBENGA'S EVENT RENTALS delivery is waiting.")],next:()=>window.RAFeatures?.enabled?.('F03.new_oga_ladder_close')?'chairs':'delivery'},
+   delivery:{lines:[N('The rental delivery is completed as a scene.')],end:{outcome:'complete',fx:()=>RANewOga.completeAlternative(),memory:{text:'completed The Alternative delivery',lane:'money'}}},
+   chairs:{minigame:{id:'slurp',params:()=>({canopyDuty:true,totalChairs:T().chairs.AUTHORED_TOTAL,durationMs:T().chairs.DURATION_MS,bundleSize:T().chairs.BUNDLE_SIZE}),next:(A,r)=>{A.set('chairs',r?.data||{});return 'critique';}}},
+   critique:{env:'carson_owambe',actors:{left:'rich',right:'auntie'},title:'THE ALTERNATIVE · DELIVERY',lines:A=>A.vars.chairs?.success?[N('all sixty chairs are stacked and carried in.')]:[N('the aunties critique the chair stacks. the rank is not blocked.')],next:'complete'},
+   complete:{lines:[N('The rental delivery is completed.')],end:{outcome:'complete',fx:()=>RANewOga.completeAlternative(),memory:{text:'completed The Alternative delivery',lane:'money'}}}
   }});
 
  RAWakeTriggers.define([
