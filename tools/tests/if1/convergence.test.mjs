@@ -13,10 +13,10 @@ const eq=(a,b,m)=>assert.deepEqual(J(a),J(b),m);   // vm objects are cross-realm
 const frag=async(root,id)=>JSON.parse(await read(root,`js/frag/${id}/manifest.json`)).files;
 
 // The composed game: production load order for F01, F04, F05, F06 (+ IF-1 owner modules), every flag OFF until the caller sets them.
-async function boot(root,{seedState=null}={}){
+async function boot(root,{seedState=null,f03=true}={}){
  const ctx=await full(root,seedState?{seedState}:{});
  await run(root,ctx,[...F01_FILES]);
- vm.runInContext(F03_PROVIDER,ctx,{filename:'F03-provider-fixture'});
+ if(f03)vm.runInContext(F03_PROVIDER,ctx,{filename:'F03-provider-fixture'});   // F03 is not composed in production; the fixture is its documented provider contract
  await run(root,ctx,[...F04_FILES]);
  await run(root,ctx,['js/frag/F05/migrations.js',...await frag(root,'F05')]);
  await run(root,ctx,['js/frag/F06/migrations.js',...await frag(root,'F06')]);
@@ -167,6 +167,22 @@ export async function test(root){
   // F05 TR_01 / TR_05: preserved as accepted (both AMBIENCE loops on the_trap scene); remaining ownership question recorded, not decided here
   for(const id of ['TR_01','TR_05'])assert.equal(c.RAAudioManifest.get(id).bus,'AMBIENCE');
   console.log('PASS convergence audio: F01 duplicate BX hooks removed, F11 master registers clean, F06 RM_01-08 wired, BX_STEP inert, TR_01/TR_05 unchanged');
+ }
+
+ // ============================================================================================ 8b. F04 Koreatown shadow (OL-027 B)
+ {
+  // Koreatown is F03-owned. On the composed tree (F03 not composed) NOTHING may define it: no F04 shadow, no F05/F06/IF-1/bridge definition.
+  const defs=[];for(const dir of ['js/frag','js/if1','js/systems','js/scenes','js/data'])for(const f of await walk(path.join(root,dir))){
+   const src=(await readFile(f,'utf8')).replace(/^\s*\/\/.*$/gm,'');
+   if(/RADistricts\??\.define\([^)]*koreatown/i.test(src)||/define\(\{[^}]*id:\s*['"]koreatown['"]/i.test(src))defs.push(path.relative(root,f));
+  }
+  eq(defs,[],'no shipped code defines koreatown');
+  const c=await boot(root,{f03:false});on(c,'F04.war_room');
+  assert.equal(c.RADistricts.get('koreatown'),null,'no Koreatown shadow exists without its F03 owner');
+  eq(c.RAWarRoomDistricts.provider().missing.map(m=>m.id),['koreatown'],'reported PROVIDER_MISSING, not invented');
+  eq(c.RAWarRoomDistricts.activeIds(),['arts_district','inglewood'],'the War Room skips what nobody owns');
+  eq(c.RAWarRoomDistricts.provider().errors,[],'no district define error');
+  console.log('PASS convergence Koreatown: F03-owned, never shadowed by F04 or anyone; absent owner reports PROVIDER_MISSING and is skipped');
  }
 
  // ============================================================================================ 9. F07 parked; sealed/private material not introduced
