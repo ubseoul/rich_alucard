@@ -24,7 +24,7 @@
  const day=()=>L().today().day;
  const rd=(path,dflt)=>window.RAFrag.read('F03',path,dflt);
  const wr=(path,value)=>window.RAFrag.patch('F03',path,value);
- const tunables=()=>({trust:{M9_GIVE:0,M9_OTHER:-1,M9_NAH:-1,...(T().trust||{})},m10:{WEEKLY_INCOME:15000,REASK_DAYS:7,...(T().m10||{})}});
+ const tunables=()=>({trust:{M9_GIVE:0,M9_OTHER:-1,M9_NAH:0,...(T().trust||{})},m10:{WEEKLY_INCOME:15000,REASK_DAYS:7,...(T().m10||{})}});
 
  // ------------------------------------------------------------------ cars
  // A car is AVAILABLE when Rich holds it and it is not TRIBUTED (RALife.ownedCars already hides those), LOST or IMPOUNDED.
@@ -86,7 +86,7 @@
   }
   if(outcome==='nah'){
    return O().patch({status:'senior_associate',mission:9,rank:4,title:'SENIOR ASSOCIATE',m9Resolved:true,m9Outcome:'nah',
-    m9GrantsWithheld:true,m9TributedCar:null,m9TributedDay:null,trust:s.trust+(Number(tv.M9_NAH)||0),lastMissionDay:d});
+    m9TributedCar:null,m9TributedDay:null,trust:s.trust+(Number(tv.M9_NAH)||0),lastMissionDay:d});
   }
   throw new Error(`Unknown M9 outcome ${outcome}`);
  }

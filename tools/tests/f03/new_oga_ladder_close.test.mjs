@@ -153,15 +153,21 @@ export async function test(root){
   console.log('PASS f03 TAKEOVER: returnTribute() gives the tributed car back');
  }
 
- // ===================================================================== NAH (candidate/SR-17 path, source-cited)
+ // ===================================================================== NAH (CREATOR RULING: Rank 4, NO trust penalty, M10 + normal grants stay reachable)
  {
   const c=await boot(root);ladder(c,{cars:[SUPRA]});const t0=lane(c).trust;
   await walkOf(root,c,'NEW_OGA_M9',{pick:pickChoice('NAH')});
-  const s=lane(c);assert.equal(s.m9Outcome,'nah');assert.equal(s.rank,4);assert.equal(s.m9GrantsWithheld,true);assert.equal(s.trust-t0,-1);assert.equal(c.RAVehicles.isTributed(SUPRA),false);
-  assert.equal(c.RAAdventures.available('NEW_OGA_M10'),false,'NAH: M10 grants are withheld (no M10 scene)');
-  assert.equal(c.RAAdventures.available('NEW_OGA_VAMPGPT'),false,'not on the same WAKE');
-  assert.equal(wake(c),'NEW_OGA_VAMPGPT','NAH: VampGPT still arrives, on the next WAKE');
-  console.log('PASS f03 NAH: stays Rank 4, no tribute, grants withheld, VampGPT next WAKE');
+  const s=lane(c);assert.equal(s.m9Outcome,'nah');assert.equal(s.rank,4,'1. NAH leaves Rank at 4');assert.equal(s.trust-t0,0,'2. NAH does not reduce trust');
+  assert.ok(!s.m9GrantsWithheld,'3. NAH withholds nothing');assert.equal(c.RAVehicles.isTributed(SUPRA),false);
+  assert.equal(c.RAAdventures.available('NEW_OGA_M10'),false,'4. no same-day chaining: M10 not on the NAH day');
+  assert.equal(wake(c),'NEW_OGA_M10','4. M10 arrives on the next WAKE after NAH');
+  await walkOf(root,c,'NEW_OGA_M10',{});
+  const m=lane(c);assert.equal(m.m10Completed,true);assert.equal(m.m10GrantsApplied,true,'3. normal M10 grants apply after NAH');
+  assert.equal(c.RANewOgaLadder.koreatown().granted,true,'3. Koreatown granted after NAH');
+  const cr=c.RAFrag.read('F03','crew',{});assert.equal(((cr.queue||[]).length+(cr.recruited||[]).length),2,'3. two recruits granted after NAH');
+  assert.equal(c.RAAdventures.available('NEW_OGA_VAMPGPT'),false,'4. VampGPT not on the M10 WAKE');
+  assert.equal(wake(c),'NEW_OGA_VAMPGPT','4. VampGPT arrives on the WAKE after M10');
+  console.log('PASS f03 NAH (creator ruling): Rank 4, no trust penalty, no tribute, M10 + normal grants reachable, VampGPT after M10');
  }
 
  // ===================================================================== 10, 11. one mission voice note per WAKE; M10 -> VampGPT next WAKE
@@ -262,9 +268,9 @@ export async function test(root){
   c.RANewOgaLadder.completeM9('give');c.RAClock.sleep();c.RANewOgaLadder.completeM10();const g=lane(c).m10GrantDay;
   for(let i=0;i<14;i++)c.RAClock.sleep();
   const paid=c.RAMoneyLedger.query({source:'new_oga:m10'});assert.deepEqual(J(paid.map(e=>[e.day-g,e.delta])),[[7,15000],[14,15000]],'19. exactly $15,000 on every 7th day after the grant');
-  const nah=await boot(root);ladder(nah,{cars:[SUPRA]});nah.RANewOgaLadder.completeM9('nah');for(let i=0;i<10;i++)nah.RAClock.sleep();
-  assert.equal(nah.RAMoneyLedger.query({source:'new_oga:m10'}).length,0,'withheld grants: no income');
-  console.log('PASS f03 income: M10 pays the authored $15,000 every 7 days; withheld on NAH');
+  const nah=await boot(root);ladder(nah,{cars:[SUPRA]});nah.RANewOgaLadder.completeM9('nah');nah.RAClock.sleep();nah.RANewOgaLadder.completeM10();const gn=lane(nah).m10GrantDay;for(let i=0;i<7;i++)nah.RAClock.sleep();
+  assert.deepEqual(J(nah.RAMoneyLedger.query({source:'new_oga:m10'}).map(e=>[e.day-gn,e.delta])),[[7,15000]],'NAH then M10: normal $15K/week');
+  console.log('PASS f03 income: M10 pays the authored $15,000 every 7 days; also after NAH');
  }
 
  // ===================================================================== 20. save / reload preserves F03 state

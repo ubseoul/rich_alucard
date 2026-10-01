@@ -13,7 +13,7 @@ behaviour was written; no dialogue was authored.
 | M9 THE TRIBUTE, M10 VICE PRESIDENT, VampGPT scene, weekly income, queues | `js/frag/F03/new_oga_ladder_close.js` |
 | Namespace defaults (`save.frag.F03`: `koreatown`, `crew`) — no schema number claimed | `js/frag/F03/migrations.js` |
 | THE ALTERNATIVE chair activity (flag ON; OFF is the frozen fallback) | `js/data/btf/adventures/new_oga_m4.js` |
-| M9 trust (`M9_GIVE 0 / M9_OTHER −1 / M9_NAH −1`), `m10.WEEKLY_INCOME 15000`, `m10.REASK_DAYS 7` | `js/data/btf/new_oga_tunables.js` |
+| M9 trust (`M9_GIVE 0 / M9_OTHER −1 / M9_NAH 0`), `m10.WEEKLY_INCOME 15000`, `m10.REASK_DAYS 7` | `js/data/btf/new_oga_tunables.js` |
 | TRIBUTED hidden from normal availability (`RALife.ownedCars`), `RALife.heldCars` | `js/systems/life.js` |
 | Pure reader `RAVehicles.tributedCar()`, `RAVehicles.returnTribute()` (additive IF-1) | `js/if1/vehicles.js` |
 | On-loan units do not count against the crew cap (`meta.onLoan`) | `js/frag/F04/crew.js` (one condition) |
@@ -27,7 +27,7 @@ behaviour was written; no dialogue was authored.
 * Every mission arrives on a WAKE through the accepted `RAWakeTriggers` arbiter: one adventure per WAKE; each mission also needs
   `day > lastMissionDay`, so nothing chains onto the WAKE of the mission before it. M9 priority 76, M10 priority 75 (`voiceNotes.define`;
   77 stays reserved for M8).
-* VampGPT is its own adventure (`NEW_OGA_VAMPGPT`) delivered on the **next WAKE after M10** (or after a NAH M9). The candidate played it inside
+* VampGPT is its own adventure (`NEW_OGA_VAMPGPT`) delivered on the **next WAKE after M10**. The candidate played it inside
   M10's scene; that was split to satisfy B2 with no text change.
 
 ## B3 — tribute
@@ -71,8 +71,7 @@ M10 income: the authored `$15,000` every 7th day after the grant, via `RAMoneyLe
 1. **RESOLVED (Source Vault V1.1, Patch 1 NEW OGA, OPEN).** Certified against `source_vault/feature_sources/Rich_Alucard_PLAYMAKERS_Patch1_NEW_OGA.docx`:
    M9 options/ranks/trust (GIVE IT rank 5; OFFER ANOTHER CAR only with an Urus/Aventador, trust −, rank 5; NAH rank stays 4), M10 (Koreatown block,
    $15K/week, two recruits, VICE PRESIDENT office) and the VampGPT sequence and choices (7-sleep re-ask) match. One correction: the authored Rich line
-   "yeah." had been replaced by narration and is restored. Residual ambiguities, left as carried (source silent/ambiguous, not invented here): NAH
-   trust -1 and NAH withholding the M10 grants ("harder", "through M10 alone"; low trust = harder missions per the ladder section); the short `N()`
+   "yeah." had been replaced by narration and is restored. **NAH ambiguity: CLOSED by CREATOR RULING** (NAH at M9: Rank stays 4, NO trust penalty, M10 remains reachable, normal M10 grants remain available; the candidate's trust −1 and grant withholding are removed). Remaining note: the short `N()`
    narration beats around the authored facts are connective text, not authored dialogue.
 2. M10 recruits' class and name are placeholders (`NEW RECRUIT n`; class cycles the six existing classes). The source authors neither.
 3. LOST / IMPOUNDED have no runtime writer on this base; F03 reads `ownershipStatus` (`lost` / `impounded`). F01's `garage.lost` lives in the PLAY world
