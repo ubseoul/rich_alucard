@@ -1,0 +1,111 @@
+{
+ "routes": [
+  {
+   "id": "F05.trap.run",
+   "fragment": "F05",
+   "title": "THE TRAP \u2014 open the app on an owned traphouse; the raid board is player-facing",
+   "kind": "mechanic",
+   "status": "AUTHORIZED",
+   "flag": "F05.trap",
+   "steps": [
+    {
+     "action": "goto",
+     "url": "/"
+    },
+    {
+     "action": "waitFor",
+     "expression": "()=>window.RAIF1&&window.RAState&&window.RAF05&&window.RAWarRoomPlay",
+     "timeout": 25000
+    },
+    {
+     "action": "eval",
+     "script": "()=>{localStorage.clear();RAState.reset();RAState.patch('life.clock.started',true);for(const k of ['prologueDone','throneDone','firstWakeDone'])RALife.setFlag(k,true);RAState.patch('life.world.day',9);RAState.patch('life.resources.money',1000000);}",
+     "saveAs": "seed"
+    },
+    {
+     "action": "reload"
+    },
+    {
+     "action": "waitFor",
+     "expression": "()=>window.RAIF1&&window.RAState&&window.RAF05&&window.RAWarRoomPlay",
+     "timeout": 25000
+    },
+    {
+     "action": "eval",
+     "script": "()=>{RAFrag.patch('F04','active',true);RAFrag.patch('F04','offer.status','accepted');const R=RAF05;RAState.patch('life.newOga',{...RAState.get().life.newOga,rank:3,status:'associate'});R.unlock.tick();R.unlock.buy('the_bando');R.production.addIngredient('synth',2);R.production.cook({houseId:'the_bando',grade:'D',cases:2,quality:95});R.store.addUnbanked(1000);RAHeat.add(70,{source:'f14'});}",
+     "saveAs": "setup"
+    },
+    {
+     "action": "reload"
+    },
+    {
+     "action": "waitFor",
+     "expression": "()=>window.RAIF1&&window.RAState&&window.RAF05&&window.RAWarRoomPlay",
+     "timeout": 25000
+    },
+    {
+     "action": "click",
+     "selector": "#startButton"
+    },
+    {
+     "action": "waitFor",
+     "expression": "()=>document.body.classList.contains('bedroom-mode')",
+     "timeout": 20000
+    },
+    {
+     "action": "eval",
+     "script": "()=>{const b=document.querySelector('.mail-done');if(b)b.click();return !!b;}",
+     "saveAs": "dismiss-morning-mail"
+    },
+    {
+     "action": "wait",
+     "ms": 500
+    },
+    {
+     "action": "click",
+     "selector": "#checkPhone"
+    },
+    {
+     "action": "waitFor",
+     "expression": "()=>window.RAPhone&&RAPhone.isOpen()",
+     "timeout": 10000
+    },
+    {
+     "action": "eval",
+     "script": "()=>RAPhone.openApp('trap')"
+    },
+    {
+     "action": "waitFor",
+     "expression": "()=>/TRAP/.test(document.querySelector('#phoneContent').innerText)",
+     "timeout": 8000
+    },
+    {
+     "action": "expect",
+     "expression": "()=>RAF05.store.ownedHouses().includes('the_bando')",
+     "equals": true,
+     "message": "the owned traphouse is listed"
+    },
+    {
+     "action": "expect",
+     "expression": "()=>!!document.querySelector('#phoneContent [data-phone-action^=\"app:trap:house:\"]')",
+     "equals": true,
+     "message": "the house is a tappable control"
+    },
+    {
+     "action": "eval",
+     "script": "()=>RAPhone.openApp('trap','world')"
+    },
+    {
+     "action": "expect",
+     "expression": "()=>/RAIDS/.test(document.querySelector('#phoneContent').innerText)&&!/F01_INTEGRATION_PENDING/.test(document.querySelector('#phoneContent').innerText)",
+     "equals": true,
+     "message": "the raid board is player-facing"
+    },
+    {
+     "action": "screenshot",
+     "name": "trap-world"
+    }
+   ]
+  }
+ ]
+}

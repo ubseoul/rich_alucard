@@ -1,0 +1,101 @@
+{
+ "routes": [
+  {
+   "id": "F04.war_room.open",
+   "fragment": "F04",
+   "title": "WAR ROOM \u2014 open the app, the night's jobs are offered",
+   "kind": "mission",
+   "status": "AUTHORIZED",
+   "flag": "F04.war_room",
+   "steps": [
+    {
+     "action": "goto",
+     "url": "/"
+    },
+    {
+     "action": "waitFor",
+     "expression": "()=>window.RAIF1&&window.RAState&&window.RAF05&&window.RAWarRoomPlay",
+     "timeout": 25000
+    },
+    {
+     "action": "eval",
+     "script": "()=>{localStorage.clear();RAState.reset();RAState.patch('life.clock.started',true);for(const k of ['prologueDone','throneDone','firstWakeDone'])RALife.setFlag(k,true);RAState.patch('life.world.day',9);RAState.patch('life.resources.money',1000000);}",
+     "saveAs": "seed"
+    },
+    {
+     "action": "reload"
+    },
+    {
+     "action": "waitFor",
+     "expression": "()=>window.RAIF1&&window.RAState&&window.RAF05&&window.RAWarRoomPlay",
+     "timeout": 25000
+    },
+    {
+     "action": "eval",
+     "script": "()=>{RAFrag.patch('F04','active',true);RAFrag.patch('F04','offer.status','accepted');RAPhoneRegistry.unlock('warRoom',{silent:true});}",
+     "saveAs": "setup"
+    },
+    {
+     "action": "reload"
+    },
+    {
+     "action": "waitFor",
+     "expression": "()=>window.RAIF1&&window.RAState&&window.RAF05&&window.RAWarRoomPlay",
+     "timeout": 25000
+    },
+    {
+     "action": "click",
+     "selector": "#startButton"
+    },
+    {
+     "action": "waitFor",
+     "expression": "()=>document.body.classList.contains('bedroom-mode')",
+     "timeout": 20000
+    },
+    {
+     "action": "eval",
+     "script": "()=>{const b=document.querySelector('.mail-done');if(b)b.click();return !!b;}",
+     "saveAs": "dismiss-morning-mail"
+    },
+    {
+     "action": "wait",
+     "ms": 500
+    },
+    {
+     "action": "click",
+     "selector": "#checkPhone"
+    },
+    {
+     "action": "waitFor",
+     "expression": "()=>window.RAPhone&&RAPhone.isOpen()",
+     "timeout": 10000
+    },
+    {
+     "action": "eval",
+     "script": "()=>RAPhone.openApp('warRoom')"
+    },
+    {
+     "action": "waitFor",
+     "expression": "()=>/WAR ROOM/i.test(document.querySelector('#phoneContent').innerText)",
+     "timeout": 8000
+    },
+    {
+     "action": "expect",
+     "expression": "()=>document.querySelectorAll('#phoneContent [data-phone-action]').length>1",
+     "equals": true,
+     "message": "the WAR ROOM offers actions"
+    },
+    {
+     "action": "expect",
+     "expression": "()=>RACrew.list({fragment:'F04'}).length===6",
+     "equals": true,
+     "message": "the shared roster is the six Ogas (canonical RACrew ids)"
+    },
+    {
+     "action": "screenshot",
+     "name": "war-room-open"
+    }
+   ]
+  }
+ ]
+}

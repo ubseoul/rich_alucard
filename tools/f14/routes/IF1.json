@@ -1,0 +1,192 @@
+{
+ "schema": 1,
+ "note": "Accepted IF-1 baseline browser success paths. These are runnable now and give the harness a real PASS to anchor on. Fragment routes live in their own <FRAGMENT>.json files and are PENDING_FRAGMENT until merged.",
+ "routes": [
+  {
+   "id": "IF1.boot",
+   "fragment": "IF1",
+   "title": "Boot — IF-1 loaded, self-check OK, every fragment flag OFF",
+   "kind": "baseline",
+   "status": "AUTHORIZED",
+   "steps": [
+    {"action": "goto", "url": "/"},
+    {"action": "waitFor", "expression": "()=>window.RAIF1&&window.RAState", "timeout": 20000},
+    {"action": "expect", "expression": "()=>RAIF1.version==='1.0.0'", "equals": true, "message": "IF-1 v1.0.0 loaded"},
+    {"action": "expect", "expression": "()=>RAIF1.selfCheck().ok", "equals": true, "message": "IF-1 self-check OK"},
+    {"action": "expect", "expression": "()=>Object.values(RAFeatures.snapshot()).every(v=>v===false)", "equals": true, "message": "every fragment flag OFF (dark)"},
+    {"action": "screenshot", "name": "boot"}
+   ]
+  },
+  {
+   "id": "IF1.start-life",
+   "fragment": "IF1",
+   "title": "Start a progressed life into the bedroom",
+   "kind": "mission",
+   "status": "AUTHORIZED",
+   "steps": [
+    {"action": "goto", "url": "/"},
+    {"action": "waitFor", "expression": "()=>window.RAIF1&&window.RAState", "timeout": 20000},
+    {"action": "eval", "script": "()=>{localStorage.clear();RAState.reset();RAState.patch('life.clock.started',true);for(const k of ['prologueDone','throneDone','firstWakeDone'])RALife.setFlag(k,true);RAState.patch('life.world.day',9);RAState.patch('life.resources.money',100000);}", "saveAs": "seed"},
+    {"action": "reload"},
+    {"action": "waitFor", "expression": "()=>window.RAIF1&&window.RAState", "timeout": 20000},
+    {"action": "click", "selector": "#startButton"},
+    {"action": "waitFor", "expression": "()=>document.body.classList.contains('bedroom-mode')", "timeout": 20000},
+    {"action": "expect", "expression": "()=>RALife.today().day===9", "equals": true, "message": "seeded life resumes on day 9"},
+    {"action": "snapshot", "as": "bedroom"},
+    {"action": "screenshot", "name": "bedroom-day9"}
+   ]
+  },
+  {
+   "id": "IF1.phone",
+   "fragment": "IF1",
+   "title": "Open the phone — canon apps present, reserved fragment apps absent",
+   "kind": "mechanic",
+   "status": "AUTHORIZED",
+   "steps": [
+    {"action": "goto", "url": "/"},
+    {"action": "waitFor", "expression": "()=>window.RAIF1&&window.RAState", "timeout": 20000},
+    {"action": "eval", "script": "()=>{localStorage.clear();RAState.reset();RAState.patch('life.clock.started',true);for(const k of ['prologueDone','throneDone','firstWakeDone'])RALife.setFlag(k,true);RAState.patch('life.world.day',9);RAState.patch('life.resources.money',100000);}", "saveAs": "seed"},
+    {"action": "reload"},
+    {"action": "waitFor", "expression": "()=>window.RAIF1&&window.RAState", "timeout": 20000},
+    {"action": "click", "selector": "#startButton"},
+    {"action": "waitFor", "expression": "()=>document.body.classList.contains('bedroom-mode')", "timeout": 20000},
+    {"action": "click", "selector": "#checkPhone"},
+    {"action": "waitFor", "expression": "()=>window.RAPhone&&RAPhone.isOpen()", "timeout": 10000},
+    {"action": "expect", "expression": "()=>[...document.querySelectorAll('#phoneContent .app-button')].map(b=>b.dataset.phoneAction).includes('app:vampgpt')", "equals": true, "message": "VampGPT app present"},
+    {"action": "expect", "expression": "()=>{const acts=[...document.querySelectorAll('#phoneContent [data-phone-action]')].map(b=>b.dataset.phoneAction);return ['warRoom','trap','armory','rainmaker'].every(id=>!acts.includes('app:'+id));}", "equals": true, "message": "reserved fragment apps absent with flags OFF"},
+    {"action": "screenshot", "name": "phone-home"}
+   ]
+  },
+  {
+   "id": "IF1.prologue",
+   "fragment": "IF1",
+   "title": "New Game — prologue mounts and advances in the adventure scene",
+   "kind": "success",
+   "status": "AUTHORIZED",
+   "steps": [
+    {"action": "goto", "url": "/"},
+    {"action": "waitFor", "expression": "()=>window.RAIF1&&window.RAScenes", "timeout": 20000},
+    {"action": "eval", "script": "()=>{localStorage.clear();RAState.reset();}", "saveAs": "clear"},
+    {"action": "reload"},
+    {"action": "waitFor", "expression": "()=>window.RAIF1&&window.RAScenes", "timeout": 20000},
+    {"action": "click", "selector": "#startButton"},
+    {"action": "waitFor", "expression": "()=>RAScenes.current()==='adventure'", "timeout": 20000},
+    {"action": "expect", "expression": "()=>RAScenes.current()==='adventure'", "equals": true, "message": "START leads to the prologue adventure"},
+    {"action": "screenshot", "name": "prologue"},
+    {"action": "tap", "selector": "#adventureScene", "x": 195, "y": 300},
+    {"action": "wait", "ms": 200},
+    {"action": "expect", "expression": "()=>RAScenes.current()==='adventure'", "equals": true, "message": "the prologue advances by a player tap"}
+   ]
+  },
+  {"id": "IF1.minigame.touge", "fragment": "IF1", "title": "Minigame lab — TOUGE opens and quits", "kind": "mechanic", "status": "AUTHORIZED", "steps": [
+    {"action": "goto", "url": "/minigame-lab.html"},
+    {"action": "waitFor", "expression": "()=>!!document.querySelector('#labList [data-game=\"touge\"]')", "timeout": 25000},
+    {"action": "click", "selector": "#labList [data-game=\"touge\"]"},
+    {"action": "waitFor", "expression": "()=>!!document.querySelector('.ra-minigame')", "timeout": 15000},
+    {"action": "screenshot", "name": "touge-open"},
+    {"action": "click", "selector": ".ra-minigame-quit"},
+    {"action": "wait", "ms": 300},
+    {"action": "expect", "expression": "()=>!document.querySelector('.ra-minigame')", "equals": true, "message": "TOUGE quit returns to the lab"},
+    {"action": "expect", "expression": "()=>getComputedStyle(document.querySelector('#labMenu')).display!=='none'", "equals": true, "message": "lab menu visible after quit"}
+  ]},
+  {"id": "IF1.minigame.garage", "fragment": "IF1", "title": "Minigame lab — GARAGE opens and quits", "kind": "mechanic", "status": "AUTHORIZED", "steps": [
+    {"action": "goto", "url": "/minigame-lab.html"},
+    {"action": "waitFor", "expression": "()=>!!document.querySelector('#labList [data-game=\"garage\"]')", "timeout": 25000},
+    {"action": "click", "selector": "#labList [data-game=\"garage\"]"},
+    {"action": "waitFor", "expression": "()=>!!document.querySelector('.ra-minigame')", "timeout": 15000},
+    {"action": "screenshot", "name": "garage-open"},
+    {"action": "click", "selector": ".ra-minigame-quit"},
+    {"action": "wait", "ms": 300},
+    {"action": "expect", "expression": "()=>!document.querySelector('.ra-minigame')", "equals": true, "message": "GARAGE quit returns to the lab"},
+    {"action": "expect", "expression": "()=>getComputedStyle(document.querySelector('#labMenu')).display!=='none'", "equals": true, "message": "lab menu visible after quit"}
+  ]},
+  {"id": "IF1.minigame.hatch", "fragment": "IF1", "title": "Minigame lab — HATCH opens and quits", "kind": "mechanic", "status": "AUTHORIZED", "steps": [
+    {"action": "goto", "url": "/minigame-lab.html"},
+    {"action": "waitFor", "expression": "()=>!!document.querySelector('#labList [data-game=\"hatch\"]')", "timeout": 25000},
+    {"action": "click", "selector": "#labList [data-game=\"hatch\"]"},
+    {"action": "waitFor", "expression": "()=>!!document.querySelector('.ra-minigame')", "timeout": 15000},
+    {"action": "screenshot", "name": "hatch-open"},
+    {"action": "click", "selector": ".ra-minigame-quit"},
+    {"action": "wait", "ms": 300},
+    {"action": "expect", "expression": "()=>!document.querySelector('.ra-minigame')", "equals": true, "message": "HATCH quit returns to the lab"},
+    {"action": "expect", "expression": "()=>getComputedStyle(document.querySelector('#labMenu')).display!=='none'", "equals": true, "message": "lab menu visible after quit"}
+  ]},
+  {"id": "IF1.minigame.bars", "fragment": "IF1", "title": "Minigame lab — BARS opens and quits", "kind": "mechanic", "status": "AUTHORIZED", "steps": [
+    {"action": "goto", "url": "/minigame-lab.html"},
+    {"action": "waitFor", "expression": "()=>!!document.querySelector('#labList [data-game=\"bars\"]')", "timeout": 25000},
+    {"action": "click", "selector": "#labList [data-game=\"bars\"]"},
+    {"action": "waitFor", "expression": "()=>!!document.querySelector('.ra-minigame')", "timeout": 15000},
+    {"action": "screenshot", "name": "bars-open"},
+    {"action": "click", "selector": ".ra-minigame-quit"},
+    {"action": "wait", "ms": 300},
+    {"action": "expect", "expression": "()=>!document.querySelector('.ra-minigame')", "equals": true, "message": "BARS quit returns to the lab"},
+    {"action": "expect", "expression": "()=>getComputedStyle(document.querySelector('#labMenu')).display!=='none'", "equals": true, "message": "lab menu visible after quit"}
+  ]},
+  {"id": "IF1.minigame.slurp", "fragment": "IF1", "title": "Minigame lab — SLURP opens and quits", "kind": "mechanic", "status": "AUTHORIZED", "steps": [
+    {"action": "goto", "url": "/minigame-lab.html"},
+    {"action": "waitFor", "expression": "()=>!!document.querySelector('#labList [data-game=\"slurp\"]')", "timeout": 25000},
+    {"action": "click", "selector": "#labList [data-game=\"slurp\"]"},
+    {"action": "waitFor", "expression": "()=>!!document.querySelector('.ra-minigame')", "timeout": 15000},
+    {"action": "screenshot", "name": "slurp-open"},
+    {"action": "click", "selector": ".ra-minigame-quit"},
+    {"action": "wait", "ms": 300},
+    {"action": "expect", "expression": "()=>!document.querySelector('.ra-minigame')", "equals": true, "message": "SLURP quit returns to the lab"},
+    {"action": "expect", "expression": "()=>getComputedStyle(document.querySelector('#labMenu')).display!=='none'", "equals": true, "message": "lab menu visible after quit"}
+  ]},
+  {"id": "IF1.minigame.jollof", "fragment": "IF1", "title": "Minigame lab — JOLLOF WARS opens and quits", "kind": "mechanic", "status": "AUTHORIZED", "steps": [
+    {"action": "goto", "url": "/minigame-lab.html"},
+    {"action": "waitFor", "expression": "()=>!!document.querySelector('#labList [data-game=\"jollof\"]')", "timeout": 25000},
+    {"action": "click", "selector": "#labList [data-game=\"jollof\"]"},
+    {"action": "waitFor", "expression": "()=>!!document.querySelector('.ra-minigame')", "timeout": 15000},
+    {"action": "screenshot", "name": "jollof-open"},
+    {"action": "click", "selector": ".ra-minigame-quit"},
+    {"action": "wait", "ms": 300},
+    {"action": "expect", "expression": "()=>!document.querySelector('.ra-minigame')", "equals": true, "message": "JOLLOF WARS quit returns to the lab"},
+    {"action": "expect", "expression": "()=>getComputedStyle(document.querySelector('#labMenu')).display!=='none'", "equals": true, "message": "lab menu visible after quit"}
+  ]},
+  {"id": "IF1.minigame.hookah", "fragment": "IF1", "title": "Minigame lab — HOOKAH RINGS opens and quits", "kind": "mechanic", "status": "AUTHORIZED", "steps": [
+    {"action": "goto", "url": "/minigame-lab.html"},
+    {"action": "waitFor", "expression": "()=>!!document.querySelector('#labList [data-game=\"hookah\"]')", "timeout": 25000},
+    {"action": "click", "selector": "#labList [data-game=\"hookah\"]"},
+    {"action": "waitFor", "expression": "()=>!!document.querySelector('.ra-minigame')", "timeout": 15000},
+    {"action": "screenshot", "name": "hookah-open"},
+    {"action": "click", "selector": ".ra-minigame-quit"},
+    {"action": "wait", "ms": 300},
+    {"action": "expect", "expression": "()=>!document.querySelector('.ra-minigame')", "equals": true, "message": "HOOKAH RINGS quit returns to the lab"},
+    {"action": "expect", "expression": "()=>getComputedStyle(document.querySelector('#labMenu')).display!=='none'", "equals": true, "message": "lab menu visible after quit"}
+  ]},
+  {"id": "IF1.minigame.pickup", "fragment": "IF1", "title": "Minigame lab — PICKUP opens and quits", "kind": "mechanic", "status": "AUTHORIZED", "steps": [
+    {"action": "goto", "url": "/minigame-lab.html"},
+    {"action": "waitFor", "expression": "()=>!!document.querySelector('#labList [data-game=\"pickup\"]')", "timeout": 25000},
+    {"action": "click", "selector": "#labList [data-game=\"pickup\"]"},
+    {"action": "waitFor", "expression": "()=>!!document.querySelector('.ra-minigame')", "timeout": 15000},
+    {"action": "screenshot", "name": "pickup-open"},
+    {"action": "click", "selector": ".ra-minigame-quit"},
+    {"action": "wait", "ms": 300},
+    {"action": "expect", "expression": "()=>!document.querySelector('.ra-minigame')", "equals": true, "message": "PICKUP quit returns to the lab"},
+    {"action": "expect", "expression": "()=>getComputedStyle(document.querySelector('#labMenu')).display!=='none'", "equals": true, "message": "lab menu visible after quit"}
+  ]},
+  {"id": "IF1.minigame.pier", "fragment": "IF1", "title": "Minigame lab — PIER opens and quits", "kind": "mechanic", "status": "AUTHORIZED", "steps": [
+    {"action": "goto", "url": "/minigame-lab.html"},
+    {"action": "waitFor", "expression": "()=>!!document.querySelector('#labList [data-game=\"pier\"]')", "timeout": 25000},
+    {"action": "click", "selector": "#labList [data-game=\"pier\"]"},
+    {"action": "waitFor", "expression": "()=>!!document.querySelector('.ra-minigame')", "timeout": 15000},
+    {"action": "screenshot", "name": "pier-open"},
+    {"action": "click", "selector": ".ra-minigame-quit"},
+    {"action": "wait", "ms": 300},
+    {"action": "expect", "expression": "()=>!document.querySelector('.ra-minigame')", "equals": true, "message": "PIER quit returns to the lab"},
+    {"action": "expect", "expression": "()=>getComputedStyle(document.querySelector('#labMenu')).display!=='none'", "equals": true, "message": "lab menu visible after quit"}
+  ]},
+  {"id": "IF1.minigame.owambe_collection", "fragment": "IF1", "title": "Minigame lab — OWAMBE COLLECTION opens and quits", "kind": "mechanic", "status": "AUTHORIZED", "steps": [
+    {"action": "goto", "url": "/minigame-lab.html"},
+    {"action": "waitFor", "expression": "()=>!!document.querySelector('#labList [data-game=\"owambe_collection\"]')", "timeout": 25000},
+    {"action": "click", "selector": "#labList [data-game=\"owambe_collection\"]"},
+    {"action": "waitFor", "expression": "()=>!!document.querySelector('.ra-minigame')", "timeout": 15000},
+    {"action": "screenshot", "name": "owambe_collection-open"},
+    {"action": "click", "selector": ".ra-minigame-quit"},
+    {"action": "wait", "ms": 300},
+    {"action": "expect", "expression": "()=>!document.querySelector('.ra-minigame')", "equals": true, "message": "OWAMBE COLLECTION quit returns to the lab"},
+    {"action": "expect", "expression": "()=>getComputedStyle(document.querySelector('#labMenu')).display!=='none'", "equals": true, "message": "lab menu visible after quit"}
+  ]}
+ ]
+}

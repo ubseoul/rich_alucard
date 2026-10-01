@@ -1,0 +1,45 @@
+primary 800 (15476 ms)
+replicate baseline (44760 ms)
+calls off (49436 ms)
+careers careful (75002 ms)
+careers greedy (98998 ms)
+careers naive (122827 ms)
+careers random (146980 ms)
+retention arms (214197 ms)
+
+=== TUNED SIM ===
+T1 generic death (PLAYs w/ generics aboard): 10.4% | was 24.9% | target 10–12%
+T2 named CAPTURED (share of PLAYs): 7.0% | was 18.0% | target ≤8%
+T3 SPLIT: 5.9% by car {"SUPRA":"3.1%","URUS":"4.0%","HOOPTIE":"11.9%","S2000":"0.0%","CASTLE":"0.0%"} | was 1.8% | target 4–6%
+T4 step 1: n=2004 P(success)=75.0% pot=74.34 EV=16.19 (24.9% of pot mean-rel)
+T4 step 2: n=1370 P(success)=56.9% pot=120.36 EV=-8.47 (-4.4% of pot mean-rel)
+T4 step 3: n=694 P(success)=34.0% pot=192.85 EV=-94.69 (-48.3% of pot mean-rel)
+   step-2 visible jackpot share: 14.0% | step-2 aggregate EV/pot: -7.0%
+   step-3 aggregate EV/pot: -49.1%
+   step-1 aggregate EV/pot: 21.8%
+   top loss causes: SEAT: the counter was aboard but in the wrong seat ( 240 | ENEMY: hunters go straight for vampires 197 | GREED: they went back in 131 | EARLIER: they were down to one on their feet 125 | ENEMY: the lieutenant lifted his crew 92 | ENEMY: enforcers charge the front seat 82 | EARLIER: everybody went down 48 | EARLIER: Tunde was already hurt 46 | LUCK:  44 | HAZARD: the second van was early 43
+T5 player-attributable losses: 36.3% | was 18.5% | target ≥35%; causes {"EARLIER":475,"ENEMY":401,"SEAT":271,"HAZARD":149,"LUCK":44,"CAR":57,"GREED":140,"WEAPON":32,"TRAIT":28,"CHOICE":81}
+T9 lines: repeats-within-3: 0 of 73635 uses | uncovered triggers [] | thin keys [] | distinct lines 1605 top share 1.8% [["Tunde watched it all like a weather report — CALM",126],["Tunde stayed exactly as calm as Tunde was — CALM",125],["Tunde did not blink — CALM",119]]
+R1 careful  roster end 8.82 of 9 | ≥6: 100% | min 7 | lost/career 0.05 (named 0.05) | ransom paid 0.00 | extract wins 1.02 / 1.07 | READY 8.72 | cash 910
+R1 greedy   roster end 6.53 of 9 | ≥6: 78% | min 1 | lost/career 1.40 (named 1.00) | ransom paid 0.95 | extract wins 0.50 / 2.80 | READY 6.61 | cash 371
+R1 naive    roster end 9.00 of 9 | ≥6: 100% | min 9 | lost/career 0.05 (named 0.05) | ransom paid 0.00 | extract wins 1.63 / 2.25 | READY 8.70 | cash 481
+R1 random   roster end 8.25 of 9 | ≥6: 100% | min 6 | lost/career 0.23 (named 0.17) | ransom paid 0.38 | extract wins 0.97 / 1.48 | READY 8.13 | cash 480
+R1 random arm: all OL-016 brakes              roster end 8.25 | ≥6: 100% | min 6 | lost/career 0.23
+R1 random arm: no EXTRACT/RANSOM brakes       roster end 7.03 | ≥6: 85% | min 2 | lost/career 2.15
+R1 random arm: no last-stand bail-out         roster end 7.20 | ≥6: 88% | min 1 | lost/career 0.97
+R1 random arm: neither (approved sim rules)   roster end 5.28 | ≥6: 48% | min 1 | lost/career 4.17
+skill gap strict: 0.54 | calls off: 0.19 | calls/PLAY 0.49
+win bands: careful 83.0% naive 67.0% gap 16.00 pts | random 50.5% greedy 21.0% | wash careful/naive 5.5% 7.0%
+nothing-happened strict: 7.6% | story-beat 92.4% | blame broad 97.4% | funny/dramatic 55.4% | retaliation share 6.1%
+temptations {"RARE_PITCH":439,"RECRUIT":111,"DEMAND":112,"RETALIATION":49,"RESCUE":63,"INTEL":26}
+BAILED rate (800-PLAY matrix) by policy: careful 7.5% | greedy 10.5% | naive 14.5% | random 18.0% | all 12.6% (101 of 800)
+BAILED rate (careers) by policy: careful 5.8% | greedy 10.2% | naive 14.5% | random 14.4% | all 11.3%
+BAILED invariants (BIG PLAY/HOLD excluded, crew>=2, no capture/death/shot, not robbed, pot lost, base heat only, no retaliation): 0 violations over 559 BAILED PLAYs
+T2 named CAPTURED by job: {"boba_backroom":"5.0%","tupperware":"0.0%","vampire_dentist":"13.8%","dock_restock":"0.0%","car_wash_stickup":"2.5%","quiet_lift":"5.0%","vampire_gala":"12.5%","smack_crib":"5.0%","counting_house[BIG PLAY]":"20.0%","hold_the_house[HOLD]":"6.3%"} | routine offense only 5.5% | BIG PLAY + HOLD only 13.1%
+WASH rate by job class: routine 4.5% | BIG PLAY + HOLD 11.9%
+OL-022 T2 BANDS: routine offense 5.5% (target <=8%) | BIG PLAY 20.0% (target <=20%) | HOLD THE HOUSE 6.3% (target <=8%)
+HOLD THE HOUSE win rate: careful 90.0% naive 65.0% greedy 5.0% random 50.0% | n 80 | FELL BACK rate 30.0% | WASH rate 8.8%
+FALL BACK by policy (HOLD matrix): careful 5.0% | greedy 45.0% | naive 30.0% | random 40.0% | careers all 15 FELL BACK PLAYs
+FALL BACK invariants (defense only, never offense/BIG PLAY, not BAILED/ROBBED, 0 capture/death/shot, product lost, base heat, exact klass): 0 violations over 39 FELL BACK PLAYs | BAILED on defense: 0
+T9 pool sizing (pool > 3 x max uses per PLAY): all 182 triggers satisfy it
+done (214508 ms)

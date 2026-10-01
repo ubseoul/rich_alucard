@@ -35,7 +35,8 @@
  async function richboiAction(act,arg,api){if(act==='buy'&&buy(arg)){await api.close();RAAdventureScene.begin('RB_DELIVERY',{vars:{car:arg}});}}
  async function garage(api,carKey){const cars=RALife.ownedCars();const car=cars.find(c=>keyOf(c)===carKey)||cars.find(c=>c.id===RALife.flag('tougeCar'))||cars.at(-1);if(!car)return;const k=keyOf(car);
   await api.launch('garage',{car:toTouge(car).replace('r34_awd','r34').replace('r34_rwd','r34'),owned:car.parts||{},parts:car.parts||{},money:RALife.money(),lessonsSeen:RALife.flag('garageLessons')||[]},result=>{if(result.rewards?.parts)installParts(car.id,result.rewards.parts);if(result.data?.testDrive)window.RACars.touge({course:'docks',car:car.id,short:true});});}
- window.RAPhoneApps?.register({id:'cars',label:'CARS',hidden:true});
+ // (FCPB convergence) the bare hidden 'cars' registration that stood here was replaced by the fuller one below: RAPhoneApps.register
+ // is last-writer-wins, so it was dead code and left two registrations of one id. One registration remains, at the RACars export.
  A_register();
  function A_register(){
   window.RAPhoneApps?.register({id:'touge',label:'TOUGE',order:14,
