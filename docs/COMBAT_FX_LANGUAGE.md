@@ -8,6 +8,8 @@ Ground rules for everything below:
 - **No rebalancing.** Every fix reads fields the rules already emit (`kind`, `target`, `amount`, `heavy`, `fx`, `hits`, `move`, `companion`) or move/enemy ids the scene already has. No HP, damage, PP, timing-of-rules, RNG or outcome changes.
 - **F01 / THE PLAY is out of scope.** Its feel lock (OL-023: "danger is felt, never explained", the phone feed, silence) is not touched. It is cited once below as a reference for silence as a presentation tool.
 - **Frozen art is never edited.** "Use existing assets" means wiring, sequencing, compositing and timing frozen files. Anything new is an art ticket in §F.
+- **Never ask Ube to cook blind.** Every question about an existing character, move or encounter opens with 1–3 sentences of spoiler-safe existing context.
+- **Creator source is verbatim.** Wording Ube supplies is recorded exactly (§E0) and never paraphrased in runtime copy. Anything else in this document is a director proposal, marked as such, and Ube can override it.
 - **Style bible holds.** Hard edges, integer placement, few authored states, deliberate pauses, restrained shake and hit-stop, no particle soup, blur, bloom or fake VHS, and no generic black-and-red "vampire everything" (`docs/VISUAL_STYLE_BIBLE.md`).
 
 Evidence base: the runtime on `integration/fcpb-convergence-001` (tip 2026-09-30). This branch's `main` only holds the throne slice, so all file paths below are paths on that branch.
@@ -127,7 +129,7 @@ The tell is the **only** place an enemy explains itself. Bosses with `noTelegrap
 
 **B0.4 FINISH grammar (KO / spared / ran).**
 - **Win:** LETHAL tier → `KO` → the defeated state holds → **400 ms of nothing** (music keeps going, no log text) → "X IS DOWN." Pause before the text, not after.
-- **Spared** (Octopus / food / tame): no KO, no flash. The enemy swaps to its spared state where one exists (§D8), then a soft cue (`HEAL` or `REWARD_STINGER`, Ube's pick, §E11).
+- **Spared** (Octopus / food / tame): no KO, no flash. The enemy swaps to its spared state where one exists (§D8), then a soft cue (director default `HEAL`; `REWARD_STINGER` is the alternative, Ube can override).
 - **Lose:** Rich takes the LETHAL silhouette; `DEFEAT`. The Blood Bank bill fiction does the rest.
 
 **B0.5 Pixel rules.**
@@ -333,53 +335,76 @@ The shortlist is **six**. Everything else gets its family. The canon four (Blood
 
 | # | Signature | Why it's bespoke | Base family (fallback) | What exists | Needs |
 |---|---|---|---|---|---|
-| C1 | **POWER LEVEL PHIL — BEAM** | Two full turns of announced charging is the biggest set-up in menu combat. A set-up that long without a payoff is broken | STAGE + BLUNT | `power_level_phil_charging_day1` and `phil_charging_day3` (**gold aura already drawn**), `phil_spent_grounded`, `phil_sitting_plate`, `EN_CHARGE` (loop), `EN_SCREAM` | Beam art (ART-S1), Ube's cook (E1) |
-| C2 | **HILT — LUNCHBOX** (+ the anti-tell) | The one boss with `noTelegraph`, `noRun`, and an Octopus that does nothing. He's the fight that tells Rich he isn't safe. His signature is the *absence* of a tell, then a lunchbox | THROWN | `hilt_strike`, `hilt_walk_away`, `EN_LUNCHBOX`, `EN_STAKE` | Lunchbox throw/open frames (ART-S2), E2 |
-| C3 | **SIR BONESWORTH — DEATH CHARGE** | Scripted below-50% phase change: SECOND WIND → "HE IS LOWERING INTO A CHARGE. ALL OF HIM." → 55. The only enemy with a full frozen combat sheet | BLUNT HEAVY | Full `telegraph/strike/hit/defeated` sheet (bone pile), `EN_BONES`, `EN_SWORD`, `EN_SHIELD` | 1–2 charge frames (ART-S3), E3 |
-| C4 | **40 KEVINS — KAGE BUNSHIN** | Forty clones is a promise of chaos. "FIND THE REAL ONE" is a built-in replay hook | SWARM | `kagebunshin_kevin_neutral`, `kevin_attack` (with a thrown puff), `kevin_poof` (cloud), `EN_POOF` | Nothing required; better with a crowd plate (ART-S4), E4 |
-| C5 | **GUN WEAVE → THE RPG** (and AUNTIE'S SLIPPER) | Gun Weaving is canon-unique (guns made of Rich's blood). The RPG is the most expensive item in the game ($400,000) and hurts Rich too. Auntie's Slipper is "never cut" in the F02 patch | IRON / THROWN | `E-gun-the_rpg-held`, all 5 held guns, `GUNWEAVE`, `GUN_RPG`, blood weave frames | RPG projectile + blast (ART-S5); slipper art + `GN_05` (AUD-01), E5–E7 |
+| C1 | **POWER LEVEL PHIL — BEAM** · ✅ creator source | Two full turns of announced charging is the biggest set-up in menu combat. A set-up that long without a payoff is broken | STAGE + BLUNT | `power_level_phil_charging_day1` and `phil_charging_day3` (**gold aura already drawn**), `phil_spent_grounded`, `phil_sitting_plate`, `EN_CHARGE` (loop), `EN_SCREAM` | Beam + screen-crack frames (ART-S1, not requested yet) |
+| C2 | **HILT — LUNCHBOX** (+ the anti-tell) | The one boss with `noTelegraph`, `noRun`, and an Octopus that does nothing. He's the fight that tells Rich he isn't safe. His signature is the *absence* of a tell, then a lunchbox | THROWN | `hilt_strike`, `hilt_walk_away`, `EN_LUNCHBOX`, `EN_STAKE` | Lunchbox + contents frames (ART-S2, not requested yet). ✅ contents are creator source |
+| C3 | **SIR BONESWORTH — DEATH CHARGE** | Scripted below-50% phase change: SECOND WIND → "HE IS LOWERING INTO A CHARGE. ALL OF HIM." → 55. The only enemy with a full frozen combat sheet | BLUNT HEAVY | Full `telegraph/strike/hit/defeated` sheet (bone pile), `EN_BONES`, `EN_SWORD`, `EN_SHIELD` | ⏳ creator input (E3, context-first). No art until then |
+| C4 | **40 KEVINS — KAGE BUNSHIN** | Forty clones is a promise of chaos. "FIND THE REAL ONE" is a built-in replay hook | SWARM | `kagebunshin_kevin_neutral`, `kevin_attack` (with a thrown puff), `kevin_poof` (cloud), `EN_POOF` | ⏳ creator input (E4, context-first). Works on existing art |
+| C5 | **GUN WEAVE → THE RPG** (and AUNTIE'S SLIPPER) | Gun Weaving is canon-unique (guns made of Rich's blood). The RPG is the most expensive item in the game ($400,000) and hurts Rich too. Auntie's Slipper is "never cut" in the F02 patch | IRON / THROWN | `E-gun-the_rpg-held`, all 5 held guns, `GUNWEAVE`, `GUN_RPG`, blood weave frames | ✅ RPG line is creator source. Weave (E5) and slipper (E6) open. RPG projectile + blast (ART-S5), slipper art, `GN_05` (AUD-01), none requested yet |
 | C6 | **UNCLE SUNDAY — "WHO IS YOUR FATHER"** | The flagship of VERBAL, the family only this game has. It has a telegraph ("INHALING DEEPLY…") and 24 damage from a question | VERBAL | `uncle_sunday_offended`, `_melted`, `_fishing`, dialogue-box material, `CROWD_OOH` | Nothing required. Ube's line and voice (E8) |
 
 **Explicitly not bespoke** (family treatment is enough): Paladin, Bard, Cleric, Coffe, Buckhead, Hunter, Groupies, Moonie, Lil Smack's CRUMB SPRAY, all 44 HOES moves (CAMEO is their signature), all items. One-Inch Petty and Lil Smack's CHEW get a cook window but no bespoke budget until Ube says they earn one.
 
 ### C1. POWER LEVEL PHIL — BEAM
 
+**Creator source (Ube, COOK RETURN 001):** a Kamehameha-inspired energy attack, **distinctly purple** and **visually huge**. At peak impact it temporarily causes **SCREEN CRACKS**. The cracking is spectacle and presentation, not permanent UI damage.
+
+Director treatment (proposals within that source):
 - **Turn N (charge 1):** swap to `charging_day1` (the aura is in the frozen art). Start `EN_CHARGE` looping, quiet. Banner: "PHIL IS CHARGING A BEAM (2 TURNS)…".
-- **Turn N+1 (charge 2):** swap to `charging_day3`. Loop louder. STAGE: 1 frame of dust drop every 600 ms (the room is uneasy). The music doesn't duck yet.
-- **Turn N+2 (BEAM):** the music **ducks** for the first time in any fight → `EN_SCREAM` → 3 frames of beam (§E1) → LETHAL-grade hit-stop (105 ms) on Rich even when it isn't lethal → 3-art-px shake → STAGE scorch on the floor line that **stays for the rest of the fight**.
+- **Turn N+1 (charge 2):** swap to `charging_day3`. Loop louder. STAGE: 1 frame of dust drop every 600 ms. The music doesn't duck yet.
+- **Turn N+2 (BEAM):**
+  1. The music **ducks** for the first time in any fight → `EN_SCREAM`.
+  2. Release: the frozen charge aura is gold, and the **beam is purple**. The colour change at release is the read: the charge was a warning, and the purple is the thing itself. It's an original beam shape *inspired by* the reference, not a copy of any existing show's frames.
+  3. "Visually huge": the beam is the only effect in menu combat allowed to be **wider than a body** and to leave the world viewport. It spans from Phil to past the frame edge behind Rich.
+  4. **Peak impact → SCREEN CRACKS:** a crack overlay spreads across the whole screen, the HUD and menu bands included, as if the handheld's glass took the hit. LETHAL-grade hit-stop (105 ms), 3-art-px world shake.
+  5. **The cracks clear before control returns.** They're held about 500 ms, then gone (a snap, not a fade). They never sit over an active button and are never stored as state. Reduce motion keeps them, static and shorter.
+  6. Crack colour: bone-white fracture lines with a purple bleed. It deliberately avoids Rich red, which belongs to Revenge's own crack (`revenge_target_crack_*`, the canon FEAR move). That asset is **not** reused here.
+  7. Aftermath: a purple-black STAGE scorch on the floor line that stays for the rest of the fight. The screen cracks do not stay.
 - **After:** Phil swaps to `spent_grounded` for his next turn (a free visual of the cost). Spared via "GET FOOD WHILE HE CHARGES" → `sitting_plate`.
-- **Repeat:** the second BEAM in a fight is a ≤ 50% cut (no duck, no scream).
-- Budget: about +1.2 s on the beam turn only. Charge turns cost 0 extra.
+- **Repeat:** the second BEAM in a fight is a ≤ 50% cut (no duck, no scream). The screen cracks **still happen**, because they're the move's identity, but at 50% coverage.
+- **Palette note:** OCCULT-UNHOLY also uses nocturnal purple. Phil's beam is told apart by shape and scale (a huge horizontal column vs a small glyph). It's the only purple thing in the game that is huge.
+- Budget: about +1.3 s on the beam turn only. Charge turns cost 0 extra.
 
 ### C2. HILT — LUNCHBOX, and the anti-tell
 
 - **Anti-tell:** every enemy turn has a telegraph banner except Hilt's. The empty slot is filled with **nothing**: no banner, the ambient bed drops 6 dB for his whole turn, and the log stays empty for 300 ms longer than usual before he acts. Players learn "silence = Hilt" (the F01 silence idea, applied to menu combat only).
 - **STAKE JAB:** EDGE, fast, `hilt_strike`.
-- **LUNCHBOX:** Hilt produces a lunchbox, an ordinary metal one. Travel 430 ms (the throne briefcase timing). Impact: the box **stops dead** on Rich for the hit-stop, and then (§E2 — what is in it?). `EN_LUNCHBOX`.
+- **LUNCHBOX:** **Creator source:** inside the lunchbox are **gabagool, provolone, vinegar peppers, sandwich**. The mundane specificity is the point and is preserved exactly; nothing is added, swapped or made fancy.
+  - Director treatment: Hilt produces an ordinary lunchbox. Travel 430 ms (the throne briefcase timing). The box **stops dead** on Rich for the hit-stop, then snaps open and the four contents are **individually readable** for one beat: four small, plain sprites, nothing glowing. `EN_LUNCHBOX`.
+  - Log copy names them in Ube's order, verbatim: GABAGOOL. PROVOLONE. VINEGAR PEPPERS. SANDWICH. No adjectives.
+  - Aftermath: the open box and its contents stay on the floor until the turn ends (THROWN family rule).
+  - Not decided: whether the box opens before or after contact. Director default: after, so the hit lands as a box and the reveal is the aftermath.
 - **PIN:** BLUNT contact + a CONDITION pip on Rich. On Rich's lost turn, Rich's sprite doesn't move at all and the menu greys out for one beat.
 - **End (first fight, 400 HP, can't run):** whatever the outcome, Hilt leaves on `hilt_walk_away`. He doesn't hold a defeated or victory pose. He just leaves.
 - Rematch: same language, plus his telegraphs now exist (`hilt_rematch` has them). The tell coming back is itself a story beat.
 
 ### C3. SIR BONESWORTH — DEATH CHARGE
 
-- **Phase change (HP ≤ 50%):** SECOND WIND = RESTORE in a bone-yellow tint + `EN_BONES` rattle, and the sprite does a 1-art-px "pull himself together".
-- **Tell:** "HE IS LOWERING INTO A CHARGE. ALL OF HIM." The `telegraph` pose, plus **the whole skeleton slides 4 art px back** (the run-up).
-- **Charge:** 3 frames crossing the gap (the only enemy that physically crosses the stage in Combat 2.0), the `strike` pose at contact, LETHAL-grade hit-stop. On contact, **bones keep travelling past Rich** for 1 frame (he hits so hard he comes partly apart) and land behind him, staying there as aftermath.
-- **Defeat:** the frozen bone pile (`bonesworth_defeated`) + `KO`. If recruited ("JOIN MY SQUAD"), the pile **reassembles** (the defeated → hit → neutral states in reverse, 3 frames).
+**Status: awaiting creator input (E3).** Ube has said he doesn't know this character well enough yet, so nothing below is creator intent. Existing context is in §E (E3).
+
+Existing, non-negotiable (rules + frozen art): the below-50% phase change (SECOND WIND → "HE IS LOWERING INTO A CHARGE. ALL OF HIM." → DEATH CHARGE, 55), and the full frozen `telegraph / strike / hit / defeated` sheet.
+
+Director placeholder (BLUNT HEAVY, existing art only; all of it replaceable by Ube's answer):
+- SECOND WIND = RESTORE + `EN_BONES`.
+- Tell = the `telegraph` pose + a 4-art-px step back.
+- Charge = the `strike` pose crossing the gap in 3 stepped positions, LETHAL-grade hit-stop.
+- Defeat = the frozen bone pile + `KO`.
+- No invented gags (loose bones, reassembly) until creator input.
 
 ### C4. 40 KEVINS
 
 - **Staging:** the five minion sprites on the far depth band (existing) + the "real" Kevin in front.
 - **KEVIN POKE ×5:** SWARM compression. Each poke comes from a *different* Kevin (round-robin), using the `kevin_attack` pose for 1 frame, at a 100 ms cadence. That's 0.5 s instead of 3.6 s.
 - **Losing Kevins:** when the visible-minion count drops (existing HUD logic), the leaving Kevin plays `kevin_poof` + `EN_POOF` instead of fading opacity.
-- **HONOR STRIKE tell:** "THE REAL KEVIN IS BOWING…". All five minions bow on the same frame, and one is a frame late (that's the real one, §E4).
-- **Octopus "FIND THE REAL ONE":** the hook (§E4).
+- **HONOR STRIKE tell:** "THE REAL KEVIN IS BOWING…". All five minions bow together.
+- **Canon constraint:** the adventure's receipt says *"forty kevins. one real one. you never found out which."* So the presentation must **never visually confirm which Kevin is real**. No persistent tell, no highlight. That rules out the earlier "late bow" seed.
+- **Octopus "FIND THE REAL ONE":** the result text ("THE REAL ONE BLINKED.") is the only confirmation, and it stays text.
+- **Status: awaiting creator input (E4)** for anything beyond this family treatment.
 
 ### C5. GUN WEAVE → THE RPG / AUNTIE'S SLIPPER
 
-- **Weave (all guns):** the IRON anticipation, 220 ms. Blood droplets gather at Rich's hand (`blood_orb`), then a contact-blob frame (`blood_bath_contact_01`), then the held gun sprite.
-- **RPG:** weave → Rich shoulders it (the held sprite, rotated by whole 90° steps only) → the projectile travels with 2 smoke-puff aftermath frames → the **only full-screen flash allowed outside BLOOD**: one new bone-white blast frame (ART-S5). Until it exists, use a 2-frame world silhouette flash. Don't borrow the red Blood Bath fullscreen, which belongs to BLOOD → 3-art-px shake → STAGE debris → "RICH TAKES 10 SPLASH": **Rich gets hit by his own blast** (a LIGHT hurt on Rich, 200 ms later). The self-hit is the joke.
-- **Auntie's Slipper:** THROWN look. Woven, then thrown, spinning. `GN_05` (slipper whap + crowd "OOOH"). Fear effect: the enemy's sprite **shrinks 1 art px and flinches before the slipper lands** (the memory hits first).
+- **Weave (all guns):** E5 is still open; this is a placeholder. The IRON anticipation, 220 ms. Blood droplets gather at Rich's hand (`blood_orb`), then a contact-blob frame (`blood_bath_contact_01`), then the held gun sprite.
+- **RPG:** **Creator source, Rich's firing line: "BACK TO SENDER"** (exact wording). Director treatment: weave → Rich shoulders it → **"BACK TO SENDER"** in Rich's speech bubble on the frame before the shot (it's his first spoken combat line, so it gets the bubble, not the log) → (the held sprite, rotated by whole 90° steps only) → the projectile travels with 2 smoke-puff aftermath frames → the **only full-screen flash allowed outside BLOOD**: one new bone-white blast frame (ART-S5). Until it exists, use a 2-frame world silhouette flash. Don't borrow the red Blood Bath fullscreen, which belongs to BLOOD → 3-art-px shake → STAGE debris → "RICH TAKES 10 SPLASH": **Rich gets hit by his own blast** (a LIGHT hurt on Rich, 200 ms later). The self-hit is the joke.
+- **Auntie's Slipper:** THROWN look. Woven, then thrown, spinning (E6 is still open; this is a placeholder). `GN_05` (slipper whap + crowd "OOOH"). Fear effect: the enemy's sprite **shrinks 1 art px and flinches before the slipper lands** (the memory hits first).
 
 ### C6. UNCLE SUNDAY — "WHO IS YOUR FATHER"
 
@@ -432,79 +457,69 @@ Ordered by spectacle gained per hour of work. All of these are scene / CSS / aud
 
 ## E. UBE COOK WINDOWS
 
-Each window has: what exists, the question, a couple of **unfinished** seeds (mutate them, kill them, or ignore them), and the shape of the answer engineering needs. Constraint for every window: it must be drawable in the 80×96 / contact-(40,88) grammar with **≤ 3 new frames**, and it must read at 360 px wide.
+**Law:** never ask Ube to cook blind. Every window opens with **Context**: 1–3 sentences of spoiler-safe existing material (adventure text, rules, frozen art) so he isn't asked to invent canon about something he hasn't been shown. Seeds are unfinished and optional. Constraint for every window: drawable in the 80×96 / contact-(40,88) grammar with ≤ 3 new frames, and it must read at 360 px wide.
 
-**E1. POWER LEVEL PHIL — "Two turns of charging. What actually comes out?"**
-Exists: gold-aura charge states drawn for day 1 and day 3, a spent-on-the-ground state, a sitting-with-a-plate state, `EN_CHARGE`, `EN_SCREAM`.
-- *"This character needs one move people remember. Three days of charging (canon: 'IT'S BEEN THREE DAYS'). What insane thing comes out?"*
-- *"What should happen for three frames that makes somebody replay the move?"*
-- Seeds: ① the beam is enormous, and on frame 3 it's revealed to be about as wide as a pencil. ② the beam works, but it goes through Rich and hits something in the background environment, which stays broken. ③ Rich just… isn't there when it lands (he's at the food court).
-- Need back: beam outcome in one sentence; frame 1 / 2 / 3; does Rich say anything?
+### E0. Creator source log
 
-**E2. HILT — "What is in the lunchbox?"**
-Exists: `EN_LUNCHBOX`, the strike pose, the walk-away pose. 45 damage, the biggest hit Hilt has.
-- *"What physical object would be funniest?"* It's a lunchbox, but what's inside does the damage.
-- *"What should Hilt NOT do?"* He has no telegraph and no reaction. How little can he emote and still be the scariest man in the game?
-- Seeds: ① it's a regular packed lunch, packed with love by someone, and that is somehow worse. ② the box is the weapon and the lunch never comes out; he opens it only *after* the hit and eats calmly. ③ it's full of stakes, arranged like a bento.
-- Need back: what's inside; does it open before or after contact; Hilt's single frame.
+| Return | Window | Creator source (verbatim intent) | Recorded in |
+|---|---|---|---|
+| COOK RETURN 001 | E1 Phil | Kamehameha-inspired energy attack, distinctly purple, visually huge. At peak impact, temporary SCREEN CRACKS (spectacle, not permanent UI damage) | §C1 |
+| COOK RETURN 001 | E2 Hilt | Inside the lunchbox: gabagool, provolone, vinegar peppers, sandwich. Preserve the mundane specificity | §C2 |
+| COOK RETURN 001 | E7 RPG | Rich's firing line: "BACK TO SENDER" (exact wording) | §C5 |
+| COOK RETURN 001 | E3 Bonesworth, E4 Kevins | Ube doesn't know these well enough. Context first; don't invent creator intent | §C3, §C4, E3, E4 |
+
+### E-status
+
+| Window | Status |
+|---|---|
+| E1 Phil BEAM | ✅ RESOLVED (COOK RETURN 001) |
+| E2 Hilt LUNCHBOX | ✅ RESOLVED: contents. Open/close timing is a director default |
+| E7 RPG | ✅ RESOLVED: line. The aftermath gag is a director default (no extra question) |
+| E3 Bonesworth, E5 Gun Weave, E11 Rich's combat voice | **NEXT** (top 3, below) |
+| E4 Kevins, E6 Slipper, E8 Uncle Sunday, E9 Petty, E10 Nemesis | OPEN, queued |
+
+### NEXT — the three highest-value open windows
 
 **E3. SIR BONESWORTH — "ALL OF HIM."**
-Exists: the full combat sheet, including a bone-pile defeated frame; hungover sway; `EN_BONES`.
-- *"What should happen for three frames that makes somebody replay the move?"*
-- Seeds: ① his skull arrives first, the rest of him a frame later. ② he charges, misses, then the **hallway** behind him collapses (canon roast: "YOU DIED IN MY HALLWAY."). ③ mid-charge, the hangover wins: he stops, sways, and the hit lands anyway.
-- Need back: the order of bones; does any piece stay on the floor; Rich's line, if any.
+- **Context:** Sir Bonesworth is a hungover skeleton knight in rusted armour. Rich finds him groaning under the confetti in his own throne room the morning after his first castle party ("…who threw this. i need to know who threw this."). The fight is that hangover: he sways, cleaves and rattles his bones. Below half HP he gets a second wind, and the game warns "HE IS LOWERING INTO A CHARGE. ALL OF HIM." before a 55-damage charge, his biggest hit. Afterwards he either hands Rich his sword for the Armory wall or moves into the crypt. Frozen art: sword raised, low lunge, recoil, and a pile of bones.
+- **Question:** when a hungover skeleton commits *all of himself* to one charge, what happens in those three frames that makes someone replay it?
+- **Seeds (optional):** ① the skull arrives a frame before the body. ② the charge is perfect, and the hangover catches up a frame after impact. ③ something from last night's party comes with him.
+- **Need back:** one sentence for the charge; frame 1 / 2 / 3; or "keep it plain".
 
-**E4. 40 KEVINS — "Find the real one."**
-Exists: the shadow-clone master, attack (with a thrown puff), poof cloud, `EN_POOF`. The Octopus line "THE REAL ONE BLINKED."
-- *"Should the player actually be able to see the real one before choosing?"* (Presentation only. The rules don't change; this is whether the tell is visible.)
-- Seeds: ① every few turns, one Kevin is a frame late on the bow. ② the real one is the only Kevin with a visible shadow. ③ the real one is the one eating.
-- Need back: the tell (or "no tell"); what 39 Kevins do when the real one is found.
+**E5. THE GUN WEAVE — every gun in menu combat.**
+- **Context:** in canon, Rich doesn't carry guns. Guns "become part of Rich's blood and appear only when needed" (Gun Weaving), bought at THE ARMORY from Deacon Brass behind a church in South LA. Rich has no default weapon identity; guns are tools he chooses. Five guns have frozen held art today (Lil Oga, Sapporo Shotgun, Chopstick Sniper, Holy Baby Drake, The RPG). The weave plays before **every** gun shot, so it's the most-repeated signature in the game, and it now leads into "BACK TO SENDER" for the RPG.
+- **Question:** what does a gun look like coming *out of Rich's blood*? Does it go back in after the shot?
+- **Seeds (optional):** ① blood builds it bottom-up, like a 3D printer. ② for one frame it's the wrong gun, then it corrects itself. ③ Rich never looks at it; it's simply in his hand.
+- **Need back:** the weave in one sentence; returns to blood yes/no.
 
-**E5. THE GUN WEAVE — "What does a gun look like when it comes out of Rich's blood?"**
-Exists: the 5 held gun sprites, blood orb + contact frames, `GUNWEAVE`.
-- *"What should Rich yell here?"* (one line, every gun or per gun?)
-- Seeds: ① the gun is woven, and for one frame it's the wrong gun before it corrects itself. ② the blood forms the gun like a 3D printer, bottom up. ③ Rich doesn't look at it; it just arrives in his hand.
-- Need back: the weave shape; the line (or "silent"); does the gun dissolve back into blood after the shot?
+**E11. RICH'S COMBAT VOICE — now that he says "BACK TO SENDER".**
+- **Context:** in the throne fight, Rich's only voice is the music-synced lyric bubble (he raps or mutters along to the track). In Combat 2.0 he says nothing; every line is narration in the log. Ube's RPG line "BACK TO SENDER" is his **first spoken combat line**, and it sets a precedent. (F01 / THE PLAY has its own locked rule for Rich's voice and is not affected.)
+- **Question:** is "BACK TO SENDER" a one-off for the RPG, or does Rich get a spoken line on other big moments?
+- **Seeds (optional):** ① one line per signature only (RPG, plus whatever Ube writes for the others). ② a line on lethal blows, from a tiny pool Ube writes. ③ the RPG stays the only time he speaks, which makes it land harder.
+- **Need back:** the rule (one-off, per signature, or on lethal blows); if it's a pool, Ube writes it.
 
-**E6. AUNTIE'S SLIPPER — "Enemies who grew up with it lose a turn to fear."**
-Exists: nothing visual. `GN_05` is specified (slipper whap + crowd "OOOH"), not delivered. Never cut.
-- *"What physical object/projectile would be funniest?"* It's a slipper, but what kind, what colour, and does it come back?
-- *"Who is Rich channelling? Does Auntie appear?"* (CAMEO-style, or only her slipper?)
-- Seeds: ① the slipper comes back to Rich's hand like a boomerang. ② enemies who "grew up with it" flinch *before* it's thrown. ③ it misses on purpose and the fear does the damage.
-- Need back: object description; the return or no return; Auntie on screen yes/no.
+### Queued (context-first, ask later)
 
-**E7. THE RPG — "$400,000. Rich gets hit too."**
-Exists: the held RPG sprite, `GUN_RPG`, the "RICH TAKES 10 SPLASH" rule.
-- *"What should Rich yell here?"*
-- *"What's the aftermath?"* (debris, Rich's hair, the throne, the bill)
-- Seeds: ① Rich's sunglasses stay on through the blast. They're the only thing that does. ② the blast takes a piece of the environment with it until the fight ends. ③ after the blast, the log just says the price.
-- Need back: the line; the 1-frame aftermath gag.
+**E4. 40 KEVINS.**
+- **Context:** at the grave (or as a single forty-ticket order at Slurp), Rich finds the same guy forty times (same hoodie, same haircut, all named Kevin), all bowing to each other: a ninja's shadow clones. Kaede, who was tailing one of them, drops from a ceiling vent ("this is not my first forty kevins"). The adventure ends on *"one real one. you never found out which."*
+- **Question:** what's the one image of forty Kevins that people remember, given that the game must never reveal the real one?
+- Seeds withheld until Ube has the context.
+
+**E6. AUNTIE'S SLIPPER.**
+- **Context:** in the OPEN guns patch (Iron & Grace), AUNTIE'S SLIPPER is one of the 13 guns: "Enemies who grew up with it lose a turn to fear." Its sound is specified as a slipper whap plus a crowd "OOOH". It's marked never-cut. No art exists. A frozen character called Auntie exists, but nothing establishes that it's her slipper.
+- **Question:** what kind of slipper is it, and does it come back?
 
 **E8. UNCLE SUNDAY — "WHO IS YOUR FATHER."**
-Exists: inhale tell, offended / melted / fishing states, dialogue-box material.
-- *"Is the damage the words, or the silence after?"*
-- Seeds: ① each word is a bigger slab; FATHER is the size of the screen. ② the question lands, Rich answers in a tiny slab that bounces off. ③ the words hit everybody in the room, including the companion cameo if one is present.
-- Need back: delivery (slabs, voice, both); what Rich does for 2 frames.
+- **Context:** a pot-bellied man in slides and a buba, met at a pet store holding the last loaf of agege bread. The fight opens "UNCLE SUNDAY WANTS TO KNOW WHO YOUR FATHER IS." He inhales deeply before the question, which does 24 damage. Calling him "Uncle" melts him; asking to learn fishing ends the fight.
+- **Question:** is the damage the words, or the silence after them?
 
-**E9. ONE-INCH PETTY — "Rich's first learned move, from Bruce Loose. What makes it petty?"**
-Exists: `MOVE_ONEINCH`, `bruce_bow` (the student outcome). Pierce, 34 damage, 3 PP.
-- *"What should Rich say right before it?"*
-- Seeds: ① Rich does the noise Bruce makes ("THAT NOISE AIN'T A MOVE"), then the strike is tiny, and the hit-stop is the longest in the game. ② the impact frame shows the enemy's feelings getting hurt, not their body. ③ it's one inch: the travel is exactly 1 art pixel.
-- Need back: the move's one frame; whether it gets bespoke budget or stays BLUNT + sound.
+**E9. ONE-INCH PETTY.**
+- **Context:** Bruce Loose is a kung-fu legend Rich fights at the food court. He makes a noise before his kick, and Rich can roast it ("THAT NOISE AIN'T A MOVE"). Becoming his student teaches Rich ONE-INCH PETTY, his first learned move.
+- **Question:** what makes it *petty*?
 
-**E10. THE NEMESIS CHEWS — Lil Smack / Smallie "CHEW ATTACK".**
-Exists: `EN_CHEW` (a loop, catalogued as "the nemesis"), `lil_smack_eating`. Octopus: "WE CAN SEE YOUR FOOD."
-- *"How gross is allowed?"* (It's a debuff, not damage-heavy. The horror is the sound.)
-- Seeds: ① the chewing loop plays under the *whole* fight and only stops when he's spared. ② the menu text gets crumbs on it. ③ Rich's sprite turns away for one frame every time.
-- Need back: how loud; how long; does it earn bespoke or stay VERBAL/CONDITION?
-
-**E11. FINISHERS — "What should Rich yell on a lethal blow?"**
-Context: Rich already raps along in the throne (lyric bubbles). In F01 he only says "hello?" (H1 governs his voice there; F01 isn't touched). In menu combat he says nothing today.
-- *"Does Rich talk in fights at all? One line per fight, per move, or never?"*
-- Seeds: ① a one-word bubble on LETHAL only, from a tiny pool Ube writes. ② never. The lyric bubble is the only voice, and on a KO it just keeps rapping. ③ he speaks only when spared ("sit down and eat").
-- Need back: yes/no; if yes, the pool.
-
----
+**E10. THE NEMESIS CHEWS.**
+- **Context:** Lil Smack is listed in the cast as Rich's nemesis. He fights by chewing with his mouth open (CHEW ATTACK, CRUMB SPRAY), and the roast is "WE CAN SEE YOUR FOOD." A looping chew sound is already delivered.
+- **Question:** how gross is allowed, and how long should the chewing play?
 
 ## F. IMPLEMENTATION / ART / AUDIO DEPENDENCY BOARD
 
@@ -531,6 +546,8 @@ Context: Rich already raps along in the throne (lyric bubbles). In F01 he only s
 
 ### F2. Phase 1: family art (unlocks the full system)
 
+**NOT REQUESTED.** Per Ube COOK RETURN 001, no new art is being requested yet. F2 and F3 are a dependency map only; nothing below has been filed with the art department.
+
 | ID | Item | Lane | Notes |
 |---|---|---|---|
 | **ART-R1** | **Rich standing combat states: CAST, HIT, STRIKE, VICTORY (80×96)** | ART | **The biggest single dependency in this plan.** Rich has no combat poses outside the throne. Every family reaction on Rich and C6's "looks down" wait on it |
@@ -555,19 +572,19 @@ Context: Rich already raps along in the throne (lyric bubbles). In F01 he only s
 
 | ID | Signature | Blocked on | Then needs | Size |
 |---|---|---|---|---|
-| SIG-1 | Phil BEAM | **UBE E1** | ART-S1 (≤ 3 beam frames + scorch decal), ENG (duck + loop control) | M |
-| SIG-2 | Hilt LUNCHBOX + anti-tell | **UBE E2** | ART-S2 (lunchbox in hand / flight / open, ≤ 3) | S |
-| SIG-3 | Bonesworth DEATH CHARGE | **UBE E3** | ART-S3 (1–2 charge frames + loose-bone sprite) | S |
-| SIG-4 | 40 Kevins | **UBE E4** | optional ART-S4 (crowd plate). Works on existing art | S |
-| SIG-5 | Gun Weave / RPG / Slipper | **UBE E5, E6, E7** | ART-S5 (RPG projectile + blast frame), slipper art, AUD-01 (`GN_05`) | M |
+| SIG-1 | Phil BEAM | ✅ creator source received | ART-S1, not requested: ≤ 3 purple beam frames, a full-screen crack overlay (2 frames, bone-white + purple), a scorch decal. ENG: music duck, loop control, crack overlay above the UI bands, cleared before input | M |
+| SIG-2 | Hilt LUNCHBOX + anti-tell | ✅ creator source received | ART-S2, not requested: lunchbox in hand / flight / open + 4 content sprites (gabagool, provolone, vinegar peppers, sandwich) | S |
+| SIG-3 | Bonesworth DEATH CHARGE | **UBE E3 (NEXT, context-first)** | decided by the answer | S |
+| SIG-4 | 40 Kevins | **UBE E4 (queued, context-first)** | works on existing art; must never reveal the real Kevin | S |
+| SIG-5 | Gun Weave / RPG / Slipper | ✅ E7 line received · **E5 NEXT** · E6 queued | ART-S5 (RPG projectile + blast frame), slipper art, AUD-01 (`GN_05`) | M |
 | SIG-6 | Uncle Sunday | **UBE E8** | nothing; ENG-13 VERBAL slabs | XS |
-| — | One-Inch Petty, the Nemesis chew, finishers | **UBE E9, E10, E11** | budget decided by Ube's answer | — |
+| — | Rich's combat voice (**E11 NEXT**), One-Inch Petty, the Nemesis chew | **UBE E11, E9, E10** | budget decided by Ube's answer | — |
 
 ### F4. Ordering and guardrails
 
 1. **Phase 0 first, in this order:** ENG-01 → ENG-02 → ENG-05 → ENG-03 → the rest. After ENG-01 + 02 + 05 alone, every one of the 18 fights gains hit-stop, sound, haptics and readable multi-hits, with no art.
-2. **Cook windows can run in parallel with Phase 0.** Signatures shouldn't be drawn before Ube answers.
-3. **ART-R1 (Rich combat states) should be requested now.** It's on the critical path for half of Phase 1.
+2. **Cook windows can run in parallel with Phase 0.** Signatures aren't drawn before Ube answers. Creator source is verbatim (§E0).
+3. **ART-R1 (Rich combat states) is the top dependency once art requests open.** It's on the critical path for half of Phase 1. Not requested yet, per COOK RETURN 001.
 4. Guardrails, checked on every change:
    - No edits to `js/engine/combat2.js` rules or `js/data/btf/combat.js` numbers (ENG-03 is a payload field, signed off separately).
    - F01 / THE PLAY files are untouched (`js/frag/F01/**`, `assets/f01/**`).
