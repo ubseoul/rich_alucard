@@ -81,7 +81,7 @@ export async function test(root){
   c.RAFeatures.set('F01.showdown',true);assert.equal(c.RAShowdown.enabled(),false,'F01.showdown does not drive F01');c.RAFeatures.set('F01.showdown',false);
   on(c,'F01.showdown_core');assert.equal(c.RAShowdown.enabled(),true,'F01.showdown_core is the live flag');
   // no code consumes the reserved names (only the frozen registry lists them)
-  const hits=[];for(const dir of ['js/frag','js/if1','js/systems','js/scenes','assets/f01'])for(const f of await walk(path.join(root,dir))){const t=(await readFile(f,'utf8')).replace(/^\s*\/\/.*$/gm,'').replace(/\/\/ .*$/gm,'');if(/['"`]F01\.showdown['"`]/.test(t)||/F05\.the_trap/.test(t))hits.push(path.relative(root,f));}
+  const hits=[];for(const dir of ['js/frag','js/if1','js/systems','js/scenes','assets/f01'])for(const f of await walk(path.join(root,dir))){const t=(await readFile(f,'utf8')).replace(/^\s*\/\/.*$/gm,'').replace(/\/\/ .*$/gm,'');if(/['"`]F01\.showdown['"`]/.test(t)||/F05\.the_trap/.test(t))hits.push(path.relative(root,f).split(path.sep).join('/'));}
   assert.deepEqual(hits.filter(h=>h!=='js/if1/features.js'),[],'no live code names F01.showdown or F05.the_trap');
   // the stale F14 tactical routes are gone
   const expected=JSON.parse(await read(root,'tools/f14/routes/_expected.json')).routes.map(r=>r.id);
@@ -174,7 +174,7 @@ export async function test(root){
   // Koreatown is F03-owned. In shipped code ONLY js/frag/F03 defines it: no F04 shadow, no F05/F06/IF-1/bridge definition.
   const defs=[];for(const dir of ['js/frag','js/if1','js/systems','js/scenes','js/data'])for(const f of await walk(path.join(root,dir))){
    const src=(await readFile(f,'utf8')).replace(/^\s*\/\/.*$/gm,'');
-   if(/RADistricts\??\.define\??\.?\([^)]*koreatown/i.test(src)||/define\??\.?\(\{[^}]*id:\s*['"]koreatown['"]/i.test(src))defs.push(path.relative(root,f));
+   if(/RADistricts\??\.define\??\.?\([^)]*koreatown/i.test(src)||/define\??\.?\(\{[^}]*id:\s*['"]koreatown['"]/i.test(src))defs.push(path.relative(root,f).split(path.sep).join('/'));
   }
   eq(defs,['js/frag/F03/new_oga_ladder_close.js'],'only F03 defines koreatown');
   {const c=await boot(root);on(c,'F04.war_room');

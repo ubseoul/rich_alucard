@@ -304,7 +304,7 @@ export async function test(root){
  {
   const defs=[];for(const dir of ['js/frag','js/if1','js/systems','js/scenes','js/data'])for(const f of await walk(path.join(root,dir))){
    const src=(await readFile(f,'utf8')).replace(/^\s*\/\/.*$/gm,'');
-   if(/RADistricts\??\.define\?*\.?\([^)]*koreatown/i.test(src)||/define\?*\.?\(\{[^}]*id:\s*['"]koreatown['"]/i.test(src))defs.push(path.relative(root,f));}
+   if(/RADistricts\??\.define\?*\.?\([^)]*koreatown/i.test(src)||/define\?*\.?\(\{[^}]*id:\s*['"]koreatown['"]/i.test(src))defs.push(path.relative(root,f).split(path.sep).join('/'));}
   assert.deepEqual(defs,['js/frag/F03/new_oga_ladder_close.js'],'F03 is the SOLE definer of Koreatown');
   console.log('PASS f03 ownership scan: js/frag/F03 is the only definer of Koreatown in shipped code');
  }
