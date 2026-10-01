@@ -162,7 +162,7 @@ The taxonomy is derived from the 9 Rich moves, 44 HOES moves, ~45 enemy moves, 1
 |---|---|---|---|---|---|
 | 1 | **BLUNT** | bone / cream | 4-point star, chunky | tier | `HIT_LIGHT` / `HIT_HEAVY` |
 | 2 | **EDGE** | bone with a burgundy core | one thin arc, 2 frames | tier − 15 ms (sharp is fast) | `EN_SWORD`, `EN_STAKE` |
-| 3 | **IRON** (firearms) | muted gold muzzle, near-black smoke | muzzle burst at the barrel + small puff at the target | tier + 20 ms on the **shot**, not the hit | `GUNWEAVE` + `GUN_*` / `GN_*` |
+| 3 | **IRON** (firearms) | muted gold muzzle, near-black smoke | muzzle burst at the barrel + small puff at the target | tier + 20 ms on the **shot**, not the hit | `GUN_*` / `GN_*` (`GUNWEAVE` exists, but its use depends on SCAR, which is `SOURCE_REQUIRED`) |
 | 4 | **THROWN** (objects) | the object's own colours | the object itself, spinning in 3–4 rotation frames | tier | per object (`EN_BRIEFCASE`, `EN_LUNCHBOX`, `ITEM_CAN`…) |
 | 5 | **BLOOD** (vampire) | Rich red / dried blood | droplet clusters, tendrils | tier + 10 ms | `MOVE_BLOODBATH`, `MOVE_BITE`, `BAT_SWARM` |
 | 6 | **OCCULT** | **two sub-palettes:** UNHOLY = nocturnal purple, HOLY = muted gold | UNHOLY: inward-folding glyph; HOLY: a vertical light bar | tier | `MAGIC_HEX` / `VEIL` / `RINGER`; `EN_HOLY` |
@@ -209,7 +209,7 @@ Members: OVERHEAD CLEAVE, HOLY SWING, STAKE JAB, DAGGER, BACKSTAB, KNIFE WORK, S
 
 **B2.3 IRON (firearms).**
 Members: all 13 guns, plus enemy guns (hunters' silver crossbows count as EDGE; Enforcer shotguns and Gbenga's Golden Draco are IRON).
-- Anticipation is the **GUN WEAVE**: canon says guns "become part of Rich's blood and appear only when needed", so the gun is built out of blood at Rich's hand in 3 steps (droplets → shape → the held sprite), 220 ms, `GUNWEAVE`.
+- Anticipation: **GUN WEAVE: the gun itself is SCAR** (creator source, see §C5). How SCAR manifests and is presented is `SOURCE_REQUIRED`. No weave visual or transformation mechanic is specified here. Until source exists, the IRON anticipation is the existing held sprite for the catalogue gun being fired, shown at Rich's hand for the wind-up.
 - Impact: muzzle frame at the barrel (where the bullet leaves), then the target puff. A visible bullet only for SNIPER (tracer line, 1 frame) and RPG (projectile, §C5).
 - Hit-stop: on the **shot**, +20 ms over tier. That's where gun feel lives. The target reaction follows.
 - Shake: recoil is a 2-art-px push on Rich, not a screen shake. Only the RPG shakes the screen.
@@ -217,7 +217,7 @@ Members: all 13 guns, plus enemy guns (hunters' silver crossbows count as EDGE; 
 - Aftermath: one casing sprite drops and stays on the floor until the turn ends (range-day "casing juice" from the F02 doc).
 - Transient: `GUN_*` / `GN_*`.
 - Readability: the held sprite **is** the readability. Players should see which gun they paid $90,000 for.
-- Assets: `E-gun-*-held.png` ×5 (frozen, menu-only today), `blood_orb.png` and `blood_bath_contact_01/02` for the weave.
+- Assets: `E-gun-*-held.png` ×5 (frozen, menu-only today). No blood assets are used for guns.
 
 **B2.4 THROWN (objects).**
 Members: BRIEFCASE (CEO), LUNCHBOX (Hilt), MIMOSA TOSS, CRUMB SPRAY, TAPIOCA SHOT, FEATHER DUSTER, garlic knots (as an attack), and AUNTIE'S SLIPPER (IRON by catalogue, THROWN by look).
@@ -339,7 +339,7 @@ The shortlist is **six**. Everything else gets its family. The canon four (Blood
 | C2 | **HILT — LUNCHBOX** (+ the anti-tell) | The one boss with `noTelegraph`, `noRun`, and an Octopus that does nothing. He's the fight that tells Rich he isn't safe. His signature is the *absence* of a tell, then a lunchbox | THROWN | `hilt_strike`, `hilt_walk_away`, `EN_LUNCHBOX`, `EN_STAKE` | Lunchbox + contents frames (ART-S2, not requested yet). ✅ contents are creator source |
 | C3 | **SIR BONESWORTH — DEATH CHARGE** | Scripted below-50% phase change: SECOND WIND → "HE IS LOWERING INTO A CHARGE. ALL OF HIM." → 55. The only enemy with a full frozen combat sheet | BLUNT HEAVY | Full `telegraph/strike/hit/defeated` sheet (bone pile), `EN_BONES`, `EN_SWORD`, `EN_SHIELD` | ⏳ creator input (E3, context-first). No art until then |
 | C4 | **40 KEVINS — KAGE BUNSHIN** | Forty clones is a promise of chaos. "FIND THE REAL ONE" is a built-in replay hook | SWARM | `kagebunshin_kevin_neutral`, `kevin_attack` (with a thrown puff), `kevin_poof` (cloud), `EN_POOF` | ⏳ creator input (E4, context-first). Works on existing art |
-| C5 | **GUN WEAVE → THE RPG** (and AUNTIE'S SLIPPER) | Gun Weaving is canon-unique (guns made of Rich's blood). The RPG is the most expensive item in the game ($400,000) and hurts Rich too. Auntie's Slipper is "never cut" in the F02 patch | IRON / THROWN | `E-gun-the_rpg-held`, all 5 held guns, `GUNWEAVE`, `GUN_RPG`, blood weave frames | ✅ RPG line is creator source. Weave (E5) and slipper (E6) open. RPG projectile + blast (ART-S5), slipper art, `GN_05` (AUD-01), none requested yet |
+| C5 | **GUN WEAVE → THE RPG** (and AUNTIE'S SLIPPER) | Gun Weave is canon-unique: **the gun itself is SCAR** (creator source; manifestation `SOURCE_REQUIRED`). The RPG is the most expensive item in the game ($400,000) and hurts Rich too. Auntie's Slipper is "never cut" in the F02 patch | IRON / THROWN | `E-gun-the_rpg-held`, all 5 held guns, `GUNWEAVE`, `GUN_RPG`, blood weave frames | ✅ RPG line is creator source. ✅ GUN WEAVE: the gun is SCAR; manifestation `SOURCE_REQUIRED`. Slipper (E6) open. RPG projectile + blast (ART-S5), slipper art, `GN_05` (AUD-01), none requested yet |
 | C6 | **UNCLE SUNDAY — "WHO IS YOUR FATHER"** | The flagship of VERBAL, the family only this game has. It has a telegraph ("INHALING DEEPLY…") and 24 damage from a question | VERBAL | `uncle_sunday_offended`, `_melted`, `_fishing`, dialogue-box material, `CROWD_OOH` | Nothing required. Ube's line and voice (E8) |
 
 **Explicitly not bespoke** (family treatment is enough): Paladin, Bard, Cleric, Coffe, Buckhead, Hunter, Groupies, Moonie, Lil Smack's CRUMB SPRAY, all 44 HOES moves (CAMEO is their signature), all items. One-Inch Petty and Lil Smack's CHEW get a cook window but no bespoke budget until Ube says they earn one.
@@ -400,11 +400,16 @@ Director placeholder (BLUNT HEAVY, existing art only; all of it replaceable by U
 - **Octopus "FIND THE REAL ONE":** the result text ("THE REAL ONE BLINKED.") is the only confirmation, and it stays text.
 - **Status: awaiting creator input (E4)** for anything beyond this family treatment.
 
-### C5. GUN WEAVE → THE RPG / AUNTIE'S SLIPPER
+### C5. GUN WEAVE (SCAR) → THE RPG / AUNTIE'S SLIPPER
 
-- **Weave (all guns):** E5 is still open; this is a placeholder. The IRON anticipation, 220 ms. Blood droplets gather at Rich's hand (`blood_orb`), then a contact-blob frame (`blood_bath_contact_01`), then the held gun sprite.
-- **RPG:** **Creator source, Rich's firing line: "BACK TO SENDER"** (exact wording). Director treatment: weave → Rich shoulders it → **"BACK TO SENDER"** in Rich's speech bubble on the frame before the shot (it's his first spoken combat line, so it gets the bubble, not the log) → (the held sprite, rotated by whole 90° steps only) → the projectile travels with 2 smoke-puff aftermath frames → the **only full-screen flash allowed outside BLOOD**: one new bone-white blast frame (ART-S5). Until it exists, use a 2-frame world silhouette flash. Don't borrow the red Blood Bath fullscreen, which belongs to BLOOD → 3-art-px shake → STAGE debris → "RICH TAKES 10 SPLASH": **Rich gets hit by his own blast** (a LIGHT hurt on Rich, 200 ms later). The self-hit is the joke.
-- **Auntie's Slipper:** THROWN look. Woven, then thrown, spinning (E6 is still open; this is a placeholder). `GN_05` (slipper whap + crowd "OOOH"). Fear effect: the enemy's sprite **shrinks 1 art px and flinches before the slipper lands** (the memory hits first).
+- **GUN WEAVE: creator source (correction, COOK RETURN 002): "The gun itself is SCAR."** Preserved literally: SCAR is the gun.
+  - It is **not** a gun emerging from a scar. A scar is **not** an interface. It is **not** Rich's blood forming a conventional gun.
+  - Every earlier transformation mechanic built on that misreading is **withdrawn**: blood droplets gathering, the `blood_orb` / `blood_bath_contact` weave frames, and the "returns to blood" question.
+  - Source search: across every branch, no existing source describes SCAR as a gun. The only "scar" hits are F01 injury bookkeeping, which is unrelated. So SCAR's exact manifestation and presentation are `SOURCE_REQUIRED`.
+  - Also `SOURCE_REQUIRED`: how SCAR relates to the catalogue guns (Lil Oga … The RPG) and their frozen held art, and what the delivered `GUNWEAVE` sound accompanies. Nothing here resolves either.
+  - Until source exists, guns fire from their existing held sprite only, with no weave visual.
+- **RPG:** **Creator source, Rich's firing line: "BACK TO SENDER"** (exact wording). Director treatment: Rich shoulders it (how SCAR relates to this is `SOURCE_REQUIRED`) → **"BACK TO SENDER"** in Rich's speech bubble on the frame before the shot (it's his first spoken combat line, so it gets the bubble, not the log) → (the held sprite, rotated by whole 90° steps only) → the projectile travels with 2 smoke-puff aftermath frames → the **only full-screen flash allowed outside BLOOD**: one new bone-white blast frame (ART-S5). Until it exists, use a 2-frame world silhouette flash. Don't borrow the red Blood Bath fullscreen, which belongs to BLOOD → 3-art-px shake → STAGE debris → "RICH TAKES 10 SPLASH": **Rich gets hit by his own blast** (a LIGHT hurt on Rich, 200 ms later). The self-hit is the joke.
+- **Auntie's Slipper:** THROWN look. Thrown, spinning (E6 is still open; this is a placeholder, and any SCAR relation is `SOURCE_REQUIRED`). `GN_05` (slipper whap + crowd "OOOH"). Fear effect: the enemy's sprite **shrinks 1 art px and flinches before the slipper lands** (the memory hits first).
 
 ### C6. UNCLE SUNDAY — "WHO IS YOUR FATHER"
 
@@ -429,7 +434,7 @@ Ordered by spectacle gained per hour of work. All of these are scene / CSS / aud
 | D6 | Replace `c2Flash` brightness filters with the existing `combat-white-flash` / `combat-silhouette-flash` | `style.css` (existing classes) | ★★★ (coherence) |
 | D7 | **TELL upgrade:** `TELEGRAPH` sound + frozen tell pose + 1-art-px lean where there's no pose | `bonesworth_telegraph`, aliases in D8 | ★★★ |
 | D8 | **State alias map:** use frozen states that the role names miss. Phil `charging_day1`/`charging_day3` → charge turns 1/2; `spent_grounded` → after the beam / defeated; `sitting_plate` → spared. Uncle `offended` → enrage; `melted` / `fishing` → spared. Hilt `walk_away` → fight end. Bruce `bow` → recruit-spared ("BECOME HIS STUDENT"). Lil Smack `eating` → spared by food. Tasha `filming` → companion FILMING cameo | existing frozen states | ★★★★ |
-| D9 | **Show the gun.** The held sprite at Rich's hand anchor (`fxPoint('rich', …)`), woven from `blood_orb` + `blood_bath_contact_01`, `GUNWEAVE` then `GUN_*`. **Delete the scanline overlay** (`c2-gunfx`) | `E-gun-*-held.png` ×5 | ★★★★ |
+| D9 | **Show the gun.** The existing held sprite at Rich's hand anchor (`fxPoint('rich', …)`) + `GUN_*`. **Delete the scanline overlay** (`c2-gunfx`). No weave visual: GUN WEAVE = SCAR, presentation `SOURCE_REQUIRED` | `E-gun-*-held.png` ×5 | ★★★★ |
 | D10 | **Show the item** above Rich + `ITEM_CAN` / `ITEM_EAT` / `ITEM_SLURP` + green motes | `E-item-*.png` ×6 | ★★★ |
 | D11 | **CAMEO for HOES** with frozen neutral/action states + `COMPANION_CALL` (§B3) | all companion masters | ★★★★★ (44 moves go from invisible to visible) |
 | D12 | **FINISH beat** (B0.4): LETHAL → `KO` → defeated hold → 400 ms of nothing → text | `KO`, defeated states | ★★★ |
@@ -446,7 +451,7 @@ Ordered by spectacle gained per hour of work. All of these are scene / CSS / aud
 | Any telegraph | `TELEGRAPH` |
 | Contact, by tier | `HIT_LIGHT`, `HIT_HEAVY`, `CRIT`, `KO` · miss: `MISS` |
 | Rich moves | `MOVE_BLOODBATH`, `MOVE_BITE`, `MOVE_REVENGE`, `MOVE_OCTOPUS`, `MOVE_ONEINCH` · Hex/Veil/Ringer: `MAGIC_HEX`, `MAGIC_VEIL`, `MAGIC_RINGER` |
-| Guns | `GUNWEAVE` (every weave) + `GUN_LILOGA`, `GUN_SHOTGUN`, `GUN_SNIPER`, `GUN_HOLYDRAKE`, `GUN_RPG`, `GUN_KRATOS` (dev) |
+| Guns | `GUN_LILOGA`, `GUN_SHOTGUN`, `GUN_SNIPER`, `GUN_HOLYDRAKE`, `GUN_RPG`, `GUN_KRATOS` (dev). `GUNWEAVE` is held back until SCAR's presentation is sourced |
 | Items / HOES | `ITEM_CAN` (Sapporo), `ITEM_EAT` (food), `ITEM_SLURP` (boba) · `COMPANION_CALL` · `HEAL`, `BUFF`, `DEBUFF`, `STUN` |
 | Enemies | Bonesworth `EN_BONES`/`EN_SWORD`/`EN_SHIELD` · Paladin `EN_HOLY`/`EN_SWORD`/`EN_SHIELD` (+ `HOLY_CHOIR_COMEDIC` on HOLY SWING) · Hilt `EN_STAKE`/`EN_LUNCHBOX` · Phil `EN_CHARGE` (loop)/`EN_SCREAM` · Bruce `EN_KIAI` · Kevins `EN_POOF` · Bard `EN_LUTE` · Lil Smack/Smallie `EN_CHEW` · Moonie `EN_HOWL` · Groupies `CROWD_GASP` · roasts `CROWD_OOH` |
 | Vampire moments | `BAT_SWARM` (Bite, Duchess DRAIN) |
@@ -466,6 +471,7 @@ Ordered by spectacle gained per hour of work. All of these are scene / CSS / aud
 | COOK RETURN 001 | E1 Phil | Kamehameha-inspired energy attack, distinctly purple, visually huge. At peak impact, temporary SCREEN CRACKS (spectacle, not permanent UI damage) | §C1 |
 | COOK RETURN 001 | E2 Hilt | Inside the lunchbox: gabagool, provolone, vinegar peppers, sandwich. Preserve the mundane specificity | §C2 |
 | COOK RETURN 001 | E7 RPG | Rich's firing line: "BACK TO SENDER" (exact wording) | §C5 |
+| COOK RETURN 002 (correction) | E5 Gun Weave | "The gun itself is SCAR." SCAR is the gun. Not a gun emerging from a scar, not a scar as an interface, not Rich's blood forming a conventional gun. Manifestation `SOURCE_REQUIRED` (no existing source found) | §B2.3, §C5 |
 | COOK RETURN 001 | E3 Bonesworth, E4 Kevins | Ube doesn't know these well enough. Context first; don't invent creator intent | §C3, §C4, E3, E4 |
 
 ### E-status
@@ -475,10 +481,11 @@ Ordered by spectacle gained per hour of work. All of these are scene / CSS / aud
 | E1 Phil BEAM | ✅ RESOLVED (COOK RETURN 001) |
 | E2 Hilt LUNCHBOX | ✅ RESOLVED: contents. Open/close timing is a director default |
 | E7 RPG | ✅ RESOLVED: line. The aftermath gag is a director default (no extra question) |
-| E3 Bonesworth, E5 Gun Weave, E11 Rich's combat voice | **NEXT** (top 3, below) |
+| E5 Gun Weave | ✅ RESOLVED (identity): the gun is SCAR. Manifestation/presentation `SOURCE_REQUIRED`, not a cook question until source exists |
+| E3 Bonesworth, E11 Rich's combat voice | **NEXT** |
 | E4 Kevins, E6 Slipper, E8 Uncle Sunday, E9 Petty, E10 Nemesis | OPEN, queued |
 
-### NEXT — the three highest-value open windows
+### NEXT — open windows (E5 resolved; see the status table)
 
 **E3. SIR BONESWORTH — "ALL OF HIM."**
 - **Context:** Sir Bonesworth is a hungover skeleton knight in rusted armour. Rich finds him groaning under the confetti in his own throne room the morning after his first castle party ("…who threw this. i need to know who threw this."). The fight is that hangover: he sways, cleaves and rattles his bones. Below half HP he gets a second wind, and the game warns "HE IS LOWERING INTO A CHARGE. ALL OF HIM." before a 55-damage charge, his biggest hit. Afterwards he either hands Rich his sword for the Armory wall or moves into the crypt. Frozen art: sword raised, low lunge, recoil, and a pile of bones.
@@ -486,11 +493,9 @@ Ordered by spectacle gained per hour of work. All of these are scene / CSS / aud
 - **Seeds (optional):** ① the skull arrives a frame before the body. ② the charge is perfect, and the hangover catches up a frame after impact. ③ something from last night's party comes with him.
 - **Need back:** one sentence for the charge; frame 1 / 2 / 3; or "keep it plain".
 
-**E5. THE GUN WEAVE — every gun in menu combat.**
-- **Context:** in canon, Rich doesn't carry guns. Guns "become part of Rich's blood and appear only when needed" (Gun Weaving), bought at THE ARMORY from Deacon Brass behind a church in South LA. Rich has no default weapon identity; guns are tools he chooses. Five guns have frozen held art today (Lil Oga, Sapporo Shotgun, Chopstick Sniper, Holy Baby Drake, The RPG). The weave plays before **every** gun shot, so it's the most-repeated signature in the game, and it now leads into "BACK TO SENDER" for the RPG.
-- **Question:** what does a gun look like coming *out of Rich's blood*? Does it go back in after the shot?
-- **Seeds (optional):** ① blood builds it bottom-up, like a 3D printer. ② for one frame it's the wrong gun, then it corrects itself. ③ Rich never looks at it; it's simply in his hand.
-- **Need back:** the weave in one sentence; returns to blood yes/no.
+**E5. THE GUN WEAVE: RESOLVED (identity), SCAR is the gun.**
+- Creator source: "The gun itself is SCAR." The earlier blood-weave question and seeds are withdrawn.
+- `SOURCE_REQUIRED`: SCAR's exact manifestation and presentation, how it relates to the catalogue guns and their held art, and what the `GUNWEAVE` sound accompanies. No existing source covers these. When Ube supplies source, it gets recorded verbatim in §E0.
 
 **E11. RICH'S COMBAT VOICE — now that he says "BACK TO SENDER".**
 - **Context:** in the throne fight, Rich's only voice is the music-synced lyric bubble (he raps or mutters along to the track). In Combat 2.0 he says nothing; every line is narration in the log. Ube's RPG line "BACK TO SENDER" is his **first spoken combat line**, and it sets a precedent. (F01 / THE PLAY has its own locked rule for Rich's voice and is not affected.)
@@ -536,7 +541,7 @@ Ordered by spectacle gained per hour of work. All of these are scene / CSS / aud
 | ENG-05 | Multi-hit compression + event-kind pacing (D4, D16) | ENG | — | S |
 | ENG-06 | World-only shake in art px; silhouette flashes (D5, D6) | ENG | — | S |
 | ENG-07 | TELL upgrade + state alias map (D7, D8) | ENG | — | S |
-| ENG-08 | Gun held sprite + weave; delete the scanline overlay (D9) | ENG | — | S |
+| ENG-08 | Gun held sprite; delete the scanline overlay (D9). No weave visual (SCAR `SOURCE_REQUIRED`) | ENG | — | S |
 | ENG-09 | Item pop (D10) | ENG | — | XS |
 | ENG-10 | CAMEO wrapper for HOES (D11, §B3) | ENG | Director: a cameo slot on the combat stage | M |
 | ENG-11 | FINISH beat (D12), number steps (D13) | ENG | ENG-03 for crits | XS |
@@ -576,7 +581,7 @@ Ordered by spectacle gained per hour of work. All of these are scene / CSS / aud
 | SIG-2 | Hilt LUNCHBOX + anti-tell | ✅ creator source received | ART-S2, not requested: lunchbox in hand / flight / open + 4 content sprites (gabagool, provolone, vinegar peppers, sandwich) | S |
 | SIG-3 | Bonesworth DEATH CHARGE | **UBE E3 (NEXT, context-first)** | decided by the answer | S |
 | SIG-4 | 40 Kevins | **UBE E4 (queued, context-first)** | works on existing art; must never reveal the real Kevin | S |
-| SIG-5 | Gun Weave / RPG / Slipper | ✅ E7 line received · **E5 NEXT** · E6 queued | ART-S5 (RPG projectile + blast frame), slipper art, AUD-01 (`GN_05`) | M |
+| SIG-5 | Gun Weave (SCAR) / RPG / Slipper | ✅ E7 line · ✅ E5: the gun is SCAR, manifestation `SOURCE_REQUIRED` · E6 queued | ART-S5 (RPG projectile + blast frame), slipper art, AUD-01 (`GN_05`) | M |
 | SIG-6 | Uncle Sunday | **UBE E8** | nothing; ENG-13 VERBAL slabs | XS |
 | — | Rich's combat voice (**E11 NEXT**), One-Inch Petty, the Nemesis chew | **UBE E11, E9, E10** | budget decided by Ube's answer | — |
 
