@@ -1,0 +1,4730 @@
+{
+  "character": "dragon",
+  "source_filename": "dragon-dance-loop-twice.mp4",
+  "source_path": "C:\\Users\\Ube\\Downloads\\dragon-dance-loop-twice.mp4",
+  "source_dimensions": [
+    496,
+    592
+  ],
+  "container": "mov,mp4,m4a,3gp,3g2,mj2",
+  "codec": "h264",
+  "pixel_format": "yuv420p",
+  "source_fps": "24/1",
+  "production_fps": 24,
+  "source_frame_count": 144,
+  "production_frame_count": 144,
+  "duration_seconds": 6.0,
+  "source_duration_seconds": 6.0,
+  "master_canvas_dimensions": [
+    688,
+    688
+  ],
+  "source_sha256": "b62dd8cdeb6e85d6f8259a00730578be54115db5bba2ea6d1b16ad4f52b24d71",
+  "loop_status": "Near-repeated 72-frame cycle (about 3 seconds) detected; complete 144-frame source retained, no trimming or seam correction.",
+  "baseline_placement": {
+    "occupied_bottom_exclusive_y": 664,
+    "translation_xy": [
+      77,
+      87
+    ],
+    "strategy": "fixed translation; union of all source occupied bounds horizontally centered; common bottom y=664"
+  },
+  "occupied_character_bounds": {
+    "source_union": [
+      51,
+      82,
+      482,
+      577
+    ],
+    "master_union": [
+      128,
+      169,
+      559,
+      664
+    ]
+  },
+  "transparency": {
+    "mode": "RGBA",
+    "method": "All visible color components of at least 8 pixels; enclosed dark pixels retained; 1 pixel binary collar; no RGB filtering",
+    "status": "CREATOR APPROVED / FROZEN"
+  },
+  "processing_performed": [
+    "decode to 8-bit RGBA PNG",
+    "fixed integer translation, no scaling",
+    "source frames and ordering retained",
+    "Targeted alpha-only removal of confirmed background interiors; source RGB and placement unchanged"
+  ],
+  "source_to_production_mapping": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39,
+    40,
+    41,
+    42,
+    43,
+    44,
+    45,
+    46,
+    47,
+    48,
+    49,
+    50,
+    51,
+    52,
+    53,
+    54,
+    55,
+    56,
+    57,
+    58,
+    59,
+    60,
+    61,
+    62,
+    63,
+    64,
+    65,
+    66,
+    67,
+    68,
+    69,
+    70,
+    71,
+    72,
+    73,
+    74,
+    75,
+    76,
+    77,
+    78,
+    79,
+    80,
+    81,
+    82,
+    83,
+    84,
+    85,
+    86,
+    87,
+    88,
+    89,
+    90,
+    91,
+    92,
+    93,
+    94,
+    95,
+    96,
+    97,
+    98,
+    99,
+    100,
+    101,
+    102,
+    103,
+    104,
+    105,
+    106,
+    107,
+    108,
+    109,
+    110,
+    111,
+    112,
+    113,
+    114,
+    115,
+    116,
+    117,
+    118,
+    119,
+    120,
+    121,
+    122,
+    123,
+    124,
+    125,
+    126,
+    127,
+    128,
+    129,
+    130,
+    131,
+    132,
+    133,
+    134,
+    135,
+    136,
+    137,
+    138,
+    139,
+    140,
+    141,
+    142,
+    143
+  ],
+  "issues": [
+    {
+      "issue": "Black matte is indistinguishable from external black outline. Conservative 1-pixel collar retained; enclosed dark regions retained. Possible dark fringe and enclosed background holes need review",
+      "regions": "hair tips, hands/heels, tail tip, gap beneath pelvis and between limbs",
+      "source_frames": [
+        0,
+        20,
+        40,
+        61,
+        81,
+        94,
+        102,
+        122,
+        143
+      ]
+    }
+  ],
+  "duplicate_analysis": {
+    "exact_adjacent_duplicate_frames": [],
+    "exact_lag_matches": {
+      "12": 0,
+      "24": 0,
+      "36": 0,
+      "48": 0,
+      "72": 0
+    }
+  },
+  "qa_sample_source_frames": [
+    0,
+    20,
+    40,
+    61,
+    81,
+    94,
+    102,
+    122,
+    143
+  ],
+  "no_generated_or_interpolated_frames": true,
+  "scaling": null,
+  "pixel_precision": "Lossless 8-bit RGBA PNG from FFmpeg-decoded source; PINK 12-bit YUVA decoded to 8-bit RGBA. No subsequent RGB filtering or resizing.",
+  "candidate_revision": "Targeted mask revision approved and frozen by Ube",
+  "derived_from": "C:\\Users\\Ube\\Documents\\Codex\\2026-10-01\\f15-dance-cleanup-standardization-pass-1\\outputs\\f15_dance_masters_pass1\\dragon",
+  "targeted_repairs": [
+    {
+      "source_frame": 0,
+      "production_frames": [
+        0
+      ],
+      "alpha_pixels_removed": 2719,
+      "regions": [
+        {
+          "region": "left_arm_body_gap",
+          "source_box": [
+            113,
+            427,
+            176,
+            517
+          ],
+          "removed_pixels": 1957,
+          "selected_component": 312
+        },
+        {
+          "region": "right_arm_body_gap",
+          "source_box": [
+            321,
+            421,
+            366,
+            487
+          ],
+          "removed_pixels": 762,
+          "selected_component": 305
+        }
+      ]
+    },
+    {
+      "source_frame": 1,
+      "production_frames": [
+        1
+      ],
+      "alpha_pixels_removed": 2749,
+      "regions": [
+        {
+          "region": "left_arm_body_gap",
+          "source_box": [
+            113,
+            426,
+            177,
+            517
+          ],
+          "removed_pixels": 1956,
+          "selected_component": 342
+        },
+        {
+          "region": "right_arm_body_gap",
+          "source_box": [
+            320,
+            423,
+            366,
+            487
+          ],
+          "removed_pixels": 793,
+          "selected_component": 334
+        }
+      ]
+    },
+    {
+      "source_frame": 2,
+      "production_frames": [
+        2
+      ],
+      "alpha_pixels_removed": 2964,
+      "regions": [
+        {
+          "region": "left_arm_body_gap",
+          "source_box": [
+            113,
+            427,
+            178,
+            517
+          ],
+          "removed_pixels": 2063,
+          "selected_component": 343
+        },
+        {
+          "region": "right_arm_body_gap",
+          "source_box": [
+            319,
+            428,
+            366,
+            487
+          ],
+          "removed_pixels": 901,
+          "selected_component": 346
+        }
+      ]
+    },
+    {
+      "source_frame": 3,
+      "production_frames": [
+        3
+      ],
+      "alpha_pixels_removed": 2851,
+      "regions": [
+        {
+          "region": "left_arm_body_gap",
+          "source_box": [
+            113,
+            425,
+            178,
+            517
+          ],
+          "removed_pixels": 2025,
+          "selected_component": 298
+        },
+        {
+          "region": "right_arm_body_gap",
+          "source_box": [
+            319,
+            427,
+            366,
+            487
+          ],
+          "removed_pixels": 826,
+          "selected_component": 300
+        }
+      ]
+    },
+    {
+      "source_frame": 4,
+      "production_frames": [
+        4
+      ],
+      "alpha_pixels_removed": 2719,
+      "regions": [
+        {
+          "region": "left_arm_body_gap",
+          "source_box": [
+            113,
+            420,
+            175,
+            517
+          ],
+          "removed_pixels": 1996,
+          "selected_component": 320
+        },
+        {
+          "region": "right_arm_body_gap",
+          "source_box": [
+            321,
+            421,
+            366,
+            487
+          ],
+          "removed_pixels": 723,
+          "selected_component": 322
+        }
+      ]
+    },
+    {
+      "source_frame": 5,
+      "production_frames": [
+        5
+      ],
+      "alpha_pixels_removed": 2760,
+      "regions": [
+        {
+          "region": "left_arm_body_gap",
+          "source_box": [
+            113,
+            419,
+            176,
+            517
+          ],
+          "removed_pixels": 2007,
+          "selected_component": 338
+        },
+        {
+          "region": "right_arm_body_gap",
+          "source_box": [
+            320,
+            419,
+            366,
+            487
+          ],
+          "removed_pixels": 753,
+          "selected_component": 339
+        }
+      ]
+    },
+    {
+      "source_frame": 6,
+      "production_frames": [
+        6
+      ],
+      "alpha_pixels_removed": 2871,
+      "regions": [
+        {
+          "region": "left_arm_body_gap",
+          "source_box": [
+            113,
+            427,
+            178,
+            517
+          ],
+          "removed_pixels": 2014,
+          "selected_component": 352
+        },
+        {
+          "region": "right_arm_body_gap",
+          "source_box": [
+            319,
+            426,
+            366,
+            487
+          ],
+          "removed_pixels": 857,
+          "selected_component": 350
+        }
+      ]
+    },
+    {
+      "source_frame": 7,
+      "production_frames": [
+        7
+      ],
+      "alpha_pixels_removed": 2818,
+      "regions": [
+        {
+          "region": "left_arm_body_gap",
+          "source_box": [
+            113,
+            430,
+            177,
+            517
+          ],
+          "removed_pixels": 2004,
+          "selected_component": 325
+        },
+        {
+          "region": "right_arm_body_gap",
+          "source_box": [
+            320,
+            428,
+            366,
+            487
+          ],
+          "removed_pixels": 814,
+          "selected_component": 319
+        }
+      ]
+    },
+    {
+      "source_frame": 8,
+      "production_frames": [
+        8
+      ],
+      "alpha_pixels_removed": 2606,
+      "regions": [
+        {
+          "region": "left_arm_body_gap",
+          "source_box": [
+            114,
+            423,
+            173,
+            517
+          ],
+          "removed_pixels": 1913,
+          "selected_component": 351
+        },
+        {
+          "region": "right_arm_body_gap",
+          "source_box": [
+            323,
+            425,
+            366,
+            487
+          ],
+          "removed_pixels": 693,
+          "selected_component": 353
+        }
+      ]
+    },
+    {
+      "source_frame": 9,
+      "production_frames": [
+        9
+      ],
+      "alpha_pixels_removed": 2576,
+      "regions": [
+        {
+          "region": "left_arm_body_gap",
+          "source_box": [
+            113,
+            418,
+            173,
+            517
+          ],
+          "removed_pixels": 1915,
+          "selected_component": 315
+        },
+        {
+          "region": "right_arm_body_gap",
+          "source_box": [
+            326,
+            421,
+            366,
+            487
+          ],
+          "removed_pixels": 661,
+          "selected_component": 312
+        }
+      ]
+    },
+    {
+      "source_frame": 10,
+      "production_frames": [
+        10
+      ],
+      "alpha_pixels_removed": 2691,
+      "regions": [
+        {
+          "region": "left_arm_body_gap",
+          "source_box": [
+            113,
+            417,
+            174,
+            517
+          ],
+          "removed_pixels": 1989,
+          "selected_component": 317
+        },
+        {
+          "region": "right_arm_body_gap",
+          "source_box": [
+            321,
+            417,
+            366,
+            487
+          ],
+          "removed_pixels": 702,
+          "selected_component": 319
+        }
+      ]
+    },
+    {
+      "source_frame": 11,
+      "production_frames": [
+        11
+      ],
+      "alpha_pixels_removed": 2675,
+      "regions": [
+        {
+          "region": "left_arm_body_gap",
+          "source_box": [
+            113,
+            423,
+            174,
+            517
+          ],
+          "removed_pixels": 1939,
+          "selected_component": 295
+        },
+        {
+          "region": "right_arm_body_gap",
+          "source_box": [
+            321,
+            421,
+            367,
+            487
+          ],
+          "removed_pixels": 736,
+          "selected_component": 296
+        }
+      ]
+    },
+    {
+      "source_frame": 12,
+      "production_frames": [
+        12
+      ],
+      "alpha_pixels_removed": 2813,
+      "regions": [
+        {
+          "region": "left_arm_body_gap",
+          "source_box": [
+            113,
+            428,
+            177,
+            517
+          ],
+          "removed_pixels": 1992,
+          "selected_component": 337
+        },
+        {
+          "region": "right_arm_body_gap",
+          "source_box": [
+            321,
+            427,
+            366,
+            487
+          ],
+          "removed_pixels": 821,
+          "selected_component": 342
+        }
+      ]
+    },
+    {
+      "source_frame": 13,
+      "production_frames": [
+        13
+      ],
+      "alpha_pixels_removed": 2752,
+      "regions": [
+        {
+          "region": "left_arm_body_gap",
+          "source_box": [
+            113,
+            427,
+            176,
+            517
+          ],
+          "removed_pixels": 1990,
+          "selected_component": 346
+        },
+        {
+          "region": "right_arm_body_gap",
+          "source_box": [
+            321,
+            427,
+            366,
+            487
+          ],
+          "removed_pixels": 762,
+          "selected_component": 347
+        }
+      ]
+    },
+    {
+      "source_frame": 14,
+      "production_frames": [
+        14
+      ],
+      "alpha_pixels_removed": 2601,
+      "regions": [
+        {
+          "region": "left_arm_body_gap",
+          "source_box": [
+            113,
+            422,
+            173,
+            517
+          ],
+          "removed_pixels": 1907,
+          "selected_component": 298
+        },
+        {
+          "region": "right_arm_body_gap",
+          "source_box": [
+            324,
+            422,
+            366,
+            487
+          ],
+          "removed_pixels": 694,
+          "selected_component": 297
+        }
+      ]
+    },
+    {
+      "source_frame": 15,
+      "production_frames": [
+        15
+      ],
+      "alpha_pixels_removed": 2679,
+      "regions": [
+        {
+          "region": "left_arm_body_gap",
+          "source_box": [
+            114,
+            416,
+            174,
+            517
+          ],
+          "removed_pixels": 1990,
+          "selected_component": 280
+        },
+        {
+          "region": "right_arm_body_gap",
+          "source_box": [
+            322,
+            419,
+            366,
+            487
+          ],
+          "removed_pixels": 689,
+          "selected_component": 278
+        }
+      ]
+    },
+    {
+      "source_frame": 16,
+      "production_frames": [
+        16
+      ],
+      "alpha_pixels_removed": 2793,
+      "regions": [
+        {
+          "region": "left_arm_body_gap",
+          "source_box": [
+            113,
+            425,
+            177,
+            517
+          ],
+          "removed_pixels": 1981,
+          "selected_component": 350
+        },
+        {
+          "region": "right_arm_body_gap",
+          "source_box": [
+            320,
+            424,
+            366,
+            487
+          ],
+          "removed_pixels": 812,
+          "selected_component": 348
+        }
+      ]
+    },
+    {
+      "source_frame": 17,
+      "production_frames": [
+        17
+      ],
+      "alpha_pixels_removed": 2824,
+      "regions": [
+        {
+          "region": "left_arm_body_gap",
+          "source_box": [
+            113,
+            428,
+            177,
+            517
+          ],
+          "removed_pixels": 1986,
+          "selected_component": 317
+        },
+        {
+          "region": "right_arm_body_gap",
+          "source_box": [
+            320,
+            426,
+            366,
+            487
+          ],
+          "removed_pixels": 838,
+          "selected_component": 311
+        }
+      ]
+    },
+    {
+      "source_frame": 18,
+      "production_frames": [
+        18
+      ],
+      "alpha_pixels_removed": 2825,
+      "regions": [
+        {
+          "region": "left_arm_body_gap",
+          "source_box": [
+            113,
+            426,
+            176,
+            517
+          ],
+          "removed_pixels": 2011,
+          "selected_component": 336
+        },
+        {
+          "region": "right_arm_body_gap",
+          "source_box": [
+            321,
+            427,
+            366,
+            487
+          ],
+          "removed_pixels": 814,
+          "selected_component": 341
+        }
+      ]
+    },
+    {
+      "source_frame": 19,
+      "production_frames": [
+        19
+      ],
+      "alpha_pixels_removed": 2810,
+      "regions": [
+        {
+          "region": "left_arm_body_gap",
+          "source_box": [
+            113,
+            424,
+            176,
+            517
+          ],
+          "removed_pixels": 2010,
+          "selected_component": 333
+        },
+        {
+          "region": "right_arm_body_gap",
+          "source_box": [
+            321,
+            422,
+            366,
+            487
+          ],
+          "removed_pixels": 800,
+          "selected_component": 336
+        }
+      ]
+    },
+    {
+      "source_frame": 20,
+      "production_frames": [
+        20
+      ],
+      "alpha_pixels_removed": 2723,
+      "regions": [
+        {
+          "region": "left_arm_body_gap",
+          "source_box": [
+            114,
+            420,
+            176,
+            517
+          ],
+          "removed_pixels": 2000,
+          "selected_component": 304
+        },
+        {
+          "region": "right_arm_body_gap",
+          "source_box": [
+            321,
+            419,
+            366,
+            487
+          ],
+          "removed_pixels": 723,
+          "selected_component": 305
+        }
+      ]
+    },
+    {
+      "source_frame": 21,
+      "production_frames": [
+        21
+      ],
+      "alpha_pixels_removed": 2804,
+      "regions": [
+        {
+          "region": "left_arm_body_gap",
+          "source_box": [
+            114,
+            423,
+            178,
+            517
+          ],
+          "removed_pixels": 2039,
+          "selected_component": 307
+        },
+        {
+          "region": "right_arm_body_gap",
+          "source_box": [
+            320,
+            421,
+            366,
+            487
+          ],
+          "removed_pixels": 765,
+          "selected_component": 302
+        }
+      ]
+    },
+    {
+      "source_frame": 22,
+      "production_frames": [
+        22
+      ],
+      "alpha_pixels_removed": 2662,
+      "regions": [
+        {
+          "region": "left_arm_body_gap",
+          "source_box": [
+            113,
+            428,
+            176,
+            517
+          ],
+          "removed_pixels": 1912,
+          "selected_component": 288
+        },
+        {
+          "region": "right_arm_body_gap",
+          "source_box": [
+            321,
+            427,
+            366,
+            487
+          ],
+          "removed_pixels": 750,
+          "selected_component": 293
+        }
+      ]
+    },
+    {
+      "source_frame": 23,
+      "production_frames": [
+        23
+      ],
+      "alpha_pixels_removed": 2530,
+      "regions": [
+        {
+          "region": "left_arm_body_gap",
+          "source_box": [
+            113,
+            429,
+            173,
+            517
+          ],
+          "removed_pixels": 1863,
+          "selected_component": 319
+        },
+        {
+          "region": "right_arm_body_gap",
+          "source_box": [
+            325,
+            429,
+            366,
+            487
+          ],
+          "removed_pixels": 667,
+          "selected_component": 323
+        }
+      ]
+    },
+    {
+      "source_frame": 24,
+      "production_frames": [
+        24
+      ],
+      "alpha_pixels_removed": 2647,
+      "regions": [
+        {
+          "region": "left_arm_body_gap",
+          "source_box": [
+            114,
+            423,
+            173,
+            517
+          ],
+          "removed_pixels": 1881,
+          "selected_component": 358
+        },
+        {
+          "region": "right_arm_body_gap",
+          "source_box": [
+            322,
+            424,
+            366,
+            487
+          ],
+          "removed_pixels": 766,
+          "selected_component": 356
+        }
+      ]
+    },
+    {
+      "source_frame": 25,
+      "production_frames": [
+        25
+      ],
+      "alpha_pixels_removed": 2643,
+      "regions": [
+        {
+          "region": "left_arm_body_gap",
+          "source_box": [
+            114,
+            419,
+            174,
+            517
+          ],
+          "removed_pixels": 1927,
+          "selected_component": 324
+        },
+        {
+          "region": "right_arm_body_gap",
+          "source_box": [
+            322,
+            418,
+            366,
+            487
+          ],
+          "removed_pixels": 716,
+          "selected_component": 331
+        }
+      ]
+    },
+    {
+      "source_frame": 26,
+      "production_frames": [
+        26
+      ],
+      "alpha_pixels_removed": 2817,
+      "regions": [
+        {
+          "region": "left_arm_body_gap",
+          "source_box": [
+            114,
+            419,
+            177,
+            517
+          ],
+          "removed_pixels": 2028,
+          "selected_component": 317
+        },
+        {
+          "region": "right_arm_body_gap",
+          "source_box": [
+            320,
+            419,
+            367,
+            487
+          ],
+          "removed_pixels": 789,
+          "selected_component": 320
+        }
+      ]
+    },
+    {
+      "source_frame": 27,
+      "production_frames": [
+        27
+      ],
+      "alpha_pixels_removed": 2902,
+      "regions": [
+        {
+          "region": "left_arm_body_gap",
+          "source_box": [
+            114,
+            426,
+            178,
+            517
+          ],
+          "removed_pixels": 2075,
+          "selected_component": 295
+        },
+        {
+          "region": "right_arm_body_gap",
+          "source_box": [
+            319,
+            425,
+            366,
+            487
+          ],
+          "removed_pixels": 827,
+          "selected_component": 298
+        }
+      ]
+    },
+    {
+      "source_frame": 28,
+      "production_frames": [
+        28
+      ],
+      "alpha_pixels_removed": 2853,
+      "regions": [
+        {
+          "region": "left_arm_body_gap",
+          "source_box": [
+            113,
+            428,
+            178,
+            517
+          ],
+          "removed_pixels": 2044,
+          "selected_component": 363
+        },
+        {
+          "region": "right_arm_body_gap",
+          "source_box": [
+            320,
+            427,
+            366,
+            487
+          ],
+          "removed_pixels": 809,
+          "selected_component": 369
+        }
+      ]
+    },
+    {
+      "source_frame": 29,
+      "production_frames": [
+        29
+      ],
+      "alpha_pixels_removed": 2725,
+      "regions": [
+        {
+          "region": "left_arm_body_gap",
+          "source_box": [
+            113,
+            425,
+            175,
+            517
+          ],
+          "removed_pixels": 1977,
+          "selected_component": 326
+        },
+        {
+          "region": "right_arm_body_gap",
+          "source_box": [
+            321,
+            425,
+            366,
+            487
+          ],
+          "removed_pixels": 748,
+          "selected_component": 332
+        }
+      ]
+    },
+    {
+      "source_frame": 30,
+      "production_frames": [
+        30
+      ],
+      "alpha_pixels_removed": 2589,
+      "regions": [
+        {
+          "region": "left_arm_body_gap",
+          "source_box": [
+            113,
+            418,
+            173,
+            517
+          ],
+          "removed_pixels": 1898,
+          "selected_component": 293
+        },
+        {
+          "region": "right_arm_body_gap",
+          "source_box": [
+            325,
+            421,
+            366,
+            487
+          ],
+          "removed_pixels": 691,
+          "selected_component": 291
+        }
+      ]
+    },
+    {
+      "source_frame": 31,
+      "production_frames": [
+        31
+      ],
+      "alpha_pixels_removed": 2665,
+      "regions": [
+        {
+          "region": "left_arm_body_gap",
+          "source_box": [
+            113,
+            416,
+            174,
+            517
+          ],
+          "removed_pixels": 1970,
+          "selected_component": 290
+        },
+        {
+          "region": "right_arm_body_gap",
+          "source_box": [
+            323,
+            419,
+            366,
+            487
+          ],
+          "removed_pixels": 695,
+          "selected_component": 287
+        }
+      ]
+    },
+    {
+      "source_frame": 32,
+      "production_frames": [
+        32
+      ],
+      "alpha_pixels_removed": 2733,
+      "regions": [
+        {
+          "region": "left_arm_body_gap",
+          "source_box": [
+            113,
+            425,
+            176,
+            517
+          ],
+          "removed_pixels": 1971,
+          "selected_component": 327
+        },
+        {
+          "region": "right_arm_body_gap",
+          "source_box": [
+            321,
+            423,
+            366,
+            487
+          ],
+          "removed_pixels": 762,
+          "selected_component": 323
+        }
+      ]
+    },
+    {
+      "source_frame": 33,
+      "production_frames": [
+        33
+      ],
+      "alpha_pixels_removed": 2845,
+      "regions": [
+        {
+          "region": "left_arm_body_gap",
+          "source_box": [
+            113,
+            428,
+            178,
+            517
+          ],
+          "removed_pixels": 2018,
+          "selected_component": 330
+        },
+        {
+          "region": "right_arm_body_gap",
+          "source_box": [
+            320,
+            426,
+            366,
+            487
+          ],
+          "removed_pixels": 827,
+          "selected_component": 331
+        }
+      ]
+    },
+    {
+      "source_frame": 34,
+      "production_frames": [
+        34
+      ],
+      "alpha_pixels_removed": 2752,
+      "regions": [
+        {
+          "region": "left_arm_body_gap",
+          "source_box": [
+            113,
+            428,
+            176,
+            517
+          ],
+          "removed_pixels": 1965,
+          "selected_component": 290
+        },
+        {
+          "region": "right_arm_body_gap",
+          "source_box": [
+            321,
+            428,
+            366,
+            487
+          ],
+          "removed_pixels": 787,
+          "selected_component": 292
+        }
+      ]
+    },
+    {
+      "source_frame": 35,
+      "production_frames": [
+        35
+      ],
+      "alpha_pixels_removed": 2617,
+      "regions": [
+        {
+          "region": "left_arm_body_gap",
+          "source_box": [
+            113,
+            426,
+            173,
+            517
+          ],
+          "removed_pixels": 1915,
+          "selected_component": 293
+        },
+        {
+          "region": "right_arm_body_gap",
+          "source_box": [
+            325,
+            425,
+            366,
+            487
+          ],
+          "removed_pixels": 702,
+          "selected_component": 295
+        }
+      ]
+    },
+    {
+      "source_frame": 36,
+      "production_frames": [
+        36
+      ],
+      "alpha_pixels_removed": 2654,
+      "regions": [
+        {
+          "region": "left_arm_body_gap",
+          "source_box": [
+            113,
+            421,
+            174,
+            517
+          ],
+          "removed_pixels": 1913,
+          "selected_component": 324
+        },
+        {
+          "region": "right_arm_body_gap",
+          "source_box": [
+            322,
+            421,
+            366,
+            487
+          ],
+          "removed_pixels": 741,
+          "selected_component": 320
+        }
+      ]
+    },
+    {
+      "source_frame": 37,
+      "production_frames": [
+        37
+      ],
+      "alpha_pixels_removed": 2646,
+      "regions": [
+        {
+          "region": "left_arm_body_gap",
+          "source_box": [
+            113,
+            420,
+            174,
+            517
+          ],
+          "removed_pixels": 1941,
+          "selected_component": 299
+        },
+        {
+          "region": "right_arm_body_gap",
+          "source_box": [
+            321,
+            419,
+            366,
+            487
+          ],
+          "removed_pixels": 705,
+          "selected_component": 295
+        }
+      ]
+    },
+    {
+      "source_frame": 38,
+      "production_frames": [
+        38
+      ],
+      "alpha_pixels_removed": 2806,
+      "regions": [
+        {
+          "region": "left_arm_body_gap",
+          "source_box": [
+            113,
+            426,
+            177,
+            517
+          ],
+          "removed_pixels": 1998,
+          "selected_component": 322
+        },
+        {
+          "region": "right_arm_body_gap",
+          "source_box": [
+            320,
+            426,
+            366,
+            487
+          ],
+          "removed_pixels": 808,
+          "selected_component": 325
+        }
+      ]
+    },
+    {
+      "source_frame": 39,
+      "production_frames": [
+        39
+      ],
+      "alpha_pixels_removed": 2910,
+      "regions": [
+        {
+          "region": "left_arm_body_gap",
+          "source_box": [
+            113,
+            429,
+            178,
+            517
+          ],
+          "removed_pixels": 2021,
+          "selected_component": 301
+        },
+        {
+          "region": "right_arm_body_gap",
+          "source_box": [
+            319,
+            427,
+            366,
+            487
+          ],
+          "removed_pixels": 889,
+          "selected_component": 299
+        }
+      ]
+    },
+    {
+      "source_frame": 40,
+      "production_frames": [
+        40
+      ],
+      "alpha_pixels_removed": 2705,
+      "regions": [
+        {
+          "region": "left_arm_body_gap",
+          "source_box": [
+            113,
+            428,
+            176,
+            517
+          ],
+          "removed_pixels": 1940,
+          "selected_component": 313
+        },
+        {
+          "region": "right_arm_body_gap",
+          "source_box": [
+            322,
+            427,
+            366,
+            487
+          ],
+          "removed_pixels": 765,
+          "selected_component": 316
+        }
+      ]
+    },
+    {
+      "source_frame": 41,
+      "production_frames": [
+        41
+      ],
+      "alpha_pixels_removed": 2621,
+      "regions": [
+        {
+          "region": "left_arm_body_gap",
+          "source_box": [
+            114,
+            422,
+            173,
+            517
+          ],
+          "removed_pixels": 1928,
+          "selected_component": 309
+        },
+        {
+          "region": "right_arm_body_gap",
+          "source_box": [
+            325,
+            424,
+            366,
+            487
+          ],
+          "removed_pixels": 693,
+          "selected_component": 307
+        }
+      ]
+    },
+    {
+      "source_frame": 42,
+      "production_frames": [
+        42
+      ],
+      "alpha_pixels_removed": 2728,
+      "regions": [
+        {
+          "region": "left_arm_body_gap",
+          "source_box": [
+            114,
+            416,
+            174,
+            517
+          ],
+          "removed_pixels": 1977,
+          "selected_component": 315
+        },
+        {
+          "region": "right_arm_body_gap",
+          "source_box": [
+            322,
+            415,
+            366,
+            487
+          ],
+          "removed_pixels": 751,
+          "selected_component": 312
+        }
+      ]
+    },
+    {
+      "source_frame": 43,
+      "production_frames": [
+        43
+      ],
+      "alpha_pixels_removed": 2667,
+      "regions": [
+        {
+          "region": "left_arm_body_gap",
+          "source_box": [
+            114,
+            418,
+            174,
+            517
+          ],
+          "removed_pixels": 1975,
+          "selected_component": 286
+        },
+        {
+          "region": "right_arm_body_gap",
+          "source_box": [
+            322,
+            414,
+            366,
+            487
+          ],
+          "removed_pixels": 692,
+          "selected_component": 280
+        }
+      ]
+    },
+    {
+      "source_frame": 44,
+      "production_frames": [
+        44
+      ],
+      "alpha_pixels_removed": 2776,
+      "regions": [
+        {
+          "region": "left_arm_body_gap",
+          "source_box": [
+            113,
+            425,
+            175,
+            517
+          ],
+          "removed_pixels": 1985,
+          "selected_component": 331
+        },
+        {
+          "region": "right_arm_body_gap",
+          "source_box": [
+            322,
+            423,
+            366,
+            487
+          ],
+          "removed_pixels": 791,
+          "selected_component": 332
+        }
+      ]
+    },
+    {
+      "source_frame": 45,
+      "production_frames": [
+        45
+      ],
+      "alpha_pixels_removed": 2829,
+      "regions": [
+        {
+          "region": "left_arm_body_gap",
+          "source_box": [
+            113,
+            429,
+            177,
+            517
+          ],
+          "removed_pixels": 1984,
+          "selected_component": 314
+        },
+        {
+          "region": "right_arm_body_gap",
+          "source_box": [
+            320,
+            427,
+            366,
+            487
+          ],
+          "removed_pixels": 845,
+          "selected_component": 313
+        }
+      ]
+    },
+    {
+      "source_frame": 46,
+      "production_frames": [
+        46
+      ],
+      "alpha_pixels_removed": 2680,
+      "regions": [
+        {
+          "region": "left_arm_body_gap",
+          "source_box": [
+            113,
+            427,
+            174,
+            517
+          ],
+          "removed_pixels": 1907,
+          "selected_component": 310
+        },
+        {
+          "region": "right_arm_body_gap",
+          "source_box": [
+            322,
+            426,
+            366,
+            487
+          ],
+          "removed_pixels": 773,
+          "selected_component": 308
+        }
+      ]
+    },
+    {
+      "source_frame": 47,
+      "production_frames": [
+        47
+      ],
+      "alpha_pixels_removed": 2597,
+      "regions": [
+        {
+          "region": "left_arm_body_gap",
+          "source_box": [
+            113,
+            421,
+            173,
+            517
+          ],
+          "removed_pixels": 1902,
+          "selected_component": 279
+        },
+        {
+          "region": "right_arm_body_gap",
+          "source_box": [
+            325,
+            423,
+            366,
+            487
+          ],
+          "removed_pixels": 695,
+          "selected_component": 281
+        }
+      ]
+    },
+    {
+      "source_frame": 48,
+      "production_frames": [
+        48
+      ],
+      "alpha_pixels_removed": 2686,
+      "regions": [
+        {
+          "region": "left_arm_body_gap",
+          "source_box": [
+            113,
+            418,
+            174,
+            517
+          ],
+          "removed_pixels": 1966,
+          "selected_component": 321
+        },
+        {
+          "region": "right_arm_body_gap",
+          "source_box": [
+            322,
+            419,
+            366,
+            487
+          ],
+          "removed_pixels": 720,
+          "selected_component": 324
+        }
+      ]
+    },
+    {
+      "source_frame": 49,
+      "production_frames": [
+        49
+      ],
+      "alpha_pixels_removed": 2587,
+      "regions": [
+        {
+          "region": "left_arm_body_gap",
+          "source_box": [
+            114,
+            421,
+            174,
+            517
+          ],
+          "removed_pixels": 1919,
+          "selected_component": 326
+        },
+        {
+          "region": "right_arm_body_gap",
+          "source_box": [
+            321,
+            416,
+            366,
+            487
+          ],
+          "removed_pixels": 668,
+          "selected_component": 318
+        }
+      ]
+    },
+    {
+      "source_frame": 50,
+      "production_frames": [
+        50
+      ],
+      "alpha_pixels_removed": 2913,
+      "regions": [
+        {
+          "region": "left_arm_body_gap",
+          "source_box": [
+            113,
+            428,
+            178,
+            517
+          ],
+          "removed_pixels": 2032,
+          "selected_component": 309
+        },
+        {
+          "region": "right_arm_body_gap",
+          "source_box": [
+            319,
+            426,
+            366,
+            487
+          ],
+          "removed_pixels": 881,
+          "selected_component": 308
+        }
+      ]
+    },
+    {
+      "source_frame": 51,
+      "production_frames": [
+        51
+      ],
+      "alpha_pixels_removed": 2874,
+      "regions": [
+        {
+          "region": "left_arm_body_gap",
+          "source_box": [
+            113,
+            429,
+            178,
+            517
+          ],
+          "removed_pixels": 2015,
+          "selected_component": 305
+        },
+        {
+          "region": "right_arm_body_gap",
+          "source_box": [
+            319,
+            428,
+            366,
+            487
+          ],
+          "removed_pixels": 859,
+          "selected_component": 302
+        }
+      ]
+    },
+    {
+      "source_frame": 52,
+      "production_frames": [
+        52
+      ],
+      "alpha_pixels_removed": 2743,
+      "regions": [
+        {
+          "region": "left_arm_body_gap",
+          "source_box": [
+            114,
+            426,
+            176,
+            517
+          ],
+          "removed_pixels": 2004,
+          "selected_component": 322
+        },
+        {
+          "region": "right_arm_body_gap",
+          "source_box": [
+            321,
+            428,
+            366,
+            487
+          ],
+          "removed_pixels": 739,
+          "selected_component": 325
+        }
+      ]
+    },
+    {
+      "source_frame": 53,
+      "production_frames": [
+        53
+      ],
+      "alpha_pixels_removed": 2720,
+      "regions": [
+        {
+          "region": "left_arm_body_gap",
+          "source_box": [
+            114,
+            423,
+            175,
+            517
+          ],
+          "removed_pixels": 1990,
+          "selected_component": 337
+        },
+        {
+          "region": "right_arm_body_gap",
+          "source_box": [
+            321,
+            424,
+            366,
+            487
+          ],
+          "removed_pixels": 730,
+          "selected_component": 341
+        }
+      ]
+    },
+    {
+      "source_frame": 54,
+      "production_frames": [
+        54
+      ],
+      "alpha_pixels_removed": 2627,
+      "regions": [
+        {
+          "region": "left_arm_body_gap",
+          "source_box": [
+            114,
+            416,
+            173,
+            517
+          ],
+          "removed_pixels": 1932,
+          "selected_component": 300
+        },
+        {
+          "region": "right_arm_body_gap",
+          "source_box": [
+            323,
+            419,
+            366,
+            487
+          ],
+          "removed_pixels": 695,
+          "selected_component": 296
+        }
+      ]
+    },
+    {
+      "source_frame": 55,
+      "production_frames": [
+        55
+      ],
+      "alpha_pixels_removed": 2610,
+      "regions": [
+        {
+          "region": "left_arm_body_gap",
+          "source_box": [
+            114,
+            420,
+            174,
+            517
+          ],
+          "removed_pixels": 1942,
+          "selected_component": 296
+        },
+        {
+          "region": "right_arm_body_gap",
+          "source_box": [
+            321,
+            418,
+            366,
+            487
+          ],
+          "removed_pixels": 668,
+          "selected_component": 289
+        }
+      ]
+    },
+    {
+      "source_frame": 56,
+      "production_frames": [
+        56
+      ],
+      "alpha_pixels_removed": 2749,
+      "regions": [
+        {
+          "region": "left_arm_body_gap",
+          "source_box": [
+            113,
+            426,
+            176,
+            517
+          ],
+          "removed_pixels": 1953,
+          "selected_component": 335
+        },
+        {
+          "region": "right_arm_body_gap",
+          "source_box": [
+            320,
+            425,
+            366,
+            487
+          ],
+          "removed_pixels": 796,
+          "selected_component": 332
+        }
+      ]
+    },
+    {
+      "source_frame": 57,
+      "production_frames": [
+        57
+      ],
+      "alpha_pixels_removed": 2849,
+      "regions": [
+        {
+          "region": "left_arm_body_gap",
+          "source_box": [
+            113,
+            429,
+            178,
+            517
+          ],
+          "removed_pixels": 1987,
+          "selected_component": 325
+        },
+        {
+          "region": "right_arm_body_gap",
+          "source_box": [
+            320,
+            427,
+            366,
+            487
+          ],
+          "removed_pixels": 862,
+          "selected_component": 322
+        }
+      ]
+    },
+    {
+      "source_frame": 58,
+      "production_frames": [
+        58
+      ],
+      "alpha_pixels_removed": 2656,
+      "regions": [
+        {
+          "region": "left_arm_body_gap",
+          "source_box": [
+            114,
+            425,
+            174,
+            517
+          ],
+          "removed_pixels": 1930,
+          "selected_component": 309
+        },
+        {
+          "region": "right_arm_body_gap",
+          "source_box": [
+            322,
+            425,
+            366,
+            487
+          ],
+          "removed_pixels": 726,
+          "selected_component": 315
+        }
+      ]
+    },
+    {
+      "source_frame": 59,
+      "production_frames": [
+        59
+      ],
+      "alpha_pixels_removed": 2619,
+      "regions": [
+        {
+          "region": "left_arm_body_gap",
+          "source_box": [
+            114,
+            419,
+            173,
+            517
+          ],
+          "removed_pixels": 1911,
+          "selected_component": 298
+        },
+        {
+          "region": "right_arm_body_gap",
+          "source_box": [
+            325,
+            420,
+            366,
+            487
+          ],
+          "removed_pixels": 708,
+          "selected_component": 303
+        }
+      ]
+    },
+    {
+      "source_frame": 60,
+      "production_frames": [
+        60
+      ],
+      "alpha_pixels_removed": 2646,
+      "regions": [
+        {
+          "region": "left_arm_body_gap",
+          "source_box": [
+            114,
+            416,
+            174,
+            517
+          ],
+          "removed_pixels": 1955,
+          "selected_component": 311
+        },
+        {
+          "region": "right_arm_body_gap",
+          "source_box": [
+            321,
+            418,
+            366,
+            487
+          ],
+          "removed_pixels": 691,
+          "selected_component": 313
+        }
+      ]
+    },
+    {
+      "source_frame": 61,
+      "production_frames": [
+        61
+      ],
+      "alpha_pixels_removed": 2614,
+      "regions": [
+        {
+          "region": "left_arm_body_gap",
+          "source_box": [
+            114,
+            421,
+            174,
+            517
+          ],
+          "removed_pixels": 1907,
+          "selected_component": 327
+        },
+        {
+          "region": "right_arm_body_gap",
+          "source_box": [
+            321,
+            422,
+            366,
+            487
+          ],
+          "removed_pixels": 707,
+          "selected_component": 328
+        }
+      ]
+    },
+    {
+      "source_frame": 62,
+      "production_frames": [
+        62
+      ],
+      "alpha_pixels_removed": 2788,
+      "regions": [
+        {
+          "region": "left_arm_body_gap",
+          "source_box": [
+            113,
+            427,
+            177,
+            517
+          ],
+          "removed_pixels": 1973,
+          "selected_component": 313
+        },
+        {
+          "region": "right_arm_body_gap",
+          "source_box": [
+            320,
+            427,
+            366,
+            487
+          ],
+          "removed_pixels": 815,
+          "selected_component": 310
+        }
+      ]
+    },
+    {
+      "source_frame": 63,
+      "production_frames": [
+        63
+      ],
+      "alpha_pixels_removed": 2916,
+      "regions": [
+        {
+          "region": "left_arm_body_gap",
+          "source_box": [
+            113,
+            427,
+            177,
+            517
+          ],
+          "removed_pixels": 2032,
+          "selected_component": 322
+        },
+        {
+          "region": "right_arm_body_gap",
+          "source_box": [
+            318,
+            428,
+            366,
+            487
+          ],
+          "removed_pixels": 884,
+          "selected_component": 323
+        }
+      ]
+    },
+    {
+      "source_frame": 64,
+      "production_frames": [
+        64
+      ],
+      "alpha_pixels_removed": 2669,
+      "regions": [
+        {
+          "region": "left_arm_body_gap",
+          "source_box": [
+            114,
+            424,
+            175,
+            517
+          ],
+          "removed_pixels": 1937,
+          "selected_component": 324
+        },
+        {
+          "region": "right_arm_body_gap",
+          "source_box": [
+            321,
+            425,
+            366,
+            487
+          ],
+          "removed_pixels": 732,
+          "selected_component": 330
+        }
+      ]
+    },
+    {
+      "source_frame": 65,
+      "production_frames": [
+        65
+      ],
+      "alpha_pixels_removed": 2566,
+      "regions": [
+        {
+          "region": "left_arm_body_gap",
+          "source_box": [
+            114,
+            418,
+            173,
+            517
+          ],
+          "removed_pixels": 1908,
+          "selected_component": 334
+        },
+        {
+          "region": "right_arm_body_gap",
+          "source_box": [
+            325,
+            421,
+            366,
+            487
+          ],
+          "removed_pixels": 658,
+          "selected_component": 336
+        }
+      ]
+    },
+    {
+      "source_frame": 66,
+      "production_frames": [
+        66
+      ],
+      "alpha_pixels_removed": 2666,
+      "regions": [
+        {
+          "region": "left_arm_body_gap",
+          "source_box": [
+            114,
+            419,
+            174,
+            517
+          ],
+          "removed_pixels": 1956,
+          "selected_component": 317
+        },
+        {
+          "region": "right_arm_body_gap",
+          "source_box": [
+            322,
+            417,
+            367,
+            487
+          ],
+          "removed_pixels": 710,
+          "selected_component": 315
+        }
+      ]
+    },
+    {
+      "source_frame": 67,
+      "production_frames": [
+        67
+      ],
+      "alpha_pixels_removed": 2721,
+      "regions": [
+        {
+          "region": "left_arm_body_gap",
+          "source_box": [
+            114,
+            423,
+            175,
+            517
+          ],
+          "removed_pixels": 1963,
+          "selected_component": 315
+        },
+        {
+          "region": "right_arm_body_gap",
+          "source_box": [
+            321,
+            421,
+            366,
+            487
+          ],
+          "removed_pixels": 758,
+          "selected_component": 310
+        }
+      ]
+    },
+    {
+      "source_frame": 68,
+      "production_frames": [
+        68
+      ],
+      "alpha_pixels_removed": 2741,
+      "regions": [
+        {
+          "region": "left_arm_body_gap",
+          "source_box": [
+            113,
+            428,
+            176,
+            517
+          ],
+          "removed_pixels": 1956,
+          "selected_component": 307
+        },
+        {
+          "region": "right_arm_body_gap",
+          "source_box": [
+            321,
+            427,
+            366,
+            487
+          ],
+          "removed_pixels": 785,
+          "selected_component": 313
+        }
+      ]
+    },
+    {
+      "source_frame": 69,
+      "production_frames": [
+        69
+      ],
+      "alpha_pixels_removed": 2807,
+      "regions": [
+        {
+          "region": "left_arm_body_gap",
+          "source_box": [
+            113,
+            428,
+            178,
+            517
+          ],
+          "removed_pixels": 1993,
+          "selected_component": 272
+        },
+        {
+          "region": "right_arm_body_gap",
+          "source_box": [
+            320,
+            425,
+            366,
+            487
+          ],
+          "removed_pixels": 814,
+          "selected_component": 275
+        }
+      ]
+    },
+    {
+      "source_frame": 70,
+      "production_frames": [
+        70
+      ],
+      "alpha_pixels_removed": 2639,
+      "regions": [
+        {
+          "region": "left_arm_body_gap",
+          "source_box": [
+            113,
+            424,
+            174,
+            517
+          ],
+          "removed_pixels": 1927,
+          "selected_component": 299
+        },
+        {
+          "region": "right_arm_body_gap",
+          "source_box": [
+            321,
+            423,
+            366,
+            487
+          ],
+          "removed_pixels": 712,
+          "selected_component": 301
+        }
+      ]
+    },
+    {
+      "source_frame": 71,
+      "production_frames": [
+        71
+      ],
+      "alpha_pixels_removed": 2552,
+      "regions": [
+        {
+          "region": "left_arm_body_gap",
+          "source_box": [
+            113,
+            418,
+            173,
+            517
+          ],
+          "removed_pixels": 1888,
+          "selected_component": 277
+        },
+        {
+          "region": "right_arm_body_gap",
+          "source_box": [
+            325,
+            419,
+            366,
+            487
+          ],
+          "removed_pixels": 664,
+          "selected_component": 274
+        }
+      ]
+    },
+    {
+      "source_frame": 72,
+      "production_frames": [
+        72
+      ],
+      "alpha_pixels_removed": 2718,
+      "regions": [
+        {
+          "region": "left_arm_body_gap",
+          "source_box": [
+            113,
+            427,
+            176,
+            517
+          ],
+          "removed_pixels": 1956,
+          "selected_component": 323
+        },
+        {
+          "region": "right_arm_body_gap",
+          "source_box": [
+            321,
+            420,
+            366,
+            487
+          ],
+          "removed_pixels": 762,
+          "selected_component": 317
+        }
+      ]
+    },
+    {
+      "source_frame": 73,
+      "production_frames": [
+        73
+      ],
+      "alpha_pixels_removed": 2746,
+      "regions": [
+        {
+          "region": "left_arm_body_gap",
+          "source_box": [
+            113,
+            426,
+            177,
+            517
+          ],
+          "removed_pixels": 1957,
+          "selected_component": 336
+        },
+        {
+          "region": "right_arm_body_gap",
+          "source_box": [
+            320,
+            423,
+            366,
+            487
+          ],
+          "removed_pixels": 789,
+          "selected_component": 327
+        }
+      ]
+    },
+    {
+      "source_frame": 74,
+      "production_frames": [
+        74
+      ],
+      "alpha_pixels_removed": 2947,
+      "regions": [
+        {
+          "region": "left_arm_body_gap",
+          "source_box": [
+            113,
+            428,
+            178,
+            517
+          ],
+          "removed_pixels": 2052,
+          "selected_component": 330
+        },
+        {
+          "region": "right_arm_body_gap",
+          "source_box": [
+            319,
+            428,
+            366,
+            487
+          ],
+          "removed_pixels": 895,
+          "selected_component": 332
+        }
+      ]
+    },
+    {
+      "source_frame": 75,
+      "production_frames": [
+        75
+      ],
+      "alpha_pixels_removed": 2856,
+      "regions": [
+        {
+          "region": "left_arm_body_gap",
+          "source_box": [
+            113,
+            425,
+            178,
+            517
+          ],
+          "removed_pixels": 2033,
+          "selected_component": 299
+        },
+        {
+          "region": "right_arm_body_gap",
+          "source_box": [
+            319,
+            427,
+            366,
+            487
+          ],
+          "removed_pixels": 823,
+          "selected_component": 301
+        }
+      ]
+    },
+    {
+      "source_frame": 76,
+      "production_frames": [
+        76
+      ],
+      "alpha_pixels_removed": 2713,
+      "regions": [
+        {
+          "region": "left_arm_body_gap",
+          "source_box": [
+            113,
+            420,
+            174,
+            517
+          ],
+          "removed_pixels": 1998,
+          "selected_component": 305
+        },
+        {
+          "region": "right_arm_body_gap",
+          "source_box": [
+            321,
+            421,
+            366,
+            487
+          ],
+          "removed_pixels": 715,
+          "selected_component": 307
+        }
+      ]
+    },
+    {
+      "source_frame": 77,
+      "production_frames": [
+        77
+      ],
+      "alpha_pixels_removed": 2761,
+      "regions": [
+        {
+          "region": "left_arm_body_gap",
+          "source_box": [
+            113,
+            420,
+            176,
+            517
+          ],
+          "removed_pixels": 2005,
+          "selected_component": 328
+        },
+        {
+          "region": "right_arm_body_gap",
+          "source_box": [
+            320,
+            419,
+            366,
+            487
+          ],
+          "removed_pixels": 756,
+          "selected_component": 329
+        }
+      ]
+    },
+    {
+      "source_frame": 78,
+      "production_frames": [
+        78
+      ],
+      "alpha_pixels_removed": 2860,
+      "regions": [
+        {
+          "region": "left_arm_body_gap",
+          "source_box": [
+            113,
+            427,
+            178,
+            517
+          ],
+          "removed_pixels": 2012,
+          "selected_component": 327
+        },
+        {
+          "region": "right_arm_body_gap",
+          "source_box": [
+            319,
+            426,
+            366,
+            487
+          ],
+          "removed_pixels": 848,
+          "selected_component": 329
+        }
+      ]
+    },
+    {
+      "source_frame": 79,
+      "production_frames": [
+        79
+      ],
+      "alpha_pixels_removed": 2804,
+      "regions": [
+        {
+          "region": "left_arm_body_gap",
+          "source_box": [
+            113,
+            429,
+            177,
+            517
+          ],
+          "removed_pixels": 2000,
+          "selected_component": 319
+        },
+        {
+          "region": "right_arm_body_gap",
+          "source_box": [
+            320,
+            428,
+            366,
+            487
+          ],
+          "removed_pixels": 804,
+          "selected_component": 315
+        }
+      ]
+    },
+    {
+      "source_frame": 80,
+      "production_frames": [
+        80
+      ],
+      "alpha_pixels_removed": 2604,
+      "regions": [
+        {
+          "region": "left_arm_body_gap",
+          "source_box": [
+            114,
+            423,
+            173,
+            517
+          ],
+          "removed_pixels": 1914,
+          "selected_component": 334
+        },
+        {
+          "region": "right_arm_body_gap",
+          "source_box": [
+            323,
+            425,
+            366,
+            487
+          ],
+          "removed_pixels": 690,
+          "selected_component": 335
+        }
+      ]
+    },
+    {
+      "source_frame": 81,
+      "production_frames": [
+        81
+      ],
+      "alpha_pixels_removed": 2551,
+      "regions": [
+        {
+          "region": "left_arm_body_gap",
+          "source_box": [
+            114,
+            418,
+            173,
+            517
+          ],
+          "removed_pixels": 1905,
+          "selected_component": 307
+        },
+        {
+          "region": "right_arm_body_gap",
+          "source_box": [
+            326,
+            421,
+            366,
+            487
+          ],
+          "removed_pixels": 646,
+          "selected_component": 304
+        }
+      ]
+    },
+    {
+      "source_frame": 82,
+      "production_frames": [
+        82
+      ],
+      "alpha_pixels_removed": 2672,
+      "regions": [
+        {
+          "region": "left_arm_body_gap",
+          "source_box": [
+            114,
+            417,
+            174,
+            517
+          ],
+          "removed_pixels": 1976,
+          "selected_component": 301
+        },
+        {
+          "region": "right_arm_body_gap",
+          "source_box": [
+            321,
+            418,
+            366,
+            487
+          ],
+          "removed_pixels": 696,
+          "selected_component": 303
+        }
+      ]
+    },
+    {
+      "source_frame": 83,
+      "production_frames": [
+        83
+      ],
+      "alpha_pixels_removed": 2661,
+      "regions": [
+        {
+          "region": "left_arm_body_gap",
+          "source_box": [
+            114,
+            424,
+            174,
+            517
+          ],
+          "removed_pixels": 1926,
+          "selected_component": 292
+        },
+        {
+          "region": "right_arm_body_gap",
+          "source_box": [
+            321,
+            421,
+            366,
+            487
+          ],
+          "removed_pixels": 735,
+          "selected_component": 293
+        }
+      ]
+    },
+    {
+      "source_frame": 84,
+      "production_frames": [
+        84
+      ],
+      "alpha_pixels_removed": 2805,
+      "regions": [
+        {
+          "region": "left_arm_body_gap",
+          "source_box": [
+            113,
+            427,
+            177,
+            517
+          ],
+          "removed_pixels": 1993,
+          "selected_component": 357
+        },
+        {
+          "region": "right_arm_body_gap",
+          "source_box": [
+            321,
+            427,
+            366,
+            487
+          ],
+          "removed_pixels": 812,
+          "selected_component": 362
+        }
+      ]
+    },
+    {
+      "source_frame": 85,
+      "production_frames": [
+        85
+      ],
+      "alpha_pixels_removed": 2745,
+      "regions": [
+        {
+          "region": "left_arm_body_gap",
+          "source_box": [
+            113,
+            427,
+            176,
+            517
+          ],
+          "removed_pixels": 1984,
+          "selected_component": 349
+        },
+        {
+          "region": "right_arm_body_gap",
+          "source_box": [
+            321,
+            427,
+            366,
+            487
+          ],
+          "removed_pixels": 761,
+          "selected_component": 350
+        }
+      ]
+    },
+    {
+      "source_frame": 86,
+      "production_frames": [
+        86
+      ],
+      "alpha_pixels_removed": 2588,
+      "regions": [
+        {
+          "region": "left_arm_body_gap",
+          "source_box": [
+            113,
+            419,
+            173,
+            517
+          ],
+          "removed_pixels": 1900,
+          "selected_component": 293
+        },
+        {
+          "region": "right_arm_body_gap",
+          "source_box": [
+            324,
+            422,
+            366,
+            487
+          ],
+          "removed_pixels": 688,
+          "selected_component": 292
+        }
+      ]
+    },
+    {
+      "source_frame": 87,
+      "production_frames": [
+        87
+      ],
+      "alpha_pixels_removed": 2672,
+      "regions": [
+        {
+          "region": "left_arm_body_gap",
+          "source_box": [
+            113,
+            419,
+            174,
+            517
+          ],
+          "removed_pixels": 1977,
+          "selected_component": 282
+        },
+        {
+          "region": "right_arm_body_gap",
+          "source_box": [
+            322,
+            418,
+            366,
+            487
+          ],
+          "removed_pixels": 695,
+          "selected_component": 280
+        }
+      ]
+    },
+    {
+      "source_frame": 88,
+      "production_frames": [
+        88
+      ],
+      "alpha_pixels_removed": 2803,
+      "regions": [
+        {
+          "region": "left_arm_body_gap",
+          "source_box": [
+            113,
+            425,
+            177,
+            517
+          ],
+          "removed_pixels": 1985,
+          "selected_component": 350
+        },
+        {
+          "region": "right_arm_body_gap",
+          "source_box": [
+            320,
+            424,
+            366,
+            487
+          ],
+          "removed_pixels": 818,
+          "selected_component": 348
+        }
+      ]
+    },
+    {
+      "source_frame": 89,
+      "production_frames": [
+        89
+      ],
+      "alpha_pixels_removed": 2814,
+      "regions": [
+        {
+          "region": "left_arm_body_gap",
+          "source_box": [
+            113,
+            428,
+            177,
+            517
+          ],
+          "removed_pixels": 1986,
+          "selected_component": 325
+        },
+        {
+          "region": "right_arm_body_gap",
+          "source_box": [
+            320,
+            426,
+            366,
+            487
+          ],
+          "removed_pixels": 828,
+          "selected_component": 317
+        }
+      ]
+    },
+    {
+      "source_frame": 90,
+      "production_frames": [
+        90
+      ],
+      "alpha_pixels_removed": 2828,
+      "regions": [
+        {
+          "region": "left_arm_body_gap",
+          "source_box": [
+            113,
+            426,
+            176,
+            517
+          ],
+          "removed_pixels": 2009,
+          "selected_component": 342
+        },
+        {
+          "region": "right_arm_body_gap",
+          "source_box": [
+            321,
+            425,
+            366,
+            487
+          ],
+          "removed_pixels": 819,
+          "selected_component": 347
+        }
+      ]
+    },
+    {
+      "source_frame": 91,
+      "production_frames": [
+        91
+      ],
+      "alpha_pixels_removed": 2827,
+      "regions": [
+        {
+          "region": "left_arm_body_gap",
+          "source_box": [
+            113,
+            424,
+            176,
+            517
+          ],
+          "removed_pixels": 2021,
+          "selected_component": 319
+        },
+        {
+          "region": "right_arm_body_gap",
+          "source_box": [
+            321,
+            422,
+            366,
+            487
+          ],
+          "removed_pixels": 806,
+          "selected_component": 323
+        }
+      ]
+    },
+    {
+      "source_frame": 92,
+      "production_frames": [
+        92
+      ],
+      "alpha_pixels_removed": 2728,
+      "regions": [
+        {
+          "region": "left_arm_body_gap",
+          "source_box": [
+            113,
+            417,
+            176,
+            517
+          ],
+          "removed_pixels": 2005,
+          "selected_component": 305
+        },
+        {
+          "region": "right_arm_body_gap",
+          "source_box": [
+            321,
+            419,
+            366,
+            487
+          ],
+          "removed_pixels": 723,
+          "selected_component": 306
+        }
+      ]
+    },
+    {
+      "source_frame": 93,
+      "production_frames": [
+        93
+      ],
+      "alpha_pixels_removed": 2811,
+      "regions": [
+        {
+          "region": "left_arm_body_gap",
+          "source_box": [
+            113,
+            420,
+            178,
+            517
+          ],
+          "removed_pixels": 2047,
+          "selected_component": 296
+        },
+        {
+          "region": "right_arm_body_gap",
+          "source_box": [
+            320,
+            421,
+            366,
+            487
+          ],
+          "removed_pixels": 764,
+          "selected_component": 292
+        }
+      ]
+    },
+    {
+      "source_frame": 94,
+      "production_frames": [
+        94
+      ],
+      "alpha_pixels_removed": 2665,
+      "regions": [
+        {
+          "region": "left_arm_body_gap",
+          "source_box": [
+            113,
+            428,
+            175,
+            517
+          ],
+          "removed_pixels": 1913,
+          "selected_component": 296
+        },
+        {
+          "region": "right_arm_body_gap",
+          "source_box": [
+            321,
+            427,
+            366,
+            487
+          ],
+          "removed_pixels": 752,
+          "selected_component": 301
+        }
+      ]
+    },
+    {
+      "source_frame": 95,
+      "production_frames": [
+        95
+      ],
+      "alpha_pixels_removed": 2531,
+      "regions": [
+        {
+          "region": "left_arm_body_gap",
+          "source_box": [
+            113,
+            429,
+            173,
+            517
+          ],
+          "removed_pixels": 1862,
+          "selected_component": 317
+        },
+        {
+          "region": "right_arm_body_gap",
+          "source_box": [
+            325,
+            428,
+            366,
+            487
+          ],
+          "removed_pixels": 669,
+          "selected_component": 323
+        }
+      ]
+    },
+    {
+      "source_frame": 96,
+      "production_frames": [
+        96
+      ],
+      "alpha_pixels_removed": 2648,
+      "regions": [
+        {
+          "region": "left_arm_body_gap",
+          "source_box": [
+            113,
+            423,
+            173,
+            517
+          ],
+          "removed_pixels": 1887,
+          "selected_component": 352
+        },
+        {
+          "region": "right_arm_body_gap",
+          "source_box": [
+            322,
+            424,
+            366,
+            487
+          ],
+          "removed_pixels": 761,
+          "selected_component": 350
+        }
+      ]
+    },
+    {
+      "source_frame": 97,
+      "production_frames": [
+        97
+      ],
+      "alpha_pixels_removed": 2634,
+      "regions": [
+        {
+          "region": "left_arm_body_gap",
+          "source_box": [
+            113,
+            419,
+            174,
+            517
+          ],
+          "removed_pixels": 1927,
+          "selected_component": 333
+        },
+        {
+          "region": "right_arm_body_gap",
+          "source_box": [
+            322,
+            421,
+            366,
+            487
+          ],
+          "removed_pixels": 707,
+          "selected_component": 331
+        }
+      ]
+    },
+    {
+      "source_frame": 98,
+      "production_frames": [
+        98
+      ],
+      "alpha_pixels_removed": 2827,
+      "regions": [
+        {
+          "region": "left_arm_body_gap",
+          "source_box": [
+            114,
+            419,
+            176,
+            517
+          ],
+          "removed_pixels": 2034,
+          "selected_component": 324
+        },
+        {
+          "region": "right_arm_body_gap",
+          "source_box": [
+            320,
+            419,
+            367,
+            487
+          ],
+          "removed_pixels": 793,
+          "selected_component": 326
+        }
+      ]
+    },
+    {
+      "source_frame": 99,
+      "production_frames": [
+        99
+      ],
+      "alpha_pixels_removed": 2917,
+      "regions": [
+        {
+          "region": "left_arm_body_gap",
+          "source_box": [
+            114,
+            425,
+            178,
+            517
+          ],
+          "removed_pixels": 2079,
+          "selected_component": 301
+        },
+        {
+          "region": "right_arm_body_gap",
+          "source_box": [
+            319,
+            425,
+            366,
+            487
+          ],
+          "removed_pixels": 838,
+          "selected_component": 300
+        }
+      ]
+    },
+    {
+      "source_frame": 100,
+      "production_frames": [
+        100
+      ],
+      "alpha_pixels_removed": 2842,
+      "regions": [
+        {
+          "region": "left_arm_body_gap",
+          "source_box": [
+            113,
+            428,
+            178,
+            517
+          ],
+          "removed_pixels": 2035,
+          "selected_component": 353
+        },
+        {
+          "region": "right_arm_body_gap",
+          "source_box": [
+            320,
+            428,
+            366,
+            487
+          ],
+          "removed_pixels": 807,
+          "selected_component": 355
+        }
+      ]
+    },
+    {
+      "source_frame": 101,
+      "production_frames": [
+        101
+      ],
+      "alpha_pixels_removed": 2726,
+      "regions": [
+        {
+          "region": "left_arm_body_gap",
+          "source_box": [
+            113,
+            425,
+            175,
+            517
+          ],
+          "removed_pixels": 1980,
+          "selected_component": 349
+        },
+        {
+          "region": "right_arm_body_gap",
+          "source_box": [
+            321,
+            426,
+            366,
+            487
+          ],
+          "removed_pixels": 746,
+          "selected_component": 355
+        }
+      ]
+    },
+    {
+      "source_frame": 102,
+      "production_frames": [
+        102
+      ],
+      "alpha_pixels_removed": 2587,
+      "regions": [
+        {
+          "region": "left_arm_body_gap",
+          "source_box": [
+            113,
+            418,
+            173,
+            517
+          ],
+          "removed_pixels": 1890,
+          "selected_component": 290
+        },
+        {
+          "region": "right_arm_body_gap",
+          "source_box": [
+            324,
+            421,
+            366,
+            487
+          ],
+          "removed_pixels": 697,
+          "selected_component": 289
+        }
+      ]
+    },
+    {
+      "source_frame": 103,
+      "production_frames": [
+        103
+      ],
+      "alpha_pixels_removed": 2660,
+      "regions": [
+        {
+          "region": "left_arm_body_gap",
+          "source_box": [
+            113,
+            416,
+            173,
+            517
+          ],
+          "removed_pixels": 1974,
+          "selected_component": 292
+        },
+        {
+          "region": "right_arm_body_gap",
+          "source_box": [
+            323,
+            419,
+            366,
+            487
+          ],
+          "removed_pixels": 686,
+          "selected_component": 289
+        }
+      ]
+    },
+    {
+      "source_frame": 104,
+      "production_frames": [
+        104
+      ],
+      "alpha_pixels_removed": 2732,
+      "regions": [
+        {
+          "region": "left_arm_body_gap",
+          "source_box": [
+            113,
+            425,
+            176,
+            517
+          ],
+          "removed_pixels": 1968,
+          "selected_component": 321
+        },
+        {
+          "region": "right_arm_body_gap",
+          "source_box": [
+            321,
+            423,
+            366,
+            487
+          ],
+          "removed_pixels": 764,
+          "selected_component": 314
+        }
+      ]
+    },
+    {
+      "source_frame": 105,
+      "production_frames": [
+        105
+      ],
+      "alpha_pixels_removed": 2858,
+      "regions": [
+        {
+          "region": "left_arm_body_gap",
+          "source_box": [
+            113,
+            428,
+            178,
+            517
+          ],
+          "removed_pixels": 2026,
+          "selected_component": 317
+        },
+        {
+          "region": "right_arm_body_gap",
+          "source_box": [
+            320,
+            425,
+            366,
+            487
+          ],
+          "removed_pixels": 832,
+          "selected_component": 321
+        }
+      ]
+    },
+    {
+      "source_frame": 106,
+      "production_frames": [
+        106
+      ],
+      "alpha_pixels_removed": 2768,
+      "regions": [
+        {
+          "region": "left_arm_body_gap",
+          "source_box": [
+            113,
+            428,
+            176,
+            517
+          ],
+          "removed_pixels": 1975,
+          "selected_component": 306
+        },
+        {
+          "region": "right_arm_body_gap",
+          "source_box": [
+            321,
+            428,
+            366,
+            487
+          ],
+          "removed_pixels": 793,
+          "selected_component": 310
+        }
+      ]
+    },
+    {
+      "source_frame": 107,
+      "production_frames": [
+        107
+      ],
+      "alpha_pixels_removed": 2627,
+      "regions": [
+        {
+          "region": "left_arm_body_gap",
+          "source_box": [
+            113,
+            425,
+            173,
+            517
+          ],
+          "removed_pixels": 1919,
+          "selected_component": 294
+        },
+        {
+          "region": "right_arm_body_gap",
+          "source_box": [
+            324,
+            425,
+            366,
+            487
+          ],
+          "removed_pixels": 708,
+          "selected_component": 295
+        }
+      ]
+    },
+    {
+      "source_frame": 108,
+      "production_frames": [
+        108
+      ],
+      "alpha_pixels_removed": 2665,
+      "regions": [
+        {
+          "region": "left_arm_body_gap",
+          "source_box": [
+            113,
+            420,
+            174,
+            517
+          ],
+          "removed_pixels": 1925,
+          "selected_component": 318
+        },
+        {
+          "region": "right_arm_body_gap",
+          "source_box": [
+            322,
+            421,
+            366,
+            487
+          ],
+          "removed_pixels": 740,
+          "selected_component": 321
+        }
+      ]
+    },
+    {
+      "source_frame": 109,
+      "production_frames": [
+        109
+      ],
+      "alpha_pixels_removed": 2654,
+      "regions": [
+        {
+          "region": "left_arm_body_gap",
+          "source_box": [
+            113,
+            420,
+            174,
+            517
+          ],
+          "removed_pixels": 1943,
+          "selected_component": 328
+        },
+        {
+          "region": "right_arm_body_gap",
+          "source_box": [
+            321,
+            419,
+            366,
+            487
+          ],
+          "removed_pixels": 711,
+          "selected_component": 323
+        }
+      ]
+    },
+    {
+      "source_frame": 110,
+      "production_frames": [
+        110
+      ],
+      "alpha_pixels_removed": 2824,
+      "regions": [
+        {
+          "region": "left_arm_body_gap",
+          "source_box": [
+            113,
+            426,
+            177,
+            517
+          ],
+          "removed_pixels": 2005,
+          "selected_component": 317
+        },
+        {
+          "region": "right_arm_body_gap",
+          "source_box": [
+            320,
+            425,
+            366,
+            487
+          ],
+          "removed_pixels": 819,
+          "selected_component": 320
+        }
+      ]
+    },
+    {
+      "source_frame": 111,
+      "production_frames": [
+        111
+      ],
+      "alpha_pixels_removed": 2914,
+      "regions": [
+        {
+          "region": "left_arm_body_gap",
+          "source_box": [
+            113,
+            429,
+            178,
+            517
+          ],
+          "removed_pixels": 2026,
+          "selected_component": 313
+        },
+        {
+          "region": "right_arm_body_gap",
+          "source_box": [
+            319,
+            427,
+            366,
+            487
+          ],
+          "removed_pixels": 888,
+          "selected_component": 311
+        }
+      ]
+    },
+    {
+      "source_frame": 112,
+      "production_frames": [
+        112
+      ],
+      "alpha_pixels_removed": 2711,
+      "regions": [
+        {
+          "region": "left_arm_body_gap",
+          "source_box": [
+            113,
+            428,
+            176,
+            517
+          ],
+          "removed_pixels": 1945,
+          "selected_component": 321
+        },
+        {
+          "region": "right_arm_body_gap",
+          "source_box": [
+            322,
+            427,
+            366,
+            487
+          ],
+          "removed_pixels": 766,
+          "selected_component": 324
+        }
+      ]
+    },
+    {
+      "source_frame": 113,
+      "production_frames": [
+        113
+      ],
+      "alpha_pixels_removed": 2628,
+      "regions": [
+        {
+          "region": "left_arm_body_gap",
+          "source_box": [
+            114,
+            422,
+            173,
+            517
+          ],
+          "removed_pixels": 1933,
+          "selected_component": 325
+        },
+        {
+          "region": "right_arm_body_gap",
+          "source_box": [
+            325,
+            424,
+            366,
+            487
+          ],
+          "removed_pixels": 695,
+          "selected_component": 323
+        }
+      ]
+    },
+    {
+      "source_frame": 114,
+      "production_frames": [
+        114
+      ],
+      "alpha_pixels_removed": 2741,
+      "regions": [
+        {
+          "region": "left_arm_body_gap",
+          "source_box": [
+            114,
+            416,
+            174,
+            517
+          ],
+          "removed_pixels": 1986,
+          "selected_component": 321
+        },
+        {
+          "region": "right_arm_body_gap",
+          "source_box": [
+            322,
+            415,
+            366,
+            487
+          ],
+          "removed_pixels": 755,
+          "selected_component": 318
+        }
+      ]
+    },
+    {
+      "source_frame": 115,
+      "production_frames": [
+        115
+      ],
+      "alpha_pixels_removed": 2668,
+      "regions": [
+        {
+          "region": "left_arm_body_gap",
+          "source_box": [
+            114,
+            418,
+            174,
+            517
+          ],
+          "removed_pixels": 1978,
+          "selected_component": 293
+        },
+        {
+          "region": "right_arm_body_gap",
+          "source_box": [
+            322,
+            414,
+            366,
+            487
+          ],
+          "removed_pixels": 690,
+          "selected_component": 287
+        }
+      ]
+    },
+    {
+      "source_frame": 116,
+      "production_frames": [
+        116
+      ],
+      "alpha_pixels_removed": 2777,
+      "regions": [
+        {
+          "region": "left_arm_body_gap",
+          "source_box": [
+            113,
+            425,
+            176,
+            517
+          ],
+          "removed_pixels": 1978,
+          "selected_component": 341
+        },
+        {
+          "region": "right_arm_body_gap",
+          "source_box": [
+            321,
+            423,
+            366,
+            487
+          ],
+          "removed_pixels": 799,
+          "selected_component": 342
+        }
+      ]
+    },
+    {
+      "source_frame": 117,
+      "production_frames": [
+        117
+      ],
+      "alpha_pixels_removed": 2836,
+      "regions": [
+        {
+          "region": "left_arm_body_gap",
+          "source_box": [
+            113,
+            429,
+            178,
+            517
+          ],
+          "removed_pixels": 1980,
+          "selected_component": 318
+        },
+        {
+          "region": "right_arm_body_gap",
+          "source_box": [
+            320,
+            426,
+            366,
+            487
+          ],
+          "removed_pixels": 856,
+          "selected_component": 317
+        }
+      ]
+    },
+    {
+      "source_frame": 118,
+      "production_frames": [
+        118
+      ],
+      "alpha_pixels_removed": 2673,
+      "regions": [
+        {
+          "region": "left_arm_body_gap",
+          "source_box": [
+            113,
+            427,
+            174,
+            517
+          ],
+          "removed_pixels": 1911,
+          "selected_component": 312
+        },
+        {
+          "region": "right_arm_body_gap",
+          "source_box": [
+            322,
+            426,
+            366,
+            487
+          ],
+          "removed_pixels": 762,
+          "selected_component": 318
+        }
+      ]
+    },
+    {
+      "source_frame": 119,
+      "production_frames": [
+        119
+      ],
+      "alpha_pixels_removed": 2604,
+      "regions": [
+        {
+          "region": "left_arm_body_gap",
+          "source_box": [
+            113,
+            420,
+            173,
+            517
+          ],
+          "removed_pixels": 1912,
+          "selected_component": 278
+        },
+        {
+          "region": "right_arm_body_gap",
+          "source_box": [
+            325,
+            423,
+            366,
+            487
+          ],
+          "removed_pixels": 692,
+          "selected_component": 283
+        }
+      ]
+    },
+    {
+      "source_frame": 120,
+      "production_frames": [
+        120
+      ],
+      "alpha_pixels_removed": 2684,
+      "regions": [
+        {
+          "region": "left_arm_body_gap",
+          "source_box": [
+            114,
+            417,
+            174,
+            517
+          ],
+          "removed_pixels": 1971,
+          "selected_component": 317
+        },
+        {
+          "region": "right_arm_body_gap",
+          "source_box": [
+            321,
+            419,
+            366,
+            487
+          ],
+          "removed_pixels": 713,
+          "selected_component": 320
+        }
+      ]
+    },
+    {
+      "source_frame": 121,
+      "production_frames": [
+        121
+      ],
+      "alpha_pixels_removed": 2584,
+      "regions": [
+        {
+          "region": "left_arm_body_gap",
+          "source_box": [
+            114,
+            420,
+            174,
+            517
+          ],
+          "removed_pixels": 1926,
+          "selected_component": 322
+        },
+        {
+          "region": "right_arm_body_gap",
+          "source_box": [
+            321,
+            421,
+            366,
+            487
+          ],
+          "removed_pixels": 658,
+          "selected_component": 317
+        }
+      ]
+    },
+    {
+      "source_frame": 122,
+      "production_frames": [
+        122
+      ],
+      "alpha_pixels_removed": 2899,
+      "regions": [
+        {
+          "region": "left_arm_body_gap",
+          "source_box": [
+            113,
+            428,
+            178,
+            517
+          ],
+          "removed_pixels": 2025,
+          "selected_component": 309
+        },
+        {
+          "region": "right_arm_body_gap",
+          "source_box": [
+            319,
+            426,
+            366,
+            487
+          ],
+          "removed_pixels": 874,
+          "selected_component": 307
+        }
+      ]
+    },
+    {
+      "source_frame": 123,
+      "production_frames": [
+        123
+      ],
+      "alpha_pixels_removed": 2873,
+      "regions": [
+        {
+          "region": "left_arm_body_gap",
+          "source_box": [
+            113,
+            429,
+            178,
+            517
+          ],
+          "removed_pixels": 2025,
+          "selected_component": 302
+        },
+        {
+          "region": "right_arm_body_gap",
+          "source_box": [
+            319,
+            428,
+            366,
+            487
+          ],
+          "removed_pixels": 848,
+          "selected_component": 299
+        }
+      ]
+    },
+    {
+      "source_frame": 124,
+      "production_frames": [
+        124
+      ],
+      "alpha_pixels_removed": 2751,
+      "regions": [
+        {
+          "region": "left_arm_body_gap",
+          "source_box": [
+            113,
+            426,
+            176,
+            517
+          ],
+          "removed_pixels": 2006,
+          "selected_component": 322
+        },
+        {
+          "region": "right_arm_body_gap",
+          "source_box": [
+            321,
+            428,
+            366,
+            487
+          ],
+          "removed_pixels": 745,
+          "selected_component": 326
+        }
+      ]
+    },
+    {
+      "source_frame": 125,
+      "production_frames": [
+        125
+      ],
+      "alpha_pixels_removed": 2719,
+      "regions": [
+        {
+          "region": "left_arm_body_gap",
+          "source_box": [
+            114,
+            423,
+            175,
+            517
+          ],
+          "removed_pixels": 1994,
+          "selected_component": 340
+        },
+        {
+          "region": "right_arm_body_gap",
+          "source_box": [
+            321,
+            424,
+            366,
+            487
+          ],
+          "removed_pixels": 725,
+          "selected_component": 343
+        }
+      ]
+    },
+    {
+      "source_frame": 126,
+      "production_frames": [
+        126
+      ],
+      "alpha_pixels_removed": 2626,
+      "regions": [
+        {
+          "region": "left_arm_body_gap",
+          "source_box": [
+            114,
+            416,
+            173,
+            517
+          ],
+          "removed_pixels": 1930,
+          "selected_component": 300
+        },
+        {
+          "region": "right_arm_body_gap",
+          "source_box": [
+            323,
+            419,
+            366,
+            487
+          ],
+          "removed_pixels": 696,
+          "selected_component": 296
+        }
+      ]
+    },
+    {
+      "source_frame": 127,
+      "production_frames": [
+        127
+      ],
+      "alpha_pixels_removed": 2611,
+      "regions": [
+        {
+          "region": "left_arm_body_gap",
+          "source_box": [
+            114,
+            420,
+            174,
+            517
+          ],
+          "removed_pixels": 1939,
+          "selected_component": 299
+        },
+        {
+          "region": "right_arm_body_gap",
+          "source_box": [
+            321,
+            418,
+            366,
+            487
+          ],
+          "removed_pixels": 672,
+          "selected_component": 292
+        }
+      ]
+    },
+    {
+      "source_frame": 128,
+      "production_frames": [
+        128
+      ],
+      "alpha_pixels_removed": 2757,
+      "regions": [
+        {
+          "region": "left_arm_body_gap",
+          "source_box": [
+            113,
+            426,
+            176,
+            517
+          ],
+          "removed_pixels": 1953,
+          "selected_component": 342
+        },
+        {
+          "region": "right_arm_body_gap",
+          "source_box": [
+            321,
+            425,
+            366,
+            487
+          ],
+          "removed_pixels": 804,
+          "selected_component": 340
+        }
+      ]
+    },
+    {
+      "source_frame": 129,
+      "production_frames": [
+        129
+      ],
+      "alpha_pixels_removed": 2857,
+      "regions": [
+        {
+          "region": "left_arm_body_gap",
+          "source_box": [
+            113,
+            429,
+            178,
+            517
+          ],
+          "removed_pixels": 1995,
+          "selected_component": 333
+        },
+        {
+          "region": "right_arm_body_gap",
+          "source_box": [
+            320,
+            427,
+            366,
+            487
+          ],
+          "removed_pixels": 862,
+          "selected_component": 329
+        }
+      ]
+    },
+    {
+      "source_frame": 130,
+      "production_frames": [
+        130
+      ],
+      "alpha_pixels_removed": 2652,
+      "regions": [
+        {
+          "region": "left_arm_body_gap",
+          "source_box": [
+            113,
+            425,
+            174,
+            517
+          ],
+          "removed_pixels": 1931,
+          "selected_component": 304
+        },
+        {
+          "region": "right_arm_body_gap",
+          "source_box": [
+            321,
+            425,
+            366,
+            487
+          ],
+          "removed_pixels": 721,
+          "selected_component": 311
+        }
+      ]
+    },
+    {
+      "source_frame": 131,
+      "production_frames": [
+        131
+      ],
+      "alpha_pixels_removed": 2632,
+      "regions": [
+        {
+          "region": "left_arm_body_gap",
+          "source_box": [
+            113,
+            419,
+            173,
+            517
+          ],
+          "removed_pixels": 1927,
+          "selected_component": 290
+        },
+        {
+          "region": "right_arm_body_gap",
+          "source_box": [
+            324,
+            421,
+            366,
+            487
+          ],
+          "removed_pixels": 705,
+          "selected_component": 295
+        }
+      ]
+    },
+    {
+      "source_frame": 132,
+      "production_frames": [
+        132
+      ],
+      "alpha_pixels_removed": 2671,
+      "regions": [
+        {
+          "region": "left_arm_body_gap",
+          "source_box": [
+            114,
+            416,
+            174,
+            517
+          ],
+          "removed_pixels": 1965,
+          "selected_component": 329
+        },
+        {
+          "region": "right_arm_body_gap",
+          "source_box": [
+            321,
+            419,
+            366,
+            487
+          ],
+          "removed_pixels": 706,
+          "selected_component": 332
+        }
+      ]
+    },
+    {
+      "source_frame": 133,
+      "production_frames": [
+        133
+      ],
+      "alpha_pixels_removed": 2635,
+      "regions": [
+        {
+          "region": "left_arm_body_gap",
+          "source_box": [
+            114,
+            423,
+            174,
+            517
+          ],
+          "removed_pixels": 1923,
+          "selected_component": 332
+        },
+        {
+          "region": "right_arm_body_gap",
+          "source_box": [
+            321,
+            422,
+            366,
+            487
+          ],
+          "removed_pixels": 712,
+          "selected_component": 330
+        }
+      ]
+    },
+    {
+      "source_frame": 134,
+      "production_frames": [
+        134
+      ],
+      "alpha_pixels_removed": 2788,
+      "regions": [
+        {
+          "region": "left_arm_body_gap",
+          "source_box": [
+            113,
+            427,
+            177,
+            517
+          ],
+          "removed_pixels": 1972,
+          "selected_component": 315
+        },
+        {
+          "region": "right_arm_body_gap",
+          "source_box": [
+            320,
+            427,
+            366,
+            487
+          ],
+          "removed_pixels": 816,
+          "selected_component": 312
+        }
+      ]
+    },
+    {
+      "source_frame": 135,
+      "production_frames": [
+        135
+      ],
+      "alpha_pixels_removed": 2922,
+      "regions": [
+        {
+          "region": "left_arm_body_gap",
+          "source_box": [
+            113,
+            427,
+            177,
+            517
+          ],
+          "removed_pixels": 2038,
+          "selected_component": 317
+        },
+        {
+          "region": "right_arm_body_gap",
+          "source_box": [
+            318,
+            427,
+            366,
+            487
+          ],
+          "removed_pixels": 884,
+          "selected_component": 319
+        }
+      ]
+    },
+    {
+      "source_frame": 136,
+      "production_frames": [
+        136
+      ],
+      "alpha_pixels_removed": 2684,
+      "regions": [
+        {
+          "region": "left_arm_body_gap",
+          "source_box": [
+            114,
+            422,
+            176,
+            517
+          ],
+          "removed_pixels": 1952,
+          "selected_component": 345
+        },
+        {
+          "region": "right_arm_body_gap",
+          "source_box": [
+            321,
+            425,
+            366,
+            487
+          ],
+          "removed_pixels": 732,
+          "selected_component": 346
+        }
+      ]
+    },
+    {
+      "source_frame": 137,
+      "production_frames": [
+        137
+      ],
+      "alpha_pixels_removed": 2563,
+      "regions": [
+        {
+          "region": "left_arm_body_gap",
+          "source_box": [
+            114,
+            419,
+            173,
+            517
+          ],
+          "removed_pixels": 1912,
+          "selected_component": 337
+        },
+        {
+          "region": "right_arm_body_gap",
+          "source_box": [
+            325,
+            421,
+            366,
+            487
+          ],
+          "removed_pixels": 651,
+          "selected_component": 335
+        }
+      ]
+    },
+    {
+      "source_frame": 138,
+      "production_frames": [
+        138
+      ],
+      "alpha_pixels_removed": 2663,
+      "regions": [
+        {
+          "region": "left_arm_body_gap",
+          "source_box": [
+            114,
+            419,
+            174,
+            517
+          ],
+          "removed_pixels": 1955,
+          "selected_component": 351
+        },
+        {
+          "region": "right_arm_body_gap",
+          "source_box": [
+            323,
+            417,
+            367,
+            487
+          ],
+          "removed_pixels": 708,
+          "selected_component": 349
+        }
+      ]
+    },
+    {
+      "source_frame": 139,
+      "production_frames": [
+        139
+      ],
+      "alpha_pixels_removed": 2715,
+      "regions": [
+        {
+          "region": "left_arm_body_gap",
+          "source_box": [
+            114,
+            424,
+            175,
+            517
+          ],
+          "removed_pixels": 1957,
+          "selected_component": 311
+        },
+        {
+          "region": "right_arm_body_gap",
+          "source_box": [
+            321,
+            421,
+            366,
+            487
+          ],
+          "removed_pixels": 758,
+          "selected_component": 306
+        }
+      ]
+    },
+    {
+      "source_frame": 140,
+      "production_frames": [
+        140
+      ],
+      "alpha_pixels_removed": 2740,
+      "regions": [
+        {
+          "region": "left_arm_body_gap",
+          "source_box": [
+            114,
+            428,
+            177,
+            517
+          ],
+          "removed_pixels": 1948,
+          "selected_component": 311
+        },
+        {
+          "region": "right_arm_body_gap",
+          "source_box": [
+            321,
+            426,
+            366,
+            487
+          ],
+          "removed_pixels": 792,
+          "selected_component": 315
+        }
+      ]
+    },
+    {
+      "source_frame": 141,
+      "production_frames": [
+        141
+      ],
+      "alpha_pixels_removed": 2797,
+      "regions": [
+        {
+          "region": "left_arm_body_gap",
+          "source_box": [
+            113,
+            428,
+            178,
+            517
+          ],
+          "removed_pixels": 1992,
+          "selected_component": 289
+        },
+        {
+          "region": "right_arm_body_gap",
+          "source_box": [
+            321,
+            426,
+            366,
+            487
+          ],
+          "removed_pixels": 805,
+          "selected_component": 285
+        }
+      ]
+    },
+    {
+      "source_frame": 142,
+      "production_frames": [
+        142
+      ],
+      "alpha_pixels_removed": 2646,
+      "regions": [
+        {
+          "region": "left_arm_body_gap",
+          "source_box": [
+            113,
+            424,
+            174,
+            517
+          ],
+          "removed_pixels": 1927,
+          "selected_component": 287
+        },
+        {
+          "region": "right_arm_body_gap",
+          "source_box": [
+            322,
+            423,
+            366,
+            487
+          ],
+          "removed_pixels": 719,
+          "selected_component": 289
+        }
+      ]
+    },
+    {
+      "source_frame": 143,
+      "production_frames": [
+        143
+      ],
+      "alpha_pixels_removed": 2541,
+      "regions": [
+        {
+          "region": "left_arm_body_gap",
+          "source_box": [
+            113,
+            417,
+            173,
+            517
+          ],
+          "removed_pixels": 1890,
+          "selected_component": 296
+        },
+        {
+          "region": "right_arm_body_gap",
+          "source_box": [
+            325,
+            419,
+            366,
+            487
+          ],
+          "removed_pixels": 651,
+          "selected_component": 293
+        }
+      ]
+    }
+  ],
+  "status": "CREATOR APPROVED / FROZEN",
+  "canonical_role": "F15 cleaned animation master",
+  "creator_approval": {
+    "creator": "Ube",
+    "approval_date": "2026-10-01",
+    "timezone": "America/New_York",
+    "approved_selection": "revised targeted-mask DRAGON",
+    "accepted_limitations": [
+      "Inherited clipping accepted as shown",
+      "Restart jumps accepted as shown",
+      "Existing mask presentation accepted as shown"
+    ],
+    "change_policy": "No further mask cleanup, regeneration or motion changes unless explicitly reopened by Ube."
+  },
+  "frozen_frame_sequence_sha256": "9c2ed12e70f0d3f3207ae156ec34f8324ecfa56506d3e1bb4a886c81d65f1082",
+  "freeze_operation": "Byte-identical copy of approved PNGs into canonical frozen master directory. No image, alpha, placement, timing or motion processing.",
+  "accepted_mask_notes": "Four-pixel conservative border around confirmed gaps retained; dark outlines/clothing/shadows and other limb pockets unchanged",
+  "approved_candidate_metadata": "../provenance/dragon_approved_candidate_animation.json"
+}

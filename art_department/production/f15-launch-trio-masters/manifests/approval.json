@@ -1,0 +1,73 @@
+{
+  "asset": "F15 cleaned animation masters",
+  "status": "CREATOR APPROVED / FROZEN",
+  "creator": "Ube",
+  "approval_date": "2026-10-01",
+  "timezone": "America/New_York",
+  "approval_text": "ACCEPT \u2014 creator approved / FROZEN. Freeze revised Wolf + revised Dragon, and unchanged Pass 1 Pink, as the F15 cleaned animation masters. The inherited clipping and restart jumps are accepted as shown. No further mask cleanup, regeneration or motion changes unless you reopen them.",
+  "change_policy": "No further edits to image pixels, alpha masks, native scale, timing, motion, sequence or loop unless Ube explicitly reopens the relevant asset.",
+  "assets": {
+    "pink": {
+      "status": "CREATOR APPROVED / FROZEN",
+      "frames_directory": "C:\\Users\\Ube\\Documents\\Codex\\2026-10-01\\f15-dance-cleanup-standardization-pass-1\\outputs\\f15_cleaned_animation_masters_FROZEN\\pink\\frames",
+      "metadata": "C:\\Users\\Ube\\Documents\\Codex\\2026-10-01\\f15-dance-cleanup-standardization-pass-1\\outputs\\f15_cleaned_animation_masters_FROZEN\\pink\\animation.json",
+      "approved_from": "C:\\Users\\Ube\\Documents\\Codex\\2026-10-01\\f15-dance-cleanup-standardization-pass-1\\outputs\\f15_dance_masters_pass1\\pink",
+      "production_frames": 145,
+      "production_fps": 24,
+      "duration_seconds": 6.041666666666667,
+      "canvas": [
+        688,
+        688
+      ],
+      "mode": "RGBA",
+      "ordered_sequence_sha256": "3a6ad861ff45c9bdabe4ba631fe0ccce4080260f224c3c92b4221e42572c9f80",
+      "approved_candidate_metadata_sha256": "95fdf27b6dcf279a195b956b9579a106c9e35131aa1602067efeee2863a23c52",
+      "source_sha256": "35c0b717feb8878dbf240f0de6a05c49098648ce8b4d95f35b3ddebb21fe6e05",
+      "byte_identical_to_approved_frames": true
+    },
+    "wolf": {
+      "status": "CREATOR APPROVED / FROZEN",
+      "frames_directory": "C:\\Users\\Ube\\Documents\\Codex\\2026-10-01\\f15-dance-cleanup-standardization-pass-1\\outputs\\f15_cleaned_animation_masters_FROZEN\\wolf\\frames",
+      "metadata": "C:\\Users\\Ube\\Documents\\Codex\\2026-10-01\\f15-dance-cleanup-standardization-pass-1\\outputs\\f15_cleaned_animation_masters_FROZEN\\wolf\\animation.json",
+      "approved_from": "C:\\Users\\Ube\\Documents\\Codex\\2026-10-01\\f15-dance-cleanup-standardization-pass-1\\outputs\\f15_targeted_mask_qa\\wolf",
+      "production_frames": 146,
+      "production_fps": 24,
+      "duration_seconds": 6.083333333333333,
+      "canvas": [
+        688,
+        688
+      ],
+      "mode": "RGBA",
+      "ordered_sequence_sha256": "f16f651f393629c2ce41ab4cff77162d426fcb207cfaeae0ae0e038fabcfaa54",
+      "approved_candidate_metadata_sha256": "76dfa93d304bf92d32d5ed0281a3999269dd5c85171ad156d2872fe49d3d6f01",
+      "source_sha256": "92cf977b1d8a66c4b039b8e258cb79f830e438831239920ff74bdcdf29c86538",
+      "byte_identical_to_approved_frames": true
+    },
+    "dragon": {
+      "status": "CREATOR APPROVED / FROZEN",
+      "frames_directory": "C:\\Users\\Ube\\Documents\\Codex\\2026-10-01\\f15-dance-cleanup-standardization-pass-1\\outputs\\f15_cleaned_animation_masters_FROZEN\\dragon\\frames",
+      "metadata": "C:\\Users\\Ube\\Documents\\Codex\\2026-10-01\\f15-dance-cleanup-standardization-pass-1\\outputs\\f15_cleaned_animation_masters_FROZEN\\dragon\\animation.json",
+      "approved_from": "C:\\Users\\Ube\\Documents\\Codex\\2026-10-01\\f15-dance-cleanup-standardization-pass-1\\outputs\\f15_targeted_mask_qa\\dragon",
+      "production_frames": 144,
+      "production_fps": 24,
+      "duration_seconds": 6.0,
+      "canvas": [
+        688,
+        688
+      ],
+      "mode": "RGBA",
+      "ordered_sequence_sha256": "9c2ed12e70f0d3f3207ae156ec34f8324ecfa56506d3e1bb4a886c81d65f1082",
+      "approved_candidate_metadata_sha256": "194c0847e1e9c3d073bb15ca495555c3dc22ee0f5b1a0ecc016ec65898fcee99",
+      "source_sha256": "b62dd8cdeb6e85d6f8259a00730578be54115db5bba2ea6d1b16ad4f52b24d71",
+      "byte_identical_to_approved_frames": true
+    }
+  },
+  "verification": {
+    "all_435_frames_format_and_count_pass": true,
+    "approved_sequence_hashes_match": true,
+    "frozen_copies_byte_identical": true,
+    "wolf_exact_AABB_pairs_pass": true,
+    "source_hashes_match": true,
+    "originals_and_candidates_unmodified": true
+  }
+}

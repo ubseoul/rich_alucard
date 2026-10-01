@@ -1,0 +1,343 @@
+{
+  "character": "wolf",
+  "source_filename": "dance-2d-animation.mp4",
+  "source_path": "C:\\Users\\Ube\\Downloads\\dance-2d-animation.mp4",
+  "source_dimensions": [
+    464,
+    688
+  ],
+  "container": "mov,mp4,m4a,3gp,3g2,mj2",
+  "codec": "h264",
+  "pixel_format": "yuv420p",
+  "source_fps": "12/1",
+  "production_fps": 24,
+  "source_frame_count": 73,
+  "production_frame_count": 146,
+  "duration_seconds": 6.083333333333333,
+  "source_duration_seconds": 6.083333,
+  "master_canvas_dimensions": [
+    688,
+    688
+  ],
+  "source_sha256": "92cf977b1d8a66c4b039b8e258cb79f830e438831239920ff74bdcdf29c86538",
+  "loop_status": "Entire source retained; no trimming. Preview repeats are for review only. Loop seam not corrected.",
+  "baseline_placement": {
+    "occupied_bottom_exclusive_y": 664,
+    "translation_xy": [
+      112,
+      16
+    ],
+    "strategy": "fixed translation; union of all source occupied bounds horizontally centered; common bottom y=664"
+  },
+  "occupied_character_bounds": {
+    "source_union": [
+      0,
+      48,
+      464,
+      648
+    ],
+    "master_union": [
+      112,
+      64,
+      576,
+      664
+    ]
+  },
+  "transparency": {
+    "mode": "RGBA",
+    "method": "Connected neutral bright checker regions >=48 pixels removed; no RGB filtering",
+    "status": "candidate requiring creator review"
+  },
+  "processing_performed": [
+    "decode to 8-bit RGBA PNG",
+    "fixed integer translation, no scaling",
+    "each native frame twice",
+    "Targeted alpha-only removal of confirmed background interiors; source RGB and placement unchanged"
+  ],
+  "source_to_production_mapping": [
+    0,
+    0,
+    1,
+    1,
+    2,
+    2,
+    3,
+    3,
+    4,
+    4,
+    5,
+    5,
+    6,
+    6,
+    7,
+    7,
+    8,
+    8,
+    9,
+    9,
+    10,
+    10,
+    11,
+    11,
+    12,
+    12,
+    13,
+    13,
+    14,
+    14,
+    15,
+    15,
+    16,
+    16,
+    17,
+    17,
+    18,
+    18,
+    19,
+    19,
+    20,
+    20,
+    21,
+    21,
+    22,
+    22,
+    23,
+    23,
+    24,
+    24,
+    25,
+    25,
+    26,
+    26,
+    27,
+    27,
+    28,
+    28,
+    29,
+    29,
+    30,
+    30,
+    31,
+    31,
+    32,
+    32,
+    33,
+    33,
+    34,
+    34,
+    35,
+    35,
+    36,
+    36,
+    37,
+    37,
+    38,
+    38,
+    39,
+    39,
+    40,
+    40,
+    41,
+    41,
+    42,
+    42,
+    43,
+    43,
+    44,
+    44,
+    45,
+    45,
+    46,
+    46,
+    47,
+    47,
+    48,
+    48,
+    49,
+    49,
+    50,
+    50,
+    51,
+    51,
+    52,
+    52,
+    53,
+    53,
+    54,
+    54,
+    55,
+    55,
+    56,
+    56,
+    57,
+    57,
+    58,
+    58,
+    59,
+    59,
+    60,
+    60,
+    61,
+    61,
+    62,
+    62,
+    63,
+    63,
+    64,
+    64,
+    65,
+    65,
+    66,
+    66,
+    67,
+    67,
+    68,
+    68,
+    69,
+    69,
+    70,
+    70,
+    71,
+    71,
+    72,
+    72
+  ],
+  "issues": [
+    {
+      "issue": "Source canvas edge contact / probable pre-existing clipping; missing pixels were not reconstructed",
+      "source_frames": [
+        5,
+        6,
+        7,
+        12,
+        13,
+        14,
+        15,
+        19,
+        22,
+        23,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        42,
+        43,
+        46,
+        47,
+        51,
+        54,
+        55,
+        56,
+        58,
+        59,
+        61,
+        62
+      ]
+    },
+    {
+      "issue": "Checkerboard separation candidate: small enclosed pale regions under 48 pixels retained conservatively; pale edge contamination / small background holes need review",
+      "regions": "fur/ear tips, hands, eyes, gaps between fingers, tail outline and shoes",
+      "source_frames": [
+        0,
+        10,
+        20,
+        30,
+        36,
+        41,
+        51,
+        53,
+        61,
+        72
+      ]
+    }
+  ],
+  "duplicate_analysis": {
+    "exact_adjacent_duplicate_frames": [],
+    "exact_lag_matches": {
+      "12": 0,
+      "24": 0,
+      "36": 0,
+      "48": 0,
+      "72": 0
+    }
+  },
+  "qa_sample_source_frames": [
+    0,
+    10,
+    20,
+    30,
+    36,
+    41,
+    51,
+    53,
+    61,
+    72
+  ],
+  "no_generated_or_interpolated_frames": true,
+  "scaling": null,
+  "pixel_precision": "Lossless 8-bit RGBA PNG from FFmpeg-decoded source; PINK 12-bit YUVA decoded to 8-bit RGBA. No subsequent RGB filtering or resizing.",
+  "candidate_revision": "Targeted mask repair C; pending Ube visual approval",
+  "derived_from": "C:\\Users\\Ube\\Documents\\Codex\\2026-10-01\\f15-dance-cleanup-standardization-pass-1\\outputs\\f15_dance_masters_pass1\\wolf",
+  "targeted_repairs": [
+    {
+      "source_frame": 17,
+      "production_frames": [
+        34,
+        35
+      ],
+      "alpha_pixels_removed": 4,
+      "regions": [
+        {
+          "region": "confirmed detached checker/compression speck",
+          "source_box": [
+            174,
+            510,
+            176,
+            512
+          ]
+        }
+      ]
+    },
+    {
+      "source_frame": 21,
+      "production_frames": [
+        42,
+        43
+      ],
+      "alpha_pixels_removed": 2,
+      "regions": [
+        {
+          "region": "confirmed detached checker/compression speck",
+          "source_box": [
+            158,
+            124,
+            160,
+            125
+          ]
+        }
+      ]
+    },
+    {
+      "source_frame": 54,
+      "production_frames": [
+        108,
+        109
+      ],
+      "alpha_pixels_removed": 4,
+      "regions": [
+        {
+          "region": "confirmed detached checker/compression speck",
+          "source_box": [
+            238,
+            588,
+            240,
+            590
+          ]
+        }
+      ]
+    }
+  ],
+  "unresolved_ambiguities": "Attached pale fringes/highlights unchanged"
+}

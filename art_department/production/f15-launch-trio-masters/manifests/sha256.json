@@ -1,0 +1,19 @@
+{
+  "wolf/frames (ordered filename + bytes)": "f16f651f393629c2ce41ab4cff77162d426fcb207cfaeae0ae0e038fabcfaa54",
+  "dragon/frames (ordered filename + bytes)": "9c2ed12e70f0d3f3207ae156ec34f8324ecfa56506d3e1bb4a886c81d65f1082",
+  "pink/frames (ordered filename + bytes)": "3a6ad861ff45c9bdabe4ba631fe0ccce4080260f224c3c92b4221e42572c9f80",
+  "dragon/animation.json": "600d0b707a76fd7776bc797c0fd8be08b77f61939559f53fc5bb76bc5417f92e",
+  "foundation_cards/emerald-foundation.png": "c412671333e4deed2b241f62dfd230fbb92d9d2d02394f9ff4efe8153c937d45",
+  "foundation_cards/rosalyn-foundation.png": "577d7483d03336aace3a2cd539e38c07011da7e44e11aa53d542d56a20c17c5f",
+  "foundation_cards/roxy-foundation.png": "681b2ca6b65b22d555568720d3a4e96a42272a2d9c26a75b5c0c30e3e8be9258",
+  "manifests/approval.json": "0328e57cae5eb4df7b925baa6f52a6c1bcd42d358446540272092ffd3d9e6041",
+  "pink/animation.json": "53827676a23566bb754dba2a1079ee27dc7fad9e02b463844c753eedff088ac9",
+  "provenance/dragon_approved_candidate_animation.json": "194c0847e1e9c3d073bb15ca495555c3dc22ee0f5b1a0ecc016ec65898fcee99",
+  "provenance/pink_approved_candidate_animation.json": "95fdf27b6dcf279a195b956b9579a106c9e35131aa1602067efeee2863a23c52",
+  "provenance/wolf_approved_candidate_animation.json": "76dfa93d304bf92d32d5ed0281a3999269dd5c85171ad156d2872fe49d3d6f01",
+  "README.md": "e4d713b9d6048244176f62b1a66d8d357916b5fb7962f6fadb5a623279238e38",
+  "rulings/CREATOR_RULING_2026-10-01_F15_LAUNCH_ROSTER.md": "a3759719740d01b3e3ada5577b46fc546f24d1bfe09c6702a07189c3df733ec6",
+  "rulings/OPEN_RULING_EVIDENCE.md": "f1340ed242f4b349440adaac993fee1e5f57341d30bc106a4684c8421367095c",
+  "START_HERE.md": "84221e6f6ba257a9413ca9c8dde8ae52b392091b8aa36f91f18fbe5f8a6c99f4",
+  "wolf/animation.json": "1e2febf76b800ddbaa13f6b9aeef0887ff5e10be87bc1514504bb2fbe62af4d2"
+}
