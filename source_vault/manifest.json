@@ -2452,10 +2452,10 @@
     },
     {
       "source_id": "f01-car-recovery-prices",
-      "title": "Authored F01 car recovery prices",
-      "path": null,
-      "source_type": "external source requirement",
-      "authority_status": "SOURCE_REQUIRED",
+      "title": "Authored F01 car recovery prices (Vol 7 § 6.5)",
+      "path": "source_vault/open_design/Rich_Alucard_BTF_Vol7_PLAYMAKERS_Blood_X_Operations.docx",
+      "source_type": "master design volume section",
+      "authority_status": "AUTHORITATIVE",
       "spoiler_class": "OPEN",
       "feature_ids": [
         "F01",
@@ -2463,9 +2463,11 @@
         "F13"
       ],
       "owner": "Ube / HQ",
-      "provenance": "Source Vault V1 assignment supplied by Ube; exact original not found in authorized public repository discovery.",
-      "present": false,
-      "notes": "Explicit SOURCE_REQUIRED in F01_THE_PLAY_FEEL_LOCK.md §7/§13. Supplied sandbox recovery fee/default is not canon."
+      "provenance": "Ingested from OVERLORD_PACKAGE 01_OPEN_DESIGN/Rich_Alucard_BTF_Vol7_PLAYMAKERS_Blood_X_Operations.docx per OL-029 / Canon Clerk Charter.",
+      "sha256": "df4ba1e2a45839dc12e44c66731751f7d13cb11a36e3771493f1b9537b5368ab",
+      "hash_mode": "bytes",
+      "present": true,
+      "notes": "Authored recovery constants in Vol 7 § 6.5 Other Costs: CAR IMPOUNDED (WHEELS run failed with HEAT >= WARM): $15K + 3 nights, or LOST if HEAT is HOT. CAR WRECKED (THE CAR ability rammed with car below half durability): Garage repair $5K-$40K."
     },
     {
       "source_id": "f01-fl-a07-named-oga-states",
@@ -2534,7 +2536,7 @@
       "owner": "Ube / HQ",
       "provenance": "Source Vault V1 assignment supplied by Ube; exact original not found in authorized public repository discovery.",
       "present": false,
-      "notes": "Explicit SOURCE_REQUIRED in F01_THE_PLAY_FEEL_LOCK.md §7/§13; mechanism exists but UNIQUE_CARS remains empty."
+      "notes": "Reconciled on engineering/r3-canon-unique-cars (SUPRA, S2000) under OL-029 rule: \"granted by an authored story beat or individually named\". Awaiting Overlord formal signoff."
     },
     {
       "source_id": "f03-historical-implementation-record",
@@ -2580,19 +2582,21 @@
     },
     {
       "source_id": "f05-traphouse-hold-source",
-      "title": "Traphouse-specific HOLD map / layout / rewards source",
-      "path": null,
-      "source_type": "external source requirement",
-      "authority_status": "SOURCE_REQUIRED",
+      "title": "Traphouse-specific HOLD map / layout / rewards source (Patch 2 THE TRAP)",
+      "path": "source_vault/feature_sources/Rich_Alucard_PLAYMAKERS_Patch2_THE_TRAP.docx",
+      "source_type": "authored game patch",
+      "authority_status": "AUTHORITATIVE",
       "spoiler_class": "OPEN",
       "feature_ids": [
         "F01",
         "F05"
       ],
       "owner": "Ube / HQ",
-      "provenance": "Source Vault V1 assignment supplied by Ube; exact original not found in authorized public repository discovery.",
-      "present": false,
-      "notes": "Explicit SOURCE_REQUIRED in FCPB_CONVERGENCE_001.md. Current Ube decision uses unchanged castle HOLD; this is a future source requirement, not a current runtime defect."
+      "provenance": "Ingested from OVERLORD_PACKAGE 02_OPEN_PATCHES/Rich_Alucard_PLAYMAKERS_Patch2_THE_TRAP.docx per OL-029 / OL-030.",
+      "sha256": "db5f201addd96139229374374178aca22d50728662d0e3ca218ea4ff76d8e229",
+      "hash_mode": "bytes",
+      "present": true,
+      "notes": "Authored traphouse layouts, security tiers, raid defense, and consequence structure in Patch 2 § 2 & § 7."
     },
     {
       "source_id": "f05-unanswered-raid-source",
@@ -2607,37 +2611,41 @@
       "owner": "Ube / HQ",
       "provenance": "Source Vault V1 assignment supplied by Ube; exact original not found in authorized public repository discovery.",
       "present": false,
-      "notes": "Explicit SOURCE_REQUIRED in FCPB_CONVERGENCE_001.md; none applied by current decision. Future content only, not a runtime change request."
+      "notes": "Ruled by Overlord in OL-029: \"unanswered raid = auto-resolved HOLD\". Awaiting formal runtime specification or verification."
     },
     {
       "source_id": "f07-authored-finale",
-      "title": "F07 authored finale source",
-      "path": null,
-      "source_type": "external source requirement",
-      "authority_status": "SOURCE_REQUIRED",
+      "title": "F07 authored finale source (Section 4 THE FINALE - NEW OGA)",
+      "path": "source_vault/feature_sources/Rich_Alucard_PLAYMAKERS_Patch1_NEW_OGA.docx",
+      "source_type": "authored game patch",
+      "authority_status": "AUTHORITATIVE",
       "spoiler_class": "OPEN",
       "feature_ids": [
         "F07"
       ],
       "owner": "Ube / HQ",
-      "provenance": "Source Vault V1 assignment supplied by Ube; exact original not found in authorized public repository discovery.",
-      "present": false,
-      "notes": "No authored packet found. OPEN marks only this safe requirement label supplied by Ube, not unknown packet visibility. HQ must confirm actual classification before ingestion; no reconstruction from implementation hooks or summaries."
+      "provenance": "Ingested from OVERLORD_PACKAGE 02_OPEN_PATCHES/Rich_Alucard_PLAYMAKERS_Patch1_NEW_OGA.docx per OL-029 / OL-030.",
+      "sha256": "abb9b6bd6974fb70ea25c0e69502a4e6a3ae76637a9f838d79b8b71bfc3ed2f0",
+      "hash_mode": "bytes",
+      "present": true,
+      "notes": "Authored finale source: Section 4 \"THE FINALE - NEW OGA\" (4.1 The plan / War Room scene; 4.2 The fight: Phase 1 THE PARTY Showdown in warehouse owambe, Phase 2 THE OFFICE Combat 2.0 with Gbenga). Found in Patch1 NEW OGA per OL-029; returns tributed car on takeover."
     },
     {
       "source_id": "f07-authored-m8",
-      "title": "F07 authored M8 source",
-      "path": null,
-      "source_type": "external source requirement",
-      "authority_status": "SOURCE_REQUIRED",
+      "title": "F07 authored M8 source (M8 THE TURF WAR in Patch 1 NEW OGA)",
+      "path": "source_vault/feature_sources/Rich_Alucard_PLAYMAKERS_Patch1_NEW_OGA.docx",
+      "source_type": "authored game patch",
+      "authority_status": "AUTHORITATIVE",
       "spoiler_class": "OPEN",
       "feature_ids": [
         "F07"
       ],
       "owner": "Ube / HQ",
-      "provenance": "Source Vault V1 assignment supplied by Ube; exact original not found in authorized public repository discovery.",
-      "present": false,
-      "notes": "No authored packet found. Historical neutral scaffold exists; F03 prerequisite confirmed in the supplied current Source Muster. Await exact source and HQ/Overlord integration authorization."
+      "provenance": "Ingested from OVERLORD_PACKAGE 02_OPEN_PATCHES/Rich_Alucard_PLAYMAKERS_Patch1_NEW_OGA.docx per OL-029 / OL-030.",
+      "sha256": "abb9b6bd6974fb70ea25c0e69502a4e6a3ae76637a9f838d79b8b71bfc3ed2f0",
+      "hash_mode": "bytes",
+      "present": true,
+      "notes": "Authored M8 mission source: Section 3 \"M8 - THE TURF WAR\" (Gbenga's first real Showdown for Rich: take a Koreatown block from Open Mouth Gang; Vol 7 Showdown rules; Lil Smack chewing). Found in Patch1 NEW OGA per OL-029."
     },
     {
       "source_id": "f07-safe-reserved-scaffold",
@@ -2658,6 +2666,23 @@
       "hash_mode": "lf",
       "present": true,
       "notes": "Safe historical IF-1 reservation only, retained in this base. No dedicated F07 implementation, M8 packet or finale packet was found in public branch/path history. This scaffold is not authored story source. F03 is the prerequisite per the supplied current Source Muster; do not integrate F03 or F07."
+    },
+    {
+      "source_id": "f11-sound-finder-brief",
+      "title": "Rich Alucard: Sound Finder Brief",
+      "path": "source_vault/audio_authority/RA_Sound_Finder_Brief.docx",
+      "source_type": "authored audio brief",
+      "authority_status": "AUTHORITATIVE",
+      "spoiler_class": "OPEN",
+      "feature_ids": [
+        "F11"
+      ],
+      "owner": "Ube / HQ",
+      "provenance": "Ingested from OVERLORD_PACKAGE 03_AUDIO/RA_Sound_Finder_Brief.docx per OL-029 / OL-030.",
+      "sha256": "f39845010a1483ce335cec6282d1175558575e73ccc24671a36da27becb79a8e",
+      "hash_mode": "bytes",
+      "present": true,
+      "notes": "Authored sound finder delivery brief, sound taxonomy, cues and SFX mapping for Rich Alucard."
     },
     {
       "source_id": "f13-other-lineage-balance-record",
@@ -2712,19 +2737,21 @@
     },
     {
       "source_id": "f15-dancer-generation-wardrobe",
-      "title": "RAINMAKER_Dancer_Generation_Sheets_and_Wardrobe_Levels",
-      "path": null,
-      "source_type": "external source requirement",
-      "authority_status": "SOURCE_REQUIRED",
+      "title": "RAINMAKER Dancer Generation Sheets and Wardrobe Levels",
+      "path": "source_vault/art_authority/RAINMAKER_Dancer_Generation_Sheets_and_Wardrobe_Levels.docx",
+      "source_type": "authored character and art specification",
+      "authority_status": "AUTHORITATIVE",
       "spoiler_class": "OPEN",
       "feature_ids": [
-        "F15",
-        "F12"
+        "F12",
+        "F15"
       ],
       "owner": "Ube / HQ",
-      "provenance": "Source Vault V1 assignment supplied by Ube; exact original not found in authorized public repository discovery.",
-      "present": false,
-      "notes": "Dancer Generation / Wardrobe Sheets are absent; no invented dancer identity or wardrobe progression."
+      "provenance": "Ingested from OVERLORD_PACKAGE 04_ART/RAINMAKER_Dancer_Generation_Sheets_and_Wardrobe_Levels.docx per OL-029 / OL-030.",
+      "sha256": "7ef85853cedaedbbce52971ade76914e48ffee0a24a9d7f7fe1ff7bd1025f8a3",
+      "hash_mode": "bytes",
+      "present": true,
+      "notes": "Authored generation sheets, dancer profiles, and wardrobe tiers for the club dancer roster. Per OL-029: wardrobe tiers (per dance) and She fw Me levels (lifetime) are separate."
     },
     {
       "source_id": "f15-dancer-videos",
@@ -2783,18 +2810,20 @@
     },
     {
       "source_id": "f15-relationship-packet",
-      "title": "UNDERLORD Character Relationship Packet v0_2_1",
-      "path": null,
-      "source_type": "external source requirement",
-      "authority_status": "SOURCE_REQUIRED",
+      "title": "UNDERLORD Character Relationship Packet v0_2",
+      "path": "source_vault/relationships/UNDERLORD_Character_Relationship_Packet_v0_2.docx",
+      "source_type": "creator relationship packet",
+      "authority_status": "AUTHORITATIVE",
       "spoiler_class": "OPEN",
       "feature_ids": [
         "F15"
       ],
       "owner": "Ube / HQ",
-      "provenance": "Source Vault V1 assignment supplied by Ube; exact original not found in authorized public repository discovery.",
-      "present": false,
-      "notes": "Historical audit reports file v0_2_1 with internal title V0.1; the exact original upload is absent. The audit is not the packet."
+      "provenance": "Ingested from UNDERLORD_Character_Relationship_Packet_v0_2.docx in user delivery per OL-025 / OL-029.",
+      "sha256": "21364de2c9e881243f2097d251f9273532e9ae589eb6825b4698e2e49e15dc04",
+      "hash_mode": "bytes",
+      "present": true,
+      "notes": "Creator rough notes and route designs for Roxy, Emerald, and Rosalyn. Per OL-025: relationship packet = canon intent; preserve creator voice. Unlocked independently of main story through strip club system."
     },
     {
       "source_id": "h1-restricted-voice-authority",
@@ -2853,20 +2882,75 @@
       "notes": "Public-history OPEN identity-authority record preserved unchanged. Current application must reconcile against exact frozen pixels and current HQ decisions. Lane B dancers are explicitly outside its scope. Not a substitute for the F15 external art package."
     },
     {
+      "source_id": "patch-iron-and-grace-guns",
+      "title": "Rich Alucard: Patch IRON AND GRACE (Guns)",
+      "path": "source_vault/feature_sources/Rich_Alucard_Patch_IRON_AND_GRACE_Guns.docx",
+      "source_type": "authored game patch",
+      "authority_status": "AUTHORITATIVE",
+      "spoiler_class": "OPEN",
+      "feature_ids": [
+        "F02"
+      ],
+      "owner": "Ube / HQ",
+      "provenance": "Ingested from OVERLORD_PACKAGE 02_OPEN_PATCHES/Rich_Alucard_Patch_IRON_AND_GRACE_Guns.docx per OL-029 / OL-030.",
+      "sha256": "92ae8b2a4f2f461dcd3ff3fc0fe8c5312ea2db42d3b6cd614390040184f986de",
+      "hash_mode": "bytes",
+      "present": true,
+      "notes": "Authored guns patch document covering firearm classes, gunplay mechanics, and weapon stats."
+    },
+    {
+      "source_id": "patch1-new-oga-open-patch",
+      "title": "Rich Alucard: PLAYMAKERS Patch 1 - NEW OGA",
+      "path": "source_vault/feature_sources/Rich_Alucard_PLAYMAKERS_Patch1_NEW_OGA.docx",
+      "source_type": "authored game patch",
+      "authority_status": "AUTHORITATIVE",
+      "spoiler_class": "OPEN",
+      "feature_ids": [
+        "F03",
+        "F07"
+      ],
+      "owner": "Ube / HQ",
+      "provenance": "Ingested from OVERLORD_PACKAGE 02_OPEN_PATCHES/Rich_Alucard_PLAYMAKERS_Patch1_NEW_OGA.docx per OL-029 / OL-030.",
+      "sha256": "abb9b6bd6974fb70ea25c0e69502a4e6a3ae76637a9f838d79b8b71bfc3ed2f0",
+      "hash_mode": "bytes",
+      "present": true,
+      "notes": "Complete OPEN Patch 1 document governing the Gbenga corporate ladder (M1-M10), M8 Turf War, M9 Tribute, M10 VP, and Section 4 Finale (New Oga). Precedence rule SR-14: Patch 1 wins on the Gbenga arc."
+    },
+    {
+      "source_id": "patch2-the-trap-open-patch",
+      "title": "Rich Alucard: PLAYMAKERS Patch 2 - THE TRAP (Traphouse & Blood X Production)",
+      "path": "source_vault/feature_sources/Rich_Alucard_PLAYMAKERS_Patch2_THE_TRAP.docx",
+      "source_type": "authored game patch",
+      "authority_status": "AUTHORITATIVE",
+      "spoiler_class": "OPEN",
+      "feature_ids": [
+        "F01",
+        "F05"
+      ],
+      "owner": "Ube / HQ",
+      "provenance": "Ingested from OVERLORD_PACKAGE 02_OPEN_PATCHES/Rich_Alucard_PLAYMAKERS_Patch2_THE_TRAP.docx per OL-029 / OL-030.",
+      "sha256": "db5f201addd96139229374374178aca22d50728662d0e3ca218ea4ff76d8e229",
+      "hash_mode": "bytes",
+      "present": true,
+      "notes": "Authored Patch 2 document detailing traphouse purchase, Blood X cooking minigame, production loops, levels, and § 7 risk/cost."
+    },
+    {
       "source_id": "rainmaker-open-patch",
-      "title": "Rainmaker OPEN patch",
-      "path": null,
-      "source_type": "external source requirement",
-      "authority_status": "SOURCE_REQUIRED",
+      "title": "Rich Alucard: Patch RAINMAKER (Ba Dah Ba Dah Bing Bing)",
+      "path": "source_vault/feature_sources/Rich_Alucard_Patch_RAINMAKER_Ba_Dah_Ba_Dah_Bing_Bing.docx",
+      "source_type": "authored game patch",
+      "authority_status": "AUTHORITATIVE",
       "spoiler_class": "OPEN",
       "feature_ids": [
         "F06",
         "F15"
       ],
       "owner": "Ube / HQ",
-      "provenance": "Source Vault V1 assignment supplied by Ube; exact original not found in authorized public repository discovery.",
-      "present": false,
-      "notes": "Exact OPEN patch covering THE BING, BIG TIPPER, POLE/FLOOR/VIP and related source rules is absent. Approved F06 core exists; that is not this document."
+      "provenance": "Ingested from OVERLORD_PACKAGE 02_OPEN_PATCHES/Rich_Alucard_Patch_RAINMAKER_Ba_Dah_Ba_Dah_Bing_Bing.docx per OL-029 / OL-030.",
+      "sha256": "fcd480d99f74f6fedbafd7cb6f7698080a9b1b20e1a2691de5f127c99a0a1e97",
+      "hash_mode": "bytes",
+      "present": true,
+      "notes": "Authored OPEN Rainmaker patch document. Per OL-029, Rainmaker § 5 rotation governs F15 (lineup of 4 at WAKE)."
     },
     {
       "source_id": "t10-existing-job-specs",
@@ -2903,6 +2987,90 @@
       "provenance": "Source Vault V1 assignment supplied by Ube; exact original not found in authorized public repository discovery.",
       "present": false,
       "notes": "Current runtime contains 10 specs across OPEN MOUTH GANG / HUNTERS / THE COUSINS, with mixed encounters. This requirement concerns additional authored content, not reuploading the existing implementation."
+    },
+    {
+      "source_id": "vol1-master-plan",
+      "title": "Rich Alucard: BTF Vol 1 - Master Plan",
+      "path": "source_vault/open_design/Rich_Alucard_BTF_Vol1_Master_Plan.docx",
+      "source_type": "master design volume",
+      "authority_status": "AUTHORITATIVE",
+      "spoiler_class": "OPEN",
+      "feature_ids": [],
+      "owner": "Ube / HQ",
+      "provenance": "Ingested from OVERLORD_PACKAGE 01_OPEN_DESIGN/Rich_Alucard_BTF_Vol1_Master_Plan.docx per OL-029 / OL-030.",
+      "sha256": "60c815166ea829ba03b583c97d0afa30829ad42b94c81f9f487b19c12b00b3b3",
+      "hash_mode": "bytes",
+      "present": true,
+      "notes": "Master Plan design volume 1 for Before the Fame."
+    },
+    {
+      "source_id": "vol2-character-visual-bible",
+      "title": "Rich Alucard: BTF Vol 2 - Character & Visual Bible",
+      "path": "source_vault/open_design/Rich_Alucard_BTF_Vol2_Character_Visual_Bible.docx",
+      "source_type": "master design volume",
+      "authority_status": "AUTHORITATIVE",
+      "spoiler_class": "OPEN",
+      "feature_ids": [
+        "F12"
+      ],
+      "owner": "Ube / HQ",
+      "provenance": "Ingested from OVERLORD_PACKAGE 01_OPEN_DESIGN/Rich_Alucard_BTF_Vol2_Character_Visual_Bible.docx per OL-029 / OL-030.",
+      "sha256": "d841fafe94a8440f827b34c36b1beb37181150f1f992b846e6e248bd65f2d4c5",
+      "hash_mode": "bytes",
+      "present": true,
+      "notes": "Character & Visual Bible design volume 2 for Before the Fame."
+    },
+    {
+      "source_id": "vol3-numbers",
+      "title": "Rich Alucard: BTF Vol 3 - Numbers",
+      "path": "source_vault/open_design/Rich_Alucard_BTF_Vol3_Numbers.docx",
+      "source_type": "master design volume",
+      "authority_status": "AUTHORITATIVE",
+      "spoiler_class": "OPEN",
+      "feature_ids": [
+        "F13"
+      ],
+      "owner": "Ube / HQ",
+      "provenance": "Ingested from OVERLORD_PACKAGE 01_OPEN_DESIGN/Rich_Alucard_BTF_Vol3_Numbers.docx per OL-029 / OL-030.",
+      "sha256": "9f2017896f9ccb2108bcadfe819f3722256731b52f287791372e7b2b42c82ff1",
+      "hash_mode": "bytes",
+      "present": true,
+      "notes": "Numbers and economic tunables design volume 3 for Before the Fame."
+    },
+    {
+      "source_id": "vol5-dragon-maggi-cube",
+      "title": "Rich Alucard: BTF Vol 5 - Dragon Maggi Cube",
+      "path": "source_vault/open_design/Rich_Alucard_BTF_Vol5_Dragon_Maggi_Cube.docx",
+      "source_type": "master design volume",
+      "authority_status": "AUTHORITATIVE",
+      "spoiler_class": "OPEN",
+      "feature_ids": [],
+      "owner": "Ube / HQ",
+      "provenance": "Ingested from OVERLORD_PACKAGE 01_OPEN_DESIGN/Rich_Alucard_BTF_Vol5_Dragon_Maggi_Cube.docx per OL-029 / OL-030.",
+      "sha256": "023132bed8847179494660ecd05e4881f0f539cea328eb5dbe8760e7284a3280",
+      "hash_mode": "bytes",
+      "present": true,
+      "notes": "Dragon Maggi Cube design volume 5 for Before the Fame. Precedence rule: Vol 5 § 12 overrides Vol 1-3 on the creative decisions it explicitly updates."
+    },
+    {
+      "source_id": "vol7-playmakers-blood-x-operations",
+      "title": "Rich Alucard: BTF Vol 7 - PLAYMAKERS (Blood X Operations)",
+      "path": "source_vault/open_design/Rich_Alucard_BTF_Vol7_PLAYMAKERS_Blood_X_Operations.docx",
+      "source_type": "master design volume",
+      "authority_status": "AUTHORITATIVE",
+      "spoiler_class": "OPEN",
+      "feature_ids": [
+        "F01",
+        "F04",
+        "F05",
+        "T10"
+      ],
+      "owner": "Ube / HQ",
+      "provenance": "Ingested from OVERLORD_PACKAGE 01_OPEN_DESIGN/Rich_Alucard_BTF_Vol7_PLAYMAKERS_Blood_X_Operations.docx per OL-029 / OL-030.",
+      "sha256": "df4ba1e2a45839dc12e44c66731751f7d13cb11a36e3771493f1b9537b5368ab",
+      "hash_mode": "bytes",
+      "present": true,
+      "notes": "Master volume for PLAYMAKERS, War Room, Showdown tactical combat, Blood X operations, and car recovery (§ 6.5). Precedence rule: Vol 7 governs War Room, Showdowns, and December."
     }
   ]
 }

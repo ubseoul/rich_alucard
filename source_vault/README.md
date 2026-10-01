@@ -1,11 +1,14 @@
-# Source Vault V1 — start here
+# Source Vault V1.1 — start here
 
 Open [manifest.json](manifest.json), filter `feature_ids`, then read the registered
 OPEN source at its repository-relative `path`. Run `npm run sources:check` first.
 This is a registry and faithful storage layer, **not canon, approval, or runtime**.
 The accepted production base is `2e6a446539aafeb04fb2e8e18747be58c0cdd063`.
-R3-1 is ACCEPTED / CLOSED. F03/F07 integration requires explicit HQ/Overlord
-authorization; source discovery and historical passing tests do not grant it.
+R3-1 is ACCEPTED / CLOSED. Vault V1.1 ingests the authorized OPEN source batch
+per OL-029 / OL-030, resolving M8, Finale, Rainmaker, Character Relationships,
+Dancer Generation / Wardrobe, Sound Finder Brief, and Vol 7 car recovery.
+F03/F07 integration requires explicit HQ/Overlord authorization; source discovery
+and historical passing tests do not grant it.
 
 ## Authority and absence
 
