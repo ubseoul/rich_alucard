@@ -97,7 +97,7 @@ function resetBattle(encounter='ceo'){
  setCEOState('idle');document.body.classList.toggle('jdm-battle',encounter==='jdm');
  window.RADevState.revengeStoredDamage=0;
  lastRichHP=richHP;lastCeoHP=ceoHP;
- clearRevengeWounds();updateRevengeDisplay();choiceOverlay.classList.remove('show');battleUI.classList.remove('attack-mode');updateHP();paint();
+ clearRevengeWounds();updateRevengeDisplay();choiceOverlay.classList.remove('show');victoryOverlay.classList.remove('on');endingText.classList.remove('on');endingText.textContent='';victoryCard.style.display='block';battleUI.classList.remove('attack-mode','victory-retract');updateHP();paint();
  window.RACombatFoundation.emit(battleState,'battle-start',{stageId:battleState.definition.stageId});
 }
 function updateRevengeDisplay(pulse=false){if(revengeValue){revengeValue.textContent=revengeStored;if(pulse){revengeValue.classList.remove('revenge-value-pulse');void revengeValue.offsetWidth;revengeValue.classList.add('revenge-value-pulse')}}}
@@ -348,6 +348,7 @@ let loopEnd = 45.80;
 let lastRichLyric = -1;
 
 const richLyricBubble=document.querySelector('#richLyricBubble');
+const newGameButton=document.querySelector('#newGameButton');
 const richLyricLines=[
   [15.932,'cali hoes'],
   [17.548,'i love cali hoes'],
@@ -389,7 +390,15 @@ audio.addEventListener('ended',()=>{
   audio.play().catch(()=>{});
 });
 
-start.addEventListener('click',async()=>{
+function startSurfaceHasProgress(){
+  return !!window.RANewGame?.hasProgress?.();
+}
+function refreshStartSurface(){
+  const hasProgress=startSurfaceHasProgress();
+  start.textContent=hasProgress?'▶ CONTINUE':'▶ START';
+  if(newGameButton)newGameButton.hidden=!hasProgress;
+}
+async function launchGame(){
   overlay.style.display='none';
   try{window.RAAudio?.unlock?.();}catch(e){}
   const routed=await window.RANewGame?.onStart?.();
@@ -404,7 +413,16 @@ start.addEventListener('click',async()=>{
     console.error(e);
     say('TAP AGAIN FOR AUDIO');
   }
+}
+start.addEventListener('click',launchGame);
+newGameButton?.addEventListener('click',async()=>{
+  if(!startSurfaceHasProgress())return;
+  if(!window.confirm('START A NEW GAME?'))return;
+  window.RAState?.reset?.();
+  refreshStartSurface();
+  await launchGame();
 });
+refreshStartSurface();
 
 mainButtons.forEach((b,i)=>b.addEventListener('click',()=>{if(busy||battleOver)return;pressFeedback(b);mainIndex=i;inMoves=false;paint();activateMain()}));
 moves.forEach((b,i)=>b.addEventListener('click',()=>{if(busy||battleOver)return;pressFeedback(b);moveIndex=i;inMoves=true;paint();activateMove()}));
