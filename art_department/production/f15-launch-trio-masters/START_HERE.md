@@ -46,6 +46,7 @@ art_department/production/f15-launch-trio-masters/
   - These 688×688 PNG sequences are production masters, **not final in-game runtime assets**.
   - Technical conversion into hard-pixel sprite sheets or lightweight web video loops remains pending F15 implementation.
   - **No final in-game scale, screen coordinates, stage placement, or runtime container format is approved by this package.**
+  - **No "270×480 dancer production canvas":** The game's 270×480 viewport applies to overall background environments, not dancer stage sprites. Final dancer display scale, downsampling ratios, and coordinate bounding remain undecided runtime engineering choices.
 
 ---
 
@@ -71,7 +72,7 @@ Its absence from this branch's runtime tree is intentional; builders read it via
 ---
 
 ## 6. Remaining Implementation Decisions & Progression Gaps
-1. **Progression Dollar Thresholds (F13):** Numeric lifetime spend tiers for "She fw Me" levels (to be proposed by Underlord and approved by Overlord).
+1. **Progression Dollar Thresholds & Level Count (F13):** Undecided. While wardrobe tiers (Tier 1 full costume → Tier 2 reduced costume → Tier 3 reference two-piece) are distinct from lifetime progression, **neither a 5-level structure nor specific dollar thresholds are canon**. The exact number of lifetime relationship tiers, their names, and numeric dollar thresholds remain an open design gap to be proposed by Underlord and approved by Overlord.
 2. **Date Scripts:** Dialogue branches and narrative nodes in the adventure DSL for dates with Roxy, Rosalyn, and Emerald.
 3. **Stage Layout Geometry:** Exact screen positioning, canvas scaling, and UI safe areas for the 3-dancer stage.
 4. **Runtime Date System Wiring:** Connecting the 1-date-per-WAKE global gate in `wake_bus.js`.
