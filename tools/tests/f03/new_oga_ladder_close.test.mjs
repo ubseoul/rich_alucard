@@ -188,6 +188,15 @@ export async function test(root){
   console.log('PASS f03 delivery: one mission voice note per WAKE, no chaining, M10 -> VampGPT next WAKE, 7-sleep re-ask, SAY LESS -> finaleBegun');
  }
 
+ // ===================================================================== source certification (Patch 1 NEW OGA, OPEN)
+ {
+  const src=await readFile(path.join(process.cwd(),'js/frag/F03/new_oga_ladder_close.js'),'utf8');
+  const seq=["S('vampgpt','oga.')","RC('yeah.')","S('vampgpt','you know what oga means right.')","S('vampgpt','…boss.')","S('vampgpt','why are you climbing his ladder. you could own the building.')"];
+  let at=-1;for(const piece of seq){const i=src.indexOf(piece,at+1);assert.ok(i>at,`VampGPT scene keeps the authored Patch 1 sequence: ${piece}`);at=i;}
+  assert.ok(src.includes("label:'…SAY LESS.'")&&src.includes("label:'NAH, I’M GOOD HERE.'"),'VampGPT authored choices');
+  console.log('PASS f03 source certification: VampGPT scene = Patch 1 NEW OGA sequence incl. Rich "yeah."');
+ }
+
  // ===================================================================== 12. M8 loan squad takes no crew slot
  {
   const c=await boot(root);warRoomOn(c);const R=c.RAWarRoomCrew;

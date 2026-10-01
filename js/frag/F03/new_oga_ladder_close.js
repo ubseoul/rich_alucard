@@ -208,7 +208,7 @@
  try{window.RADistricts?.define?.({id:'koreatown',fragment:'F03',label:'Koreatown'});}catch(e){if(!/already defined/.test(String(e.message)))console.error(e);}
 
  // --------------------------------------------------------------- adventures
- const {S,N}=window.RAContent,D=window.RAAdventures.define;
+ const {S,N,RC}=window.RAContent,D=window.RAAdventures.define;
  const carName=c=>(c?.short||c?.model||'car').toLowerCase();
 
  D({id:'NEW_OGA_M9',title:'THE TRIBUTE',lane:'money',memoryType:'money',start:'voice',available:m9Ready,
@@ -246,7 +246,7 @@
    ctx.RAState.patch('life.newOga',{...ctx.RAState.get().life.newOga,status:'vice_president',mission:10,rank:5,title:'VICE PRESIDENT',rank4Granted:true,m7Completed:true,m8Resolved:true,m9Resolved:true,m9Outcome:'give',m10Completed:true,m10GrantsApplied:true,lastMissionDay:16});},
   nodes:{
    vampgpt:{env:'bedroom',actors:{left:'rich'},title:'VAMPGPT · WAKE',
-    lines:[S('vampgpt','oga.'),N('Rich already knows what is coming.'),S('vampgpt','you know what oga means right.'),S('vampgpt','…boss.'),S('vampgpt','why are you climbing his ladder. you could own the building.')],
+    lines:[S('vampgpt','oga.'),RC('yeah.'),S('vampgpt','you know what oga means right.'),S('vampgpt','…boss.'),S('vampgpt','why are you climbing his ladder. you could own the building.')],
     choices:[{label:'…SAY LESS.',next:'say_less'},{label:'NAH, I’M GOOD HERE.',next:'nah_stay'}]},
    say_less:{lines:[N('VampGPT goes quiet. The plan for the chair begins.')],
     end:{outcome:'say_less',fx:()=>completeVampgpt('say_less'),memory:{text:'decided to take Gbenga’s chair',lane:'money'}}},
