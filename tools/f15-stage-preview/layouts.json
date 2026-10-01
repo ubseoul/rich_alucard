@@ -1,0 +1,68 @@
+{
+  "_note": "PREVIEW LAYOUTS - not approved. cx = dancer anchor (master x=344) as a fraction of stage width. Dancers share one floor baseline (master y=664 sits on the F06 deck feet line). refScale = CSS px per master px at a stage that is refStageWidth px wide; it scales linearly with stage width. scaleMul multiplies a single dancer. All values are fixed for the entire sequence.",
+  "refStageWidth": 370,
+  "defaultLayout": "recommended",
+  "identityBinding": {
+    "wolf": null,
+    "dragon": null,
+    "pink": null,
+    "_note": "UNPROVEN. The frozen corpus has no 1:1 handle-to-character metadata (START_HERE s4). Labels stay WOLF / DRAGON / PINK."
+  },
+  "labels": {
+    "wolf": "WOLF",
+    "dragon": "DRAGON",
+    "pink": "PINK"
+  },
+  "layouts": {
+    "recommended": {
+      "title": "RECOMMENDED - uniform scale pyramid",
+      "refStageWidth": 370,
+      "refScale": 0.28,
+      "slots": [
+        {
+          "id": "dragon",
+          "cx": 0.21,
+          "scaleMul": 1,
+          "z": 1
+        },
+        {
+          "id": "wolf",
+          "cx": 0.5,
+          "scaleMul": 1,
+          "z": 2
+        },
+        {
+          "id": "pink",
+          "cx": 0.79,
+          "scaleMul": 1,
+          "z": 1
+        }
+      ]
+    },
+    "alternative": {
+      "title": "COMPACT - smaller, more headroom",
+      "refStageWidth": 370,
+      "refScale": 0.23,
+      "slots": [
+        {
+          "id": "dragon",
+          "cx": 0.2,
+          "scaleMul": 1,
+          "z": 1
+        },
+        {
+          "id": "wolf",
+          "cx": 0.5,
+          "scaleMul": 1,
+          "z": 2
+        },
+        {
+          "id": "pink",
+          "cx": 0.8,
+          "scaleMul": 1,
+          "z": 1
+        }
+      ]
+    }
+  }
+}
