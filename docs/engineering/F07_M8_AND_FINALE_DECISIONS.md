@@ -1,16 +1,36 @@
-# F07 — D-QUEUE (decisions / gaps for M8 + the finale)
+# F07 — D-QUEUE and CREATOR-DELEGATED RULINGS (M8 + the finale)
 
 Source read directly: `Rich_Alucard_PLAYMAKERS_Patch1_NEW_OGA.docx` §1, §3 (M8), §4, §5, §7, §8 (Source Vault V1.1 `e76f840`). Searches run before declaring each gap: the full Patch 1 text; `Rich_Alucard_BTF_Vol7_PLAYMAKERS_Blood_X_Operations.docx` (no "SEND THE BOYS", no canopy/aunties text, Showdown rules §5); the other OPEN vault documents (Patch 2/RAINMAKER/IRON AND GRACE mention Gbenga only incidentally); `docs/engineering/UL_F2_001..004.md` and `BTF_OPEN_UBE_DECISIONS_001.md` (OL-002/004/008/010 are the M1–M7 fill-ins; UL_F2_004: "M8 remains an inert hold state"); `F03_NEW_OGA_LADDER_CLOSE.md`. Nothing SEALED was opened.
 
-| # | Item | Exact evidence | Implemented as | Smallest decision needed | Class |
-|---|---|---|---|---|---|
-| D1 | SEND THE BOYS cost | §1 "backing out always costs something, never nothing"; §3 M8 names no back-out; M3/M4/M5 authors "Trust −" etc., M8 does not | **No consequence beyond forgoing the win's pay/HEAT.** No trust/clout/money penalty invented | One cost (e.g. trust −n / clout / money) or "no cost" | CREATOR · path **not canon-complete** |
-| D2 | M8 win clout / trust | §2 "gang clout … earned by completing jobs clean, fast, and shysty" (no amount); §8 lists only pay and heat | 0 / 0 | The clout (and trust) amount for an M8 win | CREATOR · NON-BLOCKING |
-| D3 | Who fights Phase 1 without THE OGAS | §4.1 "THE OGAS (squad)" is one of seven picks; no squad is named otherwise | Phase 1 refused `NO_SQUAD`, nothing run, REMAKE THE PLAN offered | Make THE OGAS mandatory/auto-included, or name the alternative squad (needs classes) | CREATOR · **not canon-complete** |
-| D4 | Aunties' critique lines; feed wording | §4.2 "critique your tactics out loud" — no text authored | Mechanic implemented (line-of-fire hazard). Feed lines only restate the authored sentence; **no critique prose written** | The aunties' lines, and approval of the two restating feed lines | WRITER (non-Rich dialogue) · **not canon-complete** |
-| D5 | "Gbenga's boys can join as recruits" / loan squad | §6 "can join Rich's crew as recruits after the finale"; §3 M8 "a squad of Gbenga's boys"; no names/classes/count | Finale: recorded only (`gbengasBoysCanJoin`), no recruit created. M8: 3 transient loan units "GBENGA’S BOY n" with placeholder stat classes (the PLAY contract needs a class) | Names/classes/count for the joiners | CREATOR · NON-BLOCKING |
-| D6 | Lane effects | §4.1 gives flavour only for SHANNON/MAZDA/PINKY/TRISTAN/CARLOS/SENATOR; effects not authored | Selection preserved exactly (`finaleCrew`); no effect | What each lane changes, if anything | CREATOR · NON-BLOCKING |
-| D7 | Car prerequisite for Phase 1 | Not in Patch 1; F01 PLAY rule "no car refuses the job"; Vol 7 §1 needs a car only for the War Room offer | F01 rule unchanged; explained to the player; NOT YET; continues once a fitting car exists | Keep the restriction, or authorise an alternative for the finale only | INTEGRATION · decision |
-| D8 | Combat 2.0 / PLAY mechanical values | §4.2 authors HP, damage, heals, thresholds, phase trigger; not authored: Gbenga's pattern order, the VOICE NOTE telegraph text (uses the authored §7 VOICE NOTE pose), GOLDEN DRACO cadence below 30%, hazard magnitudes of the two Phase 1 cards, loan-squad size, consigliere text cadence (7 days) | Named tunables | Optional tuning review | MECHANICAL · NON-BLOCKING |
-| A1 | Art | OWAMBE warehouse condition, repainted sign, an exterior for `owambe_party` (F01's frozen exteriors cover the nine stock jobs; the PLAY falls back to its default backdrop) | None created (no art generation) | Art ticket | ART · NON-BLOCKING |
-| A2 | §6 Mister December "visits as an equal" | Vol 7 / F04 content, outside §3–§4 | War Room begins; the scene is not written | Scope owner | SCOPE |
+
+## Creator-delegated rulings (recorded as NEW rulings, not historical source facts)
+Ube explicitly delegated these gameplay decisions to UNDERLORD; they are applied in this candidate.
+
+| # | Ruling | Applied as |
+|---|---|---|
+| D1 | SEND THE BOYS: no additional cost or penalty; forgoing the M8 payout is sufficient | Resolves M8; no pay, HEAT, clout or trust change (tested, browser-verified) |
+| D2 | M8 win: clout/trust stay 0; keep $18K and +12 HEAT | `tunables.js` m8.clout/trust = 0; pay/HEAT unchanged |
+| D3 | THE OGAS mandatory, fills ONE of the THREE lane slots, preselected and not deselectable; the player picks TWO others; conditional-lane eligibility unchanged; a saved plan without THE OGAS reopens selection with THE OGAS fixed and no other lane silently discarded | Plan UI shows `THE OGAS · SQUAD · FIXED` as a locked entry + two picks; `routePlan()` reconciles saved plans (kept lanes retained; three saved others reopen selection with each marked PREVIOUSLY PICKED); a UI-built plan cannot reach the PLAY without a squad (the `NO_SQUAD` refusal remains only as a backstop) |
+| D4 | Aunties/canopy gameplay implemented with no invented critique dialogue; minimal factual narration authorised | Exact narration below; spoken critique lines remain in the D-queue (non-blocking) |
+| D5 | Generic transient "GBENGA’S BOY n" labels; mechanical classes only as encounter tuning; `gbengasBoysCanJoin` is eligibility only, no fabricated recruits | Unchanged from the previous candidate (no recruit state is written) |
+| D6 | Source-silent lane effects stay neutral; no invented bonuses; UI must not imply effects | Lane entries are names only; picks change nothing but `finaleCrew` (tested) |
+| D7 | Finale Phase 1 reachable without a car or seat capacity — this encounter only, via F07-owned configuration; no persistent loaner, no vehicle lore, no inventory change; ordinary F01/M8 car rules unchanged; F03 tribute/TAKEOVER preserved | The finale request carries F01's own stock encounter vehicle (`HOOPTIE`) instead of Rich's garage, no `carMap`, no `recordDrive`; F07's PLAY page keeps its PLAY world under `ra.f07.play.v1.*`, so the vehicle cannot become a lost car, a recovery card or any F01 state. M8 and stock F01 requests still refuse with no car / too few seats (tested) |
+| D8 | Source-silent mechanical tuning may remain if compatible with authored moves/numbers | Unchanged: pattern order, VOICE NOTE telegraph (authored §7 pose), GOLDEN DRACO cadence, hazard magnitudes, loan-squad size, consigliere cadence |
+
+### Exact narration recorded (D4)
+* AUNTIES event (feed, every occurrence): `THE AUNTIES BLOCK THE LINE OF FIRE AND CRITIQUE THE TACTICS OUT LOUD.`
+* CANOPY POLE event (feed, every occurrence): `A CANOPY POLE IS HIT. THE CANOPY COLLAPSES ON WHOEVER IS UNDER IT.`
+* Stage-card text (engine event record): AUNTIES `The aunties are non-combatants: they block lines of fire and critique the tactics out loud.` · CANOPY POLE `A canopy pole is hit and the canopy collapses on whoever is under it, Rich’s crew included.`
+* Engine-named hazard causes (aftermath): `the aunties were standing in the line of fire` · `a canopy pole came down on whoever was under it`.
+* Phase 1 scene narration (adventure): `Rich clears Gbenga’s boys through a warehouse full of canopies and stacked chairs without disrupting the owambe.` / `A canopy pole collapses on whoever is under it, Rich included. The aunties are non-combatants: they block lines of fire and critique Rich’s tactics out loud.`
+No jokes, character claims or story events were added.
+
+## Remaining D-queue (non-blocking)
+| # | Item | Status |
+|---|---|---|
+| D4b | The aunties' actual spoken critique lines (non-Rich dialogue) | Absent from source; not written. Needs a writer. |
+| D5b | Names/classes/count if Gbenga's boys are ever to join as recruits | Eligibility recorded only |
+| D6b | What, if anything, each of the six non-squad lanes changes | Deferred; neutral |
+| E1 | Enemy-side effect of the canopy collapse ("whoever is under it" includes Gbenga's boys) | F01's generic hazard acts on Rich's crew only (`ctx.hazard`, engine.mjs); an enemy-side effect exists only for the engine's own `power_cut` card id. Needs an F01 engine hook — outside the authorised F07-owned seams. The collapse is proven on Rich's side (below). |
+| A1 | Art: OWAMBE warehouse condition, repainted sign, an exterior for `owambe_party` (the PLAY uses its default backdrop) | Art ticket |
+| A2 | §6 Mister December "visits as an equal" scene | Vol 7 / F04 scope |

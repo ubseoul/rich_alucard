@@ -53,15 +53,17 @@
 
  // -------------------------------------------------------------------- finale
  // Lanes (§4.1: pick 3 of). Conditional lanes show only when their condition is true.
+ // D6 (creator-delegated): lane effects the source does not author stay NEUTRAL; the UI shows names only and implies no effect.
  const LANES=Object.freeze([
-  {id:'ogas',label:'THE OGAS',sub:'SQUAD',person:null},
-  {id:'shannon',label:'SHANNON',sub:'READS GBENGA’S BUSINESS FILINGS',person:'shannon_001'},
-  {id:'mazda',label:'MAZDA',sub:'AIR',person:'mazda_human'},
-  {id:'pinky',label:'PINKY',sub:'GETAWAY',person:'pinky'},
-  {id:'tristan',label:'TRISTAN',sub:'REFUSES, THEN SHOWS UP ANYWAY WITH SNACKS',person:'tristan'},
-  {id:'carlos',label:'CARLOS',sub:'KNOWS THE WAREHOUSE',person:'carlos',when:s=>s.m4Outcome==='walk_in'},
-  {id:'senator',label:'SENATOR',sub:'FOLLOWS RICH’S YORUBA COMMANDS',person:'senator',when:s=>!!s.senatorCommands}
+  {id:'ogas',label:'THE OGAS',person:null},
+  {id:'shannon',label:'SHANNON',person:'shannon_001'},
+  {id:'mazda',label:'MAZDA',person:'mazda_human'},
+  {id:'pinky',label:'PINKY',person:'pinky'},
+  {id:'tristan',label:'TRISTAN',person:'tristan'},
+  {id:'carlos',label:'CARLOS',person:'carlos',when:s=>s.m4Outcome==='walk_in'},
+  {id:'senator',label:'SENATOR',person:'senator',when:s=>!!s.senatorCommands}
  ]);
+
  const lanesAvailable=(s=state())=>LANES.filter(l=>!l.when||l.when(s));
  const laneById=id=>LANES.find(l=>l.id===id);
  const finaleReady=S=>{
@@ -185,10 +187,24 @@
     end:{outcome:'send_the_boys',fx:()=>completeM8('send_the_boys'),memory:{text:'sent Gbenga’s boys to take the Koreatown block',lane:'money'}}}
   }});
 
- // The finale. Lane picks are three sequential choices over the lanes not yet picked (the authored "pick 3 of").
+ // The finale. D3 (creator-delegated): THE OGAS is mandatory and fills ONE of the THREE lane slots; it is shown preselected and cannot be deselected
+ // (a locked entry). The player chooses TWO other eligible lanes. A plan saved before this ruling (no THE OGAS, or three others) is reconciled by
+ // routePlan(): THE OGAS is fixed, every other selected lane is kept, and when three others were saved selection reopens with those marked
+ // PREVIOUSLY PICKED — nothing is dropped silently. A plan built through this UI can never reach the PLAY without a squad.
+ const lanesOf=A=>A.get('lanes')||[];
+ const othersOf=A=>lanesOf(A).filter(id=>id!=='ogas');
+ function routePlan(A){
+  const others=othersOf(A);
+  if(others.length>T().finale.PICKS-1){A.set('prior',others);A.set('lanes',['ogas']);return 'plan';}
+  A.set('lanes',['ogas',...others]);
+  return others.length===T().finale.PICKS-1?'crew':others.length===1?'pick2':'plan';
+ }
  const pickNode=(n,next)=>({env:'castle_exterior',actors:{left:'rich'},title:n===1?'THE CASTLE · THE PLAN':undefined,
-  lines:n===1?[N('Rich plans the takeover at the castle with whoever he trusts.')]:[N(`${n} of ${T().finale.PICKS}.`)],
-  choices:A=>{const chosen=A.get('lanes')||[];return lanesAvailable().filter(l=>!chosen.includes(l.id)).map(l=>({id:l.id,label:l.label,sub:l.sub,fx:X=>X.set('lanes',[...(X.get('lanes')||[]),l.id]),next}));}});
+  enter:A=>{if(!lanesOf(A).includes('ogas'))A.set('lanes',['ogas',...othersOf(A)]);},
+  lines:n===1?[N('Rich plans the takeover at the castle with whoever he trusts.'),N('THE OGAS are in the plan. Two more.')]:[N('One more.')],
+  choices:A=>{const chosen=lanesOf(A),prior=A.get('prior')||[];
+   return [{label:'THE OGAS',sub:'SQUAD · FIXED',when:()=>false,hideLocked:false,next:'plan'},
+    ...lanesAvailable().filter(l=>l.id!=='ogas'&&!chosen.includes(l.id)).map(l=>({id:l.id,label:l.label,sub:prior.includes(l.id)?'PREVIOUSLY PICKED':undefined,fx:X=>X.set('lanes',[...lanesOf(X),l.id]),next}))];}});
  const laneLine={
   shannon:'Shannon reads Gbenga’s business filings: the rental company is legally in Mama Gbenga’s name.',
   tristan:'Tristan refuses, then shows up anyway with snacks.',
@@ -207,18 +223,20 @@
    ctx.RAState.patch('life.newOga',{...ctx.RAState.get().life.newOga,status:'finale_pending',mission:10,rank:5,title:'VICE PRESIDENT',rank4Granted:true,m7Completed:true,m8Resolved:true,m9Resolved:true,m9Outcome:'give',m10Completed:true,finaleBegun:true,leftoversAte:true,trust:1,lastMissionDay:17});},
   nodes:{
    plan:{...pickNode(1,'pick2'),title:'THE CASTLE · THE PLAN'},
-   pick2:pickNode(2,'pick3'),
-   pick3:pickNode(3,'crew'),
+   pick2:pickNode(2,'crew'),
+   // saved plans from before D3 (a third pick, or no THE OGAS) and a refused squad are reconciled here
+   pick3:{lines:[N('The plan is reopened with THE OGAS fixed.')],next:A=>routePlan(A)},
+   replan:{lines:[N('The plan is reopened with THE OGAS fixed.')],next:A=>routePlan(A)},
    crew:{env:'castle_exterior',actors:crewActors,title:'THE PLAN',
     lines:A=>[...(A.get('lanes')||[]).filter(id=>laneLine[id]).map(id=>N(laneLine[id])),
-     N('The date: Gbenga’s own 55th-birthday owambe at the warehouse.'),N('Every canopy Rich ever delivered is up. Every aunty is there.')],next:'party'},
+     N('The date: Gbenga’s own 55th-birthday owambe at the warehouse.'),N('Every canopy Rich ever delivered is up. Every aunty is there.')],next:A=>{const r=routePlan(A);return r==='crew'?'party':r;}},
    party:{env:'gbenga_rentals',actors:{left:'rich'},title:'THE PARTY',
     lines:[N('Rich clears Gbenga’s boys through a warehouse full of canopies and stacked chairs without disrupting the owambe.'),
-     N('A canopy pole collapses on whoever is under it, Rich included. The aunties are non-combatants: they block lines of fire and critique Rich’s tactics out loud.')],next:'p1'},
+     N('A canopy pole collapses on whoever is under it, Rich included. The aunties are non-combatants: they block lines of fire and critique Rich’s tactics out loud.')],next:A=>{const r=routePlan(A);return r==='crew'?'p1':r;}},
    p1:{minigame:{id:'f07_play',params:A=>({kind:'finale_p1',lanes:A.get('lanes')||[]}),next:(A,res)=>{const n=playNext(A,res);return n==='won'?'office':n==='lost'?'p1_lost':'p1_refused';}}},
    p1_lost:{lines:[N('Gbenga’s boys hold the warehouse.')],choices:[{label:'TRY AGAIN',next:'p1'}]},
    p1_refused:{lines:A=>[N(refusalLine(A))],choices:A=>[
-    ...(A.get('refusal')==='NO_SQUAD'?[{label:'REMAKE THE PLAN',fx:X=>X.set('lanes',[]),next:'plan'}]:[]),
+    ...(A.get('refusal')==='NO_SQUAD'?[{label:'REMAKE THE PLAN',next:'replan'}]:[]),
     {label:'NOT YET',next:'postponed'}]},
    postponed:{lines:[N('The owambe waits.')],end:{outcome:'postponed',memory:{text:'put off taking Gbenga’s chair',lane:'money'}}},
    office:{env:'gbenga_rentals',actors:{left:'rich',right:'gbenga'},title:'THE OFFICE',

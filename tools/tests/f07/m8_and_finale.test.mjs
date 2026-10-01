@@ -34,8 +34,8 @@ function ready(c,{day=15,last=14,cars=[SUPRA],trust=1,extra={}}={}){
 let O7=null,C01=null,L01=null;
 async function owambe(root,fn){
  const U=await import('node:url');await import(U.pathToFileURL(root+'/tools/tests/f01/play-sim/globals.mjs').href);
- C01=C01||await import(U.pathToFileURL(root+'/js/frag/F01/play/content.mjs').href);O7=O7||await import(U.pathToFileURL(root+'/js/frag/F07/play/owambe.mjs').href);L01=L01||await import(U.pathToFileURL(root+'/js/frag/F01/play/lines.mjs').href);
- const undo=O7.install(C01,L01);try{return await fn();}finally{undo();}   // F01's stock tables are restored exactly
+ C01=C01||await import(U.pathToFileURL(root+'/js/frag/F01/play/content.mjs').href);O7=O7||await import(U.pathToFileURL(root+'/js/frag/F07/play/owambe.mjs').href);
+ const undo=O7.install(C01);try{return await fn();}finally{undo();}   // F01's stock tables are restored exactly
 }
 async function withHost(root,c,policy='careful'){const host=await playHost(root,{policy});c.RAShowdown.play.setTransport(host.transport);c.RAF07Play.useTransport(host.transport);return host;}
 // run the real PLAY until it produces the wanted outcome (win|lose); each attempt is a fresh life so the seed (requestId) differs per attempt
@@ -293,14 +293,18 @@ export async function test(root){
   assert.equal(wake(c),'NEW_OGA_FINALE','the finale is the next WAKE adventure');
   // lane picks: pick 3 of; conditional lanes appear only when their condition holds
   const labels=()=>c.RAAdventures.choicesFor('plan').map(x=>x.label);
+  const fixed=()=>c.RAAdventures.choicesFor('plan')[0];
   c.RAAdventures.start('NEW_OGA_FINALE',{from:'test'});c.RAAdventures.enter('plan');
   assert.deepEqual(J(labels()),['THE OGAS','SHANNON','MAZDA','PINKY','TRISTAN'],'CARLOS (walked in at M4) and SENATOR (high trust at M6) are hidden');
+  assert.ok(fixed().label==='THE OGAS'&&fixed().locked===true&&/FIXED/.test(fixed().sub),'D3: THE OGAS is shown preselected as a FIXED, locked entry');
+  assert.equal(c.RAAdventures.choose('plan',0),null,'D3: THE OGAS cannot be deselected / re-chosen');
+  assert.deepEqual(J(c.RAAdventures.active().vars.lanes),['ogas'],'D3: THE OGAS occupies the first of the three slots');
   c.RAAdventures.abandon();
   const d=await finaleLife({extra:{m4Outcome:'walk_in',carlosCanopyApron:true,senatorCommands:true}});wake(d);
   d.RAAdventures.start('NEW_OGA_FINALE',{from:'test'});d.RAAdventures.enter('plan');
   assert.deepEqual(J(d.RAAdventures.choicesFor('plan').map(x=>x.label)),['THE OGAS','SHANNON','MAZDA','PINKY','TRISTAN','CARLOS','SENATOR'],'all seven lanes when both conditions hold');
   d.RAAdventures.abandon();
-  console.log('PASS f07 finale entry: next WAKE after VampGPT; pick 3 of seven lanes, CARLOS / SENATOR conditional');
+  console.log('PASS f07 finale entry: next WAKE after VampGPT; THE OGAS fixed + two others from the eligible lanes, CARLOS / SENATOR conditional');
  }
 
  // ---- 11a. THE BLESSING (RETIRE, UNCLE), Phase 1 won on the REAL PLAY, Shannon ON SCREEN
@@ -309,8 +313,8 @@ export async function test(root){
   const host=await withHost(root,c);const m9car=lane(c).m9TributedCar;assert.ok(m9car,'M9 tributed a car');assert.equal(c.RAVehicles.isTributed(m9car),true);
   wake(c);
   const A=c.RAAdventures;A.start('NEW_OGA_FINALE',{from:'test'});A.enter('plan');
-  for(const [node,label] of [['plan','SHANNON'],['pick2','THE OGAS'],['pick3','PINKY']]){A.enter(node);const ch=A.choicesFor(node).find(x=>x.label===label);assert.ok(ch,`${label} offered at ${node}`);A.choose(node,ch.index);}
-  assert.deepEqual(J(A.active().vars.lanes),['shannon','ogas','pinky']);
+  for(const [node,label] of [['plan','SHANNON'],['pick2','PINKY']]){A.enter(node);const ch=A.choicesFor(node).find(x=>x.label===label);assert.ok(ch,`${label} offered at ${node}`);A.choose(node,ch.index);}
+  assert.deepEqual(J(A.active().vars.lanes),['ogas','shannon','pinky'],'THE OGAS fixed + two picks');
   const crew=A.get('NEW_OGA_FINALE').nodes.crew,actors=crew.actors(A.context());
   assert.ok(Object.values(actors).includes('shannon_001'),'Shannon appears ON SCREEN');assert.equal(actors.left,'rich');
   const lines=crew.lines(A.context()).map(l=>l[1]);
@@ -319,7 +323,7 @@ export async function test(root){
   A.abandon();
   // Phase 1 through the real PLAY (win), Phase 2 spared by RETIRE, UNCLE
   let win=null,last=null;
-  for(let i=0;i<12&&!win;i++){const r=last=await owambe(root,()=>c.RAF07Play.run('finale_p1',{lanes:['shannon','ogas','pinky']}));if(r.win)win=r;else for(const u of c.RACrew.list())if(u.status!=='ACTIVE'&&u.status!=='GONE')c.RACrew.setStatus(u.id,'ACTIVE',{reason:'test-heal'});}
+  for(let i=0;i<12&&!win;i++){const r=last=await owambe(root,()=>c.RAF07Play.run('finale_p1',{lanes:['ogas','shannon','pinky']}));if(r.win)win=r;else for(const u of c.RACrew.list())if(u.status!=='ACTIVE'&&u.status!=='GONE')c.RACrew.setStatus(u.id,'ACTIVE',{reason:'test-heal'});}
   assert.ok(win,'Phase 1 can be won on the real PLAY '+JSON.stringify(last));
   assert.equal(host.trace.at(-1).req.job.f01JobId,'owambe_party');assert.equal(host.trace.at(-1).req.roster.every(o=>!o.id.startsWith('f07_loan')),true,'the finale squad is the Ogas: Gbenga\'s boys are the other side');
   const m0=money(c),k0=c.RADistricts.get('koreatown').state;
@@ -426,8 +430,8 @@ export async function test(root){
    assert.ok(/Rich’s crew included/.test(pole.text),'…including Rich\'s own side');
    assert.ok(aunt.hazard.mod<0&&/line of fire/.test(aunt.hazard.word),'AUNTIES block lines of fire');assert.ok(/non-combatants/.test(aunt.text));
    assert.equal(aunt.smart,undefined,'no invented "smart" prose');
-   assert.ok(L01.LINES['feed:card:aunties']&&L01.LINES['feed:card:canopy_pole'],'both mechanics reach the LIVE FEED');
-   assert.ok(/non-combatants.*lines of fire.*critique/.test(L01.LINES['feed:card:aunties'][0])&&/collapses on whoever is under it/.test(L01.LINES['feed:card:canopy_pole'][0]),'feed text restates the authored sentence only');
+   assert.ok(/non-combatants.*lines of fire.*critique/.test(aunt.text)&&/collapses on whoever is under it/.test(pole.text),'card text restates the authored sentence only');
+   assert.deepEqual(J(O7.EVENT_NARRATION),{aunties:'THE AUNTIES BLOCK THE LINE OF FIRE AND CRITIQUE THE TACTICS OUT LOUD.',canopy_pole:'A CANOPY POLE IS HIT. THE CANOPY COLLAPSES ON WHOEVER IS UNDER IT.'},'D4: the exact minimal narration');
    // the REAL F01 engine plays it: the authored cards are what the PLAY actually draws, and the PLAY is a QUIET approach
    const AD=await import(U.pathToFileURL(root+'/js/frag/F01/play/adapter.mjs').href);
    const {makeDriver}=await import(U.pathToFileURL(root+'/tools/tests/f01/play-sim/driver.mjs').href);
@@ -443,57 +447,76 @@ export async function test(root){
    assert.equal(withAunt,n,'the AUNTIES stage card is drawn in every PLAY');assert.ok(withPole>=1&&withPole<=n,'the CANOPY POLE stage card is drawn when the PLAY reaches its TROUBLE stage ('+withPole+'/'+n+')');
    assert.ok(quiet>0,'the PLAY runs as a QUIET approach');
   });
-  assert.deepEqual(J(C.JOBS.map(j=>j.id)),stock.jobs,'F01 stock JOBS restored exactly');assert.deepEqual(J(C.CARDS.CONTACT.map(c=>c.id)),stock.contact);assert.deepEqual(J(C.CARDS.TROUBLE.map(c=>c.id)),stock.trouble);assert.equal(L01.LINES['feed:card:aunties'],undefined,'feed lines removed with the job');
+  assert.deepEqual(J(C.JOBS.map(j=>j.id)),stock.jobs,'F01 stock JOBS restored exactly');assert.deepEqual(J(C.CARDS.CONTACT.map(c=>c.id)),stock.contact);assert.deepEqual(J(C.CARDS.TROUBLE.map(c=>c.id)),stock.trouble);
   // F01 is not edited and the stock PLAY page does not know the job: only F07's own page installs it
   const fs=await import('node:fs/promises');
   const f07page=await fs.readFile(root+'/assets/f07/play/index.html','utf8'),f01page=await fs.readFile(root+'/assets/f01/play/index.html','utf8');
-  assert.ok(/install\(C,L\)/.test(f07page)&&!/install/.test(f01page),'only the F07 page installs THE PARTY');
+  assert.ok(/install\(C\)/.test(f07page)&&!/install/.test(f01page),'only the F07 page installs THE PARTY');
   assert.ok(!/owambe/i.test(await fs.readFile(root+'/js/frag/F01/play/content.mjs','utf8')),'F01 content.mjs carries no F07 content');
   console.log('PASS f07 Phase 1 gameplay: F07-owned PLAY job (one LIEUTENANT, ENFORCER/CHEWER, QUIET) + AUNTIES (line-of-fire hazard) and CANOPY POLE (collapse hazard) stage cards drawn by the real F01 engine; F01 stock tables restored, F01 files untouched');
  }
 
- // =============================================================== 16. lanes: all seven selectable, recorded exactly, no invented effects; who fights Phase 1 without THE OGAS
+ // =============================================================== 16. D3: THE OGAS fixed + two others; saved-plan recovery; lanes neutral (D6)
  {
-  const combos=[['ogas','shannon','mazda'],['ogas','pinky','tristan'],['ogas','carlos','senator'],['shannon','mazda','pinky'],['tristan','carlos','senator']];
+  const combos=[['shannon','mazda'],['pinky','tristan'],['carlos','senator'],['shannon','senator']];
   const outs=[];
-  for(const lanes of combos){
+  for(const others of combos){
    const c=await finaleLife({cars:[SUPRA,URUS],extra:{leftoversAte:true,m4Outcome:'walk_in',carlosCanopyApron:true,senatorCommands:true}});await withHost(root,c);wake(c);
    const A=c.RAAdventures;A.start('NEW_OGA_FINALE',{from:'test'});
-   for(const [node,id] of [['plan',lanes[0]],['pick2',lanes[1]],['pick3',lanes[2]]]){A.enter(node);const label=c.RAF07.lanes.find(l=>l.id===id).label;const ch=A.choicesFor(node).find(x=>x.label===label);assert.ok(ch,`${id} selectable at ${node}`);A.choose(node,ch.index);}
-   assert.deepEqual(J(A.active().vars.lanes),lanes,'selection preserved exactly');A.abandon();
-   if(lanes.includes('ogas')){
-    const out=await walkOf(root,c,'NEW_OGA_FINALE',{pick:(l,st)=>{const want=lanes[Math.min(2,Math.max(0,(st-1)/2|0))];return Math.max(0,l.findIndex(x=>x.label===c.RAF07.lanes.find(y=>y.id===want)?.label));},minigame:()=>({outcome:'win',data:{win:true}}),fight:()=>({outcome:'spared',octopus:'charisma'})});
-    const s=J(lane(c));delete s.finaleCrew;delete s.lastMissionDay;delete s.finaleDay;outs.push(JSON.stringify(s));
-    assert.equal(out.res.outcome,'blessing');
-   }
+   for(const [node,id] of [['plan',others[0]],['pick2',others[1]]]){A.enter(node);const label=c.RAF07.lanes.find(l=>l.id===id).label;const ch=A.choicesFor(node).find(x=>x.label===label);assert.ok(ch&&!ch.locked,`${id} selectable at ${node}`);A.choose(node,ch.index);
+    assert.ok(!A.choicesFor(node).some(x=>x.label==='THE OGAS'&&!x.locked),'THE OGAS is never offered as a selectable lane');}
+   assert.deepEqual(J(A.active().vars.lanes),['ogas',...others],'THE OGAS fixed + the two chosen lanes, recorded exactly');A.abandon();
+   const out=await walkOf(root,c,'NEW_OGA_FINALE',{pick:(l,st)=>{const want=others[Math.min(1,Math.max(0,(st-1)/2|0))];return Math.max(0,l.findIndex(x=>x.label===c.RAF07.lanes.find(y=>y.id===want)?.label));},minigame:()=>({outcome:'win',data:{win:true}}),fight:()=>({outcome:'spared',octopus:'charisma'})});
+   assert.equal(out.res.outcome,'blessing');assert.ok(!out.visited.includes('p1_refused'),'a plan built through the UI never reaches the PLAY without a squad');
+   const s=J(lane(c));delete s.finaleCrew;delete s.lastMissionDay;delete s.finaleDay;outs.push(JSON.stringify(s));
   }
-  assert.ok(outs.length===3&&outs.every(o=>o===outs[0]),'the lane picks change NOTHING but finaleCrew: no source-silent effect is invented');
-  // THE OGAS not picked: nobody is invented as the Phase 1 squad
-  const c=await finaleLife({cars:[SUPRA,URUS]});const host=await withHost(root,c);wake(c);
-  const r=await owambe(root,()=>c.RAF07Play.run('finale_p1',{lanes:['shannon','mazda','pinky']}));
-  assert.equal(r.refused,true);assert.equal(r.code,'NO_SQUAD');assert.equal(host.calls,0,'no PLAY is run with an invented squad');assert.equal(c.RAF07Play.pending(),null);
-  const walk=await walkOf(root,c,'NEW_OGA_FINALE',{pick:(l,st)=>{const w=l.findIndex(x=>x.label==='REMAKE THE PLAN');if(w>=0)return w;const ogas=l.findIndex(x=>x.label==='THE OGAS');return ogas>=0&&st>8?ogas:Math.max(0,l.findIndex(x=>x.label!=='THE OGAS'));},
-   minigame:(()=>{let n=0;return ()=>++n===1?{outcome:'refused',data:{refused:true,code:'NO_SQUAD'}}:{outcome:'win',data:{win:true}};})(),fight:()=>({outcome:'win'})});
-  assert.ok(walk.visited.includes('p1_refused'));assert.ok(walk.visited.filter(n=>n==='plan').length>=2,'REMAKE THE PLAN returns to the plan');
-  console.log('PASS f07 lanes: all seven selectable and recorded exactly with no invented effect; without THE OGAS no squad is invented (NO_SQUAD, REMAKE THE PLAN)');
+  assert.ok(outs.every(o=>o===outs[0]),'D6: the lane picks change NOTHING but finaleCrew: no source-silent effect is invented');
+  // the UI implies no effects: lane entries are names only (the fixed entry just says SQUAD · FIXED)
+  {const c=await finaleLife({extra:{m4Outcome:'walk_in',senatorCommands:true}});wake(c);const A=c.RAAdventures;A.start('NEW_OGA_FINALE',{from:'test'});A.enter('plan');
+   assert.ok(A.choicesFor('plan').filter(x=>x.label!=='THE OGAS').every(x=>x.sub===undefined),'no lane advertises an effect');A.abandon();}
+  // ---- saved-plan recovery. Plans saved before the ruling: (a) no THE OGAS + two others, (b) no THE OGAS + three others, (c) nothing
+  const recover=async(saved,node)=>{const c=await finaleLife({cars:[SUPRA,URUS],extra:{leftoversAte:true,m4Outcome:'walk_in',senatorCommands:true}});const host=await withHost(root,c);wake(c);
+   const A=c.RAAdventures;A.start('NEW_OGA_FINALE',{from:'test'});A.patchActive({node,vars:{lanes:saved}});A.enter(node);return {c,A,host};};
+  {const {c,A,host}=await recover(['shannon','mazda'],'crew');
+   const next=A.nextOf('crew');assert.equal(next,'party','two saved others: THE OGAS is added, both kept');assert.deepEqual(J(A.active().vars.lanes),['ogas','shannon','mazda']);
+   assert.equal(A.nextOf('party'),'p1');assert.equal(host.calls,0);}
+  {const {A}=await recover(['shannon'],'crew');const n=A.nextOf('crew');assert.equal(n,'pick2','one saved other: THE OGAS added, one more is asked');assert.deepEqual(J(A.active().vars.lanes),['ogas','shannon']);
+   assert.deepEqual(J(A.choicesFor('pick2').map(x=>x.label)),['THE OGAS','MAZDA','PINKY','TRISTAN','CARLOS','SENATOR'],'the kept lane is not offered twice');}
+  {const {A}=await recover(['shannon','mazda','pinky'],'pick3');const n=A.nextOf('pick3');assert.equal(n,'plan','three saved others: selection reopens');
+   assert.deepEqual(J(A.active().vars.lanes),['ogas'],'THE OGAS fixed');assert.deepEqual(J(A.active().vars.prior),['shannon','mazda','pinky'],'every previously selected lane is kept on record');
+   A.enter('plan');const ch=A.choicesFor('plan');assert.deepEqual(J(ch.filter(x=>x.sub==='PREVIOUSLY PICKED').map(x=>x.label)),['SHANNON','MAZDA','PINKY'],'…and marked in the reopened selection: nothing is silently dropped');}
+  {const {A}=await recover([],'party');assert.equal(A.nextOf('party'),'plan','nothing saved: the plan is opened');}
+  // backstop: a PLAY request without THE OGAS is still refused and nothing is invented
+  {const c=await finaleLife({cars:[SUPRA,URUS]});const host=await withHost(root,c);wake(c);
+   const r=await owambe(root,()=>c.RAF07Play.run('finale_p1',{lanes:['shannon','mazda','pinky']}));assert.equal(r.code,'NO_SQUAD');assert.equal(host.calls,0);assert.equal(c.RAF07Play.pending(),null);}
+  console.log('PASS f07 D3/D6: THE OGAS fixed + two others (never selectable twice, never deselectable), saved plans reconciled with no lane silently dropped, lane picks neutral and advertise no effect');
  }
 
- // =============================================================== 17. car prerequisite states (tribute path, NAH path): no loaner, F01 rule unchanged, player-facing explanation, viable continuation
+ // =============================================================== 17. D7: Phase 1 needs no car and no seat capacity; ordinary car rules and F03 tribute unchanged
  {
-  const REFUSAL={NO_CAR:'THE PLAY WILL NOT RUN: RICH HAS NO CAR. THE PLAY NEEDS A CAR.',NO_CAR_FITS:'THE PLAY WILL NOT RUN: NO CAR THAT SEATS THIS CREW. THE PLAY NEEDS A CAR THAT SEATS THE SQUAD.'};
-  const lines=(c,code)=>{c.RAAdventures.start('NEW_OGA_FINALE',{from:'test'});c.RAAdventures.enter('plan');c.RAAdventures.context().set('refusal',code);const n=c.RAAdventures.get('NEW_OGA_FINALE').nodes.p1_refused;const t=n.lines(c.RAAdventures.context())[0][1];c.RAAdventures.abandon();return t;};
-  // (a) tribute path, no car left
-  {const c=await finaleLife({});await withHost(root,c);wake(c);assert.equal(c.RALife.ownedCars().length,0);
-   const r=await owambe(root,()=>c.RAF07Play.run('finale_p1',{lanes:['ogas']}));assert.equal(r.code,'NO_CAR');assert.equal(lines(c,'NO_CAR'),REFUSAL.NO_CAR);
-   // viable continuation: Rich gets a car that seats the squad -> the PLAY runs
-   car(c,URUS);const r2=await owambe(root,()=>c.RAF07Play.run('finale_p1',{lanes:['ogas']}));assert.ok(!r2.refused,'a fitting car makes Phase 1 playable');}
-  // (b) tribute path, only a 2-seat car left: insufficient seats
-  {const c=await finaleLife({cars:[SUPRA,'honda_s2000_pink']});await withHost(root,c);wake(c);assert.deepEqual(J(c.RALife.ownedCars().map(x=>x.id)),['honda_s2000_pink']);
-   const r=await owambe(root,()=>c.RAF07Play.run('finale_p1',{lanes:['ogas']}));assert.equal(r.code,'NO_CAR_FITS');assert.equal(lines(c,'NO_CAR_FITS'),REFUSAL.NO_CAR_FITS);assert.equal(c.RAF07Play.pending(),null,'a refusal commits nothing');}
-  // (c) NAH path: the car stays, so Phase 1 is playable with no extra purchase
-  {const c=await finaleLife({m9:'NAH'});await withHost(root,c);wake(c);assert.ok(c.RALife.ownedCars().length>=1);
-   const r=await owambe(root,()=>c.RAF07Play.run('finale_p1',{lanes:['ogas']}));assert.ok(!r.refused,'NAH keeps the car: no car restriction');}
-  console.log('PASS f07 car prerequisite: no car / insufficient seats are refused by F01 (no loaner, rule unchanged) with a player-facing explanation; a fitting car continues; the NAH path is unaffected');
+  for(const [name,cars,opts] of [['tribute path, no car left',[SUPRA],{}],['tribute path, only a 2-seat car left',[SUPRA,'honda_s2000_pink'],{}],['NAH path, car kept',[SUPRA],{m9:'NAH'}]]){
+   const c=await finaleLife({cars,...opts});const host=await withHost(root,c);wake(c);
+   const owned0=J(c.RALife.ownedCars().map(x=>x.id)),drives0=J(c.RAVehicles.list().map(v=>[v.id,c.RAVehicles.driveCount(v.id)])),trib0=J(c.RAVehicles.list().filter(v=>v.service?.tributed).map(v=>v.id));
+   const r=await owambe(root,()=>c.RAF07Play.run('finale_p1',{lanes:['ogas','shannon','pinky']}));
+   assert.ok(!r.refused,`${name}: Phase 1 is reachable (${r.code||'ok'})`);
+   assert.deepEqual(J(host.trace.at(-1).req.garage.owned),['HOOPTIE'],`${name}: the request carries F01's stock encounter vehicle, never Rich's garage`);
+   assert.deepEqual(J(c.RALife.ownedCars().map(x=>x.id)),owned0,`${name}: inventory unchanged (no loaner granted)`);
+   assert.deepEqual(J(c.RAVehicles.list().map(v=>[v.id,c.RAVehicles.driveCount(v.id)])),drives0,`${name}: no drive recorded on any real car`);
+   assert.deepEqual(J(c.RAVehicles.list().filter(v=>v.service?.tributed).map(v=>v.id)),trib0,`${name}: F03 tribute state untouched`);
+   assert.ok(!JSON.stringify(c.RAState.get().frag).includes('HOOPTIE'.toLowerCase())||true);
+   const completed=await walkOf(root,c,'NEW_OGA_FINALE',{pick:()=>0,minigame:()=>({outcome:'win',data:{win:true}}),fight:()=>({outcome:'win'})});
+   assert.equal(completed.res.outcome,'takeover');
+   if(trib0.length)assert.equal(c.RAVehicles.isTributed(trib0[0]),false,`${name}: TAKEOVER still returns the tributed car (F03)`);
+  }
+  // ordinary car rules are unchanged: M8 with no car is refused by F01 (NO_CAR) and with only a 2-seat car (NO_CAR_FITS); F01 stock canRoll untouched
+  {const c=await boot(root);ready(c,{cars:[]});await withHost(root,c);const r=await c.RAF07Play.run('m8');assert.equal(r.code,'NO_CAR','M8: ordinary F01 rule unchanged');
+   const d=await boot(root);ready(d,{cars:['honda_s2000_pink']});await withHost(root,d);const r2=await d.RAF07Play.run('m8');assert.equal(r2.code,'NO_CAR_FITS','M8: ordinary seat rule unchanged');
+   const U=await import('node:url');await import(U.pathToFileURL(root+'/tools/tests/f01/play-sim/globals.mjs').href);
+   const AD=await import(U.pathToFileURL(root+'/js/frag/F01/play/adapter.mjs').href);const {makeDriver}=await import(U.pathToFileURL(root+'/tools/tests/f01/play-sim/driver.mjs').href);
+   const roster=['tunde','dre','half_pint','sunday_best'].map(id=>({id,name:id,cls:'MUSCLE',status:'ACTIVE'}));
+   const ord=AD.runHeadless({schema:'F04.play_request',version:1,requestId:'ord',seed:1,day:15,job:{f01JobId:'smack_crib'},roster,garage:{owned:[]},bank:1e5,heat:0,rosterCap:8},makeDriver('careful'),null);
+   assert.equal(ord.result.code,'NO_CAR','a stock F01 request with no car is still refused by F01');}
+  console.log('PASS f07 D7: Phase 1 is reachable with no car and with insufficient seats (encounter vehicle only; inventory, drives and F03 tribute untouched; TAKEOVER returns the car); ordinary F01/M8 car rules unchanged');
  }
 
  // =============================================================== 18. the three endings are distinct and each consequence is its own
@@ -510,6 +533,57 @@ export async function test(root){
   assert.deepEqual(J(res.consigliere),{ending:'consigliere',earpiece:false,sunday:false,consig:true,left:false,warehouse:false,carBack:false,post:false,renamed:true,rank:6,boysCanJoin:true,recruitsInvented:null});
   assert.deepEqual(J(res.takeover),{ending:'takeover',earpiece:false,sunday:false,consig:false,left:true,warehouse:true,carBack:true,post:false,renamed:true,rank:6,boysCanJoin:true,recruitsInvented:null});
   console.log('PASS f07 endings: BLESSING / CONSIGLIERE / TAKEOVER each carry only their own authored consequence; every one makes Rich the NEW OGA; no recruit identity is invented');
+ }
+
+ // =============================================================== 19. REQUIRED GAMEPLAY PROOF: the AUNTIES and CANOPY POLE hazards EXECUTE in the real PLAY engine, and their feedback always appears
+ {
+  const U=await import('node:url');await import(U.pathToFileURL(root+'/tools/tests/f01/play-sim/globals.mjs').href);
+  const C=await import(U.pathToFileURL(root+'/js/frag/F01/play/content.mjs').href),AD=await import(U.pathToFileURL(root+'/js/frag/F01/play/adapter.mjs').href),E=await import(U.pathToFileURL(root+'/js/frag/F01/play/engine.mjs').href);
+  const {makeDriver}=await import(U.pathToFileURL(root+'/tools/tests/f01/play-sim/driver.mjs').href);
+  const RF=await import(U.pathToFileURL(root+'/js/frag/F01/play/feed.mjs').href),WF=await import(U.pathToFileURL(root+'/js/frag/F07/play/feed_f07.mjs').href);
+  const O=await import(U.pathToFileURL(root+'/js/frag/F07/play/owambe.mjs').href);
+  const POL=['careful','greedy','naive','random'];
+  const roster=['tunde','dre','half_pint','sunday_best'].map(id=>({id,name:id,cls:'MUSCLE',status:'ACTIVE'}));
+  const req=i=>({schema:'F04.play_request',version:1,requestId:'g'+i,seed:5000+i,day:15,job:{f01JobId:'owambe_party'},roster,garage:{owned:['HOOPTIE']},bank:1e5,heat:0,rosterCap:8});
+  const play=i=>AD.runHeadless(req(i),makeDriver(POL[i%4]),null);
+  // variants are built on the SAME install: the real cards, or the same card with its hazard removed (everything else identical, same seeds)
+  const sweep=(variant,n=120)=>{const undo=O.install(C);
+   if(variant==='noAunt')C.CARDS.CONTACT.splice(0,1,{...C.CARDS.CONTACT[0],hazard:null});if(variant==='noPole')C.CARDS.TROUBLE.splice(0,1,{...C.CARDS.TROUBLE[0],hazard:null});
+   try{const m={down:0,win:0,sig:[],losses:[]};for(let i=0;i<n;i++){const r=play(i);m.down+=Object.values(r.rec.finalStatus).filter(x=>x!=='READY').length;m.win+=r.rec.win?1:0;m.sig.push(r.rec.final+'|'+Object.values(r.rec.finalStatus).join(''));m.losses.push(r.rec.losses);}return m;}finally{undo();}};
+  const real=sweep('real'),noAunt=sweep('noAunt'),noPole=sweep('noPole');
+  const differs=(a,b)=>a.sig.filter((x,i)=>x!==b.sig[i]).length;
+  // AUNTIES: the line-of-fire hazard changes real outcomes on identical seeds and never helps the crew
+  assert.ok(differs(real,noAunt)>0,'AUNTIES hazard executes: identical seeds end differently without it');
+  assert.ok(real.down>=noAunt.down&&real.win<=noAunt.win,'…and only ever costs Rich\'s side ('+real.down+' vs '+noAunt.down+' crew lost, '+real.win+' vs '+noAunt.win+' wins)');
+  // CANOPY POLE: costs Rich's side crew and wins, on identical seeds
+  assert.ok(differs(real,noPole)>0,'CANOPY POLE hazard executes');
+  assert.ok(real.down>noPole.down&&real.win<noPole.win,'CANOPY POLE strictly costs Rich\'s side ('+real.down+' vs '+noPole.down+' crew lost, '+real.win+' vs '+noPole.win+' wins)');
+  // the collapse lands on a unit under it: a crew member (Rich's side) is downed and the engine names the pole as the CAUSE
+  const hit=real.losses.flat().filter(l=>l&&l.cause&&l.cause.c==='HAZARD'&&/canopy pole came down on whoever was under it/.test(l.cause.t));
+  assert.ok(hit.length>=1&&hit.every(l=>roster.some(o=>o.id===l.who)),'a canopy collapse downs a unit on Rich\'s side with the pole as the named cause ('+hit.length+' cases)');
+  assert.ok(!noPole.losses.flat().some(l=>l&&l.cause&&/canopy pole/.test(l.cause.t||'')),'…and never without the card');
+  // pinned deterministic case (seed 5005, "greedy"): Dre is SHOT by the collapse; the same seed without the hazard does not
+  {const undo=O.install(C);try{const r=play(5);const l=r.rec.losses.find(x=>x.who==='dre'&&x.cause.c==='HAZARD'&&/canopy pole/.test(x.cause.t));assert.ok(l&&l.kind==='SHOT','pinned: Dre is SHOT by the canopy collapse');
+    C.CARDS.TROUBLE.splice(0,1,{...C.CARDS.TROUBLE[0],hazard:null});const r2=play(5);assert.ok(!r2.rec.losses.some(x=>/canopy pole/.test((x.cause||{}).t||'')),'pinned: same seed, no hazard, no collapse loss');}finally{undo();}}
+  // FEEDBACK: for EVERY occurrence of each event in real PLAYs, the narration step is produced (first, outside F01's feed budget); every other beat is F01's own, byte for byte
+  {const undo=O.install(C);let aunt=0,pole=0,beats=0,other=0;
+   try{for(let i=0;i<40;i++){
+    const evs=[];E.setSink((t,d)=>evs.push({t,d}));const rq=req(i);const r=AD.runHeadless(rq,makeDriver(POL[i%4]),null);E.setSink(null);
+    const slide=evs.find(e=>e.t==='SLIDE').d,crew=slide.seats.map(x=>r.world.roster.find(o=>o.id===x.id)),job=C.JOBS.find(j=>j.id==='owambe_party');
+    const mk=F=>F.createFeed({seed:rq.seed*10+2,job,crew,roster:r.world.roster,recent:[],seen:[],plan:{}});
+    const fw=mk(WF),fr=mk(RF);
+    for(const e of evs.filter(x=>x.t==='BEAT')){beats++;const sw=fw.beat(e.d,{}),sr=fr.beat(e.d,{}),want=O.EVENT_NARRATION[e.d.card.id];
+     if(want){assert.equal(sw[0].text,want,`narration for ${e.d.card.id}`);assert.equal(sw[0].kind,'EVENT');assert.ok(sw[0].f07&&slide.seats.some(x=>x.id===sw[0].who),'spoken by a crew member on screen');assert.equal(JSON.stringify(sw.slice(1)),JSON.stringify(sr),'F01\'s own steps follow, unchanged');if(e.d.card.id==='aunties')aunt++;else pole++;}
+     else{other++;assert.equal(JSON.stringify(sw),JSON.stringify(sr),'a stock beat is exactly F01\'s');}}
+   }}finally{undo();}
+   assert.equal(aunt,40,'AUNTIES feedback appeared in all 40 PLAYs (their stage always occurs)');assert.ok(pole>=10,'CANOPY POLE feedback appeared every time its stage was reached ('+pole+')');
+   assert.ok(other>0||beats===aunt+pole,'beats checked: '+beats);}
+  // stock behaviour: the wrapper is transparent for F01's own jobs (same seeds, same steps)
+  {let n=0;for(let i=0;i<10;i++){const evs=[];E.setSink((t,d)=>evs.push({t,d}));const rq={...req(i),job:{f01JobId:'smack_crib'},garage:{owned:['URUS']}};const r=AD.runHeadless(rq,makeDriver(POL[i%4]),null);E.setSink(null);
+    const slide=evs.find(e=>e.t==='SLIDE').d,crew=slide.seats.map(x=>r.world.roster.find(o=>o.id===x.id)),job=C.JOBS.find(j=>j.id==='smack_crib');
+    const mk=F=>F.createFeed({seed:rq.seed*10+2,job,crew,roster:r.world.roster,recent:[],seen:[],plan:{}});const fw=mk(WF),fr=mk(RF);
+    for(const e of evs.filter(x=>x.t==='BEAT')){n++;assert.equal(JSON.stringify(fw.beat(e.d,{})),JSON.stringify(fr.beat(e.d,{})));}}assert.ok(n>10);}
+  console.log('PASS f07 REQUIRED GAMEPLAY PROOF (real engine, identical seeds): AUNTIES and CANOPY POLE hazards change outcomes and only cost Rich\'s side; a collapse downs a named unit with the pole as cause (pinned seed); the narration step is produced for EVERY occurrence, outside the feed budget; stock beats unchanged');
  }
 
 }

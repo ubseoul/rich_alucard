@@ -72,7 +72,12 @@
   // and no default is invented: the PLAY is refused (NO_SQUAD) and the plan can be remade. Creator decision recorded (F07 D-queue).
   if(kind==='finale_p1'&&!(Array.isArray(lanes)&&lanes.includes('ogas')))return {ok:false,code:'NO_SQUAD',reason:'THE OGAS ARE NOT IN THE PLAN',errors:['THE OGAS lane was not picked']};
   if(kind==='m8')ensureLoan();
-  const seq=Number(rd(`${K}.seq`,0))+1,requestId=`f07:${kind}:${day()}#${seq}`,g=garage();
+  const seq=Number(rd(`${K}.seq`,0))+1,requestId=`f07:${kind}:${day()}#${seq}`;
+  // D7 (creator-delegated): Phase 1 needs no car and no seat capacity. The request carries F01's own stock encounter vehicle (HOOPTIE) INSTEAD of
+  // Rich's garage, for this encounter only. It is never read from or written to Rich's inventory (no carMap, no recordDrive), and F07's PLAY page
+  // keeps its world under its own storage namespace, so the vehicle can never become a persisted loaner, a lost car or a recovery card.
+  // M8 and every ordinary F01 request keep F01's normal car rules.
+  const g=kind==='finale_p1'?{owned:['HOOPTIE'],map:{}}:garage();
   const req={schema:window.RAPlayContract.REQUEST_SCHEMA,version:window.RAPlayContract.VERSION,requestId,seed:hashSeed(requestId),day:day(),
    job:{f01JobId:jobFor(kind),f04Type:'TAKE_THE_BLOCK',district:kind==='m8'?'koreatown':null,districtLabel:kind==='m8'?'KOREATOWN':null,handBack:false},
    roster:roster(kind),garage:{owned:g.owned},bank:money(),heat:window.RAHeat?window.RAHeat.global():0,rosterCap:8,

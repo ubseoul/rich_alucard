@@ -39,7 +39,7 @@ async function finish(p,tr=null){for(let i=0;i<150;i++){if(tr!==null)tr.push(awa
 async function drivePlay(p){
  for(let i=0;i<80&&!await p.locator('#f01-play-frame').count();i++){await p.locator('#adventureScene').click({position:{x:195,y:300}}).catch(()=>{});await p.waitForTimeout(40);}
  await p.waitForSelector('#f01-play-frame',{timeout:30000});const frameEl=await p.$('#f01-play-frame');const info={src:await frameEl.getAttribute('src'),seen:''};const frame=await frameEl.contentFrame();
- await frame.waitForSelector('.b-ans',{timeout:30000});info.seen+=await frame.evaluate(()=>document.body.innerText).catch(()=>'');info.state=await frame.evaluate(async()=>{const C=await import('../../../js/frag/F01/play/content.mjs'),L=await import('../../../js/frag/F01/play/lines.mjs');return {job:C.JOBS.some(j=>j.id==='owambe_party'),contact:C.CARDS.CONTACT.map(c=>c.id),trouble:C.CARDS.TROUBLE.map(c=>c.id),feed:!!L.LINES['feed:card:aunties']&&!!L.LINES['feed:card:canopy_pole']};}).catch(e=>({err:String(e)}));await frame.click('.b-ans');await frame.waitForSelector('.send',{timeout:30000});await p.waitForTimeout(400);
+ await frame.waitForSelector('.b-ans',{timeout:30000});info.seen+=await frame.evaluate(()=>document.body.innerText).catch(()=>'');info.state=await frame.evaluate(async()=>{const C=await import('../../../js/frag/F01/play/content.mjs');return {job:C.JOBS.some(j=>j.id==='owambe_party'),contact:C.CARDS.CONTACT.map(c=>c.id),trouble:C.CARDS.TROUBLE.map(c=>c.id)};}).catch(e=>({err:String(e)}));await frame.click('.b-ans');await frame.waitForSelector('.send',{timeout:30000});await p.waitForTimeout(400);
  const btn=await frame.$('.send.hold');
  if(btn){const bb=await btn.boundingBox();await p.mouse.move(bb.x+bb.width/2,bb.y+bb.height/2);await p.mouse.down();await p.waitForTimeout(150);await p.mouse.up();await p.mouse.down();await p.waitForTimeout(1900);await p.mouse.up();}else await frame.click('.send');
  const t0=Date.now();
@@ -100,30 +100,49 @@ try{
   log(s.l.m8Resolved===true&&s.l.m8Outcome==='send_the_boys'&&s.money===m0&&s.l.trust===1&&s.l.gangClout===0&&s.l.heat===0,'SEND THE BOYS: resolves M8 with no invented consequence (no pay / HEAT / clout / trust change)',`trust ${s.l.trust}`);
   await p.context().close();
  }
+ // ---------------------------------------------------------------- FINALE: a plan saved before D3 reopens with THE OGAS fixed, nothing dropped
+ {
+  const p=await open();
+  await seed(p,{cars:['lambo_urus_oxblood'],extra:{m8Resolved:true,m9Resolved:true,m9Outcome:'nah',m10Completed:true,finaleBegun:true,rank:5,title:'VICE PRESIDENT',lastMissionDay:14}});
+  await p.evaluate(()=>{RAAdventures.start('NEW_OGA_FINALE',{from:'qa'});RAAdventures.patchActive({node:'pick3',vars:{lanes:['shannon','mazda','pinky']}});});
+  await p.evaluate(()=>RAAdventureScene.begin('NEW_OGA_FINALE',{from:'qa'}));await p.waitForFunction(()=>RAScenes.current()==='adventure');
+  await toChoices(p);
+  const labels=await p.evaluate(()=>[...document.querySelectorAll('.adv-choice')].map(b=>b.innerText.replace(/\s+/g,' ')));
+  const prior=await p.evaluate(()=>RAAdventures.active()?.vars?.prior);
+  log(labels.some(t=>/THE OGAS/.test(t))&&await p.locator('.adv-choice[disabled]').filter({hasText:'THE OGAS'}).count()===1&&labels.filter(t=>/PREVIOUSLY PICKED/.test(t)).length===3&&JSON.stringify(prior)==='["shannon","mazda","pinky"]','saved plan (three others, no THE OGAS): selection reopens with THE OGAS fixed and all three lanes marked PREVIOUSLY PICKED, none dropped',labels.join(' | '));
+  await p.context().close();
+ }
  // ---------------------------------------------------------------- FINALE: all three endings through the real UI
  const ENDINGS=[
-  {name:'BLESSING',trust:1,extra:{leftoversAte:true},octopus:'charisma',hp:'260',expect:/earpiece/i,flags:l=>l.earpieceGiven&&l.sundayDinnerInvite&&!l.consigliere&&!l.gbengaLeftLA},
-  {name:'CONSIGLIERE',trust:3,extra:{},octopus:'recruit',hp:'320',expect:/Hello\. Hello\. Oga\. Hello\./,flags:l=>l.consigliere&&!l.earpieceGiven&&!l.gbengaLeftLA},
-  {name:'TAKEOVER',trust:1,extra:{},octopus:null,hp:'260',expect:/tributed car is pulled back/i,flags:l=>l.gbengaLeftLA&&l.rentalWarehouseOwned&&!l.consigliere&&!l.earpieceGiven}
+  {name:'BLESSING',cars:['toyota_supra_mk4_001'],trust:1,extra:{leftoversAte:true},octopus:'charisma',hp:'260',expect:/earpiece/i,flags:l=>l.earpieceGiven&&l.sundayDinnerInvite&&!l.consigliere&&!l.gbengaLeftLA},
+  {name:'CONSIGLIERE',cars:['toyota_supra_mk4_001','honda_s2000_pink'],trust:3,extra:{},octopus:'recruit',hp:'320',expect:/Hello\. Hello\. Oga\. Hello\./,flags:l=>l.consigliere&&!l.earpieceGiven&&!l.gbengaLeftLA},
+  {name:'TAKEOVER',cars:['toyota_supra_mk4_001','lambo_urus_oxblood'],trust:1,extra:{},octopus:null,hp:'260',expect:/tributed car is pulled back/i,flags:l=>l.gbengaLeftLA&&l.rentalWarehouseOwned&&!l.consigliere&&!l.earpieceGiven}
  ];
  for(const E of ENDINGS){
   const p=await open();
-  await seed(p,{cars:['lambo_urus_oxblood','toyota_supra_mk4_001'],extra:{m8Resolved:true,m8Outcome:'win',m9Resolved:true,m9Outcome:'give',m9TributedCar:'toyota_supra_mk4_001',m10Completed:true,m10GrantsApplied:true,finaleBegun:true,rank:5,title:'VICE PRESIDENT',trust:E.trust,lastMissionDay:14,...E.extra}});
+  await seed(p,{cars:E.cars,extra:{m8Resolved:true,m8Outcome:'win',m9Resolved:true,m9Outcome:'give',m9TributedCar:'toyota_supra_mk4_001',m10Completed:true,m10GrantsApplied:true,finaleBegun:true,rank:5,title:'VICE PRESIDENT',trust:E.trust,lastMissionDay:14,...E.extra}});
   await p.evaluate(()=>RAVehicles.tribute('toyota_supra_mk4_001',{reason:'qa'}));
   await begin(p,'NEW_OGA_FINALE');
   if(E.name==='BLESSING'){
-   // a plan WITHOUT THE OGAS: nobody is invented as the squad
-   await pick(p,'SHANNON');await pick(p,'MAZDA');await pick(p,'PINKY');
-   for(let i=0;i<60&&!(await p.evaluate(()=>RAAdventures.active()?.node==='p1_refused'));i++){await p.locator('#adventureScene').click({position:{x:195,y:300}}).catch(()=>{});await p.waitForTimeout(40);}
-   const t=await p.evaluate(()=>document.querySelector('#adventureScene').innerText);
-   log(/THE OGAS ARE NOT IN THE PLAN/.test(t)&&!(await p.locator('#f01-play-frame').count()),'plan without THE OGAS: no PLAY is run and no squad is invented, with an explanation');
-   await shot(p,'04a_no_squad');await pick(p,'REMAKE THE PLAN');
-   await pick(p,'SHANNON');await pick(p,'THE OGAS');await pick(p,'PINKY');
-  }else{await pick(p,'SHANNON');await pick(p,'THE OGAS');await pick(p,'PINKY');}
+   // D3: THE OGAS is shown preselected and locked; the player picks TWO others
+   await toChoices(p);
+   log(await p.locator('.adv-choice[disabled]').filter({hasText:'THE OGAS'}).count()===1&&await p.locator('.adv-choice:not([disabled])').filter({hasText:'THE OGAS'}).count()===0,'D3: THE OGAS is a visible, locked (non-selectable) entry');
+   const labels=await p.evaluate(()=>[...document.querySelectorAll('.adv-choice')].map(b=>b.innerText.replace(/\s+/g,' ')));
+   log(!labels.some(t=>/AIR|GETAWAY|FILINGS|SNACKS|YORUBA/i.test(t)),'D6: no lane advertises an effect',labels.join(' | '));
+   await shot(p,'04a_fixed_ogas');
+  }
+  await pick(p,'SHANNON');await pick(p,'PINKY');
+  const lanes=await p.evaluate(()=>RAAdventures.active()?.vars?.lanes);
+  log(JSON.stringify(lanes)==='["ogas","shannon","pinky"]','THE OGAS fixed + two picks',JSON.stringify(lanes));
   await shot(p,`04_${E.name}_plan`);
   const pl=await drivePlay(p);await p.waitForTimeout(600);
   log(/assets\/f07\/play\/index\.html/.test(pl.src)&&/THE PARTY/.test(pl.seen),`${E.name}: Phase 1 runs on F07's PLAY page and the job is THE PARTY`,pl.src);
-  log(pl.state?.job===true&&JSON.stringify(pl.state.contact)==='["aunties"]'&&JSON.stringify(pl.state.trouble)==='["canopy_pole"]'&&pl.state.feed===true,`${E.name}: the live PLAY page carries THE PARTY job, the AUNTIES + CANOPY POLE stage cards and their feed lines`,JSON.stringify(pl.state)+(/aunties|canopy/i.test(pl.seen)?' · seen in feed':' · (feed shows card lines only when the F01 feed budget allows)'));
+  log(/THE AUNTIES BLOCK THE LINE OF FIRE AND CRITIQUE THE TACTICS OUT LOUD\./i.test(pl.seen),`${E.name}: AUNTIES event feedback is shown in the feed`);
+  log(!/canopy/i.test(pl.seen)||/A CANOPY POLE IS HIT\. THE CANOPY COLLAPSES ON WHOEVER IS UNDER IT\./i.test(pl.seen),`${E.name}: CANOPY POLE feedback is shown whenever that beat occurs`,/canopy/i.test(pl.seen)?'beat occurred':'(PLAY ended before its TROUBLE stage)');
+  const iso=await p.evaluate(()=>({f01:Object.keys(localStorage).filter(k=>k.startsWith('ra.f01.play.v1')),f07:Object.keys(localStorage).filter(k=>k.startsWith('ra.f07.play.v1')).length,cars:RALife.ownedCars().map(c=>c.id),drives:RAVehicles.list().map(v=>RAVehicles.driveCount(v.id))}));
+  log(iso.f01.length===0&&iso.f07>0,`${E.name}: the encounter lives under F07's own storage namespace (F01's world untouched)`,JSON.stringify({f01:iso.f01.length,f07:iso.f07}));
+  log(JSON.stringify(iso.cars)===JSON.stringify(E.cars.filter(c=>c!=='toyota_supra_mk4_001')),`${E.name}: inventory unchanged by the encounter vehicle (cars now ${JSON.stringify(iso.cars)})`);
+  log(pl.state?.job===true&&JSON.stringify(pl.state.contact)==='["aunties"]'&&JSON.stringify(pl.state.trouble)==='["canopy_pole"]'&&true,`${E.name}: the live PLAY page carries THE PARTY job, the AUNTIES + CANOPY POLE stage cards`,JSON.stringify(pl.state));
   let node=await p.evaluate(()=>RAAdventures.active()?.node);
   for(let n=0;n<4&&node!=='office'&&node!=='duel';n++){await pick(p,'TRY AGAIN');await p.evaluate(()=>{for(const u of RACrew.list())if(u.status!=='ACTIVE'&&u.status!=='GONE')RACrew.setStatus(u.id,'ACTIVE',{reason:'qa-heal'});});await drivePlay(p);await p.waitForTimeout(600);node=await p.evaluate(()=>RAAdventures.active()?.node);}
   log(true,`${E.name}: Phase 1 THE PARTY won on F07's PLAY page`,node);
