@@ -1,6 +1,6 @@
 {
  "ok": true,
- "at": "2026-10-02T17:57:56.456Z",
+ "at": "2026-10-02T20:03:07.510Z",
  "steps": [
   {
    "name": "loader verification",
@@ -10,7 +10,7 @@
   {
    "name": "build (regression + fragment suites + contract + zero-change + leak + artifact verification)",
    "status": "PASS",
-   "seconds": 527
+   "seconds": 568
   },
   {
    "name": "artifact verification",
@@ -30,7 +30,7 @@
   {
    "name": "OPEN artifact still clean after overlay build",
    "status": "PASS",
-   "seconds": 0
+   "seconds": 1
   },
   {
    "name": "browser smoke",

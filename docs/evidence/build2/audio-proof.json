@@ -1,0 +1,1940 @@
+{
+  "originalUnproven": 145,
+  "proven": 145,
+  "unproven": [],
+  "contracts": {
+    "badBeats": [],
+    "badEnvironments": [],
+    "pick": "GN_01"
+  },
+  "reservedTour": [
+    {
+      "id": "GRILL_LAND",
+      "started": true
+    },
+    {
+      "id": "TONGS",
+      "started": true
+    },
+    {
+      "id": "SIZZLE_PERFECT",
+      "started": true
+    },
+    {
+      "id": "CHAR_CRACKLE",
+      "started": true
+    },
+    {
+      "id": "SMOKE_HISS",
+      "started": true
+    },
+    {
+      "id": "AMB_KBBQ",
+      "started": true
+    },
+    {
+      "id": "AMB_HOTSPRING_OUT",
+      "started": true
+    }
+  ],
+  "rows": [
+    {
+      "id": "UI_TEXT_BLIP_NPC_LOW",
+      "consumers": [
+        "js/engine/open_audio.js"
+      ],
+      "started": true,
+      "starts": 1,
+      "files": [
+        "assets/audio/sfx/ui_phone/UI_TEXT_BLIP_NPC_LOW.mp3"
+      ],
+      "reserved": false,
+      "context": "running"
+    },
+    {
+      "id": "UI_TEXT_BLIP_NPC_MID",
+      "consumers": [
+        "js/engine/open_audio.js"
+      ],
+      "started": true,
+      "starts": 1,
+      "files": [
+        "assets/audio/sfx/ui_phone/UI_TEXT_BLIP_NPC_MID.mp3"
+      ],
+      "reserved": false,
+      "context": "running"
+    },
+    {
+      "id": "UI_TEXT_BLIP_NPC_HIGH",
+      "consumers": [
+        "js/engine/open_audio.js"
+      ],
+      "started": true,
+      "starts": 1,
+      "files": [
+        "assets/audio/sfx/ui_phone/UI_TEXT_BLIP_NPC_HIGH.mp3"
+      ],
+      "reserved": false,
+      "context": "running"
+    },
+    {
+      "id": "UI_TEXT_BLIP_GHOST",
+      "consumers": [
+        "js/engine/open_audio.js"
+      ],
+      "started": true,
+      "starts": 1,
+      "files": [
+        "assets/audio/sfx/ui_phone/UI_TEXT_BLIP_GHOST.mp3"
+      ],
+      "reserved": false,
+      "context": "running"
+    },
+    {
+      "id": "NOTIF_INSTAHOE",
+      "consumers": [
+        "js/systems/life.js"
+      ],
+      "started": true,
+      "starts": 1,
+      "files": [
+        "assets/audio/sfx/ui_phone/NOTIF_INSTAHOE.mp3"
+      ],
+      "reserved": false,
+      "context": "running"
+    },
+    {
+      "id": "SNEEZE",
+      "consumers": [
+        "js/engine/open_audio.js"
+      ],
+      "started": true,
+      "starts": 1,
+      "files": [
+        "assets/audio/sfx/home_castle/SNEEZE.mp3"
+      ],
+      "reserved": false,
+      "context": "running"
+    },
+    {
+      "id": "MOVE_ONEINCH",
+      "consumers": [
+        "js/systems/combat_presentation.js"
+      ],
+      "started": true,
+      "starts": 1,
+      "files": [
+        "assets/audio/sfx/combat/MOVE_ONEINCH.mp3"
+      ],
+      "reserved": false,
+      "context": "running"
+    },
+    {
+      "id": "ITEM_CAN",
+      "consumers": [
+        "js/engine/open_audio.js"
+      ],
+      "started": true,
+      "starts": 1,
+      "files": [
+        "assets/audio/sfx/combat/ITEM_CAN.mp3"
+      ],
+      "reserved": false,
+      "context": "running"
+    },
+    {
+      "id": "ITEM_EAT",
+      "consumers": [
+        "js/engine/open_audio.js"
+      ],
+      "started": true,
+      "starts": 1,
+      "files": [
+        "assets/audio/sfx/combat/ITEM_EAT.mp3"
+      ],
+      "reserved": false,
+      "context": "running"
+    },
+    {
+      "id": "ITEM_SLURP",
+      "consumers": [
+        "js/engine/open_audio.js"
+      ],
+      "started": true,
+      "starts": 1,
+      "files": [
+        "assets/audio/sfx/combat/ITEM_SLURP.mp3"
+      ],
+      "reserved": false,
+      "context": "running"
+    },
+    {
+      "id": "COMPANION_CALL",
+      "consumers": [
+        "js/engine/open_audio.js"
+      ],
+      "started": true,
+      "starts": 1,
+      "files": [
+        "assets/audio/sfx/combat/COMPANION_CALL.mp3"
+      ],
+      "reserved": false,
+      "context": "running"
+    },
+    {
+      "id": "GUNWEAVE",
+      "consumers": [
+        "js/systems/combat_presentation.js"
+      ],
+      "started": true,
+      "starts": 1,
+      "files": [
+        "assets/audio/sfx/combat/GUNWEAVE.mp3"
+      ],
+      "reserved": false,
+      "context": "running"
+    },
+    {
+      "id": "MAGIC_VEIL",
+      "consumers": [
+        "js/systems/combat_presentation.js"
+      ],
+      "started": true,
+      "starts": 1,
+      "files": [
+        "assets/audio/sfx/combat/MAGIC_VEIL.mp3"
+      ],
+      "reserved": false,
+      "context": "running"
+    },
+    {
+      "id": "MAGIC_RINGER",
+      "consumers": [
+        "js/systems/combat_presentation.js"
+      ],
+      "started": true,
+      "starts": 1,
+      "files": [
+        "assets/audio/sfx/combat/MAGIC_RINGER.mp3"
+      ],
+      "reserved": false,
+      "context": "running"
+    },
+    {
+      "id": "EN_SWORD",
+      "consumers": [
+        "js/engine/open_audio.js"
+      ],
+      "started": true,
+      "starts": 1,
+      "files": [
+        "assets/audio/sfx/combat/EN_SWORD.mp3"
+      ],
+      "reserved": false,
+      "context": "running"
+    },
+    {
+      "id": "EN_SHIELD",
+      "consumers": [
+        "js/engine/open_audio.js"
+      ],
+      "started": true,
+      "starts": 1,
+      "files": [
+        "assets/audio/sfx/combat/EN_SHIELD.mp3"
+      ],
+      "reserved": false,
+      "context": "running"
+    },
+    {
+      "id": "EN_POOF",
+      "consumers": [
+        "js/engine/open_audio.js"
+      ],
+      "started": true,
+      "starts": 1,
+      "files": [
+        "assets/audio/sfx/combat/EN_POOF.mp3"
+      ],
+      "reserved": false,
+      "context": "running"
+    },
+    {
+      "id": "EN_CHARGE",
+      "consumers": [
+        "js/engine/open_audio.js"
+      ],
+      "started": true,
+      "starts": 1,
+      "files": [
+        "assets/audio/sfx/combat/EN_CHARGE.mp3"
+      ],
+      "reserved": false,
+      "context": "running"
+    },
+    {
+      "id": "EN_SCREAM",
+      "consumers": [
+        "js/engine/open_audio.js"
+      ],
+      "started": true,
+      "starts": 1,
+      "files": [
+        "assets/audio/sfx/combat/EN_SCREAM.mp3"
+      ],
+      "reserved": false,
+      "context": "running"
+    },
+    {
+      "id": "EN_LUNCHBOX",
+      "consumers": [
+        "js/engine/open_audio.js"
+      ],
+      "started": true,
+      "starts": 1,
+      "files": [
+        "assets/audio/sfx/combat/EN_LUNCHBOX.mp3"
+      ],
+      "reserved": false,
+      "context": "running"
+    },
+    {
+      "id": "EN_STAKE",
+      "consumers": [
+        "js/engine/open_audio.js"
+      ],
+      "started": true,
+      "starts": 1,
+      "files": [
+        "assets/audio/sfx/combat/EN_STAKE.mp3"
+      ],
+      "reserved": false,
+      "context": "running"
+    },
+    {
+      "id": "EN_CHEW",
+      "consumers": [
+        "js/engine/open_audio.js"
+      ],
+      "started": true,
+      "starts": 1,
+      "files": [
+        "assets/audio/sfx/combat/EN_CHEW.mp3"
+      ],
+      "reserved": false,
+      "context": "running"
+    },
+    {
+      "id": "EN_LUTE",
+      "consumers": [
+        "js/engine/open_audio.js"
+      ],
+      "started": true,
+      "starts": 1,
+      "files": [
+        "assets/audio/sfx/combat/EN_LUTE.mp3"
+      ],
+      "reserved": false,
+      "context": "running"
+    },
+    {
+      "id": "EN_KIAI",
+      "consumers": [
+        "js/engine/open_audio.js"
+      ],
+      "started": true,
+      "starts": 1,
+      "files": [
+        "assets/audio/sfx/combat/EN_KIAI.mp3"
+      ],
+      "reserved": false,
+      "context": "running"
+    },
+    {
+      "id": "EN_HOWL",
+      "consumers": [
+        "js/engine/open_audio.js"
+      ],
+      "started": true,
+      "starts": 1,
+      "files": [
+        "assets/audio/sfx/combat/EN_HOWL.mp3"
+      ],
+      "reserved": false,
+      "context": "running"
+    },
+    {
+      "id": "CAR_V12",
+      "consumers": [
+        "js/minigames/touge.js"
+      ],
+      "started": true,
+      "starts": 1,
+      "files": [
+        "assets/audio/sfx/touge/CAR_V12__idle.mp3",
+        "assets/audio/sfx/touge/CAR_V12__rev.mp3",
+        "assets/audio/sfx/touge/CAR_V12__high.mp3"
+      ],
+      "reserved": false,
+      "context": "running"
+    },
+    {
+      "id": "CAR_V8_EXOTIC",
+      "consumers": [
+        "js/minigames/touge.js"
+      ],
+      "started": true,
+      "starts": 1,
+      "files": [
+        "assets/audio/sfx/touge/CAR_V8_EXOTIC__idle.mp3",
+        "assets/audio/sfx/touge/CAR_V8_EXOTIC__rev.mp3",
+        "assets/audio/sfx/touge/CAR_V8_EXOTIC__high.mp3"
+      ],
+      "reserved": false,
+      "context": "running"
+    },
+    {
+      "id": "TIRE_GRIP",
+      "consumers": [
+        "js/minigames/touge.js"
+      ],
+      "started": true,
+      "starts": 1,
+      "files": [
+        "assets/audio/sfx/touge/TIRE_GRIP.mp3"
+      ],
+      "reserved": false,
+      "context": "running"
+    },
+    {
+      "id": "CLUTCH_KICK",
+      "consumers": [
+        "js/minigames/touge.js"
+      ],
+      "started": true,
+      "starts": 1,
+      "files": [
+        "assets/audio/sfx/touge/CLUTCH_KICK.mp3"
+      ],
+      "reserved": false,
+      "context": "running"
+    },
+    {
+      "id": "BLOWOFF",
+      "consumers": [
+        "js/minigames/touge.js"
+      ],
+      "started": true,
+      "starts": 1,
+      "files": [
+        "assets/audio/sfx/touge/BLOWOFF.mp3"
+      ],
+      "reserved": false,
+      "context": "running"
+    },
+    {
+      "id": "WALL_SCRAPE",
+      "consumers": [
+        "js/minigames/touge.js"
+      ],
+      "started": true,
+      "starts": 1,
+      "files": [
+        "assets/audio/sfx/touge/WALL_SCRAPE.mp3"
+      ],
+      "reserved": false,
+      "context": "running"
+    },
+    {
+      "id": "SPINOUT",
+      "consumers": [
+        "js/minigames/touge.js"
+      ],
+      "started": true,
+      "starts": 1,
+      "files": [
+        "assets/audio/sfx/touge/SPINOUT.mp3"
+      ],
+      "reserved": false,
+      "context": "running"
+    },
+    {
+      "id": "CLIP_DING",
+      "consumers": [
+        "js/minigames/touge.js"
+      ],
+      "started": true,
+      "starts": 1,
+      "files": [
+        "assets/audio/sfx/touge/CLIP_DING.mp3"
+      ],
+      "reserved": false,
+      "context": "running"
+    },
+    {
+      "id": "CROWD_CHEER_SMALL",
+      "consumers": [
+        "js/minigames/touge.js"
+      ],
+      "started": true,
+      "starts": 1,
+      "files": [
+        "assets/audio/sfx/touge/CROWD_CHEER_SMALL.mp3"
+      ],
+      "reserved": false,
+      "context": "running"
+    },
+    {
+      "id": "COUNTDOWN",
+      "consumers": [
+        "js/minigames/touge.js"
+      ],
+      "started": true,
+      "starts": 1,
+      "files": [
+        "assets/audio/sfx/touge/COUNTDOWN.mp3"
+      ],
+      "reserved": false,
+      "context": "running"
+    },
+    {
+      "id": "AMB_MOUNTAIN",
+      "consumers": [
+        "js/minigames/touge.js"
+      ],
+      "started": true,
+      "starts": 1,
+      "files": [
+        "assets/audio/sfx/touge/AMB_MOUNTAIN.mp3"
+      ],
+      "reserved": false,
+      "context": "running"
+    },
+    {
+      "id": "AMB_GARAGE_ECHO",
+      "consumers": [
+        "js/minigames/touge.js"
+      ],
+      "started": true,
+      "starts": 1,
+      "files": [
+        "assets/audio/sfx/garage/AMB_GARAGE_ECHO.mp3"
+      ],
+      "reserved": false,
+      "context": "running"
+    },
+    {
+      "id": "BOBBER_PLOP",
+      "consumers": [
+        "js/minigames/pier.js"
+      ],
+      "started": true,
+      "starts": 1,
+      "files": [
+        "assets/audio/sfx/pier/BOBBER_PLOP.mp3"
+      ],
+      "reserved": false,
+      "context": "running"
+    },
+    {
+      "id": "NIBBLE",
+      "consumers": [
+        "js/minigames/pier.js"
+      ],
+      "started": true,
+      "starts": 1,
+      "files": [
+        "assets/audio/sfx/pier/NIBBLE.mp3"
+      ],
+      "reserved": false,
+      "context": "running"
+    },
+    {
+      "id": "REEL_LOOP",
+      "consumers": [
+        "js/minigames/pier.js"
+      ],
+      "started": true,
+      "starts": 1,
+      "files": [
+        "assets/audio/sfx/pier/REEL_LOOP.mp3"
+      ],
+      "reserved": false,
+      "context": "running"
+    },
+    {
+      "id": "LINE_TENSION",
+      "consumers": [
+        "js/minigames/pier.js"
+      ],
+      "started": true,
+      "starts": 1,
+      "files": [
+        "assets/audio/sfx/pier/LINE_TENSION.mp3"
+      ],
+      "reserved": false,
+      "context": "running"
+    },
+    {
+      "id": "LINE_SNAP",
+      "consumers": [
+        "js/minigames/pier.js"
+      ],
+      "started": true,
+      "starts": 1,
+      "files": [
+        "assets/audio/sfx/pier/LINE_SNAP.mp3"
+      ],
+      "reserved": false,
+      "context": "running"
+    },
+    {
+      "id": "SPLASH_BIG",
+      "consumers": [
+        "js/minigames/pier.js"
+      ],
+      "started": true,
+      "starts": 1,
+      "files": [
+        "assets/audio/sfx/pier/SPLASH_BIG.mp3"
+      ],
+      "reserved": false,
+      "context": "running"
+    },
+    {
+      "id": "FISH_FLOP",
+      "consumers": [
+        "js/minigames/pier.js"
+      ],
+      "started": true,
+      "starts": 1,
+      "files": [
+        "assets/audio/sfx/pier/FISH_FLOP.mp3"
+      ],
+      "reserved": false,
+      "context": "running"
+    },
+    {
+      "id": "AMB_PIER",
+      "consumers": [
+        "js/engine/open_audio.js",
+        "js/minigames/pier.js"
+      ],
+      "started": true,
+      "starts": 1,
+      "files": [
+        "assets/audio/sfx/pier/AMB_PIER.mp3"
+      ],
+      "reserved": false,
+      "context": "running"
+    },
+    {
+      "id": "BOWL_CLINK",
+      "consumers": [
+        "js/minigames/slurp.js"
+      ],
+      "started": true,
+      "starts": 1,
+      "files": [
+        "assets/audio/sfx/slurp/BOWL_CLINK.mp3"
+      ],
+      "reserved": false,
+      "context": "running"
+    },
+    {
+      "id": "BROTH_POUR",
+      "consumers": [
+        "js/minigames/slurp.js"
+      ],
+      "started": true,
+      "starts": 1,
+      "files": [
+        "assets/audio/sfx/slurp/BROTH_POUR.mp3"
+      ],
+      "reserved": false,
+      "context": "running"
+    },
+    {
+      "id": "NOODLE_DROP",
+      "consumers": [
+        "js/minigames/slurp.js"
+      ],
+      "started": true,
+      "starts": 1,
+      "files": [
+        "assets/audio/sfx/slurp/NOODLE_DROP.mp3"
+      ],
+      "reserved": false,
+      "context": "running"
+    },
+    {
+      "id": "ORDER_BELL",
+      "consumers": [
+        "js/minigames/slurp.js"
+      ],
+      "started": true,
+      "starts": 1,
+      "files": [
+        "assets/audio/sfx/slurp/ORDER_BELL.mp3"
+      ],
+      "reserved": false,
+      "context": "running"
+    },
+    {
+      "id": "TICKET_PRINT",
+      "consumers": [
+        "js/minigames/slurp.js"
+      ],
+      "started": true,
+      "starts": 1,
+      "files": [
+        "assets/audio/sfx/slurp/TICKET_PRINT.mp3"
+      ],
+      "reserved": false,
+      "context": "running"
+    },
+    {
+      "id": "TIP_COINS",
+      "consumers": [
+        "js/minigames/slurp.js"
+      ],
+      "started": true,
+      "starts": 1,
+      "files": [
+        "assets/audio/sfx/slurp/TIP_COINS.mp3"
+      ],
+      "reserved": false,
+      "context": "running"
+    },
+    {
+      "id": "AMB_RAMEN",
+      "consumers": [
+        "js/engine/open_audio.js",
+        "js/minigames/slurp.js"
+      ],
+      "started": true,
+      "starts": 1,
+      "files": [
+        "assets/audio/sfx/slurp/AMB_RAMEN.mp3"
+      ],
+      "reserved": false,
+      "context": "running"
+    },
+    {
+      "id": "EGG_CRACK",
+      "consumers": [
+        "js/engine/open_audio.js"
+      ],
+      "started": true,
+      "starts": 1,
+      "files": [
+        "assets/audio/sfx/combat/EGG_CRACK.mp3"
+      ],
+      "reserved": false,
+      "context": "running"
+    },
+    {
+      "id": "DRAGON_CHIRP_BABY",
+      "consumers": [
+        "js/minigames/hatch.js"
+      ],
+      "started": true,
+      "starts": 1,
+      "files": [
+        "assets/audio/sfx/hatch/DRAGON_CHIRP_BABY.mp3"
+      ],
+      "reserved": false,
+      "context": "running"
+    },
+    {
+      "id": "DRAGON_HAPPY",
+      "consumers": [
+        "js/minigames/hatch.js"
+      ],
+      "started": true,
+      "starts": 1,
+      "files": [
+        "assets/audio/sfx/hatch/DRAGON_HAPPY.mp3"
+      ],
+      "reserved": false,
+      "context": "running"
+    },
+    {
+      "id": "DRAGON_SULK",
+      "consumers": [
+        "js/minigames/hatch.js"
+      ],
+      "started": true,
+      "starts": 1,
+      "files": [
+        "assets/audio/sfx/hatch/DRAGON_SULK.mp3"
+      ],
+      "reserved": false,
+      "context": "running"
+    },
+    {
+      "id": "DRAGON_ROAR",
+      "consumers": [
+        "js/minigames/hatch.js"
+      ],
+      "started": true,
+      "starts": 1,
+      "files": [
+        "assets/audio/sfx/hatch/DRAGON_ROAR.mp3"
+      ],
+      "reserved": false,
+      "context": "running"
+    },
+    {
+      "id": "DRAGON_FIRE_SMALL",
+      "consumers": [
+        "js/engine/open_audio.js",
+        "js/minigames/hatch.js"
+      ],
+      "started": true,
+      "starts": 1,
+      "files": [
+        "assets/audio/sfx/hatch/DRAGON_FIRE_SMALL.mp3"
+      ],
+      "reserved": false,
+      "context": "running"
+    },
+    {
+      "id": "DRAGON_EAT",
+      "consumers": [
+        "js/minigames/hatch.js"
+      ],
+      "started": true,
+      "starts": 1,
+      "files": [
+        "assets/audio/sfx/hatch/DRAGON_EAT.mp3"
+      ],
+      "reserved": false,
+      "context": "running"
+    },
+    {
+      "id": "BARS_CORRECT",
+      "consumers": [
+        "js/minigames/bars.js"
+      ],
+      "started": true,
+      "starts": 1,
+      "files": [
+        "assets/audio/sfx/bars/BARS_CORRECT.mp3"
+      ],
+      "reserved": false,
+      "context": "running"
+    },
+    {
+      "id": "BARS_WRONG",
+      "consumers": [
+        "js/minigames/bars.js"
+      ],
+      "started": true,
+      "starts": 1,
+      "files": [
+        "assets/audio/sfx/bars/BARS_WRONG.mp3"
+      ],
+      "reserved": false,
+      "context": "running"
+    },
+    {
+      "id": "BARS_TIMER",
+      "consumers": [
+        "js/minigames/bars.js"
+      ],
+      "started": true,
+      "starts": 1,
+      "files": [
+        "assets/audio/sfx/bars/BARS_TIMER.mp3"
+      ],
+      "reserved": false,
+      "context": "running"
+    },
+    {
+      "id": "BLENDER",
+      "consumers": [
+        "js/minigames/jollof.js"
+      ],
+      "started": true,
+      "starts": 1,
+      "files": [
+        "assets/audio/sfx/jollof/BLENDER.mp3"
+      ],
+      "reserved": false,
+      "context": "running"
+    },
+    {
+      "id": "OIL_SIZZLE_PASTE",
+      "consumers": [
+        "js/minigames/jollof.js"
+      ],
+      "started": true,
+      "starts": 1,
+      "files": [
+        "assets/audio/sfx/jollof/OIL_SIZZLE_PASTE.mp3"
+      ],
+      "reserved": false,
+      "context": "running"
+    },
+    {
+      "id": "STIR_POT",
+      "consumers": [
+        "js/minigames/jollof.js"
+      ],
+      "started": true,
+      "starts": 1,
+      "files": [
+        "assets/audio/sfx/jollof/STIR_POT.mp3"
+      ],
+      "reserved": false,
+      "context": "running"
+    },
+    {
+      "id": "SPICE_SHAKE",
+      "consumers": [
+        "js/minigames/jollof.js"
+      ],
+      "started": true,
+      "starts": 1,
+      "files": [
+        "assets/audio/sfx/jollof/SPICE_SHAKE.mp3"
+      ],
+      "reserved": false,
+      "context": "running"
+    },
+    {
+      "id": "LID_CLANK",
+      "consumers": [
+        "js/minigames/jollof.js"
+      ],
+      "started": true,
+      "starts": 1,
+      "files": [
+        "assets/audio/sfx/jollof/LID_CLANK.mp3"
+      ],
+      "reserved": false,
+      "context": "running"
+    },
+    {
+      "id": "STEAM_HISS",
+      "consumers": [
+        "js/minigames/jollof.js"
+      ],
+      "started": true,
+      "starts": 1,
+      "files": [
+        "assets/audio/sfx/jollof/STEAM_HISS.mp3"
+      ],
+      "reserved": false,
+      "context": "running"
+    },
+    {
+      "id": "BURNT_CRACKLE",
+      "consumers": [
+        "js/minigames/jollof.js"
+      ],
+      "started": true,
+      "starts": 1,
+      "files": [
+        "assets/audio/sfx/jollof/BURNT_CRACKLE.mp3"
+      ],
+      "reserved": false,
+      "context": "running"
+    },
+    {
+      "id": "AMB_COOKOFF",
+      "consumers": [
+        "js/minigames/jollof.js"
+      ],
+      "started": true,
+      "starts": 1,
+      "files": [
+        "assets/audio/sfx/jollof/AMB_COOKOFF.mp3"
+      ],
+      "reserved": false,
+      "context": "running"
+    },
+    {
+      "id": "IMPACT_WRENCH",
+      "consumers": [
+        "js/minigames/garage.js"
+      ],
+      "started": true,
+      "starts": 1,
+      "files": [
+        "assets/audio/sfx/garage/IMPACT_WRENCH.mp3"
+      ],
+      "reserved": false,
+      "context": "running"
+    },
+    {
+      "id": "RATCHET",
+      "consumers": [
+        "js/minigames/garage.js"
+      ],
+      "started": true,
+      "starts": 1,
+      "files": [
+        "assets/audio/sfx/garage/RATCHET.mp3"
+      ],
+      "reserved": false,
+      "context": "running"
+    },
+    {
+      "id": "CAR_LIFT",
+      "consumers": [
+        "js/minigames/garage.js"
+      ],
+      "started": true,
+      "starts": 1,
+      "files": [
+        "assets/audio/sfx/touge/CAR_LIFT.mp3"
+      ],
+      "reserved": false,
+      "context": "running"
+    },
+    {
+      "id": "PART_INSTALL",
+      "consumers": [
+        "js/minigames/garage.js"
+      ],
+      "started": true,
+      "starts": 1,
+      "files": [
+        "assets/audio/sfx/garage/PART_INSTALL.mp3"
+      ],
+      "reserved": false,
+      "context": "running"
+    },
+    {
+      "id": "AMB_GARAGE",
+      "consumers": [
+        "js/engine/open_audio.js",
+        "js/minigames/garage.js",
+        "js/minigames/touge.js"
+      ],
+      "started": true,
+      "starts": 1,
+      "files": [
+        "assets/audio/sfx/garage/AMB_GARAGE.mp3"
+      ],
+      "reserved": false,
+      "context": "running"
+    },
+    {
+      "id": "HOOKAH_BUBBLE",
+      "consumers": [
+        "js/minigames/hookah.js"
+      ],
+      "started": true,
+      "starts": 1,
+      "files": [
+        "assets/audio/sfx/hookah_pickup_kbbq/HOOKAH_BUBBLE.mp3"
+      ],
+      "reserved": false,
+      "context": "running"
+    },
+    {
+      "id": "EXHALE",
+      "consumers": [
+        "js/minigames/hookah.js"
+      ],
+      "started": true,
+      "starts": 1,
+      "files": [
+        "assets/audio/sfx/hookah_pickup_kbbq/EXHALE.mp3"
+      ],
+      "reserved": false,
+      "context": "running"
+    },
+    {
+      "id": "SWISH",
+      "consumers": [
+        "js/minigames/pickup.js"
+      ],
+      "started": true,
+      "starts": 1,
+      "files": [
+        "assets/audio/sfx/hookah_pickup_kbbq/SWISH.mp3"
+      ],
+      "reserved": false,
+      "context": "running"
+    },
+    {
+      "id": "SHOE_SQUEAK",
+      "consumers": [
+        "js/minigames/pickup.js"
+      ],
+      "started": true,
+      "starts": 1,
+      "files": [
+        "assets/audio/sfx/hookah_pickup_kbbq/SHOE_SQUEAK.mp3"
+      ],
+      "reserved": false,
+      "context": "running"
+    },
+    {
+      "id": "WHISTLE",
+      "consumers": [
+        "js/minigames/pickup.js"
+      ],
+      "started": true,
+      "starts": 1,
+      "files": [
+        "assets/audio/sfx/hookah_pickup_kbbq/WHISTLE.mp3"
+      ],
+      "reserved": false,
+      "context": "running"
+    },
+    {
+      "id": "AMB_COURTS",
+      "consumers": [
+        "js/engine/open_audio.js",
+        "js/minigames/pickup.js"
+      ],
+      "started": true,
+      "starts": 1,
+      "files": [
+        "assets/audio/sfx/hookah_pickup_kbbq/AMB_COURTS.mp3"
+      ],
+      "reserved": false,
+      "context": "running"
+    },
+    {
+      "id": "GRILL_LAND",
+      "consumers": [
+        "js/engine/open_audio.js"
+      ],
+      "started": true,
+      "starts": 1,
+      "files": [
+        "assets/audio/sfx/hookah_pickup_kbbq/GRILL_LAND__loop.mp3",
+        "assets/audio/sfx/hookah_pickup_kbbq/GRILL_LAND__land.mp3"
+      ],
+      "reserved": true,
+      "context": "running"
+    },
+    {
+      "id": "TONGS",
+      "consumers": [
+        "js/engine/open_audio.js"
+      ],
+      "started": true,
+      "starts": 1,
+      "files": [
+        "assets/audio/sfx/hookah_pickup_kbbq/TONGS.mp3"
+      ],
+      "reserved": true,
+      "context": "running"
+    },
+    {
+      "id": "SIZZLE_PERFECT",
+      "consumers": [
+        "js/engine/open_audio.js"
+      ],
+      "started": true,
+      "starts": 1,
+      "files": [
+        "assets/audio/sfx/hookah_pickup_kbbq/SIZZLE_PERFECT.mp3"
+      ],
+      "reserved": true,
+      "context": "running"
+    },
+    {
+      "id": "CHAR_CRACKLE",
+      "consumers": [
+        "js/engine/open_audio.js"
+      ],
+      "started": true,
+      "starts": 1,
+      "files": [
+        "assets/audio/sfx/hookah_pickup_kbbq/CHAR_CRACKLE.mp3"
+      ],
+      "reserved": true,
+      "context": "running"
+    },
+    {
+      "id": "SMOKE_HISS",
+      "consumers": [
+        "js/engine/open_audio.js"
+      ],
+      "started": true,
+      "starts": 1,
+      "files": [
+        "assets/audio/sfx/hookah_pickup_kbbq/SMOKE_HISS.mp3"
+      ],
+      "reserved": true,
+      "context": "running"
+    },
+    {
+      "id": "AMB_KBBQ",
+      "consumers": [
+        "js/engine/open_audio.js"
+      ],
+      "started": true,
+      "starts": 1,
+      "files": [
+        "assets/audio/sfx/hookah_pickup_kbbq/AMB_KBBQ.mp3"
+      ],
+      "reserved": true,
+      "context": "running"
+    },
+    {
+      "id": "AMB_OCEAN_FLOOR",
+      "consumers": [
+        "js/engine/open_audio.js"
+      ],
+      "started": true,
+      "starts": 1,
+      "files": [
+        "assets/audio/sfx/locations/AMB_OCEAN_FLOOR.mp3"
+      ],
+      "reserved": false,
+      "context": "running"
+    },
+    {
+      "id": "AMB_DOCKS",
+      "consumers": [
+        "js/engine/open_audio.js"
+      ],
+      "started": true,
+      "starts": 1,
+      "files": [
+        "assets/audio/sfx/locations/AMB_DOCKS.mp3"
+      ],
+      "reserved": false,
+      "context": "running"
+    },
+    {
+      "id": "AMB_RAVE_EXT",
+      "consumers": [
+        "js/engine/open_audio.js"
+      ],
+      "started": true,
+      "starts": 1,
+      "files": [
+        "assets/audio/sfx/locations/AMB_RAVE_EXT.mp3"
+      ],
+      "reserved": false,
+      "context": "running"
+    },
+    {
+      "id": "AMB_RAVE_INT",
+      "consumers": [
+        "js/engine/open_audio.js"
+      ],
+      "started": true,
+      "starts": 1,
+      "files": [
+        "assets/audio/sfx/locations/AMB_RAVE_INT.mp3"
+      ],
+      "reserved": false,
+      "context": "running"
+    },
+    {
+      "id": "AMB_MALL",
+      "consumers": [
+        "js/engine/open_audio.js"
+      ],
+      "started": true,
+      "starts": 1,
+      "files": [
+        "assets/audio/sfx/locations/AMB_MALL.mp3"
+      ],
+      "reserved": false,
+      "context": "running"
+    },
+    {
+      "id": "AMB_BOBA",
+      "consumers": [
+        "js/engine/open_audio.js"
+      ],
+      "started": true,
+      "starts": 1,
+      "files": [
+        "assets/audio/sfx/locations/AMB_BOBA.mp3"
+      ],
+      "reserved": false,
+      "context": "running"
+    },
+    {
+      "id": "AMB_FOODCOURT",
+      "consumers": [
+        "js/engine/open_audio.js"
+      ],
+      "started": true,
+      "starts": 1,
+      "files": [
+        "assets/audio/sfx/locations/AMB_FOODCOURT.mp3"
+      ],
+      "reserved": false,
+      "context": "running"
+    },
+    {
+      "id": "AMB_PETSTORE",
+      "consumers": [
+        "js/engine/open_audio.js"
+      ],
+      "started": true,
+      "starts": 1,
+      "files": [
+        "assets/audio/sfx/locations/AMB_PETSTORE.mp3"
+      ],
+      "reserved": false,
+      "context": "running"
+    },
+    {
+      "id": "AMB_DISPENSARY",
+      "consumers": [
+        "js/engine/open_audio.js"
+      ],
+      "started": true,
+      "starts": 1,
+      "files": [
+        "assets/audio/sfx/locations/AMB_DISPENSARY.mp3"
+      ],
+      "reserved": false,
+      "context": "running"
+    },
+    {
+      "id": "AMB_CAFE_RAIN",
+      "consumers": [
+        "js/engine/open_audio.js"
+      ],
+      "started": true,
+      "starts": 1,
+      "files": [
+        "assets/audio/sfx/locations/AMB_CAFE_RAIN.mp3"
+      ],
+      "reserved": false,
+      "context": "running"
+    },
+    {
+      "id": "AMB_CATACOMB",
+      "consumers": [
+        "js/engine/open_audio.js"
+      ],
+      "started": true,
+      "starts": 1,
+      "files": [
+        "assets/audio/sfx/locations/AMB_CATACOMB.mp3"
+      ],
+      "reserved": false,
+      "context": "running"
+    },
+    {
+      "id": "AMB_BLOODBANK",
+      "consumers": [
+        "js/engine/open_audio.js"
+      ],
+      "started": true,
+      "starts": 1,
+      "files": [
+        "assets/audio/sfx/locations/AMB_BLOODBANK.mp3"
+      ],
+      "reserved": false,
+      "context": "running"
+    },
+    {
+      "id": "AMB_ARMORY",
+      "consumers": [
+        "js/engine/open_audio.js"
+      ],
+      "started": true,
+      "starts": 1,
+      "files": [
+        "assets/audio/sfx/locations/AMB_ARMORY.mp3"
+      ],
+      "reserved": false,
+      "context": "running"
+    },
+    {
+      "id": "AMB_BALLROOM",
+      "consumers": [
+        "js/engine/open_audio.js"
+      ],
+      "started": true,
+      "starts": 1,
+      "files": [
+        "assets/audio/sfx/locations/AMB_BALLROOM.mp3"
+      ],
+      "reserved": false,
+      "context": "running"
+    },
+    {
+      "id": "AMB_SOIREE",
+      "consumers": [
+        "js/engine/open_audio.js"
+      ],
+      "started": true,
+      "starts": 1,
+      "files": [
+        "assets/audio/sfx/locations/AMB_SOIREE.mp3"
+      ],
+      "reserved": false,
+      "context": "running"
+    },
+    {
+      "id": "AMB_RESTAURANT",
+      "consumers": [
+        "js/engine/open_audio.js"
+      ],
+      "started": true,
+      "starts": 1,
+      "files": [
+        "assets/audio/sfx/locations/AMB_RESTAURANT.mp3"
+      ],
+      "reserved": false,
+      "context": "running"
+    },
+    {
+      "id": "AMB_AFRICAN_STORE",
+      "consumers": [
+        "js/engine/open_audio.js"
+      ],
+      "started": true,
+      "starts": 1,
+      "files": [
+        "assets/audio/sfx/locations/AMB_AFRICAN_STORE.mp3"
+      ],
+      "reserved": false,
+      "context": "running"
+    },
+    {
+      "id": "AMB_BRUNCH",
+      "consumers": [
+        "js/engine/open_audio.js"
+      ],
+      "started": true,
+      "starts": 1,
+      "files": [
+        "assets/audio/sfx/locations/AMB_BRUNCH.mp3"
+      ],
+      "reserved": false,
+      "context": "running"
+    },
+    {
+      "id": "AMB_ONSEN",
+      "consumers": [
+        "js/engine/open_audio.js"
+      ],
+      "started": true,
+      "starts": 1,
+      "files": [
+        "assets/audio/sfx/locations/AMB_ONSEN.mp3"
+      ],
+      "reserved": false,
+      "context": "running"
+    },
+    {
+      "id": "AMB_LITTLE_TOKYO",
+      "consumers": [
+        "js/engine/open_audio.js"
+      ],
+      "started": true,
+      "starts": 1,
+      "files": [
+        "assets/audio/sfx/locations/AMB_LITTLE_TOKYO.mp3"
+      ],
+      "reserved": false,
+      "context": "running"
+    },
+    {
+      "id": "AMB_CONCERT",
+      "consumers": [
+        "js/engine/open_audio.js"
+      ],
+      "started": true,
+      "starts": 1,
+      "files": [
+        "assets/audio/sfx/locations/AMB_CONCERT.mp3"
+      ],
+      "reserved": false,
+      "context": "running"
+    },
+    {
+      "id": "AMB_TACO_TRUCK",
+      "consumers": [
+        "js/engine/open_audio.js"
+      ],
+      "started": true,
+      "starts": 1,
+      "files": [
+        "assets/audio/sfx/locations/AMB_TACO_TRUCK.mp3"
+      ],
+      "reserved": false,
+      "context": "running"
+    },
+    {
+      "id": "AMB_APARTMENT_LAN",
+      "consumers": [
+        "js/engine/open_audio.js"
+      ],
+      "started": true,
+      "starts": 1,
+      "files": [
+        "assets/audio/sfx/locations/AMB_APARTMENT_LAN.mp3"
+      ],
+      "reserved": false,
+      "context": "running"
+    },
+    {
+      "id": "AMB_GALLERY",
+      "consumers": [
+        "js/engine/open_audio.js"
+      ],
+      "started": true,
+      "starts": 1,
+      "files": [
+        "assets/audio/sfx/locations/AMB_GALLERY.mp3"
+      ],
+      "reserved": false,
+      "context": "running"
+    },
+    {
+      "id": "AMB_DINER_ATL",
+      "consumers": [
+        "js/engine/open_audio.js"
+      ],
+      "started": true,
+      "starts": 1,
+      "files": [
+        "assets/audio/sfx/locations/AMB_DINER_ATL.mp3"
+      ],
+      "reserved": false,
+      "context": "running"
+    },
+    {
+      "id": "AMB_AIRPORT",
+      "consumers": [
+        "js/engine/open_audio.js"
+      ],
+      "started": true,
+      "starts": 1,
+      "files": [
+        "assets/audio/sfx/locations/AMB_AIRPORT.mp3"
+      ],
+      "reserved": false,
+      "context": "running"
+    },
+    {
+      "id": "AMB_MALL_ATL",
+      "consumers": [
+        "js/engine/open_audio.js"
+      ],
+      "started": true,
+      "starts": 1,
+      "files": [
+        "assets/audio/sfx/locations/AMB_MALL_ATL.mp3"
+      ],
+      "reserved": false,
+      "context": "running"
+    },
+    {
+      "id": "AMB_PARK_FOUNTAIN",
+      "consumers": [
+        "js/engine/open_audio.js"
+      ],
+      "started": true,
+      "starts": 1,
+      "files": [
+        "assets/audio/sfx/locations/AMB_PARK_FOUNTAIN.mp3"
+      ],
+      "reserved": false,
+      "context": "running"
+    },
+    {
+      "id": "AMB_FAMILY_HOUSE",
+      "consumers": [
+        "js/engine/open_audio.js"
+      ],
+      "started": true,
+      "starts": 1,
+      "files": [
+        "assets/audio/sfx/locations/AMB_FAMILY_HOUSE.mp3"
+      ],
+      "reserved": false,
+      "context": "running"
+    },
+    {
+      "id": "AMB_SALON",
+      "consumers": [
+        "js/engine/open_audio.js"
+      ],
+      "started": true,
+      "starts": 1,
+      "files": [
+        "assets/audio/sfx/locations/AMB_SALON.mp3"
+      ],
+      "reserved": false,
+      "context": "running"
+    },
+    {
+      "id": "AMB_RAIN",
+      "consumers": [
+        "js/engine/open_audio.js"
+      ],
+      "started": true,
+      "starts": 1,
+      "files": [
+        "assets/audio/sfx/locations/AMB_RAIN.mp3"
+      ],
+      "reserved": false,
+      "context": "running"
+    },
+    {
+      "id": "AMB_HOTSPRING_OUT",
+      "consumers": [
+        "js/engine/open_audio.js"
+      ],
+      "started": true,
+      "starts": 1,
+      "files": [
+        "assets/audio/sfx/locations/AMB_HOTSPRING_OUT.mp3"
+      ],
+      "reserved": true,
+      "context": "running"
+    },
+    {
+      "id": "LADDER_CREAK",
+      "consumers": [
+        "js/engine/open_audio.js"
+      ],
+      "started": true,
+      "starts": 1,
+      "files": [
+        "assets/audio/sfx/story/LADDER_CREAK.mp3"
+      ],
+      "reserved": false,
+      "context": "running"
+    },
+    {
+      "id": "LADDER_COLLAPSE",
+      "consumers": [
+        "js/engine/open_audio.js"
+      ],
+      "started": true,
+      "starts": 1,
+      "files": [
+        "assets/audio/sfx/story/LADDER_COLLAPSE.mp3"
+      ],
+      "reserved": false,
+      "context": "running"
+    },
+    {
+      "id": "SENSEI_RUMBLE",
+      "consumers": [
+        "js/engine/open_audio.js"
+      ],
+      "started": true,
+      "starts": 1,
+      "files": [
+        "assets/audio/sfx/story/SENSEI_RUMBLE.mp3"
+      ],
+      "reserved": false,
+      "context": "running"
+    },
+    {
+      "id": "EGG_REVEAL",
+      "consumers": [
+        "js/engine/open_audio.js"
+      ],
+      "started": true,
+      "starts": 1,
+      "files": [
+        "assets/audio/sfx/combat/EGG_REVEAL.mp3"
+      ],
+      "reserved": false,
+      "context": "running"
+    },
+    {
+      "id": "HOLY_CHOIR_COMEDIC",
+      "consumers": [
+        "js/engine/open_audio.js"
+      ],
+      "started": true,
+      "starts": 1,
+      "files": [
+        "assets/audio/sfx/story/HOLY_CHOIR_COMEDIC.mp3"
+      ],
+      "reserved": false,
+      "context": "running"
+    },
+    {
+      "id": "CROWD_OOH",
+      "consumers": [
+        "js/engine/open_audio.js"
+      ],
+      "started": true,
+      "starts": 1,
+      "files": [
+        "assets/audio/sfx/combat/CROWD_OOH.mp3"
+      ],
+      "reserved": false,
+      "context": "running"
+    },
+    {
+      "id": "RECORD_SCRATCH",
+      "consumers": [
+        "js/engine/open_audio.js"
+      ],
+      "started": true,
+      "starts": 1,
+      "files": [
+        "assets/audio/sfx/story/RECORD_SCRATCH.mp3"
+      ],
+      "reserved": false,
+      "context": "running"
+    },
+    {
+      "id": "MIC_FEEDBACK",
+      "consumers": [
+        "js/engine/open_audio.js"
+      ],
+      "started": true,
+      "starts": 1,
+      "files": [
+        "assets/audio/sfx/story/MIC_FEEDBACK.mp3"
+      ],
+      "reserved": false,
+      "context": "running"
+    },
+    {
+      "id": "POWER_CUT",
+      "consumers": [
+        "js/engine/open_audio.js"
+      ],
+      "started": true,
+      "starts": 1,
+      "files": [
+        "assets/audio/sfx/story/POWER_CUT.mp3"
+      ],
+      "reserved": false,
+      "context": "running"
+    },
+    {
+      "id": "MALL_GATE",
+      "consumers": [
+        "js/engine/open_audio.js"
+      ],
+      "started": true,
+      "starts": 1,
+      "files": [
+        "assets/audio/sfx/story/MALL_GATE.mp3"
+      ],
+      "reserved": false,
+      "context": "running"
+    },
+    {
+      "id": "SIREN_CHIRP",
+      "consumers": [
+        "js/engine/open_audio.js"
+      ],
+      "started": true,
+      "starts": 1,
+      "files": [
+        "assets/audio/sfx/story/SIREN_CHIRP.mp3"
+      ],
+      "reserved": false,
+      "context": "running"
+    },
+    {
+      "id": "HEAVY_STEPS",
+      "consumers": [
+        "js/engine/open_audio.js"
+      ],
+      "started": true,
+      "starts": 1,
+      "files": [
+        "assets/audio/sfx/story/HEAVY_STEPS.mp3"
+      ],
+      "reserved": false,
+      "context": "running"
+    },
+    {
+      "id": "BAT_SWARM",
+      "consumers": [
+        "js/systems/ambience.js"
+      ],
+      "started": true,
+      "starts": 1,
+      "files": [
+        "assets/audio/sfx/combat/BAT_SWARM.mp3"
+      ],
+      "reserved": false,
+      "context": "running"
+    },
+    {
+      "id": "XCOM_MISS",
+      "consumers": [
+        "js/engine/open_audio.js"
+      ],
+      "started": true,
+      "starts": 1,
+      "files": [
+        "assets/audio/sfx/story/XCOM_MISS.mp3"
+      ],
+      "reserved": false,
+      "context": "running"
+    },
+    {
+      "id": "SUBURB_MORNING",
+      "consumers": [
+        "js/engine/open_audio.js"
+      ],
+      "started": true,
+      "starts": 1,
+      "files": [
+        "assets/audio/sfx/story/SUBURB_MORNING.mp3"
+      ],
+      "reserved": false,
+      "context": "running"
+    },
+    {
+      "id": "ALARM_CLOCK",
+      "consumers": [
+        "js/engine/open_audio.js"
+      ],
+      "started": true,
+      "starts": 1,
+      "files": [
+        "assets/audio/sfx/story/ALARM_CLOCK.mp3"
+      ],
+      "reserved": false,
+      "context": "running"
+    },
+    {
+      "id": "OFFICE_ROOM",
+      "consumers": [
+        "js/engine/open_audio.js"
+      ],
+      "started": true,
+      "starts": 1,
+      "files": [
+        "assets/audio/sfx/story/OFFICE_ROOM.mp3"
+      ],
+      "reserved": false,
+      "context": "running"
+    },
+    {
+      "id": "POLITE_APPLAUSE",
+      "consumers": [
+        "js/engine/open_audio.js"
+      ],
+      "started": true,
+      "starts": 1,
+      "files": [
+        "assets/audio/sfx/story/POLITE_APPLAUSE.mp3"
+      ],
+      "reserved": false,
+      "context": "running"
+    },
+    {
+      "id": "WAKE_SCREAM",
+      "consumers": [
+        "js/engine/open_audio.js"
+      ],
+      "started": true,
+      "starts": 1,
+      "files": [
+        "assets/audio/sfx/combat/WAKE_SCREAM.mp3"
+      ],
+      "reserved": false,
+      "context": "running"
+    },
+    {
+      "id": "STARS_SHIMMER",
+      "consumers": [
+        "js/engine/open_audio.js"
+      ],
+      "started": true,
+      "starts": 1,
+      "files": [
+        "assets/audio/sfx/story/STARS_SHIMMER.mp3"
+      ],
+      "reserved": false,
+      "context": "running"
+    },
+    {
+      "id": "TRANSFORM_BLOOM",
+      "consumers": [
+        "js/engine/open_audio.js"
+      ],
+      "started": true,
+      "starts": 1,
+      "files": [
+        "assets/audio/sfx/story/TRANSFORM_BLOOM.mp3"
+      ],
+      "reserved": false,
+      "context": "running"
+    },
+    {
+      "id": "KIDS_HALLOWEEN",
+      "consumers": [
+        "js/engine/open_audio.js"
+      ],
+      "started": true,
+      "starts": 1,
+      "files": [
+        "assets/audio/sfx/story/KIDS_HALLOWEEN.mp3"
+      ],
+      "reserved": false,
+      "context": "running"
+    },
+    {
+      "id": "CAR_WINDOWS_DOWN",
+      "consumers": [
+        "js/engine/open_audio.js"
+      ],
+      "started": true,
+      "starts": 1,
+      "files": [
+        "assets/audio/sfx/touge/CAR_WINDOWS_DOWN.mp3"
+      ],
+      "reserved": false,
+      "context": "running"
+    },
+    {
+      "id": "NINJA_CROWD",
+      "consumers": [
+        "js/engine/open_audio.js"
+      ],
+      "started": true,
+      "starts": 1,
+      "files": [
+        "assets/audio/sfx/story/NINJA_CROWD.mp3"
+      ],
+      "reserved": false,
+      "context": "running"
+    },
+    {
+      "id": "LAPTOP_TYPING",
+      "consumers": [
+        "js/engine/open_audio.js"
+      ],
+      "started": true,
+      "starts": 1,
+      "files": [
+        "assets/audio/sfx/story/LAPTOP_TYPING.mp3"
+      ],
+      "reserved": false,
+      "context": "running"
+    },
+    {
+      "id": "HOOK_COOKED",
+      "consumers": [
+        "js/engine/open_audio.js",
+        "js/minigames/bars.js"
+      ],
+      "started": true,
+      "starts": 1,
+      "files": [
+        "assets/audio/sfx/story/HOOK_COOKED.mp3"
+      ],
+      "reserved": false,
+      "context": "running"
+    }
+  ],
+  "errors": []
+}

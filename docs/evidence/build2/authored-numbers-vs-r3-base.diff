@@ -2,17 +2,11 @@ diff --git a/js/frag/F01/engine.js b/js/frag/F01/engine.js
 index 1388a86..9463ef1 100644
 --- a/js/frag/F01/engine.js
 +++ b/js/frag/F01/engine.js
-@@ -250,29 +250,33 @@
-   o=o||{};const w=R.weaponOf(s,sh);const pv=R.preview(s,sh,tg,o);if(!pv.ok)return pv;
-   const wasConcealed=sh.conceal;
-   if(w.area)return fireArea(s,sh,{x:tg.x,y:tg.y},w,o,ev);
+@@ -252,0 +253,3 @@
 +  // Sapporo's authored two-enemy rule uses the existing visibility/range/LOS checks.
 +  // Stable unit order supplies the second eligible target without adding a targeting surface.
 +  const targets=w.distinctTargets?[{target:tg,preview:pv},...Object.values(s.units).filter(u=>u.id!==tg.id&&R.preview(s,sh,u,o).ok).map(u=>({target:u,preview:R.preview(s,sh,u,o)}))].slice(0,pv.hits):null;
-   sh.weapon.clip--;sh.weapon.fired++;
-   if(R.hasMod(sh,'silencer'))s.heat.silencerFired=true;
-   let downedTarget=false;
-   const bursts=pv.hits;
+@@ -257,3 +260,4 @@
 -  for(let i=0;i<bursts&&tg.status==='ACTIVE';i++){
 -   const roll=pv.neverMiss?null:Rng.percent(s.rng);
 -   const hit=pv.neverMiss||roll<pv.chance;
@@ -20,90 +14,49 @@ index 1388a86..9463ef1 100644
 +   const target=targets?targets[i].target:tg,aim=targets?targets[i].preview:pv;
 +   const roll=aim.neverMiss?null:Rng.percent(s.rng);
 +   const hit=aim.neverMiss||roll<aim.chance;
-    let dmg=0,crit=false,critRoll=null;
-    if(hit){
+@@ -262,2 +266,2 @@
 -    dmg=Rng.int(s.rng,pv.dmgMin,pv.dmgMax);
 -    critRoll=Rng.percent(s.rng);crit=critRoll<pv.crit;
 +    dmg=Rng.int(s.rng,aim.dmgMin,aim.dmgMax);
 +    critRoll=Rng.percent(s.rng);crit=critRoll<aim.crit;
-     if(crit)dmg=Math.round(dmg*D.HIT.critMult);
-    }
+@@ -266,2 +270,2 @@
 -   noteShot(s,sh,hit,crit,pv.chance,ev);
 -   const joke=!hit&&sh.side==='PLAYER'&&pv.chance>=95;
 +   noteShot(s,sh,hit,crit,aim.chance,ev);
 +   const joke=!hit&&sh.side==='PLAYER'&&aim.chance>=95;
-    if(joke)for(const o2 of ogas(s))if(o2.status==='ACTIVE')o2.facts.saw95Miss=true;
+@@ -269,2 +273,2 @@
 -   const shot={t:'SHOT',from:sh.id,to:tg.id,fx:sh.x,fy:sh.y,tx:tg.x,ty:tg.y,chance:pv.chance,roll:roll===null?null:Math.round(roll*100)/100,hit,crit,dmg,cover:pv.cover,flanked:pv.flanked,
 -    reaction:!!o.reaction,ability:o.ability||null,burst:i+1,bursts,joke,caption:joke?`${Math.round(pv.chance)}%???`:null,weapon:w.id,sfx:o.reaction?'BX_OVERWATCH':(hit&&pv.cover!=='NONE'?'BX_COVER_HIT':(D.GUN_SFX[w.id]||null)),gunSfx:D.GUN_SFX[w.id]||null};
 +   const shot={t:'SHOT',from:sh.id,to:target.id,fx:sh.x,fy:sh.y,tx:target.x,ty:target.y,chance:aim.chance,roll:roll===null?null:Math.round(roll*100)/100,hit,crit,dmg,cover:aim.cover,flanked:aim.flanked,
 +    reaction:!!o.reaction,ability:o.ability||null,burst:i+1,bursts,joke,caption:joke?`${Math.round(pv.chance)}%???`:null,weapon:w.id,sfx:o.reaction?'BX_OVERWATCH':(hit&&pv.cover!=='NONE'?'BX_COVER_HIT':(w.audio||D.GUN_SFX[w.id]||null)),gunSfx:w.audio||D.GUN_SFX[w.id]||null};
-    emit(ev,shot);
-    if(hit){
+@@ -273 +277 @@
 -    const lost=hurt(s,tg,dmg,sh.id,ev,{fromHalfCover:pv.cover==='HALF'});
 +    const lost=hurt(s,target,dmg,sh.id,ev,{fromHalfCover:aim.cover==='HALF'});
-     shot.lost=lost;
+@@ -275 +279 @@
 -    applyOnHit(s,sh,tg,w,ev);
 +    applyOnHit(s,sh,target,w,ev);
-    }
-   }
-   if(w.healSelf&&sh.hp<sh.maxHp&&sh.status==='ACTIVE'){sh.hp=Math.min(sh.maxHp,sh.hp+w.healSelf);emit(ev,{t:'HEAL',id:sh.id,amount:w.healSelf,hp:sh.hp,src:'weapon'});}
-@@ -307,7 +311,7 @@
-   sh.weapon.clip--;sh.weapon.fired++;s.heat.rpg+=w.heat||0;
-   const tiles=areaTiles(w,center,sh);const hit=[];
-   const dmg=Rng.int(s.rng,w.dmg[0],w.dmg[1]);
+@@ -310 +314 @@
 -  emit(ev,{t:'BLAST',from:sh.id,x:center.x,y:center.y,tiles,weapon:w.id,sfx:D.GUN_SFX[w.id]||null});
 +  emit(ev,{t:'BLAST',from:sh.id,x:center.x,y:center.y,tiles,weapon:w.id,sfx:w.audio||D.GUN_SFX[w.id]||null});
-   for(const t of tiles){
-    if(w.destroysCover){const p=R.propAt(s,t.x,t.y);if(p&&p.destructible){p.destroyed=true;emit(ev,{t:'COVER_DESTROYED',id:p.id,x:p.x,y:p.y,kind:p.kind});}}
-   }
 diff --git a/js/frag/F01/packets.js b/js/frag/F01/packets.js
 index 6585d69..5df4dbc 100644
 --- a/js/frag/F01/packets.js
 +++ b/js/frag/F01/packets.js
-@@ -39,7 +39,7 @@
-  let f02=null;
-  const F02_EFFECTS={
-   lil_oga:{owNeverMiss:true,longPenalty:true},
+@@ -42 +42 @@
 -  sapporo_shotgun:{closeBonus:true},
 +  sapporo_shotgun:{closeBonus:true,distinctTargets:true},
-   mac_and_cheese:{onHit:{suppress:true}},
-   chopstick_sniper:{noMoveShoot:true},
-   tommy_tony:{},
-@@ -63,14 +63,15 @@
-  function convertF02(id,st,base){
-   const p=parseDamage(st.damage);if(!p)return null;
-   const eff=F02_EFFECTS[id]||{};
+@@ -66,2 +66,2 @@
 -  const def={id,label:(base&&base.label)||id.toUpperCase().replace(/_/g,' '),dmg:p.dmg,band:BAND[st.range]||'medium',clip:(base&&base.clip)||3,src:'f02',note:st.note||'',...eff};
 -  if(p.hits>1&&!def.bursts)def.hits=p.hits;
 +  const def={id,label:(base&&base.label)||id.toUpperCase().replace(/_/g,' '),dmg:p.dmg,band:BAND[st.range]||'medium',clip:(base&&base.clip)||3,src:'f02',note:st.note||'',audio:root.RAIronCatalog?.byId(id)?.audio||D.GUN_SFX[id]||null,...eff};
 +  if((st.hits||p.hits)>1&&!def.bursts)def.hits=st.hits||p.hits;
-   if(st.range==='area'){def.area=st.area==='cone3'?'cone3':'3x3';}
-   if(base&&base.clip)def.clip=base.clip;
-   return def;
-  }
-  // bindF02(iron): iron = RAIronShowdown-like {stats(id), roster()}. Returns the report; stores it for entry building.
-  function bindF02(iron){
+@@ -73,0 +74 @@
 +  if(!iron&&root.RAFeatures&&!root.RAFeatures.enabled('F02.iron_and_grace')){f02=null;return {bound:false,reason:'F02 flag OFF'};}
-   iron=iron||root.RAIronShowdown||(root.RAIronAndGrace&&root.RAIronAndGrace.showdownSeam)||null;
-   if(!iron||typeof iron.stats!=='function'){f02=null;return {bound:false,reason:'F02 not present'};}
-   const weapons={},conflicts=[],unsupported=[];
-@@ -83,7 +84,6 @@
-    if(id==='jollof_burner')unsupported.push({id,why:'SOURCE_REQUIRED F02_BURN'});
-    if(id==='tommy_tony')unsupported.push({id,why:'SOURCE_REQUIRED F02_CONSECUTIVE'});
-    if(id==='auntie_slipper')unsupported.push({id,why:'fear needs an unauthored "grew up with it" tag; knockback only'});
+@@ -86 +86,0 @@
 -   if(id==='sapporo_shotgun')unsupported.push({id,why:'"hits two enemies" has no authored shape; Vol 7 +15 close profile kept'});
-    if(base){
-     if(base.band!==def.band)conflicts.push({id,field:'range',vol7:base.band,f02:def.band});
-     if(base.dmg[0]!==def.dmg[0]||base.dmg[1]!==def.dmg[1])conflicts.push({id,field:'damage',vol7:base.dmg.join('-'),f02:def.dmg.join('-')});
-@@ -148,7 +148,7 @@
-   if(!map&&packet.grid&&packet.grid.mapId)map=M.get(packet.grid.mapId);
-   let usedFallbackMap=false;
-   if(!map){map=M.get(jobType==='EXTRACT'?'dock':'alley');usedFallbackMap=true;notes.push('FALLBACK_MAP: no authored location map supplied; neutral sandbox map used');}
+@@ -151 +151 @@
 -  if(!f02)bindF02();
 +  if(root.RAFeatures||!f02)bindF02();
-   const weapons=f02?clone(f02.weapons):{};
-   const cfg={id:packet.jobId||'showdown',jobId:packet.jobId||null,jobType,district:packet.district||null,seed:packet.seed!==undefined?packet.seed:(packet.jobId||'showdown'),
-    map,squad,enemies:enemies.length?enemies:undefined,rich:opts.richEnabled===false?false:(packet.rich?true:undefined),objective:clone(profile.objective),
 diff --git a/js/frag/F02/armory.js b/js/frag/F02/armory.js
 new file mode 100644
 index 0000000..f64adff
@@ -409,6 +362,39 @@ index 0000000..94219df
 +  validate:problems
 + });
 +})();
+diff --git a/js/frag/F02/moves.js b/js/frag/F02/moves.js
+new file mode 100644
+index 0000000..e619ada
+--- /dev/null
++++ b/js/frag/F02/moves.js
+@@ -0,0 +1,27 @@
++(function(){
++ 'use strict';
++ // OL-045 integration: Vol 3 §1.3 specifies bedroom phone MOVES, four slots, canon moves never deleted.
++ // Registers DARK with the existing F02 flag; no save writes or phone change while OFF.
++ const canon=['blood','octopus','bite','revenge'],D=()=>window.RACombatData.MOVES;
++ const combat=()=>window.RAState.get().life.combat;
++ const known=()=>[...new Set([...canon,...combat().learnedMoves||[]])].filter(id=>D()[id]);
++ const atHome=()=>window.RAScenes?.current?.()==='bedroom'&&!window.RACombat2?.active?.();
++ const btn=(text,act)=>`<button type="button" class="phone-button" data-phone-action="${act}">${text}</button>`;
++ function equip(slot,id){
++  if(!atHome()||!Number.isInteger(slot)||slot<0||slot>=4||!known().includes(id))return false;
++  const eq=[...combat().equippedMoves].slice(0,4),other=eq.indexOf(id);
++  if(other>=0)[eq[slot],eq[other]]=[eq[other],eq[slot]];else eq[slot]=id;
++  window.RAState.patch('life.combat.equippedMoves',eq);return true;
++ }
++ window.RAPhoneRegistry.declare('F02',{id:'moves',label:'MOVES',section:'life',flag:'F02.iron_and_grace',
++  render(sub){
++   if(!atHome())return '<h1>MOVES</h1><p class="phone-small">SWAP AT HOME.</p>';
++   const slot=Number(sub),eq=combat().equippedMoves;
++   if(sub!==undefined&&sub!==''&&Number.isInteger(slot)&&slot>=0&&slot<4)return `<h1>MOVES · SLOT ${slot+1}</h1>${known().map(id=>btn(D()[id].label,`do:moves:equip:${slot}|${id}`)).join('')}`;
++   return `<h1>MOVES</h1>${eq.map((id,i)=>btn(`${i+1}. ${D()[id]?.label||id}`,`app:moves:${i}`)).join('')}`;
++  },onAction(act,arg,api){if(act==='equip'){const [slot,id]=arg.split('|');if(equip(Number(slot),id))api.refresh();}}
++ });
++ function unlock(){if(window.RAIronFlags.core()&&atHome())window.RAPhoneRegistry.unlock('moves');}
++ document.addEventListener('ra:scene',unlock);window.RAFeatures.onChange(unlock);
++ window.RAIronMoves={known,equip,atHome,unlock};
++})();
 diff --git a/js/frag/F02/range.js b/js/frag/F02/range.js
 new file mode 100644
 index 0000000..a43ae55
@@ -517,7 +503,7 @@ index 0000000..a43ae55
 +})();
 diff --git a/js/frag/F02/registry.js b/js/frag/F02/registry.js
 new file mode 100644
-index 0000000..eaa7e34
+index 0000000..31b2bb9
 --- /dev/null
 +++ b/js/frag/F02/registry.js
 @@ -0,0 +1,255 @@
@@ -681,7 +667,7 @@ index 0000000..eaa7e34
 +  }
 +  const say=helpers?.say||(()=>{});
 +  say(s,`GUN WEAVING: ${r.label}.`,'weird',{fx:'gun',gun:gunId});
-+  let base=menu.dmg||0;
++  let base=(menu.dmg||0)*(1+(s.rich?.gunBonus||0));
 +  const enemy=helpers?.E?helpers.E(s):null;
 +  if(menu.vsUndead&&enemy?.undead)base*=menu.vsUndead;
 +  if(r.bonuses.vsVampireUndead&&(enemy?.undead||enemy?.vampire))base*=1+r.bonuses.vsVampireUndead;
@@ -776,3 +762,13 @@ index 0000000..eaa7e34
 +  awardRange,storyTitle,storyCrit,discountTokens,medalCount,acquisitionOf,
 +  trap,showdown,feedback,describe,flags:F};
 +})();
+diff --git a/js/frag/F04/jobs.js b/js/frag/F04/jobs.js
+index 5f70125..a518a77 100644
+--- a/js/frag/F04/jobs.js
++++ b/js/frag/F04/jobs.js
+@@ -43 +43 @@
+-   squadSize: 3,
++   squadSize: 2,
+@@ -67 +67 @@
+-  EXTRACT:        { kind: 'showdown', label: 'EXTRACT',         squadSize: 2, reward: { type: 'showdown' }, heat: 0 },
++  EXTRACT:        { kind: 'showdown', label: 'EXTRACT',         squadSize: 3, reward: { type: 'showdown' }, heat: 0 },

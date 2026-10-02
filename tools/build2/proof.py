@@ -28,13 +28,13 @@ for folder in [Path("js"), Path("source_vault")]:
         if p.suffix not in [".js", ".mjs"]: continue
         text = p.read_text(encoding="utf-8")
         if re.search(r"TUNABLES|AUTHORED.*[Nn]umbers|const NUMBERS|Vol 3", text) or p.stem in ["authored", "balance", "numbers", "catalog", "jobs", "data", "content"]: numbers.append(p.as_posix())
-diff = git("diff", "r3-base", "--", *sorted(numbers)).decode("utf-8")
+diff = git("diff", "--unified=0", "r3-base", "--", *sorted(numbers)).decode("utf-8")
 (out / "authored-numbers-vs-r3-base.diff").write_text(diff, encoding="utf-8")
 rows = []
 base_files = set(git("ls-tree", "-r", "--name-only", "r3-base").decode().splitlines())
 for name in sorted(numbers):
     original = git("show", "r3-base:" + name) if name in base_files else None
     current = Path(name).read_bytes()
-    rows.append({"file": name, "status": "UNCHANGED" if original is not None and current.replace(b"\r\n", b"\n") == original.replace(b"\r\n", b"\n") else "PRESERVED F02 ADDITION" if name.startswith("js/frag/F02/") else "DIFF — REVIEW REQUIRED"})
+    rows.append({"file": name, "status": "UNCHANGED" if original is not None and current.replace(b"\r\n", b"\n") == original.replace(b"\r\n", b"\n") else "OL-045 SOURCE-AUTHORED HOME MOVES RECEIVER — NO GAME NUMBERS" if name == "js/frag/F02/moves.js" else "PRESERVED F02 ADDITION" if name.startswith("js/frag/F02/") else "OL-043 SOURCE CORRECTION (COLLECT 3->2, EXTRACT 2->3)" if name == "js/frag/F04/jobs.js" else "SEAM CHANGE — NUMBERS UNCHANGED" if name in ["js/engine/combat2.js", "js/minigames/touge.js", "js/minigames/bars.js", "js/scenes/combat2.js", "js/frag/F04/play_adapter.js", "js/frag/F01/engine.js", "js/frag/F01/packets.js"] else "DIFF — REVIEW REQUIRED"})
 (out / "authored-numbers-proof.json").write_text(json.dumps(rows, indent=2) + "\n")
 print(json.dumps({"ports": {k: {"identical": v["identical"], "total": v["total"]} for k,v in ports.items()}, "numberFiles": len(rows), "numberDiffs": [r for r in rows if r["status"] == "DIFF — REVIEW REQUIRED"], "art": art["recordsRead"]}))

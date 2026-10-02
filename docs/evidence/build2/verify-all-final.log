@@ -1,10 +1,6 @@
 
-> rich-alucard-static-release@0.0.0 verify:all
-> node tools/verify-all.mjs --require-browser
-
-
 === loader verification ===
-PASS loader (217 scripts, deterministic order, index.html in sync)
+PASS loader (221 scripts, deterministic order, index.html in sync)
 
 === build (regression + fragment suites + contract + zero-change + leak + artifact verification) ===
 PASS party foundation (9 resolutions, 3 openings, switching/reset/repeat/leave; no persistence globals available)
@@ -18,7 +14,7 @@ PASS hookah (makeRing scaling/wobble, stack-through, stepRing immutability, moon
 PASS jollof (blend/fry/steam stages, 5 judges, dragon crumble, mom cap, scoreDish/total shapes)
 PASS owambe collection (configured SUCCESS/SHORT/GREEDY reachability, exact payout math, bounds, registration)
 PASS pickup (shotChance monotonicity, aiStep progression, scoreAfterShot 1s/2s + immutability)
-PASS pier (catch table sums to 100, rain doubles big-fish odds x1.85, sealed chest stays neutral, tension rise/fall + snap-after-1.5s verified, registered)
+PASS pier (catch table sums to 100, rain doubles big-fish odds x1.89, sealed chest stays neutral, tension rise/fall + snap-after-1.5s verified, registered)
 PASS slurp (makeOrder, checkBowl, tipFor, orderInterval, canopy chair harness)
 PASS touge (cars, computeHandling, shared drift/chain/clip scoring, novice median 622, buildCourse, step: spin-out / AWD grip / countersteer hold)
 PASS btf propagation (synthetic minigame reward+result and fight outcome are consumed by the adventure; FU-03)
@@ -53,12 +49,13 @@ PASS F01 integration (flag registered DARK, refuses while OFF, save/WAKE/phone/C
 PASS F01 no-car recovery (carless job refuses but GET IT BACK stays reachable; recovery is the authored fee-0 call, unchanged; recovered car restores the job; reload / repeat interaction duplicate nothing; EXTRACT with zero cars refuses without a crash and keeps the captive)
 PASS F01 seams (F04 packet in / resolution out with no HEAT double-count, profiles, F05/F07 entry, flag gate, F02 stats: multi-hit, two taps, condition, scope/silencer, conflicts reported)
 PASS F01 Rich pull-up (turn>=3 once, edge entry, +15 HEAT hook, BLOOD BATH/VAMPIRE BITE/REVENGE exact, OCTOPUS BRAIN => SOURCE_REQUIRED, knocked down => RETREAT never GONE, F04 no-double-count)
-PASS F01 soak (64 full fights, 1314 actions, invariants after every action; smart V/R/F 30/2/0, random 0/31/1; 3718ms)
+PASS F01 soak (64 full fights, 1314 actions, invariants after every action; smart V/R/F 30/2/0, random 0/31/1; 3688ms)
 PASS F01 turn system (2 actions, dash rule, end-turn/enemy phase/refresh, ammo/reload/drum mag, sniper move rule, hunker, overwatch, LIL OGA, RPG once/area/cover, ITEM SOURCE_REQUIRED, refusals inert)
 PASS F02 Armory + Range Day (dark declaration, app actions, deterministic range, medal/discount/story rewards)
 PASS F02 catalog (13 authored guns, 6 mods, native parity, audio/art honesty)
 PASS F02 combat (inert while dark, RACombat2Ext GUN action, authored effects, per-fight ammo, native data untouched)
 PASS F02 contracts (GN audio hooks delivered, migration namespace clean, F01 seam data-only, TRAP API, FX hooks)
+PASS source-authored MOVES receiver (dark, known-only, four slots, no duplicate/lost move, home-only)
 PASS F02 registry (ownership, equip/loadout, mods, engraving, purchase gating, persistence, duplicate refusal)
 PASS F02 zero-change (dark fragment is fully inert: save/wake/economy/calendar byte-identical to IF-1 baseline)
 PASS f03 dark: flag OFF -> nothing available, no namespace, Koreatown defined-but-uncontrolled
@@ -149,14 +146,16 @@ PASS f07 endings: BLESSING / CONSIGLIERE / TAKEOVER each carry only their own au
 PASS f07 REQUIRED GAMEPLAY PROOF (real engine, identical seeds): AUNTIES and CANOPY POLE hazards change outcomes and only cost Rich's side; a collapse downs a named unit with the pole as cause (pinned seed); the narration step is produced for EVERY occurrence, outside the feed budget; stock beats unchanged
 PASS f07 Phase 1 (OL-029 F): THE PARTY is a PLAY Rich watches on his phone from the owambe: no Rich-as-actor/hazard in scene, feed or stage cards; PLAY seam; THE OFFICE unchanged
 PASS F11 audio completion (37 ids registered, 41 runtime MP3s, no collisions, F1 untouched, legacy restored, MAGIC_SEANCE inert, no-gesture safe)
+PASS OPEN audio routes (accepted node/environment/enemy keys, release/decode race, scope cancellation, component cleanup)
+PASS UI audio saturation (rapid taps restart oldest voice; authored cap and ordinary playback preserved)
 PASS F13 balance lock (War Room SLOTS cap + EXTRACT exempt, LAY LOW applied = shown, trap cases/night + BUY BASE, margin shape, repetition past a cap buys nothing, reload-invariant incl. recruits, no corrupted state)
-PASS f14 asset validation (decode/markers/duplicates/missing-reference; 509 real references clean)
-PASS f14 audio availability (249 registered sounds clean; 1 declared pending; synthetic missing detected)
+PASS f14 asset validation (decode/markers/duplicates/missing-reference; 524 real references clean)
+PASS f14 audio availability (279 registered sounds clean; 0 declared pending; synthetic missing detected)
 PASS f14 reproduction bundles (deterministic fingerprint, required fields, redaction + write guard)
 PASS f14 detection (invariants, duplicate resolutions, softlock, dead apps/links, backout, retry)
 PASS f14 route executor (steps, assertions, screenshots, console capture, backout, failure records)
 PASS f14 harness orchestration (checklist, PENDING_FRAGMENT, viewport sweep, screenshots, failure bundles)
-PASS f14 leak-scan integration (OPEN tree clean over 2187 files; planted forbidden path caught; range gate)
+PASS f14 leak-scan integration (OPEN tree clean over 2240 files; planted forbidden path caught; range gate)
 PASS f14 route registry (18 authorized, 4 PENDING_FRAGMENT, validation + override)
 PASS F15 seam: F06 adapter/production deltas are the additive hideTarget/geometry/onSpend seams (core + tunables guarded by f06/source.test.mjs)
 PASS F15 WOLF v2: 145-frame replacement verified and distinct, previous 146-frame sheet recoverable, apparent height preserved
@@ -194,27 +193,27 @@ PASS HOLD bridge result held / crash during delivery / repeated delivery: recove
 PASS HOLD bridge shared-step failure: F05 not applied, retried idempotently
 PASS HOLD bridge stale / malformed / unknown-crew / non-HOLD / unreadable results and back-out: all inert, raid kept, relaunch completes once
 PASS HOLD bridge persistence: shared namespaces only, no sandbox keys, schema v16, transaction cleared
-PASS IF-1 loader (217 scripts, manifest==index.html, legacy order preserved, slots/globs/css/overlay markers, dependency rules, duplicate/orphan/stale detection)
+PASS IF-1 loader (221 scripts, manifest==index.html, legacy order preserved, slots/globs/css/overlay markers, dependency rules, duplicate/orphan/stale detection)
 PASS IF-1 migrations (10 historical schemas v07–v16 load additively+idempotently, lazy frag namespaces, owner-assigned ordering, orphan/gap/claim rejection)
 PASS IF-1 phone/art/audio registries (reserved apps stay dark, additive art+audio parts, frozen-asset collision refused, part folders clean)
 PASS IF-1 sealed architecture (OPEN runs with empty pack; leak check catches forbidden paths/dirty slot/install calls/overlay slot/denylist without echo; overlay builder: empty pack == OPEN, payload confined to sealed roots, OPEN dist untouched, tamper + traversal rejected)
 PASS IF-1 services (money ledger, HEAT, trust/clout/tendency, crew, vehicles, districts, VampGram API, sales channels, Combat2 extension points)
 PASS IF-1 wake/night bus (accepted roster intact, deterministic priority order, flag gating, no double-fire, night-report slot, one voice note per WAKE)
 PASS IF-1 zero-behavior-change (4 lives × 6 nights, 72 route plays: byte-identical saves/traces/wake rosters with IF-1 present + all flags OFF; NEW OGA M1–M3 identical)
-PASS deterministic release gate (221 JavaScript syntax checks, save fixtures, recovery, opportunity access)
-PASS built ra-e0c918067d44-20261002175725 for e0c918067d442d80ba1dffebe6baf5dadef8dd06
+PASS deterministic release gate (225 JavaScript syntax checks, save fixtures, recovery, opportunity access)
+PASS built ra-75d475b02849-20261002200226 for 75d475b02849ffd5875ea0ce884d3cabc0b81f05
 
 === artifact verification ===
-PASS artifact verification ra-e0c918067d44-20261002175725 (e0c918067d442d80ba1dffebe6baf5dadef8dd06)
+PASS artifact verification ra-75d475b02849-20261002200226 (75d475b02849ffd5875ea0ce884d3cabc0b81f05)
 
 === OPEN artifact leak check ===
-PASS leak check artifact dist (1198 files, no sealed implementation content)
+PASS leak check artifact dist (1202 files, no sealed implementation content)
 
 === private overlay build with EMPTY pack (must equal OPEN) ===
 PASS private overlay build (0 payload files, 0 scripts, EMPTY pack — identical to OPEN; OPEN files untouched)
 
 === OPEN artifact still clean after overlay build ===
-PASS leak check artifact dist (1198 files, no sealed implementation content)
+PASS leak check artifact dist (1202 files, no sealed implementation content)
 PASS boot: IF-1 v1.0 loaded, every module present
 PASS boot: IF-1 self-check OK
 PASS boot: every fragment flag OFF (dark)
@@ -241,9 +240,9 @@ PASS IF-1 browser smoke (22 checks)
 
 PASS verify:all
   PASS    loader verification (0s)
-  PASS    build (regression + fragment suites + contract + zero-change + leak + artifact verification) (527s)
+  PASS    build (regression + fragment suites + contract + zero-change + leak + artifact verification) (568s)
   PASS    artifact verification (0s)
   PASS    OPEN artifact leak check (0s)
   PASS    private overlay build with EMPTY pack (must equal OPEN) (9s)
-  PASS    OPEN artifact still clean after overlay build (0s)
+  PASS    OPEN artifact still clean after overlay build (1s)
   PASS    browser smoke

@@ -1,0 +1,8 @@
+Final release gate excerpt at code 75d475b02849ffd5875ea0ce884d3cabc0b81f05
+PASS F02 Armory + Range Day (dark declaration, app actions, deterministic range, medal/discount/story rewards)
+PASS F02 catalog (13 authored guns, 6 mods, native parity, audio/art honesty)
+PASS F02 combat (inert while dark, RACombat2Ext GUN action, authored effects, per-fight ammo, native data untouched)
+PASS F02 contracts (GN audio hooks delivered, migration namespace clean, F01 seam data-only, TRAP API, FX hooks)
+PASS source-authored MOVES receiver (dark, known-only, four slots, no duplicate/lost move, home-only)
+PASS F02 registry (ownership, equip/loadout, mods, engraving, purchase gating, persistence, duplicate refusal)
+PASS F02 zero-change (dark fragment is fully inert: save/wake/economy/calendar byte-identical to IF-1 baseline)

@@ -1,0 +1,4 @@
+Final release gate excerpt at code 75d475b02849ffd5875ea0ce884d3cabc0b81f05
+PASS F11 audio completion (37 ids registered, 41 runtime MP3s, no collisions, F1 untouched, legacy restored, MAGIC_SEANCE inert, no-gesture safe)
+PASS OPEN audio routes (accepted node/environment/enemy keys, release/decode race, scope cancellation, component cleanup)
+PASS UI audio saturation (rapid taps restart oldest voice; authored cap and ordinary playback preserved)

@@ -35,7 +35,7 @@
       {
         "file": "js/frag/F02/combat.js",
         "sourceBlob": "f576cf812c2eee6583c855bf0e1f0b34b3c4856b",
-        "status": "IDENTICAL"
+        "status": "COMPOSED / SEAM ADAPTED"
       },
       {
         "file": "js/frag/F02/flags.js",
@@ -75,7 +75,7 @@
       {
         "file": "tools/tests/f02/_lib.mjs",
         "sourceBlob": "4c57d8b2f337a602cf41eeb0d111143d452d8fe7",
-        "status": "IDENTICAL"
+        "status": "COMPOSED / SEAM ADAPTED"
       },
       {
         "file": "tools/tests/f02/armory.test.mjs",
@@ -95,7 +95,7 @@
       {
         "file": "tools/tests/f02/combat.test.mjs",
         "sourceBlob": "b4a014eb0d4f1e3acecd429d15a56aefbf5fba4d",
-        "status": "IDENTICAL"
+        "status": "COMPOSED / SEAM ADAPTED"
       },
       {
         "file": "tools/tests/f02/contracts.test.mjs",
@@ -113,7 +113,7 @@
         "status": "IDENTICAL"
       }
     ],
-    "identical": 15,
+    "identical": 12,
     "total": 22
   },
   "F11-A": {

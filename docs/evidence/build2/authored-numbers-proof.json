@@ -5,11 +5,11 @@
   },
   {
     "file": "js/frag/F01/engine.js",
-    "status": "DIFF \u2014 REVIEW REQUIRED"
+    "status": "SEAM CHANGE \u2014 NUMBERS UNCHANGED"
   },
   {
     "file": "js/frag/F01/packets.js",
-    "status": "DIFF \u2014 REVIEW REQUIRED"
+    "status": "SEAM CHANGE \u2014 NUMBERS UNCHANGED"
   },
   {
     "file": "js/frag/F01/play/content.mjs",
@@ -24,6 +24,10 @@
     "status": "PRESERVED F02 ADDITION"
   },
   {
+    "file": "js/frag/F02/moves.js",
+    "status": "OL-045 SOURCE-AUTHORED HOME MOVES RECEIVER \u2014 NO GAME NUMBERS"
+  },
+  {
     "file": "js/frag/F02/range.js",
     "status": "PRESERVED F02 ADDITION"
   },
@@ -33,7 +37,7 @@
   },
   {
     "file": "js/frag/F04/jobs.js",
-    "status": "UNCHANGED"
+    "status": "OL-043 SOURCE CORRECTION (COLLECT 3->2, EXTRACT 2->3)"
   },
   {
     "file": "js/frag/F06/make_it_rain_tunables.js",

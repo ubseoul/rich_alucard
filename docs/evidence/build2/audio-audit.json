@@ -1,7 +1,7 @@
 {
   "briefRows": 244,
-  "missing": 1,
-  "unwired": 145,
+  "missing": 0,
+  "unwired": 0,
   "rows": [
     {
       "id": "UI_TAP",
@@ -99,6 +99,7 @@
       ],
       "missing": [],
       "consumers": [
+        "js/engine/open_audio.js",
         "assets/f01/play/feel-core.mjs"
       ],
       "status": "REGISTERED + STATIC CONSUMER"
@@ -111,8 +112,10 @@
         "assets/audio/sfx/ui_phone/UI_TEXT_BLIP_NPC_LOW.mp3"
       ],
       "missing": [],
-      "consumers": [],
-      "status": "REGISTERED — HOOK GAP"
+      "consumers": [
+        "js/engine/open_audio.js"
+      ],
+      "status": "REGISTERED + STATIC CONSUMER"
     },
     {
       "id": "UI_TEXT_BLIP_NPC_MID",
@@ -122,8 +125,10 @@
         "assets/audio/sfx/ui_phone/UI_TEXT_BLIP_NPC_MID.mp3"
       ],
       "missing": [],
-      "consumers": [],
-      "status": "REGISTERED — HOOK GAP"
+      "consumers": [
+        "js/engine/open_audio.js"
+      ],
+      "status": "REGISTERED + STATIC CONSUMER"
     },
     {
       "id": "UI_TEXT_BLIP_NPC_HIGH",
@@ -133,8 +138,10 @@
         "assets/audio/sfx/ui_phone/UI_TEXT_BLIP_NPC_HIGH.mp3"
       ],
       "missing": [],
-      "consumers": [],
-      "status": "REGISTERED — HOOK GAP"
+      "consumers": [
+        "js/engine/open_audio.js"
+      ],
+      "status": "REGISTERED + STATIC CONSUMER"
     },
     {
       "id": "UI_TEXT_BLIP_GHOST",
@@ -144,8 +151,10 @@
         "assets/audio/sfx/ui_phone/UI_TEXT_BLIP_GHOST.mp3"
       ],
       "missing": [],
-      "consumers": [],
-      "status": "REGISTERED — HOOK GAP"
+      "consumers": [
+        "js/engine/open_audio.js"
+      ],
+      "status": "REGISTERED + STATIC CONSUMER"
     },
     {
       "id": "PHONE_OPEN",
@@ -242,8 +251,10 @@
         "assets/audio/sfx/ui_phone/NOTIF_INSTAHOE.mp3"
       ],
       "missing": [],
-      "consumers": [],
-      "status": "REGISTERED — HOOK GAP"
+      "consumers": [
+        "js/systems/life.js"
+      ],
+      "status": "REGISTERED + STATIC CONSUMER"
     },
     {
       "id": "NOTIF_FAMILY",
@@ -559,8 +570,10 @@
         "assets/audio/sfx/home_castle/SNEEZE.mp3"
       ],
       "missing": [],
-      "consumers": [],
-      "status": "REGISTERED — HOOK GAP"
+      "consumers": [
+        "js/engine/open_audio.js"
+      ],
+      "status": "REGISTERED + STATIC CONSUMER"
     },
     {
       "id": "KITCHEN_AMB",
@@ -656,6 +669,7 @@
       "missing": [],
       "consumers": [
         "js/engine/combat2.js",
+        "js/engine/open_audio.js",
         "js/frag/F01/data.js",
         "js/frag/F01/maps.js",
         "js/frag/F01/play/engine.mjs",
@@ -892,8 +906,10 @@
         "assets/audio/sfx/combat/MOVE_ONEINCH.mp3"
       ],
       "missing": [],
-      "consumers": [],
-      "status": "REGISTERED — HOOK GAP"
+      "consumers": [
+        "js/systems/combat_presentation.js"
+      ],
+      "status": "REGISTERED + STATIC CONSUMER"
     },
     {
       "id": "ITEM_CAN",
@@ -903,8 +919,10 @@
         "assets/audio/sfx/combat/ITEM_CAN.mp3"
       ],
       "missing": [],
-      "consumers": [],
-      "status": "REGISTERED — HOOK GAP"
+      "consumers": [
+        "js/engine/open_audio.js"
+      ],
+      "status": "REGISTERED + STATIC CONSUMER"
     },
     {
       "id": "ITEM_EAT",
@@ -914,8 +932,10 @@
         "assets/audio/sfx/combat/ITEM_EAT.mp3"
       ],
       "missing": [],
-      "consumers": [],
-      "status": "REGISTERED — HOOK GAP"
+      "consumers": [
+        "js/engine/open_audio.js"
+      ],
+      "status": "REGISTERED + STATIC CONSUMER"
     },
     {
       "id": "ITEM_SLURP",
@@ -925,8 +945,10 @@
         "assets/audio/sfx/combat/ITEM_SLURP.mp3"
       ],
       "missing": [],
-      "consumers": [],
-      "status": "REGISTERED — HOOK GAP"
+      "consumers": [
+        "js/engine/open_audio.js"
+      ],
+      "status": "REGISTERED + STATIC CONSUMER"
     },
     {
       "id": "COMPANION_CALL",
@@ -936,8 +958,10 @@
         "assets/audio/sfx/combat/COMPANION_CALL.mp3"
       ],
       "missing": [],
-      "consumers": [],
-      "status": "REGISTERED — HOOK GAP"
+      "consumers": [
+        "js/engine/open_audio.js"
+      ],
+      "status": "REGISTERED + STATIC CONSUMER"
     },
     {
       "id": "GUNWEAVE",
@@ -947,8 +971,10 @@
         "assets/audio/sfx/combat/GUNWEAVE.mp3"
       ],
       "missing": [],
-      "consumers": [],
-      "status": "REGISTERED — HOOK GAP"
+      "consumers": [
+        "js/systems/combat_presentation.js"
+      ],
+      "status": "REGISTERED + STATIC CONSUMER"
     },
     {
       "id": "GUN_LILOGA",
@@ -1050,6 +1076,7 @@
       ],
       "missing": [],
       "consumers": [
+        "js/systems/combat_presentation.js",
         "js/systems/smoke.js"
       ],
       "status": "REGISTERED + STATIC CONSUMER"
@@ -1062,19 +1089,24 @@
         "assets/audio/sfx/combat/MAGIC_VEIL.mp3"
       ],
       "missing": [],
-      "consumers": [],
-      "status": "REGISTERED — HOOK GAP"
+      "consumers": [
+        "js/systems/combat_presentation.js"
+      ],
+      "status": "REGISTERED + STATIC CONSUMER"
     },
     {
       "id": "MAGIC_SEANCE",
       "milestone": "M2",
-      "registered": false,
-      "files": [],
+      "registered": true,
+      "files": [
+        "assets/audio/sfx/iron_and_grace/GN_01.mp3"
+      ],
       "missing": [],
       "consumers": [
+        "js/systems/combat_presentation.js",
         "js/systems/smoke.js"
       ],
-      "status": "MISSING SOUND"
+      "status": "REGISTERED + STATIC CONSUMER"
     },
     {
       "id": "MAGIC_RINGER",
@@ -1084,8 +1116,10 @@
         "assets/audio/sfx/combat/MAGIC_RINGER.mp3"
       ],
       "missing": [],
-      "consumers": [],
-      "status": "REGISTERED — HOOK GAP"
+      "consumers": [
+        "js/systems/combat_presentation.js"
+      ],
+      "status": "REGISTERED + STATIC CONSUMER"
     },
     {
       "id": "EN_BRIEFCASE",
@@ -1124,6 +1158,7 @@
       ],
       "missing": [],
       "consumers": [
+        "js/engine/open_audio.js",
         "js/systems/smoke.js"
       ],
       "status": "REGISTERED + STATIC CONSUMER"
@@ -1136,8 +1171,10 @@
         "assets/audio/sfx/combat/EN_SWORD.mp3"
       ],
       "missing": [],
-      "consumers": [],
-      "status": "REGISTERED — HOOK GAP"
+      "consumers": [
+        "js/engine/open_audio.js"
+      ],
+      "status": "REGISTERED + STATIC CONSUMER"
     },
     {
       "id": "EN_SHIELD",
@@ -1147,8 +1184,10 @@
         "assets/audio/sfx/combat/EN_SHIELD.mp3"
       ],
       "missing": [],
-      "consumers": [],
-      "status": "REGISTERED — HOOK GAP"
+      "consumers": [
+        "js/engine/open_audio.js"
+      ],
+      "status": "REGISTERED + STATIC CONSUMER"
     },
     {
       "id": "EN_POOF",
@@ -1158,8 +1197,10 @@
         "assets/audio/sfx/combat/EN_POOF.mp3"
       ],
       "missing": [],
-      "consumers": [],
-      "status": "REGISTERED — HOOK GAP"
+      "consumers": [
+        "js/engine/open_audio.js"
+      ],
+      "status": "REGISTERED + STATIC CONSUMER"
     },
     {
       "id": "EN_CHARGE",
@@ -1169,8 +1210,10 @@
         "assets/audio/sfx/combat/EN_CHARGE.mp3"
       ],
       "missing": [],
-      "consumers": [],
-      "status": "REGISTERED — HOOK GAP"
+      "consumers": [
+        "js/engine/open_audio.js"
+      ],
+      "status": "REGISTERED + STATIC CONSUMER"
     },
     {
       "id": "EN_SCREAM",
@@ -1180,8 +1223,10 @@
         "assets/audio/sfx/combat/EN_SCREAM.mp3"
       ],
       "missing": [],
-      "consumers": [],
-      "status": "REGISTERED — HOOK GAP"
+      "consumers": [
+        "js/engine/open_audio.js"
+      ],
+      "status": "REGISTERED + STATIC CONSUMER"
     },
     {
       "id": "EN_LUNCHBOX",
@@ -1191,8 +1236,10 @@
         "assets/audio/sfx/combat/EN_LUNCHBOX.mp3"
       ],
       "missing": [],
-      "consumers": [],
-      "status": "REGISTERED — HOOK GAP"
+      "consumers": [
+        "js/engine/open_audio.js"
+      ],
+      "status": "REGISTERED + STATIC CONSUMER"
     },
     {
       "id": "EN_STAKE",
@@ -1202,8 +1249,10 @@
         "assets/audio/sfx/combat/EN_STAKE.mp3"
       ],
       "missing": [],
-      "consumers": [],
-      "status": "REGISTERED — HOOK GAP"
+      "consumers": [
+        "js/engine/open_audio.js"
+      ],
+      "status": "REGISTERED + STATIC CONSUMER"
     },
     {
       "id": "EN_CHEW",
@@ -1213,8 +1262,10 @@
         "assets/audio/sfx/combat/EN_CHEW.mp3"
       ],
       "missing": [],
-      "consumers": [],
-      "status": "REGISTERED — HOOK GAP"
+      "consumers": [
+        "js/engine/open_audio.js"
+      ],
+      "status": "REGISTERED + STATIC CONSUMER"
     },
     {
       "id": "EN_LUTE",
@@ -1224,8 +1275,10 @@
         "assets/audio/sfx/combat/EN_LUTE.mp3"
       ],
       "missing": [],
-      "consumers": [],
-      "status": "REGISTERED — HOOK GAP"
+      "consumers": [
+        "js/engine/open_audio.js"
+      ],
+      "status": "REGISTERED + STATIC CONSUMER"
     },
     {
       "id": "EN_HOLY",
@@ -1248,8 +1301,10 @@
         "assets/audio/sfx/combat/EN_KIAI.mp3"
       ],
       "missing": [],
-      "consumers": [],
-      "status": "REGISTERED — HOOK GAP"
+      "consumers": [
+        "js/engine/open_audio.js"
+      ],
+      "status": "REGISTERED + STATIC CONSUMER"
     },
     {
       "id": "EN_HOWL",
@@ -1259,8 +1314,10 @@
         "assets/audio/sfx/combat/EN_HOWL.mp3"
       ],
       "missing": [],
-      "consumers": [],
-      "status": "REGISTERED — HOOK GAP"
+      "consumers": [
+        "js/engine/open_audio.js"
+      ],
+      "status": "REGISTERED + STATIC CONSUMER"
     },
     {
       "id": "CAR_I6_TURBO",
@@ -1273,6 +1330,7 @@
       ],
       "missing": [],
       "consumers": [
+        "js/minigames/touge.js",
         "js/systems/smoke.js",
         "assets/f01/play/feel-core.mjs"
       ],
@@ -1289,6 +1347,7 @@
       ],
       "missing": [],
       "consumers": [
+        "js/minigames/touge.js",
         "assets/f01/play/feel-core.mjs"
       ],
       "status": "REGISTERED + STATIC CONSUMER"
@@ -1304,6 +1363,7 @@
       ],
       "missing": [],
       "consumers": [
+        "js/minigames/touge.js",
         "assets/f01/play/feel-core.mjs"
       ],
       "status": "REGISTERED + STATIC CONSUMER"
@@ -1318,8 +1378,10 @@
         "assets/audio/sfx/touge/CAR_V12__high.mp3"
       ],
       "missing": [],
-      "consumers": [],
-      "status": "REGISTERED — HOOK GAP"
+      "consumers": [
+        "js/minigames/touge.js"
+      ],
+      "status": "REGISTERED + STATIC CONSUMER"
     },
     {
       "id": "CAR_V8_EXOTIC",
@@ -1331,8 +1393,10 @@
         "assets/audio/sfx/touge/CAR_V8_EXOTIC__high.mp3"
       ],
       "missing": [],
-      "consumers": [],
-      "status": "REGISTERED — HOOK GAP"
+      "consumers": [
+        "js/minigames/touge.js"
+      ],
+      "status": "REGISTERED + STATIC CONSUMER"
     },
     {
       "id": "TIRE_SQUEAL",
@@ -1345,6 +1409,7 @@
       ],
       "missing": [],
       "consumers": [
+        "js/minigames/touge.js",
         "js/systems/smoke.js",
         "assets/f01/play/feel-core.mjs"
       ],
@@ -1358,8 +1423,10 @@
         "assets/audio/sfx/touge/TIRE_GRIP.mp3"
       ],
       "missing": [],
-      "consumers": [],
-      "status": "REGISTERED — HOOK GAP"
+      "consumers": [
+        "js/minigames/touge.js"
+      ],
+      "status": "REGISTERED + STATIC CONSUMER"
     },
     {
       "id": "EBRAKE",
@@ -1382,8 +1449,10 @@
         "assets/audio/sfx/touge/CLUTCH_KICK.mp3"
       ],
       "missing": [],
-      "consumers": [],
-      "status": "REGISTERED — HOOK GAP"
+      "consumers": [
+        "js/minigames/touge.js"
+      ],
+      "status": "REGISTERED + STATIC CONSUMER"
     },
     {
       "id": "SHIFT",
@@ -1410,8 +1479,10 @@
         "assets/audio/sfx/touge/BLOWOFF.mp3"
       ],
       "missing": [],
-      "consumers": [],
-      "status": "REGISTERED — HOOK GAP"
+      "consumers": [
+        "js/minigames/touge.js"
+      ],
+      "status": "REGISTERED + STATIC CONSUMER"
     },
     {
       "id": "WALL_SCRAPE",
@@ -1421,8 +1492,10 @@
         "assets/audio/sfx/touge/WALL_SCRAPE.mp3"
       ],
       "missing": [],
-      "consumers": [],
-      "status": "REGISTERED — HOOK GAP"
+      "consumers": [
+        "js/minigames/touge.js"
+      ],
+      "status": "REGISTERED + STATIC CONSUMER"
     },
     {
       "id": "SPINOUT",
@@ -1432,8 +1505,10 @@
         "assets/audio/sfx/touge/SPINOUT.mp3"
       ],
       "missing": [],
-      "consumers": [],
-      "status": "REGISTERED — HOOK GAP"
+      "consumers": [
+        "js/minigames/touge.js"
+      ],
+      "status": "REGISTERED + STATIC CONSUMER"
     },
     {
       "id": "CLIP_DING",
@@ -1443,8 +1518,10 @@
         "assets/audio/sfx/touge/CLIP_DING.mp3"
       ],
       "missing": [],
-      "consumers": [],
-      "status": "REGISTERED — HOOK GAP"
+      "consumers": [
+        "js/minigames/touge.js"
+      ],
+      "status": "REGISTERED + STATIC CONSUMER"
     },
     {
       "id": "COMBO_UP",
@@ -1470,8 +1547,10 @@
         "assets/audio/sfx/touge/CROWD_CHEER_SMALL.mp3"
       ],
       "missing": [],
-      "consumers": [],
-      "status": "REGISTERED — HOOK GAP"
+      "consumers": [
+        "js/minigames/touge.js"
+      ],
+      "status": "REGISTERED + STATIC CONSUMER"
     },
     {
       "id": "COUNTDOWN",
@@ -1481,8 +1560,10 @@
         "assets/audio/sfx/touge/COUNTDOWN.mp3"
       ],
       "missing": [],
-      "consumers": [],
-      "status": "REGISTERED — HOOK GAP"
+      "consumers": [
+        "js/minigames/touge.js"
+      ],
+      "status": "REGISTERED + STATIC CONSUMER"
     },
     {
       "id": "AMB_MOUNTAIN",
@@ -1492,8 +1573,10 @@
         "assets/audio/sfx/touge/AMB_MOUNTAIN.mp3"
       ],
       "missing": [],
-      "consumers": [],
-      "status": "REGISTERED — HOOK GAP"
+      "consumers": [
+        "js/minigames/touge.js"
+      ],
+      "status": "REGISTERED + STATIC CONSUMER"
     },
     {
       "id": "AMB_GARAGE_ECHO",
@@ -1503,8 +1586,10 @@
         "assets/audio/sfx/garage/AMB_GARAGE_ECHO.mp3"
       ],
       "missing": [],
-      "consumers": [],
-      "status": "REGISTERED — HOOK GAP"
+      "consumers": [
+        "js/minigames/touge.js"
+      ],
+      "status": "REGISTERED + STATIC CONSUMER"
     },
     {
       "id": "CAST",
@@ -1554,8 +1639,10 @@
         "assets/audio/sfx/pier/BOBBER_PLOP.mp3"
       ],
       "missing": [],
-      "consumers": [],
-      "status": "REGISTERED — HOOK GAP"
+      "consumers": [
+        "js/minigames/pier.js"
+      ],
+      "status": "REGISTERED + STATIC CONSUMER"
     },
     {
       "id": "NIBBLE",
@@ -1565,8 +1652,10 @@
         "assets/audio/sfx/pier/NIBBLE.mp3"
       ],
       "missing": [],
-      "consumers": [],
-      "status": "REGISTERED — HOOK GAP"
+      "consumers": [
+        "js/minigames/pier.js"
+      ],
+      "status": "REGISTERED + STATIC CONSUMER"
     },
     {
       "id": "REEL_LOOP",
@@ -1576,8 +1665,10 @@
         "assets/audio/sfx/pier/REEL_LOOP.mp3"
       ],
       "missing": [],
-      "consumers": [],
-      "status": "REGISTERED — HOOK GAP"
+      "consumers": [
+        "js/minigames/pier.js"
+      ],
+      "status": "REGISTERED + STATIC CONSUMER"
     },
     {
       "id": "LINE_TENSION",
@@ -1587,8 +1678,10 @@
         "assets/audio/sfx/pier/LINE_TENSION.mp3"
       ],
       "missing": [],
-      "consumers": [],
-      "status": "REGISTERED — HOOK GAP"
+      "consumers": [
+        "js/minigames/pier.js"
+      ],
+      "status": "REGISTERED + STATIC CONSUMER"
     },
     {
       "id": "LINE_SNAP",
@@ -1598,8 +1691,10 @@
         "assets/audio/sfx/pier/LINE_SNAP.mp3"
       ],
       "missing": [],
-      "consumers": [],
-      "status": "REGISTERED — HOOK GAP"
+      "consumers": [
+        "js/minigames/pier.js"
+      ],
+      "status": "REGISTERED + STATIC CONSUMER"
     },
     {
       "id": "SPLASH_BIG",
@@ -1609,8 +1704,10 @@
         "assets/audio/sfx/pier/SPLASH_BIG.mp3"
       ],
       "missing": [],
-      "consumers": [],
-      "status": "REGISTERED — HOOK GAP"
+      "consumers": [
+        "js/minigames/pier.js"
+      ],
+      "status": "REGISTERED + STATIC CONSUMER"
     },
     {
       "id": "FISH_FLOP",
@@ -1620,8 +1717,10 @@
         "assets/audio/sfx/pier/FISH_FLOP.mp3"
       ],
       "missing": [],
-      "consumers": [],
-      "status": "REGISTERED — HOOK GAP"
+      "consumers": [
+        "js/minigames/pier.js"
+      ],
+      "status": "REGISTERED + STATIC CONSUMER"
     },
     {
       "id": "AMB_PIER",
@@ -1631,8 +1730,11 @@
         "assets/audio/sfx/pier/AMB_PIER.mp3"
       ],
       "missing": [],
-      "consumers": [],
-      "status": "REGISTERED — HOOK GAP"
+      "consumers": [
+        "js/engine/open_audio.js",
+        "js/minigames/pier.js"
+      ],
+      "status": "REGISTERED + STATIC CONSUMER"
     },
     {
       "id": "BOWL_CLINK",
@@ -1642,8 +1744,10 @@
         "assets/audio/sfx/slurp/BOWL_CLINK.mp3"
       ],
       "missing": [],
-      "consumers": [],
-      "status": "REGISTERED — HOOK GAP"
+      "consumers": [
+        "js/minigames/slurp.js"
+      ],
+      "status": "REGISTERED + STATIC CONSUMER"
     },
     {
       "id": "BROTH_POUR",
@@ -1653,8 +1757,10 @@
         "assets/audio/sfx/slurp/BROTH_POUR.mp3"
       ],
       "missing": [],
-      "consumers": [],
-      "status": "REGISTERED — HOOK GAP"
+      "consumers": [
+        "js/minigames/slurp.js"
+      ],
+      "status": "REGISTERED + STATIC CONSUMER"
     },
     {
       "id": "NOODLE_DROP",
@@ -1664,8 +1770,10 @@
         "assets/audio/sfx/slurp/NOODLE_DROP.mp3"
       ],
       "missing": [],
-      "consumers": [],
-      "status": "REGISTERED — HOOK GAP"
+      "consumers": [
+        "js/minigames/slurp.js"
+      ],
+      "status": "REGISTERED + STATIC CONSUMER"
     },
     {
       "id": "ORDER_BELL",
@@ -1675,8 +1783,10 @@
         "assets/audio/sfx/slurp/ORDER_BELL.mp3"
       ],
       "missing": [],
-      "consumers": [],
-      "status": "REGISTERED — HOOK GAP"
+      "consumers": [
+        "js/minigames/slurp.js"
+      ],
+      "status": "REGISTERED + STATIC CONSUMER"
     },
     {
       "id": "TICKET_PRINT",
@@ -1686,8 +1796,10 @@
         "assets/audio/sfx/slurp/TICKET_PRINT.mp3"
       ],
       "missing": [],
-      "consumers": [],
-      "status": "REGISTERED — HOOK GAP"
+      "consumers": [
+        "js/minigames/slurp.js"
+      ],
+      "status": "REGISTERED + STATIC CONSUMER"
     },
     {
       "id": "TIP_COINS",
@@ -1697,8 +1809,10 @@
         "assets/audio/sfx/slurp/TIP_COINS.mp3"
       ],
       "missing": [],
-      "consumers": [],
-      "status": "REGISTERED — HOOK GAP"
+      "consumers": [
+        "js/minigames/slurp.js"
+      ],
+      "status": "REGISTERED + STATIC CONSUMER"
     },
     {
       "id": "AMB_RAMEN",
@@ -1708,8 +1822,11 @@
         "assets/audio/sfx/slurp/AMB_RAMEN.mp3"
       ],
       "missing": [],
-      "consumers": [],
-      "status": "REGISTERED — HOOK GAP"
+      "consumers": [
+        "js/engine/open_audio.js",
+        "js/minigames/slurp.js"
+      ],
+      "status": "REGISTERED + STATIC CONSUMER"
     },
     {
       "id": "EGG_CRACK",
@@ -1719,8 +1836,10 @@
         "assets/audio/sfx/combat/EGG_CRACK.mp3"
       ],
       "missing": [],
-      "consumers": [],
-      "status": "REGISTERED — HOOK GAP"
+      "consumers": [
+        "js/engine/open_audio.js"
+      ],
+      "status": "REGISTERED + STATIC CONSUMER"
     },
     {
       "id": "DRAGON_CHIRP_BABY",
@@ -1730,8 +1849,10 @@
         "assets/audio/sfx/hatch/DRAGON_CHIRP_BABY.mp3"
       ],
       "missing": [],
-      "consumers": [],
-      "status": "REGISTERED — HOOK GAP"
+      "consumers": [
+        "js/minigames/hatch.js"
+      ],
+      "status": "REGISTERED + STATIC CONSUMER"
     },
     {
       "id": "DRAGON_HAPPY",
@@ -1741,8 +1862,10 @@
         "assets/audio/sfx/hatch/DRAGON_HAPPY.mp3"
       ],
       "missing": [],
-      "consumers": [],
-      "status": "REGISTERED — HOOK GAP"
+      "consumers": [
+        "js/minigames/hatch.js"
+      ],
+      "status": "REGISTERED + STATIC CONSUMER"
     },
     {
       "id": "DRAGON_SULK",
@@ -1752,8 +1875,10 @@
         "assets/audio/sfx/hatch/DRAGON_SULK.mp3"
       ],
       "missing": [],
-      "consumers": [],
-      "status": "REGISTERED — HOOK GAP"
+      "consumers": [
+        "js/minigames/hatch.js"
+      ],
+      "status": "REGISTERED + STATIC CONSUMER"
     },
     {
       "id": "DRAGON_ROAR",
@@ -1763,8 +1888,10 @@
         "assets/audio/sfx/hatch/DRAGON_ROAR.mp3"
       ],
       "missing": [],
-      "consumers": [],
-      "status": "REGISTERED — HOOK GAP"
+      "consumers": [
+        "js/minigames/hatch.js"
+      ],
+      "status": "REGISTERED + STATIC CONSUMER"
     },
     {
       "id": "DRAGON_WINGS",
@@ -1787,8 +1914,11 @@
         "assets/audio/sfx/hatch/DRAGON_FIRE_SMALL.mp3"
       ],
       "missing": [],
-      "consumers": [],
-      "status": "REGISTERED — HOOK GAP"
+      "consumers": [
+        "js/engine/open_audio.js",
+        "js/minigames/hatch.js"
+      ],
+      "status": "REGISTERED + STATIC CONSUMER"
     },
     {
       "id": "DRAGON_EAT",
@@ -1798,8 +1928,10 @@
         "assets/audio/sfx/hatch/DRAGON_EAT.mp3"
       ],
       "missing": [],
-      "consumers": [],
-      "status": "REGISTERED — HOOK GAP"
+      "consumers": [
+        "js/minigames/hatch.js"
+      ],
+      "status": "REGISTERED + STATIC CONSUMER"
     },
     {
       "id": "BARS_CORRECT",
@@ -1809,8 +1941,10 @@
         "assets/audio/sfx/bars/BARS_CORRECT.mp3"
       ],
       "missing": [],
-      "consumers": [],
-      "status": "REGISTERED — HOOK GAP"
+      "consumers": [
+        "js/minigames/bars.js"
+      ],
+      "status": "REGISTERED + STATIC CONSUMER"
     },
     {
       "id": "BARS_WRONG",
@@ -1820,8 +1954,10 @@
         "assets/audio/sfx/bars/BARS_WRONG.mp3"
       ],
       "missing": [],
-      "consumers": [],
-      "status": "REGISTERED — HOOK GAP"
+      "consumers": [
+        "js/minigames/bars.js"
+      ],
+      "status": "REGISTERED + STATIC CONSUMER"
     },
     {
       "id": "BARS_PUNCHLINE",
@@ -1844,8 +1980,10 @@
         "assets/audio/sfx/bars/BARS_TIMER.mp3"
       ],
       "missing": [],
-      "consumers": [],
-      "status": "REGISTERED — HOOK GAP"
+      "consumers": [
+        "js/minigames/bars.js"
+      ],
+      "status": "REGISTERED + STATIC CONSUMER"
     },
     {
       "id": "BLENDER",
@@ -1855,8 +1993,10 @@
         "assets/audio/sfx/jollof/BLENDER.mp3"
       ],
       "missing": [],
-      "consumers": [],
-      "status": "REGISTERED — HOOK GAP"
+      "consumers": [
+        "js/minigames/jollof.js"
+      ],
+      "status": "REGISTERED + STATIC CONSUMER"
     },
     {
       "id": "OIL_SIZZLE_PASTE",
@@ -1866,8 +2006,10 @@
         "assets/audio/sfx/jollof/OIL_SIZZLE_PASTE.mp3"
       ],
       "missing": [],
-      "consumers": [],
-      "status": "REGISTERED — HOOK GAP"
+      "consumers": [
+        "js/minigames/jollof.js"
+      ],
+      "status": "REGISTERED + STATIC CONSUMER"
     },
     {
       "id": "STIR_POT",
@@ -1877,8 +2019,10 @@
         "assets/audio/sfx/jollof/STIR_POT.mp3"
       ],
       "missing": [],
-      "consumers": [],
-      "status": "REGISTERED — HOOK GAP"
+      "consumers": [
+        "js/minigames/jollof.js"
+      ],
+      "status": "REGISTERED + STATIC CONSUMER"
     },
     {
       "id": "SPICE_SHAKE",
@@ -1888,8 +2032,10 @@
         "assets/audio/sfx/jollof/SPICE_SHAKE.mp3"
       ],
       "missing": [],
-      "consumers": [],
-      "status": "REGISTERED — HOOK GAP"
+      "consumers": [
+        "js/minigames/jollof.js"
+      ],
+      "status": "REGISTERED + STATIC CONSUMER"
     },
     {
       "id": "LID_CLANK",
@@ -1899,8 +2045,10 @@
         "assets/audio/sfx/jollof/LID_CLANK.mp3"
       ],
       "missing": [],
-      "consumers": [],
-      "status": "REGISTERED — HOOK GAP"
+      "consumers": [
+        "js/minigames/jollof.js"
+      ],
+      "status": "REGISTERED + STATIC CONSUMER"
     },
     {
       "id": "STEAM_HISS",
@@ -1910,8 +2058,10 @@
         "assets/audio/sfx/jollof/STEAM_HISS.mp3"
       ],
       "missing": [],
-      "consumers": [],
-      "status": "REGISTERED — HOOK GAP"
+      "consumers": [
+        "js/minigames/jollof.js"
+      ],
+      "status": "REGISTERED + STATIC CONSUMER"
     },
     {
       "id": "BURNT_CRACKLE",
@@ -1921,8 +2071,10 @@
         "assets/audio/sfx/jollof/BURNT_CRACKLE.mp3"
       ],
       "missing": [],
-      "consumers": [],
-      "status": "REGISTERED — HOOK GAP"
+      "consumers": [
+        "js/minigames/jollof.js"
+      ],
+      "status": "REGISTERED + STATIC CONSUMER"
     },
     {
       "id": "AMB_COOKOFF",
@@ -1932,8 +2084,10 @@
         "assets/audio/sfx/jollof/AMB_COOKOFF.mp3"
       ],
       "missing": [],
-      "consumers": [],
-      "status": "REGISTERED — HOOK GAP"
+      "consumers": [
+        "js/minigames/jollof.js"
+      ],
+      "status": "REGISTERED + STATIC CONSUMER"
     },
     {
       "id": "IMPACT_WRENCH",
@@ -1943,8 +2097,10 @@
         "assets/audio/sfx/garage/IMPACT_WRENCH.mp3"
       ],
       "missing": [],
-      "consumers": [],
-      "status": "REGISTERED — HOOK GAP"
+      "consumers": [
+        "js/minigames/garage.js"
+      ],
+      "status": "REGISTERED + STATIC CONSUMER"
     },
     {
       "id": "RATCHET",
@@ -1954,8 +2110,10 @@
         "assets/audio/sfx/garage/RATCHET.mp3"
       ],
       "missing": [],
-      "consumers": [],
-      "status": "REGISTERED — HOOK GAP"
+      "consumers": [
+        "js/minigames/garage.js"
+      ],
+      "status": "REGISTERED + STATIC CONSUMER"
     },
     {
       "id": "CAR_LIFT",
@@ -1965,8 +2123,10 @@
         "assets/audio/sfx/touge/CAR_LIFT.mp3"
       ],
       "missing": [],
-      "consumers": [],
-      "status": "REGISTERED — HOOK GAP"
+      "consumers": [
+        "js/minigames/garage.js"
+      ],
+      "status": "REGISTERED + STATIC CONSUMER"
     },
     {
       "id": "PART_INSTALL",
@@ -1976,8 +2136,10 @@
         "assets/audio/sfx/garage/PART_INSTALL.mp3"
       ],
       "missing": [],
-      "consumers": [],
-      "status": "REGISTERED — HOOK GAP"
+      "consumers": [
+        "js/minigames/garage.js"
+      ],
+      "status": "REGISTERED + STATIC CONSUMER"
     },
     {
       "id": "AMB_GARAGE",
@@ -1987,8 +2149,12 @@
         "assets/audio/sfx/garage/AMB_GARAGE.mp3"
       ],
       "missing": [],
-      "consumers": [],
-      "status": "REGISTERED — HOOK GAP"
+      "consumers": [
+        "js/engine/open_audio.js",
+        "js/minigames/garage.js",
+        "js/minigames/touge.js"
+      ],
+      "status": "REGISTERED + STATIC CONSUMER"
     },
     {
       "id": "HOOKAH_BUBBLE",
@@ -1998,8 +2164,10 @@
         "assets/audio/sfx/hookah_pickup_kbbq/HOOKAH_BUBBLE.mp3"
       ],
       "missing": [],
-      "consumers": [],
-      "status": "REGISTERED — HOOK GAP"
+      "consumers": [
+        "js/minigames/hookah.js"
+      ],
+      "status": "REGISTERED + STATIC CONSUMER"
     },
     {
       "id": "EXHALE",
@@ -2009,8 +2177,10 @@
         "assets/audio/sfx/hookah_pickup_kbbq/EXHALE.mp3"
       ],
       "missing": [],
-      "consumers": [],
-      "status": "REGISTERED — HOOK GAP"
+      "consumers": [
+        "js/minigames/hookah.js"
+      ],
+      "status": "REGISTERED + STATIC CONSUMER"
     },
     {
       "id": "DRIBBLE",
@@ -2034,8 +2204,10 @@
         "assets/audio/sfx/hookah_pickup_kbbq/SWISH.mp3"
       ],
       "missing": [],
-      "consumers": [],
-      "status": "REGISTERED — HOOK GAP"
+      "consumers": [
+        "js/minigames/pickup.js"
+      ],
+      "status": "REGISTERED + STATIC CONSUMER"
     },
     {
       "id": "RIM",
@@ -2047,7 +2219,8 @@
       "missing": [],
       "consumers": [
         "js/data/btf/adventures/w3.js",
-        "js/engine/stage.js"
+        "js/engine/stage.js",
+        "js/minigames/pickup.js"
       ],
       "status": "REGISTERED + STATIC CONSUMER"
     },
@@ -2059,8 +2232,10 @@
         "assets/audio/sfx/hookah_pickup_kbbq/SHOE_SQUEAK.mp3"
       ],
       "missing": [],
-      "consumers": [],
-      "status": "REGISTERED — HOOK GAP"
+      "consumers": [
+        "js/minigames/pickup.js"
+      ],
+      "status": "REGISTERED + STATIC CONSUMER"
     },
     {
       "id": "WHISTLE",
@@ -2070,8 +2245,10 @@
         "assets/audio/sfx/hookah_pickup_kbbq/WHISTLE.mp3"
       ],
       "missing": [],
-      "consumers": [],
-      "status": "REGISTERED — HOOK GAP"
+      "consumers": [
+        "js/minigames/pickup.js"
+      ],
+      "status": "REGISTERED + STATIC CONSUMER"
     },
     {
       "id": "AMB_COURTS",
@@ -2081,8 +2258,11 @@
         "assets/audio/sfx/hookah_pickup_kbbq/AMB_COURTS.mp3"
       ],
       "missing": [],
-      "consumers": [],
-      "status": "REGISTERED — HOOK GAP"
+      "consumers": [
+        "js/engine/open_audio.js",
+        "js/minigames/pickup.js"
+      ],
+      "status": "REGISTERED + STATIC CONSUMER"
     },
     {
       "id": "GRILL_LAND",
@@ -2093,8 +2273,10 @@
         "assets/audio/sfx/hookah_pickup_kbbq/GRILL_LAND__land.mp3"
       ],
       "missing": [],
-      "consumers": [],
-      "status": "REGISTERED — HOOK GAP"
+      "consumers": [
+        "js/engine/open_audio.js"
+      ],
+      "status": "REGISTERED + STATIC CONSUMER"
     },
     {
       "id": "TONGS",
@@ -2104,8 +2286,10 @@
         "assets/audio/sfx/hookah_pickup_kbbq/TONGS.mp3"
       ],
       "missing": [],
-      "consumers": [],
-      "status": "REGISTERED — HOOK GAP"
+      "consumers": [
+        "js/engine/open_audio.js"
+      ],
+      "status": "REGISTERED + STATIC CONSUMER"
     },
     {
       "id": "SIZZLE_PERFECT",
@@ -2115,8 +2299,10 @@
         "assets/audio/sfx/hookah_pickup_kbbq/SIZZLE_PERFECT.mp3"
       ],
       "missing": [],
-      "consumers": [],
-      "status": "REGISTERED — HOOK GAP"
+      "consumers": [
+        "js/engine/open_audio.js"
+      ],
+      "status": "REGISTERED + STATIC CONSUMER"
     },
     {
       "id": "CHAR_CRACKLE",
@@ -2126,8 +2312,10 @@
         "assets/audio/sfx/hookah_pickup_kbbq/CHAR_CRACKLE.mp3"
       ],
       "missing": [],
-      "consumers": [],
-      "status": "REGISTERED — HOOK GAP"
+      "consumers": [
+        "js/engine/open_audio.js"
+      ],
+      "status": "REGISTERED + STATIC CONSUMER"
     },
     {
       "id": "SMOKE_HISS",
@@ -2137,8 +2325,10 @@
         "assets/audio/sfx/hookah_pickup_kbbq/SMOKE_HISS.mp3"
       ],
       "missing": [],
-      "consumers": [],
-      "status": "REGISTERED — HOOK GAP"
+      "consumers": [
+        "js/engine/open_audio.js"
+      ],
+      "status": "REGISTERED + STATIC CONSUMER"
     },
     {
       "id": "AMB_KBBQ",
@@ -2148,8 +2338,10 @@
         "assets/audio/sfx/hookah_pickup_kbbq/AMB_KBBQ.mp3"
       ],
       "missing": [],
-      "consumers": [],
-      "status": "REGISTERED — HOOK GAP"
+      "consumers": [
+        "js/engine/open_audio.js"
+      ],
+      "status": "REGISTERED + STATIC CONSUMER"
     },
     {
       "id": "AMB_OCEAN_FLOOR",
@@ -2159,8 +2351,10 @@
         "assets/audio/sfx/locations/AMB_OCEAN_FLOOR.mp3"
       ],
       "missing": [],
-      "consumers": [],
-      "status": "REGISTERED — HOOK GAP"
+      "consumers": [
+        "js/engine/open_audio.js"
+      ],
+      "status": "REGISTERED + STATIC CONSUMER"
     },
     {
       "id": "AMB_DOCKS",
@@ -2170,8 +2364,10 @@
         "assets/audio/sfx/locations/AMB_DOCKS.mp3"
       ],
       "missing": [],
-      "consumers": [],
-      "status": "REGISTERED — HOOK GAP"
+      "consumers": [
+        "js/engine/open_audio.js"
+      ],
+      "status": "REGISTERED + STATIC CONSUMER"
     },
     {
       "id": "AMB_CURB",
@@ -2182,6 +2378,7 @@
       ],
       "missing": [],
       "consumers": [
+        "js/engine/open_audio.js",
         "assets/f01/play/feel-core.mjs"
       ],
       "status": "REGISTERED + STATIC CONSUMER"
@@ -2194,8 +2391,10 @@
         "assets/audio/sfx/locations/AMB_RAVE_EXT.mp3"
       ],
       "missing": [],
-      "consumers": [],
-      "status": "REGISTERED — HOOK GAP"
+      "consumers": [
+        "js/engine/open_audio.js"
+      ],
+      "status": "REGISTERED + STATIC CONSUMER"
     },
     {
       "id": "AMB_RAVE_INT",
@@ -2205,8 +2404,10 @@
         "assets/audio/sfx/locations/AMB_RAVE_INT.mp3"
       ],
       "missing": [],
-      "consumers": [],
-      "status": "REGISTERED — HOOK GAP"
+      "consumers": [
+        "js/engine/open_audio.js"
+      ],
+      "status": "REGISTERED + STATIC CONSUMER"
     },
     {
       "id": "AMB_MALL",
@@ -2216,8 +2417,10 @@
         "assets/audio/sfx/locations/AMB_MALL.mp3"
       ],
       "missing": [],
-      "consumers": [],
-      "status": "REGISTERED — HOOK GAP"
+      "consumers": [
+        "js/engine/open_audio.js"
+      ],
+      "status": "REGISTERED + STATIC CONSUMER"
     },
     {
       "id": "AMB_BOBA",
@@ -2227,8 +2430,10 @@
         "assets/audio/sfx/locations/AMB_BOBA.mp3"
       ],
       "missing": [],
-      "consumers": [],
-      "status": "REGISTERED — HOOK GAP"
+      "consumers": [
+        "js/engine/open_audio.js"
+      ],
+      "status": "REGISTERED + STATIC CONSUMER"
     },
     {
       "id": "AMB_FOODCOURT",
@@ -2238,8 +2443,10 @@
         "assets/audio/sfx/locations/AMB_FOODCOURT.mp3"
       ],
       "missing": [],
-      "consumers": [],
-      "status": "REGISTERED — HOOK GAP"
+      "consumers": [
+        "js/engine/open_audio.js"
+      ],
+      "status": "REGISTERED + STATIC CONSUMER"
     },
     {
       "id": "AMB_PETSTORE",
@@ -2249,8 +2456,10 @@
         "assets/audio/sfx/locations/AMB_PETSTORE.mp3"
       ],
       "missing": [],
-      "consumers": [],
-      "status": "REGISTERED — HOOK GAP"
+      "consumers": [
+        "js/engine/open_audio.js"
+      ],
+      "status": "REGISTERED + STATIC CONSUMER"
     },
     {
       "id": "AMB_DISPENSARY",
@@ -2260,8 +2469,10 @@
         "assets/audio/sfx/locations/AMB_DISPENSARY.mp3"
       ],
       "missing": [],
-      "consumers": [],
-      "status": "REGISTERED — HOOK GAP"
+      "consumers": [
+        "js/engine/open_audio.js"
+      ],
+      "status": "REGISTERED + STATIC CONSUMER"
     },
     {
       "id": "AMB_CAFE_RAIN",
@@ -2271,8 +2482,10 @@
         "assets/audio/sfx/locations/AMB_CAFE_RAIN.mp3"
       ],
       "missing": [],
-      "consumers": [],
-      "status": "REGISTERED — HOOK GAP"
+      "consumers": [
+        "js/engine/open_audio.js"
+      ],
+      "status": "REGISTERED + STATIC CONSUMER"
     },
     {
       "id": "AMB_CATACOMB",
@@ -2282,8 +2495,10 @@
         "assets/audio/sfx/locations/AMB_CATACOMB.mp3"
       ],
       "missing": [],
-      "consumers": [],
-      "status": "REGISTERED — HOOK GAP"
+      "consumers": [
+        "js/engine/open_audio.js"
+      ],
+      "status": "REGISTERED + STATIC CONSUMER"
     },
     {
       "id": "AMB_BLOODBANK",
@@ -2293,8 +2508,10 @@
         "assets/audio/sfx/locations/AMB_BLOODBANK.mp3"
       ],
       "missing": [],
-      "consumers": [],
-      "status": "REGISTERED — HOOK GAP"
+      "consumers": [
+        "js/engine/open_audio.js"
+      ],
+      "status": "REGISTERED + STATIC CONSUMER"
     },
     {
       "id": "AMB_ARMORY",
@@ -2304,8 +2521,10 @@
         "assets/audio/sfx/locations/AMB_ARMORY.mp3"
       ],
       "missing": [],
-      "consumers": [],
-      "status": "REGISTERED — HOOK GAP"
+      "consumers": [
+        "js/engine/open_audio.js"
+      ],
+      "status": "REGISTERED + STATIC CONSUMER"
     },
     {
       "id": "AMB_BALLROOM",
@@ -2315,8 +2534,10 @@
         "assets/audio/sfx/locations/AMB_BALLROOM.mp3"
       ],
       "missing": [],
-      "consumers": [],
-      "status": "REGISTERED — HOOK GAP"
+      "consumers": [
+        "js/engine/open_audio.js"
+      ],
+      "status": "REGISTERED + STATIC CONSUMER"
     },
     {
       "id": "AMB_SOIREE",
@@ -2326,8 +2547,10 @@
         "assets/audio/sfx/locations/AMB_SOIREE.mp3"
       ],
       "missing": [],
-      "consumers": [],
-      "status": "REGISTERED — HOOK GAP"
+      "consumers": [
+        "js/engine/open_audio.js"
+      ],
+      "status": "REGISTERED + STATIC CONSUMER"
     },
     {
       "id": "AMB_RESTAURANT",
@@ -2337,8 +2560,10 @@
         "assets/audio/sfx/locations/AMB_RESTAURANT.mp3"
       ],
       "missing": [],
-      "consumers": [],
-      "status": "REGISTERED — HOOK GAP"
+      "consumers": [
+        "js/engine/open_audio.js"
+      ],
+      "status": "REGISTERED + STATIC CONSUMER"
     },
     {
       "id": "AMB_AFRICAN_STORE",
@@ -2348,8 +2573,10 @@
         "assets/audio/sfx/locations/AMB_AFRICAN_STORE.mp3"
       ],
       "missing": [],
-      "consumers": [],
-      "status": "REGISTERED — HOOK GAP"
+      "consumers": [
+        "js/engine/open_audio.js"
+      ],
+      "status": "REGISTERED + STATIC CONSUMER"
     },
     {
       "id": "AMB_BRUNCH",
@@ -2359,8 +2586,10 @@
         "assets/audio/sfx/locations/AMB_BRUNCH.mp3"
       ],
       "missing": [],
-      "consumers": [],
-      "status": "REGISTERED — HOOK GAP"
+      "consumers": [
+        "js/engine/open_audio.js"
+      ],
+      "status": "REGISTERED + STATIC CONSUMER"
     },
     {
       "id": "AMB_ONSEN",
@@ -2370,8 +2599,10 @@
         "assets/audio/sfx/locations/AMB_ONSEN.mp3"
       ],
       "missing": [],
-      "consumers": [],
-      "status": "REGISTERED — HOOK GAP"
+      "consumers": [
+        "js/engine/open_audio.js"
+      ],
+      "status": "REGISTERED + STATIC CONSUMER"
     },
     {
       "id": "AMB_LITTLE_TOKYO",
@@ -2381,8 +2612,10 @@
         "assets/audio/sfx/locations/AMB_LITTLE_TOKYO.mp3"
       ],
       "missing": [],
-      "consumers": [],
-      "status": "REGISTERED — HOOK GAP"
+      "consumers": [
+        "js/engine/open_audio.js"
+      ],
+      "status": "REGISTERED + STATIC CONSUMER"
     },
     {
       "id": "AMB_CONCERT",
@@ -2392,8 +2625,10 @@
         "assets/audio/sfx/locations/AMB_CONCERT.mp3"
       ],
       "missing": [],
-      "consumers": [],
-      "status": "REGISTERED — HOOK GAP"
+      "consumers": [
+        "js/engine/open_audio.js"
+      ],
+      "status": "REGISTERED + STATIC CONSUMER"
     },
     {
       "id": "AMB_TACO_TRUCK",
@@ -2403,8 +2638,10 @@
         "assets/audio/sfx/locations/AMB_TACO_TRUCK.mp3"
       ],
       "missing": [],
-      "consumers": [],
-      "status": "REGISTERED — HOOK GAP"
+      "consumers": [
+        "js/engine/open_audio.js"
+      ],
+      "status": "REGISTERED + STATIC CONSUMER"
     },
     {
       "id": "AMB_APARTMENT_LAN",
@@ -2414,8 +2651,10 @@
         "assets/audio/sfx/locations/AMB_APARTMENT_LAN.mp3"
       ],
       "missing": [],
-      "consumers": [],
-      "status": "REGISTERED — HOOK GAP"
+      "consumers": [
+        "js/engine/open_audio.js"
+      ],
+      "status": "REGISTERED + STATIC CONSUMER"
     },
     {
       "id": "AMB_GALLERY",
@@ -2425,8 +2664,10 @@
         "assets/audio/sfx/locations/AMB_GALLERY.mp3"
       ],
       "missing": [],
-      "consumers": [],
-      "status": "REGISTERED — HOOK GAP"
+      "consumers": [
+        "js/engine/open_audio.js"
+      ],
+      "status": "REGISTERED + STATIC CONSUMER"
     },
     {
       "id": "AMB_DINER_ATL",
@@ -2436,8 +2677,10 @@
         "assets/audio/sfx/locations/AMB_DINER_ATL.mp3"
       ],
       "missing": [],
-      "consumers": [],
-      "status": "REGISTERED — HOOK GAP"
+      "consumers": [
+        "js/engine/open_audio.js"
+      ],
+      "status": "REGISTERED + STATIC CONSUMER"
     },
     {
       "id": "AMB_AIRPORT",
@@ -2447,8 +2690,10 @@
         "assets/audio/sfx/locations/AMB_AIRPORT.mp3"
       ],
       "missing": [],
-      "consumers": [],
-      "status": "REGISTERED — HOOK GAP"
+      "consumers": [
+        "js/engine/open_audio.js"
+      ],
+      "status": "REGISTERED + STATIC CONSUMER"
     },
     {
       "id": "AMB_MALL_ATL",
@@ -2458,8 +2703,10 @@
         "assets/audio/sfx/locations/AMB_MALL_ATL.mp3"
       ],
       "missing": [],
-      "consumers": [],
-      "status": "REGISTERED — HOOK GAP"
+      "consumers": [
+        "js/engine/open_audio.js"
+      ],
+      "status": "REGISTERED + STATIC CONSUMER"
     },
     {
       "id": "AMB_PARK_FOUNTAIN",
@@ -2469,8 +2716,10 @@
         "assets/audio/sfx/locations/AMB_PARK_FOUNTAIN.mp3"
       ],
       "missing": [],
-      "consumers": [],
-      "status": "REGISTERED — HOOK GAP"
+      "consumers": [
+        "js/engine/open_audio.js"
+      ],
+      "status": "REGISTERED + STATIC CONSUMER"
     },
     {
       "id": "AMB_FAMILY_HOUSE",
@@ -2480,8 +2729,10 @@
         "assets/audio/sfx/locations/AMB_FAMILY_HOUSE.mp3"
       ],
       "missing": [],
-      "consumers": [],
-      "status": "REGISTERED — HOOK GAP"
+      "consumers": [
+        "js/engine/open_audio.js"
+      ],
+      "status": "REGISTERED + STATIC CONSUMER"
     },
     {
       "id": "AMB_SALON",
@@ -2491,8 +2742,10 @@
         "assets/audio/sfx/locations/AMB_SALON.mp3"
       ],
       "missing": [],
-      "consumers": [],
-      "status": "REGISTERED — HOOK GAP"
+      "consumers": [
+        "js/engine/open_audio.js"
+      ],
+      "status": "REGISTERED + STATIC CONSUMER"
     },
     {
       "id": "AMB_RAIN",
@@ -2502,8 +2755,10 @@
         "assets/audio/sfx/locations/AMB_RAIN.mp3"
       ],
       "missing": [],
-      "consumers": [],
-      "status": "REGISTERED — HOOK GAP"
+      "consumers": [
+        "js/engine/open_audio.js"
+      ],
+      "status": "REGISTERED + STATIC CONSUMER"
     },
     {
       "id": "AMB_HOTSPRING_OUT",
@@ -2513,8 +2768,10 @@
         "assets/audio/sfx/locations/AMB_HOTSPRING_OUT.mp3"
       ],
       "missing": [],
-      "consumers": [],
-      "status": "REGISTERED — HOOK GAP"
+      "consumers": [
+        "js/engine/open_audio.js"
+      ],
+      "status": "REGISTERED + STATIC CONSUMER"
     },
     {
       "id": "LADDER_CREAK",
@@ -2524,8 +2781,10 @@
         "assets/audio/sfx/story/LADDER_CREAK.mp3"
       ],
       "missing": [],
-      "consumers": [],
-      "status": "REGISTERED — HOOK GAP"
+      "consumers": [
+        "js/engine/open_audio.js"
+      ],
+      "status": "REGISTERED + STATIC CONSUMER"
     },
     {
       "id": "LADDER_COLLAPSE",
@@ -2535,8 +2794,10 @@
         "assets/audio/sfx/story/LADDER_COLLAPSE.mp3"
       ],
       "missing": [],
-      "consumers": [],
-      "status": "REGISTERED — HOOK GAP"
+      "consumers": [
+        "js/engine/open_audio.js"
+      ],
+      "status": "REGISTERED + STATIC CONSUMER"
     },
     {
       "id": "SENSEI_RUMBLE",
@@ -2546,8 +2807,10 @@
         "assets/audio/sfx/story/SENSEI_RUMBLE.mp3"
       ],
       "missing": [],
-      "consumers": [],
-      "status": "REGISTERED — HOOK GAP"
+      "consumers": [
+        "js/engine/open_audio.js"
+      ],
+      "status": "REGISTERED + STATIC CONSUMER"
     },
     {
       "id": "EGG_REVEAL",
@@ -2557,8 +2820,10 @@
         "assets/audio/sfx/combat/EGG_REVEAL.mp3"
       ],
       "missing": [],
-      "consumers": [],
-      "status": "REGISTERED — HOOK GAP"
+      "consumers": [
+        "js/engine/open_audio.js"
+      ],
+      "status": "REGISTERED + STATIC CONSUMER"
     },
     {
       "id": "HOLY_CHOIR_COMEDIC",
@@ -2568,8 +2833,10 @@
         "assets/audio/sfx/story/HOLY_CHOIR_COMEDIC.mp3"
       ],
       "missing": [],
-      "consumers": [],
-      "status": "REGISTERED — HOOK GAP"
+      "consumers": [
+        "js/engine/open_audio.js"
+      ],
+      "status": "REGISTERED + STATIC CONSUMER"
     },
     {
       "id": "BLOOD_SPRINKLER",
@@ -2606,8 +2873,10 @@
         "assets/audio/sfx/combat/CROWD_OOH.mp3"
       ],
       "missing": [],
-      "consumers": [],
-      "status": "REGISTERED — HOOK GAP"
+      "consumers": [
+        "js/engine/open_audio.js"
+      ],
+      "status": "REGISTERED + STATIC CONSUMER"
     },
     {
       "id": "RECORD_SCRATCH",
@@ -2617,8 +2886,10 @@
         "assets/audio/sfx/story/RECORD_SCRATCH.mp3"
       ],
       "missing": [],
-      "consumers": [],
-      "status": "REGISTERED — HOOK GAP"
+      "consumers": [
+        "js/engine/open_audio.js"
+      ],
+      "status": "REGISTERED + STATIC CONSUMER"
     },
     {
       "id": "MIC_FEEDBACK",
@@ -2628,8 +2899,10 @@
         "assets/audio/sfx/story/MIC_FEEDBACK.mp3"
       ],
       "missing": [],
-      "consumers": [],
-      "status": "REGISTERED — HOOK GAP"
+      "consumers": [
+        "js/engine/open_audio.js"
+      ],
+      "status": "REGISTERED + STATIC CONSUMER"
     },
     {
       "id": "POWER_CUT",
@@ -2639,8 +2912,10 @@
         "assets/audio/sfx/story/POWER_CUT.mp3"
       ],
       "missing": [],
-      "consumers": [],
-      "status": "REGISTERED — HOOK GAP"
+      "consumers": [
+        "js/engine/open_audio.js"
+      ],
+      "status": "REGISTERED + STATIC CONSUMER"
     },
     {
       "id": "MALL_GATE",
@@ -2650,8 +2925,10 @@
         "assets/audio/sfx/story/MALL_GATE.mp3"
       ],
       "missing": [],
-      "consumers": [],
-      "status": "REGISTERED — HOOK GAP"
+      "consumers": [
+        "js/engine/open_audio.js"
+      ],
+      "status": "REGISTERED + STATIC CONSUMER"
     },
     {
       "id": "SIREN_CHIRP",
@@ -2661,8 +2938,10 @@
         "assets/audio/sfx/story/SIREN_CHIRP.mp3"
       ],
       "missing": [],
-      "consumers": [],
-      "status": "REGISTERED — HOOK GAP"
+      "consumers": [
+        "js/engine/open_audio.js"
+      ],
+      "status": "REGISTERED + STATIC CONSUMER"
     },
     {
       "id": "HEAVY_STEPS",
@@ -2672,8 +2951,10 @@
         "assets/audio/sfx/story/HEAVY_STEPS.mp3"
       ],
       "missing": [],
-      "consumers": [],
-      "status": "REGISTERED — HOOK GAP"
+      "consumers": [
+        "js/engine/open_audio.js"
+      ],
+      "status": "REGISTERED + STATIC CONSUMER"
     },
     {
       "id": "BAT_SWARM",
@@ -2683,8 +2964,10 @@
         "assets/audio/sfx/combat/BAT_SWARM.mp3"
       ],
       "missing": [],
-      "consumers": [],
-      "status": "REGISTERED — HOOK GAP"
+      "consumers": [
+        "js/systems/ambience.js"
+      ],
+      "status": "REGISTERED + STATIC CONSUMER"
     },
     {
       "id": "XCOM_MISS",
@@ -2694,8 +2977,10 @@
         "assets/audio/sfx/story/XCOM_MISS.mp3"
       ],
       "missing": [],
-      "consumers": [],
-      "status": "REGISTERED — HOOK GAP"
+      "consumers": [
+        "js/engine/open_audio.js"
+      ],
+      "status": "REGISTERED + STATIC CONSUMER"
     },
     {
       "id": "SUBURB_MORNING",
@@ -2705,8 +2990,10 @@
         "assets/audio/sfx/story/SUBURB_MORNING.mp3"
       ],
       "missing": [],
-      "consumers": [],
-      "status": "REGISTERED — HOOK GAP"
+      "consumers": [
+        "js/engine/open_audio.js"
+      ],
+      "status": "REGISTERED + STATIC CONSUMER"
     },
     {
       "id": "ALARM_CLOCK",
@@ -2716,8 +3003,10 @@
         "assets/audio/sfx/story/ALARM_CLOCK.mp3"
       ],
       "missing": [],
-      "consumers": [],
-      "status": "REGISTERED — HOOK GAP"
+      "consumers": [
+        "js/engine/open_audio.js"
+      ],
+      "status": "REGISTERED + STATIC CONSUMER"
     },
     {
       "id": "OFFICE_ROOM",
@@ -2727,8 +3016,10 @@
         "assets/audio/sfx/story/OFFICE_ROOM.mp3"
       ],
       "missing": [],
-      "consumers": [],
-      "status": "REGISTERED — HOOK GAP"
+      "consumers": [
+        "js/engine/open_audio.js"
+      ],
+      "status": "REGISTERED + STATIC CONSUMER"
     },
     {
       "id": "POLITE_APPLAUSE",
@@ -2738,8 +3029,10 @@
         "assets/audio/sfx/story/POLITE_APPLAUSE.mp3"
       ],
       "missing": [],
-      "consumers": [],
-      "status": "REGISTERED — HOOK GAP"
+      "consumers": [
+        "js/engine/open_audio.js"
+      ],
+      "status": "REGISTERED + STATIC CONSUMER"
     },
     {
       "id": "WAKE_SCREAM",
@@ -2749,8 +3042,10 @@
         "assets/audio/sfx/combat/WAKE_SCREAM.mp3"
       ],
       "missing": [],
-      "consumers": [],
-      "status": "REGISTERED — HOOK GAP"
+      "consumers": [
+        "js/engine/open_audio.js"
+      ],
+      "status": "REGISTERED + STATIC CONSUMER"
     },
     {
       "id": "STARS_SHIMMER",
@@ -2760,8 +3055,10 @@
         "assets/audio/sfx/story/STARS_SHIMMER.mp3"
       ],
       "missing": [],
-      "consumers": [],
-      "status": "REGISTERED — HOOK GAP"
+      "consumers": [
+        "js/engine/open_audio.js"
+      ],
+      "status": "REGISTERED + STATIC CONSUMER"
     },
     {
       "id": "TRANSFORM_BLOOM",
@@ -2771,8 +3068,10 @@
         "assets/audio/sfx/story/TRANSFORM_BLOOM.mp3"
       ],
       "missing": [],
-      "consumers": [],
-      "status": "REGISTERED — HOOK GAP"
+      "consumers": [
+        "js/engine/open_audio.js"
+      ],
+      "status": "REGISTERED + STATIC CONSUMER"
     },
     {
       "id": "KIDS_HALLOWEEN",
@@ -2782,8 +3081,10 @@
         "assets/audio/sfx/story/KIDS_HALLOWEEN.mp3"
       ],
       "missing": [],
-      "consumers": [],
-      "status": "REGISTERED — HOOK GAP"
+      "consumers": [
+        "js/engine/open_audio.js"
+      ],
+      "status": "REGISTERED + STATIC CONSUMER"
     },
     {
       "id": "CAR_WINDOWS_DOWN",
@@ -2793,8 +3094,10 @@
         "assets/audio/sfx/touge/CAR_WINDOWS_DOWN.mp3"
       ],
       "missing": [],
-      "consumers": [],
-      "status": "REGISTERED — HOOK GAP"
+      "consumers": [
+        "js/engine/open_audio.js"
+      ],
+      "status": "REGISTERED + STATIC CONSUMER"
     },
     {
       "id": "NINJA_CROWD",
@@ -2804,8 +3107,10 @@
         "assets/audio/sfx/story/NINJA_CROWD.mp3"
       ],
       "missing": [],
-      "consumers": [],
-      "status": "REGISTERED — HOOK GAP"
+      "consumers": [
+        "js/engine/open_audio.js"
+      ],
+      "status": "REGISTERED + STATIC CONSUMER"
     },
     {
       "id": "LAPTOP_TYPING",
@@ -2815,8 +3120,10 @@
         "assets/audio/sfx/story/LAPTOP_TYPING.mp3"
       ],
       "missing": [],
-      "consumers": [],
-      "status": "REGISTERED — HOOK GAP"
+      "consumers": [
+        "js/engine/open_audio.js"
+      ],
+      "status": "REGISTERED + STATIC CONSUMER"
     },
     {
       "id": "HOOK_COOKED",
@@ -2826,8 +3133,11 @@
         "assets/audio/sfx/story/HOOK_COOKED.mp3"
       ],
       "missing": [],
-      "consumers": [],
-      "status": "REGISTERED — HOOK GAP"
+      "consumers": [
+        "js/engine/open_audio.js",
+        "js/minigames/bars.js"
+      ],
+      "status": "REGISTERED + STATIC CONSUMER"
     },
     {
       "id": "SEAL_01",

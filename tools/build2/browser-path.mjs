@@ -1,48 +1,63 @@
 import fs from 'node:fs';import path from 'node:path';
 import {serve,loadPlaywright} from '../tests/f05/_browser-lib.mjs';
 const args=process.argv;const only=args.includes('--width')?+args[args.indexOf('--width')+1]:null;
+const tapRows=[];
+async function tap(frame,selector,screen){const loc=frame.locator(selector).first(),label=await loc.innerText().catch(()=>selector),before=await frame.page().evaluate(()=>window.__b2TapMedia?.length||0);await loc.click();await frame.page().waitForTimeout(250);const after=await frame.page().evaluate(()=>window.__b2TapMedia?.length||0);tapRows.push({screen,element:label.trim(),sound:after>before,starts:after-before});}
 const results=[],out='docs/evidence/build2';fs.mkdirSync(out,{recursive:true});
 const check=(width,name,ok,detail='')=>{results.push({width,name,ok,detail});console.log(ok?'PASS':'FAIL',width,name,detail);};
 const server=await serve();const origin=`http://127.0.0.1:${server.address().port}`;
 const {chromium}=loadPlaywright();const browser=await chromium.launch({headless:true,executablePath:process.env.RA_CHROMIUM_PATH});
 const flags='F01.showdown_core,F02.iron_and_grace,F02.armory,F02.range_day,F04.war_room,F05.trap';
-async function drivePlay(page,tag,width,selectGun=true){
+async function drivePlay(page,tag,width,selectGun=true,audit=false){
  await page.waitForSelector('#f01-play-frame',{timeout:15000});
  const frame=await (await page.$('#f01-play-frame')).contentFrame();
  const readyUntil=Date.now()+30000;
- while(Date.now()<readyUntil){if(await frame.locator('.b-ans').count())break;if(await frame.locator('[data-done]').count())await frame.click('[data-done]');await page.waitForTimeout(100);}
- await frame.waitForSelector('.b-ans',{timeout:5000});await frame.click('.b-ans');await frame.waitForSelector('.send');
+ while(Date.now()<readyUntil){if(await frame.locator('.b-ans').count())break;if(await frame.locator('[data-done]').count())await tap(frame,'[data-done]',tag+' home');await page.waitForTimeout(100);}
+ await frame.waitForSelector('.b-ans',{timeout:5000});await tap(frame,'.b-ans',tag+' offer');await frame.waitForSelector('.send');
  if(selectGun){
   const slots=frame.locator('.card .wslot');
   let found=false;
-  for(let i=0;i<12;i++){if(/Mac & Cheese/i.test(await slots.first().innerText())){found=true;break;}await slots.first().click();}
+  for(let i=0;i<12;i++){if(/Mac & Cheese/i.test(await slots.first().innerText())){found=true;break;}await tap(frame,'.card .wslot',tag+' weapon slot');}
   check(width,tag+' bought gun in existing loadout selector',found);
  }
+ if(width===390&&audit){
+  await tap(frame,'#gear',tag+' settings');
+  for(const key of ['moreTime','reduceMotion'])await tap(frame,`[data-k="${key}"]`,tag+' settings');
+  await tap(frame,'[data-close]',tag+' settings');
+  if(await frame.locator('.carpick').count()){await tap(frame,'.carpick',tag+' car selector');await tap(frame,'.car',tag+' car sprite');}
+  for(let i=0;i<await frame.locator('.card .wslot').count();i++){
+   const before=await page.evaluate(()=>window.__b2TapMedia?.length||0);await frame.locator('.card .wslot').nth(i).click();await page.waitForTimeout(250);const after=await page.evaluate(()=>window.__b2TapMedia?.length||0);tapRows.push({screen:tag+' crew',element:'weapon slot '+i,sound:after>before,starts:after-before});
+   if(await frame.locator('.sw').nth(i).count()){const n=await frame.locator('.bench .bi').count();await tap(frame,`.card:nth-child(${i+1}) .sw`,tag+' swap opener');const benchCount=await frame.locator('.bench .bi').count();for(let j=0;j<benchCount;j++){if(j)await frame.locator('.sw').nth(i).click();const b=frame.locator('.bench .bi').nth(j),old=await page.evaluate(()=>window.__b2TapMedia?.length||0);await b.click();await page.waitForTimeout(250);const end=await page.evaluate(()=>window.__b2TapMedia?.length||0);tapRows.push({screen:tag+' bench',element:'crew option '+j,sound:end>old,starts:end-old});if(await frame.locator('.bench').count())await tap(frame,'.bench .bi:not(.off)',tag+' bench return');}}
+  }
+ }
+ // Census cycling can unequip the test weapon; restore it through the same real controls before launch.
+ for(let slot=1;slot<await frame.locator('.card .wslot').count();slot++)for(let i=0;i<20&&!/BARE HANDS/.test(await frame.locator('.card .wslot').nth(slot).innerText());i++)await frame.locator('.card .wslot').nth(slot).click();
+ for(let i=0;i<20&&!/Mac & Cheese/i.test(await frame.locator('.card .wslot').first().innerText());i++)await tap(frame,'.card .wslot',tag+' bought weapon restore');
  await page.screenshot({path:`${out}/${width}-${tag}-loadout.png`});
- if(await frame.locator('.send.hold').count()){const box=await frame.locator('.send').boundingBox();await page.mouse.move(box.x+box.width/2,box.y+box.height/2);await page.mouse.down();await page.waitForTimeout(1900);await page.mouse.up();}else await frame.click('.send');
+ const sendBefore=await page.evaluate(()=>window.__b2TapMedia?.length||0);if(await frame.locator('.send.hold').count()){const box=await frame.locator('.send').boundingBox();await page.mouse.move(box.x+box.width/2,box.y+box.height/2);await page.mouse.down();await page.waitForTimeout(1900);await page.mouse.up();}else await frame.click('.send');await page.waitForTimeout(250);const sendAfter=await page.evaluate(()=>window.__b2TapMedia?.length||0);tapRows.push({screen:tag+' crew',element:'send / hold',sound:sendAfter>sendBefore,starts:sendAfter-sendBefore});
  let end=false;const until=Date.now()+120000;
  while(Date.now()<until){
   await page.waitForTimeout(150);
   const state=await frame.evaluate(()=>({kind:document.querySelector('.decide')?.dataset.kind,buttons:document.querySelectorAll('.decide button').length,again:!!document.querySelector('.again')}));
   if(state.again){end=true;break;}
-  if(state.buttons){const button=state.kind==='CLIMB'?frame.locator('.decide button[data-id="OUT"]'):frame.locator('.decide button').first();await button.click().catch(()=>{});}
+  if(state.buttons){const button=state.kind==='CLIMB'?frame.locator('.decide button[data-id="OUT"]'):frame.locator('.decide button').first();const id=await button.getAttribute('data-id');await tap(frame,`.decide button[data-id="${id}"]`,tag+' decision '+state.kind).catch(()=>{});}
  }
  check(width,tag+' terminates through real UI',end);
  if(end){
-  const data=await frame.evaluate(()=>({gun:window.__raPlay.G.last?.rec.stateOut.roster.map(o=>o.gun),audio:window.__raPlay.K.audio.log,rec:window.__raPlay.G.last?.rec.klass}));
-  check(width,tag+' F02 gun preserved in PLAY record',data.gun.includes('mac_and_cheese'),data.rec);
-  check(width,tag+' bought gun GN_01 actually plays in iframe',data.audio.includes('GN_01.mp3'));
-  await page.screenshot({path:`${out}/${width}-${tag}-return.png`});await frame.click('.again');await page.waitForSelector('#f01-play-frame',{state:'detached'});
+  const data=await frame.evaluate(()=>({gun:window.__raPlay.G.last?.rec.stateOut.roster.map(o=>o.gun),lost:window.__raPlay.G.last?.rec.lost?.guns.map(g=>g.gun)||[],audio:window.__raPlay.K.audio.log,rec:window.__raPlay.G.last?.rec.klass}));
+  check(width,tag+' F02 gun preserved in PLAY record',data.gun.includes('mac_and_cheese')||data.lost.includes('mac_and_cheese'),data.rec+'; authored losses '+data.lost.join(',' ));
+  if(!audit)check(width,tag+' bought gun GN_01 actually plays in iframe',data.audio.includes('GN_01.mp3'));
+  await page.screenshot({path:`${out}/${width}-${tag}-return.png`});await tap(frame,'.again',tag+' return');await page.waitForSelector('#f01-play-frame',{state:'detached'});
  }
 }
 try{
  for(const width of only?[only]:[360,390,430]){
   const context=await browser.newContext({viewport:{width,height:844}}),page=await context.newPage(),errors=[];
-  await page.addInitScript(()=>{window.__b2Media=[];const play=HTMLMediaElement.prototype.play;HTMLMediaElement.prototype.play=function(){window.__b2Media.push(this.src);return play.call(this);};});
+  await page.addInitScript(()=>{window.__b2Media=[];window.__b2TapMedia=[];const play=HTMLMediaElement.prototype.play;HTMLMediaElement.prototype.play=function(){window.__b2Media.push(this.src);const result=play.call(this);if(/UI_(TAP|CONFIRM|BACK)\.mp3/.test(this.src))result?.then(()=>window.top.__b2TapMedia.push(this.src));return result;};});
   page.on('pageerror',e=>errors.push(e.message));
   page.on('response',r=>{if(r.status()>=400&&!/favicon/.test(r.url()))errors.push(`HTTP ${r.status()} ${r.url()}`);});
   try{
-   await page.goto(`${origin}/?dev=1&ff=${flags}&speed=10`);await page.waitForFunction(()=>window.RAIron&&window.RAHoldBridge);
+   await page.goto(`${origin}/?dev=1&ff=${flags}&speed=3`);await page.waitForFunction(()=>window.RAIron&&window.RAHoldBridge);
    await page.evaluate(()=>{const s=RAState.migrateRecord(RASaveFixtures.fixtures.supraOwned);s.life.clock.started=true;for(const key of ['prologueDone','throneDone','firstWakeDone','armoryKnown'])s.life.world.flags[key]=true;RAState.write(localStorage,s,false);});
    await page.reload();await page.waitForFunction(()=>window.RAIron);
    await page.evaluate(()=>{RAState.patch('life.resources.money',1000000);RALife.setFlag('armoryKnown',true);RAClock.wake({first:true});RAFrag.patch('F04','active',true);RAFrag.patch('F04','offer.status','accepted');RAPhoneRegistry.unlock('warRoom');});
@@ -74,6 +89,8 @@ try{
    check(width,'real NIGHT schedules trap raid',await page.evaluate(()=>!!RATrap.raids.pending()));
    await page.evaluate(()=>{window.__b2Hold=RAHoldBridge.start();});await drivePlay(page,'trap-raid',width,false);
    check(width,'trap raid delivered',await page.evaluate(()=>!RATrap.raids.pending()));
+   // Isolated THE PLAY control census, after the integration path is already proved.
+   if(width===390){await page.evaluate(()=>{window.__b2TapPlay=RAWarRoomPlay.launch(RAWarRoomJobs.buildJobCard({type:'DROP',district:'arts_district'}));});await drivePlay(page,'tap-play',width,true,true);}
    // Browser decoding and playback proof for every GN family. No sealed codes toured.
    const audio=await page.evaluate(async()=>{const ids=['GN_01','GN_02','GN_03','GN_04','GN_05','GN_06'];await Promise.all(ids.map(id=>RAAudio.preload(id)));for(const id of ids)RAAudio.oneShot(id);RAAudio.stop('GN_03',0);return ids.every(id=>RAAudio.describe().plays[id]>0);});
    check(width,'GN_01–GN_06 decode and play',audio);
@@ -83,4 +100,5 @@ try{
   await context.close();
  }
 }finally{await browser.close();server.close();}
-const ok=results.every(r=>r.ok);fs.writeFileSync(`${out}/browser-${only||'all'}.json`,JSON.stringify({ok,results},null,2)+'\n');console.log(ok?'PASS':'FAIL','BUILD2 real-browser path');process.exitCode=ok?0:1;
+fs.writeFileSync(`${out}/tap-paths-${only||'all'}.json`,JSON.stringify({rows:tapRows,tapped:tapRows.length,withSound:tapRows.filter(r=>r.sound).length,failures:tapRows.filter(r=>!r.sound)},null,2)+'\n');
+const ok=results.every(r=>r.ok)&&tapRows.every(r=>r.sound);fs.writeFileSync(`${out}/browser-${only||'all'}.json`,JSON.stringify({ok,results},null,2)+'\n');console.log(ok?'PASS':'FAIL','BUILD2 real-browser path');process.exitCode=ok?0:1;
