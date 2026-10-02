@@ -1,5 +1,8 @@
 # Rich Alucard Art Department — start here
 
+OL-046 supersedes counts below: P-A 0 / P-B 0 / P-C 18 / P-D 50; 68 pending total. IMAGE_PROMPTS_P-D.md now has 48 targets, including GUNS (eight held sprites). BUILD-6 owns learned-move FX. Rebased locally onto build2-accepted (40fd2bc02e4793380fbf9f6cb04c95113a46db11); no approved art/audio regenerated.
+
+
 ## OL-042 current handoff
 
 Start at `docs/progress/BUILD4.md`. Superseding hash authority: `build4/PRESERVED_ART_HASH_AUDIT.json`. Current central FROZEN count: 960; original pixels unchanged. Lights-off overlay, 444x222 cockroach derivative and trio date portraits are KEEP/FROZEN; current accepted loops are reduced/Tier 2. RICH ENTERPRISES exterior is TAKEOVER-only.

@@ -6,7 +6,8 @@ import {measure,evaluate} from '../tests/f15/_art.mjs';
 import {mkdir,writeFile} from 'node:fs/promises';
 import path from 'node:path';
 const rows=(await dryRun()).rows.filter(r=>Object.values(r.castSpecs).some(a=>['gbenga','carlos'].includes(typeof a==='string'?a:a?.id)));
-const out=path.join(root,'docs/evidence/build4/screens/character-widths');await mkdir(out,{recursive:true});
+const arg=n=>{const i=process.argv.indexOf('--'+n);return i<0?null:process.argv[i+1];};
+const out=path.resolve(root,arg('out')||'docs/evidence/build4/screens/character-widths');await mkdir(out,{recursive:true});
 const s=await serve(),b=await launch(),results=[];
 try{
  for(const [w,h] of [[360,740],[390,844],[430,932]]){
@@ -35,4 +36,4 @@ try{
  }
  console.log(`PASS character width sweep: ${rows.length} existing screen casts × 360/390/430; ${results.reduce((n,r)=>n+r.checks.length,0)} checks`);
 }catch(e){console.error('FAIL',e.message);process.exitCode=1;}
-finally{await b.close();await s.close();await writeFile(path.join(root,'docs/evidence/build4/character-widths.json'),JSON.stringify(results,null,2)+'\n');}
+finally{await b.close();await s.close();await writeFile(arg('out')?path.join(out,'results.json'):path.join(root,'docs/evidence/build4/character-widths.json'),JSON.stringify(results,null,2)+'\n');}

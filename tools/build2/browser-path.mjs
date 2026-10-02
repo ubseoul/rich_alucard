@@ -3,7 +3,7 @@ import {serve,loadPlaywright} from '../tests/f05/_browser-lib.mjs';
 const args=process.argv;const only=args.includes('--width')?+args[args.indexOf('--width')+1]:null;
 const tapRows=[];
 async function tap(frame,selector,screen){const loc=frame.locator(selector).first(),label=await loc.innerText().catch(()=>selector),before=await frame.page().evaluate(()=>window.__b2TapMedia?.length||0);await loc.click();await frame.page().waitForTimeout(250);const after=await frame.page().evaluate(()=>window.__b2TapMedia?.length||0);tapRows.push({screen,element:label.trim(),sound:after>before,starts:after-before});}
-const results=[],out='docs/evidence/build2';fs.mkdirSync(out,{recursive:true});
+const results=[],out=args.includes('--out')?args[args.indexOf('--out')+1]:'docs/evidence/build2';fs.mkdirSync(out,{recursive:true});
 const check=(width,name,ok,detail='')=>{results.push({width,name,ok,detail});console.log(ok?'PASS':'FAIL',width,name,detail);};
 const server=await serve();const origin=`http://127.0.0.1:${server.address().port}`;
 const {chromium}=loadPlaywright();const browser=await chromium.launch({headless:true,executablePath:process.env.RA_CHROMIUM_PATH});

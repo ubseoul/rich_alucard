@@ -1,7 +1,7 @@
 import fs from 'node:fs';
 import {serve,loadPlaywright} from '../tests/f05/_browser-lib.mjs';
 const phase=process.argv.includes('--before')?'before':'after';
-const out='docs/evidence/build2',server=await serve(),{chromium}=loadPlaywright();
+const out=process.argv.includes('--out')?process.argv[process.argv.indexOf('--out')+1]:'docs/evidence/build2',server=await serve(),{chromium}=loadPlaywright();fs.mkdirSync(out,{recursive:true});
 const browser=await chromium.launch({headless:true,executablePath:process.env.RA_CHROMIUM_PATH});
 const page=await browser.newPage({viewport:{width:1040,height:1000}}),errors=[],rows=[];
 page.on('pageerror',e=>errors.push(e.message));

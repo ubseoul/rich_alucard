@@ -1,4 +1,13 @@
-# BUILD-4 progress — OL-042 (OL-039 history retained)
+# BUILD-4 progress — OL-046 (OL-042/039 history retained)
+
+## OL-046 current resume state
+
+Local `build/visual-completion-001` rebased onto accepted annotated tag `build2-accepted`, dereferenced commit `40fd2bc02e4793380fbf9f6cb04c95113a46db11`. Original pushed OL-042 head `807523cb369776540bc573dd53a9fc753d2f30de` retained in local safety branch. Only conflict: generated index.html art-part slot; retained both F02_combat_fx and F12_preserved in sorted order. Loader verification passes. BUILD-2 gun runtime, learned-move presentation and OPEN audio entries are preserved.
+
+Added eight held-gun rows and one GUNS sub-batch (prompts 41–48), using exact ART SHIP 014 Package E held references and authored IRON & GRACE descriptions only. New targets all 64×32 isolated RGBA sprites, no characters/hands/cases. 68 pending: P-A 0 / P-B 0 / P-C 18 / P-D 50 (48 OPEN image requests + two reuse-wiring rows). TRIPLE K-KRATOS art explicitly requested; DEV-only runtime stays gated. Learned-move FX are BUILD-6-owned: ONE-INCH PETTY, HEX, VIOLET VEIL, SÉANCE, DEAD RINGER. No BUILD-4 prompt/ingest for those.
+
+Validation after rebase PASS: full npm test, build/artifact, loader, registry, leak check, authoritative preservation audit; F15 519/519, F07 77 each at 360/390/430, cast 135, F02 17, BUILD-2 path 51 + 67/67 audio taps, 28-case census. Initial concurrent F15 aimed-throw failure cleared by full rerun; F06 unchanged. Evidence `docs/evidence/build4/ol046/`. Current required stop remains filename-only approved P-C/P-D drops; F15 wardrobe wiring is step 5 and F06 stays untouched. Recheck accepted tag/ancestry before final ingest; if it changes, rebase and repeat validation. Prior instructions prohibit force-push, so rebased local history has not replaced the old remote branch.
+
 
 ## OL-042 current resume state
 

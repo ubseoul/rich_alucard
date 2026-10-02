@@ -3,7 +3,7 @@
   "as_of": "2026-10-02",
   "scope": "OPEN runtime and dormant registered fallbacks; a row may be a named state family",
   "start_count": 92,
-  "end_count": 60,
+  "end_count": 68,
   "runtime_census_start": {
     "environments": 17,
     "actors": 10
@@ -615,6 +615,102 @@
       "need": "One neutral symbolic DISTRICT icon; no physical story prop, letters, lore or named identity",
       "source": "OL-042 D3; assets/f01/feel_lock/FL-A10/cash_48x48.png",
       "status": "OPEN"
+    },
+    {
+      "package": "P-D",
+      "id": "mac_and_cheese_held",
+      "screen": "F02 Gun Weaving / held weapon surface",
+      "route": "RAIronCatalog.get(mac_and_cheese); RACombat2 FIGHT gun presentation / RAArtRegistry.items.guns.mac_and_cheese.held",
+      "size": "64x32 RGBA, binary alpha; ART SHIP 014 Package E held convention",
+      "need": "OL-046 held sprite: MAC & CHEESE. Authored description: SMG; suppresses (enemy −20 aim next turn).",
+      "source": "source_vault/feature_sources/Rich_Alucard_Patch_IRON_AND_GRACE_Guns.docx §1; js/frag/F02/catalog.js",
+      "status": "OPEN",
+      "ruling": "OL-046",
+      "dev_only": false
+    },
+    {
+      "package": "P-D",
+      "id": "tommy_tony_held",
+      "screen": "F02 Gun Weaving / held weapon surface",
+      "route": "RAIronCatalog.get(tommy_tony); RACombat2 FIGHT gun presentation / RAArtRegistry.items.guns.tommy_tony.held",
+      "size": "64x32 RGBA, binary alpha; ART SHIP 014 Package E held convention",
+      "need": "OL-046 held sprite: THE TOMMY TONY. Authored description: Drum-mag vintage SMG; +10% per consecutive turn fired.",
+      "source": "source_vault/feature_sources/Rich_Alucard_Patch_IRON_AND_GRACE_Guns.docx §1; js/frag/F02/catalog.js",
+      "status": "OPEN",
+      "ruling": "OL-046",
+      "dev_only": false
+    },
+    {
+      "package": "P-D",
+      "id": "jollof_burner_held",
+      "screen": "F02 Gun Weaving / held weapon surface",
+      "route": "RAIronCatalog.get(jollof_burner); RACombat2 FIGHT gun presentation / RAArtRegistry.items.guns.jollof_burner.held",
+      "size": "64x32 RGBA, binary alpha; ART SHIP 014 Package E held convention",
+      "need": "OL-046 held sprite: JOLLOF BURNER. Authored description: Flamethrower; burns cover (car hoods, canopies).",
+      "source": "source_vault/feature_sources/Rich_Alucard_Patch_IRON_AND_GRACE_Guns.docx §1; js/frag/F02/catalog.js",
+      "status": "OPEN",
+      "ruling": "OL-046",
+      "dev_only": false
+    },
+    {
+      "package": "P-D",
+      "id": "blueberry_blaster_held",
+      "screen": "F02 Gun Weaving / held weapon surface",
+      "route": "RAIronCatalog.get(blueberry_blaster); RACombat2 FIGHT gun presentation / RAArtRegistry.items.guns.blueberry_blaster.held",
+      "size": "64x32 RGBA, binary alpha; ART SHIP 014 Package E held convention",
+      "need": "OL-046 held sprite: BLUEBERRY BLASTER. Authored description: Dragon-fire rifle; only works if Mazda is MAJESTIC.",
+      "source": "source_vault/feature_sources/Rich_Alucard_Patch_IRON_AND_GRACE_Guns.docx §1; js/frag/F02/catalog.js",
+      "status": "OPEN",
+      "ruling": "OL-046",
+      "dev_only": false
+    },
+    {
+      "package": "P-D",
+      "id": "legendary_draco_held",
+      "screen": "F02 Gun Weaving / held weapon surface",
+      "route": "RAIronCatalog.get(legendary_draco); RACombat2 FIGHT gun presentation / RAArtRegistry.items.guns.legendary_draco.held",
+      "size": "64x32 RGBA, binary alpha; ART SHIP 014 Package E held convention",
+      "need": "OL-046 held sprite: LEGENDARY DRACO. Authored description: Legendary; “Two taps.” Authored full name: LEGENDARY DRACO — “DECEMBER’S GIFT”.",
+      "source": "source_vault/feature_sources/Rich_Alucard_Patch_IRON_AND_GRACE_Guns.docx §1; js/frag/F02/catalog.js",
+      "status": "OPEN",
+      "ruling": "OL-046",
+      "dev_only": false
+    },
+    {
+      "package": "P-D",
+      "id": "golden_draco_held",
+      "screen": "F02 Gun Weaving / held weapon surface",
+      "route": "RAIronCatalog.get(golden_draco); RACombat2 FIGHT gun presentation / RAArtRegistry.items.guns.golden_draco.held",
+      "size": "64x32 RGBA, binary alpha; ART SHIP 014 Package E held convention",
+      "need": "OL-046 held sprite: THE GOLDEN DRACO. Authored description: Legendary; blinding gold (enemy −15 aim).",
+      "source": "source_vault/feature_sources/Rich_Alucard_Patch_IRON_AND_GRACE_Guns.docx §1; js/frag/F02/catalog.js",
+      "status": "OPEN",
+      "ruling": "OL-046",
+      "dev_only": false
+    },
+    {
+      "package": "P-D",
+      "id": "auntie_slipper_held",
+      "screen": "F02 Gun Weaving / held weapon surface",
+      "route": "RAIronCatalog.get(auntie_slipper); RACombat2 FIGHT gun presentation / RAArtRegistry.items.guns.auntie_slipper.held",
+      "size": "64x32 RGBA, binary alpha; ART SHIP 014 Package E held convention",
+      "need": "OL-046 held sprite: AUNTIE'S SLIPPER. Authored description: Thrown slipper; enemies who grew up with it lose a turn to fear.",
+      "source": "source_vault/feature_sources/Rich_Alucard_Patch_IRON_AND_GRACE_Guns.docx §1; js/frag/F02/catalog.js",
+      "status": "OPEN",
+      "ruling": "OL-046",
+      "dev_only": false
+    },
+    {
+      "package": "P-D",
+      "id": "triple_k_kratos_held",
+      "screen": "F02 Gun Weaving / held weapon surface · DEV-only",
+      "route": "RAIronCatalog.get(triple_k_kratos); RACombat2 FIGHT gun presentation / RAArtRegistry.items.guns.triple_k_kratos.held",
+      "size": "64x32 RGBA, binary alpha; ART SHIP 014 Package E held convention",
+      "need": "OL-046 held sprite: TRIPLE K-KRATOS. Authored description: Dev; Ube only; dev code.",
+      "source": "source_vault/feature_sources/Rich_Alucard_Patch_IRON_AND_GRACE_Guns.docx §1; js/frag/F02/catalog.js",
+      "status": "OPEN",
+      "ruling": "OL-046",
+      "dev_only": true
     }
   ],
   "resolved": [
@@ -1058,5 +1154,35 @@
       "P-D": 42,
       "P-C": 18
     }
+  },
+  "ol046": {
+    "accepted_base_tag": "build2-accepted",
+    "accepted_base_commit": "40fd2bc02e4793380fbf9f6cb04c95113a46db11",
+    "rebase_complete": true,
+    "added_gun_rows": [
+      "mac_and_cheese_held",
+      "tommy_tony_held",
+      "jollof_burner_held",
+      "blueberry_blaster_held",
+      "legendary_draco_held",
+      "golden_draco_held",
+      "auntie_slipper_held",
+      "triple_k_kratos_held"
+    ],
+    "excluded_fx_owner": "BUILD-6",
+    "excluded_fx": [
+      "ONE-INCH PETTY",
+      "HEX",
+      "VIOLET VEIL",
+      "SÉANCE",
+      "DEAD RINGER"
+    ],
+    "pending_by_package": {
+      "P-A": 0,
+      "P-B": 0,
+      "P-C": 18,
+      "P-D": 50
+    },
+    "gun_dev_note": "TRIPLE K-KRATOS explicitly requested by OL-046; art row retained, runtime DEV gate unchanged. D5 party-dev room stays excluded."
   }
 }

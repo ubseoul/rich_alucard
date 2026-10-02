@@ -1,5 +1,8 @@
 # Current handoff
 
+OL-046 supersedes counts below: P-A 0 / P-B 0 / P-C 18 / P-D 50; 68 pending total. IMAGE_PROMPTS_P-D.md now has 48 targets, including GUNS (eight held sprites). BUILD-6 owns learned-move FX. Rebased locally onto build2-accepted (40fd2bc02e4793380fbf9f6cb04c95113a46db11); no approved art/audio regenerated.
+
+
 **OL-042 CURRENT:** sections 1–4 applied; 960 frozen paths, zero altered pixels; 21 decision rows closed and DEV excluded. 60 pending (P-A 0 / P-B 0 / P-C 18 / P-D 42). Use `briefs/IMAGE_PROMPTS_P-D.md` and `briefs/P-C_STEPS.md`; Ube returns filename-only images/videos. Hash authority is `build4/PRESERVED_ART_HASH_AUDIT.json`. Historical OL-039/ship records follow.
 
 BUILD-4 / OL-039 status: integration and package preparation complete; awaiting Ube's four package drops. Current register: 952 frozen PNG paths, zero frozen baseline bytes altered. Start at `docs/progress/BUILD4.md`, `PLACEHOLDER_LOG.md`, and `briefs/P-A.md` through `briefs/P-D.md`. The shipment record below is retained as history. No new production taste approval is asserted.

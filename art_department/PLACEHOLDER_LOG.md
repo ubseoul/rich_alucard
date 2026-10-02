@@ -1,8 +1,10 @@
-# SR-7 placeholder log — BUILD-4 · OL-042
+# SR-7 placeholder log — BUILD-4 · OL-046
 
-**NOT EMPTY — awaiting filename-only Ube drops.** Original inventory 92 rows; production baseline 91 after excluding the approved DEV fixture. 79 pending before OL-042 → 60 pending. 21 rows closed by final decisions, one DEV row excluded, three symbolic-token image rows replace three closed physical-prop decision rows. Counts are requirement families, not file counts.
+**NOT EMPTY — awaiting filename-only Ube drops.** Original inventory 92 rows; production baseline 91 after excluding the approved DEV fixture. 79 pending before OL-042 → 60 after OL-042 → 68 after eight OL-046 held-gun additions. 21 rows closed by final decisions, one DEV row excluded, three symbolic-token image rows replace three closed physical-prop decision rows. Counts are requirement families, not file counts.
 
-P-A 0; P-B 0; P-C 18; P-D 42 (40 OPEN image requests + two INGEST_WIRING reuse rows). D6 settles generic NPC identity; three NPC image requests remain. F15 wardrobe code is a separately tracked step-5 engineering task, not a further art-generation row. No package drops have been ingested.
+P-A 0; P-B 0; P-C 18; P-D 50 (48 OPEN image requests + two INGEST_WIRING reuse rows). D6 settles generic NPC identity; three NPC image requests remain. F15 wardrobe code is a separately tracked step-5 engineering task, not a further art-generation row. No package drops have been ingested.
+
+OL-046: BUILD-2 base accepted at `build2-accepted` (`40fd2bc02e4793380fbf9f6cb04c95113a46db11`); local rebase completed with both art registry parts and audio preserved additively. The eight held weapons below are new art requests only. TRIPLE K-KRATOS stays DEV-gated despite its explicitly requested art row; `party_dev_room` remains excluded. Learned-move FX ONE-INCH PETTY / HEX / VIOLET VEIL / SÉANCE / DEAD RINGER are BUILD-6-owned and excluded here.
 
 | Package | Asset id | Screen / route | Status / requirement |
 |---|---|---|---|
@@ -66,6 +68,14 @@ P-A 0; P-B 0; P-C 18; P-D 42 (40 OPEN image requests + two INGEST_WIRING reuse r
 | P-D | `fl_a10_recruit_token` | THE PLAY payoff loot · `assets/f01/play/feel-scenes.mjs dropPhysical(RECRUIT)` | OPEN: One neutral symbolic RECRUIT icon; no physical story prop, letters, lore or named identity |
 | P-D | `fl_a10_story_token` | THE PLAY payoff loot · `assets/f01/play/feel-scenes.mjs dropPhysical(STORY)` | OPEN: One neutral symbolic STORY icon; no physical story prop, letters, lore or named identity |
 | P-D | `fl_a10_district_token` | THE PLAY payoff loot · `assets/f01/play/feel-scenes.mjs dropPhysical(DISTRICT)` | OPEN: One neutral symbolic DISTRICT icon; no physical story prop, letters, lore or named identity |
+| P-D | `mac_and_cheese_held` | F02 Gun Weaving / held weapon surface · `RAIronCatalog.get(mac_and_cheese); RACombat2 FIGHT gun presentation / RAArtRegistry.items.guns.mac_and_cheese.held` | OPEN: OL-046 held sprite: MAC & CHEESE. Authored description: SMG; suppresses (enemy −20 aim next turn). |
+| P-D | `tommy_tony_held` | F02 Gun Weaving / held weapon surface · `RAIronCatalog.get(tommy_tony); RACombat2 FIGHT gun presentation / RAArtRegistry.items.guns.tommy_tony.held` | OPEN: OL-046 held sprite: THE TOMMY TONY. Authored description: Drum-mag vintage SMG; +10% per consecutive turn fired. |
+| P-D | `jollof_burner_held` | F02 Gun Weaving / held weapon surface · `RAIronCatalog.get(jollof_burner); RACombat2 FIGHT gun presentation / RAArtRegistry.items.guns.jollof_burner.held` | OPEN: OL-046 held sprite: JOLLOF BURNER. Authored description: Flamethrower; burns cover (car hoods, canopies). |
+| P-D | `blueberry_blaster_held` | F02 Gun Weaving / held weapon surface · `RAIronCatalog.get(blueberry_blaster); RACombat2 FIGHT gun presentation / RAArtRegistry.items.guns.blueberry_blaster.held` | OPEN: OL-046 held sprite: BLUEBERRY BLASTER. Authored description: Dragon-fire rifle; only works if Mazda is MAJESTIC. |
+| P-D | `legendary_draco_held` | F02 Gun Weaving / held weapon surface · `RAIronCatalog.get(legendary_draco); RACombat2 FIGHT gun presentation / RAArtRegistry.items.guns.legendary_draco.held` | OPEN: OL-046 held sprite: LEGENDARY DRACO. Authored description: Legendary; “Two taps.” Authored full name: LEGENDARY DRACO — “DECEMBER’S GIFT”. |
+| P-D | `golden_draco_held` | F02 Gun Weaving / held weapon surface · `RAIronCatalog.get(golden_draco); RACombat2 FIGHT gun presentation / RAArtRegistry.items.guns.golden_draco.held` | OPEN: OL-046 held sprite: THE GOLDEN DRACO. Authored description: Legendary; blinding gold (enemy −15 aim). |
+| P-D | `auntie_slipper_held` | F02 Gun Weaving / held weapon surface · `RAIronCatalog.get(auntie_slipper); RACombat2 FIGHT gun presentation / RAArtRegistry.items.guns.auntie_slipper.held` | OPEN: OL-046 held sprite: AUNTIE'S SLIPPER. Authored description: Thrown slipper; enemies who grew up with it lose a turn to fear. |
+| P-D | `triple_k_kratos_held` | F02 Gun Weaving / held weapon surface · DEV-only · `RAIronCatalog.get(triple_k_kratos); RACombat2 FIGHT gun presentation / RAArtRegistry.items.guns.triple_k_kratos.held` | OPEN: OL-046 held sprite: TRIPLE K-KRATOS. Authored description: Dev; Ube only; dev code. |
 
 ## Resolved
 

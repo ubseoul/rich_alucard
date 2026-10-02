@@ -537,5 +537,142 @@
     "prompt": "Auntie Grit: retired older adult nurse, clearly 21+, scrubs under puffer jacket, medical bag, reading glasses on a chain, steady seen-it-all stance. Strong practical figure, not frail or sexualized. Clearly different face/body/outfit from Nneka; professional-world resemblance only. One horizontal static state sheet, five separate ordered 80x96 cells: WALKING, BOARDING, STANDING, WOUNDED, CARRIED. Total 400x96 RGBA, binary alpha, each cell contact (40,88); same body/outfit/accessories throughout. WOUNDED is a non-graphic hurt/slumped pose with no blood. CARRIED is the named person horizontal, carrier supplied by runtime and not baked in. BOARDING contains no vehicle. Generic sheet is pose grammar only, never replacement identity. No weapons beyond authored carried items and no animation frames.",
     "filename": "fl_a07_auntie_grit_states_400x96.png",
     "target": "400×96 RGBA sheet; five 80×96 cells, contact (40,88)"
+  },
+  {
+    "id": "mac_and_cheese_held",
+    "number": 41,
+    "batch": "GUNS",
+    "references": [
+      "assets/before_the_fame/art_ship_014/package_e/E-gun-lil_oga-held.png",
+      "assets/before_the_fame/art_ship_014/package_e/E-gun-sapporo_shotgun-held.png",
+      "assets/before_the_fame/art_ship_014/package_e/E-gun-chopstick_sniper-held.png",
+      "assets/before_the_fame/art_ship_014/package_e/E-gun-holy_baby_drake-held.png",
+      "assets/before_the_fame/art_ship_014/package_e/E-gun-the_rpg-held.png"
+    ],
+    "prompt": "Create one isolated held sprite for the authored weapon MAC & CHEESE. Authored description: SMG; suppresses (enemy −20 aim next turn). Match the attached frozen ART SHIP 014 Package E held-gun convention exactly: 64×32 transparent RGBA, binary alpha, native hard pixels, the same side-view orientation, scale, placement, outline and material shading. The references show weapon-only art; include no character, hands, case, environment, text, muzzle flash or animation frames. Do not add an unprovided motif or invent story from the name. Return the single PNG as E-gun-mac_and_cheese-held.png.",
+    "filename": "E-gun-mac_and_cheese-held.png",
+    "target": "64x32 RGBA, binary alpha; ART SHIP 014 Package E held convention",
+    "authored_source": "source_vault/feature_sources/Rich_Alucard_Patch_IRON_AND_GRACE_Guns.docx §1; js/frag/F02/catalog.js",
+    "dev_only": false
+  },
+  {
+    "id": "tommy_tony_held",
+    "number": 42,
+    "batch": "GUNS",
+    "references": [
+      "assets/before_the_fame/art_ship_014/package_e/E-gun-lil_oga-held.png",
+      "assets/before_the_fame/art_ship_014/package_e/E-gun-sapporo_shotgun-held.png",
+      "assets/before_the_fame/art_ship_014/package_e/E-gun-chopstick_sniper-held.png",
+      "assets/before_the_fame/art_ship_014/package_e/E-gun-holy_baby_drake-held.png",
+      "assets/before_the_fame/art_ship_014/package_e/E-gun-the_rpg-held.png"
+    ],
+    "prompt": "Create one isolated held sprite for the authored weapon THE TOMMY TONY. Authored description: Drum-mag vintage SMG; +10% per consecutive turn fired. Match the attached frozen ART SHIP 014 Package E held-gun convention exactly: 64×32 transparent RGBA, binary alpha, native hard pixels, the same side-view orientation, scale, placement, outline and material shading. The references show weapon-only art; include no character, hands, case, environment, text, muzzle flash or animation frames. Do not add an unprovided motif or invent story from the name. Return the single PNG as E-gun-tommy_tony-held.png.",
+    "filename": "E-gun-tommy_tony-held.png",
+    "target": "64x32 RGBA, binary alpha; ART SHIP 014 Package E held convention",
+    "authored_source": "source_vault/feature_sources/Rich_Alucard_Patch_IRON_AND_GRACE_Guns.docx §1; js/frag/F02/catalog.js",
+    "dev_only": false
+  },
+  {
+    "id": "jollof_burner_held",
+    "number": 43,
+    "batch": "GUNS",
+    "references": [
+      "assets/before_the_fame/art_ship_014/package_e/E-gun-lil_oga-held.png",
+      "assets/before_the_fame/art_ship_014/package_e/E-gun-sapporo_shotgun-held.png",
+      "assets/before_the_fame/art_ship_014/package_e/E-gun-chopstick_sniper-held.png",
+      "assets/before_the_fame/art_ship_014/package_e/E-gun-holy_baby_drake-held.png",
+      "assets/before_the_fame/art_ship_014/package_e/E-gun-the_rpg-held.png"
+    ],
+    "prompt": "Create one isolated held sprite for the authored weapon JOLLOF BURNER. Authored description: Flamethrower; burns cover (car hoods, canopies). Match the attached frozen ART SHIP 014 Package E held-gun convention exactly: 64×32 transparent RGBA, binary alpha, native hard pixels, the same side-view orientation, scale, placement, outline and material shading. The references show weapon-only art; include no character, hands, case, environment, text, muzzle flash or animation frames. Do not add an unprovided motif or invent story from the name. Return the single PNG as E-gun-jollof_burner-held.png.",
+    "filename": "E-gun-jollof_burner-held.png",
+    "target": "64x32 RGBA, binary alpha; ART SHIP 014 Package E held convention",
+    "authored_source": "source_vault/feature_sources/Rich_Alucard_Patch_IRON_AND_GRACE_Guns.docx §1; js/frag/F02/catalog.js",
+    "dev_only": false
+  },
+  {
+    "id": "blueberry_blaster_held",
+    "number": 44,
+    "batch": "GUNS",
+    "references": [
+      "assets/before_the_fame/art_ship_014/package_e/E-gun-lil_oga-held.png",
+      "assets/before_the_fame/art_ship_014/package_e/E-gun-sapporo_shotgun-held.png",
+      "assets/before_the_fame/art_ship_014/package_e/E-gun-chopstick_sniper-held.png",
+      "assets/before_the_fame/art_ship_014/package_e/E-gun-holy_baby_drake-held.png",
+      "assets/before_the_fame/art_ship_014/package_e/E-gun-the_rpg-held.png"
+    ],
+    "prompt": "Create one isolated held sprite for the authored weapon BLUEBERRY BLASTER. Authored description: Dragon-fire rifle; only works if Mazda is MAJESTIC. Match the attached frozen ART SHIP 014 Package E held-gun convention exactly: 64×32 transparent RGBA, binary alpha, native hard pixels, the same side-view orientation, scale, placement, outline and material shading. The references show weapon-only art; include no character, hands, case, environment, text, muzzle flash or animation frames. Do not add an unprovided motif or invent story from the name. Return the single PNG as E-gun-blueberry_blaster-held.png.",
+    "filename": "E-gun-blueberry_blaster-held.png",
+    "target": "64x32 RGBA, binary alpha; ART SHIP 014 Package E held convention",
+    "authored_source": "source_vault/feature_sources/Rich_Alucard_Patch_IRON_AND_GRACE_Guns.docx §1; js/frag/F02/catalog.js",
+    "dev_only": false
+  },
+  {
+    "id": "legendary_draco_held",
+    "number": 45,
+    "batch": "GUNS",
+    "references": [
+      "assets/before_the_fame/art_ship_014/package_e/E-gun-lil_oga-held.png",
+      "assets/before_the_fame/art_ship_014/package_e/E-gun-sapporo_shotgun-held.png",
+      "assets/before_the_fame/art_ship_014/package_e/E-gun-chopstick_sniper-held.png",
+      "assets/before_the_fame/art_ship_014/package_e/E-gun-holy_baby_drake-held.png",
+      "assets/before_the_fame/art_ship_014/package_e/E-gun-the_rpg-held.png"
+    ],
+    "prompt": "Create one isolated held sprite for the authored weapon LEGENDARY DRACO. Authored description: Legendary; “Two taps.” Authored full name: LEGENDARY DRACO — “DECEMBER’S GIFT”. Match the attached frozen ART SHIP 014 Package E held-gun convention exactly: 64×32 transparent RGBA, binary alpha, native hard pixels, the same side-view orientation, scale, placement, outline and material shading. The references show weapon-only art; include no character, hands, case, environment, text, muzzle flash or animation frames. Do not add an unprovided motif or invent story from the name. Return the single PNG as E-gun-legendary_draco-held.png.",
+    "filename": "E-gun-legendary_draco-held.png",
+    "target": "64x32 RGBA, binary alpha; ART SHIP 014 Package E held convention",
+    "authored_source": "source_vault/feature_sources/Rich_Alucard_Patch_IRON_AND_GRACE_Guns.docx §1; js/frag/F02/catalog.js",
+    "dev_only": false
+  },
+  {
+    "id": "golden_draco_held",
+    "number": 46,
+    "batch": "GUNS",
+    "references": [
+      "assets/before_the_fame/art_ship_014/package_e/E-gun-lil_oga-held.png",
+      "assets/before_the_fame/art_ship_014/package_e/E-gun-sapporo_shotgun-held.png",
+      "assets/before_the_fame/art_ship_014/package_e/E-gun-chopstick_sniper-held.png",
+      "assets/before_the_fame/art_ship_014/package_e/E-gun-holy_baby_drake-held.png",
+      "assets/before_the_fame/art_ship_014/package_e/E-gun-the_rpg-held.png",
+      "assets/before_the_fame/characters/gbenga/runtime_80x96/gbenga_golden_draco_80x96_v2.png"
+    ],
+    "prompt": "Create one isolated held sprite for the authored weapon THE GOLDEN DRACO. Authored description: Legendary; blinding gold (enemy −15 aim). Match the attached frozen ART SHIP 014 Package E held-gun convention exactly: 64×32 transparent RGBA, binary alpha, native hard pixels, the same side-view orientation, scale, placement, outline and material shading. The references show weapon-only art; include no character, hands, case, environment, text, muzzle flash or animation frames. Do not add an unprovided motif or invent story from the name. The attached Gbenga GOLDEN DRACO state is the existing weapon identity reference; preserve that weapon silhouette and gold identity while using the isolated Package E convention. Return the single PNG as E-gun-golden_draco-held.png.",
+    "filename": "E-gun-golden_draco-held.png",
+    "target": "64x32 RGBA, binary alpha; ART SHIP 014 Package E held convention",
+    "authored_source": "source_vault/feature_sources/Rich_Alucard_Patch_IRON_AND_GRACE_Guns.docx §1; js/frag/F02/catalog.js",
+    "dev_only": false
+  },
+  {
+    "id": "auntie_slipper_held",
+    "number": 47,
+    "batch": "GUNS",
+    "references": [
+      "assets/before_the_fame/art_ship_014/package_e/E-gun-lil_oga-held.png",
+      "assets/before_the_fame/art_ship_014/package_e/E-gun-sapporo_shotgun-held.png",
+      "assets/before_the_fame/art_ship_014/package_e/E-gun-chopstick_sniper-held.png",
+      "assets/before_the_fame/art_ship_014/package_e/E-gun-holy_baby_drake-held.png",
+      "assets/before_the_fame/art_ship_014/package_e/E-gun-the_rpg-held.png"
+    ],
+    "prompt": "Create one isolated held sprite for the authored weapon AUNTIE'S SLIPPER. Authored description: Thrown slipper; enemies who grew up with it lose a turn to fear. Match the attached frozen ART SHIP 014 Package E held-gun convention exactly: 64×32 transparent RGBA, binary alpha, native hard pixels, the same side-view orientation, scale, placement, outline and material shading. The references show weapon-only art; include no character, hands, case, environment, text, muzzle flash or animation frames. Do not add an unprovided motif or invent story from the name. Return the single PNG as E-gun-auntie_slipper-held.png.",
+    "filename": "E-gun-auntie_slipper-held.png",
+    "target": "64x32 RGBA, binary alpha; ART SHIP 014 Package E held convention",
+    "authored_source": "source_vault/feature_sources/Rich_Alucard_Patch_IRON_AND_GRACE_Guns.docx §1; js/frag/F02/catalog.js",
+    "dev_only": false
+  },
+  {
+    "id": "triple_k_kratos_held",
+    "number": 48,
+    "batch": "GUNS",
+    "references": [
+      "assets/before_the_fame/art_ship_014/package_e/E-gun-lil_oga-held.png",
+      "assets/before_the_fame/art_ship_014/package_e/E-gun-sapporo_shotgun-held.png",
+      "assets/before_the_fame/art_ship_014/package_e/E-gun-chopstick_sniper-held.png",
+      "assets/before_the_fame/art_ship_014/package_e/E-gun-holy_baby_drake-held.png",
+      "assets/before_the_fame/art_ship_014/package_e/E-gun-the_rpg-held.png"
+    ],
+    "prompt": "Create one isolated held sprite for the authored weapon TRIPLE K-KRATOS. Authored description: Dev; Ube only; dev code. Match the attached frozen ART SHIP 014 Package E held-gun convention exactly: 64×32 transparent RGBA, binary alpha, native hard pixels, the same side-view orientation, scale, placement, outline and material shading. The references show weapon-only art; include no character, hands, case, environment, text, muzzle flash or animation frames. Do not add an unprovided motif or invent story from the name. Preserve DEV-only use; no franchise likeness or invented triple-barrel motif. Return the single PNG as E-gun-triple_k_kratos-held.png.",
+    "filename": "E-gun-triple_k_kratos-held.png",
+    "target": "64x32 RGBA, binary alpha; ART SHIP 014 Package E held convention",
+    "authored_source": "source_vault/feature_sources/Rich_Alucard_Patch_IRON_AND_GRACE_Guns.docx §1; js/frag/F02/catalog.js",
+    "dev_only": true
   }
 ]

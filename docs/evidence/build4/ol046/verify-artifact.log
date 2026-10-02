@@ -1,0 +1,5 @@
+
+> rich-alucard-static-release@0.0.0 verify:artifact
+> node tools/release.mjs verify-artifact
+
+PASS artifact verification ra-78e9c4979475-20261002214444 (78e9c49794753a8cdf8b6eb0674bba66e7a06538)
