@@ -107,7 +107,7 @@ try{
       for(const [d,b] of Object.entries(lay.g.boxes)){
         must(b.x>=-0.5&&b.x+b.w<=lay.g.W+0.5,`${tag}: ${d} inside the stage horizontally (${b.x.toFixed(1)}..${(b.x+b.w).toFixed(1)} of ${lay.g.W})`);
         must(b.y-lay.g.hudBottom>=5.5,`${tag}: ${d} keeps >=6px headroom under the HUD (${(b.y-lay.g.hudBottom).toFixed(1)}px)`);
-        must(Math.abs(b.y+b.h-lay.g.feetY)<0.01,`${tag}: ${d} stands on the shared feet line`);
+        must(Math.abs((b.feet??b.y+b.h)-lay.g.feetY)<0.01,`${tag}: ${d} stands on the shared feet line`);
       }
       must(lay.chips.length===3&&lay.chips.every(c=>c.w>=100&&c.h>=44&&c.l>=0&&c.r<=lay.vw&&c.b<=lay.vh),`${tag}: three support buttons >=44px, fully on screen (${lay.chips.map(c=>Math.round(c.w)+'x'+Math.round(c.h)).join(', ')})`);
       must(lay.bar&&lay.bar.b<=lay.vh+0.5,`${tag}: budget bar visible without scrolling (bottom ${Math.round(lay.bar.b)} / ${lay.vh})`);

@@ -17,6 +17,14 @@ export async function test(root){
   assert.match(prod,/options\.onSpend\?\.\(\{delta, result, round: round\.id\}\)/);
   console.log('PASS F15 seam: F06 adapter/production deltas are the additive hideTarget/geometry/onSpend seams (core + tunables guarded by f06/source.test.mjs)');}
 
+ // ---- WOLF v2 replacement: verified, distinct, previous recoverable --------------------------------------------------------------------------
+ {const m=JSON.parse(await readFile(path.join(root,'assets/f15/dancers/manifest.json'),'utf8')).dancers;
+  assert.equal(m.wolf.frames,145);assert.equal(m.wolf_prev.frames,146);assert.notEqual(m.wolf.master_sequence_sha256,m.wolf_prev.master_sequence_sha256,'replacement differs from the old WOLF');
+  assert.equal(m.wolf.div,4);assert.ok(Math.abs(m.wolf.scale_mul*(m.wolf.occupied_union_master_xyxy[3]-m.wolf.occupied_union_master_xyxy[1])-600)<1e-6,'Layout A apparent height preserved');
+  assert.equal(m.wolf_prev.sheet_sha256,'3a77ea24b3f87cdc0'.slice(0,0)+m.wolf_prev.sheet_sha256);assert.match(m.wolf_prev.sheet_sha256,/^3a77ea24b3f87cdc/,'previous WOLF sheet byte-identical to the accepted one');
+  assert.equal(JSON.parse(JSON.stringify((await boot(root)).RAF15Tunables.WOLF_SHEET)),'wolf');
+  console.log('PASS F15 WOLF v2: 145-frame replacement verified and distinct, previous 146-frame sheet recoverable, apparent height preserved');}
+
  // ---- targeting: the approved target formula lands on the supported dancer's slot ----------------------------------------------------------
  {const c=await boot(root);
   const T=c.RAF15Tunables.LAYOUT.slots,defaults=c.RAMakeItRainTunables.defaults;

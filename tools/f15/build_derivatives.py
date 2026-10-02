@@ -55,7 +55,64 @@ def extract_from_git(repo, dest):
     return os.path.join(dest, PKG)
 
 
-def build(masters, out_dir):
+# ---- WOLF v2 (STOVE N: thin outline, 4-px grid, cleaned gaps; creator-approved replacement) ---------------------------------------
+V2_DIV = 4                      # the art is drawn on a 4-px grid, so 4:1 is the exact-integer area downsample (3:1 would alias it)
+V2_HEIGHT_REF = 600             # the previous WOLF's occupied height in master px: Layout A's apparent size is preserved with scale_mul
+def build_wolf_v2(pkg, out_dir, manifest):
+    """Package: CANDIDATE_PENDING_UBE_REVIEW_v2_outline_4px_LAUNCH_PACKAGE (145 frames, 688x688 masters, translation (96,48)).
+    Verifies the per-frame manifest + sequence hash (HASH_METHOD.md), then one FIXED transform for the whole sequence:
+    crop = union of occupied pixels grown to the 4-px grid (origin 0,0), anchor x = union centre (344), baseline = union bottom.
+    Frame order, count (145), timing (24 fps) and every pixel are kept; no de-duplication, retiming, alpha edit or clip repair."""
+    meta = json.load(open(os.path.join(pkg, "animation.json"), encoding="utf-8"))
+    fdir = os.path.join(pkg, "master_688_RGBA")
+    names = sorted(f for f in os.listdir(fdir) if f.endswith(".png"))
+    raw = [(f, open(os.path.join(fdir, f), "rb").read()) for f in names]
+    mf = "".join(f + chr(9) + hashlib.sha256(d).hexdigest() + chr(10) for f, d in raw).encode("utf-8")
+    got = hashlib.sha256(mf).hexdigest()
+    want = meta["sequence_hashes"]["master_688_RGBA"]["sha256"]
+    if got != want:
+        sys.exit("wolf v2: master sequence hash mismatch %s != %s" % (got, want))
+    n = len(raw)
+    assert n == meta["frame_count"] == 145 and meta["fps"]["numerator"] == 24 and meta["fps"]["denominator"] == 1
+    ux0 = uy0 = 10 ** 6; ux1 = uy1 = 0
+    for f, d in raw:
+        im = Image.open(io.BytesIO(d)); assert im.mode == "RGBA" and im.size == (688, 688)
+        ys, xs = np.nonzero(np.array(im)[:, :, 3] > 0)
+        ux0, ux1, uy0, uy1 = min(ux0, xs.min()), max(ux1, xs.max() + 1), min(uy0, ys.min()), max(uy1, ys.max() + 1)
+    ux0, uy0, ux1, uy1 = int(ux0), int(uy0), int(ux1), int(uy1)
+    x0, x1 = (ux0 // V2_DIV) * V2_DIV, -(-ux1 // V2_DIV) * V2_DIV
+    y0, y1 = (uy0 // V2_DIV) * V2_DIV, -(-uy1 // V2_DIV) * V2_DIV
+    cw, ch = (x1 - x0) // V2_DIV, (y1 - y0) // V2_DIV
+    anchor_x = (ux0 + ux1) / 2.0
+    rows = -(-n // COLS)
+    sheet = Image.new("RGBA", (COLS * cw, rows * ch), (0, 0, 0, 0))
+    for i, (f, d) in enumerate(raw):
+        im = Image.open(io.BytesIO(d))
+        a = np.array(im)[:, :, 3].copy(); a[y0:y1, x0:x1] = 0
+        assert not a.any(), "wolf v2 frame %d has pixels outside the crop box" % i
+        cell = im.crop((x0, y0, x1, y1)).convert("RGBa").resize((cw, ch), Image.BOX).convert("RGBA")
+        sheet.paste(cell, ((i % COLS) * cw, (i // COLS) * ch))
+        if i == 0:
+            sc = 96.0 / (uy1 - uy0)
+            pw, ph = max(1, round((ux1 - ux0) * sc)), max(1, round((uy1 - uy0) * sc))
+            small = im.crop((ux0, uy0, ux1, uy1)).convert("RGBa").resize((pw, ph), Image.BOX).convert("RGBA")
+            port = Image.new("RGBA", (PORT_W, PORT_H), (0, 0, 0, 0))
+            port.paste(small, (max(0, int(round(PORT_W / 2 - (anchor_x - ux0) * sc))), PORT_H - ph))
+            port.save(os.path.join(out_dir, "..", "portraits", "wolf.png"), optimize=True)
+    path = os.path.join(out_dir, "wolf.png"); sheet.save(path, optimize=True)
+    manifest["dancers"]["wolf"] = {
+        "file": "wolf.png", "frames": n, "fps": 24, "div": V2_DIV, "duration_s": n / 24.0, "cell": [cw, ch], "cols": COLS, "rows": rows,
+        "sheet_px": list(sheet.size), "master_crop_xywh": [x0, y0, x1 - x0, y1 - y0],
+        "occupied_union_master_xyxy": [int(ux0), int(uy0), int(ux1), int(uy1)],
+        "anchor_in_cell_px": [(anchor_x - x0) / V2_DIV, (uy1 - y0) / V2_DIV],   # feet = union bottom (fixed for the whole sequence)
+        "scale_mul": V2_HEIGHT_REF / float(uy1 - uy0),                            # Layout A apparent height of the previous WOLF
+        "master_sequence_sha256": got, "package_status": meta["status"], "source_video_sha256": meta["source_provenance"]["video_sha256"],
+        "download_bytes": os.path.getsize(path), "decoded_bytes": sheet.size[0] * sheet.size[1] * 4,
+        "sheet_sha256": hashlib.sha256(open(path, "rb").read()).hexdigest(),
+    }
+
+
+def build(masters, out_dir, wolf_v2=None):
     os.makedirs(out_dir, exist_ok=True)
     manifest = {
         "status": "F15 RUNTIME DERIVATIVES - Layout A accepted by Ube (size + softer animation rendering); masters unchanged",
@@ -108,15 +165,16 @@ def build(masters, out_dir):
                 ox = int(round(PORT_W / 2 - (ANCHOR_X - px0) * PORT_SCALE))
                 port.paste(small, (max(0, ox), PORT_H - ph))
                 os.makedirs(os.path.join(out_dir, "..", "portraits"), exist_ok=True)
-                port.save(os.path.join(out_dir, "..", "portraits", name + ".png"), optimize=True)
-        path = os.path.join(out_dir, name + ".png")
+                port.save(os.path.join(out_dir, "..", "portraits", ("wolf_prev" if name == "wolf" else name) + ".png"), optimize=True)
+        key = "wolf_prev" if name == "wolf" else name   # the previous WOLF stays recoverable; the v2 replacement takes the "wolf" slot
+        path = os.path.join(out_dir, key + ".png")
         sheet.save(path, optimize=True)
         extra = {}
         if name == "wolf":   # A A B B pairs must survive derivation as exact byte-equal cell pairs
             extra["wolf_AABB_pairs_intact"] = all(cells[2 * k] == cells[2 * k + 1] for k in range(n // 2)) and \
                 all(cells[2 * k + 1] != cells[2 * k + 2] for k in range(n // 2 - 1))
-        manifest["dancers"][name] = {
-            "file": name + ".png", "frames": n, "fps": 24,
+        manifest["dancers"][key] = {
+            "file": key + ".png", "frames": n, "fps": 24, "div": DIV, "scale_mul": 1,
             "duration_s": n / 24.0, "cell": [cw, ch], "cols": COLS, "rows": rows,
             "sheet_px": list(sheet.size),
             "master_crop_xywh": [x0, y0, x1 - x0, y1 - y0],
@@ -127,6 +185,8 @@ def build(masters, out_dir):
             "sheet_sha256": hashlib.sha256(open(path, "rb").read()).hexdigest(),
             **extra,
         }
+    if wolf_v2:
+        build_wolf_v2(wolf_v2, out_dir, manifest)
     t = manifest["dancers"].values()
     manifest["totals"] = {"download_bytes": sum(d["download_bytes"] for d in t),
                           "decoded_bytes": sum(d["decoded_bytes"] for d in t)}
@@ -139,13 +199,14 @@ if __name__ == "__main__":
     g = ap.add_mutually_exclusive_group(required=True)
     g.add_argument("--masters", help="extracted f15-launch-trio-masters directory")
     g.add_argument("--from-git", help="git repo containing the art commit")
+    ap.add_argument("--wolf-v2", help="extracted STOVE N v2 outline 4px LAUNCH_PACKAGE directory (replaces WOLF; the previous WOLF is kept as wolf_prev)")
     ap.add_argument("--out", default=os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "assets", "f15", "dancers"))
     a = ap.parse_args()
     if a.from_git:
         with tempfile.TemporaryDirectory() as tmp:
-            m = build(extract_from_git(a.from_git, tmp), a.out)
+            m = build(extract_from_git(a.from_git, tmp), a.out, a.wolf_v2)
     else:
-        m = build(a.masters, a.out)
+        m = build(a.masters, a.out, a.wolf_v2)
     print(json.dumps(m["totals"]))
     for k, d in m["dancers"].items():
         print(k, d["cell"], d["sheet_px"], d["download_bytes"], d["decoded_bytes"], d.get("wolf_AABB_pairs_intact", ""))

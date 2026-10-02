@@ -71,3 +71,15 @@ No flag was promoted (`js/if1/flag_defaults.js` untouched), no schema version as
 ```
 RA_PLAYWRIGHT_PATH=<playwright-core dir> RA_CHROMIUM_PATH=<chrome.exe> node tools/tests/f15/browser-check.mjs --shots <dir>
 ```
+
+## WOLF replacement (STOVE N v2) — creator-approved after the first candidate commit
+
+Ube approved the **STOVE N v2** WOLF (thin black outline, 4-px grid, cleaned transparency gaps) in chat; the package metadata itself still reads
+"CANDIDATE — PENDING UBE REVIEW", so that approval is recorded here, not in the package. Replaces **only** the WOLF animation: character design, the
+other dancers, mapping, progression and dialogue are unchanged. (An earlier attachment, the FROZEN zip, held the *old* WOLF — identical sequence hash — and was not used.)
+
+* Package: `CANDIDATE_PENDING_UBE_REVIEW_v2_outline_4px_LAUNCH_PACKAGE.zip`, SHA-256 `2bcd3ffebac332ff9ed4f22e72f4eb7c6b71d49fb71c2b527568b6aa861a792c`. Verified: its own `verify_package.py` PASS (all files, both sequences, order, rational timing); manifest sequence hash `67572b524a4f07d680659dcde2cd14b363930ed87cc9d187c8bddd853c0dc9f7` recomputed by the builder; **145 frames, 24 fps, 6.0417 s** (old: 146 frames, 6.0833 s); **0 of its frames are byte-identical to the old WOLF**; source video SHA-256 `6beff2bb…92c4f3d`.
+* Transform (fixed for the whole sequence, built by `tools/f15/build_derivatives.py --wolf-v2 <package dir>`): crop = occupied union (x 96–592, y 48–633) grown to the art's 4-px grid; **exact 4:1** area downsample (the art is on a 4-px grid, so the old 3:1 would alias it); anchor x = union centre (344, same as the other dancers); feet = union bottom; `scale_mul` 600/585 so the apparent height equals the previous WOLF's under Layout A. No frame duplication assumed (the old A A B B pairs do not apply), no retiming, no alpha edit, no clip repair. Sheet 1488×1911, cell 124×147.
+* Recoverable: the previous WOLF sheet stays byte-identical as `assets/f15/dancers/wolf_prev.png` (and `portraits/wolf_prev.png`); set `RAF15Tunables.WOLF_SHEET='wolf_prev'` to switch back. Originals untouched.
+* Payload vs memory (active set, WOLF v2 + DRAGON + PINK): **6,908,644 B download (6.6 MiB)**, **42,761,232 B decoded (40.8 MiB)** (v2 WOLF alone: 2,228,791 B / 11,374,272 B; the old set was 6,707,435 B / 50,730,960 B). `wolf_prev.png` (2,027,582 B) ships but is only fetched if selected.
+* Checks: playback advances (145-frame loop), all 145 cells non-empty with partial alpha preserved; 40 of 145 frames touch the cell edge — this is the package's own source-canvas contact (its audit reports `added_master_clipping:false`) and is **inherited, not repaired**; no pixel lies outside the crop (asserted). Real-browser at 360/390/430: all dancers inside the stage, feet on the shared line, headroom ≥ 6 px (WOLF unchanged: 6.0 px at 360, 6.0 at 390, 27.8 at 430), UI clear; 58/58 widths+throws and 56/56 scenes checks. Screenshots: `club_*_start.png`, `club_390_hit_roxy.png` (WOLF v2 visible). The package's own audit lists 7 pale-sample losses and "unresolved visual defects" — carried as is.

@@ -33,6 +33,9 @@
    }
   },
   HANDLES:['wolf','dragon','pink'],
+  // WOLF animation: 'wolf' = the STOVE N v2 replacement (thin outline, 4-px grid, cleaned gaps; creator-approved); 'wolf_prev' = the previous
+  // frozen WOLF (146 frames), kept byte-identical and recoverable. Her character design and the mapping are unchanged either way.
+  WOLF_SHEET:'wolf',
 
   // ---- THRESHOLDS — IMPLEMENTATION TUNING — PENDING REVIEW ---------------------------------------------------------
   // Cumulative dollars spent ON ONE DANCER (every bill thrown at her, floor/missed bills included) that make scene L1..L4

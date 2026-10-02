@@ -136,7 +136,8 @@
    for(const d of C().dancers())geo.x[d]=offX+L.slots[C().handleOf(d)].cx*cr.width;
    return true;
   }
-  const frameFor=handle=>Math.floor((performance.now()-t0)/(1000/L.fps))%manifest.dancers[handle].frames;
+  const sheetKey=h=>h==='wolf'?T().WOLF_SHEET:h;   // WOLF has two recoverable sheets: the approved v2 replacement and the previous one
+  const frameFor=handle=>Math.floor((performance.now()-t0)/(1000/L.fps))%manifest.dancers[sheetKey(handle)].frames;
   function draw(){
    const W=geo.W,H=geo.H,dpr=geo.dpr,cw=Math.round(W*dpr),ch=Math.round(H*dpr);
    if(over.width!==cw||over.height!==ch){over.width=cw;over.height=ch;}
@@ -154,11 +155,12 @@
     octx.lineWidth=(sel?2:1)*dpr;octx.strokeStyle=sel?'#5fe3ff':'rgba(164,159,192,0.45)';octx.stroke();
    }
    for(const d of order){
-    const h=C().handleOf(d),m=manifest.dancers[h],img=sheets[h],f=frameFor(h);
-    const dw=m.cell[0]*3*geo.k,dh=m.cell[1]*3*geo.k,dx=geo.x[d]-m.anchor_in_cell_px[0]*3*geo.k,dy=geo.feetY-dh;
+    const h=C().handleOf(d),m=manifest.dancers[sheetKey(h)],img=sheets[sheetKey(h)],f=frameFor(h);
+    // one FIXED transform per sequence: integer downsample (div), Layout A apparent size (scale_mul), feet on the shared line (anchor y)
+    const kk=geo.k*(m.scale_mul||1),dv=m.div||3,dw=m.cell[0]*dv*kk,dh=m.cell[1]*dv*kk,dx=geo.x[d]-m.anchor_in_cell_px[0]*dv*kk,dy=geo.feetY-m.anchor_in_cell_px[1]*dv*kk;
     if(img){octx.drawImage(img,(f%m.cols)*m.cell[0],Math.floor(f/m.cols)*m.cell[1],m.cell[0],m.cell[1],Math.round(dx*dpr),Math.round(dy*dpr),Math.round(dw*dpr),Math.round(dh*dpr));}
     else{octx.fillStyle='rgba(164,159,192,.25)';octx.fillRect(Math.round(dx*dpr),Math.round(dy*dpr),Math.round(dw*dpr),Math.round(dh*dpr));}
-    geo.boxes[d]={x:dx,y:dy,w:dw,h:dh,frame:f,handle:h};
+    geo.boxes[d]={x:dx,y:dy,w:dw,h:dh,feet:dy+m.anchor_in_cell_px[1]*dv*kk,frame:f,handle:h};
     // name tag under the feet: always says who is who (and lets Ube judge the provisional mapping on sight)
     octx.font=`${Math.round(7*dpr)}px ${PSTART}`;octx.textAlign='center';octx.textBaseline='top';
     octx.lineWidth=3*dpr;octx.strokeStyle='#07060f';octx.strokeText(names[d],geo.x[d]*dpr,(geo.feetY+5)*dpr);
@@ -186,10 +188,10 @@
   // ---- loading (reliable: every failure is visible and nothing blocks the throw/attribution path) -----------------------------
   const loadImg=u=>new Promise((ok,bad)=>{const i=new Image();i.onload=()=>ok(i);i.onerror=()=>bad(new Error(u));i.src=u;});
   const ready=fetch(SHEET_DIR+'manifest.json',{cache:'no-cache'}).then(r=>{if(!r.ok)throw new Error('manifest '+r.status);return r.json();}).then(m=>{
-   manifest=m;return Promise.all(Object.keys(m.dancers).map(h=>loadImg(SHEET_DIR+m.dancers[h].file).then(i=>{sheets[h]=i;})));
+   manifest=m;return Promise.all(T().HANDLES.map(sheetKey).map(k=>loadImg(SHEET_DIR+m.dancers[k].file).then(i=>{sheets[k]=i;})));
   }).then(()=>{status.loaded=true;if(!disposed)note.textContent=`SUPPORTING ${names[selectedLocal]}. TAP A NAME TO SUPPORT SOMEONE ELSE.`;}).catch(e=>{
    status.failed=String(e.message||e);console.error('F15 dancers failed to load',e);
-   if(!manifest)manifest={dancers:Object.fromEntries(T().HANDLES.map(h=>[h,{frames:1,cell:[155,200],cols:1,anchor_in_cell_px:[77,200]}]))};
+   if(!manifest)manifest={dancers:Object.fromEntries(T().HANDLES.map(h=>[sheetKey(h),{frames:1,cell:[155,200],cols:1,anchor_in_cell_px:[77,200]}]))};
    if(!disposed)note.textContent='DANCER ART FAILED TO LOAD. YOU CAN STILL SUPPORT AND THROW.';
   });
 

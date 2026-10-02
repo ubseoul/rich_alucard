@@ -19,10 +19,12 @@
     "no_dedupe_no_interpolation_no_retiming": true
   },
   "dancers": {
-    "wolf": {
-      "file": "wolf.png",
+    "wolf_prev": {
+      "file": "wolf_prev.png",
       "frames": 146,
       "fps": 24,
+      "div": 3,
+      "scale_mul": 1,
       "duration_s": 6.083333333333333,
       "cell": [
         155,
@@ -54,6 +56,8 @@
       "file": "dragon.png",
       "frames": 144,
       "fps": 24,
+      "div": 3,
+      "scale_mul": 1,
       "duration_s": 6.0,
       "cell": [
         145,
@@ -84,6 +88,8 @@
       "file": "pink.png",
       "frames": 145,
       "fps": 24,
+      "div": 3,
+      "scale_mul": 1,
       "duration_s": 6.041666666666667,
       "cell": [
         165,
@@ -109,10 +115,50 @@
       "download_bytes": 1807138,
       "decoded_bytes": 17606160,
       "sheet_sha256": "c8ae3cc0ccc74743a811ba7fc70675b631325cc8f386f85f277423a3513638cf"
+    },
+    "wolf": {
+      "file": "wolf.png",
+      "frames": 145,
+      "fps": 24,
+      "div": 4,
+      "duration_s": 6.041666666666667,
+      "cell": [
+        124,
+        147
+      ],
+      "cols": 12,
+      "rows": 13,
+      "sheet_px": [
+        1488,
+        1911
+      ],
+      "master_crop_xywh": [
+        96,
+        48,
+        496,
+        588
+      ],
+      "occupied_union_master_xyxy": [
+        96,
+        48,
+        592,
+        633
+      ],
+      "anchor_in_cell_px": [
+        62.0,
+        146.25
+      ],
+      "scale_mul": 1.0256410256410255,
+      "master_sequence_sha256": "67572b524a4f07d680659dcde2cd14b363930ed87cc9d187c8bddd853c0dc9f7",
+      "package_status": "CANDIDATE \u2014 PENDING UBE REVIEW; NOT APPROVED",
+      "source_video_sha256": "6beff2bb2c5b344f5f5fb5f813c870105c02f4bde51a559ccd9b6c92aaec4f3d",
+      "download_bytes": 2228791,
+      "decoded_bytes": 11374272,
+      "sheet_sha256": "32fdbd87572a3b7cb388ebc5121bc135c2d5b3c8772a044dbb8537642450dce3"
     }
   },
   "totals": {
-    "download_bytes": 6707435,
-    "decoded_bytes": 50730960
+    "download_bytes": 8936226,
+    "decoded_bytes": 62105232
   }
 }
