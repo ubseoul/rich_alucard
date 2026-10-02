@@ -60,6 +60,20 @@
    fps:24
   },
 
+  // ---- RAINMAKER §5 THE ROTATION — DORMANT (OL-031) ------------------------------------------------------------------
+  // Authored (Patch RAINMAKER §5): "10 dancers; the nightly lineup shows 4. Weekday nights draw from COMMON and RARE; LEGENDARY dancers
+  // only on Friday/Saturday and only after WHALE status." OL-031: the launch roster (Roxy, Rosalyn, Emerald) is ALL on stage every WAKE;
+  // the rotation code stays intact and DORMANT until the roster exceeds ACTIVE_ABOVE (4). Nothing calls it for the launch trio, no tier is
+  // assigned to the trio, and Rainmaker's ten are a future patch. The only non-authored detail is HOW the 4 are picked among the eligible
+  // (a day-rotated window — mechanical tuning, never canon).
+  ROTATION:{
+   status:'DORMANT until the roster exceeds ACTIVE_ABOVE (OL-031); pick rule is mechanical tuning',
+   LINEUP_SIZE:4,
+   ACTIVE_ABOVE:4,
+   WEEKDAY_TIERS:['COMMON','RARE'],
+   WEEKEND_TIERS:['COMMON','RARE','LEGENDARY']
+  },
+
   // ---- COMBAT — IMPLEMENTATION TUNING — PENDING REVIEW -------------------------------------------------------------
   // Existing Combat 2.0, narrowly configured. No new engine, no unrelated rewards, no defeat penalty.
   COMBAT:{

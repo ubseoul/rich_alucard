@@ -230,9 +230,11 @@
    crew:{env:'castle_exterior',actors:crewActors,title:'THE PLAN',
     lines:A=>[...(A.get('lanes')||[]).filter(id=>laneLine[id]).map(id=>N(laneLine[id])),
      N('The date: Gbenga’s own 55th-birthday owambe at the warehouse.'),N('Every canopy Rich ever delivered is up. Every aunty is there.')],next:A=>{const r=routePlan(A);return r==='crew'?'party':r;}},
+   // OL-029 F: Phase 1 is a PLAY that Rich WATCHES ON HIS PHONE from the owambe. He is never an actor or a hazard target in it: the squad
+   // (the Ogas + the picked lanes) fights inside F01's group-chat PLAY, and the narration is the existing text recast without Rich as subject.
    party:{env:'gbenga_rentals',actors:{left:'rich'},title:'THE PARTY',
-    lines:[N('Rich clears Gbenga’s boys through a warehouse full of canopies and stacked chairs without disrupting the owambe.'),
-     N('A canopy pole collapses on whoever is under it, Rich included. The aunties are non-combatants: they block lines of fire and critique Rich’s tactics out loud.')],next:A=>{const r=routePlan(A);return r==='crew'?'p1':r;}},
+    lines:[N('Gbenga’s boys are cleared through a warehouse full of canopies and stacked chairs without disrupting the owambe.'),
+     N('A canopy pole collapses on whoever is under it. The aunties are non-combatants: they block lines of fire and critique the tactics out loud.')],next:A=>{const r=routePlan(A);return r==='crew'?'p1':r;}},
    p1:{minigame:{id:'f07_play',params:A=>({kind:'finale_p1',lanes:A.get('lanes')||[]}),next:(A,res)=>{const n=playNext(A,res);return n==='won'?'office':n==='lost'?'p1_lost':'p1_refused';}}},
    p1_lost:{lines:[N('Gbenga’s boys hold the warehouse.')],choices:[{label:'TRY AGAIN',next:'p1'}]},
    p1_refused:{lines:A=>[N(refusalLine(A))],choices:A=>[

@@ -8,22 +8,25 @@ Ube explicitly delegated these gameplay decisions to UNDERLORD; they are applied
 
 | # | Ruling | Applied as |
 |---|---|---|
-| D1 | SEND THE BOYS: no additional cost or penalty; forgoing the M8 payout is sufficient | Resolves M8; no pay, HEAT, clout or trust change (tested, browser-verified) |
-| D2 | M8 win: clout/trust stay 0; keep $18K and +12 HEAT | `tunables.js` m8.clout/trust = 0; pay/HEAT unchanged |
-| D3 | THE OGAS mandatory, fills ONE of the THREE lane slots, preselected and not deselectable; the player picks TWO others; conditional-lane eligibility unchanged; a saved plan without THE OGAS reopens selection with THE OGAS fixed and no other lane silently discarded | Plan UI shows `THE OGAS · SQUAD · FIXED` as a locked entry + two picks; `routePlan()` reconciles saved plans (kept lanes retained; three saved others reopen selection with each marked PREVIOUSLY PICKED); a UI-built plan cannot reach the PLAY without a squad (the `NO_SQUAD` refusal remains only as a backstop) |
-| D4 | Aunties/canopy gameplay implemented with no invented critique dialogue; minimal factual narration authorised | Exact narration below; spoken critique lines remain in the D-queue (non-blocking) |
-| D5 | Generic transient "GBENGA’S BOY n" labels; mechanical classes only as encounter tuning; `gbengasBoysCanJoin` is eligibility only, no fabricated recruits | Unchanged from the previous candidate (no recruit state is written) |
-| D6 | Source-silent lane effects stay neutral; no invented bonuses; UI must not imply effects | Lane entries are names only; picks change nothing but `finaleCrew` (tested) |
-| D7 | Finale Phase 1 reachable without a car or seat capacity — this encounter only, via F07-owned configuration; no persistent loaner, no vehicle lore, no inventory change; ordinary F01/M8 car rules unchanged; F03 tribute/TAKEOVER preserved | The finale request carries F01's own stock encounter vehicle (`HOOPTIE`) instead of Rich's garage, no `carMap`, no `recordDrive`; F07's PLAY page keeps its PLAY world under `ra.f07.play.v1.*`, so the vehicle cannot become a lost car, a recovery card or any F01 state. M8 and stock F01 requests still refuse with no car / too few seats (tested) |
-| D8 | Source-silent mechanical tuning may remain if compatible with authored moves/numbers | Unchanged: pattern order, VOICE NOTE telegraph (authored §7 pose), GOLDEN DRACO cadence, hazard magnitudes, loan-squad size, consigliere cadence |
+| F07-D1 | SEND THE BOYS: no additional cost or penalty; forgoing the M8 payout is sufficient | Resolves M8; no pay, HEAT, clout or trust change (tested, browser-verified) |
+| F07-D2 | M8 win: clout/trust stay 0; keep $18K and +12 HEAT | `tunables.js` m8.clout/trust = 0; pay/HEAT unchanged |
+| F07-D3 | THE OGAS mandatory, fills ONE of the THREE lane slots, preselected and not deselectable; the player picks TWO others; conditional-lane eligibility unchanged; a saved plan without THE OGAS reopens selection with THE OGAS fixed and no other lane silently discarded | Plan UI shows `THE OGAS · SQUAD · FIXED` as a locked entry + two picks; `routePlan()` reconciles saved plans (kept lanes retained; three saved others reopen selection with each marked PREVIOUSLY PICKED); a UI-built plan cannot reach the PLAY without a squad (the `NO_SQUAD` refusal remains only as a backstop) |
+| F07-D4 | Aunties/canopy gameplay implemented with no invented critique dialogue; minimal factual narration authorised | Exact narration below; spoken critique lines remain in the D-queue (non-blocking) |
+| F07-D5 | Generic transient "GBENGA’S BOY n" labels; mechanical classes only as encounter tuning; `gbengasBoysCanJoin` is eligibility only, no fabricated recruits | Unchanged from the previous candidate (no recruit state is written) |
+| F07-D6 | Source-silent lane effects stay neutral; no invented bonuses; UI must not imply effects | Lane entries are names only; picks change nothing but `finaleCrew` (tested) |
+| F07-D7 | Finale Phase 1 reachable without a car or seat capacity — this encounter only, via F07-owned configuration; no persistent loaner, no vehicle lore, no inventory change; ordinary F01/M8 car rules unchanged; F03 tribute/TAKEOVER preserved | The finale request carries F01's own stock encounter vehicle (`HOOPTIE`) instead of Rich's garage, no `carMap`, no `recordDrive`; F07's PLAY page keeps its PLAY world under `ra.f07.play.v1.*`, so the vehicle cannot become a lost car, a recovery card or any F01 state. M8 and stock F01 requests still refuse with no car / too few seats (tested) |
+| F07-D8 | Source-silent mechanical tuning may remain if compatible with authored moves/numbers | Unchanged: pattern order, VOICE NOTE telegraph (authored §7 pose), GOLDEN DRACO cadence, hazard magnitudes, loan-squad size, consigliere cadence |
 
-### Exact narration recorded (D4)
+### Exact narration recorded (F07-D4)
 * AUNTIES event (feed, every occurrence): `THE AUNTIES BLOCK THE LINE OF FIRE AND CRITIQUE THE TACTICS OUT LOUD.`
 * CANOPY POLE event (feed, every occurrence): `A CANOPY POLE IS HIT. THE CANOPY COLLAPSES ON WHOEVER IS UNDER IT.`
 * Stage-card text (engine event record): AUNTIES `The aunties are non-combatants: they block lines of fire and critique the tactics out loud.` · CANOPY POLE `A canopy pole is hit and the canopy collapses on whoever is under it, Rich’s crew included.`
 * Engine-named hazard causes (aftermath): `the aunties were standing in the line of fire` · `a canopy pole came down on whoever was under it`.
-* Phase 1 scene narration (adventure): `Rich clears Gbenga’s boys through a warehouse full of canopies and stacked chairs without disrupting the owambe.` / `A canopy pole collapses on whoever is under it, Rich included. The aunties are non-combatants: they block lines of fire and critique Rich’s tactics out loud.`
+* Phase 1 scene narration (adventure) — **recast by BUILD-1 (OL-029 F)**, Rich is no longer the subject or target: `Gbenga’s boys are cleared through a warehouse full of canopies and stacked chairs without disrupting the owambe.` / `A canopy pole collapses on whoever is under it. The aunties are non-combatants: they block lines of fire and critique the tactics out loud.` (Previously: `Rich clears Gbenga’s boys …` / `… on whoever is under it, Rich included. … critique Rich’s tactics out loud.`)
 No jokes, character claims or story events were added.
+
+### Phase 1 framing (OL-029 F, BUILD-1)
+Finale Phase 1 THE PARTY is a PLAY that Rich WATCHES ON HIS PHONE from the owambe. F01's PLAY presentation already is that phone (the group chat is the only live UI; Rich appears only as his own texts); the squad is the Ogas + the two picked lanes, Rich is not on the field (no Rich unit in the pods) and no hazard is aimed at Rich. The repair is therefore a text recast (above) plus `tools/tests/f07/phase1_phone.test.mjs`; no F01 file, number or feel changed. No new sentence stating "Rich watches on his phone" was authored — see D_QUEUE item `F07-P1-FRAMING`. Phase 2 THE OFFICE is unchanged (menu combat as authored).
 
 ## Remaining D-queue (non-blocking)
 | # | Item | Status |
