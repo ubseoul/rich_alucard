@@ -1,5 +1,8 @@
 # Rich Alucard Art Department — start here
 
+OL-047 current branch: `build/visual-completion-002`. 001 superseded by 002 (OL-047, rebase onto build2-accepted). All further BUILD-4 work, drops and final reports use 002. Normal push only; remote 001 retained at `807523cb369776540bc573dd53a9fc753d2f30de`. Resume `docs/progress/BUILD4.md`; earlier publication-pending notes below are history.
+
+
 OL-046 supersedes counts below: P-A 0 / P-B 0 / P-C 18 / P-D 50; 68 pending total. IMAGE_PROMPTS_P-D.md now has 48 targets, including GUNS (eight held sprites). BUILD-6 owns learned-move FX. Rebased locally onto build2-accepted (40fd2bc02e4793380fbf9f6cb04c95113a46db11); no approved art/audio regenerated.
 
 

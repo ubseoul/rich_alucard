@@ -1,4 +1,17 @@
-# BUILD-4 progress — OL-046 (OL-042/039 history retained)
+# BUILD-4 progress — OL-047 (OL-046/042/039 history retained)
+
+## OL-047 current publication and resume state
+
+001 superseded by 002 (OL-047, rebase onto build2-accepted).
+
+All further BUILD-4 work, approved drops, ingest and final reports use `build/visual-completion-002`. Normal publication created this new remote branch at rebased OL-046 commit `1d6dbd54a9e38ae069f041abba2c194ad685e9f9`. A documentation-only follow-up records this ruling on 002. `build/visual-completion-001` remains history at `807523cb369776540bc573dd53a9fc753d2f30de`; its remote was not changed. No force-push, merge or accepted-tag movement.
+
+Verified before the documentation follow-up: remote 002 SHA `1d6dbd54a9e38ae069f041abba2c194ad685e9f9`; remote 001 SHA `807523cb369776540bc573dd53a9fc753d2f30de`; `git -c gc.auto=0 merge-base --is-ancestor build2-accepted build/visual-completion-002` exits 0 and merge-base is `40fd2bc02e4793380fbf9f6cb04c95113a46db11` (the accepted tag's commit). Final remote checks are repeated after the documentation push and included in Ube's publication report.
+
+OL-046 validation remains applicable: runtime/art/audio are unchanged by this documentation-only record. Hash authority remains `art_department/build4/PRESERVED_ART_HASH_AUDIT.json`; 960 frozen assets unchanged; F06 untouched. Required stop: await filename-only approved P-C/P-D drops on 002. Remaining P-A 0 / P-B 0 / P-C 18 / P-D 50. Use `art_department/briefs/IMAGE_PROMPTS_P-D.md` and `P-C_STEPS.md`; no new Tier 2 generation; learned-move FX remain BUILD-6-owned.
+
+The OL-046/042/039 sections below are chronological history. OL-046's force-push approval request is superseded by OL-047 and is not pending. Before final ingest, recheck that `build2-accepted` is an ancestor of 002; repeat integration and validations if the base changes.
+
 
 ## OL-046 current resume state
 
