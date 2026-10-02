@@ -89,7 +89,7 @@
   FR().patch('F15',`paid.${k}`,true);return {ok:true,amount:n};
  }
 
- // ---- identity mapping (configurable; PENDING UBE CONFIRMATION) ----------------------------------------------------------------
+ // ---- identity mapping (one explicit config; confirmed by Ube 2026-10-01) ----------------------------------------------------------------
  function mapping(){
   const base={...T().IDENTITY.binding},o=state().mapping;
   if(o&&typeof o==='object'&&T().DANCERS.every(d=>T().HANDLES.includes(o[d]))&&new Set(T().DANCERS.map(d=>o[d])).size===3)return {...o};

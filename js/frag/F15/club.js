@@ -91,7 +91,7 @@
    idBox.hidden=!devSurface();if(idBox.hidden){idBox.replaceChildren();return;}
    if(idBox.dataset.open==='1'&&idBox.open)return;
    const map=C().mapping(),ident=T().IDENTITY;
-   idBox.innerHTML=`<summary>IDENTITY CHECK - UBE TO CONFIRM</summary><p class="f15-dev">${ident.status}. Which dancer is which has no proof in the art files. Pick the right figure for each name; progress is saved by NAME and never changes.</p>`;
+   idBox.innerHTML=`<summary>DEV: DANCER FIGURE MAPPING</summary><p class="f15-dev">${ident.status}. Dev override only; progress is saved by NAME and never changes.</p>`;
    for(const d of C().dancers()){
     const l=document.createElement('label');l.innerHTML=`<span>${names[d]}</span>`;
     const sel=document.createElement('select');sel.dataset.dancer=d;sel.setAttribute('aria-label',`${names[d]} figure`);

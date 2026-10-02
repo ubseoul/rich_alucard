@@ -17,19 +17,18 @@
   DANCERS:['roxy','rosalyn','emerald'],
   NAMES:{roxy:'ROXY',rosalyn:'ROSALYN',emerald:'EMERALD'},
 
-  // ---- IDENTITY MAPPING — UNPROVEN, PENDING UBE CONFIRMATION --------------------------------------------------------
-  // The approved foundation cards are named roxy/rosalyn/emerald-foundation.png and the dance masters wolf/dragon/pink, but
-  // the frozen corpus carries NO 1:1 binding metadata (START_HERE §4). The default below rests on VISUAL/SOURCE EVIDENCE only:
-  // the roxy card is a wolf (and the F15 audit lists Roxy as a wolf); the audit lists Emerald as a green dragon with a gemstone
-  // name; the pink master is the remaining dancer. Nothing here is final until Ube confirms it in the club's IDENTITY CHECK
-  // panel (which only persists an override in save.frag.F15.mapping — it never touches progress, which is keyed by NAME).
+  // ---- IDENTITY MAPPING — CONFIRMED BY UBE (creator decision, 2026-10-01) ----------------------------------------------
+  // Roxy = WOLF, Rosalyn = PINK, Emerald = DRAGON. HISTORICAL EVIDENCE (kept): the frozen corpus has no 1:1 binding metadata
+  // (START_HERE §4); the creator confirmed the mapping the engineering proposal was based on (the roxy foundation card is a wolf, the
+  // F15 audit lists Emerald as a green dragon, pink is the remaining master). It stays ONE explicit config; the dev-only IDENTITY panel can
+  // still persist an override in save.frag.F15.mapping, which never touches progress (keyed by NAME).
   IDENTITY:{
-   status:'PROVISIONAL — PENDING UBE CONFIRMATION',
+   status:'CONFIRMED BY UBE (creator decision, 2026-10-01)',
    binding:{roxy:'wolf',rosalyn:'pink',emerald:'dragon'},
    evidence:{
     roxy:'foundation card (roxy-foundation.png) is a wolf; F15 audit §D2 lists Roxy as a wolf',
     emerald:'F15 audit §D2 lists Emerald as a green dragon with a gemstone name',
-    rosalyn:'by elimination (the remaining master); no source states her species'
+    rosalyn:'by elimination (the remaining master); no source states her species — confirmed by the creator'
    }
   },
   HANDLES:['wolf','dragon','pink'],
@@ -73,6 +72,8 @@
   // Rosalyn L1: the check is $212.47 split exactly in half (authored). The game's money is whole dollars (RALife.addMoney
   // rounds), so Rich's real debit is his half rounded DOWN to whole dollars.
   MONEY:{
+   // ACCEPTED LAUNCH ADAPTATION (creator, 2026-10-01): Rich is charged $106 once; the authored receipt text keeps $106.24 / $106.23.
+   // The $0.23 difference is an accepted consequence of the whole-dollar economy. No cents migration.
    rosalynL1RichHalf:106,
    // Roxy L4: "PAID BY: RICH" — the script authors NO amount for the curry, so none is invented (0 = no debit). Configurable.
    roxyL4Curry:0

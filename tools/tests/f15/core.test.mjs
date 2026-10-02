@@ -204,6 +204,37 @@ export async function test(root){
 
   console.log('PASS F15 check: money is whole dollars only; Rich half of $106.23 is adapted to a once-only $106 debit (constraint documented)');}
 
+ // ---- 7d. the cap is enforced at the shared entry seam (RAAdventures.start), not only by buttons ------------------------------------------------------
+ {const {walk}=await walkMod(root);
+  const c=await boot(root);setDay(c,70);setMoney(c,1e7);for(const d of ['roxy','rosalyn','emerald'])give(c,d,TH[0]);
+  const L1=['roxy','rosalyn','emerald'].map(d=>idOf(d,1));
+  // browsing / declining consume nothing
+  assert.ok(c.RAAdventures.available(L1[1]));walk(c,L1[0],{pick:list=>Math.max(0,list.findIndex(x=>x.label==='NOT TONIGHT'))});
+  assert.equal(c.RAF15.capReached(),false);
+  // a scene that is not yet earned cannot be started directly
+  assert.equal(c.RAAdventures.start(idOf('roxy',3),{from:'test'}),false,'threshold/sequence enforced at the seam');
+  assert.equal(c.RAAdventures.active(),null);
+  // first date of the WAKE goes through; a second NEW date (any dancer) is refused even by a direct start
+  assert.ok(c.RAAdventures.start(L1[1],{from:'phone'}),'authorized date starts');
+  c.RAAdventures.abandon();                                  // (browsing: nothing completed yet)
+  walk(c,L1[1],{pick:()=>0});
+  for(const id of [L1[0],L1[2],idOf('rosalyn',2)])assert.equal(c.RAAdventures.start(id,{from:'phone'}),false,`${id}: second new date in the same WAKE refused at start()`);
+  assert.equal(c.RAAdventures.active(),null,'a refused start leaves no run behind');
+  assert.equal(money(c),1e7-TH[0]*3-106,'the one completed date charged its scene cost once; refused starts cost nothing');
+  // an authorized in-progress date resumes after reload (even once the next WAKE has begun) and is never refused or re-charged
+  const c2=await boot(root);setDay(c2,80);setMoney(c2,1e7);give(c2,'rosalyn',TH[0]);
+  assert.ok(c2.RAAdventures.start(L1[1],{from:'phone'}));for(const n of ['bing','yes','plenitude','order','opinion','test','split'])c2.RAAdventures.enter(n);
+  const paid=1e7-TH[0]-money(c2);assert.equal(paid,106);
+  const seed=saveOf(c2);const c3=await boot(root,{seedState:seed});setDay(c3,81);
+  assert.equal(c3.RAAdventures.active()?.id,L1[1]);assert.equal(c3.RAAdventures.start(L1[1],{from:'phone'})?.id,L1[1],'resume is not blocked');
+  const m3=money(c3);c3.RAAdventures.enter('split');assert.equal(money(c3),m3,'no second debit on resume');
+  c3.RAAdventures.complete('end');assert.equal(c3.RAAdventures.record(L1[1]).count,1);
+  // the next real WAKE permits the next eligible date
+  setDay(c3,82);give(c3,'roxy',TH[0]);assert.ok(c3.RAAdventures.start(L1[0],{from:'phone'}),'next WAKE: next eligible date starts');
+  // flag OFF: no F15 scene can start at all
+  const off=await boot(root,{on:false});setDay(off,5);assert.equal(off.RAAdventures.start(L1[0],{from:'test'}),false);
+  console.log('PASS F15 date gate: second new date refused at the shared start() seam; decline/browse consume nothing; authorized date resumes after reload; one charge; next WAKE reopens; dark = no entry');}
+
  // ---- 8. nothing else changed ------------------------------------------------------------------------------------------------------------------------
  {const c=await boot(root);const L=c.RALife;
   const kiki=c.RAAdventures.get('DATE');assert.ok(kiki,'existing DATE adventure intact');

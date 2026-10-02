@@ -90,6 +90,18 @@
   global.RAState.patch('life.clock.returnBeat',null);
  });
 
+ // ---- the one-date-per-WAKE guard at the shared entry seam ----------------------------------------------------------------------------
+ // Every route into a scene (phone begin, temptation SAY LESS, club GO, WAKE triggers, chained/queued starts, tests) ends in RAAdventures.start(id).
+ // This F15-owned guard wraps ONLY that call, ONLY for F15 scene ids: a NEW date is refused unless it is available right now (flag ON, threshold met,
+ // sequence, global cap, gates). It never blocks (a) resuming the run that is already active (reload restores life.adventures.active and resumes through
+ // RAAdventureScene.resume, which does not call start; a same-id start returns that run), and it consumes nothing for declining or browsing.
+ const engineStart=global.RAAdventures.start;
+ global.RAAdventures.start=function(id,opts){
+  if(C().parse(id)&&global.RAAdventures.active()?.id!==id&&!C().available(id))return false;
+  return engineStart.call(this,id,opts);
+ };
+ const guardedRefusal=id=>({id,status:C().status(id)});
+
  // ---- delivery -------------------------------------------------------------------------------------------------------------------
  // Put the dancer's next scene on the phone/WHAT WE ON as soon as it is available and the day's date is unspent.
  function offer(dancer){
@@ -100,5 +112,5 @@
  global.RAWakeBus?.subscribe?.({id:'F15.invites',fragment:'F15',phase:'wake',priority:67,flag:C().FLAG,fn:()=>{for(const d of C().dancers())offer(d);}});
  ensureContent();
 
- global.RAF15Dates={add,U,S,N,cast,stage,title,offer,ensureContent,ids:()=>ORDER.slice(),ENV_IDS:ENVS.map(e=>e[0])};
+ global.RAF15Dates={guardedRefusal,add,U,S,N,cast,stage,title,offer,ensureContent,ids:()=>ORDER.slice(),ENV_IDS:ENVS.map(e=>e[0])};
 })(window);
