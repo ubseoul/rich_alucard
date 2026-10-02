@@ -141,6 +141,13 @@
  }});
 
  // --------------------------------------------------------------- adventures
+ // F07-owned environment adapter: the frozen OWAMBE PARTY interior (art_department/production/f07-warehouse-backgrounds, byte-identical copy
+ // under assets/f07/backgrounds/) as its own complete opaque background for the finale's warehouse party scenes. Nothing else keys off it, and the
+ // shared 'gbenga_rentals' placeholder (M1-M4, F03, the three endings) is untouched. Drawn by the stock nearest-neighbour image path.
+ const PARTY_ENV='f07_warehouse_party';
+ (()=>{const R=window.RAEnvironments;if(!R||R.get(PARTY_ENV))return;
+  const def={id:PARTY_ENV,name:'GBENGA EVENT RENTALS · INGLEWOOD',image:'assets/f07/backgrounds/warehouse_owambe_party_270x480.png',floorY:372,base:1,cover:false,approved:true};
+  const get=R.get,all=R.all;R.get=id=>id===PARTY_ENV?def:get(id);R.all=()=>[...all(),def];})();
  const {S,N,E}=window.RAContent,D=window.RAAdventures.define;
  const smackThere=()=>!window.RALife.flag('lilSmackGone');
  // Player-facing explanations for the PLAY refusals (UI strings only; F01's rules are unchanged, no loaner is offered).
@@ -230,7 +237,7 @@
    crew:{env:'castle_exterior',actors:crewActors,title:'THE PLAN',
     lines:A=>[...(A.get('lanes')||[]).filter(id=>laneLine[id]).map(id=>N(laneLine[id])),
      N('The date: Gbenga’s own 55th-birthday owambe at the warehouse.'),N('Every canopy Rich ever delivered is up. Every aunty is there.')],next:A=>{const r=routePlan(A);return r==='crew'?'party':r;}},
-   party:{env:'gbenga_rentals',actors:{left:'rich'},title:'THE PARTY',
+   party:{env:PARTY_ENV,actors:{left:'rich'},title:'THE PARTY',
     lines:[N('Rich clears Gbenga’s boys through a warehouse full of canopies and stacked chairs without disrupting the owambe.'),
      N('A canopy pole collapses on whoever is under it, Rich included. The aunties are non-combatants: they block lines of fire and critique Rich’s tactics out loud.')],next:A=>{const r=routePlan(A);return r==='crew'?'p1':r;}},
    p1:{minigame:{id:'f07_play',params:A=>({kind:'finale_p1',lanes:A.get('lanes')||[]}),next:(A,res)=>{const n=playNext(A,res);return n==='won'?'office':n==='lost'?'p1_lost':'p1_refused';}}},
@@ -239,9 +246,9 @@
     ...(A.get('refusal')==='NO_SQUAD'?[{label:'REMAKE THE PLAN',next:'replan'}]:[]),
     {label:'NOT YET',next:'postponed'}]},
    postponed:{lines:[N('The owambe waits.')],end:{outcome:'postponed',memory:{text:'put off taking Gbenga’s chair',lane:'money'}}},
-   office:{env:'gbenga_rentals',actors:{left:'rich',right:'gbenga'},title:'THE OFFICE',
+   office:{env:PARTY_ENV,actors:{left:'rich',right:'gbenga'},title:'THE OFFICE',
     lines:[N('A glass office, and a framed photo of Gbenga shaking hands with himself.')],next:'duel'},
-   duel:{fight:{enemy:'gbenga',params:()=>({hp:window.RAGbengaFight.hpFor(state().trust),env:'gbenga_rentals',intro:'GBENGA · OGA OF THE BLOCK'}),
+   duel:{fight:{enemy:'gbenga',params:()=>({hp:window.RAGbengaFight.hpFor(state().trust),env:PARTY_ENV,intro:'GBENGA · OGA OF THE BLOCK'}),
     win:'takeover',lose:'office_lost',run:'office_lost',spared:(A,r)=>r?.octopus==='recruit'?'consigliere':'blessing'}},
    office_lost:{lines:[N('Gbenga keeps the chair.')],choices:[{label:'TRY AGAIN',next:'duel'}]},
    blessing:{env:'gbenga_rentals',actors:{left:'rich',right:'gbenga'},
