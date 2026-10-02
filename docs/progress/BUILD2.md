@@ -16,10 +16,13 @@ Status: **STOPPED WITH ACCEPTANCE BLOCKERS**, as permitted by OL-039. Functional
 | 5: statistical acceptance | FAIL R1 minimum 3; same on base at seed 54. Bands PASS: 3.825%, 16.2%, 4.225%. Careful 100%; T9 0 repeats | d69f7e39b449b2f5c5586eaf7294616d4c680f63 | docs/evidence/build2/play-validation.json; docs/evidence/build2/r1-base-comparison.json |
 | 6: release and browser verification | PASS npm test, leak-check, verify:all; full paths 360/390/430; 17 F02 browser checks; 22 artifact smoke checks | e0c918067d442d80ba1dffebe6baf5dadef8dd06 | docs/evidence/build2/npm-test.log; leak-check.log; verify-all-final.log; verify-all.json; browser-final.log |
 | 7: Ube review build | PASS; fixture, purchase/equip, gunfight and audio tour | e0c918067d442d80ba1dffebe6baf5dadef8dd06 | tools/build2/review.html; docs/evidence/build2/review-smoke.json; review-page.png |
+| 8: publish review branch | PASS; public remote SHA verified, no accepted branch moved or force push | cc55bc593cc7913b884390c7cabf6343555ba1ed | docs/evidence/build2/push-receipt.json |
 
 Ube clarified: **retain OBA DE GWINNETT**. DEACON in OL-039 is not a rename. All new features remain OFF by default. The built artifact records e0c918067d442d80ba1dffebe6baf5dadef8dd06 in docs/evidence/build2/build.json. Later closeout commits contain evidence and proof tooling; read the final branch tip with git for-each-ref.
 
 Resolved diagnostic failures are retained locally under the git-ignored docs/evidence/build2/diagnostic path and in the local evidence bundle. Current passing logs are at the main evidence path. Next: R1 authority/source resolution, authored BAIT scenario content, and audio event wiring/dynamic-routing proof. Do not treat sound registration as playback or tune authored values to erase the base failure.
+
+Public export review: the first push was rejected over potentially sensitive diagnostic evidence. The unpublished evidence commit was replaced with a safer payload: diagnostics/failure captures kept local, host paths replaced with placeholders, and only game-fixture screenshots retained. The retry was approved and pushed. Subsequent closeout metadata records that verified publication; the current branch tip may advance beyond the receipt SHA.
 
 Diagnostic correction: an unsupported audio-build --help invocation began regeneration. It was stopped; all affected runtime MP3s and the manifest were restored from the preserved port's Git blobs. No regenerated audio is retained. Re-run `python tools/build2/proof.py` to verify correspondence.
 
