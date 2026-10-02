@@ -1,4 +1,20 @@
-# BUILD-4 progress — OL-039
+# BUILD-4 progress — OL-042 (OL-039 history retained)
+
+## OL-042 current resume state
+
+Sections 1–4 APPLIED. Hash authority is now `art_department/build4/PRESERVED_ART_HASH_AUDIT.json`; BUILD-1 file retained with SUPERSEDED note (Overlord verified 1,226 empty-stream/null records). Eight exact current byte streams newly frozen by the final KEEP/reduced rulings; central frozen count 960, no pixel changes. A1/A2/B1/D1/D2/D3/D4/D5/D6 decisions recorded in `art_department/build4/OL042_DECISIONS.md`.
+
+21 rows closed by decision; DEV fixture excluded; three symbolic-token image rows replace the closed physical-prop decision rows. 79 → 60 pending: P-A 0, P-B 0, P-C 18, P-D 42 (40 OPEN image requests + two ingest-wiring reuse rows). Generic NPC identity decisions are final; their art requests remain.
+
+B1 wired in F07-owned code: repainted exterior only in winning TAKEOVER node or saved TAKEOVER ownership, never BLESSING/CONSIGLIERE/flag-OFF. Exact sign bytes preserved. Accepted current loops registered as Tier 2 (reduced); no new Tier 2 poses/videos requested. New cell 128x160 approved; Tier 3 local-model stills first, Tier 1 ChatGPT clothing over those, then 12 Ube-pipeline videos. No image-generated dance animation.
+
+Ube's handoff now requires filenames ONLY. Use `art_department/briefs/IMAGE_PROMPTS_P-D.md` (40 numbered prompts, batches 8/6/6/6/8/6) and `P-C_STEPS.md` (six still sheets + 12 six-second pipeline videos). Codex supplies manifests, normalization, hashes and contact sheets. Canonical P-A/B/C/D briefs supersede the OL-039 versions.
+
+REQUIRED STOP: await approved P-C/P-D drops. At ingest, wire F15 per-dance wardrobe per authored RAINMAKER rules, distinct from She fw Me; F06 remains untouched. The authored rule table and any missing trio rarity mapping are recorded in P-C_STEPS.md; invent no numbers. Tests required: tier selection, persistence, save/reload, flags-OFF zero change, 360/390/430.
+
+OL-042 validation PASS: full npm test; supplemental registry; leak check; preserved-copy hash verification (1,335 copies, 960 frozen, zero alterations); F07 real Chrome 77 checks at each of 360/390/430, full approved sign rectangle visible. F06 files unchanged. Step-5 wardrobe behavior tests remain pending incoming assets and wiring.
+
+The chronological OL-039 record below is historical. New OL-042 validation evidence is in `docs/evidence/build4/ol042/`.
 
 Branch: `build/visual-completion-001`; base `r3-base` dereferences to `779a56363a2b5ed01e188025279138d1443293a7`.
 Checkout: `C:/Users/Ube/Documents/Codex/2026-10-02/files-pasted-by-the-user-build-3/work/rich_alucard`.
@@ -7,10 +23,10 @@ Checkout: `C:/Users/Ube/Documents/Codex/2026-10-02/files-pasted-by-the-user-buil
 
 1. COMPLETE: preserved sources audited; approved pixels copied and registered; adapters ported without merges.
 2. COMPLETE: SR-7 log and four briefs/contact sheets delivered.
-3. REQUIRED STOP — ACTIVE: await Ube's approved package drops, one per P-A/P-B/P-C/P-D. No new pixels generated.
+3. REQUIRED STOP — ACTIVE: await filename-only P-C/P-D drops. P-A/P-B closed by OL-042. No new pixels generated.
 4. Preparation validation passed; final completion remains pending ingest, repeat validation and an empty log.
 
-Read `docs/PRESERVED_WORK.md`, `art_department/PRESERVED_ART_HASHES.json`, the production approval records and `art_department/APPROVAL_LEDGER.md` first. Frozen pixels never change. OPEN only. No generated art in this preparation step.
+Read `docs/PRESERVED_WORK.md`, `art_department/build4/PRESERVED_ART_HASH_AUDIT.json`, the production approval records and `art_department/APPROVAL_LEDGER.md` first. Frozen pixels never change. OPEN only. No generated art in this preparation step.
 
 ## Actions
 

@@ -1,4 +1,5 @@
 {
+  "SUPERSEDED (OL-042)": "Historical BUILD-1 record retained. The Overlord verified 1,226 empty-stream/null entries. All later preservation checks use art_department/build4/PRESERVED_ART_HASH_AUDIT.json.",
   "generated": "2026-10-02",
   "candidateBase": "8a1dc98",
   "algorithm": "sha256",

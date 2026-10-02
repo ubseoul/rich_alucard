@@ -30,7 +30,8 @@
   install(C);   // F07-owned Phase 1 job + stage cards; F01's files are not edited
   // A1: the approved exterior is installed only in this F07 page's module instance.
   const {FL_ART} = await import('../../f01/play/feel-frozen.mjs');
-  FL_ART.exterior.owambe_party = '../backgrounds/warehouse_exterior_270x480.png';
+  const exterior = window.parent !== window ? window.parent.RAF07?.warehouseExterior?.() : null;
+  FL_ART.exterior.owambe_party = exterior ? '../../../'+exterior : '../backgrounds/warehouse_exterior_270x480.png';
   const {boot} = await import('../../f01/play/feel-ui.mjs');
   boot();
 </script>

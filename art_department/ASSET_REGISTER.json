@@ -23542,6 +23542,110 @@
         "preserve/art-f07-warehouse-backgrounds"
       ],
       "runtime_integration_status": "REGISTERED; placement separately reviewed"
+    },
+    {
+      "path": "assets/f15/layers/lights_off_270x480.png",
+      "sha256": "3aa6cd5456781dfd6c96a68ab7560018a02e3556d47fe8e6e116c6cceed1f6cb",
+      "dimensions": [
+        270,
+        480
+      ],
+      "status": "FROZEN",
+      "approval_evidence": [
+        "OL-042 A1"
+      ],
+      "role": "Approved existing runtime bytes"
+    },
+    {
+      "path": "assets/f15/characters/spirit_of_uncle_bunmi_444x222.png",
+      "sha256": "e4cc409314da51b99627452dc92e5ce597f22b531ee57983c41af68aa4886c7d",
+      "dimensions": [
+        444,
+        222
+      ],
+      "status": "FROZEN",
+      "approval_evidence": [
+        "OL-042 A2"
+      ],
+      "role": "Approved existing runtime bytes"
+    },
+    {
+      "path": "assets/f15/portraits/roxy.png",
+      "sha256": "863f603116b19be9c696ccd28257e3818832c396af9dac5ef939027e33eefa7d",
+      "dimensions": [
+        80,
+        96
+      ],
+      "status": "FROZEN",
+      "approval_evidence": [
+        "OL-042 D1"
+      ],
+      "role": "Approved existing runtime bytes"
+    },
+    {
+      "path": "assets/f15/portraits/rosalyn.png",
+      "sha256": "f912029dd2729b8fc4ac22496435087b75294305dd004b9b20c302c3e8fbd916",
+      "dimensions": [
+        80,
+        96
+      ],
+      "status": "FROZEN",
+      "approval_evidence": [
+        "OL-042 D1"
+      ],
+      "role": "Approved existing runtime bytes"
+    },
+    {
+      "path": "assets/f15/portraits/emerald.png",
+      "sha256": "3fc896931d65b480537f11e68c0e0b5cf7e35903be1ae56f108d242b78b4d842",
+      "dimensions": [
+        80,
+        96
+      ],
+      "status": "FROZEN",
+      "approval_evidence": [
+        "OL-042 D1"
+      ],
+      "role": "Approved existing runtime bytes"
+    },
+    {
+      "path": "assets/f15/dancers/wolf.png",
+      "sha256": "32fdbd87572a3b7cb388ebc5121bc135c2d5b3c8772a044dbb8537642450dce3",
+      "dimensions": [
+        1488,
+        1911
+      ],
+      "status": "FROZEN",
+      "approval_evidence": [
+        "OL-042 C1"
+      ],
+      "role": "Approved existing runtime bytes"
+    },
+    {
+      "path": "assets/f15/dancers/pink.png",
+      "sha256": "c8ae3cc0ccc74743a811ba7fc70675b631325cc8f386f85f277423a3513638cf",
+      "dimensions": [
+        1980,
+        2223
+      ],
+      "status": "FROZEN",
+      "approval_evidence": [
+        "OL-042 C1"
+      ],
+      "role": "Approved existing runtime bytes"
+    },
+    {
+      "path": "assets/f15/dancers/dragon.png",
+      "sha256": "0ef213967c4380b333594ce063cc43d2c318c3206ffa90c195a4aab87576456c",
+      "dimensions": [
+        1740,
+        1980
+      ],
+      "status": "FROZEN",
+      "approval_evidence": [
+        "OL-042 C1"
+      ],
+      "role": "Approved existing runtime bytes"
     }
   ]
 }

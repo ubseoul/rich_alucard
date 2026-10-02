@@ -212,7 +212,7 @@
   const stage={id:`adv:${env.id}`,native:{width:270,height:480},environment:env.image||null,contactLines:lines,actors,
    director:{states:states||{},shots:{}}};
   // Default shot: first profile in the preference list whose solved framing keeps the reference body in band.
-  const candidates=(override?.profile?[override.profile]:auto).map(profile=>({profile,focal:override?.focal||visible,include:override?.include||[],speakers:override?.speakers||visible,reference:override?.reference||reference||visible[0]}));
+  const candidates=(override?.profile?[override.profile]:auto).map(profile=>({profile,focal:override?.focal||visible,include:override?.include||[],speakers:override?.speakers||visible,reference:override?.reference||reference||visible[0],...(override?.contact!=null?{contact:override.contact}:{})}));
   stage.director.shots.default=candidates[0];stage.director.shotCandidates=candidates;
   return stage;
  }
@@ -231,7 +231,7 @@
   for(const shot of stage.director.shotCandidates||[stage.director.shots.default]){if(!shot.focal.length)return shot;
    const cam=solve({stage,profile:shot.profile,focal:shot.focal,include:shot.include,reference:shot.reference,assets,states:stage.director.states,view}),refScale=stage.contactLines.find(l=>l.id===(stage.actors[shot.reference]||stage.objects?.[shot.reference])?.anchor.line)?.scale||stage.contactLines[0].scale;
    const body=spriteMeta(data().reference.asset).visible[3]*refScale*cam.S/view.h,band=data().profiles[shot.profile].body;
-   if(body>=band[0]-.005&&body<=band[1]+.005)return shot}
+   if(!band||body>=band[0]-.005&&body<=band[1]+.005)return shot}
   return stage.director.shotCandidates?.at(-1)||stage.director.shots.default;
  }
 

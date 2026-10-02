@@ -1,0 +1,67 @@
+{
+  "adventures": 135,
+  "environments": [
+    [
+      "gbenga_rentals",
+      6
+    ],
+    [
+      "gbenga_house_dining",
+      3
+    ],
+    [
+      "gbenga_house_patio",
+      1
+    ],
+    [
+      "carson_owambe",
+      3
+    ],
+    [
+      "catacomb_dead",
+      0
+    ],
+    [
+      "ocean_night_flight",
+      1
+    ],
+    [
+      "halloween",
+      0
+    ],
+    [
+      "f15_exam_hall",
+      1
+    ],
+    [
+      "f15_library",
+      1
+    ]
+  ],
+  "actors": [
+    [
+      "smallie",
+      1
+    ],
+    [
+      "smallie_cousin",
+      0
+    ],
+    [
+      "mama_gbenga",
+      3
+    ],
+    [
+      "uncle_bamidele",
+      2
+    ],
+    [
+      "senator",
+      5
+    ],
+    [
+      "kiosk_guy",
+      0
+    ]
+  ]
+}

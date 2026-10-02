@@ -11,8 +11,7 @@
         "NEW_OGA_M4:beat4",
         "NEW_OGA_ALTERNATIVE:voice",
         "NEW_OGA_FINALE:blessing",
-        "NEW_OGA_FINALE:consigliere",
-        "NEW_OGA_FINALE:takeover"
+        "NEW_OGA_FINALE:consigliere"
       ],
       "fallback": "RAPixel.paintEnvironment"
     },
@@ -453,8 +452,7 @@
       "NEW_OGA_M4:beat4",
       "NEW_OGA_ALTERNATIVE:voice",
       "NEW_OGA_FINALE:blessing",
-      "NEW_OGA_FINALE:consigliere",
-      "NEW_OGA_FINALE:takeover"
+      "NEW_OGA_FINALE:consigliere"
     ],
     "carson_owambe": [
       "NEW_OGA_M3:critique",
@@ -508,6 +506,9 @@
     "f07_warehouse_party": [
       "NEW_OGA_FINALE:party",
       "NEW_OGA_FINALE:office"
+    ],
+    "f07_warehouse_exterior": [
+      "NEW_OGA_FINALE:takeover"
     ]
   },
   "actorUses": {

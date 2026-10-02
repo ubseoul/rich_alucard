@@ -526,3 +526,7 @@ Seven exact candidate byte streams resolving six former canon blockers are **APP
 # BUILD-4 preserved additions
 
 The current exact-byte additions are indexed in `build4/REGISTERED_APPROVED_ASSETS.md` and the central `ASSET_REGISTER.json`. The original shipment entries above are unchanged. BUILD-4 creator-review derivatives are excluded from frozen approvals.
+
+## OL-042 current approvals
+
+The exact eight KEEP/reduced runtime approvals and SHA-256 values are in `build4/OL042_DECISIONS.md`; all are FROZEN in the central register. Current count 960. No bytes were changed.
