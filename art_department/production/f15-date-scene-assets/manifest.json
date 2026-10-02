@@ -1,7 +1,7 @@
 {
  "package": "f15-date-scene-assets",
  "schema": 1,
- "status": "PUBLISHED WITH GAPS - ART ONLY, NO RUNTIME INTEGRATION, NOT RELEASE-READY",
+ "status": "PUBLISHED - 7 BACKGROUNDS + COCKROACH MASTER; ART ONLY, NO RUNTIME INTEGRATION, NOT RELEASE-READY",
  "base_commit": "8a1dc98a373339d25d613e2651be0a6280064486",
  "source_branch": "feat/f15-romance-trio-001",
  "source_root": "C:/Users/Ube/Documents/Codex/2026-10-01/stove-q-f15-the-bing-background/outputs/",
@@ -25,6 +25,86 @@
    "transform_reproduced_in_memory": true,
    "approval_quote": "I approve the reviewed the_bing_270x480.png. Freeze that exact production file and preserve the approved original.",
    "placement": "UNVERIFIED - actor/UI placement unverified until runtime integration"
+  },
+  {
+   "path": "production/roxy_apartment_270x480.png",
+   "role": "production_background_270x480",
+   "status": "FROZEN - UBE APPROVED (production, addendum 2026-10-02)",
+   "bytes": 188084,
+   "sha256": "f30c32450876b2077d6374165630ed7b1dc9b05b42c56f80c92c6a7d9c3f0b51",
+   "dimensions": [
+    270,
+    480
+   ],
+   "mode": "RGB",
+   "format": "PNG",
+   "asset": "roxy_apartment",
+   "record_sha256_match": true,
+   "transform_reproduced_in_memory": true,
+   "approval_quote": "I approve the exact normalized production files identified by hashes in your published START_HERE.md and manifest.json: roxy_apartment_270x480.png, rosalyn_apartment_270x480.png, boxing_gym_270x480.png, plenitude_270x480.png. Record this as Ube’s production approval for those exact bytes. Preserve the earlier records as history.",
+   "approval_record": "APPROVAL_ADDENDUM.json",
+   "placement": "UNVERIFIED - actor/UI placement unverified until runtime integration",
+   "source_path": "f15_roxy_apartment_closeout/roxy_apartment_270x480.png"
+  },
+  {
+   "path": "production/rosalyn_apartment_270x480.png",
+   "role": "production_background_270x480",
+   "status": "FROZEN - UBE APPROVED (production, addendum 2026-10-02)",
+   "bytes": 192736,
+   "sha256": "8247c05d7c6bafdb9009f08b3c98ebe274db63f1aadaeff4c65b0eb6f403e8e7",
+   "dimensions": [
+    270,
+    480
+   ],
+   "mode": "RGB",
+   "format": "PNG",
+   "asset": "rosalyn_apartment",
+   "record_sha256_match": true,
+   "transform_reproduced_in_memory": true,
+   "approval_quote": "I approve the exact normalized production files identified by hashes in your published START_HERE.md and manifest.json: roxy_apartment_270x480.png, rosalyn_apartment_270x480.png, boxing_gym_270x480.png, plenitude_270x480.png. Record this as Ube’s production approval for those exact bytes. Preserve the earlier records as history.",
+   "approval_record": "APPROVAL_ADDENDUM.json",
+   "placement": "UNVERIFIED - actor/UI placement unverified until runtime integration",
+   "source_path": "f15_rosalyn_apartment_closeout/rosalyn_apartment_270x480.png"
+  },
+  {
+   "path": "production/boxing_gym_270x480.png",
+   "role": "production_background_270x480",
+   "status": "FROZEN - UBE APPROVED (production, addendum 2026-10-02)",
+   "bytes": 161542,
+   "sha256": "9a0e80798bc8c7a74d96c06578c6d4e02ee4170284651d93ac4569432877f24f",
+   "dimensions": [
+    270,
+    480
+   ],
+   "mode": "RGB",
+   "format": "PNG",
+   "asset": "boxing_gym",
+   "record_sha256_match": true,
+   "transform_reproduced_in_memory": true,
+   "approval_quote": "I approve the exact normalized production files identified by hashes in your published START_HERE.md and manifest.json: roxy_apartment_270x480.png, rosalyn_apartment_270x480.png, boxing_gym_270x480.png, plenitude_270x480.png. Record this as Ube’s production approval for those exact bytes. Preserve the earlier records as history.",
+   "approval_record": "APPROVAL_ADDENDUM.json",
+   "placement": "UNVERIFIED - actor/UI placement unverified until runtime integration",
+   "source_path": "f15_boxing_gym_closeout/boxing_gym_270x480.png"
+  },
+  {
+   "path": "production/plenitude_270x480.png",
+   "role": "production_background_270x480",
+   "status": "FROZEN - UBE APPROVED (production, addendum 2026-10-02)",
+   "bytes": 163201,
+   "sha256": "686b97067b6776c8e7de992fb60f67c663610489cfc567b4c3fb8c8c2314b9cb",
+   "dimensions": [
+    270,
+    480
+   ],
+   "mode": "RGB",
+   "format": "PNG",
+   "asset": "plenitude",
+   "record_sha256_match": true,
+   "transform_reproduced_in_memory": true,
+   "approval_quote": "I approve the exact normalized production files identified by hashes in your published START_HERE.md and manifest.json: roxy_apartment_270x480.png, rosalyn_apartment_270x480.png, boxing_gym_270x480.png, plenitude_270x480.png. Record this as Ube’s production approval for those exact bytes. Preserve the earlier records as history.",
+   "approval_record": "APPROVAL_ADDENDUM.json",
+   "placement": "UNVERIFIED - actor/UI placement unverified until runtime integration",
+   "source_path": "f15_plenitude_closeout/plenitude_270x480.png"
   },
   {
    "path": "production/convention_hall_270x480.png",
@@ -670,52 +750,11 @@
    "bytes": 93,
    "sha256": "a47a8849738663061214841bdb9276de61ce52eafa7449ec390be1d63883d710",
    "source_path": "F15_the_bing_closeout.zip.sha256.txt"
-  }
- ],
- "excluded_pending_production_derivatives": [
-  {
-   "asset": "roxy_apartment",
-   "filename": "roxy_apartment_270x480.png",
-   "bytes": 188084,
-   "sha256_measured": "f30c32450876b2077d6374165630ed7b1dc9b05b42c56f80c92c6a7d9c3f0b51",
-   "sha256_in_record": "f30c32450876b2077d6374165630ed7b1dc9b05b42c56f80c92c6a7d9c3f0b51",
-   "record_status": "PRODUCTION CANDIDATE — PENDING NATIVE-SIZE REVIEW",
-   "reason": "Production derivative NOT approved: record states pending native-size review. Source approval is not promoted to derivative approval. File not copied.",
-   "transform_reproduced_in_memory": true,
-   "source_package": "f15_roxy_apartment_closeout"
   },
   {
-   "asset": "rosalyn_apartment",
-   "filename": "rosalyn_apartment_270x480.png",
-   "bytes": 192736,
-   "sha256_measured": "8247c05d7c6bafdb9009f08b3c98ebe274db63f1aadaeff4c65b0eb6f403e8e7",
-   "sha256_in_record": "8247c05d7c6bafdb9009f08b3c98ebe274db63f1aadaeff4c65b0eb6f403e8e7",
-   "record_status": "PRODUCTION CANDIDATE — PENDING NATIVE-SIZE REVIEW",
-   "reason": "Production derivative NOT approved: record states pending native-size review. Source approval is not promoted to derivative approval. File not copied.",
-   "transform_reproduced_in_memory": true,
-   "source_package": "f15_rosalyn_apartment_closeout"
-  },
-  {
-   "asset": "boxing_gym",
-   "filename": "boxing_gym_270x480.png",
-   "bytes": 161542,
-   "sha256_measured": "9a0e80798bc8c7a74d96c06578c6d4e02ee4170284651d93ac4569432877f24f",
-   "sha256_in_record": "9a0e80798bc8c7a74d96c06578c6d4e02ee4170284651d93ac4569432877f24f",
-   "record_status": "PRODUCTION CANDIDATE — PENDING NATIVE-SIZE REVIEW",
-   "reason": "Production derivative NOT approved: record states pending native-size review. Source approval is not promoted to derivative approval. File not copied.",
-   "transform_reproduced_in_memory": true,
-   "source_package": "f15_boxing_gym_closeout"
-  },
-  {
-   "asset": "plenitude",
-   "filename": "plenitude_270x480.png",
-   "bytes": 163201,
-   "sha256_measured": "686b97067b6776c8e7de992fb60f67c663610489cfc567b4c3fb8c8c2314b9cb",
-   "sha256_in_record": "686b97067b6776c8e7de992fb60f67c663610489cfc567b4c3fb8c8c2314b9cb",
-   "record_status": "PRODUCTION CANDIDATE — PENDING NATIVE-SIZE REVIEW",
-   "reason": "Production derivative NOT approved: record states pending native-size review. Source approval is not promoted to derivative approval. File not copied.",
-   "transform_reproduced_in_memory": true,
-   "source_package": "f15_plenitude_closeout"
+   "path": "APPROVAL_ADDENDUM.json",
+   "role": "approval_addendum",
+   "note": "authored; hash in SHA256SUMS.txt"
   }
  ],
  "source_zip_checks": {
@@ -784,5 +823,60 @@
   "runtime/test edits",
   "dance masters",
   "source vault"
- ]
+ ],
+ "previously_excluded_now_approved": [
+  {
+   "asset": "roxy_apartment",
+   "filename": "roxy_apartment_270x480.png",
+   "bytes": 188084,
+   "sha256_measured": "f30c32450876b2077d6374165630ed7b1dc9b05b42c56f80c92c6a7d9c3f0b51",
+   "sha256_in_record": "f30c32450876b2077d6374165630ed7b1dc9b05b42c56f80c92c6a7d9c3f0b51",
+   "record_status": "PRODUCTION CANDIDATE — PENDING NATIVE-SIZE REVIEW",
+   "reason": "Production derivative NOT approved: record states pending native-size review. Source approval is not promoted to derivative approval. File not copied.",
+   "transform_reproduced_in_memory": true,
+   "source_package": "f15_roxy_apartment_closeout"
+  },
+  {
+   "asset": "rosalyn_apartment",
+   "filename": "rosalyn_apartment_270x480.png",
+   "bytes": 192736,
+   "sha256_measured": "8247c05d7c6bafdb9009f08b3c98ebe274db63f1aadaeff4c65b0eb6f403e8e7",
+   "sha256_in_record": "8247c05d7c6bafdb9009f08b3c98ebe274db63f1aadaeff4c65b0eb6f403e8e7",
+   "record_status": "PRODUCTION CANDIDATE — PENDING NATIVE-SIZE REVIEW",
+   "reason": "Production derivative NOT approved: record states pending native-size review. Source approval is not promoted to derivative approval. File not copied.",
+   "transform_reproduced_in_memory": true,
+   "source_package": "f15_rosalyn_apartment_closeout"
+  },
+  {
+   "asset": "boxing_gym",
+   "filename": "boxing_gym_270x480.png",
+   "bytes": 161542,
+   "sha256_measured": "9a0e80798bc8c7a74d96c06578c6d4e02ee4170284651d93ac4569432877f24f",
+   "sha256_in_record": "9a0e80798bc8c7a74d96c06578c6d4e02ee4170284651d93ac4569432877f24f",
+   "record_status": "PRODUCTION CANDIDATE — PENDING NATIVE-SIZE REVIEW",
+   "reason": "Production derivative NOT approved: record states pending native-size review. Source approval is not promoted to derivative approval. File not copied.",
+   "transform_reproduced_in_memory": true,
+   "source_package": "f15_boxing_gym_closeout"
+  },
+  {
+   "asset": "plenitude",
+   "filename": "plenitude_270x480.png",
+   "bytes": 163201,
+   "sha256_measured": "686b97067b6776c8e7de992fb60f67c663610489cfc567b4c3fb8c8c2314b9cb",
+   "sha256_in_record": "686b97067b6776c8e7de992fb60f67c663610489cfc567b4c3fb8c8c2314b9cb",
+   "record_status": "PRODUCTION CANDIDATE — PENDING NATIVE-SIZE REVIEW",
+   "reason": "Production derivative NOT approved: record states pending native-size review. Source approval is not promoted to derivative approval. File not copied.",
+   "transform_reproduced_in_memory": true,
+   "source_package": "f15_plenitude_closeout"
+  }
+ ],
+ "approval_addendum": {
+  "file": "APPROVAL_ADDENDUM.json",
+  "covers": [
+   "production/roxy_apartment_270x480.png",
+   "production/rosalyn_apartment_270x480.png",
+   "production/boxing_gym_270x480.png",
+   "production/plenitude_270x480.png"
+  ]
+ }
 }

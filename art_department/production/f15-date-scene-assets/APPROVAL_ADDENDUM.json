@@ -1,0 +1,58 @@
+{
+ "addendum": "production approval for four previously pending normalized backgrounds",
+ "authority": "Ube, explicit user message in this chat",
+ "recorded_client_date": "2026-10-02",
+ "timezone": "America/New_York",
+ "exact_timestamp": "Not supplied; identified by verbatim user message.",
+ "approval_quote": "I approve the exact normalized production files identified by hashes in your published START_HERE.md and manifest.json: roxy_apartment_270x480.png, rosalyn_apartment_270x480.png, boxing_gym_270x480.png, plenitude_270x480.png. Record this as Ube’s production approval for those exact bytes. Preserve the earlier records as history.",
+ "history": "Earlier records under provenance/ (status PRODUCTION CANDIDATE - PENDING NATIVE-SIZE REVIEW) are preserved unchanged as history; this addendum supersedes only their production-status field.",
+ "approved_files": [
+  {
+   "asset": "roxy_apartment",
+   "path": "production/roxy_apartment_270x480.png",
+   "bytes": 188084,
+   "sha256": "f30c32450876b2077d6374165630ed7b1dc9b05b42c56f80c92c6a7d9c3f0b51",
+   "dimensions": [
+    270,
+    480
+   ],
+   "mode": "RGB"
+  },
+  {
+   "asset": "rosalyn_apartment",
+   "path": "production/rosalyn_apartment_270x480.png",
+   "bytes": 192736,
+   "sha256": "8247c05d7c6bafdb9009f08b3c98ebe274db63f1aadaeff4c65b0eb6f403e8e7",
+   "dimensions": [
+    270,
+    480
+   ],
+   "mode": "RGB"
+  },
+  {
+   "asset": "boxing_gym",
+   "path": "production/boxing_gym_270x480.png",
+   "bytes": 161542,
+   "sha256": "9a0e80798bc8c7a74d96c06578c6d4e02ee4170284651d93ac4569432877f24f",
+   "dimensions": [
+    270,
+    480
+   ],
+   "mode": "RGB"
+  },
+  {
+   "asset": "plenitude",
+   "path": "production/plenitude_270x480.png",
+   "bytes": 163201,
+   "sha256": "686b97067b6776c8e7de992fb60f67c663610489cfc567b4c3fb8c8c2314b9cb",
+   "dimensions": [
+    270,
+    480
+   ],
+   "mode": "RGB"
+  }
+ ],
+ "bytes_unchanged": "Files copied byte-for-byte from the source packages; hashes equal those published in the prior START_HERE.md/manifest.json and the original records.",
+ "placement": "UNVERIFIED until runtime integration",
+ "runtime_integration": "none"
+}
