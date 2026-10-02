@@ -15,7 +15,7 @@ if(SHOTS)fs.mkdirSync(SHOTS,{recursive:true});
 const results=[];const log=(ok,name,detail='')=>{results.push({ok,name,detail});console.log(`${ok?'PASS':'FAIL'} ${name}${detail?' — '+detail:''}`);return ok;};
 const srv=await serve(PORT);
 const URL_=`http://127.0.0.1:${PORT}/index.html?dev=1&ff=F07.m8_and_finale,F03.new_oga_ladder_close,F01.showdown_core,F04.war_room&speed=10&mute=1`;
-const browser=await chromium.launch({headless:true,executablePath:fs.existsSync(CHROME)?CHROME:undefined});
+const browser=await chromium.launch({headless:true,args:['--mute-audio'],executablePath:fs.existsSync(CHROME)?CHROME:undefined});
 const errs=[];
 const shot=async(p,n)=>{if(SHOTS){await p.evaluate(()=>{const d=document.querySelector('#devPanel');if(d)d.style.display='none';}).catch(()=>{});await p.screenshot({path:path.join(SHOTS,n+'.png')});}};   // dev=1 panel hidden for evidence shots only
 async function open(){
@@ -32,12 +32,12 @@ const seed=(p,{cars=['lambo_urus_oxblood'],extra={},day=15,last=14}={})=>p.evalu
  RANewOga.patch({status:'m8_hold',mission:7,rank:4,title:'SENIOR ASSOCIATE',rank4Granted:true,m5Completed:true,m6Completed:true,m7Completed:true,trust:1,lastMissionDay:last,...extra});
 },{cars,extra,day,last});
 const begin=async(p,id)=>{await p.evaluate(id=>RAAdventureScene.begin(id,{from:'qa'}),id);await p.waitForFunction(()=>RAScenes.current()==='adventure');};
-async function toChoices(p,tr=null){for(let i=0;i<150;i++){if(tr!==null)tr.push(await p.evaluate(()=>document.querySelector('#adventureScene')?.innerText||''));if(await p.locator('.adv-choice:not([disabled])').count())return;if(!await p.evaluate(()=>!!RAAdventures.active()))throw new Error('adventure ended before choices');await p.locator('#adventureScene').click({position:{x:195,y:300}}).catch(()=>{});await p.waitForTimeout(35);}throw new Error('choices did not appear');}
+async function toChoices(p,tr=null){for(let i=0;i<150;i++){if(tr!==null)tr.push(await p.evaluate(()=>document.querySelector('#adventureScene')?.innerText||''));if(await p.locator('.adv-choice:not([disabled])').count())return;if(!await p.evaluate(()=>!!RAAdventures.active()))throw new Error('adventure ended before choices');await p.locator('#adventureScene').click({position:{x:40,y:300}}).catch(()=>{});await p.waitForTimeout(35);}throw new Error('choices did not appear');}
 async function pick(p,label){await toChoices(p);const b=p.locator('.adv-choice:not([disabled])').filter({hasText:label}).first();if(!await b.count())throw new Error('choice missing: '+label);await b.click();}
-async function finish(p,tr=null){for(let i=0;i<150;i++){if(tr!==null)tr.push(await p.evaluate(()=>document.querySelector('#adventureScene')?.innerText||''));if(await p.evaluate(()=>!RAAdventures.active()))return;await p.locator('#adventureScene').click({position:{x:195,y:300}}).catch(()=>{});await p.waitForTimeout(35);}throw new Error('adventure did not finish');}
+async function finish(p,tr=null){for(let i=0;i<150;i++){if(tr!==null)tr.push(await p.evaluate(()=>document.querySelector('#adventureScene')?.innerText||''));if(await p.evaluate(()=>!RAAdventures.active()))return;await p.locator('#adventureScene').click({position:{x:40,y:300}}).catch(()=>{});await p.waitForTimeout(35);}throw new Error('adventure did not finish');}
 // drive ONE real PLAY in the iframe to its end (same loop as the F04 browser gate)
 async function drivePlay(p){
- for(let i=0;i<80&&!await p.locator('#f01-play-frame').count();i++){await p.locator('#adventureScene').click({position:{x:195,y:300}}).catch(()=>{});await p.waitForTimeout(40);}
+ for(let i=0;i<80&&!await p.locator('#f01-play-frame').count();i++){await p.locator('#adventureScene').click({position:{x:40,y:300}}).catch(()=>{});await p.waitForTimeout(40);}
  await p.waitForSelector('#f01-play-frame',{timeout:30000});const frameEl=await p.$('#f01-play-frame');const info={src:await frameEl.getAttribute('src'),seen:''};const frame=await frameEl.contentFrame();
  await frame.waitForSelector('.b-ans',{timeout:30000});info.seen+=await frame.evaluate(()=>document.body.innerText).catch(()=>'');info.state=await frame.evaluate(async()=>{const C=await import('../../../js/frag/F01/play/content.mjs');return {job:C.JOBS.some(j=>j.id==='owambe_party'),contact:C.CARDS.CONTACT.map(c=>c.id),trouble:C.CARDS.TROUBLE.map(c=>c.id)};}).catch(e=>({err:String(e)}));await frame.click('.b-ans');await frame.waitForSelector('.send',{timeout:30000});await p.waitForTimeout(400);
  const btn=await frame.$('.send.hold');
@@ -147,7 +147,7 @@ try{
   for(let n=0;n<4&&node!=='office'&&node!=='duel';n++){await pick(p,'TRY AGAIN');await p.evaluate(()=>{for(const u of RACrew.list())if(u.status!=='ACTIVE'&&u.status!=='GONE')RACrew.setStatus(u.id,'ACTIVE',{reason:'qa-heal'});});await drivePlay(p);await p.waitForTimeout(600);node=await p.evaluate(()=>RAAdventures.active()?.node);}
   log(true,`${E.name}: Phase 1 THE PARTY won on F07's PLAY page`,node);
   if(E.name==='TAKEOVER')await p.evaluate(()=>{const c=RACombat2Rules.create;RACombat2Rules.create=function(id,params,...r){const s=c.call(this,id,{...params},...r);if(id==='gbenga'){s.enemy.hp=20;}return s;};});   // harness only: shorten the real fight
-  for(let i=0;i<60&&!await p.locator('.c2-scene').count();i++){await p.locator('#adventureScene').click({position:{x:195,y:300}}).catch(()=>{});await p.waitForTimeout(40);}
+  for(let i=0;i<60&&!await p.locator('.c2-scene').count();i++){await p.locator('#adventureScene').click({position:{x:40,y:300}}).catch(()=>{});await p.waitForTimeout(40);}
   await p.waitForSelector('.c2-scene',{timeout:15000});
   const hud=await p.evaluate(()=>document.querySelector('.c2-hp-enemy')?.innerText||'');
   log(/GBENGA/.test(hud)&&(E.name==='TAKEOVER'||hud.includes(E.hp)),`${E.name}: GBENGA fight shown with ${E.name==='TAKEOVER'?'(shortened)':E.hp} HP`,hud.replace(/\s+/g,' '));

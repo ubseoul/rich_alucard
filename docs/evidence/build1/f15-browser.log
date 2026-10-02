@@ -1,0 +1,139 @@
+PASS 360: dancer sheets loaded
+PASS 360: rosalyn inside the stage horizontally (223.0..320.3 of 344)
+PASS 360: rosalyn keeps >=6px headroom under the HUD (23.1px)
+PASS 360: rosalyn stands on the shared feet line
+PASS 360: emerald inside the stage horizontally (29.4..114.9 of 344)
+PASS 360: emerald keeps >=6px headroom under the HUD (26.7px)
+PASS 360: emerald stands on the shared feet line
+PASS 360: roxy inside the stage horizontally (122.0..222.0 of 344)
+PASS 360: roxy keeps >=6px headroom under the HUD (6.0px)
+PASS 360: roxy stands on the shared feet line
+PASS 360: three support buttons >=44px, fully on screen (112x71, 112x71, 112x71)
+PASS 360: budget bar visible without scrolling (bottom 730 / 740)
+PASS 360: animation advancing ({"wolf":4,"dragon":4,"pink":4} -> {"wolf":21,"dragon":21,"pink":21})
+PASS 360: the club offers Roxy's scene when her threshold is met
+PASS 360: date button fits the width
+PASS 360: Roxy L1 text and choices fit the viewport (35 lines, 0 violations)
+PASS 360: scene entered from the club completes once
+PASS 360: no console/page errors
+PASS 360: no failed or missing assets
+PASS 390: dancer sheets loaded
+PASS 390: rosalyn inside the stage horizontally (223.7..360.6 of 370)
+PASS 390: rosalyn keeps >=6px headroom under the HUD (30.1px)
+PASS 390: rosalyn stands on the shared feet line
+PASS 390: emerald inside the stage horizontally (17.4..137.7 of 370)
+PASS 390: emerald keeps >=6px headroom under the HUD (35.1px)
+PASS 390: emerald stands on the shared feet line
+PASS 390: roxy inside the stage horizontally (114.6..255.4 of 370)
+PASS 390: roxy keeps >=6px headroom under the HUD (6.0px)
+PASS 390: roxy stands on the shared feet line
+PASS 390: three support buttons >=44px, fully on screen (121x62, 121x62, 121x62)
+PASS 390: budget bar visible without scrolling (bottom 816 / 844)
+PASS 390: animation advancing ({"wolf":7,"dragon":7,"pink":7} -> {"wolf":25,"dragon":25,"pink":25})
+PASS 390: throw credited to the selected dancer (Roxy)
+PASS 390: F06 charged exactly the thrown dollars ($2000)
+PASS 390: only Roxy's total moved by exactly that amount
+PASS 390: the approved F06 target stood on Roxy and the aimed throw HIT (hit, target 0.5)
+PASS 390: switching support retargets the stage to Emerald
+PASS 390: Emerald credited exactly; Roxy unchanged
+PASS 390: changing selection mid-flight does not redirect bills already thrown
+PASS 390: ...and the new selection applies to the NEXT throw
+PASS 390: floor bills count toward Rosalyn ($2000, overthrow); no money other than the throw moved
+PASS 390: reload keeps money and every dancer total; no round replayed or charged
+PASS 390: returning to the club restores the supported dancer and the saved totals
+PASS 390: BACK disposes the club (overlay, loop and listeners gone)
+PASS 390: re-entry builds exactly one stage
+PASS 390: the club offers Roxy's scene when her threshold is met
+PASS 390: date button fits the width
+PASS 390: Roxy L1 text and choices fit the viewport (35 lines, 0 violations)
+PASS 390: scene entered from the club completes once
+PASS 390: no console/page errors
+PASS 390: no failed or missing assets
+PASS 430: dancer sheets loaded
+PASS 430: rosalyn inside the stage horizontally (247.0..400.5 of 410)
+PASS 430: rosalyn keeps >=6px headroom under the HUD (54.8px)
+PASS 430: rosalyn stands on the shared feet line
+PASS 430: emerald inside the stage horizontally (18.5..153.4 of 410)
+PASS 430: emerald keeps >=6px headroom under the HUD (60.4px)
+PASS 430: emerald stands on the shared feet line
+PASS 430: roxy inside the stage horizontally (126.1..283.9 of 410)
+PASS 430: roxy keeps >=6px headroom under the HUD (27.8px)
+PASS 430: roxy stands on the shared feet line
+PASS 430: three support buttons >=44px, fully on screen (134x62, 134x62, 134x62)
+PASS 430: budget bar visible without scrolling (bottom 904 / 932)
+PASS 430: animation advancing ({"wolf":11,"dragon":11,"pink":11} -> {"wolf":28,"dragon":28,"pink":28})
+PASS 430: the club offers Roxy's scene when her threshold is met
+PASS 430: date button fits the width
+PASS 430: Roxy L1 text and choices fit the viewport (35 lines, 0 violations)
+PASS 430: scene entered from the club completes once
+PASS 430: no console/page errors
+PASS 430: no failed or missing assets
+PASS normal: T1 is $10,000 and nothing is available before spending
+PASS normal: no scene offered at $2000
+PASS normal: no scene offered at $4000
+PASS normal: no scene offered at $6000
+PASS normal: no scene offered at $8000
+PASS normal: 5 real throws (hits and floor bills) carried Roxy to $10000
+PASS normal: crossing $10,000 offers Roxy scene 1 in the club (ROXY$10,000SCENE 1 READY)
+PASS identity: the confirmation panel shows in dev/review mode
+PASS identity: with dev mode off the panel and its "UBE TO CONFIRM" text are not in the player flow
+PASS normal: the offered scene plays and completes once
+PASS normal: no console errors or failed assets
+PASS F15_ROXY_L1: available after its threshold and the earlier scenes
+PASS F15_ROXY_L1: ran to its end in the real UI (35 lines, 0 fight), completed once, one date that WAKE
+PASS F15_ROXY_L1: text fits at 390
+PASS F15_ROXY_L1: exact money effect ($0)
+PASS F15_ROXY_L2: available after its threshold and the earlier scenes
+PASS F15_ROXY_L2: ran to its end in the real UI (44 lines, 1 fight), completed once, one date that WAKE
+PASS F15_ROXY_L2: text fits at 390
+PASS F15_ROXY_L2: exact money effect ($0)
+PASS F15_ROXY_L3: available after its threshold and the earlier scenes
+PASS F15_ROXY_L3: ran to its end in the real UI (26 lines, 0 fight), completed once, one date that WAKE
+PASS F15_ROXY_L3: text fits at 390
+PASS F15_ROXY_L3: exact money effect ($0)
+PASS F15_ROXY_L4: available after its threshold and the earlier scenes
+PASS F15_ROXY_L4: ran to its end in the real UI (46 lines, 0 fight), completed once, one date that WAKE
+PASS F15_ROXY_L4: text fits at 390
+PASS F15_ROXY_L4: exact money effect ($0)
+PASS F15_ROSALYN_L1: available after its threshold and the earlier scenes
+PASS F15_ROSALYN_L1: ran to its end in the real UI (32 lines, 0 fight), completed once, one date that WAKE
+PASS F15_ROSALYN_L1: text fits at 390
+PASS F15_ROSALYN_L1: exact money effect ($106)
+PASS F15_ROSALYN_L2: available after its threshold and the earlier scenes
+PASS F15_ROSALYN_L2: ran to its end in the real UI (27 lines, 0 fight), completed once, one date that WAKE
+PASS F15_ROSALYN_L2: text fits at 390
+PASS F15_ROSALYN_L2: exact money effect ($0)
+PASS F15_ROSALYN_L3: available after its threshold and the earlier scenes
+PASS F15_ROSALYN_L3: ran to its end in the real UI (18 lines, 0 fight), completed once, one date that WAKE
+PASS F15_ROSALYN_L3: text fits at 390
+PASS F15_ROSALYN_L3: exact money effect ($0)
+PASS F15_ROSALYN_L4: available after its threshold and the earlier scenes
+PASS F15_ROSALYN_L4: ran to its end in the real UI (48 lines, 1 fight), completed once, one date that WAKE
+PASS F15_ROSALYN_L4: text fits at 390
+PASS F15_ROSALYN_L4: exact money effect ($0)
+PASS F15_EMERALD_L1: available after its threshold and the earlier scenes
+PASS F15_EMERALD_L1: ran to its end in the real UI (45 lines, 0 fight), completed once, one date that WAKE
+PASS F15_EMERALD_L1: text fits at 390
+PASS F15_EMERALD_L1: exact money effect ($0)
+PASS F15_EMERALD_L2: available after its threshold and the earlier scenes
+PASS F15_EMERALD_L2: ran to its end in the real UI (36 lines, 0 fight), completed once, one date that WAKE
+PASS F15_EMERALD_L2: text fits at 390
+PASS F15_EMERALD_L2: exact money effect ($0)
+PASS F15_EMERALD_L3: available after its threshold and the earlier scenes
+PASS F15_EMERALD_L3: ran to its end in the real UI (41 lines, 0 fight), completed once, one date that WAKE
+PASS F15_EMERALD_L3: text fits at 390
+PASS F15_EMERALD_L3: exact money effect ($0)
+PASS F15_EMERALD_L4: available after its threshold and the earlier scenes
+PASS F15_EMERALD_L4: ran to its end in the real UI (32 lines, 0 fight), completed once, one date that WAKE
+PASS F15_EMERALD_L4: text fits at 390
+PASS F15_EMERALD_L4: exact money effect ($0)
+PASS scenes: no console/page errors
+PASS scenes: no failed or missing assets
+PASS 360: F15_ROXY_L2 text fits (44 lines)
+PASS 360: F15_EMERALD_L4 text fits (32 lines)
+PASS 360: scenes ran with no console/page errors
+PASS 430: F15_ROXY_L2 text fits (44 lines)
+PASS 430: F15_EMERALD_L4 text fits (32 lines)
+PASS 430: scenes ran with no console/page errors
+
+137/137 checks passed

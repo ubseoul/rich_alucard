@@ -1,0 +1,42 @@
+{
+ "build": {
+  "schemaVersion": 1,
+  "releaseId": "ra-dfc344760b37-20261002143213",
+  "commit": "dfc344760b37a3eb134c2864d999a0b51e41f659",
+  "shortCommit": "dfc344760b37",
+  "builtAt": "2026-10-02T14:32:13.047Z",
+  "assetVersion": "ra-dfc344760b37-20261002143213"
+ },
+ "results": {},
+ "findings": [],
+ "log": [
+  "PLAYTEST QA over dist ra-dfc344760b37-20261002143213 (dfc344760b37a3eb134c2864d999a0b51e41f659)",
+  "[newgame 360] build ra-dfc344760b37-20261002143213 commit dfc344760b37 save v16",
+  "[newgame 360] reached bedroom day 1; prologue adventures A00; ceo {\"defeated\":true,\"completed\":true}; steal=no",
+  "[newgame 360] phone home actions: app:vampgpt app:vampgram app:instahoe app:onlyvamps app:realEstate app:jdmImports app:richboi app:texts close",
+  "[newgame 360] refresh → bedroom, diff 0",
+  "[newgame 390] build ra-dfc344760b37-20261002143213 commit dfc344760b37 save v16",
+  "[newgame 390] reached bedroom day 1; prologue adventures A00; ceo {\"defeated\":true,\"completed\":true}; steal=yes",
+  "[newgame 390] phone home actions: app:vampgpt app:vampgram app:instahoe app:onlyvamps app:realEstate app:jdmImports app:richboi app:texts close",
+  "[newgame 390] refresh → bedroom, diff 0",
+  "[newgame 430] build ra-dfc344760b37-20261002143213 commit dfc344760b37 save v16",
+  "[newgame 430] reached bedroom day 1; prologue adventures A00; ceo {\"defeated\":true,\"completed\":true}; steal=no",
+  "[newgame 430] phone home actions: app:vampgpt app:vampgram app:instahoe app:onlyvamps app:realEstate app:jdmImports app:richboi app:texts close",
+  "[newgame 430] refresh → bedroom, diff 0",
+  "[life] life-day1 app app:texts > app:texts:family > app:texts > app:texts:family → -",
+  "[life] slept → day 2; save 11KB history 4",
+  "[life] life-day2 castle tacos → TACOS",
+  "[life] slept → day 3; save 15KB history 10",
+  "[life] life-day3 app app:texts > app:texts:family > do:texts:reply:family|family:1|0 > app:texts → -",
+  "[life] life-day3 somewhere go:tacos → TACOS",
+  "[life] slept → day 4; save 16KB history 13",
+  "[life] life-day4 wwo tempt:crave_tacos → TACOS",
+  "[life] life-day4 app app:texts > app:texts:family > do:texts:reply:family|family:4|0 > app:texts → -",
+  "[life] life-day4 somewhere go:ballroom → A25",
+  "[life] slept → day 5; save 19KB history 18",
+  "[life] summary {\"day\":5,\"money\":99955,\"followers\":0,\"clout\":\"LOW\",\"rooms\":[],\"cars\":[],\"dragon\":null,\"apps\":[\"texts\"],\"adventuresDone\":4,\"receipts\":1,\"people\":6,\"songs\":0,\"outings\":7,\"distinctAdventures\":2,\"minigames\":[],\"fights\":0,\"reloads\":6,\"routes\":{\"app\":3,\"castle\":1,\"somewhere\":2,\"wwo\":1}}",
+  "[ending] fired on sleep after day 35; continue offered after 21s",
+  "[thanksgiving] A53 becomes eligible at Day 57 during post-fame continuation",
+  "[ending] continue → bedroom day 36 (fameFired true); refresh ok; next sleep → bedroom day 57, ending replay no"
+ ]
+}

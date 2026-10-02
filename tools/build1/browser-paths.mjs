@@ -9,7 +9,7 @@ const require=createRequire(process.env.RA_PLAYWRIGHT_PATH?process.env.RA_PLAYWR
 const {chromium}=require(process.env.RA_PLAYWRIGHT_PATH?'playwright-core':'playwright');
 import {serve} from '../tests/f01/play-sim/serve-play.mjs';
 const arg=(k,d)=>{const i=process.argv.indexOf('--'+k);return i>=0?process.argv[i+1]:d;};
-const W=+arg('width',390),H={360:740,390:844,430:932}[W]||844,SHOTS=arg('shots',''),PORT=+arg('port',8130+W%100),ONLY=(arg('only','f03,flagsoff')).split(',');
+const W=+arg('width',390),H={360:740,390:844,430:932}[W]||844,SHOTS=arg('shots',''),PORT=+arg('port',8130+W%100),ONLY=(arg('only','newgameui,f03,flagsoff')).split(',');
 const CHROME=process.env.RA_CHROME||process.env.RA_CHROMIUM_PATH;
 if(SHOTS)fs.mkdirSync(SHOTS,{recursive:true});
 const results=[];const log=(ok,name,detail='')=>{results.push({ok,name,detail});console.log(`${ok?'PASS':'FAIL'} [${W}] ${name}${detail?' - '+detail:''}`);return ok;};
@@ -29,7 +29,7 @@ async function open(query){
  return p;
 }
 const begin=async(p,id)=>{await p.evaluate(id=>RAAdventureScene.begin(id,{from:'qa'}),id);await p.waitForFunction(()=>RAScenes.current()==='adventure');};
-const tap=p=>p.locator('#adventureScene').click({position:{x:Math.round(W/2),y:300}}).catch(()=>{});
+const tap=p=>p.locator('#adventureScene').click({position:{x:40,y:300}}).catch(()=>{});
 async function toChoices(p,tr=null){for(let i=0;i<200;i++){if(tr)tr.push(await p.evaluate(()=>document.querySelector('#adventureScene')?.innerText||''));if(await p.locator('.adv-choice:not([disabled])').count())return;if(!await p.evaluate(()=>!!RAAdventures.active()))throw new Error('adventure ended before choices');await tap(p);await p.waitForTimeout(35);}throw new Error('choices did not appear');}
 async function pick(p,label){await toChoices(p);const b=p.locator('.adv-choice:not([disabled])').filter({hasText:label}).first();if(!await b.count())throw new Error('choice missing: '+label);await b.click();}
 async function finish(p,tr=null){for(let i=0;i<250;i++){if(tr)tr.push(await p.evaluate(()=>document.querySelector('#adventureScene')?.innerText||''));if(await p.evaluate(()=>!RAAdventures.active()))return;await tap(p);await p.waitForTimeout(35);}throw new Error('adventure did not finish');}
@@ -37,6 +37,25 @@ const wake=p=>p.evaluate(()=>{RAClock.sleep();const id=RAWakeTriggers.pick();ret
 const money=p=>p.evaluate(()=>Number(RALife.money()));
 let code=0;
 try{
+
+ if(ONLY.includes('newgameui')){
+  // fresh storage: START (no CONTINUE, no NEW GAME); once a life exists: CONTINUE + NEW GAME; CONTINUE returns to the bedroom
+  const ctx=await browser.newContext({viewport:{width:W,height:H}});const p=await ctx.newPage();
+  p.on('pageerror',e=>errs.push('pageerror: '+e.message));
+  await p.goto(`${BASE}?speed=10&mute=1`);await p.evaluate(()=>localStorage.clear());await p.reload();await p.waitForSelector('#startButton');
+  const fresh=await p.evaluate(()=>({start:document.querySelector('#startButton').textContent.trim(),ng:document.querySelector('#newGameButton')?.hidden}));
+  log(/START/.test(fresh.start)&&!/CONTINUE/.test(fresh.start)&&fresh.ng===true,'fresh save: START is shown, CONTINUE and NEW GAME are not',JSON.stringify(fresh));
+  await shot(p,'newgame_01_fresh_start');
+  await p.evaluate(()=>{const saved=RAState.migrateRecord(RASaveFixtures.fixtures.supraOwned);RAState.write(localStorage,saved,false);});
+  await p.reload();await p.waitForSelector('#startButton');
+  const prog=await p.evaluate(()=>({start:document.querySelector('#startButton').textContent.trim(),ng:document.querySelector('#newGameButton')?.hidden}));
+  log(/CONTINUE/.test(prog.start)&&prog.ng===false,'existing life: CONTINUE and NEW GAME are shown',JSON.stringify(prog));
+  await shot(p,'newgame_02_continue');
+  await p.click('#startButton');await p.waitForFunction(()=>window.RAScenes&&RAScenes.current()==='bedroom',null,{timeout:30000});
+  log(true,'CONTINUE resumes the life in the bedroom (first WAKE of the existing life)');
+  await shot(p,'newgame_03_continue_bedroom');
+  await ctx.close();
+ }
  if(ONLY.includes('f03')){
   // ---------- F03 flags ON: M8 resolved by fixture (F07's own path is covered by its browser suite) -> M9 -> M10 -> VampGPT
   const p=await open(`dev=1&ff=${FF}&speed=10&mute=1`);
