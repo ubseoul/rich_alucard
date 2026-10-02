@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "ship_id": "ART SHIP 012",
+  "states": [
+    {"id": "portobello_manager.neutral", "role": "neutral/conversation standing anchor", "cell": [80, 96], "contact": [40, 88], "layer": "actor"},
+    {"id": "auntie.register_neutral", "role": "neutral/register conversation anchor", "cell": [80, 96], "contact": [40, 88], "layer": "actor"},
+    {"id": "soul.climbing", "role": "neutral/climbing-compatible anonymous human anchor", "cell": [80, 96], "contact": [40, 88], "layer": "actor", "variation": "placement and optional horizontal mirroring only"},
+    {"id": "training_dummy.combat_neutral", "role": "combat target anchor", "cell": [80, 96], "contact": [40, 88], "layer": "combatant"},
+    {"id": "buckhead.combat_neutral", "role": "combat-capable neutral anchor", "cell": [80, 96], "contact": [40, 88], "layer": "combatant"}
+  ],
+  "alpha_contract": "RGBA binary alpha [0,255]",
+  "presentation": "native source pixels remain unchanged; Presentation Director/runtime owns final transform"
+}

@@ -1,0 +1,1024 @@
+{
+  "generated": "2026-10-02",
+  "adventures": 135,
+  "environments": [
+    {
+      "id": "gbenga_rentals",
+      "name": "GBENGA EVENT RENTALS · INGLEWOOD",
+      "route": [
+        "NEW_OGA_M2:arrive",
+        "NEW_OGA_M3:voice",
+        "NEW_OGA_M4:beat4",
+        "NEW_OGA_ALTERNATIVE:voice",
+        "NEW_OGA_FINALE:blessing",
+        "NEW_OGA_FINALE:consigliere",
+        "NEW_OGA_FINALE:takeover"
+      ],
+      "fallback": "RAPixel.paintEnvironment"
+    },
+    {
+      "id": "gbenga_house_dining",
+      "name": "GBENGA HOME · LADERA HEIGHTS",
+      "route": [
+        "NEW_OGA_M7:arrival",
+        "NEW_OGA_M7:dinner",
+        "NEW_OGA_M7:door"
+      ],
+      "fallback": "RAPixel.paintEnvironment"
+    },
+    {
+      "id": "gbenga_house_patio",
+      "name": "GBENGA HOME · PATIO",
+      "route": [
+        "NEW_OGA_M7:patio"
+      ],
+      "fallback": "RAPixel.paintEnvironment"
+    },
+    {
+      "id": "carson_owambe",
+      "name": "CARSON OWAMBE",
+      "route": [
+        "NEW_OGA_M3:critique",
+        "NEW_OGA_ALTERNATIVE:critique",
+        "NEW_OGA_M5:arrival"
+      ],
+      "fallback": "RAPixel.paintEnvironment"
+    },
+    {
+      "id": "catacomb_dead",
+      "name": "THE CATACOMB",
+      "route": [],
+      "fallback": "RAPixel.paintEnvironment"
+    },
+    {
+      "id": "ocean_night_flight",
+      "name": "OVER THE OCEAN",
+      "route": [
+        "ARC_MAZDA_2:scene"
+      ],
+      "fallback": "RAPixel.paintEnvironment"
+    },
+    {
+      "id": "halloween",
+      "name": "VAMPIRE LA · HALLOWEEN",
+      "route": [],
+      "fallback": "RAPixel.paintEnvironment"
+    },
+    {
+      "id": "f15_exam_hall",
+      "name": "OUTSIDE THE EXAM HALL",
+      "route": [
+        "F15_EMERALD_L3:steps"
+      ],
+      "fallback": "RAPixel.paintEnvironment"
+    },
+    {
+      "id": "f15_library",
+      "name": "THE LIBRARY",
+      "route": [
+        "F15_EMERALD_L3:library"
+      ],
+      "fallback": "RAPixel.paintEnvironment"
+    }
+  ],
+  "actors": [
+    {
+      "id": "smallie",
+      "name": "SMALLIE",
+      "route": [
+        "NEW_OGA_M1:table"
+      ],
+      "fallback": "RAPixel person look"
+    },
+    {
+      "id": "smallie_cousin",
+      "name": "SMALLIE'S COUSIN",
+      "route": [],
+      "fallback": "RAPixel person look"
+    },
+    {
+      "id": "mama_gbenga",
+      "name": "MAMA GBENGA",
+      "route": [
+        "NEW_OGA_M7:arrival",
+        "NEW_OGA_M7:dinner",
+        "NEW_OGA_M7:door"
+      ],
+      "fallback": "RAPixel person look"
+    },
+    {
+      "id": "uncle_bamidele",
+      "name": "UNCLE BAMIDELE",
+      "route": [
+        "NEW_OGA_M5:arrival",
+        "NEW_OGA_M5:backout"
+      ],
+      "fallback": "RAPixel person look"
+    },
+    {
+      "id": "senator",
+      "name": "SENATOR",
+      "route": [
+        "NEW_OGA_M6:voice",
+        "NEW_OGA_M6:egusi",
+        "NEW_OGA_M6:mazda",
+        "NEW_OGA_M6:bread",
+        "NEW_OGA_M6:walked"
+      ],
+      "fallback": "RAPixel person look"
+    },
+    {
+      "id": "kiosk_guy",
+      "name": "KIOSK GUY",
+      "route": [],
+      "fallback": "RAPixel person look"
+    }
+  ],
+  "envUses": {
+    "bedroom": [
+      "A00:dream",
+      "COFFIN:look",
+      "A07:wake",
+      "A11:wake",
+      "A47:arrive",
+      "A32:bed",
+      "A41:stay",
+      "A41B:hear",
+      "A44_N4:box",
+      "ARC_MAZDA_3:scene",
+      "A30:wakeup",
+      "A58:notif",
+      "NEW_OGA_M1:pitch",
+      "NEW_OGA_M2:voice",
+      "NEW_OGA_M4:voice",
+      "NEW_OGA_M4:beat1",
+      "NEW_OGA_M5:voice",
+      "NEW_OGA_M6:voice",
+      "F15_ROXY_L1:texts",
+      "F15_ROXY_L4:texts",
+      "F15_ROSALYN_L2:texts",
+      "F15_ROSALYN_L3:texts",
+      "F15_ROSALYN_L4:call",
+      "F15_EMERALD_L2:texts",
+      "F15_EMERALD_L3:call",
+      "F15_EMERALD_L4:texts",
+      "NEW_OGA_M8:job"
+    ],
+    "ocean_floor": [
+      "A00:floor",
+      "A00:try2",
+      "A00:try3",
+      "A00:sensei"
+    ],
+    "ocean_floor_collapsed": [
+      "A00:fall1",
+      "A00:fall2",
+      "A00:fall3"
+    ],
+    "cafe": [
+      "COOK:closing",
+      "A16:arrive",
+      "CAFE:sit"
+    ],
+    "street_night": [
+      "RE_VIEWING:arrive",
+      "DATE:where",
+      "A20:arrive",
+      "A57:stop",
+      "A29:arrive",
+      "A29B:weigh",
+      "A29B:confront",
+      "A33:invite",
+      "A37:route",
+      "A41:pick",
+      "A41:drive",
+      "A44:route",
+      "A44_N2:route",
+      "A44_N3:route",
+      "A44_N4:route",
+      "A46:ask",
+      "A52:costume",
+      "A52:trick",
+      "ARC_CAMMILE_1:scene",
+      "ARC_PATRICE_2:scene",
+      "A31:start",
+      "NEW_OGA_M4:beat2",
+      "NEW_OGA_M4:beat3",
+      "NEW_OGA_M4:run",
+      "F15_EMERALD_L4:outside"
+    ],
+    "castle_exterior": [
+      "RB_DELIVERY:arrive",
+      "NEW_OGA_FINALE:plan",
+      "NEW_OGA_FINALE:pick2",
+      "NEW_OGA_FINALE:crew"
+    ],
+    "crest": [
+      "TANDEM_BATTLE:meet",
+      "A13:meet",
+      "ARC_CAMMILE_2:scene"
+    ],
+    "grave": [
+      "GRAVE:hub",
+      "A07:arrive",
+      "A32:discover",
+      "A_VELVET1:dm"
+    ],
+    "peking_naija": [
+      "PEKING:arrive"
+    ],
+    "taco_truck": [
+      "TACOS:arrive",
+      "A51:sing"
+    ],
+    "naija_mart": [
+      "A43:arrive",
+      "NAIJA:store"
+    ],
+    "naija_lot": [
+      "A43:curb",
+      "ARC_NNEKA_2:scene"
+    ],
+    "throne": [
+      "THRONE:sit",
+      "A23R:arrive",
+      "A29C:hungover",
+      "MAID:look",
+      "A39:ghost",
+      "A39:marisol"
+    ],
+    "armory": [
+      "ARMORY_WALL:look",
+      "A24:arrive",
+      "ARMORY:shop"
+    ],
+    "garage": [
+      "GARAGE_VIEW:look"
+    ],
+    "fish_tank": [
+      "FISHTANK:look"
+    ],
+    "boba_shop": [
+      "A07:meet",
+      "NEW_OGA_M1:table",
+      "F15_ROSALYN_L2:boba"
+    ],
+    "slurp": [
+      "A08:arrive",
+      "A08:hina",
+      "SLURP:shift"
+    ],
+    "kush_crypt": [
+      "A09:arrive",
+      "A09:fork",
+      "KUSH:store"
+    ],
+    "kush_back": [
+      "A09:back",
+      "A_EMBERLY1:arrive"
+    ],
+    "pet_crypt": [
+      "A10:arrive"
+    ],
+    "pier": [
+      "A12:arrive",
+      "PIER:fish"
+    ],
+    "catacomb": [
+      "A14:arrive",
+      "A14:tasha",
+      "SHOW:crowd",
+      "A15:arrive"
+    ],
+    "blood_bank": [
+      "A17:wake",
+      "ARC_NNEKA_1:scene",
+      "ARC_NNEKA_3:scene"
+    ],
+    "salon": [
+      "A48:arrive",
+      "RETWIST:chair",
+      "ARC_JUNE_1:scene",
+      "ARC_JUNE_2:scene",
+      "ARC_JUNE_3:scene"
+    ],
+    "brunch": [
+      "A42:arrive"
+    ],
+    "onsen": [
+      "A45:arrive"
+    ],
+    "docks": [
+      "A_TRISTAN:arrive",
+      "A_CAMMILE1:shop",
+      "ARC_CAMMILE_3:scene"
+    ],
+    "food_court": [
+      "A_SMACK2:arrive",
+      "A19:arrive",
+      "A28:arrive",
+      "A38:arrive"
+    ],
+    "roof": [
+      "HOOKAH:arrive",
+      "ROOST:look",
+      "A41:roof"
+    ],
+    "ballroom": [
+      "A25:arrive"
+    ],
+    "throne_party_mess": [
+      "A27:arrive",
+      "A29C:vicky",
+      "F15_EMERALD_L1:throne"
+    ],
+    "venice": [
+      "MOONIE_MEET:arrive",
+      "VENICE:courts"
+    ],
+    "grave_closed": [
+      "A28:chase",
+      "A36:meet",
+      "A36:pinky"
+    ],
+    "gallery": [
+      "A49:arrive",
+      "GALLERY:look"
+    ],
+    "lan_night": [
+      "A50:arrive"
+    ],
+    "kitchen": [
+      "KITCHEN:pick",
+      "ARC_MAZDA_1:scene",
+      "ARC_PATRICE_3:scene",
+      "JOLLOF_WARS:arrive",
+      "A54:arrive",
+      "A56:arrive",
+      "F15_EMERALD_L1:kitchen",
+      "F15_EMERALD_L2:table"
+    ],
+    "movie_room": [
+      "MOVIE:who"
+    ],
+    "la_sky": [
+      "A32:night"
+    ],
+    "duchess_castle": [
+      "A33:arrive",
+      "A33:duchess"
+    ],
+    "suya_spot": [
+      "A37:arrive"
+    ],
+    "atl_house_party": [
+      "A37:party"
+    ],
+    "curb": [
+      "A37:curb",
+      "A31:arrive"
+    ],
+    "party_hall_packed": [
+      "A_JADE1:arrive"
+    ],
+    "rave_interior": [
+      "A_LO1:arrive",
+      "A_ANFEESA1:arrive",
+      "A55:arrive"
+    ],
+    "little_tokyo": [
+      "A_HINA1:arrive",
+      "A46:plan",
+      "A46:bench",
+      "F15_ROXY_L2:ramen"
+    ],
+    "hollow_bowl": [
+      "A41:arrive"
+    ],
+    "atl_airport": [
+      "A44:land"
+    ],
+    "waffle_haven": [
+      "A44:haven",
+      "A44_N2:ask",
+      "A44_N3:haven",
+      "F15_ROXY_L1:waffle",
+      "F15_EMERALD_L3:waffle"
+    ],
+    "maul": [
+      "A44_N2:maul",
+      "A44_N2:smack"
+    ],
+    "lennox": [
+      "A44_N3:date"
+    ],
+    "centennial": [
+      "A44_N4:park"
+    ],
+    "castle_exterior_party": [
+      "A52:party"
+    ],
+    "rooftop_dtla": [
+      "ROOFTOP_DTLA:arrive"
+    ],
+    "neighbor_castle": [
+      "NEIGHBOR_CASTLE:arrive"
+    ],
+    "ocean_night_flight": [
+      "ARC_MAZDA_2:scene"
+    ],
+    "portobello_bedroom": [
+      "A30:wake",
+      "A30:bedtime",
+      "A30:bed"
+    ],
+    "portobello_office": [
+      "A30:kpi1",
+      "A30:kpi2",
+      "A30:kpi3",
+      "A30:approve"
+    ],
+    "portobello_porch": [
+      "A30:porch"
+    ],
+    "tokyo_tease": [
+      "A34:dm"
+    ],
+    "family_house": [
+      "A53:kitchen"
+    ],
+    "gbenga_rentals": [
+      "NEW_OGA_M2:arrive",
+      "NEW_OGA_M3:voice",
+      "NEW_OGA_M4:beat4",
+      "NEW_OGA_ALTERNATIVE:voice",
+      "NEW_OGA_FINALE:blessing",
+      "NEW_OGA_FINALE:consigliere",
+      "NEW_OGA_FINALE:takeover"
+    ],
+    "carson_owambe": [
+      "NEW_OGA_M3:critique",
+      "NEW_OGA_ALTERNATIVE:critique",
+      "NEW_OGA_M5:arrival"
+    ],
+    "gbenga_house_dining": [
+      "NEW_OGA_M7:arrival",
+      "NEW_OGA_M7:dinner",
+      "NEW_OGA_M7:door"
+    ],
+    "gbenga_house_patio": [
+      "NEW_OGA_M7:patio"
+    ],
+    "f15_bing": [
+      "F15_ROXY_L1:bing",
+      "F15_ROSALYN_L1:bing",
+      "F15_EMERALD_L1:bing",
+      "F15_EMERALD_L3:bing"
+    ],
+    "f15_gym": [
+      "F15_ROXY_L2:gym",
+      "F15_ROXY_L2:after",
+      "F15_ROXY_L3:ring"
+    ],
+    "f15_roxy_apartment": [
+      "F15_ROXY_L4:door"
+    ],
+    "f15_plenitude": [
+      "F15_ROSALYN_L1:plenitude"
+    ],
+    "f15_convention": [
+      "F15_ROSALYN_L3:hall"
+    ],
+    "f15_rosalyn_apartment_dark": [
+      "F15_ROSALYN_L4:dark",
+      "F15_ROSALYN_L4:mug"
+    ],
+    "f15_rosalyn_apartment": [
+      "F15_ROSALYN_L4:lights"
+    ],
+    "f15_library": [
+      "F15_EMERALD_L3:library"
+    ],
+    "f15_exam_hall": [
+      "F15_EMERALD_L3:steps"
+    ],
+    "f15_shrine": [
+      "F15_EMERALD_L4:hall"
+    ],
+    "f07_warehouse_party": [
+      "NEW_OGA_FINALE:party",
+      "NEW_OGA_FINALE:office"
+    ]
+  },
+  "actorUses": {
+    "rich": [
+      "A00:floor",
+      "A00:try2",
+      "A00:try3",
+      "A00:sensei",
+      "A00:sensei_point",
+      "A00:sensei_listen",
+      "COOK:memory",
+      "COOK:cooked",
+      "COOK:closing",
+      "RE_VIEWING:arrive",
+      "RB_DELIVERY:arrive",
+      "TANDEM_BATTLE:meet",
+      "DATE:where",
+      "GRAVE:arrive",
+      "GRAVE:hub",
+      "PEKING:arrive",
+      "TACOS:arrive",
+      "A43:arrive",
+      "A43:curb",
+      "NAIJA:store",
+      "THRONE:sit",
+      "ARMORY_WALL:look",
+      "COFFIN:look",
+      "A07:wake",
+      "A07:arrive",
+      "A08:arrive",
+      "A08:hina",
+      "SLURP:shift",
+      "A09:arrive",
+      "KUSH:store",
+      "A10:arrive",
+      "A10:pay",
+      "A10:melt",
+      "A10:settle",
+      "A11:wake",
+      "A12:arrive",
+      "A12:react",
+      "A12:mazda",
+      "PIER:fish",
+      "A13:meet",
+      "A14:arrive",
+      "A14:crowd",
+      "A14:tasha",
+      "SHOW:crowd",
+      "A15:arrive",
+      "A15:win",
+      "A16:arrive",
+      "A16:wispa2",
+      "CAFE:sit",
+      "A17:wake",
+      "A17:bill",
+      "A17:donor",
+      "A48:arrive",
+      "RETWIST:chair",
+      "A42:arrive",
+      "A45:arrive",
+      "A_TRISTAN:arrive",
+      "A_SMACK2:arrive",
+      "A18:arrive",
+      "A18:drop",
+      "A18:talk",
+      "A19:arrive",
+      "A20:food",
+      "HOOKAH:arrive",
+      "A23:arrive",
+      "A23:leave",
+      "A23R:arrive",
+      "A24:arrive",
+      "ARMORY:shop",
+      "A25:arrive",
+      "A25:cast",
+      "A27:arrive",
+      "MOONIE_MEET:arrive",
+      "A28:arrive",
+      "A28:chase",
+      "VENICE:courts",
+      "A47:arrive",
+      "A49:arrive",
+      "GALLERY:look",
+      "A50:arrive",
+      "A51:sing",
+      "KITCHEN:pick",
+      "MOVIE:who",
+      "A57:stop",
+      "A29:arrive",
+      "A29:drink",
+      "A29B:weigh",
+      "A29B:confront",
+      "A29B:expose",
+      "A29C:hungover",
+      "A29C:cleric",
+      "A29C:paladin",
+      "A29C:coffefight",
+      "A29C:vicky",
+      "A32:bed",
+      "A32:discover",
+      "A33:invite",
+      "A33:arrive",
+      "A33:duchess",
+      "A36:meet",
+      "A36:pinky",
+      "A37:route",
+      "A37:arrive",
+      "A37:party",
+      "A37:curb",
+      "A38:arrive",
+      "A38:gossip",
+      "MAID:look",
+      "A39:ghost",
+      "A39:marisol",
+      "A_CAMMILE1:shop",
+      "A_EMBERLY1:arrive",
+      "A_JADE1:arrive",
+      "A_LO1:arrive",
+      "A_HINA1:arrive",
+      "A_ANFEESA1:arrive",
+      "A_VELVET1:dm",
+      "A41:pick",
+      "A41B:hear",
+      "A44:route",
+      "A44:land",
+      "A44:haven",
+      "A44:laugh",
+      "A44_N2:route",
+      "A44_N2:ask",
+      "A44_N2:maul",
+      "A44_N2:smack",
+      "A44_N2:won",
+      "A44_N3:route",
+      "A44_N3:haven",
+      "A44_N3:date",
+      "A44_N3:rival",
+      "A44_N3:won",
+      "A44_N4:route",
+      "A44_N4:park",
+      "A44_N4:box",
+      "A46:ask",
+      "A52:costume",
+      "A52:party",
+      "A52:trick",
+      "A55:arrive",
+      "ROOFTOP_DTLA:arrive",
+      "NEIGHBOR_CASTLE:arrive",
+      "ARC_MAZDA_1:scene",
+      "ARC_MAZDA_2:scene",
+      "ARC_MAZDA_3:scene",
+      "ARC_NNEKA_1:scene",
+      "ARC_NNEKA_2:scene",
+      "ARC_NNEKA_3:scene",
+      "ARC_CAMMILE_1:scene",
+      "ARC_CAMMILE_2:scene",
+      "ARC_CAMMILE_3:scene",
+      "ARC_JUNE_1:scene",
+      "ARC_JUNE_2:scene",
+      "ARC_JUNE_3:scene",
+      "ARC_PATRICE_2:scene",
+      "ARC_PATRICE_3:scene",
+      "A30:wakeup",
+      "A31:start",
+      "A31:arrive",
+      "A31:fade",
+      "A34:dm",
+      "JOLLOF_WARS:arrive",
+      "A54:arrive",
+      "A56:arrive",
+      "A53:kitchen",
+      "A53:dad",
+      "A53:sister",
+      "A58:notif",
+      "NEW_OGA_M1:pitch",
+      "NEW_OGA_M1:table",
+      "NEW_OGA_M2:voice",
+      "NEW_OGA_M2:arrive",
+      "NEW_OGA_M3:voice",
+      "NEW_OGA_M3:critique",
+      "NEW_OGA_M4:voice",
+      "NEW_OGA_M4:beat1",
+      "NEW_OGA_M4:beat2",
+      "NEW_OGA_M4:beat3",
+      "NEW_OGA_M4:beat4",
+      "NEW_OGA_M4:run",
+      "NEW_OGA_ALTERNATIVE:voice",
+      "NEW_OGA_ALTERNATIVE:critique",
+      "NEW_OGA_M5:voice",
+      "NEW_OGA_M5:arrival",
+      "NEW_OGA_M5:greedy",
+      "NEW_OGA_M5:backout",
+      "NEW_OGA_M6:voice",
+      "NEW_OGA_M6:bread",
+      "NEW_OGA_M6:walked",
+      "NEW_OGA_M6:lost",
+      "NEW_OGA_M7:arrival",
+      "NEW_OGA_M7:dinner",
+      "NEW_OGA_M7:patio",
+      "NEW_OGA_M7:door",
+      "NEW_OGA_M8:job",
+      "NEW_OGA_FINALE:plan",
+      "NEW_OGA_FINALE:pick2",
+      "NEW_OGA_FINALE:party",
+      "NEW_OGA_FINALE:office",
+      "NEW_OGA_FINALE:blessing",
+      "NEW_OGA_FINALE:consigliere",
+      "NEW_OGA_FINALE:takeover"
+    ],
+    "soul": [
+      "A00:floor",
+      "A00:floor",
+      "A00:try2",
+      "A00:try2",
+      "A00:try3",
+      "A00:try3"
+    ],
+    "octopus_sensei": [
+      "A00:sensei",
+      "A00:sensei_point",
+      "A00:sensei_listen"
+    ],
+    "wispa": [
+      "COOK:closing",
+      "A16:arrive",
+      "A16:wispa2",
+      "CAFE:sit"
+    ],
+    "shannon_001": [
+      "RE_VIEWING:arrive"
+    ],
+    "tokyo_tony": [
+      "TANDEM_BATTLE:meet",
+      "A36:meet"
+    ],
+    "don_chuy": [
+      "TACOS:arrive",
+      "A51:sing"
+    ],
+    "auntie": [
+      "A43:arrive",
+      "NAIJA:store",
+      "NEW_OGA_M3:critique",
+      "NEW_OGA_ALTERNATIVE:critique",
+      "NEW_OGA_M5:greedy"
+    ],
+    "okada": [
+      "A08:arrive",
+      "A08:hina",
+      "SLURP:shift"
+    ],
+    "hina": [
+      "A08:hina",
+      "A_HINA1:arrive"
+    ],
+    "reggie": [
+      "A09:arrive",
+      "KUSH:store"
+    ],
+    "uncle_sunday": [
+      "A10:arrive",
+      "A10:pay",
+      "A10:melt",
+      "A10:settle",
+      "A12:arrive",
+      "A12:react",
+      "A12:mazda"
+    ],
+    "pinky": [
+      "A13:meet",
+      "A36:pinky"
+    ],
+    "tasha": [
+      "A14:tasha"
+    ],
+    "iron_jaw": [
+      "A15:arrive",
+      "A15:win"
+    ],
+    "nneka": [
+      "A17:wake",
+      "A17:bill",
+      "A17:donor",
+      "ARC_NNEKA_1:scene",
+      "ARC_NNEKA_2:scene",
+      "ARC_NNEKA_3:scene"
+    ],
+    "june": [
+      "A48:arrive",
+      "RETWIST:chair",
+      "ARC_JUNE_1:scene",
+      "ARC_JUNE_2:scene",
+      "ARC_JUNE_3:scene"
+    ],
+    "tristan": [
+      "A_TRISTAN:arrive",
+      "A50:arrive"
+    ],
+    "lil_smack": [
+      "A_SMACK2:arrive",
+      "A44_N2:smack",
+      "A54:arrive",
+      "A56:arrive"
+    ],
+    "kaede": [
+      "A18:drop",
+      "A18:talk"
+    ],
+    "bruce_loose": [
+      "A19:arrive"
+    ],
+    "phil": [
+      "A20:food"
+    ],
+    "bllad33": [
+      "HOOKAH:arrive"
+    ],
+    "hilt": [
+      "A23:arrive",
+      "A23:leave",
+      "A23R:arrive"
+    ],
+    "deacon_brass": [
+      "A24:arrive",
+      "ARMORY:shop"
+    ],
+    "nightshade": [
+      "A25:arrive",
+      "A25:cast"
+    ],
+    "moonie": [
+      "MOONIE_MEET:arrive",
+      "A28:arrive"
+    ],
+    "rookoko": [
+      "A49:arrive",
+      "GALLERY:look"
+    ],
+    "officer_nodd": [
+      "A57:stop"
+    ],
+    "coffe": [
+      "A29:arrive",
+      "A29:drink",
+      "A29B:confront",
+      "A29B:expose",
+      "A29C:coffefight"
+    ],
+    "bard": [
+      "A29C:hungover"
+    ],
+    "cleric": [
+      "A29C:cleric"
+    ],
+    "paladin": [
+      "A29C:paladin"
+    ],
+    "vicky": [
+      "A29C:vicky"
+    ],
+    "mazda_human": [
+      "A32:bed",
+      "A32:discover",
+      "ARC_MAZDA_1:scene",
+      "ARC_MAZDA_2:scene",
+      "ARC_MAZDA_3:scene",
+      "NEW_OGA_M6:mazda"
+    ],
+    "duchess": [
+      "A33:duchess"
+    ],
+    "bunmi": [
+      "A37:arrive",
+      "A37:party",
+      "A37:curb"
+    ],
+    "brenda": [
+      "A38:arrive",
+      "A38:gossip"
+    ],
+    "marisol": [
+      "MAID:look",
+      "A39:marisol"
+    ],
+    "jdm_importer_daughter_001": [
+      "A_CAMMILE1:shop",
+      "ARC_CAMMILE_1:scene",
+      "ARC_CAMMILE_2:scene",
+      "ARC_CAMMILE_3:scene"
+    ],
+    "emberly": [
+      "A_EMBERLY1:arrive"
+    ],
+    "jade": [
+      "A_JADE1:arrive"
+    ],
+    "lo": [
+      "A_LO1:arrive"
+    ],
+    "anfeesa": [
+      "A_ANFEESA1:arrive",
+      "A55:arrive"
+    ],
+    "ms_patrice": [
+      "A44:haven",
+      "A44:laugh",
+      "A44_N2:ask",
+      "A44_N3:haven",
+      "A44_N3:date",
+      "A44_N3:rival",
+      "A44_N3:won",
+      "A44_N4:park",
+      "ARC_PATRICE_2:scene",
+      "ARC_PATRICE_3:scene"
+    ],
+    "buckhead": [
+      "A44_N3:rival"
+    ],
+    "importer": [
+      "ARC_CAMMILE_3:scene"
+    ],
+    "rich_portobello": [
+      "A30:wake",
+      "A30:breakfast",
+      "A30:kpi1",
+      "A30:kpi2",
+      "A30:kpi3",
+      "A30:approve",
+      "A30:bedtime",
+      "A30:porch",
+      "A30:bed"
+    ],
+    "portobello_wife": [
+      "A30:wake",
+      "A30:breakfast",
+      "A30:porch",
+      "A30:bed"
+    ],
+    "portobello_kid1": [
+      "A30:breakfast",
+      "A30:bedtime"
+    ],
+    "portobello_kid2": [
+      "A30:breakfast",
+      "A30:bedtime"
+    ],
+    "portobello_manager": [
+      "A30:kpi1",
+      "A30:kpi2",
+      "A30:kpi3",
+      "A30:approve"
+    ],
+    "god": [
+      "A31:arrive",
+      "A31:fade"
+    ],
+    "brother1": [
+      "A53:kitchen"
+    ],
+    "brother2": [
+      "A53:kitchen"
+    ],
+    "mom": [
+      "A53:dad"
+    ],
+    "dad": [
+      "A53:dad"
+    ],
+    "sister": [
+      "A53:sister"
+    ],
+    "smallie": [
+      "NEW_OGA_M1:table"
+    ],
+    "gbenga": [
+      "NEW_OGA_M2:arrive",
+      "NEW_OGA_M3:voice",
+      "NEW_OGA_M4:walk_in",
+      "NEW_OGA_ALTERNATIVE:voice",
+      "NEW_OGA_M7:arrival",
+      "NEW_OGA_M7:dinner",
+      "NEW_OGA_M7:patio",
+      "NEW_OGA_FINALE:office",
+      "NEW_OGA_FINALE:blessing",
+      "NEW_OGA_FINALE:consigliere"
+    ],
+    "carlos": [
+      "NEW_OGA_M4:beat1",
+      "NEW_OGA_M4:beat2",
+      "NEW_OGA_M4:beat3",
+      "NEW_OGA_M4:beat4",
+      "NEW_OGA_M4:walk_in",
+      "NEW_OGA_M4:run"
+    ],
+    "uncle_bamidele": [
+      "NEW_OGA_M5:arrival",
+      "NEW_OGA_M5:backout"
+    ],
+    "senator": [
+      "NEW_OGA_M6:voice",
+      "NEW_OGA_M6:egusi",
+      "NEW_OGA_M6:mazda",
+      "NEW_OGA_M6:bread",
+      "NEW_OGA_M6:walked"
+    ],
+    "cat": [
+      "NEW_OGA_M6:egusi"
+    ],
+    "mama_gbenga": [
+      "NEW_OGA_M7:arrival",
+      "NEW_OGA_M7:dinner",
+      "NEW_OGA_M7:door"
+    ]
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "name": "velvet-loop-studio",
+  "productName": "Velvet Loop Studio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Sprite sheet preview workshop for the Rich Alucard project.",
+  "author": "Rich Alucard",
+  "main": "electron/main.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "node --test \"test/*.test.mjs\"",
+    "icon": "node scripts/make-icon.mjs",
+    "dist": "electron-builder --win nsis --x64",
+    "dist:portable": "electron-builder --win portable --x64"
+  },
+  "devDependencies": {
+    "electron": "^33.2.0",
+    "electron-builder": "^25.1.8"
+  },
+  "build": {
+    "appId": "com.richalucard.velvetloopstudio",
+    "productName": "Velvet Loop Studio",
+    "copyright": "Rich Alucard",
+    "directories": { "output": "dist", "buildResources": "build" },
+    "files": ["electron/**/*", "src/**/*", "package.json"],
+    "win": {
+      "target": [{ "target": "nsis", "arch": ["x64"] }],
+      "icon": "build/icon.ico",
+      "artifactName": "Velvet-Loop-Studio-Setup-${version}.${ext}"
+    },
+    "nsis": {
+      "oneClick": true,
+      "perMachine": false,
+      "runAfterFinish": true,
+      "createDesktopShortcut": "always",
+      "createStartMenuShortcut": true,
+      "shortcutName": "Velvet Loop Studio",
+      "deleteAppDataOnUninstall": false
+    }
+  }
+}

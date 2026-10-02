@@ -523,3 +523,6 @@ Seven exact candidate byte streams resolving six former canon blockers are **APP
 | `A-god` | `SEATED_ON_CURB` | `assets/before_the_fame/art_ship_015/package_a/A-god-seated_on_curb.png` | `f911276542fc4a6f0537d4f1972fc234dcce13f215a48626d1e5aca34a2b0923` |
 | `A-god` | `FADING` | `assets/before_the_fame/art_ship_015/package_a/A-god-fading.png` | `e22f2be9f041219959c9cf1ad81996de0551b21d5c525937b2b08209e3ec6ccf` |
 | `A-og-hooper` | `NEUTRAL / COURT_READY` | `assets/before_the_fame/art_ship_015/package_a/A-og-hooper.png` | `dfb70a4661b6768c468dcd5553a3dc49ddccbfc6a85a627a54e8f87601a90cc3` |
+# BUILD-4 preserved additions
+
+The current exact-byte additions are indexed in `build4/REGISTERED_APPROVED_ASSETS.md` and the central `ASSET_REGISTER.json`. The original shipment entries above are unchanged. BUILD-4 creator-review derivatives are excluded from frozen approvals.

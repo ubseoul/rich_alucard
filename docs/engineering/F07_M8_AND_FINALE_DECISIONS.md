@@ -35,5 +35,5 @@ Finale Phase 1 THE PARTY is a PLAY that Rich WATCHES ON HIS PHONE from the owamb
 | D5b | Names/classes/count if Gbenga's boys are ever to join as recruits | Eligibility recorded only |
 | D6b | What, if anything, each of the six non-squad lanes changes | Deferred; neutral |
 | E1 | Enemy-side effect of the canopy collapse ("whoever is under it" includes Gbenga's boys) | F01's generic hazard acts on Rich's crew only (`ctx.hazard`, engine.mjs); an enemy-side effect exists only for the engine's own `power_cut` card id. Needs an F01 engine hook — outside the authorised F07-owned seams. The collapse is proven on Rich's side (below). |
-| A1 | Art: OWAMBE warehouse condition, repainted sign, an exterior for `owambe_party` (the PLAY uses its default backdrop) | Art ticket |
+| A1 | Art: OWAMBE warehouse condition, repainted sign, an exterior for `owambe_party` | BUILD-4: frozen party interior and base exterior integrated; repainted sign preserved/registered, post-TAKEOVER condition mapping remains P-B creator review. Exact-byte provenance in `art_department/build4/INTEGRATION_MANIFEST.json`. |
 | A2 | §6 Mister December "visits as an equal" scene | Vol 7 / F04 scope |

@@ -1,0 +1,225 @@
+{
+  "base_checkpoint": "1c96101213a996b2975c31029ef6e823f9ebc745",
+  "head_before_commit": "1c96101213a996b2975c31029ef6e823f9ebc745",
+  "branch": "art/polish_preproduction_001",
+  "base_matches_origin_art_ship_010": true,
+  "candidate_count": 9,
+  "adult_figure_count": 21,
+  "candidate_checks": [
+    {
+      "id": "A01_dancer",
+      "exists": true,
+      "sha256_match": true,
+      "dimensions_match": true,
+      "binary_alpha": true,
+      "opaque_pixels": 878
+    },
+    {
+      "id": "A02_performer",
+      "exists": true,
+      "sha256_match": true,
+      "dimensions_match": true,
+      "binary_alpha": true,
+      "opaque_pixels": 669
+    },
+    {
+      "id": "A03_queue_pair",
+      "exists": true,
+      "sha256_match": true,
+      "dimensions_match": true,
+      "binary_alpha": true,
+      "opaque_pixels": 1630
+    },
+    {
+      "id": "A04_dancing_pair",
+      "exists": true,
+      "sha256_match": true,
+      "dimensions_match": true,
+      "binary_alpha": true,
+      "opaque_pixels": 1772
+    },
+    {
+      "id": "A05_affectionate_pair",
+      "exists": true,
+      "sha256_match": true,
+      "dimensions_match": true,
+      "binary_alpha": true,
+      "opaque_pixels": 1173
+    },
+    {
+      "id": "A06_bartender",
+      "exists": true,
+      "sha256_match": true,
+      "dimensions_match": true,
+      "binary_alpha": true,
+      "opaque_pixels": 721
+    },
+    {
+      "id": "A07_hookah_lounge",
+      "exists": true,
+      "sha256_match": true,
+      "dimensions_match": true,
+      "binary_alpha": true,
+      "opaque_pixels": 2766
+    },
+    {
+      "id": "A08_dense_cluster",
+      "exists": true,
+      "sha256_match": true,
+      "dimensions_match": true,
+      "binary_alpha": true,
+      "opaque_pixels": 3316
+    },
+    {
+      "id": "A09_foreground_silhouettes",
+      "exists": true,
+      "sha256_match": true,
+      "dimensions_match": true,
+      "binary_alpha": true,
+      "opaque_pixels": 3625
+    }
+  ],
+  "composition_checks": [
+    {
+      "id": "party_hall_sparse",
+      "source_hash_match": true,
+      "layer_hash_match": true,
+      "outside_alpha_changed_pixels": 0,
+      "source_dimensions": [
+        270,
+        480
+      ],
+      "layer_dimensions": [
+        270,
+        480
+      ]
+    },
+    {
+      "id": "party_hall_dense",
+      "source_hash_match": true,
+      "layer_hash_match": true,
+      "outside_alpha_changed_pixels": 0,
+      "source_dimensions": [
+        270,
+        480
+      ],
+      "layer_dimensions": [
+        270,
+        480
+      ]
+    },
+    {
+      "id": "catacomb_performance",
+      "source_hash_match": true,
+      "layer_hash_match": true,
+      "outside_alpha_changed_pixels": 0,
+      "source_dimensions": [
+        270,
+        480
+      ],
+      "layer_dimensions": [
+        270,
+        480
+      ]
+    },
+    {
+      "id": "rooftop_social",
+      "source_hash_match": true,
+      "layer_hash_match": true,
+      "outside_alpha_changed_pixels": 0,
+      "source_dimensions": [
+        270,
+        480
+      ],
+      "layer_dimensions": [
+        270,
+        480
+      ]
+    },
+    {
+      "id": "roof_lounge",
+      "source_hash_match": true,
+      "layer_hash_match": true,
+      "outside_alpha_changed_pixels": 0,
+      "source_dimensions": [
+        270,
+        480
+      ],
+      "layer_dimensions": [
+        270,
+        480
+      ]
+    },
+    {
+      "id": "castle_entry",
+      "source_hash_match": true,
+      "layer_hash_match": true,
+      "outside_alpha_changed_pixels": 0,
+      "source_dimensions": [
+        270,
+        480
+      ],
+      "layer_dimensions": [
+        270,
+        480
+      ]
+    }
+  ],
+  "combat_primary_components": 35,
+  "combat_packages": [
+    "blood_bath",
+    "vampire_bite",
+    "revenge",
+    "octopus_brain"
+  ],
+  "sheet_checks": [
+    {
+      "sheet": "assets/blood_bath_floor_sheet.png",
+      "exact_component_pixels": true
+    },
+    {
+      "sheet": "assets/blood_bath_contact_overlay_sheet.png",
+      "exact_component_pixels": true
+    },
+    {
+      "sheet": "assets/vampire_bite_jaw_sheet.png",
+      "exact_component_pixels": true
+    },
+    {
+      "sheet": "assets/vampire_bite_lifesteal_atlas.png",
+      "exact_component_pixels": true
+    },
+    {
+      "sheet": "assets/revenge_stored_wound_sheet.png",
+      "exact_component_pixels": true
+    },
+    {
+      "sheet": "assets/revenge_extraction_sheet.png",
+      "exact_component_pixels": true
+    },
+    {
+      "sheet": "assets/revenge_mass_sheet.png",
+      "exact_component_pixels": true
+    },
+    {
+      "sheet": "assets/revenge_target_crack_sheet.png",
+      "exact_component_pixels": true
+    }
+  ],
+  "rich_individual_files": 34,
+  "rich_classification_counts": {
+    "CONSISTENT": 21,
+    "STRONG IDENTITY DRIFT": 1,
+    "POSSIBLE IDENTITY DRIFT": 2,
+    "INTENTIONAL VARIANT": 10
+  },
+  "supplemental_fx_generated": 0,
+  "tracked_changes_before_commit": [],
+  "runtime_code_changed": [],
+  "changes_outside_preproduction": [],
+  "sealed_content_accessed": false,
+  "approved_or_frozen": false,
+  "runtime_integrated": false,
+  "holds_resolved": false,
+  "all_pass": true
+}

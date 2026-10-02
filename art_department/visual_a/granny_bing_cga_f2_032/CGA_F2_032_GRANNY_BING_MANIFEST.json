@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "ticket": "CGA-F2-032",
+  "character": "GRANNY BING",
+  "status": "APPROVED MASTER / FROZEN / CLOSED",
+  "recorded_date": "2026-09-30",
+  "authority": {
+    "art_department_branch": "origin/art/art_department_refresh_2026",
+    "art_department_checkpoint": "f4adbafd9c7e0f99f8df971358ecfbcf6a60b148",
+    "open_authority_branch": "origin/main",
+    "open_authority_checkpoint": "625f3c60aeb11d1df3b140eb802cbd2758e2ebed",
+    "identity_authority": "art_department/production_authority/OL017_OPEN_VISUAL_CHARACTER_AUTHORITY.md — GRANNY BING / CGA-F2-032",
+    "approval": "UNDERLORD / UBE DISPOSITION — CGA-F2-032 GRANNY BING — PASS — FREEZE APPROVED"
+  },
+  "source_required": "none",
+  "approved_frozen_states": ["NEUTRAL / CALLING NUMBERS"],
+  "assets": [
+    {
+      "state": "NEUTRAL / CALLING NUMBERS",
+      "asset_id": "VA-GRANNY-BING-CGA-F2-032-NEUTRAL-CALLING-NUMBERS-v1",
+      "native_path": "assets/before_the_fame/characters/granny_bing/cga_f2_032/granny_bing_neutral_calling_numbers_anchor_80x96_v1.png",
+      "sha256": "6f042de972f6fe7fa89178095829ac44e96650cf7b067ad0004f2ca208ddf4ee",
+      "dimensions": [80, 96],
+      "mode": "RGBA",
+      "alpha": "binary 0/255",
+      "contact": [40, 88],
+      "preview_4x_path": "art_department/visual_a/granny_bing_cga_f2_032/review/granny_bing_neutral_calling_numbers_anchor_4x_nearest_v1.png",
+      "preview_4x_sha256": "2a71ea721f6943d035ed14fab28c9ee330f1099fce87fae7a824b64aad7db9e0"
+    }
+  ],
+  "records": {
+    "freeze_record": "art_department/visual_a/granny_bing_cga_f2_032/FREEZE_RECORD.md",
+    "freeze_record_json": "art_department/visual_a/granny_bing_cga_f2_032/FREEZE_RECORD.json",
+    "qa_report": "art_department/visual_a/granny_bing_cga_f2_032/QA_REPORT.md",
+    "authority_checkpoint": "art_department/visual_a/granny_bing_cga_f2_032/AUTHORITY_CHECKPOINT.md",
+    "discretion_log": "art_department/visual_a/granny_bing_cga_f2_032/DISCRETION_LOG.md",
+    "frozen_corpus_verification": "art_department/visual_a/granny_bing_cga_f2_032/FROZEN_CORPUS_VERIFICATION.json"
+  },
+  "freeze_scope": "The exact canonical 80×96 NEUTRAL / CALLING NUMBERS byte stream is immutable. No additional Granny Bing state, alternate pose, environment or extra prop asset is authorized by this closeout.",
+  "runtime_integration_status": "PENDING SEPARATE ENGINEERING REGISTRATION / RUNTIME QA"
+}

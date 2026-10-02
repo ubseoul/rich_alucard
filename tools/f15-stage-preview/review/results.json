@@ -1,0 +1,311 @@
+{
+  "widths": {
+    "360": {
+      "errors": [],
+      "layouts": {
+        "recommended": {
+          "samples": 12,
+          "minLeft": 23,
+          "maxRight": 328.5,
+          "minTop": 128,
+          "maxBottom": 266,
+          "stageW": 344,
+          "stageH": 564,
+          "feetY": 266,
+          "hudBottom": 122,
+          "edgeMarginLeft": 23,
+          "edgeMarginRight": 15.5,
+          "headroomBelowHud": 6,
+          "baselineGap": 0,
+          "k": 0.23,
+          "clamped": true
+        },
+        "alternative": {
+          "samples": 12,
+          "minLeft": 23,
+          "maxRight": 328,
+          "minTop": 139,
+          "maxBottom": 266,
+          "stageW": 344,
+          "stageH": 564,
+          "feetY": 266,
+          "hudBottom": 122,
+          "edgeMarginLeft": 23,
+          "edgeMarginRight": 16,
+          "headroomBelowHud": 17,
+          "baselineGap": 0,
+          "k": 0.21383783783783786,
+          "clamped": false
+        }
+      },
+      "selection": [
+        {
+          "id": "dragon",
+          "checked": "true",
+          "state": "dragon",
+          "w": 110.6640625,
+          "h": 46
+        },
+        {
+          "id": "wolf",
+          "checked": "true",
+          "state": "wolf",
+          "w": 110.6640625,
+          "h": 46
+        },
+        {
+          "id": "pink",
+          "checked": "true",
+          "state": "pink",
+          "w": 110.6640625,
+          "h": 46
+        }
+      ],
+      "timing": {
+        "restartStart": {
+          "e": 0,
+          "f": {
+            "wolf": 0,
+            "dragon": 0,
+            "pink": 0
+          }
+        },
+        "after2s": {
+          "e": 2009.7999999999993,
+          "f": {
+            "wolf": 48,
+            "dragon": 48,
+            "pink": 48
+          },
+          "now": 16001.199999988079
+        },
+        "expectedFrameAt": 48,
+        "pausedDeltaMs": 0,
+        "pauseLabel": "PLAY",
+        "afterRestart": {
+          "e": 0,
+          "f": {
+            "wolf": 0,
+            "dragon": 0,
+            "pink": 0
+          }
+        },
+        "afterWrap": {
+          "e": 6193.399999994039,
+          "f": {
+            "wolf": 2,
+            "dragon": 4,
+            "pink": 3
+          }
+        }
+      },
+      "layoutToggleChangesBoxes": true,
+      "moneyThrowSpent": 1100
+    },
+    "390": {
+      "errors": [],
+      "layouts": {
+        "recommended": {
+          "samples": 12,
+          "minLeft": 17.5,
+          "maxRight": 361.5,
+          "minTop": 146,
+          "maxBottom": 312,
+          "stageW": 370,
+          "stageH": 662,
+          "feetY": 312,
+          "hudBottom": 122,
+          "edgeMarginLeft": 17.5,
+          "edgeMarginRight": 8.5,
+          "headroomBelowHud": 24,
+          "baselineGap": 0,
+          "k": 0.28,
+          "clamped": false
+        },
+        "alternative": {
+          "samples": 12,
+          "minLeft": 25,
+          "maxRight": 353,
+          "minTop": 175.5,
+          "maxBottom": 312,
+          "stageW": 370,
+          "stageH": 662,
+          "feetY": 312,
+          "hudBottom": 122,
+          "edgeMarginLeft": 25,
+          "edgeMarginRight": 17,
+          "headroomBelowHud": 53.5,
+          "baselineGap": 0,
+          "k": 0.23,
+          "clamped": false
+        }
+      },
+      "selection": [
+        {
+          "id": "dragon",
+          "checked": "true",
+          "state": "dragon",
+          "w": 119.328125,
+          "h": 46
+        },
+        {
+          "id": "wolf",
+          "checked": "true",
+          "state": "wolf",
+          "w": 119.3359375,
+          "h": 46
+        },
+        {
+          "id": "pink",
+          "checked": "true",
+          "state": "pink",
+          "w": 119.3359375,
+          "h": 46
+        }
+      ],
+      "timing": {
+        "restartStart": {
+          "e": 0,
+          "f": {
+            "wolf": 0,
+            "dragon": 0,
+            "pink": 0
+          }
+        },
+        "after2s": {
+          "e": 1990.8000000178818,
+          "f": {
+            "wolf": 47,
+            "dragon": 47,
+            "pink": 47
+          },
+          "now": 15790.199999988079
+        },
+        "expectedFrameAt": 47,
+        "pausedDeltaMs": 0,
+        "pauseLabel": "PLAY",
+        "afterRestart": {
+          "e": 0,
+          "f": {
+            "wolf": 0,
+            "dragon": 0,
+            "pink": 0
+          }
+        },
+        "afterWrap": {
+          "e": 6206.4000000000015,
+          "f": {
+            "wolf": 2,
+            "dragon": 4,
+            "pink": 3
+          }
+        }
+      },
+      "layoutToggleChangesBoxes": true,
+      "moneyThrowSpent": 1100
+    },
+    "430": {
+      "errors": [],
+      "layouts": {
+        "recommended": {
+          "samples": 12,
+          "minLeft": 19.5,
+          "maxRight": 400.5,
+          "minTop": 159,
+          "maxBottom": 344.5,
+          "stageW": 410,
+          "stageH": 733,
+          "feetY": 344.453125,
+          "hudBottom": 122.453125,
+          "edgeMarginLeft": 19.5,
+          "edgeMarginRight": 9.5,
+          "headroomBelowHud": 36.546875,
+          "baselineGap": -0.046875,
+          "k": 0.3102702702702703,
+          "clamped": false
+        },
+        "alternative": {
+          "samples": 12,
+          "minLeft": 27.5,
+          "maxRight": 391,
+          "minTop": 193,
+          "maxBottom": 344.5,
+          "stageW": 410,
+          "stageH": 733,
+          "feetY": 344.453125,
+          "hudBottom": 122.453125,
+          "edgeMarginLeft": 27.5,
+          "edgeMarginRight": 19,
+          "headroomBelowHud": 70.546875,
+          "baselineGap": -0.046875,
+          "k": 0.25486486486486487,
+          "clamped": false
+        }
+      },
+      "selection": [
+        {
+          "id": "dragon",
+          "checked": "true",
+          "state": "dragon",
+          "w": 132.6640625,
+          "h": 46
+        },
+        {
+          "id": "wolf",
+          "checked": "true",
+          "state": "wolf",
+          "w": 132.6640625,
+          "h": 46
+        },
+        {
+          "id": "pink",
+          "checked": "true",
+          "state": "pink",
+          "w": 132.671875,
+          "h": 46
+        }
+      ],
+      "timing": {
+        "restartStart": {
+          "e": 5.399999994038808,
+          "f": {
+            "wolf": 0,
+            "dragon": 0,
+            "pink": 0
+          }
+        },
+        "after2s": {
+          "e": 2007.4999999940392,
+          "f": {
+            "wolf": 48,
+            "dragon": 48,
+            "pink": 48
+          },
+          "now": 16102.5
+        },
+        "expectedFrameAt": 48,
+        "pausedDeltaMs": 0,
+        "pauseLabel": "PLAY",
+        "afterRestart": {
+          "e": 0,
+          "f": {
+            "wolf": 0,
+            "dragon": 0,
+            "pink": 0
+          }
+        },
+        "afterWrap": {
+          "e": 6209.800000011921,
+          "f": {
+            "wolf": 3,
+            "dragon": 5,
+            "pink": 4
+          }
+        }
+      },
+      "layoutToggleChangesBoxes": true,
+      "moneyThrowSpent": 1100
+    }
+  },
+  "notes": []
+}

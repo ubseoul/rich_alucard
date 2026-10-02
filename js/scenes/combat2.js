@@ -40,7 +40,7 @@
   function stageDirector(){
    // Same adapter contract as adventures: environment floor + depth scale, slot anchors; minions stand on a
    // farther depth band (0.55 of the floor scale — the legacy crowd depth made explicit).
-   const stage=RAPresentationDirector.combat2Stage(envDef,def.person||enemyId,{flip:!!art.base,minions:minionEls.length,states:enemyStates});
+   const stage=RAPresentationDirector.combat2Stage(envDef,def.person||enemyId,{flip:!!art.base,minions:minionEls.length,states:enemyStates,enemyScale:def.stageScale});
    const actors={rich:richEl,enemy:enemyEl};minionEls.forEach((el,i)=>actors[`minion${i}`]=el);
    RAPresentationDirector.enter({stage,mode:'combat',beat:'default',host:root,env:env.canvas,actors,roles:stage.director.roles,fx:false,ui:{selectors:['.c2-hud .c2-hp','.c2-panel'],dialogue:['.c2-log'],bubbles:[]}});
   }

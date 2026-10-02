@@ -28,6 +28,9 @@
   import * as C from '../../../js/frag/F01/play/content.mjs';
   import {install} from '../../../js/frag/F07/play/owambe.mjs';
   install(C);   // F07-owned Phase 1 job + stage cards; F01's files are not edited
+  // A1: the approved exterior is installed only in this F07 page's module instance.
+  const {FL_ART} = await import('../../f01/play/feel-frozen.mjs');
+  FL_ART.exterior.owambe_party = '../backgrounds/warehouse_exterior_270x480.png';
   const {boot} = await import('../../f01/play/feel-ui.mjs');
   boot();
 </script>

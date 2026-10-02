@@ -1,0 +1,133 @@
+{
+  "asset": "STOVE U — F15 — PLÉNITUDE",
+  "source_status": "FROZEN — UBE APPROVED",
+  "source_approval": {
+    "authority": "Ube, explicit user message in this chat",
+    "quote": "I approve the exact Plénitude restaurant candidate just reviewed. Freeze that original and preserve its bytes.",
+    "source_sha256": "d851d57039f6f6678396500d7cd8e7e4cb7410253a60c2f091b9d7fa67161b0f"
+  },
+  "production_status": "PRODUCTION CANDIDATE — PENDING NATIVE-SIZE REVIEW",
+  "transform": {
+    "operation_order": [
+      "integer center crop",
+      "nearest-neighbor resize"
+    ],
+    "crop_box_source_pixels_left_top_right_bottom_exclusive": [
+      2,
+      4,
+      938,
+      1668
+    ],
+    "removed_source_pixels": {
+      "left": 2,
+      "right": 3,
+      "top": 4,
+      "bottom": 4
+    },
+    "cropped_dimensions": [
+      936,
+      1664
+    ],
+    "cropped_aspect_ratio": "9:16",
+    "output_dimensions": [
+      270,
+      480
+    ],
+    "uniform_resize_factor_exact": "15/52",
+    "resampling": "Pillow Image.Resampling.NEAREST",
+    "output_mode": "RGB (opaque; no alpha channel)",
+    "color_processing": "none; every output color is copied from a source pixel",
+    "qa_enlargement": {
+      "factor": 4,
+      "dimensions": [
+        1080,
+        1920
+      ],
+      "resampling": "nearest-neighbor"
+    }
+  },
+  "placement_status": "UNVERIFIED",
+  "files": [
+    {
+      "filename": "approval_record.json",
+      "bytes": 3112,
+      "sha256": "3ce2373e65acd74d6d5e555c42df666ec92fe70fd4c34b3d3f904b80f8a4568f"
+    },
+    {
+      "filename": "plenitude_270x480.png",
+      "bytes": 163201,
+      "sha256": "686b97067b6776c8e7de992fb60f67c663610489cfc567b4c3fb8c8c2314b9cb",
+      "actual_dimensions": [
+        270,
+        480
+      ],
+      "format": "PNG",
+      "mode": "RGB",
+      "opaque": true
+    },
+    {
+      "filename": "plenitude_f15_candidate_original.png",
+      "bytes": 1487021,
+      "sha256": "d851d57039f6f6678396500d7cd8e7e4cb7410253a60c2f091b9d7fa67161b0f",
+      "actual_dimensions": [
+        941,
+        1672
+      ],
+      "format": "PNG",
+      "mode": "RGB",
+      "opaque": true
+    },
+    {
+      "filename": "qa/05_plenitude_gameplay_reference_QA_ONLY.png",
+      "bytes": 23912,
+      "sha256": "dec8a0047064f79e89bcd491ec97e17762fe6832165d69d02ef48999b5100a94",
+      "actual_dimensions": [
+        780,
+        1688
+      ],
+      "format": "PNG",
+      "mode": "RGB",
+      "opaque": true
+    },
+    {
+      "filename": "qa/plenitude_4x_1080x1920_QA_ONLY.png",
+      "bytes": 262916,
+      "sha256": "a7318832a6086fe5a9347ce2422e306fd41f2fdfd5c33d8bb1676f5e13807156",
+      "actual_dimensions": [
+        1080,
+        1920
+      ],
+      "format": "PNG",
+      "mode": "RGB",
+      "opaque": true
+    },
+    {
+      "filename": "qa/plenitude_native_270x480_QA_ONLY.png",
+      "bytes": 163201,
+      "sha256": "686b97067b6776c8e7de992fb60f67c663610489cfc567b4c3fb8c8c2314b9cb",
+      "actual_dimensions": [
+        270,
+        480
+      ],
+      "format": "PNG",
+      "mode": "RGB",
+      "opaque": true
+    },
+    {
+      "filename": "README.txt",
+      "bytes": 2261,
+      "sha256": "eed35ef5e0e90b7631fad6c99e56bad7ee37b265ee405cc6ef8cc93b857c5427"
+    },
+    {
+      "filename": "source_candidate_review.txt",
+      "bytes": 2830,
+      "sha256": "3f92a28e30acdc47f9ea2bae880bcb9caa323205fc5869cc024fa63fa9353537"
+    },
+    {
+      "filename": "source_generation_prompt.txt",
+      "bytes": 4000,
+      "sha256": "3991e6a8fab84944a9d3855df31ffc089fda4663d91b5017162574c80ec61576"
+    }
+  ],
+  "manifest_self_hash": "Excluded: self-referential hashing is not defined."
+}

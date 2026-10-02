@@ -3,7 +3,8 @@
 // dimensions, sha256, visible (alpha) bounds, contact anchor and face box. Frozen PNGs are only read.
 // Usage: node tools/presentation-assets.mjs            (write)
 //        import {expectedAssets} for the release gate   (verify up to date)
-import {readFile,writeFile} from 'node:fs/promises';
+import {readFile,writeFile,readdir} from 'node:fs/promises';
+import vm from 'node:vm';
 import {createHash} from 'node:crypto';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
@@ -23,6 +24,12 @@ export async function buildAssets(){
  // Every frozen ART SHIP 004–007 environment and actor in the generated Art Registry gets metadata automatically;
  // annotations.json only adds authored detail (face boxes). Contacts come from the Ship manifests.
  const registry=await buildRegistry(),notes={...annotations.assets};
+ // Read the same additive parts the production loader uses, with its frozen-collision guard.
+ const ctx={window:{RAArtRegistry:registry}};vm.createContext(ctx);
+ vm.runInContext(await readFile(path.join(root,'js/data/art/registry_parts.js'),'utf8'),ctx);
+ ctx.RAArtParts=ctx.window.RAArtParts;
+ for(const file of (await readdir(path.join(root,'js/data/art/parts'))).filter(f=>f.endsWith('.js')).sort())
+  vm.runInContext(await readFile(path.join(root,'js/data/art/parts',file),'utf8'),ctx);
  for(const e of Object.values(registry.environments))for(const file of [e.asset,...Object.values(e.layers||{})])if(file)notes[file]={environment:true,...notes[file]};
  for(const c of Object.values(registry.characters))for(const file of Object.values(c.states))notes[file]={...(c.contact?{anchor:c.contact}:{}),...notes[file]};
  for(const c of Object.values(registry.creatures))notes[c.anchor]={...(c.contact?{anchor:c.contact}:{groundedAnchor:true}),...notes[c.anchor]};

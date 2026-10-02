@@ -1,0 +1,141 @@
+{
+  "status": "PASS \u2014 technical checks; sign variant CANDIDATE \u2014 PENDING UBE REVIEW",
+  "source": {
+    "path": "C:\\Users\\Ube\\Documents\\Codex\\2026-10-01\\stove-g-warehouse-exterior-background-candidate\\outputs\\stove-g-warehouse-exterior-candidate-v2.png",
+    "sha256": "fabab780c14a0a8615bb56eb5680ce9f08057923faa4dced4d5f5d83e8b85fe1",
+    "dimensions": [
+      941,
+      1672
+    ],
+    "unchanged": true
+  },
+  "normalization": {
+    "reused": true,
+    "manifest_path": "C:\\Users\\Ube\\Documents\\Codex\\2026-10-01\\stove-g-warehouse-exterior-background-candidate\\outputs\\owambe_party_exterior_normalization.json",
+    "manifest_sha256": "5b14d7864980c0bc03ad6d7e285537794eaf56d12464225b7f7756f8132e4d7d",
+    "transform": {
+      "library": "Pillow",
+      "version": "12.3.0",
+      "resampling": "Image.Resampling.NEAREST",
+      "source_sampling_box_left_top_right_bottom": [
+        0.25,
+        0.0,
+        940.75,
+        1672.0
+      ],
+      "crop": "0.25 source pixel from each horizontal edge; 0 vertical; no padding",
+      "uniform_scale": "480/1672 = 60/209",
+      "source_pixel_mapping": "sx=floor(0.25+(x+0.5)*209/60); sy=floor((y+0.5)*209/60)",
+      "preview": "4x nearest-neighbor enlargement of normalized PNG",
+      "no_other_pixel_processing": true
+    }
+  },
+  "sign": {
+    "bounds_xywh": [
+      54,
+      104,
+      163,
+      30
+    ],
+    "frame_bounds_xywh": [
+      50,
+      100,
+      171,
+      39
+    ],
+    "text_safe_bounds_xywh": [
+      58,
+      108,
+      154,
+      22
+    ],
+    "coordinate_convention": "top-left origin, x right, y down; visual face/frame bounds approximately +/-1 pixel",
+    "perspective": "Existing sign is front-facing; axis-aligned pixel glyphs, no warp",
+    "new_text": "RICH ENTERPRISES",
+    "new_text_bounds_xywh": [
+      72,
+      109,
+      126,
+      10
+    ],
+    "new_font": "Explicit 3x5 bitmap glyphs at 2x integer scale, 2-pixel inter-glyph spacing",
+    "ink_rgb": [
+      5,
+      6,
+      16
+    ],
+    "ink_sample_xy": [
+      52,
+      137
+    ],
+    "old_text": "GBENGA",
+    "old_text_bounds_xywh": [
+      117,
+      123,
+      35,
+      7
+    ],
+    "old_font": "Explicit 5x7 bitmap glyphs at 1x, 1-pixel spacing",
+    "ghost_formula": "floor((5 * original_sign_pixel + ink) / 6) per channel",
+    "changed_pixels": 701,
+    "changed_pixel_bounds_xywh": [
+      72,
+      109,
+      126,
+      21
+    ],
+    "outside_sign_changed_pixels": 0
+  },
+  "outputs": [
+    {
+      "path": "C:\\Users\\Ube\\Documents\\Codex\\2026-10-01\\stove-g-warehouse-exterior-background-candidate\\outputs\\warehouse_exterior_270x480.png",
+      "sha256": "0f62562efa01e6023858e092bd72c40c3c757009a63d1bb1157e0fef528abd14",
+      "dimensions": [
+        270,
+        480
+      ],
+      "mode": "RGB (opaque)"
+    },
+    {
+      "path": "C:\\Users\\Ube\\Documents\\Codex\\2026-10-01\\stove-g-warehouse-exterior-background-candidate\\outputs\\warehouse_exterior_rich_enterprises_270x480.png",
+      "sha256": "71176517270e72b67aea396878a14022c53b033ccf6c469d02069e9ac196295e",
+      "dimensions": [
+        270,
+        480
+      ],
+      "mode": "RGB (opaque)"
+    },
+    {
+      "path": "C:\\Users\\Ube\\Documents\\Codex\\2026-10-01\\stove-g-warehouse-exterior-background-candidate\\outputs\\warehouse_exterior_comparison_native.png",
+      "sha256": "1ada28526af46c53c8c6122f9e4a889fc7f8bde740c3ec77729e2608dda2c3d5",
+      "dimensions": [
+        540,
+        480
+      ],
+      "mode": "RGB (opaque)"
+    },
+    {
+      "path": "C:\\Users\\Ube\\Documents\\Codex\\2026-10-01\\stove-g-warehouse-exterior-background-candidate\\outputs\\warehouse_exterior_comparison_4x.png",
+      "sha256": "8066f5e1118ce36515691f78ff526052a06047644c6f9ae765c01e100cfa2fe0",
+      "dimensions": [
+        2160,
+        1920
+      ],
+      "mode": "RGB (opaque)"
+    }
+  ],
+  "comparison_order": "blank left, lettered right; native 540x480, enlarged 2160x1920 (4x NEAREST)",
+  "verification": {
+    "source_and_existing_derivative_hashes_match": true,
+    "all_normalized_pixels_match_exact_transform": true,
+    "both_backgrounds_rgb_270x480": true,
+    "every_pixel_outside_sign_identical": true,
+    "architecture_entrance_ground_preserved": true,
+    "native_lettering_visual_review": "PASS \u2014 native 540x480 comparison inspected: RICH ENTERPRISES readable, GBENGA faint and subordinate; 4x preview also inspected"
+  },
+  "authority": {
+    "visual_authority_sha_user_supplied": "31ac1bfe6eddb04786fb6fffded69e6d8fa0b643",
+    "source_approval": "Ube approved Warehouse Exterior v2 in this chat",
+    "story": "User-supplied Patch1 NEW OGA \u00a77"
+  }
+}

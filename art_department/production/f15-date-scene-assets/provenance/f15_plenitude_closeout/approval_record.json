@@ -1,0 +1,77 @@
+{
+  "source_status": "FROZEN — UBE APPROVED",
+  "source_filename": "plenitude_f15_candidate_original.png",
+  "source_sha256": "d851d57039f6f6678396500d7cd8e7e4cb7410253a60c2f091b9d7fa67161b0f",
+  "source_dimensions": [
+    941,
+    1672
+  ],
+  "source_format": "PNG",
+  "source_mode": "RGB",
+  "approval_authority": "Ube, explicit user message in this chat",
+  "approval_timestamp": "Not supplied; approval is identified by its verbatim user message in this chat.",
+  "record_created_client_date": "2026-10-02",
+  "record_timezone": "America/New_York",
+  "approval_quote": "I approve the exact Plénitude restaurant candidate just reviewed. Freeze that original and preserve its bytes.",
+  "production_status": "PRODUCTION CANDIDATE — PENDING NATIVE-SIZE REVIEW",
+  "production_filename": "plenitude_270x480.png",
+  "production_sha256": "686b97067b6776c8e7de992fb60f67c663610489cfc567b4c3fb8c8c2314b9cb",
+  "production_dimensions": [
+    270,
+    480
+  ],
+  "production_format": "PNG",
+  "production_mode": "RGB",
+  "production_opaque": true,
+  "transform": {
+    "operation_order": [
+      "integer center crop",
+      "nearest-neighbor resize"
+    ],
+    "crop_box_source_pixels_left_top_right_bottom_exclusive": [
+      2,
+      4,
+      938,
+      1668
+    ],
+    "removed_source_pixels": {
+      "left": 2,
+      "right": 3,
+      "top": 4,
+      "bottom": 4
+    },
+    "cropped_dimensions": [
+      936,
+      1664
+    ],
+    "cropped_aspect_ratio": "9:16",
+    "output_dimensions": [
+      270,
+      480
+    ],
+    "uniform_resize_factor_exact": "15/52",
+    "resampling": "Pillow Image.Resampling.NEAREST",
+    "output_mode": "RGB (opaque; no alpha channel)",
+    "color_processing": "none; every output color is copied from a source pixel",
+    "qa_enlargement": {
+      "factor": 4,
+      "dimensions": [
+        1080,
+        1920
+      ],
+      "resampling": "nearest-neighbor"
+    }
+  },
+  "placement_status": "UNVERIFIED",
+  "placement_check": "Supplied 780x1688 gameplay screenshot visually reviewed. It includes characters and dialogue/UI, but supplies no authoritative background-to-viewport mapping or isolated sprite alpha. No accurate overlay or runtime test was made. The normalized image has an open foreground and quiet lower dialogue area. Rear table, chair backs and side furnishings may intersect the standing actor silhouettes in the supplied screenshot. Exact actor and UI clearance remains unverified without authoritative background-to-viewport mapping. No accurate overlay or runtime check was made.",
+  "verification": {
+    "frozen_original_bytes_equal_approved_source": true,
+    "original_source_hash_unchanged_after_processing": true,
+    "production_all_pixels_match_nearest_neighbor_source_samples": true,
+    "production_colors_subset_of_cropped_source_colors": true,
+    "production_is_opaque_rgb_png": true,
+    "native_qa_preview_bytes_identical_to_production": true,
+    "every_4x_preview_pixel_matches_repeated_production_pixel": true
+  },
+  "runtime_integration_commit_push": "none"
+}

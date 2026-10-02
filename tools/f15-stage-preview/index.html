@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>F15 THREE-DANCER STAGE PREVIEW — CANDIDATE</title>
+<link rel="icon" href="data:," />
+<link rel="stylesheet" href="../../js/frag/F06/make_it_rain.css" />
+<link rel="stylesheet" href="preview.css" />
+</head>
+<body>
+  <!--
+    F15 THREE-DANCER STAGE PREVIEW — CANDIDATE, PENDING UBE STAGE REVIEW.
+    Standalone, outside every shipped entry point. The club is the real F06 renderer (js/frag/F06/make_it_rain.js,
+    loaded unmodified from disk; preview.js only drops its placeholder mannequin call in memory).
+    Controls below the stage are preview-only. No money / progression / dates / saves are implemented here.
+  -->
+  <main class="cab">
+    <div class="stage" id="stage">
+      <canvas id="stage-canvas" aria-label="Club stage with the F06 money-throwing interaction. Drag up on the cash stack, flick to throw."></canvas>
+      <canvas id="dancers" aria-hidden="true"></canvas>
+    </div>
+
+    <div class="player-bar pv-select" id="pv-select" role="radiogroup" aria-label="Support a dancer"></div>
+
+    <div class="pv-tools" role="group" aria-label="Preview-only controls">
+      <button type="button" class="btn btn--ghost" id="pv-pause">PAUSE</button>
+      <button type="button" class="btn btn--ghost" id="pv-restart">RESTART</button>
+      <button type="button" class="btn btn--ghost" id="pv-layout">LAYOUT</button>
+    </div>
+    <div class="pv-note" id="pv-note">PREVIEW-ONLY CONTROLS</div>
+    <div class="pv-note pv-note--tag">F15 STAGE PREVIEW · CANDIDATE · PENDING UBE REVIEW</div>
+  </main>
+
+  <script src="../../js/frag/F06/make_it_rain_tunables.js"></script>
+  <script src="../../js/frag/F06/make_it_rain_core.js"></script>
+  <script src="preview.js"></script>
+</body>
+</html>

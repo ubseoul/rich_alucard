@@ -17,42 +17,57 @@
  const cast=dancer=>({id:dancer,src:`assets/f15/portraits/${dancer}.png`});
  const stage=(...right)=>({left:'rich',right:right[0]?cast(right[0]):undefined});
 
- // ---- placeholder environments (RAPixel.paintEnvironment, the repo's existing convention for art that has not shipped) ----
- // Registered ONLY while F15 is enabled so a flag-OFF game and its art censuses are byte-unchanged. Each is named for what it is
- // (nothing silently stands in for another place) and is listed in docs/engineering/F15_VISUAL_GAPS.md.
+ // ---- environments ----------------------------------------------------------------------------------------------------------------
+ // The seven Ube-approved scene backgrounds (art package f15-date-scene-assets @ 75459f40; byte copies in assets/f15/environments/,
+ // hashes in assets/f15/scene_art_manifest.json) are ordinary image environments (the repo's `img()` convention): native 270x480, drawn
+ // 1:1 with nearest-neighbour. floorY/base are the only per-scene tuning (actor feet line and depth scale). Each id is used only by the
+ // scene location it depicts. THE LIBRARY and OUTSIDE THE EXAM HALL have no approved art and stay named code-drawn placeholders
+ // (docs/engineering/F15_VISUAL_GAPS.md). Registered ONLY while F15 is enabled so a flag-OFF game and its art censuses are unchanged.
+ const ENV_DIR='assets/f15/environments/';
+ const LIGHTS_OFF='assets/f15/layers/lights_off_270x480.png';
+ // [id, name, file, floorY, base, layers?]
+ const IMAGE_ENVS=[
+  ['f15_bing','THE BING','the_bing',372,1],
+  ['f15_gym','THE BOXING GYM','boxing_gym',372,1],
+  ['f15_roxy_apartment',"ROXY'S APARTMENT",'roxy_apartment',372,1],
+  ['f15_plenitude','PLÉNITUDE','plenitude',372,1],
+  ['f15_convention','THE YUCK WARS CONVENTION','convention_hall',372,1],
+  ['f15_rosalyn_apartment',"ROSALYN'S APARTMENT",'rosalyn_apartment',372,1],
+  // same apartment with the lights off: the approved background under a flat overlay layer (not new art; the PNG is untouched)
+  ['f15_rosalyn_apartment_dark',"ROSALYN'S APARTMENT · LIGHTS OFF",'rosalyn_apartment',372,1,[LIGHTS_OFF]],
+  ['f15_shrine','SHRINE AUDITORIUM','shrine_auditorium',372,1]
+ ];
  const night={sky:'#141026',stars:0};
  const ENVS=[
-  ['f15_bing','THE BING · AFTER HOURS',{sky:'#120a22',wall:'#2a1238',floor:'#1c1226',horizon:330,wallTop:40,props:[{type:'rect',x:70,y:200,w:130,h:130,color:'#33154a'},{type:'rect',x:100,y:210,w:70,h:8,color:'#ff4fa3'},{type:'sign',x:60,y:60,w:150,h:20,text:'THE BING',glow:'#ff4fa3',size:8},{type:'rect',x:0,y:300,w:270,h:3,color:'#5a2a6a'},{type:'table',x:20,y:360,w:60,color:'#4a2a3a'},{type:'table',x:190,y:360,w:60,color:'#4a2a3a'}],lights:[{x:60,y:40,spread:46,color:'rgba(255,79,163,.12)'},{x:210,y:40,spread:46,color:'rgba(95,227,255,.10)'}]}],
-  ['f15_gym','THE BOXING GYM',{sky:'#1c1a20',wall:'#33303a',floor:'#3a3532',horizon:330,wallTop:30,props:[{type:'rect',x:60,y:230,w:150,h:90,color:'#2a2a44'},{type:'rect',x:60,y:230,w:150,h:4,color:'#e8e2cf'},{type:'rect',x:60,y:262,w:150,h:4,color:'#c83a3a'},{type:'rect',x:58,y:226,w:4,h:98,color:'#8a8a99'},{type:'rect',x:208,y:226,w:4,h:98,color:'#8a8a99'},{type:'rect',x:14,y:150,w:10,h:90,color:'#6a4030'},{type:'sign',x:80,y:50,w:110,h:16,text:'GYM',glow:'#ffb040',size:7}]}],
-  ['f15_roxy_apartment',"ROXY'S APARTMENT",{sky:'#17141c',wall:'#2d2832',floor:'#3c3434',horizon:330,wallTop:20,props:[{type:'rect',x:18,y:90,w:90,h:70,color:'#e8e2cf'},{type:'rect',x:24,y:96,w:78,h:2,color:'#20c66b'},{type:'rect',x:150,y:150,w:100,h:90,color:'#403a54'},{type:'rect',x:150,y:240,w:100,h:20,color:'#2a2638'},{type:'rect',x:176,y:300,w:80,h:30,color:'#4a3a40'}]}],
-  ['f15_plenitude','PLÉNITUDE',{sky:'#1a1420',wall:'#3a2230',floor:'#2a1c1c',horizon:330,wallTop:20,props:[{type:'sign',x:80,y:50,w:110,h:18,text:'PLENITUDE',glow:'#f6efd9',size:6},{type:'table',x:40,y:280,w:80,color:'#e8e2cf'},{type:'table',x:150,y:280,w:80,color:'#e8e2cf'},{type:'lamp',x:60,y:140,h:90,r:22},{type:'lamp',x:200,y:140,h:90,r:22}]}],
-  ['f15_convention','THE YUCK WARS CONVENTION',{sky:'#10142a',wall:'#232a4a',floor:'#2c2c3c',horizon:340,wallTop:10,props:[{type:'rect',x:10,y:30,w:60,h:160,color:'#3c7a3a'},{type:'rect',x:200,y:30,w:60,h:160,color:'#7a3a3a'},{type:'sign',x:75,y:40,w:120,h:18,text:'YUCK WARS',glow:'#7aff7a',size:7},{type:'counter',x:70,y:260,w:130,h:40,color:'#3a3a52',top:'#8a8aa8'}],crowd:18}],
-  ['f15_rosalyn_apartment',"ROSALYN'S APARTMENT",{sky:'#1c1626',wall:'#34284a',floor:'#3a2e3a',horizon:330,wallTop:10,props:[{type:'rect',x:10,y:60,w:250,h:6,color:'#6a5a8a'},{type:'rect',x:10,y:130,w:250,h:6,color:'#6a5a8a'},{type:'rect',x:10,y:200,w:250,h:6,color:'#6a5a8a'},...Array.from({length:12},(_,i)=>({type:'rect',x:18+i*20,y:40+(i%3)*70,w:12,h:20,color:['#7aff7a','#ff7ab0','#7ac8ff','#ffd870'][i%4]})),{type:'rect',x:100,y:300,w:80,h:40,color:'#4a3a60'}]}],
-  ['f15_rosalyn_apartment_dark',"ROSALYN'S APARTMENT · LIGHTS OFF",{sky:'#07060d',wall:'#0e0c18',floor:'#0c0a10',horizon:330,wallTop:10,props:[{type:'rect',x:10,y:250,w:250,h:50,color:'#17141f'},{type:'rect',x:10,y:246,w:250,h:4,color:'#2a2638'},{type:'circle',x:200,y:150,r:3,color:'#ffd870'}]}],
   ['f15_exam_hall','OUTSIDE THE EXAM HALL',{sky:'#1c2030',wall:'#3a3a4a',floor:'#4a4650',horizon:330,wallTop:30,props:[{type:'rect',x:90,y:80,w:90,h:160,color:'#22222e'},{type:'rect',x:100,y:90,w:32,h:140,color:'#14141c'},{type:'rect',x:138,y:90,w:32,h:140,color:'#14141c'},{type:'rect',x:40,y:300,w:190,h:6,color:'#6a6670'},{type:'rect',x:40,y:312,w:190,h:6,color:'#5a5660'},{type:'rect',x:40,y:324,w:190,h:6,color:'#4a4650'}]}],
-  ['f15_library','THE LIBRARY',{sky:'#1a1a22',wall:'#3a3226',floor:'#4a4036',horizon:330,wallTop:10,props:[...Array.from({length:8},(_,i)=>({type:'rect',x:12+i*32,y:60,w:26,h:110,color:['#6a3a2a','#2a4a6a','#4a6a3a','#6a5a2a'][i%4]})),{type:'table',x:60,y:290,w:150,color:'#6a5030'},{type:'lamp',x:135,y:200,h:80,r:20}]}],
-  ['f15_shrine','SHRINE AUDITORIUM',{sky:'#0c0a14',wall:'#1c1626',floor:'#2a1a22',horizon:310,wallTop:30,props:[{type:'rect',x:40,y:90,w:190,h:150,color:'#2a2036'},{type:'rect',x:40,y:236,w:190,h:6,color:'#6a5a2a'},{type:'circle',x:135,y:170,r:70,color:'rgba(255,230,160,.10)'},{type:'sign',x:80,y:50,w:110,h:16,text:'SHRINE',glow:'#ffd870',size:7}],lights:[{x:135,y:30,spread:90,color:'rgba(255,230,160,.10)'}],crowd:6}]
+  ['f15_library','THE LIBRARY',{sky:'#1a1a22',wall:'#3a3226',floor:'#4a4036',horizon:330,wallTop:10,props:[...Array.from({length:8},(_,i)=>({type:'rect',x:12+i*32,y:60,w:26,h:110,color:['#6a3a2a','#2a4a6a','#4a6a3a','#6a5a2a'][i%4]})),{type:'table',x:60,y:290,w:150,color:'#6a5030'},{type:'lamp',x:135,y:200,h:80,r:20}]}]
  ];
+ // The giant cockroach (frozen master 1774x887 RGBA, partial alpha accepted). Runtime shows the documented 444x222 area-resize derivative
+ // (tools/f15/build_scene_art.py) at ONE fixed world scale: 0.30 world px per derivative px = 133 x 67 world px, facing left toward Rich.
+ // The contact anchor is the bottom-centre of its visible pixels (tools/presentation/annotations.json: groundedAnchor).
+ const ROACH={src:'assets/f15/characters/spirit_of_uncle_bunmi_444x222.png',scale:0.30};
  const PEOPLE=[
   {id:'roxy',name:'ROXY'},{id:'rosalyn',name:'ROSALYN'},{id:'emerald',name:'EMERALD'},
-  // speaker name only: Granny Bing's frozen art exists on another branch (art/f01-feel-lock-freeze), not on this base
-  {id:'granny_bing',name:'GRANNY BING',noArt:true},{id:'spirit_of_uncle_bunmi',name:'THE SPIRIT OF UNCLE BUNMI',noArt:true}
+  // frozen CGA-F2-032 anchor (single neutral / calling-numbers pose, Ube-accepted for Emerald L3), 80x96, contact (40,88)
+  {id:'granny_bing',name:'GRANNY BING',sprite:'assets/before_the_fame/characters/granny_bing/cga_f2_032/granny_bing_neutral_calling_numbers_anchor_80x96_v1.png'},
+  {id:'spirit_of_uncle_bunmi',name:'THE SPIRIT OF UNCLE BUNMI',sprite:ROACH.src}
  ];
  let ensured=false;
  function ensureContent(){
   if(ensured||!C().enabled())return;ensured=true;
+  for(const [id,name,file,floorY,base,layers] of IMAGE_ENVS)global.RAEnvironments?.register?.({id,name,image:`${ENV_DIR}${file}_270x480.png`,floorY,base,...(layers?{layers}:{}),approved:true,f15:true});
   for(const [id,name,spec] of ENVS)global.RAEnvironments?.register?.({id,name,paint:{seed:id,...night,...spec},floorY:372,base:1,placeholder:true,f15:true});
   for(const p of PEOPLE){
    if(global.RABtfPeople?.byId[p.id])continue;
    const person={id:p.id,name:p.name,kind:p.id==='spirit_of_uncle_bunmi'?'creature':'woman',adult:true,dateable:false,f15:true};
-   if(!p.noArt)person.sprite=`assets/f15/portraits/${p.id}.png`;
+   person.sprite=p.sprite||`assets/f15/portraits/${p.id}.png`;
    global.RABtfPeople.byId[p.id]=person;
   }
   const E=global.RACombatData.ENEMIES,K=T().COMBAT,m=(id,label,dmg,o={})=>({id,label,dmg,...o});
   // ROXY SPARRING (Roxy L2): a light-contact spar, no defeat penalty. Existing engine; the numbers are TUNING (tunables.js).
   E.f15_roxy_spar={name:'ROXY (SPARRING)',hp:K.spar.hp,person:'roxy',moves:{jab:m('jab','JAB',K.spar.jab),cross:m('cross','CROSS',K.spar.cross,{telegraph:'ROXY IS SETTING HER FEET…'})},pattern:['jab','jab','cross'],f15:true};
   // THE SPIRIT OF UNCLE BUNMI (Rosalyn L4): the giant cockroach boss; Rosalyn's telegraphs and reactions are her approved lines.
-  E.f15_uncle_bunmi={name:'THE SPIRIT OF UNCLE BUNMI',hp:K.roach.hp,person:'spirit_of_uncle_bunmi',boss:true,noRun:true,
+  E.f15_uncle_bunmi={name:'THE SPIRIT OF UNCLE BUNMI',hp:K.roach.hp,person:'spirit_of_uncle_bunmi',boss:true,noRun:true,stageScale:ROACH.scale,
    moves:{antenna:m('antenna','ANTENNA THING',K.roach.antenna,{effect:{accDown:.1,turns:1},telegraph:"ROSALYN: IT'S DOING THE ANTENNA THING."}),
     scuttle:m('scuttle','SCUTTLE',K.roach.scuttle),
     stare:m('stare','THE STARE',K.roach.stare,{telegraph:'ROSALYN: WHY IS IT LOOKING AT YOU. WHY IS IT LOOKING AT YOU LIKE THAT.'}),
@@ -112,5 +127,5 @@
  global.RAWakeBus?.subscribe?.({id:'F15.invites',fragment:'F15',phase:'wake',priority:67,flag:C().FLAG,fn:()=>{for(const d of C().dancers())offer(d);}});
  ensureContent();
 
- global.RAF15Dates={guardedRefusal,add,U,S,N,cast,stage,title,offer,ensureContent,ids:()=>ORDER.slice(),ENV_IDS:ENVS.map(e=>e[0])};
+ global.RAF15Dates={guardedRefusal,add,U,S,N,cast,stage,title,offer,ensureContent,ids:()=>ORDER.slice(),ENV_IDS:[...IMAGE_ENVS,...ENVS].map(e=>e[0]),IMAGE_ENV_IDS:IMAGE_ENVS.map(e=>e[0]),ROACH};
 })(window);

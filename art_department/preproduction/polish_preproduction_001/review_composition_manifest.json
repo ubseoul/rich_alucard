@@ -1,0 +1,258 @@
+[
+  {
+    "id": "party_hall_sparse",
+    "status": "REVIEW ONLY \u2014 NOT A RUNTIME MAPPING",
+    "source": "assets/before_the_fame/environments/party_hall/party_hall_empty_270x480.png",
+    "source_sha256": "5987874f3b8407ce3ca9b7906871cb189c1766df59e9c0215bd7aad7763efc40",
+    "layer": "art_department/preproduction/polish_preproduction_001/review_only_layers/party_hall_sparse_overlay_270x480.png",
+    "layer_sha256": "29ed402f0f4622c523adb8da5e2ee96a4d66c554ea10ee297918019bfb6b1fd4",
+    "origin": [
+      0,
+      0
+    ],
+    "composite": "art_department/preproduction/polish_preproduction_001/review/composites/party_hall_sparse_270x480.png",
+    "placements": [
+      {
+        "candidate": "A02_performer",
+        "contact": [
+          133,
+          267
+        ],
+        "scale": 1
+      },
+      {
+        "candidate": "A01_dancer",
+        "contact": [
+          55,
+          335
+        ],
+        "scale": 1
+      },
+      {
+        "candidate": "A04_dancing_pair",
+        "contact": [
+          213,
+          354
+        ],
+        "scale": 1
+      },
+      {
+        "candidate": "A06_bartender",
+        "contact": [
+          226,
+          299
+        ],
+        "scale": 1
+      }
+    ],
+    "outside_alpha_changed_pixels": 0
+  },
+  {
+    "id": "party_hall_dense",
+    "status": "REVIEW ONLY \u2014 NOT A RUNTIME MAPPING",
+    "source": "assets/before_the_fame/environments/party_hall/party_hall_empty_270x480.png",
+    "source_sha256": "5987874f3b8407ce3ca9b7906871cb189c1766df59e9c0215bd7aad7763efc40",
+    "layer": "art_department/preproduction/polish_preproduction_001/review_only_layers/party_hall_dense_overlay_270x480.png",
+    "layer_sha256": "43ae617b85f69039352f34fdb3e92ed26eb660d5415797f7bdee0487f2df5916",
+    "origin": [
+      0,
+      0
+    ],
+    "composite": "art_department/preproduction/polish_preproduction_001/review/composites/party_hall_dense_270x480.png",
+    "placements": [
+      {
+        "candidate": "A08_dense_cluster",
+        "contact": [
+          65,
+          340
+        ],
+        "scale": 1
+      },
+      {
+        "candidate": "A04_dancing_pair",
+        "contact": [
+          210,
+          354
+        ],
+        "scale": 1
+      },
+      {
+        "candidate": "A01_dancer",
+        "contact": [
+          44,
+          386
+        ],
+        "scale": 1
+      },
+      {
+        "candidate": "A09_foreground_silhouettes",
+        "contact": [
+          211,
+          426
+        ],
+        "scale": 1
+      }
+    ],
+    "outside_alpha_changed_pixels": 0
+  },
+  {
+    "id": "catacomb_performance",
+    "status": "REVIEW ONLY \u2014 NOT A RUNTIME MAPPING",
+    "source": "assets/before_the_fame/environments/catacomb/catacomb_empty_270x480.png",
+    "source_sha256": "863f1c965a4713c570333e0c10291a56c6fc29ca1008afb76200d832588c3fa4",
+    "layer": "art_department/preproduction/polish_preproduction_001/review_only_layers/catacomb_performance_overlay_270x480.png",
+    "layer_sha256": "8282413f424b0c9461cd280d8aadad4d02a8491f9472d38c4e7b81ba64e3af16",
+    "origin": [
+      0,
+      0
+    ],
+    "composite": "art_department/preproduction/polish_preproduction_001/review/composites/catacomb_performance_270x480.png",
+    "placements": [
+      {
+        "candidate": "A02_performer",
+        "contact": [
+          133,
+          291
+        ],
+        "scale": 1
+      },
+      {
+        "candidate": "A08_dense_cluster",
+        "contact": [
+          67,
+          369
+        ],
+        "scale": 1
+      },
+      {
+        "candidate": "A09_foreground_silhouettes",
+        "contact": [
+          207,
+          422
+        ],
+        "scale": 1
+      }
+    ],
+    "outside_alpha_changed_pixels": 0
+  },
+  {
+    "id": "rooftop_social",
+    "status": "REVIEW ONLY \u2014 NOT A RUNTIME MAPPING",
+    "source": "assets/before_the_fame/environments/rooftop_dtla/downtown_la_rooftop_party_270x480.png",
+    "source_sha256": "af41cbb7c045a55848421434e14e9e122dabc61becc2d1c2dcc1fb1ceebf5ebf",
+    "layer": "art_department/preproduction/polish_preproduction_001/review_only_layers/rooftop_social_overlay_270x480.png",
+    "layer_sha256": "b1b6eb788a6243ef6e7089c4aa5681f54970f85f65d7edbdba371d0532376d3a",
+    "origin": [
+      0,
+      0
+    ],
+    "composite": "art_department/preproduction/polish_preproduction_001/review/composites/rooftop_social_270x480.png",
+    "placements": [
+      {
+        "candidate": "A03_queue_pair",
+        "contact": [
+          58,
+          327
+        ],
+        "scale": 1
+      },
+      {
+        "candidate": "A05_affectionate_pair",
+        "contact": [
+          218,
+          337
+        ],
+        "scale": 1
+      },
+      {
+        "candidate": "A04_dancing_pair",
+        "contact": [
+          203,
+          401
+        ],
+        "scale": 1
+      },
+      {
+        "candidate": "A06_bartender",
+        "contact": [
+          48,
+          397
+        ],
+        "scale": 1
+      }
+    ],
+    "outside_alpha_changed_pixels": 0
+  },
+  {
+    "id": "roof_lounge",
+    "status": "REVIEW ONLY \u2014 NOT A RUNTIME MAPPING",
+    "source": "assets/before_the_fame/environments/roof/castle_roof_hookah_270x480.png",
+    "source_sha256": "c69ecdd37591ba999e1b5f87eb8f1192ab1364d41cb35037e93e27f9e7782545",
+    "layer": "art_department/preproduction/polish_preproduction_001/review_only_layers/roof_lounge_overlay_270x480.png",
+    "layer_sha256": "7846e3fa2b3384a239f124c84e8540591c9d5671a3e718ca395e19e9867949c1",
+    "origin": [
+      0,
+      0
+    ],
+    "composite": "art_department/preproduction/polish_preproduction_001/review/composites/roof_lounge_270x480.png",
+    "placements": [
+      {
+        "candidate": "A07_hookah_lounge",
+        "contact": [
+          195,
+          367
+        ],
+        "scale": 1
+      },
+      {
+        "candidate": "A05_affectionate_pair",
+        "contact": [
+          58,
+          365
+        ],
+        "scale": 1
+      }
+    ],
+    "outside_alpha_changed_pixels": 0
+  },
+  {
+    "id": "castle_entry",
+    "status": "REVIEW ONLY \u2014 NOT A RUNTIME MAPPING",
+    "source": "assets/before_the_fame/environments/castle_exterior/castle_exterior_party_270x480.png",
+    "source_sha256": "fe641074f4aff48cef9ac59146216f35ae44b98f6702581b46a96204561f72ec",
+    "layer": "art_department/preproduction/polish_preproduction_001/review_only_layers/castle_entry_overlay_270x480.png",
+    "layer_sha256": "ca35d9b4562d658b6a974ae68683d139abcbc4eb74aa127232a1f2799744016c",
+    "origin": [
+      0,
+      0
+    ],
+    "composite": "art_department/preproduction/polish_preproduction_001/review/composites/castle_entry_270x480.png",
+    "placements": [
+      {
+        "candidate": "A03_queue_pair",
+        "contact": [
+          61,
+          354
+        ],
+        "scale": 1
+      },
+      {
+        "candidate": "A05_affectionate_pair",
+        "contact": [
+          209,
+          374
+        ],
+        "scale": 1
+      },
+      {
+        "candidate": "A06_bartender",
+        "contact": [
+          77,
+          392
+        ],
+        "scale": 1
+      }
+    ],
+    "outside_alpha_changed_pixels": 0
+  }
+]

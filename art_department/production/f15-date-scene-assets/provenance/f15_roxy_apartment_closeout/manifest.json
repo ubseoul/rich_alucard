@@ -1,0 +1,128 @@
+{
+  "asset": "STOVE R — F15 — ROXY APARTMENT",
+  "source_status": "FROZEN — UBE APPROVED",
+  "source_approval": {
+    "authority": "Ube, explicit user message in this chat",
+    "quote": "I approve the exact Roxy’s apartment candidate just reviewed. Freeze that original and preserve its bytes.",
+    "source_sha256": "555c54a3401ac17cbb9e67fe34d733c6eb86a9cda9dc55d403cbf786d31a2415"
+  },
+  "production_status": "PRODUCTION CANDIDATE — PENDING NATIVE-SIZE REVIEW",
+  "transform": {
+    "operation_order": [
+      "integer center crop",
+      "nearest-neighbor resize"
+    ],
+    "crop_box_source_pixels_left_top_right_bottom_exclusive": [
+      2,
+      4,
+      938,
+      1668
+    ],
+    "removed_source_pixels": {
+      "left": 2,
+      "right": 3,
+      "top": 4,
+      "bottom": 4
+    },
+    "cropped_dimensions": [
+      936,
+      1664
+    ],
+    "cropped_aspect_ratio": "9:16",
+    "output_dimensions": [
+      270,
+      480
+    ],
+    "uniform_resize_factor_exact": "15/52",
+    "resampling": "Pillow Image.Resampling.NEAREST",
+    "output_mode": "RGB (opaque; no alpha channel)",
+    "color_processing": "none; every output color is copied from a source pixel",
+    "qa_enlargement": {
+      "factor": 4,
+      "dimensions": [
+        1080,
+        1920
+      ],
+      "resampling": "nearest-neighbor"
+    }
+  },
+  "placement_status": "UNVERIFIED",
+  "files": [
+    {
+      "filename": "approval_record.json",
+      "bytes": 2972,
+      "sha256": "dbf8c20bce755e36739fa2ae07db1e6229990adb5faeeb4a4225b256ca730366"
+    },
+    {
+      "filename": "qa/02_roxy_apartment_gameplay_reference_QA_ONLY.png",
+      "bytes": 28178,
+      "sha256": "64e5b4f7d4a535edb08e72ed4aa270b7b663ac9d6728db9eb39cd5457b06a139",
+      "actual_dimensions": [
+        780,
+        1688
+      ],
+      "format": "PNG",
+      "mode": "RGB",
+      "opaque": true
+    },
+    {
+      "filename": "qa/roxy_apartment_4x_1080x1920_QA_ONLY.png",
+      "bytes": 298450,
+      "sha256": "fc80c7cf92e6d8cea92cdc07433efda2d5bf9e2ca74c90b1564f16a1f9d23034",
+      "actual_dimensions": [
+        1080,
+        1920
+      ],
+      "format": "PNG",
+      "mode": "RGB",
+      "opaque": true
+    },
+    {
+      "filename": "qa/roxy_apartment_native_270x480_QA_ONLY.png",
+      "bytes": 188084,
+      "sha256": "f30c32450876b2077d6374165630ed7b1dc9b05b42c56f80c92c6a7d9c3f0b51",
+      "actual_dimensions": [
+        270,
+        480
+      ],
+      "format": "PNG",
+      "mode": "RGB",
+      "opaque": true
+    },
+    {
+      "filename": "README.txt",
+      "bytes": 2263,
+      "sha256": "90d9f4da5ca74fa5cfedf357bf364c629f63e4803c94bffe6003fbd00b1f6721"
+    },
+    {
+      "filename": "roxy_apartment_270x480.png",
+      "bytes": 188084,
+      "sha256": "f30c32450876b2077d6374165630ed7b1dc9b05b42c56f80c92c6a7d9c3f0b51",
+      "actual_dimensions": [
+        270,
+        480
+      ],
+      "format": "PNG",
+      "mode": "RGB",
+      "opaque": true
+    },
+    {
+      "filename": "roxy_apartment_f15_candidate_original.png",
+      "bytes": 1733158,
+      "sha256": "555c54a3401ac17cbb9e67fe34d733c6eb86a9cda9dc55d403cbf786d31a2415",
+      "actual_dimensions": [
+        941,
+        1672
+      ],
+      "format": "PNG",
+      "mode": "RGB",
+      "opaque": true
+    },
+    {
+      "filename": "source_generation_prompt.txt",
+      "bytes": 4402,
+      "sha256": "c26c91e6345504dea157e005698ac3d364613dd22cb4d3d934faaf56d846dca6"
+    }
+  ],
+  "manifest_self_hash": "Excluded: self-referential hashing is not defined."
+}

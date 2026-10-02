@@ -116,7 +116,7 @@
    U(`I’m on my way and not Nigerian on the way - like German on the way. Anyways im on the way`),
    S(R,`Okay. Okay.`),S(R,`I don't know what that means. Hurry. It's doing something with its antennas.`),
    S(R,`Door's open. Don't let it out. Or in. I don't know which is worse.`)],next:'dark'},
-  dark:{env:'f15_rosalyn_apartment_dark',actors:()=>({left:'rich',mid:{id:'spirit_of_uncle_bunmi'},right:stage(R).right}),title:"ROSALYN'S APARTMENT — LIGHTS OFF",lines:[
+  dark:{env:'f15_rosalyn_apartment_dark',actors:()=>({farLeft:'rich',mid:{id:'spirit_of_uncle_bunmi',lineScale:global.RAF15Dates.ROACH.scale},farRight:stage(R).right}),title:"ROSALYN'S APARTMENT — LIGHTS OFF",lines:[
    N(`Rosalyn is on the counter in an oversized shirt and glasses, holding a rolled-up poster like a sword.`)],next:'boss'},
   // Existing Combat 2.0 boss card. Win, spared or loss all land on the same finish (no defeat penalty; the encounter's result is not authored).
   boss:{fight:{enemy:'f15_uncle_bunmi',params:()=>({env:'f15_rosalyn_apartment_dark',noPenalty:global.RAF15Tunables.COMBAT.roach.noPenalty,

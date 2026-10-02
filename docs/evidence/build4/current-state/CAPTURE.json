@@ -1,0 +1,25 @@
+{
+  "role": "runtime fallback samples, not real-route validation",
+  "inventory": {
+    "envs": [
+      "gbenga_rentals",
+      "gbenga_house_dining",
+      "gbenga_house_patio",
+      "carson_owambe",
+      "catacomb_dead",
+      "ocean_night_flight",
+      "halloween",
+      "f15_exam_hall",
+      "f15_library"
+    ],
+    "actors": [
+      "smallie",
+      "smallie_cousin",
+      "mama_gbenga",
+      "uncle_bamidele",
+      "senator",
+      "kiosk_guy"
+    ]
+  },
+  "errors": []
+}

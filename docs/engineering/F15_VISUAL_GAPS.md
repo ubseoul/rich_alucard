@@ -1,5 +1,13 @@
 # F15 — visual gaps (audited against existing approved runtime art; no art generated, nothing frozen replaced)
 
+## BUILD-4 current state (OL-039, 2026-10-02)
+
+The seven approved production backgrounds from `75459f4` are now image-backed runtime environments: the Bing, gym, Plénitude, convention hall, Roxy's apartment, Rosalyn's lit apartment and Shrine Auditorium. Granny Bing uses the frozen CGA-F2-032 sprite from `61a8a55`. These exact byte copies are registered and verified.
+
+Rosalyn's dark room uses the preserved navy overlay; the giant cockroach uses the preserved 444×222 derivative. Their exact bytes and source master are verified, but their runtime treatments remain Ube review items (P-A). The library and exam-hall steps remain code-painted placeholders (P-D). The three date portraits still use one pose per identity (P-D review). Wardrobe tiers remain absent and are briefed in P-C, without assigning the launch trio historical rarity thresholds.
+
+Current authoritative inventory: `art_department/PLACEHOLDER_LOG.md`. Real Chromium evidence: `docs/evidence/build4/f15-browser.log` (495/495 checks), with screenshots under `docs/evidence/build4/screens/f15/`. The following audit describes the earlier base and is retained as history.
+
 Audit basis: `RAArtRegistry` (56 frozen environments, ~80 characters) on this base, `assets/before_the_fame/**`, and the F15 art package
 (`7b034a92…`, foundation cards). A placeholder room names itself on its establishing card and is registered only while `F15.velvet_rotation` is ON.
 "Acceptable" = acceptable for a *playable candidate*; "Creator review" = needs Ube's visual decision before release.

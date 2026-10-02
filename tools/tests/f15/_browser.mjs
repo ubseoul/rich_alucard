@@ -19,7 +19,7 @@ export async function serve(){
     catch{missing.push(rel);res.writeHead(404);res.end();}
   });
   await new Promise(r=>server.listen(0,'127.0.0.1',r));
-  return {server,missing,url:`http://127.0.0.1:${server.address().port}/`,close:()=>new Promise(r=>server.close(r))};
+  return {server,missing,url:`http://127.0.0.1:${server.address().port}/`,close:()=>new Promise(r=>{server.close(r);server.closeAllConnections();})};
 }
 export async function launch(){
   const {chromium}=require(process.env.RA_PLAYWRIGHT_PATH||'playwright-core');
