@@ -164,7 +164,7 @@
     if(img){octx.drawImage(img,(f%m.cols)*m.cell[0],Math.floor(f/m.cols)*m.cell[1],m.cell[0],m.cell[1],Math.round(dx*dpr),Math.round(dy*dpr),Math.round(dw*dpr),Math.round(dh*dpr));}
     else{octx.fillStyle='rgba(164,159,192,.25)';octx.fillRect(Math.round(dx*dpr),Math.round(dy*dpr),Math.round(dw*dpr),Math.round(dh*dpr));}
     geo.boxes[d]={x:dx,y:dy,w:dw,h:dh,feet:dy+m.anchor_in_cell_px[1]*dv*kk,frame:f,handle:h};
-    // name tag under the feet: always says who is who (and lets Ube judge the provisional mapping on sight)
+    // name tag under the feet: always says who is who
     octx.font=`${Math.round(7*dpr)}px ${PSTART}`;octx.textAlign='center';octx.textBaseline='top';
     octx.lineWidth=3*dpr;octx.strokeStyle='#07060f';octx.strokeText(names[d],geo.x[d]*dpr,(geo.feetY+5)*dpr);
     octx.fillStyle=d===selectedLocal?'#5fe3ff':'#f6efd9';octx.fillText(names[d],geo.x[d]*dpr,(geo.feetY+5)*dpr);
