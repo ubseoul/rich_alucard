@@ -1,5 +1,9 @@
 # F15 — visual gaps (audited against existing approved runtime art; no art generated, nothing frozen replaced)
 
+## OL-042 superseding review decisions
+
+P-A is closed: current overlay and derivative KEEP exact bytes. Date single-pose portraits KEEP. Accepted current dance loops are Tier 2/reduced; 128x160 cells approved, other two tiers only. All new loops come from Ube video pipeline, no image-generated frames. Wardrobe wiring is F15-owned at ingest; F06 untouched. See current P-C_STEPS.md and PLACEHOLDER_LOG.md. Earlier review statements are historical.
+
 ## BUILD-4 current state (OL-039, 2026-10-02)
 
 The seven approved production backgrounds from `75459f4` are now image-backed runtime environments: the Bing, gym, Plénitude, convention hall, Roxy's apartment, Rosalyn's lit apartment and Shrine Auditorium. Granny Bing uses the frozen CGA-F2-032 sprite from `61a8a55`. These exact byte copies are registered and verified.

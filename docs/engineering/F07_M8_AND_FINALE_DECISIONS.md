@@ -1,5 +1,9 @@
 # F07 — D-QUEUE and CREATOR-DELEGATED RULINGS (M8 + the finale)
 
+## OL-042 A1/B1 applied
+
+Existing RICH ENTERPRISES exterior approved, exact pixels retained. F07-owned exterior adapter selects it only in the winning TAKEOVER node or saved finaleDone/finaleEnding=takeover/rentalWarehouseOwned state, with F07 enabled. No change to BLESSING/CONSIGLIERE art or narration. Approval sign rectangle (54,104,163,30): 701 changed pixels, zero outside. Earlier A1 review status below is superseded.
+
 Source read directly: `Rich_Alucard_PLAYMAKERS_Patch1_NEW_OGA.docx` §1, §3 (M8), §4, §5, §7, §8 (Source Vault V1.1 `e76f840`). Searches run before declaring each gap: the full Patch 1 text; `Rich_Alucard_BTF_Vol7_PLAYMAKERS_Blood_X_Operations.docx` (no "SEND THE BOYS", no canopy/aunties text, Showdown rules §5); the other OPEN vault documents (Patch 2/RAINMAKER/IRON AND GRACE mention Gbenga only incidentally); `docs/engineering/UL_F2_001..004.md` and `BTF_OPEN_UBE_DECISIONS_001.md` (OL-002/004/008/010 are the M1–M7 fill-ins; UL_F2_004: "M8 remains an inert hold state"); `F03_NEW_OGA_LADDER_CLOSE.md`. Nothing SEALED was opened.
 
 

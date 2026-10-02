@@ -1,11 +1,14 @@
 {
+  "hashAuthority": "art_department/build4/PRESERVED_ART_HASH_AUDIT.json",
+  "authorityRuling": "OL-042",
   "preservedCopies": 1335,
   "preservedMismatches": 0,
   "baselineFrozen": 411,
-  "currentFrozen": 952,
+  "currentFrozen": 960,
   "frozenAltered": 0,
   "inheritedEntries": 2667,
   "inheritedMismatches": 1659,
-  "inheritedRecord": "retained unchanged; separate raw-blob audit records correct values",
+  "inheritedRecord": "SUPERSEDED (OL-042); historical entries retained with a header note; audit is authoritative",
+  "overlordVerifiedEmptyStreamOrNullEntries": 1226,
   "mismatches": []
 }

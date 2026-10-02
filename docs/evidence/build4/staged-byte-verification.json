@@ -1,5 +1,6 @@
 {
-  "indexedUniquePreservedAndFrozenFiles": 1307,
+  "hashAuthority": "art_department/build4/PRESERVED_ART_HASH_AUDIT.json",
+  "indexedUniquePreservedAndFrozenFiles": 1313,
   "mismatches": [],
   "method": "raw git cat-file --batch index blobs"
 }

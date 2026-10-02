@@ -8,6 +8,7 @@ import {createRequire} from 'node:module';import fs from 'node:fs';import path f
 const require=createRequire(process.env.RA_PLAYWRIGHT_PATH||'/opt/node22/lib/node_modules/');
 const {chromium}=require('playwright');
 import {serve} from '../f01/play-sim/serve-play.mjs';
+import {measure,evaluate} from '../f15/_art.mjs';
 const arg=(k,d)=>{const i=process.argv.indexOf('--'+k);return i>=0?process.argv[i+1]:d;};
 const SHOTS=arg('shots',''),PORT=+arg('port',8127);
 const CHROME=process.env.RA_CHROME||'/opt/pw-browsers/chromium-1194/chrome-linux/chrome';
@@ -163,9 +164,18 @@ try{
    for(let i=0;i<12&&!await p.locator('[data-c2="done"]').count();i++){await jc(p,'[data-c2="fight"]');await jc(p,'[data-c2="move:blood"]');await p.waitForTimeout(700);}
   }
   await p.waitForSelector('[data-c2="done"]',{timeout:30000});await jc(p,'[data-c2="done"]');
+  if(E.name==='TAKEOVER'){
+   await p.waitForFunction(()=>RAAdventures.active()?.node==='takeover');await p.waitForTimeout(450);
+   log(await p.evaluate(()=>RAF07.warehouseExterior().endsWith('warehouse_exterior_rich_enterprises_270x480.png')),'TAKEOVER: winning ending selects approved RICH ENTERPRISES exterior');
+   log(await p.evaluate(()=>{const f=RAPresentationDirector.current()?.frame,c=f?.camera;return !!c&&c.y<=104&&c.y+c.h>=134&&c.x<=54&&c.x+c.w>=217;}),'TAKEOVER: complete approved sign rectangle is inside the camera');
+   const m=await p.evaluate(measure);log(!!m,'TAKEOVER: exterior frame measurable');
+   if(m)for(const c of evaluate(m,'TAKEOVER exterior'))log(c.ok,c.msg);
+   await shot(p,'06b_TAKEOVER_exterior');
+  }
   const tr=[];await finish(p,tr);const all=tr.join('\n');
   const f=await p.evaluate(()=>({l:RANewOga.current(),kt:RADistricts.get('koreatown'),ing:RADistricts.get('inglewood'),wr:RAFrag.read('F04','active',false),tributed:RAVehicles.isTributed('toyota_supra_mk4_001'),texts:JSON.stringify(RAState.get().life).includes('My son is now my oga'),renamed:RANewOga.current().enterprisesRenamed}));
   log(f.l.finaleDone&&f.l.finaleEnding===E.name.toLowerCase()&&f.l.rank===6&&f.l.title==='NEW OGA',`${E.name}: Rich is the NEW OGA (rank 6), ending ${f.l.finaleEnding}`);
+  log(await p.evaluate(e=>RAF07.warehouseExterior().includes(e==='TAKEOVER'?'warehouse_exterior_rich_enterprises':'warehouse_exterior_270x480'),E.name),`${E.name}: exterior condition respects the saved ending`);
   log(E.expect.test(all),`${E.name}: its own ending text is shown`);
   log(!!E.flags(f.l),`${E.name}: only its own consequence flags are set`);
   log(f.tributed===(E.name!=='TAKEOVER'),`${E.name}: the tributed car ${E.name==='TAKEOVER'?'comes back':'stays in the warehouse'}`);
@@ -176,6 +186,7 @@ try{
   await p.reload();await p.click('#startButton');await p.waitForFunction(()=>window.RAScenes&&RAScenes.current()==='bedroom',null,{timeout:30000});
   const r=await p.evaluate(()=>({l:RANewOga.current(),kt:RADistricts.get('koreatown').state,a:RAAdventures.available('NEW_OGA_FINALE'),tr:RAVehicles.isTributed('toyota_supra_mk4_001')}));
   log(r.l.finaleDone===true&&r.l.rank===6&&r.kt==='CONTROLLED'&&r.a===false&&r.tr===(E.name!=='TAKEOVER'),`${E.name}: reload keeps NEW OGA, blocks and the car state; the finale never re-arrives`);
+  log(await p.evaluate(e=>RAF07.warehouseExterior().includes(e==='TAKEOVER'?'warehouse_exterior_rich_enterprises':'warehouse_exterior_270x480'),E.name),`${E.name}: exterior condition survives reload`);
   await p.context().close();
  }
  log(errs.length===0,'no console / page errors',errs.slice(0,3).join(' | '));

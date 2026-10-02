@@ -49,6 +49,25 @@ async function realPlay(root,want,{kind='m8',tries=14,setup=null,policy='careful
 }
 
 export async function test(root){
+ // OL-042 B1: artwork state is independent of the name-change text shared by all endings.
+ {
+  const c=await boot(root),before='assets/f07/backgrounds/warehouse_exterior_270x480.png',after='art_department/production/f07-warehouse-backgrounds/exteriors/warehouse_exterior_rich_enterprises_270x480.png';
+  assert.equal(c.RAF07.warehouseExterior(),before,'pre-TAKEOVER exterior');
+  for(const ending of ['blessing','consigliere']){
+   c.RANewOga.patch({finaleDone:true,finaleEnding:ending,enterprisesRenamed:true,rentalWarehouseOwned:true});
+   assert.equal(c.RAF07.warehouseExterior(),before,`${ending} never selects the repainted exterior`);
+  }
+  c.RANewOga.patch({finaleDone:true,finaleEnding:'takeover',rentalWarehouseOwned:false});
+  assert.equal(c.RAF07.warehouseExterior(),before,'incomplete ownership never selects the condition');
+  c.RANewOga.patch({rentalWarehouseOwned:true});
+  assert.equal(c.RAF07.warehouseExterior(),after,'saved TAKEOVER ownership selects approved sign');
+  const reload=await boot(root,{seedState:c.RAState.get()});
+  assert.equal(reload.RAF07.warehouseExterior(),after,'TAKEOVER exterior survives reload');
+  reload.RAFeatures.set('F07.m8_and_finale',false);
+  assert.equal(reload.RAF07.warehouseExterior(),before,'F07 OFF does not apply the condition');
+  assert.equal(c.RAAdventures.get('NEW_OGA_FINALE').nodes.takeover.env,'f07_warehouse_exterior','only winning ending gets the exterior surface');
+  console.log('PASS OL-042 warehouse exterior (TAKEOVER only, ownership, save/reload, flags OFF)');
+ }
  // =============================================================== 0. dark by default
  {
   const c=await boot(root,{f07:false});ready(c);

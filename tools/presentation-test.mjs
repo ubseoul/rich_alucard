@@ -14,6 +14,15 @@ export async function test(root){
  assert.ok(win.RAPresentationDirector.runSelfTest(),'Presentation Director self-test');
  // Locked screens: inputs must match what was judged, and the locked choice must still lint at every census size.
  const D=win.RAPresentationDirector;
+ // OL-042 exterior: a composed room shot keeps the frozen sign rectangle and Rich inside the viewport.
+ {
+  const asset='assets/rich_standing_right.png',stage=D.adventureStage({id:'ol042-exterior',image:'assets/f07/backgrounds/warehouse_exterior_270x480.png',floorY:372,base:1},{left:{id:'rich'}},{assets:{left:asset},node:{shot:{profile:'room',contact:.86}}});
+  const shot=stage.director.shots.default;assert.equal(shot.contact,.86,'explicit room contact survives the adventure adapter');
+  for(const [W,H] of [[360,740],[390,844],[430,932]]){
+   const L=D.screenLayout('dialogue',W,H),camera=D.solve({stage,...shot,assets:{left:asset},view:{w:L.world.w,h:L.world.h}});
+   assert.ok(camera.y<=104&&camera.y+camera.h>=134,`approved sign rectangle visible at ${W}`);
+  }
+ }
  for(const [stageId,beats] of Object.entries(win.RAPresentationLocks.all()))for(const [beat,lock] of Object.entries(beats)){
   assert.equal(lock.inputs,inputsHash(win,stageId,beat),`presentation lock ${stageId}/${beat} is stale — re-run the census judge (node tools/presentation-census.mjs --candidates) and re-lock`);
   assert.ok(lock.judge?.agreed,`presentation lock ${stageId}/${beat} has no agreed two-pass judgment`);

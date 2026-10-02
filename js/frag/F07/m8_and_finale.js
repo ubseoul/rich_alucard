@@ -143,6 +143,17 @@
  // --------------------------------------------------------------- adventures
  // Preserved F07 warehouse art adapter (d52bb6c), ported over OL-029's accepted phone framing.
  const PARTY_ENV='f07_warehouse_party';
+ const EXTERIOR_ENV='f07_warehouse_exterior';
+ const WAREHOUSE_BEFORE='assets/f07/backgrounds/warehouse_exterior_270x480.png';
+ const WAREHOUSE_AFTER='art_department/production/f07-warehouse-backgrounds/exteriors/warehouse_exterior_rich_enterprises_270x480.png';
+ // OL-042 B1: the winning TAKEOVER ending, or its persisted owned state, alone selects the repainted sign.
+ function warehouseExterior(){
+  const s=state(),a=window.RAAdventures?.active?.();
+  const after=s.finaleDone&&s.finaleEnding==='takeover'&&s.rentalWarehouseOwned;
+  const ending=a?.id==='NEW_OGA_FINALE'&&a.node==='takeover';
+  return enabled()&&(after||ending)?WAREHOUSE_AFTER:WAREHOUSE_BEFORE;
+ }
+ window.RAEnvironments?.register?.({id:EXTERIOR_ENV,get name(){return warehouseExterior()===WAREHOUSE_AFTER?'RICH ENTERPRISES · INGLEWOOD':'GBENGA EVENT RENTALS · INGLEWOOD';},get image(){return warehouseExterior();},floorY:372,base:1,cover:false,approved:true});
  (()=>{const R=window.RAEnvironments;if(!R||R.get(PARTY_ENV))return;
   const def={id:PARTY_ENV,name:'GBENGA EVENT RENTALS · INGLEWOOD',image:'assets/f07/backgrounds/warehouse_owambe_party_270x480.png',floorY:372,base:1,cover:false,approved:true};
   const get=R.get,all=R.all;R.get=id=>id===PARTY_ENV?def:get(id);R.all=()=>[...all(),def];})();
@@ -260,7 +271,7 @@
     lines:[N('Gbenga stays in the office as Rich’s advisor.'),S('gbenga','Hello. Hello. Oga. Hello.'),
      N('GBENGA ENTERPRISES becomes RICH ENTERPRISES. The sign is repainted badly; GBENGA is still faintly visible.')],
     end:{outcome:'consigliere',fx:finish('consigliere'),memory:{text:'became the NEW OGA: Gbenga stayed on as consigliere',lane:'money'}}},
-   takeover:{env:'gbenga_rentals',actors:{left:'rich'},
+   takeover:{env:EXTERIOR_ENV,actors:{left:'rich'},shot:{profile:'room',contact:.86},
     lines:()=>[N('Gbenga leaves LA. His rental warehouse becomes Rich’s.'),
      ...(tributed()?[N('The canopy with Rich’s tributed car is pulled back: it’s still there. Rich gets it back.')]:[]),
      N('GBENGA ENTERPRISES becomes RICH ENTERPRISES. The sign is repainted badly; GBENGA is still faintly visible.')],
@@ -273,5 +284,5 @@
  // The finale rides the same one-per-WAKE arbiter just below VampGPT (74), which must complete first.
  window.RAWakeTriggers?.define?.([{adventure:'NEW_OGA_FINALE',priority:72,when:finaleReady}]);
 
- window.RAF07={FLAG,enabled,m8Ready,finaleReady,completeM8,completeFinale,lanes:LANES,lanesAvailable,takeBlocks,startWarRoom,HEADLINES};
+ window.RAF07={FLAG,enabled,m8Ready,finaleReady,completeM8,completeFinale,lanes:LANES,lanesAvailable,takeBlocks,startWarRoom,HEADLINES,warehouseExterior};
 })();

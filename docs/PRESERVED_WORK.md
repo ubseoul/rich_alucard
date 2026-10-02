@@ -1,5 +1,7 @@
 # PRESERVED WORK REGISTER (BUILD-1 STEP 0)
 
+**SUPERSEDED HASH AUTHORITY (OL-042):** the preserved-work/ref register below remains valid. All later byte/hash checks use `art_department/build4/PRESERVED_ART_HASH_AUDIT.json`. Historical BUILD-1 hash JSON is retained with its supersession note; its 1,226 empty-stream/null entries are verified by the Overlord.
+
 Generated 2026-10-02 from a fresh clone of https://github.com/ubseoul/rich_alucard.git. Candidate tip for containment proofs: `feat/f15-romance-trio-001` @ `8a1dc98` (full: 8a1dc98a373339d25d613e2651be0a6280064486).
 Proof method: `git merge-base --is-ancestor <ref> 8a1dc98`; patch-equivalence by `git cherry`; file presence by blob comparison.
 Tags `preserve/<short-name>` are annotated, pushed, and point at the SHA in this table. No branch was moved or deleted.

@@ -1,5 +1,11 @@
 # Rich Alucard Art Department — start here
 
+## OL-042 current handoff
+
+Start at `docs/progress/BUILD4.md`. Superseding hash authority: `build4/PRESERVED_ART_HASH_AUDIT.json`. Current central FROZEN count: 960; original pixels unchanged. Lights-off overlay, 444x222 cockroach derivative and trio date portraits are KEEP/FROZEN; current accepted loops are reduced/Tier 2. RICH ENTERPRISES exterior is TAKEOVER-only.
+
+60 remaining rows: P-A/B closed, P-C 18, P-D 42. Use `briefs/IMAGE_PROMPTS_P-D.md` and `briefs/P-C_STEPS.md`. Ube sends filenames only; Codex owns manifests/normalization/hash/contact-sheet work. Wait for the approved P-C/P-D drops. Earlier handoff paragraphs below are history.
+
 ## BUILD-4 integration handoff (2026-10-02, OL-039)
 
 Resume `docs/progress/BUILD4.md` first. Preserved approved art is integrated on `build/visual-completion-001`; the central register now contains 952 frozen PNG paths, including exact-byte runtime copies. Zero baseline frozen assets changed. The older Ship 015 state below remains historical authority for its own shipment, not the current BUILD-4 census.
