@@ -19,11 +19,13 @@ Environment: Node v20.17.0 (win32), Chromium 1134 via playwright-core, `RA_PLAYW
 | 3b F15 OL-031 | DONE (no code change needed; rotation helper removed per OL-037) | same |
 | 3c F07-D1..D8 rename | DONE | `docs/engineering/F07_M8_AND_FINALE*.md` |
 | 4 validation | DONE (see report) | `docs/evidence/build1/` |
-| 5 stage preview | served; awaiting Ube | below |
-| 6 push | after Ube's answer | — |
+| 5 stage preview | DONE: Ube answered APPROVE | below |
+| 6 push | DONE (branch + tags, no force) | see report |
 
 ## Evidence index (`docs/evidence/build1/`)
 `npm-test-final.log`, `verify-all-final.log`, `ol022-bands.log`, `tuned-sim.log` + `tuned-sim-rerun2.log`, `f13-base.log` / `f13-m10.log` (+ `tools/tests/f13/out/build1_{base,m10}.{json,txt}`), `browser-paths-{360,390,430}.log`, `f07-browser-{360,390,430}.log`, `f15-browser.log`, `playtest-newgame.log`, `playtest-end.log`, `screens/` (per-width screenshots: `<w>_f03_*`, `<w>_newgame_*`, `<w>_flagsoff_*`, `f07-<w>/`, `f15/`), `playtest-newgame/`, `playtest-end/`.
 
 ## Stage review (OL-012) — Ube's answer, verbatim
-_pending_
+> approve it was the best thing ever
+
+(Ube, 2026-10-02, after the 10-minute stage preview of the three-dancer club. Recorded verbatim.)
