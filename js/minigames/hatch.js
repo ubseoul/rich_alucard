@@ -137,7 +137,7 @@
    if(food==='agege_bread'){overlay={type:'confirmBread'};return;}
    commitFeed(food);
   }
-  function commitFeed(food){
+  function commitFeed(food){ctx.audio?.sound('DRAGON_EAT');ctx.audio?.sound('DRAGON_HAPPY');
    inventory[food]=Math.max(0,inventory[food]-1);
    dragon.fedToday=true;
    addAction('feed',{food});
@@ -159,18 +159,18 @@
    play={game,hits:0,need:5,t:0,dur:10,item:{x:135,y:260,vx:(rng()<0.5?1:-1)*70,vy:-50},flakes:game==='goldfish'?spawnFlakes():null};
   }
   function spawnFlakes(){const arr=[];for(let i=0;i<5;i++)arr.push({x:20+rng()*230,y:-20-rng()*100,v:40+rng()*30,hit:false});return arr;}
-  function endPlay(success){
+  function endPlay(success){ctx.audio?.sound(success?'DRAGON_HAPPY':'DRAGON_SULK');
    dragon.playedToday=true;
    addAction('play',{game:play.game,success});
    flashOverlay('flavor',success?'SHE’S THRILLED.':'GOOD EFFORT.',1100);
    play=null;
   }
-  function doTalk(){
+  function doTalk(){ctx.audio?.sound(dragon.stage==='majestic'?'DRAGON_ROAR':'DRAGON_CHIRP_BABY');
    const line=chirp(dragon.stage,rng);
    addAction('talk');
    overlay={type:'talk',text:line};overlayUntil=performance.now()+1500;
   }
-  function doFeedCat(){
+  function doFeedCat(){ctx.audio?.sound('DRAGON_SULK');
    addAction('feedCat');
    dragon.sulking=true;
    flashOverlay('flavor','THE CAT EATS FIRST. SHE SAW.',1400);
@@ -370,7 +370,7 @@
    const dt=Math.min(0.05,(now-last)/1000);last=now;
    if(dragon.stage==='hatchling'){
     sparkClock-=dt;
-    if(sparkClock<=0){sparkClock=1.4+rng()*1.4;sparks=[{x:150+rng()*20,y:220,life:0.4}];}
+    if(sparkClock<=0){ctx.audio?.sound('DRAGON_FIRE_SMALL');sparkClock=1.4+rng()*1.4;sparks=[{x:150+rng()*20,y:220,life:0.4}];}
     sparks=sparks.filter(s=>{s.y-=40*dt;s.life-=dt;return s.life>0;});
    }
    g.clearRect(0,0,270,480);

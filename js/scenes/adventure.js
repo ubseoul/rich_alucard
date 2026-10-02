@@ -5,7 +5,7 @@
  const SLOTS={farLeft:34,left:72,mid:135,right:198,farRight:238};
  const imageCache=new Map();
  function loadImage(src){if(!imageCache.has(src)){const img=new Image();img.src=src;imageCache.set(src,img);}return imageCache.get(src);}
- let root=null,scope=null,envCanvas=null,actorLayer=null,foreground=null,box=null,choicesEl=null,titleEl=null,bubble=null,tapResolver=null,currentEnv=null;
+ let root=null,scope=null,envCanvas=null,actorLayer=null,foreground=null,box=null,choicesEl=null,titleEl=null,bubble=null,tapResolver=null,currentEnv=null,audio=null;
  const personName=id=>{if(!id)return '';if(id==='rich')return 'RICH';const p=window.RABtfPeople?.get(id);return p?p.name:String(id).toUpperCase();};
  function build(host){
   root=document.createElement('section');root.id='adventureScene';root.className='adv-scene';root.setAttribute('aria-label','Adventure');
@@ -25,7 +25,7 @@
  // `props`: frozen world art a node names ([{src,x,y}] — x centre, y contact line), drawn at native 1:1 in the
  // environment's 270×480 space above the base and its layers, below actors (e.g. a delivered car).
  function paintEnv(id,surface,props=[]){
-  const env=RAEnvironments.get(id)||RAEnvironments.get('street_night');currentEnv=env;const {ctx}=envCanvas;ctx.clearRect(0,0,270,480);
+  window.RAOpenAudio?.environment(audio,id,RAEnvironments.get(id)?.paint?.rain);const env=RAEnvironments.get(id)||RAEnvironments.get('street_night');currentEnv=env;const {ctx}=envCanvas;ctx.clearRect(0,0,270,480);
   root.querySelector('.adv-location').textContent=env.name||'';
   // Exact-origin frozen layers: always-on (e.g. the ocean-floor ladder) plus surface-scoped conditions draw above the
   // base, below actors; surface-scoped foreground layers draw on their own layer above actors, below the UI.
@@ -88,7 +88,7 @@
  async function typeText(el,text){el.textContent=text;}
  async function showLine([speaker,text,opts={}]){
   if(!scope?.isActive())return;
-  const dev=document.body.classList.contains('dev-enabled');
+  window.RAOpenAudio?.voice(audio,speaker,opts);const dev=document.body.classList.contains('dev-enabled');
   if(opts.entrance){const node=actorNode(opts.entrance);if(node){node.classList.add('adv-entrance');}}
   const richOnStage=speaker==='rich'&&actorNode('rich');
   if(richOnStage){
@@ -138,7 +138,7 @@
   while(scope?.isActive()&&nodeId){
    const r=RAAdventures.enter(nodeId);if(!r){await leave();return;}
    const {node,env,actors}=r;if(directorNode){window.RAPresentationDirector?.exit();directorNode=false;}const envId=typeof env==='function'?env(RAAdventures.context()):env;const props=(typeof node.props==='function'?node.props(RAAdventures.context()):node.props||[]).filter(p=>p?.src);const staged=registeredActors(actors,paintEnv(envId,{key:window.RAPresentationData?.screenKey(RAEnvironments.get(envId)?.id||'street_night',actors||{}),node:`${r.def.id}:${nodeId}`},props).slots);renderActors(staged);stageDirector(staged,node);
-   const a=RAAdventures.active();
+   window.RAOpenAudio?.beat?.(audio,r.def.id,nodeId);const a=RAAdventures.active();
    if(node.title&&!(a.titles||[]).includes(nodeId)){hideDialogue();await showTitle(typeof node.title==='function'?node.title(RAAdventures.context()):node.title);RAAdventures.patchActive({titles:[...(RAAdventures.active()?.titles||[]),nodeId]});}
    const lines=typeof node.lines==='function'?node.lines(RAAdventures.context()):(node.lines||[]);
    for(const line of lines){if(!scope?.isActive())return;if(line)await showLine(line);}
@@ -161,7 +161,7 @@
  }
  async function leave(){await RAScenes.go('bedroom',{});}
  function enter({scope:s,payload}){
-  scope=s;document.body.classList.add('adventure-mode');build(document.querySelector('#screen'));
+  scope=s;document.body.classList.add('adventure-mode');build(document.querySelector('#screen'));audio=window.RAOpenAudio?.scope(root,scope);
   const a=RAAdventures.active();if(!a){RAScenes.go('bedroom');return;}
   scope.cleanup(()=>{root?.remove();root=null;tapResolver=null;document.body.classList.remove('adventure-mode');});
   run(payload?.node||a.node);

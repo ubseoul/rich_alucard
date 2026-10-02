@@ -13,7 +13,7 @@
  function run(enemyId,params={}){
   if(active)active.abort?.();
   const def=D().ENEMIES[enemyId];const state=RACombat2Rules.create(enemyId,params);
-  const screen=document.querySelector('#screen');const root=document.createElement('section');root.className='c2-scene';root.setAttribute('aria-label','Battle');
+  const screen=document.querySelector('#screen');const root=document.createElement('section');root.className='c2-scene';root.setAttribute('aria-label','Battle');const audio=window.RAOpenAudio?.scope(root,{cleanup:fn=>root.addEventListener('c2:close',fn,{once:true})});
   const env=RAPixel.createCanvas(root,{className:'c2-env'});const envId=typeof params.env==='function'?params.env(RAAdventures.context()):params.env;const envDef=RAEnvironments.get(envId||'throne')||RAEnvironments.get('throne');
   // Base + exact-origin frozen layers (always-on, and conditions scoped to this fight's screen) with the base's framing.
   if(envDef?.image){const img=new Image();img.src=envDef.image;const layers=[...(envDef.layers||[]),...RAEnvironments.surfaceLayers(envDef,{key:`combat:${enemyId}@${envDef.id}`}).under].map(src=>Object.assign(new Image(),{src}));
@@ -52,15 +52,15 @@
   function renderMenu(){
    const m=$('.c2-menu');if(state.over){m.innerHTML='';return;}
    if(state.awaitingOctopus){showOcto();m.innerHTML='';return;}
-   if(menu==='main')m.innerHTML=btn('▶ FIGHT','fight')+btn('ITEM','item')+btn('HOES','hoes')+btn('RUN','run')+(window.RACombat2Ext?.menuButtons(state)||[]).map(b=>btn(esc(b.label),b.act,b.cls)).join(''); // IF-1 weapon-slot button seam (empty unless registered + flag ON)
+   if(menu==='main')m.innerHTML=btn('▶ FIGHT','fight')+btn('ITEM','item')+btn('HOES','hoes')+btn('RUN','run')+(window.RACombat2Ext?.menuButtons(state)||[]).map(b=>btn(`${icon(window.RAArtRegistry?.items?.guns?.[b.gun]?.held)}${esc(b.label)}`,b.act,b.cls)).join(''); // IF-1 weapon-slot button seam (empty unless registered + flag ON)
    else if(menu==='fight'){m.innerHTML=state.moves.map(id=>{const mv=D().MOVES[id];return btn(`${mv.label}<small>PP ${state.rich.pp[id]}/${mv.pp}${id==='revenge'?` · ${state.rich.revenge}`:''}</small>`,`move:${id}`,state.rich.pp[id]>0?'':'c2-off');}).join('')+state.guns.map(g=>btn(`${icon(window.RAArtRegistry?.items?.guns?.[g.id]?.held)}GUN: ${D().GUNS[g.id].label}<small>AMMO ${g.ammo}</small>`,`gun:${g.id}`,g.ammo>0?'c2-gun':'c2-off')).join('')+btn('BACK','back','c2-back');}
    else if(menu==='item'){const list=Object.entries(state.items).filter(([id,n])=>n>0&&D().ITEMS[id]);m.innerHTML=(list.map(([id,n])=>btn(`${icon(window.RAArtRegistry?.items?.combat?.[id])}${D().ITEMS[id].label}<small>×${n}</small>`,`item:${id}`)).join('')||'<p class="c2-empty">BAG IS EMPTY.</p>')+btn('BACK','back','c2-back');}
    else if(menu==='hoes'){const list=state.companions;m.innerHTML=(list.flatMap(c=>c.moves.map(mv=>btn(`${c.name}: ${mv.label}<small>${2-(state.hoesUsed[c.id]||0)} LEFT</small>`,`hoe:${c.id}:${mv.id}`,(state.hoesUsed[c.id]||0)>=2?'c2-off':''))).join('')||'<p class="c2-empty">NOBODY CLOSE ENOUGH YET.</p>')+btn('BACK','back','c2-back');}
   }
-  function showOcto(){const o=$('.c2-octo');o.hidden=false;const opts=def.octopus||{};o.innerHTML=`<img src="assets/octopus_brain_a.png" alt="" class="c2-tentacles"><div class="c2-octo-title">OCTOPUS BRAIN</div>${['charisma','recruit','roast'].filter(k=>opts[k]).map(k=>`<button type="button" class="c2-octo-choice" data-octo="${k}"><b>${k.toUpperCase()}</b><span>${esc(opts[k].label)}</span></button>`).join('')}`;}
+  function showOcto(){const o=$('.c2-octo');o.hidden=false;const opts=def.octopus||{};o.innerHTML=`<img src="assets/octopus_brain_a.png" alt="" class="c2-tentacles"><div class="c2-octo-title">OCTOPUS BRAIN</div>${['charisma','recruit','roast'].filter(k=>opts[k]).map(k=>`<button type="button" class="c2-octo-choice" data-octo="${k}"><b>${k.toUpperCase()}</b><span>${esc(opts[k].label)}</span></button>`).join('')}`;if(window.RAIronFlags?.core?.()){const tentacle=o.querySelector('img');window.RAArtRegistry.combatMoves.octopus.frames.slice(1).forEach((src,i)=>setTimeout(()=>{if(tentacle.isConnected)tentacle.src=src;},180*(i+1)));}}
   async function play(events){
    busy=true;$('.c2-menu').innerHTML='';
-   for(const ev of events){
+   for(const ev of events){window.RAOpenAudio?.combat(audio,enemyId,ev);
     $('.c2-log').textContent=ev.text;
     setEnemyState(ev.kind==='telegraph'?'telegraph':ev.kind==='hurt'?'strike':ev.kind==='hit'&&ev.target!=='rich'?'hit':ev.kind==='win'?'defeated':state.over&&state.outcome==='win'?'defeated':null);
     if(ev.kind==='hit'){enemyEl.classList.remove('c2-flash');void enemyEl.offsetWidth;enemyEl.classList.add('c2-flash');floatNum(ev.amount,'enemy');if(ev.fx==='revenge')flashScreen('c2-revenge');if(ev.heavy)shake();}
@@ -76,8 +76,12 @@
   function shake(){root.classList.remove('c2-shake');void root.offsetWidth;root.classList.add('c2-shake');}
   let busy=false;
   async function doAction(action){
-   if(busy||state.over)return;RACombat2Rules.act(state,action);const events=[...state.log];menu='main';
-   if(action.type==='move'&&action.id==='blood')await bloodFx();
+   if(busy||state.over)return;busy=true;
+   const presentation=window.RACombat2Ext?.presentationFor?.(state,action);window.RAOpenAudio?.action(audio,action);
+   RACombat2Rules.act(state,action);const events=[...state.log];menu='main';
+   if(window.RAIronFlags?.core?.()){
+    if(!events.some(e=>e.kind==='block'))window.RACombatPresentation?.move?.({root,attacker:richEl,target:enemyEl,action,gun:presentation?.gun||action.type==='gun'&&action.id,events});
+   }else if(action.type==='move'&&action.id==='blood')await bloodFx();
    await play(events);
    if(state.over)return finish();
    renderMenu();
@@ -86,7 +90,7 @@
   root.addEventListener('click',e=>{
    const o=e.target.closest('[data-octo]');if(o){$('.c2-octo').hidden=true;doAction({type:'octopus',option:o.dataset.octo});return;}
    const b=e.target.closest('[data-c2]');if(!b||busy)return;const [kind,a,c]=b.dataset.c2.split(':');
-   if(kind==='fight'||kind==='item'||kind==='hoes'){menu=kind;renderMenu();return;}if(kind==='back'){menu='main';renderMenu();return;}
+   if((kind==='fight'||kind==='item'||kind==='hoes')&&!a){menu=kind;renderMenu();return;}if(kind==='back'){menu='main';renderMenu();return;}
    if(kind==='run'){doAction({type:'run'});return;}
    if(kind==='move'){doAction({type:'move',id:a});return;}if(kind==='gun'){doAction({type:'gun',id:a});return;}
    if(kind==='item'){doAction({type:'item',id:a});return;}if(kind==='hoe'){doAction({type:'hoe',companion:a,move:c});return;}
@@ -108,11 +112,11 @@
    await new Promise(r=>{root.addEventListener('click',e=>{if(e.target.closest('[data-c2="done"]'))r();});});
    close({outcome,octopus:state.octopusUsed,recruited:!!state.recruited,learned:state.learned||null,turns:state.turn});
   }
-  function close(result){if(directed)RAPresentationDirector.exit();root.remove();document.body.classList.remove('combat2-mode');active=null;resolveRun(result);}
+  function close(result){root.dispatchEvent(new Event('c2:close'));if(directed)RAPresentationDirector.exit();root.remove();document.body.classList.remove('combat2-mode');active=null;resolveRun(result);}
   try{window.RAAudio?.sfx?.('BATTLE_START');}catch(e){}
   hud();$('.c2-log').textContent=params.intro||`${state.enemy.name} WANTS TO FIGHT.`;renderMenu();
   if(state.telegraph){$('.c2-telegraph').hidden=false;}
-  return new Promise(resolve=>{resolveRun=resolve;active={abort:()=>close({outcome:'run'}),state,debugResolve:o=>{RACombat2Rules.forceEnd(state,o);finish();}};});
+  return new Promise(resolve=>{resolveRun=resolve;active={abort:()=>close({outcome:'run'}),state,busy:()=>busy,debugResolve:o=>{RACombat2Rules.forceEnd(state,o);finish();}};});
  }
  // DEFEAT (VOL 1 §4.3, A17, VOL 3 §4.4): BLOOD BANK BILL + one social consequence. Failure writes story, not reload.
  const RADefeat={apply({enemy,witnesses=[]}={}){

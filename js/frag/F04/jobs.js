@@ -40,7 +40,7 @@
   },
   COLLECT: {
    kind: 'run',   label: 'COLLECT',
-   squadSize: 3,
+   squadSize: 2,
    reward: { type: 'cash_range', min: 10000, max: 40000 },
    heat: 5
   },
@@ -64,7 +64,7 @@
   },
   // SHOWDOWN types
   TAKE_THE_BLOCK: { kind: 'showdown', label: 'TAKE THE BLOCK', squadSize: 3, reward: { type: 'showdown' }, heat: 0 },
-  EXTRACT:        { kind: 'showdown', label: 'EXTRACT',         squadSize: 2, reward: { type: 'showdown' }, heat: 0 },
+  EXTRACT:        { kind: 'showdown', label: 'EXTRACT',         squadSize: 3, reward: { type: 'showdown' }, heat: 0 },
   RETALIATION:    { kind: 'showdown', label: 'RETALIATION RAID',squadSize: 3, reward: { type: 'showdown' }, heat: 0 }
  });
 

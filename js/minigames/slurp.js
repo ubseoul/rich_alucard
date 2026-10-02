@@ -74,7 +74,7 @@
  }
 
  // ---------- mount (DOM/game) ----------
- function mount(root,ctx){
+ function mount(root,ctx){ctx.audio?.sound('AMB_RAMEN');
   if(ctx.params?.canopyDuty)return mountCanopy(root,ctx);
   const P=RAPixel;
   const {canvas,ctx:g,toNative}=P.createCanvas(root);
@@ -101,7 +101,7 @@
   }
   const BOWL_ZONE={x:190,y:150,w:64,h:56};
 
-  function spawnOrder(){
+  function spawnOrder(){ctx.audio?.sound('ORDER_BELL');ctx.audio?.sound('TICKET_PRINT');
    const kevin=!firstShift&&(!tickets.length)&&rng()<(params.kevinChance!=null?params.kevinChance:0.06);
    const order=makeOrder(rng,{jollofRamen,kevin});
    if(firstShift&&tickets.length===0&&tutorialStep<4){
@@ -130,7 +130,7 @@
    const took=serveStart?(performance.now()-serveStart)/1000:8;
    if(res.perfect){
     const tip=order.kevin?tipFor(took)*3:tipFor(took);
-    money+=6+tip;perfect++;bowlsServed++;
+    ctx.audio?.sound('TIP_COINS');money+=6+tip;perfect++;bowlsServed++;
     flash={text:`PERFECT +$${(6+tip).toFixed(2)}`,color:P.palette.green};
    } else {
     walkouts++;
@@ -167,7 +167,7 @@
    if(!dragging)return;
    const p=dragPos||{x:-1,y:-1};
    if(p.x>=BOWL_ZONE.x-10&&p.x<=BOWL_ZONE.x+BOWL_ZONE.w+10&&p.y>=BOWL_ZONE.y-10&&p.y<=BOWL_ZONE.y+BOWL_ZONE.h+10){
-    if(dragging.kind==='broth'){bowl.broth=dragging.value;if(tutorialStep===0)tutorialStep=1;}
+    ctx.audio?.sound('BOWL_CLINK');ctx.audio?.sound(dragging.kind==='broth'?'BROTH_POUR':'NOODLE_DROP');if(dragging.kind==='broth'){bowl.broth=dragging.value;if(tutorialStep===0)tutorialStep=1;}
     else if(dragging.kind==='noodles'){bowl.noodles=dragging.value;if(tutorialStep===1)tutorialStep=2;}
     else if(dragging.kind==='topping'){if(bowl.toppings.length<3&&!bowl.toppings.includes(dragging.value)){bowl.toppings.push(dragging.value);}if(tutorialStep===2)tutorialStep=3;}
    }

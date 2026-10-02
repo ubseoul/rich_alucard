@@ -80,7 +80,7 @@
  function truthy(v){return v===true||v==='true'||v===1||v==='1';}
  function num(v,def){const n=Number(v);return Number.isFinite(n)?n:def;}
 
- function mount(root,ctx){
+ function mount(root,ctx){ctx.audio?.sound('AMB_PIER');
   if(!window.RAPixel||!root)return {dispose(){}};
   const params=ctx.params||{};
   const rain=truthy(params.rain),uncleSunday=truthy(params.uncleSunday),tutorial=truthy(params.tutorial),lab=truthy(params.lab);
@@ -117,15 +117,15 @@
   }
 
   function startCast(){S.phase='cast';S.power=0;S.charging=false;}
-  function startWait(){
+  function startWait(){ctx.audio?.sound('BOBBER_PLOP');
    S.phase='wait';S.waitSchedule=newSchedule();S.waitIndex=0;S.waitClock=0;S.waitEventActive=false;S.scaredUntil=0;
   }
   function startReel(caught){
    S.phase='reel';S.currentCatch=caught;S.tension=0;S.overTime=0;S.progress=0;S.leanDir=0;
-   const big=caught.category==='big';
+   const big=caught.category==='big';if(big)ctx.audio?.sound('SPLASH_BIG');
    S.bigOnLine=big;S.fish={pull:0,big};S.fishClock=0;
   }
-  function resolveCatch(caught,landed){
+  function resolveCatch(caught,landed){ctx.audio?.stop('REEL_LOOP');ctx.audio?.stop('LINE_TENSION');ctx.audio?.sound(landed?'FISH_FLOP':'LINE_SNAP');
    S.sessionCount++;
    if(!landed){
     if(caught.category==='big'){S.hp=Math.max(0,S.hp-caught.hpLoss);ctx.reward({hpLost:caught.hpLoss});flash('LINE SNAPPED. IT GOT AWAY.',1600);}
@@ -419,7 +419,7 @@
     S.waitClock=(S.waitClock||0)+dt;
     if(!S.waitEventActive&&S.waitSchedule&&S.waitIndex<S.waitSchedule.length){
      const ev=S.waitSchedule[S.waitIndex];
-     if(S.waitClock>=ev.t){S.waitEventActive=true;S.waitEventKind=ev.kind;S.waitEventUntil=S.waitClock+ev.dur;}
+     if(S.waitClock>=ev.t){S.waitEventActive=true;S.waitEventKind=ev.kind;ctx.audio?.sound('NIBBLE');S.waitEventUntil=S.waitClock+ev.dur;}
     } else if(S.waitEventActive&&S.waitClock>=S.waitEventUntil){
      S.waitEventActive=false;S.waitIndex++;
      if(S.waitIndex>=S.waitSchedule.length){S.waitSchedule=newSchedule();S.waitIndex=0;S.waitClock=0;}
@@ -430,7 +430,7 @@
      S.fishClock-=dt;
      if(S.fishClock<=0){S.fish.pull=(rng()*2-1)*30;S.fishClock=0.4+rng()*0.5;}
     }
-    tensionStep(S,{holding:pointerIsDown,dt,fish:S.fish});
+    tensionStep(S,{holding:pointerIsDown,dt,fish:S.fish});ctx.audio?.edge('reel',pointerIsDown,'REEL_LOOP');ctx.audio?.edge('tension',S.tension>85,'LINE_TENSION');
     S.progress=Math.max(0,Math.min(100,S.progress+(pointerIsDown?dt*22:-dt*6)));
     if(isSnapped(S)){resolveCatch(S.currentCatch,false);}
     else if(S.progress>=100){resolveCatch(S.currentCatch,true);}

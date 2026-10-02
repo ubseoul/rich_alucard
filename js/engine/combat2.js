@@ -8,7 +8,8 @@
   const fits=Object.values(life.ownership.fits?.equipped||{}).map(id=>D().FITS[id]).filter(Boolean);
   const rooms=(life.ownership.castleRooms||[]).map(r=>r.id);
   const slots=1+(rooms.includes('armory_wall')?1:0);
-  const guns=(life.ownership.guns||[]).map(g=>g.id).filter(id=>D().GUNS[id]&&(!D().GUNS[id].dev||L?.flag?.('devKratos'))).slice(-slots);
+  const iron=window.RAIronFlags?.core?.()&&window.RAIronAndGrace?.loadout?.().length;
+  const guns=iron?[]:(life.ownership.guns||[]).map(g=>g.id).filter(id=>D().GUNS[id]&&(!D().GUNS[id].dev||L?.flag?.('devKratos'))).slice(-slots);
   let maxHp=100+(rooms.includes('coffin_upgrade')?20:0)+fits.reduce((s,f)=>s+(f.maxhp||0),0);
   return {maxHp,moves:[...(life.combat.equippedMoves||['blood','octopus','bite','revenge'])].slice(0,4),items:{...life.ownership.items},guns,fits,rooms,companions:window.RARelations?.companions?.()||[]};
  }

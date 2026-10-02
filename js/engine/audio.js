@@ -70,13 +70,18 @@
   // M1 UI_TAP / UI_BACK seam: any button press, in the bubble phase. An owning handler can claim the click with
   // event.__raSfxHandled so a specific sound (UI_CONFIRM/UI_ERROR/PHONE_APP_OPEN) does not also fire generic UI_TAP.
   function uiClick(event){
-    if(event.__raSfxHandled)return;
-    const target=event.target?.closest?.('button,[role="button"],[data-phone-action],[data-move],[data-c2]');
-    if(!target||target.disabled)return;
+    if(event.__raUITapRouted)return;
+    if(event.__raSfxHandled&&[...plays.values()].reduce((a,b)=>a+b,0)>(event.__raUIBefore??0))return;
+    const target=event.__raUITarget||event.target?.closest?.('button,a[href],input,select,[role="button"],[data-phone-action],[data-move],[data-c2],.adv-scene,.bedroom-return');
+    if(!target||(event.__raWasEnabled===undefined?target.disabled:!event.__raWasEnabled))return;
+    event.__raUITapRouted=true;
     const action=target.dataset?.phoneAction||'';
-    oneShot(/^(close|home|back|nah)$/.test(action)?'UI_BACK':'UI_TAP');
+    const id=/^(close|home|back|nah)$/.test(action)?'UI_BACK':'UI_TAP';
+    if(!oneShot(id,{restartVoice:true}))preload(id).then(()=>oneShot(id,{restartVoice:true}));
   }
+  document.addEventListener('click',event=>{event.__raUIBefore=[...plays.values()].reduce((a,b)=>a+b,0);event.__raUITarget=event.target?.closest?.('button,a[href],input,select,[role="button"],[data-phone-action],[data-move],[data-c2],.adv-scene,.bedroom-return');event.__raWasEnabled=!!event.__raUITarget&&!event.__raUITarget.disabled;Promise.resolve().then(()=>uiClick(event));},{capture:true});
   document.addEventListener('click',uiClick);
+  document.addEventListener('pointerdown',event=>{if(event.target?.matches?.('.ra-minigame canvas,.rd-lane')){if(!oneShot('UI_TAP',{restartVoice:true}))preload('UI_TAP').then(()=>oneShot('UI_TAP',{restartVoice:true}));}});
 
   // ---- loading ----
   function preloadVariant(path){
@@ -94,6 +99,7 @@
     const c=ensureCtx(),entry=manifest()?.get?.(id);
     if(!c||!entry)return Promise.resolve(null);
     for(const variant of entry.variations||[])preloadVariant(variant);
+    if(entry.type==='loop set')return Promise.all((entry.parts||[]).map(p=>preloadVariant(p.file)));
     if(!entry.file||!entry.registered)return Promise.resolve(null);
     if(buffers.has(id))return Promise.resolve(buffers.get(id));
     if(missing.has(id))return Promise.resolve(null);
@@ -128,22 +134,29 @@
     return list.length===1?list[0]:list[Math.floor(Math.random()*list.length)];
   }
   function candidateBuffer(id,cand){if(!cand)return null;return cand.primary?(buffers.get(id)||null):(variantBuffers.get(cand.path)||null);}
+  const voiceSources=new Map();
   function oneShot(id,opts={}){
     if(!unlocked)return false;
     const c=ensureCtx(),entry=manifest()?.get?.(id);
     if(!c||!entry)return false;
     if(entry.type==='loop')return loop(id,opts);
-    if(entry.type==='loop set')return false;
+    if(entry.type==='loop set')return part(id,opts.part||'idle',opts);
     const cand=candidate(entry),buffer=candidateBuffer(id,cand);
     if(!buffer){if(entry.registered)preload(id);return false;}
     const limit=Math.max(1,entry.maxVoices||3);
-    if((active.get(id)||0)>=limit)return false;
+    if((active.get(id)||0)>=limit){
+      // A new UI tap restarts the oldest voice, keeping the authored voice cap.
+      const oldest=opts.restartVoice&&voiceSources.get(id)?.values().next().value;
+      if(!oldest)return false;oldest.onended=null;try{oldest.stop();}catch(e){}
+      voiceSources.get(id).delete(oldest);active.set(id,Math.max(0,(active.get(id)||1)-1));
+    }
     const source=c.createBufferSource();source.buffer=buffer;
     const jitter=entry.pitchJitter||0;if(jitter)source.playbackRate.value=1+(Math.random()*2-1)*jitter;
     const gain=c.createGain();gain.gain.value=clamp01(nodeGainFor(entry)*(opts.gain==null?1:clamp01(opts.gain)));
     source.connect(gain).connect(busFor(entry));
     active.set(id,(active.get(id)||0)+1);
-    source.onended=()=>active.set(id,Math.max(0,(active.get(id)||1)-1));
+    if(!voiceSources.has(id))voiceSources.set(id,new Set());voiceSources.get(id).add(source);
+    source.onended=()=>{voiceSources.get(id)?.delete(source);active.set(id,Math.max(0,(active.get(id)||1)-1));};
     try{source.start();}catch(e){active.set(id,Math.max(0,(active.get(id)||1)-1));return false;}
     plays.set(id,(plays.get(id)||0)+1);
     if(entry.ducksMusic)duckMusic(12,entry.duckMs||1200);
@@ -153,7 +166,8 @@
   function loop(id,opts={}){
     if(!unlocked)return false;
     const c=ensureCtx(),entry=manifest()?.get?.(id);
-    if(!c||!entry||entry.type==='loop set')return false;
+    if(!c||!entry)return false;
+    if(entry.type==='loop set')return part(id,opts.part||'idle',opts);
     if(loops.has(id))return true;
     const cand=candidate(entry),buffer=candidateBuffer(id,cand);
     if(!buffer){if(entry.registered)preload(id);return false;}
@@ -167,7 +181,20 @@
     plays.set(id,(plays.get(id)||0)+1);
     return true;
   }
+  // Play a delivered component of a loop set; the parent remains the public sound ID and statistics key.
+  function part(id,role,opts={}){
+    const entry=manifest()?.get?.(id),p=entry?.parts?.find(p=>p.file.endsWith(`__${role}.mp3`))||(role==='idle'?entry?.parts?.find(p=>p.type==='loop'):null);
+    if(!unlocked||!p)return false;const buffer=variantBuffers.get(p.file),c=ensureCtx();
+    if(!buffer){preload(id);return false;}const key=`${id}:${role}`;
+    if(p.type==='loop'&&loops.has(key))return true;
+    const source=c.createBufferSource(),gain=c.createGain();source.buffer=buffer;source.loop=p.type==='loop';
+    if(Number.isFinite(p.loopStart))source.loopStart=p.loopStart;if(Number.isFinite(p.loopEnd))source.loopEnd=p.loopEnd;
+    gain.gain.value=clamp01(nodeGainFor(entry)*(opts.gain??1));source.connect(gain).connect(busFor(entry));
+    try{source.start();}catch(e){return false;}if(source.loop)loops.set(key,{source,gain});
+    plays.set(id,(plays.get(id)||0)+1);return true;
+  }
   function stop(id,fadeMs=250){
+    for(const key of [...loops.keys()])if(key.startsWith(id+':'))stop(key,fadeMs);
     const handle=loops.get(id);if(!handle)return false;
     loops.delete(id);
     ramp(handle.gain,0,fadeMs);
@@ -242,7 +269,7 @@
   async function play(id='soundtrack'){const element=get(id);if(element)try{await element.play();}catch(e){}}
   function pause(id='soundtrack'){const element=get(id);if(element)element.pause();}
 
-  window.RAAudio={get,play,pause,unlock,isUnlocked:()=>unlocked,sfx:oneShot,oneShot,loop,stop,stopAll,isPlaying,duckMusic,restoreMusic,duckFor,preload,preloadScene,releaseScene,installBuffer,installTestTone,enterScene,startSceneAmbience,scene:()=>sceneState.id,setVolume,setMuted,toggleMuted,setHaptics,settings,applyMix,applyElementMix,describe,
+  window.RAAudio={get,play,pause,unlock,isUnlocked:()=>unlocked,sfx:oneShot,oneShot,loop,part,stop,stopAll,isPlaying,duckMusic,restoreMusic,duckFor,preload,preloadScene,releaseScene,installBuffer,installTestTone,enterScene,startSceneAmbience,scene:()=>sceneState.id,setVolume,setMuted,toggleMuted,setHaptics,settings,applyMix,applyElementMix,describe,
     buses:{...{MUSIC:'MUSIC',SFX:'SFX',UI:'UI',VOICE:'VOICE',AMBIENCE:'AMBIENCE'}},defaults:()=>({...busDefaults()})};
   document.addEventListener('ra:scene',event=>{if(event.detail?.id)enterScene(event.detail.id);});
   // CDB note: RAState.load() can be called by DEV restore/reset after the engine loaded; re-apply element settings.

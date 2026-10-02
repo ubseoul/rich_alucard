@@ -4,7 +4,7 @@
 // file that exists and actually decodes. Unregistered entries are NOT failures at IF-1: NO_01–NO_06 are authorized
 // inert drop-in hooks, and the delivery gaps are declared. They are reported as PENDING (advisory) so FCPB can see
 // what is still owed without the harness inventing content.
-import {readFile} from 'node:fs/promises';
+import {readFile,readdir} from 'node:fs/promises';
 import {existsSync} from 'node:fs';
 import path from 'node:path';
 import vm from 'node:vm';
@@ -14,6 +14,11 @@ export async function loadAudioManifest(root){
   const file=path.join(root,'js','data','audio_manifest.js');
   const ctx={window:{}};ctx.window=ctx;vm.createContext(ctx);
   vm.runInContext(await readFile(file,'utf8'),ctx,{filename:'js/data/audio_manifest.js'});
+  const composer=path.join(root,'js/data/audio/manifest_parts.js'),parts=path.join(root,'js/data/audio/parts');
+  if(existsSync(composer)){
+   vm.runInContext(await readFile(composer,'utf8'),ctx);
+   if(existsSync(parts))for(const name of (await readdir(parts)).filter(n=>n.endsWith('.js')).sort())vm.runInContext(await readFile(path.join(parts,name),'utf8'),ctx,{filename:`js/data/audio/parts/${name}`});
+  }
   if(!ctx.RAAudioManifest)throw new Error('audio manifest did not expose RAAudioManifest');
   return ctx.RAAudioManifest;
 }

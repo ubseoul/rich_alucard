@@ -46,7 +46,8 @@
  function itemHook(s,itemId,phase,helpers){const h=items.get(itemId);if(!h||!live(h)||typeof h[phase]!=='function')return undefined;try{return h[phase](s,D().ITEMS[itemId],helpers);}catch(e){console.error('item hook',itemId,phase,e);return undefined;}}
  const D=()=>window.RACombatData;
  // ---- consumed by the scene (scenes/combat2.js) ----
- const menuButtons=s=>[...weapons.values()].filter(w=>live(w)&&w.available(s)).map(w=>({label:typeof w.label==='function'?w.label(s):w.label,act:`weapon:${w.id}`,cls:w.cls||''}));
+ const menuButtons=s=>[...weapons.values()].filter(w=>live(w)&&w.available(s)).map(w=>({label:typeof w.label==='function'?w.label(s):w.label,act:`weapon:${w.id}`,cls:w.cls||'',...(w.gun?{gun:typeof w.gun==='function'?w.gun(s):w.gun}:{})}));
+ const presentationFor=(s,action)=>{const w=action.type==='weapon'&&weapons.get(action.id);return w&&live(w)?{gun:typeof w.gun==='function'?w.gun(s):w.gun||null}:null;};
  const actionFromButton=(act,s)=>{const [kind,id]=String(act).split(':');if(kind==='weapon'&&weapons.has(id)&&live(weapons.get(id)))return {type:'weapon',id};return null;};
- window.RACombat2Ext={registerWeapon,registerBossScript,registerItemHook,registerAction,handles,dispatch,boss,itemHook,menuButtons,actionFromButton,registered:()=>({weapons:[...weapons.keys()],bosses:[...bosses.keys()],items:[...items.keys()],actions:[...actions.keys()]})};
+ window.RACombat2Ext={registerWeapon,registerBossScript,registerItemHook,registerAction,handles,dispatch,boss,itemHook,menuButtons,actionFromButton,presentationFor,registered:()=>({weapons:[...weapons.keys()],bosses:[...bosses.keys()],items:[...items.keys()],actions:[...actions.keys()]})};
 })();

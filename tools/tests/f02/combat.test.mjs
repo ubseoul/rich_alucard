@@ -70,7 +70,26 @@ export async function test(root){
  const fresh=c.RACombat2Rules.create('bruce_loose',{},undefined,seeded());
  assert.equal(R.ammoFor(fresh,'mac_and_cheese'),2,'per-fight ammo refills on create()');
 
- // the accepted native gun data and scene are never touched by F02
+ // OL-045: an equipped native gun consumes its mods through the same extension and has no duplicate legacy button.
+ R.equip('lil_oga');R.buyMod('blessed_rounds');R.attachMod('lil_oga','blessed_rounds');
+ const sn=state(),hn=spyHelpers(sn,{undead:true});R.fire(sn,'lil_oga',hn);
+ assert.equal(hn.calls.damage[0].base,20*1.25);
+ rules=c.RACombat2Rules.create('bruce_loose',{},undefined,seeded());
+ assert.equal(rules.guns.length,0,'ON: no second native ammo pool');
+ assert.equal(X.menuButtons(rules)[0].gun,'lil_oga');
+ c.RAState.patch('life.ownership.castleRooms',['armory_wall']);R.equip('mac_and_cheese');
+ rules=c.RACombat2Rules.create('bruce_loose',{},undefined,seeded());
+ same(X.menuButtons(rules).map(b=>b.gun),['mac_and_cheese','lil_oga'],'both equipped guns reach the main menu');
+ c.RACombat2Rules.act(rules,{type:'weapon',id:'iron_and_grace_secondary'});
+ assert.equal(rules.__iagAmmo.lil_oga,3,'secondary fires its own gun');
+ assert.equal(rules.__iagAmmo.mac_and_cheese,2,'secondary does not consume primary ammo');
+
+ // A persisted dev gun cannot leak into the second slot after its DEV unlock is removed.
+ c.RALife.setFlag('devKratos',true);R.grant('triple_k_kratos',{free:true});R.equip('triple_k_kratos');R.equip('mac_and_cheese');c.RALife.setFlag('devKratos',false);
+ rules=c.RACombat2Rules.create('bruce_loose',{},undefined,seeded());
+ assert(!X.menuButtons(rules).some(b=>b.gun==='triple_k_kratos'),'both slots enforce the dev gun gate');
+
+ // The accepted native gun definitions are unchanged.
  same(Object.keys(c.RACombatData.GUNS).sort(),nativeKeys,'RACombatData.GUNS is unchanged');
  assert(!nativeKeys.includes('mac_and_cheese'),'F02 does not inject its guns into the accepted data');
 

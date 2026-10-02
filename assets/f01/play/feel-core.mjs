@@ -68,7 +68,7 @@ const vibrate=p=>{try{if(!reduced()&&navigator.vibrate)navigator.vibrate(p);}cat
 
 // ------------------------------------------------------------------------------------------------ audio
 // Existing library sounds only (assets/audio/sfx: ui_phone, combat, touge, home_castle, locations). No SEAL_* / BX stingers. Muted-safe and autoplay-safe.
-export const audio={log:[]};
+export const audio={log:[],sequence:0};
 if(typeof window!=='undefined')window.__raFeelAudio=audio.log;
 let muted=false,ducked=false,AC=null;const live=new Set();
 const CACHE={};
@@ -79,7 +79,7 @@ function tone(f,d,type='sine',v=.05,slide){
   g.gain.setValueAtTime(v,t);g.gain.exponentialRampToValueAtTime(.0001,t+d);o.connect(g);g.connect(AC.destination);o.start(t);o.stop(t+d+.02);}catch(e){}
 }
 export function play(path,{vol=.5,loop=false,rate=1}={}){
- audio.log.push(path.split('/').pop());if(audio.log.length>300)audio.log.shift();
+ audio.sequence++;audio.log.push(path.split('/').pop());if(audio.log.length>300)audio.log.shift();
  if(muted)return null;
  try{const a=new Audio(SFXP+path);a.volume=ducked?0:vol;a.loop=loop;a.playbackRate=rate;a._vol=vol;live.add(a);a.addEventListener('ended',()=>live.delete(a));a.play().catch(()=>{});return a;}catch(e){return null;}
 }
@@ -112,3 +112,12 @@ export const S={
  crateGlow:()=>play('touge/COMBO_UP.mp3',{vol:.35}),
  gasp:()=>play('combat/CROWD_GASP.mp3',{vol:.35})
 };
+
+// OL-043: settings and transient controls share the delivered UI tap cue.
+// Preserve each owning handler's sound; this fallback covers controls that had no cue.
+document.addEventListener('click',event=>{
+ const target=event.target.closest?.('button,input,a[href],[role="button"],.wslot,.carpick,.car,.bi');
+ if(!target||target.disabled)return;unlock();const before=audio.sequence;
+ Promise.resolve().then(()=>{if(audio.sequence===before)S.tap();});
+},{capture:true});
+document.addEventListener('pointerdown',event=>{if(event.target.closest?.('.send.hold')){unlock();S.tap();}},{capture:true});

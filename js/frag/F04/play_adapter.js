@@ -24,14 +24,15 @@
 
  // ── F04 job type -> F01 job (F04-owned table; F01 validates the id) ─────────────────────────────
  // F01 jobs are keyed by SHAPE (DROP, RE-UP, COLLECT, PROTECT, TAKE THE BLOCK, HOLD THE HOUSE, BIG PLAY, EXTRACT).
- // PROVISIONAL / SOURCE_REQUIRED: BAIT has no F01 shape (mapped to quiet_lift so the authored job stays playable);
+ // INTENTIONALLY KEPT (OL-043): BAIT retains the accepted provisional quiet_lift adapter;
+ // authored BAIT scenario content is a D_QUEUE creator item for later BUILD-5 ingestion.
  // HAND BACK -> the BIG PLAY (counting_house) is likewise provisional. Change here, nowhere else.
  const PLAY_MAP = Object.freeze({
   DROP: ['tupperware', 'vampire_dentist'],
   RE_UP: ['dock_restock'],
   COLLECT: ['boba_backroom', 'quiet_lift'],
   PROTECT: ['vampire_gala'],
-  BAIT: ['quiet_lift'],                       // PROVISIONAL: SOURCE_REQUIRED (no F01 shape)
+  BAIT: ['quiet_lift'],                       // INTENTIONALLY KEPT (OL-043), accepted provisional adapter
   TAKE_THE_BLOCK: ['car_wash_stickup', 'smack_crib'],
   EXTRACT: ['extract'],
   RETALIATION: ['hold_the_house'],

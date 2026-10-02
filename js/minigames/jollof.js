@@ -80,7 +80,7 @@
   if(glow)R(ctx,x-24,y-8,48,6,glow);
  }
 
- window.RAMinigames.register('jollof',{title:'JOLLOF WARS',mount(root,ctx){
+ window.RAMinigames.register('jollof',{title:'JOLLOF WARS',mount(root,ctx){ctx.audio?.sound('AMB_COOKOFF');
   const {canvas,ctx:g}=P().createCanvas(root);
   const params=ctx.params||{};const mode=params.mode||'practice';
   const judgeIds=(()=>{let ids=(params.judges&&params.judges.length?params.judges.slice():['nneka','uncle_sunday','bunmi']);
@@ -109,10 +109,10 @@
   let judgeIdx=-1,scoreResult=null,resultShown=false;
   let raf=null,lastT=performance.now();
 
-  function pointToStage(){stage='fry';fryStart=performance.now();fryLastTap=fryStart;}
-  function toSeason(){stage='season';}
-  function toSteam(){stage='steam';steamStart=performance.now();}
-  function toJudging(){
+  function pointToStage(){ctx.audio?.stop('BLENDER');ctx.audio?.sound('OIL_SIZZLE_PASTE');stage='fry';fryStart=performance.now();fryLastTap=fryStart;}
+  function toSeason(){ctx.audio?.stop('OIL_SIZZLE_PASTE');ctx.audio?.stop('BURNT_CRACKLE');stage='season';}
+  function toSteam(){ctx.audio?.sound('LID_CLANK');ctx.audio?.sound('STEAM_HISS');stage='steam';steamStart=performance.now();}
+  function toJudging(){ctx.audio?.stop('STEAM_HISS');
    scoreResult=window.RAMinigameLogic.jollof.total(stages,judgeIds);
    const best=ctx.progress();
    const bestTotal=Math.max(best.bestTotal||0,scoreResult.average);
@@ -137,11 +137,11 @@
 
   function onDown(nx,ny){
    if(dead)return;
-   if(stage==='blend'){holding=true;holdStart=performance.now();}
+   if(stage==='blend'){ctx.audio?.sound('BLENDER');holding=true;holdStart=performance.now();}
    else if(stage==='fry'){
     if(fryStopped)return;
     const side=nx<135?'left':'right';const now=performance.now();
-    if(side!==fryLastSide){fryLastSide=side;fryLastTap=now;}
+    ctx.audio?.sound('STIR_POT');if(side!==fryLastSide){fryLastSide=side;fryLastTap=now;}
     else{fryBurnPenalty+=.02;} // tapping same side repeatedly doesn't stir properly
     if(ny>380&&ny<420&&nx>75&&nx<195&&(performance.now()-fryStart)>1200){
      const darkness=stages.fry.darkness;fryStopped=true;
@@ -153,7 +153,7 @@
     for(let i=0;i<seasonItems.length;i++){
      const ix=30+i*48,iy=210;
      if(nx>ix-20&&nx<ix+20&&ny>iy-20&&ny<iy+20){
-      const k=seasonItems[i];stages.season[k]=Math.min(1,(stages.season[k]||0)+.2);seasonTaps++;
+      ctx.audio?.sound('SPICE_SHAKE');const k=seasonItems[i];stages.season[k]=Math.min(1,(stages.season[k]||0)+.2);seasonTaps++;
      }
     }
     if(hasDragon&&!dragonUsed&&nx>105&&nx<165&&ny>270&&ny<310){stages.season.dragon=true;dragonUsed=true;}
@@ -161,7 +161,7 @@
    } else if(stage==='steam'){
     if(steamLifted)return;
     if(ny>380&&ny<440&&nx>75&&nx<195){
-     steamLifted=true;
+     steamLifted=true;ctx.audio?.sound('LID_CLANK');ctx.audio?.stop('STEAM_HISS');
      const elapsed=performance.now()-steamStart;
      const liftTime=Math.min(1,elapsed/8000);
      const crust=params.mazdaHelps?!mazdaBurn:(liftTime>.68&&liftTime<.85);
@@ -207,7 +207,7 @@
     stages.fry.darkness=Math.min(1,elapsed/7000+fryBurnPenalty);
     rp.text(g,'TAP LEFT / RIGHT TO STIR',135,140,{size:7,align:'center'});
     rp.text(g,'STOP WHEN OIL FLOATS',135,154,{size:6,align:'center',color:pal.grey});
-    const dk=stages.fry.darkness;const sheen=dk>=.5&&dk<=.82;
+    ctx.audio?.edge('burnt',stages.fry.darkness>.88,'BURNT_CRACKLE');const dk=stages.fry.darkness;const sheen=dk>=.5&&dk<=.82;
     drawPot(g,135,230,sheen?'rgba(215,25,63,.55)':null);
     rp.rect(g,60,236,150,16,`rgb(${Math.round(180-120*dk)},${Math.round(70-40*dk)},${Math.round(40-20*dk)})`);
     rp.rect(g,20,150,110,120,fryLastSide==='left'?'rgba(255,255,255,.06)':'transparent');

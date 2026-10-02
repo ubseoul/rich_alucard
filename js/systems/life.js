@@ -80,7 +80,7 @@
   return entry;
  }
  // ---- morning mail (delivered at WAKE, readable in bedroom card + phone) ----
- function mail(card){const clock=life().clock,list=[...(clock.mail||[])];const id=card.id||`mail:${today().day}:${list.length}`;if(list.some(m=>m.id===id))return false;list.push({read:false,day:today().day,...card,id});RAState.patch('life.clock.mail',list.slice(-30));return true;}
+ function mail(card){const clock=life().clock,list=[...(clock.mail||[])];const id=card.id||`mail:${today().day}:${list.length}`;if(list.some(m=>m.id===id))return false;list.push({read:false,day:today().day,...card,id});RAState.patch('life.clock.mail',list.slice(-30));if(card.app==='instahoe')window.RAAudio?.preload('NOTIF_INSTAHOE').then(()=>window.RAAudio.oneShot('NOTIF_INSTAHOE'));return true;}
  // ---- phone threads (texts) ----
  function text(threadId,from,body,{day=today().day,choices=null,id=null}={}){
   const threads={...life().phone.threads},thread=[...(threads[threadId]||[])];const mid=id||`${threadId}:${day}:${thread.length}`;if(thread.some(m=>m.id===mid))return false;

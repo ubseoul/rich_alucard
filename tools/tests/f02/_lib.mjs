@@ -12,6 +12,7 @@ export const F02_FILES=[
  'js/frag/F02/combat.js',
  'js/frag/F02/range.js',
  'js/frag/F02/armory.js',
+ 'js/frag/F02/moves.js',
  'js/frag/F02/showdown.js',
  'js/frag/F02/iron_and_grace.js'
 ];

@@ -7,7 +7,8 @@
   if(!window.RAIronFlags.core())return null;
   const weapons={},loadout={};
   for(const g of C.list().filter(g=>!g.dev)){
-   weapons[g.id]={id:g.id,label:g.label,type:g.type,audio:g.audio,price:g.price,stats:R.showdown.stats(g.id)};
+   const held=window.RAArtRegistry?.items?.guns?.[g.id]?.held?.asset||null;
+   weapons[g.id]={id:g.id,label:g.label,type:g.type,audio:g.audio,price:g.price,stats:R.showdown.stats(g.id),held};
   }
   for(const o of roster){
    const id=(trap?R.trap.owner(`trap:${o.id}`):null)||window.RAIronShowdown.carried(o.id);

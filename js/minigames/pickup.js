@@ -31,7 +31,7 @@
 
  const TALK=['"you can\'t guard me, blood."','"ball don\'t lie!"','"run that back after this one."','"soft. that was soft."','"that\'s game, that\'s game."'];
 
- window.RAMinigames.register('pickup',{title:'PICKUP',mount(root,ctx){
+ window.RAMinigames.register('pickup',{title:'PICKUP',mount(root,ctx){ctx.audio?.sound('AMB_COURTS');
   const {canvas,ctx:g}=P().createCanvas(root);
   const params=ctx.params||{};
   const teammateName=params.teammate||'TRISTAN';
@@ -61,7 +61,7 @@
    let made;
    if(fresh&&!bloodDunkUsed&&meter>.85){bloodDunkUsed=true;made=rng()<.94;flashT=performance.now();}
    else made=rng()<window.RAMinigameLogic.pickup.shotChance(meter,distance,contested);
-   score=window.RAMinigameLogic.pickup.scoreAfterShot(score,made,distance);
+   ctx.audio?.sound(made?'SWISH':'RIM');score=window.RAMinigameLogic.pickup.scoreAfterShot(score,made,distance);
    if(made)say(TALK[Math.floor(rng()*TALK.length)]);
    possession=made?'them':(rng()<.5?'us':'them');
    checkEnd();
@@ -74,7 +74,7 @@
    say('"good look."');
    possession=rng()<.6?'us':'them';
   }
-  function crossover(){
+  function crossover(){ctx.audio?.sound('SHOE_SQUEAK');
    if(possession!=='us')return;
    const beat=rng()<.65;
    if(!beat)possession='them';
@@ -85,7 +85,7 @@
    const success=rng()<.5;
    const foul=!success&&rng()<.35;
    if(success){possession='us';say('*fangs flash* "MINE."');}
-   else if(foul){say('"c\'mon that\'s a foul!"');possession='them';}
+   else if(foul){ctx.audio?.sound('WHISTLE');say('"c\'mon that\'s a foul!"');possession='them';}
    else say('"missed him."');
   }
   function opponentsTurn(dt){

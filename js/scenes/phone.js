@@ -130,7 +130,9 @@
    scope.timeout(()=>finish(true),230);
    closeSceneExitCleanup=scope.cleanup(()=>finish(false));
   });
-  return closePromise;
+  // An already-cancelled scene scope can settle synchronously inside the Promise constructor.
+  // Clear that settled handle after assignment so a later phone visit can close normally.
+  const pending=closePromise;pending.then(()=>{if(closePromise===pending)closePromise=null;});return pending;
  }
  const api={go(p){page=p;render();},refresh:render,close:closePhone,message:setMessage,button,esc,
   async begin(adventureId,opts={}){if(!window.RAAdventures?.available(adventureId)){setMessage('not tonight.');return false;}await closePhone();return RAAdventureScene.begin(adventureId,{from:'phone',...opts});},

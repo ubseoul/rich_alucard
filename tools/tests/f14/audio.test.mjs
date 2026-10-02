@@ -17,7 +17,8 @@ export async function test(root){
   const real=await checkAudio({root,dir:root});
   assert.equal(real.findings.length,0,`real audio findings: ${JSON.stringify(real.findings.slice(0,3))}`);
   assert(real.summary.registered>200);
-  assert(real.pending.some(p=>p.id==='MAGIC_SEANCE'),'the undelivered authored sound remains declared pending after F11-A supplies the drop-in hooks');
+  assert(!real.pending.some(p=>p.id==='MAGIC_SEANCE'),'OL-043 fills MAGIC_SEANCE with Ube’s GN_01 pick');
+  assert.equal(real.manifest.get('MAGIC_SEANCE').selectedFrom,'GN_01');
   // entryFiles flattens loop-set parts and variations
   assert.deepEqual(entryFiles({file:'a.mp3',parts:[{file:'a__idle.mp3'}],variations:['a__alt.mp3']}),['a.mp3','a__idle.mp3','a__alt.mp3']);
   // synthetic: a registered file that does not exist is a FAIL-level finding

@@ -96,6 +96,7 @@
    "glob": "js/data/audio/parts/*.js"
   },
   "js/engine/audio.js",
+  "js/engine/open_audio.js",
   "js/data/characters.js",
   "js/data/moves.js",
   "js/data/combat.js",

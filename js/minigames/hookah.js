@@ -78,7 +78,7 @@
    if(dead)return;e.preventDefault();
    const t=e.touches?e.touches[0]:e;const n=toNative(t.clientX,t.clientY);
    if(n.y>436&&n.x>75&&n.x<195){finishUp();return;}
-   inhaling=true;holdStart=performance.now();flick=[{y:n.y,t:performance.now()}];
+   inhaling=true;ctx.audio?.sound('HOOKAH_BUBBLE');holdStart=performance.now();flick=[{y:n.y,t:performance.now()}];
    if(lung===0)say('start');
   }
   function onMove(e){
@@ -87,7 +87,7 @@
   }
   function onUp(e){
    if(!inhaling||dead)return;e.preventDefault?.();
-   inhaling=false;
+   inhaling=false;ctx.audio?.stop('HOOKAH_BUBBLE');ctx.audio?.sound('EXHALE');
    const releaseSpeed=lung;
    let smoothness=.8;
    if(flick.length>=2){

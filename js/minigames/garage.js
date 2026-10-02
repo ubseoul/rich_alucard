@@ -96,7 +96,7 @@
 
  if(typeof window.RAMinigames==='undefined'||typeof document==='undefined')return;
 
- function mount(root,ctx){
+ function mount(root,ctx){ctx.audio?.sound('AMB_GARAGE');ctx.audio?.sound('CAR_LIFT');
   const P=ctx.params||{};
   const carId=P.car||'s15';
   const carColor=(FALLBACK_CARS[carId]||FALLBACK_CARS.s15).color;
@@ -132,7 +132,7 @@
    if(selected){
     if(inRect(p,BTN_CLOSE)){selected=null;return;}
     if(inRect(p,BTN_BUY)&&canBuy(selected.id,carId,owned,money)){
-     const price=priceOf(selected.id,owned);
+     ctx.audio?.sound('PART_INSTALL');ctx.audio?.sound(selected.id==='tires'?'IMPACT_WRENCH':'RATCHET');const price=priceOf(selected.id,owned);
      const patch={money:-price,parts:{}};
      if(selected.leveled)patch.parts.turbo=(owned.turbo||0)+1;
      else patch.parts[selected.id]=true;

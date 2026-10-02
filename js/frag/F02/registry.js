@@ -158,7 +158,7 @@
   }
   const say=helpers?.say||(()=>{});
   say(s,`GUN WEAVING: ${r.label}.`,'weird',{fx:'gun',gun:gunId});
-  let base=menu.dmg||0;
+  let base=(menu.dmg||0)*(1+(s.rich?.gunBonus||0));
   const enemy=helpers?.E?helpers.E(s):null;
   if(menu.vsUndead&&enemy?.undead)base*=menu.vsUndead;
   if(r.bonuses.vsVampireUndead&&(enemy?.undead||enemy?.vampire))base*=1+r.bonuses.vsVampireUndead;

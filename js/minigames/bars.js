@@ -211,7 +211,7 @@
    beat(true);
   }
 
-  function awardHook(){
+  function awardHook(){ctx.audio?.sound('HOOK_COOKED');
    if(hookAwardedThisRun)return;
    if(today&&dailyHooks>=3)return;
    hookAwardedThisRun=true;dailyHooks++;
@@ -219,7 +219,7 @@
    ctx.saveProgress({hookDay:today,hookCount:dailyHooks});
   }
 
-  function onCorrect(res,tappedType){
+  function onCorrect(res,tappedType){ctx.audio?.sound('BARS_CORRECT');
    flashUntil=performance.now()+260;flashColor=res.punchline?P.palette.gold:P.palette.green;
    flashMsg=res.punchline?'+1000 PUNCHLINE':(res.multi?`+${res.points} MULTI x2`:`+${res.points}`);
    if(state.combo>bestCombo)bestCombo=state.combo;
@@ -228,7 +228,7 @@
    beat(state.combo%4===0);
    if(battle)battleScore=state.score;
   }
-  function onWrong(){
+  function onWrong(){ctx.audio?.sound('BARS_WRONG');
    flashUntil=performance.now()+220;flashColor=P.palette.red;flashMsg='OFF BEAT';
    multiPending=null;
   }
@@ -373,7 +373,7 @@
     P.text(g,'CHAIN',135,96,{size:6,align:'center',color:'#c9c0a8'});
     P.text(g,state.chainWord,135,108,{size:16,align:'center',color:'#f6efd9'});
     const elapsedRound=now-roundStart;
-    const pct=Math.max(0,1-elapsedRound/roundMs);
+    const pct=Math.max(0,1-elapsedRound/roundMs);ctx.audio?.edge('timer',pct<=0,'BARS_TIMER');
     P.rect(g,10,132,250,6,'#231f2c');P.rect(g,10,132,250*pct,6,pct>0.3?P.palette.green:P.palette.red);
     choices.forEach(c=>drawChoiceChip(c,now));
    }

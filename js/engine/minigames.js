@@ -57,6 +57,7 @@
     finish:(result={})=>end({outcome:'done',...result}),
     quit:()=>end({quit:true,outcome:'quit'})
    };
+   ctx.audio=window.RAOpenAudio?.scope(root,scope);
    quitButton.addEventListener('click',()=>ctx.quit());
    current={id,abort:()=>ctx.quit(),ctx};
    try{instance=def.mount(stage,ctx)||{};}catch(error){console.error(error);end({quit:true,error:String(error?.message||error)});}

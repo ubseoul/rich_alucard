@@ -204,7 +204,7 @@
 
  function mount(root,ctx){
   const P=ctx.params||{};
-  const carId=CARS[P.car]?P.car:'s15';
+  const carId=CARS[P.car]?P.car:'s15';const motor=carId==='aventador'?'CAR_V12':carId==='ferrari'?'CAR_V8_EXOTIC':carId==='urus'?'CAR_V8_SUV':carId==='s2000'?'CAR_4CYL_HIGHREV':'CAR_I6_TURBO';ctx.audio?.sound(motor,'idle');ctx.audio?.sound('COUNTDOWN');ctx.audio?.sound(P.course==='garage'?'AMB_GARAGE_ECHO':'AMB_MOUNTAIN');
   const parts=P.parts||{};
   const carSprite=frozenCar(carId,parts);
   const handling=computeHandling(carId,parts);
@@ -292,13 +292,13 @@
    if(keys.has('ArrowUp'))throttle=1;
    if(throttle>0.01||steer!==0)cueUsed=true; // first-time control cue hides as soon as the player uses input
    input.steer=steer;input.throttle=throttle;input.ebrake=ebrakeHeld;
-   clutchKick=handling.manual&&ebrakeHeld&&throttle>0.5&&!prevThrottleHeld;
+   clutchKick=handling.manual&&ebrakeHeld&&throttle>0.5&&!prevThrottleHeld;if(clutchKick)ctx.audio?.sound('CLUTCH_KICK');if(prevThrottleHeld&&throttle<=0.5&&['supra','s15','r34_awd','r34_rwd'].includes(carId))ctx.audio?.sound('BLOWOFF');ctx.audio?.edge('motorhigh',throttle>0.5,motor,'high');
    prevThrottleHeld=throttle>0.5;
   }
 
   // ---- run lifecycle -------------------------------------------------------
   function bestKey(){return `${course.id}:${carId}`;}
-  function runItBack(){
+  function runItBack(){ctx.audio?.sound('COUNTDOWN');ctx.audio?.sound(motor,'idle');
    course=buildCourse(P.course&&COURSE_THEME[P.course]?P.course:'angeles_crest',Math.floor(Math.random()*1e9));
    state={heading:0,slideAngle:0,speed:0,x:0,distance:0,sliding:false,spinning:false};
    score=0;chain=1;spins=0;maxAngleSeen=0;clipHits=0;wallCooldown=0;tandemScore=0;
@@ -306,7 +306,7 @@
    lessonCounts={1:0,2:0,3:0,4:0};
    lessonFlash={text:LESSON_WORD[lesson]||null,t:LESSON_WORD[lesson]?1.6:0};
   }
-  function endRun(){
+  function endRun(){ctx.audio?.stop(motor);ctx.audio?.stop('TIRE_SQUEAL');
    phase='results';root.dataset.phase=phase;
    const prev=ctx.progress();
    const best=Math.max(score,(prev.best&&prev.best[bestKey()])||0);
@@ -330,13 +330,13 @@
   function update(dt){
    if(phase!=='run')return;
    readInput();
-   const wasSliding=state.sliding;
+   const wasSliding=state.sliding,wasSpinning=state.spinning;
    state=step(state,{steer:input.steer,throttle:input.throttle,ebrake:input.ebrake,clutchKick},dt,handling);
-   const absAngle=Math.abs(state.slideAngle);
+   ctx.audio?.edge('slide',state.sliding&&!state.spinning,'TIRE_SQUEAL');if(wasSliding&&!state.sliding)ctx.audio?.sound('TIRE_GRIP');if(!wasSpinning&&state.spinning)ctx.audio?.sound('SPINOUT');const absAngle=Math.abs(state.slideAngle);
    maxAngleSeen=Math.max(maxAngleSeen,absAngle);
    if(state.sliding&&!state.spinning){
     ({score,chain}=scoreDrift({score,chain},absAngle,state.speed,dt,handling.maxAngle));
-    if(absAngle>30){cleanTimer+=dt;if(cleanTimer>1.5&&!rewardedClean){ctx.reward({memories:['first clean drift']});rewardedClean=true;}}
+    if(absAngle>30){cleanTimer+=dt;if(cleanTimer>1.5&&!rewardedClean){ctx.reward({memories:['first clean drift']});rewardedClean=true;ctx.audio?.sound('CROWD_CHEER_SMALL');}}
     else cleanTimer=0;
    } else cleanTimer=0;
    if(!wasSliding&&state.sliding)lessonCounts[1]++;
@@ -355,7 +355,7 @@
    const dev=state.x-centerX;
    const half=course.roadWidth/2-8;
    if(Math.abs(dev)>half){
-    if(wallCooldown<=0){chain*=0.7;wallCooldown=0.6;}
+    if(wallCooldown<=0){ctx.audio?.sound('WALL_SCRAPE');chain*=0.7;wallCooldown=0.6;}
     state.x=centerX+clamp(dev,-half,half);
     state.speed*=0.85;
    }
@@ -364,7 +364,7 @@
    for(const clip of course.clips){
     if(clip.hit)continue;
     if(Math.abs(clip.distance-state.distance)<14&&state.sliding&&Math.abs(state.x-clip.x)<clip.range){
-     clip.hit=true;clipHits++;lessonCounts[4]++;
+     ctx.audio?.sound('CLIP_DING');clip.hit=true;clipHits++;lessonCounts[4]++;
      ({score,chain}=scoreClip({score,chain}));
     }
    }

@@ -116,7 +116,7 @@ export async function test(root) {
     // COLLECT: $10K–$40K, HEAT +5
     const collect = ctx.RAWarRoomJobs.JOB_TYPES.COLLECT;
     assert.equal(collect.heat, 5);
-    assert.equal(collect.squadSize, 3);
+    assert.equal(collect.squadSize, 2, 'Vol 7 §3.2 / OL-043 COLLECT sends two');
     assert.equal(collect.reward.type, 'cash_range');
     assert.equal(collect.reward.min, 10000);
     assert.equal(collect.reward.max, 40000);
@@ -150,6 +150,7 @@ export async function test(root) {
     const layLow = ctx.RAWarRoomJobs.JOB_TYPES.LAY_LOW;
     assert.ok(layLow, 'LAY_LOW must be defined');
     assert.equal(layLow.squadSize, 0, 'squad size must be 0');
+    assert.equal(ctx.RAWarRoomJobs.JOB_TYPES.EXTRACT.squadSize, 3, 'Vol 7 §3.2 / OL-043 uses lower end of 3–4');
     assert.equal(layLow.reward.type, 'heat_reduce');
     assert.equal(layLow.reward.cashCost, 10000);
     assert.equal(layLow.reward.heatDelta, -15);
