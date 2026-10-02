@@ -2,7 +2,7 @@
 
 Base: r3-base / 779a56363a2b5ed01e188025279138d1443293a7.
 Branch: build/open-completion-001. Do not move accepted branches or regenerate preserved work.
-Status: **VERIFIED under OL-043 / OL-045; publication in progress**. Runtime integration committed at 75d475b02849ffd5875ea0ce884d3cabc0b81f05; final release, browser, statistics, audio and tap proofs pass. Publication advances only build/open-completion-001; the final remote receipt accompanies the user-facing report. Historical steps below are superseded by the current ruling/evidence ledger.
+Status: **COMPLETE and PUBLISHED under OL-043 / OL-045**. Runtime integration committed at 75d475b02849ffd5875ea0ce884d3cabc0b81f05; final release, browser, statistics, audio and tap proofs pass. Publication advances only build/open-completion-001; implementation/evidence publication was remote-verified at b7682a311482681844dff9bec46b6c7e4117b762. The final report records the branch tip after this closeout metadata. Historical steps below are superseded by the current ruling/evidence ledger.
 
 | Step | Status | SHA | Evidence |
 |---|---|---|---|
@@ -41,3 +41,5 @@ Resume commands: `python tools/build2/extract-sources.py`, `node tools/build2/au
 | Final release | PASS final code-commit run: npm test/release, OPEN source/artifact leak, artifact verification, empty overlay equality and required Chrome smoke; 51/51 full-width integration assertions. | same | docs/evidence/build2/verify-all-final.log; verify-all.json; browser-all.json |
 
 Ube's retained decisions: OBA DE GWINNETT, no rename; GN_01 SMG burst is the MAGIC_SEANCE pick; reserved KBBQ/outdoor-hot-spring hooks may use playable review-tour proof, and future scene wiring is queued. No new art/audio/scenario was authored. Missing dedicated visual assets are BUILD-6 rows; rare-hunter art is BUILD-4. The former R1/T10/audio blockers in the historical ledger no longer apply under OL-043.
+
+Publication closeout: PASS — `git -c gc.auto=0 ls-remote --heads origin refs/heads/build/open-completion-001` returned b7682a311482681844dff9bec46b6c7e4117b762. Only the authorized review branch advanced. Receipt: `docs/evidence/build2/push-receipt.json`. No required BUILD-2 work remains; source/art/balance follow-ups are the explicit queued dispositions above.
