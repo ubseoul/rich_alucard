@@ -1,0 +1,197 @@
+{
+  "asset": "STOVE G \u2014 warehouse exterior and RICH ENTERPRISES sign variant",
+  "status": "FROZEN \u2014 UBE APPROVED",
+  "recorded_at_utc": "2026-10-01T21:18:40.167791+00:00",
+  "creator_approval": {
+    "creator": "Ube",
+    "evidence": "Explicit approval in this exterior artist chat",
+    "statement": "Ube approves the finished normalized exterior and RICH ENTERPRISES sign variant.",
+    "scope": "Exact reviewed files; no further pixel changes"
+  },
+  "frozen_files": [
+    {
+      "path": "C:\\Users\\Ube\\Documents\\Codex\\2026-10-01\\stove-g-warehouse-exterior-background-candidate\\outputs\\warehouse_exterior_270x480.png",
+      "sha256": "0f62562efa01e6023858e092bd72c40c3c757009a63d1bb1157e0fef528abd14",
+      "dimensions": [
+        270,
+        480
+      ],
+      "mode": "RGB (opaque)"
+    },
+    {
+      "path": "C:\\Users\\Ube\\Documents\\Codex\\2026-10-01\\stove-g-warehouse-exterior-background-candidate\\outputs\\warehouse_exterior_rich_enterprises_270x480.png",
+      "sha256": "71176517270e72b67aea396878a14022c53b033ccf6c469d02069e9ac196295e",
+      "dimensions": [
+        270,
+        480
+      ],
+      "mode": "RGB (opaque)"
+    }
+  ],
+  "frozen_v2_source_provenance": {
+    "path": "C:\\Users\\Ube\\Documents\\Codex\\2026-10-01\\stove-g-warehouse-exterior-background-candidate\\outputs\\stove-g-warehouse-exterior-candidate-v2.png",
+    "sha256": "fabab780c14a0a8615bb56eb5680ce9f08057923faa4dced4d5f5d83e8b85fe1",
+    "dimensions": [
+      941,
+      1672
+    ],
+    "unchanged": true
+  },
+  "source_authority": {
+    "visual_authority_sha_user_supplied": "31ac1bfe6eddb04786fb6fffded69e6d8fa0b643",
+    "source_approval": "Ube approved Warehouse Exterior v2 in this chat",
+    "story": "User-supplied Patch1 NEW OGA \u00a77"
+  },
+  "normalization": {
+    "reused": true,
+    "manifest_path": "C:\\Users\\Ube\\Documents\\Codex\\2026-10-01\\stove-g-warehouse-exterior-background-candidate\\outputs\\owambe_party_exterior_normalization.json",
+    "manifest_sha256": "5b14d7864980c0bc03ad6d7e285537794eaf56d12464225b7f7756f8132e4d7d",
+    "transform": {
+      "library": "Pillow",
+      "version": "12.3.0",
+      "resampling": "Image.Resampling.NEAREST",
+      "source_sampling_box_left_top_right_bottom": [
+        0.25,
+        0.0,
+        940.75,
+        1672.0
+      ],
+      "crop": "0.25 source pixel from each horizontal edge; 0 vertical; no padding",
+      "uniform_scale": "480/1672 = 60/209",
+      "source_pixel_mapping": "sx=floor(0.25+(x+0.5)*209/60); sy=floor((y+0.5)*209/60)",
+      "preview": "4x nearest-neighbor enlargement of normalized PNG",
+      "no_other_pixel_processing": true
+    }
+  },
+  "sign": {
+    "bounds_xywh": [
+      54,
+      104,
+      163,
+      30
+    ],
+    "frame_bounds_xywh": [
+      50,
+      100,
+      171,
+      39
+    ],
+    "text_safe_bounds_xywh": [
+      58,
+      108,
+      154,
+      22
+    ],
+    "coordinate_convention": "top-left origin, x right, y down; visual face/frame bounds approximately +/-1 pixel",
+    "perspective": "Existing sign is front-facing; axis-aligned pixel glyphs, no warp",
+    "new_text": "RICH ENTERPRISES",
+    "new_text_bounds_xywh": [
+      72,
+      109,
+      126,
+      10
+    ],
+    "new_font": "Explicit 3x5 bitmap glyphs at 2x integer scale, 2-pixel inter-glyph spacing",
+    "ink_rgb": [
+      5,
+      6,
+      16
+    ],
+    "ink_sample_xy": [
+      52,
+      137
+    ],
+    "old_text": "GBENGA",
+    "old_text_bounds_xywh": [
+      117,
+      123,
+      35,
+      7
+    ],
+    "old_font": "Explicit 5x7 bitmap glyphs at 1x, 1-pixel spacing",
+    "ghost_formula": "floor((5 * original_sign_pixel + ink) / 6) per channel",
+    "changed_pixels": 701,
+    "changed_pixel_bounds_xywh": [
+      72,
+      109,
+      126,
+      21
+    ],
+    "outside_sign_changed_pixels": 0
+  },
+  "verification": {
+    "all_recorded_source_output_and_preview_hashes_rechecked": true,
+    "all_129600_normalized_pixels_match_exact_transform": true,
+    "both_backgrounds_opaque_rgb_270x480_png": true,
+    "changed_pixels_between_variants": 701,
+    "pixels_changed_outside_sign": 0,
+    "architecture_entrance_ground_unchanged": true,
+    "source_production_pngs_and_qa_previews_preserved": true,
+    "native_lettering_review": "PASS \u2014 native 540x480 comparison inspected: RICH ENTERPRISES readable, GBENGA faint and subordinate; 4x preview also inspected"
+  },
+  "existing_manifest": {
+    "path": "C:\\Users\\Ube\\Documents\\Codex\\2026-10-01\\stove-g-warehouse-exterior-background-candidate\\outputs\\warehouse_exterior_manifest.json",
+    "sha256": "438437dc0a3c9f4ca876fcf3fe7b3023f594b3f06b9d3c691753b713b3a48a93",
+    "note": "Preserved as historical technical manifest; this creator approval record supersedes its pending-review status."
+  },
+  "preserved_files": [
+    {
+      "path": "C:\\Users\\Ube\\Documents\\Codex\\2026-10-01\\stove-g-warehouse-exterior-background-candidate\\outputs\\build_warehouse_sign_variant.py",
+      "sha256": "8f6692cade6767a5e3bf17c127aac959a30adcbaa4f423abb0324778f06fbad4"
+    },
+    {
+      "path": "C:\\Users\\Ube\\Documents\\Codex\\2026-10-01\\stove-g-warehouse-exterior-background-candidate\\outputs\\normalize_warehouse_exterior.py",
+      "sha256": "7f61f19b1be81a8ab4e8866f23ca0ab2670c84292319e408bb2f1b4a1c45eabe"
+    },
+    {
+      "path": "C:\\Users\\Ube\\Documents\\Codex\\2026-10-01\\stove-g-warehouse-exterior-background-candidate\\outputs\\owambe_party_exterior_270x480.png",
+      "sha256": "0f62562efa01e6023858e092bd72c40c3c757009a63d1bb1157e0fef528abd14"
+    },
+    {
+      "path": "C:\\Users\\Ube\\Documents\\Codex\\2026-10-01\\stove-g-warehouse-exterior-background-candidate\\outputs\\owambe_party_exterior_normalization.json",
+      "sha256": "5b14d7864980c0bc03ad6d7e285537794eaf56d12464225b7f7756f8132e4d7d"
+    },
+    {
+      "path": "C:\\Users\\Ube\\Documents\\Codex\\2026-10-01\\stove-g-warehouse-exterior-background-candidate\\outputs\\owambe_party_exterior_preview_1080x1920.png",
+      "sha256": "09e2f85c97c262909fb9a387c266ec51a3f97c49dd3898c030fb7a4dd8935669"
+    },
+    {
+      "path": "C:\\Users\\Ube\\Documents\\Codex\\2026-10-01\\stove-g-warehouse-exterior-background-candidate\\outputs\\stove-g-generation-prompt.txt",
+      "sha256": "3245b0daa0019aa9d0edcf2b5d2be7aa67f49cc1c97f635cd4595744ab98fd3b"
+    },
+    {
+      "path": "C:\\Users\\Ube\\Documents\\Codex\\2026-10-01\\stove-g-warehouse-exterior-background-candidate\\outputs\\stove-g-revision-v2-prompt.txt",
+      "sha256": "1d9567ef566e1dc111302362816d76e79d3bc1a8eec80799a06e05f250a1c7dd"
+    },
+    {
+      "path": "C:\\Users\\Ube\\Documents\\Codex\\2026-10-01\\stove-g-warehouse-exterior-background-candidate\\outputs\\stove-g-warehouse-exterior-candidate-v2.png",
+      "sha256": "fabab780c14a0a8615bb56eb5680ce9f08057923faa4dced4d5f5d83e8b85fe1"
+    },
+    {
+      "path": "C:\\Users\\Ube\\Documents\\Codex\\2026-10-01\\stove-g-warehouse-exterior-background-candidate\\outputs\\stove-g-warehouse-exterior-candidate.png",
+      "sha256": "24ea38ccc875fe7efa163fc22e82cbfc3b326e0cbbaf6a1ec1bf69c91c8f917d"
+    },
+    {
+      "path": "C:\\Users\\Ube\\Documents\\Codex\\2026-10-01\\stove-g-warehouse-exterior-background-candidate\\outputs\\warehouse_exterior_270x480.png",
+      "sha256": "0f62562efa01e6023858e092bd72c40c3c757009a63d1bb1157e0fef528abd14"
+    },
+    {
+      "path": "C:\\Users\\Ube\\Documents\\Codex\\2026-10-01\\stove-g-warehouse-exterior-background-candidate\\outputs\\warehouse_exterior_comparison_4x.png",
+      "sha256": "8066f5e1118ce36515691f78ff526052a06047644c6f9ae765c01e100cfa2fe0"
+    },
+    {
+      "path": "C:\\Users\\Ube\\Documents\\Codex\\2026-10-01\\stove-g-warehouse-exterior-background-candidate\\outputs\\warehouse_exterior_comparison_native.png",
+      "sha256": "1ada28526af46c53c8c6122f9e4a889fc7f8bde740c3ec77729e2608dda2c3d5"
+    },
+    {
+      "path": "C:\\Users\\Ube\\Documents\\Codex\\2026-10-01\\stove-g-warehouse-exterior-background-candidate\\outputs\\warehouse_exterior_manifest.json",
+      "sha256": "438437dc0a3c9f4ca876fcf3fe7b3023f594b3f06b9d3c691753b713b3a48a93"
+    },
+    {
+      "path": "C:\\Users\\Ube\\Documents\\Codex\\2026-10-01\\stove-g-warehouse-exterior-background-candidate\\outputs\\warehouse_exterior_rich_enterprises_270x480.png",
+      "sha256": "71176517270e72b67aea396878a14022c53b033ccf6c469d02069e9ac196295e"
+    }
+  ],
+  "runtime_integration": "PENDING \u2014 not performed",
+  "commit_or_push": "Not performed"
+}
