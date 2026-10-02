@@ -1,0 +1,54 @@
+[
+  {
+    "file": "js/frag/F01/data.js",
+    "status": "UNCHANGED"
+  },
+  {
+    "file": "js/frag/F01/engine.js",
+    "status": "DIFF \u2014 REVIEW REQUIRED"
+  },
+  {
+    "file": "js/frag/F01/packets.js",
+    "status": "DIFF \u2014 REVIEW REQUIRED"
+  },
+  {
+    "file": "js/frag/F01/play/content.mjs",
+    "status": "UNCHANGED"
+  },
+  {
+    "file": "js/frag/F02/armory.js",
+    "status": "PRESERVED F02 ADDITION"
+  },
+  {
+    "file": "js/frag/F02/catalog.js",
+    "status": "PRESERVED F02 ADDITION"
+  },
+  {
+    "file": "js/frag/F02/range.js",
+    "status": "PRESERVED F02 ADDITION"
+  },
+  {
+    "file": "js/frag/F02/registry.js",
+    "status": "PRESERVED F02 ADDITION"
+  },
+  {
+    "file": "js/frag/F04/jobs.js",
+    "status": "UNCHANGED"
+  },
+  {
+    "file": "js/frag/F06/make_it_rain_tunables.js",
+    "status": "UNCHANGED"
+  },
+  {
+    "file": "js/frag/F07/play_bridge.js",
+    "status": "UNCHANGED"
+  },
+  {
+    "file": "source_vault/feature_sources/Rich_Alucard_Patch_IRON_AND_GRACE_Guns.docx",
+    "status": "UNCHANGED"
+  },
+  {
+    "file": "source_vault/open_design/Rich_Alucard_BTF_Vol3_Numbers.docx",
+    "status": "UNCHANGED"
+  }
+]

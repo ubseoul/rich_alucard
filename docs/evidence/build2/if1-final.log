@@ -1,0 +1,28 @@
+PASS IF-1 v1.0 contract (19 modules, 151 frozen members present, self-check, single-owner surface rules)
+PASS convergence dark: selfCheck + migrations clean, HEAT provisional, no apps, no namespaces, schema v16
+PASS convergence F04 migration: orphan submission removed, lazy namespace defaults intact, ledger untouched
+PASS convergence HEAT: RAHeatFloors is the single owner (0/30/60/85); F04 and F05 delegate; identical for every flag combination
+PASS convergence flags: F05.trap is the one F05 identity; F01.showdown_core is live, F01.showdown inert/reserved; stale F14 tactical routes retired
+PASS convergence wake bus: NIGHT priorities unique (-35 heat-decay, -30 sales, -20 raid-schedule, -10 fame); only the two historical accepted ties remain
+PASS convergence phone: cars single registration; onlyvamps + realEstate/realestate preserved; reserved slots dark; F04/F05/F06 apps register only with their flags
+PASS convergence RAINMAKER unlock: dark until the first RAWorldEvents-resolved event; once; persisted; reload-safe; flag alone/other conditions never unlock
+PASS convergence audio: F01 duplicate BX hooks removed, F11 master registers clean, F06 RM_01-08 wired, BX_STEP inert, TR_01/TR_05 unchanged
+PASS convergence Koreatown: F03-owned, never shadowed by F04 or anyone; an absent owner reports PROVIDER_MISSING and is skipped
+PASS convergence frag roster: preserved F02 added alongside all accepted bounded ports
+PASS IF-1 features (dark defaults, namespace guard, requires, persistence scope, DEV-only overrides, owner promotion)
+PASS HOLD bridge happy path: 16 real F01 HOLDs ({"HELD":9,"FELL_BACK":5,"BREACHED":1,"WASH":1}): F01 once, shared cash/HEAT once, F05 stash + 30% only, receipt, one capture timer, RACrew ids end to end
+PASS HOLD bridge refusals: F05 off / F01 off / no raid change nothing
+PASS HOLD bridge reload before handoff / after handoff before launch: raid intact and launchable
+PASS HOLD bridge reload during HOLD: nothing applied, same launch id relaunched, F01 record reused not replayed
+PASS HOLD bridge result held / crash during delivery / repeated delivery: recovered once, HEAT+cash+capture+stash exactly once, F05 receipt final
+PASS HOLD bridge shared-step failure: F05 not applied, retried idempotently
+PASS HOLD bridge stale / malformed / unknown-crew / non-HOLD / unreadable results and back-out: all inert, raid kept, relaunch completes once
+PASS HOLD bridge persistence: shared namespaces only, no sandbox keys, schema v16, transaction cleared
+PASS IF-1 loader (217 scripts, manifest==index.html, legacy order preserved, slots/globs/css/overlay markers, dependency rules, duplicate/orphan/stale detection)
+PASS IF-1 migrations (10 historical schemas v07–v16 load additively+idempotently, lazy frag namespaces, owner-assigned ordering, orphan/gap/claim rejection)
+PASS IF-1 phone/art/audio registries (reserved apps stay dark, additive art+audio parts, frozen-asset collision refused, part folders clean)
+PASS IF-1 sealed architecture (OPEN runs with empty pack; leak check catches forbidden paths/dirty slot/install calls/overlay slot/denylist without echo; overlay builder: empty pack == OPEN, payload confined to sealed roots, OPEN dist untouched, tamper + traversal rejected)
+PASS IF-1 services (money ledger, HEAT, trust/clout/tendency, crew, vehicles, districts, VampGram API, sales channels, Combat2 extension points)
+PASS IF-1 wake/night bus (accepted roster intact, deterministic priority order, flag gating, no double-fire, night-report slot, one voice note per WAKE)
+PASS IF-1 zero-behavior-change (4 lives × 6 nights, 72 route plays: byte-identical saves/traces/wake rosters with IF-1 present + all flags OFF; NEW OGA M1–M3 identical)
+PASS fragment test discovery (11 suites for if1)

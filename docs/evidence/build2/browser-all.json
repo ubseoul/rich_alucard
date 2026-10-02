@@ -1,0 +1,293 @@
+{
+  "ok": true,
+  "results": [
+    {
+      "width": 360,
+      "name": "buy gun through Armory UI",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "width": 360,
+      "name": "complete one full Range Day",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "width": 360,
+      "name": "range target clack GN_06 actually plays",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "width": 360,
+      "name": "menu gun action plays GN_01",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "width": 360,
+      "name": "play bought gun in existing loadout selector",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "width": 360,
+      "name": "play terminates through real UI",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "width": 360,
+      "name": "play F02 gun preserved in PLAY record",
+      "ok": true,
+      "detail": "CLEAN"
+    },
+    {
+      "width": 360,
+      "name": "play bought gun GN_01 actually plays in iframe",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "width": 360,
+      "name": "real NIGHT schedules trap raid",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "width": 360,
+      "name": "trap-raid terminates through real UI",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "width": 360,
+      "name": "trap-raid F02 gun preserved in PLAY record",
+      "ok": true,
+      "detail": "MESSY"
+    },
+    {
+      "width": 360,
+      "name": "trap-raid bought gun GN_01 actually plays in iframe",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "width": 360,
+      "name": "trap raid delivered",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "width": 360,
+      "name": "GN_01–GN_06 decode and play",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "width": 360,
+      "name": "UI tap sound observed",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "width": 360,
+      "name": "no page/network errors",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "width": 390,
+      "name": "buy gun through Armory UI",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "width": 390,
+      "name": "complete one full Range Day",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "width": 390,
+      "name": "range target clack GN_06 actually plays",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "width": 390,
+      "name": "menu gun action plays GN_01",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "width": 390,
+      "name": "play bought gun in existing loadout selector",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "width": 390,
+      "name": "play terminates through real UI",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "width": 390,
+      "name": "play F02 gun preserved in PLAY record",
+      "ok": true,
+      "detail": "CLEAN"
+    },
+    {
+      "width": 390,
+      "name": "play bought gun GN_01 actually plays in iframe",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "width": 390,
+      "name": "real NIGHT schedules trap raid",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "width": 390,
+      "name": "trap-raid terminates through real UI",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "width": 390,
+      "name": "trap-raid F02 gun preserved in PLAY record",
+      "ok": true,
+      "detail": "MESSY"
+    },
+    {
+      "width": 390,
+      "name": "trap-raid bought gun GN_01 actually plays in iframe",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "width": 390,
+      "name": "trap raid delivered",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "width": 390,
+      "name": "GN_01–GN_06 decode and play",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "width": 390,
+      "name": "UI tap sound observed",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "width": 390,
+      "name": "no page/network errors",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "width": 430,
+      "name": "buy gun through Armory UI",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "width": 430,
+      "name": "complete one full Range Day",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "width": 430,
+      "name": "range target clack GN_06 actually plays",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "width": 430,
+      "name": "menu gun action plays GN_01",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "width": 430,
+      "name": "play bought gun in existing loadout selector",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "width": 430,
+      "name": "play terminates through real UI",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "width": 430,
+      "name": "play F02 gun preserved in PLAY record",
+      "ok": true,
+      "detail": "CLEAN"
+    },
+    {
+      "width": 430,
+      "name": "play bought gun GN_01 actually plays in iframe",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "width": 430,
+      "name": "real NIGHT schedules trap raid",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "width": 430,
+      "name": "trap-raid terminates through real UI",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "width": 430,
+      "name": "trap-raid F02 gun preserved in PLAY record",
+      "ok": true,
+      "detail": "MESSY"
+    },
+    {
+      "width": 430,
+      "name": "trap-raid bought gun GN_01 actually plays in iframe",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "width": 430,
+      "name": "trap raid delivered",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "width": 430,
+      "name": "GN_01–GN_06 decode and play",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "width": 430,
+      "name": "UI tap sound observed",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "width": 430,
+      "name": "no page/network errors",
+      "ok": true,
+      "detail": ""
+    }
+  ]
+}

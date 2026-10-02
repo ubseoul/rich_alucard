@@ -31,9 +31,9 @@ for folder in [Path("js"), Path("source_vault")]:
 diff = git("diff", "r3-base", "--", *sorted(numbers)).decode("utf-8")
 (out / "authored-numbers-vs-r3-base.diff").write_text(diff, encoding="utf-8")
 rows = []
+base_files = set(git("ls-tree", "-r", "--name-only", "r3-base").decode().splitlines())
 for name in sorted(numbers):
-    try: original = git("show", "r3-base:" + name)
-    except subprocess.CalledProcessError: original = None
+    original = git("show", "r3-base:" + name) if name in base_files else None
     current = Path(name).read_bytes()
     rows.append({"file": name, "status": "UNCHANGED" if original is not None and current.replace(b"\r\n", b"\n") == original.replace(b"\r\n", b"\n") else "PRESERVED F02 ADDITION" if name.startswith("js/frag/F02/") else "DIFF — REVIEW REQUIRED"})
 (out / "authored-numbers-proof.json").write_text(json.dumps(rows, indent=2) + "\n")

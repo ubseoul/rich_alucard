@@ -1,0 +1,49 @@
+PASS 360 buy gun through Armory UI 
+PASS 360 complete one full Range Day 
+PASS 360 range target clack GN_06 actually plays 
+PASS 360 menu gun action plays GN_01 
+PASS 360 play bought gun in existing loadout selector 
+PASS 360 play terminates through real UI 
+PASS 360 play F02 gun preserved in PLAY record CLEAN
+PASS 360 play bought gun GN_01 actually plays in iframe 
+PASS 360 real NIGHT schedules trap raid 
+PASS 360 trap-raid terminates through real UI 
+PASS 360 trap-raid F02 gun preserved in PLAY record MESSY
+PASS 360 trap-raid bought gun GN_01 actually plays in iframe 
+PASS 360 trap raid delivered 
+PASS 360 GN_01–GN_06 decode and play 
+PASS 360 UI tap sound observed 
+PASS 360 no page/network errors 
+PASS 390 buy gun through Armory UI 
+PASS 390 complete one full Range Day 
+PASS 390 range target clack GN_06 actually plays 
+PASS 390 menu gun action plays GN_01 
+PASS 390 play bought gun in existing loadout selector 
+PASS 390 play terminates through real UI 
+PASS 390 play F02 gun preserved in PLAY record CLEAN
+PASS 390 play bought gun GN_01 actually plays in iframe 
+PASS 390 real NIGHT schedules trap raid 
+PASS 390 trap-raid terminates through real UI 
+PASS 390 trap-raid F02 gun preserved in PLAY record MESSY
+PASS 390 trap-raid bought gun GN_01 actually plays in iframe 
+PASS 390 trap raid delivered 
+PASS 390 GN_01–GN_06 decode and play 
+PASS 390 UI tap sound observed 
+PASS 390 no page/network errors 
+PASS 430 buy gun through Armory UI 
+PASS 430 complete one full Range Day 
+PASS 430 range target clack GN_06 actually plays 
+PASS 430 menu gun action plays GN_01 
+PASS 430 play bought gun in existing loadout selector 
+PASS 430 play terminates through real UI 
+PASS 430 play F02 gun preserved in PLAY record CLEAN
+PASS 430 play bought gun GN_01 actually plays in iframe 
+PASS 430 real NIGHT schedules trap raid 
+PASS 430 trap-raid terminates through real UI 
+PASS 430 trap-raid F02 gun preserved in PLAY record MESSY
+PASS 430 trap-raid bought gun GN_01 actually plays in iframe 
+PASS 430 trap raid delivered 
+PASS 430 GN_01–GN_06 decode and play 
+PASS 430 UI tap sound observed 
+PASS 430 no page/network errors 
+PASS BUILD2 real-browser path

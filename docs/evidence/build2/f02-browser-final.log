@@ -1,0 +1,18 @@
+PASS flags ON: F02.iron_and_grace / F02.armory / F02.range_day are all lit
+PASS F02 self-check OK
+PASS 13-gun catalog present — count 13
+PASS accepted schema still v16
+PASS Armory app unlocks once the Armory is known
+PASS Armory app renders its wall
+PASS BUY spends the authored price and owns the gun
+PASS EQUIP sets the F02 loadout
+PASS workbench lists the six mods
+PASS workbench BUY owns the mod
+PASS Range Day mounts with its lanes — lanes 3
+PASS Range Day is the active minigame — range_day
+PASS Range Day quits cleanly
+PASS dark reload: every F02 flag OFF
+PASS dark: reserved Armory app is declared but not registered
+PASS dark: loading the fragment writes no save namespace
+PASS zero page/console errors on the lit path
+PASS F02 browser path (17 checks)

@@ -1,0 +1,6 @@
+BAND routine {"n":4000,"captured":153,"percent":3.8249999999999997,"limit":8,"policies":[{"policy":"careful","n":1000,"captured":23,"percent":2.3},{"policy":"naive","n":1000,"captured":49,"percent":4.9},{"policy":"random","n":1000,"captured":56,"percent":5.6},{"policy":"greedy","n":1000,"captured":25,"percent":2.5}]}
+BAND big {"n":4000,"captured":648,"percent":16.2,"limit":20,"policies":[{"policy":"careful","n":1000,"captured":185,"percent":18.5},{"policy":"naive","n":1000,"captured":161,"percent":16.1},{"policy":"random","n":1000,"captured":198,"percent":19.8},{"policy":"greedy","n":1000,"captured":104,"percent":10.4}]}
+BAND hold {"n":4000,"captured":169,"percent":4.2250000000000005,"limit":8,"policies":[{"policy":"careful","n":1000,"captured":25,"percent":2.5},{"policy":"naive","n":1000,"captured":62,"percent":6.2},{"policy":"random","n":1000,"captured":54,"percent":5.4},{"policy":"greedy","n":1000,"captured":28,"percent":2.8}]}
+R1 random {"n":100,"atLeast6":97,"percent":97,"min":3}
+R1 careful {"n":100,"atLeast6":100,"percent":100,"min":7}
+FAIL BUILD2 PLAY acceptance {"violations":0,"uses":85001} {"max":2}
