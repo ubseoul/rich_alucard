@@ -49,8 +49,8 @@ async function drivePlay(p){
   const s=await frame.evaluate(()=>({d:document.querySelector('.decide button')?document.querySelector('.decide').dataset.kind:null,fb:!!document.querySelector('.decide .fb'),again:!!document.querySelector('.again')})).catch(()=>null);
   if(!s)break;
   info.seen+='\n'+await frame.evaluate(()=>document.body.innerText).catch(()=>'');
-  if(s.d){const bs=await frame.$$('.decide button');await (s.d==='CLIMB'?await frame.$('.decide button[data-id=OUT]'):bs[0]).click();}
-  if(s.fb)await (await frame.$('.decide .fb')).click();
+  if(s.d){const bs=await frame.$$('.decide button');await (s.d==='CLIMB'?await frame.$('.decide button[data-id=OUT]'):bs[0])?.click({timeout:3000}).catch(()=>{});}   // the decision UI can re-render between query and click: retry on the next poll
+  if(s.fb)await (await frame.$('.decide .fb'))?.click({timeout:3000}).catch(()=>{});
   if(s.again){await frame.click('.again');break;}
  }
  await p.waitForFunction(()=>!document.getElementById('f01-play-frame'),null,{timeout:20000});

@@ -1268,7 +1268,7 @@
       "owner": "Ube / HQ",
       "provenance": "Source Vault V1 assignment supplied by Ube; exact original not found in authorized public repository discovery.",
       "present": false,
-      "notes": "NEEDS INGESTION. Ube reports AUTHORITATIVE / CREATIVE LOCK, OPEN, for throne-room pre-beat through start of existing combat. Exact approved packet is absent; no source text was reconstructed from this assignment."
+      "notes": "NEEDS INGESTION. Ube reports AUTHORITATIVE / CREATIVE LOCK, OPEN, for throne-room pre-beat through start of existing combat. Exact approved packet is absent; no source text was reconstructed from this assignment. OL-037: not supplied by Ube; runtime CEO encounter stands as-is (INTENTIONALLY KEPT). Ingest if Ube later provides exact text."
     },
     {
       "source_id": "docs-art-integration-art-ship-008-integration-md",

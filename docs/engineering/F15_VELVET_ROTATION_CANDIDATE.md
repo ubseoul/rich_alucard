@@ -108,7 +108,7 @@ Every normal route into a scene ends in `RAAdventures.start(id)`: phone `begin`,
 ## OL-031 launch roster (BUILD-1 check)
 
 * **Launch roster = Roxy, Rosalyn, Emerald, all three on stage every WAKE** (`RAF15Tunables.DANCERS`; the club draws all three, nothing rotates them).
-* **Rainmaker §5 THE ROTATION** (Patch RAINMAKER §5: "10 dancers; the nightly lineup shows 4 … Weekday nights draw from COMMON and RARE; LEGENDARY only on Friday/Saturday and only after WHALE status") **had no code anywhere in the repo or on any preserved branch** (searched `js/`, `tools/`, `docs/` on 8a1dc98 and the Rainmaker, F06, F15 and parked-design refs). BUILD-1 added it as a **pure, dormant helper**: `RAF15.stageLineup(roster, {day, friday, whale})` + `RAF15Tunables.ROTATION` (`LINEUP_SIZE 4` and the tier rule are the authored §5 text; `ACTIVE_ABOVE 4` is OL-031). With a roster of 4 or fewer it returns everyone and never reads a tier; above 4 it applies §5 (how the 4 are picked among the eligible is a day-rotated window — mechanical tuning, not canon). Nothing in the club, dates or WAKE path calls it. Rainmaker's ten dancers remain a future patch.
+* **Rainmaker §5 THE ROTATION is NOT built** (OL-037): no rotation/lineup code exists in this repo or on any preserved branch, and none is added; it ships with Rainmaker's ten dancers (future patch). BUILD-1 briefly added a dormant helper and removed it on the Overlord's ruling.
 * **No REQUEST mechanic** (withdrawn in OL-029): none exists in F15; test-enforced.
 * **Emerald L3 lost item = the recital sheet music** (data checked: the call says "My sheet music. For the recital."; the found item is "a folder of sheet music"). No data change needed.
-* Test: `tools/tests/f15/ol031_roster.test.mjs` (fails on 8a1dc98: `RAF15.stageLineup` does not exist).
+* Test: `tools/tests/f15/ol031_roster.test.mjs` (passes on 8a1dc98 and on the candidate: no F15 code change was required).

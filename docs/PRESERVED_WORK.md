@@ -129,3 +129,8 @@ Tags `preserve/<short-name>` are annotated, pushed, and point at the SHA in this
 | feat/f07-warehouse-art-001 | `d52bb6c` | 2026-10-02 | PRESERVE | NOT CONTAINED | F07-owned adapter wiring frozen OWAMBE interior into finale party/office/duel scenes (art-only wiring) - NEW (2026-10-02) |
 | feat/f15-scene-art-001 | `09c2b59` | 2026-10-02 | PRESERVE | NOT CONTAINED | F15 approved scene-art wiring: 7 backgrounds, Granny Bing, cockroach (contains art/f15-date-scene-assets) - NEW (2026-10-02) |
 
+## C. Future scope (not built, not a ref)
+
+| Item | Status |
+|---|---|
+| Rainmaker §5 rotation | not built; ships with Rainmaker's ten (OL-037) |

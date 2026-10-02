@@ -102,21 +102,6 @@
  const handleOf=dancer=>mapping()[dancer];
  const dancerOf=handle=>T().DANCERS.find(d=>mapping()[d]===handle)||null;
 
- // ---- Rainmaker §5 THE ROTATION — DORMANT (OL-031) -------------------------------------------------------------------------------------
- // roster: [{id,tier}] (tier COMMON|RARE|LEGENDARY). With the roster at or below ROTATION.ACTIVE_ABOVE (the launch trio) EVERYONE is on stage
- // every WAKE and the roster comes back unchanged — tiers are never read. Above it, the nightly lineup shows LINEUP_SIZE dancers: weekdays draw
- // from COMMON and RARE; LEGENDARY only on Friday/Saturday and only after WHALE status. ctx={day,friday (Friday or Saturday),whale}. Nothing in
- // the club, the dates or the WAKE path calls this: the launch stage reads T().DANCERS.
- function stageLineup(roster=dancers().map(id=>({id})),ctx={}){
-  const R=T().ROTATION,list=roster.map(r=>typeof r==='string'?{id:r}:r);
-  if(list.length<=R.ACTIVE_ABOVE)return list.map(r=>r.id);
-  const tiers=ctx.friday&&ctx.whale?R.WEEKEND_TIERS:R.WEEKDAY_TIERS;
-  const eligible=list.filter(r=>tiers.includes(r.tier));
-  if(eligible.length<=R.LINEUP_SIZE)return eligible.map(r=>r.id);
-  const start=((Number(ctx.day)||0)%eligible.length+eligible.length)%eligible.length;
-  return Array.from({length:R.LINEUP_SIZE},(_,i)=>eligible[(start+i)%eligible.length].id);
- }
-
  global.RAF15={FLAG,enabled,dancers,isDancer,sceneId,parse,allSceneIds,thresholds,select,selected,spent,recordSpend,thresholdLevel,completedLevel,progress,
-  datesToday,capReached,status,available,nextScene,gate,payOnce,mapping,setMapping,handleOf,dancerOf,state,stageLineup};
+  datesToday,capReached,status,available,nextScene,gate,payOnce,mapping,setMapping,handleOf,dancerOf,state};
 })(window);
