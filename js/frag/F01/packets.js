@@ -39,7 +39,7 @@
  let f02=null;
  const F02_EFFECTS={
   lil_oga:{owNeverMiss:true,longPenalty:true},
-  sapporo_shotgun:{closeBonus:true},
+  sapporo_shotgun:{closeBonus:true,distinctTargets:true},
   mac_and_cheese:{onHit:{suppress:true}},
   chopstick_sniper:{noMoveShoot:true},
   tommy_tony:{},
@@ -63,14 +63,15 @@
  function convertF02(id,st,base){
   const p=parseDamage(st.damage);if(!p)return null;
   const eff=F02_EFFECTS[id]||{};
-  const def={id,label:(base&&base.label)||id.toUpperCase().replace(/_/g,' '),dmg:p.dmg,band:BAND[st.range]||'medium',clip:(base&&base.clip)||3,src:'f02',note:st.note||'',...eff};
-  if(p.hits>1&&!def.bursts)def.hits=p.hits;
+  const def={id,label:(base&&base.label)||id.toUpperCase().replace(/_/g,' '),dmg:p.dmg,band:BAND[st.range]||'medium',clip:(base&&base.clip)||3,src:'f02',note:st.note||'',audio:root.RAIronCatalog?.byId(id)?.audio||D.GUN_SFX[id]||null,...eff};
+  if((st.hits||p.hits)>1&&!def.bursts)def.hits=st.hits||p.hits;
   if(st.range==='area'){def.area=st.area==='cone3'?'cone3':'3x3';}
   if(base&&base.clip)def.clip=base.clip;
   return def;
  }
  // bindF02(iron): iron = RAIronShowdown-like {stats(id), roster()}. Returns the report; stores it for entry building.
  function bindF02(iron){
+  if(!iron&&root.RAFeatures&&!root.RAFeatures.enabled('F02.iron_and_grace')){f02=null;return {bound:false,reason:'F02 flag OFF'};}
   iron=iron||root.RAIronShowdown||(root.RAIronAndGrace&&root.RAIronAndGrace.showdownSeam)||null;
   if(!iron||typeof iron.stats!=='function'){f02=null;return {bound:false,reason:'F02 not present'};}
   const weapons={},conflicts=[],unsupported=[];
@@ -83,7 +84,6 @@
    if(id==='jollof_burner')unsupported.push({id,why:'SOURCE_REQUIRED F02_BURN'});
    if(id==='tommy_tony')unsupported.push({id,why:'SOURCE_REQUIRED F02_CONSECUTIVE'});
    if(id==='auntie_slipper')unsupported.push({id,why:'fear needs an unauthored "grew up with it" tag; knockback only'});
-   if(id==='sapporo_shotgun')unsupported.push({id,why:'"hits two enemies" has no authored shape; Vol 7 +15 close profile kept'});
    if(base){
     if(base.band!==def.band)conflicts.push({id,field:'range',vol7:base.band,f02:def.band});
     if(base.dmg[0]!==def.dmg[0]||base.dmg[1]!==def.dmg[1])conflicts.push({id,field:'damage',vol7:base.dmg.join('-'),f02:def.dmg.join('-')});
@@ -148,7 +148,7 @@
   if(!map&&packet.grid&&packet.grid.mapId)map=M.get(packet.grid.mapId);
   let usedFallbackMap=false;
   if(!map){map=M.get(jobType==='EXTRACT'?'dock':'alley');usedFallbackMap=true;notes.push('FALLBACK_MAP: no authored location map supplied; neutral sandbox map used');}
-  if(!f02)bindF02();
+  if(root.RAFeatures||!f02)bindF02();
   const weapons=f02?clone(f02.weapons):{};
   const cfg={id:packet.jobId||'showdown',jobId:packet.jobId||null,jobType,district:packet.district||null,seed:packet.seed!==undefined?packet.seed:(packet.jobId||'showdown'),
    map,squad,enemies:enemies.length?enemies:undefined,rich:opts.richEnabled===false?false:(packet.rich?true:undefined),objective:clone(profile.objective),

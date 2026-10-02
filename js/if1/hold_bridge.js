@@ -72,6 +72,8 @@
    job:{f01JobId:JOB,f04Type:null,district:null,districtLabel:null,handBack:false,context:{source:'F05.raid',...clone(handoff.request)}},
    roster,garage:{owned:[]},bank:money(),heat:window.RAHeat.global(),rosterCap:8,dayOneThreshold:window.RAWarRoomCrew.DAY_ONE_THRESHOLD
   };
+  const iron=window.RAIronAndGrace?.playSnapshot?.(roster,{trap:true});
+  if(iron)request.iron=iron;
   const v=window.RAPlayContract.validateRequest(request);
   if(!v.ok)return {ok:false,errors:v.errors};
   for(const o of roster)if(!window.RACrew.get(o.id))return {ok:false,errors:[`unknown crew id ${o.id}`]};   // never guess an id
@@ -194,6 +196,7 @@
    clearTx();noteRefusal('F05_'+String(out.reason||'refused').toUpperCase(),out.reason,t.raidId);
    return refuse('F05_'+String(out.reason||'refused').toUpperCase(),out.reason,{raidId:t.raidId,errors});
   }
+  window.RAIronAndGrace?.consumePlay?.(t.record);
   const done={ok:true,applied:true,duplicate:!!out.duplicate,canonical:out.canonical,raidId:t.raidId,errors,plan:{net:t.plan.net,heatDelta:t.plan.delta,unapplied:t.plan.unapplied},result:out.result};
   clearTx();
   fire('ra:hold-bridge',{raidId:t.raidId,status:'DELIVERED',canonical:out.canonical});

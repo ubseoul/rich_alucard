@@ -42,6 +42,14 @@ export function prepareWorld(req,saved){
   next.push(o);
  }
  w.roster=next;
+ // F02 owns the guns; only a lit request supplies this ephemeral snapshot.
+ delete w.iron;
+ if(req.iron?.schema==='F02.play_weapons/1'){
+  w.iron=clone(req.iron);
+  const held=new Set(w.roster.map(o=>w.iron.loadout[o.id]||o.gun));
+  w.armory=[...new Set([...w.armory,...(w.iron.owned||[]).filter(g=>!held.has(g))])];
+  for(const o of w.roster){const gun=w.iron.loadout[o.id];if(gun&&w.iron.weapons[gun])o.gun=gun;}
+ }
  // bonds: F04 counts jobs-together per direction; DAY ONES = both directions >= the threshold
  const th=req.dayOneThreshold||3;w.corun={};w.bonds=[];
  for(const a of req.roster)for(const b of req.roster){
@@ -137,6 +145,7 @@ export function buildResult(req,{rec,w,before,cash0}){
   seed:rec.seed,
   digest:digest({win:rec.win,final:rec.final,klass:rec.klass,fs:rec.finalStatus,pot:rec.pot,steps:rec.steps})
  };
+ if(w.iron)res.iron={loadout:Object.fromEntries(w.roster.map(o=>[o.id,o.gun]))};
  return res;
 }
 // ---- the PLAY's seed for a request (one formula, shared by the browser controller and the headless runner)

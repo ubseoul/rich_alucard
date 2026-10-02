@@ -106,6 +106,8 @@
    rosterCap: 8,
    dayOneThreshold: window.RAWarRoomCrew.DAY_ONE_THRESHOLD
   };
+  const iron=window.RAIronAndGrace?.playSnapshot?.(request.roster);
+  if(iron)request.iron=iron;
   return { ok: true, request, carMap: garage.map, seq, jobMeta: { type: jobCard.type, district: jobCard.district || null, label: jobCard.label, isHandBack: !!jobCard.isHandBack, id: jobCard.id } };
  }
 
@@ -137,6 +139,7 @@
   const summary = { day: day(), status: result.status, jobId: jobMeta.id, cashSpent: 0, cashGain: 0, win: false };
 
   if (result.status === 'COMPLETE') {
+   safe(errors, 'F02 weapons', () => window.RAIronAndGrace?.consumePlay?.(result));
    const squadIds = result.crew.map(c => c.id);
    // 1. bonds first (F01 counts every PLAY as a co-run): before statuses change
    safe(errors, 'bonds', () => { for (let a = 0; a < squadIds.length; a++) for (let b = a + 1; b < squadIds.length; b++) if (window.RACrew.get(squadIds[a]) && window.RACrew.get(squadIds[b])) window.RAWarRoomCrew.recordJobTogether(squadIds[a], squadIds[b]); });

@@ -1,4 +1,4 @@
-// F02 — audio hooks (GN_01–GN_06 inert drop-ins), migration submission architecture (namespace only, no orphaned
+// F02 — audio hooks (GN_01–GN_06 preserved F11 deliveries), migration submission architecture (namespace only, no orphaned
 // version claim), the F01_SHOWDOWN integration seam (data/contracts, no combat), the TRAP-facing weapon API and the
 // authored firearm feedback hooks.
 import assert from 'node:assert/strict';
@@ -10,12 +10,12 @@ export async function test(root){
  await run(root,c,['js/data/audio/parts/F02_guns.js']);
  const M=c.RAAudioManifest,P=c.RAAudioParts;
 
- // ---- audio: GN_01–GN_06 are NEW, inert and drop-in ready (SOURCE_REQUIRED — not in RA_SFX_DELIVERY_v1) ----
+ // ---- audio: GN_01–GN_06 are supplied by preserved F11-A ----
  same(P.idsFor('F02'),['GN_01','GN_02','GN_03','GN_04','GN_05','GN_06']);
  for(const id of P.idsFor('F02')){const e=M.get(id);
-  assert.equal(e.registered,false,`${id} is inert until Audio supplies the file`);
-  assert.equal(e.file,null);assert.equal(e.expectedPath,`assets/audio/sfx/iron_and_grace/${id}.mp3`);
-  assert.equal(e.licenseClass,'PENDING');assert.equal(e.reason,'inert-drop-in-hook');}
+  assert.equal(e.registered,true,`${id} is supplied by the preserved F11 delivery`);
+  assert.equal(e.file,`assets/audio/sfx/iron_and_grace/${id}.mp3`);assert.equal(e.expectedPath,`assets/audio/sfx/iron_and_grace/${id}.mp3`);
+  assert.equal(e.licenseClass,'CC0');}
  assert.equal(M.get('GN_03').type,'loop','the flamethrower whoosh is a loop');
  assert.equal(JSON.stringify(M.get('GUN_LILOGA')),JSON.stringify(c.RAAudioManifest.get('GUN_LILOGA')),'existing F1 gun entries are unchanged');
  assert(throwsCode(()=>P.register('F02',{entries:[{id:'GUN_LILOGA',bus:'SFX',type:'one-shot',category:'x'}]}),/already exists/),'a part cannot redefine an accepted id');
@@ -68,5 +68,5 @@ export async function test(root){
  assert.equal(R.feedback('nope','fire'),null);
 
  clearFlags(c,ALL_F02);
- console.log('PASS F02 contracts (GN audio hooks inert, migration namespace clean, F01 seam data-only, TRAP API, FX hooks)');
+ console.log('PASS F02 contracts (GN audio hooks delivered, migration namespace clean, F01 seam data-only, TRAP API, FX hooks)');
 }

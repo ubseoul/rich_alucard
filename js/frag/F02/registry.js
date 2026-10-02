@@ -152,6 +152,10 @@
   const r=resolve(gunId);if(!r)return {ok:false,reason:'unknown'};
   if(!canFire(s,gunId))return {ok:false,reason:conditionOk(gunId)?'out-of-ammo':'locked'};
   const menu=r.menu;consumeAmmo(s,gunId);
+  if(r.gun.audio){window.RAAudio?.oneShot?.(r.gun.audio);
+   const sound=window.RAAudioManifest?.get?.(r.gun.audio);
+   if(sound?.type==='loop')setTimeout(()=>window.RAAudio?.stop?.(r.gun.audio,0),(sound.loopEnd||0)*1000);
+  }
   const say=helpers?.say||(()=>{});
   say(s,`GUN WEAVING: ${r.label}.`,'weird',{fx:'gun',gun:gunId});
   let base=menu.dmg||0;

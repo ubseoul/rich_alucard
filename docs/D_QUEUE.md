@@ -8,3 +8,4 @@ Rule: a missing non-Rich line is written here, not into the game. Missing Rich l
 | F07-D4b | The aunties' actual spoken critique lines (non-Rich dialogue). Absent from source. | `docs/engineering/F07_M8_AND_FINALE_DECISIONS.md` | OPEN, non-blocking (carried; first listed in the F07 decisions doc) |
 | F07-D5b | Names/classes/count if Gbenga's boys ever join as recruits. | same | OPEN, non-blocking (carried) |
 | F07-D6b | What, if anything, each non-squad finale lane changes. | same | OPEN, non-blocking (carried) |
+| BUILD2-T10-BAIT | Authored BAIT PLAY scenario and non-Rich pitch/call lines are absent; the accepted quiet_lift mapping remains provisional. Do not invent a cash band, pods, loot or dialogue. | `docs/engineering/BUILD2_JOB_SOURCE_AUDIT.md` | OPEN, blocks T10 expansion |

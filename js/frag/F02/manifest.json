@@ -7,7 +7,8 @@
     "js/frag/F02/range.js",
     "js/frag/F02/armory.js",
     "js/frag/F02/showdown.js",
-    "js/frag/F02/iron_and_grace.js"
+    "js/frag/F02/iron_and_grace.js",
+    "js/frag/F02/integration.js"
   ],
   "css": [
     "js/frag/F02/armory.css"

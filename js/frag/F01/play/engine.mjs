@@ -1,6 +1,7 @@
 // THE PLAY — deterministic paper-sim engine (no UI, no grid). Every random draw comes from a seeded stream; forks use common random numbers.
 import {stream,D} from './env.mjs';
 import * as C from './content.mjs';
+import {weapon,known as knownGun} from './guns.mjs';
 import {pickLine,lineKey,fill,LINES} from './lines.mjs';
 const LINES_HAS=k=>!!LINES[k];
 
@@ -129,9 +130,9 @@ export function initPlay(cfg){
  const {seed,job,policy='driver',opts={},night=1}=cfg;const src=cfg.state||startRoster(seed);
  const S=structuredClone(src);
  const idx=cfg.nameIdx!=null?cfg.nameIdx:(seed%job.names.length+job.names.length)%job.names.length;
- const P={seed,job,jobName:job.names[idx],polName:policy,opts,night,roster:S.roster,bonds:S.bonds,known:S.known,cars:S.cars,garage:S.garage||{owned:Object.keys(S.cars||{}),lost:{},unique:[...C.UNIQUE_CARS]},oba:!!cfg.oba,flags:[],quiet:[],timedUsed:0,obaHit:false,gunsDropped:[],beefs:S.beefs||[],weirdSeen:S.weirdSeen,dry:S.dry||0,
+ const P={seed,job,iron:S.iron||null,jobName:job.names[idx],polName:policy,opts,night,roster:S.roster,bonds:S.bonds,known:S.known,cars:S.cars,garage:S.garage||{owned:Object.keys(S.cars||{}),lost:{},unique:[...C.UNIQUE_CARS]},oba:!!cfg.oba,flags:[],quiet:[],timedUsed:0,obaHit:false,gunsDropped:[],beefs:S.beefs||[],weirdSeen:S.weirdSeen,dry:S.dry||0,
   crew:[],seat:{},carId:null,car:null,approach:null,pressure:0,pot:{cash:0,crates:[],lost:false,floor:false},promise:[],mem:[],swings:[],script:[],losses:[],stat:{evaluated:0,potential:0,meaningful:0,surfaced:0,suppressedNoDiv:0,suppressedBudget:0,diff:[],bestWorst:[],realized:[]},
-  callsLeft:job.bigPlay?3:2,richUsed:false,ambush:false,crewFirst:false,carry:[],step:0,fired:new Set(),newCombos:[],combos:new Set(),acceptedNamed:[],result:null,tags:[],pitcher:null,card:null,cards:{},sim:false,
+  callsLeft:2,richUsed:false,ambush:false,crewFirst:false,carry:[],step:0,fired:new Set(),newCombos:[],combos:new Set(),acceptedNamed:[],result:null,tags:[],pitcher:null,card:null,cards:{},sim:false,
   answers:[],usedLines:new Set(),lineLog:[],lineN:0,recentSet:new Set((S.recent||[]).flat()),recentAge:Object.fromEntries((S.recent||[]).flatMap((ids,n,a)=>ids.map(id=>[id,a.length-n]))),armory:[...(S.armory||[])],comboCd:{...(S.comboCd||{})},turnCd:S.turnCd||0,cap:S.cap||9,moments:[],seenText:new Set(),emptyBeats:0,noThingCount:0,pitcherFixed:cfg.pitcher||null,pitchTextFixed:cfg.pitchText||null,intel:!!cfg.intel,beatLog:[],usedPatch:false,trait:{},turn:null,climb:[],gods:[]};
 
  return P;
@@ -199,7 +200,7 @@ export function seatScore(P,assign){ // assign: {seat:oga}
  for(const t of relevantTells(P.job)){if(Object.entries(assign).some(([sn,o])=>t.ok(o,C.SEAT_LANE[sn])))s+=1.6;}
  for(const [seat,o] of Object.entries(assign)){
   const lane=C.SEAT_LANE[seat];s+=C.FIT[o.cls][lane]*2;
-  const g=C.GUNS[o.gun]||C.GUNS.pistol;
+  const g=weapon(P,o.gun);
   if(g.lane==='FRONT'&&lane==='FRONT')s+=1.2;if(g.lane==='BACK'&&lane==='BACK')s+=1.2;if(g.lane==='FRONT'&&lane!=='FRONT')s-=.6;if(g.lane==='BACK'&&lane!=='BACK')s-=.6;
  }
  for(const [sa,a] of Object.entries(assign))for(const [sb,b] of Object.entries(assign)){
@@ -228,7 +229,7 @@ export const ownedGuns=P=>{const pool=[...P.armory];for(const o of P.roster)if(o
 function applyLoadout(P,req){
  const avail={};for(const g of ownedGuns(P))avail[g]=(avail[g]||0)+1;
  const target={};
- for(const [oid,g] of Object.entries(req||{})){const o=P.roster.find(x=>x.id===oid);if(!o||!C.GUNS[g])continue;
+ for(const [oid,g] of Object.entries(req||{})){const o=P.roster.find(x=>x.id===oid);if(!o||!knownGun(P,g))continue;
   if(g==='pistol'||g==='hands'){target[oid]=g;continue;}
   if(avail[g]>0){avail[g]--;target[oid]=g;}}
  for(const o of P.roster){if(target[o.id])continue;const g0=o.gun;
@@ -275,7 +276,7 @@ function* carStage(P){
  for(const o of P.crew){o.plays++;o.nerve=P.opts.flat?60:o.base;}
  if(job.bigPlay)for(const o of P.crew)if(o.named)P.acceptedNamed.push(o.id);
  const glow=[...P.combos].filter(c=>P.known[c]).map(c=>COMBO_NAME[c]);
- const chips=Object.entries(P.seat).map(([s,id])=>{const o=P.crew.find(x=>x.id===id);return `${s.padEnd(8)} ${o.short}${o.nick?` "${o.nick}"`:''} · ${C.TRAIT_WORD[o.traits[0]]||o.traits[0]} · NERVE ${zoneN(o.nerve)} · ${(C.GUNS[o.gun]||C.GUNS.pistol).name} [${(C.GUNS[o.gun]||C.GUNS.pistol).role}]${o.scars.length?' · '+o.scars[0]:''}`;});
+ const chips=Object.entries(P.seat).map(([s,id])=>{const o=P.crew.find(x=>x.id===id);return `${s.padEnd(8)} ${o.short}${o.nick?` "${o.nick}"`:''} · ${C.TRAIT_WORD[o.traits[0]]||o.traits[0]} · NERVE ${zoneN(o.nerve)} · ${(weapon(P,o.gun)).name} [${(weapon(P,o.gun)).role}]${o.scars.length?' · '+o.scars[0]:''}`;});
  say(P,'CAR',`${carId} — ${P.car.neutral?'ANYBODY\'S CAR':C.CARS[carId].word} · ${P.crew.length} SEATS FILLED`);
  for(const c of chips)say(P,'CAR','  '+c);
  if(glow.length)say(P,'CAR','  ✦ '+glow.join(' · '));
@@ -495,7 +496,8 @@ const laneW=(P,o)=>({FRONT:3,MID:2,DRIVER:1.5,BACK:1}[laneOf(P,o)]||1);
 
 function crewAttack(ctx,o,enemies,r){
  const {P,R,st,card}=ctx;const live=enemies.filter(e=>!e.dead&&!e.fled);if(!live.length)return;
- const lane=laneOf(P,o);const gun=C.GUNS[o.gun]||C.GUNS.pistol;const T=P.opts.traits!==false;
+ const lane=laneOf(P,o);const gun=weapon(P,o.gun);const T=P.opts.traits!==false;
+ if(gun.condition&&!P.iron?.conditions?.[gun.condition])return;
  // --- trait actions that replace the shot (every trait has an upside and a failure)
  if(T){
   if(has(P,o,'ALWAYS_EATING')&&r===0&&R.chance(.12)){moment(P,ctx,'trait',`${o.short} finished the sandwich first — ALWAYS EATING`,'trait:eat:fail','FUNNY',4,cz(CAUSE.TRAIT,'ALWAYS EATING'));ctx.traitFail++;pressAdd(P,ctx,4,null);return;}
@@ -534,10 +536,16 @@ function crewAttack(ctx,o,enemies,r){
  if(firing(P,'sunday_service')&&o.id==='sunday_best'&&fire(P,'sunday_service',ctx))aim+=10;
  // --- pick a target
  let tgt=live.find(e=>e.type==='LIEUTENANT'||e.type==='LIL_SMACK')&&(o.cls==='SHOOTER'||gun.eff==='pick')?live.find(e=>e.type==='LIEUTENANT'||e.type==='LIL_SMACK'):live[R.int(0,live.length-1)];
- const shots=o.gun==='mac_and_cheese'?2:1;
+ // F02 explicit hit counts and damage strings replace only the lit snapshot path.
+ const shots=gun.hits||(o.gun==='mac_and_cheese'?2:1);
+ if(gun.mods?.includes('scope')&&gun.lane==='BACK'&&lane==='BACK')aim+=(gun.bonuses.rangeAim||0)*100;
+ if(gun.mods?.includes('silencer'))P.silencerFired=true;
+ if(P.iron)emit(P,'GUN_FIRE',{gun:o.gun,audio:gun.audio});
+ const shotTargets=new Set();
  for(let s=0;s<shots;s++){
   if(!live.some(e=>!e.dead&&!e.fled))break;
-  if(!tgt||tgt.dead||tgt.fled)tgt=live.find(e=>!e.dead&&!e.fled);
+  if(gun.distinctTargets){tgt=live.find(e=>!e.dead&&!e.fled&&!shotTargets.has(e));if(!tgt)break;shotTargets.add(tgt);}
+  else if(!tgt||tgt.dead||tgt.fled)tgt=live.find(e=>!e.dead&&!e.fled);
   let a=aim;
   if(gun.eff==='spray'&&!ctx.friendly&&R.chance(.16)){const m=able(P).filter(x=>x!==o);if(m.length){ctx.friendly=1;const v=m[R.int(0,m.length-1)];hurt(ctx,v,2,{by:'MAC & CHEESE',cause:cz(CAUSE.WEAPON,'MAC & CHEESE — aim is a state of mind')});moment(P,ctx,'weapon',`${o.short} sprayed a little too wide and hit ${v.short} — MAC & CHEESE`,'weapon:mac:friendly','FUNNY',6,cz(CAUSE.WEAPON,'MAC & CHEESE'));if(P.opts.beef==='wide'&&!P.sim)(P.beef=P.beef||[]).push({from:v.id,to:o.id,src:'FRIENDLY'});continue;}}
   if(T&&has(P,o,'SHOWBOAT')&&R.chance(.25)){a+=10;o.marked=true;if(R.chance(clamp(a,5,95)/100)){tgt.hp-=gun.dmg[1]+2;moment(P,ctx,'trait',`${o.short}: watch this — and it worked — SHOWBOAT`,'trait:showboat:up','CLUTCH',5);}else{moment(P,ctx,'trait',`${o.short}: watch this — and everyone watched it miss — SHOWBOAT`,'trait:showboat:fail','FUNNY',5,cz(CAUSE.TRAIT,'SHOWBOAT'));ctx.traitFail++;}
@@ -569,11 +577,11 @@ function crewAttack(ctx,o,enemies,r){
 }
 // tell strength when NOT countered (F13 tunable): the multiplier on being the target, and a flat aim bonus for the enemy
 const TELL_K={flank:3,charge:4,silver:4,aim:4};
-const gunAvg=g=>{const x=(C.GUNS[g]||C.GUNS.pistol).dmg;return (x[0]+x[1])/2;};
+const gunAvg=(g,P)=>{const x=weapon(P,g).dmg;return (x[0]+x[1])/2;};
 // WEAPON lever: an owned gun that clearly outclasses what this Oga carries is sitting at home (the armory, or a benched Oga's hands).
 function goodGunHome(P,o){
  const pool=[...P.armory];for(const r of P.roster)if(!P.crew.includes(r)&&r.gun&&r.gun!=='pistol'&&r.gun!=='hands')pool.push(r.gun);
- const best=pool.reduce((a,g)=>Math.max(a,gunAvg(g)),0);return best>gunAvg(o.gun||'pistol')+.35;
+ const best=pool.reduce((a,g)=>Math.max(a,gunAvg(g,P)),0);return best>gunAvg(o.gun||'pistol',P)+.35;
 }
 function enemyAttack(ctx,e,r){
  const {P,R,card}=ctx;if(e.flinch){e.flinch=false;moment(P,ctx,'weapon',"Auntie's Slipper connected. He forgot what he was doing.",'weapon:slipper','FUNNY',5);return;}
@@ -1379,7 +1387,7 @@ function summarizeRecord(P){
   finalStatus:Object.fromEntries(crew.map(o=>[o.id,o.finalStatus])),
   temptation:P.morning?.temptation?.type,emptyBeats:P.emptyBeats,beatCount:P.beatLog.length,crewTraits:crew.flatMap(o=>o.traits),crewCls:crew.map(o=>o.cls),pot:{cash:P.pot.cash,crates:P.pot.crates.map(c=>({cat:c.cat,rar:c.rar,name:c.name,val:c.val}))},
   kicker:P.kicker?{cat:P.kicker.cat,rar:P.kicker.rar,name:P.kicker.name}:null,
-  stateOut:{roster:P.roster,bonds:P.bonds,known:{...P.known,...Object.fromEntries(P.newCombos.map(c=>[c,true]))},cars:P.cars,garage:P.garage,weirdSeen:P.weirdSeen,armory:P.armory},acceptedNamed:P.acceptedNamed,lineLog:P.lineLog,firedCombos:[...P.fired],gunGifts:P.gunGifts||[],armoryOut:P.armory,noScratch:!!P.noScratch,bailed:!!P.bailed,bailerId:P.bailerId||null,fellBack:!!P.fellBack,fallBackerId:P.fallBackerId||null,foldIntel:!!P.foldIntel,captives:P.crew.filter(o=>o.finalStatus==='CAPTURED').map(o=>o.id),answers:P.answers,heatDelta:(P.bailed||P.fellBack)?P.job.heat:(P.job.heat+(P.approach==='LOUD'?4:P.approach==='QUIET'?-2:0)+(P.heatBonus||0)+P.step*3),pocketLoss:P.pocketLoss||0,memWt:Object.fromEntries(P.mem.map(m=>[m.id,m.w])),beef:P.beef||[],beefSettled:P.beefSettled||[],beefFired:P.beefFired||null,beefSeen:P.beefSeen||0,beefsLive:P.beefs||[],crashOut:P.crashOut||0,spent:P.spent||0,
+  stateOut:{roster:P.roster,bonds:P.bonds,known:{...P.known,...Object.fromEntries(P.newCombos.map(c=>[c,true]))},cars:P.cars,garage:P.garage,weirdSeen:P.weirdSeen,armory:P.armory},acceptedNamed:P.acceptedNamed,lineLog:P.lineLog,firedCombos:[...P.fired],gunGifts:P.gunGifts||[],armoryOut:P.armory,noScratch:!!P.noScratch,bailed:!!P.bailed,bailerId:P.bailerId||null,fellBack:!!P.fellBack,fallBackerId:P.fallBackerId||null,foldIntel:!!P.foldIntel,captives:P.crew.filter(o=>o.finalStatus==='CAPTURED').map(o=>o.id),answers:P.answers,heatDelta:((P.silencerFired&&P.iron)?-(Object.values(P.iron.weapons).map(g=>g.stats?.bonuses?.heatRelief||0).find(n=>n>0)||0):0)+((P.bailed||P.fellBack)?P.job.heat:(P.job.heat+(P.approach==='LOUD'?4:P.approach==='QUIET'?-2:0)+(P.heatBonus||0)+P.step*3)),pocketLoss:P.pocketLoss||0,memWt:Object.fromEntries(P.mem.map(m=>[m.id,m.w])),beef:P.beef||[],beefSettled:P.beefSettled||[],beefFired:P.beefFired||null,beefSeen:P.beefSeen||0,beefsLive:P.beefs||[],crashOut:P.crashOut||0,spent:P.spent||0,
   stateAfter:{roster:P.roster.map(o=>({id:o.id,nerve:o.nerve,hp:o.hp,status:o.finalStatus||o.status,mvp:o.mvp,scars:o.scars,nick:o.nick,perks:o.perks})),weirdSeen:P.weirdSeen,known:{...P.known,...Object.fromEntries(P.newCombos.map(c=>[c,true]))}}
  };
 }

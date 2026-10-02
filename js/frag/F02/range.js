@@ -81,7 +81,7 @@
   for(let i=0;i<core.state().lanes;i++){const b=document.createElement('button');b.type='button';b.className='rd-lane';b.dataset.lane=i;b.textContent='⦿';lanesEl.append(b);}
   const timeEl=root.querySelector('.rd-time'),ammoEl=root.querySelector('.rd-ammo');
   lanesEl.addEventListener('pointerdown',e=>{const b=e.target.closest('.rd-lane');if(!b)return;core.aim(Number(b.dataset.lane));});
-  lanesEl.addEventListener('pointerup',e=>{const b=e.target.closest('.rd-lane');if(!b)return;const r=core.fire();b.classList.remove('rd-hit','rd-miss');void b.offsetWidth;b.classList.add(r.hit?'rd-hit':'rd-miss');});
+  lanesEl.addEventListener('pointerup',e=>{const b=e.target.closest('.rd-lane');if(!b)return;const r=core.fire();if(r.ok){if(r.hit)window.RAAudio?.oneShot?.('GN_06');const code=R.feedback(gunId)?.audio;if(code){window.RAAudio?.oneShot?.(code);const sound=window.RAAudioManifest?.get?.(code);if(sound?.type==='loop')setTimeout(()=>window.RAAudio?.stop?.(code,0),(sound.loopEnd||0)*1000);}}b.classList.remove('rd-hit','rd-miss');void b.offsetWidth;b.classList.add(r.hit?'rd-hit':'rd-miss');});
   let raf=0,last=0,done=false;
   function frame(t){if(done)return;if(!last)last=t;core.update((t-last)/1000);last=t;
    const st=core.status();timeEl.textContent=`${st.remaining.toFixed(1)}s`;ammoEl.textContent=st.reloadingNow?'RELOADING':`AMMO ${st.ammo===Infinity?'∞':st.ammo}`;

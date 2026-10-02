@@ -16,7 +16,9 @@ export const GUN_VIEW={
  auntie_slipper:{type:'SLIPPER',nick:"Auntie's Slipper",img:FL_ART.weapon.slipper,sq:true},
  hands:{type:'BARE HANDS',nick:'',img:FL_ART.weapon.hands,sq:true}
 };
-export const gunView=g=>GUN_VIEW[g]||GUN_VIEW.pistol;
+let ironViews={};
+export function bindGunViews(iron){ironViews=Object.fromEntries(Object.values(iron?.weapons||{}).map(g=>[g.id,{...(GUN_VIEW[g.id]||GUN_VIEW.pistol),type:g.type,nick:g.label,audio:g.audio}]));}
+export const gunView=g=>ironViews[g]||GUN_VIEW[g]||GUN_VIEW.pistol;
 // wide sprites fit (w,h); square 24x24 icons draw at the largest integer scale that fits the slot height (1x in the 13px crew slot)
 export const gunImg=(g,w=34,h=17)=>{const v=gunView(g);if(v.sq){const k=Math.max(1,Math.floor(h/13)),s=24*k;return `<img src="${v.img}" style="width:${s}px;height:${s}px">`;}return `<img src="${v.img}" style="width:${w}px;height:${h}px;object-fit:contain">`;};
 

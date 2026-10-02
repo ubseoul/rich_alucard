@@ -464,7 +464,7 @@ export async function test(root){
   const admin={window:{}};admin.window=admin;const vm=await import('node:vm');
   vm.createContext(admin);await run(root,admin,['js/data/audio_manifest.js','js/data/audio/manifest_parts.js','js/data/audio/parts/F05_trap.js']);
   const TR=admin.RAAudioManifest.get('TR_01');
-  assert.ok(TR,'TR_01 registered as an inert hook');assert.equal(TR.registered,false);assert.equal(TR.file,null);
+  assert.ok(TR,'TR_01 delivered by preserved F11-A');assert.equal(TR.registered,true);assert.equal(TR.file,'assets/audio/sfx/trap/TR_01.mp3');
   assert.equal(TR.expectedPath,'assets/audio/sfx/trap/TR_01.mp3','hook points at the F11 delivered runtime path');
   assert.equal(admin.RAAudioManifest.ids.filter(id=>/^TR_0[1-6]$/.test(id)).length,6,'TR_01-TR_06 registered');
   console.log('PASS F05 audio hooks + art/crew honesty');

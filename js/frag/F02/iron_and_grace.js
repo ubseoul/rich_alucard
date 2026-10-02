@@ -17,7 +17,7 @@
  function wireWakeUnlock(){
   if(wakeWired||!window.RAIronFlags.armory()||!window.RAWakeBus)return;
   try{
-   window.RAWakeBus.subscribe({id:'F02.armory-unlock',fragment:'F02',phase:'wake',priority:68,flag:'F02.armory',
+   window.RAWakeBus.subscribe({id:'F02.armory-unlock',fragment:'F02',phase:'wake',priority:71,flag:'F02.armory',
     fn:()=>{if(window.RALife.flag('armoryKnown')&&!window.RALife.appUnlocked('armory'))window.RAPhoneRegistry?.unlock?.('armory');}});
    wakeWired=true;
   }catch(e){/* a priority collision is an integration error; surfaced by selfCheck below */}

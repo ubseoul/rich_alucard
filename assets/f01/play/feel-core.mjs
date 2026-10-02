@@ -86,6 +86,8 @@ export function play(path,{vol=.5,loop=false,rate=1}={}){
 export function stopAll(){for(const a of [...live]){try{a.pause();}catch(e){}live.delete(a);}}
 // a SUDDEN SOUND DROP: everything goes quiet (the silence beat)
 export function duck(on){ducked=!!on;for(const a of live){try{a.volume=on?0:(a._vol??.5);}catch(e){}}}
+let ironAudio={};
+export function bindGunAudio(iron){ironAudio=Object.fromEntries(Object.values(iron?.weapons||{}).filter(g=>g.audio).map(g=>[g.id,g.audio]));}
 export const S={
  tap:()=>play('ui_phone/UI_TAP.mp3',{vol:.4}),
  confirm:()=>play('ui_phone/UI_CONFIRM.mp3',{vol:.5}),
@@ -98,7 +100,7 @@ export const S={
  stinger:()=>play('ui_phone/REWARD_STINGER.mp3',{vol:.55}),
  thud:()=>tone(120,.18,'sine',.22,40),
  heart:()=>{tone(55,.12,'sine',.28,35);setTimeout(()=>tone(50,.14,'sine',.2,32),170/SPEED);},
- gun:(g)=>play('combat/'+(({sapporo_shotgun:'GUN_SHOTGUN',lil_oga:'GUN_LILOGA',chopstick_sniper:'GUN_SNIPER',the_rpg:'GUN_RPG'})[g]||'GUN_LILOGA')+'.mp3',{vol:.22}),
+ gun:(g)=>ironAudio[g]?.startsWith('GN_')?play('iron_and_grace/'+ironAudio[g]+'.mp3',{vol:.22}):play('combat/'+(({sapporo_shotgun:'GUN_SHOTGUN',lil_oga:'GUN_LILOGA',chopstick_sniper:'GUN_SNIPER',the_rpg:'GUN_RPG'})[g]||'GUN_LILOGA')+'.mp3',{vol:.22}),
  hit:()=>play('combat/HIT_HEAVY.mp3',{vol:.25}),
  ko:()=>play('combat/KO.mp3',{vol:.3}),
  room:()=>play('home_castle/AMB_BEDROOM.mp3',{vol:.25,loop:true}),

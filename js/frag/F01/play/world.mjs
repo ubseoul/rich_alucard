@@ -247,10 +247,10 @@ export function recoverCar(w,id,{fee=0}={}){
  if(w.cash<fee)return {ok:false,reason:'cash'};
  w.cash-=fee;delete w.garage.lost[id];w.garage.owned.push(id);w.cars[id]=0;return {ok:true,route:L.route,fee};
 }
-export const gunQuote=g=>C.GUN_PRICE[g]==null?null:C.GUN_PRICE[g];
+export const gunQuote=(g,w)=>w?.iron?.weapons?.[g]?.price!=null?w.iron.weapons[g].price/1000:(C.GUN_PRICE[g]==null?null:C.GUN_PRICE[g]);
 export function rebuyGun(w,idx){
  const g=(w.lostGuns||[])[idx];if(!g)return {ok:false,reason:'none'};
- const fee=gunQuote(g.gun)||0;if(w.cash<fee)return {ok:false,reason:'cash',fee};
+ const fee=gunQuote(g.gun,w);if(fee==null)return {ok:false,reason:'SOURCE_REQUIRED'};if(w.cash<fee)return {ok:false,reason:'cash',fee};
  w.cash-=fee;w.lostGuns.splice(idx,1);w.armory.push(g.gun);return {ok:true,fee,gun:g.gun};
 }
 

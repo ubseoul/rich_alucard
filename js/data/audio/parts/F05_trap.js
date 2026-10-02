@@ -16,5 +16,5 @@
   oneShot('TR_04',0.02,2,4),
   loop('TR_05',2.632,3),
   oneShot('TR_06',0.04,3,3)
- ]});
+ ],scenes:{the_trap:{ambience:'TR_01',preload:['TR_02','TR_03','TR_04','TR_05','TR_06']}}});
 })();

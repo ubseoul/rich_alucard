@@ -42,7 +42,7 @@ function homeItems(){
  }
  for(let gi=(w.lostGuns||[]).length-1;gi>=0;gi--){if(w.lostGuns[gi].gun==='pistol')W.rebuyGun(w,gi);} // a sidearm costs nothing at the weapon source: no need to bother Rich
  for(const [i,g] of (w.lostGuns||[]).entries()){
-  const gv=A.gunView(g.gun);const fee=W.gunQuote(g.gun)||0;
+  const gv=A.gunView(g.gun);const fee=W.gunQuote(g.gun,w)||0;
   recover.push({title:gv.type+(gv.nick?` · ${gv.nick}`:''),line:g.route==='IMPOUND'?'the cops have it.':'gone. the armory has more.',button:fee?`BUY ${money(fee)}`:'REPLACE',disabled:w.cash<fee,act:()=>{const idx=(w.lostGuns||[]).findIndex(x=>x===g);if(idx>=0)W.rebuyGun(w,idx);save();}});
  }
  for(const c of (G.embed?[]:W.captiveInfo(w))){ // embed: F04 owns the EXTRACT window; F01's RANSOM surface is not routed
@@ -108,6 +108,7 @@ async function playBatch(batch,ctx,cfg){
  for(const e of batch){
   const d=e.d;
   if(e.t==='SLIDE'){await onSlide(d,ctx,cfg);continue;}
+  if(e.t==='GUN_FIRE'&&G.w.iron){K.S.gun(d.gun);continue;}
   if(!ctx.feed||!ctx.room)continue;
   let steps=[];
   if(e.t==='BEAT'){const nx=batch[batch.indexOf(e)+1];steps=ctx.feed.beat(d,{endKind:nx&&nx.t==='END'&&nx.d.kind==='WASH'?'WASH':null});}
@@ -203,7 +204,7 @@ export async function runEmbedded(req){
  const cache=store.get(RESULTS_KEY,{});
  if(req&&cache[req.requestId])return cache[req.requestId]; // idempotent: an already-completed request is answered from the record, never replayed
  const v=CT.validateRequest(req);if(!v.ok)return AD.refusedResult(req,'BAD_REQUEST','the request does not match the contract',v.errors);
- const w=AD.prepareWorld(req,store.get(EMBED_KEY,null));G.w=w;
+ const w=AD.prepareWorld(req,store.get(EMBED_KEY,null));G.w=w;A.bindGunViews(w.iron);K.bindGunAudio(w.iron);
  const before=Object.fromEntries(req.roster.map(o=>[o.id,o.status]));const cash0=w.cash;
  let picked=AD.pitchFor(w,req);
  const viaHome=AD.needsRecovery(w,picked); // NO CAR refuses the job, never the way back: a recoverable lost car sends Rich through the home scene (GET IT BACK) before the refusal is final

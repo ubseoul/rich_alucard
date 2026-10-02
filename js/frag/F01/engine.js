@@ -250,29 +250,33 @@
   o=o||{};const w=R.weaponOf(s,sh);const pv=R.preview(s,sh,tg,o);if(!pv.ok)return pv;
   const wasConcealed=sh.conceal;
   if(w.area)return fireArea(s,sh,{x:tg.x,y:tg.y},w,o,ev);
+  // Sapporo's authored two-enemy rule uses the existing visibility/range/LOS checks.
+  // Stable unit order supplies the second eligible target without adding a targeting surface.
+  const targets=w.distinctTargets?[{target:tg,preview:pv},...Object.values(s.units).filter(u=>u.id!==tg.id&&R.preview(s,sh,u,o).ok).map(u=>({target:u,preview:R.preview(s,sh,u,o)}))].slice(0,pv.hits):null;
   sh.weapon.clip--;sh.weapon.fired++;
   if(R.hasMod(sh,'silencer'))s.heat.silencerFired=true;
   let downedTarget=false;
   const bursts=pv.hits;
-  for(let i=0;i<bursts&&tg.status==='ACTIVE';i++){
-   const roll=pv.neverMiss?null:Rng.percent(s.rng);
-   const hit=pv.neverMiss||roll<pv.chance;
+  for(let i=0;i<(targets?targets.length:bursts)&&(targets||tg.status==='ACTIVE');i++){
+   const target=targets?targets[i].target:tg,aim=targets?targets[i].preview:pv;
+   const roll=aim.neverMiss?null:Rng.percent(s.rng);
+   const hit=aim.neverMiss||roll<aim.chance;
    let dmg=0,crit=false,critRoll=null;
    if(hit){
-    dmg=Rng.int(s.rng,pv.dmgMin,pv.dmgMax);
-    critRoll=Rng.percent(s.rng);crit=critRoll<pv.crit;
+    dmg=Rng.int(s.rng,aim.dmgMin,aim.dmgMax);
+    critRoll=Rng.percent(s.rng);crit=critRoll<aim.crit;
     if(crit)dmg=Math.round(dmg*D.HIT.critMult);
    }
-   noteShot(s,sh,hit,crit,pv.chance,ev);
-   const joke=!hit&&sh.side==='PLAYER'&&pv.chance>=95;
+   noteShot(s,sh,hit,crit,aim.chance,ev);
+   const joke=!hit&&sh.side==='PLAYER'&&aim.chance>=95;
    if(joke)for(const o2 of ogas(s))if(o2.status==='ACTIVE')o2.facts.saw95Miss=true;
-   const shot={t:'SHOT',from:sh.id,to:tg.id,fx:sh.x,fy:sh.y,tx:tg.x,ty:tg.y,chance:pv.chance,roll:roll===null?null:Math.round(roll*100)/100,hit,crit,dmg,cover:pv.cover,flanked:pv.flanked,
-    reaction:!!o.reaction,ability:o.ability||null,burst:i+1,bursts,joke,caption:joke?`${Math.round(pv.chance)}%???`:null,weapon:w.id,sfx:o.reaction?'BX_OVERWATCH':(hit&&pv.cover!=='NONE'?'BX_COVER_HIT':(D.GUN_SFX[w.id]||null)),gunSfx:D.GUN_SFX[w.id]||null};
+   const shot={t:'SHOT',from:sh.id,to:target.id,fx:sh.x,fy:sh.y,tx:target.x,ty:target.y,chance:aim.chance,roll:roll===null?null:Math.round(roll*100)/100,hit,crit,dmg,cover:aim.cover,flanked:aim.flanked,
+    reaction:!!o.reaction,ability:o.ability||null,burst:i+1,bursts,joke,caption:joke?`${Math.round(pv.chance)}%???`:null,weapon:w.id,sfx:o.reaction?'BX_OVERWATCH':(hit&&pv.cover!=='NONE'?'BX_COVER_HIT':(w.audio||D.GUN_SFX[w.id]||null)),gunSfx:w.audio||D.GUN_SFX[w.id]||null};
    emit(ev,shot);
    if(hit){
-    const lost=hurt(s,tg,dmg,sh.id,ev,{fromHalfCover:pv.cover==='HALF'});
+    const lost=hurt(s,target,dmg,sh.id,ev,{fromHalfCover:aim.cover==='HALF'});
     shot.lost=lost;
-    applyOnHit(s,sh,tg,w,ev);
+    applyOnHit(s,sh,target,w,ev);
    }
   }
   if(w.healSelf&&sh.hp<sh.maxHp&&sh.status==='ACTIVE'){sh.hp=Math.min(sh.maxHp,sh.hp+w.healSelf);emit(ev,{t:'HEAL',id:sh.id,amount:w.healSelf,hp:sh.hp,src:'weapon'});}
@@ -307,7 +311,7 @@
   sh.weapon.clip--;sh.weapon.fired++;s.heat.rpg+=w.heat||0;
   const tiles=areaTiles(w,center,sh);const hit=[];
   const dmg=Rng.int(s.rng,w.dmg[0],w.dmg[1]);
-  emit(ev,{t:'BLAST',from:sh.id,x:center.x,y:center.y,tiles,weapon:w.id,sfx:D.GUN_SFX[w.id]||null});
+  emit(ev,{t:'BLAST',from:sh.id,x:center.x,y:center.y,tiles,weapon:w.id,sfx:w.audio||D.GUN_SFX[w.id]||null});
   for(const t of tiles){
    if(w.destroysCover){const p=R.propAt(s,t.x,t.y);if(p&&p.destructible){p.destroyed=true;emit(ev,{t:'COVER_DESTROYED',id:p.id,x:p.x,y:p.y,kind:p.kind});}}
   }

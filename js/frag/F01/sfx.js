@@ -53,6 +53,11 @@
  };
  // map engine sfx tags and event kinds to sounds
  function forEvent(e){
+  if(root.RAAudio&&root.RAAudioManifest){
+   const ids=e.t==='SHOT'?[e.gunSfx,e.sfx]:[e.sfx];
+   const ready=[...new Set(ids.filter(id=>id&&root.RAAudioManifest.get(id)?.registered))];
+   if(ready.length)return ready;
+  }
   switch(e.t){
    case 'SHOT':
     if(e.sfx==='BX_OVERWATCH')return e.hit?['overwatch','hit']:['overwatch','miss'];
@@ -72,6 +77,6 @@
   }
   return [];
  }
- root.RAShowdownSfx={play:name=>{try{(S[name]||S.tick)();}catch(e){}},forEvent,
+ root.RAShowdownSfx={play:name=>{try{if(muted)return;if(root.RAAudio&&root.RAAudioManifest?.get(name)?.registered){root.RAAudio.oneShot(name);const sound=root.RAAudioManifest.get(name);if(sound.type==='loop')setTimeout(()=>root.RAAudio.stop(name,0),(sound.loopEnd||0)*1000);return;}(S[name]||S.tick)();}catch(e){}},forEvent,
   setMuted(v){muted=!!v;try{root.localStorage.setItem(KEY,JSON.stringify({muted}));}catch(e){}},isMuted:()=>muted,unlock:ensure,names:Object.keys(S)};
 })(typeof window!=='undefined'?window:globalThis);
