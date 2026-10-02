@@ -1,0 +1,133 @@
+{
+  "asset": "STOVE S — F15 — ROSALYN APARTMENT",
+  "source_status": "FROZEN — UBE APPROVED",
+  "source_approval": {
+    "authority": "Ube, explicit user message in this chat",
+    "quote": "I approve the exact Rosalyn’s apartment candidate just reviewed. Freeze that original and preserve its bytes.",
+    "source_sha256": "b947200de0b2b5b172b1dfecc781f6b6923f46aa2d699177c85c35aecd5c3739"
+  },
+  "production_status": "PRODUCTION CANDIDATE — PENDING NATIVE-SIZE REVIEW",
+  "transform": {
+    "operation_order": [
+      "integer center crop",
+      "nearest-neighbor resize"
+    ],
+    "crop_box_source_pixels_left_top_right_bottom_exclusive": [
+      2,
+      4,
+      938,
+      1668
+    ],
+    "removed_source_pixels": {
+      "left": 2,
+      "right": 3,
+      "top": 4,
+      "bottom": 4
+    },
+    "cropped_dimensions": [
+      936,
+      1664
+    ],
+    "cropped_aspect_ratio": "9:16",
+    "output_dimensions": [
+      270,
+      480
+    ],
+    "uniform_resize_factor_exact": "15/52",
+    "resampling": "Pillow Image.Resampling.NEAREST",
+    "output_mode": "RGB (opaque; no alpha channel)",
+    "color_processing": "none; every output color is copied from a source pixel",
+    "qa_enlargement": {
+      "factor": 4,
+      "dimensions": [
+        1080,
+        1920
+      ],
+      "resampling": "nearest-neighbor"
+    }
+  },
+  "placement_status": "UNVERIFIED",
+  "files": [
+    {
+      "filename": "approval_record.json",
+      "bytes": 3085,
+      "sha256": "240e72ea57b9819c6385e086e8e7474c5d30e0d13498202552f12bbf46a55097"
+    },
+    {
+      "filename": "qa/03_rosalyn_apartment_gameplay_reference_QA_ONLY.png",
+      "bytes": 26699,
+      "sha256": "fad203611a13caffa9c05425fa44f21d0c852e80622ec96679902c1637f404f6",
+      "actual_dimensions": [
+        780,
+        1688
+      ],
+      "format": "PNG",
+      "mode": "RGB",
+      "opaque": true
+    },
+    {
+      "filename": "qa/rosalyn_apartment_4x_1080x1920_QA_ONLY.png",
+      "bytes": 305562,
+      "sha256": "db0fd71468548e20fccf09691ee31e1f7c50ff8ebc15cdceacc1ee475d81b4c4",
+      "actual_dimensions": [
+        1080,
+        1920
+      ],
+      "format": "PNG",
+      "mode": "RGB",
+      "opaque": true
+    },
+    {
+      "filename": "qa/rosalyn_apartment_native_270x480_QA_ONLY.png",
+      "bytes": 192736,
+      "sha256": "8247c05d7c6bafdb9009f08b3c98ebe274db63f1aadaeff4c65b0eb6f403e8e7",
+      "actual_dimensions": [
+        270,
+        480
+      ],
+      "format": "PNG",
+      "mode": "RGB",
+      "opaque": true
+    },
+    {
+      "filename": "README.txt",
+      "bytes": 2295,
+      "sha256": "cb0b0fc0e93830bac2e78bc207fbae6198336d028888bc9f62b7073314b411e7"
+    },
+    {
+      "filename": "rosalyn_apartment_270x480.png",
+      "bytes": 192736,
+      "sha256": "8247c05d7c6bafdb9009f08b3c98ebe274db63f1aadaeff4c65b0eb6f403e8e7",
+      "actual_dimensions": [
+        270,
+        480
+      ],
+      "format": "PNG",
+      "mode": "RGB",
+      "opaque": true
+    },
+    {
+      "filename": "rosalyn_apartment_f15_candidate_original.png",
+      "bytes": 1840642,
+      "sha256": "b947200de0b2b5b172b1dfecc781f6b6923f46aa2d699177c85c35aecd5c3739",
+      "actual_dimensions": [
+        941,
+        1672
+      ],
+      "format": "PNG",
+      "mode": "RGB",
+      "opaque": true
+    },
+    {
+      "filename": "source_candidate_review.txt",
+      "bytes": 4027,
+      "sha256": "e1112e1c74bc72773bb2bfdc0c5b89166f2040a402479e8270b94584ef2e858f"
+    },
+    {
+      "filename": "source_generation_prompt.txt",
+      "bytes": 5305,
+      "sha256": "7d243869bc566ee79f01f0ec0610f504f1782fbca21dda0ac01c7804e685fae2"
+    }
+  ],
+  "manifest_self_hash": "Excluded: self-referential hashing is not defined."
+}

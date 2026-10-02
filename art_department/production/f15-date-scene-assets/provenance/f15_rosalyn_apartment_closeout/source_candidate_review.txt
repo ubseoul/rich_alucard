@@ -1,0 +1,63 @@
+STOVE S — F15 — ROSALYN'S APARTMENT
+Status: CANDIDATE — PENDING UBE APPROVAL
+Candidate: rosalyn_apartment_f15_candidate_original.png
+Measured dimensions: 941x1672; format: PNG; mode: RGB.
+SHA-256: b947200de0b2b5b172b1dfecc781f6b6923f46aa2d699177c85c35aecd5c3739
+Generated once with built-in image generation. No normalization or subsequent image edits.
+Exact generation prompt: rosalyn_apartment_f15_generation_prompt.txt
+
+Content authority: ubseoul/rich_alucard
+source_vault/relationships/UNDERLORD_Character_Relationship_Packet_v0_2.docx
+Commit: e76f8400271d5f538edc17b5ba6dfb682123a957
+Verified cached Git blob: 27624a34c9decb4e9ef12e9ea067edaa2844a0d1
+Actual DOCX reread: Rosalyn / She fw Me Levels 1-4, especially Level 4.
+Packet L4: frightened call about giant cockroach, comedic boss encounter, apartment covered
+in Yuck Wars collectibles, watching Yuck Wars together and natural romance.
+The internal document title is V0.1 despite the v0_2 filename.
+
+Implementation authority:
+js/frag/F15/rosalyn.js
+Commit: 8a1dc98a373339d25d613e2651be0a6280064486
+Git blob: f6ae1f8f39efad2139d8d926970148984ef200c7
+F15_ROSALYN_L4: add(R,4), BOSS FIGHT, lines 109-151.
+Shared registration inspected in js/frag/F15/dates.js at the same commit:
+Git blob bab9911de7428d38f6736305e3a7e0aba7e3284e; add maps dancer/level to sceneId.
+L4 calls for dark encounter then lights-on reveal. This candidate depicts the lights-on room.
+Authored details: counter, release window, collectible mug and box, magazine,
+Yuck Wars figure shelves on every wall with half still boxed, Snake King Xanther
+costume on mannequin with folded glasses on its head, framed BEST ON THE VINE! poster,
+Cherry-Cruel Cherry figure top shelf LEFT, and viewing Yuck Wars.
+No story conflict between the packet and implementation was found.
+
+Source limits / unresolved art fidelity:
+Named merchandise has no supplied visual-design authority in these source passages.
+The repository tree was checked for franchise-related asset names; no matching named
+Yuck Wars/Xanther/Cherry/Pearman design assets were located by that filename check.
+This check does not establish that no relevant art exists elsewhere in the repository.
+To avoid inventing franchise designs, collectibles are represented by unprinted boxes and
+indistinct shadowed toy forms. Top-left boxed collectible is not visually identifiable as Cherry-Cruel Cherry.
+The costume remains covered by a plain protective drape; folded glasses are visible.
+Poster backboard is shown without lettering or invented artwork. Mug is plain oxblood,
+its canonical hat/three-eye-cat motif is not depicted. These are incomplete source-specific
+visual details, not approvals of new franchise designs.
+Source's exact poster lettering is omitted to obey the user's no-readable-text instruction.
+
+Visual authorities reused and inspected:
+Commit: 31ac1bfe6eddb04786fb6fffded69e6d8fa0b643
+assets/before_the_fame/environments/garage/castle_garage_empty_270x480.png
+Git blob 75d90d0c62a98a655080b3e829c8cdb007bd3149
+assets/before_the_fame/environments/peking_naija/peking_naija_interior_270x480.png
+Git blob 88bb09da0f82bf6bf7761c526b5f6fe9bbd566d4
+Both PNG reference bytes verified unchanged after generation.
+Visual check: frontal perspective, hard dark outlines, readable furniture and muted
+palette are compatible. Cream/sage/dusty-rose furnishings distinguish it from Roxy's room.
+Surface texture is finer and floor reflections stronger than requested; retain as review issues.
+
+Placement reference: C:/ra/visual_review/03_rosalyn_apartment.png
+Actual screenshot visually inspected, used only for composition.
+Large open central/foreground floor and quiet lower scenery; no live characters or cockroach drawn.
+Exact standing-actor, enemy and dialogue clearance remains UNVERIFIED: no authoritative
+background-to-viewport mapping, accurate alpha overlay or runtime test was made.
+Perimeter shelving, sofa, TV and covered mannequin could overlap actor regions.
+
+No frozen asset modification, runtime integration, commit or push.

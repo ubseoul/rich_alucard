@@ -1,0 +1,167 @@
+{
+  "asset": "STOVE Q — F15 — THE BING",
+  "source_status": "FROZEN — UBE APPROVED",
+  "production_status": "FROZEN — UBE APPROVED",
+  "transform": {
+    "operation_order": [
+      "integer center crop",
+      "nearest-neighbor resize"
+    ],
+    "crop_box_source_pixels_left_top_right_bottom_exclusive": [
+      2,
+      4,
+      938,
+      1668
+    ],
+    "removed_source_pixels": {
+      "left": 2,
+      "right": 3,
+      "top": 4,
+      "bottom": 4
+    },
+    "cropped_dimensions": [
+      936,
+      1664
+    ],
+    "cropped_aspect_ratio": "9:16",
+    "output_dimensions": [
+      270,
+      480
+    ],
+    "uniform_resize_factor_exact": "15/52",
+    "resampling": "Pillow Image.Resampling.NEAREST",
+    "output_mode": "RGB (opaque; no alpha channel)",
+    "color_processing": "none; every output color is copied from a source pixel",
+    "qa_enlargement": {
+      "factor": 4,
+      "dimensions": [
+        1080,
+        1920
+      ],
+      "resampling": "nearest-neighbor"
+    }
+  },
+  "placement_status": "UNVERIFIED",
+  "files": [
+    {
+      "filename": "approval_record.json",
+      "bytes": 3992,
+      "sha256": "044c6ed5a36bae2bef15431722bec434071989fd4083e08cf18526d1b421596e"
+    },
+    {
+      "filename": "qa/01_the_bing_gameplay_reference_QA_ONLY.png",
+      "bytes": 34306,
+      "sha256": "985136539882abac1e6ae330a70cce8c358fbf06f0d1814293c6257427e93e64",
+      "actual_dimensions": [
+        780,
+        1688
+      ],
+      "format": "PNG",
+      "mode": "RGB",
+      "opaque": true
+    },
+    {
+      "filename": "qa/the_bing_4x_1080x1920_QA_ONLY.png",
+      "bytes": 291052,
+      "sha256": "cc6e2793666154039ea8ad4f0a5b301ed9a55de37cf4fdd2042afdd87ddb01f4",
+      "actual_dimensions": [
+        1080,
+        1920
+      ],
+      "format": "PNG",
+      "mode": "RGB",
+      "opaque": true
+    },
+    {
+      "filename": "qa/the_bing_native_270x480_QA_ONLY.png",
+      "bytes": 184014,
+      "sha256": "16c82c11f017960da8eb18a8e5f5363132aca4c1d124088f5d2ac5c8ec410fe0",
+      "actual_dimensions": [
+        270,
+        480
+      ],
+      "format": "PNG",
+      "mode": "RGB",
+      "opaque": true
+    },
+    {
+      "filename": "README.txt",
+      "bytes": 2507,
+      "sha256": "0982f62a77b70024b7b0d8096381786b3a9fe3549967f4b6d3327259650333e2"
+    },
+    {
+      "filename": "source_generation_prompt.txt",
+      "bytes": 3123,
+      "sha256": "6892413b5202a0bdf0dab54b453396f125f12e33582646efc4f2b37d5c80a789"
+    },
+    {
+      "filename": "the_bing_270x480.png",
+      "bytes": 184014,
+      "sha256": "16c82c11f017960da8eb18a8e5f5363132aca4c1d124088f5d2ac5c8ec410fe0",
+      "actual_dimensions": [
+        270,
+        480
+      ],
+      "format": "PNG",
+      "mode": "RGB",
+      "opaque": true
+    },
+    {
+      "filename": "the_bing_f15_candidate_original.png",
+      "bytes": 1578194,
+      "sha256": "f5c2555e69ded12fad1ff3ddb3ecc8bda7c0c235540231ad931b395b9032c63b",
+      "actual_dimensions": [
+        941,
+        1672
+      ],
+      "format": "PNG",
+      "mode": "RGB",
+      "opaque": true
+    }
+  ],
+  "manifest_self_hash": "Excluded: self-referential hashing is not defined.",
+  "approved_source": {
+    "filename": "the_bing_f15_candidate_original.png",
+    "bytes": 1578194,
+    "sha256": "f5c2555e69ded12fad1ff3ddb3ecc8bda7c0c235540231ad931b395b9032c63b",
+    "actual_dimensions": [
+      941,
+      1672
+    ],
+    "format": "PNG",
+    "mode": "RGB",
+    "opaque": true
+  },
+  "approved_production": {
+    "filename": "the_bing_270x480.png",
+    "bytes": 184014,
+    "sha256": "16c82c11f017960da8eb18a8e5f5363132aca4c1d124088f5d2ac5c8ec410fe0",
+    "actual_dimensions": [
+      270,
+      480
+    ],
+    "format": "PNG",
+    "mode": "RGB",
+    "opaque": true
+  },
+  "production_approval": {
+    "authority": "Ube, explicit user message in this chat",
+    "quote": "I approve the reviewed the_bing_270x480.png. Freeze that exact production file and preserve the approved original.",
+    "recorded_client_date": "2026-10-02",
+    "timezone": "America/New_York",
+    "approval_timestamp": "Exact timestamp not supplied; identified by verbatim user message.",
+    "approved_file": {
+      "filename": "the_bing_270x480.png",
+      "bytes": 184014,
+      "sha256": "16c82c11f017960da8eb18a8e5f5363132aca4c1d124088f5d2ac5c8ec410fe0",
+      "actual_dimensions": [
+        270,
+        480
+      ],
+      "format": "PNG",
+      "mode": "RGB",
+      "opaque": true
+    }
+  },
+  "all_image_bytes_preserved": true
+}

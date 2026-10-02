@@ -1,0 +1,133 @@
+{
+  "asset": "STOVE T — F15 — BOXING GYM",
+  "source_status": "FROZEN — UBE APPROVED",
+  "source_approval": {
+    "authority": "Ube, explicit user message in this chat",
+    "quote": "I approve the exact boxing gym candidate just reviewed. Freeze that original and preserve its bytes.",
+    "source_sha256": "8205129b30baef801c0f851e2de7ccc0b2827bd285f014e6146da35184a4b097"
+  },
+  "production_status": "PRODUCTION CANDIDATE — PENDING NATIVE-SIZE REVIEW",
+  "transform": {
+    "operation_order": [
+      "integer center crop",
+      "nearest-neighbor resize"
+    ],
+    "crop_box_source_pixels_left_top_right_bottom_exclusive": [
+      2,
+      4,
+      938,
+      1668
+    ],
+    "removed_source_pixels": {
+      "left": 2,
+      "right": 3,
+      "top": 4,
+      "bottom": 4
+    },
+    "cropped_dimensions": [
+      936,
+      1664
+    ],
+    "cropped_aspect_ratio": "9:16",
+    "output_dimensions": [
+      270,
+      480
+    ],
+    "uniform_resize_factor_exact": "15/52",
+    "resampling": "Pillow Image.Resampling.NEAREST",
+    "output_mode": "RGB (opaque; no alpha channel)",
+    "color_processing": "none; every output color is copied from a source pixel",
+    "qa_enlargement": {
+      "factor": 4,
+      "dimensions": [
+        1080,
+        1920
+      ],
+      "resampling": "nearest-neighbor"
+    }
+  },
+  "placement_status": "UNVERIFIED",
+  "files": [
+    {
+      "filename": "approval_record.json",
+      "bytes": 3125,
+      "sha256": "fb1b980da44fa60edb948bde793a2e88172ec8f2497e6b492e931faeb5d8ee7d"
+    },
+    {
+      "filename": "boxing_gym_270x480.png",
+      "bytes": 161542,
+      "sha256": "9a0e80798bc8c7a74d96c06578c6d4e02ee4170284651d93ac4569432877f24f",
+      "actual_dimensions": [
+        270,
+        480
+      ],
+      "format": "PNG",
+      "mode": "RGB",
+      "opaque": true
+    },
+    {
+      "filename": "boxing_gym_f15_candidate_original.png",
+      "bytes": 1494456,
+      "sha256": "8205129b30baef801c0f851e2de7ccc0b2827bd285f014e6146da35184a4b097",
+      "actual_dimensions": [
+        941,
+        1672
+      ],
+      "format": "PNG",
+      "mode": "RGB",
+      "opaque": true
+    },
+    {
+      "filename": "qa/04_boxing_gym_gameplay_reference_QA_ONLY.png",
+      "bytes": 27860,
+      "sha256": "5676e99a0984c62ad6ece0a4cb3ef1cde7669a40a5dba6477fdd035724d71708",
+      "actual_dimensions": [
+        780,
+        1688
+      ],
+      "format": "PNG",
+      "mode": "RGB",
+      "opaque": true
+    },
+    {
+      "filename": "qa/boxing_gym_4x_1080x1920_QA_ONLY.png",
+      "bytes": 262146,
+      "sha256": "db803cb11185c4f18380a9859ffa660455609abf40b4348f4c049b4054f6409e",
+      "actual_dimensions": [
+        1080,
+        1920
+      ],
+      "format": "PNG",
+      "mode": "RGB",
+      "opaque": true
+    },
+    {
+      "filename": "qa/boxing_gym_native_270x480_QA_ONLY.png",
+      "bytes": 161542,
+      "sha256": "9a0e80798bc8c7a74d96c06578c6d4e02ee4170284651d93ac4569432877f24f",
+      "actual_dimensions": [
+        270,
+        480
+      ],
+      "format": "PNG",
+      "mode": "RGB",
+      "opaque": true
+    },
+    {
+      "filename": "README.txt",
+      "bytes": 2266,
+      "sha256": "cacf1f7ef3e406d1ad610eba7c04cb564eff20417256e192adf24c662924f7c9"
+    },
+    {
+      "filename": "source_candidate_review.txt",
+      "bytes": 2848,
+      "sha256": "bbb2cb65bcbf88a4289fc60068e4cb92e78cd977c900bb0d885528d41d969392"
+    },
+    {
+      "filename": "source_generation_prompt.txt",
+      "bytes": 3823,
+      "sha256": "6da9a659a03056fb09d691ecdb6d3780f29b4d750d89b2ab718ea23699e99fe1"
+    }
+  ],
+  "manifest_self_hash": "Excluded: self-referential hashing is not defined."
+}

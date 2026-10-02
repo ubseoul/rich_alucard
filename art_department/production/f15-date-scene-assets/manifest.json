@@ -1,0 +1,788 @@
+{
+ "package": "f15-date-scene-assets",
+ "schema": 1,
+ "status": "PUBLISHED WITH GAPS - ART ONLY, NO RUNTIME INTEGRATION, NOT RELEASE-READY",
+ "base_commit": "8a1dc98a373339d25d613e2651be0a6280064486",
+ "source_branch": "feat/f15-romance-trio-001",
+ "source_root": "C:/Users/Ube/Documents/Codex/2026-10-01/stove-q-f15-the-bing-background/outputs/",
+ "checksum_scheme": "SHA256SUMS.txt lists the sha256 of every package file EXCEPT itself (manifest.json is included). manifest.json lists per-file hashes of every file except itself and SHA256SUMS.txt, so no file hashes its own bytes. Verify: cd to package dir; sha256sum -c SHA256SUMS.txt",
+ "approved_production": [
+  {
+   "path": "production/the_bing_270x480.png",
+   "role": "production_background_270x480",
+   "status": "FROZEN - UBE APPROVED (production)",
+   "bytes": 184014,
+   "sha256": "16c82c11f017960da8eb18a8e5f5363132aca4c1d124088f5d2ac5c8ec410fe0",
+   "dimensions": [
+    270,
+    480
+   ],
+   "mode": "RGB",
+   "format": "PNG",
+   "source_path": "f15_the_bing_closeout/the_bing_270x480.png",
+   "asset": "the_bing",
+   "record_sha256_match": true,
+   "transform_reproduced_in_memory": true,
+   "approval_quote": "I approve the reviewed the_bing_270x480.png. Freeze that exact production file and preserve the approved original.",
+   "placement": "UNVERIFIED - actor/UI placement unverified until runtime integration"
+  },
+  {
+   "path": "production/convention_hall_270x480.png",
+   "role": "production_background_270x480",
+   "status": "FROZEN - UBE APPROVED (production)",
+   "bytes": 186868,
+   "sha256": "469564c607b94bcd7fdceb64d1bcacdd5bf9ff02c7f343a7798636ec885d8664",
+   "dimensions": [
+    270,
+    480
+   ],
+   "mode": "RGB",
+   "format": "PNG",
+   "source_path": "f15_final_three_closeout/convention_hall_270x480.png",
+   "asset": "convention_hall",
+   "record_sha256_match": true,
+   "transform_reproduced_in_memory": true,
+   "approval_quote": "I approve the exact reviewed convention_hall_270x480.png and shrine_auditorium_270x480.png.",
+   "placement": "UNVERIFIED - actor/UI placement unverified until runtime integration"
+  },
+  {
+   "path": "production/shrine_auditorium_270x480.png",
+   "role": "production_background_270x480",
+   "status": "FROZEN - UBE APPROVED (production)",
+   "bytes": 177418,
+   "sha256": "58359742eb37d7cd4ff9f05c9312207f109528a59397268cd7d73491ae02cab9",
+   "dimensions": [
+    270,
+    480
+   ],
+   "mode": "RGB",
+   "format": "PNG",
+   "source_path": "f15_final_three_closeout/shrine_auditorium_270x480.png",
+   "asset": "shrine_auditorium",
+   "record_sha256_match": true,
+   "transform_reproduced_in_memory": true,
+   "approval_quote": "I approve the exact reviewed convention_hall_270x480.png and shrine_auditorium_270x480.png.",
+   "placement": "UNVERIFIED - actor/UI placement unverified until runtime integration"
+  },
+  {
+   "path": "production/spirit_of_uncle_bunmi_candidate_original.png",
+   "role": "frozen_sprite_master_rgba",
+   "status": "FROZEN - UBE APPROVED",
+   "bytes": 804694,
+   "sha256": "2c1589a8214c8f3eda935f416e1808a83aa71ec3be1d4c3f4b8d29a0333aa783",
+   "dimensions": [
+    1774,
+    887
+   ],
+   "mode": "RGBA",
+   "format": "PNG",
+   "source_path": "f15_final_three_closeout/spirit_of_uncle_bunmi_candidate_original.png",
+   "asset": "spirit_of_uncle_bunmi",
+   "alpha_measured": {
+    "transparent": 1016648,
+    "partial": 553579,
+    "opaque": 3311,
+    "extrema": [
+     0,
+     255
+    ]
+   },
+   "alpha_preserved": "byte-for-byte copy; no resize, recolor, clean or repack",
+   "approval_quote": "I approve these exact candidates:\n- convention_hall_candidate_original.png\n- shrine_auditorium_candidate_original.png\n- spirit_of_uncle_bunmi_candidate_original.png",
+   "placement": "UNVERIFIED - deferred to integration; runtime display size not specified"
+  }
+ ],
+ "approved_originals": [
+  {
+   "path": "originals/the_bing_f15_candidate_original.png",
+   "role": "approved_source_original",
+   "status": "FROZEN - UBE APPROVED (source)",
+   "bytes": 1578194,
+   "sha256": "f5c2555e69ded12fad1ff3ddb3ecc8bda7c0c235540231ad931b395b9032c63b",
+   "dimensions": [
+    941,
+    1672
+   ],
+   "mode": "RGB",
+   "format": "PNG",
+   "source_path": "f15_the_bing_closeout/the_bing_f15_candidate_original.png",
+   "asset": "the_bing",
+   "record_sha256_match": true,
+   "approval_quote": "Ube approves the exact Bing background just reviewed. Freeze that original as the approved source, preserve its bytes, and complete the production preparation."
+  },
+  {
+   "path": "originals/roxy_apartment_f15_candidate_original.png",
+   "role": "approved_source_original",
+   "status": "FROZEN - UBE APPROVED (source)",
+   "bytes": 1733158,
+   "sha256": "555c54a3401ac17cbb9e67fe34d733c6eb86a9cda9dc55d403cbf786d31a2415",
+   "dimensions": [
+    941,
+    1672
+   ],
+   "mode": "RGB",
+   "format": "PNG",
+   "source_path": "f15_roxy_apartment_closeout/roxy_apartment_f15_candidate_original.png",
+   "asset": "roxy_apartment",
+   "record_sha256_match": true,
+   "approval_quote": "I approve the exact Roxy’s apartment candidate just reviewed. Freeze that original and preserve its bytes."
+  },
+  {
+   "path": "originals/rosalyn_apartment_f15_candidate_original.png",
+   "role": "approved_source_original",
+   "status": "FROZEN - UBE APPROVED (source)",
+   "bytes": 1840642,
+   "sha256": "b947200de0b2b5b172b1dfecc781f6b6923f46aa2d699177c85c35aecd5c3739",
+   "dimensions": [
+    941,
+    1672
+   ],
+   "mode": "RGB",
+   "format": "PNG",
+   "source_path": "f15_rosalyn_apartment_closeout/rosalyn_apartment_f15_candidate_original.png",
+   "asset": "rosalyn_apartment",
+   "record_sha256_match": true,
+   "approval_quote": "I approve the exact Rosalyn’s apartment candidate just reviewed. Freeze that original and preserve its bytes."
+  },
+  {
+   "path": "originals/boxing_gym_f15_candidate_original.png",
+   "role": "approved_source_original",
+   "status": "FROZEN - UBE APPROVED (source)",
+   "bytes": 1494456,
+   "sha256": "8205129b30baef801c0f851e2de7ccc0b2827bd285f014e6146da35184a4b097",
+   "dimensions": [
+    941,
+    1672
+   ],
+   "mode": "RGB",
+   "format": "PNG",
+   "source_path": "f15_boxing_gym_closeout/boxing_gym_f15_candidate_original.png",
+   "asset": "boxing_gym",
+   "record_sha256_match": true,
+   "approval_quote": "I approve the exact boxing gym candidate just reviewed. Freeze that original and preserve its bytes."
+  },
+  {
+   "path": "originals/plenitude_f15_candidate_original.png",
+   "role": "approved_source_original",
+   "status": "FROZEN - UBE APPROVED (source)",
+   "bytes": 1487021,
+   "sha256": "d851d57039f6f6678396500d7cd8e7e4cb7410253a60c2f091b9d7fa67161b0f",
+   "dimensions": [
+    941,
+    1672
+   ],
+   "mode": "RGB",
+   "format": "PNG",
+   "source_path": "f15_plenitude_closeout/plenitude_f15_candidate_original.png",
+   "asset": "plenitude",
+   "record_sha256_match": true,
+   "approval_quote": "I approve the exact Plénitude restaurant candidate just reviewed. Freeze that original and preserve its bytes."
+  },
+  {
+   "path": "originals/convention_hall_candidate_original.png",
+   "role": "approved_source_original",
+   "status": "FROZEN - UBE APPROVED (source)",
+   "bytes": 1690038,
+   "sha256": "85ad0c17c2c0dffb89aee6d724f9ad569647b53af309007e58c50dd838242ebc",
+   "dimensions": [
+    941,
+    1672
+   ],
+   "mode": "RGB",
+   "format": "PNG",
+   "source_path": "f15_final_three_closeout/convention_hall_candidate_original.png",
+   "asset": "convention_hall",
+   "record_sha256_match": true,
+   "approval_quote": "I approve these exact candidates:\n- convention_hall_candidate_original.png\n- shrine_auditorium_candidate_original.png\n- spirit_of_uncle_bunmi_candidate_original.png"
+  },
+  {
+   "path": "originals/shrine_auditorium_candidate_original.png",
+   "role": "approved_source_original",
+   "status": "FROZEN - UBE APPROVED (source)",
+   "bytes": 1606938,
+   "sha256": "023adf2df27500c50c9a07bdd79fa6cb974e3a41b4bf5a658410a77ccd1aa7a4",
+   "dimensions": [
+    941,
+    1672
+   ],
+   "mode": "RGB",
+   "format": "PNG",
+   "source_path": "f15_final_three_closeout/shrine_auditorium_candidate_original.png",
+   "asset": "shrine_auditorium",
+   "record_sha256_match": true,
+   "approval_quote": "I approve these exact candidates:\n- convention_hall_candidate_original.png\n- shrine_auditorium_candidate_original.png\n- spirit_of_uncle_bunmi_candidate_original.png"
+  }
+ ],
+ "qa_only": [
+  {
+   "path": "qa/convention_hall/06_convention_hall_gameplay_reference_QA_ONLY.png",
+   "role": "qa_only",
+   "status": "QA ONLY - not a production asset",
+   "bytes": 23747,
+   "sha256": "c10b38f61873eafb199d1fc960651ef229bdcb3f4053f7a55e626b11439bb802",
+   "dimensions": [
+    780,
+    1688
+   ],
+   "mode": "RGB",
+   "format": "PNG",
+   "source_path": "f15_final_three_closeout/qa/06_convention_hall_gameplay_reference_QA_ONLY.png",
+   "asset": "convention_hall"
+  },
+  {
+   "path": "qa/shrine_auditorium/07_shrine_auditorium_gameplay_reference_QA_ONLY.png",
+   "role": "qa_only",
+   "status": "QA ONLY - not a production asset",
+   "bytes": 36004,
+   "sha256": "99518ec207fda5c64ca447262a3b31eb1c33a7483571f95206d0b4c08b972f72",
+   "dimensions": [
+    780,
+    1688
+   ],
+   "mode": "RGB",
+   "format": "PNG",
+   "source_path": "f15_final_three_closeout/qa/07_shrine_auditorium_gameplay_reference_QA_ONLY.png",
+   "asset": "shrine_auditorium"
+  },
+  {
+   "path": "qa/convention_hall/convention_hall_4x_1080x1920_QA_ONLY.png",
+   "role": "qa_only",
+   "status": "QA ONLY - not a production asset",
+   "bytes": 296406,
+   "sha256": "a64448aaebfce41eb1448a74dd3e5d145f394eafd312853426619db60b4332b7",
+   "dimensions": [
+    1080,
+    1920
+   ],
+   "mode": "RGB",
+   "format": "PNG",
+   "source_path": "f15_final_three_closeout/qa/convention_hall_4x_1080x1920_QA_ONLY.png",
+   "asset": "convention_hall"
+  },
+  {
+   "path": "qa/convention_hall/convention_hall_native_270x480_QA_ONLY.png",
+   "role": "qa_only",
+   "status": "QA ONLY - not a production asset",
+   "bytes": 186868,
+   "sha256": "469564c607b94bcd7fdceb64d1bcacdd5bf9ff02c7f343a7798636ec885d8664",
+   "dimensions": [
+    270,
+    480
+   ],
+   "mode": "RGB",
+   "format": "PNG",
+   "source_path": "f15_final_three_closeout/qa/convention_hall_native_270x480_QA_ONLY.png",
+   "asset": "convention_hall"
+  },
+  {
+   "path": "qa/shrine_auditorium/shrine_auditorium_4x_1080x1920_QA_ONLY.png",
+   "role": "qa_only",
+   "status": "QA ONLY - not a production asset",
+   "bytes": 282668,
+   "sha256": "bb08e9a8380fc0d46c80948e781c3e9553bae42f7cab5aa1d945ff06b761d0a1",
+   "dimensions": [
+    1080,
+    1920
+   ],
+   "mode": "RGB",
+   "format": "PNG",
+   "source_path": "f15_final_three_closeout/qa/shrine_auditorium_4x_1080x1920_QA_ONLY.png",
+   "asset": "shrine_auditorium"
+  },
+  {
+   "path": "qa/shrine_auditorium/shrine_auditorium_native_270x480_QA_ONLY.png",
+   "role": "qa_only",
+   "status": "QA ONLY - not a production asset",
+   "bytes": 177418,
+   "sha256": "58359742eb37d7cd4ff9f05c9312207f109528a59397268cd7d73491ae02cab9",
+   "dimensions": [
+    270,
+    480
+   ],
+   "mode": "RGB",
+   "format": "PNG",
+   "source_path": "f15_final_three_closeout/qa/shrine_auditorium_native_270x480_QA_ONLY.png",
+   "asset": "shrine_auditorium"
+  },
+  {
+   "path": "qa/the_bing/01_the_bing_gameplay_reference_QA_ONLY.png",
+   "role": "qa_only",
+   "status": "QA ONLY - not a production asset",
+   "bytes": 34306,
+   "sha256": "985136539882abac1e6ae330a70cce8c358fbf06f0d1814293c6257427e93e64",
+   "dimensions": [
+    780,
+    1688
+   ],
+   "mode": "RGB",
+   "format": "PNG",
+   "source_path": "f15_the_bing_closeout/qa/01_the_bing_gameplay_reference_QA_ONLY.png",
+   "asset": "the_bing"
+  },
+  {
+   "path": "qa/the_bing/the_bing_4x_1080x1920_QA_ONLY.png",
+   "role": "qa_only",
+   "status": "QA ONLY - not a production asset",
+   "bytes": 291052,
+   "sha256": "cc6e2793666154039ea8ad4f0a5b301ed9a55de37cf4fdd2042afdd87ddb01f4",
+   "dimensions": [
+    1080,
+    1920
+   ],
+   "mode": "RGB",
+   "format": "PNG",
+   "source_path": "f15_the_bing_closeout/qa/the_bing_4x_1080x1920_QA_ONLY.png",
+   "asset": "the_bing"
+  },
+  {
+   "path": "qa/the_bing/the_bing_native_270x480_QA_ONLY.png",
+   "role": "qa_only",
+   "status": "QA ONLY - not a production asset",
+   "bytes": 184014,
+   "sha256": "16c82c11f017960da8eb18a8e5f5363132aca4c1d124088f5d2ac5c8ec410fe0",
+   "dimensions": [
+    270,
+    480
+   ],
+   "mode": "RGB",
+   "format": "PNG",
+   "source_path": "f15_the_bing_closeout/qa/the_bing_native_270x480_QA_ONLY.png",
+   "asset": "the_bing"
+  }
+ ],
+ "provenance": [
+  {
+   "path": "provenance/f15_boxing_gym_closeout/approval_record.json",
+   "role": "provenance_record",
+   "status": "verbatim copy of source-package file",
+   "bytes": 3125,
+   "sha256": "fb1b980da44fa60edb948bde793a2e88172ec8f2497e6b492e931faeb5d8ee7d",
+   "source_path": "f15_boxing_gym_closeout/approval_record.json"
+  },
+  {
+   "path": "provenance/f15_boxing_gym_closeout/manifest.json",
+   "role": "provenance_record",
+   "status": "verbatim copy of source-package file",
+   "bytes": 3767,
+   "sha256": "2bcf04fe47089c5f9a9601d15dba4ba62e19a3aeb443f75dbfdb5fd8920b39b7",
+   "source_path": "f15_boxing_gym_closeout/manifest.json"
+  },
+  {
+   "path": "provenance/f15_boxing_gym_closeout/README.txt",
+   "role": "provenance_record",
+   "status": "verbatim copy of source-package file",
+   "bytes": 2266,
+   "sha256": "cacf1f7ef3e406d1ad610eba7c04cb564eff20417256e192adf24c662924f7c9",
+   "source_path": "f15_boxing_gym_closeout/README.txt"
+  },
+  {
+   "path": "provenance/f15_boxing_gym_closeout/source_candidate_review.txt",
+   "role": "provenance_record",
+   "status": "verbatim copy of source-package file",
+   "bytes": 2848,
+   "sha256": "bbb2cb65bcbf88a4289fc60068e4cb92e78cd977c900bb0d885528d41d969392",
+   "source_path": "f15_boxing_gym_closeout/source_candidate_review.txt"
+  },
+  {
+   "path": "provenance/f15_boxing_gym_closeout/source_generation_prompt.txt",
+   "role": "provenance_record",
+   "status": "verbatim copy of source-package file",
+   "bytes": 3823,
+   "sha256": "6da9a659a03056fb09d691ecdb6d3780f29b4d750d89b2ab718ea23699e99fe1",
+   "source_path": "f15_boxing_gym_closeout/source_generation_prompt.txt"
+  },
+  {
+   "path": "provenance/f15_final_three_closeout/approval_record.json",
+   "role": "provenance_record",
+   "status": "verbatim copy of source-package file",
+   "bytes": 12027,
+   "sha256": "abd86c057a1a7db8970610a6e6907c065315ac9137296155a03b5be872ff837f",
+   "source_path": "f15_final_three_closeout/approval_record.json"
+  },
+  {
+   "path": "provenance/f15_final_three_closeout/manifest.json",
+   "role": "provenance_record",
+   "status": "verbatim copy of source-package file",
+   "bytes": 18853,
+   "sha256": "16c9259a9a55d98b5d4541fa26c7ae6a1f2f4c1ad7bc943a3c3e3391d0e55168",
+   "source_path": "f15_final_three_closeout/manifest.json"
+  },
+  {
+   "path": "provenance/f15_final_three_closeout/README.txt",
+   "role": "provenance_record",
+   "status": "verbatim copy of source-package file",
+   "bytes": 2228,
+   "sha256": "18030ad8517a7154fb61193914bfe6e0ca86ddeedd481ae7ac6cefc94991d28e",
+   "source_path": "f15_final_three_closeout/README.txt"
+  },
+  {
+   "path": "provenance/f15_final_three_closeout/provenance/candidate_manifest.json",
+   "role": "provenance_record",
+   "status": "verbatim copy of source-package file",
+   "bytes": 2503,
+   "sha256": "c5dd02eb615738a5752f43d08f4f2bae13c91d360b9f01e84b2cccaffd6f5d9d",
+   "source_path": "f15_final_three_closeout/provenance/candidate_manifest.json"
+  },
+  {
+   "path": "provenance/f15_final_three_closeout/provenance/convention_hall_generation_prompt.txt",
+   "role": "provenance_record",
+   "status": "verbatim copy of source-package file",
+   "bytes": 2926,
+   "sha256": "8f11daa4731d8f97e5d98418a0d85a0f19d14f7baa3c24ba5076758b5926a87c",
+   "source_path": "f15_final_three_closeout/provenance/convention_hall_generation_prompt.txt"
+  },
+  {
+   "path": "provenance/f15_final_three_closeout/provenance/shrine_auditorium_generation_prompt.txt",
+   "role": "provenance_record",
+   "status": "verbatim copy of source-package file",
+   "bytes": 3248,
+   "sha256": "d4c0fd818543f7bfd666532cca02154cf6e948c2762025d47d491028b2eef66f",
+   "source_path": "f15_final_three_closeout/provenance/shrine_auditorium_generation_prompt.txt"
+  },
+  {
+   "path": "provenance/f15_final_three_closeout/provenance/source_and_visual_review.txt",
+   "role": "provenance_record",
+   "status": "verbatim copy of source-package file",
+   "bytes": 6066,
+   "sha256": "18a90ee510090cd6dad576ec8ca0b40116aa05914d4fdcffd1c0009f1f5e5808",
+   "source_path": "f15_final_three_closeout/provenance/source_and_visual_review.txt"
+  },
+  {
+   "path": "provenance/f15_final_three_closeout/provenance/spirit_of_uncle_bunmi_generation_prompt.txt",
+   "role": "provenance_record",
+   "status": "verbatim copy of source-package file",
+   "bytes": 3295,
+   "sha256": "d3cb4c6fdef0d2c830baf95dad85be4d0a63890f5ef20b15eda5cd60ff10a70e",
+   "source_path": "f15_final_three_closeout/provenance/spirit_of_uncle_bunmi_generation_prompt.txt"
+  },
+  {
+   "path": "provenance/f15_final_three_closeout/records/convention_hall_approval_record.json",
+   "role": "provenance_record",
+   "status": "verbatim copy of source-package file",
+   "bytes": 3854,
+   "sha256": "eb5373aa4faf09cf997342c712dc205159c3347e9a8c04b929e56e4632a4dcb1",
+   "source_path": "f15_final_three_closeout/records/convention_hall_approval_record.json"
+  },
+  {
+   "path": "provenance/f15_final_three_closeout/records/shrine_auditorium_approval_record.json",
+   "role": "provenance_record",
+   "status": "verbatim copy of source-package file",
+   "bytes": 3824,
+   "sha256": "e576c4a0b384962bd8dab0145f69e837ae826bd8cb5e78067e97be89b76d1e35",
+   "source_path": "f15_final_three_closeout/records/shrine_auditorium_approval_record.json"
+  },
+  {
+   "path": "provenance/f15_final_three_closeout/records/spirit_of_uncle_bunmi_approval_record.json",
+   "role": "provenance_record",
+   "status": "verbatim copy of source-package file",
+   "bytes": 1708,
+   "sha256": "bd4bbfa38165e120281bbed2a8ab2eaa1f96f5a0b4b924a0e75879fbc9a1689c",
+   "source_path": "f15_final_three_closeout/records/spirit_of_uncle_bunmi_approval_record.json"
+  },
+  {
+   "path": "provenance/f15_plenitude_closeout/approval_record.json",
+   "role": "provenance_record",
+   "status": "verbatim copy of source-package file",
+   "bytes": 3112,
+   "sha256": "3ce2373e65acd74d6d5e555c42df666ec92fe70fd4c34b3d3f904b80f8a4568f",
+   "source_path": "f15_plenitude_closeout/approval_record.json"
+  },
+  {
+   "path": "provenance/f15_plenitude_closeout/manifest.json",
+   "role": "provenance_record",
+   "status": "verbatim copy of source-package file",
+   "bytes": 3773,
+   "sha256": "7501f4e2e1de4ba01cb42f9a57f70052aa506d7aa73ff4cd1f5356bddc9a1ed9",
+   "source_path": "f15_plenitude_closeout/manifest.json"
+  },
+  {
+   "path": "provenance/f15_plenitude_closeout/README.txt",
+   "role": "provenance_record",
+   "status": "verbatim copy of source-package file",
+   "bytes": 2261,
+   "sha256": "eed35ef5e0e90b7631fad6c99e56bad7ee37b265ee405cc6ef8cc93b857c5427",
+   "source_path": "f15_plenitude_closeout/README.txt"
+  },
+  {
+   "path": "provenance/f15_plenitude_closeout/source_candidate_review.txt",
+   "role": "provenance_record",
+   "status": "verbatim copy of source-package file",
+   "bytes": 2830,
+   "sha256": "3f92a28e30acdc47f9ea2bae880bcb9caa323205fc5869cc024fa63fa9353537",
+   "source_path": "f15_plenitude_closeout/source_candidate_review.txt"
+  },
+  {
+   "path": "provenance/f15_plenitude_closeout/source_generation_prompt.txt",
+   "role": "provenance_record",
+   "status": "verbatim copy of source-package file",
+   "bytes": 4000,
+   "sha256": "3991e6a8fab84944a9d3855df31ffc089fda4663d91b5017162574c80ec61576",
+   "source_path": "f15_plenitude_closeout/source_generation_prompt.txt"
+  },
+  {
+   "path": "provenance/f15_rosalyn_apartment_closeout/approval_record.json",
+   "role": "provenance_record",
+   "status": "verbatim copy of source-package file",
+   "bytes": 3085,
+   "sha256": "240e72ea57b9819c6385e086e8e7474c5d30e0d13498202552f12bbf46a55097",
+   "source_path": "f15_rosalyn_apartment_closeout/approval_record.json"
+  },
+  {
+   "path": "provenance/f15_rosalyn_apartment_closeout/manifest.json",
+   "role": "provenance_record",
+   "status": "verbatim copy of source-package file",
+   "bytes": 3820,
+   "sha256": "41ea4e49a974330abb0df177922a4a5157c4ab359769cd6602648cc63a2c9155",
+   "source_path": "f15_rosalyn_apartment_closeout/manifest.json"
+  },
+  {
+   "path": "provenance/f15_rosalyn_apartment_closeout/README.txt",
+   "role": "provenance_record",
+   "status": "verbatim copy of source-package file",
+   "bytes": 2295,
+   "sha256": "cb0b0fc0e93830bac2e78bc207fbae6198336d028888bc9f62b7073314b411e7",
+   "source_path": "f15_rosalyn_apartment_closeout/README.txt"
+  },
+  {
+   "path": "provenance/f15_rosalyn_apartment_closeout/source_candidate_review.txt",
+   "role": "provenance_record",
+   "status": "verbatim copy of source-package file",
+   "bytes": 4027,
+   "sha256": "e1112e1c74bc72773bb2bfdc0c5b89166f2040a402479e8270b94584ef2e858f",
+   "source_path": "f15_rosalyn_apartment_closeout/source_candidate_review.txt"
+  },
+  {
+   "path": "provenance/f15_rosalyn_apartment_closeout/source_generation_prompt.txt",
+   "role": "provenance_record",
+   "status": "verbatim copy of source-package file",
+   "bytes": 5305,
+   "sha256": "7d243869bc566ee79f01f0ec0610f504f1782fbca21dda0ac01c7804e685fae2",
+   "source_path": "f15_rosalyn_apartment_closeout/source_generation_prompt.txt"
+  },
+  {
+   "path": "provenance/f15_roxy_apartment_closeout/approval_record.json",
+   "role": "provenance_record",
+   "status": "verbatim copy of source-package file",
+   "bytes": 2972,
+   "sha256": "dbf8c20bce755e36739fa2ae07db1e6229990adb5faeeb4a4225b256ca730366",
+   "source_path": "f15_roxy_apartment_closeout/approval_record.json"
+  },
+  {
+   "path": "provenance/f15_roxy_apartment_closeout/manifest.json",
+   "role": "provenance_record",
+   "status": "verbatim copy of source-package file",
+   "bytes": 3628,
+   "sha256": "1a8f0b77bf8d9b2a8e920f85b768258ff33e5795b9b98519f08917eb59e1f333",
+   "source_path": "f15_roxy_apartment_closeout/manifest.json"
+  },
+  {
+   "path": "provenance/f15_roxy_apartment_closeout/README.txt",
+   "role": "provenance_record",
+   "status": "verbatim copy of source-package file",
+   "bytes": 2263,
+   "sha256": "90d9f4da5ca74fa5cfedf357bf364c629f63e4803c94bffe6003fbd00b1f6721",
+   "source_path": "f15_roxy_apartment_closeout/README.txt"
+  },
+  {
+   "path": "provenance/f15_roxy_apartment_closeout/source_generation_prompt.txt",
+   "role": "provenance_record",
+   "status": "verbatim copy of source-package file",
+   "bytes": 4402,
+   "sha256": "c26c91e6345504dea157e005698ac3d364613dd22cb4d3d934faaf56d846dca6",
+   "source_path": "f15_roxy_apartment_closeout/source_generation_prompt.txt"
+  },
+  {
+   "path": "provenance/f15_the_bing_closeout/approval_record.json",
+   "role": "provenance_record",
+   "status": "verbatim copy of source-package file",
+   "bytes": 3992,
+   "sha256": "044c6ed5a36bae2bef15431722bec434071989fd4083e08cf18526d1b421596e",
+   "source_path": "f15_the_bing_closeout/approval_record.json"
+  },
+  {
+   "path": "provenance/f15_the_bing_closeout/manifest.json",
+   "role": "provenance_record",
+   "status": "verbatim copy of source-package file",
+   "bytes": 4633,
+   "sha256": "0f6a20280efe4d9e12d56bdf2697a85685f2dc0a3cd98beaad4c5d984db7821f",
+   "source_path": "f15_the_bing_closeout/manifest.json"
+  },
+  {
+   "path": "provenance/f15_the_bing_closeout/README.txt",
+   "role": "provenance_record",
+   "status": "verbatim copy of source-package file",
+   "bytes": 2507,
+   "sha256": "0982f62a77b70024b7b0d8096381786b3a9fe3549967f4b6d3327259650333e2",
+   "source_path": "f15_the_bing_closeout/README.txt"
+  },
+  {
+   "path": "provenance/f15_the_bing_closeout/source_generation_prompt.txt",
+   "role": "provenance_record",
+   "status": "verbatim copy of source-package file",
+   "bytes": 3123,
+   "sha256": "6892413b5202a0bdf0dab54b453396f125f12e33582646efc4f2b37d5c80a789",
+   "source_path": "f15_the_bing_closeout/source_generation_prompt.txt"
+  },
+  {
+   "path": "provenance/source_zip_checksums/F15_boxing_gym_closeout.zip.sha256.txt",
+   "role": "provenance_record",
+   "status": "verbatim copy of source zip sidecar",
+   "bytes": 95,
+   "sha256": "ab13bf9367497fee5d072c847e274f32a60df8657dec07762cbea3ba9646a3d0",
+   "source_path": "F15_boxing_gym_closeout.zip.sha256.txt"
+  },
+  {
+   "path": "provenance/source_zip_checksums/F15_final_three_closeout.zip.sha256.txt",
+   "role": "provenance_record",
+   "status": "verbatim copy of source zip sidecar",
+   "bytes": 96,
+   "sha256": "9add984b4e81173c043824ac1e13badb272ae9d8e20414d71f5ad6f9c810578f",
+   "source_path": "F15_final_three_closeout.zip.sha256.txt"
+  },
+  {
+   "path": "provenance/source_zip_checksums/F15_plenitude_closeout.zip.sha256.txt",
+   "role": "provenance_record",
+   "status": "verbatim copy of source zip sidecar",
+   "bytes": 94,
+   "sha256": "cb3bf9cd91a601e6faa61b6ce8c86d574b51e8254475e5705fdfb14bfcd95343",
+   "source_path": "F15_plenitude_closeout.zip.sha256.txt"
+  },
+  {
+   "path": "provenance/source_zip_checksums/F15_rosalyn_apartment_closeout.zip.sha256.txt",
+   "role": "provenance_record",
+   "status": "verbatim copy of source zip sidecar",
+   "bytes": 102,
+   "sha256": "42d1c917a1517a4954156046433f78e88efaccdbe5ea46981871dd3fcf74be11",
+   "source_path": "F15_rosalyn_apartment_closeout.zip.sha256.txt"
+  },
+  {
+   "path": "provenance/source_zip_checksums/F15_roxy_apartment_closeout.zip.sha256.txt",
+   "role": "provenance_record",
+   "status": "verbatim copy of source zip sidecar",
+   "bytes": 99,
+   "sha256": "3bd7421ef282ff22f599e426a6ab3ed496222d89cf7e6e6f4bb7d73db3cb1037",
+   "source_path": "F15_roxy_apartment_closeout.zip.sha256.txt"
+  },
+  {
+   "path": "provenance/source_zip_checksums/F15_the_bing_closeout.zip.sha256.txt",
+   "role": "provenance_record",
+   "status": "verbatim copy of source zip sidecar",
+   "bytes": 93,
+   "sha256": "a47a8849738663061214841bdb9276de61ce52eafa7449ec390be1d63883d710",
+   "source_path": "F15_the_bing_closeout.zip.sha256.txt"
+  }
+ ],
+ "excluded_pending_production_derivatives": [
+  {
+   "asset": "roxy_apartment",
+   "filename": "roxy_apartment_270x480.png",
+   "bytes": 188084,
+   "sha256_measured": "f30c32450876b2077d6374165630ed7b1dc9b05b42c56f80c92c6a7d9c3f0b51",
+   "sha256_in_record": "f30c32450876b2077d6374165630ed7b1dc9b05b42c56f80c92c6a7d9c3f0b51",
+   "record_status": "PRODUCTION CANDIDATE — PENDING NATIVE-SIZE REVIEW",
+   "reason": "Production derivative NOT approved: record states pending native-size review. Source approval is not promoted to derivative approval. File not copied.",
+   "transform_reproduced_in_memory": true,
+   "source_package": "f15_roxy_apartment_closeout"
+  },
+  {
+   "asset": "rosalyn_apartment",
+   "filename": "rosalyn_apartment_270x480.png",
+   "bytes": 192736,
+   "sha256_measured": "8247c05d7c6bafdb9009f08b3c98ebe274db63f1aadaeff4c65b0eb6f403e8e7",
+   "sha256_in_record": "8247c05d7c6bafdb9009f08b3c98ebe274db63f1aadaeff4c65b0eb6f403e8e7",
+   "record_status": "PRODUCTION CANDIDATE — PENDING NATIVE-SIZE REVIEW",
+   "reason": "Production derivative NOT approved: record states pending native-size review. Source approval is not promoted to derivative approval. File not copied.",
+   "transform_reproduced_in_memory": true,
+   "source_package": "f15_rosalyn_apartment_closeout"
+  },
+  {
+   "asset": "boxing_gym",
+   "filename": "boxing_gym_270x480.png",
+   "bytes": 161542,
+   "sha256_measured": "9a0e80798bc8c7a74d96c06578c6d4e02ee4170284651d93ac4569432877f24f",
+   "sha256_in_record": "9a0e80798bc8c7a74d96c06578c6d4e02ee4170284651d93ac4569432877f24f",
+   "record_status": "PRODUCTION CANDIDATE — PENDING NATIVE-SIZE REVIEW",
+   "reason": "Production derivative NOT approved: record states pending native-size review. Source approval is not promoted to derivative approval. File not copied.",
+   "transform_reproduced_in_memory": true,
+   "source_package": "f15_boxing_gym_closeout"
+  },
+  {
+   "asset": "plenitude",
+   "filename": "plenitude_270x480.png",
+   "bytes": 163201,
+   "sha256_measured": "686b97067b6776c8e7de992fb60f67c663610489cfc567b4c3fb8c8c2314b9cb",
+   "sha256_in_record": "686b97067b6776c8e7de992fb60f67c663610489cfc567b4c3fb8c8c2314b9cb",
+   "record_status": "PRODUCTION CANDIDATE — PENDING NATIVE-SIZE REVIEW",
+   "reason": "Production derivative NOT approved: record states pending native-size review. Source approval is not promoted to derivative approval. File not copied.",
+   "transform_reproduced_in_memory": true,
+   "source_package": "f15_plenitude_closeout"
+  }
+ ],
+ "source_zip_checks": {
+  "f15_boxing_gym_closeout": {
+   "zip": "F15_boxing_gym_closeout.zip",
+   "zip_bytes": 2083553,
+   "zip_sha256_measured": "7be9e963aa1b17be0af8bd80b94aa442ab1225034e5fa1f7724f2b9baed1b5fd",
+   "sidecar_text": "7be9e963aa1b17be0af8bd80b94aa442ab1225034e5fa1f7724f2b9baed1b5fd  F15_boxing_gym_closeout.zip",
+   "sidecar_matches": true
+  },
+  "f15_final_three_closeout": {
+   "zip": "F15_final_three_closeout.zip",
+   "zip_bytes": 5412470,
+   "zip_sha256_measured": "16e84ee4e07ce040553cc6aa0c8e38d2a31ade77bb0ee9c079593fcc59ecd76b",
+   "sidecar_text": "16e84ee4e07ce040553cc6aa0c8e38d2a31ade77bb0ee9c079593fcc59ecd76b  F15_final_three_closeout.zip",
+   "sidecar_matches": true
+  },
+  "f15_plenitude_closeout": {
+   "zip": "F15_plenitude_closeout.zip",
+   "zip_bytes": 2075875,
+   "zip_sha256_measured": "c4c169bf55561540e5ad449570267bfd1e6e21721c5efa1837c590ad9fae4329",
+   "sidecar_text": "c4c169bf55561540e5ad449570267bfd1e6e21721c5efa1837c590ad9fae4329  F15_plenitude_closeout.zip",
+   "sidecar_matches": true
+  },
+  "f15_rosalyn_apartment_closeout": {
+   "zip": "F15_rosalyn_apartment_closeout.zip",
+   "zip_bytes": 2533777,
+   "zip_sha256_measured": "ba10b9f48a7e7fb3eaf418f586e280df25747e0ebca1ca37f70d4918c9889d79",
+   "sidecar_text": "ba10b9f48a7e7fb3eaf418f586e280df25747e0ebca1ca37f70d4918c9889d79  F15_rosalyn_apartment_closeout.zip",
+   "sidecar_matches": true
+  },
+  "f15_roxy_apartment_closeout": {
+   "zip": "F15_roxy_apartment_closeout.zip",
+   "zip_bytes": 2408828,
+   "zip_sha256_measured": "cbf44d9423419fa5c8b33d7b0c53ecf71d833a87debfd0d0bd5ed9fee7f0a758",
+   "sidecar_text": "cbf44d9423419fa5c8b33d7b0c53ecf71d833a87debfd0d0bd5ed9fee7f0a758  F15_roxy_apartment_closeout.zip",
+   "sidecar_matches": true
+  },
+  "f15_the_bing_closeout": {
+   "zip": "F15_the_bing_closeout.zip",
+   "zip_bytes": 2247354,
+   "zip_sha256_measured": "1386679d459a010de3e0479e4bf20de183a26e0eec2fba193d652313df4ec353",
+   "sidecar_text": "1386679d459a010de3e0479e4bf20de183a26e0eec2fba193d652313df4ec353  F15_the_bing_closeout.zip",
+   "sidecar_matches": true
+  }
+ },
+ "granny_bing_existing_frozen_source": {
+  "commit": "61a8a5599d6c73c573aee8a0494254b8e52004fa",
+  "branch": "art/f01-feel-lock-freeze",
+  "path": "assets/before_the_fame/characters/granny_bing/cga_f2_032/granny_bing_neutral_calling_numbers_anchor_80x96_v1.png",
+  "git_blob": "7f5bd9cc52537064590a7647633959a2fbf2cd3f",
+  "bytes": 1716,
+  "sha256": "6f042de972f6fe7fa89178095829ac44e96650cf7b067ad0004f2ca208ddf4ee",
+  "dimensions": [
+   80,
+   96
+  ],
+  "mode": "RGBA",
+  "copied_into_package": false,
+  "runtime_registration": "deferred to integration task"
+ },
+ "placement": "Actor/UI placement UNVERIFIED for every asset until runtime integration.",
+ "excluded_scope": [
+  "warehouse",
+  "unrelated FX",
+  "runtime/test edits",
+  "dance masters",
+  "source vault"
+ ]
+}

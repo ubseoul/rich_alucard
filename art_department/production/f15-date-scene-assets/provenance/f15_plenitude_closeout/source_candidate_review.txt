@@ -1,0 +1,44 @@
+STOVE U — F15 — PLÉNITUDE
+Status: CANDIDATE — PENDING UBE APPROVAL
+Candidate: plenitude_f15_candidate_original.png
+Measured dimensions: 941x1672; format: PNG; mode: RGB.
+SHA-256: d851d57039f6f6678396500d7cd8e7e4cb7410253a60c2f091b9d7fa67161b0f
+One-pass built-in image generation; original preserved without normalization or edits.
+Exact prompt: plenitude_f15_generation_prompt.txt
+
+Content authority: ubseoul/rich_alucard
+source_vault/relationships/UNDERLORD_Character_Relationship_Packet_v0_2.docx
+Commit: e76f8400271d5f538edc17b5ba6dfb682123a957
+Cached actual DOCX reread and Git blob verified: 27624a34c9decb4e9ef12e9ea067edaa2844a0d1
+Rosalyn / She fw Me Level 1: fancy restaurant, mirrors Rich's opinions, exactly splits bill,
+Rich leaves thinking something felt off. Internal title V0.1 differs from v0_2 filename.
+
+Implementation authority:
+js/frag/F15/rosalyn.js at commit 8a1dc98a373339d25d613e2651be0a6280064486
+Previously fetched actual file reread; Git blob verified: f6ae1f8f39efad2139d8d926970148984ef200c7
+F15_ROSALYN_L1 / SAME, lines 13-52; identifier explicitly appears at line 49.
+Plénitude node begins line 17. Authored dinner/table setting, phone turned face-down,
+check folder, tray and two receipts. No meal or architectural identity specified.
+No packet/implementation conflict found. Ordinary linen, upholstered seating, glassware,
+lamp, paneling, greenery and abstract wall art are permitted non-narrative restaurant dressing.
+No real restaurant was used as an architectural authority.
+
+Style authorities:
+Commit 31ac1bfe6eddb04786fb6fffded69e6d8fa0b643
+assets/before_the_fame/environments/garage/castle_garage_empty_270x480.png
+Verified Git blob: 75d90d0c62a98a655080b3e829c8cdb007bd3149
+assets/before_the_fame/environments/peking_naija/peking_naija_interior_270x480.png
+Verified Git blob: 88bb09da0f82bf6bf7761c526b5f6fe9bbd566d4
+Actual PNGs reused and visually inspected; both reference files verified unchanged after generation.
+
+Placement reference: C:/ra/visual_review/05_plenitude.png
+Actual screenshot visually inspected; actor/UI placement only, not style authority.
+Self-check: elegant burgundy upholstery, cream linen, restrained warm lamps, clear outlines,
+front-facing interior, readable place settings, simple open lower floor. No people or readable text.
+The setting reads more upscale than The Bing and distinct from the apartments.
+Generated larger-image surface texture is finer than a final native 270x480 pixel grid.
+Exact actor/UI clearance remains UNVERIFIED: no authoritative background-to-viewport mapping,
+accurate alpha overlay or runtime check made. Rear table, chair backs and side furnishing may
+intersect the standing character silhouettes when composited. Native readability pending review.
+
+No frozen asset edits, normalization, runtime integration, commit or push.
