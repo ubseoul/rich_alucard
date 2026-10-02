@@ -186,6 +186,8 @@
   "assets/before_the_fame/art_ship_014/package_a/A-hina-smug.png": {"face": [35, 31, 9, 9]},
   "assets/before_the_fame/art_ship_014/package_a/A-anfeesa-dj.png": {"face": [34, 34, 10, 8]},
   "assets/before_the_fame/art_ship_015/package_a/A-family-brother1.png": {"face": [36, 28, 10, 10]},
-  "assets/before_the_fame/art_ship_015/package_a/A-family-brother2.png": {"face": [36, 34, 9, 9]}
+  "assets/before_the_fame/art_ship_015/package_a/A-family-brother2.png": {"face": [36, 34, 9, 9]},
+  "assets/before_the_fame/characters/granny_bing/cga_f2_032/granny_bing_neutral_calling_numbers_anchor_80x96_v1.png": {},
+  "assets/f15/characters/spirit_of_uncle_bunmi_444x222.png": {"groundedAnchor": true, "face": [128, 104, 40, 36]}
  }
 }

@@ -112,7 +112,7 @@
   library:{env:'f15_library',actors:rich,lines:[N(`Her usual table. Somebody else's highlighters. No music.`),S(R,`ok`)],next:'search'},
   waffle:{env:'waffle_haven',actors:rich,lines:[N(`Her booth. A cold coffee ring. No music.`),S(R,`ok.`),S(R,`ok thank you`),
    N(`Each reply is shorter than the last. She's typing between exam questions.`)],next:'search'},
-  bing:{env:'f15_bing',actors:rich,title:'THE BING — BINGO NIGHT',lines:[
+  bing:{env:'f15_bing',actors:()=>({left:'rich',right:{id:'granny_bing'}}),title:'THE BING — BINGO NIGHT',lines:[
    N(`Lights up. Folding tables on the runway. Granny Bing is calling numbers into the DJ mic.`),
    N(`On the caller's table, tucked under the ball cage where nothing can spill on it: a folder of sheet music.`),
    S('granny_bing',`Somebody's been breathing on this for months. Pencil marks. That's a singer's copy.`),S('granny_bing',`Those shoes, though.`),
