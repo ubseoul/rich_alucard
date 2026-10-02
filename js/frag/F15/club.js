@@ -85,7 +85,10 @@
    if(!ready.length&&C().capReached()&&C().dancers().some(d=>C().progress(d).availableLevel))note.dataset.cap='1';
    renderIdentity();
   }
+  // DEVELOPMENT / REVIEW SURFACE ONLY: the creator-confirmation panel exists only in dev mode (?dev=1); a release player never sees it.
+  const devSurface=()=>!!document.body.classList.contains('dev-enabled');
   function renderIdentity(){
+   idBox.hidden=!devSurface();if(idBox.hidden){idBox.replaceChildren();return;}
    if(idBox.dataset.open==='1'&&idBox.open)return;
    const map=C().mapping(),ident=T().IDENTITY;
    idBox.innerHTML=`<summary>IDENTITY CHECK - UBE TO CONFIRM</summary><p class="f15-dev">${ident.status}. Which dancer is which has no proof in the art files. Pick the right figure for each name; progress is saved by NAME and never changes.</p>`;

@@ -12,8 +12,9 @@
  const TITLES={},ORDER=[];
  const title=id=>TITLES[id]||id;
 
- // ---- scene actors: the approved dance masters' frame 0 (assets/f15/portraits), bound through the configurable identity mapping ----
- const cast=dancer=>({id:dancer,src:`assets/f15/portraits/${C().handleOf(dancer)}.png`});
+ // ---- scene actors: the approved FOUNDATION CARDS (assets/f15/portraits/<name>.png), named by character, so scenes never depend on the
+ // unproven wolf/pink/dragon mapping (that mapping only decides which dance plays in the club) ----
+ const cast=dancer=>({id:dancer,src:`assets/f15/portraits/${dancer}.png`});
  const stage=(...right)=>({left:'rich',right:right[0]?cast(right[0]):undefined});
 
  // ---- placeholder environments (RAPixel.paintEnvironment, the repo's existing convention for art that has not shipped) ----
@@ -44,8 +45,7 @@
   for(const p of PEOPLE){
    if(global.RABtfPeople?.byId[p.id])continue;
    const person={id:p.id,name:p.name,kind:p.id==='spirit_of_uncle_bunmi'?'creature':'woman',adult:true,dateable:false,f15:true};
-   // the portrait follows the configurable identity mapping (a getter, so a creator override takes effect at once)
-   if(!p.noArt)Object.defineProperty(person,'sprite',{enumerable:true,get:()=>`assets/f15/portraits/${C().handleOf(p.id)}.png`});
+   if(!p.noArt)person.sprite=`assets/f15/portraits/${p.id}.png`;
    global.RABtfPeople.byId[p.id]=person;
   }
   const E=global.RACombatData.ENEMIES,K=T().COMBAT,m=(id,label,dmg,o={})=>({id,label,dmg,...o});

@@ -19,7 +19,7 @@ export async function test(root){
 
  // ---- WOLF v2 replacement: verified, distinct, previous recoverable --------------------------------------------------------------------------
  {const m=JSON.parse(await readFile(path.join(root,'assets/f15/dancers/manifest.json'),'utf8')).dancers;
-  assert.equal(m.wolf.frames,145);assert.equal(m.wolf_prev.frames,146);assert.notEqual(m.wolf.master_sequence_sha256,m.wolf_prev.master_sequence_sha256,'replacement differs from the old WOLF');
+  assert.equal(m.wolf.master_sequence_sha256,'67572b524a4f07d680659dcde2cd14b363930ed87cc9d187c8bddd853c0dc9f7','published derivative corresponds to the approved replacement hash');assert.equal(m.wolf.frames,145);assert.equal(m.wolf_prev.frames,146);assert.notEqual(m.wolf.master_sequence_sha256,m.wolf_prev.master_sequence_sha256,'replacement differs from the old WOLF');
   assert.equal(m.wolf.div,4);assert.ok(Math.abs(m.wolf.scale_mul*(m.wolf.occupied_union_master_xyxy[3]-m.wolf.occupied_union_master_xyxy[1])-600)<1e-6,'Layout A apparent height preserved');
   assert.equal(m.wolf_prev.sheet_sha256,'3a77ea24b3f87cdc0'.slice(0,0)+m.wolf_prev.sheet_sha256);assert.match(m.wolf_prev.sheet_sha256,/^3a77ea24b3f87cdc/,'previous WOLF sheet byte-identical to the accepted one');
   assert.equal(JSON.parse(JSON.stringify((await boot(root)).RAF15Tunables.WOLF_SHEET)),'wolf');

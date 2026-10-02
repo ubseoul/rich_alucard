@@ -10,7 +10,7 @@ import {serve,launch,open,enterClub} from './_browser.mjs';
 
 const args=process.argv.slice(2);
 const arg=n=>{const i=args.indexOf(n);return i<0?null:args[i+1];};
-const shots=arg('--shots'),only=(arg('--only')||'widths,throws,scenes').split(',');
+const shots=arg('--shots'),only=(arg('--only')||'widths,throws,normal,scenes').split(',');
 if(shots)fs.mkdirSync(shots,{recursive:true});
 const WIDTHS=[[360,740],[390,844],[430,932]];
 const results=[];const log=(ok,msg)=>{results.push({ok,msg});console.log((ok?'PASS ':'FAIL ')+msg);};
@@ -180,6 +180,32 @@ try{
       must(failed.length===0&&s.missing.length===0,`${tag}: no failed or missing assets${failed.length?' - '+failed.slice(0,3).join(' | '):''}`);
       await ctx.close();
     }
+  }
+
+  if(only.includes('normal')){
+    // ---- the NORMAL player path: no dev shortcut, no recordSpend: real throws until Roxy's $10,000 threshold, then her scene
+    const {page,ctx,errors,failed}=await open(browser,s.url,{width:390,height:844});
+    await enterClub(page);
+    must(await page.evaluate(()=>RAF15.thresholds()[0]===10000&&RAF15.progress('roxy').availableLevel===null),'normal: T1 is $10,000 and nothing is available before spending');
+    let n=0,sp=0;
+    while(sp<10000&&n++<20){await throwBills(page,{at:'roxy',spotlight:n%2===1});await page.waitForTimeout(200);sp=await page.evaluate(()=>RAF15.spent('roxy'));
+      if(sp<10000)must(await page.evaluate(()=>RAF15.progress('roxy').availableLevel===null&&document.querySelector('[role="dialog"]').shadowRoot.querySelectorAll('.f15-go').length===0),`normal: no scene offered at $${sp}`);}
+    must(sp>=10000,`normal: ${n} real throws (hits and floor bills) carried Roxy to $${sp}`);
+    const ready=await page.evaluate(()=>({lv:RAF15.progress('roxy').availableLevel,go:document.querySelector('[role="dialog"]').shadowRoot.querySelectorAll('.f15-go').length,chip:document.querySelector('[role="dialog"]').shadowRoot.querySelector('.f15-chip[data-dancer="roxy"]').textContent}));
+    must(ready.lv===1&&ready.go===1&&/SCENE 1 READY/.test(ready.chip),'normal: crossing $10,000 offers Roxy scene 1 in the club ('+ready.chip+')');
+    await shot(page,'normal_roxy_scene1_ready');
+    // identity confirmation: dev/review surface only
+    await page.evaluate(()=>{const d=document.querySelector('[role="dialog"]').shadowRoot.querySelector('.f15-id');d.open=true;d.dataset.open='1';});
+    must(await page.evaluate(()=>!document.querySelector('[role="dialog"]').shadowRoot.querySelector('.f15-id').hidden),'identity: the confirmation panel shows in dev/review mode');
+    await page.locator('[role="dialog"] .f15-id').scrollIntoViewIfNeeded();
+    await shot(page,'IDENTITY_MAPPING_FOR_UBE_TO_CONFIRM_390');
+    await page.evaluate(()=>{document.body.classList.remove('dev-enabled');RAF15Club.current().refresh();});
+    must(await page.evaluate(()=>{const sh=document.querySelector('[role="dialog"]').shadowRoot;return sh.querySelector('.f15-id').hidden&&!/UBE TO CONFIRM/.test(sh.textContent);}),'identity: with dev mode off the panel and its "UBE TO CONFIRM" text are not in the player flow');
+    await page.locator('[role="dialog"] .f15-go').click();await page.waitForSelector('#adventureScene');
+    const out=await driveScene(page,'F15_ROXY_L1',{pickChoice:l=>Math.max(0,l.indexOf('GO WITH HER'))});
+    must(out.viol.length===0&&await page.evaluate(()=>RAF15.progress('roxy').completed===1),'normal: the offered scene plays and completes once');
+    must(errors.length===0&&failed.length===0,'normal: no console errors or failed assets');
+    await ctx.close();
   }
 
   if(only.includes('scenes')){

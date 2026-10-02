@@ -34,9 +34,10 @@ GRID_AX, GRID_AY = 0, 1          # grid origin; (664 - 1) % 3 == 0 puts the base
 BASELINE_Y = 664
 ANCHOR_X = 344                   # master canvas centre; all three occupied unions are centred here (+-0.5)
 COLS = 12
-# Scene portraits (adventure actors are 80x96 boxes): frame 0 of each frozen master, one shared scale
-# (96/600 = WOLF's occupied height) so relative size stays native; feet on the box bottom, anchor x on the box centre.
-PORT_W, PORT_H, PORT_SCALE = 80, 96, 96.0 / 600.0
+# Scene portraits (adventure actors are 80x96 boxes): the approved FOUNDATION CARDS (roxy/rosalyn/emerald-foundation.png, named by
+# character, so scenes do not depend on the unproven wolf/pink/dragon mapping). One shared scale (96 / the tallest card's occupied
+# height) keeps relative size; feet on the box bottom, figure centred on its occupied bounds.
+PORT_W, PORT_H = 80, 96
 
 
 def sequence_hash(files):
@@ -92,13 +93,6 @@ def build_wolf_v2(pkg, out_dir, manifest):
         assert not a.any(), "wolf v2 frame %d has pixels outside the crop box" % i
         cell = im.crop((x0, y0, x1, y1)).convert("RGBa").resize((cw, ch), Image.BOX).convert("RGBA")
         sheet.paste(cell, ((i % COLS) * cw, (i // COLS) * ch))
-        if i == 0:
-            sc = 96.0 / (uy1 - uy0)
-            pw, ph = max(1, round((ux1 - ux0) * sc)), max(1, round((uy1 - uy0) * sc))
-            small = im.crop((ux0, uy0, ux1, uy1)).convert("RGBa").resize((pw, ph), Image.BOX).convert("RGBA")
-            port = Image.new("RGBA", (PORT_W, PORT_H), (0, 0, 0, 0))
-            port.paste(small, (max(0, int(round(PORT_W / 2 - (anchor_x - ux0) * sc))), PORT_H - ph))
-            port.save(os.path.join(out_dir, "..", "portraits", "wolf.png"), optimize=True)
     path = os.path.join(out_dir, "wolf.png"); sheet.save(path, optimize=True)
     manifest["dancers"]["wolf"] = {
         "file": "wolf.png", "frames": n, "fps": 24, "div": V2_DIV, "duration_s": n / 24.0, "cell": [cw, ch], "cols": COLS, "rows": rows,
@@ -110,6 +104,27 @@ def build_wolf_v2(pkg, out_dir, manifest):
         "download_bytes": os.path.getsize(path), "decoded_bytes": sheet.size[0] * sheet.size[1] * 4,
         "sheet_sha256": hashlib.sha256(open(path, "rb").read()).hexdigest(),
     }
+
+
+def build_card_portraits(masters, out_dir):
+    pm = json.load(open(os.path.join(masters, "manifest.json"), encoding="utf-8"))["components"]["foundation_cards"]["cards"]
+    cards, tallest = {}, 0
+    for n in ("roxy", "rosalyn", "emerald"):
+        raw = open(os.path.join(masters, "foundation_cards", n + "-foundation.png"), "rb").read()
+        if hashlib.sha256(raw).hexdigest() != pm[n + "-foundation.png"]["sha256"]:
+            sys.exit("foundation card hash mismatch: " + n)
+        im = Image.open(io.BytesIO(raw)).convert("RGBA")
+        ys, xs = np.nonzero(np.array(im)[:, :, 3] > 0)
+        cards[n] = (im, int(xs.min()), int(ys.min()), int(xs.max()) + 1, int(ys.max()) + 1)
+        tallest = max(tallest, cards[n][4] - cards[n][2])
+    sc = PORT_H / float(tallest)
+    os.makedirs(os.path.join(out_dir, "..", "portraits"), exist_ok=True)
+    for n, (im, x0, y0, x1, y1) in cards.items():
+        pw, ph = max(1, round((x1 - x0) * sc)), max(1, round((y1 - y0) * sc))
+        small = im.crop((x0, y0, x1, y1)).convert("RGBa").resize((pw, ph), Image.BOX).convert("RGBA")
+        port = Image.new("RGBA", (PORT_W, PORT_H), (0, 0, 0, 0))
+        port.paste(small, ((PORT_W - pw) // 2, PORT_H - ph))
+        port.save(os.path.join(out_dir, "..", "portraits", n + ".png"), optimize=True)
 
 
 def build(masters, out_dir, wolf_v2=None):
@@ -157,15 +172,6 @@ def build(masters, out_dir, wolf_v2=None):
             cell = im.crop((x0, y0, x1, y1)).convert("RGBa").resize((cw, ch), Image.BOX).convert("RGBA")
             sheet.paste(cell, ((i % COLS) * cw, (i // COLS) * ch))
             cells.append(cell.tobytes())
-            if i == 0:
-                px0, py0, px1, py1 = ux0, uy0, ux1, uy1
-                pw, ph = max(1, round((px1 - px0) * PORT_SCALE)), max(1, round((py1 - py0) * PORT_SCALE))
-                small = im.crop((px0, py0, px1, py1)).convert("RGBa").resize((pw, ph), Image.BOX).convert("RGBA")
-                port = Image.new("RGBA", (PORT_W, PORT_H), (0, 0, 0, 0))
-                ox = int(round(PORT_W / 2 - (ANCHOR_X - px0) * PORT_SCALE))
-                port.paste(small, (max(0, ox), PORT_H - ph))
-                os.makedirs(os.path.join(out_dir, "..", "portraits"), exist_ok=True)
-                port.save(os.path.join(out_dir, "..", "portraits", ("wolf_prev" if name == "wolf" else name) + ".png"), optimize=True)
         key = "wolf_prev" if name == "wolf" else name   # the previous WOLF stays recoverable; the v2 replacement takes the "wolf" slot
         path = os.path.join(out_dir, key + ".png")
         sheet.save(path, optimize=True)
@@ -185,6 +191,7 @@ def build(masters, out_dir, wolf_v2=None):
             "sheet_sha256": hashlib.sha256(open(path, "rb").read()).hexdigest(),
             **extra,
         }
+    build_card_portraits(masters, out_dir)
     if wolf_v2:
         build_wolf_v2(wolf_v2, out_dir, manifest)
     t = manifest["dancers"].values()

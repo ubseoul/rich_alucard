@@ -170,6 +170,40 @@ export async function test(root){
   assert.equal(Object.values(c.RAAdventures.get('F15_EMERALD_L4').nodes).some(n=>n.audio||n.sfx),false);
   console.log('PASS F15 text: Rich = Ube\'s 29 approved lines + the authored thought only, Roxy quote once, no annotations, no lyrics');}
 
+ // ---- 7b. all three routes unlock L1-L4 strictly in order, and the global cap lets exactly ONE date through per WAKE ------------------------------------
+ {const {walk}=await walkMod(root);
+  const c=await boot(root);setMoney(c,1e7);setDay(c,50);
+  const dancers=['roxy','rosalyn','emerald'];
+  // spend exactly enough for each threshold in turn so eligibility (spend) stays visibly separate from completion (played)
+  for(const d of dancers)give(c,d,TH[0]);
+  const played=[];let wake=0;
+  while(dancers.some(d=>c.RAF15.progress(d).completed<4)&&wake++<40){
+   setDay(c,50+wake);
+   for(const d of dancers){const p=c.RAF15.progress(d);if(p.next&&p.spent<TH[p.next-1])give(c,d,TH[p.next-1]-p.spent);}   // meet the NEXT threshold only
+   const ready=dancers.filter(d=>c.RAF15.nextScene(d)&&c.RAAdventures.available(c.RAF15.nextScene(d)));
+   assert.ok(ready.length>=1,`wake ${wake}: something is playable`);
+   const pick=ready[0],id=c.RAF15.nextScene(pick);
+   walk(c,id,{pick:()=>0,fight:()=>({outcome:'win'}),maxSteps:300});played.push(id);
+   assert.equal(c.RAF15.datesToday().length,1,'exactly one date this WAKE');
+   for(const d of dancers){const n=c.RAF15.nextScene(d);if(n)assert.equal(c.RAAdventures.available(n),false,`${n} blocked after today's date`);}
+   // no L(n+1) for the dancer just played until her next threshold is met AND a new WAKE has begun
+   const pp=c.RAF15.progress(pick);if(pp.next){assert.equal(c.RAF15.status(c.RAF15.nextScene(pick)).code,'threshold','next scene needs its own threshold');give(c,pick,TH[pp.next-1]-pp.spent);assert.equal(c.RAF15.status(c.RAF15.nextScene(pick)).code,'capped','threshold met, but date already spent');}
+  }
+  assert.equal(played.length,12,'twelve scenes took twelve separate WAKEs');
+  for(const d of dancers){const mine=played.filter(x=>x.includes(d.toUpperCase()));assert.equal(JSON.stringify(mine),JSON.stringify([1,2,3,4].map(l=>idOf(d,l))),`${d}: L1..L4 played strictly in order`);}
+  // a scene whose threshold is not met never becomes available, however much else is done
+  const c2=await boot(root);setDay(c2,9);setMoney(c2,1e7);give(c2,'emerald',TH[0]);
+  assert.equal(c2.RAF15.status(idOf('emerald',2)).code,'sequence');assert.equal(c2.RAF15.status(idOf('roxy',1)).code,'threshold');
+  console.log('PASS F15 routes: every route unlocks L1-L4 strictly in order, thresholds gate eligibility, 12 scenes need 12 separate WAKEs (global cap)');}
+
+ // ---- 7c. Rosalyn's check vs the whole-dollar economy ---------------------------------------------------------------------------------------------------
+ {const c=await boot(root);setDay(c,3);setMoney(c,1000);
+  c.RALife.addMoney(-106.23);assert.equal(money(c),894,'the game rounds every money change to whole dollars: $106.23 cannot be represented (no fractional dollars)');
+  setMoney(c,1000);const r=c.RAF15.payOnce('F15_ROSALYN_L1','check',c.RAF15Tunables.MONEY.rosalynL1RichHalf);
+  assert.equal(r.ok,true);assert.equal(1000-money(c),106,'the debit is the whole-dollar adaptation of $106.23');
+
+  console.log('PASS F15 check: money is whole dollars only; Rich half of $106.23 is adapted to a once-only $106 debit (constraint documented)');}
+
  // ---- 8. nothing else changed ------------------------------------------------------------------------------------------------------------------------
  {const c=await boot(root);const L=c.RALife;
   const kiki=c.RAAdventures.get('DATE');assert.ok(kiki,'existing DATE adventure intact');
