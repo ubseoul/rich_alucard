@@ -88,6 +88,8 @@
     var hooks = Object.assign(defaultAudioHooks(), options.audio || {});
     var onRoundStart = typeof options.onRoundStart === 'function' ? options.onRoundStart : noop;
     var onRoundEnd = typeof options.onRoundEnd === 'function' ? options.onRoundEnd : noop;
+    // F15 seam (additive, default off): a host that stages its own performers over the canvas suppresses the neutral placeholder mannequin.
+    var hideTarget = !!options.hideTarget;
 
     var core = Core.create({ tunables: tunables, seed: options.seed });
 
@@ -524,7 +526,7 @@
       drawBackdrop(L, env, s);
       drawDeck(L, env, spot, tx);
       drawCrowd(L, env, s, N);
-      drawTarget(L, tx, spot, N);
+      if (!hideTarget) drawTarget(L, tx, spot, N);
       drawLitter(N);
       drawCounter(L, env);
       drawStack(L, env, s, N);
@@ -1219,6 +1221,8 @@
       },
       setSeed: function (seed) { core.reset({ budget: core.budget, seed: seed }); },
       getState: function () { return core.state(); },
+      // Read-only geometry for hosts that overlay the canvas (F15): logical size, integer scale and the deck lines.
+      geometry: function () { var G = layout(); return { W: W, H: H, scale: SCALE, deckTop: G.deckTop, deckH: G.deckH }; },
       getSummary: function () { return core.summary(); },
       setAudio: function (next) { hooks = Object.assign(defaultAudioHooks(), next || {}); },
       // Deterministic hooks used by the real-browser test harness. Not used by pointer input.

@@ -111,5 +111,7 @@
   if(env?.cover){const s=Math.max(270/img.naturalWidth,480/img.naturalHeight),w=img.naturalWidth*s,h=img.naturalHeight*s;ctx.drawImage(img,(270-w)/2,(480-h)/2,w,h);}
   else ctx.drawImage(img,0,0,270,480);
  }
- window.RAEnvironments={get:id=>E[id]||null,all:()=>Object.values(E),placeholders:()=>Object.values(E).filter(e=>e.placeholder).map(e=>e.id),surfaceLayers,drawImage};
+ // register(env): add-only hook for a DARK fragment's own placeholder environments (F15); never replaces an existing id.
+ function register(env){if(!env?.id||E[env.id])return false;E[env.id]=env;return true;}
+ window.RAEnvironments={register,get:id=>E[id]||null,all:()=>Object.values(E),placeholders:()=>Object.values(E).filter(e=>e.placeholder).map(e=>e.id),surfaceLayers,drawImage};
 })();

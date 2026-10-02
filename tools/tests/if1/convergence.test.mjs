@@ -192,7 +192,7 @@ export async function test(root){
  // ============================================================================================ 9. F07 parked; sealed/private material not introduced
  {
   const frags=(await readdir(path.join(root,'js/frag'))).filter(f=>/^F\d\d$/.test(f)).sort();
-  assert.deepEqual(frags,['F01','F03','F04','F05','F06','F07'],'F02 playable content is not in this convergence; F03 and F07 are the bounded R3 ports (F07: M8 + finale, dark by default)');
+  assert.deepEqual(frags,['F01','F03','F04','F05','F06','F07','F15'],'F02 playable content is not in this convergence; F03 and F07 are the bounded R3 ports (F07: M8 + finale, dark by default); F15 is the launch-trio candidate (dark by default)');
   console.log('PASS convergence frag roster: F01/F03/F04/F05/F06 + the bounded R3 F07 port; F02 not composed');
  }
 }

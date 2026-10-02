@@ -17,9 +17,11 @@
     let round = null, disposed = false;
     const game = global.RAMakeItRainSandbox.mount(canvas, {
       seed: options.seed,
+      hideTarget: options.hideTarget,       // F15 seam: the host stages its own performers
+      tunables: options.tunables,
       audio: {
         onLoad: () => sound('RM_01'),
-        onFlick: () => {
+        onFlick: result => {
           if (!round || disposed) return;
           const current = game.getState(), saved = state();
           if (saved.active?.id !== round.id) return;
@@ -32,6 +34,7 @@
           next.active.spent = current.spent;
           next.spent += delta;
           write(next);
+          options.onSpend?.({delta, result, round: round.id});   // F15 seam: after the real, once-only payment
           sound('RM_02');
         },
         onHit: () => sound('RM_04')
@@ -96,7 +99,9 @@
     const status = shadow.querySelector('[role="status"]');
     const key = event => { if (event.key === 'Escape') { event.stopPropagation(); session.dispose(); } };
     const scene = () => session.dispose();
+    const f15 = global.RAF15Club?.enabled?.() ? global.RAF15Club.open({shadow, stage: shadow.querySelector('.stage'), canvas: shadow.querySelector('canvas')}) : null;   // F15 seam (dark)
     const session = mount(shadow.querySelector('canvas'), {
+      hideTarget: !!f15, tunables: f15?.tunables, onSpend: f15?.onSpend,
       onStart: ({budget}) => {
         actions.hidden = true; status.textContent = '';
         shadow.querySelectorAll('[data-budget]').forEach(button => button.setAttribute('aria-pressed', String(Number(button.dataset.budget) === budget)));
@@ -104,6 +109,7 @@
       onResult: () => { actions.hidden = false; },
       onError: () => { status.textContent = 'NEED CASH'; },
       onClose: () => {
+        f15?.close();
         global.document.removeEventListener('keydown', key, true);
         global.document.removeEventListener('ra:scene', scene);
         host.remove(); previousFocus?.focus?.();
@@ -112,6 +118,7 @@
     function start(budget) { if (!session.start(budget)) status.textContent = 'NEED CASH'; }
     shadow.querySelectorAll('[data-budget]').forEach(button => button.addEventListener('click', () => start(Number(button.dataset.budget))));
     shadow.querySelector('.btn--again').addEventListener('click', () => start(session.game.core.budget));
+    f15?.bind(session, {start, launchScene: id => { session.dispose(); return global.RAAdventureScene?.begin?.(id, {from: 'phone'}); }});
     const back = shadow.querySelector('[data-back]');
     back.addEventListener('click', () => session.dispose()); back.focus();
     global.document.addEventListener('keydown', key, true);
