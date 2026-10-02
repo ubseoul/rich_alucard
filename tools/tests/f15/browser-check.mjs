@@ -21,7 +21,7 @@ const SCENES=['roxy','rosalyn','emerald'].flatMap(d=>[1,2,3,4].map(l=>({d,l,id:`
 // ------------------------------------------------------------------ gestures (real pointer events on the F06 canvas)
 async function throwBills(page,{at,spotlight=true,reload=false}){
   // wait for a safe spotlight window (on: aim lands; off: overthrow on the floor)
-  await page.waitForFunction(s=>{const g=RAF15Club.current().game(),t=g.debug.clock();const a=x=>g.core.spotlightActive(x);return s?(a(t)&&a(t+650)):(!a(t)&&!a(t+650));},spotlight,{timeout:15000,polling:20});
+  await page.waitForFunction(s=>{const g=RAF15Club.current().game(),t=g.debug.clock();const a=x=>g.core.spotlightActive(x);return s?(a(t)&&a(t+800)):(!a(t)&&!a(t+800));},spotlight,{timeout:15000,polling:20});
   const info=await page.evaluate(a=>{const c=RAF15Club.current(),g=c.game();const cx=RAF15Tunables.LAYOUT.slots[RAF15.handleOf(a)].cx;return {cx,spread:g.tunables.aim.aimSpread,state:g.getState()};},at);
   const box=await page.locator('[role="dialog"] #stage-canvas').boundingBox();
   const x0=box.x+box.width*.5,yBase=box.y+box.height*.92,yLoad=box.y+box.height*.5;
