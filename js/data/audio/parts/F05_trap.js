@@ -8,7 +8,7 @@
  if(!window.RAAudioParts)throw new Error('F05 audio part must load after js/data/audio/manifest_parts.js');
  const LIC={licenseClass:'CC0',attributionRequired:false,license:'CC0 1.0 Universal',credit:'',author:'Antigravity',sourceSite:'Original work — synthesized in-project',sourceUrl:''};
  const oneShot=(id,pj,mv,pri)=>({id,bus:'SFX',type:'one-shot',category:'trap',gain:1,pitchJitter:pj,maxVoices:mv,priority:pri,file:`assets/audio/sfx/trap/${id}.mp3`,expectedPath:`assets/audio/sfx/trap/${id}.mp3`,registered:true,loopStart:null,loopEnd:null,variations:[],parts:[],...LIC});
- const loop=(id,loopEnd,pri)=>({id,bus:'SFX',type:'loop',category:'trap',gain:1,pitchJitter:0,maxVoices:1,priority:pri,file:`assets/audio/sfx/trap/${id}.mp3`,expectedPath:`assets/audio/sfx/trap/${id}.mp3`,registered:true,loopStart:0,loopEnd,variations:[],parts:[],...LIC});
+ const loop=(id,loopEnd,pri)=>({id,bus:'AMBIENCE',type:'loop',category:'trap',gain:1,pitchJitter:0,maxVoices:1,priority:pri,file:`assets/audio/sfx/trap/${id}.mp3`,expectedPath:`assets/audio/sfx/trap/${id}.mp3`,registered:true,loopStart:0,loopEnd,variations:[],parts:[],...LIC});
  window.RAAudioParts.register('F05',{entries:[
   loop('TR_01',3.477,3),
   oneShot('TR_02',0.03,2,3),

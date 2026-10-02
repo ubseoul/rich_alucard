@@ -9,14 +9,17 @@ const flags='F01.showdown_core,F02.iron_and_grace,F02.armory,F02.range_day,F04.w
 async function drivePlay(page,tag,width,selectGun=true){
  await page.waitForSelector('#f01-play-frame',{timeout:15000});
  const frame=await (await page.$('#f01-play-frame')).contentFrame();
- await frame.waitForSelector('.b-ans',{timeout:30000});await frame.click('.b-ans');await frame.waitForSelector('.send');
+ const readyUntil=Date.now()+30000;
+ while(Date.now()<readyUntil){if(await frame.locator('.b-ans').count())break;if(await frame.locator('[data-done]').count())await frame.click('[data-done]');await page.waitForTimeout(100);}
+ await frame.waitForSelector('.b-ans',{timeout:5000});await frame.click('.b-ans');await frame.waitForSelector('.send');
  if(selectGun){
   const slots=frame.locator('.card .wslot');
   let found=false;
   for(let i=0;i<12;i++){if(/Mac & Cheese/i.test(await slots.first().innerText())){found=true;break;}await slots.first().click();}
   check(width,tag+' bought gun in existing loadout selector',found);
  }
- await page.screenshot({path:`${out}/${width}-${tag}-loadout.png`});await frame.click('.send');
+ await page.screenshot({path:`${out}/${width}-${tag}-loadout.png`});
+ if(await frame.locator('.send.hold').count()){const box=await frame.locator('.send').boundingBox();await page.mouse.move(box.x+box.width/2,box.y+box.height/2);await page.mouse.down();await page.waitForTimeout(1900);await page.mouse.up();}else await frame.click('.send');
  let end=false;const until=Date.now()+120000;
  while(Date.now()<until){
   await page.waitForTimeout(150);
@@ -26,8 +29,9 @@ async function drivePlay(page,tag,width,selectGun=true){
  }
  check(width,tag+' terminates through real UI',end);
  if(end){
-  const data=await frame.evaluate(()=>({gun:window.__raPlay.G.last?.rec.stateOut.roster.map(o=>o.gun),audio:window.__raFeelAudio,rec:window.__raPlay.G.last?.rec.klass}));
+  const data=await frame.evaluate(()=>({gun:window.__raPlay.G.last?.rec.stateOut.roster.map(o=>o.gun),audio:window.__raPlay.K.audio.log,rec:window.__raPlay.G.last?.rec.klass}));
   check(width,tag+' F02 gun preserved in PLAY record',data.gun.includes('mac_and_cheese'),data.rec);
+  check(width,tag+' bought gun GN_01 actually plays in iframe',data.audio.includes('GN_01.mp3'));
   await page.screenshot({path:`${out}/${width}-${tag}-return.png`});await frame.click('.again');await page.waitForSelector('#f01-play-frame',{state:'detached'});
  }
 }

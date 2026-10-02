@@ -157,12 +157,13 @@ export async function test(root){
  {
   const c=await full(root);
   for(const f of (await readdir(path.join(root,'js/data/audio/parts'))).filter(f=>f.endsWith('.js')).sort())await run(root,c,[`js/data/audio/parts/${f}`]);
-  eq(c.RAAudioParts.fragments().sort(),['F05','F06'],'F01 registers no audio (its inert BX duplicates are gone); F05 + F06 register');
+  eq(c.RAAudioParts.fragments().sort(),['F02','F04','F05','F06'],'F01 has no duplicate BX registration; preserved F02/F04/F05/F06 parts register');
   const rm=c.RAAudioParts.idsFor('F06');eq(rm,['RM_01','RM_02','RM_03','RM_04','RM_05','RM_06','RM_07','RM_08'],'F06 audio wired exactly from the accepted e3c4d3b part');
   for(const id of rm)assert.ok(c.RAAudioManifest.get(id),`${id} resolves`);
   // forward composition with F11's canonical master: the six BX ids the F01 duplicate used to hold register cleanly
   const master=['BX_SLIDEIN_IDLE','BX_NAMECARD_SLAM','BX_POD_REVEAL','BX_OVERWATCH','BX_COVER_HIT','BX_DOWNED'].map(id=>({id,bus:'SFX',type:'one-shot',category:'showdown'}));
-  assert.doesNotThrow(()=>c.RAAudioParts.register('F04',{entries:master}),'the F11 master family registers without a duplicate-id collision');
+  for(const entry of master)assert.equal(c.RAAudioManifest.get(entry.id)?.registered,true,'the preserved F11 master family is already registered');
+  assert.throws(()=>c.RAAudioParts.register('F04',{entries:master}),/already exists/,'duplicate registrations remain prohibited');
   assert.equal(c.RAAudioManifest.get('BX_STEP'),null,'BX_STEP stays unregistered: SOURCE_REQUIRED, inert, nothing fabricated');
   // F05 TR_01 / TR_05: preserved as accepted (both AMBIENCE loops on the_trap scene); remaining ownership question recorded, not decided here
   for(const id of ['TR_01','TR_05'])assert.equal(c.RAAudioManifest.get(id).bus,'AMBIENCE');
@@ -192,8 +193,8 @@ export async function test(root){
  // ============================================================================================ 9. F07 parked; sealed/private material not introduced
  {
   const frags=(await readdir(path.join(root,'js/frag'))).filter(f=>/^F\d\d$/.test(f)).sort();
-  assert.deepEqual(frags,['F01','F03','F04','F05','F06','F07','F15'],'F02 playable content is not in this convergence; F03 and F07 are the bounded R3 ports (F07: M8 + finale, dark by default); F15 is the launch-trio candidate (dark by default)');
-  console.log('PASS convergence frag roster: F01/F03/F04/F05/F06 + the bounded R3 F07 port; F02 not composed');
+  assert.deepEqual(frags,['F01','F02','F03','F04','F05','F06','F07','F15'],'BUILD-2 adds preserved F02; all accepted bounded ports remain present and dark by default');
+  console.log('PASS convergence frag roster: preserved F02 added alongside all accepted bounded ports');
  }
 }
 // jsdom-free helper: give the vm context the ra:scene / DOMContentLoaded no-ops the modules listen for
