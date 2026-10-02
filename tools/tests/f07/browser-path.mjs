@@ -17,9 +17,9 @@ const srv=await serve(PORT);
 const URL_=`http://127.0.0.1:${PORT}/index.html?dev=1&ff=F07.m8_and_finale,F03.new_oga_ladder_close,F01.showdown_core,F04.war_room&speed=10&mute=1`;
 const browser=await chromium.launch({headless:true,executablePath:fs.existsSync(CHROME)?CHROME:undefined});
 const errs=[];
-const shot=async(p,n)=>{if(SHOTS)await p.screenshot({path:path.join(SHOTS,n+'.png')});};
+const shot=async(p,n)=>{if(SHOTS){await p.evaluate(()=>{const d=document.querySelector('#devPanel');if(d)d.style.display='none';}).catch(()=>{});await p.screenshot({path:path.join(SHOTS,n+'.png')});}};   // dev=1 panel hidden for evidence shots only
 async function open(){
- const ctx=await browser.newContext({viewport:{width:390,height:844}});const p=await ctx.newPage();
+ const ctx=await browser.newContext({viewport:{width:+(process.env.RA_VW||390),height:+(process.env.RA_VH||844)}});const p=await ctx.newPage();
  p.on('pageerror',e=>errs.push('pageerror: '+e.message));p.on('console',m=>{if(m.type()==='error'&&!/favicon|net::ERR|404/.test(m.text()))errs.push('console: '+m.text().slice(0,200));});
  await p.goto(URL_);
  await p.evaluate(()=>{const saved=RAState.migrateRecord(RASaveFixtures.fixtures.supraOwned);RAState.write(localStorage,saved,false);});

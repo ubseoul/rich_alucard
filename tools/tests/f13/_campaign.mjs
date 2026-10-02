@@ -68,8 +68,10 @@ async function playHostFor(root,seed,policy){
 export async function boot(root,{seedState=null,rng}={}){
  const ctx=await full(root,seedState?{seedState}:{});
  ctx.__f13rng=rng;vm.runInContext('Math.random=()=>__f13rng()',ctx);
+ const M10=process.env.F13_M10==='1';   // BUILD-1: run the REAL F03 (M10's authored $15K/week) instead of the Koreatown provider fixture
+ if(M10)await run(root,ctx,['js/frag/F03/migrations.js']);
  await run(root,ctx,F01_FILES);
- vm.runInContext(F03_PROVIDER,ctx,{filename:'F03-provider-fixture'});
+ if(M10)await run(root,ctx,['js/frag/F03/new_oga_ladder_close.js']);else vm.runInContext(F03_PROVIDER,ctx,{filename:'F03-provider-fixture'});
  await run(root,ctx,F04_FILES);
  const f05=JSON.parse(await read(root,'js/frag/F05/manifest.json')).files;
  await run(root,ctx,['js/frag/F05/migrations.js',...f05,'js/if1/hold_bridge.js']);
@@ -82,7 +84,7 @@ export async function boot(root,{seedState=null,rng}={}){
    end(){core.advance(30000);options.onRoundEnd(core.summary());}};
  }};
  await run(root,ctx,['js/frag/F06/production.js']);
- for(const f of ['F04.war_room','F01.showdown_core','F05.trap','F06.rainmaker'])ctx.RAFeatures.set(f,true);
+ for(const f of ['F04.war_room','F01.showdown_core','F05.trap','F06.rainmaker',...(M10?['F03.new_oga_ladder_close']:[])])ctx.RAFeatures.set(f,true);
  return ctx;
 }
 export const saveOf=ctx=>{const s=ctx.RASaveFixtures.memoryStorage();ctx.RAState.write(s,ctx.RAState.get());const raw=Object.values(s.dump())[0];return typeof raw==='string'?JSON.parse(raw):raw;};
@@ -99,6 +101,7 @@ function setup(c){
  c.RAFrag.patch('F04','active',true);c.RAFrag.patch('F04','offer.status','accepted');c.RAFrag.patch('F04','jobs.nightsSinceStart',0);
  c.RAState.patch('life.newOga',{...c.RAState.get().life.newOga,rank:3,status:'associate'});
  c.RAF05.unlock.tick();
+ if(process.env.F13_M10==='1')c.RANewOga.patch({m10GrantsApplied:true,m10GrantDay:START.day});   // BUILD-1: VP since the start day => $15,000 every 7th day
 }
 
 // ---------------------------------------------------------------------------------------------------------------- one campaign
