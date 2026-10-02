@@ -1,0 +1,90 @@
+STOVE V — F15 — REMAINING LAUNCH ART BATCH
+All three outputs: CANDIDATE — PENDING UBE APPROVAL
+Three separate built-in imagegen calls. Original generated PNGs copied byte-for-byte to this folder.
+No production normalization or subsequent image edits. Exact prompts are in the sibling prompt files.
+Dimensions, modes and SHA-256 values were measured from actual files in candidate_manifest.json.
+Plénitude's prior source freeze and production preparation were already complete.
+
+COMMON SOURCE AUTHORITY
+Repository ubseoul/rich_alucard
+source_vault/relationships/UNDERLORD_Character_Relationship_Packet_v0_2.docx
+Commit e76f8400271d5f538edc17b5ba6dfb682123a957
+Actual cached DOCX reread; Git blob recalculated: 27624a34c9decb4e9ef12e9ea067edaa2844a0d1
+Internal document title is V0.1 despite requested v0_2 filename.
+Rosalyn L3: convention, cosplay, glasses, embarrassed retreat.
+Rosalyn L4: giant cockroach, comedic boss encounter, apartment visit.
+Emerald L4: student recital, singing passion, encouragement.
+No story conflict found between packet and implemented scenes below.
+User exclusions intentionally remove baked crowds, performers and franchise banner art.
+Combat numeric tuning is explicitly marked IMPLEMENTATION TUNING — PENDING REVIEW in code;
+it is not treated as authored anatomy, history or added visual mechanics.
+
+COMMON STYLE AUTHORITY
+Frozen commit 31ac1bfe6eddb04786fb6fffded69e6d8fa0b643
+assets/before_the_fame/environments/garage/castle_garage_empty_270x480.png
+Git blob 75d90d0c62a98a655080b3e829c8cdb007bd3149
+assets/before_the_fame/environments/peking_naija/peking_naija_interior_270x480.png
+Git blob 88bb09da0f82bf6bf7761c526b5f6fe9bbd566d4
+Actual PNGs reused as image inputs, not names/descriptions alone.
+All 32 pre-existing PNG files (including frozen assets and references) verified byte-identical afterward.
+
+1. CONVENTION HALL
+File convention_hall_candidate_original.png
+Actual dimensions 941x1672; PNG RGB, opaque.
+Source: js/frag/F15/rosalyn.js at 8a1dc98a373339d25d613e2651be0a6280064486
+Verified actual file Git blob f6ae1f8f39efad2139d8d926970148984ef200c7
+F15_ROSALYN_L3 / GLASSES, add(R,3), lines 85-107.
+Authored hall of banners, prop booth, cosplay encounter and panel line.
+Source's Pearman banner imagery, characters and crowd omitted under explicit user restrictions.
+Ordinary modular booths, plain display cases, unprinted boxes and colored drapes are permitted dressing.
+Placement screenshot C:/ra/visual_review/06_convention_hall.png inspected visually.
+Self-check: clear booth structures, restrained festive banners, empty foreground, dark outlines,
+muted compatible palette and frontal perspective. No people, franchise images or readable signage.
+Issues: floor reflections and surface texture are stronger/finer than requested; booth structures
+could intersect the standing actor silhouettes. Exact runtime placement remains unverified.
+
+2. SHRINE AUDITORIUM
+File shrine_auditorium_candidate_original.png
+Actual dimensions 941x1672; PNG RGB, opaque.
+Source: js/frag/F15/emerald.js at 8a1dc98a373339d25d613e2651be0a6280064486
+Actual file fetched; Git blob 720461e5a77620f0acb8474db2c3542658ee5a1d
+F15_EMERALD_L4 / RECITAL, add(R,4), lines 136-165; hall node lines 141-147.
+Authored student recital in hall built for thousands; most seats empty; small performer on large stage.
+No real-world venue architecture assumed; venue name supplies no religious iconography.
+Placement screenshot C:/ra/visual_review/07_shrine_auditorium.png inspected visually.
+Self-check: empty readable performance stage, seating banks and side galleries, open central aisle,
+muted plum/burgundy/gold palette, no performer, audience, lyrics or signage.
+Issues: generated near seating extends farther into actor regions than requested. Stage sheen and
+ornament are stronger than requested; thousand-seat capacity is not established by this composition.
+Exact actor/UI mapping and clearance remain unverified.
+
+3. SPIRIT OF UNCLE BUNMI
+File spirit_of_uncle_bunmi_candidate_original.png
+Actual dimensions 1774x887; PNG RGBA with genuine alpha transparency.
+Source: Rosalyn L4 in js/frag/F15/rosalyn.js, lines 109-128 at same implementation commit.
+Combat config: js/frag/F15/dates.js lines 54-63, f15_uncle_bunmi card;
+Git blob bab9911de7428d38f6736305e3a7e0aba7e3284e.
+Tunables: js/frag/F15/tunables.js lines 63-68;
+fetched Git blob ce39be8328633e261f01bf555c6a9db8181e8ec6.
+Authored giant cockroach and antennas; card lists antenna, scuttle, stare and flies.
+One idle/key pose, closed wings; no extra move poses or invented mechanics.
+Placement screenshot C:/ra/visual_review/08_spirit_of_uncle_bunmi.png inspected visually;
+its human placeholder and shadow are explicitly not copied.
+Self-check: recognizable brown cockroach, left-facing alert stance, six-legged insect anatomy,
+long antennae, clear outline and chunky shading. No human uncle, clothing, weapon, aura,
+floor, background or baked shadow. Threat and mild comedy come from exaggerated antennae.
+Issues: far-side legs are less separated than near legs; battle-scale readability remains unverified.
+Transparency measurements: alpha range 0..255; 1016648 pixels alpha0.
+Visible alpha>=128 bbox (10,19,1758,862), right/bottom exclusive; visible padding left10,
+top19, right16, bottom25 pixels. Appendages appear contained without visible clipping.
+Low-alpha fringe reaches left and bottom canvas edges (full nonzero-alpha bbox0,16,1768,887).
+Most body alpha is253, so generated sprite is slightly translucent; no opaque-core conversion
+or alpha cleanup applied. These alpha details remain candidate review issues.
+
+PLACEMENT LIMITS
+All three actual supplied screenshots were viewed. No authoritative background-to-viewport
+mapping or isolated sprite masks were supplied. No accurate overlay or runtime check was made.
+Actor, enemy and dialogue/UI clearance cannot be claimed verified from static comparison alone.
+
+No source/access blockers encountered. No frozen-asset modification, runtime integration,
+commit or push. All outputs remain candidates pending Ube approval.

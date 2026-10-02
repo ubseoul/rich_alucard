@@ -1,5 +1,11 @@
 # Rich Alucard Art Department — start here
 
+## BUILD-4 integration handoff (2026-10-02, OL-039)
+
+Resume `docs/progress/BUILD4.md` first. Preserved approved art is integrated on `build/visual-completion-001`; the central register now contains 952 frozen PNG paths, including exact-byte runtime copies. Zero baseline frozen assets changed. The older Ship 015 state below remains historical authority for its own shipment, not the current BUILD-4 census.
+
+`build4/INTEGRATION_MANIFEST.json` records source commits and byte copies. `build4/PRESERVED_ART_HASH_AUDIT.json` supplements the unchanged inherited hash file, which contains 1,659 incorrect entries out of 2,667. `PLACEHOLDER_LOG.md` has 79 outstanding requirement rows. Four briefs and current-state sheets are ready; stop at the OL-039 package-drop gate. No new art has been generated or taste-approved in BUILD-4. The cockroach derivative and lights-off treatment remain creator-review items.
+
 This repository is the Art Department's institutional memory. **The project remembers. The chat does not.** Art owns pixels and visual continuity; Story/canon owns meaning; Engineering owns runtime integration; Ube owns taste and canon; HQ owns scope, acceptance and freeze.
 
 ## Current state

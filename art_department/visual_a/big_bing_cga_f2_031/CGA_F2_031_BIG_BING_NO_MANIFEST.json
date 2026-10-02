@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "ticket": "CGA-F2-031",
+  "character": "BIG BING",
+  "state": "NO",
+  "status": "APPROVED MASTER / FROZEN / CLOSED",
+  "recorded_date": "2026-09-30",
+  "authority": {
+    "identity_anchor": "VA-BIG-BING-CGA-F2-031-NEUTRAL-v1",
+    "identity_anchor_sha256": "a133f44b9cd4c232cda4b6d779ce295da64a18dc9cdf671bc7f2531087e90ccd",
+    "state_authority": "OL-017 BIG BING / CGA-F2-031 plus Ube speech-only NO ruling",
+    "approval": "Ube: its cool freeze it — PASS — FREEZE APPROVED"
+  },
+  "source_required": "none",
+  "asset": {
+    "asset_id": "VA-BIG-BING-CGA-F2-031-NO-v1",
+    "native_path": "assets/before_the_fame/characters/big_bing/cga_f2_031/big_bing_no_80x96_v1.png",
+    "sha256": "3cce5b05bed65fcb891857916eb07bab7bafd6dd9bbbcb839dd658558b926168",
+    "dimensions": [80, 96],
+    "mode": "RGBA",
+    "alpha": "binary 0/255",
+    "contact": [40, 88],
+    "opaque_colors": 14,
+    "preview_4x_path": "art_department/visual_a/big_bing_cga_f2_031/review/big_bing_no_4x_nearest_v1.png",
+    "preview_4x_sha256": "0a45b0b51386f09e94e0d1d1d56a46b1dedcd77bd3e9afc369984321a5426a6a"
+  },
+  "derivation": {
+    "pixel_delta_count": 3,
+    "changed_region": "mouth only",
+    "silhouette_unchanged": true,
+    "palette_unchanged": true,
+    "all_other_native_pixels_identical": true
+  },
+  "runtime_integration_status": "PENDING SEPARATE ENGINEERING REGISTRATION / RUNTIME QA"
+}

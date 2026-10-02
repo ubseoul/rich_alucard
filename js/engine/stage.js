@@ -218,9 +218,9 @@
  }
  // Combat 2.0: the same adapter contract in combat mode. Rich left / enemy right on the environment floor;
  // minions stand on a farther depth band (0.55 of the floor scale — the legacy crowd depth made explicit).
- function combat2Stage(env,enemyPerson,{flip=false,minions=0,states=null}={}){
+ function combat2Stage(env,enemyPerson,{flip=false,minions=0,states=null,enemyScale=null}={}){
   const y=env.floorY??318,depth=(env.base||1)*APPROVED_PRIMARY_SCALE;
-  const cast={rich:{id:'rich',x:72},enemy:{id:enemyPerson,x:198,flip}};
+  const cast={rich:{id:'rich',x:72},enemy:{id:enemyPerson,x:198,flip,...(enemyScale>0?{lineScale:enemyScale}:{})}};
   // Minions are background crowd on the far depth band: observers, never focal or speaking.
   for(let i=0;i<minions;i++)cast[`minion${i}`]={id:'minion',x:150+i*22,y:y-30+i*6,lineScale:depth*.55,observer:true};
   const stage=adventureStage(env,cast,{node:{shot:{profile:'combat',focal:['rich','enemy'],reference:'rich'}}});

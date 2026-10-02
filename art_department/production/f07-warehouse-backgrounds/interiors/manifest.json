@@ -1,0 +1,248 @@
+{
+  "asset": "STOVE H - warehouse workday / Owambe pair",
+  "status": "PASS - complete opaque background normalization and native-size QA; not pixel-perfect registration",
+  "sources": [
+    {
+      "path": "C:\\Users\\Ube\\Documents\\Codex\\2026-10-01\\stove-f-warehouse-workday-base-art\\outputs\\stove_f_warehouse_workday_candidate_v2.png",
+      "sha256": "da7c60d0ec4ade5f87b9dc770ed36c4fe0634f6cefad09e4869652617428d3fa",
+      "dimensions": [
+        941,
+        1672
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "C:\\Users\\Ube\\Documents\\Codex\\2026-10-01\\stove-f-warehouse-workday-base-art\\outputs\\stove_h_warehouse_owambe_party_candidate.png",
+      "sha256": "537f2bb84ecd46bcf63c11912249dd9313ce04650f78581816eccb0fff14b645",
+      "dimensions": [
+        941,
+        1672
+      ],
+      "mode": "RGB"
+    }
+  ],
+  "existing_workday_normalization": {
+    "manifest_path": "C:\\Users\\Ube\\Documents\\Codex\\2026-10-01\\stove-f-warehouse-workday-base-art\\outputs\\warehouse_workday_normalization\\normalization_manifest.json",
+    "reused_file": "C:\\Users\\Ube\\Documents\\Codex\\2026-10-01\\stove-f-warehouse-workday-base-art\\outputs\\warehouse_workday_normalization\\warehouse_workday_270x480.png",
+    "source_hash_verified": true,
+    "pixel_transform_verified": true
+  },
+  "transform": {
+    "operation": "Pillow Image.resize((270,480), resample=Image.Resampling.NEAREST, box=(0.25,0.0,940.75,1672.0))",
+    "crop_box_source_xyxy": [
+      0.25,
+      0.0,
+      940.75,
+      1672.0
+    ],
+    "horizontal_crop_each_side_source_px": 0.25,
+    "padding": 0,
+    "source_units_per_target_pixel": 3.4833333333333334,
+    "target_units_per_source_pixel": 0.28708133971291866,
+    "continuous_edge_coordinate_mapping": "x_target=(x_source-0.25)*480/1672; y_target=y_source*480/1672",
+    "output_mode": "RGB opaque",
+    "shared_transform": true
+  },
+  "alignment_method": "Local translation search +/-4 source pixels on gradient vectors in selected visible architecture ROIs; high-gradient base pixels only (magnitude >10). Reports best cosine similarity. Measures translations only, not deformation; small upper stair-rail ROI has limited coverage; the separate occluded-wall ROI is excluded from registration conclusions. Color/lighting variation and occlusion can affect scores. No registration correction applied.",
+  "alignment_measurements": [
+    {
+      "feature": "ceiling_beams",
+      "source_roi_xyxy": [
+        70,
+        10,
+        590,
+        310
+      ],
+      "best_local_translation_source_px": [
+        0,
+        0
+      ],
+      "equivalent_target_px": [
+        0.0,
+        0.0
+      ],
+      "gradient_cosine_at_best_shift": 0.9539,
+      "gradient_cosine_at_zero_shift": 0.9539,
+      "unshifted_rgb_mean_absolute_difference": 1.683,
+      "unshifted_exact_rgb_pixel_match_percent": 3.053
+    },
+    {
+      "feature": "glass_office_mullions",
+      "source_roi_xyxy": [
+        657,
+        232,
+        936,
+        482
+      ],
+      "best_local_translation_source_px": [
+        0,
+        0
+      ],
+      "equivalent_target_px": [
+        0.0,
+        0.0
+      ],
+      "gradient_cosine_at_best_shift": 0.9552,
+      "gradient_cosine_at_zero_shift": 0.9552,
+      "unshifted_rgb_mean_absolute_difference": 4.169,
+      "unshifted_exact_rgb_pixel_match_percent": 0.909
+    },
+    {
+      "feature": "blank_frame",
+      "source_roi_xyxy": [
+        775,
+        314,
+        862,
+        402
+      ],
+      "best_local_translation_source_px": [
+        0,
+        0
+      ],
+      "equivalent_target_px": [
+        0.0,
+        0.0
+      ],
+      "gradient_cosine_at_best_shift": 0.9905,
+      "gradient_cosine_at_zero_shift": 0.9905,
+      "unshifted_rgb_mean_absolute_difference": 2.743,
+      "unshifted_exact_rgb_pixel_match_percent": 0.888
+    },
+    {
+      "feature": "upper_stair_rail_visible",
+      "source_roi_xyxy": [
+        871,
+        415,
+        930,
+        485
+      ],
+      "best_local_translation_source_px": [
+        0,
+        0
+      ],
+      "equivalent_target_px": [
+        0.0,
+        0.0
+      ],
+      "gradient_cosine_at_best_shift": 0.8204,
+      "gradient_cosine_at_zero_shift": 0.8204,
+      "unshifted_rgb_mean_absolute_difference": 10.421,
+      "unshifted_exact_rgb_pixel_match_percent": 0.775
+    },
+    {
+      "feature": "under_office_wall_occluded_by_canopy",
+      "source_roi_xyxy": [
+        800,
+        489,
+        860,
+        540
+      ],
+      "best_local_translation_source_px": [
+        -4,
+        0
+      ],
+      "equivalent_target_px": [
+        -1.148,
+        0.0
+      ],
+      "gradient_cosine_at_best_shift": 0.3857,
+      "gradient_cosine_at_zero_shift": 0.2407,
+      "unshifted_rgb_mean_absolute_difference": 33.615,
+      "unshifted_exact_rgb_pixel_match_percent": 3.105
+    },
+    {
+      "feature": "rear_shelving",
+      "source_roi_xyxy": [
+        238,
+        502,
+        565,
+        620
+      ],
+      "best_local_translation_source_px": [
+        0,
+        0
+      ],
+      "equivalent_target_px": [
+        0.0,
+        0.0
+      ],
+      "gradient_cosine_at_best_shift": 0.895,
+      "gradient_cosine_at_zero_shift": 0.895,
+      "unshifted_rgb_mean_absolute_difference": 8.313,
+      "unshifted_exact_rgb_pixel_match_percent": 0.521
+    },
+    {
+      "feature": "foreground_floor_lines",
+      "source_roi_xyxy": [
+        5,
+        1000,
+        936,
+        1660
+      ],
+      "best_local_translation_source_px": [
+        0,
+        0
+      ],
+      "equivalent_target_px": [
+        0.0,
+        0.0
+      ],
+      "gradient_cosine_at_best_shift": 0.9726,
+      "gradient_cosine_at_zero_shift": 0.9726,
+      "unshifted_rgb_mean_absolute_difference": 2.43,
+      "unshifted_exact_rgb_pixel_match_percent": 1.663
+    }
+  ],
+  "qa_layout": "Workday left, party right; native 540x480; enlarged 4x nearest-neighbor 2160x1920",
+  "originals_preserved": true,
+  "outputs": [
+    {
+      "path": "C:\\Users\\Ube\\Documents\\Codex\\2026-10-01\\stove-f-warehouse-workday-base-art\\outputs\\warehouse_party_production_candidate\\qa_side_by_side_4x.png",
+      "sha256": "8d4e90ffcd11adb612c888f467e3d8da43f4fa34616dc4522e6ab832b79fee88",
+      "dimensions": [
+        2160,
+        1920
+      ]
+    },
+    {
+      "path": "C:\\Users\\Ube\\Documents\\Codex\\2026-10-01\\stove-f-warehouse-workday-base-art\\outputs\\warehouse_party_production_candidate\\qa_side_by_side_native.png",
+      "sha256": "7ae03dff2103c10d267b4c8b83965d04c6662681668e4f44c424cf655f2f8f49",
+      "dimensions": [
+        540,
+        480
+      ]
+    },
+    {
+      "path": "C:\\Users\\Ube\\Documents\\Codex\\2026-10-01\\stove-f-warehouse-workday-base-art\\outputs\\warehouse_party_production_candidate\\warehouse_owambe_party_270x480.png",
+      "sha256": "4431afd5b0c0bb3ae47a03a899600ec98b755d15334b7fd825a5ed1cbf5f0899",
+      "dimensions": [
+        270,
+        480
+      ]
+    },
+    {
+      "path": "C:\\Users\\Ube\\Documents\\Codex\\2026-10-01\\stove-f-warehouse-workday-base-art\\outputs\\warehouse_party_production_candidate\\warehouse_workday_270x480.png",
+      "sha256": "a4d36fcfa06a18503fbd037a24442e674ee3e9601fd5fde32027b0e37e70357d",
+      "dimensions": [
+        270,
+        480
+      ]
+    }
+  ],
+  "alignment_findings": {
+    "visible_architecture": "All six selected visible architecture regions have best measured translation (0,0) source pixels within a +/-4-pixel integer search. Gradient cosine similarities: ceiling 0.9539, office 0.9552, frame 0.9905, upper stair rail 0.8204, rear shelving 0.8950, floor 0.9726.",
+    "occlusion": "Canopies, guests and chairs cover side shelving, lower stairs and the under-office wall. A deliberately occluded wall sample has weak similarity 0.3857 and best search shift (-4,0); this boundary result is not a reliable architectural displacement measurement.",
+    "drift": "No material positional drift detected in the sampled visible geometry. Generated color/texture differences exist across unchanged architecture; exact RGB pixel match is only about 0.5-3.1% in measured visible regions. These are not pixel-identical backgrounds. Hidden geometry cannot be assessed, and the local translation test does not rule out small nonrigid changes.",
+    "practical_impact": "Suitable as alternating complete opaque backgrounds. Canopy occlusion is expected. Exact overlay extraction would require a separate registration/difference review; no overlay produced."
+  },
+  "native_size_visual_qa": {
+    "inspection": "Both native 270x480 images inspected in side-by-side QA; enlarged nearest-neighbor QA also inspected.",
+    "aunties_and_gele": "PASS - groups, festive dress colors and gele silhouettes recognizable; individual faces remain small.",
+    "canopy_poles": "PASS - vertical side and inner support poles visible at native size.",
+    "actor_clearance": "PASS - intended feet at (72,370) and (198,370) lie on clear floor; central foreground open. Exact character sprite silhouettes were not supplied or tested.",
+    "top_ui_y16_88": "PASS - dark ceiling remains visually quiet with original lamps; party roofs and lights sit below this band.",
+    "bottom_ui_y362_480": "PASS - unobstructed low-contrast floor, no guests/chairs/poles in this band.",
+    "pixel_clusters": "PASS - sharp nearest-neighbor sampling, no smoothing; enlarged QA uses nearest-neighbor 4x.",
+    "dimensions_and_opacity": "PASS - both 270x480 RGB opaque PNGs."
+  }
+}

@@ -1,0 +1,939 @@
+{
+  "schema": 1,
+  "as_of": "2026-10-02",
+  "scope": "OPEN runtime and dormant registered fallbacks; a row may be a named state family",
+  "start_count": 92,
+  "end_count": 79,
+  "runtime_census_start": {
+    "environments": 17,
+    "actors": 10
+  },
+  "runtime_census_end": {
+    "environments": 9,
+    "actors": 6
+  },
+  "pending": [
+    {
+      "package": "P-D",
+      "id": "gbenga_rentals",
+      "screen": "GBENGA EVENT RENTALS \u00c2\u00b7 INGLEWOOD",
+      "route": "NEW_OGA_M2:arrive, NEW_OGA_M3:voice, NEW_OGA_M4:beat4, NEW_OGA_ALTERNATIVE:voice, NEW_OGA_FINALE:party, NEW_OGA_FINALE:office, NEW_OGA_FINALE:blessing, NEW_OGA_FINALE:consigliere, NEW_OGA_FINALE:takeover",
+      "size": "270\u00d7480 opaque PNG",
+      "need": "RAPixel.paintEnvironment; use approved preserved art first",
+      "source": "js/data/btf/environments.js",
+      "status": "OPEN"
+    },
+    {
+      "package": "P-D",
+      "id": "gbenga_house_dining",
+      "screen": "GBENGA HOME \u00c2\u00b7 LADERA HEIGHTS",
+      "route": "NEW_OGA_M7:arrival, NEW_OGA_M7:dinner, NEW_OGA_M7:door",
+      "size": "270\u00d7480 opaque PNG",
+      "need": "RAPixel.paintEnvironment; use approved preserved art first",
+      "source": "js/data/btf/environments.js",
+      "status": "OPEN"
+    },
+    {
+      "package": "P-D",
+      "id": "gbenga_house_patio",
+      "screen": "GBENGA HOME \u00c2\u00b7 PATIO",
+      "route": "NEW_OGA_M7:patio",
+      "size": "270\u00d7480 opaque PNG",
+      "need": "RAPixel.paintEnvironment; use approved preserved art first",
+      "source": "js/data/btf/environments.js",
+      "status": "OPEN"
+    },
+    {
+      "package": "P-D",
+      "id": "carson_owambe",
+      "screen": "CARSON OWAMBE",
+      "route": "NEW_OGA_M3:critique, NEW_OGA_ALTERNATIVE:critique, NEW_OGA_M5:arrival",
+      "size": "270\u00d7480 opaque PNG",
+      "need": "RAPixel.paintEnvironment; use approved preserved art first",
+      "source": "js/data/btf/environments.js",
+      "status": "OPEN"
+    },
+    {
+      "package": "P-D",
+      "id": "catacomb_dead",
+      "screen": "THE CATACOMB",
+      "route": "registered id; no static adventure node (combat/dynamic/dormant)",
+      "size": "270\u00d7480 opaque PNG",
+      "need": "RAPixel.paintEnvironment; use approved preserved art first",
+      "source": "js/data/btf/environments.js",
+      "status": "OPEN"
+    },
+    {
+      "package": "P-D",
+      "id": "ocean_night_flight",
+      "screen": "OVER THE OCEAN",
+      "route": "ARC_MAZDA_2:scene",
+      "size": "270\u00d7480 opaque PNG",
+      "need": "RAPixel.paintEnvironment; use approved preserved art first",
+      "source": "js/data/btf/environments.js",
+      "status": "OPEN"
+    },
+    {
+      "package": "P-D",
+      "id": "halloween",
+      "screen": "VAMPIRE LA \u00c2\u00b7 HALLOWEEN",
+      "route": "registered id; no static adventure node (combat/dynamic/dormant)",
+      "size": "270\u00d7480 opaque PNG",
+      "need": "RAPixel.paintEnvironment; use approved preserved art first",
+      "source": "js/data/btf/environments.js",
+      "status": "OPEN"
+    },
+    {
+      "package": "P-D",
+      "id": "f15_exam_hall",
+      "screen": "OUTSIDE THE EXAM HALL",
+      "route": "F15_EMERALD_L3:steps",
+      "size": "270\u00d7480 opaque PNG",
+      "need": "RAPixel.paintEnvironment; use approved preserved art first",
+      "source": "js/frag/F15/dates.js",
+      "status": "OPEN"
+    },
+    {
+      "package": "P-D",
+      "id": "f15_library",
+      "screen": "THE LIBRARY",
+      "route": "F15_EMERALD_L3:library",
+      "size": "270\u00d7480 opaque PNG",
+      "need": "RAPixel.paintEnvironment; use approved preserved art first",
+      "source": "js/frag/F15/dates.js",
+      "status": "OPEN"
+    },
+    {
+      "package": "P-D",
+      "id": "smallie",
+      "screen": "SMALLIE",
+      "route": "NEW_OGA_M1:table",
+      "size": "80\u00d796 RGBA; contact (40,88)",
+      "need": "RAPixel person look; use approved preserved art first",
+      "source": "source_vault/art_authority/OL017_OPEN_VISUAL_CHARACTER_AUTHORITY.md",
+      "status": "OPEN"
+    },
+    {
+      "package": "P-D",
+      "id": "smallie_cousin",
+      "screen": "SMALLIE'S COUSIN",
+      "route": "registered id; no static adventure node (combat/dynamic/dormant)",
+      "size": "80\u00d796 RGBA; contact (40,88)",
+      "need": "RAPixel person look; use approved preserved art first",
+      "source": "source_vault/art_authority/OL017_OPEN_VISUAL_CHARACTER_AUTHORITY.md",
+      "status": "OPEN"
+    },
+    {
+      "package": "P-D",
+      "id": "mama_gbenga",
+      "screen": "MAMA GBENGA",
+      "route": "NEW_OGA_M7:arrival, NEW_OGA_M7:dinner, NEW_OGA_M7:door",
+      "size": "80\u00d796 RGBA; contact (40,88)",
+      "need": "RAPixel person look; use approved preserved art first",
+      "source": "source_vault/art_authority/OL017_OPEN_VISUAL_CHARACTER_AUTHORITY.md",
+      "status": "OPEN"
+    },
+    {
+      "package": "P-D",
+      "id": "uncle_bamidele",
+      "screen": "UNCLE BAMIDELE",
+      "route": "NEW_OGA_M5:arrival, NEW_OGA_M5:backout",
+      "size": "80\u00d796 RGBA; contact (40,88)",
+      "need": "RAPixel person look; use approved preserved art first",
+      "source": "source_vault/art_authority/OL017_OPEN_VISUAL_CHARACTER_AUTHORITY.md",
+      "status": "OPEN"
+    },
+    {
+      "package": "P-D",
+      "id": "senator",
+      "screen": "SENATOR",
+      "route": "NEW_OGA_M6:voice, NEW_OGA_M6:egusi, NEW_OGA_M6:mazda, NEW_OGA_M6:bread, NEW_OGA_M6:walked",
+      "size": "160\u00d7160 RGBA; contact (80,152)",
+      "need": "RAPixel person look; use approved preserved art first",
+      "source": "source_vault/art_authority/OL017_OPEN_VISUAL_CHARACTER_AUTHORITY.md",
+      "status": "OPEN"
+    },
+    {
+      "package": "P-D",
+      "id": "kiosk_guy",
+      "screen": "KIOSK GUY",
+      "route": "registered id; no static adventure node (combat/dynamic/dormant)",
+      "size": "80\u00d796 RGBA; contact (40,88)",
+      "need": "RAPixel person look; use approved preserved art first",
+      "source": "source_vault/art_authority/OL017_OPEN_VISUAL_CHARACTER_AUTHORITY.md",
+      "status": "OPEN"
+    },
+    {
+      "package": "P-A",
+      "id": "f15_dark_condition_review",
+      "screen": "Rosalyn L4 dark room",
+      "route": "F15_ROSALYN_L4:roach / cockroach combat",
+      "size": "270\u00d7480 RGBA overlay, existing [6,5,20,150]",
+      "need": "Ube review: preserve current overlay or return an approved separate dark condition",
+      "source": "assets/f15/layers/lights_off_270x480.png",
+      "status": "CREATOR_REVIEW"
+    },
+    {
+      "package": "P-A",
+      "id": "f15_roach_derivative_review",
+      "screen": "Rosalyn L4 gag boss",
+      "route": "F15_ROSALYN_L4:roach; combat:f15_uncle_bunmi",
+      "size": "444\u00d7222 RGBA existing derivative; native alternative 160\u00d780 contact (80,76)",
+      "need": "Ube review of preserved BOX derivative, size and edge contact; never redraw the frozen master",
+      "source": "assets/f15/scene_art_manifest.json",
+      "status": "CREATOR_REVIEW"
+    },
+    {
+      "package": "P-B",
+      "id": "f07_rich_enterprises_condition",
+      "screen": "Warehouse sign after TAKEOVER",
+      "route": "NEW_OGA_FINALE:takeover; F07 exterior condition adapter pending",
+      "size": "270\u00d7480 RGB",
+      "need": "Review mapping of existing repainted sign to post-TAKEOVER exterior only; no new node or dialogue",
+      "source": "art_department/production/f07-warehouse-backgrounds/exteriors/warehouse_exterior_rich_enterprises_270x480.png",
+      "status": "CREATOR_REVIEW"
+    },
+    {
+      "package": "P-D",
+      "id": "f15_roxy_single_pose_review",
+      "screen": "Roxy date actor",
+      "route": "F15_ROXY_L1..L4",
+      "size": "80\u00d796 runtime portrait",
+      "need": "Creator decision: approve existing single-pose reuse or provide named additional poses; no unrequested expression redesign",
+      "source": "assets/f15/portraits/roxy.png",
+      "status": "CREATOR_REVIEW"
+    },
+    {
+      "package": "P-C",
+      "id": "dancer_roxy_t1_poses",
+      "screen": "F15 three-dancer club",
+      "route": "RAF15Club, selected dancer roxy; new wardrobe renderer pending",
+      "size": "512\u00d7160 RGBA sheet; 128\u00d7160 cells, contact (64,152)",
+      "need": "Missing dancer_roxy_t1_idle.png, dancer_roxy_t1_pose.png, dancer_roxy_t1_cheer.png, dancer_roxy_t1_back.png",
+      "source": "art_department/production/f15-launch-trio-masters/foundation_cards/roxy-foundation.png",
+      "status": "OPEN"
+    },
+    {
+      "package": "P-C",
+      "id": "dancer_roxy_t1_pole",
+      "screen": "F15 three-dancer club",
+      "route": "RAF15Club; roxy, tier 1, pole",
+      "size": "3072\u00d7160 RGBA; 24 frames of 128\u00d7160, 24 FPS, contact (64,152)",
+      "need": "Missing wardrobe-specific loop; do not regenerate or repaint approved wolf/pink/dragon loops",
+      "source": "source_vault/art_authority/RAINMAKER_Dancer_Generation_Sheets_and_Wardrobe_Levels.docx",
+      "status": "OPEN"
+    },
+    {
+      "package": "P-C",
+      "id": "dancer_roxy_t1_floor",
+      "screen": "F15 three-dancer club",
+      "route": "RAF15Club; roxy, tier 1, floor",
+      "size": "3072\u00d7160 RGBA; 24 frames of 128\u00d7160, 24 FPS, contact (64,152)",
+      "need": "Missing wardrobe-specific loop; do not regenerate or repaint approved wolf/pink/dragon loops",
+      "source": "source_vault/art_authority/RAINMAKER_Dancer_Generation_Sheets_and_Wardrobe_Levels.docx",
+      "status": "OPEN"
+    },
+    {
+      "package": "P-C",
+      "id": "dancer_roxy_t2_poses",
+      "screen": "F15 three-dancer club",
+      "route": "RAF15Club, selected dancer roxy; new wardrobe renderer pending",
+      "size": "512\u00d7160 RGBA sheet; 128\u00d7160 cells, contact (64,152)",
+      "need": "Missing dancer_roxy_t2_idle.png, dancer_roxy_t2_pose.png, dancer_roxy_t2_cheer.png, dancer_roxy_t2_back.png",
+      "source": "art_department/production/f15-launch-trio-masters/foundation_cards/roxy-foundation.png",
+      "status": "OPEN"
+    },
+    {
+      "package": "P-C",
+      "id": "dancer_roxy_t2_pole",
+      "screen": "F15 three-dancer club",
+      "route": "RAF15Club; roxy, tier 2, pole",
+      "size": "3072\u00d7160 RGBA; 24 frames of 128\u00d7160, 24 FPS, contact (64,152)",
+      "need": "Missing wardrobe-specific loop; do not regenerate or repaint approved wolf/pink/dragon loops",
+      "source": "source_vault/art_authority/RAINMAKER_Dancer_Generation_Sheets_and_Wardrobe_Levels.docx",
+      "status": "OPEN"
+    },
+    {
+      "package": "P-C",
+      "id": "dancer_roxy_t2_floor",
+      "screen": "F15 three-dancer club",
+      "route": "RAF15Club; roxy, tier 2, floor",
+      "size": "3072\u00d7160 RGBA; 24 frames of 128\u00d7160, 24 FPS, contact (64,152)",
+      "need": "Missing wardrobe-specific loop; do not regenerate or repaint approved wolf/pink/dragon loops",
+      "source": "source_vault/art_authority/RAINMAKER_Dancer_Generation_Sheets_and_Wardrobe_Levels.docx",
+      "status": "OPEN"
+    },
+    {
+      "package": "P-C",
+      "id": "dancer_roxy_t3_poses",
+      "screen": "F15 three-dancer club",
+      "route": "RAF15Club, selected dancer roxy; new wardrobe renderer pending",
+      "size": "640\u00d7160 RGBA sheet; 128\u00d7160 cells, contact (64,152)",
+      "need": "Missing dancer_roxy_t3_idle.png, dancer_roxy_t3_pose.png, dancer_roxy_t3_cheer.png, dancer_roxy_t3_back.png, dancer_roxy_t3_idlealt.png",
+      "source": "art_department/production/f15-launch-trio-masters/foundation_cards/roxy-foundation.png",
+      "status": "OPEN"
+    },
+    {
+      "package": "P-C",
+      "id": "dancer_roxy_t3_pole",
+      "screen": "F15 three-dancer club",
+      "route": "RAF15Club; roxy, tier 3, pole",
+      "size": "3072\u00d7160 RGBA; 24 frames of 128\u00d7160, 24 FPS, contact (64,152)",
+      "need": "Missing wardrobe-specific loop; do not regenerate or repaint approved wolf/pink/dragon loops",
+      "source": "source_vault/art_authority/RAINMAKER_Dancer_Generation_Sheets_and_Wardrobe_Levels.docx",
+      "status": "OPEN"
+    },
+    {
+      "package": "P-C",
+      "id": "dancer_roxy_t3_floor",
+      "screen": "F15 three-dancer club",
+      "route": "RAF15Club; roxy, tier 3, floor",
+      "size": "3072\u00d7160 RGBA; 24 frames of 128\u00d7160, 24 FPS, contact (64,152)",
+      "need": "Missing wardrobe-specific loop; do not regenerate or repaint approved wolf/pink/dragon loops",
+      "source": "source_vault/art_authority/RAINMAKER_Dancer_Generation_Sheets_and_Wardrobe_Levels.docx",
+      "status": "OPEN"
+    },
+    {
+      "package": "P-D",
+      "id": "f15_rosalyn_single_pose_review",
+      "screen": "Rosalyn date actor",
+      "route": "F15_ROSALYN_L1..L4",
+      "size": "80\u00d796 runtime portrait",
+      "need": "Creator decision: approve existing single-pose reuse or provide named additional poses; no unrequested expression redesign",
+      "source": "assets/f15/portraits/rosalyn.png",
+      "status": "CREATOR_REVIEW"
+    },
+    {
+      "package": "P-C",
+      "id": "dancer_rosalyn_t1_poses",
+      "screen": "F15 three-dancer club",
+      "route": "RAF15Club, selected dancer rosalyn; new wardrobe renderer pending",
+      "size": "512\u00d7160 RGBA sheet; 128\u00d7160 cells, contact (64,152)",
+      "need": "Missing dancer_rosalyn_t1_idle.png, dancer_rosalyn_t1_pose.png, dancer_rosalyn_t1_cheer.png, dancer_rosalyn_t1_back.png",
+      "source": "art_department/production/f15-launch-trio-masters/foundation_cards/rosalyn-foundation.png",
+      "status": "OPEN"
+    },
+    {
+      "package": "P-C",
+      "id": "dancer_rosalyn_t1_pole",
+      "screen": "F15 three-dancer club",
+      "route": "RAF15Club; rosalyn, tier 1, pole",
+      "size": "3072\u00d7160 RGBA; 24 frames of 128\u00d7160, 24 FPS, contact (64,152)",
+      "need": "Missing wardrobe-specific loop; do not regenerate or repaint approved wolf/pink/dragon loops",
+      "source": "source_vault/art_authority/RAINMAKER_Dancer_Generation_Sheets_and_Wardrobe_Levels.docx",
+      "status": "OPEN"
+    },
+    {
+      "package": "P-C",
+      "id": "dancer_rosalyn_t1_floor",
+      "screen": "F15 three-dancer club",
+      "route": "RAF15Club; rosalyn, tier 1, floor",
+      "size": "3072\u00d7160 RGBA; 24 frames of 128\u00d7160, 24 FPS, contact (64,152)",
+      "need": "Missing wardrobe-specific loop; do not regenerate or repaint approved wolf/pink/dragon loops",
+      "source": "source_vault/art_authority/RAINMAKER_Dancer_Generation_Sheets_and_Wardrobe_Levels.docx",
+      "status": "OPEN"
+    },
+    {
+      "package": "P-C",
+      "id": "dancer_rosalyn_t2_poses",
+      "screen": "F15 three-dancer club",
+      "route": "RAF15Club, selected dancer rosalyn; new wardrobe renderer pending",
+      "size": "512\u00d7160 RGBA sheet; 128\u00d7160 cells, contact (64,152)",
+      "need": "Missing dancer_rosalyn_t2_idle.png, dancer_rosalyn_t2_pose.png, dancer_rosalyn_t2_cheer.png, dancer_rosalyn_t2_back.png",
+      "source": "art_department/production/f15-launch-trio-masters/foundation_cards/rosalyn-foundation.png",
+      "status": "OPEN"
+    },
+    {
+      "package": "P-C",
+      "id": "dancer_rosalyn_t2_pole",
+      "screen": "F15 three-dancer club",
+      "route": "RAF15Club; rosalyn, tier 2, pole",
+      "size": "3072\u00d7160 RGBA; 24 frames of 128\u00d7160, 24 FPS, contact (64,152)",
+      "need": "Missing wardrobe-specific loop; do not regenerate or repaint approved wolf/pink/dragon loops",
+      "source": "source_vault/art_authority/RAINMAKER_Dancer_Generation_Sheets_and_Wardrobe_Levels.docx",
+      "status": "OPEN"
+    },
+    {
+      "package": "P-C",
+      "id": "dancer_rosalyn_t2_floor",
+      "screen": "F15 three-dancer club",
+      "route": "RAF15Club; rosalyn, tier 2, floor",
+      "size": "3072\u00d7160 RGBA; 24 frames of 128\u00d7160, 24 FPS, contact (64,152)",
+      "need": "Missing wardrobe-specific loop; do not regenerate or repaint approved wolf/pink/dragon loops",
+      "source": "source_vault/art_authority/RAINMAKER_Dancer_Generation_Sheets_and_Wardrobe_Levels.docx",
+      "status": "OPEN"
+    },
+    {
+      "package": "P-C",
+      "id": "dancer_rosalyn_t3_poses",
+      "screen": "F15 three-dancer club",
+      "route": "RAF15Club, selected dancer rosalyn; new wardrobe renderer pending",
+      "size": "640\u00d7160 RGBA sheet; 128\u00d7160 cells, contact (64,152)",
+      "need": "Missing dancer_rosalyn_t3_idle.png, dancer_rosalyn_t3_pose.png, dancer_rosalyn_t3_cheer.png, dancer_rosalyn_t3_back.png, dancer_rosalyn_t3_idlealt.png",
+      "source": "art_department/production/f15-launch-trio-masters/foundation_cards/rosalyn-foundation.png",
+      "status": "OPEN"
+    },
+    {
+      "package": "P-C",
+      "id": "dancer_rosalyn_t3_pole",
+      "screen": "F15 three-dancer club",
+      "route": "RAF15Club; rosalyn, tier 3, pole",
+      "size": "3072\u00d7160 RGBA; 24 frames of 128\u00d7160, 24 FPS, contact (64,152)",
+      "need": "Missing wardrobe-specific loop; do not regenerate or repaint approved wolf/pink/dragon loops",
+      "source": "source_vault/art_authority/RAINMAKER_Dancer_Generation_Sheets_and_Wardrobe_Levels.docx",
+      "status": "OPEN"
+    },
+    {
+      "package": "P-C",
+      "id": "dancer_rosalyn_t3_floor",
+      "screen": "F15 three-dancer club",
+      "route": "RAF15Club; rosalyn, tier 3, floor",
+      "size": "3072\u00d7160 RGBA; 24 frames of 128\u00d7160, 24 FPS, contact (64,152)",
+      "need": "Missing wardrobe-specific loop; do not regenerate or repaint approved wolf/pink/dragon loops",
+      "source": "source_vault/art_authority/RAINMAKER_Dancer_Generation_Sheets_and_Wardrobe_Levels.docx",
+      "status": "OPEN"
+    },
+    {
+      "package": "P-D",
+      "id": "f15_emerald_single_pose_review",
+      "screen": "Emerald date actor",
+      "route": "F15_EMERALD_L1..L4",
+      "size": "80\u00d796 runtime portrait",
+      "need": "Creator decision: approve existing single-pose reuse or provide named additional poses; no unrequested expression redesign",
+      "source": "assets/f15/portraits/emerald.png",
+      "status": "CREATOR_REVIEW"
+    },
+    {
+      "package": "P-C",
+      "id": "dancer_emerald_t1_poses",
+      "screen": "F15 three-dancer club",
+      "route": "RAF15Club, selected dancer emerald; new wardrobe renderer pending",
+      "size": "512\u00d7160 RGBA sheet; 128\u00d7160 cells, contact (64,152)",
+      "need": "Missing dancer_emerald_t1_idle.png, dancer_emerald_t1_pose.png, dancer_emerald_t1_cheer.png, dancer_emerald_t1_back.png",
+      "source": "art_department/production/f15-launch-trio-masters/foundation_cards/emerald-foundation.png",
+      "status": "OPEN"
+    },
+    {
+      "package": "P-C",
+      "id": "dancer_emerald_t1_pole",
+      "screen": "F15 three-dancer club",
+      "route": "RAF15Club; emerald, tier 1, pole",
+      "size": "3072\u00d7160 RGBA; 24 frames of 128\u00d7160, 24 FPS, contact (64,152)",
+      "need": "Missing wardrobe-specific loop; do not regenerate or repaint approved wolf/pink/dragon loops",
+      "source": "source_vault/art_authority/RAINMAKER_Dancer_Generation_Sheets_and_Wardrobe_Levels.docx",
+      "status": "OPEN"
+    },
+    {
+      "package": "P-C",
+      "id": "dancer_emerald_t1_floor",
+      "screen": "F15 three-dancer club",
+      "route": "RAF15Club; emerald, tier 1, floor",
+      "size": "3072\u00d7160 RGBA; 24 frames of 128\u00d7160, 24 FPS, contact (64,152)",
+      "need": "Missing wardrobe-specific loop; do not regenerate or repaint approved wolf/pink/dragon loops",
+      "source": "source_vault/art_authority/RAINMAKER_Dancer_Generation_Sheets_and_Wardrobe_Levels.docx",
+      "status": "OPEN"
+    },
+    {
+      "package": "P-C",
+      "id": "dancer_emerald_t2_poses",
+      "screen": "F15 three-dancer club",
+      "route": "RAF15Club, selected dancer emerald; new wardrobe renderer pending",
+      "size": "512\u00d7160 RGBA sheet; 128\u00d7160 cells, contact (64,152)",
+      "need": "Missing dancer_emerald_t2_idle.png, dancer_emerald_t2_pose.png, dancer_emerald_t2_cheer.png, dancer_emerald_t2_back.png",
+      "source": "art_department/production/f15-launch-trio-masters/foundation_cards/emerald-foundation.png",
+      "status": "OPEN"
+    },
+    {
+      "package": "P-C",
+      "id": "dancer_emerald_t2_pole",
+      "screen": "F15 three-dancer club",
+      "route": "RAF15Club; emerald, tier 2, pole",
+      "size": "3072\u00d7160 RGBA; 24 frames of 128\u00d7160, 24 FPS, contact (64,152)",
+      "need": "Missing wardrobe-specific loop; do not regenerate or repaint approved wolf/pink/dragon loops",
+      "source": "source_vault/art_authority/RAINMAKER_Dancer_Generation_Sheets_and_Wardrobe_Levels.docx",
+      "status": "OPEN"
+    },
+    {
+      "package": "P-C",
+      "id": "dancer_emerald_t2_floor",
+      "screen": "F15 three-dancer club",
+      "route": "RAF15Club; emerald, tier 2, floor",
+      "size": "3072\u00d7160 RGBA; 24 frames of 128\u00d7160, 24 FPS, contact (64,152)",
+      "need": "Missing wardrobe-specific loop; do not regenerate or repaint approved wolf/pink/dragon loops",
+      "source": "source_vault/art_authority/RAINMAKER_Dancer_Generation_Sheets_and_Wardrobe_Levels.docx",
+      "status": "OPEN"
+    },
+    {
+      "package": "P-C",
+      "id": "dancer_emerald_t3_poses",
+      "screen": "F15 three-dancer club",
+      "route": "RAF15Club, selected dancer emerald; new wardrobe renderer pending",
+      "size": "640\u00d7160 RGBA sheet; 128\u00d7160 cells, contact (64,152)",
+      "need": "Missing dancer_emerald_t3_idle.png, dancer_emerald_t3_pose.png, dancer_emerald_t3_cheer.png, dancer_emerald_t3_back.png, dancer_emerald_t3_idlealt.png",
+      "source": "art_department/production/f15-launch-trio-masters/foundation_cards/emerald-foundation.png",
+      "status": "OPEN"
+    },
+    {
+      "package": "P-C",
+      "id": "dancer_emerald_t3_pole",
+      "screen": "F15 three-dancer club",
+      "route": "RAF15Club; emerald, tier 3, pole",
+      "size": "3072\u00d7160 RGBA; 24 frames of 128\u00d7160, 24 FPS, contact (64,152)",
+      "need": "Missing wardrobe-specific loop; do not regenerate or repaint approved wolf/pink/dragon loops",
+      "source": "source_vault/art_authority/RAINMAKER_Dancer_Generation_Sheets_and_Wardrobe_Levels.docx",
+      "status": "OPEN"
+    },
+    {
+      "package": "P-C",
+      "id": "dancer_emerald_t3_floor",
+      "screen": "F15 three-dancer club",
+      "route": "RAF15Club; emerald, tier 3, floor",
+      "size": "3072\u00d7160 RGBA; 24 frames of 128\u00d7160, 24 FPS, contact (64,152)",
+      "need": "Missing wardrobe-specific loop; do not regenerate or repaint approved wolf/pink/dragon loops",
+      "source": "source_vault/art_authority/RAINMAKER_Dancer_Generation_Sheets_and_Wardrobe_Levels.docx",
+      "status": "OPEN"
+    },
+    {
+      "package": "P-C",
+      "id": "f15_wardrobe_mapping_decisions",
+      "screen": "Wardrobe progression",
+      "route": "RAF15Club / RAF15Tunables",
+      "size": "data / creator ruling",
+      "need": "No common/rare/legendary assignments or trio thresholds are approved; identify existing tier coverage first, then supply trio wardrobe mapping/rules without changing lifetime romance progression",
+      "source": "art_department/production/f15-launch-trio-masters/rulings/CREATOR_RULING_2026-10-01_F15_LAUNCH_ROSTER.md",
+      "status": "CREATOR_REVIEW"
+    },
+    {
+      "package": "P-D",
+      "id": "pickup_court",
+      "screen": "Minigame backdrop",
+      "route": "minigame:pickup",
+      "size": "270\u00d7480 opaque PNG",
+      "need": "Code-painted backdrop; test the relevant frozen environment first, then approve reuse or provide a matching game-board background",
+      "source": "js/minigames/pickup.js",
+      "status": "OPEN"
+    },
+    {
+      "package": "P-D",
+      "id": "jollof_kitchen",
+      "screen": "Minigame backdrop",
+      "route": "minigame:jollof?mode=kitchen",
+      "size": "270\u00d7480 opaque PNG",
+      "need": "Code-painted backdrop; test the relevant frozen environment first, then approve reuse or provide a matching game-board background",
+      "source": "js/minigames/jollof.js",
+      "status": "OPEN"
+    },
+    {
+      "package": "P-D",
+      "id": "jollof_cookoff",
+      "screen": "Minigame backdrop",
+      "route": "minigame:jollof?mode=cookoff",
+      "size": "270\u00d7480 opaque PNG",
+      "need": "Code-painted backdrop; test the relevant frozen environment first, then approve reuse or provide a matching game-board background",
+      "source": "js/minigames/jollof.js",
+      "status": "OPEN"
+    },
+    {
+      "package": "P-D",
+      "id": "jollof_final",
+      "screen": "Minigame backdrop",
+      "route": "minigame:jollof?mode=final",
+      "size": "270\u00d7480 opaque PNG",
+      "need": "Code-painted backdrop; test the relevant frozen environment first, then approve reuse or provide a matching game-board background",
+      "source": "js/minigames/jollof.js",
+      "status": "OPEN"
+    },
+    {
+      "package": "P-D",
+      "id": "pier_game",
+      "screen": "Minigame backdrop",
+      "route": "minigame:pier",
+      "size": "270\u00d7480 opaque PNG",
+      "need": "Code-painted backdrop; test the relevant frozen environment first, then approve reuse or provide a matching game-board background",
+      "source": "js/minigames/pier.js",
+      "status": "OPEN"
+    },
+    {
+      "package": "P-D",
+      "id": "hookah_roof",
+      "screen": "Minigame backdrop",
+      "route": "minigame:hookah",
+      "size": "270\u00d7480 opaque PNG",
+      "need": "Code-painted backdrop; test the relevant frozen environment first, then approve reuse or provide a matching game-board background",
+      "source": "js/minigames/hookah.js",
+      "status": "OPEN"
+    },
+    {
+      "package": "P-D",
+      "id": "owambe_birthday",
+      "screen": "Minigame backdrop",
+      "route": "minigame:owambe_collection",
+      "size": "270\u00d7480 opaque PNG",
+      "need": "Code-painted backdrop; test the relevant frozen environment first, then approve reuse or provide a matching game-board background",
+      "source": "js/minigames/owambe_collection.js",
+      "status": "OPEN"
+    },
+    {
+      "package": "P-D",
+      "id": "hatch_castle",
+      "screen": "Minigame backdrop",
+      "route": "minigame:hatch (castle)",
+      "size": "270\u00d7480 opaque PNG",
+      "need": "Code-painted backdrop; test the relevant frozen environment first, then approve reuse or provide a matching game-board background",
+      "source": "js/minigames/hatch.js",
+      "status": "OPEN"
+    },
+    {
+      "package": "P-D",
+      "id": "hatch_room",
+      "screen": "Minigame backdrop",
+      "route": "minigame:hatch (room)",
+      "size": "270\u00d7480 opaque PNG",
+      "need": "Code-painted backdrop; test the relevant frozen environment first, then approve reuse or provide a matching game-board background",
+      "source": "js/minigames/hatch.js",
+      "status": "OPEN"
+    },
+    {
+      "package": "P-D",
+      "id": "senator_care_ground",
+      "screen": "Minigame backdrop",
+      "route": "minigame:hatch?mode=senator",
+      "size": "270\u00d7480 opaque PNG",
+      "need": "Code-painted backdrop; test the relevant frozen environment first, then approve reuse or provide a matching game-board background",
+      "source": "js/minigames/hatch.js",
+      "status": "OPEN"
+    },
+    {
+      "package": "P-D",
+      "id": "pickup_player_left",
+      "screen": "Minigame actor",
+      "route": "minigame:pickup",
+      "size": "80\u00d796 RGBA; contact (40,88)",
+      "need": "Procedural player at (50,412)",
+      "source": "js/minigames/pickup.js",
+      "status": "OPEN"
+    },
+    {
+      "package": "P-D",
+      "id": "pickup_player_middle",
+      "screen": "Minigame actor",
+      "route": "minigame:pickup",
+      "size": "80\u00d796 RGBA; contact (40,88)",
+      "need": "Procedural player at (190,404)",
+      "source": "js/minigames/pickup.js",
+      "status": "OPEN"
+    },
+    {
+      "package": "P-D",
+      "id": "pickup_player_right",
+      "screen": "Minigame actor",
+      "route": "minigame:pickup",
+      "size": "80\u00d796 RGBA; contact (40,88)",
+      "need": "Procedural player at (220,414); use frozen Lil Smack for the authored override",
+      "source": "js/minigames/pickup.js",
+      "status": "OPEN"
+    },
+    {
+      "package": "P-D",
+      "id": "jollof_cook",
+      "screen": "Minigame actor",
+      "route": "minigame:jollof",
+      "size": "80\u00d796 RGBA; contact (40,88)",
+      "need": "Procedural bun-haired cook; identity is not authored, creator must select approved identity or authorize generic adult cook",
+      "source": "js/minigames/jollof.js",
+      "status": "OPEN"
+    },
+    {
+      "package": "P-D",
+      "id": "hookah_date",
+      "screen": "Minigame actor",
+      "route": "minigame:hookah?company=DATE",
+      "size": "80\u00d796 RGBA; contact (40,88)",
+      "need": "Procedural woman; partner identity not passed to renderer; select approved adult partner and matched seated state",
+      "source": "js/minigames/hookah.js",
+      "status": "OPEN"
+    },
+    {
+      "package": "P-D",
+      "id": "senator_care_pose",
+      "screen": "Senator care",
+      "route": "minigame:hatch?mode=senator",
+      "size": "160\u00d7160 RGBA; contact (80,152)",
+      "need": "Rectangle-drawn Boerboel; reuse new Senator sitting/charging/asleep approved states",
+      "source": "source_vault/art_authority/OL017_OPEN_VISUAL_CHARACTER_AUTHORITY.md",
+      "status": "OPEN"
+    },
+    {
+      "package": "P-D",
+      "id": "touge_rival_1",
+      "screen": "TOUGE rival",
+      "route": "minigame:touge",
+      "size": "16\u00d728 RGBA top-down; nose up, contact (8,26)",
+      "need": "Code-drawn rival; use frozen rival art if a mapping exists, otherwise fictional livery with no invented identity",
+      "source": "js/minigames/touge.js",
+      "status": "OPEN"
+    },
+    {
+      "package": "P-D",
+      "id": "touge_rival_2",
+      "screen": "TOUGE rival",
+      "route": "minigame:touge",
+      "size": "16\u00d728 RGBA top-down; nose up, contact (8,26)",
+      "need": "Code-drawn rival; use frozen rival art if a mapping exists, otherwise fictional livery with no invented identity",
+      "source": "js/minigames/touge.js",
+      "status": "OPEN"
+    },
+    {
+      "package": "P-D",
+      "id": "pier_big_fish",
+      "screen": "PIER catch",
+      "route": "minigame:pier category=big",
+      "size": "48\u00d748 RGBA icon",
+      "need": "Drawn catch; explicit C-big-fish Engineering mapping decision; no new story/species",
+      "source": "art_department/ships/art_ship_015/ENGINEERING_ASSET_MAP.json",
+      "status": "CREATOR_REVIEW"
+    },
+    {
+      "package": "P-D",
+      "id": "fl_a07_tunde_states",
+      "screen": "THE PLAY named Oga",
+      "route": "assets/f01/play/feel-scenes.mjs departure/arrival/return",
+      "size": "400\u00d796 RGBA sheet; five 80\u00d796 cells, contact (40,88)",
+      "need": "Missing tunde: walking, boarding, standing, wounded, carried; use frozen identity; named face bust is fallback. Auntie Grit requires Ube judgment. Non-graphic injury only",
+      "source": "js/frag/F01/play/content.mjs; source_vault/art_authority/OL017_OPEN_VISUAL_CHARACTER_AUTHORITY.md",
+      "status": "OPEN"
+    },
+    {
+      "package": "P-D",
+      "id": "fl_a07_dre_states",
+      "screen": "THE PLAY named Oga",
+      "route": "assets/f01/play/feel-scenes.mjs departure/arrival/return",
+      "size": "400\u00d796 RGBA sheet; five 80\u00d796 cells, contact (40,88)",
+      "need": "Missing dre: walking, boarding, standing, wounded, carried; use frozen identity; named face bust is fallback. Auntie Grit requires Ube judgment. Non-graphic injury only",
+      "source": "js/frag/F01/play/content.mjs; source_vault/art_authority/OL017_OPEN_VISUAL_CHARACTER_AUTHORITY.md",
+      "status": "OPEN"
+    },
+    {
+      "package": "P-D",
+      "id": "fl_a07_half_pint_states",
+      "screen": "THE PLAY named Oga",
+      "route": "assets/f01/play/feel-scenes.mjs departure/arrival/return",
+      "size": "400\u00d796 RGBA sheet; five 80\u00d796 cells, contact (40,88)",
+      "need": "Missing half_pint: walking, boarding, standing, wounded, carried; use frozen identity; named face bust is fallback. Auntie Grit requires Ube judgment. Non-graphic injury only",
+      "source": "js/frag/F01/play/content.mjs; source_vault/art_authority/OL017_OPEN_VISUAL_CHARACTER_AUTHORITY.md",
+      "status": "OPEN"
+    },
+    {
+      "package": "P-D",
+      "id": "fl_a07_sunday_best_states",
+      "screen": "THE PLAY named Oga",
+      "route": "assets/f01/play/feel-scenes.mjs departure/arrival/return",
+      "size": "400\u00d796 RGBA sheet; five 80\u00d796 cells, contact (40,88)",
+      "need": "Missing sunday_best: walking, boarding, standing, wounded, carried; use frozen identity; named face bust is fallback. Auntie Grit requires Ube judgment. Non-graphic injury only",
+      "source": "js/frag/F01/play/content.mjs; source_vault/art_authority/OL017_OPEN_VISUAL_CHARACTER_AUTHORITY.md",
+      "status": "OPEN"
+    },
+    {
+      "package": "P-D",
+      "id": "fl_a07_young_mazi_states",
+      "screen": "THE PLAY named Oga",
+      "route": "assets/f01/play/feel-scenes.mjs departure/arrival/return",
+      "size": "400\u00d796 RGBA sheet; five 80\u00d796 cells, contact (40,88)",
+      "need": "Missing young_mazi: walking, boarding, standing, wounded, carried; use frozen identity; named face bust is fallback. Auntie Grit requires Ube judgment. Non-graphic injury only",
+      "source": "js/frag/F01/play/content.mjs; source_vault/art_authority/OL017_OPEN_VISUAL_CHARACTER_AUTHORITY.md",
+      "status": "OPEN"
+    },
+    {
+      "package": "P-D",
+      "id": "fl_a07_auntie_grit_states",
+      "screen": "THE PLAY named Oga",
+      "route": "assets/f01/play/feel-scenes.mjs departure/arrival/return",
+      "size": "400\u00d796 RGBA sheet; five 80\u00d796 cells, contact (40,88)",
+      "need": "Missing auntie_grit: walking, boarding, standing, wounded, carried; use frozen identity; named face bust is fallback. Auntie Grit requires Ube judgment. Non-graphic injury only",
+      "source": "js/frag/F01/play/content.mjs; source_vault/art_authority/OL017_OPEN_VISUAL_CHARACTER_AUTHORITY.md",
+      "status": "OPEN"
+    },
+    {
+      "package": "P-D",
+      "id": "fl_a10_recruit",
+      "screen": "THE PLAY payoff loot",
+      "route": "assets/f01/play/feel-scenes.mjs dropPhysical(RECRUIT)",
+      "size": "48\u00d748 RGBA; bottom contact (24,44)",
+      "need": "SOURCE_REQUIRED physical object; keep semantic category neutral, creator defines object or explicitly approves symbolic token; do not invent physical story props",
+      "source": "art_department/f01_feel_lock/FREEZE_RECORD.md",
+      "status": "SOURCE_REQUIRED"
+    },
+    {
+      "package": "P-D",
+      "id": "fl_a10_story",
+      "screen": "THE PLAY payoff loot",
+      "route": "assets/f01/play/feel-scenes.mjs dropPhysical(STORY)",
+      "size": "48\u00d748 RGBA; bottom contact (24,44)",
+      "need": "SOURCE_REQUIRED physical object; keep semantic category neutral, creator defines object or explicitly approves symbolic token; do not invent physical story props",
+      "source": "art_department/f01_feel_lock/FREEZE_RECORD.md",
+      "status": "SOURCE_REQUIRED"
+    },
+    {
+      "package": "P-D",
+      "id": "fl_a10_district",
+      "screen": "THE PLAY payoff loot",
+      "route": "assets/f01/play/feel-scenes.mjs dropPhysical(DISTRICT)",
+      "size": "48\u00d748 RGBA; bottom contact (24,44)",
+      "need": "SOURCE_REQUIRED physical object; keep semantic category neutral, creator defines object or explicitly approves symbolic token; do not invent physical story props",
+      "source": "art_department/f01_feel_lock/FREEZE_RECORD.md",
+      "status": "SOURCE_REQUIRED"
+    },
+    {
+      "package": "P-D",
+      "id": "f06_generic_target",
+      "screen": "F06 solo RAINMAKER fallback",
+      "route": "F06.make_it_rain with F15 OFF",
+      "size": "128\u00d7160 RGBA; contact (64,152)",
+      "need": "Neutral mannequin target; F15 suppresses it. Creator decides whether frozen approved dancer can be reused in the solo route",
+      "source": "js/frag/F06/make_it_rain.js",
+      "status": "CREATOR_REVIEW"
+    },
+    {
+      "package": "P-D",
+      "id": "party_dev_room",
+      "screen": "DEV PARTY room",
+      "route": "party-dev.html \u2192 party scene",
+      "size": "246\u00d7144 opaque PNG; floor y=132",
+      "need": "DEV-only procedural room/crowd geometry; no production assignment; approve retained DEV fixture or assign existing art",
+      "source": "js/scenes/party.js",
+      "status": "CREATOR_REVIEW"
+    }
+  ],
+  "resolved": [
+    {
+      "package": "P-A",
+      "id": "f15_bing",
+      "screen": "THE BING \u00c2\u00b7 AFTER HOURS",
+      "route": "F15_ROXY_L1:bing, F15_ROSALYN_L1:bing, F15_EMERALD_L1:bing, F15_EMERALD_L3:bing",
+      "size": "270\u00d7480 opaque PNG",
+      "need": "RAPixel.paintEnvironment; use approved preserved art first",
+      "source": "js/frag/F15/dates.js",
+      "status": "RESOLVED \u2014 preserved byte copy / adapter"
+    },
+    {
+      "package": "P-A",
+      "id": "f15_gym",
+      "screen": "THE BOXING GYM",
+      "route": "F15_ROXY_L2:gym, F15_ROXY_L2:after, F15_ROXY_L3:ring",
+      "size": "270\u00d7480 opaque PNG",
+      "need": "RAPixel.paintEnvironment; use approved preserved art first",
+      "source": "js/frag/F15/dates.js",
+      "status": "RESOLVED \u2014 preserved byte copy / adapter"
+    },
+    {
+      "package": "P-A",
+      "id": "f15_roxy_apartment",
+      "screen": "ROXY'S APARTMENT",
+      "route": "F15_ROXY_L4:door",
+      "size": "270\u00d7480 opaque PNG",
+      "need": "RAPixel.paintEnvironment; use approved preserved art first",
+      "source": "js/frag/F15/dates.js",
+      "status": "RESOLVED \u2014 preserved byte copy / adapter"
+    },
+    {
+      "package": "P-A",
+      "id": "f15_plenitude",
+      "screen": "PL\u00c3\u2030NITUDE",
+      "route": "F15_ROSALYN_L1:plenitude",
+      "size": "270\u00d7480 opaque PNG",
+      "need": "RAPixel.paintEnvironment; use approved preserved art first",
+      "source": "js/frag/F15/dates.js",
+      "status": "RESOLVED \u2014 preserved byte copy / adapter"
+    },
+    {
+      "package": "P-A",
+      "id": "f15_convention",
+      "screen": "THE YUCK WARS CONVENTION",
+      "route": "F15_ROSALYN_L3:hall",
+      "size": "270\u00d7480 opaque PNG",
+      "need": "RAPixel.paintEnvironment; use approved preserved art first",
+      "source": "js/frag/F15/dates.js",
+      "status": "RESOLVED \u2014 preserved byte copy / adapter"
+    },
+    {
+      "package": "P-A",
+      "id": "f15_rosalyn_apartment",
+      "screen": "ROSALYN'S APARTMENT",
+      "route": "F15_ROSALYN_L4:lights",
+      "size": "270\u00d7480 opaque PNG",
+      "need": "RAPixel.paintEnvironment; use approved preserved art first",
+      "source": "js/frag/F15/dates.js",
+      "status": "RESOLVED \u2014 preserved byte copy / adapter"
+    },
+    {
+      "package": "P-A",
+      "id": "f15_rosalyn_apartment_dark",
+      "screen": "ROSALYN'S APARTMENT \u00c2\u00b7 LIGHTS OFF",
+      "route": "F15_ROSALYN_L4:dark, F15_ROSALYN_L4:mug",
+      "size": "270\u00d7480 opaque PNG",
+      "need": "RAPixel.paintEnvironment; use approved preserved art first",
+      "source": "js/frag/F15/dates.js",
+      "status": "RESOLVED \u2014 preserved byte copy / adapter"
+    },
+    {
+      "package": "P-A",
+      "id": "f15_shrine",
+      "screen": "SHRINE AUDITORIUM",
+      "route": "F15_EMERALD_L4:hall",
+      "size": "270\u00d7480 opaque PNG",
+      "need": "RAPixel.paintEnvironment; use approved preserved art first",
+      "source": "js/frag/F15/dates.js",
+      "status": "RESOLVED \u2014 preserved byte copy / adapter"
+    },
+    {
+      "package": "P-D",
+      "id": "gbenga",
+      "screen": "GBENGA",
+      "route": "NEW_OGA_M2:arrive, NEW_OGA_M3:voice, NEW_OGA_M4:walk_in, NEW_OGA_ALTERNATIVE:voice, NEW_OGA_M7:arrival, NEW_OGA_M7:dinner, NEW_OGA_M7:patio, NEW_OGA_FINALE:office, NEW_OGA_FINALE:blessing, NEW_OGA_FINALE:consigliere",
+      "size": "80\u00d796 RGBA; contact (40,88)",
+      "need": "RAPixel person look; use approved preserved art first",
+      "source": "source_vault/art_authority/OL017_OPEN_VISUAL_CHARACTER_AUTHORITY.md",
+      "status": "RESOLVED \u2014 preserved byte copy / adapter"
+    },
+    {
+      "package": "P-D",
+      "id": "carlos",
+      "screen": "CARLOS",
+      "route": "NEW_OGA_M4:beat1, NEW_OGA_M4:beat2, NEW_OGA_M4:beat3, NEW_OGA_M4:beat4, NEW_OGA_M4:walk_in, NEW_OGA_M4:run",
+      "size": "80\u00d796 RGBA; contact (40,88)",
+      "need": "RAPixel person look; use approved preserved art first",
+      "source": "source_vault/art_authority/OL017_OPEN_VISUAL_CHARACTER_AUTHORITY.md",
+      "status": "RESOLVED \u2014 preserved byte copy / adapter"
+    },
+    {
+      "package": "P-A",
+      "id": "granny_bing",
+      "screen": "GRANNY BING",
+      "route": "registered id; no static adventure node (combat/dynamic/dormant)",
+      "size": "80\u00d796 RGBA; contact (40,88)",
+      "need": "RAPixel person look; use approved preserved art first",
+      "source": "js/frag/F15/dates.js",
+      "status": "RESOLVED \u2014 preserved byte copy / adapter"
+    },
+    {
+      "package": "P-A",
+      "id": "spirit_of_uncle_bunmi",
+      "screen": "THE SPIRIT OF UNCLE BUNMI",
+      "route": "registered id; no static adventure node (combat/dynamic/dormant)",
+      "size": "80\u00d796 RGBA; contact (40,88)",
+      "need": "RAPixel person look; use approved preserved art first",
+      "source": "js/frag/F15/dates.js",
+      "status": "RESOLVED \u2014 preserved byte copy / adapter"
+    },
+    {
+      "package": "P-B",
+      "id": "f07_owambe_exterior",
+      "screen": "THE PARTY arrival",
+      "route": "assets/f07/play/index.html \u2192 FL_ART.exterior.owambe_party",
+      "size": "270\u00d7480 RGB",
+      "need": "A1 exterior fallback replaced with approved bytes",
+      "source": "art_department/production/f07-warehouse-backgrounds/exteriors/warehouse_exterior_270x480.png",
+      "status": "RESOLVED \u2014 preserved byte copy / adapter"
+    }
+  ]
+}

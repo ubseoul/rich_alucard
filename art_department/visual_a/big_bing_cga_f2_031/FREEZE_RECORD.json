@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "ticket": "CGA-F2-031",
+  "character": "BIG BING",
+  "state": "NEUTRAL",
+  "status": "APPROVED MASTER / FROZEN / CLOSED",
+  "decision_authority": "UNDERLORD / Ube",
+  "decision": "PASS — FREEZE APPROVED",
+  "freeze_date": "2026-09-30",
+  "native": {
+    "path": "assets/before_the_fame/characters/big_bing/cga_f2_031/big_bing_neutral_anchor_80x96_v1.png",
+    "sha256": "a133f44b9cd4c232cda4b6d779ce295da64a18dc9cdf671bc7f2531087e90ccd",
+    "dimensions": [80, 96],
+    "mode": "RGBA",
+    "alpha": [0, 255],
+    "contact": [40, 88],
+    "last_opaque_row": 87,
+    "opaque_envelope": [40, 76],
+    "opaque_rgb_colors": 14
+  },
+  "preview": {
+    "path": "art_department/visual_a/big_bing_cga_f2_031/review/big_bing_neutral_anchor_4x_nearest_v1.png",
+    "sha256": "4192f061169d71a3defcbe2a1ba5da9f5a035dc7e2e501d19b102f11301f19a9",
+    "dimensions": [320, 384],
+    "scale": 4,
+    "resampling": "nearest-neighbor",
+    "exact_from_native": true
+  },
+  "authority": {
+    "art_department": "origin/art/art_department_refresh_2026 @ f4adbafd9c7e0f99f8df971358ecfbcf6a60b148",
+    "open_production": "origin/main @ 625f3c60aeb11d1df3b140eb802cbd2758e2ebed",
+    "identity_card": "OL017_OPEN_VISUAL_CHARACTER_AUTHORITY.md — BIG BING / CGA-F2-031",
+    "precedence": "frozen pixels > OL-017 current OPEN production authority > other OPEN references",
+    "sealed_material_accessed": false
+  },
+  "accepted_candidate_checkpoint": {
+    "sha256": "a133f44b9cd4c232cda4b6d779ce295da64a18dc9cdf671bc7f2531087e90ccd",
+    "approval": "UNDERLORD / UBE DISPOSITION — CGA-F2-031 BIG BING — PASS — FREEZE APPROVED"
+  },
+  "discretion_log": [
+    "deep mulberry velvet suit with restrained dusty-pink highlights",
+    "muted champagne-gold open-collar shirt",
+    "adult Black man with deep-brown skin",
+    "bald head and broad square jaw",
+    "tiny restrained dark-red eye accents",
+    "exceptionally tall massively broad build",
+    "wide planted neutral stance with squared shoulders and hands clasped low",
+    "no accessories and no props"
+  ],
+  "qa_result": "PASS",
+  "source_required": "none",
+  "ol017_states": ["NEUTRAL", "NO"],
+  "frozen_states": ["NEUTRAL"],
+  "unproduced_states": ["NO"],
+  "unauthorized_assets_or_states_created": false,
+  "promotion": "byte-for-byte copy only; no regeneration, reinterpretation, recoloring, resizing, optimization, or improvement",
+  "runtime_integration_status": "PENDING SEPARATE ENGINEERING REGISTRATION / RUNTIME QA"
+}
+

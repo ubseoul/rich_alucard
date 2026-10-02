@@ -1,5 +1,7 @@
 # Current handoff
 
+BUILD-4 / OL-039 status: integration and package preparation complete; awaiting Ube's four package drops. Current register: 952 frozen PNG paths, zero frozen baseline bytes altered. Start at `docs/progress/BUILD4.md`, `PLACEHOLDER_LOG.md`, and `briefs/P-A.md` through `briefs/P-D.md`. The shipment record below is retained as history. No new production taste approval is asserted.
+
 **ART SHIP 015 — APPROVED MASTER / FROZEN / COMPLETE.**
 
 ## Freeze result

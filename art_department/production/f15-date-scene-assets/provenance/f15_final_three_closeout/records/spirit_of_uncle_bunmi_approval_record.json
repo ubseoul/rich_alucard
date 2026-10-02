@@ -1,0 +1,45 @@
+{
+  "asset": "spirit_of_uncle_bunmi",
+  "source": {
+    "filename": "spirit_of_uncle_bunmi_candidate_original.png",
+    "role": "approved_sprite_master",
+    "status": "FROZEN — UBE APPROVED",
+    "bytes": 804694,
+    "sha256": "2c1589a8214c8f3eda935f416e1808a83aa71ec3be1d4c3f4b8d29a0333aa783",
+    "actual_dimensions": [
+      1774,
+      887
+    ],
+    "format": "PNG",
+    "mode": "RGBA",
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "transparent_pixels": 1016648,
+    "partial_alpha_pixels": 553579,
+    "opaque_pixels": 3311
+  },
+  "approval_authority": "Ube, explicit user message in this chat",
+  "approval_quote": "I approve these exact candidates:\n- convention_hall_candidate_original.png\n- shrine_auditorium_candidate_original.png\n- spirit_of_uncle_bunmi_candidate_original.png",
+  "accepted_issues_quote": "The reported reflections, translucent body pixels and far-leg readability are accepted. Do not repaint or regenerate.",
+  "recorded_client_date": "2026-10-02",
+  "timezone": "America/New_York",
+  "placement": {
+    "status": "UNVERIFIED — DEFERRED TO INTEGRATION",
+    "check": "Approved RGBA sprite master retained without scaling or alpha modification. No runtime display dimensions or placement assumed."
+  },
+  "transform": {
+    "operation": "identity; byte-for-byte copy",
+    "crop": "none",
+    "resize": "none",
+    "alpha_processing": "none; original partial alpha preserved",
+    "runtime_display_size": "unspecified; integration responsibility"
+  },
+  "verification": {
+    "original_bytes_equal": true,
+    "original_sha256_equal": true,
+    "alpha_bytes_unchanged": true,
+    "runtime_size_not_assumed": true
+  }
+}

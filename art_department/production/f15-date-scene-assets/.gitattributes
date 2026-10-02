@@ -1,0 +1,9 @@
+# Scoped to this package only. Verbatim source copies are never text-converted.
+* -text
+*.png binary
+/.gitattributes text eol=lf
+/START_HERE.md text eol=lf
+/APPROVAL_ADDENDUM.json text eol=lf
+/manifest.json text eol=lf
+/SHA256SUMS.txt text eol=lf
+/granny_bing/** text eol=lf

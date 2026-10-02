@@ -1,0 +1,86 @@
+{
+  "status": "CANDIDATE — PENDING UBE APPROVAL",
+  "generation": "three separate built-in imagegen calls; no normalization or image edits",
+  "preexisting_images_verified_unchanged": 32,
+  "images": [
+    {
+      "filename": "convention_hall_candidate_original.png",
+      "actual_dimensions": [
+        941,
+        1672
+      ],
+      "format": "PNG",
+      "mode": "RGB",
+      "bytes": 1690038,
+      "sha256": "85ad0c17c2c0dffb89aee6d724f9ad569647b53af309007e58c50dd838242ebc",
+      "status": "CANDIDATE — PENDING UBE APPROVAL",
+      "opaque": true
+    },
+    {
+      "filename": "shrine_auditorium_candidate_original.png",
+      "actual_dimensions": [
+        941,
+        1672
+      ],
+      "format": "PNG",
+      "mode": "RGB",
+      "bytes": 1606938,
+      "sha256": "023adf2df27500c50c9a07bdd79fa6cb974e3a41b4bf5a658410a77ccd1aa7a4",
+      "status": "CANDIDATE — PENDING UBE APPROVAL",
+      "opaque": true
+    },
+    {
+      "filename": "spirit_of_uncle_bunmi_candidate_original.png",
+      "actual_dimensions": [
+        1774,
+        887
+      ],
+      "format": "PNG",
+      "mode": "RGBA",
+      "bytes": 804694,
+      "sha256": "2c1589a8214c8f3eda935f416e1808a83aa71ec3be1d4c3f4b8d29a0333aa783",
+      "status": "CANDIDATE — PENDING UBE APPROVAL",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "transparent_pixels": 1016648,
+      "partial_alpha_pixels": 553579,
+      "opaque_pixels": 3311,
+      "nonzero_alpha_bbox_left_top_right_bottom_exclusive": [
+        0,
+        16,
+        1768,
+        887
+      ],
+      "transparent_padding": {
+        "left": 0,
+        "top": 16,
+        "right": 6,
+        "bottom": 0
+      }
+    }
+  ],
+  "supporting_files": [
+    {
+      "filename": "convention_hall_generation_prompt.txt",
+      "bytes": 2926,
+      "sha256": "8f11daa4731d8f97e5d98418a0d85a0f19d14f7baa3c24ba5076758b5926a87c"
+    },
+    {
+      "filename": "shrine_auditorium_generation_prompt.txt",
+      "bytes": 3248,
+      "sha256": "d4c0fd818543f7bfd666532cca02154cf6e948c2762025d47d491028b2eef66f"
+    },
+    {
+      "filename": "source_and_visual_review.txt",
+      "bytes": 6066,
+      "sha256": "18a90ee510090cd6dad576ec8ca0b40116aa05914d4fdcffd1c0009f1f5e5808"
+    },
+    {
+      "filename": "spirit_of_uncle_bunmi_generation_prompt.txt",
+      "bytes": 3295,
+      "sha256": "d3cb4c6fdef0d2c830baf95dad85be4d0a63890f5ef20b15eda5cd60ff10a70e"
+    }
+  ]
+}

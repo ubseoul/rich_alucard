@@ -1,0 +1,65 @@
+{
+  "package_name": "F15 Launch Trio Input Package",
+  "status": "APPROVED INPUT PACKAGE \u2014 READY FOR RUNTIME INTEGRATION",
+  "branch": "art/f15-launch-trio-masters",
+  "base_commit": "4800055a96cf9ce06434c3451d5a4f61c6ec195d",
+  "total_files": 453,
+  "total_bytes": 51624843,
+  "total_megabytes": 49.23,
+  "components": {
+    "creator_launch_ruling": {
+      "authority": "Ube / October 1, 2026",
+      "file": "rulings/CREATOR_RULING_2026-10-01_F15_LAUNCH_ROSTER.md",
+      "sha256": "a3759719740d01b3e3ada5577b46fc546f24d1bfe09c6702a07189c3df733ec6"
+    },
+    "open_ruling_evidence": {
+      "authority": "OL-025, OL-026, OL-027, OL-029, OL-031, Creator Source 001",
+      "file": "rulings/OPEN_RULING_EVIDENCE.md",
+      "sha256": "f1340ed242f4b349440adaac993fee1e5f57341d30bc106a4684c8421367095c"
+    },
+    "frozen_animation_masters": {
+      "source_provenance": "C:\\Users\\Ube\\Documents\\Codex\\2026-10-01\\f15-dance-cleanup-standardization-pass-1\\outputs\\f15_cleaned_animation_masters_FROZEN",
+      "approval_authority": "Ube / 2026-10-01 (America/New_York)",
+      "approval_manifest": "manifests/approval.json",
+      "dancers": {
+        "wolf": {
+          "frame_count": 146,
+          "expected_sha256": "f16f651f393629c2ce41ab4cff77162d426fcb207cfaeae0ae0e038fabcfaa54",
+          "actual_sha256": "f16f651f393629c2ce41ab4cff77162d426fcb207cfaeae0ae0e038fabcfaa54",
+          "match": true
+        },
+        "dragon": {
+          "frame_count": 144,
+          "expected_sha256": "9c2ed12e70f0d3f3207ae156ec34f8324ecfa56506d3e1bb4a886c81d65f1082",
+          "actual_sha256": "9c2ed12e70f0d3f3207ae156ec34f8324ecfa56506d3e1bb4a886c81d65f1082",
+          "match": true
+        },
+        "pink": {
+          "frame_count": 145,
+          "expected_sha256": "3a6ad861ff45c9bdabe4ba631fe0ccce4080260f224c3c92b4221e42572c9f80",
+          "actual_sha256": "3a6ad861ff45c9bdabe4ba631fe0ccce4080260f224c3c92b4221e42572c9f80",
+          "match": true
+        }
+      }
+    },
+    "foundation_cards": {
+      "source_provenance": "C:\\Users\\Ube\\Documents\\Codex\\2026-10-01\\art-f15-launch-trio-foundation-you\\outputs",
+      "approval_status": "APPROVED FOUNDATION ASSETS",
+      "directory": "foundation_cards",
+      "cards": {
+        "roxy-foundation.png": {
+          "bytes": 697182,
+          "sha256": "681b2ca6b65b22d555568720d3a4e96a42272a2d9c26a75b5c0c30e3e8be9258"
+        },
+        "emerald-foundation.png": {
+          "bytes": 863202,
+          "sha256": "c412671333e4deed2b241f62dfd230fbb92d9d2d02394f9ff4efe8153c937d45"
+        },
+        "rosalyn-foundation.png": {
+          "bytes": 416770,
+          "sha256": "577d7483d03336aace3a2cd539e38c07011da7e44e11aa53d542d56a20c17c5f"
+        }
+      }
+    }
+  }
+}

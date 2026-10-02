@@ -1,0 +1,100 @@
+{
+  "source_status": "FROZEN — UBE APPROVED",
+  "source_filename": "the_bing_f15_candidate_original.png",
+  "source_sha256": "f5c2555e69ded12fad1ff3ddb3ecc8bda7c0c235540231ad931b395b9032c63b",
+  "source_dimensions": [
+    941,
+    1672
+  ],
+  "source_format": "PNG",
+  "source_mode": "RGB",
+  "approval_authority": "Ube, explicit user message in this chat",
+  "approval_timestamp": "Not supplied; approval is identified by its verbatim user message in this chat.",
+  "record_created_client_date": "2026-10-02",
+  "record_timezone": "America/New_York",
+  "approval_quote": "Ube approves the exact Bing background just reviewed. Freeze that original as the approved source, preserve its bytes, and complete the production preparation.",
+  "production_status": "FROZEN — UBE APPROVED",
+  "production_filename": "the_bing_270x480.png",
+  "production_sha256": "16c82c11f017960da8eb18a8e5f5363132aca4c1d124088f5d2ac5c8ec410fe0",
+  "transform": {
+    "operation_order": [
+      "integer center crop",
+      "nearest-neighbor resize"
+    ],
+    "crop_box_source_pixels_left_top_right_bottom_exclusive": [
+      2,
+      4,
+      938,
+      1668
+    ],
+    "removed_source_pixels": {
+      "left": 2,
+      "right": 3,
+      "top": 4,
+      "bottom": 4
+    },
+    "cropped_dimensions": [
+      936,
+      1664
+    ],
+    "cropped_aspect_ratio": "9:16",
+    "output_dimensions": [
+      270,
+      480
+    ],
+    "uniform_resize_factor_exact": "15/52",
+    "resampling": "Pillow Image.Resampling.NEAREST",
+    "output_mode": "RGB (opaque; no alpha channel)",
+    "color_processing": "none; every output color is copied from a source pixel",
+    "qa_enlargement": {
+      "factor": 4,
+      "dimensions": [
+        1080,
+        1920
+      ],
+      "resampling": "nearest-neighbor"
+    }
+  },
+  "placement_status": "UNVERIFIED",
+  "placement_check": "Supplied 780x1688 gameplay screenshot visually reviewed. It includes characters and dialogue/UI, but supplies no authoritative background-to-viewport mapping or isolated sprite alpha. No accurate overlay or runtime test was made. The normalized image has open central floor and quiet lower floor; side tables/chairs remain a potential character-placement conflict. Static visual comparison cannot verify clearance.",
+  "verification": {
+    "frozen_original_bytes_equal_approved_source": true,
+    "original_source_hash_unchanged_after_processing": true,
+    "production_all_pixels_match_nearest_neighbor_source_samples": true,
+    "production_colors_subset_of_cropped_source_colors": true,
+    "production_is_opaque_rgb_png": true,
+    "native_qa_preview_bytes_identical_to_production": true,
+    "every_4x_preview_pixel_matches_repeated_production_pixel": true,
+    "all_image_bytes_unchanged_during_production_freeze": true,
+    "production_hash_matches_reviewed_candidate": true,
+    "original_hash_matches_approved_source": true
+  },
+  "runtime_integration_commit_push": "none",
+  "production_dimensions": [
+    270,
+    480
+  ],
+  "production_format": "PNG",
+  "production_mode": "RGB",
+  "production_opaque": true,
+  "production_approval": {
+    "authority": "Ube, explicit user message in this chat",
+    "quote": "I approve the reviewed the_bing_270x480.png. Freeze that exact production file and preserve the approved original.",
+    "recorded_client_date": "2026-10-02",
+    "timezone": "America/New_York",
+    "approval_timestamp": "Exact timestamp not supplied; identified by verbatim user message.",
+    "approved_file": {
+      "filename": "the_bing_270x480.png",
+      "bytes": 184014,
+      "sha256": "16c82c11f017960da8eb18a8e5f5363132aca4c1d124088f5d2ac5c8ec410fe0",
+      "actual_dimensions": [
+        270,
+        480
+      ],
+      "format": "PNG",
+      "mode": "RGB",
+      "opaque": true
+    }
+  },
+  "freeze_method": "Approval status and exact SHA-256 identify the frozen bytes. No image was rewritten or regenerated."
+}

@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Dance Lab — frozen sprite test</title>
+<style>
+  :root { color-scheme: dark; }
+  body { margin:0; background:#0d0a14; color:#d8d2e6; font:14px/1.4 system-ui,sans-serif; display:flex; min-height:100vh; }
+  aside { width:260px; padding:16px; background:#151021; border-right:1px solid #2a2140; box-sizing:border-box; flex:none; }
+  h1 { font-size:15px; margin:0 0 12px; }
+  label { display:block; margin:12px 0 2px; }
+  input[type=range], select { width:100%; }
+  button { background:#3a2a66; color:#fff; border:0; padding:8px 14px; margin:4px 4px 4px 0; border-radius:4px; cursor:pointer; }
+  button:hover { background:#4b3a80; }
+  small, .mono { color:#8d84a6; font-size:12px; display:block; margin-top:8px; }
+  main { flex:1; overflow:auto; display:flex; gap:24px; justify-content:center; align-items:flex-start; padding:16px;
+         background:radial-gradient(ellipse at 50% 100%, #2a1240 0%, #0d0a14 70%); }
+  canvas { image-rendering:pixelated; image-rendering:crisp-edges; background:transparent; display:block; }
+  #refwrap { opacity:.9; }
+  .cap { text-align:center; color:#8d84a6; font-size:12px; margin-bottom:6px; }
+</style>
+</head>
+<body>
+<aside>
+  <h1>Dance Lab</h1>
+  <button id="play">Pause</button><button id="reset">Reset</button>
+  <label>Speed <span id="speedv">1.00×</span></label>
+  <input id="speed" type="range" min="0.25" max="2" step="0.05" value="1">
+  <label>Intensity <span id="ampv">1.00×</span></label>
+  <input id="amp" type="range" min="0" max="2" step="0.05" value="1">
+  <label>Frame rate (pixel-animation stepping)</label>
+  <select id="fps"><option value="0">Smooth (display rate)</option><option value="24">24 fps</option><option value="12" selected>12 fps</option></select>
+  <label>Zoom (integer/half only — keeps pixels crisp)</label>
+  <select id="zoom"><option value="0.5">0.5×</option><option value="1">1×</option></select>
+  <label><input id="snap" type="checkbox" checked> Snap to pixel blocks (9px)</label>
+  <label><input id="hair" type="checkbox" checked> Ponytail lag</label>
+  <label><input id="showref" type="checkbox" checked> Show untouched original</label>
+  <label>Load another sprite (PNG)</label>
+  <input id="file" type="file" accept="image/png,image/webp">
+  <span class="mono" id="verify"></span>
+  <span class="mono" id="meta"></span>
+  <span class="mono" id="phase"></span>
+  <small>Space = play/pause. Cycle = 4 s ÷ speed. Every output pixel is copied unchanged from the source; only integer row/column positions move.</small>
+</aside>
+<main>
+  <div><div class="cap">animated</div><canvas id="view"></canvas></div>
+  <div id="refwrap"><div class="cap">original (static)</div><canvas id="ref"></canvas></div>
+</main>
+<script src="sprite-data.js"></script>
+<script src="dance.js"></script>
+</body>
+</html>

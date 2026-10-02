@@ -1,0 +1,5 @@
+{
+  "indexedUniquePreservedAndFrozenFiles": 1307,
+  "mismatches": [],
+  "method": "raw git cat-file --batch index blobs"
+}

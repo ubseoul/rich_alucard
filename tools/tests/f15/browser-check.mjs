@@ -7,10 +7,11 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import path from 'node:path';
 import {serve,launch,open,enterClub} from './_browser.mjs';
+import {measure,evaluate,manifest} from './_art.mjs';
 
 const args=process.argv.slice(2);
 const arg=n=>{const i=args.indexOf(n);return i<0?null:args[i+1];};
-const shots=arg('--shots'),only=(arg('--only')||'widths,throws,normal,scenes').split(',');
+const shots=arg('--shots'),only=(arg('--only')||'widths,throws,normal,scenes,art').split(',');
 if(shots)fs.mkdirSync(shots,{recursive:true});
 const WIDTHS=[[360,740],[390,844],[430,932]];
 const results=[];const log=(ok,msg)=>{results.push({ok,msg});console.log((ok?'PASS ':'FAIL ')+msg);};
@@ -36,7 +37,7 @@ async function throwBills(page,{at,spotlight=true,reload=false}){
 const snapshot=page=>page.evaluate(()=>({money:RALife.money(),F15:RAFrag.get('F15'),last:RAF15Club.current()?.lastThrow()||null,sel:RAF15Club.current()?.selected()}));
 
 // ------------------------------------------------------------------ dialogue/combat driver (real UI)
-async function driveScene(page,id,{pickChoice=(labels)=>0,maxSteps=900}={}){
+async function driveScene(page,id,{pickChoice=(labels)=>0,maxSteps=900,probe=null}={}){
   const viol=[];let steps=0,lines=0,fights=0;
   const vp=page.viewportSize();
   while(steps++<maxSteps){
@@ -44,7 +45,8 @@ async function driveScene(page,id,{pickChoice=(labels)=>0,maxSteps=900}={}){
       choices:[...document.querySelectorAll('.adv-choice')].filter(b=>b.offsetParent&&!b.disabled).map(b=>b.textContent.trim()),
       talk:!!document.querySelector('.adv-box:not([hidden])')||!!document.querySelector('.adv-bubble:not([hidden])')||!!document.querySelector('.adv-title:not([hidden])'),
       scene:document.querySelector('#adventureScene')?'adventure':null}));
-    if(st.combat){fights++;await fight(page);continue;}
+    if(probe)await probe(st);
+    if(st.combat){fights++;await fight(page,probe);continue;}
     if(!st.active&&!st.scene)return {steps,lines,fights,viol};
     if(st.choices.length){
       const idx=Math.min(pickChoice(st.choices),st.choices.length-1);
@@ -67,8 +69,9 @@ async function fitCheck(page,vp,what){
     return bad;
   },[vp.width,vp.height,what]);
 }
-async function fight(page){
+async function fight(page,probe=null){
   for(let i=0;i<120;i++){
+    if(probe&&i===3)await probe({combat:true});
     const s=await page.evaluate(()=>({on:document.body.classList.contains('combat2-mode'),
       acts:[...document.querySelectorAll('[data-c2]')].filter(b=>b.offsetParent&&!b.classList.contains('c2-off')).map(b=>b.dataset.c2)}));
     if(!s.on)return;
@@ -241,6 +244,55 @@ try{
       }
       must(e2.length===0,`${w}: scenes ran with no console/page errors`);
       await c2.close();
+    }
+  }
+  if(only.includes('art')){
+    // ---- approved scene art in the REAL scenes: every new background, Granny Bing and the cockroach (render, bytes, placement, UI clearance)
+    const ART=[
+      {sc:'F15_ROXY_L1',envs:['f15_bing']},{sc:'F15_ROXY_L2',envs:['f15_gym'],combat:true},{sc:'F15_ROXY_L4',envs:['f15_roxy_apartment']},
+      {sc:'F15_ROSALYN_L1',envs:['f15_bing','f15_plenitude']},{sc:'F15_ROSALYN_L3',envs:['f15_convention']},
+      {sc:'F15_ROSALYN_L4',envs:['f15_rosalyn_apartment_dark','f15_rosalyn_apartment'],combat:true,roach:true},
+      {sc:'F15_EMERALD_L3',envs:['f15_bing'],granny:true},{sc:'F15_EMERALD_L4',envs:['f15_shrine']}];
+    const sceneOf=id=>SCENES.find(x=>x.id===id);
+    let day=100;
+    for(const [w,h] of WIDTHS){
+      const {page,ctx,errors,failed}=await open(browser,s.url,{width:w,height:h});
+      await enterClub(page);await page.keyboard.press('Escape');
+      await page.addStyleTag({content:'#devPanel{display:none!important}'});   // dev=1 panel off so the review frames show the player's screen
+      if(w===390){
+        // served bytes == the approved/frozen bytes recorded in the manifest (backgrounds, Granny; the cockroach derivative; the overlay layer)
+        for(const f of manifest.files){
+          const got=await page.evaluate(async p=>{const r=await fetch(p);const b=await r.arrayBuffer();const d=await crypto.subtle.digest('SHA-256',b);return {status:r.status,len:b.byteLength,sha:[...new Uint8Array(d)].map(x=>x.toString(16).padStart(2,'0')).join('')};},f.path);
+          must(got.status===200&&got.sha===f.sha256&&got.len===f.bytes,`served ${f.path} is byte-identical to the manifest (${got.len} bytes, ${got.sha.slice(0,12)})`);
+        }
+      }
+      const seen=new Set(),envsSeen=new Set();let n=0;
+      for(const a of ART){
+        const sc=sceneOf(a.sc);await seed(page,{...sc,day:day++});
+        await page.evaluate(id=>RAAdventureScene.begin(id,{from:'phone'}),sc.id);await page.waitForSelector('#adventureScene');
+        let granny=false,roachDlg=false,roachCombat=false;
+        const probe=async st=>{
+          await page.waitForTimeout(st.combat?60:320);
+          const m=await page.evaluate(measure);if(!m)return;
+          if(!m.combat&&(m.ui.title||!(m.ui.box||m.ui.bubble||m.ui.choices.length)))return;   // measure once the title card has gone and a line/choice is on screen
+          const key=`${m.combat?'combat':m.env}|${m.actors.map(x=>(x.id||x.slot)+':'+(x.src||'')).sort().join(',')}`;if(seen.has(key))return;seen.add(key);
+          const label=`${w} ${a.sc} ${m.combat?'COMBAT':m.env}`;if(m.env)envsSeen.add(m.env);
+          if(m.combat||String(m.env).startsWith('f15_'))for(const r of evaluate(m,label))log(r.ok,r.msg);
+          if(m.actors.some(x=>x.id==='granny_bing'))granny=true;
+          if(m.actors.some(x=>x.id==='spirit_of_uncle_bunmi'||x.src?.includes('spirit_of_uncle')))m.combat?roachCombat=true:roachDlg=true;
+          await shot(page,`art_${w}_${a.sc}_${m.combat?'combat':m.env}_${++n}`);
+        };
+        const out=await driveScene(page,sc.id,{pickChoice:()=>0,probe});
+        const post=await page.evaluate(id=>RAAdventures.record(id)?.status,sc.id);
+        must(post==='completed'&&out.viol.length===0,`${w} ${a.sc}: ran to its end with the real art, text fits${out.viol[0]?' - '+out.viol[0]:''}`);
+        for(const e of a.envs)must(envsSeen.has(e),`${w} ${a.sc}: scene visited ${e}`);
+        if(a.combat)must(out.fights>=1,`${w} ${a.sc}: combat ran and the scene continued to its end`);
+        if(a.granny)must(granny,`${w} ${a.sc}: Granny Bing rendered on stage`);
+        if(a.roach)must(roachDlg&&roachCombat,`${w} ${a.sc}: the cockroach rendered in the scene and in combat`);
+      }
+      must(errors.length===0,`${w} art: no console/page errors${errors.length?' - '+errors.slice(0,3).join(' | '):''}`);
+      must(failed.length===0&&s.missing.length===0,`${w} art: no failed or missing assets${failed.length?' - '+failed.slice(0,3).join(' | '):''}`);
+      await ctx.close();
     }
   }
 }catch(e){console.error('ERROR',e.message);process.exitCode=1;}
