@@ -35,6 +35,7 @@ async function test(){
   const btf=await import(pathToFileURL(path.join(root,'tools','btf-test.mjs')).href);await btf.test(root);
   const presentation=await import(pathToFileURL(path.join(root,'tools','presentation-test.mjs')).href);await presentation.test(root);
   const artIntegration=await import(pathToFileURL(path.join(root,'tools','art-integration.mjs')).href);await artIntegration.test(root);
+  const pd=await import(pathToFileURL(path.join(root,'tools','build4','pd-check.mjs')).href);await pd.test(root);
   const reachability=await import(pathToFileURL(path.join(root,'tools','reachability-audit.mjs')).href);await reachability.test(root);
   const pilotFixtures=await import(pathToFileURL(path.join(root,'tools','pilot','fixtures-test.mjs')).href);await pilotFixtures.test(root);
   const sources=await javascriptFiles(path.join(root,'js'));

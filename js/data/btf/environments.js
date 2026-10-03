@@ -95,6 +95,10 @@
   E[id]={id,name:E[id].name,image:base?base.image:art.asset,cover:!!base?.cover,layers:(stage.layers||[]).map(layer),conditions:scoped(stage.conditions),foreground:scoped(stage.foreground),registered:stage.registered||null,
    floorY:base?base.floorY:stage.floorY,base:base?base.base:stage.base,approved:true,frozen:true,art:stage.art};
  }
+ // BUILD-4: approved P-D backgrounds replace only their own rough environments. Keep existing stage contacts.
+ for(const [id,art] of Object.entries(registry))if(E[id]?.placeholder&&art.asset&&art.asset.includes('build4/p_d/')||id==='gbenga_rentals'&&E[id]?.placeholder&&art.asset){
+  const previous=E[id];E[id]={id,name:previous.name,image:art.asset,floorY:previous.floorY,base:previous.base,approved:true,frozen:true,art:id};
+ }
  // Surface-scoped layers (ART SHIP 008): a condition/foreground layer is active only on the screens Art mapped it to.
  // `surface` = {key} (live screen key) plus {node:'ADVENTURE:node'} for adventures, whose runtime-bound casts are
  // resolved to their census screen through the generated RAArtSurfaces node table.
@@ -112,6 +116,6 @@
   else ctx.drawImage(img,0,0,270,480);
  }
  // register(env): add-only hook for a DARK fragment's own placeholder environments (F15); never replaces an existing id.
- function register(env){if(!env?.id||E[env.id])return false;E[env.id]=env;return true;}
+ function register(env){if(!env?.id||E[env.id])return false;const art=registry[env.id];E[env.id]=env.placeholder&&art?.asset?{id:env.id,name:env.name,image:art.asset,floorY:env.floorY,base:env.base,approved:true,frozen:true,f15:env.f15,art:env.id}:env;return true;}
  window.RAEnvironments={register,get:id=>E[id]||null,all:()=>Object.values(E),placeholders:()=>Object.values(E).filter(e=>e.placeholder).map(e=>e.id),surfaceLayers,drawImage};
 })();

@@ -258,6 +258,7 @@
 
   // ---- render ----
   function env(){
+   if(R.drawBoard(g,'pier_game'))return;
    R.paintEnvironment(g,{
     sky:'#0b1024',wall:null,floor:'#060a1a',horizon:300,seed:'pier-night',stars:26,
     lights:[{x:200,y:120,spread:70,color:'rgba(180,140,255,.10)'}],

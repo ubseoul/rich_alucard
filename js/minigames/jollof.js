@@ -192,7 +192,10 @@
   function draw(){
    const dt=performance.now()-lastT;lastT=performance.now();
    const rp=P(),pal=palette();
-   rp.paintEnvironment(g,env(mode));
+   if(!rp.drawBoard(g,({practice:'jollof_kitchen',cookoff:'jollof_cookoff',final:'jollof_final'}[mode]||'jollof_kitchen')))rp.paintEnvironment(g,env(mode));
+   else rp.text(g,mode==='final'?'JOLLOF WARS — A54 FINAL':mode==='cookoff'?'JOLLOF WARS — COOKOFF':'CASTLE KITCHEN',135,25,{size:7,align:'center',color:pal.gold});
+   // The approved incidental cook has no identity or dialogue; named judges retain their own frozen art.
+   if(stage==='blend'||stage==='fry')rp.drawRegistered(g,'jollof_cook',35,365);
    if(stage==='blend'){
     rp.text(g,'HOLD TO BLEND',135,140,{size:8,align:'center'});
     rp.text(g,'RELEASE IN THE GREEN ZONE',135,155,{size:6,align:'center',color:pal.grey});
@@ -236,7 +239,7 @@
     rp.frame(g,75,400,120,36,{fill:pal.gold});rp.text(g,'LIFT LID',135,414,{size:8,align:'center',color:pal.ink});
    } else if(stage==='judging'){
     const id=judgeIds[Math.min(judgeIdx,judgeIds.length-1)];const j=JUDGES[id];const r=scoreResult.judgeScores[id];
-    rp.drawActor(g,{top:'#5a4d63',bottom:'#302840',hairShape:'bun'},135,220,1.4);
+    if(!rp.drawSprite(g,rp.personSprite(id),135,220))rp.drawActor(g,{top:'#5a4d63',bottom:'#302840',hairShape:'bun'},135,220,1.4);
     rp.text(g,j.name,135,260,{size:8,align:'center',color:pal.gold});
     rp.wrap(g,r.reaction,220,7).forEach((ln,i)=>rp.text(g,ln,135,280+i*12,{size:7,align:'center'}));
     if(!j.meaningless)rp.text(g,`${r.total}/40`,135,330,{size:9,align:'center',color:pal.green});

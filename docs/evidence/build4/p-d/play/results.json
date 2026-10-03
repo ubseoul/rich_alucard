@@ -1,0 +1,839 @@
+[
+  {
+    "width": 360,
+    "pose": "walking",
+    "rows": [
+      {
+        "src": "../../build4/p_d/fl_a07_tunde_walking_80x96.png",
+        "loaded": true,
+        "top": "-38px",
+        "left": "-15px"
+      },
+      {
+        "src": "../../build4/p_d/fl_a07_dre_walking_80x96.png",
+        "loaded": true,
+        "top": "-38px",
+        "left": "-15px"
+      },
+      {
+        "src": "../../build4/p_d/fl_a07_half_pint_walking_80x96.png",
+        "loaded": true,
+        "top": "-38px",
+        "left": "-15px"
+      },
+      {
+        "src": "../../build4/p_d/fl_a07_sunday_best_walking_80x96.png",
+        "loaded": true,
+        "top": "-38px",
+        "left": "-15px"
+      },
+      {
+        "src": "../../build4/p_d/fl_a07_young_mazi_walking_80x96.png",
+        "loaded": true,
+        "top": "-38px",
+        "left": "-15px"
+      },
+      {
+        "src": "../../build4/p_d/fl_a07_auntie_grit_walking_80x96.png",
+        "loaded": true,
+        "top": "-38px",
+        "left": "-15px"
+      }
+    ]
+  },
+  {
+    "width": 360,
+    "pose": "boarding",
+    "rows": [
+      {
+        "src": "../../build4/p_d/fl_a07_tunde_boarding_80x96.png",
+        "loaded": true,
+        "top": "-38px",
+        "left": "-15px"
+      },
+      {
+        "src": "../../build4/p_d/fl_a07_dre_boarding_80x96.png",
+        "loaded": true,
+        "top": "-38px",
+        "left": "-15px"
+      },
+      {
+        "src": "../../build4/p_d/fl_a07_half_pint_boarding_80x96.png",
+        "loaded": true,
+        "top": "-38px",
+        "left": "-15px"
+      },
+      {
+        "src": "../../build4/p_d/fl_a07_sunday_best_boarding_80x96.png",
+        "loaded": true,
+        "top": "-38px",
+        "left": "-15px"
+      },
+      {
+        "src": "../../build4/p_d/fl_a07_young_mazi_boarding_80x96.png",
+        "loaded": true,
+        "top": "-38px",
+        "left": "-15px"
+      },
+      {
+        "src": "../../build4/p_d/fl_a07_auntie_grit_boarding_80x96.png",
+        "loaded": true,
+        "top": "-38px",
+        "left": "-15px"
+      }
+    ]
+  },
+  {
+    "width": 360,
+    "pose": "standing",
+    "rows": [
+      {
+        "src": "../../build4/p_d/fl_a07_tunde_standing_80x96.png",
+        "loaded": true,
+        "top": "-38px",
+        "left": "-15px"
+      },
+      {
+        "src": "../../build4/p_d/fl_a07_dre_standing_80x96.png",
+        "loaded": true,
+        "top": "-38px",
+        "left": "-15px"
+      },
+      {
+        "src": "../../build4/p_d/fl_a07_half_pint_standing_80x96.png",
+        "loaded": true,
+        "top": "-38px",
+        "left": "-15px"
+      },
+      {
+        "src": "../../build4/p_d/fl_a07_sunday_best_standing_80x96.png",
+        "loaded": true,
+        "top": "-38px",
+        "left": "-15px"
+      },
+      {
+        "src": "../../build4/p_d/fl_a07_young_mazi_standing_80x96.png",
+        "loaded": true,
+        "top": "-38px",
+        "left": "-15px"
+      },
+      {
+        "src": "../../build4/p_d/fl_a07_auntie_grit_standing_80x96.png",
+        "loaded": true,
+        "top": "-38px",
+        "left": "-15px"
+      }
+    ]
+  },
+  {
+    "width": 360,
+    "pose": "wounded",
+    "rows": [
+      {
+        "src": "../../build4/p_d/fl_a07_tunde_wounded_80x96.png",
+        "loaded": true,
+        "top": "-38px",
+        "left": "-15px"
+      },
+      {
+        "src": "../../build4/p_d/fl_a07_dre_wounded_80x96.png",
+        "loaded": true,
+        "top": "-38px",
+        "left": "-15px"
+      },
+      {
+        "src": "../../build4/p_d/fl_a07_half_pint_wounded_80x96.png",
+        "loaded": true,
+        "top": "-38px",
+        "left": "-15px"
+      },
+      {
+        "src": "../../build4/p_d/fl_a07_sunday_best_wounded_80x96.png",
+        "loaded": true,
+        "top": "-38px",
+        "left": "-15px"
+      },
+      {
+        "src": "../../build4/p_d/fl_a07_young_mazi_wounded_80x96.png",
+        "loaded": true,
+        "top": "-38px",
+        "left": "-15px"
+      },
+      {
+        "src": "../../build4/p_d/fl_a07_auntie_grit_wounded_80x96.png",
+        "loaded": true,
+        "top": "-38px",
+        "left": "-15px"
+      }
+    ]
+  },
+  {
+    "width": 360,
+    "pose": "carried",
+    "rows": [
+      {
+        "src": "../../build4/p_d/fl_a07_tunde_carried_80x96.png",
+        "loaded": true,
+        "top": "-38px",
+        "left": "-15px"
+      },
+      {
+        "src": "../../build4/p_d/fl_a07_dre_carried_80x96.png",
+        "loaded": true,
+        "top": "-38px",
+        "left": "-15px"
+      },
+      {
+        "src": "../../build4/p_d/fl_a07_half_pint_carried_80x96.png",
+        "loaded": true,
+        "top": "-38px",
+        "left": "-15px"
+      },
+      {
+        "src": "../../build4/p_d/fl_a07_sunday_best_carried_80x96.png",
+        "loaded": true,
+        "top": "-38px",
+        "left": "-15px"
+      },
+      {
+        "src": "../../build4/p_d/fl_a07_young_mazi_carried_80x96.png",
+        "loaded": true,
+        "top": "-38px",
+        "left": "-15px"
+      },
+      {
+        "src": "../../build4/p_d/fl_a07_auntie_grit_carried_80x96.png",
+        "loaded": true,
+        "top": "-38px",
+        "left": "-15px"
+      }
+    ]
+  },
+  {
+    "width": 360,
+    "kind": "tokens",
+    "paths": [
+      {
+        "src": "../../build4/p_d/fl_a10_recruit_token_48x48.png",
+        "width": 48,
+        "height": 48
+      },
+      {
+        "src": "../../build4/p_d/fl_a10_story_token_48x48.png",
+        "width": 48,
+        "height": 48
+      },
+      {
+        "src": "../../build4/p_d/fl_a10_district_token_48x48.png",
+        "width": 48,
+        "height": 48
+      }
+    ],
+    "reviewFixture": true
+  },
+  {
+    "width": 360,
+    "kind": "guns",
+    "paths": [
+      {
+        "src": "../../build4/p_d/E-gun-mac_and_cheese-held.png",
+        "width": 64,
+        "height": 32
+      },
+      {
+        "src": "../../build4/p_d/E-gun-tommy_tony-held.png",
+        "width": 64,
+        "height": 32
+      },
+      {
+        "src": "../../build4/p_d/E-gun-jollof_burner-held.png",
+        "width": 64,
+        "height": 32
+      },
+      {
+        "src": "../../build4/p_d/E-gun-blueberry_blaster-held.png",
+        "width": 64,
+        "height": 32
+      },
+      {
+        "src": "../../build4/p_d/E-gun-legendary_draco-held.png",
+        "width": 64,
+        "height": 32
+      },
+      {
+        "src": "../../build4/p_d/E-gun-golden_draco-held.png",
+        "width": 64,
+        "height": 32
+      },
+      {
+        "src": "../../build4/p_d/E-gun-auntie_slipper-held.png",
+        "width": 64,
+        "height": 32
+      },
+      {
+        "src": "../../build4/p_d/E-gun-triple_k_kratos-held.png",
+        "width": 64,
+        "height": 32
+      }
+    ],
+    "reviewFixture": true
+  },
+  {
+    "width": 390,
+    "pose": "walking",
+    "rows": [
+      {
+        "src": "../../build4/p_d/fl_a07_tunde_walking_80x96.png",
+        "loaded": true,
+        "top": "-38px",
+        "left": "-15px"
+      },
+      {
+        "src": "../../build4/p_d/fl_a07_dre_walking_80x96.png",
+        "loaded": true,
+        "top": "-38px",
+        "left": "-15px"
+      },
+      {
+        "src": "../../build4/p_d/fl_a07_half_pint_walking_80x96.png",
+        "loaded": true,
+        "top": "-38px",
+        "left": "-15px"
+      },
+      {
+        "src": "../../build4/p_d/fl_a07_sunday_best_walking_80x96.png",
+        "loaded": true,
+        "top": "-38px",
+        "left": "-15px"
+      },
+      {
+        "src": "../../build4/p_d/fl_a07_young_mazi_walking_80x96.png",
+        "loaded": true,
+        "top": "-38px",
+        "left": "-15px"
+      },
+      {
+        "src": "../../build4/p_d/fl_a07_auntie_grit_walking_80x96.png",
+        "loaded": true,
+        "top": "-38px",
+        "left": "-15px"
+      }
+    ]
+  },
+  {
+    "width": 390,
+    "pose": "boarding",
+    "rows": [
+      {
+        "src": "../../build4/p_d/fl_a07_tunde_boarding_80x96.png",
+        "loaded": true,
+        "top": "-38px",
+        "left": "-15px"
+      },
+      {
+        "src": "../../build4/p_d/fl_a07_dre_boarding_80x96.png",
+        "loaded": true,
+        "top": "-38px",
+        "left": "-15px"
+      },
+      {
+        "src": "../../build4/p_d/fl_a07_half_pint_boarding_80x96.png",
+        "loaded": true,
+        "top": "-38px",
+        "left": "-15px"
+      },
+      {
+        "src": "../../build4/p_d/fl_a07_sunday_best_boarding_80x96.png",
+        "loaded": true,
+        "top": "-38px",
+        "left": "-15px"
+      },
+      {
+        "src": "../../build4/p_d/fl_a07_young_mazi_boarding_80x96.png",
+        "loaded": true,
+        "top": "-38px",
+        "left": "-15px"
+      },
+      {
+        "src": "../../build4/p_d/fl_a07_auntie_grit_boarding_80x96.png",
+        "loaded": true,
+        "top": "-38px",
+        "left": "-15px"
+      }
+    ]
+  },
+  {
+    "width": 390,
+    "pose": "standing",
+    "rows": [
+      {
+        "src": "../../build4/p_d/fl_a07_tunde_standing_80x96.png",
+        "loaded": true,
+        "top": "-38px",
+        "left": "-15px"
+      },
+      {
+        "src": "../../build4/p_d/fl_a07_dre_standing_80x96.png",
+        "loaded": true,
+        "top": "-38px",
+        "left": "-15px"
+      },
+      {
+        "src": "../../build4/p_d/fl_a07_half_pint_standing_80x96.png",
+        "loaded": true,
+        "top": "-38px",
+        "left": "-15px"
+      },
+      {
+        "src": "../../build4/p_d/fl_a07_sunday_best_standing_80x96.png",
+        "loaded": true,
+        "top": "-38px",
+        "left": "-15px"
+      },
+      {
+        "src": "../../build4/p_d/fl_a07_young_mazi_standing_80x96.png",
+        "loaded": true,
+        "top": "-38px",
+        "left": "-15px"
+      },
+      {
+        "src": "../../build4/p_d/fl_a07_auntie_grit_standing_80x96.png",
+        "loaded": true,
+        "top": "-38px",
+        "left": "-15px"
+      }
+    ]
+  },
+  {
+    "width": 390,
+    "pose": "wounded",
+    "rows": [
+      {
+        "src": "../../build4/p_d/fl_a07_tunde_wounded_80x96.png",
+        "loaded": true,
+        "top": "-38px",
+        "left": "-15px"
+      },
+      {
+        "src": "../../build4/p_d/fl_a07_dre_wounded_80x96.png",
+        "loaded": true,
+        "top": "-38px",
+        "left": "-15px"
+      },
+      {
+        "src": "../../build4/p_d/fl_a07_half_pint_wounded_80x96.png",
+        "loaded": true,
+        "top": "-38px",
+        "left": "-15px"
+      },
+      {
+        "src": "../../build4/p_d/fl_a07_sunday_best_wounded_80x96.png",
+        "loaded": true,
+        "top": "-38px",
+        "left": "-15px"
+      },
+      {
+        "src": "../../build4/p_d/fl_a07_young_mazi_wounded_80x96.png",
+        "loaded": true,
+        "top": "-38px",
+        "left": "-15px"
+      },
+      {
+        "src": "../../build4/p_d/fl_a07_auntie_grit_wounded_80x96.png",
+        "loaded": true,
+        "top": "-38px",
+        "left": "-15px"
+      }
+    ]
+  },
+  {
+    "width": 390,
+    "pose": "carried",
+    "rows": [
+      {
+        "src": "../../build4/p_d/fl_a07_tunde_carried_80x96.png",
+        "loaded": true,
+        "top": "-38px",
+        "left": "-15px"
+      },
+      {
+        "src": "../../build4/p_d/fl_a07_dre_carried_80x96.png",
+        "loaded": true,
+        "top": "-38px",
+        "left": "-15px"
+      },
+      {
+        "src": "../../build4/p_d/fl_a07_half_pint_carried_80x96.png",
+        "loaded": true,
+        "top": "-38px",
+        "left": "-15px"
+      },
+      {
+        "src": "../../build4/p_d/fl_a07_sunday_best_carried_80x96.png",
+        "loaded": true,
+        "top": "-38px",
+        "left": "-15px"
+      },
+      {
+        "src": "../../build4/p_d/fl_a07_young_mazi_carried_80x96.png",
+        "loaded": true,
+        "top": "-38px",
+        "left": "-15px"
+      },
+      {
+        "src": "../../build4/p_d/fl_a07_auntie_grit_carried_80x96.png",
+        "loaded": true,
+        "top": "-38px",
+        "left": "-15px"
+      }
+    ]
+  },
+  {
+    "width": 390,
+    "kind": "tokens",
+    "paths": [
+      {
+        "src": "../../build4/p_d/fl_a10_recruit_token_48x48.png",
+        "width": 48,
+        "height": 48
+      },
+      {
+        "src": "../../build4/p_d/fl_a10_story_token_48x48.png",
+        "width": 48,
+        "height": 48
+      },
+      {
+        "src": "../../build4/p_d/fl_a10_district_token_48x48.png",
+        "width": 48,
+        "height": 48
+      }
+    ],
+    "reviewFixture": true
+  },
+  {
+    "width": 390,
+    "kind": "guns",
+    "paths": [
+      {
+        "src": "../../build4/p_d/E-gun-mac_and_cheese-held.png",
+        "width": 64,
+        "height": 32
+      },
+      {
+        "src": "../../build4/p_d/E-gun-tommy_tony-held.png",
+        "width": 64,
+        "height": 32
+      },
+      {
+        "src": "../../build4/p_d/E-gun-jollof_burner-held.png",
+        "width": 64,
+        "height": 32
+      },
+      {
+        "src": "../../build4/p_d/E-gun-blueberry_blaster-held.png",
+        "width": 64,
+        "height": 32
+      },
+      {
+        "src": "../../build4/p_d/E-gun-legendary_draco-held.png",
+        "width": 64,
+        "height": 32
+      },
+      {
+        "src": "../../build4/p_d/E-gun-golden_draco-held.png",
+        "width": 64,
+        "height": 32
+      },
+      {
+        "src": "../../build4/p_d/E-gun-auntie_slipper-held.png",
+        "width": 64,
+        "height": 32
+      },
+      {
+        "src": "../../build4/p_d/E-gun-triple_k_kratos-held.png",
+        "width": 64,
+        "height": 32
+      }
+    ],
+    "reviewFixture": true
+  },
+  {
+    "width": 430,
+    "pose": "walking",
+    "rows": [
+      {
+        "src": "../../build4/p_d/fl_a07_tunde_walking_80x96.png",
+        "loaded": true,
+        "top": "-38px",
+        "left": "-15px"
+      },
+      {
+        "src": "../../build4/p_d/fl_a07_dre_walking_80x96.png",
+        "loaded": true,
+        "top": "-38px",
+        "left": "-15px"
+      },
+      {
+        "src": "../../build4/p_d/fl_a07_half_pint_walking_80x96.png",
+        "loaded": true,
+        "top": "-38px",
+        "left": "-15px"
+      },
+      {
+        "src": "../../build4/p_d/fl_a07_sunday_best_walking_80x96.png",
+        "loaded": true,
+        "top": "-38px",
+        "left": "-15px"
+      },
+      {
+        "src": "../../build4/p_d/fl_a07_young_mazi_walking_80x96.png",
+        "loaded": true,
+        "top": "-38px",
+        "left": "-15px"
+      },
+      {
+        "src": "../../build4/p_d/fl_a07_auntie_grit_walking_80x96.png",
+        "loaded": true,
+        "top": "-38px",
+        "left": "-15px"
+      }
+    ]
+  },
+  {
+    "width": 430,
+    "pose": "boarding",
+    "rows": [
+      {
+        "src": "../../build4/p_d/fl_a07_tunde_boarding_80x96.png",
+        "loaded": true,
+        "top": "-38px",
+        "left": "-15px"
+      },
+      {
+        "src": "../../build4/p_d/fl_a07_dre_boarding_80x96.png",
+        "loaded": true,
+        "top": "-38px",
+        "left": "-15px"
+      },
+      {
+        "src": "../../build4/p_d/fl_a07_half_pint_boarding_80x96.png",
+        "loaded": true,
+        "top": "-38px",
+        "left": "-15px"
+      },
+      {
+        "src": "../../build4/p_d/fl_a07_sunday_best_boarding_80x96.png",
+        "loaded": true,
+        "top": "-38px",
+        "left": "-15px"
+      },
+      {
+        "src": "../../build4/p_d/fl_a07_young_mazi_boarding_80x96.png",
+        "loaded": true,
+        "top": "-38px",
+        "left": "-15px"
+      },
+      {
+        "src": "../../build4/p_d/fl_a07_auntie_grit_boarding_80x96.png",
+        "loaded": true,
+        "top": "-38px",
+        "left": "-15px"
+      }
+    ]
+  },
+  {
+    "width": 430,
+    "pose": "standing",
+    "rows": [
+      {
+        "src": "../../build4/p_d/fl_a07_tunde_standing_80x96.png",
+        "loaded": true,
+        "top": "-38px",
+        "left": "-15px"
+      },
+      {
+        "src": "../../build4/p_d/fl_a07_dre_standing_80x96.png",
+        "loaded": true,
+        "top": "-38px",
+        "left": "-15px"
+      },
+      {
+        "src": "../../build4/p_d/fl_a07_half_pint_standing_80x96.png",
+        "loaded": true,
+        "top": "-38px",
+        "left": "-15px"
+      },
+      {
+        "src": "../../build4/p_d/fl_a07_sunday_best_standing_80x96.png",
+        "loaded": true,
+        "top": "-38px",
+        "left": "-15px"
+      },
+      {
+        "src": "../../build4/p_d/fl_a07_young_mazi_standing_80x96.png",
+        "loaded": true,
+        "top": "-38px",
+        "left": "-15px"
+      },
+      {
+        "src": "../../build4/p_d/fl_a07_auntie_grit_standing_80x96.png",
+        "loaded": true,
+        "top": "-38px",
+        "left": "-15px"
+      }
+    ]
+  },
+  {
+    "width": 430,
+    "pose": "wounded",
+    "rows": [
+      {
+        "src": "../../build4/p_d/fl_a07_tunde_wounded_80x96.png",
+        "loaded": true,
+        "top": "-38px",
+        "left": "-15px"
+      },
+      {
+        "src": "../../build4/p_d/fl_a07_dre_wounded_80x96.png",
+        "loaded": true,
+        "top": "-38px",
+        "left": "-15px"
+      },
+      {
+        "src": "../../build4/p_d/fl_a07_half_pint_wounded_80x96.png",
+        "loaded": true,
+        "top": "-38px",
+        "left": "-15px"
+      },
+      {
+        "src": "../../build4/p_d/fl_a07_sunday_best_wounded_80x96.png",
+        "loaded": true,
+        "top": "-38px",
+        "left": "-15px"
+      },
+      {
+        "src": "../../build4/p_d/fl_a07_young_mazi_wounded_80x96.png",
+        "loaded": true,
+        "top": "-38px",
+        "left": "-15px"
+      },
+      {
+        "src": "../../build4/p_d/fl_a07_auntie_grit_wounded_80x96.png",
+        "loaded": true,
+        "top": "-38px",
+        "left": "-15px"
+      }
+    ]
+  },
+  {
+    "width": 430,
+    "pose": "carried",
+    "rows": [
+      {
+        "src": "../../build4/p_d/fl_a07_tunde_carried_80x96.png",
+        "loaded": true,
+        "top": "-38px",
+        "left": "-15px"
+      },
+      {
+        "src": "../../build4/p_d/fl_a07_dre_carried_80x96.png",
+        "loaded": true,
+        "top": "-38px",
+        "left": "-15px"
+      },
+      {
+        "src": "../../build4/p_d/fl_a07_half_pint_carried_80x96.png",
+        "loaded": true,
+        "top": "-38px",
+        "left": "-15px"
+      },
+      {
+        "src": "../../build4/p_d/fl_a07_sunday_best_carried_80x96.png",
+        "loaded": true,
+        "top": "-38px",
+        "left": "-15px"
+      },
+      {
+        "src": "../../build4/p_d/fl_a07_young_mazi_carried_80x96.png",
+        "loaded": true,
+        "top": "-38px",
+        "left": "-15px"
+      },
+      {
+        "src": "../../build4/p_d/fl_a07_auntie_grit_carried_80x96.png",
+        "loaded": true,
+        "top": "-38px",
+        "left": "-15px"
+      }
+    ]
+  },
+  {
+    "width": 430,
+    "kind": "tokens",
+    "paths": [
+      {
+        "src": "../../build4/p_d/fl_a10_recruit_token_48x48.png",
+        "width": 48,
+        "height": 48
+      },
+      {
+        "src": "../../build4/p_d/fl_a10_story_token_48x48.png",
+        "width": 48,
+        "height": 48
+      },
+      {
+        "src": "../../build4/p_d/fl_a10_district_token_48x48.png",
+        "width": 48,
+        "height": 48
+      }
+    ],
+    "reviewFixture": true
+  },
+  {
+    "width": 430,
+    "kind": "guns",
+    "paths": [
+      {
+        "src": "../../build4/p_d/E-gun-mac_and_cheese-held.png",
+        "width": 64,
+        "height": 32
+      },
+      {
+        "src": "../../build4/p_d/E-gun-tommy_tony-held.png",
+        "width": 64,
+        "height": 32
+      },
+      {
+        "src": "../../build4/p_d/E-gun-jollof_burner-held.png",
+        "width": 64,
+        "height": 32
+      },
+      {
+        "src": "../../build4/p_d/E-gun-blueberry_blaster-held.png",
+        "width": 64,
+        "height": 32
+      },
+      {
+        "src": "../../build4/p_d/E-gun-legendary_draco-held.png",
+        "width": 64,
+        "height": 32
+      },
+      {
+        "src": "../../build4/p_d/E-gun-golden_draco-held.png",
+        "width": 64,
+        "height": 32
+      },
+      {
+        "src": "../../build4/p_d/E-gun-auntie_slipper-held.png",
+        "width": 64,
+        "height": 32
+      },
+      {
+        "src": "../../build4/p_d/E-gun-triple_k_kratos-held.png",
+        "width": 64,
+        "height": 32
+      }
+    ],
+    "reviewFixture": true
+  }
+]

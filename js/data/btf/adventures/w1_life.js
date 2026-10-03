@@ -23,7 +23,8 @@
   store:store('hub'),
   out:{end:{outcome:'visited',memory:A=>({text:A.vars.bought?'shopping at the grave':'walking around the grave',lane:'mall',type:'mall',quality:A.vars.bought?1:.5}),chain:A=>A.vars.chain||null,home:A=>A.vars.chain?null:A.vars.bought?['rich','…i ain\'t even need that. i wanted it.',{vp:true}]:null}}
  }});
- RABtfPeople.byId.kiosk_guy={id:'kiosk_guy',name:'KIOSK GUY',look:{skin:'#c8a080',top:'#3a3a6a',hair:'#1a1a1a'}};
+ const kioskArt=window.RAArtRegistry?.characters?.kiosk_guy;
+ RABtfPeople.byId.kiosk_guy={id:'kiosk_guy',name:'KIOSK GUY',look:{skin:'#c8a080',top:'#3a3a6a',hair:'#1a1a1a'},...(kioskArt?{sprite:kioskArt.anchor,states:kioskArt.states,frozenArt:true}:{})};
  // PEKING NAIJA — Rich's order: jollof + Peking duck + Sapporos. Pure fulfillment ($38).
  D({id:'PEKING',title:'PEKING NAIJA',lane:'food',repeatable:true,oncePerNight:true,start:'arrive',nodes:{
   arrive:{env:'peking_naija',actors:{left:'rich'},title:'PEKING NAIJA',lines:A=>[N('warm. loud. family-run. the auntie at the register already knows.'),S(null,'"the usual?"'),R('the usual.')],

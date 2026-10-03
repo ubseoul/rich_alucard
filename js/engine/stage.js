@@ -189,7 +189,7 @@
   const floor=env.floorY??372,scale=env.depth??(env.base||1)*APPROVED_PRIMARY_SCALE,lines=[{id:'floor',y:floor,x1:0,x2:270,scale}],actors={};
   const ext={},xs={};
   for(const [slot,spec] of Object.entries(cast)){
-   ext[slot]=assets?.[slot]?slotExtents(assets[slot],spec.lineScale??scale,!!spec.flip):null;
+   ext[slot]=assets?.[slot]?slotExtents(assets[slot],spec.lineScale??scale*(window.RAArtRegistry?.characters?.[spec.id]?.stageScale||1),!!spec.flip):null;
    // Slot positions are clamped so the actor's visible body (a typical ≈30 source px body when no metadata) stays inside the environment width.
    const e=ext[slot]||{l:15*scale,r:15*scale};xs[slot]=Math.min(270-e.r-4,Math.max(e.l+4,spec.x??slots?.[slot]??135));
   }
@@ -201,7 +201,7 @@
   }
   for(const [slot,spec] of Object.entries(cast)){
    const x=xs[slot],y=spec.y??floor;let line=lines.find(l=>l.y===y);
-   const lineScale=spec.lineScale??scale;if(!line||line.scale!==lineScale){line={id:`y${y}${lineScale!==scale?'d':''}`,y,x1:0,x2:270,scale:lineScale};lines.push(line)}
+   const lineScale=spec.lineScale??scale*(window.RAArtRegistry?.characters?.[spec.id]?.stageScale||1);if(!line||line.scale!==lineScale){line={id:`y${y}${lineScale!==scale?'d':''}`,y,x1:0,x2:270,scale:lineScale};lines.push(line)}
    actors[slot]={source:{width:80,height:96,anchor:{x:40,y:88}},anchor:{x,y,line:line.id},flip:!!spec.flip,observer:!!spec.observer};
   }
   const visible=Object.keys(cast).filter(slot=>!cast[slot].hidden&&!cast[slot].observer);

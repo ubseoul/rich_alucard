@@ -33,7 +33,8 @@ export async function test(root){
  const art={f15_bing:'the_bing',f15_gym:'boxing_gym',f15_roxy_apartment:'roxy_apartment',f15_plenitude:'plenitude',f15_convention:'convention_hall',f15_rosalyn_apartment:'rosalyn_apartment',f15_rosalyn_apartment_dark:'rosalyn_apartment',f15_shrine:'shrine_auditorium'};
  for(const [id,file] of Object.entries(art)){const e=E.get(id);assert.equal(e.image,`assets/f15/environments/${file}_270x480.png`,id);assert.ok(!e.placeholder&&e.approved,`${id} is approved art, not a placeholder`);await access(path.join(root,e.image));}
  assert.equal(JSON.stringify(E.get('f15_rosalyn_apartment_dark').layers),'["assets/f15/layers/lights_off_270x480.png"]');assert.equal(E.get('f15_rosalyn_apartment').layers,undefined);
- for(const id of ['f15_library','f15_exam_hall'])assert.ok(E.get(id).placeholder,`${id} still a named placeholder (no approved art)`);
+ const pd=await json('assets/build4/p_d/manifest.json');
+ for(const id of ['f15_library','f15_exam_hall']){const approved=pd.files.find(f=>f.id===id),env=E.get(id);assert.equal(env.image,approved.path);assert.ok(env.frozen&&!env.placeholder,`${id} uses approved P-D art`);assert.equal(sha(await rd(env.image)),approved.sha256);}
  for(const id of used)assert.ok(art[id]||['f15_library','f15_exam_hall'].includes(id),`${id} is accounted for`);
  const P=c.RABtfPeople.byId;assert.equal(P.granny_bing.sprite,'assets/before_the_fame/characters/granny_bing/cga_f2_032/granny_bing_neutral_calling_numbers_anchor_80x96_v1.png');
  assert.equal(P.spirit_of_uncle_bunmi.sprite,'assets/f15/characters/spirit_of_uncle_bunmi_444x222.png');
@@ -42,5 +43,5 @@ export async function test(root){
  assert.equal(c.RACombatData.ENEMIES.f15_uncle_bunmi.stageScale,c.RAF15Dates.ROACH.scale);
  {const src=(await rd('js/engine/stage.js')).toString(),cs=(await rd('js/scenes/combat2.js')).toString();
   assert.match(src,/enemyScale=null/);assert.match(src,/enemyScale>0\?\{lineScale:enemyScale\}:\{\}/,'enemy scale only applied when set');assert.match(cs,/enemyScale:def\.stageScale/);}
- console.log('PASS F15 scene wiring (8 art environments image-backed and approved; library + exam hall stay placeholders; Granny + cockroach registered; combat scale seam present and inert when unset)');
+ console.log('PASS F15 scene wiring (8 original art environments + two approved frozen P-D rooms; Granny + cockroach registered; combat scale seam present and inert when unset)');
 }

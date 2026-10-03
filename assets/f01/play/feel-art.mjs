@@ -1,6 +1,7 @@
 // THE PLAY — FEEL LOCK art. FL-A01..A10 are the FROZEN F01 batch (assets/f01/feel_lock/FREEZE_RECORD.json, 54 exact PNGs under
 // assets/f01/feel_lock/). They are referenced byte-for-byte: never copied, recoloured, cropped or re-encoded. Anything the freeze does NOT
-// cover stays a labelled placeholder (SOURCE_REQUIRED): named-Oga state sprites (FL-A07) and RECRUIT / STORY / DISTRICT loot (FL-A10).
+// cover is tracked separately: the approved P-D family supplies named-Oga states and RECRUIT / STORY / DISTRICT symbolic tokens.
+import {PD_ART} from './pd-art.mjs';
 import {ASSETS,BTF} from './feel-core.mjs';
 import {FL,FL_ART,UNWIRED,carPng,supraOverlay,frozenPaths} from './feel-frozen.mjs';
 export {FL,FL_ART,UNWIRED,frozenPaths};
@@ -45,14 +46,15 @@ export const cashHaul=(tier,open)=>{const t=FL_ART.cash[tier]||FL_ART.cash[1];re
 // ---- OBA DE GWINNETT — the frozen FL-A04 native sprite (80x96), drawn at 2x. The Visual A identity CARD is Ube's judgment sheet and is not a runtime asset.
 export const obaSprite=()=>`<img src="${FL_ART.oba.native}" width="160" height="192" alt="" aria-label="Oba de Gwinnett">`;
 
-// ---- full-body Oga sprites (FL-A07). Only the GENERIC template is frozen; NAMED Ogas keep their face bust until their own states exist (SOURCE_REQUIRED).
+// ---- Full-body Ogas: the original generic template plus the six separately approved P-D state families.
 export const OGA_POSES=Object.keys(FL_ART.oga);
-export const ogaSprite=pose=>FL_ART.oga[pose]||FL_ART.oga.standing;
-export const hasSprite=o=>!!o&&o.named===false;
+export const ogaSprite=(pose,id=null)=>PD_ART.ogas[id]?.[pose]||PD_ART.ogas[id]?.standing||FL_ART.oga[pose]||FL_ART.oga.standing;
+export const hasSprite=o=>!!o&&(o.named===false||!!PD_ART.ogas[o.id]);
+export const ogaContact=(pose,id)=>PD_ART.ogas[id]?88:({boarding:78,carried:68}[pose]||88);
 
 // ---- Rich in bed (POV, hand + phone) — FL-A01. base = the red bed; idle = forearm/hand/phone with a binary-alpha screen opening (live chat shows through);
 // thumb = the additive typing overlay. JOLT is code shake of the rig (phone DOM + idle + thumb); the base never moves.
 export const bedBase=()=>`<img class="bg bedpov" src="${FL_ART.bed.base}" alt="" aria-hidden="true">`;
 export const handIdle=()=>`<img class="handpov" src="${FL_ART.bed.idle}" alt="" aria-hidden="true">`;
 export const thumbOverlay=()=>`<img class="thumbpov" src="${FL_ART.bed.thumb}" alt="" aria-hidden="true">`;
-export const loot=cat=>FL_ART.loot[cat]||null;
+export const loot=cat=>FL_ART.loot[cat]||PD_ART.tokens[cat]||null;

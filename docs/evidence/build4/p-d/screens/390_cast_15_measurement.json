@@ -1,0 +1,84 @@
+{
+  "combat": false,
+  "env": "catacomb_dead",
+  "world": {
+    "x": 0,
+    "y": 0,
+    "w": 390,
+    "h": 507
+  },
+  "actors": [
+    {
+      "slot": "left",
+      "id": "rich",
+      "tag": "IMG",
+      "src": "assets/rich_standing_right.png",
+      "ok": true,
+      "nw": 80,
+      "nh": 96,
+      "css": {
+        "x": -8,
+        "y": 94,
+        "w": 320,
+        "h": 384
+      },
+      "visible": {
+        "x": 100,
+        "y": 238,
+        "w": 108,
+        "h": 208
+      },
+      "sprite": {
+        "x": -8,
+        "y": 94,
+        "w": 320,
+        "h": 384
+      },
+      "face": {
+        "x": 120,
+        "y": 274,
+        "w": 76,
+        "h": 56
+      },
+      "contact": {
+        "x": 152,
+        "y": 446
+      },
+      "world": {
+        "x": 72,
+        "y": 372
+      },
+      "k": 4,
+      "hidden": false,
+      "rendering": "pixelated",
+      "body": {
+        "x": 100,
+        "y": 238,
+        "w": 108,
+        "h": 208
+      },
+      "pixels": 15152
+    }
+  ],
+  "pairs": [],
+  "ui": {
+    "box": {
+      "x": 9,
+      "y": 531.03125,
+      "w": 372,
+      "h": 161.5
+    },
+    "bubble": null,
+    "choices": [],
+    "hud": [],
+    "telegraph": null,
+    "panel": null,
+    "title": null,
+    "location": {
+      "x": 8,
+      "y": 8,
+      "w": 116.96875,
+      "h": 18.71875
+    }
+  }
+}

@@ -175,14 +175,14 @@ function slam(o){
  anim(p,[{transform:'translateX(-280px) skewX(-12deg)',opacity:0},{transform:'translateX(0) skewX(-12deg)',opacity:1,offset:.25},{transform:'translateX(0) skewX(-12deg)',opacity:1,offset:.75},{transform:'translateX(280px) skewX(-12deg)',opacity:0}],900,{easing:'ease-out'}).then(()=>p.remove());
 }
 // FL-A07: a GENERIC Oga is drawn as the frozen full-body template (pose: walking / boarding / standing / wounded / carried), feet on the bust box's base.
-// NAMED Ogas have no frozen state sprites yet (SOURCE_REQUIRED) and keep their face bust + gun overlay — no substitute is invented for them.
-const FEET={boarding:78,carried:68};
-function place(im,size,pose){im.style.left=Math.round(size/2-39)+'px';im.style.top=Math.round(size-(FEET[pose]||88))+'px';}
-export function setPose(b,pose){const im=b&&b.querySelector('.ogs');if(im){im.src=A.ogaSprite(pose);place(im,parseFloat(b.style.width)||34,pose);b.dataset.pose=pose;}}
+// The six named Ogas use their approved P-D identities, with contact (40,88) in each lossless cell.
+function place(im,size,pose,id){im.style.left=Math.round(size/2-(oNamed(id)?40:39))+'px';im.style.top=Math.round(size-A.ogaContact(pose,id))+'px';}
+const oNamed=id=>['tunde','dre','half_pint','sunday_best','young_mazi','auntie_grit'].includes(id);
+export function setPose(b,pose){const im=b&&b.querySelector('.ogs');if(im){im.src=A.ogaSprite(pose,b.dataset.oga);place(im,parseFloat(b.style.width)||34,pose,b.dataset.oga);b.dataset.pose=pose;}}
 export function bust(o,size=34,st={}){
  if(A.hasSprite(o)){
   const b=el('bust sprite','');b.dataset.oga=o.id;b.style.width=b.style.height=size+'px';
-  const im=document.createElement('img');im.className='ogs';im.alt='';b.appendChild(im);im.src=A.ogaSprite(st.pose||'standing');place(im,size,st.pose||'standing');b.dataset.pose=st.pose||'standing';
+  const im=document.createElement('img');im.className='ogs';im.alt='';b.appendChild(im);im.src=A.ogaSprite(st.pose||'standing',o.id);place(im,size,st.pose||'standing',o.id);b.dataset.pose=st.pose||'standing';
   return b;
  }
  const b=el('bust',faceOf(o,st));b.dataset.oga=o.id;b.style.width=b.style.height=size+'px';

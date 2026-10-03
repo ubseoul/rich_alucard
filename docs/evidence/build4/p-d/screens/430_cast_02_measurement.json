@@ -1,0 +1,142 @@
+{
+  "combat": false,
+  "env": "gbenga_rentals",
+  "world": {
+    "x": 0,
+    "y": 0,
+    "w": 430,
+    "h": 559
+  },
+  "actors": [
+    {
+      "slot": "left",
+      "id": "rich",
+      "tag": "IMG",
+      "src": "assets/rich_standing_right.png",
+      "ok": true,
+      "nw": 80,
+      "nh": 96,
+      "css": {
+        "x": -96,
+        "y": 138,
+        "w": 321.96875,
+        "h": 386.375
+      },
+      "visible": {
+        "x": 12.669600000000003,
+        "y": 282.89279999999997,
+        "w": 108.6696,
+        "h": 209.2896
+      },
+      "sprite": {
+        "x": -96,
+        "y": 138,
+        "w": 321.984,
+        "h": 386.3808
+      },
+      "face": {
+        "x": 32.7936,
+        "y": 319.116,
+        "w": 76.4712,
+        "h": 56.3472
+      },
+      "contact": {
+        "x": 65,
+        "y": 492
+      },
+      "world": {
+        "x": 75.40470085470088,
+        "y": 372
+      },
+      "k": 4.0248,
+      "hidden": false,
+      "rendering": "pixelated",
+      "body": {
+        "x": 13,
+        "y": 283,
+        "w": 108,
+        "h": 209
+      },
+      "pixels": 15220
+    },
+    {
+      "slot": "right",
+      "id": "gbenga",
+      "tag": "IMG",
+      "src": "assets/before_the_fame/characters/gbenga/runtime_80x96/gbenga_adjusting_sleeves_80x96_v2.png",
+      "ok": true,
+      "nw": 80,
+      "nh": 96,
+      "css": {
+        "x": 163.5,
+        "y": 138,
+        "w": 321.96875,
+        "h": 386.375
+      },
+      "visible": {
+        "x": 207.7728,
+        "y": 174.2232,
+        "w": 209.2896,
+        "h": 330.0336
+      },
+      "sprite": {
+        "x": 163.5,
+        "y": 138,
+        "w": 321.984,
+        "h": 386.3808
+      },
+      "face": {
+        "x": 239.9712,
+        "y": 226.54559999999998,
+        "w": 144.8928,
+        "h": 100.62
+      },
+      "contact": {
+        "x": 324.5,
+        "y": 492
+      },
+      "world": {
+        "x": 194.59529914529912,
+        "y": 372
+      },
+      "k": 4.0248,
+      "hidden": false,
+      "rendering": "pixelated",
+      "body": {
+        "x": 208,
+        "y": 174,
+        "w": 209,
+        "h": 330
+      },
+      "pixels": 36462
+    }
+  ],
+  "pairs": [
+    {
+      "a": "rich",
+      "b": "gbenga",
+      "overlap": 0,
+      "frac": 0
+    }
+  ],
+  "ui": {
+    "box": {
+      "x": 9,
+      "y": 584.796875,
+      "w": 412,
+      "h": 179.5
+    },
+    "bubble": null,
+    "choices": [],
+    "hud": [],
+    "telegraph": null,
+    "panel": null,
+    "title": null,
+    "location": {
+      "x": 8,
+      "y": 8,
+      "w": 301,
+      "h": 28.09375
+    }
+  }
+}

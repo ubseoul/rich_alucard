@@ -1,3 +1,15 @@
+# BUILD-4 · current P-D completion — 2026-10-03
+
+P-D ingested from Ube’s frozen transfer: 50 launch rows closed; P-A 0 / P-B 0 / P-C 0 / P-D 0. All further work uses `build/visual-completion-002`. 001 superseded by 002 (OL-047, rebase onto build2-accepted).
+
+48 native PNGs + 48 source exports retain their transfer hashes. 33 derived cells are exact pixel cuts; Tunde/Dre STANDING identities verified. The WORKDAY interior is reused byte-for-byte for Gbenga rentals. Senator’s larger native contract uses presentation metadata scale 0.5 in adventure casts; care keeps the original slot and mechanics. All nine remaining registered environments and all six actor fallbacks now resolve to approved art. Kiosk’s dynamic registration uses its approved generic sprite. The Jollof cook is an unnamed incidental actor during cooking; each named judge retains their own frozen identity. Existing frozen TOUGE rival identities remain in priority; new rival deliverables are preserved as unassigned library art.
+
+Validation PASS: full `npm run build` (includes `npm test`), artifact verification, P-D transfer/cell checks, 1,335 preserved source records, 1,090 frozen assets (zero altered), source leak check, art integration and presentation locks. Real Chrome: F15 519/519; F07 77/77 at each width; P-D 19 casts + 10 minigame boards + the actual Jollof judging stage at each 360/390/430; all 30 named THE PLAY states, tokens and held sprites at each width. BUILD-2 weapon/iframe paths rerun. Screenshots and detailed records: `docs/evidence/build4/p-d/`.
+
+P-C remains future scope under OL-052. Three current accepted loops remain the single launch outfits (internal Tier 2); F06 and F15 implementation bytes unchanged. No dormant wardrobe tiers ship. Learned-move FX remain BUILD-6-owned. The imported pre-P-D F15 room test is archived byte-for-byte under build4/provenance; the active assertion now verifies the approved room hashes. No accepted branch moved and no force-push. Remote 002 SHA and ancestry proof are recorded after the normal publication.
+
+Earlier rulings and counts below are historical.
+
 # BUILD-4 progress — OL-052 (earlier rulings retained as history)
 
 ## OL-052 current launch scope

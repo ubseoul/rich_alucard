@@ -1,0 +1,142 @@
+{
+  "combat": false,
+  "env": "gbenga_rentals",
+  "world": {
+    "x": 0,
+    "y": 0,
+    "w": 360,
+    "h": 468
+  },
+  "actors": [
+    {
+      "slot": "left",
+      "id": "rich",
+      "tag": "IMG",
+      "src": "assets/rich_standing_right.png",
+      "ok": true,
+      "nw": 80,
+      "nh": 96,
+      "css": {
+        "x": -85,
+        "y": 104,
+        "w": 280,
+        "h": 336
+      },
+      "visible": {
+        "x": 9.5,
+        "y": 230,
+        "w": 94.5,
+        "h": 182
+      },
+      "sprite": {
+        "x": -85,
+        "y": 104,
+        "w": 280,
+        "h": 336
+      },
+      "face": {
+        "x": 27,
+        "y": 261.5,
+        "w": 66.5,
+        "h": 49
+      },
+      "contact": {
+        "x": 55,
+        "y": 412
+      },
+      "world": {
+        "x": 72,
+        "y": 372
+      },
+      "k": 3.5,
+      "hidden": false,
+      "rendering": "pixelated",
+      "body": {
+        "x": 10,
+        "y": 230,
+        "w": 94,
+        "h": 182
+      },
+      "pixels": 11609
+    },
+    {
+      "slot": "right",
+      "id": "carlos",
+      "tag": "IMG",
+      "src": "assets/before_the_fame/characters/carlos/runtime_80x96/carlos_neutral_happy_anchor_80x96_review_v1.png",
+      "ok": true,
+      "nw": 80,
+      "nh": 96,
+      "css": {
+        "x": 147.5,
+        "y": 104,
+        "w": 280,
+        "h": 336
+      },
+      "visible": {
+        "x": 231.5,
+        "y": 191.5,
+        "w": 119,
+        "h": 227.5
+      },
+      "sprite": {
+        "x": 147.5,
+        "y": 104,
+        "w": 280,
+        "h": 336
+      },
+      "face": {
+        "x": 249,
+        "y": 226.5,
+        "w": 84,
+        "h": 70
+      },
+      "contact": {
+        "x": 287.5,
+        "y": 412
+      },
+      "world": {
+        "x": 198,
+        "y": 372
+      },
+      "k": 3.5,
+      "hidden": false,
+      "rendering": "pixelated",
+      "body": {
+        "x": 232,
+        "y": 192,
+        "w": 119,
+        "h": 227
+      },
+      "pixels": 17237
+    }
+  ],
+  "pairs": [
+    {
+      "a": "rich",
+      "b": "carlos",
+      "overlap": 0,
+      "frac": 0
+    }
+  ],
+  "ui": {
+    "box": {
+      "x": 8,
+      "y": 489.5625,
+      "w": 344,
+      "h": 130
+    },
+    "bubble": null,
+    "choices": [],
+    "hud": [],
+    "telegraph": null,
+    "panel": null,
+    "title": null,
+    "location": {
+      "x": 8,
+      "y": 8,
+      "w": 252,
+      "h": 25.125
+    }
+  }
+}

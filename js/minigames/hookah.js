@@ -133,7 +133,8 @@
   function draw(){
    const now=performance.now();const dt=now-lastT;lastT=now;
    const rp=P(),pal=palette();
-   rp.paintEnvironment(g,env());
+   if(!rp.drawBoard(g,'hookah_roof'))rp.paintEnvironment(g,env());
+   else {rp.text(g,'HOOKAH ROOF',135,22,{size:7,align:'center',color:pal.pink});rp.text(g,'NOW PLAYING: '+song,135,44,{size:6,align:'center',color:pal.grey});}
    // Frozen seated states (ART SHIP 008) at native 1:1 on their contact point, seated on the roof above the score
    // lines and clear of the antenna target; placeholders only if art is unavailable.
    if(!rp.drawSprite?.(g,rp.personSprite?.('rich','hookah_seated'),SEATS.rich[0],SEATS.rich[1]))rp.drawActor(g,{top:'#111018',bottom:'#0d0c14',hairShape:'locs',shades:true,accent:pal.green},135,410,1.4);
@@ -143,7 +144,7 @@
     if(seated('tunde'))rp.drawSprite?.(g,rp.personSprite?.('tunde','hookah_seated'),SEATS.company[0],SEATS.company[1]);
     if(seated('dre'))rp.drawSprite?.(g,rp.personSprite?.('dre','hookah_seated'),SEATS.crew[0],SEATS.crew[1]);
    }
-   if(lines&&company==='DATE')rp.drawActor(g,{top:'#3a1f33',bottom:'#241830',hairShape:'long',accent:pal.pink},185,410,1.2);
+   if(lines&&company==='DATE'&&!rp.drawRegistered(g,'hookah_date',185,410))rp.drawActor(g,{top:'#3a1f33',bottom:'#241830',hairShape:'long',accent:pal.pink},185,410,1.2);
    if(company==='BLLAD33'){
     bllad33T+=dt;
     if(!bllad33Ring||bllad33T>2600){bllad33Ring=window.RAMinigameLogic.hookah.makeRing(.7,1);bllad33Ring.x=SEATS.company[0];bllad33T=0;}

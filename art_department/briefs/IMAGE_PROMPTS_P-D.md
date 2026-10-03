@@ -1,3 +1,9 @@
+# P-D completed — 2026-10-03
+
+All 48 native targets were delivered and ingested; all 50 launch rows are closed. No further P-D image request is pending. Approved native bytes retain their transfer hashes. See `assets/build4/p_d/manifest.json`, `art_department/PLACEHOLDER_LOG.json` and `docs/evidence/build4/p-d/SUMMARY.json`. P-C remains deferred under OL-052. Publication branch: `build/visual-completion-002`.
+
+## Historical request specifications
+
 # IMAGE_PROMPTS_P-D — OL-046 · numbered paste-ready prompts
 
 OL-052 launch update: **P-D only (50 remaining rows); P-C closed for launch (0), no still/video drop.** Use this P-D packet on `build/visual-completion-002`. All 48 image prompts and target filenames remain unchanged. Codex owns manifests, normalization, hashes and contact sheets.

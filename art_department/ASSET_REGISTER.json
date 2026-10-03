@@ -23646,6 +23646,2367 @@
         "OL-042 C1"
       ],
       "role": "Approved existing runtime bytes"
+    },
+    {
+      "path": "assets/build4/p_d/p_d_gbenga_house_dining.png",
+      "sha256": "06912ce6c92307d138c3d25e8f7f3e259f4e8ffebcbea01534a05b92486e60c5",
+      "role": "Approved P-D native transfer",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "User P-D delivery 2026-10-03; OL046_P-D_FROZEN_2026-10-03/HANDOFF.md and INVENTORY.json"
+      ],
+      "dimensions": [
+        270,
+        480
+      ],
+      "mode": "RGB",
+      "prompt_number": 1
+    },
+    {
+      "path": "art_department/production/build4-p-d/sources/p_d_gbenga_house_dining.png",
+      "sha256": "81adb11a5a5463812a0ccf54150de5d41abdaa0bd31dcbdfdd754c6ed53e49a4",
+      "role": "Approved lossless P-D source export; provenance only",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "User P-D delivery 2026-10-03; OL046_P-D_FROZEN_2026-10-03/HANDOFF.md and INVENTORY.json"
+      ],
+      "dimensions": [
+        941,
+        1672
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/build4/p_d/p_d_gbenga_house_patio.png",
+      "sha256": "7fb9263ee00ca834a49f978673a01c8ddd153ae02f7a9b8e881f4fcbd753c5f3",
+      "role": "Approved P-D native transfer",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "User P-D delivery 2026-10-03; OL046_P-D_FROZEN_2026-10-03/HANDOFF.md and INVENTORY.json"
+      ],
+      "dimensions": [
+        270,
+        480
+      ],
+      "mode": "RGB",
+      "prompt_number": 2
+    },
+    {
+      "path": "art_department/production/build4-p-d/sources/p_d_gbenga_house_patio.png",
+      "sha256": "6d7f3495cce921e5fb789a80c9c49791c3a28cc979f68da4d443597a05aaf477",
+      "role": "Approved lossless P-D source export; provenance only",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "User P-D delivery 2026-10-03; OL046_P-D_FROZEN_2026-10-03/HANDOFF.md and INVENTORY.json"
+      ],
+      "dimensions": [
+        941,
+        1672
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/build4/p_d/p_d_carson_owambe.png",
+      "sha256": "205fed2fa37fe062886a592107a4ea38c9b636aad43a4161dc04e59e1b4b4944",
+      "role": "Approved P-D native transfer",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "User P-D delivery 2026-10-03; OL046_P-D_FROZEN_2026-10-03/HANDOFF.md and INVENTORY.json"
+      ],
+      "dimensions": [
+        270,
+        480
+      ],
+      "mode": "RGB",
+      "prompt_number": 3
+    },
+    {
+      "path": "art_department/production/build4-p-d/sources/p_d_carson_owambe.png",
+      "sha256": "e8dfb358afde02633d9288fd9b9b4cd79f5587e18e6563aaa3da0f80d1118cca",
+      "role": "Approved lossless P-D source export; provenance only",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "User P-D delivery 2026-10-03; OL046_P-D_FROZEN_2026-10-03/HANDOFF.md and INVENTORY.json"
+      ],
+      "dimensions": [
+        941,
+        1672
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/build4/p_d/p_d_catacomb_dead.png",
+      "sha256": "503ea33cb0be755196a15886fe944fe1ea5157b91ea15c5886eb20529674621b",
+      "role": "Approved P-D native transfer",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "User P-D delivery 2026-10-03; OL046_P-D_FROZEN_2026-10-03/HANDOFF.md and INVENTORY.json"
+      ],
+      "dimensions": [
+        270,
+        480
+      ],
+      "mode": "RGB",
+      "prompt_number": 4
+    },
+    {
+      "path": "art_department/production/build4-p-d/sources/p_d_catacomb_dead.png",
+      "sha256": "f3e700901083b2a6f1b8796f839824e7c6812fffeb43cef1716864ad062d97f3",
+      "role": "Approved lossless P-D source export; provenance only",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "User P-D delivery 2026-10-03; OL046_P-D_FROZEN_2026-10-03/HANDOFF.md and INVENTORY.json"
+      ],
+      "dimensions": [
+        941,
+        1672
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/build4/p_d/p_d_ocean_night_flight.png",
+      "sha256": "deba17f0669d4ead380f924ac2b301590278c46c9e7d4375d9163659bcb91b27",
+      "role": "Approved P-D native transfer",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "User P-D delivery 2026-10-03; OL046_P-D_FROZEN_2026-10-03/HANDOFF.md and INVENTORY.json"
+      ],
+      "dimensions": [
+        270,
+        480
+      ],
+      "mode": "RGB",
+      "prompt_number": 5
+    },
+    {
+      "path": "art_department/production/build4-p-d/sources/p_d_ocean_night_flight.png",
+      "sha256": "ae3c05f8f43fe8aea9ff362414000c2a5f45108cbf2d8e2260c6dc6e08ee79ef",
+      "role": "Approved lossless P-D source export; provenance only",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "User P-D delivery 2026-10-03; OL046_P-D_FROZEN_2026-10-03/HANDOFF.md and INVENTORY.json"
+      ],
+      "dimensions": [
+        941,
+        1672
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/build4/p_d/p_d_halloween.png",
+      "sha256": "bec5991c645ee117562285b1ab3e01fb500cd358a9a300de388b84863863b0c7",
+      "role": "Approved P-D native transfer",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "User P-D delivery 2026-10-03; OL046_P-D_FROZEN_2026-10-03/HANDOFF.md and INVENTORY.json"
+      ],
+      "dimensions": [
+        270,
+        480
+      ],
+      "mode": "RGB",
+      "prompt_number": 6
+    },
+    {
+      "path": "art_department/production/build4-p-d/sources/p_d_halloween.png",
+      "sha256": "89cce010378298c10c198dd064a3ba49a70634be6ed69b004dba3bf4593e5d5c",
+      "role": "Approved lossless P-D source export; provenance only",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "User P-D delivery 2026-10-03; OL046_P-D_FROZEN_2026-10-03/HANDOFF.md and INVENTORY.json"
+      ],
+      "dimensions": [
+        940,
+        1672
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/build4/p_d/p_d_f15_exam_hall.png",
+      "sha256": "d8764fb41fe490303714555e9433f26206a3eff2bd8b807d633b96c3ddaaf995",
+      "role": "Approved P-D native transfer",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "User P-D delivery 2026-10-03; OL046_P-D_FROZEN_2026-10-03/HANDOFF.md and INVENTORY.json"
+      ],
+      "dimensions": [
+        270,
+        480
+      ],
+      "mode": "RGB",
+      "prompt_number": 7
+    },
+    {
+      "path": "art_department/production/build4-p-d/sources/p_d_f15_exam_hall.png",
+      "sha256": "7cb1080fa67613ea6b9a8da62cfdefebf93cf5bc614f08afb05de46296b2fc67",
+      "role": "Approved lossless P-D source export; provenance only",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "User P-D delivery 2026-10-03; OL046_P-D_FROZEN_2026-10-03/HANDOFF.md and INVENTORY.json"
+      ],
+      "dimensions": [
+        940,
+        1672
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/build4/p_d/p_d_f15_library.png",
+      "sha256": "1597863b8b3584c0837b86502fab802981eb59c2590f0e68eb10d88ced2a35fb",
+      "role": "Approved P-D native transfer",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "User P-D delivery 2026-10-03; OL046_P-D_FROZEN_2026-10-03/HANDOFF.md and INVENTORY.json"
+      ],
+      "dimensions": [
+        270,
+        480
+      ],
+      "mode": "RGB",
+      "prompt_number": 8
+    },
+    {
+      "path": "art_department/production/build4-p-d/sources/p_d_f15_library.png",
+      "sha256": "edfcbf3d5ce62efe1af101576768af0efd5df087fce4b5f5129c60286724f26d",
+      "role": "Approved lossless P-D source export; provenance only",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "User P-D delivery 2026-10-03; OL046_P-D_FROZEN_2026-10-03/HANDOFF.md and INVENTORY.json"
+      ],
+      "dimensions": [
+        941,
+        1672
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/build4/p_d/p_d_pickup_court.png",
+      "sha256": "0431d219906a6efad733321421c422377bebe8751ebb7722bf643563c2df6b17",
+      "role": "Approved P-D native transfer",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "User P-D delivery 2026-10-03; OL046_P-D_FROZEN_2026-10-03/HANDOFF.md and INVENTORY.json"
+      ],
+      "dimensions": [
+        270,
+        480
+      ],
+      "mode": "RGB",
+      "prompt_number": 9
+    },
+    {
+      "path": "art_department/production/build4-p-d/sources/p_d_pickup_court.png",
+      "sha256": "bdc0662625d02e7aa8ac123e5c6566440b471bcb64c21d4142d96a09f53a0c20",
+      "role": "Approved lossless P-D source export; provenance only",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "User P-D delivery 2026-10-03; OL046_P-D_FROZEN_2026-10-03/HANDOFF.md and INVENTORY.json"
+      ],
+      "dimensions": [
+        941,
+        1672
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/build4/p_d/p_d_jollof_kitchen.png",
+      "sha256": "4e55188c7be0f01e93de007564759e0ad18a6517412f0b664417a5f729483152",
+      "role": "Approved P-D native transfer",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "User P-D delivery 2026-10-03; OL046_P-D_FROZEN_2026-10-03/HANDOFF.md and INVENTORY.json"
+      ],
+      "dimensions": [
+        270,
+        480
+      ],
+      "mode": "RGB",
+      "prompt_number": 10
+    },
+    {
+      "path": "art_department/production/build4-p-d/sources/p_d_jollof_kitchen.png",
+      "sha256": "a6d3b1dcbd211442dec0b85b704130b93305545e364e86c707d9389f1bfc74cf",
+      "role": "Approved lossless P-D source export; provenance only",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "User P-D delivery 2026-10-03; OL046_P-D_FROZEN_2026-10-03/HANDOFF.md and INVENTORY.json"
+      ],
+      "dimensions": [
+        941,
+        1672
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/build4/p_d/p_d_jollof_cookoff.png",
+      "sha256": "7b57098e33bf1535d1aed17e9410991ea3cf22544862de141b7c13411047b11b",
+      "role": "Approved P-D native transfer",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "User P-D delivery 2026-10-03; OL046_P-D_FROZEN_2026-10-03/HANDOFF.md and INVENTORY.json"
+      ],
+      "dimensions": [
+        270,
+        480
+      ],
+      "mode": "RGB",
+      "prompt_number": 11
+    },
+    {
+      "path": "art_department/production/build4-p-d/sources/p_d_jollof_cookoff.png",
+      "sha256": "5b93233fb3959bba963c2ec78d67de6eb5d9eb5d431b2dbf934c36826a919092",
+      "role": "Approved lossless P-D source export; provenance only",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "User P-D delivery 2026-10-03; OL046_P-D_FROZEN_2026-10-03/HANDOFF.md and INVENTORY.json"
+      ],
+      "dimensions": [
+        941,
+        1672
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/build4/p_d/p_d_jollof_final.png",
+      "sha256": "a7881a5e3ea474ec9097ffd7fb79caac9439e789f86a5d55de8ebe725585c7fe",
+      "role": "Approved P-D native transfer",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "User P-D delivery 2026-10-03; OL046_P-D_FROZEN_2026-10-03/HANDOFF.md and INVENTORY.json"
+      ],
+      "dimensions": [
+        270,
+        480
+      ],
+      "mode": "RGB",
+      "prompt_number": 12
+    },
+    {
+      "path": "art_department/production/build4-p-d/sources/p_d_jollof_final.png",
+      "sha256": "b7ae611333c5c14ac896e6e646260048f5efc83c690d112330dcd29c9b4c54d7",
+      "role": "Approved lossless P-D source export; provenance only",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "User P-D delivery 2026-10-03; OL046_P-D_FROZEN_2026-10-03/HANDOFF.md and INVENTORY.json"
+      ],
+      "dimensions": [
+        941,
+        1672
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/build4/p_d/p_d_pier_game.png",
+      "sha256": "7d9f5c847ed3537a080e0e3cee6fd1d57bb7133f339910a7bc015935569e8ea4",
+      "role": "Approved P-D native transfer",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "User P-D delivery 2026-10-03; OL046_P-D_FROZEN_2026-10-03/HANDOFF.md and INVENTORY.json"
+      ],
+      "dimensions": [
+        270,
+        480
+      ],
+      "mode": "RGB",
+      "prompt_number": 13
+    },
+    {
+      "path": "art_department/production/build4-p-d/sources/p_d_pier_game.png",
+      "sha256": "f6a8143496f0f5efd68594a3139a5e11d355078dfb2ee1c18a8152989fe4dab5",
+      "role": "Approved lossless P-D source export; provenance only",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "User P-D delivery 2026-10-03; OL046_P-D_FROZEN_2026-10-03/HANDOFF.md and INVENTORY.json"
+      ],
+      "dimensions": [
+        941,
+        1672
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/build4/p_d/p_d_hookah_roof.png",
+      "sha256": "32c340a0714293716967e330ed42d6160a43ef13c97505803ea6aafab3028952",
+      "role": "Approved P-D native transfer",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "User P-D delivery 2026-10-03; OL046_P-D_FROZEN_2026-10-03/HANDOFF.md and INVENTORY.json"
+      ],
+      "dimensions": [
+        270,
+        480
+      ],
+      "mode": "RGB",
+      "prompt_number": 14
+    },
+    {
+      "path": "art_department/production/build4-p-d/sources/p_d_hookah_roof.png",
+      "sha256": "0041f2ad12a6f26d0106516e008b08438394a2137914517ed6fb8431b30a7166",
+      "role": "Approved lossless P-D source export; provenance only",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "User P-D delivery 2026-10-03; OL046_P-D_FROZEN_2026-10-03/HANDOFF.md and INVENTORY.json"
+      ],
+      "dimensions": [
+        941,
+        1672
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/build4/p_d/p_d_owambe_birthday.png",
+      "sha256": "6ad18801fcf68d45f3be215440a631aa7a743fddc72f2bb351b2766055df72c1",
+      "role": "Approved P-D native transfer",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "User P-D delivery 2026-10-03; OL046_P-D_FROZEN_2026-10-03/HANDOFF.md and INVENTORY.json"
+      ],
+      "dimensions": [
+        270,
+        480
+      ],
+      "mode": "RGB",
+      "prompt_number": 15
+    },
+    {
+      "path": "art_department/production/build4-p-d/sources/p_d_owambe_birthday.png",
+      "sha256": "cf18a8939e1b3488b1e7f39b6bacb2a3de177820a07f79b69eb93999aa14faa7",
+      "role": "Approved lossless P-D source export; provenance only",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "User P-D delivery 2026-10-03; OL046_P-D_FROZEN_2026-10-03/HANDOFF.md and INVENTORY.json"
+      ],
+      "dimensions": [
+        941,
+        1672
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/build4/p_d/p_d_hatch_castle.png",
+      "sha256": "0396caeaa12758fff40df405b20fa429267986a5e441e77470643328febe63b8",
+      "role": "Approved P-D native transfer",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "User P-D delivery 2026-10-03; OL046_P-D_FROZEN_2026-10-03/HANDOFF.md and INVENTORY.json"
+      ],
+      "dimensions": [
+        270,
+        480
+      ],
+      "mode": "RGB",
+      "prompt_number": 16
+    },
+    {
+      "path": "art_department/production/build4-p-d/sources/p_d_hatch_castle.png",
+      "sha256": "0690aff941e30c9ae0ffab6d6dae62180f6bb4a5105c42bdf2c3be2637a1545a",
+      "role": "Approved lossless P-D source export; provenance only",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "User P-D delivery 2026-10-03; OL046_P-D_FROZEN_2026-10-03/HANDOFF.md and INVENTORY.json"
+      ],
+      "dimensions": [
+        941,
+        1672
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/build4/p_d/p_d_hatch_room.png",
+      "sha256": "fbf6b6e3883b79ff4e1e85a5eb8518d704fb991f7e9f762f9aece7e7d4140ab2",
+      "role": "Approved P-D native transfer",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "User P-D delivery 2026-10-03; OL046_P-D_FROZEN_2026-10-03/HANDOFF.md and INVENTORY.json"
+      ],
+      "dimensions": [
+        270,
+        480
+      ],
+      "mode": "RGB",
+      "prompt_number": 17
+    },
+    {
+      "path": "art_department/production/build4-p-d/sources/p_d_hatch_room.png",
+      "sha256": "eb22f40b6e7148a138318418549e932eabb3ec813b37da61de0ea13192dd18fc",
+      "role": "Approved lossless P-D source export; provenance only",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "User P-D delivery 2026-10-03; OL046_P-D_FROZEN_2026-10-03/HANDOFF.md and INVENTORY.json"
+      ],
+      "dimensions": [
+        941,
+        1672
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/build4/p_d/p_d_senator_care_ground.png",
+      "sha256": "d01c490f2dc3a0affa1a4cb7dcbdcfbd227f932a2ae56ca7fef0d2dd7213acdb",
+      "role": "Approved P-D native transfer",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "User P-D delivery 2026-10-03; OL046_P-D_FROZEN_2026-10-03/HANDOFF.md and INVENTORY.json"
+      ],
+      "dimensions": [
+        270,
+        480
+      ],
+      "mode": "RGB",
+      "prompt_number": 18
+    },
+    {
+      "path": "art_department/production/build4-p-d/sources/p_d_senator_care_ground.png",
+      "sha256": "8ac4d30e5393026caa6894c8a6523b3799bbb5ad0a1c93ffb4dde7c5442ec621",
+      "role": "Approved lossless P-D source export; provenance only",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "User P-D delivery 2026-10-03; OL046_P-D_FROZEN_2026-10-03/HANDOFF.md and INVENTORY.json"
+      ],
+      "dimensions": [
+        941,
+        1672
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/build4/p_d/p_d_touge_rival_1.png",
+      "sha256": "0023910bfe931a1b0ed9842f607e570eb3f6a1d7726a22eafea996d0ed791030",
+      "role": "Approved P-D native transfer",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "User P-D delivery 2026-10-03; OL046_P-D_FROZEN_2026-10-03/HANDOFF.md and INVENTORY.json"
+      ],
+      "dimensions": [
+        16,
+        28
+      ],
+      "mode": "RGBA",
+      "prompt_number": 19
+    },
+    {
+      "path": "art_department/production/build4-p-d/sources/p_d_touge_rival_1.png",
+      "sha256": "89b7770cb87981c9c2b35fe7681ac350dffe421745d89485d019407917c4ad4f",
+      "role": "Approved lossless P-D source export; provenance only",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "User P-D delivery 2026-10-03; OL046_P-D_FROZEN_2026-10-03/HANDOFF.md and INVENTORY.json"
+      ],
+      "dimensions": [
+        948,
+        1659
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/build4/p_d/p_d_touge_rival_2.png",
+      "sha256": "245c7ec43bf00ca7ead9f66c7269136a6759c730abaee5cb20eaf1b427e9ce5a",
+      "role": "Approved P-D native transfer",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "User P-D delivery 2026-10-03; OL046_P-D_FROZEN_2026-10-03/HANDOFF.md and INVENTORY.json"
+      ],
+      "dimensions": [
+        16,
+        28
+      ],
+      "mode": "RGBA",
+      "prompt_number": 20
+    },
+    {
+      "path": "art_department/production/build4-p-d/sources/p_d_touge_rival_2.png",
+      "sha256": "6e17d39fbc2aa23b38e2b42932c559877ea7110c5c7843b837cb21eb26276990",
+      "role": "Approved lossless P-D source export; provenance only",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "User P-D delivery 2026-10-03; OL046_P-D_FROZEN_2026-10-03/HANDOFF.md and INVENTORY.json"
+      ],
+      "dimensions": [
+        948,
+        1659
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/build4/p_d/p_d_smallie_80x96.png",
+      "sha256": "da4c2570fbbbe10b7534306f0b31a4376c0cfaf3eead051a602156d94f9f209a",
+      "role": "Approved P-D native transfer",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "User P-D delivery 2026-10-03; OL046_P-D_FROZEN_2026-10-03/HANDOFF.md and INVENTORY.json"
+      ],
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "prompt_number": 21
+    },
+    {
+      "path": "art_department/production/build4-p-d/sources/p_d_smallie_80x96.png",
+      "sha256": "2abfe2a480c4be470404a8d6a38df41fa2fe4a4b85d3ca11b0e7dbf344aeb574",
+      "role": "Approved lossless P-D source export; provenance only",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "User P-D delivery 2026-10-03; OL046_P-D_FROZEN_2026-10-03/HANDOFF.md and INVENTORY.json"
+      ],
+      "dimensions": [
+        1145,
+        1374
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/build4/p_d/p_d_smallie_cousin_80x96.png",
+      "sha256": "694ed3ebf43ca21bac1987830ffdad2022700a024dc337aefa7b59462097ec40",
+      "role": "Approved P-D native transfer",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "User P-D delivery 2026-10-03; OL046_P-D_FROZEN_2026-10-03/HANDOFF.md and INVENTORY.json"
+      ],
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "prompt_number": 22
+    },
+    {
+      "path": "art_department/production/build4-p-d/sources/p_d_smallie_cousin_80x96.png",
+      "sha256": "1543fed562c6a93f32064a5b5d5f390c0328d2acea6a288d474ba7aca47dd49a",
+      "role": "Approved lossless P-D source export; provenance only",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "User P-D delivery 2026-10-03; OL046_P-D_FROZEN_2026-10-03/HANDOFF.md and INVENTORY.json"
+      ],
+      "dimensions": [
+        1145,
+        1374
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/build4/p_d/p_d_mama_gbenga_80x96.png",
+      "sha256": "995aea18c7f6e953a812981440da632140245f67c7a52601692010b9d6a52242",
+      "role": "Approved P-D native transfer",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "User P-D delivery 2026-10-03; OL046_P-D_FROZEN_2026-10-03/HANDOFF.md and INVENTORY.json"
+      ],
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "prompt_number": 23
+    },
+    {
+      "path": "art_department/production/build4-p-d/sources/p_d_mama_gbenga_80x96.png",
+      "sha256": "3c716a14e6eafc6b721e671e4ed023f5d319282a506fd00df32ec426f77f8682",
+      "role": "Approved lossless P-D source export; provenance only",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "User P-D delivery 2026-10-03; OL046_P-D_FROZEN_2026-10-03/HANDOFF.md and INVENTORY.json"
+      ],
+      "dimensions": [
+        1145,
+        1374
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/build4/p_d/p_d_uncle_bamidele_80x96.png",
+      "sha256": "0b154f166dae5c751a031888511c7280bfd8a756a554f317ea8cd4659e4bdb1c",
+      "role": "Approved P-D native transfer",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "User P-D delivery 2026-10-03; OL046_P-D_FROZEN_2026-10-03/HANDOFF.md and INVENTORY.json"
+      ],
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "prompt_number": 24
+    },
+    {
+      "path": "art_department/production/build4-p-d/sources/p_d_uncle_bamidele_80x96.png",
+      "sha256": "4ac3f35c986dea627dea6fcd49e58bd645d5e375f6f64ab6a6a3ecea415e56b8",
+      "role": "Approved lossless P-D source export; provenance only",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "User P-D delivery 2026-10-03; OL046_P-D_FROZEN_2026-10-03/HANDOFF.md and INVENTORY.json"
+      ],
+      "dimensions": [
+        1145,
+        1374
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/build4/p_d/p_d_senator_states_480x160.png",
+      "sha256": "68e7ad0e83d4042d2a92c6bb8448a4605fb3f64e0a1d11c2a88892b7a1715ad0",
+      "role": "Approved P-D native transfer",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "User P-D delivery 2026-10-03; OL046_P-D_FROZEN_2026-10-03/HANDOFF.md and INVENTORY.json"
+      ],
+      "dimensions": [
+        480,
+        160
+      ],
+      "mode": "RGBA",
+      "prompt_number": 25
+    },
+    {
+      "path": "art_department/production/build4-p-d/sources/p_d_senator_states_480x160.png",
+      "sha256": "ebceb7a447e1d153bd6875c7d8843afd7f89753c91dd95e5320e2ccd75ebce58",
+      "role": "Approved lossless P-D source export; provenance only",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "User P-D delivery 2026-10-03; OL046_P-D_FROZEN_2026-10-03/HANDOFF.md and INVENTORY.json"
+      ],
+      "dimensions": [
+        2172,
+        724
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/build4/p_d/p_d_senator_sitting_160x160.png",
+      "sha256": "19e6377e077e3b6feebaa394f530fd6f1902b77aaad95215bd0a1948bc26c5c8",
+      "role": "Lossless cell cut from approved P-D Senator sheet",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "User P-D delivery 2026-10-03; OL046_P-D_FROZEN_2026-10-03/HANDOFF.md and INVENTORY.json"
+      ],
+      "dimensions": [
+        160,
+        160
+      ],
+      "mode": "RGBA",
+      "derived_from": "assets/build4/p_d/p_d_senator_states_480x160.png",
+      "cell_rect": [
+        0,
+        0,
+        160,
+        160
+      ],
+      "contact": [
+        80,
+        152
+      ]
+    },
+    {
+      "path": "assets/build4/p_d/p_d_senator_charging_160x160.png",
+      "sha256": "4a9439f4f75544736c85ccc886fae96e6bc19ee8043d7e770c31e2897c8c01a7",
+      "role": "Lossless cell cut from approved P-D Senator sheet",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "User P-D delivery 2026-10-03; OL046_P-D_FROZEN_2026-10-03/HANDOFF.md and INVENTORY.json"
+      ],
+      "dimensions": [
+        160,
+        160
+      ],
+      "mode": "RGBA",
+      "derived_from": "assets/build4/p_d/p_d_senator_states_480x160.png",
+      "cell_rect": [
+        160,
+        0,
+        160,
+        160
+      ],
+      "contact": [
+        80,
+        152
+      ]
+    },
+    {
+      "path": "assets/build4/p_d/p_d_senator_asleep_160x160.png",
+      "sha256": "fd35425f815a2eb29ee9468c6cc3d11ebb2568338724198e80bcb95dcafabe19",
+      "role": "Lossless cell cut from approved P-D Senator sheet",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "User P-D delivery 2026-10-03; OL046_P-D_FROZEN_2026-10-03/HANDOFF.md and INVENTORY.json"
+      ],
+      "dimensions": [
+        160,
+        160
+      ],
+      "mode": "RGBA",
+      "derived_from": "assets/build4/p_d/p_d_senator_states_480x160.png",
+      "cell_rect": [
+        320,
+        0,
+        160,
+        160
+      ],
+      "contact": [
+        80,
+        152
+      ]
+    },
+    {
+      "path": "assets/build4/p_d/p_d_kiosk_guy_80x96.png",
+      "sha256": "961f1a09b1deba79c40741b7886e1053f3372eea4ababc8d1b3f405913d22d95",
+      "role": "Approved P-D native transfer",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "User P-D delivery 2026-10-03; OL046_P-D_FROZEN_2026-10-03/HANDOFF.md and INVENTORY.json"
+      ],
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "prompt_number": 26
+    },
+    {
+      "path": "art_department/production/build4-p-d/sources/p_d_kiosk_guy_80x96.png",
+      "sha256": "2802f8a384f99944a25904722cd622ef5e63a33a6c716bb06923afca125f6457",
+      "role": "Approved lossless P-D source export; provenance only",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "User P-D delivery 2026-10-03; OL046_P-D_FROZEN_2026-10-03/HANDOFF.md and INVENTORY.json"
+      ],
+      "dimensions": [
+        1145,
+        1374
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/build4/p_d/p_d_pickup_player_left_80x96.png",
+      "sha256": "8b1a8828094c80e8cbe0c364a55c1556e71c93a8c0eefa6a38767d1dba7d11d6",
+      "role": "Approved P-D native transfer",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "User P-D delivery 2026-10-03; OL046_P-D_FROZEN_2026-10-03/HANDOFF.md and INVENTORY.json"
+      ],
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "prompt_number": 27
+    },
+    {
+      "path": "art_department/production/build4-p-d/sources/p_d_pickup_player_left_80x96.png",
+      "sha256": "d795d80ceb47ba513e6e3fda351eccb3c43f361a147ad2f025502f65b4fdb7d7",
+      "role": "Approved lossless P-D source export; provenance only",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "User P-D delivery 2026-10-03; OL046_P-D_FROZEN_2026-10-03/HANDOFF.md and INVENTORY.json"
+      ],
+      "dimensions": [
+        1145,
+        1374
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/build4/p_d/p_d_pickup_player_middle_80x96.png",
+      "sha256": "1a1d42adca3d7ba66c7a5ef62a2b65c01861d05a08317cec1c041b20a4c89f9c",
+      "role": "Approved P-D native transfer",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "User P-D delivery 2026-10-03; OL046_P-D_FROZEN_2026-10-03/HANDOFF.md and INVENTORY.json"
+      ],
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "prompt_number": 28
+    },
+    {
+      "path": "art_department/production/build4-p-d/sources/p_d_pickup_player_middle_80x96.png",
+      "sha256": "954da281823638d4f653b06767a840f7ed225c91195afc59f5b8b1e4db6ace67",
+      "role": "Approved lossless P-D source export; provenance only",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "User P-D delivery 2026-10-03; OL046_P-D_FROZEN_2026-10-03/HANDOFF.md and INVENTORY.json"
+      ],
+      "dimensions": [
+        1145,
+        1374
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/build4/p_d/p_d_pickup_player_right_80x96.png",
+      "sha256": "9a56f997d5072853cd31408608fa234479e66934bb979c62c62f9addaec09d82",
+      "role": "Approved P-D native transfer",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "User P-D delivery 2026-10-03; OL046_P-D_FROZEN_2026-10-03/HANDOFF.md and INVENTORY.json"
+      ],
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "prompt_number": 29
+    },
+    {
+      "path": "art_department/production/build4-p-d/sources/p_d_pickup_player_right_80x96.png",
+      "sha256": "b8bc2b6a8d1db969ff5489d88e3899aed39071781cfbc28b17c4dc63d684639c",
+      "role": "Approved lossless P-D source export; provenance only",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "User P-D delivery 2026-10-03; OL046_P-D_FROZEN_2026-10-03/HANDOFF.md and INVENTORY.json"
+      ],
+      "dimensions": [
+        1145,
+        1374
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/build4/p_d/p_d_jollof_cook_80x96.png",
+      "sha256": "6bdfd8fa336cd4e19031486783cb376373cefaa7da9b2469d3094f2533bdcbb8",
+      "role": "Approved P-D native transfer",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "User P-D delivery 2026-10-03; OL046_P-D_FROZEN_2026-10-03/HANDOFF.md and INVENTORY.json"
+      ],
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "prompt_number": 30
+    },
+    {
+      "path": "art_department/production/build4-p-d/sources/p_d_jollof_cook_80x96.png",
+      "sha256": "c173a34a6748f1a7439aa21d800ebd083b9c6b52ed3eecfb25d2b2017d409e1b",
+      "role": "Approved lossless P-D source export; provenance only",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "User P-D delivery 2026-10-03; OL046_P-D_FROZEN_2026-10-03/HANDOFF.md and INVENTORY.json"
+      ],
+      "dimensions": [
+        1145,
+        1374
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/build4/p_d/p_d_hookah_date_80x96.png",
+      "sha256": "0ec35d58e496e4d6b4806348d831b0e525ce17eef5ff7a63ca9192afdaa38a76",
+      "role": "Approved P-D native transfer",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "User P-D delivery 2026-10-03; OL046_P-D_FROZEN_2026-10-03/HANDOFF.md and INVENTORY.json"
+      ],
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "prompt_number": 31
+    },
+    {
+      "path": "art_department/production/build4-p-d/sources/p_d_hookah_date_80x96.png",
+      "sha256": "94e8ebc679fe1e7bdfa54aa96324526576ced3526c583005a4115255f62465a7",
+      "role": "Approved lossless P-D source export; provenance only",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "User P-D delivery 2026-10-03; OL046_P-D_FROZEN_2026-10-03/HANDOFF.md and INVENTORY.json"
+      ],
+      "dimensions": [
+        1145,
+        1374
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/build4/p_d/fl_a10_recruit_token_48x48.png",
+      "sha256": "8c38ed0cbed9815304395b0414f05a65b12513cd982649cb5e9b13d85a03da7d",
+      "role": "Approved P-D native transfer",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "User P-D delivery 2026-10-03; OL046_P-D_FROZEN_2026-10-03/HANDOFF.md and INVENTORY.json"
+      ],
+      "dimensions": [
+        48,
+        48
+      ],
+      "mode": "RGBA",
+      "prompt_number": 32
+    },
+    {
+      "path": "art_department/production/build4-p-d/sources/fl_a10_recruit_token_48x48.png",
+      "sha256": "9e9c8c6eb9baf78512aace47cdb93285cf9588eac35d754aadc4154e4fc95a6d",
+      "role": "Approved lossless P-D source export; provenance only",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "User P-D delivery 2026-10-03; OL046_P-D_FROZEN_2026-10-03/HANDOFF.md and INVENTORY.json"
+      ],
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/build4/p_d/fl_a10_story_token_48x48.png",
+      "sha256": "115514f51320edfbd8a3233bc0462ab77184eb1cf87da28a60ec94f427e599ac",
+      "role": "Approved P-D native transfer",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "User P-D delivery 2026-10-03; OL046_P-D_FROZEN_2026-10-03/HANDOFF.md and INVENTORY.json"
+      ],
+      "dimensions": [
+        48,
+        48
+      ],
+      "mode": "RGBA",
+      "prompt_number": 33
+    },
+    {
+      "path": "art_department/production/build4-p-d/sources/fl_a10_story_token_48x48.png",
+      "sha256": "6718f506f2610b5dd12221487590bb472794d61b7dbfd55bd3578de470853482",
+      "role": "Approved lossless P-D source export; provenance only",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "User P-D delivery 2026-10-03; OL046_P-D_FROZEN_2026-10-03/HANDOFF.md and INVENTORY.json"
+      ],
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/build4/p_d/fl_a10_district_token_48x48.png",
+      "sha256": "c1daa0cbe4e0fadfbd416cf52cbca12e06258e35740be00cb0cd91f9dbc14392",
+      "role": "Approved P-D native transfer",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "User P-D delivery 2026-10-03; OL046_P-D_FROZEN_2026-10-03/HANDOFF.md and INVENTORY.json"
+      ],
+      "dimensions": [
+        48,
+        48
+      ],
+      "mode": "RGBA",
+      "prompt_number": 34
+    },
+    {
+      "path": "art_department/production/build4-p-d/sources/fl_a10_district_token_48x48.png",
+      "sha256": "795563f4c0d3d0b27a7cb85c77ced822c33d160c8ed951c7a432d9af4bff4f28",
+      "role": "Approved lossless P-D source export; provenance only",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "User P-D delivery 2026-10-03; OL046_P-D_FROZEN_2026-10-03/HANDOFF.md and INVENTORY.json"
+      ],
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/build4/p_d/fl_a07_tunde_states_400x96.png",
+      "sha256": "070d83cd646d9c7b011c3f14bee0e58940f3ca739f202f0dca57a6cd453738fb",
+      "role": "Approved P-D native transfer",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "User P-D delivery 2026-10-03; OL046_P-D_FROZEN_2026-10-03/HANDOFF.md and INVENTORY.json"
+      ],
+      "dimensions": [
+        400,
+        96
+      ],
+      "mode": "RGBA",
+      "prompt_number": 35
+    },
+    {
+      "path": "art_department/production/build4-p-d/sources/fl_a07_tunde_states_400x96.png",
+      "sha256": "935525ee4fbb2dbd83aeb772f9bf0f5d7635c7c1ad4df371a4de8e5c5c14dc7a",
+      "role": "Approved lossless P-D source export; provenance only",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "User P-D delivery 2026-10-03; OL046_P-D_FROZEN_2026-10-03/HANDOFF.md and INVENTORY.json"
+      ],
+      "dimensions": [
+        1983,
+        793
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/build4/p_d/fl_a07_tunde_walking_80x96.png",
+      "sha256": "0c8933fa81de87a4e11a11627d9d2d1e3d9e5331d76fd9999197a2c34c1f032d",
+      "role": "Lossless cell cut from approved P-D sheet",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "User P-D delivery 2026-10-03; OL046_P-D_FROZEN_2026-10-03/HANDOFF.md and INVENTORY.json"
+      ],
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "derived_from": "assets/build4/p_d/fl_a07_tunde_states_400x96.png",
+      "cell_rect": [
+        0,
+        0,
+        80,
+        96
+      ],
+      "contact": [
+        40,
+        88
+      ]
+    },
+    {
+      "path": "assets/build4/p_d/fl_a07_tunde_boarding_80x96.png",
+      "sha256": "7006235d3f31094df00b7bc29cbc121be853265684036c71451c25c1bbb7019a",
+      "role": "Lossless cell cut from approved P-D sheet",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "User P-D delivery 2026-10-03; OL046_P-D_FROZEN_2026-10-03/HANDOFF.md and INVENTORY.json"
+      ],
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "derived_from": "assets/build4/p_d/fl_a07_tunde_states_400x96.png",
+      "cell_rect": [
+        80,
+        0,
+        80,
+        96
+      ],
+      "contact": [
+        40,
+        88
+      ]
+    },
+    {
+      "path": "assets/build4/p_d/fl_a07_tunde_standing_80x96.png",
+      "sha256": "12b9fa058d82caed91fc89b5fa6c3072875919239b107d79a477623e4de99ac9",
+      "role": "Lossless cell cut from approved P-D sheet",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "User P-D delivery 2026-10-03; OL046_P-D_FROZEN_2026-10-03/HANDOFF.md and INVENTORY.json"
+      ],
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "derived_from": "assets/build4/p_d/fl_a07_tunde_states_400x96.png",
+      "cell_rect": [
+        160,
+        0,
+        80,
+        96
+      ],
+      "contact": [
+        40,
+        88
+      ]
+    },
+    {
+      "path": "assets/build4/p_d/fl_a07_tunde_wounded_80x96.png",
+      "sha256": "ce53a4d2c6ee634a8832f0497550b78908c6762c33c9a78943b0762fa916e475",
+      "role": "Lossless cell cut from approved P-D sheet",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "User P-D delivery 2026-10-03; OL046_P-D_FROZEN_2026-10-03/HANDOFF.md and INVENTORY.json"
+      ],
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "derived_from": "assets/build4/p_d/fl_a07_tunde_states_400x96.png",
+      "cell_rect": [
+        240,
+        0,
+        80,
+        96
+      ],
+      "contact": [
+        40,
+        88
+      ]
+    },
+    {
+      "path": "assets/build4/p_d/fl_a07_tunde_carried_80x96.png",
+      "sha256": "88834cf2292e0e07247c3ce59f7833d78c64f3da25501bf0967c3d17facc6e7a",
+      "role": "Lossless cell cut from approved P-D sheet",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "User P-D delivery 2026-10-03; OL046_P-D_FROZEN_2026-10-03/HANDOFF.md and INVENTORY.json"
+      ],
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "derived_from": "assets/build4/p_d/fl_a07_tunde_states_400x96.png",
+      "cell_rect": [
+        320,
+        0,
+        80,
+        96
+      ],
+      "contact": [
+        40,
+        88
+      ]
+    },
+    {
+      "path": "assets/build4/p_d/fl_a07_dre_states_400x96.png",
+      "sha256": "e01ddcf717721a1b8aeb984f717e440098d5e0558a85bc4817d6c417307f2f12",
+      "role": "Approved P-D native transfer",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "User P-D delivery 2026-10-03; OL046_P-D_FROZEN_2026-10-03/HANDOFF.md and INVENTORY.json"
+      ],
+      "dimensions": [
+        400,
+        96
+      ],
+      "mode": "RGBA",
+      "prompt_number": 36
+    },
+    {
+      "path": "art_department/production/build4-p-d/sources/fl_a07_dre_states_400x96.png",
+      "sha256": "ddd8840aa4456b64dd7bdc03f729b6ea0a9db103b82a47d2a4fbe94d88d66134",
+      "role": "Approved lossless P-D source export; provenance only",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "User P-D delivery 2026-10-03; OL046_P-D_FROZEN_2026-10-03/HANDOFF.md and INVENTORY.json"
+      ],
+      "dimensions": [
+        1983,
+        793
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/build4/p_d/fl_a07_dre_walking_80x96.png",
+      "sha256": "b2f1fdf9ec3d580c7c0009a9dd26aff49acb454d0f7113850229d46c23fbcbb6",
+      "role": "Lossless cell cut from approved P-D sheet",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "User P-D delivery 2026-10-03; OL046_P-D_FROZEN_2026-10-03/HANDOFF.md and INVENTORY.json"
+      ],
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "derived_from": "assets/build4/p_d/fl_a07_dre_states_400x96.png",
+      "cell_rect": [
+        0,
+        0,
+        80,
+        96
+      ],
+      "contact": [
+        40,
+        88
+      ]
+    },
+    {
+      "path": "assets/build4/p_d/fl_a07_dre_boarding_80x96.png",
+      "sha256": "5bad3a500af4a2da0b774ca94681efa03773bc888e2b7f68e70252fd8f528bdd",
+      "role": "Lossless cell cut from approved P-D sheet",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "User P-D delivery 2026-10-03; OL046_P-D_FROZEN_2026-10-03/HANDOFF.md and INVENTORY.json"
+      ],
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "derived_from": "assets/build4/p_d/fl_a07_dre_states_400x96.png",
+      "cell_rect": [
+        80,
+        0,
+        80,
+        96
+      ],
+      "contact": [
+        40,
+        88
+      ]
+    },
+    {
+      "path": "assets/build4/p_d/fl_a07_dre_standing_80x96.png",
+      "sha256": "6945490fb4e31dd01afe594ee061a50d8ee354f92a073936c031e0b32f1e1875",
+      "role": "Lossless cell cut from approved P-D sheet",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "User P-D delivery 2026-10-03; OL046_P-D_FROZEN_2026-10-03/HANDOFF.md and INVENTORY.json"
+      ],
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "derived_from": "assets/build4/p_d/fl_a07_dre_states_400x96.png",
+      "cell_rect": [
+        160,
+        0,
+        80,
+        96
+      ],
+      "contact": [
+        40,
+        88
+      ]
+    },
+    {
+      "path": "assets/build4/p_d/fl_a07_dre_wounded_80x96.png",
+      "sha256": "5b9b33e1f32fd6051227bd3779b884fa135937d281589b32f6864d7d2ff50d56",
+      "role": "Lossless cell cut from approved P-D sheet",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "User P-D delivery 2026-10-03; OL046_P-D_FROZEN_2026-10-03/HANDOFF.md and INVENTORY.json"
+      ],
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "derived_from": "assets/build4/p_d/fl_a07_dre_states_400x96.png",
+      "cell_rect": [
+        240,
+        0,
+        80,
+        96
+      ],
+      "contact": [
+        40,
+        88
+      ]
+    },
+    {
+      "path": "assets/build4/p_d/fl_a07_dre_carried_80x96.png",
+      "sha256": "0c486d066f355bd9f7059f7986c05121fa01f587614600b8895b592788f5710d",
+      "role": "Lossless cell cut from approved P-D sheet",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "User P-D delivery 2026-10-03; OL046_P-D_FROZEN_2026-10-03/HANDOFF.md and INVENTORY.json"
+      ],
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "derived_from": "assets/build4/p_d/fl_a07_dre_states_400x96.png",
+      "cell_rect": [
+        320,
+        0,
+        80,
+        96
+      ],
+      "contact": [
+        40,
+        88
+      ]
+    },
+    {
+      "path": "assets/build4/p_d/fl_a07_half_pint_states_400x96.png",
+      "sha256": "657ee481455f44a9f4fb35b4b51e7b9df44f450d476f8f05a1a85f6f6a8faced",
+      "role": "Approved P-D native transfer",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "User P-D delivery 2026-10-03; OL046_P-D_FROZEN_2026-10-03/HANDOFF.md and INVENTORY.json"
+      ],
+      "dimensions": [
+        400,
+        96
+      ],
+      "mode": "RGBA",
+      "prompt_number": 37
+    },
+    {
+      "path": "art_department/production/build4-p-d/sources/fl_a07_half_pint_states_400x96.png",
+      "sha256": "0d31396d75b1c9e132ba07051d203a463641790d5207e39848c14f23238ff375",
+      "role": "Approved lossless P-D source export; provenance only",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "User P-D delivery 2026-10-03; OL046_P-D_FROZEN_2026-10-03/HANDOFF.md and INVENTORY.json"
+      ],
+      "dimensions": [
+        1983,
+        793
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/build4/p_d/fl_a07_half_pint_walking_80x96.png",
+      "sha256": "d2198e3149b881cc35eb48172932179b414337f74a1569b489c12353d110082d",
+      "role": "Lossless cell cut from approved P-D sheet",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "User P-D delivery 2026-10-03; OL046_P-D_FROZEN_2026-10-03/HANDOFF.md and INVENTORY.json"
+      ],
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "derived_from": "assets/build4/p_d/fl_a07_half_pint_states_400x96.png",
+      "cell_rect": [
+        0,
+        0,
+        80,
+        96
+      ],
+      "contact": [
+        40,
+        88
+      ]
+    },
+    {
+      "path": "assets/build4/p_d/fl_a07_half_pint_boarding_80x96.png",
+      "sha256": "5e9e74021025988564e11491fa444001a1bebe58d5b3939298153a7b182d80da",
+      "role": "Lossless cell cut from approved P-D sheet",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "User P-D delivery 2026-10-03; OL046_P-D_FROZEN_2026-10-03/HANDOFF.md and INVENTORY.json"
+      ],
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "derived_from": "assets/build4/p_d/fl_a07_half_pint_states_400x96.png",
+      "cell_rect": [
+        80,
+        0,
+        80,
+        96
+      ],
+      "contact": [
+        40,
+        88
+      ]
+    },
+    {
+      "path": "assets/build4/p_d/fl_a07_half_pint_standing_80x96.png",
+      "sha256": "7d48a3994ada076bf47479d9f90a090ad6fc7b22b8aca4ee5659e567fe820b0f",
+      "role": "Lossless cell cut from approved P-D sheet",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "User P-D delivery 2026-10-03; OL046_P-D_FROZEN_2026-10-03/HANDOFF.md and INVENTORY.json"
+      ],
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "derived_from": "assets/build4/p_d/fl_a07_half_pint_states_400x96.png",
+      "cell_rect": [
+        160,
+        0,
+        80,
+        96
+      ],
+      "contact": [
+        40,
+        88
+      ]
+    },
+    {
+      "path": "assets/build4/p_d/fl_a07_half_pint_wounded_80x96.png",
+      "sha256": "9859055efad5bb4b140fbe05053870c1b20696cc8e93f39327ca820fe70a7129",
+      "role": "Lossless cell cut from approved P-D sheet",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "User P-D delivery 2026-10-03; OL046_P-D_FROZEN_2026-10-03/HANDOFF.md and INVENTORY.json"
+      ],
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "derived_from": "assets/build4/p_d/fl_a07_half_pint_states_400x96.png",
+      "cell_rect": [
+        240,
+        0,
+        80,
+        96
+      ],
+      "contact": [
+        40,
+        88
+      ]
+    },
+    {
+      "path": "assets/build4/p_d/fl_a07_half_pint_carried_80x96.png",
+      "sha256": "7efd0cecd9335119aa214db3b489c8e18049724828780be0ce1188f80cccec7f",
+      "role": "Lossless cell cut from approved P-D sheet",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "User P-D delivery 2026-10-03; OL046_P-D_FROZEN_2026-10-03/HANDOFF.md and INVENTORY.json"
+      ],
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "derived_from": "assets/build4/p_d/fl_a07_half_pint_states_400x96.png",
+      "cell_rect": [
+        320,
+        0,
+        80,
+        96
+      ],
+      "contact": [
+        40,
+        88
+      ]
+    },
+    {
+      "path": "assets/build4/p_d/fl_a07_sunday_best_states_400x96.png",
+      "sha256": "91a4d8b3fbb37fb5e6e36eefbcf46def8d2cd43e5320f1f7f9b5d677920782d5",
+      "role": "Approved P-D native transfer",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "User P-D delivery 2026-10-03; OL046_P-D_FROZEN_2026-10-03/HANDOFF.md and INVENTORY.json"
+      ],
+      "dimensions": [
+        400,
+        96
+      ],
+      "mode": "RGBA",
+      "prompt_number": 38
+    },
+    {
+      "path": "art_department/production/build4-p-d/sources/fl_a07_sunday_best_states_400x96.png",
+      "sha256": "1094c0b1a70d73ff8692d0649867a901524cfc883d781dd2eb9493e8e7cc94e0",
+      "role": "Approved lossless P-D source export; provenance only",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "User P-D delivery 2026-10-03; OL046_P-D_FROZEN_2026-10-03/HANDOFF.md and INVENTORY.json"
+      ],
+      "dimensions": [
+        1983,
+        793
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/build4/p_d/fl_a07_sunday_best_walking_80x96.png",
+      "sha256": "4500c7954f79690f25d6b79c119328a0b2824ce89ddc62b82adcaeefe6096ce7",
+      "role": "Lossless cell cut from approved P-D sheet",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "User P-D delivery 2026-10-03; OL046_P-D_FROZEN_2026-10-03/HANDOFF.md and INVENTORY.json"
+      ],
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "derived_from": "assets/build4/p_d/fl_a07_sunday_best_states_400x96.png",
+      "cell_rect": [
+        0,
+        0,
+        80,
+        96
+      ],
+      "contact": [
+        40,
+        88
+      ]
+    },
+    {
+      "path": "assets/build4/p_d/fl_a07_sunday_best_boarding_80x96.png",
+      "sha256": "cc6c9400e4738b74eca41ae77275e1321ce782d6373a5e81e70b96131d1dba5c",
+      "role": "Lossless cell cut from approved P-D sheet",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "User P-D delivery 2026-10-03; OL046_P-D_FROZEN_2026-10-03/HANDOFF.md and INVENTORY.json"
+      ],
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "derived_from": "assets/build4/p_d/fl_a07_sunday_best_states_400x96.png",
+      "cell_rect": [
+        80,
+        0,
+        80,
+        96
+      ],
+      "contact": [
+        40,
+        88
+      ]
+    },
+    {
+      "path": "assets/build4/p_d/fl_a07_sunday_best_standing_80x96.png",
+      "sha256": "efb67b483531fd85f7798433b8257a7814de44a2292fceed9b48c83b426a308d",
+      "role": "Lossless cell cut from approved P-D sheet",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "User P-D delivery 2026-10-03; OL046_P-D_FROZEN_2026-10-03/HANDOFF.md and INVENTORY.json"
+      ],
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "derived_from": "assets/build4/p_d/fl_a07_sunday_best_states_400x96.png",
+      "cell_rect": [
+        160,
+        0,
+        80,
+        96
+      ],
+      "contact": [
+        40,
+        88
+      ]
+    },
+    {
+      "path": "assets/build4/p_d/fl_a07_sunday_best_wounded_80x96.png",
+      "sha256": "939f31308dee35b85865b627622a3cdc666efb561db7ecc6a9dea4a12ed49e34",
+      "role": "Lossless cell cut from approved P-D sheet",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "User P-D delivery 2026-10-03; OL046_P-D_FROZEN_2026-10-03/HANDOFF.md and INVENTORY.json"
+      ],
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "derived_from": "assets/build4/p_d/fl_a07_sunday_best_states_400x96.png",
+      "cell_rect": [
+        240,
+        0,
+        80,
+        96
+      ],
+      "contact": [
+        40,
+        88
+      ]
+    },
+    {
+      "path": "assets/build4/p_d/fl_a07_sunday_best_carried_80x96.png",
+      "sha256": "27cc4486a7a715a52c6ad7ba53dce0f6b0691a85128d437d78db44d7afc2f7e3",
+      "role": "Lossless cell cut from approved P-D sheet",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "User P-D delivery 2026-10-03; OL046_P-D_FROZEN_2026-10-03/HANDOFF.md and INVENTORY.json"
+      ],
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "derived_from": "assets/build4/p_d/fl_a07_sunday_best_states_400x96.png",
+      "cell_rect": [
+        320,
+        0,
+        80,
+        96
+      ],
+      "contact": [
+        40,
+        88
+      ]
+    },
+    {
+      "path": "assets/build4/p_d/fl_a07_young_mazi_states_400x96.png",
+      "sha256": "8f0fbce3e2ed021e623a54e47f5aea88e47cedbde34c864890947a78c36d4523",
+      "role": "Approved P-D native transfer",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "User P-D delivery 2026-10-03; OL046_P-D_FROZEN_2026-10-03/HANDOFF.md and INVENTORY.json"
+      ],
+      "dimensions": [
+        400,
+        96
+      ],
+      "mode": "RGBA",
+      "prompt_number": 39
+    },
+    {
+      "path": "art_department/production/build4-p-d/sources/fl_a07_young_mazi_states_400x96.png",
+      "sha256": "cb5e100fd706f7b9d3bcff931f8839a472ff5e36b5c5a6b68df74a6012c34de9",
+      "role": "Approved lossless P-D source export; provenance only",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "User P-D delivery 2026-10-03; OL046_P-D_FROZEN_2026-10-03/HANDOFF.md and INVENTORY.json"
+      ],
+      "dimensions": [
+        1983,
+        793
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/build4/p_d/fl_a07_young_mazi_walking_80x96.png",
+      "sha256": "c284fb2996d2b46a03a1c731b467220a68f68ea6e736d1caaf59f69cf67c3007",
+      "role": "Lossless cell cut from approved P-D sheet",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "User P-D delivery 2026-10-03; OL046_P-D_FROZEN_2026-10-03/HANDOFF.md and INVENTORY.json"
+      ],
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "derived_from": "assets/build4/p_d/fl_a07_young_mazi_states_400x96.png",
+      "cell_rect": [
+        0,
+        0,
+        80,
+        96
+      ],
+      "contact": [
+        40,
+        88
+      ]
+    },
+    {
+      "path": "assets/build4/p_d/fl_a07_young_mazi_boarding_80x96.png",
+      "sha256": "867059027db0303c994ca7ab08714af7734a1d88e0a926b58db45cf494bea8a8",
+      "role": "Lossless cell cut from approved P-D sheet",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "User P-D delivery 2026-10-03; OL046_P-D_FROZEN_2026-10-03/HANDOFF.md and INVENTORY.json"
+      ],
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "derived_from": "assets/build4/p_d/fl_a07_young_mazi_states_400x96.png",
+      "cell_rect": [
+        80,
+        0,
+        80,
+        96
+      ],
+      "contact": [
+        40,
+        88
+      ]
+    },
+    {
+      "path": "assets/build4/p_d/fl_a07_young_mazi_standing_80x96.png",
+      "sha256": "68d52f4811e2fbfbdc4663a1f96f5b2656d9a01ab5989866e143a418e60249ca",
+      "role": "Lossless cell cut from approved P-D sheet",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "User P-D delivery 2026-10-03; OL046_P-D_FROZEN_2026-10-03/HANDOFF.md and INVENTORY.json"
+      ],
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "derived_from": "assets/build4/p_d/fl_a07_young_mazi_states_400x96.png",
+      "cell_rect": [
+        160,
+        0,
+        80,
+        96
+      ],
+      "contact": [
+        40,
+        88
+      ]
+    },
+    {
+      "path": "assets/build4/p_d/fl_a07_young_mazi_wounded_80x96.png",
+      "sha256": "994935c491e555967b3e648bb6a945ecacec3dd263a57610dedd76fd8e0b4a2e",
+      "role": "Lossless cell cut from approved P-D sheet",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "User P-D delivery 2026-10-03; OL046_P-D_FROZEN_2026-10-03/HANDOFF.md and INVENTORY.json"
+      ],
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "derived_from": "assets/build4/p_d/fl_a07_young_mazi_states_400x96.png",
+      "cell_rect": [
+        240,
+        0,
+        80,
+        96
+      ],
+      "contact": [
+        40,
+        88
+      ]
+    },
+    {
+      "path": "assets/build4/p_d/fl_a07_young_mazi_carried_80x96.png",
+      "sha256": "319f30e161ecc3bdec8fa14f9b193242b819f958929b3df1e76bc4e7f1eef00b",
+      "role": "Lossless cell cut from approved P-D sheet",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "User P-D delivery 2026-10-03; OL046_P-D_FROZEN_2026-10-03/HANDOFF.md and INVENTORY.json"
+      ],
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "derived_from": "assets/build4/p_d/fl_a07_young_mazi_states_400x96.png",
+      "cell_rect": [
+        320,
+        0,
+        80,
+        96
+      ],
+      "contact": [
+        40,
+        88
+      ]
+    },
+    {
+      "path": "assets/build4/p_d/fl_a07_auntie_grit_states_400x96.png",
+      "sha256": "ea8affa61c5c8e2cbf7f8fb13d7015e86f195af3817522cebce0b4c6b1f56977",
+      "role": "Approved P-D native transfer",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "User P-D delivery 2026-10-03; OL046_P-D_FROZEN_2026-10-03/HANDOFF.md and INVENTORY.json"
+      ],
+      "dimensions": [
+        400,
+        96
+      ],
+      "mode": "RGBA",
+      "prompt_number": 40
+    },
+    {
+      "path": "art_department/production/build4-p-d/sources/fl_a07_auntie_grit_states_400x96.png",
+      "sha256": "ab1140bd1838c8762f609aa6dbfd6c1ca7e42c3a297003d061f0052f551c0e55",
+      "role": "Approved lossless P-D source export; provenance only",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "User P-D delivery 2026-10-03; OL046_P-D_FROZEN_2026-10-03/HANDOFF.md and INVENTORY.json"
+      ],
+      "dimensions": [
+        1983,
+        793
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/build4/p_d/fl_a07_auntie_grit_walking_80x96.png",
+      "sha256": "dd6dfd57ac35608fd51ce56cd99476f49da046c99ef4a88d05594c26e9327820",
+      "role": "Lossless cell cut from approved P-D sheet",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "User P-D delivery 2026-10-03; OL046_P-D_FROZEN_2026-10-03/HANDOFF.md and INVENTORY.json"
+      ],
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "derived_from": "assets/build4/p_d/fl_a07_auntie_grit_states_400x96.png",
+      "cell_rect": [
+        0,
+        0,
+        80,
+        96
+      ],
+      "contact": [
+        40,
+        88
+      ]
+    },
+    {
+      "path": "assets/build4/p_d/fl_a07_auntie_grit_boarding_80x96.png",
+      "sha256": "0a2b4fc44519f6b61738bdf66282e7f60b411a64f24425bbdc447a0fd2d3cda5",
+      "role": "Lossless cell cut from approved P-D sheet",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "User P-D delivery 2026-10-03; OL046_P-D_FROZEN_2026-10-03/HANDOFF.md and INVENTORY.json"
+      ],
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "derived_from": "assets/build4/p_d/fl_a07_auntie_grit_states_400x96.png",
+      "cell_rect": [
+        80,
+        0,
+        80,
+        96
+      ],
+      "contact": [
+        40,
+        88
+      ]
+    },
+    {
+      "path": "assets/build4/p_d/fl_a07_auntie_grit_standing_80x96.png",
+      "sha256": "77807022fc91d6116bb8cd63e63bde8babc58a8f28894b1fa229487846254b50",
+      "role": "Lossless cell cut from approved P-D sheet",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "User P-D delivery 2026-10-03; OL046_P-D_FROZEN_2026-10-03/HANDOFF.md and INVENTORY.json"
+      ],
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "derived_from": "assets/build4/p_d/fl_a07_auntie_grit_states_400x96.png",
+      "cell_rect": [
+        160,
+        0,
+        80,
+        96
+      ],
+      "contact": [
+        40,
+        88
+      ]
+    },
+    {
+      "path": "assets/build4/p_d/fl_a07_auntie_grit_wounded_80x96.png",
+      "sha256": "c11d492f358eb3f4f7f291dccd094a1b230f5e31010c04c4977916d8667f8c53",
+      "role": "Lossless cell cut from approved P-D sheet",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "User P-D delivery 2026-10-03; OL046_P-D_FROZEN_2026-10-03/HANDOFF.md and INVENTORY.json"
+      ],
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "derived_from": "assets/build4/p_d/fl_a07_auntie_grit_states_400x96.png",
+      "cell_rect": [
+        240,
+        0,
+        80,
+        96
+      ],
+      "contact": [
+        40,
+        88
+      ]
+    },
+    {
+      "path": "assets/build4/p_d/fl_a07_auntie_grit_carried_80x96.png",
+      "sha256": "1b0817e0c2bbd60239273c4fd81681ee0c15376377a983f4c1afb5c7d4e22226",
+      "role": "Lossless cell cut from approved P-D sheet",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "User P-D delivery 2026-10-03; OL046_P-D_FROZEN_2026-10-03/HANDOFF.md and INVENTORY.json"
+      ],
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "derived_from": "assets/build4/p_d/fl_a07_auntie_grit_states_400x96.png",
+      "cell_rect": [
+        320,
+        0,
+        80,
+        96
+      ],
+      "contact": [
+        40,
+        88
+      ]
+    },
+    {
+      "path": "assets/build4/p_d/E-gun-mac_and_cheese-held.png",
+      "sha256": "f8cf45820625854a0fadaabdc5cc510c0d5f374ea750f7fe985b9e9f15cb0059",
+      "role": "Approved P-D native transfer",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "User P-D delivery 2026-10-03; OL046_P-D_FROZEN_2026-10-03/HANDOFF.md and INVENTORY.json"
+      ],
+      "dimensions": [
+        64,
+        32
+      ],
+      "mode": "RGBA",
+      "prompt_number": 41
+    },
+    {
+      "path": "art_department/production/build4-p-d/sources/E-gun-mac_and_cheese-held.png",
+      "sha256": "6e13f735a28deb833ba8acf889df5bdcf35e84aea40fe128357566390dde4d56",
+      "role": "Approved lossless P-D source export; provenance only",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "User P-D delivery 2026-10-03; OL046_P-D_FROZEN_2026-10-03/HANDOFF.md and INVENTORY.json"
+      ],
+      "dimensions": [
+        1774,
+        887
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/build4/p_d/E-gun-tommy_tony-held.png",
+      "sha256": "3922690f3c0634664e2b9ddbf3f8b1a7d53571506869bd804b15b2810d441ad1",
+      "role": "Approved P-D native transfer",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "User P-D delivery 2026-10-03; OL046_P-D_FROZEN_2026-10-03/HANDOFF.md and INVENTORY.json"
+      ],
+      "dimensions": [
+        64,
+        32
+      ],
+      "mode": "RGBA",
+      "prompt_number": 42
+    },
+    {
+      "path": "art_department/production/build4-p-d/sources/E-gun-tommy_tony-held.png",
+      "sha256": "66d05854efea23005554b87868887b6f3ba314825759ca080343190add26fcb0",
+      "role": "Approved lossless P-D source export; provenance only",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "User P-D delivery 2026-10-03; OL046_P-D_FROZEN_2026-10-03/HANDOFF.md and INVENTORY.json"
+      ],
+      "dimensions": [
+        1774,
+        887
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/build4/p_d/E-gun-jollof_burner-held.png",
+      "sha256": "913a5d6c9df27ff5577568f23ff25f1166e54ab8279c33b2f7097a9433232536",
+      "role": "Approved P-D native transfer",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "User P-D delivery 2026-10-03; OL046_P-D_FROZEN_2026-10-03/HANDOFF.md and INVENTORY.json"
+      ],
+      "dimensions": [
+        64,
+        32
+      ],
+      "mode": "RGBA",
+      "prompt_number": 43
+    },
+    {
+      "path": "art_department/production/build4-p-d/sources/E-gun-jollof_burner-held.png",
+      "sha256": "444f68204474313c67b0861c8f9731ad1810934dade550eed11f7d055f91afad",
+      "role": "Approved lossless P-D source export; provenance only",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "User P-D delivery 2026-10-03; OL046_P-D_FROZEN_2026-10-03/HANDOFF.md and INVENTORY.json"
+      ],
+      "dimensions": [
+        1774,
+        887
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/build4/p_d/E-gun-blueberry_blaster-held.png",
+      "sha256": "df0c42d774acdbf03bd94698114d719e560a76f097ba327fb368438df610a5ba",
+      "role": "Approved P-D native transfer",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "User P-D delivery 2026-10-03; OL046_P-D_FROZEN_2026-10-03/HANDOFF.md and INVENTORY.json"
+      ],
+      "dimensions": [
+        64,
+        32
+      ],
+      "mode": "RGBA",
+      "prompt_number": 44
+    },
+    {
+      "path": "art_department/production/build4-p-d/sources/E-gun-blueberry_blaster-held.png",
+      "sha256": "38809a8b3e247c900fd9e8dd0f787e59b5f067919a6b4bf60f74b63f8c7f9c4b",
+      "role": "Approved lossless P-D source export; provenance only",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "User P-D delivery 2026-10-03; OL046_P-D_FROZEN_2026-10-03/HANDOFF.md and INVENTORY.json"
+      ],
+      "dimensions": [
+        1774,
+        887
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/build4/p_d/E-gun-legendary_draco-held.png",
+      "sha256": "443eb6a3b0bd8a897ee8df396733b80fce6f31b8ebc50bc011338928b96f89f0",
+      "role": "Approved P-D native transfer",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "User P-D delivery 2026-10-03; OL046_P-D_FROZEN_2026-10-03/HANDOFF.md and INVENTORY.json"
+      ],
+      "dimensions": [
+        64,
+        32
+      ],
+      "mode": "RGBA",
+      "prompt_number": 45
+    },
+    {
+      "path": "art_department/production/build4-p-d/sources/E-gun-legendary_draco-held.png",
+      "sha256": "c215cfaa115e160bb2c34975fc9e9188dc046f1242b4b114d1369436cf7e94a5",
+      "role": "Approved lossless P-D source export; provenance only",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "User P-D delivery 2026-10-03; OL046_P-D_FROZEN_2026-10-03/HANDOFF.md and INVENTORY.json"
+      ],
+      "dimensions": [
+        1774,
+        887
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/build4/p_d/E-gun-golden_draco-held.png",
+      "sha256": "a48305bf3803c554e6033d9afa2afa3a4dd4413eb0c9c9accf4056ee1df636a0",
+      "role": "Approved P-D native transfer",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "User P-D delivery 2026-10-03; OL046_P-D_FROZEN_2026-10-03/HANDOFF.md and INVENTORY.json"
+      ],
+      "dimensions": [
+        64,
+        32
+      ],
+      "mode": "RGBA",
+      "prompt_number": 46
+    },
+    {
+      "path": "art_department/production/build4-p-d/sources/E-gun-golden_draco-held.png",
+      "sha256": "0d34a541bda44b81b00d71c4b8b83cafccc91876b71e39c4d9ec6e3366ba85b5",
+      "role": "Approved lossless P-D source export; provenance only",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "User P-D delivery 2026-10-03; OL046_P-D_FROZEN_2026-10-03/HANDOFF.md and INVENTORY.json"
+      ],
+      "dimensions": [
+        1774,
+        887
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/build4/p_d/E-gun-auntie_slipper-held.png",
+      "sha256": "13c60e577e37d1102828c0b010f89ecd9da0debef96bf93489f77cc42a97cf73",
+      "role": "Approved P-D native transfer",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "User P-D delivery 2026-10-03; OL046_P-D_FROZEN_2026-10-03/HANDOFF.md and INVENTORY.json"
+      ],
+      "dimensions": [
+        64,
+        32
+      ],
+      "mode": "RGBA",
+      "prompt_number": 47
+    },
+    {
+      "path": "art_department/production/build4-p-d/sources/E-gun-auntie_slipper-held.png",
+      "sha256": "2937c4405f879b60d6efdf167b04f60e5e94e829a2748d71531a119eedf81b3b",
+      "role": "Approved lossless P-D source export; provenance only",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "User P-D delivery 2026-10-03; OL046_P-D_FROZEN_2026-10-03/HANDOFF.md and INVENTORY.json"
+      ],
+      "dimensions": [
+        1774,
+        887
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/build4/p_d/E-gun-triple_k_kratos-held.png",
+      "sha256": "1156d867a33b90c9cf6835efc9b730d7b91f505fef24a44c40d0f14e08fb8942",
+      "role": "Approved P-D native transfer",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "User P-D delivery 2026-10-03; OL046_P-D_FROZEN_2026-10-03/HANDOFF.md and INVENTORY.json"
+      ],
+      "dimensions": [
+        64,
+        32
+      ],
+      "mode": "RGBA",
+      "prompt_number": 48
+    },
+    {
+      "path": "art_department/production/build4-p-d/sources/E-gun-triple_k_kratos-held.png",
+      "sha256": "2fb1d36c12af68094660ff52b958da9d5441bb16a9b41373727ed72314bfadd1",
+      "role": "Approved lossless P-D source export; provenance only",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "User P-D delivery 2026-10-03; OL046_P-D_FROZEN_2026-10-03/HANDOFF.md and INVENTORY.json"
+      ],
+      "dimensions": [
+        1774,
+        887
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/build4/p_d/gbenga_rentals_workday_270x480.png",
+      "sha256": "a4d36fcfa06a18503fbd037a24442e674ee3e9601fd5fde32027b0e37e70357d",
+      "role": "Byte-identical reuse of approved WORKDAY background for Gbenga rentals",
+      "status": "FROZEN",
+      "default_style_reference": false,
+      "approval_evidence": [
+        "OL-042 / P-D Gbenga rentals reuse; preserved f07 WORKDAY SHA-256 audit"
+      ],
+      "dimensions": [
+        270,
+        480
+      ],
+      "mode": "RGB"
     }
   ]
 }

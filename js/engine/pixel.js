@@ -95,5 +95,8 @@
  const spriteCache=new Map();
  function personSprite(id,state=null){const p=id==='rich'?window.RABtfPeople?.rich:window.RABtfPeople?.get?.(id);const src=(state&&p?.states?.[state])||p?.sprite;if(!src)return null;if(!spriteCache.has(src))spriteCache.set(src,Object.assign(new Image(),{src}));return spriteCache.get(src);}
  function drawSprite(ctx,img,x,y,{flip=false}={}){if(!(img?.complete&&img.naturalWidth))return false;const src=img.getAttribute('src'),[ax,ay]=window.RAPresentationAssets?.[src]?.anchor||[40,88];ctx.save();ctx.imageSmoothingEnabled=false;ctx.translate(Math.round(x),Math.round(y));if(flip)ctx.scale(-1,1);ctx.drawImage(img,-ax,-ay);ctx.restore();return true;}
- window.RAPixel={NATIVE,palette,FONT,createCanvas,text,wrap,rect,frame,rng,drawActor,paintEnvironment,personSprite,drawSprite};
+ function assetSprite(src){if(!src)return null;if(!spriteCache.has(src))spriteCache.set(src,Object.assign(new Image(),{src}));return spriteCache.get(src);}
+ function drawBoard(ctx,id){const img=assetSprite(window.RAArtRegistry?.environments?.[id]?.asset);if(!(img?.complete&&img.naturalWidth))return false;ctx.imageSmoothingEnabled=false;ctx.drawImage(img,0,0,270,480);return true;}
+ function drawRegistered(ctx,id,x,y,state=null){const c=window.RAArtRegistry?.characters?.[id];return drawSprite(ctx,assetSprite(c?.states?.[state]||c?.anchor),x,y);}
+ window.RAPixel={assetSprite,drawBoard,drawRegistered,NATIVE,palette,FONT,createCanvas,text,wrap,rect,frame,rng,drawActor,paintEnvironment,personSprite,drawSprite};
 })();

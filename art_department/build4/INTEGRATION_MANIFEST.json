@@ -12013,10 +12013,11 @@
       "ref": "09c2b59",
       "commit": "09c2b593e699bfd0b945f7f2752435ce130ae569",
       "source": "tools/tests/f15/art.test.mjs",
-      "path": "tools/tests/f15/art.test.mjs",
+      "path": "art_department/build4/provenance/runtime-tests/f15/art.test.pre-p-d.mjs",
       "sha256": "a2e94a18e9385f5dfec3ecd5b71c2c89eaa05b529d9af364f97653289326e74d",
       "bytes": 5788,
-      "action": "copied"
+      "action": "Original imported test preserved byte-for-byte; active test updated for approved P-D room hashes",
+      "original_runtime_path": "tools/tests/f15/art.test.mjs"
     }
   ],
   "register_additions": {

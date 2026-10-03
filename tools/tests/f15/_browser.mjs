@@ -7,7 +7,7 @@ import {createRequire} from 'node:module';
 
 export const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'../../..');
 const require=createRequire(import.meta.url);
-const types={'.html':'text/html','.js':'text/javascript','.css':'text/css','.png':'image/png','.ttf':'font/ttf','.json':'application/json','.mp3':'audio/mpeg','.svg':'image/svg+xml','.woff2':'font/woff2'};
+const types={'.html':'text/html','.js':'text/javascript','.mjs':'text/javascript','.css':'text/css','.png':'image/png','.ttf':'font/ttf','.json':'application/json','.mp3':'audio/mpeg','.svg':'image/svg+xml','.woff2':'font/woff2'};
 
 export async function serve(){
   const missing=[];

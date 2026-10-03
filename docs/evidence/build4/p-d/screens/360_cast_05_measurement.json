@@ -1,0 +1,142 @@
+{
+  "combat": false,
+  "env": "gbenga_rentals",
+  "world": {
+    "x": 0,
+    "y": 0,
+    "w": 360,
+    "h": 468
+  },
+  "actors": [
+    {
+      "slot": "left",
+      "id": "carlos",
+      "tag": "IMG",
+      "src": "assets/before_the_fame/characters/carlos/runtime_80x96/carlos_neutral_happy_anchor_80x96_review_v1.png",
+      "ok": true,
+      "nw": 80,
+      "nh": 96,
+      "css": {
+        "x": -75.5,
+        "y": 104,
+        "w": 280,
+        "h": 336
+      },
+      "visible": {
+        "x": 8.5,
+        "y": 191.5,
+        "w": 119,
+        "h": 227.5
+      },
+      "sprite": {
+        "x": -75.5,
+        "y": 104,
+        "w": 280,
+        "h": 336
+      },
+      "face": {
+        "x": 26,
+        "y": 226.5,
+        "w": 84,
+        "h": 70
+      },
+      "contact": {
+        "x": 64.5,
+        "y": 412
+      },
+      "world": {
+        "x": 78.17970085470087,
+        "y": 372
+      },
+      "k": 3.5,
+      "hidden": false,
+      "rendering": "pixelated",
+      "body": {
+        "x": 9,
+        "y": 192,
+        "w": 119,
+        "h": 227
+      },
+      "pixels": 17237
+    },
+    {
+      "slot": "right",
+      "id": "gbenga",
+      "tag": "IMG",
+      "src": "assets/before_the_fame/characters/gbenga/runtime_80x96/gbenga_adjusting_sleeves_80x96_v2.png",
+      "ok": true,
+      "nw": 80,
+      "nh": 96,
+      "css": {
+        "x": 131.5,
+        "y": 104,
+        "w": 280,
+        "h": 336
+      },
+      "visible": {
+        "x": 170,
+        "y": 135.5,
+        "w": 182,
+        "h": 287
+      },
+      "sprite": {
+        "x": 131.5,
+        "y": 104,
+        "w": 280,
+        "h": 336
+      },
+      "face": {
+        "x": 198,
+        "y": 181,
+        "w": 126,
+        "h": 87.5
+      },
+      "contact": {
+        "x": 271.5,
+        "y": 412
+      },
+      "world": {
+        "x": 191.82029914529915,
+        "y": 372
+      },
+      "k": 3.5,
+      "hidden": false,
+      "rendering": "pixelated",
+      "body": {
+        "x": 170,
+        "y": 136,
+        "w": 182,
+        "h": 287
+      },
+      "pixels": 27536
+    }
+  ],
+  "pairs": [
+    {
+      "a": "carlos",
+      "b": "gbenga",
+      "overlap": 0,
+      "frac": 0
+    }
+  ],
+  "ui": {
+    "box": {
+      "x": 8,
+      "y": 489.5625,
+      "w": 344,
+      "h": 130
+    },
+    "bubble": null,
+    "choices": [],
+    "hud": [],
+    "telegraph": null,
+    "panel": null,
+    "title": null,
+    "location": {
+      "x": 8,
+      "y": 8,
+      "w": 252,
+      "h": 25.125
+    }
+  }
+}

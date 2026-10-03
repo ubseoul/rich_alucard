@@ -98,7 +98,7 @@ export async function test(root){
  check(rec.not_frozen_source_required.some(t=>/FL-A07 named Oga/.test(t))&&rec.not_frozen_source_required.some(t=>/RECRUIT, STORY, DISTRICT/.test(t)),'freeze record names both SOURCE_REQUIRED gaps');
  check(Object.values(FZ.FL_ART.oga).every(p=>!/tunde|dre|half_pint|sunday_best|young_mazi|auntie_grit/.test(p)),'no named-Oga state sprite exists or is referenced');
  const art=fs.readFileSync(path.join(play,'feel-art.mjs'),'utf8');
- check(/hasSprite=o=>!!o&&o\.named===false/.test(art),'only un-named (generic) Ogas use the FL-A07 template');
+ check(/o\.named===false\|\|!!PD_ART\.ogas\[o\.id\]/.test(art),'generic FL-A07 template and approved named P-D family are selected separately');
  check(!/obaSilhouette|duffelSVG|richBed|richHand/.test(art+fs.readFileSync(path.join(play,'feel-scenes.mjs'),'utf8')),'the retired placeholders (Oba silhouette, SVG duffel, SVG bed / hand) are gone');
  check(!/E-blood_held/.test(fs.readFileSync(path.join(play,'feel-scenes.mjs'),'utf8')),'Blood X uses the frozen FL-A10 piece');
  check(bad===0,'frozen art integration violations: '+bad);

@@ -1,0 +1,142 @@
+{
+  "combat": false,
+  "env": "bedroom",
+  "world": {
+    "x": 0,
+    "y": 0,
+    "w": 430,
+    "h": 559
+  },
+  "actors": [
+    {
+      "slot": "left",
+      "id": "mazda_human",
+      "tag": "IMG",
+      "src": "assets/before_the_fame/characters/mazda_human/blueberry_mazda_human_neutral_80x96.png",
+      "ok": true,
+      "nw": 80,
+      "nh": 96,
+      "css": {
+        "x": -87.5,
+        "y": 138,
+        "w": 321.96875,
+        "h": 386.375
+      },
+      "visible": {
+        "x": 13.120000000000005,
+        "y": 242.6448,
+        "w": 116.7192,
+        "h": 249.5376
+      },
+      "sprite": {
+        "x": -87.5,
+        "y": 138,
+        "w": 321.984,
+        "h": 386.3808
+      },
+      "face": {
+        "x": 57.392799999999994,
+        "y": 254.7192,
+        "w": 44.2728,
+        "h": 36.2232
+      },
+      "contact": {
+        "x": 73.5,
+        "y": 492
+      },
+      "world": {
+        "x": 84.65470085470086,
+        "y": 400
+      },
+      "k": 4.0248,
+      "hidden": false,
+      "rendering": "pixelated",
+      "body": {
+        "x": 13,
+        "y": 243,
+        "w": 117,
+        "h": 249
+      },
+      "pixels": 17345
+    },
+    {
+      "slot": "right",
+      "id": "senator",
+      "tag": "IMG",
+      "src": "assets/build4/p_d/p_d_senator_sitting_160x160.png",
+      "ok": true,
+      "nw": 160,
+      "nh": 160,
+      "css": {
+        "x": 131.5,
+        "y": 186,
+        "w": 321.96875,
+        "h": 321.96875
+      },
+      "visible": {
+        "x": 169.7356,
+        "y": 234.2976,
+        "w": 247.52519999999998,
+        "h": 259.5996
+      },
+      "sprite": {
+        "x": 131.5,
+        "y": 186,
+        "w": 321.984,
+        "h": 321.984
+      },
+      "face": {
+        "x": 205.9588,
+        "y": 276.558,
+        "w": 173.0664,
+        "h": 78.4836
+      },
+      "contact": {
+        "x": 292.5,
+        "y": 492
+      },
+      "world": {
+        "x": 185.34529914529912,
+        "y": 400
+      },
+      "k": 2.0124,
+      "hidden": false,
+      "rendering": "pixelated",
+      "body": {
+        "x": 170,
+        "y": 234,
+        "w": 247,
+        "h": 260
+      },
+      "pixels": 36003
+    }
+  ],
+  "pairs": [
+    {
+      "a": "mazda_human",
+      "b": "senator",
+      "overlap": 0,
+      "frac": 0
+    }
+  ],
+  "ui": {
+    "box": {
+      "x": 9,
+      "y": 584.796875,
+      "w": 412,
+      "h": 179.5
+    },
+    "bubble": null,
+    "choices": [],
+    "hud": [],
+    "telegraph": null,
+    "panel": null,
+    "title": null,
+    "location": {
+      "x": 8,
+      "y": 8,
+      "w": 113.59375,
+      "h": 19.09375
+    }
+  }
+}

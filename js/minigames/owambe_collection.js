@@ -57,7 +57,7 @@
   function pointerDown(e){const p=toNative(e.clientX,e.clientY);if(backOutHit(p.x,p.y)){finish('BACK_OUT');return;}catchAt(p.x,p.y);}
   const pointerMove=e=>{if(e.buttons||e.pressure>0){const p=toNative(e.clientX,e.clientY);catchAt(p.x,p.y);}};canvas.addEventListener('pointerdown',pointerDown);canvas.addEventListener('pointermove',pointerMove);
   function draw(){
-   R.paintEnvironment(g,{sky:'#170d27',wall:'#4d214b',floor:'#3d302d',horizon:326,seed:'bamidele-60',props:[{type:'string',x1:8,x2:262,y:70,color:'#ffd36a'},{type:'sign',x:38,y:98,w:194,h:20,text:"UNCLE BAMIDELE'S 60TH",glow:'#ffb040'}],crowd:18,crowdColors:['#9d5ca8','#2b8c75','#d18b3f']});
+   if(!R.drawBoard(g,'owambe_birthday'))R.paintEnvironment(g,{sky:'#170d27',wall:'#4d214b',floor:'#3d302d',horizon:326,seed:'bamidele-60',props:[{type:'string',x1:8,x2:262,y:70,color:'#ffd36a'},{type:'sign',x:38,y:98,w:194,h:20,text:"UNCLE BAMIDELE'S 60TH",glow:'#ffb040'}],crowd:18,crowdColors:['#9d5ca8','#2b8c75','#d18b3f']});
    R.text(g,`COLLECT $${amountCaught.toLocaleString()} / $${cfg.AUTHORED_DEBT_TARGET.toLocaleString()}`,10,12,{size:7,color:'#f6efd9'});
    R.text(g,`SONG ${Math.max(0,Math.ceil(cfg.SONG_SECONDS-elapsedMs/1000))}`,10,28,{size:6,color:'#f6efd9'});
    R.text(g,'ATTENTION',10,44,{size:6,color:'#f6efd9'});R.rect(g,78,42,180,10,'#21182c');R.rect(g,80,44,176*Math.min(1,attention/cfg.ATTENTION_MAX),6,attention>70?'#d7193f':'#c18b3c');

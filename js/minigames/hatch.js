@@ -84,10 +84,11 @@
   function onDown(e){if(terminal)return;const p=toNative(e.clientX,e.clientY),id=hit(p.x,p.y);if(id)advance(id);}
   canvas.addEventListener('pointerdown',onDown);
   function drawDog(){
+   if(R.drawRegistered(g,'senator',135,296,'sitting'))return;
    R.rect(g,74,224,122,72,'#4d4d55');R.rect(g,154,190,56,52,'#5b5b63');R.rect(g,164,176,12,22,'#3a3a42');R.rect(g,194,176,12,22,'#3a3a42');R.rect(g,168,208,8,6,'#d7193f');R.rect(g,194,208,8,6,'#d7193f');R.rect(g,167,238,36,7,'#c18b3c');R.text(g,'SENATOR',170,240,{size:5,color:'#10101b'});
   }
   function draw(){
-   R.paintEnvironment(g,{sky:'#0b1024',wall:'#1d1a33',floor:'#141225',horizon:360,seed:'senator-care',stars:18,props:[{type:'rect',x:0,y:346,w:270,h:134,color:'#1a1730'}]});drawDog();
+   if(!R.drawBoard(g,'senator_care_ground'))R.paintEnvironment(g,{sky:'#0b1024',wall:'#1d1a33',floor:'#141225',horizon:360,seed:'senator-care',stars:18,props:[{type:'rect',x:0,y:346,w:270,h:134,color:'#1a1730'}]});drawDog();
    const prompt=CARE_PROMPTS[Math.min(index,CARE_PROMPTS.length-1)];R.text(g,'SENATOR CARE',10,12,{size:8,color:'#f6efd9'});R.text(g,`PROMPT ${Math.min(index+1,3)}/3 · ${prompt}!`,10,34,{size:8,color:'#ffd36a'});R.text(g,`${Math.max(0,Math.ceil((windowMs-elapsed)/1000))}`,248,34,{size:7,color:'#f6efd9',align:'right'});
    if(feedback&&feedbackMs>0)R.text(g,feedback,135,326,{size:6,color:'#f6efd9',align:'center',maxWidth:230});
    buttons=[];for(const [i,id] of CARE_PROMPTS.entries()){const x=10+i*86;buttons.push({id,x,y:420,w:78,h:32});R.rect(g,x,420,78,32,id===prompt?'#c18b3c':'#3a6ff0');R.text(g,id==='JOKO'?'JOKO!':id,x+39,432,{size:7,color:'#f6efd9',align:'center'});}
@@ -212,6 +213,7 @@
 
   // ---- render ----
   function backdrop(){
+   if(R.drawBoard(g,dragon.stage==='majestic'?'hatch_castle':'hatch_room'))return;
    if(dragon.stage==='majestic'){
     R.paintEnvironment(g,{sky:'#0b1024',wall:'#1d1a33',floor:'#141225',horizon:360,seed:'hatch-castle',stars:24,
      props:[{type:'rect',x:0,y:340,w:270,h:6,color:'#2a2440'},{type:'rect',x:0,y:346,w:270,h:134,color:'#1a1730'},
