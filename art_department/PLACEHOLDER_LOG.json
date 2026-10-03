@@ -3,7 +3,7 @@
   "as_of": "2026-10-02",
   "scope": "OPEN runtime and dormant registered fallbacks; a row may be a named state family",
   "start_count": 92,
-  "end_count": 68,
+  "end_count": 50,
   "runtime_census_start": {
     "environments": 17,
     "actors": 10
@@ -163,186 +163,6 @@
       "source": "source_vault/art_authority/OL017_OPEN_VISUAL_CHARACTER_AUTHORITY.md",
       "status": "OPEN",
       "identity_decision": "RESOLVED — OL-042 D6"
-    },
-    {
-      "package": "P-C",
-      "id": "dancer_roxy_t1_poses",
-      "screen": "F15 three-dancer club",
-      "route": "RAF15Club, selected dancer roxy; new wardrobe renderer pending",
-      "size": "512×160 RGBA sheet; 128×160 cells, contact (64,152)",
-      "need": "Missing dancer_roxy_t1_idle.png, dancer_roxy_t1_pose.png, dancer_roxy_t1_cheer.png, dancer_roxy_t1_back.png",
-      "source": "art_department/production/f15-launch-trio-masters/foundation_cards/roxy-foundation.png",
-      "status": "OPEN"
-    },
-    {
-      "package": "P-C",
-      "id": "dancer_roxy_t1_pole",
-      "screen": "F15 three-dancer club",
-      "route": "RAF15Club; roxy, tier 1, pole",
-      "size": "6-second Ube pipeline video, 24 FPS; stable 688x688 framing; Codex converts per OL-026",
-      "need": "Incoming POLE video; no image-generated animation frames",
-      "source": "source_vault/art_authority/RAINMAKER_Dancer_Generation_Sheets_and_Wardrobe_Levels.docx",
-      "status": "OPEN"
-    },
-    {
-      "package": "P-C",
-      "id": "dancer_roxy_t1_floor",
-      "screen": "F15 three-dancer club",
-      "route": "RAF15Club; roxy, tier 1, floor",
-      "size": "6-second Ube pipeline video, 24 FPS; stable 688x688 framing; Codex converts per OL-026",
-      "need": "Incoming FLOOR video; no image-generated animation frames",
-      "source": "source_vault/art_authority/RAINMAKER_Dancer_Generation_Sheets_and_Wardrobe_Levels.docx",
-      "status": "OPEN"
-    },
-    {
-      "package": "P-C",
-      "id": "dancer_roxy_t3_poses",
-      "screen": "F15 three-dancer club",
-      "route": "RAF15Club, selected dancer roxy; new wardrobe renderer pending",
-      "size": "640×160 RGBA sheet; 128×160 cells, contact (64,152)",
-      "need": "Missing dancer_roxy_t3_idle.png, dancer_roxy_t3_pose.png, dancer_roxy_t3_cheer.png, dancer_roxy_t3_back.png, dancer_roxy_t3_idlealt.png",
-      "source": "art_department/production/f15-launch-trio-masters/foundation_cards/roxy-foundation.png",
-      "status": "OPEN"
-    },
-    {
-      "package": "P-C",
-      "id": "dancer_roxy_t3_pole",
-      "screen": "F15 three-dancer club",
-      "route": "RAF15Club; roxy, tier 3, pole",
-      "size": "6-second Ube pipeline video, 24 FPS; stable 688x688 framing; Codex converts per OL-026",
-      "need": "Incoming POLE video; no image-generated animation frames",
-      "source": "source_vault/art_authority/RAINMAKER_Dancer_Generation_Sheets_and_Wardrobe_Levels.docx",
-      "status": "OPEN"
-    },
-    {
-      "package": "P-C",
-      "id": "dancer_roxy_t3_floor",
-      "screen": "F15 three-dancer club",
-      "route": "RAF15Club; roxy, tier 3, floor",
-      "size": "6-second Ube pipeline video, 24 FPS; stable 688x688 framing; Codex converts per OL-026",
-      "need": "Incoming FLOOR video; no image-generated animation frames",
-      "source": "source_vault/art_authority/RAINMAKER_Dancer_Generation_Sheets_and_Wardrobe_Levels.docx",
-      "status": "OPEN"
-    },
-    {
-      "package": "P-C",
-      "id": "dancer_rosalyn_t1_poses",
-      "screen": "F15 three-dancer club",
-      "route": "RAF15Club, selected dancer rosalyn; new wardrobe renderer pending",
-      "size": "512×160 RGBA sheet; 128×160 cells, contact (64,152)",
-      "need": "Missing dancer_rosalyn_t1_idle.png, dancer_rosalyn_t1_pose.png, dancer_rosalyn_t1_cheer.png, dancer_rosalyn_t1_back.png",
-      "source": "art_department/production/f15-launch-trio-masters/foundation_cards/rosalyn-foundation.png",
-      "status": "OPEN"
-    },
-    {
-      "package": "P-C",
-      "id": "dancer_rosalyn_t1_pole",
-      "screen": "F15 three-dancer club",
-      "route": "RAF15Club; rosalyn, tier 1, pole",
-      "size": "6-second Ube pipeline video, 24 FPS; stable 688x688 framing; Codex converts per OL-026",
-      "need": "Incoming POLE video; no image-generated animation frames",
-      "source": "source_vault/art_authority/RAINMAKER_Dancer_Generation_Sheets_and_Wardrobe_Levels.docx",
-      "status": "OPEN"
-    },
-    {
-      "package": "P-C",
-      "id": "dancer_rosalyn_t1_floor",
-      "screen": "F15 three-dancer club",
-      "route": "RAF15Club; rosalyn, tier 1, floor",
-      "size": "6-second Ube pipeline video, 24 FPS; stable 688x688 framing; Codex converts per OL-026",
-      "need": "Incoming FLOOR video; no image-generated animation frames",
-      "source": "source_vault/art_authority/RAINMAKER_Dancer_Generation_Sheets_and_Wardrobe_Levels.docx",
-      "status": "OPEN"
-    },
-    {
-      "package": "P-C",
-      "id": "dancer_rosalyn_t3_poses",
-      "screen": "F15 three-dancer club",
-      "route": "RAF15Club, selected dancer rosalyn; new wardrobe renderer pending",
-      "size": "640×160 RGBA sheet; 128×160 cells, contact (64,152)",
-      "need": "Missing dancer_rosalyn_t3_idle.png, dancer_rosalyn_t3_pose.png, dancer_rosalyn_t3_cheer.png, dancer_rosalyn_t3_back.png, dancer_rosalyn_t3_idlealt.png",
-      "source": "art_department/production/f15-launch-trio-masters/foundation_cards/rosalyn-foundation.png",
-      "status": "OPEN"
-    },
-    {
-      "package": "P-C",
-      "id": "dancer_rosalyn_t3_pole",
-      "screen": "F15 three-dancer club",
-      "route": "RAF15Club; rosalyn, tier 3, pole",
-      "size": "6-second Ube pipeline video, 24 FPS; stable 688x688 framing; Codex converts per OL-026",
-      "need": "Incoming POLE video; no image-generated animation frames",
-      "source": "source_vault/art_authority/RAINMAKER_Dancer_Generation_Sheets_and_Wardrobe_Levels.docx",
-      "status": "OPEN"
-    },
-    {
-      "package": "P-C",
-      "id": "dancer_rosalyn_t3_floor",
-      "screen": "F15 three-dancer club",
-      "route": "RAF15Club; rosalyn, tier 3, floor",
-      "size": "6-second Ube pipeline video, 24 FPS; stable 688x688 framing; Codex converts per OL-026",
-      "need": "Incoming FLOOR video; no image-generated animation frames",
-      "source": "source_vault/art_authority/RAINMAKER_Dancer_Generation_Sheets_and_Wardrobe_Levels.docx",
-      "status": "OPEN"
-    },
-    {
-      "package": "P-C",
-      "id": "dancer_emerald_t1_poses",
-      "screen": "F15 three-dancer club",
-      "route": "RAF15Club, selected dancer emerald; new wardrobe renderer pending",
-      "size": "512×160 RGBA sheet; 128×160 cells, contact (64,152)",
-      "need": "Missing dancer_emerald_t1_idle.png, dancer_emerald_t1_pose.png, dancer_emerald_t1_cheer.png, dancer_emerald_t1_back.png",
-      "source": "art_department/production/f15-launch-trio-masters/foundation_cards/emerald-foundation.png",
-      "status": "OPEN"
-    },
-    {
-      "package": "P-C",
-      "id": "dancer_emerald_t1_pole",
-      "screen": "F15 three-dancer club",
-      "route": "RAF15Club; emerald, tier 1, pole",
-      "size": "6-second Ube pipeline video, 24 FPS; stable 688x688 framing; Codex converts per OL-026",
-      "need": "Incoming POLE video; no image-generated animation frames",
-      "source": "source_vault/art_authority/RAINMAKER_Dancer_Generation_Sheets_and_Wardrobe_Levels.docx",
-      "status": "OPEN"
-    },
-    {
-      "package": "P-C",
-      "id": "dancer_emerald_t1_floor",
-      "screen": "F15 three-dancer club",
-      "route": "RAF15Club; emerald, tier 1, floor",
-      "size": "6-second Ube pipeline video, 24 FPS; stable 688x688 framing; Codex converts per OL-026",
-      "need": "Incoming FLOOR video; no image-generated animation frames",
-      "source": "source_vault/art_authority/RAINMAKER_Dancer_Generation_Sheets_and_Wardrobe_Levels.docx",
-      "status": "OPEN"
-    },
-    {
-      "package": "P-C",
-      "id": "dancer_emerald_t3_poses",
-      "screen": "F15 three-dancer club",
-      "route": "RAF15Club, selected dancer emerald; new wardrobe renderer pending",
-      "size": "640×160 RGBA sheet; 128×160 cells, contact (64,152)",
-      "need": "Missing dancer_emerald_t3_idle.png, dancer_emerald_t3_pose.png, dancer_emerald_t3_cheer.png, dancer_emerald_t3_back.png, dancer_emerald_t3_idlealt.png",
-      "source": "art_department/production/f15-launch-trio-masters/foundation_cards/emerald-foundation.png",
-      "status": "OPEN"
-    },
-    {
-      "package": "P-C",
-      "id": "dancer_emerald_t3_pole",
-      "screen": "F15 three-dancer club",
-      "route": "RAF15Club; emerald, tier 3, pole",
-      "size": "6-second Ube pipeline video, 24 FPS; stable 688x688 framing; Codex converts per OL-026",
-      "need": "Incoming POLE video; no image-generated animation frames",
-      "source": "source_vault/art_authority/RAINMAKER_Dancer_Generation_Sheets_and_Wardrobe_Levels.docx",
-      "status": "OPEN"
-    },
-    {
-      "package": "P-C",
-      "id": "dancer_emerald_t3_floor",
-      "screen": "F15 three-dancer club",
-      "route": "RAF15Club; emerald, tier 3, floor",
-      "size": "6-second Ube pipeline video, 24 FPS; stable 688x688 framing; Codex converts per OL-026",
-      "need": "Incoming FLOOR video; no image-generated animation frames",
-      "source": "source_vault/art_authority/RAINMAKER_Dancer_Generation_Sheets_and_Wardrobe_Levels.docx",
-      "status": "OPEN"
     },
     {
       "package": "P-D",
@@ -1184,5 +1004,226 @@
       "P-D": 50
     },
     "gun_dev_note": "TRIPLE K-KRATOS explicitly requested by OL-046; art row retained, runtime DEV gate unchanged. D5 party-dev room stays excluded."
+  },
+  "deferred_future": [
+    {
+      "package": "P-C",
+      "id": "dancer_roxy_t1_poses",
+      "screen": "F15 three-dancer club",
+      "route": "RAF15Club, selected dancer roxy; new wardrobe renderer pending",
+      "size": "512×160 RGBA sheet; 128×160 cells, contact (64,152)",
+      "need": "Missing dancer_roxy_t1_idle.png, dancer_roxy_t1_pose.png, dancer_roxy_t1_cheer.png, dancer_roxy_t1_back.png",
+      "source": "art_department/production/f15-launch-trio-masters/foundation_cards/roxy-foundation.png",
+      "status": "DEFERRED FUTURE — OL-052",
+      "launch_scope": false
+    },
+    {
+      "package": "P-C",
+      "id": "dancer_roxy_t1_pole",
+      "screen": "F15 three-dancer club",
+      "route": "RAF15Club; roxy, tier 1, pole",
+      "size": "6-second Ube pipeline video, 24 FPS; stable 688x688 framing; Codex converts per OL-026",
+      "need": "Incoming POLE video; no image-generated animation frames",
+      "source": "source_vault/art_authority/RAINMAKER_Dancer_Generation_Sheets_and_Wardrobe_Levels.docx",
+      "status": "DEFERRED FUTURE — OL-052",
+      "launch_scope": false
+    },
+    {
+      "package": "P-C",
+      "id": "dancer_roxy_t1_floor",
+      "screen": "F15 three-dancer club",
+      "route": "RAF15Club; roxy, tier 1, floor",
+      "size": "6-second Ube pipeline video, 24 FPS; stable 688x688 framing; Codex converts per OL-026",
+      "need": "Incoming FLOOR video; no image-generated animation frames",
+      "source": "source_vault/art_authority/RAINMAKER_Dancer_Generation_Sheets_and_Wardrobe_Levels.docx",
+      "status": "DEFERRED FUTURE — OL-052",
+      "launch_scope": false
+    },
+    {
+      "package": "P-C",
+      "id": "dancer_roxy_t3_poses",
+      "screen": "F15 three-dancer club",
+      "route": "RAF15Club, selected dancer roxy; new wardrobe renderer pending",
+      "size": "640×160 RGBA sheet; 128×160 cells, contact (64,152)",
+      "need": "Missing dancer_roxy_t3_idle.png, dancer_roxy_t3_pose.png, dancer_roxy_t3_cheer.png, dancer_roxy_t3_back.png, dancer_roxy_t3_idlealt.png",
+      "source": "art_department/production/f15-launch-trio-masters/foundation_cards/roxy-foundation.png",
+      "status": "DEFERRED FUTURE — OL-052",
+      "launch_scope": false
+    },
+    {
+      "package": "P-C",
+      "id": "dancer_roxy_t3_pole",
+      "screen": "F15 three-dancer club",
+      "route": "RAF15Club; roxy, tier 3, pole",
+      "size": "6-second Ube pipeline video, 24 FPS; stable 688x688 framing; Codex converts per OL-026",
+      "need": "Incoming POLE video; no image-generated animation frames",
+      "source": "source_vault/art_authority/RAINMAKER_Dancer_Generation_Sheets_and_Wardrobe_Levels.docx",
+      "status": "DEFERRED FUTURE — OL-052",
+      "launch_scope": false
+    },
+    {
+      "package": "P-C",
+      "id": "dancer_roxy_t3_floor",
+      "screen": "F15 three-dancer club",
+      "route": "RAF15Club; roxy, tier 3, floor",
+      "size": "6-second Ube pipeline video, 24 FPS; stable 688x688 framing; Codex converts per OL-026",
+      "need": "Incoming FLOOR video; no image-generated animation frames",
+      "source": "source_vault/art_authority/RAINMAKER_Dancer_Generation_Sheets_and_Wardrobe_Levels.docx",
+      "status": "DEFERRED FUTURE — OL-052",
+      "launch_scope": false
+    },
+    {
+      "package": "P-C",
+      "id": "dancer_rosalyn_t1_poses",
+      "screen": "F15 three-dancer club",
+      "route": "RAF15Club, selected dancer rosalyn; new wardrobe renderer pending",
+      "size": "512×160 RGBA sheet; 128×160 cells, contact (64,152)",
+      "need": "Missing dancer_rosalyn_t1_idle.png, dancer_rosalyn_t1_pose.png, dancer_rosalyn_t1_cheer.png, dancer_rosalyn_t1_back.png",
+      "source": "art_department/production/f15-launch-trio-masters/foundation_cards/rosalyn-foundation.png",
+      "status": "DEFERRED FUTURE — OL-052",
+      "launch_scope": false
+    },
+    {
+      "package": "P-C",
+      "id": "dancer_rosalyn_t1_pole",
+      "screen": "F15 three-dancer club",
+      "route": "RAF15Club; rosalyn, tier 1, pole",
+      "size": "6-second Ube pipeline video, 24 FPS; stable 688x688 framing; Codex converts per OL-026",
+      "need": "Incoming POLE video; no image-generated animation frames",
+      "source": "source_vault/art_authority/RAINMAKER_Dancer_Generation_Sheets_and_Wardrobe_Levels.docx",
+      "status": "DEFERRED FUTURE — OL-052",
+      "launch_scope": false
+    },
+    {
+      "package": "P-C",
+      "id": "dancer_rosalyn_t1_floor",
+      "screen": "F15 three-dancer club",
+      "route": "RAF15Club; rosalyn, tier 1, floor",
+      "size": "6-second Ube pipeline video, 24 FPS; stable 688x688 framing; Codex converts per OL-026",
+      "need": "Incoming FLOOR video; no image-generated animation frames",
+      "source": "source_vault/art_authority/RAINMAKER_Dancer_Generation_Sheets_and_Wardrobe_Levels.docx",
+      "status": "DEFERRED FUTURE — OL-052",
+      "launch_scope": false
+    },
+    {
+      "package": "P-C",
+      "id": "dancer_rosalyn_t3_poses",
+      "screen": "F15 three-dancer club",
+      "route": "RAF15Club, selected dancer rosalyn; new wardrobe renderer pending",
+      "size": "640×160 RGBA sheet; 128×160 cells, contact (64,152)",
+      "need": "Missing dancer_rosalyn_t3_idle.png, dancer_rosalyn_t3_pose.png, dancer_rosalyn_t3_cheer.png, dancer_rosalyn_t3_back.png, dancer_rosalyn_t3_idlealt.png",
+      "source": "art_department/production/f15-launch-trio-masters/foundation_cards/rosalyn-foundation.png",
+      "status": "DEFERRED FUTURE — OL-052",
+      "launch_scope": false
+    },
+    {
+      "package": "P-C",
+      "id": "dancer_rosalyn_t3_pole",
+      "screen": "F15 three-dancer club",
+      "route": "RAF15Club; rosalyn, tier 3, pole",
+      "size": "6-second Ube pipeline video, 24 FPS; stable 688x688 framing; Codex converts per OL-026",
+      "need": "Incoming POLE video; no image-generated animation frames",
+      "source": "source_vault/art_authority/RAINMAKER_Dancer_Generation_Sheets_and_Wardrobe_Levels.docx",
+      "status": "DEFERRED FUTURE — OL-052",
+      "launch_scope": false
+    },
+    {
+      "package": "P-C",
+      "id": "dancer_rosalyn_t3_floor",
+      "screen": "F15 three-dancer club",
+      "route": "RAF15Club; rosalyn, tier 3, floor",
+      "size": "6-second Ube pipeline video, 24 FPS; stable 688x688 framing; Codex converts per OL-026",
+      "need": "Incoming FLOOR video; no image-generated animation frames",
+      "source": "source_vault/art_authority/RAINMAKER_Dancer_Generation_Sheets_and_Wardrobe_Levels.docx",
+      "status": "DEFERRED FUTURE — OL-052",
+      "launch_scope": false
+    },
+    {
+      "package": "P-C",
+      "id": "dancer_emerald_t1_poses",
+      "screen": "F15 three-dancer club",
+      "route": "RAF15Club, selected dancer emerald; new wardrobe renderer pending",
+      "size": "512×160 RGBA sheet; 128×160 cells, contact (64,152)",
+      "need": "Missing dancer_emerald_t1_idle.png, dancer_emerald_t1_pose.png, dancer_emerald_t1_cheer.png, dancer_emerald_t1_back.png",
+      "source": "art_department/production/f15-launch-trio-masters/foundation_cards/emerald-foundation.png",
+      "status": "DEFERRED FUTURE — OL-052",
+      "launch_scope": false
+    },
+    {
+      "package": "P-C",
+      "id": "dancer_emerald_t1_pole",
+      "screen": "F15 three-dancer club",
+      "route": "RAF15Club; emerald, tier 1, pole",
+      "size": "6-second Ube pipeline video, 24 FPS; stable 688x688 framing; Codex converts per OL-026",
+      "need": "Incoming POLE video; no image-generated animation frames",
+      "source": "source_vault/art_authority/RAINMAKER_Dancer_Generation_Sheets_and_Wardrobe_Levels.docx",
+      "status": "DEFERRED FUTURE — OL-052",
+      "launch_scope": false
+    },
+    {
+      "package": "P-C",
+      "id": "dancer_emerald_t1_floor",
+      "screen": "F15 three-dancer club",
+      "route": "RAF15Club; emerald, tier 1, floor",
+      "size": "6-second Ube pipeline video, 24 FPS; stable 688x688 framing; Codex converts per OL-026",
+      "need": "Incoming FLOOR video; no image-generated animation frames",
+      "source": "source_vault/art_authority/RAINMAKER_Dancer_Generation_Sheets_and_Wardrobe_Levels.docx",
+      "status": "DEFERRED FUTURE — OL-052",
+      "launch_scope": false
+    },
+    {
+      "package": "P-C",
+      "id": "dancer_emerald_t3_poses",
+      "screen": "F15 three-dancer club",
+      "route": "RAF15Club, selected dancer emerald; new wardrobe renderer pending",
+      "size": "640×160 RGBA sheet; 128×160 cells, contact (64,152)",
+      "need": "Missing dancer_emerald_t3_idle.png, dancer_emerald_t3_pose.png, dancer_emerald_t3_cheer.png, dancer_emerald_t3_back.png, dancer_emerald_t3_idlealt.png",
+      "source": "art_department/production/f15-launch-trio-masters/foundation_cards/emerald-foundation.png",
+      "status": "DEFERRED FUTURE — OL-052",
+      "launch_scope": false
+    },
+    {
+      "package": "P-C",
+      "id": "dancer_emerald_t3_pole",
+      "screen": "F15 three-dancer club",
+      "route": "RAF15Club; emerald, tier 3, pole",
+      "size": "6-second Ube pipeline video, 24 FPS; stable 688x688 framing; Codex converts per OL-026",
+      "need": "Incoming POLE video; no image-generated animation frames",
+      "source": "source_vault/art_authority/RAINMAKER_Dancer_Generation_Sheets_and_Wardrobe_Levels.docx",
+      "status": "DEFERRED FUTURE — OL-052",
+      "launch_scope": false
+    },
+    {
+      "package": "P-C",
+      "id": "dancer_emerald_t3_floor",
+      "screen": "F15 three-dancer club",
+      "route": "RAF15Club; emerald, tier 3, floor",
+      "size": "6-second Ube pipeline video, 24 FPS; stable 688x688 framing; Codex converts per OL-026",
+      "need": "Incoming FLOOR video; no image-generated animation frames",
+      "source": "source_vault/art_authority/RAINMAKER_Dancer_Generation_Sheets_and_Wardrobe_Levels.docx",
+      "status": "DEFERRED FUTURE — OL-052",
+      "launch_scope": false
+    }
+  ],
+  "pending_by_package": {
+    "P-A": 0,
+    "P-B": 0,
+    "P-C": 0,
+    "P-D": 50
+  },
+  "ol052": {
+    "date": "2026-10-03",
+    "P-C_launch_closed": true,
+    "deferred_rows": 18,
+    "future_scope": "RAINMAKER wardrobe tiers (Tier 1 / Tier 3 loops + pose sheets) — ships when Ube supplies the videos.",
+    "launch_outfits": "Three current accepted loops; single launch outfit, internal Tier 2 record only",
+    "tier_wiring": "None; removed dormant supplemental wardrobe metadata; no F15/F06 code edits",
+    "pending_by_package": {
+      "P-A": 0,
+      "P-B": 0,
+      "P-C": 0,
+      "P-D": 50
+    },
+    "remaining_launch_rows": 50
   }
 }

@@ -1,6 +1,9 @@
 # P-C_STEPS — OL-042 · Ube filename-only checklist
 
-1. Keep all accepted Tier 2 (REDUCED) loops and still identity references. No new Tier 2 art or videos are requested. `build4/WARDROBE_ASSET_MAP.json` registers the current runtime bytes under Tier 2; prior master sequences remain untouched. Roxy = WOLF, Rosalyn = PINK, Emerald = DRAGON. Do not substitute historical ten-dancer identities or infer wardrobe tier from appearance.
+**DEFERRED — OL-052. Not launch scope. No pose sheets or videos requested for launch. Nothing in this historical checklist authorizes launch wardrobe-tier code or dormant shipping logic. Ships when Ube supplies the future videos.**
+
+
+1. Keep all accepted Tier 2 (REDUCED) loops and still identity references. No new Tier 2 art or videos are requested. `build4/LAUNCH_OUTFIT_MAP.json` records the current single launch outfits internally as Tier 2; prior master sequences remain untouched. Roxy = WOLF, Rosalyn = PINK, Emerald = DRAGON. Do not substitute historical ten-dancer identities or infer wardrobe tier from appearance.
 2. Run the three Tier 3 prompts below with your **local model**. Judge/refine each still sheet yourself, keeping the same mature 21+ body/face/species/accessories. Tier 3 is a fully opaque stage two-piece, non-explicit: no nudity, nipples, genitals or see-through coverage. Save the approved sheet under its exact filename.
 3. Run the three Tier 1 prompts in **ChatGPT images**, attaching the corresponding approved Tier 3 file plus the listed frozen references. Add clothing over the same identity. Judge/refine each sheet. No Tier 2 prompt.
 4. Use those six approved still sheets in **your existing video pipeline**. Make exactly the 12 videos listed below, dancer × Tier 1/Tier 3 × POLE/FLOOR. No image-generated animation frames. Use the same process as the accepted loops, no restyling.
@@ -100,7 +103,7 @@ The 688x688 framing is a source-video contract; only **new** video derivatives n
 | 11 | Emerald / 1 | POLE | `dancer_emerald_t1_poses.png` | `assets/f15/dancers/dragon.png` (accepted reduced loop) | `dancer_emerald_t1_pole.mp4` |
 | 12 | Emerald / 1 | FLOOR | `dancer_emerald_t1_poses.png` | `assets/f15/dancers/dragon.png` (accepted reduced loop) | `dancer_emerald_t1_floor.mp4` |
 
-## Codex step-5 engineering queue (no extra work or manifests from Ube)
+## Deferred future-patch engineering notes (not launch step 5; OL-052)
 
 F15 owns wardrobe tiers **per dance**, separate from the lifetime She fw Me levels. F06 code remains feel-locked and untouched. Authored RAINMAKER wardrobe rules, extracted from `source_vault/art_authority/RAINMAKER_Dancer_Generation_Sheets_and_Wardrobe_Levels.docx` §2:
 

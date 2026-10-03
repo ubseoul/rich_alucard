@@ -1,4 +1,15 @@
-# BUILD-4 progress — OL-047 (OL-046/042/039 history retained)
+# BUILD-4 progress — OL-052 (earlier rulings retained as history)
+
+## OL-052 current launch scope
+
+P-C deferred to a future patch: 18 rows removed from launch pending; P-C CLOSED with 0 launch rows and no pose sheets/videos requested. P-A 0 / P-B 0 / P-C 0 / P-D 50 (48 image requests + two reuse-wiring rows). Await only approved filename-only P-D drops on `build/visual-completion-002`.
+
+OL-042 §5 wardrobe-tier wiring is cancelled for launch. No tier-selection/progression code was built in F15; only dormant wardrobe metadata had been added to the supplemental registry, and it is now removed from the generator and generated runtime part. No dormant wardrobe feature ships. The three existing accepted loops remain frozen and registered as the single launch outfits, render at all times, and are recorded internally as Tier 2 in `art_department/build4/LAUNCH_OUTFIT_MAP.json`. F15 and F06 implementation bytes remain unchanged.
+
+Moved P-C.md and P-C_STEPS.md from `art_department/briefs/` to `art_department/future/`; moved the pending P-C drop plan and historical wardrobe map there too. Added future-scope row in `docs/PRESERVED_WORK.md`: “RAINMAKER wardrobe tiers (Tier 1 / Tier 3 loops + pose sheets) — ships when Ube supplies the videos.” The future folder is outside shipped runtime directories. Earlier P-C generation and wardrobe-step instructions below are historical and superseded by OL-052.
+
+Validation PASS: full release build (runs npm test gates), artifact verification, F15/registry unit checks, supplemental registry, authoritative preservation hash audit, leak check, presentation lock checks, and real F15 render/width sweep 45/45 at 360/390/430. Fresh artifact verified: no wardrobe metadata or future P-C instructions; accepted loop bytes unchanged. No new art, no drops ingested; P-D prompts 1–48 unchanged in content. Learned-move FX remain BUILD-6-owned. OL-047 publication authority remains: 001 superseded by 002 (OL-047, rebase onto build2-accepted); normal pushes only.
+
 
 ## OL-047 current publication and resume state
 

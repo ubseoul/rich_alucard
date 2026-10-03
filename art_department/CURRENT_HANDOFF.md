@@ -1,5 +1,8 @@
 # Current handoff
 
+OL-052 current launch scope: P-C deferred, 0 launch rows; no pose sheets/videos or wardrobe-tier code requested. Only P-D remains (50). Three accepted dance loops stay registered as the single launch outfits (Tier 2 internal record), with unchanged always-on rendering. P-C briefs/checklist are in `art_department/future/`; OL-042 wardrobe ingest wiring cancelled. All further work/drops use 002. Earlier wardrobe instructions below are historical.
+
+
 OL-047 current branch: `build/visual-completion-002`. 001 superseded by 002 (OL-047, rebase onto build2-accepted). All further BUILD-4 work, drops and final reports use 002. Normal push only; remote 001 retained at `807523cb369776540bc573dd53a9fc753d2f30de`. Resume `docs/progress/BUILD4.md`; earlier publication-pending notes below are history.
 
 

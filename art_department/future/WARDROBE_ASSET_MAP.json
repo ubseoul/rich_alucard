@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "authority": "OL-042 C1/C2/C3",
+  "authority": "OL-052 future scope; OL-042 wardrobe work deferred",
   "owner": "F15",
   "current_accepted_tier": 2,
   "tier_names": {
@@ -17,7 +17,7 @@
     152
   ],
   "animation_source": "Ube video pipeline only; OL-026; no image-generated animation frames",
-  "runtime_wiring": "STEP 5 — after approved drops; F06 untouched",
+  "runtime_wiring": "FUTURE PATCH ONLY; excluded from launch; no dormant wiring",
   "dancers": {
     "roxy": {
       "tier2": {

@@ -136,3 +136,10 @@ Tags `preserve/<short-name>` are annotated, pushed, and point at the SHA in this
 | Item | Status |
 |---|---|
 | Rainmaker §5 rotation | not built; ships with Rainmaker's ten (OL-037) |
+
+
+## Future scope — OL-052 (outside launch)
+
+| Scope | Preserved instructions | Launch status |
+|---|---|---|
+| RAINMAKER wardrobe tiers (Tier 1 / Tier 3 loops + pose sheets) — ships when Ube supplies the videos. | `art_department/future/P-C.md`, `P-C_STEPS.md`, `P_C_DROP_PLAN.json`, `WARDROBE_ASSET_MAP.json` | Deferred; P-C 0 launch rows, no pose/video requests, no dormant tier wiring. Current three accepted loops remain the single launch outfits (internal Tier 2). |

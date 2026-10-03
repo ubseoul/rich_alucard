@@ -1,5 +1,8 @@
 # F15 — visual gaps (audited against existing approved runtime art; no art generated, nothing frozen replaced)
 
+OL-052 current launch scope: P-C deferred, 0 launch rows; no pose sheets/videos or wardrobe-tier code requested. Only P-D remains (50). Three accepted dance loops stay registered as the single launch outfits (Tier 2 internal record), with unchanged always-on rendering. P-C briefs/checklist are in `art_department/future/`; OL-042 wardrobe ingest wiring cancelled. All further work/drops use 002. Earlier wardrobe instructions below are historical.
+
+
 ## OL-042 superseding review decisions
 
 P-A is closed: current overlay and derivative KEEP exact bytes. Date single-pose portraits KEEP. Accepted current dance loops are Tier 2/reduced; 128x160 cells approved, other two tiers only. All new loops come from Ube video pipeline, no image-generated frames. Wardrobe wiring is F15-owned at ingest; F06 untouched. See current P-C_STEPS.md and PLACEHOLDER_LOG.md. Earlier review statements are historical.

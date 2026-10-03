@@ -1,5 +1,8 @@
 # IMAGE_PROMPTS_P-D — OL-046 · numbered paste-ready prompts
 
+OL-052 launch update: **P-D only (50 remaining rows); P-C closed for launch (0), no still/video drop.** Use this P-D packet on `build/visual-completion-002`. All 48 image prompts and target filenames remain unchanged. Codex owns manifests, normalization, hashes and contact sheets.
+
+
 Ube supplies **PNG files only**, under the target filenames below. Codex writes every manifest, normalizes approved candidates, computes hashes and makes contact sheets. One consolidated P-D drop. Attach the exact reference PNGs listed for each prompt; paths are relative to the repository root and are included unchanged in the accompanying references ZIP. Copy one whole Prompt block into ChatGPT images; produce one target per prompt. Native dimensions are the desired final contract; retain lossless source pixels if the generator exports at a larger size, and Codex handles normalization.
 
 P-D has 50 remaining rows: **48 OPEN image requests** below and **two INGEST_WIRING reuse rows**. Gbenga rentals reuses the frozen WORKDAY interior; Senator care reuses the incoming Senator states. Neither requests duplicate generated art. PIER's current big catch, the trio portraits, F06's solo mannequin and the DEV-only party room need no images.

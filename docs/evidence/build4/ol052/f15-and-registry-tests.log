@@ -1,0 +1,18 @@
+PASS F15 dark: flag OFF leaves save, environments, enemies and adventures inert
+PASS F15 progression: separate dancer totals, threshold eligibility != completion, sequential L1-L4
+PASS F15 spend: exact attribution, no double debit/credit/refund, invalid recipients and amounts ignored
+PASS F15 cap: one date per WAKE across all routes; decline/retry keeps access; save/reload cannot reset cap or totals
+PASS F15 reload: active date resumes, split debited exactly once through the ledger, completed exactly once
+PASS F15 scenes: all 12 scenes complete on every branch and fight outcome (40 walks); exact money; no income
+PASS F15 text: Rich = Ube's 29 approved lines + the authored thought only, Roxy quote once, no annotations, no lyrics
+PASS F15 routes: every route unlocks L1-L4 strictly in order, thresholds gate eligibility, 12 scenes need 12 separate WAKEs (global cap)
+PASS F15 check: money is whole dollars only; Rich half of $106.23 is adapted to a once-only $106 debit (constraint documented)
+PASS F15 date gate: second new date refused at the shared start() seam; decline/browse consume nothing; authorized date resumes after reload; one charge; next WAKE reopens; dark = no entry
+PASS F15 compatibility: existing DATE intact, no favor currency, identity mapping configurable and validated
+PASS F15 seam: F06 adapter/production deltas are the additive hideTarget/geometry/onSpend seams (core + tunables guarded by f06/source.test.mjs)
+PASS F15 WOLF v2: 145-frame replacement verified and distinct, previous 146-frame sheet recoverable, apparent height preserved
+PASS F15 targeting: real F06 core resolves hit/miss on the supported dancer; later selection changes cannot redirect a resolved throw
+PASS F15 production seam: onSpend exactly once per paid throw (misses included), never for duplicates or unpaid throws
+PASS F15 scene art assets (10 files re-hashed; 7 backgrounds byte-identical to the approved package; Granny = frozen CGA-F2-032; cockroach master unchanged, derivative has partial alpha and no added clipping)
+PASS F15 scene wiring (8 art environments image-backed and approved; library + exam hall stay placeholders; Granny + cockroach registered; combat scale seam present and inert when unset)
+PASS IF-1 phone/art/audio registries (reserved apps stay dark, additive art+audio parts, frozen-asset collision refused, part folders clean)

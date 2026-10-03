@@ -1,0 +1,48 @@
+{
+  "ruling": "OL-052",
+  "branch": "build/visual-completion-002",
+  "launch_pending_by_package": {
+    "P-A": 0,
+    "P-B": 0,
+    "P-C": 0,
+    "P-D": 50
+  },
+  "total_launch_pending": 50,
+  "deferred_future_rows": 18,
+  "P-D_targets_unchanged": 48,
+  "no_P-C_launch_brief": true,
+  "future_outside_shipped_assets_and_js": true,
+  "wardrobe_runtime_metadata_removed": true,
+  "no_F15_F06_renderer_or_loop_byte_changes": true,
+  "launch_outfits": {
+    "roxy": {
+      "asset": "assets/f15/dancers/wolf.png",
+      "sha256": "32fdbd87572a3b7cb388ebc5121bc135c2d5b3c8772a044dbb8537642450dce3",
+      "runtime_manifest": "assets/f15/dancers/manifest.json",
+      "frames": 145,
+      "fps": 24,
+      "master_sequence_sha256": "67572b524a4f07d680659dcde2cd14b363930ed87cc9d187c8bddd853c0dc9f7"
+    },
+    "rosalyn": {
+      "asset": "assets/f15/dancers/pink.png",
+      "sha256": "c8ae3cc0ccc74743a811ba7fc70675b631325cc8f386f85f277423a3513638cf",
+      "runtime_manifest": "assets/f15/dancers/manifest.json",
+      "frames": 145,
+      "fps": 24,
+      "master_sequence_sha256": "3a6ad861ff45c9bdabe4ba631fe0ccce4080260f224c3c92b4221e42572c9f80"
+    },
+    "emerald": {
+      "asset": "assets/f15/dancers/dragon.png",
+      "sha256": "0ef213967c4380b333594ce063cc43d2c318c3206ffa90c195a4aab87576456c",
+      "runtime_manifest": "assets/f15/dancers/manifest.json",
+      "frames": 144,
+      "fps": 24,
+      "master_sequence_sha256": "9c2ed12e70f0d3f3207ae156ec34f8324ecfa56506d3e1bb4a886c81d65f1082"
+    }
+  },
+  "internal_tier_record": 2,
+  "F15_widths_browser": "45/45 PASS at 360/390/430",
+  "future_preservation": "RAINMAKER wardrobe tiers (Tier 1 / Tier 3 loops + pose sheets) — ships when Ube supplies the videos.",
+  "fresh_artifact_has_no_dormant_wardrobe": true,
+  "fresh_artifact_accepted_loops_byte_identical": true
+}

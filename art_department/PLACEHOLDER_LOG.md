@@ -1,10 +1,10 @@
-# SR-7 placeholder log — BUILD-4 · OL-046
+# SR-7 placeholder log — BUILD-4 · OL-052
 
-**NOT EMPTY — awaiting filename-only Ube drops.** Original inventory 92 rows; production baseline 91 after excluding the approved DEV fixture. 79 pending before OL-042 → 60 after OL-042 → 68 after eight OL-046 held-gun additions. 21 rows closed by final decisions, one DEV row excluded, three symbolic-token image rows replace three closed physical-prop decision rows. Counts are requirement families, not file counts.
+**NOT EMPTY — awaiting the filename-only approved P-D drop on build/visual-completion-002.** Launch remaining: P-A 0 / P-B 0 / P-C 0 / P-D 50. P-C's 18 rows are deferred outside launch, closing that package with no still sheets or videos requested. Pending 68 → 50. P-D remains 48 OPEN image requests + two INGEST_WIRING reuse rows. Requirement-family counts, not file counts.
 
-P-A 0; P-B 0; P-C 18; P-D 50 (48 OPEN image requests + two INGEST_WIRING reuse rows). D6 settles generic NPC identity; three NPC image requests remain. F15 wardrobe code is a separately tracked step-5 engineering task, not a further art-generation row. No package drops have been ingested.
+OL-052 supersedes OL-042 §5: no launch wardrobe-tier wiring or dormant tier feature. The three accepted loops are the only launch outfits, recorded internally as Tier 2, and render for every dancer at all times. Existing F15 renderer and F06 remain unchanged. Future prompts/checklist/drop plan are in `art_department/future/`; no P-C launch brief/drop. Learned-move FX stay BUILD-6-owned. Prior OL-042 closures, neutral tokens, generic NPC decisions and DEV fixture exclusion remain.
 
-OL-046: BUILD-2 base accepted at `build2-accepted` (`40fd2bc02e4793380fbf9f6cb04c95113a46db11`); local rebase completed with both art registry parts and audio preserved additively. The eight held weapons below are new art requests only. TRIPLE K-KRATOS stays DEV-gated despite its explicitly requested art row; `party_dev_room` remains excluded. Learned-move FX ONE-INCH PETTY / HEX / VIOLET VEIL / SÉANCE / DEAD RINGER are BUILD-6-owned and excluded here.
+Original inventory 92; production baseline 91 after excluding DEV. OL-042: 21 closures, one DEV exclusion, three token replacement rows. OL-046: eight held-gun requests added. OL-052: 18 P-C rows deferred. No new art or drops ingested.
 
 | Package | Asset id | Screen / route | Status / requirement |
 |---|---|---|---|
@@ -23,24 +23,6 @@ OL-046: BUILD-2 base accepted at `build2-accepted` (`40fd2bc02e4793380fbf9f6cb04
 | P-D | `uncle_bamidele` | UNCLE BAMIDELE · `NEW_OGA_M5:arrival, NEW_OGA_M5:backout` | OPEN: RAPixel person look; use approved preserved art first |
 | P-D | `senator` | SENATOR · `NEW_OGA_M6:voice, NEW_OGA_M6:egusi, NEW_OGA_M6:mazda, NEW_OGA_M6:bread, NEW_OGA_M6:walked` | OPEN: RAPixel person look; use approved preserved art first |
 | P-D | `kiosk_guy` | KIOSK GUY · `registered id; no static adventure node (combat/dynamic/dormant)` | OPEN: D6 generic unnamed adult NPC in Vol 2 pixel grammar; no names, lines or story. Still requires approved art. |
-| P-C | `dancer_roxy_t1_poses` | F15 three-dancer club · `RAF15Club, selected dancer roxy; new wardrobe renderer pending` | OPEN: Missing dancer_roxy_t1_idle.png, dancer_roxy_t1_pose.png, dancer_roxy_t1_cheer.png, dancer_roxy_t1_back.png |
-| P-C | `dancer_roxy_t1_pole` | F15 three-dancer club · `RAF15Club; roxy, tier 1, pole` | OPEN: Incoming POLE video; no image-generated animation frames |
-| P-C | `dancer_roxy_t1_floor` | F15 three-dancer club · `RAF15Club; roxy, tier 1, floor` | OPEN: Incoming FLOOR video; no image-generated animation frames |
-| P-C | `dancer_roxy_t3_poses` | F15 three-dancer club · `RAF15Club, selected dancer roxy; new wardrobe renderer pending` | OPEN: Missing dancer_roxy_t3_idle.png, dancer_roxy_t3_pose.png, dancer_roxy_t3_cheer.png, dancer_roxy_t3_back.png, dancer_roxy_t3_idlealt.png |
-| P-C | `dancer_roxy_t3_pole` | F15 three-dancer club · `RAF15Club; roxy, tier 3, pole` | OPEN: Incoming POLE video; no image-generated animation frames |
-| P-C | `dancer_roxy_t3_floor` | F15 three-dancer club · `RAF15Club; roxy, tier 3, floor` | OPEN: Incoming FLOOR video; no image-generated animation frames |
-| P-C | `dancer_rosalyn_t1_poses` | F15 three-dancer club · `RAF15Club, selected dancer rosalyn; new wardrobe renderer pending` | OPEN: Missing dancer_rosalyn_t1_idle.png, dancer_rosalyn_t1_pose.png, dancer_rosalyn_t1_cheer.png, dancer_rosalyn_t1_back.png |
-| P-C | `dancer_rosalyn_t1_pole` | F15 three-dancer club · `RAF15Club; rosalyn, tier 1, pole` | OPEN: Incoming POLE video; no image-generated animation frames |
-| P-C | `dancer_rosalyn_t1_floor` | F15 three-dancer club · `RAF15Club; rosalyn, tier 1, floor` | OPEN: Incoming FLOOR video; no image-generated animation frames |
-| P-C | `dancer_rosalyn_t3_poses` | F15 three-dancer club · `RAF15Club, selected dancer rosalyn; new wardrobe renderer pending` | OPEN: Missing dancer_rosalyn_t3_idle.png, dancer_rosalyn_t3_pose.png, dancer_rosalyn_t3_cheer.png, dancer_rosalyn_t3_back.png, dancer_rosalyn_t3_idlealt.png |
-| P-C | `dancer_rosalyn_t3_pole` | F15 three-dancer club · `RAF15Club; rosalyn, tier 3, pole` | OPEN: Incoming POLE video; no image-generated animation frames |
-| P-C | `dancer_rosalyn_t3_floor` | F15 three-dancer club · `RAF15Club; rosalyn, tier 3, floor` | OPEN: Incoming FLOOR video; no image-generated animation frames |
-| P-C | `dancer_emerald_t1_poses` | F15 three-dancer club · `RAF15Club, selected dancer emerald; new wardrobe renderer pending` | OPEN: Missing dancer_emerald_t1_idle.png, dancer_emerald_t1_pose.png, dancer_emerald_t1_cheer.png, dancer_emerald_t1_back.png |
-| P-C | `dancer_emerald_t1_pole` | F15 three-dancer club · `RAF15Club; emerald, tier 1, pole` | OPEN: Incoming POLE video; no image-generated animation frames |
-| P-C | `dancer_emerald_t1_floor` | F15 three-dancer club · `RAF15Club; emerald, tier 1, floor` | OPEN: Incoming FLOOR video; no image-generated animation frames |
-| P-C | `dancer_emerald_t3_poses` | F15 three-dancer club · `RAF15Club, selected dancer emerald; new wardrobe renderer pending` | OPEN: Missing dancer_emerald_t3_idle.png, dancer_emerald_t3_pose.png, dancer_emerald_t3_cheer.png, dancer_emerald_t3_back.png, dancer_emerald_t3_idlealt.png |
-| P-C | `dancer_emerald_t3_pole` | F15 three-dancer club · `RAF15Club; emerald, tier 3, pole` | OPEN: Incoming POLE video; no image-generated animation frames |
-| P-C | `dancer_emerald_t3_floor` | F15 three-dancer club · `RAF15Club; emerald, tier 3, floor` | OPEN: Incoming FLOOR video; no image-generated animation frames |
 | P-D | `pickup_court` | Minigame backdrop · `minigame:pickup` | OPEN: Code-painted backdrop; test the relevant frozen environment first, then approve reuse or provide a matching game-board background |
 | P-D | `jollof_kitchen` | Minigame backdrop · `minigame:jollof?mode=kitchen` | OPEN: Code-painted backdrop; test the relevant frozen environment first, then approve reuse or provide a matching game-board background |
 | P-D | `jollof_cookoff` | Minigame backdrop · `minigame:jollof?mode=cookoff` | OPEN: Code-painted backdrop; test the relevant frozen environment first, then approve reuse or provide a matching game-board background |
@@ -121,6 +103,10 @@ OL-046: BUILD-2 base accepted at `build2-accepted` (`40fd2bc02e4793380fbf9f6cb04
 | Package | Asset id | Screen / route | Status / requirement |
 |---|---|---|---|
 | P-D | `party_dev_room` | DEV PARTY room · `party-dev.html → party scene` | EXCLUDED — OL-042 D5: KEEP existing DEV-only fixture; excluded from SR-7 production count |
+
+## Deferred future scope — outside launch
+
+18 former P-C rows are preserved in `PLACEHOLDER_LOG.json.deferred_future` and `art_department/future/P_C_DROP_PLAN.json`. They do not count as pending launch work. Future briefs: `art_department/future/P-C.md` and `art_department/future/P-C_STEPS.md`. Ships when Ube supplies the future videos.
 
 ## Conditional loading guards (code-drawn, approved art already assigned)
 
