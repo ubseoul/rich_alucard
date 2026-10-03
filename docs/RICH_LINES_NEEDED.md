@@ -12,7 +12,7 @@ New missing Rich dialogue requests: **0**. BAIT is a BUILD-5 creator item, with 
 
 This is the one combined batch for missing lines and OPEN D_QUEUE items. New Rich story lines requested by FINAL-A: **0**. OL-055/056/057 permits funny interface copy; it has not been used to invent story facts.
 
-There are **3 dialogue requests** below: one explicit optional sentence and two sets whose line counts require creator direction. An exact total number of sentences for those sets is unknown; no count has been invented.
+The existing OPEN D_QUEUE has **3 dialogue request groups** below: one explicit optional sentence and two sets whose line counts require creator direction. The parked world-reaction table adds five named line-or-silence slots plus uncounted source/owner requests. That is **6 specified slots** (one optional framing sentence and five reactions), **0 newly specified Rich lines**, and uncounted dialogue sets. The exact final sentence total depends on Ube's source and silence decisions; no count has been invented.
 
 | Request | What Ube needs to supply | Current behavior |
 |---|---|---|

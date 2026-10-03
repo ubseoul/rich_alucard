@@ -2,7 +2,12 @@ import fs from 'node:fs';import path from 'node:path';
 import {serve,loadPlaywright} from '../tests/f05/_browser-lib.mjs';
 const args=process.argv;const only=args.includes('--width')?+args[args.indexOf('--width')+1]:null;
 const tapRows=[];
-async function tap(frame,selector,screen){const loc=frame.locator(selector).first(),label=await loc.innerText().catch(()=>selector),before=await frame.page().evaluate(()=>window.__b2TapMedia?.length||0);await loc.click();await frame.page().waitForTimeout(250);const after=await frame.page().evaluate(()=>window.__b2TapMedia?.length||0);tapRows.push({screen,element:label.trim(),sound:after>before,starts:after-before});}
+async function tap(frame,selector,screen){
+ const page=frame.page(),loc=frame.locator(selector).first(),label=await loc.innerText().catch(()=>selector),read=()=>page.evaluate(()=>{const d=window.RAAudio?.describe?.();return {child:window.__b2TapMedia?.length||0,host:Object.fromEntries(Object.entries(d?.plays||{}).filter(([id])=>/^UI_(TAP|CONFIRM|BACK)$/.test(id))),context:d?.context,rejected:window.__b2TapRejected?.length||0};}),before=await read();
+ await loc.click();await page.waitForTimeout(250);await page.waitForFunction(b=>{const p=window.RAAudio?.describe?.().plays||{};return (window.__b2TapMedia?.length||0)-b.child+Object.entries(p).filter(([id])=>/^UI_(TAP|CONFIRM|BACK)$/.test(id)).reduce((n,[id,k])=>n+k-(b.host[id]||0),0)>0;},before,{timeout:1500}).catch(()=>{});
+ const after=await read(),parentWebAudio=Object.fromEntries(Object.entries(after.host).map(([id,n])=>[id,n-(before.host[id]||0)]).filter(([,n])=>n>0)),childMedia=after.child-before.child,starts=childMedia+Object.values(parentWebAudio).reduce((a,b)=>a+b,0),mediaRejected=await page.evaluate(n=>(window.__b2TapRejected||[]).slice(n),before.rejected);
+ tapRows.push({width:page.viewportSize().width,screen,element:label.trim(),sound:starts>0,starts,origins:{childMedia,parentWebAudio,parentContext:after.context},mediaRejected});
+}
 const results=[],out=args.includes('--out')?args[args.indexOf('--out')+1]:'docs/evidence/build2';fs.mkdirSync(out,{recursive:true});
 const check=(width,name,ok,detail='')=>{results.push({width,name,ok,detail});console.log(ok?'PASS':'FAIL',width,name,detail);};
 const server=await serve();const origin=`http://127.0.0.1:${server.address().port}`;
@@ -53,7 +58,7 @@ async function drivePlay(page,tag,width,selectGun=true,audit=false){
 try{
  for(const width of only?[only]:[360,390,430]){
   const context=await browser.newContext({viewport:{width,height:844}}),page=await context.newPage(),errors=[];
-  await page.addInitScript(()=>{window.__b2Media=[];window.__b2TapMedia=[];const play=HTMLMediaElement.prototype.play;HTMLMediaElement.prototype.play=function(){window.__b2Media.push(this.src);const result=play.call(this);if(/UI_(TAP|CONFIRM|BACK)\.mp3/.test(this.src))result?.then(()=>window.top.__b2TapMedia.push(this.src));return result;};});
+  await page.addInitScript(()=>{window.__b2Media=[];window.__b2TapMedia=[];window.__b2TapRejected=[];const play=HTMLMediaElement.prototype.play;HTMLMediaElement.prototype.play=function(){window.__b2Media.push(this.src);const result=play.call(this);if(/UI_(TAP|CONFIRM|BACK)\.mp3/.test(this.src))result?.then(()=>window.top.__b2TapMedia.push(this.src),e=>window.top.__b2TapRejected.push({src:this.src,reason:e.name+': '+e.message}));return result;};});
   page.on('pageerror',e=>errors.push(e.message));
   page.on('response',r=>{if(r.status()>=400&&!/favicon/.test(r.url()))errors.push(`HTTP ${r.status()} ${r.url()}`);});
   try{
@@ -71,8 +76,9 @@ try{
    await page.click('[data-phone-action="do:armory:range:mac_and_cheese"]');await page.waitForSelector('.rd-lane');await page.screenshot({path:`${out}/${width}-range-day.png`});
    const end=Date.now()+65000;
    while(Date.now()<end&&await page.locator('.rd-lane').count()){
-    const lane=await page.evaluate(()=>[...document.querySelectorAll('.rd-lane')].findIndex(e=>e.querySelector('.rd-target:not(.rd-hostage)')&&!e.querySelector('.rd-hostage')));
-    if(lane>=0){const box=await page.locator('.rd-lane').nth(lane).boundingBox();if(box)await page.mouse.click(box.x+box.width/2,box.y+box.height/2);}
+    // Read target and geometry together: Range Day can settle between separate locator reads.
+    const box=await page.evaluate(()=>{const e=[...document.querySelectorAll('.rd-lane')].find(e=>e.querySelector('.rd-target:not(.rd-hostage)')&&!e.querySelector('.rd-hostage'));if(!e)return null;const r=e.getBoundingClientRect();return {x:r.x,y:r.y,width:r.width,height:r.height};});
+    if(box)await page.mouse.click(box.x+box.width/2,box.y+box.height/2);
     await page.waitForTimeout(160);
    }
    check(width,'complete one full Range Day',await page.evaluate(()=>RAFrag.read('F02','range.mac_and_cheese.attempts',0)>0));

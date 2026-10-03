@@ -8,7 +8,7 @@ import {CAREER_PERSONAS,career} from './_career.mjs';
 const file=fileURLToPath(import.meta.url),repo=path.resolve(path.dirname(file),'../../..');
 const arg=(k,d)=>{const at=process.argv.indexOf('--'+k);return at<0?d:process.argv[at+1];};
 if(process.argv.includes('--worker')){
- process.on('message',async task=>{const started=Date.now();try{const r=await career(task.root,task);process.send({...r,label:task.label,elapsedSeconds:(Date.now()-started)/1000,policyVersion:'FINAL-A.fresh.v2'});}catch(e){process.send({persona:task.persona,seed:task.seed,label:task.label,elapsedSeconds:(Date.now()-started)/1000,fatal:e.stack});}});
+ process.on('message',async task=>{const started=Date.now();try{const r=await career(task.root,task);process.send({...r,label:task.label,elapsedSeconds:(Date.now()-started)/1000,policyVersion:task.continueAfterEnding?'FINAL-A.post-ending.v1':'FINAL-A.fresh.v2'});}catch(e){process.send({persona:task.persona,seed:task.seed,label:task.label,elapsedSeconds:(Date.now()-started)/1000,fatal:e.stack});}});
  process.send({ready:true});
 }else{
  const root=path.resolve(arg('root',repo)),label=arg('label','after'),seeds=Number(arg('seeds',10)),maxDays=Number(arg('days',70)),personas=arg('personas',Object.keys(CAREER_PERSONAS).join(',')).split(',');
@@ -18,7 +18,7 @@ if(process.argv.includes('--worker')){
  const checkpoint=path.join(out,paired?'paired-checkpoint.ndjson':label+'-checkpoint.ndjson');
  if(process.argv.includes('--resume')){let prior='';try{prior=await readFile(checkpoint,'utf8');}catch{}for(const line of prior.split('\n').filter(Boolean)){const r=JSON.parse(line);if(!r.fatal&&(!process.argv.includes('--invalidate-after')||r.label!=='after'))rows.push(r);}await writeFile(checkpoint,rows.map(r=>JSON.stringify(r)+'\n').join(''));const keys=new Set(rows.map(r=>`${r.label}|${r.persona}|${r.seed}`));tasks=tasks.filter(t=>!keys.has(`${t.label}|${t.persona}|${t.seed}`));console.log(`resumed ${rows.length} valid careers; ${tasks.length} pending`);}else await writeFile(checkpoint,'');
  const total=rows.length+tasks.length;
- await writeFile(path.join(out,paired?'paired-run-manifest.json':label+'-run-manifest.json'),JSON.stringify({startedAt:new Date().toISOString(),root,pairedRoot:paired&&path.resolve(paired),jobs:Number(arg('jobs',4)),personas:CAREER_PERSONAS,seeds,maxDays,continueAfterEnding,total,resumed:rows.length,policyVersion:'FINAL-A.fresh.v2'},null,1)+'\n');
+ await writeFile(path.join(out,paired?'paired-run-manifest.json':label+'-run-manifest.json'),JSON.stringify({startedAt:new Date().toISOString(),root,pairedRoot:paired&&path.resolve(paired),jobs:Number(arg('jobs',4)),personas:CAREER_PERSONAS,seeds,maxDays,continueAfterEnding,total,resumed:rows.length,policyVersion:continueAfterEnding?'FINAL-A.post-ending.v1':'FINAL-A.fresh.v2'},null,1)+'\n');
  await Promise.all(Array.from({length:Math.min(Number(arg('jobs',4)),tasks.length)},()=>new Promise((resolve,reject)=>{
   const w=fork(file,['--worker'],{stdio:['ignore','ignore','inherit','ipc']});let finished=false;
   const give=()=>{if(next>=tasks.length){finished=true;w.kill();resolve();}else w.send(tasks[next++]);};

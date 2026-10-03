@@ -183,6 +183,23 @@ export async function career(root,{persona='explorer',seed=1,maxDays=70,continue
   for(const room of P.rooms){const def=c.RACastle.ROOMS.find(x=>x.id===room);if(!def||c.RALife.hasRoom(room))continue;if(!def.needs||def.needs(c.RALife.L())){if(c.RALife.money()>=def.price)m.firstEligible[`room:${room}`]||=day;if(c.RALife.money()>=def.price+P.reserve&&c.RACastle.buy(room))owned(`room:${room}`);}break;}
   for(const key of P.cars||[]){const def=c.RACars.CATALOG[key];if(c.RACars.owned(key))continue;const unlocked=def.store==='richboi'?c.RALife.appUnlocked('richboi'):def.store==='jdm_auction'?c.RALife.flag('r34Lead'):def.store==='pinky'?c.RALife.flag('pinkyMet'):c.RACars.owned('supra');if(!unlocked||def.needsRep&&c.RALife.rep()<def.needsRep)break;if(c.RALife.money()>=def.price)m.firstEligible[`car:${key}`]||=day;if(c.RALife.money()>=def.price+P.reserve&&c.RACars.buy(key)){owned(`car:${key}`);if(def.store==='richboi')await drive('RB_DELIVERY',{car:key},'delivery');}break;}
   if(!nightEnded&&outings<P.outings)for(const room of c.RACastle.ROOMS.filter(x=>c.RALife.hasRoom(x.id))){const p=c.RAPlaces.get(room.go),id=p&&(typeof p.adventure==='function'?p.adventure(c.RALife.L()):p.adventure);if(id)mark(id,'owned-room');if(id&&!m.completed[id]&&await drive(id,{},'owned-room')){outings++;break;}}
+  // Separate continuation route census: exercise the actual hidden room verbs, including custom go handlers.
+  // It never changes a main first-ending career or grants a room/adventure/dragon stage.
+  if(continueAfterEnding&&m.endingDay){
+   if(P.lanes.includes('dragons')&&c.RADragon.get()){
+    const dr=c.RADragon.get();
+    if(dr.stage==='egg')c.RADragon.applyActions([{type:'keepWarm'}]);
+    else{let food=c.RALife.count('fish_common')?'fish_common':c.RALife.count('treats')?'treats':null;
+     if(!food&&c.RALife.money()>P.reserve){const item=c.RAStores.STORES.pet_crypt.items.find(x=>x.id==='treats');if(c.RAStores.buy(item))food='treats';}
+     c.RADragon.applyActions([...(food?[{type:'feed',food}]:[]),{type:'play'},{type:'talk'}]);
+    }
+   }
+   if(!nightEnded)for(const room of c.RACastle.ROOMS.filter(x=>c.RALife.hasRoom(x.id))){
+    const prev=c.RAAdventureScene,begin=(id,opts={})=>m.completed[id]?false:drive(id,opts.vars||{},'post-ending-owned-room');c.RAAdventureScene={begin};
+    await c.RAPlaces.go(room.go,{...api,begin});c.RAAdventureScene=prev;
+    if(nightEnded)break;
+   }
+  }
   for(const r of c.RARelations.known()){const prev=m.relationships[r.id]||{};m.relationships[r.id]={level:Math.max(prev.level||0,r.level),dates:r.datesCount||0,firstClose:prev.firstClose||(r.level>=3?day:null),firstRide:prev.firstRide||(r.level>=4?day:null)};}
   m.daily.push({day,money:c.RALife.money(),netWorth:c.RALife.netWorth(),rooms:c.RACastle.ROOMS.filter(x=>c.RALife.hasRoom(x.id)).length,cars:c.RALife.ownedCars().length,offered:Object.keys(m.offered).length,completed:Object.keys(m.completed).length,warRoom:c.RAFrag.read('F04','offer.status'),trapHouses:c.RAF05.store.ownedHouses().length,newOgaRank:c.RANewOga.current().rank});
   c.RAClock.sleep();if(c.RAFame.claimsWake()){m.endingDay||=c.RALife.today().day;if(!continueAfterEnding)break;
