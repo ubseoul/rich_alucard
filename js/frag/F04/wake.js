@@ -17,7 +17,7 @@
   if (day < 16 || day > 22) return false;
 
   // Ogun's Rave done
-  const raveDone = !!life.world?.flags?.ogunRaveDone;
+  const raveDone = !!life.world?.flags?.ogunsRaveCompleted;
   if (!raveDone) return false;
 
   // Vampire Rep ≥ MID (street clout tier)
@@ -124,10 +124,26 @@
    const cards = window.RAWarRoomReportCard?.recent(1) || [];
    if (!cards.length) return null;
    const c = cards[0];
+   // A report belongs to the night that produced it; an idle night must not replay an older job.
+   if (c.day !== ctx?.night?.day) return null;
    return {
     title: 'WAR ROOM',
     text: `${c.districtLabel}: ${c.success ? 'clean run' : 'rough night'}. Cash ${c.tally.cash >= 0 ? '+' : ''}$${c.tally.cash.toLocaleString()}.`
    };
+  }
+ });
+
+ // Parked World Reaction C2: surface the existing authored report through Morning Mail.
+ // Keep its words and numbers intact; this only connects the report to the phone after sleep.
+ window.RAWakeBus.subscribe({
+  id: 'F04.report-mail', fragment: 'F04', phase: 'wake', priority: 94, flag: 'F04.war_room',
+  fn(ctx) {
+   const report = window.RAWakeBus.nightReport.last();
+   if (!report || report.day !== ctx?.info?.day - 1) return;
+   for (const section of report.sections.filter(s => s.fragment === 'F04')) {
+    window.RALife.mail({id:`war-room:night:${report.day}:${section.id}`,kind:'world',
+     title:section.title,body:section.text,app:'warRoom'});
+   }
   }
  });
 
@@ -140,8 +156,8 @@
   priority: 98, // TAIL band (unique, non-colliding)
   flag: 'F04.war_room',
   fn() {
-   const fame = window.RAState.get().life?.fame;
-   if (!fame?.arrived) return;
+   const momentum = window.RAState.get().life?.momentum;
+   if (!momentum?.fameFired) return;
    const offer = window.RAFrag.read('F04', 'offer', {});
    if (offer.status === 'accepted') {
     window.RAFrag.patch('F04', 'offer.status', 'closed_fame');

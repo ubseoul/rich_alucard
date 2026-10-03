@@ -106,6 +106,7 @@
   "js/systems/ambience.js",
   "js/systems/devtools.js",
   "js/systems/smoke.js",
+  "js/systems/combat_pixel_fx.js",
   "js/systems/combat_presentation.js",
   "js/scenes/character_reveal.js",
   "js/if1/if1.js",

@@ -6,7 +6,7 @@ page.on('pageerror',e=>errors.push(e.message));
 try{
  await page.goto(`http://127.0.0.1:${server.address().port}/tools/build2/review.html`);await page.click('#seed');await page.waitForFunction(()=>document.querySelector('#status').textContent.includes('Review save prepared'));await page.click('#armory');
  const f=page.frames().find(x=>x!==page.mainFrame());
- const contracts=await f.evaluate(()=>({badBeats:Object.keys(RAOpenAudio.beats).filter(k=>{const [id,node]=k.split(':');return !RAAdventures.get(id)?.nodes[node];}),badEnvironments:Object.keys(RAOpenAudio.environments).filter(id=>!RAEnvironments.get(id)),pick:RAAudioManifest.get('MAGIC_SEANCE').selectedFrom}));
+ const contracts=await f.evaluate(()=>{const seance=RAAudioManifest.get('MAGIC_SEANCE'),hex=RAAudioManifest.get('MAGIC_HEX');return {badBeats:Object.keys(RAOpenAudio.beats).filter(k=>{const [id,node]=k.split(':');return !RAAdventures.get(id)?.nodes[node];}),badEnvironments:Object.keys(RAOpenAudio.environments).filter(id=>!RAEnvironments.get(id)),pick:seance.selectedFrom,seanceMatch:seance.registered&&seance.selectedFrom==='MAGIC_HEX'&&['file','sourceUrl','license'].every(key=>seance[key]===hex[key])};});
  const original=JSON.parse(fs.readFileSync('work/build2/audio-audit-before.json','utf8')).rows.filter(r=>r.status.includes('HOOK GAP'));
  const current=JSON.parse(fs.readFileSync('docs/evidence/build2/audio-audit.json','utf8'));
  const rows=[];
@@ -18,5 +18,5 @@ try{
  const result={originalUnproven:original.length,proven:rows.filter(r=>r.started&&r.starts>0&&r.consumers.length).length,unproven:rows.filter(r=>!r.started||!r.starts||!r.consumers.length),contracts,reservedTour:tour,rows,errors};
  fs.writeFileSync('docs/evidence/build2/audio-proof.json',JSON.stringify(result,null,2)+'\n');
  console.log(JSON.stringify({count:rows.length,proven:result.proven,unproven:result.unproven.map(x=>x.id),contracts,tour,errors}));
- process.exitCode=result.unproven.length||contracts.badBeats.length||contracts.badEnvironments.length||errors.length||tour.some(t=>!t.started)?1:0;
+ process.exitCode=result.unproven.length||contracts.badBeats.length||contracts.badEnvironments.length||!contracts.seanceMatch||errors.length||tour.some(t=>!t.started)?1:0;
 }finally{await browser.close();server.close();}

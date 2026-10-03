@@ -167,3 +167,18 @@ button:disabled{opacity:.4;cursor:default}
 .counthands{position:absolute;width:128px;height:96px;z-index:5;pointer-events:none}
 .counthands img,.bag img{display:block;image-rendering:pixelated}
 .lp-rare{filter:drop-shadow(0 0 3px #37d5e8)}.lp-legendary{filter:drop-shadow(0 0 4px #ffd23f)}
+
+/* FINAL-A Life OS tokens only. Chat geometry, type metrics, animations and call clocks remain OL-023. */
+.phone{--os-chat-bg:#0c0b14;--os-chat-surface:#171322;--os-chat-line:#49334f;--os-chat-text:#f6efd9;--os-chat-muted:#bdacc4;--os-chat-red:#f04067;background:var(--os-chat-bg);color:var(--os-chat-text)}
+.phone .ph-head{background:var(--os-chat-surface);border-bottom-color:var(--os-chat-line)}
+.phone .ph-head .av{background:var(--os-chat-line);border-color:var(--os-chat-bg)}
+.phone .ph-head .s,.phone .decide .who{color:var(--os-chat-muted)}
+.phone .bub.me{background:#681937;color:var(--os-chat-text)}
+.phone .dots span{background:var(--os-chat-muted)}
+.phone .decide{background:#0c0b14ed}
+.phone .d-go,.phone .decide .bar i{background:var(--os-chat-red)}
+.phone .d-out{background:var(--os-chat-text);color:var(--os-chat-bg)}
+.phone .decide .bar{background:var(--os-chat-line)}
+.phone .decide .fb{background:var(--os-chat-surface);color:var(--os-chat-text)}
+.phone .dial{background:#0c0b14f0}
+.phone .dial .dn,.phone .delivered{color:var(--os-chat-muted)}

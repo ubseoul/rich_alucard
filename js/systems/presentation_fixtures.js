@@ -2,7 +2,8 @@
  // DEV-ONLY Presentation Director fixtures. Non-canon, spoiler-free test content: Rich, generic placeholder
  // figures and neutral test text. Nothing here is registered unless DEV mode is on and a fixture is launched,
  // so the authored adventure set, save schema and player path are untouched.
- const dev=()=>document.body.classList.contains('dev-enabled');
+ const dev=()=>new URLSearchParams(location.search).get('dev')==='1';
+ if(!dev())return;
  const extra={id:'pd_fixture_extra',look:{skin:'#8a6a5a',hair:'#2a2a2a',top:'#3a4a6a',bottom:'#2a2a30'}};
  const extra2={id:'pd_fixture_extra_2',look:{skin:'#c8a080',hair:'#6a3a2a',top:'#5a3a4a',bottom:'#2a2a30'}};
  const CURB={id:'PD_FIXTURE_CURB',title:'DEV · CURB FRAMING FIXTURE',lane:'life',repeatable:true,start:'solo',nodes:{

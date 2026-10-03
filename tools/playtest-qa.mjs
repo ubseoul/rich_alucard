@@ -11,10 +11,11 @@ import {readFile,writeFile,mkdir,readdir} from 'node:fs/promises';
 import {existsSync} from 'node:fs';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
+import {execFileSync} from 'node:child_process';
 
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const args=Object.fromEntries(process.argv.slice(2).reduce((acc,arg,i,all)=>{if(arg.startsWith('--')){const next=all[i+1];acc.push([arg.slice(2),next&&!next.startsWith('--')?next:true])}return acc},[]));
-const dist=path.join(root,'dist');
+const dist=path.resolve(args.dist||path.join(root,'dist'));
 const out=path.resolve(args.out||path.join(root,'work','playtest_qa'));
 const only=args.only?String(args.only).split(','):null;
 const DAYS=Number(args.days||12),SEED=Number(args.seed||7);
@@ -22,7 +23,7 @@ const require=createRequire(import.meta.url);
 function loadPlaywright(){for(const id of [process.env.RA_PLAYWRIGHT_PATH,'playwright-core','playwright'].filter(Boolean)){try{return require(id)}catch{}}throw new Error('Playwright not found: set RA_PLAYWRIGHT_PATH')}
 async function chromiumPath(){if(process.env.RA_CHROMIUM_PATH)return process.env.RA_CHROMIUM_PATH;const base=path.join(process.env.LOCALAPPDATA||path.join(process.env.HOME||'','.cache'),'ms-playwright');if(!existsSync(base))return undefined;for(const d of (await readdir(base)).filter(d=>d.startsWith('chromium-')).sort().reverse())for(const exe of ['chrome-win/chrome.exe','chrome-linux/chrome'])if(existsSync(path.join(base,d,exe)))return path.join(base,d,exe)}
 const TYPES={'.html':'text/html','.js':'text/javascript','.css':'text/css','.png':'image/png','.json':'application/json','.ttf':'font/ttf','.mp3':'audio/mpeg','.woff2':'font/woff2'};
-function serve(){return new Promise(resolve=>{const missing=new Set();const s=http.createServer(async(req,res)=>{let p=decodeURIComponent(new URL(req.url,'http://x').pathname);try{const f=path.join(dist,p==='/'?'index.html':p);res.writeHead(200,{'content-type':TYPES[path.extname(f)]||'application/octet-stream','cache-control':'no-store'});res.end(await readFile(f))}catch{missing.add(p);res.writeHead(404);res.end()}});s.missing=missing;s.listen(0,'127.0.0.1',()=>resolve(s))})}
+function serve(){return new Promise(resolve=>{const missing=new Set(),cache=new Map();const s=http.createServer(async(req,res)=>{let p=decodeURIComponent(new URL(req.url,'http://x').pathname);try{const rel=p==='/'?'index.html':p.replace(/^\//,''),f=path.join(dist,rel);let bytes;if(args.base&&/\.(?:html|js|mjs|css|json)$/.test(rel)){if(!cache.has(rel))cache.set(rel,execFileSync('git',['-c','gc.auto=0','show',`${args.base}:${rel}`],{cwd:root,maxBuffer:30e6,stdio:['ignore','pipe','ignore']}));bytes=cache.get(rel);}else bytes=await readFile(f);res.writeHead(200,{'content-type':TYPES[path.extname(f)]||'application/octet-stream','cache-control':'no-store'});res.end(bytes)}catch{missing.add(p);res.writeHead(404);res.end()}});s.missing=missing;s.listen(0,'127.0.0.1',()=>resolve(s))})}
 
 const SIZES={360:[360,740],390:[390,844],430:[430,932]};
 const findings=[];const log=[];
@@ -33,7 +34,8 @@ function rngFrom(seed){let s=seed>>>0||1;return ()=>{s=Math.imul(s^s>>>15,224682
 let browser,server,base,shot=0;
 async function newPage(size=390,{fresh=true}={}){
  const [w,h]=SIZES[size];const context=await browser.newContext({viewport:{width:w,height:h},deviceScaleFactor:2,hasTouch:false});
- context.setDefaultTimeout(8000);const page=await context.newPage();page.errors=[];page.size=size;
+ context.setDefaultTimeout(8000);context.setDefaultNavigationTimeout(120000);const page=await context.newPage();page.errors=[];page.size=size;
+ page.startedAt=Date.now();page.timeline=[];page.lastSceneSignature='';
  page.on('pageerror',e=>page.errors.push(`pageerror: ${e.message}`));
  page.on('console',m=>{if(m.type()==='error'&&!/Failed to load resource|favicon/.test(m.text()))page.errors.push(`console: ${m.text().slice(0,300)}`)});
  page.on('requestfailed',r=>{if(!/ERR_ABORTED/.test(r.failure()?.errorText||''))page.errors.push(`requestfailed: ${r.url().replace(base,'')} ${r.failure()?.errorText||''}`)});
@@ -214,7 +216,15 @@ async function instrument(p){await p.evaluate(()=>{if(window.__qaWrapped)return;
 async function drive(p,rng,where,{maxSteps=900,mgBudget=7000,preferQuit=false,throneSteal='no'}={}){
  let last='',same=0;const seen={adventures:new Set(),minigames:[],fights:0};
  for(let step=0;step<maxSteps;step++){
+  if(await p.locator('.fame-ending').count()){
+   p.naturalEndingDay=await p.evaluate(()=>RALife.today().day);await snap(p,'natural-ending');
+   await p.locator('.fame-continue').waitFor({state:'visible',timeout:120000});
+   await p.locator('.fame-continue').click();await settle(p,800);
+   note(`[natural ending ${p.size}] fresh START reached ending on Day ${p.naturalEndingDay}; actual continuation clicked`);
+   continue;
+  }
   const s=await probe(p);
+  if(args.timeline&&Date.now()-p.startedAt<=600000&&s.sig!==p.lastSceneSignature){p.timeline.push({ms:Date.now()-p.startedAt,scene:s.scene,adventure:s.adv,node:s.node,day:s.day,minigame:s.minigame,combat:s.c2||s.scene==='battle',choices:s.choices.length});p.lastSceneSignature=s.sig;}
   if(process.env.QA_TRACE)console.log('  step',new Date().toISOString().slice(11,19),where,step,s.sig.slice(0,160));
   if(s.sig===last)same++;else{same=0;last=s.sig;}
   if(same>=40){finding('PLAYTEST BLOCKER','STUCK',`${where}: no progress for 40 inputs at ${s.scene}/${s.adv||'-'}/${s.node||'-'} minigame=${s.minigame||'-'}`);await snap(p,`stuck-${where}`);return {stuck:true,...seen};}
@@ -288,11 +298,22 @@ async function scenarioNewGame(size,{steal='no'}={}){
  if(await phoneClick(p,'app:texts')){await snap(p,'texts');const threads=await p.evaluate(()=>[...document.querySelectorAll('#phoneContent [data-phone-action^="app:texts:"]')].map(b=>b.dataset.phoneAction));if(!threads.length)finding('ENGINEERING BUG — NON-BLOCKING','DAY1-TEXTS',`${size}: no text threads on Day 1`);else{await phoneClick(p,threads[0]);await snap(p,'family-thread');}await phoneClick(p,'home');}
  else finding('PLAYTEST BLOCKER','DAY1-TEXTS-APP',`${size}: TEXTS app missing on Day 1`);
  await phoneClick(p,'app:vampgpt');await phoneClick(p,'prompt');await snap(p,'vampgpt-options');await phoneClick(p,'home');await closePhone(p);
+ if(args['ten-minutes']){while(Date.now()-p.startedAt<600000){await outing(p,rng,`first-ten-${size}`);await drive(p,rng,`first-ten-${size}`);await closePhone(p);await sleepNight(p,`first-ten-${size}`);await drive(p,rng,`first-ten-${size}-wake`);if(p.timeline.length&&p.timeline.length%20<3)await snap(p,'first-ten-world');}}
+ if(args['full-career']){
+  while(!p.naturalEndingDay&&await p.evaluate(()=>RALife.today().day)<=70){
+   await outing(p,rng,`fresh-career-${size}`);await drive(p,rng,`fresh-career-${size}`);await closePhone(p);
+   await sleepNight(p,`fresh-career-${size}`);await drive(p,rng,`fresh-career-${size}-wake`);
+   note(`[fresh career ${size}] Day ${await p.evaluate(()=>RALife.today().day)}`);
+  }
+  if(!p.naturalEndingDay)finding('PLAYTEST BLOCKER','FRESH-ENDING-MISSING',`${size}: no natural ending through Day70`);
+  await writeFile(path.join(out,`fresh-career-${size}.json`),JSON.stringify({method:'Fresh localStorage, actual START, prologue, throne, outings, sleep/wake and ending/continue controls. No progressed save or economy/day/momentum injection.',width:size,endingDay:p.naturalEndingDay||null,continued:await p.evaluate(()=>!!RALife.life().momentum.fameFired),durationMs:Date.now()-p.startedAt},null,2)+'\n');
+ }
  await invariants(p,`newgame-${size}`,{idle:true});
  const rl=await reloadCheck(p,`newgame-${size}-after-first-wake`);
  note(`[newgame ${size}] refresh → ${rl.scene}, diff ${rl.diff.length}`);
  flushErrors(p,`newgame-${size}`);
  const save=await p.evaluate(()=>localStorage.getItem(RAState.keys.primary));
+ if(args.timeline)await writeFile(path.join(out,`first-ten-minutes-${size}.json`),JSON.stringify({method:'Real START/prologue/throne/first-wake/phone controls, outings and sleep/wake through actual UI. Timestamped state transitions within the first ten wall-clock minutes. A current outing may finish after ten minutes; shorter captures are explicitly partial.',durationMs:Date.now()-p.startedAt,width:size,timeline:p.timeline,completeTenMinutes:Date.now()-p.startedAt>=600000},null,2)+'\n');
  await p.context().close();return save;
 }
 async function scenarioPrologueReload(){
@@ -461,7 +482,7 @@ async function scenarioMinigames(save){
  }
  if(args.mg)return results;
  // Every lab entry also opens and quits cleanly (Play Window A surface).
- const p=await newPage(390,{fresh:false});await p.goto(base+'/minigame-lab.html');await settle(p,800);const labIds=await p.evaluate(()=>[...document.querySelectorAll('#labList [data-game]')].map(b=>b.dataset.game));
+ const p=await newPage(390,{fresh:false});await p.goto(base+'/minigame-lab.html?dev=1');await settle(p,800);const labIds=await p.evaluate(()=>[...document.querySelectorAll('#labList [data-game]')].map(b=>b.dataset.game));
  for(const id of labIds){await p.locator(`#labList [data-game="${id}"]`).click();await settle(p,500);await p.locator('.ra-minigame-quit').click();await settle(p,300);const back=await p.evaluate(()=>getComputedStyle(document.querySelector('#labMenu')).display!=='none'&&!document.querySelector('.ra-minigame'));if(!back)finding('PLAYTEST BLOCKER','LAB-QUIT',id);}
  note(`[minigame-lab] ${labIds.length} entries open+quit: ${labIds.join(',')}`);flushErrors(p,'minigame-lab');await p.context().close();
  return results;
@@ -495,7 +516,7 @@ async function scenarioWidths(save){
   for(const app of ['app:texts','app:receipts','app:realEstate','app:jdmImports']){if(await phoneClick(p,app)){await measure(app);await phoneClick(p,'home');}}
   await closePhone(p);await p.locator('.bedroom-sleep').click();await settle(p,200);await measure('bed-confirm');await p.locator('[data-bed="no"]').click().catch(()=>{});
   // Minigame surfaces: the canvas fits the phone and QUIT stays on screen and tappable.
-  await p.goto(base+'/minigame-lab.html');await settle(p,800);const ids=await p.evaluate(()=>[...document.querySelectorAll('#labList [data-game]')].map(b=>b.dataset.game));
+  await p.goto(base+'/minigame-lab.html?dev=1');await settle(p,800);const ids=await p.evaluate(()=>[...document.querySelectorAll('#labList [data-game]')].map(b=>b.dataset.game));
   for(const id of ids){await p.locator(`#labList [data-game="${id}"]`).click();await settle(p,600);const m=await p.evaluate(()=>{const W=innerWidth,H=innerHeight,c=document.querySelector('.ra-minigame canvas')?.getBoundingClientRect(),q=document.querySelector('.ra-minigame-quit')?.getBoundingClientRect();const bad=[];if(!c)bad.push('no canvas');else if(c.left<-1||c.right>W+1||c.top<-1||c.bottom>H+1)bad.push(`canvas ${Math.round(c.left)},${Math.round(c.top)},${Math.round(c.right)},${Math.round(c.bottom)} in ${W}x${H}`);if(!q||q.bottom>H||q.right>W||q.top<0)bad.push('QUIT off screen');else{const top=document.elementFromPoint(q.left+q.width/2,q.top+q.height/2);if(!top?.closest('.ra-minigame-quit'))bad.push('QUIT covered');}return bad;});checks.push([`minigame:${id}`,m]);await snap(p,`width-mg-${id}`);await p.locator('.ra-minigame-quit').click();await settle(p,300);}
   for(const [name,bad] of checks)if(bad.length)finding('ROUGHNESS / POLISH','LAYOUT',`${size} ${name}: ${bad.slice(0,4).join(' | ')}`);
   note(`[widths ${size}] ${checks.map(([n,b])=>`${n}:${b.length?'ISSUES '+b.length:'ok'}`).join(' ')}`);
@@ -804,14 +825,14 @@ async function scenarioOnlyVamps(save){
 async function main(){
  await mkdir(out,{recursive:true});
  if(!existsSync(path.join(dist,'index.html')))throw new Error('dist/ missing: run npm run build first');
- const build=JSON.parse(await readFile(path.join(dist,'build.json'),'utf8'));
+ const build=args.base?{releaseId:'accepted-base',commit:args.base}:args.checkout?{releaseId:'working-checkout',commit:'uncommitted-final-a',artifact:false}:JSON.parse(await readFile(path.join(dist,'build.json'),'utf8'));
  const {chromium}=loadPlaywright();browser=await chromium.launch({executablePath:await chromiumPath()});server=await serve();base=`http://127.0.0.1:${server.address().port}`;
  note(`PLAYTEST QA over dist ${build.releaseId} (${build.commit})`);
  const want=n=>!only||only.includes(n);let save=null,progressed=null;const report={build,results:{}};
  if(want('reachability'))report.results.orphans=await reachability();
  try{
   if(args.save&&existsSync(String(args.save))){save=await readFile(String(args.save),'utf8');progressed=save;note(`using saved progressed life ${args.save}`);}
-  else if(want('newgame')||want('life')||want('minigames')||want('widths')||want('ending')||want('legacy')||want('systems')||want('wake-reload')||want('routes')||want('combat')||want('a17')||want('a57')||want('realestate')||want('onlyvamps')){const saves={};for(const [size,steal] of [[360,'no'],[390,'yes'],[430,'no']]){if(!want('newgame')&&size!==390)continue;saves[size]=await scenarioNewGame(size,{steal});}save=saves[390];}
+  else if(want('newgame')||want('life')||want('minigames')||want('widths')||want('ending')||want('legacy')||want('systems')||want('wake-reload')||want('routes')||want('combat')||want('a17')||want('a57')||want('realestate')||want('onlyvamps')){const saves={};for(const [size,steal] of [[360,'no'],[390,'yes'],[430,'no']]){if((!want('newgame')||args.size)&&size!==Number(args.size||390))continue;saves[size]=await scenarioNewGame(size,{steal});}save=saves[390];}
   if(want('prologue-reload')){await scenarioPrologueReload();await scenarioThroneDefeat();}
   if(want('life')&&save){progressed=await scenarioLife(save);await writeFile(path.join(out,'progressed-save.json'),progressed);}
   if(want('minigames')&&save)report.results.minigames=await scenarioMinigames(progressed||save);

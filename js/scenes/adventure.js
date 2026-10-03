@@ -140,7 +140,7 @@
    const {node,env,actors}=r;if(directorNode){window.RAPresentationDirector?.exit();directorNode=false;}const envId=typeof env==='function'?env(RAAdventures.context()):env;const props=(typeof node.props==='function'?node.props(RAAdventures.context()):node.props||[]).filter(p=>p?.src);const staged=registeredActors(actors,paintEnv(envId,{key:window.RAPresentationData?.screenKey(RAEnvironments.get(envId)?.id||'street_night',actors||{}),node:`${r.def.id}:${nodeId}`},props).slots);renderActors(staged);stageDirector(staged,node);
    window.RAOpenAudio?.beat?.(audio,r.def.id,nodeId);const a=RAAdventures.active();
    if(node.title&&!(a.titles||[]).includes(nodeId)){hideDialogue();await showTitle(typeof node.title==='function'?node.title(RAAdventures.context()):node.title);RAAdventures.patchActive({titles:[...(RAAdventures.active()?.titles||[]),nodeId]});}
-   const lines=typeof node.lines==='function'?node.lines(RAAdventures.context()):(node.lines||[]);
+   const lines=RAAdventures.linesFor(nodeId);
    for(const line of lines){if(!scope?.isActive())return;if(line)await showLine(line);}
    if(!scope?.isActive())return;
    if(node.end){hideDialogue();const res=RAAdventures.complete(nodeId);await returnHome(res);return;}

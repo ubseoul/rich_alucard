@@ -36,6 +36,7 @@
   const minionEls=[];if(def.minions){for(let i=0;i<5;i++){const k=actorEl(def.person,150+i*22,floor-30+i*6,scale*.55,false);k.classList.add('c2-minion');root.append(k);minionEls.push(k);}}
   root.insertAdjacentHTML('beforeend',`<div class="c2-hud"><div class="c2-hp c2-hp-rich"><b>RICH ALUCARD</b><span>HP <i><em></em></i> <strong></strong></span></div><div class="c2-hp c2-hp-enemy"><b>${esc(state.enemy.name)}</b><span>HP <i><em></em></i> <strong></strong></span></div></div><div class="c2-telegraph" hidden></div><div class="c2-float" aria-hidden="true"></div><div class="c2-panel"><div class="c2-log" aria-live="polite"></div><div class="c2-menu"></div></div><div class="c2-octo" hidden></div>`);
   screen.append(root);document.body.classList.add('combat2-mode');
+  window.RACombatPixelFX?.prewarm();
   if(directed)stageDirector();
   function stageDirector(){
    // Same adapter contract as adventures: environment floor + depth scale, slot anchors; minions stand on a
@@ -57,36 +58,40 @@
    else if(menu==='item'){const list=Object.entries(state.items).filter(([id,n])=>n>0&&D().ITEMS[id]);m.innerHTML=(list.map(([id,n])=>btn(`${icon(window.RAArtRegistry?.items?.combat?.[id])}${D().ITEMS[id].label}<small>×${n}</small>`,`item:${id}`)).join('')||'<p class="c2-empty">BAG IS EMPTY.</p>')+btn('BACK','back','c2-back');}
    else if(menu==='hoes'){const list=state.companions;m.innerHTML=(list.flatMap(c=>c.moves.map(mv=>btn(`${c.name}: ${mv.label}<small>${2-(state.hoesUsed[c.id]||0)} LEFT</small>`,`hoe:${c.id}:${mv.id}`,(state.hoesUsed[c.id]||0)>=2?'c2-off':''))).join('')||'<p class="c2-empty">NOBODY CLOSE ENOUGH YET.</p>')+btn('BACK','back','c2-back');}
   }
-  function showOcto(){const o=$('.c2-octo');o.hidden=false;const opts=def.octopus||{};o.innerHTML=`<img src="assets/octopus_brain_a.png" alt="" class="c2-tentacles"><div class="c2-octo-title">OCTOPUS BRAIN</div>${['charisma','recruit','roast'].filter(k=>opts[k]).map(k=>`<button type="button" class="c2-octo-choice" data-octo="${k}"><b>${k.toUpperCase()}</b><span>${esc(opts[k].label)}</span></button>`).join('')}`;if(window.RAIronFlags?.core?.()){const tentacle=o.querySelector('img');window.RAArtRegistry.combatMoves.octopus.frames.slice(1).forEach((src,i)=>setTimeout(()=>{if(tentacle.isConnected)tentacle.src=src;},180*(i+1)));}}
+  function showOcto(){const o=$('.c2-octo');o.hidden=false;const opts=def.octopus||{};o.innerHTML=`<img src="assets/octopus_brain_a.png" alt="" class="c2-tentacles"><div class="c2-octo-title">OCTOPUS BRAIN</div>${['charisma','recruit','roast'].filter(k=>opts[k]).map(k=>`<button type="button" class="c2-octo-choice" data-octo="${k}"><b>${k.toUpperCase()}</b><span>${esc(opts[k].label)}</span></button>`).join('')}`;const frames=window.RAArtRegistry?.combatMoves?.octopus?.frames;if(frames){const tentacle=o.querySelector('img');frames.slice(1).forEach((src,i)=>setTimeout(()=>{if(tentacle.isConnected)tentacle.src=src;},180*(i+1)));}}
   async function play(events){
    busy=true;$('.c2-menu').innerHTML='';
-   for(const ev of events){window.RAOpenAudio?.combat(audio,enemyId,ev);
+   for(let index=0;index<events.length;index++){const ev=events[index];window.RAOpenAudio?.combat(audio,enemyId,ev);
     $('.c2-log').textContent=ev.text;
     setEnemyState(ev.kind==='telegraph'?'telegraph':ev.kind==='hurt'?'strike':ev.kind==='hit'&&ev.target!=='rich'?'hit':ev.kind==='win'?'defeated':state.over&&state.outcome==='win'?'defeated':null);
-    if(ev.kind==='hit'){enemyEl.classList.remove('c2-flash');void enemyEl.offsetWidth;enemyEl.classList.add('c2-flash');floatNum(ev.amount,'enemy');if(ev.fx==='revenge')flashScreen('c2-revenge');if(ev.heavy)shake();}
-    if(ev.kind==='hurt'){richEl.classList.remove('c2-flash');void richEl.offsetWidth;richEl.classList.add('c2-flash');floatNum(ev.amount,'rich');if(ev.heavy)shake();}
+    if(ev.kind==='hit'||ev.kind==='hurt'){
+     const group=[ev];while(events[index+1]?.kind===ev.kind&&events[index+1]?.target===ev.target)group.push(events[++index]);
+     const onRich=ev.kind==='hurt',target=onRich?richEl:enemyEl,attacker=onRich?enemyEl:richEl,total=group.reduce((sum,e)=>sum+(e.amount||0),0),lethal=events[index+1]?.kind===(onRich?'lose':'win'),severity=lethal?'lethal':group.some(e=>e.heavy)?'heavy':'normal';
+     for(let hit=0;hit<group.length;hit++){const tick=hit<group.length-1;$('.c2-log').textContent=group[hit].text;
+      const stop=window.RACombatPixelFX?.impact({root,target,attacker,severity,tick})||55;audio?.sound(tick?'HIT_LIGHT':lethal?'KO':severity==='heavy'?'HIT_HEAVY':'HIT_LIGHT');
+      if(tick)await wait(110);else{root.classList.add('c2-impact-stop');await wait(stop);root.classList.remove('c2-impact-stop');}
+     }
+     floatNum(total||ev.amount,onRich?'rich':'enemy',null,severity);hud();await wait(615);continue;
+    }
     if(ev.kind==='heal')floatNum(ev.amount?`+${ev.amount}`:'+','heal',ev.target);
-    if(ev.kind==='weird')flashScreen('c2-weird');if(ev.fx==='gun')flashScreen('c2-gunfx');
-    hud();await wait(ev.kind==='telegraph'?900:720);
+    if(ev.kind==='telegraph')audio?.sound('TELEGRAPH');if(ev.kind==='miss')audio?.sound('MISS');
+    if(ev.kind==='win'||ev.kind==='lose'){ $('.c2-log').textContent='';await wait(400);$('.c2-log').textContent=ev.text; }
+    hud();await wait(ev.kind==='telegraph'?900:ev.kind==='enemy'?220:ev.kind==='info'?450:ev.kind==='win'||ev.kind==='lose'?320:720);if(!root.isConnected)return;
    }
    busy=false;
   }
-  function floatNum(n,kind,target){if(n==null)return;const f=document.createElement('b');f.className=`c2-num c2-num-${kind}`;f.textContent=typeof n==='number'?`-${n}`:n;const onRich=kind==='rich'||target==='rich';const at=directed?RAPresentationDirector.fxPoint(onRich?'rich':'enemy',-12,-84,[24,16]):null;f.style.left=at?`${at.x}px`:onRich?'18%':'66%';f.style.top=at?`${at.y}px`:'44%';$('.c2-float').append(f);setTimeout(()=>f.remove(),900);}
-  function flashScreen(cls){root.classList.remove(cls);void root.offsetWidth;root.classList.add(cls);setTimeout(()=>root.classList.remove(cls),500);}
-  function shake(){root.classList.remove('c2-shake');void root.offsetWidth;root.classList.add('c2-shake');}
+  function floatNum(n,kind,target,severity='normal'){if(n==null)return;const f=document.createElement('b');f.className=`c2-num c2-num-${kind} c2-num-${severity}`;f.textContent=typeof n==='number'?`-${n}`:n;const onRich=kind==='rich'||target==='rich';const at=directed?RAPresentationDirector.fxPoint(onRich?'rich':'enemy',-12,-84,[24,16]):null;f.style.left=at?`${at.x}px`:onRich?'18%':'66%';f.style.top=at?`${at.y}px`:'44%';$('.c2-float').append(f);setTimeout(()=>f.remove(),900);}
   let busy=false;
   async function doAction(action){
    if(busy||state.over)return;busy=true;
    const presentation=window.RACombat2Ext?.presentationFor?.(state,action);window.RAOpenAudio?.action(audio,action);
    RACombat2Rules.act(state,action);const events=[...state.log];menu='main';
-   if(window.RAIronFlags?.core?.()){
-    if(!events.some(e=>e.kind==='block'))window.RACombatPresentation?.move?.({root,attacker:richEl,target:enemyEl,action,gun:presentation?.gun||action.type==='gun'&&action.id,events});
-   }else if(action.type==='move'&&action.id==='blood')await bloodFx();
+   if(events[0]?.kind!=='block')window.RACombatPresentation?.move?.({root,attacker:richEl,target:enemyEl,action,gun:presentation?.gun||action.type==='gun'&&action.id,events});
    await play(events);
+   if(!root.isConnected)return;
    if(state.over)return finish();
    renderMenu();
   }
-  async function bloodFx(){const layer=$('.c2-float');for(let i=0;i<5;i++){const o=document.createElement('i');o.className='c2-orb';const from=directed?RAPresentationDirector.fxPoint('rich',14,-30+i*6):null,to=directed?RAPresentationDirector.fxPoint('enemy',-20,-30+i*6):null;if(from){o.style.left=`${from.x}px`;o.style.top=`${from.y}px`;o.style.setProperty('--pd-orb-to',`${to.x}px`);}else o.style.top=`${40+i*2.2}%`;o.style.animationDelay=`${i*60}ms`;layer.append(o);setTimeout(()=>o.remove(),800);}await wait(420);}
   root.addEventListener('click',e=>{
    const o=e.target.closest('[data-octo]');if(o){$('.c2-octo').hidden=true;doAction({type:'octopus',option:o.dataset.octo});return;}
    const b=e.target.closest('[data-c2]');if(!b||busy)return;const [kind,a,c]=b.dataset.c2.split(':');

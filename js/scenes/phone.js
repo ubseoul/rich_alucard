@@ -6,7 +6,7 @@
  const overlay=document.querySelector('#phoneOverlay'),content=document.querySelector('#phoneContent'),entry=document.querySelector('#checkPhone');
  const CANON=[['VampGPT','vampgpt'],['VampGram','vampgram'],['InstaHoe','instahoe'],['RealMoneyRealEstate','realEstate'],['JDMIMPORTS','jdmImports'],['RICHBOIMPORTS','richboi'],['ONLYVAMPS','onlyvamps']];
  const registry=new Map();
- let page='home',opened=false,phoneScope=null,closePromise=null,closeSceneExitCleanup=null,history=[];
+ let page='home',opened=false,phoneScope=null,closePromise=null,closeSceneExitCleanup=null,history=[],deviceLocked=false,swipeStart=null;
  const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
  const cash=()=>new Intl.NumberFormat('en-US').format(window.RABudget?.balance?.()??window.RAState.get().life.resources.money);
  const state=()=>window.RAState.get();
@@ -14,38 +14,52 @@
  function button(label,action,cls='',extra=''){return `<button type="button" class="phone-button ${cls}" data-phone-action="${esc(action)}" ${extra}>${label}</button>`}
  function opportunities(){return window.RAOpportunities?.list('go_somewhere')||[]}
  function incoming(){return window.RAWorldEvents?.pending?.('phone')||[]}
- function incomingCard(){const events=incoming();if(!events.length)return '';return `<section class="phone-incoming"><p class="phone-incoming-kicker">INCOMING</p>${events.map(event=>button(`${event.sender||'UNKNOWN'}<br><small>${event.subject||'MESSAGE'}</small>`,`openWorldEvent:${event.id}`,'incoming-button')).join('')}</section>`}
+ function incomingCard(){const events=incoming();if(!events.length)return '';return `<section class="phone-incoming"><p class="phone-incoming-kicker">INCOMING · AVAILABLE NOW</p>${events.map(event=>button(`${event.sender||'UNKNOWN'}<br><small>${event.subject||'MESSAGE'}</small>`,`openWorldEvent:${event.id}`,'incoming-button')).join('')}</section>`}
  // ---- app registry ----
  function register(app){registry.set(app.id,{canon:false,order:50,...app});}
  const appLabel=id=>registry.get(id)?.label||CANON.find(c=>c[1]===id)?.[0]||id;
- function isUnlocked(id){if(id==='vampgpt'||id==='realEstate'||id==='jdmImports')return true;return !!window.RALife?.appUnlocked?.(id);}
+ function isUnlocked(id){if(['vampgpt','realEstate','jdmImports','bank','maps','contacts'].includes(id))return true;return !!window.RALife?.appUnlocked?.(id);}
  function unreadCount(){try{const threads=state().life.phone.threads||{};let n=0;for(const t of Object.values(threads))n+=t.filter(m=>!m.read&&m.from!=='RICH').length;return n;}catch(e){return 0}}
  function badge(id){const app=registry.get(id);const n=app?.badge?.()||0;return n?` <i class="phone-badge">${n}</i>`:''}
  function header(){
   if(!window.RALife)return '';const i=RALife.today();const radio=window.RARadio?.miniPlayer?.()||'';
-  return `<div class="phone-status"><span>$${cash()}</span><span>${i.weekday.slice(0,3)} ${i.dateLabel}</span></div>${radio}`;
+  return `<div class="phone-status phone-system-status"><span>DAY ${i.day} · ${i.weekday.slice(0,3)} ${i.dateLabel}</span><span class="phone-signal" aria-label="Connected">▂▄▆</span></div><div class="phone-balance"><span>ON HAND</span><strong>$${cash()}</strong></div>${radio}`;
  }
  // Frozen ART SHIP 006 app icons (24×24, no baked text: the label stays UI text) by runtime app id → Art Registry id.
  // PICKUP has no phone app at runtime and RICHBOIMPORTS has no approved icon; both stay text-only.
  const APP_ICON={texts:'texts',hatch:'hatch',touge:'touge',bars:'bars',radio:'rich_radio',receipts:'receipts',vampgpt:'vampgpt',jdmImports:'jdmimports'};
- function icon(id){const src=window.RAArtRegistry?.ui?.apps?.[APP_ICON[id]];return src?`<img class="phone-app-icon" src="${esc(src)}" alt="" width="24" height="24" draggable="false">`:''}
+ // Code-drawn 16px icon family for surfaces without frozen app art. No asset is edited.
+ const GLYPHS={vampgram:'M2 2H14V14H2ZM5 5V8L8 11L11 8V5',instahoe:'M5 2H11V8H5ZM2 14V11H14V14',onlyvamps:'M2 3H14V13H2ZM5 6L8 10L11 6',realEstate:'M1 7L8 1L15 7M3 7V14H13V7M7 14V10H10V14',richboi:'M1 5H15V12H1ZM3 5L5 2H11L13 5M4 12V14M12 12V14',armory:'M1 5H14V8H8V14H5V8H1ZM10 3V5',warRoom:'M2 2H14V14H2ZM2 6H14M6 6V14M10 6V14',trap:'M1 7L8 1L15 7M3 7V14H13V7M7 9H10V12H7Z',rainmaker:'M1 4H15V12H1ZM6 6H10V10H6ZM3 6V10M13 6V10',moves:'M2 2H5V6H8V2H11V6H14V10L8 14L2 10Z',bank:'M1 5L8 1L15 5ZM3 7V12M8 7V12M13 7V12M1 14H15',maps:'M1 3L5 1L11 3L15 1V13L11 15L5 13L1 15ZM5 1V13M11 3V15',contacts:'M2 1H14V15H2ZM6 4H10V8H6ZM5 12V10H11V12'};
+ function icon(id){const src=window.RAArtRegistry?.ui?.apps?.[APP_ICON[id]];const art=src?`<img class="phone-app-icon" src="${esc(src)}" alt="" width="24" height="24" draggable="false">`:`<svg class="phone-pixel-icon" viewBox="0 0 16 16" aria-hidden="true" shape-rendering="crispEdges"><path d="${GLYPHS[id]||'M2 2H14V14H2ZM5 5H11V11H5Z'}"/></svg>`;return `<span class="phone-icon-tile" data-icon="${esc(id)}">${art}</span>`;}
  function lockMeta(id){return window.RAPhoneHierarchy?.lockFor?.(id,registry.get(id))||{short:'LOCKED',line:registry.get(id)?.lockedLine||CANON_LOCKED[id]||'not yet.'};}
   function appButton(id,label,isCanon){
    const unlocked=isUnlocked(id),lock=unlocked?null:lockMeta(id);
    const cls=`app-button${isCanon?'':' app-extra'}${unlocked?'':' app-dormant'}`;
    const sub=unlocked?badge(id):`<small class="phone-lock-short">LOCKED · ${esc(lock.short)}</small>`;
    const extra=unlocked?'':`data-locked="1" aria-label="${esc(label)} — locked: ${esc(lock.short)}"`;
-   return button(`${icon(id)}${label}${sub}`,`app:${id}`,cls,extra);
+   const display={realEstate:'RealMoney<br>RealEstate',richboi:'RICHBO<br>IMPORTS'}[id]||esc(label);
+   return button(`${icon(id)}<span class="phone-app-label">${display}</span>${sub}`,`app:${id}`,cls,extra);
   }
+  function nextAction(){
+   const event=incoming()[0];if(event)return {label:event.subject||event.sender,sub:event.sender,action:`openWorldEvent:${event.id}`};
+   if(isUnlocked('trap')&&window.RATrap?.raids?.pending?.())return {label:'HOLD THE HOUSE',sub:'TRAP · RAID PENDING',action:'app:trap:report'};
+   const pending=window.RAWarRoomPlay?.pending?.();if(isUnlocked('warRoom')&&pending)return {label:'RESUME THE PLAY',sub:pending.jobMeta?.label||'WAR ROOM',action:'app:warRoom:jobs'};
+   const unread=unreadCount();if(unread&&isUnlocked('texts'))return {label:'TEXTS',sub:`${unread} UNREAD`,action:'app:texts'};
+   if(isUnlocked('warRoom')&&window.RAFrag?.read?.('F04','offer.status')==='available')return {label:'WAR ROOM',sub:'MISTER DECEMBER',action:'app:warRoom'};
+   const want=(window.RATemptations?.whatWeOn?.()||[]).find(t=>!t.adventure||window.RAAdventures?.available?.(t.adventure));
+   if(want)return {label:want.line,sub:'WHAT WE ON',action:`tempt:${want.id}`};
+   return {label:'OGA WHAT DO I DO',sub:'VAMPGPT',action:'prompt'};
+  }
+  function nextMarkup(){const n=nextAction();return `<section class="phone-next"><p class="phone-incoming-kicker">NEXT UP <span>AVAILABLE NOW</span></p>${button(`<small>${esc(n.sub||'')}</small><strong>${esc(n.label)}</strong><span class="phone-next-arrow" aria-hidden="true">↗</span>`,n.action,'phone-next-button')}</section>`;}
   function homeMarkup(){
    const entries=CANON.map(([name,id])=>({id,label:name,canon:true}));
-   for(const a of [...registry.values()].filter(x=>!x.canon&&isUnlocked(x.id)).sort((a,b)=>a.order-b.order))entries.push({id:a.id,label:a.label,canon:false});
+   for(const a of [...registry.values()].filter(x=>!x.canon&&!x.hidden).sort((a,b)=>a.order-b.order))entries.push({id:a.id,label:a.label,canon:false});
    const hierarchy=window.RAPhoneHierarchy;
    const sections=hierarchy?.sections?.()||[{id:'life',label:'APPS'}];
    const groups=new Map(sections.map(s=>[s.id,[]]));
    for(const entry of entries){const key=hierarchy?.sectionFor?.(entry.id,registry.get(entry.id))||'life';(groups.get(key)||groups.get('life')).push(entry);}
    const grid=sections.map(section=>{const items=groups.get(section.id)||[];if(!items.length)return '';return `<p class="phone-section-label" data-phone-section="${esc(section.id)}">${esc(section.label)}</p>`+items.map(e=>appButton(e.id,e.label,e.canon)).join('');}).join('');
-   return `${header()}<h1>PHONE</h1>${incomingCard()}<div class="phone-app-grid">${grid}</div><div class="phone-message" aria-live="polite"></div>${button('CLOSE PHONE','close','phone-close-button')}`;
+   return `${header()}${nextMarkup()}${incomingCard()}<div class="phone-app-grid">${grid}</div><div class="phone-message" aria-live="polite"></div>${button('CLOSE PHONE','close','phone-close-button')}`;
   }
  // ---- VampGPT (canon flow + WHAT WE ON + the three lanes) ----
  function whatWeOn(){
@@ -53,9 +67,15 @@
   return `<div class="phone-wwo"><p class="phone-speaker">WHAT WE ON</p>${lines.map(t=>button(esc(t.line),`tempt:${t.id}`,'wwo-line')).join('')}</div>`;
  }
  function laneOptions(lane){return window.RAVampGPT?.lane?.(lane)||[];}
+ function deviceChrome(){const now=new Date(),time=document.querySelector('#phoneDeviceTime'),date=document.querySelector('#phoneDeviceDate');if(time)time.textContent=`${String(now.getHours()).padStart(2,'0')}:${String(now.getMinutes()).padStart(2,'0')}`;if(date&&window.RALife)date.textContent=`${RALife.today().weekday.slice(0,3)} · ${RALife.today().dateLabel}`;overlay.classList.toggle('device-locked',deviceLocked);}
+ function pixelKeyboard(){return `<div class="phone-keyboard" aria-label="Contact search keyboard">${['QWERTYUIOP','ASDFGHJKL','ZXCVBNM'].map(row=>`<div>${[...row].map(k=>`<button type="button" data-phone-key="${k.toLowerCase()}" aria-label="Type ${k}">${k}</button>`).join('')}</div>`).join('')}<div><button type="button" data-phone-key="clear">CLEAR</button><button type="button" data-phone-key=" " class="phone-space">SPACE</button><button type="button" data-phone-key="backspace" aria-label="Backspace">⌫</button></div></div>`;}
+ function filterContacts(){const input=content.querySelector('[data-contact-search]'),query=(input?.value||'').toLowerCase();content.querySelectorAll('[data-contact-name]').forEach(card=>{card.hidden=!card.dataset.contactName.includes(query);});}
  function render(){
   if(!content)return;
   const s=state(),r=s.life.resources,w=s.life.world;
+  deviceChrome();
+  if(deviceLocked){content.dataset.phoneApp='lock';content.innerHTML=`<div class="phone-lock-screen"><span class="phone-lock-glyph" aria-hidden="true">▣</span><p>RICH ALUCARD</p><h1>${esc(RALife.today().dateLabel)}</h1><p class="phone-small">${unreadCount()} UNREAD</p>${button('SWIPE UP / UNLOCK','deviceUnlock','phone-unlock')}</div>`;return;}
+  content.dataset.phoneApp=page;
   if(page==='home'){content.innerHTML=homeMarkup();}
   else if(page==='vampgpt'){
    content.innerHTML=`<h1>VAMPGPT</h1><div class="phone-chat"><p class="phone-speaker">VAMPGPT</p><p>yo rich<br>what we on</p>${whatWeOn()}${button('OGA WHAT DO I DO','prompt','suggested-prompt')}</div>${button('HOME','home','phone-back')}`;
@@ -98,13 +118,15 @@
    content.innerHTML=`${app.render?.(rest.join(':'),api)||`<h1>${esc(app.label)}</h1>`}${app.noNav?'':`<div class="phone-nav">${rest.length?button('BACK',`app:${id}`,'phone-back'):''}${button('HOME','home','phone-home')}</div>`}`;
   }
   content.scrollTop=0;
+  // A short discrete page arrival, independent of the locked PLAY iframe.
+  if(!matchMedia('(prefers-reduced-motion: reduce)').matches)content.animate?.([{opacity:.65,transform:'translateY(3px)'},{opacity:1,transform:'translateY(0)'}],{duration:120,easing:'steps(3,end)'});
   window.RAPhoneStyles?.();
  }
  function setMessage(text){const target=content.querySelector('.phone-message');if(target)target.textContent=text;}
  function showPhone(){
   if(opened||document.body.classList.contains('bedroom-mode')===false)return;
   window.RAWorldEvents?.deliver?.('phone');
-  opened=true;phoneScope=window.RAScenes?.currentScope?.()?.child('phone-overlay')||window.RAScenes?.createScope?.('phone-overlay');closeSceneExitCleanup=null;page='home';window.RABedroom?.holdForPhone?.();window.RAState.patch('life.phone.learned',true);updateEntry();
+  opened=true;deviceLocked=false;phoneScope=window.RAScenes?.currentScope?.()?.child('phone-overlay')||window.RAScenes?.createScope?.('phone-overlay');closeSceneExitCleanup=null;page='home';window.RABedroom?.holdForPhone?.();window.RAState.patch('life.phone.learned',true);updateEntry();
   overlay.setAttribute('aria-hidden','false');overlay.classList.remove('closing');overlay.classList.add('open');render();
   window.RAAudio?.sfx?.('PHONE_OPEN');if(incoming().length)window.RAAudio?.sfx?.('NOTIF_GENERIC');
   phoneScope?.timeout(()=>document.querySelector('#phoneClose')?.focus({preventScroll:true}),240);
@@ -138,6 +160,7 @@
   async begin(adventureId,opts={}){if(!window.RAAdventures?.available(adventureId)){setMessage('not tonight.');return false;}await closePhone();return RAAdventureScene.begin(adventureId,{from:'phone',...opts});},
   async launch(minigameId,params={},after){await closePhone();const result=await RAMinigames.launch(minigameId,params);window.RALifeRewards?.apply?.(result);if(after)after(result);return result;}};
  async function action(name){
+  if(name==='deviceLock'){deviceLocked=true;window.RAAudio?.sfx?.('UI_CONFIRM');render();return}if(name==='deviceUnlock'){deviceLocked=false;window.RAAudio?.sfx?.('UI_CONFIRM');render();return}if(deviceLocked){if(name==='close')closePhone();return;}
   if(name==='close'){closePhone();return}if(name==='home'){page='home';render();return}if(name==='vampgpt'){page='vampgpt';render();return}if(name==='prompt'){page='options';render();return}if(name==='somewhere'){page='somewhere';render();return}if(name==='options'){page='options';render();return}if(name==='jdmImports'){page='jdmImports';render();return}if(name==='realEstate'){page='realEstate';render();return}
   if(name==='settings'){window.RAAudio?.sfx?.('UI_CONFIRM');page='settings';render();return}
   if(name==='toggleMute'){window.RAAudio?.toggleMuted?.();window.RAAudio?.sfx?.('UI_CONFIRM');render();return}
@@ -148,7 +171,7 @@
    window.RATemptations.take(id);const ok=await window.RAPlaces?.go?.(t.action,api);if(ok===false)setMessage('not tonight.');return}
   if(name.startsWith('go:')){const id=name.slice(3);const ok=await window.RAPlaces?.go?.(id,api);if(ok===false){setMessage('not tonight.');}return}
   if(name.startsWith('app:')){const [,id,...rest]=name.split(':');
-   if(!isUnlocked(id)){const lock=lockMeta(id);window.RAAudio?.sfx?.('UI_ERROR');setMessage(lock.line);return}
+   if(!isUnlocked(id)){const lock=lockMeta(id);window.RAAudio?.sfx?.('UI_ERROR');setMessage(`${lock.line}${lock.unlock?` UNLOCK: ${lock.unlock}`:''}`);content.querySelector('.phone-message')?.scrollIntoView({block:'nearest'});return}
    window.RAAudio?.sfx?.('PHONE_APP_OPEN');
    if(id==='vampgpt'||id==='realEstate'||id==='jdmImports'){page=id;render();return}
    page=`app:${id}${rest.length?':'+rest.join(':'):''}`;render();return}
@@ -172,7 +195,10 @@
   entry?.addEventListener('click',showPhone);
   document.addEventListener('ra:scene',e=>{if(e.detail?.id!=='bedroom'&&opened)closePhone()});
   document.querySelector('#phoneClose')?.addEventListener('click',e=>{if(e)e.__raSfxHandled=true;closePhone();});
-  overlay?.addEventListener('click',e=>{const jdm=e.target.closest('[data-jdm-action]');if(jdm){window.RAJDMImports?.action(jdm.dataset.jdmAction);return}const property=e.target.closest('[data-property-action]');if(property){window.RAPropertyQuest?.action(property.dataset.propertyAction);return}const target=e.target.closest('[data-phone-action]');if(!target||target.disabled)return;const act=target.dataset.phoneAction;if(/^(app:|settings$|toggleMute$|tokyo$|close$)/.test(act))e.__raSfxHandled=true;action(act)});
+  overlay?.addEventListener('click',e=>{const key=e.target.closest('[data-phone-key]');if(key){const input=content.querySelector('[data-contact-search]');if(!input)return;const k=key.dataset.phoneKey;input.value=k==='clear'?'':k==='backspace'?input.value.slice(0,-1):(input.value+k).slice(0,40);filterContacts();window.RAAudio?.sfx?.('UI_TAP');e.__raSfxHandled=true;return;}const jdm=e.target.closest('[data-jdm-action]');if(jdm){window.RAJDMImports?.action(jdm.dataset.jdmAction);return}const property=e.target.closest('[data-property-action]');if(property){window.RAPropertyQuest?.action(property.dataset.propertyAction);return}const target=e.target.closest('[data-phone-action]');if(!target||target.disabled)return;const act=target.dataset.phoneAction;if(/^(app:|settings$|toggleMute$|tokyo$|close$|device)/.test(act))e.__raSfxHandled=true;action(act)});
+  overlay?.addEventListener('pointerdown',e=>{const shell=overlay.querySelector('.phone-shell').getBoundingClientRect();swipeStart={x:e.clientX,y:e.clientY,edge:e.clientX-shell.left<24};});
+  overlay?.addEventListener('pointerup',e=>{const s=swipeStart;swipeStart=null;if(!s)return;if(deviceLocked&&s.y-e.clientY>70){action('deviceUnlock');return;}if(s.edge&&e.clientX-s.x>70&&Math.abs(e.clientY-s.y)<40){action('home');window.RAAudio?.sfx?.('UI_CONFIRM');}});
+  content?.addEventListener('input',e=>{if(e.target.matches('[data-contact-search]'))filterContacts();});
   overlay?.addEventListener('input',e=>{const bus=e.target?.dataset?.audioBus;if(bus)window.RAAudio?.setVolume?.(bus,Number(e.target.value)/100);if(e.target?.dataset?.audioToggle==='haptics')window.RAAudio?.setHaptics?.(e.target.checked);});
   document.querySelector('#devResetPhone')?.addEventListener('click',()=>{window.RAState.patch('life.resources.money',100000);window.RAState.patch('life.world.location','LA');window.RAState.patch('life.resources.clout','LOW');window.RAState.patch('life.phone.learned',false);page='home';if(opened)closePhone();updateEntry();entry?.focus({preventScroll:true});});
   document.addEventListener('keydown',e=>{if(opened&&e.key==='Escape')closePhone()});
@@ -180,4 +206,9 @@
  // unregister (IF-1, additive): lets RAPhoneRegistry retract a flag-gated app when its feature flag goes OFF.
  window.RAPhoneApps={register,unregister:id=>registry.delete(id),get:id=>registry.get(id)||null,label:appLabel,isUnlocked,list:()=>[...registry.values()]};
  window.RAPhone={open:showPhone,close:closePhone,openApp,home(){page='home';render()},refresh:render,reset(){window.RAState.patch('life.phone.learned',false);updateEntry()},isOpen:()=>opened,apps:CANON.map(([name])=>name),api,page:()=>page,updateEntry};
+ // Command views expose the existing economy, travel and contacts; no new game rules.
+ function nextRoomMarkup(){const L=RALife.L(),room=(window.RACastle?.ROOMS||[]).filter(r=>!RALife.hasRoom(r.id)&&(!r.needs||r.needs(L))).sort((a,b)=>a.price-b.price)[0];if(!room)return "";return `<div class="phone-card"><b>TOMORROW'S RICH</b>${esc(room.label)}<br><span class="phone-small">${esc(room.verb)}</span><br>${RALife.fmt(room.price)} · ${RALife.money()>=room.price?"READY NOW":`${RALife.fmt(room.price-RALife.money())} TO GO`}${button("SEE YOUR CASTLE","app:realEstate")}</div>`;}
+ register({id:'bank',label:'BANK',section:'money',order:1,render(){const l=state().life,o=l.ownership,props=(o.properties||[]).filter(p=>p.ownershipStatus==='owned'),due=props.reduce((n,p)=>n+(p.rentDue||0),0);return `<h1>BANK</h1><div class="phone-bank-total"><span>ON HAND</span><strong>$${cash()}</strong></div><div class="phone-card"><b>NET WORTH</b>${RALife.fmt(RALife.netWorth())}<br>RENT WAITING · ${RALife.fmt(due)}${due?button('PROPERTY · COLLECT RENT','app:realEstate'):''}</div><p class="phone-speaker">OWNED</p><div class="phone-stat-grid">${[['PROPERTIES',props.length],['CARS',(o.cars||[]).filter(c=>c.ownershipStatus!=='sold').length],['CASTLE ROOMS',(o.castleRooms||[]).length],['GUNS',(o.guns||[]).length]].map(([label,n])=>`<div class="phone-card"><strong>${n}</strong><small>${label}</small></div>`).join('')}</div>${nextRoomMarkup()}${button('PROPERTY','app:realEstate')}${button('CARS','app:jdmImports')}`;}});
+ register({id:'maps',label:'MAPS',section:'now',order:6,render(){return `<h1>MAPS</h1><div class="phone-card"><b>${esc(state().life.world.location)}</b>${esc(RALife.today().dateLabel)}</div>${button('GO SOMEWHERE','somewhere')}`;}});
+ register({id:'contacts',label:'CONTACTS',section:'social',order:6,render(){const known=window.RARelations?.known?.()||[];return `<h1>CONTACTS</h1><label class="phone-search"><span>FIND SOMEBODY</span><input data-contact-search type="search" inputmode="none" autocomplete="off" placeholder="name…" aria-label="Search contacts"></label>${isUnlocked('texts')?button('TEXTS','app:texts'):''}<div class="phone-contact-list">${known.map(p=>`<div class="phone-card" data-contact-name="${esc((p.catalog?.name||p.id).toLowerCase())}"><b>${esc(p.catalog?.name||p.id)}</b>${p.catalog?.dateable&&isUnlocked('instahoe')?button('PROFILE',`app:instahoe:p:${p.id}`):''}${(state().life.phone.threads[p.id]||[]).length&&isUnlocked('texts')?button('TEXTS',`app:texts:${p.id}`):''}</div>`).join('')||'<p class="phone-small">nobody yet. phone still got space.</p>'}</div>${pixelKeyboard()}`;}});
 })();

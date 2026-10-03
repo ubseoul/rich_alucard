@@ -91,8 +91,8 @@
   "assets/before_the_fame/characters/ms_patrice/ms_patrice_neutral_80x96.png": {"face": [35, 34, 10, 9]},
   "assets/before_the_fame/characters/nightshade/nightshade_neutral_80x96.png": {"face": [31, 33, 9, 9]},
   "assets/before_the_fame/characters/nneka/nneka_neutral_80x96.png": {"face": [34, 36, 10, 9]},
-  "assets/goldfish_years/characters/octopus_sensei/octopus_sensei_neutral_96x96.png": {"face": [36, 36, 22, 12]},
-  "assets/goldfish_years/characters/octopus_sensei/octopus_sensei_point_96x96.png": {"face": [38, 33, 20, 11]},
+  "assets/goldfish_years/characters/octopus_sensei/octopus_sensei_neutral_96x96.png": {"face": [36, 36, 22, 12], "grounding": {"kind": "hover", "lift": 14, "reason": "A00:sensei: something old drifts in underwater; accepted mentor has no feet"}},
+  "assets/goldfish_years/characters/octopus_sensei/octopus_sensei_point_96x96.png": {"face": [38, 33, 20, 11], "grounding": {"kind": "hover", "lift": 14, "reason": "A00:sensei_point: same underwater drifting mentor"}},
   "assets/before_the_fame/characters/officer_nodd/officer_nodd_neutral_80x96.png": {"face": [33, 33, 10, 8]},
   "assets/before_the_fame/characters/okada/mr_okada_neutral_80x96.png": {"face": [33, 37, 11, 8]},
   "assets/before_the_fame/characters/paladin/paladin_neutral_80x96.png": {"face": [33, 30, 10, 9]},
@@ -188,6 +188,10 @@
   "assets/before_the_fame/art_ship_015/package_a/A-family-brother1.png": {"face": [36, 28, 10, 10]},
   "assets/before_the_fame/art_ship_015/package_a/A-family-brother2.png": {"face": [36, 34, 9, 9]},
   "assets/before_the_fame/characters/granny_bing/cga_f2_032/granny_bing_neutral_calling_numbers_anchor_80x96_v1.png": {},
-  "assets/f15/characters/spirit_of_uncle_bunmi_444x222.png": {"groundedAnchor": true, "face": [128, 104, 40, 36]}
+  "assets/f15/characters/spirit_of_uncle_bunmi_444x222.png": {"groundedAnchor": true, "face": [128, 104, 40, 36]},
+  "assets/before_the_fame/art_ship_014/package_a/A-vicky-doorway.png": {"support": {"box": [20, 20, 40, 69]}, "supportReason": "Character shoes end at y88; doorframe extends to y92 and is a prop"},
+  "assets/f15/portraits/roxy.png": {},
+  "assets/f15/portraits/rosalyn.png": {},
+  "assets/f15/portraits/emerald.png": {}
  }
 }

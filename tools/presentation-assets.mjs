@@ -9,6 +9,7 @@ import {createHash} from 'node:crypto';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {decodePng,alphaBox} from './presentation/png.mjs';
+import {alphaSupport} from './presentation/support.mjs';
 import {buildRegistry} from './art-registry.mjs';
 
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
@@ -44,12 +45,14 @@ export async function buildAssets(){
    // Horizontal sprite sheet: one metadata entry per frame, keyed `<path>#<index>`; the sheet entry lists them.
    const fw=note.frames.width,count=Math.round(png.width/fw);entry.sheet={frameWidth:fw,frames:count};assets[file]=entry;
    for(let i=0;i<count;i++){const frame={width:fw,height:png.height,data:Buffer.alloc(fw*png.height*4)};for(let y=0;y<png.height;y++)png.data.copy(frame.data,y*fw*4,(y*png.width+i*fw)*4,(y*png.width+(i+1)*fw)*4);
-    const visible=alphaBox(frame),face=note.frames.faces?.[i];assets[`${file}#${i}`]={width:fw,height:png.height,sha256,authority:entry.authority,visible,anchor:note.anchor||annotations.defaultAnchor,face:face||derivedFace(visible),faceSource:face?'authored':'derived'}}
+    const visible=alphaBox(frame),face=note.frames.faces?.[i];assets[`${file}#${i}`]={width:fw,height:png.height,sha256,authority:entry.authority,visible,support:alphaSupport(frame,note.support),...(note.grounding?{grounding:note.grounding}:{}),anchor:note.anchor||annotations.defaultAnchor,face:face||derivedFace(visible),faceSource:face?'authored':'derived'}}
    continue;
   }
   else{
    const visible=alphaBox(png);
    entry.visible=visible;
+   entry.support=alphaSupport(png,note.support);
+   if(note.grounding)entry.grounding=note.grounding;
    // Creatures without an authored contact stand on the bottom-centre of their visible pixels.
    entry.anchor=note.anchor||(note.groundedAnchor?[visible[0]+Math.floor(visible[2]/2),visible[1]+visible[3]]:annotations.defaultAnchor);
    entry.face=note.face||derivedFace(visible);

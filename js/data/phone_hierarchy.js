@@ -9,12 +9,11 @@
     {id:'now',label:'NOW',order:10,note:'priority surfaces'},
     {id:'social',label:'PEOPLE',order:20,note:'contacts, feeds, DMs'},
     {id:'money',label:'MONEY',order:30,note:'income, cars, property'},
-    {id:'life',label:'LIFE',order:40,note:'activities and records'},
-    {id:'system',label:'SYSTEM',order:90,note:'settings and utilities'}
+    {id:'life',label:'LIFE',order:40,note:'activities, records and utilities'}
   ];
   // Provisional runtime-app → section mapping. New apps should declare a `section` on RAPhoneApps.register instead
   // of editing this table. Apps without a mapping fall back to LIFE.
-  const PLACEMENT={vampgpt:'now',vampgram:'social',instahoe:'social',onlyvamps:'social',realEstate:'money',jdmImports:'money',richboi:'money',texts:'life',hatch:'life',touge:'life',bars:'life',radio:'life',receipts:'life'};
+  const PLACEMENT={vampgpt:'now',maps:'now',vampgram:'social',instahoe:'social',onlyvamps:'social',contacts:'social',realEstate:'money',bank:'money',jdmImports:'money',richboi:'money',texts:'social',hatch:'life',touge:'life',bars:'life',radio:'life',receipts:'life',moves:'life'};
   // Reserved, data-only slots for F2–F4. They render nothing until an app registers against them; they exist so a
   // future app has a stable place to land without reworking this framework.
   const RESERVED=[
@@ -23,15 +22,26 @@
     {slot:'f3a',section:'money',note:'F3 economy surface'},
     {slot:'f3b',section:'life',note:'F3 life surface'},
     {slot:'f4a',section:'life',note:'F4 activity surface'},
-    {slot:'f4b',section:'system',note:'F4 utility surface'}
+    {slot:'f4b',section:'life',note:'F4 utility surface'}
   ];
   // Concise lock communication. `short` (≤3 words) shows under the locked icon; `line` is the single in-world
   // sentence shown only after the player taps. Keep both short — no tutorial walls.
   const LOCKS={
-    vampgram:{short:'NO TAGS',line:'nobody tagged you yet.'},
-    instahoe:{short:'NOT LISTED',line:'you not on there yet. somebody gotta dm you first.'},
-    richboi:{short:'WAITLIST',line:'you not on the list. yet.'},
-    onlyvamps:{short:'INVITE ONLY',line:'invite only.'}
+    vampgram:{short:'NO TAGS',line:'nobody tagged you yet.',unlock:"Finish Ogun's rave."},
+    instahoe:{short:'NOT LISTED',line:'you not on there yet. somebody gotta dm you first.',unlock:'Meet Kiki or the assistant in the daytime people lane.'},
+    richboi:{short:'WAITLIST',line:'you not on the list. yet.',unlock:'$500,000 net worth or the Duchess invitation; checked next morning.'},
+    onlyvamps:{short:'INVITE ONLY',line:'invite only.',unlock:'Meet Velvet at the Grave Mall.'},
+    texts:{short:'NO MESSAGES',line:'nobody yet.',unlock:'Receive your first text.'},
+    hatch:{short:'NO EGG',line:'not yet.',unlock:'Adopt the dragon egg.'},
+    touge:{short:'NO DRIVER',line:'not yet.',unlock:"Complete Pinky's drift lesson."},
+    bars:{short:'NO SONG',line:'not yet.',unlock:'Cook your first song with Wispa.'},
+    radio:{short:'NO TRACK',line:'not yet.',unlock:'Unlock a song.'},
+    receipts:{short:'NO RECEIPTS',line:'nothing yet. go live.',unlock:'Complete the butter-chicken trip.'},
+    armory:{short:'UNKNOWN DEALER',line:'not yet.',unlock:'Discover the Armory.'},
+    warRoom:{short:'NO OFFER',line:'nothing yet.',unlock:"Days 16–22: finish Ogun's rave, reach MID street rep, own a car and have two COOL homies; accept December's offer."},
+    trap:{short:'NO LISTING',line:'not yet.',unlock:'Reach NEW OGA Associate, accept Mister December, or finish JUGGED THE PLUG from Day 14.'},
+    rainmaker:{short:'NO INVITE',line:'not yet.',unlock:'Complete your first world event.'},
+    moves:{short:'HOME ONLY',line:'not yet.',unlock:'Return to the bedroom.'}
   };
   function sections(){return SECTIONS.slice().sort((a,b)=>a.order-b.order);}
   function sectionIds(){return sections().map(s=>s.id);}
@@ -47,6 +57,6 @@
   }
   function placement(){return {...PLACEMENT};}
   function reserved(){return RESERVED.map(slot=>({...slot}));}
-  function describe(){return {schema:'1',provisional:true,sections:sections(),placement:placement(),reserved:reserved(),locks:Object.keys(LOCKS)};}
-  window.RAPhoneHierarchy={schema:'1',provisional:true,sections,sectionIds,sectionFor,lockFor,placement,reserved,describe};
+  function describe(){return {schema:'1',provisional:false,sections:sections(),placement:placement(),reserved:reserved(),locks:Object.keys(LOCKS)};}
+  window.RAPhoneHierarchy={schema:'1',provisional:false,sections,sectionIds,sectionFor,lockFor,placement,reserved,describe};
 })();

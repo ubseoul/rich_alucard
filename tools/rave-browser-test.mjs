@@ -19,7 +19,7 @@ try{
   const game=await context.newPage();await game.goto(base);
   assert.equal(await game.locator('#devRaveStage').isVisible(),false);assert.equal(await game.locator('.rave-scene').count(),0);
   assert.equal(await game.evaluate(()=>RARaveScene.current()),null);
-  assert.equal(await game.evaluate(()=>{const prior=open;let called=false;try{window.open=()=>{called=true;};document.querySelector('#devRaveStage').click();return called;}finally{window.open=prior;}}),false);
+  assert.equal(await game.evaluate(()=>{const prior=open;let called=false;try{window.open=()=>{called=true;};document.querySelector('#devRaveStage')?.click();return called;}finally{window.open=prior;}}),false);
   await game.locator('#startButton').click();await game.waitForFunction(()=>RAScenes.current()==='bedroom');
   await game.evaluate(()=>RAState.write(localStorage,RAState.migrateRecord(RASaveFixtures.fixtures.supraOwned),false));
   await game.goto(`${base}/?dev=1`);const before=await bytes(game);

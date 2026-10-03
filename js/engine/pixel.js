@@ -94,7 +94,9 @@
  // point. Returns false until the image has loaded (or when no approved art exists) so callers keep their placeholder.
  const spriteCache=new Map();
  function personSprite(id,state=null){const p=id==='rich'?window.RABtfPeople?.rich:window.RABtfPeople?.get?.(id);const src=(state&&p?.states?.[state])||p?.sprite;if(!src)return null;if(!spriteCache.has(src))spriteCache.set(src,Object.assign(new Image(),{src}));return spriteCache.get(src);}
- function drawSprite(ctx,img,x,y,{flip=false}={}){if(!(img?.complete&&img.naturalWidth))return false;const src=img.getAttribute('src'),[ax,ay]=window.RAPresentationAssets?.[src]?.anchor||[40,88];ctx.save();ctx.imageSmoothingEnabled=false;ctx.translate(Math.round(x),Math.round(y));if(flip)ctx.scale(-1,1);ctx.drawImage(img,-ax,-ay);ctx.restore();return true;}
+ function drawSprite(ctx,img,x,y,{flip=false}={}){if(!(img?.complete&&img.naturalWidth))return false;const src=img.getAttribute('src'),meta=window.RAPresentationAssets?.[src],[ax,ay]=meta?.anchor||[40,88],support=meta?.support,baseline=support?support.y+(meta.grounding?.lift||0):ay;ctx.save();ctx.imageSmoothingEnabled=false;ctx.translate(Math.round(x),Math.round(y));if(flip)ctx.scale(-1,1);
+  if(support){const w=Math.max(12,Math.min(meta.visible[2],support.x2-support.x1)),left=(support.x1+support.x2-w)/2-ax;ctx.fillStyle='rgba(8,7,17,.28)';ctx.fillRect(Math.round(left),-1,Math.round(w),2)}
+  ctx.drawImage(img,-ax,-baseline);ctx.restore();return true;}
  function assetSprite(src){if(!src)return null;if(!spriteCache.has(src))spriteCache.set(src,Object.assign(new Image(),{src}));return spriteCache.get(src);}
  function drawBoard(ctx,id){const img=assetSprite(window.RAArtRegistry?.environments?.[id]?.asset);if(!(img?.complete&&img.naturalWidth))return false;ctx.imageSmoothingEnabled=false;ctx.drawImage(img,0,0,270,480);return true;}
  function drawRegistered(ctx,id,x,y,state=null){const c=window.RAArtRegistry?.characters?.[id];return drawSprite(ctx,assetSprite(c?.states?.[state]||c?.anchor),x,y);}

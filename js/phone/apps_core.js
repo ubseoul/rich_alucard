@@ -15,10 +15,11 @@
   return `<i class="family-avatar" style="background-image:url('${esc(src)}')${f?`;width:${f[2]}px;height:${f[3]}px;background-position:-${f[0]}px -${f[1]}px`:''}" aria-hidden="true"></i>`;}
  function threadMarkup(id,appId){
   const t=threads()[id]||[];markRead(id);
-  const body=t.slice(-24).map(m=>`${m.from!=='RICH'&&id==='family'?`<p class="who">${familyAvatar(m.from)}${esc(m.from)}</p>`:''}<p class="msg ${m.from==='RICH'?'me':''}">${esc(m.text)}</p>`).join('');
+  const body=t.slice(-24).map(m=>`${m.from!=='RICH'&&id==='family'?`<p class="who">${familyAvatar(m.from)}${esc(m.from)}</p>`:''}<p class="msg ${m.from==='RICH'?'me':''}"><small class="phone-message-time">DAY ${m.day} · ${m.day===RALife.today().day?'TONIGHT':m.day>RALife.today().day?'LATER':'EARLIER'}</small>${esc(m.text)}</p>`).join('');
   const last=[...t].reverse().find(m=>m.choices&&!m.answered);
   const choices=last?last.choices.map((c,i)=>btn(esc(c.label),`do:${appId}:reply:${id}|${last.id}|${i}`)).join(''):'';
-  return `<h1>${esc(threadName(id))}</h1><div class="phone-thread">${body||'<p class="phone-small">no messages.</p>'}</div>${choices?`<div class="phone-option-list">${choices}</div>`:''}`;
+  const live=last?.choices?.some(c=>!c.temptation||(life().temptations.live||[]).some(t=>t.id===c.temptation&&(!t.adventure||RAAdventures.available(t.adventure))));
+  return `<h1>${esc(threadName(id))}</h1><div class="phone-thread">${body||'<p class="phone-small">no messages.</p>'}</div>${choices?`<p class="phone-small">${live?'AVAILABLE NOW':'EARLIER INVITATION'}</p><div class="phone-option-list">${choices}</div>`:''}`;
  }
  function reply(arg,api){
   const [id,msgId,i]=arg.split('|');const all={...threads()};const t=[...(all[id]||[])];const idx=t.findIndex(m=>m.id===msgId);if(idx<0)return;

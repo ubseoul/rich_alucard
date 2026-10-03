@@ -6,13 +6,19 @@ import path from 'node:path';
 import vm from 'node:vm';
 import {pathToFileURL} from 'node:url';
 import {withIf1,IF1_TAIL} from './if1/harness.mjs';
+// Reuse compilation only. Each case still creates its own VM, storage and production state.
+const compiledSources=new Map();
+async function execute(root,file,context){
+ const filename=path.resolve(root,file);
+ if(!compiledSources.has(filename))compiledSources.set(filename,new vm.Script(await readFile(filename,'utf8'),{filename:file}));
+ compiledSources.get(filename).runInContext(context);
+}
 
 export async function loadBtf(root,{seedState=null,if1=true}={}){
- const read=file=>readFile(path.join(root,file),'utf8');
  const store=new Map();const storage={getItem:k=>store.has(k)?store.get(k):null,setItem:(k,v)=>store.set(k,String(v)),removeItem:k=>store.delete(k)};
  const listeners={};
  const stubEl=()=>({style:{},dataset:{},classList:{add(){},remove(){},toggle(){},contains:()=>false},addEventListener(){},removeEventListener(){},append(){},remove(){},querySelector:()=>null,querySelectorAll:()=>[],setAttribute(){},getContext:()=>new Proxy({},{get:()=>()=>({width:0})}),getBoundingClientRect:()=>({left:0,top:0,width:270,height:480})});
- const context={console,structuredClone,setTimeout,clearTimeout,setInterval,clearInterval,Intl,URLSearchParams,
+ const context={console,structuredClone,setTimeout,clearTimeout,setInterval,clearInterval,Intl,URLSearchParams,location:{search:''},
   localStorage:storage,sessionStorage:storage,requestAnimationFrame:fn=>setTimeout(()=>fn(0),0),cancelAnimationFrame:clearTimeout,
   document:{addEventListener(t,f){(listeners[t]=listeners[t]||[]).push(f)},removeEventListener(){},dispatchEvent(e){for(const f of listeners[e.type]||[])f(e);return true},querySelector:()=>null,querySelectorAll:()=>[],createElement:stubEl,body:stubEl()},
   CustomEvent:function(type,init){this.type=type;this.detail=init?.detail;},Image:function(){return stubEl()},CSS:{escape:s=>s}};
@@ -21,18 +27,18 @@ export async function loadBtf(root,{seedState=null,if1=true}={}){
  const engine=['js/engine/state.js','js/data/save_fixtures.js','js/engine/scenes.js','js/engine/display.js','js/engine/pixel.js','js/engine/minigames.js','js/data/opportunities.js','js/data/people.js','js/systems/people.js','js/data/world_events.js','js/systems/world_events.js','js/systems/budget.js',
   'js/systems/life.js','js/systems/life_clock.js','js/data/art_registry.js','js/data/art_integration.js','js/data/art_surfaces.js','js/data/btf/people.js','js/systems/relations.js','js/systems/rewards.js','js/engine/adventures.js','js/data/btf/environments.js','js/systems/temptations.js','js/systems/places.js','js/systems/sealed.js','js/systems/fame.js','js/systems/vampgram.js','js/systems/radio.js','js/data/btf/dsl.js'];
  for(const f of (if1?withIf1(engine):engine)){
-  vm.runInContext(await read(f),context,{filename:f});
+  await execute(root,f,context);
   if(f==='js/data/art_registry.js'&&!if1){
-   vm.runInContext(await read('js/data/art/registry_parts.js'),context);
+   await execute(root,'js/data/art/registry_parts.js',context);
   }
   if(f==='js/data/art/registry_parts.js'||f==='js/data/art_registry.js'&&!if1){
    for(const part of (await readdir(path.join(root,'js/data/art/parts'))).filter(p=>p.endsWith('.js')).sort())
-    vm.runInContext(await read(`js/data/art/parts/${part}`),context);
+    await execute(root,`js/data/art/parts/${part}`,context);
   }
  } // IF-1 modules at production anchors (all fragment flags OFF)
  const {contentFiles}=await import(pathToFileURL(path.join(root,'tools','sync-index.mjs')).href);
- for(const f of await contentFiles()){if((f.startsWith('js/minigames/')&&f!=='js/minigames/touge.js')||f==='js/data/bars_words.js')continue;vm.runInContext(await read(f),context,{filename:f});}
- for(const f of (if1?IF1_TAIL:[]))vm.runInContext(await read(f),context,{filename:f});
+ for(const f of await contentFiles()){if((f.startsWith('js/minigames/')&&f!=='js/minigames/touge.js')||f==='js/data/bars_words.js')continue;await execute(root,f,context);}
+ for(const f of (if1?IF1_TAIL:[]))await execute(root,f,context);
  return context;
 }
 

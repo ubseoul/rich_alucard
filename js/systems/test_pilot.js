@@ -1,9 +1,10 @@
 (function(){
- // BTF TEST PILOT — in-page control layer (Engineering 06). DEV ONLY: installed with ?dev=1 (or the F2 DEV panel's
- // dev-enabled body class); never on a normal player's page. One game, one control layer: everything here calls the
+ // BTF TEST PILOT — in-page control layer (Engineering 06). DEV ONLY: installed with ?dev=1;
+ // F2 can toggle that authorized panel. One game, one control layer: everything here calls the
  // real engine (RAAdventures, RAClock, RARelations, stores, scenes). Anything reached through it is DEV-REACHABLE at
  // most — never player reachability (docs/engineering/BTF_TEST_PILOT_ARCHITECTURE_HANDOFF_001.md §4).
- const dev=()=>(typeof location!=='undefined'&&/[?&]dev=1\b/.test(location.search||''))||!!document.body?.classList?.contains?.('dev-enabled');
+ const dev=()=>typeof location!=='undefined'&&new URLSearchParams(location.search||'').get('dev')==='1';
+ if(!dev())return;
  const log=[];const note=(what,why,extra={})=>{const row={t:Date.now(),day:RALife.today().day,what,why,...extra};log.push(row);return row;};
  // ---- deterministic RNG (harness-level: replaces Math.random for this page only; game-seeded content such as the
  // daily wants already uses its own seeded RNG and is unaffected) ----

@@ -1,11 +1,12 @@
 (function(){
+ const devSurface=()=>typeof location!=='undefined'&&new URLSearchParams(location.search||'').get('dev')==='1';
  // ==== Stage contracts — legacy placement API (RAStageLayout) =============================================
  // Unmigrated scenes still place actors by stretching the native 270×480 contract over a host element.
  // Presentation Director scenes (below) never use this path: their size comes only from the Director camera.
  function contract(id){const value=window.RAStages?.get(id);if(!value)throw new Error(`Unknown stage contract: ${id}`);return value}function actorRect(stage,slot,scale){const actor=stage.actors?.[slot]||stage.objects?.[slot];if(!actor)throw new Error(`Unknown stage slot: ${slot}`);scale=scale??actor.scale??stage.referenceScale;if(stage.actors?.[slot]&&!actor.fixedScale&&!stage.fixedScale&&window.RADisplay)scale=window.RADisplay.scaled(scale);const {source,anchor}=actor;return {x:anchor.x-source.anchor.x*scale,y:anchor.y-source.anchor.y*scale,width:source.width*scale,height:source.height*scale,contact:{x:anchor.x,y:anchor.y},scale,slot}}
  function transform(stage,rect,hostRect,screenRect){const sx=hostRect.width/stage.native.width,sy=hostRect.height/stage.native.height;return {left:hostRect.left-screenRect.left+rect.x*sx,top:hostRect.top-screenRect.top+rect.y*sy,width:rect.width*sx,height:rect.height*sy,contact:{x:hostRect.left-screenRect.left+rect.contact.x*sx,y:hostRect.top-screenRect.top+rect.contact.y*sy},scale:{x:sx,y:sy}}}function layout(stageId,slot,host,element,scale){const stage=contract(stageId),screen=document.querySelector('#screen'),rect=transform(stage,actorRect(stage,slot,scale),host.getBoundingClientRect(),screen.getBoundingClientRect());Object.assign(element.style,{left:`${rect.left}px`,top:`${rect.top}px`,width:`${rect.width}px`,height:`${rect.height}px`});return rect}
  function activate(stageId,host,actors,scope,getScale){const stage=contract(stageId);let latest={};const place=()=>{for(const [slot,element]of Object.entries(actors))if(element)latest[slot]=layout(stageId,slot,host,element,getScale?.(slot)||stage.referenceScale);drawOverlay(stage,latest)};const observer=new ResizeObserver(place);observer.observe(host);scope?.cleanup(()=>observer.disconnect());scope?.frame(place);place();return {stage,layout:place,latest:()=>latest}}
- function drawOverlay(stage){const canvas=document.querySelector('#stageContractOverlay');if(!canvas)return;const ctx=canvas.getContext('2d');ctx.clearRect(0,0,canvas.width,canvas.height);if(!document.body.classList.contains('stage-overlay-active'))return;ctx.strokeStyle='#ffcf42';ctx.fillStyle='#ffcf42';ctx.font='6px monospace';ctx.setLineDash([2,2]);for(const line of stage.contactLines){ctx.beginPath();ctx.moveTo(0,line.y);ctx.lineTo(stage.native.width,line.y);ctx.stroke();ctx.fillText(`${line.id} ${line.y}`,3,line.y-3)}ctx.setLineDash([]);for(const slot of Object.keys(stage.actors)){const r=actorRect(stage,slot);ctx.strokeStyle=stage.actors[slot].observer?'#70d7ff':'#ff6b9e';ctx.strokeRect(r.x,r.y,r.width,r.height);ctx.fillStyle=ctx.strokeStyle;ctx.fillText(slot,r.x,Math.max(7,r.y-3))}ctx.strokeStyle='#8cff7a';for(const zone of stage.dialogueSafeZones||[])ctx.strokeRect(zone.x,zone.y,zone.width,zone.height);ctx.strokeStyle='#ff994d';for(const zone of stage.uiExclusionZones||[])ctx.strokeRect(zone.x,zone.y,zone.width,zone.height)}
+ function drawOverlay(stage){if(!devSurface())return;const canvas=document.querySelector('#stageContractOverlay');if(!canvas)return;const ctx=canvas.getContext('2d');ctx.clearRect(0,0,canvas.width,canvas.height);if(!document.body.classList.contains('stage-overlay-active'))return;ctx.strokeStyle='#ffcf42';ctx.fillStyle='#ffcf42';ctx.font='6px monospace';ctx.setLineDash([2,2]);for(const line of stage.contactLines){ctx.beginPath();ctx.moveTo(0,line.y);ctx.lineTo(stage.native.width,line.y);ctx.stroke();ctx.fillText(`${line.id} ${line.y}`,3,line.y-3)}ctx.setLineDash([]);for(const slot of Object.keys(stage.actors)){const r=actorRect(stage,slot);ctx.strokeStyle=stage.actors[slot].observer?'#70d7ff':'#ff6b9e';ctx.strokeRect(r.x,r.y,r.width,r.height);ctx.fillStyle=ctx.strokeStyle;ctx.fillText(slot,r.x,Math.max(7,r.y-3))}ctx.strokeStyle='#8cff7a';for(const zone of stage.dialogueSafeZones||[])ctx.strokeRect(zone.x,zone.y,zone.width,zone.height);ctx.strokeStyle='#ff994d';for(const zone of stage.uiExclusionZones||[])ctx.strokeRect(zone.x,zone.y,zone.width,zone.height)}
 
  // ==== Presentation Director ===============================================================================
  // One camera per screen: world units (the stage's native environment grid) → #screen CSS pixels.
@@ -29,7 +30,12 @@
   const pixels=canvas.getContext('2d').getImageData(0,0,canvas.width,canvas.height);let x0=canvas.width,y0=canvas.height,x1=-1,y1=-1;
   for(let y=0;y<canvas.height;y++)for(let x=0;x<canvas.width;x++)if(pixels.data[(y*canvas.width+x)*4+3]>0){x0=Math.min(x0,x);x1=Math.max(x1,x);y0=Math.min(y0,y);y1=Math.max(y1,y)}
   const visible=x1<0?[0,0,canvas.width,canvas.height]:[x0,y0,x1-x0+1,y1-y0+1];
-  runtimeMeta.set(key,{pixels,meta:{width:canvas.width,height:canvas.height,visible,anchor:[40,88],face:[Math.round(visible[0]+visible[2]*.15),Math.round(visible[1]+visible[3]*.16),Math.max(1,Math.round(visible[2]*.7)),Math.max(1,Math.round(visible[3]*.3))],faceSource:'derived',authority:'PLACEHOLDER'}});
+  // The placeholder's translucent baked shadow is not a shoe: measure opaque support separately.
+  let bottom=-1,left=canvas.width,right=-1;
+  for(let y=0;y<canvas.height;y++)for(let x=0;x<canvas.width;x++)if(pixels.data[(y*canvas.width+x)*4+3]>=128)bottom=y;
+  for(let y=Math.max(0,bottom-2);y<=bottom;y++)for(let x=0;x<canvas.width;x++)if(pixels.data[(y*canvas.width+x)*4+3]>=128){left=Math.min(left,x);right=Math.max(right,x)}
+  const support=bottom>=0?{y:bottom+1,x1:left,x2:right+1,threshold:128}:null;
+  runtimeMeta.set(key,{pixels,meta:{width:canvas.width,height:canvas.height,visible,support,anchor:[40,88],face:[Math.round(visible[0]+visible[2]*.15),Math.round(visible[1]+visible[3]*.16),Math.max(1,Math.round(visible[2]*.7)),Math.max(1,Math.round(visible[3]*.3))],faceSource:'derived',authority:'PLACEHOLDER'}});
   return key;
  }
  function envSize(stage){return stage.world||stage.native}
@@ -107,9 +113,13 @@
    for(const v of options){const body=refH*v/dpr/layout.world.h;if((!range||(body>=range[0]&&body<=range[1]))&&(ref==null||Math.abs(body/ref-1)<=tol))return v/dpr}return k};
   for(const actor of actors){
    const k=crisp(actor.scale*S);
-   const m=actor.meta,ax=snap(sx(actor.anchor.x)),ay=snap(sy(actor.anchor.y)),left=snap(ax-m.anchor[0]*k),top=snap(ay-m.anchor[1]*k);
+   // Keep frozen source anchors and the locked camera unchanged. Only rendered support is corrected:
+   // actual alpha feet / tires sit on the floor, regardless of transparent canvas padding or state art.
+   // Authored underwater hover retains its explicit lift; composed bed contacts use their own line.
+   const m=actor.meta,support=m.support,baseline=support?support.y+(m.grounding?.lift||0):m.anchor[1],ax=snap(sx(actor.anchor.x)),ay=snap(sy(actor.anchor.y)),left=snap(ax-m.anchor[0]*k),top=snap(ay-baseline*k);
    const rect=([x,y,w,h])=>box(left+(actor.flip?m.width-x-w:x)*k,top+y*k,w*k,h*k);
-   placed[actor.slot]={...actor,world:actor.anchor,k,sprite:box(left,top,m.width*k,m.height*k),visible:rect(m.visible),face:rect(m.face),contact:{x:ax,y:ay}};
+   const footX=support?(actor.flip?m.width-(support.x1+support.x2)/2:(support.x1+support.x2)/2):m.anchor[0],shadowW=support?Math.max(12,Math.min(m.visible[2],support.x2-support.x1))*k:0,shadowH=Math.max(1/dpr,2*k),shadow=support?box(snap(left+footX*k-shadowW/2),snap(ay-shadowH/2),shadowW,shadowH):null;
+   placed[actor.slot]={...actor,world:actor.anchor,k,sprite:box(left,top,m.width*k,m.height*k),visible:rect(m.visible),face:rect(m.face),contact:{x:ax,y:ay},support:support?{x:left+footX*k,y:top+support.y*k,baseline,lift:m.grounding?.lift||0}:null,shadow};
   }
   return {S,env:envRect,world:layout.world,actors:placed,dpr,camera};
  }
@@ -147,6 +157,7 @@
   add('env-cover',frame.env.x<=frame.world.x+.5&&frame.env.y<=frame.world.y+.5&&frame.env.x+frame.env.w>=frame.world.x+frame.world.w-.5&&frame.env.y+frame.env.h>=frame.world.y+frame.world.h-.5,true,'no letterbox inside world viewport');
   for(const [slot,a] of Object.entries(frame.actors)){const line=(stage.contactLines||[]).find(l=>l.id===a.line),at=a.world||a.anchor;
    add(`contact:${slot}`,!!line&&Math.abs(at.y-line.y)<.01&&(line.x1==null||(at.x>=line.x1&&at.x<=line.x2)),line?.id||null,'on a contact line');
+   if(a.support&&line){const floor=frame.world.y+(line.y-frame.camera.y)*frame.S,delta=a.support.y+a.support.lift*a.k-floor;add(`foot-contact:${slot}`,Math.abs(delta)<=1/frame.dpr+.001,round3(delta),`±${round3(1/frame.dpr)} CSS px; source alpha support${a.support.lift?' + authored hover lift':''}`)}
    add(`authority:${slot}`,!a.meta.missing&&a.authority!=='UNREGISTERED',a.authority||'missing',a.asset);
   }
   return {pass:checks.every(c=>c.pass),checks,metrics:{body:round3(body),headroom:round3(head),S:round3(frame.S)}};
@@ -278,7 +289,18 @@
   Object.assign(world.style,{left:px(L.world.x),top:px(L.world.y),width:px(L.world.w),height:px(L.world.h)});
   const local=b=>({left:px(b.x-L.world.x),top:px(b.y-L.world.y),width:px(b.w),height:px(b.h)});
   if(ctl.env)Object.assign(ctl.env.style,local(frame.env));
-  for(const [slot,el] of Object.entries(ctl.actors)){const a=frame.actors[slot];if(!el||!a)continue;Object.assign(el.style,local(a.sprite));el.style.setProperty('--pd-w',px(a.sprite.w));el.style.setProperty('--pd-h',px(a.sprite.h));el.style.setProperty('--pd-k',String(round3(a.k)))}
+  for(const [slot,el] of Object.entries(ctl.actors)){const a=frame.actors[slot];if(!el||!a)continue;Object.assign(el.style,local(a.sprite));el.style.setProperty('--pd-w',px(a.sprite.w));el.style.setProperty('--pd-h',px(a.sprite.h));el.style.setProperty('--pd-k',String(round3(a.k)));
+   if(a.shadow&&a.authority!=='PLACEHOLDER'){
+    const shadows=ctl.shadows||(ctl.shadows=new Map());let shadow=shadows.get(slot);
+    if(!shadow){shadow=document.createElement('i');shadow.className='pd-ground-shadow';shadow.dataset.slot=slot;shadow.setAttribute('aria-hidden','true');world.insertBefore(shadow,el);shadows.set(slot,shadow);el.classList.add('pd-grounded');
+     // Combat HUD hides defeated minions through opacity without re-solving the camera. Mirror that actor's
+     // visibility alone so its floor shadow cannot remain after the body disappears.
+     const watch=new MutationObserver(()=>{const c=getComputedStyle(el);shadow.style.display=el.hidden||c.display==='none'||c.visibility==='hidden'||+c.opacity===0?'none':'block'});
+     watch.observe(el,{attributes:true,attributeFilter:['style','class','hidden']});(ctl.shadowObservers||(ctl.shadowObservers=[])).push(watch);
+    }
+    const cs=getComputedStyle(el);Object.assign(shadow.style,local(a.shadow),{pointerEvents:'none',background:'#080711',opacity:a.support.lift?'.2':'.32',zIndex:cs.zIndex==='auto'?'0':cs.zIndex,display:el.hidden||cs.display==='none'||cs.visibility==='hidden'||+cs.opacity===0?'none':'block',clipPath:'polygon(12% 0,88% 0,88% 20%,100% 20%,100% 80%,88% 80%,88% 100%,12% 100%,12% 80%,0 80%,0 20%,12% 20%)'});
+   }
+  }
   for(const el of ctl.viewportLayers||[])Object.assign(el.style,{left:'0px',top:'0px',width:'100%',height:'100%'});
   const selectorLayers=(ctl.worldLayerSelectors||[]).flatMap(({sel,rect})=>[...(ctl.host||screen).querySelectorAll(sel)].map(el=>({el,rect})));
   for(const layer of [...(ctl.worldLayers||[]),...selectorLayers]){(ctl.layerTouched||(ctl.layerTouched=new Set())).add(layer.el);const r=worldRectToScreen(frame,layer.rect),c=intersect(r,L.world);Object.assign(layer.el.style,{left:px(r.x),top:px(r.y),width:px(r.w),height:px(r.h),backgroundSize:'100% 100%',clipPath:`inset(${px(c.y-r.y)} ${px(r.x+r.w-(c.x+c.w))} ${px(r.y+r.h-(c.y+c.h))} ${px(c.x-r.x)})`})}
@@ -318,6 +340,7 @@
   if(world){x=clamp(x,world.x+m,world.x+world.w-m-size[0]*fx);y=clamp(y,world.y+m,world.y+world.h-m-size[1]*fx)}return {x,y}}
 
  function drawDirectorOverlay(ctl,frame,canvas){
+  if(!devSurface())return;
   const env=envSize(ctl.stage);if(canvas.width!==env.width||canvas.height!==env.height){canvas.width=env.width;canvas.height=env.height}
   const ctx=canvas.getContext('2d');ctx.clearRect(0,0,canvas.width,canvas.height);if(!document.body.classList.contains('stage-overlay-active'))return;
   const u=1/frame.S,toWorld=b=>[frame.camera.x+(b.x-frame.world.x)*u,frame.camera.y+(b.y-frame.world.y)*u,b.w*u,b.h*u];
@@ -338,7 +361,7 @@
   document.body.classList.add('pd-active');screen.dataset.pdMode=ctl.mode;screen.dataset.pdStage=stage.id;
   const adopt=el=>{if(!el||el.parentElement===world)return;ctl.restore.push({el,parent:el.parentElement,next:el.nextSibling,style:el.getAttribute('style')});world.appendChild(el)};
   adopt(ctl.env);for(const el of Object.values(ctl.actors))adopt(el);for(const el of ctl.viewportLayers||[])adopt(el);
-  const overlay=document.querySelector('#stageContractOverlay');if(overlay)adopt(overlay);
+  const overlay=document.querySelector('#stageContractOverlay');if(overlay&&devSurface())adopt(overlay);
   for(const layer of ctl.worldLayers||[])ctl.restore.push({el:layer.el,style:layer.el.getAttribute('style')});
   active=ctl;
   const observer=new ResizeObserver(()=>{if(active===ctl)relayout(ctl)});observer.observe(screen);ctl.observer=observer;
@@ -375,6 +398,8 @@
  function mark(ctl,id,opts){const m=ctl.stage.director?.marks?.[id];if(!m)throw new Error(`Unknown mark ${id}`);return moveTo(ctl,m.slot,{x:m.x,line:m.line},opts)}
  function exit(){
   const ctl=active;if(!ctl)return;active=null;ctl.observer?.disconnect();ctl.uiObserver?.disconnect();
+  for(const [slot,shadow]of ctl.shadows||[]){shadow.remove();ctl.actors[slot]?.classList.remove('pd-grounded')}
+  for(const observer of ctl.shadowObservers||[])observer.disconnect();
   for(const el of ctl.uiTouched||[]){for(const k of ['top','bottom','max-height'])el.style.removeProperty(k)}
   for(const el of ctl.layerTouched||[])if(!ctl.restore.some(r=>r.el===el))for(const k of ['left','top','width','height','background-size','clip-path'])el.style.removeProperty(k);
   for(const item of ctl.restore.reverse()){if(item.parent){if(item.next&&item.next.parentElement===item.parent)item.parent.insertBefore(item.el,item.next);else item.parent.appendChild(item.el)}if(item.style==null)item.el.removeAttribute('style');else item.el.setAttribute('style',item.style)}
@@ -452,6 +477,6 @@
  window.RAStageLayout={contract,actorRect,transform,layout,activate,drawOverlay,runSelfTest};
  window.RAPresentationDirector={screenLayout,worldActor,solve,search,project,lintFrame,enter,exit,fxPoint,runSelfTest:runDirectorSelfTest,
   active:()=>!!active,current:()=>active&&{stage:active.stage.id,mode:active.mode,beat:active.beat,frame:active.frame},
-  enterUi,assetOf:elementAsset,worldRect:()=>active?.frame?.world||null,actorBox:slot=>active?.frame?.actors?.[slot]||null,adventureStage,combat2Stage,enterMounted,mark:(id,opts)=>active?mark(active,id,opts):Promise.resolve(false),resetMoves:()=>{if(active?.moved){active.moved={};relayout(active)}},moveTo:(slot,to,opts)=>active?moveTo(active,slot,to,opts):Promise.resolve(false),setBeat:(beat,opts)=>active?setBeat(active,beat,opts):null,relayout:()=>active&&!active.uiOnly&&relayout(active),lint:opts=>active&&!active.uiOnly?lintLive(active,opts):Promise.resolve(null),
+  enterUi,assetOf:elementAsset,worldRect:()=>active?.frame?.world||null,actorBox:slot=>active?.frame?.actors?.[slot]||null,adventureStage,combat2Stage,chooseShot,enterMounted,mark:(id,opts)=>active?mark(active,id,opts):Promise.resolve(false),resetMoves:()=>{if(active?.moved){active.moved={};relayout(active)}},moveTo:(slot,to,opts)=>active?moveTo(active,slot,to,opts):Promise.resolve(false),setBeat:(beat,opts)=>active?setBeat(active,beat,opts):null,relayout:()=>active&&!active.uiOnly&&relayout(active),lint:opts=>active&&!active.uiOnly?lintLive(active,opts):Promise.resolve(null),
   preview:(beatOrShot)=>{if(!active)return null;const prev=active.shot;active.shot={...prev,...beatOrShot};const f=relayout(active);return {frame:f,restore:()=>{active.shot=prev;relayout(active)}}}};
 })();

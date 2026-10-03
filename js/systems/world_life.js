@@ -22,6 +22,13 @@
   const stay=RALife.flag('stayedOver');if(stay&&stay.day===info.day-1)cand.push({kind:'woman',id:stay.person});
   const close=RALife.flag('lastCloseDate');if(!cand.length&&close&&info.day-close.day<=3&&RARelations.level(close.person)>=3&&RALife.hash(info.day*13)%3===0)cand.push({kind:'woman',id:close.person});
   if(RALife.flag('partyNight')===info.day-1)cand.push({kind:'homie',id:['tunde','dre','tristan'][info.day%3]});
+  // Parked World Reaction C5: a returned homie can sleep off the PLAY at the castle.
+  // Read the existing report snapshot; wounded, captured and gone crew never appear here.
+  const play=window.RAWarRoomReportCard?.recent?.(1)?.[0];
+  if(play?.day===info.day-1)for(const id of ['tunde','dre']){
+   const returned=play.squad?.find(o=>o.id===id&&o.status==='ACTIVE');
+   if(returned&&window.RACrew?.get?.(id)?.status==='ACTIVE')cand.push({kind:'homie',id});
+  }
   if(L.dragon?.stage==='majestic'&&RALife.hash(info.day*7)%2===0)cand.push({kind:'mazda'});
   if(life().ownership.cat&&RALife.hash(info.day*11)%3===0)cand.push({kind:'cat'});
   pick=cand[0]||null;RALife.setFlag('bedroomCompany',pick?{...pick,day:info.day}:null);

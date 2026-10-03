@@ -1,0 +1,15 @@
+/* Menu combat only. Hard pixels, fixed-pixel world feedback, no shake on reading/input bands. */
+.c2-scene.c2-shake,.c2-actor.c2-flash{animation:none!important}
+.c2-scene.c2-weird::after,.c2-scene.c2-revenge::after,.c2-scene.c2-gunfx::after{display:none}
+.c2-pixel-fx{image-rendering:pixelated}
+.c2-impact-stop .c2-actor{animation-play-state:paused!important}
+.c2-gun-mods{position:absolute;left:3%;right:3%;text-align:center;color:#d6af62;background:#17131e;border:1px solid #d6af62;padding:3px;font:7px/1.4 var(--font-system);z-index:4;pointer-events:none}
+.c2-world-impact-normal{animation:c2PixelLight 150ms steps(3,end)}
+.c2-world-impact-heavy{animation:c2PixelHeavy 150ms steps(3,end)}
+.c2-world-impact-lethal{animation:c2PixelLethal 150ms steps(3,end)}
+@keyframes c2PixelLight{0%,100%{translate:0}30%{translate:1px 0}65%{translate:-1px 0}}
+@keyframes c2PixelHeavy{0%,100%{translate:0}30%{translate:2px -1px}65%{translate:-2px 1px}}
+@keyframes c2PixelLethal{0%,100%{translate:0}30%{translate:3px -2px}65%{translate:-3px 2px}}
+.c2-num.c2-num-heavy{font-size:clamp(12px,6cqw,24px)}
+.c2-num.c2-num-lethal{font-size:clamp(16px,8cqw,32px);color:#d6af62}
+@media(prefers-reduced-motion:reduce){.c2-world-impact-normal,.c2-world-impact-heavy,.c2-world-impact-lethal,.c2-num{animation:none!important}.c2-hp em{transition:none}}

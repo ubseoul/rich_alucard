@@ -10,6 +10,7 @@
 <link rel="stylesheet" href="js/scenes/property.css?v=__BUILD_ASSET_VERSION__" />
 <link rel="stylesheet" href="js/scenes/minigames.css?v=__BUILD_ASSET_VERSION__" />
 <link rel="stylesheet" href="js/scenes/adventure.css?v=__BUILD_ASSET_VERSION__" />
+<link rel="stylesheet" href="js/systems/combat_pixel_fx.css?v=__BUILD_ASSET_VERSION__" />
 <!-- LOADER:CSS:BEGIN -->
 <link rel="stylesheet" href="js/frag/F01/showdown.css?v=__BUILD_ASSET_VERSION__" />
 <link rel="stylesheet" href="js/frag/F02/armory.css?v=__BUILD_ASSET_VERSION__" />
@@ -131,8 +132,11 @@
 </section>
     <section id="phoneOverlay" class="phone-overlay" aria-label="Phone" aria-hidden="true">
       <div class="phone-shell">
-        <div class="phone-topline"><span>RICH ALUCARD</span><button id="phoneSettingsButton" class="phone-settings-button" type="button" data-phone-action="settings" aria-label="Audio settings">⚙</button><button id="phoneClose" type="button" aria-label="Close phone">×</button></div>
+        <div class="phone-earpiece" aria-hidden="true"><i></i><b></b></div>
+        <div class="phone-device-status"><time id="phoneDeviceTime" title="Device local time"></time><span class="phone-carrier">RICH / LIFE OS</span><span class="phone-signal" aria-label="Connected">▂▄▆</span><span class="phone-battery" role="img" aria-label="Battery full"><i></i></span></div>
+        <div class="phone-topline"><span id="phoneDeviceDate"></span><button id="phoneLockButton" type="button" data-phone-action="deviceLock" aria-label="Lock phone">▣</button><button id="phoneSettingsButton" class="phone-settings-button" type="button" data-phone-action="settings" aria-label="Audio settings">⚙</button><button id="phoneClose" type="button" aria-label="Close phone">×</button></div>
         <main id="phoneContent" class="phone-content"></main>
+        <button class="phone-home-key" type="button" data-phone-action="home" aria-label="Phone home"><i></i></button>
       </div>
     </section>
     <section id="tripTravel" class="trip-scene trip-travel" aria-hidden="true" aria-label="Travel transition">
@@ -396,6 +400,7 @@
 <script src="js/systems/ambience.js?v=__BUILD_ASSET_VERSION__"></script>
 <script src="js/systems/devtools.js?v=__BUILD_ASSET_VERSION__"></script>
 <script src="js/systems/smoke.js?v=__BUILD_ASSET_VERSION__"></script>
+<script src="js/systems/combat_pixel_fx.js?v=__BUILD_ASSET_VERSION__"></script>
 <script src="js/systems/combat_presentation.js?v=__BUILD_ASSET_VERSION__"></script>
 <script src="js/scenes/character_reveal.js?v=__BUILD_ASSET_VERSION__"></script>
 <script src="js/if1/if1.js?v=__BUILD_ASSET_VERSION__"></script>

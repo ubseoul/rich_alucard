@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no" />
 <link rel="icon" href="data:,">
 <title>Rich Alucard — FEEL BATCH (Play Window A)</title>
+<script>if(new URLSearchParams(location.search).get('dev')!=='1')location.replace('./');</script>
 <link rel="stylesheet" href="style.css?v=__BUILD_ASSET_VERSION__" />
 <link rel="stylesheet" href="js/scenes/minigames.css?v=__BUILD_ASSET_VERSION__" />
 <style>
@@ -27,7 +28,7 @@
     </section>
   </div>
 </main>
-<script>window.RA_MINIGAME_LAB=true;</script>
+<script>window.RA_MINIGAME_LAB=new URLSearchParams(location.search).get('dev')==='1';if(!window.RA_MINIGAME_LAB)document.querySelector('#stage')?.remove();</script>
 <script src="js/engine/pixel.js?v=__BUILD_ASSET_VERSION__"></script>
 <script src="js/data/btf/new_oga_tunables.js?v=__BUILD_ASSET_VERSION__"></script><!-- FCPB convergence: OWAMBE COLLECTION reads RANewOgaTunables.m5 (was undefined in the lab; pre-existing on the F04 base) -->
 <script src="js/data/art_registry.js?v=__BUILD_ASSET_VERSION__"></script>
@@ -35,6 +36,7 @@
 <script src="js/minigames/index.js?v=__BUILD_ASSET_VERSION__"></script>
 <script>
 (async function(){
+ if(!window.RA_MINIGAME_LAB)return;
  const list=document.querySelector('#labList'),result=document.querySelector('#labResult'),menu=document.querySelector('#labMenu');
  const files=(window.RAMinigameFiles||[]);
  for(const file of files){await new Promise(resolve=>{const s=document.createElement('script');s.src=`js/minigames/${file}?v=__BUILD_ASSET_VERSION__`;s.onload=s.onerror=resolve;document.body.append(s);});}

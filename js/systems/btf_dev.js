@@ -1,5 +1,6 @@
 (function(){
- // DEV-only BTF controls (visible with ?dev=1 / F2). Neutral codes only; never exposes sealed content.
+ // DEV-only BTF controls (?dev=1 required; F2 only toggles an authorized developer panel).
+ if(new URLSearchParams(location.search).get('dev')!=='1')return;
  function mount(){
   const panel=document.querySelector('#devPanel');if(!panel||panel.querySelector('.btf-dev'))return;
   const box=document.createElement('section');box.className='btf-dev';box.innerHTML=`<div class="dev-title">BEFORE THE FAME</div>

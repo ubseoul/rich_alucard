@@ -14,12 +14,12 @@
       ],
       "owner": "HQ",
       "provenance": "Existing public repository file at the accepted production base; indexed in place.",
-      "source_commit": "2e6a446539aafeb04fb2e8e18747be58c0cdd063",
-      "source_branch": "claude/practical-clarke-d9w789",
-      "sha256": "2732afcb34ebf7eb28c2af0eae454fcc6f928b1c1b32986a7ce9883ec62a5abb",
+      "source_commit": "0c6ccc3d18674c713a0a6e5896fe6ecbf7f7bc0f",
+      "source_branch": "build/visual-completion-002",
+      "sha256": "938a7af62b1104f71fcd79341377d9035bcf927bb17dc330abd6316c897363ed",
       "hash_mode": "lf",
       "present": true,
-      "notes": "Existing Art discovery/evidence record. Recorded approvals and frozen bytes govern only their stated scope; old runtime lineage claims do not override the required base."
+      "notes": "Existing Art discovery/evidence record. Recorded approvals and frozen bytes govern only their stated scope; old runtime lineage claims do not override the required base. FINAL-A reconciled the stale metadata hash against the unchanged accepted OL-053 base; source bytes were not edited."
     },
     {
       "source_id": "art-department-approved-asset-index-md",
@@ -33,12 +33,12 @@
       ],
       "owner": "HQ",
       "provenance": "Existing public repository file at the accepted production base; indexed in place.",
-      "source_commit": "2e6a446539aafeb04fb2e8e18747be58c0cdd063",
-      "source_branch": "claude/practical-clarke-d9w789",
-      "sha256": "1f1102c89cc504f89794d201a54db7c4937e31084235e5b8ee53e3a211cc28b7",
+      "source_commit": "0c6ccc3d18674c713a0a6e5896fe6ecbf7f7bc0f",
+      "source_branch": "build/visual-completion-002",
+      "sha256": "4dfa7d7b3b5af0761e929682feb7e3a5cd4412416de6e5090497ac3e9aaaf0ff",
       "hash_mode": "lf",
       "present": true,
-      "notes": "Authority limited to recorded APPROVED/FROZEN items or explicitly OPEN source-subset constraints. Candidate/rejected/proposed rows stay non-authoritative. No SEALED content, original full packet, runtime acceptance, or absent artwork is inferred."
+      "notes": "Authority limited to recorded APPROVED/FROZEN items or explicitly OPEN source-subset constraints. Candidate/rejected/proposed rows stay non-authoritative. No SEALED content, original full packet, runtime acceptance, or absent artwork is inferred. FINAL-A reconciled the stale metadata hash against the unchanged accepted OL-053 base; source bytes were not edited."
     },
     {
       "source_id": "art-department-art-system-md",
@@ -71,12 +71,12 @@
       ],
       "owner": "HQ",
       "provenance": "Existing public repository file at the accepted production base; indexed in place.",
-      "source_commit": "2e6a446539aafeb04fb2e8e18747be58c0cdd063",
-      "source_branch": "claude/practical-clarke-d9w789",
-      "sha256": "7f651fe3062cc09f0d4ee5d0a39d4a1f76ecf8d92af7b32e4a29e2a8cd5c0cf8",
+      "source_commit": "0c6ccc3d18674c713a0a6e5896fe6ecbf7f7bc0f",
+      "source_branch": "build/visual-completion-002",
+      "sha256": "3fc8e6d7d45e20d58915cc81089b09ab8510fd86e413818d758937a4aecd0d39",
       "hash_mode": "lf",
       "present": true,
-      "notes": "Authority limited to recorded APPROVED/FROZEN items or explicitly OPEN source-subset constraints. Candidate/rejected/proposed rows stay non-authoritative. No SEALED content, original full packet, runtime acceptance, or absent artwork is inferred."
+      "notes": "Authority limited to recorded APPROVED/FROZEN items or explicitly OPEN source-subset constraints. Candidate/rejected/proposed rows stay non-authoritative. No SEALED content, original full packet, runtime acceptance, or absent artwork is inferred. FINAL-A reconciled the stale metadata hash against the unchanged accepted OL-053 base; source bytes were not edited."
     },
     {
       "source_id": "art-department-current-handoff-md",
@@ -90,12 +90,12 @@
       ],
       "owner": "HQ",
       "provenance": "Existing public repository file at the accepted production base; indexed in place.",
-      "source_commit": "2e6a446539aafeb04fb2e8e18747be58c0cdd063",
-      "source_branch": "claude/practical-clarke-d9w789",
-      "sha256": "7840865abc9f2584cad935219259861602298144d514130c5041065488cc2bec",
+      "source_commit": "0c6ccc3d18674c713a0a6e5896fe6ecbf7f7bc0f",
+      "source_branch": "build/visual-completion-002",
+      "sha256": "45b590f6a15129f932aac0021a7bc5099baeb2788d2d96b6656c75d356c57f7d",
       "hash_mode": "lf",
       "present": true,
-      "notes": "Existing Art discovery/evidence record. Recorded approvals and frozen bytes govern only their stated scope; old runtime lineage claims do not override the required base."
+      "notes": "Existing Art discovery/evidence record. Recorded approvals and frozen bytes govern only their stated scope; old runtime lineage claims do not override the required base. FINAL-A reconciled the stale metadata hash against the unchanged accepted OL-053 base; source bytes were not edited."
     },
     {
       "source_id": "art-department-current-open-art-gaps-json",
@@ -1002,12 +1002,12 @@
       ],
       "owner": "HQ",
       "provenance": "Existing public repository file at the accepted production base; indexed in place.",
-      "source_commit": "2e6a446539aafeb04fb2e8e18747be58c0cdd063",
-      "source_branch": "claude/practical-clarke-d9w789",
-      "sha256": "cc4a6821cec6d0f52ae9512116234367dd3a43049789b2e63378f1adc7b82088",
+      "source_commit": "0c6ccc3d18674c713a0a6e5896fe6ecbf7f7bc0f",
+      "source_branch": "build/visual-completion-002",
+      "sha256": "5f3a384f4edfe482e01750e673a088943a7589208e121ad51a09dcdb72a38c63",
       "hash_mode": "lf",
       "present": true,
-      "notes": "Existing Art discovery/evidence record. Recorded approvals and frozen bytes govern only their stated scope; old runtime lineage claims do not override the required base."
+      "notes": "Existing Art discovery/evidence record. Recorded approvals and frozen bytes govern only their stated scope; old runtime lineage claims do not override the required base. FINAL-A reconciled the stale metadata hash against the unchanged accepted OL-053 base; source bytes were not edited."
     },
     {
       "source_id": "art-department-status-questions-md",
@@ -1736,12 +1736,12 @@
       ],
       "owner": "HQ",
       "provenance": "Existing public repository file at the accepted production base; indexed in place.",
-      "source_commit": "2e6a446539aafeb04fb2e8e18747be58c0cdd063",
-      "source_branch": "claude/practical-clarke-d9w789",
-      "sha256": "93760b377eb7b265a220eca6aed453484d2fe11ab474785835ba5cb3c4d17a20",
+      "source_commit": "0c6ccc3d18674c713a0a6e5896fe6ecbf7f7bc0f",
+      "source_branch": "build/visual-completion-002",
+      "sha256": "41fd4c59bee3d355986e917b9a0399f0a6c9964fa495f9bc6e21fe1433e17028",
       "hash_mode": "lf",
       "present": true,
-      "notes": "Accepted base F01 frozen-art mapping and FL-A07/FL-A10 gaps. Preserve exactly; no runtime change authorized."
+      "notes": "Accepted base F01 frozen-art mapping and FL-A07/FL-A10 gaps. Preserve exactly; no runtime change authorized. FINAL-A reconciled the stale metadata hash against the unchanged accepted OL-053 base; source bytes were not edited."
     },
     {
       "source_id": "docs-engineering-f01-play-sim-digest-md",
@@ -3071,6 +3071,46 @@
       "hash_mode": "bytes",
       "present": true,
       "notes": "Master volume for PLAYMAKERS, War Room, Showdown tactical combat, Blood X operations, and car recovery (§ 6.5). Precedence rule: Vol 7 governs War Room, Showdowns, and December."
+    },
+    {
+      "source_id": "blood-mirror-master-giga-packet",
+      "title": "BLOOD MIRROR master giga packet",
+      "path": "source_vault/open_design/BLOOD_MIRROR_MASTER_GIGA_PACKET.docx",
+      "source_type": "creator design authority",
+      "authority_status": "AUTHORITATIVE",
+      "spoiler_class": "OPEN",
+      "feature_ids": [
+        "F01",
+        "F02",
+        "F06",
+        "F13"
+      ],
+      "owner": "Ube",
+      "provenance": "Explicit user instruction OL-055/056/057 on 2026-10-03",
+      "sha256": "476f3c02476e57bc6407a6a8fb61e7020aedf5c52deb588f7d78428b7e1a52a9",
+      "hash_mode": "bytes",
+      "present": true,
+      "notes": "OL-055/056/057: user attached spoiler-safe MASTER DOCX, exact bytes only. Section 2 design authority; section 5 dev overlay release validation. Document recommendations do not override the current work order or feel locks."
+    },
+    {
+      "source_id": "baseline-v1b-ube-answers",
+      "title": "Baseline V1B Ube answers",
+      "path": "source_vault/open_design/BASELINE_V1B_UBE_ANSWERS.md",
+      "source_type": "creator design authority",
+      "authority_status": "AUTHORITATIVE",
+      "spoiler_class": "OPEN",
+      "feature_ids": [
+        "F01",
+        "F02",
+        "F06",
+        "F13"
+      ],
+      "owner": "Ube",
+      "provenance": "Explicit user instruction OL-055/056/057 on 2026-10-03",
+      "sha256": "c304ceb97b41edea6fbf87e9edb62dd26319c8c94ac2e9b99534e7ef241bd84b",
+      "hash_mode": "lf",
+      "present": true,
+      "notes": "OL-055/056/057: verbatim section C supplied in chat. Creator authority for Stages 1–4; new north star supersedes OL-054. No other BLOOD MIRROR file ingested."
     }
   ]
 }

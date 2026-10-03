@@ -7,7 +7,8 @@
  //  env           environment id (js/data/btf/environments.js) — inherited from the previous node
  //  actors        {left,right,mid,farLeft,farRight: personId | {id,state,flip}} — inherited unless replaced
  //  title         establishing card shown once, held for one tap (ARRIVAL)
- //  lines         [[speakerId|null, text, {vp,entrance,beat}]...] — speakerId 'rich' for Rich; null narration
+ //  lines         [[speakerId|null, text, {vp,entrance,beat}]...] or (A)=>lines; entries/text may be callbacks
+ //                — speakerId 'rich' for Rich; null narration; an entry callback may return nothing
  //  enter(A)      effects applied ONCE per run (tracked in the saved record, reload-safe)
  //  choices       [{label, sub, octopus, when(L), fx(A), next}]
  //  next          node id or (A)=>id
@@ -72,6 +73,17 @@
   const list=typeof node?.choices==='function'?node.choices(context()):(node?.choices||[]);
   return list.map((c,index)=>{let ok=true;try{ok=c.when?c.when(L)!==false:true}catch(e){ok=false}return {...c,index,locked:!ok};}).filter(c=>!(c.locked&&c.hideLocked!==false));
  }
+ // Resolve dynamic dialogue before the renderer destructures tuples. A callback-only/no-op beat has
+ // no dialogue to wait on; authored text callbacks use the same live context as node-line factories.
+ function linesFor(nodeId){
+  const a=active();if(!a)return [];const node=get(a.id)?.nodes[nodeId];if(!node)return [];
+  const A=context(),resolve=value=>typeof value==='function'?value(A):value;
+  return (resolve(node.lines)||[]).flatMap(entry=>{
+   const line=resolve(entry);if(!line)return [];
+   const [speaker,text,opts={}]=line;
+   return [[resolve(speaker),resolve(text),resolve(opts)||{}]];
+  });
+ }
  function choose(nodeId,index){
   const a=active();if(!a)return null;const node=get(a.id).nodes[nodeId];const all=typeof node?.choices==='function'?node.choices(context()):(node?.choices||[]);const c=all[index];if(!c)return null;
   let ok=true;try{ok=c.when?c.when(RALife.L())!==false:true}catch(e){ok=false}if(!ok)return null;
@@ -123,5 +135,5 @@
   if(!hasEnd)errors.push(`${def.id} has no end node`);
   return errors;
  }
- window.RAAdventures={define,get,all,record,active,available,start,enter,choicesFor,choose,nextOf,afterMinigame,afterFight,complete,abandon,validate,isDone,context,patchActive};
+ window.RAAdventures={define,get,all,record,active,available,start,enter,linesFor,choicesFor,choose,nextOf,afterMinigame,afterFight,complete,abandon,validate,isDone,context,patchActive};
 })();

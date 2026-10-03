@@ -56,10 +56,12 @@
   if(t.action){take(id);return window.RAPlaces?.go?.(t.action);}
   return false;
  }
- // WHAT WE ON shows up to 6 lines (VOL 1 §6.3). Story-priority wants always make the six, then the newest: on busy
- // late-game mornings (5–8 new wants) the one-time invites generated first were pushed off the list and unreachable.
+ // WHAT WE ON shows up to 6 lines (VOL 1 §6.3): story priority, addressed invites, one first visit, then
+ // the asks expiring soonest. Aging repeats remain visible while the generation lottery stays unchanged.
  function whatWeOn(){const live=T().live.filter(t=>!t.adventure||RAAdventures.available(t.adventure));const pr=t=>Number(defs.get(t.id)?.priority)||0;
-  return live.map((t,i)=>({t,i})).sort((a,b)=>pr(b.t)-pr(a.t)||b.i-a.i).slice(0,6).map(x=>x.t);}
+  const first=t=>{const a=t.adventure&&RAAdventures.get(t.adventure);return !!a&&!a.repeatable&&!RAAdventures.isDone(t.adventure);};
+  const age=(a,b)=>a.expiresDay-b.expiresDay||a.createdDay-b.createdDay,spine=live.filter(t=>pr(t)).sort((a,b)=>pr(b)-pr(a)||age(a,b)),addressed=live.filter(t=>!pr(t)&&t.thread).sort(age),rest=live.filter(t=>!pr(t)&&!t.thread).sort(age),visit=rest.find(first);
+  return [...spine,...addressed,...(visit?[visit]:[]),...rest.filter(t=>t!==visit)].slice(0,6);}
  RAClock.onWake('temptations',60,({info})=>{if(T().lastGeneratedDay!==info.day)generate(info.day);});
  // WAKE-triggered adventures: at most one world-initiated interruption per morning.
  const wakeDefs=[];
