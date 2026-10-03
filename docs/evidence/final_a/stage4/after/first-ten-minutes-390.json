@@ -1,0 +1,7058 @@
+{
+  "method": "Real START/prologue/throne/first-wake/phone controls, outings and sleep/wake through actual UI. Timestamped state transitions within the first ten wall-clock minutes. A current outing may finish after ten minutes; shorter captures are explicitly partial.",
+  "durationMs": 774215,
+  "width": 390,
+  "timeline": [
+    {
+      "ms": 4945,
+      "scene": "adventure",
+      "adventure": "A00",
+      "node": "dream",
+      "day": 1,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 5450,
+      "scene": "adventure",
+      "adventure": "A00",
+      "node": "dream",
+      "day": 1,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 5863,
+      "scene": "adventure",
+      "adventure": "A00",
+      "node": "floor",
+      "day": 1,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 6317,
+      "scene": "adventure",
+      "adventure": "A00",
+      "node": "floor",
+      "day": 1,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 6675,
+      "scene": "adventure",
+      "adventure": "A00",
+      "node": "floor",
+      "day": 1,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 7031,
+      "scene": "adventure",
+      "adventure": "A00",
+      "node": "floor",
+      "day": 1,
+      "minigame": null,
+      "combat": false,
+      "choices": 1
+    },
+    {
+      "ms": 7434,
+      "scene": "adventure",
+      "adventure": "A00",
+      "node": "fall1",
+      "day": 1,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 7807,
+      "scene": "adventure",
+      "adventure": "A00",
+      "node": "fall1",
+      "day": 1,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 8269,
+      "scene": "adventure",
+      "adventure": "A00",
+      "node": "try2",
+      "day": 1,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 8650,
+      "scene": "adventure",
+      "adventure": "A00",
+      "node": "try2",
+      "day": 1,
+      "minigame": null,
+      "combat": false,
+      "choices": 1
+    },
+    {
+      "ms": 9015,
+      "scene": "adventure",
+      "adventure": "A00",
+      "node": "fall2",
+      "day": 1,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 9286,
+      "scene": "adventure",
+      "adventure": "A00",
+      "node": "fall2",
+      "day": 1,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 9612,
+      "scene": "adventure",
+      "adventure": "A00",
+      "node": "try3",
+      "day": 1,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 9862,
+      "scene": "adventure",
+      "adventure": "A00",
+      "node": "try3",
+      "day": 1,
+      "minigame": null,
+      "combat": false,
+      "choices": 1
+    },
+    {
+      "ms": 10196,
+      "scene": "adventure",
+      "adventure": "A00",
+      "node": "fall3",
+      "day": 1,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 10465,
+      "scene": "adventure",
+      "adventure": "A00",
+      "node": "fall3",
+      "day": 1,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 10734,
+      "scene": "adventure",
+      "adventure": "A00",
+      "node": "sensei",
+      "day": 1,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 10902,
+      "scene": "adventure",
+      "adventure": "A00",
+      "node": "sensei",
+      "day": 1,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 11088,
+      "scene": "adventure",
+      "adventure": "A00",
+      "node": "sensei_point",
+      "day": 1,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 11278,
+      "scene": "adventure",
+      "adventure": "A00",
+      "node": "sensei_listen",
+      "day": 1,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 11503,
+      "scene": "adventure",
+      "adventure": "A00",
+      "node": "merge",
+      "day": 1,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 11793,
+      "scene": "adventure",
+      "adventure": "A00",
+      "node": "merge",
+      "day": 1,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 11964,
+      "scene": "adventure",
+      "adventure": "A00",
+      "node": "merge",
+      "day": 1,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 12149,
+      "scene": "adventure",
+      "adventure": "A00",
+      "node": "fork",
+      "day": 1,
+      "minigame": null,
+      "combat": false,
+      "choices": 3
+    },
+    {
+      "ms": 12385,
+      "scene": "adventure",
+      "adventure": "A00",
+      "node": "out_climb",
+      "day": 1,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 12630,
+      "scene": "adventure",
+      "adventure": "A00",
+      "node": "out",
+      "day": 1,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 12953,
+      "scene": "battle",
+      "adventure": null,
+      "node": null,
+      "day": 1,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 14592,
+      "scene": "battle",
+      "adventure": null,
+      "node": null,
+      "day": 1,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 15125,
+      "scene": "battle",
+      "adventure": null,
+      "node": null,
+      "day": 1,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 16159,
+      "scene": "battle",
+      "adventure": null,
+      "node": null,
+      "day": 1,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 16675,
+      "scene": "battle",
+      "adventure": null,
+      "node": null,
+      "day": 1,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 17190,
+      "scene": "battle",
+      "adventure": null,
+      "node": null,
+      "day": 1,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 17737,
+      "scene": "battle",
+      "adventure": null,
+      "node": null,
+      "day": 1,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 18289,
+      "scene": "battle",
+      "adventure": null,
+      "node": null,
+      "day": 1,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 20140,
+      "scene": "battle",
+      "adventure": null,
+      "node": null,
+      "day": 1,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 20707,
+      "scene": "battle",
+      "adventure": null,
+      "node": null,
+      "day": 1,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 21343,
+      "scene": "battle",
+      "adventure": null,
+      "node": null,
+      "day": 1,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 21944,
+      "scene": "battle",
+      "adventure": null,
+      "node": null,
+      "day": 1,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 22463,
+      "scene": "battle",
+      "adventure": null,
+      "node": null,
+      "day": 1,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 23002,
+      "scene": "battle",
+      "adventure": null,
+      "node": null,
+      "day": 1,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 23545,
+      "scene": "battle",
+      "adventure": null,
+      "node": null,
+      "day": 1,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 24125,
+      "scene": "battle",
+      "adventure": null,
+      "node": null,
+      "day": 1,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 25959,
+      "scene": "battle",
+      "adventure": null,
+      "node": null,
+      "day": 1,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 26689,
+      "scene": "battle",
+      "adventure": null,
+      "node": null,
+      "day": 1,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 27248,
+      "scene": "battle",
+      "adventure": null,
+      "node": null,
+      "day": 1,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 27839,
+      "scene": "battle",
+      "adventure": null,
+      "node": null,
+      "day": 1,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 28483,
+      "scene": "battle",
+      "adventure": null,
+      "node": null,
+      "day": 1,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 29047,
+      "scene": "battle",
+      "adventure": null,
+      "node": null,
+      "day": 1,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 29669,
+      "scene": "battle",
+      "adventure": null,
+      "node": null,
+      "day": 1,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 31802,
+      "scene": "battle",
+      "adventure": null,
+      "node": null,
+      "day": 1,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 32387,
+      "scene": "battle",
+      "adventure": null,
+      "node": null,
+      "day": 1,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 32941,
+      "scene": "battle",
+      "adventure": null,
+      "node": null,
+      "day": 1,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 33471,
+      "scene": "battle",
+      "adventure": null,
+      "node": null,
+      "day": 1,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 34009,
+      "scene": "battle",
+      "adventure": null,
+      "node": null,
+      "day": 1,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 34569,
+      "scene": "battle",
+      "adventure": null,
+      "node": null,
+      "day": 1,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 37275,
+      "scene": "battle",
+      "adventure": null,
+      "node": null,
+      "day": 1,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 38339,
+      "scene": "battle",
+      "adventure": null,
+      "node": null,
+      "day": 1,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 47189,
+      "scene": "battle",
+      "adventure": null,
+      "node": null,
+      "day": 1,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 48796,
+      "scene": "battle",
+      "adventure": null,
+      "node": null,
+      "day": 1,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 49337,
+      "scene": "battle",
+      "adventure": null,
+      "node": null,
+      "day": 1,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 49901,
+      "scene": "battle",
+      "adventure": null,
+      "node": null,
+      "day": 1,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 50454,
+      "scene": "battle",
+      "adventure": null,
+      "node": null,
+      "day": 1,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 52066,
+      "scene": "character_reveal",
+      "adventure": null,
+      "node": null,
+      "day": 1,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 53679,
+      "scene": "character_reveal",
+      "adventure": null,
+      "node": null,
+      "day": 1,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 54158,
+      "scene": "character_reveal",
+      "adventure": null,
+      "node": null,
+      "day": 1,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 55762,
+      "scene": "character_reveal",
+      "adventure": null,
+      "node": null,
+      "day": 1,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 57932,
+      "scene": "character_reveal",
+      "adventure": null,
+      "node": null,
+      "day": 1,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 58687,
+      "scene": "bedroom",
+      "adventure": null,
+      "node": null,
+      "day": 1,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 59846,
+      "scene": "bedroom",
+      "adventure": null,
+      "node": null,
+      "day": 1,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 60968,
+      "scene": "bedroom",
+      "adventure": null,
+      "node": null,
+      "day": 1,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 70725,
+      "scene": "bedroom",
+      "adventure": null,
+      "node": null,
+      "day": 1,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 75836,
+      "scene": "bedroom",
+      "adventure": null,
+      "node": null,
+      "day": 2,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 76687,
+      "scene": "adventure",
+      "adventure": "A29",
+      "node": "arrive",
+      "day": 2,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 77281,
+      "scene": "adventure",
+      "adventure": "A29",
+      "node": "arrive",
+      "day": 2,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 77753,
+      "scene": "adventure",
+      "adventure": "A29",
+      "node": "arrive",
+      "day": 2,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 78201,
+      "scene": "adventure",
+      "adventure": "A29",
+      "node": "arrive",
+      "day": 2,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 78582,
+      "scene": "adventure",
+      "adventure": "A29",
+      "node": "arrive",
+      "day": 2,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 79069,
+      "scene": "adventure",
+      "adventure": "A29",
+      "node": "arrive",
+      "day": 2,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 79779,
+      "scene": "adventure",
+      "adventure": "A29",
+      "node": "drink",
+      "day": 2,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 80309,
+      "scene": "adventure",
+      "adventure": "A29",
+      "node": "drink",
+      "day": 2,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 80876,
+      "scene": "adventure",
+      "adventure": "A29",
+      "node": "drink",
+      "day": 2,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 81571,
+      "scene": "adventure",
+      "adventure": "A29",
+      "node": "drink",
+      "day": 2,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 82036,
+      "scene": "adventure",
+      "adventure": "A29",
+      "node": "drink",
+      "day": 2,
+      "minigame": null,
+      "combat": false,
+      "choices": 2
+    },
+    {
+      "ms": 82922,
+      "scene": "adventure",
+      "adventure": "A29",
+      "node": "hype",
+      "day": 2,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 84173,
+      "scene": "adventure",
+      "adventure": "A29",
+      "node": "hype",
+      "day": 2,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 85237,
+      "scene": "adventure",
+      "adventure": "A29",
+      "node": "hype",
+      "day": 2,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 85965,
+      "scene": "bedroom",
+      "adventure": null,
+      "node": null,
+      "day": 2,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 86741,
+      "scene": "bedroom",
+      "adventure": null,
+      "node": null,
+      "day": 2,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 89358,
+      "scene": "adventure",
+      "adventure": "PEKING",
+      "node": "arrive",
+      "day": 2,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 89536,
+      "scene": "adventure",
+      "adventure": "PEKING",
+      "node": "arrive",
+      "day": 2,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 89708,
+      "scene": "adventure",
+      "adventure": "PEKING",
+      "node": "arrive",
+      "day": 2,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 89879,
+      "scene": "adventure",
+      "adventure": "PEKING",
+      "node": "arrive",
+      "day": 2,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 90050,
+      "scene": "adventure",
+      "adventure": "PEKING",
+      "node": "arrive",
+      "day": 2,
+      "minigame": null,
+      "combat": false,
+      "choices": 2
+    },
+    {
+      "ms": 90350,
+      "scene": "adventure",
+      "adventure": "PEKING",
+      "node": "eat",
+      "day": 2,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 90612,
+      "scene": "adventure",
+      "adventure": "PEKING",
+      "node": "eat",
+      "day": 2,
+      "minigame": null,
+      "combat": false,
+      "choices": 1
+    },
+    {
+      "ms": 90935,
+      "scene": "bedroom",
+      "adventure": null,
+      "node": null,
+      "day": 2,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 91293,
+      "scene": "bedroom",
+      "adventure": null,
+      "node": null,
+      "day": 2,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 95758,
+      "scene": "bedroom",
+      "adventure": null,
+      "node": null,
+      "day": 3,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 96822,
+      "scene": "bedroom",
+      "adventure": null,
+      "node": null,
+      "day": 3,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 100024,
+      "scene": "adventure",
+      "adventure": "A49",
+      "node": "arrive",
+      "day": 3,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 100433,
+      "scene": "adventure",
+      "adventure": "A49",
+      "node": "arrive",
+      "day": 3,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 100996,
+      "scene": "adventure",
+      "adventure": "A49",
+      "node": "walk",
+      "day": 3,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 101360,
+      "scene": "adventure",
+      "adventure": "A49",
+      "node": "walk",
+      "day": 3,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 101703,
+      "scene": "adventure",
+      "adventure": "A49",
+      "node": "walk",
+      "day": 3,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 102489,
+      "scene": "adventure",
+      "adventure": "A49",
+      "node": "walk",
+      "day": 3,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 103074,
+      "scene": "adventure",
+      "adventure": "A49",
+      "node": "walk",
+      "day": 3,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 103492,
+      "scene": "adventure",
+      "adventure": "A49",
+      "node": "buy",
+      "day": 3,
+      "minigame": null,
+      "combat": false,
+      "choices": 2
+    },
+    {
+      "ms": 104055,
+      "scene": "bedroom",
+      "adventure": null,
+      "node": null,
+      "day": 3,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 108917,
+      "scene": "bedroom",
+      "adventure": null,
+      "node": null,
+      "day": 4,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 109700,
+      "scene": "bedroom",
+      "adventure": null,
+      "node": null,
+      "day": 4,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 113102,
+      "scene": "bedroom",
+      "adventure": null,
+      "node": null,
+      "day": 4,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 118124,
+      "scene": "bedroom",
+      "adventure": null,
+      "node": null,
+      "day": 5,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 118712,
+      "scene": "bedroom",
+      "adventure": null,
+      "node": null,
+      "day": 5,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 121182,
+      "scene": "bedroom",
+      "adventure": null,
+      "node": null,
+      "day": 5,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 125829,
+      "scene": "bedroom",
+      "adventure": null,
+      "node": null,
+      "day": 6,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 126676,
+      "scene": "bedroom",
+      "adventure": null,
+      "node": null,
+      "day": 6,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 129122,
+      "scene": "adventure",
+      "adventure": "A09",
+      "node": "arrive",
+      "day": 6,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 129505,
+      "scene": "adventure",
+      "adventure": "A09",
+      "node": "arrive",
+      "day": 6,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 129716,
+      "scene": "adventure",
+      "adventure": "A09",
+      "node": "arrive",
+      "day": 6,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 129906,
+      "scene": "adventure",
+      "adventure": "A09",
+      "node": "arrive",
+      "day": 6,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 130106,
+      "scene": "adventure",
+      "adventure": "A09",
+      "node": "lower",
+      "day": 6,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 130366,
+      "scene": "adventure",
+      "adventure": "A09",
+      "node": "lower",
+      "day": 6,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 130568,
+      "scene": "adventure",
+      "adventure": "A09",
+      "node": "lower",
+      "day": 6,
+      "minigame": null,
+      "combat": false,
+      "choices": 1
+    },
+    {
+      "ms": 130870,
+      "scene": "adventure",
+      "adventure": "A09",
+      "node": "back",
+      "day": 6,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 131239,
+      "scene": "adventure",
+      "adventure": "A09",
+      "node": "back",
+      "day": 6,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 131550,
+      "scene": "adventure",
+      "adventure": "A09",
+      "node": "back",
+      "day": 6,
+      "minigame": null,
+      "combat": false,
+      "choices": 2
+    },
+    {
+      "ms": 131941,
+      "scene": "adventure",
+      "adventure": "A09",
+      "node": "broke",
+      "day": 6,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 132337,
+      "scene": "bedroom",
+      "adventure": null,
+      "node": null,
+      "day": 6,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 136643,
+      "scene": "bedroom",
+      "adventure": null,
+      "node": null,
+      "day": 7,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 137686,
+      "scene": "bedroom",
+      "adventure": null,
+      "node": null,
+      "day": 7,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 139988,
+      "scene": "adventure",
+      "adventure": "A43",
+      "node": "arrive",
+      "day": 7,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 140369,
+      "scene": "adventure",
+      "adventure": "A43",
+      "node": "arrive",
+      "day": 7,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 140865,
+      "scene": "adventure",
+      "adventure": "A43",
+      "node": "arrive",
+      "day": 7,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 141232,
+      "scene": "adventure",
+      "adventure": "A43",
+      "node": "arrive",
+      "day": 7,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 141803,
+      "scene": "adventure",
+      "adventure": "A43",
+      "node": "arrive",
+      "day": 7,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 142364,
+      "scene": "adventure",
+      "adventure": "A43",
+      "node": "arrive",
+      "day": 7,
+      "minigame": null,
+      "combat": false,
+      "choices": 3
+    },
+    {
+      "ms": 142907,
+      "scene": "adventure",
+      "adventure": "A43",
+      "node": "q2",
+      "day": 7,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 143583,
+      "scene": "adventure",
+      "adventure": "A43",
+      "node": "q2",
+      "day": 7,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 143970,
+      "scene": "adventure",
+      "adventure": "A43",
+      "node": "buy",
+      "day": 7,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 144397,
+      "scene": "adventure",
+      "adventure": "A43",
+      "node": "buy",
+      "day": 7,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 144706,
+      "scene": "adventure",
+      "adventure": "A43",
+      "node": "buy",
+      "day": 7,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 145136,
+      "scene": "adventure",
+      "adventure": "A43",
+      "node": "curb",
+      "day": 7,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 145480,
+      "scene": "adventure",
+      "adventure": "A43",
+      "node": "curb",
+      "day": 7,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 145870,
+      "scene": "bedroom",
+      "adventure": null,
+      "node": null,
+      "day": 7,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 146538,
+      "scene": "bedroom",
+      "adventure": null,
+      "node": null,
+      "day": 7,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 151145,
+      "scene": "bedroom",
+      "adventure": null,
+      "node": null,
+      "day": 8,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 151723,
+      "scene": "bedroom",
+      "adventure": null,
+      "node": null,
+      "day": 8,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 153675,
+      "scene": "property-la-4p-exterior",
+      "adventure": null,
+      "node": null,
+      "day": 8,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 154112,
+      "scene": "property-la-4p-exterior",
+      "adventure": null,
+      "node": null,
+      "day": 8,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 154579,
+      "scene": "property-la-4p-exterior",
+      "adventure": null,
+      "node": null,
+      "day": 8,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 155023,
+      "scene": "property-la-4p-exterior",
+      "adventure": null,
+      "node": null,
+      "day": 8,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 155564,
+      "scene": "property-la-4p-exterior",
+      "adventure": null,
+      "node": null,
+      "day": 8,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 156108,
+      "scene": "property-la-4p-interior",
+      "adventure": null,
+      "node": null,
+      "day": 8,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 156758,
+      "scene": "property-la-4p-interior",
+      "adventure": null,
+      "node": null,
+      "day": 8,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 157306,
+      "scene": "property-la-4p-interior",
+      "adventure": null,
+      "node": null,
+      "day": 8,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 157907,
+      "scene": "property-la-4p-interior",
+      "adventure": null,
+      "node": null,
+      "day": 8,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 158446,
+      "scene": "property-la-4p-interior",
+      "adventure": null,
+      "node": null,
+      "day": 8,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 159049,
+      "scene": "property-la-4p-interior",
+      "adventure": null,
+      "node": null,
+      "day": 8,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 159604,
+      "scene": "property-la-4p-interior",
+      "adventure": null,
+      "node": null,
+      "day": 8,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 160139,
+      "scene": "property-la-4p-interior",
+      "adventure": null,
+      "node": null,
+      "day": 8,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 160641,
+      "scene": "property-la-4p-interior",
+      "adventure": null,
+      "node": null,
+      "day": 8,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 161117,
+      "scene": "property-la-4p-interior",
+      "adventure": null,
+      "node": null,
+      "day": 8,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 161672,
+      "scene": "property-la-4p-interior",
+      "adventure": null,
+      "node": null,
+      "day": 8,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 162147,
+      "scene": "property-la-4p-interior",
+      "adventure": null,
+      "node": null,
+      "day": 8,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 162604,
+      "scene": "property-la-4p-interior",
+      "adventure": null,
+      "node": null,
+      "day": 8,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 163079,
+      "scene": "property-la-4p-interior",
+      "adventure": null,
+      "node": null,
+      "day": 8,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 163547,
+      "scene": "property-la-4p-interior",
+      "adventure": null,
+      "node": null,
+      "day": 8,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 164034,
+      "scene": "property-la-4p-interior",
+      "adventure": null,
+      "node": null,
+      "day": 8,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 164564,
+      "scene": "property-la-4p-interior",
+      "adventure": null,
+      "node": null,
+      "day": 8,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 165105,
+      "scene": "property-la-4p-interior",
+      "adventure": null,
+      "node": null,
+      "day": 8,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 165533,
+      "scene": "property-la-4p-interior",
+      "adventure": null,
+      "node": null,
+      "day": 8,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 165969,
+      "scene": "property-la-4p-interior",
+      "adventure": null,
+      "node": null,
+      "day": 8,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 166391,
+      "scene": "property-la-4p-interior",
+      "adventure": null,
+      "node": null,
+      "day": 8,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 166831,
+      "scene": "property-la-4p-interior",
+      "adventure": null,
+      "node": null,
+      "day": 8,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 167970,
+      "scene": "property-la-4p-exterior",
+      "adventure": null,
+      "node": null,
+      "day": 8,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 168470,
+      "scene": "property-la-4p-exterior",
+      "adventure": null,
+      "node": null,
+      "day": 8,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 169079,
+      "scene": "bedroom",
+      "adventure": null,
+      "node": null,
+      "day": 8,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 174198,
+      "scene": "bedroom",
+      "adventure": null,
+      "node": null,
+      "day": 9,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 175454,
+      "scene": "adventure",
+      "adventure": "NEW_OGA_M1",
+      "node": "pitch",
+      "day": 9,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 175997,
+      "scene": "adventure",
+      "adventure": "NEW_OGA_M1",
+      "node": "pitch",
+      "day": 9,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 176430,
+      "scene": "adventure",
+      "adventure": "NEW_OGA_M1",
+      "node": "pitch",
+      "day": 9,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 176820,
+      "scene": "adventure",
+      "adventure": "NEW_OGA_M1",
+      "node": "pitch",
+      "day": 9,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 177146,
+      "scene": "adventure",
+      "adventure": "NEW_OGA_M1",
+      "node": "pitch",
+      "day": 9,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 177563,
+      "scene": "adventure",
+      "adventure": "NEW_OGA_M1",
+      "node": "pitch",
+      "day": 9,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 177923,
+      "scene": "adventure",
+      "adventure": "NEW_OGA_M1",
+      "node": "pitch",
+      "day": 9,
+      "minigame": null,
+      "combat": false,
+      "choices": 3
+    },
+    {
+      "ms": 178206,
+      "scene": "adventure",
+      "adventure": "NEW_OGA_M1",
+      "node": "table",
+      "day": 9,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 178500,
+      "scene": "adventure",
+      "adventure": "NEW_OGA_M1",
+      "node": "table",
+      "day": 9,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 178870,
+      "scene": "adventure",
+      "adventure": "NEW_OGA_M1",
+      "node": "table",
+      "day": 9,
+      "minigame": null,
+      "combat": false,
+      "choices": 4
+    },
+    {
+      "ms": 179247,
+      "scene": "adventure",
+      "adventure": "NEW_OGA_M1",
+      "node": "leave",
+      "day": 9,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 179553,
+      "scene": "bedroom",
+      "adventure": null,
+      "node": null,
+      "day": 9,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 181971,
+      "scene": "adventure",
+      "adventure": "A48",
+      "node": "arrive",
+      "day": 9,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 182142,
+      "scene": "adventure",
+      "adventure": "A48",
+      "node": "arrive",
+      "day": 9,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 182311,
+      "scene": "adventure",
+      "adventure": "A48",
+      "node": "arrive",
+      "day": 9,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 182504,
+      "scene": "adventure",
+      "adventure": "A48",
+      "node": "question",
+      "day": 9,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 182659,
+      "scene": "adventure",
+      "adventure": "A48",
+      "node": "question",
+      "day": 9,
+      "minigame": null,
+      "combat": false,
+      "choices": 2
+    },
+    {
+      "ms": 182950,
+      "scene": "adventure",
+      "adventure": "A48",
+      "node": "mirror",
+      "day": 9,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 183247,
+      "scene": "adventure",
+      "adventure": "A48",
+      "node": "mirror",
+      "day": 9,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 183445,
+      "scene": "adventure",
+      "adventure": "A48",
+      "node": "mirror",
+      "day": 9,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 183644,
+      "scene": "adventure",
+      "adventure": "A48",
+      "node": "mirror",
+      "day": 9,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 183877,
+      "scene": "bedroom",
+      "adventure": null,
+      "node": null,
+      "day": 9,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 184258,
+      "scene": "bedroom",
+      "adventure": null,
+      "node": null,
+      "day": 9,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 188475,
+      "scene": "bedroom",
+      "adventure": null,
+      "node": null,
+      "day": 10,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 189361,
+      "scene": "bedroom",
+      "adventure": null,
+      "node": null,
+      "day": 10,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 191069,
+      "scene": "adventure",
+      "adventure": "THRONE",
+      "node": "sit",
+      "day": 10,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 191521,
+      "scene": "adventure",
+      "adventure": "THRONE",
+      "node": "sit",
+      "day": 10,
+      "minigame": null,
+      "combat": false,
+      "choices": 2
+    },
+    {
+      "ms": 192282,
+      "scene": "adventure",
+      "adventure": "THRONE",
+      "node": "spar",
+      "day": 10,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 193685,
+      "scene": "adventure",
+      "adventure": "THRONE",
+      "node": "spar",
+      "day": 10,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 194119,
+      "scene": "adventure",
+      "adventure": "THRONE",
+      "node": "spar",
+      "day": 10,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 194570,
+      "scene": "adventure",
+      "adventure": "THRONE",
+      "node": "spar",
+      "day": 10,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 195797,
+      "scene": "adventure",
+      "adventure": "THRONE",
+      "node": "spar",
+      "day": 10,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 196219,
+      "scene": "adventure",
+      "adventure": "THRONE",
+      "node": "spar",
+      "day": 10,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 196651,
+      "scene": "adventure",
+      "adventure": "THRONE",
+      "node": "spar",
+      "day": 10,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 197490,
+      "scene": "adventure",
+      "adventure": "THRONE",
+      "node": "spar",
+      "day": 10,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 198641,
+      "scene": "adventure",
+      "adventure": "THRONE",
+      "node": "spar",
+      "day": 10,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 199092,
+      "scene": "adventure",
+      "adventure": "THRONE",
+      "node": "spar",
+      "day": 10,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 199516,
+      "scene": "adventure",
+      "adventure": "THRONE",
+      "node": "spar",
+      "day": 10,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 200036,
+      "scene": "bedroom",
+      "adventure": null,
+      "node": null,
+      "day": 10,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 204177,
+      "scene": "bedroom",
+      "adventure": null,
+      "node": null,
+      "day": 11,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 204783,
+      "scene": "bedroom",
+      "adventure": null,
+      "node": null,
+      "day": 11,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 207208,
+      "scene": "adventure",
+      "adventure": "A08",
+      "node": "arrive",
+      "day": 11,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 207390,
+      "scene": "adventure",
+      "adventure": "A08",
+      "node": "arrive",
+      "day": 11,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 207561,
+      "scene": "adventure",
+      "adventure": "A08",
+      "node": "arrive",
+      "day": 11,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 207718,
+      "scene": "adventure",
+      "adventure": "A08",
+      "node": "arrive",
+      "day": 11,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 207892,
+      "scene": "adventure",
+      "adventure": "A08",
+      "node": "arrive",
+      "day": 11,
+      "minigame": null,
+      "combat": false,
+      "choices": 1
+    },
+    {
+      "ms": 208144,
+      "scene": "adventure",
+      "adventure": "A08",
+      "node": "hina",
+      "day": 11,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 208330,
+      "scene": "adventure",
+      "adventure": "A08",
+      "node": "hina",
+      "day": 11,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 208499,
+      "scene": "adventure",
+      "adventure": "A08",
+      "node": "shift",
+      "day": 11,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 208685,
+      "scene": "adventure",
+      "adventure": "A08",
+      "node": "shift",
+      "day": 11,
+      "minigame": "slurp",
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 212516,
+      "scene": "adventure",
+      "adventure": "A08",
+      "node": "special",
+      "day": 11,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 212670,
+      "scene": "adventure",
+      "adventure": "A08",
+      "node": "special",
+      "day": 11,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 212834,
+      "scene": "adventure",
+      "adventure": "A08",
+      "node": "special",
+      "day": 11,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 213064,
+      "scene": "adventure",
+      "adventure": "A08",
+      "node": "special",
+      "day": 11,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 213389,
+      "scene": "adventure",
+      "adventure": "A08",
+      "node": "clockout",
+      "day": 11,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 213774,
+      "scene": "adventure",
+      "adventure": "A08",
+      "node": "clockout",
+      "day": 11,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 214278,
+      "scene": "adventure",
+      "adventure": "A_HINA1",
+      "node": "arrive",
+      "day": 11,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 214716,
+      "scene": "adventure",
+      "adventure": "A_HINA1",
+      "node": "arrive",
+      "day": 11,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 215007,
+      "scene": "adventure",
+      "adventure": "A_HINA1",
+      "node": "arrive",
+      "day": 11,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 215208,
+      "scene": "adventure",
+      "adventure": "A_HINA1",
+      "node": "arrive",
+      "day": 11,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 215690,
+      "scene": "bedroom",
+      "adventure": null,
+      "node": null,
+      "day": 11,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 216155,
+      "scene": "bedroom",
+      "adventure": null,
+      "node": null,
+      "day": 11,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 220698,
+      "scene": "bedroom",
+      "adventure": null,
+      "node": null,
+      "day": 12,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 221675,
+      "scene": "bedroom",
+      "adventure": null,
+      "node": null,
+      "day": 12,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 225251,
+      "scene": "adventure",
+      "adventure": "SLURP",
+      "node": "shift",
+      "day": 12,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 225649,
+      "scene": "adventure",
+      "adventure": "SLURP",
+      "node": "shift",
+      "day": 12,
+      "minigame": "slurp",
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 229298,
+      "scene": "bedroom",
+      "adventure": null,
+      "node": null,
+      "day": 12,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 229770,
+      "scene": "bedroom",
+      "adventure": null,
+      "node": null,
+      "day": 12,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 234082,
+      "scene": "bedroom",
+      "adventure": null,
+      "node": null,
+      "day": 13,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 234996,
+      "scene": "bedroom",
+      "adventure": null,
+      "node": null,
+      "day": 13,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 238204,
+      "scene": "bedroom",
+      "adventure": null,
+      "node": null,
+      "day": 13,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 243920,
+      "scene": "bedroom",
+      "adventure": null,
+      "node": null,
+      "day": 14,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 244662,
+      "scene": "bedroom",
+      "adventure": null,
+      "node": null,
+      "day": 14,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 247299,
+      "scene": "adventure",
+      "adventure": "A16",
+      "node": "arrive",
+      "day": 14,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 247969,
+      "scene": "adventure",
+      "adventure": "A16",
+      "node": "arrive",
+      "day": 14,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 248382,
+      "scene": "adventure",
+      "adventure": "A16",
+      "node": "arrive",
+      "day": 14,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 248704,
+      "scene": "adventure",
+      "adventure": "A16",
+      "node": "arrive",
+      "day": 14,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 249171,
+      "scene": "adventure",
+      "adventure": "A16",
+      "node": "open",
+      "day": 14,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 249644,
+      "scene": "adventure",
+      "adventure": "A16",
+      "node": "open",
+      "day": 14,
+      "minigame": null,
+      "combat": false,
+      "choices": 1
+    },
+    {
+      "ms": 250004,
+      "scene": "adventure",
+      "adventure": "A16",
+      "node": "wispa2",
+      "day": 14,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 250292,
+      "scene": "adventure",
+      "adventure": "COOK",
+      "node": "memory",
+      "day": 14,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 250480,
+      "scene": "adventure",
+      "adventure": "COOK",
+      "node": "memory",
+      "day": 14,
+      "minigame": null,
+      "combat": false,
+      "choices": 4
+    },
+    {
+      "ms": 250732,
+      "scene": "adventure",
+      "adventure": "COOK",
+      "node": "beat",
+      "day": 14,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 250937,
+      "scene": "adventure",
+      "adventure": "COOK",
+      "node": "beat",
+      "day": 14,
+      "minigame": null,
+      "combat": false,
+      "choices": 1
+    },
+    {
+      "ms": 251168,
+      "scene": "adventure",
+      "adventure": "COOK",
+      "node": "hook",
+      "day": 14,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 251469,
+      "scene": "adventure",
+      "adventure": "COOK",
+      "node": "hook",
+      "day": 14,
+      "minigame": null,
+      "combat": false,
+      "choices": 1
+    },
+    {
+      "ms": 251778,
+      "scene": "adventure",
+      "adventure": "COOK",
+      "node": "title",
+      "day": 14,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 252114,
+      "scene": "adventure",
+      "adventure": "COOK",
+      "node": "title",
+      "day": 14,
+      "minigame": null,
+      "combat": false,
+      "choices": 3
+    },
+    {
+      "ms": 252403,
+      "scene": "adventure",
+      "adventure": "COOK",
+      "node": "cooked",
+      "day": 14,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 252560,
+      "scene": "adventure",
+      "adventure": "COOK",
+      "node": "cooked",
+      "day": 14,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 252720,
+      "scene": "adventure",
+      "adventure": "COOK",
+      "node": "cooked",
+      "day": 14,
+      "minigame": null,
+      "combat": false,
+      "choices": 2
+    },
+    {
+      "ms": 252999,
+      "scene": "adventure",
+      "adventure": "COOK",
+      "node": "closing",
+      "day": 14,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 253180,
+      "scene": "adventure",
+      "adventure": "COOK",
+      "node": "closing",
+      "day": 14,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 253489,
+      "scene": "bedroom",
+      "adventure": null,
+      "node": null,
+      "day": 14,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 253858,
+      "scene": "bedroom",
+      "adventure": null,
+      "node": null,
+      "day": 14,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 258081,
+      "scene": "bedroom",
+      "adventure": null,
+      "node": null,
+      "day": 15,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 258711,
+      "scene": "bedroom",
+      "adventure": null,
+      "node": null,
+      "day": 15,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 259817,
+      "scene": "bedroom",
+      "adventure": null,
+      "node": null,
+      "day": 15,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 264564,
+      "scene": "bedroom",
+      "adventure": null,
+      "node": null,
+      "day": 16,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 265304,
+      "scene": "adventure",
+      "adventure": "A47",
+      "node": "arrive",
+      "day": 16,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 265514,
+      "scene": "adventure",
+      "adventure": "A47",
+      "node": "arrive",
+      "day": 16,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 265682,
+      "scene": "adventure",
+      "adventure": "A47",
+      "node": "arrive",
+      "day": 16,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 265858,
+      "scene": "adventure",
+      "adventure": "A47",
+      "node": "arrive",
+      "day": 16,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 266044,
+      "scene": "adventure",
+      "adventure": "A47",
+      "node": "let",
+      "day": 16,
+      "minigame": null,
+      "combat": false,
+      "choices": 2
+    },
+    {
+      "ms": 266300,
+      "scene": "adventure",
+      "adventure": "A47",
+      "node": "in",
+      "day": 16,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 266536,
+      "scene": "adventure",
+      "adventure": "A47",
+      "node": "in",
+      "day": 16,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 266798,
+      "scene": "bedroom",
+      "adventure": null,
+      "node": null,
+      "day": 16,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 267178,
+      "scene": "bedroom",
+      "adventure": null,
+      "node": null,
+      "day": 16,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 269685,
+      "scene": "adventure",
+      "adventure": "CAFE",
+      "node": "sit",
+      "day": 16,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 269895,
+      "scene": "adventure",
+      "adventure": "CAFE",
+      "node": "sit",
+      "day": 16,
+      "minigame": null,
+      "combat": false,
+      "choices": 2
+    },
+    {
+      "ms": 270191,
+      "scene": "bedroom",
+      "adventure": null,
+      "node": null,
+      "day": 16,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 270576,
+      "scene": "bedroom",
+      "adventure": null,
+      "node": null,
+      "day": 16,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 274952,
+      "scene": "bedroom",
+      "adventure": null,
+      "node": null,
+      "day": 17,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 275946,
+      "scene": "bedroom",
+      "adventure": null,
+      "node": null,
+      "day": 17,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 279964,
+      "scene": "bedroom",
+      "adventure": null,
+      "node": null,
+      "day": 17,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 284863,
+      "scene": "bedroom",
+      "adventure": null,
+      "node": null,
+      "day": 18,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 285673,
+      "scene": "bedroom",
+      "adventure": null,
+      "node": null,
+      "day": 18,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 288773,
+      "scene": "bedroom",
+      "adventure": null,
+      "node": null,
+      "day": 18,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 293605,
+      "scene": "bedroom",
+      "adventure": null,
+      "node": null,
+      "day": 19,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 294432,
+      "scene": "adventure",
+      "adventure": "A20",
+      "node": "arrive",
+      "day": 19,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 294811,
+      "scene": "adventure",
+      "adventure": "A20",
+      "node": "arrive",
+      "day": 19,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 295034,
+      "scene": "adventure",
+      "adventure": "A20",
+      "node": "arrive",
+      "day": 19,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 295254,
+      "scene": "adventure",
+      "adventure": "A20",
+      "node": "arrive",
+      "day": 19,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 295524,
+      "scene": "adventure",
+      "adventure": "A20",
+      "node": "fork",
+      "day": 19,
+      "minigame": null,
+      "combat": false,
+      "choices": 3
+    },
+    {
+      "ms": 295847,
+      "scene": "adventure",
+      "adventure": "A20",
+      "node": "fightnow",
+      "day": 19,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 297087,
+      "scene": "adventure",
+      "adventure": "A20",
+      "node": "fightnow",
+      "day": 19,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 298078,
+      "scene": "adventure",
+      "adventure": "A20",
+      "node": "fightnow",
+      "day": 19,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 298503,
+      "scene": "adventure",
+      "adventure": "A20",
+      "node": "fightnow",
+      "day": 19,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 299758,
+      "scene": "adventure",
+      "adventure": "A20",
+      "node": "fightnow",
+      "day": 19,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 300784,
+      "scene": "adventure",
+      "adventure": "A20",
+      "node": "fightnow",
+      "day": 19,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 301278,
+      "scene": "adventure",
+      "adventure": "A20",
+      "node": "fightnow",
+      "day": 19,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 301854,
+      "scene": "adventure",
+      "adventure": "A20",
+      "node": "fightnow",
+      "day": 19,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 302428,
+      "scene": "adventure",
+      "adventure": "A20",
+      "node": "fightnow",
+      "day": 19,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 303902,
+      "scene": "adventure",
+      "adventure": "A20",
+      "node": "fightnow",
+      "day": 19,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 304859,
+      "scene": "adventure",
+      "adventure": "A20",
+      "node": "fightnow",
+      "day": 19,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 305408,
+      "scene": "adventure",
+      "adventure": "A20",
+      "node": "fightnow",
+      "day": 19,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 305843,
+      "scene": "adventure",
+      "adventure": "A20",
+      "node": "fightnow",
+      "day": 19,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 307264,
+      "scene": "adventure",
+      "adventure": "A20",
+      "node": "fightnow",
+      "day": 19,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 307730,
+      "scene": "adventure",
+      "adventure": "A20",
+      "node": "fightnow",
+      "day": 19,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 308189,
+      "scene": "adventure",
+      "adventure": "A20",
+      "node": "fightnow",
+      "day": 19,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 309130,
+      "scene": "adventure",
+      "adventure": "A20",
+      "node": "fightnow",
+      "day": 19,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 310549,
+      "scene": "adventure",
+      "adventure": "A20",
+      "node": "fightnow",
+      "day": 19,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 310989,
+      "scene": "adventure",
+      "adventure": "A20",
+      "node": "fightnow",
+      "day": 19,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 312219,
+      "scene": "adventure",
+      "adventure": "A20",
+      "node": "fightnow",
+      "day": 19,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 312655,
+      "scene": "adventure",
+      "adventure": "A20",
+      "node": "fightnow",
+      "day": 19,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 313078,
+      "scene": "adventure",
+      "adventure": "A20",
+      "node": "fightnow",
+      "day": 19,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 314389,
+      "scene": "adventure",
+      "adventure": "A20",
+      "node": "fightnow",
+      "day": 19,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 314869,
+      "scene": "adventure",
+      "adventure": "A20",
+      "node": "fightnow",
+      "day": 19,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 315372,
+      "scene": "adventure",
+      "adventure": "A20",
+      "node": "fightnow",
+      "day": 19,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 316319,
+      "scene": "adventure",
+      "adventure": "A20",
+      "node": "fightnow",
+      "day": 19,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 317552,
+      "scene": "adventure",
+      "adventure": "A20",
+      "node": "fightnow",
+      "day": 19,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 318593,
+      "scene": "adventure",
+      "adventure": "A20",
+      "node": "fightnow",
+      "day": 19,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 319159,
+      "scene": "adventure",
+      "adventure": "A20",
+      "node": "fightnow",
+      "day": 19,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 319847,
+      "scene": "adventure",
+      "adventure": "A20",
+      "node": "fightnow",
+      "day": 19,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 321848,
+      "scene": "adventure",
+      "adventure": "A20",
+      "node": "fightnow",
+      "day": 19,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 322898,
+      "scene": "adventure",
+      "adventure": "A20",
+      "node": "fightnow",
+      "day": 19,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 323381,
+      "scene": "adventure",
+      "adventure": "A20",
+      "node": "fightnow",
+      "day": 19,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 324996,
+      "scene": "adventure",
+      "adventure": "A20",
+      "node": "fightnow",
+      "day": 19,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 325592,
+      "scene": "adventure",
+      "adventure": "A20",
+      "node": "fightnow",
+      "day": 19,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 326843,
+      "scene": "adventure",
+      "adventure": "A20",
+      "node": "fightnow",
+      "day": 19,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 328187,
+      "scene": "adventure",
+      "adventure": "A20",
+      "node": "fightnow",
+      "day": 19,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 328701,
+      "scene": "adventure",
+      "adventure": "A20",
+      "node": "fightnow",
+      "day": 19,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 329228,
+      "scene": "adventure",
+      "adventure": "A20",
+      "node": "fightnow",
+      "day": 19,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 329683,
+      "scene": "adventure",
+      "adventure": "A20",
+      "node": "fightnow",
+      "day": 19,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 330168,
+      "scene": "adventure",
+      "adventure": "A20",
+      "node": "wrap",
+      "day": 19,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 330401,
+      "scene": "bedroom",
+      "adventure": null,
+      "node": null,
+      "day": 19,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 331673,
+      "scene": "adventure",
+      "adventure": "A_TRISTAN",
+      "node": "arrive",
+      "day": 19,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 331944,
+      "scene": "adventure",
+      "adventure": "A_TRISTAN",
+      "node": "arrive",
+      "day": 19,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 332220,
+      "scene": "adventure",
+      "adventure": "A_TRISTAN",
+      "node": "arrive",
+      "day": 19,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 332548,
+      "scene": "adventure",
+      "adventure": "A_TRISTAN",
+      "node": "talk",
+      "day": 19,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 332884,
+      "scene": "adventure",
+      "adventure": "A_TRISTAN",
+      "node": "talk",
+      "day": 19,
+      "minigame": null,
+      "combat": false,
+      "choices": 2
+    },
+    {
+      "ms": 333476,
+      "scene": "bedroom",
+      "adventure": null,
+      "node": null,
+      "day": 19,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 334079,
+      "scene": "bedroom",
+      "adventure": null,
+      "node": null,
+      "day": 19,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 338551,
+      "scene": "bedroom",
+      "adventure": null,
+      "node": null,
+      "day": 20,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 339179,
+      "scene": "adventure",
+      "adventure": "A20",
+      "node": "arrive",
+      "day": 20,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 339394,
+      "scene": "adventure",
+      "adventure": "A20",
+      "node": "arrive",
+      "day": 20,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 339556,
+      "scene": "adventure",
+      "adventure": "A20",
+      "node": "arrive",
+      "day": 20,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 339738,
+      "scene": "adventure",
+      "adventure": "A20",
+      "node": "arrive",
+      "day": 20,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 339981,
+      "scene": "adventure",
+      "adventure": "A20",
+      "node": "fork",
+      "day": 20,
+      "minigame": null,
+      "combat": false,
+      "choices": 3
+    },
+    {
+      "ms": 340233,
+      "scene": "adventure",
+      "adventure": "A20",
+      "node": "fightnow",
+      "day": 20,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 341434,
+      "scene": "adventure",
+      "adventure": "A20",
+      "node": "fightnow",
+      "day": 20,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 341860,
+      "scene": "adventure",
+      "adventure": "A20",
+      "node": "fightnow",
+      "day": 20,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 342282,
+      "scene": "adventure",
+      "adventure": "A20",
+      "node": "fightnow",
+      "day": 20,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 343166,
+      "scene": "adventure",
+      "adventure": "A20",
+      "node": "fightnow",
+      "day": 20,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 344018,
+      "scene": "adventure",
+      "adventure": "A20",
+      "node": "fightnow",
+      "day": 20,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 345181,
+      "scene": "adventure",
+      "adventure": "A20",
+      "node": "fightnow",
+      "day": 20,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 345617,
+      "scene": "adventure",
+      "adventure": "A20",
+      "node": "fightnow",
+      "day": 20,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 346056,
+      "scene": "adventure",
+      "adventure": "A20",
+      "node": "fightnow",
+      "day": 20,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 346914,
+      "scene": "adventure",
+      "adventure": "A20",
+      "node": "fightnow",
+      "day": 20,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 347754,
+      "scene": "adventure",
+      "adventure": "A20",
+      "node": "fightnow",
+      "day": 20,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 348909,
+      "scene": "adventure",
+      "adventure": "A20",
+      "node": "fightnow",
+      "day": 20,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 349338,
+      "scene": "adventure",
+      "adventure": "A20",
+      "node": "fightnow",
+      "day": 20,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 349758,
+      "scene": "adventure",
+      "adventure": "A20",
+      "node": "fightnow",
+      "day": 20,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 350629,
+      "scene": "adventure",
+      "adventure": "A20",
+      "node": "fightnow",
+      "day": 20,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 351785,
+      "scene": "adventure",
+      "adventure": "A20",
+      "node": "fightnow",
+      "day": 20,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 352687,
+      "scene": "adventure",
+      "adventure": "A20",
+      "node": "fightnow",
+      "day": 20,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 353157,
+      "scene": "adventure",
+      "adventure": "A20",
+      "node": "fightnow",
+      "day": 20,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 353658,
+      "scene": "adventure",
+      "adventure": "A20",
+      "node": "fightnow",
+      "day": 20,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 355473,
+      "scene": "adventure",
+      "adventure": "A20",
+      "node": "fightnow",
+      "day": 20,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 356025,
+      "scene": "adventure",
+      "adventure": "A20",
+      "node": "fightnow",
+      "day": 20,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 356523,
+      "scene": "adventure",
+      "adventure": "A20",
+      "node": "fightnow",
+      "day": 20,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 357089,
+      "scene": "adventure",
+      "adventure": "A20",
+      "node": "fightnow",
+      "day": 20,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 358698,
+      "scene": "adventure",
+      "adventure": "A20",
+      "node": "fightnow",
+      "day": 20,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 359178,
+      "scene": "adventure",
+      "adventure": "A20",
+      "node": "fightnow",
+      "day": 20,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 359667,
+      "scene": "adventure",
+      "adventure": "A20",
+      "node": "fightnow",
+      "day": 20,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 360110,
+      "scene": "adventure",
+      "adventure": "A20",
+      "node": "fightnow",
+      "day": 20,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 360569,
+      "scene": "adventure",
+      "adventure": "A20",
+      "node": "fightnow",
+      "day": 20,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 361073,
+      "scene": "adventure",
+      "adventure": "A20",
+      "node": "fightnow",
+      "day": 20,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 362519,
+      "scene": "adventure",
+      "adventure": "A20",
+      "node": "fightnow",
+      "day": 20,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 363671,
+      "scene": "adventure",
+      "adventure": "A20",
+      "node": "fightnow",
+      "day": 20,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 364131,
+      "scene": "adventure",
+      "adventure": "A20",
+      "node": "fightnow",
+      "day": 20,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 364987,
+      "scene": "adventure",
+      "adventure": "A20",
+      "node": "fightnow",
+      "day": 20,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 366320,
+      "scene": "adventure",
+      "adventure": "A20",
+      "node": "fightnow",
+      "day": 20,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 367359,
+      "scene": "adventure",
+      "adventure": "A20",
+      "node": "fightnow",
+      "day": 20,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 369855,
+      "scene": "adventure",
+      "adventure": "A20",
+      "node": "fightnow",
+      "day": 20,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 371088,
+      "scene": "adventure",
+      "adventure": "A20",
+      "node": "fightnow",
+      "day": 20,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 371630,
+      "scene": "adventure",
+      "adventure": "A20",
+      "node": "fightnow",
+      "day": 20,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 373441,
+      "scene": "adventure",
+      "adventure": "A20",
+      "node": "fightnow",
+      "day": 20,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 374517,
+      "scene": "adventure",
+      "adventure": "A20",
+      "node": "fightnow",
+      "day": 20,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 375070,
+      "scene": "adventure",
+      "adventure": "A20",
+      "node": "fightnow",
+      "day": 20,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 376571,
+      "scene": "adventure",
+      "adventure": "A20",
+      "node": "fightnow",
+      "day": 20,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 377153,
+      "scene": "adventure",
+      "adventure": "A20",
+      "node": "fightnow",
+      "day": 20,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 378564,
+      "scene": "adventure",
+      "adventure": "A20",
+      "node": "fightnow",
+      "day": 20,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 378997,
+      "scene": "adventure",
+      "adventure": "A20",
+      "node": "fightnow",
+      "day": 20,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 379434,
+      "scene": "adventure",
+      "adventure": "A20",
+      "node": "fightnow",
+      "day": 20,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 380307,
+      "scene": "adventure",
+      "adventure": "A20",
+      "node": "fightnow",
+      "day": 20,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 381434,
+      "scene": "adventure",
+      "adventure": "A20",
+      "node": "fightnow",
+      "day": 20,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 382387,
+      "scene": "adventure",
+      "adventure": "A20",
+      "node": "fightnow",
+      "day": 20,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 382846,
+      "scene": "adventure",
+      "adventure": "A20",
+      "node": "fightnow",
+      "day": 20,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 383314,
+      "scene": "adventure",
+      "adventure": "A20",
+      "node": "fightnow",
+      "day": 20,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 385404,
+      "scene": "adventure",
+      "adventure": "A20",
+      "node": "fightnow",
+      "day": 20,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 385904,
+      "scene": "adventure",
+      "adventure": "A20",
+      "node": "fightnow",
+      "day": 20,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 386715,
+      "scene": "adventure",
+      "adventure": "A20",
+      "node": "wrap",
+      "day": 20,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 387174,
+      "scene": "bedroom",
+      "adventure": null,
+      "node": null,
+      "day": 20,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 388697,
+      "scene": "adventure",
+      "adventure": "TACOS",
+      "node": "arrive",
+      "day": 20,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 389133,
+      "scene": "adventure",
+      "adventure": "TACOS",
+      "node": "arrive",
+      "day": 20,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 389495,
+      "scene": "adventure",
+      "adventure": "TACOS",
+      "node": "arrive",
+      "day": 20,
+      "minigame": null,
+      "combat": false,
+      "choices": 2
+    },
+    {
+      "ms": 389779,
+      "scene": "adventure",
+      "adventure": "TACOS",
+      "node": "eat",
+      "day": 20,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 390027,
+      "scene": "bedroom",
+      "adventure": null,
+      "node": null,
+      "day": 20,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 394416,
+      "scene": "bedroom",
+      "adventure": null,
+      "node": null,
+      "day": 21,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 395379,
+      "scene": "adventure",
+      "adventure": "A20",
+      "node": "arrive",
+      "day": 21,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 395655,
+      "scene": "adventure",
+      "adventure": "A20",
+      "node": "arrive",
+      "day": 21,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 395970,
+      "scene": "adventure",
+      "adventure": "A20",
+      "node": "arrive",
+      "day": 21,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 396186,
+      "scene": "adventure",
+      "adventure": "A20",
+      "node": "arrive",
+      "day": 21,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 396558,
+      "scene": "adventure",
+      "adventure": "A20",
+      "node": "fork",
+      "day": 21,
+      "minigame": null,
+      "combat": false,
+      "choices": 3
+    },
+    {
+      "ms": 397007,
+      "scene": "adventure",
+      "adventure": "A20",
+      "node": "ask",
+      "day": 21,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 397384,
+      "scene": "adventure",
+      "adventure": "A20",
+      "node": "fightnow",
+      "day": 21,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 398692,
+      "scene": "adventure",
+      "adventure": "A20",
+      "node": "fightnow",
+      "day": 21,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 399147,
+      "scene": "adventure",
+      "adventure": "A20",
+      "node": "fightnow",
+      "day": 21,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 399594,
+      "scene": "adventure",
+      "adventure": "A20",
+      "node": "fightnow",
+      "day": 21,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 400086,
+      "scene": "adventure",
+      "adventure": "A20",
+      "node": "fightnow",
+      "day": 21,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 400573,
+      "scene": "adventure",
+      "adventure": "A20",
+      "node": "fightnow",
+      "day": 21,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 401069,
+      "scene": "adventure",
+      "adventure": "A20",
+      "node": "fightnow",
+      "day": 21,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 402830,
+      "scene": "adventure",
+      "adventure": "A20",
+      "node": "fightnow",
+      "day": 21,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 403377,
+      "scene": "adventure",
+      "adventure": "A20",
+      "node": "fightnow",
+      "day": 21,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 403928,
+      "scene": "adventure",
+      "adventure": "A20",
+      "node": "fightnow",
+      "day": 21,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 404410,
+      "scene": "adventure",
+      "adventure": "A20",
+      "node": "fightnow",
+      "day": 21,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 406901,
+      "scene": "adventure",
+      "adventure": "A20",
+      "node": "fightnow",
+      "day": 21,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 407891,
+      "scene": "adventure",
+      "adventure": "A20",
+      "node": "fightnow",
+      "day": 21,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 408319,
+      "scene": "adventure",
+      "adventure": "A20",
+      "node": "fightnow",
+      "day": 21,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 409670,
+      "scene": "adventure",
+      "adventure": "A20",
+      "node": "fightnow",
+      "day": 21,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 410644,
+      "scene": "adventure",
+      "adventure": "A20",
+      "node": "fightnow",
+      "day": 21,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 411498,
+      "scene": "adventure",
+      "adventure": "A20",
+      "node": "fightnow",
+      "day": 21,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 412095,
+      "scene": "adventure",
+      "adventure": "A20",
+      "node": "wrap",
+      "day": 21,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 412349,
+      "scene": "adventure",
+      "adventure": "A20",
+      "node": "wrap",
+      "day": 21,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 412587,
+      "scene": "bedroom",
+      "adventure": null,
+      "node": null,
+      "day": 21,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 412954,
+      "scene": "bedroom",
+      "adventure": null,
+      "node": null,
+      "day": 21,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 414422,
+      "scene": "adventure",
+      "adventure": "A14",
+      "node": "arrive",
+      "day": 21,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 414752,
+      "scene": "adventure",
+      "adventure": "A14",
+      "node": "arrive",
+      "day": 21,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 414970,
+      "scene": "adventure",
+      "adventure": "A14",
+      "node": "setlist",
+      "day": 21,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 415139,
+      "scene": "adventure",
+      "adventure": "A14",
+      "node": "setlist",
+      "day": 21,
+      "minigame": null,
+      "combat": false,
+      "choices": 1
+    },
+    {
+      "ms": 415393,
+      "scene": "adventure",
+      "adventure": "A14",
+      "node": "crowd",
+      "day": 21,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 415658,
+      "scene": "adventure",
+      "adventure": "A14",
+      "node": "crowd",
+      "day": 21,
+      "minigame": null,
+      "combat": false,
+      "choices": 3
+    },
+    {
+      "ms": 415939,
+      "scene": "adventure",
+      "adventure": "A14",
+      "node": "powercut",
+      "day": 21,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 416138,
+      "scene": "adventure",
+      "adventure": "A14",
+      "node": "powercut",
+      "day": 21,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 416375,
+      "scene": "adventure",
+      "adventure": "A14",
+      "node": "powercut",
+      "day": 21,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 416627,
+      "scene": "adventure",
+      "adventure": "A14",
+      "node": "tasha",
+      "day": 21,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 416806,
+      "scene": "adventure",
+      "adventure": "A14",
+      "node": "tasha",
+      "day": 21,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 417123,
+      "scene": "bedroom",
+      "adventure": null,
+      "node": null,
+      "day": 21,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 417511,
+      "scene": "bedroom",
+      "adventure": null,
+      "node": null,
+      "day": 21,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 421795,
+      "scene": "bedroom",
+      "adventure": null,
+      "node": null,
+      "day": 22,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 422616,
+      "scene": "adventure",
+      "adventure": "A17",
+      "node": "wake",
+      "day": 22,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 423002,
+      "scene": "adventure",
+      "adventure": "A17",
+      "node": "wake",
+      "day": 22,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 423301,
+      "scene": "adventure",
+      "adventure": "A17",
+      "node": "wake",
+      "day": 22,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 423604,
+      "scene": "adventure",
+      "adventure": "A17",
+      "node": "wake",
+      "day": 22,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 424096,
+      "scene": "adventure",
+      "adventure": "A17",
+      "node": "bill",
+      "day": 22,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 424342,
+      "scene": "adventure",
+      "adventure": "A17",
+      "node": "bill",
+      "day": 22,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 424643,
+      "scene": "adventure",
+      "adventure": "A17",
+      "node": "donor",
+      "day": 22,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 424968,
+      "scene": "adventure",
+      "adventure": "A17",
+      "node": "donor",
+      "day": 22,
+      "minigame": null,
+      "combat": false,
+      "choices": 1
+    },
+    {
+      "ms": 425406,
+      "scene": "adventure",
+      "adventure": "A17",
+      "node": "refuse",
+      "day": 22,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 425714,
+      "scene": "adventure",
+      "adventure": "A17",
+      "node": "refuse",
+      "day": 22,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 426053,
+      "scene": "bedroom",
+      "adventure": null,
+      "node": null,
+      "day": 22,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 426439,
+      "scene": "bedroom",
+      "adventure": null,
+      "node": null,
+      "day": 22,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 428932,
+      "scene": "adventure",
+      "adventure": "PEKING",
+      "node": "arrive",
+      "day": 22,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 429383,
+      "scene": "adventure",
+      "adventure": "PEKING",
+      "node": "arrive",
+      "day": 22,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 429551,
+      "scene": "adventure",
+      "adventure": "PEKING",
+      "node": "arrive",
+      "day": 22,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 429733,
+      "scene": "adventure",
+      "adventure": "PEKING",
+      "node": "arrive",
+      "day": 22,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 430043,
+      "scene": "adventure",
+      "adventure": "PEKING",
+      "node": "arrive",
+      "day": 22,
+      "minigame": null,
+      "combat": false,
+      "choices": 2
+    },
+    {
+      "ms": 430420,
+      "scene": "adventure",
+      "adventure": "PEKING",
+      "node": "leave",
+      "day": 22,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 430826,
+      "scene": "bedroom",
+      "adventure": null,
+      "node": null,
+      "day": 22,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 435408,
+      "scene": "bedroom",
+      "adventure": null,
+      "node": null,
+      "day": 23,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 436265,
+      "scene": "bedroom",
+      "adventure": null,
+      "node": null,
+      "day": 23,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 438206,
+      "scene": "adventure",
+      "adventure": "A37",
+      "node": "route",
+      "day": 23,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 438468,
+      "scene": "adventure",
+      "adventure": "A37",
+      "node": "route",
+      "day": 23,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 438670,
+      "scene": "adventure",
+      "adventure": "A37",
+      "node": "route",
+      "day": 23,
+      "minigame": null,
+      "combat": false,
+      "choices": 1
+    },
+    {
+      "ms": 438943,
+      "scene": "adventure",
+      "adventure": "A37",
+      "node": "arrive",
+      "day": 23,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 439128,
+      "scene": "adventure",
+      "adventure": "A37",
+      "node": "arrive",
+      "day": 23,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 439289,
+      "scene": "adventure",
+      "adventure": "A37",
+      "node": "arrive",
+      "day": 23,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 439517,
+      "scene": "adventure",
+      "adventure": "A37",
+      "node": "arrive",
+      "day": 23,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 439842,
+      "scene": "adventure",
+      "adventure": "A37",
+      "node": "arrive",
+      "day": 23,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 440057,
+      "scene": "adventure",
+      "adventure": "A37",
+      "node": "arrive",
+      "day": 23,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 440275,
+      "scene": "adventure",
+      "adventure": "A37",
+      "node": "bunmi",
+      "day": 23,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 440446,
+      "scene": "adventure",
+      "adventure": "A37",
+      "node": "bunmi",
+      "day": 23,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 440662,
+      "scene": "adventure",
+      "adventure": "A37",
+      "node": "party",
+      "day": 23,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 440899,
+      "scene": "adventure",
+      "adventure": "A37",
+      "node": "party",
+      "day": 23,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 441060,
+      "scene": "adventure",
+      "adventure": "A37",
+      "node": "party",
+      "day": 23,
+      "minigame": null,
+      "combat": false,
+      "choices": 3
+    },
+    {
+      "ms": 441348,
+      "scene": "adventure",
+      "adventure": "A37",
+      "node": "curb",
+      "day": 23,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 441586,
+      "scene": "adventure",
+      "adventure": "A37",
+      "node": "curb",
+      "day": 23,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 441809,
+      "scene": "adventure",
+      "adventure": "A37",
+      "node": "curb",
+      "day": 23,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 441970,
+      "scene": "adventure",
+      "adventure": "A37",
+      "node": "curb",
+      "day": 23,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 442245,
+      "scene": "bedroom",
+      "adventure": null,
+      "node": null,
+      "day": 23,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 442598,
+      "scene": "bedroom",
+      "adventure": null,
+      "node": null,
+      "day": 23,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 446740,
+      "scene": "bedroom",
+      "adventure": null,
+      "node": null,
+      "day": 24,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 447321,
+      "scene": "bedroom",
+      "adventure": null,
+      "node": null,
+      "day": 24,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 449684,
+      "scene": "bedroom",
+      "adventure": null,
+      "node": null,
+      "day": 24,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 454778,
+      "scene": "bedroom",
+      "adventure": null,
+      "node": null,
+      "day": 25,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 455464,
+      "scene": "bedroom",
+      "adventure": null,
+      "node": null,
+      "day": 25,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 457014,
+      "scene": "adventure",
+      "adventure": "A07",
+      "node": "wake",
+      "day": 25,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 457246,
+      "scene": "adventure",
+      "adventure": "A07",
+      "node": "wake",
+      "day": 25,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 457491,
+      "scene": "adventure",
+      "adventure": "A07",
+      "node": "route",
+      "day": 25,
+      "minigame": null,
+      "combat": false,
+      "choices": 2
+    },
+    {
+      "ms": 457847,
+      "scene": "adventure",
+      "adventure": "A07",
+      "node": "arrive",
+      "day": 25,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 458178,
+      "scene": "adventure",
+      "adventure": "A07",
+      "node": "arrive",
+      "day": 25,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 458427,
+      "scene": "adventure",
+      "adventure": "A07",
+      "node": "meet",
+      "day": 25,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 458795,
+      "scene": "adventure",
+      "adventure": "A07",
+      "node": "meet",
+      "day": 25,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 459119,
+      "scene": "adventure",
+      "adventure": "A07",
+      "node": "meet",
+      "day": 25,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 459603,
+      "scene": "adventure",
+      "adventure": "A07",
+      "node": "meet",
+      "day": 25,
+      "minigame": null,
+      "combat": false,
+      "choices": 3
+    },
+    {
+      "ms": 459978,
+      "scene": "adventure",
+      "adventure": "A07",
+      "node": "order",
+      "day": 25,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 460356,
+      "scene": "adventure",
+      "adventure": "A07",
+      "node": "order",
+      "day": 25,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 460705,
+      "scene": "adventure",
+      "adventure": "A07",
+      "node": "reaction",
+      "day": 25,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 461062,
+      "scene": "adventure",
+      "adventure": "A07",
+      "node": "walk",
+      "day": 25,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 461470,
+      "scene": "bedroom",
+      "adventure": null,
+      "node": null,
+      "day": 25,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 462005,
+      "scene": "bedroom",
+      "adventure": null,
+      "node": null,
+      "day": 25,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 466550,
+      "scene": "bedroom",
+      "adventure": null,
+      "node": null,
+      "day": 26,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 467139,
+      "scene": "bedroom",
+      "adventure": null,
+      "node": null,
+      "day": 26,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 469508,
+      "scene": "adventure",
+      "adventure": "GRAVE",
+      "node": "arrive",
+      "day": 26,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 469677,
+      "scene": "adventure",
+      "adventure": "GRAVE",
+      "node": "arrive",
+      "day": 26,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 469857,
+      "scene": "adventure",
+      "adventure": "GRAVE",
+      "node": "arrive",
+      "day": 26,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 470030,
+      "scene": "adventure",
+      "adventure": "GRAVE",
+      "node": "hub",
+      "day": 26,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 470209,
+      "scene": "adventure",
+      "adventure": "GRAVE",
+      "node": "hub",
+      "day": 26,
+      "minigame": null,
+      "combat": false,
+      "choices": 12
+    },
+    {
+      "ms": 470441,
+      "scene": "adventure",
+      "adventure": "GRAVE",
+      "node": "store",
+      "day": 26,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 470599,
+      "scene": "adventure",
+      "adventure": "GRAVE",
+      "node": "store",
+      "day": 26,
+      "minigame": null,
+      "combat": false,
+      "choices": 3
+    },
+    {
+      "ms": 470849,
+      "scene": "adventure",
+      "adventure": "GRAVE",
+      "node": "store",
+      "day": 26,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 471039,
+      "scene": "adventure",
+      "adventure": "GRAVE",
+      "node": "store",
+      "day": 26,
+      "minigame": null,
+      "combat": false,
+      "choices": 3
+    },
+    {
+      "ms": 471305,
+      "scene": "adventure",
+      "adventure": "GRAVE",
+      "node": "hub",
+      "day": 26,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 471478,
+      "scene": "adventure",
+      "adventure": "GRAVE",
+      "node": "hub",
+      "day": 26,
+      "minigame": null,
+      "combat": false,
+      "choices": 12
+    },
+    {
+      "ms": 471752,
+      "scene": "adventure",
+      "adventure": "GRAVE",
+      "node": "store",
+      "day": 26,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 472073,
+      "scene": "adventure",
+      "adventure": "GRAVE",
+      "node": "store",
+      "day": 26,
+      "minigame": null,
+      "combat": false,
+      "choices": 4
+    },
+    {
+      "ms": 472325,
+      "scene": "adventure",
+      "adventure": "GRAVE",
+      "node": "store",
+      "day": 26,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 472495,
+      "scene": "adventure",
+      "adventure": "GRAVE",
+      "node": "store",
+      "day": 26,
+      "minigame": null,
+      "combat": false,
+      "choices": 4
+    },
+    {
+      "ms": 472726,
+      "scene": "adventure",
+      "adventure": "GRAVE",
+      "node": "hub",
+      "day": 26,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 472949,
+      "scene": "adventure",
+      "adventure": "GRAVE",
+      "node": "hub",
+      "day": 26,
+      "minigame": null,
+      "combat": false,
+      "choices": 12
+    },
+    {
+      "ms": 473278,
+      "scene": "adventure",
+      "adventure": "GRAVE",
+      "node": "store",
+      "day": 26,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 473611,
+      "scene": "adventure",
+      "adventure": "GRAVE",
+      "node": "store",
+      "day": 26,
+      "minigame": null,
+      "combat": false,
+      "choices": 4
+    },
+    {
+      "ms": 474078,
+      "scene": "adventure",
+      "adventure": "GRAVE",
+      "node": "store",
+      "day": 26,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 474631,
+      "scene": "adventure",
+      "adventure": "GRAVE",
+      "node": "store",
+      "day": 26,
+      "minigame": null,
+      "combat": false,
+      "choices": 3
+    },
+    {
+      "ms": 475163,
+      "scene": "adventure",
+      "adventure": "GRAVE",
+      "node": "hub",
+      "day": 26,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 475729,
+      "scene": "adventure",
+      "adventure": "GRAVE",
+      "node": "hub",
+      "day": 26,
+      "minigame": null,
+      "combat": false,
+      "choices": 12
+    },
+    {
+      "ms": 476486,
+      "scene": "adventure",
+      "adventure": "GRAVE",
+      "node": "store",
+      "day": 26,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 477035,
+      "scene": "adventure",
+      "adventure": "GRAVE",
+      "node": "store",
+      "day": 26,
+      "minigame": null,
+      "combat": false,
+      "choices": 3
+    },
+    {
+      "ms": 477985,
+      "scene": "adventure",
+      "adventure": "GRAVE",
+      "node": "store",
+      "day": 26,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 478530,
+      "scene": "adventure",
+      "adventure": "GRAVE",
+      "node": "store",
+      "day": 26,
+      "minigame": null,
+      "combat": false,
+      "choices": 3
+    },
+    {
+      "ms": 479120,
+      "scene": "adventure",
+      "adventure": "GRAVE",
+      "node": "hub",
+      "day": 26,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 479603,
+      "scene": "adventure",
+      "adventure": "GRAVE",
+      "node": "hub",
+      "day": 26,
+      "minigame": null,
+      "combat": false,
+      "choices": 12
+    },
+    {
+      "ms": 480093,
+      "scene": "adventure",
+      "adventure": "A18",
+      "node": "arrive",
+      "day": 26,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 480555,
+      "scene": "adventure",
+      "adventure": "A18",
+      "node": "arrive",
+      "day": 26,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 480893,
+      "scene": "adventure",
+      "adventure": "A18",
+      "node": "arrive",
+      "day": 26,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 481335,
+      "scene": "adventure",
+      "adventure": "A18",
+      "node": "drop",
+      "day": 26,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 481774,
+      "scene": "adventure",
+      "adventure": "A18",
+      "node": "drop",
+      "day": 26,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 482092,
+      "scene": "adventure",
+      "adventure": "A18",
+      "node": "drop",
+      "day": 26,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 482459,
+      "scene": "adventure",
+      "adventure": "A18",
+      "node": "drop",
+      "day": 26,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 483079,
+      "scene": "adventure",
+      "adventure": "A18",
+      "node": "talk",
+      "day": 26,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 483968,
+      "scene": "adventure",
+      "adventure": "A18",
+      "node": "talk",
+      "day": 26,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 484692,
+      "scene": "adventure",
+      "adventure": "A18",
+      "node": "talk",
+      "day": 26,
+      "minigame": null,
+      "combat": false,
+      "choices": 2
+    },
+    {
+      "ms": 485513,
+      "scene": "adventure",
+      "adventure": "A18",
+      "node": "fight",
+      "day": 26,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 486005,
+      "scene": "adventure",
+      "adventure": "A18",
+      "node": "fight",
+      "day": 26,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 487462,
+      "scene": "adventure",
+      "adventure": "A18",
+      "node": "fight",
+      "day": 26,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 488471,
+      "scene": "adventure",
+      "adventure": "A18",
+      "node": "fight",
+      "day": 26,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 488890,
+      "scene": "adventure",
+      "adventure": "A18",
+      "node": "fight",
+      "day": 26,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 489366,
+      "scene": "adventure",
+      "adventure": "A18",
+      "node": "fight",
+      "day": 26,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 489892,
+      "scene": "adventure",
+      "adventure": "A18",
+      "node": "fight",
+      "day": 26,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 490742,
+      "scene": "adventure",
+      "adventure": "A18",
+      "node": "fight",
+      "day": 26,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 491996,
+      "scene": "adventure",
+      "adventure": "A18",
+      "node": "fight",
+      "day": 26,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 492859,
+      "scene": "adventure",
+      "adventure": "A18",
+      "node": "fight",
+      "day": 26,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 493345,
+      "scene": "adventure",
+      "adventure": "A18",
+      "node": "fight",
+      "day": 26,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 493847,
+      "scene": "adventure",
+      "adventure": "A18",
+      "node": "fight",
+      "day": 26,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 494358,
+      "scene": "adventure",
+      "adventure": "A18",
+      "node": "fight",
+      "day": 26,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 495596,
+      "scene": "adventure",
+      "adventure": "A18",
+      "node": "fight",
+      "day": 26,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 496592,
+      "scene": "adventure",
+      "adventure": "A18",
+      "node": "fight",
+      "day": 26,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 497451,
+      "scene": "adventure",
+      "adventure": "A18",
+      "node": "fight",
+      "day": 26,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 498315,
+      "scene": "adventure",
+      "adventure": "A18",
+      "node": "fight",
+      "day": 26,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 499512,
+      "scene": "adventure",
+      "adventure": "A18",
+      "node": "fight",
+      "day": 26,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 500489,
+      "scene": "adventure",
+      "adventure": "A18",
+      "node": "fight",
+      "day": 26,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 501335,
+      "scene": "adventure",
+      "adventure": "A18",
+      "node": "fight",
+      "day": 26,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 501772,
+      "scene": "adventure",
+      "adventure": "A18",
+      "node": "fight",
+      "day": 26,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 502680,
+      "scene": "adventure",
+      "adventure": "A18",
+      "node": "fight",
+      "day": 26,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 503955,
+      "scene": "adventure",
+      "adventure": "A18",
+      "node": "fight",
+      "day": 26,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 504458,
+      "scene": "adventure",
+      "adventure": "A18",
+      "node": "fight",
+      "day": 26,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 504891,
+      "scene": "adventure",
+      "adventure": "A18",
+      "node": "fight",
+      "day": 26,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 505313,
+      "scene": "adventure",
+      "adventure": "A18",
+      "node": "fight",
+      "day": 26,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 506169,
+      "scene": "adventure",
+      "adventure": "A18",
+      "node": "fight",
+      "day": 26,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 507095,
+      "scene": "adventure",
+      "adventure": "A18",
+      "node": "fight",
+      "day": 26,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 508256,
+      "scene": "adventure",
+      "adventure": "A18",
+      "node": "fight",
+      "day": 26,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 509243,
+      "scene": "adventure",
+      "adventure": "A18",
+      "node": "fight",
+      "day": 26,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 509734,
+      "scene": "adventure",
+      "adventure": "A18",
+      "node": "fight",
+      "day": 26,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 510150,
+      "scene": "adventure",
+      "adventure": "A18",
+      "node": "fight",
+      "day": 26,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 510570,
+      "scene": "adventure",
+      "adventure": "A18",
+      "node": "fight",
+      "day": 26,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 510988,
+      "scene": "adventure",
+      "adventure": "A18",
+      "node": "fight",
+      "day": 26,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 512158,
+      "scene": "adventure",
+      "adventure": "A18",
+      "node": "fight",
+      "day": 26,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 512599,
+      "scene": "adventure",
+      "adventure": "A18",
+      "node": "fight",
+      "day": 26,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 513023,
+      "scene": "adventure",
+      "adventure": "A18",
+      "node": "fight",
+      "day": 26,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 513510,
+      "scene": "adventure",
+      "adventure": "A18",
+      "node": "after",
+      "day": 26,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 513667,
+      "scene": "adventure",
+      "adventure": "A18",
+      "node": "after",
+      "day": 26,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 513824,
+      "scene": "adventure",
+      "adventure": "A18",
+      "node": "after",
+      "day": 26,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 514030,
+      "scene": "adventure",
+      "adventure": "A18",
+      "node": "behavior",
+      "day": 26,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 514281,
+      "scene": "bedroom",
+      "adventure": null,
+      "node": null,
+      "day": 26,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 514643,
+      "scene": "bedroom",
+      "adventure": null,
+      "node": null,
+      "day": 26,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 518788,
+      "scene": "bedroom",
+      "adventure": null,
+      "node": null,
+      "day": 27,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 519486,
+      "scene": "bedroom",
+      "adventure": null,
+      "node": null,
+      "day": 27,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 522420,
+      "scene": "adventure",
+      "adventure": "A50",
+      "node": "arrive",
+      "day": 27,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 522732,
+      "scene": "adventure",
+      "adventure": "A50",
+      "node": "arrive",
+      "day": 27,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 523100,
+      "scene": "adventure",
+      "adventure": "A50",
+      "node": "arrive",
+      "day": 27,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 523493,
+      "scene": "adventure",
+      "adventure": "A50",
+      "node": "civ",
+      "day": 27,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 523895,
+      "scene": "adventure",
+      "adventure": "A50",
+      "node": "civ",
+      "day": 27,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 524250,
+      "scene": "adventure",
+      "adventure": "A50",
+      "node": "civ",
+      "day": 27,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 524597,
+      "scene": "adventure",
+      "adventure": "A50",
+      "node": "xcom",
+      "day": 27,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 524994,
+      "scene": "adventure",
+      "adventure": "A50",
+      "node": "xcom",
+      "day": 27,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 525351,
+      "scene": "adventure",
+      "adventure": "A50",
+      "node": "league",
+      "day": 27,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 525770,
+      "scene": "adventure",
+      "adventure": "A50",
+      "node": "sunrise",
+      "day": 27,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 526079,
+      "scene": "adventure",
+      "adventure": "A50",
+      "node": "sunrise",
+      "day": 27,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 526407,
+      "scene": "bedroom",
+      "adventure": null,
+      "node": null,
+      "day": 27,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 526802,
+      "scene": "bedroom",
+      "adventure": null,
+      "node": null,
+      "day": 27,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 531010,
+      "scene": "bedroom",
+      "adventure": null,
+      "node": null,
+      "day": 28,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 531610,
+      "scene": "bedroom",
+      "adventure": null,
+      "node": null,
+      "day": 28,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 534219,
+      "scene": "adventure",
+      "adventure": "SHOP",
+      "node": "store",
+      "day": 28,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 534649,
+      "scene": "adventure",
+      "adventure": "SHOP",
+      "node": "store",
+      "day": 28,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 535060,
+      "scene": "adventure",
+      "adventure": "SHOP",
+      "node": "store",
+      "day": 28,
+      "minigame": null,
+      "combat": false,
+      "choices": 2
+    },
+    {
+      "ms": 535574,
+      "scene": "adventure",
+      "adventure": "SHOP",
+      "node": "store",
+      "day": 28,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 536049,
+      "scene": "adventure",
+      "adventure": "SHOP",
+      "node": "store",
+      "day": 28,
+      "minigame": null,
+      "combat": false,
+      "choices": 2
+    },
+    {
+      "ms": 536636,
+      "scene": "adventure",
+      "adventure": "SHOP",
+      "node": "store",
+      "day": 28,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 537412,
+      "scene": "adventure",
+      "adventure": "SHOP",
+      "node": "store",
+      "day": 28,
+      "minigame": null,
+      "combat": false,
+      "choices": 2
+    },
+    {
+      "ms": 538032,
+      "scene": "adventure",
+      "adventure": "SHOP",
+      "node": "store",
+      "day": 28,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 538596,
+      "scene": "adventure",
+      "adventure": "SHOP",
+      "node": "store",
+      "day": 28,
+      "minigame": null,
+      "combat": false,
+      "choices": 2
+    },
+    {
+      "ms": 539357,
+      "scene": "bedroom",
+      "adventure": null,
+      "node": null,
+      "day": 28,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 540065,
+      "scene": "bedroom",
+      "adventure": null,
+      "node": null,
+      "day": 28,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 545029,
+      "scene": "bedroom",
+      "adventure": null,
+      "node": null,
+      "day": 29,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 545783,
+      "scene": "bedroom",
+      "adventure": null,
+      "node": null,
+      "day": 29,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 548339,
+      "scene": "adventure",
+      "adventure": "KUSH",
+      "node": "store",
+      "day": 29,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 548525,
+      "scene": "adventure",
+      "adventure": "KUSH",
+      "node": "store",
+      "day": 29,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 548786,
+      "scene": "adventure",
+      "adventure": "KUSH",
+      "node": "store",
+      "day": 29,
+      "minigame": null,
+      "combat": false,
+      "choices": 5
+    },
+    {
+      "ms": 549042,
+      "scene": "adventure",
+      "adventure": "KUSH",
+      "node": "store",
+      "day": 29,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 549240,
+      "scene": "adventure",
+      "adventure": "KUSH",
+      "node": "store",
+      "day": 29,
+      "minigame": null,
+      "combat": false,
+      "choices": 5
+    },
+    {
+      "ms": 549496,
+      "scene": "adventure",
+      "adventure": "KUSH",
+      "node": "store",
+      "day": 29,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 549790,
+      "scene": "adventure",
+      "adventure": "KUSH",
+      "node": "store",
+      "day": 29,
+      "minigame": null,
+      "combat": false,
+      "choices": 5
+    },
+    {
+      "ms": 550058,
+      "scene": "adventure",
+      "adventure": "KUSH",
+      "node": "store",
+      "day": 29,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 550236,
+      "scene": "adventure",
+      "adventure": "KUSH",
+      "node": "store",
+      "day": 29,
+      "minigame": null,
+      "combat": false,
+      "choices": 5
+    },
+    {
+      "ms": 550513,
+      "scene": "adventure",
+      "adventure": "KUSH",
+      "node": "store",
+      "day": 29,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 550674,
+      "scene": "adventure",
+      "adventure": "KUSH",
+      "node": "store",
+      "day": 29,
+      "minigame": null,
+      "combat": false,
+      "choices": 5
+    },
+    {
+      "ms": 551021,
+      "scene": "adventure",
+      "adventure": "KUSH",
+      "node": "store",
+      "day": 29,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 551307,
+      "scene": "adventure",
+      "adventure": "KUSH",
+      "node": "store",
+      "day": 29,
+      "minigame": null,
+      "combat": false,
+      "choices": 5
+    },
+    {
+      "ms": 551721,
+      "scene": "adventure",
+      "adventure": "KUSH",
+      "node": "store",
+      "day": 29,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 552000,
+      "scene": "adventure",
+      "adventure": "KUSH",
+      "node": "store",
+      "day": 29,
+      "minigame": null,
+      "combat": false,
+      "choices": 5
+    },
+    {
+      "ms": 552441,
+      "scene": "adventure",
+      "adventure": "KUSH",
+      "node": "store",
+      "day": 29,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 552806,
+      "scene": "adventure",
+      "adventure": "KUSH",
+      "node": "store",
+      "day": 29,
+      "minigame": null,
+      "combat": false,
+      "choices": 5
+    },
+    {
+      "ms": 553254,
+      "scene": "adventure",
+      "adventure": "A_EMBERLY1",
+      "node": "arrive",
+      "day": 29,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 553583,
+      "scene": "adventure",
+      "adventure": "A_EMBERLY1",
+      "node": "arrive",
+      "day": 29,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 553981,
+      "scene": "adventure",
+      "adventure": "A_EMBERLY1",
+      "node": "arrive",
+      "day": 29,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 554247,
+      "scene": "adventure",
+      "adventure": "A_EMBERLY1",
+      "node": "arrive",
+      "day": 29,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 554566,
+      "scene": "bedroom",
+      "adventure": null,
+      "node": null,
+      "day": 29,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 555044,
+      "scene": "bedroom",
+      "adventure": null,
+      "node": null,
+      "day": 29,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 559259,
+      "scene": "bedroom",
+      "adventure": null,
+      "node": null,
+      "day": 30,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 559818,
+      "scene": "bedroom",
+      "adventure": null,
+      "node": null,
+      "day": 30,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 562186,
+      "scene": "adventure",
+      "adventure": "GALLERY",
+      "node": "look",
+      "day": 30,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 562341,
+      "scene": "adventure",
+      "adventure": "GALLERY",
+      "node": "look",
+      "day": 30,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 562640,
+      "scene": "bedroom",
+      "adventure": null,
+      "node": null,
+      "day": 30,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 566883,
+      "scene": "bedroom",
+      "adventure": null,
+      "node": null,
+      "day": 31,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 567591,
+      "scene": "adventure",
+      "adventure": "A29C",
+      "node": "hungover",
+      "day": 31,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 567979,
+      "scene": "adventure",
+      "adventure": "A29C",
+      "node": "hungover",
+      "day": 31,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 568338,
+      "scene": "adventure",
+      "adventure": "A29C",
+      "node": "hungover",
+      "day": 31,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 568639,
+      "scene": "adventure",
+      "adventure": "A29C",
+      "node": "breakin",
+      "day": 31,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 569012,
+      "scene": "adventure",
+      "adventure": "A29C",
+      "node": "breakin",
+      "day": 31,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 569395,
+      "scene": "adventure",
+      "adventure": "A29C",
+      "node": "breakin",
+      "day": 31,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 569688,
+      "scene": "adventure",
+      "adventure": "A29C",
+      "node": "breakin",
+      "day": 31,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 570143,
+      "scene": "adventure",
+      "adventure": "A29C",
+      "node": "breakin",
+      "day": 31,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 571715,
+      "scene": "adventure",
+      "adventure": "A29C",
+      "node": "breakin",
+      "day": 31,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 572239,
+      "scene": "adventure",
+      "adventure": "A29C",
+      "node": "breakin",
+      "day": 31,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 572710,
+      "scene": "adventure",
+      "adventure": "A29C",
+      "node": "breakin",
+      "day": 31,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 573129,
+      "scene": "adventure",
+      "adventure": "A29C",
+      "node": "breakin",
+      "day": 31,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 574282,
+      "scene": "adventure",
+      "adventure": "A29C",
+      "node": "breakin",
+      "day": 31,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 574727,
+      "scene": "adventure",
+      "adventure": "A29C",
+      "node": "breakin",
+      "day": 31,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 575181,
+      "scene": "adventure",
+      "adventure": "A29C",
+      "node": "breakin",
+      "day": 31,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 576370,
+      "scene": "adventure",
+      "adventure": "A29C",
+      "node": "breakin",
+      "day": 31,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 577366,
+      "scene": "adventure",
+      "adventure": "A29C",
+      "node": "breakin",
+      "day": 31,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 578300,
+      "scene": "adventure",
+      "adventure": "A29C",
+      "node": "breakin",
+      "day": 31,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 578806,
+      "scene": "adventure",
+      "adventure": "A29C",
+      "node": "breakin",
+      "day": 31,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 579275,
+      "scene": "adventure",
+      "adventure": "A29C",
+      "node": "breakin",
+      "day": 31,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 580723,
+      "scene": "adventure",
+      "adventure": "A29C",
+      "node": "breakin",
+      "day": 31,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 581259,
+      "scene": "adventure",
+      "adventure": "A29C",
+      "node": "breakin",
+      "day": 31,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 581859,
+      "scene": "adventure",
+      "adventure": "A29C",
+      "node": "cleric",
+      "day": 31,
+      "minigame": null,
+      "combat": false,
+      "choices": 0
+    },
+    {
+      "ms": 582152,
+      "scene": "adventure",
+      "adventure": "A29C",
+      "node": "cleric",
+      "day": 31,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 583347,
+      "scene": "adventure",
+      "adventure": "A29C",
+      "node": "cleric",
+      "day": 31,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 583811,
+      "scene": "adventure",
+      "adventure": "A29C",
+      "node": "cleric",
+      "day": 31,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 584430,
+      "scene": "adventure",
+      "adventure": "A29C",
+      "node": "cleric",
+      "day": 31,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 584890,
+      "scene": "adventure",
+      "adventure": "A29C",
+      "node": "cleric",
+      "day": 31,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 586548,
+      "scene": "adventure",
+      "adventure": "A29C",
+      "node": "cleric",
+      "day": 31,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 587065,
+      "scene": "adventure",
+      "adventure": "A29C",
+      "node": "cleric",
+      "day": 31,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 587545,
+      "scene": "adventure",
+      "adventure": "A29C",
+      "node": "cleric",
+      "day": 31,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 588831,
+      "scene": "adventure",
+      "adventure": "A29C",
+      "node": "cleric",
+      "day": 31,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 589789,
+      "scene": "adventure",
+      "adventure": "A29C",
+      "node": "cleric",
+      "day": 31,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 590671,
+      "scene": "adventure",
+      "adventure": "A29C",
+      "node": "cleric",
+      "day": 31,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 591691,
+      "scene": "adventure",
+      "adventure": "A29C",
+      "node": "cleric",
+      "day": 31,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 592227,
+      "scene": "adventure",
+      "adventure": "A29C",
+      "node": "cleric",
+      "day": 31,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 593922,
+      "scene": "adventure",
+      "adventure": "A29C",
+      "node": "cleric",
+      "day": 31,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 594365,
+      "scene": "adventure",
+      "adventure": "A29C",
+      "node": "cleric",
+      "day": 31,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 594802,
+      "scene": "adventure",
+      "adventure": "A29C",
+      "node": "cleric",
+      "day": 31,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 596900,
+      "scene": "adventure",
+      "adventure": "A29C",
+      "node": "cleric",
+      "day": 31,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 598121,
+      "scene": "adventure",
+      "adventure": "A29C",
+      "node": "cleric",
+      "day": 31,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    },
+    {
+      "ms": 598717,
+      "scene": "adventure",
+      "adventure": "A29C",
+      "node": "cleric",
+      "day": 31,
+      "minigame": null,
+      "combat": true,
+      "choices": 0
+    }
+  ],
+  "completeTenMinutes": true
+}

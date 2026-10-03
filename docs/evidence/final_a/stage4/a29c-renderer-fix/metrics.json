@@ -1,0 +1,211 @@
+{
+  "width": 390,
+  "url": "/",
+  "fixture": "Progressed Day22 save: A29 PT1 completed Day2; A29B PT2 completed Day22. Ordinary UI selects next wake, four RUN combat continuations and roast choice. Not a fresh-career claim.",
+  "trace": [
+    {
+      "step": 0,
+      "scene": "adventure",
+      "id": "A29C",
+      "node": "hungover",
+      "combat": false,
+      "text": "",
+      "record": {
+        "status": "active",
+        "count": 0,
+        "startedDay": 23
+      }
+    },
+    {
+      "step": 3,
+      "scene": "adventure",
+      "id": "A29C",
+      "node": "breakin",
+      "combat": false,
+      "text": "vicky's party. armored, loud, uninvited.",
+      "record": {
+        "status": "active",
+        "count": 0,
+        "startedDay": 23
+      }
+    },
+    {
+      "step": 7,
+      "scene": "adventure",
+      "id": "A29C",
+      "node": "breakin",
+      "combat": true,
+      "text": "",
+      "record": {
+        "status": "active",
+        "count": 0,
+        "startedDay": 23
+      }
+    },
+    {
+      "step": 9,
+      "scene": "adventure",
+      "id": "A29C",
+      "node": "cleric",
+      "combat": false,
+      "text": "the cleric steps over the bard, already praying for backup.",
+      "record": {
+        "status": "active",
+        "count": 0,
+        "startedDay": 23
+      }
+    },
+    {
+      "step": 10,
+      "scene": "adventure",
+      "id": "A29C",
+      "node": "cleric",
+      "combat": true,
+      "text": "",
+      "record": {
+        "status": "active",
+        "count": 0,
+        "startedDay": 23
+      }
+    },
+    {
+      "step": 12,
+      "scene": "adventure",
+      "id": "A29C",
+      "node": "paladin",
+      "combat": false,
+      "text": "the paladin raises a sword like the ceiling owes him something.",
+      "record": {
+        "status": "active",
+        "count": 0,
+        "startedDay": 23
+      }
+    },
+    {
+      "step": 13,
+      "scene": "adventure",
+      "id": "A29C",
+      "node": "paladin",
+      "combat": true,
+      "text": "",
+      "record": {
+        "status": "active",
+        "count": 0,
+        "startedDay": 23
+      }
+    },
+    {
+      "step": 20,
+      "scene": "adventure",
+      "id": "A29C",
+      "node": "coffefight",
+      "combat": false,
+      "text": "coffe steps in last. dagger out. still holding a fourth iced coffee, somehow.",
+      "record": {
+        "status": "active",
+        "count": 0,
+        "startedDay": 23
+      }
+    },
+    {
+      "step": 23,
+      "scene": "adventure",
+      "id": "A29C",
+      "node": "coffefight",
+      "combat": true,
+      "text": "",
+      "record": {
+        "status": "active",
+        "count": 0,
+        "startedDay": 23
+      }
+    },
+    {
+      "step": 25,
+      "scene": "adventure",
+      "id": "A29C",
+      "node": "vicky",
+      "combat": false,
+      "text": "vicky walks in over all four of them. she does not draw a weapon.",
+      "record": {
+        "status": "active",
+        "count": 0,
+        "startedDay": 23
+      }
+    },
+    {
+      "step": 31,
+      "scene": "adventure",
+      "id": "A29C",
+      "node": "fork",
+      "combat": false,
+      "text": "so… we good?",
+      "record": {
+        "status": "active",
+        "count": 0,
+        "startedDay": 23
+      }
+    },
+    {
+      "step": 33,
+      "scene": "adventure",
+      "id": "A29C",
+      "node": "roast",
+      "combat": false,
+      "text": "get out. take the empty cup with you.",
+      "record": {
+        "status": "active",
+        "count": 0,
+        "startedDay": 23
+      }
+    },
+    {
+      "step": 35,
+      "scene": "bedroom",
+      "combat": false,
+      "text": "",
+      "record": {
+        "status": "completed",
+        "count": 1,
+        "startedDay": 23,
+        "completedDay": 23,
+        "lastDay": 23,
+        "outcome": "roasted",
+        "picks": {
+          "fork": 0
+        }
+      }
+    }
+  ],
+  "fights": [
+    "breakin",
+    "cleric",
+    "paladin",
+    "coffefight"
+  ],
+  "roastLines": [
+    "get out. take the empty cup with you.",
+    "he posts sad content for weeks. bad lighting. captions nobody asked for."
+  ],
+  "result": {
+    "scene": "bedroom",
+    "active": null,
+    "record": {
+      "status": "completed",
+      "count": 1,
+      "startedDay": 23,
+      "completedDay": 23,
+      "lastDay": 23,
+      "outcome": "roasted",
+      "picks": {
+        "fork": 0
+      }
+    },
+    "fate": "exiled",
+    "adventureDOM": false,
+    "adventureClass": false,
+    "returnText": "RICHthat was necessary."
+  },
+  "errors": [],
+  "failed": []
+}

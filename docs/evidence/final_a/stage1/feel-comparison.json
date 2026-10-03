@@ -1,0 +1,74 @@
+{
+  "method": "Compare scheduled intervals and animation durations, call bar clocks, geometry and gameplay record. Ambient heartbeat tick counts vary with wall-clock browser scheduling and are retained, not treated as an engine change.",
+  "comparisons": [
+    {
+      "width": 360,
+      "timerDurations": true,
+      "animationDurations": true,
+      "callBars": true,
+      "geometry": true,
+      "outcome": true,
+      "errors": [],
+      "rawCounts": {
+        "timers": [
+          116,
+          116
+        ],
+        "animations": [
+          149,
+          148
+        ],
+        "audio": [
+          46,
+          45
+        ]
+      }
+    },
+    {
+      "width": 390,
+      "timerDurations": true,
+      "animationDurations": true,
+      "callBars": true,
+      "geometry": true,
+      "outcome": true,
+      "errors": [],
+      "rawCounts": {
+        "timers": [
+          116,
+          116
+        ],
+        "animations": [
+          149,
+          149
+        ],
+        "audio": [
+          44,
+          44
+        ]
+      }
+    },
+    {
+      "width": 430,
+      "timerDurations": true,
+      "animationDurations": true,
+      "callBars": true,
+      "geometry": true,
+      "outcome": true,
+      "errors": [],
+      "rawCounts": {
+        "timers": [
+          116,
+          116
+        ],
+        "animations": [
+          149,
+          149
+        ],
+        "audio": [
+          45,
+          44
+        ]
+      }
+    }
+  ]
+}

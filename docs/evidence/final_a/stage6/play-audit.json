@@ -1,0 +1,758 @@
+{
+  "base": "0c6ccc3d18674c713a0a6e5896fe6ecbf7f7bc0f",
+  "method": "Actual locked F01 engine. 100 seeds per job/policy for bands; 100 random 24-night careers for R1, plus 40 careers for each other policy for T9. Canonical LF source hashes establish base/final executable parity; Windows checkout line endings are normalized.",
+  "lockedExecutable": {
+    "files": 38,
+    "changed": [],
+    "hashMode": "lf"
+  },
+  "bands": [
+    {
+      "name": "routine",
+      "plays": 3200,
+      "captured": 134,
+      "rate": 0.041875,
+      "target": 0.08,
+      "pass": true
+    },
+    {
+      "name": "BIG PLAY",
+      "plays": 400,
+      "captured": 64,
+      "rate": 0.16,
+      "target": 0.2,
+      "pass": true
+    },
+    {
+      "name": "HOLD THE HOUSE",
+      "plays": 400,
+      "captured": 17,
+      "rate": 0.0425,
+      "target": 0.08,
+      "pass": true
+    }
+  ],
+  "r1": {
+    "seeds": 100,
+    "nights": 24,
+    "mean": 8.18,
+    "worst": 3,
+    "seed54": {
+      "seed": 54,
+      "roster": 3,
+      "plays": 24
+    },
+    "below4": [
+      {
+        "seed": 54,
+        "roster": 3,
+        "plays": 24
+      }
+    ],
+    "rows": [
+      {
+        "seed": 1,
+        "roster": 6,
+        "plays": 28
+      },
+      {
+        "seed": 2,
+        "roster": 8,
+        "plays": 24
+      },
+      {
+        "seed": 3,
+        "roster": 9,
+        "plays": 25
+      },
+      {
+        "seed": 4,
+        "roster": 9,
+        "plays": 25
+      },
+      {
+        "seed": 5,
+        "roster": 8,
+        "plays": 25
+      },
+      {
+        "seed": 6,
+        "roster": 9,
+        "plays": 24
+      },
+      {
+        "seed": 7,
+        "roster": 8,
+        "plays": 26
+      },
+      {
+        "seed": 8,
+        "roster": 9,
+        "plays": 24
+      },
+      {
+        "seed": 9,
+        "roster": 9,
+        "plays": 24
+      },
+      {
+        "seed": 10,
+        "roster": 7,
+        "plays": 24
+      },
+      {
+        "seed": 11,
+        "roster": 8,
+        "plays": 25
+      },
+      {
+        "seed": 12,
+        "roster": 8,
+        "plays": 25
+      },
+      {
+        "seed": 13,
+        "roster": 9,
+        "plays": 24
+      },
+      {
+        "seed": 14,
+        "roster": 9,
+        "plays": 26
+      },
+      {
+        "seed": 15,
+        "roster": 8,
+        "plays": 25
+      },
+      {
+        "seed": 16,
+        "roster": 8,
+        "plays": 25
+      },
+      {
+        "seed": 17,
+        "roster": 9,
+        "plays": 28
+      },
+      {
+        "seed": 18,
+        "roster": 8,
+        "plays": 26
+      },
+      {
+        "seed": 19,
+        "roster": 9,
+        "plays": 24
+      },
+      {
+        "seed": 20,
+        "roster": 9,
+        "plays": 24
+      },
+      {
+        "seed": 21,
+        "roster": 7,
+        "plays": 28
+      },
+      {
+        "seed": 22,
+        "roster": 7,
+        "plays": 25
+      },
+      {
+        "seed": 23,
+        "roster": 8,
+        "plays": 25
+      },
+      {
+        "seed": 24,
+        "roster": 8,
+        "plays": 30
+      },
+      {
+        "seed": 25,
+        "roster": 9,
+        "plays": 25
+      },
+      {
+        "seed": 26,
+        "roster": 6,
+        "plays": 26
+      },
+      {
+        "seed": 27,
+        "roster": 8,
+        "plays": 24
+      },
+      {
+        "seed": 28,
+        "roster": 7,
+        "plays": 24
+      },
+      {
+        "seed": 29,
+        "roster": 9,
+        "plays": 26
+      },
+      {
+        "seed": 30,
+        "roster": 7,
+        "plays": 28
+      },
+      {
+        "seed": 31,
+        "roster": 9,
+        "plays": 24
+      },
+      {
+        "seed": 32,
+        "roster": 8,
+        "plays": 26
+      },
+      {
+        "seed": 33,
+        "roster": 9,
+        "plays": 24
+      },
+      {
+        "seed": 34,
+        "roster": 9,
+        "plays": 24
+      },
+      {
+        "seed": 35,
+        "roster": 7,
+        "plays": 25
+      },
+      {
+        "seed": 36,
+        "roster": 8,
+        "plays": 29
+      },
+      {
+        "seed": 37,
+        "roster": 9,
+        "plays": 28
+      },
+      {
+        "seed": 38,
+        "roster": 8,
+        "plays": 26
+      },
+      {
+        "seed": 39,
+        "roster": 8,
+        "plays": 29
+      },
+      {
+        "seed": 40,
+        "roster": 9,
+        "plays": 27
+      },
+      {
+        "seed": 41,
+        "roster": 8,
+        "plays": 25
+      },
+      {
+        "seed": 42,
+        "roster": 8,
+        "plays": 24
+      },
+      {
+        "seed": 43,
+        "roster": 8,
+        "plays": 29
+      },
+      {
+        "seed": 44,
+        "roster": 7,
+        "plays": 28
+      },
+      {
+        "seed": 45,
+        "roster": 8,
+        "plays": 27
+      },
+      {
+        "seed": 46,
+        "roster": 9,
+        "plays": 32
+      },
+      {
+        "seed": 47,
+        "roster": 8,
+        "plays": 28
+      },
+      {
+        "seed": 48,
+        "roster": 9,
+        "plays": 26
+      },
+      {
+        "seed": 49,
+        "roster": 9,
+        "plays": 25
+      },
+      {
+        "seed": 50,
+        "roster": 9,
+        "plays": 24
+      },
+      {
+        "seed": 51,
+        "roster": 9,
+        "plays": 25
+      },
+      {
+        "seed": 52,
+        "roster": 8,
+        "plays": 24
+      },
+      {
+        "seed": 53,
+        "roster": 8,
+        "plays": 25
+      },
+      {
+        "seed": 54,
+        "roster": 3,
+        "plays": 24
+      },
+      {
+        "seed": 55,
+        "roster": 9,
+        "plays": 26
+      },
+      {
+        "seed": 56,
+        "roster": 7,
+        "plays": 27
+      },
+      {
+        "seed": 57,
+        "roster": 9,
+        "plays": 26
+      },
+      {
+        "seed": 58,
+        "roster": 5,
+        "plays": 26
+      },
+      {
+        "seed": 59,
+        "roster": 8,
+        "plays": 25
+      },
+      {
+        "seed": 60,
+        "roster": 9,
+        "plays": 24
+      },
+      {
+        "seed": 61,
+        "roster": 9,
+        "plays": 24
+      },
+      {
+        "seed": 62,
+        "roster": 8,
+        "plays": 25
+      },
+      {
+        "seed": 63,
+        "roster": 9,
+        "plays": 25
+      },
+      {
+        "seed": 64,
+        "roster": 8,
+        "plays": 28
+      },
+      {
+        "seed": 65,
+        "roster": 9,
+        "plays": 24
+      },
+      {
+        "seed": 66,
+        "roster": 9,
+        "plays": 24
+      },
+      {
+        "seed": 67,
+        "roster": 8,
+        "plays": 29
+      },
+      {
+        "seed": 68,
+        "roster": 5,
+        "plays": 28
+      },
+      {
+        "seed": 69,
+        "roster": 9,
+        "plays": 25
+      },
+      {
+        "seed": 70,
+        "roster": 9,
+        "plays": 25
+      },
+      {
+        "seed": 71,
+        "roster": 7,
+        "plays": 26
+      },
+      {
+        "seed": 72,
+        "roster": 9,
+        "plays": 25
+      },
+      {
+        "seed": 73,
+        "roster": 7,
+        "plays": 26
+      },
+      {
+        "seed": 74,
+        "roster": 8,
+        "plays": 24
+      },
+      {
+        "seed": 75,
+        "roster": 6,
+        "plays": 25
+      },
+      {
+        "seed": 76,
+        "roster": 9,
+        "plays": 25
+      },
+      {
+        "seed": 77,
+        "roster": 8,
+        "plays": 27
+      },
+      {
+        "seed": 78,
+        "roster": 9,
+        "plays": 24
+      },
+      {
+        "seed": 79,
+        "roster": 9,
+        "plays": 25
+      },
+      {
+        "seed": 80,
+        "roster": 8,
+        "plays": 25
+      },
+      {
+        "seed": 81,
+        "roster": 8,
+        "plays": 25
+      },
+      {
+        "seed": 82,
+        "roster": 9,
+        "plays": 26
+      },
+      {
+        "seed": 83,
+        "roster": 9,
+        "plays": 27
+      },
+      {
+        "seed": 84,
+        "roster": 9,
+        "plays": 24
+      },
+      {
+        "seed": 85,
+        "roster": 9,
+        "plays": 24
+      },
+      {
+        "seed": 86,
+        "roster": 9,
+        "plays": 26
+      },
+      {
+        "seed": 87,
+        "roster": 8,
+        "plays": 27
+      },
+      {
+        "seed": 88,
+        "roster": 8,
+        "plays": 26
+      },
+      {
+        "seed": 89,
+        "roster": 9,
+        "plays": 24
+      },
+      {
+        "seed": 90,
+        "roster": 7,
+        "plays": 27
+      },
+      {
+        "seed": 91,
+        "roster": 8,
+        "plays": 26
+      },
+      {
+        "seed": 92,
+        "roster": 8,
+        "plays": 24
+      },
+      {
+        "seed": 93,
+        "roster": 9,
+        "plays": 24
+      },
+      {
+        "seed": 94,
+        "roster": 8,
+        "plays": 28
+      },
+      {
+        "seed": 95,
+        "roster": 8,
+        "plays": 30
+      },
+      {
+        "seed": 96,
+        "roster": 9,
+        "plays": 27
+      },
+      {
+        "seed": 97,
+        "roster": 9,
+        "plays": 25
+      },
+      {
+        "seed": 98,
+        "roster": 8,
+        "plays": 25
+      },
+      {
+        "seed": 99,
+        "roster": 9,
+        "plays": 24
+      },
+      {
+        "seed": 100,
+        "roster": 9,
+        "plays": 24
+      }
+    ]
+  },
+  "t9": {
+    "uses": 99039,
+    "violationsIn3": 0,
+    "maxUse": {
+      "pitch:dre": 1,
+      "bark:STEADY": 1,
+      "entry:hazard": 1,
+      "trait:calm:up": 1,
+      "cap:CONTACT:0": 1,
+      "trait:mouth:up": 2,
+      "bond:witness": 4,
+      "nerve:lost": 4,
+      "trait:steady:up": 1,
+      "bail:line": 1,
+      "vg:fail": 1,
+      "text:default": 1,
+      "tempt:RECRUIT": 1,
+      "pitch:tunde": 1,
+      "bark:SHOWBOAT": 1,
+      "combo:crewbook": 3,
+      "combo:door": 1,
+      "trait:eat:fail": 1,
+      "trait:showboat:fail": 1,
+      "trait:dressed:up": 1,
+      "chain": 4,
+      "trait:showboat:up": 1,
+      "class:lt:drop": 1,
+      "boss:smack:flee": 4,
+      "trait:rookie:up": 1,
+      "trait:eat:heal": 1,
+      "getaway:clean": 1,
+      "kick:tunde:RARE": 1,
+      "greed:sunday_best": 3,
+      "vg:messy": 1,
+      "text:trait:eat:fail": 1,
+      "tempt:RARE_PITCH": 1,
+      "pitch:half_pint": 1,
+      "bark:tunde": 1,
+      "cap:ENTRY:2": 1,
+      "weapon:mac:friendly": 1,
+      "getaway:messy": 1,
+      "nodd:chase": 1,
+      "kick:half_pint:RARE": 1,
+      "greed:half_pint": 3,
+      "trait:impatient:up": 1,
+      "trait:rookie:fail": 1,
+      "trait:small:fail": 1,
+      "cap:CONTACT:2": 1,
+      "cap:PRIZE:2": 4,
+      "trait:mazi:showoff": 1,
+      "kick:tunde:LEGENDARY": 1,
+      "text:loot:legendary": 1,
+      "bark:dre": 1,
+      "oba:appear": 1,
+      "oba:collapse": 1,
+      "tempt:DEMAND": 1,
+      "kick:generic:LEGENDARY": 1,
+      "greed:generic": 3,
+      "cap:TROUBLE:2": 4,
+      "flex:clean": 1,
+      "vg:brag": 1,
+      "pitch:young_mazi": 1,
+      "bond:save": 3,
+      "prize": 2,
+      "text:weapon:mac:friendly": 1,
+      "text:thanks": 1,
+      "trait:dressed:fail": 1,
+      "sure:fail": 4,
+      "class:wheels:corner": 1,
+      "kick:dre:RARE": 1,
+      "greed:tunde": 3,
+      "trait:church:fail": 1,
+      "tempt:RETALIATION": 1,
+      "greed:young_mazi": 3,
+      "octopus:win": 1,
+      "cap:TROUBLE:1": 3,
+      "kick:dre:LEGENDARY": 1,
+      "greed:dre": 3,
+      "pitch:auntie_grit": 1,
+      "call:talk:win": 2,
+      "trait:sitdown:fail": 1,
+      "trait:seen:fail": 1,
+      "text:trait:seen:fail": 1,
+      "text:boss:smack:flee": 1,
+      "class:patch": 1,
+      "trait:sitdown:up": 1,
+      "trait:seen:up": 1,
+      "greed:auntie_grit": 3,
+      "trait:phone:up": 1,
+      "wash:line": 1,
+      "text:captured": 1,
+      "tempt:RESCUE": 1,
+      "car:crash": 1,
+      "getaway:crash": 1,
+      "vg:costly": 1,
+      "trait:calm:slow": 1,
+      "getaway:split": 1,
+      "split:panic": 1,
+      "greed:stop": 1,
+      "text:split:panic": 1,
+      "car:stall": 1,
+      "text:car:stall": 1,
+      "text:down": 1,
+      "kick:dre:COMMON": 1,
+      "kick:half_pint:LEGENDARY": 1,
+      "kick:generic:RARE": 1,
+      "trait:steady:fail": 1,
+      "trait:impatient:fail": 1,
+      "bark:young_mazi": 1,
+      "bark:SKITTISH": 1,
+      "bark:LOYAL": 1,
+      "trait:skittish:fail": 1,
+      "trait:loyal:up": 1,
+      "prize:luck": 2,
+      "text:call:talk:win": 1,
+      "bark:sunday_best": 1,
+      "pitch:sunday_best": 1,
+      "kick:auntie_grit:RARE": 1,
+      "nerve:fumble": 4,
+      "kick:tunde:COMMON": 1,
+      "combo:handsfree": 4,
+      "trait:church:route": 1,
+      "weapon:slipper": 1,
+      "split:bus": 2,
+      "text:trait:small:fail": 1,
+      "trait:phone:fail": 1,
+      "trait:calm:fail": 1,
+      "text:trait:phone:fail": 1,
+      "octopus:fail": 1,
+      "text:split:bus": 1,
+      "text:trait:dressed:fail": 1,
+      "trait:small:dodge": 1,
+      "bark:STICKY_FINGERS": 1,
+      "trait:sticky:up": 1,
+      "bark:half_pint": 1,
+      "trait:mouth:fail": 1,
+      "trait:sticky:fail": 1,
+      "kick:half_pint:COMMON": 1,
+      "trait:small:up": 1,
+      "getaway:robbed": 1,
+      "robbed": 1,
+      "kick:young_mazi:RARE": 1,
+      "kick:young_mazi:COMMON": 1,
+      "kick:auntie_grit:COMMON": 1,
+      "trait:loyal:stay": 1,
+      "trait:loyal:fail": 1,
+      "death:generic": 2,
+      "text:death:generic": 1,
+      "trait:skittish:up": 1,
+      "kick:auntie_grit:LEGENDARY": 1,
+      "greed:fail": 1,
+      "trait:phone:fail2": 1,
+      "text:greed": 1,
+      "bark:HOTHEAD": 1,
+      "trait:hothead:up": 1,
+      "combo:coin:fail": 6,
+      "trait:hothead:fail": 1,
+      "combo:coin:up": 5,
+      "bark:auntie_grit": 1,
+      "kick:generic:COMMON": 1,
+      "kick:sunday_best:RARE": 1,
+      "kick:sunday_best:COMMON": 1,
+      "fallback:line": 1,
+      "vg:greed": 1,
+      "entry:luck": 1,
+      "trait:church:up": 1,
+      "call:save:fail": 2,
+      "call:save:win": 2,
+      "cap:TROUBLE:0": 2,
+      "kick:young_mazi:LEGENDARY": 1,
+      "call:talk:fail": 1,
+      "call:pay": 1,
+      "cap:PRIZE:1": 2,
+      "kick:sunday_best:LEGENDARY": 1,
+      "call:sneak:win": 1,
+      "call:sneak:fail": 1,
+      "cap:CONTACT:1": 1,
+      "combo:leash": 1,
+      "fold:line": 1,
+      "fold:intel": 1,
+      "tempt:INTEL": 1,
+      "cap:PRIZE:0": 1,
+      "intel:door": 1
+    },
+    "uncoveredTriggers": [],
+    "shortPools": [
+      {
+        "key": "cap:TROUBLE:1",
+        "pool": 8,
+        "maxUse": 3
+      },
+      {
+        "key": "combo:coin:fail",
+        "pool": 18,
+        "maxUse": 6
+      }
+    ]
+  },
+  "bailed": {
+    "plays": 507,
+    "boundViolations": 0
+  },
+  "pass": false
+}

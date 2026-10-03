@@ -1,0 +1,166 @@
+{
+  "widths": [
+    360,
+    390,
+    430
+  ],
+  "rowsBefore": 84,
+  "rowsAfter": 84,
+  "offered": 84,
+  "presentationMatches": 84,
+  "browserErrorsBefore": [],
+  "browserErrorsAfter": [],
+  "rulesFailures": [],
+  "failed": [],
+  "averageTurnMsBefore": 4051,
+  "averageTurnMsAfter": 3024,
+  "averageChangePercent": -25.35,
+  "minimumOpaquePixels": 63,
+  "passiveMods": [
+    {
+      "width": 430,
+      "id": "blessed_rounds",
+      "attached": [
+        "blessed_rounds"
+      ],
+      "receipt": "BLESSED ROUNDS"
+    },
+    {
+      "width": 430,
+      "id": "drum_mag",
+      "attached": [
+        "drum_mag"
+      ],
+      "receipt": "DRUM MAG"
+    },
+    {
+      "width": 430,
+      "id": "silencer",
+      "attached": [
+        "silencer"
+      ],
+      "receipt": "SILENCER"
+    },
+    {
+      "width": 430,
+      "id": "scope",
+      "attached": [
+        "scope"
+      ],
+      "receipt": "SCOPE"
+    },
+    {
+      "width": 430,
+      "id": "gold_plating",
+      "attached": [
+        "gold_plating"
+      ],
+      "receipt": "GOLD PLATING"
+    },
+    {
+      "width": 430,
+      "id": "custom_engraving",
+      "attached": [
+        "custom_engraving"
+      ],
+      "receipt": "CUSTOM ENGRAVING · CENSUS"
+    },
+    {
+      "width": 360,
+      "id": "blessed_rounds",
+      "attached": [
+        "blessed_rounds"
+      ],
+      "receipt": "BLESSED ROUNDS"
+    },
+    {
+      "width": 360,
+      "id": "drum_mag",
+      "attached": [
+        "drum_mag"
+      ],
+      "receipt": "DRUM MAG"
+    },
+    {
+      "width": 360,
+      "id": "silencer",
+      "attached": [
+        "silencer"
+      ],
+      "receipt": "SILENCER"
+    },
+    {
+      "width": 360,
+      "id": "scope",
+      "attached": [
+        "scope"
+      ],
+      "receipt": "SCOPE"
+    },
+    {
+      "width": 360,
+      "id": "gold_plating",
+      "attached": [
+        "gold_plating"
+      ],
+      "receipt": "GOLD PLATING"
+    },
+    {
+      "width": 360,
+      "id": "custom_engraving",
+      "attached": [
+        "custom_engraving"
+      ],
+      "receipt": "CUSTOM ENGRAVING · CENSUS"
+    },
+    {
+      "width": 390,
+      "id": "blessed_rounds",
+      "attached": [
+        "blessed_rounds"
+      ],
+      "receipt": "BLESSED ROUNDS"
+    },
+    {
+      "width": 390,
+      "id": "drum_mag",
+      "attached": [
+        "drum_mag"
+      ],
+      "receipt": "DRUM MAG"
+    },
+    {
+      "width": 390,
+      "id": "silencer",
+      "attached": [
+        "silencer"
+      ],
+      "receipt": "SILENCER"
+    },
+    {
+      "width": 390,
+      "id": "scope",
+      "attached": [
+        "scope"
+      ],
+      "receipt": "SCOPE"
+    },
+    {
+      "width": 390,
+      "id": "gold_plating",
+      "attached": [
+        "gold_plating"
+      ],
+      "receipt": "GOLD PLATING"
+    },
+    {
+      "width": 390,
+      "id": "custom_engraving",
+      "attached": [
+        "custom_engraving"
+      ],
+      "receipt": "CUSTOM ENGRAVING · CENSUS"
+    }
+  ],
+  "seanceAcceptedSource": "MAGIC_HEX"
+}

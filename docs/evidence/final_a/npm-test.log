@@ -1,0 +1,32 @@
+
+> rich-alucard-static-release@0.0.0 test
+> node tools/release.mjs test
+
+PASS party foundation (9 resolutions, 3 openings, switching/reset/repeat/leave; no persistence globals available)
+PASS rave foundation (7 frozen files + Rich hashes/dimensions, stage geometry, 3 adapter resolutions, phases/choices, explicit consequence boundary, review isolation)
+PASS ogun's rave adventure (11 authored phases, 8 interior / 3 exterior choice-graph steps, 3 party situations replayed across all behaviors, Bllad33 stage slot + frozen hash, world-event/opportunity gating, save v10 persistence)
+PASS property foundation (9 frozen assets, exterior/interior stage geometry, 11 authored phases, hotspot auto-advance, cut/as-is/curb offer paths, Shannon contact, FOURPLEX opportunity, PB-01 event, save v11 persistence)
+PASS bars (rhymes, isFalseFriend, buildChoices, scoreTap, speedFor)
+PASS garage (parts table, canBuy, feelOf, pinkyRating)
+PASS hatch (Mazda behavior + generic FEED/WALK/JOKO care result, registered)
+PASS hookah (makeRing scaling/wobble, stack-through, stepRing immutability, moon/antenna hit tests)
+PASS jollof (blend/fry/steam stages, 5 judges, dragon crumble, mom cap, scoreDish/total shapes)
+PASS owambe collection (configured SUCCESS/SHORT/GREEDY reachability, exact payout math, bounds, registration)
+PASS pickup (shotChance monotonicity, aiStep progression, scoreAfterShot 1s/2s + immutability)
+PASS pier (catch table sums to 100, rain doubles big-fish odds x1.78, sealed chest stays neutral, tension rise/fall + snap-after-1.5s verified, registered)
+PASS slurp (makeOrder, checkBowl, tipFor, orderInterval, canopy chair harness)
+PASS touge (cars, computeHandling, shared drift/chain/clip scoring, novice median 622, buildCourse, step: spin-out / AWD grip / countersteer hold)
+PASS btf propagation (synthetic minigame reward+result and fight outcome are consumed by the adventure; FU-03)
+PASS NEW OGA F6 single-source consumers + generic zero-option Octopus fallback
+PASS NEW OGA M1–M3 routes, back-outs, authored rewards/costs, rank and reload persistence
+PASS NEW OGA M4 routes + OL-006 no-car hold + Alternative + VampGram + reward guards
+PASS NEW OGA M5–M6 outcomes + timing + no-pet handling + snapshot + guarded Rank 4
+PASS NEW OGA M7 timing + TAKE/REFUSE + knowledge + reload + one-shot consequence guard + M8 hold
+PASS btf thanksgiving gate (A53 eligible at Day 57 with fameFired true; FU-04)
+PASS btf (v16 migration + idempotency, calendar Oct 1/Oct 31/Nov 26/full moons/rain, clock budget+rent+family, 121 adventures validated, 348 branch walks)
+PASS presentation (19 Combat 2.0 fight screens vs Wave 2 lock)
+PASS presentation (asset metadata vs frozen register, Director self-test, locked shots × runtime variant matrix lint at 360/390/430, 263 adventure screens vs Wave 1 lock: 262 pass, 1 accepted exceptions)
+PASS grounding: 2799 independently measured actor × scene × width contacts, 403 state/scene variants at 360/390/430, zero violations; maximum floor delta 0.326px
+PASS art integration (registry 1090 frozen files, 350 runtime art refs resolve to the register, matrix: {"PASS":282})
+PASS P-D: 96 approved hashes, 48 native contracts, 33 lossless state cells, frozen standing identities, additive guns/tokens/actors and exact WORKDAY reuse
+FAIL A46 ask must come back after its cooldown

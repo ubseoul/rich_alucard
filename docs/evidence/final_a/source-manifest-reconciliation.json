@@ -1,0 +1,42 @@
+{
+  "base": "0c6ccc3d18674c713a0a6e5896fe6ecbf7f7bc0f",
+  "rows": [
+    {
+      "path": "art_department/APPROVAL_LEDGER.md",
+      "oldSha256": "2732afcb34ebf7eb28c2af0eae454fcc6f928b1c1b32986a7ce9883ec62a5abb",
+      "acceptedBaseSha256": "938a7af62b1104f71fcd79341377d9035bcf927bb17dc330abd6316c897363ed",
+      "hashMode": "lf"
+    },
+    {
+      "path": "art_department/APPROVED_ASSET_INDEX.md",
+      "oldSha256": "1f1102c89cc504f89794d201a54db7c4937e31084235e5b8ee53e3a211cc28b7",
+      "acceptedBaseSha256": "4dfa7d7b3b5af0761e929682feb7e3a5cd4412416de6e5090497ac3e9aaaf0ff",
+      "hashMode": "lf"
+    },
+    {
+      "path": "art_department/ASSET_REGISTER.json",
+      "oldSha256": "7f651fe3062cc09f0d4ee5d0a39d4a1f76ecf8d92af7b32e4a29e2a8cd5c0cf8",
+      "acceptedBaseSha256": "3fc8e6d7d45e20d58915cc81089b09ab8510fd86e413818d758937a4aecd0d39",
+      "hashMode": "lf"
+    },
+    {
+      "path": "art_department/CURRENT_HANDOFF.md",
+      "oldSha256": "7840865abc9f2584cad935219259861602298144d514130c5041065488cc2bec",
+      "acceptedBaseSha256": "45b590f6a15129f932aac0021a7bc5099baeb2788d2d96b6656c75d356c57f7d",
+      "hashMode": "lf"
+    },
+    {
+      "path": "art_department/START_HERE.md",
+      "oldSha256": "cc4a6821cec6d0f52ae9512116234367dd3a43049789b2e63378f1adc7b82088",
+      "acceptedBaseSha256": "5f3a384f4edfe482e01750e673a088943a7589208e121ad51a09dcdb72a38c63",
+      "hashMode": "lf"
+    },
+    {
+      "path": "docs/engineering/F01_FEEL_LOCK_FROZEN_ART_INTEGRATION.md",
+      "oldSha256": "93760b377eb7b265a220eca6aed453484d2fe11ab474785835ba5cb3c4d17a20",
+      "acceptedBaseSha256": "41fd4c59bee3d355986e917b9a0399f0a6c9964fa495f9bc6e21fe1433e17028",
+      "hashMode": "lf"
+    }
+  ],
+  "sourceBytesChanged": 0
+}

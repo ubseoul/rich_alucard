@@ -1,0 +1,16 @@
+{
+  "authority": "OL-055/056/057",
+  "exactDocxBytes": true,
+  "files": [
+    {
+      "path": "source_vault/open_design/BLOOD_MIRROR_MASTER_GIGA_PACKET.docx",
+      "sha256": "476f3c02476e57bc6407a6a8fb61e7020aedf5c52deb588f7d78428b7e1a52a9",
+      "bytes": 261350
+    },
+    {
+      "path": "source_vault/open_design/BASELINE_V1B_UBE_ANSWERS.md",
+      "sha256": "c304ceb97b41edea6fbf87e9edb62dd26319c8c94ac2e9b99534e7ef241bd84b",
+      "bytes": 1381
+    }
+  ]
+}

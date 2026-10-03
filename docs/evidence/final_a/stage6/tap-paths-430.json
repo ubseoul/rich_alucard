@@ -1,0 +1,123 @@
+{
+  "rows": [
+    {
+      "width": 430,
+      "screen": "play offer",
+      "element": "ANSWER",
+      "sound": true,
+      "starts": 2,
+      "mediaRejected": []
+    },
+    {
+      "width": 430,
+      "screen": "play weapon slot",
+      "element": "THROWN\nAUNTIE'S SLIPPER",
+      "sound": true,
+      "starts": 2,
+      "mediaRejected": []
+    },
+    {
+      "screen": "play crew",
+      "element": "send / hold",
+      "sound": true,
+      "starts": 1
+    },
+    {
+      "width": 430,
+      "screen": "play decision CLIMB",
+      "element": "GET OUT",
+      "sound": true,
+      "starts": 1,
+      "mediaRejected": []
+    },
+    {
+      "width": 430,
+      "screen": "play decision undefined",
+      "element": "AUNTIE GRIT",
+      "sound": true,
+      "starts": 2,
+      "mediaRejected": []
+    },
+    {
+      "width": 430,
+      "screen": "play return",
+      "element": "BACK TO THE WAR ROOM",
+      "sound": true,
+      "starts": 2,
+      "mediaRejected": []
+    },
+    {
+      "width": 430,
+      "screen": "trap-raid home",
+      "element": "OK",
+      "sound": true,
+      "starts": 2,
+      "mediaRejected": []
+    },
+    {
+      "width": 430,
+      "screen": "trap-raid offer",
+      "element": "PICK UP",
+      "sound": true,
+      "starts": 2,
+      "mediaRejected": []
+    },
+    {
+      "screen": "trap-raid crew",
+      "element": "send / hold",
+      "sound": true,
+      "starts": 1
+    },
+    {
+      "width": 430,
+      "screen": "trap-raid decision CALL",
+      "element": "KEEP GOING",
+      "sound": true,
+      "starts": 1,
+      "mediaRejected": []
+    },
+    {
+      "width": 430,
+      "screen": "trap-raid decision CALL",
+      "element": "KEEP GOING",
+      "sound": true,
+      "starts": 1,
+      "mediaRejected": []
+    },
+    {
+      "width": 430,
+      "screen": "trap-raid decision CLIMB",
+      "element": "GET OUT",
+      "sound": true,
+      "starts": 1,
+      "mediaRejected": []
+    },
+    {
+      "width": 430,
+      "screen": "trap-raid decision undefined",
+      "element": "AUNTIE GRIT",
+      "sound": true,
+      "starts": 2,
+      "mediaRejected": []
+    },
+    {
+      "width": 430,
+      "screen": "trap-raid decision undefined",
+      "element": "AUNTIE GRIT",
+      "sound": true,
+      "starts": 2,
+      "mediaRejected": []
+    },
+    {
+      "width": 430,
+      "screen": "trap-raid return",
+      "element": "BACK TO THE WAR ROOM",
+      "sound": true,
+      "starts": 2,
+      "mediaRejected": []
+    }
+  ],
+  "tapped": 15,
+  "withSound": 15,
+  "failures": []
+}

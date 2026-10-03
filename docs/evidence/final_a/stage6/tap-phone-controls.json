@@ -1,0 +1,450 @@
+{
+  "width": 390,
+  "rows": [
+    {
+      "screen": "phone direct contacts",
+      "element": "Search contacts",
+      "sound": true,
+      "starts": 1,
+      "cues": {
+        "UI_TAP": 1
+      },
+      "expected": "UI_TAP",
+      "exactCue": true
+    },
+    {
+      "screen": "phone direct keyboard",
+      "element": "Type Q",
+      "sound": true,
+      "starts": 2,
+      "cues": {
+        "UI_TAP": 2
+      },
+      "expected": "UI_TAP",
+      "exactCue": true,
+      "value": "q",
+      "valueMatch": true
+    },
+    {
+      "screen": "phone direct keyboard",
+      "element": "Type W",
+      "sound": true,
+      "starts": 2,
+      "cues": {
+        "UI_TAP": 2
+      },
+      "expected": "UI_TAP",
+      "exactCue": true,
+      "value": "qw",
+      "valueMatch": true
+    },
+    {
+      "screen": "phone direct keyboard",
+      "element": "Type E",
+      "sound": true,
+      "starts": 2,
+      "cues": {
+        "UI_TAP": 2
+      },
+      "expected": "UI_TAP",
+      "exactCue": true,
+      "value": "qwe",
+      "valueMatch": true
+    },
+    {
+      "screen": "phone direct keyboard",
+      "element": "Type R",
+      "sound": true,
+      "starts": 2,
+      "cues": {
+        "UI_TAP": 2
+      },
+      "expected": "UI_TAP",
+      "exactCue": true,
+      "value": "qwer",
+      "valueMatch": true
+    },
+    {
+      "screen": "phone direct keyboard",
+      "element": "Type T",
+      "sound": true,
+      "starts": 2,
+      "cues": {
+        "UI_TAP": 2
+      },
+      "expected": "UI_TAP",
+      "exactCue": true,
+      "value": "qwert",
+      "valueMatch": true
+    },
+    {
+      "screen": "phone direct keyboard",
+      "element": "Type Y",
+      "sound": true,
+      "starts": 2,
+      "cues": {
+        "UI_TAP": 2
+      },
+      "expected": "UI_TAP",
+      "exactCue": true,
+      "value": "qwerty",
+      "valueMatch": true
+    },
+    {
+      "screen": "phone direct keyboard",
+      "element": "Type U",
+      "sound": true,
+      "starts": 2,
+      "cues": {
+        "UI_TAP": 2
+      },
+      "expected": "UI_TAP",
+      "exactCue": true,
+      "value": "qwertyu",
+      "valueMatch": true
+    },
+    {
+      "screen": "phone direct keyboard",
+      "element": "Type I",
+      "sound": true,
+      "starts": 2,
+      "cues": {
+        "UI_TAP": 2
+      },
+      "expected": "UI_TAP",
+      "exactCue": true,
+      "value": "qwertyui",
+      "valueMatch": true
+    },
+    {
+      "screen": "phone direct keyboard",
+      "element": "Type O",
+      "sound": true,
+      "starts": 2,
+      "cues": {
+        "UI_TAP": 2
+      },
+      "expected": "UI_TAP",
+      "exactCue": true,
+      "value": "qwertyuio",
+      "valueMatch": true
+    },
+    {
+      "screen": "phone direct keyboard",
+      "element": "Type P",
+      "sound": true,
+      "starts": 2,
+      "cues": {
+        "UI_TAP": 2
+      },
+      "expected": "UI_TAP",
+      "exactCue": true,
+      "value": "qwertyuiop",
+      "valueMatch": true
+    },
+    {
+      "screen": "phone direct keyboard",
+      "element": "Type A",
+      "sound": true,
+      "starts": 2,
+      "cues": {
+        "UI_TAP": 2
+      },
+      "expected": "UI_TAP",
+      "exactCue": true,
+      "value": "qwertyuiopa",
+      "valueMatch": true
+    },
+    {
+      "screen": "phone direct keyboard",
+      "element": "Type S",
+      "sound": true,
+      "starts": 2,
+      "cues": {
+        "UI_TAP": 2
+      },
+      "expected": "UI_TAP",
+      "exactCue": true,
+      "value": "qwertyuiopas",
+      "valueMatch": true
+    },
+    {
+      "screen": "phone direct keyboard",
+      "element": "Type D",
+      "sound": true,
+      "starts": 2,
+      "cues": {
+        "UI_TAP": 2
+      },
+      "expected": "UI_TAP",
+      "exactCue": true,
+      "value": "qwertyuiopasd",
+      "valueMatch": true
+    },
+    {
+      "screen": "phone direct keyboard",
+      "element": "Type F",
+      "sound": true,
+      "starts": 2,
+      "cues": {
+        "UI_TAP": 2
+      },
+      "expected": "UI_TAP",
+      "exactCue": true,
+      "value": "qwertyuiopasdf",
+      "valueMatch": true
+    },
+    {
+      "screen": "phone direct keyboard",
+      "element": "Type G",
+      "sound": true,
+      "starts": 2,
+      "cues": {
+        "UI_TAP": 2
+      },
+      "expected": "UI_TAP",
+      "exactCue": true,
+      "value": "qwertyuiopasdfg",
+      "valueMatch": true
+    },
+    {
+      "screen": "phone direct keyboard",
+      "element": "Type H",
+      "sound": true,
+      "starts": 2,
+      "cues": {
+        "UI_TAP": 2
+      },
+      "expected": "UI_TAP",
+      "exactCue": true,
+      "value": "qwertyuiopasdfgh",
+      "valueMatch": true
+    },
+    {
+      "screen": "phone direct keyboard",
+      "element": "Type J",
+      "sound": true,
+      "starts": 2,
+      "cues": {
+        "UI_TAP": 2
+      },
+      "expected": "UI_TAP",
+      "exactCue": true,
+      "value": "qwertyuiopasdfghj",
+      "valueMatch": true
+    },
+    {
+      "screen": "phone direct keyboard",
+      "element": "Type K",
+      "sound": true,
+      "starts": 2,
+      "cues": {
+        "UI_TAP": 2
+      },
+      "expected": "UI_TAP",
+      "exactCue": true,
+      "value": "qwertyuiopasdfghjk",
+      "valueMatch": true
+    },
+    {
+      "screen": "phone direct keyboard",
+      "element": "Type L",
+      "sound": true,
+      "starts": 2,
+      "cues": {
+        "UI_TAP": 2
+      },
+      "expected": "UI_TAP",
+      "exactCue": true,
+      "value": "qwertyuiopasdfghjkl",
+      "valueMatch": true
+    },
+    {
+      "screen": "phone direct keyboard",
+      "element": "Type Z",
+      "sound": true,
+      "starts": 2,
+      "cues": {
+        "UI_TAP": 2
+      },
+      "expected": "UI_TAP",
+      "exactCue": true,
+      "value": "qwertyuiopasdfghjklz",
+      "valueMatch": true
+    },
+    {
+      "screen": "phone direct keyboard",
+      "element": "Type X",
+      "sound": true,
+      "starts": 2,
+      "cues": {
+        "UI_TAP": 2
+      },
+      "expected": "UI_TAP",
+      "exactCue": true,
+      "value": "qwertyuiopasdfghjklzx",
+      "valueMatch": true
+    },
+    {
+      "screen": "phone direct keyboard",
+      "element": "Type C",
+      "sound": true,
+      "starts": 2,
+      "cues": {
+        "UI_TAP": 2
+      },
+      "expected": "UI_TAP",
+      "exactCue": true,
+      "value": "qwertyuiopasdfghjklzxc",
+      "valueMatch": true
+    },
+    {
+      "screen": "phone direct keyboard",
+      "element": "Type V",
+      "sound": true,
+      "starts": 2,
+      "cues": {
+        "UI_TAP": 2
+      },
+      "expected": "UI_TAP",
+      "exactCue": true,
+      "value": "qwertyuiopasdfghjklzxcv",
+      "valueMatch": true
+    },
+    {
+      "screen": "phone direct keyboard",
+      "element": "Type B",
+      "sound": true,
+      "starts": 2,
+      "cues": {
+        "UI_TAP": 2
+      },
+      "expected": "UI_TAP",
+      "exactCue": true,
+      "value": "qwertyuiopasdfghjklzxcvb",
+      "valueMatch": true
+    },
+    {
+      "screen": "phone direct keyboard",
+      "element": "Type N",
+      "sound": true,
+      "starts": 2,
+      "cues": {
+        "UI_TAP": 2
+      },
+      "expected": "UI_TAP",
+      "exactCue": true,
+      "value": "qwertyuiopasdfghjklzxcvbn",
+      "valueMatch": true
+    },
+    {
+      "screen": "phone direct keyboard",
+      "element": "Type M",
+      "sound": true,
+      "starts": 2,
+      "cues": {
+        "UI_TAP": 2
+      },
+      "expected": "UI_TAP",
+      "exactCue": true,
+      "value": "qwertyuiopasdfghjklzxcvbnm",
+      "valueMatch": true
+    },
+    {
+      "screen": "phone direct keyboard",
+      "element": "CLEAR",
+      "sound": true,
+      "starts": 2,
+      "cues": {
+        "UI_TAP": 2
+      },
+      "expected": "UI_TAP",
+      "exactCue": true,
+      "value": "",
+      "valueMatch": true
+    },
+    {
+      "screen": "phone direct keyboard",
+      "element": "SPACE",
+      "sound": true,
+      "starts": 2,
+      "cues": {
+        "UI_TAP": 2
+      },
+      "expected": "UI_TAP",
+      "exactCue": true,
+      "value": " ",
+      "valueMatch": true
+    },
+    {
+      "screen": "phone direct keyboard",
+      "element": "Backspace",
+      "sound": true,
+      "starts": 2,
+      "cues": {
+        "UI_TAP": 2
+      },
+      "expected": "UI_TAP",
+      "exactCue": true,
+      "value": "",
+      "valueMatch": true
+    },
+    {
+      "screen": "phone direct device",
+      "element": "Lock phone",
+      "sound": true,
+      "starts": 3,
+      "cues": {
+        "UI_TAP": 1,
+        "UI_CONFIRM": 1,
+        "BAT_SWARM": 1
+      },
+      "expected": "UI_CONFIRM",
+      "exactCue": true,
+      "stateMatch": true
+    },
+    {
+      "screen": "phone direct device",
+      "element": "SWIPE UP / UNLOCK",
+      "sound": true,
+      "starts": 2,
+      "cues": {
+        "UI_TAP": 1,
+        "UI_CONFIRM": 1
+      },
+      "expected": "UI_CONFIRM",
+      "exactCue": true,
+      "stateMatch": true
+    },
+    {
+      "screen": "phone direct device",
+      "element": "HOME",
+      "sound": true,
+      "starts": 1,
+      "cues": {
+        "UI_BACK": 1
+      },
+      "expected": "UI_BACK",
+      "exactCue": true,
+      "stateMatch": true
+    },
+    {
+      "screen": "phone direct Bank",
+      "element": "SEE YOUR CASTLE",
+      "sound": true,
+      "starts": 2,
+      "cues": {
+        "UI_TAP": 1,
+        "PHONE_APP_OPEN": 1
+      },
+      "expected": "PHONE_APP_OPEN",
+      "exactCue": true,
+      "stateMatch": true
+    }
+  ],
+  "tapped": 34,
+  "withSound": 34,
+  "failures": [],
+  "errors": [],
+  "scope": "Physically distinct new phone controls, accepted sound ids, keyboard values and Bank CTA destination."
+}

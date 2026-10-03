@@ -1,0 +1,712 @@
+{
+  "build": {
+    "schemaVersion": 1,
+    "releaseId": "ra-9f06b0c58ae3-20261003221844",
+    "commit": "9f06b0c58ae3db9cf9e7ed059fc94874b09d2b2a",
+    "shortCommit": "9f06b0c58ae3",
+    "builtAt": "2026-10-03T22:18:44.746Z",
+    "assetVersion": "ra-9f06b0c58ae3-20261003221844"
+  },
+  "verifyAll": {
+    "ok": true,
+    "at": "2026-10-03T22:19:48.116Z",
+    "steps": [
+      {
+        "name": "loader verification",
+        "status": "PASS",
+        "seconds": 1
+      },
+      {
+        "name": "build (regression + fragment suites + contract + zero-change + leak + artifact verification)",
+        "status": "PASS",
+        "seconds": 691
+      },
+      {
+        "name": "artifact verification",
+        "status": "PASS",
+        "seconds": 1
+      },
+      {
+        "name": "OPEN artifact leak check",
+        "status": "PASS",
+        "seconds": 1
+      },
+      {
+        "name": "private overlay build with EMPTY pack (must equal OPEN)",
+        "status": "PASS",
+        "seconds": 13
+      },
+      {
+        "name": "OPEN artifact still clean after overlay build",
+        "status": "PASS",
+        "seconds": 1
+      },
+      {
+        "name": "browser smoke",
+        "status": "PASS"
+      }
+    ]
+  },
+  "npmTest": true,
+  "art": {
+    "preservedCopies": 1335,
+    "preservedMismatches": 0,
+    "frozen": 1090,
+    "frozenAltered": 0,
+    "checkoutTextLineEndings": 161
+  },
+  "placeholder": {
+    "endCount": 0,
+    "pending": 0
+  },
+  "combat": {
+    "offered": 84,
+    "matches": 84,
+    "rulesFailures": 0
+  },
+  "frame": {
+    "phase": "after",
+    "base": null,
+    "width": 390,
+    "outcome": "win",
+    "turns": 10,
+    "actions": 11,
+    "actionsWithStart": 11,
+    "actionsWithImpact": 10,
+    "actionsWithImpactOrEffect": 11,
+    "actionsSettled": 11,
+    "frames": 1728,
+    "p95": 16.800000000000182,
+    "max": 33.299999999999955,
+    "hitchesOutsideStops": 0,
+    "maxOutsideStops": 33.299999999999955,
+    "hitchesDuringStops": 0,
+    "intentionalStops": 12,
+    "errors": []
+  },
+  "taps": {
+    "tested": 978,
+    "sounded": 978,
+    "errors": 0,
+    "failures": 0,
+    "leakedLoops": 0
+  },
+  "feelWidths": [
+    {
+      "width": 360,
+      "pass": true
+    },
+    {
+      "width": 390,
+      "pass": true
+    },
+    {
+      "width": 430,
+      "pass": true
+    }
+  ],
+  "surface": {
+    "frames": 30,
+    "errors": 0
+  },
+  "historicalSchemas": [
+    "v07.json",
+    "v08.json",
+    "v09.json",
+    "v10.json",
+    "v11.json",
+    "v12.json",
+    "v13.json",
+    "v14.json",
+    "v15.json",
+    "v16.json"
+  ],
+  "legacySchemas": [
+    4,
+    6
+  ],
+  "play": {
+    "bands": [
+      {
+        "name": "routine",
+        "plays": 3200,
+        "captured": 134,
+        "rate": 0.041875,
+        "target": 0.08,
+        "pass": true
+      },
+      {
+        "name": "BIG PLAY",
+        "plays": 400,
+        "captured": 64,
+        "rate": 0.16,
+        "target": 0.2,
+        "pass": true
+      },
+      {
+        "name": "HOLD THE HOUSE",
+        "plays": 400,
+        "captured": 17,
+        "rate": 0.0425,
+        "target": 0.08,
+        "pass": true
+      }
+    ],
+    "r1": {
+      "seeds": 100,
+      "nights": 24,
+      "mean": 8.18,
+      "worst": 3,
+      "seed54": {
+        "seed": 54,
+        "roster": 3,
+        "plays": 24
+      },
+      "below4": [
+        {
+          "seed": 54,
+          "roster": 3,
+          "plays": 24
+        }
+      ],
+      "rows": [
+        {
+          "seed": 1,
+          "roster": 6,
+          "plays": 28
+        },
+        {
+          "seed": 2,
+          "roster": 8,
+          "plays": 24
+        },
+        {
+          "seed": 3,
+          "roster": 9,
+          "plays": 25
+        },
+        {
+          "seed": 4,
+          "roster": 9,
+          "plays": 25
+        },
+        {
+          "seed": 5,
+          "roster": 8,
+          "plays": 25
+        },
+        {
+          "seed": 6,
+          "roster": 9,
+          "plays": 24
+        },
+        {
+          "seed": 7,
+          "roster": 8,
+          "plays": 26
+        },
+        {
+          "seed": 8,
+          "roster": 9,
+          "plays": 24
+        },
+        {
+          "seed": 9,
+          "roster": 9,
+          "plays": 24
+        },
+        {
+          "seed": 10,
+          "roster": 7,
+          "plays": 24
+        },
+        {
+          "seed": 11,
+          "roster": 8,
+          "plays": 25
+        },
+        {
+          "seed": 12,
+          "roster": 8,
+          "plays": 25
+        },
+        {
+          "seed": 13,
+          "roster": 9,
+          "plays": 24
+        },
+        {
+          "seed": 14,
+          "roster": 9,
+          "plays": 26
+        },
+        {
+          "seed": 15,
+          "roster": 8,
+          "plays": 25
+        },
+        {
+          "seed": 16,
+          "roster": 8,
+          "plays": 25
+        },
+        {
+          "seed": 17,
+          "roster": 9,
+          "plays": 28
+        },
+        {
+          "seed": 18,
+          "roster": 8,
+          "plays": 26
+        },
+        {
+          "seed": 19,
+          "roster": 9,
+          "plays": 24
+        },
+        {
+          "seed": 20,
+          "roster": 9,
+          "plays": 24
+        },
+        {
+          "seed": 21,
+          "roster": 7,
+          "plays": 28
+        },
+        {
+          "seed": 22,
+          "roster": 7,
+          "plays": 25
+        },
+        {
+          "seed": 23,
+          "roster": 8,
+          "plays": 25
+        },
+        {
+          "seed": 24,
+          "roster": 8,
+          "plays": 30
+        },
+        {
+          "seed": 25,
+          "roster": 9,
+          "plays": 25
+        },
+        {
+          "seed": 26,
+          "roster": 6,
+          "plays": 26
+        },
+        {
+          "seed": 27,
+          "roster": 8,
+          "plays": 24
+        },
+        {
+          "seed": 28,
+          "roster": 7,
+          "plays": 24
+        },
+        {
+          "seed": 29,
+          "roster": 9,
+          "plays": 26
+        },
+        {
+          "seed": 30,
+          "roster": 7,
+          "plays": 28
+        },
+        {
+          "seed": 31,
+          "roster": 9,
+          "plays": 24
+        },
+        {
+          "seed": 32,
+          "roster": 8,
+          "plays": 26
+        },
+        {
+          "seed": 33,
+          "roster": 9,
+          "plays": 24
+        },
+        {
+          "seed": 34,
+          "roster": 9,
+          "plays": 24
+        },
+        {
+          "seed": 35,
+          "roster": 7,
+          "plays": 25
+        },
+        {
+          "seed": 36,
+          "roster": 8,
+          "plays": 29
+        },
+        {
+          "seed": 37,
+          "roster": 9,
+          "plays": 28
+        },
+        {
+          "seed": 38,
+          "roster": 8,
+          "plays": 26
+        },
+        {
+          "seed": 39,
+          "roster": 8,
+          "plays": 29
+        },
+        {
+          "seed": 40,
+          "roster": 9,
+          "plays": 27
+        },
+        {
+          "seed": 41,
+          "roster": 8,
+          "plays": 25
+        },
+        {
+          "seed": 42,
+          "roster": 8,
+          "plays": 24
+        },
+        {
+          "seed": 43,
+          "roster": 8,
+          "plays": 29
+        },
+        {
+          "seed": 44,
+          "roster": 7,
+          "plays": 28
+        },
+        {
+          "seed": 45,
+          "roster": 8,
+          "plays": 27
+        },
+        {
+          "seed": 46,
+          "roster": 9,
+          "plays": 32
+        },
+        {
+          "seed": 47,
+          "roster": 8,
+          "plays": 28
+        },
+        {
+          "seed": 48,
+          "roster": 9,
+          "plays": 26
+        },
+        {
+          "seed": 49,
+          "roster": 9,
+          "plays": 25
+        },
+        {
+          "seed": 50,
+          "roster": 9,
+          "plays": 24
+        },
+        {
+          "seed": 51,
+          "roster": 9,
+          "plays": 25
+        },
+        {
+          "seed": 52,
+          "roster": 8,
+          "plays": 24
+        },
+        {
+          "seed": 53,
+          "roster": 8,
+          "plays": 25
+        },
+        {
+          "seed": 54,
+          "roster": 3,
+          "plays": 24
+        },
+        {
+          "seed": 55,
+          "roster": 9,
+          "plays": 26
+        },
+        {
+          "seed": 56,
+          "roster": 7,
+          "plays": 27
+        },
+        {
+          "seed": 57,
+          "roster": 9,
+          "plays": 26
+        },
+        {
+          "seed": 58,
+          "roster": 5,
+          "plays": 26
+        },
+        {
+          "seed": 59,
+          "roster": 8,
+          "plays": 25
+        },
+        {
+          "seed": 60,
+          "roster": 9,
+          "plays": 24
+        },
+        {
+          "seed": 61,
+          "roster": 9,
+          "plays": 24
+        },
+        {
+          "seed": 62,
+          "roster": 8,
+          "plays": 25
+        },
+        {
+          "seed": 63,
+          "roster": 9,
+          "plays": 25
+        },
+        {
+          "seed": 64,
+          "roster": 8,
+          "plays": 28
+        },
+        {
+          "seed": 65,
+          "roster": 9,
+          "plays": 24
+        },
+        {
+          "seed": 66,
+          "roster": 9,
+          "plays": 24
+        },
+        {
+          "seed": 67,
+          "roster": 8,
+          "plays": 29
+        },
+        {
+          "seed": 68,
+          "roster": 5,
+          "plays": 28
+        },
+        {
+          "seed": 69,
+          "roster": 9,
+          "plays": 25
+        },
+        {
+          "seed": 70,
+          "roster": 9,
+          "plays": 25
+        },
+        {
+          "seed": 71,
+          "roster": 7,
+          "plays": 26
+        },
+        {
+          "seed": 72,
+          "roster": 9,
+          "plays": 25
+        },
+        {
+          "seed": 73,
+          "roster": 7,
+          "plays": 26
+        },
+        {
+          "seed": 74,
+          "roster": 8,
+          "plays": 24
+        },
+        {
+          "seed": 75,
+          "roster": 6,
+          "plays": 25
+        },
+        {
+          "seed": 76,
+          "roster": 9,
+          "plays": 25
+        },
+        {
+          "seed": 77,
+          "roster": 8,
+          "plays": 27
+        },
+        {
+          "seed": 78,
+          "roster": 9,
+          "plays": 24
+        },
+        {
+          "seed": 79,
+          "roster": 9,
+          "plays": 25
+        },
+        {
+          "seed": 80,
+          "roster": 8,
+          "plays": 25
+        },
+        {
+          "seed": 81,
+          "roster": 8,
+          "plays": 25
+        },
+        {
+          "seed": 82,
+          "roster": 9,
+          "plays": 26
+        },
+        {
+          "seed": 83,
+          "roster": 9,
+          "plays": 27
+        },
+        {
+          "seed": 84,
+          "roster": 9,
+          "plays": 24
+        },
+        {
+          "seed": 85,
+          "roster": 9,
+          "plays": 24
+        },
+        {
+          "seed": 86,
+          "roster": 9,
+          "plays": 26
+        },
+        {
+          "seed": 87,
+          "roster": 8,
+          "plays": 27
+        },
+        {
+          "seed": 88,
+          "roster": 8,
+          "plays": 26
+        },
+        {
+          "seed": 89,
+          "roster": 9,
+          "plays": 24
+        },
+        {
+          "seed": 90,
+          "roster": 7,
+          "plays": 27
+        },
+        {
+          "seed": 91,
+          "roster": 8,
+          "plays": 26
+        },
+        {
+          "seed": 92,
+          "roster": 8,
+          "plays": 24
+        },
+        {
+          "seed": 93,
+          "roster": 9,
+          "plays": 24
+        },
+        {
+          "seed": 94,
+          "roster": 8,
+          "plays": 28
+        },
+        {
+          "seed": 95,
+          "roster": 8,
+          "plays": 30
+        },
+        {
+          "seed": 96,
+          "roster": 9,
+          "plays": 27
+        },
+        {
+          "seed": 97,
+          "roster": 9,
+          "plays": 25
+        },
+        {
+          "seed": 98,
+          "roster": 8,
+          "plays": 25
+        },
+        {
+          "seed": 99,
+          "roster": 9,
+          "plays": 24
+        },
+        {
+          "seed": 100,
+          "roster": 9,
+          "plays": 24
+        }
+      ]
+    },
+    "t9": {
+      "uses": 99039,
+      "violationsIn3": 0,
+      "uncoveredTriggers": [],
+      "shortPools": [
+        {
+          "key": "cap:TROUBLE:1",
+          "pool": 8,
+          "maxUse": 3
+        },
+        {
+          "key": "combo:coin:fail",
+          "pool": 18,
+          "maxUse": 6
+        }
+      ]
+    },
+    "bailed": {
+      "plays": 507,
+      "boundViolations": 0
+    },
+    "locked": {
+      "files": 38,
+      "changed": [],
+      "hashMode": "lf"
+    }
+  },
+  "browser": {
+    "fresh": {
+      "method": "Fresh localStorage, actual START, prologue, throne, outings, sleep/wake and ending/continue controls. No progressed save or economy/day/momentum injection.",
+      "width": 390,
+      "endingDay": 36,
+      "continued": true,
+      "durationMs": 770210
+    },
+    "artifactFindings": []
+  }
+}

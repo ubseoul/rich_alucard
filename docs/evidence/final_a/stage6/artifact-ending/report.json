@@ -1,0 +1,22 @@
+{
+ "build": {
+  "schemaVersion": 1,
+  "releaseId": "ra-9f06b0c58ae3-20261003221844",
+  "commit": "9f06b0c58ae3db9cf9e7ed059fc94874b09d2b2a",
+  "shortCommit": "9f06b0c58ae3",
+  "builtAt": "2026-10-03T22:18:44.746Z",
+  "assetVersion": "ra-9f06b0c58ae3-20261003221844"
+ },
+ "results": {},
+ "findings": [],
+ "log": [
+  "PLAYTEST QA over dist ra-9f06b0c58ae3-20261003221844 (9f06b0c58ae3db9cf9e7ed059fc94874b09d2b2a)",
+  "[newgame 390] build ra-9f06b0c58ae3-20261003221844 commit 9f06b0c58ae3 save v16",
+  "[newgame 390] reached bedroom day 1; prologue adventures A00; ceo {\"defeated\":true,\"completed\":true}; steal=yes",
+  "[newgame 390] phone home actions: app:texts app:vampgpt app:maps app:vampgram app:instahoe app:onlyvamps app:texts app:contacts app:realEstate app:jdmImports app:richboi app:bank app:radio app:hatch app:touge app:bars app:receipts close",
+  "[newgame 390] refresh → bedroom, diff 0",
+  "[ending] fired on sleep after day 35; continue offered after 22s",
+  "[thanksgiving] A53 becomes eligible at Day 57 during post-fame continuation",
+  "[ending] continue → bedroom day 36 (fameFired true); refresh ok; next sleep → bedroom day 57, ending replay no"
+ ]
+}

@@ -1,0 +1,748 @@
+{
+  "width": 390,
+  "rows": [
+    {
+      "screen": "review controls",
+      "element": "Prepare isolated review save",
+      "sound": true
+    },
+    {
+      "screen": "main title",
+      "element": "▶ CONTINUE",
+      "sound": true,
+      "starts": 1
+    },
+    {
+      "screen": "morning mail",
+      "element": "GET UP",
+      "sound": true,
+      "starts": 1
+    },
+    {
+      "screen": "review controls",
+      "element": "Reserved scene audio tour",
+      "sound": true,
+      "starts": 1
+    },
+    {
+      "screen": "rapid review taps",
+      "element": "Reserved scene audio tour",
+      "sound": true,
+      "starts": 1
+    },
+    {
+      "screen": "rapid review taps",
+      "element": "Reserved scene audio tour",
+      "sound": true,
+      "starts": 1
+    },
+    {
+      "screen": "rapid review taps",
+      "element": "Reserved scene audio tour",
+      "sound": true,
+      "starts": 1
+    },
+    {
+      "screen": "rapid review taps",
+      "element": "Reserved scene audio tour",
+      "sound": true,
+      "starts": 1
+    },
+    {
+      "screen": "rapid review taps",
+      "element": "Reserved scene audio tour",
+      "sound": true,
+      "starts": 1
+    },
+    {
+      "screen": "rapid review taps",
+      "element": "Reserved scene audio tour",
+      "sound": true,
+      "starts": 1
+    },
+    {
+      "screen": "rapid review taps",
+      "element": "Reserved scene audio tour",
+      "sound": true,
+      "starts": 1
+    },
+    {
+      "screen": "rapid review taps",
+      "element": "Reserved scene audio tour",
+      "sound": true,
+      "starts": 1
+    },
+    {
+      "screen": "rapid review taps",
+      "element": "Reserved scene audio tour",
+      "sound": true,
+      "starts": 1
+    },
+    {
+      "screen": "rapid review taps",
+      "element": "Reserved scene audio tour",
+      "sound": true,
+      "starts": 1
+    },
+    {
+      "screen": "rapid review taps",
+      "element": "Reserved scene audio tour",
+      "sound": true,
+      "starts": 1
+    },
+    {
+      "screen": "rapid review taps",
+      "element": "Reserved scene audio tour",
+      "sound": true,
+      "starts": 1
+    },
+    {
+      "screen": "rapid review taps",
+      "element": "Reserved scene audio tour",
+      "sound": true,
+      "starts": 1
+    },
+    {
+      "screen": "rapid review taps",
+      "element": "Reserved scene audio tour",
+      "sound": true,
+      "starts": 1
+    },
+    {
+      "screen": "rapid review taps",
+      "element": "Reserved scene audio tour",
+      "sound": true,
+      "starts": 1
+    },
+    {
+      "screen": "rapid review taps",
+      "element": "Reserved scene audio tour",
+      "sound": true,
+      "starts": 1
+    },
+    {
+      "screen": "rapid review taps",
+      "element": "Reserved scene audio tour",
+      "sound": true,
+      "starts": 1
+    },
+    {
+      "screen": "rapid review taps",
+      "element": "Reserved scene audio tour",
+      "sound": true,
+      "starts": 1
+    },
+    {
+      "screen": "rapid review taps",
+      "element": "Reserved scene audio tour",
+      "sound": true,
+      "starts": 1
+    },
+    {
+      "screen": "rapid review taps",
+      "element": "Reserved scene audio tour",
+      "sound": true,
+      "starts": 1
+    },
+    {
+      "screen": "combat main",
+      "element": "fight",
+      "sound": true,
+      "starts": 1
+    },
+    {
+      "screen": "combat moves",
+      "element": "move:blood",
+      "sound": true,
+      "starts": 1
+    },
+    {
+      "screen": "combat main",
+      "element": "fight",
+      "sound": true,
+      "starts": 1
+    },
+    {
+      "screen": "combat moves",
+      "element": "move:octopus",
+      "sound": true,
+      "starts": 1
+    },
+    {
+      "screen": "combat main",
+      "element": "fight",
+      "sound": true,
+      "starts": 1
+    },
+    {
+      "screen": "combat moves",
+      "element": "move:bite",
+      "sound": true,
+      "starts": 1
+    },
+    {
+      "screen": "combat main",
+      "element": "fight",
+      "sound": true,
+      "starts": 1
+    },
+    {
+      "screen": "combat moves",
+      "element": "move:revenge",
+      "sound": true,
+      "starts": 1
+    },
+    {
+      "screen": "combat main",
+      "element": "fight",
+      "sound": true,
+      "starts": 1
+    },
+    {
+      "screen": "combat moves",
+      "element": "move:petty",
+      "sound": true,
+      "starts": 1
+    },
+    {
+      "screen": "combat main",
+      "element": "fight",
+      "sound": true,
+      "starts": 1
+    },
+    {
+      "screen": "combat moves",
+      "element": "move:hex",
+      "sound": true,
+      "starts": 1
+    },
+    {
+      "screen": "combat main",
+      "element": "fight",
+      "sound": true,
+      "starts": 1
+    },
+    {
+      "screen": "combat moves",
+      "element": "move:veil",
+      "sound": true,
+      "starts": 1
+    },
+    {
+      "screen": "combat main",
+      "element": "fight",
+      "sound": true,
+      "starts": 1
+    },
+    {
+      "screen": "combat moves",
+      "element": "move:seance",
+      "sound": true,
+      "starts": 1
+    },
+    {
+      "screen": "combat main",
+      "element": "fight",
+      "sound": true,
+      "starts": 1
+    },
+    {
+      "screen": "combat moves",
+      "element": "move:ringer",
+      "sound": true,
+      "starts": 1
+    },
+    {
+      "screen": "combat equipped gun lil_oga",
+      "element": "weapon:iron_and_grace_gun",
+      "sound": true,
+      "starts": 1
+    },
+    {
+      "screen": "combat equipped gun sapporo_shotgun",
+      "element": "weapon:iron_and_grace_gun",
+      "sound": true,
+      "starts": 1
+    },
+    {
+      "screen": "combat equipped gun mac_and_cheese",
+      "element": "weapon:iron_and_grace_gun",
+      "sound": true,
+      "starts": 1
+    },
+    {
+      "screen": "combat equipped gun chopstick_sniper",
+      "element": "weapon:iron_and_grace_gun",
+      "sound": true,
+      "starts": 1
+    },
+    {
+      "screen": "combat equipped gun tommy_tony",
+      "element": "weapon:iron_and_grace_gun",
+      "sound": true,
+      "starts": 1
+    },
+    {
+      "screen": "combat equipped gun holy_baby_drake",
+      "element": "weapon:iron_and_grace_gun",
+      "sound": true,
+      "starts": 1
+    },
+    {
+      "screen": "combat equipped gun jollof_burner",
+      "element": "weapon:iron_and_grace_gun",
+      "sound": true,
+      "starts": 1
+    },
+    {
+      "screen": "combat equipped gun blueberry_blaster",
+      "element": "weapon:iron_and_grace_gun",
+      "sound": true,
+      "starts": 1
+    },
+    {
+      "screen": "combat equipped gun legendary_draco",
+      "element": "weapon:iron_and_grace_gun",
+      "sound": true,
+      "starts": 1
+    },
+    {
+      "screen": "combat equipped gun golden_draco",
+      "element": "weapon:iron_and_grace_gun",
+      "sound": true,
+      "starts": 1
+    },
+    {
+      "screen": "combat equipped gun rpg",
+      "element": "weapon:iron_and_grace_gun",
+      "sound": true,
+      "starts": 1
+    },
+    {
+      "screen": "combat equipped gun auntie_slipper",
+      "element": "weapon:iron_and_grace_gun",
+      "sound": true,
+      "starts": 1
+    },
+    {
+      "screen": "combat equipped gun triple_k_kratos",
+      "element": "weapon:iron_and_grace_gun",
+      "sound": true,
+      "starts": 1
+    },
+    {
+      "screen": "combat second equipped gun",
+      "element": "weapon:iron_and_grace_secondary",
+      "sound": true,
+      "starts": 1
+    },
+    {
+      "screen": "octopus choices",
+      "element": "charisma",
+      "sound": true,
+      "starts": 1
+    },
+    {
+      "screen": "octopus choices",
+      "element": "recruit",
+      "sound": true,
+      "starts": 1
+    },
+    {
+      "screen": "octopus choices",
+      "element": "roast",
+      "sound": true,
+      "starts": 1
+    },
+    {
+      "screen": "combat result",
+      "element": "done",
+      "sound": true,
+      "starts": 1
+    },
+    {
+      "screen": "combat companions",
+      "element": "hoe:ceo_assistant_001:light_heal",
+      "sound": true,
+      "starts": 1
+    },
+    {
+      "screen": "combat companions",
+      "element": "hoe:ceo_assistant_001:gossip",
+      "sound": true,
+      "starts": 1
+    },
+    {
+      "screen": "combat companions",
+      "element": "hoe:jdm_importer_daughter_001:sidestep",
+      "sound": true,
+      "starts": 1
+    },
+    {
+      "screen": "combat companions",
+      "element": "hoe:jdm_importer_daughter_001:parts",
+      "sound": true,
+      "starts": 1
+    },
+    {
+      "screen": "combat companions",
+      "element": "hoe:mazda_human:tail_swipe",
+      "sound": true,
+      "starts": 1
+    },
+    {
+      "screen": "combat companions",
+      "element": "hoe:mazda_human:jealous_flame",
+      "sound": true,
+      "starts": 1
+    },
+    {
+      "screen": "combat companions",
+      "element": "hoe:kiki:sugar_rush",
+      "sound": true,
+      "starts": 1
+    },
+    {
+      "screen": "combat companions",
+      "element": "hoe:kiki:tapioca",
+      "sound": true,
+      "starts": 1
+    },
+    {
+      "screen": "combat companions",
+      "element": "hoe:nneka:iv_drip",
+      "sound": true,
+      "starts": 1
+    },
+    {
+      "screen": "combat companions",
+      "element": "hoe:nneka:sit_down",
+      "sound": true,
+      "starts": 1
+    },
+    {
+      "screen": "combat companions",
+      "element": "hoe:pinky:slide_in",
+      "sound": true,
+      "starts": 1
+    },
+    {
+      "screen": "combat companions",
+      "element": "hoe:pinky:tandem",
+      "sound": true,
+      "starts": 1
+    },
+    {
+      "screen": "combat companions",
+      "element": "hoe:moonie:tank_up",
+      "sound": true,
+      "starts": 1
+    },
+    {
+      "screen": "combat companions",
+      "element": "hoe:moonie:stomp",
+      "sound": true,
+      "starts": 1
+    },
+    {
+      "screen": "combat companions",
+      "element": "hoe:kaede:smoke_bomb",
+      "sound": true,
+      "starts": 1
+    },
+    {
+      "screen": "combat companions",
+      "element": "hoe:kaede:ceiling_drop",
+      "sound": true,
+      "starts": 1
+    },
+    {
+      "screen": "combat companions",
+      "element": "hoe:wispa:haunt",
+      "sound": true,
+      "starts": 1
+    },
+    {
+      "screen": "combat companions",
+      "element": "hoe:wispa:unplug",
+      "sound": true,
+      "starts": 1
+    },
+    {
+      "screen": "combat companions",
+      "element": "hoe:tasha:hype",
+      "sound": true,
+      "starts": 1
+    },
+    {
+      "screen": "combat companions",
+      "element": "hoe:tasha:filming",
+      "sound": true,
+      "starts": 1
+    },
+    {
+      "screen": "combat companions",
+      "element": "hoe:marisol:cleanse",
+      "sound": true,
+      "starts": 1
+    },
+    {
+      "screen": "combat companions",
+      "element": "hoe:marisol:duster",
+      "sound": true,
+      "starts": 1
+    },
+    {
+      "screen": "combat companions",
+      "element": "hoe:duchess:drain",
+      "sound": true,
+      "starts": 1
+    },
+    {
+      "screen": "combat companions",
+      "element": "hoe:nightshade:violet_bolt",
+      "sound": true,
+      "starts": 1
+    },
+    {
+      "screen": "combat companions",
+      "element": "hoe:nightshade:reverse_hex",
+      "sound": true,
+      "starts": 1
+    },
+    {
+      "screen": "combat companions",
+      "element": "hoe:emberly:heat_wave",
+      "sound": true,
+      "starts": 1
+    },
+    {
+      "screen": "combat companions",
+      "element": "hoe:emberly:warm_up",
+      "sound": true,
+      "starts": 1
+    },
+    {
+      "screen": "combat companions",
+      "element": "hoe:jade:hoard",
+      "sound": true,
+      "starts": 1
+    },
+    {
+      "screen": "combat companions",
+      "element": "hoe:jade:treasure_slam",
+      "sound": true,
+      "starts": 1
+    },
+    {
+      "screen": "combat companions",
+      "element": "hoe:lo:detachable",
+      "sound": true,
+      "starts": 1
+    },
+    {
+      "screen": "combat companions",
+      "element": "hoe:lo:play_dead",
+      "sound": true,
+      "starts": 1
+    },
+    {
+      "screen": "combat companions",
+      "element": "hoe:brenda:intel",
+      "sound": true,
+      "starts": 1
+    },
+    {
+      "screen": "combat companions",
+      "element": "hoe:brenda:spreadsheet",
+      "sound": true,
+      "starts": 1
+    },
+    {
+      "screen": "combat companions",
+      "element": "hoe:hina:knife_work",
+      "sound": true,
+      "starts": 1
+    },
+    {
+      "screen": "combat companions",
+      "element": "hoe:hina:timed",
+      "sound": true,
+      "starts": 1
+    },
+    {
+      "screen": "combat companions",
+      "element": "hoe:bunmi:home_cooking",
+      "sound": true,
+      "starts": 1
+    },
+    {
+      "screen": "combat companions",
+      "element": "hoe:bunmi:knew_you",
+      "sound": true,
+      "starts": 1
+    },
+    {
+      "screen": "combat companions",
+      "element": "hoe:velvet:charm",
+      "sound": true,
+      "starts": 1
+    },
+    {
+      "screen": "combat companions",
+      "element": "hoe:velvet:subscribe",
+      "sound": true,
+      "starts": 1
+    },
+    {
+      "screen": "combat companions",
+      "element": "hoe:june:palm_roll",
+      "sound": true,
+      "starts": 1
+    },
+    {
+      "screen": "combat companions",
+      "element": "hoe:june:sit_still",
+      "sound": true,
+      "starts": 1
+    },
+    {
+      "screen": "combat companions",
+      "element": "hoe:ms_patrice:ssc",
+      "sound": true,
+      "starts": 1
+    },
+    {
+      "screen": "combat companions",
+      "element": "hoe:ms_patrice:order_up",
+      "sound": true,
+      "starts": 1
+    },
+    {
+      "screen": "combat companions",
+      "element": "hoe:tristan:one_more_turn",
+      "sound": true,
+      "starts": 1
+    },
+    {
+      "screen": "combat companions",
+      "element": "hoe:tristan:xcom",
+      "sound": true,
+      "starts": 1
+    },
+    {
+      "screen": "sleep confirmation",
+      "element": "NOT YET",
+      "sound": true,
+      "starts": 1
+    },
+    {
+      "screen": "sleep confirmation",
+      "element": "SLEEP",
+      "sound": true,
+      "starts": 1
+    },
+    {
+      "screen": "morning mail card",
+      "element": "Fixture mail",
+      "sound": true,
+      "starts": 1
+    },
+    {
+      "screen": "morning mail close",
+      "element": "GET UP",
+      "sound": true,
+      "starts": 1
+    },
+    {
+      "screen": "minigame slurp shift finish",
+      "element": "CLOCK OUT",
+      "sound": true,
+      "starts": 1
+    },
+    {
+      "screen": "minigame slurp result",
+      "element": "DONE",
+      "sound": true,
+      "starts": 1
+    },
+    {
+      "screen": "minigame slurp canopy finish",
+      "element": "FINISH STACK",
+      "sound": true,
+      "starts": 1
+    },
+    {
+      "screen": "minigame slurp result",
+      "element": "DONE",
+      "sound": true,
+      "starts": 1
+    },
+    {
+      "screen": "owambe back-out",
+      "element": "canvas back-out region",
+      "sound": true,
+      "starts": 1
+    },
+    {
+      "screen": "owambe result",
+      "element": "DONE",
+      "sound": true,
+      "starts": 1
+    },
+    {
+      "screen": "senator care",
+      "element": "FEED",
+      "sound": true,
+      "starts": 1
+    },
+    {
+      "screen": "senator care",
+      "element": "WALK",
+      "sound": true,
+      "starts": 1
+    },
+    {
+      "screen": "senator care",
+      "element": "JOKO",
+      "sound": true,
+      "starts": 1
+    },
+    {
+      "screen": "senator result",
+      "element": "DONE",
+      "sound": true,
+      "starts": 1
+    },
+    {
+      "screen": "bars result",
+      "element": "RUN IT BACK",
+      "sound": true,
+      "starts": 1
+    },
+    {
+      "screen": "bars result",
+      "element": "DONE",
+      "sound": true,
+      "starts": 1
+    }
+  ],
+  "tapped": 121,
+  "withSound": 121,
+  "failures": [],
+  "errors": [],
+  "rapidTapVoiceCap": {
+    "active": 0,
+    "max": 3
+  },
+  "audio": {
+    "context": "running",
+    "unlocked": true,
+    "playing": [
+      "AMB_BEDROOM"
+    ],
+    "combatLoops": [],
+    "uiVoiceCap": 3,
+    "uiVoices": 0
+  }
+}
