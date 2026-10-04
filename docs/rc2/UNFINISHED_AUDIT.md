@@ -17,3 +17,9 @@ F15 dance sheets were an exact 3:1 box-average of video frames and drawn with sm
 
 ## Counts
 Fixed by code: 22 backgrounds + ~30 sprites + 3 dancer sheets. Needs art: **0**. The dining room (`p_d_gbenga_house_dining.png`) and night flight (`p_d_ocean_night_flight.png`) are the approved art; the cockroach and the three stage cards are supplied. `IMAGE_PROMPTS_RC2.md` is empty.
+
+---
+
+# UNFINISHED AUDIT — RC2 · BUILD 3
+
+- **doorman sprite needed** — THE CLUB · FIRST NIGHT (`CLUB_FIRST`) speaks the doorman as a narrated "DOORMAN:" line with no figure, because a placeholder actor fails the frozen-art grounding gate. A frozen doorman sprite is needed before he can appear on screen. (OL-069: narrated line is fine for RC2.)

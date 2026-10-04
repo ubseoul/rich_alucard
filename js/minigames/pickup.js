@@ -5,8 +5,8 @@
  function shotChance(meter,distance,contested){
   meter=Math.max(0,Math.min(1,meter));distance=Math.max(0,Math.min(1,distance));
   const timing=1-Math.abs(meter-1)*1.1; // best right at the top of the meter (meter=1)
-  let chance=.15+Math.max(0,timing)*.75-distance*.25;
-  if(contested)chance*=.6;
+  let chance=.3+Math.max(0,timing)*.65-distance*.15;
+  if(contested)chance*=.75;
   return Math.max(.03,Math.min(.97,chance));
  }
  function aiStep(state,dt,rng){
@@ -31,8 +31,9 @@
 
  const TALK=['"you can\'t guard me, blood."','"ball don\'t lie!"','"run that back after this one."','"soft. that was soft."','"that\'s game, that\'s game."'];
 
- window.RAMinigames.register('pickup',{title:'PICKUP',mount(root,ctx){ctx.audio?.sound('AMB_COURTS');
+ window.RAMinigames.register('pickup',{title:'PICKUP',rule:'Hold to charge your shot, let go at the top to score, and first to 7 wins.',mount(root,ctx){ctx.audio?.sound('AMB_COURTS');
   const {canvas,ctx:g}=P().createCanvas(root);
+  const J=window.RAJuice?window.RAJuice.create(g):{burst(){},float(){},ring(){},shake(){},flash(){},update(){},begin(){g.save();},end(){g.restore();}};
   const params=ctx.params||{};
   const teammateName=params.teammate||'TRISTAN';
   const fresh=!!params.fresh;
@@ -62,7 +63,8 @@
    if(fresh&&!bloodDunkUsed&&meter>.85){bloodDunkUsed=true;made=rng()<.94;flashT=performance.now();}
    else made=rng()<window.RAMinigameLogic.pickup.shotChance(meter,distance,contested);
    ctx.audio?.sound(made?'SWISH':'RIM');score=window.RAMinigameLogic.pickup.scoreAfterShot(score,made,distance);
-   if(made)say(TALK[Math.floor(rng()*TALK.length)]);
+   if(made){say(TALK[Math.floor(rng()*TALK.length)]);J.burst(135,150,['#ffd36a','#f6efd9','#20c66b'],20,100);J.ring(135,150,'#ffd36a',30);J.float(distance>=.5?'+2':'+1',135,140,{color:'#ffd36a',size:10,life:1});J.shake(2);}
+   else J.float('BRICK',135,150,{color:'#d7193f',size:7,life:.8});
    possession=made?'them':(rng()<.5?'us':'them');
    checkEnd();
   }
@@ -70,7 +72,7 @@
    // tap = pass; small chance teammate scores on the give-and-go
    if(possession!=='us')return;
    const made=rng()<.4;
-   if(made){score={...score,rich:score.rich}; score.them=score.them;} // teammate points don't count toward rich's personal tally
+   if(made){score={...score,rich:score.rich+1};J.burst(190,360,['#3d9ddd','#f6efd9'],12,80);J.float('+1 ASSIST',190,350,{color:'#3d9ddd',size:7});} // RC2: a made pass counts for the team
    say('"good look."');
    possession=rng()<.6?'us':'them';
   }
@@ -82,9 +84,9 @@
   }
   function vampireSteal(){
    if(possession!=='them')return;
-   const success=rng()<.5;
+   const success=rng()<.7;
    const foul=!success&&rng()<.35;
-   if(success){possession='us';say('*fangs flash* "MINE."');}
+   if(success){possession='us';say('*fangs flash* "MINE."');J.burst(50,430,['#d7193f','#7d194b'],16,90);J.float('STOLEN',135,380,{color:'#d7193f',size:8});J.shake(2);}
    else if(foul){ctx.audio?.sound('WHISTLE');say('"c\'mon that\'s a foul!"');possession='them';}
    else say('"missed him."');
   }
@@ -93,14 +95,14 @@
    aiState=window.RAMinigameLogic.pickup.aiStep(aiState,dt,rng);
    if(aiState.t>1400){
     aiState.t=0;
-    const made=rng()<.45;
+    const made=rng()<.35;
     score={...score,them:score.them+(made?(rng()<.4?2:1):0)};
     possession='us';
     if(made)say(TALK[Math.floor(rng()*TALK.length)]);
    }
   }
   function checkEnd(){
-   if(score.rich>=11||score.them>=11){
+   if(score.rich>=7||score.them>=7){
     ended=true;const win=score.rich>score.them;
     if(win)wins++;else losses++;
     ctx.saveProgress({wins,losses});
@@ -150,7 +152,7 @@
   }
   function draw(){
    const now=performance.now();const dt=now-lastT;lastT=now;
-   opponentsTurn(dt);
+   opponentsTurn(dt);J.update(dt/1000);J.begin();
    const rp=P(),pal=palette();
    if(!rp.drawBoard(g,'pickup_court'))rp.paintEnvironment(g,env());
    else rp.text(g,'VENICE BEACH COURTS',135,20,{size:6,align:'center',color:pal.green});
@@ -160,8 +162,8 @@
    if(!(lilSmack?rp.drawSprite(g,rp.personSprite('lil_smack'),220,414):rp.drawRegistered(g,'pickup_player_right',220,414)))rp.drawActor(g,lilSmack?{top:'#4a4a1a',bottom:'#2a2a10',hairShape:'bald',height:.75,width:.85}:{top:'#1a3a2a',bottom:'#102418',hairShape:'hat'},220,414,1.05);
    rp.text(g,`RICH ${score.rich} — ${score.them} THEM`,135,50,{size:9,align:'center',color:pal.gold});
    rp.text(g,'w/ '+teammateName,135,64,{size:6,align:'center',color:pal.grey});
-   if(holding){meter=Math.min(1,(now-holdStart)/900);
-    rp.rect(g,20,360,10,90,'#151228');rp.rect(g,22,448-meter*80,6,meter*80,meter>.85?pal.gold:pal.green);
+   if(holding){meter=Math.min(1,(now-holdStart)/1200);
+    rp.rect(g,20,360,10,90,'#151228');rp.rect(g,22,448-meter*80,6,meter*80,meter>.85?pal.gold:pal.green);rp.text(g,meter>.85?'LET GO!':'HOLD…',36,362,{size:6,color:meter>.85?pal.gold:pal.bone});
    }
    rp.rect(g,10,420,85,34,'rgba(215,25,63,.25)');rp.text(g,'STEAL',52,437,{size:6,align:'center'});
    rp.rect(g,175,420,85,34,'rgba(200,200,200,.15)');rp.text(g,'STOP',217,437,{size:6,align:'center'});
@@ -178,6 +180,7 @@
     if(ogInvite)rp.wrap(g,'an OG on the sideline: "run it back?"',200,7).forEach((ln,i)=>rp.text(g,ln,135,235+i*12,{size:7,align:'center',color:pal.grey}));
     rp.frame(g,95,290,80,34,{fill:pal.gold});rp.text(g,'DONE',135,303,{size:7,align:'center',color:pal.ink});
    }
+   J.end();
    if(!dead)raf=requestAnimationFrame(draw);
   }
   raf=requestAnimationFrame(draw);

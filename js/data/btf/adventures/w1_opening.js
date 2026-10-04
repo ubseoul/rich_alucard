@@ -15,7 +15,15 @@
   // ART SHIP 004 staging: Sensei neutral while arriving/listening, `point` only for the instruction line, then neutral.
   sensei:{env:'ocean_floor',actors:{left:'rich',right:'octopus_sensei'},lines:[E('octopus_sensei','…'),N('something old drifts in. it has been watching.')],next:'sensei_point'},
   sensei_point:{actors:{left:'rich',right:{id:'octopus_sensei',state:'point'}},lines:[S('octopus_sensei','USE YOUR HEAD.')],next:'sensei_listen'},
-  sensei_listen:{actors:{left:'rich',right:'octopus_sensei'},lines:[R('use my head.')],next:'merge'},
+  sensei_listen:{actors:{left:'rich',right:'octopus_sensei'},lines:[R('use my head.')],next:'brain'},
+  // RC2 B3 — THE BRAIN. Where the OCTOPUS BRAIN move comes from. Short, dumb, in canon: the sensei hands over a brain.
+  brain:{actors:{left:'rich',right:{id:'octopus_sensei',state:'point'}},lines:[S('octopus_sensei','…TAKE IT.'),R('take what?'),N('the octopus taps its own head. twice.')],next:'brain_offer'},
+  brain_offer:{actors:{left:'rich',right:'octopus_sensei'},lines:[S('octopus_sensei','MY BRAIN. IT HAS EIGHT PARTS. ONE PER ARM.'),S('octopus_sensei','THE SEVENTH PART IS MOSTLY SNACKS.')],
+   choices:[{label:'TAKE THE WHOLE BRAIN',next:'brain_all'},{label:'TAKE ONE PART. BE POLITE.',next:'brain_one'},{label:'ASK IF IT HURTS',octopus:true,next:'brain_ask'}]},
+  brain_all:{lines:[N('a small wet pop. rich now has a second brain.'),R('it is warm.')],enter:A=>{RALife.setFlag('octopusBrain','whole');},next:'brain_done'},
+  brain_one:{lines:[N('the octopus hands over one part, like a slice of cake.'),S('octopus_sensei','…GOOD MANNERS. RARE.')],enter:A=>{RALife.setFlag('octopusBrain','polite');},next:'brain_done'},
+  brain_ask:{lines:[S('octopus_sensei','YES. A LOT.'),N('it hands it over anyway.')],enter:A=>{RALife.setFlag('octopusBrain','asked');},next:'brain_done'},
+  brain_done:{lines:[N('eight ideas arrive at once. all eight are snacks.'),S('octopus_sensei','THAT IS THE BRAIN. USE IT. OR EAT.')],next:'merge'},
   merge:{lines:[N('rich does it literally.'),N('eight tentacles. bubbles. his head is full of ocean.'),R("…oh. there's other ways out.")],next:'fork'},
   fork:{choices:[{label:'CLIMB AGAIN',next:'out_climb'},{label:'SWIM',next:'out_swim'},{label:'ASK THE OCTOPUS WHERE THE EXIT IS',octopus:true,next:'out_ask'}]},
   out_climb:{lines:[N('he climbs. this time he uses the tentacles. the ladder is irrelevant.')],next:'out'},

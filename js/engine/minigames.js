@@ -30,6 +30,19 @@
   }
   return into;
  }
+ // One-sentence rule card: title, the rule in plain words, one big START. Space/Enter also starts.
+ function showRuleCard(stage,def,ctx,begin){
+  const card=document.createElement('div');card.className='ra-minigame-rule';card.dataset.ruleCard='1';
+  card.style.cssText='position:absolute;inset:0;z-index:20;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;padding:28px 22px;background:rgba(8,7,15,.97);color:#f6efd9;text-align:center;font-family:"Press Start 2P",monospace';
+  const h=document.createElement('div');h.textContent=def.title||'';h.style.cssText='font-size:12px;color:#c18b3c;line-height:1.5';
+  const r=document.createElement('div');r.className='ra-minigame-rule-text';r.textContent=def.rule;r.style.cssText='font-size:9px;line-height:1.9;max-width:230px';
+  const b=document.createElement('button');b.type='button';b.className='ra-minigame-start';b.textContent='START';b.style.cssText='font:10px "Press Start 2P",monospace;padding:1em 1.6em;background:#f6efd9;color:#10101b;border:3px solid #10101b;box-shadow:3px 3px #7d194b;cursor:pointer;margin-top:6px';
+  let gone=false;const go=()=>{if(gone)return;gone=true;window.removeEventListener('keydown',key);try{ctx.audio?.sound('UI_CONFIRM')}catch(e){}card.remove();begin();};
+  const key=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();go();}};
+  b.addEventListener('click',go);window.addEventListener('keydown',key);
+  const obs=new MutationObserver(()=>{if(!stage.isConnected){gone=true;window.removeEventListener('keydown',key);obs.disconnect();}});obs.observe(document.body,{childList:true,subtree:true});
+  card.append(h,r,b);stage.append(card);
+ }
  function launch(id,params={},{host,returnScene=null,returnPayload={}}={}){
   const def=registry.get(id);if(!def)return Promise.resolve({quit:true,error:'unknown-minigame'});
   if(current)current.abort();
@@ -60,7 +73,9 @@
    ctx.audio=window.RAOpenAudio?.scope(root,scope);
    quitButton.addEventListener('click',()=>ctx.quit());
    current={id,abort:()=>ctx.quit(),ctx};
-   try{instance=def.mount(stage,ctx)||{};}catch(error){console.error(error);end({quit:true,error:String(error?.message||error)});}
+   // RC2 B3: every minigame states its one-sentence rule before it starts (def.rule). Quit stays live on the card.
+   const begin=()=>{if(done)return;stage.style.pointerEvents='none';setTimeout(()=>{stage.style.pointerEvents='';},300);try{instance=def.mount(stage,ctx)||{};}catch(error){console.error(error);end({quit:true,error:String(error?.message||error)});}};
+   const ruleText=typeof def.rule==='function'?def.rule(params):def.rule;if(ruleText&&!params.skipRule&&!window.RA_SKIP_MINIGAME_RULE)showRuleCard(stage,{...def,rule:ruleText},ctx,begin);else begin();
   });
  }
  function active(){return current?{id:current.id}:null}

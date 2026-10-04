@@ -10,7 +10,7 @@
 
  D({id:'NEW_OGA_M4',title:'SET UP CARLOS',lane:'money',memoryType:'money',start:'voice',available:m4Ready,
   testSetup:ctx=>{ctx.RAState.patch('life.world.day',10);ctx.RAState.patch('life.newOga',{...ctx.RAState.get().life.newOga,status:'intern',mission:3,rank:1,title:'INTERN',businessCard:true,m3Outcome:'complete',carlosMutual:true,carlosMutualDay:9,lastMissionDay:9});ctx.RALife.addCar({id:'toyota_supra_mk4_001',short:'SUPRA'});},nodes:{
-   voice:{env:'bedroom',actors:{left:'rich'},title:'VOICE NOTE · SET UP CARLOS',lines:[S('gbenga','Your friend Carlos. From the Instagram. Bring him to this address. Tell him it is a party. It is not a party.')],next:'beat1'},
+   voice:{env:'bedroom',actors:{left:'rich'},title:'VOICE NOTE · SET UP CARLOS',lines:[S('gbenga','Your friend Carlos. From the Instagram. Bring him to this address.'),S('gbenga','Tell him it is a party. It is not a party.')],next:'beat1'},
    beat1:{env:'bedroom',actors:{left:'rich',right:'carlos'},title:'BEAT 1 · THE DM',lines:[N('Carlos answers the VampGram message. He thinks the warehouse is a party.')],choices:[
     {label:'SEND THE ADDRESS',next:'beat2'},
     {label:'NAH, NOT HIM.',next:'beat1_out'}

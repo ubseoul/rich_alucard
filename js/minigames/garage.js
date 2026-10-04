@@ -105,6 +105,7 @@
   const prog=ctx.progress();
   let lessonsSeen=new Set(prog.lessonsSeen||[]);
   const {canvas,ctx:c}=RAPixel.createCanvas(root);
+  const J=window.RAJuice?window.RAJuice.create(c):{burst(){},float(){},ring(){},shake(){},flash(){},update(){},begin(){c.save();},end(){c.restore();}};let lastJ=performance.now();
 
   let tab='parts',scroll=0,selected=null,ratingText=null;
 
@@ -132,7 +133,8 @@
    if(selected){
     if(inRect(p,BTN_CLOSE)){selected=null;return;}
     if(inRect(p,BTN_BUY)&&canBuy(selected.id,carId,owned,money)){
-     ctx.audio?.sound('PART_INSTALL');ctx.audio?.sound(selected.id==='tires'?'IMPACT_WRENCH':'RATCHET');const price=priceOf(selected.id,owned);
+     ctx.audio?.sound('CASH_OUT');ctx.audio?.sound('PART_INSTALL');ctx.audio?.sound(selected.id==='tires'?'IMPACT_WRENCH':'RATCHET');const price=priceOf(selected.id,owned);
+     J.burst(95,413,['#20c66b','#ffd36a','#f6efd9'],22,110);J.ring(95,413,'#20c66b',34);J.float(`-$${price}`,95,392,{color:'#20c66b',size:8,life:1});J.float(`${selected.label} INSTALLED`,135,360,{color:'#ffd36a',size:7,life:1.3,rise:40});J.shake(2);
      const patch={money:-price,parts:{}};
      if(selected.leveled)patch.parts.turbo=(owned.turbo||0)+1;
      else patch.parts[selected.id]=true;
@@ -252,7 +254,7 @@
   }
 
   let raf=null;
-  function loop(){draw();raf=requestAnimationFrame(loop);}
+  function loop(){const n=performance.now();J.update((n-lastJ)/1000);lastJ=n;J.begin();draw();J.end();raf=requestAnimationFrame(loop);}
   raf=requestAnimationFrame(loop);
 
   return {dispose(){
@@ -264,5 +266,5 @@
   }};
  }
 
- window.RAMinigames.register('garage',{title:'GARAGE',mount});
+ window.RAMinigames.register('garage',{title:'GARAGE',rule:'Tap a part to see what it does to your car, then tap BUY to install it.',mount});
 })();

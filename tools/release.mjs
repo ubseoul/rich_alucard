@@ -33,6 +33,7 @@ async function test(){
   const minigameTests=(await readdir(path.join(root,'tools','minigames'))).filter(name=>name.endsWith('-test.mjs')).sort();
   for(const name of minigameTests){const mod=await import(pathToFileURL(path.join(root,'tools','minigames',name)).href);await mod.test(root);}
   const btf=await import(pathToFileURL(path.join(root,'tools','btf-test.mjs')).href);await btf.test(root);
+  const rc2Writing=await import(pathToFileURL(path.join(root,'tools','rc2','writing-test.mjs')).href);await rc2Writing.test(root);
   const presentation=await import(pathToFileURL(path.join(root,'tools','presentation-test.mjs')).href);await presentation.test(root);
   const grounding=await import(pathToFileURL(path.join(root,'tools','grounding-test.mjs')).href);await grounding.test(root);
   const artIntegration=await import(pathToFileURL(path.join(root,'tools','art-integration.mjs')).href);await artIntegration.test(root);

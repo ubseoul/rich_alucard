@@ -10,8 +10,8 @@
   arrive:{env:A=>RALife.today().rain?'grave':'grave',actors:{left:'rich'},title:'THE GRAVE · NIGHT',
    enter:A=>{RALife.counter('graveVisits');},
    lines:A=>{const v=Number(RALife.flag('graveVisits'))||1;const out=[N(v<=1?'the fountain is on. couples everywhere. somebody is proposing by the trolley.':'the grave. same fountain. new couples.')];
-    if(!RALife.hasFit('grave_hoodie'))out.push(S('kiosk_guy','YO. YO. SIR. YOU HAVE BEAUTIFUL SKIN. ONE SECOND.'));
-    if(v%4===2)out.push(N('mall security is watching you. he is a vampire hunter trainee. he looks at his pamphlet, then at you.'));
+    if(!RALife.hasFit('grave_hoodie'))out.push(S('kiosk_guy','SIR. YOU HAVE BEAUTIFUL SKIN. ONE SECOND.'));
+    if(v%4===2)out.push(N('mall security is watching you. he\'s a vampire hunter trainee. he checks his pamphlet.'));
     return out;},next:'hub'},
   hub:{env:'grave',actors:{left:'rich'},lines:[N('where to?')],
    choices:A=>{const L=RALife.L();const special=window.RAGraveEncounters?.(L)||[];
@@ -27,7 +27,7 @@
  RABtfPeople.byId.kiosk_guy={id:'kiosk_guy',name:'KIOSK GUY',look:{skin:'#c8a080',top:'#3a3a6a',hair:'#1a1a1a'},...(kioskArt?{sprite:kioskArt.anchor,states:kioskArt.states,frozenArt:true}:{})};
  // PEKING NAIJA — Rich's order: jollof + Peking duck + Sapporos. Pure fulfillment ($38).
  D({id:'PEKING',title:'PEKING NAIJA',lane:'food',repeatable:true,oncePerNight:true,start:'arrive',nodes:{
-  arrive:{env:'peking_naija',actors:{left:'rich'},title:'PEKING NAIJA',lines:A=>[N('warm. loud. family-run. the auntie at the register already knows.'),S(null,'"the usual?"'),R('the usual.')],
+  arrive:{env:'peking_naija',actors:{left:'rich'},title:'PEKING NAIJA',lines:A=>[N('warm. loud. family-run.'),N('the auntie at the register already knows.'),S(null,'"the usual?"'),R('the usual.')],
    choices:[{label:'JOLLOF + PEKING DUCK + SAPPOROS ($38)',when:()=>RALife.money()>=38,fx:A=>{RALife.spend(38);RALife.light('connection',0,'x');},next:'eat'},{label:'TAKEOUT FOR THE BAG',sub:'JOLLOF $18 · FULL HEAL, ONCE PER FIGHT',when:()=>RALife.money()>=18,fx:A=>{RALife.spend(18);RALife.addItem('jollof',1,{cap:3});},next:'leave'}]},
   eat:{lines:A=>{const out=[N('the duck skin crackles. the jollof has the bottom-pot smoke. the sapporo is cold.')];if(RALife.count('maggi_dragon_crumble')>0)out.push(N('you have a dragon maggi crumble in your pocket.'));return out;},
    choices:A=>[{label:'JUST EAT',next:'done'},...(RALife.count('maggi_dragon_crumble')>0?[{label:'SEASON IT WITH THE DRAGON CUBE',octopus:true,fx:X=>{RALife.consume('maggi_dragon_crumble');RALife.setFlag('seasonedMeal',RALife.today().day);},next:'seasoned'}]:[])]},
@@ -39,11 +39,11 @@
  D({id:'TACOS',title:"DON CHUY'S",lane:'food',repeatable:true,oncePerNight:true,start:'arrive',nodes:{
   arrive:{env:'taco_truck',actors:{left:'rich',right:{id:'don_chuy',state:'singing'}},lines:A=>[N('the radio is playing a canción. don chuy is singing along, badly, beautifully.'),S('don_chuy',RALife.counter('tacoVisits')<=1?'¡vecino! the castle guy! finally.':'¿lo de siempre, vecino?')],
    choices:[{label:'THREE TACOS ($9)',when:()=>RALife.money()>=9,fx:()=>RALife.spend(9),next:'eat'},{label:'SIX TACOS ($18)',when:()=>RALife.money()>=18,fx:A=>{RALife.spend(18);A.set('six',true);},next:'eat'}]},
-  eat:{lines:A=>[N(A.vars.six?'six tacos. the song ends. another one starts.':'the tacos are $3 each and better than anything in the grave.'),...(RALife.today().rain?[N('rain on the awning. his cousins are here with a guitar.')]:[])],end:{outcome:'ate',memory:{text:'tacos at don chuy\'s truck',lane:'food',quality:.6},chain:A=>RALife.today().rain&&RAAdventures.available('A51')?'A51':null}}
+  eat:{enter:A=>RAWriting.cheapBuyEnter('tacos',A),lines:A=>[N(A.vars.six?'six tacos. the song ends. another one starts.':'the tacos are $3 each and better than anything in the grave.'),...(RALife.today().rain?[N('rain on the awning. his cousins are here with a guitar.')]:[]),...RAWriting.cheapBuyLines(A)],end:{outcome:'ate',memory:{text:'tacos at don chuy\'s truck',lane:'food',quality:.6},chain:A=>RALife.today().rain&&RAAdventures.available('A51')?'A51':null}}
  }});
  // A43 — NAIJA MART & THE MALT.
  D({id:'A43',title:'NAIJA MART & THE MALT',lane:'food',scope:'MUST',start:'arrive',nodes:{
-  arrive:{env:'naija_mart',actors:{left:'rich',right:'auntie'},title:'NAIJA MART · HAWTHORNE',lines:[N('aisles of garri. plantain chips. a freezer of malt. stockfish.'),N('rich covers his nose. (fish.)'),E('auntie','the auntie at the register looks up.'),S('auntie','WHO IS YOUR FATHER?')],
+  arrive:{env:'naija_mart',actors:{left:'rich',right:'auntie'},title:'NAIJA MART · HAWTHORNE',lines:[N('aisles of garri. plantain chips.'),N('a freezer of malt. stockfish.'),N('rich covers his nose. (fish.)'),E('auntie','the auntie at the register looks up.'),S('auntie','WHO IS YOUR FATHER?')],
    choices:[{label:'TELL HER',next:'q2'},{label:'"…ma?"',next:'q2'},{label:'ANSWER IN YORUBA',octopus:true,sub:'you only know three words.',next:'q2o'}]},
   q2:{lines:[S('auntie','ARE YOU MARRIED? WHY ARE YOUR NAILS BLACK?'),R('ma. i just want a malt.')],next:'buy'},
   q2o:{lines:[S('auntie','…eh? your accent is terrible. but your mother raised you.'),N('she gives you a discount on nothing.')],next:'buy'},

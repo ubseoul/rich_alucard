@@ -12,7 +12,7 @@ export async function test(root){
   for(const [id,priority] of ACCEPTED)if(byId.has(id))assert.equal(byId.get(id),priority,`accepted handler ${id} changed priority`);
   const present=ACCEPTED.filter(([id])=>byId.has(id)).length;assert(present>=24,`accepted handlers missing (${present})`);
   const added=info.filter(h=>!ACCEPTED.some(([id])=>id===h.id)).map(h=>h.id).sort();
-  same(added,['if1.crew-timers','night-report','rc2-start'],'IF-1 may add only its own wake/night handlers (+ the RC2 first-wake start cash, OL-068)');
+  same(added,['if1.crew-timers','night-report','rc2-start','rc2-story-offers'],'IF-1 may add only its own wake/night handlers, the RC2 first-wake start cash (OL-068) and the RC2 B3 story-offer handler');
   // ---- deterministic order: sorted by priority; bus refuses ties (order would depend on load order)
   const order=RAWakeBus.order('wake');const pri=order.map(id=>byId.get(id));assert.deepEqual([...pri],[...pri].sort((a,b)=>a-b),'WAKE order is priority-sorted');
   assert(throwsCode(()=>RAWakeBus.subscribe({id:'f03.tie',fragment:'F03',priority:35,fn(){}}),/already used by dragon/),'tie with an accepted handler rejected');

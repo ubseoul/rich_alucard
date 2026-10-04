@@ -65,10 +65,12 @@
  function mountCare(root,ctx){
   const params=ctx.params||{},windowMs=window.RANewOgaTunables?.m6?.PROMPT_WINDOW_MS||10000,scale=Math.max(1,Math.min(20,Number(params.timeScale)||1));
   const {canvas,ctx:g,toNative}=R.createCanvas(root),actions=[];
+  const J=window.RAJuice?window.RAJuice.create(g):{burst(){},float(){},ring(){},shake(){},flash(){},update(){},begin(){g.save();},end(){g.restore();}};
   let index=0,elapsed=0,feedback='',feedbackMs=0,terminal=false,raf=null,last=performance.now(),buttons=[];
   root.dataset.phase='prompt';
   function advance(action=null){
    if(terminal)return;const prompt=CARE_PROMPTS[index],success=action===prompt;actions.push({prompt,action,success});
+   if(success){J.burst(135,300,['#20c66b','#ffd36a','#f6efd9'],18,90);J.float('GOOD',135,270,{color:'#20c66b',size:9,life:.9});ctx.audio?.sound('DRAGON_HAPPY');}else{J.shake(4);J.flash('#d7193f',120);ctx.audio?.sound('DRAGON_SULK');}
    feedback=success?`${prompt} · GOOD`:prompt==='WALK'?'SQUIRREL. SENATOR IS GONE.':prompt==='FEED'?'HE EATS THE AGEGE BREAD ANYWAY.':'HE IGNORES THE COMMAND.';feedbackMs=900;index++;elapsed=0;
    if(irreversibleCareFailure(prompt,success)){finish(true);return;}
    if(index>=CARE_PROMPTS.length)finish();
@@ -94,7 +96,7 @@
    buttons=[];for(const [i,id] of CARE_PROMPTS.entries()){const x=10+i*86;buttons.push({id,x,y:420,w:78,h:32});R.rect(g,x,420,78,32,id===prompt?'#c18b3c':'#3a6ff0');R.text(g,id==='JOKO'?'JOKO!':id,x+39,432,{size:7,color:'#f6efd9',align:'center'});}
    root.dataset.prompt=prompt;root.dataset.elapsed=String(Math.round(elapsed));
   }
-  function loop(now){const dt=Math.min(50,now-last)*scale;last=now;if(!terminal){elapsed+=dt;feedbackMs=Math.max(0,feedbackMs-dt);if(elapsed>=windowMs)advance(null);if(!terminal)draw();}raf=requestAnimationFrame(loop);}
+  function loop(now){const dt=Math.min(50,now-last)*scale;last=now;if(!terminal){elapsed+=dt;feedbackMs=Math.max(0,feedbackMs-dt);if(elapsed>=windowMs)advance(null);if(!terminal){J.update(dt/1000/scale);J.begin();draw();J.end();}}raf=requestAnimationFrame(loop);}
   raf=requestAnimationFrame(loop);
   return {dispose(){if(raf)cancelAnimationFrame(raf);canvas.removeEventListener('pointerdown',onDown);}};
  }
@@ -112,6 +114,7 @@
   const catFedFirstToday=truthy(params.catFedFirstToday);
   const prevProgress=ctx.progress()||{};
   const {canvas,ctx:g,toNative}=R.createCanvas(root);
+  const J=window.RAJuice?window.RAJuice.create(g):{burst(){},float(){},ring(){},shake(){},flash(){},update(){},begin(){g.save();},end(){g.restore();}};
   const rng=R.rng('hatch-'+Date.now()+'-'+Math.random());
 
   const sessionActions=[];const consumed={};
@@ -157,10 +160,10 @@
   function startPlay(){
    if(dragon.sulking){flashOverlay('flavor','SHE’S NOT IN THE MOOD.',1100);return;}
    const game=rng()<0.5?'fetch':'goldfish';
-   play={game,hits:0,need:5,t:0,dur:10,item:{x:135,y:260,vx:(rng()<0.5?1:-1)*70,vy:-50},flakes:game==='goldfish'?spawnFlakes():null};
+   play={game,hits:0,need:4,t:0,dur:12,item:{x:135,y:260,vx:(rng()<0.5?1:-1)*70,vy:-50},flakes:game==='goldfish'?spawnFlakes():null};
   }
   function spawnFlakes(){const arr=[];for(let i=0;i<5;i++)arr.push({x:20+rng()*230,y:-20-rng()*100,v:40+rng()*30,hit:false});return arr;}
-  function endPlay(success){ctx.audio?.sound(success?'DRAGON_HAPPY':'DRAGON_SULK');
+  function endPlay(success){ctx.audio?.sound(success?'DRAGON_HAPPY':'DRAGON_SULK');if(success){J.burst(135,260,['#ff6fb5','#f6efd9','#ffd36a'],26,100);J.float('SHE LOVES IT',135,220,{color:'#ff6fb5',size:8,life:1.2});J.flash('#ff6fb5',100);}
    dragon.playedToday=true;
    addAction('play',{game:play.game,success});
    flashOverlay('flavor',success?'SHE’S THRILLED.':'GOOD EFFORT.',1100);
@@ -189,7 +192,7 @@
    if(play){
     if(play.game==='fetch'){
      const it=play.item,dx=n.x-it.x,dy=n.y-it.y;
-     if(dx*dx+dy*dy<20*20){play.hits++;it.vx*=-1.1;it.vy=-90;if(play.hits>=play.need)endPlay(true);}
+     if(dx*dx+dy*dy<26*26){J.burst(it.x,it.y,['#f6efd9','#3a6ff0'],8,60);J.float(`${play.hits+1}/${play.need}`,it.x,it.y-14,{color:'#ffd36a',size:6,life:.5,rise:10});play.hits++;it.vx*=-1.1;it.vy=-90;if(play.hits>=play.need)endPlay(true);}
      return;
     } else {
      for(const f of play.flakes){if(!f.hit&&Math.abs(n.x-f.x)<14&&Math.abs(n.y-f.y)<14){f.hit=true;play.hits++;if(play.hits>=play.need)endPlay(true);}}
@@ -375,11 +378,12 @@
     if(sparkClock<=0){ctx.audio?.sound('DRAGON_FIRE_SMALL');sparkClock=1.4+rng()*1.4;sparks=[{x:150+rng()*20,y:220,life:0.4}];}
     sparks=sparks.filter(s=>{s.y-=40*dt;s.life-=dt;return s.life>0;});
    }
-   g.clearRect(0,0,270,480);
+   g.clearRect(0,0,270,480);J.update(dt);J.begin();
    backdrop();drawDragon();
    if(!play)drawButtons();
    drawPlay(now,dt);
    drawOverlay(now);
+   J.end();
    raf=requestAnimationFrame(loop);
   }
   raf=requestAnimationFrame(loop);
@@ -387,5 +391,5 @@
   return {dispose(){if(raf)cancelAnimationFrame(raf);canvas.removeEventListener('pointerdown',onDown);}};
  }
 
- if(window.RAMinigames)RAMinigames.register('hatch',{title:'HATCH',mount});
+ if(window.RAMinigames)RAMinigames.register('hatch',{title:'HATCH',rule:p=>p&&p.mode==='senator'?'Tap the button the prompt asks for before the timer runs out.':'Tap FEED, PLAY or TALK to look after your dragon and keep her happy.',mount});
 })();

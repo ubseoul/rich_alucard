@@ -13,6 +13,7 @@ Adventures are data in `js/data/btf/adventures/*.js`, registered with `RAAdventu
 - Every adventure: ends with `end:{...}` (return beat to the bedroom), writes a memory (`end.memory`), and should leave something a later moment reads (a flag, a person memory via `RARelations.memory(id,'event')`, a receipt, an unlocked app/place/temptation). Night-ender adventures (Ogun-scale, castle parties, Portobellos, Hilt) set `nightEnder:true` in `end`.
 - Failure writes story, not reload: both branches of every fight (`win`/`lose`, often `spared`) must continue the adventure.
 
+- **CREATOR OVERRIDE (OL-069):** Ube's two verbatim enemy barks ("oh shi this oga not playing", "damn this nigga is crazy" in js/data/rc2_writing.js) override the no-n-word rule above. Keep both as written; nobody else writes that word.
 ## Helpers you can use (read the files)
 - `RAContent` DSL: `R, S, N, E` (`js/data/btf/dsl.js`).
 - `RALife` (`js/systems/life.js`): money (`spend`, `addMoney`, `fmt`), points (`addPoints('clout'|'rep',n)`), `addFollowers`, flags (`flag`, `setFlag`, `counter`), items (`addItem`, `consume`, `count`), ownership (`addCar`, `hasRoom`, `addGun`, `addProp`, `addFit`), `unlockApp(id)`, `remember`, `receipt`, `mail`, `text(threadId,from,body,{choices})`, `light(dimension,amount,key)` (hidden momentum: expression/connection/ownership/legend/chaos), `tendency('solid'|'messy')`, `today()` (day/weekday/rain/fullMoon), `L()` query helper for predicates.

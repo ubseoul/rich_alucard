@@ -12,7 +12,7 @@
  function counted(fraction,total){return Math.min(Math.max(0,Math.trunc(Number(total)||0)),Math.round(R.util.clamp(Number(fraction)||0,0,1)*Math.max(0,Number(total)||0)));}
  R.counterLogic={BAND,bands,counted};
 
- R.counterMinigame={title:'COUNT THE MONEY',mount(root,ctx){
+ R.counterMinigame={title:'COUNT THE MONEY',rule:'Press and hold to count the money, and let go when the stack looks right.',mount(root,ctx){
   const params=ctx.params||{};const total=Math.max(0,Math.trunc(Number(params.amount)||0));
   const speed=R.util.clamp(Number(params.speed)||1,0.25,4);
   const {canvas,ctx:g}=RAPixel.createCanvas(root);

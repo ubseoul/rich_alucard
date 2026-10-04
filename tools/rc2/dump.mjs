@@ -1,4 +1,4 @@
-// RC2 scratch: what does a fresh life offer on Days 1-3? (not part of npm test)
+﻿// RC2 scratch: what does a fresh life offer on Days 1-3? (not part of npm test)
 import path from 'node:path';
 import {fileURLToPath,pathToFileURL} from 'node:url';
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..','..');

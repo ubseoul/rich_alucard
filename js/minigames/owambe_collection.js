@@ -35,6 +35,7 @@
   if(!R||!root)return {dispose(){}};
   const cfg=config(ctx.params||{}),scale=Math.max(1,Math.min(20,Number(ctx.params?.timeScale)||1));
   const {canvas,ctx:g,toNative}=R.createCanvas(root),rng=R.rng(`owambe-${ctx.params?.seed||'m5'}`);
+  const J=window.RAJuice?window.RAJuice.create(g):{burst(){},float(){},ring(){},shake(){},flash(){},update(){},begin(){g.save();},end(){g.restore();}};
   root.dataset.phase='run';root.dataset.input='pointer';
   let elapsedMs=0,spawnClock=0,attention=0,amountCaught=0,lastCatch=-Infinity,terminal=null,raf=null,last=performance.now(),nextId=1;
   const bills=[];
@@ -49,7 +50,7 @@
   }
   function catchAt(x,y){
    if(terminal)return;let caught=0;
-   for(let i=bills.length-1;i>=0;i--){const b=bills[i];if(Math.abs(x-b.x)<=20&&Math.abs(y-b.y)<=14){bills.splice(i,1);caught++;}}
+   for(let i=bills.length-1;i>=0;i--){const b=bills[i];if(Math.abs(x-b.x)<=28&&Math.abs(y-b.y)<=22){J.burst(b.x,b.y,['#20c66b','#ffd36a','#f6efd9'],10,70);J.float('+$1,000',b.x,b.y-10,{color:'#20c66b',size:6,life:.7,rise:20});ctx.audio?.sound('TIP_COINS');bills.splice(i,1);caught++;}}
    if(!caught)return;
    for(let i=0;i<caught;i++){amountCaught=Math.min(cfg.AUTHORED_DEBT_TARGET,amountCaught+cfg.BILL_VALUE);attention=catchAttention(attention,elapsedMs-lastCatch,cfg);lastCatch=elapsedMs;}
    const outcome=resolve({amountCaught,attention,elapsedMs},cfg);if(outcome)finish(outcome);
@@ -63,13 +64,13 @@
    R.text(g,'ATTENTION',10,44,{size:6,color:'#f6efd9'});R.rect(g,78,42,180,10,'#21182c');R.rect(g,80,44,176*Math.min(1,attention/cfg.ATTENTION_MAX),6,attention>70?'#d7193f':'#c18b3c');
    for(const b of bills){R.rect(g,b.x-15,b.y-7,30,14,'#d9d2a4');R.rect(g,b.x-10,b.y-4,20,8,'#7aa06a');R.text(g,'$',b.x-3,b.y-4,{size:6,color:'#16311c'});}
    R.rect(g,20,430,230,30,'#7d194b');R.text(g,'DANCE WITH UNCLE · BACK OUT',34,440,{size:6,color:'#f6efd9'});
-   root.dataset.amountCaught=String(amountCaught);root.dataset.attention=attention.toFixed(2);root.dataset.billTargets=JSON.stringify(bills.map(b=>[Math.round(b.x),Math.round(b.y)]));
+   if(attention>65)R.text(g,'SLOW DOWN. THE AUNTIES ARE WATCHING.',135,404,{size:6,color:'#d7193f',align:'center'});if(elapsedMs<5000)R.text(g,'TAP THE FALLING MONEY',135,404,{size:7,color:'#ffd36a',align:'center'});root.dataset.amountCaught=String(amountCaught);root.dataset.attention=attention.toFixed(2);root.dataset.billTargets=JSON.stringify(bills.map(b=>[Math.round(b.x),Math.round(b.y)]));
   }
   function loop(now){
-   const real=Math.min(50,now-last);last=now;if(!terminal){const dt=real*scale;elapsedMs+=dt;spawnClock+=dt;attention=decayAttention(attention,dt,cfg);while(spawnClock>=cfg.BILL_SPAWN_MS){spawnClock-=cfg.BILL_SPAWN_MS;spawn();}for(const b of bills)b.y+=b.v*dt/1000;for(let i=bills.length-1;i>=0;i--)if(elapsedMs-bills[i].born>=cfg.BILL_LIFETIME_MS||bills[i].y>412)bills.splice(i,1);const outcome=resolve({amountCaught,attention,elapsedMs},cfg);if(outcome)finish(outcome);draw();}raf=requestAnimationFrame(loop);
+   const real=Math.min(50,now-last);last=now;if(!terminal){const dt=real*scale;elapsedMs+=dt;spawnClock+=dt;attention=decayAttention(attention,dt,cfg);while(spawnClock>=cfg.BILL_SPAWN_MS){spawnClock-=cfg.BILL_SPAWN_MS;spawn();}for(const b of bills)b.y+=b.v*dt/1000;for(let i=bills.length-1;i>=0;i--)if(elapsedMs-bills[i].born>=cfg.BILL_LIFETIME_MS||bills[i].y>412)bills.splice(i,1);const outcome=resolve({amountCaught,attention,elapsedMs},cfg);if(outcome)finish(outcome);J.update(real/1000);J.begin();draw();J.end();}raf=requestAnimationFrame(loop);
   }
   raf=requestAnimationFrame(loop);
   return {dispose(){if(raf)cancelAnimationFrame(raf);canvas.removeEventListener('pointerdown',pointerDown);canvas.removeEventListener('pointermove',pointerMove);}};
  }
- if(window.RAMinigames)RAMinigames.register('owambe_collection',{title:'OWAMBE COLLECTION',mount});
+ if(window.RAMinigames)RAMinigames.register('owambe_collection',{title:'OWAMBE COLLECTION',rule:'Tap the falling money to collect it, but go slow or the aunties will notice.',mount});
 })();
