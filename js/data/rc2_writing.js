@@ -1,14 +1,14 @@
 (function(){
  // RC2 · BUILD 3 — WRITING. Pure data + tiny accessors. Build 2 presents barks; Build 1 hooks the buy/club lines.
  // Rules: every line <= 3 sentences (almost all are one). Funny, simple, quick. No Rich lines here (voice pass owns Rich).
- // `creator:true` marks lines written verbatim by Ube.
+ // Ube's verbatim barks are a CREATOR OVERRIDE (OL-069); see CONTENT_AUTHORING.md.
  const L=(text,o={})=>({text,...o});
  // ---------------------------------------------------------------- ENEMY BARKS
  // kinds: enter (fight opens) · hurt (Rich lands a hit) · lowhp (enemy under 30%) · telegraph (enemy is about to do the big move)
  //        win (enemy beats Rich) · lose (enemy goes down) · spared (octopus brain talks the fight out)
  const generic={
   enter:['bro really came out here like this.','nobody told me he was this tall.','i did not clock in for this.','is that a vampire? at THIS hour?','tell my mom i said hi.','i got a coupon for this fight.','we doing this? we doing this.','my cousin said you were nice.'],
-  hurt:[L('oh shi this oga not playing',{creator:true}),'ow. okay. okay okay okay.','that was not in the brochure.','who taught him that.','i felt that in my childhood.','my insurance does not cover this.','not the face. the face is how i get paid.','ok that one counted.'],
+  hurt:[L('oh shi this oga not playing'),'ow. okay. okay okay okay.','that was not in the brochure.','who taught him that.','i felt that in my childhood.','my insurance does not cover this.','not the face. the face is how i get paid.','ok that one counted.'],
   lowhp:["i'm good. i'm good. i am not good.",'tell the group chat i went out fighting.','this is just a warm-up. a short one.','somebody call my cousin.','my legs are on a different schedule.','one more. i can take one more. i cannot.'],
   telegraph:['watch this.','you are not ready for this one.','this next one is a lot.','hold on, i am winding up.','i been saving this.'],
   win:['sit down, rich. sit down.',"i'm telling everybody. in detail.",'gg. no re.','that was easy. i am scared of how easy.','you almost had me. almost.'],
@@ -17,7 +17,7 @@
  };
  // The random ones: ANY enemy can say these, any time. The most random enemy says the wildest thing.
  const wild=[
-  L('damn this nigga is crazy',{creator:true}),
+  L('damn this nigga is crazy'),
   "i left the stove on.",'my horoscope said stay home.','sir, this is a food court.','is this on camera? good. angle me.','i have never been this tired and this inspired.','wait. is that a silk bonnet?',"i'm just here for the orange chicken.",'my lawyer is a raccoon.','i love my job. i love my job. i love my job.',
   'how do i turn this off.','my mom is watching this live.',"i'm not even supposed to be here. i'm covering for steve.",'somebody said there would be snacks.','i came for the vibes. the vibes are violent.','did anybody pay for parking?',"i don't get paid enough for this. i don't get paid.",'this is fake. this is so fake. ow.',
   'i just remembered i love you guys.','what is a vampire even for.','are we in a movie? are we the bad guys?','call it. somebody call it.','rich alucard? from vampgram? hold on, let me get a pic.'

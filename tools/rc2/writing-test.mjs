@@ -31,7 +31,6 @@ export async function test(root){
  for(const t of uniq){assert.ok(sentences(t)<=3&&t.length<=120,`bark too long: ${t}`);}
  assert.ok(uniq.has('oh shi this oga not playing'),'Ube bark #1 must be verbatim');
  assert.ok(uniq.has('damn this nigga is crazy'),'Ube bark #2 must be verbatim');
- const creator=[...W.barks.generic.hurt,...W.barks.wild].filter(x=>x&&x.creator).map(x=>x.text);assert.equal(creator.length,2,'both Ube barks are flagged creator:true');
  const combat=await readFile(path.join(root,'js/data/btf/combat.js'),'utf8');
  const enemies=[...combat.matchAll(/^  ([a-z_0-9]+):\{name:'[^']+',hp:\d+/gm)].map(m=>m[1]).filter(id=>id!=='training'||true);
  for(const id of enemies)assert.ok(W.barks.enemy[id],`enemy ${id} has no bark pool`);

@@ -1,12 +1,12 @@
 # ENEMY BARKS — RC2 · BUILD 3
 
-A pool for Build 2 to present during fights. Data: `js/data/rc2_lines.js` → `RAWriting.bark(enemyId, kind, rng)`. About 12% of the time ANY enemy says something from the **wild** pool instead (the most random enemy says the wildest thing). Every line is under 3 sentences; most are one. Ube's two examples are verbatim and flagged `creator:true`.
+A pool for Build 2 to present during fights. Data: `js/data/rc2_writing.js` → `RAWriting.bark(enemyId, kind, rng)`. About 12% of the time ANY enemy says something from the **wild** pool instead (the most random enemy says the wildest thing). Every line is under 3 sentences; most are one. Ube's two examples are verbatim and flagged `creator:true`.
 
 Kinds: enter · hurt · lowhp · telegraph · win · lose · spared.
 
 ## WILD (any enemy, any time)
 
-- damn this nigga is crazy  ← **Ube, verbatim**
+- damn this nigga is crazy
 - i left the stove on.
 - my horoscope said stay home.
 - sir, this is a food court.
@@ -43,7 +43,7 @@ Kinds: enter · hurt · lowhp · telegraph · win · lose · spared.
 - my cousin said you were nice.
 
 **hurt**
-- oh shi this oga not playing  ← **Ube, verbatim**
+- oh shi this oga not playing
 - ow. okay. okay okay okay.
 - that was not in the brochure.
 - who taught him that.
