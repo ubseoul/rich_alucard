@@ -43,13 +43,13 @@
  const SOFT_ENV=new Set(['gbenga_rentals','gbenga_house_dining','gbenga_house_patio','carson_owambe','catacomb_dead','halloween','ocean_night_flight','f07_warehouse_exterior','f07_warehouse_party','f15_the_bing','f15_gym','f15_plenitude','f15_convention','f15_roxy_apartment','f15_rosalyn_apartment','f15_rosalyn_apartment_dark','f15_shrine','f15_library','f15_exam_hall','property_exterior']);
  const SOFT_PATH=/(assets\/build4\/p_d\/|assets\/f07\/backgrounds\/|assets\/f15\/environments\/)/;
  function forEnv(img,env){if(!env?.image||!img?.src||!img.complete||!img.naturalWidth)return null;if(!(SOFT_ENV.has(env.id)||SOFT_PATH.test(env.image)))return null;if(!img.src.endsWith(env.image.replace(/^\.?\//,'')))return null;
-  if(window.RA_NO_HARD_PIXEL)return null;return process(img,{colors:40,dither:6});}
+  if(window.RA_NO_HARD_PIXEL)return null;return process(img,{colors:64,dither:3});}
  // ---- auto detection: boards (270x480 minigame backdrops) and runtime sprites ----
  const softMemo=new Map(),urlMemo=new Map();
  function measure(img){const c=toCanvas(img),d=c.getContext('2d',{willReadFrequently:true}).getImageData(0,0,c.width,c.height).data,set=new Set();let semi=0,opaque=0;for(let i=0;i<d.length;i+=4){if(d[i+3]===0)continue;opaque++;if(d[i+3]<250)semi++;set.add((d[i]<<16)|(d[i+1]<<8)|d[i+2]);if(set.size>4000)break;}return {colors:set.size,semi:opaque?semi/opaque*100:0};}
  function isSoft(img,{colors=1200,semi=100}={}){if(!img?.complete||!img.naturalWidth)return false;const k=`${img.src}|${colors}`;if(softMemo.has(k))return softMemo.get(k);const m=measure(img),r=m.colors>colors||m.semi>semi;softMemo.set(k,r);return r;}
  // boards: soft 270x480 backdrops used by minigames are returned re-pixelated; hand-pixeled boards come back unchanged
- function board(img){if(window.RA_NO_HARD_PIXEL||!isSoft(img,{colors:1200}))return img;return process(img,{colors:40,dither:6});}
+ function board(img){if(window.RA_NO_HARD_PIXEL||!isSoft(img,{colors:1200}))return img;return process(img,{colors:64,dither:3});}
  // sprites: runtime 80x96-class characters that are soft (hundreds of colours / anti-aliased edges) get hard alpha, a 24-colour
  // palette and a 1px ink outline. Hand-pixeled sprites (<~400 colours, no semi-alpha) are never touched.
  function hardenImg(el){

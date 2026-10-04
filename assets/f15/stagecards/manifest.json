@@ -1,0 +1,34 @@
+{
+  "status": "APPROVED / FROZEN (exact-byte runtime copies)",
+  "source": "art_department/production/f15-dancer-stage-cards",
+  "freeze_record": "art_department/production/f15-dancer-stage-cards/FREEZE_RECORD.json",
+  "files": [
+    {
+      "path": "assets/f15/stagecards/stagecard_roxy.png",
+      "sha256": "8de2770ddfb1db106cf576b54433d34fa00e4d95f968e49bd16ebb51f2318d66",
+      "dimensions": [
+        945,
+        1680
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/f15/stagecards/stagecard_rosalyn.png",
+      "sha256": "884eabacffe606488da79549b0637da0ed7e9b214d6febcffb3ee31bea7e7c3d",
+      "dimensions": [
+        945,
+        1680
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/f15/stagecards/stagecard_emerald.png",
+      "sha256": "ba2e17bf1a297906e7c4ae30bf5b6a7efe2f35d5061f07c4989f981613836a22",
+      "dimensions": [
+        945,
+        1680
+      ],
+      "mode": "RGBA"
+    }
+  ]
+}

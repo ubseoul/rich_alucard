@@ -28,6 +28,8 @@
  .f15-bar{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:10px}
  .f15-chip{font-family:var(--font);color:#f4f0ff;background:var(--purple);border:2px solid #8a85b8;outline:1px solid var(--ink);padding:6px 4px;min-height:58px;min-width:0;cursor:pointer;text-align:center;box-shadow:2px 2px 0 var(--blood);touch-action:manipulation;border-radius:0}
  .f15-chip[aria-checked="true"]{border-color:var(--cyan);background:#0f3a52}
+ .f15-card{display:block;width:100%;height:76px;margin:0 0 5px;object-fit:cover;object-position:50% 22%;border:2px solid #17131e;background:#17131e;image-rendering:auto}
+ .f15-chip[aria-checked="true"] .f15-card{border-color:var(--cyan)}
  .f15-chip b{display:block;font-size:9px;font-weight:400;letter-spacing:0}
  .f15-chip span{display:block;margin-top:5px;font-size:7px;line-height:1.35;color:var(--lav);word-break:break-word}
  .f15-chip i{display:block;margin:4px 2px 0;height:4px;background:#241a45;font-style:normal}
@@ -73,7 +75,8 @@
     const p=C().progress(d),b=document.createElement('button');
     b.type='button';b.className='f15-chip';b.dataset.dancer=d;b.setAttribute('role','radio');b.setAttribute('aria-checked',String(d===selectedLocal));
     const pct=p.maxed?100:Math.min(100,Math.round(100*p.spent/(p.nextThreshold||1)));
-    b.innerHTML=`<b>${names[d]}</b><span>${money(p.spent)}</span><i><u style="width:${pct}%"></u></i><span>${p.maxed?'ALL 4 SEEN':p.availableLevel?`SCENE ${p.availableLevel} READY`:`SCENE ${p.next} AT ${short(p.nextThreshold)}`}</span>`;
+    const card=global.RAArtRegistry?.ui?.f15?.stagecards?.[d]?.asset; // OL-067: the frozen stage card presents each dancer
+    b.innerHTML=`${card?`<img class="f15-card" src="${card}" alt="" width="945" height="1680" draggable="false">`:''}<b>${names[d]}</b><span>${money(p.spent)}</span><i><u style="width:${pct}%"></u></i><span>${p.maxed?'ALL 4 SEEN':p.availableLevel?`SCENE ${p.availableLevel} READY`:`SCENE ${p.next} AT ${short(p.nextThreshold)}`}</span>`;
     b.addEventListener('click',()=>choose(d));bar.appendChild(b);
    }
    dateRow.replaceChildren();
