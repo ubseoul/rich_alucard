@@ -60,36 +60,37 @@ export const SLIDE_BARKS={
 export const GREED_LINES={dre:'Dre: we good… right?',tunde:'Tunde: we can leave.',half_pint:'Half-Pint: my legs hurt',sunday_best:'Sunday Best: Greed is a sin. So is leaving money.',young_mazi:'Young Mazi: one more is nothing',auntie_grit:'Auntie Grit: Get in the car.'};
 
 // ---------------------------------------------------------------------------------------------------------------- jobs
+// RC2 (OL-063): `band` = cash in $K. Every band is half its F13 value (docs/rc2/ECONOMY_DELTA.md); capture risk is untouched.
 // size = [min,max] crew from the authored squad sizes. pods per stage use the AUTHORED F01 enemy roster. loot tilt weights category picks.
 export const JOBS=[
- {id:'boba_backroom',shape:'COLLECT',names:['THE BOBA BACKROOM','PEARLS AND PRINCIPAL','SOMEBODY OWES THE BOBA GUY'],pitchers:['dre','half_pint'],band:[12,30],ugly:'TOUGH',faction:'OPEN MOUTH GANG',tell:'chewing through the whole conversation',
+ {id:'boba_backroom',shape:'COLLECT',names:['THE BOBA BACKROOM','PEARLS AND PRINCIPAL','SOMEBODY OWES THE BOBA GUY'],pitchers:['dre','half_pint'],band:[6,15],ugly:'TOUGH',faction:'OPEN MOUTH GANG',tell:'chewing through the whole conversation',
   place:'the boba shop\'s beaded backroom',favors:'ANY',size:[2,3],octopus:'pay a Kevin to be the decoy',pods:{CONTACT:['CHEWER','CHEWER'],TROUBLE:['CHEWER','ENFORCER'],PRIZE:['CHEWER'],REINF:['CHEWER','CHEWER']},
   tilt:{CASH:5,BLOOD_X:1,GUN:1,MOD:1,RECRUIT:1,STORY:1,DISTRICT:1,WEIRD:2},heat:4,silhouettes:['CASH','WEIRD']},
- {id:'tupperware',shape:'DROP',names:["AUNTIE'S TUPPERWARE MONEY",'THE CHURCH BAKE SALE FLOAT','A SMALL ONE'],pitchers:['tunde','auntie_grit'],band:[8,14],ugly:'EASY',faction:'THE COUSINS',tell:'arguing about parking',
+ {id:'tupperware',shape:'DROP',names:["AUNTIE'S TUPPERWARE MONEY",'THE CHURCH BAKE SALE FLOAT','A SMALL ONE'],pitchers:['tunde','auntie_grit'],band:[4,7],ugly:'EASY',faction:'THE COUSINS',tell:'arguing about parking',
   place:'a church parking lot with a cash box that is not locked enough',favors:'QUIET',size:[2,2],octopus:null,pods:{CONTACT:['CHEWER'],TROUBLE:['CHEWER','CHEWER'],PRIZE:[],REINF:['CHEWER']},
   tilt:{CASH:6,BLOOD_X:1,GUN:0,MOD:1,RECRUIT:1,STORY:2,DISTRICT:1,WEIRD:3},heat:2,silhouettes:['CASH','WEIRD']},
- {id:'vampire_dentist',shape:'DROP',names:['THE VAMPIRE DENTIST','OPEN WIDE','GOLD TEETH, COLD HANDS'],pitchers:['dre','sunday_best'],band:[18,25],ugly:'TOUGH',faction:'HUNTERS',tell:'crossbows under the tactical vests',
+ {id:'vampire_dentist',shape:'DROP',names:['THE VAMPIRE DENTIST','OPEN WIDE','GOLD TEETH, COLD HANDS'],pitchers:['dre','sunday_best'],band:[9,13],ugly:'TOUGH',faction:'HUNTERS',tell:'crossbows under the tactical vests',
   place:'a dental office that keeps very strange hours',favors:'QUIET',size:[2,3],octopus:"hide the cases in Slurp Dynasty's broth delivery",pods:{CONTACT:['HUNTER','CHEWER'],TROUBLE:['HUNTER','HUNTER'],PRIZE:['CHEWER'],REINF:['HUNTER']},
   tilt:{CASH:4,BLOOD_X:2,GUN:1,MOD:2,RECRUIT:1,STORY:1,DISTRICT:1,WEIRD:3},heat:3,silhouettes:['BLOOD_X','MOD']},
- {id:'dock_restock',shape:'RE-UP',names:['CASE NUMBERS AT THE DOCKS','THE BIG WEIGHT','FIVE CASES, NO QUESTIONS'],pitchers:['young_mazi','tunde'],band:[10,18],ugly:'TOUGH',faction:'OPEN MOUTH GANG',tell:'a gang van idling with the window down',
+ {id:'dock_restock',shape:'RE-UP',names:['CASE NUMBERS AT THE DOCKS','THE BIG WEIGHT','FIVE CASES, NO QUESTIONS'],pitchers:['young_mazi','tunde'],band:[5,9],ugly:'TOUGH',faction:'OPEN MOUTH GANG',tell:'a gang van idling with the window down',
   place:'the docks after the ships leave',favors:'ANY',size:[2,3],octopus:null,pods:{CONTACT:['CHEWER','CHEWER'],TROUBLE:['ENFORCER','CHEWER'],PRIZE:['CHEWER'],REINF:['CHEWER']},
   tilt:{CASH:2,BLOOD_X:6,GUN:1,MOD:1,RECRUIT:1,STORY:1,DISTRICT:1,WEIRD:2},heat:3,silhouettes:['BLOOD_X','?']},
- {id:'car_wash_stickup',shape:'TAKE THE BLOCK',names:['THE CAR WASH STICK-UP','SOAP AND SHOTGUNS','SPOT-FREE RINSE'],pitchers:['tunde','dre'],band:[22,40],ugly:'NASTY',faction:'OPEN MOUTH GANG',tell:'enforcers with shotguns, all of them chewing',
+ {id:'car_wash_stickup',shape:'TAKE THE BLOCK',names:['THE CAR WASH STICK-UP','SOAP AND SHOTGUNS','SPOT-FREE RINSE'],pitchers:['tunde','dre'],band:[11,20],ugly:'NASTY',faction:'OPEN MOUTH GANG',tell:'enforcers with shotguns, all of them chewing',
   place:'a car wash the Open Mouth Gang treats like a kitchen',favors:'LOUD',size:[3,4],octopus:null,pods:{CONTACT:['CHEWER','CHEWER','ENFORCER'],TROUBLE:['LIEUTENANT','CHEWER'],PRIZE:['CHEWER','CHEWER'],REINF:['ENFORCER','CHEWER']},
   tilt:{CASH:4,BLOOD_X:2,GUN:3,MOD:2,RECRUIT:1,STORY:1,DISTRICT:3,WEIRD:2},heat:6,silhouettes:['GUN','DISTRICT']},
- {id:'quiet_lift',shape:'COLLECT',names:['THE QUIET LIFT','NOBODY WAS HOME','A VERY POLITE SAFE'],pitchers:['half_pint','dre'],band:[12,28],ugly:'TOUGH',faction:'OPEN MOUTH GANG',tell:'one lookout, one dog, zero patience',
+ {id:'quiet_lift',shape:'COLLECT',names:['THE QUIET LIFT','NOBODY WAS HOME','A VERY POLITE SAFE'],pitchers:['half_pint','dre'],band:[6,14],ugly:'TOUGH',faction:'OPEN MOUTH GANG',tell:'one lookout, one dog, zero patience',
   place:'a stash house with a dog who has opinions',favors:'QUIET',size:[2,3],octopus:'ring the doorbell as the wrong pizza',pods:{CONTACT:['CHEWER'],TROUBLE:['CHEWER','CHEWER'],PRIZE:['ENFORCER'],REINF:['CHEWER','ENFORCER']},
   tilt:{CASH:5,BLOOD_X:1,GUN:2,MOD:2,RECRUIT:1,STORY:2,DISTRICT:1,WEIRD:3},heat:2,silhouettes:['CASH','MOD']},
- {id:'vampire_gala',shape:'PROTECT',names:['THE VAMPIRE GALA','BLACK TIE, SILVER BOLTS','HOLD MY COAT'],pitchers:['sunday_best','auntie_grit'],band:[15,24],ugly:'NASTY',faction:'HUNTERS',tell:'streetwear under tactical vests, crossbows in the flower arrangements',
+ {id:'vampire_gala',shape:'PROTECT',names:['THE VAMPIRE GALA','BLACK TIE, SILVER BOLTS','HOLD MY COAT'],pitchers:['sunday_best','auntie_grit'],band:[8,12],ugly:'NASTY',faction:'HUNTERS',tell:'streetwear under tactical vests, crossbows in the flower arrangements',
   place:"a client's gala where nobody is who they say",favors:'ANY',size:[3,4],octopus:'seat the bride next to the loudest uncle',pods:{CONTACT:['HUNTER','CHEWER'],TROUBLE:['HUNTER','HUNTER','LIEUTENANT'],PRIZE:['HUNTER'],REINF:['HUNTER','HUNTER']},
   tilt:{CASH:4,BLOOD_X:1,GUN:2,MOD:2,RECRUIT:2,STORY:2,DISTRICT:3,WEIRD:2},heat:3,silhouettes:['DISTRICT','RECRUIT']},
- {id:'smack_crib',shape:'TAKE THE BLOCK',names:["LIL SMACK'S CRIB",'THE CHEWING DOES NOT STOP','FIRST COURSE'],pitchers:['tunde','young_mazi'],band:[30,45],ugly:'NASTY',faction:'OPEN MOUTH GANG',tell:'a boss who chews with his mouth open on purpose',
+ {id:'smack_crib',shape:'TAKE THE BLOCK',names:["LIL SMACK'S CRIB",'THE CHEWING DOES NOT STOP','FIRST COURSE'],pitchers:['tunde','young_mazi'],band:[15,23],ugly:'NASTY',faction:'OPEN MOUTH GANG',tell:'a boss who chews with his mouth open on purpose',
   place:"Lil Smack's own kitchen, which is somehow also the throne room",favors:'LOUD',size:[3,4],octopus:null,pods:{CONTACT:['CHEWER','CHEWER'],TROUBLE:['LIEUTENANT','LIL_SMACK'],PRIZE:['CHEWER','ENFORCER'],REINF:['ENFORCER','CHEWER']},
   tilt:{CASH:4,BLOOD_X:2,GUN:3,MOD:2,RECRUIT:1,STORY:2,DISTRICT:4,WEIRD:3},heat:7,silhouettes:['GUN','DISTRICT']},
- {id:'counting_house',shape:'TAKE THE BLOCK',bigPlay:true,names:['THE COUNTING HOUSE','EVERYTHING, ALL AT ONCE','DRE SAYS IT IS FINE'],pitchers:['dre','young_mazi'],band:[60,110],ugly:'BIG PLAY',faction:'OPEN MOUTH GANG + HUNTERS',tell:'two crews who hate each other guarding one very good door',
+ {id:'counting_house',shape:'TAKE THE BLOCK',bigPlay:true,names:['THE COUNTING HOUSE','EVERYTHING, ALL AT ONCE','DRE SAYS IT IS FINE'],pitchers:['dre','young_mazi'],band:[30,55],ugly:'BIG PLAY',faction:'OPEN MOUTH GANG + HUNTERS',tell:'two crews who hate each other guarding one very good door',
   place:'the counting house, where every crew keeps the good money',favors:'ANY',size:[4,4],octopus:'switch the bags before anybody counts',pods:{CONTACT:['ENFORCER','HUNTER'],TROUBLE:['LIEUTENANT','HUNTER'],PRIZE:['LIL_SMACK'],REINF:['ENFORCER','HUNTER']},
   tilt:{CASH:5,BLOOD_X:3,GUN:4,MOD:3,RECRUIT:2,STORY:2,DISTRICT:3,WEIRD:5},heat:9,silhouettes:['GUN','?']},
- {id:'hold_the_house',shape:'HOLD THE HOUSE',defense:true,names:["THEY'RE COMING TO THE CASTLE",'RETALIATION, NO APPOINTMENT','LOCK THE GOOD DOOR'],pitchers:['auntie_grit','tunde'],band:[8,20],ugly:'NASTY',faction:'HUNTERS + THE GANG',tell:'headlights, lots of them, all pointed at the gate',
+ {id:'hold_the_house',shape:'HOLD THE HOUSE',defense:true,names:["THEY'RE COMING TO THE CASTLE",'RETALIATION, NO APPOINTMENT','LOCK THE GOOD DOOR'],pitchers:['auntie_grit','tunde'],band:[4,10],ugly:'NASTY',faction:'HUNTERS + THE GANG',tell:'headlights, lots of them, all pointed at the gate',
   place:'the castle halls',favors:'ANY',size:[4,4],octopus:null,pods:{CONTACT:['CHEWER','CHEWER','HUNTER'],TROUBLE:['ENFORCER','HUNTER','CHEWER'],PRIZE:['LIEUTENANT','HUNTER'],REINF:['HUNTER','CHEWER']},
   tilt:{CASH:3,BLOOD_X:2,GUN:5,MOD:3,RECRUIT:1,STORY:3,DISTRICT:3,WEIRD:2},heat:0,silhouettes:['GUN','STORY']}
 ];

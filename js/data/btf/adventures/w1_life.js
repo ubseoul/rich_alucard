@@ -92,7 +92,7 @@
  D({id:'FISHTANK',title:'THE FISH TANK ROOM',lane:'home',repeatable:true,start:'look',nodes:{look:{env:'fish_tank',actors:null,lines:A=>{const n=RALife.count('fish_rare_moon_koi')+RALife.count('fish_rare_grouper');return [N('you stand in the doorway. you do not go in.'),N(n?`${n} rare fish. guests love it.`:'it is empty. it is still a flex.'),R('i\'m good right here.')];},end:{outcome:'looked',memory:{text:'the fish tank room (from the doorway)',lane:'home',quality:.3}}}}});
  // VampGPT lanes: 2–3 real ways to pursue each want (Octopus Brain as UI).
  RAVampGPT.defineLane('money',[
-  {id:'lane:rent',label:'COLLECT RENT',sub:'SHANNON FRIDAY MONEY',when:L=>(L.life.ownership.properties||[]).some(p=>p.rentDue>0),go:api=>{api.go('realEstate');return true;}},
+  {id:'lane:rent',label:'COLLECT RENT',sub:'RENT PAYS EVERY MORNING',when:L=>(L.life.ownership.properties||[]).some(p=>p.rentDue>0),go:api=>{api.go('realEstate');return true;}},
   {id:'lane:property',label:'BUY A BUILDING',sub:'REALMONEYREALESTATE',go:api=>{api.go('realEstate');return true;}},
   {id:'lane:slurp',label:'WORK A SHIFT',sub:L=>L.done('A08')?'SLURP DYNASTY':'you ever had a job? (i know you haven\'t.)',adventure:L=>L.done('A08')?'SLURP':'A08'},
   {id:'lane:pier',label:'FISH. WALLETS BE IN THERE.',when:L=>L.done('A12'),adventure:'PIER'},

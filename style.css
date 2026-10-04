@@ -939,3 +939,19 @@ body.pd-active .blood-bath-impact,body.pd-active .revenge-impact-authored,body.p
 body.pd-active .tentacle-sprite{background-size:100% auto!important;background-position:center bottom!important}
 /* The throne's legacy room layer is only shown when the throne scene adopts it into #pdWorld. */
 body.pd-active #screen > .room{display:none}
+
+/* RC2 · BUILD 1 — guidance (OL-063). The app the player should open next shakes in two stepped frames and wears a "!" until it is opened;
+   the bedroom phone icon shakes while anything is pending. VampGPT's RECOMMENDED lines; the cheap-buy toast. Reduced motion: still outline. */
+#phoneContent .app-button.phone-pulse .phone-icon-tile{outline:2px solid var(--os-red);outline-offset:1px;animation:ra-pulse-shake .5s steps(2,end) infinite}
+#phoneContent .phone-pulse-dot{position:absolute;right:15px;top:0;min-width:15px;padding:2px;background:var(--os-red);color:#fff;border:1px solid var(--os-bg);font:12px var(--os-label);font-style:normal;text-align:center;animation:ra-pulse-blink 1s steps(2,end) infinite}
+#phoneContent .phone-next-button[data-guide]{animation:ra-pulse-blink 1.2s steps(2,end) infinite}
+.check-phone.guide-pulse{animation:ra-pulse-shake .5s steps(2,end) infinite;outline:2px solid #f04067;outline-offset:1px}
+@keyframes ra-pulse-shake{0%{transform:translate(0,0)}25%{transform:translate(-1px,1px)}50%{transform:translate(1px,0)}75%{transform:translate(0,-1px)}100%{transform:translate(0,0)}}
+@keyframes ra-pulse-blink{0%{opacity:1}50%{opacity:.55}100%{opacity:1}}
+#phoneContent .phone-rec{margin:0 0 12px}
+#phoneContent .phone-rec .rec-line{display:block;width:100%;text-align:left;min-height:38px;margin:0 0 6px}
+#phoneContent .phone-rec .rec-line small{display:block;color:var(--os-gold);margin:0 0 2px}
+#phoneContent .phone-rec .rec-line strong{display:block;font-weight:400;line-height:1.1}
+#phoneContent .phone-rec .rec-first{border:2px solid var(--os-red);background:var(--os-raised);box-shadow:3px 3px #4c1932}
+.ra-toast{position:fixed;left:50%;bottom:14%;transform:translateX(-50%);z-index:10050;max-width:86%;padding:8px 10px;background:#f1e5c5;color:#21151a;border:2px solid #28131c;box-shadow:3px 3px #7d194b;font:8px/1.5 var(--font-system,monospace);text-align:center;pointer-events:none}
+@media (prefers-reduced-motion:reduce){#phoneContent .app-button.phone-pulse .phone-icon-tile,#phoneContent .phone-pulse-dot,#phoneContent .phone-next-button[data-guide],.check-phone.guide-pulse{animation:none}}

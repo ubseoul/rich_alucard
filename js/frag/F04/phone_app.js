@@ -181,6 +181,8 @@ ${btn('NOT YET', 'app:warRoom')}`;
    window.RAFrag.patch('F04', 'offer.acceptedOnDay', window.RALife.today().day);
    window.RAFrag.patch('F04', 'active', true);
    window.RAFrag.patch('F04', 'jobs.nightsSinceStart', 0);
+   // RC2 (OL-063): the offer opens on Day 2, so tonight's SLOTS are set now, not at the next WAKE (a Day-2 accept gets its real board)
+   window.RAFrag.patch('F04', 'jobs.slotsPerNight', window.RAWarRoomCrew.slotsPerNight());
    window.RAWarRoomVG.fireWorldReactions();
    window.RAWarRoomVG.postYoungPlaymaker();
    window.RAPhoneRegistry.unlock('warRoom', { badge: true });

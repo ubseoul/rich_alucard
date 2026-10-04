@@ -9,6 +9,7 @@ import {withIf1,IF1_TAIL} from './if1/harness.mjs';
 // Reuse compilation only. Each case still creates its own VM, storage and production state.
 const compiledSources=new Map();
 async function execute(root,file,context){
+ if(file==='js/if1/flag_defaults.js'&&process.env.RA_FLAGS_DARK==='1'){new vm.Script('window.RAFlagDefaults=Object.freeze({});').runInContext(context);return;}
  const filename=path.resolve(root,file);
  if(!compiledSources.has(filename))compiledSources.set(filename,new vm.Script(await readFile(filename,'utf8'),{filename:file}));
  compiledSources.get(filename).runInContext(context);
@@ -88,8 +89,8 @@ export async function test(root){
   RAState.patch('life.ownership.properties',[{id:'p',ownershipStatus:'owned',weeklyRent:1000,rentDue:0}]);
   RAClock.wake({first:true});assert(RAState.get().life.clock.started);assert(RAState.get().life.phone.threads.family?.[0]?.text.includes('independence'),'Day 1 family ping');
   const money0=RALife.money();for(let i=0;i<28;i++)RAClock.sleep();
-  assert.equal(RALife.today().day,29);assert.equal(RALife.money()-money0,100000,'budget lands on day 1 of the second month');
-  assert.equal(RAState.get().life.ownership.properties[0].rentDue,4000,'four Shannon Fridays in 28 days');
+  assert.equal(RALife.today().day,29);const dailyRent=Math.round(1000/7);assert.equal(RALife.money()-money0,100000+28*dailyRent,'budget lands on day 1 of the second month (plus RC2 daily rent: 28 mornings)');
+  assert.equal(RAState.get().life.ownership.properties[0].rentDue,0,'RC2: rent is paid into cash every morning, nothing waits to collect');
   assert((RAState.get().life.temptations.live||[]).length<=8,'temptation cap');
  }
  // --- adventures: validate + walk every branch ---

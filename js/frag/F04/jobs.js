@@ -262,7 +262,8 @@
    if (cards.length >= 3) break; // keep room for LAY LOW within 4 total jobs
    const day = window.RALife.today().day;
    const showdownSeed = (day * 7 + dist.id.charCodeAt(0)) % 4;
-   if (showdownSeed === 0) {
+   // RC2 (OL-063): a brand-new crew's first two nights offer routine runs only; TAKE THE BLOCK shows up from the third night.
+   if (showdownSeed === 0 && Number(window.RAFrag.read('F04', 'jobs.nightsSinceStart', 0)) >= 2) {
     cards.push(buildJobCard({ type: 'TAKE_THE_BLOCK', district: dist.id }));
    } else {
     const runType = pickRunType(dist.id);

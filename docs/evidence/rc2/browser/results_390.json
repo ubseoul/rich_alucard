@@ -1,0 +1,122 @@
+[
+ {
+  "ok": true,
+  "name": "normal URL: PLAY, WAR ROOM, MAKE IT RAIN and the club dancers ship ON; TRAP stays dark; no dev panel",
+  "detail": "{\"f01\":true,\"f04\":true,\"f06\":true,\"f15\":true,\"f05\":false,\"dev\":false}"
+ },
+ {
+  "ok": true,
+  "name": "fresh save: intro (prologue, CEO, throne) reaches the bedroom on Day 1",
+  "detail": "70s"
+ },
+ {
+  "ok": true,
+  "name": "bedroom: the phone icon pulses while there is a next step",
+  "detail": "{\"pulse\":true,\"anim\":\"ra-pulse-shake\"}"
+ },
+ {
+  "ok": true,
+  "name": "phone home shows exactly one \"do this next\" (Day 1, first: VampGPT)",
+  "detail": "VAMPGPT OGA WHAT DO I DO ↗"
+ },
+ {
+  "ok": true,
+  "name": "exactly one app tile pulses: VampGPT",
+  "detail": "[\"app:vampgpt\"]"
+ },
+ {
+  "ok": true,
+  "name": "STRIP CLUB app is on the home screen on Day 1, unlocked; the old RAINMAKER tile is not a second door",
+  "detail": "{\"club\":true,\"locked\":null,\"rm\":false}"
+ },
+ {
+  "ok": true,
+  "name": "phone home has no horizontal overflow",
+  "detail": ""
+ },
+ {
+  "ok": true,
+  "name": "VampGPT RECOMMENDED: the first line is the next story step or a way to make cash",
+  "detail": "[\"EAT · A FEW DOLLARS DON CHUY'S\",\"SLURP DYNASTY WORK A SHIFT\",\"FIRST VISIT · DISCOUNT STRIP CLUB\"]"
+ },
+ {
+  "ok": true,
+  "name": "opening VampGPT cleared its pulse",
+  "detail": "{\"pulsing\":[],\"next\":\"EAT · A FEW DOLLARS DON CHUY'S ↗\"}"
+ },
+ {
+  "ok": true,
+  "name": "STRIP CLUB tile goes straight to the club (phone closed) and states the first-visit terms",
+  "detail": "SUPPORTING ROXY. TAP A NAME TO SUPPORT SOMEONE ELSE."
+ },
+ {
+  "ok": true,
+  "name": "first visit: real throws spent real money, never more than half the cash on hand, and the first visit is now used",
+  "detail": "$7500 of $100000"
+ },
+ {
+  "ok": true,
+  "name": "every throw went through the money ledger (rainmaker:flick)",
+  "detail": "5"
+ },
+ {
+  "ok": true,
+  "name": "Escape leaves the club; back in the bedroom",
+  "detail": ""
+ },
+ {
+  "ok": true,
+  "name": "next step after the club",
+  "detail": "story:meal -> go:tacos"
+ },
+ {
+  "ok": true,
+  "name": "Day 2 wake: Mister December's offer is available",
+  "detail": "{\"day\":2,\"offer\":\"available\",\"next\":\"offer\",\"pulse\":\"warRoom\"}"
+ },
+ {
+  "ok": true,
+  "name": "guidance on Day 2: the next step is the offer and WAR ROOM pulses",
+  "detail": "{\"day\":2,\"offer\":\"available\",\"next\":\"offer\",\"pulse\":\"warRoom\"}"
+ },
+ {
+  "ok": true,
+  "name": "Day 2 home: only WAR ROOM pulses",
+  "detail": "[\"app:warRoom\"]"
+ },
+ {
+  "ok": true,
+  "name": "accepted on Day 2: six Ogas, two slots, next step is the first PLAY",
+  "detail": "{\"active\":true,\"crew\":6,\"slots\":2,\"next\":\"first_play\"}"
+ },
+ {
+  "ok": true,
+  "name": "first night: routine jobs only (no TAKE THE BLOCK yet)",
+  "detail": "BAIT | BAIT | COLLECT | LAY LOW"
+ },
+ {
+  "ok": true,
+  "name": "THE PLAY: canonical group-chat offer (live UI untouched)",
+  "detail": "BANK $92,500 HALF-PINT INCOMING CALL A VERY POLITE SAFE UP TO $14,000 "
+ },
+ {
+  "ok": true,
+  "name": "no car owned: the crew hooptie is the ride (not a NO CAR refusal)",
+  "detail": "A VERY POLITE SAFE UP TO $14,000 · 2 OGA MIN. Half-Pint: enforcers up front. big ones. Hal"
+ },
+ {
+  "ok": true,
+  "name": "first PLAY completed on Day 2 through the real F01 UI; F04 consumed the canonical record",
+  "detail": "ROBBED win=false"
+ },
+ {
+  "ok": true,
+  "name": "bank moved by exactly the PLAY pot minus its cost",
+  "detail": "92500 -> 90500 (gain 0, spent 2000)"
+ },
+ {
+  "ok": true,
+  "name": "no console / page errors during the whole path",
+  "detail": ""
+ }
+]

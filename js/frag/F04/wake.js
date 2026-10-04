@@ -8,35 +8,15 @@
  if (!window.RAFeatures?.get('F04.war_room')) return;
 
  // ── Offer availability (Vol 7 §1) ────────────────────────────────────────
- // Unlocks Days 16–22 (mid-game) when ALL are true:
- //   Ogun's Rave done; Vampire Rep ≥ MID; Rich owns at least one car; 2+ homies at COOL.
- // Second offer: ~8 sleeps after first decline.
+ // RC2 (OL-063, ECONOMY_DELTA): PLAYs are the main path, so the first offer opens on Day 2 (RAEcon.offer.firstDay) once the intro
+ // is done. It was Days 16–22 with Ogun's Rave done, Vampire Rep ≥ MID, a car and 2+ COOL homies. The crew is the six named
+ // Ogas from the moment Rich says yes; the car is the crew's hooptie (play_adapter.js garageSnapshot).
+ // Second offer: RAEcon.offer.secondOfferGapDays sleeps after the first decline (was 8).
  function checkOfferEligibility() {
   const life = window.RAState.get().life;
   const day = window.RALife.today().day;
-  if (day < 16 || day > 22) return false;
-
-  // Ogun's Rave done
-  const raveDone = !!life.world?.flags?.ogunsRaveCompleted;
-  if (!raveDone) return false;
-
-  // Vampire Rep ≥ MID (street clout tier)
-  const clout = window.RASocial.streetClout.tier();
-  if (clout === 'LOW') return false;
-
-  // Rich owns at least one car
-  const cars = window.RALife.ownedCars?.() || [];
-  if (cars.length < 1) return false;
-
-  // 2+ homies at COOL (relations)
-  const known = window.RARelations?.known?.() || [];
-  const coolHomies = known.filter(p => {
-   const rel = window.RARelations?.get?.(p.id);
-   return rel && (rel.level || 0) >= 2; // COOL ≈ relation level 2+
-  });
-  if (coolHomies.length < 2) return false;
-
-  return true;
+  if (day < (window.RAEcon?.offer?.firstDay ?? 2)) return false;
+  return true;   // wake handlers only run once the life clock has started, so the intro is already behind the player
  }
 
  // Wake handler: check and update offer availability.
@@ -55,10 +35,11 @@
 
    // Second offer: ~8 sleeps after first decline
    if (offer.status === 'declined_once' && offer.declinedOnDay != null) {
-    const secondDay = offer.declinedOnDay + 8;
+    const secondDay = offer.declinedOnDay + (window.RAEcon?.offer?.secondOfferGapDays ?? 8);
     if (day >= secondDay && offer.secondOfferDay == null) {
      window.RAFrag.patch('F04', 'offer.secondOfferDay', day);
      window.RAFrag.patch('F04', 'offer.status', 'available');
+     window.RAPhoneRegistry.unlock('warRoom', { badge: true });
     }
     return;
    }
@@ -66,6 +47,9 @@
    // First offer
    if (offer.status === 'unavailable' && checkOfferEligibility()) {
     window.RAFrag.patch('F04', 'offer.status', 'available');
+    // RC2 (OL-063): the app has to be on the phone for the offer to be answerable. It used to unlock only on ACCEPT, which the locked
+    // app could never offer; the offer now puts WAR ROOM on the home screen the morning it lands.
+    window.RAPhoneRegistry.unlock('warRoom', { badge: true });
    }
   }
  });

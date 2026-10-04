@@ -5,6 +5,10 @@ import path from 'node:path';
 import {sandbox,run,read,throwsCode,same} from './_lib.mjs';
 
 export async function test(root){
+ process.env.RA_FLAGS_DARK='1';   // RC2 (OL-063): proves the reserved-and-dark contract on a build with no promoted flags
+ try{await body(root);}finally{delete process.env.RA_FLAGS_DARK;}
+}
+async function body(root){
   await phone(root);await art(root);await audio(root);await partFolders(root);
   console.log('PASS IF-1 phone/art/audio registries (reserved apps stay dark, additive art+audio parts, frozen-asset collision refused, part folders clean)');
 }
@@ -13,7 +17,8 @@ async function phone(root){
   const apps=new Map();
   const RAPhoneApps={register:a=>apps.set(a.id,{canon:false,order:50,...a}),unregister:id=>apps.delete(id),get:id=>apps.get(id)||null,list:()=>[...apps.values()],label:id=>id,isUnlocked:()=>true};
   const unlocked=[];const c=sandbox({extra:{RAPhoneApps,RALife:{unlockApp:(id)=>{unlocked.push(id);return true;}}}});
-  await run(root,c,['js/if1/flag_defaults.js','js/if1/features.js','js/if1/phone_registry.js']);
+  c.RAFlagDefaults=Object.freeze({});   // RC2 (OL-063): no promoted flags, so the reserved apps are proven dark
+  await run(root,c,['js/if1/features.js','js/if1/phone_registry.js']);
   RAPhoneApps.register({id:'texts',label:'TEXTS'});const before=JSON.stringify(RAPhoneApps.list());
   const R=c.RAPhoneRegistry;same(R.reserved().map(r=>[r.id,r.fragment,r.flag,r.declared,r.enabled]),[['warRoom','F04','F04.war_room',false,false],['trap','F05','F05.trap',false,false],['armory','F02','F02.armory',false,false],['rainmaker','F06','F06.rainmaker',false,false]],'War Room, Trap/Counting, Armory, RAINMAKER reserved and dark');
   const render=()=>'<h1>X</h1>';

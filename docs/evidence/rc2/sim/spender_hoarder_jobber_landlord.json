@@ -1,0 +1,3626 @@
+[
+ {
+  "persona": "spender",
+  "seed": 1,
+  "days": 36,
+  "daily": [
+   {
+    "day": 2,
+    "money": 41250
+   },
+   {
+    "day": 3,
+    "money": 39750
+   },
+   {
+    "day": 4,
+    "money": 35250
+   },
+   {
+    "day": 5,
+    "money": 15250
+   },
+   {
+    "day": 6,
+    "money": 24150
+   },
+   {
+    "day": 7,
+    "money": 13450
+   },
+   {
+    "day": 8,
+    "money": 28550
+   },
+   {
+    "day": 9,
+    "money": 14050
+   },
+   {
+    "day": 10,
+    "money": 28950
+   },
+   {
+    "day": 11,
+    "money": 10150
+   },
+   {
+    "day": 12,
+    "money": 10150
+   },
+   {
+    "day": 13,
+    "money": 10150
+   },
+   {
+    "day": 14,
+    "money": 10150
+   },
+   {
+    "day": 15,
+    "money": 18850
+   },
+   {
+    "day": 16,
+    "money": 14750
+   },
+   {
+    "day": 17,
+    "money": 24550
+   },
+   {
+    "day": 18,
+    "money": 13650
+   },
+   {
+    "day": 19,
+    "money": 27350
+   },
+   {
+    "day": 20,
+    "money": 20950
+   },
+   {
+    "day": 21,
+    "money": 19950
+   },
+   {
+    "day": 22,
+    "money": 17950
+   },
+   {
+    "day": 23,
+    "money": 16950
+   },
+   {
+    "day": 24,
+    "money": 12750
+   },
+   {
+    "day": 25,
+    "money": 27650
+   },
+   {
+    "day": 26,
+    "money": 17650
+   },
+   {
+    "day": 27,
+    "money": 17650
+   },
+   {
+    "day": 28,
+    "money": 25450
+   },
+   {
+    "day": 29,
+    "money": 113350
+   },
+   {
+    "day": 30,
+    "money": 22250
+   },
+   {
+    "day": 31,
+    "money": 21250
+   },
+   {
+    "day": 32,
+    "money": 10550
+   },
+   {
+    "day": 33,
+    "money": 10550
+   },
+   {
+    "day": 34,
+    "money": 18250
+   },
+   {
+    "day": 35,
+    "money": 18250
+   },
+   {
+    "day": 36,
+    "money": 27050
+   },
+   {
+    "day": 37,
+    "money": 13550
+   }
+  ],
+  "firstPlayDay": 2,
+  "offerAcceptDay": 2,
+  "plays": 35,
+  "playWins": 25,
+  "playGain": 450300,
+  "playSpent": 4000,
+  "captured": 2,
+  "gone": 0,
+  "clubNights": 18,
+  "clubSpent": 443750,
+  "shifts": 0,
+  "rentGross": 0,
+  "rentNet": 0,
+  "propsBought": [],
+  "roomsBought": [
+   {
+    "id": "maid_quarters",
+    "day": 1
+   },
+   {
+    "id": "armory_wall",
+    "day": 27
+   },
+   {
+    "id": "hookah_roof",
+    "day": 29
+   }
+  ],
+  "partyHallDay": null,
+  "introDay": null,
+  "minMoney": 10150,
+  "money7": 28550,
+  "errors": [],
+  "seeded": [
+   {
+    "what": "ogunsRave",
+    "day": 12
+   }
+  ],
+  "steps": [],
+  "cheap": [],
+  "firstClub": {
+   "day": 1,
+   "cashBefore": 100000,
+   "spent": 18750,
+   "first": true,
+   "capHeld": true
+  },
+  "final": {
+   "money": 13550,
+   "netWorth": 101050,
+   "props": 0,
+   "rooms": 3,
+   "ogas": 8
+  },
+  "playBands": {
+   "ROUTINE": {
+    "n": 33,
+    "captured": 2,
+    "wins": 24,
+    "gain": 444100
+   },
+   "HOLD": {
+    "n": 2,
+    "captured": 0,
+    "wins": 1,
+    "gain": 6200
+   }
+  },
+  "playGains": [
+   {
+    "gain": 23500,
+    "big": false
+   },
+   {
+    "gain": 14500,
+    "big": false
+   },
+   {
+    "gain": 8900,
+    "big": false
+   },
+   {
+    "gain": 14300,
+    "big": false
+   },
+   {
+    "gain": 15100,
+    "big": false
+   },
+   {
+    "gain": 10500,
+    "big": false
+   },
+   {
+    "gain": 14900,
+    "big": false
+   },
+   {
+    "gain": 6200,
+    "big": false
+   },
+   {
+    "gain": 8700,
+    "big": false
+   },
+   {
+    "gain": 20900,
+    "big": false
+   },
+   {
+    "gain": 9800,
+    "big": false
+   },
+   {
+    "gain": 14100,
+    "big": false
+   },
+   {
+    "gain": 13700,
+    "big": false
+   },
+   {
+    "gain": 18600,
+    "big": false
+   },
+   {
+    "gain": 20800,
+    "big": false
+   },
+   {
+    "gain": 14900,
+    "big": false
+   },
+   {
+    "gain": 15000,
+    "big": false
+   },
+   {
+    "gain": 92800,
+    "big": false
+   },
+   {
+    "gain": 12900,
+    "big": false
+   },
+   {
+    "gain": 8900,
+    "big": false
+   },
+   {
+    "gain": 24000,
+    "big": false
+   },
+   {
+    "gain": 14300,
+    "big": false
+   },
+   {
+    "gain": 7700,
+    "big": false
+   },
+   {
+    "gain": 33800,
+    "big": false
+   },
+   {
+    "gain": 11500,
+    "big": false
+   }
+  ],
+  "crashes": 0
+ },
+ {
+  "persona": "spender",
+  "seed": 2,
+  "days": 36,
+  "daily": [
+   {
+    "day": 2,
+    "money": 41250
+   },
+   {
+    "day": 3,
+    "money": 26350
+   },
+   {
+    "day": 4,
+    "money": 15950
+   },
+   {
+    "day": 5,
+    "money": 24650
+   },
+   {
+    "day": 6,
+    "money": 18300
+   },
+   {
+    "day": 7,
+    "money": 32900
+   },
+   {
+    "day": 8,
+    "money": 27100
+   },
+   {
+    "day": 9,
+    "money": 14500
+   },
+   {
+    "day": 10,
+    "money": 23100
+   },
+   {
+    "day": 11,
+    "money": 14800
+   },
+   {
+    "day": 12,
+    "money": 24000
+   },
+   {
+    "day": 13,
+    "money": 14400
+   },
+   {
+    "day": 14,
+    "money": 20800
+   },
+   {
+    "day": 15,
+    "money": 30600
+   },
+   {
+    "day": 16,
+    "money": 28600
+   },
+   {
+    "day": 17,
+    "money": 15200
+   },
+   {
+    "day": 18,
+    "money": 25300
+   },
+   {
+    "day": 19,
+    "money": 13300
+   },
+   {
+    "day": 20,
+    "money": 23000
+   },
+   {
+    "day": 21,
+    "money": 20700
+   },
+   {
+    "day": 22,
+    "money": 33300
+   },
+   {
+    "day": 23,
+    "money": 21700
+   },
+   {
+    "day": 24,
+    "money": 15600
+   },
+   {
+    "day": 25,
+    "money": 24400
+   },
+   {
+    "day": 26,
+    "money": 14100
+   },
+   {
+    "day": 27,
+    "money": 26900
+   },
+   {
+    "day": 28,
+    "money": 20000
+   },
+   {
+    "day": 29,
+    "money": 128900
+   },
+   {
+    "day": 30,
+    "money": 52400
+   },
+   {
+    "day": 31,
+    "money": 43600
+   },
+   {
+    "day": 32,
+    "money": 43000
+   },
+   {
+    "day": 33,
+    "money": 31900
+   },
+   {
+    "day": 34,
+    "money": 21700
+   },
+   {
+    "day": 35,
+    "money": 30100
+   },
+   {
+    "day": 36,
+    "money": 24300
+   },
+   {
+    "day": 37,
+    "money": 1200
+   }
+  ],
+  "firstPlayDay": 2,
+  "offerAcceptDay": 2,
+  "plays": 35,
+  "playWins": 34,
+  "playGain": 622800,
+  "playSpent": 2000,
+  "captured": 1,
+  "gone": 0,
+  "clubNights": 23,
+  "clubSpent": 568750,
+  "shifts": 0,
+  "rentGross": 0,
+  "rentNet": 0,
+  "propsBought": [],
+  "roomsBought": [
+   {
+    "id": "maid_quarters",
+    "day": 1
+   },
+   {
+    "id": "armory_wall",
+    "day": 29
+   },
+   {
+    "id": "hookah_roof",
+    "day": 31
+   },
+   {
+    "id": "kitchen",
+    "day": 36
+   }
+  ],
+  "partyHallDay": null,
+  "introDay": null,
+  "minMoney": 1200,
+  "money7": 27100,
+  "errors": [],
+  "seeded": [
+   {
+    "what": "ogunsRave",
+    "day": 12
+   }
+  ],
+  "steps": [],
+  "cheap": [],
+  "firstClub": {
+   "day": 1,
+   "cashBefore": 100000,
+   "spent": 18750,
+   "first": true,
+   "capHeld": true
+  },
+  "final": {
+   "money": 1200,
+   "netWorth": 131200,
+   "props": 0,
+   "rooms": 4,
+   "ogas": 8
+  },
+  "playBands": {
+   "ROUTINE": {
+    "n": 33,
+    "captured": 1,
+    "wins": 32,
+    "gain": 596900
+   },
+   "HOLD": {
+    "n": 2,
+    "captured": 0,
+    "wins": 2,
+    "gain": 25900
+   }
+  },
+  "playGains": [
+   {
+    "gain": 10100,
+    "big": false
+   },
+   {
+    "gain": 8600,
+    "big": false
+   },
+   {
+    "gain": 8700,
+    "big": false
+   },
+   {
+    "gain": 15500,
+    "big": false
+   },
+   {
+    "gain": 14600,
+    "big": false
+   },
+   {
+    "gain": 19200,
+    "big": false
+   },
+   {
+    "gain": 12400,
+    "big": false
+   },
+   {
+    "gain": 8600,
+    "big": false
+   },
+   {
+    "gain": 16700,
+    "big": false
+   },
+   {
+    "gain": 9200,
+    "big": false
+   },
+   {
+    "gain": 15400,
+    "big": false
+   },
+   {
+    "gain": 6400,
+    "big": false
+   },
+   {
+    "gain": 9800,
+    "big": false
+   },
+   {
+    "gain": 11600,
+    "big": false
+   },
+   {
+    "gain": 10100,
+    "big": false
+   },
+   {
+    "gain": 13000,
+    "big": false
+   },
+   {
+    "gain": 34700,
+    "big": false
+   },
+   {
+    "gain": 22700,
+    "big": false
+   },
+   {
+    "gain": 12600,
+    "big": false
+   },
+   {
+    "gain": 13400,
+    "big": false
+   },
+   {
+    "gain": 18900,
+    "big": false
+   },
+   {
+    "gain": 8800,
+    "big": false
+   },
+   {
+    "gain": 14700,
+    "big": false
+   },
+   {
+    "gain": 12800,
+    "big": false
+   },
+   {
+    "gain": 18100,
+    "big": false
+   },
+   {
+    "gain": 8900,
+    "big": false
+   },
+   {
+    "gain": 8500,
+    "big": false
+   },
+   {
+    "gain": 16200,
+    "big": false
+   },
+   {
+    "gain": 99400,
+    "big": false
+   },
+   {
+    "gain": 13900,
+    "big": false
+   },
+   {
+    "gain": 14800,
+    "big": false
+   },
+   {
+    "gain": 8400,
+    "big": false
+   },
+   {
+    "gain": 19200,
+    "big": false
+   },
+   {
+    "gain": 86900,
+    "big": false
+   }
+  ],
+  "crashes": 0
+ },
+ {
+  "persona": "spender",
+  "seed": 3,
+  "days": 36,
+  "daily": [
+   {
+    "day": 2,
+    "money": 41250
+   },
+   {
+    "day": 3,
+    "money": 28450
+   },
+   {
+    "day": 4,
+    "money": 21650
+   },
+   {
+    "day": 5,
+    "money": 11550
+   },
+   {
+    "day": 6,
+    "money": 26750
+   },
+   {
+    "day": 7,
+    "money": 25750
+   },
+   {
+    "day": 8,
+    "money": 33950
+   },
+   {
+    "day": 9,
+    "money": 21750
+   },
+   {
+    "day": 10,
+    "money": 11850
+   },
+   {
+    "day": 11,
+    "money": 20750
+   },
+   {
+    "day": 12,
+    "money": 29850
+   },
+   {
+    "day": 13,
+    "money": 28850
+   },
+   {
+    "day": 14,
+    "money": 11450
+   },
+   {
+    "day": 15,
+    "money": 10450
+   },
+   {
+    "day": 16,
+    "money": 31750
+   },
+   {
+    "day": 17,
+    "money": 27250
+   },
+   {
+    "day": 18,
+    "money": 27150
+   },
+   {
+    "day": 19,
+    "money": 14850
+   },
+   {
+    "day": 20,
+    "money": 11450
+   },
+   {
+    "day": 21,
+    "money": 27750
+   },
+   {
+    "day": 22,
+    "money": 14350
+   },
+   {
+    "day": 23,
+    "money": 27550
+   },
+   {
+    "day": 24,
+    "money": 21250
+   },
+   {
+    "day": 25,
+    "money": 30150
+   },
+   {
+    "day": 26,
+    "money": 22650
+   },
+   {
+    "day": 27,
+    "money": 10350
+   },
+   {
+    "day": 28,
+    "money": 29150
+   },
+   {
+    "day": 29,
+    "money": 116450
+   },
+   {
+    "day": 30,
+    "money": 39750
+   },
+   {
+    "day": 31,
+    "money": 36050
+   },
+   {
+    "day": 32,
+    "money": 30850
+   },
+   {
+    "day": 33,
+    "money": 20050
+   },
+   {
+    "day": 34,
+    "money": 20050
+   },
+   {
+    "day": 35,
+    "money": 26650
+   },
+   {
+    "day": 36,
+    "money": 22550
+   },
+   {
+    "day": 37,
+    "money": 34350
+   }
+  ],
+  "firstPlayDay": 2,
+  "offerAcceptDay": 2,
+  "plays": 35,
+  "playWins": 31,
+  "playGain": 470100,
+  "playSpent": 3000,
+  "captured": 1,
+  "gone": 0,
+  "clubNights": 21,
+  "clubSpent": 518750,
+  "shifts": 0,
+  "rentGross": 0,
+  "rentNet": 0,
+  "propsBought": [],
+  "roomsBought": [
+   {
+    "id": "maid_quarters",
+    "day": 1
+   },
+   {
+    "id": "armory_wall",
+    "day": 29
+   }
+  ],
+  "partyHallDay": null,
+  "introDay": null,
+  "minMoney": 10350,
+  "money7": 33950,
+  "errors": [],
+  "seeded": [
+   {
+    "what": "ogunsRave",
+    "day": 12
+   }
+  ],
+  "steps": [],
+  "cheap": [],
+  "firstClub": {
+   "day": 1,
+   "cashBefore": 100000,
+   "spent": 18750,
+   "first": true,
+   "capHeld": true
+  },
+  "final": {
+   "money": 34350,
+   "netWorth": 84350,
+   "props": 0,
+   "rooms": 2,
+   "ogas": 8
+  },
+  "playBands": {
+   "ROUTINE": {
+    "n": 33,
+    "captured": 1,
+    "wins": 29,
+    "gain": 452100
+   },
+   "HOLD": {
+    "n": 2,
+    "captured": 0,
+    "wins": 2,
+    "gain": 18000
+   }
+  },
+  "playGains": [
+   {
+    "gain": 12200,
+    "big": false
+   },
+   {
+    "gain": 12200,
+    "big": false
+   },
+   {
+    "gain": 9900,
+    "big": false
+   },
+   {
+    "gain": 15200,
+    "big": false
+   },
+   {
+    "gain": 33200,
+    "big": false
+   },
+   {
+    "gain": 12800,
+    "big": false
+   },
+   {
+    "gain": 15100,
+    "big": false
+   },
+   {
+    "gain": 8900,
+    "big": false
+   },
+   {
+    "gain": 9100,
+    "big": false
+   },
+   {
+    "gain": 7600,
+    "big": false
+   },
+   {
+    "gain": 21300,
+    "big": false
+   },
+   {
+    "gain": 20500,
+    "big": false
+   },
+   {
+    "gain": 24900,
+    "big": false
+   },
+   {
+    "gain": 12700,
+    "big": false
+   },
+   {
+    "gain": 21600,
+    "big": false
+   },
+   {
+    "gain": 16300,
+    "big": false
+   },
+   {
+    "gain": 11600,
+    "big": false
+   },
+   {
+    "gain": 13200,
+    "big": false
+   },
+   {
+    "gain": 18700,
+    "big": false
+   },
+   {
+    "gain": 8900,
+    "big": false
+   },
+   {
+    "gain": 17500,
+    "big": false
+   },
+   {
+    "gain": 12700,
+    "big": false
+   },
+   {
+    "gain": 18800,
+    "big": false
+   },
+   {
+    "gain": 12300,
+    "big": false
+   },
+   {
+    "gain": 8300,
+    "big": false
+   },
+   {
+    "gain": 21300,
+    "big": false
+   },
+   {
+    "gain": 19800,
+    "big": false
+   },
+   {
+    "gain": 14200,
+    "big": false
+   },
+   {
+    "gain": 6600,
+    "big": false
+   },
+   {
+    "gain": 20900,
+    "big": false
+   },
+   {
+    "gain": 11800,
+    "big": false
+   }
+  ],
+  "crashes": 0
+ },
+ {
+  "persona": "hoarder",
+  "seed": 1,
+  "days": 36,
+  "daily": [
+   {
+    "day": 2,
+    "money": 100000
+   },
+   {
+    "day": 3,
+    "money": 100000
+   },
+   {
+    "day": 4,
+    "money": 100000
+   },
+   {
+    "day": 5,
+    "money": 109500
+   },
+   {
+    "day": 6,
+    "money": 124800
+   },
+   {
+    "day": 7,
+    "money": 139400
+   },
+   {
+    "day": 8,
+    "money": 160900
+   },
+   {
+    "day": 9,
+    "money": 160900
+   },
+   {
+    "day": 10,
+    "money": 200600
+   },
+   {
+    "day": 11,
+    "money": 229900
+   },
+   {
+    "day": 12,
+    "money": 266800
+   },
+   {
+    "day": 13,
+    "money": 281500
+   },
+   {
+    "day": 14,
+    "money": 290800
+   },
+   {
+    "day": 15,
+    "money": 297700
+   },
+   {
+    "day": 16,
+    "money": 318600
+   },
+   {
+    "day": 17,
+    "money": 333300
+   },
+   {
+    "day": 18,
+    "money": 343200
+   },
+   {
+    "day": 19,
+    "money": 352200
+   },
+   {
+    "day": 20,
+    "money": 370800
+   },
+   {
+    "day": 21,
+    "money": 385300
+   },
+   {
+    "day": 22,
+    "money": 396900
+   },
+   {
+    "day": 23,
+    "money": 422000
+   },
+   {
+    "day": 24,
+    "money": 440800
+   },
+   {
+    "day": 25,
+    "money": 455700
+   },
+   {
+    "day": 26,
+    "money": 471000
+   },
+   {
+    "day": 27,
+    "money": 483800
+   },
+   {
+    "day": 28,
+    "money": 576000
+   },
+   {
+    "day": 29,
+    "money": 688900
+   },
+   {
+    "day": 30,
+    "money": 697800
+   },
+   {
+    "day": 31,
+    "money": 712200
+   },
+   {
+    "day": 32,
+    "money": 712200
+   },
+   {
+    "day": 33,
+    "money": 727800
+   },
+   {
+    "day": 34,
+    "money": 735300
+   },
+   {
+    "day": 35,
+    "money": 743900
+   },
+   {
+    "day": 36,
+    "money": 758100
+   },
+   {
+    "day": 37,
+    "money": 769700
+   }
+  ],
+  "firstPlayDay": 2,
+  "offerAcceptDay": 2,
+  "plays": 35,
+  "playWins": 31,
+  "playGain": 569700,
+  "playSpent": 0,
+  "captured": 1,
+  "gone": 0,
+  "clubNights": 0,
+  "clubSpent": 0,
+  "shifts": 0,
+  "rentGross": 0,
+  "rentNet": 0,
+  "propsBought": [],
+  "roomsBought": [],
+  "partyHallDay": null,
+  "introDay": null,
+  "minMoney": 100000,
+  "money7": 160900,
+  "errors": [],
+  "seeded": [],
+  "steps": [],
+  "cheap": [],
+  "final": {
+   "money": 769700,
+   "netWorth": 769700,
+   "props": 0,
+   "rooms": 0,
+   "ogas": 8
+  },
+  "playBands": {
+   "ROUTINE": {
+    "n": 33,
+    "captured": 1,
+    "wins": 29,
+    "gain": 551400
+   },
+   "HOLD": {
+    "n": 2,
+    "captured": 0,
+    "wins": 2,
+    "gain": 18300
+   }
+  },
+  "playGains": [
+   {
+    "gain": 9500,
+    "big": false
+   },
+   {
+    "gain": 15300,
+    "big": false
+   },
+   {
+    "gain": 14600,
+    "big": false
+   },
+   {
+    "gain": 21500,
+    "big": false
+   },
+   {
+    "gain": 39700,
+    "big": false
+   },
+   {
+    "gain": 29300,
+    "big": false
+   },
+   {
+    "gain": 36900,
+    "big": false
+   },
+   {
+    "gain": 14700,
+    "big": false
+   },
+   {
+    "gain": 9300,
+    "big": false
+   },
+   {
+    "gain": 6900,
+    "big": false
+   },
+   {
+    "gain": 20900,
+    "big": false
+   },
+   {
+    "gain": 14700,
+    "big": false
+   },
+   {
+    "gain": 9900,
+    "big": false
+   },
+   {
+    "gain": 9000,
+    "big": false
+   },
+   {
+    "gain": 18600,
+    "big": false
+   },
+   {
+    "gain": 14500,
+    "big": false
+   },
+   {
+    "gain": 11600,
+    "big": false
+   },
+   {
+    "gain": 25100,
+    "big": false
+   },
+   {
+    "gain": 18800,
+    "big": false
+   },
+   {
+    "gain": 14900,
+    "big": false
+   },
+   {
+    "gain": 15300,
+    "big": false
+   },
+   {
+    "gain": 12800,
+    "big": false
+   },
+   {
+    "gain": 92200,
+    "big": false
+   },
+   {
+    "gain": 12900,
+    "big": false
+   },
+   {
+    "gain": 8900,
+    "big": false
+   },
+   {
+    "gain": 14400,
+    "big": false
+   },
+   {
+    "gain": 15600,
+    "big": false
+   },
+   {
+    "gain": 7500,
+    "big": false
+   },
+   {
+    "gain": 8600,
+    "big": false
+   },
+   {
+    "gain": 14200,
+    "big": false
+   },
+   {
+    "gain": 11600,
+    "big": false
+   }
+  ],
+  "crashes": 0
+ },
+ {
+  "persona": "hoarder",
+  "seed": 2,
+  "days": 36,
+  "daily": [
+   {
+    "day": 2,
+    "money": 100000
+   },
+   {
+    "day": 3,
+    "money": 100000
+   },
+   {
+    "day": 4,
+    "money": 111600
+   },
+   {
+    "day": 5,
+    "money": 120300
+   },
+   {
+    "day": 6,
+    "money": 139400
+   },
+   {
+    "day": 7,
+    "money": 152000
+   },
+   {
+    "day": 8,
+    "money": 150000
+   },
+   {
+    "day": 9,
+    "money": 162600
+   },
+   {
+    "day": 10,
+    "money": 181400
+   },
+   {
+    "day": 11,
+    "money": 180400
+   },
+   {
+    "day": 12,
+    "money": 178400
+   },
+   {
+    "day": 13,
+    "money": 192900
+   },
+   {
+    "day": 14,
+    "money": 212600
+   },
+   {
+    "day": 15,
+    "money": 219100
+   },
+   {
+    "day": 16,
+    "money": 227900
+   },
+   {
+    "day": 17,
+    "money": 239800
+   },
+   {
+    "day": 18,
+    "money": 258000
+   },
+   {
+    "day": 19,
+    "money": 271700
+   },
+   {
+    "day": 20,
+    "money": 280600
+   },
+   {
+    "day": 21,
+    "money": 294500
+   },
+   {
+    "day": 22,
+    "money": 305700
+   },
+   {
+    "day": 23,
+    "money": 315600
+   },
+   {
+    "day": 24,
+    "money": 314600
+   },
+   {
+    "day": 25,
+    "money": 322900
+   },
+   {
+    "day": 26,
+    "money": 341400
+   },
+   {
+    "day": 27,
+    "money": 351000
+   },
+   {
+    "day": 28,
+    "money": 366800
+   },
+   {
+    "day": 29,
+    "money": 466800
+   },
+   {
+    "day": 30,
+    "money": 499500
+   },
+   {
+    "day": 31,
+    "money": 510500
+   },
+   {
+    "day": 32,
+    "money": 520100
+   },
+   {
+    "day": 33,
+    "money": 533100
+   },
+   {
+    "day": 34,
+    "money": 532100
+   },
+   {
+    "day": 35,
+    "money": 540600
+   },
+   {
+    "day": 36,
+    "money": 565600
+   },
+   {
+    "day": 37,
+    "money": 586500
+   }
+  ],
+  "firstPlayDay": 2,
+  "offerAcceptDay": 2,
+  "plays": 35,
+  "playWins": 28,
+  "playGain": 393500,
+  "playSpent": 7000,
+  "captured": 0,
+  "gone": 0,
+  "clubNights": 0,
+  "clubSpent": 0,
+  "shifts": 0,
+  "rentGross": 0,
+  "rentNet": 0,
+  "propsBought": [],
+  "roomsBought": [],
+  "partyHallDay": null,
+  "introDay": null,
+  "minMoney": 100000,
+  "money7": 150000,
+  "errors": [],
+  "seeded": [],
+  "steps": [],
+  "cheap": [],
+  "final": {
+   "money": 586500,
+   "netWorth": 586500,
+   "props": 0,
+   "rooms": 0,
+   "ogas": 8
+  },
+  "playBands": {
+   "ROUTINE": {
+    "n": 33,
+    "captured": 0,
+    "wins": 26,
+    "gain": 373500
+   },
+   "HOLD": {
+    "n": 2,
+    "captured": 0,
+    "wins": 2,
+    "gain": 20000
+   }
+  },
+  "playGains": [
+   {
+    "gain": 11600,
+    "big": false
+   },
+   {
+    "gain": 8700,
+    "big": false
+   },
+   {
+    "gain": 19100,
+    "big": false
+   },
+   {
+    "gain": 12600,
+    "big": false
+   },
+   {
+    "gain": 12600,
+    "big": false
+   },
+   {
+    "gain": 18800,
+    "big": false
+   },
+   {
+    "gain": 14500,
+    "big": false
+   },
+   {
+    "gain": 19700,
+    "big": false
+   },
+   {
+    "gain": 6500,
+    "big": false
+   },
+   {
+    "gain": 8800,
+    "big": false
+   },
+   {
+    "gain": 11900,
+    "big": false
+   },
+   {
+    "gain": 18200,
+    "big": false
+   },
+   {
+    "gain": 13700,
+    "big": false
+   },
+   {
+    "gain": 8900,
+    "big": false
+   },
+   {
+    "gain": 13900,
+    "big": false
+   },
+   {
+    "gain": 11200,
+    "big": false
+   },
+   {
+    "gain": 9900,
+    "big": false
+   },
+   {
+    "gain": 8300,
+    "big": false
+   },
+   {
+    "gain": 18500,
+    "big": false
+   },
+   {
+    "gain": 9600,
+    "big": false
+   },
+   {
+    "gain": 15800,
+    "big": false
+   },
+   {
+    "gain": 32700,
+    "big": false
+   },
+   {
+    "gain": 11000,
+    "big": false
+   },
+   {
+    "gain": 9600,
+    "big": false
+   },
+   {
+    "gain": 13000,
+    "big": false
+   },
+   {
+    "gain": 8500,
+    "big": false
+   },
+   {
+    "gain": 25000,
+    "big": false
+   },
+   {
+    "gain": 20900,
+    "big": false
+   }
+  ],
+  "crashes": 0
+ },
+ {
+  "persona": "hoarder",
+  "seed": 3,
+  "days": 36,
+  "daily": [
+   {
+    "day": 2,
+    "money": 100000
+   },
+   {
+    "day": 3,
+    "money": 113600
+   },
+   {
+    "day": 4,
+    "money": 123200
+   },
+   {
+    "day": 5,
+    "money": 133100
+   },
+   {
+    "day": 6,
+    "money": 167900
+   },
+   {
+    "day": 7,
+    "money": 179000
+   },
+   {
+    "day": 8,
+    "money": 212200
+   },
+   {
+    "day": 9,
+    "money": 222700
+   },
+   {
+    "day": 10,
+    "money": 241800
+   },
+   {
+    "day": 11,
+    "money": 253900
+   },
+   {
+    "day": 12,
+    "money": 273100
+   },
+   {
+    "day": 13,
+    "money": 286900
+   },
+   {
+    "day": 14,
+    "money": 308000
+   },
+   {
+    "day": 15,
+    "money": 307000
+   },
+   {
+    "day": 16,
+    "money": 325900
+   },
+   {
+    "day": 17,
+    "money": 335400
+   },
+   {
+    "day": 18,
+    "money": 356200
+   },
+   {
+    "day": 19,
+    "money": 368700
+   },
+   {
+    "day": 20,
+    "money": 389700
+   },
+   {
+    "day": 21,
+    "money": 398500
+   },
+   {
+    "day": 22,
+    "money": 407700
+   },
+   {
+    "day": 23,
+    "money": 420900
+   },
+   {
+    "day": 24,
+    "money": 440000
+   },
+   {
+    "day": 25,
+    "money": 498600
+   },
+   {
+    "day": 26,
+    "money": 515900
+   },
+   {
+    "day": 27,
+    "money": 524900
+   },
+   {
+    "day": 28,
+    "money": 543600
+   },
+   {
+    "day": 29,
+    "money": 656100
+   },
+   {
+    "day": 30,
+    "money": 665400
+   },
+   {
+    "day": 31,
+    "money": 685700
+   },
+   {
+    "day": 32,
+    "money": 705000
+   },
+   {
+    "day": 33,
+    "money": 719000
+   },
+   {
+    "day": 34,
+    "money": 726400
+   },
+   {
+    "day": 35,
+    "money": 735200
+   },
+   {
+    "day": 36,
+    "money": 756100
+   },
+   {
+    "day": 37,
+    "money": 767900
+   }
+  ],
+  "firstPlayDay": 2,
+  "offerAcceptDay": 2,
+  "plays": 35,
+  "playWins": 34,
+  "playGain": 568900,
+  "playSpent": 1000,
+  "captured": 1,
+  "gone": 0,
+  "clubNights": 0,
+  "clubSpent": 0,
+  "shifts": 0,
+  "rentGross": 0,
+  "rentNet": 0,
+  "propsBought": [],
+  "roomsBought": [],
+  "partyHallDay": null,
+  "introDay": null,
+  "minMoney": 100000,
+  "money7": 212200,
+  "errors": [],
+  "seeded": [],
+  "steps": [],
+  "cheap": [],
+  "final": {
+   "money": 767900,
+   "netWorth": 767900,
+   "props": 0,
+   "rooms": 0,
+   "ogas": 8
+  },
+  "playBands": {
+   "ROUTINE": {
+    "n": 33,
+    "captured": 1,
+    "wins": 32,
+    "gain": 550700
+   },
+   "HOLD": {
+    "n": 2,
+    "captured": 0,
+    "wins": 2,
+    "gain": 18200
+   }
+  },
+  "playGains": [
+   {
+    "gain": 13600,
+    "big": false
+   },
+   {
+    "gain": 9600,
+    "big": false
+   },
+   {
+    "gain": 9900,
+    "big": false
+   },
+   {
+    "gain": 34800,
+    "big": false
+   },
+   {
+    "gain": 11100,
+    "big": false
+   },
+   {
+    "gain": 33200,
+    "big": false
+   },
+   {
+    "gain": 10500,
+    "big": false
+   },
+   {
+    "gain": 19100,
+    "big": false
+   },
+   {
+    "gain": 12100,
+    "big": false
+   },
+   {
+    "gain": 19200,
+    "big": false
+   },
+   {
+    "gain": 13800,
+    "big": false
+   },
+   {
+    "gain": 21100,
+    "big": false
+   },
+   {
+    "gain": 18900,
+    "big": false
+   },
+   {
+    "gain": 9500,
+    "big": false
+   },
+   {
+    "gain": 20800,
+    "big": false
+   },
+   {
+    "gain": 12500,
+    "big": false
+   },
+   {
+    "gain": 21000,
+    "big": false
+   },
+   {
+    "gain": 8800,
+    "big": false
+   },
+   {
+    "gain": 9200,
+    "big": false
+   },
+   {
+    "gain": 13200,
+    "big": false
+   },
+   {
+    "gain": 19100,
+    "big": false
+   },
+   {
+    "gain": 58600,
+    "big": false
+   },
+   {
+    "gain": 17300,
+    "big": false
+   },
+   {
+    "gain": 9000,
+    "big": false
+   },
+   {
+    "gain": 18700,
+    "big": false
+   },
+   {
+    "gain": 12500,
+    "big": false
+   },
+   {
+    "gain": 9300,
+    "big": false
+   },
+   {
+    "gain": 20300,
+    "big": false
+   },
+   {
+    "gain": 19300,
+    "big": false
+   },
+   {
+    "gain": 14000,
+    "big": false
+   },
+   {
+    "gain": 7400,
+    "big": false
+   },
+   {
+    "gain": 8800,
+    "big": false
+   },
+   {
+    "gain": 20900,
+    "big": false
+   },
+   {
+    "gain": 11800,
+    "big": false
+   }
+  ],
+  "crashes": 0
+ },
+ {
+  "persona": "jobber",
+  "seed": 1,
+  "days": 36,
+  "daily": [
+   {
+    "day": 2,
+    "money": 96400
+   },
+   {
+    "day": 3,
+    "money": 96550
+   },
+   {
+    "day": 4,
+    "money": 102700
+   },
+   {
+    "day": 5,
+    "money": 82850
+   },
+   {
+    "day": 6,
+    "money": 83000
+   },
+   {
+    "day": 7,
+    "money": 78150
+   },
+   {
+    "day": 8,
+    "money": 78300
+   },
+   {
+    "day": 9,
+    "money": 78450
+   },
+   {
+    "day": 10,
+    "money": 78600
+   },
+   {
+    "day": 11,
+    "money": 78750
+   },
+   {
+    "day": 12,
+    "money": 73900
+   },
+   {
+    "day": 13,
+    "money": 74050
+   },
+   {
+    "day": 14,
+    "money": 74200
+   },
+   {
+    "day": 15,
+    "money": 74350
+   },
+   {
+    "day": 16,
+    "money": 74500
+   },
+   {
+    "day": 17,
+    "money": 69650
+   },
+   {
+    "day": 18,
+    "money": 69800
+   },
+   {
+    "day": 19,
+    "money": 69950
+   },
+   {
+    "day": 20,
+    "money": 70100
+   },
+   {
+    "day": 21,
+    "money": 70250
+   },
+   {
+    "day": 22,
+    "money": 65400
+   },
+   {
+    "day": 23,
+    "money": 65550
+   },
+   {
+    "day": 24,
+    "money": 65700
+   },
+   {
+    "day": 25,
+    "money": 65850
+   },
+   {
+    "day": 26,
+    "money": 66000
+   },
+   {
+    "day": 27,
+    "money": 61150
+   },
+   {
+    "day": 28,
+    "money": 61300
+   },
+   {
+    "day": 29,
+    "money": 161450
+   },
+   {
+    "day": 30,
+    "money": 161600
+   },
+   {
+    "day": 31,
+    "money": 161750
+   },
+   {
+    "day": 32,
+    "money": 156900
+   },
+   {
+    "day": 33,
+    "money": 157050
+   },
+   {
+    "day": 34,
+    "money": 157200
+   },
+   {
+    "day": 35,
+    "money": 157350
+   },
+   {
+    "day": 36,
+    "money": 157500
+   },
+   {
+    "day": 37,
+    "money": 152650
+   }
+  ],
+  "firstPlayDay": null,
+  "offerAcceptDay": 2,
+  "plays": 0,
+  "playWins": 0,
+  "playGain": 0,
+  "playSpent": 0,
+  "captured": 0,
+  "gone": 0,
+  "clubNights": 8,
+  "clubSpent": 38750,
+  "shifts": 36,
+  "rentGross": 0,
+  "rentNet": 0,
+  "propsBought": [],
+  "roomsBought": [],
+  "partyHallDay": null,
+  "introDay": null,
+  "minMoney": 61150,
+  "money7": 78300,
+  "errors": [],
+  "seeded": [],
+  "steps": [],
+  "cheap": [],
+  "firstClub": {
+   "day": 1,
+   "cashBefore": 100150,
+   "spent": 3750,
+   "first": true,
+   "capHeld": true
+  },
+  "final": {
+   "money": 152650,
+   "netWorth": 152650,
+   "props": 0,
+   "rooms": 0,
+   "ogas": 6
+  },
+  "playBands": {},
+  "playGains": [],
+  "crashes": 0
+ },
+ {
+  "persona": "jobber",
+  "seed": 2,
+  "days": 36,
+  "daily": [
+   {
+    "day": 2,
+    "money": 96400
+   },
+   {
+    "day": 3,
+    "money": 96550
+   },
+   {
+    "day": 4,
+    "money": 102700
+   },
+   {
+    "day": 5,
+    "money": 82850
+   },
+   {
+    "day": 6,
+    "money": 83000
+   },
+   {
+    "day": 7,
+    "money": 78150
+   },
+   {
+    "day": 8,
+    "money": 78300
+   },
+   {
+    "day": 9,
+    "money": 78450
+   },
+   {
+    "day": 10,
+    "money": 78600
+   },
+   {
+    "day": 11,
+    "money": 78750
+   },
+   {
+    "day": 12,
+    "money": 73900
+   },
+   {
+    "day": 13,
+    "money": 74050
+   },
+   {
+    "day": 14,
+    "money": 74200
+   },
+   {
+    "day": 15,
+    "money": 74350
+   },
+   {
+    "day": 16,
+    "money": 74500
+   },
+   {
+    "day": 17,
+    "money": 69650
+   },
+   {
+    "day": 18,
+    "money": 69800
+   },
+   {
+    "day": 19,
+    "money": 69950
+   },
+   {
+    "day": 20,
+    "money": 70100
+   },
+   {
+    "day": 21,
+    "money": 70250
+   },
+   {
+    "day": 22,
+    "money": 65400
+   },
+   {
+    "day": 23,
+    "money": 65550
+   },
+   {
+    "day": 24,
+    "money": 65700
+   },
+   {
+    "day": 25,
+    "money": 65850
+   },
+   {
+    "day": 26,
+    "money": 66000
+   },
+   {
+    "day": 27,
+    "money": 61150
+   },
+   {
+    "day": 28,
+    "money": 61300
+   },
+   {
+    "day": 29,
+    "money": 161450
+   },
+   {
+    "day": 30,
+    "money": 161600
+   },
+   {
+    "day": 31,
+    "money": 161750
+   },
+   {
+    "day": 32,
+    "money": 156900
+   },
+   {
+    "day": 33,
+    "money": 157050
+   },
+   {
+    "day": 34,
+    "money": 157200
+   },
+   {
+    "day": 35,
+    "money": 157350
+   },
+   {
+    "day": 36,
+    "money": 157500
+   },
+   {
+    "day": 37,
+    "money": 152650
+   }
+  ],
+  "firstPlayDay": null,
+  "offerAcceptDay": 2,
+  "plays": 0,
+  "playWins": 0,
+  "playGain": 0,
+  "playSpent": 0,
+  "captured": 0,
+  "gone": 0,
+  "clubNights": 8,
+  "clubSpent": 38750,
+  "shifts": 36,
+  "rentGross": 0,
+  "rentNet": 0,
+  "propsBought": [],
+  "roomsBought": [],
+  "partyHallDay": null,
+  "introDay": null,
+  "minMoney": 61150,
+  "money7": 78300,
+  "errors": [],
+  "seeded": [],
+  "steps": [],
+  "cheap": [],
+  "firstClub": {
+   "day": 1,
+   "cashBefore": 100150,
+   "spent": 3750,
+   "first": true,
+   "capHeld": true
+  },
+  "final": {
+   "money": 152650,
+   "netWorth": 152650,
+   "props": 0,
+   "rooms": 0,
+   "ogas": 6
+  },
+  "playBands": {},
+  "playGains": [],
+  "crashes": 0
+ },
+ {
+  "persona": "jobber",
+  "seed": 3,
+  "days": 36,
+  "daily": [
+   {
+    "day": 2,
+    "money": 96400
+   },
+   {
+    "day": 3,
+    "money": 96550
+   },
+   {
+    "day": 4,
+    "money": 102700
+   },
+   {
+    "day": 5,
+    "money": 82850
+   },
+   {
+    "day": 6,
+    "money": 83000
+   },
+   {
+    "day": 7,
+    "money": 78150
+   },
+   {
+    "day": 8,
+    "money": 78300
+   },
+   {
+    "day": 9,
+    "money": 78450
+   },
+   {
+    "day": 10,
+    "money": 78600
+   },
+   {
+    "day": 11,
+    "money": 78750
+   },
+   {
+    "day": 12,
+    "money": 73900
+   },
+   {
+    "day": 13,
+    "money": 74050
+   },
+   {
+    "day": 14,
+    "money": 74200
+   },
+   {
+    "day": 15,
+    "money": 74350
+   },
+   {
+    "day": 16,
+    "money": 74500
+   },
+   {
+    "day": 17,
+    "money": 69650
+   },
+   {
+    "day": 18,
+    "money": 69800
+   },
+   {
+    "day": 19,
+    "money": 69950
+   },
+   {
+    "day": 20,
+    "money": 70100
+   },
+   {
+    "day": 21,
+    "money": 70250
+   },
+   {
+    "day": 22,
+    "money": 65400
+   },
+   {
+    "day": 23,
+    "money": 65550
+   },
+   {
+    "day": 24,
+    "money": 65700
+   },
+   {
+    "day": 25,
+    "money": 65850
+   },
+   {
+    "day": 26,
+    "money": 66000
+   },
+   {
+    "day": 27,
+    "money": 61150
+   },
+   {
+    "day": 28,
+    "money": 61300
+   },
+   {
+    "day": 29,
+    "money": 161450
+   },
+   {
+    "day": 30,
+    "money": 161600
+   },
+   {
+    "day": 31,
+    "money": 161750
+   },
+   {
+    "day": 32,
+    "money": 156900
+   },
+   {
+    "day": 33,
+    "money": 157050
+   },
+   {
+    "day": 34,
+    "money": 157200
+   },
+   {
+    "day": 35,
+    "money": 157350
+   },
+   {
+    "day": 36,
+    "money": 157500
+   },
+   {
+    "day": 37,
+    "money": 152650
+   }
+  ],
+  "firstPlayDay": null,
+  "offerAcceptDay": 2,
+  "plays": 0,
+  "playWins": 0,
+  "playGain": 0,
+  "playSpent": 0,
+  "captured": 0,
+  "gone": 0,
+  "clubNights": 8,
+  "clubSpent": 38750,
+  "shifts": 36,
+  "rentGross": 0,
+  "rentNet": 0,
+  "propsBought": [],
+  "roomsBought": [],
+  "partyHallDay": null,
+  "introDay": null,
+  "minMoney": 61150,
+  "money7": 78300,
+  "errors": [],
+  "seeded": [],
+  "steps": [],
+  "cheap": [],
+  "firstClub": {
+   "day": 1,
+   "cashBefore": 100150,
+   "spent": 3750,
+   "first": true,
+   "capHeld": true
+  },
+  "final": {
+   "money": 152650,
+   "netWorth": 152650,
+   "props": 0,
+   "rooms": 0,
+   "ogas": 6
+  },
+  "playBands": {},
+  "playGains": [],
+  "crashes": 0
+ },
+ {
+  "persona": "landlord",
+  "seed": 1,
+  "days": 36,
+  "daily": [
+   {
+    "day": 2,
+    "money": 59300
+   },
+   {
+    "day": 3,
+    "money": 83600
+   },
+   {
+    "day": 4,
+    "money": 88900
+   },
+   {
+    "day": 5,
+    "money": 89700
+   },
+   {
+    "day": 6,
+    "money": 89400
+   },
+   {
+    "day": 7,
+    "money": 104500
+   },
+   {
+    "day": 8,
+    "money": 57540
+   },
+   {
+    "day": 9,
+    "money": 69980
+   },
+   {
+    "day": 10,
+    "money": 76820
+   },
+   {
+    "day": 11,
+    "money": 84960
+   },
+   {
+    "day": 12,
+    "money": 76900
+   },
+   {
+    "day": 13,
+    "money": 78840
+   },
+   {
+    "day": 14,
+    "money": 70780
+   },
+   {
+    "day": 15,
+    "money": 81420
+   },
+   {
+    "day": 16,
+    "money": 94260
+   },
+   {
+    "day": 17,
+    "money": 106000
+   },
+   {
+    "day": 18,
+    "money": 112040
+   },
+   {
+    "day": 19,
+    "money": 127680
+   },
+   {
+    "day": 20,
+    "money": 61835
+   },
+   {
+    "day": 21,
+    "money": 64390
+   },
+   {
+    "day": 22,
+    "money": 55945
+   },
+   {
+    "day": 23,
+    "money": 57422
+   },
+   {
+    "day": 24,
+    "money": 71777
+   },
+   {
+    "day": 25,
+    "money": 90232
+   },
+   {
+    "day": 26,
+    "money": 98787
+   },
+   {
+    "day": 27,
+    "money": 102342
+   },
+   {
+    "day": 28,
+    "money": 65357
+   },
+   {
+    "day": 29,
+    "money": 184472
+   },
+   {
+    "day": 30,
+    "money": 189587
+   },
+   {
+    "day": 31,
+    "money": 219802
+   },
+   {
+    "day": 32,
+    "money": 65832
+   },
+   {
+    "day": 33,
+    "money": 75562
+   },
+   {
+    "day": 34,
+    "money": 82992
+   },
+   {
+    "day": 35,
+    "money": 92722
+   },
+   {
+    "day": 36,
+    "money": 126252
+   },
+   {
+    "day": 37,
+    "money": 136235
+   }
+  ],
+  "firstPlayDay": 2,
+  "offerAcceptDay": 2,
+  "plays": 35,
+  "playWins": 25,
+  "playGain": 450300,
+  "playSpent": 4000,
+  "captured": 2,
+  "gone": 0,
+  "clubNights": 18,
+  "clubSpent": 177500,
+  "shifts": 0,
+  "rentGross": 262400,
+  "rentNet": 139760,
+  "propsBought": [
+   {
+    "id": "property_la_4p_01",
+    "day": 1
+   },
+   {
+    "id": "re_duplex_inglewood",
+    "day": 7
+   },
+   {
+    "id": "re_bungalow_highland",
+    "day": 19
+   },
+   {
+    "id": "re_courtyard_ktown",
+    "day": 27
+   },
+   {
+    "id": "re_laundromat_ktown",
+    "day": 31
+   }
+  ],
+  "roomsBought": [],
+  "partyHallDay": null,
+  "introDay": null,
+  "minMoney": 52390,
+  "money7": 57540,
+  "errors": [],
+  "seeded": [
+   {
+    "what": "property",
+    "day": 1
+   }
+  ],
+  "steps": [],
+  "cheap": [],
+  "firstClub": {
+   "day": 1,
+   "cashBefore": 100000,
+   "spent": 7500,
+   "first": true,
+   "capHeld": true
+  },
+  "rentPerDay": 9730,
+  "final": {
+   "money": 136235,
+   "netWorth": 1643233,
+   "props": 5,
+   "rooms": 0,
+   "ogas": 8
+  },
+  "playBands": {
+   "ROUTINE": {
+    "n": 33,
+    "captured": 2,
+    "wins": 24,
+    "gain": 444100
+   },
+   "HOLD": {
+    "n": 2,
+    "captured": 0,
+    "wins": 1,
+    "gain": 6200
+   }
+  },
+  "playGains": [
+   {
+    "gain": 23500,
+    "big": false
+   },
+   {
+    "gain": 14500,
+    "big": false
+   },
+   {
+    "gain": 8900,
+    "big": false
+   },
+   {
+    "gain": 14300,
+    "big": false
+   },
+   {
+    "gain": 15100,
+    "big": false
+   },
+   {
+    "gain": 10500,
+    "big": false
+   },
+   {
+    "gain": 14900,
+    "big": false
+   },
+   {
+    "gain": 6200,
+    "big": false
+   },
+   {
+    "gain": 8700,
+    "big": false
+   },
+   {
+    "gain": 20900,
+    "big": false
+   },
+   {
+    "gain": 9800,
+    "big": false
+   },
+   {
+    "gain": 14100,
+    "big": false
+   },
+   {
+    "gain": 13700,
+    "big": false
+   },
+   {
+    "gain": 18600,
+    "big": false
+   },
+   {
+    "gain": 20800,
+    "big": false
+   },
+   {
+    "gain": 14900,
+    "big": false
+   },
+   {
+    "gain": 15000,
+    "big": false
+   },
+   {
+    "gain": 92800,
+    "big": false
+   },
+   {
+    "gain": 12900,
+    "big": false
+   },
+   {
+    "gain": 8900,
+    "big": false
+   },
+   {
+    "gain": 24000,
+    "big": false
+   },
+   {
+    "gain": 14300,
+    "big": false
+   },
+   {
+    "gain": 7700,
+    "big": false
+   },
+   {
+    "gain": 33800,
+    "big": false
+   },
+   {
+    "gain": 11500,
+    "big": false
+   }
+  ],
+  "crashes": 0
+ },
+ {
+  "persona": "landlord",
+  "seed": 2,
+  "days": 36,
+  "daily": [
+   {
+    "day": 2,
+    "money": 59300
+   },
+   {
+    "day": 3,
+    "money": 70200
+   },
+   {
+    "day": 4,
+    "money": 69600
+   },
+   {
+    "day": 5,
+    "money": 79100
+   },
+   {
+    "day": 6,
+    "money": 85400
+   },
+   {
+    "day": 7,
+    "money": 100800
+   },
+   {
+    "day": 8,
+    "money": 57940
+   },
+   {
+    "day": 9,
+    "money": 72280
+   },
+   {
+    "day": 10,
+    "money": 72820
+   },
+   {
+    "day": 11,
+    "money": 91460
+   },
+   {
+    "day": 12,
+    "money": 92600
+   },
+   {
+    "day": 13,
+    "money": 109940
+   },
+   {
+    "day": 14,
+    "money": 108280
+   },
+   {
+    "day": 15,
+    "money": 120020
+   },
+   {
+    "day": 16,
+    "money": 109960
+   },
+   {
+    "day": 17,
+    "money": 123500
+   },
+   {
+    "day": 18,
+    "money": 125540
+   },
+   {
+    "day": 19,
+    "money": 64095
+   },
+   {
+    "day": 20,
+    "money": 92350
+   },
+   {
+    "day": 21,
+    "money": 118605
+   },
+   {
+    "day": 22,
+    "money": 124760
+   },
+   {
+    "day": 23,
+    "money": 140637
+   },
+   {
+    "day": 24,
+    "money": 153092
+   },
+   {
+    "day": 25,
+    "money": 165447
+   },
+   {
+    "day": 26,
+    "money": 173702
+   },
+   {
+    "day": 27,
+    "money": 66717
+   },
+   {
+    "day": 28,
+    "money": 81032
+   },
+   {
+    "day": 29,
+    "money": 196147
+   },
+   {
+    "day": 30,
+    "money": 200862
+   },
+   {
+    "day": 31,
+    "money": 223277
+   },
+   {
+    "day": 32,
+    "money": 154407
+   },
+   {
+    "day": 33,
+    "money": 178037
+   },
+   {
+    "day": 34,
+    "money": 192567
+   },
+   {
+    "day": 35,
+    "money": 210697
+   },
+   {
+    "day": 36,
+    "money": 229627
+   },
+   {
+    "day": 37,
+    "money": 315010
+   }
+  ],
+  "firstPlayDay": 2,
+  "offerAcceptDay": 2,
+  "plays": 35,
+  "playWins": 34,
+  "playGain": 622800,
+  "playSpent": 2000,
+  "captured": 1,
+  "gone": 0,
+  "clubNights": 18,
+  "clubSpent": 177500,
+  "shifts": 0,
+  "rentGross": 271400,
+  "rentNet": 144035,
+  "propsBought": [
+   {
+    "id": "property_la_4p_01",
+    "day": 1
+   },
+   {
+    "id": "re_duplex_inglewood",
+    "day": 7
+   },
+   {
+    "id": "re_bungalow_highland",
+    "day": 18
+   },
+   {
+    "id": "re_courtyard_ktown",
+    "day": 26
+   },
+   {
+    "id": "re_laundromat_ktown",
+    "day": 31
+   }
+  ],
+  "roomsBought": [],
+  "partyHallDay": null,
+  "introDay": null,
+  "minMoney": 56000,
+  "money7": 57940,
+  "errors": [],
+  "seeded": [
+   {
+    "what": "property",
+    "day": 1
+   }
+  ],
+  "steps": [],
+  "cheap": [],
+  "firstClub": {
+   "day": 1,
+   "cashBefore": 100000,
+   "spent": 7500,
+   "first": true,
+   "capHeld": true
+  },
+  "rentPerDay": 9730,
+  "final": {
+   "money": 315010,
+   "netWorth": 1822008,
+   "props": 5,
+   "rooms": 0,
+   "ogas": 8
+  },
+  "playBands": {
+   "ROUTINE": {
+    "n": 33,
+    "captured": 1,
+    "wins": 32,
+    "gain": 596900
+   },
+   "HOLD": {
+    "n": 2,
+    "captured": 0,
+    "wins": 2,
+    "gain": 25900
+   }
+  },
+  "playGains": [
+   {
+    "gain": 10100,
+    "big": false
+   },
+   {
+    "gain": 8600,
+    "big": false
+   },
+   {
+    "gain": 8700,
+    "big": false
+   },
+   {
+    "gain": 15500,
+    "big": false
+   },
+   {
+    "gain": 14600,
+    "big": false
+   },
+   {
+    "gain": 19200,
+    "big": false
+   },
+   {
+    "gain": 12400,
+    "big": false
+   },
+   {
+    "gain": 8600,
+    "big": false
+   },
+   {
+    "gain": 16700,
+    "big": false
+   },
+   {
+    "gain": 9200,
+    "big": false
+   },
+   {
+    "gain": 15400,
+    "big": false
+   },
+   {
+    "gain": 6400,
+    "big": false
+   },
+   {
+    "gain": 9800,
+    "big": false
+   },
+   {
+    "gain": 11600,
+    "big": false
+   },
+   {
+    "gain": 10100,
+    "big": false
+   },
+   {
+    "gain": 13000,
+    "big": false
+   },
+   {
+    "gain": 34700,
+    "big": false
+   },
+   {
+    "gain": 22700,
+    "big": false
+   },
+   {
+    "gain": 12600,
+    "big": false
+   },
+   {
+    "gain": 13400,
+    "big": false
+   },
+   {
+    "gain": 18900,
+    "big": false
+   },
+   {
+    "gain": 8800,
+    "big": false
+   },
+   {
+    "gain": 14700,
+    "big": false
+   },
+   {
+    "gain": 12800,
+    "big": false
+   },
+   {
+    "gain": 18100,
+    "big": false
+   },
+   {
+    "gain": 8900,
+    "big": false
+   },
+   {
+    "gain": 8500,
+    "big": false
+   },
+   {
+    "gain": 16200,
+    "big": false
+   },
+   {
+    "gain": 99400,
+    "big": false
+   },
+   {
+    "gain": 13900,
+    "big": false
+   },
+   {
+    "gain": 14800,
+    "big": false
+   },
+   {
+    "gain": 8400,
+    "big": false
+   },
+   {
+    "gain": 19200,
+    "big": false
+   },
+   {
+    "gain": 86900,
+    "big": false
+   }
+  ],
+  "crashes": 0
+ },
+ {
+  "persona": "landlord",
+  "seed": 3,
+  "days": 36,
+  "daily": [
+   {
+    "day": 2,
+    "money": 59300
+   },
+   {
+    "day": 3,
+    "money": 72300
+   },
+   {
+    "day": 4,
+    "money": 75300
+   },
+   {
+    "day": 5,
+    "money": 86000
+   },
+   {
+    "day": 6,
+    "money": 92000
+   },
+   {
+    "day": 7,
+    "money": 91800
+   },
+   {
+    "day": 8,
+    "money": 62940
+   },
+   {
+    "day": 9,
+    "money": 77680
+   },
+   {
+    "day": 10,
+    "money": 84720
+   },
+   {
+    "day": 11,
+    "money": 95560
+   },
+   {
+    "day": 12,
+    "money": 96600
+   },
+   {
+    "day": 13,
+    "money": 97540
+   },
+   {
+    "day": 14,
+    "money": 97080
+   },
+   {
+    "day": 15,
+    "money": 98020
+   },
+   {
+    "day": 16,
+    "money": 111260
+   },
+   {
+    "day": 17,
+    "money": 57315
+   },
+   {
+    "day": 18,
+    "money": 75770
+   },
+   {
+    "day": 19,
+    "money": 92025
+   },
+   {
+    "day": 20,
+    "money": 107180
+   },
+   {
+    "day": 21,
+    "money": 127035
+   },
+   {
+    "day": 22,
+    "money": 132190
+   },
+   {
+    "day": 23,
+    "money": 147867
+   },
+   {
+    "day": 24,
+    "money": 160122
+   },
+   {
+    "day": 25,
+    "money": 172577
+   },
+   {
+    "day": 26,
+    "money": 60292
+   },
+   {
+    "day": 27,
+    "money": 79207
+   },
+   {
+    "day": 28,
+    "money": 94222
+   },
+   {
+    "day": 29,
+    "money": 212737
+   },
+   {
+    "day": 30,
+    "money": 216990
+   },
+   {
+    "day": 31,
+    "money": 80020
+   },
+   {
+    "day": 32,
+    "money": 99550
+   },
+   {
+    "day": 33,
+    "money": 123480
+   },
+   {
+    "day": 34,
+    "money": 123210
+   },
+   {
+    "day": 35,
+    "money": 139540
+   },
+   {
+    "day": 36,
+    "money": 160170
+   },
+   {
+    "day": 37,
+    "money": 176625
+   }
+  ],
+  "firstPlayDay": 2,
+  "offerAcceptDay": 2,
+  "plays": 35,
+  "playWins": 31,
+  "playGain": 470100,
+  "playSpent": 3000,
+  "captured": 1,
+  "gone": 0,
+  "clubNights": 18,
+  "clubSpent": 177500,
+  "shifts": 0,
+  "rentGross": 291200,
+  "rentNet": 153440,
+  "propsBought": [
+   {
+    "id": "property_la_4p_01",
+    "day": 1
+   },
+   {
+    "id": "re_duplex_inglewood",
+    "day": 7
+   },
+   {
+    "id": "re_bungalow_highland",
+    "day": 16
+   },
+   {
+    "id": "re_courtyard_ktown",
+    "day": 25
+   },
+   {
+    "id": "re_laundromat_ktown",
+    "day": 30
+   }
+  ],
+  "roomsBought": [],
+  "partyHallDay": null,
+  "introDay": null,
+  "minMoney": 53760,
+  "money7": 62940,
+  "errors": [],
+  "seeded": [
+   {
+    "what": "property",
+    "day": 1
+   }
+  ],
+  "steps": [],
+  "cheap": [],
+  "firstClub": {
+   "day": 1,
+   "cashBefore": 100000,
+   "spent": 7500,
+   "first": true,
+   "capHeld": true
+  },
+  "rentPerDay": 9730,
+  "final": {
+   "money": 176625,
+   "netWorth": 1683623,
+   "props": 5,
+   "rooms": 0,
+   "ogas": 8
+  },
+  "playBands": {
+   "ROUTINE": {
+    "n": 33,
+    "captured": 1,
+    "wins": 29,
+    "gain": 452100
+   },
+   "HOLD": {
+    "n": 2,
+    "captured": 0,
+    "wins": 2,
+    "gain": 18000
+   }
+  },
+  "playGains": [
+   {
+    "gain": 12200,
+    "big": false
+   },
+   {
+    "gain": 12200,
+    "big": false
+   },
+   {
+    "gain": 9900,
+    "big": false
+   },
+   {
+    "gain": 15200,
+    "big": false
+   },
+   {
+    "gain": 33200,
+    "big": false
+   },
+   {
+    "gain": 12800,
+    "big": false
+   },
+   {
+    "gain": 15100,
+    "big": false
+   },
+   {
+    "gain": 8900,
+    "big": false
+   },
+   {
+    "gain": 9100,
+    "big": false
+   },
+   {
+    "gain": 7600,
+    "big": false
+   },
+   {
+    "gain": 21300,
+    "big": false
+   },
+   {
+    "gain": 20500,
+    "big": false
+   },
+   {
+    "gain": 24900,
+    "big": false
+   },
+   {
+    "gain": 12700,
+    "big": false
+   },
+   {
+    "gain": 21600,
+    "big": false
+   },
+   {
+    "gain": 16300,
+    "big": false
+   },
+   {
+    "gain": 11600,
+    "big": false
+   },
+   {
+    "gain": 13200,
+    "big": false
+   },
+   {
+    "gain": 18700,
+    "big": false
+   },
+   {
+    "gain": 8900,
+    "big": false
+   },
+   {
+    "gain": 17500,
+    "big": false
+   },
+   {
+    "gain": 12700,
+    "big": false
+   },
+   {
+    "gain": 18800,
+    "big": false
+   },
+   {
+    "gain": 12300,
+    "big": false
+   },
+   {
+    "gain": 8300,
+    "big": false
+   },
+   {
+    "gain": 21300,
+    "big": false
+   },
+   {
+    "gain": 19800,
+    "big": false
+   },
+   {
+    "gain": 14200,
+    "big": false
+   },
+   {
+    "gain": 6600,
+    "big": false
+   },
+   {
+    "gain": 20900,
+    "big": false
+   },
+   {
+    "gain": 11800,
+    "big": false
+   }
+  ],
+  "crashes": 0
+ }
+]

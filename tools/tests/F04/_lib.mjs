@@ -17,7 +17,8 @@ export async function loadWar(root,{flagOn=true,f03=true,f01=true,seedState=null
   if(f01)await run(root,ctx,F01_FILES);
   if(f03)vm.runInContext(F03_PROVIDER,ctx,{filename:'F03-provider-fixture'});
   await run(root,ctx,F04_FILES);
-  if(flagOn){if(f04Flag)ctx.RAFeatures.set('F04.war_room',true);if(f01)ctx.RAFeatures.set('F01.showdown_core',true);}
+  // RC2 (OL-063): F01/F04/F06/F15 ship ON, so the OFF cases are explicit instead of the default.
+  if(ctx.RAFeatures.get('F04.war_room'))ctx.RAFeatures.set('F04.war_room',!!(flagOn&&f04Flag));if(ctx.RAFeatures.get('F01.showdown_core'))ctx.RAFeatures.set('F01.showdown_core',!!(flagOn&&f01));
   return ctx;
 }
 export const saveOf=ctx=>JSON.parse(ctx.localStorage.getItem('rich_alucard_save_v1'));

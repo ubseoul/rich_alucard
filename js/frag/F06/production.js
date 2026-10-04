@@ -14,6 +14,9 @@
   function mount(canvas, options = {}) {
     if (!enabled()) throw new Error('F06_DISABLED');
     if (mounted) throw new Error('F06_ALREADY_MOUNTED');
+    // RC2 (OL-063): options.terms = RAStripClub.terms() when the phone's STRIP CLUB app opens the club. Absent for every other caller,
+    // so a direct mount charges exactly what the core threw. The approved core and tunables are untouched.
+    const terms = options.terms || null;
     let round = null, disposed = false;
     const game = global.RAMakeItRainSandbox.mount(canvas, {
       seed: options.seed,
@@ -27,8 +30,10 @@
           if (saved.active?.id !== round.id) return;
           const delta = current.spent - saved.active.spent;
           if (delta <= 0) return; // duplicate feedback is never a second charge
-          const payment = global.RASalesChannels.record('rainmaker', {amount: -delta, kind: 'flick', memo: String(round.id)});
+          const charge = terms ? global.RAStripClub.price(terms, delta) : delta;
+          const payment = global.RASalesChannels.record('rainmaker', {amount: -charge, kind: 'flick', memo: String(round.id)});
           if (!payment.ok) { abort(); options.onError?.('insufficient-funds'); return; }
+          if (terms) { terms.paid += charge; if (terms.first) global.RAStripClub.markFirstVisit(); }
           // Reload abandons a partial round; it never replays a charge or grants a reward.
           const next = state();
           next.active.spent = current.spent;
@@ -59,8 +64,13 @@
     }
     function start(budget = 10000) {
       if (disposed || !enabled()) return false;
-      if (![5000, 10000, 25000].includes(budget)) return false;
-      if (global.RAMoneyLedger.balance() < budget) return false;
+      if (terms) {
+        // first visit: the preset is trimmed to what the cap still allows (throw dollars); later visits keep the presets
+        if (!(budget > 0 && budget <= 25000)) return false;
+        if (terms.first) { budget = Math.min(budget, global.RAStripClub.room(terms)); if (budget < terms.minRound) return false; }
+        else if (![5000, 10000, 25000].includes(budget)) return false;
+      } else if (![5000, 10000, 25000].includes(budget)) return false;
+      if (global.RAMoneyLedger.balance() < (terms && terms.first ? global.RAStripClub.price(terms, budget) : budget)) return false;
       if (round) abort();
       const saved = state();
       round = {id: ++saved.sequence, budget, spent: 0};
@@ -77,7 +87,7 @@
       mounted = null;
       options.onClose?.();
     }
-    mounted = {start, dispose, game};
+    mounted = {start, dispose, game, terms};
     return mounted;
   }
   global.RASalesChannels.claim('rainmaker', {fragment: 'F06', meta: {scope: 'approved MAKE IT RAIN', rewards: false}});
@@ -85,7 +95,7 @@
   // Treat reload as departure, retaining paid expenses and never applying unfinished results.
   if (enabled() && global.RAFrag.has('F06') && state().active) { const saved = state(); saved.active = null; write(saved); }
   global.RAFeatures.onChange(() => { if (!enabled()) mounted?.dispose(); });
-  function launch() {
+  function launch(opts = {}) {
     if (!enabled() || mounted) return false;
     const previousFocus = global.document.activeElement;
     const host = global.document.createElement('div');
@@ -97,17 +107,20 @@
     global.document.body.appendChild(host);
     const actions = shadow.querySelector('.result-actions');
     const status = shadow.querySelector('[role="status"]');
+    // RC2 (OL-063): the club's own notes (first-visit terms, cap, NEED CASH) were unstyled dark-on-dark text; they are now readable.
+    const say = text => { status.textContent = text; status.style.cssText = 'color:#f4f0ff;font:8px/1.6 "Press Start 2P","Courier New",monospace;margin:8px 4px;text-align:center;min-height:14px'; };
     const key = event => { if (event.key === 'Escape') { event.stopPropagation(); session.dispose(); } };
     const scene = () => session.dispose();
     const f15 = global.RAF15Club?.enabled?.() ? global.RAF15Club.open({shadow, stage: shadow.querySelector('.stage'), canvas: shadow.querySelector('canvas')}) : null;   // F15 seam (dark)
     const session = mount(shadow.querySelector('canvas'), {
+      terms: opts.terms || null,
       hideTarget: !!f15, tunables: f15?.tunables, onSpend: f15?.onSpend,
       onStart: ({budget}) => {
         actions.hidden = true; status.textContent = '';
         shadow.querySelectorAll('[data-budget]').forEach(button => button.setAttribute('aria-pressed', String(Number(button.dataset.budget) === budget)));
       },
       onResult: () => { actions.hidden = false; },
-      onError: () => { status.textContent = 'NEED CASH'; },
+      onError: () => { say(global.RAEconLines?.get('club.need_cash') || 'NEED CASH'); },
       onClose: () => {
         f15?.close();
         global.document.removeEventListener('keydown', key, true);
@@ -115,7 +128,11 @@
         host.remove(); previousFocus?.focus?.();
       }
     });
-    function start(budget) { if (!session.start(budget)) status.textContent = 'NEED CASH'; }
+    function start(budget) {
+      if (session.start(budget)) return;
+      const t = opts.terms;
+      say(t && t.first && t.paid > 0 ? (global.RAEconLines?.get('club.cap_reached') || 'NEED CASH') : (global.RAEconLines?.get('club.need_cash') || 'NEED CASH'));
+    }
     shadow.querySelectorAll('[data-budget]').forEach(button => button.addEventListener('click', () => start(Number(button.dataset.budget))));
     shadow.querySelector('.btn--again').addEventListener('click', () => start(session.game.core.budget));
     f15?.bind(session, {start, launchScene: id => { session.dispose(); return global.RAAdventureScene?.begin?.(id, {from: 'phone'}); }});
@@ -124,12 +141,16 @@
     global.document.addEventListener('keydown', key, true);
     global.document.addEventListener('ra:scene', scene);
     start(10000);
+    if (opts.terms && opts.terms.first && !status.textContent) say(opts.terms.line || '');
     return true;
   }
   global.RAPhoneRegistry.declare('F06', {
     id: 'rainmaker', flag: FLAG,
+    // RC2 (OL-063): the STRIP CLUB phone app (js/systems/strip_club.js) is the one home-screen entry; this app stays reachable
+    // by openApp() and applies the same first-visit terms, so neither door skips the protection.
+    hidden: true,
     render: () => '<h1>RAINMAKER</h1><button type="button" class="phone-button" data-phone-action="do:rainmaker:launch">MAKE IT RAIN</button>',
-    onAction: action => { if (action === 'launch') launch(); }
+    onAction: action => { if (action === 'launch') launch({terms: global.RAStripClub?.terms?.() || null}); }
   });
   global.RAF06Rainmaker = {mount, launch, state, enabled, close: () => mounted?.dispose()};
 })(window);
