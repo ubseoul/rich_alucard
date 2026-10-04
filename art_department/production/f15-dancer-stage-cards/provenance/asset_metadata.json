@@ -1,0 +1,84 @@
+[
+  {
+    "file": "stagecard_roxy.png",
+    "dimensions": [
+      945,
+      1680
+    ],
+    "mode": "RGBA",
+    "alpha_extrema": [
+      255,
+      255
+    ],
+    "generated_dimensions": [
+      941,
+      1672
+    ],
+    "canvas_padding": {
+      "left": 2,
+      "top": 4,
+      "right": 2,
+      "bottom": 4
+    },
+    "sha256": "8de2770ddfb1db106cf576b54433d34fa00e4d95f968e49bd16ebb51f2318d66"
+  },
+  {
+    "file": "stagecard_rosalyn.png",
+    "dimensions": [
+      945,
+      1680
+    ],
+    "mode": "RGBA",
+    "alpha_extrema": [
+      255,
+      255
+    ],
+    "generated_dimensions": [
+      941,
+      1672
+    ],
+    "canvas_padding": {
+      "left": 2,
+      "top": 4,
+      "right": 2,
+      "bottom": 4
+    },
+    "sha256": "884eabacffe606488da79549b0637da0ed7e9b214d6febcffb3ee31bea7e7c3d"
+  },
+  {
+    "file": "stagecard_emerald.png",
+    "dimensions": [
+      945,
+      1680
+    ],
+    "mode": "RGBA",
+    "alpha_extrema": [
+      255,
+      255
+    ],
+    "generated_dimensions": [
+      941,
+      1672
+    ],
+    "canvas_padding": {
+      "left": 2,
+      "top": 4,
+      "right": 2,
+      "bottom": 4
+    },
+    "sha256": "ba2e17bf1a297906e7c4ae30bf5b6a7efe2f35d5061f07c4989f981613836a22"
+  },
+  {
+    "file": "stagecard_trio_contact_sheet.png",
+    "dimensions": [
+      2931,
+      1728
+    ],
+    "mode": "RGBA",
+    "order_left_to_right": [
+      "Roxy",
+      "Rosalyn",
+      "Emerald"
+    ]
+  }
+]
