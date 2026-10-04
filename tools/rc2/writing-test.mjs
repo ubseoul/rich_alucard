@@ -45,6 +45,8 @@ export async function test(root){
  assert.ok(W.stripClub.firstVisit.door.length>=3&&W.stripClub.firstVisit.door.every(t=>sentences(t)<=3),'strip club first-visit protection line');
  assert.match(W.stripClub.firstVisit.door.join(' '),/half/i);
  assert.ok(W.octopusBrain.firstUse.length>=3);
+ for(const id of ['club.first_visit','club.cap_reached','club.need_cash','cheap.meet','cheap.unlock','rent.in','guide.next_play','guide.next_offer'])assert.ok(W.ui[id]&&sentences(W.ui[id])<=3,`Build 1 UI line ${id}`);
+ assert.equal(Object.keys(W.ui).length,8,'exactly the 8 Build 1 ids');
 
  const story=await readFile(path.join(root,'docs/rc2/NEW_STORY.md'),'utf8');
  const NEW=['YAM','FUFU','AUNTIES','ASOEBI','PLATES','CLUB_FIRST'];
