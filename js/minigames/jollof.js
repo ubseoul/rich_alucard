@@ -13,21 +13,21 @@
  const clamp=(v,a=1,b=10)=>Math.max(a,Math.min(b,v));
  function blendQuality(level){
   level=Math.max(0,Math.min(1,level));
-  if(level<.35)return {texture:'chunky',textureScore:4,tag:'chunky — you rushed it'};
-  if(level>.7)return {texture:'watery',textureScore:3,tag:'sad and watery — too far'};
+  if(level<.3)return {texture:'chunky',textureScore:4,tag:'chunky — you rushed it'};
+  if(level>.78)return {texture:'watery',textureScore:3,tag:'sad and watery — too far'};
   return {texture:'smooth',textureScore:9,tag:'smooth base — green zone'};
  }
  function fryResult(darkness,stoppedAtSheen){
   darkness=Math.max(0,Math.min(1,darkness));
-  if(darkness<.4)return {flavor:3,color:4,tag:'raw tomato — pulled too soon'};
-  if(darkness>.88)return {flavor:4,color:3,tag:'bitter — burnt the paste'};
+  if(darkness<.35)return {flavor:3,color:4,tag:'raw tomato — pulled too soon'};
+  if(darkness>.92)return {flavor:4,color:3,tag:'bitter — burnt the paste'};
   if(stoppedAtSheen)return {flavor:9,color:9,tag:'oil floats — the secret is safe with you'};
   return {flavor:6,color:6,tag:'decent, not legendary'};
  }
  function steamResult(t,crust){
   t=Math.max(0,Math.min(1,t));
   if(t<.35)return {textureAdj:-3,smoke:1,tag:'undercooked — still crunchy'};
-  if(t>.85)return {textureAdj:crust?-1:-3,smoke:crust?9:4,tag:crust?'burnt bottom — party rice crust':'burnt through, no glory in it'};
+  if(t>.93)return {textureAdj:crust?-1:-3,smoke:crust?9:4,tag:crust?'burnt bottom — party rice crust':'burnt through, no glory in it'};
   return {textureAdj:2,smoke:crust?8:2,tag:crust?'perfect, with a bonus crust':'perfect steam'};
  }
  function seasonMatch(season,pref){
@@ -80,8 +80,9 @@
   if(glow)R(ctx,x-24,y-8,48,6,glow);
  }
 
- window.RAMinigames.register('jollof',{title:'JOLLOF WARS',mount(root,ctx){ctx.audio?.sound('AMB_COOKOFF');
+ window.RAMinigames.register('jollof',{title:'JOLLOF WARS',rule:'Cook the jollof in four steps: blend, fry, season, steam, and stop at each green zone.',mount(root,ctx){ctx.audio?.sound('AMB_COOKOFF');
   const {canvas,ctx:g}=P().createCanvas(root);
+  const J=window.RAJuice?window.RAJuice.create(g):{burst(){},float(){},ring(){},shake(){},flash(){},update(){},begin(){g.save();},end(){g.restore();}};
   const params=ctx.params||{};const mode=params.mode||'practice';
   const judgeIds=(()=>{let ids=(params.judges&&params.judges.length?params.judges.slice():['nneka','uncle_sunday','bunmi']);
    if(mode==='final'){if(!ids.includes('mom'))ids.push('mom');if(!ids.includes('lil_smack'))ids.push('lil_smack');}
@@ -122,7 +123,7 @@
    const win=mode!=='practice'&&beatLaura&&beatRivals;
    ctx.saveProgress({bestTotal,wins:(best.wins||0)+(win?1:0)});
    scoreResult.beatLaura=beatLaura;scoreResult.win=win;
-   stage='judging';judgeIdx=0;
+   stage='judging';judgeIdx=0;J.flash('#ffd36a',120);
   }
   function finishRun(){
    const win=!!scoreResult.win;
@@ -144,8 +145,8 @@
     ctx.audio?.sound('STIR_POT');if(side!==fryLastSide){fryLastSide=side;fryLastTap=now;}
     else{fryBurnPenalty+=.02;} // tapping same side repeatedly doesn't stir properly
     if(ny>380&&ny<420&&nx>75&&nx<195&&(performance.now()-fryStart)>1200){
-     const darkness=stages.fry.darkness;fryStopped=true;
-     stages.fry.stoppedAtSheen=darkness>=.5&&darkness<=.82;
+     const darkness=stages.fry.darkness;fryStopped=true;J.burst(135,236,['#d7193f','#ffd36a'],14,70);J.ring(135,236,'#ffd36a',30);
+     stages.fry.stoppedAtSheen=darkness>=.45&&darkness<=.88;
      const r=fryResult(darkness,stages.fry.stoppedAtSheen);stages.fry.result=r;
      ctx.progress&&null;setTimeout(toSeason,650);
     }
@@ -153,7 +154,7 @@
     for(let i=0;i<seasonItems.length;i++){
      const ix=30+i*48,iy=210;
      if(nx>ix-20&&nx<ix+20&&ny>iy-20&&ny<iy+20){
-      ctx.audio?.sound('SPICE_SHAKE');const k=seasonItems[i];stages.season[k]=Math.min(1,(stages.season[k]||0)+.2);seasonTaps++;
+      ctx.audio?.sound('SPICE_SHAKE');const k=seasonItems[i];stages.season[k]=Math.min(1,(stages.season[k]||0)+.2);seasonTaps++;J.burst(ix,iy,['#20c66b','#ffd36a'],8,50);J.float('+',ix,iy-22,{color:'#20c66b',size:8,life:.5,rise:12});
      }
     }
     if(hasDragon&&!dragonUsed&&nx>105&&nx<165&&ny>270&&ny<310){stages.season.dragon=true;dragonUsed=true;}
@@ -161,10 +162,10 @@
    } else if(stage==='steam'){
     if(steamLifted)return;
     if(ny>380&&ny<440&&nx>75&&nx<195){
-     steamLifted=true;ctx.audio?.sound('LID_CLANK');ctx.audio?.stop('STEAM_HISS');
+     steamLifted=true;J.burst(135,215,['#e6e6ff','#9aa0c8'],24,80);J.shake(2);ctx.audio?.sound('LID_CLANK');ctx.audio?.stop('STEAM_HISS');
      const elapsed=performance.now()-steamStart;
      const liftTime=Math.min(1,elapsed/8000);
-     const crust=params.mazdaHelps?!mazdaBurn:(liftTime>.68&&liftTime<.85);
+     const crust=params.mazdaHelps?!mazdaBurn:(liftTime>.6&&liftTime<.92);
      stages.steam.liftTime=liftTime;stages.steam.crust=crust&&!(params.mazdaHelps&&mazdaBurn);
      if(params.mazdaHelps&&mazdaBurn){stages.steam.liftTime=.95;stages.steam.crust=false;}
      setTimeout(toJudging,500);
@@ -178,7 +179,7 @@
   }
   function onUp(){
    if(stage==='blend'&&holding){
-    holding=false;const level=Math.min(1,(performance.now()-holdStart)/3000);
+    holding=false;J.burst(135,230,['#e8dcb8','#d7193f'],14,70);const level=Math.min(1,(performance.now()-holdStart)/3000);
     stages.blend=level;stages.blendResult=blendQuality(level);pointToStage();
    }
   }
@@ -190,7 +191,7 @@
   canvas.addEventListener('touchstart',handleDown,{passive:false});canvas.addEventListener('touchend',handleUp,{passive:false});
 
   function draw(){
-   const dt=performance.now()-lastT;lastT=performance.now();
+   const dt=performance.now()-lastT;lastT=performance.now();J.update(dt/1000);J.begin();
    const rp=P(),pal=palette();
    if(!rp.drawBoard(g,({practice:'jollof_kitchen',cookoff:'jollof_cookoff',final:'jollof_final'}[mode]||'jollof_kitchen')))rp.paintEnvironment(g,env(mode));
    else rp.text(g,mode==='final'?'JOLLOF WARS — A54 FINAL':mode==='cookoff'?'JOLLOF WARS — COOKOFF':'CASTLE KITCHEN',135,25,{size:7,align:'center',color:pal.gold});
@@ -202,25 +203,26 @@
     drawPot(g,135,230);
     const level=holding?Math.min(1,(performance.now()-holdStart)/3000):stages.blend;
     rp.rect(g,45,270,180,14,'#151321');
-    rp.rect(g,47,272,66,10,'#5a4432');rp.rect(g,113,272,44,10,pal.green);rp.rect(g,157,272,66,10,'#5a4432');
+    rp.rect(g,47,272,54,10,'#5a4432');rp.rect(g,101,272,84,10,pal.green);rp.rect(g,185,272,38,10,'#5a4432');
     rp.rect(g,45+level*176,271,4,12,pal.bone);
     if(!holding&&stages.blend>0)rp.text(g,stages.blendResult?.tag||'',135,300,{size:6,align:'center'});
    } else if(stage==='fry'){
     const elapsed=performance.now()-fryStart;
-    stages.fry.darkness=Math.min(1,elapsed/7000+fryBurnPenalty);
+    stages.fry.darkness=Math.min(1,elapsed/9000+fryBurnPenalty);
     rp.text(g,'TAP LEFT / RIGHT TO STIR',135,140,{size:7,align:'center'});
     rp.text(g,'STOP WHEN OIL FLOATS',135,154,{size:6,align:'center',color:pal.grey});
-    ctx.audio?.edge('burnt',stages.fry.darkness>.88,'BURNT_CRACKLE');const dk=stages.fry.darkness;const sheen=dk>=.5&&dk<=.82;
+    ctx.audio?.edge('burnt',stages.fry.darkness>.88,'BURNT_CRACKLE');const dk=stages.fry.darkness;const sheen=dk>=.45&&dk<=.88;
     drawPot(g,135,230,sheen?'rgba(215,25,63,.55)':null);
     rp.rect(g,60,236,150,16,`rgb(${Math.round(180-120*dk)},${Math.round(70-40*dk)},${Math.round(40-20*dk)})`);
     rp.rect(g,20,150,110,120,fryLastSide==='left'?'rgba(255,255,255,.06)':'transparent');
     rp.rect(g,140,150,110,120,fryLastSide==='right'?'rgba(255,255,255,.06)':'transparent');
+    rp.rect(g,45,318,180,12,'#151321');rp.rect(g,47+.45*176,320,.43*176,8,pal.green);rp.rect(g,47+dk*172,317,4,14,pal.bone);rp.text(g,'STOP IN THE GREEN',135,336,{size:6,align:'center',color:pal.grey});
     if(!fryStopped&&elapsed>1200)rp.frame(g,75,380,120,40,{fill:pal.gold});
     if(!fryStopped&&elapsed>1200)rp.text(g,'STOP',135,395,{size:8,align:'center',color:pal.ink});
     if(sheen&&!fryStopped)rp.text(g,'the oil is floating...',135,270,{size:6,align:'center',color:pal.red});
     if(dk>=1)rp.text(g,'IT\'S BURNING',135,270,{size:7,align:'center',color:pal.red});
    } else if(stage==='season'){
-    rp.text(g,'DRAG / TAP TO SEASON',135,140,{size:7,align:'center'});
+    rp.text(g,'TAP THE SPICES (3 OR MORE)',135,140,{size:7,align:'center'});
     drawPot(g,135,230);
     seasonItems.forEach((k,i)=>{
      const x=30+i*48,y=210;rp.rect(g,x-18,y-18,36,36,'#1b1830');rp.rect(g,x-16,y-16,32*(stages.season[k]||0),4,pal.green);
@@ -233,7 +235,8 @@
     const elapsed=performance.now()-steamStart;
     drawPot(g,135,230);rp.rect(g,105,224,60,8,'#5b5a68');
     const li=Math.min(STEAM_LINES.length-1,Math.floor((elapsed/8000)*STEAM_LINES.length));
-    rp.text(g,'COVER & WAIT',135,140,{size:8,align:'center'});
+    rp.text(g,'COVER & WAIT. LIFT IN THE GREEN.',135,140,{size:6,align:'center'});
+    {const lv=Math.min(1,elapsed/8000);rp.rect(g,45,270,180,14,'#151321');rp.rect(g,47+.6*176,272,.32*176,10,pal.green);rp.rect(g,47+lv*172,269,4,16,pal.bone);}
     rp.wrap(g,STEAM_LINES[li],220,7).forEach((ln,i)=>rp.text(g,ln,135,300+i*12,{size:7,align:'center',color:pal.grey}));
     if(params.mazdaHelps)rp.text(g,'MAZDA IS BREATHING ON THE POT',135,180,{size:6,align:'center',color:pal.mazda});
     rp.frame(g,75,400,120,36,{fill:pal.gold});rp.text(g,'LIFT LID',135,414,{size:8,align:'center',color:pal.ink});
@@ -256,6 +259,7 @@
     rp.text(g,'rivals: '+rivals.join(', '),135,290,{size:5,align:'center',color:pal.grey,maxWidth:250});
     rp.frame(g,75,400,120,36,{fill:pal.gold});rp.text(g,'DONE',135,414,{size:8,align:'center',color:pal.ink});
    }
+   J.end();
    if(!dead)raf=requestAnimationFrame(draw);
   }
   raf=requestAnimationFrame(draw);

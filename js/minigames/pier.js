@@ -60,7 +60,7 @@
  // Pure tension physics: holding reels tension up, releasing lets it fall; a big fish yanks it around.
  function tensionStep(state,{holding,dt,fish}={}){
   state=state||{};dt=Math.max(0,Number(dt)||0);
-  const HOLD_RATE=46,FALL_RATE=30;
+  const HOLD_RATE=34,FALL_RATE=36;
   let t=state.tension||0;
   t+=(holding?HOLD_RATE:-FALL_RATE)*dt;
   if(fish&&typeof fish.pull==='number'){
@@ -72,7 +72,7 @@
   state.overTime=t>85?(state.overTime||0)+dt*1000:0;
   return state;
  }
- function isSnapped(state){return !!state&&(state.overTime||0)>=1500;}
+ function isSnapped(state){return !!state&&(state.overTime||0)>=2200;}
 
  window.RAMinigameLogic=window.RAMinigameLogic||{};
  window.RAMinigameLogic.pier={catchTable,rollCatch,tensionStep,isSnapped};
@@ -85,6 +85,7 @@
   const params=ctx.params||{};
   const rain=truthy(params.rain),uncleSunday=truthy(params.uncleSunday),tutorial=truthy(params.tutorial),lab=truthy(params.lab);
   const {canvas,ctx:g,toNative}=R.createCanvas(root);
+  const J=window.RAJuice?window.RAJuice.create(g):{burst(){},float(){},ring(){},shake(){},flash(){},update(){},begin(){g.save();},end(){g.restore();}};
   const prevProgress=ctx.progress()||{};
   const log=[...(prevProgress.log||[])];
   const counts={...(prevProgress.counts||{})};
@@ -109,10 +110,10 @@
   function flash(text,ms){S.flashText=text;S.flashUntil=performance.now()+(ms||1200);}
 
   function newSchedule(){
-   const n=Math.floor(rng()*3); // 0-2 fakes before the real bite
+   const n=Math.floor(rng()*2); // RC2: 0-1 fakes before the real bite
    const events=[];let t=0.6+rng()*0.8;
    for(let i=0;i<n;i++){events.push({t,kind:'fake',dur:0.35+rng()*0.2});t+=0.7+rng()*1.1;}
-   events.push({t,kind:'real',dur:0.8+rng()*0.3});
+   events.push({t,kind:'real',dur:1.3+rng()*0.4});
    return events;
   }
 
@@ -126,6 +127,7 @@
    S.bigOnLine=big;S.fish={pull:0,big};S.fishClock=0;
   }
   function resolveCatch(caught,landed){ctx.audio?.stop('REEL_LOOP');ctx.audio?.stop('LINE_TENSION');ctx.audio?.sound(landed?'FISH_FLOP':'LINE_SNAP');
+   if(landed){J.burst(135,300,['#3d9ddd','#f6efd9','#ffd36a'],26,110);J.ring(135,300,'#ffd36a',34);J.flash('#3d9ddd',100);}else{J.shake(5);J.flash('#d7193f',140);J.float('SNAP!',135,260,{color:'#d7193f',size:10,life:1});}
    S.sessionCount++;
    if(!landed){
     if(caught.category==='big'){S.hp=Math.max(0,S.hp-caught.hpLoss);ctx.reward({hpLost:caught.hpLoss});flash('LINE SNAPPED. IT GOT AWAY.',1600);}
@@ -341,7 +343,7 @@
     R.text(g,'WAIT',30,236,{size:8,color:'#10101b'});
     R.text(g,'tap the real bite, not the fakes',30,252,{size:6,color:'#10101b',maxWidth:200});
     R.text(g,'REEL',30,276,{size:8,color:'#10101b'});
-    R.text(g,'hold to reel, don’t let tension snap',30,292,{size:6,color:'#10101b',maxWidth:200});
+    R.text(g,'hold to reel. let go when the bar is red.',30,292,{size:6,color:'#10101b',maxWidth:200});
     R.text(g,'TAP TO START (first catch is easy)',30,300+18,{size:6,color:'#7d194b'});
     return;
    }
@@ -420,7 +422,7 @@
     S.waitClock=(S.waitClock||0)+dt;
     if(!S.waitEventActive&&S.waitSchedule&&S.waitIndex<S.waitSchedule.length){
      const ev=S.waitSchedule[S.waitIndex];
-     if(S.waitClock>=ev.t){S.waitEventActive=true;S.waitEventKind=ev.kind;ctx.audio?.sound('NIBBLE');S.waitEventUntil=S.waitClock+ev.dur;}
+     if(S.waitClock>=ev.t){S.waitEventActive=true;S.waitEventKind=ev.kind;ctx.audio?.sound('NIBBLE');if(ev.kind==='real'){J.burst(135,290,['#f6efd9','#3d9ddd'],12,70);J.float('TAP NOW!',135,250,{color:'#ffd36a',size:9,life:.9});J.shake(2);}else J.float('…',135,262,{color:'#8a8296',size:7,life:.5,rise:8});S.waitEventUntil=S.waitClock+ev.dur;}
     } else if(S.waitEventActive&&S.waitClock>=S.waitEventUntil){
      S.waitEventActive=false;S.waitIndex++;
      if(S.waitIndex>=S.waitSchedule.length){S.waitSchedule=newSchedule();S.waitIndex=0;S.waitClock=0;}
@@ -432,7 +434,7 @@
      if(S.fishClock<=0){S.fish.pull=(rng()*2-1)*30;S.fishClock=0.4+rng()*0.5;}
     }
     tensionStep(S,{holding:pointerIsDown,dt,fish:S.fish});ctx.audio?.edge('reel',pointerIsDown,'REEL_LOOP');ctx.audio?.edge('tension',S.tension>85,'LINE_TENSION');
-    S.progress=Math.max(0,Math.min(100,S.progress+(pointerIsDown?dt*22:-dt*6)));
+    S.progress=Math.max(0,Math.min(100,S.progress+(pointerIsDown?dt*26:-dt*5)));
     if(isSnapped(S)){resolveCatch(S.currentCatch,false);}
     else if(S.progress>=100){resolveCatch(S.currentCatch,true);}
    }
@@ -440,8 +442,9 @@
     S.uncleLine=pick(rng,['have you eaten?','patience. the fish can smell fear.','you gonna eat that boot?']);
     S.uncleLineUntil=now+2600;S.uncleNext=now+7000+rng()*6000;
    }
-   g.clearRect(0,0,270,480);
+   g.clearRect(0,0,270,480);J.update(dt);J.begin();
    env();drawUncle(now);drawBobber();drawRich();drawHUD(now);
+   J.end();
    raf=requestAnimationFrame(loop);
   }
   raf=requestAnimationFrame(loop);
@@ -458,5 +461,5 @@
   };
  }
 
- if(window.RAMinigames)RAMinigames.register('pier',{title:'PIER',mount});
+ if(window.RAMinigames)RAMinigames.register('pier',{title:'PIER',rule:'Hold and let go to cast, tap when the fish really bites, then hold to reel it in but let go when the line goes red.',mount});
 })();

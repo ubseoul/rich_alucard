@@ -18,11 +18,11 @@
  // ============================================================================================
  D({id:'A18',title:'FORTY KEVINS',lane:'combat',memoryType:'combat',start:'arrive',testVars:{where:'grave'},nodes:{
   arrive:{env:A=>A.vars.where==='slurp'?'slurp':'grave',actors:{left:'rich'},title:'WAIT, WHY ARE THERE FORTY OF THEM',
-   lines:A=>[N(A.vars.where==='slurp'?'a ticket comes through: KEVIN x40. the whole line is one guy, forty times.':'the grave is full of the same guy. same hoodie. same haircut. all named kevin.'),N('they are all bowing to each other.')],
+   lines:A=>[N(A.vars.where==='slurp'?'a ticket comes through: KEVIN x40. the whole line is one guy, forty times.':'the grave is full of the same guy. same hoodie, same haircut, all named kevin.'),N('they are all bowing to each other.')],
    next:'drop'},
   drop:{actors:{left:'rich',right:{id:'kaede',state:'ceiling_drop'}},lines:[N('something drops from the ceiling vent above the food court sign.'),E('kaede','a woman in all black lands in a crouch, then immediately falls over sideways.'),S('kaede','…i meant to do that.'),N('the kevins do not notice. she notices you noticing.')],
    enter:A=>{RARelations.meet('kaede','A18');},next:'talk'},
-  talk:{actors:{left:'rich',right:'kaede'},lines:[S('kaede','i was tailing one of them. they multiplied. this is not my first forty kevins.'),R('you just gonna lay there?')],
+  talk:{actors:{left:'rich',right:'kaede'},lines:[S('kaede','i was following one kevin. then there were forty.'),R('you just gonna lay there?')],
    choices:[{label:'HELP HER UP',fx:A=>RARelations.add('kaede',5,{reason:'helped her up'}),next:'fight'},{label:'"…WHY WERE YOU IN THE CEILING?"',fx:A=>RARelations.add('kaede',3,{reason:'asked'}),next:'fight'}]},
   fight:{lines:[N('the kevins turn, all forty heads at once.')],fight:{enemy:'kevins',params:{env:A=>A.vars.where==='slurp'?'slurp':'grave',intro:'FORTY KEVINS WANT TO FIGHT. ALL OF THEM.'},win:'after',lose:'after',spared:'after'}},
   after:{lines:A=>[N(A.vars.fight==='spared'?'the kevins disperse, satisfied in some way you will never understand.':A.vars.fight==='win'?'thirty-nine kevins scatter. one keeps bowing.':'the kevins pin you down and take turns apologizing while doing it.'),S('kaede','you handled that. weirdly well.'),R('i don\'t make the rules. i just live here.')],next:'behavior'},
@@ -49,9 +49,9 @@
    enter:A=>{RARelations.meet('bruce_loose','A19');},
    lines:[N('one tray of orange chicken left under the heat lamp. a man in a tracksuit is staring at it like it owes him money.'),S('bruce_loose','THAT\'S MINE.'),R('i just wanted a bite.')],next:'fight'},
   fight:{fight:{enemy:'bruce_loose',params:{env:'food_court',intro:'BRUCE LOOSE WANTS THE CHICKEN. AND A FIGHT.'},win:'lesson',lose:'lesson',spared:'lesson'}},
-  lesson:{lines:A=>[N(A.vars.fight==='win'?'he goes down, laughing, and gets right back up to teach you something.':A.vars.fight==='spared'?'he stops mid-swing and decides you deserve a lesson instead.':'he beats you to the chicken. and everything else. then he offers a hand up.'),S('bruce_loose','LESSON ONE. ONE-INCH PETTY. YOU DON\'T NEED SPACE. YOU NEED SPITE.')],
+  lesson:{lines:A=>[N(A.vars.fight==='win'?'he goes down, laughing, and gets right back up to teach you something.':A.vars.fight==='spared'?'he stops mid-swing and decides you deserve a lesson instead.':'he beats you to the chicken. and everything else. then he offers a hand up.'),S('bruce_loose','LESSON ONE: ONE-INCH PETTY. YOU DON\'T NEED SPACE. YOU NEED SPITE.')],
    enter:A=>{learnMove('petty');},next:'armory'},
-  armory:{lines:[S('bruce_loose','also — you look like a man who needs guns. THE ARMORY. behind the church on 3rd. tell deacon brass bruce sent you.'),R('a church has guns?'),S('bruce_loose','A CHURCH HAS EVERYTHING.')],
+  armory:{lines:[S('bruce_loose','you need guns. try THE ARMORY, behind the church on 3rd. tell deacon brass bruce sent you.'),R('a church has guns?'),S('bruce_loose','A CHURCH HAS EVERYTHING.')],
    enter:A=>{RALife.setFlag('armoryKnown',true);},next:'end'},
   end:{end:{outcome:A=>A.vars.fight||'spared',memory:{text:'lost the last orange chicken, learned one-inch petty',lane:'combat',quality:1},
    receipt:{caption:'one-inch petty. the chicken was never the point.'},
@@ -179,7 +179,7 @@
   arrive:{env:'armory',actors:{left:'rich',right:'deacon_brass'},title:'BEHIND THE CHURCH',
    enter:A=>{RARelations.meet('deacon_brass','A24');},
    lines:[N('a door behind the church that should not exist. deacon brass is polishing a shotgun with a communion cloth.'),S('deacon_brass','guns and grace, son. one keeps you alive. the other keeps you honest.'),R('and this is which one?')],next:'explain'},
-  explain:{lines:[S('deacon_brass','gun weaving. you fire and move in the same breath, same as the old ways. every gun on this wall does something the blood can\'t.'),N('in a glass case, lit like an altar: the HOLY BABY DRAKE. $180,000.')],next:'end'},
+  explain:{lines:[S('deacon_brass','gun weaving. shoot and move at the same time. every gun here does something blood can\'t.'),N('in a glass case, lit like an altar: the HOLY BABY DRAKE. $180,000.')],next:'end'},
   end:{end:{outcome:'known',memory:{text:'found the armory behind the church',lane:'combat',quality:1},
    receipt:{caption:'guns and grace. deacon brass keeps both.'},
    home:['rich','a church with a gun shop in the back. of course.',{vp:true}]}}
@@ -247,7 +247,7 @@
     return out;},next:'behavior'},
   behavior:{lines:[N('the room needs you.')],choices:A=>RAParties.choices({fallback:{reaction:'the crowd is into it.',score:2}},'escalate1')},
   escalate1:{lines:A=>{const guests=A.vars.guests||[];const out=[N(A.vars.lastReaction||'the room reacts.')];
-    if(guests.length>=2)out.push(N(`${(RABtfPeople.get(guests[0])?.name||'someone').toLowerCase()} and ${(RABtfPeople.get(guests[1])?.name||'someone else').toLowerCase()} are both acting like they\'re the main character tonight. this will not end quietly.`));
+    if(guests.length>=2)out.push(N(`${(RABtfPeople.get(guests[0])?.name||'someone').toLowerCase()} and ${(RABtfPeople.get(guests[1])?.name||'someone else').toLowerCase()} both think they\'re the main character tonight. this will not end quietly.`));
     else out.push(N('mazda is somewhere in the rafters. you can hear the wings.'));
     return out;},next:'escalate2'},
   escalate2:{lines:[N('a guy near the drinks table says something to a woman that makes her flinch.'),R('close your mouth.')],
@@ -314,7 +314,7 @@
   turn:{lines:[N('her eyes go yellow. she is on all fours before the table finishes tipping over. she runs.'),N('straight through the security gate, into the closed mall.')],next:'chase'},
   chase:{env:'grave_closed',actors:{left:'rich'},lines:[N('the grave, closed. dark storefronts. her breathing echoes off the tile.')],next:'fork'},
   fork:{choices:[{label:'RUN AFTER HER',next:'run'},{label:'TAME HER',sub:'STAY CALM. LET HER HIT YOU.',next:'fight'},{label:'BUY HER A STEAK',octopus:true,next:'steak'}]},
-  run:{lines:[N('you chase her past a dark boughi-v and two turns you didn\'t know the mall had.')],next:'fight'},
+  run:{lines:[N('you chase her past a dark store and two turns the mall never had.')],next:'fight'},
   fight:{fight:{enemy:'werewolf',params:{env:'grave_closed',intro:'MOONIE, FULL MOON. SHE DOESN\'T MEAN IT.'},win:'after',lose:'after',spared:'after'}},
   steak:{lines:[N('the food court is closed. rich breaks in through the shutter for one (1) steak.'),N('she stops running to eat it.')],
    enter:A=>{A.set('fight','spared');},next:'after'},
@@ -348,7 +348,7 @@
   in:{lines:[N('no hair anywhere on her. she walks in like she owns the place, shakes off exactly once, and sits directly on the warmest spot in the room.'),R('a-a-a-CHOO. …worth it.')],
    enter:A=>{RAState.patch('life.ownership.cat',{name:'EGUSI'});RALife.addProp('prop_cat_bed');},next:'end'},
   end:{end:{outcome:'stayed',memory:{text:'a hairless cat let herself into the castle during a rainstorm',lane:'home',quality:1.2},
-   receipt:{caption:'a cat. no hair. allergic anyway. worth it.'},
+   receipt:{caption:'a cat with no hair. rich is allergic anyway. worth it.'},
    home:['rich','i\'m allergic and i don\'t care. she stays.',{vp:true}]}}
  }});
  RAWakeTriggers.define([{adventure:'A47',priority:60,when:L=>L.day>12&&L.info.rain&&!L.life.ownership.cat&&!L.done('A47')}]);
@@ -379,9 +379,9 @@
    enter:A=>{RARelations.meet('tristan','A50');},
    lines:[N('three monitors, one dead pizza box, tristan mid-rant.'),S('tristan','ONE MORE TURN. i just need one more turn.')],next:'civ'},
   civ:{lines:[N('he takes the turn. he does not stop taking turns.'),R('one more turn?'),S('tristan','ONE MORE TURN.')],next:'xcom'},
-  xcom:{lines:[N('a 95% shot on xcom whiffs completely. tristan screams at the monitor like it owes him rent.'),S('tristan','NINETY-FIVE PERCENT. NINETY. FIVE.')],next:'league'},
-  league:{lines:[N('someone in league says something in all caps. tristan mutes his mic and argues with the screen anyway.')],next:'sunrise'},
-  sunrise:{lines:[N('the window goes grey, then pink. tristan doesn\'t notice until his character starts glowing from the sunrise filter.'),S('tristan','…oh. i should sleep.')],
+  xcom:{lines:[N('a 95% shot misses. tristan screams at the screen like it owes him rent.'),S('tristan','NINETY-FIVE PERCENT. NINETY. FIVE.')],next:'league'},
+  league:{lines:[N('a stranger types in all caps. tristan mutes him and argues with the screen anyway.')],next:'sunrise'},
+  sunrise:{lines:[N('the window goes grey, then pink. tristan does not notice.'),S('tristan','…oh. i should sleep.')],
    enter:A=>{RARelations.add('tristan',6,{reason:'lan night'});},next:'end'},
   end:{end:{outcome:'stayed',memory:{text:'lan night at tristan\'s until sunrise',lane:'people',quality:1},
    home:['rich','one more turn. every time. forever.',{vp:true}]}}

@@ -98,7 +98,7 @@
   moments:['she says nothing for ten minutes. it is the best ten minutes.','the steam rises and neither of you says anything and it\'s enough.','she points at the sky once and you both just look.'],
   richLine:['she didn\'t say anything for ten minutes. i\'ve never been more at peace.','kaede makes silence feel like a whole conversation.','i think she said more with her eyebrows than i said all night.'],
   posts:['🌙 (no caption needed)','quiet night','.'],
-  giftRight:['krada?? she holds it like it\'s fragile. it isn\'t. she is, a little.'],giftWrong:['she nods once, sets it down carefully, says nothing.'],
+  giftRight:['krada?? she holds it like it\'s fragile, though it isn\'t. she is, a little.'],giftWrong:['she nods once, sets it down carefully, says nothing.'],
   homeLine:['kaede said nothing and it was the loudest date of my life.','i miss the quiet already.','she looked at the sky like it owed her something.']
  });
  D('wispa',{

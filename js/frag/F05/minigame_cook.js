@@ -44,7 +44,7 @@
   ]};
  }
 
- R.cookMinigame={title:'THE COOK',mount(root,ctx){
+ R.cookMinigame={title:'THE COOK',rule:'Hold to blend, tap to keep the heat steady, then tap each vial before it slips away.',mount(root,ctx){
   const params=ctx.params||{};
   const {canvas,ctx:g,toNative}=RAPixel.createCanvas(root);
   const pal=RAPixel.palette,rp=RAPixel;

@@ -38,7 +38,7 @@
   bed:{env:'portobello_bedroom',actors:{mid:RICH_PORTO,left:PORTO_WIFE},
    lines:[R('what if.'),N('black.')],next:'wakeup'},
   wakeup:{env:'bedroom',actors:{mid:'rich'},
-   lines:[N('rich wakes up screaming.'),N('he touches his head. locs. all of them. still there.'),R('…ok. ok. good.')],
+   lines:[N('rich wakes up screaming.'),N('he touches his head. the locs are all still there.'),R('…ok. ok. good.')],
    end:{outcome:'woke',nightEnder:true,memory:{text:'a whole other life: a data analyst, a wife who loved him, two kids, a mazda',lane:'home',quality:2},receipt:{caption:'bad portobellos. good life. wrong one.'},home:['rich','i had a mazda. i had a WIFE.',{vp:true}]}}
  }});
  D({id:'A31',title:'GOD ON THE CURB',lane:'home',scope:'MUST',start:'start',available:L=>L.info.sunday,
@@ -83,7 +83,7 @@
  D({id:'A56',title:'LIL SMACK #5',lane:'food',scope:'MUST',start:'arrive',nodes:{
   arrive:{env:'kitchen',actors:{left:'rich',right:{id:'lil_smack',state:'finale'}},lines:[E('lil_smack','…'),N('lil smack takes one bite. mouth closed. actually closed.')],next:'react'},
   react:{lines:[N('it might be the most emotional moment of his entire life.'),S('lil_smack',"…it's good, man."),R('…thank you.')],next:'leave'},
-  leave:{lines:[N('he leaves. not dramatically. just — gone. no more crumbs on the porch. not until the fame.')],
+  leave:{lines:[N('he leaves. not dramatically. just — gone.'),N('no more crumbs on the porch. not until the fame.')],
    end:{outcome:'closedMouth',memory:{text:'lil smack ate with his mouth closed, once, and then he left',lane:'food',quality:2},receipt:{caption:'lil smack, mouth closed. once.'},fx:()=>RALife.setFlag('lilSmackGone',true)}}
  }});
  D({id:'A53',title:'THE FAMILY HOLIDAY',lane:'home',scope:'MUST',available:L=>L.day>=57,

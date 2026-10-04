@@ -94,7 +94,7 @@
   return {dispose(){done=true;cancelAnimationFrame(raf);}};
  }
 
- if(window.RAMinigames)window.RAMinigames.register('range_day',{title:'RANGE DAY',mount});
+ if(window.RAMinigames)window.RAMinigames.register('range_day',{title:'RANGE DAY',rule:'Tap to aim and let go to fire at the targets, but never hit the hostages.',mount});
 
  window.RARangeDayCore={create,simulate,medalFor,mount,KIND,thresholds:()=>({...T.thresholds})};
 })();

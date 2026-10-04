@@ -141,7 +141,7 @@
  function buildCourse(id,seed){
   const rng=(window.RAPixel&&RAPixel.rng)?RAPixel.rng(`${id}:${seed}`):(()=>{let s=(seed>>>0)||1;return()=>{s^=s<<13;s>>>=0;s^=s>>17;s^=s<<5;s>>>=0;return s/4294967296;};})();
   const tight=id==='grave_garage';
-  const roadWidth=tight?128:172;
+  const roadWidth=tight?148:190; // RC2: wider road (was 128/172)
   const n=8+Math.floor(rng()*5);
   const corners=[];
   for(let i=0;i<n;i++){
@@ -169,7 +169,7 @@
      distance+=step;
      points.push({distance,x});
      if(!marked&&i/steps>=seg.clipT){
-      clips.push({distance,x:x-seg.dir*(roadWidth/2-20),range:tight?24:32,dir:seg.dir,hit:false});
+      clips.push({distance,x:x-seg.dir*(roadWidth/2-20),range:tight?30:40,dir:seg.dir,hit:false});
       marked=true;
      }
     }
@@ -224,6 +224,7 @@
   const leaderboard=Array.isArray(P.leaderboard)?P.leaderboard:[];
   const lesson=P.lesson;
   const {canvas,ctx:c}=RAPixel.createCanvas(root);
+  const J=window.RAJuice?window.RAJuice.create(c):{burst(){},float(){},ring(){},shake(){},flash(){},update(){},begin(){c.save();},end(){c.restore();}};
   const prog=ctx.progress();
   let course=buildCourse(P.course&&COURSE_THEME[P.course]?P.course:'angeles_crest',P.seed||Math.floor(Math.random()*1e9));
 
@@ -243,7 +244,7 @@
   const input={steer:0,throttle:0,ebrake:false};
   const pointers=new Map();
   let ebrakeHeld=false,prevThrottleHeld=false,clutchKick=false;
-  const EBRAKE_RECT={x:172,y:300,w:82,h:34};
+  const EBRAKE_RECT={x:156,y:292,w:104,h:46};
   function toNative(clientX,clientY){const r=canvas.getBoundingClientRect();return{x:(clientX-r.left)*270/(r.width||270),y:(clientY-r.top)*480/(r.height||480)};}
   function inRect(p,rct){return p.x>=rct.x&&p.x<=rct.x+rct.w&&p.y>=rct.y&&p.y<=rct.y+rct.h;}
   function safeCapture(id){try{canvas.setPointerCapture&&canvas.setPointerCapture(id);}catch(e){}}
@@ -291,7 +292,8 @@
    if(keys.has('ArrowRight'))steer=1;
    if(keys.has('ArrowUp'))throttle=1;
    if(throttle>0.01||steer!==0)cueUsed=true; // first-time control cue hides as soon as the player uses input
-   input.steer=steer;input.throttle=throttle;input.ebrake=ebrakeHeld;
+   // RC2: cruise assist. The car holds half throttle on its own, so a new player only has to steer. Pull up on the right for more.
+   input.steer=steer;input.throttle=P.noAssist?throttle:Math.max(throttle,.5);input.ebrake=ebrakeHeld;
    clutchKick=handling.manual&&ebrakeHeld&&throttle>0.5&&!prevThrottleHeld;if(clutchKick)ctx.audio?.sound('CLUTCH_KICK');if(prevThrottleHeld&&throttle<=0.5&&['supra','s15','r34_awd','r34_rwd'].includes(carId))ctx.audio?.sound('BLOWOFF');ctx.audio?.edge('motorhigh',throttle>0.5,motor,'high');
    prevThrottleHeld=throttle>0.5;
   }
@@ -355,16 +357,16 @@
    const dev=state.x-centerX;
    const half=course.roadWidth/2-8;
    if(Math.abs(dev)>half){
-    if(wallCooldown<=0){ctx.audio?.sound('WALL_SCRAPE');chain*=0.7;wallCooldown=0.6;}
+    if(wallCooldown<=0){ctx.audio?.sound('WALL_SCRAPE');chain*=0.85;wallCooldown=0.6;J.burst(135,300,['#ffd36a','#f6efd9','#d7193f'],10,80);J.shake(2);J.float('SCRAPE',135,270,{color:'#d7193f',size:7,life:.6});}
     state.x=centerX+clamp(dev,-half,half);
-    state.speed*=0.85;
+    state.speed*=0.93;
    }
    wallCooldown=Math.max(0,wallCooldown-dt);
 
    for(const clip of course.clips){
     if(clip.hit)continue;
-    if(Math.abs(clip.distance-state.distance)<14&&state.sliding&&Math.abs(state.x-clip.x)<clip.range){
-     ctx.audio?.sound('CLIP_DING');clip.hit=true;clipHits++;lessonCounts[4]++;
+    if(Math.abs(clip.distance-state.distance)<14&&state.sliding&&Math.abs(state.x-clip.x)<clip.range*1.35){
+     ctx.audio?.sound('CLIP_DING');J.burst(135,310,['#20c66b','#ffd36a','#f6efd9'],16,90);J.float('CLIP!',135,270,{color:'#20c66b',size:9,life:.8});J.flash('#20c66b',90);clip.hit=true;clipHits++;lessonCounts[4]++;
      ({score,chain}=scoreClip({score,chain}));
     }
    }
@@ -469,7 +471,7 @@
   function loop(t){
    if(last==null)last=t;
    const dt=Math.min(0.05,(t-last)/1000);last=t;
-   update(dt);draw();
+   J.update(dt);update(dt);J.begin();draw();J.end();
    raf=requestAnimationFrame(loop);
   }
   raf=requestAnimationFrame(loop);
@@ -485,5 +487,5 @@
   }};
  }
 
- window.RAMinigames.register('touge',{title:'TOUGE',mount});
+ window.RAMinigames.register('touge',{title:'TOUGE',rule:'Drag on the left side to steer, drag up on the right for more gas, and slide through the bends to score.',mount});
 })();

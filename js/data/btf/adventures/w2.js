@@ -38,7 +38,7 @@
    enter:A=>{RARelations.meet('hina','a08');},
    lines:[E('hina','a woman with a knife and a stopwatch clocks you without looking up.'),S('hina','new guy. don\'t embarrass the broth.')],next:'shift'},
   shift:{lines:[N('the tickets start.')],minigame:{id:'slurp',params:()=>({firstShift:true}),next:(A,r)=>{A.set('res',r);return 'special';}}},
-  special:{lines:A=>[N('a ticket comes back with no order on it. just: "THE RICH SPECIAL."'),R('…that ain\'t a real thing.'),N('you put jollof in the broth anyway. it works. hina tries it. she does not say anything nice, which from her is everything.'),S('hina','it\'s on the menu now.')],
+  special:{lines:A=>[N('a ticket comes back with no order on it. just: "THE RICH SPECIAL."'),R('…that ain\'t a real thing.'),N('you put jollof in the broth anyway. it works.'),N('hina tries it. she does not say anything nice, which from her is everything.'),S('hina','it\'s on the menu now.')],
    enter:A=>{RALife.setFlag('jollofRamenOnMenu',true);},next:'clockout'},
   clockout:{lines:[S('okada','good shift.'),N('he pays you out of a coffee can.')],
    // ENGINEERING 05 (HQ route): Hina's own first beat follows the first Slurp Dynasty experience (one time).
@@ -86,11 +86,11 @@
  // ---------------------------------------------------------------- A10 — UNCLE SUNDAY & THE AGEGE BREAD
  D({id:'A10',title:'UNCLE SUNDAY & THE AGEGE BREAD',lane:'dragons',memoryType:'dragons',available:L=>!!L.dragon,testSetup:ctx=>{ctx.RADragon.adoptEgg();},start:'arrive',nodes:{
   arrive:{env:'pet_crypt',title:'PET CRYPT',actors:{left:'rich',farRight:'uncle_sunday'},
-   lines:[E('uncle_sunday','a pot-bellied man in slides and a buba is buying goldfish food. under his arm: the last loaf of agege bread. why is it in a pet store? nobody knows.'),N('you both reach for it.')],
+   lines:[E('uncle_sunday','a pot-bellied man in slides and a buba is buying goldfish food. under his arm: the last loaf of agege bread.'),N('why is it in a pet store? nobody knows.'),N('you both reach for it.')],
    choices:[{label:'FIGHT HIM',next:'fight'},{label:'PAY DOUBLE',next:'pay'},{label:'CALL HIM UNCLE',octopus:true,next:'melt'}]},
   fight:{fight:{enemy:'uncle_sunday',params:{env:'pet_crypt',intro:'UNCLE SUNDAY WANTS TO KNOW WHO YOUR FATHER IS.'},win:'winbread',lose:'losebread',spared:'sparedbread'}},
-  winbread:{lines:[N('he goes down laughing. "AH! YOU HAVE STRENGTH." he hands over the whole loaf.')],next:'settle'},
-  losebread:{lines:[N('you go down first. he stands over you, delighted. "YOU TRIED." he tears the loaf in half anyway.')],next:'settle'},
+  winbread:{lines:[N('he goes down laughing. "AH! YOU HAVE STRENGTH."'),N('he hands over the whole loaf.')],next:'settle'},
+  losebread:{lines:[N('you go down first. he stands over you, delighted.'),N('"YOU TRIED." he tears the loaf in half anyway.')],next:'settle'},
   sparedbread:{lines:[N('you call him uncle mid-fight. he stops swinging immediately.')],next:'settle'},
   pay:{actors:{left:'rich',farRight:{id:'uncle_sunday',state:'offended'}},lines:[S('uncle_sunday','…you would insult me like that? fine. FINE.'),N('he takes double, muttering, and hands it over like it costs him something bigger than money.')],
    enter:A=>{RALife.spend(24);},next:'settle'},
@@ -121,8 +121,8 @@
   testSetup:ctx=>{ctx.RADragon.adoptEgg();ctx.RAState.patch('life.ownership.dragon',{...ctx.RALife.dragon(),stage:'hatchling',hatched:true});},
   start:'arrive',nodes:{
   arrive:{env:'pier',title:'SANTA MONICA PIER · NIGHT',actors:{left:'rich',right:{id:'uncle_sunday',state:'fishing'}},
-   lines:[E('uncle_sunday','uncle sunday is already here. three lines out. a folding chair. a cooler.'),S('uncle_sunday','she won\'t eat treats. she wants fish. sit down. i teach you.')],next:'teach'},
-  teach:{lines:[N('CAST. WAIT. REEL. he says it like a prayer.')],choices:[{label:'LEARN',next:'cast'}]},
+   lines:[E('uncle_sunday','uncle sunday is already here. three lines out.'),N('a folding chair. a cooler.'),S('uncle_sunday','she won\'t eat treats. she wants fish.'),S('uncle_sunday','sit down. i teach you.')],next:'teach'},
+  teach:{lines:[N('CAST. WAIT. REEL.'),N('he says it like a prayer.')],choices:[{label:'LEARN',next:'cast'}]},
   cast:{minigame:{id:'pier',params:()=>({tutorial:true,uncleSunday:true}),next:(A,r)=>{A.set('catch',r);return 'react';}}},
   react:{actors:{left:{id:'rich',state:'holding_fish_away'},right:{id:'uncle_sunday',state:'fishing'}},shot:{profile:'conversation',focal:['left'],speakers:['left']},lines:[N('you hold the fish at arm\'s length, visibly suffering.'),R('i\'m not looking at it. tell me when it\'s gone.')],next:'mazda'},
   mazda:{actors:{left:'rich',right:{id:'uncle_sunday',state:'fishing'}},lines:A=>RALife.dragon()?.hatched?[N('blueberry mazda swoops down and eats it off the line before you can react.'),S('uncle_sunday','…she has good form.')]:[N('you set it down carefully, like it might still hurt you.')],next:'end'},
@@ -194,7 +194,7 @@
    lines:[E('iron_jaw','a masked man steps up, holding a capri sun.'),S('iron_jaw','who is rich alucard and why is he rapping in my laundromat.'),N('a crowd forms. a real one.')],
    choices:[{label:'BATTLE HIM',next:'battle'}]},
   battle:{minigame:{id:'bars',params:()=>({opponent:{name:'IRON JAW',rounds:3}}),next:(A,r)=>{A.set('res',r);return r.outcome==='win'?'win':'lose';}}},
-  win:{actors:{left:'rich',right:{id:'iron_jaw',state:'defeated'}},lines:[S('iron_jaw','…his final verse. about a capri sun. it almost works.'),N('you beat him. barely.'),S('iron_jaw','respect. real ones talk texture.')],
+  win:{actors:{left:'rich',right:{id:'iron_jaw',state:'defeated'}},lines:[S('iron_jaw','…his final verse. about a capri sun. it almost works.'),N('you beat him. barely.'),S('iron_jaw','respect. nobody raps about juice pouches like you.')],
    enter:A=>{RALife.setFlag('ironJawRespect',true);},
    end:{outcome:'win',memory:{text:'beat iron jaw in a bars battle',lane:'music'},
     receipt:{id:'a15:win',caption:'iron jaw. masked villain. beat him over a capri sun.'},
@@ -272,7 +272,7 @@
  // ---------------------------------------------------------------- A42 — TABLE FOR ONE
  D({id:'A42',title:'TABLE FOR ONE',lane:'food',repeatable:true,memoryType:'food',start:'arrive',nodes:{
   arrive:{env:'brunch',title:'EGGS BENEDEAD · SILVER LAKE',actors:{left:'rich'},
-   lines:[S(null,'"just one?"'),R('just one.'),N('a window seat. couples around him. a mom with a stroller. a guy on a laptop.')],next:'sit'},
+   lines:[S(null,'"just one?"'),R('just one.'),N('a window seat. couples everywhere. a mom with a stroller.')],next:'sit'},
   sit:{lines:[N('chicken and waffles. a mimosa. nothing happens.')],
    choices:[{label:'LOOK OUT THE WINDOW',next:'sit'},{label:'EAT',next:'sit'},{label:'CHECK PHONE',next:'sit'},{label:"I'M GOOD",next:'end'}]},
   end:{end:{outcome:'sat',memory:{text:'brunch alone at eggs benedead',lane:'food',quality:.8},
@@ -283,7 +283,7 @@
  // ---------------------------------------------------------------- A45 — YU & ME ONSEN
  D({id:'A45',title:'YU & ME ONSEN',lane:'home',repeatable:true,memoryType:'home',start:'arrive',nodes:{
   arrive:{env:'onsen',title:'YU & ME ONSEN · TORRANCE',actors:{left:'rich'},
-   lines:[N('towel. robe. slippers. steam everywhere. montana plays faintly, somehow.'),N('the other bathers are elderly men who nod at you like you belong here.')],next:'soak'},
+   lines:[N('towel, robe, slippers, steam. montana plays faintly, somehow.'),N('the other bathers are elderly men who nod at you like you belong here.')],next:'soak'},
   soak:{choices:[{label:'STAY LONGER',next:'soak'},{label:'GET OUT',next:'end'}]},
   end:{end:{outcome:'soaked',fx:A=>{RALife.setFlag('locsBloody',false);},
    memory:{text:'the onsen, quietest place in LA',lane:'home',quality:.7},

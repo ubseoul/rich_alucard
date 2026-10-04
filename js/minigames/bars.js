@@ -146,6 +146,7 @@
  function mount(root,ctx){
   const P=RAPixel;
   const {canvas,ctx:g,toNative}=P.createCanvas(root);
+  const J=window.RAJuice?window.RAJuice.create(g):{burst(){},float(){},ring(){},shake(){},flash(){},update(){},begin(){g.save();},end(){g.restore();}};
   const params=ctx.params||{};
   const savedProgress=ctx.progress()||{};
   let rngSeed=(params.seed||('bars'+Date.now()));
@@ -177,7 +178,7 @@
 
   const battle=params.opponent||null;
   const duet=params.duet||null;
-  const roundMs0=1500;
+  const roundMs0=3300; // RC2: was 1500. The bar is a real, readable timer now.
   const runMs=battle?(battle.rounds||3)*20000:60000;
 
   let state={combo:0,score:0,chainWord:norm(pickStartWord(params.seedWords,params.pool,rng))};
@@ -207,7 +208,7 @@
    choices=buildChoices(state.chainWord,rng,{combo:state.combo,pool:params.pool,seedWords:params.seedWords});
    layoutChoices();
    roundStart=performance.now();
-   roundMs=Math.max(650,roundMs0/speedFor(state.combo));
+   roundMs=Math.max(1500,roundMs0/speedFor(state.combo));
    beat(true);
   }
 
@@ -241,6 +242,7 @@
     if(otherIsCorrect)opts.multi=true;
    }
    const res=scoreTap(state,word,now,opts);
+   {const ch=choices.find(c=>c.word===word);if(ch){const cx=ch.x+ch.w/2,cy=ch.y+ch.h/2;if(res.correct){J.burst(cx,cy,res.punchline?['#ffd36a','#f6efd9']:['#20c66b','#f6efd9','#ffd36a'],res.punchline?26:14,90);J.ring(cx,cy,'#ffd36a',26);if(state.combo>0&&state.combo%5===0){J.flash('#ffd36a',120);J.float(`${state.combo} BARS DEEP`,135,176,{color:'#ffd36a',size:8,life:1});}}else{J.shake(3);J.float('NAH',cx,cy,{color:'#d7193f',size:8,life:.6});}}}
    if(res.correct){
     onCorrect(res,type);
     const twoCorrect=choices.filter(c=>c.correct).length>=2;
@@ -353,7 +355,7 @@
   function frame(){
    if(dispose_extra.__stopped)return;
    const now=performance.now();
-   g.clearRect(0,0,270,480);
+   g.clearRect(0,0,270,480);J.update((now-(frame._l||now))/1000);frame._l=now;J.begin();
    const pulse=0.5+0.5*Math.sin(now/(260-Math.min(160,state.combo*6)));
    P.rect(g,0,0,270,480,P.palette.night);
    P.rect(g,0,0,270,80,`rgba(125,25,75,${0.15+pulse*0.15})`);
@@ -374,6 +376,7 @@
     P.text(g,state.chainWord,135,108,{size:16,align:'center',color:'#f6efd9'});
     const elapsedRound=now-roundStart;
     const pct=Math.max(0,1-elapsedRound/roundMs);ctx.audio?.edge('timer',pct<=0,'BARS_TIMER');
+    if(pct<=0&&!ended&&!multiPending){onWrong();flashMsg='TOO SLOW';J.shake(2);newRound(state.chainWord);}
     P.rect(g,10,132,250,6,'#231f2c');P.rect(g,10,132,250*pct,6,pct>0.3?P.palette.green:P.palette.red);
     choices.forEach(c=>drawChoiceChip(c,now));
    }
@@ -394,6 +397,7 @@
     if(battle)endBattleRoundIfNeeded(now);
     else if(now-startTime>=runMs)finishRun();
    }
+   J.end();
    raf=requestAnimationFrame(frame);
   }
   let raf=requestAnimationFrame(frame);
@@ -408,5 +412,5 @@
   };
  }
 
- window.RAMinigames.register('bars',{title:'BARS',mount});
+ window.RAMinigames.register('bars',{title:'BARS',rule:'Tap the word that rhymes with the big word before the bar runs out, and keep the chain going.',mount});
 })();

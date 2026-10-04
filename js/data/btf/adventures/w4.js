@@ -12,9 +12,9 @@
   nodes:{
   arrive:{env:'street_night',actors:{left:'rich',right:'coffe'},title:'THE FRONT GATE',
    lines:[N('somebody is banging on the gate. it is not a vampire hunter. it is a guy with two iced coffees.'),
-    E('coffe','he holds them up like trophies.'),S('coffe',"YO. RICH ALUCARD. I GOT YOU. TWO ICED COFFEES, ONE FOR EACH OF US."),
+    E('coffe','he holds them up like trophies.'),S('coffe',"YO. RICH ALUCARD. I GOT YOU TWO ICED COFFEES, ONE EACH."),
     R("i can't drink coffee. i'm a vampire."),S('coffe','…oh. OH. say less.')],next:'drink'},
-  drink:{actors:{left:'rich',right:{id:'coffe',state:'hype'}},lines:[N('he drinks both. back to back. no hands shaking. eyes wide the whole castle block.'),
+  drink:{actors:{left:'rich',right:{id:'coffe',state:'hype'}},lines:[N('he drinks both, back to back. his eyes go wide. his hands vibrate.'),
     S('coffe','I\'M COFFE. I JUST MOVED ON THE BLOCK. I KNEW WE WAS GONNA BE HOMIES.'),
     R('…you good, bro?'),S('coffe','NEVER BETTER. NEVER BETTER. WANNA SEE SOMETHING?')],
    choices:[{label:'"…SURE."',next:'hype'},{label:'WATCH HIM VIBRATE IN SILENCE',octopus:true,next:'hype'}]},
@@ -46,10 +46,10 @@
   available:L=>L.done('A29')&&(Number(L.flag('coffeTells'))||0)>=2&&!L.done('A29C'),
   nodes:{
   weigh:{env:'street_night',actors:{left:'rich'},title:'SOMETHING IS OFF ABOUT COFFE',
-   lines:[N('three tells in a week. the fire-safety door. the blurred story. tokyo tony\'s text.'),
+   lines:[N('three red flags this week: the fire-safety door, the blurred story, tokyo tony\'s text.'),
     R("he's my homie. but he's also acting like he's got a second job.")],
    choices:[{label:'CONFRONT HIM EARLY',next:'confront'},{label:'IGNORE IT',fx:A=>RALife.setFlag('coffeRogue','ignored'),next:'ignore'}]},
-  confront:{env:'street_night',actors:{left:'rich',right:'coffe'},lines:[S('coffe','confront me? about what? i live here. i love it here.'),
+  confront:{env:'street_night',actors:{left:'rich',right:'coffe'},lines:[S('coffe','confront me? about what? i love it here.'),
     N('he lies well. smooth. barely a beat missed.')],
    choices:[{label:'LET IT GO',fx:A=>RALife.setFlag('coffeRogue','confronted'),next:'letgo'},
     {label:'EXPOSE HIM',octopus:true,when:()=>RALife.L().known3cool,sub:'3+ PEOPLE AT COOL+ HAVE TO VOUCH',next:'expose'}]},
@@ -134,7 +134,7 @@
   // J-Circle's entrance stays unstaged: the frozen reception crowd layer (ART SHIP 009) is keyed to this exact screen
   // (duchess_castle|left:rich) and its foreground couple stands where a second actor would. Art/HQ item, not a code gap.
   arrive:{env:'duchess_castle',actors:{left:'rich'},title:'THE DUCHESS\'S SOIRÉE',
-   lines:[N('staged status. a receiving line. the room is very good at pretending not to be watching the door.'),
+   lines:[N('a receiving line. everybody pretends not to watch the door.'),
     E('j_circle','j-circle arrives. the room stops. actually stops.'),N('nobody moves until he does.')],next:'duchess'},
   duchess:{env:'duchess_castle',actors:{left:'rich',right:'duchess'},
    lines:[E('duchess','the duchess crosses the room directly to you.'),S('duchess','child.'),
@@ -195,7 +195,7 @@
     E('bunmi','a woman at the counter turns around before you order.'),S('bunmi','…rich? RICH ALUCARD?'),
     R("do i know you?"),S('bunmi','you used to walk to school with a backpack held together by duct tape.')],
    enter:A=>{RARelations.meet('bunmi','suya_spot');},next:'bunmi'},
-  bunmi:{lines:[S('bunmi','i knew you before all this. the castle. the vampire thing. all of it.'),
+  bunmi:{lines:[S('bunmi','i knew you before all this.'),S('bunmi','the castle. the vampire thing. all of it.'),
     N('you get suya. she pays for hers before you can.')],next:'party'},
   party:{env:'atl_house_party',actors:{left:'rich',right:'bunmi'},title:'SOUTHWEST ATL · HOUSE PARTY',
    lines:[N("bunmi's cousin is throwing a house party. the whole block is out front.")],
@@ -281,7 +281,7 @@
  D({id:'A_JADE1',title:'DRAGON NIGHT',lane:'people',scope:'MEET',memoryType:'people',start:'arrive',
   nodes:{
   arrive:{env:'party_hall_packed',actors:{left:'rich',right:'jade'},title:'DRAGON NIGHT',
-   lines:[N('the theme is dragons. half the room is in costume. one woman is not — because she doesn\'t need to be.'),
+   lines:[N('the theme is dragons. half the room is in costume. one woman is not, because she doesn\'t need to be.'),
     E('jade','she keeps the receipt from her drink in her hand like it matters.'),S('jade','jade wyrmwood. i keep everything. you\'ll learn that.')],
    enter:A=>{RARelations.meet('jade','party_hall_packed');},next:'done'},
   done:{end:{outcome:'met',memory:{text:'met jade wyrmwood at dragon night',lane:'people'},home:['rich','she kept my cup. i don\'t know why that\'s unsettling.',{vp:true}]}}
@@ -315,7 +315,7 @@
  D({id:'A_VELVET1',title:'THE DM',lane:'people',scope:'MEET',memoryType:'people',start:'dm',
   nodes:{
   dm:{env:'grave',actors:{left:'rich'},title:'A DM',
-   lines:[N('a DM from a locked account: velvet vantablack. she checks her ring light before she checks on you — even here, in text.'),
+   lines:[N('a DM from velvet vantablack. she checks her ring light before she checks on you.'),
     S('velvet','you look like someone who\'d pay for the good content. i just launched something. it\'s called ONLYVAMPS.')],
    enter:A=>{RARelations.meet('velvet','grave');RALife.unlockApp('onlyvamps');},next:'done'},
   done:{end:{outcome:'met',memory:{text:'velvet vantablack DMed him — ONLYVAMPS is on his phone now',lane:'people'},home:['rich','i have an app now that i am definitely not telling my mother about.',{vp:true}]}}
@@ -358,7 +358,7 @@
   available:L=>RABtfPeople.women.some(w=>RARelations.level(w.id)>=2),
   nodes:{
   pick:{env:'street_night',actors:{left:'rich'},title:'A PLUS-ONE',
-   lines:[N('tristan hit you with two extra tickets. trippin\' red. the hollow bowl. saturday.'),R('who am i bringing?')],
+   lines:[N('tristan has two extra tickets: trippin\' red, the hollow bowl, saturday.'),R('who am i bringing?')],
    choices:A=>{const ids=RABtfPeople.women.map(w=>w.id).filter(id=>RARelations.level(id)>=2);
     return ids.map(id=>({label:(RABtfPeople.get(id)?.name||id).toUpperCase(),fx:X=>{X.set('person',id);RALife.setFlag('futureEx',id);},next:'route'}));}},
   route:{route:{dest:'hollow_bowl',next:'arrive'}},
@@ -539,7 +539,7 @@
   available:L=>L.day===31,
   nodes:{
   costume:{env:'street_night',actors:{left:'rich'},title:'HALLOWEEN · VAMPIRE LA',
-   lines:[N('vampires don\'t dress as monsters tonight — they dress as human jobs. it\'s the one night everyone commits.')],
+   lines:[N('tonight vampires dress as human jobs. nobody commits harder.')],
    choices:[{label:'DUOQLO REGULAR GUY',fx:A=>A.set('costume','duoqlo'),next:'party'},
     {label:'DOOM-ESQUE MASKED VILLAIN',fx:A=>A.set('costume','doom'),next:'party'},
     {label:'OCTOPUS SENSEI',octopus:true,fx:A=>A.set('costume','sensei'),next:'party'}]},
@@ -566,7 +566,7 @@
   available:L=>L.flag('ogunsRaveCompleted'),
   nodes:{
   arrive:{env:'rave_interior',actors:{left:'rich',right:{id:'anfeesa',state:'dj'}},title:"OGUN'S SECOND RAVE",
-   lines:[N('techno this time. a different crowd — one that has never heard of any rapper, ever, on purpose.'),
+   lines:[N('techno night. nobody here knows any rapper. on purpose.'),
     E('anfeesa','dj anfeesa is behind the booth.')],
    enter:A=>{if(!RARelations.met('anfeesa'))RARelations.meet('anfeesa','rave_interior');},next:'dance'},
   dance:{choices:A=>RAParties.choices({fallback:{reaction:'the crowd doesn\'t care who you are. it\'s kind of freeing.',score:1}},'remix')},

@@ -21,8 +21,8 @@
    S(R,`Forty seconds. It's waffles. Pick.`),U(`good taste, waffles too`),S(R,`Obviously.`),
    N(`A stats textbook sticks out of her bag, spine cracked, tabs everywhere.`)],
    choices:[{label:'ASK ABOUT THE CLUB',next:'club'},{label:'ASK ABOUT THE TEXTBOOK',next:'textbook'}]},
-  club:{lines:[S(R,`Because it's mine. My hours. My money. My call.`)],next:'both'},
-  textbook:{lines:[S(R,`Data science. It's patterns. People think they're random. They're not.`),S(R,`You, for example. Same booth. Left hand first. Every time.`)],next:'both'},
+  club:{lines:[S(R,`Because it's mine. My hours, my money, my call.`)],next:'both'},
+  textbook:{lines:[S(R,`Data science is patterns. People think they're random. They're not.`),S(R,`You, for example. Same booth, left hand first, every time.`)],next:'both'},
   both:{lines:[
    S(R,`Every night up there pays for a piece of my future.`),S(R,`No loans. No co-signer. Nobody gets a piece of it.`),
    N(`She says it like a fact about weather. Then she steals one of Rich's fries.`),
@@ -54,7 +54,7 @@
    N(`Rich lands a clean shot.`),S(R,`That didn't count.`),
    U(`damn you can’t take losing at all`),
    S(R,`I take losing fine. I just don't do it.`),S(R,`Run it back.`),
-   N(`She takes a light hit, shakes her head, laughs, and comes right back harder. Normal. Easy. Fun.`)],next:'bout'},
+   N(`She takes a light hit, shakes her head, laughs, and comes right back harder. Normal, easy, fun.`)],next:'bout'},
   // Existing Combat 2.0, no defeat penalty. Either result continues the same scene (the spar's result is not authored).
   bout:{fight:{enemy:'f15_roxy_spar',params:()=>({env:'f15_gym',noPenalty:spar().noPenalty,intro:'FIRST TO FIVE CLEAN SHOTS. LIGHT CONTACT.'}),win:'after',lose:'after',spared:'after',run:'after'}},
   after:{env:'f15_gym',actors:her,lines:[
@@ -71,7 +71,7 @@
    N(`A dog tied up outside presses its nose to the window. Roxy's whole voice changes.`),
    S(R,`Hi. Hi. Look at you. Look at that face.`),
    S(R,`…Don't look at me like that. Animals are better than people. That's just data.`),
-   S(R,`Dogs. Horses. Goats are underrated. Pigs are smarter than half my study group.`),
+   S(R,`Dogs. Horses. Goats are underrated, and pigs are smarter than half my study group.`),
    S(R,`When I own a place with a yard, I'm getting three dogs. Minimum.`),
    N(`She goes back to her noodles, then pauses.`),
    S(R,`I love all animals.`),S(R,`I hate cats.`),S(R,`Don't ask.`)],

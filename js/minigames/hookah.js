@@ -47,8 +47,9 @@
   DATE:{start:'"okay okay, watch this."',stack:'*laughs* "wait how did you DO that"',moon:'"...did that just hit the moon?"',antenna:'*laughs* "poor taco truck."'}
  };
 
- window.RAMinigames.register('hookah',{title:'HOOKAH RINGS',mount(root,ctx){
+ window.RAMinigames.register('hookah',{title:'HOOKAH RINGS',rule:'Hold to inhale, let go with a flick up to blow a ring, and try to blow rings through each other.',mount(root,ctx){
   const {canvas,ctx:g}=P().createCanvas(root);
+  const J=window.RAJuice?window.RAJuice.create(g):{burst(){},float(){},ring(){},shake(){},flash(){},update(){},begin(){g.save();},end(){g.restore();}};
   const params=ctx.params||{};
   // No company param keeps the long-standing ROOKOKO line set, but Rookoko is NOT a default companion (HQ-AS8-01):
   // his seated figure is drawn only when a beat names ROOKOKO explicitly. HOMIES (A41 crew roof) seats the frozen
@@ -92,15 +93,18 @@
    let smoothness=.8;
    if(flick.length>=2){
     let jitter=0;for(let i=1;i<flick.length;i++)jitter+=Math.abs((flick[i].y-flick[i-1].y));
-    smoothness=Math.max(0,Math.min(1,1-jitter/60));
+    smoothness=Math.max(0,Math.min(1,1-jitter/110));
     const dy=flick[0].y-flick[flick.length-1].y;
-    if(dy<4)smoothness=Math.min(smoothness,.25); // needs an upward flick
+    if(dy<-2)smoothness=Math.min(smoothness,.25); // RC2: any non-downward release is fine; flicking up is just nicer
    }
    const ring=window.RAMinigameLogic.hookah.makeRing(releaseSpeed,smoothness);
    ring.x=135;
    if(lastRing&&window.RAMinigameLogic.hookah.ringPassesThrough(ring,lastRing)){
     sessionStack++;bestStack=Math.max(bestStack,sessionStack);ctx.saveProgress({bestStack,moonHits,antennaHits});say('stack');
    } else if(!ring.wobble) sessionStack=1; else sessionStack=0;
+   J.burst(135,396,ring.wobble?['#8a8296']:['#e6e6ff','#9aa0c8'],ring.wobble?6:12,45);
+   if(!ring.wobble&&sessionStack>1){J.burst(135,360,['#ffd36a','#e6e6ff'],18,90);J.float(`STACKED x${sessionStack}`,135,330,{color:'#ffd36a',size:8,life:1.1});J.shake(2);ctx.audio?.sound('COMBO_UP');}
+   else if(ring.wobble)J.float('WOBBLY',135,340,{color:'#d7193f',size:6,life:.7});
    rings.push(ring);lastRing=ring;lung=0;
    thrown=true;fb={text:ring.wobble?'WOBBLY - FLICK UP, SMOOTH':(sessionStack>1?'STACKED!':'CLEAN RING'),color:ring.wobble?palette().red:palette().green};fbT=performance.now();
    if(rings.length>6)rings.shift();
@@ -131,7 +135,7 @@
    g.lineWidth=2;g.beginPath();g.ellipse(ring.x,ring.y,ring.size,ring.size*.4,0,0,Math.PI*2);g.stroke();g.restore();
   }
   function draw(){
-   const now=performance.now();const dt=now-lastT;lastT=now;
+   const now=performance.now();const dt=now-lastT;lastT=now;J.update(dt/1000);J.begin();
    const rp=P(),pal=palette();
    if(!rp.drawBoard(g,'hookah_roof'))rp.paintEnvironment(g,env());
    else {rp.text(g,'HOOKAH ROOF',135,22,{size:7,align:'center',color:pal.pink});rp.text(g,'NOW PLAYING: '+song,135,44,{size:6,align:'center',color:pal.grey});}
@@ -159,8 +163,8 @@
     drawRing(rp,r,alpha);
     if(!r._checked&&r.age>60){
      r._checked=true;
-     if(window.RAMinigameLogic.hookah.hitsMoon(r)){moonHits++;ctx.saveProgress({bestStack,moonHits,antennaHits});say('moon');}
-     if(window.RAMinigameLogic.hookah.hitsAntenna(r)){antennaHits++;ctx.saveProgress({bestStack,moonHits,antennaHits});say('antenna');}
+     if(window.RAMinigameLogic.hookah.hitsMoon(r)){moonHits++;ctx.saveProgress({bestStack,moonHits,antennaHits});say('moon');J.burst(TARGETS.moon.x,TARGETS.moon.y,['#eee7c8','#ffd36a','#f6efd9'],22,100);J.float('MOON!',TARGETS.moon.x-30,TARGETS.moon.y+34,{color:'#eee7c8',size:8,life:1.1});J.flash('#eee7c8',100);ctx.audio?.sound('CROWD_CHEER_SMALL');}
+     if(window.RAMinigameLogic.hookah.hitsAntenna(r)){antennaHits++;ctx.saveProgress({bestStack,moonHits,antennaHits});say('antenna');J.burst(TARGETS.antenna.x,TARGETS.antenna.y,['#d7193f','#f6efd9'],16,80);J.float('ANTENNA!',TARGETS.antenna.x+14,TARGETS.antenna.y-12,{color:'#ff6fb5',size:7,life:1});}
     }
    }
    if(inhaling)lung=Math.min(1,(now-holdStart)/1600);
@@ -168,10 +172,11 @@
    rp.text(g,'INHALE',25,150,{size:5,align:'center',color:pal.grey});
    rp.text(g,`STACK ${sessionStack}  BEST ${bestStack}`,135,392,{size:6,align:'center'});
    rp.text(g,`MOON ${moonHits}  ANTENNA ${antennaHits}`,135,405,{size:5,align:'center',color:pal.grey});
-   if(!thrown)rp.text(g,'HOLD TO INHALE / FLICK UP SMOOTH',135,182,{size:6,align:'center',color:pal.grey});
+   if(!thrown)rp.text(g,'HOLD, THEN LET GO WITH AN UP FLICK',135,182,{size:6,align:'center',color:pal.grey});
  if(fb&&now-fbT<900)rp.text(g,fb.text,135,166,{size:7,align:'center',color:fb.color});
  if(toast&&now-toastT<2600)rp.wrap(g,toast,220,7).forEach((ln,i)=>rp.text(g,ln,135,200+i*12,{size:7,align:'center',color:pal.gold}));
    rp.frame(g,75,436,120,34,{fill:pal.bone});rp.text(g,"I'M GOOD",135,449,{size:7,align:'center',color:pal.ink});
+   J.end();
    if(!dead)raf=requestAnimationFrame(draw);
   }
   raf=requestAnimationFrame(draw);
