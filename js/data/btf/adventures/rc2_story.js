@@ -4,6 +4,9 @@
  const {R,S,N,E}=RAContent;const D=RAAdventures.define;
  const day=()=>RALife.today().day;
  const seeded=key=>RAPixel.rng(`rc2:${key}:${day()}`);
+ // CHEAP-BUY ENCOUNTERS (Build 1 taco hook): a small buy sometimes opens a 2-box moment with a person. Deterministic per day.
+ RAWriting.cheapBuyEnter=(kind,A)=>{const rng=seeded('cheap:'+kind);if(rng()>.55)return;const e=RAWriting.cheapBuyPick(kind,rng);A.set('cheap',e);if(e.meet){try{RARelations.meet(e.meet,'cheap-buy:'+kind);}catch(x){}}RALife.setFlag('cheapBuyTip:'+kind,e.tip);};
+ RAWriting.cheapBuyLines=A=>{const e=A?.vars?.cheap;return e?e.lines.map(t=>N(t)):[];};
  // The doorman is a placeholder figure (no frozen art yet) — listed under "needs art" in docs/rc2/NEW_STORY.md.
  RABtfPeople.byId.doorman=RABtfPeople.byId.doorman||{id:'doorman',name:'THE DOORMAN',look:{skin:'#5a3420',top:'#15151c',bottom:'#15151c',hair:'#15151c',hairShape:'bald',height:1.15,width:1.3,shades:true}};
 
@@ -36,12 +39,12 @@
   arrive:{env:'kitchen',actors:{left:'rich',right:'tunde'},title:'FUFU FRIDAY',
    lines:[E('tunde','tunde shows up with a bag of flour and a face of deep concern.'),S('tunde','you have never eaten fufu? at all?'),S('tunde','sit. today you become a man. or a better man.')],next:'mom'},
   mom:{actors:{left:'mom',mid:'rich',right:'tunde'},lines:[N('mom joins the video call. nobody invited her. she was always going to join.'),S('mom','have you eaten? what are you eating? WHO IS COOKING?')],next:'rule'},
-  rule:{actors:{left:'rich',right:'tunde'},lines:[S('tunde','rule one: you do not chew fufu.'),R('why not?'),S('tunde','it is not a steak. it is a friend. you tear. you dip. you swallow.')],
+  rule:{actors:{left:'rich',right:'tunde'},lines:[S('tunde','rule one: you do not chew fufu.'),R('why not?'),S('tunde','it is not a steak. it is a friend. you tear, you dip, you swallow.')],
    choices:[{label:'SWALLOW IT',next:'swallow'},{label:'CHEW IT (RULES ARE RULES)',next:'chew'},{label:'ROLL IT WITH EIGHT TENTACLES',octopus:true,sub:'perfect little balls.',next:'octo'}]},
   swallow:{lines:[N('it goes down in one piece. rich stares at the ceiling.'),S('tunde','…you are nigerian. i always knew.')],enter:A=>{RALife.setFlag('fufuStyle','swallow');},next:'soup'},
   chew:{lines:[N('rich chews. the whole kitchen goes quiet.'),S('mom','who raised you?'),S('tunde','i cannot look at him.')],enter:A=>{RALife.setFlag('fufuStyle','chew');},next:'soup'},
   octo:{lines:[N('eight tentacles. eight perfect balls. one very concerned dragon.'),S('tunde','that is cheating. it is also beautiful.')],enter:A=>{RALife.setFlag('fufuStyle','octopus');},next:'soup'},
-  soup:{lines:[N('the soup is egusi. it is red. it is hot. it is personal.'),S('mom','is the soup hot? it should hurt a little.'),R('…it hurts a little.')],next:'end'},
+  soup:{lines:[N('the soup is egusi. it is red, hot, and personal.'),S('mom','is the soup hot? it should hurt a little.'),R('…it hurts a little.')],next:'end'},
   end:{enter:A=>{RALife.setFlag('fufuLearned',true);RARelations.add('tunde',3,{reason:'fufu friday'});},lines:[S('mom','good. now eat again. i will watch.')],
    end:{outcome:'fufu',memory:{text:'learned fufu. one rule: do not chew',lane:'food',quality:1.4},receipt:{id:'fufu',caption:'fufu friday. mom watched. i swallowed.'},home:['rich','fufu is a whole personality.',{vp:true}]}}
  }});
@@ -51,7 +54,7 @@
  // ============================================================================================
  D({id:'AUNTIES',title:'THE AUNTIE COUNCIL',lane:'food',scope:'MUST',memory:'the auntie council',available:L=>L.done('A43')||L.day>=6,start:'arrive',nodes:{
   arrive:{env:'naija_lot',actors:{left:'rich',right:'auntie',farRight:'auntie'},title:'NAIJA MART · THE PARKING LOT',
-   lines:[N('three aunties on folding chairs. a table. a thermos. nobody invited them.'),E('auntie','the council has reviewed your file.'),S('auntie','you are too thin. you are too pale. you are too single.'),R('i am a vampire.'),S('auntie','and?')],next:'work'},
+   lines:[N('three aunties on folding chairs, with a table and a thermos. nobody invited them.'),E('auntie','the council has reviewed your file.'),S('auntie','you are too thin. you are too pale. you are too single.'),R('i am a vampire.'),S('auntie','and?')],next:'work'},
   work:{lines:[S('auntie','what work do you do?')],
    choices:[{label:'"MUSIC."',next:'work_music'},{label:'"I HAVE A CASTLE."',next:'work_castle'},{label:'"I AM A VAMPIRE."',next:'work_vamp'}]},
   work_music:{enter:A=>A.set('score',(A.vars.score||0)+1),lines:[S('auntie','music is a hobby. what is the WORK.')],next:'wed'},

@@ -11,7 +11,7 @@
    enter:A=>{RALife.counter('graveVisits');},
    lines:A=>{const v=Number(RALife.flag('graveVisits'))||1;const out=[N(v<=1?'the fountain is on. couples everywhere. somebody is proposing by the trolley.':'the grave. same fountain. new couples.')];
     if(!RALife.hasFit('grave_hoodie'))out.push(S('kiosk_guy','SIR. YOU HAVE BEAUTIFUL SKIN. ONE SECOND.'));
-    if(v%4===2)out.push(N('mall security is watching you. he is a vampire hunter trainee. he looks at his pamphlet, then at you.'));
+    if(v%4===2)out.push(N('mall security is watching you. he\'s a vampire hunter trainee. he checks his pamphlet.'));
     return out;},next:'hub'},
   hub:{env:'grave',actors:{left:'rich'},lines:[N('where to?')],
    choices:A=>{const L=RALife.L();const special=window.RAGraveEncounters?.(L)||[];
@@ -39,7 +39,7 @@
  D({id:'TACOS',title:"DON CHUY'S",lane:'food',repeatable:true,oncePerNight:true,start:'arrive',nodes:{
   arrive:{env:'taco_truck',actors:{left:'rich',right:{id:'don_chuy',state:'singing'}},lines:A=>[N('the radio is playing a canción. don chuy is singing along, badly, beautifully.'),S('don_chuy',RALife.counter('tacoVisits')<=1?'¡vecino! the castle guy! finally.':'¿lo de siempre, vecino?')],
    choices:[{label:'THREE TACOS ($9)',when:()=>RALife.money()>=9,fx:()=>RALife.spend(9),next:'eat'},{label:'SIX TACOS ($18)',when:()=>RALife.money()>=18,fx:A=>{RALife.spend(18);A.set('six',true);},next:'eat'}]},
-  eat:{lines:A=>[N(A.vars.six?'six tacos. the song ends. another one starts.':'the tacos are $3 each and better than anything in the grave.'),...(RALife.today().rain?[N('rain on the awning. his cousins are here with a guitar.')]:[])],end:{outcome:'ate',memory:{text:'tacos at don chuy\'s truck',lane:'food',quality:.6},chain:A=>RALife.today().rain&&RAAdventures.available('A51')?'A51':null}}
+  eat:{enter:A=>RAWriting.cheapBuyEnter('tacos',A),lines:A=>[N(A.vars.six?'six tacos. the song ends. another one starts.':'the tacos are $3 each and better than anything in the grave.'),...(RALife.today().rain?[N('rain on the awning. his cousins are here with a guitar.')]:[]),...RAWriting.cheapBuyLines(A)],end:{outcome:'ate',memory:{text:'tacos at don chuy\'s truck',lane:'food',quality:.6},chain:A=>RALife.today().rain&&RAAdventures.available('A51')?'A51':null}}
  }});
  // A43 — NAIJA MART & THE MALT.
  D({id:'A43',title:'NAIJA MART & THE MALT',lane:'food',scope:'MUST',start:'arrive',nodes:{

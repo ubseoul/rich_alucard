@@ -48,6 +48,15 @@ export async function test() {
     assert.ok(order.toppings.length >= 1 && order.toppings.length <= 3, 'toppings 1-3');
     assert.ok(!order.toppings.includes('JOLLOF'), 'no jollof topping unless unlocked');
   }
+  // RC2 B3: orders are broth → noodles → meat → topping, and the order card shows exactly that
+  for (let i = 0; i < 30; i++) {
+    const o = logic.makeOrder(rng, { jollofRamen: true });
+    if (o.kevin) continue;
+    assert.ok(logic.MEATS.includes(o.meat), 'meat is a MEAT');
+    assert.ok(logic.TOPS.includes(o.topping) || o.topping === 'JOLLOF', 'topping is a TOPPING (or JOLLOF)');
+    assert.deepStrictEqual([...o.toppings], [o.meat, o.topping], 'toppings = [meat, topping] so checkBowl stays compatible');
+  }
+  assert.ok(window.RAMinigames.get('slurp').rule.split(/[.!?]/).filter(Boolean).length === 1, 'slurp has a one-sentence rule');
   let sawJollof = false;
   for (let i = 0; i < 60 && !sawJollof; i++) {
     const order = logic.makeOrder(rng, { jollofRamen: true });

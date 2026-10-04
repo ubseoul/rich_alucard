@@ -76,6 +76,5 @@ export const EDITS=[
  [A+'w4.js',String.raw`staged status. a receiving line. the room is very good at pretending not to be watching the door.`,String.raw`a receiving line. everybody pretends not to watch the door.`,'simplify'],
  [A+'w4.js',String.raw`a DM from a locked account: velvet vantablack. she checks her ring light before she checks on you — even here, in text.`,String.raw`a DM from velvet vantablack. she checks her ring light before she checks on you.`,'simplify'],
  [A+'w4.js',String.raw`vampires don\'t dress as monsters tonight — they dress as human jobs. it\'s the one night everyone commits.`,String.raw`tonight vampires dress as human jobs. nobody commits harder.`,'simplify'],
- [A+'w4.js',String.raw`techno this time. a different crowd — one that has never heard of any rapper, ever, on purpose.`,String.raw`techno night. nobody here knows any rapper. on purpose.`,'simplify'],
- [A+'w4.js',String.raw`the theme is dragons. half the room is in costume. one woman is not — because she doesn\'t need to be.`,String.raw`the theme is dragons. half the room is in costume. one woman is not, because she doesn\'t need to be.`,'simplify']
+ [A+'w4.js',String.raw`techno this time. a different crowd — one that has never heard of any rapper, ever, on purpose.`,String.raw`techno night. nobody here knows any rapper. on purpose.`,'simplify']
 ];

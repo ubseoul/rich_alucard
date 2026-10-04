@@ -11,14 +11,14 @@
   available:L=>L.day>=2&&L.day<=8,
   nodes:{
   arrive:{env:'street_night',actors:{left:'rich',right:'coffe'},title:'THE FRONT GATE',
-   lines:[N('somebody is banging on the gate. it is not a vampire hunter. it is a guy with two iced coffees.'),
+   lines:[N('someone bangs on the gate. not a hunter. a guy with two iced coffees.'),
     E('coffe','he holds them up like trophies.'),S('coffe',"YO. RICH ALUCARD. I GOT YOU TWO ICED COFFEES, ONE EACH."),
     R("i can't drink coffee. i'm a vampire."),S('coffe','…oh. OH. say less.')],next:'drink'},
   drink:{actors:{left:'rich',right:{id:'coffe',state:'hype'}},lines:[N('he drinks both, back to back. his eyes go wide. his hands vibrate.'),
     S('coffe','I\'M COFFE. I JUST MOVED ON THE BLOCK. I KNEW WE WAS GONNA BE HOMIES.'),
     R('…you good, bro?'),S('coffe','NEVER BETTER. NEVER BETTER. WANNA SEE SOMETHING?')],
    choices:[{label:'"…SURE."',next:'hype'},{label:'WATCH HIM VIBRATE IN SILENCE',octopus:true,next:'hype'}]},
-  hype:{lines:[N('he does a lap around the block at a speed that should not be possible on foot. he comes back. he is fine.'),
+  hype:{lines:[N('he runs a lap around the block way too fast. he comes back. he is fine.'),
     S('coffe','ANYWAY. WELCOME TO THE HOOD. HERE.'),N('he gives you his number before you ask for it.')],
    enter:A=>{RARelations.meet('coffe','castle_gate');RALife.unlockApp('texts',{silent:true});RALife.remember({text:'coffe showed up with two iced coffees and drank both',lane:'people'});},
    end:{outcome:'met',memory:{text:'met coffe. he drank both iced coffees.',lane:'people'},
@@ -53,9 +53,9 @@
     N('he lies well. smooth. barely a beat missed.')],
    choices:[{label:'LET IT GO',fx:A=>RALife.setFlag('coffeRogue','confronted'),next:'letgo'},
     {label:'EXPOSE HIM',octopus:true,when:()=>RALife.L().known3cool,sub:'3+ PEOPLE AT COOL+ HAVE TO VOUCH',next:'expose'}]},
-  expose:{actors:{left:'rich',right:{id:'coffe',state:'caught'}},lines:[N('you pull three people who know coffe — real ones, cool with you — into the group chat at once.'),
+  expose:{actors:{left:'rich',right:{id:'coffe',state:'caught'}},lines:[N('you add three people who know coffe to the group chat at once.'),
     S('coffe','…y\'all really did that. ok. ok, real talk—'),N('he cracks. not all the way. but enough.'),
-    S('coffe','vicky\'s party been paying me to keep tabs on the castle. i drink the coffee for real though. that part\'s true.'),
+    S('coffe','vicky\'s party been paying me to spy on the castle. i drink the coffee for real though.'),
     R("that's the least surprising part of this whole story.")],
    enter:A=>{RALife.setFlag('coffeRogue','exposed');RARelations.setFlag('coffe','exposedEarly',true);},next:'letgo'},
   letgo:{lines:[N('nothing changes tonight. the block keeps moving.')],end:{outcome:'confronted',memory:{text:'called out coffe about vicky\'s party',lane:'people'},home:['rich','i\'m watching that man now.',{vp:true}]}},
@@ -109,12 +109,12 @@
    lines:[N('a thick blue woman with horns and a tail is sitting on your bed, finishing the last of the agege bread.'),
     N('there is no dragon anywhere in the room.'),R('…mazda?'),S('mazda_human','who else eats your bread like this?')],next:'discover'},
   discover:{env:'grave',actors:{left:'rich',right:'mazda_human'},title:'THE GRAVE',
-   lines:[N('you take her to the grave to figure this out like normal people. she orders boba immediately.'),
+   lines:[N('you take her to the grave to figure it out. she orders boba immediately.'),
     S('mazda_human','i\'ve been able to do this for a while. i just liked being a dragon more.')],next:'night'},
   // "she changes back mid-air with Rich on her back over LA" (VOL 5 A32): ART SHIP 014 B-riding-composite (Rich riding
   // majestic Mazda), drawn as world art in the sky at native 1:1 — a 96×80 composite, not a standing actor.
   night:{env:'la_sky',actors:null,props:()=>[{src:window.RAArtRegistry?.dragon?.riding_composite?.asset,x:135,y:250}],title:'OVER LOS ANGELES',
-   lines:[N('at night she flies. mid-air, she changes back — you\'re still on her back, over the whole city.'),
+   lines:[N('at night she flies. mid-air she changes back, with you still on her back.'),
     R("this is either the best or worst decision i've made this year."),S('mazda_human','it\'s both. that\'s the fun part.')],
    enter:A=>{RARelations.meet('mazda_human','la_sky');RALife.setFlag('mazdaHuman',true);RALife.patchDragon({form:'both'});RALife.remember({text:'mazda changes into a human — flew over LA with her',lane:'dragons'});},
    next:'land'},
@@ -218,10 +218,10 @@
   nodes:{
   arrive:{env:'food_court',actors:{left:'rich',right:'brenda'},title:'THE FOOD COURT · LUNCH',
    lines:[N('a zombie on her lunch break, spreadsheet open on her phone, eating alone.'),
-    E('brenda','she looks up.'),S('brenda','you\'re the castle guy. i do the numbers on half the businesses in this mall. i know your numbers too.'),
+    E('brenda','she looks up.'),S('brenda','you\'re the castle guy. i do the books for half this mall. i know your numbers too.'),
     R('…that\'s either impressive or deeply concerning.'),S('brenda','both.')],
    enter:A=>{RARelations.meet('brenda','food_court');},next:'gossip'},
-  gossip:{actors:{left:'rich',right:{id:'brenda',state:'gossiping'}},lines:[S('brenda','you want real gossip? the CEO — Zombie Prince — his numbers are worse than yours. way worse.'),
+  gossip:{actors:{left:'rich',right:{id:'brenda',state:'gossiping'}},lines:[S('brenda','you want real gossip? the CEO, Zombie Prince, is doing worse than you. way worse.'),
     R('the CEO of what?'),S('brenda','everything. he owns everything and somehow still can\'t make payroll.'),
     N('she goes back to her spreadsheet. she does not stop talking while she eats.')],next:'done'},
   done:{end:{outcome:'met',memory:{text:'met brenda from accounting — gossip about the CEO Zombie Prince',lane:'people'},
@@ -237,7 +237,7 @@
  RAPlaces.define([{id:'castle:maid',hidden:true,adventure:L=>L.flag('marisolHired')?'MAID':'A39'}]);
  D({id:'MAID',title:'THE MAID QUARTERS',lane:'home',repeatable:true,memoryType:'home',available:L=>!!L.flag('marisolHired'),start:'look',nodes:{
   look:{env:'throne',actors:{mid:'rich',right:{id:'marisol',state:'disapproving'}},title:'THE MAID QUARTERS',
-   lines:A=>RALife.life().clock.hungover?[N('you are hungover. marisol already handled it: water on the armrest, the curtains shut, the throne pillow fluffed.'),S('marisol','drink that. then fix your face.')]:[N('marisol is judging the throne room. then she judges you.'),S('marisol','this castle was a disaster before me.')],
+   lines:A=>RALife.life().clock.hungover?[N('you are hungover. marisol already put water on the armrest and shut the curtains.'),S('marisol','drink that. then fix your face.')]:[N('marisol is judging the throne room. then she judges you.'),S('marisol','this castle was a disaster before me.')],
    end:{outcome:'looked',memory:{text:'marisol, judging everything',lane:'home',quality:.3}}}}});
  D({id:'A39',title:'HIRING MARISOL',lane:'home',scope:'MUST',memoryType:'home',start:'ghost',repeatable:true,
   available:L=>L.hasRoom('maid_quarters')&&!L.flag('marisolHired'),
@@ -247,7 +247,7 @@
     S(null,'"…i used to be so good at this."'),R('it\'s ok. thank you for coming.')],next:'bones'},
   bones:{lines:A=>RALife.flag('bonesworthResident')?[N('applicant two: sir bonesworth, in an apron over his armor.'),S('bonesworth','I SHALL CLEAN AS I ONCE CONQUERED.'),N('he breaks a vase immediately.')]:[N('no second applicant today. the list is short.')],next:'marisol'},
   marisol:{env:'throne',actors:{mid:'rich',right:{id:'marisol',state:'disapproving'}},
-   lines:[E('marisol','the third applicant walks in and starts reorganizing the throne room before she even sits down.'),
+   lines:[E('marisol','the third applicant walks in and starts rearranging the throne room.'),
     S('marisol','this room is a disaster. the throne should face the door, not the window. who arranged this?'),
     R("…nobody, technically."),S('marisol','that explains everything.')],
    enter:A=>{RARelations.meet('marisol','throne');},next:'hire'},
@@ -273,7 +273,7 @@
  D({id:'A_EMBERLY1',title:'THE BACK ROOM AT KUSH & CRYPT',lane:'people',scope:'MEET',memoryType:'people',start:'arrive',
   nodes:{
   arrive:{env:'kush_back',actors:{left:'rich',right:'emberly'},title:'KUSH & CRYPT · BACK ROOM',
-   lines:[N('past the counter, through a curtain that smells like dragon keef, a woman is warming her hands over nothing.'),
+   lines:[N('behind a curtain that smells like dragon keef, a woman is warming her hands over nothing.'),
     E('emberly','the seat next to her is already warm before you sit.'),S('emberly','you\'re the first one tonight who didn\'t flinch.')],
    enter:A=>{RARelations.meet('emberly','kush_back');},next:'done'},
   done:{end:{outcome:'met',memory:{text:'met emberly in the back room at kush & crypt',lane:'people'},home:['rich','that seat is gonna smell like her for a week.',{vp:true}]}}
@@ -281,7 +281,7 @@
  D({id:'A_JADE1',title:'DRAGON NIGHT',lane:'people',scope:'MEET',memoryType:'people',start:'arrive',
   nodes:{
   arrive:{env:'party_hall_packed',actors:{left:'rich',right:'jade'},title:'DRAGON NIGHT',
-   lines:[N('the theme is dragons. half the room is in costume. one woman is not, because she doesn\'t need to be.'),
+   lines:[N('the theme is dragons. half the room is in costume. one woman doesn\'t need one.'),
     E('jade','she keeps the receipt from her drink in her hand like it matters.'),S('jade','jade wyrmwood. i keep everything. you\'ll learn that.')],
    enter:A=>{RARelations.meet('jade','party_hall_packed');},next:'done'},
   done:{end:{outcome:'met',memory:{text:'met jade wyrmwood at dragon night',lane:'people'},home:['rich','she kept my cup. i don\'t know why that\'s unsettling.',{vp:true}]}}
@@ -289,7 +289,7 @@
  D({id:'A_LO1',title:'A PARTY, A ARM',lane:'people',scope:'MEET',memoryType:'people',start:'arrive',
   nodes:{
   arrive:{env:'rave_interior',actors:{left:'rich',right:{id:'lo',state:'arm_fall'}},title:'A PARTY',
-   lines:[N('a woman\'s arm falls off on the dance floor. she picks it up without stopping the song.'),
+   lines:[N('a woman\'s arm falls off on the dance floor. she picks it up and keeps dancing.'),
     E('lo','she apologizes to you specifically, mid-song.'),S('lo','sorry. it does that. i\'m lo.')],
    enter:A=>{RARelations.meet('lo','rave_interior');},next:'done'},
   done:{end:{outcome:'met',memory:{text:'met lo at a party — her arm fell off',lane:'people'},home:['rich','she kept dancing with one arm. respect.',{vp:true}]}}
@@ -297,7 +297,7 @@
  D({id:'A_HINA1',title:'TIMED',lane:'people',scope:'MEET',memoryType:'people',start:'arrive',
   nodes:{
   arrive:{env:'little_tokyo',actors:{left:'rich',right:{id:'hina',state:'smug'}},title:'SLURP · LITTLE TOKYO',
-   lines:[N('a woman behind the counter is timing something on her phone. it\'s you. she\'s timing you eat.'),
+   lines:[N('a woman at the counter is timing you eating, on her phone.'),
     E('hina','she flips the phone around.'),S('hina','forty-one seconds. that\'s slow. i\'m hina.')],
    enter:A=>{RARelations.meet('hina','little_tokyo');},next:'done'},
   done:{end:{outcome:'met',memory:{text:'met hina at slurp — she timed him eating',lane:'people'},home:['rich','i lost a race i didn\'t know i was in.',{vp:true}]}}
@@ -363,19 +363,19 @@
     return ids.map(id=>({label:(RABtfPeople.get(id)?.name||id).toUpperCase(),fx:X=>{X.set('person',id);RALife.setFlag('futureEx',id);},next:'route'}));}},
   route:{route:{dest:'hollow_bowl',next:'arrive'}},
   arrive:{env:'hollow_bowl',actors:A=>({left:'rich',right:A.vars.person}),props:()=>[trippinOnStage()],title:'THE HOLLOW BOWL',
-   lines:A=>[N('the amphitheater is packed. every seat, every aisle. the bass starts before the lights even change.'),
+   lines:A=>[N('the amphitheater is packed. the bass starts before the lights change.'),
     E('trippin_red','trippin\' red walks out to a wall of sound.')],next:'mosh'},
   mosh:{props:()=>[trippinOnStage()],lines:[N('the crowd surges. you both get pulled into it, laughing, shoved, alive.')],
    minigame:{id:'bars',params:A=>({mode:'mosh',env:'hollow_bowl'}),next:(A,r)=>'slow'}},
-  slow:{props:()=>[trippinOnStage()],lines:[N('the set slows down. a quiet song. everyone in the bowl sways the same direction.')],next:'finale'},
-  finale:{props:()=>[trippinOnStage()],lines:[N('the finale hits like weather. lights, noise, everyone screaming the hook back at the stage.')],next:'drive'},
+  slow:{props:()=>[trippinOnStage()],lines:[N('the set slows down. everyone in the bowl sways the same way.')],next:'finale'},
+  finale:{props:()=>[trippinOnStage()],lines:[N('the finale hits. lights, noise, everyone screaming the hook back.')],next:'drive'},
   drive:{env:'street_night',actors:A=>({left:'rich',right:A.vars.person}),title:'THE DRIVE HOME',
    lines:[N('windows down, montana playing loud enough to feel it in the seats.'),
     S(null,'"that was… actually the best night i\'ve had in a while."')],next:'roof'},
   // "the crew is already up here" (VOL 5 A41: Tunde, Dre, Tristan): Tunde, seated at the hookah, between Rich and her —
   // the most people the roof frames at phone size with every possible plus-one.
   roof:{env:'roof',actors:A=>({left:'rich',mid:{id:'tunde',state:'hookah_seated'},right:A.vars.person}),title:'THE HOOKAH ROOF',
-   lines:[N('the crew is already up here. hookah, low talk, the poster from tonight taped to the wall.')],
+   lines:[N('the crew is already up here. hookah, low talk, tonight\'s poster on the wall.')],
    choices:[{label:'HOOKAH WITH THE CREW',next:'roofgame'},{label:'SKIP TO THE END OF THE NIGHT',next:'crewleaves'}]},
   // HQ-AS8-01: the crew is on the roof, so the HOMIES company (its line set matches the beat).
   roofgame:{minigame:{id:'hookah',params:A=>({company:'HOMIES'}),next:(A,r)=>'crewleaves'}},
@@ -468,7 +468,7 @@
    choices:A=>RARelations.level('ms_patrice')>=3?[{label:'CRACK 🔒',sub:'LOCKED',when:()=>false,hideLocked:false,next:'box'},{label:'STAY WITH HER',next:'stays'}]:[{label:'SIT WITH HER A WHILE',next:'sweet'}]},
   // CRACK stays canon-locked (visible as locked); the beat uses the established fade: "she stays." (CONTENT_AUTHORING).
   stays:{lines:[N('she stays.'),N('non-graphic fade.')],enter:A=>RALife.setFlag('stayedOver',{person:'ms_patrice',day:RALife.today().day}),next:'box'},
-  sweet:{lines:[N('the fountain rings go quiet. neither of you says anything for a long time. it\'s sweet.')],next:'box'},
+  sweet:{lines:[N('the fountain goes quiet. neither of you says anything. it\'s sweet.')],next:'box'},
   box:{env:'bedroom',actors:{left:'rich'},lines:[N('wake. an atl hotel. there\'s a box on the pillow.'),N('a bag of homemade waffle mix, and a note in her handwriting: "don\'t tell nobody."')],
    enter:A=>{waffleStep(4)(A);RALife.addProp('prop_waffle_mix');RARelations.memory('ms_patrice','a44_recipe');},
    end:{outcome:'prize',memory:{text:'the waffle saga — ms. patrice\'s recipe, don\'t tell nobody',lane:'food'},
@@ -545,7 +545,7 @@
     {label:'OCTOPUS SENSEI',octopus:true,fx:A=>A.set('costume','sensei'),next:'party'}]},
   party:{env:'castle_exterior_party',actors:{left:'rich'},title:'THE BLOCK PARTY',
    lines:A=>[N(`you go as ${A.vars.costume==='duoqlo'?'a regular guy in duoqlo':A.vars.costume==='doom'?'a doom-esque masked villain':'octopus sensei'}. the block loves it.`)],
-   choices:A=>RAParties.choices({fallback:{reaction:'the costumes win the night, not the moves.',score:1}},'trick')},
+   minigame:RAParties.dance({fallback:{reaction:'the costumes win the night, not the moves.',score:1}},'trick')},
   trick:{env:'street_night',actors:{left:'rich'},title:'TRICK-OR-TREAT ON THE BLOCK',
    lines:[N('kids in costume run the block, full-size candy bars in every bag. one house — yours — accidentally hands out a few maggi cubes.'),
     S(null,'"mom, they gave me a SEASONING CUBE."'),R('it happens. it\'s a good cube though.')],
@@ -569,9 +569,9 @@
    lines:[N('techno night. nobody here knows any rapper. on purpose.'),
     E('anfeesa','dj anfeesa is behind the booth.')],
    enter:A=>{if(!RARelations.met('anfeesa'))RARelations.meet('anfeesa','rave_interior');},next:'dance'},
-  dance:{choices:A=>RAParties.choices({fallback:{reaction:'the crowd doesn\'t care who you are. it\'s kind of freeing.',score:1}},'remix')},
+  dance:{minigame:RAParties.dance({fallback:{reaction:'the crowd doesn\'t care who you are. it\'s kind of freeing.',score:1}},'remix',{song:'techno'})},
   remix:{lines:A=>{const dropped=(RAState.get().life.creativeLife.music.dropped||[]).length>0;const viral=RALife.life().resources.followers>=100;
-    if(dropped&&viral)return [N('mid-set, anfeesa drops a techno remix of your song. the crowd doesn\'t know it\'s yours. you do.')];
+    if(dropped&&viral)return [N('anfeesa drops a techno remix of your song. nobody knows it\'s yours. you do.')];
     return [N('the set rolls on. no remix tonight — maybe next time.')];},
    enter:A=>RAParties.attended('human'),next:'done'},
   // ENGINEERING 05 (HQ route): the DJ waves Rich up to the booth afterwards (A_ANFEESA1, one time).
@@ -580,11 +580,11 @@
  }});
  D({id:'ROOFTOP_DTLA',title:'A ROOFTOP IN DTLA',lane:'people',repeatable:true,memoryType:'people',start:'arrive',
   nodes:{arrive:{env:'rooftop_dtla',actors:{left:'rich'},title:'A ROOFTOP IN DTLA',lines:[N('string lights, a skyline, a party with no host anyone can name.')],
-   choices:A=>RAParties.choices({fallback:{reaction:'the view does most of the work tonight.',score:1}},'done')},
+   minigame:RAParties.dance({fallback:{reaction:'the view does most of the work tonight.',score:1}},'done')},
   done:{enter:A=>RAParties.attended('human'),end:{outcome:'attended',memory:{text:'a rooftop party in DTLA',lane:'people'}}}}});
  D({id:'NEIGHBOR_CASTLE',title:'THE CASTLE DOWN THE BLOCK',lane:'people',repeatable:true,memoryType:'people',start:'arrive',
   nodes:{arrive:{env:'neighbor_castle',actors:{left:'rich'},title:'THE CASTLE DOWN THE BLOCK',lines:[N('your neighbor throws parties too. smaller castle. louder music.')],
-   choices:A=>RAParties.choices({fallback:{reaction:'a neighbor party. low stakes, good time.',score:1}},'done')},
+   minigame:RAParties.dance({fallback:{reaction:'a neighbor party. low stakes, good time.',score:1}},'done')},
   done:{enter:A=>RAParties.attended('vampire'),end:{outcome:'attended',memory:{text:'a party at the castle down the block',lane:'people'}}}}});
  RAParties.register(L=>RAAdventures.available('ROOFTOP_DTLA')?'ROOFTOP_DTLA':null);
  RAParties.register(L=>RAAdventures.available('NEIGHBOR_CASTLE')?'NEIGHBOR_CASTLE':null);

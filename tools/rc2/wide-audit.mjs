@@ -15,7 +15,7 @@ export function scan(max=3){
   else if(/\.(js|mjs)$/.test(e.name)&&!skip.test(p)){
    fs.readFileSync(p,'utf8').split('\n').forEach((ln,i)=>{
     const re=/(['"`])((?:\\.|(?!\1).){40,})\1/g;let m;
-    while((m=re.exec(ln))){const n=sentences(m[2]);if(n>max&&/ /.test(m[2])&&!/[{}]|=>|function|\$\{|\\u/.test(m[2]))out.push({file:path.relative(root,p).replace(/\\/g,'/'),line:i+1,n,text:m[2]});}
+    while((m=re.exec(ln))){const n=sentences(m[2]);if(n>max&&/ /.test(m[2])&&!/[{}]|=>|function|\$\{|\\u/.test(m[2])&&!/","|','|^[,:\[]/.test(m[2]))out.push({file:path.relative(root,p).replace(/\\/g,'/'),line:i+1,n,text:m[2]});}
    });}}};
  walk(path.join(root,'js'));return out;
 }

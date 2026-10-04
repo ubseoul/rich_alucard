@@ -102,11 +102,11 @@
  // The first night: half-off cover, and the house holds half the bankroll at the door. Build 1 wires the money; these are the words.
  const stripClub={
   firstVisit:{
-   door:['first time? welcome. cover is half off tonight.','house rule for first timers: we hold half your cash at the door.','you can have the rest back on your way out. i am not a thief. i am a bouncer.'],
+   door:['first time? welcome. cover is half off tonight.','house rule for first timers: bring half your cash. the rest stays home.','it is called not going broke on your first night.'],
    rich:['half my bankroll?','…that is the most responsible thing anyone has said to me.'],
-   deal:'FIRST NIGHT · HALF OFF COVER · HALF YOUR CASH HELD AT THE DOOR',
-   leaving:['"here is your other half. spend the first half wisely."','"come back. we will not hold it next time. you are on your own."'],
-   mail:{title:'THE CLUB',body:'first night: half off cover. we keep half your cash safe at the door.'}
+   deal:'FIRST NIGHT · HALF OFF COVER · BRING HALF YOUR CASH, NO MORE',
+   leaving:['"spend the first half wisely."','"come back. the rope is not going anywhere. neither are we."'],
+   mail:{title:'THE CLUB',body:'first night: half off cover. bring half your cash. the rest stays home.'}
   },
   returnVisit:['"welcome back. no more training wheels."','"we do not hold your money anymore. we hold your attention."']
  };
@@ -125,5 +125,11 @@
  }
  function cheapBuyPick(kind='generic',rng){const list=cheapBuy[kind]||cheapBuy.generic;const e=list[Math.floor(rngOf(rng)()*list.length)];return {...e,lines:[...e.lines]};}
  function allBarks(){const out=[];for(const k of Object.keys(generic))for(const t of generic[k])out.push(textOf(t));for(const t of wild)out.push(textOf(t));for(const e of Object.values(enemy))for(const arr of Object.values(e))for(const t of arr)out.push(textOf(t));return out;}
- window.RAWriting={barks:{generic,wild,enemy,kinds:['enter','hurt','lowhp','telegraph','win','lose','spared']},bark,allBarks,cheapBuy,cheapBuyPick,stripClub};
+ // OCTOPUS BRAIN: where the move comes from (the prologue scene) and how the game talks about it afterwards.
+ const octopusBrain={
+  origin:'the sensei handed rich a brain. it has eight parts. the seventh part is mostly snacks.',
+  firstUse:['the second brain wakes up. it already has an idea.','eight thoughts, one move. rich picks the dumbest one.','the octopus part of his head says: do not hit it. ask it.'],
+  reminder:['every part of the brain is thinking about food.','use your head. the other head.']
+ };
+ window.RAWriting={octopusBrain,barks:{generic,wild,enemy,kinds:['enter','hurt','lowhp','telegraph','win','lose','spared']},bark,allBarks,cheapBuy,cheapBuyPick,stripClub};
 })();

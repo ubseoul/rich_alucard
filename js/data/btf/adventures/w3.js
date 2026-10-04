@@ -10,7 +10,7 @@
   if(magic){const m=[...new Set([...(life.combat.magic||[]),id])];RAState.patch('life.combat.magic',m);}
   const eq=[...life.combat.equippedMoves];if(!eq.includes(id)&&eq.length<4){RAState.patch('life.combat.equippedMoves',[...eq,id]);}
  }
- const kevinCameo=()=>RALife.flag('kevinCameo')?[N('a kevin walks by in the background. nobody reacts to him. nobody ever will again.')]:[];
+ const kevinCameo=()=>RALife.flag('kevinCameo')?[N('a kevin walks by. nobody reacts. nobody ever will again.')]:[];
 
  // ============================================================================================
  // A18 — FORTY KEVINS. Reached via THE GRAVE hub (street) or a SLURP shift. Kaede drops from the
@@ -47,8 +47,8 @@
  D({id:'A19',title:'BRUCE LOOSE AT THE FOOD COURT',lane:'combat',memoryType:'combat',start:'arrive',nodes:{
   arrive:{env:'food_court',actors:{left:'rich',right:'bruce_loose'},title:'THE LAST ORANGE CHICKEN',
    enter:A=>{RARelations.meet('bruce_loose','A19');},
-   lines:[N('one tray of orange chicken left under the heat lamp. a man in a tracksuit is staring at it like it owes him money.'),S('bruce_loose','THAT\'S MINE.'),R('i just wanted a bite.')],next:'fight'},
-  fight:{fight:{enemy:'bruce_loose',params:{env:'food_court',intro:'BRUCE LOOSE WANTS THE CHICKEN. AND A FIGHT.'},win:'lesson',lose:'lesson',spared:'lesson'}},
+   lines:[N('one tray of orange chicken left. a man in a tracksuit stares at it like it owes him money.'),S('bruce_loose','THAT\'S MINE.'),R('i just wanted a bite.')],next:'fight'},
+  fight:{fight:{enemy:'bruce_loose',params:{env:'food_court',intro:'HE KICKS RIGHT AFTER HIS NOISE, SO HIT HIM FIRST.'},win:'lesson',lose:'lesson',spared:'lesson'}},
   lesson:{lines:A=>[N(A.vars.fight==='win'?'he goes down, laughing, and gets right back up to teach you something.':A.vars.fight==='spared'?'he stops mid-swing and decides you deserve a lesson instead.':'he beats you to the chicken. and everything else. then he offers a hand up.'),S('bruce_loose','LESSON ONE: ONE-INCH PETTY. YOU DON\'T NEED SPACE. YOU NEED SPITE.')],
    enter:A=>{learnMove('petty');},next:'armory'},
   armory:{lines:[S('bruce_loose','you need guns. try THE ARMORY, behind the church on 3rd. tell deacon brass bruce sent you.'),R('a church has guns?'),S('bruce_loose','A CHURCH HAS EVERYTHING.')],
@@ -73,7 +73,7 @@
   fork:{choices:A=>[{label:'ASK HOW LONG',next:'ask'},{label:'FIGHT NOW',next:'fightnow'},{label:'GET FOOD WHILE HE CHARGES',octopus:true,next:'food'}]},
   ask:{lines:A=>[S('phil','SOON. SO SOON.')],next:A=>A.vars.stage>=3?'fightnow':'wrap'},
   fightnow:{fight:{enemy:'phil',params:A=>({env:'street_night',invincible:A.vars.stage<3,intro:A.vars.stage<3?'PHIL IS INVINCIBLE WHILE HE CHARGES.':'PHIL IS AT FULL POWER. FINALLY.'}),win:'wrap',lose:'wrap',spared:'wrap'}},
-  food:{actors:{left:'rich',right:{id:'phil',state:'sitting_plate'}},lines:[N('you leave and come back with garlic knots. phil is still screaming, but he stops to eat.'),S('phil','…thanks. nobody ever does that.')],
+  food:{actors:{left:'rich',right:{id:'phil',state:'sitting_plate'}},lines:[N('you come back with garlic knots. phil keeps screaming, but he stops to eat.'),S('phil','…thanks. nobody ever does that.')],
    enter:A=>{RARelations.add('phil',2,{reason:'fed him'});},next:'wrap'},
   // Day three: the wrap narrates Phil spent on the ground (ART SHIP 008 phil.spent_grounded); earlier days keep the cast.
   wrap:{actors:A=>A.vars.stage>=3?{left:'rich',right:{id:'phil',state:'spent_grounded'}}:undefined,
@@ -97,14 +97,14 @@
    enter:A=>{RARelations.meet('bllad33','A21');},
    lines:A=>{const first=(RARelations.get('bllad33')?.memories||[]).includes('a21_first');
     return [S('bllad33','you got a roof and a hookah. that\'s all a man needs.'),
-     ...(first?[N('another night on the roof with bllad33.')]:[E('bllad33','he is already sitting there when you arrive. he does not say how he got up.'),S('bllad33','freshman year, university of michigan. i lived on a floor with eleven guys. ten of them are dead now.'),R('…what?'),S('bllad33','different story.')]),
+     ...(first?[N('another night on the roof with bllad33.')]:[E('bllad33','he is already sitting there when you arrive. he does not say how he got up.'),S('bllad33','freshman year, i lived on a floor with eleven guys. ten of them are dead now.'),R('…what?'),S('bllad33','different story.')]),
      ...kevinCameo()];},
    next:'company'},
   company:{lines:[N('who else is coming through?')],
    choices:[{label:'JUST BLLAD33',fx:A=>A.set('co','bllad33'),next:'hang'},{label:'INVITE TRISTAN',fx:A=>{A.set('co','tristan');RARelations.meet('tristan','A21');},next:'hang'},{label:'INVITE THE HOMIES',fx:A=>A.set('co','homies'),next:'hang'}]},
   hang:{lines:A=>{const l=[S('bllad33','my brother hilt doesn\'t play.'),R('play what?'),S('bllad33','anything.')];
-    if(A.vars.co==='tristan')l.push(N('tristan asks bllad33 if he\'s ever seen a ghost. bllad33 says yes, twice, and does not elaborate.'));
-    if(A.vars.co==='homies')l.push(N('tunde asks bllad33 what he actually hunts. bllad33 looks at the moon and does not answer.'));
+    if(A.vars.co==='tristan')l.push(N('tristan asks bllad33 if he\'s seen a ghost. bllad33 says "twice." that\'s it.'));
+    if(A.vars.co==='homies')l.push(N('tunde asks bllad33 what he hunts. bllad33 looks at the moon.'));
     return l;},next:'minigame'},
   minigame:{minigame:{id:'hookah',params:A=>({company:'BLLAD33',dateName:'bllad33',song:RARadio?.current?.()||'MONTANA'}),next:(A,r)=>{A.set('score',r?.score||0);return 'jump';}}},
   jump:{lines:[N('bllad33 stands up, walks to the edge, and steps off without a word.'),N('a moment later, from the street: a car alarm goes off, then stops.'),R('he could\'ve took the stairs.')],
@@ -178,7 +178,7 @@
  D({id:'A24',title:'GUNS AND GRACE',lane:'combat',memoryType:'combat',available:L=>L.flag('armoryKnown')&&!L.done('A24'),start:'arrive',nodes:{
   arrive:{env:'armory',actors:{left:'rich',right:'deacon_brass'},title:'BEHIND THE CHURCH',
    enter:A=>{RARelations.meet('deacon_brass','A24');},
-   lines:[N('a door behind the church that should not exist. deacon brass is polishing a shotgun with a communion cloth.'),S('deacon_brass','guns and grace, son. one keeps you alive. the other keeps you honest.'),R('and this is which one?')],next:'explain'},
+   lines:[N('a secret door behind the church. deacon brass polishes a shotgun with a communion cloth.'),S('deacon_brass','guns and grace, son. one keeps you alive. the other keeps you honest.'),R('and this is which one?')],next:'explain'},
   explain:{lines:[S('deacon_brass','gun weaving. shoot and move at the same time. every gun here does something blood can\'t.'),N('in a glass case, lit like an altar: the HOLY BABY DRAKE. $180,000.')],next:'end'},
   end:{end:{outcome:'known',memory:{text:'found the armory behind the church',lane:'combat',quality:1},
    receipt:{caption:'guns and grace. deacon brass keeps both.'},
@@ -245,14 +245,14 @@
     if(A.vars.song)out.push(N(`${RARadio.TRACKS.find(t=>t.id===A.vars.song)?.title||'the song'} is on repeat and everyone knows the words.`));
     if(A.vars.door==='coffe')out.push(N('coffe is letting in people who very clearly were not invited.'));
     return out;},next:'behavior'},
-  behavior:{lines:[N('the room needs you.')],choices:A=>RAParties.choices({fallback:{reaction:'the crowd is into it.',score:2}},'escalate1')},
+  behavior:{lines:[N('the room needs you.')],minigame:RAParties.dance({fallback:{reaction:'the crowd is into it.',score:2}},'escalate1')},
   escalate1:{lines:A=>{const guests=A.vars.guests||[];const out=[N(A.vars.lastReaction||'the room reacts.')];
     if(guests.length>=2)out.push(N(`${(RABtfPeople.get(guests[0])?.name||'someone').toLowerCase()} and ${(RABtfPeople.get(guests[1])?.name||'someone else').toLowerCase()} both think they\'re the main character tonight. this will not end quietly.`));
     else out.push(N('mazda is somewhere in the rafters. you can hear the wings.'));
     return out;},next:'escalate2'},
   escalate2:{lines:[N('a guy near the drinks table says something to a woman that makes her flinch.'),R('close your mouth.')],
    choices:[{label:'SAY IT AGAIN, LOUDER',fx:A=>{RALife.counter('lilSmack');RARelations.meet('lil_smack','A26');},next:'lilsmack'},{label:'LET IT GO',next:'resolve'}]},
-  lilsmack:{lines:[N('the guy shrinks about a foot. this is the first time anyone has ever told him to close his mouth. it will not be the last.'),S('lil_smack','…noted.')],next:'resolve'},
+  lilsmack:{lines:[N('the guy shrinks a foot. nobody has ever told him that before.'),S('lil_smack','…noted.')],next:'resolve'},
   resolve:{lines:A=>[N('the sun is close. people start filtering out.')],
    enter:A=>{const big=A.vars.tier==='extra'||(A.vars.guests||[]).length>=3;const disaster=A.vars.door==='coffe'&&RALife.hash(RALife.today().day)%3===0;
     let outcome=disaster?'bad':big?'legendary':'good';A.set('partyOutcome',outcome);
@@ -318,7 +318,7 @@
   fight:{fight:{enemy:'werewolf',params:{env:'grave_closed',intro:'MOONIE, FULL MOON. SHE DOESN\'T MEAN IT.'},win:'after',lose:'after',spared:'after'}},
   steak:{lines:[N('the food court is closed. rich breaks in through the shutter for one (1) steak.'),N('she stops running to eat it.')],
    enter:A=>{A.set('fight','spared');},next:'after'},
-  after:{lines:A=>[N(A.vars.fight==='tame'?'she stops mid-swing, breathing hard, and looks at you like she just woke up.':A.vars.fight==='spared'?'she sits down right there on the closed mall floor, embarrassed, chewing.':'she pins you, realizes what she\'s doing, and scrambles off, mortified.'),S('moonie','…did i do that. i did that.'),R('you did that.'),N('she is closer to you now than she was an hour ago. she keeps apologizing with her mouth full.')],
+  after:{lines:A=>[N(A.vars.fight==='tame'?'she stops mid-swing, breathing hard, and looks at you like she just woke up.':A.vars.fight==='spared'?'she sits down right there on the closed mall floor, embarrassed, chewing.':'she pins you, realizes what she\'s doing, and scrambles off, mortified.'),S('moonie','…did i do that. i did that.'),R('you did that.'),N('she is closer to you now. she keeps apologizing with her mouth full.')],
    enter:A=>{RAParties.earn('stomp');RARelations.add('moonie',10,{reason:'full moon'});RARelations.memory('moonie','a28_full_moon');},
    next:'end'},
   end:{end:{outcome:A=>A.vars.fight||'spared',memory:{text:'moonie\'s full moon chase through the closed grave',lane:'combat',quality:1.4},
@@ -345,7 +345,7 @@
   arrive:{env:'bedroom',actors:{left:'rich'},title:'SOMETHING AT THE WINDOW',
    lines:[N('rain on the glass. something small taps the window from outside.'),N('rich sneezes. preemptively. he doesn\'t know why yet.'),N('a sphynx cat is sitting on the ledge, soaked, staring in.')],next:'let'},
   let:{choices:[{label:'LET HER IN',next:'in'},{label:'…LET HER IN, OBVIOUSLY',next:'in'}]},
-  in:{lines:[N('no hair anywhere on her. she walks in like she owns the place, shakes off exactly once, and sits directly on the warmest spot in the room.'),R('a-a-a-CHOO. …worth it.')],
+  in:{lines:[N('no hair at all. she walks in like she owns the place and sits on the warmest spot.'),R('a-a-a-CHOO. …worth it.')],
    enter:A=>{RAState.patch('life.ownership.cat',{name:'EGUSI'});RALife.addProp('prop_cat_bed');},next:'end'},
   end:{end:{outcome:'stayed',memory:{text:'a hairless cat let herself into the castle during a rainstorm',lane:'home',quality:1.2},
    receipt:{caption:'a cat with no hair. rich is allergic anyway. worth it.'},
@@ -399,7 +399,7 @@
   sing:{env:'taco_truck',actors:{left:'rich',right:{id:'don_chuy',state:'singing'}},title:"DON CHUY'S · RAIN",
    lines:[N('the rain doesn\'t stop the radio. don chuy turns it up instead.'),S('don_chuy','¡vecino! you know this one?'),R('not even a little.')],next:'bars'},
   bars:{minigame:{id:'bars',params:A=>({pool:'spanish',partner:'DON CHUY'}),next:(A,r)=>{A.set('score',r?.score||0);return 'after';}}},
-  after:{lines:[N('you get maybe two words right. don chuy does not care. he hands you a sixth taco you didn\'t order.'),S('don_chuy','six. for the effort.')],
+  after:{lines:[N('you get two words right. don chuy hands you a sixth taco anyway.'),S('don_chuy','six. for the effort.')],
    enter:A=>{RARelations.add('don_chuy',4,{reason:'cancion night'});},next:'end'},
   end:{end:{outcome:'sang',memory:{text:"sang along with don chuy in the rain, six tacos deep",lane:'people',quality:1},
    home:['rich','i don\'t speak spanish but i speak six tacos.',{vp:true}]}}
@@ -442,7 +442,7 @@
    lines:A=>{const n=A.vars.n;const lines=[N('officer nodd walks up, looks at rich for a long second, and nods.')];
     if(n===5)lines.push(S('officer_nodd','…drive safe.'));else if(n>=10)lines.push(S('officer_nodd','can i get a picture?'));else lines.push(N('he says nothing. he never says anything.'));
     return lines;},next:'leave'},
-  leave:{actors:A=>A.vars.n>=10?{left:'rich',right:{id:'officer_nodd',state:'phone'}}:undefined,lines:A=>A.vars.n>=10?[N('he takes the picture, nods once more, and walks back to his cruiser like it never happened.')]:[N('ten seconds later he\'s back in the cruiser. the stop is over.')],
+  leave:{actors:A=>A.vars.n>=10?{left:'rich',right:{id:'officer_nodd',state:'phone'}}:undefined,lines:A=>A.vars.n>=10?[N('he takes the picture, nods, and walks back to his cruiser like it never happened.')]:[N('ten seconds later he\'s back in the cruiser. the stop is over.')],
    enter:A=>{RALife.setFlag('noddPending',false);},next:'end'},
   end:{end:{outcome:'nodded',memory:A=>({text:A.vars.n>=10?'officer nodd asked for a picture':A.vars.n===5?'officer nodd said "drive safe"':'officer nodd. the nod. nothing else.',lane:'people',quality:A.vars.n>=10?1:.3})}}
  }});

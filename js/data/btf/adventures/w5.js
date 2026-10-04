@@ -26,7 +26,7 @@
   wake:{env:'portobello_bedroom',actors:{mid:RICH_PORTO,left:PORTO_WIFE},title:'A TUESDAY',
    lines:[N('no locs. a clean cut. a sweater that costs more than it looks like it does.'),N('a woman sleeps next to him. she has loved him for a long time.'),R('…huh.')],next:'breakfast'},
   breakfast:{actors:{mid:RICH_PORTO,left:PORTO_WIFE,right:PORTO_KID1,farRight:PORTO_KID2},shot:BREAKFAST_SPEAKERS,
-   lines:[N('eggs. a mazda in the driveway — an actual, regular car. two kids arguing about cereal.'),S('portobello_wife',"you're gonna be late."),R("i'm never late.")],next:'commute'},
+   lines:[N('eggs. a regular mazda in the driveway. two kids arguing about cereal.'),S('portobello_wife',"you're gonna be late."),R("i'm never late.")],next:'commute'},
   commute:{shot:BREAKFAST_SPEAKERS,lines:[N('the commute is fine. the radio plays something forgettable. it is a good song anyway.')],next:'kpi1'},
   kpi1:kpiRound(1,'kpi2'),kpi2:kpiRound(2,'kpi3'),kpi3:kpiRound(3,'approve'),
   approve:{env:'portobello_office',actors:{left:RICH_PORTO_PRESENTING,right:PORTO_MGR},
@@ -55,7 +55,7 @@
  }});
  D({id:'A34',title:'TOKYO TEASER',lane:'world',scope:'SIDE',available:L=>L.day>=30,start:'dm',nodes:{
   dm:{env:'tokyo_tease',actors:{mid:'rich'},
-   lines:[N('a dm. a drift clip: taillights in the rain, a shrine gate, a girl in the driver\'s seat looking dead into the camera.'),S(null,'"we saw this."')],next:'gpt'},
+   lines:[N('a dm: a drift clip. taillights in the rain, a shrine gate, a girl looking dead into the camera.'),S(null,'"we saw this."')],next:'gpt'},
   gpt:{lines:[N('VampGPT chimes in, uninvited.'),S('vampgpt','almost. not yet.'),R('tokyo can wait. tokyo better wait.')],
    end:{outcome:'teased',memory:{text:'a tokyo vampire sent a drift clip: "we saw this"',lane:'world',quality:.5},receipt:{caption:'tokyo knows. tokyo is patient.'}}}
  }});

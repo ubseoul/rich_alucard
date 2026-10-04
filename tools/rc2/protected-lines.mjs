@@ -20,7 +20,7 @@ export const RANGES=[
 export const CUE=/\b(oga|agege|garri|plantain|stockfish|malt|maggi|seasoning cubes?|aunties?|buba|jollof|owambe|egusi|fufu|yam|suya|naija|nollywood|yoruba|igbo|pidgin|independence day|have you eaten|adeoluwa|gbenga|bamidele|church potluck|diaspora|uncle sunday|mister december|WHO IS YOUR FATHER)\b/i;
 const CALL=/\b(N|S|R|RC|E)\(\s*(?:(?:'[^']*'|"[^"]*"|[A-Za-z_.]+)\s*,\s*)?(['"`])((?:\\.|(?!\2).)*)\2/g;
 const norm=s=>String(s).replace(/\\(['"`])/g,'$1').replace(/\s+/g,' ').trim();
-const baseSrc=f=>execFileSync('git',['show',`${BASE}:${f}`],{cwd:root,encoding:'utf8',maxBuffer:1<<28});
+const baseSrc=f=>execFileSync('git',['show',`${BASE}:${f}`],{cwd:root,encoding:'utf8',maxBuffer:1<<28,stdio:['ignore','pipe','ignore']});
 const nowSrc=f=>fs.readFileSync(path.join(root,f),'utf8');
 function boxes(src,file){
  const out=[];src.split('\n').forEach((ln,i)=>{CALL.lastIndex=0;let m;while((m=CALL.exec(ln))){
