@@ -7,8 +7,7 @@
  // CHEAP-BUY ENCOUNTERS (Build 1 taco hook): a small buy sometimes opens a 2-box moment with a person. Deterministic per day.
  RAWriting.cheapBuyEnter=(kind,A)=>{const rng=seeded('cheap:'+kind);if(rng()>.55)return;const e=RAWriting.cheapBuyPick(kind,rng);A.set('cheap',e);if(e.meet){try{RARelations.meet(e.meet,'cheap-buy:'+kind);}catch(x){}}RALife.setFlag('cheapBuyTip:'+kind,e.tip);};
  RAWriting.cheapBuyLines=A=>{const e=A?.vars?.cheap;return e?e.lines.map(t=>N(t)):[];};
- // The doorman is a placeholder figure (no frozen art yet) — listed under "needs art" in docs/rc2/NEW_STORY.md.
- RABtfPeople.byId.doorman=RABtfPeople.byId.doorman||{id:'doorman',name:'THE DOORMAN',look:{skin:'#5a3420',top:'#15151c',bottom:'#15151c',hair:'#15151c',hairShape:'bald',height:1.15,width:1.3,shades:true}};
+ // The doorman is narrated (no actor): a placeholder figure would fail the frozen-art grounding gate.
 
  // ============================================================================================
  // THE YAM — Naija Mart. You do not buy a yam. You are chosen.
@@ -110,26 +109,35 @@
  // THE CLUB · FIRST NIGHT — immediate, cheap, and a little safe. Sets the budget cap Build 1 reads.
  // ============================================================================================
  D({id:'CLUB_FIRST',title:'THE CLUB · FIRST NIGHT',lane:'people',scope:'MUST',memory:'the first night',start:'door',nodes:{
-  door:{env:'street_night',actors:{left:'rich',right:'doorman'},title:'THE CLUB · FIRST NIGHT',
-   lines:[N('a velvet rope. a very large man. a sign: FIRST NIGHT HALF OFF.'),S('doorman','first time? welcome. cover is half off tonight.'),S('doorman','house rule for first timers: bring half your cash. the rest stays home.'),R('half my bankroll?')],
+  door:{env:'street_night',actors:{left:'rich'},title:'THE CLUB · FIRST NIGHT',
+   lines:[N('a velvet rope. a very large man. a sign: FIRST NIGHT HALF OFF.'),S(null,'DOORMAN: first time? welcome. cover is half off tonight.'),S(null,'DOORMAN: house rule for first timers: bring half your cash. the rest stays home.'),R('half my bankroll?')],
    next:'rule'},
-  rule:{lines:[S('doorman','yes. it is called not going broke on your first night.')],
+  rule:{lines:[S(null,'DOORMAN: yes. it is called not going broke on your first night.')],
    choices:[{label:'GO IN WITH HALF',sub:'THE SMART MOVE',next:'half'},{label:'GO IN WITH $20',sub:'THE VERY SMART MOVE',next:'small'},{label:'NOT TONIGHT',next:'leave'}]},
   half:{enter:A=>{RALife.setFlag('clubFirstNight',true);RALife.setFlag('clubBudgetCap',Math.max(1,Math.floor(RALife.money()/2)));RALife.setFlag('clubCoverDiscount',.5);},lines:[N('the bass hits your chest. your wallet feels light and safe.')],next:'in'},
   small:{enter:A=>{RALife.setFlag('clubFirstNight',true);RALife.setFlag('clubBudgetCap',Math.max(1,Math.min(20,RALife.money())));RALife.setFlag('clubCoverDiscount',.5);},lines:[N('the doorman nods. he respects a man with a plan.')],next:'in'},
-  leave:{lines:[S('doorman','the rope is not going anywhere.')],end:{outcome:'left',memory:{text:'stood at the club door. left. wise or scared',lane:'people',quality:.3},receipt:{caption:'the club. not tonight.'}}},
-  in:{lines:[S('doorman','spend the first half wisely. we will not hold your hand next time.')],
+  leave:{lines:[S(null,'DOORMAN: the rope is not going anywhere.')],end:{outcome:'left',memory:{text:'stood at the club door. left. wise or scared',lane:'people',quality:.3},receipt:{caption:'the club. not tonight.'}}},
+  in:{lines:[S(null,'DOORMAN: spend the first half wisely. we will not hold your hand next time.')],
    end:{outcome:'inside',memory:{text:'first night at the club. went in with a plan',lane:'people',quality:1},receipt:{id:'club:first',caption:'the club. half off. half the cash.'},home:['rich','i am a responsible man in a club.',{vp:true}]}}
  }});
 
  // Routes: each story arrives as a VampGPT want / invite (never a menu dump). The club is immediate (day 1).
  RATemptations.define([
-  {id:'vg_club',source:'vampgpt',line:'the club is open. first night is half off. i checked.',priority:90,minDay:1,maxDay:6,life:[3,4],adventure:'CLUB_FIRST'},
-  {id:'vg_yam',source:'vampgpt',line:'the auntie at naija mart is holding a yam for you. do not ask.',minDay:4,weight:2,life:[3,5],adventure:'YAM'},
-  {id:'vg_fufu',source:'vampgpt',line:'tunde says you have never had fufu. he is taking it personally.',minDay:5,weight:2,life:[3,5],adventure:'FUFU'},
-  {id:'vg_aunties',source:'vampgpt',line:'three aunties are in the naija mart lot. they asked about you.',minDay:6,weight:1.5,life:[3,5],adventure:'AUNTIES'},
-  {id:'invite_asoebi',source:'invite',sender:'UNCLE SUNDAY',line:'owambe saturday. the aso ebi is gold. do not argue.',minDay:8,weight:2,life:[3,5],adventure:'ASOEBI'},
-  {id:'vg_plates',source:'vampgpt',line:'mom sent plates. ALL the plates. check your door.',minDay:9,weight:2,life:[3,5],adventure:'PLATES'}
+  {id:'vg_club',when:L=>RALife.flag('rc2Offer')==='vg_club',source:'vampgpt',line:'the club is open. first night is half off. i checked.',priority:90,minDay:1,maxDay:6,life:[1,2],adventure:'CLUB_FIRST'},
+  {id:'vg_yam',when:L=>RALife.flag('rc2Offer')==='vg_yam',source:'vampgpt',line:'the auntie at naija mart is holding a yam for you. do not ask.',minDay:4,weight:.5,life:[1,2],adventure:'YAM'},
+  {id:'vg_fufu',when:L=>RALife.flag('rc2Offer')==='vg_fufu',source:'vampgpt',line:'tunde says you have never had fufu. he is taking it personally.',minDay:5,weight:.5,life:[1,2],adventure:'FUFU'},
+  {id:'vg_aunties',when:L=>RALife.flag('rc2Offer')==='vg_aunties',source:'vampgpt',line:'three aunties are in the naija mart lot. they asked about you.',minDay:6,weight:.5,life:[1,2],adventure:'AUNTIES'},
+  {id:'invite_asoebi',when:L=>RALife.flag('rc2Offer')==='invite_asoebi',source:'invite',sender:'UNCLE SUNDAY',line:'owambe saturday. the aso ebi is gold. do not argue.',minDay:8,weight:.5,life:[1,2],adventure:'ASOEBI'},
+  {id:'vg_plates',when:L=>RALife.flag('rc2Offer')==='vg_plates',source:'vampgpt',line:'mom sent plates. ALL the plates. check your door.',minDay:9,weight:.5,life:[1,2],adventure:'PLATES'}
  ]);
+ // OFFERS: one story want every other morning (club first, from day 1), pushed directly so the random want cadence is untouched.
+ const OFFERS=[['vg_club','CLUB_FIRST',1],['vg_yam','YAM',4],['vg_fufu','FUFU',5],['vg_aunties','AUNTIES',6],['invite_asoebi','ASOEBI',8],['vg_plates','PLATES',9]];
+ RAClock.onWake('rc2-story-offers',58,({info})=>{
+  if(info.day>1&&info.day%2)return;
+  const live=RAState.get().life.temptations.live||[];if(live.length>1||live.some(t=>OFFERS.some(o=>o[0]===t.id)))return;
+  for(const [id,adv,minDay] of OFFERS){if(info.day<minDay||!RAAdventures.available(adv))continue;
+   RALife.setFlag('rc2Offer',id);let ok=false;try{ok=RATemptations.ensure(id);}finally{RALife.setFlag('rc2Offer',null);}
+   if(ok)return;}
+ });
  RAPlaces.define([{id:'club_first',label:'THE CLUB',sub:'FIRST NIGHT · HALF OFF',adventure:'CLUB_FIRST',order:2}]);
 })();

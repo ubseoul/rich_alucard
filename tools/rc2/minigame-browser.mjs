@@ -13,19 +13,19 @@ await new Promise(r=>server.listen(0,'127.0.0.1',r));const port=server.address()
 const pwPath=process.env.RA_PLAYWRIGHT_PATH||'C:/Users/Ube/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright-core';
 const {chromium}=await import(pathToFileURL(path.join(pwPath,'index.js')).href).then(m=>m.default||m).catch(async()=>await import(pathToFileURL(path.join(pwPath,'index.mjs')).href));
 const browser=await chromium.launch({executablePath:process.env.RA_CHROMIUM_PATH||`${process.env.LOCALAPPDATA}/ms-playwright/chromium-1134/chrome-win/chrome.exe`,headless:true});
-const GAMES=[['dance',{}],['slurp',{firstShift:'1'}],['slurp',{}],['touge',{}],['owambe_collection',{}],['hatch',{}],['pier',{}],['bars',{}],['jollof',{mode:'practice'}],['garage',{}],['hookah',{}],['pickup',{}]];
+const GAMES=[['dance',{}],['slurp',{firstShift:'1'}],['slurp',{}],['touge',{}],['owambe_collection',{}],['hatch',{stage:'young'}],['pier',{}],['bars',{}],['jollof',{mode:'practice'}],['garage',{}],['hookah',{}],['pickup',{}]];
 const results=[];
 const sleep=ms=>new Promise(r=>setTimeout(r,ms));
 async function run(id,extra){
  const tag=id+(Object.keys(extra).length?'_'+Object.keys(extra)[0]:'');
  if(only.length&&!only.includes(id)&&!only.includes(tag))return;
  const ctx=await browser.newContext({viewport:{width:390,height:844},deviceScaleFactor:1,hasTouch:true});const page=await ctx.newPage();
- const errors=[];page.on('pageerror',e=>errors.push(String(e.message||e)));page.on('console',m=>{if(m.type()==='error'&&!/favicon|Failed to load resource/.test(m.text()))errors.push(m.text());});
+ const errors=[];if(process.env.DEBUG)page.on('console',m=>console.log('  console:',m.type(),m.text()));page.on('pageerror',e=>errors.push(String(e.message||e)));page.on('console',m=>{if(m.type()==='error'&&!/favicon|Failed to load resource/.test(m.text()))errors.push(m.text());});
  const q=new URLSearchParams({dev:'1',game:id,...extra});
  await page.goto(`http://127.0.0.1:${port}/minigame-lab.html?${q}`,{waitUntil:'load'});
- const out={game:tag,ok:true,notes:[]};
+ const out={game:tag,ok:true,notes:[]};await page.addInitScript(()=>{window.__DBG=1});
  try{
-  await page.waitForSelector('.ra-minigame-rule',{timeout:8000});
+  await page.waitForSelector('.ra-minigame-rule',{timeout:8000});await page.evaluate(()=>{window.__DBG=1});
   const rule=await page.$eval('.ra-minigame-rule-text',e=>e.textContent);out.rule=rule;
   if(!rule||rule.split(/[.!?]/).filter(Boolean).length>1)out.notes.push('rule is not one sentence: '+rule);
   await page.screenshot({path:path.join(shots,`${tag}_1_rule.png`)});
@@ -58,6 +58,8 @@ async function run(id,extra){
    const money=await page.evaluate(()=>document.querySelector('.ra-minigame')?.innerText||'');out.state={served,end:money.replace(/\s+/g,' ').slice(0,80)};
    if(!served)out.notes.push('served nothing');
    const done=await page.$('.ra-minigame button:has-text("DONE")');if(done)await done.click();
+  }else if(id==='hatch'){
+   await tap(135,260);await sleep(500);await page.screenshot({path:path.join(shots,`${tag}_3_late.png`)});
   }else{
    // generic: poke around the screen for a few seconds (taps + one drag), then quit
    const pts=[[135,240],[60,380],[210,380],[135,330],[40,200],[230,300]];

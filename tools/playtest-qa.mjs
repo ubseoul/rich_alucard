@@ -112,6 +112,8 @@ async function mgActive(p){return p.evaluate(()=>window.RAMinigames?.active?.()?
 async function canvasHash(p){return p.evaluate(()=>{const c=document.querySelector('.ra-minigame canvas');if(!c)return null;try{const d=c.getContext('2d').getImageData(0,0,c.width,c.height).data;let h=0;for(let i=0;i<d.length;i+=97)h=(h*31+d[i])|0;return h;}catch{return 'x'}});}
 // Plays a minigame with simple player-like input. Returns 'finished' | 'quit' | 'left'.
 async function playMinigame(p,id,rng,{budgetMs=9000,preferQuit=false}={}){
+ // RC2 B3: every minigame opens on a one-sentence rule card; press START like a player would.
+ try{const st=p.locator('.ra-minigame-start');if(await st.count()){await st.first().click({force:true});await settle(p,400);}}catch(e){}
  const t0=Date.now();const box=await canvasBox(p);const h0=await canvasHash(p);
  if(!box){await settle(p,300);}
  const b=box||{x:0,y:0,width:p.viewportSize().width,height:p.viewportSize().height};

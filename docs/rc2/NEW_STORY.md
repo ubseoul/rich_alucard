@@ -17,7 +17,7 @@ All of this is NEW content written under Ube's creator authorization ("I only wa
 
 ## Needs art / not final
 
-- **THE DOORMAN** (CLUB_FIRST) is a neutral placeholder figure, no frozen art yet.
+- **THE DOORMAN** (CLUB_FIRST) has no art: he speaks as a narrated "DOORMAN:" line with no figure on screen. A frozen doorman sprite is needed before he can appear.
 - ASO EBI, THE AUNTIE COUNCIL, FUFU FRIDAY, THE FOIL PLATES reuse existing environments (`carson_owambe`, `naija_lot`, `kitchen`, `castle_exterior`, `naija_mart`) and existing characters (Uncle Sunday, the Auntie, Tunde, Mom, Coffe, Dre, Lil Smack). The cousin with the cooler in THE FOIL PLATES is narration only.
 - Uncle Sunday's `melted`/`offended` states are not used here; he stays on his neutral state.
 
@@ -282,12 +282,12 @@ _first night: half off, half your cash, the rest stays home._ Id `CLUB_FIRST`. R
 
 **`door`** · env `street_night` · card "THE CLUB · FIRST NIGHT"
 - **(narration)**: a velvet rope. a very large man. a sign: FIRST NIGHT HALF OFF.
-- **DOORMAN**: first time? welcome. cover is half off tonight.
-- **DOORMAN**: house rule for first timers: bring half your cash. the rest stays home.
+- **(narration)**: DOORMAN: first time? welcome. cover is half off tonight.
+- **(narration)**: DOORMAN: house rule for first timers: bring half your cash. the rest stays home.
 - **RICH [VP]**: half my bankroll?
 
 **`rule`**
-- **DOORMAN**: yes. it is called not going broke on your first night.
+- **(narration)**: DOORMAN: yes. it is called not going broke on your first night.
 - _choices:_ [GO IN WITH HALF] · [GO IN WITH $20] · [NOT TONIGHT]
 
 **`half`**
@@ -297,10 +297,10 @@ _first night: half off, half your cash, the rest stays home._ Id `CLUB_FIRST`. R
 - **(narration)**: the doorman nods. he respects a man with a plan.
 
 **`leave`**
-- **DOORMAN**: the rope is not going anywhere.
+- **(narration)**: DOORMAN: the rope is not going anywhere.
 
 **`in`**
-- **DOORMAN**: spend the first half wisely. we will not hold your hand next time.
+- **(narration)**: DOORMAN: spend the first half wisely. we will not hold your hand next time.
 
 ## 8. CHEAP-BUY ENCOUNTERS
 
