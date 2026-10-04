@@ -37,6 +37,7 @@
   window.RABedroom?.setRichState?.('sleeping');
   const over=el('div','wake-overlay','<div class="wake-day"></div>');document.querySelector('#screen').append(over);
   await new Promise(r=>setTimeout(r,50));over.classList.add('on');await new Promise(r=>setTimeout(r,900));
+  try{await window.RAMoneyFeel?.daySummary?.(over);}catch(e){console.error(e);} // RC2: what Rich made today, on the black screen
   const mail=RAClock.sleep();
   // A protected ending may claim this sleep (VOL 1 A40). It never announces itself.
   if(window.RAFame?.claimsWake?.()){over.remove();return window.RAFame.play();}

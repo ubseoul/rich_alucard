@@ -112,7 +112,9 @@
  // Draws a base image or one of its exact-origin layers into a 270×480 environment canvas with the base's framing.
  function drawImage(ctx,img,env){
   ctx.imageSmoothingEnabled=false;
-  if(env?.cover){const s=Math.max(270/img.naturalWidth,480/img.naturalHeight),w=img.naturalWidth*s,h=img.naturalHeight*s;ctx.drawImage(img,(270-w)/2,(480-h)/2,w,h);}
+  const hp=window.RAHardPixel?.forEnv?.(img,env);if(hp)img=hp; // RC2: soft painterly backgrounds are re-pixelated at display time (frozen files untouched)
+  const iw=img.naturalWidth||img.width,ih=img.naturalHeight||img.height;
+  if(env?.cover){const s=Math.max(270/iw,480/ih),w=iw*s,h=ih*s;ctx.drawImage(img,(270-w)/2,(480-h)/2,w,h);}
   else ctx.drawImage(img,0,0,270,480);
  }
  // register(env): add-only hook for a DARK fragment's own placeholder environments (F15); never replaces an existing id.

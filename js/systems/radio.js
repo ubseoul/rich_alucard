@@ -4,15 +4,19 @@
  // are listed in docs/btf/ART_INPUTS.md as required audio. Missing loops never break playback.
  const TRACKS=[
   {id:'bloodbath',title:'BLOODBATH',file:'assets/bloodbath_mix3.wav',feel:'~129 BPM; heavy drop',home:'combat, hilt, the skeleton'},
+  {id:'ice_level_intro',title:'ICE LEVEL INTRO',file:'assets/audio/music/ice_level_intro.mp3',library:true,feel:'cold open; clean and icy',home:'title, bedroom'},
+  {id:'on_the_moon',title:'ON THE MOON',file:'assets/audio/music/on_the_moon.mp3',library:true,feel:'floaty; late night',home:'late nights'},
+  {id:'almond_freestyle',title:'ALMOND FREESTYLE',file:'assets/audio/music/almond_freestyle.mp3',library:true,feel:'freestyle; loose',home:'background'},
+  {id:'oxblood',title:'OXBLOOD',file:'assets/audio/music/oxblood_remastered.mp3',library:true,feel:'dark; heavy',home:'night moves'},
   {id:'octopus_brain',title:'OCTOPUS BRAIN',file:null,feel:'~152/76 BPM; steady, hypnotic',home:'weird nights, bars'},
-  {id:'montana',title:'MONTANA',file:null,feel:'~81 BPM; laid back',home:'bedroom, café, cruising'},
-  {id:'playmakers',title:'PLAYMAKERS',file:null,feel:'"your girl just asked me where i was."',home:'castle parties, dates'},
+  {id:'montana',title:'IN MONTANA',file:'assets/audio/music/in_montana.mp3',library:true,feel:'~81 BPM; laid back',home:'bedroom, café, cruising'},
+  {id:'playmakers',title:'PLAYMAKERS',file:'assets/audio/music/playmakers.mp3',library:true,feel:'"your girl just asked me where i was."',home:'castle parties, dates'},
   {id:'shopping_addict',title:'SHOPPING ADDICT',file:null,feel:'"bounce on it like a rabbit"',home:'the grave, richboi'}
  ];
  const music=()=>RAState.get().life.creativeLife.music;
- const owned=()=>TRACKS.filter(t=>(music().songs||[]).some(s=>s.id===t.id||s.trackId===t.id));
+ const owned=()=>TRACKS.filter(t=>t.library||t.id==='bloodbath'||(music().songs||[]).some(s=>s.id===t.id||s.trackId===t.id));
  const current=()=>RAState.get().life.phone.radio?.track||owned()[0]?.id||null;
- function setTrack(id){RAState.patch('life.phone.radio',{...(RAState.get().life.phone.radio||{}),track:id});const t=TRACKS.find(x=>x.id===id);const audio=document.querySelector('#soundtrack');if(t?.file&&audio&&!audio.src.endsWith(t.file)){const playing=!audio.paused;audio.src=t.file;audio.dataset.track=t.id;if(playing)audio.play().catch(()=>{});}return t;}
+ function setTrack(id){RAState.patch('life.phone.radio',{...(RAState.get().life.phone.radio||{}),track:id});const t=TRACKS.find(x=>x.id===id);if(t?.file&&window.RAMusicLibrary)window.RAMusicLibrary.play(t.id,{pin:true});return t;}
  function cycle(){const list=owned();if(!list.length)return null;const i=list.findIndex(t=>t.id===current());return setTrack(list[(i+1)%list.length].id);}
  function setCastleSong(id){const m={...music(),castleSong:id};RAState.patch('life.creativeLife.music',m);}
  function miniPlayer(){if(!owned().length)return '';const t=TRACKS.find(x=>x.id===current());return `<button type="button" class="radio-mini" data-phone-action="do:radio:cycle"><i></i><span>RICH RADIO · ${t?.title||''}${t&&!t.file?' (LOOP PENDING)':''}</span></button>`;}

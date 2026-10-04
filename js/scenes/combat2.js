@@ -63,6 +63,8 @@
    busy=true;$('.c2-menu').innerHTML='';
    for(let index=0;index<events.length;index++){const ev=events[index];window.RAOpenAudio?.combat(audio,enemyId,ev);
     $('.c2-log').textContent=ev.text;
+    if(ev.kind==='telegraph')window.RABarks?.trigger({root,enemyId,kind:'telegraph',enemyEl});
+    if(ev.kind==='enemy'){window.RABarks?.trigger({root,enemyId,kind:'attack',enemyEl});const mv=D().ENEMIES[enemyId]?.moves?.[ev.move];await window.RAEnemyFX?.attack({root,enemyId,moveId:ev.move,dmg:mv?.dmg||0,attacker:enemyEl,target:richEl});}
     setEnemyState(ev.kind==='telegraph'?'telegraph':ev.kind==='hurt'?'strike':ev.kind==='hit'&&ev.target!=='rich'?'hit':ev.kind==='win'?'defeated':state.over&&state.outcome==='win'?'defeated':null);
     if(ev.kind==='hit'||ev.kind==='hurt'){
      const group=[ev];while(events[index+1]?.kind===ev.kind&&events[index+1]?.target===ev.target)group.push(events[++index]);
@@ -71,10 +73,11 @@
       const stop=window.RACombatPixelFX?.impact({root,target,attacker,severity,tick})||55;audio?.sound(tick?'HIT_LIGHT':lethal?'KO':severity==='heavy'?'HIT_HEAVY':'HIT_LIGHT');
       if(tick)await wait(110);else{root.classList.add('c2-impact-stop');await wait(stop);root.classList.remove('c2-impact-stop');}
      }
-     floatNum(total||ev.amount,onRich?'rich':'enemy',null,severity);hud();await wait(615);continue;
+     floatNum(total||ev.amount,onRich?'rich':'enemy',null,severity);hud();window.RABarks?.trigger({root,enemyId,kind:onRich?'hit_rich':'hurt',enemyEl,force:lethal&&!onRich});await wait(615);continue;
     }
     if(ev.kind==='heal')floatNum(ev.amount?`+${ev.amount}`:'+','heal',ev.target);
     if(ev.kind==='telegraph')audio?.sound('TELEGRAPH');if(ev.kind==='miss')audio?.sound('MISS');
+    if(ev.kind==='win'||ev.kind==='lose')window.RABarks?.trigger({root,enemyId,kind:ev.kind==='win'?'lose':'win',enemyEl,force:true});
     if(ev.kind==='win'||ev.kind==='lose'){ $('.c2-log').textContent='';await wait(400);$('.c2-log').textContent=ev.text; }
     hud();await wait(ev.kind==='telegraph'?900:ev.kind==='enemy'?220:ev.kind==='info'?450:ev.kind==='win'||ev.kind==='lose'?320:720);if(!root.isConnected)return;
    }

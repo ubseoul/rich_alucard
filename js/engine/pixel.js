@@ -98,7 +98,7 @@
   if(support){const w=Math.max(12,Math.min(meta.visible[2],support.x2-support.x1)),left=(support.x1+support.x2-w)/2-ax;ctx.fillStyle='rgba(8,7,17,.28)';ctx.fillRect(Math.round(left),-1,Math.round(w),2)}
   ctx.drawImage(img,-ax,-baseline);ctx.restore();return true;}
  function assetSprite(src){if(!src)return null;if(!spriteCache.has(src))spriteCache.set(src,Object.assign(new Image(),{src}));return spriteCache.get(src);}
- function drawBoard(ctx,id){const img=assetSprite(window.RAArtRegistry?.environments?.[id]?.asset);if(!(img?.complete&&img.naturalWidth))return false;ctx.imageSmoothingEnabled=false;ctx.drawImage(img,0,0,270,480);return true;}
+ function drawBoard(ctx,id){const img=assetSprite(window.RAArtRegistry?.environments?.[id]?.asset);if(!(img?.complete&&img.naturalWidth))return false;ctx.imageSmoothingEnabled=false;ctx.drawImage(window.RAHardPixel?.board?.(img)||img,0,0,270,480);return true;}
  function drawRegistered(ctx,id,x,y,state=null){const c=window.RAArtRegistry?.characters?.[id];return drawSprite(ctx,assetSprite(c?.states?.[state]||c?.anchor),x,y);}
  window.RAPixel={assetSprite,drawBoard,drawRegistered,NATIVE,palette,FONT,createCanvas,text,wrap,rect,frame,rng,drawActor,paintEnvironment,personSprite,drawSprite};
 })();

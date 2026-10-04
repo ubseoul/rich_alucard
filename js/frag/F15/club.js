@@ -146,7 +146,7 @@
    if(over.width!==cw||over.height!==ch){over.width=cw;over.height=ch;}
    over.style.width=W+'px';over.style.height=H+'px';
    octx.setTransform(1,0,0,1,0,0);octx.clearRect(0,0,cw,ch);
-   octx.imageSmoothingEnabled=true;octx.imageSmoothingQuality='high';
+   octx.imageSmoothingEnabled=false; // RC2: hard pixels, never smoothed
    geo.boxes={};
    const order=C().dancers().slice().sort((a,b)=>L.slots[C().handleOf(a)].z-L.slots[C().handleOf(b)].z),N=performance.now();
    // floor marks first, under every dancer: selected = cyan pool, others = dim ring; a throw pulses the recipient's ring
@@ -191,7 +191,7 @@
   // ---- loading (reliable: every failure is visible and nothing blocks the throw/attribution path) -----------------------------
   const loadImg=u=>new Promise((ok,bad)=>{const i=new Image();i.onload=()=>ok(i);i.onerror=()=>bad(new Error(u));i.src=u;});
   const ready=fetch(SHEET_DIR+'manifest.json',{cache:'no-cache'}).then(r=>{if(!r.ok)throw new Error('manifest '+r.status);return r.json();}).then(m=>{
-   manifest=m;return Promise.all(T().HANDLES.map(sheetKey).map(k=>loadImg(SHEET_DIR+m.dancers[k].file).then(i=>{sheets[k]=i;})));
+   manifest=m;return Promise.all(T().HANDLES.map(sheetKey).map(k=>loadImg(SHEET_DIR+m.dancers[k].file).then(i=>{sheets[k]=global.RAHardPixel?global.RAHardPixel.process(i,{cell:m.dancers[k].cell,block:2,colors:28,outline:true}):i;})));
   }).then(()=>{status.loaded=true;if(!disposed)note.textContent=`SUPPORTING ${names[selectedLocal]}. TAP A NAME TO SUPPORT SOMEONE ELSE.`;}).catch(e=>{
    status.failed=String(e.message||e);console.error('F15 dancers failed to load',e);
    if(!manifest)manifest={dancers:Object.fromEntries(T().HANDLES.map(h=>[sheetKey(h),{frames:1,cell:[155,200],cols:1,anchor_in_cell_px:[77,200]}]))};

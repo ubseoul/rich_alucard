@@ -79,5 +79,5 @@
   for(const art of Object.values(window.RAArtRegistry?.combatMoves||{}))for(const src of Object.values(art).flat())if(typeof src==='string'&&src.endsWith('.png')&&!warmImages.has(src)){const image=new Image();image.src=src;warmImages.set(src,image);}
   return window.RAAudio?.preloadScene?.([...new Set(ids)]);
  }
- window.RACombatPixelFX=Object.freeze({MOVES,GUNS,move,impact,reduced,prewarm});
+ window.RACombatPixelFX=Object.freeze({MOVES,GUNS,move,impact,reduced,prewarm,helpers:Object.freeze({C,rect,line,diamond,cross,star,ring,ghost,view,layer,cue})});
 })();

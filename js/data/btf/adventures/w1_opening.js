@@ -4,7 +4,7 @@
  const climb=(n,cal)=>({env:'ocean_floor',actors:{mid:'rich',farLeft:{id:'soul',look:{top:'#1c2c44',bottom:'#1c2c44',hair:'#1c2c44',skin:'#2a3a54'}},farRight:{id:'soul',look:{top:'#22344c',bottom:'#22344c',hair:'#22344c',skin:'#2a3a54'}}},
   lines:[N(cal)],choices:[{label:'CLIMB',next:`fall${n}`}]});
  D({id:'A00',title:'THE GOLDFISH YEARS',lane:'home',scope:'MUST',memory:'the ladder at the bottom of the ocean',start:'dream',nodes:{
-  dream:{env:'bedroom',actors:null,lines:[N('rich is asleep.'),N('remember?')],next:'floor'},
+  dream:{env:'bedroom',actors:null,props:[{src:'assets/rich_bedroom_sleeping.png',x:78,y:346}],lines:[N('rich is asleep.'),N('remember?')],next:'floor'},
   floor:{env:'ocean_floor',title:'THE BOTTOM OF THE OCEAN',actors:{mid:'rich',farLeft:{id:'soul',look:{top:'#1c2c44',bottom:'#1c2c44',hair:'#1c2c44',skin:'#2a3a54'}},farRight:{id:'soul',look:{top:'#22344c',bottom:'#22344c',hair:'#22344c',skin:'#2a3a54'}}},
    lines:[N('drowned souls climb a driftwood ladder toward the light.'),N('everybody climbs the same ladder.')],choices:[{label:'CLIMB',next:'fall1'}]},
   fall1:{env:'ocean_floor_collapsed',lines:[N('near the top, it collapses.'),N('MONTH 7.')],next:'try2'},
