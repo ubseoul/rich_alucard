@@ -386,6 +386,7 @@ audio.addEventListener('loadedmetadata',()=>{
 });
 audio.addEventListener('seeking',resetRichLyric);
 audio.addEventListener('ended',()=>{
+  if(window.RAMusicLibrary?.onEnded?.())return;
   seekToLoopStart();
   audio.play().catch(()=>{});
 });
@@ -441,33 +442,10 @@ window.RACombat={startJdmEncounter(){resetBattle('jdm');document.body.classList.
 
 const richBiteSprite=document.querySelector('#richBiteSprite'),biteTrail=document.querySelector('#biteTrail'),biteImpact=document.querySelector('#biteImpact'),healFloat=document.querySelector('#healFloat');const biteSleep=ms=>new Promise(r=>setTimeout(r,ms));async function vampireBiteAttack(){const rich=document.querySelector('.gemini-rich'),stage=document.querySelector('.game')||document.querySelector('.game-shell')||document.querySelector('#game')||document.body;if(rich)rich.style.opacity='0';biteTrail.classList.remove('flash');void biteTrail.offsetWidth;biteTrail.classList.add('flash');await biteSleep(125);richBiteSprite.classList.add('active');await biteSleep(115);setCEOState('hit');biteImpact.classList.remove('flash');void biteImpact.offsetWidth;biteImpact.classList.add('flash');stage.classList.add('bite-shake');if(typeof ceoHP!=='undefined')ceoHP=Math.max(0,ceoHP-24);if(typeof richHP!=='undefined')richHP=Math.min(100,richHP+18);if(typeof updateHP==='function')updateHP();if(typeof updateBars==='function')updateBars();healFloat.classList.remove('show');void healFloat.offsetWidth;healFloat.classList.add('show');await biteSleep(210);stage.classList.remove('bite-shake');richBiteSprite.classList.remove('active');await biteSleep(90);if(rich)rich.style.opacity='1';if(typeof ceoHP!=='undefined'&&ceoHP<=0){setCEOState('defeated');setAssistantState('reaction');if(typeof victory==='function')victory();}else{setCEOState('idle');if(typeof enemyTurn==='function')setTimeout(()=>enemyTurn(),180);else if(typeof ceoTurn==='function')setTimeout(()=>ceoTurn(),180);}}
 
+// RC2 / Ube's RC1 hotfix: lyric bubbles are off. Hide and return; the song rotation owns looping now.
 function syncRichLyrics(){
-  if(!audio || audio.paused || (audio.dataset.track&&audio.dataset.track!=='bloodbath')){
-    richLyricBubble?.classList.remove('on');
-    requestAnimationFrame(syncRichLyrics);
-    return;
-  }
-  if(audio.currentTime>=loopEnd){
-    seekToLoopStart();
-    requestAnimationFrame(syncRichLyrics);
-    return;
-  }
-  const t=audio.currentTime+LYRIC_LEAD;
-  let idx=-1;
-  for(let i=0;i<richLyricLines.length;i++){
-    if(t>=richLyricLines[i][0]) idx=i;
-    else break;
-  }
-  if(idx<0){
-    resetRichLyric();
-  }else if(idx!==lastRichLyric){
-    lastRichLyric=idx;
-    if(richLyricBubble){
-      richLyricBubble.textContent=richLyricLines[idx][1];
-      richLyricBubble.classList.add('on');
-    }
-  }
-  requestAnimationFrame(syncRichLyrics);
+  richLyricBubble?.classList.remove('on');
+  return;
 }
-requestAnimationFrame(syncRichLyrics);
+syncRichLyrics();
 window.RAJDMCombatPresentation={layoutBubbles:layoutJdmBubbles};

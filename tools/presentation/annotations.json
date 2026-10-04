@@ -192,6 +192,9 @@
   "assets/before_the_fame/art_ship_014/package_a/A-vicky-doorway.png": {"support": {"box": [20, 20, 40, 69]}, "supportReason": "Character shoes end at y88; doorframe extends to y92 and is a prop"},
   "assets/f15/portraits/roxy.png": {},
   "assets/f15/portraits/rosalyn.png": {},
-  "assets/f15/portraits/emerald.png": {}
+  "assets/f15/portraits/emerald.png": {},
+  "assets/f15/stagecards/stagecard_roxy.png": {"environment": true},
+  "assets/f15/stagecards/stagecard_rosalyn.png": {"environment": true},
+  "assets/f15/stagecards/stagecard_emerald.png": {"environment": true}
  }
 }

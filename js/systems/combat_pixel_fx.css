@@ -13,3 +13,12 @@
 .c2-num.c2-num-heavy{font-size:clamp(12px,6cqw,24px)}
 .c2-num.c2-num-lethal{font-size:clamp(16px,8cqw,32px);color:#d6af62}
 @media(prefers-reduced-motion:reduce){.c2-world-impact-normal,.c2-world-impact-heavy,.c2-world-impact-lethal,.c2-num{animation:none!important}.c2-hp em{transition:none}}
+
+/* RC2 · enemy bark bubbles + enemy attack canvas */
+.rc2-enemy-fx{image-rendering:pixelated}
+.rc2-bark{position:absolute;z-index:9;max-width:42%;padding:4px 6px;background:#f6efd9;color:#17131e;border:2px solid #10101b;box-shadow:2px 2px #7d194b;font:7px/1.3 var(--font-system);text-transform:uppercase;pointer-events:none;opacity:0;transform:translateY(3px);transition:opacity 120ms steps(2,end),transform 120ms steps(2,end);image-rendering:pixelated}
+.rc2-bark.on{opacity:1;transform:none}
+.rc2-bark::after{content:"";position:absolute;left:var(--tail,14px);bottom:-7px;width:7px;height:7px;background:#f6efd9;border-right:2px solid #10101b;border-bottom:2px solid #10101b;transform:rotate(45deg) translate(-2px,-2px)}
+.rc2-bark-rich{background:#17131e;color:#f6efd9;border-color:#f6efd9;box-shadow:2px 2px #7d194b}
+.rc2-bark-rich::after{background:#17131e;border-color:#f6efd9}
+@media(prefers-reduced-motion:reduce){.rc2-bark{transition:none}}

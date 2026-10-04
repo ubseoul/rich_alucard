@@ -162,8 +162,8 @@
  async function leave(){await RAScenes.go('bedroom',{});}
  function enter({scope:s,payload}){
   scope=s;document.body.classList.add('adventure-mode');build(document.querySelector('#screen'));audio=window.RAOpenAudio?.scope(root,scope);
-  const a=RAAdventures.active();if(!a){RAScenes.go('bedroom');return;}
   scope.cleanup(()=>{root?.remove();root=null;tapResolver=null;document.body.classList.remove('adventure-mode');});
+  const a=RAAdventures.active();if(!a){RAScenes.go('bedroom');return;} // RC2: the blank overlay must be torn down even when there is nothing to run
   run(payload?.node||a.node);
  }
  RAScenes.register('adventure',{enter,exit(){scope=null;}});
