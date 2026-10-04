@@ -1,0 +1,3645 @@
+{
+ "status": {
+  "generatedAt": "2026-10-04T00:12:36.175Z",
+  "scope": "separate paired completionist through Day70; first ending preserved",
+  "expected": 20,
+  "completed": 2,
+  "complete": false,
+  "healthy": 2,
+  "fatal": 0,
+  "errors": 0,
+  "softlocks": 0,
+  "endingDays": [
+   36
+  ],
+  "finalDays": [
+   71
+  ],
+  "openAdventures": 138,
+  "labels": [
+   {
+    "label": "before",
+    "lives": 1,
+    "offered": 96,
+    "completed": 95,
+    "neverOffered": [
+     "A11",
+     "A12",
+     "A17",
+     "A20",
+     "A23",
+     "A23R",
+     "A28",
+     "A29C",
+     "A32",
+     "A33",
+     "A41B",
+     "A47",
+     "A57",
+     "A58",
+     "ARC_MAZDA_1",
+     "ARC_MAZDA_2",
+     "ARC_MAZDA_3",
+     "ARC_NNEKA_1",
+     "ARC_NNEKA_2",
+     "ARC_NNEKA_3",
+     "ARMORY_WALL",
+     "A_JADE1",
+     "COFFIN",
+     "F15_EMERALD_L1",
+     "F15_EMERALD_L2",
+     "F15_EMERALD_L3",
+     "F15_EMERALD_L4",
+     "F15_ROSALYN_L1",
+     "F15_ROSALYN_L2",
+     "F15_ROSALYN_L3",
+     "F15_ROSALYN_L4",
+     "F15_ROXY_L3",
+     "F15_ROXY_L4",
+     "FISHTANK",
+     "GARAGE_VIEW",
+     "KITCHEN",
+     "MAID",
+     "MOVIE",
+     "NEW_OGA_ALTERNATIVE",
+     "PIER",
+     "RB_DELIVERY",
+     "ROOST"
+    ]
+   },
+   {
+    "label": "after",
+    "lives": 1,
+    "offered": 125,
+    "completed": 124,
+    "neverOffered": [
+     "A23",
+     "A23R",
+     "NEW_OGA_ALTERNATIVE",
+     "NEW_OGA_FINALE",
+     "NEW_OGA_M10",
+     "NEW_OGA_M3",
+     "NEW_OGA_M4",
+     "NEW_OGA_M5",
+     "NEW_OGA_M6",
+     "NEW_OGA_M7",
+     "NEW_OGA_M8",
+     "NEW_OGA_M9",
+     "NEW_OGA_VAMPGPT"
+    ]
+   }
+  ],
+  "fullCareers": 2,
+  "throughDay70": 2
+ },
+ "metrics": [
+  {
+   "label": "before",
+   "lives": 1,
+   "endingDay": {
+    "n": 1,
+    "median": 36,
+    "min": 36,
+    "max": 36
+   },
+   "moneyAtFirstEnding": {
+    "n": 1,
+    "median": 61845,
+    "min": 61845,
+    "max": 61845
+   },
+   "netWorthAtFirstEnding": {
+    "n": 1,
+    "median": 357373,
+    "min": 357373,
+    "max": 357373
+   },
+   "laterFinalMoney": {
+    "n": 1,
+    "median": 29346,
+    "min": 29346,
+    "max": 29346
+   },
+   "laterFinalNetWorth": {
+    "n": 1,
+    "median": 509687,
+    "min": 509687,
+    "max": 509687
+   },
+   "partyHallPaidDay": {
+    "n": 1,
+    "median": 67,
+    "min": 67,
+    "max": 67
+   },
+   "partyHallBy30": 0,
+   "partyHallPreEnding": 0,
+   "elapsedSeconds": {
+    "n": 1,
+    "median": 1035.129,
+    "min": 1035.129,
+    "max": 1035.129
+   }
+  },
+  {
+   "label": "after",
+   "lives": 1,
+   "endingDay": {
+    "n": 1,
+    "median": 36,
+    "min": 36,
+    "max": 36
+   },
+   "moneyAtFirstEnding": {
+    "n": 1,
+    "median": 97693,
+    "min": 97693,
+    "max": 97693
+   },
+   "netWorthAtFirstEnding": {
+    "n": 1,
+    "median": 751066,
+    "min": 751066,
+    "max": 751066
+   },
+   "laterFinalMoney": {
+    "n": 1,
+    "median": 666771,
+    "min": 666771,
+    "max": 666771
+   },
+   "laterFinalNetWorth": {
+    "n": 1,
+    "median": 2537494,
+    "min": 2537494,
+    "max": 2537494
+   },
+   "partyHallPaidDay": {
+    "n": 1,
+    "median": 28,
+    "min": 28,
+    "max": 28
+   },
+   "partyHallBy30": 1,
+   "partyHallPreEnding": 1,
+   "elapsedSeconds": {
+    "n": 1,
+    "median": 1237.335,
+    "min": 1237.335,
+    "max": 1237.335
+   }
+  }
+ ],
+ "exposure": [
+  {
+   "id": "A00",
+   "before": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 1,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   },
+   "after": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 1,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   }
+  },
+  {
+   "id": "A07",
+   "before": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 8,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   },
+   "after": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 8,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   }
+  },
+  {
+   "id": "A08",
+   "before": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 1,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   },
+   "after": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 1,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   }
+  },
+  {
+   "id": "A09",
+   "before": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 1,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   },
+   "after": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 1,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   }
+  },
+  {
+   "id": "A10",
+   "before": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 11,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   },
+   "after": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 12,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   }
+  },
+  {
+   "id": "A11",
+   "before": {
+    "lives": 1,
+    "offered": 0,
+    "completed": 0,
+    "firstOfferDay": null,
+    "beforeEndingOffered": 0,
+    "beforeEndingCompleted": 0,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 0
+   },
+   "after": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 14,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   }
+  },
+  {
+   "id": "A12",
+   "before": {
+    "lives": 1,
+    "offered": 0,
+    "completed": 0,
+    "firstOfferDay": null,
+    "beforeEndingOffered": 0,
+    "beforeEndingCompleted": 0,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 0
+   },
+   "after": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 14,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   }
+  },
+  {
+   "id": "A13",
+   "before": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 10,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   },
+   "after": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 10,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   }
+  },
+  {
+   "id": "A14",
+   "before": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 1,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   },
+   "after": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 1,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   }
+  },
+  {
+   "id": "A15",
+   "before": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 15,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   },
+   "after": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 20,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   }
+  },
+  {
+   "id": "A16",
+   "before": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 1,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   },
+   "after": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 1,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   }
+  },
+  {
+   "id": "A17",
+   "before": {
+    "lives": 1,
+    "offered": 0,
+    "completed": 0,
+    "firstOfferDay": null,
+    "beforeEndingOffered": 0,
+    "beforeEndingCompleted": 0,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 0
+   },
+   "after": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 25,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   }
+  },
+  {
+   "id": "A18",
+   "before": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 2,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   },
+   "after": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 2,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   }
+  },
+  {
+   "id": "A19",
+   "before": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 3,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   },
+   "after": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 4,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   }
+  },
+  {
+   "id": "A20",
+   "before": {
+    "lives": 1,
+    "offered": 0,
+    "completed": 0,
+    "firstOfferDay": null,
+    "beforeEndingOffered": 0,
+    "beforeEndingCompleted": 0,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 0
+   },
+   "after": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 19,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   }
+  },
+  {
+   "id": "A23",
+   "before": {
+    "lives": 1,
+    "offered": 0,
+    "completed": 0,
+    "firstOfferDay": null,
+    "beforeEndingOffered": 0,
+    "beforeEndingCompleted": 0,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 0
+   },
+   "after": {
+    "lives": 1,
+    "offered": 0,
+    "completed": 0,
+    "firstOfferDay": null,
+    "beforeEndingOffered": 0,
+    "beforeEndingCompleted": 0,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 0
+   }
+  },
+  {
+   "id": "A23R",
+   "before": {
+    "lives": 1,
+    "offered": 0,
+    "completed": 0,
+    "firstOfferDay": null,
+    "beforeEndingOffered": 0,
+    "beforeEndingCompleted": 0,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 0
+   },
+   "after": {
+    "lives": 1,
+    "offered": 0,
+    "completed": 0,
+    "firstOfferDay": null,
+    "beforeEndingOffered": 0,
+    "beforeEndingCompleted": 0,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 0
+   }
+  },
+  {
+   "id": "A24",
+   "before": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 4,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   },
+   "after": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 5,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   }
+  },
+  {
+   "id": "A25",
+   "before": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 1,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   },
+   "after": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 1,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   }
+  },
+  {
+   "id": "A26",
+   "before": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 67,
+    "beforeEndingOffered": 0,
+    "beforeEndingCompleted": 0,
+    "laterFirstOffered": 1,
+    "laterFirstCompleted": 1,
+    "completionDayMeasured": 1
+   },
+   "after": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 28,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   }
+  },
+  {
+   "id": "A27",
+   "before": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 68,
+    "beforeEndingOffered": 0,
+    "beforeEndingCompleted": 0,
+    "laterFirstOffered": 1,
+    "laterFirstCompleted": 1,
+    "completionDayMeasured": 1
+   },
+   "after": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 29,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   }
+  },
+  {
+   "id": "A28",
+   "before": {
+    "lives": 1,
+    "offered": 0,
+    "completed": 0,
+    "firstOfferDay": null,
+    "beforeEndingOffered": 0,
+    "beforeEndingCompleted": 0,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 0
+   },
+   "after": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 42,
+    "beforeEndingOffered": 0,
+    "beforeEndingCompleted": 0,
+    "laterFirstOffered": 1,
+    "laterFirstCompleted": 1,
+    "completionDayMeasured": 1
+   }
+  },
+  {
+   "id": "A29",
+   "before": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 2,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   },
+   "after": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 2,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   }
+  },
+  {
+   "id": "A29B",
+   "before": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 23,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   },
+   "after": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 23,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   }
+  },
+  {
+   "id": "A29C",
+   "before": {
+    "lives": 1,
+    "offered": 0,
+    "completed": 0,
+    "firstOfferDay": null,
+    "beforeEndingOffered": 0,
+    "beforeEndingCompleted": 0,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 0
+   },
+   "after": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 24,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   }
+  },
+  {
+   "id": "A30",
+   "before": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 31,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   },
+   "after": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 31,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   }
+  },
+  {
+   "id": "A31",
+   "before": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 32,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   },
+   "after": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 32,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   }
+  },
+  {
+   "id": "A32",
+   "before": {
+    "lives": 1,
+    "offered": 0,
+    "completed": 0,
+    "firstOfferDay": null,
+    "beforeEndingOffered": 0,
+    "beforeEndingCompleted": 0,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 0
+   },
+   "after": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 28,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   }
+  },
+  {
+   "id": "A33",
+   "before": {
+    "lives": 1,
+    "offered": 0,
+    "completed": 0,
+    "firstOfferDay": null,
+    "beforeEndingOffered": 0,
+    "beforeEndingCompleted": 0,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 0
+   },
+   "after": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 36,
+    "beforeEndingOffered": 0,
+    "beforeEndingCompleted": 0,
+    "laterFirstOffered": 1,
+    "laterFirstCompleted": 1,
+    "completionDayMeasured": 1
+   }
+  },
+  {
+   "id": "A34",
+   "before": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 32,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   },
+   "after": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 30,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   }
+  },
+  {
+   "id": "A36",
+   "before": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 10,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   },
+   "after": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 10,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   }
+  },
+  {
+   "id": "A37",
+   "before": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 16,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   },
+   "after": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 16,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   }
+  },
+  {
+   "id": "A38",
+   "before": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 4,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   },
+   "after": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 5,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   }
+  },
+  {
+   "id": "A39",
+   "before": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 70,
+    "beforeEndingOffered": 0,
+    "beforeEndingCompleted": 0,
+    "laterFirstOffered": 1,
+    "laterFirstCompleted": 1,
+    "completionDayMeasured": 1
+   },
+   "after": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 30,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   }
+  },
+  {
+   "id": "A41",
+   "before": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 12,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   },
+   "after": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 12,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   }
+  },
+  {
+   "id": "A41B",
+   "before": {
+    "lives": 1,
+    "offered": 0,
+    "completed": 0,
+    "firstOfferDay": null,
+    "beforeEndingOffered": 0,
+    "beforeEndingCompleted": 0,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 0
+   },
+   "after": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 22,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   }
+  },
+  {
+   "id": "A42",
+   "before": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 4,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   },
+   "after": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 4,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   }
+  },
+  {
+   "id": "A43",
+   "before": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 5,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   },
+   "after": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 5,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   }
+  },
+  {
+   "id": "A44",
+   "before": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 1,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   },
+   "after": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 1,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   }
+  },
+  {
+   "id": "A44_N2",
+   "before": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 25,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   },
+   "after": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 9,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   }
+  },
+  {
+   "id": "A44_N3",
+   "before": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 26,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   },
+   "after": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 25,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   }
+  },
+  {
+   "id": "A44_N4",
+   "before": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 27,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   },
+   "after": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 26,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   }
+  },
+  {
+   "id": "A45",
+   "before": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 1,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   },
+   "after": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 1,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   }
+  },
+  {
+   "id": "A46",
+   "before": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 5,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   },
+   "after": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 6,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   }
+  },
+  {
+   "id": "A47",
+   "before": {
+    "lives": 1,
+    "offered": 0,
+    "completed": 0,
+    "firstOfferDay": null,
+    "beforeEndingOffered": 0,
+    "beforeEndingCompleted": 0,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 0
+   },
+   "after": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 16,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   }
+  },
+  {
+   "id": "A48",
+   "before": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 1,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   },
+   "after": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 1,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   }
+  },
+  {
+   "id": "A49",
+   "before": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 1,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   },
+   "after": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 1,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   }
+  },
+  {
+   "id": "A50",
+   "before": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 10,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   },
+   "after": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 10,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   }
+  },
+  {
+   "id": "A51",
+   "before": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 16,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   },
+   "after": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 16,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   }
+  },
+  {
+   "id": "A52",
+   "before": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 0,
+    "firstOfferDay": 31,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 0,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 0
+   },
+   "after": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 0,
+    "firstOfferDay": 31,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 0,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 0
+   }
+  },
+  {
+   "id": "A53",
+   "before": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 57,
+    "beforeEndingOffered": 0,
+    "beforeEndingCompleted": 0,
+    "laterFirstOffered": 1,
+    "laterFirstCompleted": 1,
+    "completionDayMeasured": 1
+   },
+   "after": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 57,
+    "beforeEndingOffered": 0,
+    "beforeEndingCompleted": 0,
+    "laterFirstOffered": 1,
+    "laterFirstCompleted": 1,
+    "completionDayMeasured": 1
+   }
+  },
+  {
+   "id": "A54",
+   "before": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 33,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   },
+   "after": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 34,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   }
+  },
+  {
+   "id": "A55",
+   "before": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 19,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   },
+   "after": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 7,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   }
+  },
+  {
+   "id": "A56",
+   "before": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 34,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   },
+   "after": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 34,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   }
+  },
+  {
+   "id": "A57",
+   "before": {
+    "lives": 1,
+    "offered": 0,
+    "completed": 0,
+    "firstOfferDay": null,
+    "beforeEndingOffered": 0,
+    "beforeEndingCompleted": 0,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 0
+   },
+   "after": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 46,
+    "beforeEndingOffered": 0,
+    "beforeEndingCompleted": 0,
+    "laterFirstOffered": 1,
+    "laterFirstCompleted": 1,
+    "completionDayMeasured": 1
+   }
+  },
+  {
+   "id": "A58",
+   "before": {
+    "lives": 1,
+    "offered": 0,
+    "completed": 0,
+    "firstOfferDay": null,
+    "beforeEndingOffered": 0,
+    "beforeEndingCompleted": 0,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 0
+   },
+   "after": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 35,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   }
+  },
+  {
+   "id": "ARC_CAMMILE_1",
+   "before": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 4,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   },
+   "after": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 4,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   }
+  },
+  {
+   "id": "ARC_CAMMILE_2",
+   "before": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 6,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   },
+   "after": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 6,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   }
+  },
+  {
+   "id": "ARC_CAMMILE_3",
+   "before": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 7,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   },
+   "after": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 8,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   }
+  },
+  {
+   "id": "ARC_JUNE_1",
+   "before": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 17,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   },
+   "after": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 5,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   }
+  },
+  {
+   "id": "ARC_JUNE_2",
+   "before": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 18,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   },
+   "after": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 7,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   }
+  },
+  {
+   "id": "ARC_JUNE_3",
+   "before": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 19,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   },
+   "after": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 17,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   }
+  },
+  {
+   "id": "ARC_MAZDA_1",
+   "before": {
+    "lives": 1,
+    "offered": 0,
+    "completed": 0,
+    "firstOfferDay": null,
+    "beforeEndingOffered": 0,
+    "beforeEndingCompleted": 0,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 0
+   },
+   "after": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 29,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   }
+  },
+  {
+   "id": "ARC_MAZDA_2",
+   "before": {
+    "lives": 1,
+    "offered": 0,
+    "completed": 0,
+    "firstOfferDay": null,
+    "beforeEndingOffered": 0,
+    "beforeEndingCompleted": 0,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 0
+   },
+   "after": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 34,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   }
+  },
+  {
+   "id": "ARC_MAZDA_3",
+   "before": {
+    "lives": 1,
+    "offered": 0,
+    "completed": 0,
+    "firstOfferDay": null,
+    "beforeEndingOffered": 0,
+    "beforeEndingCompleted": 0,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 0
+   },
+   "after": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 35,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   }
+  },
+  {
+   "id": "ARC_NNEKA_1",
+   "before": {
+    "lives": 1,
+    "offered": 0,
+    "completed": 0,
+    "firstOfferDay": null,
+    "beforeEndingOffered": 0,
+    "beforeEndingCompleted": 0,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 0
+   },
+   "after": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 28,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   }
+  },
+  {
+   "id": "ARC_NNEKA_2",
+   "before": {
+    "lives": 1,
+    "offered": 0,
+    "completed": 0,
+    "firstOfferDay": null,
+    "beforeEndingOffered": 0,
+    "beforeEndingCompleted": 0,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 0
+   },
+   "after": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 29,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   }
+  },
+  {
+   "id": "ARC_NNEKA_3",
+   "before": {
+    "lives": 1,
+    "offered": 0,
+    "completed": 0,
+    "firstOfferDay": null,
+    "beforeEndingOffered": 0,
+    "beforeEndingCompleted": 0,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 0
+   },
+   "after": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 32,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   }
+  },
+  {
+   "id": "ARC_PATRICE_2",
+   "before": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 30,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   },
+   "after": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 27,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   }
+  },
+  {
+   "id": "ARC_PATRICE_3",
+   "before": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 33,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   },
+   "after": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 28,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   }
+  },
+  {
+   "id": "ARMORY",
+   "before": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 28,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   },
+   "after": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 24,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   }
+  },
+  {
+   "id": "ARMORY_WALL",
+   "before": {
+    "lives": 1,
+    "offered": 0,
+    "completed": 0,
+    "firstOfferDay": null,
+    "beforeEndingOffered": 0,
+    "beforeEndingCompleted": 0,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 0
+   },
+   "after": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 33,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   }
+  },
+  {
+   "id": "A_ANFEESA1",
+   "before": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 19,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   },
+   "after": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 7,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   }
+  },
+  {
+   "id": "A_CAMMILE1",
+   "before": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 1,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   },
+   "after": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 1,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   }
+  },
+  {
+   "id": "A_EMBERLY1",
+   "before": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 24,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   },
+   "after": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 18,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   }
+  },
+  {
+   "id": "A_HINA1",
+   "before": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 1,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   },
+   "after": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 1,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   }
+  },
+  {
+   "id": "A_JADE1",
+   "before": {
+    "lives": 1,
+    "offered": 0,
+    "completed": 0,
+    "firstOfferDay": null,
+    "beforeEndingOffered": 0,
+    "beforeEndingCompleted": 0,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 0
+   },
+   "after": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 35,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   }
+  },
+  {
+   "id": "A_LO1",
+   "before": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 6,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   },
+   "after": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 3,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   }
+  },
+  {
+   "id": "A_SMACK2",
+   "before": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 12,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   },
+   "after": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 12,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   }
+  },
+  {
+   "id": "A_TRISTAN",
+   "before": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 9,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   },
+   "after": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 9,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   }
+  },
+  {
+   "id": "A_VELVET1",
+   "before": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 3,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   },
+   "after": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 3,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   }
+  },
+  {
+   "id": "CAFE",
+   "before": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 12,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   },
+   "after": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 14,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   }
+  },
+  {
+   "id": "COFFIN",
+   "before": {
+    "lives": 1,
+    "offered": 0,
+    "completed": 0,
+    "firstOfferDay": null,
+    "beforeEndingOffered": 0,
+    "beforeEndingCompleted": 0,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 0
+   },
+   "after": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 47,
+    "beforeEndingOffered": 0,
+    "beforeEndingCompleted": 0,
+    "laterFirstOffered": 1,
+    "laterFirstCompleted": 1,
+    "completionDayMeasured": 1
+   }
+  },
+  {
+   "id": "COOK",
+   "before": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 11,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   },
+   "after": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 13,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   }
+  },
+  {
+   "id": "DATE",
+   "before": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 1,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   },
+   "after": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 1,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   }
+  },
+  {
+   "id": "F15_EMERALD_L1",
+   "before": {
+    "lives": 1,
+    "offered": 0,
+    "completed": 0,
+    "firstOfferDay": null,
+    "beforeEndingOffered": 0,
+    "beforeEndingCompleted": 0,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 0
+   },
+   "after": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 42,
+    "beforeEndingOffered": 0,
+    "beforeEndingCompleted": 0,
+    "laterFirstOffered": 1,
+    "laterFirstCompleted": 1,
+    "completionDayMeasured": 1
+   }
+  },
+  {
+   "id": "F15_EMERALD_L2",
+   "before": {
+    "lives": 1,
+    "offered": 0,
+    "completed": 0,
+    "firstOfferDay": null,
+    "beforeEndingOffered": 0,
+    "beforeEndingCompleted": 0,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 0
+   },
+   "after": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 43,
+    "beforeEndingOffered": 0,
+    "beforeEndingCompleted": 0,
+    "laterFirstOffered": 1,
+    "laterFirstCompleted": 1,
+    "completionDayMeasured": 1
+   }
+  },
+  {
+   "id": "F15_EMERALD_L3",
+   "before": {
+    "lives": 1,
+    "offered": 0,
+    "completed": 0,
+    "firstOfferDay": null,
+    "beforeEndingOffered": 0,
+    "beforeEndingCompleted": 0,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 0
+   },
+   "after": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 45,
+    "beforeEndingOffered": 0,
+    "beforeEndingCompleted": 0,
+    "laterFirstOffered": 1,
+    "laterFirstCompleted": 1,
+    "completionDayMeasured": 1
+   }
+  },
+  {
+   "id": "F15_EMERALD_L4",
+   "before": {
+    "lives": 1,
+    "offered": 0,
+    "completed": 0,
+    "firstOfferDay": null,
+    "beforeEndingOffered": 0,
+    "beforeEndingCompleted": 0,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 0
+   },
+   "after": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 47,
+    "beforeEndingOffered": 0,
+    "beforeEndingCompleted": 0,
+    "laterFirstOffered": 1,
+    "laterFirstCompleted": 1,
+    "completionDayMeasured": 1
+   }
+  },
+  {
+   "id": "F15_ROSALYN_L1",
+   "before": {
+    "lives": 1,
+    "offered": 0,
+    "completed": 0,
+    "firstOfferDay": null,
+    "beforeEndingOffered": 0,
+    "beforeEndingCompleted": 0,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 0
+   },
+   "after": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 36,
+    "beforeEndingOffered": 0,
+    "beforeEndingCompleted": 0,
+    "laterFirstOffered": 1,
+    "laterFirstCompleted": 1,
+    "completionDayMeasured": 1
+   }
+  },
+  {
+   "id": "F15_ROSALYN_L2",
+   "before": {
+    "lives": 1,
+    "offered": 0,
+    "completed": 0,
+    "firstOfferDay": null,
+    "beforeEndingOffered": 0,
+    "beforeEndingCompleted": 0,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 0
+   },
+   "after": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 37,
+    "beforeEndingOffered": 0,
+    "beforeEndingCompleted": 0,
+    "laterFirstOffered": 1,
+    "laterFirstCompleted": 1,
+    "completionDayMeasured": 1
+   }
+  },
+  {
+   "id": "F15_ROSALYN_L3",
+   "before": {
+    "lives": 1,
+    "offered": 0,
+    "completed": 0,
+    "firstOfferDay": null,
+    "beforeEndingOffered": 0,
+    "beforeEndingCompleted": 0,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 0
+   },
+   "after": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 39,
+    "beforeEndingOffered": 0,
+    "beforeEndingCompleted": 0,
+    "laterFirstOffered": 1,
+    "laterFirstCompleted": 1,
+    "completionDayMeasured": 1
+   }
+  },
+  {
+   "id": "F15_ROSALYN_L4",
+   "before": {
+    "lives": 1,
+    "offered": 0,
+    "completed": 0,
+    "firstOfferDay": null,
+    "beforeEndingOffered": 0,
+    "beforeEndingCompleted": 0,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 0
+   },
+   "after": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 41,
+    "beforeEndingOffered": 0,
+    "beforeEndingCompleted": 0,
+    "laterFirstOffered": 1,
+    "laterFirstCompleted": 1,
+    "completionDayMeasured": 1
+   }
+  },
+  {
+   "id": "F15_ROXY_L1",
+   "before": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 69,
+    "beforeEndingOffered": 0,
+    "beforeEndingCompleted": 0,
+    "laterFirstOffered": 1,
+    "laterFirstCompleted": 1,
+    "completionDayMeasured": 1
+   },
+   "after": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 30,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   }
+  },
+  {
+   "id": "F15_ROXY_L2",
+   "before": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 70,
+    "beforeEndingOffered": 0,
+    "beforeEndingCompleted": 0,
+    "laterFirstOffered": 1,
+    "laterFirstCompleted": 1,
+    "completionDayMeasured": 1
+   },
+   "after": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 31,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   }
+  },
+  {
+   "id": "F15_ROXY_L3",
+   "before": {
+    "lives": 1,
+    "offered": 0,
+    "completed": 0,
+    "firstOfferDay": null,
+    "beforeEndingOffered": 0,
+    "beforeEndingCompleted": 0,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 0
+   },
+   "after": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 33,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   }
+  },
+  {
+   "id": "F15_ROXY_L4",
+   "before": {
+    "lives": 1,
+    "offered": 0,
+    "completed": 0,
+    "firstOfferDay": null,
+    "beforeEndingOffered": 0,
+    "beforeEndingCompleted": 0,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 0
+   },
+   "after": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 35,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   }
+  },
+  {
+   "id": "FISHTANK",
+   "before": {
+    "lives": 1,
+    "offered": 0,
+    "completed": 0,
+    "firstOfferDay": null,
+    "beforeEndingOffered": 0,
+    "beforeEndingCompleted": 0,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 0
+   },
+   "after": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 52,
+    "beforeEndingOffered": 0,
+    "beforeEndingCompleted": 0,
+    "laterFirstOffered": 1,
+    "laterFirstCompleted": 1,
+    "completionDayMeasured": 1
+   }
+  },
+  {
+   "id": "GALLERY",
+   "before": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 5,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   },
+   "after": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 4,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   }
+  },
+  {
+   "id": "GARAGE_VIEW",
+   "before": {
+    "lives": 1,
+    "offered": 0,
+    "completed": 0,
+    "firstOfferDay": null,
+    "beforeEndingOffered": 0,
+    "beforeEndingCompleted": 0,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 0
+   },
+   "after": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 45,
+    "beforeEndingOffered": 0,
+    "beforeEndingCompleted": 0,
+    "laterFirstOffered": 1,
+    "laterFirstCompleted": 1,
+    "completionDayMeasured": 1
+   }
+  },
+  {
+   "id": "GRAVE",
+   "before": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 1,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   },
+   "after": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 1,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   }
+  },
+  {
+   "id": "HOOKAH",
+   "before": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 69,
+    "beforeEndingOffered": 0,
+    "beforeEndingCompleted": 0,
+    "laterFirstOffered": 1,
+    "laterFirstCompleted": 1,
+    "completionDayMeasured": 1
+   },
+   "after": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 29,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   }
+  },
+  {
+   "id": "HOST",
+   "before": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 68,
+    "beforeEndingOffered": 0,
+    "beforeEndingCompleted": 0,
+    "laterFirstOffered": 1,
+    "laterFirstCompleted": 1,
+    "completionDayMeasured": 1
+   },
+   "after": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 29,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   }
+  },
+  {
+   "id": "JOLLOF_WARS",
+   "before": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 32,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   },
+   "after": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 32,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   }
+  },
+  {
+   "id": "KITCHEN",
+   "before": {
+    "lives": 1,
+    "offered": 0,
+    "completed": 0,
+    "firstOfferDay": null,
+    "beforeEndingOffered": 0,
+    "beforeEndingCompleted": 0,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 0
+   },
+   "after": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 32,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   }
+  },
+  {
+   "id": "KUSH",
+   "before": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 11,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   },
+   "after": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 12,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   }
+  },
+  {
+   "id": "MAID",
+   "before": {
+    "lives": 1,
+    "offered": 0,
+    "completed": 0,
+    "firstOfferDay": null,
+    "beforeEndingOffered": 0,
+    "beforeEndingCompleted": 0,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 0
+   },
+   "after": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 32,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   }
+  },
+  {
+   "id": "MOONIE_MEET",
+   "before": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 23,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   },
+   "after": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 27,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   }
+  },
+  {
+   "id": "MOVIE",
+   "before": {
+    "lives": 1,
+    "offered": 0,
+    "completed": 0,
+    "firstOfferDay": null,
+    "beforeEndingOffered": 0,
+    "beforeEndingCompleted": 0,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 0
+   },
+   "after": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 34,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   }
+  },
+  {
+   "id": "NAIJA",
+   "before": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 11,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   },
+   "after": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 10,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   }
+  },
+  {
+   "id": "NEIGHBOR_CASTLE",
+   "before": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 29,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   },
+   "after": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 15,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   }
+  },
+  {
+   "id": "NEW_OGA_ALTERNATIVE",
+   "before": {
+    "lives": 1,
+    "offered": 0,
+    "completed": 0,
+    "firstOfferDay": null,
+    "beforeEndingOffered": 0,
+    "beforeEndingCompleted": 0,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 0
+   },
+   "after": {
+    "lives": 1,
+    "offered": 0,
+    "completed": 0,
+    "firstOfferDay": null,
+    "beforeEndingOffered": 0,
+    "beforeEndingCompleted": 0,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 0
+   }
+  },
+  {
+   "id": "NEW_OGA_FINALE",
+   "before": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 19,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   },
+   "after": {
+    "lives": 1,
+    "offered": 0,
+    "completed": 0,
+    "firstOfferDay": null,
+    "beforeEndingOffered": 0,
+    "beforeEndingCompleted": 0,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 0
+   }
+  },
+  {
+   "id": "NEW_OGA_M1",
+   "before": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 8,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   },
+   "after": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 8,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   }
+  },
+  {
+   "id": "NEW_OGA_M10",
+   "before": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 17,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   },
+   "after": {
+    "lives": 1,
+    "offered": 0,
+    "completed": 0,
+    "firstOfferDay": null,
+    "beforeEndingOffered": 0,
+    "beforeEndingCompleted": 0,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 0
+   }
+  },
+  {
+   "id": "NEW_OGA_M2",
+   "before": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 9,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   },
+   "after": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 9,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   }
+  },
+  {
+   "id": "NEW_OGA_M3",
+   "before": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 10,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   },
+   "after": {
+    "lives": 1,
+    "offered": 0,
+    "completed": 0,
+    "firstOfferDay": null,
+    "beforeEndingOffered": 0,
+    "beforeEndingCompleted": 0,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 0
+   }
+  },
+  {
+   "id": "NEW_OGA_M4",
+   "before": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 11,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   },
+   "after": {
+    "lives": 1,
+    "offered": 0,
+    "completed": 0,
+    "firstOfferDay": null,
+    "beforeEndingOffered": 0,
+    "beforeEndingCompleted": 0,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 0
+   }
+  },
+  {
+   "id": "NEW_OGA_M5",
+   "before": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 12,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   },
+   "after": {
+    "lives": 1,
+    "offered": 0,
+    "completed": 0,
+    "firstOfferDay": null,
+    "beforeEndingOffered": 0,
+    "beforeEndingCompleted": 0,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 0
+   }
+  },
+  {
+   "id": "NEW_OGA_M6",
+   "before": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 13,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   },
+   "after": {
+    "lives": 1,
+    "offered": 0,
+    "completed": 0,
+    "firstOfferDay": null,
+    "beforeEndingOffered": 0,
+    "beforeEndingCompleted": 0,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 0
+   }
+  },
+  {
+   "id": "NEW_OGA_M7",
+   "before": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 14,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   },
+   "after": {
+    "lives": 1,
+    "offered": 0,
+    "completed": 0,
+    "firstOfferDay": null,
+    "beforeEndingOffered": 0,
+    "beforeEndingCompleted": 0,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 0
+   }
+  },
+  {
+   "id": "NEW_OGA_M8",
+   "before": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 15,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   },
+   "after": {
+    "lives": 1,
+    "offered": 0,
+    "completed": 0,
+    "firstOfferDay": null,
+    "beforeEndingOffered": 0,
+    "beforeEndingCompleted": 0,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 0
+   }
+  },
+  {
+   "id": "NEW_OGA_M9",
+   "before": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 16,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   },
+   "after": {
+    "lives": 1,
+    "offered": 0,
+    "completed": 0,
+    "firstOfferDay": null,
+    "beforeEndingOffered": 0,
+    "beforeEndingCompleted": 0,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 0
+   }
+  },
+  {
+   "id": "NEW_OGA_VAMPGPT",
+   "before": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 18,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   },
+   "after": {
+    "lives": 1,
+    "offered": 0,
+    "completed": 0,
+    "firstOfferDay": null,
+    "beforeEndingOffered": 0,
+    "beforeEndingCompleted": 0,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 0
+   }
+  },
+  {
+   "id": "PEKING",
+   "before": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 1,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   },
+   "after": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 1,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   }
+  },
+  {
+   "id": "PIER",
+   "before": {
+    "lives": 1,
+    "offered": 0,
+    "completed": 0,
+    "firstOfferDay": null,
+    "beforeEndingOffered": 0,
+    "beforeEndingCompleted": 0,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 0
+   },
+   "after": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 28,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   }
+  },
+  {
+   "id": "RB_DELIVERY",
+   "before": {
+    "lives": 1,
+    "offered": 0,
+    "completed": 0,
+    "firstOfferDay": null,
+    "beforeEndingOffered": 0,
+    "beforeEndingCompleted": 0,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 0
+   },
+   "after": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 45,
+    "beforeEndingOffered": 0,
+    "beforeEndingCompleted": 0,
+    "laterFirstOffered": 1,
+    "laterFirstCompleted": 1,
+    "completionDayMeasured": 1
+   }
+  },
+  {
+   "id": "RETWIST",
+   "before": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 16,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   },
+   "after": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 4,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   }
+  },
+  {
+   "id": "RE_VIEWING",
+   "before": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 29,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   },
+   "after": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 21,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   }
+  },
+  {
+   "id": "ROOFTOP_DTLA",
+   "before": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 38,
+    "beforeEndingOffered": 0,
+    "beforeEndingCompleted": 0,
+    "laterFirstOffered": 1,
+    "laterFirstCompleted": 1,
+    "completionDayMeasured": 1
+   },
+   "after": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 8,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   }
+  },
+  {
+   "id": "ROOST",
+   "before": {
+    "lives": 1,
+    "offered": 0,
+    "completed": 0,
+    "firstOfferDay": null,
+    "beforeEndingOffered": 0,
+    "beforeEndingCompleted": 0,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 0
+   },
+   "after": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 32,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   }
+  },
+  {
+   "id": "SHOP",
+   "before": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 1,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   },
+   "after": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 1,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   }
+  },
+  {
+   "id": "SHOW",
+   "before": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 15,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   },
+   "after": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 20,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   }
+  },
+  {
+   "id": "SLURP",
+   "before": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 2,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   },
+   "after": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 2,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   }
+  },
+  {
+   "id": "TACOS",
+   "before": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 1,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   },
+   "after": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 1,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   }
+  },
+  {
+   "id": "TANDEM_BATTLE",
+   "before": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 14,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   },
+   "after": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 10,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   }
+  },
+  {
+   "id": "THRONE",
+   "before": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 1,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   },
+   "after": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 1,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   }
+  },
+  {
+   "id": "VENICE",
+   "before": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 1,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   },
+   "after": {
+    "lives": 1,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 1,
+    "beforeEndingOffered": 1,
+    "beforeEndingCompleted": 1,
+    "laterFirstOffered": 0,
+    "laterFirstCompleted": 0,
+    "completionDayMeasured": 1
+   }
+  }
+ ]
+}

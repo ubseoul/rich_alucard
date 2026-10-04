@@ -29,10 +29,11 @@ The remaining OPEN source decisions need information rather than dialogue:
 | BUILD2-RESERVED-AUDIO | Authored KBBQ / outdoor hot-spring receiver scenes before their accepted audio can be wired. |
 | BUILD5-R1-SEED54 | Ruling needed: actual 100-seed audit still gives seed 54 a 3/9 final roster; all other seeds meet 4. No locked odds or authored numbers were changed. |
 | T9 pool capacity | Ruling needed if extending two unchanged authored line pools: `cap:TROUBLE:1` has 8 entries for a measured maximum 3 uses per PLAY; `combo:coin:fail` has 18 for maximum 6. The audit records zero repeats in 99,039 uses. No lines were invented. |
+| OPEN progression threshold | Available OPEN producers reach 3 while an authored gate requires 4. Two linked adventures remain unobserved; the source owner must decide whether the producer contract or threshold should change. No number was changed. This requests a ruling, not new dialogue. |
 
 Historical visual items now have an implementation answer: the five move effects, catalogue gun firings and GOLD PLATING / CUSTOM ENGRAVING presentation are supplied by authorized new hard-pixel code under OL-054. Their original frozen art remains unchanged. The rare hunter's frozen approved visual is already present in the accepted base. These do not request additional Ube dialogue or wardrobe tiers.
 
-Career exposure / ownership escalations from the completed population audit are recorded in the FINAL-A report and evidence index; those measurements do not authorize editing source prices, rewards, thresholds or ending rules.
+The remaining population simulations were stopped at Ube's request. Completed career results and the complete continuation census are preserved in the FINAL-A report and evidence index; the broad population audit is explicitly partial. Actual final-build career exposure covers 136 of 138 OPEN adventures. These measurements do not authorize editing source prices, rewards, thresholds or ending rules.
 
 The parked world reactions need the following creator or source-owner decisions. These are requests for authority, not newly specified sentences; their speakers and lengths must come from Ube or the named source owner.
 

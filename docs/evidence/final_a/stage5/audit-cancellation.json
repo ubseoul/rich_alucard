@@ -1,0 +1,50 @@
+{
+  "requestedAt": "2026-10-04T00:07:05.807197Z",
+  "authorization": "User explicitly approved: do that -> skip that shit do your rec. Root directed stopping only remaining original360 and supplemental20 audit parents/workers; post18 already completed.",
+  "plannedOriginal": 360,
+  "plannedSupplemental": 20,
+  "processScope": [
+    {
+      "ProcessId": 20756,
+      "ParentProcessId": 31020,
+      "CreationDate": "2026-10-03T17:10:19.046416-04:00",
+      "CommandLine": "\"C:\\Program Files\\nodejs\\node.exe\" tools/tests/f13/career-run.mjs --paired-root work/final_a/base --jobs 2 --seeds 10 --days 70"
+    },
+    {
+      "ProcessId": 10488,
+      "ParentProcessId": 20756,
+      "CreationDate": "2026-10-03T17:10:19.164619-04:00",
+      "CommandLine": "\"C:\\Program Files\\nodejs\\node.exe\" C:\\Users\\Ube\\Documents\\Codex\\2026-10-03\\files-pasted-by-the-user-final\\work\\rich_alucard\\tools\\tests\\f13\\career-run.mjs --worker"
+    },
+    {
+      "ProcessId": 8372,
+      "ParentProcessId": 20756,
+      "CreationDate": "2026-10-03T17:10:19.172119-04:00",
+      "CommandLine": "\"C:\\Program Files\\nodejs\\node.exe\" C:\\Users\\Ube\\Documents\\Codex\\2026-10-03\\files-pasted-by-the-user-final\\work\\rich_alucard\\tools\\tests\\f13\\career-run.mjs --worker"
+    },
+    {
+      "ProcessId": 35040,
+      "ParentProcessId": 8952,
+      "CreationDate": "2026-10-03T19:40:03.77192-04:00",
+      "CommandLine": "\"C:\\Program Files\\nodejs\\node.exe\" tools/tests/f13/completionist-run.mjs --seeds 10 --jobs 2 --days 70 --post-ending --paired-root work/final_a/base --out docs/evidence/final_a/stage5/completionist"
+    },
+    {
+      "ProcessId": 7332,
+      "ParentProcessId": 35040,
+      "CreationDate": "2026-10-03T19:40:03.864747-04:00",
+      "CommandLine": "\"C:\\Program Files\\nodejs\\node.exe\" C:\\Users\\Ube\\Documents\\Codex\\2026-10-03\\files-pasted-by-the-user-final\\work\\rich_alucard\\tools\\tests\\f13\\completionist-run.mjs --worker"
+    },
+    {
+      "ProcessId": 19936,
+      "ParentProcessId": 35040,
+      "CreationDate": "2026-10-03T19:40:03.873486-04:00",
+      "CommandLine": "\"C:\\Program Files\\nodejs\\node.exe\" C:\\Users\\Ube\\Documents\\Codex\\2026-10-03\\files-pasted-by-the-user-final\\work\\rich_alucard\\tools\\tests\\f13\\completionist-run.mjs --worker"
+    }
+  ],
+  "stopStatus": "Stopped exact six identity-verified audit processes; subsequent CIM check found no remaining scoped process IDs. No files deleted or runs restarted.",
+  "preservedOriginal": 178,
+  "preservedSupplemental": 2,
+  "completedContinuation": 18,
+  "incompleteOriginal": 182,
+  "incompleteSupplemental": 18
+}

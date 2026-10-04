@@ -1,0 +1,65 @@
+{
+ "generatedAt": "2026-10-03T23:30:04.154Z",
+ "scope": "separate paired completionist through Day70; first ending preserved",
+ "expected": 1,
+ "completed": 1,
+ "complete": true,
+ "healthy": 1,
+ "fatal": 0,
+ "errors": 0,
+ "softlocks": 0,
+ "endingDays": [
+  36
+ ],
+ "finalDays": [
+  71
+ ],
+ "openAdventures": 138,
+ "labels": [
+  {
+   "label": "pilot",
+   "lives": 1,
+   "offered": 101,
+   "completed": 100,
+   "neverOffered": [
+    "A10",
+    "A11",
+    "A12",
+    "A20",
+    "A23",
+    "A23R",
+    "A26",
+    "A27",
+    "A28",
+    "A29C",
+    "A32",
+    "A33",
+    "A39",
+    "A41B",
+    "A47",
+    "A57",
+    "A58",
+    "ARC_MAZDA_1",
+    "ARC_MAZDA_2",
+    "ARC_MAZDA_3",
+    "ARMORY_WALL",
+    "A_JADE1",
+    "COFFIN",
+    "F15_EMERALD_L2",
+    "F15_EMERALD_L3",
+    "F15_EMERALD_L4",
+    "FISHTANK",
+    "GARAGE_VIEW",
+    "HOOKAH",
+    "HOST",
+    "KITCHEN",
+    "MAID",
+    "MOVIE",
+    "NEW_OGA_ALTERNATIVE",
+    "PIER",
+    "RB_DELIVERY",
+    "ROOST"
+   ]
+  }
+ ]
+}

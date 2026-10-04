@@ -1,0 +1,15 @@
+# Separate continuation route census
+
+Status: **COMPLETE**,18 policies ×1 seed on the current build through actual Day70, with final cursor71 and retained first ending36 in every life. There are121/138 observed OPEN offers and121/138 completions in this declared policy set. No fatal or pending-play/softlock observations occurred. One raw hoarder1 Day25 `A45 / bounded walker at soak` observation is preserved; `../soak-walker-repro.json` reproduces the first-choice policy loop and verifies the production GET OUT choice completes normally. This is a harness policy limitation, not an unresolved player defect. This additional route coverage never replaces or changes the main180+180 population.
+
+Reproduce: `node tools/tests/f13/career-run.mjs --label post-ending --seeds 1 --jobs 1 --days 70 --post-ending --out docs/evidence/final_a/stage5/post-ending --resume`. Policy version: `FINAL-A.post-ending.v1`. Each completed life is stored immediately in `post-ending-checkpoint.ndjson`.
+
+The same fresh policy runs until its first ending boundary. The production `RAFame.play` method applies the real fame marker, followers and history, using a DOM/presentation-timer substitute, followed by the actual THE NEXT MORNING click callback. The first `endingDay` remains unchanged. The continuation then uses the actual wake/sleep calendar, gates, prices, purchases, dates, operations and declared minigame/fight/legacy outcomes from the main harness.
+
+Additional probes after the ending: purchased hidden-room verbs call real `RAPlaces.go` handlers, including music/armory/coffin/fishtank custom routes. Dragon-lane policies care for already adopted dragons using actual food they own or published-price treats, then `RADragon.applyActions`; no dragon stage or bond is granted. These probes are supplementary route behavior and cannot establish pre-ending access. Unavailable and already completed scenes are not counted as new offers.
+
+The earlier homebody smoke retained first endingDay36 and actually first offered/completed A53 on Day57, with zero errors, through Day70. Its raw trace remains separately in `work/final_a/post-ending-smoke`; it preceded the extra purchased-room/dragon probes and is not reused as a final census row.
+
+The first definitive continuation row also retained endingDay36 and reached Day70 with zero errors/softlocks. Its actual owned-room probes exposed KITCHEN on Day36 and MOVIE on Day57, and paid dragon care exposed ARC_MAZDA_1 on Day50 and ARC_MAZDA_2 on Day58. `continuation-prefix-check.json` confirms its Day1–35 daily money/net-worth/ownership/exposure/War Room/rank observations are byte-equal to the matching main after homebody/seed1 row. This is a check of that sampled prefix, not a whole-population equivalence claim.
+
+Generate the separate tables after completion: `node tools/tests/f13/career-report.mjs --out docs/evidence/final_a/stage5/post-ending --checkpoint docs/evidence/final_a/stage5/post-ending/post-ending-checkpoint.ndjson --expected 18`. Zero observations mean not observed by this declared policy, not proven unreachable. The headless census does not establish browser stability.

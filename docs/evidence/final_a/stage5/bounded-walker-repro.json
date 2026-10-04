@@ -1,0 +1,79 @@
+{
+ "method": "same original v2 policies/seeds and production source, original error behavior retained; diagnostic capture only. This shorter replay is supplementary and does not replace any 360 population row.",
+ "results": [
+  {
+   "label": "before",
+   "persona": "trap_committed",
+   "seed": 9,
+   "errors": [
+    {
+     "day": 9,
+     "id": "DATE",
+     "error": "bounded walker at undefined"
+    },
+    {
+     "day": 10,
+     "id": "TACOS",
+     "error": "bounded walker at undefined"
+    },
+    {
+     "day": 10,
+     "id": "DATE",
+     "error": "bounded walker at undefined"
+    }
+   ],
+   "guardDiagnostics": [
+    {
+     "day": 9,
+     "id": "DATE",
+     "node": "where",
+     "cash": 3,
+     "allChoices": 0,
+     "hasNext": false,
+     "productionAction": "NOT TONIGHT → abandon/return home"
+    },
+    {
+     "day": 10,
+     "id": "TACOS",
+     "node": "arrive",
+     "cash": 3,
+     "allChoices": 0,
+     "hasNext": false,
+     "productionAction": "NOT TONIGHT → abandon/return home"
+    },
+    {
+     "day": 10,
+     "id": "DATE",
+     "node": "where",
+     "cash": 3,
+     "allChoices": 0,
+     "hasNext": false,
+     "productionAction": "NOT TONIGHT → abandon/return home"
+    }
+   ]
+  },
+  {
+   "label": "after",
+   "persona": "trap_committed",
+   "seed": 5,
+   "errors": [
+    {
+     "day": 14,
+     "id": "DATE",
+     "error": "bounded walker at undefined"
+    }
+   ],
+   "guardDiagnostics": [
+    {
+     "day": 14,
+     "id": "DATE",
+     "node": "where",
+     "cash": 5,
+     "allChoices": 0,
+     "hasNext": false,
+     "productionAction": "NOT TONIGHT → abandon/return home"
+    }
+   ]
+  }
+ ]
+}

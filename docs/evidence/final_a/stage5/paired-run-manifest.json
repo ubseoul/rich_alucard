@@ -1,0 +1,357 @@
+{
+ "startedAt": "2026-10-03T21:10:19.155Z",
+ "root": "C:\\Users\\Ube\\Documents\\Codex\\2026-10-03\\files-pasted-by-the-user-final\\work\\rich_alucard",
+ "pairedRoot": "C:\\Users\\Ube\\Documents\\Codex\\2026-10-03\\files-pasted-by-the-user-final\\work\\rich_alucard\\work\\final_a\\base",
+ "jobs": 2,
+ "personas": {
+  "homebody": {
+   "lanes": [
+    "home",
+    "food",
+    "dragons",
+    "music"
+   ],
+   "outings": 2,
+   "dates": 1,
+   "skill": 0.75,
+   "choice": "variety",
+   "reserve": 20000,
+   "rooms": [
+    "kitchen",
+    "movie_room",
+    "music_room",
+    "coffin_upgrade"
+   ]
+  },
+  "party": {
+   "lanes": [
+    "people",
+    "dating",
+    "nightlife",
+    "hosting"
+   ],
+   "outings": 3,
+   "dates": 2,
+   "skill": 0.75,
+   "choice": "variety",
+   "reserve": 20000,
+   "rooms": [
+    "party_hall",
+    "hookah_roof",
+    "music_room"
+   ]
+  },
+  "landlord": {
+   "lanes": [
+    "property",
+    "money",
+    "home",
+    "cars"
+   ],
+   "outings": 3,
+   "dates": 1,
+   "skill": 0.75,
+   "choice": "variety",
+   "reserve": 20000,
+   "rooms": [
+    "garage",
+    "fish_tank"
+   ],
+   "properties": true,
+   "cars": [
+    "urus",
+    "aventador"
+   ]
+  },
+  "weirdo": {
+   "lanes": [
+    "weird",
+    "combat",
+    "dragons",
+    "world"
+   ],
+   "outings": 4,
+   "dates": 1,
+   "skill": 0.75,
+   "choice": "octopus",
+   "reserve": 20000,
+   "rooms": [
+    "hookah_roof",
+    "dragon_roost"
+   ]
+  },
+  "trap_committed": {
+   "lanes": [
+    "money",
+    "people",
+    "cars"
+   ],
+   "outings": 3,
+   "dates": 1,
+   "skill": 0.97,
+   "choice": "commit",
+   "reserve": 20000,
+   "rooms": [
+    "party_hall",
+    "fish_tank"
+   ],
+   "trap": true,
+   "plays": 2,
+   "cars": [
+    "urus",
+    "aventador"
+   ]
+  },
+  "trap_careful": {
+   "lanes": [
+    "money",
+    "food",
+    "people",
+    "dating"
+   ],
+   "outings": 3,
+   "dates": 1,
+   "skill": 0.9,
+   "choice": "commit",
+   "reserve": 60000,
+   "rooms": [
+    "party_hall"
+   ],
+   "trap": true,
+   "plays": 1,
+   "club": "roxy"
+  },
+  "trap_aggressive": {
+   "lanes": [
+    "money",
+    "combat",
+    "cars",
+    "dating"
+   ],
+   "outings": 3,
+   "dates": 1,
+   "skill": 0.8,
+   "choice": "commit",
+   "reserve": 10000,
+   "rooms": [
+    "party_hall"
+   ],
+   "trap": true,
+   "plays": 2,
+   "f01": "greedy",
+   "club": "emerald"
+  },
+  "trap_wholesale": {
+   "lanes": [
+    "money",
+    "home",
+    "people",
+    "dating"
+   ],
+   "outings": 3,
+   "dates": 1,
+   "skill": 0.75,
+   "choice": "commit",
+   "reserve": 40000,
+   "rooms": [
+    "party_hall"
+   ],
+   "trap": true,
+   "plays": 1,
+   "channel": "wholesale",
+   "club": "rosalyn"
+  },
+  "collector": {
+   "lanes": [
+    "mall",
+    "property",
+    "cars",
+    "home"
+   ],
+   "outings": 4,
+   "dates": 1,
+   "skill": 0.75,
+   "choice": "variety",
+   "reserve": 20000,
+   "rooms": [
+    "fish_tank",
+    "garage",
+    "armory_wall"
+   ],
+   "cars": [
+    "urus",
+    "aventador",
+    "ferrari"
+   ]
+  },
+  "musician": {
+   "lanes": [
+    "music",
+    "nightlife",
+    "people"
+   ],
+   "outings": 3,
+   "dates": 1,
+   "skill": 0.75,
+   "choice": "variety",
+   "reserve": 20000,
+   "rooms": [
+    "music_room",
+    "party_hall"
+   ]
+  },
+  "drifter": {
+   "lanes": [
+    "cars",
+    "money",
+    "people"
+   ],
+   "outings": 4,
+   "dates": 1,
+   "skill": 0.75,
+   "choice": "variety",
+   "reserve": 20000,
+   "rooms": [
+    "garage"
+   ],
+   "cars": [
+    "s15",
+    "r34",
+    "urus"
+   ]
+  },
+  "socialite": {
+   "lanes": [
+    "people",
+    "dating",
+    "hosting",
+    "nightlife"
+   ],
+   "outings": 4,
+   "dates": 3,
+   "skill": 0.75,
+   "choice": "variety",
+   "reserve": 20000,
+   "rooms": [
+    "party_hall",
+    "movie_room"
+   ]
+  },
+  "foodie": {
+   "lanes": [
+    "food",
+    "people",
+    "home"
+   ],
+   "outings": 2,
+   "dates": 1,
+   "skill": 0.75,
+   "choice": "variety",
+   "reserve": 20000,
+   "rooms": [
+    "kitchen"
+   ]
+  },
+  "dragon_keeper": {
+   "lanes": [
+    "dragons",
+    "fishing",
+    "food",
+    "weird"
+   ],
+   "outings": 3,
+   "dates": 1,
+   "skill": 0.75,
+   "choice": "octopus",
+   "reserve": 20000,
+   "rooms": [
+    "dragon_roost",
+    "kitchen"
+   ]
+  },
+  "combatant": {
+   "lanes": [
+    "combat",
+    "weird",
+    "vampire",
+    "money"
+   ],
+   "outings": 3,
+   "dates": 1,
+   "skill": 0.92,
+   "choice": "commit",
+   "reserve": 20000,
+   "rooms": [
+    "armory_wall",
+    "hookah_roof"
+   ]
+  },
+  "romantic": {
+   "lanes": [
+    "dating",
+    "people",
+    "food"
+   ],
+   "outings": 3,
+   "dates": 3,
+   "skill": 0.75,
+   "choice": "variety",
+   "reserve": 20000,
+   "rooms": [
+    "movie_room",
+    "kitchen"
+   ]
+  },
+  "explorer": {
+   "lanes": [
+    "home",
+    "food",
+    "dragons",
+    "music",
+    "dating",
+    "money",
+    "people",
+    "combat",
+    "cars",
+    "mall",
+    "property",
+    "weird",
+    "nightlife",
+    "hosting",
+    "fishing",
+    "vampire",
+    "world",
+    "life"
+   ],
+   "outings": 5,
+   "dates": 2,
+   "skill": 0.75,
+   "choice": "octopus",
+   "reserve": 20000,
+   "rooms": [
+    "maid_quarters",
+    "hookah_roof",
+    "dragon_roost",
+    "party_hall"
+   ]
+  },
+  "hoarder": {
+   "lanes": [
+    "money",
+    "home"
+   ],
+   "outings": 1,
+   "dates": 0,
+   "skill": 0.75,
+   "choice": "first",
+   "reserve": 1000000,
+   "rooms": []
+  }
+ },
+ "seeds": 10,
+ "maxDays": 70,
+ "continueAfterEnding": false,
+ "total": 360,
+ "resumed": 0,
+ "policyVersion": "FINAL-A.fresh.v2"
+}

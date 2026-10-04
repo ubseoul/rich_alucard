@@ -1,0 +1,3709 @@
+{
+ "status": {
+  "generatedAt": "2026-10-03T23:41:13.252Z",
+  "scope": "separate post-ending route census",
+  "expected": 18,
+  "completed": 18,
+  "complete": true,
+  "healthy": 18,
+  "fatal": 0,
+  "errors": 1,
+  "softlocks": 0,
+  "endingDays": [
+   36
+  ],
+  "finalDays": [
+   71
+  ],
+  "openAdventures": 138,
+  "labels": [
+   {
+    "label": "post-ending",
+    "lives": 18,
+    "offered": 121,
+    "completed": 121,
+    "neverOffered": [
+     "A17",
+     "A23",
+     "A23R",
+     "A36",
+     "A57",
+     "ARC_CAMMILE_1",
+     "ARC_CAMMILE_2",
+     "ARC_CAMMILE_3",
+     "ARC_NNEKA_1",
+     "ARC_NNEKA_2",
+     "ARC_NNEKA_3",
+     "A_CAMMILE1",
+     "A_JADE1",
+     "COFFIN",
+     "RE_VIEWING",
+     "SHOP",
+     "THRONE"
+    ]
+   }
+  ]
+ },
+ "metrics": [
+  {
+   "label": "post-ending",
+   "persona": "homebody",
+   "lives": 1,
+   "ending": {
+    "n": 1,
+    "median": 36,
+    "min": 36,
+    "max": 36
+   },
+   "finalDay": {
+    "n": 1,
+    "median": 71,
+    "min": 71,
+    "max": 71
+   },
+   "cash": {
+    "n": 1,
+    "median": 90542,
+    "min": 90542,
+    "max": 90542
+   },
+   "netWorth": {
+    "n": 1,
+    "median": 188042,
+    "min": 188042,
+    "max": 188042
+   },
+   "elapsed": {
+    "n": 1,
+    "median": 204.764,
+    "min": 204.764,
+    "max": 204.764
+   },
+   "rooms": {
+    "n": 1,
+    "median": 2,
+    "min": 2,
+    "max": 2
+   },
+   "cars": {
+    "n": 1,
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "partyHallRecordedEligibility": {
+    "n": 0,
+    "median": null,
+    "min": null,
+    "max": null
+   },
+   "partyHallEndOfDayCash250k": {
+    "n": 0,
+    "median": null,
+    "min": null,
+    "max": null
+   },
+   "partyHallPurchase": {
+    "n": 0,
+    "median": null,
+    "min": null,
+    "max": null
+   },
+   "partyHallBy30": 0,
+   "partyHallPreEnding": 0,
+   "level3Lives": 1,
+   "level4Lives": 1,
+   "relationMax": {
+    "n": 1,
+    "median": 4,
+    "min": 4,
+    "max": 4
+   },
+   "warRoomAccepted": 0,
+   "warRoomFirstDay": {
+    "n": 0,
+    "median": null,
+    "min": null,
+    "max": null
+   },
+   "playCalls": {
+    "n": 1,
+    "median": 0,
+    "min": 0,
+    "max": 0
+   }
+  },
+  {
+   "label": "post-ending",
+   "persona": "party",
+   "lives": 1,
+   "ending": {
+    "n": 1,
+    "median": 36,
+    "min": 36,
+    "max": 36
+   },
+   "finalDay": {
+    "n": 1,
+    "median": 71,
+    "min": 71,
+    "max": 71
+   },
+   "cash": {
+    "n": 1,
+    "median": 225169,
+    "min": 225169,
+    "max": 225169
+   },
+   "netWorth": {
+    "n": 1,
+    "median": 225169,
+    "min": 225169,
+    "max": 225169
+   },
+   "elapsed": {
+    "n": 1,
+    "median": 456.93,
+    "min": 456.93,
+    "max": 456.93
+   },
+   "rooms": {
+    "n": 1,
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "cars": {
+    "n": 1,
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "partyHallRecordedEligibility": {
+    "n": 0,
+    "median": null,
+    "min": null,
+    "max": null
+   },
+   "partyHallEndOfDayCash250k": {
+    "n": 0,
+    "median": null,
+    "min": null,
+    "max": null
+   },
+   "partyHallPurchase": {
+    "n": 0,
+    "median": null,
+    "min": null,
+    "max": null
+   },
+   "partyHallBy30": 0,
+   "partyHallPreEnding": 0,
+   "level3Lives": 1,
+   "level4Lives": 1,
+   "relationMax": {
+    "n": 1,
+    "median": 4,
+    "min": 4,
+    "max": 4
+   },
+   "warRoomAccepted": 0,
+   "warRoomFirstDay": {
+    "n": 0,
+    "median": null,
+    "min": null,
+    "max": null
+   },
+   "playCalls": {
+    "n": 1,
+    "median": 0,
+    "min": 0,
+    "max": 0
+   }
+  },
+  {
+   "label": "post-ending",
+   "persona": "landlord",
+   "lives": 1,
+   "ending": {
+    "n": 1,
+    "median": 36,
+    "min": 36,
+    "max": 36
+   },
+   "finalDay": {
+    "n": 1,
+    "median": 71,
+    "min": 71,
+    "max": 71
+   },
+   "cash": {
+    "n": 1,
+    "median": 232122,
+    "min": 232122,
+    "max": 232122
+   },
+   "netWorth": {
+    "n": 1,
+    "median": 419122,
+    "min": 419122,
+    "max": 419122
+   },
+   "elapsed": {
+    "n": 1,
+    "median": 367.777,
+    "min": 367.777,
+    "max": 367.777
+   },
+   "rooms": {
+    "n": 1,
+    "median": 1,
+    "min": 1,
+    "max": 1
+   },
+   "cars": {
+    "n": 1,
+    "median": 1,
+    "min": 1,
+    "max": 1
+   },
+   "partyHallRecordedEligibility": {
+    "n": 0,
+    "median": null,
+    "min": null,
+    "max": null
+   },
+   "partyHallEndOfDayCash250k": {
+    "n": 0,
+    "median": null,
+    "min": null,
+    "max": null
+   },
+   "partyHallPurchase": {
+    "n": 0,
+    "median": null,
+    "min": null,
+    "max": null
+   },
+   "partyHallBy30": 0,
+   "partyHallPreEnding": 0,
+   "level3Lives": 1,
+   "level4Lives": 1,
+   "relationMax": {
+    "n": 1,
+    "median": 4,
+    "min": 4,
+    "max": 4
+   },
+   "warRoomAccepted": 0,
+   "warRoomFirstDay": {
+    "n": 0,
+    "median": null,
+    "min": null,
+    "max": null
+   },
+   "playCalls": {
+    "n": 1,
+    "median": 50,
+    "min": 50,
+    "max": 50
+   }
+  },
+  {
+   "label": "post-ending",
+   "persona": "weirdo",
+   "lives": 1,
+   "ending": {
+    "n": 1,
+    "median": 36,
+    "min": 36,
+    "max": 36
+   },
+   "finalDay": {
+    "n": 1,
+    "median": 71,
+    "min": 71,
+    "max": 71
+   },
+   "cash": {
+    "n": 1,
+    "median": 89812,
+    "min": 89812,
+    "max": 89812
+   },
+   "netWorth": {
+    "n": 1,
+    "median": 127312,
+    "min": 127312,
+    "max": 127312
+   },
+   "elapsed": {
+    "n": 1,
+    "median": 273.333,
+    "min": 273.333,
+    "max": 273.333
+   },
+   "rooms": {
+    "n": 1,
+    "median": 1,
+    "min": 1,
+    "max": 1
+   },
+   "cars": {
+    "n": 1,
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "partyHallRecordedEligibility": {
+    "n": 0,
+    "median": null,
+    "min": null,
+    "max": null
+   },
+   "partyHallEndOfDayCash250k": {
+    "n": 0,
+    "median": null,
+    "min": null,
+    "max": null
+   },
+   "partyHallPurchase": {
+    "n": 0,
+    "median": null,
+    "min": null,
+    "max": null
+   },
+   "partyHallBy30": 0,
+   "partyHallPreEnding": 0,
+   "level3Lives": 1,
+   "level4Lives": 1,
+   "relationMax": {
+    "n": 1,
+    "median": 4,
+    "min": 4,
+    "max": 4
+   },
+   "warRoomAccepted": 0,
+   "warRoomFirstDay": {
+    "n": 0,
+    "median": null,
+    "min": null,
+    "max": null
+   },
+   "playCalls": {
+    "n": 1,
+    "median": 0,
+    "min": 0,
+    "max": 0
+   }
+  },
+  {
+   "label": "post-ending",
+   "persona": "trap_committed",
+   "lives": 1,
+   "ending": {
+    "n": 1,
+    "median": 36,
+    "min": 36,
+    "max": 36
+   },
+   "finalDay": {
+    "n": 1,
+    "median": 71,
+    "min": 71,
+    "max": 71
+   },
+   "cash": {
+    "n": 1,
+    "median": 2738406,
+    "min": 2738406,
+    "max": 2738406
+   },
+   "netWorth": {
+    "n": 1,
+    "median": 3921406,
+    "min": 3921406,
+    "max": 3921406
+   },
+   "elapsed": {
+    "n": 1,
+    "median": 699.218,
+    "min": 699.218,
+    "max": 699.218
+   },
+   "rooms": {
+    "n": 1,
+    "median": 2,
+    "min": 2,
+    "max": 2
+   },
+   "cars": {
+    "n": 1,
+    "median": 3,
+    "min": 3,
+    "max": 3
+   },
+   "partyHallRecordedEligibility": {
+    "n": 1,
+    "median": 25,
+    "min": 25,
+    "max": 25
+   },
+   "partyHallEndOfDayCash250k": {
+    "n": 1,
+    "median": 27,
+    "min": 27,
+    "max": 27
+   },
+   "partyHallPurchase": {
+    "n": 1,
+    "median": 25,
+    "min": 25,
+    "max": 25
+   },
+   "partyHallBy30": 1,
+   "partyHallPreEnding": 1,
+   "level3Lives": 1,
+   "level4Lives": 1,
+   "relationMax": {
+    "n": 1,
+    "median": 4,
+    "min": 4,
+    "max": 4
+   },
+   "warRoomAccepted": 1,
+   "warRoomFirstDay": {
+    "n": 1,
+    "median": 16,
+    "min": 16,
+    "max": 16
+   },
+   "playCalls": {
+    "n": 1,
+    "median": 98,
+    "min": 98,
+    "max": 98
+   }
+  },
+  {
+   "label": "post-ending",
+   "persona": "trap_careful",
+   "lives": 1,
+   "ending": {
+    "n": 1,
+    "median": 36,
+    "min": 36,
+    "max": 36
+   },
+   "finalDay": {
+    "n": 1,
+    "median": 71,
+    "min": 71,
+    "max": 71
+   },
+   "cash": {
+    "n": 1,
+    "median": 2104415,
+    "min": 2104415,
+    "max": 2104415
+   },
+   "netWorth": {
+    "n": 1,
+    "median": 2307415,
+    "min": 2307415,
+    "max": 2307415
+   },
+   "elapsed": {
+    "n": 1,
+    "median": 632.124,
+    "min": 632.124,
+    "max": 632.124
+   },
+   "rooms": {
+    "n": 1,
+    "median": 1,
+    "min": 1,
+    "max": 1
+   },
+   "cars": {
+    "n": 1,
+    "median": 1,
+    "min": 1,
+    "max": 1
+   },
+   "partyHallRecordedEligibility": {
+    "n": 1,
+    "median": 33,
+    "min": 33,
+    "max": 33
+   },
+   "partyHallEndOfDayCash250k": {
+    "n": 1,
+    "median": 33,
+    "min": 33,
+    "max": 33
+   },
+   "partyHallPurchase": {
+    "n": 1,
+    "median": 34,
+    "min": 34,
+    "max": 34
+   },
+   "partyHallBy30": 0,
+   "partyHallPreEnding": 1,
+   "level3Lives": 1,
+   "level4Lives": 1,
+   "relationMax": {
+    "n": 1,
+    "median": 4,
+    "min": 4,
+    "max": 4
+   },
+   "warRoomAccepted": 1,
+   "warRoomFirstDay": {
+    "n": 1,
+    "median": 16,
+    "min": 16,
+    "max": 16
+   },
+   "playCalls": {
+    "n": 1,
+    "median": 77,
+    "min": 77,
+    "max": 77
+   }
+  },
+  {
+   "label": "post-ending",
+   "persona": "trap_aggressive",
+   "lives": 1,
+   "ending": {
+    "n": 1,
+    "median": 36,
+    "min": 36,
+    "max": 36
+   },
+   "finalDay": {
+    "n": 1,
+    "median": 71,
+    "min": 71,
+    "max": 71
+   },
+   "cash": {
+    "n": 1,
+    "median": 178628,
+    "min": 178628,
+    "max": 178628
+   },
+   "netWorth": {
+    "n": 1,
+    "median": 256628,
+    "min": 256628,
+    "max": 256628
+   },
+   "elapsed": {
+    "n": 1,
+    "median": 383.092,
+    "min": 383.092,
+    "max": 383.092
+   },
+   "rooms": {
+    "n": 1,
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "cars": {
+    "n": 1,
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "partyHallRecordedEligibility": {
+    "n": 0,
+    "median": null,
+    "min": null,
+    "max": null
+   },
+   "partyHallEndOfDayCash250k": {
+    "n": 0,
+    "median": null,
+    "min": null,
+    "max": null
+   },
+   "partyHallPurchase": {
+    "n": 0,
+    "median": null,
+    "min": null,
+    "max": null
+   },
+   "partyHallBy30": 0,
+   "partyHallPreEnding": 0,
+   "level3Lives": 1,
+   "level4Lives": 1,
+   "relationMax": {
+    "n": 1,
+    "median": 4,
+    "min": 4,
+    "max": 4
+   },
+   "warRoomAccepted": 1,
+   "warRoomFirstDay": {
+    "n": 1,
+    "median": 16,
+    "min": 16,
+    "max": 16
+   },
+   "playCalls": {
+    "n": 1,
+    "median": 65,
+    "min": 65,
+    "max": 65
+   }
+  },
+  {
+   "label": "post-ending",
+   "persona": "trap_wholesale",
+   "lives": 1,
+   "ending": {
+    "n": 1,
+    "median": 36,
+    "min": 36,
+    "max": 36
+   },
+   "finalDay": {
+    "n": 1,
+    "median": 71,
+    "min": 71,
+    "max": 71
+   },
+   "cash": {
+    "n": 1,
+    "median": 115110,
+    "min": 115110,
+    "max": 115110
+   },
+   "netWorth": {
+    "n": 1,
+    "median": 193110,
+    "min": 193110,
+    "max": 193110
+   },
+   "elapsed": {
+    "n": 1,
+    "median": 373.568,
+    "min": 373.568,
+    "max": 373.568
+   },
+   "rooms": {
+    "n": 1,
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "cars": {
+    "n": 1,
+    "median": 1,
+    "min": 1,
+    "max": 1
+   },
+   "partyHallRecordedEligibility": {
+    "n": 1,
+    "median": 36,
+    "min": 36,
+    "max": 36
+   },
+   "partyHallEndOfDayCash250k": {
+    "n": 1,
+    "median": 36,
+    "min": 36,
+    "max": 36
+   },
+   "partyHallPurchase": {
+    "n": 0,
+    "median": null,
+    "min": null,
+    "max": null
+   },
+   "partyHallBy30": 0,
+   "partyHallPreEnding": 0,
+   "level3Lives": 1,
+   "level4Lives": 1,
+   "relationMax": {
+    "n": 1,
+    "median": 4,
+    "min": 4,
+    "max": 4
+   },
+   "warRoomAccepted": 1,
+   "warRoomFirstDay": {
+    "n": 1,
+    "median": 17,
+    "min": 17,
+    "max": 17
+   },
+   "playCalls": {
+    "n": 1,
+    "median": 20,
+    "min": 20,
+    "max": 20
+   }
+  },
+  {
+   "label": "post-ending",
+   "persona": "collector",
+   "lives": 1,
+   "ending": {
+    "n": 1,
+    "median": 36,
+    "min": 36,
+    "max": 36
+   },
+   "finalDay": {
+    "n": 1,
+    "median": 71,
+    "min": 71,
+    "max": 71
+   },
+   "cash": {
+    "n": 1,
+    "median": 229907,
+    "min": 229907,
+    "max": 229907
+   },
+   "netWorth": {
+    "n": 1,
+    "median": 307907,
+    "min": 307907,
+    "max": 307907
+   },
+   "elapsed": {
+    "n": 1,
+    "median": 244.739,
+    "min": 244.739,
+    "max": 244.739
+   },
+   "rooms": {
+    "n": 1,
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "cars": {
+    "n": 1,
+    "median": 1,
+    "min": 1,
+    "max": 1
+   },
+   "partyHallRecordedEligibility": {
+    "n": 0,
+    "median": null,
+    "min": null,
+    "max": null
+   },
+   "partyHallEndOfDayCash250k": {
+    "n": 0,
+    "median": null,
+    "min": null,
+    "max": null
+   },
+   "partyHallPurchase": {
+    "n": 0,
+    "median": null,
+    "min": null,
+    "max": null
+   },
+   "partyHallBy30": 0,
+   "partyHallPreEnding": 0,
+   "level3Lives": 1,
+   "level4Lives": 1,
+   "relationMax": {
+    "n": 1,
+    "median": 4,
+    "min": 4,
+    "max": 4
+   },
+   "warRoomAccepted": 0,
+   "warRoomFirstDay": {
+    "n": 0,
+    "median": null,
+    "min": null,
+    "max": null
+   },
+   "playCalls": {
+    "n": 1,
+    "median": 0,
+    "min": 0,
+    "max": 0
+   }
+  },
+  {
+   "label": "post-ending",
+   "persona": "musician",
+   "lives": 1,
+   "ending": {
+    "n": 1,
+    "median": 36,
+    "min": 36,
+    "max": 36
+   },
+   "finalDay": {
+    "n": 1,
+    "median": 71,
+    "min": 71,
+    "max": 71
+   },
+   "cash": {
+    "n": 1,
+    "median": 147172,
+    "min": 147172,
+    "max": 147172
+   },
+   "netWorth": {
+    "n": 1,
+    "median": 207172,
+    "min": 207172,
+    "max": 207172
+   },
+   "elapsed": {
+    "n": 1,
+    "median": 252.114,
+    "min": 252.114,
+    "max": 252.114
+   },
+   "rooms": {
+    "n": 1,
+    "median": 1,
+    "min": 1,
+    "max": 1
+   },
+   "cars": {
+    "n": 1,
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "partyHallRecordedEligibility": {
+    "n": 0,
+    "median": null,
+    "min": null,
+    "max": null
+   },
+   "partyHallEndOfDayCash250k": {
+    "n": 0,
+    "median": null,
+    "min": null,
+    "max": null
+   },
+   "partyHallPurchase": {
+    "n": 0,
+    "median": null,
+    "min": null,
+    "max": null
+   },
+   "partyHallBy30": 0,
+   "partyHallPreEnding": 0,
+   "level3Lives": 1,
+   "level4Lives": 1,
+   "relationMax": {
+    "n": 1,
+    "median": 4,
+    "min": 4,
+    "max": 4
+   },
+   "warRoomAccepted": 0,
+   "warRoomFirstDay": {
+    "n": 0,
+    "median": null,
+    "min": null,
+    "max": null
+   },
+   "playCalls": {
+    "n": 1,
+    "median": 0,
+    "min": 0,
+    "max": 0
+   }
+  },
+  {
+   "label": "post-ending",
+   "persona": "drifter",
+   "lives": 1,
+   "ending": {
+    "n": 1,
+    "median": 36,
+    "min": 36,
+    "max": 36
+   },
+   "finalDay": {
+    "n": 1,
+    "median": 71,
+    "min": 71,
+    "max": 71
+   },
+   "cash": {
+    "n": 1,
+    "median": 129009,
+    "min": 129009,
+    "max": 129009
+   },
+   "netWorth": {
+    "n": 1,
+    "median": 245009,
+    "min": 245009,
+    "max": 245009
+   },
+   "elapsed": {
+    "n": 1,
+    "median": 321.214,
+    "min": 321.214,
+    "max": 321.214
+   },
+   "rooms": {
+    "n": 1,
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "cars": {
+    "n": 1,
+    "median": 2,
+    "min": 2,
+    "max": 2
+   },
+   "partyHallRecordedEligibility": {
+    "n": 0,
+    "median": null,
+    "min": null,
+    "max": null
+   },
+   "partyHallEndOfDayCash250k": {
+    "n": 0,
+    "median": null,
+    "min": null,
+    "max": null
+   },
+   "partyHallPurchase": {
+    "n": 0,
+    "median": null,
+    "min": null,
+    "max": null
+   },
+   "partyHallBy30": 0,
+   "partyHallPreEnding": 0,
+   "level3Lives": 1,
+   "level4Lives": 1,
+   "relationMax": {
+    "n": 1,
+    "median": 4,
+    "min": 4,
+    "max": 4
+   },
+   "warRoomAccepted": 0,
+   "warRoomFirstDay": {
+    "n": 0,
+    "median": null,
+    "min": null,
+    "max": null
+   },
+   "playCalls": {
+    "n": 1,
+    "median": 0,
+    "min": 0,
+    "max": 0
+   }
+  },
+  {
+   "label": "post-ending",
+   "persona": "socialite",
+   "lives": 1,
+   "ending": {
+    "n": 1,
+    "median": 36,
+    "min": 36,
+    "max": 36
+   },
+   "finalDay": {
+    "n": 1,
+    "median": 71,
+    "min": 71,
+    "max": 71
+   },
+   "cash": {
+    "n": 1,
+    "median": 169275,
+    "min": 169275,
+    "max": 169275
+   },
+   "netWorth": {
+    "n": 1,
+    "median": 169275,
+    "min": 169275,
+    "max": 169275
+   },
+   "elapsed": {
+    "n": 1,
+    "median": 517.122,
+    "min": 517.122,
+    "max": 517.122
+   },
+   "rooms": {
+    "n": 1,
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "cars": {
+    "n": 1,
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "partyHallRecordedEligibility": {
+    "n": 0,
+    "median": null,
+    "min": null,
+    "max": null
+   },
+   "partyHallEndOfDayCash250k": {
+    "n": 0,
+    "median": null,
+    "min": null,
+    "max": null
+   },
+   "partyHallPurchase": {
+    "n": 0,
+    "median": null,
+    "min": null,
+    "max": null
+   },
+   "partyHallBy30": 0,
+   "partyHallPreEnding": 0,
+   "level3Lives": 1,
+   "level4Lives": 1,
+   "relationMax": {
+    "n": 1,
+    "median": 4,
+    "min": 4,
+    "max": 4
+   },
+   "warRoomAccepted": 0,
+   "warRoomFirstDay": {
+    "n": 0,
+    "median": null,
+    "min": null,
+    "max": null
+   },
+   "playCalls": {
+    "n": 1,
+    "median": 0,
+    "min": 0,
+    "max": 0
+   }
+  },
+  {
+   "label": "post-ending",
+   "persona": "foodie",
+   "lives": 1,
+   "ending": {
+    "n": 1,
+    "median": 36,
+    "min": 36,
+    "max": 36
+   },
+   "finalDay": {
+    "n": 1,
+    "median": 71,
+    "min": 71,
+    "max": 71
+   },
+   "cash": {
+    "n": 1,
+    "median": 145994,
+    "min": 145994,
+    "max": 145994
+   },
+   "netWorth": {
+    "n": 1,
+    "median": 188494,
+    "min": 188494,
+    "max": 188494
+   },
+   "elapsed": {
+    "n": 1,
+    "median": 236.853,
+    "min": 236.853,
+    "max": 236.853
+   },
+   "rooms": {
+    "n": 1,
+    "median": 1,
+    "min": 1,
+    "max": 1
+   },
+   "cars": {
+    "n": 1,
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "partyHallRecordedEligibility": {
+    "n": 0,
+    "median": null,
+    "min": null,
+    "max": null
+   },
+   "partyHallEndOfDayCash250k": {
+    "n": 0,
+    "median": null,
+    "min": null,
+    "max": null
+   },
+   "partyHallPurchase": {
+    "n": 0,
+    "median": null,
+    "min": null,
+    "max": null
+   },
+   "partyHallBy30": 0,
+   "partyHallPreEnding": 0,
+   "level3Lives": 1,
+   "level4Lives": 1,
+   "relationMax": {
+    "n": 1,
+    "median": 4,
+    "min": 4,
+    "max": 4
+   },
+   "warRoomAccepted": 0,
+   "warRoomFirstDay": {
+    "n": 0,
+    "median": null,
+    "min": null,
+    "max": null
+   },
+   "playCalls": {
+    "n": 1,
+    "median": 0,
+    "min": 0,
+    "max": 0
+   }
+  },
+  {
+   "label": "post-ending",
+   "persona": "dragon_keeper",
+   "lives": 1,
+   "ending": {
+    "n": 1,
+    "median": 36,
+    "min": 36,
+    "max": 36
+   },
+   "finalDay": {
+    "n": 1,
+    "median": 71,
+    "min": 71,
+    "max": 71
+   },
+   "cash": {
+    "n": 1,
+    "median": 94124,
+    "min": 94124,
+    "max": 94124
+   },
+   "netWorth": {
+    "n": 1,
+    "median": 181624,
+    "min": 181624,
+    "max": 181624
+   },
+   "elapsed": {
+    "n": 1,
+    "median": 209.277,
+    "min": 209.277,
+    "max": 209.277
+   },
+   "rooms": {
+    "n": 1,
+    "median": 2,
+    "min": 2,
+    "max": 2
+   },
+   "cars": {
+    "n": 1,
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "partyHallRecordedEligibility": {
+    "n": 0,
+    "median": null,
+    "min": null,
+    "max": null
+   },
+   "partyHallEndOfDayCash250k": {
+    "n": 0,
+    "median": null,
+    "min": null,
+    "max": null
+   },
+   "partyHallPurchase": {
+    "n": 0,
+    "median": null,
+    "min": null,
+    "max": null
+   },
+   "partyHallBy30": 0,
+   "partyHallPreEnding": 0,
+   "level3Lives": 1,
+   "level4Lives": 1,
+   "relationMax": {
+    "n": 1,
+    "median": 4,
+    "min": 4,
+    "max": 4
+   },
+   "warRoomAccepted": 0,
+   "warRoomFirstDay": {
+    "n": 0,
+    "median": null,
+    "min": null,
+    "max": null
+   },
+   "playCalls": {
+    "n": 1,
+    "median": 0,
+    "min": 0,
+    "max": 0
+   }
+  },
+  {
+   "label": "post-ending",
+   "persona": "combatant",
+   "lives": 1,
+   "ending": {
+    "n": 1,
+    "median": 36,
+    "min": 36,
+    "max": 36
+   },
+   "finalDay": {
+    "n": 1,
+    "median": 71,
+    "min": 71,
+    "max": 71
+   },
+   "cash": {
+    "n": 1,
+    "median": 65648,
+    "min": 65648,
+    "max": 65648
+   },
+   "netWorth": {
+    "n": 1,
+    "median": 133148,
+    "min": 133148,
+    "max": 133148
+   },
+   "elapsed": {
+    "n": 1,
+    "median": 240.489,
+    "min": 240.489,
+    "max": 240.489
+   },
+   "rooms": {
+    "n": 1,
+    "median": 2,
+    "min": 2,
+    "max": 2
+   },
+   "cars": {
+    "n": 1,
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "partyHallRecordedEligibility": {
+    "n": 0,
+    "median": null,
+    "min": null,
+    "max": null
+   },
+   "partyHallEndOfDayCash250k": {
+    "n": 0,
+    "median": null,
+    "min": null,
+    "max": null
+   },
+   "partyHallPurchase": {
+    "n": 0,
+    "median": null,
+    "min": null,
+    "max": null
+   },
+   "partyHallBy30": 0,
+   "partyHallPreEnding": 0,
+   "level3Lives": 1,
+   "level4Lives": 0,
+   "relationMax": {
+    "n": 1,
+    "median": 3,
+    "min": 3,
+    "max": 3
+   },
+   "warRoomAccepted": 0,
+   "warRoomFirstDay": {
+    "n": 0,
+    "median": null,
+    "min": null,
+    "max": null
+   },
+   "playCalls": {
+    "n": 1,
+    "median": 0,
+    "min": 0,
+    "max": 0
+   }
+  },
+  {
+   "label": "post-ending",
+   "persona": "romantic",
+   "lives": 1,
+   "ending": {
+    "n": 1,
+    "median": 36,
+    "min": 36,
+    "max": 36
+   },
+   "finalDay": {
+    "n": 1,
+    "median": 71,
+    "min": 71,
+    "max": 71
+   },
+   "cash": {
+    "n": 1,
+    "median": 50733,
+    "min": 50733,
+    "max": 50733
+   },
+   "netWorth": {
+    "n": 1,
+    "median": 148233,
+    "min": 148233,
+    "max": 148233
+   },
+   "elapsed": {
+    "n": 1,
+    "median": 499.547,
+    "min": 499.547,
+    "max": 499.547
+   },
+   "rooms": {
+    "n": 1,
+    "median": 2,
+    "min": 2,
+    "max": 2
+   },
+   "cars": {
+    "n": 1,
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "partyHallRecordedEligibility": {
+    "n": 0,
+    "median": null,
+    "min": null,
+    "max": null
+   },
+   "partyHallEndOfDayCash250k": {
+    "n": 0,
+    "median": null,
+    "min": null,
+    "max": null
+   },
+   "partyHallPurchase": {
+    "n": 0,
+    "median": null,
+    "min": null,
+    "max": null
+   },
+   "partyHallBy30": 0,
+   "partyHallPreEnding": 0,
+   "level3Lives": 1,
+   "level4Lives": 1,
+   "relationMax": {
+    "n": 1,
+    "median": 4,
+    "min": 4,
+    "max": 4
+   },
+   "warRoomAccepted": 0,
+   "warRoomFirstDay": {
+    "n": 0,
+    "median": null,
+    "min": null,
+    "max": null
+   },
+   "playCalls": {
+    "n": 1,
+    "median": 0,
+    "min": 0,
+    "max": 0
+   }
+  },
+  {
+   "label": "post-ending",
+   "persona": "explorer",
+   "lives": 1,
+   "ending": {
+    "n": 1,
+    "median": 36,
+    "min": 36,
+    "max": 36
+   },
+   "finalDay": {
+    "n": 1,
+    "median": 71,
+    "min": 71,
+    "max": 71
+   },
+   "cash": {
+    "n": 1,
+    "median": 32894,
+    "min": 32894,
+    "max": 32894
+   },
+   "netWorth": {
+    "n": 1,
+    "median": 213394,
+    "min": 213394,
+    "max": 213394
+   },
+   "elapsed": {
+    "n": 1,
+    "median": 760.348,
+    "min": 760.348,
+    "max": 760.348
+   },
+   "rooms": {
+    "n": 1,
+    "median": 3,
+    "min": 3,
+    "max": 3
+   },
+   "cars": {
+    "n": 1,
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "partyHallRecordedEligibility": {
+    "n": 0,
+    "median": null,
+    "min": null,
+    "max": null
+   },
+   "partyHallEndOfDayCash250k": {
+    "n": 0,
+    "median": null,
+    "min": null,
+    "max": null
+   },
+   "partyHallPurchase": {
+    "n": 0,
+    "median": null,
+    "min": null,
+    "max": null
+   },
+   "partyHallBy30": 0,
+   "partyHallPreEnding": 0,
+   "level3Lives": 1,
+   "level4Lives": 1,
+   "relationMax": {
+    "n": 1,
+    "median": 4,
+    "min": 4,
+    "max": 4
+   },
+   "warRoomAccepted": 0,
+   "warRoomFirstDay": {
+    "n": 0,
+    "median": null,
+    "min": null,
+    "max": null
+   },
+   "playCalls": {
+    "n": 1,
+    "median": 10,
+    "min": 10,
+    "max": 10
+   }
+  },
+  {
+   "label": "post-ending",
+   "persona": "hoarder",
+   "lives": 1,
+   "ending": {
+    "n": 1,
+    "median": 36,
+    "min": 36,
+    "max": 36
+   },
+   "finalDay": {
+    "n": 1,
+    "median": 71,
+    "min": 71,
+    "max": 71
+   },
+   "cash": {
+    "n": 1,
+    "median": 280994,
+    "min": 280994,
+    "max": 280994
+   },
+   "netWorth": {
+    "n": 1,
+    "median": 280994,
+    "min": 280994,
+    "max": 280994
+   },
+   "elapsed": {
+    "n": 1,
+    "median": 53.954,
+    "min": 53.954,
+    "max": 53.954
+   },
+   "rooms": {
+    "n": 1,
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "cars": {
+    "n": 1,
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "partyHallRecordedEligibility": {
+    "n": 0,
+    "median": null,
+    "min": null,
+    "max": null
+   },
+   "partyHallEndOfDayCash250k": {
+    "n": 1,
+    "median": 57,
+    "min": 57,
+    "max": 57
+   },
+   "partyHallPurchase": {
+    "n": 0,
+    "median": null,
+    "min": null,
+    "max": null
+   },
+   "partyHallBy30": 0,
+   "partyHallPreEnding": 0,
+   "level3Lives": 1,
+   "level4Lives": 0,
+   "relationMax": {
+    "n": 1,
+    "median": 3,
+    "min": 3,
+    "max": 3
+   },
+   "warRoomAccepted": 0,
+   "warRoomFirstDay": {
+    "n": 0,
+    "median": null,
+    "min": null,
+    "max": null
+   },
+   "playCalls": {
+    "n": 1,
+    "median": 0,
+    "min": 0,
+    "max": 0
+   }
+  }
+ ],
+ "ownership": [
+  {
+   "label": "post-ending",
+   "persona": "homebody",
+   "item": "room:kitchen",
+   "lives": 1,
+   "purchased": 1,
+   "beforeEnding": 1,
+   "day": {
+    "n": 1,
+    "median": 29,
+    "min": 29,
+    "max": 29
+   },
+   "recordedEligibility": {
+    "n": 1,
+    "median": 1,
+    "min": 1,
+    "max": 1
+   }
+  },
+  {
+   "label": "post-ending",
+   "persona": "homebody",
+   "item": "room:movie_room",
+   "lives": 1,
+   "purchased": 1,
+   "beforeEnding": 0,
+   "day": {
+    "n": 1,
+    "median": 57,
+    "min": 57,
+    "max": 57
+   },
+   "recordedEligibility": {
+    "n": 1,
+    "median": 57,
+    "min": 57,
+    "max": 57
+   }
+  },
+  {
+   "label": "post-ending",
+   "persona": "landlord",
+   "item": "car:supra",
+   "lives": 1,
+   "purchased": 1,
+   "beforeEnding": 1,
+   "day": {
+    "n": 1,
+    "median": 1,
+    "min": 1,
+    "max": 1
+   },
+   "recordedEligibility": {
+    "n": 0,
+    "median": null,
+    "min": null,
+    "max": null
+   }
+  },
+  {
+   "label": "post-ending",
+   "persona": "landlord",
+   "item": "property:paloma",
+   "lives": 1,
+   "purchased": 1,
+   "beforeEnding": 1,
+   "day": {
+    "n": 1,
+    "median": 25,
+    "min": 25,
+    "max": 25
+   },
+   "recordedEligibility": {
+    "n": 0,
+    "median": null,
+    "min": null,
+    "max": null
+   }
+  },
+  {
+   "label": "post-ending",
+   "persona": "landlord",
+   "item": "room:garage",
+   "lives": 1,
+   "purchased": 1,
+   "beforeEnding": 1,
+   "day": {
+    "n": 1,
+    "median": 32,
+    "min": 32,
+    "max": 32
+   },
+   "recordedEligibility": {
+    "n": 1,
+    "median": 29,
+    "min": 29,
+    "max": 29
+   }
+  },
+  {
+   "label": "post-ending",
+   "persona": "weirdo",
+   "item": "room:hookah_roof",
+   "lives": 1,
+   "purchased": 1,
+   "beforeEnding": 1,
+   "day": {
+    "n": 1,
+    "median": 1,
+    "min": 1,
+    "max": 1
+   },
+   "recordedEligibility": {
+    "n": 1,
+    "median": 1,
+    "min": 1,
+    "max": 1
+   }
+  },
+  {
+   "label": "post-ending",
+   "persona": "trap_committed",
+   "item": "car:aventador",
+   "lives": 1,
+   "purchased": 1,
+   "beforeEnding": 0,
+   "day": {
+    "n": 1,
+    "median": 37,
+    "min": 37,
+    "max": 37
+   },
+   "recordedEligibility": {
+    "n": 1,
+    "median": 37,
+    "min": 37,
+    "max": 37
+   }
+  },
+  {
+   "label": "post-ending",
+   "persona": "trap_committed",
+   "item": "car:supra",
+   "lives": 1,
+   "purchased": 1,
+   "beforeEnding": 1,
+   "day": {
+    "n": 1,
+    "median": 1,
+    "min": 1,
+    "max": 1
+   },
+   "recordedEligibility": {
+    "n": 0,
+    "median": null,
+    "min": null,
+    "max": null
+   }
+  },
+  {
+   "label": "post-ending",
+   "persona": "trap_committed",
+   "item": "car:urus",
+   "lives": 1,
+   "purchased": 1,
+   "beforeEnding": 1,
+   "day": {
+    "n": 1,
+    "median": 29,
+    "min": 29,
+    "max": 29
+   },
+   "recordedEligibility": {
+    "n": 1,
+    "median": 29,
+    "min": 29,
+    "max": 29
+   }
+  },
+  {
+   "label": "post-ending",
+   "persona": "trap_committed",
+   "item": "room:fish_tank",
+   "lives": 1,
+   "purchased": 1,
+   "beforeEnding": 1,
+   "day": {
+    "n": 1,
+    "median": 32,
+    "min": 32,
+    "max": 32
+   },
+   "recordedEligibility": {
+    "n": 1,
+    "median": 32,
+    "min": 32,
+    "max": 32
+   }
+  },
+  {
+   "label": "post-ending",
+   "persona": "trap_committed",
+   "item": "room:party_hall",
+   "lives": 1,
+   "purchased": 1,
+   "beforeEnding": 1,
+   "day": {
+    "n": 1,
+    "median": 25,
+    "min": 25,
+    "max": 25
+   },
+   "recordedEligibility": {
+    "n": 1,
+    "median": 25,
+    "min": 25,
+    "max": 25
+   }
+  },
+  {
+   "label": "post-ending",
+   "persona": "trap_committed",
+   "item": "trap:laundromat_back_room",
+   "lives": 1,
+   "purchased": 1,
+   "beforeEnding": 1,
+   "day": {
+    "n": 1,
+    "median": 28,
+    "min": 28,
+    "max": 28
+   },
+   "recordedEligibility": {
+    "n": 0,
+    "median": null,
+    "min": null,
+    "max": null
+   }
+  },
+  {
+   "label": "post-ending",
+   "persona": "trap_committed",
+   "item": "trap:the_bando",
+   "lives": 1,
+   "purchased": 1,
+   "beforeEnding": 1,
+   "day": {
+    "n": 1,
+    "median": 19,
+    "min": 19,
+    "max": 19
+   },
+   "recordedEligibility": {
+    "n": 0,
+    "median": null,
+    "min": null,
+    "max": null
+   }
+  },
+  {
+   "label": "post-ending",
+   "persona": "trap_committed",
+   "item": "trap:the_cul_de_sac",
+   "lives": 1,
+   "purchased": 1,
+   "beforeEnding": 1,
+   "day": {
+    "n": 1,
+    "median": 22,
+    "min": 22,
+    "max": 22
+   },
+   "recordedEligibility": {
+    "n": 0,
+    "median": null,
+    "min": null,
+    "max": null
+   }
+  },
+  {
+   "label": "post-ending",
+   "persona": "trap_careful",
+   "item": "car:supra",
+   "lives": 1,
+   "purchased": 1,
+   "beforeEnding": 1,
+   "day": {
+    "n": 1,
+    "median": 1,
+    "min": 1,
+    "max": 1
+   },
+   "recordedEligibility": {
+    "n": 0,
+    "median": null,
+    "min": null,
+    "max": null
+   }
+  },
+  {
+   "label": "post-ending",
+   "persona": "trap_careful",
+   "item": "room:party_hall",
+   "lives": 1,
+   "purchased": 1,
+   "beforeEnding": 1,
+   "day": {
+    "n": 1,
+    "median": 34,
+    "min": 34,
+    "max": 34
+   },
+   "recordedEligibility": {
+    "n": 1,
+    "median": 33,
+    "min": 33,
+    "max": 33
+   }
+  },
+  {
+   "label": "post-ending",
+   "persona": "trap_careful",
+   "item": "trap:laundromat_back_room",
+   "lives": 1,
+   "purchased": 1,
+   "beforeEnding": 0,
+   "day": {
+    "n": 1,
+    "median": 42,
+    "min": 42,
+    "max": 42
+   },
+   "recordedEligibility": {
+    "n": 0,
+    "median": null,
+    "min": null,
+    "max": null
+   }
+  },
+  {
+   "label": "post-ending",
+   "persona": "trap_careful",
+   "item": "trap:the_bando",
+   "lives": 1,
+   "purchased": 1,
+   "beforeEnding": 1,
+   "day": {
+    "n": 1,
+    "median": 26,
+    "min": 26,
+    "max": 26
+   },
+   "recordedEligibility": {
+    "n": 0,
+    "median": null,
+    "min": null,
+    "max": null
+   }
+  },
+  {
+   "label": "post-ending",
+   "persona": "trap_careful",
+   "item": "trap:the_cul_de_sac",
+   "lives": 1,
+   "purchased": 1,
+   "beforeEnding": 1,
+   "day": {
+    "n": 1,
+    "median": 29,
+    "min": 29,
+    "max": 29
+   },
+   "recordedEligibility": {
+    "n": 0,
+    "median": null,
+    "min": null,
+    "max": null
+   }
+  },
+  {
+   "label": "post-ending",
+   "persona": "trap_aggressive",
+   "item": "car:supra",
+   "lives": 1,
+   "purchased": 1,
+   "beforeEnding": 1,
+   "day": {
+    "n": 1,
+    "median": 1,
+    "min": 1,
+    "max": 1
+   },
+   "recordedEligibility": {
+    "n": 0,
+    "median": null,
+    "min": null,
+    "max": null
+   }
+  },
+  {
+   "label": "post-ending",
+   "persona": "trap_aggressive",
+   "item": "trap:laundromat_back_room",
+   "lives": 1,
+   "purchased": 1,
+   "beforeEnding": 0,
+   "day": {
+    "n": 1,
+    "median": 65,
+    "min": 65,
+    "max": 65
+   },
+   "recordedEligibility": {
+    "n": 0,
+    "median": null,
+    "min": null,
+    "max": null
+   }
+  },
+  {
+   "label": "post-ending",
+   "persona": "trap_aggressive",
+   "item": "trap:the_bando",
+   "lives": 1,
+   "purchased": 1,
+   "beforeEnding": 1,
+   "day": {
+    "n": 1,
+    "median": 26,
+    "min": 26,
+    "max": 26
+   },
+   "recordedEligibility": {
+    "n": 0,
+    "median": null,
+    "min": null,
+    "max": null
+   }
+  },
+  {
+   "label": "post-ending",
+   "persona": "trap_aggressive",
+   "item": "trap:the_cul_de_sac",
+   "lives": 1,
+   "purchased": 1,
+   "beforeEnding": 0,
+   "day": {
+    "n": 1,
+    "median": 57,
+    "min": 57,
+    "max": 57
+   },
+   "recordedEligibility": {
+    "n": 0,
+    "median": null,
+    "min": null,
+    "max": null
+   }
+  },
+  {
+   "label": "post-ending",
+   "persona": "trap_wholesale",
+   "item": "car:supra",
+   "lives": 1,
+   "purchased": 1,
+   "beforeEnding": 1,
+   "day": {
+    "n": 1,
+    "median": 1,
+    "min": 1,
+    "max": 1
+   },
+   "recordedEligibility": {
+    "n": 0,
+    "median": null,
+    "min": null,
+    "max": null
+   }
+  },
+  {
+   "label": "post-ending",
+   "persona": "trap_wholesale",
+   "item": "trap:the_bando",
+   "lives": 1,
+   "purchased": 1,
+   "beforeEnding": 1,
+   "day": {
+    "n": 1,
+    "median": 20,
+    "min": 20,
+    "max": 20
+   },
+   "recordedEligibility": {
+    "n": 0,
+    "median": null,
+    "min": null,
+    "max": null
+   }
+  },
+  {
+   "label": "post-ending",
+   "persona": "trap_wholesale",
+   "item": "trap:the_cul_de_sac",
+   "lives": 1,
+   "purchased": 1,
+   "beforeEnding": 1,
+   "day": {
+    "n": 1,
+    "median": 29,
+    "min": 29,
+    "max": 29
+   },
+   "recordedEligibility": {
+    "n": 0,
+    "median": null,
+    "min": null,
+    "max": null
+   }
+  },
+  {
+   "label": "post-ending",
+   "persona": "collector",
+   "item": "car:supra",
+   "lives": 1,
+   "purchased": 1,
+   "beforeEnding": 1,
+   "day": {
+    "n": 1,
+    "median": 1,
+    "min": 1,
+    "max": 1
+   },
+   "recordedEligibility": {
+    "n": 0,
+    "median": null,
+    "min": null,
+    "max": null
+   }
+  },
+  {
+   "label": "post-ending",
+   "persona": "musician",
+   "item": "room:music_room",
+   "lives": 1,
+   "purchased": 1,
+   "beforeEnding": 1,
+   "day": {
+    "n": 1,
+    "median": 29,
+    "min": 29,
+    "max": 29
+   },
+   "recordedEligibility": {
+    "n": 1,
+    "median": 29,
+    "min": 29,
+    "max": 29
+   }
+  },
+  {
+   "label": "post-ending",
+   "persona": "drifter",
+   "item": "car:s15",
+   "lives": 1,
+   "purchased": 1,
+   "beforeEnding": 1,
+   "day": {
+    "n": 1,
+    "median": 29,
+    "min": 29,
+    "max": 29
+   },
+   "recordedEligibility": {
+    "n": 1,
+    "median": 29,
+    "min": 29,
+    "max": 29
+   }
+  },
+  {
+   "label": "post-ending",
+   "persona": "drifter",
+   "item": "car:supra",
+   "lives": 1,
+   "purchased": 1,
+   "beforeEnding": 1,
+   "day": {
+    "n": 1,
+    "median": 1,
+    "min": 1,
+    "max": 1
+   },
+   "recordedEligibility": {
+    "n": 0,
+    "median": null,
+    "min": null,
+    "max": null
+   }
+  },
+  {
+   "label": "post-ending",
+   "persona": "foodie",
+   "item": "room:kitchen",
+   "lives": 1,
+   "purchased": 1,
+   "beforeEnding": 1,
+   "day": {
+    "n": 1,
+    "median": 29,
+    "min": 29,
+    "max": 29
+   },
+   "recordedEligibility": {
+    "n": 1,
+    "median": 1,
+    "min": 1,
+    "max": 1
+   }
+  },
+  {
+   "label": "post-ending",
+   "persona": "dragon_keeper",
+   "item": "room:dragon_roost",
+   "lives": 1,
+   "purchased": 1,
+   "beforeEnding": 1,
+   "day": {
+    "n": 1,
+    "median": 29,
+    "min": 29,
+    "max": 29
+   },
+   "recordedEligibility": {
+    "n": 1,
+    "median": 4,
+    "min": 4,
+    "max": 4
+   }
+  },
+  {
+   "label": "post-ending",
+   "persona": "dragon_keeper",
+   "item": "room:kitchen",
+   "lives": 1,
+   "purchased": 1,
+   "beforeEnding": 0,
+   "day": {
+    "n": 1,
+    "median": 57,
+    "min": 57,
+    "max": 57
+   },
+   "recordedEligibility": {
+    "n": 1,
+    "median": 30,
+    "min": 30,
+    "max": 30
+   }
+  },
+  {
+   "label": "post-ending",
+   "persona": "combatant",
+   "item": "room:armory_wall",
+   "lives": 1,
+   "purchased": 1,
+   "beforeEnding": 1,
+   "day": {
+    "n": 1,
+    "median": 1,
+    "min": 1,
+    "max": 1
+   },
+   "recordedEligibility": {
+    "n": 1,
+    "median": 1,
+    "min": 1,
+    "max": 1
+   }
+  },
+  {
+   "label": "post-ending",
+   "persona": "combatant",
+   "item": "room:hookah_roof",
+   "lives": 1,
+   "purchased": 1,
+   "beforeEnding": 0,
+   "day": {
+    "n": 1,
+    "median": 57,
+    "min": 57,
+    "max": 57
+   },
+   "recordedEligibility": {
+    "n": 1,
+    "median": 57,
+    "min": 57,
+    "max": 57
+   }
+  },
+  {
+   "label": "post-ending",
+   "persona": "romantic",
+   "item": "room:kitchen",
+   "lives": 1,
+   "purchased": 1,
+   "beforeEnding": 0,
+   "day": {
+    "n": 1,
+    "median": 57,
+    "min": 57,
+    "max": 57
+   },
+   "recordedEligibility": {
+    "n": 1,
+    "median": 57,
+    "min": 57,
+    "max": 57
+   }
+  },
+  {
+   "label": "post-ending",
+   "persona": "romantic",
+   "item": "room:movie_room",
+   "lives": 1,
+   "purchased": 1,
+   "beforeEnding": 1,
+   "day": {
+    "n": 1,
+    "median": 29,
+    "min": 29,
+    "max": 29
+   },
+   "recordedEligibility": {
+    "n": 1,
+    "median": 29,
+    "min": 29,
+    "max": 29
+   }
+  },
+  {
+   "label": "post-ending",
+   "persona": "explorer",
+   "item": "car:supra",
+   "lives": 1,
+   "purchased": 1,
+   "beforeEnding": 1,
+   "day": {
+    "n": 1,
+    "median": 1,
+    "min": 1,
+    "max": 1
+   },
+   "recordedEligibility": {
+    "n": 0,
+    "median": null,
+    "min": null,
+    "max": null
+   }
+  },
+  {
+   "label": "post-ending",
+   "persona": "explorer",
+   "item": "room:dragon_roost",
+   "lives": 1,
+   "purchased": 1,
+   "beforeEnding": 0,
+   "day": {
+    "n": 1,
+    "median": 57,
+    "min": 57,
+    "max": 57
+   },
+   "recordedEligibility": {
+    "n": 1,
+    "median": 55,
+    "min": 55,
+    "max": 55
+   }
+  },
+  {
+   "label": "post-ending",
+   "persona": "explorer",
+   "item": "room:hookah_roof",
+   "lives": 1,
+   "purchased": 1,
+   "beforeEnding": 1,
+   "day": {
+    "n": 1,
+    "median": 32,
+    "min": 32,
+    "max": 32
+   },
+   "recordedEligibility": {
+    "n": 1,
+    "median": 30,
+    "min": 30,
+    "max": 30
+   }
+  },
+  {
+   "label": "post-ending",
+   "persona": "explorer",
+   "item": "room:maid_quarters",
+   "lives": 1,
+   "purchased": 1,
+   "beforeEnding": 1,
+   "day": {
+    "n": 1,
+    "median": 29,
+    "min": 29,
+    "max": 29
+   },
+   "recordedEligibility": {
+    "n": 1,
+    "median": 25,
+    "min": 25,
+    "max": 25
+   }
+  }
+ ],
+ "exposure": [
+  {
+   "id": "A00",
+   "post-ending": {
+    "lives": 18,
+    "offered": 18,
+    "completed": 18,
+    "firstOfferDay": 1
+   }
+  },
+  {
+   "id": "A07",
+   "post-ending": {
+    "lives": 18,
+    "offered": 18,
+    "completed": 18,
+    "firstOfferDay": 8
+   }
+  },
+  {
+   "id": "A08",
+   "post-ending": {
+    "lives": 18,
+    "offered": 18,
+    "completed": 18,
+    "firstOfferDay": 1
+   }
+  },
+  {
+   "id": "A09",
+   "post-ending": {
+    "lives": 18,
+    "offered": 18,
+    "completed": 18,
+    "firstOfferDay": 1
+   }
+  },
+  {
+   "id": "A10",
+   "post-ending": {
+    "lives": 18,
+    "offered": 10,
+    "completed": 10,
+    "firstOfferDay": 2
+   }
+  },
+  {
+   "id": "A11",
+   "post-ending": {
+    "lives": 18,
+    "offered": 9,
+    "completed": 9,
+    "firstOfferDay": 4
+   }
+  },
+  {
+   "id": "A12",
+   "post-ending": {
+    "lives": 18,
+    "offered": 9,
+    "completed": 6,
+    "firstOfferDay": 4
+   }
+  },
+  {
+   "id": "A13",
+   "post-ending": {
+    "lives": 18,
+    "offered": 8,
+    "completed": 8,
+    "firstOfferDay": 10
+   }
+  },
+  {
+   "id": "A14",
+   "post-ending": {
+    "lives": 18,
+    "offered": 18,
+    "completed": 18,
+    "firstOfferDay": 1
+   }
+  },
+  {
+   "id": "A15",
+   "post-ending": {
+    "lives": 18,
+    "offered": 18,
+    "completed": 18,
+    "firstOfferDay": 13
+   }
+  },
+  {
+   "id": "A16",
+   "post-ending": {
+    "lives": 18,
+    "offered": 18,
+    "completed": 18,
+    "firstOfferDay": 1
+   }
+  },
+  {
+   "id": "A17",
+   "post-ending": {
+    "lives": 18,
+    "offered": 0,
+    "completed": 0,
+    "firstOfferDay": null
+   }
+  },
+  {
+   "id": "A18",
+   "post-ending": {
+    "lives": 18,
+    "offered": 18,
+    "completed": 18,
+    "firstOfferDay": 1
+   }
+  },
+  {
+   "id": "A19",
+   "post-ending": {
+    "lives": 18,
+    "offered": 18,
+    "completed": 18,
+    "firstOfferDay": 1
+   }
+  },
+  {
+   "id": "A20",
+   "post-ending": {
+    "lives": 18,
+    "offered": 14,
+    "completed": 14,
+    "firstOfferDay": 19
+   }
+  },
+  {
+   "id": "A23",
+   "post-ending": {
+    "lives": 18,
+    "offered": 0,
+    "completed": 0,
+    "firstOfferDay": null
+   }
+  },
+  {
+   "id": "A23R",
+   "post-ending": {
+    "lives": 18,
+    "offered": 0,
+    "completed": 0,
+    "firstOfferDay": null
+   }
+  },
+  {
+   "id": "A24",
+   "post-ending": {
+    "lives": 18,
+    "offered": 18,
+    "completed": 6,
+    "firstOfferDay": 2
+   }
+  },
+  {
+   "id": "A25",
+   "post-ending": {
+    "lives": 18,
+    "offered": 18,
+    "completed": 9,
+    "firstOfferDay": 1
+   }
+  },
+  {
+   "id": "A26",
+   "post-ending": {
+    "lives": 18,
+    "offered": 2,
+    "completed": 2,
+    "firstOfferDay": 30
+   }
+  },
+  {
+   "id": "A27",
+   "post-ending": {
+    "lives": 18,
+    "offered": 2,
+    "completed": 2,
+    "firstOfferDay": 31
+   }
+  },
+  {
+   "id": "A28",
+   "post-ending": {
+    "lives": 18,
+    "offered": 3,
+    "completed": 3,
+    "firstOfferDay": 14
+   }
+  },
+  {
+   "id": "A29",
+   "post-ending": {
+    "lives": 18,
+    "offered": 18,
+    "completed": 18,
+    "firstOfferDay": 2
+   }
+  },
+  {
+   "id": "A29B",
+   "post-ending": {
+    "lives": 18,
+    "offered": 18,
+    "completed": 18,
+    "firstOfferDay": 23
+   }
+  },
+  {
+   "id": "A29C",
+   "post-ending": {
+    "lives": 18,
+    "offered": 14,
+    "completed": 14,
+    "firstOfferDay": 24
+   }
+  },
+  {
+   "id": "A30",
+   "post-ending": {
+    "lives": 18,
+    "offered": 18,
+    "completed": 18,
+    "firstOfferDay": 31
+   }
+  },
+  {
+   "id": "A31",
+   "post-ending": {
+    "lives": 18,
+    "offered": 18,
+    "completed": 17,
+    "firstOfferDay": 32
+   }
+  },
+  {
+   "id": "A32",
+   "post-ending": {
+    "lives": 18,
+    "offered": 4,
+    "completed": 4,
+    "firstOfferDay": 49
+   }
+  },
+  {
+   "id": "A33",
+   "post-ending": {
+    "lives": 18,
+    "offered": 4,
+    "completed": 4,
+    "firstOfferDay": 27
+   }
+  },
+  {
+   "id": "A34",
+   "post-ending": {
+    "lives": 18,
+    "offered": 18,
+    "completed": 18,
+    "firstOfferDay": 30
+   }
+  },
+  {
+   "id": "A36",
+   "post-ending": {
+    "lives": 18,
+    "offered": 0,
+    "completed": 0,
+    "firstOfferDay": null
+   }
+  },
+  {
+   "id": "A37",
+   "post-ending": {
+    "lives": 18,
+    "offered": 18,
+    "completed": 18,
+    "firstOfferDay": 16
+   }
+  },
+  {
+   "id": "A38",
+   "post-ending": {
+    "lives": 18,
+    "offered": 18,
+    "completed": 18,
+    "firstOfferDay": 1
+   }
+  },
+  {
+   "id": "A39",
+   "post-ending": {
+    "lives": 18,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 36
+   }
+  },
+  {
+   "id": "A41",
+   "post-ending": {
+    "lives": 18,
+    "offered": 18,
+    "completed": 18,
+    "firstOfferDay": 12
+   }
+  },
+  {
+   "id": "A41B",
+   "post-ending": {
+    "lives": 18,
+    "offered": 14,
+    "completed": 14,
+    "firstOfferDay": 22
+   }
+  },
+  {
+   "id": "A42",
+   "post-ending": {
+    "lives": 18,
+    "offered": 18,
+    "completed": 18,
+    "firstOfferDay": 4
+   }
+  },
+  {
+   "id": "A43",
+   "post-ending": {
+    "lives": 18,
+    "offered": 18,
+    "completed": 18,
+    "firstOfferDay": 3
+   }
+  },
+  {
+   "id": "A44",
+   "post-ending": {
+    "lives": 18,
+    "offered": 18,
+    "completed": 14,
+    "firstOfferDay": 1
+   }
+  },
+  {
+   "id": "A44_N2",
+   "post-ending": {
+    "lives": 18,
+    "offered": 14,
+    "completed": 11,
+    "firstOfferDay": 2
+   }
+  },
+  {
+   "id": "A44_N3",
+   "post-ending": {
+    "lives": 18,
+    "offered": 11,
+    "completed": 11,
+    "firstOfferDay": 3
+   }
+  },
+  {
+   "id": "A44_N4",
+   "post-ending": {
+    "lives": 18,
+    "offered": 11,
+    "completed": 9,
+    "firstOfferDay": 4
+   }
+  },
+  {
+   "id": "A45",
+   "post-ending": {
+    "lives": 18,
+    "offered": 18,
+    "completed": 10,
+    "firstOfferDay": 1
+   }
+  },
+  {
+   "id": "A46",
+   "post-ending": {
+    "lives": 18,
+    "offered": 18,
+    "completed": 18,
+    "firstOfferDay": 7
+   }
+  },
+  {
+   "id": "A47",
+   "post-ending": {
+    "lives": 18,
+    "offered": 14,
+    "completed": 14,
+    "firstOfferDay": 16
+   }
+  },
+  {
+   "id": "A48",
+   "post-ending": {
+    "lives": 18,
+    "offered": 18,
+    "completed": 18,
+    "firstOfferDay": 1
+   }
+  },
+  {
+   "id": "A49",
+   "post-ending": {
+    "lives": 18,
+    "offered": 18,
+    "completed": 12,
+    "firstOfferDay": 1
+   }
+  },
+  {
+   "id": "A50",
+   "post-ending": {
+    "lives": 18,
+    "offered": 18,
+    "completed": 18,
+    "firstOfferDay": 10
+   }
+  },
+  {
+   "id": "A51",
+   "post-ending": {
+    "lives": 18,
+    "offered": 18,
+    "completed": 18,
+    "firstOfferDay": 16
+   }
+  },
+  {
+   "id": "A52",
+   "post-ending": {
+    "lives": 18,
+    "offered": 18,
+    "completed": 8,
+    "firstOfferDay": 31
+   }
+  },
+  {
+   "id": "A53",
+   "post-ending": {
+    "lives": 18,
+    "offered": 18,
+    "completed": 18,
+    "firstOfferDay": 57
+   }
+  },
+  {
+   "id": "A54",
+   "post-ending": {
+    "lives": 18,
+    "offered": 12,
+    "completed": 12,
+    "firstOfferDay": 33
+   }
+  },
+  {
+   "id": "A55",
+   "post-ending": {
+    "lives": 18,
+    "offered": 10,
+    "completed": 10,
+    "firstOfferDay": 3
+   }
+  },
+  {
+   "id": "A56",
+   "post-ending": {
+    "lives": 18,
+    "offered": 9,
+    "completed": 9,
+    "firstOfferDay": 33
+   }
+  },
+  {
+   "id": "A57",
+   "post-ending": {
+    "lives": 18,
+    "offered": 0,
+    "completed": 0,
+    "firstOfferDay": null
+   }
+  },
+  {
+   "id": "A58",
+   "post-ending": {
+    "lives": 18,
+    "offered": 14,
+    "completed": 14,
+    "firstOfferDay": 35
+   }
+  },
+  {
+   "id": "ARC_CAMMILE_1",
+   "post-ending": {
+    "lives": 18,
+    "offered": 0,
+    "completed": 0,
+    "firstOfferDay": null
+   }
+  },
+  {
+   "id": "ARC_CAMMILE_2",
+   "post-ending": {
+    "lives": 18,
+    "offered": 0,
+    "completed": 0,
+    "firstOfferDay": null
+   }
+  },
+  {
+   "id": "ARC_CAMMILE_3",
+   "post-ending": {
+    "lives": 18,
+    "offered": 0,
+    "completed": 0,
+    "firstOfferDay": null
+   }
+  },
+  {
+   "id": "ARC_JUNE_1",
+   "post-ending": {
+    "lives": 18,
+    "offered": 18,
+    "completed": 18,
+    "firstOfferDay": 4
+   }
+  },
+  {
+   "id": "ARC_JUNE_2",
+   "post-ending": {
+    "lives": 18,
+    "offered": 18,
+    "completed": 18,
+    "firstOfferDay": 11
+   }
+  },
+  {
+   "id": "ARC_JUNE_3",
+   "post-ending": {
+    "lives": 18,
+    "offered": 7,
+    "completed": 7,
+    "firstOfferDay": 24
+   }
+  },
+  {
+   "id": "ARC_MAZDA_1",
+   "post-ending": {
+    "lives": 18,
+    "offered": 4,
+    "completed": 4,
+    "firstOfferDay": 50
+   }
+  },
+  {
+   "id": "ARC_MAZDA_2",
+   "post-ending": {
+    "lives": 18,
+    "offered": 4,
+    "completed": 4,
+    "firstOfferDay": 51
+   }
+  },
+  {
+   "id": "ARC_MAZDA_3",
+   "post-ending": {
+    "lives": 18,
+    "offered": 2,
+    "completed": 2,
+    "firstOfferDay": 53
+   }
+  },
+  {
+   "id": "ARC_NNEKA_1",
+   "post-ending": {
+    "lives": 18,
+    "offered": 0,
+    "completed": 0,
+    "firstOfferDay": null
+   }
+  },
+  {
+   "id": "ARC_NNEKA_2",
+   "post-ending": {
+    "lives": 18,
+    "offered": 0,
+    "completed": 0,
+    "firstOfferDay": null
+   }
+  },
+  {
+   "id": "ARC_NNEKA_3",
+   "post-ending": {
+    "lives": 18,
+    "offered": 0,
+    "completed": 0,
+    "firstOfferDay": null
+   }
+  },
+  {
+   "id": "ARC_PATRICE_2",
+   "post-ending": {
+    "lives": 18,
+    "offered": 9,
+    "completed": 9,
+    "firstOfferDay": 11
+   }
+  },
+  {
+   "id": "ARC_PATRICE_3",
+   "post-ending": {
+    "lives": 18,
+    "offered": 3,
+    "completed": 3,
+    "firstOfferDay": 29
+   }
+  },
+  {
+   "id": "ARMORY",
+   "post-ending": {
+    "lives": 18,
+    "offered": 6,
+    "completed": 6,
+    "firstOfferDay": 18
+   }
+  },
+  {
+   "id": "ARMORY_WALL",
+   "post-ending": {
+    "lives": 18,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 36
+   }
+  },
+  {
+   "id": "A_ANFEESA1",
+   "post-ending": {
+    "lives": 18,
+    "offered": 10,
+    "completed": 10,
+    "firstOfferDay": 3
+   }
+  },
+  {
+   "id": "A_CAMMILE1",
+   "post-ending": {
+    "lives": 18,
+    "offered": 0,
+    "completed": 0,
+    "firstOfferDay": null
+   }
+  },
+  {
+   "id": "A_EMBERLY1",
+   "post-ending": {
+    "lives": 18,
+    "offered": 7,
+    "completed": 7,
+    "firstOfferDay": 2
+   }
+  },
+  {
+   "id": "A_HINA1",
+   "post-ending": {
+    "lives": 18,
+    "offered": 18,
+    "completed": 18,
+    "firstOfferDay": 1
+   }
+  },
+  {
+   "id": "A_JADE1",
+   "post-ending": {
+    "lives": 18,
+    "offered": 0,
+    "completed": 0,
+    "firstOfferDay": null
+   }
+  },
+  {
+   "id": "A_LO1",
+   "post-ending": {
+    "lives": 18,
+    "offered": 10,
+    "completed": 10,
+    "firstOfferDay": 2
+   }
+  },
+  {
+   "id": "A_SMACK2",
+   "post-ending": {
+    "lives": 18,
+    "offered": 18,
+    "completed": 18,
+    "firstOfferDay": 12
+   }
+  },
+  {
+   "id": "A_TRISTAN",
+   "post-ending": {
+    "lives": 18,
+    "offered": 18,
+    "completed": 18,
+    "firstOfferDay": 9
+   }
+  },
+  {
+   "id": "A_VELVET1",
+   "post-ending": {
+    "lives": 18,
+    "offered": 17,
+    "completed": 17,
+    "firstOfferDay": 3
+   }
+  },
+  {
+   "id": "CAFE",
+   "post-ending": {
+    "lives": 18,
+    "offered": 18,
+    "completed": 18,
+    "firstOfferDay": 3
+   }
+  },
+  {
+   "id": "COFFIN",
+   "post-ending": {
+    "lives": 18,
+    "offered": 0,
+    "completed": 0,
+    "firstOfferDay": null
+   }
+  },
+  {
+   "id": "COOK",
+   "post-ending": {
+    "lives": 18,
+    "offered": 18,
+    "completed": 18,
+    "firstOfferDay": 2
+   }
+  },
+  {
+   "id": "DATE",
+   "post-ending": {
+    "lives": 18,
+    "offered": 18,
+    "completed": 18,
+    "firstOfferDay": 1
+   }
+  },
+  {
+   "id": "F15_EMERALD_L1",
+   "post-ending": {
+    "lives": 18,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 13
+   }
+  },
+  {
+   "id": "F15_EMERALD_L2",
+   "post-ending": {
+    "lives": 18,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 26
+   }
+  },
+  {
+   "id": "F15_EMERALD_L3",
+   "post-ending": {
+    "lives": 18,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 30
+   }
+  },
+  {
+   "id": "F15_EMERALD_L4",
+   "post-ending": {
+    "lives": 18,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 32
+   }
+  },
+  {
+   "id": "F15_ROSALYN_L1",
+   "post-ending": {
+    "lives": 18,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 19
+   }
+  },
+  {
+   "id": "F15_ROSALYN_L2",
+   "post-ending": {
+    "lives": 18,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 20
+   }
+  },
+  {
+   "id": "F15_ROSALYN_L3",
+   "post-ending": {
+    "lives": 18,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 22
+   }
+  },
+  {
+   "id": "F15_ROSALYN_L4",
+   "post-ending": {
+    "lives": 18,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 25
+   }
+  },
+  {
+   "id": "F15_ROXY_L1",
+   "post-ending": {
+    "lives": 18,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 18
+   }
+  },
+  {
+   "id": "F15_ROXY_L2",
+   "post-ending": {
+    "lives": 18,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 21
+   }
+  },
+  {
+   "id": "F15_ROXY_L3",
+   "post-ending": {
+    "lives": 18,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 22
+   }
+  },
+  {
+   "id": "F15_ROXY_L4",
+   "post-ending": {
+    "lives": 18,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 25
+   }
+  },
+  {
+   "id": "FISHTANK",
+   "post-ending": {
+    "lives": 18,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 36
+   }
+  },
+  {
+   "id": "GALLERY",
+   "post-ending": {
+    "lives": 18,
+    "offered": 12,
+    "completed": 11,
+    "firstOfferDay": 2
+   }
+  },
+  {
+   "id": "GARAGE_VIEW",
+   "post-ending": {
+    "lives": 18,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 36
+   }
+  },
+  {
+   "id": "GRAVE",
+   "post-ending": {
+    "lives": 18,
+    "offered": 18,
+    "completed": 18,
+    "firstOfferDay": 1
+   }
+  },
+  {
+   "id": "HOOKAH",
+   "post-ending": {
+    "lives": 18,
+    "offered": 3,
+    "completed": 3,
+    "firstOfferDay": 32
+   }
+  },
+  {
+   "id": "HOST",
+   "post-ending": {
+    "lives": 18,
+    "offered": 2,
+    "completed": 2,
+    "firstOfferDay": 34
+   }
+  },
+  {
+   "id": "JOLLOF_WARS",
+   "post-ending": {
+    "lives": 18,
+    "offered": 18,
+    "completed": 14,
+    "firstOfferDay": 32
+   }
+  },
+  {
+   "id": "KITCHEN",
+   "post-ending": {
+    "lives": 18,
+    "offered": 4,
+    "completed": 4,
+    "firstOfferDay": 36
+   }
+  },
+  {
+   "id": "KUSH",
+   "post-ending": {
+    "lives": 18,
+    "offered": 18,
+    "completed": 8,
+    "firstOfferDay": 2
+   }
+  },
+  {
+   "id": "MAID",
+   "post-ending": {
+    "lives": 18,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 37
+   }
+  },
+  {
+   "id": "MOONIE_MEET",
+   "post-ending": {
+    "lives": 18,
+    "offered": 3,
+    "completed": 3,
+    "firstOfferDay": 6
+   }
+  },
+  {
+   "id": "MOVIE",
+   "post-ending": {
+    "lives": 18,
+    "offered": 2,
+    "completed": 2,
+    "firstOfferDay": 36
+   }
+  },
+  {
+   "id": "NAIJA",
+   "post-ending": {
+    "lives": 18,
+    "offered": 18,
+    "completed": 11,
+    "firstOfferDay": 4
+   }
+  },
+  {
+   "id": "NEIGHBOR_CASTLE",
+   "post-ending": {
+    "lives": 18,
+    "offered": 10,
+    "completed": 10,
+    "firstOfferDay": 1
+   }
+  },
+  {
+   "id": "NEW_OGA_ALTERNATIVE",
+   "post-ending": {
+    "lives": 18,
+    "offered": 2,
+    "completed": 2,
+    "firstOfferDay": 12
+   }
+  },
+  {
+   "id": "NEW_OGA_FINALE",
+   "post-ending": {
+    "lives": 18,
+    "offered": 5,
+    "completed": 5,
+    "firstOfferDay": 19
+   }
+  },
+  {
+   "id": "NEW_OGA_M1",
+   "post-ending": {
+    "lives": 18,
+    "offered": 16,
+    "completed": 16,
+    "firstOfferDay": 8
+   }
+  },
+  {
+   "id": "NEW_OGA_M10",
+   "post-ending": {
+    "lives": 18,
+    "offered": 5,
+    "completed": 5,
+    "firstOfferDay": 17
+   }
+  },
+  {
+   "id": "NEW_OGA_M2",
+   "post-ending": {
+    "lives": 18,
+    "offered": 11,
+    "completed": 11,
+    "firstOfferDay": 9
+   }
+  },
+  {
+   "id": "NEW_OGA_M3",
+   "post-ending": {
+    "lives": 18,
+    "offered": 7,
+    "completed": 7,
+    "firstOfferDay": 10
+   }
+  },
+  {
+   "id": "NEW_OGA_M4",
+   "post-ending": {
+    "lives": 18,
+    "offered": 5,
+    "completed": 5,
+    "firstOfferDay": 11
+   }
+  },
+  {
+   "id": "NEW_OGA_M5",
+   "post-ending": {
+    "lives": 18,
+    "offered": 5,
+    "completed": 5,
+    "firstOfferDay": 12
+   }
+  },
+  {
+   "id": "NEW_OGA_M6",
+   "post-ending": {
+    "lives": 18,
+    "offered": 5,
+    "completed": 5,
+    "firstOfferDay": 13
+   }
+  },
+  {
+   "id": "NEW_OGA_M7",
+   "post-ending": {
+    "lives": 18,
+    "offered": 5,
+    "completed": 5,
+    "firstOfferDay": 14
+   }
+  },
+  {
+   "id": "NEW_OGA_M8",
+   "post-ending": {
+    "lives": 18,
+    "offered": 5,
+    "completed": 5,
+    "firstOfferDay": 15
+   }
+  },
+  {
+   "id": "NEW_OGA_M9",
+   "post-ending": {
+    "lives": 18,
+    "offered": 5,
+    "completed": 5,
+    "firstOfferDay": 16
+   }
+  },
+  {
+   "id": "NEW_OGA_VAMPGPT",
+   "post-ending": {
+    "lives": 18,
+    "offered": 5,
+    "completed": 5,
+    "firstOfferDay": 18
+   }
+  },
+  {
+   "id": "PEKING",
+   "post-ending": {
+    "lives": 18,
+    "offered": 18,
+    "completed": 18,
+    "firstOfferDay": 1
+   }
+  },
+  {
+   "id": "PIER",
+   "post-ending": {
+    "lives": 18,
+    "offered": 6,
+    "completed": 6,
+    "firstOfferDay": 5
+   }
+  },
+  {
+   "id": "RB_DELIVERY",
+   "post-ending": {
+    "lives": 18,
+    "offered": 1,
+    "completed": 1,
+    "firstOfferDay": 29
+   }
+  },
+  {
+   "id": "RETWIST",
+   "post-ending": {
+    "lives": 18,
+    "offered": 18,
+    "completed": 18,
+    "firstOfferDay": 3
+   }
+  },
+  {
+   "id": "RE_VIEWING",
+   "post-ending": {
+    "lives": 18,
+    "offered": 0,
+    "completed": 0,
+    "firstOfferDay": null
+   }
+  },
+  {
+   "id": "ROOFTOP_DTLA",
+   "post-ending": {
+    "lives": 18,
+    "offered": 9,
+    "completed": 9,
+    "firstOfferDay": 4
+   }
+  },
+  {
+   "id": "ROOST",
+   "post-ending": {
+    "lives": 18,
+    "offered": 2,
+    "completed": 2,
+    "firstOfferDay": 36
+   }
+  },
+  {
+   "id": "SHOP",
+   "post-ending": {
+    "lives": 18,
+    "offered": 0,
+    "completed": 0,
+    "firstOfferDay": null
+   }
+  },
+  {
+   "id": "SHOW",
+   "post-ending": {
+    "lives": 18,
+    "offered": 18,
+    "completed": 13,
+    "firstOfferDay": 2
+   }
+  },
+  {
+   "id": "SLURP",
+   "post-ending": {
+    "lives": 18,
+    "offered": 18,
+    "completed": 18,
+    "firstOfferDay": 2
+   }
+  },
+  {
+   "id": "TACOS",
+   "post-ending": {
+    "lives": 18,
+    "offered": 18,
+    "completed": 18,
+    "firstOfferDay": 1
+   }
+  },
+  {
+   "id": "TANDEM_BATTLE",
+   "post-ending": {
+    "lives": 18,
+    "offered": 8,
+    "completed": 8,
+    "firstOfferDay": 10
+   }
+  },
+  {
+   "id": "THRONE",
+   "post-ending": {
+    "lives": 18,
+    "offered": 0,
+    "completed": 0,
+    "firstOfferDay": null
+   }
+  },
+  {
+   "id": "VENICE",
+   "post-ending": {
+    "lives": 18,
+    "offered": 18,
+    "completed": 5,
+    "firstOfferDay": 1
+   }
+  }
+ ],
+ "errors": [
+  {
+   "label": "post-ending",
+   "persona": "hoarder",
+   "seed": 1,
+   "day": 25,
+   "id": "A45",
+   "error": "bounded walker at soak"
+  }
+ ]
+}

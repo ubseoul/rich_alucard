@@ -1,0 +1,1222 @@
+{
+ "persona": "trap_committed",
+ "seed": 1,
+ "endingDay": 36,
+ "daily": [
+  {
+   "day": 1,
+   "money": 21906,
+   "netWorth": 99906,
+   "rooms": 0,
+   "cars": 1,
+   "offered": 18,
+   "completed": 9,
+   "warRoom": "unavailable",
+   "trapHouses": 0,
+   "newOgaRank": 0
+  },
+  {
+   "day": 2,
+   "money": 20974,
+   "netWorth": 98974,
+   "rooms": 0,
+   "cars": 1,
+   "offered": 21,
+   "completed": 11,
+   "warRoom": "unavailable",
+   "trapHouses": 0,
+   "newOgaRank": 0
+  },
+  {
+   "day": 3,
+   "money": 19660,
+   "netWorth": 97660,
+   "rooms": 0,
+   "cars": 1,
+   "offered": 22,
+   "completed": 14,
+   "warRoom": "unavailable",
+   "trapHouses": 0,
+   "newOgaRank": 0
+  },
+  {
+   "day": 4,
+   "money": 19519,
+   "netWorth": 97519,
+   "rooms": 0,
+   "cars": 1,
+   "offered": 24,
+   "completed": 16,
+   "warRoom": "unavailable",
+   "trapHouses": 0,
+   "newOgaRank": 0
+  },
+  {
+   "day": 5,
+   "money": 19462,
+   "netWorth": 97462,
+   "rooms": 0,
+   "cars": 1,
+   "offered": 26,
+   "completed": 17,
+   "warRoom": "unavailable",
+   "trapHouses": 0,
+   "newOgaRank": 0
+  },
+  {
+   "day": 6,
+   "money": 16424,
+   "netWorth": 94424,
+   "rooms": 0,
+   "cars": 1,
+   "offered": 26,
+   "completed": 18,
+   "warRoom": "unavailable",
+   "trapHouses": 0,
+   "newOgaRank": 0
+  },
+  {
+   "day": 7,
+   "money": 16371,
+   "netWorth": 94371,
+   "rooms": 0,
+   "cars": 1,
+   "offered": 29,
+   "completed": 20,
+   "warRoom": "unavailable",
+   "trapHouses": 0,
+   "newOgaRank": 0
+  },
+  {
+   "day": 8,
+   "money": 22182,
+   "netWorth": 100182,
+   "rooms": 0,
+   "cars": 1,
+   "offered": 31,
+   "completed": 23,
+   "warRoom": "unavailable",
+   "trapHouses": 0,
+   "newOgaRank": 0
+  },
+  {
+   "day": 9,
+   "money": 22162,
+   "netWorth": 100162,
+   "rooms": 0,
+   "cars": 1,
+   "offered": 34,
+   "completed": 26,
+   "warRoom": "unavailable",
+   "trapHouses": 0,
+   "newOgaRank": 1
+  },
+  {
+   "day": 10,
+   "money": 27563,
+   "netWorth": 105563,
+   "rooms": 0,
+   "cars": 1,
+   "offered": 38,
+   "completed": 30,
+   "warRoom": "unavailable",
+   "trapHouses": 0,
+   "newOgaRank": 1
+  },
+  {
+   "day": 11,
+   "money": 39531,
+   "netWorth": 117531,
+   "rooms": 0,
+   "cars": 1,
+   "offered": 39,
+   "completed": 31,
+   "warRoom": "unavailable",
+   "trapHouses": 0,
+   "newOgaRank": 3
+  },
+  {
+   "day": 12,
+   "money": 39531,
+   "netWorth": 117531,
+   "rooms": 0,
+   "cars": 1,
+   "offered": 42,
+   "completed": 34,
+   "warRoom": "unavailable",
+   "trapHouses": 0,
+   "newOgaRank": 3
+  },
+  {
+   "day": 13,
+   "money": 39809,
+   "netWorth": 117809,
+   "rooms": 0,
+   "cars": 1,
+   "offered": 43,
+   "completed": 37,
+   "warRoom": "unavailable",
+   "trapHouses": 0,
+   "newOgaRank": 4
+  },
+  {
+   "day": 14,
+   "money": 39616,
+   "netWorth": 117616,
+   "rooms": 0,
+   "cars": 1,
+   "offered": 48,
+   "completed": 39,
+   "warRoom": "unavailable",
+   "trapHouses": 0,
+   "newOgaRank": 4
+  },
+  {
+   "day": 15,
+   "money": 40631,
+   "netWorth": 118631,
+   "rooms": 0,
+   "cars": 1,
+   "offered": 49,
+   "completed": 41,
+   "warRoom": "unavailable",
+   "trapHouses": 0,
+   "newOgaRank": 4
+  },
+  {
+   "day": 16,
+   "money": 66011,
+   "netWorth": 144011,
+   "rooms": 0,
+   "cars": 1,
+   "offered": 53,
+   "completed": 46,
+   "warRoom": "accepted",
+   "trapHouses": 0,
+   "newOgaRank": 4
+  },
+  {
+   "day": 17,
+   "money": 55355,
+   "netWorth": 133355,
+   "rooms": 0,
+   "cars": 1,
+   "offered": 55,
+   "completed": 47,
+   "warRoom": "accepted",
+   "trapHouses": 0,
+   "newOgaRank": 5
+  },
+  {
+   "day": 18,
+   "money": 123955,
+   "netWorth": 201955,
+   "rooms": 0,
+   "cars": 1,
+   "offered": 57,
+   "completed": 50,
+   "warRoom": "accepted",
+   "trapHouses": 0,
+   "newOgaRank": 5
+  },
+  {
+   "day": 19,
+   "money": 107997,
+   "netWorth": 185997,
+   "rooms": 0,
+   "cars": 1,
+   "offered": 58,
+   "completed": 52,
+   "warRoom": "accepted",
+   "trapHouses": 1,
+   "newOgaRank": 5
+  },
+  {
+   "day": 20,
+   "money": 101397,
+   "netWorth": 179397,
+   "rooms": 0,
+   "cars": 1,
+   "offered": 58,
+   "completed": 53,
+   "warRoom": "accepted",
+   "trapHouses": 1,
+   "newOgaRank": 5
+  },
+  {
+   "day": 21,
+   "money": 155645,
+   "netWorth": 233645,
+   "rooms": 0,
+   "cars": 1,
+   "offered": 58,
+   "completed": 53,
+   "warRoom": "accepted",
+   "trapHouses": 1,
+   "newOgaRank": 5
+  },
+  {
+   "day": 22,
+   "money": 96875,
+   "netWorth": 174875,
+   "rooms": 0,
+   "cars": 1,
+   "offered": 58,
+   "completed": 55,
+   "warRoom": "accepted",
+   "trapHouses": 2,
+   "newOgaRank": 5
+  },
+  {
+   "day": 23,
+   "money": 182790,
+   "netWorth": 260790,
+   "rooms": 0,
+   "cars": 1,
+   "offered": 59,
+   "completed": 56,
+   "warRoom": "accepted",
+   "trapHouses": 2,
+   "newOgaRank": 5
+  },
+  {
+   "day": 24,
+   "money": 246358,
+   "netWorth": 324358,
+   "rooms": 0,
+   "cars": 1,
+   "offered": 60,
+   "completed": 57,
+   "warRoom": "accepted",
+   "trapHouses": 2,
+   "newOgaRank": 5
+  },
+  {
+   "day": 25,
+   "money": 86649,
+   "netWorth": 289649,
+   "rooms": 1,
+   "cars": 1,
+   "offered": 60,
+   "completed": 57,
+   "warRoom": "accepted",
+   "trapHouses": 2,
+   "newOgaRank": 5
+  },
+  {
+   "day": 26,
+   "money": 200689,
+   "netWorth": 403689,
+   "rooms": 1,
+   "cars": 1,
+   "offered": 61,
+   "completed": 58,
+   "warRoom": "accepted",
+   "trapHouses": 2,
+   "newOgaRank": 5
+  },
+  {
+   "day": 27,
+   "money": 335913,
+   "netWorth": 538913,
+   "rooms": 1,
+   "cars": 1,
+   "offered": 62,
+   "completed": 60,
+   "warRoom": "accepted",
+   "trapHouses": 2,
+   "newOgaRank": 5
+  },
+  {
+   "day": 28,
+   "money": 149639,
+   "netWorth": 352639,
+   "rooms": 1,
+   "cars": 1,
+   "offered": 62,
+   "completed": 61,
+   "warRoom": "accepted",
+   "trapHouses": 3,
+   "newOgaRank": 5
+  },
+  {
+   "day": 29,
+   "money": 44213,
+   "netWorth": 507213,
+   "rooms": 1,
+   "cars": 2,
+   "offered": 64,
+   "completed": 63,
+   "warRoom": "accepted",
+   "trapHouses": 3,
+   "newOgaRank": 5
+  },
+  {
+   "day": 30,
+   "money": 107463,
+   "netWorth": 570463,
+   "rooms": 1,
+   "cars": 2,
+   "offered": 66,
+   "completed": 64,
+   "warRoom": "accepted",
+   "trapHouses": 3,
+   "newOgaRank": 5
+  },
+  {
+   "day": 31,
+   "money": 281225,
+   "netWorth": 744225,
+   "rooms": 1,
+   "cars": 2,
+   "offered": 69,
+   "completed": 66,
+   "warRoom": "accepted",
+   "trapHouses": 3,
+   "newOgaRank": 5
+  },
+  {
+   "day": 32,
+   "money": 109530,
+   "netWorth": 772530,
+   "rooms": 2,
+   "cars": 2,
+   "offered": 71,
+   "completed": 67,
+   "warRoom": "accepted",
+   "trapHouses": 3,
+   "newOgaRank": 5
+  },
+  {
+   "day": 33,
+   "money": 185518,
+   "netWorth": 848518,
+   "rooms": 2,
+   "cars": 2,
+   "offered": 74,
+   "completed": 69,
+   "warRoom": "accepted",
+   "trapHouses": 3,
+   "newOgaRank": 5
+  },
+  {
+   "day": 34,
+   "money": 273018,
+   "netWorth": 936018,
+   "rooms": 2,
+   "cars": 2,
+   "offered": 74,
+   "completed": 70,
+   "warRoom": "accepted",
+   "trapHouses": 3,
+   "newOgaRank": 5
+  },
+  {
+   "day": 35,
+   "money": 383522,
+   "netWorth": 1046522,
+   "rooms": 2,
+   "cars": 2,
+   "offered": 74,
+   "completed": 70,
+   "warRoom": "accepted",
+   "trapHouses": 3,
+   "newOgaRank": 5
+  }
+ ],
+ "offered": {
+  "A00": {
+   "day": 1,
+   "kind": "newgame"
+  },
+  "A09": {
+   "day": 1,
+   "kind": "place"
+  },
+  "A08": {
+   "day": 1,
+   "kind": "place"
+  },
+  "A14": {
+   "day": 1,
+   "kind": "place"
+  },
+  "A16": {
+   "day": 1,
+   "kind": "place"
+  },
+  "A48": {
+   "day": 1,
+   "kind": "place"
+  },
+  "A49": {
+   "day": 1,
+   "kind": "place"
+  },
+  "A44": {
+   "day": 1,
+   "kind": "place"
+  },
+  "TACOS": {
+   "day": 1,
+   "kind": "place"
+  },
+  "GRAVE": {
+   "day": 1,
+   "kind": "place"
+  },
+  "PEKING": {
+   "day": 1,
+   "kind": "place"
+  },
+  "A45": {
+   "day": 1,
+   "kind": "place"
+  },
+  "VENICE": {
+   "day": 1,
+   "kind": "place"
+  },
+  "A25": {
+   "day": 1,
+   "kind": "place"
+  },
+  "A_HINA1": {
+   "day": 1,
+   "kind": "chain"
+  },
+  "A38": {
+   "day": 1,
+   "kind": "chain"
+  },
+  "NEIGHBOR_CASTLE": {
+   "day": 1,
+   "kind": "place"
+  },
+  "DATE": {
+   "day": 1,
+   "kind": "date"
+  },
+  "A29": {
+   "day": 2,
+   "kind": "wake"
+  },
+  "SLURP": {
+   "day": 2,
+   "kind": "place"
+  },
+  "GALLERY": {
+   "day": 2,
+   "kind": "place"
+  },
+  "A_VELVET1": {
+   "day": 3,
+   "kind": "want"
+  },
+  "A43": {
+   "day": 4,
+   "kind": "want"
+  },
+  "A42": {
+   "day": 4,
+   "kind": "want"
+  },
+  "NAIJA": {
+   "day": 5,
+   "kind": "place"
+  },
+  "A_LO1": {
+   "day": 5,
+   "kind": "place"
+  },
+  "A44_N2": {
+   "day": 7,
+   "kind": "place"
+  },
+  "A55": {
+   "day": 7,
+   "kind": "place"
+  },
+  "A_ANFEESA1": {
+   "day": 7,
+   "kind": "chain"
+  },
+  "NEW_OGA_M1": {
+   "day": 8,
+   "kind": "wake"
+  },
+  "A07": {
+   "day": 8,
+   "kind": "want"
+  },
+  "NEW_OGA_M2": {
+   "day": 9,
+   "kind": "wake"
+  },
+  "A_TRISTAN": {
+   "day": 9,
+   "kind": "want"
+  },
+  "RETWIST": {
+   "day": 9,
+   "kind": "place"
+  },
+  "NEW_OGA_M3": {
+   "day": 10,
+   "kind": "wake"
+  },
+  "A13": {
+   "day": 10,
+   "kind": "want"
+  },
+  "A50": {
+   "day": 10,
+   "kind": "place"
+  },
+  "TANDEM_BATTLE": {
+   "day": 10,
+   "kind": "place"
+  },
+  "NEW_OGA_M4": {
+   "day": 11,
+   "kind": "wake"
+  },
+  "NEW_OGA_M5": {
+   "day": 12,
+   "kind": "wake"
+  },
+  "A41": {
+   "day": 12,
+   "kind": "want"
+  },
+  "A_SMACK2": {
+   "day": 12,
+   "kind": "want"
+  },
+  "NEW_OGA_M6": {
+   "day": 13,
+   "kind": "wake"
+  },
+  "NEW_OGA_M7": {
+   "day": 14,
+   "kind": "wake"
+  },
+  "A15": {
+   "day": 14,
+   "kind": "want"
+  },
+  "KUSH": {
+   "day": 14,
+   "kind": "place"
+  },
+  "SHOW": {
+   "day": 14,
+   "kind": "place"
+  },
+  "A18": {
+   "day": 14,
+   "kind": "chain"
+  },
+  "NEW_OGA_M8": {
+   "day": 15,
+   "kind": "wake"
+  },
+  "NEW_OGA_M9": {
+   "day": 16,
+   "kind": "wake"
+  },
+  "A37": {
+   "day": 16,
+   "kind": "want"
+  },
+  "A44_N3": {
+   "day": 16,
+   "kind": "place"
+  },
+  "COOK": {
+   "day": 16,
+   "kind": "chain"
+  },
+  "NEW_OGA_M10": {
+   "day": 17,
+   "kind": "wake"
+  },
+  "CAFE": {
+   "day": 17,
+   "kind": "place"
+  },
+  "NEW_OGA_VAMPGPT": {
+   "day": 18,
+   "kind": "wake"
+  },
+  "A_EMBERLY1": {
+   "day": 18,
+   "kind": "chain"
+  },
+  "NEW_OGA_FINALE": {
+   "day": 19,
+   "kind": "wake"
+  },
+  "A29B": {
+   "day": 23,
+   "kind": "want"
+  },
+  "ROOFTOP_DTLA": {
+   "day": 24,
+   "kind": "place"
+  },
+  "A51": {
+   "day": 26,
+   "kind": "chain"
+  },
+  "ARC_JUNE_1": {
+   "day": 27,
+   "kind": "want"
+  },
+  "A44_N4": {
+   "day": 29,
+   "kind": "place"
+  },
+  "RB_DELIVERY": {
+   "day": 29,
+   "kind": "delivery"
+  },
+  "A34": {
+   "day": 30,
+   "kind": "want"
+  },
+  "A26": {
+   "day": 30,
+   "kind": "place"
+  },
+  "A27": {
+   "day": 31,
+   "kind": "wake"
+  },
+  "A30": {
+   "day": 31,
+   "kind": "want"
+  },
+  "A52": {
+   "day": 31,
+   "kind": "want"
+  },
+  "A31": {
+   "day": 32,
+   "kind": "want"
+  },
+  "A19": {
+   "day": 32,
+   "kind": "chain"
+  },
+  "JOLLOF_WARS": {
+   "day": 33,
+   "kind": "want"
+  },
+  "A24": {
+   "day": 33,
+   "kind": "place"
+  },
+  "HOST": {
+   "day": 33,
+   "kind": "place"
+  }
+ },
+ "completed": {
+  "A00": 1,
+  "TACOS": 12,
+  "A08": 1,
+  "A_HINA1": 1,
+  "GRAVE": 22,
+  "A38": 1,
+  "NEIGHBOR_CASTLE": 3,
+  "A49": 1,
+  "DATE": 28,
+  "A29": 1,
+  "PEKING": 10,
+  "A_VELVET1": 1,
+  "SLURP": 20,
+  "GALLERY": 19,
+  "A43": 1,
+  "A42": 1,
+  "A_LO1": 1,
+  "A44": 1,
+  "A55": 1,
+  "A_ANFEESA1": 1,
+  "NEW_OGA_M1": 1,
+  "A48": 1,
+  "NAIJA": 2,
+  "NEW_OGA_M2": 1,
+  "A_TRISTAN": 1,
+  "A45": 3,
+  "NEW_OGA_M3": 1,
+  "A13": 1,
+  "TANDEM_BATTLE": 6,
+  "A50": 1,
+  "NEW_OGA_M4": 1,
+  "NEW_OGA_M5": 1,
+  "A07": 1,
+  "A41": 1,
+  "NEW_OGA_M6": 1,
+  "A09": 1,
+  "A14": 1,
+  "NEW_OGA_M7": 1,
+  "A18": 1,
+  "NEW_OGA_M8": 1,
+  "A44_N2": 1,
+  "NEW_OGA_M9": 1,
+  "A37": 1,
+  "A16": 1,
+  "COOK": 2,
+  "A15": 1,
+  "NEW_OGA_M10": 1,
+  "NEW_OGA_VAMPGPT": 1,
+  "KUSH": 1,
+  "A_EMBERLY1": 1,
+  "NEW_OGA_FINALE": 16,
+  "SHOW": 5,
+  "RETWIST": 2,
+  "VENICE": 1,
+  "CAFE": 1,
+  "A29B": 1,
+  "ROOFTOP_DTLA": 3,
+  "A51": 1,
+  "ARC_JUNE_1": 1,
+  "A25": 1,
+  "A44_N3": 1,
+  "A_SMACK2": 1,
+  "RB_DELIVERY": 1,
+  "A26": 1,
+  "A27": 1,
+  "A52": 1,
+  "A19": 1,
+  "A34": 1,
+  "HOST": 1,
+  "A30": 1
+ },
+ "ownership": {
+  "car:supra": 1,
+  "trap:the_bando": 19,
+  "trap:the_cul_de_sac": 22,
+  "room:party_hall": 25,
+  "trap:laundromat_back_room": 28,
+  "car:urus": 29,
+  "room:fish_tank": 32
+ },
+ "firstEligible": {
+  "room:party_hall": 25,
+  "car:urus": 29,
+  "room:fish_tank": 32
+ },
+ "relationships": {
+  "ceo_assistant_001": {
+   "level": 1,
+   "dates": 2,
+   "firstClose": null,
+   "firstRide": null
+  },
+  "okada": {
+   "level": 1,
+   "dates": 0,
+   "firstClose": null,
+   "firstRide": null
+  },
+  "hina": {
+   "level": 2,
+   "dates": 2,
+   "firstClose": null,
+   "firstRide": null
+  },
+  "brenda": {
+   "level": 2,
+   "dates": 2,
+   "firstClose": null,
+   "firstRide": null
+  },
+  "rookoko": {
+   "level": 1,
+   "dates": 0,
+   "firstClose": null,
+   "firstRide": null
+  },
+  "bllad33": {
+   "level": 1,
+   "dates": 0,
+   "firstClose": null,
+   "firstRide": null
+  },
+  "ogun": {
+   "level": 1,
+   "dates": 0,
+   "firstClose": null,
+   "firstRide": null
+  },
+  "coffe": {
+   "level": 1,
+   "dates": 0,
+   "firstClose": null,
+   "firstRide": null
+  },
+  "velvet": {
+   "level": 2,
+   "dates": 2,
+   "firstClose": null,
+   "firstRide": null
+  },
+  "lo": {
+   "level": 2,
+   "dates": 2,
+   "firstClose": null,
+   "firstRide": null
+  },
+  "ms_patrice": {
+   "level": 2,
+   "dates": 2,
+   "firstClose": null,
+   "firstRide": null
+  },
+  "anfeesa": {
+   "level": 2,
+   "dates": 2,
+   "firstClose": null,
+   "firstRide": null
+  },
+  "june": {
+   "level": 2,
+   "dates": 2,
+   "firstClose": null,
+   "firstRide": null
+  },
+  "tristan": {
+   "level": 2,
+   "dates": 0,
+   "firstClose": null,
+   "firstRide": null
+  },
+  "pinky": {
+   "level": 2,
+   "dates": 2,
+   "firstClose": null,
+   "firstRide": null
+  },
+  "kiki": {
+   "level": 2,
+   "dates": 2,
+   "firstClose": null,
+   "firstRide": null
+  },
+  "reggie": {
+   "level": 1,
+   "dates": 0,
+   "firstClose": null,
+   "firstRide": null
+  },
+  "tasha": {
+   "level": 2,
+   "dates": 2,
+   "firstClose": null,
+   "firstRide": null
+  },
+  "kaede": {
+   "level": 2,
+   "dates": 2,
+   "firstClose": null,
+   "firstRide": null
+  },
+  "lil_smack": {
+   "level": 1,
+   "dates": 0,
+   "firstClose": null,
+   "firstRide": null
+  },
+  "bunmi": {
+   "level": 1,
+   "dates": 1,
+   "firstClose": null,
+   "firstRide": null
+  },
+  "wispa": {
+   "level": 1,
+   "dates": 1,
+   "firstClose": null,
+   "firstRide": null
+  },
+  "iron_jaw": {
+   "level": 1,
+   "dates": 0,
+   "firstClose": null,
+   "firstRide": null
+  },
+  "emberly": {
+   "level": 1,
+   "dates": 1,
+   "firstClose": null,
+   "firstRide": null
+  },
+  "don_chuy": {
+   "level": 1,
+   "dates": 0,
+   "firstClose": null,
+   "firstRide": null
+  },
+  "nightshade": {
+   "level": 1,
+   "dates": 1,
+   "firstClose": null,
+   "firstRide": null
+  },
+  "bonesworth": {
+   "level": 1,
+   "dates": 0,
+   "firstClose": null,
+   "firstRide": null
+  },
+  "bruce_loose": {
+   "level": 1,
+   "dates": 0,
+   "firstClose": null,
+   "firstRide": null
+  }
+ },
+ "substitutions": [
+  {
+   "day": 1,
+   "kind": "legacy-jdm-recorded-outcome",
+   "price": 78000
+  },
+  {
+   "day": 2,
+   "kind": "legacy-rave-recorded-outcome"
+  }
+ ],
+ "errors": [],
+ "softlocks": [],
+ "warRoomFirstDay": 16,
+ "final": {
+  "day": 36,
+  "money": 383522,
+  "netWorth": 1046522,
+  "fameEligible": true,
+  "warRoom": "accepted",
+  "newOga": {
+   "status": "finale_pending",
+   "mission": 10,
+   "rank": 5,
+   "title": "VICE PRESIDENT",
+   "businessCard": true,
+   "gangClout": 4,
+   "trust": 4,
+   "heat": 20,
+   "debt": 20000,
+   "m1Route": "STICK_UP",
+   "m2Answer": "honest",
+   "m2Outcome": "work_off",
+   "m3Outcome": "chairs_only",
+   "m1Rewarded": true,
+   "m3Rewarded": false,
+   "lastMissionDay": 18,
+   "carlosMutual": true,
+   "carlosMutualDay": 10,
+   "carlosMutualSource": "m3_fallback",
+   "carlosUnfollowed": true,
+   "m4Outcome": "walk_in",
+   "m4Rewarded": true,
+   "m4TougeBand": null,
+   "carlosEscaped": false,
+   "alternativePending": false,
+   "alternativeCompleted": false,
+   "alternativeRewarded": false,
+   "carlosCanopyApron": true,
+   "carlosLaterParty": true,
+   "carlosLaterStage": "canopy_apron",
+   "m5Progress": "resolved",
+   "m5Outcome": "GREEDY",
+   "m5AmountCaught": 0,
+   "m5Attention": 100,
+   "m5Completed": true,
+   "m5Rewarded": true,
+   "m6Progress": "resolved",
+   "m6Outcome": "walked",
+   "m6CareResult": {
+    "feed": true,
+    "walk": true,
+    "joko": true
+   },
+   "senatorLost": false,
+   "m6Completed": true,
+   "m6ConsequencesApplied": true,
+   "trustAtM6": 3,
+   "senatorCommands": true,
+   "rank4Granted": true,
+   "m7Eligible": false,
+   "m7Progress": "resolved",
+   "m7Outcome": "take",
+   "m7Completed": true,
+   "m7ConsequencesApplied": true,
+   "vaultKnown": true,
+   "businessStructureKnown": true,
+   "misterDecemberHierarchyKnown": true,
+   "leftoversAte": true,
+   "refusedMama": false,
+   "m8Held": true,
+   "m8Resolved": true,
+   "m8Outcome": "send_the_boys",
+   "m8Rewarded": false,
+   "m8Day": 15,
+   "m9Resolved": true,
+   "m9Outcome": "nah",
+   "m9TributedCar": null,
+   "m9TributedDay": null,
+   "m10GrantsApplied": true,
+   "m10GrantDay": 17,
+   "office": "vice_president",
+   "m10Fired": true,
+   "m10Completed": true,
+   "m10Outcome": "say_less",
+   "m10GrantsWithheld": false,
+   "finaleBegun": true
+  },
+  "crew": 8,
+  "playCalls": 57
+ },
+ "openIds": [
+  "A00",
+  "A07",
+  "A08",
+  "A09",
+  "A10",
+  "A11",
+  "A12",
+  "A13",
+  "A14",
+  "A15",
+  "A16",
+  "A17",
+  "A18",
+  "A19",
+  "A20",
+  "A23",
+  "A23R",
+  "A24",
+  "A25",
+  "A26",
+  "A27",
+  "A28",
+  "A29",
+  "A29B",
+  "A29C",
+  "A30",
+  "A31",
+  "A32",
+  "A33",
+  "A34",
+  "A36",
+  "A37",
+  "A38",
+  "A39",
+  "A41",
+  "A41B",
+  "A42",
+  "A43",
+  "A44",
+  "A44_N2",
+  "A44_N3",
+  "A44_N4",
+  "A45",
+  "A46",
+  "A47",
+  "A48",
+  "A49",
+  "A50",
+  "A51",
+  "A52",
+  "A53",
+  "A54",
+  "A55",
+  "A56",
+  "A57",
+  "A58",
+  "ARC_CAMMILE_1",
+  "ARC_CAMMILE_2",
+  "ARC_CAMMILE_3",
+  "ARC_JUNE_1",
+  "ARC_JUNE_2",
+  "ARC_JUNE_3",
+  "ARC_MAZDA_1",
+  "ARC_MAZDA_2",
+  "ARC_MAZDA_3",
+  "ARC_NNEKA_1",
+  "ARC_NNEKA_2",
+  "ARC_NNEKA_3",
+  "ARC_PATRICE_2",
+  "ARC_PATRICE_3",
+  "ARMORY",
+  "ARMORY_WALL",
+  "A_ANFEESA1",
+  "A_CAMMILE1",
+  "A_EMBERLY1",
+  "A_HINA1",
+  "A_JADE1",
+  "A_LO1",
+  "A_SMACK2",
+  "A_TRISTAN",
+  "A_VELVET1",
+  "CAFE",
+  "COFFIN",
+  "COOK",
+  "DATE",
+  "F15_EMERALD_L1",
+  "F15_EMERALD_L2",
+  "F15_EMERALD_L3",
+  "F15_EMERALD_L4",
+  "F15_ROSALYN_L1",
+  "F15_ROSALYN_L2",
+  "F15_ROSALYN_L3",
+  "F15_ROSALYN_L4",
+  "F15_ROXY_L1",
+  "F15_ROXY_L2",
+  "F15_ROXY_L3",
+  "F15_ROXY_L4",
+  "FISHTANK",
+  "GALLERY",
+  "GARAGE_VIEW",
+  "GRAVE",
+  "HOOKAH",
+  "HOST",
+  "JOLLOF_WARS",
+  "KITCHEN",
+  "KUSH",
+  "MAID",
+  "MOONIE_MEET",
+  "MOVIE",
+  "NAIJA",
+  "NEIGHBOR_CASTLE",
+  "NEW_OGA_ALTERNATIVE",
+  "NEW_OGA_FINALE",
+  "NEW_OGA_M1",
+  "NEW_OGA_M10",
+  "NEW_OGA_M2",
+  "NEW_OGA_M3",
+  "NEW_OGA_M4",
+  "NEW_OGA_M5",
+  "NEW_OGA_M6",
+  "NEW_OGA_M7",
+  "NEW_OGA_M8",
+  "NEW_OGA_M9",
+  "NEW_OGA_VAMPGPT",
+  "PEKING",
+  "PIER",
+  "RB_DELIVERY",
+  "RETWIST",
+  "RE_VIEWING",
+  "ROOFTOP_DTLA",
+  "ROOST",
+  "SHOP",
+  "SHOW",
+  "SLURP",
+  "TACOS",
+  "TANDEM_BATTLE",
+  "THRONE",
+  "VENICE"
+ ]
+}
