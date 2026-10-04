@@ -90,3 +90,5 @@ body.rc2-title .start-card small{color:#f6efd9;opacity:.75}
 @keyframes rc2Buzz{0%,70%,100%{translate:0 0}4%{translate:-2px 0}8%{translate:2px -1px}12%{translate:-2px 1px}16%{translate:2px 0}20%{translate:-1px 0}24%{translate:1px 0}}
 @keyframes rc2Glow{0%{opacity:.95}50%{opacity:.25}100%{opacity:.95}}
 @media(prefers-reduced-motion:reduce){#phoneContent .rc2-nudge,#phoneContent .rc2-nudge::after{animation:none}}
+/* ---- reveal card: the sprite was lost in a big cream card; integer-scale it ---- */
+body .reveal-assistant-sprite{top:13%;transform:translateX(-50%) scale(3)}
