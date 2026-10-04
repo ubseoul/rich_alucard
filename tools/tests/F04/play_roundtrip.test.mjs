@@ -89,12 +89,13 @@ export async function test(root){
   const out=await play(ctx,card(ctx,'TAKE_THE_BLOCK','koreatown'));assert.ok(out.ok);assert.equal(host.trace[0].req.job.district,'koreatown');
   assert.equal(ctx.RADistricts.get('koreatown').fragment,'F03');}
 
- // ---- 7. REFUSALS change nothing (no car / flag off / F01 absent / bad contract / bad result)
+ // ---- 7. REFUSALS change nothing (flag off / F01 absent / bad contract / bad result). RC2 (OL-063): a Rich who owns no mappable car is NOT refused:
+ //         the first PLAY is reachable on Day 2, so the crew's own hooptie is the ride (F01 car HOOPTIE) until he owns a car F01 knows.
  {const {ctx,host}=await prime(root,{act:{cars:[]}});                       // Rich owns no mappable car
-  const s0=J(ctx.RACrew.snapshot()),b0=money(ctx);
+  const built=ctx.RAWarRoomPlay.buildRequest(card(ctx,'TAKE_THE_BLOCK','inglewood'));
+  assert.ok(built.ok);assert.deepEqual(J(built.request.garage.owned),['HOOPTIE'],'no car owned: the crew hooptie, nothing invented, nothing owned');
   const out=await play(ctx,card(ctx,'TAKE_THE_BLOCK','inglewood'));
-  assert.ok(out.ok&&out.refused&&out.code==='NO_CAR');assert.equal(money(ctx),b0);assert.deepEqual(J(ctx.RACrew.snapshot()),s0);
-  assert.equal(ctx.RAWarRoomPlay.pending(),null);assert.equal(ctx.RAWarRoomPlay.lastRefusal().code,'NO_CAR');assert.equal(ctx.RAFrag.read('F04','jobs.log',[]).length,0);
+  assert.ok(out.ok&&!out.refused,'a Rich with no car still makes the PLAY');assert.equal(ctx.RAWarRoomPlay.pending(),null);assert.equal(ctx.RAVehicles.list().length,0,"the hooptie is never added to Rich garage");
   const off=await loadWar(root,{f04Flag:true});activate(off);off.RAFeatures.set('F01.showdown_core',false);
   const o2=await off.RAWarRoomPlay.launch(card(off,'DROP','inglewood'));assert.equal(o2.code,'FLAG_OFF');assert.equal(off.RAWarRoomPlay.pending(),null,'nothing persisted when F01 is off');
   const noF01=await loadWar(root,{f01:false});activate(noF01);assert.equal((await noF01.RAWarRoomPlay.launch(card(noF01,'DROP','inglewood'))).code,'F01_ABSENT');

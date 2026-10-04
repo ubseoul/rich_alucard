@@ -49,6 +49,10 @@ async function realPlay(root,want,{kind='m8',tries=14,setup=null,policy='careful
 }
 
 export async function test(root){
+ process.env.RA_FLAGS_DARK='1';   // RC2 (OL-063): F01/F04 ship ON; the F07 suites prove F07 against a dark base
+ try{await body(root);}finally{delete process.env.RA_FLAGS_DARK;}
+}
+async function body(root){
  // OL-042 B1: artwork state is independent of the name-change text shared by all endings.
  {
   const c=await boot(root),before='assets/f07/backgrounds/warehouse_exterior_270x480.png',after='art_department/production/f07-warehouse-backgrounds/exteriors/warehouse_exterior_rich_enterprises_270x480.png';

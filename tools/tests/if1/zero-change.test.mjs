@@ -40,7 +40,7 @@ export async function test(root){
    const a=await run(false),b=await run(true);same(b.out,a.out,'NEW OGA M1–M3 results identical');assert.equal(b.save,a.save,'NEW OGA save identical');}
   // with IF-1 present every fragment flag is OFF and nothing is enabled
   {const ctx=await full(root);
-   assert.equal(ctx.RAFeatures.anyEnabled(),false);assert(Object.values(ctx.RAFeatures.snapshot()).every(v=>v===false),'every registered flag is OFF by default');
+   assert.equal(Object.entries(ctx.RAFeatures.snapshot()).some(([k,v])=>v&&!(k in (ctx.RAFlagDefaults||{}))),false);assert(Object.values(ctx.RAFeatures.snapshot()).every(v=>v===false),'every registered flag is OFF by default');
    assert.equal(ctx.RAState.version,16,'schema is still the accepted v16');assert.equal(ctx.RAIF1.selfCheck().ok,true,'IF-1 self-check');assert.equal(ctx.RAIF1.selfCheck().fragmentFlagsOn.length,0);}
   console.log(`PASS IF-1 zero-behavior-change (${files.length} lives × 6 nights, ${plays} route plays: byte-identical saves/traces/wake rosters with IF-1 present + all flags OFF; NEW OGA M1–M3 identical)`);
 }

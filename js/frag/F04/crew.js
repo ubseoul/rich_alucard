@@ -116,7 +116,9 @@
 
   // Slots per night: 1 early, 2 once 6+ active Ogas (Vol 7 §3.1).
   slotsPerNight() {
-   return this.activeOgas().length >= 6 ? 2 : 1;
+   // RC2 (OL-068): the board runs ONE job a night through Day RAEcon.offer.oneSlotThroughDay while the crew is new, then two with 6+ Ogas.
+   const early = window.RALife.today().day <= (window.RAEcon?.offer?.oneSlotThroughDay ?? 0);
+   return !early && this.activeOgas().length >= 6 ? 2 : 1;
   },
 
   // Record a job run between two Ogas and check for DAY ONE bond threshold.

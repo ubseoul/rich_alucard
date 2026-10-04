@@ -10,7 +10,7 @@
  const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
  const cash=()=>new Intl.NumberFormat('en-US').format(window.RABudget?.balance?.()??window.RAState.get().life.resources.money);
  const state=()=>window.RAState.get();
- function updateEntry(){if(!entry)return;const learned=!!state().life.phone.learned;entry.textContent=learned?'☎':'☎ CHECK PHONE';entry.classList.toggle('learned',learned);entry.setAttribute('aria-label',learned?'Open phone':'Check phone');const unread=unreadCount();entry.classList.toggle('has-unread',unread>0);entry.dataset.unread=unread||'';}
+ function updateEntry(){if(!entry)return;const learned=!!state().life.phone.learned;entry.textContent=learned?'☎':'☎ CHECK PHONE';entry.classList.toggle('learned',learned);entry.setAttribute('aria-label',learned?'Open phone':'Check phone');const unread=unreadCount();entry.classList.toggle('has-unread',unread>0);entry.classList.toggle('guide-pulse',!!window.RAGuidance?.target?.());entry.dataset.unread=unread||'';}
  function button(label,action,cls='',extra=''){return `<button type="button" class="phone-button ${cls}" data-phone-action="${esc(action)}" ${extra}>${label}</button>`}
  function opportunities(){return window.RAOpportunities?.list('go_somewhere')||[]}
  function incoming(){return window.RAWorldEvents?.pending?.('phone')||[]}
@@ -18,7 +18,7 @@
  // ---- app registry ----
  function register(app){registry.set(app.id,{canon:false,order:50,...app});}
  const appLabel=id=>registry.get(id)?.label||CANON.find(c=>c[1]===id)?.[0]||id;
- function isUnlocked(id){if(['vampgpt','realEstate','jdmImports','bank','maps','contacts'].includes(id))return true;return !!window.RALife?.appUnlocked?.(id);}
+ function isUnlocked(id){if(['vampgpt','realEstate','jdmImports','bank','maps','contacts'].includes(id))return true;if(id==='stripClub')return !!window.RAStripClub?.isOpen?.();return !!window.RALife?.appUnlocked?.(id);}
  function unreadCount(){try{const threads=state().life.phone.threads||{};let n=0;for(const t of Object.values(threads))n+=t.filter(m=>!m.read&&m.from!=='RICH').length;return n;}catch(e){return 0}}
  function badge(id){const app=registry.get(id);const n=app?.badge?.()||0;return n?` <i class="phone-badge">${n}</i>`:''}
  function header(){
@@ -29,7 +29,7 @@
  // PICKUP has no phone app at runtime and RICHBOIMPORTS has no approved icon; both stay text-only.
  const APP_ICON={texts:'texts',hatch:'hatch',touge:'touge',bars:'bars',radio:'rich_radio',receipts:'receipts',vampgpt:'vampgpt',jdmImports:'jdmimports'};
  // Code-drawn 16px icon family for surfaces without frozen app art. No asset is edited.
- const GLYPHS={vampgram:'M2 2H14V14H2ZM5 5V8L8 11L11 8V5',instahoe:'M5 2H11V8H5ZM2 14V11H14V14',onlyvamps:'M2 3H14V13H2ZM5 6L8 10L11 6',realEstate:'M1 7L8 1L15 7M3 7V14H13V7M7 14V10H10V14',richboi:'M1 5H15V12H1ZM3 5L5 2H11L13 5M4 12V14M12 12V14',armory:'M1 5H14V8H8V14H5V8H1ZM10 3V5',warRoom:'M2 2H14V14H2ZM2 6H14M6 6V14M10 6V14',trap:'M1 7L8 1L15 7M3 7V14H13V7M7 9H10V12H7Z',rainmaker:'M1 4H15V12H1ZM6 6H10V10H6ZM3 6V10M13 6V10',moves:'M2 2H5V6H8V2H11V6H14V10L8 14L2 10Z',bank:'M1 5L8 1L15 5ZM3 7V12M8 7V12M13 7V12M1 14H15',maps:'M1 3L5 1L11 3L15 1V13L11 15L5 13L1 15ZM5 1V13M11 3V15',contacts:'M2 1H14V15H2ZM6 4H10V8H6ZM5 12V10H11V12'};
+ const GLYPHS={vampgram:'M2 2H14V14H2ZM5 5V8L8 11L11 8V5',instahoe:'M5 2H11V8H5ZM2 14V11H14V14',onlyvamps:'M2 3H14V13H2ZM5 6L8 10L11 6',realEstate:'M1 7L8 1L15 7M3 7V14H13V7M7 14V10H10V14',richboi:'M1 5H15V12H1ZM3 5L5 2H11L13 5M4 12V14M12 12V14',armory:'M1 5H14V8H8V14H5V8H1ZM10 3V5',warRoom:'M2 2H14V14H2ZM2 6H14M6 6V14M10 6V14',trap:'M1 7L8 1L15 7M3 7V14H13V7M7 9H10V12H7Z',rainmaker:'M1 4H15V12H1ZM6 6H10V10H6ZM3 6V10M13 6V10',moves:'M2 2H5V6H8V2H11V6H14V10L8 14L2 10Z',stripClub:'M3 3H13V5H5V7H13V13H3V11H11V9H3Z',bank:'M1 5L8 1L15 5ZM3 7V12M8 7V12M13 7V12M1 14H15',maps:'M1 3L5 1L11 3L15 1V13L11 15L5 13L1 15ZM5 1V13M11 3V15',contacts:'M2 1H14V15H2ZM6 4H10V8H6ZM5 12V10H11V12'};
  function icon(id){const src=window.RAArtRegistry?.ui?.apps?.[APP_ICON[id]];const art=src?`<img class="phone-app-icon" src="${esc(src)}" alt="" width="24" height="24" draggable="false">`:`<svg class="phone-pixel-icon" viewBox="0 0 16 16" aria-hidden="true" shape-rendering="crispEdges"><path d="${GLYPHS[id]||'M2 2H14V14H2ZM5 5H11V11H5Z'}"/></svg>`;return `<span class="phone-icon-tile" data-icon="${esc(id)}">${art}</span>`;}
  function lockMeta(id){return window.RAPhoneHierarchy?.lockFor?.(id,registry.get(id))||{short:'LOCKED',line:registry.get(id)?.lockedLine||CANON_LOCKED[id]||'not yet.'};}
   function appButton(id,label,isCanon){
@@ -38,16 +38,17 @@
    const sub=unlocked?badge(id):`<small class="phone-lock-short">LOCKED · ${esc(lock.short)}</small>`;
    const extra=unlocked?'':`data-locked="1" aria-label="${esc(label)} — locked: ${esc(lock.short)}"`;
    const display={realEstate:'RealMoney<br>RealEstate',richboi:'RICHBO<br>IMPORTS'}[id]||esc(label);
-   return button(`${icon(id)}<span class="phone-app-label">${display}</span>${sub}`,`app:${id}`,cls,extra);
+   // RC2 guidance: the app the player should open next pulses (pixel shake + "!") until it is opened.
+   const pulse=unlocked&&window.RAGuidance?.pulsing?.(id);
+   return button(`${icon(id)}<span class="phone-app-label">${display}</span>${sub}${pulse?'<i class="phone-pulse-dot" aria-hidden="true">!</i>':''}`,`app:${id}`,cls+(pulse?' phone-pulse':''),extra+(pulse?' data-guide="next"':''));
   }
+  // "Do this next": time-limited interrupts (an incoming event, a raid, a PLAY mid-flight) first, then the one step RAGuidance picks.
   function nextAction(){
    const event=incoming()[0];if(event)return {label:event.subject||event.sender,sub:event.sender,action:`openWorldEvent:${event.id}`};
    if(isUnlocked('trap')&&window.RATrap?.raids?.pending?.())return {label:'HOLD THE HOUSE',sub:'TRAP · RAID PENDING',action:'app:trap:report'};
    const pending=window.RAWarRoomPlay?.pending?.();if(isUnlocked('warRoom')&&pending)return {label:'RESUME THE PLAY',sub:pending.jobMeta?.label||'WAR ROOM',action:'app:warRoom:jobs'};
+   const g=window.RAGuidance?.next?.();if(g)return {label:g.label,sub:g.sub,action:g.action};
    const unread=unreadCount();if(unread&&isUnlocked('texts'))return {label:'TEXTS',sub:`${unread} UNREAD`,action:'app:texts'};
-   if(isUnlocked('warRoom')&&window.RAFrag?.read?.('F04','offer.status')==='available')return {label:'WAR ROOM',sub:'MISTER DECEMBER',action:'app:warRoom'};
-   const want=(window.RATemptations?.whatWeOn?.()||[]).find(t=>!t.adventure||window.RAAdventures?.available?.(t.adventure));
-   if(want)return {label:want.line,sub:'WHAT WE ON',action:`tempt:${want.id}`};
    return {label:'OGA WHAT DO I DO',sub:'VAMPGPT',action:'prompt'};
   }
   function nextMarkup(){const n=nextAction();return `<section class="phone-next"><p class="phone-incoming-kicker">NEXT UP <span>AVAILABLE NOW</span></p>${button(`<small>${esc(n.sub||'')}</small><strong>${esc(n.label)}</strong><span class="phone-next-arrow" aria-hidden="true">↗</span>`,n.action,'phone-next-button')}</section>`;}
@@ -66,6 +67,11 @@
   const lines=window.RATemptations?.whatWeOn?.()||[];if(!lines.length)return '';
   return `<div class="phone-wwo"><p class="phone-speaker">WHAT WE ON</p>${lines.map(t=>button(esc(t.line),`tempt:${t.id}`,'wwo-line')).join('')}</div>`;
  }
+ // RECOMMENDED (RC2): the first line is always the next story step or a way to make cash (RAGuidance.next).
+ function recommendedBlock(){
+  const items=window.RAGuidance?.recommended?.()||[];if(!items.length)return '';
+  return `<div class="phone-rec"><p class="phone-speaker">RECOMMENDED</p>${items.map((it,i)=>button(`<small>${esc(it.sub||'')}</small><strong>${esc(it.label)}</strong>`,it.action,i===0?'rec-line rec-first':'rec-line')).join('')}</div>`;
+ }
  function laneOptions(lane){return window.RAVampGPT?.lane?.(lane)||[];}
  function deviceChrome(){const now=new Date(),time=document.querySelector('#phoneDeviceTime'),date=document.querySelector('#phoneDeviceDate');if(time)time.textContent=`${String(now.getHours()).padStart(2,'0')}:${String(now.getMinutes()).padStart(2,'0')}`;if(date&&window.RALife)date.textContent=`${RALife.today().weekday.slice(0,3)} · ${RALife.today().dateLabel}`;overlay.classList.toggle('device-locked',deviceLocked);}
  function pixelKeyboard(){return `<div class="phone-keyboard" aria-label="Contact search keyboard">${['QWERTYUIOP','ASDFGHJKL','ZXCVBNM'].map(row=>`<div>${[...row].map(k=>`<button type="button" data-phone-key="${k.toLowerCase()}" aria-label="Type ${k}">${k}</button>`).join('')}</div>`).join('')}<div><button type="button" data-phone-key="clear">CLEAR</button><button type="button" data-phone-key=" " class="phone-space">SPACE</button><button type="button" data-phone-key="backspace" aria-label="Backspace">⌫</button></div></div>`;}
@@ -76,9 +82,10 @@
   deviceChrome();
   if(deviceLocked){content.dataset.phoneApp='lock';content.innerHTML=`<div class="phone-lock-screen"><span class="phone-lock-glyph" aria-hidden="true">▣</span><p>RICH ALUCARD</p><h1>${esc(RALife.today().dateLabel)}</h1><p class="phone-small">${unreadCount()} UNREAD</p>${button('SWIPE UP / UNLOCK','deviceUnlock','phone-unlock')}</div>`;return;}
   content.dataset.phoneApp=page;
+  {const cur=['vampgpt','options','money','people'].includes(page)?'vampgpt':page==='somewhere'?'maps':page.startsWith('app:')?page.split(':')[1]:(page==='realEstate'||page==='jdmImports')?page:null;if(cur){window.RAGuidance?.opened?.(cur);if(page==='somewhere')window.RAGuidance?.opened?.('vampgpt');}}
   if(page==='home'){content.innerHTML=homeMarkup();}
   else if(page==='vampgpt'){
-   content.innerHTML=`<h1>VAMPGPT</h1><div class="phone-chat"><p class="phone-speaker">VAMPGPT</p><p>yo rich<br>what we on</p>${whatWeOn()}${button('OGA WHAT DO I DO','prompt','suggested-prompt')}</div>${button('HOME','home','phone-back')}`;
+   content.innerHTML=`<h1>VAMPGPT</h1><div class="phone-chat"><p class="phone-speaker">VAMPGPT</p><p>yo rich<br>what we on</p>${recommendedBlock()}${whatWeOn()}${button('OGA WHAT DO I DO','prompt','suggested-prompt')}</div>${button('HOME','home','phone-back')}`;
   }else if(page==='options'){
    content.innerHTML=`<h1>VAMPGPT</h1><div class="phone-chat"><p class="phone-speaker">RICH</p><p>oga what do i do</p><p class="phone-speaker">VAMPGPT</p><p>you got $${cash()}.<br>you in ${esc(w.location)}.<br>clout still ${String(r.clout).toLowerCase()}.<br>we got options though.</p><div class="phone-option-list">${button('MAKE MONEY','money')}${button('MEET PEOPLE','people')}${button('GO SOMEWHERE','somewhere')}</div><div class="phone-message" aria-live="polite"></div></div>${button('HOME','home','phone-back')}`;
   }else if(page==='money'||page==='people'){
@@ -173,6 +180,7 @@
   if(name.startsWith('app:')){const [,id,...rest]=name.split(':');
    if(!isUnlocked(id)){const lock=lockMeta(id);window.RAAudio?.sfx?.('UI_ERROR');setMessage(`${lock.line}${lock.unlock?` UNLOCK: ${lock.unlock}`:''}`);content.querySelector('.phone-message')?.scrollIntoView({block:'nearest'});return}
    window.RAAudio?.sfx?.('PHONE_APP_OPEN');
+   const direct=registry.get(id)?.direct;if(direct){window.RAGuidance?.opened?.(id);const ok=await direct(api);if(ok===false)setMessage('not tonight.');return}
    if(id==='vampgpt'||id==='realEstate'||id==='jdmImports'){page=id;render();return}
    page=`app:${id}${rest.length?':'+rest.join(':'):''}`;render();return}
   if(name.startsWith('do:')){const [,id,act,...args]=name.split(':');const app=registry.get(id);if(app?.onAction){await app.onAction(act,args.join(':'),api);}return}

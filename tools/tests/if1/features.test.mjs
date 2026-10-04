@@ -1,11 +1,13 @@
 // IF-1 4A — RAFeatures contract: deterministic, safe defaults, dark integration, independent flags.
 import assert from 'node:assert/strict';
-import {sandbox,run,throwsCode} from './_lib.mjs';
+import {sandbox,run as realRun,throwsCode} from './_lib.mjs';
+// RC2 (OL-063): js/if1/flag_defaults.js now promotes four flags. This suite proves the registry contract with NONE promoted, so FILES loads features.js on an empty owner table.
+const run=(root,ctx,files)=>{if(files===FILES){ctx.RAFlagDefaults=Object.freeze({});files=['js/if1/features.js'];}return realRun(root,ctx,files);};
 
 const FILES=['js/if1/flag_defaults.js','js/if1/features.js'];
 export async function test(root){
   // --- defaults: every reserved fragment flag exists and is OFF; unknown ids read OFF
-  {const c=await run(root,sandbox(),FILES);const F=c.RAFeatures;
+  {const sb=sandbox();sb.RAFlagDefaults=Object.freeze({});const c=await run(root,sb,['js/if1/features.js']);const F=c.RAFeatures;   // RC2 (OL-063): the shipped flag_defaults.js now promotes four flags; the default-OFF contract is proven with none promoted
    assert.deepEqual([...F.reserved].sort(),['F01.showdown','F02.armory','F02.iron_and_grace','F03.new_oga_ladder_close','F04.war_room','F05.trap','F06.rainmaker','F07.m8_and_finale'],'reserved DARK flags');
    for(const id of F.reserved)assert.equal(F.enabled(id),false,`${id} must default OFF`);
    assert.equal(F.enabled('nope.unknown'),false);assert.equal(F.anyEnabled(),false);

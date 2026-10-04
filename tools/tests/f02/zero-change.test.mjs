@@ -21,7 +21,7 @@ export async function test(root){
  const base=await loadBtf(root,{if1:true});          // IF-1 present, no fragment files
  const withF02=await game(root);                    // IF-1 + the whole F02 fragment, all flags OFF
 
- assert.equal(withF02.RAFeatures.anyEnabled(),false,'every F02 flag is dark');
+ assert.equal(Object.entries(withF02.RAFeatures.snapshot()).some(([k,v])=>v&&!(k in (withF02.RAFlagDefaults||{}))),false,'every F02 flag is dark');
  assert.equal(withF02.RAIronAndGrace.selfCheck().ok,true,withF02.RAIronAndGrace.selfCheck().problems.join('; '));
 
  const a=play(base),b=play(withF02);

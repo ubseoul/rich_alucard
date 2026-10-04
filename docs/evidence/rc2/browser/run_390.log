@@ -1,0 +1,25 @@
+PASS [390] normal URL: every first-release feature ships ON (PLAY, guns, Koreatown, War Room, TRAP, MAKE IT RAIN, M8 + finale, club dancers); no dev panel - {"f01":true,"f04":true,"f06":true,"f15":true,"f05":true,"f02":true,"f03":true,"f07":true,"dev":false}
+PASS [390] fresh save: intro (prologue, CEO, throne) reaches the bedroom on Day 1 - 70s
+PASS [390] bedroom: the phone icon pulses while there is a next step - {"pulse":true,"anim":"ra-pulse-shake"}
+PASS [390] phone home shows exactly one "do this next" (Day 1, first: VampGPT) - VAMPGPT OGA WHAT DO I DO ↗
+PASS [390] exactly one app tile pulses: VampGPT - ["app:vampgpt"]
+PASS [390] STRIP CLUB app is on the home screen on Day 1, unlocked; the old RAINMAKER tile is not a second door - {"club":true,"locked":null,"rm":false}
+PASS [390] phone home has no horizontal overflow
+PASS [390] VampGPT RECOMMENDED: the first line is the next story step or a way to make cash - ["EAT · A FEW DOLLARS DON CHUY'S","SLURP DYNASTY WORK A SHIFT","FIRST VISIT · DISCOUNT STRIP CLUB"]
+PASS [390] opening VampGPT cleared its pulse - {"pulsing":[],"next":"EAT · A FEW DOLLARS DON CHUY'S ↗"}
+PASS [390] STRIP CLUB tile goes straight to the club (phone closed) and states the first-visit terms - SUPPORTING ROXY. TAP A NAME TO SUPPORT SOMEONE ELSE.
+PASS [390] first visit: real throws spent real money, never more than half the cash on hand, and the first visit is now used - $7500 of $40000
+PASS [390] every throw went through the money ledger (rainmaker:flick) - 5
+PASS [390] Escape leaves the club; back in the bedroom
+PASS [390] next step after the club - story:meal -> go:tacos
+PASS [390] Day 2 wake: Mister December's offer is available - {"day":2,"offer":"available","next":"offer","pulse":"warRoom"}
+PASS [390] guidance on Day 2: the next step is the offer and WAR ROOM pulses - {"day":2,"offer":"available","next":"offer","pulse":"warRoom"}
+PASS [390] Day 2 home: only WAR ROOM pulses - ["app:warRoom"]
+PASS [390] accepted on Day 2: six Ogas, one slot while the crew is new, next step is the first PLAY - {"active":true,"crew":6,"slots":1,"next":"first_play"}
+PASS [390] first night: routine jobs only (no TAKE THE BLOCK yet) - BAIT | BAIT | COLLECT | LAY LOW
+PASS [390] THE PLAY: canonical group-chat offer (live UI untouched) - BANK $32,500 HALF-PINT INCOMING CALL A VERY POLITE SAFE UP TO $20,000 
+PASS [390] no car owned: the crew hooptie is the ride (not a NO CAR refusal) - A VERY POLITE SAFE UP TO $20,000 · 2 OGA MIN. Half-Pint: enforcers up front. big ones. Hal
+PASS [390] first PLAY completed on Day 2 through the real F01 UI; F04 consumed the canonical record - BAILED win=false
+PASS [390] bank moved by exactly the PLAY pot minus its cost - 32500 -> 32500 (gain 0, spent 0)
+PASS [390] no console / page errors during the whole path
+BROWSER PATH PASS (24 checks)

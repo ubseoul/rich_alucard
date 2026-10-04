@@ -75,6 +75,9 @@
    if (!f01 || map[f01]) continue;
    map[f01] = c.id; owned.push(f01);
   }
+  // RC2 (OL-063): the first PLAY is reachable on Day 2, before Rich owns a car F01 has stats for. The crew's own hooptie (F01 car
+  // HOOPTIE, authored in F01 CARS) is the ride until he does. It maps to no RALife vehicle, so nothing is driven or mutated.
+  if (!owned.length) owned.push('HOOPTIE');
   return { owned, map };
  }
 

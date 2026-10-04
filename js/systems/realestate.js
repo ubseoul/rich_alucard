@@ -7,6 +7,8 @@
   {id:'re_courtyard_ktown',label:'COURTYARD FOURPLEX',hood:'KOREATOWN',price:420000,rent:10500,eventEvery:10},
   {id:'re_laundromat_ktown',label:'LAUNDROMAT BUILDING',hood:'KOREATOWN',price:560000,rent:12800,eventEvery:7,perk:'the catacomb is in the basement. you book shows free.'}
  ];
+ // RC2 (OL-063): rentals pay DAILY. perDay() is what a building pays each wake (RAEcon.rent.perDay), falling back to the old weekly / 7.
+ const perDay=l=>Number(window.RAEcon?.rent?.perDay?.[l.id])||Math.round(l.rent/7);
  const TEASE={label:'SMALL CASTLE',hood:'DOWNTOWN',price:3800000};
  const props=()=>RALife.life().ownership.properties||[];
  const ownedIds=()=>props().filter(p=>p.ownershipStatus==='owned').map(p=>p.id);
@@ -21,7 +23,7 @@
   return true;
  }
  function collectAll(){let total=0;const next=props().map(p=>{if(p.ownershipStatus!=='owned'||!(p.rentDue>0))return p;let due=p.rentDue;const fee=shannonLane()&&p.id!==window.RAPropertyQuest?.propertyId?Math.round(due*.05):0;due-=fee;let owed=p.owed||0;const toLoan=Math.min(owed,Math.round(due*.5));owed-=toLoan;due-=toLoan;total+=due;return {...p,rentDue:0,owed};});
-  RAState.patch('life.ownership.properties',next);if(total)RALife.addMoney(total);RAState.recordEvent({id:`rent-collected:${RALife.today().day}:${Date.now()}`,type:'rent_collected',amount:total});return total;}
+  RAState.patch('life.ownership.properties',next);if(total)RALife.addMoney(total);RAState.recordEvent({id:`rent-collected:${RALife.today().day}:${RAState.get().life.history.length}`,type:'rent_collected',amount:total});return total;}
  // Weekly drift + occasional events (Fridays).
  RAClock.onWake('property-events',22,({info})=>{
   if(!info.friday)return;const list=props().map(p=>{if(p.ownershipStatus!=='owned'||!LISTINGS.some(l=>l.id===p.id))return p;const drift=((RALife.hash(info.day*31+p.purchasePrice)%400)-100)/10000;return {...p,value:Math.round((p.value||p.purchasePrice)*(1+drift))};});
@@ -41,8 +43,8 @@
   let out=`${base}<div class="phone-card"><b>NET WORTH</b>${RALife.fmt(RALife.netWorth())}<br>RENT WAITING: ${RALife.fmt(due)}${due>0&&owned.length>1?'<button type="button" class="phone-button" data-phone-action="do:realestate:collect">COLLECT ALL</button>':''}</div>`;
   if(shannonLane()){
    out+=`<p class="phone-speaker">LISTINGS</p>`;
-   for(const l of LISTINGS){const own=owned.find(p=>p.id===l.id);if(own){out+=`<div class="phone-card"><b>${l.label} · ${l.hood}</b>OWNED · VALUE ${RALife.fmt(own.value)} · ${RALife.fmt(l.rent)}/WK${own.owed>0?`<br>PAID OFF IN ~${Math.ceil(own.owed/(l.rent*.5))} WEEKS`:''}</div>`;continue;}
-    out+=`<div class="phone-card"><b>${l.label} · ${l.hood}</b>${RALife.fmt(l.price)} · RENT ${RALife.fmt(l.rent)}/WK${l.perk?`<br>${l.perk}`:''}<div class="phone-row"><button type="button" class="phone-button" data-phone-action="do:realestate:see:${l.id}" ${RALife.money()<l.price*.3?'disabled':''}>SEE IT WITH SHANNON</button></div></div>`;}
+   for(const l of LISTINGS){const own=owned.find(p=>p.id===l.id);if(own){out+=`<div class="phone-card"><b>${l.label} · ${l.hood}</b>OWNED · VALUE ${RALife.fmt(own.value)} · ${RALife.fmt(perDay(l))}/DAY${own.owed>0?`<br>PAID OFF IN ~${Math.ceil(own.owed/(perDay(l)*.5))} DAYS`:''}</div>`;continue;}
+    out+=`<div class="phone-card"><b>${l.label} · ${l.hood}</b>${RALife.fmt(l.price)} · RENT ${RALife.fmt(perDay(l))}/DAY${l.perk?`<br>${l.perk}`:''}<div class="phone-row"><button type="button" class="phone-button" data-phone-action="do:realestate:see:${l.id}" ${RALife.money()<l.price*.3?'disabled':''}>SEE IT WITH SHANNON</button></div></div>`;}
    out+=`<div class="phone-card"><b>${TEASE.label} · ${TEASE.hood}</b>${RALife.fmt(TEASE.price)}<br><span class="phone-small">SHANNON: "not yet. but I'm watching it for you."</span></div>`;
   }else out+='<p class="phone-small">SHANNON: "one building at a time."</p>';
   out+=window.RACastle?.markup?.()||'';

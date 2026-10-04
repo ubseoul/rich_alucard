@@ -17,6 +17,10 @@ async function boot(root){
 
 const J=v=>JSON.parse(JSON.stringify(v));
 export async function test(root){
+ process.env.RA_FLAGS_DARK='1';   // RC2 (OL-063): F01/F04 ship ON; the F07 suites prove F07 against a dark base
+ try{await body(root);}finally{delete process.env.RA_FLAGS_DARK;}
+}
+async function body(root){
  const c=await boot(root);
  const def=c.RAAdventures.get('NEW_OGA_FINALE'),party=def.nodes.party;
  const lines=(typeof party.lines==='function'?party.lines(c.RAAdventures.context()):party.lines).map(l=>l[1]);

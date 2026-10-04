@@ -18,6 +18,10 @@ function money(ctx,n){ctx.RAState.patch('life.resources.money',n);}
 function unlockRich(ctx){ctx.RAState.patch('life.newOga',{...ctx.RAState.get().life.newOga,rank:3,status:'associate'});ctx.RAF05.unlock.tick();}
 
 export async function test(root){
+ process.env.RA_FLAGS_DARK='1';   // RC2 (OL-063): F01/F04/F06/F15 ship ON; the trap suite proves its OFF contract on a dark build
+ try{await body(root);}finally{delete process.env.RA_FLAGS_DARK;}
+}
+async function body(root){
  // ============================================================================================ A. flags OFF
  {
   const c=await load(root,{flag:false});

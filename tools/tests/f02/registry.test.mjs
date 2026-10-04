@@ -6,7 +6,7 @@ export async function test(root){
  const c=await game(root);const R=c.RAIronAndGrace;
 
  // flags OFF: loading the fragment writes nothing to the save (lazy RAFrag namespace)
- assert.equal(c.RAFeatures.anyEnabled(),false);
+ assert.equal(Object.entries(c.RAFeatures.snapshot()).some(([k,v])=>v&&!(k in (c.RAFlagDefaults||{}))),false);
  assert(!c.RAState.get().frag,'F02 activates nothing and writes no save namespace while dark');
  assert.equal(R.describe().core,false);
 

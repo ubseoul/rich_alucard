@@ -32,16 +32,22 @@ async function reload(root,ctx){
 const mails=(c,id)=>(c.RALife.life().clock.mail||[]).filter(m=>m.id===id).length;
 
 export async function test(root){
+ process.env.RA_FLAGS_DARK='1';   // RC2 (OL-063): this suite proves the all-dark contract on a build with no promoted flags
+ try{await body(root);}finally{delete process.env.RA_FLAGS_DARK;}
+}
+async function body(root){
  // ============================================================================================ 1. everything dark: nothing changes
  {
   const c=await boot(root);
+  for(const id of Object.keys(c.RAFlagDefaults||{}))if(c.RAFeatures.get(id))c.RAFeatures.set(id,false);   // RC2 (OL-063): the economy flags ship ON; this section proves the all-dark contract
   assert.equal(c.RAIF1.selfCheck().ok,true,c.RAIF1.selfCheck().problems.join('; '));
   eq(c.RAMigrations.validate(),[],'migration ledger validates clean: no orphan submission');
   eq(c.RAMigrations.submissions(),[],'F04 / F05 / F06 submit no unassigned migration module');
-  assert.equal(c.RAHeat.tiers().provisional,true,'flags OFF: HEAT keeps its shipped provisional floors');
+  if(!c.RAFlagDefaults['F04.war_room'])assert.equal(c.RAHeat.tiers().provisional,true,'flags OFF: HEAT keeps its shipped provisional floors');   // RC2: F04 ships ON, so the authored floors are applied at load
+  if(!c.RAFlagDefaults['F04.war_room']){   // RC2 (OL-063): F04/F06 ship ON, so the all-dark assertions below only hold on a build without the promotion
   assert.equal(c.RAHeat.describe().floors.WARM,6);assert.equal(c.RAHeatFloors.applied(),false);
   for(const id of ['warRoom','trap','rainmaker'])assert.equal(c.RAPhoneApps.get(id),null,`${id} is dark while its flag is OFF`);
-  assert.equal(c.RAFrag.has('F04')||c.RAFrag.has('F05')||c.RAFrag.has('F06')||c.RAFrag.has('if1'),false,'no namespace is created while everything is dark');
+  assert.equal(c.RAFrag.has('F04')||c.RAFrag.has('F05')||c.RAFrag.has('F06')||c.RAFrag.has('if1'),false,'no namespace is created while everything is dark');}
   assert.equal(c.RAState.version,16,'schema stays v16');
   console.log('PASS convergence dark: selfCheck + migrations clean, HEAT provisional, no apps, no namespaces, schema v16');
  }

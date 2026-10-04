@@ -3,8 +3,10 @@
  const {RC,S,N,E}=RAContent;const D=RAAdventures.define;const T=()=>RANewOgaTunables;
  const m1Success=route=>A=>{A.set('m1Route',route);RANewOga.completeM1(route);};
 
+ // RC2 (OL-063, ECONOMY_DELTA): the JUG THE PLUG window opens on Day 3 and stays open through Day 24 (was Days 8-12).
+ const m1Window=L=>L.day>=(window.RAEcon?.newOgaM1?.fromDay??8)&&L.day<=(window.RAEcon?.newOgaM1?.toDay??12);
  D({id:'NEW_OGA_M1',title:'JUG THE PLUG',lane:'money',memoryType:'money',start:'pitch',
-  available:L=>L.day>=8&&L.day<=12&&L.life.newOga.status==='unstarted'&&(L.done('A08')||L.money<40000),
+  available:L=>m1Window(L)&&L.life.newOga.status==='unstarted'&&(L.done('A08')||L.money<40000),
   testSetup:ctx=>{ctx.RAState.patch('life.world.day',8);ctx.RAState.patch('life.newOga.status','unstarted');ctx.RAState.patch('life.adventures.records.A08',{status:'completed',count:1,completedDay:7});},
   nodes:{
    pitch:{env:'bedroom',actors:{left:'rich'},title:'VAMPGPT · WAKE',lines:[S(null,"oga. you're cooking noodles for tips. i have an idea. you won't like it."),RC('what.'),S(null,'jug the plug.'),RC('…brother. why would I jug the plug.'),S(null,"it's just an idea. you're tired of the ramen. the ramen is tired of you.")],
@@ -57,7 +59,7 @@
   }});
 
  RAWakeTriggers.define([
-  {adventure:'NEW_OGA_M1',priority:85,when:L=>L.day>=8&&L.day<=12&&L.life.newOga.status==='unstarted'&&(L.done('A08')||L.money<40000)},
+  {adventure:'NEW_OGA_M1',priority:85,when:L=>m1Window(L)&&L.life.newOga.status==='unstarted'&&(L.done('A08')||L.money<40000)},
   {adventure:'NEW_OGA_M2',priority:84,when:L=>L.life.newOga.status==='awaiting_interview'&&L.day>L.life.newOga.lastMissionDay},
   {adventure:'NEW_OGA_M3',priority:83,when:L=>L.life.newOga.status==='intern'&&L.life.newOga.mission===2&&L.day>L.life.newOga.lastMissionDay}
  ]);

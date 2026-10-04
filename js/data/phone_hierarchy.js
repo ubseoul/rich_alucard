@@ -38,7 +38,7 @@
     radio:{short:'NO TRACK',line:'not yet.',unlock:'Unlock a song.'},
     receipts:{short:'NO RECEIPTS',line:'nothing yet. go live.',unlock:'Complete the butter-chicken trip.'},
     armory:{short:'UNKNOWN DEALER',line:'not yet.',unlock:'Discover the Armory.'},
-    warRoom:{short:'NO OFFER',line:'nothing yet.',unlock:"Days 16–22: finish Ogun's rave, reach MID street rep, own a car and have two COOL homies; accept December's offer."},
+    warRoom:{short:'NO OFFER',line:'nothing yet.',unlock:"Day 2: the offer lands after your first sleep. Say yes."},
     trap:{short:'NO LISTING',line:'not yet.',unlock:'Reach NEW OGA Associate, accept Mister December, or finish JUGGED THE PLUG from Day 14.'},
     rainmaker:{short:'NO INVITE',line:'not yet.',unlock:'Complete your first world event.'},
     moves:{short:'HOME ONLY',line:'not yet.',unlock:'Return to the bedroom.'}

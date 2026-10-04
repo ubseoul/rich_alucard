@@ -26,13 +26,24 @@
   return L().clock.mail;
  }
  // ---- core wake handlers owned by the clock ----
+ // OL-068 (ECONOMY_DELTA): a brand-new life starts with RAEcon.start.cash (was $100,000). Day-1 first wake only; saved lives are never touched.
+ onWake('rc2-start',1,({info,first})=>{if(first&&info.day===1&&!RALife.flag('startCashSet')&&window.RAEcon?.start?.cash!=null){RAState.patch('life.resources.money',window.RAEcon.start.cash);RALife.setFlag('startCashSet',true);}});
  onWake('budget',10,({info})=>{
   if(info.day>1&&info.dayOfMonth===1){RALife.addMoney(100000);RALife.mail({id:`budget:${info.day}`,kind:'money',title:'BUDGET',body:'$100,000 landed. new month.'});}
  });
+ // RENTALS PAY DAILY (RC2 · OL-063 · ECONOMY_DELTA): each owned rental pays RAEcon.rent.perDay[id] into cash at WAKE, split by the same
+ // loan / Shannon-fee rules the manual COLLECT used (RARealEstate.collectAll). Was: weeklyRent accrued on Fridays, collected by hand.
+ // With RAEcon.rent.daily off the old Friday accrual runs unchanged.
  onWake('rent',20,({info})=>{
-  if(!info.friday)return;const props=L().ownership.properties||[];let total=0;
-  const next=props.map(p=>{if(p.ownershipStatus!=='owned')return p;const rent=Number(p.weeklyRent)||0;if(!rent)return p;total+=rent;return {...p,rentDue:(Number(p.rentDue)||0)+rent};});
-  if(total){RAState.patch('life.ownership.properties',next);RALife.mail({id:`rent:${info.day}`,kind:'money',title:'SHANNON FRIDAY',body:`rent's in. ${RALife.fmt(total)} waiting in RealMoneyRealEstate.`,app:'realEstate'});}
+  const econ=window.RAEcon?.rent;const daily=!!econ?.daily;
+  if(!daily&&!info.friday)return;const props=L().ownership.properties||[];let total=0;
+  const next=props.map(p=>{if(p.ownershipStatus!=='owned')return p;const rent=daily?(Number(econ.perDay?.[p.id])||Math.round((Number(p.weeklyRent)||0)/7)):(Number(p.weeklyRent)||0);if(!rent)return p;total+=rent;return {...p,rentDue:(Number(p.rentDue)||0)+rent};});
+  if(!total)return;
+  RAState.patch('life.ownership.properties',next);
+  if(!daily){RALife.mail({id:`rent:${info.day}`,kind:'money',title:'SHANNON FRIDAY',body:`rent's in. ${RALife.fmt(total)} waiting in RealMoneyRealEstate.`,app:'realEstate'});return;}
+  const paid=window.RARealEstate?.collectAll?window.RARealEstate.collectAll():0;
+  RAState.patch('life.world.flags.lastRentIn',{day:info.day,gross:total,net:paid});
+  RALife.mail({id:`rent:${info.day}`,kind:'money',title:'RENT IN',body:`${RALife.fmt(paid)} from your buildings.`,app:'realEstate'});
  });
  onWake('weather',30,({info})=>{
   if(info.rain)RALife.mail({id:`rain:${info.day}`,kind:'world',title:'RAIN TONIGHT',body:'the city gets quiet when it rains.'});
