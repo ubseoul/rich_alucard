@@ -38,6 +38,7 @@
  .f15-date:empty{display:none}
  .f15-date .btn{width:100%;font-size:9px}
  .f15-note{margin:6px 2px 0;font-family:var(--font);font-size:7px;line-height:1.6;color:var(--lav);min-height:12px}
+ .f15-id[hidden]{display:none!important}
  .f15-id{margin-top:4px;font-family:var(--font);font-size:7px;color:var(--lav)}
  .f15-id summary{cursor:pointer;color:var(--gold-hi);padding:4px 2px;min-height:28px}
  .f15-id p{margin:4px 0 8px;line-height:1.7;color:var(--cream)}
@@ -91,7 +92,7 @@
   // DEVELOPMENT / REVIEW SURFACE ONLY: the creator-confirmation panel exists only in dev mode (?dev=1); a release player never sees it.
   const devSurface=()=>!!document.body.classList.contains('dev-enabled');
   function renderIdentity(){
-   idBox.hidden=!devSurface();if(idBox.hidden){idBox.replaceChildren();return;}
+   idBox.hidden=!devSurface();if(idBox.hidden){idBox.replaceChildren();idBox.style.display='none';return;}idBox.style.display='';
    if(idBox.dataset.open==='1'&&idBox.open)return;
    const map=C().mapping(),ident=T().IDENTITY;
    idBox.innerHTML=`<summary>DEV: DANCER FIGURE MAPPING</summary><p class="f15-dev">${ident.status}. Dev override only; progress is saved by NAME and never changes.</p>`;
