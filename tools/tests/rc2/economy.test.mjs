@@ -16,10 +16,10 @@ const DAY_JOB_CEILING=Math.ceil(90/3)*(6+10);
 export async function test(root){
  // ---- 1. the four flags the loop runs on ship ON; TRAP stays dark
  {const c=await fresh(root);
-  for(const id of ['F01.showdown_core','F04.war_room','F06.rainmaker','F15.velvet_rotation'])assert.equal(c.RAFlagDefaults[id],true,`${id} ships ON`);
-  assert.notEqual(c.RAFlagDefaults['F05.trap'],true,'TRAP stays dark');}
+  for(const id of ['F01.showdown_core','F02.iron_and_grace','F02.armory','F02.range_day','F03.new_oga_ladder_close','F04.war_room','F05.trap','F06.rainmaker','F07.m8_and_finale','F15.velvet_rotation'])assert.equal(c.RAFlagDefaults[id],true,`${id} ships ON (OL-068)`);
+  assert.notEqual(c.RAFlagDefaults['if1.ledger_persist'],true,'the diagnostic ledger mirror stays off');}
 
- // ---- 2. PLAYS ARE THE MAIN PATH: no offer on Day 1; the offer lands on Day 2 and puts WAR ROOM on the phone; accept = six Ogas, two slots, no car needed
+ // ---- 2. PLAYS ARE THE MAIN PATH: no offer on Day 1; the offer lands on Day 2 and puts WAR ROOM on the phone; accept = six Ogas, no car needed
  {const c=await fresh(root);const WR=()=>c.RAPhoneApps.get('warRoom');const api={refresh(){},message(){}};
   assert.equal(c.RAFrag.read('F04','offer.status','unavailable'),'unavailable','Day 1: no offer yet');
   c.RAClock.sleep();assert.equal(c.RALife.today().day,2);
@@ -27,7 +27,8 @@ export async function test(root){
   assert.equal(c.RALife.appUnlocked('warRoom'),true,'the offer puts WAR ROOM on the phone (it used to unlock only on accept, which a locked app could not offer)');
   assert.equal(c.RACrew.list({fragment:'F04'}).length,6,'the six named Ogas exist');
   WR().onAction('accept','',api);
-  assert.equal(c.RAFrag.read('F04','active',false),true);assert.equal(c.RAWarRoomCrew.activeOgas().length,6);assert.equal(c.RAFrag.read('F04','jobs.slotsPerNight',0),2,'a Day-2 accept gets its real board tonight, not at the next WAKE');
+  assert.equal(c.RAFrag.read('F04','active',false),true);assert.equal(c.RAWarRoomCrew.activeOgas().length,6);assert.equal(c.RAFrag.read('F04','jobs.slotsPerNight',0),1,'a Day-2 accept gets its board tonight (ONE slot while the crew is new, through Day 8), not at the next WAKE');
+  c.RAState.patch('life.world.day',9);assert.equal(c.RAWarRoomCrew.slotsPerNight(),2,'two slots from Day 9 with a full crew');c.RAState.patch('life.world.day',2);
   // a brand-new crew's first two nights are routine runs only
   for(const night of [0,1]){c.RAFrag.patch('F04','jobs.nightsSinceStart',night);for(let day=2;day<30;day++){c.RAState.patch('life.world.day',day);assert.ok(!c.RAWarRoomJobs.buildNightMenu().some(j=>j.type==='TAKE_THE_BLOCK'),`night ${night}, day ${day}: no TAKE THE BLOCK`);}}
   c.RAState.patch('life.world.day',2);c.RAFrag.patch('F04','jobs.nightsSinceStart',0);

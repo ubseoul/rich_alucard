@@ -72,8 +72,8 @@ try{
  await p.goto(`${base}?mute=1`);await p.evaluate(()=>localStorage.clear());await p.reload();await p.waitForSelector('#startButton');
  await shot(p,'fresh_start');
  // ---- 0. shipped defaults: the economy loop's four flags are ON with no URL flags
- const ff=await p.evaluate(()=>({f01:RAFeatures.enabled('F01.showdown_core'),f04:RAFeatures.enabled('F04.war_room'),f06:RAFeatures.enabled('F06.rainmaker'),f15:RAFeatures.enabled('F15.velvet_rotation'),f05:RAFeatures.enabled('F05.trap'),dev:!!document.querySelector('#devPanel')}));
- log(ff.f01&&ff.f04&&ff.f06&&ff.f15&&!ff.f05&&!ff.dev,'normal URL: PLAY, WAR ROOM, MAKE IT RAIN and the club dancers ship ON; TRAP stays dark; no dev panel',JSON.stringify(ff));
+ const ff=await p.evaluate(()=>({f01:RAFeatures.enabled('F01.showdown_core'),f04:RAFeatures.enabled('F04.war_room'),f06:RAFeatures.enabled('F06.rainmaker'),f15:RAFeatures.enabled('F15.velvet_rotation'),f05:RAFeatures.enabled('F05.trap'),f02:RAFeatures.enabled('F02.armory')&&RAFeatures.enabled('F02.iron_and_grace'),f03:RAFeatures.enabled('F03.new_oga_ladder_close'),f07:RAFeatures.enabled('F07.m8_and_finale'),dev:!!document.querySelector('#devPanel')}));
+ log(ff.f01&&ff.f02&&ff.f03&&ff.f04&&ff.f05&&ff.f06&&ff.f07&&ff.f15&&!ff.dev,'normal URL: every first-release feature ships ON (PLAY, guns, Koreatown, War Room, TRAP, MAKE IT RAIN, M8 + finale, club dancers); no dev panel',JSON.stringify(ff));
  // ---- 1. the intro, played for real, ends in the bedroom on Day 1
  const t0=Date.now();
  const idle=await drive(p,{maxSteps:1200});
@@ -136,7 +136,7 @@ try{
  await p.locator('.app-button[data-phone-action="app:warRoom"]').click();await settle(p,400);await shot(p,'war_room_offer');
  await p.locator('[data-phone-action="do:warRoom:accept"]').click();await settle(p,500);
  const acc=await p.evaluate(()=>({active:RAFrag.read('F04','active',false),crew:RAWarRoomCrew.activeOgas().length,slots:RAFrag.read('F04','jobs.slotsPerNight',0),next:RAGuidance.next().id}));
- log(acc.active&&acc.crew===6&&acc.slots===2&&acc.next==='first_play','accepted on Day 2: six Ogas, two slots, next step is the first PLAY',JSON.stringify(acc));
+ log(acc.active&&acc.crew===6&&acc.slots===1&&acc.next==='first_play','accepted on Day 2: six Ogas, one slot while the crew is new, next step is the first PLAY',JSON.stringify(acc));
  await p.evaluate(()=>RAPhone.openApp('warRoom','jobs'));await p.waitForFunction(()=>document.body.innerText.includes("TONIGHT'S JOBS"),null,{timeout:15000});await shot(p,'war_room_jobs');
  const jobs=await p.evaluate(()=>({types:[...document.querySelectorAll('.war-room-job b')].map(b=>b.textContent.trim()),btns:[...document.querySelectorAll('[data-phone-action^="do:warRoom:play:"]')].map(b=>b.dataset.phoneAction)}));
  log(jobs.btns.length>0&&!jobs.types.some(t=>/TAKE THE BLOCK/.test(t)),'first night: routine jobs only (no TAKE THE BLOCK yet)',jobs.types.join(' | '));

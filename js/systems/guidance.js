@@ -43,8 +43,14 @@
   {id:'shift',app:null,ready:L=>advOk('SLURP')||advOk('A08'),item:()=>({label:'WORK A SHIFT',sub:'SLURP DYNASTY · LOW PAY',action:'go:lane:slurp'})},
  ];
  // ---- things worth spending on once there is cash ----------------------------------------------------------------------------
+ // the next castle room worth wanting: the cheapest unowned room (the Party Hall is a story step of its own). Until the Party Hall is built only the cheap
+ // early rooms (RAEcon.guidance.earlyRoomMax) are recommended, so the cash the player is saving for the hall is not eaten by every room on the way.
+ function nextRoom(){const G=window.RAEcon?.guidance||{},L=Lx().L(),hall=L.hasRoom('party_hall');
+  return safe(()=>window.RACastle.ROOMS.filter(r=>r.id!=='party_hall'&&!L.hasRoom(r.id)&&(!r.needs||r.needs(L))&&(hall||r.price<=(G.earlyRoomMax||0))).sort((a,b)=>a.price-b.price)[0],null);}
  const SPEND=[
-  {id:'club',app:'stripClub',ready:L=>safe(()=>window.RAStripClub.isOpen(),false)&&L.money>=15000&&(!window.RAStripClub.firstVisitDone()||L.day-(Number(flag('stripClubLastDay'))||0)>=2),item:L=>({label:'STRIP CLUB',sub:window.RAStripClub.firstVisitDone()?'THROW SOME CASH':'FIRST VISIT · DISCOUNT',action:'app:stripClub'})}
+  // week one the club is every night, then every 2 days
+  {id:'club',app:'stripClub',ready:L=>safe(()=>window.RAStripClub.isOpen(),false)&&L.money>=15000&&(!window.RAStripClub.firstVisitDone()||L.day-(Number(flag('stripClubLastDay'))||0)>=(L.day<=7?1:2)),item:L=>({label:'STRIP CLUB',sub:window.RAStripClub.firstVisitDone()?'THROW SOME CASH':'FIRST VISIT · DISCOUNT',action:'app:stripClub'})},
+  {id:'room',app:null,cost:()=>nextRoom()?.price||0,ready:L=>{const r=nextRoom(),G=window.RAEcon?.guidance||{};return !!r&&L.money>=r.price+(G.keepCash||0);},item:()=>({label:'BUILD '+nextRoom().label,sub:fmt(nextRoom().price),action:'app:realEstate'})},
  ];
  const asItem=(def,kind,L)=>{const it=def.item(L);return {id:def.id,kind,app:def.app||null,cost:def.cost?def.cost():0,key:kind==='story'?`story:${def.id}`:`${kind}:${def.id}:${L.day}${def.id==='play'?`:${slotsLeft()}`:''}`,...it};};
 

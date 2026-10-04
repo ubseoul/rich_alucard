@@ -1,8 +1,8 @@
 [
  {
   "ok": true,
-  "name": "normal URL: PLAY, WAR ROOM, MAKE IT RAIN and the club dancers ship ON; TRAP stays dark; no dev panel",
-  "detail": "{\"f01\":true,\"f04\":true,\"f06\":true,\"f15\":true,\"f05\":false,\"dev\":false}"
+  "name": "normal URL: every first-release feature ships ON (PLAY, guns, Koreatown, War Room, TRAP, MAKE IT RAIN, M8 + finale, club dancers); no dev panel",
+  "detail": "{\"f01\":true,\"f04\":true,\"f06\":true,\"f15\":true,\"f05\":true,\"f02\":true,\"f03\":true,\"f07\":true,\"dev\":false}"
  },
  {
   "ok": true,
@@ -52,7 +52,7 @@
  {
   "ok": true,
   "name": "first visit: real throws spent real money, never more than half the cash on hand, and the first visit is now used",
-  "detail": "$7500 of $100000"
+  "detail": "$7500 of $40000"
  },
  {
   "ok": true,
@@ -86,8 +86,8 @@
  },
  {
   "ok": true,
-  "name": "accepted on Day 2: six Ogas, two slots, next step is the first PLAY",
-  "detail": "{\"active\":true,\"crew\":6,\"slots\":2,\"next\":\"first_play\"}"
+  "name": "accepted on Day 2: six Ogas, one slot while the crew is new, next step is the first PLAY",
+  "detail": "{\"active\":true,\"crew\":6,\"slots\":1,\"next\":\"first_play\"}"
  },
  {
   "ok": true,
@@ -97,22 +97,22 @@
  {
   "ok": true,
   "name": "THE PLAY: canonical group-chat offer (live UI untouched)",
-  "detail": "BANK $92,500 HALF-PINT INCOMING CALL A VERY POLITE SAFE UP TO $14,000 "
+  "detail": "BANK $32,500 HALF-PINT INCOMING CALL A VERY POLITE SAFE UP TO $20,000 "
  },
  {
   "ok": true,
   "name": "no car owned: the crew hooptie is the ride (not a NO CAR refusal)",
-  "detail": "A VERY POLITE SAFE UP TO $14,000 · 2 OGA MIN. Half-Pint: enforcers up front. big ones. Hal"
+  "detail": "A VERY POLITE SAFE UP TO $20,000 · 2 OGA MIN. Half-Pint: enforcers up front. big ones. Hal"
  },
  {
   "ok": true,
   "name": "first PLAY completed on Day 2 through the real F01 UI; F04 consumed the canonical record",
-  "detail": "ROBBED win=false"
+  "detail": "BAILED win=false"
  },
  {
   "ok": true,
   "name": "bank moved by exactly the PLAY pot minus its cost",
-  "detail": "92500 -> 90500 (gain 0, spent 2000)"
+  "detail": "32500 -> 32500 (gain 0, spent 0)"
  },
  {
   "ok": true,

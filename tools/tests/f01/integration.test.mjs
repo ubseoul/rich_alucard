@@ -25,7 +25,7 @@ export async function test(root){
   assert(B.RAFeatures.get('F01.showdown_core'),'flag F01.showdown_core is registered');assert.equal(B.RAFeatures.get('F01.showdown_core').fragment,'F01');
   assert.equal(B.RAFeatures.enabled('F01.showdown_core'),false);assert.equal(Object.entries(B.RAFeatures.snapshot()).some(([k,v])=>v&&!(k in (B.RAFlagDefaults||{}))),false);
   assert.throws(()=>B.RAFeatures.register({id:'F01.other',fragment:'F01',default:true}),/may not default ON/,'F01 cannot ship a flag ON');
-  assert.equal((B.RAFlagDefaults||{})['F01.showdown_core'],true,'RC2: the owner promoted F01 (the economy loop runs on THE PLAY)');
+  assert(!('F01.showdown_core' in (B.RAFlagDefaults||{})),'the dark build promotes nothing (the shipped build promotes it: tools/tests/rc2)');
   assert.equal(B.RAShowdown.createSession({seed:1}).code,'FLAG_OFF');
   assert.equal((await B.RAShowdown.f04.enter({squad:[{id:'tunde',class:'MUSCLE'}],enemies:[{type:'CHEWER',count:1}]},{headless:true})).code,'FLAG_OFF');
   assert.equal(B.RAShowdownSandbox.open().code,'FLAG_OFF');

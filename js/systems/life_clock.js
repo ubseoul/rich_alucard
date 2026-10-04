@@ -26,6 +26,8 @@
   return L().clock.mail;
  }
  // ---- core wake handlers owned by the clock ----
+ // OL-068 (ECONOMY_DELTA): a brand-new life starts with RAEcon.start.cash (was $100,000). Day-1 first wake only; saved lives are never touched.
+ onWake('rc2-start',1,({info,first})=>{if(first&&info.day===1&&!RALife.flag('startCashSet')&&window.RAEcon?.start?.cash!=null){RAState.patch('life.resources.money',window.RAEcon.start.cash);RALife.setFlag('startCashSet',true);}});
  onWake('budget',10,({info})=>{
   if(info.day>1&&info.dayOfMonth===1){RALife.addMoney(100000);RALife.mail({id:`budget:${info.day}`,kind:'money',title:'BUDGET',body:'$100,000 landed. new month.'});}
  });

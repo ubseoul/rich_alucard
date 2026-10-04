@@ -9,11 +9,12 @@ import fs from 'node:fs';
 import {fileURLToPath,pathToFileURL} from 'node:url';
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..','..');
 const url=f=>pathToFileURL(path.join(root,f)).href;
-const {boot,mulberry}=await import(url('tools/tests/f13/_campaign.mjs'));
+const {mulberry}=await import(url('tools/tests/f13/_campaign.mjs'));
+const {careerBoot}=await import(url('tools/tests/f13/_career.mjs'));   // the FULL production load: F01-F07 + F15, every flag ON (OL-068)
 const {read}=await import(url('tools/tests/if1/_lib.mjs'));
 const {drive,SEEDS}=await import(url('tools/pilot/headless.mjs'));
 const arg=(n,d)=>{const i=process.argv.indexOf(n);return i<0?d:process.argv[i+1];};
-const RENT=arg('--rent','daily'),PAYSCALE=Number(arg('--payscale',1)),HALL=arg('--hall',null),CLUB=arg('--club','a'),DAYS=Number(arg('--days',36)),SEEDS_N=Number(arg('--seeds',3)),ONLY=(arg('--only','')||'').split(',').filter(Boolean),OUT=arg('--json',null);
+const START=arg('--start',null),NIGHT=arg('--night','a'),RENT=arg('--rent','daily'),PAYSCALE=Number(arg('--payscale',1)),HALL=arg('--hall',null),CLUB=arg('--club','a'),DAYS=Number(arg('--days',36)),SEEDS_N=Number(arg('--seeds',3)),ONLY=(arg('--only','')||'').split(',').filter(Boolean),OUT=arg('--json',null);
 const DAYJOB={typical:150,ceiling:280};      // one full SLURP shift: ~10-14 perfect bowls at $6 + $2-10 tip (js/minigames/slurp.js); ceiling = every order served at once
 
 const hash=s=>{let h=2166136261;for(const ch of String(s)){h^=ch.charCodeAt(0);h=Math.imul(h,16777619)>>>0;}return h;};
@@ -42,11 +43,11 @@ async function playHostFor(seed,policy){
 export const PERSONAS={
  follower:   {script:true,f01:'naive'},
  followerStrong:{script:true,f01:'careful'},
- normal:     {f01:'careful',plays:1,jobPref:'first',shifts:0,club:{every:4,budget:10000},buy:['property','room'],reserve:60000},
- aggressive: {f01:'greedy',plays:2,jobPref:'best',shifts:0,club:{every:7,budget:10000},buy:['room'],reserve:20000},
+ normal:     {trap:{houses:['the_bando','the_cul_de_sac'],reserve:60000},f01:'careful',plays:1,jobPref:'first',shifts:0,club:{every:4,budget:10000},buy:['property','room'],reserve:60000},
+ aggressive: {trap:{houses:['the_bando','the_cul_de_sac','laundromat_back_room'],reserve:10000},f01:'greedy',plays:2,jobPref:'best',shifts:0,club:{every:7,budget:10000},buy:['room'],reserve:20000},
  conservative:{f01:'careful',plays:1,jobPref:'safe',shifts:0,club:null,buy:['property'],reserve:120000},
- loser:      {f01:'random',plays:1,jobPref:'first',shifts:1,club:{every:2,budget:5000},buy:[],reserve:10000},
- winner:     {f01:'careful',plays:2,jobPref:'best',shifts:0,club:{every:3,budget:10000},buy:['property','room'],reserve:50000},
+ loser:      {trap:{houses:['the_bando'],reserve:20000},f01:'random',plays:1,jobPref:'first',shifts:1,club:{every:2,budget:5000},buy:[],reserve:10000},
+ winner:     {trap:{houses:['the_bando','the_cul_de_sac','laundromat_back_room'],reserve:30000},f01:'careful',plays:2,jobPref:'best',shifts:0,club:{every:3,budget:10000},buy:['property','room'],reserve:50000},
  spender:    {f01:'careful',plays:1,jobPref:'first',shifts:0,club:{every:1,budget:25000},buy:['room'],reserve:0},
  hoarder:    {f01:'careful',plays:1,jobPref:'safe',shifts:0,club:null,buy:[],reserve:1e12},
  landlord:   {f01:'careful',plays:1,jobPref:'first',shifts:0,club:{every:2,budget:10000},buy:['property'],reserve:50000},
@@ -57,12 +58,13 @@ export async function simulate(name,seed,{days=DAYS,econ=null}={}){
  const P=PERSONAS[name];const rng=mulberry(hash(`${name}|${seed}`));
  const realMath=Math.random;Math.random=rng;
  try{
- const c=await boot(root,{rng});
+ const {c}=await careerBoot(root,{seed,persona:'explorer'});   // all first-release features ON
  if(HALL)c.RACastle.ROOMS.find(r=>r.id==='party_hall').price=Number(HALL);
  if(RENT==='weekly'){const e=JSON.parse(JSON.stringify(c.RAEcon));e.rent.daily=false;c.RAEcon=e;}   // the pre-RC2 rule: weekly rent accrues on Fridays (collected here every morning: the kindest baseline)
  const host=await playHostFor(seed,P.f01);c.RAShowdown.play.setTransport(host.transport);
  // fresh life: the intro (A00 prologue -> throne -> first wake) is the newgame flow, already resolved when the phone first opens
  c.RAClock.wake({first:true});for(const f of ['prologueDone','throneDone','firstWakeDone'])c.RALife.setFlag(f,true);
+ if(START)c.RAState.patch('life.resources.money',Number(START));
  const money=()=>c.RALife.money();
  const api={refresh(){},message(){},close:async()=>true,begin:async()=>false,launch:async()=>({})};
  const m={persona:name,seed,days,daily:[],firstPlayDay:null,offerAcceptDay:null,plays:0,playWins:0,playGain:0,playSpent:0,captured:0,gone:0,clubNights:0,clubSpent:0,shifts:0,
@@ -82,10 +84,10 @@ export async function simulate(name,seed,{days=DAYS,econ=null}={}){
   return true;
  };
  const acceptOffer=()=>{const o=c.RAFrag.read('F04','offer',{});if(o.status==='available'&&!c.RAFrag.read('F04','active',false)){WR().onAction('accept','',api);if(m.offerAcceptDay==null)m.offerAcceptDay=c.RALife.today().day;return true;}return false;};
- const club=async budget=>{
+ const club=async (budget,rounds=1)=>{
   if(!c.RAStripClub?.isOpen())return false;const terms=c.RAStripClub.terms();const b0=money();
   const s=c.RAF06Rainmaker.mount({},{terms});let ok=false;
-  try{ok=s.start(budget);if(ok){let t=1000;for(let i=0;i<60;i++){if(c.RAF06Rainmaker.state().active==null)break;const st=s.game.getState();if(st.spent>=terms.cap&&terms.first||st.remaining<=0)break;s.game.flick(t+=700);}s.game.end();}}finally{s.dispose();}
+  try{for(let r=0;r<rounds;r++){const okr=s.start(budget);if(!okr)break;ok=true;let t=1000;for(let i=0;i<60;i++){if(c.RAF06Rainmaker.state().active==null)break;const st=s.game.getState();if(st.remaining<=0)break;s.game.flick(t+=700);}s.game.end();}}finally{s.dispose();}
   c.RALife.setFlag('stripClubLastDay',c.RALife.today().day);
   const spent=b0-money();if(spent>0){m.clubNights++;m.clubSpent+=spent;if(m.firstClub==null)m.firstClub={day:c.RALife.today().day,cashBefore:b0,spent,first:terms.first,capHeld:!terms.first||spent<=Math.floor(b0*c.RAEcon.stripClub.firstVisit.capShare)+1};}
   return spent>0;
@@ -95,6 +97,21 @@ export async function simulate(name,seed,{days=DAYS,econ=null}={}){
   if(!own('property_la_4p_01')){if(money()>=34000+(P.reserve||0)){SEEDS.property.apply(c);c.RAPropertyQuest=c.RAPropertyQuest||{propertyId:'property_la_4p_01'};m.seeded.push({what:'property',day:c.RALife.today().day});m.propsBought.push({id:'property_la_4p_01',day:c.RALife.today().day});return true;}return false;}
   for(const l of R.LISTINGS){if(own(l.id))continue;if(money()>=l.price*.3+(P.reserve||0)&&R.buy(l.id,{down:true})){m.propsBought.push({id:l.id,day:c.RALife.today().day});return true;}break;}return false;};
  const buyRoom=()=>{for(const r of [...c.RACastle.ROOMS].sort((a,b)=>a.price-b.price)){if(c.RALife.hasRoom(r.id))continue;if(r.needs&&!r.needs(c.RALife.L()))continue;if(money()>=r.price+(P.reserve||0)&&c.RACastle.buy(r.id)){m.roomsBought.push({id:r.id,day:c.RALife.today().day});if(r.id==='party_hall'&&m.partyHallDay==null)m.partyHallDay=c.RALife.today().day;return true;}break;}return false;};
+ // THE TRAP, through the same calls the phone app makes (as tools/tests/f13/_campaign.mjs): bank, hold a raid, buy a house, buy base, cook, assign sales
+ const trapDay=async()=>{const R=c.RAF05;if(!R||!P.trap)return;
+  try{
+   if(R.raids.pending())await c.RAHoldBridge.start({origin:{app:'trap'}});
+   if(R.sales.pending()>0){const a=R.sales.pending();const r=R.sales.bank();if(r&&r.ok)m.trapBanked=(m.trapBanked||0)+a;}
+   for(const h of P.trap.houses){if(R.store.hasHouse(h))continue;const def=R.AUTHORED.houses[h];if(money()-def.price>=P.trap.reserve){const r=R.unlock.buy(h);if(r&&r.ok){(m.trapHouses=m.trapHouses||[]).push({h,day:c.RALife.today().day});}}break;}
+   if(R.crew.slotSummary().runner.open>0&&!R.store.crewByRole('runner').length)R.crew.recruit('runner');
+   if(R.levels.status().eligible)R.levels.levelUp();
+   for(const h of R.store.ownedHouses()){if(R.production.hot(h))continue;const cap=R.AUTHORED.houses[h].capacity;const grades=R.production.unlockedGrades().filter(g=>g!=='S');const grade=grades.includes('B')?'B':'C';const base=R.production.BASE_OF[grade];
+    const need=cap-(Number(R.production.ingredients()[base])||0);if(need>0){const cost=(Number(R.PROVISIONAL.ingredientCost[base])||0)*need;if(money()-cost<20000)continue;R.production.purchaseIngredients(base,need);}
+    R.phoneApp.onAction('cook',h+'|'+grade,{refresh(){},message(){},launch:(id,params,done)=>done({quality:80})});}
+   let best=null;for(const h of R.store.ownedHouses())for(const g of Object.keys(R.AUTHORED.grades)){const n=R.production.readyCases({houseId:h,grade:g});if(!n)continue;const chans=R.sales.channels().filter(ch=>ch.available&&ch.grades.includes(g));const ch=chans.find(x=>x.id!=='wholesale')||chans.find(x=>x.id==='wholesale');if(!ch)continue;const val=n*R.production.unitPrice(g,80,{channelId:ch.id});if(!best||val>best.val)best={h,g,n,ch:ch.id,val};}
+   if(best)R.sales.assign({houseId:best.h,grade:best.g,cases:best.n,channel:best.ch});
+  }catch(e){m.errors.push('trap: '+String(e.message||e).slice(0,80));}
+ };
  const seedRave=()=>{if(!c.RALife.flag('ogunsRaveCompleted')){SEEDS.ogunsRave.apply(c);m.seeded.push({what:'ogunsRave',day:c.RALife.today().day});}};
 
  for(let d=0;d<days;d++){
@@ -117,8 +134,9 @@ export async function simulate(name,seed,{days=DAYS,econ=null}={}){
     else if(a==='app:warRoom:jobs'){await playOne('first');}
     else if(a==='go:lane:slurp'){m.shifts++;drv(c.RAAdventures.available('SLURP')?'SLURP':'A08');}
     else if(a==='ogun_rave'){seedRave();}
+    else if(a==='app:realEstate'&&g.id==='room'){const r=c.RACastle.ROOMS.filter(r=>r.id!=='party_hall'&&!c.RALife.hasRoom(r.id)).sort((x,y)=>x.price-y.price).find(r=>g.sub===c.RALife.fmt(r.price));if(r&&c.RACastle.buy(r.id))m.roomsBought.push({id:r.id,day:c.RALife.today().day});}
     else if(a==='app:realEstate'){if(c.RACastle.buy('party_hall')&&m.partyHallDay==null){m.partyHallDay=c.RALife.today().day;m.roomsBought.push({id:'party_hall',day:m.partyHallDay});}}
-    else if(a==='app:stripClub'){const cash=money();await club(CLUB==='lit'?10000:CLUB==='b'?(cash>=200000?25000:cash>=100000?25000:cash>=30000?10000:5000):(cash>=100000?25000:cash>=30000?10000:5000));if(CLUB==='b'&&money()>=200000)await club(25000);}
+    else if(a==='app:stripClub'){const cash=money();if(NIGHT==='q'){const first=!c.RAStripClub.firstVisitDone();const pick=cash=>cash>=150000?25000:cash>=50000?10000:5000;if(first){await club(25000,4);}else await club(pick(cash));}else{await club(CLUB==='lit'?10000:CLUB==='b'?(cash>=200000?25000:cash>=100000?25000:cash>=30000?10000:5000):(cash>=100000?25000:cash>=30000?10000:5000));if(CLUB==='b'&&money()>=200000)await club(25000);}}
     else m.errors.push(`unmapped action ${a}`);
     c.RAGuidance.opened(g.app||'');
     if(m.introDay==null&&!c.RAGuidance.story().some(s=>['vampgpt','meal'].includes(s.id)))m.introDay=c.RALife.today().day;
@@ -127,6 +145,7 @@ export async function simulate(name,seed,{days=DAYS,econ=null}={}){
    acceptOffer.call(null);
    if(P.noWar){/* jobber never takes the offer */}
    for(let i=0;i<(P.plays||0);i++){if(!c.RAFrag.read('F04','active',false))break;if(!await playOne(P.jobPref))break;}
+   await trapDay();
    for(let i=0;i<(P.shifts||0);i++){m.shifts++;drv(c.RAAdventures.available('SLURP')?'SLURP':'A08');}
    if(P.club&&d%P.club.every===0&&money()>=P.club.budget+10000)await club(P.club.budget);
    for(const k of P.buy||[]){if(k==='property')buyProperty();if(k==='room'){if(c.RALife.flag('ogunsRaveCompleted')===undefined&&day>=12)seedRave();buyRoom();}}
