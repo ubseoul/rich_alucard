@@ -1,0 +1,112 @@
+# Current OPEN Art gaps — Ship 012 candidate reconciliation
+
+**As of:** 2026-09-26
+
+**Frozen pixel authority:** ART SHIP 011 promotion records
+
+**Runtime/art-integration authority:** `origin/claude/art-ship-010-integration` at `8eab30dc790071ec8da98f65311e2b4676fabad0`
+
+## ART SHIP 012 candidate coverage
+
+ART SHIP 012 supplies five candidate anchors for `portobello_manager`, `auntie`, `soul`, `training_dummy` and `buckhead`. HQ passed the first four exact byte streams; Buckhead has a style/proportion-only revision pending HQ review. Nothing is frozen or runtime-integrated, so current PASS/HOLD status does not move. `portobello_wife`, `portobello_kid1` and `portobello_kid2` remain excluded and blocked.
+
+This map uses the live post–Ship 008 Integration Matrix. Historical Rough Complete and pre-integration counts remain provenance only.
+
+## Current snapshot
+
+| Area | Current truth |
+|---|---|
+| Frozen corpus | 203 frozen assets; 343 registered entries |
+| Ship 004–010 handoff | 183 files |
+| Runtime-integrated | 145 files |
+| Approved Ship 009 + Ship 010 pending integration/QA | 16 files + one zero-pixel reuse mapping |
+| Historical superseded | 1 file |
+| Handoff/reference only | 12 state/asset sheets |
+| Approved states with no current scene | 4 |
+| Mapping-ambiguous | 4 |
+| Ready but no visual surface | 1 |
+| Runtime census | 104 adventure screens + 17 fights |
+| Final-art review | 105 PASS / 16 HOLD |
+| Automated presentation | All adventure/fight checks pass; HOLD is creative coverage, not generic Director failure |
+
+## Presentation authority
+
+Frozen source pixels remain native and immutable. On Presentation Director-managed scenes, the Director's shot profile/camera/framing metadata is the sole final display-size authority. Historical approximately 1.85× guidance is reference context only. `PD-W1-04` remains Presentation Director/HQ-owned.
+
+## Ship 009 supplied / pending integration
+
+ART SHIP 009 supplies and freezes the Art-owned coverage below, but these tickets remain runtime-open until Engineering integration and real Presentation QA:
+
+1. `NC-FA-06` — nine new frozen environment masters plus approved zero-pixel `lan_night → tristan_apt` reuse for 12 held placeholder-environment screens.
+2. `NC-FA-10` — one frozen exact-origin additive Hollow Bowl stage-band crowd companion layer for one held screen. The frozen master and Ship 008 crowd layer remain unchanged.
+3. `NC-FA-11` — frozen `tunde.hookah_seated` and `dre.hookah_seated` states for one held `company=HOMIES` minigame surface.
+
+Do not mark these runtime tickets resolved or change PASS/HOLD totals until Engineering integrates the mappings and runtime visual QA passes.
+
+## Ship 010 supplied / pending integration
+
+ART SHIP 010 supplies and freezes the following Art-owned coverage, but runtime tickets remain open until Engineering integration and real Presentation QA:
+
+1. `NC-FA-07` — three frozen Portobello Rich states. The four companion identities `portobello_wife`, `portobello_kid1`, `portobello_kid2` and `portobello_manager` remain **BLOCKED BY CANON**.
+2. `NC-FA-12` — one frozen exact-origin additive rooftop party-crowd condition layer behind named actors; the frozen rooftop master remains unchanged.
+
+Portobello Rich’s short-hair treatment is an intentional authorized variant, not identity drift. No other Rich state was modified. Do not mark these runtime tickets resolved or change PASS/HOLD totals until Engineering integrates the frozen assets and runtime visual QA passes.
+
+## Environment masters still missing after Ship 009
+
+Four previously listed environment ids remain without approved masters:
+
+`catacomb_dead`, `atl_airport`, `ocean_night_flight`, `halloween`.
+
+They were outside ART SHIP 009's named runtime-demand package. Do not generate them without a refreshed live-surface demand map and named authorization.
+
+## Missing identities / unresolved cast
+
+Current demand still includes twelve identity slots without approved art:
+
+`mom`, `dad`, `sister`, `brother1`, `brother2`, `god`, `buckhead`, `og_hooper`, `portobello_wife`, `portobello_kid1`, `portobello_kid2`, `portobello_manager`.
+
+- Family details/likeness remain Ube-owned: **BLOCKED BY CANON**.
+- `god` is culturally sensitive and needs exact-card, named authorization: **BLOCKED BY CANON / NAMED REVIEW**.
+- `og_hooper` remains an underspecified accepted deferral: **BLOCKED BY CANON**.
+- `buckhead` and `portobello_manager` now have named ART SHIP 012 authority and candidate anchors pending HQ review; they are not yet approved art.
+- Portobello wife, kid1 and kid2 remain without committed OPEN/GUIDED visual cards: **BLOCKED BY CANON**.
+- Other ad-hoc runtime extras and neutral groups remain unresolved coverage; do not invent canon-sensitive identities.
+
+## Derivative states still open
+
+Only create states actually consumed by runtime, always returning to the exact frozen master:
+
+- Coffe: hype/caught. The frozen Ship 008 GUIDED state does not authorize other GUIDED work or revisions.
+- Reggie: leaning in.
+- Kiki, Nneka, Pinky, Moonie, Kaede, Wispa, Tasha, Nightshade, Hina, Bunmi, June, Ms. Patrice and Mazda human: remaining scene-required OPEN states already recorded in production authority.
+- Rich: remaining TOUGE/riding/Portobello states only under their exact contracts.
+- Bllad33: dry reaction remains open after the frozen seated state.
+
+Tunde and Dre hookah seated states are now frozen for NC-FA-11 and are no longer open Art gaps.
+
+## Props, creatures, vehicles, crowds and UI still open
+
+- Remaining Mazda life stages and riding/flyby coverage.
+- Pier catch props/cards, torn bread state, original Armory gun case/combat states and Rich Radio cover tiles.
+- Non-Supra world/listing/delivery/damaged vehicle surfaces, TOUGE rivals and Portobello vehicle coverage.
+- Bedroom company overlays/props, weather/stars conditions and remaining crowd layers.
+- Full phone/app screens and listing cards; existing frozen icons do not satisfy full-screen layouts.
+
+Audio dependencies remain outside Art scope.
+
+## BLOCKED / excluded
+
+- `NC-FA-09`: mapping questions only; no new pixels.
+- `PD-W1-04`: remains Presentation Director/HQ-owned after Portobello environment approval.
+- Files with no current visual surface: do not generate art just to increase usage.
+- Family, culturally sensitive and underspecified identities: `BLOCKED BY CANON`.
+- Dragon cube label: Ube-owned; keep swappable.
+- Laura: intentionally no art.
+- SEALED/HQ-only material: `SEALED / DO NOT TOUCH`; never inspect or enumerate.
+
+## Frozen forecast
+
+The Ship 009 forecast remains approximately **111 PASS / 10 HOLD** after its 12 assets and zero-pixel reuse are integrated and QA-accepted. For Ship 010, the rooftop candidate may clear one held screen, moving the current **105 PASS / 16 HOLD** baseline to approximately **106 PASS / 15 HOLD**. The five Portobello screens remain blocked by the four canon-sensitive companion identities and PD-W1-04 review. These are forecasts only; current runtime truth remains **105 PASS / 16 HOLD**.
+
+**Recommended next step:** HQ reviews revised Buckhead. If the Ship is accepted, record explicit promotion/freeze before any Engineering integration or PASS/HOLD update.

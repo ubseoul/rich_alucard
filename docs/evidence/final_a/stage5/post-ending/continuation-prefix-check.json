@@ -1,0 +1,11 @@
+{
+ "method": "production Day1-to-first-ending daily metric parity; after-ending probes excluded",
+ "persona": "homebody",
+ "seed": 1,
+ "firstEndingDay": 36,
+ "mainDays": 35,
+ "continuationPrefixDays": 35,
+ "mainHash": "71d287be83d44a09e4caec89a09ef448facd7c7cd11c564dfc981d07ee501265",
+ "continuationPrefixHash": "71d287be83d44a09e4caec89a09ef448facd7c7cd11c564dfc981d07ee501265",
+ "equal": true
+}

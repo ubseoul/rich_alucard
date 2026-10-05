@@ -1,0 +1,23 @@
+{
+  "avatars": [
+    {
+      "master": "A-family-brother1.png",
+      "avatar": "A-family-brother1-avatar.png",
+      "exact_crop_derivative": true,
+      "master_sha256": "8ca1f2505a29b00df7629c5258921e58c820d1b97c3dd7bdb1df03bce56b71ef"
+    },
+    {
+      "master": "A-family-brother2.png",
+      "avatar": "A-family-brother2-avatar.png",
+      "exact_crop_derivative": true,
+      "master_sha256": "9afe9279d0fcde25a7d24e9063ce73f0084ef7d3dd4b6c186b165164a271ec2d"
+    }
+  ],
+  "god_fading": {
+    "master": "A-god-seated_on_curb.png",
+    "derivative": "A-god-fading.png",
+    "operation": "subtractive pixel fade plus declared warm edge/mote colors",
+    "surviving_identity_pixels_unchanged": true
+  },
+  "pass": true
+}

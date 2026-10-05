@@ -1,0 +1,78 @@
+PASS game loads F07 (M8 + finale adventures, PLAY bridge) after F01/F03/F04
+PASS M8 is delivered by the WAKE arbiter (priority 77)
+PASS M8 is delivered as JOB TEXT (Koreatown block, Open Mouth Gang)
+PASS no voice-note UI or voice content in M8 —  | audio/voice nodes: 0
+PASS the real PLAY ran and F07 consumed its canonical result once — {"win":true,"klass":"MESSY"}
+PASS M8 resolved: m8Resolved written by the mission itself — win
+PASS win: authored +12 HEAT and $18K — heat 0->12
+PASS reload: m8Resolved persists, nothing pending — {"m8":true,"loan":3,"pending":null}
+PASS F03 handoff in the real page: M9 becomes eligible after M8 resolved
+PASS SEND THE BOYS: resolves M8 with no invented consequence (no pay / HEAT / clout / trust change) — trust 1
+PASS saved plan (three others, no THE OGAS): selection reopens with THE OGAS fixed and all three lanes marked PREVIOUSLY PICKED, none dropped — THE OGAS SQUAD · FIXED | SHANNON PREVIOUSLY PICKED | MAZDA PREVIOUSLY PICKED | PINKY PREVIOUSLY PICKED | TRISTAN
+PASS D3: THE OGAS is a visible, locked (non-selectable) entry
+PASS D6: no lane advertises an effect — THE OGAS SQUAD · FIXED | SHANNON | MAZDA | PINKY | TRISTAN
+PASS THE OGAS fixed + two picks — ["ogas","shannon","pinky"]
+PASS BLESSING: Phase 1 runs on F07's PLAY page and the job is THE PARTY — assets/f07/play/index.html?embed=1&speed=10&mute=1
+PASS BLESSING: AUNTIES event feedback is shown in the feed
+PASS BLESSING: CANOPY POLE feedback is shown whenever that beat occurs — beat occurred
+PASS BLESSING: the encounter lives under F07's own storage namespace (F01's world untouched) — {"f01":0,"f07":6}
+PASS BLESSING: inventory unchanged by the encounter vehicle (cars now [])
+PASS BLESSING: the live PLAY page carries THE PARTY job, the AUNTIES + CANOPY POLE stage cards — {"job":true,"contact":["aunties"],"trouble":["canopy_pole"]}
+PASS BLESSING: Phase 1 THE PARTY won on F07's PLAY page — office
+PASS BLESSING: GBENGA fight shown with 260 HP — GBENGA HP 260/260
+PASS AGBADA SWEEP telegraph visible
+PASS OCTOPUS BRAIN shows the three authored options — CHARISMA RETIRE, UNCLE | RECRUIT WORK FOR ME | ROAST YOU PHOTOSHOPPED YOURSELF SHAKING YOUR OWN HAND.
+PASS BLESSING: Rich is the NEW OGA (rank 6), ending blessing
+PASS BLESSING: exterior condition respects the saved ending
+PASS BLESSING: its own ending text is shown
+PASS BLESSING: only its own consequence flags are set
+PASS BLESSING: the tributed car stays in the warehouse
+PASS BLESSING: Gbenga's VampGram post is posted
+PASS every ending: Gbenga's blocks are Rich's, the War Room begins, GBENGA ENTERPRISES -> RICH ENTERPRISES
+PASS BLESSING: reload keeps NEW OGA, blocks and the car state; the finale never re-arrives
+PASS BLESSING: exterior condition survives reload
+PASS THE OGAS fixed + two picks — ["ogas","shannon","pinky"]
+PASS CONSIGLIERE: Phase 1 runs on F07's PLAY page and the job is THE PARTY — assets/f07/play/index.html?embed=1&speed=10&mute=1
+PASS CONSIGLIERE: AUNTIES event feedback is shown in the feed
+PASS CONSIGLIERE: CANOPY POLE feedback is shown whenever that beat occurs — beat occurred
+PASS CONSIGLIERE: the encounter lives under F07's own storage namespace (F01's world untouched) — {"f01":0,"f07":6}
+PASS CONSIGLIERE: inventory unchanged by the encounter vehicle (cars now ["honda_s2000_pink"])
+PASS CONSIGLIERE: the live PLAY page carries THE PARTY job, the AUNTIES + CANOPY POLE stage cards — {"job":true,"contact":["aunties"],"trouble":["canopy_pole"]}
+PASS CONSIGLIERE: Phase 1 THE PARTY won on F07's PLAY page — office
+PASS CONSIGLIERE: GBENGA fight shown with 320 HP — GBENGA HP 320/320
+PASS CONSIGLIERE: Rich is the NEW OGA (rank 6), ending consigliere
+PASS CONSIGLIERE: exterior condition respects the saved ending
+PASS CONSIGLIERE: its own ending text is shown
+PASS CONSIGLIERE: only its own consequence flags are set
+PASS CONSIGLIERE: the tributed car stays in the warehouse
+PASS CONSIGLIERE: Gbenga's VampGram post is not posted
+PASS every ending: Gbenga's blocks are Rich's, the War Room begins, GBENGA ENTERPRISES -> RICH ENTERPRISES
+PASS CONSIGLIERE: the voice notes continue ("Hello. Hello. Oga. Hello.")
+PASS CONSIGLIERE: reload keeps NEW OGA, blocks and the car state; the finale never re-arrives
+PASS CONSIGLIERE: exterior condition survives reload
+PASS THE OGAS fixed + two picks — ["ogas","shannon","pinky"]
+PASS TAKEOVER: Phase 1 runs on F07's PLAY page and the job is THE PARTY — assets/f07/play/index.html?embed=1&speed=10&mute=1
+PASS TAKEOVER: AUNTIES event feedback is shown in the feed
+PASS TAKEOVER: CANOPY POLE feedback is shown whenever that beat occurs — beat occurred
+PASS TAKEOVER: the encounter lives under F07's own storage namespace (F01's world untouched) — {"f01":0,"f07":6}
+PASS TAKEOVER: inventory unchanged by the encounter vehicle (cars now ["lambo_urus_oxblood"])
+PASS TAKEOVER: the live PLAY page carries THE PARTY job, the AUNTIES + CANOPY POLE stage cards — {"job":true,"contact":["aunties"],"trouble":["canopy_pole"]}
+PASS TAKEOVER: Phase 1 THE PARTY won on F07's PLAY page — office
+PASS TAKEOVER: GBENGA fight shown with (shortened) HP — GBENGA HP 20/260
+PASS TAKEOVER: winning ending selects approved RICH ENTERPRISES exterior
+PASS TAKEOVER: complete approved sign rectangle is inside the camera
+PASS TAKEOVER: exterior frame measurable
+PASS TAKEOVER exterior: actor rich sprite loaded (assets/rich_standing_right.png, 80x96)
+PASS TAKEOVER exterior: rich drawn pixels fully inside the world viewport (100.0%)
+PASS TAKEOVER exterior: dialogue box covers no actor's face
+PASS TAKEOVER: Rich is the NEW OGA (rank 6), ending takeover
+PASS TAKEOVER: exterior condition respects the saved ending
+PASS TAKEOVER: its own ending text is shown
+PASS TAKEOVER: only its own consequence flags are set
+PASS TAKEOVER: the tributed car comes back
+PASS TAKEOVER: Gbenga's VampGram post is not posted
+PASS every ending: Gbenga's blocks are Rich's, the War Room begins, GBENGA ENTERPRISES -> RICH ENTERPRISES
+PASS TAKEOVER: reload keeps NEW OGA, blocks and the car state; the finale never re-arrives
+PASS TAKEOVER: exterior condition survives reload
+PASS no console / page errors
+PASS f07 browser (77 checks)

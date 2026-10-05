@@ -1,0 +1,2994 @@
+{
+ "method": "OPEN runtime metadata read only; exact gate function provenance, not seeded availability or player observations",
+ "adventures": [
+  {
+   "id": "A00",
+   "title": "THE GOLDFISH YEARS",
+   "lane": "home",
+   "scope": "MUST",
+   "repeatable": false,
+   "cooldown": null,
+   "available": null
+  },
+  {
+   "id": "SHOP",
+   "title": "SHOPPING",
+   "lane": "mall",
+   "scope": "MUST",
+   "repeatable": true,
+   "cooldown": null,
+   "available": null
+  },
+  {
+   "id": "COOK",
+   "title": "COOK A TRACK",
+   "lane": "music",
+   "scope": "MUST",
+   "repeatable": true,
+   "cooldown": null,
+   "available": "L=>RALife.recentMemories(10).length>0"
+  },
+  {
+   "id": "RE_VIEWING",
+   "title": "A VIEWING WITH SHANNON",
+   "lane": "property",
+   "scope": "MUST",
+   "repeatable": true,
+   "cooldown": null,
+   "available": null
+  },
+  {
+   "id": "RB_DELIVERY",
+   "title": "RICHBOIMPORTS DELIVERY",
+   "lane": "cars",
+   "scope": "MUST",
+   "repeatable": true,
+   "cooldown": null,
+   "available": null
+  },
+  {
+   "id": "TANDEM_BATTLE",
+   "title": "MIDNIGHT MAFIA · TANDEM",
+   "lane": "cars",
+   "scope": "MUST",
+   "repeatable": true,
+   "cooldown": null,
+   "available": "L=>L.done('A13')"
+  },
+  {
+   "id": "DATE",
+   "title": "A DATE",
+   "lane": "dating",
+   "scope": "MUST",
+   "repeatable": true,
+   "cooldown": null,
+   "available": null
+  },
+  {
+   "id": "GRAVE",
+   "title": "THE GRAVE",
+   "lane": "mall",
+   "scope": "MUST",
+   "repeatable": true,
+   "cooldown": null,
+   "available": null
+  },
+  {
+   "id": "PEKING",
+   "title": "PEKING NAIJA",
+   "lane": "food",
+   "scope": "MUST",
+   "repeatable": true,
+   "cooldown": null,
+   "available": null
+  },
+  {
+   "id": "TACOS",
+   "title": "DON CHUY'S",
+   "lane": "food",
+   "scope": "MUST",
+   "repeatable": true,
+   "cooldown": null,
+   "available": null
+  },
+  {
+   "id": "A43",
+   "title": "NAIJA MART & THE MALT",
+   "lane": "food",
+   "scope": "MUST",
+   "repeatable": false,
+   "cooldown": null,
+   "available": null
+  },
+  {
+   "id": "NAIJA",
+   "title": "NAIJA MART",
+   "lane": "food",
+   "scope": "MUST",
+   "repeatable": true,
+   "cooldown": null,
+   "available": "L=>L.done('A43')"
+  },
+  {
+   "id": "THRONE",
+   "title": "THE THRONE ROOM",
+   "lane": "home",
+   "scope": "MUST",
+   "repeatable": true,
+   "cooldown": null,
+   "available": null
+  },
+  {
+   "id": "ARMORY_WALL",
+   "title": "THE ARMORY WALL",
+   "lane": "combat",
+   "scope": "MUST",
+   "repeatable": true,
+   "cooldown": null,
+   "available": null
+  },
+  {
+   "id": "GARAGE_VIEW",
+   "title": "THE GARAGE",
+   "lane": "cars",
+   "scope": "MUST",
+   "repeatable": true,
+   "cooldown": null,
+   "available": null
+  },
+  {
+   "id": "COFFIN",
+   "title": "THE COFFIN",
+   "lane": "home",
+   "scope": "MUST",
+   "repeatable": true,
+   "cooldown": null,
+   "available": null
+  },
+  {
+   "id": "FISHTANK",
+   "title": "THE FISH TANK ROOM",
+   "lane": "home",
+   "scope": "MUST",
+   "repeatable": true,
+   "cooldown": null,
+   "available": null
+  },
+  {
+   "id": "A07",
+   "title": "BOBA AT THE GRAVE",
+   "lane": "dating",
+   "scope": "MUST",
+   "repeatable": false,
+   "cooldown": null,
+   "available": null
+  },
+  {
+   "id": "A08",
+   "title": "FIRST SHIFT AT SLURP DYNASTY",
+   "lane": "money",
+   "scope": "MUST",
+   "repeatable": false,
+   "cooldown": null,
+   "available": null
+  },
+  {
+   "id": "SLURP",
+   "title": "SLURP DYNASTY",
+   "lane": "money",
+   "scope": "MUST",
+   "repeatable": true,
+   "cooldown": null,
+   "available": "L=>L.done('A08')"
+  },
+  {
+   "id": "A09",
+   "title": "REGGIE NOT KEEF",
+   "lane": "dragons",
+   "scope": "MUST",
+   "repeatable": false,
+   "cooldown": null,
+   "available": "L=>!L.dragon"
+  },
+  {
+   "id": "KUSH",
+   "title": "KUSH & CRYPT",
+   "lane": "dragons",
+   "scope": "MUST",
+   "repeatable": true,
+   "cooldown": null,
+   "available": "L=>L.done('A09')"
+  },
+  {
+   "id": "A10",
+   "title": "UNCLE SUNDAY & THE AGEGE BREAD",
+   "lane": "dragons",
+   "scope": "MUST",
+   "repeatable": false,
+   "cooldown": null,
+   "available": "L=>!!L.dragon"
+  },
+  {
+   "id": "A11",
+   "title": "HATCH NIGHT",
+   "lane": "dragons",
+   "scope": "MUST",
+   "repeatable": false,
+   "cooldown": null,
+   "available": "L=>L.dragon?.stage==='egg'"
+  },
+  {
+   "id": "A12",
+   "title": "FIRST CAST",
+   "lane": "dragons",
+   "scope": "MUST",
+   "repeatable": false,
+   "cooldown": null,
+   "available": "L=>!!L.dragon?.hatched"
+  },
+  {
+   "id": "PIER",
+   "title": "SANTA MONICA PIER",
+   "lane": "dragons",
+   "scope": "MUST",
+   "repeatable": true,
+   "cooldown": null,
+   "available": "L=>L.done('A12')"
+  },
+  {
+   "id": "A13",
+   "title": "ANGELES CREST AT MIDNIGHT",
+   "lane": "cars",
+   "scope": "MUST",
+   "repeatable": false,
+   "cooldown": null,
+   "available": "L=>(L.life.ownership.cars||[]).length>0"
+  },
+  {
+   "id": "A14",
+   "title": "OPEN MIC AT THE CATACOMB",
+   "lane": "music",
+   "scope": "MUST",
+   "repeatable": false,
+   "cooldown": null,
+   "available": null
+  },
+  {
+   "id": "SHOW",
+   "title": "A SHOW AT THE CATACOMB",
+   "lane": "music",
+   "scope": "MUST",
+   "repeatable": true,
+   "cooldown": null,
+   "available": "L=>L.done('A14')"
+  },
+  {
+   "id": "A15",
+   "title": "IRON JAW",
+   "lane": "music",
+   "scope": "MUST",
+   "repeatable": false,
+   "cooldown": null,
+   "available": "L=>L.done('A14')"
+  },
+  {
+   "id": "A16",
+   "title": "CAFÉ LAPTOP NIGHT",
+   "lane": "music",
+   "scope": "MUST",
+   "repeatable": false,
+   "cooldown": null,
+   "available": null
+  },
+  {
+   "id": "CAFE",
+   "title": "BEAN THERE DEAD THAT",
+   "lane": "music",
+   "scope": "MUST",
+   "repeatable": true,
+   "cooldown": null,
+   "available": "L=>L.done('A16')"
+  },
+  {
+   "id": "A17",
+   "title": "NNEKA'S BLOOD BANK",
+   "lane": "home",
+   "scope": "MUST",
+   "repeatable": false,
+   "cooldown": null,
+   "available": "L=>!!L.flag('a17Pending')"
+  },
+  {
+   "id": "A48",
+   "title": "RETWIST",
+   "lane": "home",
+   "scope": "MUST",
+   "repeatable": false,
+   "cooldown": null,
+   "available": null
+  },
+  {
+   "id": "RETWIST",
+   "title": "TWIST & SHOUT",
+   "lane": "home",
+   "scope": "MUST",
+   "repeatable": true,
+   "cooldown": null,
+   "available": "L=>L.done('A48')"
+  },
+  {
+   "id": "A42",
+   "title": "TABLE FOR ONE",
+   "lane": "food",
+   "scope": "MUST",
+   "repeatable": true,
+   "cooldown": null,
+   "available": null
+  },
+  {
+   "id": "A45",
+   "title": "YU & ME ONSEN",
+   "lane": "home",
+   "scope": "MUST",
+   "repeatable": true,
+   "cooldown": null,
+   "available": null
+  },
+  {
+   "id": "A_TRISTAN",
+   "title": "TRISTAN",
+   "lane": "people",
+   "scope": "MUST",
+   "repeatable": false,
+   "cooldown": null,
+   "available": null
+  },
+  {
+   "id": "A_SMACK2",
+   "title": "LIL SMACK AT THE FOOD COURT",
+   "lane": "combat",
+   "scope": "MUST",
+   "repeatable": false,
+   "cooldown": null,
+   "available": "L=>L.day>=12"
+  },
+  {
+   "id": "A18",
+   "title": "FORTY KEVINS",
+   "lane": "combat",
+   "scope": "MUST",
+   "repeatable": false,
+   "cooldown": null,
+   "available": null
+  },
+  {
+   "id": "A19",
+   "title": "BRUCE LOOSE AT THE FOOD COURT",
+   "lane": "combat",
+   "scope": "MUST",
+   "repeatable": false,
+   "cooldown": null,
+   "available": null
+  },
+  {
+   "id": "A20",
+   "title": "POWER LEVEL PHIL",
+   "lane": "combat",
+   "scope": "MUST",
+   "repeatable": true,
+   "cooldown": null,
+   "available": null
+  },
+  {
+   "id": "HOOKAH",
+   "title": "HOOKAH ON THE ROOF",
+   "lane": "people",
+   "scope": "MUST",
+   "repeatable": true,
+   "cooldown": 7,
+   "available": "L=>L.eco?.level?.()>=1||RAEcology.level()>=1||L.hasRoom('hookah_roof')"
+  },
+  {
+   "id": "A23",
+   "title": "HILT DOESN'T PLAY",
+   "lane": "combat",
+   "scope": "MUST",
+   "repeatable": false,
+   "cooldown": null,
+   "available": null
+  },
+  {
+   "id": "A23R",
+   "title": "HILT, AGAIN",
+   "lane": "combat",
+   "scope": "MUST",
+   "repeatable": false,
+   "cooldown": null,
+   "available": "L=>L.done('A23')"
+  },
+  {
+   "id": "A24",
+   "title": "GUNS AND GRACE",
+   "lane": "combat",
+   "scope": "MUST",
+   "repeatable": false,
+   "cooldown": null,
+   "available": "L=>L.flag('armoryKnown')&&!L.done('A24')"
+  },
+  {
+   "id": "ARMORY",
+   "title": "THE ARMORY",
+   "lane": "combat",
+   "scope": "MUST",
+   "repeatable": true,
+   "cooldown": null,
+   "available": "L=>L.flag('armoryKnown')"
+  },
+  {
+   "id": "A25",
+   "title": "NIGHTSHADE'S SÉANCE",
+   "lane": "combat",
+   "scope": "MUST",
+   "repeatable": true,
+   "cooldown": null,
+   "available": null
+  },
+  {
+   "id": "A26",
+   "title": "THE FIRST CASTLE PARTY",
+   "lane": "people",
+   "scope": "MUST",
+   "repeatable": false,
+   "cooldown": null,
+   "available": "L=>L.hasRoom('party_hall')"
+  },
+  {
+   "id": "HOST",
+   "title": "HOST A PARTY",
+   "lane": "people",
+   "scope": "MUST",
+   "repeatable": true,
+   "cooldown": null,
+   "available": "L=>L.done('A26')"
+  },
+  {
+   "id": "A27",
+   "title": "SIR BONESWORTH",
+   "lane": "combat",
+   "scope": "MUST",
+   "repeatable": false,
+   "cooldown": null,
+   "available": null
+  },
+  {
+   "id": "MOONIE_MEET",
+   "title": "THE GYM AT VENICE",
+   "lane": "people",
+   "scope": "MUST",
+   "repeatable": true,
+   "cooldown": null,
+   "available": null
+  },
+  {
+   "id": "A28",
+   "title": "MOONIE'S FULL MOON",
+   "lane": "combat",
+   "scope": "MUST",
+   "repeatable": false,
+   "cooldown": null,
+   "available": null
+  },
+  {
+   "id": "VENICE",
+   "title": "VENICE COURTS",
+   "lane": "life",
+   "scope": "MUST",
+   "repeatable": true,
+   "cooldown": null,
+   "available": null
+  },
+  {
+   "id": "A47",
+   "title": "THE HAIRLESS VISITOR",
+   "lane": "home",
+   "scope": "MUST",
+   "repeatable": false,
+   "cooldown": null,
+   "available": null
+  },
+  {
+   "id": "A49",
+   "title": "ROOKOKO'S SHOW",
+   "lane": "people",
+   "scope": "MUST",
+   "repeatable": false,
+   "cooldown": null,
+   "available": null
+  },
+  {
+   "id": "GALLERY",
+   "title": "ROOKOKO'S GALLERY",
+   "lane": "people",
+   "scope": "MUST",
+   "repeatable": true,
+   "cooldown": null,
+   "available": "L=>L.done('A49')"
+  },
+  {
+   "id": "A50",
+   "title": "LAN NIGHT",
+   "lane": "people",
+   "scope": "MUST",
+   "repeatable": false,
+   "cooldown": null,
+   "available": null
+  },
+  {
+   "id": "A51",
+   "title": "CANCIÓN NIGHT",
+   "lane": "people",
+   "scope": "MUST",
+   "repeatable": false,
+   "cooldown": null,
+   "available": null
+  },
+  {
+   "id": "KITCHEN",
+   "title": "THE CASTLE KITCHEN",
+   "lane": "home",
+   "scope": "MUST",
+   "repeatable": true,
+   "cooldown": null,
+   "available": null
+  },
+  {
+   "id": "MOVIE",
+   "title": "THE MOVIE ROOM",
+   "lane": "home",
+   "scope": "MUST",
+   "repeatable": true,
+   "cooldown": null,
+   "available": null
+  },
+  {
+   "id": "ROOST",
+   "title": "THE DRAGON ROOST",
+   "lane": "home",
+   "scope": "MUST",
+   "repeatable": true,
+   "cooldown": null,
+   "available": null
+  },
+  {
+   "id": "A57",
+   "title": "OFFICER NODD",
+   "lane": "people",
+   "scope": "MUST",
+   "repeatable": true,
+   "cooldown": null,
+   "available": null
+  },
+  {
+   "id": "A29",
+   "title": "COFFE RUN",
+   "lane": "people",
+   "scope": "MUST",
+   "repeatable": false,
+   "cooldown": null,
+   "available": "L=>L.day>=2&&L.day<=8"
+  },
+  {
+   "id": "A29B",
+   "title": "ROGUE STATUS",
+   "lane": "people",
+   "scope": "MUST",
+   "repeatable": false,
+   "cooldown": null,
+   "available": "L=>L.done('A29')&&(Number(L.flag('coffeTells'))||0)>=2&&!L.done('A29C')"
+  },
+  {
+   "id": "A29C",
+   "title": "THE RAID",
+   "lane": "combat",
+   "scope": "MUST",
+   "repeatable": false,
+   "cooldown": null,
+   "available": null
+  },
+  {
+   "id": "A32",
+   "title": "BLUEBERRY MAZDA'S NIGHT",
+   "lane": "dragons",
+   "scope": "MUST",
+   "repeatable": false,
+   "cooldown": null,
+   "available": null
+  },
+  {
+   "id": "A33",
+   "title": "THE DUCHESS'S SOIRÉE",
+   "lane": "people",
+   "scope": "MUST",
+   "repeatable": false,
+   "cooldown": null,
+   "available": null
+  },
+  {
+   "id": "A36",
+   "title": "TANDEM WITH TOKYO TONY",
+   "lane": "cars",
+   "scope": "MUST",
+   "repeatable": false,
+   "cooldown": null,
+   "available": "L=>L.done('A13')&&L.hasCar"
+  },
+  {
+   "id": "A37",
+   "title": "ATL HOMECOMING",
+   "lane": "people",
+   "scope": "MUST",
+   "repeatable": false,
+   "cooldown": null,
+   "available": "L=>L.info.friday&&L.day>15"
+  },
+  {
+   "id": "A38",
+   "title": "BRENDA FROM ACCOUNTING",
+   "lane": "people",
+   "scope": "MUST",
+   "repeatable": false,
+   "cooldown": null,
+   "available": null
+  },
+  {
+   "id": "MAID",
+   "title": "THE MAID QUARTERS",
+   "lane": "home",
+   "scope": "MUST",
+   "repeatable": true,
+   "cooldown": null,
+   "available": "L=>!!L.flag('marisolHired')"
+  },
+  {
+   "id": "A39",
+   "title": "HIRING MARISOL",
+   "lane": "home",
+   "scope": "MUST",
+   "repeatable": true,
+   "cooldown": null,
+   "available": "L=>L.hasRoom('maid_quarters')&&!L.flag('marisolHired')"
+  },
+  {
+   "id": "A_CAMMILE1",
+   "title": "CAMMILE, AGAIN",
+   "lane": "people",
+   "scope": "MUST",
+   "repeatable": false,
+   "cooldown": null,
+   "available": "L=>RARelations.met('jdm_importer_daughter_001')&&!L.done('A_CAMMILE1')"
+  },
+  {
+   "id": "A_EMBERLY1",
+   "title": "THE BACK ROOM AT KUSH & CRYPT",
+   "lane": "people",
+   "scope": "MEET",
+   "repeatable": false,
+   "cooldown": null,
+   "available": null
+  },
+  {
+   "id": "A_JADE1",
+   "title": "DRAGON NIGHT",
+   "lane": "people",
+   "scope": "MEET",
+   "repeatable": false,
+   "cooldown": null,
+   "available": null
+  },
+  {
+   "id": "A_LO1",
+   "title": "A PARTY, A ARM",
+   "lane": "people",
+   "scope": "MEET",
+   "repeatable": false,
+   "cooldown": null,
+   "available": null
+  },
+  {
+   "id": "A_HINA1",
+   "title": "TIMED",
+   "lane": "people",
+   "scope": "MEET",
+   "repeatable": false,
+   "cooldown": null,
+   "available": null
+  },
+  {
+   "id": "A_ANFEESA1",
+   "title": "ONE RECORD",
+   "lane": "people",
+   "scope": "MEET",
+   "repeatable": false,
+   "cooldown": null,
+   "available": "L=>L.flag('ogunsRaveCompleted')||L.done('A55')"
+  },
+  {
+   "id": "A_VELVET1",
+   "title": "THE DM",
+   "lane": "people",
+   "scope": "MEET",
+   "repeatable": false,
+   "cooldown": null,
+   "available": null
+  },
+  {
+   "id": "A41",
+   "title": "THE PERFECT NIGHT",
+   "lane": "people",
+   "scope": "MUST",
+   "repeatable": false,
+   "cooldown": null,
+   "available": "L=>RABtfPeople.women.some(w=>RARelations.level(w.id)>=2)"
+  },
+  {
+   "id": "A41B",
+   "title": "A TRIPPIN' RED SONG",
+   "lane": "people",
+   "scope": "MUST",
+   "repeatable": false,
+   "cooldown": null,
+   "available": null
+  },
+  {
+   "id": "A44",
+   "title": "THE WAFFLE SAGA",
+   "lane": "food",
+   "scope": "MUST",
+   "repeatable": false,
+   "cooldown": null,
+   "available": "L=>waffleNext(L)===n&&(n===1||L.day>(Number(L.flag('waffleDay'))||0))"
+  },
+  {
+   "id": "A44_N2",
+   "title": "THE WAFFLE SAGA · MAUL OF GEORGIA",
+   "lane": "food",
+   "scope": "MUST",
+   "repeatable": false,
+   "cooldown": null,
+   "available": "L=>waffleNext(L)===n&&(n===1||L.day>(Number(L.flag('waffleDay'))||0))"
+  },
+  {
+   "id": "A44_N3",
+   "title": "THE WAFFLE SAGA · LENNOX SCARE",
+   "lane": "food",
+   "scope": "MUST",
+   "repeatable": false,
+   "cooldown": null,
+   "available": "L=>waffleNext(L)===n&&(n===1||L.day>(Number(L.flag('waffleDay'))||0))"
+  },
+  {
+   "id": "A44_N4",
+   "title": "THE WAFFLE SAGA · CENTENNIAL",
+   "lane": "food",
+   "scope": "MUST",
+   "repeatable": false,
+   "cooldown": null,
+   "available": "L=>waffleNext(L)===n&&(n===1||L.day>(Number(L.flag('waffleDay'))||0))"
+  },
+  {
+   "id": "A46",
+   "title": "LITTLE TOKYO SPECIAL NIGHT",
+   "lane": "people",
+   "scope": "MUST",
+   "repeatable": true,
+   "cooldown": null,
+   "available": "L=>RABtfPeople.women.some(w=>RARelations.level(w.id)>=3)"
+  },
+  {
+   "id": "A52",
+   "title": "HALLOWEEN IN VAMPIRE LA",
+   "lane": "people",
+   "scope": "MUST",
+   "repeatable": false,
+   "cooldown": null,
+   "available": "L=>L.day===31"
+  },
+  {
+   "id": "A55",
+   "title": "OGUN'S SECOND RAVE",
+   "lane": "people",
+   "scope": "MUST",
+   "repeatable": false,
+   "cooldown": null,
+   "available": "L=>L.flag('ogunsRaveCompleted')"
+  },
+  {
+   "id": "ROOFTOP_DTLA",
+   "title": "A ROOFTOP IN DTLA",
+   "lane": "people",
+   "scope": "MUST",
+   "repeatable": true,
+   "cooldown": null,
+   "available": null
+  },
+  {
+   "id": "NEIGHBOR_CASTLE",
+   "title": "THE CASTLE DOWN THE BLOCK",
+   "lane": "people",
+   "scope": "MUST",
+   "repeatable": true,
+   "cooldown": null,
+   "available": null
+  },
+  {
+   "id": "ARC_MAZDA_1",
+   "title": "HER FIRST JOLLOF",
+   "lane": "people",
+   "scope": "MUST",
+   "repeatable": false,
+   "cooldown": null,
+   "available": "L=>RARelations.level(person)>=needLevel&&prior(L)"
+  },
+  {
+   "id": "ARC_MAZDA_2",
+   "title": "WHERE YOU WERE BANISHED",
+   "lane": "people",
+   "scope": "MUST",
+   "repeatable": false,
+   "cooldown": null,
+   "available": "L=>RARelations.level(person)>=needLevel&&prior(L)"
+  },
+  {
+   "id": "ARC_MAZDA_3",
+   "title": "VERY BLUE",
+   "lane": "people",
+   "scope": "MUST",
+   "repeatable": false,
+   "cooldown": null,
+   "available": "L=>RARelations.level(person)>=needLevel&&prior(L)"
+  },
+  {
+   "id": "ARC_NNEKA_1",
+   "title": "FOR RESEARCH",
+   "lane": "people",
+   "scope": "MUST",
+   "repeatable": false,
+   "cooldown": null,
+   "available": "L=>RARelations.level(person)>=needLevel&&prior(L)"
+  },
+  {
+   "id": "ARC_NNEKA_2",
+   "title": "THE POTLUCK",
+   "lane": "people",
+   "scope": "MUST",
+   "repeatable": false,
+   "cooldown": null,
+   "available": "L=>RARelations.level(person)>=needLevel&&prior(L)"
+  },
+  {
+   "id": "ARC_NNEKA_3",
+   "title": "YOUR BLOOD TYPE",
+   "lane": "people",
+   "scope": "MUST",
+   "repeatable": false,
+   "cooldown": null,
+   "available": "L=>RARelations.level(person)>=needLevel&&prior(L)"
+  },
+  {
+   "id": "ARC_CAMMILE_1",
+   "title": "THE SUPRA",
+   "lane": "people",
+   "scope": "MUST",
+   "repeatable": false,
+   "cooldown": null,
+   "available": "L=>RARelations.level(person)>=needLevel&&prior(L)"
+  },
+  {
+   "id": "ARC_CAMMILE_2",
+   "title": "SHE CHASES",
+   "lane": "people",
+   "scope": "MUST",
+   "repeatable": false,
+   "cooldown": null,
+   "available": "L=>RARelations.level(person)>=needLevel&&prior(L)"
+  },
+  {
+   "id": "ARC_CAMMILE_3",
+   "title": "DINNER WITH THE IMPORT GUY",
+   "lane": "people",
+   "scope": "MUST",
+   "repeatable": false,
+   "cooldown": null,
+   "available": "L=>RARelations.level(person)>=needLevel&&prior(L)"
+  },
+  {
+   "id": "ARC_JUNE_1",
+   "title": "SOMETHING NEW",
+   "lane": "people",
+   "scope": "MUST",
+   "repeatable": false,
+   "cooldown": null,
+   "available": "L=>RARelations.level(person)>=needLevel&&prior(L)"
+  },
+  {
+   "id": "ARC_JUNE_2",
+   "title": "HER LOCS",
+   "lane": "people",
+   "scope": "MUST",
+   "repeatable": false,
+   "cooldown": null,
+   "available": "L=>RARelations.level(person)>=needLevel&&prior(L)"
+  },
+  {
+   "id": "ARC_JUNE_3",
+   "title": "UNTIL 4 A.M.",
+   "lane": "people",
+   "scope": "MUST",
+   "repeatable": false,
+   "cooldown": null,
+   "available": "L=>RARelations.level(person)>=needLevel&&prior(L)"
+  },
+  {
+   "id": "ARC_PATRICE_2",
+   "title": "WHERE'S THE WAFFLE HAVEN",
+   "lane": "people",
+   "scope": "MUST",
+   "repeatable": false,
+   "cooldown": null,
+   "available": "L=>RARelations.level(person)>=needLevel&&prior(L)"
+  },
+  {
+   "id": "ARC_PATRICE_3",
+   "title": "THE RECIPE",
+   "lane": "people",
+   "scope": "MUST",
+   "repeatable": false,
+   "cooldown": null,
+   "available": "L=>RARelations.level(person)>=needLevel&&prior(L)"
+  },
+  {
+   "id": "A30",
+   "title": "BAD PORTOBELLOS",
+   "lane": "life",
+   "scope": "MUST",
+   "repeatable": false,
+   "cooldown": null,
+   "available": null
+  },
+  {
+   "id": "A31",
+   "title": "GOD ON THE CURB",
+   "lane": "home",
+   "scope": "MUST",
+   "repeatable": false,
+   "cooldown": null,
+   "available": "L=>L.info.sunday"
+  },
+  {
+   "id": "A34",
+   "title": "TOKYO TEASER",
+   "lane": "world",
+   "scope": "SIDE",
+   "repeatable": false,
+   "cooldown": null,
+   "available": "L=>L.day>=30"
+  },
+  {
+   "id": "JOLLOF_WARS",
+   "title": "JOLLOF WARS",
+   "lane": "food",
+   "scope": "MUST",
+   "repeatable": true,
+   "cooldown": null,
+   "available": "L=>L.done('A43')"
+  },
+  {
+   "id": "A54",
+   "title": "JOLLOF WARS: THE FINAL",
+   "lane": "food",
+   "scope": "MUST",
+   "repeatable": false,
+   "cooldown": null,
+   "available": "L=>(Number(L.flag('jollofWarsWins'))||0)>=1"
+  },
+  {
+   "id": "A56",
+   "title": "LIL SMACK #5",
+   "lane": "food",
+   "scope": "MUST",
+   "repeatable": false,
+   "cooldown": null,
+   "available": null
+  },
+  {
+   "id": "A53",
+   "title": "THE FAMILY HOLIDAY",
+   "lane": "home",
+   "scope": "MUST",
+   "repeatable": false,
+   "cooldown": null,
+   "available": "L=>L.day>=57"
+  },
+  {
+   "id": "A58",
+   "title": "BRITNEY STAKES LIKED YOUR POST",
+   "lane": "world",
+   "scope": "SIDE",
+   "repeatable": false,
+   "cooldown": null,
+   "available": "L=>L.day>=35&&L.followers>=300"
+  },
+  {
+   "id": "NEW_OGA_M1",
+   "title": "JUG THE PLUG",
+   "lane": "money",
+   "scope": "MUST",
+   "repeatable": false,
+   "cooldown": null,
+   "available": "L=>L.day>=8&&L.day<=12&&L.life.newOga.status==='unstarted'&&(L.done('A08')||L.money<40000)"
+  },
+  {
+   "id": "NEW_OGA_M2",
+   "title": "THE INTERVIEW",
+   "lane": "money",
+   "scope": "MUST",
+   "repeatable": false,
+   "cooldown": null,
+   "available": "L=>L.life.newOga.status==='awaiting_interview'&&L.day>L.life.newOga.lastMissionDay"
+  },
+  {
+   "id": "NEW_OGA_M3",
+   "title": "CANOPY DUTY",
+   "lane": "money",
+   "scope": "MUST",
+   "repeatable": false,
+   "cooldown": null,
+   "available": "L=>L.life.newOga.status==='intern'&&L.life.newOga.mission===2&&L.day>L.life.newOga.lastMissionDay"
+  },
+  {
+   "id": "NEW_OGA_M4",
+   "title": "SET UP CARLOS",
+   "lane": "money",
+   "scope": "MUST",
+   "repeatable": false,
+   "cooldown": null,
+   "available": "L=>L.life.newOga.status==='intern'&&L.life.newOga.mission===3&&L.life.newOga.carlosMutual&&hasCar(L)&&L.day>L.life.newOga.lastMissionDay"
+  },
+  {
+   "id": "NEW_OGA_ALTERNATIVE",
+   "title": "THE ALTERNATIVE",
+   "lane": "money",
+   "scope": "MUST",
+   "repeatable": false,
+   "cooldown": null,
+   "available": "L=>L.life.newOga.alternativePending&&L.day>L.life.newOga.lastMissionDay"
+  },
+  {
+   "id": "NEW_OGA_M5",
+   "title": "THE OWAMBE COLLECTION",
+   "lane": "money",
+   "scope": "MUST",
+   "repeatable": false,
+   "cooldown": null,
+   "available": "L=>L.life.newOga.rank===3&&L.life.newOga.mission===4&&!L.life.newOga.m5Completed&&L.day>L.life.newOga.lastMissionDay"
+  },
+  {
+   "id": "NEW_OGA_M6",
+   "title": "SENATOR",
+   "lane": "people",
+   "scope": "MUST",
+   "repeatable": false,
+   "cooldown": null,
+   "available": "L=>L.life.newOga.m5Completed&&!L.life.newOga.m6Completed&&L.day>L.life.newOga.lastMissionDay"
+  },
+  {
+   "id": "NEW_OGA_M7",
+   "title": "DINNER AT GBENGA'S",
+   "lane": "people",
+   "scope": "MUST",
+   "repeatable": false,
+   "cooldown": null,
+   "available": "L=>L.life.newOga.rank4Granted&&L.life.newOga.rank===4&&L.life.newOga.m7Eligible&&!L.life.newOga.m7Completed&&L.day>L.life.newOga.lastMissionDay"
+  },
+  {
+   "id": "NEW_OGA_M9",
+   "title": "THE TRIBUTE",
+   "lane": "money",
+   "scope": "MUST",
+   "repeatable": false,
+   "cooldown": null,
+   "available": "S=>{\r\n  if(!enabled())return false;\r\n  const s=S.life?.newOga;if(!s)return false;\r\n  return !!s.m8Resolved&&!s.m9Resolved&&S.day>s.lastMissionDay&&!!favoriteCar();\r\n }"
+  },
+  {
+   "id": "NEW_OGA_M10",
+   "title": "VICE PRESIDENT",
+   "lane": "money",
+   "scope": "MUST",
+   "repeatable": false,
+   "cooldown": null,
+   "available": "S=>{\r\n  if(!enabled())return false;\r\n  const s=S.life?.newOga;if(!s||!s.m9Resolved||s.m9GrantsWithheld||s.m10Completed||s.finaleBegun)return false;\r\n  return S.day>s.lastMissionDay;\r\n }"
+  },
+  {
+   "id": "NEW_OGA_VAMPGPT",
+   "title": "VAMPGPT",
+   "lane": "money",
+   "scope": "MUST",
+   "repeatable": true,
+   "cooldown": null,
+   "available": "S=>{\r\n  if(!enabled())return false;\r\n  const s=S.life?.newOga;if(!s||!s.m9Resolved||s.finaleBegun)return false;\r\n  if(!s.m10Completed&&!s.m9GrantsWithheld)return false;\r\n  if(s.m10VampgptReaskDay!=null&&S.day<s.m10VampgptReaskDay)return false;\r\n  return S.day>s.lastMissionDay;\r\n }"
+  },
+  {
+   "id": "NEW_OGA_M8",
+   "title": "THE TURF WAR",
+   "lane": "money",
+   "scope": "MUST",
+   "repeatable": true,
+   "cooldown": null,
+   "available": "S=>{\r\n  if(!enabled())return false;\r\n  const s=S.life?.newOga;if(!s)return false;\r\n  return !!s.m7Completed&&!s.m8Resolved&&S.day>s.lastMissionDay;\r\n }"
+  },
+  {
+   "id": "NEW_OGA_FINALE",
+   "title": "NEW OGA",
+   "lane": "money",
+   "scope": "MUST",
+   "repeatable": true,
+   "cooldown": null,
+   "available": "S=>{\r\n  if(!enabled())return false;\r\n  const s=S.life?.newOga;if(!s||!s.finaleBegun||s.finaleDone)return false;\r\n  return S.day>s.lastMissionDay;\r\n }"
+  },
+  {
+   "id": "F15_ROXY_L1",
+   "title": "HER TREAT",
+   "lane": "dating",
+   "scope": "MUST",
+   "repeatable": false,
+   "cooldown": null,
+   "available": "()=>C().available(id)"
+  },
+  {
+   "id": "F15_ROXY_L2",
+   "title": "REMATCH",
+   "lane": "dating",
+   "scope": "MUST",
+   "repeatable": false,
+   "cooldown": null,
+   "available": "()=>C().available(id)"
+  },
+  {
+   "id": "F15_ROXY_L3",
+   "title": "DIFFERENT",
+   "lane": "dating",
+   "scope": "MUST",
+   "repeatable": false,
+   "cooldown": null,
+   "available": "()=>C().available(id)"
+  },
+  {
+   "id": "F15_ROXY_L4",
+   "title": "SICK DAY",
+   "lane": "dating",
+   "scope": "MUST",
+   "repeatable": false,
+   "cooldown": null,
+   "available": "()=>C().available(id)"
+  },
+  {
+   "id": "F15_ROSALYN_L1",
+   "title": "SAME",
+   "lane": "dating",
+   "scope": "MUST",
+   "repeatable": false,
+   "cooldown": null,
+   "available": "()=>C().available(id)"
+  },
+  {
+   "id": "F15_ROSALYN_L2",
+   "title": "SPOILERS",
+   "lane": "dating",
+   "scope": "MUST",
+   "repeatable": false,
+   "cooldown": null,
+   "available": "()=>C().available(id)"
+  },
+  {
+   "id": "F15_ROSALYN_L3",
+   "title": "GLASSES",
+   "lane": "dating",
+   "scope": "MUST",
+   "repeatable": false,
+   "cooldown": null,
+   "available": "()=>C().available(id)"
+  },
+  {
+   "id": "F15_ROSALYN_L4",
+   "title": "BOSS FIGHT",
+   "lane": "dating",
+   "scope": "MUST",
+   "repeatable": false,
+   "cooldown": null,
+   "available": "()=>C().available(id)"
+  },
+  {
+   "id": "F15_EMERALD_L1",
+   "title": "YOUR CASTLE, MY RULES",
+   "lane": "dating",
+   "scope": "MUST",
+   "repeatable": false,
+   "cooldown": null,
+   "available": "()=>C().available(id)"
+  },
+  {
+   "id": "F15_EMERALD_L2",
+   "title": "FLASHCARDS",
+   "lane": "dating",
+   "scope": "MUST",
+   "repeatable": false,
+   "cooldown": null,
+   "available": "()=>C().available(id)"
+  },
+  {
+   "id": "F15_EMERALD_L3",
+   "title": "THE MUSIC",
+   "lane": "dating",
+   "scope": "MUST",
+   "repeatable": false,
+   "cooldown": null,
+   "available": "()=>C().available(id)"
+  },
+  {
+   "id": "F15_EMERALD_L4",
+   "title": "RECITAL",
+   "lane": "dating",
+   "scope": "MUST",
+   "repeatable": false,
+   "cooldown": null,
+   "available": "()=>C().available(id)"
+  }
+ ],
+ "wants": [
+  {
+   "id": "day1_hungry",
+   "adventure": null,
+   "action": "hungry",
+   "thread": null,
+   "minDay": 1,
+   "maxDay": 3,
+   "cooldown": null,
+   "life": [
+    2,
+    3
+   ],
+   "weight": 1,
+   "priority": 100,
+   "when": null
+  },
+  {
+   "id": "crave_jollof",
+   "adventure": null,
+   "action": "peking",
+   "thread": null,
+   "minDay": 2,
+   "maxDay": null,
+   "cooldown": 4,
+   "life": [
+    2,
+    4
+   ],
+   "weight": 2,
+   "priority": null,
+   "when": null
+  },
+  {
+   "id": "crave_tacos",
+   "adventure": null,
+   "action": "tacos",
+   "thread": null,
+   "minDay": null,
+   "maxDay": null,
+   "cooldown": 3,
+   "life": [
+    2,
+    4
+   ],
+   "weight": 1.5,
+   "priority": null,
+   "when": null
+  },
+  {
+   "id": "crave_malt",
+   "adventure": "A43",
+   "action": null,
+   "thread": null,
+   "minDay": 3,
+   "maxDay": null,
+   "cooldown": null,
+   "life": [
+    2,
+    4
+   ],
+   "weight": 2,
+   "priority": null,
+   "when": null
+  },
+  {
+   "id": "vg_outside",
+   "adventure": null,
+   "action": "grave",
+   "thread": null,
+   "minDay": null,
+   "maxDay": null,
+   "cooldown": 5,
+   "life": [
+    2,
+    4
+   ],
+   "weight": 1,
+   "priority": null,
+   "when": "L=>(L.life.clock.nightOutings||[]).length===0&&L.day>3"
+  },
+  {
+   "id": "vg_grave",
+   "adventure": null,
+   "action": "grave",
+   "thread": null,
+   "minDay": null,
+   "maxDay": null,
+   "cooldown": 6,
+   "life": [
+    2,
+    4
+   ],
+   "weight": 1,
+   "priority": null,
+   "when": "L=>L.info.friday"
+  },
+  {
+   "id": "supra_crest",
+   "adventure": null,
+   "action": "crest_hint",
+   "thread": null,
+   "minDay": null,
+   "maxDay": null,
+   "cooldown": null,
+   "life": [
+    2,
+    4
+   ],
+   "weight": 2,
+   "priority": null,
+   "when": "L=>L.hasCar('toyota_supra_mk4_001')&&!L.done('A13')"
+  },
+  {
+   "id": "w2_boba",
+   "adventure": "A07",
+   "action": null,
+   "thread": null,
+   "minDay": 8,
+   "maxDay": null,
+   "cooldown": null,
+   "life": [
+    2,
+    4
+   ],
+   "weight": 3,
+   "priority": 5,
+   "when": null
+  },
+  {
+   "id": "w2_slurp",
+   "adventure": "A08",
+   "action": null,
+   "thread": null,
+   "minDay": 8,
+   "maxDay": null,
+   "cooldown": null,
+   "life": [
+    2,
+    4
+   ],
+   "weight": 2,
+   "priority": 3,
+   "when": null
+  },
+  {
+   "id": "w2_za",
+   "adventure": "A09",
+   "action": null,
+   "thread": null,
+   "minDay": 9,
+   "maxDay": null,
+   "cooldown": null,
+   "life": [
+    2,
+    4
+   ],
+   "weight": 2,
+   "priority": 4,
+   "when": null
+  },
+  {
+   "id": "w2_bread",
+   "adventure": "A10",
+   "action": null,
+   "thread": null,
+   "minDay": null,
+   "maxDay": null,
+   "cooldown": null,
+   "life": [
+    2,
+    4
+   ],
+   "weight": 1.5,
+   "priority": 2,
+   "when": "L=>!!L.dragon"
+  },
+  {
+   "id": "w2_crest",
+   "adventure": "A13",
+   "action": null,
+   "thread": null,
+   "minDay": 10,
+   "maxDay": null,
+   "cooldown": null,
+   "life": [
+    2,
+    4
+   ],
+   "weight": 2,
+   "priority": 4,
+   "when": "L=>(L.life.ownership.cars||[]).length>0"
+  },
+  {
+   "id": "w2_flyer",
+   "adventure": "A14",
+   "action": null,
+   "thread": null,
+   "minDay": 11,
+   "maxDay": null,
+   "cooldown": null,
+   "life": [
+    2,
+    4
+   ],
+   "weight": 1.5,
+   "priority": 3,
+   "when": null
+  },
+  {
+   "id": "w2_callout",
+   "adventure": "A15",
+   "action": null,
+   "thread": null,
+   "minDay": 13,
+   "maxDay": null,
+   "cooldown": null,
+   "life": [
+    2,
+    4
+   ],
+   "weight": 1.5,
+   "priority": 2,
+   "when": "L=>L.done('A14')"
+  },
+  {
+   "id": "w2_cafe",
+   "adventure": "A16",
+   "action": null,
+   "thread": null,
+   "minDay": 10,
+   "maxDay": null,
+   "cooldown": null,
+   "life": [
+    2,
+    4
+   ],
+   "weight": 2,
+   "priority": 4,
+   "when": null
+  },
+  {
+   "id": "w2_tristan",
+   "adventure": "A_TRISTAN",
+   "action": null,
+   "thread": null,
+   "minDay": 9,
+   "maxDay": null,
+   "cooldown": null,
+   "life": [
+    2,
+    4
+   ],
+   "weight": 1.5,
+   "priority": 2,
+   "when": null
+  },
+  {
+   "id": "w2_smack",
+   "adventure": "A_SMACK2",
+   "action": null,
+   "thread": null,
+   "minDay": 12,
+   "maxDay": null,
+   "cooldown": 10,
+   "life": [
+    2,
+    4
+   ],
+   "weight": 1,
+   "priority": null,
+   "when": null
+  },
+  {
+   "id": "w2_brunch",
+   "adventure": "A42",
+   "action": null,
+   "thread": null,
+   "minDay": null,
+   "maxDay": null,
+   "cooldown": 5,
+   "life": [
+    2,
+    4
+   ],
+   "weight": 1.5,
+   "priority": null,
+   "when": "L=>L.info.sunday"
+  },
+  {
+   "id": "w2_onsen",
+   "adventure": "A45",
+   "action": null,
+   "thread": null,
+   "minDay": null,
+   "maxDay": null,
+   "cooldown": 4,
+   "life": [
+    2,
+    4
+   ],
+   "weight": 1.5,
+   "priority": null,
+   "when": "L=>(RAState.get().life.combat.defeats||0)>0"
+  },
+  {
+   "id": "w2_retwist",
+   "adventure": "L=>L.done('A48')?'RETWIST':'A48'",
+   "action": null,
+   "thread": null,
+   "minDay": null,
+   "maxDay": null,
+   "cooldown": 10,
+   "life": [
+    2,
+    4
+   ],
+   "weight": 1.5,
+   "priority": null,
+   "when": "L=>L.flag('locsBloody')||L.day-(L.flag('lastRetwistDay')||0)>=14"
+  },
+  {
+   "id": "tristan_lan",
+   "adventure": "A50",
+   "action": null,
+   "thread": "tristan",
+   "minDay": null,
+   "maxDay": null,
+   "cooldown": null,
+   "life": [
+    2,
+    4
+   ],
+   "weight": 1.5,
+   "priority": null,
+   "when": "L=>RARelations.met('tristan')"
+  },
+  {
+   "id": "coffe_tells",
+   "adventure": "A29B",
+   "action": null,
+   "thread": null,
+   "minDay": null,
+   "maxDay": null,
+   "cooldown": null,
+   "life": [
+    2,
+    4
+   ],
+   "weight": 1,
+   "priority": 6,
+   "when": null
+  },
+  {
+   "id": "trippin_red",
+   "adventure": "A41",
+   "action": null,
+   "thread": "tristan",
+   "minDay": 12,
+   "maxDay": null,
+   "cooldown": null,
+   "life": [
+    2,
+    4
+   ],
+   "weight": 1,
+   "priority": 5,
+   "when": null
+  },
+  {
+   "id": "a37_friday",
+   "adventure": "A37",
+   "action": null,
+   "thread": null,
+   "minDay": null,
+   "maxDay": null,
+   "cooldown": null,
+   "life": [
+    1,
+    1
+   ],
+   "weight": 1,
+   "priority": 4,
+   "when": null
+  },
+  {
+   "id": "a46_special",
+   "adventure": "A46",
+   "action": null,
+   "thread": "L=>RABtfPeople.women.map(p=>p.id).filter(id=>RARelations.level(id)>=3).sort((a,b)=>RARelations.level(b)-RARelations.level(a)||a.localeCompare(b))[0]||null",
+   "minDay": null,
+   "maxDay": null,
+   "cooldown": 7,
+   "life": [
+    2,
+    4
+   ],
+   "weight": 1.5,
+   "priority": null,
+   "when": "L=>!!a46Asker(L)"
+  },
+  {
+   "id": "velvet_dm",
+   "adventure": "A_VELVET1",
+   "action": null,
+   "thread": null,
+   "minDay": null,
+   "maxDay": null,
+   "cooldown": null,
+   "life": [
+    2,
+    4
+   ],
+   "weight": 1,
+   "priority": 3,
+   "when": "L=>!!(L.flag('ogunsRaveCompleted')&&L.app('vampgram'))"
+  },
+  {
+   "id": "a23r_rematch",
+   "adventure": "A23R",
+   "action": null,
+   "thread": null,
+   "minDay": null,
+   "maxDay": null,
+   "cooldown": 4,
+   "life": [
+    2,
+    4
+   ],
+   "weight": 1,
+   "priority": 1,
+   "when": "L=>!!(L.done('A23')&&L.flag('armoryKnown')&&L.done('A24')&&(L.life.ownership.guns||[]).length>0)"
+  },
+  {
+   "id": "halloween_invite",
+   "adventure": "A52",
+   "action": null,
+   "thread": null,
+   "minDay": null,
+   "maxDay": null,
+   "cooldown": null,
+   "life": [
+    0,
+    0
+   ],
+   "weight": 1,
+   "priority": 9,
+   "when": null
+  },
+  {
+   "id": "ARC_MAZDA_1_tempt",
+   "adventure": "ARC_MAZDA_1",
+   "action": null,
+   "thread": "mazda_human",
+   "minDay": null,
+   "maxDay": null,
+   "cooldown": null,
+   "life": [
+    2,
+    4
+   ],
+   "weight": 1,
+   "priority": null,
+   "when": "L=>RARelations.level(person)>=needLevel&&L.done(id)===false&&prior(L)"
+  },
+  {
+   "id": "ARC_MAZDA_2_tempt",
+   "adventure": "ARC_MAZDA_2",
+   "action": null,
+   "thread": "mazda_human",
+   "minDay": null,
+   "maxDay": null,
+   "cooldown": null,
+   "life": [
+    2,
+    4
+   ],
+   "weight": 1,
+   "priority": null,
+   "when": "L=>RARelations.level(person)>=needLevel&&L.done(id)===false&&prior(L)"
+  },
+  {
+   "id": "ARC_MAZDA_3_tempt",
+   "adventure": "ARC_MAZDA_3",
+   "action": null,
+   "thread": "mazda_human",
+   "minDay": null,
+   "maxDay": null,
+   "cooldown": null,
+   "life": [
+    2,
+    4
+   ],
+   "weight": 1,
+   "priority": null,
+   "when": "L=>RARelations.level(person)>=needLevel&&L.done(id)===false&&prior(L)"
+  },
+  {
+   "id": "ARC_NNEKA_1_tempt",
+   "adventure": "ARC_NNEKA_1",
+   "action": null,
+   "thread": "nneka",
+   "minDay": null,
+   "maxDay": null,
+   "cooldown": null,
+   "life": [
+    2,
+    4
+   ],
+   "weight": 1,
+   "priority": null,
+   "when": "L=>RARelations.level(person)>=needLevel&&L.done(id)===false&&prior(L)"
+  },
+  {
+   "id": "ARC_NNEKA_2_tempt",
+   "adventure": "ARC_NNEKA_2",
+   "action": null,
+   "thread": "nneka",
+   "minDay": null,
+   "maxDay": null,
+   "cooldown": null,
+   "life": [
+    2,
+    4
+   ],
+   "weight": 1,
+   "priority": null,
+   "when": "L=>RARelations.level(person)>=needLevel&&L.done(id)===false&&prior(L)"
+  },
+  {
+   "id": "ARC_NNEKA_3_tempt",
+   "adventure": "ARC_NNEKA_3",
+   "action": null,
+   "thread": "nneka",
+   "minDay": null,
+   "maxDay": null,
+   "cooldown": null,
+   "life": [
+    2,
+    4
+   ],
+   "weight": 1,
+   "priority": null,
+   "when": "L=>RARelations.level(person)>=needLevel&&L.done(id)===false&&prior(L)"
+  },
+  {
+   "id": "ARC_CAMMILE_1_tempt",
+   "adventure": "ARC_CAMMILE_1",
+   "action": null,
+   "thread": "jdm_importer_daughter_001",
+   "minDay": null,
+   "maxDay": null,
+   "cooldown": null,
+   "life": [
+    2,
+    4
+   ],
+   "weight": 1,
+   "priority": null,
+   "when": "L=>RARelations.level(person)>=needLevel&&L.done(id)===false&&prior(L)"
+  },
+  {
+   "id": "ARC_CAMMILE_2_tempt",
+   "adventure": "ARC_CAMMILE_2",
+   "action": null,
+   "thread": "jdm_importer_daughter_001",
+   "minDay": null,
+   "maxDay": null,
+   "cooldown": null,
+   "life": [
+    2,
+    4
+   ],
+   "weight": 1,
+   "priority": null,
+   "when": "L=>RARelations.level(person)>=needLevel&&L.done(id)===false&&prior(L)"
+  },
+  {
+   "id": "ARC_CAMMILE_3_tempt",
+   "adventure": "ARC_CAMMILE_3",
+   "action": null,
+   "thread": "jdm_importer_daughter_001",
+   "minDay": null,
+   "maxDay": null,
+   "cooldown": null,
+   "life": [
+    2,
+    4
+   ],
+   "weight": 1,
+   "priority": null,
+   "when": "L=>RARelations.level(person)>=needLevel&&L.done(id)===false&&prior(L)"
+  },
+  {
+   "id": "ARC_JUNE_1_tempt",
+   "adventure": "ARC_JUNE_1",
+   "action": null,
+   "thread": "june",
+   "minDay": null,
+   "maxDay": null,
+   "cooldown": null,
+   "life": [
+    2,
+    4
+   ],
+   "weight": 1,
+   "priority": null,
+   "when": "L=>RARelations.level(person)>=needLevel&&L.done(id)===false&&prior(L)"
+  },
+  {
+   "id": "ARC_JUNE_2_tempt",
+   "adventure": "ARC_JUNE_2",
+   "action": null,
+   "thread": "june",
+   "minDay": null,
+   "maxDay": null,
+   "cooldown": null,
+   "life": [
+    2,
+    4
+   ],
+   "weight": 1,
+   "priority": null,
+   "when": "L=>RARelations.level(person)>=needLevel&&L.done(id)===false&&prior(L)"
+  },
+  {
+   "id": "ARC_JUNE_3_tempt",
+   "adventure": "ARC_JUNE_3",
+   "action": null,
+   "thread": "june",
+   "minDay": null,
+   "maxDay": null,
+   "cooldown": null,
+   "life": [
+    2,
+    4
+   ],
+   "weight": 1,
+   "priority": null,
+   "when": "L=>RARelations.level(person)>=needLevel&&L.done(id)===false&&prior(L)"
+  },
+  {
+   "id": "ARC_PATRICE_2_tempt",
+   "adventure": "ARC_PATRICE_2",
+   "action": null,
+   "thread": "ms_patrice",
+   "minDay": null,
+   "maxDay": null,
+   "cooldown": null,
+   "life": [
+    2,
+    4
+   ],
+   "weight": 1,
+   "priority": null,
+   "when": "L=>RARelations.level(person)>=needLevel&&L.done(id)===false&&prior(L)"
+  },
+  {
+   "id": "ARC_PATRICE_3_tempt",
+   "adventure": "ARC_PATRICE_3",
+   "action": null,
+   "thread": "ms_patrice",
+   "minDay": null,
+   "maxDay": null,
+   "cooldown": null,
+   "life": [
+    2,
+    4
+   ],
+   "weight": 1,
+   "priority": null,
+   "when": "L=>RARelations.level(person)>=needLevel&&L.done(id)===false&&prior(L)"
+  },
+  {
+   "id": "reggie_portobellos",
+   "adventure": "A30",
+   "action": null,
+   "thread": null,
+   "minDay": 31,
+   "maxDay": null,
+   "cooldown": null,
+   "life": [
+    2,
+    4
+   ],
+   "weight": 1,
+   "priority": 10,
+   "when": "L=>!L.done('A30')&&(!RAAdventures.get('A09')||L.done('A09'))"
+  },
+  {
+   "id": "curb_pull",
+   "adventure": "A31",
+   "action": null,
+   "thread": null,
+   "minDay": 28,
+   "maxDay": null,
+   "cooldown": null,
+   "life": [
+    2,
+    4
+   ],
+   "weight": 1,
+   "priority": 8,
+   "when": "L=>L.info.sunday&&!L.done('A31')&&(L.done('A30')||L.flag('lastDefeatDay'))"
+  },
+  {
+   "id": "tokyo_dm",
+   "adventure": "A34",
+   "action": null,
+   "thread": null,
+   "minDay": 30,
+   "maxDay": null,
+   "cooldown": null,
+   "life": [
+    2,
+    4
+   ],
+   "weight": 1,
+   "priority": null,
+   "when": "L=>!L.done('A34')"
+  },
+  {
+   "id": "jollof_wars_sunday",
+   "adventure": "JOLLOF_WARS",
+   "action": null,
+   "thread": null,
+   "minDay": 31,
+   "maxDay": null,
+   "cooldown": 20,
+   "life": [
+    2,
+    4
+   ],
+   "weight": 2,
+   "priority": null,
+   "when": "L=>L.done('A43')&&L.info.sunday&&((L.day-1)%28)<7"
+  },
+  {
+   "id": "jollof_wars_final_ready",
+   "adventure": "A54",
+   "action": null,
+   "thread": null,
+   "minDay": 31,
+   "maxDay": null,
+   "cooldown": null,
+   "life": [
+    2,
+    4
+   ],
+   "weight": 2,
+   "priority": null,
+   "when": "L=>(Number(L.flag('jollofWarsWins'))||0)>=1&&!L.done('A54')"
+  },
+  {
+   "id": "vg_grave_late",
+   "adventure": null,
+   "action": "grave",
+   "thread": null,
+   "minDay": 31,
+   "maxDay": null,
+   "cooldown": 6,
+   "life": [
+    2,
+    4
+   ],
+   "weight": 1.5,
+   "priority": null,
+   "when": null
+  },
+  {
+   "id": "crave_jollof_late",
+   "adventure": null,
+   "action": "peking",
+   "thread": null,
+   "minDay": 31,
+   "maxDay": null,
+   "cooldown": 4,
+   "life": [
+    2,
+    4
+   ],
+   "weight": 2,
+   "priority": null,
+   "when": null
+  },
+  {
+   "id": "crave_tacos_late",
+   "adventure": null,
+   "action": "tacos",
+   "thread": null,
+   "minDay": 31,
+   "maxDay": null,
+   "cooldown": 3,
+   "life": [
+    2,
+    4
+   ],
+   "weight": 1.5,
+   "priority": null,
+   "when": null
+  },
+  {
+   "id": "tristan_cook",
+   "adventure": "COOK",
+   "action": null,
+   "thread": "tristan",
+   "minDay": 31,
+   "maxDay": null,
+   "cooldown": 7,
+   "life": [
+    2,
+    4
+   ],
+   "weight": 1,
+   "priority": null,
+   "when": "L=>!!RAAdventures.get('COOK')"
+  },
+  {
+   "id": "host_invite",
+   "adventure": "HOST",
+   "action": null,
+   "thread": null,
+   "minDay": 31,
+   "maxDay": null,
+   "cooldown": 10,
+   "life": [
+    2,
+    4
+   ],
+   "weight": 1,
+   "priority": null,
+   "when": "L=>!!RAAdventures.get('HOST')&&L.hasRoom('party_hall')"
+  },
+  {
+   "id": "pier_money",
+   "adventure": "PIER",
+   "action": null,
+   "thread": null,
+   "minDay": 31,
+   "maxDay": null,
+   "cooldown": 5,
+   "life": [
+    2,
+    4
+   ],
+   "weight": 1.2,
+   "priority": null,
+   "when": "L=>!!RAAdventures.get('PIER')"
+  },
+  {
+   "id": "tandem_challenge",
+   "adventure": "TANDEM_BATTLE",
+   "action": null,
+   "thread": null,
+   "minDay": 31,
+   "maxDay": null,
+   "cooldown": 6,
+   "life": [
+    2,
+    4
+   ],
+   "weight": 1,
+   "priority": null,
+   "when": "L=>!!RAAdventures.get('TANDEM_BATTLE')&&(L.life.ownership.cars||[]).length>0"
+  },
+  {
+   "id": "slurp_shift",
+   "adventure": "SLURP",
+   "action": null,
+   "thread": null,
+   "minDay": 31,
+   "maxDay": null,
+   "cooldown": 8,
+   "life": [
+    2,
+    4
+   ],
+   "weight": 0.8,
+   "priority": null,
+   "when": "L=>!!RAAdventures.get('SLURP')"
+  },
+  {
+   "id": "cafe_rain",
+   "adventure": "CAFE",
+   "action": null,
+   "thread": null,
+   "minDay": 31,
+   "maxDay": null,
+   "cooldown": 5,
+   "life": [
+    2,
+    4
+   ],
+   "weight": 1,
+   "priority": null,
+   "when": "L=>!!RAAdventures.get('CAFE')&&L.info.rain"
+  },
+  {
+   "id": "retwist_locs",
+   "adventure": "RETWIST",
+   "action": null,
+   "thread": null,
+   "minDay": 31,
+   "maxDay": null,
+   "cooldown": 12,
+   "life": [
+    2,
+    4
+   ],
+   "weight": 1,
+   "priority": null,
+   "when": "L=>!!RAAdventures.get('RETWIST')"
+  },
+  {
+   "id": "hookah_roof",
+   "adventure": "HOOKAH",
+   "action": null,
+   "thread": "tristan",
+   "minDay": 31,
+   "maxDay": null,
+   "cooldown": 9,
+   "life": [
+    2,
+    4
+   ],
+   "weight": 1,
+   "priority": null,
+   "when": "L=>!!RAAdventures.get('HOOKAH')"
+  },
+  {
+   "id": "date_someone_dm",
+   "adventure": null,
+   "action": "date_someone",
+   "thread": null,
+   "minDay": 31,
+   "maxDay": null,
+   "cooldown": 6,
+   "life": [
+    2,
+    4
+   ],
+   "weight": 1.3,
+   "priority": null,
+   "when": null
+  },
+  {
+   "id": "f15:F15_ROXY_L1",
+   "adventure": "F15_ROXY_L1",
+   "action": null,
+   "thread": "roxy",
+   "minDay": null,
+   "maxDay": null,
+   "cooldown": null,
+   "life": [
+    3,
+    5
+   ],
+   "weight": 1,
+   "priority": 55,
+   "when": null
+  },
+  {
+   "id": "f15:F15_ROXY_L2",
+   "adventure": "F15_ROXY_L2",
+   "action": null,
+   "thread": "roxy",
+   "minDay": null,
+   "maxDay": null,
+   "cooldown": null,
+   "life": [
+    3,
+    5
+   ],
+   "weight": 1,
+   "priority": 55,
+   "when": null
+  },
+  {
+   "id": "f15:F15_ROXY_L3",
+   "adventure": "F15_ROXY_L3",
+   "action": null,
+   "thread": "roxy",
+   "minDay": null,
+   "maxDay": null,
+   "cooldown": null,
+   "life": [
+    3,
+    5
+   ],
+   "weight": 1,
+   "priority": 55,
+   "when": null
+  },
+  {
+   "id": "f15:F15_ROXY_L4",
+   "adventure": "F15_ROXY_L4",
+   "action": null,
+   "thread": "roxy",
+   "minDay": null,
+   "maxDay": null,
+   "cooldown": null,
+   "life": [
+    3,
+    5
+   ],
+   "weight": 1,
+   "priority": 55,
+   "when": null
+  },
+  {
+   "id": "f15:F15_ROSALYN_L1",
+   "adventure": "F15_ROSALYN_L1",
+   "action": null,
+   "thread": "rosalyn",
+   "minDay": null,
+   "maxDay": null,
+   "cooldown": null,
+   "life": [
+    3,
+    5
+   ],
+   "weight": 1,
+   "priority": 55,
+   "when": null
+  },
+  {
+   "id": "f15:F15_ROSALYN_L2",
+   "adventure": "F15_ROSALYN_L2",
+   "action": null,
+   "thread": "rosalyn",
+   "minDay": null,
+   "maxDay": null,
+   "cooldown": null,
+   "life": [
+    3,
+    5
+   ],
+   "weight": 1,
+   "priority": 55,
+   "when": null
+  },
+  {
+   "id": "f15:F15_ROSALYN_L3",
+   "adventure": "F15_ROSALYN_L3",
+   "action": null,
+   "thread": "rosalyn",
+   "minDay": null,
+   "maxDay": null,
+   "cooldown": null,
+   "life": [
+    3,
+    5
+   ],
+   "weight": 1,
+   "priority": 55,
+   "when": null
+  },
+  {
+   "id": "f15:F15_ROSALYN_L4",
+   "adventure": "F15_ROSALYN_L4",
+   "action": null,
+   "thread": "rosalyn",
+   "minDay": null,
+   "maxDay": null,
+   "cooldown": null,
+   "life": [
+    3,
+    5
+   ],
+   "weight": 1,
+   "priority": 55,
+   "when": null
+  },
+  {
+   "id": "f15:F15_EMERALD_L1",
+   "adventure": "F15_EMERALD_L1",
+   "action": null,
+   "thread": "emerald",
+   "minDay": null,
+   "maxDay": null,
+   "cooldown": null,
+   "life": [
+    3,
+    5
+   ],
+   "weight": 1,
+   "priority": 55,
+   "when": null
+  },
+  {
+   "id": "f15:F15_EMERALD_L2",
+   "adventure": "F15_EMERALD_L2",
+   "action": null,
+   "thread": "emerald",
+   "minDay": null,
+   "maxDay": null,
+   "cooldown": null,
+   "life": [
+    3,
+    5
+   ],
+   "weight": 1,
+   "priority": 55,
+   "when": null
+  },
+  {
+   "id": "f15:F15_EMERALD_L3",
+   "adventure": "F15_EMERALD_L3",
+   "action": null,
+   "thread": "emerald",
+   "minDay": null,
+   "maxDay": null,
+   "cooldown": null,
+   "life": [
+    3,
+    5
+   ],
+   "weight": 1,
+   "priority": 55,
+   "when": null
+  },
+  {
+   "id": "f15:F15_EMERALD_L4",
+   "adventure": "F15_EMERALD_L4",
+   "action": null,
+   "thread": "emerald",
+   "minDay": null,
+   "maxDay": null,
+   "cooldown": null,
+   "life": [
+    3,
+    5
+   ],
+   "weight": 1,
+   "priority": 55,
+   "when": null
+  }
+ ],
+ "wake": [
+  {
+   "adventure": "A27",
+   "priority": 90,
+   "when": "L=>{const pn=L.flag('partyNight');return pn===L.day-1&&!L.done('A27');}"
+  },
+  {
+   "adventure": "A53",
+   "priority": 90,
+   "when": "L=>L.day===57"
+  },
+  {
+   "adventure": "NEW_OGA_M1",
+   "priority": 85,
+   "when": "L=>L.day>=8&&L.day<=12&&L.life.newOga.status==='unstarted'&&(L.done('A08')||L.money<40000)"
+  },
+  {
+   "adventure": "NEW_OGA_M2",
+   "priority": 84,
+   "when": "L=>L.life.newOga.status==='awaiting_interview'&&L.day>L.life.newOga.lastMissionDay"
+  },
+  {
+   "adventure": "NEW_OGA_M3",
+   "priority": 83,
+   "when": "L=>L.life.newOga.status==='intern'&&L.life.newOga.mission===2&&L.day>L.life.newOga.lastMissionDay"
+  },
+  {
+   "adventure": "NEW_OGA_M4",
+   "priority": 82,
+   "when": "L=>L.life.newOga.status==='intern'&&L.life.newOga.mission===3&&L.life.newOga.carlosMutual&&hasCar(L)&&L.day>L.life.newOga.lastMissionDay"
+  },
+  {
+   "adventure": "NEW_OGA_ALTERNATIVE",
+   "priority": 81,
+   "when": "L=>L.life.newOga.alternativePending&&L.day>L.life.newOga.lastMissionDay"
+  },
+  {
+   "adventure": "NEW_OGA_M5",
+   "priority": 80,
+   "when": "L=>L.life.newOga.rank===3&&L.life.newOga.mission===4&&!L.life.newOga.m5Completed&&L.day>L.life.newOga.lastMissionDay"
+  },
+  {
+   "adventure": "NEW_OGA_M6",
+   "priority": 79,
+   "when": "L=>L.life.newOga.m5Completed&&!L.life.newOga.m6Completed&&L.day>L.life.newOga.lastMissionDay"
+  },
+  {
+   "adventure": "NEW_OGA_M7",
+   "priority": 78,
+   "when": "L=>L.life.newOga.rank4Granted&&L.life.newOga.rank===4&&L.life.newOga.m7Eligible&&!L.life.newOga.m7Completed&&L.day>L.life.newOga.lastMissionDay"
+  },
+  {
+   "adventure": "NEW_OGA_M8",
+   "priority": 77,
+   "when": "S=>{\r\n  if(!enabled())return false;\r\n  const s=S.life?.newOga;if(!s)return false;\r\n  return !!s.m7Completed&&!s.m8Resolved&&S.day>s.lastMissionDay;\r\n }"
+  },
+  {
+   "adventure": "NEW_OGA_M9",
+   "priority": 76,
+   "when": "L=>flags().enabled(flag)&&def.when(L)"
+  },
+  {
+   "adventure": "NEW_OGA_M10",
+   "priority": 75,
+   "when": "L=>flags().enabled(flag)&&def.when(L)"
+  },
+  {
+   "adventure": "NEW_OGA_VAMPGPT",
+   "priority": 74,
+   "when": "S=>{\r\n  if(!enabled())return false;\r\n  const s=S.life?.newOga;if(!s||!s.m9Resolved||s.finaleBegun)return false;\r\n  if(!s.m10Completed&&!s.m9GrantsWithheld)return false;\r\n  if(s.m10VampgptReaskDay!=null&&S.day<s.m10VampgptReaskDay)return false;\r\n  return S.day>s.lastMissionDay;\r\n }"
+  },
+  {
+   "adventure": "NEW_OGA_FINALE",
+   "priority": 72,
+   "when": "S=>{\r\n  if(!enabled())return false;\r\n  const s=S.life?.newOga;if(!s||!s.finaleBegun||s.finaleDone)return false;\r\n  return S.day>s.lastMissionDay;\r\n }"
+  },
+  {
+   "adventure": "A23",
+   "priority": 70,
+   "when": "L=>L.done('HOOKAH')&&RAEcology.level()>=2&&!L.done('A23')"
+  },
+  {
+   "adventure": "A29C",
+   "priority": 70,
+   "when": "L=>L.done('A29')&&(L.done('A29B')?L.day>(RALife.adventureRecord('A29B')?.completedDay||0):(Number(L.flag('coffeTells'))||0)>=2&&L.day>=31)"
+  },
+  {
+   "adventure": "A47",
+   "priority": 60,
+   "when": "L=>L.day>12&&L.info.rain&&!L.life.ownership.cat&&!L.done('A47')"
+  },
+  {
+   "adventure": "A28",
+   "priority": 50,
+   "when": "L=>L.info.fullMoon&&L.level('moonie')>=1&&!L.done('A28')"
+  },
+  {
+   "adventure": "A20",
+   "priority": 40,
+   "when": "L=>L.day>18&&!L.flag('phil3Done')&&L.flag('philLastDay')!==L.day"
+  },
+  {
+   "adventure": "A32",
+   "priority": 40,
+   "when": "L=>L.dragon?.stage==='majestic'&&(L.dragon.streak||0)>=5"
+  },
+  {
+   "adventure": "A33",
+   "priority": 35,
+   "when": "L=>L.rep>=2&&!L.done('A33')"
+  },
+  {
+   "adventure": "A57",
+   "priority": 30,
+   "when": "L=>!!L.flag('noddPending')"
+  },
+  {
+   "adventure": "A58",
+   "priority": 20,
+   "when": "L=>L.day>=35&&L.followers>=300"
+  },
+  {
+   "adventure": "A17",
+   "priority": 10,
+   "when": "L=>!!L.flag('a17Pending')"
+  },
+  {
+   "adventure": "A41B",
+   "priority": 10,
+   "when": "L=>{const rec=RALife.adventureRecord('A41');if(!rec)return false;const gap=L.day-rec.completedDay;return gap>=10&&gap<=20;}"
+  },
+  {
+   "adventure": "A11",
+   "priority": 9,
+   "when": "L=>L.dragon?.stage==='egg'&&(L.dragon.sleepsAtStage||0)>=3"
+  },
+  {
+   "adventure": "A29",
+   "priority": 5,
+   "when": "L=>L.day>=2&&L.day<=8"
+  }
+ ],
+ "rooms": [
+  {
+   "id": "maid_quarters",
+   "price": 40000,
+   "go": "castle:maid",
+   "needs": null
+  },
+  {
+   "id": "armory_wall",
+   "price": 60000,
+   "go": "castle:armory",
+   "needs": null
+  },
+  {
+   "id": "hookah_roof",
+   "price": 75000,
+   "go": "castle:roof",
+   "needs": null
+  },
+  {
+   "id": "kitchen",
+   "price": 85000,
+   "go": "castle:kitchen",
+   "needs": null
+  },
+  {
+   "id": "dragon_roost",
+   "price": 90000,
+   "go": "castle:roost",
+   "needs": "L=>!!L.dragon"
+  },
+  {
+   "id": "movie_room",
+   "price": 110000,
+   "go": "castle:movie",
+   "needs": null
+  },
+  {
+   "id": "music_room",
+   "price": 120000,
+   "go": "castle:music",
+   "needs": null
+  },
+  {
+   "id": "garage",
+   "price": 150000,
+   "go": "castle:garage",
+   "needs": null
+  },
+  {
+   "id": "coffin_upgrade",
+   "price": 200000,
+   "go": "castle:coffin",
+   "needs": null
+  },
+  {
+   "id": "party_hall",
+   "price": 250000,
+   "go": "castle:party",
+   "needs": "L=>!!L.flag('castlePartyHostingUnlocked')"
+  },
+  {
+   "id": "fish_tank",
+   "price": 400000,
+   "go": "castle:fishtank",
+   "needs": null
+  }
+ ],
+ "cars": [
+  {
+   "id": "s15",
+   "price": 38000,
+   "store": "jdm",
+   "needsRep": null
+  },
+  {
+   "id": "s2000",
+   "price": 42000,
+   "store": "pinky",
+   "needsRep": null
+  },
+  {
+   "id": "r34",
+   "price": 185000,
+   "store": "jdm_auction",
+   "needsRep": null
+  },
+  {
+   "id": "urus",
+   "price": 260000,
+   "store": "richboi",
+   "needsRep": null
+  },
+  {
+   "id": "aventador",
+   "price": 520000,
+   "store": "richboi",
+   "needsRep": null
+  },
+  {
+   "id": "ferrari",
+   "price": 2400000,
+   "store": "richboi",
+   "needsRep": 2
+  }
+ ],
+ "places": [
+  {
+   "id": "hungry",
+   "label": null,
+   "hidden": true,
+   "adventure": null,
+   "when": null,
+   "go": "api=>{api.go('somewhere');return true;}"
+  },
+  {
+   "id": "castle:throne",
+   "label": null,
+   "hidden": true,
+   "adventure": "THRONE",
+   "when": null,
+   "go": null
+  },
+  {
+   "id": "tacos",
+   "label": "DON CHUY'S (OUTSIDE)",
+   "hidden": false,
+   "adventure": "TACOS",
+   "when": null,
+   "go": null
+  },
+  {
+   "id": "grave",
+   "label": "THE GRAVE",
+   "hidden": false,
+   "adventure": "GRAVE",
+   "when": null,
+   "go": null
+  },
+  {
+   "id": "peking",
+   "label": "PEKING NAIJA",
+   "hidden": false,
+   "adventure": "PEKING",
+   "when": null,
+   "go": null
+  },
+  {
+   "id": "naija_mart",
+   "label": "NAIJA MART",
+   "hidden": false,
+   "adventure": "L=>L.done('A43')?'NAIJA':null",
+   "when": null,
+   "go": null
+  },
+  {
+   "id": "castle:music",
+   "label": null,
+   "hidden": true,
+   "adventure": null,
+   "when": null,
+   "go": "api=>RAAdventureScene.begin('COOK',{vars:{where:'music_room'}})"
+  },
+  {
+   "id": "castle:garage",
+   "label": null,
+   "hidden": true,
+   "adventure": "GARAGE_VIEW",
+   "when": null,
+   "go": null
+  },
+  {
+   "id": "castle:armory",
+   "label": null,
+   "hidden": true,
+   "adventure": null,
+   "when": null,
+   "go": "api=>RAAdventureScene.begin('ARMORY_WALL')"
+  },
+  {
+   "id": "castle:coffin",
+   "label": null,
+   "hidden": true,
+   "adventure": null,
+   "when": null,
+   "go": "api=>RAAdventureScene.begin('COFFIN')"
+  },
+  {
+   "id": "castle:fishtank",
+   "label": null,
+   "hidden": true,
+   "adventure": null,
+   "when": null,
+   "go": "api=>RAAdventureScene.begin('FISHTANK')"
+  },
+  {
+   "id": "crest_hint",
+   "label": null,
+   "hidden": true,
+   "adventure": null,
+   "when": null,
+   "go": "api=>{api.message('somebody named pinky is gonna dm you about that.');RALife.setFlag('pinkyDmSoon',true);return true;}"
+  },
+  {
+   "id": "slurp",
+   "label": "SLURP DYNASTY",
+   "hidden": false,
+   "adventure": "L=>L.done('A08')?'SLURP':'A08'",
+   "when": null,
+   "go": null
+  },
+  {
+   "id": "kush",
+   "label": "KUSH & CRYPT",
+   "hidden": false,
+   "adventure": "L=>L.done('A09')?'KUSH':'A09'",
+   "when": null,
+   "go": null
+  },
+  {
+   "id": "pier",
+   "label": "SANTA MONICA PIER",
+   "hidden": false,
+   "adventure": "L=>L.done('A12')?'PIER':'A12'",
+   "when": "L=>!!L.dragon",
+   "go": null
+  },
+  {
+   "id": "catacomb",
+   "label": "THE CATACOMB",
+   "hidden": false,
+   "adventure": "L=>L.done('A14')?'SHOW':'A14'",
+   "when": null,
+   "go": null
+  },
+  {
+   "id": "cafe",
+   "label": "BEAN THERE DEAD THAT",
+   "hidden": false,
+   "adventure": "L=>L.done('A16')?'CAFE':'A16'",
+   "when": null,
+   "go": null
+  },
+  {
+   "id": "salon",
+   "label": "TWIST & SHOUT",
+   "hidden": false,
+   "adventure": "L=>L.done('A48')?'RETWIST':'A48'",
+   "when": null,
+   "go": null
+  },
+  {
+   "id": "brunch",
+   "label": "EGGS BENEDEAD",
+   "hidden": false,
+   "adventure": "A42",
+   "when": "L=>L.info.sunday",
+   "go": null
+  },
+  {
+   "id": "onsen",
+   "label": "YU & ME ONSEN",
+   "hidden": false,
+   "adventure": "A45",
+   "when": null,
+   "go": null
+  },
+  {
+   "id": "castle:roof",
+   "label": null,
+   "hidden": true,
+   "adventure": "HOOKAH",
+   "when": null,
+   "go": null
+  },
+  {
+   "id": "armory",
+   "label": "THE ARMORY",
+   "hidden": false,
+   "adventure": "L=>L.flag('armoryKnown')?(L.done('A24')?'ARMORY':'A24'):null",
+   "when": null,
+   "go": null
+  },
+  {
+   "id": "ballroom",
+   "label": "THE HOTEL BALLROOM",
+   "hidden": false,
+   "adventure": "A25",
+   "when": null,
+   "go": null
+  },
+  {
+   "id": "florist",
+   "label": "THE FLORIST ON SUNSET",
+   "hidden": false,
+   "adventure": null,
+   "when": null,
+   "go": "async api=>{await RAAdventureScene.begin('SHOP',{vars:{store:'florist'}});return true;}"
+  },
+  {
+   "id": "castle:party",
+   "label": null,
+   "hidden": true,
+   "adventure": "L=>L.done('A26')?'HOST':'A26'",
+   "when": null,
+   "go": null
+  },
+  {
+   "id": "venice",
+   "label": "VENICE COURTS",
+   "hidden": false,
+   "adventure": "VENICE",
+   "when": null,
+   "go": null
+  },
+  {
+   "id": "gallery",
+   "label": "ROOKOKO'S GALLERY",
+   "hidden": false,
+   "adventure": "L=>L.done('A49')?'GALLERY':'A49'",
+   "when": null,
+   "go": null
+  },
+  {
+   "id": "tristan_apt",
+   "label": "TRISTAN'S APARTMENT",
+   "hidden": false,
+   "adventure": "L=>RARelations.met('tristan')&&!L.done('A50')?'A50':null",
+   "when": null,
+   "go": null
+  },
+  {
+   "id": "castle:kitchen",
+   "label": null,
+   "hidden": true,
+   "adventure": "KITCHEN",
+   "when": null,
+   "go": null
+  },
+  {
+   "id": "castle:movie",
+   "label": null,
+   "hidden": true,
+   "adventure": "MOVIE",
+   "when": null,
+   "go": null
+  },
+  {
+   "id": "castle:roost",
+   "label": null,
+   "hidden": true,
+   "adventure": "ROOST",
+   "when": null,
+   "go": null
+  },
+  {
+   "id": "castle:maid",
+   "label": null,
+   "hidden": true,
+   "adventure": "L=>L.flag('marisolHired')?'MAID':'A39'",
+   "when": null,
+   "go": null
+  },
+  {
+   "id": "docks",
+   "label": "THE DOCKS",
+   "hidden": false,
+   "adventure": "L=>RAAdventures.available('A_CAMMILE1')?'A_CAMMILE1':null",
+   "when": null,
+   "go": null
+  },
+  {
+   "id": "heartsfelt",
+   "label": "HEARTSFELT-JACKSUN",
+   "hidden": false,
+   "adventure": "L=>['A44','A44_N2','A44_N3','A44_N4'][waffleNext(L)-1]||null",
+   "when": null,
+   "go": null
+  },
+  {
+   "id": "date_someone",
+   "label": null,
+   "hidden": true,
+   "adventure": null,
+   "when": null,
+   "go": "api=>{\r\n  const cand=RABtfPeople.women.find(w=>RARelations.level(w.id)>=2);if(!cand)return false;\r\n  return RAAdventureScene.begin('DATE',{from:'temptation',vars:{person:cand.id}});\r\n }"
+  }
+ ],
+ "chainEntries": [
+  {
+   "target": "A51",
+   "from": "TACOS",
+   "node": "eat",
+   "choice": null,
+   "producer": "A=>RALife.today().rain&&RAAdventures.available('A51')?'A51':null"
+  },
+  {
+   "target": "A_HINA1",
+   "from": "A08",
+   "node": "clockout",
+   "choice": null,
+   "producer": "()=>RAAdventures.available('A_HINA1')?'A_HINA1':null"
+  },
+  {
+   "target": "A_HINA1",
+   "from": "SLURP",
+   "node": "done",
+   "choice": null,
+   "producer": "()=>RAAdventures.available('A_HINA1')?'A_HINA1':null"
+  },
+  {
+   "target": "A_EMBERLY1",
+   "from": "KUSH",
+   "node": "store",
+   "choice": null,
+   "producer": "A=>[...(RAStores.STORES.kush.items||[]).map(it=>{const info=RAStores.itemInfo(it);return {icon:RAStores.itemIcon?.(it),label:`${info.label}${info.owned?' (OWNED)':''}`,sub:RALife.fmt(info.price),when:()=>!info.owned&&RALife.money()>=info.price,fx:X=>{if(RAStores.buy(it))X.set('bought',(X.vars.bought||0)+1);},next:'store'};}),...(RAAdventures.available('A_EMBERLY1',{ignoreActive:true})?[{label:'THE BACK ROOM',fx:X=>X.set('chain','A_EMBERLY1'),next:'out'}]:[]),{label:\"I'M GOOD\",next:'out'}]"
+  },
+  {
+   "target": "COOK",
+   "from": "A16",
+   "node": "end",
+   "choice": null,
+   "producer": "A=>RAAdventures.available('COOK')?'COOK':null"
+  },
+  {
+   "target": "COOK",
+   "from": "CAFE",
+   "node": "done",
+   "choice": null,
+   "producer": "A=>A.vars.wantCook&&RAAdventures.available('COOK')?'COOK':null"
+  },
+  {
+   "target": "A_JADE1",
+   "from": "A26",
+   "node": "end",
+   "choice": null,
+   "producer": "A=>A.vars.theme==='dragon'&&RAAdventures.available('A_JADE1')?'A_JADE1':null"
+  },
+  {
+   "target": "A_JADE1",
+   "from": "HOST",
+   "node": "end",
+   "choice": null,
+   "producer": "A=>A.vars.theme==='dragon'&&RAAdventures.available('A_JADE1')?'A_JADE1':null"
+  },
+  {
+   "target": "MOONIE_MEET",
+   "from": "VENICE",
+   "node": "courts",
+   "choice": "PULL-UPS ON THE RIM",
+   "producer": "X=>X.set('chain','MOONIE_MEET')"
+  },
+  {
+   "target": "A_ANFEESA1",
+   "from": "A55",
+   "node": "done",
+   "choice": null,
+   "producer": "()=>RAAdventures.available('A_ANFEESA1')?'A_ANFEESA1':null"
+  },
+  {
+   "target": "A56",
+   "from": "A54",
+   "node": "win",
+   "choice": null,
+   "producer": "()=>RAAdventures.available('A56')?'A56':null"
+  }
+ ]
+}

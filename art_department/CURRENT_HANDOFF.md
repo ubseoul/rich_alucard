@@ -1,27 +1,43 @@
 # Current handoff
 
-**ART SHIP 007 — OPEN FOUNDATION COMPLETION: BE TASTE PASS / HQ VISUAL PASS / APPROVED MASTER / FROZEN / COMPLETE.** No Art Ship is active. Do not begin ART SHIP 008 in this chat.
+OL-052 current launch scope: P-C deferred, 0 launch rows; no pose sheets/videos or wardrobe-tier code requested. Only P-D remains (50). Three accepted dance loops stay registered as the single launch outfits (Tier 2 internal record), with unchanged always-on rendering. P-C briefs/checklist are in `art_department/future/`; OL-042 wardrobe ingest wiring cancelled. All further work/drops use 002. Earlier wardrobe instructions below are historical.
 
-## Frozen result
 
-- 18 canonical 80×96 RGBA identity anchors, binary alpha and contact `(40,88)`.
-- 20 canonical 270×480 opaque RGB reusable environment masters.
-- 38 total canonical PNGs; every canonical SHA-256 equals its accepted candidate SHA-256.
-- No regeneration or visual revision occurred during promotion.
-- The approximately 1.85× character presentation scale remains runtime-only nearest-neighbor guidance.
+OL-047 current branch: `build/visual-completion-002`. 001 superseded by 002 (OL-047, rebase onto build2-accepted). All further BUILD-4 work, drops and final reports use 002. Normal push only; remote 001 retained at `807523cb369776540bc573dd53a9fc753d2f30de`. Resume `docs/progress/BUILD4.md`; earlier publication-pending notes below are history.
 
-Exact ids, paths, hashes, dimensions, formats, alpha, contacts, provenance and freeze scopes are authoritative in [ART SHIP 007 manifest](ships/art_ship_007/ART_SHIP_MANIFEST.json), [Engineering Asset Map](ships/art_ship_007/ENGINEERING_ASSET_MAP.json), [Promotion Validation](ships/art_ship_007/VALIDATION_REPORT.json), and [Asset Register](ASSET_REGISTER.json).
 
-## Accepted deferrals
+OL-046 supersedes counts below: P-A 0 / P-B 0 / P-C 18 / P-D 50; 68 pending total. IMAGE_PROMPTS_P-D.md now has 48 targets, including GUNS (eight held sprites). BUILD-6 owns learned-move FX. Rebased locally onto build2-accepted (40fd2bc02e4793380fbf9f6cb04c95113a46db11); no approved art/audio regenerated.
 
-Ambiguous, likeness-sensitive, condition-dependent, crowd, overlay, GUIDED and presentation-dependent work remains deferred. Family identities, God, Buckhead Vampire and OG Hooper remain outside the promoted set. No inference or substitute art is authorized.
 
-## Boundaries
+**OL-042 CURRENT:** sections 1–4 applied; 960 frozen paths, zero altered pixels; 21 decision rows closed and DEV excluded. 60 pending (P-A 0 / P-B 0 / P-C 18 / P-D 42). Use `briefs/IMAGE_PROMPTS_P-D.md` and `briefs/P-C_STEPS.md`; Ube returns filename-only images/videos. Hash authority is `build4/PRESERVED_ART_HASH_AUDIT.json`. Historical OL-039/ship records follow.
 
-No runtime/gameplay code changed. Runtime integration was not performed. No SEALED/HQ-only content was accessed. Future pixel changes require an explicit HQ delta.
+BUILD-4 / OL-039 status: integration and package preparation complete; awaiting Ube's four package drops. Current register: 952 frozen PNG paths, zero frozen baseline bytes altered. Start at `docs/progress/BUILD4.md`, `PLACEHOLDER_LOG.md`, and `briefs/P-A.md` through `briefs/P-D.md`. The shipment record below is retained as history. No new production taste approval is asserted.
 
-## Corpus and integration
+**ART SHIP 015 — APPROVED MASTER / FROZEN / COMPLETE.**
 
-The frozen corpus is now **173 assets** and the register contains **313 entries**. ART SHIP 004–007 contribute 153 frozen handoff files that remain not runtime-integrated by their Ships. Engineering integration is the next highest-value independent task.
+## Freeze result
 
-**STOP. ART SHIP 007 is FROZEN / COMPLETE. Retire this Art Agent after commit, push and clean-tree verification. Do not begin ART SHIP 008 in this chat.**
+- Branch: `art/art_ship_015`.
+- Ube/HQ Taste Pass: **PASS**; exact-byte promotion and freeze authorized.
+- Promoted masters: **7/7**, all byte-for-byte identical to accepted candidates.
+- Resolved: `A-family-brother1`, `A-family-brother2`, `A-family-brother1-avatar`, `A-family-brother2-avatar`, `A-god`, `A-og-hooper`.
+- Frozen corpus: **411/411 verified**; Asset Register: **551 entries**.
+- Pre-Ship-015 frozen corpus: **404/404 unchanged**.
+- Candidate duplicate and frozen semantic-equality audits: PASS.
+- Four Brother files remained byte-identical through correction and promotion.
+
+## Remaining non-Ship-015 requirements
+
+- `MAPPING / ENGINEERING DECISION` (5): `C-big-fish`, `D-runtime-delivery`, `D-runtime-damaged`, `G-env-catacomb_dead`, `G-env-halloween`.
+- `CONDITIONAL — EXISTING ART MUST BE TESTED FIRST` (6): `A-RICH-hungover`, `A-RICH-portobello_wake`, `D-supra-world`, `E-cube`, `G-castle_party`, `G-grave`.
+- SEALED remains excluded and untouched.
+
+## Runtime boundary
+
+Runtime authority remains `claude/hold-clearance-001` at `a66170218375e52404715789dde48c23726a6044`: **108 PASS / 13 HOLD**, unchanged. Ship 015 requires separate Engineering mapping/integration and runtime/Presentation QA.
+
+Ship 011 remains separately frozen/unassigned. No runtime/gameplay file, Presentation mapping, PASS/HOLD state, Engineering/main branch, deployment or SEALED material changed.
+
+## Stop
+
+**ART SHIP 015 — APPROVED MASTER / FROZEN / COMPLETE. ART PRODUCTION IS DORMANT.**

@@ -1,0 +1,62 @@
+{
+ "startedAt": "2026-10-03T23:32:12.948Z",
+ "root": "C:\\Users\\Ube\\Documents\\Codex\\2026-10-03\\files-pasted-by-the-user-final\\work\\rich_alucard",
+ "pairedRoot": null,
+ "jobs": 1,
+ "personas": {
+  "completionist": {
+   "lanes": [
+    "home",
+    "food",
+    "dragons",
+    "music",
+    "dating",
+    "money",
+    "people",
+    "combat",
+    "cars",
+    "mall",
+    "property",
+    "weird",
+    "nightlife",
+    "hosting",
+    "fishing",
+    "vampire",
+    "world",
+    "life"
+   ],
+   "outings": 5,
+   "dates": 3,
+   "skill": 0.97,
+   "choice": "commit",
+   "reserve": 20000,
+   "rooms": [
+    "party_hall",
+    "hookah_roof",
+    "maid_quarters",
+    "kitchen",
+    "dragon_roost",
+    "armory_wall",
+    "movie_room",
+    "music_room",
+    "garage",
+    "coffin_upgrade",
+    "fish_tank"
+   ],
+   "trap": true,
+   "properties": true,
+   "plays": 2,
+   "cars": [
+    "urus",
+    "aventador"
+   ]
+  }
+ },
+ "seeds": 1,
+ "maxDays": 25,
+ "continueAfterEnding": true,
+ "total": 1,
+ "resumed": 0,
+ "policyVersion": "FINAL-A.completionist.v2",
+ "policyPhases": "Days1–22 money/people/cars,3outings/1date; later all lanes,5outings/3dates targeting arc contacts. Actual Hall ownership precedes paidclubspending."
+}

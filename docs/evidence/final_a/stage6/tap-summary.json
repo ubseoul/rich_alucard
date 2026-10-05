@@ -1,0 +1,144 @@
+{
+  "historicalRequired": 720,
+  "tapped": 978,
+  "withSound": 978,
+  "failures": [],
+  "errors": [],
+  "integratedPathPass": true,
+  "keyboardKeys": 29,
+  "keyboardSounds": 29,
+  "deviceLockTaps": 54,
+  "deviceUnlockTaps": 39,
+  "homeTaps": 104,
+  "bankTaps": [
+    {
+      "screen": "app:bank",
+      "element": "deviceLock",
+      "sound": true,
+      "starts": 2
+    },
+    {
+      "screen": "app:bank",
+      "element": "settings",
+      "sound": true,
+      "starts": 2
+    },
+    {
+      "screen": "app:bank",
+      "element": "Close phone",
+      "sound": true,
+      "starts": 2
+    },
+    {
+      "screen": "app:bank",
+      "element": "app:realEstate",
+      "sound": true,
+      "starts": 2
+    },
+    {
+      "screen": "app:bank",
+      "element": "app:realEstate",
+      "sound": true,
+      "starts": 2
+    },
+    {
+      "screen": "app:bank",
+      "element": "app:jdmImports",
+      "sound": true,
+      "starts": 2
+    },
+    {
+      "screen": "app:bank",
+      "element": "home",
+      "sound": true,
+      "starts": 1
+    },
+    {
+      "screen": "app:bank",
+      "element": "home",
+      "sound": true,
+      "starts": 1
+    }
+  ],
+  "rapidTapVoiceCap": {
+    "active": 0,
+    "max": 3
+  },
+  "leakedCombatLoops": [],
+  "runs": [
+    {
+      "file": "tap-census.json",
+      "tapped": 756,
+      "withSound": 756,
+      "failures": 0,
+      "errors": 0
+    },
+    {
+      "file": "tap-supplement.json",
+      "tapped": 121,
+      "withSound": 121,
+      "failures": 0,
+      "errors": 0
+    },
+    {
+      "file": "tap-paths-all.json",
+      "tapped": 67,
+      "withSound": 67,
+      "failures": 0,
+      "errors": 0
+    },
+    {
+      "file": "tap-phone-controls.json",
+      "tapped": 34,
+      "withSound": 34,
+      "failures": 0,
+      "errors": 0
+    }
+  ],
+  "scope": "Real physical clicks; repeated controls in different states/widths count as separate tap receipts. New device and keyboard controls extend the historical 720-tap scope.",
+  "keyboardUiTapSounds": 29,
+  "directPhoneFailures": [],
+  "bankCastleCta": {
+    "screen": "phone direct Bank",
+    "element": "SEE YOUR CASTLE",
+    "sound": true,
+    "starts": 2,
+    "cues": {
+      "UI_TAP": 1,
+      "PHONE_APP_OPEN": 1
+    },
+    "expected": "PHONE_APP_OPEN",
+    "exactCue": true,
+    "stateMatch": true
+  },
+  "hostReturnReceipts": [
+    {
+      "screen": "play return",
+      "motion": "normal",
+      "childMedia": 2,
+      "parentWebAudio": {
+        "UI_BACK": 1
+      },
+      "parentContext": "running"
+    },
+    {
+      "screen": "trap-raid return",
+      "motion": "normal",
+      "childMedia": 2,
+      "parentWebAudio": {
+        "UI_BACK": 1
+      },
+      "parentContext": "running"
+    },
+    {
+      "screen": "tap-play return",
+      "motion": "reduced (physical setting toggle in this path)",
+      "childMedia": 0,
+      "parentWebAudio": {
+        "UI_BACK": 1
+      },
+      "parentContext": "running"
+    }
+  ],
+  "pass": true
+}

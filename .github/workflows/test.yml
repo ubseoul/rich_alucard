@@ -3,7 +3,7 @@ name: Test static release
 on:
   pull_request:
   push:
-    branches: [main]
+    branches: [main, 'integration/**']
 
 jobs:
   deterministic-release-gate:
@@ -15,6 +15,33 @@ jobs:
           node-version: 20
       - run: npm run guard:hq
       - run: npm run guard:hq:test
+      # `npm test` includes IF-1: loader verification, every fragment's auto-discovered tests, migration fixtures,
+      # contract tests, zero-behavior-change replay and the OPEN-build sealed-leak check.
       - run: npm test
       - run: npm run build -- --commit "$GITHUB_SHA"
       - run: npm run verify:artifact
+      # artifact leak check + empty-pack private overlay equivalence (browser smoke runs in its own job below)
+      - run: node tools/leak-check.mjs --dist dist
+      - run: node tools/verify-all.mjs --skip-build
+      - uses: actions/upload-artifact@v4
+        with:
+          name: dist
+          path: dist
+
+  browser-smoke:
+    needs: deterministic-release-gate
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - uses: actions/download-artifact@v4
+        with:
+          name: dist
+          path: dist
+      - run: npm install --no-save --no-package-lock playwright-core@1.47.2
+      - run: npx playwright-core install --with-deps chromium
+      - run: node tools/if1/browser-smoke.mjs --require-browser
+        env:
+          RA_PLAYWRIGHT_PATH: ${{ github.workspace }}/node_modules/playwright-core

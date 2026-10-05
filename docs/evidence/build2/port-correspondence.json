@@ -1,0 +1,396 @@
+{
+  "F02": {
+    "source": "941af1d4c1bae8cedb829f87a6aa3a5100d48f86",
+    "files": [
+      {
+        "file": "docs/engineering/F02_IRON_AND_GRACE.md",
+        "sourceBlob": "8001676573d0483f833e86e8c453ad267a800d35",
+        "status": "IDENTICAL"
+      },
+      {
+        "file": "index.html",
+        "sourceBlob": "377e5acac882e7975a6432543f25346595e61514",
+        "status": "COMPOSED / SEAM ADAPTED"
+      },
+      {
+        "file": "js/data/audio/parts/F02_guns.js",
+        "sourceBlob": "373f3bcc93ed60c12f3fb28be3933a9412aa9219",
+        "status": "COMPOSED / SEAM ADAPTED"
+      },
+      {
+        "file": "js/frag/F02/armory.css",
+        "sourceBlob": "72f155ba6c1d5d309642a167d8192e688d4fc5df",
+        "status": "IDENTICAL"
+      },
+      {
+        "file": "js/frag/F02/armory.js",
+        "sourceBlob": "f64adff5ad4f65b0678e7975fdae598508960fa2",
+        "status": "IDENTICAL"
+      },
+      {
+        "file": "js/frag/F02/catalog.js",
+        "sourceBlob": "94219df154f6f5ad6947ce4909f3171702011280",
+        "status": "IDENTICAL"
+      },
+      {
+        "file": "js/frag/F02/combat.js",
+        "sourceBlob": "f576cf812c2eee6583c855bf0e1f0b34b3c4856b",
+        "status": "COMPOSED / SEAM ADAPTED"
+      },
+      {
+        "file": "js/frag/F02/flags.js",
+        "sourceBlob": "76136e2f501a08ff1e8b450ef4807ee773b1a0c3",
+        "status": "IDENTICAL"
+      },
+      {
+        "file": "js/frag/F02/iron_and_grace.js",
+        "sourceBlob": "9a037fe2c1ef889a5a572bd5814e9ed5a23cfac9",
+        "status": "COMPOSED / SEAM ADAPTED"
+      },
+      {
+        "file": "js/frag/F02/manifest.json",
+        "sourceBlob": "e1dd8388cbac2fc7eb6e5c1d3186b30ba2f229ec",
+        "status": "COMPOSED / SEAM ADAPTED"
+      },
+      {
+        "file": "js/frag/F02/migrations.js",
+        "sourceBlob": "1ea44a788fe33578fbbc3f700b5491a59afa40fc",
+        "status": "IDENTICAL"
+      },
+      {
+        "file": "js/frag/F02/range.js",
+        "sourceBlob": "f1d143a6c3c3076da78ee73e453e49021b067116",
+        "status": "COMPOSED / SEAM ADAPTED"
+      },
+      {
+        "file": "js/frag/F02/registry.js",
+        "sourceBlob": "7b5130dd58b3fad2f6d3b144becf3d086e7988f9",
+        "status": "COMPOSED / SEAM ADAPTED"
+      },
+      {
+        "file": "js/frag/F02/showdown.js",
+        "sourceBlob": "cd09af254d0b9a464a7d97394919f1f1591c061e",
+        "status": "IDENTICAL"
+      },
+      {
+        "file": "tools/tests/f02/_lib.mjs",
+        "sourceBlob": "4c57d8b2f337a602cf41eeb0d111143d452d8fe7",
+        "status": "COMPOSED / SEAM ADAPTED"
+      },
+      {
+        "file": "tools/tests/f02/armory.test.mjs",
+        "sourceBlob": "da0c2ca2c6086de4c690b6747f1b62fd5c317d17",
+        "status": "IDENTICAL"
+      },
+      {
+        "file": "tools/tests/f02/browser-path.mjs",
+        "sourceBlob": "050577c6796fd534224f182732a811fd0400f47b",
+        "status": "IDENTICAL"
+      },
+      {
+        "file": "tools/tests/f02/catalog.test.mjs",
+        "sourceBlob": "a0be5fad8a637a2643730dede3c4564fea504c19",
+        "status": "IDENTICAL"
+      },
+      {
+        "file": "tools/tests/f02/combat.test.mjs",
+        "sourceBlob": "b4a014eb0d4f1e3acecd429d15a56aefbf5fba4d",
+        "status": "COMPOSED / SEAM ADAPTED"
+      },
+      {
+        "file": "tools/tests/f02/contracts.test.mjs",
+        "sourceBlob": "9caf44b28f475392aae35d17c0a648d791ad0f2c",
+        "status": "COMPOSED / SEAM ADAPTED"
+      },
+      {
+        "file": "tools/tests/f02/registry.test.mjs",
+        "sourceBlob": "37a322fa538d7e1ec475b01be3a2f37875a4f92d",
+        "status": "IDENTICAL"
+      },
+      {
+        "file": "tools/tests/f02/zero-change.test.mjs",
+        "sourceBlob": "ba875e0162e0f768a191712049a7434882cd6ad0",
+        "status": "IDENTICAL"
+      }
+    ],
+    "identical": 12,
+    "total": 22
+  },
+  "F11-A": {
+    "source": "9eb87323caa88252a98b931879d0712d4e235304",
+    "files": [
+      {
+        "file": "assets/audio/sfx/combat/BARS_PUNCHLINE.mp3",
+        "sourceBlob": "ec2a535d16072e7210c3fa94cb0a9dcf96f14955",
+        "status": "IDENTICAL"
+      },
+      {
+        "file": "assets/audio/sfx/combat/DRAGON_WINGS.mp3",
+        "sourceBlob": "6f2b855a10aceaba81ee63a1d1bb4c091399bfa5",
+        "status": "IDENTICAL"
+      },
+      {
+        "file": "assets/audio/sfx/iron_and_grace/GN_01.mp3",
+        "sourceBlob": "f2180ecde36a7968e5899baae1f11f3cc3355603",
+        "status": "IDENTICAL"
+      },
+      {
+        "file": "assets/audio/sfx/iron_and_grace/GN_02.mp3",
+        "sourceBlob": "4d921bc7c0f6f63d31e1f1288f104a2532876a86",
+        "status": "IDENTICAL"
+      },
+      {
+        "file": "assets/audio/sfx/iron_and_grace/GN_03.mp3",
+        "sourceBlob": "ac06a730be1e2dd14d1c573d98788889531e163e",
+        "status": "IDENTICAL"
+      },
+      {
+        "file": "assets/audio/sfx/iron_and_grace/GN_04.mp3",
+        "sourceBlob": "fb6cbc1fe4fd61b3f0f31a5afb85cefc86cdb56f",
+        "status": "IDENTICAL"
+      },
+      {
+        "file": "assets/audio/sfx/iron_and_grace/GN_05.mp3",
+        "sourceBlob": "5000bfea1eecabd54f753a66df5591d73d465cd8",
+        "status": "IDENTICAL"
+      },
+      {
+        "file": "assets/audio/sfx/iron_and_grace/GN_06.mp3",
+        "sourceBlob": "ff97892632a8e164081740c91efdcf54596d3523",
+        "status": "IDENTICAL"
+      },
+      {
+        "file": "assets/audio/sfx/new_oga/NO_01.mp3",
+        "sourceBlob": "3beb1b1ae7158ef6fcf0f6a100f7db7e59feccf5",
+        "status": "IDENTICAL"
+      },
+      {
+        "file": "assets/audio/sfx/new_oga/NO_01__blip.mp3",
+        "sourceBlob": "b1bf2ab3a067b28495dfa04e3cf3936b910a4454",
+        "status": "IDENTICAL"
+      },
+      {
+        "file": "assets/audio/sfx/new_oga/NO_01__hum.mp3",
+        "sourceBlob": "28830ecb76d68aca3fe4e2f752ce59e40a681030",
+        "status": "IDENTICAL"
+      },
+      {
+        "file": "assets/audio/sfx/new_oga/NO_02.mp3",
+        "sourceBlob": "7188a939dd18bf389907b03af1c10dd715e4ac11",
+        "status": "IDENTICAL"
+      },
+      {
+        "file": "assets/audio/sfx/new_oga/NO_03.mp3",
+        "sourceBlob": "c6152981c4cec4bc108711dcf330cc21a9237f1a",
+        "status": "IDENTICAL"
+      },
+      {
+        "file": "assets/audio/sfx/new_oga/NO_04.mp3",
+        "sourceBlob": "bd63f87de010d3c8bfeeac536de8f7649eec3088",
+        "status": "IDENTICAL"
+      },
+      {
+        "file": "assets/audio/sfx/new_oga/NO_04__pant.mp3",
+        "sourceBlob": "8588752e6ca428d7dbe466d077744330449a18cd",
+        "status": "IDENTICAL"
+      },
+      {
+        "file": "assets/audio/sfx/new_oga/NO_05.mp3",
+        "sourceBlob": "02b7bc43e333f3df55be4eed9a7d1b791fdb17f4",
+        "status": "IDENTICAL"
+      },
+      {
+        "file": "assets/audio/sfx/new_oga/NO_06.mp3",
+        "sourceBlob": "090bc6373f8070337353f27a2b046b6c989dcb84",
+        "status": "IDENTICAL"
+      },
+      {
+        "file": "assets/audio/sfx/rainmaker/RM_01.mp3",
+        "sourceBlob": "bff99f6069ff4a21503121166760d67bb45c17ad",
+        "status": "IDENTICAL"
+      },
+      {
+        "file": "assets/audio/sfx/rainmaker/RM_02.mp3",
+        "sourceBlob": "ca9fbfed39d8d9188153dee9e19075d604f981ea",
+        "status": "IDENTICAL"
+      },
+      {
+        "file": "assets/audio/sfx/rainmaker/RM_03.mp3",
+        "sourceBlob": "9fe3c1d2000af41ac01500837a37f381409911ca",
+        "status": "IDENTICAL"
+      },
+      {
+        "file": "assets/audio/sfx/rainmaker/RM_04.mp3",
+        "sourceBlob": "e7d9218b62eca2292d49a82800fcaf98ae13d538",
+        "status": "IDENTICAL"
+      },
+      {
+        "file": "assets/audio/sfx/rainmaker/RM_05.mp3",
+        "sourceBlob": "900d74106d2a79c39339f21632146b143aba639a",
+        "status": "IDENTICAL"
+      },
+      {
+        "file": "assets/audio/sfx/rainmaker/RM_06.mp3",
+        "sourceBlob": "76d2428a483904e14022bb64f8edd76c18def59a",
+        "status": "IDENTICAL"
+      },
+      {
+        "file": "assets/audio/sfx/rainmaker/RM_07.mp3",
+        "sourceBlob": "61f54eaba25082082222c86e6e0fa08f7166ad29",
+        "status": "IDENTICAL"
+      },
+      {
+        "file": "assets/audio/sfx/rainmaker/RM_08.mp3",
+        "sourceBlob": "fdf5bc2858fda45065f5dab97a1286696e97919e",
+        "status": "IDENTICAL"
+      },
+      {
+        "file": "assets/audio/sfx/showdown/BX_COVER_HIT.mp3",
+        "sourceBlob": "0bd5f0abfcc35039189517fae9137d16bcb855ca",
+        "status": "IDENTICAL"
+      },
+      {
+        "file": "assets/audio/sfx/showdown/BX_COVER_HIT__alt1.mp3",
+        "sourceBlob": "e98e6d6ee97ff23d8f768f6613ccd741fc743cda",
+        "status": "IDENTICAL"
+      },
+      {
+        "file": "assets/audio/sfx/showdown/BX_CRATE.mp3",
+        "sourceBlob": "16c87aa348e0cccca633a401190d1f2edc8d9833",
+        "status": "IDENTICAL"
+      },
+      {
+        "file": "assets/audio/sfx/showdown/BX_DOWNED.mp3",
+        "sourceBlob": "1e90956af36d6ab90d158862ab630e56f7fb5684",
+        "status": "IDENTICAL"
+      },
+      {
+        "file": "assets/audio/sfx/showdown/BX_GONE.mp3",
+        "sourceBlob": "37d1a84d90b58744a5f31d94f63e8a17bccc4459",
+        "status": "IDENTICAL"
+      },
+      {
+        "file": "assets/audio/sfx/showdown/BX_NAMECARD_SLAM.mp3",
+        "sourceBlob": "9b94d3bb31125e7cc16ac21ac7595b28f97655ea",
+        "status": "IDENTICAL"
+      },
+      {
+        "file": "assets/audio/sfx/showdown/BX_OVERWATCH.mp3",
+        "sourceBlob": "7531a1ca4f93d43905a1f44dd155f9de69d05cae",
+        "status": "IDENTICAL"
+      },
+      {
+        "file": "assets/audio/sfx/showdown/BX_POD_REVEAL.mp3",
+        "sourceBlob": "16f952a39ca8d9f6f68687893a9e6df0c642b1f8",
+        "status": "IDENTICAL"
+      },
+      {
+        "file": "assets/audio/sfx/showdown/BX_SLIDEIN_IDLE.mp3",
+        "sourceBlob": "b0d3698304bad08c96b1e5bd02f3b19e75e44daa",
+        "status": "IDENTICAL"
+      },
+      {
+        "file": "assets/audio/sfx/showdown/BX_WARROOM.mp3",
+        "sourceBlob": "70695ab67572b43a0f3986912b4ce9d415312f76",
+        "status": "IDENTICAL"
+      },
+      {
+        "file": "assets/audio/sfx/trap/TR_01.mp3",
+        "sourceBlob": "d3a67435ca7cafede240e9d7c4e276fd57b704f0",
+        "status": "IDENTICAL"
+      },
+      {
+        "file": "assets/audio/sfx/trap/TR_02.mp3",
+        "sourceBlob": "d94a9de4f96f09573c2e468f272ec0f7a74581d9",
+        "status": "IDENTICAL"
+      },
+      {
+        "file": "assets/audio/sfx/trap/TR_03.mp3",
+        "sourceBlob": "1e7d8521959c0157061a0aef81eca3c4381ebaa4",
+        "status": "IDENTICAL"
+      },
+      {
+        "file": "assets/audio/sfx/trap/TR_04.mp3",
+        "sourceBlob": "802540ba6c5de4ec773319898278bebc22dc1311",
+        "status": "IDENTICAL"
+      },
+      {
+        "file": "assets/audio/sfx/trap/TR_05.mp3",
+        "sourceBlob": "17a869902b83c834b5bdb96d1ceb1278a425ed15",
+        "status": "IDENTICAL"
+      },
+      {
+        "file": "assets/audio/sfx/trap/TR_06.mp3",
+        "sourceBlob": "188d2162092d8a81528f9f69c02a1fd6df770810",
+        "status": "IDENTICAL"
+      },
+      {
+        "file": "docs/engineering/F11_AUDIO_COMPLETION_001.md",
+        "sourceBlob": "dff32c2b6879a9f691b3488f081074c1677f3404",
+        "status": "IDENTICAL"
+      },
+      {
+        "file": "index.html",
+        "sourceBlob": "19fda7fe08c0e553d89664ff9affd337b95904f1",
+        "status": "COMPOSED / SEAM ADAPTED"
+      },
+      {
+        "file": "js/data/audio/parts/F02_guns.js",
+        "sourceBlob": "c94ac59b6a03e9e294e3f53d471079cb5422c0c1",
+        "status": "IDENTICAL"
+      },
+      {
+        "file": "js/data/audio/parts/F04_blood_x.js",
+        "sourceBlob": "59b54177c70d406b769463cf1d9a58df018757cd",
+        "status": "IDENTICAL"
+      },
+      {
+        "file": "js/data/audio/parts/F05_trap.js",
+        "sourceBlob": "5192a7fb5c9612377d42106632407f673d00d4a3",
+        "status": "COMPOSED / SEAM ADAPTED"
+      },
+      {
+        "file": "js/data/audio/parts/F06_rainmaker.js",
+        "sourceBlob": "2c21db28afd47d3da34ef5db2d8d01ab1636a5e2",
+        "status": "IDENTICAL"
+      },
+      {
+        "file": "js/data/audio_manifest.js",
+        "sourceBlob": "4317edb410ba046219d39ea73e3de8315b1f216b",
+        "status": "IDENTICAL"
+      },
+      {
+        "file": "js/systems/smoke.js",
+        "sourceBlob": "8f0529eee9d36d930bdd2dd612fcecc34454d5f5",
+        "status": "IDENTICAL"
+      },
+      {
+        "file": "tools/audio-build.mjs",
+        "sourceBlob": "0135290bf8714ce96871301f2e14fd8e1535dc2b",
+        "status": "IDENTICAL"
+      },
+      {
+        "file": "tools/release.mjs",
+        "sourceBlob": "f72d9e3e324095afc8e1ce88db2b485632568316",
+        "status": "IDENTICAL"
+      },
+      {
+        "file": "tools/tests/f11/audio_completion-browser.mjs",
+        "sourceBlob": "aab23b96392304d0518d32b49ef0897c14c238df",
+        "status": "IDENTICAL"
+      },
+      {
+        "file": "tools/tests/f11/audio_completion.test.mjs",
+        "sourceBlob": "4e9cce1a955bc2f59ee3f836c28f6c0cbf62ba2e",
+        "status": "IDENTICAL"
+      },
+      {
+        "file": "tools/tests/f11/patch_sound_delivery.json",
+        "sourceBlob": "b333eef313c83597628180916f66483b5dd3488c",
+        "status": "IDENTICAL"
+      }
+    ],
+    "identical": 52,
+    "total": 54
+  }
+}

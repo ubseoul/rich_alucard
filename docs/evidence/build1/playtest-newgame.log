@@ -1,0 +1,15 @@
+PLAYTEST QA over dist ra-dfc344760b37-20261002143213 (dfc344760b37a3eb134c2864d999a0b51e41f659)
+[newgame 360] build ra-dfc344760b37-20261002143213 commit dfc344760b37 save v16
+[newgame 360] reached bedroom day 1; prologue adventures A00; ceo {"defeated":true,"completed":true}; steal=no
+[newgame 360] phone home actions: app:vampgpt app:vampgram app:instahoe app:onlyvamps app:realEstate app:jdmImports app:richboi app:texts close
+[newgame 360] refresh → bedroom, diff 0
+[newgame 390] build ra-dfc344760b37-20261002143213 commit dfc344760b37 save v16
+[newgame 390] reached bedroom day 1; prologue adventures A00; ceo {"defeated":true,"completed":true}; steal=yes
+[newgame 390] phone home actions: app:vampgpt app:vampgram app:instahoe app:onlyvamps app:realEstate app:jdmImports app:richboi app:texts close
+[newgame 390] refresh → bedroom, diff 0
+[newgame 430] build ra-dfc344760b37-20261002143213 commit dfc344760b37 save v16
+[newgame 430] reached bedroom day 1; prologue adventures A00; ceo {"defeated":true,"completed":true}; steal=no
+[newgame 430] phone home actions: app:vampgpt app:vampgram app:instahoe app:onlyvamps app:realEstate app:jdmImports app:richboi app:texts close
+[newgame 430] refresh → bedroom, diff 0
+
+PLAYTEST QA done: 0 findings {} → C:\Users\Ube\Documents\Codex\2026-09-21\can\work\rich_alucard_build1\docs\evidence\build1\playtest-newgame

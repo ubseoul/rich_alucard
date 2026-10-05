@@ -1,0 +1,297 @@
+{
+  "authority": "Ube, explicit user message in this chat",
+  "recorded_client_date": "2026-10-02",
+  "timezone": "America/New_York",
+  "exact_approval_timestamp": "Not supplied; approval identified by verbatim user message.",
+  "approval_quote": "I approve these exact candidates:\n- convention_hall_candidate_original.png\n- shrine_auditorium_candidate_original.png\n- spirit_of_uncle_bunmi_candidate_original.png",
+  "accepted_issues_quote": "The reported reflections, translucent body pixels and far-leg readability are accepted. Do not repaint or regenerate.",
+  "sources_status": "FROZEN — UBE APPROVED",
+  "normalized_backgrounds_status": "FROZEN — UBE APPROVED",
+  "freeze_method": "Frozen bytes identified by calculated SHA-256; original files copied byte-for-byte, never decoded/re-encoded for storage.",
+  "runtime_integration_commit_push": "none",
+  "assets": [
+    {
+      "asset": "convention_hall",
+      "source": {
+        "filename": "convention_hall_candidate_original.png",
+        "role": "approved_background_original",
+        "status": "FROZEN — UBE APPROVED",
+        "bytes": 1690038,
+        "sha256": "85ad0c17c2c0dffb89aee6d724f9ad569647b53af309007e58c50dd838242ebc",
+        "actual_dimensions": [
+          941,
+          1672
+        ],
+        "format": "PNG",
+        "mode": "RGB",
+        "opaque": true
+      },
+      "approval_authority": "Ube, explicit user message in this chat",
+      "approval_quote": "I approve these exact candidates:\n- convention_hall_candidate_original.png\n- shrine_auditorium_candidate_original.png\n- spirit_of_uncle_bunmi_candidate_original.png",
+      "accepted_issues_quote": "The reported reflections, translucent body pixels and far-leg readability are accepted. Do not repaint or regenerate.",
+      "recorded_client_date": "2026-10-02",
+      "timezone": "America/New_York",
+      "placement": {
+        "status": "UNVERIFIED",
+        "screenshot": "qa/06_convention_hall_gameplay_reference_QA_ONLY.png",
+        "check": "Actual supplied screenshot visually reviewed. Background has open central and lower aisle; rear counters, display structures and drapes may intersect existing standing-actor silhouettes. Exact actor/UI overlap is not established without authoritative viewport mapping. No accurate overlay or runtime check made.",
+        "integration_requirement": "Actor/UI placement remains unverified until runtime integration."
+      },
+      "production": {
+        "filename": "convention_hall_270x480.png",
+        "role": "normalized_background",
+        "status": "FROZEN — UBE APPROVED",
+        "bytes": 186868,
+        "sha256": "469564c607b94bcd7fdceb64d1bcacdd5bf9ff02c7f343a7798636ec885d8664",
+        "actual_dimensions": [
+          270,
+          480
+        ],
+        "format": "PNG",
+        "mode": "RGB",
+        "opaque": true
+      },
+      "transform": {
+        "order": [
+          "center crop",
+          "nearest-neighbor resize"
+        ],
+        "crop_box_left_top_right_bottom_exclusive": [
+          2,
+          4,
+          938,
+          1668
+        ],
+        "removed_source_pixels": {
+          "left": 2,
+          "top": 4,
+          "right": 3,
+          "bottom": 4
+        },
+        "cropped_dimensions": [
+          936,
+          1664
+        ],
+        "cropped_aspect_ratio": "9:16",
+        "output_dimensions": [
+          270,
+          480
+        ],
+        "uniform_scale_exact": "15/52",
+        "resampling": "Pillow Image.Resampling.NEAREST",
+        "output_mode": "RGB; opaque",
+        "color_processing": "none; every pixel is a nearest source sample",
+        "QA_native": "byte-identical copy of production",
+        "QA_4x": {
+          "dimensions": [
+            1080,
+            1920
+          ],
+          "factor": 4,
+          "resampling": "nearest-neighbor"
+        }
+      },
+      "verification": {
+        "original_bytes_equal": true,
+        "every_production_pixel_is_nearest_source_sample": true,
+        "output_colors_subset_of_source": true,
+        "opaque_RGB_PNG": true,
+        "native_preview_byte_identical": true,
+        "every_4x_pixel_matches_repeated_production_pixel": true,
+        "production_bytes_unchanged_at_approval": true
+      },
+      "production_approval": {
+        "authority": "Ube, explicit user message in this chat",
+        "quote": "I approve the exact reviewed convention_hall_270x480.png and shrine_auditorium_270x480.png.",
+        "recorded_client_date": "2026-10-02",
+        "timezone": "America/New_York",
+        "exact_timestamp": "Not supplied; identified by verbatim user message.",
+        "approved_file": {
+          "filename": "convention_hall_270x480.png",
+          "role": "normalized_background",
+          "status": "FROZEN — UBE APPROVED",
+          "bytes": 186868,
+          "sha256": "469564c607b94bcd7fdceb64d1bcacdd5bf9ff02c7f343a7798636ec885d8664",
+          "actual_dimensions": [
+            270,
+            480
+          ],
+          "format": "PNG",
+          "mode": "RGB",
+          "opaque": true
+        }
+      }
+    },
+    {
+      "asset": "shrine_auditorium",
+      "source": {
+        "filename": "shrine_auditorium_candidate_original.png",
+        "role": "approved_background_original",
+        "status": "FROZEN — UBE APPROVED",
+        "bytes": 1606938,
+        "sha256": "023adf2df27500c50c9a07bdd79fa6cb974e3a41b4bf5a658410a77ccd1aa7a4",
+        "actual_dimensions": [
+          941,
+          1672
+        ],
+        "format": "PNG",
+        "mode": "RGB",
+        "opaque": true
+      },
+      "approval_authority": "Ube, explicit user message in this chat",
+      "approval_quote": "I approve these exact candidates:\n- convention_hall_candidate_original.png\n- shrine_auditorium_candidate_original.png\n- spirit_of_uncle_bunmi_candidate_original.png",
+      "accepted_issues_quote": "The reported reflections, translucent body pixels and far-leg readability are accepted. Do not repaint or regenerate.",
+      "recorded_client_date": "2026-10-02",
+      "timezone": "America/New_York",
+      "placement": {
+        "status": "UNVERIFIED",
+        "screenshot": "qa/07_shrine_auditorium_gameplay_reference_QA_ONLY.png",
+        "check": "Actual supplied screenshot visually reviewed. Stage and central aisle are clear, but side seating extends into potential left/right actor regions. Exact actor/UI overlap is not established without authoritative viewport mapping. No accurate overlay or runtime check made.",
+        "integration_requirement": "Actor/UI placement remains unverified until runtime integration."
+      },
+      "production": {
+        "filename": "shrine_auditorium_270x480.png",
+        "role": "normalized_background",
+        "status": "FROZEN — UBE APPROVED",
+        "bytes": 177418,
+        "sha256": "58359742eb37d7cd4ff9f05c9312207f109528a59397268cd7d73491ae02cab9",
+        "actual_dimensions": [
+          270,
+          480
+        ],
+        "format": "PNG",
+        "mode": "RGB",
+        "opaque": true
+      },
+      "transform": {
+        "order": [
+          "center crop",
+          "nearest-neighbor resize"
+        ],
+        "crop_box_left_top_right_bottom_exclusive": [
+          2,
+          4,
+          938,
+          1668
+        ],
+        "removed_source_pixels": {
+          "left": 2,
+          "top": 4,
+          "right": 3,
+          "bottom": 4
+        },
+        "cropped_dimensions": [
+          936,
+          1664
+        ],
+        "cropped_aspect_ratio": "9:16",
+        "output_dimensions": [
+          270,
+          480
+        ],
+        "uniform_scale_exact": "15/52",
+        "resampling": "Pillow Image.Resampling.NEAREST",
+        "output_mode": "RGB; opaque",
+        "color_processing": "none; every pixel is a nearest source sample",
+        "QA_native": "byte-identical copy of production",
+        "QA_4x": {
+          "dimensions": [
+            1080,
+            1920
+          ],
+          "factor": 4,
+          "resampling": "nearest-neighbor"
+        }
+      },
+      "verification": {
+        "original_bytes_equal": true,
+        "every_production_pixel_is_nearest_source_sample": true,
+        "output_colors_subset_of_source": true,
+        "opaque_RGB_PNG": true,
+        "native_preview_byte_identical": true,
+        "every_4x_pixel_matches_repeated_production_pixel": true,
+        "production_bytes_unchanged_at_approval": true
+      },
+      "production_approval": {
+        "authority": "Ube, explicit user message in this chat",
+        "quote": "I approve the exact reviewed convention_hall_270x480.png and shrine_auditorium_270x480.png.",
+        "recorded_client_date": "2026-10-02",
+        "timezone": "America/New_York",
+        "exact_timestamp": "Not supplied; identified by verbatim user message.",
+        "approved_file": {
+          "filename": "shrine_auditorium_270x480.png",
+          "role": "normalized_background",
+          "status": "FROZEN — UBE APPROVED",
+          "bytes": 177418,
+          "sha256": "58359742eb37d7cd4ff9f05c9312207f109528a59397268cd7d73491ae02cab9",
+          "actual_dimensions": [
+            270,
+            480
+          ],
+          "format": "PNG",
+          "mode": "RGB",
+          "opaque": true
+        }
+      }
+    },
+    {
+      "asset": "spirit_of_uncle_bunmi",
+      "source": {
+        "filename": "spirit_of_uncle_bunmi_candidate_original.png",
+        "role": "approved_sprite_master",
+        "status": "FROZEN — UBE APPROVED",
+        "bytes": 804694,
+        "sha256": "2c1589a8214c8f3eda935f416e1808a83aa71ec3be1d4c3f4b8d29a0333aa783",
+        "actual_dimensions": [
+          1774,
+          887
+        ],
+        "format": "PNG",
+        "mode": "RGBA",
+        "alpha_extrema": [
+          0,
+          255
+        ],
+        "transparent_pixels": 1016648,
+        "partial_alpha_pixels": 553579,
+        "opaque_pixels": 3311
+      },
+      "approval_authority": "Ube, explicit user message in this chat",
+      "approval_quote": "I approve these exact candidates:\n- convention_hall_candidate_original.png\n- shrine_auditorium_candidate_original.png\n- spirit_of_uncle_bunmi_candidate_original.png",
+      "accepted_issues_quote": "The reported reflections, translucent body pixels and far-leg readability are accepted. Do not repaint or regenerate.",
+      "recorded_client_date": "2026-10-02",
+      "timezone": "America/New_York",
+      "placement": {
+        "status": "UNVERIFIED — DEFERRED TO INTEGRATION",
+        "check": "Approved RGBA sprite master retained without scaling or alpha modification. No runtime display dimensions or placement assumed."
+      },
+      "transform": {
+        "operation": "identity; byte-for-byte copy",
+        "crop": "none",
+        "resize": "none",
+        "alpha_processing": "none; original partial alpha preserved",
+        "runtime_display_size": "unspecified; integration responsibility"
+      },
+      "verification": {
+        "original_bytes_equal": true,
+        "original_sha256_equal": true,
+        "alpha_bytes_unchanged": true,
+        "runtime_size_not_assumed": true
+      }
+    }
+  ],
+  "verification": {
+    "all_three_approved_originals_byte_identical": true,
+    "all_preexisting_output_files_unchanged": 81,
+    "no_regeneration_or_repainting": true,
+    "cockroach_partial_alpha_preserved": true,
+    "all_existing_output_image_bytes_unchanged_at_production_freeze": true
+  },
+  "production_approval": {
+    "authority": "Ube, explicit user message in this chat",
+    "quote": "I approve the exact reviewed convention_hall_270x480.png and shrine_auditorium_270x480.png.",
+    "recorded_client_date": "2026-10-02",
+    "timezone": "America/New_York",
+    "exact_timestamp": "Not supplied; identified by verbatim user message."
+  }
+}

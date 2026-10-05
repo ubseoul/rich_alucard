@@ -1,0 +1,677 @@
+{
+  "phase": "before",
+  "frames": 27,
+  "contacts": 48,
+  "violations": 30,
+  "rows": [
+    {
+      "width": 360,
+      "game": "pickup",
+      "contacts": [
+        {
+          "asset": "assets/rich_standing_right.png",
+          "sourceBaseline": 88,
+          "authoredFloorY": 400,
+          "actualDrawY": -88,
+          "floorPx": 583.3333333333333,
+          "feetPx": 583.3333333333333,
+          "deltaPx": 0,
+          "pass": true
+        },
+        {
+          "asset": "assets/build4/p_d/p_d_pickup_player_left_80x96.png",
+          "sourceBaseline": 89,
+          "authoredFloorY": 412,
+          "actualDrawY": -88,
+          "floorPx": 599.3333333333333,
+          "feetPx": 600.6666666666666,
+          "deltaPx": 1.3333333333333333,
+          "pass": false
+        },
+        {
+          "asset": "assets/build4/p_d/p_d_pickup_player_middle_80x96.png",
+          "sourceBaseline": 89,
+          "authoredFloorY": 404,
+          "actualDrawY": -88,
+          "floorPx": 588.6666666666666,
+          "feetPx": 590,
+          "deltaPx": 1.3333333333333333,
+          "pass": false
+        },
+        {
+          "asset": "assets/build4/p_d/p_d_pickup_player_right_80x96.png",
+          "sourceBaseline": 89,
+          "authoredFloorY": 414,
+          "actualDrawY": -88,
+          "floorPx": 602,
+          "feetPx": 603.3333333333333,
+          "deltaPx": 1.3333333333333333,
+          "pass": false
+        }
+      ],
+      "screenshot": "360_pickup.png"
+    },
+    {
+      "width": 360,
+      "game": "jollof",
+      "contacts": [
+        {
+          "asset": "assets/build4/p_d/p_d_jollof_cook_80x96.png",
+          "sourceBaseline": 89,
+          "authoredFloorY": 365,
+          "actualDrawY": -88,
+          "floorPx": 536.6666666666666,
+          "feetPx": 538,
+          "deltaPx": 1.3333333333333333,
+          "pass": false
+        }
+      ],
+      "screenshot": "360_jollof.png"
+    },
+    {
+      "width": 360,
+      "game": "pier",
+      "contacts": [
+        {
+          "asset": "assets/before_the_fame/characters/rich/rich_fishing_cast_80x96.png",
+          "sourceBaseline": 88,
+          "authoredFloorY": 392,
+          "actualDrawY": -88,
+          "floorPx": 572.6666666666666,
+          "feetPx": 572.6666666666666,
+          "deltaPx": 0,
+          "pass": true
+        }
+      ],
+      "screenshot": "360_pier.png"
+    },
+    {
+      "width": 360,
+      "game": "hookah_rookoko",
+      "contacts": [
+        {
+          "asset": "assets/before_the_fame/characters/rich/rich_hookah_seated_corrected_80x96.png",
+          "sourceBaseline": 89,
+          "authoredFloorY": 386,
+          "actualDrawY": -88,
+          "floorPx": 564.6666666666666,
+          "feetPx": 566,
+          "deltaPx": 1.3333333333333333,
+          "pass": false
+        },
+        {
+          "asset": "assets/before_the_fame/characters/rookoko/rookoko_hookah_seated_80x96.png",
+          "sourceBaseline": 89,
+          "authoredFloorY": 388,
+          "actualDrawY": -88,
+          "floorPx": 567.3333333333333,
+          "feetPx": 568.6666666666666,
+          "deltaPx": 1.3333333333333333,
+          "pass": false
+        }
+      ],
+      "screenshot": "360_hookah_rookoko.png"
+    },
+    {
+      "width": 360,
+      "game": "hookah_crew",
+      "contacts": [
+        {
+          "asset": "assets/before_the_fame/characters/rich/rich_hookah_seated_corrected_80x96.png",
+          "sourceBaseline": 89,
+          "authoredFloorY": 386,
+          "actualDrawY": -88,
+          "floorPx": 564.6666666666666,
+          "feetPx": 566,
+          "deltaPx": 1.3333333333333333,
+          "pass": false
+        }
+      ],
+      "screenshot": "360_hookah_crew.png"
+    },
+    {
+      "width": 360,
+      "game": "hookah_date",
+      "contacts": [
+        {
+          "asset": "assets/before_the_fame/characters/rich/rich_hookah_seated_corrected_80x96.png",
+          "sourceBaseline": 89,
+          "authoredFloorY": 386,
+          "actualDrawY": -88,
+          "floorPx": 564.6666666666666,
+          "feetPx": 566,
+          "deltaPx": 1.3333333333333333,
+          "pass": false
+        },
+        {
+          "asset": "assets/build4/p_d/p_d_hookah_date_80x96.png",
+          "sourceBaseline": 89,
+          "authoredFloorY": 410,
+          "actualDrawY": -88,
+          "floorPx": 596.6666666666666,
+          "feetPx": 598,
+          "deltaPx": 1.3333333333333333,
+          "pass": false
+        }
+      ],
+      "screenshot": "360_hookah_date.png"
+    },
+    {
+      "width": 360,
+      "game": "senator",
+      "contacts": [
+        {
+          "asset": "assets/build4/p_d/p_d_senator_sitting_160x160.png",
+          "sourceBaseline": 153,
+          "authoredFloorY": 296,
+          "actualDrawY": -152,
+          "floorPx": 444.66666666666663,
+          "feetPx": 446,
+          "deltaPx": 1.3333333333333333,
+          "pass": false
+        }
+      ],
+      "screenshot": "360_senator.png"
+    },
+    {
+      "width": 360,
+      "game": "bars",
+      "contacts": [
+        {
+          "asset": "assets/rich_standing_right.png",
+          "sourceBaseline": 88,
+          "authoredFloorY": 476,
+          "actualDrawY": -88,
+          "floorPx": 684.6666666666666,
+          "feetPx": 684.6666666666666,
+          "deltaPx": 0,
+          "pass": true
+        },
+        {
+          "asset": "assets/rich_standing_right.png",
+          "sourceBaseline": 88,
+          "authoredFloorY": 477,
+          "actualDrawY": -88,
+          "floorPx": 686,
+          "feetPx": 686,
+          "deltaPx": 0,
+          "pass": true
+        },
+        {
+          "asset": "assets/rich_standing_right.png",
+          "sourceBaseline": 88,
+          "authoredFloorY": 478,
+          "actualDrawY": -88,
+          "floorPx": 687.3333333333333,
+          "feetPx": 687.3333333333333,
+          "deltaPx": 0,
+          "pass": true
+        }
+      ],
+      "screenshot": "360_bars.png"
+    },
+    {
+      "width": 360,
+      "game": "slurp",
+      "contacts": [
+        {
+          "asset": "assets/before_the_fame/characters/rich/rich_ramen_apron_corrected_80x96.png",
+          "sourceBaseline": 88,
+          "authoredFloorY": 150,
+          "actualDrawY": -88,
+          "floorPx": 250,
+          "feetPx": 250,
+          "deltaPx": 0,
+          "pass": true
+        }
+      ],
+      "screenshot": "360_slurp.png"
+    },
+    {
+      "width": 390,
+      "game": "pickup",
+      "contacts": [
+        {
+          "asset": "assets/rich_standing_right.png",
+          "sourceBaseline": 88,
+          "authoredFloorY": 400,
+          "actualDrawY": -88,
+          "floorPx": 653.109375,
+          "feetPx": 653.109375,
+          "deltaPx": 0,
+          "pass": true
+        },
+        {
+          "asset": "assets/build4/p_d/p_d_pickup_player_left_80x96.png",
+          "sourceBaseline": 89,
+          "authoredFloorY": 412,
+          "actualDrawY": -88,
+          "floorPx": 670.442578125,
+          "feetPx": 671.8870117187499,
+          "deltaPx": 1.44443359375,
+          "pass": false
+        },
+        {
+          "asset": "assets/build4/p_d/p_d_pickup_player_middle_80x96.png",
+          "sourceBaseline": 89,
+          "authoredFloorY": 404,
+          "actualDrawY": -88,
+          "floorPx": 658.8871093749999,
+          "feetPx": 660.33154296875,
+          "deltaPx": 1.44443359375,
+          "pass": false
+        },
+        {
+          "asset": "assets/build4/p_d/p_d_pickup_player_right_80x96.png",
+          "sourceBaseline": 89,
+          "authoredFloorY": 414,
+          "actualDrawY": -88,
+          "floorPx": 673.3314453124999,
+          "feetPx": 674.77587890625,
+          "deltaPx": 1.44443359375,
+          "pass": false
+        }
+      ],
+      "screenshot": "390_pickup.png"
+    },
+    {
+      "width": 390,
+      "game": "jollof",
+      "contacts": [
+        {
+          "asset": "assets/build4/p_d/p_d_jollof_cook_80x96.png",
+          "sourceBaseline": 89,
+          "authoredFloorY": 365,
+          "actualDrawY": -88,
+          "floorPx": 602.55419921875,
+          "feetPx": 603.9986328125,
+          "deltaPx": 1.44443359375,
+          "pass": false
+        }
+      ],
+      "screenshot": "390_jollof.png"
+    },
+    {
+      "width": 390,
+      "game": "pier",
+      "contacts": [
+        {
+          "asset": "assets/before_the_fame/characters/rich/rich_fishing_cast_80x96.png",
+          "sourceBaseline": 88,
+          "authoredFloorY": 392,
+          "actualDrawY": -88,
+          "floorPx": 641.55390625,
+          "feetPx": 641.55390625,
+          "deltaPx": 0,
+          "pass": true
+        }
+      ],
+      "screenshot": "390_pier.png"
+    },
+    {
+      "width": 390,
+      "game": "hookah_rookoko",
+      "contacts": [
+        {
+          "asset": "assets/before_the_fame/characters/rich/rich_hookah_seated_corrected_80x96.png",
+          "sourceBaseline": 89,
+          "authoredFloorY": 386,
+          "actualDrawY": -88,
+          "floorPx": 632.8873046875,
+          "feetPx": 634.33173828125,
+          "deltaPx": 1.44443359375,
+          "pass": false
+        },
+        {
+          "asset": "assets/before_the_fame/characters/rookoko/rookoko_hookah_seated_80x96.png",
+          "sourceBaseline": 89,
+          "authoredFloorY": 388,
+          "actualDrawY": -88,
+          "floorPx": 635.7761718749999,
+          "feetPx": 637.2206054687499,
+          "deltaPx": 1.44443359375,
+          "pass": false
+        }
+      ],
+      "screenshot": "390_hookah_rookoko.png"
+    },
+    {
+      "width": 390,
+      "game": "hookah_crew",
+      "contacts": [
+        {
+          "asset": "assets/before_the_fame/characters/rich/rich_hookah_seated_corrected_80x96.png",
+          "sourceBaseline": 89,
+          "authoredFloorY": 386,
+          "actualDrawY": -88,
+          "floorPx": 632.8873046875,
+          "feetPx": 634.33173828125,
+          "deltaPx": 1.44443359375,
+          "pass": false
+        }
+      ],
+      "screenshot": "390_hookah_crew.png"
+    },
+    {
+      "width": 390,
+      "game": "hookah_date",
+      "contacts": [
+        {
+          "asset": "assets/before_the_fame/characters/rich/rich_hookah_seated_corrected_80x96.png",
+          "sourceBaseline": 89,
+          "authoredFloorY": 386,
+          "actualDrawY": -88,
+          "floorPx": 632.8873046875,
+          "feetPx": 634.33173828125,
+          "deltaPx": 1.44443359375,
+          "pass": false
+        },
+        {
+          "asset": "assets/build4/p_d/p_d_hookah_date_80x96.png",
+          "sourceBaseline": 89,
+          "authoredFloorY": 410,
+          "actualDrawY": -88,
+          "floorPx": 667.5537109375,
+          "feetPx": 668.99814453125,
+          "deltaPx": 1.44443359375,
+          "pass": false
+        }
+      ],
+      "screenshot": "390_hookah_date.png"
+    },
+    {
+      "width": 390,
+      "game": "senator",
+      "contacts": [
+        {
+          "asset": "assets/build4/p_d/p_d_senator_sitting_160x160.png",
+          "sourceBaseline": 153,
+          "authoredFloorY": 296,
+          "actualDrawY": -152,
+          "floorPx": 502.88828125,
+          "feetPx": 504.33271484374995,
+          "deltaPx": 1.44443359375,
+          "pass": false
+        }
+      ],
+      "screenshot": "390_senator.png"
+    },
+    {
+      "width": 390,
+      "game": "bars",
+      "contacts": [
+        {
+          "asset": "assets/rich_standing_right.png",
+          "sourceBaseline": 88,
+          "authoredFloorY": 476,
+          "actualDrawY": -88,
+          "floorPx": 762.886328125,
+          "feetPx": 762.886328125,
+          "deltaPx": 0,
+          "pass": true
+        },
+        {
+          "asset": "assets/rich_standing_right.png",
+          "sourceBaseline": 88,
+          "authoredFloorY": 477,
+          "actualDrawY": -88,
+          "floorPx": 764.33076171875,
+          "feetPx": 764.33076171875,
+          "deltaPx": 0,
+          "pass": true
+        },
+        {
+          "asset": "assets/rich_standing_right.png",
+          "sourceBaseline": 88,
+          "authoredFloorY": 478,
+          "actualDrawY": -88,
+          "floorPx": 765.7751953124999,
+          "feetPx": 765.7751953124999,
+          "deltaPx": 0,
+          "pass": true
+        }
+      ],
+      "screenshot": "390_bars.png"
+    },
+    {
+      "width": 390,
+      "game": "slurp",
+      "contacts": [
+        {
+          "asset": "assets/before_the_fame/characters/rich/rich_ramen_apron_corrected_80x96.png",
+          "sourceBaseline": 88,
+          "authoredFloorY": 150,
+          "actualDrawY": -88,
+          "floorPx": 292.0009765625,
+          "feetPx": 292.0009765625,
+          "deltaPx": 0,
+          "pass": true
+        }
+      ],
+      "screenshot": "390_slurp.png"
+    },
+    {
+      "width": 430,
+      "game": "pickup",
+      "contacts": [
+        {
+          "asset": "assets/rich_standing_right.png",
+          "sourceBaseline": 88,
+          "authoredFloorY": 400,
+          "actualDrawY": -88,
+          "floorPx": 720.8125,
+          "feetPx": 720.8125,
+          "deltaPx": 0,
+          "pass": true
+        },
+        {
+          "asset": "assets/build4/p_d/p_d_pickup_player_left_80x96.png",
+          "sourceBaseline": 89,
+          "authoredFloorY": 412,
+          "actualDrawY": -88,
+          "floorPx": 739.9234375,
+          "feetPx": 741.516015625,
+          "deltaPx": 1.592578125,
+          "pass": false
+        },
+        {
+          "asset": "assets/build4/p_d/p_d_pickup_player_middle_80x96.png",
+          "sourceBaseline": 89,
+          "authoredFloorY": 404,
+          "actualDrawY": -88,
+          "floorPx": 727.1828125,
+          "feetPx": 728.775390625,
+          "deltaPx": 1.592578125,
+          "pass": false
+        },
+        {
+          "asset": "assets/build4/p_d/p_d_pickup_player_right_80x96.png",
+          "sourceBaseline": 89,
+          "authoredFloorY": 414,
+          "actualDrawY": -88,
+          "floorPx": 743.10859375,
+          "feetPx": 744.701171875,
+          "deltaPx": 1.592578125,
+          "pass": false
+        }
+      ],
+      "screenshot": "430_pickup.png"
+    },
+    {
+      "width": 430,
+      "game": "jollof",
+      "contacts": [
+        {
+          "asset": "assets/build4/p_d/p_d_jollof_cook_80x96.png",
+          "sourceBaseline": 89,
+          "authoredFloorY": 365,
+          "actualDrawY": -88,
+          "floorPx": 665.072265625,
+          "feetPx": 666.6648437499999,
+          "deltaPx": 1.592578125,
+          "pass": false
+        }
+      ],
+      "screenshot": "430_jollof.png"
+    },
+    {
+      "width": 430,
+      "game": "pier",
+      "contacts": [
+        {
+          "asset": "assets/before_the_fame/characters/rich/rich_fishing_cast_80x96.png",
+          "sourceBaseline": 88,
+          "authoredFloorY": 392,
+          "actualDrawY": -88,
+          "floorPx": 708.071875,
+          "feetPx": 708.071875,
+          "deltaPx": 0,
+          "pass": true
+        }
+      ],
+      "screenshot": "430_pier.png"
+    },
+    {
+      "width": 430,
+      "game": "hookah_rookoko",
+      "contacts": [
+        {
+          "asset": "assets/before_the_fame/characters/rich/rich_hookah_seated_corrected_80x96.png",
+          "sourceBaseline": 89,
+          "authoredFloorY": 386,
+          "actualDrawY": -88,
+          "floorPx": 698.5164062499999,
+          "feetPx": 700.108984375,
+          "deltaPx": 1.592578125,
+          "pass": false
+        },
+        {
+          "asset": "assets/before_the_fame/characters/rookoko/rookoko_hookah_seated_80x96.png",
+          "sourceBaseline": 89,
+          "authoredFloorY": 388,
+          "actualDrawY": -88,
+          "floorPx": 701.7015625,
+          "feetPx": 703.294140625,
+          "deltaPx": 1.592578125,
+          "pass": false
+        }
+      ],
+      "screenshot": "430_hookah_rookoko.png"
+    },
+    {
+      "width": 430,
+      "game": "hookah_crew",
+      "contacts": [
+        {
+          "asset": "assets/before_the_fame/characters/rich/rich_hookah_seated_corrected_80x96.png",
+          "sourceBaseline": 89,
+          "authoredFloorY": 386,
+          "actualDrawY": -88,
+          "floorPx": 698.5164062499999,
+          "feetPx": 700.108984375,
+          "deltaPx": 1.592578125,
+          "pass": false
+        }
+      ],
+      "screenshot": "430_hookah_crew.png"
+    },
+    {
+      "width": 430,
+      "game": "hookah_date",
+      "contacts": [
+        {
+          "asset": "assets/before_the_fame/characters/rich/rich_hookah_seated_corrected_80x96.png",
+          "sourceBaseline": 89,
+          "authoredFloorY": 386,
+          "actualDrawY": -88,
+          "floorPx": 698.5164062499999,
+          "feetPx": 700.108984375,
+          "deltaPx": 1.592578125,
+          "pass": false
+        },
+        {
+          "asset": "assets/build4/p_d/p_d_hookah_date_80x96.png",
+          "sourceBaseline": 89,
+          "authoredFloorY": 410,
+          "actualDrawY": -88,
+          "floorPx": 736.73828125,
+          "feetPx": 738.3308593749999,
+          "deltaPx": 1.592578125,
+          "pass": false
+        }
+      ],
+      "screenshot": "430_hookah_date.png"
+    },
+    {
+      "width": 430,
+      "game": "senator",
+      "contacts": [
+        {
+          "asset": "assets/build4/p_d/p_d_senator_sitting_160x160.png",
+          "sourceBaseline": 153,
+          "authoredFloorY": 296,
+          "actualDrawY": -152,
+          "floorPx": 555.184375,
+          "feetPx": 556.776953125,
+          "deltaPx": 1.592578125,
+          "pass": false
+        }
+      ],
+      "screenshot": "430_senator.png"
+    },
+    {
+      "width": 430,
+      "game": "bars",
+      "contacts": [
+        {
+          "asset": "assets/rich_standing_right.png",
+          "sourceBaseline": 88,
+          "authoredFloorY": 476,
+          "actualDrawY": -88,
+          "floorPx": 841.8484374999999,
+          "feetPx": 841.8484374999999,
+          "deltaPx": 0,
+          "pass": true
+        },
+        {
+          "asset": "assets/rich_standing_right.png",
+          "sourceBaseline": 88,
+          "authoredFloorY": 477,
+          "actualDrawY": -88,
+          "floorPx": 843.441015625,
+          "feetPx": 843.441015625,
+          "deltaPx": 0,
+          "pass": true
+        },
+        {
+          "asset": "assets/rich_standing_right.png",
+          "sourceBaseline": 88,
+          "authoredFloorY": 478,
+          "actualDrawY": -88,
+          "floorPx": 845.03359375,
+          "feetPx": 845.03359375,
+          "deltaPx": 0,
+          "pass": true
+        }
+      ],
+      "screenshot": "430_bars.png"
+    },
+    {
+      "width": 430,
+      "game": "slurp",
+      "contacts": [
+        {
+          "asset": "assets/before_the_fame/characters/rich/rich_ramen_apron_corrected_80x96.png",
+          "sourceBaseline": 88,
+          "authoredFloorY": 150,
+          "actualDrawY": -88,
+          "floorPx": 322.66796875,
+          "feetPx": 322.66796875,
+          "deltaPx": 0,
+          "pass": true
+        }
+      ],
+      "screenshot": "430_slurp.png"
+    }
+  ]
+}

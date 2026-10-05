@@ -1,0 +1,4 @@
+PASS F04/F03 district-provider contract (Koreatown F03-owned and consumed, never redefined; arts_district + inglewood register in every load order; F03 absent degrades without inventing; no duplicate district state)
+PASS F04 -> F01 -> F04 round trip (real F01 engine: request contract, single application, no duplicate rewards, banked money safe, crew/HEAT/district/vehicle state, reload incl. crash window, EXTRACT / RETALIATION / HAND BACK, refusals inert, no tactical RUN UI)
+PASS F04 PLAYMAKERS WAR ROOM test suite (authored HEAT floors, job tables, LAY LOW, F03-owned Koreatown consumed, crew, report cards, hand back, tactical RUN retired, invariants)
+PASS fragment test discovery (3 suites for f04)

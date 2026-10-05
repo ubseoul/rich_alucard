@@ -1,0 +1,34 @@
+{
+  "ruling": "OL-052",
+  "scope": "internal art record; not runtime tier logic",
+  "owner": "F15",
+  "single_launch_outfit": true,
+  "internal_tier_record": 2,
+  "rendering": "All three accepted loops render unchanged at all times; no wardrobe selection, thresholds or state",
+  "dancers": {
+    "roxy": {
+      "asset": "assets/f15/dancers/wolf.png",
+      "sha256": "32fdbd87572a3b7cb388ebc5121bc135c2d5b3c8772a044dbb8537642450dce3",
+      "runtime_manifest": "assets/f15/dancers/manifest.json",
+      "frames": 145,
+      "fps": 24,
+      "master_sequence_sha256": "67572b524a4f07d680659dcde2cd14b363930ed87cc9d187c8bddd853c0dc9f7"
+    },
+    "rosalyn": {
+      "asset": "assets/f15/dancers/pink.png",
+      "sha256": "c8ae3cc0ccc74743a811ba7fc70675b631325cc8f386f85f277423a3513638cf",
+      "runtime_manifest": "assets/f15/dancers/manifest.json",
+      "frames": 145,
+      "fps": 24,
+      "master_sequence_sha256": "3a6ad861ff45c9bdabe4ba631fe0ccce4080260f224c3c92b4221e42572c9f80"
+    },
+    "emerald": {
+      "asset": "assets/f15/dancers/dragon.png",
+      "sha256": "0ef213967c4380b333594ce063cc43d2c318c3206ffa90c195a4aab87576456c",
+      "runtime_manifest": "assets/f15/dancers/manifest.json",
+      "frames": 144,
+      "fps": 24,
+      "master_sequence_sha256": "9c2ed12e70f0d3f3207ae156ec34f8324ecfa56506d3e1bb4a886c81d65f1082"
+    }
+  }
+}

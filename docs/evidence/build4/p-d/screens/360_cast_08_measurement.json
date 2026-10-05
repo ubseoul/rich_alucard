@@ -1,0 +1,142 @@
+{
+  "combat": false,
+  "env": "bedroom",
+  "world": {
+    "x": 0,
+    "y": 0,
+    "w": 360,
+    "h": 468
+  },
+  "actors": [
+    {
+      "slot": "left",
+      "id": "cat",
+      "tag": "IMG",
+      "src": "assets/before_the_fame/creatures/cat/sphynx_cat_sitting_48x32.png",
+      "ok": true,
+      "nw": 48,
+      "nh": 32,
+      "css": {
+        "x": -46,
+        "y": 303.5,
+        "w": 168,
+        "h": 112
+      },
+      "visible": {
+        "x": 10,
+        "y": 307,
+        "w": 52.5,
+        "h": 105
+      },
+      "sprite": {
+        "x": -46,
+        "y": 303.5,
+        "w": 168,
+        "h": 112
+      },
+      "face": {
+        "x": 17,
+        "y": 324.5,
+        "w": 38.5,
+        "h": 31.5
+      },
+      "contact": {
+        "x": 34.5,
+        "y": 412
+      },
+      "world": {
+        "x": 77.25470085470087,
+        "y": 400
+      },
+      "k": 3.5,
+      "hidden": false,
+      "rendering": "pixelated",
+      "body": {
+        "x": 10,
+        "y": 307,
+        "w": 53,
+        "h": 105
+      },
+      "pixels": 3692
+    },
+    {
+      "slot": "right",
+      "id": "senator",
+      "tag": "IMG",
+      "src": "assets/build4/p_d/p_d_senator_sitting_160x160.png",
+      "ok": true,
+      "nw": 160,
+      "nh": 160,
+      "css": {
+        "x": 109.5,
+        "y": 156,
+        "w": 269.5625,
+        "h": 269.5625
+      },
+      "visible": {
+        "x": 141.5112,
+        "y": 196.4352,
+        "w": 207.2304,
+        "h": 217.3392
+      },
+      "sprite": {
+        "x": 109.5,
+        "y": 156,
+        "w": 269.568,
+        "h": 269.568
+      },
+      "face": {
+        "x": 171.8376,
+        "y": 231.816,
+        "w": 144.8928,
+        "h": 65.7072
+      },
+      "contact": {
+        "x": 244.5,
+        "y": 412
+      },
+      "world": {
+        "x": 192.74529914529913,
+        "y": 400
+      },
+      "k": 1.6848,
+      "hidden": false,
+      "rendering": "pixelated",
+      "body": {
+        "x": 142,
+        "y": 196,
+        "w": 207,
+        "h": 218
+      },
+      "pixels": 25230
+    }
+  ],
+  "pairs": [
+    {
+      "a": "cat",
+      "b": "senator",
+      "overlap": 0,
+      "frac": 0
+    }
+  ],
+  "ui": {
+    "box": {
+      "x": 8,
+      "y": 489.5625,
+      "w": 344,
+      "h": 130
+    },
+    "bubble": null,
+    "choices": [],
+    "hud": [],
+    "telegraph": null,
+    "panel": null,
+    "title": null,
+    "location": {
+      "x": 8,
+      "y": 8,
+      "w": 100.1875,
+      "h": 17.125
+    }
+  }
+}

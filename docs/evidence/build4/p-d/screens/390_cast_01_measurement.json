@@ -1,0 +1,142 @@
+{
+  "combat": false,
+  "env": "boba_shop",
+  "world": {
+    "x": 0,
+    "y": 0,
+    "w": 390,
+    "h": 507
+  },
+  "actors": [
+    {
+      "slot": "left",
+      "id": "rich",
+      "tag": "IMG",
+      "src": "assets/rich_standing_right.png",
+      "ok": true,
+      "nw": 80,
+      "nh": 96,
+      "css": {
+        "x": -94,
+        "y": 94,
+        "w": 320,
+        "h": 384
+      },
+      "visible": {
+        "x": 14,
+        "y": 238,
+        "w": 108,
+        "h": 208
+      },
+      "sprite": {
+        "x": -94,
+        "y": 94,
+        "w": 320,
+        "h": 384
+      },
+      "face": {
+        "x": 34,
+        "y": 274,
+        "w": 76,
+        "h": 56
+      },
+      "contact": {
+        "x": 66,
+        "y": 446
+      },
+      "world": {
+        "x": 72,
+        "y": 372
+      },
+      "k": 4,
+      "hidden": false,
+      "rendering": "pixelated",
+      "body": {
+        "x": 14,
+        "y": 238,
+        "w": 108,
+        "h": 208
+      },
+      "pixels": 15152
+    },
+    {
+      "slot": "right",
+      "id": "smallie",
+      "tag": "IMG",
+      "src": "assets/build4/p_d/p_d_smallie_80x96.png",
+      "ok": true,
+      "nw": 80,
+      "nh": 96,
+      "css": {
+        "x": 171.5,
+        "y": 94,
+        "w": 320,
+        "h": 384
+      },
+      "visible": {
+        "x": 291.5,
+        "y": 282,
+        "w": 84,
+        "h": 168
+      },
+      "sprite": {
+        "x": 171.5,
+        "y": 94,
+        "w": 320,
+        "h": 384
+      },
+      "face": {
+        "x": 303.5,
+        "y": 310,
+        "w": 60,
+        "h": 52
+      },
+      "contact": {
+        "x": 331.5,
+        "y": 446
+      },
+      "world": {
+        "x": 198,
+        "y": 372
+      },
+      "k": 4,
+      "hidden": false,
+      "rendering": "pixelated",
+      "body": {
+        "x": 292,
+        "y": 282,
+        "w": 84,
+        "h": 168
+      },
+      "pixels": 8736
+    }
+  ],
+  "pairs": [
+    {
+      "a": "rich",
+      "b": "smallie",
+      "overlap": 0,
+      "frac": 0
+    }
+  ],
+  "ui": {
+    "box": {
+      "x": 9,
+      "y": 531.03125,
+      "w": 372,
+      "h": 161.5
+    },
+    "bubble": null,
+    "choices": [],
+    "hud": [],
+    "telegraph": null,
+    "panel": null,
+    "title": null,
+    "location": {
+      "x": 8,
+      "y": 8,
+      "w": 108.390625,
+      "h": 18.71875
+    }
+  }
+}

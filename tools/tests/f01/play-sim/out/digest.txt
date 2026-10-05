@@ -1,0 +1,429 @@
+THE PLAY — 800-PLAY SIM DIGEST (OL-014 / OL-015)
+Matrix: 10 job specs × 20 seeds × 4 policies (careful / greedy / naive / random) = 800 PLAYs. Roster 6 named + 3 generics; cars HOOPTIE / SUPRA / URUS / S2000; M2 seating, M5 getaways, J.5 JUGGED (=ROBBED).
+Seeds: seed = jobIndex*1000 + k (k=1..20); identical across the four policies (paired). Ablations and BEEF use larger replicates (40 seeds/job; 80 careers × 24 nights per BEEF arm). Every number is structural / PROVISIONAL (owner F13). The model has no grid, LOS, pathing, cover, hit-% UI, overwatch/hunker, or difficulty selector.
+Definitions. Story beat = a memorable-event family with weight ≥ 6 that shows up in ≤ 25% of all PLAYs (routine stingers cannot pass as variety). Nothing-happened (strict) = no story beat, no hard loss (SHOT/CAPTURED/DEAD/GONE/JUGGED/CRASH/SPLIT) and no call that moved a beat; lenient = no event of weight ≥ 4 at all. Visible cause: broad = any cause the player can see on screen (trait, choice, greed, car, weapon, seat, relationship, an earlier visible event, a card hazard word, an enemy tell); luck-only swings are counted as unexplained.
+
+═══ OL-014 METRICS ═══
+Nothing-happened PLAYs: strict 4.1% · lenient 0.1%   (target ≤ 10%)
+Rare-wow PLAYs (an event of weight ≥ 7 whose family shows up in ≤ 8% of PLAYs — the "I can't believe that happened" proxy): 49.1%
+Story-beat PLAYs (something to retell): 95.9% · mean novelty 24.59 · story-beat families per PLAY 3.45
+Blame clarity: 97.2% of 1749 losses have a visible cause (98.8% excluding plain WOUNDED); 92.2% of PLAYs with losses have every loss traceable; player-attributable (trait/choice/greed/car/weapon/seat/relationship) 18.5%   (target ≥ 90%)
+Loss causes: {"EARLIER":570,"ENEMY":588,"GREED":161,"CHOICE":6,"HAZARD":219,"WEAPON":34,"SEAT":30,"CAR":61,"TRAIT":31,"LUCK":49}
+Funny-or-dramatic share of losses: 66.0% (funny 13.0% / dramatic 53.0% / plain 34.0%)   (target ≥ 40%)
+Unique memorable-event families per 20 PLAYs: mean 37.88 (min 21, max 53); 82 families overall; biggest single family appears in 28.1% of PLAYs; distinct story signatures 251/800; 52.9% of PLAYs share their signature with ≥ 4 others. Top: nerve:lost 225, trait:eat:fail 195, loss:shot 191, climb:win 181, class:lt:drop 173, call:turned-it 163, greed:fail 155, chain 153
+Generic death: 24.9% of PLAYs with generics aboard lose ≥ 1 generic (0.29 per PLAY; 21.1% per generic aboard; by policy careful 16%, greedy 26%, random 31%)
+Named SHOT: 0.35 per PLAY, 23.9% of PLAYs have ≥ 1; 13.2% per named Oga aboard · named CAPTURED 18.0% of PLAYs · named GONE 11 (BIG PLAY only; outside BIG PLAY 0) · named DEAD 0
+Getaway: crash 6.3% · SPLIT 1.8% · robbed on the way back 5.8%; by car SUPRA crash 2%/split 2%/robbed 1% · URUS crash 4%/split 2%/robbed 6% · HOOPTIE crash 12%/split 2%/robbed 10% · S2000 crash 7%/split 2%/robbed 0%
+Turning: recruit crate in 11.4% of PLAYs; a conscious vampire Oga could offer in 10.5% (2.10 per 20 PLAYs); 7 recruit crates had no vampire aboard; results {"TAKES WEIRD":18,"TAKES":51,"BAILS":8,"LET GO":7}
+Visible-cause coverage of important swings: 91.0% (8602 swings, 10.75/PLAY); player-attributable 23.6%; unexplained (luck) 9.0%; by cause {"EARLIER":4683,"CHOICE":573,"TRAIT":872,"ENEMY":711,"RELATIONSHIP":123,"LUCK":775,"GREED":223,"HAZARD":404,"SEAT":112,"WEAPON":39,"CAR":87}
+Calls: 3678 beats evaluated · 3678 with a possible call · 1064 with meaningful divergence (28.9%) · 981 surfaced (1.23/PLAY; 81.9% of PLAYs have ≥ 1, 40.1% have 2+) · suppressed: 2614 no divergence + 83 over budget
+Call outcome difference (chosen button vs "let them handle it" on identical dice): mean 0.91, mean |Δ| 1.30; 21.0% of surfaced calls moved the beat by ≥ a tier; by policy careful 1.70, greedy 0.43, naive 0.00, random 1.61; the authored smart way out was picked in 22.2% of calls; by beat {"0":132,"1":365,"2":366,"3":101,"4":17}
+
+═══ OUTCOMES BY POLICY ═══
+careful  win 85.0%  clean 33.5%  costly 22.0%  wash 11.5%  greed-lost 3.0%  robbed 0.5%  score 2.70  avg banked 71.86K-eq
+greedy   win 14.5%  clean 0.5%  costly 8.5%  wash 14.0%  greed-lost 64.0%  robbed 7.5%  score 1.07  avg banked 21.98K-eq
+naive    win 70.0%  clean 9.0%  costly 22.5%  wash 19.5%  greed-lost 0.0%  robbed 10.5%  score 2.07  avg banked 45.24K-eq
+random   win 56.0%  clean 6.0%  costly 12.5%  wash 24.0%  greed-lost 13.5%  robbed 6.5%  score 1.63  avg banked 31.38K-eq
+By job (careful / naive win): boba_backroom 85%/60% · tupperware 90%/70% · vampire_dentist 60%/50% · dock_restock 100%/75% · car_wash_stickup 85%/85% · quiet_lift 95%/80% · vampire_gala 90%/65% · smack_crib 90%/80% · counting_house 75%/70% · hold_the_house 80%/65%
+Beats with nothing staged (a caption had to carry them): 25.1% of 3866; next-temptation mix {"RARE_PITCH":221,"RESCUE":148,"DEMAND":71,"RETALIATION":259,"RECRUIT":101}
+
+═══ HIT ONE MORE — EV BY STEP (shadow climb: 4 replicate futures per offered PLAY, value in $K-equivalent) ═══
+step 1: reached n=2080 · P(success) 72.0% · pot at stake 68.19 · gain on success 42.94 · EV of going 11.23 (21.8% of the pot)
+step 2: reached n=1414 · P(success) 44.1% · pot at stake 108.79 · gain on success 60.14 · EV of going -35.46 (-29.3% of the pot)
+step 3: reached n=577 · P(success) 23.7% · pot at stake 162.97 · gain on success 83.81 · EV of going -102.23 (-64.4% of the pot)
+  crew read FRESH     step 1: n=1108 P 81.9% EV 20.06 | step 2: n=688 P 57.4% EV -9.69
+  crew read BANGED UP step 1: n=932 P 61.8% EV 2.63 | step 2: n=689 P 32.7% EV -58.54
+  crew read RAGGED    step 1: n=40 P 35.0% EV -33.24 | step 2: n=37 P 10.8% EV -84.66
+  policy careful  offers 208 · went 50 · won 44 · lost the pot 6
+  policy greedy   offers 305 · went 305 · won 179 · lost the pot 126
+  policy naive    offers 124 · went 0 · won 0 · lost the pot 0
+  policy random   offers 110 · went 54 · won 31 · lost the pot 23
+  tease truth: 0 mismatches in 254 teased steps · LEGENDARY/jackpot kicker in 22.0% of won steps · pitch-card promise: 411 PLAYs checked, 0 fake teases
+
+═══ INVARIANTS ═══
+800-PLAY matrix violations: 0 · 3000-PLAY smoke violations: 0 · determinism: 0 mismatches in 40 re-runs (identical script + outcome required)
+
+═══ ABLATIONS (replicate sample 1600 PLAYs each; SE of a story-grade delta ≈ 0.8%) ═══
+variant                    story-beat  wow     novelty  nothing  fam/20  outcomeSD  careful−naive  reversal  calls/PLAY  blame  verdict
+baseline                   94.9%       50.1%   24.76    4.1%     37.88   1.04       0.58           23.1%     1.24        98%    —
+traits OFF                 91.8%       43.1%   21.26    6.4%     24.45   1.01       0.61           24.4%     1.24        98%    KEEP — removal hurts: rare-wow PLAYs −7%; novelty -14%; families/20 -35%
+NERVE/PRESSURE flattened   92.5%       53.3%   23.87    5.3%     34.35   0.95       0.75           7.7%      0.60        97%    KEEP — removal hurts: families/20 -9%; outcome variance -9%; reversals -15%
+formation randomized       95.4%       52.3%   24.82    3.7%     38.83   1.04       0.48           27.8%     1.29        98%    KEEP — removal hurts: controlled seat test: best seating beats random by 0.33 score (8% win)
+CALLS OFF                  94.4%       46.9%   24.17    4.4%     35.00   1.10       0.08           27.6%     0.00        98%    KEEP — removal hurts: skill gap (careful−naive) -0.50
+CALLS rarer (gap 3.6)      94.8%       51.6%   24.84    4.2%     37.90   1.06       0.55           21.6%     0.54        98%    CUT CANDIDATE — removal did not materially hurt
+CAR OFF (default seats)    95.4%       49.4%   24.38    3.6%     36.55   1.07       0.35           27.1%     1.27        95%    KEEP — removal hurts: skill gap (careful−naive) -0.24; seat choice is worth 0.52 score best-vs-worst
+combos (M9) OFF            92.1%       48.8%   23.47    6.7%     34.08   1.04       0.67           23.7%     1.26        98%    KEEP — removal hurts: novelty -5%; families/20 -10%
+
+
+═══ CAR / SEAT EXPERIMENTS (careful policy, same jobs and seeds; only the named factor changes) ═══
+car=HOOPTIE    n 400 · win 82.8% · clean 20.3% · wash 12.5% · crash 8.3% · robbed 1.8% · split 2.3% · score 2.46 · novelty 24.65 · car/split stories 20.5% · named SHOT 0.20
+car=SUPRA      n 400 · win 85.3% · clean 30.0% · wash 12.5% · crash 3.5% · robbed 0.0% · split 2.3% · score 2.63 · novelty 23.90 · car/split stories 7.2% · named SHOT 0.20
+car=URUS       n 400 · win 82.3% · clean 28.5% · wash 13.5% · crash 2.0% · robbed 1.8% · split 2.5% · score 2.60 · novelty 24.18 · car/split stories 6.3% · named SHOT 0.18
+car=S2000      n 400 · win 49.0% · clean 18.3% · wash 44.3% · crash 6.8% · robbed 1.0% · split 1.5% · score 1.53 · novelty 21.69 · car/split stories 12.3% · named SHOT 0.17
+seats=best     n 400 · win 85.5% · clean 29.8% · wash 12.0% · crash 3.0% · robbed 0.3% · split 2.8% · score 2.64 · novelty 23.92 · car/split stories 7.2% · named SHOT 0.17
+seats=worst    n 400 · win 73.3% · clean 14.0% · wash 17.5% · crash 6.3% · robbed 4.8% · split 1.8% · score 2.13 · novelty 24.36 · car/split stories 20.0% · named SHOT 0.30
+seats=random   n 400 · win 77.0% · clean 20.3% · wash 15.3% · crash 6.3% · robbed 3.3% · split 2.5% · score 2.31 · novelty 24.35 · car/split stories 13.8% · named SHOT 0.27
+
+═══ TRAIT COVERAGE (share of PLAYs with the trait aboard in which its upside / failure mode surfaced as a staged moment) ═══
+CALM             aboard  581  upside  76.9%  failure   5.3%
+ALWAYS EATING    aboard  581  upside  56.1%  failure  33.6%
+MOUTHPIECE       aboard  369  upside  22.2%  failure   8.1%
+PHONE OUT        aboard  369  upside  33.3%  failure  16.3%
+SMALL            aboard  318  upside  41.5%  failure  35.5%
+IMPATIENT        aboard  318  upside  23.3%  failure   3.5%
+DRESSED TO KILL  aboard  447  upside  85.5%  failure  24.4%
+CHURCH SHOES     aboard  447  upside   7.6%  failure   2.7%   ← thin
+ROOKIE           aboard  279  upside  42.3%  failure  26.5%
+BIG POTENTIAL    aboard  279  upside   (silent in a PLAY)  failure   9.0%
+SEEN IT ALL      aboard  128  upside   9.4%  failure   7.8%
+SIT DOWN         aboard  128  upside  25.8%  failure  17.2%
+SKITTISH         aboard  107  upside  14.0%  failure  36.4%
+SHOWBOAT         aboard   82  upside  62.2%  failure  30.5%
+LOYAL            aboard  110  upside   0.0%  failure   1.8%   ← thin
+STICKY FINGERS   aboard   85  upside  32.9%  failure  17.6%
+HOTHEAD          aboard   89  upside  52.8%  failure  31.5%
+STEADY           aboard   97  upside  55.7%  failure  13.4%
+
+═══ BEEF (campaign layer) ═══
+BEEF OFF                               PLAYs 1648 · created 0.00/100 · triggered 0.00/100 (argue 0, settle 0) · open BEEFs mean 0.00 max 0 · PLAYs where a BEEF fired: novelty 0.00 vs 23.71 overall · story-beat 88.8% · novelty 23.71 · families/PLAY 6.35 · win 74.6% · READY at night start 6.18
+BEEF ON (as proposed: SPLIT only)      PLAYs 1630 · created 2.70/100 · triggered 1.10/100 (argue 10, settle 8) · open BEEFs mean 0.22 max 4 · PLAYs where a BEEF fired: novelty 26.63 vs 23.66 overall · story-beat 88.4% · novelty 23.66 · families/PLAY 6.32 · win 75.0% · READY at night start 6.17
+BEEF ON+ (SPLIT + FRIENDLY FIRE)       PLAYs 1651 · created 18.41/100 · triggered 5.27/100 (argue 65, settle 22) · open BEEFs mean 1.18 max 9 · PLAYs where a BEEF fired: novelty 27.46 vs 23.72 overall · story-beat 88.8% · novelty 23.72 · families/PLAY 6.32 · win 75.6% · READY at night start 6.23
+  campaign [careful] 40 careers × 24 nights: roster at end 8.15 of 9 · READY at night start 8.03 (< 4 on 1% of nights; 0 nights with < 2 available) · Ogas lost to an expired EXTRACT clock: 9 named + 2 generic (0.28 per career) · rescued 139 in 146 EXTRACT nights · DAY ONES formed 294 · WASH 8.3% · win 87.1%
+  campaign [random] 40 careers × 24 nights: roster at end 2.25 of 9 · READY at night start 4.33 (< 4 on 40% of nights; 272 nights with < 2 available) · Ogas lost to an expired EXTRACT clock: 167 named + 19 generic (4.65 per career) · rescued 29 in 48 EXTRACT nights · DAY ONES formed 207 · WASH 18.5% · win 57.1%
+
+═══ 10-NIGHT PITCH-BOARD AUDIT ═══
+Played careers (BEEF-ON arm, generator B): nights 786; pitches/night {"2":285,"3":315,"4":79,"5":4}; same shape in a board 0; back-to-back played shape 0; duplicate pitcher within a board 86; consecutive-board overlap: shape 30% / spec 6%; lead-pitcher repeat 18%; distinct specs/10 nights 10.00, pitchers 5.76/6, names 18.09; boards with ≥ 2 emotional propositions 94%; careers with one spec ≥ 3× in 10 nights 80/80; OPEN MOUTH GANG share of pitches 60%
+Boards only, rules A (OL-015 minimum: distinct shapes, no repeat of the played shape): nights 600; pitches/night {"2":321,"3":277,"4":2}; same shape in a board 0; back-to-back played shape 0; duplicate pitcher within a board 137; consecutive-board overlap: shape 38% / spec 23%; lead-pitcher repeat 18%; distinct specs/10 nights 8.45, pitchers 4.97/6, names 16.38; boards with ≥ 2 emotional propositions 94%; careers with one spec ≥ 3× in 10 nights 60/60; OPEN MOUTH GANG share of pitches 57%
+Boards only, rules B (A + no spec from last night, unique pitchers): nights 600; pitches/night {"2":317,"3":282,"4":1}; same shape in a board 0; back-to-back played shape 0; duplicate pitcher within a board 29; consecutive-board overlap: shape 26% / spec 1%; lead-pitcher repeat 14%; distinct specs/10 nights 8.53, pitchers 5.42/6, names 16.70; boards with ≥ 2 emotional propositions 95%; careers with one spec ≥ 3× in 10 nights 60/60; OPEN MOUTH GANG share of pitches 58%
+Truth: 497 played PLAYs checked, fake teases 0; every shown silhouette is in its job's pool: true; floor held on every non-folded win: true; top of the advertised band reached on 88% of clean wins
+
+═══ 10 BEST STORIES (highest novelty-weighted interest; no other selection) ═══
+ 1. [#661 counting_house/greedy/seed 8002] EVERYTHING, ALL AT ONCE (greedy, seed 8002, URUS, LOUD) ended as a getaway that got jugged. Dre went back for Tunde without being asked; Rich saw who was down. Nobody asked what happened next.; they were jugged on the way back — everything they were holding is gone. the pot was jugged on the way back; Sunday Best is gone. The truth waits for after the fame.
+ 2. [#641 counting_house/careful/seed 8002] EVERYTHING, ALL AT ONCE (careful, seed 8002, SUPRA, LOUD) ended as a win that cost them. Deshawn From The DMV caught one. He's gone.; Pastor Kev panicked and drove off with half the crew; Rich's octopus brain: "let the second van find the first van.". Deshawn From The DMV caught one. He's gone. The kicker was DRUM MAG.
+ 3. [#144 tupperware/random/seed 1005] AUNTIE'S TUPPERWARE MONEY (random, seed 1005, S2000, QUIET) ended as a HIT ONE MORE that went wrong. Tunde went back for Dre without being asked; Rich stepped out of the car. Three of them stopped being a problem.; Dre's phone went off. jugged on the retreat after HIT ONE MORE. The kicker was a wad of cash ($8K). The player took HIT ONE MORE and lost the pot.
+ 4. [#5 boba_backroom/careful/seed 6] THE BOBA BACKROOM (careful, seed 6, SUPRA, LOUD) ended as a win with a story. Tunde went back for Dre without being asked; Rich's octopus brain: "let the second van find the first van."; NEW IN THE CREW BOOK: DOOR'S A SUGGESTION. The kicker was Ceramic Cat, Full of Cash.
+ 5. [#719 counting_house/random/seed 8020] EVERYTHING, ALL AT ONCE (random, seed 8020, SUPRA, OCTOPUS) ended as a win that cost them. Little Rasheed caught one. He's gone.; Tunde went back for Dre without being asked; Tunde panicked and drove off with half the crew. Little Rasheed caught one. He's gone.; Sunday Best was left behind and taken. The kicker was MAC & CHEESE.
+ 6. [#488 vampire_gala/careful/seed 6009] THE VAMPIRE GALA (careful, seed 6009, SUPRA, LOUD) ended as a win with a story. Sunday Best went back for Tunde; Sunday Best went back for Young Mazi; NEW IN THE CREW BOOK: DOOR'S A SUGGESTION. The kicker was a corner of the block changes hands.
+ 7. [#790 hold_the_house/random/seed 9011] LOCK THE GOOD DOOR (random, seed 9011, SUPRA, QUIET) ended as a HIT ONE MORE that went wrong. Marcus Two-Phones caught one. He's gone.; Rich's octopus brain: "let the second van find the first van."; Half-Pint went down. STASH RAIDED — half the SUPPLY and a fifth of the cash gone; Marcus Two-Phones caught one. He's gone. The kicker was SAPPORO SHOTGUN. The player took HIT ONE MORE and lost the pot.
+ 8. [#485 vampire_gala/careful/seed 6006] THE VAMPIRE GALA (careful, seed 6006, SUPRA, LOUD) ended as a win with a story. Sunday Best went back for Auntie Grit without being asked; Rich stepped out of the car. Three of them stopped being a problem.; NEW IN THE CREW BOOK: DAY ONES. The kicker was Karaoke Mic Owned by a Hunter.
+ 9. [#684 counting_house/naive/seed 8005] EVERYTHING, ALL AT ONCE (naive, seed 8005, HOOPTIE, QUIET) ended as a win that cost them. Young Mazi went back for Half-Pint without being asked; Tunde went back for Dre without being asked; Tunde panicked and drove off with half the crew. Young Mazi was left behind and taken. The kicker was A Ledger Nobody Was Supposed to Have.
+10. [#718 counting_house/random/seed 8019] THE COUNTING HOUSE (random, seed 8019, URUS, LOUD) ended as a HIT ONE MORE that went wrong. Cousin Bode caught one. He's gone.; Big Wendell caught one. He's gone.; Rich saw who was down. Nobody asked what happened next. Cousin Bode caught one. He's gone.; Big Wendell caught one. He's gone. The kicker was CHOPSTICK SNIPER. The player took HIT ONE MORE and lost the pot.
+
+═══ 10 WORST STORIES (lowest novelty-weighted interest) ═══
+ 1. [#1 boba_backroom/careful/seed 2] SOMEBODY OWES THE BOBA GUY (careful, seed 2, SUPRA, LOUD) ended as a clean win. Tunde did not blink; a door goes down first; Marcus Two-Phones: mm. The kicker was a wad of cash ($6K).
+ 2. [#80 tupperware/careful/seed 1001] A SMALL ONE (careful, seed 1001, S2000, QUIET) ended as a clean win. Half-Pint vanished into the gap; Half-Pint was through the door first. The kicker was a wad of cash ($3K).
+ 3. [#226 vampire_dentist/random/seed 2007] THE VAMPIRE DENTIST (random, seed 2007, SUPRA, QUIET) ended as a fold — they walked away with something. the alarm went — the dog hasn't eaten.
+ 4. [#228 vampire_dentist/random/seed 2009] GOLD TEETH, COLD HANDS (random, seed 2009, SUPRA, QUIET) ended as a fold — they walked away with something. the alarm went — the dog hasn't eaten.
+ 5. [#332 car_wash_stickup/careful/seed 4013] SPOT-FREE RINSE (careful, seed 4013, URUS, LOUD) ended as a clean win. Sunday Best dropped him without a crease; Tunde did not blink. The kicker was SAPPORO SHOTGUN.
+ 6. [#442 quiet_lift/naive/seed 5003] A VERY POLITE SAFE (naive, seed 5003, HOOPTIE, QUIET) ended as a clean win. Dre already had their photos; Tunde did not blink; Tunde finished the sandwich and feels better. The kicker was CHOPSTICK SNIPER.
+ 7. [#786 hold_the_house/random/seed 9007] RETALIATION, NO APPOINTMENT (random, seed 9007, HOOPTIE, LOUD) ended as a fold — they walked away with something.
+ 8. [#444 quiet_lift/naive/seed 5005] NOBODY WAS HOME (naive, seed 5005, HOOPTIE, QUIET) ended as a clean win. Half-Pint could not lift it alone; Half-Pint vanished into the gap; Dre already had their photos.
+ 9. [#452 quiet_lift/naive/seed 5013] THE QUIET LIFT (naive, seed 5013, HOOPTIE, QUIET) ended as a win with a story. Half-Pint could not lift it alone; Dre already had their photos; Half-Pint wasn't there.
+10. [#458 quiet_lift/naive/seed 5019] THE QUIET LIFT (naive, seed 5019, HOOPTIE, QUIET) ended as a win with a story. Half-Pint could not lift it alone; the alarm went — the dog hasn't eaten; Tunde did not blink.
+
+═══ 10 RANDOM STORIES (Fisher–Yates over all 800 with stream "digest-random-v1"; indices 42,542,740,328,49,749,664,155,548,798) ═══
+ 1. [#42 boba_backroom/naive/seed 3] THE BOBA BACKROOM (naive, seed 3, HOOPTIE, QUIET) ended as a getaway that got jugged. they were jugged on the way back — everything they were holding is gone; Half-Pint went down; Half-Pint vanished into the gap. the pot was jugged on the way back; Half-Pint took one and was carried out.
+ 2. [#542 vampire_gala/random/seed 6003] THE VAMPIRE GALA (random, seed 6003, HOOPTIE, OCTOPUS) ended as a win with a story. OCTOPUS BRAIN: the crew seat the bride next to the loudest uncle; Big Wendell sprayed a little too wide and hit Half-Pint; Big Wendell dropped the green fur — one shot. The kicker was a corner of the block changes hands.
+ 3. [#740 hold_the_house/greedy/seed 9001] RETALIATION, NO APPOINTMENT (greedy, seed 9001, URUS, LOUD) ended as a HIT ONE MORE that went wrong. NEW IN THE CREW BOOK: DOOR'S A SUGGESTION; NEW IN THE CREW BOOK: DAY ONES; Sunday Best went down. Sunday Best took one and was carried out; HIT ONE MORE #2 turned: $104K jugged. The kicker was CHOPSTICK SNIPER. The player took HIT ONE MORE and lost the pot.
+ 4. [#328 car_wash_stickup/careful/seed 4009] SOAP AND SHOTGUNS (careful, seed 4009, URUS, LOUD) ended as a wash. NEW IN THE CREW BOOK: DOOR'S A SUGGESTION; NEW IN THE CREW BOOK: SUNDAY SERVICE; Sunday Best went down. nobody made it out with anything; Tunde was left behind and taken.
+ 5. [#49 boba_backroom/naive/seed 10] PEARLS AND PRINCIPAL (naive, seed 10, HOOPTIE, QUIET) ended as a win with a story. 2 traits in one beat: MOUTHPIECE + SMALL; Dre oversold it and the client wants a discount; Half-Pint could not lift it alone. The kicker was Bag of Unreleased Sneakers.
+ 6. [#749 hold_the_house/greedy/seed 9010] RETALIATION, NO APPOINTMENT (greedy, seed 9010, URUS, LOUD) ended as a win that cost them. NEW IN THE CREW BOOK: DOOR'S A SUGGESTION; Dre went down; Sunday Best went down. STASH RAIDED — half the SUPPLY and a fifth of the cash gone; Sunday Best took one and was carried out. The kicker was MAC & CHEESE.
+ 7. [#664 counting_house/greedy/seed 8005] EVERYTHING, ALL AT ONCE (greedy, seed 8005, URUS, LOUD) ended as a getaway that got jugged. they were jugged on the way back — everything they were holding is gone; Little Rasheed went down; Sunday Best went down. the pot was jugged on the way back; Sunday Best took one and was carried out.
+ 8. [#155 tupperware/random/seed 1016] A SMALL ONE (random, seed 1016, HOOPTIE, LOUD) ended as a wash. Pastor Kev in the shotgun seat went for it and ate the door; NEW IN THE CREW BOOK: COIN FLIP; Pastor Kev sprayed a little too wide and hit Dre. nobody made it out with anything; Pastor Kev did not get up.
+ 9. [#548 vampire_gala/random/seed 6009] THE VAMPIRE GALA (random, seed 6009, HOOPTIE, OCTOPUS) ended as a getaway that got jugged. they were jugged on the way back — everything they were holding is gone; OCTOPUS BRAIN went sideways: they tried to seat the bride next to the loudest uncle; Sunday Best dropped him without a crease. the pot was jugged on the way back.
+10. [#798 hold_the_house/random/seed 9019] RETALIATION, NO APPOINTMENT (random, seed 9019, SUPRA, QUIET) ended as a win with a story. SURE THING???; Marcus Two-Phones sprayed a little too wide and hit Half-Pint; Auntie Grit stopped mid-fight to give a lecture. The kicker was SAPPORO SHOTGUN.
+
+═══ 5 COMPLETE PLAYER-FACING TRANSCRIPTS ═══
+
+──────── 1. SATISFYING CLEAN RUN   [#403 quiet_lift/careful/seed 5004] ────────
+PITCH  Half-Pint: heard about a thing. a stash house with a dog who has opinions. quiet. i'll be quick
+       ┌ THE QUIET LIFT
+       │ THE TAKE  $12–28K  [CASH]  [?]
+       │ HOW UGLY  TOUGH
+       └ WHO       OPEN MOUTH GANG — one lookout, one dog, zero patience
+CAR  SUPRA — ALL BUSINESS · 3 SEATS FILLED
+       DRIVER   Young Mazi · ROOKIE · NERVE STEADY · PISTOL [SIDEARM]
+       SHOTGUN  Half-Pint · SMALL · NERVE STEADY · PISTOL [SIDEARM]
+       BACK_L   Dre · MOUTHPIECE · NERVE STEADY · LIL OGA [QUIET]
+     APPROACH: OCTOPUS BRAIN   →   GO
+SLIDE-IN  headlights cut the dark. the quiet lift — the block: one lookout, one dog, zero patience.
+          YOUNG MAZI / HALF-PINT / DRE
+          Young Mazi: it's literally fine
+BEATS  ▸ ENTRY — A bouncer with a clipboard and no sense of humor guards the door.
+           ★ OCTOPUS BRAIN: the crew ring the doorbell as the wrong pizza
+       ▸ CONTACT — A fight breaks out and drags everyone in.  (nobody could tell who was who)
+           Two seconds. Nobody had a story.
+CALLS    ⏸  THE WORLD FREEZES · Headlights. More of them than there should be.
+            PUSH IT   |   FOLD   |   PULL UP   |   let them handle it
+            → you tap: PULL UP
+         RICH PULLS UP — OCTOPUS BRAIN
+BEATS  ▸ TROUBLE — Headlights. More of them than there should be.  (the second van was early)
+           ★ Rich's octopus brain: "let the second van find the first van."
+       ▸ PRIZE — A back office with too much cash in it.
+           The take is real.
+GETAWAY  a siren starts, follows them for six blocks, and turns out to be nothing. Young Mazi at the wheel of the SUPRA.
+           Clean. Nobody breathes until the freeway.
+TRUNK  The trunk opens. Bands snap like COUNT THE MONEY: $28K.
+         · flip   a wad of cash ($2K)
+         · flip   DRUM MAG  — “More bang before the click.”
+         · flip   a WILLING recruit  — “They mean it.”
+         ✦ the lid glows teal — a gasp   DRUM MAG  — “More bang before the click.”
+         KICKER → DRUM MAG.  Half-Pint: ...that looks heavy. i can carry it
+         Half-Pint could turn the willing recruit. TURN or LET GO? → TURN. It takes: a new Oga, "TURNED BY Half-Pint".
+HIT ONE MORE  RISKING: $28K + 4 crates   ·   crew: FRESH   ·   nothing lit
+                Half-Pint: my legs hurt
+                → TAKE THE WIN.
+REPORT  CLEAN WIN   ·   BANKED $28K cash + 4 crates (~$46K street value)
+        MVP: Half-Pint
+MORNING AFTER  @whosrunninLA: YOUNG PLAYMAKER pulled up himself. 🚗
+               Dre: ok but who is buying
+               STORY seed → Half-Pint: SAW RICH STEP OUT OF THE CAR
+               KOREATOWN hears about it. Demand ticks up.
+NEXT TEMPTATION  Half-Pint: heard about something shiny. Very shiny. Very guarded.
+
+──────── 2. FUNNY DISASTER   [#618 smack_crib/naive/seed 7019] ────────
+PITCH  Tunde: Lil Smack's own kitchen, which is somehow also the throne room. bring water.
+       ┌ FIRST COURSE
+       │ THE TAKE  $30–45K  [GUN]  [?]
+       │ HOW UGLY  NASTY
+       └ WHO       OPEN MOUTH GANG — a boss who chews with his mouth open on purpose
+CAR  HOOPTIE — SMELLS LIKE SOMEONE'S LUNCH · 4 SEATS FILLED
+       DRIVER   Tunde · CALM · NERVE STEADY · SAPPORO SHOTGUN [BREACHER]
+       SHOTGUN  Dre · MOUTHPIECE · NERVE STEADY · LIL OGA [QUIET]
+       BACK_L   Half-Pint · SMALL · NERVE STEADY · PISTOL [SIDEARM]
+       BACK_R   Sunday Best · DRESSED TO KILL · NERVE STEADY · CHOPSTICK SNIPER [SNIPER] · a limp
+       ✦ DAY ONES
+     APPROACH: QUIET   →   GO
+SLIDE-IN  headlights cut the dark. first course — the block: a boss who chews with his mouth open on purpose.
+          TUNDE / DRE / HALF-PINT / SUNDAY BEST
+          Half-Pint: can we go now
+BEATS  ▸ ENTRY — The way in is behind three dumpsters and a crawlspace.  (the alley was a dead end)
+           ☺ Dre's phone went off — PHONE OUT
+           ☺ 4 traits in one beat: SMALL + CHURCH SHOES on a wet floor + PHONE OUT + CALM
+           ☺ Sunday Best slipped — CHURCH SHOES on a wet floor
+CALLS    ⏸  THE WORLD FREEZES · A fight breaks out and drags everyone in.
+            DRE — TALK HIM DOWN   |   TUNDE — BUST THROUGH   |   FOLD   |   let them handle it
+            → you tap: let them handle it
+BEATS  ▸ CONTACT — A fight breaks out and drags everyone in.  (nobody could tell who was who)
+           ♥ NEW IN THE CREW BOOK: SUNDAY SERVICE
+           ☺ Dre's phone lit up in the middle of it — PHONE OUT
+           ★ Sunday Best dropped him without a crease — DRESSED TO KILL
+       ▸ TROUBLE — The lights die. Somebody laughs. It is not one of yours.  (nobody could see)
+           ★ Tunde went back for Dre without being asked — DAY ONES
+           ▲ Dre went down — LIEUTENANT
+           ▲ Tunde saw Dre go down — DAY ONES
+CALLS    ⏸  THE WORLD FREEZES · A rack of guns behind a curtain.
+            PULL UP   |   PUSH IT   |   FOLD   |   let them handle it
+            → you tap: let them handle it
+BEATS  ▸ PRIZE — A rack of guns behind a curtain.
+           ☺ 3 traits in one beat: ALWAYS EATING + MOUTHPIECE + SMALL
+           ☺ Dre oversold it and the client wants a discount — MOUTHPIECE
+           ☺ Tunde finished the sandwich first — ALWAYS EATING
+GETAWAY  the red light is very red and very long. Tunde at the wheel of the HOOPTIE.
+           It gets messy — they take the long way. They make it.
+TRUNK  The trunk opens. Bands snap like COUNT THE MONEY: $34.9K.
+         ✦ the lid glows teal — a gasp   a corner of the block changes hands  — “Rival pressure −5, demand up.”
+         ✦ the lid glows teal — a gasp   3 cases of Blood X  — “It only ever feeds the THIRST.”
+         ✦ the lid glows teal — a gasp   MAC & CHEESE  — “Aim is a state of mind.”
+         KICKER → MAC & CHEESE.  Tunde: [chewing, slower]
+HIT ONE MORE  RISKING: $35K + 3 crates   ·   crew: BANGED UP   ·   a teal-lit crate
+                Sunday Best: Greed is a sin. So is leaving money.
+                → TAKE THE WIN.
+REPORT  A WIN WITH A STORY   ·   BANKED $35K cash + 3 crates (~$77.7K street value)
+        MVP: Tunde (pulled Dre back)
+        WOUNDED: Dre limps away — because Dre was already hurt
+MORNING AFTER  @whosrunninLA: that van left in a hurry and a good mood.
+               Dre: my phone is on silent now. permanently.
+               Dre: thank you. i mean it.
+               Dre earns a nickname: "DO NOT DISTURB" (now on the card)
+               Tunde earns a nickname: "MID-BITE" (now on the card)
+               Sunday Best earns a nickname: "SLIPPERY" (now on the card)
+               STORY seed → Tunde: PULLED DRE BACK
+               OPEN MOUTH GANG lose a corner of INGLEWOOD. Rival pressure drops.
+NEXT TEMPTATION  A van has been parked outside the gate since four. Retaliation is coming.
+
+──────── 3. CLUTCH REVERSAL   [#641 counting_house/careful/seed 8002] ────────
+PITCH  Dre: oga. OGA. the counting house, where every crew keeps the good money. we're gonna eat
+       ┌ EVERYTHING, ALL AT ONCE
+       │ THE TAKE  $60–110K  [GUN]  [?]
+       │ HOW UGLY  BIG PLAY  (BIG PLAY)
+       └ WHO       OPEN MOUTH GANG + HUNTERS — two crews who hate each other guarding one very good door
+CAR  SUPRA — ALL BUSINESS · 4 SEATS FILLED
+       DRIVER   Young Mazi · ROOKIE · NERVE STEADY · PISTOL [SIDEARM]
+       SHOTGUN  Pastor Kev · LOYAL · NERVE SHAKY · PISTOL [SIDEARM]
+       BACK_L   Deshawn From The DMV · SHOWBOAT · NERVE SHAKY · LIL OGA [QUIET]
+       BACK_R   Little Rasheed · SKITTISH · NERVE SHAKY · PISTOL [SIDEARM]
+     APPROACH: LOUD   →   GO
+     STAKES: Young Mazi — MAY NOT COME BACK (accepted)
+SLIDE-IN  headlights cut the dark. everything, all at once — the block: two crews who hate each other guarding one very good door.
+          YOUNG MAZI / PASTOR KEV / DESHAWN FROM THE DMV / LITTLE RASHEED
+          Little Rasheed: did you hear that
+BEATS  ▸ ENTRY — A bouncer with a clipboard and no sense of humor guards the door.
+           The door was never a problem.
+CALLS    ⏸  THE WORLD FREEZES · Two of them are on the stoop, chewing, looking straight at you.
+            LITTLE RASHEED — BUST THROUGH   |   PASTOR KEV — TALK HIM DOWN   |   FOLD   |   let them handle it
+            → you tap: PASTOR KEV — TALK HIM DOWN
+BEATS  ▸ CONTACT — Two of them are on the stoop, chewing, looking straight at you.  (they were already chewing on the stoop)
+           ☺ Pastor Kev talked one of them out of it
+CALLS    ⏸  THE WORLD FREEZES · Headlights. More of them than there should be.
+            PULL UP   |   PUSH IT   |   FOLD   |   let them handle it
+            → you tap: PULL UP
+         RICH PULLS UP — OCTOPUS BRAIN
+BEATS  ▸ TROUBLE — Headlights. More of them than there should be.  (the second van was early)
+           ★ Rich's octopus brain: "let the second van find the first van."
+           ▲ Young Mazi went down — HUNTER
+           ♥ Deshawn From The DMV patched Young Mazi up on the floor of the van
+       ▸ PRIZE — Somebody hid something. Somebody always hides something.
+           ▲ Deshawn From The DMV caught one. He's gone.
+           ▲ Young Mazi went down — LIL SMACK
+           ☺ Little Rasheed left. Just left. — SKITTISH
+GETAWAY  the red light is very red and very long. Pastor Kev at the wheel of the SUPRA.
+           Pastor Kev panics and floors it. Young Mazi is still on the curb.
+             ☺ Pastor Kev panicked and drove off with half the crew
+TRUNK  The trunk opens. Bands snap like COUNT THE MONEY: $78.4K.
+         · flip   DRUM MAG  — “More bang before the click.”
+         · flip   LIL OGA  — “Never misses when it counts.”
+         · flip   MAC & CHEESE  — “Aim is a state of mind.”
+         ✦ the lid glows teal — a gasp   Cassette Labeled DO NOT PLAY  — “Nobody has.”
+         ★ GOLD LID — the whole car goes quiet   DRUM MAG  — “More bang before the click.”
+         KICKER → DRUM MAG.  Little Rasheed: ...is that real
+HIT ONE MORE  TOO HOT — GET OUT. (no HIT ONE MORE tonight)
+REPORT  A WIN — AND IT COST   ·   BANKED $78K cash + 5 crates (~$155.4K street value)
+        MVP: Deshawn From The DMV (pulled Young Mazi back)
+        DEAD: Deshawn From The DMV caught one. He's gone. — because he lost his nerve
+        SPLIT: Pastor Kev left Young Mazi behind — because Pastor Kev lost his nerve
+MORNING AFTER  @whosrunninLA: YOUNG PLAYMAKER pulled up himself. 🚗
+               Young Mazi: the car is fine. the car is fine.
+               Young Mazi: thank you. i mean it.
+               Little Rasheed earns a nickname: "RUNNER" (now on the card)
+               STORY seed → Deshawn From The DMV: PULLED YOUNG MAZI BACK
+               STORY seed → Little Rasheed: SAW RICH STEP OUT OF THE CAR
+               OPEN MOUTH GANG lose a corner of THE ARTS DISTRICT. Rival pressure drops.
+NEXT TEMPTATION  A van has been parked outside the gate since four. Retaliation is coming.
+
+──────── 4. HIT ONE MORE GREED FAILURE   [#144 tupperware/random/seed 1005] ────────
+PITCH  Auntie Grit: Sit down. a church parking lot with a cash box that is not locked enough. I will not ask twice.
+       ┌ AUNTIE'S TUPPERWARE MONEY
+       │ THE TAKE  $8–14K  [CASH]  [?]
+       │ HOW UGLY  EASY
+       └ WHO       THE COUSINS — arguing about parking
+CAR  S2000 — TWITCHY · 2 SEATS FILLED
+       DRIVER   Dre · MOUTHPIECE · NERVE STEADY · LIL OGA [QUIET]
+       SHOTGUN  Tunde · CALM · NERVE STEADY · SAPPORO SHOTGUN [BREACHER] · a limp
+       ✦ DAY ONES · DOOR'S A SUGGESTION
+     APPROACH: QUIET   →   GO
+SLIDE-IN  headlights cut the dark. auntie's tupperware money — the block: arguing about parking.
+          DRE / TUNDE
+          Tunde: [chewing]
+BEATS  ▸ ENTRY — A crowd is spilling out of the front. Everyone is dressed.
+           ☺ Dre's phone went off — PHONE OUT
+           ★ Tunde did not blink — CALM
+       ▸ CONTACT — A door opens and the room behind it is full.  (the door opened the wrong way)
+           ☺ Tunde finished the sandwich first — ALWAYS EATING
+CALLS    ⏸  THE WORLD FREEZES · An alarm starts. Everyone turns toward you.
+            PULL UP   |   PUSH IT   |   FOLD   |   let them handle it
+            → you tap: PULL UP
+         RICH PULLS UP — BLOOD BATH
+BEATS  ▸ TROUBLE — An alarm starts. Everyone turns toward you.  (the alarm was the loud kind)
+           ▲ Rich stepped out of the car. Three of them stopped being a problem.
+           ♥ Tunde finished the sandwich and feels better — ALWAYS EATING
+       ▸ PRIZE — The client wants to negotiate. Now.
+           The take is real.
+GETAWAY  the red light is very red and very long. Dre at the wheel of the S2000.
+           It gets messy — they take the long way. They make it.
+             ▲ NEW IN THE CREW BOOK: HANDS FREE
+TRUNK  The trunk opens. Bands snap like COUNT THE MONEY: $13.8K.
+         ✦ the lid glows teal — a gasp   Tiny Crown, Kid Size  — “It fits Half-Pint.”
+         ✦ the lid glows teal — a gasp   Satin Jacket That Says CREW  — “Somebody will fight for it.”
+         ★ GOLD LID — the whole car goes quiet   a wad of cash ($8K)
+         KICKER → a wad of cash ($8K).  Tunde: [stops chewing]
+HIT ONE MORE  RISKING: $14K + 3 crates   ·   crew: BANGED UP   ·   nothing lit
+                Dre: we good… right?
+                → HIT ONE MORE.
+BEATS  ▸ TROUBLE — It goes wrong in one second and stays wrong.  (it went wrong fast)
+           ★ Tunde went back for Dre without being asked — DAY ONES
+           ▲ Dre went down — CHEWER
+           ▲ Tunde saw Dre go down — DAY ONES
+       ▸ PRIZE — The room is quiet in a way that means something is in it.
+           ▲ the prize slipped — the whole block was closing in
+HIT ONE MORE    ✔ back in the car. +$9.9K +2 crates — KICKER: Expired Coupons Worth Something Anyway
+                TOO HOT — GET OUT.
+                ✖ The way back was watched. Jugged. [GREED]
+REPORT  GREED — JUGGED   ·   nothing banked  (−$1K from Rich's pocket)
+        MVP: Tunde (pulled Dre back)
+        It turned at the last retreat after HIT ONE MORE #1: too hot, and the way back was watched.
+        WOUNDED: Dre limps away — because the chewers flank
+        ROBBED: jugged on the retreat after HIT ONE MORE — because they stayed one step too long  [GREED]
+        WOUNDED: Tunde
+MORNING AFTER  @whosrunninLA: YOUNG PLAYMAKER pulled up himself. 🚗
+               Dre: my phone is on silent now. permanently.
+               Dre: thank you. i mean it.
+               Dre earns a nickname: "DO NOT DISTURB" (now on the card)
+               Tunde earns a nickname: "MID-BITE" (now on the card)
+               STORY seed → Tunde: PULLED DRE BACK
+               STORY seed → Tunde: SAW RICH STEP OUT OF THE CAR
+               KOREATOWN hears about it too.
+NEXT TEMPTATION  A van has been parked outside the gate since four. Retaliation is coming.
+
+──────── 5. WEIRD / TURNING / RARE LOOT   [#488 vampire_gala/careful/seed 6009] ────────
+PITCH  Sunday Best: The Lord provides. Also, a client's gala where nobody is who they say.
+       ┌ THE VAMPIRE GALA
+       │ THE TAKE  $15–24K  [DISTRICT]  [?]
+       │ HOW UGLY  NASTY
+       └ WHO       HUNTERS — streetwear under tactical vests, crossbows in the flower arrangements
+CAR  SUPRA — ALL BUSINESS · 4 SEATS FILLED
+       DRIVER   Young Mazi · ROOKIE · NERVE STEADY · PISTOL [SIDEARM]
+       SHOTGUN  Tunde · CALM · NERVE STEADY · SAPPORO SHOTGUN [BREACHER]
+       BACK_L   Pastor Kev · STEADY · NERVE SHAKY · LIL OGA [QUIET]
+       BACK_R   Sunday Best · DRESSED TO KILL · NERVE STEADY · CHOPSTICK SNIPER [SNIPER]
+     APPROACH: LOUD   →   GO
+SLIDE-IN  headlights cut the dark. the vampire gala — the block: streetwear under tactical vests, crossbows in the flower arrangements.
+          YOUNG MAZI / TUNDE / PASTOR KEV / SUNDAY BEST
+          Pastor Kev: mm.
+BEATS  ▸ ENTRY — The loading shutters are louder than any of us.  (the shutters screamed)
+           ♥ NEW IN THE CREW BOOK: DOOR'S A SUGGESTION
+           ★ the door was a suggestion — DOOR'S A SUGGESTION
+       ▸ CONTACT — Someone above the line has a very good angle.  (they had the high ground)
+           ♥ NEW IN THE CREW BOOK: SUNDAY SERVICE
+           ☺ SURE THING???
+           ☺ 3 traits in one beat: STEADY + DRESSED TO KILL + ROOKIE
+CALLS    ⏸  THE WORLD FREEZES · It goes wrong in one second and stays wrong.
+            PULL UP   |   PUSH IT   |   FOLD   |   let them handle it
+            → you tap: PUSH IT
+BEATS  ▸ TROUBLE — It goes wrong in one second and stays wrong.  (it went wrong fast)
+           ▲ Tunde went down — HUNTER
+           ▲ Young Mazi went down — HUNTER
+           ☺ 3 traits in one beat: ALWAYS EATING + ROOKIE + DRESSED TO KILL
+CALLS    ⏸  THE WORLD FREEZES · The safe is bigger than the room it is in.
+            SUNDAY BEST — GO BACK FOR HIM   |   PULL UP   |   PASTOR KEV — BUST THROUGH   |   let them handle it
+            → you tap: SUNDAY BEST — GO BACK FOR HIM
+BEATS  ▸ PRIZE — The safe is bigger than the room it is in.
+           ★ Sunday Best went back for Tunde
+           ★ Sunday Best went back for Young Mazi
+           ▲ Young Mazi went down — HUNTER
+GETAWAY  headlights come up behind the car. Sunday Best at the wheel of the SUPRA.
+           It gets messy — they take the long way. They make it.
+TRUNK  The trunk opens. Bands snap like COUNT THE MONEY: $22.6K.
+         · flip   a WILLING recruit  — “They mean it.”
+         ✦ the lid glows teal — a gasp   3 cases of Blood X  — “It only ever feeds the THIRST.”
+         ✦ the lid glows teal — a gasp   MAC & CHEESE  — “Aim is a state of mind.”
+         ★ GOLD LID — the whole car goes quiet   a corner of the block changes hands  — “Rival pressure −5, demand up.”
+         KICKER → a corner of the block changes hands.  Sunday Best: The Lord provides. Openly.
+         Sunday Best could turn the willing recruit. TURN or LET GO? → TURN. It takes — and the new Oga is a little wrong in a funny way.
+HIT ONE MORE  TOO HOT — GET OUT. (no HIT ONE MORE tonight)
+REPORT  A WIN WITH A STORY   ·   BANKED $23K cash + 4 crates (~$69.4K street value)
+        MVP: Sunday Best (pulled Tunde, Young Mazi back)
+        WOUNDED: Tunde limps away — because Tunde was already hurt
+        WOUNDED: Young Mazi limps away — because hunters go straight for vampires
+MORNING AFTER  @whosrunninLA: somebody is hungover and rich. both.
+               Sunday Best: The suit was a gift.
+               Tunde: thank you. i mean it.
+               Sunday Best earns a nickname: "PRE-WORN" (now on the card)
+               STORY seed → Sunday Best: SAW A SURE THING MISS
+               STORY seed → Sunday Best: PULLED TUNDE BACK
+               KOREATOWN hears about it. Demand ticks up.
+NEXT TEMPTATION  Marcus Two-Phones keeps texting. They want in. They mean it.
+
+═══ BORING-RUN ANALYSIS ═══
+33 of 800 PLAYs (4.1%) have no story beat. Lowest-novelty 15% (120 PLAYs): win share 90%, hard-loss share 18%, no call surfaced 21%, no trait moment 8%; by class {"CLEAN":36,"FOLDED":25,"MESSY":38,"COSTLY":9,"WASH":3,"ROBBED":6,"GREED":3}; by policy {"careful":33,"random":40,"naive":43,"greedy":4}.
+Share of each group that lands in the boring set — job: dock_restock 24%, vampire_dentist 23%, tupperware 21%, boba_backroom 19%, quiet_lift 19% | approach: QUIET 24%, OCTOPUS 13%, LOUD 9% | car: HOOPTIE 21%, SUPRA 18%, S2000 18%, URUS 7% | crew size: 2 21%, 3 21%, 4 9% | getaway: CLEAN 23%, MESSY 18%, HELD 14%, ROBBED 13%, CRASH 6%, BREACHED 5%, WASH 2%, SPLIT 0%

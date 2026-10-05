@@ -3,6 +3,7 @@
   function spawn(){
     const layer=document.querySelector('#ambienceLayer');
     if(!layer||reduced)return;
+    window.RAAudio?.preload('BAT_SWARM').then(()=>window.RAAudio.oneShot('BAT_SWARM'));
     const count=1+Math.floor(Math.random()*3);
     for(let i=0;i<count;i++){
       const bat=document.createElement('span');bat.className='ambience-bat';

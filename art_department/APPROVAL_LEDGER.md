@@ -127,3 +127,125 @@ All 46 native candidates and 11 useful multi-frame handoff sheets named in `ship
 All 38 exact canonical PNGs named in `ships/art_ship_007/ART_SHIP_MANIFEST.json` are **APPROVED MASTER / FROZEN**. Canonical hashes equal accepted candidate hashes. No art was regenerated or visually revised during promotion.
 
 Freeze applies only to the named anchor/master pixels, OPEN ids, dimensions, formats, alpha modes, character contacts and environment base roles. It does not authorize derivative states, overlays, crowds, runtime Stage Contracts or runtime integration. No runtime/gameplay code changed and no SEALED/HQ-only content was accessed. ART SHIP 007 is FROZEN / COMPLETE; this Art Agent retires and does not begin ART SHIP 008 in this chat.
+
+## ART SHIP 008 — RUNTIME COMPLETION PASS (recorded 2026-09-25)
+
+30. ART SHIP 008 reconciled the current Integration Matrix and NEEDS CREATIVE record into a bounded 14-item Runtime Demand Map. HQ authorized generation, including one exact frozen-delta derivative and one named GUIDED candidate. Art produced 14 native candidates, preserved every referenced source hash, generated internal PLAYER-BLIND review evidence, and recorded a forecast of up to 23 adventure/fight HOLD screens, two held minigame surfaces and three polish-note screens pending Engineering integration.
+31. Candidate checkpoint `d37e157b929f1a8ae8e690f30f73729e81e491bf` passed 14/14 native-contract checks, 15/15 source-hash checks, repository tests and internal visual review. The authorized Rich derivative changed 65 pixels inside its recorded rectangle and zero outside it; the original frozen source remained immutable.
+32. Explicit user-supplied HQ decision:
+
+> HQ PASS — ART SHIP 008 CANDIDATES APPROVED FOR PROMOTION
+>
+> All 14 submitted candidates are approved.
+>
+> Proceed with APPROVED MASTER → FROZEN promotion byte-for-byte. Do not regenerate or visually revise. Preserve the original frozen Rich source and contextual ramen/SLURP-only scope. Keep the Rookoko default-companion alias visible for Engineering but mark it VERIFY WITH RUNTIME/CONTENT INTENT DURING INTEGRATION. Do not update runtime PASS/HOLD counts before Engineering integration and runtime QA.
+
+All 14 exact PNGs named in `ships/art_ship_008/ART_SHIP_MANIFEST.json` are **APPROVED MASTER / FROZEN**. Promoted hashes equal accepted candidate hashes. No image was regenerated, decoded/re-encoded, resized, retouched or visually revised during promotion.
+
+The corrected Rich derivative is frozen only as the contextual ramen/SLURP state and is not a new Rich neutral/master. The original frozen source and promotion history remain unchanged. The recorded Rookoko default alias is not an Art canon/gameplay decision and must **VERIFY WITH RUNTIME/CONTENT INTENT DURING INTEGRATION** before permanent integration.
+
+Runtime integration, Presentation Director framing, gameplay/content alias decisions and PASS/HOLD movement remain separate Engineering/runtime-QA work. No runtime/gameplay file changed, no SEALED/HQ-only content was accessed, and no merge or deployment was performed. ART SHIP 008 is FROZEN / COMPLETE.
+
+## ART SHIP 009 — OPEN RUNTIME COMPLETION (recorded 2026-09-25)
+
+33. ART SHIP 009 began from `claude/art-ship-008-integration` at `a16196e4fbc0c7530a00bdfe915fb9c9c7cd1826`, reconciled the live 98 PASS / 23 HOLD Integration Matrix, and produced the smallest authorized Art-owned package. The five held Portobello entries resolved to three distinct environment masters, and `lan_night` resolved to zero-pixel reuse of the already-frozen `tristan_apt` master. The submitted package contained 12 native candidates: nine environment masters, one additive Hollow Bowl stage-band crowd companion layer, and two seated identity-anchored HOMIES states.
+34. Candidate checkpoint `47da18d9984c4915d3325709364db9a442fb3b36` passed 12/12 native-contract checks, 18/18 source-hash checks, repository tests/build/artifact verification and internal PLAYER-BLIND visual review. No frozen source pixel or runtime/gameplay file changed during candidate production.
+35. Explicit user-supplied HQ decision:
+
+> HQ PASS — ART SHIP 009 CANDIDATES APPROVED FOR PROMOTION
+>
+> All 12 submitted native candidates are approved.
+>
+> Proceed APPROVED MASTER → FROZEN. Promote the exact submitted candidate bytes without regeneration or revision. Preserve the frozen Hollow Bowl master and Ship 008 crowd layer; keep the new NC-FA-10 layer additive only. Approve `tunde.hookah_seated` and `dre.hookah_seated` only for NC-FA-11 / `company=HOMIES`. Approve `lan_night → tristan_apt` as zero-pixel reuse without duplicating or renaming the source master. Keep projected PASS/HOLD movement as forecast only, and keep PD-W1-04 under Presentation Director/HQ authority.
+
+All 12 exact canonical PNGs named in `ships/art_ship_009/ART_SHIP_MANIFEST.json` are **APPROVED MASTER / FROZEN**. Every canonical SHA-256 equals its accepted candidate SHA-256. The frozen corpus is now 199 assets across 339 Asset Register entries. The 18 verified source hashes, existing Hollow Bowl layers and frozen Tristan apartment master remain unchanged.
+
+The approved `lan_night → tristan_apt` mapping creates no new bitmap. Runtime integration, Presentation Director staging approval, gameplay changes and PASS/HOLD movement remain Engineering/runtime-QA work. No runtime/gameplay code changed, no SEALED/HQ-only content was accessed, and no merge or deployment was performed. ART SHIP 009 is FROZEN / COMPLETE.
+
+## ART SHIP 010 — CAST + PARTY COMPLETION (recorded 2026-09-26)
+
+36. ART SHIP 010 began from `claude/art-ship-009-integration` at `5af730a132c035f6f2f5afb20eef5149ca3f2761`, reconciled the live **105 PASS / 16 HOLD** Integration Matrix, and produced the smallest authorized package for `NC-FA-07` and `NC-FA-12`: three Portobello Rich states and one rooftop party condition layer. The four companion Portobello identities remained explicitly ungenerated and `BLOCKED BY CANON`.
+37. Candidate checkpoint `a1e265d0f28a75d2e5f6a1dd67a0ebdff02cd4ab` passed native-contract validation, source-hash validation, repository tests/build/artifact verification and PLAYER-BLIND visual review. No frozen source pixel or runtime/gameplay file changed during candidate production.
+38. Explicit user-supplied HQ decision:
+
+> HQ DECISION — ART SHIP 010 PASS / PROMOTE + FREEZE
+>
+> All four ART SHIP 010 candidates are APPROVED for production promotion: `rich_portobello.standing`, `rich_portobello.presenting`, `rich_portobello.porch_seated` and `rooftop_dtla.party_crowd_condition`.
+>
+> Promote them using the established Art Department freeze procedure. Preserve candidate pixels exactly. Keep `portobello_wife`, `portobello_kid1`, `portobello_kid2` and `portobello_manager` `BLOCKED BY CANON`. Record Portobello Rich’s short-hair look as an intentional transformation, not identity drift. Do not alter other Rich states, mark runtime screens PASS, modify runtime code, merge or deploy.
+
+All four exact canonical PNGs named in `ships/art_ship_010/ART_SHIP_MANIFEST.json` are **APPROVED MASTER / FROZEN**. Every canonical SHA-256 equals its approved candidate SHA-256. The frozen corpus is now **203 assets across 343 Asset Register entries**. The frozen rooftop master and referenced crowd sources remain unchanged.
+
+Portobello Rich’s short-hair states are frozen only as the intentional Portobello variant authorized by the visual contract. The four companion identities remain `BLOCKED BY CANON`. Runtime integration, PD-W1-04 staging approval and PASS/HOLD movement remain Engineering/runtime-QA work. No runtime/gameplay code changed, no SEALED/HQ-only content was accessed, and no merge or deployment was performed. ART SHIP 010 is **FROZEN / COMPLETE**.
+
+## ART SHIP 011 — NIGHTLIFE POPULATION LIBRARY (recorded 2026-09-26)
+
+39. ART SHIP 011 began from the latest HQ-accepted Engineering checkpoint `8eab30dc790071ec8da98f65311e2b4676fabad0` and productionized the nine HQ-selected POLISH PREPRODUCTION 001 nightlife candidates from `d8c24b632ecdc134986b4f81ff5d3f3959609eea`. The package established stable production IDs, native contacts/origins, categories, placement constraints, exact source provenance and reusable production paths without assigning runtime screens.
+40. Candidate checkpoint `28aa98c8ab04a643d175192b1aecb9ae7b372c76` passed 9/9 native-contract, deterministic-extraction, exact-byte promotion and source-pixel checks. All files are 8-bit RGBA with binary alpha; no checkerboard remnants or unintended extraction-edge corruption were found. No replacement art or additional nightlife figure was generated.
+41. Explicit user-supplied HQ decision:
+
+> HQ PASS — ART SHIP 011
+>
+> HQ approves all 9/9 candidate assets for production freeze at candidate commit `28aa98c8ab04a643d175192b1aecb9ae7b372c76`.
+>
+> Promote/freeze the exact candidate bytes. No regeneration, redraw, retouch, resize, palette changes, or reinterpretation. Preserve the established production IDs and constraints. This freeze does not authorize runtime placement, Presentation Director mappings, environments, HOLD statuses, screen assignments, merge or deployment.
+
+All nine exact production PNGs named in `ships/art_ship_011/ART_SHIP_MANIFEST.json` are **APPROVED MASTER / FROZEN**. Each production SHA-256 equals its HQ-approved candidate SHA-256. The frozen corpus is now **212 assets across 352 Asset Register entries**.
+
+The nine assets remain a reusable, unassigned anonymous-adult population library. Bartender context, A07 included furniture, A08 no-tiling, A09 high-occlusion/peripheral use, density guidance and named-actor clearance are frozen metadata constraints. Runtime integration, Presentation Director placement, environment edits and PASS/HOLD movement remain future Engineering/World Life work. No runtime/gameplay code changed, no merge or deployment was performed. ART SHIP 011 is **FROZEN / COMPLETE**.
+
+## ART SHIP 013 — CANON CAST COMPLETION + RICH CONTINUITY CLEANUP (recorded 2026-09-26)
+
+42. ART SHIP 013 began from frozen Art checkpoint `c6a49410e558be34aa44703015556c00a4e592c9` and produced the minimum seven-state package: Mom, Dad, Sister, Portobello Wife, Portobello Kid 1, Portobello Kid 2 and corrected Rich hookah seated.
+43. Candidate checkpoint `eec5c40c45a40dd842ded38f9b87063d67965d3c` passed 7/7 native-contract checks, 212/212 baseline frozen-corpus checks, repository tests/build/artifact verification and internal visual review. Candidate/rejected/source-render/review evidence was preserved.
+44. Explicit user-supplied HQ decision:
+
+> HQ DECISION — ART SHIP 013: PASS 7/7 / PROMOTE + FREEZE AUTHORIZED
+>
+> HQ accepts all seven submitted candidate byte streams. Promote and freeze the exact bytes without regeneration, redraw, retouch, resize, recolor, repalette, reinterpretation, optimization or other pixel alteration. Preserve the original frozen `rich_hookah_seated` as the superseded source. This authorizes Art promotion only and no runtime integration or PASS/HOLD movement.
+
+All seven exact canonical PNGs named in `ships/art_ship_013/ART_SHIP_MANIFEST.json` are **APPROVED MASTER / FROZEN**. Every canonical SHA-256 equals its accepted candidate SHA-256. The complete frozen corpus is now **219 assets across 359 Asset Register entries**.
+
+The original hookah sprite remains frozen and hash-preserved in provenance; the corrected state is a separate canonical master. Six fictional family assets are frozen only in their submitted roles and imply no additional names, states, personalities or canon. Current Engineering authority is `claude/hold-clearance-001` at `a66170218375e52404715789dde48c23726a6044`, **108 PASS / 13 HOLD**, unchanged by this Art freeze. No runtime/gameplay code, Presentation Director mapping, ART SHIP 012, laptop Rich, Portobello Rich, restricted content, merge or deployment was touched. ART SHIP 013 is **FROZEN / COMPLETE**.
+
+## ART SHIP 012 CLOSEOUT — OPEN HOLD CLEARANCE (recorded 2026-09-26)
+
+45. HQ accepted clean foundation checkpoint `34568801571244b75aeb6c698861a7bf4976fc30` on `art/art_ship_012_closeout`, preserving the four previously passed candidate byte streams, both rejected Buckhead attempts and all 219 ART SHIP 013 frozen hashes.
+46. Built-in ImageGen produced the sole final Buckhead revision. Candidate checkpoint `da2c251be814a91fe89154d7a9fac02770e4f66d` passed its 80×96 RGBA/binary-alpha/contact contract, source provenance validation, four immutable candidate checks, two rejected-provenance checks, 219/219 baseline frozen checks and the repository release gate.
+47. Explicit user-supplied final decision:
+
+> UBE TASTE PASS / HQ FINAL ACCEPTANCE — BUCKHEAD APPROVED
+>
+> Ube accepts `buckhead_vampire_neutral_80x96.png` at SHA-256 `710bede4d4372f20cd27956313d6589df528c3ec9b795b3c4e5cc996ea033b97` as-is. BUCKHEAD — TASTE PASS / APPROVED MASTER. Promote the five approved Ship 012 assets, preserving their byte streams exactly. Preserve both rejected Buckhead attempts as provenance only. Do not runtime-integrate, merge or deploy.
+
+All five exact canonical PNGs named in `ships/art_ship_012_closeout/ART_SHIP_MANIFEST.json` are **APPROVED MASTER / FROZEN**. Each canonical SHA-256 equals its accepted candidate SHA-256. The complete frozen corpus is now **224 assets across 364 Asset Register entries**.
+
+Both rejected Buckhead attempts remain hash-preserved and excluded from approval/style authority. Current Engineering authority remains `claude/hold-clearance-001` at `a66170218375e52404715789dde48c23726a6044`, **108 PASS / 13 HOLD**, unchanged by this Art freeze. No runtime/gameplay code, Presentation Director mapping, PLAYMAKERS, Royal Glitch, SEALED material, audio, merge or deployment was touched. ART SHIP 012 CLOSEOUT is **APPROVED MASTER / FROZEN / COMPLETE**.
+
+## ART SHIP 014 — OPEN VISUAL COMPLETION (recorded 2026-09-27)
+
+48. ART SHIP 014 audited 308 sourced OPEN requirements and produced 180 native candidates while retaining 6 canon blockers, 5 Engineering mapping decisions, 6 conditional existing-art tests and 1 SEALED exclusion. Frozen-source authority, candidate comparison evidence and Ship provenance remain under `ships/art_ship_014/`.
+49. Final native validation passed 180/180; candidate duplicates were 0; semantic derivative/frozen unintended equalities were 0; the pre-Ship-014 frozen corpus verified 224/224. The corrected `A-lo-arm_fall` passed Ube/HQ Taste Pass at `8da6cea7350c6bc395971067ac0e7f31810fe8fb4263e4a041df4fd65ff0e9ed`, while the other 179 accepted candidate bytes remained unchanged.
+50. Explicit Ube/HQ decision: **ART SHIP 014 — UBE/HQ TASTE PASS: PASS; APPROVED FOR PROMOTION + FREEZE.** All 180 exact accepted byte streams are now **APPROVED MASTER / FROZEN**. The frozen corpus is **404 assets across 544 Asset Register entries**.
+
+No accepted image was regenerated, decoded/re-encoded, resized, optimized or modified during promotion. Package H is visual-treatment authority only, not runtime-data authority. Unresolved blockers and mapping decisions remain open. Runtime/gameplay integration, PASS/HOLD movement, Engineering/main merge and deployment are excluded. No SEALED material was accessed. ART SHIP 014 is **APPROVED MASTER / FROZEN / COMPLETE**.
+
+## ART SHIP 015 — FINAL OPEN CANON BLOCKERS (recorded 2026-09-27)
+
+51. Ube/HQ supplied final canon decisions for the two adult brothers, their same-identity FAMILY THREAD avatars, original Vol. 2 God, and OG Hooper. ART SHIP 015 produced seven 80×96 RGBA binary-alpha candidates resolving the six Ship 014 canon blockers.
+52. Surgical HQ review preserved the four Brother candidates byte-for-byte, accepted God after a restrained native edge-light correction, and accepted OG Hooper after an upper-garment-only sleeveless-top correction. Mechanical regression verified the previous frozen corpus 404/404 unchanged.
+53. Explicit final decision: **ART SHIP 015 — UBE/HQ TASTE PASS: PASS.** All seven exact current candidate byte streams are **APPROVED MASTER / FROZEN**. The resulting frozen corpus is 411 assets; the Asset Register contains 551 entries. Runtime/gameplay integration, Ship 011 assignment, Engineering/main merge and deployment remain excluded. SEALED access was zero.
+
+## BUILD-4 preservation integration — OL-039 (2026-10-02)
+
+Ube's OL-039 work order authorizes byte-identical integration of the named approved branches and relevant PRESERVE items. BUILD-4 reuses their existing acceptance/freeze records; it records no new taste approval. The central register contains 952 frozen paths (including exact runtime byte copies), all re-hashed. The original 411 frozen baseline paths remain unchanged. Source snapshots and precedence: `build4/provenance/61a8a55/`, corrected Gbenga v2 over v1; Carlos v1; CGA-F2-031/032 and F01 feel-lock freeze. F15 production approvals come from `production/f15-date-scene-assets/manifest.json` plus `APPROVAL_ADDENDUM.json`; stage approval remains BUILD-1/OL-038.
+
+Inherited `PRESERVED_ART_HASHES.json` stays unchanged. Its raw-blob audit finds 1,659 incorrect entries of 2,667; use the separate audit as diagnostic measured values, without rewriting historical authority. All 1,335 copied preservation records/assets match their source blobs. Cockroach runtime derivative and lights-off overlay remain CREATOR_REVIEW, not newly FROZEN. R&D restyle tools and historical candidates are preserved but not promoted.
+
+## OL-042 — final Ube decisions
+
+The supplied Overlord ruling supersedes the OL-039 review statuses: A1 current navy overlay KEEP; A2 444x222 derivative KEEP; B1 exact RICH ENTERPRISES sign condition TAKEOVER-only; C1 accepted loops reduced/Tier 2; C2 128x160 approved; C3 new animation through Ube's video pipeline only. D1 date portraits KEEP; D2 existing drawn big catch approved; D3 neutral symbolic category tokens; D4 solo mannequin KEEP with F15 OFF; D5 DEV room KEEP/excluded SR-7; D6 generic unnamed kiosk/cook/HOOKAH NPCs in Vol 2 grammar.
+
+Eight previously unfrozen current runtime byte streams are now explicitly FROZEN by these decisions; total 960. Exact paths and hashes: `build4/OL042_DECISIONS.md`, `ASSET_REGISTER.json`. Old candidate/source records are historical; no pixels were changed. The authoritative preservation audit supersedes BUILD-1 hashes under OL-042; the Overlord's 1,226 empty-stream/null entries are a defect subset of the earlier broader mismatch census.
+
+No new art ingested. Wardrobe implementation is F15-owned at step 5, per dance, separate from She fw Me, authored numbers only. F06 remains feel-locked. Ube supplies image/video filenames only; Codex handles every manifest, normalization, hash and contact sheet.

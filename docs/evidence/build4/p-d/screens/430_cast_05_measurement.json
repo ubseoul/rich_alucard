@@ -1,0 +1,142 @@
+{
+  "combat": false,
+  "env": "gbenga_rentals",
+  "world": {
+    "x": 0,
+    "y": 0,
+    "w": 430,
+    "h": 559
+  },
+  "actors": [
+    {
+      "slot": "left",
+      "id": "carlos",
+      "tag": "IMG",
+      "src": "assets/before_the_fame/characters/carlos/runtime_80x96/carlos_neutral_happy_anchor_80x96_review_v1.png",
+      "ok": true,
+      "nw": 80,
+      "nh": 96,
+      "css": {
+        "x": -83.5,
+        "y": 138,
+        "w": 321.96875,
+        "h": 386.375
+      },
+      "visible": {
+        "x": 13.095200000000006,
+        "y": 238.62,
+        "w": 136.8432,
+        "h": 261.612
+      },
+      "sprite": {
+        "x": -83.5,
+        "y": 138,
+        "w": 321.984,
+        "h": 386.3808
+      },
+      "face": {
+        "x": 33.2192,
+        "y": 278.868,
+        "w": 96.5952,
+        "h": 80.496
+      },
+      "contact": {
+        "x": 77.5,
+        "y": 492
+      },
+      "world": {
+        "x": 78.17970085470087,
+        "y": 372
+      },
+      "k": 4.0248,
+      "hidden": false,
+      "rendering": "pixelated",
+      "body": {
+        "x": 13,
+        "y": 239,
+        "w": 137,
+        "h": 261
+      },
+      "pixels": 22797
+    },
+    {
+      "slot": "right",
+      "id": "gbenga",
+      "tag": "IMG",
+      "src": "assets/before_the_fame/characters/gbenga/runtime_80x96/gbenga_adjusting_sleeves_80x96_v2.png",
+      "ok": true,
+      "nw": 80,
+      "nh": 96,
+      "css": {
+        "x": 163.5,
+        "y": 138,
+        "w": 321.96875,
+        "h": 386.375
+      },
+      "visible": {
+        "x": 207.7728,
+        "y": 174.2232,
+        "w": 209.2896,
+        "h": 330.0336
+      },
+      "sprite": {
+        "x": 163.5,
+        "y": 138,
+        "w": 321.984,
+        "h": 386.3808
+      },
+      "face": {
+        "x": 239.9712,
+        "y": 226.54559999999998,
+        "w": 144.8928,
+        "h": 100.62
+      },
+      "contact": {
+        "x": 324.5,
+        "y": 492
+      },
+      "world": {
+        "x": 191.82029914529915,
+        "y": 372
+      },
+      "k": 4.0248,
+      "hidden": false,
+      "rendering": "pixelated",
+      "body": {
+        "x": 208,
+        "y": 174,
+        "w": 209,
+        "h": 330
+      },
+      "pixels": 36462
+    }
+  ],
+  "pairs": [
+    {
+      "a": "carlos",
+      "b": "gbenga",
+      "overlap": 0,
+      "frac": 0
+    }
+  ],
+  "ui": {
+    "box": {
+      "x": 9,
+      "y": 584.796875,
+      "w": 412,
+      "h": 179.5
+    },
+    "bubble": null,
+    "choices": [],
+    "hud": [],
+    "telegraph": null,
+    "panel": null,
+    "title": null,
+    "location": {
+      "x": 8,
+      "y": 8,
+      "w": 301,
+      "h": 28.09375
+    }
+  }
+}

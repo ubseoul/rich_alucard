@@ -1,1 +1,9 @@
 dist/
+work/
+
+dist-private/
+reports/
+private_overlay/
+
+# Local diagnostic captures may contain host paths; publish passing game evidence only.
+/docs/evidence/build2/diagnostic/

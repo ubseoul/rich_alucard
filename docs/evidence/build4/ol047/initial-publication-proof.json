@@ -1,0 +1,12 @@
+{
+  "ruling": "OL-047",
+  "publication_method": "normal push; new branch; no force-push",
+  "current_branch": "build/visual-completion-002",
+  "initial_remote_002": "1d6dbd54a9e38ae069f041abba2c194ad685e9f9",
+  "remote_001_unchanged": "807523cb369776540bc573dd53a9fc753d2f30de",
+  "accepted_tag": "build2-accepted",
+  "accepted_commit": "40fd2bc02e4793380fbf9f6cb04c95113a46db11",
+  "merge_base": "40fd2bc02e4793380fbf9f6cb04c95113a46db11",
+  "ancestor_check_exit": 0,
+  "documentation_followup": "supersession recorded in docs/progress/BUILD4.md; final remote head verified after normal documentation push"
+}

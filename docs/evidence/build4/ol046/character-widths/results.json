@@ -1,0 +1,800 @@
+[
+  {
+    "width": 360,
+    "key": "gbenga_rentals|left:rich,right:gbenga",
+    "refs": [
+      "NEW_OGA_M2:arrive",
+      "NEW_OGA_M2:questions",
+      "NEW_OGA_M2:debt",
+      "NEW_OGA_M2:work",
+      "NEW_OGA_M3:voice",
+      "NEW_OGA_M3:chairs",
+      "NEW_OGA_ALTERNATIVE:voice",
+      "NEW_OGA_ALTERNATIVE:delivery",
+      "NEW_OGA_ALTERNATIVE:chairs"
+    ],
+    "reviewFixture": true,
+    "checks": [
+      {
+        "ok": true,
+        "msg": "360 gbenga_rentals|left:rich,right:gbenga: actor rich sprite loaded (assets/rich_standing_right.png, 80x96)"
+      },
+      {
+        "ok": true,
+        "msg": "360 gbenga_rentals|left:rich,right:gbenga: actor gbenga sprite loaded (assets/before_the_fame/characters/gbenga/runtime_80x96/gbenga_adjusting_sleeves_80x96_v2.png, 80x96)"
+      },
+      {
+        "ok": true,
+        "msg": "360 gbenga_rentals|left:rich,right:gbenga: rich drawn pixels fully inside the world viewport (100.0%)"
+      },
+      {
+        "ok": true,
+        "msg": "360 gbenga_rentals|left:rich,right:gbenga: gbenga drawn pixels fully inside the world viewport (100.0%)"
+      },
+      {
+        "ok": true,
+        "msg": "360 gbenga_rentals|left:rich,right:gbenga: rich / gbenga drawn pixels overlap 0.0% of the smaller (limit 20%)"
+      },
+      {
+        "ok": true,
+        "msg": "360 gbenga_rentals|left:rich,right:gbenga: dialogue box covers no actor's face"
+      }
+    ]
+  },
+  {
+    "width": 360,
+    "key": "bedroom|left:rich,right:carlos",
+    "refs": [
+      "NEW_OGA_M4:beat1",
+      "NEW_OGA_M4:beat1_out"
+    ],
+    "reviewFixture": true,
+    "checks": [
+      {
+        "ok": true,
+        "msg": "360 bedroom|left:rich,right:carlos: actor rich sprite loaded (assets/rich_standing_right.png, 80x96)"
+      },
+      {
+        "ok": true,
+        "msg": "360 bedroom|left:rich,right:carlos: actor carlos sprite loaded (assets/before_the_fame/characters/carlos/runtime_80x96/carlos_neutral_happy_anchor_80x96_review_v1.png, 80x96)"
+      },
+      {
+        "ok": true,
+        "msg": "360 bedroom|left:rich,right:carlos: rich drawn pixels fully inside the world viewport (100.0%)"
+      },
+      {
+        "ok": true,
+        "msg": "360 bedroom|left:rich,right:carlos: carlos drawn pixels fully inside the world viewport (100.0%)"
+      },
+      {
+        "ok": true,
+        "msg": "360 bedroom|left:rich,right:carlos: rich / carlos drawn pixels overlap 0.0% of the smaller (limit 20%)"
+      },
+      {
+        "ok": true,
+        "msg": "360 bedroom|left:rich,right:carlos: dialogue box covers no actor's face"
+      }
+    ]
+  },
+  {
+    "width": 360,
+    "key": "street_night|left:rich,right:carlos",
+    "refs": [
+      "NEW_OGA_M4:beat2",
+      "NEW_OGA_M4:beat3",
+      "NEW_OGA_M4:beat2_out",
+      "NEW_OGA_M4:beat3_out",
+      "NEW_OGA_M4:run",
+      "NEW_OGA_M4:run_high",
+      "NEW_OGA_M4:run_low"
+    ],
+    "reviewFixture": true,
+    "checks": [
+      {
+        "ok": true,
+        "msg": "360 street_night|left:rich,right:carlos: actor rich sprite loaded (assets/rich_standing_right.png, 80x96)"
+      },
+      {
+        "ok": true,
+        "msg": "360 street_night|left:rich,right:carlos: actor carlos sprite loaded (assets/before_the_fame/characters/carlos/runtime_80x96/carlos_neutral_happy_anchor_80x96_review_v1.png, 80x96)"
+      },
+      {
+        "ok": true,
+        "msg": "360 street_night|left:rich,right:carlos: rich drawn pixels fully inside the world viewport (100.0%)"
+      },
+      {
+        "ok": true,
+        "msg": "360 street_night|left:rich,right:carlos: carlos drawn pixels fully inside the world viewport (100.0%)"
+      },
+      {
+        "ok": true,
+        "msg": "360 street_night|left:rich,right:carlos: rich / carlos drawn pixels overlap 0.0% of the smaller (limit 20%)"
+      },
+      {
+        "ok": true,
+        "msg": "360 street_night|left:rich,right:carlos: dialogue box covers no actor's face"
+      }
+    ]
+  },
+  {
+    "width": 360,
+    "key": "gbenga_rentals|left:rich,right:carlos",
+    "refs": [
+      "NEW_OGA_M4:beat4"
+    ],
+    "reviewFixture": true,
+    "checks": [
+      {
+        "ok": true,
+        "msg": "360 gbenga_rentals|left:rich,right:carlos: actor rich sprite loaded (assets/rich_standing_right.png, 80x96)"
+      },
+      {
+        "ok": true,
+        "msg": "360 gbenga_rentals|left:rich,right:carlos: actor carlos sprite loaded (assets/before_the_fame/characters/carlos/runtime_80x96/carlos_neutral_happy_anchor_80x96_review_v1.png, 80x96)"
+      },
+      {
+        "ok": true,
+        "msg": "360 gbenga_rentals|left:rich,right:carlos: rich drawn pixels fully inside the world viewport (100.0%)"
+      },
+      {
+        "ok": true,
+        "msg": "360 gbenga_rentals|left:rich,right:carlos: carlos drawn pixels fully inside the world viewport (100.0%)"
+      },
+      {
+        "ok": true,
+        "msg": "360 gbenga_rentals|left:rich,right:carlos: rich / carlos drawn pixels overlap 0.0% of the smaller (limit 20%)"
+      },
+      {
+        "ok": true,
+        "msg": "360 gbenga_rentals|left:rich,right:carlos: dialogue box covers no actor's face"
+      }
+    ]
+  },
+  {
+    "width": 360,
+    "key": "gbenga_rentals|left:carlos,right:gbenga",
+    "refs": [
+      "NEW_OGA_M4:walk_in"
+    ],
+    "reviewFixture": true,
+    "checks": [
+      {
+        "ok": true,
+        "msg": "360 gbenga_rentals|left:carlos,right:gbenga: actor carlos sprite loaded (assets/before_the_fame/characters/carlos/runtime_80x96/carlos_neutral_happy_anchor_80x96_review_v1.png, 80x96)"
+      },
+      {
+        "ok": true,
+        "msg": "360 gbenga_rentals|left:carlos,right:gbenga: actor gbenga sprite loaded (assets/before_the_fame/characters/gbenga/runtime_80x96/gbenga_adjusting_sleeves_80x96_v2.png, 80x96)"
+      },
+      {
+        "ok": true,
+        "msg": "360 gbenga_rentals|left:carlos,right:gbenga: carlos drawn pixels fully inside the world viewport (100.0%)"
+      },
+      {
+        "ok": true,
+        "msg": "360 gbenga_rentals|left:carlos,right:gbenga: gbenga drawn pixels fully inside the world viewport (100.0%)"
+      },
+      {
+        "ok": true,
+        "msg": "360 gbenga_rentals|left:carlos,right:gbenga: carlos / gbenga drawn pixels overlap 0.0% of the smaller (limit 20%)"
+      },
+      {
+        "ok": true,
+        "msg": "360 gbenga_rentals|left:carlos,right:gbenga: dialogue box covers no actor's face"
+      }
+    ]
+  },
+  {
+    "width": 360,
+    "key": "gbenga_house_dining|left:rich,mid:mama_gbenga,right:gbenga",
+    "refs": [
+      "NEW_OGA_M7:arrival",
+      "NEW_OGA_M7:dinner"
+    ],
+    "reviewFixture": true,
+    "checks": [
+      {
+        "ok": true,
+        "msg": "360 gbenga_house_dining|left:rich,mid:mama_gbenga,right:gbenga: actor rich sprite loaded (assets/rich_standing_right.png, 80x96)"
+      },
+      {
+        "ok": true,
+        "msg": "360 gbenga_house_dining|left:rich,mid:mama_gbenga,right:gbenga: actor gbenga sprite loaded (assets/before_the_fame/characters/gbenga/runtime_80x96/gbenga_adjusting_sleeves_80x96_v2.png, 80x96)"
+      },
+      {
+        "ok": true,
+        "msg": "360 gbenga_house_dining|left:rich,mid:mama_gbenga,right:gbenga: rich drawn pixels fully inside the world viewport (100.0%)"
+      },
+      {
+        "ok": true,
+        "msg": "360 gbenga_house_dining|left:rich,mid:mama_gbenga,right:gbenga: mama_gbenga drawn pixels fully inside the world viewport (100.0%)"
+      },
+      {
+        "ok": true,
+        "msg": "360 gbenga_house_dining|left:rich,mid:mama_gbenga,right:gbenga: gbenga drawn pixels fully inside the world viewport (100.0%)"
+      },
+      {
+        "ok": true,
+        "msg": "360 gbenga_house_dining|left:rich,mid:mama_gbenga,right:gbenga: rich / mama_gbenga drawn pixels overlap 0.0% of the smaller (limit 20%)"
+      },
+      {
+        "ok": true,
+        "msg": "360 gbenga_house_dining|left:rich,mid:mama_gbenga,right:gbenga: rich / gbenga drawn pixels overlap 0.0% of the smaller (limit 20%)"
+      },
+      {
+        "ok": true,
+        "msg": "360 gbenga_house_dining|left:rich,mid:mama_gbenga,right:gbenga: mama_gbenga / gbenga drawn pixels overlap 0.0% of the smaller (limit 20%)"
+      },
+      {
+        "ok": true,
+        "msg": "360 gbenga_house_dining|left:rich,mid:mama_gbenga,right:gbenga: dialogue box covers no actor's face"
+      }
+    ]
+  },
+  {
+    "width": 360,
+    "key": "gbenga_house_patio|left:rich,right:gbenga",
+    "refs": [
+      "NEW_OGA_M7:patio"
+    ],
+    "reviewFixture": true,
+    "checks": [
+      {
+        "ok": true,
+        "msg": "360 gbenga_house_patio|left:rich,right:gbenga: actor rich sprite loaded (assets/rich_standing_right.png, 80x96)"
+      },
+      {
+        "ok": true,
+        "msg": "360 gbenga_house_patio|left:rich,right:gbenga: actor gbenga sprite loaded (assets/before_the_fame/characters/gbenga/runtime_80x96/gbenga_adjusting_sleeves_80x96_v2.png, 80x96)"
+      },
+      {
+        "ok": true,
+        "msg": "360 gbenga_house_patio|left:rich,right:gbenga: rich drawn pixels fully inside the world viewport (100.0%)"
+      },
+      {
+        "ok": true,
+        "msg": "360 gbenga_house_patio|left:rich,right:gbenga: gbenga drawn pixels fully inside the world viewport (100.0%)"
+      },
+      {
+        "ok": true,
+        "msg": "360 gbenga_house_patio|left:rich,right:gbenga: rich / gbenga drawn pixels overlap 0.0% of the smaller (limit 20%)"
+      },
+      {
+        "ok": true,
+        "msg": "360 gbenga_house_patio|left:rich,right:gbenga: dialogue box covers no actor's face"
+      }
+    ]
+  },
+  {
+    "width": 390,
+    "key": "gbenga_rentals|left:rich,right:gbenga",
+    "refs": [
+      "NEW_OGA_M2:arrive",
+      "NEW_OGA_M2:questions",
+      "NEW_OGA_M2:debt",
+      "NEW_OGA_M2:work",
+      "NEW_OGA_M3:voice",
+      "NEW_OGA_M3:chairs",
+      "NEW_OGA_ALTERNATIVE:voice",
+      "NEW_OGA_ALTERNATIVE:delivery",
+      "NEW_OGA_ALTERNATIVE:chairs"
+    ],
+    "reviewFixture": true,
+    "checks": [
+      {
+        "ok": true,
+        "msg": "390 gbenga_rentals|left:rich,right:gbenga: actor rich sprite loaded (assets/rich_standing_right.png, 80x96)"
+      },
+      {
+        "ok": true,
+        "msg": "390 gbenga_rentals|left:rich,right:gbenga: actor gbenga sprite loaded (assets/before_the_fame/characters/gbenga/runtime_80x96/gbenga_adjusting_sleeves_80x96_v2.png, 80x96)"
+      },
+      {
+        "ok": true,
+        "msg": "390 gbenga_rentals|left:rich,right:gbenga: rich drawn pixels fully inside the world viewport (100.0%)"
+      },
+      {
+        "ok": true,
+        "msg": "390 gbenga_rentals|left:rich,right:gbenga: gbenga drawn pixels fully inside the world viewport (100.0%)"
+      },
+      {
+        "ok": true,
+        "msg": "390 gbenga_rentals|left:rich,right:gbenga: rich / gbenga drawn pixels overlap 0.0% of the smaller (limit 20%)"
+      },
+      {
+        "ok": true,
+        "msg": "390 gbenga_rentals|left:rich,right:gbenga: dialogue box covers no actor's face"
+      }
+    ]
+  },
+  {
+    "width": 390,
+    "key": "bedroom|left:rich,right:carlos",
+    "refs": [
+      "NEW_OGA_M4:beat1",
+      "NEW_OGA_M4:beat1_out"
+    ],
+    "reviewFixture": true,
+    "checks": [
+      {
+        "ok": true,
+        "msg": "390 bedroom|left:rich,right:carlos: actor rich sprite loaded (assets/rich_standing_right.png, 80x96)"
+      },
+      {
+        "ok": true,
+        "msg": "390 bedroom|left:rich,right:carlos: actor carlos sprite loaded (assets/before_the_fame/characters/carlos/runtime_80x96/carlos_neutral_happy_anchor_80x96_review_v1.png, 80x96)"
+      },
+      {
+        "ok": true,
+        "msg": "390 bedroom|left:rich,right:carlos: rich drawn pixels fully inside the world viewport (100.0%)"
+      },
+      {
+        "ok": true,
+        "msg": "390 bedroom|left:rich,right:carlos: carlos drawn pixels fully inside the world viewport (100.0%)"
+      },
+      {
+        "ok": true,
+        "msg": "390 bedroom|left:rich,right:carlos: rich / carlos drawn pixels overlap 0.0% of the smaller (limit 20%)"
+      },
+      {
+        "ok": true,
+        "msg": "390 bedroom|left:rich,right:carlos: dialogue box covers no actor's face"
+      }
+    ]
+  },
+  {
+    "width": 390,
+    "key": "street_night|left:rich,right:carlos",
+    "refs": [
+      "NEW_OGA_M4:beat2",
+      "NEW_OGA_M4:beat3",
+      "NEW_OGA_M4:beat2_out",
+      "NEW_OGA_M4:beat3_out",
+      "NEW_OGA_M4:run",
+      "NEW_OGA_M4:run_high",
+      "NEW_OGA_M4:run_low"
+    ],
+    "reviewFixture": true,
+    "checks": [
+      {
+        "ok": true,
+        "msg": "390 street_night|left:rich,right:carlos: actor rich sprite loaded (assets/rich_standing_right.png, 80x96)"
+      },
+      {
+        "ok": true,
+        "msg": "390 street_night|left:rich,right:carlos: actor carlos sprite loaded (assets/before_the_fame/characters/carlos/runtime_80x96/carlos_neutral_happy_anchor_80x96_review_v1.png, 80x96)"
+      },
+      {
+        "ok": true,
+        "msg": "390 street_night|left:rich,right:carlos: rich drawn pixels fully inside the world viewport (100.0%)"
+      },
+      {
+        "ok": true,
+        "msg": "390 street_night|left:rich,right:carlos: carlos drawn pixels fully inside the world viewport (100.0%)"
+      },
+      {
+        "ok": true,
+        "msg": "390 street_night|left:rich,right:carlos: rich / carlos drawn pixels overlap 0.0% of the smaller (limit 20%)"
+      },
+      {
+        "ok": true,
+        "msg": "390 street_night|left:rich,right:carlos: dialogue box covers no actor's face"
+      }
+    ]
+  },
+  {
+    "width": 390,
+    "key": "gbenga_rentals|left:rich,right:carlos",
+    "refs": [
+      "NEW_OGA_M4:beat4"
+    ],
+    "reviewFixture": true,
+    "checks": [
+      {
+        "ok": true,
+        "msg": "390 gbenga_rentals|left:rich,right:carlos: actor rich sprite loaded (assets/rich_standing_right.png, 80x96)"
+      },
+      {
+        "ok": true,
+        "msg": "390 gbenga_rentals|left:rich,right:carlos: actor carlos sprite loaded (assets/before_the_fame/characters/carlos/runtime_80x96/carlos_neutral_happy_anchor_80x96_review_v1.png, 80x96)"
+      },
+      {
+        "ok": true,
+        "msg": "390 gbenga_rentals|left:rich,right:carlos: rich drawn pixels fully inside the world viewport (100.0%)"
+      },
+      {
+        "ok": true,
+        "msg": "390 gbenga_rentals|left:rich,right:carlos: carlos drawn pixels fully inside the world viewport (100.0%)"
+      },
+      {
+        "ok": true,
+        "msg": "390 gbenga_rentals|left:rich,right:carlos: rich / carlos drawn pixels overlap 0.0% of the smaller (limit 20%)"
+      },
+      {
+        "ok": true,
+        "msg": "390 gbenga_rentals|left:rich,right:carlos: dialogue box covers no actor's face"
+      }
+    ]
+  },
+  {
+    "width": 390,
+    "key": "gbenga_rentals|left:carlos,right:gbenga",
+    "refs": [
+      "NEW_OGA_M4:walk_in"
+    ],
+    "reviewFixture": true,
+    "checks": [
+      {
+        "ok": true,
+        "msg": "390 gbenga_rentals|left:carlos,right:gbenga: actor carlos sprite loaded (assets/before_the_fame/characters/carlos/runtime_80x96/carlos_neutral_happy_anchor_80x96_review_v1.png, 80x96)"
+      },
+      {
+        "ok": true,
+        "msg": "390 gbenga_rentals|left:carlos,right:gbenga: actor gbenga sprite loaded (assets/before_the_fame/characters/gbenga/runtime_80x96/gbenga_adjusting_sleeves_80x96_v2.png, 80x96)"
+      },
+      {
+        "ok": true,
+        "msg": "390 gbenga_rentals|left:carlos,right:gbenga: carlos drawn pixels fully inside the world viewport (100.0%)"
+      },
+      {
+        "ok": true,
+        "msg": "390 gbenga_rentals|left:carlos,right:gbenga: gbenga drawn pixels fully inside the world viewport (100.0%)"
+      },
+      {
+        "ok": true,
+        "msg": "390 gbenga_rentals|left:carlos,right:gbenga: carlos / gbenga drawn pixels overlap 0.0% of the smaller (limit 20%)"
+      },
+      {
+        "ok": true,
+        "msg": "390 gbenga_rentals|left:carlos,right:gbenga: dialogue box covers no actor's face"
+      }
+    ]
+  },
+  {
+    "width": 390,
+    "key": "gbenga_house_dining|left:rich,mid:mama_gbenga,right:gbenga",
+    "refs": [
+      "NEW_OGA_M7:arrival",
+      "NEW_OGA_M7:dinner"
+    ],
+    "reviewFixture": true,
+    "checks": [
+      {
+        "ok": true,
+        "msg": "390 gbenga_house_dining|left:rich,mid:mama_gbenga,right:gbenga: actor rich sprite loaded (assets/rich_standing_right.png, 80x96)"
+      },
+      {
+        "ok": true,
+        "msg": "390 gbenga_house_dining|left:rich,mid:mama_gbenga,right:gbenga: actor gbenga sprite loaded (assets/before_the_fame/characters/gbenga/runtime_80x96/gbenga_adjusting_sleeves_80x96_v2.png, 80x96)"
+      },
+      {
+        "ok": true,
+        "msg": "390 gbenga_house_dining|left:rich,mid:mama_gbenga,right:gbenga: rich drawn pixels fully inside the world viewport (100.0%)"
+      },
+      {
+        "ok": true,
+        "msg": "390 gbenga_house_dining|left:rich,mid:mama_gbenga,right:gbenga: mama_gbenga drawn pixels fully inside the world viewport (100.0%)"
+      },
+      {
+        "ok": true,
+        "msg": "390 gbenga_house_dining|left:rich,mid:mama_gbenga,right:gbenga: gbenga drawn pixels fully inside the world viewport (100.0%)"
+      },
+      {
+        "ok": true,
+        "msg": "390 gbenga_house_dining|left:rich,mid:mama_gbenga,right:gbenga: rich / mama_gbenga drawn pixels overlap 0.0% of the smaller (limit 20%)"
+      },
+      {
+        "ok": true,
+        "msg": "390 gbenga_house_dining|left:rich,mid:mama_gbenga,right:gbenga: rich / gbenga drawn pixels overlap 0.0% of the smaller (limit 20%)"
+      },
+      {
+        "ok": true,
+        "msg": "390 gbenga_house_dining|left:rich,mid:mama_gbenga,right:gbenga: mama_gbenga / gbenga drawn pixels overlap 0.0% of the smaller (limit 20%)"
+      },
+      {
+        "ok": true,
+        "msg": "390 gbenga_house_dining|left:rich,mid:mama_gbenga,right:gbenga: dialogue box covers no actor's face"
+      }
+    ]
+  },
+  {
+    "width": 390,
+    "key": "gbenga_house_patio|left:rich,right:gbenga",
+    "refs": [
+      "NEW_OGA_M7:patio"
+    ],
+    "reviewFixture": true,
+    "checks": [
+      {
+        "ok": true,
+        "msg": "390 gbenga_house_patio|left:rich,right:gbenga: actor rich sprite loaded (assets/rich_standing_right.png, 80x96)"
+      },
+      {
+        "ok": true,
+        "msg": "390 gbenga_house_patio|left:rich,right:gbenga: actor gbenga sprite loaded (assets/before_the_fame/characters/gbenga/runtime_80x96/gbenga_adjusting_sleeves_80x96_v2.png, 80x96)"
+      },
+      {
+        "ok": true,
+        "msg": "390 gbenga_house_patio|left:rich,right:gbenga: rich drawn pixels fully inside the world viewport (100.0%)"
+      },
+      {
+        "ok": true,
+        "msg": "390 gbenga_house_patio|left:rich,right:gbenga: gbenga drawn pixels fully inside the world viewport (100.0%)"
+      },
+      {
+        "ok": true,
+        "msg": "390 gbenga_house_patio|left:rich,right:gbenga: rich / gbenga drawn pixels overlap 0.0% of the smaller (limit 20%)"
+      },
+      {
+        "ok": true,
+        "msg": "390 gbenga_house_patio|left:rich,right:gbenga: dialogue box covers no actor's face"
+      }
+    ]
+  },
+  {
+    "width": 430,
+    "key": "gbenga_rentals|left:rich,right:gbenga",
+    "refs": [
+      "NEW_OGA_M2:arrive",
+      "NEW_OGA_M2:questions",
+      "NEW_OGA_M2:debt",
+      "NEW_OGA_M2:work",
+      "NEW_OGA_M3:voice",
+      "NEW_OGA_M3:chairs",
+      "NEW_OGA_ALTERNATIVE:voice",
+      "NEW_OGA_ALTERNATIVE:delivery",
+      "NEW_OGA_ALTERNATIVE:chairs"
+    ],
+    "reviewFixture": true,
+    "checks": [
+      {
+        "ok": true,
+        "msg": "430 gbenga_rentals|left:rich,right:gbenga: actor rich sprite loaded (assets/rich_standing_right.png, 80x96)"
+      },
+      {
+        "ok": true,
+        "msg": "430 gbenga_rentals|left:rich,right:gbenga: actor gbenga sprite loaded (assets/before_the_fame/characters/gbenga/runtime_80x96/gbenga_adjusting_sleeves_80x96_v2.png, 80x96)"
+      },
+      {
+        "ok": true,
+        "msg": "430 gbenga_rentals|left:rich,right:gbenga: rich drawn pixels fully inside the world viewport (100.0%)"
+      },
+      {
+        "ok": true,
+        "msg": "430 gbenga_rentals|left:rich,right:gbenga: gbenga drawn pixels fully inside the world viewport (100.0%)"
+      },
+      {
+        "ok": true,
+        "msg": "430 gbenga_rentals|left:rich,right:gbenga: rich / gbenga drawn pixels overlap 0.0% of the smaller (limit 20%)"
+      },
+      {
+        "ok": true,
+        "msg": "430 gbenga_rentals|left:rich,right:gbenga: dialogue box covers no actor's face"
+      }
+    ]
+  },
+  {
+    "width": 430,
+    "key": "bedroom|left:rich,right:carlos",
+    "refs": [
+      "NEW_OGA_M4:beat1",
+      "NEW_OGA_M4:beat1_out"
+    ],
+    "reviewFixture": true,
+    "checks": [
+      {
+        "ok": true,
+        "msg": "430 bedroom|left:rich,right:carlos: actor rich sprite loaded (assets/rich_standing_right.png, 80x96)"
+      },
+      {
+        "ok": true,
+        "msg": "430 bedroom|left:rich,right:carlos: actor carlos sprite loaded (assets/before_the_fame/characters/carlos/runtime_80x96/carlos_neutral_happy_anchor_80x96_review_v1.png, 80x96)"
+      },
+      {
+        "ok": true,
+        "msg": "430 bedroom|left:rich,right:carlos: rich drawn pixels fully inside the world viewport (100.0%)"
+      },
+      {
+        "ok": true,
+        "msg": "430 bedroom|left:rich,right:carlos: carlos drawn pixels fully inside the world viewport (100.0%)"
+      },
+      {
+        "ok": true,
+        "msg": "430 bedroom|left:rich,right:carlos: rich / carlos drawn pixels overlap 0.0% of the smaller (limit 20%)"
+      },
+      {
+        "ok": true,
+        "msg": "430 bedroom|left:rich,right:carlos: dialogue box covers no actor's face"
+      }
+    ]
+  },
+  {
+    "width": 430,
+    "key": "street_night|left:rich,right:carlos",
+    "refs": [
+      "NEW_OGA_M4:beat2",
+      "NEW_OGA_M4:beat3",
+      "NEW_OGA_M4:beat2_out",
+      "NEW_OGA_M4:beat3_out",
+      "NEW_OGA_M4:run",
+      "NEW_OGA_M4:run_high",
+      "NEW_OGA_M4:run_low"
+    ],
+    "reviewFixture": true,
+    "checks": [
+      {
+        "ok": true,
+        "msg": "430 street_night|left:rich,right:carlos: actor rich sprite loaded (assets/rich_standing_right.png, 80x96)"
+      },
+      {
+        "ok": true,
+        "msg": "430 street_night|left:rich,right:carlos: actor carlos sprite loaded (assets/before_the_fame/characters/carlos/runtime_80x96/carlos_neutral_happy_anchor_80x96_review_v1.png, 80x96)"
+      },
+      {
+        "ok": true,
+        "msg": "430 street_night|left:rich,right:carlos: rich drawn pixels fully inside the world viewport (100.0%)"
+      },
+      {
+        "ok": true,
+        "msg": "430 street_night|left:rich,right:carlos: carlos drawn pixels fully inside the world viewport (100.0%)"
+      },
+      {
+        "ok": true,
+        "msg": "430 street_night|left:rich,right:carlos: rich / carlos drawn pixels overlap 0.0% of the smaller (limit 20%)"
+      },
+      {
+        "ok": true,
+        "msg": "430 street_night|left:rich,right:carlos: dialogue box covers no actor's face"
+      }
+    ]
+  },
+  {
+    "width": 430,
+    "key": "gbenga_rentals|left:rich,right:carlos",
+    "refs": [
+      "NEW_OGA_M4:beat4"
+    ],
+    "reviewFixture": true,
+    "checks": [
+      {
+        "ok": true,
+        "msg": "430 gbenga_rentals|left:rich,right:carlos: actor rich sprite loaded (assets/rich_standing_right.png, 80x96)"
+      },
+      {
+        "ok": true,
+        "msg": "430 gbenga_rentals|left:rich,right:carlos: actor carlos sprite loaded (assets/before_the_fame/characters/carlos/runtime_80x96/carlos_neutral_happy_anchor_80x96_review_v1.png, 80x96)"
+      },
+      {
+        "ok": true,
+        "msg": "430 gbenga_rentals|left:rich,right:carlos: rich drawn pixels fully inside the world viewport (100.0%)"
+      },
+      {
+        "ok": true,
+        "msg": "430 gbenga_rentals|left:rich,right:carlos: carlos drawn pixels fully inside the world viewport (100.0%)"
+      },
+      {
+        "ok": true,
+        "msg": "430 gbenga_rentals|left:rich,right:carlos: rich / carlos drawn pixels overlap 0.0% of the smaller (limit 20%)"
+      },
+      {
+        "ok": true,
+        "msg": "430 gbenga_rentals|left:rich,right:carlos: dialogue box covers no actor's face"
+      }
+    ]
+  },
+  {
+    "width": 430,
+    "key": "gbenga_rentals|left:carlos,right:gbenga",
+    "refs": [
+      "NEW_OGA_M4:walk_in"
+    ],
+    "reviewFixture": true,
+    "checks": [
+      {
+        "ok": true,
+        "msg": "430 gbenga_rentals|left:carlos,right:gbenga: actor carlos sprite loaded (assets/before_the_fame/characters/carlos/runtime_80x96/carlos_neutral_happy_anchor_80x96_review_v1.png, 80x96)"
+      },
+      {
+        "ok": true,
+        "msg": "430 gbenga_rentals|left:carlos,right:gbenga: actor gbenga sprite loaded (assets/before_the_fame/characters/gbenga/runtime_80x96/gbenga_adjusting_sleeves_80x96_v2.png, 80x96)"
+      },
+      {
+        "ok": true,
+        "msg": "430 gbenga_rentals|left:carlos,right:gbenga: carlos drawn pixels fully inside the world viewport (100.0%)"
+      },
+      {
+        "ok": true,
+        "msg": "430 gbenga_rentals|left:carlos,right:gbenga: gbenga drawn pixels fully inside the world viewport (100.0%)"
+      },
+      {
+        "ok": true,
+        "msg": "430 gbenga_rentals|left:carlos,right:gbenga: carlos / gbenga drawn pixels overlap 0.0% of the smaller (limit 20%)"
+      },
+      {
+        "ok": true,
+        "msg": "430 gbenga_rentals|left:carlos,right:gbenga: dialogue box covers no actor's face"
+      }
+    ]
+  },
+  {
+    "width": 430,
+    "key": "gbenga_house_dining|left:rich,mid:mama_gbenga,right:gbenga",
+    "refs": [
+      "NEW_OGA_M7:arrival",
+      "NEW_OGA_M7:dinner"
+    ],
+    "reviewFixture": true,
+    "checks": [
+      {
+        "ok": true,
+        "msg": "430 gbenga_house_dining|left:rich,mid:mama_gbenga,right:gbenga: actor rich sprite loaded (assets/rich_standing_right.png, 80x96)"
+      },
+      {
+        "ok": true,
+        "msg": "430 gbenga_house_dining|left:rich,mid:mama_gbenga,right:gbenga: actor gbenga sprite loaded (assets/before_the_fame/characters/gbenga/runtime_80x96/gbenga_adjusting_sleeves_80x96_v2.png, 80x96)"
+      },
+      {
+        "ok": true,
+        "msg": "430 gbenga_house_dining|left:rich,mid:mama_gbenga,right:gbenga: rich drawn pixels fully inside the world viewport (100.0%)"
+      },
+      {
+        "ok": true,
+        "msg": "430 gbenga_house_dining|left:rich,mid:mama_gbenga,right:gbenga: mama_gbenga drawn pixels fully inside the world viewport (100.0%)"
+      },
+      {
+        "ok": true,
+        "msg": "430 gbenga_house_dining|left:rich,mid:mama_gbenga,right:gbenga: gbenga drawn pixels fully inside the world viewport (100.0%)"
+      },
+      {
+        "ok": true,
+        "msg": "430 gbenga_house_dining|left:rich,mid:mama_gbenga,right:gbenga: rich / mama_gbenga drawn pixels overlap 0.0% of the smaller (limit 20%)"
+      },
+      {
+        "ok": true,
+        "msg": "430 gbenga_house_dining|left:rich,mid:mama_gbenga,right:gbenga: rich / gbenga drawn pixels overlap 0.0% of the smaller (limit 20%)"
+      },
+      {
+        "ok": true,
+        "msg": "430 gbenga_house_dining|left:rich,mid:mama_gbenga,right:gbenga: mama_gbenga / gbenga drawn pixels overlap 0.0% of the smaller (limit 20%)"
+      },
+      {
+        "ok": true,
+        "msg": "430 gbenga_house_dining|left:rich,mid:mama_gbenga,right:gbenga: dialogue box covers no actor's face"
+      }
+    ]
+  },
+  {
+    "width": 430,
+    "key": "gbenga_house_patio|left:rich,right:gbenga",
+    "refs": [
+      "NEW_OGA_M7:patio"
+    ],
+    "reviewFixture": true,
+    "checks": [
+      {
+        "ok": true,
+        "msg": "430 gbenga_house_patio|left:rich,right:gbenga: actor rich sprite loaded (assets/rich_standing_right.png, 80x96)"
+      },
+      {
+        "ok": true,
+        "msg": "430 gbenga_house_patio|left:rich,right:gbenga: actor gbenga sprite loaded (assets/before_the_fame/characters/gbenga/runtime_80x96/gbenga_adjusting_sleeves_80x96_v2.png, 80x96)"
+      },
+      {
+        "ok": true,
+        "msg": "430 gbenga_house_patio|left:rich,right:gbenga: rich drawn pixels fully inside the world viewport (100.0%)"
+      },
+      {
+        "ok": true,
+        "msg": "430 gbenga_house_patio|left:rich,right:gbenga: gbenga drawn pixels fully inside the world viewport (100.0%)"
+      },
+      {
+        "ok": true,
+        "msg": "430 gbenga_house_patio|left:rich,right:gbenga: rich / gbenga drawn pixels overlap 0.0% of the smaller (limit 20%)"
+      },
+      {
+        "ok": true,
+        "msg": "430 gbenga_house_patio|left:rich,right:gbenga: dialogue box covers no actor's face"
+      }
+    ]
+  }
+]

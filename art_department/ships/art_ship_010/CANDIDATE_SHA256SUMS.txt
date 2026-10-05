@@ -1,0 +1,8 @@
+# ART SHIP 010 candidate SHA-256
+
+Status: CANDIDATE — HQ REVIEW REQUIRED
+
+022a83c5c5adae243820241af7eb4d66b7c1be9cb19ed4eaf1ed7973af38ce27  art_department/ships/art_ship_010/candidates/native/characters/rich_portobello_standing_80x96.png
+3803ef5e8b3caa8cecc035613b2dd1f2d94901b505541a95b1eb7e320bcabb25  art_department/ships/art_ship_010/candidates/native/characters/rich_portobello_presenting_80x96.png
+855ee348e4d983292d2056d75cf50e441a33418e26ee67eba3839aec3d400f44  art_department/ships/art_ship_010/candidates/native/characters/rich_portobello_porch_seated_80x96.png
+89125564e976fd72c60a08cc3ab3224b9bd4d2f3c3478ace8e274a441e8702e2  art_department/ships/art_ship_010/candidates/native/layers/rooftop_dtla_party_crowd_overlay_270x480.png

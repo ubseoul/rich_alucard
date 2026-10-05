@@ -1,0 +1,22 @@
+{
+ "build": {
+  "releaseId": "working-checkout",
+  "commit": "uncommitted-final-a",
+  "artifact": false
+ },
+ "results": {},
+ "findings": [],
+ "log": [
+  "PLAYTEST QA over dist working-checkout (uncommitted-final-a)",
+  "[newgame 390] build source-checkout commit unbuilt save v16",
+  "[newgame 390] reached bedroom day 1; prologue adventures A00; ceo {\"defeated\":true,\"completed\":true}; steal=yes",
+  "[newgame 390] phone home actions: app:texts app:vampgpt app:maps app:vampgram app:instahoe app:onlyvamps app:texts app:contacts app:realEstate app:jdmImports app:richboi app:bank app:radio app:hatch app:touge app:bars app:receipts close",
+  "[fresh career 390] Day 32",
+  "[fresh career 390] Day 33",
+  "[fresh career 390] Day 34",
+  "[fresh career 390] Day 35",
+  "[natural ending 390] fresh START reached ending on Day 36; actual continuation clicked",
+  "[fresh career 390] Day 36",
+  "[newgame 390] refresh → bedroom, diff 0"
+ ]
+}

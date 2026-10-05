@@ -1,0 +1,142 @@
+{
+  "combat": false,
+  "env": "gbenga_house_dining",
+  "world": {
+    "x": 0,
+    "y": 0,
+    "w": 360,
+    "h": 468
+  },
+  "actors": [
+    {
+      "slot": "left",
+      "id": "rich",
+      "tag": "IMG",
+      "src": "assets/rich_standing_right.png",
+      "ok": true,
+      "nw": 80,
+      "nh": 96,
+      "css": {
+        "x": -82.5,
+        "y": 104,
+        "w": 280,
+        "h": 336
+      },
+      "visible": {
+        "x": 12,
+        "y": 230,
+        "w": 94.5,
+        "h": 182
+      },
+      "sprite": {
+        "x": -82.5,
+        "y": 104,
+        "w": 280,
+        "h": 336
+      },
+      "face": {
+        "x": 29.5,
+        "y": 261.5,
+        "w": 66.5,
+        "h": 49
+      },
+      "contact": {
+        "x": 57.5,
+        "y": 412
+      },
+      "world": {
+        "x": 72,
+        "y": 372
+      },
+      "k": 3.5,
+      "hidden": false,
+      "rendering": "pixelated",
+      "body": {
+        "x": 12,
+        "y": 230,
+        "w": 95,
+        "h": 182
+      },
+      "pixels": 11603
+    },
+    {
+      "slot": "right",
+      "id": "mama_gbenga",
+      "tag": "IMG",
+      "src": "assets/build4/p_d/p_d_mama_gbenga_80x96.png",
+      "ok": true,
+      "nw": 80,
+      "nh": 96,
+      "css": {
+        "x": 162.5,
+        "y": 104,
+        "w": 280,
+        "h": 336
+      },
+      "visible": {
+        "x": 260.5,
+        "y": 233.5,
+        "w": 87.5,
+        "h": 182
+      },
+      "sprite": {
+        "x": 162.5,
+        "y": 104,
+        "w": 280,
+        "h": 336
+      },
+      "face": {
+        "x": 274.5,
+        "y": 261.5,
+        "w": 63,
+        "h": 56
+      },
+      "contact": {
+        "x": 302.5,
+        "y": 412
+      },
+      "world": {
+        "x": 198,
+        "y": 372
+      },
+      "k": 3.5,
+      "hidden": false,
+      "rendering": "pixelated",
+      "body": {
+        "x": 261,
+        "y": 234,
+        "w": 87,
+        "h": 182
+      },
+      "pixels": 10365
+    }
+  ],
+  "pairs": [
+    {
+      "a": "rich",
+      "b": "mama_gbenga",
+      "overlap": 0,
+      "frac": 0
+    }
+  ],
+  "ui": {
+    "box": {
+      "x": 8,
+      "y": 489.5625,
+      "w": 344,
+      "h": 130
+    },
+    "bubble": null,
+    "choices": [],
+    "hud": [],
+    "telegraph": null,
+    "panel": null,
+    "title": null,
+    "location": {
+      "x": 8,
+      "y": 8,
+      "w": 234.828125,
+      "h": 17.125
+    }
+  }
+}

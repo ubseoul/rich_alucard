@@ -1,0 +1,161 @@
+{
+  "ship_id": "ART SHIP 009",
+  "status": "CANDIDATE \u2014 HQ REVIEW REQUIRED",
+  "candidate_count": 12,
+  "candidate_checks": [
+    {
+      "request_id": "AS9-ENV-ATL-HOUSE-PARTY",
+      "path": "art_department/ships/art_ship_009/candidates/native/environments/atl_house_party_270x480.png",
+      "checks": {
+        "exists": true,
+        "dimensions": true,
+        "mode": true,
+        "binary_alpha": true,
+        "hash_fact_match": true
+      },
+      "pass": true
+    },
+    {
+      "request_id": "AS9-ENV-LA-SKY",
+      "path": "art_department/ships/art_ship_009/candidates/native/environments/la_sky_270x480.png",
+      "checks": {
+        "exists": true,
+        "dimensions": true,
+        "mode": true,
+        "binary_alpha": true,
+        "hash_fact_match": true
+      },
+      "pass": true
+    },
+    {
+      "request_id": "AS9-ENV-NAIJA-LOT",
+      "path": "art_department/ships/art_ship_009/candidates/native/environments/naija_lot_270x480.png",
+      "checks": {
+        "exists": true,
+        "dimensions": true,
+        "mode": true,
+        "binary_alpha": true,
+        "hash_fact_match": true
+      },
+      "pass": true
+    },
+    {
+      "request_id": "AS9-ENV-NEIGHBOR-CASTLE",
+      "path": "art_department/ships/art_ship_009/candidates/native/environments/neighbor_castle_270x480.png",
+      "checks": {
+        "exists": true,
+        "dimensions": true,
+        "mode": true,
+        "binary_alpha": true,
+        "hash_fact_match": true
+      },
+      "pass": true
+    },
+    {
+      "request_id": "AS9-ENV-PORTOBELLO-BEDROOM",
+      "path": "art_department/ships/art_ship_009/candidates/native/environments/portobello_bedroom_270x480.png",
+      "checks": {
+        "exists": true,
+        "dimensions": true,
+        "mode": true,
+        "binary_alpha": true,
+        "hash_fact_match": true
+      },
+      "pass": true
+    },
+    {
+      "request_id": "AS9-ENV-PORTOBELLO-OFFICE",
+      "path": "art_department/ships/art_ship_009/candidates/native/environments/portobello_office_270x480.png",
+      "checks": {
+        "exists": true,
+        "dimensions": true,
+        "mode": true,
+        "binary_alpha": true,
+        "hash_fact_match": true
+      },
+      "pass": true
+    },
+    {
+      "request_id": "AS9-ENV-PORTOBELLO-PORCH",
+      "path": "art_department/ships/art_ship_009/candidates/native/environments/portobello_porch_270x480.png",
+      "checks": {
+        "exists": true,
+        "dimensions": true,
+        "mode": true,
+        "binary_alpha": true,
+        "hash_fact_match": true
+      },
+      "pass": true
+    },
+    {
+      "request_id": "AS9-ENV-ROOFTOP-DTLA",
+      "path": "art_department/ships/art_ship_009/candidates/native/environments/rooftop_dtla_270x480.png",
+      "checks": {
+        "exists": true,
+        "dimensions": true,
+        "mode": true,
+        "binary_alpha": true,
+        "hash_fact_match": true
+      },
+      "pass": true
+    },
+    {
+      "request_id": "AS9-ENV-TOKYO-TEASE",
+      "path": "art_department/ships/art_ship_009/candidates/native/environments/tokyo_tease_270x480.png",
+      "checks": {
+        "exists": true,
+        "dimensions": true,
+        "mode": true,
+        "binary_alpha": true,
+        "hash_fact_match": true
+      },
+      "pass": true
+    },
+    {
+      "request_id": "AS9-HOLLOW-STAGE-BAND-CROWD",
+      "path": "art_department/ships/art_ship_009/candidates/native/layers/hollow_bowl_stage_band_crowd_overlay_270x480.png",
+      "checks": {
+        "exists": true,
+        "dimensions": true,
+        "mode": true,
+        "binary_alpha": true,
+        "hash_fact_match": true,
+        "exact_origin_canvas": true,
+        "behind_actor_contact_line": true
+      },
+      "pass": true
+    },
+    {
+      "request_id": "AS9-TUNDE-HOOKAH",
+      "path": "art_department/ships/art_ship_009/candidates/native/characters/tunde_hookah_seated_80x96.png",
+      "checks": {
+        "exists": true,
+        "dimensions": true,
+        "mode": true,
+        "binary_alpha": true,
+        "hash_fact_match": true,
+        "contact_row_y88": true,
+        "centered_on_x40": true
+      },
+      "pass": true
+    },
+    {
+      "request_id": "AS9-DRE-HOOKAH",
+      "path": "art_department/ships/art_ship_009/candidates/native/characters/dre_hookah_seated_80x96.png",
+      "checks": {
+        "exists": true,
+        "dimensions": true,
+        "mode": true,
+        "binary_alpha": true,
+        "hash_fact_match": true,
+        "contact_row_y88": true,
+        "centered_on_x40": true
+      },
+      "pass": true
+    }
+  ],
+  "source_reference_count": 18,
+  "source_integrity_pass": true,
+  "all_candidate_checks_pass": true,
+  "result": "PASS"
+}

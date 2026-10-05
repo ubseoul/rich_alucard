@@ -1,0 +1,236 @@
+[
+  {
+    "id": "dancer_roxy_t3_poses",
+    "filename": "dancer_roxy_t3_poses.png",
+    "references": [
+      "art_department/production/f15-launch-trio-masters/foundation_cards/roxy-foundation.png",
+      "art_department/production/f15-launch-trio-masters/wolf/frames/frame_0000.png"
+    ],
+    "kind": "still sheet",
+    "target_cell": [
+      128,
+      160
+    ]
+  },
+  {
+    "id": "dancer_rosalyn_t3_poses",
+    "filename": "dancer_rosalyn_t3_poses.png",
+    "references": [
+      "art_department/production/f15-launch-trio-masters/foundation_cards/rosalyn-foundation.png",
+      "art_department/production/f15-launch-trio-masters/pink/frames/frame_0000.png"
+    ],
+    "kind": "still sheet",
+    "target_cell": [
+      128,
+      160
+    ]
+  },
+  {
+    "id": "dancer_emerald_t3_poses",
+    "filename": "dancer_emerald_t3_poses.png",
+    "references": [
+      "art_department/production/f15-launch-trio-masters/foundation_cards/emerald-foundation.png",
+      "art_department/production/f15-launch-trio-masters/dragon/frames/frame_0000.png"
+    ],
+    "kind": "still sheet",
+    "target_cell": [
+      128,
+      160
+    ]
+  },
+  {
+    "id": "dancer_roxy_t1_poses",
+    "filename": "dancer_roxy_t1_poses.png",
+    "references": [
+      "art_department/production/f15-launch-trio-masters/foundation_cards/roxy-foundation.png",
+      "art_department/production/f15-launch-trio-masters/wolf/frames/frame_0000.png"
+    ],
+    "kind": "still sheet",
+    "target_cell": [
+      128,
+      160
+    ]
+  },
+  {
+    "id": "dancer_rosalyn_t1_poses",
+    "filename": "dancer_rosalyn_t1_poses.png",
+    "references": [
+      "art_department/production/f15-launch-trio-masters/foundation_cards/rosalyn-foundation.png",
+      "art_department/production/f15-launch-trio-masters/pink/frames/frame_0000.png"
+    ],
+    "kind": "still sheet",
+    "target_cell": [
+      128,
+      160
+    ]
+  },
+  {
+    "id": "dancer_emerald_t1_poses",
+    "filename": "dancer_emerald_t1_poses.png",
+    "references": [
+      "art_department/production/f15-launch-trio-masters/foundation_cards/emerald-foundation.png",
+      "art_department/production/f15-launch-trio-masters/dragon/frames/frame_0000.png"
+    ],
+    "kind": "still sheet",
+    "target_cell": [
+      128,
+      160
+    ]
+  },
+  {
+    "id": "dancer_roxy_t3_pole",
+    "filename": "dancer_roxy_t3_pole.mp4",
+    "kind": "Ube pipeline video",
+    "seconds": 6,
+    "fps": 24,
+    "framing": [
+      688,
+      688
+    ],
+    "still_reference": "dancer_roxy_t3_poses.png",
+    "motion_reference": "assets/f15/dancers/wolf.png"
+  },
+  {
+    "id": "dancer_roxy_t3_floor",
+    "filename": "dancer_roxy_t3_floor.mp4",
+    "kind": "Ube pipeline video",
+    "seconds": 6,
+    "fps": 24,
+    "framing": [
+      688,
+      688
+    ],
+    "still_reference": "dancer_roxy_t3_poses.png",
+    "motion_reference": "assets/f15/dancers/wolf.png"
+  },
+  {
+    "id": "dancer_roxy_t1_pole",
+    "filename": "dancer_roxy_t1_pole.mp4",
+    "kind": "Ube pipeline video",
+    "seconds": 6,
+    "fps": 24,
+    "framing": [
+      688,
+      688
+    ],
+    "still_reference": "dancer_roxy_t1_poses.png",
+    "motion_reference": "assets/f15/dancers/wolf.png"
+  },
+  {
+    "id": "dancer_roxy_t1_floor",
+    "filename": "dancer_roxy_t1_floor.mp4",
+    "kind": "Ube pipeline video",
+    "seconds": 6,
+    "fps": 24,
+    "framing": [
+      688,
+      688
+    ],
+    "still_reference": "dancer_roxy_t1_poses.png",
+    "motion_reference": "assets/f15/dancers/wolf.png"
+  },
+  {
+    "id": "dancer_rosalyn_t3_pole",
+    "filename": "dancer_rosalyn_t3_pole.mp4",
+    "kind": "Ube pipeline video",
+    "seconds": 6,
+    "fps": 24,
+    "framing": [
+      688,
+      688
+    ],
+    "still_reference": "dancer_rosalyn_t3_poses.png",
+    "motion_reference": "assets/f15/dancers/pink.png"
+  },
+  {
+    "id": "dancer_rosalyn_t3_floor",
+    "filename": "dancer_rosalyn_t3_floor.mp4",
+    "kind": "Ube pipeline video",
+    "seconds": 6,
+    "fps": 24,
+    "framing": [
+      688,
+      688
+    ],
+    "still_reference": "dancer_rosalyn_t3_poses.png",
+    "motion_reference": "assets/f15/dancers/pink.png"
+  },
+  {
+    "id": "dancer_rosalyn_t1_pole",
+    "filename": "dancer_rosalyn_t1_pole.mp4",
+    "kind": "Ube pipeline video",
+    "seconds": 6,
+    "fps": 24,
+    "framing": [
+      688,
+      688
+    ],
+    "still_reference": "dancer_rosalyn_t1_poses.png",
+    "motion_reference": "assets/f15/dancers/pink.png"
+  },
+  {
+    "id": "dancer_rosalyn_t1_floor",
+    "filename": "dancer_rosalyn_t1_floor.mp4",
+    "kind": "Ube pipeline video",
+    "seconds": 6,
+    "fps": 24,
+    "framing": [
+      688,
+      688
+    ],
+    "still_reference": "dancer_rosalyn_t1_poses.png",
+    "motion_reference": "assets/f15/dancers/pink.png"
+  },
+  {
+    "id": "dancer_emerald_t3_pole",
+    "filename": "dancer_emerald_t3_pole.mp4",
+    "kind": "Ube pipeline video",
+    "seconds": 6,
+    "fps": 24,
+    "framing": [
+      688,
+      688
+    ],
+    "still_reference": "dancer_emerald_t3_poses.png",
+    "motion_reference": "assets/f15/dancers/dragon.png"
+  },
+  {
+    "id": "dancer_emerald_t3_floor",
+    "filename": "dancer_emerald_t3_floor.mp4",
+    "kind": "Ube pipeline video",
+    "seconds": 6,
+    "fps": 24,
+    "framing": [
+      688,
+      688
+    ],
+    "still_reference": "dancer_emerald_t3_poses.png",
+    "motion_reference": "assets/f15/dancers/dragon.png"
+  },
+  {
+    "id": "dancer_emerald_t1_pole",
+    "filename": "dancer_emerald_t1_pole.mp4",
+    "kind": "Ube pipeline video",
+    "seconds": 6,
+    "fps": 24,
+    "framing": [
+      688,
+      688
+    ],
+    "still_reference": "dancer_emerald_t1_poses.png",
+    "motion_reference": "assets/f15/dancers/dragon.png"
+  },
+  {
+    "id": "dancer_emerald_t1_floor",
+    "filename": "dancer_emerald_t1_floor.mp4",
+    "kind": "Ube pipeline video",
+    "seconds": 6,
+    "fps": 24,
+    "framing": [
+      688,
+      688
+    ],
+    "still_reference": "dancer_emerald_t1_poses.png",
+    "motion_reference": "assets/f15/dancers/dragon.png"
+  }
+]

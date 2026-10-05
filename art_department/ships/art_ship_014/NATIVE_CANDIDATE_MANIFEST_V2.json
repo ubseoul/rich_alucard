@@ -1,0 +1,3180 @@
+{
+  "count": 180,
+  "retained_count": 14,
+  "redrawn_count": 163,
+  "retained_ids": [
+    "C-cat-judging_combat",
+    "C-cat-on_bed",
+    "C-chest",
+    "C-common-pier_perch-held",
+    "C-common-pier_perch-icon",
+    "C-common-silver_grunt-held",
+    "C-common-silver_grunt-icon",
+    "C-common-ugly_mackerel-held",
+    "C-common-ugly_mackerel-icon",
+    "C-junk-boot",
+    "C-junk-flip_phone",
+    "C-junk-waterlogged_wallet",
+    "C-rare-moon_koi",
+    "C-rare-old_barnacle_grouper"
+  ],
+  "items": [
+    {
+      "id": "A-RICH-riding_mazda",
+      "requirement": "Riding Mazda composite",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/A-RICH-riding_mazda.png",
+      "dimensions": [
+        80,
+        96
+      ],
+      "sha256": "515a83184edad584a1bf5f3e9e471c7e58438770ebc293e4678f869194110a77",
+      "method": "character-focused crop of reconstructed riding composite",
+      "frozen_anchor": "assets/before_the_fame/characters/rich/rich_on_stage_80x96.png",
+      "approval": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "A-RICH-touge_locked",
+      "requirement": "TOUGE HUD locked-in face",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/A-RICH-touge_locked.png",
+      "dimensions": [
+        80,
+        96
+      ],
+      "sha256": "cb4611f49fc1fed8a44763972fa6cb975556dd815e9a3322ce5b5d3eba529cee",
+      "method": "frozen-anchor semantic native reconstruction",
+      "frozen_anchor": "assets/before_the_fame/characters/rich/rich_on_stage_80x96.png",
+      "approval": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "A-RICH-touge_spun",
+      "requirement": "TOUGE HUD spun-out face",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/A-RICH-touge_spun.png",
+      "dimensions": [
+        80,
+        96
+      ],
+      "sha256": "03980acc74cea35c1b1487c31300ce92c395cfe07f19bafcd44ea280c09def4a",
+      "method": "frozen-anchor semantic native reconstruction",
+      "frozen_anchor": "assets/before_the_fame/characters/rich/rich_on_stage_80x96.png",
+      "approval": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "A-anfeesa-dj",
+      "requirement": "anfeesa: DJ state",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/A-anfeesa-dj.png",
+      "dimensions": [
+        80,
+        96
+      ],
+      "sha256": "2161b56c56fd8500a16d1ab174c69b042fa569ba04132b7109003d9afd141310",
+      "method": "frozen-anchor semantic native reconstruction",
+      "frozen_anchor": "assets/before_the_fame/characters/anfeesa/dj_anfeesa_neutral_80x96.png",
+      "approval": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "A-bllad33-dry",
+      "requirement": "bllad33: dry reaction",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/A-bllad33-dry.png",
+      "dimensions": [
+        80,
+        96
+      ],
+      "sha256": "7123c10280bb80b91b937991ee9e4d6ff2c7d85f1f0caa120a84c9a3f4cc81d0",
+      "method": "frozen-anchor semantic native reconstruction",
+      "frozen_anchor": "assets/bllad33/states/bllad33_hookah_seated_80x96.png",
+      "approval": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "A-brenda-date",
+      "requirement": "brenda: date",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/A-brenda-date.png",
+      "dimensions": [
+        80,
+        96
+      ],
+      "sha256": "59289dbbfc7d3175e3627f7603a6336fac2ae851012b17d0134649aca45c4ca0",
+      "method": "frozen-anchor semantic native reconstruction",
+      "frozen_anchor": "assets/before_the_fame/characters/brenda/brenda_neutral_80x96.png",
+      "approval": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "A-brenda-gossiping",
+      "requirement": "brenda: gossiping",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/A-brenda-gossiping.png",
+      "dimensions": [
+        80,
+        96
+      ],
+      "sha256": "d5064b1dfb68656bbda009d5d90ab970ce4491b2a1953fbb9d97a3a03458dfc8",
+      "method": "frozen-anchor semantic native reconstruction",
+      "frozen_anchor": "assets/before_the_fame/characters/brenda/brenda_neutral_80x96.png",
+      "approval": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "A-britney-profile",
+      "requirement": "Britney Stakes parody-only VampGram profile",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/A-britney-profile.png",
+      "dimensions": [
+        48,
+        48
+      ],
+      "sha256": "2cc89ac56e03c180f0563c468df0c2a14dc9361043e5ec7537fe2a36416ab468",
+      "method": "frozen-anchor semantic native reconstruction",
+      "frozen_anchor": "",
+      "approval": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "A-bunmi-bedroom_company",
+      "requirement": "bunmi: bedroom company",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/A-bunmi-bedroom_company.png",
+      "dimensions": [
+        80,
+        96
+      ],
+      "sha256": "654130088ace207aa58418329805c2c607e11d052ec5c479d4294f538d15f9d5",
+      "method": "frozen-anchor semantic native reconstruction",
+      "frozen_anchor": "assets/before_the_fame/characters/bunmi/bunmi_neutral_80x96.png",
+      "approval": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "A-bunmi-date",
+      "requirement": "bunmi: date",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/A-bunmi-date.png",
+      "dimensions": [
+        80,
+        96
+      ],
+      "sha256": "c27c558468ad4f2cc5ec67b802f53ead5b6954f6a9d8470f01b0a85d6c5bdbd9",
+      "method": "frozen-anchor semantic native reconstruction",
+      "frozen_anchor": "assets/before_the_fame/characters/bunmi/bunmi_neutral_80x96.png",
+      "approval": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "A-cammile-bedroom",
+      "requirement": "cammile: covered bedroom-company pose",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/A-cammile-bedroom.png",
+      "dimensions": [
+        80,
+        96
+      ],
+      "sha256": "32250a4789b092a01fdecefbdfaebcfee6dda2e7f61902a4383d88f8931e47a3",
+      "method": "frozen-anchor semantic native reconstruction",
+      "frozen_anchor": "assets/jdm_imports/characters/daughter/daughter_neutral.png",
+      "approval": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "A-cammile-date",
+      "requirement": "cammile: date",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/A-cammile-date.png",
+      "dimensions": [
+        80,
+        96
+      ],
+      "sha256": "0d7b68992446ad6067289a6809106d8d1e0d04b0505b7f693c121b3f2719a1bb",
+      "method": "frozen-anchor semantic native reconstruction",
+      "frozen_anchor": "assets/jdm_imports/characters/daughter/daughter_neutral.png",
+      "approval": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "A-cammile-touge_spectator",
+      "requirement": "cammile: TOUGE spectator",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/A-cammile-touge_spectator.png",
+      "dimensions": [
+        80,
+        96
+      ],
+      "sha256": "d4e0ddf1e5416ff2ed5db8bf097e6fff361819719186a2bac19cddcbadac1192",
+      "method": "frozen-anchor semantic native reconstruction",
+      "frozen_anchor": "assets/jdm_imports/characters/daughter/daughter_neutral.png",
+      "approval": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "A-ceo_assistant-bedroom",
+      "requirement": "ceo_assistant: covered bedroom-company pose",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/A-ceo_assistant-bedroom.png",
+      "dimensions": [
+        80,
+        96
+      ],
+      "sha256": "23543ebf7e2edf7852f74745f04f620fed414c5353c4eae101f189144b8747f3",
+      "method": "frozen-anchor semantic native reconstruction",
+      "frozen_anchor": "assets/assistant_idle.png",
+      "approval": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "A-ceo_assistant-date",
+      "requirement": "ceo_assistant: date",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/A-ceo_assistant-date.png",
+      "dimensions": [
+        80,
+        96
+      ],
+      "sha256": "920e4d3b5ff783051af352e5f2a014bb4bed504e193659077df48ba3497c0e0c",
+      "method": "frozen-anchor semantic native reconstruction",
+      "frozen_anchor": "assets/assistant_idle.png",
+      "approval": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "A-coffe-caught",
+      "requirement": "coffe: caught",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/A-coffe-caught.png",
+      "dimensions": [
+        80,
+        96
+      ],
+      "sha256": "87c9bc6cb1ce0deb4be340a4e94ae9ca12b8461d87a5fcd952c31d2ae7449ba0",
+      "method": "frozen-anchor semantic native reconstruction",
+      "frozen_anchor": "assets/before_the_fame/characters/coffe/coffe_neutral_80x96.png",
+      "approval": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "A-coffe-hype",
+      "requirement": "coffe: hype",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/A-coffe-hype.png",
+      "dimensions": [
+        80,
+        96
+      ],
+      "sha256": "513915b71c79f7d1d7ee4d8085d7546bc5221442d70b40d1c887d43e40d94fb6",
+      "method": "frozen-anchor semantic native reconstruction",
+      "frozen_anchor": "assets/before_the_fame/characters/coffe/coffe_neutral_80x96.png",
+      "approval": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "A-don_chuy-singing",
+      "requirement": "don_chuy: singing state",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/A-don_chuy-singing.png",
+      "dimensions": [
+        80,
+        96
+      ],
+      "sha256": "f0f00cd10d94aa5b18d297883296f0cdae4820e8aa98e3ff2b1e001959c01ab0",
+      "method": "frozen-anchor semantic native reconstruction",
+      "frozen_anchor": "assets/before_the_fame/characters/don_chuy/don_chuy_neutral_80x96.png",
+      "approval": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "A-dragoon-silhouette",
+      "requirement": "Dragoon silhouette",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/A-dragoon-silhouette.png",
+      "dimensions": [
+        80,
+        96
+      ],
+      "sha256": "e402694e8bbddbd28c2f3c64781d363553d72a1c729b38f024bab6f8f2cd5d04",
+      "method": "frozen-anchor semantic native reconstruction",
+      "frozen_anchor": "",
+      "approval": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "A-duchess-bedroom_company",
+      "requirement": "duchess: bedroom company",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/A-duchess-bedroom_company.png",
+      "dimensions": [
+        80,
+        96
+      ],
+      "sha256": "1b70a2bae310fe1c957aa0cbf5d88603b4e11f3ad9e98ab8b4b485ecd4b1d37d",
+      "method": "frozen-anchor semantic native reconstruction",
+      "frozen_anchor": "assets/before_the_fame/characters/duchess/duchess_bathory_brown_neutral_80x96.png",
+      "approval": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "A-duchess-impressed",
+      "requirement": "duchess: impressed",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/A-duchess-impressed.png",
+      "dimensions": [
+        80,
+        96
+      ],
+      "sha256": "012af87a9319cf17c5aaacd91fbe1f680931c27af62eb48958dd11eea4c6bd42",
+      "method": "frozen-anchor semantic native reconstruction",
+      "frozen_anchor": "assets/before_the_fame/characters/duchess/duchess_bathory_brown_neutral_80x96.png",
+      "approval": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "A-duchess-unimpressed",
+      "requirement": "duchess: unimpressed",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/A-duchess-unimpressed.png",
+      "dimensions": [
+        80,
+        96
+      ],
+      "sha256": "a3ad1e798434b549e2b2733db740af7d5dc4ab680d05a3a72744e0116a195b1b",
+      "method": "frozen-anchor semantic native reconstruction",
+      "frozen_anchor": "assets/before_the_fame/characters/duchess/duchess_bathory_brown_neutral_80x96.png",
+      "approval": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "A-emberly-bedroom_company",
+      "requirement": "emberly: bedroom company",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/A-emberly-bedroom_company.png",
+      "dimensions": [
+        80,
+        96
+      ],
+      "sha256": "25db064a62dcadc0a8c510a73825a81b989d7736efb059028f85eb9f08e5baab",
+      "method": "frozen-anchor semantic native reconstruction",
+      "frozen_anchor": "assets/before_the_fame/characters/emberly/emberly_neutral_80x96.png",
+      "approval": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "A-emberly-date",
+      "requirement": "emberly: date",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/A-emberly-date.png",
+      "dimensions": [
+        80,
+        96
+      ],
+      "sha256": "df9877653f4451c88d22c26404efd61414d1a8932c07361234d2dd3eeecc85d4",
+      "method": "frozen-anchor semantic native reconstruction",
+      "frozen_anchor": "assets/before_the_fame/characters/emberly/emberly_neutral_80x96.png",
+      "approval": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "A-family-dad-avatar",
+      "requirement": "Family phone avatar: dad",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/A-family-dad-avatar.png",
+      "dimensions": [
+        80,
+        96
+      ],
+      "sha256": "9baa0db02ae30bbb7a89ecde7afd3be6ba68352452504e5c0260c98c0ca61d0d",
+      "method": "frozen-anchor semantic native reconstruction",
+      "frozen_anchor": "assets/before_the_fame/characters/dad/dad_neutral_80x96.png",
+      "approval": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "A-family-mom-avatar",
+      "requirement": "Family phone avatar: mom",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/A-family-mom-avatar.png",
+      "dimensions": [
+        80,
+        96
+      ],
+      "sha256": "8355f5f22c14b543b0048c03d0b422fd79ef526f60e5637a58aa616e827192a3",
+      "method": "frozen-anchor semantic native reconstruction",
+      "frozen_anchor": "assets/before_the_fame/characters/mom/mom_neutral_80x96.png",
+      "approval": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "A-family-sister-avatar",
+      "requirement": "Family phone avatar: sister",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/A-family-sister-avatar.png",
+      "dimensions": [
+        80,
+        96
+      ],
+      "sha256": "8e60a5a4234ec6d81a0befbfd6615e624d1232f5f76e58f4fdedd3e24303325f",
+      "method": "frozen-anchor semantic native reconstruction",
+      "frozen_anchor": "assets/before_the_fame/characters/sister/sister_neutral_80x96.png",
+      "approval": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "A-hina-date",
+      "requirement": "hina: date",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/A-hina-date.png",
+      "dimensions": [
+        80,
+        96
+      ],
+      "sha256": "da51425fbd3f526801ce1feacbeb6fbed4063b8ac730fac59bb7ed6f6a46f7f8",
+      "method": "frozen-anchor semantic native reconstruction",
+      "frozen_anchor": "assets/before_the_fame/characters/hina/hina_neutral_80x96.png",
+      "approval": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "A-hina-smug",
+      "requirement": "hina: smug",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/A-hina-smug.png",
+      "dimensions": [
+        80,
+        96
+      ],
+      "sha256": "565fae403cb65446a6605eb89328755c71e4b13fdaf705c3f8ee7be1f7de7a4c",
+      "method": "frozen-anchor semantic native reconstruction",
+      "frozen_anchor": "assets/before_the_fame/characters/hina/hina_neutral_80x96.png",
+      "approval": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "A-jade-impressed",
+      "requirement": "jade: impressed",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/A-jade-impressed.png",
+      "dimensions": [
+        80,
+        96
+      ],
+      "sha256": "b1638cbfd314fe3826927367107926acb51831fd77e936cee4bf16acbcac205b",
+      "method": "frozen-anchor semantic native reconstruction",
+      "frozen_anchor": "assets/before_the_fame/characters/jade/jade_wyrmwood_neutral_80x96.png",
+      "approval": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "A-june-bedroom",
+      "requirement": "june: bedroom company",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/A-june-bedroom.png",
+      "dimensions": [
+        80,
+        96
+      ],
+      "sha256": "6ac4897acf36bd8d01d2361a9f89cca4d10c765325973cf8cca68633dec92806",
+      "method": "frozen-anchor semantic native reconstruction",
+      "frozen_anchor": "assets/before_the_fame/characters/june/june_neutral_80x96.png",
+      "approval": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "A-june-date",
+      "requirement": "june: date",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/A-june-date.png",
+      "dimensions": [
+        80,
+        96
+      ],
+      "sha256": "48e7f6c4c1d593d07a62683cb2cc8af48b79ea29580f1c26022d8ab45d55325a",
+      "method": "frozen-anchor semantic native reconstruction",
+      "frozen_anchor": "assets/before_the_fame/characters/june/june_neutral_80x96.png",
+      "approval": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "A-june-working",
+      "requirement": "june: working in Rich's locs, paired",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/A-june-working.png",
+      "dimensions": [
+        80,
+        96
+      ],
+      "sha256": "75c2050130a2f3344ca45aa2bcb662a8b8d3331f758af958bd61d68076f3c225",
+      "method": "frozen-anchor semantic native reconstruction",
+      "frozen_anchor": "assets/before_the_fame/characters/june/june_neutral_80x96.png",
+      "approval": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "A-kaede-bedroom_company",
+      "requirement": "kaede: bedroom company",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/A-kaede-bedroom_company.png",
+      "dimensions": [
+        80,
+        96
+      ],
+      "sha256": "cdd934287e95a39fb2fdf4803131b32b2f94d9bc3ef959bd898893408ad2591a",
+      "method": "frozen-anchor semantic native reconstruction",
+      "frozen_anchor": "assets/before_the_fame/characters/kaede/kaede_neutral_80x96.png",
+      "approval": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "A-kaede-ceiling_drop",
+      "requirement": "kaede: ceiling drop",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/A-kaede-ceiling_drop.png",
+      "dimensions": [
+        80,
+        96
+      ],
+      "sha256": "f9a7ecf7cdc4733862f29551c41f1c20c42497cb4b97609dc6f1580559302d92",
+      "method": "frozen-anchor semantic native reconstruction",
+      "frozen_anchor": "assets/before_the_fame/characters/kaede/kaede_neutral_80x96.png",
+      "approval": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "A-kaede-date",
+      "requirement": "kaede: date",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/A-kaede-date.png",
+      "dimensions": [
+        80,
+        96
+      ],
+      "sha256": "0bd6a734435ce0b54cddab918e006e81b157f2ceb044f74127a25c04068f66ec",
+      "method": "frozen-anchor semantic native reconstruction",
+      "frozen_anchor": "assets/before_the_fame/characters/kaede/kaede_neutral_80x96.png",
+      "approval": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "A-kiki-bedroom_company",
+      "requirement": "kiki: bedroom company",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/A-kiki-bedroom_company.png",
+      "dimensions": [
+        80,
+        96
+      ],
+      "sha256": "22ee399d9a7515e57446d6440e84be6e1f5d19a3990285bb77f0ef6e7a2f7bbd",
+      "method": "frozen-anchor semantic native reconstruction",
+      "frozen_anchor": "assets/before_the_fame/characters/kiki/kiki_neutral_work_80x96.png",
+      "approval": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "A-kiki-date",
+      "requirement": "kiki: date",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/A-kiki-date.png",
+      "dimensions": [
+        80,
+        96
+      ],
+      "sha256": "e8286371a565fbe395317a97937a3fb5a19ae481d62b989b2503ef3f93b4430a",
+      "method": "frozen-anchor semantic native reconstruction",
+      "frozen_anchor": "assets/before_the_fame/characters/kiki/kiki_neutral_work_80x96.png",
+      "approval": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "A-kiki-laughing",
+      "requirement": "kiki: laughing",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/A-kiki-laughing.png",
+      "dimensions": [
+        80,
+        96
+      ],
+      "sha256": "0a226a11aad34f10a9a5508aff71767eb693d88aa234fa4703f34c4b9c7e4e4d",
+      "method": "frozen-anchor semantic native reconstruction",
+      "frozen_anchor": "assets/before_the_fame/characters/kiki/kiki_neutral_work_80x96.png",
+      "approval": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "A-lil_smack-diss",
+      "requirement": "lil_smack: diss",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/A-lil_smack-diss.png",
+      "dimensions": [
+        80,
+        96
+      ],
+      "sha256": "424daad2a605c2102ad431bf49092449f6452cd4627ae2f6813cf58da2950bc5",
+      "method": "frozen-anchor semantic native reconstruction",
+      "frozen_anchor": "assets/before_the_fame/characters/lil_smack/lil_smack_eating_80x96.png",
+      "approval": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "A-lil_smack-finale",
+      "requirement": "lil_smack: mouth-closed finale",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/A-lil_smack-finale.png",
+      "dimensions": [
+        80,
+        96
+      ],
+      "sha256": "b34086de33b9eb27c9e4411944bc1547666b350a25f5be7088590dd36c0c0b59",
+      "method": "frozen-anchor semantic native reconstruction",
+      "frozen_anchor": "assets/before_the_fame/characters/lil_smack/lil_smack_eating_80x96.png",
+      "approval": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "A-lo-arm_fall",
+      "requirement": "lo: arm-falls-off reaction, non-gory",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/A-lo-arm_fall.png",
+      "dimensions": [
+        80,
+        96
+      ],
+      "sha256": "c69902507388bb4c81259baccde552170422b62f07ce9c44b88f9ad850c1a882",
+      "method": "frozen-anchor semantic native reconstruction",
+      "frozen_anchor": "assets/before_the_fame/characters/lo/lo_dolores_neutral_80x96.png",
+      "approval": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "A-lo-date",
+      "requirement": "lo: date",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/A-lo-date.png",
+      "dimensions": [
+        80,
+        96
+      ],
+      "sha256": "638698a1ac3332a7c7913529977743ef87bb98c13b22c1ec0225be4cba23917f",
+      "method": "frozen-anchor semantic native reconstruction",
+      "frozen_anchor": "assets/before_the_fame/characters/lo/lo_dolores_neutral_80x96.png",
+      "approval": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "A-marisol-date",
+      "requirement": "marisol: date",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/A-marisol-date.png",
+      "dimensions": [
+        80,
+        96
+      ],
+      "sha256": "ec13c8ce4f9e60fa9ff0b66633635d3a23315275fb6cbdb282c62e83c7959099",
+      "method": "frozen-anchor semantic native reconstruction",
+      "frozen_anchor": "assets/before_the_fame/characters/marisol/marisol_neutral_80x96.png",
+      "approval": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "A-marisol-disapproving",
+      "requirement": "marisol: disapproving",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/A-marisol-disapproving.png",
+      "dimensions": [
+        80,
+        96
+      ],
+      "sha256": "11ef2f891e7481ef895a2c8c7bc6441370ad035e89383e645eb6f25d76c3ca84",
+      "method": "frozen-anchor semantic native reconstruction",
+      "frozen_anchor": "assets/before_the_fame/characters/marisol/marisol_neutral_80x96.png",
+      "approval": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "A-moonie-bedroom_company",
+      "requirement": "moonie: bedroom company",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/A-moonie-bedroom_company.png",
+      "dimensions": [
+        80,
+        96
+      ],
+      "sha256": "4c7e52e7cb4208cd2d8b1ff7e70e863ab9fd531f88ce6f11f8faa16e16ea8040",
+      "method": "frozen-anchor semantic native reconstruction",
+      "frozen_anchor": "assets/before_the_fame/characters/moonie/moonie_dorsey_neutral_80x96.png",
+      "approval": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "A-moonie-date",
+      "requirement": "moonie: date",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/A-moonie-date.png",
+      "dimensions": [
+        80,
+        96
+      ],
+      "sha256": "9fc1fb6ec5ef6cb7f2e33446aa671ba3a7dfea597b7ab984ae1042aab230d542",
+      "method": "frozen-anchor semantic native reconstruction",
+      "frozen_anchor": "assets/before_the_fame/characters/moonie/moonie_dorsey_neutral_80x96.png",
+      "approval": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "A-ms_patrice-bedroom",
+      "requirement": "ms_patrice: bedroom company",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/A-ms_patrice-bedroom.png",
+      "dimensions": [
+        80,
+        96
+      ],
+      "sha256": "22ea285b7c913da7875e9e69c95c613db0444c6f011a5653fca9b91007bbc718",
+      "method": "frozen-anchor semantic native reconstruction",
+      "frozen_anchor": "assets/before_the_fame/characters/ms_patrice/ms_patrice_neutral_80x96.png",
+      "approval": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "A-ms_patrice-date",
+      "requirement": "ms_patrice: date",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/A-ms_patrice-date.png",
+      "dimensions": [
+        80,
+        96
+      ],
+      "sha256": "0cd4704cbe61e8911d76eccffb498debe5496dee5e4c18d68e59bcb4d251b9f6",
+      "method": "frozen-anchor semantic native reconstruction",
+      "frozen_anchor": "assets/before_the_fame/characters/ms_patrice/ms_patrice_neutral_80x96.png",
+      "approval": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "A-ms_patrice-laugh",
+      "requirement": "ms_patrice: laugh",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/A-ms_patrice-laugh.png",
+      "dimensions": [
+        80,
+        96
+      ],
+      "sha256": "1e17cd1fb48affdf17fbb6482d4116541831c2a46c0e380f09110174d3981c43",
+      "method": "frozen-anchor semantic native reconstruction",
+      "frozen_anchor": "assets/before_the_fame/characters/ms_patrice/ms_patrice_neutral_80x96.png",
+      "approval": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "A-nightshade-casting",
+      "requirement": "nightshade: casting",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/A-nightshade-casting.png",
+      "dimensions": [
+        80,
+        96
+      ],
+      "sha256": "8f598876a297569950ef227ebaa704fa27267c32cb626870e7079fd17a3f9419",
+      "method": "frozen-anchor semantic native reconstruction",
+      "frozen_anchor": "assets/before_the_fame/characters/nightshade/nightshade_neutral_80x96.png",
+      "approval": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "A-nightshade-date",
+      "requirement": "nightshade: date",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/A-nightshade-date.png",
+      "dimensions": [
+        80,
+        96
+      ],
+      "sha256": "66698e838b7b3b99d1da8fe7d7037ad1805e2a16e3d93162213c85924c297d0e",
+      "method": "frozen-anchor semantic native reconstruction",
+      "frozen_anchor": "assets/before_the_fame/characters/nightshade/nightshade_neutral_80x96.png",
+      "approval": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "A-nneka-bedroom_company",
+      "requirement": "nneka: bedroom company",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/A-nneka-bedroom_company.png",
+      "dimensions": [
+        80,
+        96
+      ],
+      "sha256": "e58a1ba22785f1ca1b4438a69fa743a92115d813a30d6c9a95b503bb40782f7c",
+      "method": "frozen-anchor semantic native reconstruction",
+      "frozen_anchor": "assets/before_the_fame/characters/nneka/nneka_neutral_80x96.png",
+      "approval": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "A-nneka-date",
+      "requirement": "nneka: date",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/A-nneka-date.png",
+      "dimensions": [
+        80,
+        96
+      ],
+      "sha256": "ba60fd84d78d54089578875c1157a6d118f2ab808aae3f7838c357f6fef30856",
+      "method": "frozen-anchor semantic native reconstruction",
+      "frozen_anchor": "assets/before_the_fame/characters/nneka/nneka_neutral_80x96.png",
+      "approval": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "A-nneka-handing_bill",
+      "requirement": "nneka: handing bill",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/A-nneka-handing_bill.png",
+      "dimensions": [
+        80,
+        96
+      ],
+      "sha256": "a5159f30c066ca5d6d2f9df44c9e09c587c18569e6ddbe3a6fcc8faea7f6c15f",
+      "method": "frozen-anchor semantic native reconstruction",
+      "frozen_anchor": "assets/before_the_fame/characters/nneka/nneka_neutral_80x96.png",
+      "approval": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "A-officer_nodd-nod",
+      "requirement": "officer_nodd: nod state",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/A-officer_nodd-nod.png",
+      "dimensions": [
+        80,
+        96
+      ],
+      "sha256": "b80e9b52ddf93e952fb314bb3416b1908330ff952bff97e760d94c479b76616a",
+      "method": "frozen-anchor semantic native reconstruction",
+      "frozen_anchor": "assets/before_the_fame/characters/officer_nodd/officer_nodd_neutral_80x96.png",
+      "approval": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "A-officer_nodd-phone",
+      "requirement": "officer_nodd: phone-out state",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/A-officer_nodd-phone.png",
+      "dimensions": [
+        80,
+        96
+      ],
+      "sha256": "0b0d69062843979c73a45abb89b2c0abf79aebf503a2845b4f7fd7b840de78d1",
+      "method": "frozen-anchor semantic native reconstruction",
+      "frozen_anchor": "assets/before_the_fame/characters/officer_nodd/officer_nodd_neutral_80x96.png",
+      "approval": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "A-pinky-bedroom_company",
+      "requirement": "pinky: bedroom company",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/A-pinky-bedroom_company.png",
+      "dimensions": [
+        80,
+        96
+      ],
+      "sha256": "e0de29ecc26ed200eadde3736ff0983b4fe59bb882d2c50a6bf6cd360363e89d",
+      "method": "frozen-anchor semantic native reconstruction",
+      "frozen_anchor": "assets/before_the_fame/characters/pinky/pinky_arms_crossed_80x96.png",
+      "approval": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "A-pinky-date",
+      "requirement": "pinky: date",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/A-pinky-date.png",
+      "dimensions": [
+        80,
+        96
+      ],
+      "sha256": "1a6d0d50106a7370e47bb0dd90a0e9ca310427a9232c1954de4206273f34d062",
+      "method": "frozen-anchor semantic native reconstruction",
+      "frozen_anchor": "assets/before_the_fame/characters/pinky/pinky_arms_crossed_80x96.png",
+      "approval": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "A-pinky-impressed",
+      "requirement": "pinky: impressed",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/A-pinky-impressed.png",
+      "dimensions": [
+        80,
+        96
+      ],
+      "sha256": "95e053ad253afeffed119d7ae3572e41ab04a2f032d222652567c54d0276af87",
+      "method": "frozen-anchor semantic native reconstruction",
+      "frozen_anchor": "assets/before_the_fame/characters/pinky/pinky_arms_crossed_80x96.png",
+      "approval": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "A-pinky-neutral",
+      "requirement": "pinky: neutral",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/A-pinky-neutral.png",
+      "dimensions": [
+        80,
+        96
+      ],
+      "sha256": "ce8cb2b12f2f85730fb637f3bb751c3876fce8747a38a2ba28021e7bcea1925d",
+      "method": "frozen-anchor semantic native reconstruction",
+      "frozen_anchor": "assets/before_the_fame/characters/pinky/pinky_arms_crossed_80x96.png",
+      "approval": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "A-rookoko-painting",
+      "requirement": "rookoko: painting state",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/A-rookoko-painting.png",
+      "dimensions": [
+        80,
+        96
+      ],
+      "sha256": "088e88be88ec74b259914b4e12ae7cddc5a414b88790835cb6a889e6ce9950b9",
+      "method": "frozen-anchor semantic native reconstruction",
+      "frozen_anchor": "assets/before_the_fame/characters/rookoko/rookoko_neutral_80x96.png",
+      "approval": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "A-tasha-bedroom_company",
+      "requirement": "tasha: bedroom company",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/A-tasha-bedroom_company.png",
+      "dimensions": [
+        80,
+        96
+      ],
+      "sha256": "513f1edea0fc611175f66e17f073f16df241184afac929a6e746acf64aeba0f9",
+      "method": "frozen-anchor semantic native reconstruction",
+      "frozen_anchor": "assets/before_the_fame/characters/tasha/tasha_tastemaker_filming_80x96.png",
+      "approval": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "A-tasha-date",
+      "requirement": "tasha: date",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/A-tasha-date.png",
+      "dimensions": [
+        80,
+        96
+      ],
+      "sha256": "cfff4cbdda112eac735c6d95b2c478d74629972b4060489294f20b8b6b940010",
+      "method": "frozen-anchor semantic native reconstruction",
+      "frozen_anchor": "assets/before_the_fame/characters/tasha/tasha_tastemaker_filming_80x96.png",
+      "approval": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "A-tasha-stage_rush",
+      "requirement": "tasha: stage rush",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/A-tasha-stage_rush.png",
+      "dimensions": [
+        80,
+        96
+      ],
+      "sha256": "508eaede6fd4228ec9773da683fff6b9086be7229f89720a0b5f831465a1ae5a",
+      "method": "frozen-anchor semantic native reconstruction",
+      "frozen_anchor": "assets/before_the_fame/characters/tasha/tasha_tastemaker_filming_80x96.png",
+      "approval": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "A-tristan-floor",
+      "requirement": "tristan: asleep on floor",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/A-tristan-floor.png",
+      "dimensions": [
+        80,
+        96
+      ],
+      "sha256": "8ee941f02aa4e806b3e5a8e9cf72df0a25c3a4a7ce4c8c687edb9e86ea07b520",
+      "method": "frozen-anchor semantic native reconstruction",
+      "frozen_anchor": "assets/before_the_fame/characters/tristan/tristan_neutral_80x96.png",
+      "approval": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "A-tristan-laugh",
+      "requirement": "tristan: laughing",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/A-tristan-laugh.png",
+      "dimensions": [
+        80,
+        96
+      ],
+      "sha256": "e1b368f87b7d9a55163f0342e517e431c2ce8e8ed6184dbde506d289607c3758",
+      "method": "frozen-anchor semantic native reconstruction",
+      "frozen_anchor": "assets/before_the_fame/characters/tristan/tristan_neutral_80x96.png",
+      "approval": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "A-tristan-passenger",
+      "requirement": "tristan: TOUGE passenger portrait",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/A-tristan-passenger.png",
+      "dimensions": [
+        80,
+        96
+      ],
+      "sha256": "2f430846238a4d02f139e72d1ce94f2086519ed0775d74d50bcc9fa3ad57e36d",
+      "method": "frozen-anchor semantic native reconstruction",
+      "frozen_anchor": "assets/before_the_fame/characters/tristan/tristan_neutral_80x96.png",
+      "approval": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "A-velvet-date",
+      "requirement": "velvet: date",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/A-velvet-date.png",
+      "dimensions": [
+        80,
+        96
+      ],
+      "sha256": "c8730d5cdfa9daefa6eb4999a9b505304eaf2b0a622eeea0f3f58af5a8511ea3",
+      "method": "frozen-anchor semantic native reconstruction",
+      "frozen_anchor": "assets/before_the_fame/characters/velvet/velvet_vantablack_profile_80x96.png",
+      "approval": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "A-vicky-doorway",
+      "requirement": "vicky: doorway/controlled reaction",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/A-vicky-doorway.png",
+      "dimensions": [
+        80,
+        96
+      ],
+      "sha256": "2e8f1aa48797e6ff85d12360666e734a6e8e12d16b908f5f4701680c7f1a084a",
+      "method": "frozen-anchor semantic native reconstruction",
+      "frozen_anchor": "assets/before_the_fame/characters/vicky/vicky_neutral_80x96.png",
+      "approval": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "A-wispa-date",
+      "requirement": "wispa: date",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/A-wispa-date.png",
+      "dimensions": [
+        80,
+        96
+      ],
+      "sha256": "2828b94d8561731a1fa443756b529ad08f41b67744200c42d52e4bc7314c8521",
+      "method": "frozen-anchor semantic native reconstruction",
+      "frozen_anchor": "assets/before_the_fame/characters/wispa/wispa_neutral_80x96.png",
+      "approval": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "A-wispa-wave",
+      "requirement": "wispa: wave",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/A-wispa-wave.png",
+      "dimensions": [
+        80,
+        96
+      ],
+      "sha256": "e80a09c69320db06a2816d64bf515652cd84d4d899df9c438ec00b36c820b319",
+      "method": "frozen-anchor semantic native reconstruction",
+      "frozen_anchor": "assets/before_the_fame/characters/wispa/wispa_neutral_80x96.png",
+      "approval": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "B-hatchling-happy",
+      "requirement": "Blueberry Mazda hatchling \u2014 happy",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/B-hatchling-happy.png",
+      "dimensions": [
+        40,
+        36
+      ],
+      "sha256": "f9b0fe53c4efd7c609da4cf62c58ba6d95ef65317229d29f1ef249560c174220",
+      "method": "generated guide reconstructed and palette-cleaned at native scale",
+      "frozen_anchor": "assets/before_the_fame/props/mazda_egg/blueberry_mazda_egg_32x32.png",
+      "approval": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "B-hatchling-neutral",
+      "requirement": "Blueberry Mazda hatchling \u2014 neutral",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/B-hatchling-neutral.png",
+      "dimensions": [
+        40,
+        36
+      ],
+      "sha256": "3d913f05eb4d0ec0a3d1c129a72161ce96db75fd01011aac54431e806e4c9660",
+      "method": "generated guide reconstructed and palette-cleaned at native scale",
+      "frozen_anchor": "assets/before_the_fame/props/mazda_egg/blueberry_mazda_egg_32x32.png",
+      "approval": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "B-hatchling-sulk",
+      "requirement": "Blueberry Mazda hatchling \u2014 sulk",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/B-hatchling-sulk.png",
+      "dimensions": [
+        40,
+        36
+      ],
+      "sha256": "28d79fc39dbf27ef2ace916105054a02b25dbd2a4d299fa29c5b83ac0d726f23",
+      "method": "generated guide reconstructed and palette-cleaned at native scale",
+      "frozen_anchor": "assets/before_the_fame/props/mazda_egg/blueberry_mazda_egg_32x32.png",
+      "approval": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "B-human-bedroom",
+      "requirement": "Mazda human \u2014 covered bedroom-company",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/B-human-bedroom.png",
+      "dimensions": [
+        80,
+        96
+      ],
+      "sha256": "8421c3e43849e692f5033179b1372c3f4cdf56220c788262e37f61de54d56cfd",
+      "method": "frozen-anchor semantic native reconstruction",
+      "frozen_anchor": "assets/before_the_fame/characters/mazda_human/blueberry_mazda_human_neutral_80x96.png",
+      "approval": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "B-human-eating",
+      "requirement": "Mazda human \u2014 eating Agege bread",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/B-human-eating.png",
+      "dimensions": [
+        80,
+        96
+      ],
+      "sha256": "06351af2bf6e0e48659d47a09d7b4cdf5912e5fbd14f0d452d574cd310928da9",
+      "method": "frozen-anchor semantic native reconstruction",
+      "frozen_anchor": "assets/before_the_fame/characters/mazda_human/blueberry_mazda_human_neutral_80x96.png",
+      "approval": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "B-majestic-flying",
+      "requirement": "Blueberry Mazda majestic \u2014 flying",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/B-majestic-flying.png",
+      "dimensions": [
+        80,
+        64
+      ],
+      "sha256": "9415358a00ca42bcbf097a653731e18215dc52d58b66f95f8adf42ee9b2fca11",
+      "method": "generated guide reconstructed and palette-cleaned at native scale",
+      "frozen_anchor": "assets/before_the_fame/props/mazda_egg/blueberry_mazda_egg_32x32.png",
+      "approval": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "B-majestic-happy",
+      "requirement": "Blueberry Mazda majestic \u2014 happy",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/B-majestic-happy.png",
+      "dimensions": [
+        72,
+        64
+      ],
+      "sha256": "2bdbc15ac5c43807d8887fa6e728a31f96a81ed2509ee23ca320e36af0c0e7c5",
+      "method": "generated guide reconstructed and palette-cleaned at native scale",
+      "frozen_anchor": "assets/before_the_fame/props/mazda_egg/blueberry_mazda_egg_32x32.png",
+      "approval": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "B-majestic-perched",
+      "requirement": "Blueberry Mazda majestic \u2014 perched",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/B-majestic-perched.png",
+      "dimensions": [
+        72,
+        64
+      ],
+      "sha256": "258197c1a5a6c4dd34ab4a5bd07ad7fa78003eead7e30b7fa2c458c6fb3e7a8f",
+      "method": "generated guide reconstructed and palette-cleaned at native scale",
+      "frozen_anchor": "assets/before_the_fame/props/mazda_egg/blueberry_mazda_egg_32x32.png",
+      "approval": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "B-riding-composite",
+      "requirement": "Rich riding majestic Mazda composite",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/B-riding-composite.png",
+      "dimensions": [
+        96,
+        80
+      ],
+      "sha256": "5eaf04bab84f7408958ad90888581c936ddeb7e7785598597bb1173725dffc70",
+      "method": "generated guide reconstructed and palette-cleaned at native scale",
+      "frozen_anchor": "assets/before_the_fame/props/mazda_egg/blueberry_mazda_egg_32x32.png",
+      "approval": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "B-young-happy",
+      "requirement": "Blueberry Mazda young \u2014 happy",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/B-young-happy.png",
+      "dimensions": [
+        52,
+        48
+      ],
+      "sha256": "454798b01e75bdea17d976f1308a92782c367659d2916910aec7b0918451b105",
+      "method": "generated guide reconstructed and palette-cleaned at native scale",
+      "frozen_anchor": "assets/before_the_fame/props/mazda_egg/blueberry_mazda_egg_32x32.png",
+      "approval": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "B-young-neutral",
+      "requirement": "Blueberry Mazda young \u2014 neutral",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/B-young-neutral.png",
+      "dimensions": [
+        52,
+        48
+      ],
+      "sha256": "820bd800af6ee4bccc1467aad8d9bee2a0dce9f9f4985ef588d26d712c5dc2d0",
+      "method": "generated guide reconstructed and palette-cleaned at native scale",
+      "frozen_anchor": "assets/before_the_fame/props/mazda_egg/blueberry_mazda_egg_32x32.png",
+      "approval": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "B-young-sulk",
+      "requirement": "Blueberry Mazda young \u2014 sulk",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/B-young-sulk.png",
+      "dimensions": [
+        52,
+        48
+      ],
+      "sha256": "bf5e18ca5e2388f550475f23bbe1a631ecbba00967032c8988d441770dcab6be",
+      "method": "generated guide reconstructed and palette-cleaned at native scale",
+      "frozen_anchor": "assets/before_the_fame/props/mazda_egg/blueberry_mazda_egg_32x32.png",
+      "approval": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "C-cat-judging_combat",
+      "requirement": "Sphynx cat judging combat",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/C-cat-judging_combat.png",
+      "dimensions": [
+        48,
+        32
+      ],
+      "sha256": "1c360ed9f4948a3420bd3ac767fe592d3893bc126ea35a7097c382edfa365351",
+      "method": "retained after identity/style/semantic/distinctness/polish gate",
+      "frozen_anchor": "assets/before_the_fame/creatures/cat/sphynx_cat_sitting_48x32.png",
+      "approval": "CANDIDATE \u2014 UBE/HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "C-cat-on_bed",
+      "requirement": "Sphynx cat on bed",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/C-cat-on_bed.png",
+      "dimensions": [
+        48,
+        32
+      ],
+      "sha256": "bc7a8bf3f3425b9167d599627b6c0ac9ddfac21581d1ef5a78cabca093ae1311",
+      "method": "retained after identity/style/semantic/distinctness/polish gate",
+      "frozen_anchor": "assets/before_the_fame/creatures/cat/sphynx_cat_sitting_48x32.png",
+      "approval": "CANDIDATE \u2014 UBE/HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "C-chest",
+      "requirement": "Rare rusted barnacled chest",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/C-chest.png",
+      "dimensions": [
+        48,
+        32
+      ],
+      "sha256": "dd80202b19e49432dff2e1343291ebfeffd09bd507ba465fdad903112dc000c6",
+      "method": "retained after identity/style/semantic/distinctness/polish gate",
+      "frozen_anchor": "",
+      "approval": "CANDIDATE \u2014 UBE/HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "C-common-pier_perch-held",
+      "requirement": "Common fish: pier perch \u2014 held version",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/C-common-pier_perch-held.png",
+      "dimensions": [
+        48,
+        24
+      ],
+      "sha256": "739273a7b58800d6885543b40fa829678b3b766f0d6343a08c259e7bee844c8b",
+      "method": "retained after identity/style/semantic/distinctness/polish gate",
+      "frozen_anchor": "",
+      "approval": "CANDIDATE \u2014 UBE/HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "C-common-pier_perch-icon",
+      "requirement": "Common fish: pier perch \u2014 catch icon",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/C-common-pier_perch-icon.png",
+      "dimensions": [
+        32,
+        24
+      ],
+      "sha256": "ea6d4539fb38393338ff43104302c4352cde35178b6804158bf5c4c8cfb85a66",
+      "method": "retained after identity/style/semantic/distinctness/polish gate",
+      "frozen_anchor": "",
+      "approval": "CANDIDATE \u2014 UBE/HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "C-common-silver_grunt-held",
+      "requirement": "Common fish: silver grunt \u2014 held version",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/C-common-silver_grunt-held.png",
+      "dimensions": [
+        48,
+        24
+      ],
+      "sha256": "a729cf84b8472d5de7cc2977ec269f540f68445d26ce62565a6edab9068d1a6b",
+      "method": "retained after identity/style/semantic/distinctness/polish gate",
+      "frozen_anchor": "",
+      "approval": "CANDIDATE \u2014 UBE/HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "C-common-silver_grunt-icon",
+      "requirement": "Common fish: silver grunt \u2014 catch icon",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/C-common-silver_grunt-icon.png",
+      "dimensions": [
+        32,
+        24
+      ],
+      "sha256": "4a662016157ba405f90f212cd56217865eaa5417dcd2ce619538c5abc19fd6b7",
+      "method": "retained after identity/style/semantic/distinctness/polish gate",
+      "frozen_anchor": "",
+      "approval": "CANDIDATE \u2014 UBE/HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "C-common-ugly_mackerel-held",
+      "requirement": "Common fish: ugly mackerel \u2014 held version",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/C-common-ugly_mackerel-held.png",
+      "dimensions": [
+        48,
+        24
+      ],
+      "sha256": "ad69854eb72c85efe193dfd0594c9d985adc68cb651beb9c4d9cc1a982dd2648",
+      "method": "retained after identity/style/semantic/distinctness/polish gate",
+      "frozen_anchor": "",
+      "approval": "CANDIDATE \u2014 UBE/HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "C-common-ugly_mackerel-icon",
+      "requirement": "Common fish: ugly mackerel \u2014 catch icon",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/C-common-ugly_mackerel-icon.png",
+      "dimensions": [
+        32,
+        24
+      ],
+      "sha256": "252745adc353615c1864d01914bcf86d7742529c25f2e9e4cc226cbeba9a5cd4",
+      "method": "retained after identity/style/semantic/distinctness/polish gate",
+      "frozen_anchor": "",
+      "approval": "CANDIDATE \u2014 UBE/HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "C-junk-boot",
+      "requirement": "Pier catch: boot",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/C-junk-boot.png",
+      "dimensions": [
+        48,
+        32
+      ],
+      "sha256": "077cd4357448947b973714b71291f1581d0d979ab09c21b32cad34a90e8f0e14",
+      "method": "retained after identity/style/semantic/distinctness/polish gate",
+      "frozen_anchor": "",
+      "approval": "CANDIDATE \u2014 UBE/HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "C-junk-flip_phone",
+      "requirement": "Pier catch: flip phone",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/C-junk-flip_phone.png",
+      "dimensions": [
+        48,
+        32
+      ],
+      "sha256": "9cfc28eae229a3ad2375bf6f642c3e1d3454ca571dfb11d9292fdcd7e22b90e0",
+      "method": "retained after identity/style/semantic/distinctness/polish gate",
+      "frozen_anchor": "",
+      "approval": "CANDIDATE \u2014 UBE/HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "C-junk-waterlogged_wallet",
+      "requirement": "Pier catch: waterlogged wallet",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/C-junk-waterlogged_wallet.png",
+      "dimensions": [
+        48,
+        32
+      ],
+      "sha256": "63a88bb6984219a905abc67cd08e5fe6cf88d4345f61f1b8f6644d988ae542a5",
+      "method": "retained after identity/style/semantic/distinctness/polish gate",
+      "frozen_anchor": "",
+      "approval": "CANDIDATE \u2014 UBE/HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "C-rare-moon_koi",
+      "requirement": "Rare fish: moon koi",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/C-rare-moon_koi.png",
+      "dimensions": [
+        48,
+        32
+      ],
+      "sha256": "88b7bbfe509631b2e8d41f33b8eb5cca641e63456bb0a12910923b188095d66f",
+      "method": "retained after identity/style/semantic/distinctness/polish gate",
+      "frozen_anchor": "",
+      "approval": "CANDIDATE \u2014 UBE/HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "C-rare-old_barnacle_grouper",
+      "requirement": "Rare fish: old barnacle grouper",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/C-rare-old_barnacle_grouper.png",
+      "dimensions": [
+        48,
+        32
+      ],
+      "sha256": "90320fddfc39f5e93a43a67db616d9fea495027f3624e52e134ec0e5d25f8cc0",
+      "method": "retained after identity/style/semantic/distinctness/polish gate",
+      "frozen_anchor": "",
+      "approval": "CANDIDATE \u2014 UBE/HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "D-aventador-listing",
+      "requirement": "aventador LISTING surface",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/D-aventador-listing.png",
+      "dimensions": [
+        68,
+        50
+      ],
+      "sha256": "a93de85791a5a221a356fe987bc71e9b8ea1ee8a45ffbc5e138db0e0efea9da8",
+      "method": "authorized derivative of corresponding distinct WORLD master",
+      "frozen_anchor": "",
+      "approval": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "D-aventador-world",
+      "requirement": "aventador WORLD surface",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/D-aventador-world.png",
+      "dimensions": [
+        136,
+        50
+      ],
+      "sha256": "68766b818de264380056f0be277a614250c7e617f29aaca5ac44628f95894190",
+      "method": "generated identity guide reconstructed at WORLD native scale",
+      "frozen_anchor": "",
+      "approval": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "D-ferrari_f40-listing",
+      "requirement": "ferrari_f40 LISTING surface",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/D-ferrari_f40-listing.png",
+      "dimensions": [
+        68,
+        50
+      ],
+      "sha256": "4150227948f8b647551b8e16cf8d8c9809f6daecd136005ec7704bf1dc6fdd7b",
+      "method": "authorized derivative of corresponding distinct WORLD master",
+      "frozen_anchor": "",
+      "approval": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "D-ferrari_f40-world",
+      "requirement": "ferrari_f40 WORLD surface",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/D-ferrari_f40-world.png",
+      "dimensions": [
+        136,
+        50
+      ],
+      "sha256": "ff4f7c06225c6a22624d4087250d24f6fbabd358179cb4d43a2bd0eccb6dce7d",
+      "method": "generated identity guide reconstructed at WORLD native scale",
+      "frozen_anchor": "",
+      "approval": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "D-portobello-world",
+      "requirement": "Portobello beige Mazda/crossover WORLD surface",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/D-portobello-world.png",
+      "dimensions": [
+        136,
+        50
+      ],
+      "sha256": "aae0ec32f8edeec22e6166576ed3a1ed9e1f4be5de17749333963844cdffa9b8",
+      "method": "generated identity guide reconstructed at WORLD native scale",
+      "frozen_anchor": "",
+      "approval": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "D-r34-listing",
+      "requirement": "r34 LISTING surface",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/D-r34-listing.png",
+      "dimensions": [
+        68,
+        50
+      ],
+      "sha256": "07df7977570b031a5da10ce84a0e218f3ac63da0d2c330ec8aa63b2b2c9d8799",
+      "method": "authorized derivative of corresponding distinct WORLD master",
+      "frozen_anchor": "",
+      "approval": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "D-r34-world",
+      "requirement": "r34 WORLD surface",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/D-r34-world.png",
+      "dimensions": [
+        136,
+        50
+      ],
+      "sha256": "d3785756e30e9fe119fdc436bf6fbacb3751f849877a5402622b8dbe9a64f6cc",
+      "method": "generated identity guide reconstructed at WORLD native scale",
+      "frozen_anchor": "",
+      "approval": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "D-rival_a-touge",
+      "requirement": "Midnight Mafia rival A TOUGE surface",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/D-rival_a-touge.png",
+      "dimensions": [
+        16,
+        28
+      ],
+      "sha256": "6cc4bfbbb2f3ace1732756fb44406d40b404ace3393ec84800e3635d3080d5d1",
+      "method": "native rival livery reconstruction from frozen TOUGE identity",
+      "frozen_anchor": "",
+      "approval": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "D-rival_b-touge",
+      "requirement": "Midnight Mafia rival B TOUGE surface",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/D-rival_b-touge.png",
+      "dimensions": [
+        16,
+        28
+      ],
+      "sha256": "9d81be1a7fb7252b702dc7859cdaba73318d91952b801e8c8193937388bcf5b7",
+      "method": "native rival livery reconstruction from frozen TOUGE identity",
+      "frozen_anchor": "",
+      "approval": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "D-s15_bodykit-listing",
+      "requirement": "s15_bodykit LISTING surface",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/D-s15_bodykit-listing.png",
+      "dimensions": [
+        68,
+        50
+      ],
+      "sha256": "59176c7d71dcf4c7c1f545431228ddea2584f4ac87387e1c993b92ed065878de",
+      "method": "authorized derivative of corresponding distinct WORLD master",
+      "frozen_anchor": "",
+      "approval": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "D-s15_bodykit-world",
+      "requirement": "s15_bodykit WORLD surface",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/D-s15_bodykit-world.png",
+      "dimensions": [
+        136,
+        50
+      ],
+      "sha256": "58cf72acc3b03aaea3c807a7bfd5e4c4137540af62cd9398f78b67167b04d78c",
+      "method": "generated identity guide reconstructed at WORLD native scale",
+      "frozen_anchor": "",
+      "approval": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "D-s15_stock-listing",
+      "requirement": "s15_stock LISTING surface",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/D-s15_stock-listing.png",
+      "dimensions": [
+        68,
+        50
+      ],
+      "sha256": "aa6d559723b6044ccdd02453bf18968f8db410351f80cbd11cf0c8b4e51f59b2",
+      "method": "authorized derivative of corresponding distinct WORLD master",
+      "frozen_anchor": "",
+      "approval": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "D-s15_stock-world",
+      "requirement": "s15_stock WORLD surface",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/D-s15_stock-world.png",
+      "dimensions": [
+        136,
+        50
+      ],
+      "sha256": "3965564e5923de9d20060989219b2eb833fbb3f87efe27dc18b1d419010c71da",
+      "method": "generated identity guide reconstructed at WORLD native scale",
+      "frozen_anchor": "",
+      "approval": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "D-s2000_pink-listing",
+      "requirement": "s2000_pink LISTING surface",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/D-s2000_pink-listing.png",
+      "dimensions": [
+        68,
+        50
+      ],
+      "sha256": "4719e2d2142c1f6c07ff1056e1312e60f4115bca035892d7545c4713116af172",
+      "method": "authorized derivative of corresponding distinct WORLD master",
+      "frozen_anchor": "",
+      "approval": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "D-s2000_pink-world",
+      "requirement": "s2000_pink WORLD surface",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/D-s2000_pink-world.png",
+      "dimensions": [
+        136,
+        50
+      ],
+      "sha256": "033511f5215c122f464645a4cb9dfb7dec412f26eea45a9cd9553d9d2d32b599",
+      "method": "generated identity guide reconstructed at WORLD native scale",
+      "frozen_anchor": "",
+      "approval": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "D-supra-listing",
+      "requirement": "supra LISTING surface",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/D-supra-listing.png",
+      "dimensions": [
+        68,
+        50
+      ],
+      "sha256": "8e3f11d99f88f057a05a1ec7db07b8f4058820a5b33171a2be6a9c90088350d4",
+      "method": "authorized derivative of corresponding distinct WORLD master",
+      "frozen_anchor": "",
+      "approval": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "D-urus-listing",
+      "requirement": "urus LISTING surface",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/D-urus-listing.png",
+      "dimensions": [
+        68,
+        50
+      ],
+      "sha256": "67669f45665137fa3cff126f2e7e9dfe1cf6273ff84813bc7868b501a93642fb",
+      "method": "authorized derivative of corresponding distinct WORLD master",
+      "frozen_anchor": "",
+      "approval": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "D-urus-world",
+      "requirement": "urus WORLD surface",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/D-urus-world.png",
+      "dimensions": [
+        136,
+        50
+      ],
+      "sha256": "a14b9666fe523537311bd49d8ea7579e84223930e7bf468ea6b0a73f00d0fd79",
+      "method": "generated identity guide reconstructed at WORLD native scale",
+      "frozen_anchor": "",
+      "approval": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "E-blood_bill",
+      "requirement": "Blood Bank bill/receipt card",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/E-blood_bill.png",
+      "dimensions": [
+        48,
+        48
+      ],
+      "sha256": "c8d8fa4c6796986f79fa2484835a597a84ae6b7151dd0234ee24a75c8d3aa51b",
+      "method": "authored receipt/held-receipt native art",
+      "frozen_anchor": "",
+      "approval": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "E-blood_held",
+      "requirement": "Nneka-held long receipt",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/E-blood_held.png",
+      "dimensions": [
+        48,
+        64
+      ],
+      "sha256": "c47515760195c9947b02cae5b360849d47350c69bcca69b0a94da29f1424c780",
+      "method": "authored receipt/held-receipt native art",
+      "frozen_anchor": "",
+      "approval": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "E-bonesworth_sword",
+      "requirement": "Bonesworth sword trophy",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/E-bonesworth_sword.png",
+      "dimensions": [
+        32,
+        48
+      ],
+      "sha256": "8e266f3925da84ef7f53a5d623eaf6c9c272d74fc0ade506f3f022ecfe379222",
+      "method": "authored trophy sword native art",
+      "frozen_anchor": "",
+      "approval": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "E-bread-torn",
+      "requirement": "Agege bread torn",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/E-bread-torn.png",
+      "dimensions": [
+        32,
+        24
+      ],
+      "sha256": "a27480b7a5c21b16faa10c4e8a7d6c11da2e475f39d147b8928f3d77bfafd86e",
+      "method": "native torn-state reconstruction from frozen bread",
+      "frozen_anchor": "",
+      "approval": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "E-egg-bed",
+      "requirement": "Dragon egg ON BED",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/E-egg-bed.png",
+      "dimensions": [
+        32,
+        32
+      ],
+      "sha256": "42a23bbcd3bd41eec011efdeaf87a5a4da22bfd20f12614aab3e672ac39e3bec",
+      "method": "native reconstruction from frozen egg",
+      "frozen_anchor": "",
+      "approval": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "E-egg-cracking",
+      "requirement": "Dragon egg CRACKING",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/E-egg-cracking.png",
+      "dimensions": [
+        32,
+        32
+      ],
+      "sha256": "1903f1fad129825f41f787522fee09a99bc23977983e724de049e9fb116643d6",
+      "method": "native reconstruction from frozen egg",
+      "frozen_anchor": "",
+      "approval": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "E-egg-held",
+      "requirement": "Dragon egg HELD",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/E-egg-held.png",
+      "dimensions": [
+        32,
+        32
+      ],
+      "sha256": "8fd554fe298ce2aab1eed6828213715ca672d06b1bc2caad1fb59bf803b29a81",
+      "method": "native reconstruction from frozen egg",
+      "frozen_anchor": "",
+      "approval": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "E-fit-black_leather_trench",
+      "requirement": "Fit inventory visual: black leather trench",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/E-fit-black_leather_trench.png",
+      "dimensions": [
+        32,
+        32
+      ],
+      "sha256": "d4f363edcd60b78e3d2e597d3bd51b5690eb6aca75543180166263aeef76136d",
+      "method": "generated wearable guide reconstructed at native scale",
+      "frozen_anchor": "",
+      "approval": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "E-fit-boughi_v_blazer",
+      "requirement": "Fit inventory visual: Boughi-V blazer",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/E-fit-boughi_v_blazer.png",
+      "dimensions": [
+        32,
+        32
+      ],
+      "sha256": "af166df4d8630ad64dec6fb6249f7a5da9fa5639744b615decc5b12b82c9dba3",
+      "method": "generated wearable guide reconstructed at native scale",
+      "frozen_anchor": "",
+      "approval": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "E-fit-church_shoes",
+      "requirement": "Fit inventory visual: church shoes",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/E-fit-church_shoes.png",
+      "dimensions": [
+        32,
+        32
+      ],
+      "sha256": "997f14a18a2331422043b38ab5008783f0073a6f4967648e847dfdff142e0481",
+      "method": "generated wearable guide reconstructed at native scale",
+      "frozen_anchor": "",
+      "approval": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "E-fit-drift_sneakers",
+      "requirement": "Fit inventory visual: drift sneakers",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/E-fit-drift_sneakers.png",
+      "dimensions": [
+        32,
+        32
+      ],
+      "sha256": "1e0a7328fc00b9bf13076d0d5de52d9463b76b21cd0628bcfa5655dd9061e9af",
+      "method": "generated wearable guide reconstructed at native scale",
+      "frozen_anchor": "",
+      "approval": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "E-fit-grave_hoodie",
+      "requirement": "Fit inventory visual: Grave hoodie",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/E-fit-grave_hoodie.png",
+      "dimensions": [
+        32,
+        32
+      ],
+      "sha256": "bdfd23e010d96903c11c702a188f686fe7786dc9aceb5f1e58ba4fdeb531e383",
+      "method": "generated wearable guide reconstructed at native scale",
+      "frozen_anchor": "",
+      "approval": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "E-fit-krada_shades",
+      "requirement": "Fit inventory visual: Krada shades",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/E-fit-krada_shades.png",
+      "dimensions": [
+        32,
+        32
+      ],
+      "sha256": "ad6cea8f55ec0eb7a294b3faabe1bf0ba11ea97ef55ae1dc37031b0f1d2be4f9",
+      "method": "generated wearable guide reconstructed at native scale",
+      "frozen_anchor": "",
+      "approval": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "E-fit-slides",
+      "requirement": "Fit inventory visual: slides",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/E-fit-slides.png",
+      "dimensions": [
+        32,
+        32
+      ],
+      "sha256": "1737d525cac6f82a23114292564ad1b1f7dcb950e3b7ea58bdae0f64a3940a74",
+      "method": "generated wearable guide reconstructed at native scale",
+      "frozen_anchor": "",
+      "approval": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "E-fit-tradeya_hoes_chain",
+      "requirement": "Fit inventory visual: Tradeya-Hoes chain",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/E-fit-tradeya_hoes_chain.png",
+      "dimensions": [
+        32,
+        32
+      ],
+      "sha256": "dbfdd75c77a68ff3a9068c4400e6fd0481993ff64c0d79e13a57d4758735514e",
+      "method": "generated wearable guide reconstructed at native scale",
+      "frozen_anchor": "",
+      "approval": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "E-gun-chopstick_sniper-case",
+      "requirement": "CHOPSTICK SNIPER: armory case icon",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/E-gun-chopstick_sniper-case.png",
+      "dimensions": [
+        48,
+        32
+      ],
+      "sha256": "1d331bf855ea725c1fe2f9810b44df0a3b0aa06df1a7f6c8d4893427ded85c9c",
+      "method": "generated weapon guide reconstructed at native scale",
+      "frozen_anchor": "",
+      "approval": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "E-gun-chopstick_sniper-held",
+      "requirement": "CHOPSTICK SNIPER: combat-held art",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/E-gun-chopstick_sniper-held.png",
+      "dimensions": [
+        64,
+        32
+      ],
+      "sha256": "9f49c30bba4fd1a9a09fed62e239e4b65ec2f766c15a00e1f62d9d60fb533473",
+      "method": "generated weapon guide reconstructed at native scale",
+      "frozen_anchor": "",
+      "approval": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "E-gun-holy_baby_drake-case",
+      "requirement": "HOLY BABY DRAKE: armory case icon",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/E-gun-holy_baby_drake-case.png",
+      "dimensions": [
+        48,
+        32
+      ],
+      "sha256": "3218eba58a507fb6b6b925b8d1e8331e3eeac3d4a4486908af8d24ae5e4470de",
+      "method": "generated weapon guide reconstructed at native scale",
+      "frozen_anchor": "",
+      "approval": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "E-gun-holy_baby_drake-held",
+      "requirement": "HOLY BABY DRAKE: combat-held art",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/E-gun-holy_baby_drake-held.png",
+      "dimensions": [
+        64,
+        32
+      ],
+      "sha256": "87aed3944d522e709c0b4724516dd6a0a6ae03453dfe3ea3c2fdc31f67dac79f",
+      "method": "generated weapon guide reconstructed at native scale",
+      "frozen_anchor": "",
+      "approval": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "E-gun-lil_oga-case",
+      "requirement": "LIL OGA: armory case icon",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/E-gun-lil_oga-case.png",
+      "dimensions": [
+        48,
+        32
+      ],
+      "sha256": "dbc0467906e27e21ee36a98830d38b2d3b7f8632401442ebb35d2f6ddbc8f293",
+      "method": "generated weapon guide reconstructed at native scale",
+      "frozen_anchor": "",
+      "approval": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "E-gun-lil_oga-held",
+      "requirement": "LIL OGA: combat-held art",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/E-gun-lil_oga-held.png",
+      "dimensions": [
+        64,
+        32
+      ],
+      "sha256": "0202bef18e68b3610c80279d4eb6453395c444ccaaf5821a1afcdfc38531d50d",
+      "method": "generated weapon guide reconstructed at native scale",
+      "frozen_anchor": "",
+      "approval": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "E-gun-sapporo_shotgun-case",
+      "requirement": "SAPPORO SHOTGUN: armory case icon",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/E-gun-sapporo_shotgun-case.png",
+      "dimensions": [
+        48,
+        32
+      ],
+      "sha256": "054d05344aa3c851c0e01cc776937c29004c5f512dd12b91f92add6d11ee7967",
+      "method": "generated weapon guide reconstructed at native scale",
+      "frozen_anchor": "",
+      "approval": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "E-gun-sapporo_shotgun-held",
+      "requirement": "SAPPORO SHOTGUN: combat-held art",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/E-gun-sapporo_shotgun-held.png",
+      "dimensions": [
+        64,
+        32
+      ],
+      "sha256": "ae9ee599cb131cc827a5094515c185348a42a54ffda15de9d8d1481c848bb638",
+      "method": "generated weapon guide reconstructed at native scale",
+      "frozen_anchor": "",
+      "approval": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "E-gun-the_rpg-case",
+      "requirement": "THE RPG: armory case icon",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/E-gun-the_rpg-case.png",
+      "dimensions": [
+        48,
+        32
+      ],
+      "sha256": "194fc1b9b49672f1b18f46a5fd043ce8763fd2532b9fe81d73c05e078b9a46fa",
+      "method": "generated weapon guide reconstructed at native scale",
+      "frozen_anchor": "",
+      "approval": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "E-gun-the_rpg-held",
+      "requirement": "THE RPG: combat-held art",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/E-gun-the_rpg-held.png",
+      "dimensions": [
+        64,
+        32
+      ],
+      "sha256": "2e79d70d5f8d5f00936c227f44b755a471589909d1242f8979e33e6b8251859a",
+      "method": "generated weapon guide reconstructed at native scale",
+      "frozen_anchor": "",
+      "approval": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "E-item-boba",
+      "requirement": "Combat/item visual: boba",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/E-item-boba.png",
+      "dimensions": [
+        32,
+        32
+      ],
+      "sha256": "b1b6b3d0ac4bfbcbc0ed6c9e98522919a6d65ddbcfa2dd3cc2fe3f46a1a23e23",
+      "method": "generated item guide reconstructed at native scale",
+      "frozen_anchor": "",
+      "approval": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "E-item-dragon_keef",
+      "requirement": "Combat/item visual: dragon keef",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/E-item-dragon_keef.png",
+      "dimensions": [
+        32,
+        32
+      ],
+      "sha256": "ec4f8250bac320ca4cf394a1c08b89e8a3bd70f310f9f16de7f6b750e3b5a231",
+      "method": "generated item guide reconstructed at native scale",
+      "frozen_anchor": "",
+      "approval": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "E-item-garlic_knots",
+      "requirement": "Combat/item visual: garlic knots",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/E-item-garlic_knots.png",
+      "dimensions": [
+        32,
+        32
+      ],
+      "sha256": "a945835020a88b5d6445ab935f0c9f6e7ec527d8afd5021799232fa61e1dbb43",
+      "method": "generated item guide reconstructed at native scale",
+      "frozen_anchor": "",
+      "approval": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "E-item-jollof_takeout",
+      "requirement": "Combat/item visual: jollof takeout",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/E-item-jollof_takeout.png",
+      "dimensions": [
+        32,
+        32
+      ],
+      "sha256": "63a04f64e5ab02aca1dc33f968d1e59a4583a5c4cfc19db4831685e8d7cdc459",
+      "method": "generated item guide reconstructed at native scale",
+      "frozen_anchor": "",
+      "approval": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "E-item-sapporo",
+      "requirement": "Combat/item visual: Sapporo",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/E-item-sapporo.png",
+      "dimensions": [
+        32,
+        32
+      ],
+      "sha256": "eb43501516740d809ae0219ad94ea16546a2bae0229a7ba2af4d6815b0b6bee0",
+      "method": "generated item guide reconstructed at native scale",
+      "frozen_anchor": "",
+      "approval": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "E-item-smelling_salts",
+      "requirement": "Combat/item visual: smelling salts",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/E-item-smelling_salts.png",
+      "dimensions": [
+        32,
+        32
+      ],
+      "sha256": "c9f433ce4d9e600622f52bd575b4bcf1d03175d7d04d2d04fba0f4e9e65afb04",
+      "method": "generated item guide reconstructed at native scale",
+      "frozen_anchor": "",
+      "approval": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "E-radio-bloodbath",
+      "requirement": "Rich Radio cover tile: BLOODBATH",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/E-radio-bloodbath.png",
+      "dimensions": [
+        32,
+        32
+      ],
+      "sha256": "48054b052a61de833ba666564166f7c58124070c1939e054db4662e10e7bbcb6",
+      "method": "generated cover motif reconstructed at native scale",
+      "frozen_anchor": "",
+      "approval": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "E-radio-montana",
+      "requirement": "Rich Radio cover tile: MONTANA",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/E-radio-montana.png",
+      "dimensions": [
+        32,
+        32
+      ],
+      "sha256": "0928c2f9be07c00bc5d43a3ca0023052e5366fa38a82bb3f34a61aed0ca7ec68",
+      "method": "generated cover motif reconstructed at native scale",
+      "frozen_anchor": "",
+      "approval": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "E-radio-octopus_brain",
+      "requirement": "Rich Radio cover tile: OCTOPUS BRAIN",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/E-radio-octopus_brain.png",
+      "dimensions": [
+        32,
+        32
+      ],
+      "sha256": "bb593e5b41f60f1588795e98ec62c8fc367780e5fe1fe73ce22aca81a9a71744",
+      "method": "generated cover motif reconstructed at native scale",
+      "frozen_anchor": "",
+      "approval": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "E-radio-playmakers",
+      "requirement": "Rich Radio cover tile: PLAYMAKERS",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/E-radio-playmakers.png",
+      "dimensions": [
+        32,
+        32
+      ],
+      "sha256": "3a0b62e2ce43d47aeb55c906fede4c3619859130933a3bb82d607be95902cdc8",
+      "method": "generated cover motif reconstructed at native scale",
+      "frozen_anchor": "",
+      "approval": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "E-radio-shopping_addict",
+      "requirement": "Rich Radio cover tile: SHOPPING ADDICT",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/E-radio-shopping_addict.png",
+      "dimensions": [
+        32,
+        32
+      ],
+      "sha256": "dd1fdcffb4a5859d548d4520103b33d0b672158e7b992217ee608d1d3c6edd8a",
+      "method": "generated cover motif reconstructed at native scale",
+      "frozen_anchor": "",
+      "approval": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "F-company_system",
+      "requirement": "company system",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/F-company_system.png",
+      "dimensions": [
+        270,
+        480
+      ],
+      "sha256": "5d5da564a3205cf4db129fb245d4ed94e5beb1cbdefb9268ee99a3cab18bf26f",
+      "method": "generated authored-situation guide reconstructed at room-native scale",
+      "frozen_anchor": "",
+      "approval": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "F-covered_companion",
+      "requirement": "covered companion",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/F-covered_companion.png",
+      "dimensions": [
+        270,
+        480
+      ],
+      "sha256": "ff4aedd2f699c661f35a7cbc6eb09a880e5c5216179a890c2672a73ef798522c",
+      "method": "generated authored-situation guide reconstructed at room-native scale",
+      "frozen_anchor": "",
+      "approval": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "F-homie_floor",
+      "requirement": "homie floor",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/F-homie_floor.png",
+      "dimensions": [
+        270,
+        480
+      ],
+      "sha256": "e6841292e5640b60bf8851ddf8a7899f799468ea743563895eba9500f1459f24",
+      "method": "generated authored-situation guide reconstructed at room-native scale",
+      "frozen_anchor": "",
+      "approval": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "F-mazda_flyby",
+      "requirement": "mazda flyby",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/F-mazda_flyby.png",
+      "dimensions": [
+        270,
+        480
+      ],
+      "sha256": "6a31255643ed790975c7c74af445949f0e341836b601475595a82775bc043852",
+      "method": "generated authored-situation guide reconstructed at room-native scale",
+      "frozen_anchor": "",
+      "approval": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "F-prop-duoqlo_bag",
+      "requirement": "Bedroom unlockable prop: duoqlo bag",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/F-prop-duoqlo_bag.png",
+      "dimensions": [
+        270,
+        480
+      ],
+      "sha256": "03320190eaaae55a91b069e7d3becc2d9b99df29386fb5d06cf933c0c97d7dbb",
+      "method": "generated prop guide reconstructed as additive bedroom overlay",
+      "frozen_anchor": "",
+      "approval": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "F-prop-jollof_trophy",
+      "requirement": "Bedroom unlockable prop: jollof trophy",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/F-prop-jollof_trophy.png",
+      "dimensions": [
+        270,
+        480
+      ],
+      "sha256": "a8aa92398dc3928f099312e80e19ce14c712b089b73ddad97b75b46dba7355b6",
+      "method": "generated prop guide reconstructed as additive bedroom overlay",
+      "frozen_anchor": "",
+      "approval": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "F-prop-michigan_pennant",
+      "requirement": "Bedroom unlockable prop: michigan pennant",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/F-prop-michigan_pennant.png",
+      "dimensions": [
+        270,
+        480
+      ],
+      "sha256": "576b5404fb9c9e8a255e28a6c01dc50335c6404091cfd55be6e0ac02f8c3d653",
+      "method": "generated prop guide reconstructed as additive bedroom overlay",
+      "frozen_anchor": "",
+      "approval": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "F-prop-plant",
+      "requirement": "Bedroom unlockable prop: plant",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/F-prop-plant.png",
+      "dimensions": [
+        270,
+        480
+      ],
+      "sha256": "96c3aa108b9a4dd0cd6922723c30fb65a7c641f90bafc9c648226e4060f64e38",
+      "method": "generated prop guide reconstructed as additive bedroom overlay",
+      "frozen_anchor": "",
+      "approval": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "F-prop-rookoko_painting",
+      "requirement": "Bedroom unlockable prop: rookoko painting",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/F-prop-rookoko_painting.png",
+      "dimensions": [
+        270,
+        480
+      ],
+      "sha256": "ad6338d6c9f42616754590f7f7c9287933f5424d363bef474eff10020380411e",
+      "method": "generated prop guide reconstructed as additive bedroom overlay",
+      "frozen_anchor": "",
+      "approval": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "F-prop-trippin_red_poster",
+      "requirement": "Bedroom unlockable prop: trippin red poster",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/F-prop-trippin_red_poster.png",
+      "dimensions": [
+        270,
+        480
+      ],
+      "sha256": "1dd8e4831e80767ecdda0945ab8d24cd47f9b02ddef3f210ddff0700b85cd7e5",
+      "method": "generated prop guide reconstructed as additive bedroom overlay",
+      "frozen_anchor": "",
+      "approval": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "F-prop-unused_cat_bed",
+      "requirement": "Bedroom unlockable prop: unused cat bed",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/F-prop-unused_cat_bed.png",
+      "dimensions": [
+        270,
+        480
+      ],
+      "sha256": "3f07ad4649c98e1d047d9addd88e21e8222908b5ee6220750f278c30a319f5f8",
+      "method": "generated prop guide reconstructed as additive bedroom overlay",
+      "frozen_anchor": "",
+      "approval": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "F-prop-waffle_mix_bag",
+      "requirement": "Bedroom unlockable prop: waffle mix bag",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/F-prop-waffle_mix_bag.png",
+      "dimensions": [
+        270,
+        480
+      ],
+      "sha256": "22321c475e36d084a49b67884c5be56c1644dc7d6ac9ed2357b340bc2ed112fe",
+      "method": "generated prop guide reconstructed as additive bedroom overlay",
+      "frozen_anchor": "",
+      "approval": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "F-rain_night_window",
+      "requirement": "rain night window",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/F-rain_night_window.png",
+      "dimensions": [
+        270,
+        480
+      ],
+      "sha256": "6eb78946955bcf0622d40197661cb9ec952b177df00d934aa0e252fe0d5cd4d7",
+      "method": "authored additive weather/sky overlay",
+      "frozen_anchor": "",
+      "approval": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "F-stars_night_sky",
+      "requirement": "stars night sky",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/F-stars_night_sky.png",
+      "dimensions": [
+        270,
+        480
+      ],
+      "sha256": "e662eb726991ab446c581fc0329dea3cc2bf210628bd058951eb6764b38c1008",
+      "method": "authored additive weather/sky overlay",
+      "frozen_anchor": "",
+      "approval": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "G-vol5-airport",
+      "requirement": "Vol. 5 location master: HEARTSFELT-JACKSUN international airport",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/G-vol5-airport.png",
+      "dimensions": [
+        270,
+        480
+      ],
+      "sha256": "527b1c0046288a1cacb44063a38eeef0346566bc574c969ddae185ad684c8440",
+      "method": "generated environment guide reconstructed and palette-cleaned at frozen native canvas",
+      "frozen_anchor": "",
+      "approval": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "H-bars",
+      "requirement": "Full UI treatment: BARS",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/H-bars.png",
+      "dimensions": [
+        270,
+        480
+      ],
+      "sha256": "eea05ec4a245daaa8888011c443c4a1de28d610c75ee84f1ee0dcd5ec4b8d5b4",
+      "method": "polished cartridge-native treatment preserving Engineering layout",
+      "frozen_anchor": "",
+      "approval": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "H-blood_bank_bill",
+      "requirement": "Full UI treatment: Blood Bank bill",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/H-blood_bank_bill.png",
+      "dimensions": [
+        270,
+        480
+      ],
+      "sha256": "10a73c82001584ace5920520c81ada9765c4aae55a0ef091cb391a8c478b666c",
+      "method": "polished cartridge-native treatment preserving Engineering layout",
+      "frozen_anchor": "",
+      "approval": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "H-garage",
+      "requirement": "Minigame visual treatment: GARAGE",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/H-garage.png",
+      "dimensions": [
+        270,
+        480
+      ],
+      "sha256": "6147a7d151e3e941c54c341c09bc8d908190a140764ff3c07bbebbb1d6fa4be8",
+      "method": "polished cartridge-native treatment preserving Engineering layout",
+      "frozen_anchor": "",
+      "approval": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "H-hatch",
+      "requirement": "Full UI treatment: HATCH",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/H-hatch.png",
+      "dimensions": [
+        270,
+        480
+      ],
+      "sha256": "5b6397fb225c3674c01824bbf93075e9fdf8693958117d2a3deb684eec3dd0a9",
+      "method": "polished cartridge-native treatment preserving Engineering layout",
+      "frozen_anchor": "",
+      "approval": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "H-hookah_rings",
+      "requirement": "Minigame visual treatment: HOOKAH RINGS",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/H-hookah_rings.png",
+      "dimensions": [
+        270,
+        480
+      ],
+      "sha256": "42aee0b78b582affc0842534cc011011381a029e9172cdab3bb91f9b9dc4162f",
+      "method": "polished cartridge-native treatment preserving Engineering layout",
+      "frozen_anchor": "",
+      "approval": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "H-jollof_wars",
+      "requirement": "Minigame visual treatment: JOLLOF WARS",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/H-jollof_wars.png",
+      "dimensions": [
+        270,
+        480
+      ],
+      "sha256": "1db18b22da025523bb0083de94b8b5f10f6bd5cfcde6a051e8d51d9359082b4c",
+      "method": "polished cartridge-native treatment preserving Engineering layout",
+      "frozen_anchor": "",
+      "approval": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "H-pickup",
+      "requirement": "Minigame visual treatment: PICKUP",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/H-pickup.png",
+      "dimensions": [
+        270,
+        480
+      ],
+      "sha256": "48578070b684d12ac8cd429d22a13d4d601155aefa27c5839598b184858896fc",
+      "method": "polished cartridge-native treatment preserving Engineering layout",
+      "frozen_anchor": "",
+      "approval": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "H-pier",
+      "requirement": "Full UI treatment: PIER",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/H-pier.png",
+      "dimensions": [
+        270,
+        480
+      ],
+      "sha256": "2f2fcbc8f2f69d762630f129837daaecd6f9d4a27f4f83fc6f6504397c55e051",
+      "method": "polished cartridge-native treatment preserving Engineering layout",
+      "frozen_anchor": "",
+      "approval": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "H-receipts",
+      "requirement": "Full UI treatment: RECEIPTS",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/H-receipts.png",
+      "dimensions": [
+        270,
+        480
+      ],
+      "sha256": "5edff704c4c1259814747240fb1a8269733f0d8163b75c995938837a382c7eee",
+      "method": "polished cartridge-native treatment preserving Engineering layout",
+      "frozen_anchor": "",
+      "approval": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "H-rich_radio",
+      "requirement": "Full UI treatment: RICH RADIO",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/H-rich_radio.png",
+      "dimensions": [
+        270,
+        480
+      ],
+      "sha256": "86ebd0248cde61050e7ad878309071f75b31d0a48a52594ceb34dfb47eabb275",
+      "method": "polished cartridge-native treatment preserving Engineering layout",
+      "frozen_anchor": "",
+      "approval": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "H-touge",
+      "requirement": "Full UI treatment: TOUGE",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/H-touge.png",
+      "dimensions": [
+        270,
+        480
+      ],
+      "sha256": "a1e896f767d7fb2abcf6a7e1c36394e502d3bc6a9eb82332afe3247b5743ca04",
+      "method": "polished cartridge-native treatment preserving Engineering layout",
+      "frozen_anchor": "",
+      "approval": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "H-vehicle_listing_cards",
+      "requirement": "Full UI treatment: vehicle listing cards",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/H-vehicle_listing_cards.png",
+      "dimensions": [
+        270,
+        480
+      ],
+      "sha256": "1a11e9f3a4aa74cecc581d4d9aab9b35b94eb979f515a8f03c82361d7b313356",
+      "method": "polished cartridge-native treatment preserving Engineering layout",
+      "frozen_anchor": "",
+      "approval": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    },
+    {
+      "id": "H-what_we_on",
+      "requirement": "Full UI treatment: WHAT WE ON",
+      "path": "art_department/ships/art_ship_014/native_candidates_v2/H-what_we_on.png",
+      "dimensions": [
+        270,
+        480
+      ],
+      "sha256": "758de1af66dc57bc3ebd29f8db25a1a8c59e8b78ca0ac4f1ee0e3dfdac8d783e",
+      "method": "polished cartridge-native treatment preserving Engineering layout",
+      "frozen_anchor": "",
+      "approval": "CANDIDATE \u2014 HQ REVIEW REQUIRED"
+    }
+  ],
+  "replacements": [
+    {
+      "id": "A-RICH-riding_mazda",
+      "rejected_sha256": "e365edfafe3852d99df503eea4ebf89609bbfabe6ca3814f3959cbe0e6cf130b",
+      "replacement_sha256": "515a83184edad584a1bf5f3e9e471c7e58438770ebc293e4678f869194110a77"
+    },
+    {
+      "id": "A-RICH-touge_locked",
+      "rejected_sha256": "4928b3a5b83e430fd2e2e44af9a3ab1d8adf6b78d9265a3fe9b4b8d7d5b7bafc",
+      "replacement_sha256": "cb4611f49fc1fed8a44763972fa6cb975556dd815e9a3322ce5b5d3eba529cee"
+    },
+    {
+      "id": "A-RICH-touge_spun",
+      "rejected_sha256": "4928b3a5b83e430fd2e2e44af9a3ab1d8adf6b78d9265a3fe9b4b8d7d5b7bafc",
+      "replacement_sha256": "03980acc74cea35c1b1487c31300ce92c395cfe07f19bafcd44ea280c09def4a"
+    },
+    {
+      "id": "A-anfeesa-dj",
+      "rejected_sha256": "4fba00e2846158f69116a48c08c29a85c78a9f9a8e6043f8e9304f49faa70d64",
+      "replacement_sha256": "2161b56c56fd8500a16d1ab174c69b042fa569ba04132b7109003d9afd141310"
+    },
+    {
+      "id": "A-bllad33-dry",
+      "rejected_sha256": "d34091ced073a5bdf5d83c73e9e38ec9a9239bd8fd6821afe9fa780fc083a259",
+      "replacement_sha256": "7123c10280bb80b91b937991ee9e4d6ff2c7d85f1f0caa120a84c9a3f4cc81d0"
+    },
+    {
+      "id": "A-brenda-date",
+      "rejected_sha256": "e8e450d8c31c3fd98cacfbc9c0b31c8f1a3213d1f956f4e493f42b98ef1eea26",
+      "replacement_sha256": "59289dbbfc7d3175e3627f7603a6336fac2ae851012b17d0134649aca45c4ca0"
+    },
+    {
+      "id": "A-brenda-gossiping",
+      "rejected_sha256": "85c57402b2d128fb11dcce5564ea1794a51f55f54e3d1c567d5136e758ae3b16",
+      "replacement_sha256": "d5064b1dfb68656bbda009d5d90ab970ce4491b2a1953fbb9d97a3a03458dfc8"
+    },
+    {
+      "id": "A-bunmi-bedroom_company",
+      "rejected_sha256": "2543d7e0c5d8bc73dc30acd906e6c44f8c6d8209f56f4c4960f8374891732521",
+      "replacement_sha256": "654130088ace207aa58418329805c2c607e11d052ec5c479d4294f538d15f9d5"
+    },
+    {
+      "id": "A-bunmi-date",
+      "rejected_sha256": "ca34ff57b8b0479aa6d21a752e642cc3a3ca352e0b6b0cd76f30d6ee56fabcb8",
+      "replacement_sha256": "c27c558468ad4f2cc5ec67b802f53ead5b6954f6a9d8470f01b0a85d6c5bdbd9"
+    },
+    {
+      "id": "A-cammile-bedroom",
+      "rejected_sha256": "71de4e7ad45be69763b13d863ef70d659cca72701b83776d04cad3e5a03a843d",
+      "replacement_sha256": "32250a4789b092a01fdecefbdfaebcfee6dda2e7f61902a4383d88f8931e47a3"
+    },
+    {
+      "id": "A-cammile-date",
+      "rejected_sha256": "ad972dc3c7142a0ae360a69b750dfff2f853b5a529de8c9fc2315842873a7470",
+      "replacement_sha256": "0d7b68992446ad6067289a6809106d8d1e0d04b0505b7f693c121b3f2719a1bb"
+    },
+    {
+      "id": "A-cammile-touge_spectator",
+      "rejected_sha256": "21bacf97a75ea7550560901c5d2dff4e1aa9df90afb1d4cbd39f28f8664e8951",
+      "replacement_sha256": "d4e0ddf1e5416ff2ed5db8bf097e6fff361819719186a2bac19cddcbadac1192"
+    },
+    {
+      "id": "A-ceo_assistant-bedroom",
+      "rejected_sha256": "369b783c6cd0d9192596b6e66468c0d0b0fb0d118e6199256da8f771283255f9",
+      "replacement_sha256": "23543ebf7e2edf7852f74745f04f620fed414c5353c4eae101f189144b8747f3"
+    },
+    {
+      "id": "A-ceo_assistant-date",
+      "rejected_sha256": "ae43183d26aefc5123c891927c39a86d817612a840a888b688822d707cdb2bc7",
+      "replacement_sha256": "920e4d3b5ff783051af352e5f2a014bb4bed504e193659077df48ba3497c0e0c"
+    },
+    {
+      "id": "A-coffe-caught",
+      "rejected_sha256": "ac6c068f7041088a1b647e6dda249eded2c25d1450dc446fb3791d8a292939de",
+      "replacement_sha256": "87c9bc6cb1ce0deb4be340a4e94ae9ca12b8461d87a5fcd952c31d2ae7449ba0"
+    },
+    {
+      "id": "A-coffe-hype",
+      "rejected_sha256": "46fe1455680450280404ae4e6e7aaffcec23e557b57340fa45a4a10abc38d409",
+      "replacement_sha256": "513915b71c79f7d1d7ee4d8085d7546bc5221442d70b40d1c887d43e40d94fb6"
+    },
+    {
+      "id": "A-don_chuy-singing",
+      "rejected_sha256": "12c2abbb856e5ad90ccb1dd4f1e8cc91d635c58f3676b366fe88ad6921082fd1",
+      "replacement_sha256": "f0f00cd10d94aa5b18d297883296f0cdae4820e8aa98e3ff2b1e001959c01ab0"
+    },
+    {
+      "id": "A-duchess-bedroom_company",
+      "rejected_sha256": "ac0a5afc6f520b0c9d9aee2b1b8704769e0106687787487ed378775974d68912",
+      "replacement_sha256": "1b70a2bae310fe1c957aa0cbf5d88603b4e11f3ad9e98ab8b4b485ecd4b1d37d"
+    },
+    {
+      "id": "A-duchess-impressed",
+      "rejected_sha256": "ca39fbdb381b7fbabbd20776716138eb9945a5f00acd7f6c5591ff1eecd6e6d0",
+      "replacement_sha256": "012af87a9319cf17c5aaacd91fbe1f680931c27af62eb48958dd11eea4c6bd42"
+    },
+    {
+      "id": "A-duchess-unimpressed",
+      "rejected_sha256": "df11681d857f17f47c5ab13207fad962be06bfebfc2a7af4c1d43ddf43ddafdb",
+      "replacement_sha256": "a3ad1e798434b549e2b2733db740af7d5dc4ab680d05a3a72744e0116a195b1b"
+    },
+    {
+      "id": "A-emberly-bedroom_company",
+      "rejected_sha256": "cdb56c015ce151ccc5efe674f443bf7eb0b3909ec7697a95d067665229a71d5c",
+      "replacement_sha256": "25db064a62dcadc0a8c510a73825a81b989d7736efb059028f85eb9f08e5baab"
+    },
+    {
+      "id": "A-emberly-date",
+      "rejected_sha256": "2c26617c7938c943f08114fdb7920bd4749d97322aaa2b66f53cf86e115cfcb7",
+      "replacement_sha256": "df9877653f4451c88d22c26404efd61414d1a8932c07361234d2dd3eeecc85d4"
+    },
+    {
+      "id": "A-family-dad-avatar",
+      "rejected_sha256": "dd63f61bb755bde91edcfb3b0db2d86eb606816a921f448a075ce3fe717008d0",
+      "replacement_sha256": "9baa0db02ae30bbb7a89ecde7afd3be6ba68352452504e5c0260c98c0ca61d0d"
+    },
+    {
+      "id": "A-family-mom-avatar",
+      "rejected_sha256": "8322ce370a4d1f6570a117a4210cf4023bb3252ae77537eed12c33373079d180",
+      "replacement_sha256": "8355f5f22c14b543b0048c03d0b422fd79ef526f60e5637a58aa616e827192a3"
+    },
+    {
+      "id": "A-family-sister-avatar",
+      "rejected_sha256": "15393971a06d44fe280354ef01ebfd4141963b269146a210e8c392f1d8173fa8",
+      "replacement_sha256": "8e60a5a4234ec6d81a0befbfd6615e624d1232f5f76e58f4fdedd3e24303325f"
+    },
+    {
+      "id": "A-hina-date",
+      "rejected_sha256": "578253e854d7ec5519ef913aedc6d4751faa0896a04f410538c5af12213ddd70",
+      "replacement_sha256": "da51425fbd3f526801ce1feacbeb6fbed4063b8ac730fac59bb7ed6f6a46f7f8"
+    },
+    {
+      "id": "A-hina-smug",
+      "rejected_sha256": "fd02e077de4c5c20e6afdc26c53ade74ce5e69356b5c7f1a6547546c0e59b3a1",
+      "replacement_sha256": "565fae403cb65446a6605eb89328755c71e4b13fdaf705c3f8ee7be1f7de7a4c"
+    },
+    {
+      "id": "A-jade-impressed",
+      "rejected_sha256": "7941c45ba2520e7fb6e786d0e98157a954755066b8fb644a8aeb1e0a9fab1020",
+      "replacement_sha256": "b1638cbfd314fe3826927367107926acb51831fd77e936cee4bf16acbcac205b"
+    },
+    {
+      "id": "A-june-bedroom",
+      "rejected_sha256": "c4188e7ca406b5bbbf9192f418cfb287114b6d0a4908a040a72bcc49eba09a18",
+      "replacement_sha256": "6ac4897acf36bd8d01d2361a9f89cca4d10c765325973cf8cca68633dec92806"
+    },
+    {
+      "id": "A-june-date",
+      "rejected_sha256": "0b973a187c9b95ec64feb514ea3f9147e2f8c677186a046a5b80394f68be8c90",
+      "replacement_sha256": "48e7f6c4c1d593d07a62683cb2cc8af48b79ea29580f1c26022d8ab45d55325a"
+    },
+    {
+      "id": "A-june-working",
+      "rejected_sha256": "c11800b3c150048978edbcf5d21a041d8651213abeef4b28836c81d97a01cfdd",
+      "replacement_sha256": "75c2050130a2f3344ca45aa2bcb662a8b8d3331f758af958bd61d68076f3c225"
+    },
+    {
+      "id": "A-kaede-bedroom_company",
+      "rejected_sha256": "0bdcc133b1aebba607446b6bc56d8c2a5314cab1d221bd26eeb7dd4177d14bd7",
+      "replacement_sha256": "cdd934287e95a39fb2fdf4803131b32b2f94d9bc3ef959bd898893408ad2591a"
+    },
+    {
+      "id": "A-kaede-ceiling_drop",
+      "rejected_sha256": "d7630acbab80959abcfc9eb67742ba842fab3749d831590e0fddcb9d2a335c8f",
+      "replacement_sha256": "f9a7ecf7cdc4733862f29551c41f1c20c42497cb4b97609dc6f1580559302d92"
+    },
+    {
+      "id": "A-kaede-date",
+      "rejected_sha256": "e26696f76b3089ae795beff77c9d746674767a6fb332639371d19c493a09aaff",
+      "replacement_sha256": "0bd6a734435ce0b54cddab918e006e81b157f2ceb044f74127a25c04068f66ec"
+    },
+    {
+      "id": "A-kiki-bedroom_company",
+      "rejected_sha256": "350b72adff7135359a05ada692ba85f7183136995f270eea8d363c3bddd8865a",
+      "replacement_sha256": "22ee399d9a7515e57446d6440e84be6e1f5d19a3990285bb77f0ef6e7a2f7bbd"
+    },
+    {
+      "id": "A-kiki-date",
+      "rejected_sha256": "89380655dc2ea2a69504df2e3040bfea8a6a89333f41400c733688f8cb98bb02",
+      "replacement_sha256": "e8286371a565fbe395317a97937a3fb5a19ae481d62b989b2503ef3f93b4430a"
+    },
+    {
+      "id": "A-kiki-laughing",
+      "rejected_sha256": "c82b854c2ebb65d912e8b7d345ab583f2c880378df711263624cf6ad60c2387b",
+      "replacement_sha256": "0a226a11aad34f10a9a5508aff71767eb693d88aa234fa4703f34c4b9c7e4e4d"
+    },
+    {
+      "id": "A-lil_smack-diss",
+      "rejected_sha256": "f522f74cbe181caa82e45c52e1e41918ddb875bfe86a76971c2c69c6bfa4aecf",
+      "replacement_sha256": "424daad2a605c2102ad431bf49092449f6452cd4627ae2f6813cf58da2950bc5"
+    },
+    {
+      "id": "A-lil_smack-finale",
+      "rejected_sha256": "a1b5ff01955c8632f1a98ea7f1ddc783ee4cc968999f5ba1d2e5518ddb970d39",
+      "replacement_sha256": "b34086de33b9eb27c9e4411944bc1547666b350a25f5be7088590dd36c0c0b59"
+    },
+    {
+      "id": "A-lo-arm_fall",
+      "rejected_sha256": "a21bec2690961aab84200d7ea3b4f6ad0542b09445e1b663c2edd14607c0bb18",
+      "replacement_sha256": "c69902507388bb4c81259baccde552170422b62f07ce9c44b88f9ad850c1a882"
+    },
+    {
+      "id": "A-lo-date",
+      "rejected_sha256": "09de2f2f7b1b7a9255d5eaf4b6cca95b957d0e48b6e97a888c9da625643d8ba0",
+      "replacement_sha256": "638698a1ac3332a7c7913529977743ef87bb98c13b22c1ec0225be4cba23917f"
+    },
+    {
+      "id": "A-marisol-date",
+      "rejected_sha256": "44a6369cdde23d39991ce2389e45d589eb6100e6e8668bcace3dc597fa367c8a",
+      "replacement_sha256": "ec13c8ce4f9e60fa9ff0b66633635d3a23315275fb6cbdb282c62e83c7959099"
+    },
+    {
+      "id": "A-marisol-disapproving",
+      "rejected_sha256": "32e1b7f7092bbfd3794c039d7a8792f976cf2eab18e07ceec9299f968fe84340",
+      "replacement_sha256": "11ef2f891e7481ef895a2c8c7bc6441370ad035e89383e645eb6f25d76c3ca84"
+    },
+    {
+      "id": "A-moonie-bedroom_company",
+      "rejected_sha256": "72252a78a61cb316b5aceeaf2f6b68fca533e14d6da5e07f2026000464268536",
+      "replacement_sha256": "4c7e52e7cb4208cd2d8b1ff7e70e863ab9fd531f88ce6f11f8faa16e16ea8040"
+    },
+    {
+      "id": "A-moonie-date",
+      "rejected_sha256": "ba4f74142550086ba0f068f89287d87db679ffa96c277e2ebc3b67bfec125d3f",
+      "replacement_sha256": "9fc1fb6ec5ef6cb7f2e33446aa671ba3a7dfea597b7ab984ae1042aab230d542"
+    },
+    {
+      "id": "A-ms_patrice-bedroom",
+      "rejected_sha256": "4f67fac9cd589c085529a597e8e1502f651eb8493555fac22aaeef06bcaaa909",
+      "replacement_sha256": "22ea285b7c913da7875e9e69c95c613db0444c6f011a5653fca9b91007bbc718"
+    },
+    {
+      "id": "A-ms_patrice-date",
+      "rejected_sha256": "7799c77619875b642eff7090682ba3bcdcd5bd896a4db18191c28cf80dc568cc",
+      "replacement_sha256": "0cd4704cbe61e8911d76eccffb498debe5496dee5e4c18d68e59bcb4d251b9f6"
+    },
+    {
+      "id": "A-ms_patrice-laugh",
+      "rejected_sha256": "08909fe775edcca03724645457071b8e3e77aadad3dbdcf4fe2c0e8c05efeaed",
+      "replacement_sha256": "1e17cd1fb48affdf17fbb6482d4116541831c2a46c0e380f09110174d3981c43"
+    },
+    {
+      "id": "A-nightshade-casting",
+      "rejected_sha256": "5535b95e458492534ba450834aa535eecd82556680820c91062d3cb19a0f9105",
+      "replacement_sha256": "8f598876a297569950ef227ebaa704fa27267c32cb626870e7079fd17a3f9419"
+    },
+    {
+      "id": "A-nightshade-date",
+      "rejected_sha256": "75f1d72649bf82f38a2541987b2e058135b42eec843d4a9b93120a81ec073e8b",
+      "replacement_sha256": "66698e838b7b3b99d1da8fe7d7037ad1805e2a16e3d93162213c85924c297d0e"
+    },
+    {
+      "id": "A-nneka-bedroom_company",
+      "rejected_sha256": "afcaf2016885341633e319522508e35a29d6b0b74ede1e44b3f2bbcb92f84aac",
+      "replacement_sha256": "e58a1ba22785f1ca1b4438a69fa743a92115d813a30d6c9a95b503bb40782f7c"
+    },
+    {
+      "id": "A-nneka-date",
+      "rejected_sha256": "1d3e5a3c2ce7012f10f64f0887628ac38d84d73f7b2c8cb45d56b0ec87623edf",
+      "replacement_sha256": "ba60fd84d78d54089578875c1157a6d118f2ab808aae3f7838c357f6fef30856"
+    },
+    {
+      "id": "A-nneka-handing_bill",
+      "rejected_sha256": "491ad1d0557986aa66fba19fb2cfae266c2dd4ba1b132ae5b6b25ee6697640f0",
+      "replacement_sha256": "a5159f30c066ca5d6d2f9df44c9e09c587c18569e6ddbe3a6fcc8faea7f6c15f"
+    },
+    {
+      "id": "A-officer_nodd-nod",
+      "rejected_sha256": "07c4fc9ca7aa09588d0dff63aa61e82dcf6405fd5d7ef2be591dd11a90b1c58c",
+      "replacement_sha256": "b80e9b52ddf93e952fb314bb3416b1908330ff952bff97e760d94c479b76616a"
+    },
+    {
+      "id": "A-officer_nodd-phone",
+      "rejected_sha256": "d2a1255a3ccf10088f02e243563670b068a401983be7d9c2bde858cec6317243",
+      "replacement_sha256": "0b0d69062843979c73a45abb89b2c0abf79aebf503a2845b4f7fd7b840de78d1"
+    },
+    {
+      "id": "A-pinky-bedroom_company",
+      "rejected_sha256": "6de7455f3ee20a6e2fb53f96d22054c8e9ad2b80d5a21e6e8a06337a2ea7eb6b",
+      "replacement_sha256": "e0de29ecc26ed200eadde3736ff0983b4fe59bb882d2c50a6bf6cd360363e89d"
+    },
+    {
+      "id": "A-pinky-date",
+      "rejected_sha256": "5fb1fca87bb9133feda0f62857f081a694ee96620af6d6f0c251bdec2c9ac597",
+      "replacement_sha256": "1a6d0d50106a7370e47bb0dd90a0e9ca310427a9232c1954de4206273f34d062"
+    },
+    {
+      "id": "A-pinky-impressed",
+      "rejected_sha256": "0dd5b3be3c74951072c3615910bf4235bb5abb139c5d2067e65e8f4ed721992c",
+      "replacement_sha256": "95e053ad253afeffed119d7ae3572e41ab04a2f032d222652567c54d0276af87"
+    },
+    {
+      "id": "A-rookoko-painting",
+      "rejected_sha256": "ca345fe733edb7ed1887b02e47db324e622a0b0b6703293f22504a7e78bc6950",
+      "replacement_sha256": "088e88be88ec74b259914b4e12ae7cddc5a414b88790835cb6a889e6ce9950b9"
+    },
+    {
+      "id": "A-tasha-bedroom_company",
+      "rejected_sha256": "56b12787f23f006e78a3fa9fddf996d9eedb998ffd23ebc1009d13c3dbf86ad9",
+      "replacement_sha256": "513f1edea0fc611175f66e17f073f16df241184afac929a6e746acf64aeba0f9"
+    },
+    {
+      "id": "A-tasha-date",
+      "rejected_sha256": "7a9e7892fd54af55dca2d83db326f54d9120de82c0a73d1dadca14e240760b02",
+      "replacement_sha256": "cfff4cbdda112eac735c6d95b2c478d74629972b4060489294f20b8b6b940010"
+    },
+    {
+      "id": "A-tasha-stage_rush",
+      "rejected_sha256": "a92cae62cbba7204ad2d8bc3d51bf5efb41d8f6f11214f617400445091ae87cb",
+      "replacement_sha256": "508eaede6fd4228ec9773da683fff6b9086be7229f89720a0b5f831465a1ae5a"
+    },
+    {
+      "id": "A-tristan-floor",
+      "rejected_sha256": "fa2ad9a091142409b74ce5dcba094fb1baf0162eaadb21614d91d4bad65fee88",
+      "replacement_sha256": "8ee941f02aa4e806b3e5a8e9cf72df0a25c3a4a7ce4c8c687edb9e86ea07b520"
+    },
+    {
+      "id": "A-tristan-laugh",
+      "rejected_sha256": "7173063c7188eb39fa6fd88f6b8bc7db63aef177d9fd8dd7e640958ffee31804",
+      "replacement_sha256": "e1b368f87b7d9a55163f0342e517e431c2ce8e8ed6184dbde506d289607c3758"
+    },
+    {
+      "id": "A-tristan-passenger",
+      "rejected_sha256": "43b372492f1d825fc016a3cf7883ef98cff8822359383a2e5b266c474f62da19",
+      "replacement_sha256": "2f430846238a4d02f139e72d1ce94f2086519ed0775d74d50bcc9fa3ad57e36d"
+    },
+    {
+      "id": "A-velvet-date",
+      "rejected_sha256": "3684f2aa094e4ee9f08371cf069010fb6643ddd3d74b66359a193780dedefbfc",
+      "replacement_sha256": "c8730d5cdfa9daefa6eb4999a9b505304eaf2b0a622eeea0f3f58af5a8511ea3"
+    },
+    {
+      "id": "A-vicky-doorway",
+      "rejected_sha256": "13a707e3a8ecdb43882adb0a688b02500a8f75776cf7ec658c8c37d0d8bd8efb",
+      "replacement_sha256": "2e8f1aa48797e6ff85d12360666e734a6e8e12d16b908f5f4701680c7f1a084a"
+    },
+    {
+      "id": "A-wispa-date",
+      "rejected_sha256": "4268a0a09f81e17e268184bddbbfc334c9cf414239c8f18e116b656e2d1b323f",
+      "replacement_sha256": "2828b94d8561731a1fa443756b529ad08f41b67744200c42d52e4bc7314c8521"
+    },
+    {
+      "id": "A-wispa-wave",
+      "rejected_sha256": "9d49ee61c537b1da8a3cfd23493d5f646c2b3fe058fc46a79fb650694116f694",
+      "replacement_sha256": "e80a09c69320db06a2816d64bf515652cd84d4d899df9c438ec00b36c820b319"
+    },
+    {
+      "id": "B-hatchling-happy",
+      "rejected_sha256": "777900c610777ad7b0deb33323979e89f18cf585550645a0e698eec1f6d90832",
+      "replacement_sha256": "f9b0fe53c4efd7c609da4cf62c58ba6d95ef65317229d29f1ef249560c174220"
+    },
+    {
+      "id": "B-hatchling-neutral",
+      "rejected_sha256": "e43490bf5d1036fcd1325897b290f6746ce790a32d351af3b542c249af52b190",
+      "replacement_sha256": "3d913f05eb4d0ec0a3d1c129a72161ce96db75fd01011aac54431e806e4c9660"
+    },
+    {
+      "id": "B-hatchling-sulk",
+      "rejected_sha256": "cc0bae697d6fbf8345c3a19e87c4b5f9cbdc732201d25d32b8dd04b731f2e68e",
+      "replacement_sha256": "28d79fc39dbf27ef2ace916105054a02b25dbd2a4d299fa29c5b83ac0d726f23"
+    },
+    {
+      "id": "B-human-bedroom",
+      "rejected_sha256": "1cdf239a587d113040344139ac6847d9e1f9ee8b563dc8c1786b80bcdf4d5298",
+      "replacement_sha256": "8421c3e43849e692f5033179b1372c3f4cdf56220c788262e37f61de54d56cfd"
+    },
+    {
+      "id": "B-human-eating",
+      "rejected_sha256": "2e2c7246ca6d1dc583c814659bbb0d0df18688db5c86adcad6c6767ddb979290",
+      "replacement_sha256": "06351af2bf6e0e48659d47a09d7b4cdf5912e5fbd14f0d452d574cd310928da9"
+    },
+    {
+      "id": "B-majestic-flying",
+      "rejected_sha256": "e43490bf5d1036fcd1325897b290f6746ce790a32d351af3b542c249af52b190",
+      "replacement_sha256": "9415358a00ca42bcbf097a653731e18215dc52d58b66f95f8adf42ee9b2fca11"
+    },
+    {
+      "id": "B-majestic-happy",
+      "rejected_sha256": "777900c610777ad7b0deb33323979e89f18cf585550645a0e698eec1f6d90832",
+      "replacement_sha256": "2bdbc15ac5c43807d8887fa6e728a31f96a81ed2509ee23ca320e36af0c0e7c5"
+    },
+    {
+      "id": "B-majestic-perched",
+      "rejected_sha256": "e43490bf5d1036fcd1325897b290f6746ce790a32d351af3b542c249af52b190",
+      "replacement_sha256": "258197c1a5a6c4dd34ab4a5bd07ad7fa78003eead7e30b7fa2c458c6fb3e7a8f"
+    },
+    {
+      "id": "B-riding-composite",
+      "rejected_sha256": "e365edfafe3852d99df503eea4ebf89609bbfabe6ca3814f3959cbe0e6cf130b",
+      "replacement_sha256": "5eaf04bab84f7408958ad90888581c936ddeb7e7785598597bb1173725dffc70"
+    },
+    {
+      "id": "B-young-happy",
+      "rejected_sha256": "777900c610777ad7b0deb33323979e89f18cf585550645a0e698eec1f6d90832",
+      "replacement_sha256": "454798b01e75bdea17d976f1308a92782c367659d2916910aec7b0918451b105"
+    },
+    {
+      "id": "B-young-neutral",
+      "rejected_sha256": "e43490bf5d1036fcd1325897b290f6746ce790a32d351af3b542c249af52b190",
+      "replacement_sha256": "820bd800af6ee4bccc1467aad8d9bee2a0dce9f9f4985ef588d26d712c5dc2d0"
+    },
+    {
+      "id": "B-young-sulk",
+      "rejected_sha256": "cc0bae697d6fbf8345c3a19e87c4b5f9cbdc732201d25d32b8dd04b731f2e68e",
+      "replacement_sha256": "bf5e18ca5e2388f550475f23bbe1a631ecbba00967032c8988d441770dcab6be"
+    },
+    {
+      "id": "D-aventador-listing",
+      "rejected_sha256": "cbb428bd0a79a505ff274d41b3f01a5272c88c0dec841cbf10ca1f0ed309d51e",
+      "replacement_sha256": "a93de85791a5a221a356fe987bc71e9b8ea1ee8a45ffbc5e138db0e0efea9da8"
+    },
+    {
+      "id": "D-aventador-world",
+      "rejected_sha256": "35ec7fd27078680382001914b6ee33bd7fa7e3a058307aaaebefbe9f8934d6d1",
+      "replacement_sha256": "68766b818de264380056f0be277a614250c7e617f29aaca5ac44628f95894190"
+    },
+    {
+      "id": "D-ferrari_f40-listing",
+      "rejected_sha256": "cbb428bd0a79a505ff274d41b3f01a5272c88c0dec841cbf10ca1f0ed309d51e",
+      "replacement_sha256": "4150227948f8b647551b8e16cf8d8c9809f6daecd136005ec7704bf1dc6fdd7b"
+    },
+    {
+      "id": "D-ferrari_f40-world",
+      "rejected_sha256": "ceaf166a0d60cf6abae5c2151a1ca6c947cdb0fe39323120e863ac6e9a8907dd",
+      "replacement_sha256": "ff4f7c06225c6a22624d4087250d24f6fbabd358179cb4d43a2bd0eccb6dce7d"
+    },
+    {
+      "id": "D-portobello-world",
+      "rejected_sha256": "89b3ff3e769f813a9f1c9683cd31be01aa24e2b2638ee95e1c3ec92b323d4662",
+      "replacement_sha256": "aae0ec32f8edeec22e6166576ed3a1ed9e1f4be5de17749333963844cdffa9b8"
+    },
+    {
+      "id": "D-r34-listing",
+      "rejected_sha256": "cbb428bd0a79a505ff274d41b3f01a5272c88c0dec841cbf10ca1f0ed309d51e",
+      "replacement_sha256": "07df7977570b031a5da10ce84a0e218f3ac63da0d2c330ec8aa63b2b2c9d8799"
+    },
+    {
+      "id": "D-r34-world",
+      "rejected_sha256": "d3c45fb101e460c927c651f54a9fd951579259132115773734379067613f6e0a",
+      "replacement_sha256": "d3785756e30e9fe119fdc436bf6fbacb3751f849877a5402622b8dbe9a64f6cc"
+    },
+    {
+      "id": "D-rival_a-touge",
+      "rejected_sha256": "ab0d155592834fd2faf5a7a53e4d2a633de5933a14796c375927fd993b043a70",
+      "replacement_sha256": "6cc4bfbbb2f3ace1732756fb44406d40b404ace3393ec84800e3635d3080d5d1"
+    },
+    {
+      "id": "D-rival_b-touge",
+      "rejected_sha256": "289de0f7c843ea7a24ee14b627868f0262d4436e105740c99fa342e9b002aa71",
+      "replacement_sha256": "9d81be1a7fb7252b702dc7859cdaba73318d91952b801e8c8193937388bcf5b7"
+    },
+    {
+      "id": "D-s15_bodykit-listing",
+      "rejected_sha256": "cbb428bd0a79a505ff274d41b3f01a5272c88c0dec841cbf10ca1f0ed309d51e",
+      "replacement_sha256": "59176c7d71dcf4c7c1f545431228ddea2584f4ac87387e1c993b92ed065878de"
+    },
+    {
+      "id": "D-s15_bodykit-world",
+      "rejected_sha256": "bad5b1fb8b3fb2aa915d84796488ffa28d6c66987767254341bcd805be51eab6",
+      "replacement_sha256": "58cf72acc3b03aaea3c807a7bfd5e4c4137540af62cd9398f78b67167b04d78c"
+    },
+    {
+      "id": "D-s15_stock-listing",
+      "rejected_sha256": "cbb428bd0a79a505ff274d41b3f01a5272c88c0dec841cbf10ca1f0ed309d51e",
+      "replacement_sha256": "aa6d559723b6044ccdd02453bf18968f8db410351f80cbd11cf0c8b4e51f59b2"
+    },
+    {
+      "id": "D-s15_stock-world",
+      "rejected_sha256": "bad5b1fb8b3fb2aa915d84796488ffa28d6c66987767254341bcd805be51eab6",
+      "replacement_sha256": "3965564e5923de9d20060989219b2eb833fbb3f87efe27dc18b1d419010c71da"
+    },
+    {
+      "id": "D-s2000_pink-listing",
+      "rejected_sha256": "cbb428bd0a79a505ff274d41b3f01a5272c88c0dec841cbf10ca1f0ed309d51e",
+      "replacement_sha256": "4719e2d2142c1f6c07ff1056e1312e60f4115bca035892d7545c4713116af172"
+    },
+    {
+      "id": "D-s2000_pink-world",
+      "rejected_sha256": "e2d90f61ebd9c959e1c30df6680796dfdedf392c76338947e2419070e3f32bfa",
+      "replacement_sha256": "033511f5215c122f464645a4cb9dfb7dec412f26eea45a9cd9553d9d2d32b599"
+    },
+    {
+      "id": "D-supra-listing",
+      "rejected_sha256": "cbb428bd0a79a505ff274d41b3f01a5272c88c0dec841cbf10ca1f0ed309d51e",
+      "replacement_sha256": "8e3f11d99f88f057a05a1ec7db07b8f4058820a5b33171a2be6a9c90088350d4"
+    },
+    {
+      "id": "D-urus-listing",
+      "rejected_sha256": "cbb428bd0a79a505ff274d41b3f01a5272c88c0dec841cbf10ca1f0ed309d51e",
+      "replacement_sha256": "67669f45665137fa3cff126f2e7e9dfe1cf6273ff84813bc7868b501a93642fb"
+    },
+    {
+      "id": "D-urus-world",
+      "rejected_sha256": "50a976fe35528c966dfb3bd00ed9c0bfb13ddcf224233699c7b752d0e3b8f238",
+      "replacement_sha256": "a14b9666fe523537311bd49d8ea7579e84223930e7bf468ea6b0a73f00d0fd79"
+    },
+    {
+      "id": "E-blood_bill",
+      "rejected_sha256": "d98db883c811110702efcbbc6dc0f1d1caed6dff599e78b959701f9d3e648bab",
+      "replacement_sha256": "c8d8fa4c6796986f79fa2484835a597a84ae6b7151dd0234ee24a75c8d3aa51b"
+    },
+    {
+      "id": "E-blood_held",
+      "rejected_sha256": "e4acc1982c057c31edd859976f5b8c62c88886e311430515e880b9c2aacec294",
+      "replacement_sha256": "c47515760195c9947b02cae5b360849d47350c69bcca69b0a94da29f1424c780"
+    },
+    {
+      "id": "E-bonesworth_sword",
+      "rejected_sha256": "bd5837a039f2f4efae42a5d3e2bf434a05571375481669aae49e8d4a0603bf9d",
+      "replacement_sha256": "8e266f3925da84ef7f53a5d623eaf6c9c272d74fc0ade506f3f022ecfe379222"
+    },
+    {
+      "id": "E-bread-torn",
+      "rejected_sha256": "c789d662d917f8afdd2639582dcddb86308745542d9198b0fbf5bfbc61c5e433",
+      "replacement_sha256": "a27480b7a5c21b16faa10c4e8a7d6c11da2e475f39d147b8928f3d77bfafd86e"
+    },
+    {
+      "id": "E-egg-bed",
+      "rejected_sha256": "01395f3f77f9c659439d86401bcf7dbfb097936d7c0bb5ac8b7ef6c7e8b5d3bb",
+      "replacement_sha256": "42a23bbcd3bd41eec011efdeaf87a5a4da22bfd20f12614aab3e672ac39e3bec"
+    },
+    {
+      "id": "E-egg-cracking",
+      "rejected_sha256": "18361014476ed1250f5f10919f6e3b0ea9d756613425b94dde354c301cfc9eeb",
+      "replacement_sha256": "1903f1fad129825f41f787522fee09a99bc23977983e724de049e9fb116643d6"
+    },
+    {
+      "id": "E-egg-held",
+      "rejected_sha256": "6432d03a943b8641ad47c2b2740b56ce13f9dea1d39b95c82ff79b93b9ed4902",
+      "replacement_sha256": "8fd554fe298ce2aab1eed6828213715ca672d06b1bc2caad1fb59bf803b29a81"
+    },
+    {
+      "id": "E-fit-black_leather_trench",
+      "rejected_sha256": "621577576475260ca8bdbea69906f738378c3a0865d613c979f881e851333cc5",
+      "replacement_sha256": "d4f363edcd60b78e3d2e597d3bd51b5690eb6aca75543180166263aeef76136d"
+    },
+    {
+      "id": "E-fit-boughi_v_blazer",
+      "rejected_sha256": "65301ed03aa95fee6dee1f1798820307eee2b3b923112e3a2b8aff48a439985b",
+      "replacement_sha256": "af166df4d8630ad64dec6fb6249f7a5da9fa5639744b615decc5b12b82c9dba3"
+    },
+    {
+      "id": "E-fit-church_shoes",
+      "rejected_sha256": "ffdcf6686d7af869b9624442c6707ffd446a24242e59c7ea92aa5b0c5bd194b0",
+      "replacement_sha256": "997f14a18a2331422043b38ab5008783f0073a6f4967648e847dfdff142e0481"
+    },
+    {
+      "id": "E-fit-drift_sneakers",
+      "rejected_sha256": "c91e89701e03b04c748e6a6f1d4d490c9d181ec3b99a5332b8aa13fe129fb198",
+      "replacement_sha256": "1e0a7328fc00b9bf13076d0d5de52d9463b76b21cd0628bcfa5655dd9061e9af"
+    },
+    {
+      "id": "E-fit-grave_hoodie",
+      "rejected_sha256": "add7d01a3ebe8a0507f945cfd28017e047e36a0277ff4f8d78998daa1085192a",
+      "replacement_sha256": "bdfd23e010d96903c11c702a188f686fe7786dc9aceb5f1e58ba4fdeb531e383"
+    },
+    {
+      "id": "E-fit-krada_shades",
+      "rejected_sha256": "b0eafd4148ae36653e80d8b3b57f36b6a53dbb63e56d25eb98d711d93c3df4e1",
+      "replacement_sha256": "ad6cea8f55ec0eb7a294b3faabe1bf0ba11ea97ef55ae1dc37031b0f1d2be4f9"
+    },
+    {
+      "id": "E-fit-slides",
+      "rejected_sha256": "132b35f6c6758456f3a608c674e4a889119ea4c411a19168834537d5546afa3d",
+      "replacement_sha256": "1737d525cac6f82a23114292564ad1b1f7dcb950e3b7ea58bdae0f64a3940a74"
+    },
+    {
+      "id": "E-fit-tradeya_hoes_chain",
+      "rejected_sha256": "4aac3bef0806060e9a5322ed32a14b38eed2f7fd1a4e366318ff7d6d7181126f",
+      "replacement_sha256": "dbfdd75c77a68ff3a9068c4400e6fd0481993ff64c0d79e13a57d4758735514e"
+    },
+    {
+      "id": "E-gun-chopstick_sniper-case",
+      "rejected_sha256": "3e7d9d5d847b20321ca518bbfaa4c95fcd1053e9757b1754bd091faa66c6a9d7",
+      "replacement_sha256": "1d331bf855ea725c1fe2f9810b44df0a3b0aa06df1a7f6c8d4893427ded85c9c"
+    },
+    {
+      "id": "E-gun-chopstick_sniper-held",
+      "rejected_sha256": "7818f70ad0ac386b74a174633969ce653d4fd8f8509a87759d1f2dbd0af6f233",
+      "replacement_sha256": "9f49c30bba4fd1a9a09fed62e239e4b65ec2f766c15a00e1f62d9d60fb533473"
+    },
+    {
+      "id": "E-gun-holy_baby_drake-case",
+      "rejected_sha256": "6d05bc3ffea6866a0b86c00502513d36bebc3dd5918a05d36b7f6eec94e1873a",
+      "replacement_sha256": "3218eba58a507fb6b6b925b8d1e8331e3eeac3d4a4486908af8d24ae5e4470de"
+    },
+    {
+      "id": "E-gun-holy_baby_drake-held",
+      "rejected_sha256": "23319843924f8ce397ee4198e9c24f51591de03b10cc54d8ad378dca83a82c2c",
+      "replacement_sha256": "87aed3944d522e709c0b4724516dd6a0a6ae03453dfe3ea3c2fdc31f67dac79f"
+    },
+    {
+      "id": "E-gun-lil_oga-case",
+      "rejected_sha256": "a72e2183a804615da49580894d160eb331b928ebeb9ecd128e516edc11339a65",
+      "replacement_sha256": "dbc0467906e27e21ee36a98830d38b2d3b7f8632401442ebb35d2f6ddbc8f293"
+    },
+    {
+      "id": "E-gun-lil_oga-held",
+      "rejected_sha256": "ee687c9958c9bf0991fad6359c95938c57893ea4b982d72fdcb25c68394e9821",
+      "replacement_sha256": "0202bef18e68b3610c80279d4eb6453395c444ccaaf5821a1afcdfc38531d50d"
+    },
+    {
+      "id": "E-gun-sapporo_shotgun-case",
+      "rejected_sha256": "0ec1b60293fe250d9f15ac47c17df231514aef82bf46d322aefa1421e93d225b",
+      "replacement_sha256": "054d05344aa3c851c0e01cc776937c29004c5f512dd12b91f92add6d11ee7967"
+    },
+    {
+      "id": "E-gun-sapporo_shotgun-held",
+      "rejected_sha256": "8cf2f4d7a1d51633a1834a8b027c96e3692a1b13dcdcfdfe3052eed03fc80333",
+      "replacement_sha256": "ae9ee599cb131cc827a5094515c185348a42a54ffda15de9d8d1481c848bb638"
+    },
+    {
+      "id": "E-gun-the_rpg-case",
+      "rejected_sha256": "74f03d646fc7e98c6f548131ef7902fef2ab3a7f3dea8a7dead1d073b34392d1",
+      "replacement_sha256": "194fc1b9b49672f1b18f46a5fd043ce8763fd2532b9fe81d73c05e078b9a46fa"
+    },
+    {
+      "id": "E-gun-the_rpg-held",
+      "rejected_sha256": "637ac90204f7388b8f910711e907c8858ffb9c2f0a1f8a5e38a9912923b789bc",
+      "replacement_sha256": "2e79d70d5f8d5f00936c227f44b755a471589909d1242f8979e33e6b8251859a"
+    },
+    {
+      "id": "E-item-boba",
+      "rejected_sha256": "3638f73ca990c7a9cda7d1bce908ecdb7b73faae81068d199b4d6d2d95eb4935",
+      "replacement_sha256": "b1b6b3d0ac4bfbcbc0ed6c9e98522919a6d65ddbcfa2dd3cc2fe3f46a1a23e23"
+    },
+    {
+      "id": "E-item-dragon_keef",
+      "rejected_sha256": "ac09d96dc486bc87f04bab3660fa945857cb3c961feb50a7f703c33b7a7049d1",
+      "replacement_sha256": "ec4f8250bac320ca4cf394a1c08b89e8a3bd70f310f9f16de7f6b750e3b5a231"
+    },
+    {
+      "id": "E-item-garlic_knots",
+      "rejected_sha256": "711e8e3a272cf92812b83e29f0cd3c386bce010bc9cc25fea53829f9da492b70",
+      "replacement_sha256": "a945835020a88b5d6445ab935f0c9f6e7ec527d8afd5021799232fa61e1dbb43"
+    },
+    {
+      "id": "E-item-jollof_takeout",
+      "rejected_sha256": "1e75cff42261a9db0b7ce3b2b6c0d160b840833dd49e01a4f08e46c79968de83",
+      "replacement_sha256": "63a04f64e5ab02aca1dc33f968d1e59a4583a5c4cfc19db4831685e8d7cdc459"
+    },
+    {
+      "id": "E-item-sapporo",
+      "rejected_sha256": "b00134756a6b400e3797af13ed21698f0ed983e402f38b121faa70eeacb064b4",
+      "replacement_sha256": "eb43501516740d809ae0219ad94ea16546a2bae0229a7ba2af4d6815b0b6bee0"
+    },
+    {
+      "id": "E-item-smelling_salts",
+      "rejected_sha256": "863bf3ca075e746bc7daad99546a8d35522b52d0d03d5a087557cf975381c3cc",
+      "replacement_sha256": "c9f433ce4d9e600622f52bd575b4bcf1d03175d7d04d2d04fba0f4e9e65afb04"
+    },
+    {
+      "id": "E-radio-bloodbath",
+      "rejected_sha256": "7202f43afd7b03d3531bec8e3e97fc824a482430c7529796fe385798358f227f",
+      "replacement_sha256": "48054b052a61de833ba666564166f7c58124070c1939e054db4662e10e7bbcb6"
+    },
+    {
+      "id": "E-radio-montana",
+      "rejected_sha256": "7ec947548624716784c3baf6fbcfd113c66f91b23198e857282eb8d722b2dc65",
+      "replacement_sha256": "0928c2f9be07c00bc5d43a3ca0023052e5366fa38a82bb3f34a61aed0ca7ec68"
+    },
+    {
+      "id": "E-radio-octopus_brain",
+      "rejected_sha256": "66c9aca692039cc382d189a9edb5a7a2e14ec5e14845197a36279c33fad3bedd",
+      "replacement_sha256": "bb593e5b41f60f1588795e98ec62c8fc367780e5fe1fe73ce22aca81a9a71744"
+    },
+    {
+      "id": "E-radio-playmakers",
+      "rejected_sha256": "785cf2d6e3091626c384487e2b31cde5091cc86577cc7c33c80208a57ee8e908",
+      "replacement_sha256": "3a0b62e2ce43d47aeb55c906fede4c3619859130933a3bb82d607be95902cdc8"
+    },
+    {
+      "id": "E-radio-shopping_addict",
+      "rejected_sha256": "c95b69489571d5e5b88b3162b1481c826e576bb6828a51b5086311b95d63f468",
+      "replacement_sha256": "dd1fdcffb4a5859d548d4520103b33d0b672158e7b992217ee608d1d3c6edd8a"
+    },
+    {
+      "id": "F-company_system",
+      "rejected_sha256": "71370cd703c295e39bc915022e3fddfa28fcd43141308db93af3eccbf3528ed6",
+      "replacement_sha256": "5d5da564a3205cf4db129fb245d4ed94e5beb1cbdefb9268ee99a3cab18bf26f"
+    },
+    {
+      "id": "F-covered_companion",
+      "rejected_sha256": "71370cd703c295e39bc915022e3fddfa28fcd43141308db93af3eccbf3528ed6",
+      "replacement_sha256": "ff4aedd2f699c661f35a7cbc6eb09a880e5c5216179a890c2672a73ef798522c"
+    },
+    {
+      "id": "F-homie_floor",
+      "rejected_sha256": "71370cd703c295e39bc915022e3fddfa28fcd43141308db93af3eccbf3528ed6",
+      "replacement_sha256": "e6841292e5640b60bf8851ddf8a7899f799468ea743563895eba9500f1459f24"
+    },
+    {
+      "id": "F-mazda_flyby",
+      "rejected_sha256": "71370cd703c295e39bc915022e3fddfa28fcd43141308db93af3eccbf3528ed6",
+      "replacement_sha256": "6a31255643ed790975c7c74af445949f0e341836b601475595a82775bc043852"
+    },
+    {
+      "id": "F-prop-duoqlo_bag",
+      "rejected_sha256": "71370cd703c295e39bc915022e3fddfa28fcd43141308db93af3eccbf3528ed6",
+      "replacement_sha256": "03320190eaaae55a91b069e7d3becc2d9b99df29386fb5d06cf933c0c97d7dbb"
+    },
+    {
+      "id": "F-prop-jollof_trophy",
+      "rejected_sha256": "71370cd703c295e39bc915022e3fddfa28fcd43141308db93af3eccbf3528ed6",
+      "replacement_sha256": "a8aa92398dc3928f099312e80e19ce14c712b089b73ddad97b75b46dba7355b6"
+    },
+    {
+      "id": "F-prop-michigan_pennant",
+      "rejected_sha256": "ec832136d53be0680842d5aad16bc20c820768425f8786cafe30a0e21217d7c7",
+      "replacement_sha256": "576b5404fb9c9e8a255e28a6c01dc50335c6404091cfd55be6e0ac02f8c3d653"
+    },
+    {
+      "id": "F-prop-plant",
+      "rejected_sha256": "cfa886bb3bc33593d5c7afa4ba6dc0975841eb356ab627b17a0ce9f7e012300a",
+      "replacement_sha256": "96c3aa108b9a4dd0cd6922723c30fb65a7c641f90bafc9c648226e4060f64e38"
+    },
+    {
+      "id": "F-prop-rookoko_painting",
+      "rejected_sha256": "d5391f14735ca813920f4a5b688cd4823698350c734a0c512ab08d72eaf4f404",
+      "replacement_sha256": "ad6338d6c9f42616754590f7f7c9287933f5424d363bef474eff10020380411e"
+    },
+    {
+      "id": "F-prop-trippin_red_poster",
+      "rejected_sha256": "185a4f50e28241155558c51e48f22a8c42a611f83e69993cd2a8e9de1a22f9ae",
+      "replacement_sha256": "1dd8e4831e80767ecdda0945ab8d24cd47f9b02ddef3f210ddff0700b85cd7e5"
+    },
+    {
+      "id": "F-prop-unused_cat_bed",
+      "rejected_sha256": "71370cd703c295e39bc915022e3fddfa28fcd43141308db93af3eccbf3528ed6",
+      "replacement_sha256": "3f07ad4649c98e1d047d9addd88e21e8222908b5ee6220750f278c30a319f5f8"
+    },
+    {
+      "id": "F-prop-waffle_mix_bag",
+      "rejected_sha256": "71370cd703c295e39bc915022e3fddfa28fcd43141308db93af3eccbf3528ed6",
+      "replacement_sha256": "22321c475e36d084a49b67884c5be56c1644dc7d6ac9ed2357b340bc2ed112fe"
+    },
+    {
+      "id": "F-rain_night_window",
+      "rejected_sha256": "d89ba8a59786db5cabccbf9b984f38f170de2139a8008e99c8bfbf493c1934da",
+      "replacement_sha256": "6eb78946955bcf0622d40197661cb9ec952b177df00d934aa0e252fe0d5cd4d7"
+    },
+    {
+      "id": "F-stars_night_sky",
+      "rejected_sha256": "fbc56aaf1168737ca35a134a61eeaadefcf63fcb5af63a5ed40aac1754159751",
+      "replacement_sha256": "e662eb726991ab446c581fc0329dea3cc2bf210628bd058951eb6764b38c1008"
+    },
+    {
+      "id": "G-vol5-airport",
+      "rejected_sha256": "492597bf3d77f33d4be724516b86a18714fc65b92b16b1c2c65f83f34f6e88bb",
+      "replacement_sha256": "527b1c0046288a1cacb44063a38eeef0346566bc574c969ddae185ad684c8440"
+    },
+    {
+      "id": "H-bars",
+      "rejected_sha256": "791dc23f18ae8484ed48fb296849afc2f3a2436d18aaca8a6bf1ed898c870650",
+      "replacement_sha256": "eea05ec4a245daaa8888011c443c4a1de28d610c75ee84f1ee0dcd5ec4b8d5b4"
+    },
+    {
+      "id": "H-blood_bank_bill",
+      "rejected_sha256": "df2c4826c14afc711490b2801439ab274c90d554c6ac1f809eaf6b61b14216d0",
+      "replacement_sha256": "10a73c82001584ace5920520c81ada9765c4aae55a0ef091cb391a8c478b666c"
+    },
+    {
+      "id": "H-garage",
+      "rejected_sha256": "959cecb22f02e16f51ae22cd77d7993fd59760e3dea94445cc3023b7f55d6a18",
+      "replacement_sha256": "6147a7d151e3e941c54c341c09bc8d908190a140764ff3c07bbebbb1d6fa4be8"
+    },
+    {
+      "id": "H-hatch",
+      "rejected_sha256": "94253839eb58fb961227085f7dc31109b98d40f01599caaeae14be61e19378bf",
+      "replacement_sha256": "5b6397fb225c3674c01824bbf93075e9fdf8693958117d2a3deb684eec3dd0a9"
+    },
+    {
+      "id": "H-hookah_rings",
+      "rejected_sha256": "765895601826735479bfb794013d576141d9d24eb7d034eca6158fd3ab29bdda",
+      "replacement_sha256": "42aee0b78b582affc0842534cc011011381a029e9172cdab3bb91f9b9dc4162f"
+    },
+    {
+      "id": "H-jollof_wars",
+      "rejected_sha256": "8a5f4c276fdc1b77a85f5da356858c55d9a7a09788b6b00b6332b6203e2d0256",
+      "replacement_sha256": "1db18b22da025523bb0083de94b8b5f10f6bd5cfcde6a051e8d51d9359082b4c"
+    },
+    {
+      "id": "H-pickup",
+      "rejected_sha256": "51322a3696b0b503479be6dcff69518763605d728619e6bb13a3402216e8b08d",
+      "replacement_sha256": "48578070b684d12ac8cd429d22a13d4d601155aefa27c5839598b184858896fc"
+    },
+    {
+      "id": "H-pier",
+      "rejected_sha256": "f5130ccea5666660415445b7501b0714d4714a3863813dcef763edc4d8d8e08f",
+      "replacement_sha256": "2f2fcbc8f2f69d762630f129837daaecd6f9d4a27f4f83fc6f6504397c55e051"
+    },
+    {
+      "id": "H-receipts",
+      "rejected_sha256": "e934f6b84b558e0117c8b4719e7ff6bca1c57171928665e3be5528962051e3aa",
+      "replacement_sha256": "5edff704c4c1259814747240fb1a8269733f0d8163b75c995938837a382c7eee"
+    },
+    {
+      "id": "H-rich_radio",
+      "rejected_sha256": "5f22bad37b47d3209752e8da5a9b9f68911f8fb9f6917148e716879fc019e92a",
+      "replacement_sha256": "86ebd0248cde61050e7ad878309071f75b31d0a48a52594ceb34dfb47eabb275"
+    },
+    {
+      "id": "H-touge",
+      "rejected_sha256": "d080772695d54cc5c2336fb304654d5cdeac6a3acc9c3c053887cd16daa8d82d",
+      "replacement_sha256": "a1e896f767d7fb2abcf6a7e1c36394e502d3bc6a9eb82332afe3247b5743ca04"
+    },
+    {
+      "id": "H-vehicle_listing_cards",
+      "rejected_sha256": "8e4cc7d9efaaeeb424224593459f5975e71597096fa239f62decdf618bc2d05c",
+      "replacement_sha256": "1a11e9f3a4aa74cecc581d4d9aab9b35b94eb979f515a8f03c82361d7b313356"
+    },
+    {
+      "id": "H-what_we_on",
+      "rejected_sha256": "4a95eae485e2d96cb2fdd2737747819c67fa703ed162c64c0d087ad030599799",
+      "replacement_sha256": "758de1af66dc57bc3ebd29f8db25a1a8c59e8b78ca0ac4f1ee0e3dfdac8d783e"
+    }
+  ]
+}

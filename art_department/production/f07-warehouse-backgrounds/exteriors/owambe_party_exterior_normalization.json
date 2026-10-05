@@ -1,0 +1,99 @@
+{
+  "asset": "STOVE G / Owambe party warehouse exterior",
+  "status": "PRODUCTION CANDIDATE \u2014 normalized from Ube-approved frozen v2",
+  "source": "C:\\Users\\Ube\\Documents\\Codex\\2026-10-01\\stove-g-warehouse-exterior-background-candidate\\outputs\\stove-g-warehouse-exterior-candidate-v2.png",
+  "source_sha256": "fabab780c14a0a8615bb56eb5680ce9f08057923faa4dced4d5f5d83e8b85fe1",
+  "source_dimensions": [
+    941,
+    1672
+  ],
+  "output": "C:\\Users\\Ube\\Documents\\Codex\\2026-10-01\\stove-g-warehouse-exterior-background-candidate\\outputs\\owambe_party_exterior_270x480.png",
+  "output_sha256": "0f62562efa01e6023858e092bd72c40c3c757009a63d1bb1157e0fef528abd14",
+  "output_dimensions": [
+    270,
+    480
+  ],
+  "mode": "RGB (opaque)",
+  "enlarged_preview": "C:\\Users\\Ube\\Documents\\Codex\\2026-10-01\\stove-g-warehouse-exterior-background-candidate\\outputs\\owambe_party_exterior_preview_1080x1920.png",
+  "enlarged_preview_dimensions": [
+    1080,
+    1920
+  ],
+  "transformation": {
+    "library": "Pillow",
+    "version": "12.3.0",
+    "resampling": "Image.Resampling.NEAREST",
+    "source_sampling_box_left_top_right_bottom": [
+      0.25,
+      0.0,
+      940.75,
+      1672.0
+    ],
+    "crop": "0.25 source pixel from each horizontal edge; 0 vertical; no padding",
+    "uniform_scale": "480/1672 = 60/209",
+    "source_pixel_mapping": "sx=floor(0.25+(x+0.5)*209/60); sy=floor((y+0.5)*209/60)",
+    "preview": "4x nearest-neighbor enlargement of normalized PNG",
+    "no_other_pixel_processing": true
+  },
+  "authority": {
+    "visual_authority_sha_user_supplied": "31ac1bfe6eddb04786fb6fffded69e6d8fa0b643",
+    "source_approval": "Ube approved Warehouse Exterior v2 in this chat",
+    "story": "User-supplied Patch1 NEW OGA \u00a77"
+  },
+  "measurements": {
+    "coordinate_convention": "270x480 grid; origin top-left; x right, y down; rectangles use exclusive right/bottom",
+    "method": "Visual measurement of normalized pixels in 4x nearest-neighbor preview; approximately +/-1 pixel for illustrated boundaries; no objects moved",
+    "blank_sign_face_rect_xywh": [
+      54,
+      104,
+      163,
+      30
+    ],
+    "blank_sign_face_center_xy": [
+      135,
+      119
+    ],
+    "sign_frame_outer_rect_xywh": [
+      50,
+      100,
+      171,
+      39
+    ],
+    "conservative_text_safe_rect_xywh": [
+      58,
+      108,
+      154,
+      22
+    ],
+    "entrance_open_aperture_rect_xywh": [
+      81,
+      178,
+      125,
+      99
+    ],
+    "entrance_aperture_center_xy": [
+      143.5,
+      227.5
+    ],
+    "entrance_threshold_center_xy": [
+      143.5,
+      277
+    ],
+    "ground": {
+      "threshold_y": 277,
+      "sidewalk_strip_y_range": [
+        277,
+        286
+      ],
+      "parking_lot_foreground_y_range": [
+        286,
+        480
+      ],
+      "clear_arrival_strip_y_range": [
+        330,
+        368
+      ]
+    }
+  },
+  "self_check": "Source hash unchanged; output RGB and 270x480; all 129600 output pixels match exact nearest-neighbor source sampling; blank sign and composition retained; preview is 4x nearest-neighbor. No lettering or runtime integration."
+}

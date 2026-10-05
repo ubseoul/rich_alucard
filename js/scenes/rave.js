@@ -6,22 +6,25 @@
     const phaseById=new Map((definition.phases||[]).map(phase=>[phase.id,phase]));
     const root=document.createElement('section');root.className='rave-scene';root.setAttribute('aria-label',"Ogun's Rave stage");
     const addImage=(className,src,alt='')=>{const img=document.createElement('img');img.className=className;img.src=src;img.alt=alt;img.draggable=false;root.append(img);return img;};
-    addImage('rave-environment',contract.environment);
+    const envImg=addImage('rave-environment',contract.environment);
     const rich=addImage('rave-rich',contract.actors.rich.states.neutral,'Rich');
     const ogun=addImage('rave-ogun',contract.actors.ogun.states.neutral,'Ogun');
     const extraActors={};
     for(const slot of Object.keys(contract.actors))if(slot!=='rich'&&slot!=='ogun')extraActors[slot]=addImage(`rave-actor rave-actor-${slot} rave-actor-hidden`,contract.actors[slot].states.neutral,slot);
-    addImage('rave-foreground',contract.foreground.asset);
-    const dialogue=document.createElement('div');dialogue.className='rave-dialogue';dialogue.hidden=true;dialogue.setAttribute('role','status');root.append(dialogue);
-    const partyPanel=document.createElement('div');partyPanel.className='rave-party-panel';partyPanel.hidden=true;root.append(partyPanel);
+    const foreground=addImage('rave-foreground',contract.foreground.asset);
+    const dialogue=document.createElement('div');dialogue.className='rave-dialogue';dialogue.dataset.pdUi='dialogue';dialogue.hidden=true;dialogue.setAttribute('role','status');root.append(dialogue);
+    const partyPanel=document.createElement('div');partyPanel.className='rave-party-panel';partyPanel.dataset.pdUi='choices';partyPanel.hidden=true;root.append(partyPanel);
     const partyPrompt=document.createElement('p');partyPrompt.className='rave-party-prompt';partyPanel.append(partyPrompt);
     const partyBehaviors=document.createElement('div');partyBehaviors.className='rave-party-behaviors';partyPanel.append(partyBehaviors);
     const partyReaction=document.createElement('p');partyReaction.className='rave-party-reaction';partyPanel.append(partyReaction);
     const partyAction=document.createElement('button');partyAction.type='button';partyAction.className='rave-party-action';partyPanel.append(partyAction);
     for(const behavior of RAPartyBehaviors){const button=document.createElement('button');button.type='button';button.dataset.behavior=behavior.id;button.textContent=behavior.label;partyBehaviors.append(button);}
-    const choices=document.createElement('div');choices.className='rave-choices';choices.hidden=true;root.append(choices);
+    const choices=document.createElement('div');choices.className='rave-choices';choices.dataset.pdUi='choices';choices.hidden=true;root.append(choices);
     const overlay=document.createElement('canvas');overlay.width=270;overlay.height=480;overlay.className='rave-contract-overlay';overlay.hidden=true;root.append(overlay);
     host.append(root);
+    // Presentation Director (Wave 3): camera, actor size and the speaker foreground layer come from the Director.
+    const directed=!review&&!!window.RAPresentationDirector&&!window.__pdLegacy;
+    if(directed)RAPresentationDirector.enterMounted({stage:stageId,host:root,scope,env:envImg,actors:{rich,ogun,...extraActors},overlays:[foreground]});
     if(!review){
       const previousFocus=document.activeElement;
       const siblings=[...host.children].filter(node=>node!==root).map(node=>[node,node.inert]);
@@ -32,6 +35,7 @@
     let depthProbe=false;
     function rectStyle(node,rect){const bounds=root.getBoundingClientRect(),native=contract.native;Object.assign(node.style,{left:`${rect.x*bounds.width/native.width}px`,top:`${rect.y*bounds.height/native.height}px`,width:`${rect.width*bounds.width/native.width}px`,height:`${rect.height*bounds.height/native.height}px`});}
     function layout(){
+      if(directed){RAPresentationDirector.relayout();dialogue.style.fontSize=choices.style.fontSize=`${8*root.getBoundingClientRect().width/contract.native.width}px`;return}
       const stage=depthProbe?{...contract,actors:{...contract.actors,rich:{...contract.actors.rich,anchor:{x:12,y:320}}}}:contract;
       const bounds=root.getBoundingClientRect();
       for(const [slot,node] of [['rich',rich],['ogun',ogun],...Object.entries(extraActors)]){

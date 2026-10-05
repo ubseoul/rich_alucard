@@ -1,0 +1,222 @@
+[
+  {
+    "id": "party_hall_sparse",
+    "status": "REVIEW EVIDENCE ONLY \u2014 NOT A RUNTIME MAPPING",
+    "environment": "assets/before_the_fame/environments/party_hall/party_hall_empty_270x480.png",
+    "environment_sha256": "5987874f3b8407ce3ca9b7906871cb189c1766df59e9c0215bd7aad7763efc40",
+    "placements": [
+      {
+        "asset_id": "nightlife_population.performer",
+        "contact": [
+          133,
+          267
+        ],
+        "scale": 1
+      },
+      {
+        "asset_id": "nightlife_population.dancer",
+        "contact": [
+          55,
+          335
+        ],
+        "scale": 1
+      },
+      {
+        "asset_id": "nightlife_population.dancing_pair",
+        "contact": [
+          213,
+          354
+        ],
+        "scale": 1
+      }
+    ],
+    "scale": 1,
+    "candidate_layer_origin": [
+      0,
+      0
+    ],
+    "baked_into_environment_master": false
+  },
+  {
+    "id": "party_hall_dense",
+    "status": "REVIEW EVIDENCE ONLY \u2014 NOT A RUNTIME MAPPING",
+    "environment": "assets/before_the_fame/environments/party_hall/party_hall_empty_270x480.png",
+    "environment_sha256": "5987874f3b8407ce3ca9b7906871cb189c1766df59e9c0215bd7aad7763efc40",
+    "placements": [
+      {
+        "asset_id": "nightlife_population.dense_cluster",
+        "contact": [
+          65,
+          340
+        ],
+        "scale": 1
+      },
+      {
+        "asset_id": "nightlife_population.dancing_pair",
+        "contact": [
+          210,
+          354
+        ],
+        "scale": 1
+      },
+      {
+        "asset_id": "nightlife_population.dancer",
+        "contact": [
+          44,
+          386
+        ],
+        "scale": 1
+      },
+      {
+        "asset_id": "nightlife_population.foreground_silhouettes",
+        "contact": [
+          211,
+          426
+        ],
+        "scale": 1
+      }
+    ],
+    "scale": 1,
+    "candidate_layer_origin": [
+      0,
+      0
+    ],
+    "baked_into_environment_master": false
+  },
+  {
+    "id": "catacomb_performance",
+    "status": "REVIEW EVIDENCE ONLY \u2014 NOT A RUNTIME MAPPING",
+    "environment": "assets/before_the_fame/environments/catacomb/catacomb_empty_270x480.png",
+    "environment_sha256": "863f1c965a4713c570333e0c10291a56c6fc29ca1008afb76200d832588c3fa4",
+    "placements": [
+      {
+        "asset_id": "nightlife_population.performer",
+        "contact": [
+          133,
+          291
+        ],
+        "scale": 1
+      },
+      {
+        "asset_id": "nightlife_population.dense_cluster",
+        "contact": [
+          67,
+          369
+        ],
+        "scale": 1
+      },
+      {
+        "asset_id": "nightlife_population.foreground_silhouettes",
+        "contact": [
+          207,
+          422
+        ],
+        "scale": 1
+      }
+    ],
+    "scale": 1,
+    "candidate_layer_origin": [
+      0,
+      0
+    ],
+    "baked_into_environment_master": false
+  },
+  {
+    "id": "rooftop_social",
+    "status": "REVIEW EVIDENCE ONLY \u2014 NOT A RUNTIME MAPPING",
+    "environment": "assets/before_the_fame/environments/rooftop_dtla/downtown_la_rooftop_party_270x480.png",
+    "environment_sha256": "af41cbb7c045a55848421434e14e9e122dabc61becc2d1c2dcc1fb1ceebf5ebf",
+    "placements": [
+      {
+        "asset_id": "nightlife_population.queue_pair",
+        "contact": [
+          58,
+          327
+        ],
+        "scale": 1
+      },
+      {
+        "asset_id": "nightlife_population.affectionate_pair",
+        "contact": [
+          218,
+          337
+        ],
+        "scale": 1
+      },
+      {
+        "asset_id": "nightlife_population.dancing_pair",
+        "contact": [
+          203,
+          401
+        ],
+        "scale": 1
+      }
+    ],
+    "scale": 1,
+    "candidate_layer_origin": [
+      0,
+      0
+    ],
+    "baked_into_environment_master": false
+  },
+  {
+    "id": "roof_lounge",
+    "status": "REVIEW EVIDENCE ONLY \u2014 NOT A RUNTIME MAPPING",
+    "environment": "assets/before_the_fame/environments/roof/castle_roof_hookah_270x480.png",
+    "environment_sha256": "c69ecdd37591ba999e1b5f87eb8f1192ab1364d41cb35037e93e27f9e7782545",
+    "placements": [
+      {
+        "asset_id": "nightlife_population.hookah_lounge",
+        "contact": [
+          195,
+          367
+        ],
+        "scale": 1
+      },
+      {
+        "asset_id": "nightlife_population.affectionate_pair",
+        "contact": [
+          58,
+          365
+        ],
+        "scale": 1
+      }
+    ],
+    "scale": 1,
+    "candidate_layer_origin": [
+      0,
+      0
+    ],
+    "baked_into_environment_master": false
+  },
+  {
+    "id": "castle_entry",
+    "status": "REVIEW EVIDENCE ONLY \u2014 NOT A RUNTIME MAPPING",
+    "environment": "assets/before_the_fame/environments/castle_exterior/castle_exterior_party_270x480.png",
+    "environment_sha256": "fe641074f4aff48cef9ac59146216f35ae44b98f6702581b46a96204561f72ec",
+    "placements": [
+      {
+        "asset_id": "nightlife_population.queue_pair",
+        "contact": [
+          61,
+          354
+        ],
+        "scale": 1
+      },
+      {
+        "asset_id": "nightlife_population.affectionate_pair",
+        "contact": [
+          209,
+          374
+        ],
+        "scale": 1
+      }
+    ],
+    "scale": 1,
+    "candidate_layer_origin": [
+      0,
+      0
+    ],
+    "baked_into_environment_master": false
+  }
+]

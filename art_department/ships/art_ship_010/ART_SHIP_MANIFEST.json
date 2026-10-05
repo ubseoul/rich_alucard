@@ -1,0 +1,77 @@
+{
+  "schema_version": 1,
+  "ship_id": "ART SHIP 010",
+  "title": "CAST + PARTY COMPLETION",
+  "status": "APPROVED MASTER / FROZEN / COMPLETE",
+  "authorization": "Explicit HQ PASS supplied 2026-09-26 approving all four candidates for byte-for-byte promotion and freeze.",
+  "spoiler_classification": "OPEN production; internal boards PLAYER-BLIND / reviewer-only",
+  "approval_claimed": true,
+  "frozen_claimed": true,
+  "runtime_integrated": false,
+  "accepted_candidate_checkpoint": "a1e265d0f28a75d2e5f6a1dd67a0ebdff02cd4ab",
+  "promotion_authority": "HQ PASS — ART SHIP 010 CANDIDATES APPROVED FOR PROMOTION",
+  "promotion_policy": "All four submitted native candidates promoted byte-for-byte; no regeneration or pixel revision.",
+  "frozen_corpus_before": 199,
+  "frozen_corpus_after": 203,
+  "register_entries_before": 339,
+  "register_entries_after": 343,
+  "base": {
+    "branch": "claude/art-ship-009-integration",
+    "commit": "5af730a132c035f6f2f5afb20eef5149ca3f2761"
+  },
+  "branch": "art/art_ship_010",
+  "native_asset_count": 4,
+  "files": [
+    {
+      "request_id": "AS10-RICH-PORTO-STANDING",
+      "runtime_asset_id": "rich_portobello",
+      "candidate_path": "art_department/ships/art_ship_010/candidates/native/characters/rich_portobello_standing_80x96.png",
+      "approved_path": "assets/before_the_fame/characters/rich_portobello/rich_portobello_standing_80x96.png",
+      "sha256": "022a83c5c5adae243820241af7eb4d66b7c1be9cb19ed4eaf1ed7973af38ce27",
+      "dimensions": [80, 96],
+      "mode": "RGBA",
+      "status": "APPROVED MASTER / FROZEN",
+      "runtime_surfaces": ["portobello_bedroom"],
+      "intentional_variant": "Portobello Rich short-hair transformation; explicitly authorized, not identity drift."
+    },
+    {
+      "request_id": "AS10-RICH-PORTO-PRESENTING",
+      "runtime_asset_id": "rich_portobello.presenting",
+      "candidate_path": "art_department/ships/art_ship_010/candidates/native/characters/rich_portobello_presenting_80x96.png",
+      "approved_path": "assets/before_the_fame/characters/rich_portobello/rich_portobello_presenting_80x96.png",
+      "sha256": "3803ef5e8b3caa8cecc035613b2dd1f2d94901b505541a95b1eb7e320bcabb25",
+      "dimensions": [80, 96],
+      "mode": "RGBA",
+      "status": "APPROVED MASTER / FROZEN",
+      "runtime_surfaces": ["portobello_office"],
+      "intentional_variant": "Portobello Rich short-hair transformation; explicitly authorized, not identity drift."
+    },
+    {
+      "request_id": "AS10-RICH-PORTO-PORCH-SEATED",
+      "runtime_asset_id": "rich_portobello.porch_seated",
+      "candidate_path": "art_department/ships/art_ship_010/candidates/native/characters/rich_portobello_porch_seated_80x96.png",
+      "approved_path": "assets/before_the_fame/characters/rich_portobello/rich_portobello_porch_seated_80x96.png",
+      "sha256": "855ee348e4d983292d2056d75cf50e441a33418e26ee67eba3839aec3d400f44",
+      "dimensions": [80, 96],
+      "mode": "RGBA",
+      "status": "APPROVED MASTER / FROZEN",
+      "runtime_surfaces": ["portobello_porch"],
+      "intentional_variant": "Portobello Rich short-hair transformation; explicitly authorized, not identity drift."
+    },
+    {
+      "request_id": "AS10-ROOFTOP-PARTY-CROWD",
+      "runtime_asset_id": "rooftop_dtla.party_crowd_condition",
+      "candidate_path": "art_department/ships/art_ship_010/candidates/native/layers/rooftop_dtla_party_crowd_overlay_270x480.png",
+      "approved_path": "assets/before_the_fame/environments/rooftop_dtla/layers/rooftop_dtla_party_crowd_overlay_270x480.png",
+      "sha256": "89125564e976fd72c60a08cc3ab3224b9bd4d2f3c3478ace8e274a441e8702e2",
+      "dimensions": [270, 480],
+      "mode": "RGBA",
+      "status": "APPROVED MASTER / FROZEN",
+      "runtime_surfaces": ["rooftop_dtla|left:rich"],
+      "draw_order": "frozen base -> party crowd condition -> named actors -> UI"
+    }
+  ],
+  "blocked_by_canon": ["portobello_wife", "portobello_kid1", "portobello_kid2", "portobello_manager"],
+  "freeze_scope": "The exact four promoted canonical PNG byte streams, native dimensions, modes, alpha contracts, contacts/origin, runtime ids and layer role. Runtime integration, PD-W1-04 staging approval, merge and deployment are excluded.",
+  "stop_point": "ART SHIP 010 — FROZEN"
+}

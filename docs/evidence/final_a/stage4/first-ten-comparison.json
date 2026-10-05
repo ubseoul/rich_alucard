@@ -1,0 +1,168 @@
+{
+  "method": "One deterministic real-control playthrough per side at 390px. Exactly the first 600,000 wall-clock ms from page creation, including boot. Same driver/seed; changed available choices can change its path. Semantic changes collapse text/typewriter updates at the same scene/node. Findings refer to the entire run, which may finish an outing after ten minutes. This is mechanical breadth evidence, not a human judgment of humor or chaos.",
+  "before": {
+    "phase": "before",
+    "width": 390,
+    "completeTenMinutes": true,
+    "durationMs": 751855,
+    "firstTraceMs": 21494,
+    "observedStateRows": 611,
+    "semanticSceneNodeChanges": 144,
+    "scenes": [
+      "adventure",
+      "battle",
+      "character_reveal",
+      "bedroom",
+      "property-la-4p-exterior",
+      "property-la-4p-interior"
+    ],
+    "adventures": [
+      "A00",
+      "A29",
+      "VENICE",
+      "NEW_OGA_M1",
+      "A16",
+      "COOK",
+      "A07",
+      "A_TRISTAN",
+      "NEIGHBOR_CASTLE",
+      "A47",
+      "ARMORY_WALL",
+      "A14",
+      "A09",
+      "A20",
+      "A08",
+      "A_HINA1",
+      "ROOFTOP_DTLA",
+      "PEKING",
+      "A15",
+      "GRAVE",
+      "A18",
+      "TACOS",
+      "A51",
+      "A43",
+      "A50",
+      "A29C"
+    ],
+    "minigames": [
+      "pickup",
+      "bars",
+      "slurp"
+    ],
+    "combatStates": [
+      "battle/",
+      "A20/fightnow",
+      "A18/fight",
+      "A29C/breakin",
+      "A29C/cleric"
+    ],
+    "maximumDay": 31,
+    "findings": [
+      {
+        "cls": "PLAYTEST BLOCKER",
+        "code": "STUCK",
+        "detail": "first-ten-390-wake: no progress for 40 inputs at adventure/A29C/roast minigame=-"
+      },
+      {
+        "cls": "ENGINEERING BUG — NON-BLOCKING",
+        "code": "INVARIANT",
+        "detail": "newgame-390: idle scene is adventure"
+      },
+      {
+        "cls": "ENGINEERING BUG — NON-BLOCKING",
+        "code": "INVARIANT",
+        "detail": "newgame-390: adventure still active at bedroom: A29C"
+      },
+      {
+        "cls": "ENGINEERING BUG — NON-BLOCKING",
+        "code": "INVARIANT",
+        "detail": "newgame-390: body stuck in adventure-mode"
+      },
+      {
+        "cls": "ENGINEERING BUG — NON-BLOCKING",
+        "code": "INVARIANT",
+        "detail": "newgame-390: adventure DOM left behind"
+      },
+      {
+        "cls": "ENGINEERING BUG — NON-BLOCKING",
+        "code": "INVARIANT",
+        "detail": "newgame-390: bedroom controls missing"
+      },
+      {
+        "cls": "ENGINEERING BUG — NON-BLOCKING",
+        "code": "PAGE-ERROR",
+        "detail": "newgame-390: pageerror: function is not iterable (cannot read property Symbol(Symbol.iterator))"
+      }
+    ]
+  },
+  "after": {
+    "phase": "after",
+    "width": 390,
+    "completeTenMinutes": true,
+    "durationMs": 774215,
+    "firstTraceMs": 4945,
+    "observedStateRows": 705,
+    "semanticSceneNodeChanges": 163,
+    "scenes": [
+      "adventure",
+      "battle",
+      "character_reveal",
+      "bedroom",
+      "property-la-4p-exterior",
+      "property-la-4p-interior"
+    ],
+    "adventures": [
+      "A00",
+      "A29",
+      "PEKING",
+      "A49",
+      "A09",
+      "A43",
+      "NEW_OGA_M1",
+      "A48",
+      "THRONE",
+      "A08",
+      "A_HINA1",
+      "SLURP",
+      "A16",
+      "COOK",
+      "A47",
+      "CAFE",
+      "A20",
+      "A_TRISTAN",
+      "TACOS",
+      "A14",
+      "A17",
+      "A37",
+      "A07",
+      "GRAVE",
+      "A18",
+      "A50",
+      "SHOP",
+      "KUSH",
+      "A_EMBERLY1",
+      "GALLERY",
+      "A29C"
+    ],
+    "minigames": [
+      "slurp"
+    ],
+    "combatStates": [
+      "battle/",
+      "THRONE/spar",
+      "A20/fightnow",
+      "A18/fight",
+      "A29C/breakin",
+      "A29C/cleric"
+    ],
+    "maximumDay": 31,
+    "findings": []
+  },
+  "naturalCareer": {
+    "method": "Fresh localStorage, actual START, prologue, throne, outings, sleep/wake and ending/continue controls. No progressed save or economy/day/momentum injection.",
+    "width": 390,
+    "endingDay": 36,
+    "continued": true,
+    "durationMs": 770210
+  }
+}

@@ -1,0 +1,2594 @@
+[
+  {
+    "width": 360,
+    "key": "ocean_night_flight|left:rich,right:mazda_human",
+    "refs": [
+      "ARC_MAZDA_2:scene"
+    ],
+    "checks": [
+      {
+        "ok": true,
+        "msg": "360 ocean_night_flight|left:rich,right:mazda_human: actor rich sprite loaded (assets/rich_standing_right.png, 80x96)"
+      },
+      {
+        "ok": true,
+        "msg": "360 ocean_night_flight|left:rich,right:mazda_human: actor mazda_human sprite loaded (assets/before_the_fame/characters/mazda_human/blueberry_mazda_human_neutral_80x96.png, 80x96)"
+      },
+      {
+        "ok": true,
+        "msg": "360 ocean_night_flight|left:rich,right:mazda_human: rich drawn pixels fully inside the world viewport (100.0%)"
+      },
+      {
+        "ok": true,
+        "msg": "360 ocean_night_flight|left:rich,right:mazda_human: mazda_human drawn pixels fully inside the world viewport (100.0%)"
+      },
+      {
+        "ok": true,
+        "msg": "360 ocean_night_flight|left:rich,right:mazda_human: rich / mazda_human drawn pixels overlap 0.0% of the smaller (limit 20%)"
+      },
+      {
+        "ok": true,
+        "msg": "360 ocean_night_flight|left:rich,right:mazda_human: dialogue box covers no actor's face"
+      },
+      {
+        "ok": true,
+        "msg": "rich CSS agrees with settled camera placement"
+      },
+      {
+        "ok": true,
+        "msg": "mazda_human CSS agrees with settled camera placement"
+      }
+    ]
+  },
+  {
+    "width": 360,
+    "key": "boba_shop|left:rich,right:smallie",
+    "refs": [
+      "NEW_OGA_M1:table",
+      "NEW_OGA_M1:fight_smallie",
+      "NEW_OGA_M1:switch",
+      "NEW_OGA_M1:touge",
+      "NEW_OGA_M1:leave",
+      "NEW_OGA_M1:fight_cousin",
+      "NEW_OGA_M1:touge_done",
+      "NEW_OGA_M1:stick_done"
+    ],
+    "checks": [
+      {
+        "ok": true,
+        "msg": "360 boba_shop|left:rich,right:smallie: actor rich sprite loaded (assets/rich_standing_right.png, 80x96)"
+      },
+      {
+        "ok": true,
+        "msg": "360 boba_shop|left:rich,right:smallie: actor smallie sprite loaded (assets/build4/p_d/p_d_smallie_80x96.png, 80x96)"
+      },
+      {
+        "ok": true,
+        "msg": "360 boba_shop|left:rich,right:smallie: rich drawn pixels fully inside the world viewport (100.0%)"
+      },
+      {
+        "ok": true,
+        "msg": "360 boba_shop|left:rich,right:smallie: smallie drawn pixels fully inside the world viewport (100.0%)"
+      },
+      {
+        "ok": true,
+        "msg": "360 boba_shop|left:rich,right:smallie: rich / smallie drawn pixels overlap 0.0% of the smaller (limit 20%)"
+      },
+      {
+        "ok": true,
+        "msg": "360 boba_shop|left:rich,right:smallie: dialogue box covers no actor's face"
+      },
+      {
+        "ok": true,
+        "msg": "rich CSS agrees with settled camera placement"
+      },
+      {
+        "ok": true,
+        "msg": "smallie CSS agrees with settled camera placement"
+      }
+    ]
+  },
+  {
+    "width": 360,
+    "key": "gbenga_rentals|left:rich,right:gbenga",
+    "refs": [
+      "NEW_OGA_M2:arrive",
+      "NEW_OGA_M2:questions",
+      "NEW_OGA_M2:debt",
+      "NEW_OGA_M2:work",
+      "NEW_OGA_M3:voice",
+      "NEW_OGA_M3:chairs",
+      "NEW_OGA_ALTERNATIVE:voice",
+      "NEW_OGA_ALTERNATIVE:delivery",
+      "NEW_OGA_ALTERNATIVE:chairs"
+    ],
+    "checks": [
+      {
+        "ok": true,
+        "msg": "360 gbenga_rentals|left:rich,right:gbenga: actor rich sprite loaded (assets/rich_standing_right.png, 80x96)"
+      },
+      {
+        "ok": true,
+        "msg": "360 gbenga_rentals|left:rich,right:gbenga: actor gbenga sprite loaded (assets/before_the_fame/characters/gbenga/runtime_80x96/gbenga_adjusting_sleeves_80x96_v2.png, 80x96)"
+      },
+      {
+        "ok": true,
+        "msg": "360 gbenga_rentals|left:rich,right:gbenga: rich drawn pixels fully inside the world viewport (100.0%)"
+      },
+      {
+        "ok": true,
+        "msg": "360 gbenga_rentals|left:rich,right:gbenga: gbenga drawn pixels fully inside the world viewport (100.0%)"
+      },
+      {
+        "ok": true,
+        "msg": "360 gbenga_rentals|left:rich,right:gbenga: rich / gbenga drawn pixels overlap 0.0% of the smaller (limit 20%)"
+      },
+      {
+        "ok": true,
+        "msg": "360 gbenga_rentals|left:rich,right:gbenga: dialogue box covers no actor's face"
+      },
+      {
+        "ok": true,
+        "msg": "rich CSS agrees with settled camera placement"
+      },
+      {
+        "ok": true,
+        "msg": "gbenga CSS agrees with settled camera placement"
+      }
+    ]
+  },
+  {
+    "width": 360,
+    "key": "carson_owambe|left:rich,right:auntie",
+    "refs": [
+      "NEW_OGA_M3:critique",
+      "NEW_OGA_M3:delivery",
+      "NEW_OGA_M3:complete",
+      "NEW_OGA_M3:backout",
+      "NEW_OGA_ALTERNATIVE:critique",
+      "NEW_OGA_ALTERNATIVE:complete",
+      "NEW_OGA_M5:greedy"
+    ],
+    "checks": [
+      {
+        "ok": true,
+        "msg": "360 carson_owambe|left:rich,right:auntie: actor rich sprite loaded (assets/rich_standing_right.png, 80x96)"
+      },
+      {
+        "ok": true,
+        "msg": "360 carson_owambe|left:rich,right:auntie: actor auntie sprite loaded (assets/before_the_fame/characters/auntie/auntie_register_neutral_80x96.png, 80x96)"
+      },
+      {
+        "ok": true,
+        "msg": "360 carson_owambe|left:rich,right:auntie: rich drawn pixels fully inside the world viewport (100.0%)"
+      },
+      {
+        "ok": true,
+        "msg": "360 carson_owambe|left:rich,right:auntie: auntie drawn pixels fully inside the world viewport (100.0%)"
+      },
+      {
+        "ok": true,
+        "msg": "360 carson_owambe|left:rich,right:auntie: rich / auntie drawn pixels overlap 0.0% of the smaller (limit 20%)"
+      },
+      {
+        "ok": true,
+        "msg": "360 carson_owambe|left:rich,right:auntie: dialogue box covers no actor's face"
+      },
+      {
+        "ok": true,
+        "msg": "rich CSS agrees with settled camera placement"
+      },
+      {
+        "ok": true,
+        "msg": "auntie CSS agrees with settled camera placement"
+      }
+    ]
+  },
+  {
+    "width": 360,
+    "key": "gbenga_rentals|left:rich,right:carlos",
+    "refs": [
+      "NEW_OGA_M4:beat4"
+    ],
+    "checks": [
+      {
+        "ok": true,
+        "msg": "360 gbenga_rentals|left:rich,right:carlos: actor rich sprite loaded (assets/rich_standing_right.png, 80x96)"
+      },
+      {
+        "ok": true,
+        "msg": "360 gbenga_rentals|left:rich,right:carlos: actor carlos sprite loaded (assets/before_the_fame/characters/carlos/runtime_80x96/carlos_neutral_happy_anchor_80x96_review_v1.png, 80x96)"
+      },
+      {
+        "ok": true,
+        "msg": "360 gbenga_rentals|left:rich,right:carlos: rich drawn pixels fully inside the world viewport (100.0%)"
+      },
+      {
+        "ok": true,
+        "msg": "360 gbenga_rentals|left:rich,right:carlos: carlos drawn pixels fully inside the world viewport (100.0%)"
+      },
+      {
+        "ok": true,
+        "msg": "360 gbenga_rentals|left:rich,right:carlos: rich / carlos drawn pixels overlap 0.0% of the smaller (limit 20%)"
+      },
+      {
+        "ok": true,
+        "msg": "360 gbenga_rentals|left:rich,right:carlos: dialogue box covers no actor's face"
+      },
+      {
+        "ok": true,
+        "msg": "rich CSS agrees with settled camera placement"
+      },
+      {
+        "ok": true,
+        "msg": "carlos CSS agrees with settled camera placement"
+      }
+    ]
+  },
+  {
+    "width": 360,
+    "key": "gbenga_rentals|left:carlos,right:gbenga",
+    "refs": [
+      "NEW_OGA_M4:walk_in"
+    ],
+    "checks": [
+      {
+        "ok": true,
+        "msg": "360 gbenga_rentals|left:carlos,right:gbenga: actor carlos sprite loaded (assets/before_the_fame/characters/carlos/runtime_80x96/carlos_neutral_happy_anchor_80x96_review_v1.png, 80x96)"
+      },
+      {
+        "ok": true,
+        "msg": "360 gbenga_rentals|left:carlos,right:gbenga: actor gbenga sprite loaded (assets/before_the_fame/characters/gbenga/runtime_80x96/gbenga_adjusting_sleeves_80x96_v2.png, 80x96)"
+      },
+      {
+        "ok": true,
+        "msg": "360 gbenga_rentals|left:carlos,right:gbenga: carlos drawn pixels fully inside the world viewport (100.0%)"
+      },
+      {
+        "ok": true,
+        "msg": "360 gbenga_rentals|left:carlos,right:gbenga: gbenga drawn pixels fully inside the world viewport (100.0%)"
+      },
+      {
+        "ok": true,
+        "msg": "360 gbenga_rentals|left:carlos,right:gbenga: carlos / gbenga drawn pixels overlap 0.0% of the smaller (limit 20%)"
+      },
+      {
+        "ok": true,
+        "msg": "360 gbenga_rentals|left:carlos,right:gbenga: dialogue box covers no actor's face"
+      },
+      {
+        "ok": true,
+        "msg": "carlos CSS agrees with settled camera placement"
+      },
+      {
+        "ok": true,
+        "msg": "gbenga CSS agrees with settled camera placement"
+      }
+    ]
+  },
+  {
+    "width": 360,
+    "key": "carson_owambe|left:rich,right:uncle_bamidele",
+    "refs": [
+      "NEW_OGA_M5:arrival",
+      "NEW_OGA_M5:collect",
+      "NEW_OGA_M5:backout",
+      "NEW_OGA_M5:success",
+      "NEW_OGA_M5:short"
+    ],
+    "checks": [
+      {
+        "ok": true,
+        "msg": "360 carson_owambe|left:rich,right:uncle_bamidele: actor rich sprite loaded (assets/rich_standing_right.png, 80x96)"
+      },
+      {
+        "ok": true,
+        "msg": "360 carson_owambe|left:rich,right:uncle_bamidele: actor uncle_bamidele sprite loaded (assets/build4/p_d/p_d_uncle_bamidele_80x96.png, 80x96)"
+      },
+      {
+        "ok": true,
+        "msg": "360 carson_owambe|left:rich,right:uncle_bamidele: rich drawn pixels fully inside the world viewport (100.0%)"
+      },
+      {
+        "ok": true,
+        "msg": "360 carson_owambe|left:rich,right:uncle_bamidele: uncle_bamidele drawn pixels fully inside the world viewport (100.0%)"
+      },
+      {
+        "ok": true,
+        "msg": "360 carson_owambe|left:rich,right:uncle_bamidele: rich / uncle_bamidele drawn pixels overlap 0.0% of the smaller (limit 20%)"
+      },
+      {
+        "ok": true,
+        "msg": "360 carson_owambe|left:rich,right:uncle_bamidele: dialogue box covers no actor's face"
+      },
+      {
+        "ok": true,
+        "msg": "rich CSS agrees with settled camera placement"
+      },
+      {
+        "ok": true,
+        "msg": "uncle_bamidele CSS agrees with settled camera placement"
+      }
+    ]
+  },
+  {
+    "width": 360,
+    "key": "bedroom|left:rich,right:senator",
+    "refs": [
+      "NEW_OGA_M6:voice",
+      "NEW_OGA_M6:bread",
+      "NEW_OGA_M6:care",
+      "NEW_OGA_M6:walked"
+    ],
+    "checks": [
+      {
+        "ok": true,
+        "msg": "360 bedroom|left:rich,right:senator: actor rich sprite loaded (assets/rich_standing_right.png, 80x96)"
+      },
+      {
+        "ok": true,
+        "msg": "360 bedroom|left:rich,right:senator: actor senator sprite loaded (assets/build4/p_d/p_d_senator_sitting_160x160.png, 160x160)"
+      },
+      {
+        "ok": true,
+        "msg": "360 bedroom|left:rich,right:senator: rich drawn pixels fully inside the world viewport (100.0%)"
+      },
+      {
+        "ok": true,
+        "msg": "360 bedroom|left:rich,right:senator: senator drawn pixels fully inside the world viewport (100.0%)"
+      },
+      {
+        "ok": true,
+        "msg": "360 bedroom|left:rich,right:senator: rich / senator drawn pixels overlap 0.0% of the smaller (limit 20%)"
+      },
+      {
+        "ok": true,
+        "msg": "360 bedroom|left:rich,right:senator: dialogue box covers no actor's face"
+      },
+      {
+        "ok": true,
+        "msg": "rich CSS agrees with settled camera placement"
+      },
+      {
+        "ok": true,
+        "msg": "senator CSS agrees with settled camera placement"
+      }
+    ]
+  },
+  {
+    "width": 360,
+    "key": "bedroom|left:cat,right:senator",
+    "refs": [
+      "NEW_OGA_M6:egusi"
+    ],
+    "checks": [
+      {
+        "ok": true,
+        "msg": "360 bedroom|left:cat,right:senator: actor cat sprite loaded (assets/before_the_fame/creatures/cat/sphynx_cat_sitting_48x32.png, 48x32)"
+      },
+      {
+        "ok": true,
+        "msg": "360 bedroom|left:cat,right:senator: actor senator sprite loaded (assets/build4/p_d/p_d_senator_sitting_160x160.png, 160x160)"
+      },
+      {
+        "ok": true,
+        "msg": "360 bedroom|left:cat,right:senator: cat drawn pixels fully inside the world viewport (100.0%)"
+      },
+      {
+        "ok": true,
+        "msg": "360 bedroom|left:cat,right:senator: senator drawn pixels fully inside the world viewport (100.0%)"
+      },
+      {
+        "ok": true,
+        "msg": "360 bedroom|left:cat,right:senator: cat / senator drawn pixels overlap 0.0% of the smaller (limit 20%)"
+      },
+      {
+        "ok": true,
+        "msg": "360 bedroom|left:cat,right:senator: dialogue box covers no actor's face"
+      },
+      {
+        "ok": true,
+        "msg": "cat CSS agrees with settled camera placement"
+      },
+      {
+        "ok": true,
+        "msg": "senator CSS agrees with settled camera placement"
+      }
+    ]
+  },
+  {
+    "width": 360,
+    "key": "bedroom|left:mazda_human,right:senator",
+    "refs": [
+      "NEW_OGA_M6:mazda"
+    ],
+    "checks": [
+      {
+        "ok": true,
+        "msg": "360 bedroom|left:mazda_human,right:senator: actor mazda_human sprite loaded (assets/before_the_fame/characters/mazda_human/blueberry_mazda_human_neutral_80x96.png, 80x96)"
+      },
+      {
+        "ok": true,
+        "msg": "360 bedroom|left:mazda_human,right:senator: actor senator sprite loaded (assets/build4/p_d/p_d_senator_sitting_160x160.png, 160x160)"
+      },
+      {
+        "ok": true,
+        "msg": "360 bedroom|left:mazda_human,right:senator: mazda_human drawn pixels fully inside the world viewport (100.0%)"
+      },
+      {
+        "ok": true,
+        "msg": "360 bedroom|left:mazda_human,right:senator: senator drawn pixels fully inside the world viewport (100.0%)"
+      },
+      {
+        "ok": true,
+        "msg": "360 bedroom|left:mazda_human,right:senator: mazda_human / senator drawn pixels overlap 0.0% of the smaller (limit 20%)"
+      },
+      {
+        "ok": true,
+        "msg": "360 bedroom|left:mazda_human,right:senator: dialogue box covers no actor's face"
+      },
+      {
+        "ok": true,
+        "msg": "mazda_human CSS agrees with settled camera placement"
+      },
+      {
+        "ok": true,
+        "msg": "senator CSS agrees with settled camera placement"
+      }
+    ]
+  },
+  {
+    "width": 360,
+    "key": "gbenga_house_dining|left:rich,mid:mama_gbenga,right:gbenga",
+    "refs": [
+      "NEW_OGA_M7:arrival",
+      "NEW_OGA_M7:dinner"
+    ],
+    "checks": [
+      {
+        "ok": true,
+        "msg": "360 gbenga_house_dining|left:rich,mid:mama_gbenga,right:gbenga: actor rich sprite loaded (assets/rich_standing_right.png, 80x96)"
+      },
+      {
+        "ok": true,
+        "msg": "360 gbenga_house_dining|left:rich,mid:mama_gbenga,right:gbenga: actor mama_gbenga sprite loaded (assets/build4/p_d/p_d_mama_gbenga_80x96.png, 80x96)"
+      },
+      {
+        "ok": true,
+        "msg": "360 gbenga_house_dining|left:rich,mid:mama_gbenga,right:gbenga: actor gbenga sprite loaded (assets/before_the_fame/characters/gbenga/runtime_80x96/gbenga_adjusting_sleeves_80x96_v2.png, 80x96)"
+      },
+      {
+        "ok": true,
+        "msg": "360 gbenga_house_dining|left:rich,mid:mama_gbenga,right:gbenga: rich drawn pixels fully inside the world viewport (100.0%)"
+      },
+      {
+        "ok": true,
+        "msg": "360 gbenga_house_dining|left:rich,mid:mama_gbenga,right:gbenga: mama_gbenga drawn pixels fully inside the world viewport (100.0%)"
+      },
+      {
+        "ok": true,
+        "msg": "360 gbenga_house_dining|left:rich,mid:mama_gbenga,right:gbenga: gbenga drawn pixels fully inside the world viewport (100.0%)"
+      },
+      {
+        "ok": true,
+        "msg": "360 gbenga_house_dining|left:rich,mid:mama_gbenga,right:gbenga: rich / mama_gbenga drawn pixels overlap 0.0% of the smaller (limit 20%)"
+      },
+      {
+        "ok": true,
+        "msg": "360 gbenga_house_dining|left:rich,mid:mama_gbenga,right:gbenga: rich / gbenga drawn pixels overlap 0.0% of the smaller (limit 20%)"
+      },
+      {
+        "ok": true,
+        "msg": "360 gbenga_house_dining|left:rich,mid:mama_gbenga,right:gbenga: mama_gbenga / gbenga drawn pixels overlap 0.0% of the smaller (limit 20%)"
+      },
+      {
+        "ok": true,
+        "msg": "360 gbenga_house_dining|left:rich,mid:mama_gbenga,right:gbenga: dialogue box covers no actor's face"
+      },
+      {
+        "ok": true,
+        "msg": "rich CSS agrees with settled camera placement"
+      },
+      {
+        "ok": true,
+        "msg": "mama_gbenga CSS agrees with settled camera placement"
+      },
+      {
+        "ok": true,
+        "msg": "gbenga CSS agrees with settled camera placement"
+      }
+    ]
+  },
+  {
+    "width": 360,
+    "key": "gbenga_house_patio|left:rich,right:gbenga",
+    "refs": [
+      "NEW_OGA_M7:patio"
+    ],
+    "checks": [
+      {
+        "ok": true,
+        "msg": "360 gbenga_house_patio|left:rich,right:gbenga: actor rich sprite loaded (assets/rich_standing_right.png, 80x96)"
+      },
+      {
+        "ok": true,
+        "msg": "360 gbenga_house_patio|left:rich,right:gbenga: actor gbenga sprite loaded (assets/before_the_fame/characters/gbenga/runtime_80x96/gbenga_adjusting_sleeves_80x96_v2.png, 80x96)"
+      },
+      {
+        "ok": true,
+        "msg": "360 gbenga_house_patio|left:rich,right:gbenga: rich drawn pixels fully inside the world viewport (100.0%)"
+      },
+      {
+        "ok": true,
+        "msg": "360 gbenga_house_patio|left:rich,right:gbenga: gbenga drawn pixels fully inside the world viewport (100.0%)"
+      },
+      {
+        "ok": true,
+        "msg": "360 gbenga_house_patio|left:rich,right:gbenga: rich / gbenga drawn pixels overlap 0.0% of the smaller (limit 20%)"
+      },
+      {
+        "ok": true,
+        "msg": "360 gbenga_house_patio|left:rich,right:gbenga: dialogue box covers no actor's face"
+      },
+      {
+        "ok": true,
+        "msg": "rich CSS agrees with settled camera placement"
+      },
+      {
+        "ok": true,
+        "msg": "gbenga CSS agrees with settled camera placement"
+      }
+    ]
+  },
+  {
+    "width": 360,
+    "key": "gbenga_house_dining|left:rich,right:mama_gbenga",
+    "refs": [
+      "NEW_OGA_M7:door",
+      "NEW_OGA_M7:take",
+      "NEW_OGA_M7:refuse"
+    ],
+    "checks": [
+      {
+        "ok": true,
+        "msg": "360 gbenga_house_dining|left:rich,right:mama_gbenga: actor rich sprite loaded (assets/rich_standing_right.png, 80x96)"
+      },
+      {
+        "ok": true,
+        "msg": "360 gbenga_house_dining|left:rich,right:mama_gbenga: actor mama_gbenga sprite loaded (assets/build4/p_d/p_d_mama_gbenga_80x96.png, 80x96)"
+      },
+      {
+        "ok": true,
+        "msg": "360 gbenga_house_dining|left:rich,right:mama_gbenga: rich drawn pixels fully inside the world viewport (100.0%)"
+      },
+      {
+        "ok": true,
+        "msg": "360 gbenga_house_dining|left:rich,right:mama_gbenga: mama_gbenga drawn pixels fully inside the world viewport (100.0%)"
+      },
+      {
+        "ok": true,
+        "msg": "360 gbenga_house_dining|left:rich,right:mama_gbenga: rich / mama_gbenga drawn pixels overlap 0.0% of the smaller (limit 20%)"
+      },
+      {
+        "ok": true,
+        "msg": "360 gbenga_house_dining|left:rich,right:mama_gbenga: dialogue box covers no actor's face"
+      },
+      {
+        "ok": true,
+        "msg": "rich CSS agrees with settled camera placement"
+      },
+      {
+        "ok": true,
+        "msg": "mama_gbenga CSS agrees with settled camera placement"
+      }
+    ]
+  },
+  {
+    "width": 360,
+    "key": "f15_exam_hall",
+    "refs": [
+      "F15 existing environment review"
+    ],
+    "checks": [
+      {
+        "ok": true,
+        "msg": "360 f15_exam_hall: actor rich sprite loaded (assets/rich_standing_right.png, 80x96)"
+      },
+      {
+        "ok": true,
+        "msg": "360 f15_exam_hall: actor emerald sprite loaded (assets/f15/portraits/emerald.png, 80x96)"
+      },
+      {
+        "ok": true,
+        "msg": "360 f15_exam_hall: rich drawn pixels fully inside the world viewport (100.0%)"
+      },
+      {
+        "ok": true,
+        "msg": "360 f15_exam_hall: emerald drawn pixels fully inside the world viewport (100.0%)"
+      },
+      {
+        "ok": true,
+        "msg": "360 f15_exam_hall: rich / emerald drawn pixels overlap 0.0% of the smaller (limit 20%)"
+      },
+      {
+        "ok": true,
+        "msg": "360 f15_exam_hall: dialogue box covers no actor's face"
+      },
+      {
+        "ok": true,
+        "msg": "rich CSS agrees with settled camera placement"
+      },
+      {
+        "ok": true,
+        "msg": "emerald CSS agrees with settled camera placement"
+      }
+    ]
+  },
+  {
+    "width": 360,
+    "key": "f15_library",
+    "refs": [
+      "F15 existing environment review"
+    ],
+    "checks": [
+      {
+        "ok": true,
+        "msg": "360 f15_library: actor rich sprite loaded (assets/rich_standing_right.png, 80x96)"
+      },
+      {
+        "ok": true,
+        "msg": "360 f15_library: actor emerald sprite loaded (assets/f15/portraits/emerald.png, 80x96)"
+      },
+      {
+        "ok": true,
+        "msg": "360 f15_library: rich drawn pixels fully inside the world viewport (100.0%)"
+      },
+      {
+        "ok": true,
+        "msg": "360 f15_library: emerald drawn pixels fully inside the world viewport (100.0%)"
+      },
+      {
+        "ok": true,
+        "msg": "360 f15_library: rich / emerald drawn pixels overlap 0.0% of the smaller (limit 20%)"
+      },
+      {
+        "ok": true,
+        "msg": "360 f15_library: dialogue box covers no actor's face"
+      },
+      {
+        "ok": true,
+        "msg": "rich CSS agrees with settled camera placement"
+      },
+      {
+        "ok": true,
+        "msg": "emerald CSS agrees with settled camera placement"
+      }
+    ]
+  },
+  {
+    "width": 360,
+    "key": "catacomb_dead",
+    "refs": [
+      "Existing registered environment; visual fixture only"
+    ],
+    "checks": [
+      {
+        "ok": true,
+        "msg": "360 catacomb_dead: actor rich sprite loaded (assets/rich_standing_right.png, 80x96)"
+      },
+      {
+        "ok": true,
+        "msg": "360 catacomb_dead: rich drawn pixels fully inside the world viewport (100.0%)"
+      },
+      {
+        "ok": true,
+        "msg": "360 catacomb_dead: dialogue box covers no actor's face"
+      },
+      {
+        "ok": true,
+        "msg": "rich CSS agrees with settled camera placement"
+      }
+    ]
+  },
+  {
+    "width": 360,
+    "key": "halloween",
+    "refs": [
+      "Existing registered environment; visual fixture only"
+    ],
+    "checks": [
+      {
+        "ok": true,
+        "msg": "360 halloween: actor rich sprite loaded (assets/rich_standing_right.png, 80x96)"
+      },
+      {
+        "ok": true,
+        "msg": "360 halloween: rich drawn pixels fully inside the world viewport (100.0%)"
+      },
+      {
+        "ok": true,
+        "msg": "360 halloween: dialogue box covers no actor's face"
+      },
+      {
+        "ok": true,
+        "msg": "rich CSS agrees with settled camera placement"
+      }
+    ]
+  },
+  {
+    "width": 360,
+    "key": "kiosk_guy",
+    "refs": [
+      "Existing dynamic/registered actor; visual fixture only"
+    ],
+    "checks": [
+      {
+        "ok": true,
+        "msg": "360 kiosk_guy: actor rich sprite loaded (assets/rich_standing_right.png, 80x96)"
+      },
+      {
+        "ok": true,
+        "msg": "360 kiosk_guy: actor kiosk_guy sprite loaded (assets/build4/p_d/p_d_kiosk_guy_80x96.png, 80x96)"
+      },
+      {
+        "ok": true,
+        "msg": "360 kiosk_guy: rich drawn pixels fully inside the world viewport (100.0%)"
+      },
+      {
+        "ok": true,
+        "msg": "360 kiosk_guy: kiosk_guy drawn pixels fully inside the world viewport (100.0%)"
+      },
+      {
+        "ok": true,
+        "msg": "360 kiosk_guy: rich / kiosk_guy drawn pixels overlap 0.0% of the smaller (limit 20%)"
+      },
+      {
+        "ok": true,
+        "msg": "360 kiosk_guy: dialogue box covers no actor's face"
+      },
+      {
+        "ok": true,
+        "msg": "rich CSS agrees with settled camera placement"
+      },
+      {
+        "ok": true,
+        "msg": "kiosk_guy CSS agrees with settled camera placement"
+      }
+    ]
+  },
+  {
+    "width": 360,
+    "key": "smallie_cousin",
+    "refs": [
+      "Existing dynamic/registered actor; visual fixture only"
+    ],
+    "checks": [
+      {
+        "ok": true,
+        "msg": "360 smallie_cousin: actor rich sprite loaded (assets/rich_standing_right.png, 80x96)"
+      },
+      {
+        "ok": true,
+        "msg": "360 smallie_cousin: actor smallie_cousin sprite loaded (assets/build4/p_d/p_d_smallie_cousin_80x96.png, 80x96)"
+      },
+      {
+        "ok": true,
+        "msg": "360 smallie_cousin: rich drawn pixels fully inside the world viewport (100.0%)"
+      },
+      {
+        "ok": true,
+        "msg": "360 smallie_cousin: smallie_cousin drawn pixels fully inside the world viewport (100.0%)"
+      },
+      {
+        "ok": true,
+        "msg": "360 smallie_cousin: rich / smallie_cousin drawn pixels overlap 0.0% of the smaller (limit 20%)"
+      },
+      {
+        "ok": true,
+        "msg": "360 smallie_cousin: dialogue box covers no actor's face"
+      },
+      {
+        "ok": true,
+        "msg": "rich CSS agrees with settled camera placement"
+      },
+      {
+        "ok": true,
+        "msg": "smallie_cousin CSS agrees with settled camera placement"
+      }
+    ]
+  },
+  {
+    "width": 360,
+    "key": "pickup_court",
+    "boardLoaded": true,
+    "canvasInsideViewport": true
+  },
+  {
+    "width": 360,
+    "key": "jollof_kitchen",
+    "boardLoaded": true,
+    "canvasInsideViewport": true
+  },
+  {
+    "width": 360,
+    "key": "jollof_cook",
+    "incidentalCookingSpriteLoaded": true,
+    "namedJudgeUsesOwnFrozenIdentity": true
+  },
+  {
+    "width": 360,
+    "key": "jollof_cookoff",
+    "boardLoaded": true,
+    "canvasInsideViewport": true
+  },
+  {
+    "width": 360,
+    "key": "jollof_final",
+    "boardLoaded": true,
+    "canvasInsideViewport": true
+  },
+  {
+    "width": 360,
+    "key": "pier_game",
+    "boardLoaded": true,
+    "canvasInsideViewport": true
+  },
+  {
+    "width": 360,
+    "key": "hookah_roof",
+    "boardLoaded": true,
+    "canvasInsideViewport": true
+  },
+  {
+    "width": 360,
+    "key": "owambe_birthday",
+    "boardLoaded": true,
+    "canvasInsideViewport": true
+  },
+  {
+    "width": 360,
+    "key": "hatch_castle",
+    "boardLoaded": true,
+    "canvasInsideViewport": true
+  },
+  {
+    "width": 360,
+    "key": "hatch_room",
+    "boardLoaded": true,
+    "canvasInsideViewport": true
+  },
+  {
+    "width": 360,
+    "key": "senator_care_ground",
+    "boardLoaded": true,
+    "canvasInsideViewport": true
+  },
+  {
+    "width": 390,
+    "key": "ocean_night_flight|left:rich,right:mazda_human",
+    "refs": [
+      "ARC_MAZDA_2:scene"
+    ],
+    "checks": [
+      {
+        "ok": true,
+        "msg": "390 ocean_night_flight|left:rich,right:mazda_human: actor rich sprite loaded (assets/rich_standing_right.png, 80x96)"
+      },
+      {
+        "ok": true,
+        "msg": "390 ocean_night_flight|left:rich,right:mazda_human: actor mazda_human sprite loaded (assets/before_the_fame/characters/mazda_human/blueberry_mazda_human_neutral_80x96.png, 80x96)"
+      },
+      {
+        "ok": true,
+        "msg": "390 ocean_night_flight|left:rich,right:mazda_human: rich drawn pixels fully inside the world viewport (100.0%)"
+      },
+      {
+        "ok": true,
+        "msg": "390 ocean_night_flight|left:rich,right:mazda_human: mazda_human drawn pixels fully inside the world viewport (100.0%)"
+      },
+      {
+        "ok": true,
+        "msg": "390 ocean_night_flight|left:rich,right:mazda_human: rich / mazda_human drawn pixels overlap 0.0% of the smaller (limit 20%)"
+      },
+      {
+        "ok": true,
+        "msg": "390 ocean_night_flight|left:rich,right:mazda_human: dialogue box covers no actor's face"
+      },
+      {
+        "ok": true,
+        "msg": "rich CSS agrees with settled camera placement"
+      },
+      {
+        "ok": true,
+        "msg": "mazda_human CSS agrees with settled camera placement"
+      }
+    ]
+  },
+  {
+    "width": 390,
+    "key": "boba_shop|left:rich,right:smallie",
+    "refs": [
+      "NEW_OGA_M1:table",
+      "NEW_OGA_M1:fight_smallie",
+      "NEW_OGA_M1:switch",
+      "NEW_OGA_M1:touge",
+      "NEW_OGA_M1:leave",
+      "NEW_OGA_M1:fight_cousin",
+      "NEW_OGA_M1:touge_done",
+      "NEW_OGA_M1:stick_done"
+    ],
+    "checks": [
+      {
+        "ok": true,
+        "msg": "390 boba_shop|left:rich,right:smallie: actor rich sprite loaded (assets/rich_standing_right.png, 80x96)"
+      },
+      {
+        "ok": true,
+        "msg": "390 boba_shop|left:rich,right:smallie: actor smallie sprite loaded (assets/build4/p_d/p_d_smallie_80x96.png, 80x96)"
+      },
+      {
+        "ok": true,
+        "msg": "390 boba_shop|left:rich,right:smallie: rich drawn pixels fully inside the world viewport (100.0%)"
+      },
+      {
+        "ok": true,
+        "msg": "390 boba_shop|left:rich,right:smallie: smallie drawn pixels fully inside the world viewport (100.0%)"
+      },
+      {
+        "ok": true,
+        "msg": "390 boba_shop|left:rich,right:smallie: rich / smallie drawn pixels overlap 0.0% of the smaller (limit 20%)"
+      },
+      {
+        "ok": true,
+        "msg": "390 boba_shop|left:rich,right:smallie: dialogue box covers no actor's face"
+      },
+      {
+        "ok": true,
+        "msg": "rich CSS agrees with settled camera placement"
+      },
+      {
+        "ok": true,
+        "msg": "smallie CSS agrees with settled camera placement"
+      }
+    ]
+  },
+  {
+    "width": 390,
+    "key": "gbenga_rentals|left:rich,right:gbenga",
+    "refs": [
+      "NEW_OGA_M2:arrive",
+      "NEW_OGA_M2:questions",
+      "NEW_OGA_M2:debt",
+      "NEW_OGA_M2:work",
+      "NEW_OGA_M3:voice",
+      "NEW_OGA_M3:chairs",
+      "NEW_OGA_ALTERNATIVE:voice",
+      "NEW_OGA_ALTERNATIVE:delivery",
+      "NEW_OGA_ALTERNATIVE:chairs"
+    ],
+    "checks": [
+      {
+        "ok": true,
+        "msg": "390 gbenga_rentals|left:rich,right:gbenga: actor rich sprite loaded (assets/rich_standing_right.png, 80x96)"
+      },
+      {
+        "ok": true,
+        "msg": "390 gbenga_rentals|left:rich,right:gbenga: actor gbenga sprite loaded (assets/before_the_fame/characters/gbenga/runtime_80x96/gbenga_adjusting_sleeves_80x96_v2.png, 80x96)"
+      },
+      {
+        "ok": true,
+        "msg": "390 gbenga_rentals|left:rich,right:gbenga: rich drawn pixels fully inside the world viewport (100.0%)"
+      },
+      {
+        "ok": true,
+        "msg": "390 gbenga_rentals|left:rich,right:gbenga: gbenga drawn pixels fully inside the world viewport (100.0%)"
+      },
+      {
+        "ok": true,
+        "msg": "390 gbenga_rentals|left:rich,right:gbenga: rich / gbenga drawn pixels overlap 0.0% of the smaller (limit 20%)"
+      },
+      {
+        "ok": true,
+        "msg": "390 gbenga_rentals|left:rich,right:gbenga: dialogue box covers no actor's face"
+      },
+      {
+        "ok": true,
+        "msg": "rich CSS agrees with settled camera placement"
+      },
+      {
+        "ok": true,
+        "msg": "gbenga CSS agrees with settled camera placement"
+      }
+    ]
+  },
+  {
+    "width": 390,
+    "key": "carson_owambe|left:rich,right:auntie",
+    "refs": [
+      "NEW_OGA_M3:critique",
+      "NEW_OGA_M3:delivery",
+      "NEW_OGA_M3:complete",
+      "NEW_OGA_M3:backout",
+      "NEW_OGA_ALTERNATIVE:critique",
+      "NEW_OGA_ALTERNATIVE:complete",
+      "NEW_OGA_M5:greedy"
+    ],
+    "checks": [
+      {
+        "ok": true,
+        "msg": "390 carson_owambe|left:rich,right:auntie: actor rich sprite loaded (assets/rich_standing_right.png, 80x96)"
+      },
+      {
+        "ok": true,
+        "msg": "390 carson_owambe|left:rich,right:auntie: actor auntie sprite loaded (assets/before_the_fame/characters/auntie/auntie_register_neutral_80x96.png, 80x96)"
+      },
+      {
+        "ok": true,
+        "msg": "390 carson_owambe|left:rich,right:auntie: rich drawn pixels fully inside the world viewport (100.0%)"
+      },
+      {
+        "ok": true,
+        "msg": "390 carson_owambe|left:rich,right:auntie: auntie drawn pixels fully inside the world viewport (100.0%)"
+      },
+      {
+        "ok": true,
+        "msg": "390 carson_owambe|left:rich,right:auntie: rich / auntie drawn pixels overlap 0.0% of the smaller (limit 20%)"
+      },
+      {
+        "ok": true,
+        "msg": "390 carson_owambe|left:rich,right:auntie: dialogue box covers no actor's face"
+      },
+      {
+        "ok": true,
+        "msg": "rich CSS agrees with settled camera placement"
+      },
+      {
+        "ok": true,
+        "msg": "auntie CSS agrees with settled camera placement"
+      }
+    ]
+  },
+  {
+    "width": 390,
+    "key": "gbenga_rentals|left:rich,right:carlos",
+    "refs": [
+      "NEW_OGA_M4:beat4"
+    ],
+    "checks": [
+      {
+        "ok": true,
+        "msg": "390 gbenga_rentals|left:rich,right:carlos: actor rich sprite loaded (assets/rich_standing_right.png, 80x96)"
+      },
+      {
+        "ok": true,
+        "msg": "390 gbenga_rentals|left:rich,right:carlos: actor carlos sprite loaded (assets/before_the_fame/characters/carlos/runtime_80x96/carlos_neutral_happy_anchor_80x96_review_v1.png, 80x96)"
+      },
+      {
+        "ok": true,
+        "msg": "390 gbenga_rentals|left:rich,right:carlos: rich drawn pixels fully inside the world viewport (100.0%)"
+      },
+      {
+        "ok": true,
+        "msg": "390 gbenga_rentals|left:rich,right:carlos: carlos drawn pixels fully inside the world viewport (100.0%)"
+      },
+      {
+        "ok": true,
+        "msg": "390 gbenga_rentals|left:rich,right:carlos: rich / carlos drawn pixels overlap 0.0% of the smaller (limit 20%)"
+      },
+      {
+        "ok": true,
+        "msg": "390 gbenga_rentals|left:rich,right:carlos: dialogue box covers no actor's face"
+      },
+      {
+        "ok": true,
+        "msg": "rich CSS agrees with settled camera placement"
+      },
+      {
+        "ok": true,
+        "msg": "carlos CSS agrees with settled camera placement"
+      }
+    ]
+  },
+  {
+    "width": 390,
+    "key": "gbenga_rentals|left:carlos,right:gbenga",
+    "refs": [
+      "NEW_OGA_M4:walk_in"
+    ],
+    "checks": [
+      {
+        "ok": true,
+        "msg": "390 gbenga_rentals|left:carlos,right:gbenga: actor carlos sprite loaded (assets/before_the_fame/characters/carlos/runtime_80x96/carlos_neutral_happy_anchor_80x96_review_v1.png, 80x96)"
+      },
+      {
+        "ok": true,
+        "msg": "390 gbenga_rentals|left:carlos,right:gbenga: actor gbenga sprite loaded (assets/before_the_fame/characters/gbenga/runtime_80x96/gbenga_adjusting_sleeves_80x96_v2.png, 80x96)"
+      },
+      {
+        "ok": true,
+        "msg": "390 gbenga_rentals|left:carlos,right:gbenga: carlos drawn pixels fully inside the world viewport (100.0%)"
+      },
+      {
+        "ok": true,
+        "msg": "390 gbenga_rentals|left:carlos,right:gbenga: gbenga drawn pixels fully inside the world viewport (100.0%)"
+      },
+      {
+        "ok": true,
+        "msg": "390 gbenga_rentals|left:carlos,right:gbenga: carlos / gbenga drawn pixels overlap 0.0% of the smaller (limit 20%)"
+      },
+      {
+        "ok": true,
+        "msg": "390 gbenga_rentals|left:carlos,right:gbenga: dialogue box covers no actor's face"
+      },
+      {
+        "ok": true,
+        "msg": "carlos CSS agrees with settled camera placement"
+      },
+      {
+        "ok": true,
+        "msg": "gbenga CSS agrees with settled camera placement"
+      }
+    ]
+  },
+  {
+    "width": 390,
+    "key": "carson_owambe|left:rich,right:uncle_bamidele",
+    "refs": [
+      "NEW_OGA_M5:arrival",
+      "NEW_OGA_M5:collect",
+      "NEW_OGA_M5:backout",
+      "NEW_OGA_M5:success",
+      "NEW_OGA_M5:short"
+    ],
+    "checks": [
+      {
+        "ok": true,
+        "msg": "390 carson_owambe|left:rich,right:uncle_bamidele: actor rich sprite loaded (assets/rich_standing_right.png, 80x96)"
+      },
+      {
+        "ok": true,
+        "msg": "390 carson_owambe|left:rich,right:uncle_bamidele: actor uncle_bamidele sprite loaded (assets/build4/p_d/p_d_uncle_bamidele_80x96.png, 80x96)"
+      },
+      {
+        "ok": true,
+        "msg": "390 carson_owambe|left:rich,right:uncle_bamidele: rich drawn pixels fully inside the world viewport (100.0%)"
+      },
+      {
+        "ok": true,
+        "msg": "390 carson_owambe|left:rich,right:uncle_bamidele: uncle_bamidele drawn pixels fully inside the world viewport (100.0%)"
+      },
+      {
+        "ok": true,
+        "msg": "390 carson_owambe|left:rich,right:uncle_bamidele: rich / uncle_bamidele drawn pixels overlap 0.0% of the smaller (limit 20%)"
+      },
+      {
+        "ok": true,
+        "msg": "390 carson_owambe|left:rich,right:uncle_bamidele: dialogue box covers no actor's face"
+      },
+      {
+        "ok": true,
+        "msg": "rich CSS agrees with settled camera placement"
+      },
+      {
+        "ok": true,
+        "msg": "uncle_bamidele CSS agrees with settled camera placement"
+      }
+    ]
+  },
+  {
+    "width": 390,
+    "key": "bedroom|left:rich,right:senator",
+    "refs": [
+      "NEW_OGA_M6:voice",
+      "NEW_OGA_M6:bread",
+      "NEW_OGA_M6:care",
+      "NEW_OGA_M6:walked"
+    ],
+    "checks": [
+      {
+        "ok": true,
+        "msg": "390 bedroom|left:rich,right:senator: actor rich sprite loaded (assets/rich_standing_right.png, 80x96)"
+      },
+      {
+        "ok": true,
+        "msg": "390 bedroom|left:rich,right:senator: actor senator sprite loaded (assets/build4/p_d/p_d_senator_sitting_160x160.png, 160x160)"
+      },
+      {
+        "ok": true,
+        "msg": "390 bedroom|left:rich,right:senator: rich drawn pixels fully inside the world viewport (100.0%)"
+      },
+      {
+        "ok": true,
+        "msg": "390 bedroom|left:rich,right:senator: senator drawn pixels fully inside the world viewport (100.0%)"
+      },
+      {
+        "ok": true,
+        "msg": "390 bedroom|left:rich,right:senator: rich / senator drawn pixels overlap 0.0% of the smaller (limit 20%)"
+      },
+      {
+        "ok": true,
+        "msg": "390 bedroom|left:rich,right:senator: dialogue box covers no actor's face"
+      },
+      {
+        "ok": true,
+        "msg": "rich CSS agrees with settled camera placement"
+      },
+      {
+        "ok": true,
+        "msg": "senator CSS agrees with settled camera placement"
+      }
+    ]
+  },
+  {
+    "width": 390,
+    "key": "bedroom|left:cat,right:senator",
+    "refs": [
+      "NEW_OGA_M6:egusi"
+    ],
+    "checks": [
+      {
+        "ok": true,
+        "msg": "390 bedroom|left:cat,right:senator: actor cat sprite loaded (assets/before_the_fame/creatures/cat/sphynx_cat_sitting_48x32.png, 48x32)"
+      },
+      {
+        "ok": true,
+        "msg": "390 bedroom|left:cat,right:senator: actor senator sprite loaded (assets/build4/p_d/p_d_senator_sitting_160x160.png, 160x160)"
+      },
+      {
+        "ok": true,
+        "msg": "390 bedroom|left:cat,right:senator: cat drawn pixels fully inside the world viewport (100.0%)"
+      },
+      {
+        "ok": true,
+        "msg": "390 bedroom|left:cat,right:senator: senator drawn pixels fully inside the world viewport (100.0%)"
+      },
+      {
+        "ok": true,
+        "msg": "390 bedroom|left:cat,right:senator: cat / senator drawn pixels overlap 0.0% of the smaller (limit 20%)"
+      },
+      {
+        "ok": true,
+        "msg": "390 bedroom|left:cat,right:senator: dialogue box covers no actor's face"
+      },
+      {
+        "ok": true,
+        "msg": "cat CSS agrees with settled camera placement"
+      },
+      {
+        "ok": true,
+        "msg": "senator CSS agrees with settled camera placement"
+      }
+    ]
+  },
+  {
+    "width": 390,
+    "key": "bedroom|left:mazda_human,right:senator",
+    "refs": [
+      "NEW_OGA_M6:mazda"
+    ],
+    "checks": [
+      {
+        "ok": true,
+        "msg": "390 bedroom|left:mazda_human,right:senator: actor mazda_human sprite loaded (assets/before_the_fame/characters/mazda_human/blueberry_mazda_human_neutral_80x96.png, 80x96)"
+      },
+      {
+        "ok": true,
+        "msg": "390 bedroom|left:mazda_human,right:senator: actor senator sprite loaded (assets/build4/p_d/p_d_senator_sitting_160x160.png, 160x160)"
+      },
+      {
+        "ok": true,
+        "msg": "390 bedroom|left:mazda_human,right:senator: mazda_human drawn pixels fully inside the world viewport (100.0%)"
+      },
+      {
+        "ok": true,
+        "msg": "390 bedroom|left:mazda_human,right:senator: senator drawn pixels fully inside the world viewport (100.0%)"
+      },
+      {
+        "ok": true,
+        "msg": "390 bedroom|left:mazda_human,right:senator: mazda_human / senator drawn pixels overlap 0.0% of the smaller (limit 20%)"
+      },
+      {
+        "ok": true,
+        "msg": "390 bedroom|left:mazda_human,right:senator: dialogue box covers no actor's face"
+      },
+      {
+        "ok": true,
+        "msg": "mazda_human CSS agrees with settled camera placement"
+      },
+      {
+        "ok": true,
+        "msg": "senator CSS agrees with settled camera placement"
+      }
+    ]
+  },
+  {
+    "width": 390,
+    "key": "gbenga_house_dining|left:rich,mid:mama_gbenga,right:gbenga",
+    "refs": [
+      "NEW_OGA_M7:arrival",
+      "NEW_OGA_M7:dinner"
+    ],
+    "checks": [
+      {
+        "ok": true,
+        "msg": "390 gbenga_house_dining|left:rich,mid:mama_gbenga,right:gbenga: actor rich sprite loaded (assets/rich_standing_right.png, 80x96)"
+      },
+      {
+        "ok": true,
+        "msg": "390 gbenga_house_dining|left:rich,mid:mama_gbenga,right:gbenga: actor mama_gbenga sprite loaded (assets/build4/p_d/p_d_mama_gbenga_80x96.png, 80x96)"
+      },
+      {
+        "ok": true,
+        "msg": "390 gbenga_house_dining|left:rich,mid:mama_gbenga,right:gbenga: actor gbenga sprite loaded (assets/before_the_fame/characters/gbenga/runtime_80x96/gbenga_adjusting_sleeves_80x96_v2.png, 80x96)"
+      },
+      {
+        "ok": true,
+        "msg": "390 gbenga_house_dining|left:rich,mid:mama_gbenga,right:gbenga: rich drawn pixels fully inside the world viewport (100.0%)"
+      },
+      {
+        "ok": true,
+        "msg": "390 gbenga_house_dining|left:rich,mid:mama_gbenga,right:gbenga: mama_gbenga drawn pixels fully inside the world viewport (100.0%)"
+      },
+      {
+        "ok": true,
+        "msg": "390 gbenga_house_dining|left:rich,mid:mama_gbenga,right:gbenga: gbenga drawn pixels fully inside the world viewport (100.0%)"
+      },
+      {
+        "ok": true,
+        "msg": "390 gbenga_house_dining|left:rich,mid:mama_gbenga,right:gbenga: rich / mama_gbenga drawn pixels overlap 0.0% of the smaller (limit 20%)"
+      },
+      {
+        "ok": true,
+        "msg": "390 gbenga_house_dining|left:rich,mid:mama_gbenga,right:gbenga: rich / gbenga drawn pixels overlap 0.0% of the smaller (limit 20%)"
+      },
+      {
+        "ok": true,
+        "msg": "390 gbenga_house_dining|left:rich,mid:mama_gbenga,right:gbenga: mama_gbenga / gbenga drawn pixels overlap 0.0% of the smaller (limit 20%)"
+      },
+      {
+        "ok": true,
+        "msg": "390 gbenga_house_dining|left:rich,mid:mama_gbenga,right:gbenga: dialogue box covers no actor's face"
+      },
+      {
+        "ok": true,
+        "msg": "rich CSS agrees with settled camera placement"
+      },
+      {
+        "ok": true,
+        "msg": "mama_gbenga CSS agrees with settled camera placement"
+      },
+      {
+        "ok": true,
+        "msg": "gbenga CSS agrees with settled camera placement"
+      }
+    ]
+  },
+  {
+    "width": 390,
+    "key": "gbenga_house_patio|left:rich,right:gbenga",
+    "refs": [
+      "NEW_OGA_M7:patio"
+    ],
+    "checks": [
+      {
+        "ok": true,
+        "msg": "390 gbenga_house_patio|left:rich,right:gbenga: actor rich sprite loaded (assets/rich_standing_right.png, 80x96)"
+      },
+      {
+        "ok": true,
+        "msg": "390 gbenga_house_patio|left:rich,right:gbenga: actor gbenga sprite loaded (assets/before_the_fame/characters/gbenga/runtime_80x96/gbenga_adjusting_sleeves_80x96_v2.png, 80x96)"
+      },
+      {
+        "ok": true,
+        "msg": "390 gbenga_house_patio|left:rich,right:gbenga: rich drawn pixels fully inside the world viewport (100.0%)"
+      },
+      {
+        "ok": true,
+        "msg": "390 gbenga_house_patio|left:rich,right:gbenga: gbenga drawn pixels fully inside the world viewport (100.0%)"
+      },
+      {
+        "ok": true,
+        "msg": "390 gbenga_house_patio|left:rich,right:gbenga: rich / gbenga drawn pixels overlap 0.0% of the smaller (limit 20%)"
+      },
+      {
+        "ok": true,
+        "msg": "390 gbenga_house_patio|left:rich,right:gbenga: dialogue box covers no actor's face"
+      },
+      {
+        "ok": true,
+        "msg": "rich CSS agrees with settled camera placement"
+      },
+      {
+        "ok": true,
+        "msg": "gbenga CSS agrees with settled camera placement"
+      }
+    ]
+  },
+  {
+    "width": 390,
+    "key": "gbenga_house_dining|left:rich,right:mama_gbenga",
+    "refs": [
+      "NEW_OGA_M7:door",
+      "NEW_OGA_M7:take",
+      "NEW_OGA_M7:refuse"
+    ],
+    "checks": [
+      {
+        "ok": true,
+        "msg": "390 gbenga_house_dining|left:rich,right:mama_gbenga: actor rich sprite loaded (assets/rich_standing_right.png, 80x96)"
+      },
+      {
+        "ok": true,
+        "msg": "390 gbenga_house_dining|left:rich,right:mama_gbenga: actor mama_gbenga sprite loaded (assets/build4/p_d/p_d_mama_gbenga_80x96.png, 80x96)"
+      },
+      {
+        "ok": true,
+        "msg": "390 gbenga_house_dining|left:rich,right:mama_gbenga: rich drawn pixels fully inside the world viewport (100.0%)"
+      },
+      {
+        "ok": true,
+        "msg": "390 gbenga_house_dining|left:rich,right:mama_gbenga: mama_gbenga drawn pixels fully inside the world viewport (100.0%)"
+      },
+      {
+        "ok": true,
+        "msg": "390 gbenga_house_dining|left:rich,right:mama_gbenga: rich / mama_gbenga drawn pixels overlap 0.0% of the smaller (limit 20%)"
+      },
+      {
+        "ok": true,
+        "msg": "390 gbenga_house_dining|left:rich,right:mama_gbenga: dialogue box covers no actor's face"
+      },
+      {
+        "ok": true,
+        "msg": "rich CSS agrees with settled camera placement"
+      },
+      {
+        "ok": true,
+        "msg": "mama_gbenga CSS agrees with settled camera placement"
+      }
+    ]
+  },
+  {
+    "width": 390,
+    "key": "f15_exam_hall",
+    "refs": [
+      "F15 existing environment review"
+    ],
+    "checks": [
+      {
+        "ok": true,
+        "msg": "390 f15_exam_hall: actor rich sprite loaded (assets/rich_standing_right.png, 80x96)"
+      },
+      {
+        "ok": true,
+        "msg": "390 f15_exam_hall: actor emerald sprite loaded (assets/f15/portraits/emerald.png, 80x96)"
+      },
+      {
+        "ok": true,
+        "msg": "390 f15_exam_hall: rich drawn pixels fully inside the world viewport (100.0%)"
+      },
+      {
+        "ok": true,
+        "msg": "390 f15_exam_hall: emerald drawn pixels fully inside the world viewport (100.0%)"
+      },
+      {
+        "ok": true,
+        "msg": "390 f15_exam_hall: rich / emerald drawn pixels overlap 0.0% of the smaller (limit 20%)"
+      },
+      {
+        "ok": true,
+        "msg": "390 f15_exam_hall: dialogue box covers no actor's face"
+      },
+      {
+        "ok": true,
+        "msg": "rich CSS agrees with settled camera placement"
+      },
+      {
+        "ok": true,
+        "msg": "emerald CSS agrees with settled camera placement"
+      }
+    ]
+  },
+  {
+    "width": 390,
+    "key": "f15_library",
+    "refs": [
+      "F15 existing environment review"
+    ],
+    "checks": [
+      {
+        "ok": true,
+        "msg": "390 f15_library: actor rich sprite loaded (assets/rich_standing_right.png, 80x96)"
+      },
+      {
+        "ok": true,
+        "msg": "390 f15_library: actor emerald sprite loaded (assets/f15/portraits/emerald.png, 80x96)"
+      },
+      {
+        "ok": true,
+        "msg": "390 f15_library: rich drawn pixels fully inside the world viewport (100.0%)"
+      },
+      {
+        "ok": true,
+        "msg": "390 f15_library: emerald drawn pixels fully inside the world viewport (100.0%)"
+      },
+      {
+        "ok": true,
+        "msg": "390 f15_library: rich / emerald drawn pixels overlap 0.0% of the smaller (limit 20%)"
+      },
+      {
+        "ok": true,
+        "msg": "390 f15_library: dialogue box covers no actor's face"
+      },
+      {
+        "ok": true,
+        "msg": "rich CSS agrees with settled camera placement"
+      },
+      {
+        "ok": true,
+        "msg": "emerald CSS agrees with settled camera placement"
+      }
+    ]
+  },
+  {
+    "width": 390,
+    "key": "catacomb_dead",
+    "refs": [
+      "Existing registered environment; visual fixture only"
+    ],
+    "checks": [
+      {
+        "ok": true,
+        "msg": "390 catacomb_dead: actor rich sprite loaded (assets/rich_standing_right.png, 80x96)"
+      },
+      {
+        "ok": true,
+        "msg": "390 catacomb_dead: rich drawn pixels fully inside the world viewport (100.0%)"
+      },
+      {
+        "ok": true,
+        "msg": "390 catacomb_dead: dialogue box covers no actor's face"
+      },
+      {
+        "ok": true,
+        "msg": "rich CSS agrees with settled camera placement"
+      }
+    ]
+  },
+  {
+    "width": 390,
+    "key": "halloween",
+    "refs": [
+      "Existing registered environment; visual fixture only"
+    ],
+    "checks": [
+      {
+        "ok": true,
+        "msg": "390 halloween: actor rich sprite loaded (assets/rich_standing_right.png, 80x96)"
+      },
+      {
+        "ok": true,
+        "msg": "390 halloween: rich drawn pixels fully inside the world viewport (100.0%)"
+      },
+      {
+        "ok": true,
+        "msg": "390 halloween: dialogue box covers no actor's face"
+      },
+      {
+        "ok": true,
+        "msg": "rich CSS agrees with settled camera placement"
+      }
+    ]
+  },
+  {
+    "width": 390,
+    "key": "kiosk_guy",
+    "refs": [
+      "Existing dynamic/registered actor; visual fixture only"
+    ],
+    "checks": [
+      {
+        "ok": true,
+        "msg": "390 kiosk_guy: actor rich sprite loaded (assets/rich_standing_right.png, 80x96)"
+      },
+      {
+        "ok": true,
+        "msg": "390 kiosk_guy: actor kiosk_guy sprite loaded (assets/build4/p_d/p_d_kiosk_guy_80x96.png, 80x96)"
+      },
+      {
+        "ok": true,
+        "msg": "390 kiosk_guy: rich drawn pixels fully inside the world viewport (100.0%)"
+      },
+      {
+        "ok": true,
+        "msg": "390 kiosk_guy: kiosk_guy drawn pixels fully inside the world viewport (100.0%)"
+      },
+      {
+        "ok": true,
+        "msg": "390 kiosk_guy: rich / kiosk_guy drawn pixels overlap 0.0% of the smaller (limit 20%)"
+      },
+      {
+        "ok": true,
+        "msg": "390 kiosk_guy: dialogue box covers no actor's face"
+      },
+      {
+        "ok": true,
+        "msg": "rich CSS agrees with settled camera placement"
+      },
+      {
+        "ok": true,
+        "msg": "kiosk_guy CSS agrees with settled camera placement"
+      }
+    ]
+  },
+  {
+    "width": 390,
+    "key": "smallie_cousin",
+    "refs": [
+      "Existing dynamic/registered actor; visual fixture only"
+    ],
+    "checks": [
+      {
+        "ok": true,
+        "msg": "390 smallie_cousin: actor rich sprite loaded (assets/rich_standing_right.png, 80x96)"
+      },
+      {
+        "ok": true,
+        "msg": "390 smallie_cousin: actor smallie_cousin sprite loaded (assets/build4/p_d/p_d_smallie_cousin_80x96.png, 80x96)"
+      },
+      {
+        "ok": true,
+        "msg": "390 smallie_cousin: rich drawn pixels fully inside the world viewport (100.0%)"
+      },
+      {
+        "ok": true,
+        "msg": "390 smallie_cousin: smallie_cousin drawn pixels fully inside the world viewport (100.0%)"
+      },
+      {
+        "ok": true,
+        "msg": "390 smallie_cousin: rich / smallie_cousin drawn pixels overlap 0.0% of the smaller (limit 20%)"
+      },
+      {
+        "ok": true,
+        "msg": "390 smallie_cousin: dialogue box covers no actor's face"
+      },
+      {
+        "ok": true,
+        "msg": "rich CSS agrees with settled camera placement"
+      },
+      {
+        "ok": true,
+        "msg": "smallie_cousin CSS agrees with settled camera placement"
+      }
+    ]
+  },
+  {
+    "width": 390,
+    "key": "pickup_court",
+    "boardLoaded": true,
+    "canvasInsideViewport": true
+  },
+  {
+    "width": 390,
+    "key": "jollof_kitchen",
+    "boardLoaded": true,
+    "canvasInsideViewport": true
+  },
+  {
+    "width": 390,
+    "key": "jollof_cook",
+    "incidentalCookingSpriteLoaded": true,
+    "namedJudgeUsesOwnFrozenIdentity": true
+  },
+  {
+    "width": 390,
+    "key": "jollof_cookoff",
+    "boardLoaded": true,
+    "canvasInsideViewport": true
+  },
+  {
+    "width": 390,
+    "key": "jollof_final",
+    "boardLoaded": true,
+    "canvasInsideViewport": true
+  },
+  {
+    "width": 390,
+    "key": "pier_game",
+    "boardLoaded": true,
+    "canvasInsideViewport": true
+  },
+  {
+    "width": 390,
+    "key": "hookah_roof",
+    "boardLoaded": true,
+    "canvasInsideViewport": true
+  },
+  {
+    "width": 390,
+    "key": "owambe_birthday",
+    "boardLoaded": true,
+    "canvasInsideViewport": true
+  },
+  {
+    "width": 390,
+    "key": "hatch_castle",
+    "boardLoaded": true,
+    "canvasInsideViewport": true
+  },
+  {
+    "width": 390,
+    "key": "hatch_room",
+    "boardLoaded": true,
+    "canvasInsideViewport": true
+  },
+  {
+    "width": 390,
+    "key": "senator_care_ground",
+    "boardLoaded": true,
+    "canvasInsideViewport": true
+  },
+  {
+    "width": 430,
+    "key": "ocean_night_flight|left:rich,right:mazda_human",
+    "refs": [
+      "ARC_MAZDA_2:scene"
+    ],
+    "checks": [
+      {
+        "ok": true,
+        "msg": "430 ocean_night_flight|left:rich,right:mazda_human: actor rich sprite loaded (assets/rich_standing_right.png, 80x96)"
+      },
+      {
+        "ok": true,
+        "msg": "430 ocean_night_flight|left:rich,right:mazda_human: actor mazda_human sprite loaded (assets/before_the_fame/characters/mazda_human/blueberry_mazda_human_neutral_80x96.png, 80x96)"
+      },
+      {
+        "ok": true,
+        "msg": "430 ocean_night_flight|left:rich,right:mazda_human: rich drawn pixels fully inside the world viewport (100.0%)"
+      },
+      {
+        "ok": true,
+        "msg": "430 ocean_night_flight|left:rich,right:mazda_human: mazda_human drawn pixels fully inside the world viewport (100.0%)"
+      },
+      {
+        "ok": true,
+        "msg": "430 ocean_night_flight|left:rich,right:mazda_human: rich / mazda_human drawn pixels overlap 0.0% of the smaller (limit 20%)"
+      },
+      {
+        "ok": true,
+        "msg": "430 ocean_night_flight|left:rich,right:mazda_human: dialogue box covers no actor's face"
+      },
+      {
+        "ok": true,
+        "msg": "rich CSS agrees with settled camera placement"
+      },
+      {
+        "ok": true,
+        "msg": "mazda_human CSS agrees with settled camera placement"
+      }
+    ]
+  },
+  {
+    "width": 430,
+    "key": "boba_shop|left:rich,right:smallie",
+    "refs": [
+      "NEW_OGA_M1:table",
+      "NEW_OGA_M1:fight_smallie",
+      "NEW_OGA_M1:switch",
+      "NEW_OGA_M1:touge",
+      "NEW_OGA_M1:leave",
+      "NEW_OGA_M1:fight_cousin",
+      "NEW_OGA_M1:touge_done",
+      "NEW_OGA_M1:stick_done"
+    ],
+    "checks": [
+      {
+        "ok": true,
+        "msg": "430 boba_shop|left:rich,right:smallie: actor rich sprite loaded (assets/rich_standing_right.png, 80x96)"
+      },
+      {
+        "ok": true,
+        "msg": "430 boba_shop|left:rich,right:smallie: actor smallie sprite loaded (assets/build4/p_d/p_d_smallie_80x96.png, 80x96)"
+      },
+      {
+        "ok": true,
+        "msg": "430 boba_shop|left:rich,right:smallie: rich drawn pixels fully inside the world viewport (100.0%)"
+      },
+      {
+        "ok": true,
+        "msg": "430 boba_shop|left:rich,right:smallie: smallie drawn pixels fully inside the world viewport (100.0%)"
+      },
+      {
+        "ok": true,
+        "msg": "430 boba_shop|left:rich,right:smallie: rich / smallie drawn pixels overlap 0.0% of the smaller (limit 20%)"
+      },
+      {
+        "ok": true,
+        "msg": "430 boba_shop|left:rich,right:smallie: dialogue box covers no actor's face"
+      },
+      {
+        "ok": true,
+        "msg": "rich CSS agrees with settled camera placement"
+      },
+      {
+        "ok": true,
+        "msg": "smallie CSS agrees with settled camera placement"
+      }
+    ]
+  },
+  {
+    "width": 430,
+    "key": "gbenga_rentals|left:rich,right:gbenga",
+    "refs": [
+      "NEW_OGA_M2:arrive",
+      "NEW_OGA_M2:questions",
+      "NEW_OGA_M2:debt",
+      "NEW_OGA_M2:work",
+      "NEW_OGA_M3:voice",
+      "NEW_OGA_M3:chairs",
+      "NEW_OGA_ALTERNATIVE:voice",
+      "NEW_OGA_ALTERNATIVE:delivery",
+      "NEW_OGA_ALTERNATIVE:chairs"
+    ],
+    "checks": [
+      {
+        "ok": true,
+        "msg": "430 gbenga_rentals|left:rich,right:gbenga: actor rich sprite loaded (assets/rich_standing_right.png, 80x96)"
+      },
+      {
+        "ok": true,
+        "msg": "430 gbenga_rentals|left:rich,right:gbenga: actor gbenga sprite loaded (assets/before_the_fame/characters/gbenga/runtime_80x96/gbenga_adjusting_sleeves_80x96_v2.png, 80x96)"
+      },
+      {
+        "ok": true,
+        "msg": "430 gbenga_rentals|left:rich,right:gbenga: rich drawn pixels fully inside the world viewport (100.0%)"
+      },
+      {
+        "ok": true,
+        "msg": "430 gbenga_rentals|left:rich,right:gbenga: gbenga drawn pixels fully inside the world viewport (100.0%)"
+      },
+      {
+        "ok": true,
+        "msg": "430 gbenga_rentals|left:rich,right:gbenga: rich / gbenga drawn pixels overlap 0.0% of the smaller (limit 20%)"
+      },
+      {
+        "ok": true,
+        "msg": "430 gbenga_rentals|left:rich,right:gbenga: dialogue box covers no actor's face"
+      },
+      {
+        "ok": true,
+        "msg": "rich CSS agrees with settled camera placement"
+      },
+      {
+        "ok": true,
+        "msg": "gbenga CSS agrees with settled camera placement"
+      }
+    ]
+  },
+  {
+    "width": 430,
+    "key": "carson_owambe|left:rich,right:auntie",
+    "refs": [
+      "NEW_OGA_M3:critique",
+      "NEW_OGA_M3:delivery",
+      "NEW_OGA_M3:complete",
+      "NEW_OGA_M3:backout",
+      "NEW_OGA_ALTERNATIVE:critique",
+      "NEW_OGA_ALTERNATIVE:complete",
+      "NEW_OGA_M5:greedy"
+    ],
+    "checks": [
+      {
+        "ok": true,
+        "msg": "430 carson_owambe|left:rich,right:auntie: actor rich sprite loaded (assets/rich_standing_right.png, 80x96)"
+      },
+      {
+        "ok": true,
+        "msg": "430 carson_owambe|left:rich,right:auntie: actor auntie sprite loaded (assets/before_the_fame/characters/auntie/auntie_register_neutral_80x96.png, 80x96)"
+      },
+      {
+        "ok": true,
+        "msg": "430 carson_owambe|left:rich,right:auntie: rich drawn pixels fully inside the world viewport (100.0%)"
+      },
+      {
+        "ok": true,
+        "msg": "430 carson_owambe|left:rich,right:auntie: auntie drawn pixels fully inside the world viewport (100.0%)"
+      },
+      {
+        "ok": true,
+        "msg": "430 carson_owambe|left:rich,right:auntie: rich / auntie drawn pixels overlap 0.0% of the smaller (limit 20%)"
+      },
+      {
+        "ok": true,
+        "msg": "430 carson_owambe|left:rich,right:auntie: dialogue box covers no actor's face"
+      },
+      {
+        "ok": true,
+        "msg": "rich CSS agrees with settled camera placement"
+      },
+      {
+        "ok": true,
+        "msg": "auntie CSS agrees with settled camera placement"
+      }
+    ]
+  },
+  {
+    "width": 430,
+    "key": "gbenga_rentals|left:rich,right:carlos",
+    "refs": [
+      "NEW_OGA_M4:beat4"
+    ],
+    "checks": [
+      {
+        "ok": true,
+        "msg": "430 gbenga_rentals|left:rich,right:carlos: actor rich sprite loaded (assets/rich_standing_right.png, 80x96)"
+      },
+      {
+        "ok": true,
+        "msg": "430 gbenga_rentals|left:rich,right:carlos: actor carlos sprite loaded (assets/before_the_fame/characters/carlos/runtime_80x96/carlos_neutral_happy_anchor_80x96_review_v1.png, 80x96)"
+      },
+      {
+        "ok": true,
+        "msg": "430 gbenga_rentals|left:rich,right:carlos: rich drawn pixels fully inside the world viewport (100.0%)"
+      },
+      {
+        "ok": true,
+        "msg": "430 gbenga_rentals|left:rich,right:carlos: carlos drawn pixels fully inside the world viewport (100.0%)"
+      },
+      {
+        "ok": true,
+        "msg": "430 gbenga_rentals|left:rich,right:carlos: rich / carlos drawn pixels overlap 0.0% of the smaller (limit 20%)"
+      },
+      {
+        "ok": true,
+        "msg": "430 gbenga_rentals|left:rich,right:carlos: dialogue box covers no actor's face"
+      },
+      {
+        "ok": true,
+        "msg": "rich CSS agrees with settled camera placement"
+      },
+      {
+        "ok": true,
+        "msg": "carlos CSS agrees with settled camera placement"
+      }
+    ]
+  },
+  {
+    "width": 430,
+    "key": "gbenga_rentals|left:carlos,right:gbenga",
+    "refs": [
+      "NEW_OGA_M4:walk_in"
+    ],
+    "checks": [
+      {
+        "ok": true,
+        "msg": "430 gbenga_rentals|left:carlos,right:gbenga: actor carlos sprite loaded (assets/before_the_fame/characters/carlos/runtime_80x96/carlos_neutral_happy_anchor_80x96_review_v1.png, 80x96)"
+      },
+      {
+        "ok": true,
+        "msg": "430 gbenga_rentals|left:carlos,right:gbenga: actor gbenga sprite loaded (assets/before_the_fame/characters/gbenga/runtime_80x96/gbenga_adjusting_sleeves_80x96_v2.png, 80x96)"
+      },
+      {
+        "ok": true,
+        "msg": "430 gbenga_rentals|left:carlos,right:gbenga: carlos drawn pixels fully inside the world viewport (100.0%)"
+      },
+      {
+        "ok": true,
+        "msg": "430 gbenga_rentals|left:carlos,right:gbenga: gbenga drawn pixels fully inside the world viewport (100.0%)"
+      },
+      {
+        "ok": true,
+        "msg": "430 gbenga_rentals|left:carlos,right:gbenga: carlos / gbenga drawn pixels overlap 0.0% of the smaller (limit 20%)"
+      },
+      {
+        "ok": true,
+        "msg": "430 gbenga_rentals|left:carlos,right:gbenga: dialogue box covers no actor's face"
+      },
+      {
+        "ok": true,
+        "msg": "carlos CSS agrees with settled camera placement"
+      },
+      {
+        "ok": true,
+        "msg": "gbenga CSS agrees with settled camera placement"
+      }
+    ]
+  },
+  {
+    "width": 430,
+    "key": "carson_owambe|left:rich,right:uncle_bamidele",
+    "refs": [
+      "NEW_OGA_M5:arrival",
+      "NEW_OGA_M5:collect",
+      "NEW_OGA_M5:backout",
+      "NEW_OGA_M5:success",
+      "NEW_OGA_M5:short"
+    ],
+    "checks": [
+      {
+        "ok": true,
+        "msg": "430 carson_owambe|left:rich,right:uncle_bamidele: actor rich sprite loaded (assets/rich_standing_right.png, 80x96)"
+      },
+      {
+        "ok": true,
+        "msg": "430 carson_owambe|left:rich,right:uncle_bamidele: actor uncle_bamidele sprite loaded (assets/build4/p_d/p_d_uncle_bamidele_80x96.png, 80x96)"
+      },
+      {
+        "ok": true,
+        "msg": "430 carson_owambe|left:rich,right:uncle_bamidele: rich drawn pixels fully inside the world viewport (100.0%)"
+      },
+      {
+        "ok": true,
+        "msg": "430 carson_owambe|left:rich,right:uncle_bamidele: uncle_bamidele drawn pixels fully inside the world viewport (100.0%)"
+      },
+      {
+        "ok": true,
+        "msg": "430 carson_owambe|left:rich,right:uncle_bamidele: rich / uncle_bamidele drawn pixels overlap 0.0% of the smaller (limit 20%)"
+      },
+      {
+        "ok": true,
+        "msg": "430 carson_owambe|left:rich,right:uncle_bamidele: dialogue box covers no actor's face"
+      },
+      {
+        "ok": true,
+        "msg": "rich CSS agrees with settled camera placement"
+      },
+      {
+        "ok": true,
+        "msg": "uncle_bamidele CSS agrees with settled camera placement"
+      }
+    ]
+  },
+  {
+    "width": 430,
+    "key": "bedroom|left:rich,right:senator",
+    "refs": [
+      "NEW_OGA_M6:voice",
+      "NEW_OGA_M6:bread",
+      "NEW_OGA_M6:care",
+      "NEW_OGA_M6:walked"
+    ],
+    "checks": [
+      {
+        "ok": true,
+        "msg": "430 bedroom|left:rich,right:senator: actor rich sprite loaded (assets/rich_standing_right.png, 80x96)"
+      },
+      {
+        "ok": true,
+        "msg": "430 bedroom|left:rich,right:senator: actor senator sprite loaded (assets/build4/p_d/p_d_senator_sitting_160x160.png, 160x160)"
+      },
+      {
+        "ok": true,
+        "msg": "430 bedroom|left:rich,right:senator: rich drawn pixels fully inside the world viewport (100.0%)"
+      },
+      {
+        "ok": true,
+        "msg": "430 bedroom|left:rich,right:senator: senator drawn pixels fully inside the world viewport (100.0%)"
+      },
+      {
+        "ok": true,
+        "msg": "430 bedroom|left:rich,right:senator: rich / senator drawn pixels overlap 0.0% of the smaller (limit 20%)"
+      },
+      {
+        "ok": true,
+        "msg": "430 bedroom|left:rich,right:senator: dialogue box covers no actor's face"
+      },
+      {
+        "ok": true,
+        "msg": "rich CSS agrees with settled camera placement"
+      },
+      {
+        "ok": true,
+        "msg": "senator CSS agrees with settled camera placement"
+      }
+    ]
+  },
+  {
+    "width": 430,
+    "key": "bedroom|left:cat,right:senator",
+    "refs": [
+      "NEW_OGA_M6:egusi"
+    ],
+    "checks": [
+      {
+        "ok": true,
+        "msg": "430 bedroom|left:cat,right:senator: actor cat sprite loaded (assets/before_the_fame/creatures/cat/sphynx_cat_sitting_48x32.png, 48x32)"
+      },
+      {
+        "ok": true,
+        "msg": "430 bedroom|left:cat,right:senator: actor senator sprite loaded (assets/build4/p_d/p_d_senator_sitting_160x160.png, 160x160)"
+      },
+      {
+        "ok": true,
+        "msg": "430 bedroom|left:cat,right:senator: cat drawn pixels fully inside the world viewport (100.0%)"
+      },
+      {
+        "ok": true,
+        "msg": "430 bedroom|left:cat,right:senator: senator drawn pixels fully inside the world viewport (100.0%)"
+      },
+      {
+        "ok": true,
+        "msg": "430 bedroom|left:cat,right:senator: cat / senator drawn pixels overlap 0.0% of the smaller (limit 20%)"
+      },
+      {
+        "ok": true,
+        "msg": "430 bedroom|left:cat,right:senator: dialogue box covers no actor's face"
+      },
+      {
+        "ok": true,
+        "msg": "cat CSS agrees with settled camera placement"
+      },
+      {
+        "ok": true,
+        "msg": "senator CSS agrees with settled camera placement"
+      }
+    ]
+  },
+  {
+    "width": 430,
+    "key": "bedroom|left:mazda_human,right:senator",
+    "refs": [
+      "NEW_OGA_M6:mazda"
+    ],
+    "checks": [
+      {
+        "ok": true,
+        "msg": "430 bedroom|left:mazda_human,right:senator: actor mazda_human sprite loaded (assets/before_the_fame/characters/mazda_human/blueberry_mazda_human_neutral_80x96.png, 80x96)"
+      },
+      {
+        "ok": true,
+        "msg": "430 bedroom|left:mazda_human,right:senator: actor senator sprite loaded (assets/build4/p_d/p_d_senator_sitting_160x160.png, 160x160)"
+      },
+      {
+        "ok": true,
+        "msg": "430 bedroom|left:mazda_human,right:senator: mazda_human drawn pixels fully inside the world viewport (100.0%)"
+      },
+      {
+        "ok": true,
+        "msg": "430 bedroom|left:mazda_human,right:senator: senator drawn pixels fully inside the world viewport (100.0%)"
+      },
+      {
+        "ok": true,
+        "msg": "430 bedroom|left:mazda_human,right:senator: mazda_human / senator drawn pixels overlap 0.0% of the smaller (limit 20%)"
+      },
+      {
+        "ok": true,
+        "msg": "430 bedroom|left:mazda_human,right:senator: dialogue box covers no actor's face"
+      },
+      {
+        "ok": true,
+        "msg": "mazda_human CSS agrees with settled camera placement"
+      },
+      {
+        "ok": true,
+        "msg": "senator CSS agrees with settled camera placement"
+      }
+    ]
+  },
+  {
+    "width": 430,
+    "key": "gbenga_house_dining|left:rich,mid:mama_gbenga,right:gbenga",
+    "refs": [
+      "NEW_OGA_M7:arrival",
+      "NEW_OGA_M7:dinner"
+    ],
+    "checks": [
+      {
+        "ok": true,
+        "msg": "430 gbenga_house_dining|left:rich,mid:mama_gbenga,right:gbenga: actor rich sprite loaded (assets/rich_standing_right.png, 80x96)"
+      },
+      {
+        "ok": true,
+        "msg": "430 gbenga_house_dining|left:rich,mid:mama_gbenga,right:gbenga: actor mama_gbenga sprite loaded (assets/build4/p_d/p_d_mama_gbenga_80x96.png, 80x96)"
+      },
+      {
+        "ok": true,
+        "msg": "430 gbenga_house_dining|left:rich,mid:mama_gbenga,right:gbenga: actor gbenga sprite loaded (assets/before_the_fame/characters/gbenga/runtime_80x96/gbenga_adjusting_sleeves_80x96_v2.png, 80x96)"
+      },
+      {
+        "ok": true,
+        "msg": "430 gbenga_house_dining|left:rich,mid:mama_gbenga,right:gbenga: rich drawn pixels fully inside the world viewport (100.0%)"
+      },
+      {
+        "ok": true,
+        "msg": "430 gbenga_house_dining|left:rich,mid:mama_gbenga,right:gbenga: mama_gbenga drawn pixels fully inside the world viewport (100.0%)"
+      },
+      {
+        "ok": true,
+        "msg": "430 gbenga_house_dining|left:rich,mid:mama_gbenga,right:gbenga: gbenga drawn pixels fully inside the world viewport (100.0%)"
+      },
+      {
+        "ok": true,
+        "msg": "430 gbenga_house_dining|left:rich,mid:mama_gbenga,right:gbenga: rich / mama_gbenga drawn pixels overlap 0.0% of the smaller (limit 20%)"
+      },
+      {
+        "ok": true,
+        "msg": "430 gbenga_house_dining|left:rich,mid:mama_gbenga,right:gbenga: rich / gbenga drawn pixels overlap 0.0% of the smaller (limit 20%)"
+      },
+      {
+        "ok": true,
+        "msg": "430 gbenga_house_dining|left:rich,mid:mama_gbenga,right:gbenga: mama_gbenga / gbenga drawn pixels overlap 0.0% of the smaller (limit 20%)"
+      },
+      {
+        "ok": true,
+        "msg": "430 gbenga_house_dining|left:rich,mid:mama_gbenga,right:gbenga: dialogue box covers no actor's face"
+      },
+      {
+        "ok": true,
+        "msg": "rich CSS agrees with settled camera placement"
+      },
+      {
+        "ok": true,
+        "msg": "mama_gbenga CSS agrees with settled camera placement"
+      },
+      {
+        "ok": true,
+        "msg": "gbenga CSS agrees with settled camera placement"
+      }
+    ]
+  },
+  {
+    "width": 430,
+    "key": "gbenga_house_patio|left:rich,right:gbenga",
+    "refs": [
+      "NEW_OGA_M7:patio"
+    ],
+    "checks": [
+      {
+        "ok": true,
+        "msg": "430 gbenga_house_patio|left:rich,right:gbenga: actor rich sprite loaded (assets/rich_standing_right.png, 80x96)"
+      },
+      {
+        "ok": true,
+        "msg": "430 gbenga_house_patio|left:rich,right:gbenga: actor gbenga sprite loaded (assets/before_the_fame/characters/gbenga/runtime_80x96/gbenga_adjusting_sleeves_80x96_v2.png, 80x96)"
+      },
+      {
+        "ok": true,
+        "msg": "430 gbenga_house_patio|left:rich,right:gbenga: rich drawn pixels fully inside the world viewport (100.0%)"
+      },
+      {
+        "ok": true,
+        "msg": "430 gbenga_house_patio|left:rich,right:gbenga: gbenga drawn pixels fully inside the world viewport (100.0%)"
+      },
+      {
+        "ok": true,
+        "msg": "430 gbenga_house_patio|left:rich,right:gbenga: rich / gbenga drawn pixels overlap 0.0% of the smaller (limit 20%)"
+      },
+      {
+        "ok": true,
+        "msg": "430 gbenga_house_patio|left:rich,right:gbenga: dialogue box covers no actor's face"
+      },
+      {
+        "ok": true,
+        "msg": "rich CSS agrees with settled camera placement"
+      },
+      {
+        "ok": true,
+        "msg": "gbenga CSS agrees with settled camera placement"
+      }
+    ]
+  },
+  {
+    "width": 430,
+    "key": "gbenga_house_dining|left:rich,right:mama_gbenga",
+    "refs": [
+      "NEW_OGA_M7:door",
+      "NEW_OGA_M7:take",
+      "NEW_OGA_M7:refuse"
+    ],
+    "checks": [
+      {
+        "ok": true,
+        "msg": "430 gbenga_house_dining|left:rich,right:mama_gbenga: actor rich sprite loaded (assets/rich_standing_right.png, 80x96)"
+      },
+      {
+        "ok": true,
+        "msg": "430 gbenga_house_dining|left:rich,right:mama_gbenga: actor mama_gbenga sprite loaded (assets/build4/p_d/p_d_mama_gbenga_80x96.png, 80x96)"
+      },
+      {
+        "ok": true,
+        "msg": "430 gbenga_house_dining|left:rich,right:mama_gbenga: rich drawn pixels fully inside the world viewport (100.0%)"
+      },
+      {
+        "ok": true,
+        "msg": "430 gbenga_house_dining|left:rich,right:mama_gbenga: mama_gbenga drawn pixels fully inside the world viewport (100.0%)"
+      },
+      {
+        "ok": true,
+        "msg": "430 gbenga_house_dining|left:rich,right:mama_gbenga: rich / mama_gbenga drawn pixels overlap 0.0% of the smaller (limit 20%)"
+      },
+      {
+        "ok": true,
+        "msg": "430 gbenga_house_dining|left:rich,right:mama_gbenga: dialogue box covers no actor's face"
+      },
+      {
+        "ok": true,
+        "msg": "rich CSS agrees with settled camera placement"
+      },
+      {
+        "ok": true,
+        "msg": "mama_gbenga CSS agrees with settled camera placement"
+      }
+    ]
+  },
+  {
+    "width": 430,
+    "key": "f15_exam_hall",
+    "refs": [
+      "F15 existing environment review"
+    ],
+    "checks": [
+      {
+        "ok": true,
+        "msg": "430 f15_exam_hall: actor rich sprite loaded (assets/rich_standing_right.png, 80x96)"
+      },
+      {
+        "ok": true,
+        "msg": "430 f15_exam_hall: actor emerald sprite loaded (assets/f15/portraits/emerald.png, 80x96)"
+      },
+      {
+        "ok": true,
+        "msg": "430 f15_exam_hall: rich drawn pixels fully inside the world viewport (100.0%)"
+      },
+      {
+        "ok": true,
+        "msg": "430 f15_exam_hall: emerald drawn pixels fully inside the world viewport (100.0%)"
+      },
+      {
+        "ok": true,
+        "msg": "430 f15_exam_hall: rich / emerald drawn pixels overlap 0.0% of the smaller (limit 20%)"
+      },
+      {
+        "ok": true,
+        "msg": "430 f15_exam_hall: dialogue box covers no actor's face"
+      },
+      {
+        "ok": true,
+        "msg": "rich CSS agrees with settled camera placement"
+      },
+      {
+        "ok": true,
+        "msg": "emerald CSS agrees with settled camera placement"
+      }
+    ]
+  },
+  {
+    "width": 430,
+    "key": "f15_library",
+    "refs": [
+      "F15 existing environment review"
+    ],
+    "checks": [
+      {
+        "ok": true,
+        "msg": "430 f15_library: actor rich sprite loaded (assets/rich_standing_right.png, 80x96)"
+      },
+      {
+        "ok": true,
+        "msg": "430 f15_library: actor emerald sprite loaded (assets/f15/portraits/emerald.png, 80x96)"
+      },
+      {
+        "ok": true,
+        "msg": "430 f15_library: rich drawn pixels fully inside the world viewport (100.0%)"
+      },
+      {
+        "ok": true,
+        "msg": "430 f15_library: emerald drawn pixels fully inside the world viewport (100.0%)"
+      },
+      {
+        "ok": true,
+        "msg": "430 f15_library: rich / emerald drawn pixels overlap 0.0% of the smaller (limit 20%)"
+      },
+      {
+        "ok": true,
+        "msg": "430 f15_library: dialogue box covers no actor's face"
+      },
+      {
+        "ok": true,
+        "msg": "rich CSS agrees with settled camera placement"
+      },
+      {
+        "ok": true,
+        "msg": "emerald CSS agrees with settled camera placement"
+      }
+    ]
+  },
+  {
+    "width": 430,
+    "key": "catacomb_dead",
+    "refs": [
+      "Existing registered environment; visual fixture only"
+    ],
+    "checks": [
+      {
+        "ok": true,
+        "msg": "430 catacomb_dead: actor rich sprite loaded (assets/rich_standing_right.png, 80x96)"
+      },
+      {
+        "ok": true,
+        "msg": "430 catacomb_dead: rich drawn pixels fully inside the world viewport (100.0%)"
+      },
+      {
+        "ok": true,
+        "msg": "430 catacomb_dead: dialogue box covers no actor's face"
+      },
+      {
+        "ok": true,
+        "msg": "rich CSS agrees with settled camera placement"
+      }
+    ]
+  },
+  {
+    "width": 430,
+    "key": "halloween",
+    "refs": [
+      "Existing registered environment; visual fixture only"
+    ],
+    "checks": [
+      {
+        "ok": true,
+        "msg": "430 halloween: actor rich sprite loaded (assets/rich_standing_right.png, 80x96)"
+      },
+      {
+        "ok": true,
+        "msg": "430 halloween: rich drawn pixels fully inside the world viewport (100.0%)"
+      },
+      {
+        "ok": true,
+        "msg": "430 halloween: dialogue box covers no actor's face"
+      },
+      {
+        "ok": true,
+        "msg": "rich CSS agrees with settled camera placement"
+      }
+    ]
+  },
+  {
+    "width": 430,
+    "key": "kiosk_guy",
+    "refs": [
+      "Existing dynamic/registered actor; visual fixture only"
+    ],
+    "checks": [
+      {
+        "ok": true,
+        "msg": "430 kiosk_guy: actor rich sprite loaded (assets/rich_standing_right.png, 80x96)"
+      },
+      {
+        "ok": true,
+        "msg": "430 kiosk_guy: actor kiosk_guy sprite loaded (assets/build4/p_d/p_d_kiosk_guy_80x96.png, 80x96)"
+      },
+      {
+        "ok": true,
+        "msg": "430 kiosk_guy: rich drawn pixels fully inside the world viewport (100.0%)"
+      },
+      {
+        "ok": true,
+        "msg": "430 kiosk_guy: kiosk_guy drawn pixels fully inside the world viewport (100.0%)"
+      },
+      {
+        "ok": true,
+        "msg": "430 kiosk_guy: rich / kiosk_guy drawn pixels overlap 0.0% of the smaller (limit 20%)"
+      },
+      {
+        "ok": true,
+        "msg": "430 kiosk_guy: dialogue box covers no actor's face"
+      },
+      {
+        "ok": true,
+        "msg": "rich CSS agrees with settled camera placement"
+      },
+      {
+        "ok": true,
+        "msg": "kiosk_guy CSS agrees with settled camera placement"
+      }
+    ]
+  },
+  {
+    "width": 430,
+    "key": "smallie_cousin",
+    "refs": [
+      "Existing dynamic/registered actor; visual fixture only"
+    ],
+    "checks": [
+      {
+        "ok": true,
+        "msg": "430 smallie_cousin: actor rich sprite loaded (assets/rich_standing_right.png, 80x96)"
+      },
+      {
+        "ok": true,
+        "msg": "430 smallie_cousin: actor smallie_cousin sprite loaded (assets/build4/p_d/p_d_smallie_cousin_80x96.png, 80x96)"
+      },
+      {
+        "ok": true,
+        "msg": "430 smallie_cousin: rich drawn pixels fully inside the world viewport (100.0%)"
+      },
+      {
+        "ok": true,
+        "msg": "430 smallie_cousin: smallie_cousin drawn pixels fully inside the world viewport (100.0%)"
+      },
+      {
+        "ok": true,
+        "msg": "430 smallie_cousin: rich / smallie_cousin drawn pixels overlap 0.0% of the smaller (limit 20%)"
+      },
+      {
+        "ok": true,
+        "msg": "430 smallie_cousin: dialogue box covers no actor's face"
+      },
+      {
+        "ok": true,
+        "msg": "rich CSS agrees with settled camera placement"
+      },
+      {
+        "ok": true,
+        "msg": "smallie_cousin CSS agrees with settled camera placement"
+      }
+    ]
+  },
+  {
+    "width": 430,
+    "key": "pickup_court",
+    "boardLoaded": true,
+    "canvasInsideViewport": true
+  },
+  {
+    "width": 430,
+    "key": "jollof_kitchen",
+    "boardLoaded": true,
+    "canvasInsideViewport": true
+  },
+  {
+    "width": 430,
+    "key": "jollof_cook",
+    "incidentalCookingSpriteLoaded": true,
+    "namedJudgeUsesOwnFrozenIdentity": true
+  },
+  {
+    "width": 430,
+    "key": "jollof_cookoff",
+    "boardLoaded": true,
+    "canvasInsideViewport": true
+  },
+  {
+    "width": 430,
+    "key": "jollof_final",
+    "boardLoaded": true,
+    "canvasInsideViewport": true
+  },
+  {
+    "width": 430,
+    "key": "pier_game",
+    "boardLoaded": true,
+    "canvasInsideViewport": true
+  },
+  {
+    "width": 430,
+    "key": "hookah_roof",
+    "boardLoaded": true,
+    "canvasInsideViewport": true
+  },
+  {
+    "width": 430,
+    "key": "owambe_birthday",
+    "boardLoaded": true,
+    "canvasInsideViewport": true
+  },
+  {
+    "width": 430,
+    "key": "hatch_castle",
+    "boardLoaded": true,
+    "canvasInsideViewport": true
+  },
+  {
+    "width": 430,
+    "key": "hatch_room",
+    "boardLoaded": true,
+    "canvasInsideViewport": true
+  },
+  {
+    "width": 430,
+    "key": "senator_care_ground",
+    "boardLoaded": true,
+    "canvasInsideViewport": true
+  }
+]

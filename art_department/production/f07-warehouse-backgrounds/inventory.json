@@ -1,0 +1,83 @@
+{
+  "package": "f07-warehouse-backgrounds",
+  "generated_by": "scripted copy from approved local files",
+  "files": [
+    {
+      "path": "art_department/production/f07-warehouse-backgrounds/interiors/warehouse_workday_270x480.png",
+      "bytes": 179277,
+      "sha256": "a4d36fcfa06a18503fbd037a24442e674ee3e9601fd5fde32027b0e37e70357d",
+      "width": 270,
+      "height": 480,
+      "mode": "RGB",
+      "opaque": true
+    },
+    {
+      "path": "art_department/production/f07-warehouse-backgrounds/interiors/warehouse_owambe_party_270x480.png",
+      "bytes": 192244,
+      "sha256": "4431afd5b0c0bb3ae47a03a899600ec98b755d15334b7fd825a5ed1cbf5f0899",
+      "width": 270,
+      "height": 480,
+      "mode": "RGB",
+      "opaque": true
+    },
+    {
+      "path": "art_department/production/f07-warehouse-backgrounds/interiors/manifest.json",
+      "bytes": 9687,
+      "sha256": "a21fbb4c33e3d1f5b1beb79a412a427729fbf69737865339425f1dfc6a98ce50"
+    },
+    {
+      "path": "art_department/production/f07-warehouse-backgrounds/interiors/production_approval_record.md",
+      "bytes": 3221,
+      "sha256": "0831b0ba3abd46708b5e33894d5cfc5c51af099c9d23adb0ed8dfd5709095744"
+    },
+    {
+      "path": "art_department/production/f07-warehouse-backgrounds/exteriors/warehouse_exterior_270x480.png",
+      "bytes": 138736,
+      "sha256": "0f62562efa01e6023858e092bd72c40c3c757009a63d1bb1157e0fef528abd14",
+      "width": 270,
+      "height": 480,
+      "mode": "RGB",
+      "opaque": true
+    },
+    {
+      "path": "art_department/production/f07-warehouse-backgrounds/exteriors/warehouse_exterior_rich_enterprises_270x480.png",
+      "bytes": 139380,
+      "sha256": "71176517270e72b67aea396878a14022c53b033ccf6c469d02069e9ac196295e",
+      "width": 270,
+      "height": 480,
+      "mode": "RGB",
+      "opaque": true
+    },
+    {
+      "path": "art_department/production/f07-warehouse-backgrounds/exteriors/warehouse_exterior_approval.json",
+      "bytes": 8639,
+      "sha256": "7f3c57ebaff2782f11e67ab452b496e0519ca6554017b9f08abff419f63f6c39"
+    },
+    {
+      "path": "art_department/production/f07-warehouse-backgrounds/exteriors/warehouse_exterior_manifest.json",
+      "bytes": 4784,
+      "sha256": "438437dc0a3c9f4ca876fcf3fe7b3023f594b3f06b9d3c691753b713b3a48a93"
+    },
+    {
+      "path": "art_department/production/f07-warehouse-backgrounds/exteriors/owambe_party_exterior_normalization.json",
+      "bytes": 3222,
+      "sha256": "5b14d7864980c0bc03ad6d7e285537794eaf56d12464225b7f7756f8132e4d7d"
+    }
+  ],
+  "exterior_variant_check": {
+    "sign_bounds_xywh": [
+      54,
+      104,
+      163,
+      30
+    ],
+    "changed_pixels": 701,
+    "changed_bbox_ltrb": [
+      72,
+      109,
+      198,
+      130
+    ],
+    "changed_outside_sign": 0
+  }
+}

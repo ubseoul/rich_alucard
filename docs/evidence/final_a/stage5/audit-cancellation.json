@@ -1,0 +1,152 @@
+{
+ "requestedAt": "2026-10-04T00:07:05.807197Z",
+ "authorization": "User explicitly approved: do that -> skip that shit do your rec. Root directed stopping only remaining original360 and supplemental20 audit parents/workers; post18 already completed.",
+ "plannedOriginal": 360,
+ "plannedSupplemental": 20,
+ "processScope": [
+  {
+   "ProcessId": 20756,
+   "ParentProcessId": 31020,
+   "CreationDate": "2026-10-03T17:10:19.046416-04:00",
+   "CommandLine": "\"C:\\Program Files\\nodejs\\node.exe\" tools/tests/f13/career-run.mjs --paired-root work/final_a/base --jobs 2 --seeds 10 --days 70"
+  },
+  {
+   "ProcessId": 10488,
+   "ParentProcessId": 20756,
+   "CreationDate": "2026-10-03T17:10:19.164619-04:00",
+   "CommandLine": "\"C:\\Program Files\\nodejs\\node.exe\" C:\\Users\\Ube\\Documents\\Codex\\2026-10-03\\files-pasted-by-the-user-final\\work\\rich_alucard\\tools\\tests\\f13\\career-run.mjs --worker"
+  },
+  {
+   "ProcessId": 8372,
+   "ParentProcessId": 20756,
+   "CreationDate": "2026-10-03T17:10:19.172119-04:00",
+   "CommandLine": "\"C:\\Program Files\\nodejs\\node.exe\" C:\\Users\\Ube\\Documents\\Codex\\2026-10-03\\files-pasted-by-the-user-final\\work\\rich_alucard\\tools\\tests\\f13\\career-run.mjs --worker"
+  },
+  {
+   "ProcessId": 35040,
+   "ParentProcessId": 8952,
+   "CreationDate": "2026-10-03T19:40:03.77192-04:00",
+   "CommandLine": "\"C:\\Program Files\\nodejs\\node.exe\" tools/tests/f13/completionist-run.mjs --seeds 10 --jobs 2 --days 70 --post-ending --paired-root work/final_a/base --out docs/evidence/final_a/stage5/completionist"
+  },
+  {
+   "ProcessId": 7332,
+   "ParentProcessId": 35040,
+   "CreationDate": "2026-10-03T19:40:03.864747-04:00",
+   "CommandLine": "\"C:\\Program Files\\nodejs\\node.exe\" C:\\Users\\Ube\\Documents\\Codex\\2026-10-03\\files-pasted-by-the-user-final\\work\\rich_alucard\\tools\\tests\\f13\\completionist-run.mjs --worker"
+  },
+  {
+   "ProcessId": 19936,
+   "ParentProcessId": 35040,
+   "CreationDate": "2026-10-03T19:40:03.873486-04:00",
+   "CommandLine": "\"C:\\Program Files\\nodejs\\node.exe\" C:\\Users\\Ube\\Documents\\Codex\\2026-10-03\\files-pasted-by-the-user-final\\work\\rich_alucard\\tools\\tests\\f13\\completionist-run.mjs --worker"
+  }
+ ],
+ "stopStatus": "stopped",
+ "preservedOriginal": 178,
+ "preservedSupplemental": 2,
+ "completedContinuation": 18,
+ "incompleteOriginal": 182,
+ "incompleteSupplemental": 18,
+ "status": "USER_CANCELED",
+ "frozenAt": "2026-10-04T00:16:29.834Z",
+ "reason": "Explicit user instruction to skip remaining large audits after actual completed supplemental pair established136/138 final-build OPEN exposure; remaining A23/A23R require scoped OPEN ecology3-versus4 owner ruling.",
+ "actualOriginal": 178,
+ "actualSupplemental": 2,
+ "original": {
+  "planned": 360,
+  "preserved": 178,
+  "canceledNotPersisted": 182,
+  "labels": [
+   {
+    "label": "before",
+    "completed": 89
+   },
+   {
+    "label": "after",
+    "completed": 89
+   }
+  ],
+  "fullCareers": 178,
+  "rawErrors": 58,
+  "fatal": 0,
+  "softlocks": 0,
+  "checkpointSha256": "da9c626af3e620429eae92d308463e72910b46378f8fb04a1a3b7d28c847b3de",
+  "rawEndsWithNewline": true,
+  "complete": false,
+  "workerSlotsInterrupted": 2,
+  "earliestUnpersistedCaseKeys": [
+   {
+    "label": "before",
+    "persona": "collector",
+    "seed": 10
+   },
+   {
+    "label": "after",
+    "persona": "collector",
+    "seed": 10
+   }
+  ],
+  "unstartedCases": 180
+ },
+ "supplemental": {
+  "planned": 20,
+  "preserved": 2,
+  "canceledNotPersisted": 18,
+  "labels": [
+   {
+    "label": "before",
+    "completed": 1
+   },
+   {
+    "label": "after",
+    "completed": 1
+   }
+  ],
+  "fullCareers": 2,
+  "rawErrors": 0,
+  "fatal": 0,
+  "softlocks": 0,
+  "checkpointSha256": "1c96781fded7a754a5d2514ad3556685f7acc9a36533186c179302277c286a4c",
+  "rawEndsWithNewline": true,
+  "complete": false,
+  "workerSlotsInterrupted": 2,
+  "earliestUnpersistedCaseKeys": [
+   {
+    "label": "before",
+    "persona": "completionist",
+    "seed": 2
+   },
+   {
+    "label": "after",
+    "persona": "completionist",
+    "seed": 2
+   }
+  ],
+  "unstartedCases": 16,
+  "lastIPCProgress": {
+   "persona": "completionist",
+   "seed": 2,
+   "day": 45,
+   "endingDay": 36,
+   "money": 52411,
+   "offered": 88,
+   "errors": 0,
+   "label": "after"
+  }
+ },
+ "postEnding": {
+  "planned": 18,
+  "preserved": 18,
+  "complete": true,
+  "rawErrors": 1,
+  "checkpointSha256": "87dec5de73916422a710b100b9c19c129d6fc1080a8ebc8be3fc556a1392da91"
+ },
+ "inflightProvenance": "Exact six stopped processes are in processScope. Two worker slots per dispatcher were interrupted. Earliest unpersisted keys follow each deterministic ordered two-worker dispatcher; canceled partial states/IPC progress are excluded from completed-case denominators. No completion is inferred for canceled work.",
+ "stopVerification": {
+  "method": "post-Stop-Process Win32_Process recheck for the exact six identity-verified IDs",
+  "remainingProcessIDs": []
+ },
+ "noFilesDeleted": true,
+ "noRestart": true,
+ "reporting": "Original planned360 and supplemental planned20 remain unchanged. Status.completed uses actual preserved rows; complete stays false. Post18 remains complete. All136 final-build offers use current main/current post/supplemental after only; no pilot, preserved-base witness or isolated fixture contributes."
+}

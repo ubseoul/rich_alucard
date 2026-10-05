@@ -1,0 +1,11 @@
+{
+  "method": "git -c gc.auto=0 push -u origin build/final-001, then independent ls-remote of exact branch/tag refs",
+  "origin": "https://github.com/ubseoul/rich_alucard.git",
+  "implementationBranch": "build/final-001",
+  "implementationCommit": "9f06b0c58ae3db9cf9e7ed059fc94874b09d2b2a",
+  "acceptedBranch": "build/visual-completion-002",
+  "acceptedCommit": "0c6ccc3d18674c713a0a6e5896fe6ecbf7f7bc0f",
+  "releaseBaseTagObject": "9e794f5487f0498be23d8618f175fef210506628",
+  "releaseBasePeeledCommit": "0c6ccc3d18674c713a0a6e5896fe6ecbf7f7bc0f",
+  "note": "Implementation checkpoint only; final evidence/report commit and remote SHA verification follow after the full population finishes. No force push, accepted-line move, merge, PR or Ube demo."
+}

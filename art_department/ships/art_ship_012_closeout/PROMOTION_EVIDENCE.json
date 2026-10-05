@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "ship_id": "ART SHIP 012 CLOSEOUT",
+  "accepted_candidate_commit": "da2c251be814a91fe89154d7a9fac02770e4f66d",
+  "promotion": "byte-for-byte filesystem copy; no decode, re-encode or raster operation",
+  "files": [
+    {"id":"portobello_manager","candidate":"art_department/ships/art_ship_012_closeout/candidates/native/characters/portobello_manager_neutral_80x96.png","production":"assets/before_the_fame/characters/portobello_manager/portobello_manager_neutral_80x96.png","sha256":"0e69dc024e59fc9dbd5bed7944081fbc9f83226ba44d7c9c16b3c9b6d68ff26c","exact":true},
+    {"id":"auntie","candidate":"art_department/ships/art_ship_012_closeout/candidates/native/characters/auntie_register_neutral_80x96.png","production":"assets/before_the_fame/characters/auntie/auntie_register_neutral_80x96.png","sha256":"cf5ae278f87c9a339ac15c115f9a754f78cd58d6efa2e289515f90036ae9836e","exact":true},
+    {"id":"soul","candidate":"art_department/ships/art_ship_012_closeout/candidates/native/characters/ocean_soul_climbing_80x96.png","production":"assets/before_the_fame/characters/ocean_soul/ocean_soul_climbing_80x96.png","sha256":"21b21879c070ba61944091683201eb89c57a18e05731f66f5fce3e687ed8dbd1","exact":true},
+    {"id":"training_dummy","candidate":"art_department/ships/art_ship_012_closeout/candidates/native/characters/training_dummy_combat_80x96.png","production":"assets/before_the_fame/characters/training_dummy/training_dummy_combat_80x96.png","sha256":"e30e3189af01afdd05300fc913ea541aab0e0f1f8c88704a094afac2b5f9face","exact":true},
+    {"id":"buckhead","candidate":"art_department/ships/art_ship_012_closeout/candidates/native/characters/buckhead_vampire_neutral_80x96.png","production":"assets/before_the_fame/characters/buckhead/buckhead_vampire_neutral_80x96.png","sha256":"710bede4d4372f20cd27956313d6589df528c3ec9b795b3c4e5cc996ea033b97","exact":true}
+  ],
+  "all_exact": true,
+  "runtime_integrated": false,
+  "presentation_director_changed": false,
+  "pass_hold_changed": false
+}

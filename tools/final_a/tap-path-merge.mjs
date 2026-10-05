@@ -1,0 +1,6 @@
+import fs from 'node:fs';
+const dir='docs/evidence/final_a/stage6',read=name=>JSON.parse(fs.readFileSync(`${dir}/${name}`,'utf8'));
+const paths=[360,390,430].map(width=>({width,file:`tap-paths-${width}.json`,...read(`tap-paths-${width}.json`)})),gates=[360,390,430].map(width=>({width,file:`browser-${width}.json`,...read(`browser-${width}.json`)}));
+const rows=paths.flatMap(p=>p.rows.map(r=>({...r,width:p.width}))),failures=rows.filter(r=>!r.sound),result={rows,tapped:rows.length,withSound:rows.filter(r=>r.sound).length,failures,sourceRuns:paths.map(p=>({width:p.width,file:p.file,tapped:p.tapped,withSound:p.withSound}))};
+const browser={ok:gates.every(g=>g.ok)&&!failures.length,results:gates.flatMap(g=>g.results),sourceRuns:gates.map(g=>({width:g.width,file:g.file,ok:g.ok})),diagnostic:'First attempt receipts retained in diagnostic/: Range Day terminal-frame geometry race corrected atomically; bounded actual media-promise wait replaced the 250 ms observation deadline. No production timing, rules or audio bytes changed.'};
+fs.writeFileSync(`${dir}/tap-paths-all.json`,JSON.stringify(result,null,2)+'\n');fs.writeFileSync(`${dir}/browser-all.json`,JSON.stringify(browser,null,2)+'\n');console.log(JSON.stringify({tapped:result.tapped,withSound:result.withSound,failures,pass:browser.ok}));if(!browser.ok)process.exitCode=1;

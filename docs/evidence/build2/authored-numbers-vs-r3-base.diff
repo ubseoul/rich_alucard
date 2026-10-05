@@ -1,0 +1,774 @@
+diff --git a/js/frag/F01/engine.js b/js/frag/F01/engine.js
+index 1388a86..9463ef1 100644
+--- a/js/frag/F01/engine.js
++++ b/js/frag/F01/engine.js
+@@ -252,0 +253,3 @@
++  // Sapporo's authored two-enemy rule uses the existing visibility/range/LOS checks.
++  // Stable unit order supplies the second eligible target without adding a targeting surface.
++  const targets=w.distinctTargets?[{target:tg,preview:pv},...Object.values(s.units).filter(u=>u.id!==tg.id&&R.preview(s,sh,u,o).ok).map(u=>({target:u,preview:R.preview(s,sh,u,o)}))].slice(0,pv.hits):null;
+@@ -257,3 +260,4 @@
+-  for(let i=0;i<bursts&&tg.status==='ACTIVE';i++){
+-   const roll=pv.neverMiss?null:Rng.percent(s.rng);
+-   const hit=pv.neverMiss||roll<pv.chance;
++  for(let i=0;i<(targets?targets.length:bursts)&&(targets||tg.status==='ACTIVE');i++){
++   const target=targets?targets[i].target:tg,aim=targets?targets[i].preview:pv;
++   const roll=aim.neverMiss?null:Rng.percent(s.rng);
++   const hit=aim.neverMiss||roll<aim.chance;
+@@ -262,2 +266,2 @@
+-    dmg=Rng.int(s.rng,pv.dmgMin,pv.dmgMax);
+-    critRoll=Rng.percent(s.rng);crit=critRoll<pv.crit;
++    dmg=Rng.int(s.rng,aim.dmgMin,aim.dmgMax);
++    critRoll=Rng.percent(s.rng);crit=critRoll<aim.crit;
+@@ -266,2 +270,2 @@
+-   noteShot(s,sh,hit,crit,pv.chance,ev);
+-   const joke=!hit&&sh.side==='PLAYER'&&pv.chance>=95;
++   noteShot(s,sh,hit,crit,aim.chance,ev);
++   const joke=!hit&&sh.side==='PLAYER'&&aim.chance>=95;
+@@ -269,2 +273,2 @@
+-   const shot={t:'SHOT',from:sh.id,to:tg.id,fx:sh.x,fy:sh.y,tx:tg.x,ty:tg.y,chance:pv.chance,roll:roll===null?null:Math.round(roll*100)/100,hit,crit,dmg,cover:pv.cover,flanked:pv.flanked,
+-    reaction:!!o.reaction,ability:o.ability||null,burst:i+1,bursts,joke,caption:joke?`${Math.round(pv.chance)}%???`:null,weapon:w.id,sfx:o.reaction?'BX_OVERWATCH':(hit&&pv.cover!=='NONE'?'BX_COVER_HIT':(D.GUN_SFX[w.id]||null)),gunSfx:D.GUN_SFX[w.id]||null};
++   const shot={t:'SHOT',from:sh.id,to:target.id,fx:sh.x,fy:sh.y,tx:target.x,ty:target.y,chance:aim.chance,roll:roll===null?null:Math.round(roll*100)/100,hit,crit,dmg,cover:aim.cover,flanked:aim.flanked,
++    reaction:!!o.reaction,ability:o.ability||null,burst:i+1,bursts,joke,caption:joke?`${Math.round(pv.chance)}%???`:null,weapon:w.id,sfx:o.reaction?'BX_OVERWATCH':(hit&&pv.cover!=='NONE'?'BX_COVER_HIT':(w.audio||D.GUN_SFX[w.id]||null)),gunSfx:w.audio||D.GUN_SFX[w.id]||null};
+@@ -273 +277 @@
+-    const lost=hurt(s,tg,dmg,sh.id,ev,{fromHalfCover:pv.cover==='HALF'});
++    const lost=hurt(s,target,dmg,sh.id,ev,{fromHalfCover:aim.cover==='HALF'});
+@@ -275 +279 @@
+-    applyOnHit(s,sh,tg,w,ev);
++    applyOnHit(s,sh,target,w,ev);
+@@ -310 +314 @@
+-  emit(ev,{t:'BLAST',from:sh.id,x:center.x,y:center.y,tiles,weapon:w.id,sfx:D.GUN_SFX[w.id]||null});
++  emit(ev,{t:'BLAST',from:sh.id,x:center.x,y:center.y,tiles,weapon:w.id,sfx:w.audio||D.GUN_SFX[w.id]||null});
+diff --git a/js/frag/F01/packets.js b/js/frag/F01/packets.js
+index 6585d69..5df4dbc 100644
+--- a/js/frag/F01/packets.js
++++ b/js/frag/F01/packets.js
+@@ -42 +42 @@
+-  sapporo_shotgun:{closeBonus:true},
++  sapporo_shotgun:{closeBonus:true,distinctTargets:true},
+@@ -66,2 +66,2 @@
+-  const def={id,label:(base&&base.label)||id.toUpperCase().replace(/_/g,' '),dmg:p.dmg,band:BAND[st.range]||'medium',clip:(base&&base.clip)||3,src:'f02',note:st.note||'',...eff};
+-  if(p.hits>1&&!def.bursts)def.hits=p.hits;
++  const def={id,label:(base&&base.label)||id.toUpperCase().replace(/_/g,' '),dmg:p.dmg,band:BAND[st.range]||'medium',clip:(base&&base.clip)||3,src:'f02',note:st.note||'',audio:root.RAIronCatalog?.byId(id)?.audio||D.GUN_SFX[id]||null,...eff};
++  if((st.hits||p.hits)>1&&!def.bursts)def.hits=st.hits||p.hits;
+@@ -73,0 +74 @@
++  if(!iron&&root.RAFeatures&&!root.RAFeatures.enabled('F02.iron_and_grace')){f02=null;return {bound:false,reason:'F02 flag OFF'};}
+@@ -86 +86,0 @@
+-   if(id==='sapporo_shotgun')unsupported.push({id,why:'"hits two enemies" has no authored shape; Vol 7 +15 close profile kept'});
+@@ -151 +151 @@
+-  if(!f02)bindF02();
++  if(root.RAFeatures||!f02)bindF02();
+diff --git a/js/frag/F02/armory.js b/js/frag/F02/armory.js
+new file mode 100644
+index 0000000..f64adff
+--- /dev/null
++++ b/js/frag/F02/armory.js
+@@ -0,0 +1,82 @@
++(function(){
++ 'use strict';
++ // F02 THE ARMORY — the phone app (IF-1 4D RAPhoneRegistry). Declared DARK: with F02.armory OFF the app is simply not
++ // registered with the phone, so every accepted app/grid/order is byte-identical. Section/placement is provisional
++ // (OL-001: phone placement is reviewed after F4). Range Day is reached from here (F02.range_day).
++ // Phone dispatch contract: content buttons navigate with `app:armory:<sub>` and act with `do:armory:<act>:<arg>`
++ // (js/scenes/phone.js action()); onAction(act,arg,api) receives the decoded pieces.
++ const R=window.RAIronAndGrace,C=window.RAIronCatalog,Reg=window.RAPhoneRegistry;
++ if(!R||!C)throw new Error('F02 armory must load after catalog + registry');
++ const fmt=n=>window.RALife?.fmt?window.RALife.fmt(n):`${n}`;
++ const low=s=>String(s??'').toLowerCase();
++ const btn=(label,action,cls='')=>`<button type="button" class="phone-button ${cls}" data-phone-action="${action}">${label}</button>`;
++ const nav=(sub,label,cls='')=>btn(label,`app:armory${sub?`:${sub}`:''}`,cls);
++ const act=(action,label,cls='')=>btn(label,`do:armory:${action}`,cls);
++
++ function modList(gunId){
++  return R.mods().map(m=>{const equipped=R.hasMod(gunId,m.id),owned=R.modsOwned().includes(m.id);
++   const label=owned?(equipped?'REMOVE':'ATTACH'):`BUY ${fmt(m.price)}`;
++   const action=owned?(equipped?`detach:${gunId}|${m.id}`:`attach:${gunId}|${m.id}`):`buyMod:${m.id}`;
++   return `<div class="ia-mod"><b>${m.label}</b><small>${m.effect}</small>${act(action,label,'ia-small')}</div>`;}).join('');
++ }
++ function gunCard(g){
++  const owned=R.owns(g.id);const mods=R.modsFor(g.id);
++  const tags=mods.length?` <small>${mods.map(id=>low(C.MODS[id]?.label||id)).join(' · ')}</small>`:'';
++  if(!owned){
++   const buyable=!g.dev&&g.price!=null&&['armory','armory_glass_case','tandem_then_armory','jollof_wars_then_armory','naija_mart'].includes(g.acquisition.kind);
++   const sub=g.dev?'UBE ONLY':buyable?`${fmt(g.price)} · ${g.type}`:`${g.type} · ${g.acquisition.note}`;
++   return `<div class="ia-gun"><b>${g.label}</b><small>${sub}</small>${g.special?`<small>${g.special}</small>`:''}${buyable?act(`buy:${g.id}`,`BUY · ${fmt(g.price)}`,'ia-small'):''}</div>`;
++  }
++  const equipped=R.equipped()===g.id?' · EQUIPPED':'';
++  const ammo=R.effectiveAmmo(g.id);
++  return `<div class="ia-gun ia-owned"><b>${R.displayName(g.id)}</b><small>AMMO ${ammo===Infinity?'∞':ammo} · ${g.type}${equipped}</small>${tags}
++   ${R.equipped()===g.id?'':act(`equip:${g.id}`,'EQUIP','ia-small')}
++   ${nav(`gun:${g.id}`,'MODS','ia-small')}
++   ${R.hasMod(g.id,'custom_engraving')?act(`engrave:${g.id}`,'ENGRAVE','ia-small'):''}
++   ${window.RAMinigames?act(`range:${g.id}`,'RANGE DAY','ia-small'):''}</div>`;
++ }
++ function home(){
++  const owned=R.ownedGuns();const sale=C.armoryGuns().filter(g=>!R.owns(g.id));
++  const medals=R.medalCount(),tokens=R.discountTokens();
++  return `<h1>THE ARMORY</h1>
++   <p class="phone-small">DEACON BRASS · GUNS AND GRACE · ${fmt(window.RALife.money())}${tokens?` · ${tokens} MOD DISCOUNT`:''}${medals?` · ${medals} RANGE MEDAL${medals>1?'S':''}`:''}</p>
++   <p class="phone-speaker">ON THE WALL</p>${owned.map(gunCard).join('')||'<p class="phone-small">nothing yet.</p>'}
++   <p class="phone-speaker">DEACON'S WORKBENCH</p>${nav('bench','MODS','ia-wide')}
++   ${sale.length?`<p class="phone-speaker">FOR SALE</p>${sale.map(gunCard).join('')}`:''}
++   <p class="phone-small">RANGE/PRICE TUNING: ${C.TUNABLES.owner}</p>`;
++ }
++ function bench(){
++  const tokens=R.discountTokens();
++  return `<h1>WORKBENCH</h1>${tokens?`<p class="phone-small">${tokens} RANGE MEDAL DISCOUNT READY (${Math.round(C.TUNABLES.range.medalDiscount*100)}% off one mod)</p>`:''}
++   ${R.mods().map(m=>{const owned=R.modsOwned().includes(m.id);
++    return `<div class="ia-mod"><b>${m.label}</b><small>${m.effect} · ${fmt(m.price)}</small>${owned?'<small>OWNED</small>':act(`buyMod:${m.id}${tokens?'|d':''}`,`BUY${tokens?` (−${Math.round(C.TUNABLES.range.medalDiscount*100)}%)`:''}`,'ia-small')}</div>`;}).join('')}
++   <p class="phone-small">MAX ${C.TUNABLES.maxModsPerGun} MODS PER GUN.</p>`;
++ }
++ function gunPage(id){
++  const g=R.gun(id);if(!g||!R.owns(id))return '<h1>THE ARMORY</h1><p class="phone-small">not on the wall.</p>';
++  const range=window.RAFrag?.read?.('F02',`range.${id}`)||null;
++  return `<h1>${R.displayName(id)}</h1>
++   <div class="phone-card"><b>${g.label}</b>${R.engravedName(id)?`<small>ENGRAVED: “${R.engravedName(id)}”</small>`:''}<small>${g.type} · ${g.special}</small>
++   ${range?`<small>RANGE BEST ${range.best||0}${range.story?` · ${R.storyTitle(id)}`:''}</small>`:''}</div>
++   ${R.hasMod(id,'custom_engraving')?act(`engrave:${id}`,'ENGRAVE A NAME','ia-wide'):''}
++   ${nav('','BACK TO WALL','ia-small')}
++   <p class="phone-speaker">MODS (MAX ${C.TUNABLES.maxModsPerGun})</p>${modList(id)}`;
++ }
++
++ const app={id:'armory',flag:'F02.armory',render(sub){
++  const s=String(sub||'');
++  if(s==='bench')return bench();
++  if(s.startsWith('gun:'))return gunPage(s.slice(4));
++  return home();
++ },onAction(actName,arg,api){
++  if(actName==='buy'){const r=R.buy(arg);api.message?.(r.ok?`BOUGHT ${R.gun(arg).label}`:`CAN'T — ${r.reason}`);api.refresh();return;}
++  if(actName==='equip'){const r=R.equip(arg);api.message?.(r.ok?'EQUIPPED.':`CAN'T — ${r.reason}`);api.refresh();return;}
++  if(actName==='buyMod'){const [modId,flag]=String(arg).split('|');const r=R.buyMod(modId,{useDiscount:flag==='d'});api.message?.(r.ok?`${C.MODS[modId].label} — ${fmt(r.price)}${r.discount?' (MEDAL DISCOUNT)':''}`:`CAN'T — ${r.reason}`);api.refresh();return;}
++  if(actName==='attach'||actName==='detach'){const [gid,mid]=String(arg).split('|');const r=actName==='attach'?R.attachMod(gid,mid):R.detachMod(gid,mid);api.message?.(r.ok?`${mid} ${actName==='attach'?'ATTACHED':'REMOVED'}`:`CAN'T — ${r.reason}`);api.refresh();return;}
++  if(actName==='engrave'){const name=typeof window.prompt==='function'?window.prompt('NAME THE GUN',R.engravedName(arg)||''):null;const r=R.engrave(arg,name);api.message?.(r.ok?`ENGRAVED: “${r.name}”`:`CAN'T — ${r.reason}`);api.refresh();return;}
++  if(actName==='range'){Promise.resolve(api.close?.()).then(()=>window.RAMinigames?.launch?.('range_day',{gunId:arg}));return;}
++ }};
++
++ if(Reg)Reg.declare('F02',app);
++ window.RAIronArmory={declared:!!Reg,app:()=>app,home,bench,gunPage};
++})();
+diff --git a/js/frag/F02/catalog.js b/js/frag/F02/catalog.js
+new file mode 100644
+index 0000000..94219df
+--- /dev/null
++++ b/js/frag/F02/catalog.js
+@@ -0,0 +1,211 @@
++(function(){
++ 'use strict';
++ // F02 IRON & GRACE — the authored arsenal + mods (OPEN patch: Rich_Alucard_Patch_IRON_AND_GRACE_Guns.docx).
++ // Pure data, no engine dependency. Authored numbers are never scaled here. Anything the patch does not state is a
++ // provisional value in TUNABLES (owner F13) and is tagged, never buried in a gun definition.
++ //
++ // `native:true` marks the five guns the accepted Combat 2.0 data (js/data/btf/combat.js RACombatData.GUNS) already
++ // owns. F02 keeps those numbers byte-identical and does not take them over; the accepted menu-combat path stays in
++ // charge of them. The remaining guns are F02-managed and reach menu combat only through RACombat2Ext (IF-1 4M).
++
++ // ---- provisional values (NOT canonical; F13 owns the final tuning) -------------------------------------------------
++ const TUNABLES=Object.freeze({
++  provisional:true, owner:'F13',
++  // Guns whose per-fight ammo the patch does not state. Marked, never presented as authored.
++  provisionalAmmo:Object.freeze({jollof_burner:2,legendary_draco:2,golden_draco:2}),
++  maxModsPerGun:2,
++  // Range Day feel + rewards. The only authored reward statement is "a range medal per gun unlocks one mod discount"
++  // and the example story "+10% crit"; the numeric thresholds are engineering scaffolding.
++  range:Object.freeze({
++   durationSeconds:50, lanes:3, reloadSeconds:2.2,
++   thresholds:Object.freeze({bronze:400,silver:900,gold:1600}),
++   medalDiscount:0.15, storyCritBonus:0.10, hostagePenalty:120, hiltBonus:250
++  }),
++  cloutGoldPlating:5, goldNoticeCooldownDays:7
++ });
++
++ // ---- the 13-gun catalog --------------------------------------------------------------------------------------------
++ const GUNS=Object.freeze({
++  lil_oga:{
++   id:'lil_oga',label:'LIL OGA',type:'POCKET PISTOL',rarity:'common',native:true,price:25000,
++   acquisition:{kind:'armory',note:'bought at THE ARMORY'},
++   menu:{dmg:20,ammo:4,sure:true},
++   showdown:{damage:3,range:'close',note:'never misses on overwatch'},
++   special:'Never misses on overwatch.',
++   audio:'GUN_LILOGA',art:'lil_oga'
++  },
++  sapporo_shotgun:{
++   id:'sapporo_shotgun',label:'SAPPORO SHOTGUN',type:'DOUBLE BARREL',rarity:'common',native:true,price:60000,
++   acquisition:{kind:'armory',note:'bought at THE ARMORY'},
++   menu:{dmg:15,hits:2,ammo:3},
++   showdown:{damage:'4-6',range:'close',hits:2,note:'hits two enemies'},
++   special:'Hits two enemies.',
++   audio:'GUN_SHOTGUN',art:'sapporo_shotgun'
++  },
++  mac_and_cheese:{
++   id:'mac_and_cheese',label:'MAC & CHEESE',type:'SMG',rarity:'common',price:75000,
++   acquisition:{kind:'armory',note:'bought at THE ARMORY'},
++   menu:{dmg:6,hits:5,ammo:2,suppress:{accDown:.2,turns:1}},
++   showdown:{damage:'2x3',range:'mid',note:'suppresses'},
++   special:'Suppresses (enemy −20 aim next turn).',
++   audio:'GN_01',art:null,artSourceRequired:true
++  },
++  chopstick_sniper:{
++   id:'chopstick_sniper',label:'CHOPSTICK SNIPER',type:'RIFLE',rarity:'rare',native:true,price:90000,
++   acquisition:{kind:'armory',note:"consignment from Hina's cousin"},
++   menu:{dmg:45,ammo:1,turn1Crit:2},
++   showdown:{damage:'4-6',range:'long',note:'x2 crit on turn 1'},
++   special:'x2 crit on turn 1.',
++   audio:'GUN_SNIPER',art:'chopstick_sniper'
++  },
++  tommy_tony:{
++   id:'tommy_tony',label:'THE TOMMY TONY',type:'DRUM-MAG VINTAGE SMG',rarity:'rare',price:120000,
++   acquisition:{kind:'tandem_then_armory',note:'win a tandem vs Tokyo Tony, then buy'},
++   menu:{dmg:6,hits:6,ammo:2,consecutive:.10},
++   showdown:{damage:'2x4',range:'mid',note:'+10% per consecutive turn fired'},
++   special:'+10% per consecutive turn fired.',
++   audio:'GN_02',art:null,artSourceRequired:true
++  },
++  holy_baby_drake:{
++   id:'holy_baby_drake',label:'HOLY BABY DRAKE',type:'HAND CANNON',rarity:'rare',native:true,price:180000,
++   acquisition:{kind:'armory_glass_case',note:'THE ARMORY glass case'},
++   menu:{dmg:38,ammo:2,vsUndead:2,healPerShot:10},
++   showdown:{damage:'4-5',range:'mid',note:'x2 vs undead'},
++   special:'x2 vs undead · heals 10 per shot.',
++   audio:'GUN_HOLYDRAKE',art:'holy_baby_drake'
++  },
++  jollof_burner:{
++   id:'jollof_burner',label:'JOLLOF BURNER',type:'FLAMETHROWER',rarity:'rare',price:220000,
++   acquisition:{kind:'jollof_wars_then_armory',note:'Jollof Wars champion + THE ARMORY'},
++   menu:{dmg:12,aoe:true,burn:{dmg:8,turns:3,drainsRich:false},destroysCover:true,provisionalAmmo:true},
++   showdown:{damage:3,range:'area',area:'cone3',burn:{dmg:8,turns:3},note:'cone 3 tiles; burns cover'},
++   special:'Burns cover (car hoods, canopies).',
++   audio:'GN_03',art:null,artSourceRequired:true
++  },
++  blueberry_blaster:{
++   id:'blueberry_blaster',label:'BLUEBERRY BLASTER',type:'DRAGON-FIRE RIFLE',rarity:'rare',price:null,
++   acquisition:{kind:'mazda_roost',note:"Mazda's roost, once (a gift)",fragment:'F03'},
++   menu:{dmg:50,ammo:2,condition:{flag:'mazdaMajestic',note:'only works if Mazda is MAJESTIC'}},
++   showdown:{damage:'5-7',range:'long',note:'only works if Mazda is MAJESTIC'},
++   special:'Only works if Mazda is MAJESTIC.',
++   audio:'GN_04',art:null,artSourceRequired:true
++  },
++  legendary_draco:{
++   id:'legendary_draco',label:"LEGENDARY DRACO — DECEMBER'S GIFT",type:'LEGENDARY',rarity:'legendary',price:null,
++   acquisition:{kind:'sealed_playmakers',note:'sealed Playmakers reward (HQ)',sealed:true,fragment:'F05'},
++   menu:{dmg:22,hits:2,ammo:null,provisionalAmmo:true},
++   showdown:{damage:'4-6',range:'mid',hits:2,note:'"two taps"'},
++   special:'"Two taps."',
++   audio:null,audioSourceRequired:true,art:null,artSourceRequired:true
++  },
++  golden_draco:{
++   id:'golden_draco',label:'THE GOLDEN DRACO',type:'LEGENDARY',rarity:'legendary',price:null,
++   acquisition:{kind:'new_oga_finale',note:"NEW OGA finale (Gbenga's cooler)",fragment:'F03'},
++   menu:{dmg:20,hits:2,ammo:null,provisionalAmmo:true,blind:{accDown:.15,turns:2}},
++   showdown:{damage:'4-6',range:'mid',hits:2,note:'blinding gold (enemy −15 aim)'},
++   special:'Blinding gold (enemy −15 aim).',
++   audio:null,audioSourceRequired:true,art:null,artSourceRequired:true
++  },
++  rpg:{
++   id:'rpg',label:'THE RPG',type:'LAUNCHER',rarity:'rare',native:true,price:400000,
++   acquisition:{kind:'armory',note:'bought at THE ARMORY'},
++   menu:{dmg:80,ammo:1,splash:10,destroysCover:true,heat:10},
++   showdown:{damage:5,range:'area',area:'3x3',note:'area 3x3; destroys cover; +10 heat'},
++   special:'Destroys cover; +10 heat.',
++   audio:'GUN_RPG',art:'rpg'
++  },
++  auntie_slipper:{
++   id:'auntie_slipper',label:"AUNTIE'S SLIPPER",type:'THROWN',rarity:'common',price:12,
++   acquisition:{kind:'naija_mart',note:'$12 at Naija Mart'},
++   menu:{dmg:8,ammo:null,infinite:true,knockback:1,fear:{tag:'naija',note:'enemies who grew up with it lose a turn to fear'}},
++   showdown:{damage:2,range:'close',knockback:true,note:'enemies who grew up with it lose a turn to fear'},
++   special:'Enemies who grew up with it lose a turn to fear.',
++   audio:'GN_05',art:null,artSourceRequired:true
++  },
++  triple_k_kratos:{
++   id:'triple_k_kratos',label:'TRIPLE K-KRATOS',type:'DEV',rarity:'dev',dev:true,price:null,native:true,
++   acquisition:{kind:'dev',note:'Ube only · dev code'},
++   menu:{dmg:999,ammo:99},
++   showdown:{damage:999,range:'area',note:'Ube only'},
++   special:'Ube only.',
++   audio:'GUN_KRATOS',art:null
++  }
++ });
++
++ // ---- mods (max 2 per gun) ------------------------------------------------------------------------------------------
++ const MODS=Object.freeze({
++  blessed_rounds:{
++   id:'blessed_rounds',label:'BLESSED ROUNDS',price:15000,kind:'combat',
++   effect:'+25% damage vs vampires and undead',vsVampireUndead:.25
++  },
++  drum_mag:{
++   id:'drum_mag',label:'DRUM MAG',price:20000,kind:'combat',
++   effect:'+1 ammo per fight',ammoBonus:1
++  },
++  silencer:{
++   id:'silencer',label:'SILENCER',price:18000,kind:'showdown',
++   effect:"Showdown shots don't break concealment; −heat from gunfights",conceal:true,heatRelief:2,showdownOnly:true
++  },
++  scope:{
++   id:'scope',label:'SCOPE',price:12000,kind:'showdown',
++   effect:'+10 aim at range',rangeAim:.10,showdownOnly:true
++  },
++  gold_plating:{
++   id:'gold_plating',label:'GOLD PLATING',price:50000,kind:'cosmetic',
++   effect:'No stat change; clout +5 when equipped; VampGram notices',clout:5,cosmetic:true
++  },
++  custom_engraving:{
++   id:'custom_engraving',label:'CUSTOM ENGRAVING',price:2500,kind:'cosmetic',
++   effect:'Rich names the gun (text input); the name shows in combat',engraving:true,cosmetic:true
++  }
++ });
++
++ // ---- enemy gun data (interface for F01 SHOWDOWN; no behaviour here) -------------------------------------------------
++ const ENEMY_GUNS=Object.freeze([
++  {enemy:'open_mouth_gang_enforcer',gun:'sapporo_shotgun',note:'Open Mouth Gang Enforcers carry shotguns'},
++  {enemy:'hunter',gun:'silver_crossbow',note:'hunters carry silver crossbows',sourceRequired:true,notInArsenal:true},
++  {enemy:'gbenga',gun:'golden_draco',note:'Gbenga carries the Golden Draco'}
++ ]);
++
++ // ---- validation (used by the registry and tests) -------------------------------------------------------------------
++ const MENU_KEYS=['dmg','ammo','hits','sure','vsUndead','healPerShot','splash','turn1Crit','suppress','aoe','burn','consecutive','knockback','fear','blind','destroysCover','heat','condition','infinite','provisionalAmmo'];
++ const SHOWDOWN_KEYS=['damage','range','hits','area','burn','knockback','note','special'];
++ function problems(){
++  const out=[],ids=Object.keys(GUNS);
++  for(const [id,g] of Object.entries(GUNS)){
++   if(g.id!==id)out.push(`${id}: id mismatch`);
++   for(const field of ['label','type','rarity'])if(!g[field])out.push(`${id}: missing ${field}`);
++   if(!g.acquisition?.kind)out.push(`${id}: missing acquisition.kind`);
++   if(!g.special)out.push(`${id}: missing authored special`);
++   if(!g.native){
++    if(g.menu?.infinite){if(g.menu.ammo!=null)out.push(`${id}: infinite gun may not also declare ammo`);}
++    else if(g.menu?.ammo==null&&!g.menu?.provisionalAmmo)out.push(`${id}: missing menu.ammo (or mark provisionalAmmo)`);
++    if(typeof g.menu?.dmg!=='number')out.push(`${id}: missing menu.dmg`);
++   }
++   if(!g.showdown?.range)out.push(`${id}: missing showdown.range`);
++   if(g.audio==null&&!g.audioSourceRequired)out.push(`${id}: no audio id and not marked audioSourceRequired`);
++   if(g.art==null&&!g.artSourceRequired&&!g.dev)out.push(`${id}: no art key and not marked artSourceRequired`);
++   for(const k of Object.keys(g.menu||{}))if(!MENU_KEYS.includes(k))out.push(`${id}: unknown menu key ${k}`);
++   for(const k of Object.keys(g.showdown||{}))if(!SHOWDOWN_KEYS.includes(k))out.push(`${id}: unknown showdown key ${k}`);
++  }
++  for(const [id,m] of Object.entries(MODS)){
++   if(m.id!==id)out.push(`mod ${id}: id mismatch`);
++   for(const field of ['label','effect','price','kind'])if(m[field]===undefined)out.push(`mod ${id}: missing ${field}`);
++  }
++  return out;
++ }
++ const list=()=>Object.values(GUNS);
++ const byId=id=>GUNS[id]||null;
++ const mods=()=>Object.values(MODS);
++
++ window.RAIronCatalog=Object.freeze({
++  version:'1.0.0',
++  GUNS,MODS,ENEMY_GUNS,TUNABLES,
++  list,byId,mods,
++  count:list().length,
++  shippable:()=>list().filter(g=>!g.dev),
++  armoryGuns:()=>list().filter(g=>!g.dev&&g.price!=null&&g.acquisition.kind==='armory'),
++  audioMap:()=>Object.fromEntries(list().filter(g=>g.audio).map(g=>[g.id,g.audio])),
++  validate:problems
++ });
++})();
+diff --git a/js/frag/F02/moves.js b/js/frag/F02/moves.js
+new file mode 100644
+index 0000000..e619ada
+--- /dev/null
++++ b/js/frag/F02/moves.js
+@@ -0,0 +1,27 @@
++(function(){
++ 'use strict';
++ // OL-045 integration: Vol 3 §1.3 specifies bedroom phone MOVES, four slots, canon moves never deleted.
++ // Registers DARK with the existing F02 flag; no save writes or phone change while OFF.
++ const canon=['blood','octopus','bite','revenge'],D=()=>window.RACombatData.MOVES;
++ const combat=()=>window.RAState.get().life.combat;
++ const known=()=>[...new Set([...canon,...combat().learnedMoves||[]])].filter(id=>D()[id]);
++ const atHome=()=>window.RAScenes?.current?.()==='bedroom'&&!window.RACombat2?.active?.();
++ const btn=(text,act)=>`<button type="button" class="phone-button" data-phone-action="${act}">${text}</button>`;
++ function equip(slot,id){
++  if(!atHome()||!Number.isInteger(slot)||slot<0||slot>=4||!known().includes(id))return false;
++  const eq=[...combat().equippedMoves].slice(0,4),other=eq.indexOf(id);
++  if(other>=0)[eq[slot],eq[other]]=[eq[other],eq[slot]];else eq[slot]=id;
++  window.RAState.patch('life.combat.equippedMoves',eq);return true;
++ }
++ window.RAPhoneRegistry.declare('F02',{id:'moves',label:'MOVES',section:'life',flag:'F02.iron_and_grace',
++  render(sub){
++   if(!atHome())return '<h1>MOVES</h1><p class="phone-small">SWAP AT HOME.</p>';
++   const slot=Number(sub),eq=combat().equippedMoves;
++   if(sub!==undefined&&sub!==''&&Number.isInteger(slot)&&slot>=0&&slot<4)return `<h1>MOVES · SLOT ${slot+1}</h1>${known().map(id=>btn(D()[id].label,`do:moves:equip:${slot}|${id}`)).join('')}`;
++   return `<h1>MOVES</h1>${eq.map((id,i)=>btn(`${i+1}. ${D()[id]?.label||id}`,`app:moves:${i}`)).join('')}`;
++  },onAction(act,arg,api){if(act==='equip'){const [slot,id]=arg.split('|');if(equip(Number(slot),id))api.refresh();}}
++ });
++ function unlock(){if(window.RAIronFlags.core()&&atHome())window.RAPhoneRegistry.unlock('moves');}
++ document.addEventListener('ra:scene',unlock);window.RAFeatures.onChange(unlock);
++ window.RAIronMoves={known,equip,atHome,unlock};
++})();
+diff --git a/js/frag/F02/range.js b/js/frag/F02/range.js
+new file mode 100644
+index 0000000..a43ae55
+--- /dev/null
++++ b/js/frag/F02/range.js
+@@ -0,0 +1,100 @@
++(function(){
++ 'use strict';
++ // F02 RANGE DAY — the Armory's basement range (authored minigame). A deterministic, DOM-free CORE plus a thin host
++ // adapter registered with the accepted minigame host (RAMinigames). Portrait lanes; tap to aim, release to fire;
++ // moving + hostage targets; a one-second cardboard Hilt; ammo/reload per gun. Rewards are named things, not XP:
++ // a gun STORY (+10% crit) and a Deacon's-approval medal that unlocks one mod discount (see registry.awardRange).
++ const C=window.RAIronCatalog,R=window.RAIronAndGrace;
++ if(!C||!R)throw new Error('F02 range must load after catalog + registry');
++ const T=C.TUNABLES.range;
++
++ function mulberry32(a){return function(){a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296;};}
++
++ const KIND={target:{score:100,ttl:2.2,color:'#e8e2d0'},moving:{score:150,ttl:2.4,color:'#7fd0ff'},
++  gold:{score:200,ttl:1.6,color:'#ffd75e'},hostage:{score:0,ttl:2.0,color:'#ff6b6b',hostage:true},
++  hilt:{score:T.hiltBonus,ttl:1.0,color:'#c9b8ff',hilt:true}};
++
++ function create({gunId,seed=1,params={}}={}){
++  const cfg={...T,...params};
++  const rng=mulberry32((Number(seed)||1)>>>0);
++  const ammoMax=R.effectiveAmmo(gunId);
++  const s={gunId,time:0,duration:cfg.durationSeconds,lanes:cfg.lanes||3,targets:[],nextId:1,
++   score:0,shots:0,hits:0,ammo:ammoMax,reloading:0,spawnClock:.6,hiltSpawned:false,over:false,events:[]};
++  function lane(){return Math.floor(rng()*(cfg.lanes||3));}
++  function kindFor(t){
++   if(cfg.duration-t<1.6&&!s.hiltSpawned){s.hiltSpawned=true;return 'hilt';}
++   const r=rng();
++   if(r<.12)return 'hostage';if(r<.30)return 'gold';if(r<.62)return 'moving';return 'target';
++  }
++  function spawn(){
++   const k=kindFor(s.time),def=KIND[k];
++   s.targets.push({id:s.nextId++,lane:lane(),kind:k,color:def.color,progress:0,hit:false,
++    speed:(k==='moving'?cfg.laneSpeed||.42:cfg.targetSpeed||.30),shift:(k==='moving'?1.3:0),shiftClock:(k==='moving'?1.3:0)});
++  }
++  function update(dt){
++   if(s.over)return s;dt=Math.max(0,Math.min(.1,dt));s.time+=dt;
++   if(s.reloading>0)s.reloading=Math.max(0,s.reloading-dt);
++   s.spawnClock-=(cfg.spawnRate||1.05)*(1+s.time/s.duration*.6)*dt;
++   while(s.spawnClock<=0&&!s.over){spawn();s.spawnClock+=(cfg.spawnRate||1.05)/Math.max(.6,1+s.time/s.duration);}
++   for(const t of s.targets){
++    if(t.kind==='moving'){t.shiftClock-=dt;if(t.shiftClock<=0){t.shiftClock=t.shift;t.lane=(t.lane+(rng()<.5?-1:1)+(cfg.lanes||3))%(cfg.lanes||3);}}
++    t.progress+=t.speed*dt;
++   }
++   s.targets=s.targets.filter(t=>{if(t.hit)return false;if(t.progress>=1){s.events.push({type:'expired',kind:t.kind,lane:t.lane});return false;}return true;});
++   if(s.time>=s.duration){s.over=true;s.events.push({type:'done'});}
++   return s;
++  }
++  function aim(l){s.aim=(Number(l)||0)%(cfg.lanes||3);}
++  function fire(){
++   if(s.over)return {ok:false,reason:'over'};
++   if(s.reloading>0)return {ok:false,reason:'reloading'};
++   if(s.ammo<=0&&ammoMax!==Infinity){s.reloading=cfg.reloadSeconds;return {ok:false,reason:'empty'};}
++   if(ammoMax!==Infinity)s.ammo--;s.shots++;
++   let best=null;for(const t of s.targets){if(t.lane!==s.aim||t.hit)continue;if(!best||t.progress>best.progress)best=t;}
++   let result={ok:true,hit:false,lane:s.aim};
++   if(best){best.hit=true;const def=KIND[best.kind];s.hits++;
++    if(def.hostage){s.score=Math.max(0,s.score-T.hostagePenalty);result={ok:true,hit:true,kind:'hostage',penalty:T.hostagePenalty,lane:s.aim};}
++    else{s.score+=Math.round(def.score*(best.kind==='hilt'?1:1));result={ok:true,hit:true,kind:best.kind,points:def.score,lane:s.aim};}
++    s.events.push({type:'shot',...result});
++   }else{s.events.push({type:'shot',kind:'miss',lane:s.aim});}
++   if(ammoMax!==Infinity&&s.ammo<=0)s.reloading=cfg.reloadSeconds;
++   return result;
++  }
++  const status=()=>({gunId,time:+s.time.toFixed(3),remaining:Math.max(0,+(s.duration-s.time).toFixed(3)),ammo:s.ammo,
++   reloading:+s.reloading.toFixed(3),reloadingNow:s.reloading>0,score:s.score,shots:s.shots,hits:s.hits,
++   accuracy:s.shots?+(s.hits/s.shots).toFixed(3):0,targets:s.targets.map(t=>({id:t.id,lane:t.lane,kind:t.kind,progress:+t.progress.toFixed(3)})),over:s.over});
++  return {update,aim,fire,status,state:()=>s,kind:KIND,thresholds:()=>({...T.thresholds})};
++ }
++ const medalFor=score=>score>=T.thresholds.gold?'gold':score>=T.thresholds.silver?'silver':score>=T.thresholds.bronze?'bronze':null;
++ // Deterministic score trace (headless tests): [lane, dt] pairs.
++ function simulate({gunId,seed=1,steps=[[0,0.5]]}={}){const c=create({gunId,seed});for(const [l,dt] of steps){c.aim(l);c.fire();c.update(dt);}return c.status();}
++
++ // ---- host adapter (disposable; the CORE is the reusable part) ----
++ function mount(root,ctx){
++  const gunId=ctx.params?.gunId||R.equipped()||(R.ownedGuns()[0]&&R.ownedGuns()[0].id);
++  if(!gunId){root.innerHTML='<p class="rd-empty">NO GUN ON THE RACK.</p>';ctx.quit();return {};}
++  const core=create({gunId,seed:ctx.params?.seed||(Date.now()%100000)});
++  root.innerHTML=`<div class="rd-hud"><b>RANGE DAY · ${R.displayName(gunId).toUpperCase()}</b><span class="rd-time"></span><span class="rd-ammo"></span></div>
++   <div class="rd-lanes" style="grid-template-columns:repeat(${core.state().lanes},1fr)"></div>
++   <div class="rd-help">TAP A LANE TO AIM · RELEASE TO FIRE · DON'T SHOOT THE HOSTAGES</div>`;
++  const lanesEl=root.querySelector('.rd-lanes');
++  for(let i=0;i<core.state().lanes;i++){const b=document.createElement('button');b.type='button';b.className='rd-lane';b.dataset.lane=i;b.textContent='⦿';lanesEl.append(b);}
++  const timeEl=root.querySelector('.rd-time'),ammoEl=root.querySelector('.rd-ammo');
++  lanesEl.addEventListener('pointerdown',e=>{const b=e.target.closest('.rd-lane');if(!b)return;core.aim(Number(b.dataset.lane));});
++  lanesEl.addEventListener('pointerup',e=>{const b=e.target.closest('.rd-lane');if(!b)return;const r=core.fire();if(r.ok){if(r.hit)window.RAAudio?.oneShot?.('GN_06');const code=R.feedback(gunId)?.audio;if(code){window.RAAudio?.oneShot?.(code);const sound=window.RAAudioManifest?.get?.(code);if(sound?.type==='loop')setTimeout(()=>window.RAAudio?.stop?.(code,0),(sound.loopEnd||0)*1000);}}b.classList.remove('rd-hit','rd-miss');void b.offsetWidth;b.classList.add(r.hit?'rd-hit':'rd-miss');});
++  let raf=0,last=0,done=false;
++  function frame(t){if(done)return;if(!last)last=t;core.update((t-last)/1000);last=t;
++   const st=core.status();timeEl.textContent=`${st.remaining.toFixed(1)}s`;ammoEl.textContent=st.reloadingNow?'RELOADING':`AMMO ${st.ammo===Infinity?'∞':st.ammo}`;
++   for(const el of lanesEl.children){el.querySelectorAll('.rd-target').forEach(n=>n.remove());}
++   for(const tg of st.targets){const el=lanesEl.children[tg.lane];if(!el)continue;const dot=document.createElement('i');dot.className=`rd-target rd-${tg.kind}`;dot.style.opacity=String(Math.min(1,.25+tg.progress));dot.style.transform=`translateY(${(1-tg.progress)*70}%)`;el.append(dot);}
++   if(st.over){done=true;const medal=medalFor(st.score);const award=R.awardRange(gunId,st.score);ctx.finish({outcome:'done',score:st.score,data:{...st,medal,award}});return;}
++   raf=requestAnimationFrame(frame);
++  }
++  raf=requestAnimationFrame(frame);
++  return {dispose(){done=true;cancelAnimationFrame(raf);}};
++ }
++
++ if(window.RAMinigames)window.RAMinigames.register('range_day',{title:'RANGE DAY',mount});
++
++ window.RARangeDayCore={create,simulate,medalFor,mount,KIND,thresholds:()=>({...T.thresholds})};
++})();
+diff --git a/js/frag/F02/registry.js b/js/frag/F02/registry.js
+new file mode 100644
+index 0000000..31b2bb9
+--- /dev/null
++++ b/js/frag/F02/registry.js
+@@ -0,0 +1,255 @@
++(function(){
++ 'use strict';
++ // F02 IRON & GRACE — weapon registry + ownership/equip/mod/use contracts (IF-1 4B/4E/4M facing).
++ // Authority: Rich_Alucard_Patch_IRON_AND_GRACE_Guns.docx. Authored stats live in RAIronCatalog and are never scaled
++ // here; only mods apply modifiers, and every non-authored number is in RAIronCatalog.TUNABLES (owner F13).
++ //
++ // Ownership rides the ACCEPTED life.ownership.guns record (RALife.hasGun/addGun) so the accepted Armory adventure and
++ // Combat 2.0 loader keep working unchanged. Everything F02-only (equip, mods, engravings, Range Day, Trap, acquisition
++ // metadata) lives lazily in save.frag.F02 and is never written while every F02 flag is OFF.
++ const C=window.RAIronCatalog;
++ if(!C)throw new Error('F02 registry must load after js/frag/F02/catalog.js');
++ const F=()=>window.RAIronFlags;
++ const T=C.TUNABLES;
++ const clone=v=>JSON.parse(JSON.stringify(v));
++ const frag=()=>window.RAFrag;
++ const state=()=>frag().get('F02');
++ const patch=(path,value)=>frag().patch('F02',path,value);
++ const coreOn=()=>!!F()?.core();
++ const life=()=>window.RALife?.life?.()||{ownership:{guns:[]}};
++ const ownedIds=()=>(life().ownership?.guns||[]).map(g=>g.id);
++ const money=()=>window.RALife?.money?.()??0;
++ const day=()=>window.RALife?.today?.().day??0;
++
++ // ---- catalog access ----
++ const catalog=()=>C;
++ const guns=()=>C.list();
++ const gun=id=>C.byId(id);
++ const mods=()=>C.mods();
++ const mod=id=>C.MODS[id]||null;
++
++ // ---- ownership ----
++ const owns=id=>!!gun(id)&&window.RALife.hasGun(id);
++ const ownedGuns=()=>ownedIds().map(id=>gun(id)).filter(Boolean);
++ const acquisitionOf=id=>state().acquired?.[id]||null;
++ function grant(id,{source='grant',free=false}={}){
++  const def=gun(id);if(!def)throw new Error(`IRON & GRACE: unknown gun ${id}`);
++  if(window.RALife.hasGun(id))return {ok:false,reason:'owned'};
++  if(!free&&def.price!=null&&money()<def.price)return {ok:false,reason:'funds'};
++  const spend=()=>{if(free||def.price==null)return true;return !!window.RALife.spend(def.price);};
++  const tagged=window.RAMoneyLedger?.withSource?window.RAMoneyLedger.withSource(`iron_and_grace:${source}`,spend):spend();
++  if(!tagged)return {ok:false,reason:'funds'};
++  if(!window.RALife.addGun(id))return {ok:false,reason:'owned'};
++  patch(`acquired.${id}`,{day:day(),source});
++  return {ok:true,gun:def};
++ }
++ function buy(id){const def=gun(id);if(!def)throw new Error(`IRON & GRACE: unknown gun ${id}`);
++  if(def.dev)return {ok:false,reason:'dev'};
++  const kind=def.acquisition.kind;
++  if(kind==='armory'||kind==='armory_glass_case'||kind==='tandem_then_armory'||kind==='jollof_wars_then_armory')return grant(id,{source:'armory'});
++  if(kind==='naija_mart')return grant(id,{source:'naija_mart'});
++  return {ok:false,reason:'acquisition-gated',fragment:def.acquisition.fragment||null};
++ }
++
++ // ---- equip / loadout ----
++ function slots(){const rooms=life().ownership?.castleRooms||[];return rooms.some(r=>(r.id||r)==='armory_wall')?2:1;}
++ const equipped=()=>state().equipped;
++ const loadout=()=>{const l=(state().loadout||[]).filter(id=>owns(id));return l.length?l.slice(0,slots()):[].concat(equipped()&&owns(equipped())?[equipped()]:[],ownedIds().filter(id=>gun(id)&&!gun(id).native)).slice(0,slots());};
++ function equip(id){
++  if(!gun(id))return {ok:false,reason:'unknown'};
++  if(!owns(id))return {ok:false,reason:'not-owned'};
++  const prev=equipped();patch('equipped',id);patch('loadout',[id,...loadout().filter(x=>x!==id)].slice(0,slots()));
++  const bonus=bonuses(id);
++  if(bonus.clout&&prev!==id){window.RALife.addPoints('clout',bonus.clout);}
++  if(hasMod(id,'gold_plating'))notifyGold(id);
++  return {ok:true,equipped:id,bonus};
++ }
++
++ // ---- mods ----
++ const modsOwned=()=>Object.keys(state().modsOwned||{}).filter(id=>state().modsOwned[id]);
++ const modsFor=id=>(state().mods||{})[id]||[];
++ const hasMod=(id,modId)=>modsFor(id).includes(modId);
++ function canMod(id,modId){
++  if(!gun(id)||!mod(modId))return {ok:false,reason:'unknown'};
++  if(!owns(id))return {ok:false,reason:'not-owned'};
++  if(hasMod(id,modId))return {ok:false,reason:'already-equipped'};
++  if(modsFor(id).length>=T.maxModsPerGun)return {ok:false,reason:'max-mods'};
++  return {ok:true};
++ }
++ function buyMod(modId,{useDiscount=false}={}){
++  const m=mod(modId);if(!m)return {ok:false,reason:'unknown'};
++  if(state().modsOwned?.[modId])return {ok:false,reason:'owned'};
++  let price=m.price,usedDiscount=false;
++  const tokens=discountTokens();
++  if(useDiscount&&tokens>0){price=Math.max(0,Math.round(price*(1-T.range.medalDiscount)));usedDiscount=true;}
++  if(money()<price)return {ok:false,reason:'funds',price};
++  const spend=()=>!!window.RALife.spend(price);
++  const ok=window.RAMoneyLedger?.withSource?window.RAMoneyLedger.withSource(`iron_grace:mod:${modId}`,spend):spend();
++  if(!ok)return {ok:false,reason:'funds',price};
++  if(usedDiscount)patch('stats.discountsUsed',(state().stats?.discountsUsed||0)+1);
++  patch(`modsOwned.${modId}`,true);
++  return {ok:true,price,discount:usedDiscount?T.range.medalDiscount:0};
++ }
++ function attachMod(gunId,modId){
++  const check=canMod(gunId,modId);if(!check.ok)return check;
++  if(!state().modsOwned?.[modId])return {ok:false,reason:'not-owned'};
++  patch(`mods.${gunId}`,[...modsFor(gunId),modId]);
++  if(modId==='gold_plating'&&equipped()===gunId)notifyGold(gunId);
++  return {ok:true,gunId,mod:modId};
++ }
++ function detachMod(gunId,modId){
++  const list=modsFor(gunId);if(!list.includes(modId))return {ok:false,reason:'not-equipped'};
++  patch(`mods.${gunId}`,list.filter(x=>x!==modId));return {ok:true,gunId,mod:modId};
++ }
++ // One Range Day medal = one mod discount (authored: "a range medal per gun ... unlocks one mod discount").
++ const discountTokens=()=>Math.max(0,medalCount()-(state().stats?.discountsUsed||0));
++ const medalCount=()=>Object.values(state().medals||{}).filter(Boolean).length;
++ function engrave(gunId,name){
++  if(!owns(gunId))return {ok:false,reason:'not-owned'};
++  if(!hasMod(gunId,'custom_engraving'))return {ok:false,reason:'no-engraving-mod'};
++  const text=String(name||'').trim().slice(0,24);
++  if(!text)return {ok:false,reason:'empty'};
++  patch(`engravings.${gunId}`,text);return {ok:true,gunId,name:text};
++ }
++ const engravedName=gunId=>state().engravings?.[gunId]||null;
++
++ // ---- resolution (authored stats + mod modifiers) ----
++ function bonuses(gunId){
++  const m=modsFor(gunId);const out={clout:0,ammo:0,vsVampireUndead:0,rangeAim:0,conceal:false,cosmetic:false,showdownOnly:[]};
++  for(const id of m){const def=mod(id);if(!def)continue;
++   if(def.clout)out.clout+=def.clout;
++   if(def.ammoBonus)out.ammo+=def.ammoBonus;
++   if(def.vsVampireUndead)out.vsVampireUndead+=def.vsVampireUndead;
++   if(def.rangeAim)out.rangeAim+=def.rangeAim;
++   if(def.conceal)out.conceal=true;
++   if(def.cosmetic)out.cosmetic=true;
++   if(def.showdownOnly)out.showdownOnly.push(id);}
++  return out;
++ }
++ function effectiveAmmo(gunId){const g=gun(gunId);if(!g)return 0;if(g.menu?.infinite)return Infinity;
++  let ammo=g.menu?.ammo;if(ammo==null&&g.menu?.provisionalAmmo)ammo=T.provisionalAmmo[gunId]??1;
++  return (ammo??1)+bonuses(gunId).ammo;}
++ function displayName(gunId){return engravedName(gunId)||gun(gunId)?.label||gunId;}
++ function resolve(gunId){
++  const g=gun(gunId);if(!g)return null;
++  const b=bonuses(gunId);
++  return {gun:g,bonuses:b,label:displayName(gunId),menu:{...g.menu},showdown:{...g.showdown},mods:modsFor(gunId)};
++ }
++
++ // ---- per-fight ammo (refills every fight: state is recreated by Combat 2.0 create) ----
++ function ammoFor(s,gunId){if(!s)return effectiveAmmo(gunId);if(!s.__iagAmmo)s.__iagAmmo={};
++  if(s.__iagAmmo[gunId]===undefined)s.__iagAmmo[gunId]=effectiveAmmo(gunId);return s.__iagAmmo[gunId];}
++ function conditionOk(gunId){const c=gun(gunId)?.menu?.condition;if(!c)return true;
++  if(c.flag)return !!window.RALife?.flag?.(c.flag);return true;}
++ function canFire(s,gunId){if(!owns(gunId))return false;if(!conditionOk(gunId))return false;
++  return gun(gunId)?.menu?.infinite?true:ammoFor(s,gunId)>0;}
++ function consumeAmmo(s,gunId){if(gun(gunId)?.menu?.infinite)return;
++  s.__iagAmmo=s.__iagAmmo||{};s.__iagAmmo[gunId]=Math.max(0,ammoFor(s,gunId)-1);}
++
++ // fire(s,gunId,helpers) — the shared authored shot. `helpers` is RACombat2Ext's helper bag, or a test double.
++ // Applies every menu-authored effect plus mods. Showdown-only mods (scope/silencer) are deliberately inert here.
++ function fire(s,gunId,helpers){
++  const r=resolve(gunId);if(!r)return {ok:false,reason:'unknown'};
++  if(!canFire(s,gunId))return {ok:false,reason:conditionOk(gunId)?'out-of-ammo':'locked'};
++  const menu=r.menu;consumeAmmo(s,gunId);
++  if(r.gun.audio){window.RAAudio?.oneShot?.(r.gun.audio);
++   const sound=window.RAAudioManifest?.get?.(r.gun.audio);
++   if(sound?.type==='loop')setTimeout(()=>window.RAAudio?.stop?.(r.gun.audio,0),(sound.loopEnd||0)*1000);
++  }
++  const say=helpers?.say||(()=>{});
++  say(s,`GUN WEAVING: ${r.label}.`,'weird',{fx:'gun',gun:gunId});
++  let base=(menu.dmg||0)*(1+(s.rich?.gunBonus||0));
++  const enemy=helpers?.E?helpers.E(s):null;
++  if(menu.vsUndead&&enemy?.undead)base*=menu.vsUndead;
++  if(r.bonuses.vsVampireUndead&&(enemy?.undead||enemy?.vampire))base*=1+r.bonuses.vsVampireUndead;
++  if(menu.turn1Crit&&s.turn===1)base*=menu.turn1Crit;
++  // +10% per consecutive turn fired (THE TOMMY TONY): tracked on the fight state.
++  s.__iagStreak=(s.__iagStreak||{});const streak=(s.__iagStreak[gunId]||0)+1;s.__iagStreak[gunId]=streak;
++  if(menu.consecutive&&streak>1)base*=1+menu.consecutive*(streak-1);
++  const sure=!!menu.sure;
++  let hit=true;
++  if(!sure&&helpers?.rollHit)hit=helpers.rollHit(s);
++  if(!hit){say(s,'MISSED.','miss');if(helpers?.endPlayer)helpers.endPlayer(s);return {ok:true,hit:false,spent:true,gunId};}
++  const hits=menu.hits||1;
++  let total=0;
++  if(helpers?.damageToEnemy)total=helpers.damageToEnemy(s,base,{hits,label:r.label,crit:!sure})||0;
++  if(menu.healPerShot&&s.rich){s.rich.hp=helpers?.clampHp?helpers.clampHp(s.rich.hp+menu.healPerShot,s.rich.max):s.rich.hp+menu.healPerShot;say(s,`+${menu.healPerShot} HP.`,'heal',{target:'rich'});}
++  if(menu.splash&&s.rich){s.rich.hp=Math.max(0,s.rich.hp-menu.splash);say(s,`RICH TAKES ${menu.splash} SPLASH.`,'hurt',{target:'rich'});}
++  if(menu.suppress&&s.enemy){s.enemy.blind={amt:menu.suppress.accDown,turns:menu.suppress.turns};say(s,'THE ENEMY IS PINNED DOWN.','debuff');}
++  if(menu.blind&&s.enemy){s.enemy.blind={amt:menu.blind.accDown,turns:menu.blind.turns};say(s,'THE GOLD IS BLINDING.','debuff');}
++  if(menu.burn&&s.enemy){const b=menu.burn;(s.enemy.dot=s.enemy.dot||[]).push({amt:b.dmg,turns:b.turns,label:'BURNING'});say(s,'THE TARGET IS BURNING.','weird');}
++  if(menu.knockback&&s.enemy&&s.__iagShowdown)s.enemy.skip=(s.enemy.skip||0)+menu.knockback;
++  if(menu.fear&&s.enemy&&s.__iagFearNaija)s.enemy.skip=(s.enemy.skip||0)+1;
++  if(menu.heat)try{window.RAHeat?.add?.(menu.heat,{source:'iron_grace:rpg'});}catch(e){}
++  if(helpers?.endPlayer)helpers.endPlayer(s,{fx:'gun'});
++  return {ok:true,hit:true,spent:true,gunId,damage:total,effects:{suppress:!!menu.suppress,blind:!!menu.blind,burn:!!menu.burn,destroysCover:!!menu.destroysCover,heat:menu.heat||0}};
++ }
++
++ // ---- Range Day rewards ----
++ function awardRange(gunId,score){
++  if(!gun(gunId))return {ok:false,reason:'unknown'};
++  const th=T.range.thresholds;
++  const medal=score>=th.gold?'gold':score>=th.silver?'silver':score>=th.bronze?'bronze':null;
++  const prev=state().range?.[gunId]||{best:0,attempts:0,cleared:false,story:false};
++  const next={best:Math.max(prev.best,score),attempts:(prev.attempts||0)+1,cleared:prev.cleared||!!medal,story:prev.story||!!medal};
++  patch(`range.${gunId}`,next);
++  const newMedal=medal&&!state().medals?.[gunId];
++  if(newMedal)patch(`medals.${gunId}`,medal);
++  if(score>prev.best)patch(`stats.rangeBest`,score);
++  return {ok:true,gunId,score,medal,newMedal,cleared:next.cleared,story:next.story,storyTitle:storyTitle(gunId),discounts:discountTokens()};
++ }
++ const storyTitle=gunId=>`CLEANED THE RANGE WITH THE ${(gun(gunId)?.label||gunId).replace(/\s*—.*/,'').toUpperCase()}`;
++ // range story crit bonus is authored as "+10% crit"; exposed for the local combat resolution and F01.
++ const storyCrit=gunId=>state().range?.[gunId]?.story?T.range.storyCritBonus:0;
++
++ // ---- gold-plating notice (VampGram) ----
++ function notifyGold(gunId){
++  if(!hasMod(gunId,'gold_plating'))return;
++  try{window.RAVampGram?.post?.({id:`iron_grace:gold:${gunId}:${day()}`,handle:'richalucard',text:`the ${displayName(gunId).toLowerCase()} came back gold. deacon brass said nothing. he did not have to.`,likes:12});}catch(e){}
++  patch('seen.goldNotice',true);
++ }
++
++ // ---- TRAP-facing weapon API (assign guns to lookouts; F04/F05 bind later) ----
++ const trap={
++  assign(ownerId,gunId){if(!ownerId)return {ok:false,reason:'owner'};if(gunId!=null&&!gun(gunId))return {ok:false,reason:'unknown-gun'};
++   patch(`trap.${ownerId}`,gunId);return {ok:true,owner:ownerId,gun:gunId||null};},
++  owner:ownerId=>state().trap?.[ownerId]||null,
++  clear(ownerId){const all={...(state().trap||{})};delete all[ownerId];patch('trap',all);return {ok:true};},
++  list:()=>Object.entries(state().trap||{}).map(([owner,gunId])=>({owner,gun:gunId,resolved:resolve(gunId)})),
++  // Door-holding turns are NOT simulated here (F04/F05): expose the authored rule as data only.
++  holdTurns:()=>[1,2], pending:'F04/F05 — traphouse lookup door-hold is not simulated'
++ };
++
++ // ---- Showdown-facing data (F01_INTEGRATION_PENDING: no combat is implemented) ----
++ const showdown={
++  pending:'F01_INTEGRATION_PENDING — SHOWDOWN_CORE is not frozen; F02 ships data/contracts only',
++  stats:gunId=>{const g=gun(gunId);return g?{...g.showdown,mods:modsFor(gunId),bonuses:bonuses(gunId)}:null;},
++  // Per-gun class affinity is authored in prose; F02 does not invent a class table.
++  classNote:gunId=>{const g=gun(gunId);return g?.showdown?.note||null;},
++  roster:()=>guns().filter(g=>!g.dev).map(g=>({id:g.id,showdown:g.showdown})),
++  enemies:()=>C.ENEMY_GUNS.map(e=>({...e}))
++ };
++
++ // ---- authored firearm feedback/FX hooks (caller binding is an integration seam) ----
++ const FX_FAMILY={pocket_pistol:'small',double_barrel:'heavy',smg:'auto',rifle:'rifle','drum-mag_vintage_smg':'auto',hand_cannon:'heavy',
++  flamethrower:'fire','dragon-fire_rifle':'fire',launcher:'explosive',thrown:'soft',legendary:'gold',dev:'dev'};
++ const familyFor=g=>FX_FAMILY[String(g?.type||'').toLowerCase().replace(/\s+/g,'_')]||'small';
++ function feedback(gunId,phase='fire'){
++  const g=gun(gunId);if(!g)return null;
++  const family=familyFor(g);
++  return {gun:gunId,phase,audio:g.audio||null,family,
++   recoil:phase==='fire',casings:phase==='fire'&&['small','auto','rifle'].includes(family),
++   shake:['heavy','explosive','fire'].includes(family),muzzle:family,requiresCaller:true};
++ }
++
++ function describe(){return {version:this.version,core:coreOn(),owned:ownedIds().filter(id=>!!gun(id)),equipped:equipped(),
++  loadout:loadout(),modsOwned:modsOwned(),guns:list_(),medals:{...state().medals},discountTokens:discountTokens(),
++  trap:trap.list().length,showdownPending:showdown.pending};}
++ const list_=()=>guns().map(g=>({id:g.id,label:g.label,owned:owns(g.id),rarity:g.rarity,native:!!g.native,mods:modsFor(g.id),ammo:effectiveAmmo(g.id)}));
++
++ window.RAIronAndGrace={version:'1.0.0',catalog,guns,gunsList:list_,gun,mods,mod,owns,ownedGuns,grant,buy,
++  equip,equipped,loadout,slots,modsOwned,modsFor,hasMod,canMod,buyMod,attachMod,detachMod,engrave,engravedName,displayName,
++  bonuses,effectiveAmmo,resolve,ammoFor,consumeAmmo,canFire,conditionOk,fire,conditionOkFlag:conditionOk,
++  awardRange,storyTitle,storyCrit,discountTokens,medalCount,acquisitionOf,
++  trap,showdown,feedback,describe,flags:F};
++})();
+diff --git a/js/frag/F04/jobs.js b/js/frag/F04/jobs.js
+index 5f70125..a518a77 100644
+--- a/js/frag/F04/jobs.js
++++ b/js/frag/F04/jobs.js
+@@ -43 +43 @@
+-   squadSize: 3,
++   squadSize: 2,
+@@ -67 +67 @@
+-  EXTRACT:        { kind: 'showdown', label: 'EXTRACT',         squadSize: 2, reward: { type: 'showdown' }, heat: 0 },
++  EXTRACT:        { kind: 'showdown', label: 'EXTRACT',         squadSize: 3, reward: { type: 'showdown' }, heat: 0 },

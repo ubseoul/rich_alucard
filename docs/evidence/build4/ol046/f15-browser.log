@@ -1,0 +1,39 @@
+PASS 360: dancer sheets loaded
+PASS 360: rosalyn inside the stage horizontally (223.0..320.3 of 344)
+PASS 360: rosalyn keeps >=6px headroom under the HUD (23.1px)
+PASS 360: rosalyn stands on the shared feet line
+PASS 360: emerald inside the stage horizontally (29.4..114.9 of 344)
+PASS 360: emerald keeps >=6px headroom under the HUD (26.7px)
+PASS 360: emerald stands on the shared feet line
+PASS 360: roxy inside the stage horizontally (122.0..222.0 of 344)
+PASS 360: roxy keeps >=6px headroom under the HUD (6.0px)
+PASS 360: roxy stands on the shared feet line
+PASS 360: three support buttons >=44px, fully on screen (112x71, 112x71, 112x71)
+PASS 360: budget bar visible without scrolling (bottom 730 / 740)
+PASS 360: animation advancing ({"wolf":5,"dragon":5,"pink":5} -> {"wolf":22,"dragon":22,"pink":22})
+PASS 360: the club offers Roxy's scene when her threshold is met
+PASS 360: date button fits the width
+PASS 360: Roxy L1 text and choices fit the viewport (35 lines, 0 violations)
+PASS 360: scene entered from the club completes once
+PASS 360: no console/page errors
+PASS 360: no failed or missing assets
+PASS 390: dancer sheets loaded
+PASS 390: rosalyn inside the stage horizontally (223.7..360.6 of 370)
+PASS 390: rosalyn keeps >=6px headroom under the HUD (30.1px)
+PASS 390: rosalyn stands on the shared feet line
+PASS 390: emerald inside the stage horizontally (17.4..137.7 of 370)
+PASS 390: emerald keeps >=6px headroom under the HUD (35.1px)
+PASS 390: emerald stands on the shared feet line
+PASS 390: roxy inside the stage horizontally (114.6..255.4 of 370)
+PASS 390: roxy keeps >=6px headroom under the HUD (6.0px)
+PASS 390: roxy stands on the shared feet line
+PASS 390: three support buttons >=44px, fully on screen (121x62, 121x62, 121x62)
+PASS 390: budget bar visible without scrolling (bottom 816 / 844)
+PASS 390: animation advancing ({"wolf":9,"dragon":9,"pink":9} -> {"wolf":27,"dragon":27,"pink":27})
+PASS 390: throw credited to the selected dancer (Roxy)
+PASS 390: F06 charged exactly the thrown dollars ($2000)
+PASS 390: only Roxy's total moved by exactly that amount
+FAIL 390: the approved F06 target stood on Roxy and the aimed throw HIT (overthrow, target 0.5)
+ERROR 390: the approved F06 target stood on Roxy and the aimed throw HIT (overthrow, target 0.5)
+
+35/36 checks passed

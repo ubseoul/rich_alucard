@@ -1,0 +1,40 @@
+{
+ "ok": true,
+ "at": "2026-10-03T22:19:48.116Z",
+ "steps": [
+  {
+   "name": "loader verification",
+   "status": "PASS",
+   "seconds": 1
+  },
+  {
+   "name": "build (regression + fragment suites + contract + zero-change + leak + artifact verification)",
+   "status": "PASS",
+   "seconds": 691
+  },
+  {
+   "name": "artifact verification",
+   "status": "PASS",
+   "seconds": 1
+  },
+  {
+   "name": "OPEN artifact leak check",
+   "status": "PASS",
+   "seconds": 1
+  },
+  {
+   "name": "private overlay build with EMPTY pack (must equal OPEN)",
+   "status": "PASS",
+   "seconds": 13
+  },
+  {
+   "name": "OPEN artifact still clean after overlay build",
+   "status": "PASS",
+   "seconds": 1
+  },
+  {
+   "name": "browser smoke",
+   "status": "PASS"
+  }
+ ]
+}

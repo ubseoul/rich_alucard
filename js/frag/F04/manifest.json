@@ -1,0 +1,18 @@
+{
+  "schema": 1,
+  "fragment": "F04",
+  "name": "PLAYMAKERS_WAR_ROOM",
+  "flag": "F04.war_room",
+  "files": [
+    "js/frag/F04/districts.js",
+    "js/frag/F04/crew.js",
+    "js/frag/F04/jobs.js",
+    "js/frag/F04/heat_config.js",
+    "js/frag/F04/vampgram.js",
+    "js/frag/F04/report_card.js",
+    "js/frag/F04/wake.js",
+    "js/frag/F04/play_adapter.js",
+    "js/frag/F04/phone_app.js"
+  ],
+  "note": "Load order: migrations loaded before state.js via glob, files here loaded after if1.js via fragment slot."
+}

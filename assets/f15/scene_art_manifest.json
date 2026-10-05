@@ -1,0 +1,173 @@
+{
+ "schema": 1,
+ "generator": "tools/f15/build_scene_art.py",
+ "art_package_commit": "75459f401d9fe6115e7fdf8c8f2bed572df55746",
+ "granny_commit": "61a8a5599d6c73c573aee8a0494254b8e52004fa",
+ "files": [
+  {
+   "path": "assets/f15/environments/the_bing_270x480.png",
+   "bytes": 184014,
+   "sha256": "16c82c11f017960da8eb18a8e5f5363132aca4c1d124088f5d2ac5c8ec410fe0",
+   "dimensions": [
+    270,
+    480
+   ],
+   "mode": "RGB",
+   "role": "approved production background (byte copy)",
+   "source": "art_department/production/f15-date-scene-assets/production/the_bing_270x480.png",
+   "approved_sha256": "16c82c11f017960da8eb18a8e5f5363132aca4c1d124088f5d2ac5c8ec410fe0"
+  },
+  {
+   "path": "assets/f15/environments/roxy_apartment_270x480.png",
+   "bytes": 188084,
+   "sha256": "f30c32450876b2077d6374165630ed7b1dc9b05b42c56f80c92c6a7d9c3f0b51",
+   "dimensions": [
+    270,
+    480
+   ],
+   "mode": "RGB",
+   "role": "approved production background (byte copy)",
+   "source": "art_department/production/f15-date-scene-assets/production/roxy_apartment_270x480.png",
+   "approved_sha256": "f30c32450876b2077d6374165630ed7b1dc9b05b42c56f80c92c6a7d9c3f0b51"
+  },
+  {
+   "path": "assets/f15/environments/rosalyn_apartment_270x480.png",
+   "bytes": 192736,
+   "sha256": "8247c05d7c6bafdb9009f08b3c98ebe274db63f1aadaeff4c65b0eb6f403e8e7",
+   "dimensions": [
+    270,
+    480
+   ],
+   "mode": "RGB",
+   "role": "approved production background (byte copy)",
+   "source": "art_department/production/f15-date-scene-assets/production/rosalyn_apartment_270x480.png",
+   "approved_sha256": "8247c05d7c6bafdb9009f08b3c98ebe274db63f1aadaeff4c65b0eb6f403e8e7"
+  },
+  {
+   "path": "assets/f15/environments/boxing_gym_270x480.png",
+   "bytes": 161542,
+   "sha256": "9a0e80798bc8c7a74d96c06578c6d4e02ee4170284651d93ac4569432877f24f",
+   "dimensions": [
+    270,
+    480
+   ],
+   "mode": "RGB",
+   "role": "approved production background (byte copy)",
+   "source": "art_department/production/f15-date-scene-assets/production/boxing_gym_270x480.png",
+   "approved_sha256": "9a0e80798bc8c7a74d96c06578c6d4e02ee4170284651d93ac4569432877f24f"
+  },
+  {
+   "path": "assets/f15/environments/plenitude_270x480.png",
+   "bytes": 163201,
+   "sha256": "686b97067b6776c8e7de992fb60f67c663610489cfc567b4c3fb8c8c2314b9cb",
+   "dimensions": [
+    270,
+    480
+   ],
+   "mode": "RGB",
+   "role": "approved production background (byte copy)",
+   "source": "art_department/production/f15-date-scene-assets/production/plenitude_270x480.png",
+   "approved_sha256": "686b97067b6776c8e7de992fb60f67c663610489cfc567b4c3fb8c8c2314b9cb"
+  },
+  {
+   "path": "assets/f15/environments/convention_hall_270x480.png",
+   "bytes": 186868,
+   "sha256": "469564c607b94bcd7fdceb64d1bcacdd5bf9ff02c7f343a7798636ec885d8664",
+   "dimensions": [
+    270,
+    480
+   ],
+   "mode": "RGB",
+   "role": "approved production background (byte copy)",
+   "source": "art_department/production/f15-date-scene-assets/production/convention_hall_270x480.png",
+   "approved_sha256": "469564c607b94bcd7fdceb64d1bcacdd5bf9ff02c7f343a7798636ec885d8664"
+  },
+  {
+   "path": "assets/f15/environments/shrine_auditorium_270x480.png",
+   "bytes": 177418,
+   "sha256": "58359742eb37d7cd4ff9f05c9312207f109528a59397268cd7d73491ae02cab9",
+   "dimensions": [
+    270,
+    480
+   ],
+   "mode": "RGB",
+   "role": "approved production background (byte copy)",
+   "source": "art_department/production/f15-date-scene-assets/production/shrine_auditorium_270x480.png",
+   "approved_sha256": "58359742eb37d7cd4ff9f05c9312207f109528a59397268cd7d73491ae02cab9"
+  },
+  {
+   "path": "assets/f15/characters/spirit_of_uncle_bunmi_444x222.png",
+   "bytes": 79469,
+   "sha256": "e4cc409314da51b99627452dc92e5ce597f22b531ee57983c41af68aa4886c7d",
+   "dimensions": [
+    444,
+    222
+   ],
+   "mode": "RGBA",
+   "role": "cockroach runtime derivative (BOX 444x222, premultiplied alpha); master unchanged",
+   "source": "art_department/production/f15-date-scene-assets/production/spirit_of_uncle_bunmi_candidate_original.png",
+   "master_sha256": "2c1589a8214c8f3eda935f416e1808a83aa71ec3be1d4c3f4b8d29a0333aa783",
+   "master_dimensions": [
+    1774,
+    887
+   ],
+   "master_alpha_box": [
+    0,
+    16,
+    1768,
+    871
+   ],
+   "derivative_alpha_box": [
+    0,
+    4,
+    441,
+    218
+   ],
+   "expected_alpha_box_from_master_scaled": [
+    0.0,
+    4.0,
+    442.5,
+    222.0
+   ],
+   "master_touches_canvas_edge": true,
+   "derivative_touches_canvas_edge": true,
+   "master_partial_alpha_pixels": 553579,
+   "derivative_partial_alpha_pixels": 36054,
+   "derivative_alpha_extrema": [
+    0,
+    254
+   ]
+  },
+  {
+   "path": "assets/f15/layers/lights_off_270x480.png",
+   "bytes": 1194,
+   "sha256": "3aa6cd5456781dfd6c96a68ab7560018a02e3556d47fe8e6e116c6cceed1f6cb",
+   "dimensions": [
+    270,
+    480
+   ],
+   "mode": "RGBA",
+   "role": "flat lights-off overlay layer (not derived from approved art)",
+   "rgba": [
+    6,
+    5,
+    20,
+    150
+   ]
+  },
+  {
+   "path": "assets/before_the_fame/characters/granny_bing/cga_f2_032/granny_bing_neutral_calling_numbers_anchor_80x96_v1.png",
+   "bytes": 1716,
+   "sha256": "6f042de972f6fe7fa89178095829ac44e96650cf7b067ad0004f2ca208ddf4ee",
+   "dimensions": [
+    80,
+    96
+   ],
+   "mode": "RGBA",
+   "role": "frozen Granny Bing anchor (byte copy)",
+   "source": "61a8a5599d6c73c573aee8a0494254b8e52004fa:assets/before_the_fame/characters/granny_bing/cga_f2_032/granny_bing_neutral_calling_numbers_anchor_80x96_v1.png",
+   "approved_sha256": "6f042de972f6fe7fa89178095829ac44e96650cf7b067ad0004f2ca208ddf4ee"
+  }
+ ],
+ "total_bytes": 1336242
+}

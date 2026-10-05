@@ -1,0 +1,151 @@
+# Presentation Director — exception and NEEDS CREATIVE tickets
+
+## FINAL ART INTEGRATION (branch `claude/final-art-integration`)
+
+ART SHIP 013 and ART SHIP 012 CLOSEOUT are integrated (`docs/art_integration/FINAL_ART_INTEGRATION.md`). Result at review: 120 PASS / 1 HOLD. After the HQ closeout: **121 PASS / 0 HOLD**, with PD-FA-03 as an accepted exception.
+
+| Ticket | Status | Notes |
+|---|---|---|
+| NC-FA-07 | **RESOLVED for every census screen** | The family, Portobello wife/kids/manager, auntie, ocean soul, training dummy and Buckhead now resolve frozen art. 0 placeholder actor slots remain in the adventure census, and both combat HOLDs cleared. The Maul fight stays Lil Smack. Non-census surfaces (PICKUP players, JOLLOF cook, bedroom company) are unchanged. |
+| PD-FA-03 | **ACCEPTED (HQ-FAI-01 PASS)** — EXCEPTION-LAYOUT, `accept:['face-size']`, this screen only | `portobello_bedroom\|left:portobello_kid1,mid:rich_portobello,right:portobello_kid2` (A30 `bedtime`). The speaking kid's frozen child-scale face is under the dialogue face floor at every framing inside the conversation band. The passing `close` shot drops the other kid from frame. HQ-FAI-01. |
+| NC-FAI-01 | **NEW — Polish (screen PASS)** | `portobello_porch\|left:rich_portobello@porch_seated,right:portobello_wife`: the narration has her leaning on his shoulder, but her only frozen state is standing. Same class as NC-FA-13. A seated/leaning wife state would be an Art/Story call. |
+| NC-FA-14 | Unchanged (resolved) | The 11 new frozen actors got authored face boxes (`noFace` for the ocean soul and training dummy). |
+
+## HOLD CLEARANCE 001 (branch `claude/hold-clearance-001`)
+
+| Ticket | Status | Notes |
+|---|---|---|
+| PD-FA-02 | **RESOLVED** | `A12:react` has an authored node `shot` (conversation, Rich focal/speaker). Uncle Sunday stays on-frame at the right edge as the secondary figure, with both frozen poses unchanged. Dry run and live lint pass at 360/390/430. The exception and its review entry are retired; the adventure Director exception list is empty. `include` for Uncle Sunday was rejected: it only reaches the band when the poses overlap. |
+| NC-FA-07 (combat) | **1 of 3 cleared** | `combat:training@maul` was a wiring error: the Lil Smack encounter called the training dummy. It now calls the `lil_smack` enemy (frozen art, `params.hp:60`). `buckhead@lennox` and `training@throne` remain HOLD. |
+
+## ART SHIP 010 integration re-evaluation (branch `claude/art-ship-010-integration`)
+
+The 4 frozen ART SHIP 010 assets are integrated (`docs/art_integration/ART_SHIP_010_INTEGRATION.md`). Ticket status after live visual review:
+
+| Ticket | Status | Notes |
+|---|---|---|
+| NC-FA-12 | **RESOLVED** | The party-crowd condition layer draws behind Rich on `rooftop_dtla\|left:rich`. Visually confirmed at 360/390/430: silhouetted guests read as a party along both side walls, Rich stays fully readable, no occlusion, no UI obstruction. |
+| NC-FA-07 | **OPEN — partially supplied.** `rich_portobello` (standing/default, presenting, porch_seated) is now frozen and integrated on all 4 of its surfaces. `portobello_wife`, `portobello_kid1`, `portobello_kid2` and `portobello_manager` remain **BLOCKED BY CANON**: no committed visual card exists for any of them, and none was invented. All 5 Portobello screens stay HOLD because every one of them still has at least one placeholder actor. | 
+| PD-W1-04 | **Layout question RESOLVED (HQ-AS10-01); screen still HOLD** | The `EXCEPTION-LAYOUT` staging exception on the four-actor `breakfast` screen was retired: real Rich geometry lets the existing generic Director solver clear the shot band on its own (no authored tuning). The screen's PASS/HOLD status is unchanged — still HOLD under NC-FA-07 because the other three actors are still placeholders. See `docs/art_integration/HQ_DECISIONS.md` HQ-AS10-01. |
+| NC-FA-14 | **RESOLVED** | Authored the 3 `rich_portobello` face boxes in `tools/presentation/annotations.json` by inspecting the frozen pixels (skin-tone bounding box per state: `standing` [33,39,16,15], `presenting` [24,40,16,12] head-only excluding the extended-hand skin cluster, `porch_seated` [28,45,17,13]), then regenerated `js/data/presentation_assets.js` via `node tools/presentation-assets.mjs`. All 3 states now show `faceSource:"authored"`, matching the established quality bar. No screen's PASS/HOLD status changes (this was polish-only); the art integration matrix stays 106 PASS / 15 HOLD. |
+
+### New tickets
+
+| Ticket | Screens | Current assets | What fails | Asset/decision needed | Severity |
+|---|---|---|---|---|---|
+| NC-FA-14 | The 3 new `rich_portobello` states (`standing`, `presenting`, `porch_seated`) | Frozen ART SHIP 010 character states, integrated | Their face boxes in `js/data/presentation_assets.js` are **derived** (generic upper-body-center heuristic), not **authored** by inspecting the actual pixels, unlike every other named character's states. No visual problem was observed in review, but authored boxes are the established quality bar for named-character dialogue framing. | Author 3 face boxes in `tools/presentation/annotations.json` by inspecting the frozen pixels, then re-run `node tools/presentation-assets.mjs`. | Polish (no screen is HOLD for this) |
+
+## ART SHIP 009 integration re-evaluation (branch `claude/art-ship-009-integration`)
+
+The 12 frozen ART SHIP 009 assets and the `lan_night → tristan_apt` zero-pixel reuse are integrated (`docs/art_integration/ART_SHIP_009_INTEGRATION.md`). Ticket status after live visual review:
+
+| Ticket | Status | Notes |
+|---|---|---|
+| NC-FA-10 | **RESOLVED** | The stage-band crowd draws over the seating crowd. While both are active, the Director stages the pair on the open stage apron (left x=108, right x=164) so the audience reads beside them in the real companion two-shot. |
+| NC-FA-11 | **RESOLVED** | HOOKAH `company=HOMIES` seats frozen Tunde and Dre beside Rich. |
+| NC-FA-06 | **RESOLVED for every census screen** | No screen is held by a placeholder environment. Four placeholder ids (`catacomb_dead`, `atl_airport`, `ocean_night_flight`, `halloween`) have no current screen. |
+| NC-FA-07 | **OPEN — now the sole blocker on 4 Portobello screens** (the 5th is also PD-W1-04) | `rich_portobello`, `portobello_wife`, `portobello_kid1`, `portobello_kid2` and `portobello_manager` are inline RAPixel placeholders. The Portobello Rich transformation is GUIDED (VOL2 visual bible: standing, presenting, porch seated). It needs its named authorization. The wife, kids and manager have no committed OPEN visual card, so they need a Story/HQ card before any Art Ship. |
+| PD-W1-04 | **HOLD — re-evaluated on the frozen bedroom** | See the Director table in the integration report and HQ-AS9-01. |
+
+### New tickets
+
+| Ticket | Screens | Current assets | What fails | Asset/decision needed | Severity |
+|---|---|---|---|---|---|
+| NC-FA-12 | `rooftop_dtla\|left:rich` (ROOFTOP_DTLA attendable party, `arrive`) | Frozen ART SHIP 009 `rooftop_dtla` master (integrated) | The beat is "string lights, a skyline, a party with no host anyone can name". The master is an empty rooftop, and its string lights sit above the conversation frame. At 360/390/430 the frame reads as a quiet empty rooftop, not a party. | An exact-origin 270×480 additive **party-crowd condition layer** over the frozen master. Binary alpha, surface-scoped to this screen, drawn below the actors, no base repaint (the Ship 008 crowd grammar). Partygoers must sit inside the conversation band (about world x 0–190, y 200–372 with Rich on the `left` slot at x=72), behind the contact line, and Rich must stay unoccluded. | Blocking for that screen (HOLD) |
+| NC-FA-13 | `la_sky\|left:rich,right:mazda_human` (A32 `night`; MAZDA arc beats reuse `la_sky`) | Frozen `la_sky` master; Rich and Mazda-human standing anchors | The beat narrates Rich on Mazda's back mid-flight, but both anchors stand on the cloud-bank line. The sky and the city read correctly. | A flight/riding presentation, e.g. a Rich riding state with Mazda in flight. CURRENT_OPEN_ART_GAPS already lists Rich riding states; the exact contract is Art's and Story's call. | Polish (screen PASS with polish note) |
+| PD-AS9-01 | `lan_night\|left:rich,right:tristan` (A50) | Frozen `tristan_apt` master via approved zero-pixel reuse | The conversation framing crops Tristan's three monitors just above the frame. The desk chair and setup edge show, and the apartment at night reads. The narration and later lines name the monitors. | Director: an authored `shot` with more headroom or a lower framing for A50, if HQ wants the monitors in frame. No new art. | Polish (screen PASS with polish note) |
+
+## ART SHIP 008 integration re-evaluation (branch `claude/art-ship-008-integration`)
+
+The 14 frozen ART SHIP 008 assets are integrated (`docs/art_integration/ART_SHIP_008_INTEGRATION.md`). Ticket status after live visual review:
+
+| Ticket | Status | Notes |
+|---|---|---|
+| NC-FA-01 | **4/5 RESOLVED** | Catacomb ×3 and `duchess_castle|left:rich` pass with their surface-scoped crowd layers. `hollow_bowl|left:rich` stays HOLD → NC-FA-10. |
+| NC-FA-02 | **RESOLVED** | `rich.ramen_apron` resolves to the corrected delta. The SLURP screen and minigame pass. |
+| NC-FA-03 | **RESOLVED** | The café seat (rear) and table (foreground) layers, with Rich on their registered contact zone, read as seated at a table. |
+| NC-FA-04 | **RESOLVED** | The A20 day-three wrap shows `phil@spent_grounded`. |
+| NC-FA-05 | **RESOLVED** | The werewolf and Coffe fights hold `moonie.wolfed_out` / `coffe.rogue`. |
+| NC-FA-06 | **2 of 16 RESOLVED** | `street_night` master and the `throne_party_mess` condition. 14 placeholder environments remain. |
+| NC-FA-08 | **RESOLVED for A21** | HOOKAH (BLLAD33) passes. After HQ-AS8-01 (HOMIES), the A41 crew surface continues as NC-FA-11. |
+
+### New NEEDS CREATIVE
+
+| Ticket | Screens | Current assets | What fails | Asset needed | Severity |
+|---|---|---|---|---|---|
+| NC-FA-11 | `minigame:hookah?company=HOMIES` (A41 crew roof; HQ-AS8-01 decided HOMIES) | Frozen `rich.hookah_seated`, drawn. No seated crew states exist. | The beat stages "the crew" on the roof, but the minigame shows Rich alone. | **Minimum crew coverage, existing approved identities only; no new crew identities.** Two seated derivative states, one per frozen identity anchor, matching the ART SHIP 008 hookah grammar (80×96, binary alpha, contact (40,88), matched to the source anchor):<br>• `tunde.hookah_seated` from `tunde_neutral_80x96.png`. Tunde is the homie content names in the HOMIES hookah variant (A21 "INVITE THE HOMIES").<br>• `dre.hookah_seated` from `dre_neutral_80x96.png`. Dre is the other `role:'homie'` identity in the runtime homie set.<br>**Excluded:**<br>• Tristan has his own `TRISTAN` company.<br>• Coffe has the `homie` role but no homies hangout names him, and his arc includes the rogue variant, so including him is a Story call, not minimum coverage.<br>• Bllad33 and Rookoko have their own companies.<br>Engineering places the two figures on the company seats beside Rich once the art is frozen. | Blocking for that surface (HOLD) |
+| NC-FA-10 | `hollow_bowl|left:rich` (A41 arrive → finale; a companion joins at runtime) | Frozen `hollow_bowl_night` master + ART SHIP 008 `hollow_bowl_crowd_overlay` (integrated) | The narration says the amphitheater is packed, "every seat, every aisle". The crowd layer occupies the seating tiers (opaque y≈108–243) and is hollow around the stage shell. The Director's conversation framing of the staging floor (world ≈ x 40–225, y 160–400 at 390×844 with the companion; similar at 360/430) contains almost none of it, so the frame reads as an empty venue. | An exact-origin 270×480 additive condition layer (companion to the frozen seating crowd, no base repaint) that puts audience presence inside that framing band. For example: floor/aisle crowd behind the actors' contact line y=372, flanking the stage, and/or crowd filling the shell-adjacent tiers inside x 40–225. Named actors must stay unoccluded, and the layer draws below actors. The Director keeps final framing, so reframing to the seating would push the actors out of the conversation band. | Blocking for that screen (HOLD) |
+
+## Frozen-art integration re-evaluation (branch `claude/frozen-art-integration`)
+
+Tickets were re-checked against the integrated frozen ART SHIP 004–007 art (docs/art_integration/README.md). With real sprite metadata the adventure adapter clamps each slot by the actor's actual visible body and closes spare space in a width-limited focal group (generic; no per-screen positions). Current state:
+
+| Ticket | Status after frozen art | Notes |
+|---|---|---|
+| PD-W1-01 | **RESOLVED** | The frozen ocean-floor base (with its exact-origin ladder layers) plus metadata-driven staging reaches the conversation band. The screens stay HOLD in the integration matrix because the drowned-soul figures have no approved art (mixed screen). |
+| PD-W1-02 | **RESOLVED** (framing) | The Slurp three-shot reaches the conversation band with authored faces ≥ 24 px. The screen is HOLD for NC-FA-02 (apron state). |
+| PD-W1-03 | **RESOLVED** | Pet Crypt pair, including the offended and melted states, passes in the conversation band. |
+| PD-W1-04 | OPEN | Portobello bedroom: no approved environment or cast art yet (placeholders). |
+| PD-W3-01 | UNCHANGED | Property interior inspect beat; already frozen art; composition-limited by hotspots. |
+| PD-W3-02 | UNCHANGED | Ogun's Rave; already frozen art; HQ-accepted composition. |
+| PD-FA-02 | NEW — EXCEPTION-LAYOUT, HOLD | `pier|left:rich@holding_fish_away,right:uncle_sunday@fishing`: two wide approved poses (fish held at arm's length, rod out) leave no slack to close; framing falls between bands. Resolution: an authored hero shot for this beat (e.g. Rich-only focal with the second figure as a secondary) — a staging decision for HQ, not a new asset. Polish. |
+| FU-01 | **FIXED** | `meet` derives the date person the same way as `wake` when entered directly; a second instance of the same class (a spell chosen in the previous node) was guarded too. `npm test` now enters every adventure node cold. |
+
+### NEEDS CREATIVE (Art tickets from final-art review; spoiler-safe)
+
+| Ticket | Screens | Current assets | What fails | Asset needed | Severity |
+|---|---|---|---|---|---|
+| NC-FA-01 | `hollow_bowl|left:rich`, `duchess_castle|left:rich`, `catacomb|left:rich@on_stage`, `catacomb|left:rich@on_stage,right:tasha`, `catacomb|left:rich,right:iron_jaw` | Frozen empty/base environment masters | The beat's text depends on a crowd or a staged room of people; the frozen base is empty, so the screen contradicts the narration | Crowd/condition layers (exact-origin overlays or condition masters) for these venues — already listed in CURRENT_OPEN_ART_GAPS "crowd/condition overlays" | Blocking for final presentation of those beats (screens HOLD) |
+| NC-FA-02 | `slurp|farRight:hina,left:rich@ramen_apron,right:okada` | `rich_ramen_apron_80x96.png` (frozen) | The approved apron state contains a detached utensil well left of the body; in-scene it reads as a stray floating object at the frame edge | A corrected apron state (held item attached or removed) via an HQ delta | Blocking for that screen (HOLD) |
+| NC-FA-03 | `cafe|left:rich@laptop_seated`, `…@laptop_nod`, `…@laptop_seated,right:wispa` | `rich_laptop_seated/nod_80x96.png` (frozen) | The seated pose has no seat in the café master, so Rich reads as sitting on the floor | A café seat/table foreground layer or a seated-at-table variant | Polish |
+| NC-FA-04 | `street_night|left:rich,right:phil@charging_day3` (wrap beat) | Phil day-3 charging state | The closing beat describes a spent, grounded figure but the only approved day-3 state is mid-charge | A spent/grounded Phil state | Polish |
+| NC-FA-05 | `combat:werewolf@grave_closed`, `combat:coffe@throne_party_mess` | Identity anchors | Both fights are a transformed or GUIDED variant of a known identity; only the default anchor is approved | The transformed endpoint and the GUIDED variant states (already in CURRENT_OPEN_ART_GAPS) | Blocking for final presentation (HOLD) |
+| NC-FA-06 | Environments with no frozen master (16 ids, e.g. `street_night`, `throne_party_mess`, `la_sky`) | RAPixel placeholders | Placeholder environments; any screen using them is HOLD | Environment masters per CURRENT_OPEN_ART_GAPS "STILL MISSING — environments" | Blocking (coverage) |
+| NC-FA-07 | Screens with family, God, Buckhead Vampire, OG, drowned souls, Portobello cast, ad-hoc extras; PICKUP players, the JOLLOF cook, bedroom company | RAPixel placeholder actors | Mixed real/placeholder screens (HOLD per HQ) | Identity anchors (canon-owned where noted) | Blocking (coverage) |
+| NC-FA-08 | HOOKAH minigame | RAPixel placeholder figures | A seated hookah scene; no approved seated state exists for Rich or the companions | Seated hookah states (CURRENT_OPEN_ART_GAPS lists Bllad33 hookah seated) | Blocking for that surface (HOLD) |
+| NC-FA-09 | PICKUP phone icon (frozen), Bruce bow, Deacon blessing, Dragon Maggi Cube (frozen) | Frozen assets | Not a presentation failure: no runtime surface or scene is clearly theirs (MAPPING AMBIGUOUS) | An HQ/Story call on where each belongs — no new art | Polish |
+
+---
+
+## Historical tickets (as accepted at the bulk QA checkpoint)
+
+| Ticket | Screen | Status |
+|---|---|---|
+| PD-W1-01 | `ocean_floor` / `ocean_floor_collapsed` three-actor prologue screens | EXCEPTION-LAYOUT, **NEEDS CREATIVE**: integrate the frozen ocean-floor master, then author a hero shot |
+| PD-W1-02 | `slurp`, three actors | EXCEPTION-LAYOUT; also accepts partial face overlap; needs an authored shot or slot positions |
+| PD-W1-03 | `pet_crypt`, two actors at the frame edges | EXCEPTION-LAYOUT; needs authored slot positions |
+| PD-W1-04 | `portobello_bedroom`, four actors | EXCEPTION-LAYOUT; needs an authored shot and environment art |
+| PD-W3-01 | Property interior, `inspect` beat only | Accepts `shot-consistency` (every hotspot must stay in frame) |
+| PD-W3-02 | Ogun's Rave interior | Accepts `shot-consistency`; tightening means changing the HQ-accepted composition, a creative decision for HQ |
+
+## Non-presentation follow-ups (not tickets for Art or the Director)
+
+| ID | Issue | Where | Notes |
+|---|---|---|---|
+| FU-01 | An out-of-order story node throws `TypeError: Cannot read properties of null (reading 'name')` | `js/data/btf/adventures/w2.js:16`. The node's `lines` read `RABtfPeople.get(A.vars.person).name`, but `A.vars.person` is set by an earlier node | Only reached when a node is entered without its predecessor (the presentation sweep jumps straight to nodes). It doesn't occur in normal play order. Content-side fix: null-guard the person lookup, or seed the var on entry. Not a Presentation Director issue |
+
+These are the screens the generic Director can't bring into a shot band without scene-specific staging. The Director still frames each one best-effort (full-width, UI-separated, nothing clipped), and lint records the accepted exception. Screen keys are `environment|slot:person`, and this file contains no story content. The release gate requires the exception list in `js/data/presentation.js` to exactly match the screens that fail the dry run.
+
+| Ticket | Screen(s) | Why generic framing can't pass | Resolution path |
+|---|---|---|---|
+| PD-W1-01 | `ocean_floor` / `ocean_floor_collapsed` with three actors (farLeft, mid, farRight) | A wide three-figure spread in a base-1 placeholder environment: full-width cover gives a body of about 0.27, between the establishing (≤ 0.25) and conversation (≥ 0.35) bands | **NEEDS CREATIVE**: the frozen ocean-floor master (Art Ship 004) isn't runtime-integrated yet. Revisit as a Wave 4 hero override once the real environment and its depth scale land |
+| PD-W1-02 | `slurp` with three actors (left, right, farRight) | Three-figure spread; edge-slot crowding also partly covers one face (≈ 92% visible) | Wave 4 authored `shot` / slot positions (EXCEPTION-LAYOUT) |
+| PD-W1-03 | `pet_crypt` with two actors at left and farRight | The wide pair can't reach the conversation band, and full-width cover is larger than establishing | Wave 4 authored slot positions (EXCEPTION-LAYOUT) |
+| PD-W1-04 | `portobello_bedroom` with four actors | Four-figure family line-up in a base-1 placeholder environment | Wave 4 authored `shot` (EXCEPTION-LAYOUT); revisit when environment art lands |
+
+## Provisional checks (not tickets)
+
+These are tracked through the Art gap map, not as presentation defects:
+- **Placeholder environments** (RAPixel paintings) report dead space as PROVISIONAL. Flat placeholder art is low-detail by design, so dead space is re-checked when final art is integrated.
+- **Placeholder actors** report size and in-view checks as PROVISIONAL, because their painted bounds are wider than final sprites.
+
+## Environment art already frozen but not runtime-integrated
+
+Art Ship 007 froze a set of environments and characters, including boba_shop, brunch, food_court, kitchen, onsen and venice, that the adventures still paint as placeholders. Integrating them is a separate Engineering change and isn't part of this presentation migration. When they are integrated, rerun the dry run and sweep: provisional notes should drop, and the Wave 1 lock will show exactly which screens changed.
+
+## Wave 3 exceptions
+
+| Ticket | Screen | Why | Resolution path |
+|---|---|---|---|
+| PD-W3-01 | Property interior (`property-la-4p-interior`), **inspect beat only** | While inspecting, every hotspot (door → far-right kitchen) must stay in frame, so the frame is nearly full-width: conversation size 0.359, in band but 8% under the reference | **Narrowed in Wave 4:** dialogue now uses a tight `talk` beat (0.41, no exception), and the camera snap-pans wider only in hotspot mode. The exception applies to the `inspect` beat alone |
+| PD-W3-02 | Ogun's Rave interior (`ogun-rave`) | The HQ-accepted wide composition (Rich left; Ogun on the raised host landing; a third speaker right) gives a conversation size of 0.351: in band but 10% under the reference | Accept `shot-consistency` only. Wave 4 checked per-phase beats: even the two-person beat is width-limited (≈0.36) by the accepted positions. Tightening it means changing the HQ-accepted composition, which is a creative decision for HQ |

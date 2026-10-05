@@ -1,0 +1,370 @@
+#!/usr/bin/env node
+// Generates js/data/art_registry.js — the canonical runtime Art Registry for the frozen ART SHIP 004–015 corpus
+// (ART SHIP 012 CLOSEOUT included; ART SHIP 011 is a library with no runtime assignment).
+// Source of truth: each Ship's ART_SHIP_MANIFEST.json (paths, ids, categories, anchors, derivations) cross-checked
+// against art_department/ASSET_REGISTER.json (status FROZEN + sha256) and the actual bytes on disk.
+// ART SHIP 008 onward: runtime ids, layer names and activation surfaces come from the Ship's ENGINEERING_ASSET_MAP.json
+// and STATE_LAYER_DEFINITIONS.json (never inferred from filenames).
+// Frozen PNGs are only read. The generator refuses any file whose bytes, status or dimensions disagree.
+// Usage: node tools/art-registry.mjs            (write)
+//        import {expectedRegistry} for the release gate (verify up to date)
+import {readFile,writeFile} from 'node:fs/promises';
+import {createHash} from 'node:crypto';
+import path from 'node:path';
+import {fileURLToPath} from 'node:url';
+import {decodePng} from './presentation/png.mjs';
+
+const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
+const target=path.join(root,'js/data/art_registry.js');
+// Freeze order: a later Ship's corrected delta supersedes an earlier state (ART SHIP 013 rich.hookah_seated over 008).
+export const SHIPS=['art_ship_004','art_ship_005','art_ship_006','art_ship_007','art_ship_008','art_ship_009','art_ship_010','art_ship_011','art_ship_013','art_ship_012_closeout','art_ship_014','art_ship_015'];
+const json=async rel=>JSON.parse(await readFile(path.join(root,rel),'utf8'));
+const sorted=obj=>Object.fromEntries(Object.entries(obj).sort(([a],[b])=>a.localeCompare(b)).map(([k,v])=>[k,v&&typeof v==='object'&&!Array.isArray(v)?sorted(v):v]));
+
+// Ship 004 predates open ids in its manifest: its six files are identified by path.
+const SHIP_004_IDS={
+ 'assets/goldfish_years/masters/ocean_floor_base_270x480.png':{kind:'environment',id:'ocean_floor'},
+ 'assets/goldfish_years/layers/ladder_intact_overlay_270x480.png':{kind:'layer',id:'ocean_floor',layer:'ladder_intact'},
+ 'assets/goldfish_years/layers/ladder_collapsed_overlay_270x480.png':{kind:'layer',id:'ocean_floor',layer:'ladder_collapsed'},
+ 'assets/goldfish_years/characters/octopus_sensei/octopus_sensei_neutral_96x96.png':{kind:'character',id:'octopus_sensei',state:'neutral',anchor:true},
+ 'assets/goldfish_years/characters/octopus_sensei/octopus_sensei_point_96x96.png':{kind:'character',id:'octopus_sensei',state:'point'},
+ 'assets/goldfish_years/characters/octopus_sensei/octopus_sensei_state_sheet_192x96.png':{kind:'sheet',id:'octopus_sensei'}
+};
+// Anchor pose word(s) from the canonical filename ("accepted anchor pose represented by the canonical filename").
+function anchorPose(file,id){
+ const stem=path.basename(file,'.png').replace(/_\d+x\d+$/,'');
+ if(/(^|_)neutral(_|$)/.test(stem))return stem.slice(stem.indexOf('neutral'));
+ const words=stem.split('_'),idWords=new Set(id.split('_'));
+ let i=0;while(i<words.length-1&&(idWords.has(words[i])||['sir','power','level','blueberry','mr','dj','the','tastemaker','vantablack','kagebunshin','dorsey','bathory','brown','wyrmwood','dolores'].includes(words[i])||/^[a-z]+$/.test(words[i])&&i===0))i++;
+ return words.slice(i).join('_');
+}
+// ART SHIP 006 state id → state name: strip the identity (or its first word) from the asset id.
+function stateName(assetId,identity){
+ if(assetId.startsWith(`${identity}_`))return assetId.slice(identity.length+1);
+ if(assetId.startsWith('rich_'))return assetId.slice(5);
+ return assetId.split('_').slice(1).join('_');
+}
+
+// ART SHIP 008: every file is placed by its Engineering Asset Map key; contacts/origins come from the state/layer
+// definitions. Exact-origin layers must match their base's native size and carry binary alpha only.
+let ship008Maps=null;
+async function loadShip008(){
+ const map=await json('art_department/ships/art_ship_008/ENGINEERING_ASSET_MAP.json'),defs=await json('art_department/ships/art_ship_008/STATE_LAYER_DEFINITIONS.json');
+ ship008Maps={map:Object.fromEntries(map.mappings.map(m=>[m.approved_path,m])),defs:Object.fromEntries(defs.states_and_layers.map(d=>[d.path,d]))};
+}
+async function ship008Base(f){
+ if(!f.source_master?.path)return null;const bytes=await readFile(path.join(root,f.source_master.path));
+ if(createHash('sha256').update(bytes).digest('hex')!==f.source_master.sha256)throw new Error(`${f.path}: source master ${f.source_master.path} bytes differ from the Ship record`);
+ return decodePng(bytes);
+}
+const binaryAlpha=png=>{for(let i=3;i<png.data.length;i+=4)if(png.data[i]!==0&&png.data[i]!==255)return false;return true};
+function ship008(f,png,base,out,character){
+ const m=ship008Maps.map[f.path],d=ship008Maps.defs[f.path];
+ if(!m||!d)throw new Error(`${f.path}: ART SHIP 008 file without an Engineering Asset Map / state definition entry`);
+ if(m.approved_sha256!==f.sha256||d.approved_sha256!==f.sha256)throw new Error(`${f.path}: Engineering map / state definition sha256 disagrees with the manifest`);
+ const key=m.engineering_key,surfaces=m.runtime_surfaces.filter(s=>!s.startsWith('minigame:'));
+ if(/LAYER$/.test(f.asset_type)){
+  if(!d.contact_or_origin?.exact_origin||String(d.contact_or_origin.origin)!=='0,0')throw new Error(`${f.path}: layer without an exact (0,0) origin contract`);
+  if(!binaryAlpha(png))throw new Error(`${f.path}: layer alpha is not binary`);
+  if(!base||base.width!==png.width||base.height!==png.height)throw new Error(`${f.path}: exact-origin layer size ${png.width}x${png.height} differs from its base ${f.source_master?.path}`);
+  let env,name,over=null;const k=key.match(/^environments\.([a-z_0-9]+)\.layers\.([a-z_0-9]+)$/);
+  if(k){env=k[1];name=k[2];}
+  else if(/^environments\.([a-z_0-9]+)$/.test(key)){env=key.split('.')[1];name='condition';over=f.source_master.path;}
+  else throw new Error(`${f.path}: unsupported layer key ${key}`);
+  const e=out.environments[env]||(out.environments[env]={});
+  if(over)e.over=over;
+  e.layers={...(e.layers||{}),[name]:f.path};
+  e.surfaces={...(e.surfaces||{}),[name]:surfaces};
+  return;
+ }
+ if(f.asset_type==='ENVIRONMENT_MASTER'){
+  const k=key.match(/^environments\.([a-z_0-9]+)$/);if(!k||png.width!==270||png.height!==480)throw new Error(`${f.path}: environment master contract (${key}, ${png.width}x${png.height})`);
+  out.environments[k[1]]={...(out.environments[k[1]]||{}),asset:f.path};return;
+ }
+ if(/^CHARACTER_STATE/.test(f.asset_type)){
+  // Character states: `characters.<id>.states.<state>`; minigame keys name their state through the definition's runtime id.
+  const k=key.match(/^characters\.([a-z_0-9]+)\.states\.([a-z_0-9]+)$/),rid=d.runtime_asset_id.match(/^([a-z_0-9]+)\.([a-z_0-9]+)$/);
+  const [id,state]=k?[k[1],k[2]]:key.startsWith('minigames.')&&rid?[rid[1],rid[2]]:[];
+  if(!id)throw new Error(`${f.path}: unsupported character key ${key}`);
+  if(!binaryAlpha(png))throw new Error(`${f.path}: character alpha is not binary`);
+  const c=character(id);
+  // A corrected delta replaces the runtime state; the original frozen file stays registered as history.
+  if(c.states[state]&&c.states[state]!==f.path)c.superseded={...(c.superseded||{}),[state]:c.states[state]};
+  c.states[state]=f.path;
+  const contact=d.contact_or_origin?.contact;if(!contact)throw new Error(`${f.path}: character state without a contact`);
+  if(id==='rich'||!c.contact){if(c.contact&&String(c.contact)!==String(contact))throw new Error(`${f.path}: contact ${contact} disagrees with ${id} ${c.contact}`);if(id==='rich'||c.anchor)c.contact=contact;}
+  if(!c.cell)c.cell=[png.width,png.height];
+  return;
+ }
+ throw new Error(`${f.path}: unknown ART SHIP 008 asset type ${f.asset_type}`);
+}
+
+// ART SHIP 009: same contract as 008, from its Engineering Asset Map `entries` (asset type + key per approved path) and
+// STATE_LAYER_DEFINITIONS `definitions`. The zero-pixel reuse row adds no file: it registers a runtime alias on the
+// existing frozen master (its path and sha256 must match that master exactly), so no bitmap is duplicated or renamed.
+let ship009Maps=null;
+async function loadShip009(){
+ const map=await json('art_department/ships/art_ship_009/ENGINEERING_ASSET_MAP.json'),defs=await json('art_department/ships/art_ship_009/STATE_LAYER_DEFINITIONS.json');
+ ship009Maps={map:Object.fromEntries(map.entries.filter(e=>e.engineering_mapping.approved_path).map(e=>[e.engineering_mapping.approved_path,e])),
+  defs:Object.fromEntries(defs.definitions.map(d=>[d.approved_path,d])),reuse:map.entries.filter(e=>e.asset_type==='EXISTING_ENVIRONMENT_MASTER_ALIAS')};
+}
+async function ship009(f,png,out,character,register){
+ const m=ship009Maps.map[f.path],d=ship009Maps.defs[f.path],key=m?.engineering_mapping.key;
+ if(!m)throw new Error(`${f.path}: ART SHIP 009 file without an Engineering Asset Map entry`);
+ if(m.engineering_mapping.approved_sha256!==f.sha256||d&&d.approved_sha256!==f.sha256)throw new Error(`${f.path}: Engineering map / state definition sha256 disagrees with the manifest`);
+ const surfaces=m.runtime_surfaces.filter(s=>!s.startsWith('minigame:'));
+ if(m.asset_type==='ENVIRONMENT_MASTER'){
+  const k=key.match(/^environments\.([a-z_0-9]+)$/);
+  if(!k||png.width!==270||png.height!==480||f.mode!=='RGB')throw new Error(`${f.path}: environment master contract (${key}, ${png.width}x${png.height} ${f.mode})`);
+  if(out.environments[k[1]]?.asset)throw new Error(`${f.path}: environment ${k[1]} already has a frozen master`);
+  out.environments[k[1]]={...(out.environments[k[1]]||{}),asset:f.path};return;
+ }
+ if(m.asset_type==='ENVIRONMENT_CONDITION_LAYER'){
+  const k=key.match(/^environments\.([a-z_0-9]+)\.layers\.([a-z_0-9]+)$/);if(!k||!d)throw new Error(`${f.path}: unsupported layer key ${key}`);
+  if(String(d.origin)!=='0,0'||!m.contact_or_origin?.exact_origin)throw new Error(`${f.path}: layer without an exact (0,0) origin contract`);
+  if(!binaryAlpha(png))throw new Error(`${f.path}: layer alpha is not binary`);
+  if(String(d.activation_surfaces)!==String(m.runtime_surfaces))throw new Error(`${f.path}: state definition and Engineering map surfaces disagree`);
+  const src=register[f.path]?.source_master,e=out.environments[k[1]];
+  if(!src||!e||e.asset!==src.path)throw new Error(`${f.path}: layer base ${src?.path} is not the registered ${k[1]} master`);
+  const base=decodePng(await readFile(path.join(root,src.path)));
+  if(base.width!==png.width||base.height!==png.height)throw new Error(`${f.path}: exact-origin layer size differs from its base ${src.path}`);
+  if(e.layers?.[k[2]])throw new Error(`${f.path}: layer ${k[1]}.${k[2]} already registered`);
+  e.layers={...(e.layers||{}),[k[2]]:f.path};e.surfaces={...(e.surfaces||{}),[k[2]]:surfaces};return;
+ }
+ if(m.asset_type==='CHARACTER_STATE'){
+  const rid=m.runtime_asset_id.match(/^([a-z_0-9]+)\.([a-z_0-9]+)$/);if(!rid||!d)throw new Error(`${f.path}: unsupported character key ${key}`);
+  if(!binaryAlpha(png))throw new Error(`${f.path}: character alpha is not binary`);
+  const [,id,state]=rid,c=character(id);
+  if(!c.anchor)throw new Error(`${f.path}: ${id} has no frozen identity anchor`);
+  if(c.states[state])throw new Error(`${f.path}: ${id}.${state} already registered`);
+  if(String(d.contact)!==String(m.contact_or_origin.contact))throw new Error(`${f.path}: contact disagrees between map and definition`);
+  c.states[state]=f.path;return;
+ }
+ throw new Error(`${f.path}: unknown ART SHIP 009 asset type ${m.asset_type}`);
+}
+// ART SHIP 010: identical contract discipline, from its ENGINEERING_ASSET_MAP `maps` (runtime_key + surfaces per
+// candidate) and STATE_LAYER_DEFINITIONS `states`/`layers` (existence only; contacts/origin come from the frozen
+// register entry, which the generic loop has already verified matches the manifest sha256). `people.<id>.default`
+// creates a new named identity anchor (distinct from `rich`); `people.<id>.states.<state>` adds an approved state to
+// that same identity; `environments.<env>.layers.<layer>` adds an exact-origin condition layer over an existing
+// frozen environment master.
+let ship010Maps=null;
+async function loadShip010(){
+ const eng=await json('art_department/ships/art_ship_010/ENGINEERING_ASSET_MAP.json'),defs=await json('art_department/ships/art_ship_010/STATE_LAYER_DEFINITIONS.json');
+ const prefix='art_department/ships/art_ship_010/',by=(arr,key)=>Object.fromEntries(arr.map(x=>[prefix+x[key],x]));
+ ship010Maps={eng:by(eng.maps,'candidate'),states:by(defs.states,'candidate'),layers:by(defs.layers,'candidate')};
+}
+async function ship010(f,png,out,character,reg){
+ const m=ship010Maps.eng[f.candidate_path];
+ if(!m)throw new Error(`${f.path}: ART SHIP 010 file without an Engineering Asset Map entry`);
+ if(!binaryAlpha(png))throw new Error(`${f.path}: alpha is not binary`);
+ let k;
+ if((k=m.runtime_key.match(/^people\.([a-z_0-9]+)\.default$/))){
+  const id=k[1];
+  if(!ship010Maps.states[f.candidate_path])throw new Error(`${f.path}: missing state definition for ${id}`);
+  const contact=reg[f.path].source_anchor;if(!contact)throw new Error(`${f.path}: no contact anchor recorded in the register`);
+  const c=character(id);
+  if(c.anchor)throw new Error(`${f.path}: ${id} already has a frozen identity anchor`);
+  c.anchor=f.path;c.anchorPose='default';c.cell=[png.width,png.height];c.contact=contact;c.states.default=f.path;
+  return;
+ }
+ if((k=m.runtime_key.match(/^people\.([a-z_0-9]+)\.states\.([a-z_0-9]+)$/))){
+  const [,id,state]=k;
+  if(!ship010Maps.states[f.candidate_path])throw new Error(`${f.path}: missing state definition for ${id}.${state}`);
+  const c=character(id);
+  if(!c.anchor)throw new Error(`${f.path}: ${id} has no frozen identity anchor yet`);
+  const contact=reg[f.path].source_anchor;
+  if(String(contact)!==String(c.contact))throw new Error(`${f.path}: contact ${contact} disagrees with ${id} anchor contact ${c.contact}`);
+  if(c.states[state])throw new Error(`${f.path}: ${id}.${state} already registered`);
+  c.states[state]=f.path;
+  return;
+ }
+ if((k=m.runtime_key.match(/^environments\.([a-z_0-9]+)\.layers\.([a-z_0-9]+)$/))){
+  const [,envId,layer]=k,e=out.environments[envId],ldef=ship010Maps.layers[f.candidate_path];
+  if(!ldef)throw new Error(`${f.path}: missing layer definition for ${envId}.${layer}`);
+  if(!e||!e.asset)throw new Error(`${f.path}: environment ${envId} has no frozen master yet`);
+  if(String(ldef.origin)!=='0,0')throw new Error(`${f.path}: layer without an exact (0,0) origin contract`);
+  const base=decodePng(await readFile(path.join(root,e.asset)));
+  if(base.width!==png.width||base.height!==png.height)throw new Error(`${f.path}: exact-origin layer size differs from its base ${e.asset}`);
+  if(e.layers?.[layer])throw new Error(`${f.path}: layer ${envId}.${layer} already registered`);
+  const surfaces=m.surfaces.filter(s=>!s.startsWith('minigame:'));
+  e.layers={...(e.layers||{}),[layer]:f.path};e.surfaces={...(e.surfaces||{}),[layer]:surfaces};
+  return;
+ }
+ throw new Error(`${f.path}: unsupported ART SHIP 010 key ${m.runtime_key}`);
+}
+// ART SHIP 011: the frozen nightlife population library. HQ authorized no runtime assignment, so its files are
+// registered as a library only (`population`), never wired to a person, environment or surface.
+function ship011(f,png,out){
+ const id=f.asset_id?.match(/^nightlife_population\.([a-z_0-9]+)$/)?.[1];
+ if(!id)throw new Error(`${f.path}: unsupported ART SHIP 011 asset id ${f.asset_id}`);
+ if(!binaryAlpha(png))throw new Error(`${f.path}: alpha is not binary`);
+ if(out.population[id])throw new Error(`${f.path}: population ${id} already registered`);
+ out.population[id]={asset:f.path,cell:[png.width,png.height],contact:f.contact};
+}
+// ART SHIP 013 / 012 CLOSEOUT: every file is placed by its Engineering Asset Map entry, cross-checked against the
+// state definitions and the manifest contact. `default` creates a new named identity anchor (refuses to overwrite an
+// existing one); an alternate state replaces the runtime state only when the map names the exact frozen source it
+// supersedes, which stays registered as history. 012 CLOSEOUT's rejected Buckhead attempts are in no map or manifest
+// file list, so they can never enter the registry.
+let lateMaps=null;
+async function loadLateShips(){
+ const m13=await json('art_department/ships/art_ship_013/ENGINEERING_ASSET_MAP.json'),d13=await json('art_department/ships/art_ship_013/STATE_LAYER_DEFINITIONS.json');
+ const m12=await json('art_department/ships/art_ship_012_closeout/ENGINEERING_ASSET_MAP.json'),d12=await json('art_department/ships/art_ship_012_closeout/STATE_LAYER_DEFINITIONS.json');
+ const c13=d13.shared_contract.contact;
+ lateMaps={
+  art_ship_013:Object.fromEntries(m13.mappings.map(x=>{
+   if(!d13.states.some(s=>s.id===x.runtime_id&&s.state===x.state))throw new Error(`${x.request_id}: no state definition for ${x.runtime_id}.${x.state}`);
+   return [x.production_path,{id:x.runtime_id,state:x.state,sha256:x.sha256,contact:c13,supersedes:x.supersedes_preserved_source||null}]})),
+  art_ship_012_closeout:Object.fromEntries(Object.entries(m12.mappings).map(([key,file])=>{
+   const k=key.match(/^characters\.([a-z_0-9]+)\.(default)$/);if(!k)throw new Error(`ART SHIP 012 CLOSEOUT: unsupported key ${key}`);
+   const d=d12.definitions.find(x=>x.runtime_asset_id===k[1]&&x.state===k[2]);if(!d)throw new Error(`${key}: no state definition`);
+   return [file,{id:k[1],state:k[2],sha256:null,contact:d.contact}]}))
+ };
+}
+function lateShip(ship,f,png,character){
+ const m=lateMaps[ship][f.path];
+ if(!m)throw new Error(`${f.path}: ${ship} file without an Engineering Asset Map entry`);
+ if(m.sha256&&m.sha256!==f.sha256)throw new Error(`${f.path}: Engineering map sha256 disagrees with the manifest`);
+ if(String(f.contact)!==String(m.contact))throw new Error(`${f.path}: manifest contact ${f.contact} disagrees with the state definition ${m.contact}`);
+ if(!binaryAlpha(png))throw new Error(`${f.path}: alpha is not binary`);
+ const c=character(m.id);
+ if(m.state==='default'&&m.id!=='rich'){
+  if(c.anchor)throw new Error(`${f.path}: ${m.id} already has a frozen identity anchor`);
+  c.anchor=f.path;c.anchorPose='default';c.cell=[png.width,png.height];c.contact=m.contact;c.states.default=f.path;return;
+ }
+ if(!c.anchor&&m.id!=='rich')throw new Error(`${f.path}: ${m.id} has no frozen identity anchor`);
+ if(String(m.contact)!==String(c.contact))throw new Error(`${f.path}: contact ${m.contact} disagrees with ${m.id} ${c.contact}`);
+ if(c.states[m.state]!==(m.supersedes||undefined))throw new Error(`${f.path}: ${m.id}.${m.state} is ${c.states[m.state]}, but the map supersedes ${m.supersedes}`);
+ if(m.supersedes)c.superseded={...(c.superseded||{}),[m.state]:m.supersedes};
+ c.states[m.state]=f.path;
+}
+// ART SHIP 014: the manifest carries no runtime keys, so Engineering authored one per frozen file in
+// tools/art-integration/ship014_runtime_map.json (asset id → runtime key). Character states join an existing identity
+// (never create one); an identity whose runtime sprite predates the registry (Cammile, the Assistant, Bllad33) takes
+// states only if the manifest's frozen anchor is a registered file. Everything else lands in its own bucket at native
+// size. Nothing is ever overwritten.
+// ART SHIP 015 uses the same contract (tools/art-integration/ship015_runtime_map.json). Its manifest reuses one asset id
+// for two states, so rows are keyed by production file name; `characters.<id>.anchor.<pose>` creates a new identity
+// anchor from the manifest contact (refused if the identity already has one).
+let ship014Map=null;
+async function loadShip014(){ship014Map={art_ship_014:(await json('tools/art-integration/ship014_runtime_map.json')).entries,art_ship_015:(await json('tools/art-integration/ship015_runtime_map.json')).entries};}
+function setPath(obj,keys,value,file){
+ let o=obj;for(const k of keys.slice(0,-1))o=o[k]||(o[k]={});
+ if(o[keys.at(-1)]!==undefined)throw new Error(`${file}: runtime key ${keys.join('.')} already registered`);
+ o[keys.at(-1)]=value;
+}
+function ship014(ship,f,png,out,character,reg){
+ const m=ship014Map[ship][path.basename(f.path,'.png')];if(!m)throw new Error(`${f.path}: ${ship} file without an Engineering runtime key`);
+ if(f.alpha!=='binary 0/255'||!binaryAlpha(png))throw new Error(`${f.path}: alpha is not binary`);
+ const k=m.key.split('.');
+ if(k[0]==='characters'){
+  if(k.length!==4||!['states','anchor'].includes(k[2]))throw new Error(`${f.path}: unsupported character key ${m.key}`);
+  const [,id,kind,state]=k,c=character(id);
+  if(kind==='anchor'){
+   if(c.anchor||id==='rich')throw new Error(`${f.path}: ${id} already has a frozen identity anchor`);
+   if(png.width!==80||png.height!==96||String(f.contact)!=='40,88')throw new Error(`${f.path}: identity anchor contract (80x96, contact 40,88)`);
+   c.anchor=f.path;c.anchorPose=state;c.cell=[png.width,png.height];c.contact=f.contact;c.states[state]=f.path;return;
+  }
+  if(!c.anchor&&id!=='rich'&&!(f.frozen_anchor&&reg[f.frozen_anchor]))throw new Error(`${f.path}: ${id} has no frozen or registered anchor`);
+  if(png.width!==80||png.height!==96)throw new Error(`${f.path}: character state is not 80x96`);
+  if(c.states[state])throw new Error(`${f.path}: ${id}.${state} already registered`);
+  c.states[state]=f.path;return;
+ }
+ if(k[0]==='environments'){
+  if(k.length!==2||png.width!==270||png.height!==480||!(f.alpha==='binary 0/255'&&[...Array(png.width*png.height).keys()].every(i=>png.data[i*4+3]===255)))throw new Error(`${f.path}: environment master contract`);
+  if(out.environments[k[1]])throw new Error(`${f.path}: environment ${k[1]} already has frozen art`);
+  out.environments[k[1]]={asset:f.path};return;
+ }
+ if(k[0]==='creatures'){
+  const cr=out.creatures[k[1]];if(!cr||k[2]!=='states'||k.length!==4)throw new Error(`${f.path}: creature ${k[1]} has no frozen anchor`);
+  setPath(cr,['states',k[3]],{asset:f.path,cell:[png.width,png.height]},f.path);return;
+ }
+ if(!['dragon','items','props','vehicles','ui','bedroom'].includes(k[0]))throw new Error(`${f.path}: unsupported ART SHIP 014 key ${m.key}`);
+ // Room overlays and UI treatments are full 270×480 exact-origin canvases.
+ if((k[0]==='bedroom'||k[1]==='treatments')&&(png.width!==270||png.height!==480))throw new Error(`${f.path}: ${m.key} is not a 270x480 exact-origin canvas`);
+ setPath(out,k,{asset:f.path,cell:[png.width,png.height],...(k[1]==='treatments'?{reference:true}:{})},f.path);
+}
+function ship009Reuse(out,manifest){
+ for(const r of ship009Maps.reuse){
+  const target=r.engineering_mapping.reuse_registry_id,k=r.engineering_mapping.key.match(/^environments\.([a-z_0-9]+)$/),e=out.environments[target];
+  if(!k||k[1]!==r.runtime_asset_id)throw new Error(`${r.request_id}: reuse key ${r.engineering_mapping.key}`);
+  if(!e?.asset||e.asset!==r.engineering_mapping.reuse_path)throw new Error(`${r.request_id}: reuse path is not the frozen ${target} master`);
+  const z=manifest.zero_pixel_reuse;
+  if(z?.request_id!==r.request_id||z.source_path!==e.asset||out.assets[e.asset].sha256!==z.sha256)throw new Error(`${r.request_id}: manifest reuse record disagrees with the frozen ${target} master`);
+  if(out.environments[k[1]])throw new Error(`${r.request_id}: ${k[1]} already has its own frozen art`);
+  e.aliases=[...(e.aliases||[]),k[1]].sort();
+ }
+}
+
+export async function buildRegistry(){
+ await loadShip008();await loadShip009();await loadShip010();await loadLateShips();await loadShip014();
+ const register=(await json('art_department/ASSET_REGISTER.json')).assets;
+ const reg=Object.fromEntries(register.map(a=>[a.path,a]));
+ const out={environments:{},characters:{},creatures:{},props:{},vehicles:{},ui:{},sheets:{},population:{},dragon:{},items:{},bedroom:{},assets:{}};
+ const openIdByPath={};
+ const files=[];
+ for(const ship of SHIPS){
+  const m=await json(`art_department/ships/${ship}/ART_SHIP_MANIFEST.json`);
+  // ART SHIP 009 manifests name each file by its approved (canonical) path.
+  for(const f0 of m.files||m.items){const f=f0.path?f0:{...f0,path:f0.approved_path||f0.production_path};files.push({ship,f});if(f.open_id)openIdByPath[f.path]=f.open_id;}
+ }
+ for(const {ship,f} of files){
+  const r=reg[f.path];
+  if(!r)throw new Error(`${f.path}: not in ASSET_REGISTER.json`);
+  if(r.status!=='FROZEN')throw new Error(`${f.path}: register status ${r.status}, expected FROZEN`);
+  if(r.sha256!==f.sha256)throw new Error(`${f.path}: manifest sha256 disagrees with ASSET_REGISTER.json`);
+  const bytes=await readFile(path.join(root,f.path)),sha=createHash('sha256').update(bytes).digest('hex');
+  if(sha!==r.sha256)throw new Error(`${f.path}: bytes differ from ASSET_REGISTER.json (frozen authority)`);
+  const png=decodePng(bytes);
+  if(f.dimensions&&(png.width!==f.dimensions[0]||png.height!==f.dimensions[1]))throw new Error(`${f.path}: dimensions ${png.width}x${png.height} disagree with manifest`);
+  out.assets[f.path]={ship:ship.replace('art_ship_',''),sha256:sha,width:png.width,height:png.height,status:'FROZEN'};
+  const contact=f.source_anchor||null;
+  const cat=f.category||(SHIP_004_IDS[f.path]?.kind||'').toUpperCase();
+  const id=f.open_id||f.asset_id;
+  const character=(cid)=>out.characters[cid]||(out.characters[cid]={anchor:null,anchorPose:null,cell:null,contact:null,states:{}});
+  if(ship==='art_ship_011'){ship011(f,png,out);continue;}
+  if(ship==='art_ship_014'||ship==='art_ship_015'){ship014(ship,f,png,out,character,reg);continue;}
+  if(ship==='art_ship_013'||ship==='art_ship_012_closeout'){lateShip(ship,f,png,character);continue;}
+  if(ship==='art_ship_010'){await ship010(f,png,out,character,reg);continue;}
+  if(ship==='art_ship_009'){await ship009(f,png,out,character,reg);continue;}
+  if(ship==='art_ship_008'){ship008(f,png,/LAYER$/.test(f.asset_type)?await ship008Base(f):null,out,character);continue;}
+  if(ship==='art_ship_004'){
+   const x=SHIP_004_IDS[f.path];if(!x)throw new Error(`${f.path}: unmapped ART SHIP 004 file`);
+   if(x.kind==='environment')out.environments[x.id]={...(out.environments[x.id]||{}),asset:f.path};
+   else if(x.kind==='layer')(out.environments[x.id]||(out.environments[x.id]={})).layers={...(out.environments[x.id].layers||{}),[x.layer]:f.path};
+   else if(x.kind==='sheet')out.sheets[`${x.id}`]=f.path;
+   else{const c=character(x.id);c.states[x.state]=f.path;if(x.anchor){c.anchor=f.path;c.anchorPose=x.state;c.cell=[png.width,png.height];c.contact=contact;}}
+  }
+  else if(cat==='ENVIRONMENT'||cat==='ENVIRONMENT_STATE'){
+   const eid=id;if(png.width!==270||png.height!==480)throw new Error(`${f.path}: environment is not 270x480`);
+   if(f.mode&&f.mode!=='RGB'&&!(f.alpha||[]).every(a=>a===255))throw new Error(`${f.path}: environment with transparency needs an explicit layer contract`);
+   out.environments[eid]={...(out.environments[eid]||{}),asset:f.path};
+  }
+  else if(cat==='CHARACTER'){
+   const c=character(id);c.anchor=f.path;c.anchorPose=anchorPose(f.path,id);c.cell=[png.width,png.height];c.contact=contact;c.states[c.anchorPose]=f.path;
+  }
+  else if(cat==='CHARACTER_STATE'||cat==='RICH_CONTEXTUAL_STATE'){
+   const identity=cat==='RICH_CONTEXTUAL_STATE'?'rich':openIdByPath[f.derived_from_frozen_master];
+   if(!identity)throw new Error(`${f.path}: derived master ${f.derived_from_frozen_master} has no open id`);
+   const c=character(identity);c.states[stateName(f.asset_id,identity)]=f.path;
+   if(identity==='rich'){c.cell=[png.width,png.height];c.contact=contact;}
+  }
+  else if(cat==='CREATURE')out.creatures[id]={anchor:f.path,cell:[png.width,png.height],contact};
+  else if(cat==='PROP')out.props[id]={asset:f.path,cell:[png.width,png.height]};
+  else if(cat==='TOUGE_VEHICLE')(out.vehicles.touge||(out.vehicles.touge={}))[f.asset_id]={asset:f.path,cell:[png.width,png.height],contact};
+  else if(cat==='PHONE_APP_ICON')(out.ui.apps||(out.ui.apps={}))[f.asset_id]=f.path;
+  else if(cat==='STATE_SHEET')out.sheets[f.asset_id]=f.path;
+  else throw new Error(`${f.path}: unknown category ${cat}`);
+ }
+ ship009Reuse(out,await json('art_department/ships/art_ship_009/ART_SHIP_MANIFEST.json'));
+ return sorted(out);
+}
+
+export async function expectedRegistry(){
+ const r=await buildRegistry();
+ const counts=Object.fromEntries(['environments','characters','creatures','props','sheets','population'].map(k=>[k,Object.keys(r[k]).length]));
+ return `(function(){\n // GENERATED by tools/art-registry.mjs from the ART SHIP 004–015 manifests (014/015 via tools/art-integration/ship01[45]_runtime_map.json) + ASSET_REGISTER.json — do not edit by hand.\n // Canonical frozen art by runtime id. Every path is FROZEN in the register with a verified sha256; pixels are never modified.\n // Handoff state sheets are listed for provenance only: runtime placement uses the individual masters.\n // ${Object.keys(r.assets).length} frozen files: ${JSON.stringify(counts)}\n window.RAArtRegistry=${JSON.stringify(r,null,1).replace(/\n/g,'\n ')};\n})();\n`;
+}
+
+if(process.argv[1]===fileURLToPath(import.meta.url)){await writeFile(target,await expectedRegistry());console.log('js/data/art_registry.js written');}

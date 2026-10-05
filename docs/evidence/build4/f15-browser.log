@@ -1,0 +1,497 @@
+PASS 360: dancer sheets loaded
+PASS 360: rosalyn inside the stage horizontally (223.0..320.3 of 344)
+PASS 360: rosalyn keeps >=6px headroom under the HUD (23.1px)
+PASS 360: rosalyn stands on the shared feet line
+PASS 360: emerald inside the stage horizontally (29.4..114.9 of 344)
+PASS 360: emerald keeps >=6px headroom under the HUD (26.7px)
+PASS 360: emerald stands on the shared feet line
+PASS 360: roxy inside the stage horizontally (122.0..222.0 of 344)
+PASS 360: roxy keeps >=6px headroom under the HUD (6.0px)
+PASS 360: roxy stands on the shared feet line
+PASS 360: three support buttons >=44px, fully on screen (112x71, 112x71, 112x71)
+PASS 360: budget bar visible without scrolling (bottom 730 / 740)
+PASS 360: animation advancing ({"wolf":9,"dragon":9,"pink":9} -> {"wolf":27,"dragon":27,"pink":27})
+PASS 360: the club offers Roxy's scene when her threshold is met
+PASS 360: date button fits the width
+PASS 360: Roxy L1 text and choices fit the viewport (35 lines, 0 violations)
+PASS 360: scene entered from the club completes once
+PASS 360: no console/page errors
+PASS 360: no failed or missing assets
+PASS 390: dancer sheets loaded
+PASS 390: rosalyn inside the stage horizontally (223.7..360.6 of 370)
+PASS 390: rosalyn keeps >=6px headroom under the HUD (30.1px)
+PASS 390: rosalyn stands on the shared feet line
+PASS 390: emerald inside the stage horizontally (17.4..137.7 of 370)
+PASS 390: emerald keeps >=6px headroom under the HUD (35.1px)
+PASS 390: emerald stands on the shared feet line
+PASS 390: roxy inside the stage horizontally (114.6..255.4 of 370)
+PASS 390: roxy keeps >=6px headroom under the HUD (6.0px)
+PASS 390: roxy stands on the shared feet line
+PASS 390: three support buttons >=44px, fully on screen (121x62, 121x62, 121x62)
+PASS 390: budget bar visible without scrolling (bottom 816 / 844)
+PASS 390: animation advancing ({"wolf":9,"dragon":9,"pink":9} -> {"wolf":26,"dragon":26,"pink":26})
+PASS 390: the club offers Roxy's scene when her threshold is met
+PASS 390: date button fits the width
+PASS 390: Roxy L1 text and choices fit the viewport (35 lines, 0 violations)
+PASS 390: scene entered from the club completes once
+PASS 390: no console/page errors
+PASS 390: no failed or missing assets
+PASS 430: dancer sheets loaded
+PASS 430: rosalyn inside the stage horizontally (247.0..400.5 of 410)
+PASS 430: rosalyn keeps >=6px headroom under the HUD (54.8px)
+PASS 430: rosalyn stands on the shared feet line
+PASS 430: emerald inside the stage horizontally (18.5..153.4 of 410)
+PASS 430: emerald keeps >=6px headroom under the HUD (60.4px)
+PASS 430: emerald stands on the shared feet line
+PASS 430: roxy inside the stage horizontally (126.1..283.9 of 410)
+PASS 430: roxy keeps >=6px headroom under the HUD (27.8px)
+PASS 430: roxy stands on the shared feet line
+PASS 430: three support buttons >=44px, fully on screen (134x62, 134x62, 134x62)
+PASS 430: budget bar visible without scrolling (bottom 904 / 932)
+PASS 430: animation advancing ({"wolf":7,"dragon":7,"pink":7} -> {"wolf":24,"dragon":24,"pink":24})
+PASS 430: the club offers Roxy's scene when her threshold is met
+PASS 430: date button fits the width
+PASS 430: Roxy L1 text and choices fit the viewport (35 lines, 0 violations)
+PASS 430: scene entered from the club completes once
+PASS 430: no console/page errors
+PASS 430: no failed or missing assets
+PASS F15_ROXY_L1: available after its threshold and the earlier scenes
+PASS F15_ROXY_L1: ran to its end in the real UI (35 lines, 0 fight), completed once, one date that WAKE
+PASS F15_ROXY_L1: text fits at 390
+PASS F15_ROXY_L1: exact money effect ($0)
+PASS F15_ROXY_L2: available after its threshold and the earlier scenes
+PASS F15_ROXY_L2: ran to its end in the real UI (44 lines, 1 fight), completed once, one date that WAKE
+PASS F15_ROXY_L2: text fits at 390
+PASS F15_ROXY_L2: exact money effect ($0)
+PASS F15_ROXY_L3: available after its threshold and the earlier scenes
+PASS F15_ROXY_L3: ran to its end in the real UI (26 lines, 0 fight), completed once, one date that WAKE
+PASS F15_ROXY_L3: text fits at 390
+PASS F15_ROXY_L3: exact money effect ($0)
+PASS F15_ROXY_L4: available after its threshold and the earlier scenes
+PASS F15_ROXY_L4: ran to its end in the real UI (46 lines, 0 fight), completed once, one date that WAKE
+PASS F15_ROXY_L4: text fits at 390
+PASS F15_ROXY_L4: exact money effect ($0)
+PASS F15_ROSALYN_L1: available after its threshold and the earlier scenes
+PASS F15_ROSALYN_L1: ran to its end in the real UI (32 lines, 0 fight), completed once, one date that WAKE
+PASS F15_ROSALYN_L1: text fits at 390
+PASS F15_ROSALYN_L1: exact money effect ($106)
+PASS F15_ROSALYN_L2: available after its threshold and the earlier scenes
+PASS F15_ROSALYN_L2: ran to its end in the real UI (27 lines, 0 fight), completed once, one date that WAKE
+PASS F15_ROSALYN_L2: text fits at 390
+PASS F15_ROSALYN_L2: exact money effect ($0)
+PASS F15_ROSALYN_L3: available after its threshold and the earlier scenes
+PASS F15_ROSALYN_L3: ran to its end in the real UI (18 lines, 0 fight), completed once, one date that WAKE
+PASS F15_ROSALYN_L3: text fits at 390
+PASS F15_ROSALYN_L3: exact money effect ($0)
+PASS F15_ROSALYN_L4: available after its threshold and the earlier scenes
+PASS F15_ROSALYN_L4: ran to its end in the real UI (48 lines, 1 fight), completed once, one date that WAKE
+PASS F15_ROSALYN_L4: text fits at 390
+PASS F15_ROSALYN_L4: exact money effect ($0)
+PASS F15_EMERALD_L1: available after its threshold and the earlier scenes
+PASS F15_EMERALD_L1: ran to its end in the real UI (45 lines, 0 fight), completed once, one date that WAKE
+PASS F15_EMERALD_L1: text fits at 390
+PASS F15_EMERALD_L1: exact money effect ($0)
+PASS F15_EMERALD_L2: available after its threshold and the earlier scenes
+PASS F15_EMERALD_L2: ran to its end in the real UI (36 lines, 0 fight), completed once, one date that WAKE
+PASS F15_EMERALD_L2: text fits at 390
+PASS F15_EMERALD_L2: exact money effect ($0)
+PASS F15_EMERALD_L3: available after its threshold and the earlier scenes
+PASS F15_EMERALD_L3: ran to its end in the real UI (41 lines, 0 fight), completed once, one date that WAKE
+PASS F15_EMERALD_L3: text fits at 390
+PASS F15_EMERALD_L3: exact money effect ($0)
+PASS F15_EMERALD_L4: available after its threshold and the earlier scenes
+PASS F15_EMERALD_L4: ran to its end in the real UI (32 lines, 0 fight), completed once, one date that WAKE
+PASS F15_EMERALD_L4: text fits at 390
+PASS F15_EMERALD_L4: exact money effect ($0)
+PASS scenes: no console/page errors
+PASS scenes: no failed or missing assets
+PASS 360: F15_ROXY_L2 text fits (44 lines)
+PASS 360: F15_EMERALD_L4 text fits (32 lines)
+PASS 360: scenes ran with no console/page errors
+PASS 430: F15_ROXY_L2 text fits (44 lines)
+PASS 430: F15_EMERALD_L4 text fits (32 lines)
+PASS 430: scenes ran with no console/page errors
+PASS 360 F15_ROXY_L1 f15_bing: actor rich sprite loaded (assets/rich_standing_right.png, 80x96)
+PASS 360 F15_ROXY_L1 f15_bing: actor roxy sprite loaded (assets/f15/portraits/roxy.png, 80x96)
+PASS 360 F15_ROXY_L1 f15_bing: rich drawn pixels fully inside the world viewport (100.0%)
+PASS 360 F15_ROXY_L1 f15_bing: roxy drawn pixels fully inside the world viewport (100.0%)
+PASS 360 F15_ROXY_L1 f15_bing: rich / roxy drawn pixels overlap 0.0% of the smaller (limit 20%)
+PASS 360 F15_ROXY_L1 f15_bing: dialogue box covers no actor's face
+PASS 360 F15_ROXY_L1: ran to its end with the real art, text fits
+PASS 360 F15_ROXY_L1: scene visited f15_bing
+PASS 360 F15_ROXY_L2 f15_gym: actor rich sprite loaded (assets/rich_standing_right.png, 80x96)
+PASS 360 F15_ROXY_L2 f15_gym: actor roxy sprite loaded (assets/f15/portraits/roxy.png, 80x96)
+PASS 360 F15_ROXY_L2 f15_gym: rich drawn pixels fully inside the world viewport (100.0%)
+PASS 360 F15_ROXY_L2 f15_gym: roxy drawn pixels fully inside the world viewport (100.0%)
+PASS 360 F15_ROXY_L2 f15_gym: rich / roxy drawn pixels overlap 0.0% of the smaller (limit 20%)
+PASS 360 F15_ROXY_L2 f15_gym: dialogue box covers no actor's face
+PASS 360 F15_ROXY_L2 COMBAT: actor rich sprite loaded (assets/rich_standing_right.png, 80x96)
+PASS 360 F15_ROXY_L2 COMBAT: actor enemy sprite loaded (assets/f15/portraits/roxy.png, 80x96)
+PASS 360 F15_ROXY_L2 COMBAT: rich drawn pixels fully inside the world viewport (100.0%)
+PASS 360 F15_ROXY_L2 COMBAT: enemy drawn pixels fully inside the world viewport (100.0%)
+PASS 360 F15_ROXY_L2 COMBAT: rich / enemy drawn pixels overlap 0.0% of the smaller (limit 20%)
+PASS 360 F15_ROXY_L2 COMBAT: combat HUD 1 clears every actor body
+PASS 360 F15_ROXY_L2 COMBAT: combat HUD 2 clears every actor body
+PASS 360 F15_ROXY_L2 COMBAT: combat panel clears every actor body
+PASS 360 F15_ROXY_L2: ran to its end with the real art, text fits
+PASS 360 F15_ROXY_L2: scene visited f15_gym
+PASS 360 F15_ROXY_L2: combat ran and the scene continued to its end
+PASS 360 F15_ROXY_L4 f15_roxy_apartment: actor rich sprite loaded (assets/rich_standing_right.png, 80x96)
+PASS 360 F15_ROXY_L4 f15_roxy_apartment: actor roxy sprite loaded (assets/f15/portraits/roxy.png, 80x96)
+PASS 360 F15_ROXY_L4 f15_roxy_apartment: rich drawn pixels fully inside the world viewport (100.0%)
+PASS 360 F15_ROXY_L4 f15_roxy_apartment: roxy drawn pixels fully inside the world viewport (100.0%)
+PASS 360 F15_ROXY_L4 f15_roxy_apartment: rich / roxy drawn pixels overlap 0.0% of the smaller (limit 20%)
+PASS 360 F15_ROXY_L4 f15_roxy_apartment: dialogue box covers no actor's face
+PASS 360 F15_ROXY_L4: ran to its end with the real art, text fits
+PASS 360 F15_ROXY_L4: scene visited f15_roxy_apartment
+PASS 360 F15_ROSALYN_L1 f15_bing: actor rich sprite loaded (assets/rich_standing_right.png, 80x96)
+PASS 360 F15_ROSALYN_L1 f15_bing: actor rosalyn sprite loaded (assets/f15/portraits/rosalyn.png, 80x96)
+PASS 360 F15_ROSALYN_L1 f15_bing: rich drawn pixels fully inside the world viewport (100.0%)
+PASS 360 F15_ROSALYN_L1 f15_bing: rosalyn drawn pixels fully inside the world viewport (100.0%)
+PASS 360 F15_ROSALYN_L1 f15_bing: rich / rosalyn drawn pixels overlap 0.0% of the smaller (limit 20%)
+PASS 360 F15_ROSALYN_L1 f15_bing: choices covers no actor's face
+PASS 360 F15_ROSALYN_L1 f15_plenitude: actor rich sprite loaded (assets/rich_standing_right.png, 80x96)
+PASS 360 F15_ROSALYN_L1 f15_plenitude: actor rosalyn sprite loaded (assets/f15/portraits/rosalyn.png, 80x96)
+PASS 360 F15_ROSALYN_L1 f15_plenitude: rich drawn pixels fully inside the world viewport (100.0%)
+PASS 360 F15_ROSALYN_L1 f15_plenitude: rosalyn drawn pixels fully inside the world viewport (100.0%)
+PASS 360 F15_ROSALYN_L1 f15_plenitude: rich / rosalyn drawn pixels overlap 0.0% of the smaller (limit 20%)
+PASS 360 F15_ROSALYN_L1 f15_plenitude: dialogue box covers no actor's face
+PASS 360 F15_ROSALYN_L1: ran to its end with the real art, text fits
+PASS 360 F15_ROSALYN_L1: scene visited f15_bing
+PASS 360 F15_ROSALYN_L1: scene visited f15_plenitude
+PASS 360 F15_ROSALYN_L3 f15_convention: actor rich sprite loaded (assets/rich_standing_right.png, 80x96)
+PASS 360 F15_ROSALYN_L3 f15_convention: actor rosalyn sprite loaded (assets/f15/portraits/rosalyn.png, 80x96)
+PASS 360 F15_ROSALYN_L3 f15_convention: rich drawn pixels fully inside the world viewport (100.0%)
+PASS 360 F15_ROSALYN_L3 f15_convention: rosalyn drawn pixels fully inside the world viewport (100.0%)
+PASS 360 F15_ROSALYN_L3 f15_convention: rich / rosalyn drawn pixels overlap 0.0% of the smaller (limit 20%)
+PASS 360 F15_ROSALYN_L3 f15_convention: dialogue box covers no actor's face
+PASS 360 F15_ROSALYN_L3: ran to its end with the real art, text fits
+PASS 360 F15_ROSALYN_L3: scene visited f15_convention
+PASS 360 F15_ROSALYN_L4 f15_rosalyn_apartment_dark: actor rich sprite loaded (assets/rich_standing_right.png, 80x96)
+PASS 360 F15_ROSALYN_L4 f15_rosalyn_apartment_dark: actor spirit_of_uncle_bunmi sprite loaded (assets/f15/characters/spirit_of_uncle_bunmi_444x222.png, 444x222)
+PASS 360 F15_ROSALYN_L4 f15_rosalyn_apartment_dark: actor rosalyn sprite loaded (assets/f15/portraits/rosalyn.png, 80x96)
+PASS 360 F15_ROSALYN_L4 f15_rosalyn_apartment_dark: rich drawn pixels fully inside the world viewport (100.0%)
+PASS 360 F15_ROSALYN_L4 f15_rosalyn_apartment_dark: spirit_of_uncle_bunmi drawn pixels fully inside the world viewport (100.0%)
+PASS 360 F15_ROSALYN_L4 f15_rosalyn_apartment_dark: spirit_of_uncle_bunmi stands on its contact line (drawn feet 412.0 vs contact 412.0)
+PASS 360 F15_ROSALYN_L4 f15_rosalyn_apartment_dark: spirit_of_uncle_bunmi is displayed nearest-neighbour (pixelated)
+PASS 360 F15_ROSALYN_L4 f15_rosalyn_apartment_dark: rosalyn drawn pixels fully inside the world viewport (100.0%)
+PASS 360 F15_ROSALYN_L4 f15_rosalyn_apartment_dark: rich / spirit_of_uncle_bunmi drawn pixels overlap 0.0% of the smaller (limit 20%)
+PASS 360 F15_ROSALYN_L4 f15_rosalyn_apartment_dark: rich / rosalyn drawn pixels overlap 0.0% of the smaller (limit 20%)
+PASS 360 F15_ROSALYN_L4 f15_rosalyn_apartment_dark: spirit_of_uncle_bunmi / rosalyn drawn pixels overlap 0.0% of the smaller (limit 20%)
+PASS 360 F15_ROSALYN_L4 f15_rosalyn_apartment_dark: dialogue box covers no actor's face
+PASS 360 F15_ROSALYN_L4 COMBAT: actor rich sprite loaded (assets/rich_standing_right.png, 80x96)
+PASS 360 F15_ROSALYN_L4 COMBAT: actor enemy sprite loaded (assets/f15/characters/spirit_of_uncle_bunmi_444x222.png, 444x222)
+PASS 360 F15_ROSALYN_L4 COMBAT: rich drawn pixels fully inside the world viewport (100.0%)
+PASS 360 F15_ROSALYN_L4 COMBAT: enemy drawn pixels fully inside the world viewport (100.0%)
+PASS 360 F15_ROSALYN_L4 COMBAT: rich / enemy drawn pixels overlap 0.0% of the smaller (limit 20%)
+PASS 360 F15_ROSALYN_L4 COMBAT: combat HUD 1 clears every actor body
+PASS 360 F15_ROSALYN_L4 COMBAT: combat HUD 2 clears every actor body
+PASS 360 F15_ROSALYN_L4 COMBAT: combat telegraph clears every actor body
+PASS 360 F15_ROSALYN_L4 COMBAT: combat panel clears every actor body
+PASS 360 F15_ROSALYN_L4 f15_rosalyn_apartment_dark: actor rich sprite loaded (assets/rich_standing_right.png, 80x96)
+PASS 360 F15_ROSALYN_L4 f15_rosalyn_apartment_dark: actor rosalyn sprite loaded (assets/f15/portraits/rosalyn.png, 80x96)
+PASS 360 F15_ROSALYN_L4 f15_rosalyn_apartment_dark: rich drawn pixels fully inside the world viewport (100.0%)
+PASS 360 F15_ROSALYN_L4 f15_rosalyn_apartment_dark: rosalyn drawn pixels fully inside the world viewport (100.0%)
+PASS 360 F15_ROSALYN_L4 f15_rosalyn_apartment_dark: rich / rosalyn drawn pixels overlap 0.0% of the smaller (limit 20%)
+PASS 360 F15_ROSALYN_L4 f15_rosalyn_apartment_dark: dialogue box covers no actor's face
+PASS 360 F15_ROSALYN_L4 f15_rosalyn_apartment: actor rich sprite loaded (assets/rich_standing_right.png, 80x96)
+PASS 360 F15_ROSALYN_L4 f15_rosalyn_apartment: actor rosalyn sprite loaded (assets/f15/portraits/rosalyn.png, 80x96)
+PASS 360 F15_ROSALYN_L4 f15_rosalyn_apartment: rich drawn pixels fully inside the world viewport (100.0%)
+PASS 360 F15_ROSALYN_L4 f15_rosalyn_apartment: rosalyn drawn pixels fully inside the world viewport (100.0%)
+PASS 360 F15_ROSALYN_L4 f15_rosalyn_apartment: rich / rosalyn drawn pixels overlap 0.0% of the smaller (limit 20%)
+PASS 360 F15_ROSALYN_L4 f15_rosalyn_apartment: dialogue box covers no actor's face
+PASS 360 F15_ROSALYN_L4: ran to its end with the real art, text fits
+PASS 360 F15_ROSALYN_L4: scene visited f15_rosalyn_apartment_dark
+PASS 360 F15_ROSALYN_L4: scene visited f15_rosalyn_apartment
+PASS 360 F15_ROSALYN_L4: combat ran and the scene continued to its end
+PASS 360 F15_ROSALYN_L4: the cockroach rendered in the scene and in combat
+PASS 360 F15_EMERALD_L3 f15_library: actor rich sprite loaded (assets/rich_standing_right.png, 80x96)
+PASS 360 F15_EMERALD_L3 f15_library: rich drawn pixels fully inside the world viewport (100.0%)
+PASS 360 F15_EMERALD_L3 f15_library: dialogue box covers no actor's face
+PASS 360 F15_EMERALD_L3 f15_bing: actor rich sprite loaded (assets/rich_standing_right.png, 80x96)
+PASS 360 F15_EMERALD_L3 f15_bing: actor granny_bing sprite loaded (assets/before_the_fame/characters/granny_bing/cga_f2_032/granny_bing_neutral_calling_numbers_anchor_80x96_v1.png, 80x96)
+PASS 360 F15_EMERALD_L3 f15_bing: rich drawn pixels fully inside the world viewport (100.0%)
+PASS 360 F15_EMERALD_L3 f15_bing: granny_bing drawn pixels fully inside the world viewport (100.0%)
+PASS 360 F15_EMERALD_L3 f15_bing: granny_bing stands on its contact line (drawn feet 412.0 vs contact 412.0)
+PASS 360 F15_EMERALD_L3 f15_bing: granny_bing is displayed nearest-neighbour (pixelated)
+PASS 360 F15_EMERALD_L3 f15_bing: rich / granny_bing drawn pixels overlap 0.0% of the smaller (limit 20%)
+PASS 360 F15_EMERALD_L3 f15_bing: dialogue box covers no actor's face
+PASS 360 F15_EMERALD_L3 f15_exam_hall: actor rich sprite loaded (assets/rich_standing_right.png, 80x96)
+PASS 360 F15_EMERALD_L3 f15_exam_hall: actor emerald sprite loaded (assets/f15/portraits/emerald.png, 80x96)
+PASS 360 F15_EMERALD_L3 f15_exam_hall: rich drawn pixels fully inside the world viewport (100.0%)
+PASS 360 F15_EMERALD_L3 f15_exam_hall: emerald drawn pixels fully inside the world viewport (100.0%)
+PASS 360 F15_EMERALD_L3 f15_exam_hall: rich / emerald drawn pixels overlap 0.0% of the smaller (limit 20%)
+PASS 360 F15_EMERALD_L3 f15_exam_hall: dialogue box covers no actor's face
+PASS 360 F15_EMERALD_L3: ran to its end with the real art, text fits
+PASS 360 F15_EMERALD_L3: scene visited f15_bing
+PASS 360 F15_EMERALD_L3: Granny Bing rendered on stage
+PASS 360 F15_EMERALD_L4 f15_shrine: actor rich sprite loaded (assets/rich_standing_right.png, 80x96)
+PASS 360 F15_EMERALD_L4 f15_shrine: actor emerald sprite loaded (assets/f15/portraits/emerald.png, 80x96)
+PASS 360 F15_EMERALD_L4 f15_shrine: rich drawn pixels fully inside the world viewport (100.0%)
+PASS 360 F15_EMERALD_L4 f15_shrine: emerald drawn pixels fully inside the world viewport (100.0%)
+PASS 360 F15_EMERALD_L4 f15_shrine: rich / emerald drawn pixels overlap 0.0% of the smaller (limit 20%)
+PASS 360 F15_EMERALD_L4 f15_shrine: dialogue box covers no actor's face
+PASS 360 F15_EMERALD_L4: ran to its end with the real art, text fits
+PASS 360 F15_EMERALD_L4: scene visited f15_shrine
+PASS 360 art: no console/page errors
+PASS 360 art: no failed or missing assets
+PASS served assets/f15/environments/the_bing_270x480.png is byte-identical to the manifest (184014 bytes, 16c82c11f017)
+PASS served assets/f15/environments/roxy_apartment_270x480.png is byte-identical to the manifest (188084 bytes, f30c32450876)
+PASS served assets/f15/environments/rosalyn_apartment_270x480.png is byte-identical to the manifest (192736 bytes, 8247c05d7c6b)
+PASS served assets/f15/environments/boxing_gym_270x480.png is byte-identical to the manifest (161542 bytes, 9a0e80798bc8)
+PASS served assets/f15/environments/plenitude_270x480.png is byte-identical to the manifest (163201 bytes, 686b97067b67)
+PASS served assets/f15/environments/convention_hall_270x480.png is byte-identical to the manifest (186868 bytes, 469564c607b9)
+PASS served assets/f15/environments/shrine_auditorium_270x480.png is byte-identical to the manifest (177418 bytes, 58359742eb37)
+PASS served assets/f15/characters/spirit_of_uncle_bunmi_444x222.png is byte-identical to the manifest (79469 bytes, e4cc409314da)
+PASS served assets/f15/layers/lights_off_270x480.png is byte-identical to the manifest (1194 bytes, 3aa6cd545678)
+PASS served assets/before_the_fame/characters/granny_bing/cga_f2_032/granny_bing_neutral_calling_numbers_anchor_80x96_v1.png is byte-identical to the manifest (1716 bytes, 6f042de972f6)
+PASS 390 F15_ROXY_L1 f15_bing: actor rich sprite loaded (assets/rich_standing_right.png, 80x96)
+PASS 390 F15_ROXY_L1 f15_bing: actor roxy sprite loaded (assets/f15/portraits/roxy.png, 80x96)
+PASS 390 F15_ROXY_L1 f15_bing: rich drawn pixels fully inside the world viewport (100.0%)
+PASS 390 F15_ROXY_L1 f15_bing: roxy drawn pixels fully inside the world viewport (100.0%)
+PASS 390 F15_ROXY_L1 f15_bing: rich / roxy drawn pixels overlap 0.0% of the smaller (limit 20%)
+PASS 390 F15_ROXY_L1 f15_bing: dialogue box covers no actor's face
+PASS 390 F15_ROXY_L1: ran to its end with the real art, text fits
+PASS 390 F15_ROXY_L1: scene visited f15_bing
+PASS 390 F15_ROXY_L2 f15_gym: actor rich sprite loaded (assets/rich_standing_right.png, 80x96)
+PASS 390 F15_ROXY_L2 f15_gym: actor roxy sprite loaded (assets/f15/portraits/roxy.png, 80x96)
+PASS 390 F15_ROXY_L2 f15_gym: rich drawn pixels fully inside the world viewport (100.0%)
+PASS 390 F15_ROXY_L2 f15_gym: roxy drawn pixels fully inside the world viewport (100.0%)
+PASS 390 F15_ROXY_L2 f15_gym: rich / roxy drawn pixels overlap 0.0% of the smaller (limit 20%)
+PASS 390 F15_ROXY_L2 f15_gym: dialogue box covers no actor's face
+PASS 390 F15_ROXY_L2 COMBAT: actor rich sprite loaded (assets/rich_standing_right.png, 80x96)
+PASS 390 F15_ROXY_L2 COMBAT: actor enemy sprite loaded (assets/f15/portraits/roxy.png, 80x96)
+PASS 390 F15_ROXY_L2 COMBAT: rich drawn pixels fully inside the world viewport (100.0%)
+PASS 390 F15_ROXY_L2 COMBAT: enemy drawn pixels fully inside the world viewport (100.0%)
+PASS 390 F15_ROXY_L2 COMBAT: rich / enemy drawn pixels overlap 0.0% of the smaller (limit 20%)
+PASS 390 F15_ROXY_L2 COMBAT: combat HUD 1 clears every actor body
+PASS 390 F15_ROXY_L2 COMBAT: combat HUD 2 clears every actor body
+PASS 390 F15_ROXY_L2 COMBAT: combat panel clears every actor body
+PASS 390 F15_ROXY_L2: ran to its end with the real art, text fits
+PASS 390 F15_ROXY_L2: scene visited f15_gym
+PASS 390 F15_ROXY_L2: combat ran and the scene continued to its end
+PASS 390 F15_ROXY_L4 f15_roxy_apartment: actor rich sprite loaded (assets/rich_standing_right.png, 80x96)
+PASS 390 F15_ROXY_L4 f15_roxy_apartment: actor roxy sprite loaded (assets/f15/portraits/roxy.png, 80x96)
+PASS 390 F15_ROXY_L4 f15_roxy_apartment: rich drawn pixels fully inside the world viewport (100.0%)
+PASS 390 F15_ROXY_L4 f15_roxy_apartment: roxy drawn pixels fully inside the world viewport (100.0%)
+PASS 390 F15_ROXY_L4 f15_roxy_apartment: rich / roxy drawn pixels overlap 0.0% of the smaller (limit 20%)
+PASS 390 F15_ROXY_L4 f15_roxy_apartment: dialogue box covers no actor's face
+PASS 390 F15_ROXY_L4: ran to its end with the real art, text fits
+PASS 390 F15_ROXY_L4: scene visited f15_roxy_apartment
+PASS 390 F15_ROSALYN_L1 f15_bing: actor rich sprite loaded (assets/rich_standing_right.png, 80x96)
+PASS 390 F15_ROSALYN_L1 f15_bing: actor rosalyn sprite loaded (assets/f15/portraits/rosalyn.png, 80x96)
+PASS 390 F15_ROSALYN_L1 f15_bing: rich drawn pixels fully inside the world viewport (100.0%)
+PASS 390 F15_ROSALYN_L1 f15_bing: rosalyn drawn pixels fully inside the world viewport (100.0%)
+PASS 390 F15_ROSALYN_L1 f15_bing: rich / rosalyn drawn pixels overlap 0.0% of the smaller (limit 20%)
+PASS 390 F15_ROSALYN_L1 f15_bing: choices covers no actor's face
+PASS 390 F15_ROSALYN_L1 f15_plenitude: actor rich sprite loaded (assets/rich_standing_right.png, 80x96)
+PASS 390 F15_ROSALYN_L1 f15_plenitude: actor rosalyn sprite loaded (assets/f15/portraits/rosalyn.png, 80x96)
+PASS 390 F15_ROSALYN_L1 f15_plenitude: rich drawn pixels fully inside the world viewport (100.0%)
+PASS 390 F15_ROSALYN_L1 f15_plenitude: rosalyn drawn pixels fully inside the world viewport (100.0%)
+PASS 390 F15_ROSALYN_L1 f15_plenitude: rich / rosalyn drawn pixels overlap 0.0% of the smaller (limit 20%)
+PASS 390 F15_ROSALYN_L1 f15_plenitude: dialogue box covers no actor's face
+PASS 390 F15_ROSALYN_L1: ran to its end with the real art, text fits
+PASS 390 F15_ROSALYN_L1: scene visited f15_bing
+PASS 390 F15_ROSALYN_L1: scene visited f15_plenitude
+PASS 390 F15_ROSALYN_L3 f15_convention: actor rich sprite loaded (assets/rich_standing_right.png, 80x96)
+PASS 390 F15_ROSALYN_L3 f15_convention: actor rosalyn sprite loaded (assets/f15/portraits/rosalyn.png, 80x96)
+PASS 390 F15_ROSALYN_L3 f15_convention: rich drawn pixels fully inside the world viewport (100.0%)
+PASS 390 F15_ROSALYN_L3 f15_convention: rosalyn drawn pixels fully inside the world viewport (100.0%)
+PASS 390 F15_ROSALYN_L3 f15_convention: rich / rosalyn drawn pixels overlap 0.0% of the smaller (limit 20%)
+PASS 390 F15_ROSALYN_L3 f15_convention: dialogue box covers no actor's face
+PASS 390 F15_ROSALYN_L3: ran to its end with the real art, text fits
+PASS 390 F15_ROSALYN_L3: scene visited f15_convention
+PASS 390 F15_ROSALYN_L4 f15_rosalyn_apartment_dark: actor rich sprite loaded (assets/rich_standing_right.png, 80x96)
+PASS 390 F15_ROSALYN_L4 f15_rosalyn_apartment_dark: actor spirit_of_uncle_bunmi sprite loaded (assets/f15/characters/spirit_of_uncle_bunmi_444x222.png, 444x222)
+PASS 390 F15_ROSALYN_L4 f15_rosalyn_apartment_dark: actor rosalyn sprite loaded (assets/f15/portraits/rosalyn.png, 80x96)
+PASS 390 F15_ROSALYN_L4 f15_rosalyn_apartment_dark: rich drawn pixels fully inside the world viewport (100.0%)
+PASS 390 F15_ROSALYN_L4 f15_rosalyn_apartment_dark: spirit_of_uncle_bunmi drawn pixels fully inside the world viewport (100.0%)
+PASS 390 F15_ROSALYN_L4 f15_rosalyn_apartment_dark: spirit_of_uncle_bunmi stands on its contact line (drawn feet 446.0 vs contact 446.0)
+PASS 390 F15_ROSALYN_L4 f15_rosalyn_apartment_dark: spirit_of_uncle_bunmi is displayed nearest-neighbour (pixelated)
+PASS 390 F15_ROSALYN_L4 f15_rosalyn_apartment_dark: rosalyn drawn pixels fully inside the world viewport (100.0%)
+PASS 390 F15_ROSALYN_L4 f15_rosalyn_apartment_dark: rich / spirit_of_uncle_bunmi drawn pixels overlap 0.0% of the smaller (limit 20%)
+PASS 390 F15_ROSALYN_L4 f15_rosalyn_apartment_dark: rich / rosalyn drawn pixels overlap 0.0% of the smaller (limit 20%)
+PASS 390 F15_ROSALYN_L4 f15_rosalyn_apartment_dark: spirit_of_uncle_bunmi / rosalyn drawn pixels overlap 0.0% of the smaller (limit 20%)
+PASS 390 F15_ROSALYN_L4 f15_rosalyn_apartment_dark: dialogue box covers no actor's face
+PASS 390 F15_ROSALYN_L4 COMBAT: actor rich sprite loaded (assets/rich_standing_right.png, 80x96)
+PASS 390 F15_ROSALYN_L4 COMBAT: actor enemy sprite loaded (assets/f15/characters/spirit_of_uncle_bunmi_444x222.png, 444x222)
+PASS 390 F15_ROSALYN_L4 COMBAT: rich drawn pixels fully inside the world viewport (100.0%)
+PASS 390 F15_ROSALYN_L4 COMBAT: enemy drawn pixels fully inside the world viewport (100.0%)
+PASS 390 F15_ROSALYN_L4 COMBAT: rich / enemy drawn pixels overlap 0.0% of the smaller (limit 20%)
+PASS 390 F15_ROSALYN_L4 COMBAT: combat HUD 1 clears every actor body
+PASS 390 F15_ROSALYN_L4 COMBAT: combat HUD 2 clears every actor body
+PASS 390 F15_ROSALYN_L4 COMBAT: combat telegraph clears every actor body
+PASS 390 F15_ROSALYN_L4 COMBAT: combat panel clears every actor body
+PASS 390 F15_ROSALYN_L4 f15_rosalyn_apartment_dark: actor rich sprite loaded (assets/rich_standing_right.png, 80x96)
+PASS 390 F15_ROSALYN_L4 f15_rosalyn_apartment_dark: actor rosalyn sprite loaded (assets/f15/portraits/rosalyn.png, 80x96)
+PASS 390 F15_ROSALYN_L4 f15_rosalyn_apartment_dark: rich drawn pixels fully inside the world viewport (100.0%)
+PASS 390 F15_ROSALYN_L4 f15_rosalyn_apartment_dark: rosalyn drawn pixels fully inside the world viewport (100.0%)
+PASS 390 F15_ROSALYN_L4 f15_rosalyn_apartment_dark: rich / rosalyn drawn pixels overlap 0.0% of the smaller (limit 20%)
+PASS 390 F15_ROSALYN_L4 f15_rosalyn_apartment_dark: dialogue box covers no actor's face
+PASS 390 F15_ROSALYN_L4 f15_rosalyn_apartment: actor rich sprite loaded (assets/rich_standing_right.png, 80x96)
+PASS 390 F15_ROSALYN_L4 f15_rosalyn_apartment: actor rosalyn sprite loaded (assets/f15/portraits/rosalyn.png, 80x96)
+PASS 390 F15_ROSALYN_L4 f15_rosalyn_apartment: rich drawn pixels fully inside the world viewport (100.0%)
+PASS 390 F15_ROSALYN_L4 f15_rosalyn_apartment: rosalyn drawn pixels fully inside the world viewport (100.0%)
+PASS 390 F15_ROSALYN_L4 f15_rosalyn_apartment: rich / rosalyn drawn pixels overlap 0.0% of the smaller (limit 20%)
+PASS 390 F15_ROSALYN_L4 f15_rosalyn_apartment: dialogue box covers no actor's face
+PASS 390 F15_ROSALYN_L4: ran to its end with the real art, text fits
+PASS 390 F15_ROSALYN_L4: scene visited f15_rosalyn_apartment_dark
+PASS 390 F15_ROSALYN_L4: scene visited f15_rosalyn_apartment
+PASS 390 F15_ROSALYN_L4: combat ran and the scene continued to its end
+PASS 390 F15_ROSALYN_L4: the cockroach rendered in the scene and in combat
+PASS 390 F15_EMERALD_L3 f15_library: actor rich sprite loaded (assets/rich_standing_right.png, 80x96)
+PASS 390 F15_EMERALD_L3 f15_library: rich drawn pixels fully inside the world viewport (100.0%)
+PASS 390 F15_EMERALD_L3 f15_library: dialogue box covers no actor's face
+PASS 390 F15_EMERALD_L3 f15_bing: actor rich sprite loaded (assets/rich_standing_right.png, 80x96)
+PASS 390 F15_EMERALD_L3 f15_bing: actor granny_bing sprite loaded (assets/before_the_fame/characters/granny_bing/cga_f2_032/granny_bing_neutral_calling_numbers_anchor_80x96_v1.png, 80x96)
+PASS 390 F15_EMERALD_L3 f15_bing: rich drawn pixels fully inside the world viewport (100.0%)
+PASS 390 F15_EMERALD_L3 f15_bing: granny_bing drawn pixels fully inside the world viewport (100.0%)
+PASS 390 F15_EMERALD_L3 f15_bing: granny_bing stands on its contact line (drawn feet 446.0 vs contact 446.0)
+PASS 390 F15_EMERALD_L3 f15_bing: granny_bing is displayed nearest-neighbour (pixelated)
+PASS 390 F15_EMERALD_L3 f15_bing: rich / granny_bing drawn pixels overlap 0.0% of the smaller (limit 20%)
+PASS 390 F15_EMERALD_L3 f15_bing: dialogue box covers no actor's face
+PASS 390 F15_EMERALD_L3 f15_exam_hall: actor rich sprite loaded (assets/rich_standing_right.png, 80x96)
+PASS 390 F15_EMERALD_L3 f15_exam_hall: actor emerald sprite loaded (assets/f15/portraits/emerald.png, 80x96)
+PASS 390 F15_EMERALD_L3 f15_exam_hall: rich drawn pixels fully inside the world viewport (100.0%)
+PASS 390 F15_EMERALD_L3 f15_exam_hall: emerald drawn pixels fully inside the world viewport (100.0%)
+PASS 390 F15_EMERALD_L3 f15_exam_hall: rich / emerald drawn pixels overlap 0.0% of the smaller (limit 20%)
+PASS 390 F15_EMERALD_L3 f15_exam_hall: dialogue box covers no actor's face
+PASS 390 F15_EMERALD_L3: ran to its end with the real art, text fits
+PASS 390 F15_EMERALD_L3: scene visited f15_bing
+PASS 390 F15_EMERALD_L3: Granny Bing rendered on stage
+PASS 390 F15_EMERALD_L4 f15_shrine: actor rich sprite loaded (assets/rich_standing_right.png, 80x96)
+PASS 390 F15_EMERALD_L4 f15_shrine: actor emerald sprite loaded (assets/f15/portraits/emerald.png, 80x96)
+PASS 390 F15_EMERALD_L4 f15_shrine: rich drawn pixels fully inside the world viewport (100.0%)
+PASS 390 F15_EMERALD_L4 f15_shrine: emerald drawn pixels fully inside the world viewport (100.0%)
+PASS 390 F15_EMERALD_L4 f15_shrine: rich / emerald drawn pixels overlap 0.0% of the smaller (limit 20%)
+PASS 390 F15_EMERALD_L4 f15_shrine: dialogue box covers no actor's face
+PASS 390 F15_EMERALD_L4: ran to its end with the real art, text fits
+PASS 390 F15_EMERALD_L4: scene visited f15_shrine
+PASS 390 art: no console/page errors
+PASS 390 art: no failed or missing assets
+PASS 430 F15_ROXY_L1 f15_bing: actor rich sprite loaded (assets/rich_standing_right.png, 80x96)
+PASS 430 F15_ROXY_L1 f15_bing: actor roxy sprite loaded (assets/f15/portraits/roxy.png, 80x96)
+PASS 430 F15_ROXY_L1 f15_bing: rich drawn pixels fully inside the world viewport (100.0%)
+PASS 430 F15_ROXY_L1 f15_bing: roxy drawn pixels fully inside the world viewport (100.0%)
+PASS 430 F15_ROXY_L1 f15_bing: rich / roxy drawn pixels overlap 0.0% of the smaller (limit 20%)
+PASS 430 F15_ROXY_L1 f15_bing: dialogue box covers no actor's face
+PASS 430 F15_ROXY_L1: ran to its end with the real art, text fits
+PASS 430 F15_ROXY_L1: scene visited f15_bing
+PASS 430 F15_ROXY_L2 f15_gym: actor rich sprite loaded (assets/rich_standing_right.png, 80x96)
+PASS 430 F15_ROXY_L2 f15_gym: actor roxy sprite loaded (assets/f15/portraits/roxy.png, 80x96)
+PASS 430 F15_ROXY_L2 f15_gym: rich drawn pixels fully inside the world viewport (100.0%)
+PASS 430 F15_ROXY_L2 f15_gym: roxy drawn pixels fully inside the world viewport (100.0%)
+PASS 430 F15_ROXY_L2 f15_gym: rich / roxy drawn pixels overlap 0.0% of the smaller (limit 20%)
+PASS 430 F15_ROXY_L2 f15_gym: dialogue box covers no actor's face
+PASS 430 F15_ROXY_L2 COMBAT: actor rich sprite loaded (assets/rich_standing_right.png, 80x96)
+PASS 430 F15_ROXY_L2 COMBAT: actor enemy sprite loaded (assets/f15/portraits/roxy.png, 80x96)
+PASS 430 F15_ROXY_L2 COMBAT: rich drawn pixels fully inside the world viewport (100.0%)
+PASS 430 F15_ROXY_L2 COMBAT: enemy drawn pixels fully inside the world viewport (100.0%)
+PASS 430 F15_ROXY_L2 COMBAT: rich / enemy drawn pixels overlap 0.0% of the smaller (limit 20%)
+PASS 430 F15_ROXY_L2 COMBAT: combat HUD 1 clears every actor body
+PASS 430 F15_ROXY_L2 COMBAT: combat HUD 2 clears every actor body
+PASS 430 F15_ROXY_L2 COMBAT: combat panel clears every actor body
+PASS 430 F15_ROXY_L2: ran to its end with the real art, text fits
+PASS 430 F15_ROXY_L2: scene visited f15_gym
+PASS 430 F15_ROXY_L2: combat ran and the scene continued to its end
+PASS 430 F15_ROXY_L4 f15_roxy_apartment: actor rich sprite loaded (assets/rich_standing_right.png, 80x96)
+PASS 430 F15_ROXY_L4 f15_roxy_apartment: actor roxy sprite loaded (assets/f15/portraits/roxy.png, 80x96)
+PASS 430 F15_ROXY_L4 f15_roxy_apartment: rich drawn pixels fully inside the world viewport (100.0%)
+PASS 430 F15_ROXY_L4 f15_roxy_apartment: roxy drawn pixels fully inside the world viewport (100.0%)
+PASS 430 F15_ROXY_L4 f15_roxy_apartment: rich / roxy drawn pixels overlap 0.0% of the smaller (limit 20%)
+PASS 430 F15_ROXY_L4 f15_roxy_apartment: dialogue box covers no actor's face
+PASS 430 F15_ROXY_L4: ran to its end with the real art, text fits
+PASS 430 F15_ROXY_L4: scene visited f15_roxy_apartment
+PASS 430 F15_ROSALYN_L1 f15_bing: actor rich sprite loaded (assets/rich_standing_right.png, 80x96)
+PASS 430 F15_ROSALYN_L1 f15_bing: actor rosalyn sprite loaded (assets/f15/portraits/rosalyn.png, 80x96)
+PASS 430 F15_ROSALYN_L1 f15_bing: rich drawn pixels fully inside the world viewport (100.0%)
+PASS 430 F15_ROSALYN_L1 f15_bing: rosalyn drawn pixels fully inside the world viewport (100.0%)
+PASS 430 F15_ROSALYN_L1 f15_bing: rich / rosalyn drawn pixels overlap 0.0% of the smaller (limit 20%)
+PASS 430 F15_ROSALYN_L1 f15_bing: choices covers no actor's face
+PASS 430 F15_ROSALYN_L1 f15_plenitude: actor rich sprite loaded (assets/rich_standing_right.png, 80x96)
+PASS 430 F15_ROSALYN_L1 f15_plenitude: actor rosalyn sprite loaded (assets/f15/portraits/rosalyn.png, 80x96)
+PASS 430 F15_ROSALYN_L1 f15_plenitude: rich drawn pixels fully inside the world viewport (100.0%)
+PASS 430 F15_ROSALYN_L1 f15_plenitude: rosalyn drawn pixels fully inside the world viewport (100.0%)
+PASS 430 F15_ROSALYN_L1 f15_plenitude: rich / rosalyn drawn pixels overlap 0.0% of the smaller (limit 20%)
+PASS 430 F15_ROSALYN_L1 f15_plenitude: dialogue box covers no actor's face
+PASS 430 F15_ROSALYN_L1: ran to its end with the real art, text fits
+PASS 430 F15_ROSALYN_L1: scene visited f15_bing
+PASS 430 F15_ROSALYN_L1: scene visited f15_plenitude
+PASS 430 F15_ROSALYN_L3 f15_convention: actor rich sprite loaded (assets/rich_standing_right.png, 80x96)
+PASS 430 F15_ROSALYN_L3 f15_convention: actor rosalyn sprite loaded (assets/f15/portraits/rosalyn.png, 80x96)
+PASS 430 F15_ROSALYN_L3 f15_convention: rich drawn pixels fully inside the world viewport (100.0%)
+PASS 430 F15_ROSALYN_L3 f15_convention: rosalyn drawn pixels fully inside the world viewport (100.0%)
+PASS 430 F15_ROSALYN_L3 f15_convention: rich / rosalyn drawn pixels overlap 0.0% of the smaller (limit 20%)
+PASS 430 F15_ROSALYN_L3 f15_convention: dialogue box covers no actor's face
+PASS 430 F15_ROSALYN_L3: ran to its end with the real art, text fits
+PASS 430 F15_ROSALYN_L3: scene visited f15_convention
+PASS 430 F15_ROSALYN_L4 f15_rosalyn_apartment_dark: actor rich sprite loaded (assets/rich_standing_right.png, 80x96)
+PASS 430 F15_ROSALYN_L4 f15_rosalyn_apartment_dark: actor spirit_of_uncle_bunmi sprite loaded (assets/f15/characters/spirit_of_uncle_bunmi_444x222.png, 444x222)
+PASS 430 F15_ROSALYN_L4 f15_rosalyn_apartment_dark: actor rosalyn sprite loaded (assets/f15/portraits/rosalyn.png, 80x96)
+PASS 430 F15_ROSALYN_L4 f15_rosalyn_apartment_dark: rich drawn pixels fully inside the world viewport (100.0%)
+PASS 430 F15_ROSALYN_L4 f15_rosalyn_apartment_dark: spirit_of_uncle_bunmi drawn pixels fully inside the world viewport (100.0%)
+PASS 430 F15_ROSALYN_L4 f15_rosalyn_apartment_dark: spirit_of_uncle_bunmi stands on its contact line (drawn feet 492.0 vs contact 492.0)
+PASS 430 F15_ROSALYN_L4 f15_rosalyn_apartment_dark: spirit_of_uncle_bunmi is displayed nearest-neighbour (pixelated)
+PASS 430 F15_ROSALYN_L4 f15_rosalyn_apartment_dark: rosalyn drawn pixels fully inside the world viewport (100.0%)
+PASS 430 F15_ROSALYN_L4 f15_rosalyn_apartment_dark: rich / spirit_of_uncle_bunmi drawn pixels overlap 0.0% of the smaller (limit 20%)
+PASS 430 F15_ROSALYN_L4 f15_rosalyn_apartment_dark: rich / rosalyn drawn pixels overlap 0.0% of the smaller (limit 20%)
+PASS 430 F15_ROSALYN_L4 f15_rosalyn_apartment_dark: spirit_of_uncle_bunmi / rosalyn drawn pixels overlap 0.0% of the smaller (limit 20%)
+PASS 430 F15_ROSALYN_L4 f15_rosalyn_apartment_dark: dialogue box covers no actor's face
+PASS 430 F15_ROSALYN_L4 COMBAT: actor rich sprite loaded (assets/rich_standing_right.png, 80x96)
+PASS 430 F15_ROSALYN_L4 COMBAT: actor enemy sprite loaded (assets/f15/characters/spirit_of_uncle_bunmi_444x222.png, 444x222)
+PASS 430 F15_ROSALYN_L4 COMBAT: rich drawn pixels fully inside the world viewport (100.0%)
+PASS 430 F15_ROSALYN_L4 COMBAT: enemy drawn pixels fully inside the world viewport (100.0%)
+PASS 430 F15_ROSALYN_L4 COMBAT: rich / enemy drawn pixels overlap 0.0% of the smaller (limit 20%)
+PASS 430 F15_ROSALYN_L4 COMBAT: combat HUD 1 clears every actor body
+PASS 430 F15_ROSALYN_L4 COMBAT: combat HUD 2 clears every actor body
+PASS 430 F15_ROSALYN_L4 COMBAT: combat telegraph clears every actor body
+PASS 430 F15_ROSALYN_L4 COMBAT: combat panel clears every actor body
+PASS 430 F15_ROSALYN_L4 f15_rosalyn_apartment_dark: actor rich sprite loaded (assets/rich_standing_right.png, 80x96)
+PASS 430 F15_ROSALYN_L4 f15_rosalyn_apartment_dark: actor rosalyn sprite loaded (assets/f15/portraits/rosalyn.png, 80x96)
+PASS 430 F15_ROSALYN_L4 f15_rosalyn_apartment_dark: rich drawn pixels fully inside the world viewport (100.0%)
+PASS 430 F15_ROSALYN_L4 f15_rosalyn_apartment_dark: rosalyn drawn pixels fully inside the world viewport (100.0%)
+PASS 430 F15_ROSALYN_L4 f15_rosalyn_apartment_dark: rich / rosalyn drawn pixels overlap 0.0% of the smaller (limit 20%)
+PASS 430 F15_ROSALYN_L4 f15_rosalyn_apartment_dark: dialogue box covers no actor's face
+PASS 430 F15_ROSALYN_L4 f15_rosalyn_apartment: actor rich sprite loaded (assets/rich_standing_right.png, 80x96)
+PASS 430 F15_ROSALYN_L4 f15_rosalyn_apartment: actor rosalyn sprite loaded (assets/f15/portraits/rosalyn.png, 80x96)
+PASS 430 F15_ROSALYN_L4 f15_rosalyn_apartment: rich drawn pixels fully inside the world viewport (100.0%)
+PASS 430 F15_ROSALYN_L4 f15_rosalyn_apartment: rosalyn drawn pixels fully inside the world viewport (100.0%)
+PASS 430 F15_ROSALYN_L4 f15_rosalyn_apartment: rich / rosalyn drawn pixels overlap 0.0% of the smaller (limit 20%)
+PASS 430 F15_ROSALYN_L4 f15_rosalyn_apartment: dialogue box covers no actor's face
+PASS 430 F15_ROSALYN_L4: ran to its end with the real art, text fits
+PASS 430 F15_ROSALYN_L4: scene visited f15_rosalyn_apartment_dark
+PASS 430 F15_ROSALYN_L4: scene visited f15_rosalyn_apartment
+PASS 430 F15_ROSALYN_L4: combat ran and the scene continued to its end
+PASS 430 F15_ROSALYN_L4: the cockroach rendered in the scene and in combat
+PASS 430 F15_EMERALD_L3 f15_library: actor rich sprite loaded (assets/rich_standing_right.png, 80x96)
+PASS 430 F15_EMERALD_L3 f15_library: rich drawn pixels fully inside the world viewport (100.0%)
+PASS 430 F15_EMERALD_L3 f15_library: dialogue box covers no actor's face
+PASS 430 F15_EMERALD_L3 f15_bing: actor rich sprite loaded (assets/rich_standing_right.png, 80x96)
+PASS 430 F15_EMERALD_L3 f15_bing: actor granny_bing sprite loaded (assets/before_the_fame/characters/granny_bing/cga_f2_032/granny_bing_neutral_calling_numbers_anchor_80x96_v1.png, 80x96)
+PASS 430 F15_EMERALD_L3 f15_bing: rich drawn pixels fully inside the world viewport (100.0%)
+PASS 430 F15_EMERALD_L3 f15_bing: granny_bing drawn pixels fully inside the world viewport (100.0%)
+PASS 430 F15_EMERALD_L3 f15_bing: granny_bing stands on its contact line (drawn feet 492.0 vs contact 492.0)
+PASS 430 F15_EMERALD_L3 f15_bing: granny_bing is displayed nearest-neighbour (pixelated)
+PASS 430 F15_EMERALD_L3 f15_bing: rich / granny_bing drawn pixels overlap 0.0% of the smaller (limit 20%)
+PASS 430 F15_EMERALD_L3 f15_bing: dialogue box covers no actor's face
+PASS 430 F15_EMERALD_L3 f15_exam_hall: actor rich sprite loaded (assets/rich_standing_right.png, 80x96)
+PASS 430 F15_EMERALD_L3 f15_exam_hall: actor emerald sprite loaded (assets/f15/portraits/emerald.png, 80x96)
+PASS 430 F15_EMERALD_L3 f15_exam_hall: rich drawn pixels fully inside the world viewport (100.0%)
+PASS 430 F15_EMERALD_L3 f15_exam_hall: emerald drawn pixels fully inside the world viewport (100.0%)
+PASS 430 F15_EMERALD_L3 f15_exam_hall: rich / emerald drawn pixels overlap 0.0% of the smaller (limit 20%)
+PASS 430 F15_EMERALD_L3 f15_exam_hall: dialogue box covers no actor's face
+PASS 430 F15_EMERALD_L3: ran to its end with the real art, text fits
+PASS 430 F15_EMERALD_L3: scene visited f15_bing
+PASS 430 F15_EMERALD_L3: Granny Bing rendered on stage
+PASS 430 F15_EMERALD_L4 f15_shrine: actor rich sprite loaded (assets/rich_standing_right.png, 80x96)
+PASS 430 F15_EMERALD_L4 f15_shrine: actor emerald sprite loaded (assets/f15/portraits/emerald.png, 80x96)
+PASS 430 F15_EMERALD_L4 f15_shrine: rich drawn pixels fully inside the world viewport (100.0%)
+PASS 430 F15_EMERALD_L4 f15_shrine: emerald drawn pixels fully inside the world viewport (100.0%)
+PASS 430 F15_EMERALD_L4 f15_shrine: rich / emerald drawn pixels overlap 0.0% of the smaller (limit 20%)
+PASS 430 F15_EMERALD_L4 f15_shrine: dialogue box covers no actor's face
+PASS 430 F15_EMERALD_L4: ran to its end with the real art, text fits
+PASS 430 F15_EMERALD_L4: scene visited f15_shrine
+PASS 430 art: no console/page errors
+PASS 430 art: no failed or missing assets
+
+495/495 checks passed

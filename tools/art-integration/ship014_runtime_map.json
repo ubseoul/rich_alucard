@@ -1,0 +1,1473 @@
+{
+ "about": "ART SHIP 014 Engineering runtime map (authored by Engineering 05). Each frozen Ship 014 file (exact bytes, art/art_ship_014 @ f1ae59a) has exactly one runtime registry key. INTEGRATED rows name the surface and a code token tools/art-integration.mjs verifies in the consumer (`content-state` = an adventure node stages it); every other row says why it is registered but not wired. ENGINEERING 06 wired the states whose beats narrate the person on stage (entrance-cue closure) and the TOUGE passenger seat.",
+ "authority": {
+  "branch": "art/art_ship_014",
+  "commit": "f1ae59a3f342a30fc09a3c4659198795ef867178"
+ },
+ "entries": {
+  "A-RICH-riding_mazda": {
+   "key": "characters.rich.states.riding_mazda",
+   "status": "REGISTERED — NO LIVE SURFACE",
+   "note": "FLY ON MAZDA is a route choice with no staged beat; A32/arc flights stage her human form. The bedroom Mazda uses the fly-by overlay; HATCH majestic uses happy/perched."
+  },
+  "A-RICH-touge_locked": {
+   "key": "characters.rich.states.touge_locked",
+   "use": {
+    "surface": "TOUGE HUD face: locked in while drifting, spun out after a spin",
+    "consumer": "js/minigames/touge.js",
+    "token": "['touge_locked','touge_spun']"
+   },
+   "status": "INTEGRATED"
+  },
+  "A-RICH-touge_spun": {
+   "key": "characters.rich.states.touge_spun",
+   "use": {
+    "surface": "TOUGE HUD face: locked in while drifting, spun out after a spin",
+    "consumer": "js/minigames/touge.js",
+    "token": "['touge_locked','touge_spun']"
+   },
+   "status": "INTEGRATED"
+  },
+  "A-anfeesa-dj": {
+   "key": "characters.anfeesa.states.dj",
+   "use": {
+    "surface": "adventure beat: A_ANFEESA1 and A55 arrive (behind the booth)",
+    "consumer": "js/data/btf/adventures/w4.js",
+    "token": "content-state"
+   },
+   "status": "INTEGRATED"
+  },
+  "A-bllad33-dry": {
+   "key": "characters.bllad33.states.dry",
+   "status": "REGISTERED — NO OBJECTIVE BEAT",
+   "note": "No current OPEN beat narrates this exact reaction with the person on stage; placing it would be a guess."
+  },
+  "A-brenda-date": {
+   "key": "characters.brenda.states.date",
+   "use": {
+    "surface": "DATE (every date node) and A46 LITTLE TOKYO SPECIAL NIGHT (plan, bench): she is staged in her date state",
+    "consumer": "js/data/btf/adventures/date.js",
+    "token": "states?.date?{id:who(A),state:'date'}"
+   },
+   "status": "INTEGRATED"
+  },
+  "A-brenda-gossiping": {
+   "key": "characters.brenda.states.gossiping",
+   "use": {
+    "surface": "adventure beat: A38 gossip",
+    "consumer": "js/data/btf/adventures/w4.js",
+    "token": "content-state"
+   },
+   "status": "INTEGRATED"
+  },
+  "A-britney-profile": {
+   "key": "ui.avatars.britney_stakes",
+   "use": {
+    "surface": "VampGram: @britney_stakes posts carry her profile image (VOL 5 §2.11)",
+    "consumer": "js/phone/apps_core.js",
+    "token": "britney_stakes:'britney_stakes'"
+   },
+   "status": "INTEGRATED"
+  },
+  "A-bunmi-bedroom_company": {
+   "key": "characters.bunmi.states.bedroom_company",
+   "use": {
+    "surface": "bedroom company (woman who stayed over / a close date): her covered pose on the bed right of Rich",
+    "consumer": "js/systems/world_life.js",
+    "token": "person?.states?.bedroom_company"
+   },
+   "status": "INTEGRATED"
+  },
+  "A-bunmi-date": {
+   "key": "characters.bunmi.states.date",
+   "use": {
+    "surface": "DATE (every date node) and A46 LITTLE TOKYO SPECIAL NIGHT (plan, bench): she is staged in her date state",
+    "consumer": "js/data/btf/adventures/date.js",
+    "token": "states?.date?{id:who(A),state:'date'}"
+   },
+   "status": "INTEGRATED"
+  },
+  "A-cammile-bedroom": {
+   "key": "characters.jdm_importer_daughter_001.states.bedroom_company",
+   "use": {
+    "surface": "bedroom company (woman who stayed over / a close date): her covered pose on the bed right of Rich",
+    "consumer": "js/systems/world_life.js",
+    "token": "person?.states?.bedroom_company"
+   },
+   "status": "INTEGRATED"
+  },
+  "A-cammile-date": {
+   "key": "characters.jdm_importer_daughter_001.states.date",
+   "use": {
+    "surface": "DATE (every date node) and A46 LITTLE TOKYO SPECIAL NIGHT (plan, bench): she is staged in her date state",
+    "consumer": "js/data/btf/adventures/date.js",
+    "token": "states?.date?{id:who(A),state:'date'}"
+   },
+   "status": "INTEGRATED"
+  },
+  "A-cammile-touge_spectator": {
+   "key": "characters.jdm_importer_daughter_001.states.touge_spectator",
+   "status": "REGISTERED — NO LIVE SURFACE",
+   "note": "TOUGE has no spectator layer; ARC_CAMMILE_1 has her riding shotgun, not watching."
+  },
+  "A-ceo_assistant-bedroom": {
+   "key": "characters.ceo_assistant_001.states.bedroom_company",
+   "use": {
+    "surface": "bedroom company (woman who stayed over / a close date): her covered pose on the bed right of Rich",
+    "consumer": "js/systems/world_life.js",
+    "token": "person?.states?.bedroom_company"
+   },
+   "status": "INTEGRATED"
+  },
+  "A-ceo_assistant-date": {
+   "key": "characters.ceo_assistant_001.states.date",
+   "use": {
+    "surface": "DATE (every date node) and A46 LITTLE TOKYO SPECIAL NIGHT (plan, bench): she is staged in her date state",
+    "consumer": "js/data/btf/adventures/date.js",
+    "token": "states?.date?{id:who(A),state:'date'}"
+   },
+   "status": "INTEGRATED"
+  },
+  "A-coffe-caught": {
+   "key": "characters.coffe.states.caught",
+   "use": {
+    "surface": "adventure beat: A29B expose",
+    "consumer": "js/data/btf/adventures",
+    "token": "content-state"
+   },
+   "status": "INTEGRATED"
+  },
+  "A-coffe-hype": {
+   "key": "characters.coffe.states.hype",
+   "use": {
+    "surface": "adventure beat: A29 drink (he drinks both iced coffees)",
+    "consumer": "js/data/btf/adventures/w4.js",
+    "token": "content-state"
+   },
+   "status": "INTEGRATED"
+  },
+  "A-don_chuy-singing": {
+   "key": "characters.don_chuy.states.singing",
+   "use": {
+    "surface": "adventure beat: TACOS arrive, A51 sing",
+    "consumer": "js/data/btf/adventures",
+    "token": "content-state"
+   },
+   "status": "INTEGRATED"
+  },
+  "A-dragoon-silhouette": {
+   "key": "ui.avatars.dragoon_of_the_north",
+   "use": {
+    "surface": "VampGram: @dragoon_of_the_north post avatar",
+    "consumer": "js/phone/apps_core.js",
+    "token": "VG_AVATAR"
+   },
+   "status": "INTEGRATED"
+  },
+  "A-duchess-bedroom_company": {
+   "key": "characters.duchess.states.bedroom_company",
+   "use": {
+    "surface": "bedroom company (woman who stayed over / a close date): her covered pose on the bed right of Rich",
+    "consumer": "js/systems/world_life.js",
+    "token": "person?.states?.bedroom_company"
+   },
+   "status": "INTEGRATED"
+  },
+  "A-duchess-impressed": {
+   "key": "characters.duchess.states.impressed",
+   "use": {
+    "surface": "adventure beat: A33 react",
+    "consumer": "js/data/btf/adventures",
+    "token": "content-state"
+   },
+   "status": "INTEGRATED"
+  },
+  "A-duchess-unimpressed": {
+   "key": "characters.duchess.states.unimpressed",
+   "use": {
+    "surface": "adventure beat: A33 react (honest \"nothing yet\" answer)",
+    "consumer": "js/data/btf/adventures",
+    "token": "content-state"
+   },
+   "status": "INTEGRATED"
+  },
+  "A-emberly-bedroom_company": {
+   "key": "characters.emberly.states.bedroom_company",
+   "use": {
+    "surface": "bedroom company (woman who stayed over / a close date): her covered pose on the bed right of Rich",
+    "consumer": "js/systems/world_life.js",
+    "token": "person?.states?.bedroom_company"
+   },
+   "status": "INTEGRATED"
+  },
+  "A-emberly-date": {
+   "key": "characters.emberly.states.date",
+   "use": {
+    "surface": "DATE (every date node) and A46 LITTLE TOKYO SPECIAL NIGHT (plan, bench): she is staged in her date state",
+    "consumer": "js/data/btf/adventures/date.js",
+    "token": "states?.date?{id:who(A),state:'date'}"
+   },
+   "status": "INTEGRATED"
+  },
+  "A-family-dad-avatar": {
+   "key": "ui.avatars.family_dad",
+   "use": {
+    "surface": "TEXTS FAMILY thread: sender avatar",
+    "consumer": "js/phone/apps_core.js",
+    "token": "FAMILY_AVATAR"
+   },
+   "status": "INTEGRATED"
+  },
+  "A-family-mom-avatar": {
+   "key": "ui.avatars.family_mom",
+   "use": {
+    "surface": "TEXTS FAMILY thread: sender avatar",
+    "consumer": "js/phone/apps_core.js",
+    "token": "FAMILY_AVATAR"
+   },
+   "status": "INTEGRATED"
+  },
+  "A-family-sister-avatar": {
+   "key": "ui.avatars.family_sister",
+   "use": {
+    "surface": "TEXTS FAMILY thread: sender avatar",
+    "consumer": "js/phone/apps_core.js",
+    "token": "FAMILY_AVATAR"
+   },
+   "status": "INTEGRATED"
+  },
+  "A-hina-date": {
+   "key": "characters.hina.states.date",
+   "use": {
+    "surface": "DATE (every date node) and A46 LITTLE TOKYO SPECIAL NIGHT (plan, bench): she is staged in her date state",
+    "consumer": "js/data/btf/adventures/date.js",
+    "token": "states?.date?{id:who(A),state:'date'}"
+   },
+   "status": "INTEGRATED"
+  },
+  "A-hina-smug": {
+   "key": "characters.hina.states.smug",
+   "use": {
+    "surface": "adventure beat: A_HINA1 arrive (she times him eating: \"that's slow\")",
+    "consumer": "js/data/btf/adventures/w4.js",
+    "token": "content-state"
+   },
+   "status": "INTEGRATED"
+  },
+  "A-jade-impressed": {
+   "key": "characters.jade.states.impressed",
+   "status": "REGISTERED — PERSON NOT ON STAGE",
+   "note": "The matching beat names her in an entrance/speaker line but never stages her (actors: Rich only). Staging would add a cast member to an authored beat."
+  },
+  "A-june-bedroom": {
+   "key": "characters.june.states.bedroom_company",
+   "use": {
+    "surface": "bedroom company (woman who stayed over / a close date): her covered pose on the bed right of Rich",
+    "consumer": "js/systems/world_life.js",
+    "token": "person?.states?.bedroom_company"
+   },
+   "status": "INTEGRATED"
+  },
+  "A-june-date": {
+   "key": "characters.june.states.date",
+   "use": {
+    "surface": "DATE (every date node) and A46 LITTLE TOKYO SPECIAL NIGHT (plan, bench): she is staged in her date state",
+    "consumer": "js/data/btf/adventures/date.js",
+    "token": "states?.date?{id:who(A),state:'date'}"
+   },
+   "status": "INTEGRATED"
+  },
+  "A-june-working": {
+   "key": "characters.june.states.working",
+   "status": "REGISTERED — CAST CHANGE REQUIRED",
+   "note": "A paired composite (June working in Rich's locs, Rich included). A48 mirror / RETWIST stage Rich and June as two actors; using it means replacing the cast of an authored beat. Needs an HQ call."
+  },
+  "A-kaede-bedroom_company": {
+   "key": "characters.kaede.states.bedroom_company",
+   "use": {
+    "surface": "bedroom company (woman who stayed over / a close date): her covered pose on the bed right of Rich",
+    "consumer": "js/systems/world_life.js",
+    "token": "person?.states?.bedroom_company"
+   },
+   "status": "INTEGRATED"
+  },
+  "A-kaede-ceiling_drop": {
+   "key": "characters.kaede.states.ceiling_drop",
+   "use": {
+    "surface": "adventure beat: A18 drop (she drops from the ceiling vent)",
+    "consumer": "js/data/btf/adventures/w3.js",
+    "token": "content-state"
+   },
+   "status": "INTEGRATED"
+  },
+  "A-kaede-date": {
+   "key": "characters.kaede.states.date",
+   "use": {
+    "surface": "DATE (every date node) and A46 LITTLE TOKYO SPECIAL NIGHT (plan, bench): she is staged in her date state",
+    "consumer": "js/data/btf/adventures/date.js",
+    "token": "states?.date?{id:who(A),state:'date'}"
+   },
+   "status": "INTEGRATED"
+  },
+  "A-kiki-bedroom_company": {
+   "key": "characters.kiki.states.bedroom_company",
+   "use": {
+    "surface": "bedroom company (woman who stayed over / a close date): her covered pose on the bed right of Rich",
+    "consumer": "js/systems/world_life.js",
+    "token": "person?.states?.bedroom_company"
+   },
+   "status": "INTEGRATED"
+  },
+  "A-kiki-date": {
+   "key": "characters.kiki.states.date",
+   "use": {
+    "surface": "DATE (every date node) and A46 LITTLE TOKYO SPECIAL NIGHT (plan, bench): she is staged in her date state",
+    "consumer": "js/data/btf/adventures/date.js",
+    "token": "states?.date?{id:who(A),state:'date'}"
+   },
+   "status": "INTEGRATED"
+  },
+  "A-kiki-laughing": {
+   "key": "characters.kiki.states.laughing",
+   "status": "REGISTERED — NO OBJECTIVE BEAT",
+   "note": "No current OPEN beat narrates this exact reaction with the person on stage; placing it would be a guess."
+  },
+  "A-lil_smack-diss": {
+   "key": "characters.lil_smack.states.diss",
+   "status": "REGISTERED — NO OBJECTIVE BEAT",
+   "note": "No current OPEN beat narrates this exact reaction with the person on stage; placing it would be a guess."
+  },
+  "A-lil_smack-finale": {
+   "key": "characters.lil_smack.states.finale",
+   "use": {
+    "surface": "adventure beat: A56 arrive/react/leave (mouth closed)",
+    "consumer": "js/data/btf/adventures",
+    "token": "content-state"
+   },
+   "status": "INTEGRATED"
+  },
+  "A-lo-arm_fall": {
+   "key": "characters.lo.states.arm_fall",
+   "use": {
+    "surface": "adventure beat: A_LO1 arrive (her arm falls off on the dance floor)",
+    "consumer": "js/data/btf/adventures/w4.js",
+    "token": "content-state"
+   },
+   "status": "INTEGRATED"
+  },
+  "A-lo-date": {
+   "key": "characters.lo.states.date",
+   "use": {
+    "surface": "DATE (every date node) and A46 LITTLE TOKYO SPECIAL NIGHT (plan, bench): she is staged in her date state",
+    "consumer": "js/data/btf/adventures/date.js",
+    "token": "states?.date?{id:who(A),state:'date'}"
+   },
+   "status": "INTEGRATED"
+  },
+  "A-marisol-date": {
+   "key": "characters.marisol.states.date",
+   "use": {
+    "surface": "DATE (every date node) and A46 LITTLE TOKYO SPECIAL NIGHT (plan, bench): she is staged in her date state",
+    "consumer": "js/data/btf/adventures/date.js",
+    "token": "states?.date?{id:who(A),state:'date'}"
+   },
+   "status": "INTEGRATED"
+  },
+  "A-marisol-disapproving": {
+   "key": "characters.marisol.states.disapproving",
+   "use": {
+    "surface": "adventure beat: A39 marisol",
+    "consumer": "js/data/btf/adventures",
+    "token": "content-state"
+   },
+   "status": "INTEGRATED"
+  },
+  "A-moonie-bedroom_company": {
+   "key": "characters.moonie.states.bedroom_company",
+   "use": {
+    "surface": "bedroom company (woman who stayed over / a close date): her covered pose on the bed right of Rich",
+    "consumer": "js/systems/world_life.js",
+    "token": "person?.states?.bedroom_company"
+   },
+   "status": "INTEGRATED"
+  },
+  "A-moonie-date": {
+   "key": "characters.moonie.states.date",
+   "use": {
+    "surface": "DATE (every date node) and A46 LITTLE TOKYO SPECIAL NIGHT (plan, bench): she is staged in her date state",
+    "consumer": "js/data/btf/adventures/date.js",
+    "token": "states?.date?{id:who(A),state:'date'}"
+   },
+   "status": "INTEGRATED"
+  },
+  "A-ms_patrice-bedroom": {
+   "key": "characters.ms_patrice.states.bedroom_company",
+   "use": {
+    "surface": "bedroom company (woman who stayed over / a close date): her covered pose on the bed right of Rich",
+    "consumer": "js/systems/world_life.js",
+    "token": "person?.states?.bedroom_company"
+   },
+   "status": "INTEGRATED"
+  },
+  "A-ms_patrice-date": {
+   "key": "characters.ms_patrice.states.date",
+   "use": {
+    "surface": "DATE (every date node) and A46 LITTLE TOKYO SPECIAL NIGHT (plan, bench): she is staged in her date state",
+    "consumer": "js/data/btf/adventures/date.js",
+    "token": "states?.date?{id:who(A),state:'date'}"
+   },
+   "status": "INTEGRATED"
+  },
+  "A-ms_patrice-laugh": {
+   "key": "characters.ms_patrice.states.laugh",
+   "use": {
+    "surface": "adventure beat: ARC_PATRICE_2 (she roasts the room)",
+    "consumer": "js/data/btf/adventures",
+    "token": "content-state"
+   },
+   "status": "INTEGRATED"
+  },
+  "A-nightshade-casting": {
+   "key": "characters.nightshade.states.casting",
+   "use": {
+    "surface": "adventure beat: A25 cast (she teaches the spell)",
+    "consumer": "js/data/btf/adventures/w3.js",
+    "token": "content-state"
+   },
+   "status": "INTEGRATED"
+  },
+  "A-nightshade-date": {
+   "key": "characters.nightshade.states.date",
+   "use": {
+    "surface": "DATE (every date node) and A46 LITTLE TOKYO SPECIAL NIGHT (plan, bench): she is staged in her date state",
+    "consumer": "js/data/btf/adventures/date.js",
+    "token": "states?.date?{id:who(A),state:'date'}"
+   },
+   "status": "INTEGRATED"
+  },
+  "A-nneka-bedroom_company": {
+   "key": "characters.nneka.states.bedroom_company",
+   "use": {
+    "surface": "bedroom company (woman who stayed over / a close date): her covered pose on the bed right of Rich",
+    "consumer": "js/systems/world_life.js",
+    "token": "person?.states?.bedroom_company"
+   },
+   "status": "INTEGRATED"
+  },
+  "A-nneka-date": {
+   "key": "characters.nneka.states.date",
+   "use": {
+    "surface": "DATE (every date node) and A46 LITTLE TOKYO SPECIAL NIGHT (plan, bench): she is staged in her date state",
+    "consumer": "js/data/btf/adventures/date.js",
+    "token": "states?.date?{id:who(A),state:'date'}"
+   },
+   "status": "INTEGRATED"
+  },
+  "A-nneka-handing_bill": {
+   "key": "characters.nneka.states.handing_bill",
+   "use": {
+    "surface": "adventure beat: A17 bill",
+    "consumer": "js/data/btf/adventures",
+    "token": "content-state"
+   },
+   "status": "INTEGRATED"
+  },
+  "A-officer_nodd-nod": {
+   "key": "characters.officer_nodd.states.nod",
+   "use": {
+    "surface": "adventure beat: A57 stop",
+    "consumer": "js/data/btf/adventures",
+    "token": "content-state"
+   },
+   "status": "INTEGRATED"
+  },
+  "A-officer_nodd-phone": {
+   "key": "characters.officer_nodd.states.phone",
+   "use": {
+    "surface": "adventure beat: A57 leave (10th stop, the picture)",
+    "consumer": "js/data/btf/adventures",
+    "token": "content-state"
+   },
+   "status": "INTEGRATED"
+  },
+  "A-pinky-bedroom_company": {
+   "key": "characters.pinky.states.bedroom_company",
+   "use": {
+    "surface": "bedroom company (woman who stayed over / a close date): her covered pose on the bed right of Rich",
+    "consumer": "js/systems/world_life.js",
+    "token": "person?.states?.bedroom_company"
+   },
+   "status": "INTEGRATED"
+  },
+  "A-pinky-date": {
+   "key": "characters.pinky.states.date",
+   "use": {
+    "surface": "DATE (every date node) and A46 LITTLE TOKYO SPECIAL NIGHT (plan, bench): she is staged in her date state",
+    "consumer": "js/data/btf/adventures/date.js",
+    "token": "states?.date?{id:who(A),state:'date'}"
+   },
+   "status": "INTEGRATED"
+  },
+  "A-pinky-impressed": {
+   "key": "characters.pinky.states.impressed",
+   "use": {
+    "surface": "adventure beat: A36 pinky",
+    "consumer": "js/data/btf/adventures",
+    "token": "content-state"
+   },
+   "status": "INTEGRATED"
+  },
+  "A-pinky-neutral": {
+   "key": "characters.pinky.states.neutral",
+   "status": "REGISTERED — NO OBJECTIVE BEAT",
+   "note": "No current OPEN beat narrates this exact reaction with the person on stage; placing it would be a guess."
+  },
+  "A-rookoko-painting": {
+   "key": "characters.rookoko.states.painting",
+   "use": {
+    "surface": "adventure beat: GALLERY look",
+    "consumer": "js/data/btf/adventures",
+    "token": "content-state"
+   },
+   "status": "INTEGRATED"
+  },
+  "A-tasha-bedroom_company": {
+   "key": "characters.tasha.states.bedroom_company",
+   "use": {
+    "surface": "bedroom company (woman who stayed over / a close date): her covered pose on the bed right of Rich",
+    "consumer": "js/systems/world_life.js",
+    "token": "person?.states?.bedroom_company"
+   },
+   "status": "INTEGRATED"
+  },
+  "A-tasha-date": {
+   "key": "characters.tasha.states.date",
+   "use": {
+    "surface": "DATE (every date node) and A46 LITTLE TOKYO SPECIAL NIGHT (plan, bench): she is staged in her date state",
+    "consumer": "js/data/btf/adventures/date.js",
+    "token": "states?.date?{id:who(A),state:'date'}"
+   },
+   "status": "INTEGRATED"
+  },
+  "A-tasha-stage_rush": {
+   "key": "characters.tasha.states.stage_rush",
+   "status": "REGISTERED — ART-MAPPED SURFACE CONFLICT",
+   "note": "A14 tasha is the Art-mapped catacomb crowd surface `catacomb|left:rich@on_stage,right:tasha` (ART SHIP 008); staging her in a new state would change that frozen surface key and drop the crowd layer. Needs an Art/HQ call."
+  },
+  "A-tristan-floor": {
+   "key": "characters.tristan.states.floor",
+   "use": {
+    "surface": "bedroom company (homie after a party night): asleep on the floor",
+    "consumer": "js/systems/world_life.js",
+    "token": "tristan:'floor'"
+   },
+   "status": "INTEGRATED"
+  },
+  "A-tristan-laugh": {
+   "key": "characters.tristan.states.laugh",
+   "status": "REGISTERED — NO OBJECTIVE BEAT",
+   "note": "No current OPEN beat narrates this exact reaction with the person on stage; placing it would be a guess."
+  },
+  "A-tristan-passenger": {
+   "key": "characters.tristan.states.passenger",
+   "use": {
+    "surface": "TOUGE passenger seat: Tristan's portrait while he reacts (TOUGE app → PASSENGER SEAT)",
+    "consumer": "js/systems/cars.js",
+    "token": "states?.passenger"
+   },
+   "status": "INTEGRATED"
+  },
+  "A-velvet-date": {
+   "key": "characters.velvet.states.date",
+   "use": {
+    "surface": "DATE (every date node) and A46 LITTLE TOKYO SPECIAL NIGHT (plan, bench): she is staged in her date state",
+    "consumer": "js/data/btf/adventures/date.js",
+    "token": "states?.date?{id:who(A),state:'date'}"
+   },
+   "status": "INTEGRATED"
+  },
+  "A-vicky-doorway": {
+   "key": "characters.vicky.states.doorway",
+   "status": "REGISTERED — ART-MAPPED SURFACE CONFLICT",
+   "note": "A29C vicky is the Art-mapped throne-party-mess surface `throne_party_mess|left:rich,right:vicky` (ART SHIP 008); a new state would change that frozen surface key. Needs an Art/HQ call."
+  },
+  "A-wispa-date": {
+   "key": "characters.wispa.states.date",
+   "use": {
+    "surface": "DATE (every date node) and A46 LITTLE TOKYO SPECIAL NIGHT (plan, bench): she is staged in her date state",
+    "consumer": "js/data/btf/adventures/date.js",
+    "token": "states?.date?{id:who(A),state:'date'}"
+   },
+   "status": "INTEGRATED"
+  },
+  "A-wispa-wave": {
+   "key": "characters.wispa.states.wave",
+   "use": {
+    "surface": "adventure beat: first cook at the café closes, Wispa waves (VOL 1 A16)",
+    "consumer": "js/data/btf/adventures/systems.js",
+    "token": "content-state"
+   },
+   "status": "INTEGRATED"
+  },
+  "B-hatchling-happy": {
+   "key": "dragon.hatchling.happy",
+   "use": {
+    "surface": "HATCH minigame: her life stage and pose (hungry reads neutral; majestic sulks perched)",
+    "consumer": "js/minigames/hatch.js",
+    "token": "RAArtRegistry?.dragon?.[dragon.stage]"
+   },
+   "status": "INTEGRATED"
+  },
+  "B-hatchling-neutral": {
+   "key": "dragon.hatchling.neutral",
+   "use": {
+    "surface": "HATCH minigame: her life stage and pose (hungry reads neutral; majestic sulks perched)",
+    "consumer": "js/minigames/hatch.js",
+    "token": "RAArtRegistry?.dragon?.[dragon.stage]"
+   },
+   "status": "INTEGRATED"
+  },
+  "B-hatchling-sulk": {
+   "key": "dragon.hatchling.sulk",
+   "use": {
+    "surface": "HATCH minigame: her life stage and pose (hungry reads neutral; majestic sulks perched)",
+    "consumer": "js/minigames/hatch.js",
+    "token": "RAArtRegistry?.dragon?.[dragon.stage]"
+   },
+   "status": "INTEGRATED"
+  },
+  "B-human-bedroom": {
+   "key": "characters.mazda_human.states.bedroom_company",
+   "use": {
+    "surface": "bedroom company (woman who stayed over / a close date): her covered pose on the bed right of Rich",
+    "consumer": "js/systems/world_life.js",
+    "token": "person?.states?.bedroom_company"
+   },
+   "status": "INTEGRATED"
+  },
+  "B-human-eating": {
+   "key": "characters.mazda_human.states.eating",
+   "use": {
+    "surface": "adventure beat: A32 bed (finishing the agege bread)",
+    "consumer": "js/data/btf/adventures/w4.js",
+    "token": "content-state"
+   },
+   "status": "INTEGRATED"
+  },
+  "B-majestic-flying": {
+   "key": "dragon.majestic.flying",
+   "status": "REGISTERED — NO LIVE SURFACE",
+   "note": "FLY ON MAZDA is a route choice with no staged beat; A32/arc flights stage her human form. The bedroom Mazda uses the fly-by overlay; HATCH majestic uses happy/perched."
+  },
+  "B-majestic-happy": {
+   "key": "dragon.majestic.happy",
+   "use": {
+    "surface": "HATCH minigame: her life stage and pose (hungry reads neutral; majestic sulks perched)",
+    "consumer": "js/minigames/hatch.js",
+    "token": "RAArtRegistry?.dragon?.[dragon.stage]"
+   },
+   "status": "INTEGRATED"
+  },
+  "B-majestic-perched": {
+   "key": "dragon.majestic.perched",
+   "use": {
+    "surface": "HATCH minigame: her life stage and pose (hungry reads neutral; majestic sulks perched)",
+    "consumer": "js/minigames/hatch.js",
+    "token": "RAArtRegistry?.dragon?.[dragon.stage]"
+   },
+   "status": "INTEGRATED"
+  },
+  "B-riding-composite": {
+   "key": "dragon.riding_composite",
+   "use": {
+    "surface": "A32 night: Rich on majestic Mazda's back over LA (world art in the sky, native 1:1)",
+    "consumer": "js/data/btf/adventures/w4.js",
+    "token": "dragon?.riding_composite"
+   },
+   "status": "INTEGRATED"
+  },
+  "B-young-happy": {
+   "key": "dragon.young.happy",
+   "use": {
+    "surface": "HATCH minigame: her life stage and pose (hungry reads neutral; majestic sulks perched)",
+    "consumer": "js/minigames/hatch.js",
+    "token": "RAArtRegistry?.dragon?.[dragon.stage]"
+   },
+   "status": "INTEGRATED"
+  },
+  "B-young-neutral": {
+   "key": "dragon.young.neutral",
+   "use": {
+    "surface": "HATCH minigame: her life stage and pose (hungry reads neutral; majestic sulks perched)",
+    "consumer": "js/minigames/hatch.js",
+    "token": "RAArtRegistry?.dragon?.[dragon.stage]"
+   },
+   "status": "INTEGRATED"
+  },
+  "B-young-sulk": {
+   "key": "dragon.young.sulk",
+   "use": {
+    "surface": "HATCH minigame: her life stage and pose (hungry reads neutral; majestic sulks perched)",
+    "consumer": "js/minigames/hatch.js",
+    "token": "RAArtRegistry?.dragon?.[dragon.stage]"
+   },
+   "status": "INTEGRATED"
+  },
+  "C-cat-judging_combat": {
+   "key": "creatures.cat.states.judging_combat",
+   "status": "REGISTERED — NO LIVE SURFACE",
+   "note": "The cat never appears in Combat 2.0."
+  },
+  "C-cat-on_bed": {
+   "key": "creatures.cat.states.on_bed",
+   "use": {
+    "surface": "bedroom company (the cat)",
+    "consumer": "js/systems/world_life.js",
+    "token": "cat?.states?.on_bed"
+   },
+   "status": "INTEGRATED"
+  },
+  "C-chest": {
+   "key": "items.catches.chest.icon",
+   "use": {
+    "surface": "PIER minigame: result card / wallet, rare and chest prompts; junk held at arm's length",
+    "consumer": "js/minigames/pier.js",
+    "token": "RAArtRegistry?.items?.catches"
+   },
+   "status": "INTEGRATED"
+  },
+  "C-common-pier_perch-held": {
+   "key": "items.catches.pier_perch.held",
+   "status": "REGISTERED — MAPPING AMBIGUOUS",
+   "note": "The frozen rich.holding_fish_away already paints a fish in hand; overlaying a held fish would double it. The catch icons carry the named fish."
+  },
+  "C-common-pier_perch-icon": {
+   "key": "items.catches.pier_perch.icon",
+   "use": {
+    "surface": "PIER minigame: result card / wallet, rare and chest prompts; junk held at arm's length",
+    "consumer": "js/minigames/pier.js",
+    "token": "RAArtRegistry?.items?.catches"
+   },
+   "status": "INTEGRATED"
+  },
+  "C-common-silver_grunt-held": {
+   "key": "items.catches.silver_grunt.held",
+   "status": "REGISTERED — MAPPING AMBIGUOUS",
+   "note": "The frozen rich.holding_fish_away already paints a fish in hand; overlaying a held fish would double it. The catch icons carry the named fish."
+  },
+  "C-common-silver_grunt-icon": {
+   "key": "items.catches.silver_grunt.icon",
+   "use": {
+    "surface": "PIER minigame: result card / wallet, rare and chest prompts; junk held at arm's length",
+    "consumer": "js/minigames/pier.js",
+    "token": "RAArtRegistry?.items?.catches"
+   },
+   "status": "INTEGRATED"
+  },
+  "C-common-ugly_mackerel-held": {
+   "key": "items.catches.ugly_mackerel.held",
+   "status": "REGISTERED — MAPPING AMBIGUOUS",
+   "note": "The frozen rich.holding_fish_away already paints a fish in hand; overlaying a held fish would double it. The catch icons carry the named fish."
+  },
+  "C-common-ugly_mackerel-icon": {
+   "key": "items.catches.ugly_mackerel.icon",
+   "use": {
+    "surface": "PIER minigame: result card / wallet, rare and chest prompts; junk held at arm's length",
+    "consumer": "js/minigames/pier.js",
+    "token": "RAArtRegistry?.items?.catches"
+   },
+   "status": "INTEGRATED"
+  },
+  "C-junk-boot": {
+   "key": "items.catches.boot.icon",
+   "use": {
+    "surface": "PIER minigame: result card / wallet, rare and chest prompts; junk held at arm's length",
+    "consumer": "js/minigames/pier.js",
+    "token": "RAArtRegistry?.items?.catches"
+   },
+   "status": "INTEGRATED"
+  },
+  "C-junk-flip_phone": {
+   "key": "items.catches.flip_phone.icon",
+   "use": {
+    "surface": "PIER minigame: result card / wallet, rare and chest prompts; junk held at arm's length",
+    "consumer": "js/minigames/pier.js",
+    "token": "RAArtRegistry?.items?.catches"
+   },
+   "status": "INTEGRATED"
+  },
+  "C-junk-waterlogged_wallet": {
+   "key": "items.catches.waterlogged_wallet.icon",
+   "use": {
+    "surface": "PIER minigame: result card / wallet, rare and chest prompts; junk held at arm's length",
+    "consumer": "js/minigames/pier.js",
+    "token": "RAArtRegistry?.items?.catches"
+   },
+   "status": "INTEGRATED"
+  },
+  "C-rare-moon_koi": {
+   "key": "items.catches.moon_koi.icon",
+   "use": {
+    "surface": "PIER minigame: result card / wallet, rare and chest prompts; junk held at arm's length",
+    "consumer": "js/minigames/pier.js",
+    "token": "RAArtRegistry?.items?.catches"
+   },
+   "status": "INTEGRATED"
+  },
+  "C-rare-old_barnacle_grouper": {
+   "key": "items.catches.old_barnacle_grouper.icon",
+   "use": {
+    "surface": "PIER minigame: result card / wallet, rare and chest prompts; junk held at arm's length",
+    "consumer": "js/minigames/pier.js",
+    "token": "RAArtRegistry?.items?.catches"
+   },
+   "status": "INTEGRATED"
+  },
+  "D-aventador-listing": {
+   "key": "vehicles.listing.aventador",
+   "use": {
+    "surface": "phone car cards (JDMIMPORTS / RICHBOIMPORTS listing and owned cards)",
+    "consumer": "js/systems/cars.js",
+    "token": "vehicles?.listing?.[key]"
+   },
+   "status": "INTEGRATED"
+  },
+  "D-aventador-world": {
+   "key": "vehicles.world.aventador",
+   "use": {
+    "surface": "RB_DELIVERY arrive: the delivered car rolls off the ramp",
+    "consumer": "js/data/btf/adventures/systems.js",
+    "token": "vehicles?.world?.[A.vars.car]"
+   },
+   "status": "INTEGRATED"
+  },
+  "D-ferrari_f40-listing": {
+   "key": "vehicles.listing.ferrari",
+   "use": {
+    "surface": "phone car cards (JDMIMPORTS / RICHBOIMPORTS listing and owned cards)",
+    "consumer": "js/systems/cars.js",
+    "token": "vehicles?.listing?.[key]"
+   },
+   "status": "INTEGRATED"
+  },
+  "D-ferrari_f40-world": {
+   "key": "vehicles.world.ferrari",
+   "use": {
+    "surface": "RB_DELIVERY arrive: the delivered car rolls off the ramp",
+    "consumer": "js/data/btf/adventures/systems.js",
+    "token": "vehicles?.world?.[A.vars.car]"
+   },
+   "status": "INTEGRATED"
+  },
+  "D-portobello-world": {
+   "key": "vehicles.world.portobello",
+   "status": "REGISTERED — NO LIVE SURFACE",
+   "note": "These cars are bought on the phone (no delivery beat); the GARAGE lift band is 32 px tall and cannot host a 50 px WORLD sprite without a minigame layout change; the Portobello Mazda is narrated at breakfast indoors (A30, protected PD-FA-03 scope)."
+  },
+  "D-r34-listing": {
+   "key": "vehicles.listing.r34",
+   "use": {
+    "surface": "phone car cards (JDMIMPORTS / RICHBOIMPORTS listing and owned cards)",
+    "consumer": "js/systems/cars.js",
+    "token": "vehicles?.listing?.[key]"
+   },
+   "status": "INTEGRATED"
+  },
+  "D-r34-world": {
+   "key": "vehicles.world.r34",
+   "use": {
+    "surface": "⌂ CASTLE → GARAGE trophy view",
+    "consumer": "js/data/btf/adventures/w1_life.js",
+    "token": "nissan_skyline_r34:'r34'"
+   },
+   "status": "INTEGRATED"
+  },
+  "D-rival_a-touge": {
+   "key": "vehicles.touge.rival_a",
+   "use": {
+    "surface": "TOUGE tandem rival car for TOKYO TONY (TANDEM_BATTLE, A36)",
+    "consumer": "js/minigames/touge.js",
+    "token": "'TOKYO TONY':'rival_a'"
+   },
+   "status": "INTEGRATED"
+  },
+  "D-rival_b-touge": {
+   "key": "vehicles.touge.rival_b",
+   "status": "REGISTERED — NO LIVE SURFACE",
+   "note": "Content has one Midnight Mafia tandem driver (Tokyo Tony → rival A)."
+  },
+  "D-s15_bodykit-listing": {
+   "key": "vehicles.listing.s15_bodykit",
+   "use": {
+    "surface": "phone car cards (JDMIMPORTS / RICHBOIMPORTS listing and owned cards)",
+    "consumer": "js/systems/cars.js",
+    "token": "vehicles?.listing?.[key]"
+   },
+   "status": "INTEGRATED"
+  },
+  "D-s15_bodykit-world": {
+   "key": "vehicles.world.s15_bodykit",
+   "use": {
+    "surface": "⌂ CASTLE → GARAGE trophy view (S15 with body kit)",
+    "consumer": "js/data/btf/adventures/w1_life.js",
+    "token": "'s15_bodykit'"
+   },
+   "status": "INTEGRATED"
+  },
+  "D-s15_stock-listing": {
+   "key": "vehicles.listing.s15",
+   "use": {
+    "surface": "phone car cards (JDMIMPORTS / RICHBOIMPORTS listing and owned cards)",
+    "consumer": "js/systems/cars.js",
+    "token": "vehicles?.listing?.[key]"
+   },
+   "status": "INTEGRATED"
+  },
+  "D-s15_stock-world": {
+   "key": "vehicles.world.s15",
+   "use": {
+    "surface": "⌂ CASTLE → GARAGE trophy view (every owned car, native 1:1)",
+    "consumer": "js/data/btf/adventures/w1_life.js",
+    "token": "nissan_silvia_s15:'s15'"
+   },
+   "status": "INTEGRATED"
+  },
+  "D-s2000_pink-listing": {
+   "key": "vehicles.listing.s2000",
+   "use": {
+    "surface": "A36: Pinky's TAKE THE S2000 choice carries the listing art",
+    "consumer": "js/data/btf/adventures/w4.js",
+    "token": "listing?.s2000"
+   },
+   "status": "INTEGRATED"
+  },
+  "D-s2000_pink-world": {
+   "key": "vehicles.world.s2000",
+   "use": {
+    "surface": "A13 meet: Pinky leaning on her pink S2000",
+    "consumer": "js/data/btf/adventures/w2.js",
+    "token": "vehicles?.world?.s2000"
+   },
+   "status": "INTEGRATED"
+  },
+  "D-supra-listing": {
+   "key": "vehicles.listing.supra",
+   "use": {
+    "surface": "phone JDMIMPORTS Supra store card",
+    "consumer": "js/systems/jdm_imports.js",
+    "token": "vehicles?.listing?.supra"
+   },
+   "status": "INTEGRATED"
+  },
+  "D-urus-listing": {
+   "key": "vehicles.listing.urus",
+   "use": {
+    "surface": "phone car cards (JDMIMPORTS / RICHBOIMPORTS listing and owned cards)",
+    "consumer": "js/systems/cars.js",
+    "token": "vehicles?.listing?.[key]"
+   },
+   "status": "INTEGRATED"
+  },
+  "D-urus-world": {
+   "key": "vehicles.world.urus",
+   "use": {
+    "surface": "RB_DELIVERY arrive: the delivered car rolls off the ramp",
+    "consumer": "js/data/btf/adventures/systems.js",
+    "token": "vehicles?.world?.[A.vars.car]"
+   },
+   "status": "INTEGRATED"
+  },
+  "E-blood_bill": {
+   "key": "props.blood_bank_bill",
+   "status": "REGISTERED — COVERED BY STATE",
+   "note": "A17 bill stages nneka@handing_bill, which already shows the long receipt; adventures have no separate held-item layer."
+  },
+  "E-blood_held": {
+   "key": "props.blood_bank_bill_held",
+   "status": "REGISTERED — COVERED BY STATE",
+   "note": "A17 bill stages nneka@handing_bill, which already shows the long receipt; adventures have no separate held-item layer."
+  },
+  "E-bonesworth_sword": {
+   "key": "props.bonesworth_sword",
+   "use": {
+    "surface": "⌂ CASTLE → ARMORY WALL: Sir Bonesworth's sword hangs on the wall (after A27 sword choice)",
+    "consumer": "js/data/btf/adventures/w1_life.js",
+    "token": "props?.bonesworth_sword"
+   },
+   "status": "INTEGRATED"
+  },
+  "E-bread-torn": {
+   "key": "props.agege_bread_torn",
+   "status": "REGISTERED — NO LIVE SURFACE",
+   "note": "Adventures have no item layer for these beats (A27 sword, A10 bread, A11/A09 egg); HATCH shows the Ship 005 egg master. Wiring them needs a placement decision."
+  },
+  "E-egg-bed": {
+   "key": "props.mazda_egg_bed",
+   "use": {
+    "surface": "A11 wake: the egg on the red bed (world art, native 1:1)",
+    "consumer": "js/data/btf/adventures/w2.js",
+    "token": "props?.mazda_egg_bed"
+   },
+   "status": "INTEGRATED"
+  },
+  "E-egg-cracking": {
+   "key": "props.mazda_egg_cracking",
+   "use": {
+    "surface": "A11 crack: the egg cracks on the bed",
+    "consumer": "js/data/btf/adventures/w2.js",
+    "token": "props?.mazda_egg_cracking"
+   },
+   "status": "INTEGRATED"
+  },
+  "E-egg-held": {
+   "key": "props.mazda_egg_held",
+   "status": "REGISTERED — NO LIVE SURFACE",
+   "note": "Adventures have no item layer for these beats (A27 sword, A10 bread, A11/A09 egg); HATCH shows the Ship 005 egg master. Wiring them needs a placement decision."
+  },
+  "E-fit-black_leather_trench": {
+   "key": "items.fits.leather_trench",
+   "use": {
+    "surface": "store choice that sells the fit (SHOP)",
+    "consumer": "js/data/btf/adventures/systems.js",
+    "token": "I.fits?.[it.id]"
+   },
+   "status": "INTEGRATED"
+  },
+  "E-fit-boughi_v_blazer": {
+   "key": "items.fits.boughi_blazer",
+   "use": {
+    "surface": "store choice that sells the fit (SHOP)",
+    "consumer": "js/data/btf/adventures/systems.js",
+    "token": "I.fits?.[it.id]"
+   },
+   "status": "INTEGRATED"
+  },
+  "E-fit-church_shoes": {
+   "key": "items.fits.church_shoes",
+   "use": {
+    "surface": "THE ARMORY sells CHURCH SHOES (VOL 3 §2.1); choice icon",
+    "consumer": "js/data/btf/adventures/w3.js",
+    "token": "id:'church_shoes',kind:'fit'"
+   },
+   "status": "INTEGRATED"
+  },
+  "E-fit-drift_sneakers": {
+   "key": "items.fits.drift_sneakers",
+   "use": {
+    "surface": "store choice that sells the fit (SHOP)",
+    "consumer": "js/data/btf/adventures/systems.js",
+    "token": "I.fits?.[it.id]"
+   },
+   "status": "INTEGRATED"
+  },
+  "E-fit-grave_hoodie": {
+   "key": "items.fits.grave_hoodie",
+   "use": {
+    "surface": "store choice that sells the fit (SHOP)",
+    "consumer": "js/data/btf/adventures/systems.js",
+    "token": "I.fits?.[it.id]"
+   },
+   "status": "INTEGRATED"
+  },
+  "E-fit-krada_shades": {
+   "key": "items.fits.krada_shades",
+   "use": {
+    "surface": "store choice that sells the fit (SHOP)",
+    "consumer": "js/data/btf/adventures/systems.js",
+    "token": "I.fits?.[it.id]"
+   },
+   "status": "INTEGRATED"
+  },
+  "E-fit-slides": {
+   "key": "items.fits.slides",
+   "use": {
+    "surface": "store choice that sells the fit (SHOP)",
+    "consumer": "js/data/btf/adventures/systems.js",
+    "token": "I.fits?.[it.id]"
+   },
+   "status": "INTEGRATED"
+  },
+  "E-fit-tradeya_hoes_chain": {
+   "key": "items.fits.tradeya_chain",
+   "use": {
+    "surface": "store choice that sells the fit (SHOP)",
+    "consumer": "js/data/btf/adventures/systems.js",
+    "token": "I.fits?.[it.id]"
+   },
+   "status": "INTEGRATED"
+  },
+  "E-gun-chopstick_sniper-case": {
+   "key": "items.guns.chopstick_sniper.case",
+   "use": {
+    "surface": "ARMORY shop choice for the gun",
+    "consumer": "js/data/btf/adventures/w3.js",
+    "token": "items?.guns?.[g.id]?.case"
+   },
+   "status": "INTEGRATED"
+  },
+  "E-gun-chopstick_sniper-held": {
+   "key": "items.guns.chopstick_sniper.held",
+   "use": {
+    "surface": "combat FIGHT menu gun button (GUN WEAVING)",
+    "consumer": "js/scenes/combat2.js",
+    "token": "items?.guns?.[g.id]?.held"
+   },
+   "status": "INTEGRATED"
+  },
+  "E-gun-holy_baby_drake-case": {
+   "key": "items.guns.holy_baby_drake.case",
+   "use": {
+    "surface": "ARMORY shop choice for the gun",
+    "consumer": "js/data/btf/adventures/w3.js",
+    "token": "items?.guns?.[g.id]?.case"
+   },
+   "status": "INTEGRATED"
+  },
+  "E-gun-holy_baby_drake-held": {
+   "key": "items.guns.holy_baby_drake.held",
+   "use": {
+    "surface": "combat FIGHT menu gun button (GUN WEAVING)",
+    "consumer": "js/scenes/combat2.js",
+    "token": "items?.guns?.[g.id]?.held"
+   },
+   "status": "INTEGRATED"
+  },
+  "E-gun-lil_oga-case": {
+   "key": "items.guns.lil_oga.case",
+   "use": {
+    "surface": "ARMORY shop choice for the gun",
+    "consumer": "js/data/btf/adventures/w3.js",
+    "token": "items?.guns?.[g.id]?.case"
+   },
+   "status": "INTEGRATED"
+  },
+  "E-gun-lil_oga-held": {
+   "key": "items.guns.lil_oga.held",
+   "use": {
+    "surface": "combat FIGHT menu gun button (GUN WEAVING)",
+    "consumer": "js/scenes/combat2.js",
+    "token": "items?.guns?.[g.id]?.held"
+   },
+   "status": "INTEGRATED"
+  },
+  "E-gun-sapporo_shotgun-case": {
+   "key": "items.guns.sapporo_shotgun.case",
+   "use": {
+    "surface": "ARMORY shop choice for the gun",
+    "consumer": "js/data/btf/adventures/w3.js",
+    "token": "items?.guns?.[g.id]?.case"
+   },
+   "status": "INTEGRATED"
+  },
+  "E-gun-sapporo_shotgun-held": {
+   "key": "items.guns.sapporo_shotgun.held",
+   "use": {
+    "surface": "combat FIGHT menu gun button (GUN WEAVING)",
+    "consumer": "js/scenes/combat2.js",
+    "token": "items?.guns?.[g.id]?.held"
+   },
+   "status": "INTEGRATED"
+  },
+  "E-gun-the_rpg-case": {
+   "key": "items.guns.rpg.case",
+   "use": {
+    "surface": "ARMORY shop choice for the gun",
+    "consumer": "js/data/btf/adventures/w3.js",
+    "token": "items?.guns?.[g.id]?.case"
+   },
+   "status": "INTEGRATED"
+  },
+  "E-gun-the_rpg-held": {
+   "key": "items.guns.rpg.held",
+   "use": {
+    "surface": "combat FIGHT menu gun button (GUN WEAVING)",
+    "consumer": "js/scenes/combat2.js",
+    "token": "items?.guns?.[g.id]?.held"
+   },
+   "status": "INTEGRATED"
+  },
+  "E-item-boba": {
+   "key": "items.combat.boba",
+   "use": {
+    "surface": "combat ITEM menu, and the store choice that sells it",
+    "consumer": "js/scenes/combat2.js",
+    "token": "items?.combat?.[id]"
+   },
+   "status": "INTEGRATED"
+  },
+  "E-item-dragon_keef": {
+   "key": "items.combat.dragon_keef",
+   "use": {
+    "surface": "combat ITEM menu, and the store choice that sells it",
+    "consumer": "js/scenes/combat2.js",
+    "token": "items?.combat?.[id]"
+   },
+   "status": "INTEGRATED"
+  },
+  "E-item-garlic_knots": {
+   "key": "items.combat.garlic",
+   "use": {
+    "surface": "combat ITEM menu, and the store choice that sells it",
+    "consumer": "js/scenes/combat2.js",
+    "token": "items?.combat?.[id]"
+   },
+   "status": "INTEGRATED"
+  },
+  "E-item-jollof_takeout": {
+   "key": "items.combat.jollof",
+   "use": {
+    "surface": "combat ITEM menu, and the store choice that sells it",
+    "consumer": "js/scenes/combat2.js",
+    "token": "items?.combat?.[id]"
+   },
+   "status": "INTEGRATED"
+  },
+  "E-item-sapporo": {
+   "key": "items.combat.sapporo",
+   "use": {
+    "surface": "combat ITEM menu, and the store choice that sells it",
+    "consumer": "js/scenes/combat2.js",
+    "token": "items?.combat?.[id]"
+   },
+   "status": "INTEGRATED"
+  },
+  "E-item-smelling_salts": {
+   "key": "items.combat.salts",
+   "use": {
+    "surface": "combat ITEM menu, and the store choice that sells it",
+    "consumer": "js/scenes/combat2.js",
+    "token": "items?.combat?.[id]"
+   },
+   "status": "INTEGRATED"
+  },
+  "E-radio-bloodbath": {
+   "key": "ui.radio.bloodbath",
+   "use": {
+    "surface": "RICH RADIO track cards",
+    "consumer": "js/systems/radio.js",
+    "token": "ui?.radio?.[id]"
+   },
+   "status": "INTEGRATED"
+  },
+  "E-radio-montana": {
+   "key": "ui.radio.montana",
+   "use": {
+    "surface": "RICH RADIO track cards",
+    "consumer": "js/systems/radio.js",
+    "token": "ui?.radio?.[id]"
+   },
+   "status": "INTEGRATED"
+  },
+  "E-radio-octopus_brain": {
+   "key": "ui.radio.octopus_brain",
+   "use": {
+    "surface": "RICH RADIO track cards",
+    "consumer": "js/systems/radio.js",
+    "token": "ui?.radio?.[id]"
+   },
+   "status": "INTEGRATED"
+  },
+  "E-radio-playmakers": {
+   "key": "ui.radio.playmakers",
+   "use": {
+    "surface": "RICH RADIO track cards",
+    "consumer": "js/systems/radio.js",
+    "token": "ui?.radio?.[id]"
+   },
+   "status": "INTEGRATED"
+  },
+  "E-radio-shopping_addict": {
+   "key": "ui.radio.shopping_addict",
+   "use": {
+    "surface": "RICH RADIO track cards",
+    "consumer": "js/systems/radio.js",
+    "token": "ui?.radio?.[id]"
+   },
+   "status": "INTEGRATED"
+  },
+  "F-company_system": {
+   "key": "bedroom.company.company_system",
+   "status": "REGISTERED — ART GEOMETRY AMBIGUITY",
+   "note": "These exact-origin overlays draw a second, larger bed / a blanket pile that does not register with the runtime bedroom (Rich lies at x14–142, y282–346): they occlude or duplicate him. Per-woman bedroom_company states and the frozen asleep-floor states cover the same surface. Needs an Art call."
+  },
+  "F-covered_companion": {
+   "key": "bedroom.company.covered_companion",
+   "status": "REGISTERED — ART GEOMETRY AMBIGUITY",
+   "note": "These exact-origin overlays draw a second, larger bed / a blanket pile that does not register with the runtime bedroom (Rich lies at x14–142, y282–346): they occlude or duplicate him. Per-woman bedroom_company states and the frozen asleep-floor states cover the same surface. Needs an Art call."
+  },
+  "F-homie_floor": {
+   "key": "bedroom.company.homie_floor",
+   "status": "REGISTERED — ART GEOMETRY AMBIGUITY",
+   "note": "These exact-origin overlays draw a second, larger bed / a blanket pile that does not register with the runtime bedroom (Rich lies at x14–142, y282–346): they occlude or duplicate him. Per-woman bedroom_company states and the frozen asleep-floor states cover the same surface. Needs an Art call."
+  },
+  "F-mazda_flyby": {
+   "key": "bedroom.company.mazda_flyby",
+   "use": {
+    "surface": "bedroom company (majestic Mazda): exact-origin fly-by behind Rich",
+    "consumer": "js/systems/world_life.js",
+    "token": "company?.mazda_flyby"
+   },
+   "status": "INTEGRATED"
+  },
+  "F-prop-duoqlo_bag": {
+   "key": "bedroom.props.duoqlo_bag",
+   "use": {
+    "surface": "bedroom props Rich owns: exact-origin room overlay",
+    "consumer": "js/systems/world_life.js",
+    "token": "bedroom?.props?.[PROP_ART[id]]"
+   },
+   "status": "INTEGRATED"
+  },
+  "F-prop-jollof_trophy": {
+   "key": "bedroom.props.jollof_trophy",
+   "use": {
+    "surface": "bedroom props Rich owns: exact-origin room overlay",
+    "consumer": "js/systems/world_life.js",
+    "token": "bedroom?.props?.[PROP_ART[id]]"
+   },
+   "status": "INTEGRATED"
+  },
+  "F-prop-michigan_pennant": {
+   "key": "bedroom.props.michigan_pennant",
+   "use": {
+    "surface": "bedroom props Rich owns: exact-origin room overlay",
+    "consumer": "js/systems/world_life.js",
+    "token": "bedroom?.props?.[PROP_ART[id]]"
+   },
+   "status": "INTEGRATED"
+  },
+  "F-prop-plant": {
+   "key": "bedroom.props.plant",
+   "use": {
+    "surface": "bedroom props Rich owns: exact-origin room overlay",
+    "consumer": "js/systems/world_life.js",
+    "token": "bedroom?.props?.[PROP_ART[id]]"
+   },
+   "status": "INTEGRATED"
+  },
+  "F-prop-rookoko_painting": {
+   "key": "bedroom.props.rookoko_painting",
+   "use": {
+    "surface": "bedroom props Rich owns: exact-origin room overlay",
+    "consumer": "js/systems/world_life.js",
+    "token": "bedroom?.props?.[PROP_ART[id]]"
+   },
+   "status": "INTEGRATED"
+  },
+  "F-prop-trippin_red_poster": {
+   "key": "bedroom.props.trippin_red_poster",
+   "use": {
+    "surface": "bedroom props Rich owns: exact-origin room overlay",
+    "consumer": "js/systems/world_life.js",
+    "token": "bedroom?.props?.[PROP_ART[id]]"
+   },
+   "status": "INTEGRATED"
+  },
+  "F-prop-unused_cat_bed": {
+   "key": "bedroom.props.unused_cat_bed",
+   "use": {
+    "surface": "bedroom props Rich owns: exact-origin room overlay",
+    "consumer": "js/systems/world_life.js",
+    "token": "bedroom?.props?.[PROP_ART[id]]"
+   },
+   "status": "INTEGRATED"
+  },
+  "F-prop-waffle_mix_bag": {
+   "key": "bedroom.props.waffle_mix_bag",
+   "use": {
+    "surface": "bedroom props Rich owns: exact-origin room overlay",
+    "consumer": "js/systems/world_life.js",
+    "token": "bedroom?.props?.[PROP_ART[id]]"
+   },
+   "status": "INTEGRATED"
+  },
+  "F-rain_night_window": {
+   "key": "bedroom.window.rain_night_window",
+   "use": {
+    "surface": "bedroom on rain days: exact-origin rain-window overlay behind Rich",
+    "consumer": "js/systems/world_life.js",
+    "token": "window?.rain_night_window"
+   },
+   "status": "INTEGRATED"
+  },
+  "F-stars_night_sky": {
+   "key": "bedroom.window.stars_night_sky",
+   "status": "REGISTERED — NO LIVE SURFACE",
+   "note": "The runtime bedroom window always shows the approved daytime sky with clouds; no night-window condition exists."
+  },
+  "G-vol5-airport": {
+   "key": "environments.atl_airport",
+   "use": {
+    "surface": "environment atl_airport (HEARTSFELT-JACKSUN INTERNATIONAL) — mapped; no current node stages it",
+    "consumer": "js/data/art_integration.js",
+    "token": "atl_airport:env('atl_airport')"
+   },
+   "status": "INTEGRATED"
+  },
+  "H-bars": {
+   "key": "ui.treatments.bars",
+   "status": "REFERENCE — UI VISUAL-TREATMENT AUTHORITY ONLY",
+   "note": "Package H pixels carry example labels/values; they are never runtime images (package_h_rule). Kept as reference for a later UI pass."
+  },
+  "H-blood_bank_bill": {
+   "key": "ui.treatments.blood_bank_bill",
+   "status": "REFERENCE — UI VISUAL-TREATMENT AUTHORITY ONLY",
+   "note": "Package H pixels carry example labels/values; they are never runtime images (package_h_rule). Kept as reference for a later UI pass."
+  },
+  "H-garage": {
+   "key": "ui.treatments.garage",
+   "status": "REFERENCE — UI VISUAL-TREATMENT AUTHORITY ONLY",
+   "note": "Package H pixels carry example labels/values; they are never runtime images (package_h_rule). Kept as reference for a later UI pass."
+  },
+  "H-hatch": {
+   "key": "ui.treatments.hatch",
+   "status": "REFERENCE — UI VISUAL-TREATMENT AUTHORITY ONLY",
+   "note": "Package H pixels carry example labels/values; they are never runtime images (package_h_rule). Kept as reference for a later UI pass."
+  },
+  "H-hookah_rings": {
+   "key": "ui.treatments.hookah_rings",
+   "status": "REFERENCE — UI VISUAL-TREATMENT AUTHORITY ONLY",
+   "note": "Package H pixels carry example labels/values; they are never runtime images (package_h_rule). Kept as reference for a later UI pass."
+  },
+  "H-jollof_wars": {
+   "key": "ui.treatments.jollof_wars",
+   "status": "REFERENCE — UI VISUAL-TREATMENT AUTHORITY ONLY",
+   "note": "Package H pixels carry example labels/values; they are never runtime images (package_h_rule). Kept as reference for a later UI pass."
+  },
+  "H-pickup": {
+   "key": "ui.treatments.pickup",
+   "status": "REFERENCE — UI VISUAL-TREATMENT AUTHORITY ONLY",
+   "note": "Package H pixels carry example labels/values; they are never runtime images (package_h_rule). Kept as reference for a later UI pass."
+  },
+  "H-pier": {
+   "key": "ui.treatments.pier",
+   "status": "REFERENCE — UI VISUAL-TREATMENT AUTHORITY ONLY",
+   "note": "Package H pixels carry example labels/values; they are never runtime images (package_h_rule). Kept as reference for a later UI pass."
+  },
+  "H-receipts": {
+   "key": "ui.treatments.receipts",
+   "status": "REFERENCE — UI VISUAL-TREATMENT AUTHORITY ONLY",
+   "note": "Package H pixels carry example labels/values; they are never runtime images (package_h_rule). Kept as reference for a later UI pass."
+  },
+  "H-rich_radio": {
+   "key": "ui.treatments.rich_radio",
+   "status": "REFERENCE — UI VISUAL-TREATMENT AUTHORITY ONLY",
+   "note": "Package H pixels carry example labels/values; they are never runtime images (package_h_rule). Kept as reference for a later UI pass."
+  },
+  "H-touge": {
+   "key": "ui.treatments.touge",
+   "status": "REFERENCE — UI VISUAL-TREATMENT AUTHORITY ONLY",
+   "note": "Package H pixels carry example labels/values; they are never runtime images (package_h_rule). Kept as reference for a later UI pass."
+  },
+  "H-vehicle_listing_cards": {
+   "key": "ui.treatments.vehicle_listing_cards",
+   "status": "REFERENCE — UI VISUAL-TREATMENT AUTHORITY ONLY",
+   "note": "Package H pixels carry example labels/values; they are never runtime images (package_h_rule). Kept as reference for a later UI pass."
+  },
+  "H-what_we_on": {
+   "key": "ui.treatments.what_we_on",
+   "status": "REFERENCE — UI VISUAL-TREATMENT AUTHORITY ONLY",
+   "note": "Package H pixels carry example labels/values; they are never runtime images (package_h_rule). Kept as reference for a later UI pass."
+  }
+ }
+}

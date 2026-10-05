@@ -1,0 +1,80 @@
+// RC2 B3 text edits. Each entry: [file, oldSource, newSource, kind]
+//   kind 'split'    = PROTECTED Nigerian line, words untouched, only cut into consecutive boxes (<=3 sentences each)
+//   kind 'shorten'  = non-protected box that was over 3 sentences, rewritten
+//   kind 'simplify' = non-protected box (<=3 sentences) rewritten plainer / funnier
+// Source strings are exact (String.raw keeps the \' escapes the source files use).
+const A='js/data/btf/adventures/';
+export const EDITS=[
+ // ---------- PROTECTED: SPLIT ONLY (word for word) ----------
+ [A+'w1_life.js',String.raw`N('warm. loud. family-run. the auntie at the register already knows.')`,String.raw`N('warm. loud. family-run.'),N('the auntie at the register already knows.')`,'split'],
+ [A+'w1_life.js',String.raw`N('aisles of garri. plantain chips. a freezer of malt. stockfish.')`,String.raw`N('aisles of garri. plantain chips.'),N('a freezer of malt. stockfish.')`,'split'],
+ [A+'w2.js',String.raw`N('you put jollof in the broth anyway. it works. hina tries it. she does not say anything nice, which from her is everything.')`,String.raw`N('you put jollof in the broth anyway. it works.'),N('hina tries it. she does not say anything nice, which from her is everything.')`,'split'],
+ [A+'w2.js',String.raw`E('uncle_sunday','a pot-bellied man in slides and a buba is buying goldfish food. under his arm: the last loaf of agege bread. why is it in a pet store? nobody knows.')`,String.raw`E('uncle_sunday','a pot-bellied man in slides and a buba is buying goldfish food. under his arm: the last loaf of agege bread.'),N('why is it in a pet store? nobody knows.')`,'split'],
+ [A+'w2.js',String.raw`N('he goes down laughing. "AH! YOU HAVE STRENGTH." he hands over the whole loaf.')`,String.raw`N('he goes down laughing. "AH! YOU HAVE STRENGTH."'),N('he hands over the whole loaf.')`,'split'],
+ [A+'w2.js',String.raw`N('you go down first. he stands over you, delighted. "YOU TRIED." he tears the loaf in half anyway.')`,String.raw`N('you go down first. he stands over you, delighted.'),N('"YOU TRIED." he tears the loaf in half anyway.')`,'split'],
+ [A+'w2.js',String.raw`E('uncle_sunday','uncle sunday is already here. three lines out. a folding chair. a cooler.')`,String.raw`E('uncle_sunday','uncle sunday is already here. three lines out.'),N('a folding chair. a cooler.')`,'split'],
+ [A+'w2.js',String.raw`S('uncle_sunday','she won\'t eat treats. she wants fish. sit down. i teach you.')`,String.raw`S('uncle_sunday','she won\'t eat treats. she wants fish.'),S('uncle_sunday','sit down. i teach you.')`,'split'],
+ [A+'w2.js',String.raw`N('CAST. WAIT. REEL. he says it like a prayer.')`,String.raw`N('CAST. WAIT. REEL.'),N('he says it like a prayer.')`,'split'],
+ [A+'w4.js',String.raw`S('bunmi','i knew you before all this. the castle. the vampire thing. all of it.')`,String.raw`S('bunmi','i knew you before all this.'),S('bunmi','the castle. the vampire thing. all of it.')`,'split'],
+ [A+'w5.js',String.raw`N('he leaves. not dramatically. just — gone. no more crumbs on the porch. not until the fame.')`,String.raw`N('he leaves. not dramatically. just — gone.'),N('no more crumbs on the porch. not until the fame.')`,'split'],
+ [A+'new_oga_m1_m3.js',String.raw`S(null,"oga. you're cooking noodles for tips. i have an idea. you won't like it.")`,String.raw`S(null,"oga. you're cooking noodles for tips."),S(null,"i have an idea. you won't like it.")`,'split'],
+ [A+'new_oga_m1_m3.js',String.raw`N('Smallie sells Blood X out of a boba shop. back table. always eating. cousin in the parking lot.')`,String.raw`N('Smallie sells Blood X out of a boba shop. back table. always eating.'),N('cousin in the parking lot.')`,'split'],
+ [A+'new_oga_m1_m3.js',String.raw`S(null,'Hello. Hello. Rich. Hello. Can you hear me. Hello.')`,String.raw`S(null,'Hello. Hello. Rich.'),S(null,'Hello. Can you hear me. Hello.')`,'split'],
+ [A+'new_oga_m4.js',String.raw`S('gbenga','Your friend Carlos. From the Instagram. Bring him to this address. Tell him it is a party. It is not a party.')`,String.raw`S('gbenga','Your friend Carlos. From the Instagram. Bring him to this address.'),S('gbenga','Tell him it is a party. It is not a party.')`,'split'],
+
+ // ---------- OVER 3 SENTENCES, NOT PROTECTED: SHORTEN ----------
+ [A+'w1_life.js',String.raw`YO. YO. SIR. YOU HAVE BEAUTIFUL SKIN. ONE SECOND.`,String.raw`SIR. YOU HAVE BEAUTIFUL SKIN. ONE SECOND.`,'shorten'],
+ [A+'w2.js',String.raw`a window seat. couples around him. a mom with a stroller. a guy on a laptop.`,String.raw`a window seat. couples everywhere. a mom with a stroller.`,'shorten'],
+ [A+'w2.js',String.raw`towel. robe. slippers. steam everywhere. montana plays faintly, somehow.`,String.raw`towel, robe, slippers, steam. montana plays faintly, somehow.`,'shorten'],
+ [A+'w3.js',String.raw`LESSON ONE. ONE-INCH PETTY. YOU DON\'T NEED SPACE. YOU NEED SPITE.`,String.raw`LESSON ONE: ONE-INCH PETTY. YOU DON\'T NEED SPACE. YOU NEED SPITE.`,'shorten'],
+ [A+'w3.js',String.raw`also — you look like a man who needs guns. THE ARMORY. behind the church on 3rd. tell deacon brass bruce sent you.`,String.raw`you need guns. try THE ARMORY, behind the church on 3rd. tell deacon brass bruce sent you.`,'shorten'],
+ [A+'w3.js',String.raw`a cat. no hair. allergic anyway. worth it.`,String.raw`a cat with no hair. rich is allergic anyway. worth it.`,'shorten'],
+ [A+'w3.js',String.raw`the grave is full of the same guy. same hoodie. same haircut. all named kevin.`,String.raw`the grave is full of the same guy. same hoodie, same haircut, all named kevin.`,'shorten'],
+ [A+'w4.js',String.raw`YO. RICH ALUCARD. I GOT YOU. TWO ICED COFFEES, ONE FOR EACH OF US.`,String.raw`YO. RICH ALUCARD. I GOT YOU TWO ICED COFFEES, ONE EACH.`,'shorten'],
+ [A+'w4.js',String.raw`he drinks both. back to back. no hands shaking. eyes wide the whole castle block.`,String.raw`he drinks both, back to back. his eyes go wide. his hands vibrate.`,'shorten'],
+ [A+'w4.js',String.raw`three tells in a week. the fire-safety door. the blurred story. tokyo tony\'s text.`,String.raw`three red flags this week: the fire-safety door, the blurred story, tokyo tony\'s text.`,'shorten'],
+ [A+'w4.js',String.raw`confront me? about what? i live here. i love it here.`,String.raw`confront me? about what? i love it here.`,'shorten'],
+ [A+'w4.js',String.raw`tristan hit you with two extra tickets. trippin\' red. the hollow bowl. saturday.`,String.raw`tristan has two extra tickets: trippin\' red, the hollow bowl, saturday.`,'shorten'],
+ [A+'w5.js',String.raw`he touches his head. locs. all of them. still there.`,String.raw`he touches his head. the locs are all still there.`,'shorten'],
+ [A+'../dates_cast.js',String.raw`krada?? she holds it like it\'s fragile. it isn\'t. she is, a little.`,String.raw`krada?? she holds it like it\'s fragile, though it isn\'t. she is, a little.`,'shorten'],
+ ['js/systems/castle.js',String.raw`PURE FLEX. RARE FISH. RICH CANNOT GO IN. GUESTS LOVE IT.`,String.raw`RARE FISH. RICH CANNOT GO IN. GUESTS LOVE IT.`,'shorten'],
+ // F15 romance arcs
+ ['js/frag/F15/emerald.js',"Okay. Saturday. Nine a.m. I'm bringing gloves.","Okay. Saturday, nine a.m. I'm bringing gloves.",'shorten'],
+ ['js/frag/F15/emerald.js',"I like a mess that ends. School doesn't end. Work doesn't end. A floor ends.","I like a mess that ends. School and work never do. A floor ends.",'shorten'],
+ ['js/frag/F15/emerald.js',"She takes the mop and shows him. Halfway through, she's humming. It's under her breath and on pitch. She notices Rich listening and stops.","She takes the mop and shows him. Halfway through, she's humming, under her breath and on pitch. She notices Rich listening and stops.",'shorten'],
+ ['js/frag/F15/emerald.js',"She answers fast. Right. Right. Right. Then she misses one and puts her forehead on the table.","She answers fast. Right, right, right. Then she misses one and puts her forehead on the table.",'shorten'],
+ ['js/frag/F15/emerald.js',`He can hear the voice, though. It's different: younger and louder. She laughs at something. She rolls her eyes at something else. A few English words slip through: "exam," "Thursday," "fine, I'm fine."`,`He can hear the voice, though. It's younger and louder. She laughs, rolls her eyes, and a few English words slip through: "exam," "Thursday," "fine, I'm fine."`,'shorten'],
+ ['js/frag/F15/emerald.js',"It's not small. My notes are on it. Months of notes. I can't print notes.","It's not small. My notes are on it, months of them. I can't print notes.",'shorten'],
+ ['js/frag/F15/emerald.js',"I think I passed. I don't know. I don't care right now. I'll care tomorrow.","I think I passed. I don't know, and I don't care right now. I'll care tomorrow.",'shorten'],
+ ['js/frag/F15/emerald.js',"A student recital in a hall built for thousands. Most of the seats are empty. Programs fanned on laps in the first few rows. She comes out in something that isn't a club outfit, something she clearly picked herself, and carries the folder Rich found, though she never opens it.","A student recital in a hall built for thousands, mostly empty. She comes out in something she clearly picked herself, not a club outfit. She carries the folder Rich found and never opens it.",'shorten'],
+ ['js/frag/F15/emerald.js',"Her eyes close for the first line and open for the second. She doesn't look tired. She doesn't look like someone who's working. She looks like she's exactly where she meant to be.","Her eyes close for the first line and open for the second. She doesn't look tired, or like she's working. She looks exactly where she meant to be.",'shorten'],
+ ['js/frag/F15/emerald.js',`She answers in Farsi, walking a few steps away. Rich doesn't know the words. A few English ones slip through: "Shrine," "I sang." Then, halfway through, he hears his own name.`,`She answers in Farsi, walking a few steps away. A few English words slip through: "Shrine," "I sang." Then, halfway through, he hears his own name.`,'shorten'],
+ ['js/frag/F15/rosalyn.js',`Also, the actual line is "Best on the vine!" Everybody gets it wrong. Not you. I'm just saying. Generally.`,`The actual line is "Best on the vine!" Everybody gets it wrong. Not you, generally.`,'shorten'],
+ ['js/frag/F15/rosalyn.js',"I. That's. I don't actually. I just know, like, a normal amount.","That's. I don't actually. I just know, like, a normal amount.",'shorten'],
+ ['js/frag/F15/rosalyn.js',"No, see, the cat's third eye is on the wrong side. In the original it faces left. Look, I'll show you. Here, hold this.","No, see, the cat's third eye is on the wrong side. In the original it faces left. Here, hold this.",'shorten'],
+ ['js/frag/F15/rosalyn.js',"Rich. Rich. Are you awake. Are vampires awake.","Rich. Are you awake. Are vampires awake.",'shorten'],
+ ['js/frag/F15/rosalyn.js',"There is a. It's huge. It's the size of a. It looked at me.","There is a. It's huge, the size of a. It looked at me.",'shorten'],
+ ['js/frag/F15/rosalyn.js',"Door's open. Don't let it out. Or in. I don't know which is worse.","Door's open. Don't let it out, or in. I don't know which is worse.",'shorten'],
+ ['js/frag/F15/rosalyn.js',"Shelves of Yuck Wars figures, half of them still boxed. The Snake King Xanther costume from the con on a mannequin, glasses folded on its head. A framed poster: BEST ON THE VINE!, with the correct wording. The Cherry-Cruel Cherry figure sits on the top shelf.","Shelves of Yuck Wars figures, half still boxed. A Snake King Xanther costume on a mannequin, and a framed poster: BEST ON THE VINE!, correct wording. The Cherry-Cruel Cherry figure sits on the top shelf.",'shorten'],
+ ['js/frag/F15/rosalyn.js',"Top shelf. Left. You can look. Don't touch.","Top shelf, left. You can look. Don't touch.",'shorten'],
+ ['js/frag/F15/rosalyn.js',"Wait, watch the hand. Watch his hand. You missed it. I'm rewinding.","Wait, watch his hand. You missed it. I'm rewinding.",'shorten'],
+ ['js/frag/F15/roxy.js',"Because it's mine. My hours. My money. My call.","Because it's mine. My hours, my money, my call.",'shorten'],
+ ['js/frag/F15/roxy.js',"Data science. It's patterns. People think they're random. They're not.","Data science is patterns. People think they're random. They're not.",'shorten'],
+ ['js/frag/F15/roxy.js',"You, for example. Same booth. Left hand first. Every time.","You, for example. Same booth, left hand first, every time.",'shorten'],
+ ['js/frag/F15/roxy.js',"She takes a light hit, shakes her head, laughs, and comes right back harder. Normal. Easy. Fun.","She takes a light hit, shakes her head, laughs, and comes right back harder. Normal, easy, fun.",'shorten'],
+ ['js/frag/F15/roxy.js',"Dogs. Horses. Goats are underrated. Pigs are smarter than half my study group.","Dogs. Horses. Goats are underrated, and pigs are smarter than half my study group.",'shorten'],
+
+ // ---------- NON-NIGERIAN JOKES: SIMPLIFY (<=3 sentences already, made plainer / faster) ----------
+ [A+'w2.js',String.raw`respect. real ones talk texture.`,String.raw`respect. nobody raps about juice pouches like you.`,'simplify'],
+ [A+'w3.js',String.raw`i was tailing one of them. they multiplied. this is not my first forty kevins.`,String.raw`i was following one kevin. then there were forty.`,'simplify'],
+ [A+'w3.js',String.raw`gun weaving. you fire and move in the same breath, same as the old ways. every gun on this wall does something the blood can\'t.`,String.raw`gun weaving. shoot and move at the same time. every gun here does something blood can\'t.`,'simplify'],
+ [A+'w3.js',String.raw`are both acting like they\'re the main character tonight. this will not end quietly.`,String.raw`both think they\'re the main character tonight. this will not end quietly.`,'simplify'],
+ [A+'w3.js',String.raw`you chase her past a dark boughi-v and two turns you didn\'t know the mall had.`,String.raw`you chase her past a dark store and two turns the mall never had.`,'simplify'],
+ [A+'w3.js',String.raw`a 95% shot on xcom whiffs completely. tristan screams at the monitor like it owes him rent.`,String.raw`a 95% shot misses. tristan screams at the screen like it owes him rent.`,'simplify'],
+ [A+'w3.js',String.raw`someone in league says something in all caps. tristan mutes his mic and argues with the screen anyway.`,String.raw`a stranger types in all caps. tristan mutes him and argues with the screen anyway.`,'simplify'],
+ [A+'w3.js',String.raw`the window goes grey, then pink. tristan doesn\'t notice until his character starts glowing from the sunrise filter.`,String.raw`the window goes grey, then pink. tristan does not notice.`,'simplify'],
+ [A+'w4.js',String.raw`staged status. a receiving line. the room is very good at pretending not to be watching the door.`,String.raw`a receiving line. everybody pretends not to watch the door.`,'simplify'],
+ [A+'w4.js',String.raw`a DM from a locked account: velvet vantablack. she checks her ring light before she checks on you — even here, in text.`,String.raw`a DM from velvet vantablack. she checks her ring light before she checks on you.`,'simplify'],
+ [A+'w4.js',String.raw`vampires don\'t dress as monsters tonight — they dress as human jobs. it\'s the one night everyone commits.`,String.raw`tonight vampires dress as human jobs. nobody commits harder.`,'simplify'],
+ [A+'w4.js',String.raw`techno this time. a different crowd — one that has never heard of any rapper, ever, on purpose.`,String.raw`techno night. nobody here knows any rapper. on purpose.`,'simplify']
+];

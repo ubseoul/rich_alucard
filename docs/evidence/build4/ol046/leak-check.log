@@ -1,0 +1,5 @@
+
+> rich-alucard-static-release@0.0.0 leak-check
+> node tools/leak-check.mjs
+
+PASS leak check source tree (3381 files, no sealed implementation content)

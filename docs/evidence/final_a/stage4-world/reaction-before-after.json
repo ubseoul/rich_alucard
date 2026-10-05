@@ -1,0 +1,72 @@
+{
+ "before": {
+  "fixture": "same canonical rave/car/clout/relationships; same stored authored report; acceptance seeded after offer observation",
+  "offer": "unavailable",
+  "report": {
+   "day": 16,
+   "sections": [
+    {
+     "id": "F04.war-room-summary",
+     "fragment": "F04",
+     "title": "WAR ROOM",
+     "text": "Inglewood: rough night. Cash $-50."
+    }
+   ]
+  },
+  "mail": [],
+  "company": null,
+  "replayMail": 0,
+  "idleReport": {
+   "day": 17,
+   "sections": [
+    {
+     "id": "F04.war-room-summary",
+     "fragment": "F04",
+     "title": "WAR ROOM",
+     "text": "Inglewood: rough night. Cash $-50."
+    }
+   ]
+  },
+  "idleMail": 0,
+  "eligibleStatus": "accepted",
+  "arrivedStatus": "accepted",
+  "activeAfterFame": true
+ },
+ "after": {
+  "fixture": "same canonical rave/car/clout/relationships; same stored authored report; acceptance seeded after offer observation",
+  "offer": "available",
+  "report": {
+   "day": 16,
+   "sections": [
+    {
+     "id": "F04.war-room-summary",
+     "fragment": "F04",
+     "title": "WAR ROOM",
+     "text": "Inglewood: rough night. Cash $-50."
+    }
+   ]
+  },
+  "mail": [
+   {
+    "read": false,
+    "day": 17,
+    "id": "war-room:night:16:F04.war-room-summary",
+    "kind": "world",
+    "title": "WAR ROOM",
+    "body": "Inglewood: rough night. Cash $-50.",
+    "app": "warRoom"
+   }
+  ],
+  "company": {
+   "kind": "homie",
+   "id": "tunde",
+   "day": 17
+  },
+  "replayMail": 1,
+  "idleReport": null,
+  "idleMail": 0,
+  "eligibleStatus": "accepted",
+  "arrivedStatus": "closed_fame",
+  "activeAfterFame": false
+ }
+}

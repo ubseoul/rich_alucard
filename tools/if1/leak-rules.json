@@ -1,0 +1,27 @@
+{
+ "schema": 1,
+ "note": "OPEN-build leak protection (F00). Structural rules only — this file names NO sealed content. A private HQ session may supply an additional denylist file with --denylist; it lives in the private repository and is never committed here.",
+ "forbiddenPaths": [
+  "private_overlay/**",
+  "sealed_overlay/**",
+  "overlay/**",
+  "hq/**",
+  "assets/sealed/**",
+  "js/sealed/**",
+  "dist-private/**",
+  ".hq/**"
+ ],
+ "allowedPaths": [
+  "js/sealed/pack.js"
+ ],
+ "emptySlot": {
+  "path": "js/sealed/pack.js",
+  "sha256": "dd181088644ddb55c1bf7706b885bcc03c911433d3cf830e0724afb50f22e207",
+  "note": "The OPEN sealed pack slot must be byte-identical (LF-normalized) to the committed empty slot."
+ },
+ "installCallAllowedIn": [
+  "js/systems/sealed.js"
+ ],
+ "scanExtensions": [".js", ".mjs", ".html", ".css", ".json", ".md", ".txt", ".yml", ".yaml"],
+ "skipDirs": [".git", "node_modules", "dist", "dist-private", "work", "reports", ".claude"]
+}

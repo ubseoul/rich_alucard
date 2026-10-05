@@ -1,0 +1,142 @@
+{
+  "combat": false,
+  "env": "boba_shop",
+  "world": {
+    "x": 0,
+    "y": 0,
+    "w": 360,
+    "h": 468
+  },
+  "actors": [
+    {
+      "slot": "left",
+      "id": "rich",
+      "tag": "IMG",
+      "src": "assets/rich_standing_right.png",
+      "ok": true,
+      "nw": 80,
+      "nh": 96,
+      "css": {
+        "x": -77,
+        "y": 104,
+        "w": 280,
+        "h": 336
+      },
+      "visible": {
+        "x": 17.5,
+        "y": 230,
+        "w": 94.5,
+        "h": 182
+      },
+      "sprite": {
+        "x": -77,
+        "y": 104,
+        "w": 280,
+        "h": 336
+      },
+      "face": {
+        "x": 35,
+        "y": 261.5,
+        "w": 66.5,
+        "h": 49
+      },
+      "contact": {
+        "x": 63,
+        "y": 412
+      },
+      "world": {
+        "x": 72,
+        "y": 372
+      },
+      "k": 3.5,
+      "hidden": false,
+      "rendering": "pixelated",
+      "body": {
+        "x": 18,
+        "y": 230,
+        "w": 94,
+        "h": 182
+      },
+      "pixels": 11609
+    },
+    {
+      "slot": "right",
+      "id": "smallie_cousin",
+      "tag": "IMG",
+      "src": "assets/build4/p_d/p_d_smallie_cousin_80x96.png",
+      "ok": true,
+      "nw": 80,
+      "nh": 96,
+      "css": {
+        "x": 168,
+        "y": 104,
+        "w": 280,
+        "h": 336
+      },
+      "visible": {
+        "x": 266,
+        "y": 237,
+        "w": 77,
+        "h": 178.5
+      },
+      "sprite": {
+        "x": 168,
+        "y": 104,
+        "w": 280,
+        "h": 336
+      },
+      "face": {
+        "x": 276.5,
+        "y": 265,
+        "w": 52.5,
+        "h": 52.5
+      },
+      "contact": {
+        "x": 308,
+        "y": 412
+      },
+      "world": {
+        "x": 198,
+        "y": 372
+      },
+      "k": 3.5,
+      "hidden": false,
+      "rendering": "pixelated",
+      "body": {
+        "x": 266,
+        "y": 237,
+        "w": 77,
+        "h": 179
+      },
+      "pixels": 9173
+    }
+  ],
+  "pairs": [
+    {
+      "a": "rich",
+      "b": "smallie_cousin",
+      "overlap": 0,
+      "frac": 0
+    }
+  ],
+  "ui": {
+    "box": {
+      "x": 8,
+      "y": 489.5625,
+      "w": 344,
+      "h": 130
+    },
+    "bubble": null,
+    "choices": [],
+    "hud": [],
+    "telegraph": null,
+    "panel": null,
+    "title": null,
+    "location": {
+      "x": 8,
+      "y": 8,
+      "w": 100.1875,
+      "h": 17.125
+    }
+  }
+}

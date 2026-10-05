@@ -1,0 +1,142 @@
+{
+  "combat": false,
+  "env": "carson_owambe",
+  "world": {
+    "x": 0,
+    "y": 0,
+    "w": 360,
+    "h": 468
+  },
+  "actors": [
+    {
+      "slot": "left",
+      "id": "rich",
+      "tag": "IMG",
+      "src": "assets/rich_standing_right.png",
+      "ok": true,
+      "nw": 80,
+      "nh": 96,
+      "css": {
+        "x": -83,
+        "y": 104,
+        "w": 280,
+        "h": 336
+      },
+      "visible": {
+        "x": 11.5,
+        "y": 230,
+        "w": 94.5,
+        "h": 182
+      },
+      "sprite": {
+        "x": -83,
+        "y": 104,
+        "w": 280,
+        "h": 336
+      },
+      "face": {
+        "x": 29,
+        "y": 261.5,
+        "w": 66.5,
+        "h": 49
+      },
+      "contact": {
+        "x": 57,
+        "y": 412
+      },
+      "world": {
+        "x": 72,
+        "y": 372
+      },
+      "k": 3.5,
+      "hidden": false,
+      "rendering": "pixelated",
+      "body": {
+        "x": 12,
+        "y": 230,
+        "w": 94,
+        "h": 182
+      },
+      "pixels": 11609
+    },
+    {
+      "slot": "right",
+      "id": "auntie",
+      "tag": "IMG",
+      "src": "assets/before_the_fame/characters/auntie/auntie_register_neutral_80x96.png",
+      "ok": true,
+      "nw": 80,
+      "nh": 96,
+      "css": {
+        "x": 159.5,
+        "y": 104,
+        "w": 280,
+        "h": 336
+      },
+      "visible": {
+        "x": 250.5,
+        "y": 216,
+        "w": 98,
+        "h": 199.5
+      },
+      "sprite": {
+        "x": 159.5,
+        "y": 104,
+        "w": 280,
+        "h": 336
+      },
+      "face": {
+        "x": 278.5,
+        "y": 233.5,
+        "w": 31.5,
+        "h": 35
+      },
+      "contact": {
+        "x": 299.5,
+        "y": 412
+      },
+      "world": {
+        "x": 198,
+        "y": 372
+      },
+      "k": 3.5,
+      "hidden": false,
+      "rendering": "pixelated",
+      "body": {
+        "x": 251,
+        "y": 216,
+        "w": 98,
+        "h": 200
+      },
+      "pixels": 10829
+    }
+  ],
+  "pairs": [
+    {
+      "a": "rich",
+      "b": "auntie",
+      "overlap": 0,
+      "frac": 0
+    }
+  ],
+  "ui": {
+    "box": {
+      "x": 8,
+      "y": 489.5625,
+      "w": 344,
+      "h": 130
+    },
+    "bubble": null,
+    "choices": [],
+    "hud": [],
+    "telegraph": null,
+    "panel": null,
+    "title": null,
+    "location": {
+      "x": 8,
+      "y": 8,
+      "w": 116.03125,
+      "h": 17.125
+    }
+  }
+}

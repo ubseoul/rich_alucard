@@ -1,0 +1,11 @@
+{
+  "ok": true,
+  "state": {
+    "owned": true,
+    "equipped": "mac_and_cheese",
+    "cars": [
+      "toyota_supra_mk4_001"
+    ]
+  },
+  "errors": []
+}

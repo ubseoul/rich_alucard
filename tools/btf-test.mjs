@@ -1,0 +1,203 @@
+// BTF Rough Complete deterministic gate: schema v16 migration, life clock/calendar, temptation cadence,
+// adventure graph validation, and a headless walker that drives every adventure branch to completion.
+import assert from 'node:assert/strict';
+import {readFile,readdir} from 'node:fs/promises';
+import path from 'node:path';
+import vm from 'node:vm';
+import {pathToFileURL} from 'node:url';
+import {withIf1,IF1_TAIL} from './if1/harness.mjs';
+// Reuse compilation only. Each case still creates its own VM, storage and production state.
+const compiledSources=new Map();
+async function execute(root,file,context){
+ if(file==='js/if1/flag_defaults.js'&&process.env.RA_FLAGS_DARK==='1'){new vm.Script('window.RAFlagDefaults=Object.freeze({});').runInContext(context);return;}
+ const filename=path.resolve(root,file);
+ if(!compiledSources.has(filename))compiledSources.set(filename,new vm.Script(await readFile(filename,'utf8'),{filename:file}));
+ compiledSources.get(filename).runInContext(context);
+}
+
+export async function loadBtf(root,{seedState=null,if1=true}={}){
+ const store=new Map();const storage={getItem:k=>store.has(k)?store.get(k):null,setItem:(k,v)=>store.set(k,String(v)),removeItem:k=>store.delete(k)};
+ const listeners={};
+ const stubEl=()=>({style:{},dataset:{},classList:{add(){},remove(){},toggle(){},contains:()=>false},addEventListener(){},removeEventListener(){},append(){},remove(){},querySelector:()=>null,querySelectorAll:()=>[],setAttribute(){},getContext:()=>new Proxy({},{get:()=>()=>({width:0})}),getBoundingClientRect:()=>({left:0,top:0,width:270,height:480})});
+ const context={console,structuredClone,setTimeout,clearTimeout,setInterval,clearInterval,Intl,URLSearchParams,location:{search:''},
+  localStorage:storage,sessionStorage:storage,requestAnimationFrame:fn=>setTimeout(()=>fn(0),0),cancelAnimationFrame:clearTimeout,
+  document:{addEventListener(t,f){(listeners[t]=listeners[t]||[]).push(f)},removeEventListener(){},dispatchEvent(e){for(const f of listeners[e.type]||[])f(e);return true},querySelector:()=>null,querySelectorAll:()=>[],createElement:stubEl,body:stubEl()},
+  CustomEvent:function(type,init){this.type=type;this.detail=init?.detail;},Image:function(){return stubEl()},CSS:{escape:s=>s}};
+ context.window=context;vm.createContext(context);
+ if(seedState)storage.setItem('rich_alucard_save_v1',JSON.stringify(seedState));
+ const engine=['js/engine/state.js','js/data/save_fixtures.js','js/engine/scenes.js','js/engine/display.js','js/engine/pixel.js','js/engine/minigames.js','js/data/opportunities.js','js/data/people.js','js/systems/people.js','js/data/world_events.js','js/systems/world_events.js','js/systems/budget.js',
+  'js/systems/life.js','js/systems/life_clock.js','js/data/art_registry.js','js/data/art_integration.js','js/data/art_surfaces.js','js/data/btf/people.js','js/systems/relations.js','js/systems/rewards.js','js/engine/adventures.js','js/data/btf/environments.js','js/systems/temptations.js','js/systems/places.js','js/systems/sealed.js','js/systems/fame.js','js/systems/vampgram.js','js/systems/radio.js','js/data/btf/dsl.js'];
+ for(const f of (if1?withIf1(engine):engine)){
+  await execute(root,f,context);
+  if(f==='js/data/art_registry.js'&&!if1){
+   await execute(root,'js/data/art/registry_parts.js',context);
+  }
+  if(f==='js/data/art/registry_parts.js'||f==='js/data/art_registry.js'&&!if1){
+   for(const part of (await readdir(path.join(root,'js/data/art/parts'))).filter(p=>p.endsWith('.js')).sort())
+    await execute(root,`js/data/art/parts/${part}`,context);
+  }
+ } // IF-1 modules at production anchors (all fragment flags OFF)
+ const {contentFiles}=await import(pathToFileURL(path.join(root,'tools','sync-index.mjs')).href);
+ for(const f of await contentFiles()){if((f.startsWith('js/minigames/')&&f!=='js/minigames/touge.js')||f==='js/data/bars_words.js')continue;await execute(root,f,context);}
+ for(const f of (if1?IF1_TAIL:[]))await execute(root,f,context);
+ return context;
+}
+
+// Drive one adventure from start to end with a choice policy. Minigames/fights get synthetic results.
+export function walk(ctx,id,{vars={},pick=(choices,step)=>0,minigame=()=>({outcome:'win',score:1,rewards:{}}),fight=()=>({outcome:'win'}),maxSteps=400}={}){
+ const {RAAdventures}=ctx;const run=RAAdventures.start(id,{from:'test',vars});assert(run,`could not start ${id}`);
+ let node=run.node,steps=0;const visited=[];
+ while(node&&steps++<maxSteps){
+  const r=RAAdventures.enter(node);assert(r,`${id}: enter failed at ${node}`);visited.push(node);const n=r.node;
+  if(typeof n.lines==='function'){for(const line of n.lines(RAAdventures.context())||[])if(line&&line[0]==='rich')assert(line[2]&&(line[2].vp||line[2].canon),`${id}.${node}: Rich line not marked [VP]: ${line[1]}`);}
+  if(typeof n.title==='function')n.title(RAAdventures.context());
+  if(n.end){const res=RAAdventures.complete(node);return {res,visited};}
+  if(n.route){const next=n.route.next;RAAdventures.context().set('route','walk');node=next;continue;}
+  if(n.choices){const list=RAAdventures.choicesFor(node).filter(c=>!c.locked);if(!list.length){assert(n.next,`${id}.${node}: every choice locked and no fallback next`);node=RAAdventures.nextOf(node);continue;}const c=list[Math.min(list.length-1,pick(list,steps))];node=RAAdventures.choose(node,c.index);continue;}
+  if(n.minigame){if(typeof n.minigame.params==='function')n.minigame.params(RAAdventures.context());node=RAAdventures.afterMinigame(node,minigame(n.minigame.id));continue;}
+  if(n.fight){if(typeof n.fight.params==='function')n.fight.params(RAAdventures.context());node=RAAdventures.afterFight(node,fight(n.fight.enemy));continue;}
+  node=RAAdventures.nextOf(node);
+ }
+ throw new Error(`${id}: walk did not reach an end (stuck at ${node} after ${steps} steps)`);
+}
+
+export async function test(root){
+ {const {expectedIndex}=await import(pathToFileURL(path.join(root,'tools','sync-index.mjs')).href);const lf=text=>text.replace(/\r\n/g,'\n');assert.equal(lf(await readFile(path.join(root,'index.html'),'utf8')),lf(await expectedIndex()),'index.html BTF script block is stale — run node tools/sync-index.mjs');}
+ // --- migration ---
+ {const ctx=await loadBtf(root);const {RAState,RASaveFixtures}=ctx;
+  assert.equal(RAState.version,16);
+  const fresh=RAState.migrateRecord(RASaveFixtures.fixtures.fresh);assert.equal(fresh.life.clock.started,false,'fresh saves start before the prologue');
+  const v11={...RASaveFixtures.fixtures.supraOwned,version:11};v11.life={...v11.life,property:{active:null,completed:[]},ownership:{...v11.life.ownership,properties:[{id:'property_la_4p_01',label:'PALOMA FOURPLEX',ownershipStatus:'owned',monthlyIncome:1400,purchasePrice:34000,nextCollectionAt:'2000-01-01T00:00:00.000Z'}]},world:{...v11.life.world,flags:{...v11.life.world.flags,propertyOwned:true,ogunsRaveCompleted:true}},night:{active:null,completed:[{id:'ogun_rave_001'}]}};
+  const m=RAState.migrateWithReport(v11);assert(m.ok,'v11 migration failed');const L=m.state.life;
+  assert.equal(L.clock.started,true,'progressed players skip the new prologue');
+  assert(L.ownership.cars.length===1&&L.ownership.properties[0].weeklyRent===1400&&L.ownership.properties[0].rentDue===1400,'property rent must convert to the life clock without loss');
+  assert(L.phone.apps.vampgram?.unlocked&&L.phone.apps.jdmImports?.unlocked,'apps must derive from existing progress');
+  assert(L.adventures.records.ogun_rave_001?.status==='completed'&&L.adventures.records.property_la_4p_01_acquisition,'existing Rave/Property history must enter adventure records');
+  assert.equal(m.state.characters.jdm_importer_daughter_001.conversionOutcome,'converted','legacy consequences preserved');
+  const again=RAState.migrateWithReport(m.state);assert.equal(JSON.stringify(again.state),JSON.stringify(m.state),'v16 normalization must be idempotent');
+  for(const [name,fx] of Object.entries(RASaveFixtures.fixtures)){if(typeof fx==='string')continue;const r=RAState.migrateWithReport(fx);assert(r.ok&&r.state.version===16&&Array.isArray(r.state.life.memoryLog),`fixture ${name} failed v16`);}
+  const v14={...m.state,version:14};delete v14.life.newOga.m5Completed;delete v14.life.newOga.senatorCommands;const upgraded=RAState.migrateWithReport(v14);assert(upgraded.ok&&upgraded.state.version===16&&!upgraded.state.life.newOga.m5Completed&&!upgraded.state.life.newOga.senatorCommands,'v14 → v16 NEW OGA migration failed');assert.equal(JSON.stringify(RAState.migrateRecord(upgraded.state)),JSON.stringify(upgraded.state),'v16 migration is not idempotent');
+  const v15=structuredClone(m.state);v15.version=15;delete v15.life.newOga.m7Completed;delete v15.life.newOga.leftoversAte;delete v15.life.newOga.refusedMama;delete v15.life.newOga.vaultKnown;const m7Upgraded=RAState.migrateWithReport(v15);assert(m7Upgraded.ok&&m7Upgraded.state.version===16&&!m7Upgraded.state.life.newOga.m7Completed&&!m7Upgraded.state.life.newOga.leftoversAte&&!m7Upgraded.state.life.newOga.refusedMama&&!m7Upgraded.state.life.newOga.vaultKnown,'v15 → v16 M7 migration failed');assert.equal(JSON.stringify(RAState.migrateRecord(m7Upgraded.state)),JSON.stringify(m7Upgraded.state),'v16 M7 migration is not idempotent');
+  assert.equal(m.state.life.newOga.status,'unstarted','v12 -> v13 migration must add the NEW OGA domain without changing prior progress');
+ }
+ // --- calendar + clock ---
+ {const ctx=await loadBtf(root);const {RALife,RAClock,RAState}=ctx;
+  const d1=RALife.dayInfo(1),d31=RALife.dayInfo(31),d57=RALife.dayInfo(57),d14=RALife.dayInfo(14),d42=RALife.dayInfo(42);
+  assert(d1.weekday==='THURSDAY'&&d1.dateLabel==='OCT 1','Day 1 = Thursday Oct 1');assert(d31.dateLabel==='OCT 31'&&d31.holiday==='halloween');assert(d57.dateLabel==='NOV 26'&&d57.weekday==='THURSDAY'&&d57.holiday==='thanksgiving');
+  assert(d14.fullMoon&&d42.fullMoon&&d42.dateLabel==='NOV 11','full moons on day 14 of each 28-day month');
+  const rains=Array.from({length:70},(_,i)=>RALife.dayInfo(i+1).rain).filter(Boolean).length;assert(rains>=5&&rains<=16,`~1 in 7 rain nights (${rains}/70)`);
+  RAState.patch('life.ownership.properties',[{id:'p',ownershipStatus:'owned',weeklyRent:1000,rentDue:0}]);
+  RAClock.wake({first:true});assert(RAState.get().life.clock.started);assert(RAState.get().life.phone.threads.family?.[0]?.text.includes('independence'),'Day 1 family ping');
+  const money0=RALife.money();for(let i=0;i<28;i++)RAClock.sleep();
+  assert.equal(RALife.today().day,29);const dailyRent=Math.round(1000/7);assert.equal(RALife.money()-money0,100000+28*dailyRent,'budget lands on day 1 of the second month (plus RC2 daily rent: 28 mornings)');
+  assert.equal(RAState.get().life.ownership.properties[0].rentDue,0,'RC2: rent is paid into cash every morning, nothing waits to collect');
+  assert((RAState.get().life.temptations.live||[]).length<=8,'temptation cap');
+ }
+ // --- adventures: validate + walk every branch ---
+ {const ctx=await loadBtf(root);const {RAAdventures}=ctx;const all=RAAdventures.all();assert(all.length>=1);
+  const errors=all.flatMap(def=>RAAdventures.validate(def));assert.equal(errors.length,0,'adventure graph errors:\n'+errors.join('\n'));
+  let walks=0;
+  for(const def of all){
+   const choiceNodes=Object.entries(def.nodes).filter(([,n])=>n.choices);const width=Math.max(1,...choiceNodes.map(([,n])=>typeof n.choices==='function'?3:n.choices.length));
+   for(let k=0;k<width;k++){for(const outcome of ['win','lose']){const fresh=await loadBtf(root);const {RAState,RAClock,RALife}=fresh;RAClock.wake({first:true});
+    RAState.patch('life.world.day',40);RAState.patch('life.resources.money',5e6);(def.testSetup||(()=>{}))(fresh);
+    const available=fresh.RAAdventures.available(def.id);if(!available&&!def.testSetup)continue;
+    const {res}=walk(fresh,def.id,{vars:def.testVars||{},pick:(list,step)=>(k+step)%list.length,fight:()=>({outcome}),minigame:()=>({outcome,score:outcome==='win'?9999:1,rewards:{}})});
+    assert(res&&res.id===def.id,`${def.id} did not complete`);assert(!fresh.RAAdventures.active(),`${def.id} left an active record`);
+    assert(RAState.get().life.memoryLog.length>0,`${def.id} wrote no memory`);walks++;}}
+  }
+  // FU-03 (BREAK I — QA HARNESS HARDENING 001): a synthetic minigame/fight result must be CONSUMED by the adventure,
+  // not silently dropped. The branch walker above feeds fixed outcomes; without these assertions a node that ignores
+  // its result would still walk green. Minigame: reward -> life record, result -> adventure vars, routing -> authored
+  // next node. Fight: outcome -> `fight` var and the win/lose/spared branch. (Headless result substitution stays.)
+  {const g=await loadBtf(root);const {RAAdventures,RALife,RAState,RAClock}=g;RAClock.wake({first:true});
+   RAState.patch('life.resources.money',10000);
+   // A08 'shift' is the first-shift minigame node; its `next` stores the result and routes to 'special'.
+   RAAdventures.start('A08',{from:'test'});RAAdventures.patchActive({node:'shift'});RAAdventures.enter('shift');
+   const moneyBefore=RALife.money();
+   assert.equal(RAAdventures.afterMinigame('shift',{outcome:'done',score:7,rewards:{money:1234}}),'special','A08: a synthetic minigame result must route to the authored next node');
+   assert.equal(RALife.money()-moneyBefore,1234,'A08: a synthetic minigame reward must reach the life money record');
+   assert.equal(RAAdventures.context().get('res')?.score,7,'A08: a synthetic minigame result must be stored in the adventure vars');
+   RAAdventures.abandon();
+   // A10 'fight' routes win/lose/spared down different authored branches and records the outcome in `fight`.
+   RAAdventures.start('A10',{from:'test'});RAAdventures.patchActive({node:'fight'});RAAdventures.enter('fight');
+   assert.equal(RAAdventures.afterFight('fight',{outcome:'win'}),'winbread','A10: a synthetic win must route to the win branch');
+   assert.equal(RAAdventures.context().get('fight'),'win','A10: a synthetic fight outcome must be stored in the adventure vars');
+   assert.equal(RAAdventures.afterFight('fight',{outcome:'lose'}),'losebread','A10: a synthetic loss must route to the lose branch');
+   assert.equal(RAAdventures.afterFight('fight',{outcome:'spared'}),'sparedbread','A10: a synthetic spare must route to the spared branch');
+   RAAdventures.abandon();
+   console.log('PASS btf propagation (synthetic minigame reward+result and fight outcome are consumed by the adventure; FU-03)');}
+  // F2 NEW OGA M1–M3: every authored route/back-out, exact money/item consequences and reload persistence.
+  {const choose=(label)=>list=>Math.max(0,list.findIndex(c=>c.label===label));
+   const fresh=async()=>{const c=await loadBtf(root);c.RAClock.wake({first:true});c.RAState.patch('life.world.day',8);c.RAState.patch('life.adventures.records.A08',{status:'completed',count:1,completedDay:7});return c;};
+   {const c=await fresh(),T=c.RANewOgaTunables,E=c.RACombatData.ENEMIES;
+    assert.equal(E.smallie.archetype,T.combat.SMALLIE.archetype);assert.equal(E.smallie.moves.chew.dmg,T.combat.SMALLIE.attacks.primary);assert.equal(E.smallie.moves.crumb.dmg,T.combat.SMALLIE.attacks.secondary);
+    assert.equal(E.smallie_cousin.archetype,T.combat.COUSIN.archetype);assert.equal(E.smallie_cousin.moves.dagger.dmg,T.combat.COUSIN.attacks.primary);assert.equal(E.smallie_cousin.moves.feint.dmg,T.combat.COUSIN.attacks.secondary);
+    const loadout={maxHp:100,moves:['octopus','blood'],items:{},guns:[],fits:[],rooms:[],companions:[]};
+    for(const enemy of ['smallie','smallie_cousin']){const state=c.RACombat2Rules.create(enemy,{},loadout,()=>.99),turn=state.turn,pp=state.rich.pp.octopus;c.RACombat2Rules.act(state,{type:'move',id:'octopus'});assert.notEqual(state.awaitingOctopus,true,`${enemy}: zero-option Octopus entered selection state`);assert.equal(state.turn,turn+1,`${enemy}: zero-option Octopus did not safely end the turn`);assert.equal(state.rich.pp.octopus,pp-1,`${enemy}: Octopus use was not consumed`);assert(state.log.some(x=>x.text==='NOTHING HAPPENS.'),`${enemy}: neutral fallback missing`);assert(!state.over,`${enemy}: fallback ended combat`);c.RACombat2Rules.act(state,{type:'move',id:'blood'});assert(state.turn>turn+1||state.over,`${enemy}: normal combat did not resume`);}
+    c.RALife.addCar({id:'toyota_supra_mk4_001'});c.RAAdventures.start('NEW_OGA_M1',{from:'test'});const m1=c.RAAdventures.get('NEW_OGA_M1'),touge=m1.nodes.touge.minigame.params(c.RAAdventures.context());assert.equal(touge.durationSeconds,T.touge.AUTHORED_DURATION_SECONDS);assert.equal(touge.tandem.threshold,T.touge.SUCCESS_THRESHOLD);c.RAAdventures.abandon();
+    const chairs=c.RAAdventures.get('NEW_OGA_M3').nodes.chairs.minigame.params();assert.equal(chairs.totalChairs,T.chairs.AUTHORED_TOTAL);assert.equal(chairs.durationMs,T.chairs.DURATION_MS);assert.equal(chairs.bundleSize,T.chairs.BUNDLE_SIZE);
+    c.RANewOga.patch({trust:T.trustThresholds.LOW_MAX});assert.equal(c.RANewOga.tier(),'LOW TRUST');c.RANewOga.patch({trust:T.trustThresholds.HIGH_MIN});assert.equal(c.RANewOga.tier(),'HIGH TRUST');
+    const combatSource=await readFile(path.join(root,'js/data/btf/combat.js'),'utf8'),slurpSource=await readFile(path.join(root,'js/minigames/slurp.js'),'utf8');
+    assert.match(combatSource,/F6\.combat\.SMALLIE\.attacks\.primary/);assert.match(combatSource,/F6\.combat\.COUSIN\.attacks\.secondary/);assert(!/smallie:\{[^\n]+(?:CHEW ATTACK',14|CRUMB SPRAY',10)/.test(combatSource),'Smallie attack tuning duplicated in combat.js');assert(!/smallie_cousin:\{[^\n]+(?:DAGGER',14|FEINT',10)/.test(combatSource),'cousin attack tuning duplicated in combat.js');assert(!/function mountCanopy[\s\S]*?\|\|(?:60|10|45000)/.test(slurpSource),'chair tuning duplicated in SLURP canopy mode');
+    console.log('PASS NEW OGA F6 single-source consumers + generic zero-option Octopus fallback');}
+   for(const [label,route,heat] of [['STICK-UP','STICK_UP',12],['GRAB AND GO','TOUGE_ESCAPE',7]]){const c=await fresh();c.RALife.addCar({id:'toyota_supra_mk4_001'});const before=c.RALife.money();walk(c,'NEW_OGA_M1',{pick:choose(label),fight:()=>({outcome:'win'}),minigame:()=>({outcome:'win',data:{}})});const s=c.RAState.get();assert.equal(s.life.resources.money,before+6000);assert.equal(s.life.ownership.items.blood_x_case,5);assert.equal(s.life.ownership.items.smallies_chain,1);assert.equal(s.life.newOga.m1Route,route);assert.equal(s.life.newOga.heat,heat);assert.equal(c.RAState.migrateRecord(s).life.newOga.m1Route,route);}
+   {const c=await fresh();c.RARelations.meet('kiki','f2-test');c.RARelations.add('kiki',60);const before=c.RALife.money();walk(c,'NEW_OGA_M1',{pick:choose('SWITCH THE BAG')});const s=c.RAState.get();assert.equal(s.life.resources.money,before+6000);assert.equal(s.life.newOga.m1Route,'SWITCH_THE_BAG');assert.equal(s.life.newOga.heat,3);assert.equal(c.RAState.migrateRecord(s).life.ownership.items.blood_x_case,5);}
+   {const c=await fresh(),before=c.RALife.money();walk(c,'NEW_OGA_M1',{pick:choose('BUY A BOBA AND LEAVE')});const s=c.RAState.get();assert.equal(s.life.resources.money,before-c.RACombatData.ITEMS.boba.price);assert.equal(s.life.ownership.items.boba,1);assert.equal(s.life.newOga.status,'closed');assert.equal(s.life.newOga.heat,0);assert.equal(s.life.ownership.items.blood_x_case,undefined);assert.equal(c.RAState.migrateRecord(s).life.newOga.status,'closed');}
+   for(const answer of ['HONEST','FLEX','MY GREATEST WEAKNESS IS FISH']){const c=await fresh();c.RAState.patch('life.newOga',{...c.RAState.get().life.newOga,status:'awaiting_interview',mission:1,lastMissionDay:1});const before=c.RALife.money();walk(c,'NEW_OGA_M2',{pick:list=>{const wanted=list.some(x=>x.label===answer)?answer:'PAY $20,000 · END';return Math.max(0,list.findIndex(x=>x.label===wanted));}});const s=c.RAState.get();assert.equal(s.life.resources.money,before-20000);assert.equal(s.life.newOga.status,'closed');assert.equal(s.life.newOga.rank,0);assert.equal(c.RAState.migrateRecord(s).life.newOga.m2Outcome,'paid');}
+   {const c=await fresh();c.RAState.patch('life.newOga',{...c.RAState.get().life.newOga,status:'awaiting_interview',mission:1,lastMissionDay:1});const before=c.RALife.money();walk(c,'NEW_OGA_M2',{pick:list=>Math.max(0,list.findIndex(x=>x.label==='WORK OFF THE DEBT · CONTINUE'||x.label==='HONEST'))});const s=c.RAState.get();assert.equal(s.life.resources.money,before);assert.equal(s.life.newOga.rank,1);assert.equal(s.life.newOga.title,'INTERN');assert.equal(s.life.newOga.businessCard,true);assert.equal(s.life.newOga.debt,20000);assert.equal(c.RAState.migrateRecord(s).life.newOga.businessCard,true);}
+   for(const [label,outcome,pay,trust] of [['COMPLETE THE DELIVERY','complete',3000,1],['LEAVE THE COOLERS · CHAIRS ONLY','chairs_only',0,-1]]){const c=await fresh();c.RAState.patch('life.newOga',{...c.RAState.get().life.newOga,status:'intern',mission:2,rank:1,title:'INTERN',businessCard:true,lastMissionDay:1});const before=c.RALife.money();walk(c,'NEW_OGA_M3',{pick:choose(label),minigame:()=>({outcome:'done',data:{stacked:0,total:60,success:false}})});const s=c.RAState.get();assert.equal(s.life.resources.money,before+pay);assert.equal(s.life.newOga.m3Outcome,outcome);assert.equal(s.life.newOga.trust,trust);assert.equal(s.life.newOga.rank,1,'chair failure/back-out must not block rank');assert.equal(s.life.ownership.items.jollof_plate,outcome==='complete'?1:undefined);assert.equal(c.RAState.migrateRecord(s).life.newOga.m3Outcome,outcome);}
+   console.log('PASS NEW OGA M1–M3 routes, back-outs, authored rewards/costs, rank and reload persistence');}
+  // F2 NEW OGA M4: OL-006 silent no-car hold, every route, Alternative recovery, social state and guards.
+  {const ready=async({car=true}={})=>{const c=await loadBtf(root);c.RAClock.wake({first:true});c.RAState.patch('life.world.day',10);c.RAState.patch('life.newOga',{...c.RAState.get().life.newOga,status:'intern',mission:3,rank:1,title:'INTERN',businessCard:true,m3Outcome:'complete',m3Rewarded:true,carlosMutual:true,carlosMutualDay:9,carlosMutualSource:'m3_fallback',lastMissionDay:9,debt:20000});if(car)c.RALife.addCar({id:'toyota_supra_mk4_001',short:'SUPRA'});return c;};
+   const pickRoute=label=>list=>{const index=list.findIndex(x=>x.label===label);return index<0?0:index;};
+   {const c=await loadBtf(root);c.RAClock.wake({first:true});c.RANewOga.observeTouge({course:'grave_garage',result:{outcome:'done',score:1}});assert.equal(c.RANewOga.current().carlosMutual,true);assert.equal(c.RANewOga.current().carlosMutualSource,'grave_garage');assert.equal(c.RAState.get().life.phone.feed[0].handle,'carlos');const source=await readFile(path.join(root,'js/minigames/touge.js'),'utf8');assert.match(source,/RANewOga\?\.observeTouge/,'completed Grave Garage runs do not reach the Carlos mutual observer');}
+   {const c=await ready({car:false});assert.equal(c.RAAdventures.available('NEW_OGA_M4'),false,'M4 fired without a car');assert.equal(c.RAWakeTriggers.list().filter(x=>x.adventure.startsWith('NEW_OGA_')).some(w=>w.when(c.RALife.L())),false,'a later NEW OGA wake trigger fired during the no-car hold');c.RAClock.sleep();assert.equal(c.RAWakeTriggers.pick(),null,'M4 fired on a no-car WAKE');assert.equal(c.RAState.get().life.newOga.carlosMutual,true);c.RAVampGram.post({id:'m4:hold-comment',handle:'richalucard',text:'test post'});assert.equal(c.RAState.get().life.phone.feed[0].comments[0].handle,'carlos','Carlos fire comments stopped during hold');c.RALife.addCar({id:'nissan_silvia_s15',short:'S15'});assert.equal(c.RAWakeTriggers.pick(),null,'buying a car fired M4 before the next WAKE');c.RAClock.sleep();assert.equal(c.RAWakeTriggers.pick(),'NEW_OGA_M4','M4 did not fire on the first WAKE after buying a car');const migrated=c.RAState.migrateRecord(c.RAState.get());assert.equal(migrated.life.newOga.carlosMutual,true,'no-car hold lost persistence');}
+   {const c=await ready(),before=c.RALife.money(),debt=c.RANewOga.current().debt;walk(c,'NEW_OGA_M4',{pick:pickRoute('WALK HIM IN')});const s=c.RANewOga.current();assert.equal(c.RALife.money(),before+c.RANewOgaTunables.m4.AUTHORED_WALK_IN_PAY);assert.equal(s.rank,3);assert.equal(s.title,'ASSOCIATE');assert.equal(s.gangClout,3);assert.equal(s.trust,1);assert.equal(c.RAState.get().life.tendencies.messy,3);assert.equal(s.debt,debt);assert(s.carlosUnfollowed&&s.carlosCanopyApron&&s.carlosLaterParty);const once=c.RALife.money();c.RANewOga.completeM4('walk_in');assert.equal(c.RALife.money(),once,'M4 walk-in reward applied twice');c.RAVampGram.post({id:'m4:after-unfollow',handle:'richalucard',text:'later post'});assert.equal(c.RAState.get().life.phone.feed[0].comments,undefined,'Carlos commented after unfollow');}
+   for(const [label,outcome,trust] of [['NAH, NOT HIM.','beat_1',-1],['TEXT CARLOS A WARNING','beat_2',-2],['FAKE CAR TROUBLE','beat_3',-1]]){const c=await ready(),before=c.RALife.money(),debt=c.RANewOga.current().debt;walk(c,'NEW_OGA_M4',{pick:pickRoute(label)});let s=c.RANewOga.current();assert.equal(s.m4Outcome,outcome);assert.equal(s.trust,trust);assert.equal(s.gangClout,0);assert.equal(s.rank,1);assert(s.alternativePending);assert.equal(c.RALife.money(),before);assert.equal(s.debt,debt);c.RAState.patch('life.world.day',11);walk(c,'NEW_OGA_ALTERNATIVE');s=c.RANewOga.current();assert.equal(s.rank,3);assert.equal(s.title,'ASSOCIATE');assert.equal(s.gangClout,1);assert.equal(c.RALife.money(),before+c.RANewOgaTunables.m4.AUTHORED_ALTERNATIVE_PAY);assert.equal(s.debt,debt);const once=c.RALife.money();c.RANewOga.completeAlternative();assert.equal(c.RALife.money(),once,'Alternative reward applied twice');}
+   {const probe=await ready(),logic=probe.RAMinigameLogic.touge,T=probe.RANewOgaTunables,runs=T.m4.NOVICE_BOT_RUNS,scores=logic.noviceBotScores(T.m4.ESCAPE_DURATION_SECONDS),threshold=probe.RANewOgaM4.escapeThreshold();
+    const novice=logic.scoreTrace(runs[1],T.m4.ESCAPE_DURATION_SECONDS),strong=logic.scoreTrace([[32,72,.28,2],[38,82,.30,2],[42,90,.24,2]],T.m4.ESCAPE_DURATION_SECONDS);assert(novice.score<threshold,'real-scored novice trace must resolve LOW');assert(strong.score>threshold,'strong real-scored trace must resolve HIGH');assert(novice.clips===1&&novice.chain===1.5&&strong.clips===6&&strong.chain===4,'calibration traces must exercise real clip/chain scoring');
+    const cases=[['low',{outcome:'done',score:novice.score,data:{}},'LOW'],['high',{outcome:'done',score:strong.score,data:{}},'HIGH'],['crash',{outcome:'fail',score:strong.score,data:{crashed:true}},'LOW']],states=[];
+    for(const [kind,result,band] of cases){const c=await ready(),before=c.RALife.money();walk(c,'NEW_OGA_M4',{pick:pickRoute('TELL CARLOS TO RUN'),minigame:()=>result});const s=c.RANewOga.current(),state={money:c.RALife.money(),rank:s.rank,trust:s.trust,clout:s.gangClout,debt:s.debt,solid:c.RAState.get().life.tendencies.solid,pending:s.alternativePending};assert.equal(s.m4Outcome,'run');assert.equal(s.m4TougeBand,band);assert.equal(s.carlosEscaped,true,`${kind}: Carlos did not escape`);assert.equal(state.money,before);assert(state.pending);states.push(state);}
+    assert.deepEqual(states[0],states[1],'LOW/HIGH changed M4 outcome, state or reward instead of reaction only');assert.deepEqual(states[0],states[2],'crash LOW changed M4 outcome, state or reward');assert.equal(T.m4.LOW_SCORE_REFERENCE,'NOVICE_BOT_MEDIAN');assert.equal(threshold,scores[Math.floor(scores.length/2)]*T.m4.LOW_SCORE_RATIO);const source=await readFile(path.join(root,'js/data/btf/adventures/new_oga_m4.js'),'utf8');assert(!/score\s*[<>]=?\s*\d+/.test(source),'M4 duplicated an arbitrary hardcoded TOUGE score');}
+   console.log('PASS NEW OGA M4 routes + OL-006 no-car hold + Alternative + VampGram + reward guards');}
+  // F2 NEW OGA M5–M6: all outcomes resolve, exact deltas, v15 persistence, and one guarded Rank 4 grant.
+  {const choose=label=>list=>Math.max(0,list.findIndex(x=>x.label===label));
+   const readyM5=async()=>{const c=await loadBtf(root);c.RAClock.wake({first:true});c.RAState.patch('life.world.day',12);c.RAState.patch('life.resources.money',100000);c.RAState.patch('life.newOga',{...c.RAState.get().life.newOga,status:'associate',mission:4,rank:3,title:'ASSOCIATE',m4Outcome:'walk_in',m4Rewarded:true,lastMissionDay:11,debt:20000});return c;};
+   const m5Cases=[
+    ['SUCCESS','COLLECT THE DEBT',{result:'SUCCESS',amountCaught:30000,attention:40},6000,1,2,1,0,3],
+    ['SHORT','COLLECT THE DEBT',{result:'SHORT',amountCaught:12345,attention:20},2469,0,1,1,0,3],
+    ['GREEDY','COLLECT THE DEBT',{result:'GREEDY',amountCaught:8000,attention:100},0,-1,0,1,0,8],
+    ['BACK_OUT','DANCE WITH UNCLE BAMIDELE',null,0,0,0,0,1,0]
+   ];
+   for(const [outcome,label,result,pay,trust,clout,messy,solid,heat] of m5Cases){const c=await readyM5(),before=c.RALife.money(),debt=c.RANewOga.current().debt;walk(c,'NEW_OGA_M5',{pick:choose(label),minigame:()=>({outcome:outcome.toLowerCase(),data:result})});const s=c.RANewOga.current(),life=c.RAState.get().life;assert.equal(s.m5Outcome,outcome);assert.equal(s.m5Completed,true);assert.equal(s.rank,3);assert.equal(c.RALife.money(),before+pay);assert.equal(s.debt,debt);assert.equal(s.trust,trust);assert.equal(s.gangClout,clout);assert.equal(s.heat,heat);assert.equal(life.tendencies.messy,messy);assert.equal(life.tendencies.solid,solid);assert.equal(s.m5AmountCaught,outcome==='SUCCESS'?30000:outcome==='SHORT'?12345:0);const once=JSON.stringify({money:c.RALife.money(),s:c.RANewOga.current(),t:life.tendencies});c.RANewOga.completeM5({outcome:'SUCCESS',amountCaught:30000});assert.equal(JSON.stringify({money:c.RALife.money(),s:c.RANewOga.current(),t:c.RAState.get().life.tendencies}),once,`${outcome}: M5 applied twice`);assert.equal(c.RAState.migrateRecord(c.RAState.get()).life.newOga.m5Outcome,outcome);}
+   {const c=await readyM5(),ready=c.RANewOgaM5M6.m5Ready;assert.equal(ready(c.RALife.L()),true);c.RAState.patch('life.world.day',11);assert.equal(ready(c.RALife.L()),false,'M5 fired before first WAKE after Rank 3');c.RAClock.sleep();assert.equal(c.RAWakeTriggers.pick(),'NEW_OGA_M5','M5 did not arrive on first qualifying WAKE');}
+   {const c=await readyM5();c.RAAdventures.start('NEW_OGA_M5',{from:'test'});c.RAAdventures.patchActive({node:'collect'});assert.equal(c.RAAdventures.afterMinigame('collect',{quit:true,outcome:'quit'}),'collect','quitting M5 created an unauthorized failure outcome');assert.equal(c.RANewOga.current().m5Completed,false);c.RAAdventures.abandon();c.RAState.patch('life.newOga',{...c.RANewOga.current(),m5Completed:true,mission:5,status:'senator_pending',lastMissionDay:11});c.RAState.patch('life.world.day',12);c.RAAdventures.start('NEW_OGA_M6',{from:'test'});c.RAAdventures.patchActive({node:'care'});assert.equal(c.RAAdventures.afterMinigame('care',{quit:true,outcome:'quit'}),'care','quitting M6 created a voluntary back-out');assert.equal(c.RANewOga.current().m6Completed,false);c.RAAdventures.abandon();}
+   {const c=await readyM5();walk(c,'NEW_OGA_M5',{pick:choose('COLLECT THE DEBT'),minigame:()=>({outcome:'success',data:{result:'SUCCESS',amountCaught:30000,attention:20}})});c.RAState.patch('life.world.day',13);const bread=c.RAState.get().life.ownership.items.agege_bread;const run=walk(c,'NEW_OGA_M6',{minigame:()=>({outcome:'walked',data:{walked:true,care:{feed:false,walk:true,joko:false}}})}),s=c.RANewOga.current();assert(!run.visited.includes('egusi')&&!run.visited.includes('mazda'),'absent pets were not skipped');assert.equal(c.RAState.get().life.ownership.items.agege_bread,bread,'scene-only Agege bread changed inventory');assert.equal(s.m6Outcome,'walked');assert.equal(s.trust,3);assert.equal(s.trustAtM6,3);assert.equal(s.senatorCommands,true);assert.equal(s.senatorLost,false);assert.equal(s.rank,4);assert.equal(s.title,'SENIOR ASSOCIATE');assert.equal(s.rank4Granted,true);assert.equal(s.m7Eligible,true);assert.equal(s.debt,20000);assert(c.RAAdventures.get('NEW_OGA_M7'),'M7 was not registered');assert.equal(c.RAAdventures.get('NEW_OGA_M8'),null,'M8+ was implemented');const once=JSON.stringify(c.RANewOga.current());c.RANewOga.completeM6({walked:false,care:{walk:false}});c.RANewOga.grantRank4IfReady();assert.equal(JSON.stringify(c.RANewOga.current()),once,'M6 consequence or Rank 4 applied twice');assert.equal(c.RAState.migrateRecord(c.RAState.get()).life.newOga.senatorCommands,true);}
+   {const c=await readyM5(),money=c.RALife.money();walk(c,'NEW_OGA_M5',{pick:choose('COLLECT THE DEBT'),minigame:()=>({outcome:'greedy',data:{result:'GREEDY',amountCaught:7000,attention:100}})});c.RAState.patch('life.world.day',13);walk(c,'NEW_OGA_M6',{minigame:()=>({outcome:'lost',data:{walked:false,care:{feed:true,walk:false,joko:true}}})});const s=c.RANewOga.current();assert.equal(s.m6Outcome,'lost');assert.equal(s.senatorLost,true);assert.equal(s.trust,-4);assert.equal(s.trustAtM6,-4);assert.equal(s.senatorCommands,false);assert.equal(s.rank,4,'GREEDY + lost did not grant Rank 4');assert.equal(s.gangClout,0);assert.equal(s.heat,8);assert.equal(c.RALife.money(),money);assert.equal(c.RAState.get().life.tendencies.messy,1);}
+   {const c=await readyM5();walk(c,'NEW_OGA_M5',{pick:choose('DANCE WITH UNCLE BAMIDELE')});assert.equal(c.RANewOgaM5M6.m6Ready(c.RALife.L()),false,'M6 fired on the same WAKE as M5');c.RAState.patch('life.world.day',13);assert.equal(c.RANewOgaM5M6.m6Ready(c.RALife.L()),true);assert.equal(c.RAWakeTriggers.pick(),'NEW_OGA_M6');}
+   console.log('PASS NEW OGA M5–M6 outcomes + timing + no-pet handling + snapshot + guarded Rank 4');}
+  // F2 NEW OGA M7: first qualifying WAKE, both authored choices, knowledge, persistence and one-shot consequences.
+  {const choose=label=>list=>Math.max(0,list.findIndex(x=>x.label===label));
+   const readyM7=async({known=false,sameDay=false}={})=>{const c=await loadBtf(root);c.RAClock.wake({first:true});c.RAState.patch('life.world.day',sameDay?13:14);c.RAState.patch('life.resources.money',100000);c.RAState.patch('life.tendencies',{solid:2,messy:3});c.RAState.patch('life.world.flags',{...c.RAState.get().life.world.flags,misterDecemberKnown:known});c.RAState.patch('life.newOga',{...c.RAState.get().life.newOga,status:'senior_associate',mission:6,rank:4,title:'SENIOR ASSOCIATE',gangClout:5,trust:2,heat:7,debt:20000,m5Completed:true,m6Completed:true,rank4Granted:true,m7Eligible:true,lastMissionDay:13});return c;};
+   {const c=await readyM7({sameDay:true});assert.equal(c.RANewOgaM7.m7Ready(c.RALife.L()),false,'M7 fired on the same WAKE as Rank 4');assert.equal(c.RAWakeTriggers.pick(),null,'M7 wake trigger fired too early');c.RAClock.sleep();assert.equal(c.RAWakeTriggers.pick(),'NEW_OGA_M7','M7 did not fire on the first WAKE after Rank 4');}
+   for(const [label,outcome,trust,leftovers,refused] of [['TAKE IT','take',3,true,false],["I CAN'T",'refuse',2,false,true]]){const c=await readyM7(),before={money:c.RALife.money(),clout:c.RANewOga.current().gangClout,heat:c.RANewOga.current().heat,tendencies:JSON.stringify(c.RAState.get().life.tendencies)};walk(c,'NEW_OGA_M7',{pick:choose(label)});const s=c.RANewOga.current();assert.equal(s.m7Outcome,outcome);assert(s.m7Completed&&s.m7ConsequencesApplied);assert.equal(s.trust,trust);assert.equal(s.leftoversAte,leftovers);assert.equal(s.refusedMama,refused);assert(s.vaultKnown&&s.businessStructureKnown&&s.misterDecemberHierarchyKnown);assert.equal(s.rank,4);assert.equal(s.title,'SENIOR ASSOCIATE');assert.equal(c.RALife.money(),before.money);assert.equal(s.gangClout,before.clout);assert.equal(s.heat,before.heat);assert.equal(JSON.stringify(c.RAState.get().life.tendencies),before.tendencies);assert(s.m8Held&&!s.m7Eligible);assert.equal(c.RAAdventures.get('NEW_OGA_M8'),null,'M8 content was registered');assert(!c.RAWakeTriggers.list().some(x=>x.adventure==='NEW_OGA_M8'),'M8 wake trigger was registered');const persisted=c.RAState.migrateRecord(c.RAState.get()).life.newOga;assert.equal(persisted.m7Outcome,outcome);assert.equal(persisted.leftoversAte,leftovers);assert.equal(persisted.refusedMama,refused);const once=JSON.stringify({money:c.RALife.money(),state:s,t:c.RAState.get().life.tendencies});c.RANewOga.completeM7(outcome==='take'?'refuse':'take');assert.equal(JSON.stringify({money:c.RALife.money(),state:c.RANewOga.current(),t:c.RAState.get().life.tendencies}),once,`${outcome}: M7 consequences applied twice`);}
+   {const c=await readyM7({known:true});walk(c,'NEW_OGA_M7',{pick:choose('TAKE IT')});assert.equal(c.RAState.get().life.world.flags.misterDecemberKnown,true,'existing Mister December knowledge was overwritten');assert.equal(c.RANewOga.current().misterDecemberHierarchyKnown,true,'M7 hierarchy knowledge was not persisted');}
+   console.log('PASS NEW OGA M7 timing + TAKE/REFUSE + knowledge + reload + one-shot consequence guard + M8 hold');}
+  // FU-04 (BREAK I): the Thanksgiving gate must not be self-defeating. Post-fame continuation keeps fameFired=true, so
+  // A53 must still become eligible at Day 57 (the family holiday is authored for the continuation, not before the ending).
+  {const t=await loadBtf(root);const {RAState,RALife,RAAdventures,RAWakeTriggers,RAClock}=t;RAClock.wake({first:true});
+   RAState.patch('life.world.day',57);RAState.patch('life.momentum.fameFired',true);RAState.patch('life.momentum.fameEligible',false);
+   assert.equal(RALife.today().day,57,'A53 regression: day patch');
+   assert(RAAdventures.available('A53',{ignoreActive:true}),'A53 must be eligible at Day 57 during post-fame continuation (fameFired true)');
+   const w=RAWakeTriggers.list().find(x=>x.adventure==='A53');assert(w&&w.when(RALife.L())===true,'A53 wake trigger must fire at Day 57 with fameFired set');
+   console.log('PASS btf thanksgiving gate (A53 eligible at Day 57 with fameFired true; FU-04)');}
+  // Every node can be entered cold (dev/QA jumps, presentation sweeps) without throwing — FU-01 regression.
+  {const cold=await loadBtf(root);const A=cold.RAAdventures,bad=[];
+   for(const def of A.all())for(const id of Object.keys(def.nodes)){try{if(A.active())A.abandon();A.start(def.id,{from:'dev'});A.patchActive({node:id});const r=A.enter(id),C=A.context();
+    for(const f of [r.node.lines,r.node.title])if(typeof f==='function')f(C);}catch(e){bad.push(`${def.id}:${id} ${e.message}`)}}
+   assert.deepEqual(bad,[],'adventure nodes that crash when entered out of order');}
+  console.log(`PASS btf (v16 migration + idempotency, calendar Oct 1/Oct 31/Nov 26/full moons/rain, clock budget+rent+family, ${all.length} adventures validated, ${walks} branch walks)`);
+ }
+}
+if(process.argv[1]&&import.meta.url===pathToFileURL(process.argv[1]).href){await test(path.resolve(path.dirname(new URL(import.meta.url).pathname),'..'));}

@@ -1,0 +1,243 @@
+[
+ {
+  "width": 390,
+  "leaks": [],
+  "replays": [
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true
+  ],
+  "plays": 12,
+  "screens": [
+   "splash",
+   "tip",
+   "pitch",
+   "car",
+   "scene",
+   "trunk",
+   "count",
+   "report",
+   "morning",
+   "call",
+   "greed",
+   "gun"
+  ],
+  "jobs": {
+   "A VERY POLITE SAFE": 4,
+   "GET DRE BACK": 2,
+   "THEY'RE COMING TO THE CASTLE": 1,
+   "SPOT-FREE RINSE": 2,
+   "SOAP AND SHOTGUNS": 1,
+   "THE CAR WASH STICK-UP": 1,
+   "GET YOUNG MAZI BACK": 1
+  },
+  "klass": {},
+  "calls": 6,
+  "replay": {
+   "ok": true,
+   "a": "{\"win\":true,\"final\":11.8,\"klass\":\"COSTLY\",\"fs\":{\"dre\":\"READY\",\"half_pint\":\"WOUNDED\",\"sunday_best\":\"READY\"},\"pot\":{\"cash\":5.8,\"crates\":[{\"cat\":\"CASH\",\"rar\":\"COMMON\",\"name\":\"a wad of cash ($1K)\",\"val\":1},{\"cat\":\"STORY\",\"rar\":\"RARE\",\"name\":\"a story seed\",\"val\":2},{\"cat\":\"WEIRD\",\"rar\":\"COMMON\",\"name\":\"Mystery Tupperware (Heavy)\",\"val\":3}]},\"steps\":0,\"getaway\":\"SPLIT\"}",
+   "b": "{\"win\":true,\"final\":11.8,\"klass\":\"COSTLY\",\"fs\":{\"dre\":\"READY\",\"half_pint\":\"WOUNDED\",\"sunday_best\":\"READY\"},\"pot\":{\"cash\":5.8,\"crates\":[{\"cat\":\"CASH\",\"rar\":\"COMMON\",\"name\":\"a wad of cash ($1K)\",\"val\":1},{\"cat\":\"STORY\",\"rar\":\"RARE\",\"name\":\"a story seed\",\"val\":2},{\"cat\":\"WEIRD\",\"rar\":\"COMMON\",\"name\":\"Mystery Tupperware (Heavy)\",\"val\":3}]},\"steps\":0,\"getaway\":\"SPLIT\"}"
+  },
+  "stuck": false,
+  "overflow": [],
+  "playMs": [
+   2016,
+   3257,
+   1351,
+   1435,
+   2111,
+   1923,
+   625,
+   1473,
+   1736,
+   1626,
+   954,
+   1171
+  ],
+  "klasses": [
+   "COSTLY",
+   "GREED",
+   "MESSY",
+   "GREED",
+   "COSTLY",
+   "GREED",
+   "BAILED",
+   "COSTLY",
+   "MESSY",
+   "MESSY",
+   "WASH",
+   "COSTLY"
+  ],
+  "tele": {
+   "plays": 12,
+   "morningToNextNightMs": [
+    466,
+    449,
+    455,
+    448,
+    447,
+    450,
+    450,
+    448,
+    447,
+    449,
+    448,
+    450
+   ],
+   "morningToPitchTapMs": [
+    525,
+    475,
+    478,
+    468,
+    473,
+    471,
+    491,
+    472,
+    469,
+    471,
+    473
+   ],
+   "medianMorningToPitchTapMs": 473,
+   "medianMorningToNextNightMs": 449
+  },
+  "counter": 12,
+  "sfx": 32,
+  "world": {
+   "night": 10,
+   "cash": 205,
+   "roster": 9,
+   "captives": 0,
+   "gone": 0
+  },
+  "errs": []
+ },
+ {
+  "width": 1280,
+  "leaks": [],
+  "replays": [
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true
+  ],
+  "plays": 12,
+  "screens": [
+   "splash",
+   "tip",
+   "pitch",
+   "car",
+   "scene",
+   "trunk",
+   "greed",
+   "count",
+   "report",
+   "morning",
+   "call",
+   "gun"
+  ],
+  "jobs": {
+   "SOAP AND SHOTGUNS": 2,
+   "A VERY POLITE SAFE": 2,
+   "NOBODY WAS HOME": 2,
+   "SPOT-FREE RINSE": 2,
+   "THE QUIET LIFT": 3,
+   "THE CAR WASH STICK-UP": 1
+  },
+  "klass": {},
+  "calls": 5,
+  "replay": {
+   "ok": true,
+   "a": "{\"win\":true,\"final\":76.2,\"klass\":\"MESSY\",\"fs\":{\"young_mazi\":\"READY\",\"tunde\":\"READY\",\"dre\":\"READY\"},\"pot\":{\"cash\":37.2,\"crates\":[{\"cat\":\"WEIRD\",\"rar\":\"COMMON\",\"name\":\"Trophy: Best Chewer 2019\",\"val\":3},{\"cat\":\"DISTRICT\",\"rar\":\"COMMON\",\"name\":\"a corner of the block changes hands\",\"val\":6},{\"cat\":\"GUN\",\"rar\":\"COMMON\",\"name\":\"SAPPORO SHOTGUN\",\"val\":21},{\"cat\":\"WEIRD\",\"rar\":\"RARE\",\"name\":\"A Street-Sweeper Schedule for All of Koreatown\",\"val\":9}]},\"steps\":0,\"getaway\":\"MESSY\"}",
+   "b": "{\"win\":true,\"final\":76.2,\"klass\":\"MESSY\",\"fs\":{\"young_mazi\":\"READY\",\"tunde\":\"READY\",\"dre\":\"READY\"},\"pot\":{\"cash\":37.2,\"crates\":[{\"cat\":\"WEIRD\",\"rar\":\"COMMON\",\"name\":\"Trophy: Best Chewer 2019\",\"val\":3},{\"cat\":\"DISTRICT\",\"rar\":\"COMMON\",\"name\":\"a corner of the block changes hands\",\"val\":6},{\"cat\":\"GUN\",\"rar\":\"COMMON\",\"name\":\"SAPPORO SHOTGUN\",\"val\":21},{\"cat\":\"WEIRD\",\"rar\":\"RARE\",\"name\":\"A Street-Sweeper Schedule for All of Koreatown\",\"val\":9}]},\"steps\":0,\"getaway\":\"MESSY\"}"
+  },
+  "stuck": false,
+  "overflow": [],
+  "playMs": [
+   2677,
+   1236,
+   1742,
+   1902,
+   1341,
+   1165,
+   1233,
+   984,
+   1173,
+   1635,
+   1663,
+   1335
+  ],
+  "klasses": [
+   "GREED",
+   "COSTLY",
+   "CLEAN",
+   "MESSY",
+   "CLEAN",
+   "COSTLY",
+   "MESSY",
+   "ROBBED",
+   "COSTLY",
+   "COSTLY",
+   "CLEAN",
+   "MESSY"
+  ],
+  "tele": {
+   "plays": 12,
+   "morningToNextNightMs": [
+    464,
+    448,
+    450,
+    444,
+    449,
+    451,
+    451,
+    449,
+    450,
+    448,
+    450,
+    448
+   ],
+   "morningToPitchTapMs": [
+    522,
+    485,
+    476,
+    467,
+    478,
+    477,
+    478,
+    473,
+    471,
+    468,
+    474
+   ],
+   "medianMorningToPitchTapMs": 476,
+   "medianMorningToNextNightMs": 450
+  },
+  "counter": 12,
+  "sfx": 30,
+  "world": {
+   "night": 13,
+   "cash": 360,
+   "roster": 9,
+   "captives": 0,
+   "gone": 0
+  },
+  "errs": []
+ }
+]

@@ -1,0 +1,24 @@
+/* Menu combat only. Hard pixels, fixed-pixel world feedback, no shake on reading/input bands. */
+.c2-scene.c2-shake,.c2-actor.c2-flash{animation:none!important}
+.c2-scene.c2-weird::after,.c2-scene.c2-revenge::after,.c2-scene.c2-gunfx::after{display:none}
+.c2-pixel-fx{image-rendering:pixelated}
+.c2-impact-stop .c2-actor{animation-play-state:paused!important}
+.c2-gun-mods{position:absolute;left:3%;right:3%;text-align:center;color:#d6af62;background:#17131e;border:1px solid #d6af62;padding:3px;font:7px/1.4 var(--font-system);z-index:4;pointer-events:none}
+.c2-world-impact-normal{animation:c2PixelLight 150ms steps(3,end)}
+.c2-world-impact-heavy{animation:c2PixelHeavy 150ms steps(3,end)}
+.c2-world-impact-lethal{animation:c2PixelLethal 150ms steps(3,end)}
+@keyframes c2PixelLight{0%,100%{translate:0}30%{translate:1px 0}65%{translate:-1px 0}}
+@keyframes c2PixelHeavy{0%,100%{translate:0}30%{translate:2px -1px}65%{translate:-2px 1px}}
+@keyframes c2PixelLethal{0%,100%{translate:0}30%{translate:3px -2px}65%{translate:-3px 2px}}
+.c2-num.c2-num-heavy{font-size:clamp(12px,6cqw,24px)}
+.c2-num.c2-num-lethal{font-size:clamp(16px,8cqw,32px);color:#d6af62}
+@media(prefers-reduced-motion:reduce){.c2-world-impact-normal,.c2-world-impact-heavy,.c2-world-impact-lethal,.c2-num{animation:none!important}.c2-hp em{transition:none}}
+
+/* RC2 · enemy bark bubbles + enemy attack canvas */
+.rc2-enemy-fx{image-rendering:pixelated}
+.rc2-bark{position:absolute;z-index:9;max-width:42%;padding:4px 6px;background:#f6efd9;color:#17131e;border:2px solid #10101b;box-shadow:2px 2px #7d194b;font:7px/1.3 var(--font-system);text-transform:uppercase;pointer-events:none;opacity:0;transform:translateY(3px);transition:opacity 120ms steps(2,end),transform 120ms steps(2,end);image-rendering:pixelated}
+.rc2-bark.on{opacity:1;transform:none}
+.rc2-bark::after{content:"";position:absolute;left:var(--tail,14px);bottom:-7px;width:7px;height:7px;background:#f6efd9;border-right:2px solid #10101b;border-bottom:2px solid #10101b;transform:rotate(45deg) translate(-2px,-2px)}
+.rc2-bark-rich{background:#17131e;color:#f6efd9;border-color:#f6efd9;box-shadow:2px 2px #7d194b}
+.rc2-bark-rich::after{background:#17131e;border-color:#f6efd9}
+@media(prefers-reduced-motion:reduce){.rc2-bark{transition:none}}

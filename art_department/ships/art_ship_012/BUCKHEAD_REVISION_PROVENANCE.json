@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "ship_id": "ART SHIP 012",
+  "request_id": "AS12-05R",
+  "status": "REVISED CANDIDATE — HQ REVIEW REQUIRED",
+  "hq_direction": "Style/proportion correction only; preserve the established Buckhead character concept",
+  "preserved_source_render": {
+    "path": "art_department/ships/art_ship_012/source_renders/buckhead_raw.png",
+    "sha256": "bb42fba2807af61798e4dc759eea64edfbc83511260c7b9112a528dfdd184746"
+  },
+  "superseded_candidate": {
+    "path": "art_department/ships/art_ship_012/candidates/native/characters/buckhead_vampire_neutral_80x96.png",
+    "sha256": "26bc338ca53b12aac0b051189745dadba4b4fb6d29c745e85253fa8c8e01265c"
+  },
+  "revised_candidate": {
+    "path": "art_department/ships/art_ship_012/candidates/native/characters/buckhead_vampire_neutral_80x96.png",
+    "sha256": "f178b6b63a8d01f3acbbb9d38228da5b97be2fad9fcc8a6ccb7f8ffa0fc6333e",
+    "dimensions": [80, 96],
+    "mode": "RGBA",
+    "alpha": [0, 255],
+    "contact": [40, 88],
+    "opaque_bbox": [23, 30, 57, 89],
+    "opaque_rgb_colors": 14
+  },
+  "transform": {
+    "type": "deterministic native-grid redraw",
+    "implementation": "art_department/ships/art_ship_012/tools/build_candidates.py::nativeize_buckhead_revision",
+    "concept_invariants": [
+      "adult male vampire",
+      "affluent Buckhead brunch entrepreneur",
+      "polished and self-satisfied",
+      "oxblood upscale smart-casual jacket and cream polo",
+      "fitted charcoal trousers",
+      "tan boat shoes with light soles",
+      "one gold watch",
+      "restrained fang cue"
+    ],
+    "style_changes_only": [
+      "larger head relative to body",
+      "shorter torso and limbs",
+      "chunkier connected clusters",
+      "simpler face",
+      "fewer garment folds and shading cues",
+      "14-color native palette"
+    ]
+  },
+  "hq_partial_pass_candidate_hashes_preserved": {
+    "portobello_manager": "0e69dc024e59fc9dbd5bed7944081fbc9f83226ba44d7c9c16b3c9b6d68ff26c",
+    "auntie": "cf5ae278f87c9a339ac15c115f9a754f78cd58d6efa2e289515f90036ae9836e",
+    "soul": "21b21879c070ba61944091683201eb89c57a18e05731f66f5fce3e687ed8dbd1",
+    "training_dummy": "e30e3189af01afdd05300fc913ea541aab0e0f1f8c88704a094afac2b5f9face"
+  },
+  "image_editor_attempt": {
+    "result": "no output",
+    "reason": "account image-generation usage limit",
+    "api_cli_fallback_used": false
+  }
+}

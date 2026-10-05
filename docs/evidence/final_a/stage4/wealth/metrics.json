@@ -1,0 +1,440 @@
+{
+  "method": "Declared visual fixtures, not career affordability evidence. Fresh unowned bedroom; then $1.2M supplied and existing Party Hall hosting prerequisite set. Real production purchases debit original prices for PARTY HALL, FISH TANK ROOM and URUS. Scenes/menu use production renderers. Identical fixture/purchases before and after, normal release URL, all three widths. Actual money-by-day/ownership timing belongs to the paired Stage5 population.",
+  "base": "0c6ccc3d18674c713a0a6e5896fe6ecbf7f7bc0f",
+  "rows": [
+    {
+      "phase": "before",
+      "width": 360,
+      "name": "unowned-bedroom",
+      "money": 100000,
+      "netWorth": 100000,
+      "rooms": [],
+      "cars": [],
+      "devSurface": true
+    },
+    {
+      "phase": "before",
+      "width": 360,
+      "name": "owned-bedroom",
+      "money": 290000,
+      "netWorth": 875000,
+      "rooms": [
+        "party_hall",
+        "fish_tank"
+      ],
+      "cars": [
+        "lambo_urus_oxblood"
+      ],
+      "devSurface": true
+    },
+    {
+      "phase": "before",
+      "width": 360,
+      "name": "owned-castle-menu",
+      "money": 290000,
+      "netWorth": 875000,
+      "rooms": [
+        "party_hall",
+        "fish_tank"
+      ],
+      "cars": [
+        "lambo_urus_oxblood"
+      ],
+      "devSurface": true
+    },
+    {
+      "phase": "before",
+      "width": 360,
+      "name": "owned-fish-tank-room",
+      "money": 290000,
+      "netWorth": 875000,
+      "rooms": [
+        "party_hall",
+        "fish_tank"
+      ],
+      "cars": [
+        "lambo_urus_oxblood"
+      ],
+      "devSurface": true
+    },
+    {
+      "phase": "before",
+      "width": 360,
+      "purchase": {
+        "initial": 1200000,
+        "party": true,
+        "fish": true,
+        "car": true,
+        "remaining": 290000,
+        "prices": {
+          "party": 250000,
+          "fish": 400000,
+          "car": 260000
+        }
+      },
+      "balanced": true
+    },
+    {
+      "phase": "before",
+      "width": 390,
+      "name": "unowned-bedroom",
+      "money": 100000,
+      "netWorth": 100000,
+      "rooms": [],
+      "cars": [],
+      "devSurface": true
+    },
+    {
+      "phase": "before",
+      "width": 390,
+      "name": "owned-bedroom",
+      "money": 290000,
+      "netWorth": 875000,
+      "rooms": [
+        "party_hall",
+        "fish_tank"
+      ],
+      "cars": [
+        "lambo_urus_oxblood"
+      ],
+      "devSurface": true
+    },
+    {
+      "phase": "before",
+      "width": 390,
+      "name": "owned-castle-menu",
+      "money": 290000,
+      "netWorth": 875000,
+      "rooms": [
+        "party_hall",
+        "fish_tank"
+      ],
+      "cars": [
+        "lambo_urus_oxblood"
+      ],
+      "devSurface": true
+    },
+    {
+      "phase": "before",
+      "width": 390,
+      "name": "owned-fish-tank-room",
+      "money": 290000,
+      "netWorth": 875000,
+      "rooms": [
+        "party_hall",
+        "fish_tank"
+      ],
+      "cars": [
+        "lambo_urus_oxblood"
+      ],
+      "devSurface": true
+    },
+    {
+      "phase": "before",
+      "width": 390,
+      "purchase": {
+        "initial": 1200000,
+        "party": true,
+        "fish": true,
+        "car": true,
+        "remaining": 290000,
+        "prices": {
+          "party": 250000,
+          "fish": 400000,
+          "car": 260000
+        }
+      },
+      "balanced": true
+    },
+    {
+      "phase": "before",
+      "width": 430,
+      "name": "unowned-bedroom",
+      "money": 100000,
+      "netWorth": 100000,
+      "rooms": [],
+      "cars": [],
+      "devSurface": true
+    },
+    {
+      "phase": "before",
+      "width": 430,
+      "name": "owned-bedroom",
+      "money": 290000,
+      "netWorth": 875000,
+      "rooms": [
+        "party_hall",
+        "fish_tank"
+      ],
+      "cars": [
+        "lambo_urus_oxblood"
+      ],
+      "devSurface": true
+    },
+    {
+      "phase": "before",
+      "width": 430,
+      "name": "owned-castle-menu",
+      "money": 290000,
+      "netWorth": 875000,
+      "rooms": [
+        "party_hall",
+        "fish_tank"
+      ],
+      "cars": [
+        "lambo_urus_oxblood"
+      ],
+      "devSurface": true
+    },
+    {
+      "phase": "before",
+      "width": 430,
+      "name": "owned-fish-tank-room",
+      "money": 290000,
+      "netWorth": 875000,
+      "rooms": [
+        "party_hall",
+        "fish_tank"
+      ],
+      "cars": [
+        "lambo_urus_oxblood"
+      ],
+      "devSurface": true
+    },
+    {
+      "phase": "before",
+      "width": 430,
+      "purchase": {
+        "initial": 1200000,
+        "party": true,
+        "fish": true,
+        "car": true,
+        "remaining": 290000,
+        "prices": {
+          "party": 250000,
+          "fish": 400000,
+          "car": 260000
+        }
+      },
+      "balanced": true
+    },
+    {
+      "phase": "after",
+      "width": 360,
+      "name": "unowned-bedroom",
+      "money": 100000,
+      "netWorth": 100000,
+      "rooms": [],
+      "cars": [],
+      "devSurface": false
+    },
+    {
+      "phase": "after",
+      "width": 360,
+      "name": "owned-bedroom",
+      "money": 290000,
+      "netWorth": 875000,
+      "rooms": [
+        "party_hall",
+        "fish_tank"
+      ],
+      "cars": [
+        "lambo_urus_oxblood"
+      ],
+      "devSurface": false
+    },
+    {
+      "phase": "after",
+      "width": 360,
+      "name": "owned-castle-menu",
+      "money": 290000,
+      "netWorth": 875000,
+      "rooms": [
+        "party_hall",
+        "fish_tank"
+      ],
+      "cars": [
+        "lambo_urus_oxblood"
+      ],
+      "devSurface": false
+    },
+    {
+      "phase": "after",
+      "width": 360,
+      "name": "owned-fish-tank-room",
+      "money": 290000,
+      "netWorth": 875000,
+      "rooms": [
+        "party_hall",
+        "fish_tank"
+      ],
+      "cars": [
+        "lambo_urus_oxblood"
+      ],
+      "devSurface": false
+    },
+    {
+      "phase": "after",
+      "width": 360,
+      "purchase": {
+        "initial": 1200000,
+        "party": true,
+        "fish": true,
+        "car": true,
+        "remaining": 290000,
+        "prices": {
+          "party": 250000,
+          "fish": 400000,
+          "car": 260000
+        }
+      },
+      "balanced": true
+    },
+    {
+      "phase": "after",
+      "width": 390,
+      "name": "unowned-bedroom",
+      "money": 100000,
+      "netWorth": 100000,
+      "rooms": [],
+      "cars": [],
+      "devSurface": false
+    },
+    {
+      "phase": "after",
+      "width": 390,
+      "name": "owned-bedroom",
+      "money": 290000,
+      "netWorth": 875000,
+      "rooms": [
+        "party_hall",
+        "fish_tank"
+      ],
+      "cars": [
+        "lambo_urus_oxblood"
+      ],
+      "devSurface": false
+    },
+    {
+      "phase": "after",
+      "width": 390,
+      "name": "owned-castle-menu",
+      "money": 290000,
+      "netWorth": 875000,
+      "rooms": [
+        "party_hall",
+        "fish_tank"
+      ],
+      "cars": [
+        "lambo_urus_oxblood"
+      ],
+      "devSurface": false
+    },
+    {
+      "phase": "after",
+      "width": 390,
+      "name": "owned-fish-tank-room",
+      "money": 290000,
+      "netWorth": 875000,
+      "rooms": [
+        "party_hall",
+        "fish_tank"
+      ],
+      "cars": [
+        "lambo_urus_oxblood"
+      ],
+      "devSurface": false
+    },
+    {
+      "phase": "after",
+      "width": 390,
+      "purchase": {
+        "initial": 1200000,
+        "party": true,
+        "fish": true,
+        "car": true,
+        "remaining": 290000,
+        "prices": {
+          "party": 250000,
+          "fish": 400000,
+          "car": 260000
+        }
+      },
+      "balanced": true
+    },
+    {
+      "phase": "after",
+      "width": 430,
+      "name": "unowned-bedroom",
+      "money": 100000,
+      "netWorth": 100000,
+      "rooms": [],
+      "cars": [],
+      "devSurface": false
+    },
+    {
+      "phase": "after",
+      "width": 430,
+      "name": "owned-bedroom",
+      "money": 290000,
+      "netWorth": 875000,
+      "rooms": [
+        "party_hall",
+        "fish_tank"
+      ],
+      "cars": [
+        "lambo_urus_oxblood"
+      ],
+      "devSurface": false
+    },
+    {
+      "phase": "after",
+      "width": 430,
+      "name": "owned-castle-menu",
+      "money": 290000,
+      "netWorth": 875000,
+      "rooms": [
+        "party_hall",
+        "fish_tank"
+      ],
+      "cars": [
+        "lambo_urus_oxblood"
+      ],
+      "devSurface": false
+    },
+    {
+      "phase": "after",
+      "width": 430,
+      "name": "owned-fish-tank-room",
+      "money": 290000,
+      "netWorth": 875000,
+      "rooms": [
+        "party_hall",
+        "fish_tank"
+      ],
+      "cars": [
+        "lambo_urus_oxblood"
+      ],
+      "devSurface": false
+    },
+    {
+      "phase": "after",
+      "width": 430,
+      "purchase": {
+        "initial": 1200000,
+        "party": true,
+        "fish": true,
+        "car": true,
+        "remaining": 290000,
+        "prices": {
+          "party": 250000,
+          "fish": 400000,
+          "car": 260000
+        }
+      },
+      "balanced": true
+    }
+  ],
+  "errors": [],
+  "bad": []
+}

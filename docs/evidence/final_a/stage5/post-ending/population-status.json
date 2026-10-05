@@ -1,0 +1,45 @@
+{
+ "generatedAt": "2026-10-03T23:41:13.252Z",
+ "scope": "separate post-ending route census",
+ "expected": 18,
+ "completed": 18,
+ "complete": true,
+ "healthy": 18,
+ "fatal": 0,
+ "errors": 1,
+ "softlocks": 0,
+ "endingDays": [
+  36
+ ],
+ "finalDays": [
+  71
+ ],
+ "openAdventures": 138,
+ "labels": [
+  {
+   "label": "post-ending",
+   "lives": 18,
+   "offered": 121,
+   "completed": 121,
+   "neverOffered": [
+    "A17",
+    "A23",
+    "A23R",
+    "A36",
+    "A57",
+    "ARC_CAMMILE_1",
+    "ARC_CAMMILE_2",
+    "ARC_CAMMILE_3",
+    "ARC_NNEKA_1",
+    "ARC_NNEKA_2",
+    "ARC_NNEKA_3",
+    "A_CAMMILE1",
+    "A_JADE1",
+    "COFFIN",
+    "RE_VIEWING",
+    "SHOP",
+    "THRONE"
+   ]
+  }
+ ]
+}

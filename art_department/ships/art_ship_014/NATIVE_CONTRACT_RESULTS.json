@@ -1,0 +1,141 @@
+{
+  "schema_version": 1,
+  "candidate_boards": [
+    {
+      "path": "art_department/ships/art_ship_014/candidate_boards/dragon_lifecycle_candidates.png",
+      "board_decode": "PASS",
+      "board_dimensions": [
+        1254,
+        1254
+      ],
+      "board_mode": "RGBA",
+      "binary_alpha": "FAIL",
+      "individual_native_contract": "FAIL \u2014 board is not sliced into native deployable assets",
+      "contact_origin_contract": "NOT TESTABLE \u2014 board only",
+      "overall": "REVIEW-BOARD PASS / PRODUCTION-NATIVE FAIL"
+    },
+    {
+      "path": "art_department/ships/art_ship_014/candidate_boards/pier_cat_prop_candidates.png",
+      "board_decode": "PASS",
+      "board_dimensions": [
+        1448,
+        1086
+      ],
+      "board_mode": "RGBA",
+      "binary_alpha": "FAIL",
+      "individual_native_contract": "FAIL \u2014 board is not sliced into native deployable assets",
+      "contact_origin_contract": "NOT TESTABLE \u2014 board only",
+      "overall": "REVIEW-BOARD PASS / PRODUCTION-NATIVE FAIL"
+    },
+    {
+      "path": "art_department/ships/art_ship_014/candidate_boards/owned_vehicle_surface_candidates.png",
+      "board_decode": "PASS",
+      "board_dimensions": [
+        1448,
+        1086
+      ],
+      "board_mode": "RGBA",
+      "binary_alpha": "FAIL",
+      "individual_native_contract": "FAIL \u2014 board is not sliced into native deployable assets",
+      "contact_origin_contract": "NOT TESTABLE \u2014 board only",
+      "overall": "REVIEW-BOARD PASS / PRODUCTION-NATIVE FAIL"
+    },
+    {
+      "path": "art_department/ships/art_ship_014/candidate_boards/company_states_assistant_cammile_june.png",
+      "board_decode": "PASS",
+      "board_dimensions": [
+        1448,
+        1086
+      ],
+      "board_mode": "RGBA",
+      "binary_alpha": "FAIL",
+      "individual_native_contract": "FAIL \u2014 board is not sliced into native deployable assets",
+      "contact_origin_contract": "NOT TESTABLE \u2014 board only",
+      "overall": "REVIEW-BOARD PASS / PRODUCTION-NATIVE FAIL"
+    },
+    {
+      "path": "art_department/ships/art_ship_014/candidate_boards/relationship_states_tristan_patrice_smack.png",
+      "board_decode": "PASS",
+      "board_dimensions": [
+        1402,
+        1122
+      ],
+      "board_mode": "RGBA",
+      "binary_alpha": "FAIL",
+      "individual_native_contract": "FAIL \u2014 board is not sliced into native deployable assets",
+      "contact_origin_contract": "NOT TESTABLE \u2014 board only",
+      "overall": "REVIEW-BOARD PASS / PRODUCTION-NATIVE FAIL"
+    },
+    {
+      "path": "art_department/ships/art_ship_014/candidate_boards/open_reaction_state_candidates.png",
+      "board_decode": "PASS",
+      "board_dimensions": [
+        1448,
+        1086
+      ],
+      "board_mode": "RGBA",
+      "binary_alpha": "FAIL",
+      "individual_native_contract": "FAIL \u2014 board is not sliced into native deployable assets",
+      "contact_origin_contract": "NOT TESTABLE \u2014 board only",
+      "overall": "REVIEW-BOARD PASS / PRODUCTION-NATIVE FAIL"
+    },
+    {
+      "path": "art_department/ships/art_ship_014/candidate_boards/bedroom_prop_condition_candidates.png",
+      "board_decode": "PASS",
+      "board_dimensions": [
+        1374,
+        1145
+      ],
+      "board_mode": "RGBA",
+      "binary_alpha": "FAIL",
+      "individual_native_contract": "FAIL \u2014 board is not sliced into native deployable assets",
+      "contact_origin_contract": "NOT TESTABLE \u2014 board only",
+      "overall": "REVIEW-BOARD PASS / PRODUCTION-NATIVE FAIL"
+    },
+    {
+      "path": "art_department/ships/art_ship_014/candidate_boards/phone_ui_visual_treatments.png",
+      "board_decode": "PASS",
+      "board_dimensions": [
+        1024,
+        1536
+      ],
+      "board_mode": "RGB",
+      "binary_alpha": "PASS",
+      "individual_native_contract": "FAIL \u2014 board is not sliced into native deployable assets",
+      "contact_origin_contract": "NOT TESTABLE \u2014 board only",
+      "overall": "REVIEW-BOARD PASS / PRODUCTION-NATIVE FAIL"
+    },
+    {
+      "path": "art_department/ships/art_ship_014/candidate_boards/rich_radio_cover_candidates.png",
+      "board_decode": "PASS",
+      "board_dimensions": [
+        2172,
+        724
+      ],
+      "board_mode": "RGB",
+      "binary_alpha": "PASS",
+      "individual_native_contract": "FAIL \u2014 board is not sliced into native deployable assets",
+      "contact_origin_contract": "NOT TESTABLE \u2014 board only",
+      "overall": "REVIEW-BOARD PASS / PRODUCTION-NATIVE FAIL"
+    },
+    {
+      "path": "art_department/ships/art_ship_014/candidate_boards/portobello_rival_vehicle_candidates.png",
+      "board_decode": "PASS",
+      "board_dimensions": [
+        1374,
+        1145
+      ],
+      "board_mode": "RGBA",
+      "binary_alpha": "FAIL",
+      "individual_native_contract": "FAIL \u2014 board is not sliced into native deployable assets",
+      "contact_origin_contract": "NOT TESTABLE \u2014 board only",
+      "overall": "REVIEW-BOARD PASS / PRODUCTION-NATIVE FAIL"
+    }
+  ],
+  "frozen_baseline": {
+    "result": "224/224",
+    "all_pass": true,
+    "authority": "art/art_ship_012_closeout @ 920912ff3d006c33d9b002d2436b8e1b0ed83f72"
+  },
+  "conclusion": "The boards are suitable for Ube/HQ direction review only. They are not native asset files and must not be frozen or integrated."
+}

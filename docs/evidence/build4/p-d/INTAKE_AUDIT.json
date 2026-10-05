@@ -1,0 +1,644 @@
+{
+  "verified_art_files": 96,
+  "native_pngs": 48,
+  "native_bytes_unchanged": 48,
+  "binary_alpha_native_assets": 30,
+  "opaque_native_backgrounds": 18,
+  "standing_pixel_identity": [
+    "tunde",
+    "dre"
+  ],
+  "files": [
+    {
+      "id": "gbenga_house_dining",
+      "number": 1,
+      "path": "assets/build4/p_d/p_d_gbenga_house_dining.png",
+      "sha256": "06912ce6c92307d138c3d25e8f7f3e259f4e8ffebcbea01534a05b92486e60c5",
+      "dimensions": [
+        270,
+        480
+      ],
+      "mode": "RGB",
+      "source": "art_department/production/build4-p-d/sources/p_d_gbenga_house_dining.png"
+    },
+    {
+      "id": "gbenga_house_patio",
+      "number": 2,
+      "path": "assets/build4/p_d/p_d_gbenga_house_patio.png",
+      "sha256": "7fb9263ee00ca834a49f978673a01c8ddd153ae02f7a9b8e881f4fcbd753c5f3",
+      "dimensions": [
+        270,
+        480
+      ],
+      "mode": "RGB",
+      "source": "art_department/production/build4-p-d/sources/p_d_gbenga_house_patio.png"
+    },
+    {
+      "id": "carson_owambe",
+      "number": 3,
+      "path": "assets/build4/p_d/p_d_carson_owambe.png",
+      "sha256": "205fed2fa37fe062886a592107a4ea38c9b636aad43a4161dc04e59e1b4b4944",
+      "dimensions": [
+        270,
+        480
+      ],
+      "mode": "RGB",
+      "source": "art_department/production/build4-p-d/sources/p_d_carson_owambe.png"
+    },
+    {
+      "id": "catacomb_dead",
+      "number": 4,
+      "path": "assets/build4/p_d/p_d_catacomb_dead.png",
+      "sha256": "503ea33cb0be755196a15886fe944fe1ea5157b91ea15c5886eb20529674621b",
+      "dimensions": [
+        270,
+        480
+      ],
+      "mode": "RGB",
+      "source": "art_department/production/build4-p-d/sources/p_d_catacomb_dead.png"
+    },
+    {
+      "id": "ocean_night_flight",
+      "number": 5,
+      "path": "assets/build4/p_d/p_d_ocean_night_flight.png",
+      "sha256": "deba17f0669d4ead380f924ac2b301590278c46c9e7d4375d9163659bcb91b27",
+      "dimensions": [
+        270,
+        480
+      ],
+      "mode": "RGB",
+      "source": "art_department/production/build4-p-d/sources/p_d_ocean_night_flight.png"
+    },
+    {
+      "id": "halloween",
+      "number": 6,
+      "path": "assets/build4/p_d/p_d_halloween.png",
+      "sha256": "bec5991c645ee117562285b1ab3e01fb500cd358a9a300de388b84863863b0c7",
+      "dimensions": [
+        270,
+        480
+      ],
+      "mode": "RGB",
+      "source": "art_department/production/build4-p-d/sources/p_d_halloween.png"
+    },
+    {
+      "id": "f15_exam_hall",
+      "number": 7,
+      "path": "assets/build4/p_d/p_d_f15_exam_hall.png",
+      "sha256": "d8764fb41fe490303714555e9433f26206a3eff2bd8b807d633b96c3ddaaf995",
+      "dimensions": [
+        270,
+        480
+      ],
+      "mode": "RGB",
+      "source": "art_department/production/build4-p-d/sources/p_d_f15_exam_hall.png"
+    },
+    {
+      "id": "f15_library",
+      "number": 8,
+      "path": "assets/build4/p_d/p_d_f15_library.png",
+      "sha256": "1597863b8b3584c0837b86502fab802981eb59c2590f0e68eb10d88ced2a35fb",
+      "dimensions": [
+        270,
+        480
+      ],
+      "mode": "RGB",
+      "source": "art_department/production/build4-p-d/sources/p_d_f15_library.png"
+    },
+    {
+      "id": "pickup_court",
+      "number": 9,
+      "path": "assets/build4/p_d/p_d_pickup_court.png",
+      "sha256": "0431d219906a6efad733321421c422377bebe8751ebb7722bf643563c2df6b17",
+      "dimensions": [
+        270,
+        480
+      ],
+      "mode": "RGB",
+      "source": "art_department/production/build4-p-d/sources/p_d_pickup_court.png"
+    },
+    {
+      "id": "jollof_kitchen",
+      "number": 10,
+      "path": "assets/build4/p_d/p_d_jollof_kitchen.png",
+      "sha256": "4e55188c7be0f01e93de007564759e0ad18a6517412f0b664417a5f729483152",
+      "dimensions": [
+        270,
+        480
+      ],
+      "mode": "RGB",
+      "source": "art_department/production/build4-p-d/sources/p_d_jollof_kitchen.png"
+    },
+    {
+      "id": "jollof_cookoff",
+      "number": 11,
+      "path": "assets/build4/p_d/p_d_jollof_cookoff.png",
+      "sha256": "7b57098e33bf1535d1aed17e9410991ea3cf22544862de141b7c13411047b11b",
+      "dimensions": [
+        270,
+        480
+      ],
+      "mode": "RGB",
+      "source": "art_department/production/build4-p-d/sources/p_d_jollof_cookoff.png"
+    },
+    {
+      "id": "jollof_final",
+      "number": 12,
+      "path": "assets/build4/p_d/p_d_jollof_final.png",
+      "sha256": "a7881a5e3ea474ec9097ffd7fb79caac9439e789f86a5d55de8ebe725585c7fe",
+      "dimensions": [
+        270,
+        480
+      ],
+      "mode": "RGB",
+      "source": "art_department/production/build4-p-d/sources/p_d_jollof_final.png"
+    },
+    {
+      "id": "pier_game",
+      "number": 13,
+      "path": "assets/build4/p_d/p_d_pier_game.png",
+      "sha256": "7d9f5c847ed3537a080e0e3cee6fd1d57bb7133f339910a7bc015935569e8ea4",
+      "dimensions": [
+        270,
+        480
+      ],
+      "mode": "RGB",
+      "source": "art_department/production/build4-p-d/sources/p_d_pier_game.png"
+    },
+    {
+      "id": "hookah_roof",
+      "number": 14,
+      "path": "assets/build4/p_d/p_d_hookah_roof.png",
+      "sha256": "32c340a0714293716967e330ed42d6160a43ef13c97505803ea6aafab3028952",
+      "dimensions": [
+        270,
+        480
+      ],
+      "mode": "RGB",
+      "source": "art_department/production/build4-p-d/sources/p_d_hookah_roof.png"
+    },
+    {
+      "id": "owambe_birthday",
+      "number": 15,
+      "path": "assets/build4/p_d/p_d_owambe_birthday.png",
+      "sha256": "6ad18801fcf68d45f3be215440a631aa7a743fddc72f2bb351b2766055df72c1",
+      "dimensions": [
+        270,
+        480
+      ],
+      "mode": "RGB",
+      "source": "art_department/production/build4-p-d/sources/p_d_owambe_birthday.png"
+    },
+    {
+      "id": "hatch_castle",
+      "number": 16,
+      "path": "assets/build4/p_d/p_d_hatch_castle.png",
+      "sha256": "0396caeaa12758fff40df405b20fa429267986a5e441e77470643328febe63b8",
+      "dimensions": [
+        270,
+        480
+      ],
+      "mode": "RGB",
+      "source": "art_department/production/build4-p-d/sources/p_d_hatch_castle.png"
+    },
+    {
+      "id": "hatch_room",
+      "number": 17,
+      "path": "assets/build4/p_d/p_d_hatch_room.png",
+      "sha256": "fbf6b6e3883b79ff4e1e85a5eb8518d704fb991f7e9f762f9aece7e7d4140ab2",
+      "dimensions": [
+        270,
+        480
+      ],
+      "mode": "RGB",
+      "source": "art_department/production/build4-p-d/sources/p_d_hatch_room.png"
+    },
+    {
+      "id": "senator_care_ground",
+      "number": 18,
+      "path": "assets/build4/p_d/p_d_senator_care_ground.png",
+      "sha256": "d01c490f2dc3a0affa1a4cb7dcbdcfbd227f932a2ae56ca7fef0d2dd7213acdb",
+      "dimensions": [
+        270,
+        480
+      ],
+      "mode": "RGB",
+      "source": "art_department/production/build4-p-d/sources/p_d_senator_care_ground.png"
+    },
+    {
+      "id": "touge_rival_1",
+      "number": 19,
+      "path": "assets/build4/p_d/p_d_touge_rival_1.png",
+      "sha256": "0023910bfe931a1b0ed9842f607e570eb3f6a1d7726a22eafea996d0ed791030",
+      "dimensions": [
+        16,
+        28
+      ],
+      "mode": "RGBA",
+      "source": "art_department/production/build4-p-d/sources/p_d_touge_rival_1.png"
+    },
+    {
+      "id": "touge_rival_2",
+      "number": 20,
+      "path": "assets/build4/p_d/p_d_touge_rival_2.png",
+      "sha256": "245c7ec43bf00ca7ead9f66c7269136a6759c730abaee5cb20eaf1b427e9ce5a",
+      "dimensions": [
+        16,
+        28
+      ],
+      "mode": "RGBA",
+      "source": "art_department/production/build4-p-d/sources/p_d_touge_rival_2.png"
+    },
+    {
+      "id": "smallie",
+      "number": 21,
+      "path": "assets/build4/p_d/p_d_smallie_80x96.png",
+      "sha256": "da4c2570fbbbe10b7534306f0b31a4376c0cfaf3eead051a602156d94f9f209a",
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "source": "art_department/production/build4-p-d/sources/p_d_smallie_80x96.png"
+    },
+    {
+      "id": "smallie_cousin",
+      "number": 22,
+      "path": "assets/build4/p_d/p_d_smallie_cousin_80x96.png",
+      "sha256": "694ed3ebf43ca21bac1987830ffdad2022700a024dc337aefa7b59462097ec40",
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "source": "art_department/production/build4-p-d/sources/p_d_smallie_cousin_80x96.png"
+    },
+    {
+      "id": "mama_gbenga",
+      "number": 23,
+      "path": "assets/build4/p_d/p_d_mama_gbenga_80x96.png",
+      "sha256": "995aea18c7f6e953a812981440da632140245f67c7a52601692010b9d6a52242",
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "source": "art_department/production/build4-p-d/sources/p_d_mama_gbenga_80x96.png"
+    },
+    {
+      "id": "uncle_bamidele",
+      "number": 24,
+      "path": "assets/build4/p_d/p_d_uncle_bamidele_80x96.png",
+      "sha256": "0b154f166dae5c751a031888511c7280bfd8a756a554f317ea8cd4659e4bdb1c",
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "source": "art_department/production/build4-p-d/sources/p_d_uncle_bamidele_80x96.png"
+    },
+    {
+      "id": "senator",
+      "number": 25,
+      "path": "assets/build4/p_d/p_d_senator_states_480x160.png",
+      "sha256": "68e7ad0e83d4042d2a92c6bb8448a4605fb3f64e0a1d11c2a88892b7a1715ad0",
+      "dimensions": [
+        480,
+        160
+      ],
+      "mode": "RGBA",
+      "source": "art_department/production/build4-p-d/sources/p_d_senator_states_480x160.png",
+      "cells": {
+        "sitting": "assets/build4/p_d/p_d_senator_sitting_160x160.png",
+        "charging": "assets/build4/p_d/p_d_senator_charging_160x160.png",
+        "asleep": "assets/build4/p_d/p_d_senator_asleep_160x160.png"
+      }
+    },
+    {
+      "id": "kiosk_guy",
+      "number": 26,
+      "path": "assets/build4/p_d/p_d_kiosk_guy_80x96.png",
+      "sha256": "961f1a09b1deba79c40741b7886e1053f3372eea4ababc8d1b3f405913d22d95",
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "source": "art_department/production/build4-p-d/sources/p_d_kiosk_guy_80x96.png"
+    },
+    {
+      "id": "pickup_player_left",
+      "number": 27,
+      "path": "assets/build4/p_d/p_d_pickup_player_left_80x96.png",
+      "sha256": "8b1a8828094c80e8cbe0c364a55c1556e71c93a8c0eefa6a38767d1dba7d11d6",
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "source": "art_department/production/build4-p-d/sources/p_d_pickup_player_left_80x96.png"
+    },
+    {
+      "id": "pickup_player_middle",
+      "number": 28,
+      "path": "assets/build4/p_d/p_d_pickup_player_middle_80x96.png",
+      "sha256": "1a1d42adca3d7ba66c7a5ef62a2b65c01861d05a08317cec1c041b20a4c89f9c",
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "source": "art_department/production/build4-p-d/sources/p_d_pickup_player_middle_80x96.png"
+    },
+    {
+      "id": "pickup_player_right",
+      "number": 29,
+      "path": "assets/build4/p_d/p_d_pickup_player_right_80x96.png",
+      "sha256": "9a56f997d5072853cd31408608fa234479e66934bb979c62c62f9addaec09d82",
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "source": "art_department/production/build4-p-d/sources/p_d_pickup_player_right_80x96.png"
+    },
+    {
+      "id": "jollof_cook",
+      "number": 30,
+      "path": "assets/build4/p_d/p_d_jollof_cook_80x96.png",
+      "sha256": "6bdfd8fa336cd4e19031486783cb376373cefaa7da9b2469d3094f2533bdcbb8",
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "source": "art_department/production/build4-p-d/sources/p_d_jollof_cook_80x96.png"
+    },
+    {
+      "id": "hookah_date",
+      "number": 31,
+      "path": "assets/build4/p_d/p_d_hookah_date_80x96.png",
+      "sha256": "0ec35d58e496e4d6b4806348d831b0e525ce17eef5ff7a63ca9192afdaa38a76",
+      "dimensions": [
+        80,
+        96
+      ],
+      "mode": "RGBA",
+      "source": "art_department/production/build4-p-d/sources/p_d_hookah_date_80x96.png"
+    },
+    {
+      "id": "fl_a10_recruit_token",
+      "number": 32,
+      "path": "assets/build4/p_d/fl_a10_recruit_token_48x48.png",
+      "sha256": "8c38ed0cbed9815304395b0414f05a65b12513cd982649cb5e9b13d85a03da7d",
+      "dimensions": [
+        48,
+        48
+      ],
+      "mode": "RGBA",
+      "source": "art_department/production/build4-p-d/sources/fl_a10_recruit_token_48x48.png"
+    },
+    {
+      "id": "fl_a10_story_token",
+      "number": 33,
+      "path": "assets/build4/p_d/fl_a10_story_token_48x48.png",
+      "sha256": "115514f51320edfbd8a3233bc0462ab77184eb1cf87da28a60ec94f427e599ac",
+      "dimensions": [
+        48,
+        48
+      ],
+      "mode": "RGBA",
+      "source": "art_department/production/build4-p-d/sources/fl_a10_story_token_48x48.png"
+    },
+    {
+      "id": "fl_a10_district_token",
+      "number": 34,
+      "path": "assets/build4/p_d/fl_a10_district_token_48x48.png",
+      "sha256": "c1daa0cbe4e0fadfbd416cf52cbca12e06258e35740be00cb0cd91f9dbc14392",
+      "dimensions": [
+        48,
+        48
+      ],
+      "mode": "RGBA",
+      "source": "art_department/production/build4-p-d/sources/fl_a10_district_token_48x48.png"
+    },
+    {
+      "id": "fl_a07_tunde_states",
+      "number": 35,
+      "path": "assets/build4/p_d/fl_a07_tunde_states_400x96.png",
+      "sha256": "070d83cd646d9c7b011c3f14bee0e58940f3ca739f202f0dca57a6cd453738fb",
+      "dimensions": [
+        400,
+        96
+      ],
+      "mode": "RGBA",
+      "source": "art_department/production/build4-p-d/sources/fl_a07_tunde_states_400x96.png",
+      "standing_reference": "assets/before_the_fame/characters/tunde/tunde_neutral_80x96.png",
+      "cells": {
+        "walking": "assets/build4/p_d/fl_a07_tunde_walking_80x96.png",
+        "boarding": "assets/build4/p_d/fl_a07_tunde_boarding_80x96.png",
+        "standing": "assets/build4/p_d/fl_a07_tunde_standing_80x96.png",
+        "wounded": "assets/build4/p_d/fl_a07_tunde_wounded_80x96.png",
+        "carried": "assets/build4/p_d/fl_a07_tunde_carried_80x96.png"
+      }
+    },
+    {
+      "id": "fl_a07_dre_states",
+      "number": 36,
+      "path": "assets/build4/p_d/fl_a07_dre_states_400x96.png",
+      "sha256": "e01ddcf717721a1b8aeb984f717e440098d5e0558a85bc4817d6c417307f2f12",
+      "dimensions": [
+        400,
+        96
+      ],
+      "mode": "RGBA",
+      "source": "art_department/production/build4-p-d/sources/fl_a07_dre_states_400x96.png",
+      "standing_reference": "assets/before_the_fame/characters/dre/dre_neutral_80x96.png",
+      "cells": {
+        "walking": "assets/build4/p_d/fl_a07_dre_walking_80x96.png",
+        "boarding": "assets/build4/p_d/fl_a07_dre_boarding_80x96.png",
+        "standing": "assets/build4/p_d/fl_a07_dre_standing_80x96.png",
+        "wounded": "assets/build4/p_d/fl_a07_dre_wounded_80x96.png",
+        "carried": "assets/build4/p_d/fl_a07_dre_carried_80x96.png"
+      }
+    },
+    {
+      "id": "fl_a07_half_pint_states",
+      "number": 37,
+      "path": "assets/build4/p_d/fl_a07_half_pint_states_400x96.png",
+      "sha256": "657ee481455f44a9f4fb35b4b51e7b9df44f450d476f8f05a1a85f6f6a8faced",
+      "dimensions": [
+        400,
+        96
+      ],
+      "mode": "RGBA",
+      "source": "art_department/production/build4-p-d/sources/fl_a07_half_pint_states_400x96.png",
+      "cells": {
+        "walking": "assets/build4/p_d/fl_a07_half_pint_walking_80x96.png",
+        "boarding": "assets/build4/p_d/fl_a07_half_pint_boarding_80x96.png",
+        "standing": "assets/build4/p_d/fl_a07_half_pint_standing_80x96.png",
+        "wounded": "assets/build4/p_d/fl_a07_half_pint_wounded_80x96.png",
+        "carried": "assets/build4/p_d/fl_a07_half_pint_carried_80x96.png"
+      }
+    },
+    {
+      "id": "fl_a07_sunday_best_states",
+      "number": 38,
+      "path": "assets/build4/p_d/fl_a07_sunday_best_states_400x96.png",
+      "sha256": "91a4d8b3fbb37fb5e6e36eefbcf46def8d2cd43e5320f1f7f9b5d677920782d5",
+      "dimensions": [
+        400,
+        96
+      ],
+      "mode": "RGBA",
+      "source": "art_department/production/build4-p-d/sources/fl_a07_sunday_best_states_400x96.png",
+      "cells": {
+        "walking": "assets/build4/p_d/fl_a07_sunday_best_walking_80x96.png",
+        "boarding": "assets/build4/p_d/fl_a07_sunday_best_boarding_80x96.png",
+        "standing": "assets/build4/p_d/fl_a07_sunday_best_standing_80x96.png",
+        "wounded": "assets/build4/p_d/fl_a07_sunday_best_wounded_80x96.png",
+        "carried": "assets/build4/p_d/fl_a07_sunday_best_carried_80x96.png"
+      }
+    },
+    {
+      "id": "fl_a07_young_mazi_states",
+      "number": 39,
+      "path": "assets/build4/p_d/fl_a07_young_mazi_states_400x96.png",
+      "sha256": "8f0fbce3e2ed021e623a54e47f5aea88e47cedbde34c864890947a78c36d4523",
+      "dimensions": [
+        400,
+        96
+      ],
+      "mode": "RGBA",
+      "source": "art_department/production/build4-p-d/sources/fl_a07_young_mazi_states_400x96.png",
+      "cells": {
+        "walking": "assets/build4/p_d/fl_a07_young_mazi_walking_80x96.png",
+        "boarding": "assets/build4/p_d/fl_a07_young_mazi_boarding_80x96.png",
+        "standing": "assets/build4/p_d/fl_a07_young_mazi_standing_80x96.png",
+        "wounded": "assets/build4/p_d/fl_a07_young_mazi_wounded_80x96.png",
+        "carried": "assets/build4/p_d/fl_a07_young_mazi_carried_80x96.png"
+      }
+    },
+    {
+      "id": "fl_a07_auntie_grit_states",
+      "number": 40,
+      "path": "assets/build4/p_d/fl_a07_auntie_grit_states_400x96.png",
+      "sha256": "ea8affa61c5c8e2cbf7f8fb13d7015e86f195af3817522cebce0b4c6b1f56977",
+      "dimensions": [
+        400,
+        96
+      ],
+      "mode": "RGBA",
+      "source": "art_department/production/build4-p-d/sources/fl_a07_auntie_grit_states_400x96.png",
+      "cells": {
+        "walking": "assets/build4/p_d/fl_a07_auntie_grit_walking_80x96.png",
+        "boarding": "assets/build4/p_d/fl_a07_auntie_grit_boarding_80x96.png",
+        "standing": "assets/build4/p_d/fl_a07_auntie_grit_standing_80x96.png",
+        "wounded": "assets/build4/p_d/fl_a07_auntie_grit_wounded_80x96.png",
+        "carried": "assets/build4/p_d/fl_a07_auntie_grit_carried_80x96.png"
+      }
+    },
+    {
+      "id": "mac_and_cheese_held",
+      "number": 41,
+      "path": "assets/build4/p_d/E-gun-mac_and_cheese-held.png",
+      "sha256": "f8cf45820625854a0fadaabdc5cc510c0d5f374ea750f7fe985b9e9f15cb0059",
+      "dimensions": [
+        64,
+        32
+      ],
+      "mode": "RGBA",
+      "source": "art_department/production/build4-p-d/sources/E-gun-mac_and_cheese-held.png"
+    },
+    {
+      "id": "tommy_tony_held",
+      "number": 42,
+      "path": "assets/build4/p_d/E-gun-tommy_tony-held.png",
+      "sha256": "3922690f3c0634664e2b9ddbf3f8b1a7d53571506869bd804b15b2810d441ad1",
+      "dimensions": [
+        64,
+        32
+      ],
+      "mode": "RGBA",
+      "source": "art_department/production/build4-p-d/sources/E-gun-tommy_tony-held.png"
+    },
+    {
+      "id": "jollof_burner_held",
+      "number": 43,
+      "path": "assets/build4/p_d/E-gun-jollof_burner-held.png",
+      "sha256": "913a5d6c9df27ff5577568f23ff25f1166e54ab8279c33b2f7097a9433232536",
+      "dimensions": [
+        64,
+        32
+      ],
+      "mode": "RGBA",
+      "source": "art_department/production/build4-p-d/sources/E-gun-jollof_burner-held.png"
+    },
+    {
+      "id": "blueberry_blaster_held",
+      "number": 44,
+      "path": "assets/build4/p_d/E-gun-blueberry_blaster-held.png",
+      "sha256": "df0c42d774acdbf03bd94698114d719e560a76f097ba327fb368438df610a5ba",
+      "dimensions": [
+        64,
+        32
+      ],
+      "mode": "RGBA",
+      "source": "art_department/production/build4-p-d/sources/E-gun-blueberry_blaster-held.png"
+    },
+    {
+      "id": "legendary_draco_held",
+      "number": 45,
+      "path": "assets/build4/p_d/E-gun-legendary_draco-held.png",
+      "sha256": "443eb6a3b0bd8a897ee8df396733b80fce6f31b8ebc50bc011338928b96f89f0",
+      "dimensions": [
+        64,
+        32
+      ],
+      "mode": "RGBA",
+      "source": "art_department/production/build4-p-d/sources/E-gun-legendary_draco-held.png"
+    },
+    {
+      "id": "golden_draco_held",
+      "number": 46,
+      "path": "assets/build4/p_d/E-gun-golden_draco-held.png",
+      "sha256": "a48305bf3803c554e6033d9afa2afa3a4dd4413eb0c9c9accf4056ee1df636a0",
+      "dimensions": [
+        64,
+        32
+      ],
+      "mode": "RGBA",
+      "source": "art_department/production/build4-p-d/sources/E-gun-golden_draco-held.png"
+    },
+    {
+      "id": "auntie_slipper_held",
+      "number": 47,
+      "path": "assets/build4/p_d/E-gun-auntie_slipper-held.png",
+      "sha256": "13c60e577e37d1102828c0b010f89ecd9da0debef96bf93489f77cc42a97cf73",
+      "dimensions": [
+        64,
+        32
+      ],
+      "mode": "RGBA",
+      "source": "art_department/production/build4-p-d/sources/E-gun-auntie_slipper-held.png"
+    },
+    {
+      "id": "triple_k_kratos_held",
+      "number": 48,
+      "path": "assets/build4/p_d/E-gun-triple_k_kratos-held.png",
+      "sha256": "1156d867a33b90c9cf6835efc9b730d7b91f505fef24a44c40d0f14e08fb8942",
+      "dimensions": [
+        64,
+        32
+      ],
+      "mode": "RGBA",
+      "source": "art_department/production/build4-p-d/sources/E-gun-triple_k_kratos-held.png"
+    }
+  ],
+  "transfer_zip": {
+    "filename": "OL046_P-D_FROZEN_2026-10-03.zip",
+    "bytes": 39771407,
+    "sha256": "c6e7c1390fb34d7d2a27754ea3c9a65be1da0fe8b3077a7ecc01a43243d44a0f",
+    "internal_checksums_verified": true
+  }
+}

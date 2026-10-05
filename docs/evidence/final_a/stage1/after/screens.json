@@ -1,0 +1,5074 @@
+{
+  "phase": "after",
+  "base": null,
+  "rows": [
+    {
+      "width": 360,
+      "name": "fresh-home",
+      "page": "home",
+      "scroll": 310,
+      "contentWidth": 310,
+      "rect": {
+        "x": 25,
+        "y": 127.984375,
+        "width": 310,
+        "height": 643.015625
+      },
+      "appButtons": 21,
+      "next": "prompt",
+      "theme": "home",
+      "buttons": [
+        {
+          "action": "prompt",
+          "label": "VAMPGPT\nOGA WHAT DO I DO\n↗"
+        },
+        {
+          "action": "app:vampgpt",
+          "label": "VampGPT"
+        },
+        {
+          "action": "app:maps",
+          "label": "MAPS"
+        },
+        {
+          "action": "app:warRoom",
+          "label": "WAR ROOM\nLOCKED · NO OFFER"
+        },
+        {
+          "action": "app:vampgram",
+          "label": "VampGram\nLOCKED · NO TAGS"
+        },
+        {
+          "action": "app:instahoe",
+          "label": "InstaHoe\nLOCKED · NOT LISTED"
+        },
+        {
+          "action": "app:onlyvamps",
+          "label": "ONLYVAMPS\nLOCKED · INVITE ONLY"
+        },
+        {
+          "action": "app:texts",
+          "label": "TEXTS\nLOCKED · NO MESSAGES"
+        },
+        {
+          "action": "app:contacts",
+          "label": "CONTACTS"
+        },
+        {
+          "action": "app:realEstate",
+          "label": "RealMoney\nRealEstate"
+        },
+        {
+          "action": "app:jdmImports",
+          "label": "JDMIMPORTS"
+        },
+        {
+          "action": "app:richboi",
+          "label": "RICHBO\nIMPORTS\nLOCKED · WAITLIST"
+        },
+        {
+          "action": "app:bank",
+          "label": "BANK"
+        },
+        {
+          "action": "app:trap",
+          "label": "TRAP\nLOCKED · NO LISTING"
+        },
+        {
+          "action": "app:rainmaker",
+          "label": "RAINMAKER\nLOCKED · NO INVITE"
+        },
+        {
+          "action": "app:radio",
+          "label": "RICH RADIO\nLOCKED · NO TRACK"
+        },
+        {
+          "action": "app:hatch",
+          "label": "HATCH\nLOCKED · NO EGG"
+        },
+        {
+          "action": "app:touge",
+          "label": "TOUGE\nLOCKED · NO DRIVER"
+        },
+        {
+          "action": "app:bars",
+          "label": "BARS\nLOCKED · NO SONG"
+        },
+        {
+          "action": "app:receipts",
+          "label": "RECEIPTS\nLOCKED · NO RECEIPTS"
+        },
+        {
+          "action": "app:armory",
+          "label": "ARMORY\nLOCKED · UNKNOWN DEALER"
+        },
+        {
+          "action": "app:moves",
+          "label": "MOVES"
+        },
+        {
+          "action": "close",
+          "label": "CLOSE PHONE"
+        }
+      ]
+    },
+    {
+      "width": 360,
+      "name": "device-lock",
+      "page": "home",
+      "scroll": 310,
+      "contentWidth": 310,
+      "rect": {
+        "x": 25,
+        "y": 127.984375,
+        "width": 310,
+        "height": 643.015625
+      },
+      "appButtons": 0,
+      "theme": "lock",
+      "buttons": [
+        {
+          "action": "deviceUnlock",
+          "label": "SWIPE UP / UNLOCK"
+        }
+      ]
+    },
+    {
+      "width": 360,
+      "name": "app-lock-guidance",
+      "page": "home",
+      "scroll": 310,
+      "contentWidth": 310,
+      "rect": {
+        "x": 25,
+        "y": 127.984375,
+        "width": 310,
+        "height": 643.015625
+      },
+      "appButtons": 21,
+      "next": "prompt",
+      "theme": "home",
+      "buttons": [
+        {
+          "action": "prompt",
+          "label": "VAMPGPT\nOGA WHAT DO I DO\n↗"
+        },
+        {
+          "action": "app:vampgpt",
+          "label": "VampGPT"
+        },
+        {
+          "action": "app:maps",
+          "label": "MAPS"
+        },
+        {
+          "action": "app:warRoom",
+          "label": "WAR ROOM\nLOCKED · NO OFFER"
+        },
+        {
+          "action": "app:vampgram",
+          "label": "VampGram\nLOCKED · NO TAGS"
+        },
+        {
+          "action": "app:instahoe",
+          "label": "InstaHoe\nLOCKED · NOT LISTED"
+        },
+        {
+          "action": "app:onlyvamps",
+          "label": "ONLYVAMPS\nLOCKED · INVITE ONLY"
+        },
+        {
+          "action": "app:texts",
+          "label": "TEXTS\nLOCKED · NO MESSAGES"
+        },
+        {
+          "action": "app:contacts",
+          "label": "CONTACTS"
+        },
+        {
+          "action": "app:realEstate",
+          "label": "RealMoney\nRealEstate"
+        },
+        {
+          "action": "app:jdmImports",
+          "label": "JDMIMPORTS"
+        },
+        {
+          "action": "app:richboi",
+          "label": "RICHBO\nIMPORTS\nLOCKED · WAITLIST"
+        },
+        {
+          "action": "app:bank",
+          "label": "BANK"
+        },
+        {
+          "action": "app:trap",
+          "label": "TRAP\nLOCKED · NO LISTING"
+        },
+        {
+          "action": "app:rainmaker",
+          "label": "RAINMAKER\nLOCKED · NO INVITE"
+        },
+        {
+          "action": "app:radio",
+          "label": "RICH RADIO\nLOCKED · NO TRACK"
+        },
+        {
+          "action": "app:hatch",
+          "label": "HATCH\nLOCKED · NO EGG"
+        },
+        {
+          "action": "app:touge",
+          "label": "TOUGE\nLOCKED · NO DRIVER"
+        },
+        {
+          "action": "app:bars",
+          "label": "BARS\nLOCKED · NO SONG"
+        },
+        {
+          "action": "app:receipts",
+          "label": "RECEIPTS\nLOCKED · NO RECEIPTS"
+        },
+        {
+          "action": "app:armory",
+          "label": "ARMORY\nLOCKED · UNKNOWN DEALER"
+        },
+        {
+          "action": "app:moves",
+          "label": "MOVES"
+        },
+        {
+          "action": "close",
+          "label": "CLOSE PHONE"
+        }
+      ]
+    },
+    {
+      "width": 360,
+      "name": "progressed-home",
+      "page": "home",
+      "scroll": 310,
+      "contentWidth": 310,
+      "rect": {
+        "x": 25,
+        "y": 127.984375,
+        "width": 310,
+        "height": 643.015625
+      },
+      "appButtons": 21,
+      "next": "app:texts",
+      "theme": "home",
+      "buttons": [
+        {
+          "action": "app:texts",
+          "label": "2 UNREAD\nTEXTS\n↗"
+        },
+        {
+          "action": "app:vampgpt",
+          "label": "VampGPT"
+        },
+        {
+          "action": "app:maps",
+          "label": "MAPS"
+        },
+        {
+          "action": "app:warRoom",
+          "label": "WAR ROOM"
+        },
+        {
+          "action": "app:vampgram",
+          "label": "VampGram\n1"
+        },
+        {
+          "action": "app:instahoe",
+          "label": "InstaHoe\n1"
+        },
+        {
+          "action": "app:onlyvamps",
+          "label": "ONLYVAMPS"
+        },
+        {
+          "action": "app:texts",
+          "label": "TEXTS\n1"
+        },
+        {
+          "action": "app:contacts",
+          "label": "CONTACTS"
+        },
+        {
+          "action": "app:realEstate",
+          "label": "RealMoney\nRealEstate"
+        },
+        {
+          "action": "app:jdmImports",
+          "label": "JDMIMPORTS"
+        },
+        {
+          "action": "app:richboi",
+          "label": "RICHBO\nIMPORTS"
+        },
+        {
+          "action": "app:bank",
+          "label": "BANK"
+        },
+        {
+          "action": "app:trap",
+          "label": "TRAP"
+        },
+        {
+          "action": "app:rainmaker",
+          "label": "RAINMAKER"
+        },
+        {
+          "action": "app:radio",
+          "label": "RICH RADIO"
+        },
+        {
+          "action": "app:hatch",
+          "label": "HATCH"
+        },
+        {
+          "action": "app:touge",
+          "label": "TOUGE"
+        },
+        {
+          "action": "app:bars",
+          "label": "BARS"
+        },
+        {
+          "action": "app:receipts",
+          "label": "RECEIPTS"
+        },
+        {
+          "action": "app:armory",
+          "label": "ARMORY"
+        },
+        {
+          "action": "app:moves",
+          "label": "MOVES"
+        },
+        {
+          "action": "close",
+          "label": "CLOSE PHONE"
+        }
+      ]
+    },
+    {
+      "width": 360,
+      "name": "vampgpt",
+      "page": "vampgpt",
+      "scroll": 310,
+      "contentWidth": 310,
+      "rect": {
+        "x": 25,
+        "y": 127.984375,
+        "width": 310,
+        "height": 643.015625
+      },
+      "appButtons": 0,
+      "theme": "vampgpt",
+      "buttons": [
+        {
+          "action": "prompt",
+          "label": "OGA WHAT DO I DO"
+        },
+        {
+          "action": "home",
+          "label": "HOME"
+        }
+      ]
+    },
+    {
+      "width": 360,
+      "name": "realEstate",
+      "page": "realEstate",
+      "scroll": 310,
+      "contentWidth": 310,
+      "rect": {
+        "x": 25,
+        "y": 127.984375,
+        "width": 310,
+        "height": 643.015625
+      },
+      "appButtons": 0,
+      "theme": "realEstate",
+      "buttons": [
+        {
+          "label": "SEE IT"
+        },
+        {
+          "action": "do:castle:buy:maid_quarters",
+          "label": "BUILD IT"
+        },
+        {
+          "action": "do:castle:buy:armory_wall",
+          "label": "BUILD IT"
+        },
+        {
+          "action": "do:castle:buy:hookah_roof",
+          "label": "BUILD IT"
+        },
+        {
+          "action": "do:castle:buy:kitchen",
+          "label": "BUILD IT"
+        },
+        {
+          "action": "do:castle:buy:dragon_roost",
+          "label": "NOT YET"
+        },
+        {
+          "action": "do:castle:buy:movie_room",
+          "label": "BUILD IT"
+        },
+        {
+          "action": "do:castle:buy:music_room",
+          "label": "BUILD IT"
+        },
+        {
+          "action": "do:castle:buy:garage",
+          "label": "BUILD IT"
+        },
+        {
+          "action": "do:castle:buy:coffin_upgrade",
+          "label": "BUILD IT"
+        },
+        {
+          "action": "do:castle:buy:party_hall",
+          "label": "NOT YET"
+        },
+        {
+          "action": "do:castle:buy:fish_tank",
+          "label": "NOT ENOUGH CASH"
+        },
+        {
+          "action": "home",
+          "label": "HOME"
+        }
+      ]
+    },
+    {
+      "width": 360,
+      "name": "jdmImports",
+      "page": "jdmImports",
+      "scroll": 310,
+      "contentWidth": 310,
+      "rect": {
+        "x": 25,
+        "y": 127.984375,
+        "width": 310,
+        "height": 643.015625
+      },
+      "appButtons": 0,
+      "theme": "jdmImports",
+      "buttons": [
+        {
+          "label": "BUY"
+        },
+        {
+          "label": "HOME"
+        }
+      ]
+    },
+    {
+      "width": 360,
+      "name": "bank",
+      "page": "app:bank",
+      "scroll": 310,
+      "contentWidth": 310,
+      "rect": {
+        "x": 25,
+        "y": 127.984375,
+        "width": 310,
+        "height": 643.015625
+      },
+      "appButtons": 0,
+      "theme": "app:bank",
+      "buttons": [
+        {
+          "action": "app:realEstate",
+          "label": "SEE YOUR CASTLE"
+        },
+        {
+          "action": "app:realEstate",
+          "label": "PROPERTY"
+        },
+        {
+          "action": "app:jdmImports",
+          "label": "CARS"
+        },
+        {
+          "action": "home",
+          "label": "HOME"
+        }
+      ]
+    },
+    {
+      "width": 360,
+      "name": "maps",
+      "page": "app:maps",
+      "scroll": 310,
+      "contentWidth": 310,
+      "rect": {
+        "x": 25,
+        "y": 127.984375,
+        "width": 310,
+        "height": 643.015625
+      },
+      "appButtons": 0,
+      "theme": "app:maps",
+      "buttons": [
+        {
+          "action": "somewhere",
+          "label": "GO SOMEWHERE"
+        },
+        {
+          "action": "home",
+          "label": "HOME"
+        }
+      ]
+    },
+    {
+      "width": 360,
+      "name": "contacts",
+      "page": "app:contacts",
+      "scroll": 310,
+      "contentWidth": 310,
+      "rect": {
+        "x": 25,
+        "y": 127.984375,
+        "width": 310,
+        "height": 643.015625
+      },
+      "appButtons": 0,
+      "theme": "app:contacts",
+      "buttons": [
+        {
+          "action": "app:texts",
+          "label": "TEXTS"
+        },
+        {
+          "action": "app:instahoe:p:kiki",
+          "label": "PROFILE"
+        },
+        {
+          "action": "app:texts:kiki",
+          "label": "TEXTS"
+        },
+        {
+          "label": "Q"
+        },
+        {
+          "label": "W"
+        },
+        {
+          "label": "E"
+        },
+        {
+          "label": "R"
+        },
+        {
+          "label": "T"
+        },
+        {
+          "label": "Y"
+        },
+        {
+          "label": "U"
+        },
+        {
+          "label": "I"
+        },
+        {
+          "label": "O"
+        },
+        {
+          "label": "P"
+        },
+        {
+          "label": "A"
+        },
+        {
+          "label": "S"
+        },
+        {
+          "label": "D"
+        },
+        {
+          "label": "F"
+        },
+        {
+          "label": "G"
+        },
+        {
+          "label": "H"
+        },
+        {
+          "label": "J"
+        },
+        {
+          "label": "K"
+        },
+        {
+          "label": "L"
+        },
+        {
+          "label": "Z"
+        },
+        {
+          "label": "X"
+        },
+        {
+          "label": "C"
+        },
+        {
+          "label": "V"
+        },
+        {
+          "label": "B"
+        },
+        {
+          "label": "N"
+        },
+        {
+          "label": "M"
+        },
+        {
+          "label": "CLEAR"
+        },
+        {
+          "label": "SPACE"
+        },
+        {
+          "label": "⌫"
+        },
+        {
+          "action": "home",
+          "label": "HOME"
+        }
+      ]
+    },
+    {
+      "width": 360,
+      "name": "contacts-keyboard",
+      "page": "app:contacts",
+      "scroll": 310,
+      "contentWidth": 310,
+      "rect": {
+        "x": 25,
+        "y": 127.984375,
+        "width": 310,
+        "height": 643.015625
+      },
+      "appButtons": 0,
+      "theme": "app:contacts",
+      "buttons": [
+        {
+          "action": "app:texts",
+          "label": "TEXTS"
+        },
+        {
+          "action": "app:instahoe:p:kiki",
+          "label": "PROFILE"
+        },
+        {
+          "action": "app:texts:kiki",
+          "label": "TEXTS"
+        },
+        {
+          "label": "Q"
+        },
+        {
+          "label": "W"
+        },
+        {
+          "label": "E"
+        },
+        {
+          "label": "R"
+        },
+        {
+          "label": "T"
+        },
+        {
+          "label": "Y"
+        },
+        {
+          "label": "U"
+        },
+        {
+          "label": "I"
+        },
+        {
+          "label": "O"
+        },
+        {
+          "label": "P"
+        },
+        {
+          "label": "A"
+        },
+        {
+          "label": "S"
+        },
+        {
+          "label": "D"
+        },
+        {
+          "label": "F"
+        },
+        {
+          "label": "G"
+        },
+        {
+          "label": "H"
+        },
+        {
+          "label": "J"
+        },
+        {
+          "label": "K"
+        },
+        {
+          "label": "L"
+        },
+        {
+          "label": "Z"
+        },
+        {
+          "label": "X"
+        },
+        {
+          "label": "C"
+        },
+        {
+          "label": "V"
+        },
+        {
+          "label": "B"
+        },
+        {
+          "label": "N"
+        },
+        {
+          "label": "M"
+        },
+        {
+          "label": "CLEAR"
+        },
+        {
+          "label": "SPACE"
+        },
+        {
+          "label": "⌫"
+        },
+        {
+          "action": "home",
+          "label": "HOME"
+        }
+      ]
+    },
+    {
+      "width": 360,
+      "name": "texts",
+      "page": "app:texts",
+      "scroll": 310,
+      "contentWidth": 310,
+      "rect": {
+        "x": 25,
+        "y": 127.984375,
+        "width": 310,
+        "height": 643.015625
+      },
+      "appButtons": 0,
+      "theme": "app:texts",
+      "buttons": [
+        {
+          "action": "app:texts:family",
+          "label": "FAMILY 🇳🇬 1\n\neat first."
+        },
+        {
+          "action": "home",
+          "label": "HOME"
+        }
+      ]
+    },
+    {
+      "width": 360,
+      "name": "instahoe",
+      "page": "app:instahoe",
+      "scroll": 310,
+      "contentWidth": 310,
+      "rect": {
+        "x": 25,
+        "y": 127.984375,
+        "width": 310,
+        "height": 643.015625
+      },
+      "appButtons": 0,
+      "theme": "app:instahoe",
+      "buttons": [
+        {
+          "action": "app:instahoe:p:kiki",
+          "label": "KIKI 1\n\nhuman"
+        },
+        {
+          "action": "home",
+          "label": "HOME"
+        }
+      ]
+    },
+    {
+      "width": 360,
+      "name": "vampgram",
+      "page": "app:vampgram",
+      "scroll": 310,
+      "contentWidth": 310,
+      "rect": {
+        "x": 25,
+        "y": 127.984375,
+        "width": 310,
+        "height": 643.015625
+      },
+      "appButtons": 0,
+      "theme": "app:vampgram",
+      "buttons": [
+        {
+          "action": "home",
+          "label": "HOME"
+        }
+      ]
+    },
+    {
+      "width": 360,
+      "name": "receipts",
+      "page": "app:receipts",
+      "scroll": 310,
+      "contentWidth": 310,
+      "rect": {
+        "x": 25,
+        "y": 127.984375,
+        "width": 310,
+        "height": 643.015625
+      },
+      "appButtons": 0,
+      "theme": "app:receipts",
+      "buttons": [
+        {
+          "action": "home",
+          "label": "HOME"
+        }
+      ]
+    },
+    {
+      "width": 360,
+      "name": "onlyvamps",
+      "page": "app:onlyvamps",
+      "scroll": 310,
+      "contentWidth": 310,
+      "rect": {
+        "x": 25,
+        "y": 127.984375,
+        "width": 310,
+        "height": 643.015625
+      },
+      "appButtons": 0,
+      "theme": "app:onlyvamps",
+      "buttons": [
+        {
+          "action": "do:onlyvamps:sub:anonymous_01",
+          "label": "SUBSCRIBE"
+        },
+        {
+          "action": "do:onlyvamps:sub:anonymous_02",
+          "label": "SUBSCRIBE"
+        },
+        {
+          "action": "do:onlyvamps:sub:velvet",
+          "label": "SUBSCRIBE"
+        },
+        {
+          "action": "do:onlyvamps:sub:anonymous_03",
+          "label": "SUBSCRIBE"
+        },
+        {
+          "action": "home",
+          "label": "HOME"
+        }
+      ]
+    },
+    {
+      "width": 360,
+      "name": "richboi",
+      "page": "app:richboi",
+      "scroll": 310,
+      "contentWidth": 310,
+      "rect": {
+        "x": 25,
+        "y": 127.984375,
+        "width": 310,
+        "height": 643.015625
+      },
+      "appButtons": 0,
+      "theme": "app:richboi",
+      "buttons": [
+        {
+          "action": "do:richboi:buy:urus",
+          "label": "BUY IT"
+        },
+        {
+          "action": "do:richboi:buy:aventador",
+          "label": "NOT ENOUGH CASH"
+        },
+        {
+          "action": "do:richboi:buy:ferrari",
+          "label": "NOT ON YOUR LEVEL YET"
+        },
+        {
+          "action": "home",
+          "label": "HOME"
+        }
+      ]
+    },
+    {
+      "width": 360,
+      "name": "radio",
+      "page": "app:radio",
+      "scroll": 310,
+      "contentWidth": 310,
+      "rect": {
+        "x": 25,
+        "y": 127.984375,
+        "width": 310,
+        "height": 643.015625
+      },
+      "appButtons": 0,
+      "theme": "app:radio",
+      "buttons": [
+        {
+          "action": "home",
+          "label": "HOME"
+        }
+      ]
+    },
+    {
+      "width": 360,
+      "name": "hatch",
+      "page": "app:hatch",
+      "scroll": 310,
+      "contentWidth": 310,
+      "rect": {
+        "x": 25,
+        "y": 127.984375,
+        "width": 310,
+        "height": 643.015625
+      },
+      "appButtons": 0,
+      "theme": "app:hatch",
+      "buttons": [
+        {
+          "action": "home",
+          "label": "HOME"
+        }
+      ]
+    },
+    {
+      "width": 360,
+      "name": "touge",
+      "page": "app:touge",
+      "scroll": 310,
+      "contentWidth": 310,
+      "rect": {
+        "x": 25,
+        "y": 127.984375,
+        "width": 310,
+        "height": 643.015625
+      },
+      "appButtons": 0,
+      "theme": "app:touge",
+      "buttons": [
+        {
+          "action": "do:touge:run:angeles_crest",
+          "label": "RUN"
+        },
+        {
+          "action": "do:touge:run:docks",
+          "label": "RUN"
+        },
+        {
+          "action": "do:touge:run:grave_garage",
+          "label": "RUN"
+        },
+        {
+          "action": "home",
+          "label": "HOME"
+        }
+      ]
+    },
+    {
+      "width": 360,
+      "name": "bars",
+      "page": "app:bars",
+      "scroll": 310,
+      "contentWidth": 310,
+      "rect": {
+        "x": 25,
+        "y": 127.984375,
+        "width": 310,
+        "height": 643.015625
+      },
+      "appButtons": 0,
+      "theme": "app:bars",
+      "buttons": [
+        {
+          "action": "do:bars:play",
+          "label": "FREESTYLE (60s)"
+        },
+        {
+          "action": "home",
+          "label": "HOME"
+        }
+      ]
+    },
+    {
+      "width": 360,
+      "name": "armory",
+      "page": "app:armory",
+      "scroll": 310,
+      "contentWidth": 310,
+      "rect": {
+        "x": 25,
+        "y": 127.984375,
+        "width": 310,
+        "height": 643.015625
+      },
+      "appButtons": 0,
+      "theme": "app:armory",
+      "buttons": [
+        {
+          "action": "app:armory:bench",
+          "label": "MODS"
+        },
+        {
+          "action": "do:armory:buy:lil_oga",
+          "label": "BUY · $25,000"
+        },
+        {
+          "action": "do:armory:buy:sapporo_shotgun",
+          "label": "BUY · $60,000"
+        },
+        {
+          "action": "do:armory:buy:mac_and_cheese",
+          "label": "BUY · $75,000"
+        },
+        {
+          "action": "do:armory:buy:chopstick_sniper",
+          "label": "BUY · $90,000"
+        },
+        {
+          "action": "do:armory:buy:rpg",
+          "label": "BUY · $400,000"
+        },
+        {
+          "action": "home",
+          "label": "HOME"
+        }
+      ]
+    },
+    {
+      "width": 360,
+      "name": "moves",
+      "page": "app:moves",
+      "scroll": 310,
+      "contentWidth": 310,
+      "rect": {
+        "x": 25,
+        "y": 127.984375,
+        "width": 310,
+        "height": 643.015625
+      },
+      "appButtons": 0,
+      "theme": "app:moves",
+      "buttons": [
+        {
+          "action": "app:moves:0",
+          "label": "1. BLOOD BATH"
+        },
+        {
+          "action": "app:moves:1",
+          "label": "2. OCTOPUS BRAIN"
+        },
+        {
+          "action": "app:moves:2",
+          "label": "3. VAMPIRE BITE"
+        },
+        {
+          "action": "app:moves:3",
+          "label": "4. REVENGE"
+        },
+        {
+          "action": "home",
+          "label": "HOME"
+        }
+      ]
+    },
+    {
+      "width": 360,
+      "name": "warRoom",
+      "page": "app:warRoom",
+      "scroll": 310,
+      "contentWidth": 310,
+      "rect": {
+        "x": 25,
+        "y": 127.984375,
+        "width": 310,
+        "height": 643.015625
+      },
+      "appButtons": 0,
+      "theme": "app:warRoom",
+      "buttons": [
+        {
+          "action": "app:warRoom:jobs",
+          "label": "TONIGHT'S JOBS"
+        },
+        {
+          "action": "app:warRoom:crew",
+          "label": "CREW"
+        },
+        {
+          "action": "app:warRoom:reports",
+          "label": "REPORT CARDS"
+        },
+        {
+          "action": "app:warRoom:handback",
+          "label": "HAND BACK"
+        },
+        {
+          "action": "home",
+          "label": "HOME"
+        }
+      ]
+    },
+    {
+      "width": 360,
+      "name": "trap",
+      "page": "app:trap",
+      "scroll": 310,
+      "contentWidth": 310,
+      "rect": {
+        "x": 25,
+        "y": 127.984375,
+        "width": 310,
+        "height": 643.015625
+      },
+      "appButtons": 0,
+      "theme": "app:trap",
+      "buttons": [
+        {
+          "action": "home",
+          "label": "HOME"
+        }
+      ]
+    },
+    {
+      "width": 360,
+      "name": "rainmaker",
+      "page": "app:rainmaker",
+      "scroll": 310,
+      "contentWidth": 310,
+      "rect": {
+        "x": 25,
+        "y": 127.984375,
+        "width": 310,
+        "height": 643.015625
+      },
+      "appButtons": 0,
+      "theme": "app:rainmaker",
+      "buttons": [
+        {
+          "action": "do:rainmaker:launch",
+          "label": "MAKE IT RAIN"
+        },
+        {
+          "action": "home",
+          "label": "HOME"
+        }
+      ]
+    },
+    {
+      "width": 360,
+      "name": "vampgpt-options",
+      "page": "options",
+      "scroll": 310,
+      "contentWidth": 310,
+      "rect": {
+        "x": 25,
+        "y": 128.984375,
+        "width": 310,
+        "height": 643.015625
+      },
+      "appButtons": 0,
+      "theme": "options",
+      "buttons": [
+        {
+          "action": "money",
+          "label": "MAKE MONEY"
+        },
+        {
+          "action": "people",
+          "label": "MEET PEOPLE"
+        },
+        {
+          "action": "somewhere",
+          "label": "GO SOMEWHERE"
+        },
+        {
+          "action": "home",
+          "label": "HOME"
+        }
+      ]
+    },
+    {
+      "width": 360,
+      "name": "vampgpt-money",
+      "page": "money",
+      "scroll": 310,
+      "contentWidth": 310,
+      "rect": {
+        "x": 25,
+        "y": 128.984375,
+        "width": 310,
+        "height": 643.015625
+      },
+      "appButtons": 0,
+      "theme": "money",
+      "buttons": [
+        {
+          "action": "go:lane:slurp",
+          "label": "WORK A SHIFT\n\nyou ever had a job? (i know you haven't.)"
+        },
+        {
+          "action": "go:lane:property",
+          "label": "BUY A BUILDING\n\nREALMONEYREALESTATE"
+        },
+        {
+          "action": "options",
+          "label": "BACK"
+        },
+        {
+          "action": "home",
+          "label": "HOME"
+        }
+      ]
+    },
+    {
+      "width": 360,
+      "name": "vampgpt-people",
+      "page": "people",
+      "scroll": 310,
+      "contentWidth": 310,
+      "rect": {
+        "x": 25,
+        "y": 128.984375,
+        "width": 310,
+        "height": 643.015625
+      },
+      "appButtons": 0,
+      "theme": "people",
+      "buttons": [
+        {
+          "action": "go:lane:dms",
+          "label": "CHECK YOUR DMS\n\nINSTAHOE"
+        },
+        {
+          "action": "go:lane:grave",
+          "label": "GO WHERE PEOPLE ARE\n\nTHE GRAVE"
+        },
+        {
+          "action": "go:lane:party",
+          "label": "FIND A PARTY\n\nsomebody is always throwing something"
+        },
+        {
+          "action": "go:lane:homies",
+          "label": "TEXT THE HOMIES"
+        },
+        {
+          "action": "options",
+          "label": "BACK"
+        },
+        {
+          "action": "home",
+          "label": "HOME"
+        }
+      ]
+    },
+    {
+      "width": 360,
+      "name": "maps-destinations",
+      "page": "somewhere",
+      "scroll": 310,
+      "contentWidth": 310,
+      "rect": {
+        "x": 25,
+        "y": 128.984375,
+        "width": 310,
+        "height": 643.015625
+      },
+      "appButtons": 0,
+      "theme": "somewhere",
+      "buttons": [
+        {
+          "action": "atlanta",
+          "label": "ATLANTA\n\nAVAILABLE"
+        },
+        {
+          "action": "go:kush",
+          "label": "KUSH & CRYPT\n\nMELROSE"
+        },
+        {
+          "action": "go:slurp",
+          "label": "SLURP DYNASTY\n\nLITTLE TOKYO"
+        },
+        {
+          "action": "go:catacomb",
+          "label": "THE CATACOMB\n\nOPEN MIC NIGHT"
+        },
+        {
+          "action": "go:cafe",
+          "label": "BEAN THERE DEAD THAT\n\nCAFÉ"
+        },
+        {
+          "action": "go:salon",
+          "label": "TWIST & SHOUT\n\nHYDE PARK"
+        },
+        {
+          "action": "go:gallery",
+          "label": "ROOKOKO'S GALLERY\n\nARTS DISTRICT"
+        },
+        {
+          "action": "go:heartsfelt",
+          "label": "HEARTSFELT-JACKSUN\n\nATL · A LATE FLIGHT"
+        },
+        {
+          "action": "go:tacos",
+          "label": "DON CHUY'S (OUTSIDE)\n\nTACOS · $3 EACH"
+        },
+        {
+          "action": "go:grave",
+          "label": "THE GRAVE\n\nTHE MALL"
+        },
+        {
+          "action": "go:peking",
+          "label": "PEKING NAIJA\n\nTHE USUAL"
+        },
+        {
+          "action": "go:onsen",
+          "label": "YU & ME ONSEN\n\nTORRANCE"
+        },
+        {
+          "action": "go:venice",
+          "label": "VENICE COURTS\n\nPICKUP · PULL-UPS ON THE RIM"
+        },
+        {
+          "action": "go:ballroom",
+          "label": "THE HOTEL BALLROOM\n\nNIGHTSHADE"
+        },
+        {
+          "action": "go:florist",
+          "label": "THE FLORIST ON SUNSET\n\nGIFTS"
+        },
+        {
+          "action": "tokyo",
+          "label": "TOKYO\n\nLOCKED · NEED CLOUT"
+        },
+        {
+          "action": "ogun_rave",
+          "label": "OGUN'S RAVE\n\nLOCKED · LOCKED"
+        },
+        {
+          "action": "options",
+          "label": "BACK"
+        },
+        {
+          "action": "home",
+          "label": "HOME"
+        }
+      ]
+    },
+    {
+      "width": 360,
+      "name": "audio",
+      "page": "settings",
+      "scroll": 310,
+      "contentWidth": 310,
+      "rect": {
+        "x": 25,
+        "y": 127.984375,
+        "width": 310,
+        "height": 643.015625
+      },
+      "appButtons": 0,
+      "theme": "settings",
+      "buttons": [
+        {
+          "action": "toggleMute",
+          "label": "MUTE"
+        }
+      ]
+    },
+    {
+      "width": 360,
+      "name": "texts-family",
+      "page": "app:texts:family",
+      "scroll": 310,
+      "contentWidth": 310,
+      "rect": {
+        "x": 25,
+        "y": 127.984375,
+        "width": 310,
+        "height": 643.015625
+      },
+      "appButtons": 0,
+      "theme": "app:texts:family",
+      "buttons": [
+        {
+          "action": "app:texts",
+          "label": "BACK"
+        },
+        {
+          "action": "home",
+          "label": "HOME"
+        }
+      ]
+    },
+    {
+      "width": 360,
+      "name": "contacts-profile",
+      "page": "app:instahoe:p:kiki",
+      "scroll": 310,
+      "contentWidth": 310,
+      "rect": {
+        "x": 25,
+        "y": 127.984375,
+        "width": 310,
+        "height": 643.015625
+      },
+      "appButtons": 0,
+      "theme": "app:instahoe:p:kiki",
+      "buttons": [
+        {
+          "action": "do:instahoe:date:kiki",
+          "label": "ASK HER OUT"
+        },
+        {
+          "action": "app:instahoe:dm:kiki",
+          "label": "DMS"
+        },
+        {
+          "action": "app:instahoe",
+          "label": "BACK"
+        },
+        {
+          "action": "home",
+          "label": "HOME"
+        }
+      ]
+    },
+    {
+      "width": 360,
+      "name": "contacts-dm",
+      "page": "app:instahoe:dm:kiki",
+      "scroll": 310,
+      "contentWidth": 310,
+      "rect": {
+        "x": 25,
+        "y": 127.984375,
+        "width": 310,
+        "height": 643.015625
+      },
+      "appButtons": 0,
+      "theme": "app:instahoe:dm:kiki",
+      "buttons": [
+        {
+          "action": "app:instahoe:p:kiki",
+          "label": "PROFILE"
+        },
+        {
+          "action": "app:instahoe",
+          "label": "BACK"
+        },
+        {
+          "action": "home",
+          "label": "HOME"
+        }
+      ]
+    },
+    {
+      "width": 360,
+      "name": "armory-bench",
+      "page": "app:armory:bench",
+      "scroll": 310,
+      "contentWidth": 310,
+      "rect": {
+        "x": 25,
+        "y": 127.984375,
+        "width": 310,
+        "height": 643.015625
+      },
+      "appButtons": 0,
+      "theme": "app:armory:bench",
+      "buttons": [
+        {
+          "action": "do:armory:buyMod:blessed_rounds",
+          "label": "BUY"
+        },
+        {
+          "action": "do:armory:buyMod:drum_mag",
+          "label": "BUY"
+        },
+        {
+          "action": "do:armory:buyMod:silencer",
+          "label": "BUY"
+        },
+        {
+          "action": "do:armory:buyMod:scope",
+          "label": "BUY"
+        },
+        {
+          "action": "do:armory:buyMod:gold_plating",
+          "label": "BUY"
+        },
+        {
+          "action": "do:armory:buyMod:custom_engraving",
+          "label": "BUY"
+        },
+        {
+          "action": "app:armory",
+          "label": "BACK"
+        },
+        {
+          "action": "home",
+          "label": "HOME"
+        }
+      ]
+    },
+    {
+      "width": 360,
+      "name": "warRoom-jobs",
+      "page": "app:warRoom:jobs",
+      "scroll": 310,
+      "contentWidth": 310,
+      "rect": {
+        "x": 25,
+        "y": 127.984375,
+        "width": 310,
+        "height": 643.015625
+      },
+      "appButtons": 0,
+      "theme": "app:warRoom:jobs",
+      "buttons": [
+        {
+          "action": "do:warRoom:play:0",
+          "label": "MAKE THIS PLAY"
+        },
+        {
+          "action": "do:warRoom:play:1",
+          "label": "MAKE THIS PLAY"
+        },
+        {
+          "action": "do:warRoom:play:2",
+          "label": "MAKE THIS PLAY"
+        },
+        {
+          "action": "do:warRoom:runJob:3",
+          "label": "LAY LOW TONIGHT"
+        },
+        {
+          "action": "app:warRoom",
+          "label": "← BACK"
+        },
+        {
+          "action": "app:warRoom",
+          "label": "BACK"
+        },
+        {
+          "action": "home",
+          "label": "HOME"
+        }
+      ]
+    },
+    {
+      "width": 360,
+      "name": "warRoom-crew",
+      "page": "app:warRoom:crew",
+      "scroll": 310,
+      "contentWidth": 310,
+      "rect": {
+        "x": 25,
+        "y": 127.984375,
+        "width": 310,
+        "height": 643.015625
+      },
+      "appButtons": 0,
+      "theme": "app:warRoom:crew",
+      "buttons": [
+        {
+          "action": "app:warRoom",
+          "label": "← BACK"
+        },
+        {
+          "action": "app:warRoom",
+          "label": "BACK"
+        },
+        {
+          "action": "home",
+          "label": "HOME"
+        }
+      ]
+    },
+    {
+      "width": 360,
+      "name": "warRoom-reports",
+      "page": "app:warRoom:reports",
+      "scroll": 310,
+      "contentWidth": 310,
+      "rect": {
+        "x": 25,
+        "y": 128.984375,
+        "width": 310,
+        "height": 643.015625
+      },
+      "appButtons": 0,
+      "theme": "app:warRoom:reports",
+      "buttons": [
+        {
+          "action": "app:warRoom",
+          "label": "BACK"
+        },
+        {
+          "action": "home",
+          "label": "HOME"
+        }
+      ]
+    },
+    {
+      "width": 360,
+      "name": "trap-report",
+      "page": "app:trap:report",
+      "scroll": 310,
+      "contentWidth": 310,
+      "rect": {
+        "x": 25,
+        "y": 127.984375,
+        "width": 310,
+        "height": 643.015625
+      },
+      "appButtons": 0,
+      "theme": "app:trap:report",
+      "buttons": [
+        {
+          "action": "app:trap",
+          "label": "BACK"
+        },
+        {
+          "action": "home",
+          "label": "HOME"
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "name": "fresh-home",
+      "page": "home",
+      "scroll": 340,
+      "contentWidth": 340,
+      "rect": {
+        "x": 25,
+        "y": 106,
+        "width": 340,
+        "height": 687
+      },
+      "appButtons": 21,
+      "next": "prompt",
+      "theme": "home",
+      "buttons": [
+        {
+          "action": "prompt",
+          "label": "VAMPGPT\nOGA WHAT DO I DO\n↗"
+        },
+        {
+          "action": "app:vampgpt",
+          "label": "VampGPT"
+        },
+        {
+          "action": "app:maps",
+          "label": "MAPS"
+        },
+        {
+          "action": "app:warRoom",
+          "label": "WAR ROOM\nLOCKED · NO OFFER"
+        },
+        {
+          "action": "app:vampgram",
+          "label": "VampGram\nLOCKED · NO TAGS"
+        },
+        {
+          "action": "app:instahoe",
+          "label": "InstaHoe\nLOCKED · NOT LISTED"
+        },
+        {
+          "action": "app:onlyvamps",
+          "label": "ONLYVAMPS\nLOCKED · INVITE ONLY"
+        },
+        {
+          "action": "app:texts",
+          "label": "TEXTS\nLOCKED · NO MESSAGES"
+        },
+        {
+          "action": "app:contacts",
+          "label": "CONTACTS"
+        },
+        {
+          "action": "app:realEstate",
+          "label": "RealMoney\nRealEstate"
+        },
+        {
+          "action": "app:jdmImports",
+          "label": "JDMIMPORTS"
+        },
+        {
+          "action": "app:richboi",
+          "label": "RICHBO\nIMPORTS\nLOCKED · WAITLIST"
+        },
+        {
+          "action": "app:bank",
+          "label": "BANK"
+        },
+        {
+          "action": "app:trap",
+          "label": "TRAP\nLOCKED · NO LISTING"
+        },
+        {
+          "action": "app:rainmaker",
+          "label": "RAINMAKER\nLOCKED · NO INVITE"
+        },
+        {
+          "action": "app:radio",
+          "label": "RICH RADIO\nLOCKED · NO TRACK"
+        },
+        {
+          "action": "app:hatch",
+          "label": "HATCH\nLOCKED · NO EGG"
+        },
+        {
+          "action": "app:touge",
+          "label": "TOUGE\nLOCKED · NO DRIVER"
+        },
+        {
+          "action": "app:bars",
+          "label": "BARS\nLOCKED · NO SONG"
+        },
+        {
+          "action": "app:receipts",
+          "label": "RECEIPTS\nLOCKED · NO RECEIPTS"
+        },
+        {
+          "action": "app:armory",
+          "label": "ARMORY\nLOCKED · UNKNOWN DEALER"
+        },
+        {
+          "action": "app:moves",
+          "label": "MOVES"
+        },
+        {
+          "action": "close",
+          "label": "CLOSE PHONE"
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "name": "device-lock",
+      "page": "home",
+      "scroll": 340,
+      "contentWidth": 340,
+      "rect": {
+        "x": 25,
+        "y": 106,
+        "width": 340,
+        "height": 687
+      },
+      "appButtons": 0,
+      "theme": "lock",
+      "buttons": [
+        {
+          "action": "deviceUnlock",
+          "label": "SWIPE UP / UNLOCK"
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "name": "app-lock-guidance",
+      "page": "home",
+      "scroll": 340,
+      "contentWidth": 340,
+      "rect": {
+        "x": 25,
+        "y": 106,
+        "width": 340,
+        "height": 687
+      },
+      "appButtons": 21,
+      "next": "prompt",
+      "theme": "home",
+      "buttons": [
+        {
+          "action": "prompt",
+          "label": "VAMPGPT\nOGA WHAT DO I DO\n↗"
+        },
+        {
+          "action": "app:vampgpt",
+          "label": "VampGPT"
+        },
+        {
+          "action": "app:maps",
+          "label": "MAPS"
+        },
+        {
+          "action": "app:warRoom",
+          "label": "WAR ROOM\nLOCKED · NO OFFER"
+        },
+        {
+          "action": "app:vampgram",
+          "label": "VampGram\nLOCKED · NO TAGS"
+        },
+        {
+          "action": "app:instahoe",
+          "label": "InstaHoe\nLOCKED · NOT LISTED"
+        },
+        {
+          "action": "app:onlyvamps",
+          "label": "ONLYVAMPS\nLOCKED · INVITE ONLY"
+        },
+        {
+          "action": "app:texts",
+          "label": "TEXTS\nLOCKED · NO MESSAGES"
+        },
+        {
+          "action": "app:contacts",
+          "label": "CONTACTS"
+        },
+        {
+          "action": "app:realEstate",
+          "label": "RealMoney\nRealEstate"
+        },
+        {
+          "action": "app:jdmImports",
+          "label": "JDMIMPORTS"
+        },
+        {
+          "action": "app:richboi",
+          "label": "RICHBO\nIMPORTS\nLOCKED · WAITLIST"
+        },
+        {
+          "action": "app:bank",
+          "label": "BANK"
+        },
+        {
+          "action": "app:trap",
+          "label": "TRAP\nLOCKED · NO LISTING"
+        },
+        {
+          "action": "app:rainmaker",
+          "label": "RAINMAKER\nLOCKED · NO INVITE"
+        },
+        {
+          "action": "app:radio",
+          "label": "RICH RADIO\nLOCKED · NO TRACK"
+        },
+        {
+          "action": "app:hatch",
+          "label": "HATCH\nLOCKED · NO EGG"
+        },
+        {
+          "action": "app:touge",
+          "label": "TOUGE\nLOCKED · NO DRIVER"
+        },
+        {
+          "action": "app:bars",
+          "label": "BARS\nLOCKED · NO SONG"
+        },
+        {
+          "action": "app:receipts",
+          "label": "RECEIPTS\nLOCKED · NO RECEIPTS"
+        },
+        {
+          "action": "app:armory",
+          "label": "ARMORY\nLOCKED · UNKNOWN DEALER"
+        },
+        {
+          "action": "app:moves",
+          "label": "MOVES"
+        },
+        {
+          "action": "close",
+          "label": "CLOSE PHONE"
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "name": "progressed-home",
+      "page": "home",
+      "scroll": 340,
+      "contentWidth": 340,
+      "rect": {
+        "x": 25,
+        "y": 106,
+        "width": 340,
+        "height": 687
+      },
+      "appButtons": 21,
+      "next": "app:texts",
+      "theme": "home",
+      "buttons": [
+        {
+          "action": "app:texts",
+          "label": "2 UNREAD\nTEXTS\n↗"
+        },
+        {
+          "action": "app:vampgpt",
+          "label": "VampGPT"
+        },
+        {
+          "action": "app:maps",
+          "label": "MAPS"
+        },
+        {
+          "action": "app:warRoom",
+          "label": "WAR ROOM"
+        },
+        {
+          "action": "app:vampgram",
+          "label": "VampGram\n1"
+        },
+        {
+          "action": "app:instahoe",
+          "label": "InstaHoe\n1"
+        },
+        {
+          "action": "app:onlyvamps",
+          "label": "ONLYVAMPS"
+        },
+        {
+          "action": "app:texts",
+          "label": "TEXTS\n1"
+        },
+        {
+          "action": "app:contacts",
+          "label": "CONTACTS"
+        },
+        {
+          "action": "app:realEstate",
+          "label": "RealMoney\nRealEstate"
+        },
+        {
+          "action": "app:jdmImports",
+          "label": "JDMIMPORTS"
+        },
+        {
+          "action": "app:richboi",
+          "label": "RICHBO\nIMPORTS"
+        },
+        {
+          "action": "app:bank",
+          "label": "BANK"
+        },
+        {
+          "action": "app:trap",
+          "label": "TRAP"
+        },
+        {
+          "action": "app:rainmaker",
+          "label": "RAINMAKER"
+        },
+        {
+          "action": "app:radio",
+          "label": "RICH RADIO"
+        },
+        {
+          "action": "app:hatch",
+          "label": "HATCH"
+        },
+        {
+          "action": "app:touge",
+          "label": "TOUGE"
+        },
+        {
+          "action": "app:bars",
+          "label": "BARS"
+        },
+        {
+          "action": "app:receipts",
+          "label": "RECEIPTS"
+        },
+        {
+          "action": "app:armory",
+          "label": "ARMORY"
+        },
+        {
+          "action": "app:moves",
+          "label": "MOVES"
+        },
+        {
+          "action": "close",
+          "label": "CLOSE PHONE"
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "name": "vampgpt",
+      "page": "vampgpt",
+      "scroll": 340,
+      "contentWidth": 340,
+      "rect": {
+        "x": 25,
+        "y": 106,
+        "width": 340,
+        "height": 687
+      },
+      "appButtons": 0,
+      "theme": "vampgpt",
+      "buttons": [
+        {
+          "action": "prompt",
+          "label": "OGA WHAT DO I DO"
+        },
+        {
+          "action": "home",
+          "label": "HOME"
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "name": "realEstate",
+      "page": "realEstate",
+      "scroll": 340,
+      "contentWidth": 340,
+      "rect": {
+        "x": 25,
+        "y": 106,
+        "width": 340,
+        "height": 687
+      },
+      "appButtons": 0,
+      "theme": "realEstate",
+      "buttons": [
+        {
+          "label": "SEE IT"
+        },
+        {
+          "action": "do:castle:buy:maid_quarters",
+          "label": "BUILD IT"
+        },
+        {
+          "action": "do:castle:buy:armory_wall",
+          "label": "BUILD IT"
+        },
+        {
+          "action": "do:castle:buy:hookah_roof",
+          "label": "BUILD IT"
+        },
+        {
+          "action": "do:castle:buy:kitchen",
+          "label": "BUILD IT"
+        },
+        {
+          "action": "do:castle:buy:dragon_roost",
+          "label": "NOT YET"
+        },
+        {
+          "action": "do:castle:buy:movie_room",
+          "label": "BUILD IT"
+        },
+        {
+          "action": "do:castle:buy:music_room",
+          "label": "BUILD IT"
+        },
+        {
+          "action": "do:castle:buy:garage",
+          "label": "BUILD IT"
+        },
+        {
+          "action": "do:castle:buy:coffin_upgrade",
+          "label": "BUILD IT"
+        },
+        {
+          "action": "do:castle:buy:party_hall",
+          "label": "NOT YET"
+        },
+        {
+          "action": "do:castle:buy:fish_tank",
+          "label": "NOT ENOUGH CASH"
+        },
+        {
+          "action": "home",
+          "label": "HOME"
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "name": "jdmImports",
+      "page": "jdmImports",
+      "scroll": 340,
+      "contentWidth": 340,
+      "rect": {
+        "x": 25,
+        "y": 106,
+        "width": 340,
+        "height": 687
+      },
+      "appButtons": 0,
+      "theme": "jdmImports",
+      "buttons": [
+        {
+          "label": "BUY"
+        },
+        {
+          "label": "HOME"
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "name": "bank",
+      "page": "app:bank",
+      "scroll": 340,
+      "contentWidth": 340,
+      "rect": {
+        "x": 25,
+        "y": 106,
+        "width": 340,
+        "height": 687
+      },
+      "appButtons": 0,
+      "theme": "app:bank",
+      "buttons": [
+        {
+          "action": "app:realEstate",
+          "label": "SEE YOUR CASTLE"
+        },
+        {
+          "action": "app:realEstate",
+          "label": "PROPERTY"
+        },
+        {
+          "action": "app:jdmImports",
+          "label": "CARS"
+        },
+        {
+          "action": "home",
+          "label": "HOME"
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "name": "maps",
+      "page": "app:maps",
+      "scroll": 340,
+      "contentWidth": 340,
+      "rect": {
+        "x": 25,
+        "y": 106,
+        "width": 340,
+        "height": 687
+      },
+      "appButtons": 0,
+      "theme": "app:maps",
+      "buttons": [
+        {
+          "action": "somewhere",
+          "label": "GO SOMEWHERE"
+        },
+        {
+          "action": "home",
+          "label": "HOME"
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "name": "contacts",
+      "page": "app:contacts",
+      "scroll": 340,
+      "contentWidth": 340,
+      "rect": {
+        "x": 25,
+        "y": 106,
+        "width": 340,
+        "height": 687
+      },
+      "appButtons": 0,
+      "theme": "app:contacts",
+      "buttons": [
+        {
+          "action": "app:texts",
+          "label": "TEXTS"
+        },
+        {
+          "action": "app:instahoe:p:kiki",
+          "label": "PROFILE"
+        },
+        {
+          "action": "app:texts:kiki",
+          "label": "TEXTS"
+        },
+        {
+          "label": "Q"
+        },
+        {
+          "label": "W"
+        },
+        {
+          "label": "E"
+        },
+        {
+          "label": "R"
+        },
+        {
+          "label": "T"
+        },
+        {
+          "label": "Y"
+        },
+        {
+          "label": "U"
+        },
+        {
+          "label": "I"
+        },
+        {
+          "label": "O"
+        },
+        {
+          "label": "P"
+        },
+        {
+          "label": "A"
+        },
+        {
+          "label": "S"
+        },
+        {
+          "label": "D"
+        },
+        {
+          "label": "F"
+        },
+        {
+          "label": "G"
+        },
+        {
+          "label": "H"
+        },
+        {
+          "label": "J"
+        },
+        {
+          "label": "K"
+        },
+        {
+          "label": "L"
+        },
+        {
+          "label": "Z"
+        },
+        {
+          "label": "X"
+        },
+        {
+          "label": "C"
+        },
+        {
+          "label": "V"
+        },
+        {
+          "label": "B"
+        },
+        {
+          "label": "N"
+        },
+        {
+          "label": "M"
+        },
+        {
+          "label": "CLEAR"
+        },
+        {
+          "label": "SPACE"
+        },
+        {
+          "label": "⌫"
+        },
+        {
+          "action": "home",
+          "label": "HOME"
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "name": "contacts-keyboard",
+      "page": "app:contacts",
+      "scroll": 340,
+      "contentWidth": 340,
+      "rect": {
+        "x": 25,
+        "y": 106,
+        "width": 340,
+        "height": 687
+      },
+      "appButtons": 0,
+      "theme": "app:contacts",
+      "buttons": [
+        {
+          "action": "app:texts",
+          "label": "TEXTS"
+        },
+        {
+          "action": "app:instahoe:p:kiki",
+          "label": "PROFILE"
+        },
+        {
+          "action": "app:texts:kiki",
+          "label": "TEXTS"
+        },
+        {
+          "label": "Q"
+        },
+        {
+          "label": "W"
+        },
+        {
+          "label": "E"
+        },
+        {
+          "label": "R"
+        },
+        {
+          "label": "T"
+        },
+        {
+          "label": "Y"
+        },
+        {
+          "label": "U"
+        },
+        {
+          "label": "I"
+        },
+        {
+          "label": "O"
+        },
+        {
+          "label": "P"
+        },
+        {
+          "label": "A"
+        },
+        {
+          "label": "S"
+        },
+        {
+          "label": "D"
+        },
+        {
+          "label": "F"
+        },
+        {
+          "label": "G"
+        },
+        {
+          "label": "H"
+        },
+        {
+          "label": "J"
+        },
+        {
+          "label": "K"
+        },
+        {
+          "label": "L"
+        },
+        {
+          "label": "Z"
+        },
+        {
+          "label": "X"
+        },
+        {
+          "label": "C"
+        },
+        {
+          "label": "V"
+        },
+        {
+          "label": "B"
+        },
+        {
+          "label": "N"
+        },
+        {
+          "label": "M"
+        },
+        {
+          "label": "CLEAR"
+        },
+        {
+          "label": "SPACE"
+        },
+        {
+          "label": "⌫"
+        },
+        {
+          "action": "home",
+          "label": "HOME"
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "name": "texts",
+      "page": "app:texts",
+      "scroll": 340,
+      "contentWidth": 340,
+      "rect": {
+        "x": 25,
+        "y": 106,
+        "width": 340,
+        "height": 687
+      },
+      "appButtons": 0,
+      "theme": "app:texts",
+      "buttons": [
+        {
+          "action": "app:texts:family",
+          "label": "FAMILY 🇳🇬 1\n\neat first."
+        },
+        {
+          "action": "home",
+          "label": "HOME"
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "name": "instahoe",
+      "page": "app:instahoe",
+      "scroll": 340,
+      "contentWidth": 340,
+      "rect": {
+        "x": 25,
+        "y": 106,
+        "width": 340,
+        "height": 687
+      },
+      "appButtons": 0,
+      "theme": "app:instahoe",
+      "buttons": [
+        {
+          "action": "app:instahoe:p:kiki",
+          "label": "KIKI 1\n\nhuman"
+        },
+        {
+          "action": "home",
+          "label": "HOME"
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "name": "vampgram",
+      "page": "app:vampgram",
+      "scroll": 340,
+      "contentWidth": 340,
+      "rect": {
+        "x": 25,
+        "y": 106,
+        "width": 340,
+        "height": 687
+      },
+      "appButtons": 0,
+      "theme": "app:vampgram",
+      "buttons": [
+        {
+          "action": "home",
+          "label": "HOME"
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "name": "receipts",
+      "page": "app:receipts",
+      "scroll": 340,
+      "contentWidth": 340,
+      "rect": {
+        "x": 25,
+        "y": 106,
+        "width": 340,
+        "height": 687
+      },
+      "appButtons": 0,
+      "theme": "app:receipts",
+      "buttons": [
+        {
+          "action": "home",
+          "label": "HOME"
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "name": "onlyvamps",
+      "page": "app:onlyvamps",
+      "scroll": 340,
+      "contentWidth": 340,
+      "rect": {
+        "x": 25,
+        "y": 106,
+        "width": 340,
+        "height": 687
+      },
+      "appButtons": 0,
+      "theme": "app:onlyvamps",
+      "buttons": [
+        {
+          "action": "do:onlyvamps:sub:anonymous_01",
+          "label": "SUBSCRIBE"
+        },
+        {
+          "action": "do:onlyvamps:sub:anonymous_02",
+          "label": "SUBSCRIBE"
+        },
+        {
+          "action": "do:onlyvamps:sub:velvet",
+          "label": "SUBSCRIBE"
+        },
+        {
+          "action": "do:onlyvamps:sub:anonymous_03",
+          "label": "SUBSCRIBE"
+        },
+        {
+          "action": "home",
+          "label": "HOME"
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "name": "richboi",
+      "page": "app:richboi",
+      "scroll": 340,
+      "contentWidth": 340,
+      "rect": {
+        "x": 25,
+        "y": 106,
+        "width": 340,
+        "height": 687
+      },
+      "appButtons": 0,
+      "theme": "app:richboi",
+      "buttons": [
+        {
+          "action": "do:richboi:buy:urus",
+          "label": "BUY IT"
+        },
+        {
+          "action": "do:richboi:buy:aventador",
+          "label": "NOT ENOUGH CASH"
+        },
+        {
+          "action": "do:richboi:buy:ferrari",
+          "label": "NOT ON YOUR LEVEL YET"
+        },
+        {
+          "action": "home",
+          "label": "HOME"
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "name": "radio",
+      "page": "app:radio",
+      "scroll": 340,
+      "contentWidth": 340,
+      "rect": {
+        "x": 25,
+        "y": 106,
+        "width": 340,
+        "height": 687
+      },
+      "appButtons": 0,
+      "theme": "app:radio",
+      "buttons": [
+        {
+          "action": "home",
+          "label": "HOME"
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "name": "hatch",
+      "page": "app:hatch",
+      "scroll": 340,
+      "contentWidth": 340,
+      "rect": {
+        "x": 25,
+        "y": 106,
+        "width": 340,
+        "height": 687
+      },
+      "appButtons": 0,
+      "theme": "app:hatch",
+      "buttons": [
+        {
+          "action": "home",
+          "label": "HOME"
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "name": "touge",
+      "page": "app:touge",
+      "scroll": 340,
+      "contentWidth": 340,
+      "rect": {
+        "x": 25,
+        "y": 106,
+        "width": 340,
+        "height": 687
+      },
+      "appButtons": 0,
+      "theme": "app:touge",
+      "buttons": [
+        {
+          "action": "do:touge:run:angeles_crest",
+          "label": "RUN"
+        },
+        {
+          "action": "do:touge:run:docks",
+          "label": "RUN"
+        },
+        {
+          "action": "do:touge:run:grave_garage",
+          "label": "RUN"
+        },
+        {
+          "action": "home",
+          "label": "HOME"
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "name": "bars",
+      "page": "app:bars",
+      "scroll": 340,
+      "contentWidth": 340,
+      "rect": {
+        "x": 25,
+        "y": 106,
+        "width": 340,
+        "height": 687
+      },
+      "appButtons": 0,
+      "theme": "app:bars",
+      "buttons": [
+        {
+          "action": "do:bars:play",
+          "label": "FREESTYLE (60s)"
+        },
+        {
+          "action": "home",
+          "label": "HOME"
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "name": "armory",
+      "page": "app:armory",
+      "scroll": 340,
+      "contentWidth": 340,
+      "rect": {
+        "x": 25,
+        "y": 106,
+        "width": 340,
+        "height": 687
+      },
+      "appButtons": 0,
+      "theme": "app:armory",
+      "buttons": [
+        {
+          "action": "app:armory:bench",
+          "label": "MODS"
+        },
+        {
+          "action": "do:armory:buy:lil_oga",
+          "label": "BUY · $25,000"
+        },
+        {
+          "action": "do:armory:buy:sapporo_shotgun",
+          "label": "BUY · $60,000"
+        },
+        {
+          "action": "do:armory:buy:mac_and_cheese",
+          "label": "BUY · $75,000"
+        },
+        {
+          "action": "do:armory:buy:chopstick_sniper",
+          "label": "BUY · $90,000"
+        },
+        {
+          "action": "do:armory:buy:rpg",
+          "label": "BUY · $400,000"
+        },
+        {
+          "action": "home",
+          "label": "HOME"
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "name": "moves",
+      "page": "app:moves",
+      "scroll": 340,
+      "contentWidth": 340,
+      "rect": {
+        "x": 25,
+        "y": 106,
+        "width": 340,
+        "height": 687
+      },
+      "appButtons": 0,
+      "theme": "app:moves",
+      "buttons": [
+        {
+          "action": "app:moves:0",
+          "label": "1. BLOOD BATH"
+        },
+        {
+          "action": "app:moves:1",
+          "label": "2. OCTOPUS BRAIN"
+        },
+        {
+          "action": "app:moves:2",
+          "label": "3. VAMPIRE BITE"
+        },
+        {
+          "action": "app:moves:3",
+          "label": "4. REVENGE"
+        },
+        {
+          "action": "home",
+          "label": "HOME"
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "name": "warRoom",
+      "page": "app:warRoom",
+      "scroll": 340,
+      "contentWidth": 340,
+      "rect": {
+        "x": 25,
+        "y": 106,
+        "width": 340,
+        "height": 687
+      },
+      "appButtons": 0,
+      "theme": "app:warRoom",
+      "buttons": [
+        {
+          "action": "app:warRoom:jobs",
+          "label": "TONIGHT'S JOBS"
+        },
+        {
+          "action": "app:warRoom:crew",
+          "label": "CREW"
+        },
+        {
+          "action": "app:warRoom:reports",
+          "label": "REPORT CARDS"
+        },
+        {
+          "action": "app:warRoom:handback",
+          "label": "HAND BACK"
+        },
+        {
+          "action": "home",
+          "label": "HOME"
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "name": "trap",
+      "page": "app:trap",
+      "scroll": 340,
+      "contentWidth": 340,
+      "rect": {
+        "x": 25,
+        "y": 106,
+        "width": 340,
+        "height": 687
+      },
+      "appButtons": 0,
+      "theme": "app:trap",
+      "buttons": [
+        {
+          "action": "home",
+          "label": "HOME"
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "name": "rainmaker",
+      "page": "app:rainmaker",
+      "scroll": 340,
+      "contentWidth": 340,
+      "rect": {
+        "x": 25,
+        "y": 106,
+        "width": 340,
+        "height": 687
+      },
+      "appButtons": 0,
+      "theme": "app:rainmaker",
+      "buttons": [
+        {
+          "action": "do:rainmaker:launch",
+          "label": "MAKE IT RAIN"
+        },
+        {
+          "action": "home",
+          "label": "HOME"
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "name": "vampgpt-options",
+      "page": "options",
+      "scroll": 340,
+      "contentWidth": 340,
+      "rect": {
+        "x": 25,
+        "y": 108,
+        "width": 340,
+        "height": 687
+      },
+      "appButtons": 0,
+      "theme": "options",
+      "buttons": [
+        {
+          "action": "money",
+          "label": "MAKE MONEY"
+        },
+        {
+          "action": "people",
+          "label": "MEET PEOPLE"
+        },
+        {
+          "action": "somewhere",
+          "label": "GO SOMEWHERE"
+        },
+        {
+          "action": "home",
+          "label": "HOME"
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "name": "vampgpt-money",
+      "page": "money",
+      "scroll": 340,
+      "contentWidth": 340,
+      "rect": {
+        "x": 25,
+        "y": 107,
+        "width": 340,
+        "height": 687
+      },
+      "appButtons": 0,
+      "theme": "money",
+      "buttons": [
+        {
+          "action": "go:lane:slurp",
+          "label": "WORK A SHIFT\n\nyou ever had a job? (i know you haven't.)"
+        },
+        {
+          "action": "go:lane:property",
+          "label": "BUY A BUILDING\n\nREALMONEYREALESTATE"
+        },
+        {
+          "action": "options",
+          "label": "BACK"
+        },
+        {
+          "action": "home",
+          "label": "HOME"
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "name": "vampgpt-people",
+      "page": "people",
+      "scroll": 340,
+      "contentWidth": 340,
+      "rect": {
+        "x": 25,
+        "y": 108,
+        "width": 340,
+        "height": 687
+      },
+      "appButtons": 0,
+      "theme": "people",
+      "buttons": [
+        {
+          "action": "go:lane:dms",
+          "label": "CHECK YOUR DMS\n\nINSTAHOE"
+        },
+        {
+          "action": "go:lane:grave",
+          "label": "GO WHERE PEOPLE ARE\n\nTHE GRAVE"
+        },
+        {
+          "action": "go:lane:party",
+          "label": "FIND A PARTY\n\nsomebody is always throwing something"
+        },
+        {
+          "action": "go:lane:homies",
+          "label": "TEXT THE HOMIES"
+        },
+        {
+          "action": "options",
+          "label": "BACK"
+        },
+        {
+          "action": "home",
+          "label": "HOME"
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "name": "maps-destinations",
+      "page": "somewhere",
+      "scroll": 340,
+      "contentWidth": 340,
+      "rect": {
+        "x": 25,
+        "y": 107,
+        "width": 340,
+        "height": 687
+      },
+      "appButtons": 0,
+      "theme": "somewhere",
+      "buttons": [
+        {
+          "action": "atlanta",
+          "label": "ATLANTA\n\nAVAILABLE"
+        },
+        {
+          "action": "go:kush",
+          "label": "KUSH & CRYPT\n\nMELROSE"
+        },
+        {
+          "action": "go:slurp",
+          "label": "SLURP DYNASTY\n\nLITTLE TOKYO"
+        },
+        {
+          "action": "go:catacomb",
+          "label": "THE CATACOMB\n\nOPEN MIC NIGHT"
+        },
+        {
+          "action": "go:cafe",
+          "label": "BEAN THERE DEAD THAT\n\nCAFÉ"
+        },
+        {
+          "action": "go:salon",
+          "label": "TWIST & SHOUT\n\nHYDE PARK"
+        },
+        {
+          "action": "go:gallery",
+          "label": "ROOKOKO'S GALLERY\n\nARTS DISTRICT"
+        },
+        {
+          "action": "go:heartsfelt",
+          "label": "HEARTSFELT-JACKSUN\n\nATL · A LATE FLIGHT"
+        },
+        {
+          "action": "go:tacos",
+          "label": "DON CHUY'S (OUTSIDE)\n\nTACOS · $3 EACH"
+        },
+        {
+          "action": "go:grave",
+          "label": "THE GRAVE\n\nTHE MALL"
+        },
+        {
+          "action": "go:peking",
+          "label": "PEKING NAIJA\n\nTHE USUAL"
+        },
+        {
+          "action": "go:onsen",
+          "label": "YU & ME ONSEN\n\nTORRANCE"
+        },
+        {
+          "action": "go:venice",
+          "label": "VENICE COURTS\n\nPICKUP · PULL-UPS ON THE RIM"
+        },
+        {
+          "action": "go:ballroom",
+          "label": "THE HOTEL BALLROOM\n\nNIGHTSHADE"
+        },
+        {
+          "action": "go:florist",
+          "label": "THE FLORIST ON SUNSET\n\nGIFTS"
+        },
+        {
+          "action": "tokyo",
+          "label": "TOKYO\n\nLOCKED · NEED CLOUT"
+        },
+        {
+          "action": "ogun_rave",
+          "label": "OGUN'S RAVE\n\nLOCKED · LOCKED"
+        },
+        {
+          "action": "options",
+          "label": "BACK"
+        },
+        {
+          "action": "home",
+          "label": "HOME"
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "name": "audio",
+      "page": "settings",
+      "scroll": 340,
+      "contentWidth": 340,
+      "rect": {
+        "x": 25,
+        "y": 107,
+        "width": 340,
+        "height": 687
+      },
+      "appButtons": 0,
+      "theme": "settings",
+      "buttons": [
+        {
+          "action": "toggleMute",
+          "label": "MUTE"
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "name": "texts-family",
+      "page": "app:texts:family",
+      "scroll": 340,
+      "contentWidth": 340,
+      "rect": {
+        "x": 25,
+        "y": 107,
+        "width": 340,
+        "height": 687
+      },
+      "appButtons": 0,
+      "theme": "app:texts:family",
+      "buttons": [
+        {
+          "action": "app:texts",
+          "label": "BACK"
+        },
+        {
+          "action": "home",
+          "label": "HOME"
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "name": "contacts-profile",
+      "page": "app:instahoe:p:kiki",
+      "scroll": 340,
+      "contentWidth": 340,
+      "rect": {
+        "x": 25,
+        "y": 107,
+        "width": 340,
+        "height": 687
+      },
+      "appButtons": 0,
+      "theme": "app:instahoe:p:kiki",
+      "buttons": [
+        {
+          "action": "do:instahoe:date:kiki",
+          "label": "ASK HER OUT"
+        },
+        {
+          "action": "app:instahoe:dm:kiki",
+          "label": "DMS"
+        },
+        {
+          "action": "app:instahoe",
+          "label": "BACK"
+        },
+        {
+          "action": "home",
+          "label": "HOME"
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "name": "contacts-dm",
+      "page": "app:instahoe:dm:kiki",
+      "scroll": 340,
+      "contentWidth": 340,
+      "rect": {
+        "x": 25,
+        "y": 107,
+        "width": 340,
+        "height": 687
+      },
+      "appButtons": 0,
+      "theme": "app:instahoe:dm:kiki",
+      "buttons": [
+        {
+          "action": "app:instahoe:p:kiki",
+          "label": "PROFILE"
+        },
+        {
+          "action": "app:instahoe",
+          "label": "BACK"
+        },
+        {
+          "action": "home",
+          "label": "HOME"
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "name": "armory-bench",
+      "page": "app:armory:bench",
+      "scroll": 340,
+      "contentWidth": 340,
+      "rect": {
+        "x": 25,
+        "y": 107,
+        "width": 340,
+        "height": 687
+      },
+      "appButtons": 0,
+      "theme": "app:armory:bench",
+      "buttons": [
+        {
+          "action": "do:armory:buyMod:blessed_rounds",
+          "label": "BUY"
+        },
+        {
+          "action": "do:armory:buyMod:drum_mag",
+          "label": "BUY"
+        },
+        {
+          "action": "do:armory:buyMod:silencer",
+          "label": "BUY"
+        },
+        {
+          "action": "do:armory:buyMod:scope",
+          "label": "BUY"
+        },
+        {
+          "action": "do:armory:buyMod:gold_plating",
+          "label": "BUY"
+        },
+        {
+          "action": "do:armory:buyMod:custom_engraving",
+          "label": "BUY"
+        },
+        {
+          "action": "app:armory",
+          "label": "BACK"
+        },
+        {
+          "action": "home",
+          "label": "HOME"
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "name": "warRoom-jobs",
+      "page": "app:warRoom:jobs",
+      "scroll": 340,
+      "contentWidth": 340,
+      "rect": {
+        "x": 25,
+        "y": 107,
+        "width": 340,
+        "height": 687
+      },
+      "appButtons": 0,
+      "theme": "app:warRoom:jobs",
+      "buttons": [
+        {
+          "action": "do:warRoom:play:0",
+          "label": "MAKE THIS PLAY"
+        },
+        {
+          "action": "do:warRoom:play:1",
+          "label": "MAKE THIS PLAY"
+        },
+        {
+          "action": "do:warRoom:play:2",
+          "label": "MAKE THIS PLAY"
+        },
+        {
+          "action": "do:warRoom:runJob:3",
+          "label": "LAY LOW TONIGHT"
+        },
+        {
+          "action": "app:warRoom",
+          "label": "← BACK"
+        },
+        {
+          "action": "app:warRoom",
+          "label": "BACK"
+        },
+        {
+          "action": "home",
+          "label": "HOME"
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "name": "warRoom-crew",
+      "page": "app:warRoom:crew",
+      "scroll": 340,
+      "contentWidth": 340,
+      "rect": {
+        "x": 25,
+        "y": 107,
+        "width": 340,
+        "height": 687
+      },
+      "appButtons": 0,
+      "theme": "app:warRoom:crew",
+      "buttons": [
+        {
+          "action": "app:warRoom",
+          "label": "← BACK"
+        },
+        {
+          "action": "app:warRoom",
+          "label": "BACK"
+        },
+        {
+          "action": "home",
+          "label": "HOME"
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "name": "warRoom-reports",
+      "page": "app:warRoom:reports",
+      "scroll": 340,
+      "contentWidth": 340,
+      "rect": {
+        "x": 25,
+        "y": 108,
+        "width": 340,
+        "height": 687
+      },
+      "appButtons": 0,
+      "theme": "app:warRoom:reports",
+      "buttons": [
+        {
+          "action": "app:warRoom",
+          "label": "BACK"
+        },
+        {
+          "action": "home",
+          "label": "HOME"
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "name": "trap-report",
+      "page": "app:trap:report",
+      "scroll": 340,
+      "contentWidth": 340,
+      "rect": {
+        "x": 25,
+        "y": 107,
+        "width": 340,
+        "height": 687
+      },
+      "appButtons": 0,
+      "theme": "app:trap:report",
+      "buttons": [
+        {
+          "action": "app:trap",
+          "label": "BACK"
+        },
+        {
+          "action": "home",
+          "label": "HOME"
+        }
+      ]
+    },
+    {
+      "width": 430,
+      "name": "fresh-home",
+      "page": "home",
+      "scroll": 380,
+      "contentWidth": 380,
+      "rect": {
+        "x": 25,
+        "y": 106,
+        "width": 380,
+        "height": 687
+      },
+      "appButtons": 21,
+      "next": "prompt",
+      "theme": "home",
+      "buttons": [
+        {
+          "action": "prompt",
+          "label": "VAMPGPT\nOGA WHAT DO I DO\n↗"
+        },
+        {
+          "action": "app:vampgpt",
+          "label": "VampGPT"
+        },
+        {
+          "action": "app:maps",
+          "label": "MAPS"
+        },
+        {
+          "action": "app:warRoom",
+          "label": "WAR ROOM\nLOCKED · NO OFFER"
+        },
+        {
+          "action": "app:vampgram",
+          "label": "VampGram\nLOCKED · NO TAGS"
+        },
+        {
+          "action": "app:instahoe",
+          "label": "InstaHoe\nLOCKED · NOT LISTED"
+        },
+        {
+          "action": "app:onlyvamps",
+          "label": "ONLYVAMPS\nLOCKED · INVITE ONLY"
+        },
+        {
+          "action": "app:texts",
+          "label": "TEXTS\nLOCKED · NO MESSAGES"
+        },
+        {
+          "action": "app:contacts",
+          "label": "CONTACTS"
+        },
+        {
+          "action": "app:realEstate",
+          "label": "RealMoney\nRealEstate"
+        },
+        {
+          "action": "app:jdmImports",
+          "label": "JDMIMPORTS"
+        },
+        {
+          "action": "app:richboi",
+          "label": "RICHBO\nIMPORTS\nLOCKED · WAITLIST"
+        },
+        {
+          "action": "app:bank",
+          "label": "BANK"
+        },
+        {
+          "action": "app:trap",
+          "label": "TRAP\nLOCKED · NO LISTING"
+        },
+        {
+          "action": "app:rainmaker",
+          "label": "RAINMAKER\nLOCKED · NO INVITE"
+        },
+        {
+          "action": "app:radio",
+          "label": "RICH RADIO\nLOCKED · NO TRACK"
+        },
+        {
+          "action": "app:hatch",
+          "label": "HATCH\nLOCKED · NO EGG"
+        },
+        {
+          "action": "app:touge",
+          "label": "TOUGE\nLOCKED · NO DRIVER"
+        },
+        {
+          "action": "app:bars",
+          "label": "BARS\nLOCKED · NO SONG"
+        },
+        {
+          "action": "app:receipts",
+          "label": "RECEIPTS\nLOCKED · NO RECEIPTS"
+        },
+        {
+          "action": "app:armory",
+          "label": "ARMORY\nLOCKED · UNKNOWN DEALER"
+        },
+        {
+          "action": "app:moves",
+          "label": "MOVES"
+        },
+        {
+          "action": "close",
+          "label": "CLOSE PHONE"
+        }
+      ]
+    },
+    {
+      "width": 430,
+      "name": "device-lock",
+      "page": "home",
+      "scroll": 380,
+      "contentWidth": 380,
+      "rect": {
+        "x": 25,
+        "y": 106,
+        "width": 380,
+        "height": 687
+      },
+      "appButtons": 0,
+      "theme": "lock",
+      "buttons": [
+        {
+          "action": "deviceUnlock",
+          "label": "SWIPE UP / UNLOCK"
+        }
+      ]
+    },
+    {
+      "width": 430,
+      "name": "app-lock-guidance",
+      "page": "home",
+      "scroll": 380,
+      "contentWidth": 380,
+      "rect": {
+        "x": 25,
+        "y": 107,
+        "width": 380,
+        "height": 687
+      },
+      "appButtons": 21,
+      "next": "prompt",
+      "theme": "home",
+      "buttons": [
+        {
+          "action": "prompt",
+          "label": "VAMPGPT\nOGA WHAT DO I DO\n↗"
+        },
+        {
+          "action": "app:vampgpt",
+          "label": "VampGPT"
+        },
+        {
+          "action": "app:maps",
+          "label": "MAPS"
+        },
+        {
+          "action": "app:warRoom",
+          "label": "WAR ROOM\nLOCKED · NO OFFER"
+        },
+        {
+          "action": "app:vampgram",
+          "label": "VampGram\nLOCKED · NO TAGS"
+        },
+        {
+          "action": "app:instahoe",
+          "label": "InstaHoe\nLOCKED · NOT LISTED"
+        },
+        {
+          "action": "app:onlyvamps",
+          "label": "ONLYVAMPS\nLOCKED · INVITE ONLY"
+        },
+        {
+          "action": "app:texts",
+          "label": "TEXTS\nLOCKED · NO MESSAGES"
+        },
+        {
+          "action": "app:contacts",
+          "label": "CONTACTS"
+        },
+        {
+          "action": "app:realEstate",
+          "label": "RealMoney\nRealEstate"
+        },
+        {
+          "action": "app:jdmImports",
+          "label": "JDMIMPORTS"
+        },
+        {
+          "action": "app:richboi",
+          "label": "RICHBO\nIMPORTS\nLOCKED · WAITLIST"
+        },
+        {
+          "action": "app:bank",
+          "label": "BANK"
+        },
+        {
+          "action": "app:trap",
+          "label": "TRAP\nLOCKED · NO LISTING"
+        },
+        {
+          "action": "app:rainmaker",
+          "label": "RAINMAKER\nLOCKED · NO INVITE"
+        },
+        {
+          "action": "app:radio",
+          "label": "RICH RADIO\nLOCKED · NO TRACK"
+        },
+        {
+          "action": "app:hatch",
+          "label": "HATCH\nLOCKED · NO EGG"
+        },
+        {
+          "action": "app:touge",
+          "label": "TOUGE\nLOCKED · NO DRIVER"
+        },
+        {
+          "action": "app:bars",
+          "label": "BARS\nLOCKED · NO SONG"
+        },
+        {
+          "action": "app:receipts",
+          "label": "RECEIPTS\nLOCKED · NO RECEIPTS"
+        },
+        {
+          "action": "app:armory",
+          "label": "ARMORY\nLOCKED · UNKNOWN DEALER"
+        },
+        {
+          "action": "app:moves",
+          "label": "MOVES"
+        },
+        {
+          "action": "close",
+          "label": "CLOSE PHONE"
+        }
+      ]
+    },
+    {
+      "width": 430,
+      "name": "progressed-home",
+      "page": "home",
+      "scroll": 380,
+      "contentWidth": 380,
+      "rect": {
+        "x": 25,
+        "y": 106,
+        "width": 380,
+        "height": 687
+      },
+      "appButtons": 21,
+      "next": "app:texts",
+      "theme": "home",
+      "buttons": [
+        {
+          "action": "app:texts",
+          "label": "2 UNREAD\nTEXTS\n↗"
+        },
+        {
+          "action": "app:vampgpt",
+          "label": "VampGPT"
+        },
+        {
+          "action": "app:maps",
+          "label": "MAPS"
+        },
+        {
+          "action": "app:warRoom",
+          "label": "WAR ROOM"
+        },
+        {
+          "action": "app:vampgram",
+          "label": "VampGram\n1"
+        },
+        {
+          "action": "app:instahoe",
+          "label": "InstaHoe\n1"
+        },
+        {
+          "action": "app:onlyvamps",
+          "label": "ONLYVAMPS"
+        },
+        {
+          "action": "app:texts",
+          "label": "TEXTS\n1"
+        },
+        {
+          "action": "app:contacts",
+          "label": "CONTACTS"
+        },
+        {
+          "action": "app:realEstate",
+          "label": "RealMoney\nRealEstate"
+        },
+        {
+          "action": "app:jdmImports",
+          "label": "JDMIMPORTS"
+        },
+        {
+          "action": "app:richboi",
+          "label": "RICHBO\nIMPORTS"
+        },
+        {
+          "action": "app:bank",
+          "label": "BANK"
+        },
+        {
+          "action": "app:trap",
+          "label": "TRAP"
+        },
+        {
+          "action": "app:rainmaker",
+          "label": "RAINMAKER"
+        },
+        {
+          "action": "app:radio",
+          "label": "RICH RADIO"
+        },
+        {
+          "action": "app:hatch",
+          "label": "HATCH"
+        },
+        {
+          "action": "app:touge",
+          "label": "TOUGE"
+        },
+        {
+          "action": "app:bars",
+          "label": "BARS"
+        },
+        {
+          "action": "app:receipts",
+          "label": "RECEIPTS"
+        },
+        {
+          "action": "app:armory",
+          "label": "ARMORY"
+        },
+        {
+          "action": "app:moves",
+          "label": "MOVES"
+        },
+        {
+          "action": "close",
+          "label": "CLOSE PHONE"
+        }
+      ]
+    },
+    {
+      "width": 430,
+      "name": "vampgpt",
+      "page": "vampgpt",
+      "scroll": 380,
+      "contentWidth": 380,
+      "rect": {
+        "x": 25,
+        "y": 106,
+        "width": 380,
+        "height": 687
+      },
+      "appButtons": 0,
+      "theme": "vampgpt",
+      "buttons": [
+        {
+          "action": "prompt",
+          "label": "OGA WHAT DO I DO"
+        },
+        {
+          "action": "home",
+          "label": "HOME"
+        }
+      ]
+    },
+    {
+      "width": 430,
+      "name": "realEstate",
+      "page": "realEstate",
+      "scroll": 380,
+      "contentWidth": 380,
+      "rect": {
+        "x": 25,
+        "y": 106,
+        "width": 380,
+        "height": 687
+      },
+      "appButtons": 0,
+      "theme": "realEstate",
+      "buttons": [
+        {
+          "label": "SEE IT"
+        },
+        {
+          "action": "do:castle:buy:maid_quarters",
+          "label": "BUILD IT"
+        },
+        {
+          "action": "do:castle:buy:armory_wall",
+          "label": "BUILD IT"
+        },
+        {
+          "action": "do:castle:buy:hookah_roof",
+          "label": "BUILD IT"
+        },
+        {
+          "action": "do:castle:buy:kitchen",
+          "label": "BUILD IT"
+        },
+        {
+          "action": "do:castle:buy:dragon_roost",
+          "label": "NOT YET"
+        },
+        {
+          "action": "do:castle:buy:movie_room",
+          "label": "BUILD IT"
+        },
+        {
+          "action": "do:castle:buy:music_room",
+          "label": "BUILD IT"
+        },
+        {
+          "action": "do:castle:buy:garage",
+          "label": "BUILD IT"
+        },
+        {
+          "action": "do:castle:buy:coffin_upgrade",
+          "label": "BUILD IT"
+        },
+        {
+          "action": "do:castle:buy:party_hall",
+          "label": "NOT YET"
+        },
+        {
+          "action": "do:castle:buy:fish_tank",
+          "label": "NOT ENOUGH CASH"
+        },
+        {
+          "action": "home",
+          "label": "HOME"
+        }
+      ]
+    },
+    {
+      "width": 430,
+      "name": "jdmImports",
+      "page": "jdmImports",
+      "scroll": 380,
+      "contentWidth": 380,
+      "rect": {
+        "x": 25,
+        "y": 106,
+        "width": 380,
+        "height": 687
+      },
+      "appButtons": 0,
+      "theme": "jdmImports",
+      "buttons": [
+        {
+          "label": "BUY"
+        },
+        {
+          "label": "HOME"
+        }
+      ]
+    },
+    {
+      "width": 430,
+      "name": "bank",
+      "page": "app:bank",
+      "scroll": 380,
+      "contentWidth": 380,
+      "rect": {
+        "x": 25,
+        "y": 106,
+        "width": 380,
+        "height": 687
+      },
+      "appButtons": 0,
+      "theme": "app:bank",
+      "buttons": [
+        {
+          "action": "app:realEstate",
+          "label": "SEE YOUR CASTLE"
+        },
+        {
+          "action": "app:realEstate",
+          "label": "PROPERTY"
+        },
+        {
+          "action": "app:jdmImports",
+          "label": "CARS"
+        },
+        {
+          "action": "home",
+          "label": "HOME"
+        }
+      ]
+    },
+    {
+      "width": 430,
+      "name": "maps",
+      "page": "app:maps",
+      "scroll": 380,
+      "contentWidth": 380,
+      "rect": {
+        "x": 25,
+        "y": 106,
+        "width": 380,
+        "height": 687
+      },
+      "appButtons": 0,
+      "theme": "app:maps",
+      "buttons": [
+        {
+          "action": "somewhere",
+          "label": "GO SOMEWHERE"
+        },
+        {
+          "action": "home",
+          "label": "HOME"
+        }
+      ]
+    },
+    {
+      "width": 430,
+      "name": "contacts",
+      "page": "app:contacts",
+      "scroll": 380,
+      "contentWidth": 380,
+      "rect": {
+        "x": 25,
+        "y": 106,
+        "width": 380,
+        "height": 687
+      },
+      "appButtons": 0,
+      "theme": "app:contacts",
+      "buttons": [
+        {
+          "action": "app:texts",
+          "label": "TEXTS"
+        },
+        {
+          "action": "app:instahoe:p:kiki",
+          "label": "PROFILE"
+        },
+        {
+          "action": "app:texts:kiki",
+          "label": "TEXTS"
+        },
+        {
+          "label": "Q"
+        },
+        {
+          "label": "W"
+        },
+        {
+          "label": "E"
+        },
+        {
+          "label": "R"
+        },
+        {
+          "label": "T"
+        },
+        {
+          "label": "Y"
+        },
+        {
+          "label": "U"
+        },
+        {
+          "label": "I"
+        },
+        {
+          "label": "O"
+        },
+        {
+          "label": "P"
+        },
+        {
+          "label": "A"
+        },
+        {
+          "label": "S"
+        },
+        {
+          "label": "D"
+        },
+        {
+          "label": "F"
+        },
+        {
+          "label": "G"
+        },
+        {
+          "label": "H"
+        },
+        {
+          "label": "J"
+        },
+        {
+          "label": "K"
+        },
+        {
+          "label": "L"
+        },
+        {
+          "label": "Z"
+        },
+        {
+          "label": "X"
+        },
+        {
+          "label": "C"
+        },
+        {
+          "label": "V"
+        },
+        {
+          "label": "B"
+        },
+        {
+          "label": "N"
+        },
+        {
+          "label": "M"
+        },
+        {
+          "label": "CLEAR"
+        },
+        {
+          "label": "SPACE"
+        },
+        {
+          "label": "⌫"
+        },
+        {
+          "action": "home",
+          "label": "HOME"
+        }
+      ]
+    },
+    {
+      "width": 430,
+      "name": "contacts-keyboard",
+      "page": "app:contacts",
+      "scroll": 380,
+      "contentWidth": 380,
+      "rect": {
+        "x": 25,
+        "y": 106,
+        "width": 380,
+        "height": 687
+      },
+      "appButtons": 0,
+      "theme": "app:contacts",
+      "buttons": [
+        {
+          "action": "app:texts",
+          "label": "TEXTS"
+        },
+        {
+          "action": "app:instahoe:p:kiki",
+          "label": "PROFILE"
+        },
+        {
+          "action": "app:texts:kiki",
+          "label": "TEXTS"
+        },
+        {
+          "label": "Q"
+        },
+        {
+          "label": "W"
+        },
+        {
+          "label": "E"
+        },
+        {
+          "label": "R"
+        },
+        {
+          "label": "T"
+        },
+        {
+          "label": "Y"
+        },
+        {
+          "label": "U"
+        },
+        {
+          "label": "I"
+        },
+        {
+          "label": "O"
+        },
+        {
+          "label": "P"
+        },
+        {
+          "label": "A"
+        },
+        {
+          "label": "S"
+        },
+        {
+          "label": "D"
+        },
+        {
+          "label": "F"
+        },
+        {
+          "label": "G"
+        },
+        {
+          "label": "H"
+        },
+        {
+          "label": "J"
+        },
+        {
+          "label": "K"
+        },
+        {
+          "label": "L"
+        },
+        {
+          "label": "Z"
+        },
+        {
+          "label": "X"
+        },
+        {
+          "label": "C"
+        },
+        {
+          "label": "V"
+        },
+        {
+          "label": "B"
+        },
+        {
+          "label": "N"
+        },
+        {
+          "label": "M"
+        },
+        {
+          "label": "CLEAR"
+        },
+        {
+          "label": "SPACE"
+        },
+        {
+          "label": "⌫"
+        },
+        {
+          "action": "home",
+          "label": "HOME"
+        }
+      ]
+    },
+    {
+      "width": 430,
+      "name": "texts",
+      "page": "app:texts",
+      "scroll": 380,
+      "contentWidth": 380,
+      "rect": {
+        "x": 25,
+        "y": 106,
+        "width": 380,
+        "height": 687
+      },
+      "appButtons": 0,
+      "theme": "app:texts",
+      "buttons": [
+        {
+          "action": "app:texts:family",
+          "label": "FAMILY 🇳🇬 1\n\neat first."
+        },
+        {
+          "action": "home",
+          "label": "HOME"
+        }
+      ]
+    },
+    {
+      "width": 430,
+      "name": "instahoe",
+      "page": "app:instahoe",
+      "scroll": 380,
+      "contentWidth": 380,
+      "rect": {
+        "x": 25,
+        "y": 106,
+        "width": 380,
+        "height": 687
+      },
+      "appButtons": 0,
+      "theme": "app:instahoe",
+      "buttons": [
+        {
+          "action": "app:instahoe:p:kiki",
+          "label": "KIKI 1\n\nhuman"
+        },
+        {
+          "action": "home",
+          "label": "HOME"
+        }
+      ]
+    },
+    {
+      "width": 430,
+      "name": "vampgram",
+      "page": "app:vampgram",
+      "scroll": 380,
+      "contentWidth": 380,
+      "rect": {
+        "x": 25,
+        "y": 106,
+        "width": 380,
+        "height": 687
+      },
+      "appButtons": 0,
+      "theme": "app:vampgram",
+      "buttons": [
+        {
+          "action": "home",
+          "label": "HOME"
+        }
+      ]
+    },
+    {
+      "width": 430,
+      "name": "receipts",
+      "page": "app:receipts",
+      "scroll": 380,
+      "contentWidth": 380,
+      "rect": {
+        "x": 25,
+        "y": 106,
+        "width": 380,
+        "height": 687
+      },
+      "appButtons": 0,
+      "theme": "app:receipts",
+      "buttons": [
+        {
+          "action": "home",
+          "label": "HOME"
+        }
+      ]
+    },
+    {
+      "width": 430,
+      "name": "onlyvamps",
+      "page": "app:onlyvamps",
+      "scroll": 380,
+      "contentWidth": 380,
+      "rect": {
+        "x": 25,
+        "y": 106,
+        "width": 380,
+        "height": 687
+      },
+      "appButtons": 0,
+      "theme": "app:onlyvamps",
+      "buttons": [
+        {
+          "action": "do:onlyvamps:sub:anonymous_01",
+          "label": "SUBSCRIBE"
+        },
+        {
+          "action": "do:onlyvamps:sub:anonymous_02",
+          "label": "SUBSCRIBE"
+        },
+        {
+          "action": "do:onlyvamps:sub:velvet",
+          "label": "SUBSCRIBE"
+        },
+        {
+          "action": "do:onlyvamps:sub:anonymous_03",
+          "label": "SUBSCRIBE"
+        },
+        {
+          "action": "home",
+          "label": "HOME"
+        }
+      ]
+    },
+    {
+      "width": 430,
+      "name": "richboi",
+      "page": "app:richboi",
+      "scroll": 380,
+      "contentWidth": 380,
+      "rect": {
+        "x": 25,
+        "y": 106,
+        "width": 380,
+        "height": 687
+      },
+      "appButtons": 0,
+      "theme": "app:richboi",
+      "buttons": [
+        {
+          "action": "do:richboi:buy:urus",
+          "label": "BUY IT"
+        },
+        {
+          "action": "do:richboi:buy:aventador",
+          "label": "NOT ENOUGH CASH"
+        },
+        {
+          "action": "do:richboi:buy:ferrari",
+          "label": "NOT ON YOUR LEVEL YET"
+        },
+        {
+          "action": "home",
+          "label": "HOME"
+        }
+      ]
+    },
+    {
+      "width": 430,
+      "name": "radio",
+      "page": "app:radio",
+      "scroll": 380,
+      "contentWidth": 380,
+      "rect": {
+        "x": 25,
+        "y": 106,
+        "width": 380,
+        "height": 687
+      },
+      "appButtons": 0,
+      "theme": "app:radio",
+      "buttons": [
+        {
+          "action": "home",
+          "label": "HOME"
+        }
+      ]
+    },
+    {
+      "width": 430,
+      "name": "hatch",
+      "page": "app:hatch",
+      "scroll": 380,
+      "contentWidth": 380,
+      "rect": {
+        "x": 25,
+        "y": 106,
+        "width": 380,
+        "height": 687
+      },
+      "appButtons": 0,
+      "theme": "app:hatch",
+      "buttons": [
+        {
+          "action": "home",
+          "label": "HOME"
+        }
+      ]
+    },
+    {
+      "width": 430,
+      "name": "touge",
+      "page": "app:touge",
+      "scroll": 380,
+      "contentWidth": 380,
+      "rect": {
+        "x": 25,
+        "y": 106,
+        "width": 380,
+        "height": 687
+      },
+      "appButtons": 0,
+      "theme": "app:touge",
+      "buttons": [
+        {
+          "action": "do:touge:run:angeles_crest",
+          "label": "RUN"
+        },
+        {
+          "action": "do:touge:run:docks",
+          "label": "RUN"
+        },
+        {
+          "action": "do:touge:run:grave_garage",
+          "label": "RUN"
+        },
+        {
+          "action": "home",
+          "label": "HOME"
+        }
+      ]
+    },
+    {
+      "width": 430,
+      "name": "bars",
+      "page": "app:bars",
+      "scroll": 380,
+      "contentWidth": 380,
+      "rect": {
+        "x": 25,
+        "y": 106,
+        "width": 380,
+        "height": 687
+      },
+      "appButtons": 0,
+      "theme": "app:bars",
+      "buttons": [
+        {
+          "action": "do:bars:play",
+          "label": "FREESTYLE (60s)"
+        },
+        {
+          "action": "home",
+          "label": "HOME"
+        }
+      ]
+    },
+    {
+      "width": 430,
+      "name": "armory",
+      "page": "app:armory",
+      "scroll": 380,
+      "contentWidth": 380,
+      "rect": {
+        "x": 25,
+        "y": 106,
+        "width": 380,
+        "height": 687
+      },
+      "appButtons": 0,
+      "theme": "app:armory",
+      "buttons": [
+        {
+          "action": "app:armory:bench",
+          "label": "MODS"
+        },
+        {
+          "action": "do:armory:buy:lil_oga",
+          "label": "BUY · $25,000"
+        },
+        {
+          "action": "do:armory:buy:sapporo_shotgun",
+          "label": "BUY · $60,000"
+        },
+        {
+          "action": "do:armory:buy:mac_and_cheese",
+          "label": "BUY · $75,000"
+        },
+        {
+          "action": "do:armory:buy:chopstick_sniper",
+          "label": "BUY · $90,000"
+        },
+        {
+          "action": "do:armory:buy:rpg",
+          "label": "BUY · $400,000"
+        },
+        {
+          "action": "home",
+          "label": "HOME"
+        }
+      ]
+    },
+    {
+      "width": 430,
+      "name": "moves",
+      "page": "app:moves",
+      "scroll": 380,
+      "contentWidth": 380,
+      "rect": {
+        "x": 25,
+        "y": 106,
+        "width": 380,
+        "height": 687
+      },
+      "appButtons": 0,
+      "theme": "app:moves",
+      "buttons": [
+        {
+          "action": "app:moves:0",
+          "label": "1. BLOOD BATH"
+        },
+        {
+          "action": "app:moves:1",
+          "label": "2. OCTOPUS BRAIN"
+        },
+        {
+          "action": "app:moves:2",
+          "label": "3. VAMPIRE BITE"
+        },
+        {
+          "action": "app:moves:3",
+          "label": "4. REVENGE"
+        },
+        {
+          "action": "home",
+          "label": "HOME"
+        }
+      ]
+    },
+    {
+      "width": 430,
+      "name": "warRoom",
+      "page": "app:warRoom",
+      "scroll": 380,
+      "contentWidth": 380,
+      "rect": {
+        "x": 25,
+        "y": 106,
+        "width": 380,
+        "height": 687
+      },
+      "appButtons": 0,
+      "theme": "app:warRoom",
+      "buttons": [
+        {
+          "action": "app:warRoom:jobs",
+          "label": "TONIGHT'S JOBS"
+        },
+        {
+          "action": "app:warRoom:crew",
+          "label": "CREW"
+        },
+        {
+          "action": "app:warRoom:reports",
+          "label": "REPORT CARDS"
+        },
+        {
+          "action": "app:warRoom:handback",
+          "label": "HAND BACK"
+        },
+        {
+          "action": "home",
+          "label": "HOME"
+        }
+      ]
+    },
+    {
+      "width": 430,
+      "name": "trap",
+      "page": "app:trap",
+      "scroll": 380,
+      "contentWidth": 380,
+      "rect": {
+        "x": 25,
+        "y": 106,
+        "width": 380,
+        "height": 687
+      },
+      "appButtons": 0,
+      "theme": "app:trap",
+      "buttons": [
+        {
+          "action": "home",
+          "label": "HOME"
+        }
+      ]
+    },
+    {
+      "width": 430,
+      "name": "rainmaker",
+      "page": "app:rainmaker",
+      "scroll": 380,
+      "contentWidth": 380,
+      "rect": {
+        "x": 25,
+        "y": 106,
+        "width": 380,
+        "height": 687
+      },
+      "appButtons": 0,
+      "theme": "app:rainmaker",
+      "buttons": [
+        {
+          "action": "do:rainmaker:launch",
+          "label": "MAKE IT RAIN"
+        },
+        {
+          "action": "home",
+          "label": "HOME"
+        }
+      ]
+    },
+    {
+      "width": 430,
+      "name": "vampgpt-options",
+      "page": "options",
+      "scroll": 380,
+      "contentWidth": 380,
+      "rect": {
+        "x": 25,
+        "y": 108,
+        "width": 380,
+        "height": 687
+      },
+      "appButtons": 0,
+      "theme": "options",
+      "buttons": [
+        {
+          "action": "money",
+          "label": "MAKE MONEY"
+        },
+        {
+          "action": "people",
+          "label": "MEET PEOPLE"
+        },
+        {
+          "action": "somewhere",
+          "label": "GO SOMEWHERE"
+        },
+        {
+          "action": "home",
+          "label": "HOME"
+        }
+      ]
+    },
+    {
+      "width": 430,
+      "name": "vampgpt-money",
+      "page": "money",
+      "scroll": 380,
+      "contentWidth": 380,
+      "rect": {
+        "x": 25,
+        "y": 107,
+        "width": 380,
+        "height": 687
+      },
+      "appButtons": 0,
+      "theme": "money",
+      "buttons": [
+        {
+          "action": "go:lane:slurp",
+          "label": "WORK A SHIFT\n\nyou ever had a job? (i know you haven't.)"
+        },
+        {
+          "action": "go:lane:property",
+          "label": "BUY A BUILDING\n\nREALMONEYREALESTATE"
+        },
+        {
+          "action": "options",
+          "label": "BACK"
+        },
+        {
+          "action": "home",
+          "label": "HOME"
+        }
+      ]
+    },
+    {
+      "width": 430,
+      "name": "vampgpt-people",
+      "page": "people",
+      "scroll": 380,
+      "contentWidth": 380,
+      "rect": {
+        "x": 25,
+        "y": 106,
+        "width": 380,
+        "height": 687
+      },
+      "appButtons": 0,
+      "theme": "people",
+      "buttons": [
+        {
+          "action": "go:lane:dms",
+          "label": "CHECK YOUR DMS\n\nINSTAHOE"
+        },
+        {
+          "action": "go:lane:grave",
+          "label": "GO WHERE PEOPLE ARE\n\nTHE GRAVE"
+        },
+        {
+          "action": "go:lane:party",
+          "label": "FIND A PARTY\n\nsomebody is always throwing something"
+        },
+        {
+          "action": "go:lane:homies",
+          "label": "TEXT THE HOMIES"
+        },
+        {
+          "action": "options",
+          "label": "BACK"
+        },
+        {
+          "action": "home",
+          "label": "HOME"
+        }
+      ]
+    },
+    {
+      "width": 430,
+      "name": "maps-destinations",
+      "page": "somewhere",
+      "scroll": 380,
+      "contentWidth": 380,
+      "rect": {
+        "x": 25,
+        "y": 107,
+        "width": 380,
+        "height": 687
+      },
+      "appButtons": 0,
+      "theme": "somewhere",
+      "buttons": [
+        {
+          "action": "atlanta",
+          "label": "ATLANTA\n\nAVAILABLE"
+        },
+        {
+          "action": "go:kush",
+          "label": "KUSH & CRYPT\n\nMELROSE"
+        },
+        {
+          "action": "go:slurp",
+          "label": "SLURP DYNASTY\n\nLITTLE TOKYO"
+        },
+        {
+          "action": "go:catacomb",
+          "label": "THE CATACOMB\n\nOPEN MIC NIGHT"
+        },
+        {
+          "action": "go:cafe",
+          "label": "BEAN THERE DEAD THAT\n\nCAFÉ"
+        },
+        {
+          "action": "go:salon",
+          "label": "TWIST & SHOUT\n\nHYDE PARK"
+        },
+        {
+          "action": "go:gallery",
+          "label": "ROOKOKO'S GALLERY\n\nARTS DISTRICT"
+        },
+        {
+          "action": "go:heartsfelt",
+          "label": "HEARTSFELT-JACKSUN\n\nATL · A LATE FLIGHT"
+        },
+        {
+          "action": "go:tacos",
+          "label": "DON CHUY'S (OUTSIDE)\n\nTACOS · $3 EACH"
+        },
+        {
+          "action": "go:grave",
+          "label": "THE GRAVE\n\nTHE MALL"
+        },
+        {
+          "action": "go:peking",
+          "label": "PEKING NAIJA\n\nTHE USUAL"
+        },
+        {
+          "action": "go:onsen",
+          "label": "YU & ME ONSEN\n\nTORRANCE"
+        },
+        {
+          "action": "go:venice",
+          "label": "VENICE COURTS\n\nPICKUP · PULL-UPS ON THE RIM"
+        },
+        {
+          "action": "go:ballroom",
+          "label": "THE HOTEL BALLROOM\n\nNIGHTSHADE"
+        },
+        {
+          "action": "go:florist",
+          "label": "THE FLORIST ON SUNSET\n\nGIFTS"
+        },
+        {
+          "action": "tokyo",
+          "label": "TOKYO\n\nLOCKED · NEED CLOUT"
+        },
+        {
+          "action": "ogun_rave",
+          "label": "OGUN'S RAVE\n\nLOCKED · LOCKED"
+        },
+        {
+          "action": "options",
+          "label": "BACK"
+        },
+        {
+          "action": "home",
+          "label": "HOME"
+        }
+      ]
+    },
+    {
+      "width": 430,
+      "name": "audio",
+      "page": "settings",
+      "scroll": 380,
+      "contentWidth": 380,
+      "rect": {
+        "x": 25,
+        "y": 106,
+        "width": 380,
+        "height": 687
+      },
+      "appButtons": 0,
+      "theme": "settings",
+      "buttons": [
+        {
+          "action": "toggleMute",
+          "label": "MUTE"
+        }
+      ]
+    },
+    {
+      "width": 430,
+      "name": "texts-family",
+      "page": "app:texts:family",
+      "scroll": 380,
+      "contentWidth": 380,
+      "rect": {
+        "x": 25,
+        "y": 107,
+        "width": 380,
+        "height": 687
+      },
+      "appButtons": 0,
+      "theme": "app:texts:family",
+      "buttons": [
+        {
+          "action": "app:texts",
+          "label": "BACK"
+        },
+        {
+          "action": "home",
+          "label": "HOME"
+        }
+      ]
+    },
+    {
+      "width": 430,
+      "name": "contacts-profile",
+      "page": "app:instahoe:p:kiki",
+      "scroll": 380,
+      "contentWidth": 380,
+      "rect": {
+        "x": 25,
+        "y": 107,
+        "width": 380,
+        "height": 687
+      },
+      "appButtons": 0,
+      "theme": "app:instahoe:p:kiki",
+      "buttons": [
+        {
+          "action": "do:instahoe:date:kiki",
+          "label": "ASK HER OUT"
+        },
+        {
+          "action": "app:instahoe:dm:kiki",
+          "label": "DMS"
+        },
+        {
+          "action": "app:instahoe",
+          "label": "BACK"
+        },
+        {
+          "action": "home",
+          "label": "HOME"
+        }
+      ]
+    },
+    {
+      "width": 430,
+      "name": "contacts-dm",
+      "page": "app:instahoe:dm:kiki",
+      "scroll": 380,
+      "contentWidth": 380,
+      "rect": {
+        "x": 25,
+        "y": 107,
+        "width": 380,
+        "height": 687
+      },
+      "appButtons": 0,
+      "theme": "app:instahoe:dm:kiki",
+      "buttons": [
+        {
+          "action": "app:instahoe:p:kiki",
+          "label": "PROFILE"
+        },
+        {
+          "action": "app:instahoe",
+          "label": "BACK"
+        },
+        {
+          "action": "home",
+          "label": "HOME"
+        }
+      ]
+    },
+    {
+      "width": 430,
+      "name": "armory-bench",
+      "page": "app:armory:bench",
+      "scroll": 380,
+      "contentWidth": 380,
+      "rect": {
+        "x": 25,
+        "y": 107,
+        "width": 380,
+        "height": 687
+      },
+      "appButtons": 0,
+      "theme": "app:armory:bench",
+      "buttons": [
+        {
+          "action": "do:armory:buyMod:blessed_rounds",
+          "label": "BUY"
+        },
+        {
+          "action": "do:armory:buyMod:drum_mag",
+          "label": "BUY"
+        },
+        {
+          "action": "do:armory:buyMod:silencer",
+          "label": "BUY"
+        },
+        {
+          "action": "do:armory:buyMod:scope",
+          "label": "BUY"
+        },
+        {
+          "action": "do:armory:buyMod:gold_plating",
+          "label": "BUY"
+        },
+        {
+          "action": "do:armory:buyMod:custom_engraving",
+          "label": "BUY"
+        },
+        {
+          "action": "app:armory",
+          "label": "BACK"
+        },
+        {
+          "action": "home",
+          "label": "HOME"
+        }
+      ]
+    },
+    {
+      "width": 430,
+      "name": "warRoom-jobs",
+      "page": "app:warRoom:jobs",
+      "scroll": 380,
+      "contentWidth": 380,
+      "rect": {
+        "x": 25,
+        "y": 106,
+        "width": 380,
+        "height": 687
+      },
+      "appButtons": 0,
+      "theme": "app:warRoom:jobs",
+      "buttons": [
+        {
+          "action": "do:warRoom:play:0",
+          "label": "MAKE THIS PLAY"
+        },
+        {
+          "action": "do:warRoom:play:1",
+          "label": "MAKE THIS PLAY"
+        },
+        {
+          "action": "do:warRoom:play:2",
+          "label": "MAKE THIS PLAY"
+        },
+        {
+          "action": "do:warRoom:runJob:3",
+          "label": "LAY LOW TONIGHT"
+        },
+        {
+          "action": "app:warRoom",
+          "label": "← BACK"
+        },
+        {
+          "action": "app:warRoom",
+          "label": "BACK"
+        },
+        {
+          "action": "home",
+          "label": "HOME"
+        }
+      ]
+    },
+    {
+      "width": 430,
+      "name": "warRoom-crew",
+      "page": "app:warRoom:crew",
+      "scroll": 380,
+      "contentWidth": 380,
+      "rect": {
+        "x": 25,
+        "y": 107,
+        "width": 380,
+        "height": 687
+      },
+      "appButtons": 0,
+      "theme": "app:warRoom:crew",
+      "buttons": [
+        {
+          "action": "app:warRoom",
+          "label": "← BACK"
+        },
+        {
+          "action": "app:warRoom",
+          "label": "BACK"
+        },
+        {
+          "action": "home",
+          "label": "HOME"
+        }
+      ]
+    },
+    {
+      "width": 430,
+      "name": "warRoom-reports",
+      "page": "app:warRoom:reports",
+      "scroll": 380,
+      "contentWidth": 380,
+      "rect": {
+        "x": 25,
+        "y": 106,
+        "width": 380,
+        "height": 687
+      },
+      "appButtons": 0,
+      "theme": "app:warRoom:reports",
+      "buttons": [
+        {
+          "action": "app:warRoom",
+          "label": "BACK"
+        },
+        {
+          "action": "home",
+          "label": "HOME"
+        }
+      ]
+    },
+    {
+      "width": 430,
+      "name": "trap-report",
+      "page": "app:trap:report",
+      "scroll": 380,
+      "contentWidth": 380,
+      "rect": {
+        "x": 25,
+        "y": 107,
+        "width": 380,
+        "height": 687
+      },
+      "appButtons": 0,
+      "theme": "app:trap:report",
+      "buttons": [
+        {
+          "action": "app:trap",
+          "label": "BACK"
+        },
+        {
+          "action": "home",
+          "label": "HOME"
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "width": 360,
+      "check": "swipe-up unlock",
+      "pass": true
+    },
+    {
+      "width": 360,
+      "check": "lock reason and unlock route",
+      "pass": true
+    },
+    {
+      "width": 360,
+      "check": "pixel keyboard filters contacts",
+      "pass": true
+    },
+    {
+      "width": 390,
+      "check": "swipe-up unlock",
+      "pass": true
+    },
+    {
+      "width": 390,
+      "check": "lock reason and unlock route",
+      "pass": true
+    },
+    {
+      "width": 390,
+      "check": "pixel keyboard filters contacts",
+      "pass": true
+    },
+    {
+      "width": 430,
+      "check": "swipe-up unlock",
+      "pass": true
+    },
+    {
+      "width": 430,
+      "check": "lock reason and unlock route",
+      "pass": true
+    },
+    {
+      "width": 430,
+      "check": "pixel keyboard filters contacts",
+      "pass": true
+    }
+  ],
+  "errors": [],
+  "violations": []
+}

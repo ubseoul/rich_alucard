@@ -22,7 +22,7 @@ try{
   assert.equal(await game.locator('#devParty').isVisible(),false);
   assert.equal(await game.evaluate(()=>typeof window.RAPartyData),'undefined');
   assert.equal(await game.locator('script[src^="js/scenes/party.js"],script[src^="js/data/party.js"]').count(),0);
-  assert.equal(await game.evaluate(()=>{let opened=false;const original=window.open;try{window.open=()=>{opened=true;};document.querySelector('#devParty').click();return opened;}finally{window.open=original;}}),false);
+  assert.equal(await game.evaluate(()=>{let opened=false;const original=window.open;try{window.open=()=>{opened=true;};document.querySelector('#devParty')?.click();return opened;}finally{window.open=original;}}),false);
   record('fresh production START → bedroom → phone → close; DEV entry hidden, unloaded and inactive outside DEV');
   await game.evaluate(()=>{const saved=RAState.migrateRecord(RASaveFixtures.fixtures.supraOwned);RAState.write(localStorage,saved,false);});
   await game.reload();await game.locator('#startButton').click();await game.waitForFunction(()=>RAScenes.current()==='bedroom');

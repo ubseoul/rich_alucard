@@ -1,0 +1,30 @@
+{
+ "method": "Supplemental ordinary fresh-save OPEN A45 graph reproduction; no cash/eligibility/ownership fixtures. The original post18 hoarder1 Day25 observation remains unchanged. This proves the same first-choice policy loop and the actual available player exit, rather than replaying the entire Day25 career or claiming browser input coverage.",
+ "observedPopulation": {
+  "persona": "hoarder",
+  "seed": 1,
+  "day": 25,
+  "id": "A45",
+  "error": "bounded walker at soak",
+  "cash": 81832
+ },
+ "policyLoop": {
+  "firstChoiceOnly": true,
+  "steps": 180,
+  "node": "soak"
+ },
+ "visibleChoices": [
+  {
+   "label": "STAY LONGER",
+   "locked": false,
+   "next": "soak"
+  },
+  {
+   "label": "GET OUT",
+   "locked": false,
+   "next": "end"
+  }
+ ],
+ "actualGetOutCompleted": true,
+ "classification": "Harness-only first-choice policy remains in STAY LONGER indefinitely; original loop-exit keyword list omits GET OUT. The production graph exposes a working GET OUT choice."
+}

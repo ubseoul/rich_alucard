@@ -1,0 +1,1445 @@
+{
+  "gate": "IDENTITY / STYLE / SEMANTIC AUTHORSHIP / DISTINCTNESS / POLISH",
+  "items": [
+    {
+      "id": "A-RICH-riding_mazda",
+      "identity": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "style": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "semantic_read": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "A-RICH-touge_locked",
+      "identity": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "style": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "semantic_read": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "A-RICH-touge_spun",
+      "identity": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "style": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "semantic_read": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "A-anfeesa-dj",
+      "identity": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "style": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "semantic_read": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "A-bllad33-dry",
+      "identity": "PASS \u2014 frozen anchor identity and native apparent scale preserved",
+      "style": "PASS \u2014 native reconstruction uses limited palette, hard pixels, shallow shading",
+      "semantic_read": "PASS \u2014 authored state read confirmed on surgical comparison board",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "A-brenda-date",
+      "identity": "PASS \u2014 frozen anchor identity and native apparent scale preserved",
+      "style": "PASS \u2014 native reconstruction uses limited palette, hard pixels, shallow shading",
+      "semantic_read": "PASS \u2014 authored state read confirmed on surgical comparison board",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "A-brenda-gossiping",
+      "identity": "PASS \u2014 frozen anchor identity and native apparent scale preserved",
+      "style": "PASS \u2014 native reconstruction uses limited palette, hard pixels, shallow shading",
+      "semantic_read": "body visibly leaning in",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "A-britney-profile",
+      "identity": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "style": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "semantic_read": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "A-bunmi-bedroom_company",
+      "identity": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "style": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "semantic_read": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "A-bunmi-date",
+      "identity": "PASS \u2014 frozen anchor identity and native apparent scale preserved",
+      "style": "PASS \u2014 native reconstruction uses limited palette, hard pixels, shallow shading",
+      "semantic_read": "PASS \u2014 authored state read confirmed on surgical comparison board",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "A-cammile-bedroom",
+      "identity": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "style": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "semantic_read": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "A-cammile-date",
+      "identity": "PASS \u2014 frozen anchor identity and native apparent scale preserved",
+      "style": "PASS \u2014 native reconstruction uses limited palette, hard pixels, shallow shading",
+      "semantic_read": "PASS \u2014 authored state read confirmed on surgical comparison board",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "A-cammile-touge_spectator",
+      "identity": "PASS \u2014 frozen anchor identity and native apparent scale preserved",
+      "style": "PASS \u2014 native reconstruction uses limited palette, hard pixels, shallow shading",
+      "semantic_read": "PASS \u2014 authored state read confirmed on surgical comparison board",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "A-ceo_assistant-bedroom",
+      "identity": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "style": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "semantic_read": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "A-ceo_assistant-date",
+      "identity": "PASS \u2014 frozen anchor identity and native apparent scale preserved",
+      "style": "PASS \u2014 native reconstruction uses limited palette, hard pixels, shallow shading",
+      "semantic_read": "casual outfit; same identity; no bag shortcut",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "A-coffe-caught",
+      "identity": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "style": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "semantic_read": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "A-coffe-hype",
+      "identity": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "style": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "semantic_read": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "A-don_chuy-singing",
+      "identity": "PASS \u2014 frozen anchor identity and native apparent scale preserved",
+      "style": "PASS \u2014 native reconstruction uses limited palette, hard pixels, shallow shading",
+      "semantic_read": "mouth open and visibly singing",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "A-dragoon-silhouette",
+      "identity": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "style": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "semantic_read": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "A-duchess-bedroom_company",
+      "identity": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "style": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "semantic_read": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "A-duchess-impressed",
+      "identity": "PASS \u2014 frozen anchor identity and native apparent scale preserved",
+      "style": "PASS \u2014 native reconstruction uses limited palette, hard pixels, shallow shading",
+      "semantic_read": "PASS \u2014 authored state read confirmed on surgical comparison board",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "A-duchess-unimpressed",
+      "identity": "PASS \u2014 frozen anchor identity and native apparent scale preserved",
+      "style": "PASS \u2014 native reconstruction uses limited palette, hard pixels, shallow shading",
+      "semantic_read": "PASS \u2014 authored state read confirmed on surgical comparison board",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "A-emberly-bedroom_company",
+      "identity": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "style": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "semantic_read": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "A-emberly-date",
+      "identity": "PASS \u2014 frozen anchor identity and native apparent scale preserved",
+      "style": "PASS \u2014 native reconstruction uses limited palette, hard pixels, shallow shading",
+      "semantic_read": "PASS \u2014 authored state read confirmed on surgical comparison board",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "A-family-dad-avatar",
+      "identity": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "style": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "semantic_read": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "A-family-mom-avatar",
+      "identity": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "style": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "semantic_read": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "A-family-sister-avatar",
+      "identity": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "style": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "semantic_read": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "A-hina-date",
+      "identity": "PASS \u2014 frozen anchor identity and native apparent scale preserved",
+      "style": "PASS \u2014 native reconstruction uses limited palette, hard pixels, shallow shading",
+      "semantic_read": "PASS \u2014 authored state read confirmed on surgical comparison board",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "A-hina-smug",
+      "identity": "PASS \u2014 frozen anchor identity and native apparent scale preserved",
+      "style": "PASS \u2014 native reconstruction uses limited palette, hard pixels, shallow shading",
+      "semantic_read": "PASS \u2014 authored state read confirmed on surgical comparison board",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "A-jade-impressed",
+      "identity": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "style": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "semantic_read": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "A-june-bedroom",
+      "identity": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "style": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "semantic_read": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "A-june-date",
+      "identity": "PASS \u2014 frozen anchor identity and native apparent scale preserved",
+      "style": "PASS \u2014 native reconstruction uses limited palette, hard pixels, shallow shading",
+      "semantic_read": "PASS \u2014 authored state read confirmed on surgical comparison board",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "A-june-working",
+      "identity": "PASS \u2014 frozen anchor identity and native apparent scale preserved",
+      "style": "PASS \u2014 native reconstruction uses limited palette, hard pixels, shallow shading",
+      "semantic_read": "paired pose; June's hands actively in seated Rich's locs",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "A-kaede-bedroom_company",
+      "identity": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "style": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "semantic_read": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "A-kaede-ceiling_drop",
+      "identity": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "style": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "semantic_read": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "A-kaede-date",
+      "identity": "PASS \u2014 frozen anchor identity and native apparent scale preserved",
+      "style": "PASS \u2014 native reconstruction uses limited palette, hard pixels, shallow shading",
+      "semantic_read": "PASS \u2014 authored state read confirmed on surgical comparison board",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "A-kiki-bedroom_company",
+      "identity": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "style": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "semantic_read": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "A-kiki-date",
+      "identity": "PASS \u2014 frozen anchor identity and native apparent scale preserved",
+      "style": "PASS \u2014 native reconstruction uses limited palette, hard pixels, shallow shading",
+      "semantic_read": "apron removed; clips preserved; authored pose",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "A-kiki-laughing",
+      "identity": "PASS \u2014 frozen anchor identity and native apparent scale preserved",
+      "style": "PASS \u2014 native reconstruction uses limited palette, hard pixels, shallow shading",
+      "semantic_read": "PASS \u2014 authored state read confirmed on surgical comparison board",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "A-lil_smack-diss",
+      "identity": "PASS \u2014 frozen anchor identity and native apparent scale preserved",
+      "style": "PASS \u2014 native reconstruction uses limited palette, hard pixels, shallow shading",
+      "semantic_read": "arm extended in visible point",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "A-lil_smack-finale",
+      "identity": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "style": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "semantic_read": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "A-lo-arm_fall",
+      "identity": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "style": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "semantic_read": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "A-lo-date",
+      "identity": "PASS \u2014 frozen anchor identity and native apparent scale preserved",
+      "style": "PASS \u2014 native reconstruction uses limited palette, hard pixels, shallow shading",
+      "semantic_read": "PASS \u2014 authored state read confirmed on surgical comparison board",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "A-marisol-date",
+      "identity": "PASS \u2014 frozen anchor identity and native apparent scale preserved",
+      "style": "PASS \u2014 native reconstruction uses limited palette, hard pixels, shallow shading",
+      "semantic_read": "PASS \u2014 authored state read confirmed on surgical comparison board",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "A-marisol-disapproving",
+      "identity": "PASS \u2014 frozen anchor identity and native apparent scale preserved",
+      "style": "PASS \u2014 native reconstruction uses limited palette, hard pixels, shallow shading",
+      "semantic_read": "feather duster visibly raised",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "A-moonie-bedroom_company",
+      "identity": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "style": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "semantic_read": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "A-moonie-date",
+      "identity": "PASS \u2014 frozen anchor identity and native apparent scale preserved",
+      "style": "PASS \u2014 native reconstruction uses limited palette, hard pixels, shallow shading",
+      "semantic_read": "PASS \u2014 authored state read confirmed on surgical comparison board",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "A-ms_patrice-bedroom",
+      "identity": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "style": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "semantic_read": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "A-ms_patrice-date",
+      "identity": "PASS \u2014 frozen anchor identity and native apparent scale preserved",
+      "style": "PASS \u2014 native reconstruction uses limited palette, hard pixels, shallow shading",
+      "semantic_read": "PASS \u2014 authored state read confirmed on surgical comparison board",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "A-ms_patrice-laugh",
+      "identity": "PASS \u2014 frozen anchor identity and native apparent scale preserved",
+      "style": "PASS \u2014 native reconstruction uses limited palette, hard pixels, shallow shading",
+      "semantic_read": "visible laughing-at-Rich reaction",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "A-nightshade-casting",
+      "identity": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "style": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "semantic_read": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "A-nightshade-date",
+      "identity": "PASS \u2014 frozen anchor identity and native apparent scale preserved",
+      "style": "PASS \u2014 native reconstruction uses limited palette, hard pixels, shallow shading",
+      "semantic_read": "PASS \u2014 authored state read confirmed on surgical comparison board",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "A-nneka-bedroom_company",
+      "identity": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "style": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "semantic_read": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "A-nneka-date",
+      "identity": "PASS \u2014 frozen anchor identity and native apparent scale preserved",
+      "style": "PASS \u2014 native reconstruction uses limited palette, hard pixels, shallow shading",
+      "semantic_read": "off-duty going-out clothes with gold jewelry",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "A-nneka-handing_bill",
+      "identity": "PASS \u2014 frozen anchor identity and native apparent scale preserved",
+      "style": "PASS \u2014 native reconstruction uses limited palette, hard pixels, shallow shading",
+      "semantic_read": "PASS \u2014 authored state read confirmed on surgical comparison board",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "A-officer_nodd-nod",
+      "identity": "PASS \u2014 frozen anchor identity and native apparent scale preserved",
+      "style": "PASS \u2014 native reconstruction uses limited palette, hard pixels, shallow shading",
+      "semantic_read": "head visibly lowered in nod",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "A-officer_nodd-phone",
+      "identity": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "style": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "semantic_read": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "A-pinky-bedroom_company",
+      "identity": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "style": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "semantic_read": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "A-pinky-date",
+      "identity": "PASS \u2014 frozen anchor identity and native apparent scale preserved",
+      "style": "PASS \u2014 native reconstruction uses limited palette, hard pixels, shallow shading",
+      "semantic_read": "PASS \u2014 authored state read confirmed on surgical comparison board",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "A-pinky-impressed",
+      "identity": "PASS \u2014 frozen anchor identity and native apparent scale preserved",
+      "style": "PASS \u2014 native reconstruction uses limited palette, hard pixels, shallow shading",
+      "semantic_read": "PASS \u2014 authored state read confirmed on surgical comparison board",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "A-pinky-neutral",
+      "identity": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "style": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "semantic_read": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "A-rookoko-painting",
+      "identity": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "style": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "semantic_read": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "A-tasha-bedroom_company",
+      "identity": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "style": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "semantic_read": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "A-tasha-date",
+      "identity": "PASS \u2014 frozen anchor identity and native apparent scale preserved",
+      "style": "PASS \u2014 native reconstruction uses limited palette, hard pixels, shallow shading",
+      "semantic_read": "PASS \u2014 authored state read confirmed on surgical comparison board",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "A-tasha-stage_rush",
+      "identity": "PASS \u2014 frozen anchor identity and native apparent scale preserved",
+      "style": "PASS \u2014 native reconstruction uses limited palette, hard pixels, shallow shading",
+      "semantic_read": "arms out in comic stage rush",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "A-tristan-floor",
+      "identity": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "style": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "semantic_read": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "A-tristan-laugh",
+      "identity": "PASS \u2014 frozen anchor identity and native apparent scale preserved",
+      "style": "PASS \u2014 native reconstruction uses limited palette, hard pixels, shallow shading",
+      "semantic_read": "visible laughing reaction",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "A-tristan-passenger",
+      "identity": "PASS \u2014 frozen anchor identity and native apparent scale preserved",
+      "style": "PASS \u2014 native reconstruction uses limited palette, hard pixels, shallow shading",
+      "semantic_read": "TOUGE HUD seated passenger portrait",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "A-velvet-date",
+      "identity": "PASS \u2014 frozen anchor identity and native apparent scale preserved",
+      "style": "PASS \u2014 native reconstruction uses limited palette, hard pixels, shallow shading",
+      "semantic_read": "PASS \u2014 authored state read confirmed on surgical comparison board",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "A-vicky-doorway",
+      "identity": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "style": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "semantic_read": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "A-wispa-date",
+      "identity": "PASS \u2014 frozen anchor identity and native apparent scale preserved",
+      "style": "PASS \u2014 native reconstruction uses limited palette, hard pixels, shallow shading",
+      "semantic_read": "PASS \u2014 authored state read confirmed on surgical comparison board",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "A-wispa-wave",
+      "identity": "PASS \u2014 frozen anchor identity and native apparent scale preserved",
+      "style": "PASS \u2014 native reconstruction uses limited palette, hard pixels, shallow shading",
+      "semantic_read": "arm visibly raised in wave",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "B-hatchling-happy",
+      "identity": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "style": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "semantic_read": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "B-hatchling-neutral",
+      "identity": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "style": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "semantic_read": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "B-hatchling-sulk",
+      "identity": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "style": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "semantic_read": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "B-human-bedroom",
+      "identity": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "style": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "semantic_read": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "B-human-eating",
+      "identity": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "style": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "semantic_read": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "B-majestic-flying",
+      "identity": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "style": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "semantic_read": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "B-majestic-happy",
+      "identity": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "style": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "semantic_read": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "B-majestic-perched",
+      "identity": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "style": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "semantic_read": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "B-riding-composite",
+      "identity": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "style": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "semantic_read": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "B-young-happy",
+      "identity": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "style": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "semantic_read": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "B-young-neutral",
+      "identity": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "style": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "semantic_read": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "B-young-sulk",
+      "identity": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "style": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "semantic_read": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "C-cat-judging_combat",
+      "identity": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "style": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "semantic_read": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "C-cat-on_bed",
+      "identity": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "style": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "semantic_read": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "C-chest",
+      "identity": "PASS \u2014 authored object identity",
+      "style": "PASS \u2014 native reconstruction uses limited palette, hard pixels, shallow shading",
+      "semantic_read": "rusted and barnacled rare chest",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "C-common-pier_perch-held",
+      "identity": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "style": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "semantic_read": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "C-common-pier_perch-icon",
+      "identity": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "style": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "semantic_read": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "C-common-silver_grunt-held",
+      "identity": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "style": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "semantic_read": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "C-common-silver_grunt-icon",
+      "identity": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "style": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "semantic_read": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "C-common-ugly_mackerel-held",
+      "identity": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "style": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "semantic_read": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "C-common-ugly_mackerel-icon",
+      "identity": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "style": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "semantic_read": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "C-junk-boot",
+      "identity": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "style": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "semantic_read": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "C-junk-flip_phone",
+      "identity": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "style": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "semantic_read": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "C-junk-waterlogged_wallet",
+      "identity": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "style": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "semantic_read": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "C-rare-moon_koi",
+      "identity": "PASS \u2014 authored object identity",
+      "style": "PASS \u2014 native reconstruction uses limited palette, hard pixels, shallow shading",
+      "semantic_read": "beautiful silver-blue lunar rare fish",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "C-rare-old_barnacle_grouper",
+      "identity": "PASS \u2014 authored object identity",
+      "style": "PASS \u2014 native reconstruction uses limited palette, hard pixels, shallow shading",
+      "semantic_read": "enormous bulky old barnacled grouper",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "D-aventador-listing",
+      "identity": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "style": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "semantic_read": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "D-aventador-world",
+      "identity": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "style": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "semantic_read": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "D-ferrari_f40-listing",
+      "identity": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "style": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "semantic_read": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "D-ferrari_f40-world",
+      "identity": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "style": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "semantic_read": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "D-portobello-world",
+      "identity": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "style": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "semantic_read": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "D-r34-listing",
+      "identity": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "style": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "semantic_read": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "D-r34-world",
+      "identity": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "style": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "semantic_read": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "D-rival_a-touge",
+      "identity": "PASS \u2014 authored object identity",
+      "style": "PASS \u2014 native reconstruction uses limited palette, hard pixels, shallow shading",
+      "semantic_read": "top-down car; teal/white fictional livery",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "D-rival_b-touge",
+      "identity": "PASS \u2014 authored object identity",
+      "style": "PASS \u2014 native reconstruction uses limited palette, hard pixels, shallow shading",
+      "semantic_read": "top-down car; amber/navy fictional livery",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "D-s15_bodykit-listing",
+      "identity": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "style": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "semantic_read": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "D-s15_bodykit-world",
+      "identity": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "style": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "semantic_read": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "D-s15_stock-listing",
+      "identity": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "style": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "semantic_read": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "D-s15_stock-world",
+      "identity": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "style": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "semantic_read": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "D-s2000_pink-listing",
+      "identity": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "style": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "semantic_read": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "D-s2000_pink-world",
+      "identity": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "style": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "semantic_read": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "D-supra-listing",
+      "identity": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "style": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "semantic_read": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "D-urus-listing",
+      "identity": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "style": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "semantic_read": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "D-urus-world",
+      "identity": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "style": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "semantic_read": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "E-blood_bill",
+      "identity": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "style": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "semantic_read": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "E-blood_held",
+      "identity": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "style": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "semantic_read": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "E-bonesworth_sword",
+      "identity": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "style": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "semantic_read": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "E-bread-torn",
+      "identity": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "style": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "semantic_read": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "E-egg-bed",
+      "identity": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "style": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "semantic_read": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "E-egg-cracking",
+      "identity": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "style": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "semantic_read": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "E-egg-held",
+      "identity": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "style": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "semantic_read": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "E-fit-black_leather_trench",
+      "identity": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "style": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "semantic_read": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "E-fit-boughi_v_blazer",
+      "identity": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "style": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "semantic_read": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "E-fit-church_shoes",
+      "identity": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "style": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "semantic_read": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "E-fit-drift_sneakers",
+      "identity": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "style": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "semantic_read": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "E-fit-grave_hoodie",
+      "identity": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "style": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "semantic_read": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "E-fit-krada_shades",
+      "identity": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "style": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "semantic_read": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "E-fit-slides",
+      "identity": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "style": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "semantic_read": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "E-fit-tradeya_hoes_chain",
+      "identity": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "style": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "semantic_read": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "E-gun-chopstick_sniper-case",
+      "identity": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "style": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "semantic_read": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "E-gun-chopstick_sniper-held",
+      "identity": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "style": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "semantic_read": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "E-gun-holy_baby_drake-case",
+      "identity": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "style": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "semantic_read": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "E-gun-holy_baby_drake-held",
+      "identity": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "style": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "semantic_read": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "E-gun-lil_oga-case",
+      "identity": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "style": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "semantic_read": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "E-gun-lil_oga-held",
+      "identity": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "style": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "semantic_read": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "E-gun-sapporo_shotgun-case",
+      "identity": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "style": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "semantic_read": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "E-gun-sapporo_shotgun-held",
+      "identity": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "style": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "semantic_read": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "E-gun-the_rpg-case",
+      "identity": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "style": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "semantic_read": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "E-gun-the_rpg-held",
+      "identity": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "style": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "semantic_read": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "E-item-boba",
+      "identity": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "style": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "semantic_read": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "E-item-dragon_keef",
+      "identity": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "style": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "semantic_read": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "E-item-garlic_knots",
+      "identity": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "style": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "semantic_read": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "E-item-jollof_takeout",
+      "identity": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "style": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "semantic_read": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "E-item-sapporo",
+      "identity": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "style": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "semantic_read": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "E-item-smelling_salts",
+      "identity": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "style": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "semantic_read": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "E-radio-bloodbath",
+      "identity": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "style": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "semantic_read": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "E-radio-montana",
+      "identity": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "style": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "semantic_read": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "E-radio-octopus_brain",
+      "identity": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "style": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "semantic_read": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "E-radio-playmakers",
+      "identity": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "style": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "semantic_read": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "E-radio-shopping_addict",
+      "identity": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "style": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "semantic_read": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "F-company_system",
+      "identity": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "style": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "semantic_read": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "F-covered_companion",
+      "identity": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "style": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "semantic_read": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "F-homie_floor",
+      "identity": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "style": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "semantic_read": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "F-mazda_flyby",
+      "identity": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "style": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "semantic_read": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "F-prop-duoqlo_bag",
+      "identity": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "style": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "semantic_read": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "F-prop-jollof_trophy",
+      "identity": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "style": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "semantic_read": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "F-prop-michigan_pennant",
+      "identity": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "style": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "semantic_read": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "F-prop-plant",
+      "identity": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "style": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "semantic_read": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "F-prop-rookoko_painting",
+      "identity": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "style": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "semantic_read": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "F-prop-trippin_red_poster",
+      "identity": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "style": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "semantic_read": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "F-prop-unused_cat_bed",
+      "identity": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "style": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "semantic_read": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "F-prop-waffle_mix_bag",
+      "identity": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "style": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "semantic_read": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "F-rain_night_window",
+      "identity": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "style": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "semantic_read": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "F-stars_night_sky",
+      "identity": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "style": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "semantic_read": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "G-vol5-airport",
+      "identity": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "style": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "semantic_read": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "H-bars",
+      "identity": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "style": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "semantic_read": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "H-blood_bank_bill",
+      "identity": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "style": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "semantic_read": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "H-garage",
+      "identity": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "style": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "semantic_read": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "H-hatch",
+      "identity": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "style": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "semantic_read": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "H-hookah_rings",
+      "identity": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "style": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "semantic_read": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "H-jollof_wars",
+      "identity": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "style": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "semantic_read": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "H-pickup",
+      "identity": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "style": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "semantic_read": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "H-pier",
+      "identity": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "style": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "semantic_read": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "H-receipts",
+      "identity": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "style": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "semantic_read": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "H-rich_radio",
+      "identity": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "style": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "semantic_read": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "H-touge",
+      "identity": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "style": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "semantic_read": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "H-vehicle_listing_cards",
+      "identity": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "style": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "semantic_read": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    },
+    {
+      "id": "H-what_we_on",
+      "identity": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "style": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "semantic_read": "PRESERVED BYTE-FOR-BYTE FROM HQ-ACCEPTED V2",
+      "duplicate_gate": "PASS \u2014 no unrelated byte-identical candidate",
+      "review_status": "CANDIDATE ONLY \u2014 UBE/HQ FINAL TASTE PASS REQUIRED"
+    }
+  ]
+}

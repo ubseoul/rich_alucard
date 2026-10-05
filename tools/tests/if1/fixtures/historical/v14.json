@@ -1,0 +1,206 @@
+{
+ "version": 14,
+ "life": {
+  "identity": {
+   "name": "Rich Alucard"
+  },
+  "world": {
+   "location": "LA",
+   "day": 9,
+   "month": 1,
+   "scene": "bedroom",
+   "flags": {
+    "historicalMarker": "v14"
+   }
+  },
+  "resources": {
+   "money": 12359,
+   "clout": "LOW",
+   "vampireReputation": "LOW",
+   "followers": 0,
+   "cloutPoints": 0,
+   "vampRepPoints": 0
+  },
+  "ownership": {
+   "cars": [
+    {
+     "id": "marker_car_v14",
+     "make": "TEST",
+     "model": "V14",
+     "ownershipStatus": "owned"
+    }
+   ],
+   "properties": [],
+   "possessions": [],
+   "castleRooms": [],
+   "guns": [],
+   "fits": {
+    "owned": [],
+    "equipped": {}
+   },
+   "items": {},
+   "props": [],
+   "dragon": null,
+   "cat": null
+  },
+  "people": {
+   "contacts": [],
+   "relationships": [],
+   "records": {}
+  },
+  "events": {
+   "records": {}
+  },
+  "creativeLife": {
+   "music": {
+    "songs": [],
+    "progress": {},
+    "cooked": [],
+    "drops": [],
+    "shows": [],
+    "hooks": [],
+    "castleSong": null
+   }
+  },
+  "phone": {
+   "learned": false,
+   "apps": {},
+   "threads": {},
+   "radio": {
+    "track": null,
+    "castleSong": null
+   }
+  },
+  "desires": {
+   "activeTrip": null,
+   "completed": []
+  },
+  "acquisitions": {
+   "active": null,
+   "completed": []
+  },
+  "night": {
+   "active": null,
+   "completed": []
+  },
+  "property": {
+   "active": null,
+   "completed": []
+  },
+  "opportunities": {},
+  "history": [],
+  "clock": {
+   "started": false,
+   "lastWakeDay": 0,
+   "nightOutings": [],
+   "mail": [],
+   "interruptionsTonight": 0,
+   "hungover": false,
+   "returnBeat": null
+  },
+  "temptations": {
+   "live": [],
+   "history": [],
+   "lastGeneratedDay": 0
+  },
+  "adventures": {
+   "active": null,
+   "records": {}
+  },
+  "memoryLog": [],
+  "receipts": [],
+  "ecology": {
+   "pressure": 0,
+   "headlinesSeen": [],
+   "hiltStatus": "none"
+  },
+  "momentum": {
+   "expression": 0,
+   "connection": 0,
+   "ownership": 0,
+   "legend": 0,
+   "chaos": 0,
+   "counts": {},
+   "sparkId": null,
+   "fameEligible": false,
+   "fameFired": false
+  },
+  "minigames": {},
+  "tendencies": {
+   "solid": 0,
+   "messy": 0
+  },
+  "combat": {
+   "learnedMoves": [],
+   "equippedMoves": [
+    "blood",
+    "octopus",
+    "bite",
+    "revenge"
+   ],
+   "magic": [],
+   "defeats": 0
+  },
+  "sealed": {
+   "slots": {}
+  },
+  "laura": {
+   "ledger": 0
+  },
+  "newOga": {
+   "status": "unstarted",
+   "mission": 0,
+   "rank": 0,
+   "title": null,
+   "businessCard": false,
+   "gangClout": 0,
+   "trust": 0,
+   "heat": 0,
+   "debt": 0,
+   "m1Route": null,
+   "m2Answer": null,
+   "m2Outcome": null,
+   "m3Outcome": null,
+   "m1Rewarded": false,
+   "m3Rewarded": false,
+   "lastMissionDay": 0,
+   "carlosMutual": false,
+   "carlosMutualDay": 0,
+   "carlosMutualSource": null,
+   "carlosUnfollowed": false,
+   "m4Outcome": null,
+   "m4Rewarded": false,
+   "m4TougeBand": null,
+   "carlosEscaped": false,
+   "alternativePending": false,
+   "alternativeCompleted": false,
+   "alternativeRewarded": false,
+   "carlosCanopyApron": false,
+   "carlosLaterParty": false,
+   "carlosLaterStage": null
+  },
+  "settings": {
+   "audio": {
+    "music": 1,
+    "sfx": 1,
+    "ambience": 1,
+    "muted": false,
+    "haptics": true
+   }
+  }
+ },
+ "characters": {
+  "ceo_assistant_001": {
+   "met": true,
+   "stolen": false,
+   "vampire": false,
+   "cracked": false
+  }
+ },
+ "encounters": {
+  "ceo_prince": {
+   "defeated": false,
+   "completed": false
+  }
+ }
+}

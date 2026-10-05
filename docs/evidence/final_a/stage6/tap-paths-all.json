@@ -1,0 +1,696 @@
+{
+  "rows": [
+    {
+      "width": 360,
+      "screen": "play offer",
+      "element": "ANSWER",
+      "sound": true,
+      "starts": 1,
+      "mediaRejected": []
+    },
+    {
+      "width": 360,
+      "screen": "play weapon slot",
+      "element": "THROWN\nAUNTIE'S SLIPPER",
+      "sound": true,
+      "starts": 2,
+      "mediaRejected": []
+    },
+    {
+      "screen": "play crew",
+      "element": "send / hold",
+      "sound": true,
+      "starts": 1,
+      "width": 360
+    },
+    {
+      "width": 360,
+      "screen": "play decision CLIMB",
+      "element": "GET OUT",
+      "sound": true,
+      "starts": 1,
+      "mediaRejected": []
+    },
+    {
+      "width": 360,
+      "screen": "play decision undefined",
+      "element": "AUNTIE GRIT",
+      "sound": true,
+      "starts": 2,
+      "mediaRejected": []
+    },
+    {
+      "width": 360,
+      "screen": "play return",
+      "element": "BACK TO THE WAR ROOM",
+      "sound": true,
+      "starts": 2,
+      "mediaRejected": []
+    },
+    {
+      "width": 360,
+      "screen": "trap-raid home",
+      "element": "OK",
+      "sound": true,
+      "starts": 2,
+      "mediaRejected": []
+    },
+    {
+      "width": 360,
+      "screen": "trap-raid offer",
+      "element": "PICK UP",
+      "sound": true,
+      "starts": 2,
+      "mediaRejected": []
+    },
+    {
+      "screen": "trap-raid crew",
+      "element": "send / hold",
+      "sound": true,
+      "starts": 1,
+      "width": 360
+    },
+    {
+      "width": 360,
+      "screen": "trap-raid decision CALL",
+      "element": "KEEP GOING",
+      "sound": true,
+      "starts": 1,
+      "mediaRejected": []
+    },
+    {
+      "width": 360,
+      "screen": "trap-raid decision CALL",
+      "element": "KEEP GOING",
+      "sound": true,
+      "starts": 1,
+      "mediaRejected": []
+    },
+    {
+      "width": 360,
+      "screen": "trap-raid decision CLIMB",
+      "element": "GET OUT",
+      "sound": true,
+      "starts": 1,
+      "mediaRejected": []
+    },
+    {
+      "width": 360,
+      "screen": "trap-raid decision undefined",
+      "element": "AUNTIE GRIT",
+      "sound": true,
+      "starts": 2,
+      "mediaRejected": []
+    },
+    {
+      "width": 360,
+      "screen": "trap-raid decision undefined",
+      "element": "AUNTIE GRIT",
+      "sound": true,
+      "starts": 2,
+      "mediaRejected": []
+    },
+    {
+      "width": 360,
+      "screen": "trap-raid return",
+      "element": "BACK TO THE WAR ROOM",
+      "sound": true,
+      "starts": 2,
+      "mediaRejected": []
+    },
+    {
+      "width": 390,
+      "screen": "play offer",
+      "element": "ANSWER",
+      "sound": true,
+      "starts": 2,
+      "origins": {
+        "childMedia": 2,
+        "parentWebAudio": {},
+        "parentContext": "running"
+      },
+      "mediaRejected": []
+    },
+    {
+      "width": 390,
+      "screen": "play weapon slot",
+      "element": "THROWN\nAUNTIE'S SLIPPER",
+      "sound": true,
+      "starts": 2,
+      "origins": {
+        "childMedia": 2,
+        "parentWebAudio": {},
+        "parentContext": "running"
+      },
+      "mediaRejected": []
+    },
+    {
+      "screen": "play crew",
+      "element": "send / hold",
+      "sound": true,
+      "starts": 1,
+      "width": 390
+    },
+    {
+      "width": 390,
+      "screen": "play decision CLIMB",
+      "element": "GET OUT",
+      "sound": true,
+      "starts": 1,
+      "origins": {
+        "childMedia": 1,
+        "parentWebAudio": {},
+        "parentContext": "running"
+      },
+      "mediaRejected": []
+    },
+    {
+      "width": 390,
+      "screen": "play decision undefined",
+      "element": "AUNTIE GRIT",
+      "sound": true,
+      "starts": 2,
+      "origins": {
+        "childMedia": 2,
+        "parentWebAudio": {},
+        "parentContext": "running"
+      },
+      "mediaRejected": []
+    },
+    {
+      "width": 390,
+      "screen": "play return",
+      "element": "BACK TO THE WAR ROOM",
+      "sound": true,
+      "starts": 3,
+      "origins": {
+        "childMedia": 2,
+        "parentWebAudio": {
+          "UI_BACK": 1
+        },
+        "parentContext": "running"
+      },
+      "mediaRejected": []
+    },
+    {
+      "width": 390,
+      "screen": "trap-raid home",
+      "element": "OK",
+      "sound": true,
+      "starts": 2,
+      "origins": {
+        "childMedia": 2,
+        "parentWebAudio": {},
+        "parentContext": "running"
+      },
+      "mediaRejected": []
+    },
+    {
+      "width": 390,
+      "screen": "trap-raid offer",
+      "element": "PICK UP",
+      "sound": true,
+      "starts": 2,
+      "origins": {
+        "childMedia": 2,
+        "parentWebAudio": {},
+        "parentContext": "running"
+      },
+      "mediaRejected": []
+    },
+    {
+      "screen": "trap-raid crew",
+      "element": "send / hold",
+      "sound": true,
+      "starts": 1,
+      "width": 390
+    },
+    {
+      "width": 390,
+      "screen": "trap-raid decision CALL",
+      "element": "KEEP GOING",
+      "sound": true,
+      "starts": 1,
+      "origins": {
+        "childMedia": 1,
+        "parentWebAudio": {},
+        "parentContext": "running"
+      },
+      "mediaRejected": []
+    },
+    {
+      "width": 390,
+      "screen": "trap-raid decision CALL",
+      "element": "KEEP GOING",
+      "sound": true,
+      "starts": 1,
+      "origins": {
+        "childMedia": 1,
+        "parentWebAudio": {},
+        "parentContext": "running"
+      },
+      "mediaRejected": []
+    },
+    {
+      "width": 390,
+      "screen": "trap-raid decision CLIMB",
+      "element": "GET OUT",
+      "sound": true,
+      "starts": 1,
+      "origins": {
+        "childMedia": 1,
+        "parentWebAudio": {},
+        "parentContext": "running"
+      },
+      "mediaRejected": []
+    },
+    {
+      "width": 390,
+      "screen": "trap-raid decision undefined",
+      "element": "AUNTIE GRIT",
+      "sound": true,
+      "starts": 2,
+      "origins": {
+        "childMedia": 2,
+        "parentWebAudio": {},
+        "parentContext": "running"
+      },
+      "mediaRejected": []
+    },
+    {
+      "width": 390,
+      "screen": "trap-raid decision undefined",
+      "element": "AUNTIE GRIT",
+      "sound": true,
+      "starts": 2,
+      "origins": {
+        "childMedia": 2,
+        "parentWebAudio": {},
+        "parentContext": "running"
+      },
+      "mediaRejected": []
+    },
+    {
+      "width": 390,
+      "screen": "trap-raid return",
+      "element": "BACK TO THE WAR ROOM",
+      "sound": true,
+      "starts": 3,
+      "origins": {
+        "childMedia": 2,
+        "parentWebAudio": {
+          "UI_BACK": 1
+        },
+        "parentContext": "running"
+      },
+      "mediaRejected": []
+    },
+    {
+      "width": 390,
+      "screen": "tap-play home",
+      "element": "OK",
+      "sound": true,
+      "starts": 2,
+      "origins": {
+        "childMedia": 2,
+        "parentWebAudio": {},
+        "parentContext": "running"
+      },
+      "mediaRejected": []
+    },
+    {
+      "width": 390,
+      "screen": "tap-play offer",
+      "element": "ANSWER",
+      "sound": true,
+      "starts": 2,
+      "origins": {
+        "childMedia": 2,
+        "parentWebAudio": {},
+        "parentContext": "running"
+      },
+      "mediaRejected": []
+    },
+    {
+      "width": 390,
+      "screen": "tap-play settings",
+      "element": "⚙",
+      "sound": true,
+      "starts": 1,
+      "origins": {
+        "childMedia": 1,
+        "parentWebAudio": {},
+        "parentContext": "running"
+      },
+      "mediaRejected": []
+    },
+    {
+      "width": 390,
+      "screen": "tap-play settings",
+      "element": "",
+      "sound": true,
+      "starts": 1,
+      "origins": {
+        "childMedia": 1,
+        "parentWebAudio": {},
+        "parentContext": "running"
+      },
+      "mediaRejected": []
+    },
+    {
+      "width": 390,
+      "screen": "tap-play settings",
+      "element": "",
+      "sound": true,
+      "starts": 1,
+      "origins": {
+        "childMedia": 1,
+        "parentWebAudio": {},
+        "parentContext": "running"
+      },
+      "mediaRejected": []
+    },
+    {
+      "width": 390,
+      "screen": "tap-play settings",
+      "element": "CLOSE",
+      "sound": true,
+      "starts": 1,
+      "origins": {
+        "childMedia": 1,
+        "parentWebAudio": {},
+        "parentContext": "running"
+      },
+      "mediaRejected": []
+    },
+    {
+      "width": 390,
+      "screen": "tap-play car selector",
+      "element": "◂ SUPRA ▸\nALL BUSINESS",
+      "sound": true,
+      "starts": 1,
+      "origins": {
+        "childMedia": 1,
+        "parentWebAudio": {},
+        "parentContext": "running"
+      },
+      "mediaRejected": []
+    },
+    {
+      "width": 390,
+      "screen": "tap-play car sprite",
+      "element": "",
+      "sound": true,
+      "starts": 2,
+      "origins": {
+        "childMedia": 2,
+        "parentWebAudio": {},
+        "parentContext": "running"
+      },
+      "mediaRejected": []
+    },
+    {
+      "screen": "tap-play crew",
+      "element": "weapon slot 0",
+      "sound": true,
+      "starts": 2,
+      "width": 390
+    },
+    {
+      "width": 390,
+      "screen": "tap-play swap opener",
+      "element": "⇄",
+      "sound": true,
+      "starts": 2,
+      "origins": {
+        "childMedia": 2,
+        "parentWebAudio": {},
+        "parentContext": "running"
+      },
+      "mediaRejected": []
+    },
+    {
+      "screen": "tap-play bench",
+      "element": "crew option 0",
+      "sound": true,
+      "starts": 1,
+      "width": 390
+    },
+    {
+      "screen": "tap-play crew",
+      "element": "weapon slot 1",
+      "sound": true,
+      "starts": 3,
+      "width": 390
+    },
+    {
+      "width": 390,
+      "screen": "tap-play swap opener",
+      "element": "⇄",
+      "sound": true,
+      "starts": 2,
+      "origins": {
+        "childMedia": 2,
+        "parentWebAudio": {},
+        "parentContext": "running"
+      },
+      "mediaRejected": []
+    },
+    {
+      "screen": "tap-play bench",
+      "element": "crew option 0",
+      "sound": true,
+      "starts": 2,
+      "width": 390
+    },
+    {
+      "screen": "tap-play crew",
+      "element": "weapon slot 2",
+      "sound": true,
+      "starts": 2,
+      "width": 390
+    },
+    {
+      "width": 390,
+      "screen": "tap-play swap opener",
+      "element": "⇄",
+      "sound": true,
+      "starts": 2,
+      "origins": {
+        "childMedia": 2,
+        "parentWebAudio": {},
+        "parentContext": "running"
+      },
+      "mediaRejected": []
+    },
+    {
+      "screen": "tap-play bench",
+      "element": "crew option 0",
+      "sound": true,
+      "starts": 2,
+      "width": 390
+    },
+    {
+      "width": 390,
+      "screen": "tap-play bought weapon restore",
+      "element": "PISTOL",
+      "sound": true,
+      "starts": 2,
+      "origins": {
+        "childMedia": 2,
+        "parentWebAudio": {},
+        "parentContext": "running"
+      },
+      "mediaRejected": []
+    },
+    {
+      "width": 390,
+      "screen": "tap-play bought weapon restore",
+      "element": "THROWN\nAUNTIE'S SLIPPER",
+      "sound": true,
+      "starts": 2,
+      "origins": {
+        "childMedia": 2,
+        "parentWebAudio": {},
+        "parentContext": "running"
+      },
+      "mediaRejected": []
+    },
+    {
+      "width": 390,
+      "screen": "tap-play bought weapon restore",
+      "element": "POCKET PISTOL\nLIL OGA",
+      "sound": true,
+      "starts": 2,
+      "origins": {
+        "childMedia": 2,
+        "parentWebAudio": {},
+        "parentContext": "running"
+      },
+      "mediaRejected": []
+    },
+    {
+      "screen": "tap-play crew",
+      "element": "send / hold",
+      "sound": true,
+      "starts": 1,
+      "width": 390
+    },
+    {
+      "width": 390,
+      "screen": "tap-play return",
+      "element": "BACK TO THE WAR ROOM",
+      "sound": true,
+      "starts": 1,
+      "origins": {
+        "childMedia": 0,
+        "parentWebAudio": {
+          "UI_BACK": 1
+        },
+        "parentContext": "running"
+      },
+      "mediaRejected": []
+    },
+    {
+      "width": 430,
+      "screen": "play offer",
+      "element": "ANSWER",
+      "sound": true,
+      "starts": 2,
+      "mediaRejected": []
+    },
+    {
+      "width": 430,
+      "screen": "play weapon slot",
+      "element": "THROWN\nAUNTIE'S SLIPPER",
+      "sound": true,
+      "starts": 2,
+      "mediaRejected": []
+    },
+    {
+      "screen": "play crew",
+      "element": "send / hold",
+      "sound": true,
+      "starts": 1,
+      "width": 430
+    },
+    {
+      "width": 430,
+      "screen": "play decision CLIMB",
+      "element": "GET OUT",
+      "sound": true,
+      "starts": 1,
+      "mediaRejected": []
+    },
+    {
+      "width": 430,
+      "screen": "play decision undefined",
+      "element": "AUNTIE GRIT",
+      "sound": true,
+      "starts": 2,
+      "mediaRejected": []
+    },
+    {
+      "width": 430,
+      "screen": "play return",
+      "element": "BACK TO THE WAR ROOM",
+      "sound": true,
+      "starts": 2,
+      "mediaRejected": []
+    },
+    {
+      "width": 430,
+      "screen": "trap-raid home",
+      "element": "OK",
+      "sound": true,
+      "starts": 2,
+      "mediaRejected": []
+    },
+    {
+      "width": 430,
+      "screen": "trap-raid offer",
+      "element": "PICK UP",
+      "sound": true,
+      "starts": 2,
+      "mediaRejected": []
+    },
+    {
+      "screen": "trap-raid crew",
+      "element": "send / hold",
+      "sound": true,
+      "starts": 1,
+      "width": 430
+    },
+    {
+      "width": 430,
+      "screen": "trap-raid decision CALL",
+      "element": "KEEP GOING",
+      "sound": true,
+      "starts": 1,
+      "mediaRejected": []
+    },
+    {
+      "width": 430,
+      "screen": "trap-raid decision CALL",
+      "element": "KEEP GOING",
+      "sound": true,
+      "starts": 1,
+      "mediaRejected": []
+    },
+    {
+      "width": 430,
+      "screen": "trap-raid decision CLIMB",
+      "element": "GET OUT",
+      "sound": true,
+      "starts": 1,
+      "mediaRejected": []
+    },
+    {
+      "width": 430,
+      "screen": "trap-raid decision undefined",
+      "element": "AUNTIE GRIT",
+      "sound": true,
+      "starts": 2,
+      "mediaRejected": []
+    },
+    {
+      "width": 430,
+      "screen": "trap-raid decision undefined",
+      "element": "AUNTIE GRIT",
+      "sound": true,
+      "starts": 2,
+      "mediaRejected": []
+    },
+    {
+      "width": 430,
+      "screen": "trap-raid return",
+      "element": "BACK TO THE WAR ROOM",
+      "sound": true,
+      "starts": 2,
+      "mediaRejected": []
+    }
+  ],
+  "tapped": 67,
+  "withSound": 67,
+  "failures": [],
+  "sourceRuns": [
+    {
+      "width": 360,
+      "file": "tap-paths-360.json",
+      "tapped": 15,
+      "withSound": 15
+    },
+    {
+      "width": 390,
+      "file": "tap-paths-390.json",
+      "tapped": 37,
+      "withSound": 37
+    },
+    {
+      "width": 430,
+      "file": "tap-paths-430.json",
+      "tapped": 15,
+      "withSound": 15
+    }
+  ]
+}

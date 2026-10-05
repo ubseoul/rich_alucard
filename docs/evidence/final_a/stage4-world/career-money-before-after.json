@@ -1,0 +1,330 @@
+{
+ "generatedAt": "2026-10-03T23:47:07.632Z",
+ "method": "Completed original trap_committed stratum, same ten fresh seeds/policy per preserved-base/current build. No pilot, continuation, supplemental or isolated fixture contributes. This20-case stratum is complete while the total360 remains in progress. Purchases use actual prices and normal production state/normalization.",
+ "summary": [
+  {
+   "label": "before",
+   "lives": 10,
+   "ending": {
+    "n": 10,
+    "median": 36,
+    "min": 36,
+    "max": 36
+   },
+   "cash": {
+    "n": 10,
+    "median": 129398.5,
+    "min": 47878,
+    "max": 152942
+   },
+   "netWorth": {
+    "n": 10,
+    "median": 207398.5,
+    "min": 125878,
+    "max": 230942
+   },
+   "warRoomAccepted": 0,
+   "warRoomDay": {
+    "n": 0,
+    "median": null,
+    "min": null,
+    "max": null
+   },
+   "hallEligibility": {
+    "n": 0,
+    "median": null,
+    "min": null,
+    "max": null
+   },
+   "purchases": [
+    {
+     "item": "room:party_hall",
+     "purchased": 0,
+     "beforeEnding": 0,
+     "byDay30": 0,
+     "day": {
+      "n": 0,
+      "median": null,
+      "min": null,
+      "max": null
+     }
+    },
+    {
+     "item": "car:urus",
+     "purchased": 0,
+     "beforeEnding": 0,
+     "byDay30": 0,
+     "day": {
+      "n": 0,
+      "median": null,
+      "min": null,
+      "max": null
+     }
+    },
+    {
+     "item": "room:fish_tank",
+     "purchased": 0,
+     "beforeEnding": 0,
+     "byDay30": 0,
+     "day": {
+      "n": 0,
+      "median": null,
+      "min": null,
+      "max": null
+     }
+    },
+    {
+     "item": "car:aventador",
+     "purchased": 0,
+     "beforeEnding": 0,
+     "byDay30": 0,
+     "day": {
+      "n": 0,
+      "median": null,
+      "min": null,
+      "max": null
+     }
+    }
+   ],
+   "daily": [
+    {
+     "day": 15,
+     "cash": {
+      "n": 10,
+      "median": 35453.5,
+      "min": 2962,
+      "max": 45605
+     },
+     "netWorth": {
+      "n": 10,
+      "median": 113453.5,
+      "min": 80962,
+      "max": 123605
+     }
+    },
+    {
+     "day": 20,
+     "cash": {
+      "n": 10,
+      "median": 34741.5,
+      "min": 2767,
+      "max": 54085
+     },
+     "netWorth": {
+      "n": 10,
+      "median": 112741.5,
+      "min": 80767,
+      "max": 132085
+     }
+    },
+    {
+     "day": 25,
+     "cash": {
+      "n": 10,
+      "median": 37049,
+      "min": 11771,
+      "max": 62675
+     },
+     "netWorth": {
+      "n": 10,
+      "median": 115049,
+      "min": 89771,
+      "max": 140675
+     }
+    },
+    {
+     "day": 30,
+     "cash": {
+      "n": 10,
+      "median": 93877,
+      "min": 43057,
+      "max": 155993
+     },
+     "netWorth": {
+      "n": 10,
+      "median": 171877,
+      "min": 121057,
+      "max": 233993
+     }
+    },
+    {
+     "day": 35,
+     "cash": {
+      "n": 10,
+      "median": 129398.5,
+      "min": 47878,
+      "max": 152942
+     },
+     "netWorth": {
+      "n": 10,
+      "median": 207398.5,
+      "min": 125878,
+      "max": 230942
+     }
+    }
+   ]
+  },
+  {
+   "label": "after",
+   "lives": 10,
+   "ending": {
+    "n": 10,
+    "median": 36,
+    "min": 36,
+    "max": 36
+   },
+   "cash": {
+    "n": 10,
+    "median": 193725,
+    "min": 73067,
+    "max": 417217
+   },
+   "netWorth": {
+    "n": 10,
+    "median": 771026,
+    "min": 258713,
+    "max": 1046261
+   },
+   "warRoomAccepted": 10,
+   "warRoomDay": {
+    "n": 10,
+    "median": 16,
+    "min": 16,
+    "max": 17
+   },
+   "hallEligibility": {
+    "n": 9,
+    "median": 25,
+    "min": 23,
+    "max": 29
+   },
+   "purchases": [
+    {
+     "item": "room:party_hall",
+     "purchased": 9,
+     "beforeEnding": 9,
+     "byDay30": 9,
+     "day": {
+      "n": 9,
+      "median": 25,
+      "min": 23,
+      "max": 29
+     }
+    },
+    {
+     "item": "car:urus",
+     "purchased": 7,
+     "beforeEnding": 7,
+     "byDay30": 2,
+     "day": {
+      "n": 7,
+      "median": 31,
+      "min": 29,
+      "max": 33
+     }
+    },
+    {
+     "item": "room:fish_tank",
+     "purchased": 5,
+     "beforeEnding": 5,
+     "byDay30": 0,
+     "day": {
+      "n": 5,
+      "median": 35,
+      "min": 32,
+      "max": 35
+     }
+    },
+    {
+     "item": "car:aventador",
+     "purchased": 0,
+     "beforeEnding": 0,
+     "byDay30": 0,
+     "day": {
+      "n": 0,
+      "median": null,
+      "min": null,
+      "max": null
+     }
+    }
+   ],
+   "daily": [
+    {
+     "day": 15,
+     "cash": {
+      "n": 10,
+      "median": 26984.5,
+      "min": 1245,
+      "max": 42276
+     },
+     "netWorth": {
+      "n": 10,
+      "median": 104984.5,
+      "min": 79245,
+      "max": 120276
+     }
+    },
+    {
+     "day": 20,
+     "cash": {
+      "n": 10,
+      "median": 110204,
+      "min": 37943,
+      "max": 183951
+     },
+     "netWorth": {
+      "n": 10,
+      "median": 188204,
+      "min": 115943,
+      "max": 261951
+     }
+    },
+    {
+     "day": 25,
+     "cash": {
+      "n": 10,
+      "median": 146180,
+      "min": 58310,
+      "max": 206314
+     },
+     "netWorth": {
+      "n": 10,
+      "median": 286981.5,
+      "min": 160306,
+      "max": 398460
+     }
+    },
+    {
+     "day": 30,
+     "cash": {
+      "n": 10,
+      "median": 123547.5,
+      "min": 69217,
+      "max": 225554
+     },
+     "netWorth": {
+      "n": 10,
+      "median": 362646,
+      "min": 173584,
+      "max": 570463
+     }
+    },
+    {
+     "day": 35,
+     "cash": {
+      "n": 10,
+      "median": 193725,
+      "min": 73067,
+      "max": 417217
+     },
+     "netWorth": {
+      "n": 10,
+      "median": 771026,
+      "min": 258713,
+      "max": 1046261
+     }
+    }
+   ]
+  }
+ ]
+}

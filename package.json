@@ -8,7 +8,19 @@
     "build": "node tools/release.mjs build",
     "verify:artifact": "node tools/release.mjs verify-artifact",
     "guard:hq": "node tools/guards/hq-path-guard.mjs --tracked",
-    "guard:hq:test": "node tools/guards/hq-path-guard.test.mjs"
+    "guard:hq:test": "node tools/guards/hq-path-guard.test.mjs",
+    "test:fragments": "node tools/run-tests.mjs",
+    "loader:sync": "node tools/loader.mjs sync",
+    "loader:verify": "node tools/loader.mjs verify",
+    "leak-check": "node tools/leak-check.mjs",
+    "build:private": "node tools/overlay.mjs build",
+    "verify:all": "node tools/verify-all.mjs",
+    "verify:nightly": "node tools/nightly-smoke.mjs",
+    "check:owner-surfaces": "node tools/check-owner-surfaces.mjs",
+    "hq:status": "node tools/hq-mirror.mjs status",
+    "sources:check": "node tools/sources.mjs check",
+    "sources:missing": "node tools/sources.mjs missing",
+    "sources:stats": "node tools/sources.mjs stats"
   },
   "engines": {
     "node": ">=20"

@@ -1,0 +1,65 @@
+F13 balance population — build1_m10 — 10 seeds x 42 days per persona (distributions p10/p50/p90)
+
+NORMAL  final 2.25M/2.41M/2.57M  min cash 44K/54K/67K  d23 70K/131K/305K  d30 383K/453K/687K
+  WAR ROOM in 1.24M/1.40M/1.51M  PLAYs 42/42/42 win 92%  max/night 1  refused 0  LAY LOW 8x avg drop 15
+  WAR ROOM DEATH  NO_CAR in 0/10 lives (first day 0/0/0)  EXTRACT crashes in 0/10 lives (0)  last night with a PLAY 42/42/42
+  TRAP in 1.31M/1.35M/1.39M out 651K/662K/680K net 660K/687K/706K  sold 210/214/220  cooks/house-night 0.94  ingredients 416K/427K/445K  upgrades 50K/50K/50K  level 3/3/3  L2 day 26/27/27 L3 day 41/42/43
+  RAIDS 10/10 lives  scheduled 3 answered 3 pendingDays 3  first 36/38/39  stash 0 unbanked 0 holdNet 69K  {"HELD":33}
+  HEAT peak 76/77/78 end 61/68/70  CREW gone 0.3 captured 0.9 activeEnd 7.7  RAIN 28K  invariants 0 softlock 0 errors 0
+
+AGGRESSIVE  final 1.41M/4.01M/5.29M  min cash 11K/53K/54K  d23 36K/154K/538K  d30 172K/776K/1.64M
+  WAR ROOM in 52K/2.49M/3.39M  PLAYs 19/65/79 win 38%  max/night 2  refused 7  LAY LOW 0x avg drop 0
+  WAR ROOM DEATH  NO_CAR in 0/10 lives (first day 0/0/0)  EXTRACT crashes in 0/10 lives (0)  last night with a PLAY 13/40/42
+  TRAP in 2.01M/2.71M/2.88M out 1.17M/1.46M/1.50M net 841K/1.25M/1.38M  sold 302/394/416  cooks/house-night 0.87  ingredients 728K/1.02M/1.05M  upgrades 0/0/0  level 4/4/4  L2 day 23/24/30 L3 day 31/32/42
+  RAIDS 10/10 lives  scheduled 5 answered 5 pendingDays 5  first 22/24/37  stash 5 unbanked 0 holdNet 117K  {"HELD":42,"FELL_BACK":2,"WASH":2,"BREACHED":2}
+  HEAT peak 468/816/955 end 468/813/955  CREW gone 1.9 captured 2.2 activeEnd 5.6  RAIN 0  invariants 0 softlock 0 errors 0
+
+CONSERVATIVE  final 1.90M/2.01M/2.13M  min cash 82K/95K/123K  d23 288K/343K/406K  d30 678K/718K/768K
+  WAR ROOM in 1.41M/1.51M/1.63M  PLAYs 42/42/42 win 93%  max/night 1  refused 0  LAY LOW 0x avg drop 0
+  WAR ROOM DEATH  NO_CAR in 0/10 lives (first day 0/0/0)  EXTRACT crashes in 0/10 lives (0)  last night with a PLAY 42/42/42
+  TRAP in 237K/245K/248K out 132K/135K/135K net 106K/110K/113K  sold 78/80/80  cooks/house-night 1  ingredients 87K/90K/90K  upgrades 0/0/0  level 2/2/2  L2 day 36/36/37 L3 day 0/0/0
+  RAIDS 0/10 lives  scheduled 0 answered 0 pendingDays 0  first 0/0/0  stash 0 unbanked 0 holdNet 0  {}
+  HEAT peak 2/3/4 end 0/1/3  CREW gone 0 captured 0.9 activeEnd 7.8  RAIN 0  invariants 0 softlock 0 errors 0
+
+LOSER  final 1.53M/1.88M/1.99M  min cash 46K/49K/72K  d23 170K/309K/348K  d30 446K/594K/648K
+  WAR ROOM in 987K/1.30M/1.48M  PLAYs 42/42/42 win 75%  max/night 1  refused 0  LAY LOW 0x avg drop 0
+  WAR ROOM DEATH  NO_CAR in 0/10 lives (first day 0/0/0)  EXTRACT crashes in 0/10 lives (0)  last night with a PLAY 42/42/42
+  TRAP in 209K/298K/308K out 121K/135K/135K net 89K/163K/173K  sold 66/80/80  cooks/house-night 0.98  ingredients 76K/90K/90K  upgrades 0/0/0  level 2/2/2  L2 day 36/36/36 L3 day 0/0/0
+  RAIDS 10/10 lives  scheduled 2 answered 2 pendingDays 2  first 44/46/47  stash 1 unbanked 630 holdNet 47K  {"HELD":17,"BREACHED":2,"FELL_BACK":1}
+  HEAT peak 80/118/125 end 80/118/125  CREW gone 1.3 captured 1.3 activeEnd 6.7  RAIN 45K  invariants 0 softlock 0 errors 0
+
+WINNER  final 5.05M/5.30M/5.52M  min cash 24K/39K/46K  d23 69K/170K/247K  d30 831K/1.03M/1.07M
+  WAR ROOM in 2.58M/2.85M/2.95M  PLAYs 71/72/72 win 95%  max/night 2  refused 12  LAY LOW 11x avg drop 15
+  WAR ROOM DEATH  NO_CAR in 0/10 lives (first day 0/0/0)  EXTRACT crashes in 0/10 lives (0)  last night with a PLAY 42/42/42
+  TRAP in 3.48M/3.66M/3.73M out 1.51M/1.54M/1.58M net 1.96M/2.11M/2.16M  sold 400/406/416  cooks/house-night 0.94  ingredients 1.02M/1.05M/1.08M  upgrades 50K/50K/50K  level 4/4/4  L2 day 23/24/25 L3 day 31/32/33
+  RAIDS 10/10 lives  scheduled 5 answered 4 pendingDays 4  first 26/26/27  stash 0 unbanked 0 holdNet 108K  {"HELD":43}
+  HEAT peak 72/76/81 end 53/61/66  CREW gone 0.5 captured 0.3 activeEnd 7.5  RAIN 0  invariants 0 softlock 0 errors 0
+
+SPENDER  final 1.14M/1.53M/1.75M  min cash 200/2K/2K  d23 49K/82K/157K  d30 31K/141K/219K
+  WAR ROOM in 1.25M/1.39M/1.46M  PLAYs 42/42/42 win 93%  max/night 1  refused 0  LAY LOW 15x avg drop 15
+  WAR ROOM DEATH  NO_CAR in 0/10 lives (first day 0/0/0)  EXTRACT crashes in 0/10 lives (0)  last night with a PLAY 42/42/42
+  TRAP in 1.72M/2.04M/2.37M out 1.12M/1.26M/1.39M net 605K/779K/975K  sold 276/324/366  cooks/house-night 0.78  ingredients 627K/763K/896K  upgrades 50K/50K/50K  level 3/4/4  L2 day 26/31/32 L3 day 37/42/45
+  RAIDS 10/10 lives  scheduled 3 answered 3 pendingDays 3  first 35/40/43  stash 3 unbanked 0 holdNet 64K  {"HELD":30,"WASH":1,"BREACHED":2}
+  HEAT peak 79/85/86 end 68/74/81  CREW gone 0.2 captured 1.1 activeEnd 7.7  RAIN 975K  invariants 0 softlock 0 errors 0
+
+HOARDER  final 1.80M/1.90M/2.02M  min cash 123K/128K/142K  d23 320K/372K/439K  d30 691K/728K/779K
+  WAR ROOM in 1.41M/1.51M/1.63M  PLAYs 42/42/42 win 93%  max/night 1  refused 0  LAY LOW 0x avg drop 0
+  WAR ROOM DEATH  NO_CAR in 0/10 lives (first day 0/0/0)  EXTRACT crashes in 0/10 lives (0)  last night with a PLAY 42/42/42
+  TRAP in 0/0/0 out 0/0/0 net 0/0/0  sold 0/0/0  cooks/house-night 0  ingredients 0/0/0  upgrades 0/0/0  level 1/1/1  L2 day 0/0/0 L3 day 0/0/0
+  RAIDS 0/10 lives  scheduled 0 answered 0 pendingDays 0  first 0/0/0  stash 0 unbanked 0 holdNet 0  {}
+  HEAT peak 108/112/115 end 108/112/115  CREW gone 0 captured 0.9 activeEnd 7.8  RAIN 0  invariants 0 softlock 0 errors 0
+
+REPEATER  final 3.57M/3.68M/3.98M  min cash 22K/32K/45K  d23 352K/425K/486K  d30 1.05M/1.12M/1.21M
+  WAR ROOM in 2.45M/2.63M/2.83M  PLAYs 68/69/70 win 96%  max/night 3  refused 42  LAY LOW 15x avg drop 15
+  WAR ROOM DEATH  NO_CAR in 0/10 lives (first day 0/0/0)  EXTRACT crashes in 0/10 lives (0)  last night with a PLAY 41/42/42
+  TRAP in 1.41M/1.46M/1.47M out 680K/696K/696K net 727K/756K/771K  sold 218/222/226  cooks/house-night 0.98  ingredients 445K/461K/461K  upgrades 50K/50K/50K  level 3/3/3  L2 day 25/25/26 L3 day 40/40/41
+  RAIDS 10/10 lives  scheduled 4 answered 4 pendingDays 4  first 28/29/30  stash 0 unbanked 0 holdNet 87K  {"HELD":40}
+  HEAT peak 65/68/69 end 34/45/64  CREW gone 0.3 captured 0 activeEnd 7.6  RAIN 0  invariants 0 softlock 0 errors 0
+
+RAID_DODGER  final 2.49M/2.73M/2.82M  min cash 26K/32K/45K  d23 90K/149K/250K  d30 483K/639K/707K
+  WAR ROOM in 1.43M/1.62M/1.69M  PLAYs 42/42/42 win 94%  max/night 1  refused 0  LAY LOW 0x avg drop 0
+  WAR ROOM DEATH  NO_CAR in 0/10 lives (first day 0/0/0)  EXTRACT crashes in 0/10 lives (0)  last night with a PLAY 42/42/42
+  TRAP in 1.35M/1.41M/1.44M out 662K/677K/680K net 675K/730K/755K  sold 212/214/220  cooks/house-night 0.95  ingredients 427K/442K/445K  upgrades 50K/50K/50K  level 3/3/3  L2 day 26/26/27 L3 day 41/41/42
+  RAIDS 10/10 lives  scheduled 1 answered 0 pendingDays 22  first 35/36/37  stash 0 unbanked 0 holdNet 0  {}
+  HEAT peak 162/173/176 end 161/173/176  CREW gone 0.2 captured 1 activeEnd 7.8  RAIN 0  invariants 0 softlock 0 errors 0
+

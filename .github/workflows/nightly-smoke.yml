@@ -1,0 +1,30 @@
+name: Nightly smoke
+
+# Hook for nightly verification. Any external runner (Google / Antigravity, cron, …) can execute the same command:
+#   node tools/nightly-smoke.mjs --build --require-browser
+# and read reports/nightly/nightly.json. This workflow is the GitHub-hosted equivalent.
+on:
+  schedule:
+    - cron: '17 6 * * *'
+  workflow_dispatch:
+
+jobs:
+  nightly:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: integration/ube-portal
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: npm install --no-save --no-package-lock playwright-core@1.47.2
+      - run: npx playwright-core install --with-deps chromium
+      - run: node tools/nightly-smoke.mjs --build --require-browser
+        env:
+          RA_PLAYWRIGHT_PATH: ${{ github.workspace }}/node_modules/playwright-core
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: nightly-report
+          path: reports/nightly

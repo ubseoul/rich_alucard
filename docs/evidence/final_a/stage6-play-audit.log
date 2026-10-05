@@ -1,0 +1,80 @@
+locked executable byte comparison 38 0
+career policy careful 40
+career policy greedy 40
+career policy naive 40
+career policy random 100
+{
+  "base": "0c6ccc3d18674c713a0a6e5896fe6ecbf7f7bc0f",
+  "method": "Actual locked F01 engine. 100 seeds per job/policy for bands; 100 random 24-night careers for R1, plus 40 careers for each other policy for T9. Canonical LF source hashes establish base/final executable parity; Windows checkout line endings are normalized.",
+  "lockedExecutable": {
+    "files": 38,
+    "changed": [],
+    "hashMode": "lf"
+  },
+  "bands": [
+    {
+      "name": "routine",
+      "plays": 3200,
+      "captured": 134,
+      "rate": 0.041875,
+      "target": 0.08,
+      "pass": true
+    },
+    {
+      "name": "BIG PLAY",
+      "plays": 400,
+      "captured": 64,
+      "rate": 0.16,
+      "target": 0.2,
+      "pass": true
+    },
+    {
+      "name": "HOLD THE HOUSE",
+      "plays": 400,
+      "captured": 17,
+      "rate": 0.0425,
+      "target": 0.08,
+      "pass": true
+    }
+  ],
+  "r1": {
+    "seeds": 100,
+    "nights": 24,
+    "mean": 8.18,
+    "worst": 3,
+    "seed54": {
+      "seed": 54,
+      "roster": 3,
+      "plays": 24
+    },
+    "below4": [
+      {
+        "seed": 54,
+        "roster": 3,
+        "plays": 24
+      }
+    ]
+  },
+  "t9": {
+    "uses": 99039,
+    "violationsIn3": 0,
+    "uncoveredTriggers": [],
+    "shortPools": [
+      {
+        "key": "cap:TROUBLE:1",
+        "pool": 8,
+        "maxUse": 3
+      },
+      {
+        "key": "combo:coin:fail",
+        "pool": 18,
+        "maxUse": 6
+      }
+    ]
+  },
+  "bailed": {
+    "plays": 507,
+    "boundViolations": 0
+  },
+  "pass": false
+}

@@ -1,0 +1,119 @@
+{
+  "ok": false,
+  "results": [
+    {
+      "width": 390,
+      "name": "buy gun through Armory UI",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "width": 390,
+      "name": "complete one full Range Day",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "width": 390,
+      "name": "range target clack GN_06 actually plays",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "width": 390,
+      "name": "menu gun action plays GN_01",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "width": 390,
+      "name": "play bought gun in existing loadout selector",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "width": 390,
+      "name": "play terminates through real UI",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "width": 390,
+      "name": "play F02 gun preserved in PLAY record",
+      "ok": true,
+      "detail": "CLEAN; authored losses "
+    },
+    {
+      "width": 390,
+      "name": "play bought gun GN_01 actually plays in iframe",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "width": 390,
+      "name": "real NIGHT schedules trap raid",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "width": 390,
+      "name": "trap-raid terminates through real UI",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "width": 390,
+      "name": "trap-raid F02 gun preserved in PLAY record",
+      "ok": true,
+      "detail": "COSTLY; authored losses "
+    },
+    {
+      "width": 390,
+      "name": "trap-raid bought gun GN_01 actually plays in iframe",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "width": 390,
+      "name": "trap raid delivered",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "width": 390,
+      "name": "tap-play bought gun in existing loadout selector",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "width": 390,
+      "name": "tap-play terminates through real UI",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "width": 390,
+      "name": "tap-play F02 gun preserved in PLAY record",
+      "ok": true,
+      "detail": "OBA; authored losses mac_and_cheese"
+    },
+    {
+      "width": 390,
+      "name": "GN_01–GN_06 decode and play",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "width": 390,
+      "name": "UI tap sound observed",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "width": 390,
+      "name": "no page/network errors",
+      "ok": true,
+      "detail": ""
+    }
+  ]
+}

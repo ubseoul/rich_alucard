@@ -1,0 +1,10 @@
+{
+  "repository": "https://github.com/ubseoul/rich_alucard",
+  "branch": "build/open-completion-001",
+  "verifiedRemoteSha": "b7682a311482681844dff9bec46b6c7e4117b762",
+  "artifactCodeSha": "75d475b02849ffd5875ea0ce884d3cabc0b81f05",
+  "acceptedBranchesMoved": false,
+  "forcePush": false,
+  "publicationScope": "OL-043/045 implementation, passing game-fixture screenshots, source proofs and sanitized evidence; ignored diagnostics excluded",
+  "receiptScope": "Verified implementation/evidence publication. Later commits may contain this receipt and final closeout metadata."
+}

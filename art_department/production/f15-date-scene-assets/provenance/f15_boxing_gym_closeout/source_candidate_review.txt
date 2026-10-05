@@ -1,0 +1,47 @@
+STOVE T — F15 — BOXING GYM
+Status: CANDIDATE — PENDING UBE APPROVAL
+Candidate: boxing_gym_f15_candidate_original.png
+Measured dimensions: 941x1672; format: PNG; mode: RGB.
+SHA-256: 8205129b30baef801c0f851e2de7ccc0b2827bd285f014e6146da35184a4b097
+One-pass built-in image generation; generated original preserved without normalization.
+Exact prompt: boxing_gym_f15_generation_prompt.txt
+
+Content authority: ubseoul/rich_alucard
+source_vault/relationships/UNDERLORD_Character_Relationship_Packet_v0_2.docx
+Commit: e76f8400271d5f538edc17b5ba6dfb682123a957
+Cached actual DOCX reread and Git blob verified: 27624a34c9decb4e9ef12e9ea067edaa2844a0d1
+Roxy / She fw Me Level 2: competitive boxing gym date; ramen afterwards.
+Roxy / She fw Me Level 3: later boxing hard hit and quiet response.
+Internal document title says V0.1 despite the v0_2 filename.
+
+Implementation authority:
+js/frag/F15/roxy.js at commit 8a1dc98a373339d25d613e2651be0a6280064486
+Previously fetched actual file reread and Git blob verified: 1bffcab2a8266117fb6ed7063ee4e36bed1d9f47
+F15_ROXY_L2 / REMATCH, add(R,2), lines 44-85.
+F15_ROXY_L3 / DIFFERENT, add(R,3), lines 87-115.
+Actual gym details: hand wraps, light-contact sparring; later same gym with ring,
+Rich at ringside, Roxy in ring with another fighter, exit through ropes, round bell,
+towel or ice pack, vending machine with water. Characters/actions are not drawn.
+No conflict found between packet and implementation.
+Heavy bag, plain bench and industrial gym room construction are permitted ordinary set dressing.
+No affiliations, trophies, personal history or logos added.
+
+Visual authorities:
+Commit 31ac1bfe6eddb04786fb6fffded69e6d8fa0b643
+assets/before_the_fame/environments/garage/castle_garage_empty_270x480.png
+Verified Git blob: 75d90d0c62a98a655080b3e829c8cdb007bd3149
+assets/before_the_fame/environments/peking_naija/peking_naija_interior_270x480.png
+Verified Git blob: 88bb09da0f82bf6bf7761c526b5f6fe9bbd566d4
+Actual PNGs reused and visually inspected; reference bytes verified unchanged after generation.
+
+Placement reference: C:/ra/visual_review/04_boxing_gym.png
+Actual screenshot inspected; composition only, not style authority.
+Self-check: readable ring, matte blue training canvas, dark outlines, muted colors,
+sparse perimeter equipment, no characters or readable labels, broad empty lower combat area.
+Generated far ropes sit lower than requested and may intersect the screenshot's upper actor
+silhouettes; this composition requirement is not confirmed satisfied.
+Exact actor/combat/dialogue clearance remains UNVERIFIED: no authoritative background-to-viewport
+mapping, accurate sprite-alpha overlay or runtime check was made.
+Surface details are finer than a native 270x480 pixel grid; native readability pending review.
+
+No frozen asset edits, normalization, runtime integration, commit or push.

@@ -1,0 +1,74 @@
+{
+  "schema_version": 1,
+  "status": "APPROVED / FROZEN",
+  "decision_authority": "Ube",
+  "decision_text": "approved freeze them and repo links for them",
+  "approval_date": "2026-10-04",
+  "approval_timezone": "America/New_York",
+  "repository": "ubseoul/rich_alucard",
+  "branch": "build/visual-completion-002",
+  "base_repo_commit": "0c6ccc3d18674c713a0a6e5896fe6ecbf7f7bc0f",
+  "scope": "F15 launch dancer presentation / selection stage cards only",
+  "assets": [
+    {
+      "path": "art_department/production/f15-dancer-stage-cards/stagecard_roxy.png",
+      "dimensions": [
+        945,
+        1680
+      ],
+      "mode": "RGBA",
+      "background": "fully opaque nightclub scene",
+      "sha256": "8de2770ddfb1db106cf576b54433d34fa00e4d95f968e49bd16ebb51f2318d66",
+      "bytes": 1999363,
+      "role": "presentation / selection stage card"
+    },
+    {
+      "path": "art_department/production/f15-dancer-stage-cards/stagecard_rosalyn.png",
+      "dimensions": [
+        945,
+        1680
+      ],
+      "mode": "RGBA",
+      "background": "fully opaque nightclub scene",
+      "sha256": "884eabacffe606488da79549b0637da0ed7e9b214d6febcffb3ee31bea7e7c3d",
+      "bytes": 1737174,
+      "role": "presentation / selection stage card"
+    },
+    {
+      "path": "art_department/production/f15-dancer-stage-cards/stagecard_emerald.png",
+      "dimensions": [
+        945,
+        1680
+      ],
+      "mode": "RGBA",
+      "background": "fully opaque nightclub scene",
+      "sha256": "ba2e17bf1a297906e7c4ae30bf5b6a7efe2f35d5061f07c4989f981613836a22",
+      "bytes": 1983779,
+      "role": "presentation / selection stage card"
+    },
+    {
+      "path": "art_department/production/f15-dancer-stage-cards/stagecard_trio_contact_sheet.png",
+      "dimensions": [
+        2931,
+        1728
+      ],
+      "mode": "RGBA",
+      "background": "fully opaque nightclub scene",
+      "sha256": "d8a203142e49407f82fa0344a3225638ead319389d371990aaefcb138b0095ce",
+      "bytes": 5778039,
+      "role": "review contact sheet"
+    }
+  ],
+  "accepted_as_shown": [
+    "Emerald two-strap top differs from foundation one-shoulder design, disclosed before approval",
+    "Variable generated pixel-grid density and lighting transitions, disclosed before approval"
+  ],
+  "preservation": "Exact approved packaged PNG bytes preserved; no further regeneration, resampling or recoloring",
+  "runtime_integration_status": "NOT INTEGRATED; separate engineering work required",
+  "excluded_scope": [
+    "approved dance masters",
+    "foundation cards",
+    "existing portraits",
+    "future P-C animation-pose package"
+  ]
+}

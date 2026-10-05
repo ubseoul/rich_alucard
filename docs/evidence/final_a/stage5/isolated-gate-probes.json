@@ -1,0 +1,347 @@
+{
+ "method": "current OPEN runtime callback/entry checks; seeded prerequisites explicitly declared; never merged into 180+180 or post18 observations",
+ "proofs": [
+  {
+   "ids": [
+    "A17"
+   ],
+   "route": "real RADefeat.apply callback → real sleep → A17 wake → actual A17 graph",
+   "seeds": [
+    "synthetic combat-loss notification to real callback; fresh cash, no money/prerequisite injection"
+   ],
+   "evidence": {
+    "bill": 10000,
+    "actualCashDebited": 10000,
+    "defeats": 1,
+    "nnekaMet": true
+   },
+   "status": "PASS isolated callback/route probe; not career exposure/economy"
+  },
+  {
+   "ids": [
+    "A57"
+   ],
+   "route": "real RANodd.maybeStop callback ×3 → real sleep → A57 wake",
+   "seeds": [
+    "three route-car notifications to real callback; no drive counter/pending flag patch"
+   ],
+   "evidence": {
+    "drives": 3,
+    "pendingAfterScene": false
+   },
+   "status": "PASS isolated callback/route probe; not career exposure/economy"
+  },
+  {
+   "ids": [
+    "A13",
+    "A36"
+   ],
+   "route": "actual paid Supra computation → actual A13 graph → TOUGE app TANDEM callback chooses A36",
+   "seeds": [
+    "legacy Supra aftermath seeded; actual published Supra price paid; A13 uses declared synthetic minigame win result"
+   ],
+   "evidence": {
+    "target": "A36",
+    "supraPrice": 78000,
+    "a13Completed": true,
+    "available": true
+   },
+   "status": "PASS isolated callback/route probe; not career exposure/economy"
+  },
+  {
+   "ids": [
+    "A_CAMMILE1"
+   ],
+   "route": "actual JDM begin/meet/challenge → ownerDefeated callback → leave daughter alone → actual paid purchase → actual docks A_CAMMILE1 graph",
+   "seeds": [
+    "synthetic won-encounter notification to real ownerDefeated callback; legacy scene presentation navigation is captured, no combat input/stability claim; no contact/car/cash prerequisite injection"
+   ],
+   "evidence": {
+    "scenes": [
+     "jdmDock",
+     "jdmCombat",
+     "jdmAftermath",
+     "supraPayoff"
+    ],
+    "supraPrice": 78000,
+    "daughterMet": true,
+    "docksPlace": "docks",
+    "target": "A_CAMMILE1",
+    "completed": true
+   },
+   "status": "PASS isolated callback/route probe; not career exposure/economy"
+  },
+  {
+   "ids": [
+    "A39",
+    "ARMORY_WALL",
+    "HOOKAH",
+    "KITCHEN",
+    "ROOST",
+    "MOVIE",
+    "COOK",
+    "GARAGE_VIEW",
+    "COFFIN",
+    "A26",
+    "FISHTANK",
+    "THRONE"
+   ],
+   "route": "real RACastle.buy → actual hidden RAPlaces.go; always-owned throne route",
+   "seeds": [
+    "cash equal to exact sum of authored room prices, recorded rave prerequisites and adopted egg seeded solely to isolate route handlers; actual room prices paid; not affordability evidence"
+   ],
+   "evidence": {
+    "targets": [
+     {
+      "room": "maid_quarters",
+      "target": "A39",
+      "vars": {},
+      "available": true
+     },
+     {
+      "room": "armory_wall",
+      "target": "ARMORY_WALL",
+      "vars": {},
+      "available": true
+     },
+     {
+      "room": "hookah_roof",
+      "target": "HOOKAH",
+      "vars": {},
+      "available": true
+     },
+     {
+      "room": "kitchen",
+      "target": "KITCHEN",
+      "vars": {},
+      "available": true
+     },
+     {
+      "room": "dragon_roost",
+      "target": "ROOST",
+      "vars": {},
+      "available": true
+     },
+     {
+      "room": "movie_room",
+      "target": "MOVIE",
+      "vars": {},
+      "available": true
+     },
+     {
+      "room": "music_room",
+      "target": "COOK",
+      "vars": {
+       "where": "music_room"
+      },
+      "available": true
+     },
+     {
+      "room": "garage",
+      "target": "GARAGE_VIEW",
+      "vars": {},
+      "available": true
+     },
+     {
+      "room": "coffin_upgrade",
+      "target": "COFFIN",
+      "vars": {},
+      "available": true
+     },
+     {
+      "room": "party_hall",
+      "target": "A26",
+      "vars": {},
+      "available": true
+     },
+     {
+      "room": "fish_tank",
+      "target": "FISHTANK",
+      "vars": {},
+      "available": true
+     },
+     {
+      "room": "always-throne",
+      "target": "THRONE",
+      "available": true
+     }
+    ],
+    "fixtureCash": 1580000,
+    "cashAfterPurchases": 0
+   },
+   "status": "PASS isolated callback/route probe; not career exposure/economy"
+  },
+  {
+   "ids": [
+    "RE_VIEWING"
+   ],
+   "route": "real REALMONEYREALESTATE SEE IT WITH SHANNON callback",
+   "seeds": [
+    "owned Paloma record seeded solely to isolate listing visibility; fresh cash already covers $54,000 down payment"
+   ],
+   "evidence": {
+    "target": "RE_VIEWING",
+    "vars": {
+     "listing": "re_duplex_inglewood"
+    },
+    "listingVisible": true,
+    "downPayment": 54000
+   },
+   "status": "PASS isolated callback/route probe; not career exposure/economy"
+  },
+  {
+   "ids": [
+    "SHOP"
+   ],
+   "route": "actual visible florist custom-go callback → SHOP with florist store variables",
+   "seeds": [
+    "none; fresh state and ordinary visible player menu entry"
+   ],
+   "evidence": {
+    "target": "SHOP",
+    "vars": {
+     "store": "florist"
+    },
+    "available": true
+   },
+   "status": "PASS isolated callback/route probe; not career exposure/economy"
+  },
+  {
+   "ids": [
+    "HOOKAH",
+    "A23",
+    "A19",
+    "A24",
+    "ARMORY",
+    "A23R"
+   ],
+   "route": "actual paid roof → HOOKAH → real ecology callback notifications → sleep/A23 → A19/A24 → paid LIL OGA → real rematch offer/graph",
+   "seeds": [
+    "synthetic released-conversion notifications to production ecology callback; no pressure threshold/value patch; fixture cash $120,000 solely to afford real $75,000 roof, Hilt cash cut and $25,000 gun; branch fights use declared synthetic win results; not affordability evidence"
+   ],
+   "evidence": {
+    "roofPrice": 75000,
+    "conversionNotifications": 2,
+    "pressure": 4,
+    "hiltDebit": 11250,
+    "gunOwned": true,
+    "rematchCompleted": true,
+    "cashBefore": 120000,
+    "cashAfter": 48750,
+    "freshCashWouldNotCoverRoofThenGun": true
+   },
+   "status": "PASS isolated callback/route probe; not career exposure/economy"
+  },
+  {
+   "ids": [
+    "ARC_NNEKA_1",
+    "ARC_NNEKA_2",
+    "ARC_NNEKA_3",
+    "ARC_CAMMILE_1",
+    "ARC_CAMMILE_2",
+    "ARC_CAMMILE_3",
+    "ARC_MAZDA_1",
+    "ARC_MAZDA_2",
+    "ARC_MAZDA_3",
+    "ARC_JUNE_1",
+    "ARC_JUNE_2",
+    "ARC_JUNE_3",
+    "ARC_PATRICE_2",
+    "ARC_PATRICE_3"
+   ],
+   "route": "actual dated relationship callback → real sleeps → ordered availability → actual temptation DM/graph",
+   "seeds": [
+    "initial contact records for Nneka/Cammile/Mazda/June/Patrice and completed A44_N4 seeded; nine actual dated meetings per contact, no direct relationship points/level injection; no population coverage claim"
+   ],
+   "evidence": {
+    "results": [
+     {
+      "id": "ARC_NNEKA_1",
+      "level": 4,
+      "thread": "nneka",
+      "completed": true
+     },
+     {
+      "id": "ARC_NNEKA_2",
+      "level": 4,
+      "thread": "nneka",
+      "completed": true
+     },
+     {
+      "id": "ARC_NNEKA_3",
+      "level": 4,
+      "thread": "nneka",
+      "completed": true
+     },
+     {
+      "id": "ARC_CAMMILE_1",
+      "level": 4,
+      "thread": "jdm_importer_daughter_001",
+      "completed": true
+     },
+     {
+      "id": "ARC_CAMMILE_2",
+      "level": 4,
+      "thread": "jdm_importer_daughter_001",
+      "completed": true
+     },
+     {
+      "id": "ARC_CAMMILE_3",
+      "level": 4,
+      "thread": "jdm_importer_daughter_001",
+      "completed": true
+     },
+     {
+      "id": "ARC_MAZDA_1",
+      "level": 4,
+      "thread": "mazda_human",
+      "completed": true
+     },
+     {
+      "id": "ARC_MAZDA_2",
+      "level": 4,
+      "thread": "mazda_human",
+      "completed": true
+     },
+     {
+      "id": "ARC_MAZDA_3",
+      "level": 4,
+      "thread": "mazda_human",
+      "completed": true
+     },
+     {
+      "id": "ARC_JUNE_1",
+      "level": 4,
+      "thread": "june",
+      "completed": true
+     },
+     {
+      "id": "ARC_JUNE_2",
+      "level": 4,
+      "thread": "june",
+      "completed": true
+     },
+     {
+      "id": "ARC_JUNE_3",
+      "level": 4,
+      "thread": "june",
+      "completed": true
+     },
+     {
+      "id": "ARC_PATRICE_2",
+      "level": 4,
+      "thread": "ms_patrice",
+      "completed": true
+     },
+     {
+      "id": "ARC_PATRICE_3",
+      "level": 4,
+      "thread": "ms_patrice",
+      "completed": true
+     }
+    ]
+   },
+   "status": "PASS isolated callback/route probe; not career exposure/economy"
+  }
+ ]
+}

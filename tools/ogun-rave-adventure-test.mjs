@@ -46,7 +46,7 @@ export async function testOgunRaveAdventure(root){
     }
   }
   const bllad33Phase=RAOgunRaveContent.interiorPhases.find(p=>p.id==='bllad33Enter');
-  assert(bllad33Phase&&bllad33Phase.dialogue.includes('NIGGA IS THAT Bllad33'),"Rich's exact Bllad33 reaction line is missing or altered");
+  assert(bllad33Phase&&bllad33Phase.dialogue.includes("oh shit, that's Blad33ee!"),"OL-075: Rich's exact BLAD33EE reaction is missing or altered");
   assert(bllad33Phase.actors&&bllad33Phase.actors.bllad33===true,'Bllad33 must become visible on his own entrance phase');
 
   function walk(phases,startId,endCommit){
@@ -71,7 +71,7 @@ export async function testOgunRaveAdventure(root){
     assert(committed,'adventure did not reach its expected completion consequence');
     return steps;
   }
-  const interiorSteps=walk(RAOgunRaveContent.interiorPhases,'arrival','leaveRave');
+  const interiorSteps=walk(RAOgunRaveContent.interiorPhases,'arrival','fightHunter');
   const exteriorSteps=walk(RAOgunRaveContent.exteriorPhases,'outside','finishNight');
   assert(interiorSteps>=6,'interior adventure feels too short for a first full adventure');
 

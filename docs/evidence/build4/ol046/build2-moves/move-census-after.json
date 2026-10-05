@@ -1,0 +1,1584 @@
+{
+  "phase": "after",
+  "viewport": 390,
+  "exactPath": {
+    "equipped": [
+      "mac_and_cheese"
+    ],
+    "menu": [
+      "fight",
+      "item",
+      "hoes",
+      "run",
+      "weapon:iron_and_grace_gun"
+    ],
+    "moves": [
+      "petty",
+      "hex",
+      "veil",
+      "seance"
+    ],
+    "fired": true
+  },
+  "phoneMoves": {
+    "swapped": true
+  },
+  "playCensus": {
+    "labels": [
+      "BARE HANDS",
+      "PISTOL",
+      "THROWN\nAUNTIE'S SLIPPER",
+      "DRUM-MAG VINTAGE SMG\nTHE TOMMY TONY",
+      "HAND CANNON\nHOLY BABY DRAKE",
+      "FLAMETHROWER\nJOLLOF BURNER",
+      "DRAGON-FIRE RIFLE\nBLUEBERRY BLASTER",
+      "LEGENDARY\nLEGENDARY DRACO — DECEMBER'S GIFT",
+      "LEGENDARY\nTHE GOLDEN DRACO",
+      "LAUNCHER\nTHE RPG",
+      "POCKET PISTOL\nLIL OGA",
+      "SMG\nMAC & CHEESE",
+      "RIFLE\nCHOPSTICK SNIPER",
+      "DOUBLE BARREL\nSAPPORO SHOTGUN"
+    ],
+    "guns": [
+      {
+        "id": "lil_oga",
+        "offered": true
+      },
+      {
+        "id": "sapporo_shotgun",
+        "offered": true
+      },
+      {
+        "id": "mac_and_cheese",
+        "offered": true
+      },
+      {
+        "id": "chopstick_sniper",
+        "offered": true
+      },
+      {
+        "id": "tommy_tony",
+        "offered": true
+      },
+      {
+        "id": "holy_baby_drake",
+        "offered": true
+      },
+      {
+        "id": "jollof_burner",
+        "offered": true
+      },
+      {
+        "id": "blueberry_blaster",
+        "offered": true
+      },
+      {
+        "id": "legendary_draco",
+        "offered": true
+      },
+      {
+        "id": "golden_draco",
+        "offered": true
+      },
+      {
+        "id": "rpg",
+        "offered": true
+      },
+      {
+        "id": "auntie_slipper",
+        "offered": true
+      },
+      {
+        "id": "triple_k_kratos",
+        "offered": false
+      }
+    ]
+  },
+  "rows": [
+    {
+      "kind": "move",
+      "id": "blood",
+      "label": "BLOOD BATH",
+      "unlock": "Canon",
+      "offered": true,
+      "assets": [
+        "assets/rich_standing_right.png",
+        "assets/before_the_fame/characters/bonesworth/sir_bonesworth_hungover_80x96.png",
+        "assets/before_the_fame/art_ship_014/package_e/E-gun-lil_oga-held.png",
+        "assets/rich_bedroom_lounge_idle.png",
+        "assets/jdm_imports/characters/daughter/daughter_neutral.png",
+        "assets/powder_springs_night_270x480.png",
+        "assets/rich_curb_eating.png",
+        "assets/rich_curb_stargazing.png",
+        "assets/jdm_imports/characters/importer/importer_neutral.png",
+        "assets/jdm_imports/vehicles/supra_mk4_world.png",
+        "assets/jdm_imports/props/car_key.png",
+        "assets/blood_bath_floor_rise_01.png",
+        "assets/before_the_fame/characters/bonesworth/bonesworth_hit_80x96.png",
+        "assets/blood_bath_floor_rise_02.png",
+        "assets/blood_bath_floor_rise_03.png",
+        "assets/blood_bath_foreground_01.png",
+        "assets/blood_bath_engulf_overlay_01.png",
+        "assets/blood_bath_contact_01.png",
+        "assets/blood_bath_engulf_overlay_02.png",
+        "assets/blood_bath_contact_02.png",
+        "assets/blood_bath_impact_fullscreen.png",
+        "assets/before_the_fame/characters/bonesworth/bonesworth_telegraph_80x96.png"
+      ],
+      "logs": [
+        {
+          "text": "BLOOD BATH: 39 DAMAGE (CRIT).",
+          "kind": "hit",
+          "target": "enemy",
+          "amount": 39,
+          "heavy": false
+        },
+        {
+          "text": "SIR BONESWORTH: HUNGOVER SWAY!",
+          "kind": "enemy",
+          "move": "sway"
+        },
+        {
+          "text": "HE IS STEADYING HIS SHIELD…",
+          "kind": "telegraph"
+        }
+      ],
+      "ammo": {
+        "lil_oga": 4
+      },
+      "presentation": "blood",
+      "latest": null
+    },
+    {
+      "kind": "move",
+      "id": "octopus",
+      "label": "OCTOPUS BRAIN",
+      "unlock": "Canon",
+      "offered": true,
+      "assets": [
+        "assets/rich_standing_right.png",
+        "assets/before_the_fame/characters/bonesworth/sir_bonesworth_hungover_80x96.png",
+        "assets/before_the_fame/art_ship_014/package_e/E-gun-lil_oga-held.png",
+        "assets/rich_bedroom_lounge_idle.png",
+        "assets/jdm_imports/characters/daughter/daughter_neutral.png",
+        "assets/powder_springs_night_270x480.png",
+        "assets/rich_curb_eating.png",
+        "assets/rich_curb_stargazing.png",
+        "assets/jdm_imports/characters/importer/importer_neutral.png",
+        "assets/jdm_imports/vehicles/supra_mk4_world.png",
+        "assets/jdm_imports/props/car_key.png",
+        "assets/octopus_brain_a.png",
+        "assets/octopus_brain_b.png",
+        "assets/octopus_brain_c.png",
+        "assets/octopus_brain_d.png"
+      ],
+      "logs": [
+        {
+          "text": "OCTOPUS BRAIN.",
+          "kind": "weird"
+        }
+      ],
+      "ammo": {
+        "lil_oga": 4
+      },
+      "presentation": "octopus",
+      "latest": null
+    },
+    {
+      "kind": "move",
+      "id": "bite",
+      "label": "VAMPIRE BITE",
+      "unlock": "Canon",
+      "offered": true,
+      "assets": [
+        "assets/rich_standing_right.png",
+        "assets/before_the_fame/characters/bonesworth/sir_bonesworth_hungover_80x96.png",
+        "assets/before_the_fame/art_ship_014/package_e/E-gun-lil_oga-held.png",
+        "assets/rich_bedroom_lounge_idle.png",
+        "assets/jdm_imports/characters/daughter/daughter_neutral.png",
+        "assets/powder_springs_night_270x480.png",
+        "assets/rich_curb_eating.png",
+        "assets/rich_curb_stargazing.png",
+        "assets/jdm_imports/characters/importer/importer_neutral.png",
+        "assets/jdm_imports/vehicles/supra_mk4_world.png",
+        "assets/jdm_imports/props/car_key.png",
+        "assets/vampire_bite_jaw_upper.png",
+        "assets/vampire_bite_jaw_lower.png",
+        "assets/vampire_bite_snap_closed.png",
+        "assets/vampire_bite_contact.png",
+        "assets/vampire_bite_lifesteal_drop_01.png",
+        "assets/vampire_bite_lifesteal_orb_01.png",
+        "assets/vampire_bite_lifesteal_drop_02.png",
+        "assets/before_the_fame/characters/bonesworth/bonesworth_telegraph_80x96.png"
+      ],
+      "logs": [
+        {
+          "text": "VAMPIRE BITE MISSED.",
+          "kind": "miss"
+        },
+        {
+          "text": "SIR BONESWORTH: HUNGOVER SWAY!",
+          "kind": "enemy",
+          "move": "sway"
+        },
+        {
+          "text": "HE IS STEADYING HIS SHIELD…",
+          "kind": "telegraph"
+        }
+      ],
+      "ammo": {
+        "lil_oga": 4
+      },
+      "presentation": "bite",
+      "latest": null
+    },
+    {
+      "kind": "move",
+      "id": "revenge",
+      "label": "REVENGE",
+      "unlock": "Canon",
+      "offered": true,
+      "assets": [
+        "assets/rich_standing_right.png",
+        "assets/before_the_fame/characters/bonesworth/sir_bonesworth_hungover_80x96.png",
+        "assets/before_the_fame/art_ship_014/package_e/E-gun-lil_oga-held.png",
+        "assets/rich_bedroom_lounge_idle.png",
+        "assets/jdm_imports/characters/daughter/daughter_neutral.png",
+        "assets/powder_springs_night_270x480.png",
+        "assets/rich_curb_eating.png",
+        "assets/rich_curb_stargazing.png",
+        "assets/jdm_imports/characters/importer/importer_neutral.png",
+        "assets/jdm_imports/vehicles/supra_mk4_world.png",
+        "assets/jdm_imports/props/car_key.png",
+        "assets/revenge_stored_wound_01.png",
+        "assets/revenge_stored_wound_02.png",
+        "assets/revenge_stored_wound_03.png",
+        "assets/revenge_stored_wound_04.png",
+        "assets/revenge_mass_01.png",
+        "assets/before_the_fame/characters/bonesworth/bonesworth_hit_80x96.png",
+        "assets/revenge_extraction_01.png",
+        "assets/revenge_extraction_02.png",
+        "assets/revenge_extraction_03.png",
+        "assets/revenge_mass_02.png",
+        "assets/revenge_extraction_04.png",
+        "assets/revenge_mass_03.png",
+        "assets/revenge_target_crack_01.png",
+        "assets/revenge_target_crack_02.png",
+        "assets/revenge_target_crack_03.png",
+        "assets/revenge_impact_fullscreen.png",
+        "assets/before_the_fame/characters/bonesworth/bonesworth_telegraph_80x96.png"
+      ],
+      "logs": [
+        {
+          "text": "REVENGE: 21 DAMAGE REFLECTED.",
+          "kind": "hit",
+          "target": "enemy",
+          "amount": 21,
+          "heavy": false,
+          "fx": "revenge"
+        },
+        {
+          "text": "SIR BONESWORTH: HUNGOVER SWAY!",
+          "kind": "enemy",
+          "move": "sway"
+        },
+        {
+          "text": "HE IS STEADYING HIS SHIELD…",
+          "kind": "telegraph"
+        }
+      ],
+      "ammo": {
+        "lil_oga": 4
+      },
+      "presentation": "revenge",
+      "latest": null
+    },
+    {
+      "kind": "move",
+      "id": "petty",
+      "label": "ONE-INCH PETTY",
+      "unlock": "Bruce Loose A19",
+      "offered": true,
+      "assets": [
+        "assets/rich_standing_right.png",
+        "assets/before_the_fame/characters/bonesworth/sir_bonesworth_hungover_80x96.png",
+        "assets/before_the_fame/art_ship_014/package_e/E-gun-lil_oga-held.png",
+        "assets/rich_bedroom_lounge_idle.png",
+        "assets/jdm_imports/characters/daughter/daughter_neutral.png",
+        "assets/powder_springs_night_270x480.png",
+        "assets/rich_curb_eating.png",
+        "assets/rich_curb_stargazing.png",
+        "assets/jdm_imports/characters/importer/importer_neutral.png",
+        "assets/jdm_imports/vehicles/supra_mk4_world.png",
+        "assets/jdm_imports/props/car_key.png",
+        "assets/before_the_fame/characters/bonesworth/bonesworth_hit_80x96.png",
+        "assets/before_the_fame/characters/bonesworth/bonesworth_telegraph_80x96.png"
+      ],
+      "logs": [
+        {
+          "text": "ONE-INCH PETTY: 36 DAMAGE.",
+          "kind": "hit",
+          "target": "enemy",
+          "amount": 36,
+          "heavy": false
+        },
+        {
+          "text": "SIR BONESWORTH: HUNGOVER SWAY!",
+          "kind": "enemy",
+          "move": "sway"
+        },
+        {
+          "text": "HE IS STEADYING HIS SHIELD…",
+          "kind": "telegraph"
+        }
+      ],
+      "ammo": {
+        "lil_oga": 4
+      },
+      "presentation": "petty",
+      "latest": null
+    },
+    {
+      "kind": "move",
+      "id": "hex",
+      "label": "HEX",
+      "unlock": "Nightshade A25 + gift_flowers",
+      "offered": true,
+      "assets": [
+        "assets/rich_standing_right.png",
+        "assets/before_the_fame/characters/bonesworth/sir_bonesworth_hungover_80x96.png",
+        "assets/before_the_fame/art_ship_014/package_e/E-gun-lil_oga-held.png",
+        "assets/rich_bedroom_lounge_idle.png",
+        "assets/jdm_imports/characters/daughter/daughter_neutral.png",
+        "assets/powder_springs_night_270x480.png",
+        "assets/rich_curb_eating.png",
+        "assets/rich_curb_stargazing.png",
+        "assets/jdm_imports/characters/importer/importer_neutral.png",
+        "assets/jdm_imports/vehicles/supra_mk4_world.png",
+        "assets/jdm_imports/props/car_key.png",
+        "assets/before_the_fame/characters/bonesworth/bonesworth_telegraph_80x96.png"
+      ],
+      "logs": [
+        {
+          "text": "HEX: ENEMY DEALS LESS DAMAGE.",
+          "kind": "weird"
+        },
+        {
+          "text": "SIR BONESWORTH: HUNGOVER SWAY!",
+          "kind": "enemy",
+          "move": "sway"
+        },
+        {
+          "text": "HE IS STEADYING HIS SHIELD…",
+          "kind": "telegraph"
+        }
+      ],
+      "ammo": {
+        "lil_oga": 4
+      },
+      "presentation": "hex",
+      "latest": null
+    },
+    {
+      "kind": "move",
+      "id": "veil",
+      "label": "VIOLET VEIL",
+      "unlock": "Nightshade A25 + gift_flowers",
+      "offered": true,
+      "assets": [
+        "assets/rich_standing_right.png",
+        "assets/before_the_fame/characters/bonesworth/sir_bonesworth_hungover_80x96.png",
+        "assets/before_the_fame/art_ship_014/package_e/E-gun-lil_oga-held.png",
+        "assets/rich_bedroom_lounge_idle.png",
+        "assets/jdm_imports/characters/daughter/daughter_neutral.png",
+        "assets/powder_springs_night_270x480.png",
+        "assets/rich_curb_eating.png",
+        "assets/rich_curb_stargazing.png",
+        "assets/jdm_imports/characters/importer/importer_neutral.png",
+        "assets/jdm_imports/vehicles/supra_mk4_world.png",
+        "assets/jdm_imports/props/car_key.png",
+        "assets/before_the_fame/characters/bonesworth/bonesworth_telegraph_80x96.png"
+      ],
+      "logs": [
+        {
+          "text": "VIOLET VEIL: THE NEXT HIT IS BLOCKED.",
+          "kind": "weird"
+        },
+        {
+          "text": "SIR BONESWORTH: HUNGOVER SWAY!",
+          "kind": "enemy",
+          "move": "sway"
+        },
+        {
+          "text": "HE IS STEADYING HIS SHIELD…",
+          "kind": "telegraph"
+        }
+      ],
+      "ammo": {
+        "lil_oga": 4
+      },
+      "presentation": "veil",
+      "latest": null
+    },
+    {
+      "kind": "move",
+      "id": "seance",
+      "label": "SÉANCE",
+      "unlock": "Nightshade A25 + gift_flowers",
+      "offered": true,
+      "assets": [
+        "assets/rich_standing_right.png",
+        "assets/before_the_fame/characters/bonesworth/sir_bonesworth_hungover_80x96.png",
+        "assets/before_the_fame/art_ship_014/package_e/E-gun-lil_oga-held.png",
+        "assets/rich_bedroom_lounge_idle.png",
+        "assets/jdm_imports/characters/daughter/daughter_neutral.png",
+        "assets/powder_springs_night_270x480.png",
+        "assets/rich_curb_eating.png",
+        "assets/rich_curb_stargazing.png",
+        "assets/jdm_imports/characters/importer/importer_neutral.png",
+        "assets/jdm_imports/vehicles/supra_mk4_world.png",
+        "assets/jdm_imports/props/car_key.png",
+        "assets/before_the_fame/characters/bonesworth/bonesworth_hit_80x96.png",
+        "assets/before_the_fame/characters/bonesworth/bonesworth_telegraph_80x96.png",
+        "assets/rich_bedroom_phone_scroll.png"
+      ],
+      "logs": [
+        {
+          "text": "SÉANCE: A GHOST JOINS THE FIGHT.",
+          "kind": "weird"
+        },
+        {
+          "text": "A GHOST: 12 DAMAGE.",
+          "kind": "hit",
+          "target": "enemy"
+        },
+        {
+          "text": "SIR BONESWORTH: HUNGOVER SWAY!",
+          "kind": "enemy",
+          "move": "sway"
+        },
+        {
+          "text": "HE IS STEADYING HIS SHIELD…",
+          "kind": "telegraph"
+        }
+      ],
+      "ammo": {
+        "lil_oga": 4
+      },
+      "presentation": "seance",
+      "latest": null
+    },
+    {
+      "kind": "move",
+      "id": "ringer",
+      "label": "DEAD RINGER",
+      "unlock": "Nightshade A25 + gift_flowers",
+      "offered": true,
+      "assets": [
+        "assets/rich_standing_right.png",
+        "assets/before_the_fame/characters/bonesworth/sir_bonesworth_hungover_80x96.png",
+        "assets/before_the_fame/art_ship_014/package_e/E-gun-lil_oga-held.png",
+        "assets/rich_bedroom_phone_scroll.png",
+        "assets/jdm_imports/characters/daughter/daughter_neutral.png",
+        "assets/powder_springs_night_270x480.png",
+        "assets/rich_curb_eating.png",
+        "assets/rich_curb_stargazing.png",
+        "assets/jdm_imports/characters/importer/importer_neutral.png",
+        "assets/jdm_imports/vehicles/supra_mk4_world.png",
+        "assets/jdm_imports/props/car_key.png",
+        "assets/before_the_fame/characters/bonesworth/bonesworth_telegraph_80x96.png",
+        "assets/rich_bedroom_lounge_idle.png"
+      ],
+      "logs": [
+        {
+          "text": "DEAD RINGER: STUNNED.",
+          "kind": "weird"
+        },
+        {
+          "text": "SIR BONESWORTH LOSES THE TURN.",
+          "kind": "info"
+        },
+        {
+          "text": "SIR BONESWORTH IS RAISING HIS SWORD…",
+          "kind": "telegraph"
+        }
+      ],
+      "ammo": {
+        "lil_oga": 4
+      },
+      "presentation": "ringer",
+      "latest": null
+    },
+    {
+      "kind": "gun",
+      "id": "lil_oga",
+      "label": "LIL OGA",
+      "unlock": "bought at THE ARMORY",
+      "offered": true,
+      "assets": [
+        "assets/rich_standing_right.png",
+        "assets/before_the_fame/characters/bonesworth/sir_bonesworth_hungover_80x96.png",
+        "assets/before_the_fame/art_ship_014/package_e/E-gun-lil_oga-held.png",
+        "assets/rich_bedroom_lounge_idle.png",
+        "assets/jdm_imports/characters/daughter/daughter_neutral.png",
+        "assets/powder_springs_night_270x480.png",
+        "assets/rich_curb_eating.png",
+        "assets/rich_curb_stargazing.png",
+        "assets/jdm_imports/characters/importer/importer_neutral.png",
+        "assets/jdm_imports/vehicles/supra_mk4_world.png",
+        "assets/jdm_imports/props/car_key.png",
+        "assets/before_the_fame/characters/bonesworth/bonesworth_hit_80x96.png",
+        "assets/before_the_fame/characters/bonesworth/bonesworth_telegraph_80x96.png"
+      ],
+      "logs": [
+        {
+          "text": "GUN WEAVING: LIL OGA.",
+          "kind": "weird",
+          "fx": "gun",
+          "gun": "lil_oga"
+        },
+        {
+          "text": "LIL OGA: 20 DAMAGE.",
+          "kind": "hit",
+          "target": "enemy",
+          "amount": 20,
+          "heavy": false
+        },
+        {
+          "text": "SIR BONESWORTH: HUNGOVER SWAY!",
+          "kind": "enemy",
+          "move": "sway"
+        },
+        {
+          "text": "HE IS STEADYING HIS SHIELD…",
+          "kind": "telegraph"
+        }
+      ],
+      "ammo": {
+        "lil_oga": 3
+      },
+      "presentation": "gun:lil_oga",
+      "latest": "assets/before_the_fame/art_ship_014/package_e/E-gun-lil_oga-held.png"
+    },
+    {
+      "kind": "gun",
+      "id": "sapporo_shotgun",
+      "label": "SAPPORO SHOTGUN",
+      "unlock": "bought at THE ARMORY",
+      "offered": true,
+      "assets": [
+        "assets/rich_standing_right.png",
+        "assets/before_the_fame/characters/bonesworth/sir_bonesworth_hungover_80x96.png",
+        "assets/before_the_fame/art_ship_014/package_e/E-gun-sapporo_shotgun-held.png",
+        "assets/rich_bedroom_lounge_idle.png",
+        "assets/jdm_imports/characters/daughter/daughter_neutral.png",
+        "assets/powder_springs_night_270x480.png",
+        "assets/rich_curb_eating.png",
+        "assets/rich_curb_stargazing.png",
+        "assets/jdm_imports/characters/importer/importer_neutral.png",
+        "assets/jdm_imports/vehicles/supra_mk4_world.png",
+        "assets/jdm_imports/props/car_key.png",
+        "assets/before_the_fame/characters/bonesworth/bonesworth_hit_80x96.png",
+        "assets/before_the_fame/characters/bonesworth/bonesworth_telegraph_80x96.png"
+      ],
+      "logs": [
+        {
+          "text": "GUN WEAVING: SAPPORO SHOTGUN.",
+          "kind": "weird",
+          "fx": "gun",
+          "gun": "sapporo_shotgun"
+        },
+        {
+          "text": "SAPPORO SHOTGUN: 15 DAMAGE.",
+          "kind": "hit",
+          "target": "enemy",
+          "amount": 15,
+          "heavy": false
+        },
+        {
+          "text": "SAPPORO SHOTGUN: 14 DAMAGE.",
+          "kind": "hit",
+          "target": "enemy",
+          "amount": 14,
+          "heavy": false
+        },
+        {
+          "text": "SIR BONESWORTH: HUNGOVER SWAY!",
+          "kind": "enemy",
+          "move": "sway"
+        },
+        {
+          "text": "HE IS STEADYING HIS SHIELD…",
+          "kind": "telegraph"
+        }
+      ],
+      "ammo": {
+        "sapporo_shotgun": 2
+      },
+      "presentation": "gun:sapporo_shotgun",
+      "latest": "assets/before_the_fame/art_ship_014/package_e/E-gun-sapporo_shotgun-held.png"
+    },
+    {
+      "kind": "gun",
+      "id": "mac_and_cheese",
+      "label": "MAC & CHEESE",
+      "unlock": "bought at THE ARMORY",
+      "offered": true,
+      "assets": [
+        "assets/rich_standing_right.png",
+        "assets/before_the_fame/characters/bonesworth/sir_bonesworth_hungover_80x96.png",
+        "assets/rich_bedroom_lounge_idle.png",
+        "assets/jdm_imports/characters/daughter/daughter_neutral.png",
+        "assets/powder_springs_night_270x480.png",
+        "assets/rich_curb_eating.png",
+        "assets/rich_curb_stargazing.png",
+        "assets/jdm_imports/characters/importer/importer_neutral.png",
+        "assets/jdm_imports/vehicles/supra_mk4_world.png",
+        "assets/jdm_imports/props/car_key.png",
+        "assets/before_the_fame/characters/bonesworth/bonesworth_hit_80x96.png",
+        "assets/before_the_fame/characters/bonesworth/bonesworth_telegraph_80x96.png"
+      ],
+      "logs": [
+        {
+          "text": "GUN WEAVING: MAC & CHEESE.",
+          "kind": "weird",
+          "fx": "gun",
+          "gun": "mac_and_cheese"
+        },
+        {
+          "text": "MAC & CHEESE: 4 DAMAGE.",
+          "kind": "hit",
+          "target": "enemy",
+          "amount": 4,
+          "heavy": false
+        },
+        {
+          "text": "MAC & CHEESE: 4 DAMAGE.",
+          "kind": "hit",
+          "target": "enemy",
+          "amount": 4,
+          "heavy": false
+        },
+        {
+          "text": "MAC & CHEESE: 4 DAMAGE.",
+          "kind": "hit",
+          "target": "enemy",
+          "amount": 4,
+          "heavy": false
+        },
+        {
+          "text": "MAC & CHEESE: 4 DAMAGE.",
+          "kind": "hit",
+          "target": "enemy",
+          "amount": 4,
+          "heavy": false
+        },
+        {
+          "text": "MAC & CHEESE: 5 DAMAGE.",
+          "kind": "hit",
+          "target": "enemy",
+          "amount": 5,
+          "heavy": false
+        },
+        {
+          "text": "THE ENEMY IS PINNED DOWN.",
+          "kind": "debuff"
+        },
+        {
+          "text": "SIR BONESWORTH: HUNGOVER SWAY!",
+          "kind": "enemy",
+          "move": "sway"
+        },
+        {
+          "text": "HE IS STEADYING HIS SHIELD…",
+          "kind": "telegraph"
+        }
+      ],
+      "ammo": {
+        "mac_and_cheese": 1
+      },
+      "presentation": "gun:mac_and_cheese",
+      "latest": null
+    },
+    {
+      "kind": "gun",
+      "id": "chopstick_sniper",
+      "label": "CHOPSTICK SNIPER",
+      "unlock": "consignment from Hina's cousin",
+      "offered": true,
+      "assets": [
+        "assets/rich_standing_right.png",
+        "assets/before_the_fame/characters/bonesworth/sir_bonesworth_hungover_80x96.png",
+        "assets/before_the_fame/art_ship_014/package_e/E-gun-chopstick_sniper-held.png",
+        "assets/rich_bedroom_lounge_idle.png",
+        "assets/jdm_imports/characters/daughter/daughter_neutral.png",
+        "assets/powder_springs_night_270x480.png",
+        "assets/rich_curb_eating.png",
+        "assets/rich_curb_stargazing.png",
+        "assets/jdm_imports/characters/importer/importer_neutral.png",
+        "assets/jdm_imports/vehicles/supra_mk4_world.png",
+        "assets/jdm_imports/props/car_key.png",
+        "assets/before_the_fame/characters/bonesworth/bonesworth_hit_80x96.png",
+        "assets/before_the_fame/characters/bonesworth/bonesworth_telegraph_80x96.png"
+      ],
+      "logs": [
+        {
+          "text": "GUN WEAVING: CHOPSTICK SNIPER.",
+          "kind": "weird",
+          "fx": "gun",
+          "gun": "chopstick_sniper"
+        },
+        {
+          "text": "CHOPSTICK SNIPER: 89 DAMAGE.",
+          "kind": "hit",
+          "target": "enemy",
+          "amount": 89,
+          "heavy": true
+        },
+        {
+          "text": "SIR BONESWORTH: HUNGOVER SWAY!",
+          "kind": "enemy",
+          "move": "sway"
+        },
+        {
+          "text": "HE IS STEADYING HIS SHIELD…",
+          "kind": "telegraph"
+        }
+      ],
+      "ammo": {
+        "chopstick_sniper": 0
+      },
+      "presentation": "gun:chopstick_sniper",
+      "latest": "assets/before_the_fame/art_ship_014/package_e/E-gun-chopstick_sniper-held.png"
+    },
+    {
+      "kind": "gun",
+      "id": "tommy_tony",
+      "label": "THE TOMMY TONY",
+      "unlock": "win a tandem vs Tokyo Tony, then buy",
+      "offered": true,
+      "assets": [
+        "assets/rich_standing_right.png",
+        "assets/before_the_fame/characters/bonesworth/sir_bonesworth_hungover_80x96.png",
+        "assets/rich_bedroom_lounge_idle.png",
+        "assets/jdm_imports/characters/daughter/daughter_neutral.png",
+        "assets/powder_springs_night_270x480.png",
+        "assets/rich_curb_eating.png",
+        "assets/rich_curb_stargazing.png",
+        "assets/jdm_imports/characters/importer/importer_neutral.png",
+        "assets/jdm_imports/vehicles/supra_mk4_world.png",
+        "assets/jdm_imports/props/car_key.png",
+        "assets/before_the_fame/characters/bonesworth/bonesworth_hit_80x96.png",
+        "assets/before_the_fame/characters/bonesworth/bonesworth_telegraph_80x96.png"
+      ],
+      "logs": [
+        {
+          "text": "GUN WEAVING: THE TOMMY TONY.",
+          "kind": "weird",
+          "fx": "gun",
+          "gun": "tommy_tony"
+        },
+        {
+          "text": "THE TOMMY TONY: 8 DAMAGE.",
+          "kind": "hit",
+          "target": "enemy",
+          "amount": 8,
+          "heavy": false
+        },
+        {
+          "text": "THE TOMMY TONY: 4 DAMAGE.",
+          "kind": "hit",
+          "target": "enemy",
+          "amount": 4,
+          "heavy": false
+        },
+        {
+          "text": "THE TOMMY TONY: 6 DAMAGE.",
+          "kind": "hit",
+          "target": "enemy",
+          "amount": 6,
+          "heavy": false
+        },
+        {
+          "text": "THE TOMMY TONY: 6 DAMAGE.",
+          "kind": "hit",
+          "target": "enemy",
+          "amount": 6,
+          "heavy": false
+        },
+        {
+          "text": "THE TOMMY TONY: 5 DAMAGE.",
+          "kind": "hit",
+          "target": "enemy",
+          "amount": 5,
+          "heavy": false
+        },
+        {
+          "text": "THE TOMMY TONY: 4 DAMAGE.",
+          "kind": "hit",
+          "target": "enemy",
+          "amount": 4,
+          "heavy": false
+        },
+        {
+          "text": "SIR BONESWORTH: HUNGOVER SWAY!",
+          "kind": "enemy",
+          "move": "sway"
+        },
+        {
+          "text": "HE IS STEADYING HIS SHIELD…",
+          "kind": "telegraph"
+        }
+      ],
+      "ammo": {
+        "tommy_tony": 1
+      },
+      "presentation": "gun:tommy_tony",
+      "latest": null
+    },
+    {
+      "kind": "gun",
+      "id": "holy_baby_drake",
+      "label": "HOLY BABY DRAKE",
+      "unlock": "THE ARMORY glass case",
+      "offered": true,
+      "assets": [
+        "assets/rich_standing_right.png",
+        "assets/before_the_fame/characters/bonesworth/sir_bonesworth_hungover_80x96.png",
+        "assets/before_the_fame/art_ship_014/package_e/E-gun-holy_baby_drake-held.png",
+        "assets/rich_bedroom_lounge_idle.png",
+        "assets/jdm_imports/characters/daughter/daughter_neutral.png",
+        "assets/powder_springs_night_270x480.png",
+        "assets/rich_curb_eating.png",
+        "assets/rich_curb_stargazing.png",
+        "assets/jdm_imports/characters/importer/importer_neutral.png",
+        "assets/jdm_imports/vehicles/supra_mk4_world.png",
+        "assets/jdm_imports/props/car_key.png",
+        "assets/before_the_fame/characters/bonesworth/bonesworth_hit_80x96.png",
+        "assets/before_the_fame/characters/bonesworth/bonesworth_telegraph_80x96.png"
+      ],
+      "logs": [
+        {
+          "text": "GUN WEAVING: HOLY BABY DRAKE.",
+          "kind": "weird",
+          "fx": "gun",
+          "gun": "holy_baby_drake"
+        },
+        {
+          "text": "HOLY BABY DRAKE: 78 DAMAGE.",
+          "kind": "hit",
+          "target": "enemy",
+          "amount": 78,
+          "heavy": true
+        },
+        {
+          "text": "+10 HP.",
+          "kind": "heal",
+          "target": "rich"
+        },
+        {
+          "text": "SIR BONESWORTH: HUNGOVER SWAY!",
+          "kind": "enemy",
+          "move": "sway"
+        },
+        {
+          "text": "HE IS STEADYING HIS SHIELD…",
+          "kind": "telegraph"
+        }
+      ],
+      "ammo": {
+        "holy_baby_drake": 1
+      },
+      "presentation": "gun:holy_baby_drake",
+      "latest": "assets/before_the_fame/art_ship_014/package_e/E-gun-holy_baby_drake-held.png"
+    },
+    {
+      "kind": "gun",
+      "id": "jollof_burner",
+      "label": "JOLLOF BURNER",
+      "unlock": "Jollof Wars champion + THE ARMORY",
+      "offered": true,
+      "assets": [
+        "assets/rich_standing_right.png",
+        "assets/before_the_fame/characters/bonesworth/sir_bonesworth_hungover_80x96.png",
+        "assets/rich_bedroom_lounge_idle.png",
+        "assets/jdm_imports/characters/daughter/daughter_neutral.png",
+        "assets/powder_springs_night_270x480.png",
+        "assets/rich_curb_eating.png",
+        "assets/rich_curb_stargazing.png",
+        "assets/jdm_imports/characters/importer/importer_neutral.png",
+        "assets/jdm_imports/vehicles/supra_mk4_world.png",
+        "assets/jdm_imports/props/car_key.png",
+        "assets/before_the_fame/characters/bonesworth/bonesworth_hit_80x96.png",
+        "assets/before_the_fame/characters/bonesworth/bonesworth_telegraph_80x96.png"
+      ],
+      "logs": [
+        {
+          "text": "GUN WEAVING: JOLLOF BURNER.",
+          "kind": "weird",
+          "fx": "gun",
+          "gun": "jollof_burner"
+        },
+        {
+          "text": "JOLLOF BURNER: 13 DAMAGE.",
+          "kind": "hit",
+          "target": "enemy",
+          "amount": 13,
+          "heavy": false
+        },
+        {
+          "text": "THE TARGET IS BURNING.",
+          "kind": "weird"
+        },
+        {
+          "text": "BURNING: 8 DAMAGE.",
+          "kind": "hit",
+          "target": "enemy"
+        },
+        {
+          "text": "SIR BONESWORTH: HUNGOVER SWAY!",
+          "kind": "enemy",
+          "move": "sway"
+        },
+        {
+          "text": "HE IS STEADYING HIS SHIELD…",
+          "kind": "telegraph"
+        }
+      ],
+      "ammo": {
+        "jollof_burner": 1
+      },
+      "presentation": "gun:jollof_burner",
+      "latest": null
+    },
+    {
+      "kind": "gun",
+      "id": "blueberry_blaster",
+      "label": "BLUEBERRY BLASTER",
+      "unlock": "Mazda's roost, once (a gift)",
+      "offered": true,
+      "assets": [
+        "assets/rich_standing_right.png",
+        "assets/before_the_fame/characters/bonesworth/sir_bonesworth_hungover_80x96.png",
+        "assets/rich_bedroom_small_idle.png",
+        "assets/jdm_imports/characters/daughter/daughter_neutral.png",
+        "assets/powder_springs_night_270x480.png",
+        "assets/rich_curb_eating.png",
+        "assets/rich_curb_stargazing.png",
+        "assets/jdm_imports/characters/importer/importer_neutral.png",
+        "assets/jdm_imports/vehicles/supra_mk4_world.png",
+        "assets/jdm_imports/props/car_key.png",
+        "assets/before_the_fame/characters/bonesworth/bonesworth_hit_80x96.png",
+        "assets/before_the_fame/characters/bonesworth/bonesworth_telegraph_80x96.png"
+      ],
+      "logs": [
+        {
+          "text": "GUN WEAVING: BLUEBERRY BLASTER.",
+          "kind": "weird",
+          "fx": "gun",
+          "gun": "blueberry_blaster"
+        },
+        {
+          "text": "BLUEBERRY BLASTER: 51 DAMAGE.",
+          "kind": "hit",
+          "target": "enemy",
+          "amount": 51,
+          "heavy": true
+        },
+        {
+          "text": "SIR BONESWORTH: HUNGOVER SWAY!",
+          "kind": "enemy",
+          "move": "sway"
+        },
+        {
+          "text": "HE IS STEADYING HIS SHIELD…",
+          "kind": "telegraph"
+        }
+      ],
+      "ammo": {
+        "blueberry_blaster": 1
+      },
+      "presentation": "gun:blueberry_blaster",
+      "latest": null
+    },
+    {
+      "kind": "gun",
+      "id": "legendary_draco",
+      "label": "LEGENDARY DRACO — DECEMBER'S GIFT",
+      "unlock": "sealed Playmakers reward (HQ)",
+      "offered": true,
+      "assets": [
+        "assets/rich_standing_right.png",
+        "assets/before_the_fame/characters/bonesworth/sir_bonesworth_hungover_80x96.png",
+        "assets/rich_bedroom_lounge_idle.png",
+        "assets/jdm_imports/characters/daughter/daughter_neutral.png",
+        "assets/powder_springs_night_270x480.png",
+        "assets/rich_curb_eating.png",
+        "assets/rich_curb_stargazing.png",
+        "assets/jdm_imports/characters/importer/importer_neutral.png",
+        "assets/jdm_imports/vehicles/supra_mk4_world.png",
+        "assets/jdm_imports/props/car_key.png",
+        "assets/before_the_fame/characters/bonesworth/bonesworth_hit_80x96.png",
+        "assets/before_the_fame/characters/bonesworth/bonesworth_telegraph_80x96.png"
+      ],
+      "logs": [
+        {
+          "text": "GUN WEAVING: LEGENDARY DRACO — DECEMBER'S GIFT.",
+          "kind": "weird",
+          "fx": "gun",
+          "gun": "legendary_draco"
+        },
+        {
+          "text": "LEGENDARY DRACO — DECEMBER'S GIFT: 23 DAMAGE.",
+          "kind": "hit",
+          "target": "enemy",
+          "amount": 23,
+          "heavy": false
+        },
+        {
+          "text": "LEGENDARY DRACO — DECEMBER'S GIFT: 21 DAMAGE.",
+          "kind": "hit",
+          "target": "enemy",
+          "amount": 21,
+          "heavy": false
+        },
+        {
+          "text": "SIR BONESWORTH: HUNGOVER SWAY!",
+          "kind": "enemy",
+          "move": "sway"
+        },
+        {
+          "text": "HE IS STEADYING HIS SHIELD…",
+          "kind": "telegraph"
+        }
+      ],
+      "ammo": {
+        "legendary_draco": 1
+      },
+      "presentation": "gun:legendary_draco",
+      "latest": null
+    },
+    {
+      "kind": "gun",
+      "id": "golden_draco",
+      "label": "THE GOLDEN DRACO",
+      "unlock": "NEW OGA finale (Gbenga's cooler)",
+      "offered": true,
+      "assets": [
+        "assets/rich_standing_right.png",
+        "assets/before_the_fame/characters/bonesworth/sir_bonesworth_hungover_80x96.png",
+        "assets/rich_bedroom_lounge_idle.png",
+        "assets/jdm_imports/characters/daughter/daughter_neutral.png",
+        "assets/powder_springs_night_270x480.png",
+        "assets/rich_curb_eating.png",
+        "assets/rich_curb_stargazing.png",
+        "assets/jdm_imports/characters/importer/importer_neutral.png",
+        "assets/jdm_imports/vehicles/supra_mk4_world.png",
+        "assets/jdm_imports/props/car_key.png",
+        "assets/before_the_fame/characters/bonesworth/bonesworth_hit_80x96.png",
+        "assets/before_the_fame/characters/bonesworth/bonesworth_telegraph_80x96.png"
+      ],
+      "logs": [
+        {
+          "text": "GUN WEAVING: THE GOLDEN DRACO.",
+          "kind": "weird",
+          "fx": "gun",
+          "gun": "golden_draco"
+        },
+        {
+          "text": "THE GOLDEN DRACO: 22 DAMAGE.",
+          "kind": "hit",
+          "target": "enemy",
+          "amount": 22,
+          "heavy": false
+        },
+        {
+          "text": "THE GOLDEN DRACO: 29 DAMAGE (CRIT).",
+          "kind": "hit",
+          "target": "enemy",
+          "amount": 29,
+          "heavy": false
+        },
+        {
+          "text": "THE GOLD IS BLINDING.",
+          "kind": "debuff"
+        },
+        {
+          "text": "SIR BONESWORTH: HUNGOVER SWAY!",
+          "kind": "enemy",
+          "move": "sway"
+        },
+        {
+          "text": "HE IS STEADYING HIS SHIELD…",
+          "kind": "telegraph"
+        }
+      ],
+      "ammo": {
+        "golden_draco": 1
+      },
+      "presentation": "gun:golden_draco",
+      "latest": null
+    },
+    {
+      "kind": "gun",
+      "id": "rpg",
+      "label": "THE RPG",
+      "unlock": "bought at THE ARMORY",
+      "offered": true,
+      "assets": [
+        "assets/rich_standing_right.png",
+        "assets/before_the_fame/characters/bonesworth/sir_bonesworth_hungover_80x96.png",
+        "assets/before_the_fame/art_ship_014/package_e/E-gun-the_rpg-held.png",
+        "assets/rich_bedroom_lounge_idle.png",
+        "assets/jdm_imports/characters/daughter/daughter_neutral.png",
+        "assets/powder_springs_night_270x480.png",
+        "assets/rich_curb_eating.png",
+        "assets/rich_curb_stargazing.png",
+        "assets/jdm_imports/characters/importer/importer_neutral.png",
+        "assets/jdm_imports/vehicles/supra_mk4_world.png",
+        "assets/jdm_imports/props/car_key.png",
+        "assets/before_the_fame/characters/bonesworth/bonesworth_hit_80x96.png",
+        "assets/before_the_fame/characters/bonesworth/bonesworth_strike_80x96.png",
+        "assets/before_the_fame/characters/bonesworth/bonesworth_telegraph_80x96.png"
+      ],
+      "logs": [
+        {
+          "text": "GUN WEAVING: THE RPG.",
+          "kind": "weird",
+          "fx": "gun",
+          "gun": "rpg"
+        },
+        {
+          "text": "THE RPG: 81 DAMAGE.",
+          "kind": "hit",
+          "target": "enemy",
+          "amount": 81,
+          "heavy": true
+        },
+        {
+          "text": "RICH TAKES 10 SPLASH.",
+          "kind": "hurt",
+          "target": "rich"
+        },
+        {
+          "text": "SIR BONESWORTH: HUNGOVER SWAY!",
+          "kind": "enemy",
+          "move": "sway"
+        },
+        {
+          "text": "HE IS STEADYING HIS SHIELD…",
+          "kind": "telegraph"
+        }
+      ],
+      "ammo": {
+        "rpg": 0
+      },
+      "presentation": "gun:rpg",
+      "latest": "assets/before_the_fame/art_ship_014/package_e/E-gun-the_rpg-held.png"
+    },
+    {
+      "kind": "gun",
+      "id": "auntie_slipper",
+      "label": "AUNTIE'S SLIPPER",
+      "unlock": "$12 at Naija Mart",
+      "offered": true,
+      "assets": [
+        "assets/rich_standing_right.png",
+        "assets/before_the_fame/characters/bonesworth/sir_bonesworth_hungover_80x96.png",
+        "assets/rich_bedroom_lounge_idle.png",
+        "assets/jdm_imports/characters/daughter/daughter_neutral.png",
+        "assets/powder_springs_night_270x480.png",
+        "assets/rich_curb_eating.png",
+        "assets/rich_curb_stargazing.png",
+        "assets/jdm_imports/characters/importer/importer_neutral.png",
+        "assets/jdm_imports/vehicles/supra_mk4_world.png",
+        "assets/jdm_imports/props/car_key.png",
+        "assets/before_the_fame/characters/bonesworth/bonesworth_hit_80x96.png",
+        "assets/before_the_fame/characters/bonesworth/bonesworth_telegraph_80x96.png"
+      ],
+      "logs": [
+        {
+          "text": "GUN WEAVING: AUNTIE'S SLIPPER.",
+          "kind": "weird",
+          "fx": "gun",
+          "gun": "auntie_slipper"
+        },
+        {
+          "text": "AUNTIE'S SLIPPER: 9 DAMAGE.",
+          "kind": "hit",
+          "target": "enemy",
+          "amount": 9,
+          "heavy": false
+        },
+        {
+          "text": "SIR BONESWORTH: HUNGOVER SWAY!",
+          "kind": "enemy",
+          "move": "sway"
+        },
+        {
+          "text": "HE IS STEADYING HIS SHIELD…",
+          "kind": "telegraph"
+        }
+      ],
+      "ammo": {
+        "auntie_slipper": null
+      },
+      "presentation": "gun:auntie_slipper",
+      "latest": null
+    },
+    {
+      "kind": "gun",
+      "id": "triple_k_kratos",
+      "label": "TRIPLE K-KRATOS",
+      "unlock": "Ube only · dev code",
+      "offered": true,
+      "assets": [
+        "assets/rich_standing_right.png",
+        "assets/before_the_fame/characters/bonesworth/sir_bonesworth_hungover_80x96.png",
+        "assets/rich_bedroom_lounge_idle.png",
+        "assets/jdm_imports/characters/daughter/daughter_neutral.png",
+        "assets/powder_springs_night_270x480.png",
+        "assets/rich_curb_eating.png",
+        "assets/rich_curb_stargazing.png",
+        "assets/jdm_imports/characters/importer/importer_neutral.png",
+        "assets/jdm_imports/vehicles/supra_mk4_world.png",
+        "assets/jdm_imports/props/car_key.png",
+        "assets/before_the_fame/characters/bonesworth/bonesworth_defeated_80x96.png",
+        "assets/before_the_fame/characters/bonesworth/bonesworth_hit_80x96.png"
+      ],
+      "logs": [
+        {
+          "text": "GUN WEAVING: TRIPLE K-KRATOS.",
+          "kind": "weird",
+          "fx": "gun",
+          "gun": "triple_k_kratos"
+        },
+        {
+          "text": "TRIPLE K-KRATOS: 1001 DAMAGE.",
+          "kind": "hit",
+          "target": "enemy",
+          "amount": 1001,
+          "heavy": true
+        },
+        {
+          "text": "SIR BONESWORTH IS DOWN.",
+          "kind": "win"
+        }
+      ],
+      "ammo": {
+        "triple_k_kratos": 98
+      },
+      "presentation": "gun:triple_k_kratos",
+      "latest": null
+    },
+    {
+      "kind": "mod",
+      "id": "blessed_rounds",
+      "label": "BLESSED ROUNDS",
+      "unlock": "Owned, attached to LIL OGA; +25% damage vs vampires and undead",
+      "offered": true,
+      "assets": [
+        "assets/rich_standing_right.png",
+        "assets/before_the_fame/characters/bonesworth/sir_bonesworth_hungover_80x96.png",
+        "assets/before_the_fame/art_ship_014/package_e/E-gun-lil_oga-held.png",
+        "assets/rich_bedroom_lounge_idle.png",
+        "assets/jdm_imports/characters/daughter/daughter_neutral.png",
+        "assets/powder_springs_night_270x480.png",
+        "assets/rich_curb_eating.png",
+        "assets/rich_curb_stargazing.png",
+        "assets/jdm_imports/characters/importer/importer_neutral.png",
+        "assets/jdm_imports/vehicles/supra_mk4_world.png",
+        "assets/jdm_imports/props/car_key.png",
+        "assets/before_the_fame/characters/bonesworth/bonesworth_hit_80x96.png",
+        "assets/before_the_fame/characters/bonesworth/bonesworth_telegraph_80x96.png"
+      ],
+      "logs": [
+        {
+          "text": "GUN WEAVING: LIL OGA.",
+          "kind": "weird",
+          "fx": "gun",
+          "gun": "lil_oga"
+        },
+        {
+          "text": "LIL OGA: 23 DAMAGE.",
+          "kind": "hit",
+          "target": "enemy",
+          "amount": 23,
+          "heavy": false
+        },
+        {
+          "text": "SIR BONESWORTH: HUNGOVER SWAY!",
+          "kind": "enemy",
+          "move": "sway"
+        },
+        {
+          "text": "HE IS STEADYING HIS SHIELD…",
+          "kind": "telegraph"
+        }
+      ],
+      "ammo": {
+        "lil_oga": 3
+      },
+      "presentation": "gun:lil_oga",
+      "latest": "assets/before_the_fame/art_ship_014/package_e/E-gun-lil_oga-held.png"
+    },
+    {
+      "kind": "mod",
+      "id": "drum_mag",
+      "label": "DRUM MAG",
+      "unlock": "Owned, attached to LIL OGA; +1 ammo per fight",
+      "offered": true,
+      "assets": [
+        "assets/rich_standing_right.png",
+        "assets/before_the_fame/characters/bonesworth/sir_bonesworth_hungover_80x96.png",
+        "assets/before_the_fame/art_ship_014/package_e/E-gun-lil_oga-held.png",
+        "assets/rich_bedroom_lounge_idle.png",
+        "assets/jdm_imports/characters/daughter/daughter_neutral.png",
+        "assets/powder_springs_night_270x480.png",
+        "assets/rich_curb_eating.png",
+        "assets/rich_curb_stargazing.png",
+        "assets/jdm_imports/characters/importer/importer_neutral.png",
+        "assets/jdm_imports/vehicles/supra_mk4_world.png",
+        "assets/jdm_imports/props/car_key.png",
+        "assets/before_the_fame/characters/bonesworth/bonesworth_hit_80x96.png",
+        "assets/before_the_fame/characters/bonesworth/bonesworth_telegraph_80x96.png"
+      ],
+      "logs": [
+        {
+          "text": "GUN WEAVING: LIL OGA.",
+          "kind": "weird",
+          "fx": "gun",
+          "gun": "lil_oga"
+        },
+        {
+          "text": "LIL OGA: 20 DAMAGE.",
+          "kind": "hit",
+          "target": "enemy",
+          "amount": 20,
+          "heavy": false
+        },
+        {
+          "text": "SIR BONESWORTH: HUNGOVER SWAY!",
+          "kind": "enemy",
+          "move": "sway"
+        },
+        {
+          "text": "HE IS STEADYING HIS SHIELD…",
+          "kind": "telegraph"
+        }
+      ],
+      "ammo": {
+        "lil_oga": 4
+      },
+      "presentation": "gun:lil_oga",
+      "latest": "assets/before_the_fame/art_ship_014/package_e/E-gun-lil_oga-held.png"
+    },
+    {
+      "kind": "mod",
+      "id": "silencer",
+      "label": "SILENCER",
+      "unlock": "Owned, attached to LIL OGA; Showdown shots don't break concealment; −heat from gunfights",
+      "offered": true,
+      "assets": [
+        "assets/rich_standing_right.png",
+        "assets/before_the_fame/characters/bonesworth/sir_bonesworth_hungover_80x96.png",
+        "assets/before_the_fame/art_ship_014/package_e/E-gun-lil_oga-held.png",
+        "assets/rich_bedroom_lounge_idle.png",
+        "assets/jdm_imports/characters/daughter/daughter_neutral.png",
+        "assets/powder_springs_night_270x480.png",
+        "assets/rich_curb_eating.png",
+        "assets/rich_curb_stargazing.png",
+        "assets/jdm_imports/characters/importer/importer_neutral.png",
+        "assets/jdm_imports/vehicles/supra_mk4_world.png",
+        "assets/jdm_imports/props/car_key.png",
+        "assets/before_the_fame/characters/bonesworth/bonesworth_hit_80x96.png",
+        "assets/before_the_fame/characters/bonesworth/bonesworth_telegraph_80x96.png"
+      ],
+      "logs": [
+        {
+          "text": "GUN WEAVING: LIL OGA.",
+          "kind": "weird",
+          "fx": "gun",
+          "gun": "lil_oga"
+        },
+        {
+          "text": "LIL OGA: 20 DAMAGE.",
+          "kind": "hit",
+          "target": "enemy",
+          "amount": 20,
+          "heavy": false
+        },
+        {
+          "text": "SIR BONESWORTH: HUNGOVER SWAY!",
+          "kind": "enemy",
+          "move": "sway"
+        },
+        {
+          "text": "HE IS STEADYING HIS SHIELD…",
+          "kind": "telegraph"
+        }
+      ],
+      "ammo": {
+        "lil_oga": 3
+      },
+      "presentation": "gun:lil_oga",
+      "latest": "assets/before_the_fame/art_ship_014/package_e/E-gun-lil_oga-held.png"
+    },
+    {
+      "kind": "mod",
+      "id": "scope",
+      "label": "SCOPE",
+      "unlock": "Owned, attached to LIL OGA; +10 aim at range",
+      "offered": true,
+      "assets": [
+        "assets/rich_standing_right.png",
+        "assets/before_the_fame/characters/bonesworth/sir_bonesworth_hungover_80x96.png",
+        "assets/before_the_fame/art_ship_014/package_e/E-gun-lil_oga-held.png",
+        "assets/rich_bedroom_lounge_idle.png",
+        "assets/jdm_imports/characters/daughter/daughter_neutral.png",
+        "assets/powder_springs_night_270x480.png",
+        "assets/rich_curb_eating.png",
+        "assets/rich_curb_stargazing.png",
+        "assets/jdm_imports/characters/importer/importer_neutral.png",
+        "assets/jdm_imports/vehicles/supra_mk4_world.png",
+        "assets/jdm_imports/props/car_key.png",
+        "assets/before_the_fame/characters/bonesworth/bonesworth_hit_80x96.png",
+        "assets/before_the_fame/characters/bonesworth/bonesworth_telegraph_80x96.png"
+      ],
+      "logs": [
+        {
+          "text": "GUN WEAVING: LIL OGA.",
+          "kind": "weird",
+          "fx": "gun",
+          "gun": "lil_oga"
+        },
+        {
+          "text": "LIL OGA: 22 DAMAGE.",
+          "kind": "hit",
+          "target": "enemy",
+          "amount": 22,
+          "heavy": false
+        },
+        {
+          "text": "SIR BONESWORTH: HUNGOVER SWAY!",
+          "kind": "enemy",
+          "move": "sway"
+        },
+        {
+          "text": "HE IS STEADYING HIS SHIELD…",
+          "kind": "telegraph"
+        }
+      ],
+      "ammo": {
+        "lil_oga": 3
+      },
+      "presentation": "gun:lil_oga",
+      "latest": "assets/before_the_fame/art_ship_014/package_e/E-gun-lil_oga-held.png"
+    },
+    {
+      "kind": "mod",
+      "id": "gold_plating",
+      "label": "GOLD PLATING",
+      "unlock": "Owned, attached to LIL OGA; No stat change; clout +5 when equipped; VampGram notices",
+      "offered": true,
+      "assets": [
+        "assets/rich_standing_right.png",
+        "assets/before_the_fame/characters/bonesworth/sir_bonesworth_hungover_80x96.png",
+        "assets/before_the_fame/art_ship_014/package_e/E-gun-lil_oga-held.png",
+        "assets/rich_bedroom_lounge_idle.png",
+        "assets/jdm_imports/characters/daughter/daughter_neutral.png",
+        "assets/powder_springs_night_270x480.png",
+        "assets/rich_curb_eating.png",
+        "assets/rich_curb_stargazing.png",
+        "assets/jdm_imports/characters/importer/importer_neutral.png",
+        "assets/jdm_imports/vehicles/supra_mk4_world.png",
+        "assets/jdm_imports/props/car_key.png",
+        "assets/rich_bedroom_small_idle.png",
+        "assets/before_the_fame/characters/bonesworth/bonesworth_hit_80x96.png",
+        "assets/before_the_fame/characters/bonesworth/bonesworth_telegraph_80x96.png"
+      ],
+      "logs": [
+        {
+          "text": "GUN WEAVING: LIL OGA.",
+          "kind": "weird",
+          "fx": "gun",
+          "gun": "lil_oga"
+        },
+        {
+          "text": "LIL OGA: 21 DAMAGE.",
+          "kind": "hit",
+          "target": "enemy",
+          "amount": 21,
+          "heavy": false
+        },
+        {
+          "text": "SIR BONESWORTH: HUNGOVER SWAY!",
+          "kind": "enemy",
+          "move": "sway"
+        },
+        {
+          "text": "HE IS STEADYING HIS SHIELD…",
+          "kind": "telegraph"
+        }
+      ],
+      "ammo": {
+        "lil_oga": 3
+      },
+      "presentation": "gun:lil_oga",
+      "latest": "assets/before_the_fame/art_ship_014/package_e/E-gun-lil_oga-held.png"
+    },
+    {
+      "kind": "mod",
+      "id": "custom_engraving",
+      "label": "CUSTOM ENGRAVING",
+      "unlock": "Owned, attached to LIL OGA; Rich names the gun (text input); the name shows in combat",
+      "offered": true,
+      "assets": [
+        "assets/rich_standing_right.png",
+        "assets/before_the_fame/characters/bonesworth/sir_bonesworth_hungover_80x96.png",
+        "assets/before_the_fame/art_ship_014/package_e/E-gun-lil_oga-held.png",
+        "assets/rich_bedroom_lounge_idle.png",
+        "assets/jdm_imports/characters/daughter/daughter_neutral.png",
+        "assets/powder_springs_night_270x480.png",
+        "assets/rich_curb_eating.png",
+        "assets/rich_curb_stargazing.png",
+        "assets/jdm_imports/characters/importer/importer_neutral.png",
+        "assets/jdm_imports/vehicles/supra_mk4_world.png",
+        "assets/jdm_imports/props/car_key.png",
+        "assets/before_the_fame/characters/bonesworth/bonesworth_hit_80x96.png",
+        "assets/before_the_fame/characters/bonesworth/bonesworth_telegraph_80x96.png"
+      ],
+      "logs": [
+        {
+          "text": "GUN WEAVING: CENSUS.",
+          "kind": "weird",
+          "fx": "gun",
+          "gun": "lil_oga"
+        },
+        {
+          "text": "CENSUS: 22 DAMAGE.",
+          "kind": "hit",
+          "target": "enemy",
+          "amount": 22,
+          "heavy": false
+        },
+        {
+          "text": "SIR BONESWORTH: HUNGOVER SWAY!",
+          "kind": "enemy",
+          "move": "sway"
+        },
+        {
+          "text": "HE IS STEADYING HIS SHIELD…",
+          "kind": "telegraph"
+        }
+      ],
+      "ammo": {
+        "lil_oga": 3
+      },
+      "presentation": "gun:lil_oga",
+      "latest": "assets/before_the_fame/art_ship_014/package_e/E-gun-lil_oga-held.png"
+    }
+  ],
+  "errors": []
+}

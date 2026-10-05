@@ -1,0 +1,14 @@
+PLAYTEST QA over dist working-checkout (uncommitted-final-a)
+[newgame 390] build source-checkout commit unbuilt save v16
+[newgame 390] reached bedroom day 1; prologue adventures A00; ceo {"defeated":true,"completed":true}; steal=yes
+[newgame 390] phone home actions: app:texts app:vampgpt app:maps app:vampgram app:instahoe app:onlyvamps app:texts app:contacts app:realEstate app:jdmImports app:richboi app:bank app:radio app:hatch app:touge app:bars app:receipts close
+FINDING [PLAYTEST BLOCKER] STUCK first-ten-390-wake: no progress for 40 inputs at adventure/A29C/roast minigame=-
+FINDING [ENGINEERING BUG — NON-BLOCKING] INVARIANT newgame-390: idle scene is adventure
+FINDING [ENGINEERING BUG — NON-BLOCKING] INVARIANT newgame-390: adventure still active at bedroom: A29C
+FINDING [ENGINEERING BUG — NON-BLOCKING] INVARIANT newgame-390: body stuck in adventure-mode
+FINDING [ENGINEERING BUG — NON-BLOCKING] INVARIANT newgame-390: adventure DOM left behind
+FINDING [ENGINEERING BUG — NON-BLOCKING] INVARIANT newgame-390: bedroom controls missing
+[newgame 390] refresh → adventure, diff 0
+FINDING [ENGINEERING BUG — NON-BLOCKING] PAGE-ERROR newgame-390: pageerror: function is not iterable (cannot read property Symbol(Symbol.iterator))
+
+PLAYTEST QA done: 7 findings {"PLAYTEST BLOCKER":1,"ENGINEERING BUG — NON-BLOCKING":6} → C:\Users\Ube\Documents\Codex\2026-10-03\files-pasted-by-the-user-final\work\rich_alucard\docs\evidence\final_a\stage4\after

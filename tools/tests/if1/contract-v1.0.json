@@ -1,0 +1,233 @@
+{
+ "contract": "IF-1",
+ "version": "1.0",
+ "note": "Frozen public surface. A member listed here must exist; new members may be added (additive-only).",
+ "modules": {
+  "RAFeatures": {
+   "api": [
+    "anyEnabled",
+    "clear",
+    "enabled",
+    "get",
+    "list",
+    "onChange",
+    "register",
+    "reserved",
+    "set",
+    "snapshot",
+    "storageKey"
+   ]
+  },
+  "RAFlagDefaults": {
+   "api": []
+  },
+  "RAMigrations": {
+   "api": [
+    "base",
+    "hasNamespace",
+    "ledger",
+    "namespace",
+    "namespaceDefaults",
+    "normalize",
+    "steps",
+    "submissions",
+    "submit",
+    "target",
+    "validate"
+   ]
+  },
+  "RAMigrationLedger": {
+   "api": [
+    "assigned",
+    "base"
+   ]
+  },
+  "RAFrag": {
+   "api": [
+    "ensure",
+    "get",
+    "has",
+    "list",
+    "patch",
+    "read"
+   ]
+  },
+  "RAStateWatch": {
+   "api": [
+    "check",
+    "ids",
+    "rebaseline",
+    "watch"
+   ]
+  },
+  "RAWakeBus": {
+   "api": [
+    "bandOf",
+    "bands",
+    "nightReport",
+    "order",
+    "resetTrace",
+    "subscribe",
+    "trace",
+    "voiceNotes"
+   ]
+  },
+  "RAPhoneRegistry": {
+   "api": [
+    "declare",
+    "declaredApps",
+    "reserved",
+    "sync",
+    "unlock"
+   ]
+  },
+  "RAMoneyLedger": {
+   "api": [
+    "balance",
+    "byFamily",
+    "credit",
+    "current",
+    "debit",
+    "entries",
+    "familyOf",
+    "query",
+    "record",
+    "registerFamily",
+    "reset",
+    "restore",
+    "sources",
+    "totals",
+    "withSource"
+   ]
+  },
+  "RAHeat": {
+   "api": [
+    "TIERS",
+    "add",
+    "configure",
+    "describe",
+    "district",
+    "global",
+    "onTierChange",
+    "snapshot",
+    "subscribePrivate",
+    "tierFor",
+    "tiers"
+   ]
+  },
+  "RASocial": {
+   "api": [
+    "gangClout",
+    "on",
+    "snapshot",
+    "streetClout",
+    "tendency",
+    "trust"
+   ]
+  },
+  "RACrew": {
+   "api": [
+    "STATUSES",
+    "bond",
+    "define",
+    "get",
+    "ids",
+    "list",
+    "onChange",
+    "registerStatus",
+    "setBond",
+    "setStatus",
+    "setTimer",
+    "snapshot",
+    "statuses",
+    "stories",
+    "story",
+    "tick"
+   ]
+  },
+  "RAVehicles": {
+   "api": [
+    "driveCount",
+    "globalDrives",
+    "has",
+    "isTributed",
+    "list",
+    "onChange",
+    "owned",
+    "recordDrive",
+    "totalDrives",
+    "tribute"
+   ]
+  },
+  "RADistricts": {
+   "api": [
+    "STATES",
+    "define",
+    "get",
+    "held",
+    "ids",
+    "list",
+    "onChange",
+    "registerState",
+    "setControl",
+    "snapshot",
+    "states"
+   ]
+  },
+  "RAVampGramAPI": {
+   "api": [
+    "account",
+    "accounts",
+    "avatarFor",
+    "avatarKey",
+    "feed",
+    "markSeen",
+    "onPost",
+    "post",
+    "registerAccount",
+    "unseen"
+   ]
+  },
+  "RASalesChannels": {
+   "api": [
+    "claim",
+    "enabled",
+    "get",
+    "list",
+    "record",
+    "register",
+    "resolve"
+   ]
+  },
+  "RACombat2Ext": {
+   "api": [
+    "actionFromButton",
+    "boss",
+    "dispatch",
+    "handles",
+    "itemHook",
+    "menuButtons",
+    "registerAction",
+    "registerBossScript",
+    "registerItemHook",
+    "registerWeapon",
+    "registered"
+   ]
+  },
+  "RAArtParts": {
+   "api": [
+    "fragments",
+    "provenance",
+    "register"
+   ]
+  },
+  "RAAudioParts": {
+   "api": [
+    "fragments",
+    "idsFor",
+    "provenance",
+    "register"
+   ]
+  }
+ }
+}

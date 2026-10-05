@@ -1,0 +1,27 @@
+PASS OL-042 warehouse exterior (TAKEOVER only, ownership, save/reload, flags OFF)
+PASS f07 dark: flag OFF -> M8 + finale unavailable, no namespace, boss script inert, no loan squad
+PASS f07 M8 delivery: needs M7 + a later day; WAKE arbiter priority 77; presented as JOB TEXT ONLY (no voice note UI or content)
+PASS f07 M8 PLAY request: smack_crib (not BIG PLAY), boys on loan + any Ogas, contract-valid, lilSmackGone -> LIEUTENANT leads
+PASS f07 M8 win: m8Resolved written, $18K authored pay (not the PLAY pot), +12 HEAT, no invented clout/trust, never re-offered
+PASS f07 M8 loss: resolves nothing, TRY AGAIN retries in place, only the resolution pays
+PASS f07 SEND THE BOYS: resolves M8 with NO invented consequence (no pay, HEAT, clout or trust change); cost left to the D-queue
+PASS f07 refusals: no car / F01 off resolve nothing, SEND THE BOYS always available, NOT YET re-arrives next WAKE
+PASS f07 -> f03 handoff: M8 (win or SEND THE BOYS) writes m8Resolved; the next WAKE delivers M9; locked before
+PASS f07 x f03 creator ruling: M8 -> M9 NAH keeps Rank 4 and trust delta 0
+PASS f07 save/reload: m8Resolved + loan squad persist; a pending PLAY survives reload and is consumed exactly once
+PASS f07 GBENGA: 260 / 320 HP, AGBADA SWEEP 24 (telegraphed), VOICE NOTE skips Rich's turn, MY SON heals 30 + removes buffs
+PASS f07 GBENGA scripts: VOICE NOTE interruptible only by REVENGE / DEAD RINGER, 50% Mama Gbenga shame turn (once), below 30% GOLDEN DRACO 2×20 telegraphed
+PASS f07 GBENGA octopus: RETIRE, UNCLE needs the leftovers (M7), WORK FOR ME needs high trust, ROAST costs him two turns
+PASS f07 finale entry: next WAKE after VampGPT; THE OGAS fixed + two others from the eligible lanes, CARLOS / SENATOR conditional
+PASS f07 THE BLESSING: real Phase 1 PLAY + Phase 2 (RETIRE, UNCLE) -> NEW OGA rank 6, blocks, War Room starts, headlines, SPARK; car stays tributed; Shannon on screen, no invented dialogue
+PASS f07 THE CONSIGLIERE: WORK FOR ME (high trust) -> Gbenga stays as advisor; "Hello. Hello. Oga. Hello." continues
+PASS f07 THE TAKEOVER: win the fight -> Gbenga leaves LA, warehouse is Rich’s, the F03-tributed car comes back (F03 returnTribute)
+PASS f07 M9 NAH path reaches the finale and the NEW OGA ending (no tribute to return)
+PASS f07 fame (§5): SPARK waives the dimension requirement, floor Day 25 (next sleep if Day >= 25, else first sleep of Day 25)
+PASS f07 finale save/reload: NEW OGA, blocks, tribute return, War Room state persist; the finale never re-arrives
+PASS f07 War Room: queued while F04 is dark, started on the first WAKE it is available
+PASS f07 Phase 1 gameplay: F07-owned PLAY job (one LIEUTENANT, ENFORCER/CHEWER, QUIET) + AUNTIES (line-of-fire hazard) and CANOPY POLE (collapse hazard) stage cards drawn by the real F01 engine; F01 stock tables restored, F01 files untouched
+PASS f07 D3/D6: THE OGAS fixed + two others (never selectable twice, never deselectable), saved plans reconciled with no lane silently dropped, lane picks neutral and advertise no effect
+PASS f07 D7: Phase 1 is reachable with no car and with insufficient seats (encounter vehicle only; inventory, drives and F03 tribute untouched; TAKEOVER returns the car); ordinary F01/M8 car rules unchanged
+PASS f07 endings: BLESSING / CONSIGLIERE / TAKEOVER each carry only their own authored consequence; every one makes Rich the NEW OGA; no recruit identity is invented
+PASS f07 REQUIRED GAMEPLAY PROOF (real engine, identical seeds): AUNTIES and CANOPY POLE hazards change outcomes and only cost Rich's side; a collapse downs a named unit with the pole as cause (pinned seed); the narration step is produced for EVERY occurrence, outside the feed budget; stock beats unchanged

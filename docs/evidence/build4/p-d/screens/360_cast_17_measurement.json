@@ -1,0 +1,142 @@
+{
+  "combat": false,
+  "env": "grave",
+  "world": {
+    "x": 0,
+    "y": 0,
+    "w": 360,
+    "h": 468
+  },
+  "actors": [
+    {
+      "slot": "left",
+      "id": "rich",
+      "tag": "IMG",
+      "src": "assets/rich_standing_right.png",
+      "ok": true,
+      "nw": 80,
+      "nh": 96,
+      "css": {
+        "x": -77,
+        "y": 104,
+        "w": 280,
+        "h": 336
+      },
+      "visible": {
+        "x": 17.5,
+        "y": 230,
+        "w": 94.5,
+        "h": 182
+      },
+      "sprite": {
+        "x": -77,
+        "y": 104,
+        "w": 280,
+        "h": 336
+      },
+      "face": {
+        "x": 35,
+        "y": 261.5,
+        "w": 66.5,
+        "h": 49
+      },
+      "contact": {
+        "x": 63,
+        "y": 412
+      },
+      "world": {
+        "x": 72,
+        "y": 372
+      },
+      "k": 3.5,
+      "hidden": false,
+      "rendering": "pixelated",
+      "body": {
+        "x": 18,
+        "y": 230,
+        "w": 94,
+        "h": 182
+      },
+      "pixels": 11609
+    },
+    {
+      "slot": "right",
+      "id": "kiosk_guy",
+      "tag": "IMG",
+      "src": "assets/build4/p_d/p_d_kiosk_guy_80x96.png",
+      "ok": true,
+      "nw": 80,
+      "nh": 96,
+      "css": {
+        "x": 168,
+        "y": 104,
+        "w": 280,
+        "h": 336
+      },
+      "visible": {
+        "x": 273,
+        "y": 261.5,
+        "w": 70,
+        "h": 154
+      },
+      "sprite": {
+        "x": 168,
+        "y": 104,
+        "w": 280,
+        "h": 336
+      },
+      "face": {
+        "x": 283.5,
+        "y": 286,
+        "w": 49,
+        "h": 45.5
+      },
+      "contact": {
+        "x": 308,
+        "y": 412
+      },
+      "world": {
+        "x": 198,
+        "y": 372
+      },
+      "k": 3.5,
+      "hidden": false,
+      "rendering": "pixelated",
+      "body": {
+        "x": 273,
+        "y": 262,
+        "w": 70,
+        "h": 154
+      },
+      "pixels": 7145
+    }
+  ],
+  "pairs": [
+    {
+      "a": "rich",
+      "b": "kiosk_guy",
+      "overlap": 0,
+      "frac": 0
+    }
+  ],
+  "ui": {
+    "box": {
+      "x": 8,
+      "y": 489.5625,
+      "w": 344,
+      "h": 130
+    },
+    "bubble": null,
+    "choices": [],
+    "hud": [],
+    "telegraph": null,
+    "panel": null,
+    "title": null,
+    "location": {
+      "x": 8,
+      "y": 8,
+      "w": 147.703125,
+      "h": 17.125
+    }
+  }
+}

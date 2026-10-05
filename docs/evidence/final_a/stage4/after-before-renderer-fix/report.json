@@ -1,0 +1,52 @@
+{
+ "build": {
+  "releaseId": "working-checkout",
+  "commit": "uncommitted-final-a",
+  "artifact": false
+ },
+ "results": {},
+ "findings": [
+  {
+   "cls": "PLAYTEST BLOCKER",
+   "code": "STUCK",
+   "detail": "first-ten-390-wake: no progress for 40 inputs at adventure/A29C/roast minigame=-"
+  },
+  {
+   "cls": "ENGINEERING BUG — NON-BLOCKING",
+   "code": "INVARIANT",
+   "detail": "newgame-390: idle scene is adventure"
+  },
+  {
+   "cls": "ENGINEERING BUG — NON-BLOCKING",
+   "code": "INVARIANT",
+   "detail": "newgame-390: adventure still active at bedroom: A29C"
+  },
+  {
+   "cls": "ENGINEERING BUG — NON-BLOCKING",
+   "code": "INVARIANT",
+   "detail": "newgame-390: body stuck in adventure-mode"
+  },
+  {
+   "cls": "ENGINEERING BUG — NON-BLOCKING",
+   "code": "INVARIANT",
+   "detail": "newgame-390: adventure DOM left behind"
+  },
+  {
+   "cls": "ENGINEERING BUG — NON-BLOCKING",
+   "code": "INVARIANT",
+   "detail": "newgame-390: bedroom controls missing"
+  },
+  {
+   "cls": "ENGINEERING BUG — NON-BLOCKING",
+   "code": "PAGE-ERROR",
+   "detail": "newgame-390: pageerror: function is not iterable (cannot read property Symbol(Symbol.iterator))"
+  }
+ ],
+ "log": [
+  "PLAYTEST QA over dist working-checkout (uncommitted-final-a)",
+  "[newgame 390] build source-checkout commit unbuilt save v16",
+  "[newgame 390] reached bedroom day 1; prologue adventures A00; ceo {\"defeated\":true,\"completed\":true}; steal=yes",
+  "[newgame 390] phone home actions: app:texts app:vampgpt app:maps app:vampgram app:instahoe app:onlyvamps app:texts app:contacts app:realEstate app:jdmImports app:richboi app:bank app:radio app:hatch app:touge app:bars app:receipts close",
+  "[newgame 390] refresh → adventure, diff 0"
+ ]
+}

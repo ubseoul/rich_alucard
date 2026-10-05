@@ -1,0 +1,142 @@
+{
+  "combat": false,
+  "env": "bedroom",
+  "world": {
+    "x": 0,
+    "y": 0,
+    "w": 360,
+    "h": 468
+  },
+  "actors": [
+    {
+      "slot": "left",
+      "id": "rich",
+      "tag": "IMG",
+      "src": "assets/rich_standing_right.png",
+      "ok": true,
+      "nw": 80,
+      "nh": 96,
+      "css": {
+        "x": -85.5,
+        "y": 104,
+        "w": 280,
+        "h": 336
+      },
+      "visible": {
+        "x": 9,
+        "y": 230,
+        "w": 94.5,
+        "h": 182
+      },
+      "sprite": {
+        "x": -85.5,
+        "y": 104,
+        "w": 280,
+        "h": 336
+      },
+      "face": {
+        "x": 26.5,
+        "y": 261.5,
+        "w": 66.5,
+        "h": 49
+      },
+      "contact": {
+        "x": 54.5,
+        "y": 412
+      },
+      "world": {
+        "x": 82.80470085470085,
+        "y": 400
+      },
+      "k": 3.5,
+      "hidden": false,
+      "rendering": "pixelated",
+      "body": {
+        "x": 9,
+        "y": 230,
+        "w": 95,
+        "h": 182
+      },
+      "pixels": 11603
+    },
+    {
+      "slot": "right",
+      "id": "senator",
+      "tag": "IMG",
+      "src": "assets/build4/p_d/p_d_senator_sitting_160x160.png",
+      "ok": true,
+      "nw": 160,
+      "nh": 160,
+      "css": {
+        "x": 109.5,
+        "y": 156,
+        "w": 269.5625,
+        "h": 269.5625
+      },
+      "visible": {
+        "x": 141.5112,
+        "y": 196.4352,
+        "w": 207.2304,
+        "h": 217.3392
+      },
+      "sprite": {
+        "x": 109.5,
+        "y": 156,
+        "w": 269.568,
+        "h": 269.568
+      },
+      "face": {
+        "x": 171.8376,
+        "y": 231.816,
+        "w": 144.8928,
+        "h": 65.7072
+      },
+      "contact": {
+        "x": 244.5,
+        "y": 412
+      },
+      "world": {
+        "x": 187.19529914529915,
+        "y": 400
+      },
+      "k": 1.6848,
+      "hidden": false,
+      "rendering": "pixelated",
+      "body": {
+        "x": 142,
+        "y": 196,
+        "w": 207,
+        "h": 218
+      },
+      "pixels": 25230
+    }
+  ],
+  "pairs": [
+    {
+      "a": "rich",
+      "b": "senator",
+      "overlap": 0,
+      "frac": 0
+    }
+  ],
+  "ui": {
+    "box": {
+      "x": 8,
+      "y": 489.5625,
+      "w": 344,
+      "h": 130
+    },
+    "bubble": null,
+    "choices": [],
+    "hud": [],
+    "telegraph": null,
+    "panel": null,
+    "title": null,
+    "location": {
+      "x": 8,
+      "y": 8,
+      "w": 100.1875,
+      "h": 17.125
+    }
+  }
+}

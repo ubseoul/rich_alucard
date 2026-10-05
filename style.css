@@ -18,7 +18,7 @@ body{display:grid;place-items:center}
 .main-menu{padding:5px 5px;display:flex;flex-direction:column;justify-content:center}
 button{font:inherit;cursor:pointer}.main-menu button{border:0;background:transparent;text-align:left;color:var(--ink);font-weight:bold;padding:1px 3px;font-size:clamp(9px,3.4cqw,16px);line-height:1.05}.main-menu button.selected{background:#ddd5bb}
 .moves{grid-column:1/3;display:grid;grid-template-columns:repeat(4,1fr);gap:3px}.moves button{position:relative;border:2px solid #e8e4f8;outline:1px solid #11101d;background:var(--purple);color:#f4f0ff;font-weight:bold;font-size:clamp(7px,2.7cqw,13px);line-height:1.0;padding:5px 2px 14px}.moves button span{position:absolute;left:0;right:0;bottom:0;background:var(--cream);color:var(--ink);font-size:.72em;padding:2px}.moves button:focus,.moves button.active{background:#33255b;transform:translateY(-1px)}
-.start-overlay{position:absolute;inset:0;background:rgba(5,4,12,.72);display:grid;place-items:center;z-index:20}.start-card{width:78%;padding:14px 12px;text-align:center}.title{font-weight:900;font-size:clamp(18px,6cqw,30px);letter-spacing:-1px}.subtitle{font-size:clamp(8px,2.8cqw,13px);margin:4px 0 12px}.start-card button{width:80%;background:#17142c;color:#fff;border:3px double #fff;padding:8px;font-weight:bold}.start-card small{display:block;margin-top:8px;font-size:clamp(7px,2.3cqw,11px)}
+.start-overlay{position:absolute;inset:0;background:rgba(5,4,12,.72);display:grid;place-items:center;z-index:20}.start-card{width:78%;padding:14px 12px;text-align:center}.title{font-weight:900;font-size:clamp(18px,6cqw,30px);letter-spacing:-1px}.subtitle{font-size:clamp(8px,2.8cqw,13px);margin:4px 0 12px}.start-card button{width:80%;background:#17142c;color:#fff;border:3px double #fff;padding:8px;font-weight:bold}.start-card #newGameButton{margin-top:6px;background:transparent;color:#17142c;border-color:#17142c}.start-card small{display:block;margin-top:8px;font-size:clamp(7px,2.3cqw,11px)}
 .toast{position:absolute;z-index:15;left:8%;right:8%;top:59%;padding:7px;text-align:center;font-size:clamp(8px,2.8cqw,13px);display:none}.toast.show{display:block}
 @media (max-aspect-ratio:9/16){#screen{width:100vw;height:auto}}
 
@@ -622,7 +622,9 @@ body.dev-enabled .dev-panel{max-height:72%;overflow:auto}
 .phone-button{display:block;width:100%;min-height:33px;padding:6px 4px;border:2px solid #28131c;box-shadow:2px 2px #7d194b;background:#17142c;color:#fff;font:7px/1.35 var(--font-system);text-align:center;overflow-wrap:anywhere;touch-action:manipulation}
 .phone-button:active{transform:translate(1px,1px);box-shadow:1px 1px #7d194b}
 .phone-app-grid .phone-button{min-height:50px;font-size:6px}
-.phone-app-grid .phone-button:first-child{background:#d7193f}
+/* Frozen app icons: native 24×24 at 1 CSS px per source px (integer device pixels), never smoothed or stretched. */
+.phone-app-icon{display:block;width:24px;height:24px;margin:0 auto 4px;image-rendering:pixelated;pointer-events:none}
+.phone-app-grid .phone-button:first-of-type{background:#d7193f}
 .phone-chat{padding:8px 7px;border:2px solid #28131c;background:#fff8df;font:8px/1.65 var(--font-system);overflow-wrap:anywhere}
 .phone-chat p{margin:0 0 9px}
 .phone-chat .phone-speaker{margin:0 0 3px;color:#7d194b;font-size:7px}
@@ -642,6 +644,134 @@ body.dev-enabled .dev-panel{max-height:72%;overflow:auto}
 .phone-incoming-kicker{margin:0 0 5px;color:#7d194b;font:6px/1.4 var(--font-system)}
 .phone-button.incoming-button{min-height:38px;background:#7d194b;text-align:left;padding-left:8px}
 .phone-incoming-message{border-color:#7d194b}
+/* Phone hierarchy (PACKET UL-L2-001): grouped sections + concise lock communication + engine settings. */
+.phone-section-label{grid-column:1/-1;margin:4px 0 0;padding:2px 1px;color:#7d194b;font:6px/1.4 var(--font-system);letter-spacing:1px;border-bottom:1px dotted #c18b3c}
+.phone-app-grid .phone-button.app-dormant{opacity:.72;filter:saturate(.5)}
+.phone-button[data-locked="1"]{background:#2a2433}
+.phone-lock-short{display:block;margin-top:4px;color:#c18b3c;font-size:6px}
+.phone-settings-button{background:#403744 !important}
+.phone-settings{display:grid;gap:9px}
+.phone-setting{display:flex;align-items:center;justify-content:space-between;gap:8px;font:7px var(--font-system);color:#10101b}
+.phone-setting input[type=range]{width:52%;accent-color:#7d194b}
+.phone-toggle{padding:5px 0 0;border-top:1px solid #c18b3c}
+.phone-toggle input{width:18px;height:18px;accent-color:#7d194b}
+.phone-toggle-mute{background:#7d194b}
+
+/* FINAL-A: Rich's Life OS. Scoped tokens unify every app without leaking into THE PLAY / RAINMAKER. */
+#phoneOverlay{--os-bg:#0c0b14;--os-surface:#171322;--os-raised:#241b30;--os-line:#49334f;--os-text:#f6efd9;--os-muted:#bdacc4;--os-gold:#efc16b;--os-red:#f04067;--os-green:#88dbad;--os-body:Monogram,"Courier New",monospace;--os-label:"Tiny5","Courier New",monospace;color:var(--os-text)}
+#phoneOverlay .phone-shell{padding:10px 10px 8px;gap:0;background:var(--os-bg);border:3px solid #49334f;box-shadow:inset 0 0 0 1px #0c0b14}
+#phoneOverlay .phone-topline{min-height:34px;padding:0 0 8px;border:0;border-bottom:1px solid var(--os-line);background:transparent;gap:6px;font:12px var(--os-label);letter-spacing:1px}
+#phoneOverlay .phone-topline>span{margin-right:auto;color:var(--os-gold)}
+#phoneOverlay .phone-topline button{width:28px;height:28px;min-height:28px;border:1px solid var(--os-line);background:var(--os-surface);color:var(--os-text);font:16px var(--os-body);box-shadow:none}
+#phoneContent{padding:9px 2px 12px;border:0;box-shadow:none;background:var(--os-bg);color:var(--os-text);font:20px/1.15 var(--os-body);scrollbar-width:thin;scrollbar-color:var(--os-line) var(--os-bg)}
+#phoneContent h1{font:24px/1 var(--os-label);color:var(--os-text);letter-spacing:1px;margin:3px 0 14px;padding:0 0 9px;border-bottom:2px solid var(--os-red);overflow-wrap:anywhere}
+#phoneContent .phone-status{font:12px var(--os-label);display:flex;justify-content:space-between;color:var(--os-muted);border:0;margin:0 0 9px}
+#phoneContent .phone-signal{color:var(--os-green);letter-spacing:2px}
+#phoneContent .phone-balance{display:flex;align-items:baseline;justify-content:space-between;margin:6px 0 14px;color:var(--os-muted);font:12px var(--os-label)}
+#phoneContent .phone-balance strong{color:var(--os-text);font:32px/1 var(--os-body);letter-spacing:1px}
+#phoneContent .phone-next{border:1px solid var(--os-red);background:var(--os-raised);padding:8px;margin:0 0 15px;box-shadow:3px 3px #4c1932}
+#phoneContent .phone-next .phone-incoming-kicker{color:var(--os-red);font:12px var(--os-label);letter-spacing:2px;margin:0 0 5px}
+#phoneContent .phone-next-button{position:relative;background:transparent;border:0;padding:0 23px 0 0;box-shadow:none;text-align:left;min-height:42px}
+#phoneContent .phone-next-button small{margin:0 0 4px;color:var(--os-gold)}
+#phoneContent .phone-next-button strong{font-weight:400;line-height:1.05;display:block}
+#phoneContent .phone-next-arrow{position:absolute;right:1px;top:12px;color:var(--os-red);font:26px var(--os-body)}
+#phoneContent .phone-app-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:9px 7px}
+#phoneContent .phone-section-label{grid-column:1/-1;color:var(--os-muted);font:12px var(--os-label);letter-spacing:2px;margin:8px 0 1px;padding:0 0 5px;border-bottom:1px solid var(--os-line)}
+#phoneContent .phone-button{min-height:40px;margin:5px 0;padding:8px 9px;border:1px solid var(--os-line);box-shadow:2px 2px #06050b;background:var(--os-raised);color:var(--os-text);font:20px/1.05 var(--os-body);text-align:left;overflow-wrap:anywhere;transition:background 80ms steps(2,end)}
+#phoneContent .phone-button:active{transform:translate(1px,1px);background:#49334f;box-shadow:1px 1px #06050b}
+#phoneContent .phone-button:disabled{opacity:.5;cursor:default}
+#phoneContent .phone-app-grid .app-button{display:flex;flex-direction:column;align-items:center;position:relative;gap:5px;min-height:81px;margin:0;padding:5px 2px 6px;background:transparent;border:0;box-shadow:none;font:12px/1.1 var(--os-label);text-align:center}
+#phoneContent .phone-app-grid .app-button:active{background:var(--os-raised)}
+#phoneContent .phone-app-label{max-width:100%;min-height:13px;overflow-wrap:anywhere}
+#phoneContent .phone-icon-tile{display:grid;place-items:center;position:relative;flex:none;width:42px;height:42px;background:var(--os-surface);color:var(--os-gold);border:2px solid var(--os-line);box-shadow:2px 2px #050409}
+#phoneContent .phone-icon-tile[data-icon="vampgpt"]{background:#681937;border-color:var(--os-red);color:var(--os-text)}
+#phoneContent .phone-icon-tile[data-icon="warRoom"],#phoneContent .phone-icon-tile[data-icon="armory"]{color:var(--os-red)}
+#phoneContent .phone-icon-tile[data-icon="bank"],#phoneContent .phone-icon-tile[data-icon="trap"]{color:var(--os-green)}
+#phoneContent .phone-app-icon{width:24px;height:24px;margin:0}
+#phoneContent .phone-pixel-icon{display:block;width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.5}
+#phoneContent .phone-badge{font:12px var(--os-label);background:var(--os-red);color:#fff;border:1px solid var(--os-bg);min-width:15px;padding:2px;text-align:center;font-style:normal}
+#phoneContent .app-button .phone-badge{position:absolute;right:17px;top:0}
+#phoneContent .phone-app-grid .app-dormant{opacity:1;filter:none;color:var(--os-muted)}
+#phoneContent .app-dormant .phone-icon-tile{color:#8b7893;box-shadow:none}
+#phoneContent .app-dormant .phone-icon-tile:after{content:'×';position:absolute;right:-4px;bottom:-3px;background:var(--os-bg);font:18px var(--os-body);color:var(--os-muted);line-height:12px}
+#phoneContent .phone-button small,#phoneContent .phone-lock-short{display:block;font:12px/1.2 var(--os-label);margin-top:4px;color:var(--os-muted)}
+#phoneContent .phone-lock-short{font-size:10px;letter-spacing:0}
+#phoneContent .phone-chat,#phoneContent .phone-card,#phoneContent .ia-gun,#phoneContent .ia-mod{padding:10px;margin:8px 0;background:var(--os-surface);border:1px solid var(--os-line);border-radius:0;color:var(--os-text);font:20px/1.15 var(--os-body);box-shadow:2px 2px #06050b;overflow-wrap:anywhere}
+#phoneContent .phone-chat p{margin:0 0 10px}
+#phoneContent .phone-card b,#phoneContent .ia-gun b,#phoneContent .ia-mod b{display:block;color:var(--os-gold);font:16px/1.2 var(--os-label);margin-bottom:5px;letter-spacing:.5px}
+#phoneContent .phone-small,#phoneContent .phone-speaker,#phoneContent .ia-gun small,#phoneContent .ia-mod small{font:14px/1.2 var(--os-label);color:var(--os-muted)}
+#phoneContent .phone-speaker{display:block;letter-spacing:1px;margin:12px 0 5px;color:var(--os-gold)}
+#phoneContent .phone-incoming{margin:9px 0 12px;padding:8px;border:1px solid var(--os-gold);background:var(--os-surface);box-shadow:none}
+#phoneContent .phone-incoming-kicker{color:var(--os-gold);font:12px var(--os-label);letter-spacing:1px}
+#phoneContent .incoming-button{background:var(--os-raised)}
+#phoneContent .phone-message{min-height:0;margin:9px 0;color:var(--os-gold);font:16px/1.15 var(--os-label)}
+#phoneContent .phone-message:not(:empty){padding:9px;border-left:3px solid var(--os-gold);background:var(--os-surface)}
+#phoneContent .phone-option-list{gap:3px;margin:8px 0}
+#phoneContent .destination-available{border-left:3px solid var(--os-green)}
+#phoneContent .destination-locked{border-left:3px solid #786381;color:var(--os-muted)}
+#phoneContent .phone-back,#phoneContent .phone-home{width:48%;font:16px var(--os-label);text-align:center;border-color:var(--os-line);background:var(--os-bg);margin-top:12px}
+#phoneContent .phone-nav{display:flow-root;margin-top:8px}
+#phoneContent .phone-thread p.msg{max-width:90%;margin:7px 0;padding:8px;background:var(--os-raised);color:var(--os-text);font:20px/1.15 var(--os-body);border-left:2px solid var(--os-line)}
+#phoneContent .phone-thread p.msg.me{background:#571c35;border-left-color:var(--os-red)}
+#phoneContent .phone-thread p.who{font:12px var(--os-label);color:var(--os-muted);margin:10px 0 3px}
+#phoneContent .vg-post{border-top:2px solid var(--os-red);min-height:62px}
+#phoneContent .vg-avatar{margin-bottom:6px}
+#phoneContent .phone-wwo{margin:10px 0;padding:8px;border:1px dashed var(--os-red);background:var(--os-bg);gap:5px}
+#phoneContent .phone-wwo .phone-button.wwo-line{font:20px/1.15 var(--os-body);background:var(--os-raised);color:var(--os-text);min-height:40px}
+#phoneContent .jdm-price{font:28px var(--os-body);color:var(--os-green);margin:9px 0}
+#phoneContent .jdm-access-note,#phoneContent .radio-mini{font:14px/1.2 var(--os-label);color:var(--os-muted)}
+#phoneContent .radio-mini{border:1px solid var(--os-line);background:var(--os-surface);padding:7px;min-height:32px;margin-bottom:12px}
+#phoneContent .radio-mini i{border-radius:0;border:1px solid var(--os-line);background:var(--os-red)}
+#phoneContent .octo-option{border-color:#a272ca;background:#311d46;box-shadow:2px 2px #06050b}
+#phoneContent .phone-setting{font:16px var(--os-label);color:var(--os-text)}
+#phoneContent .phone-setting input{accent-color:var(--os-red)}
+#phoneContent .phone-toggle{border-top-color:var(--os-line)}
+#phoneContent .phone-close-button{margin-top:12px;text-align:center;font:14px var(--os-label);background:var(--os-bg)}
+#phoneContent .phone-bank-total{padding:14px 8px;border-bottom:2px solid var(--os-green);margin-bottom:12px}
+#phoneContent .phone-bank-total span{display:block;color:var(--os-muted);font:14px var(--os-label)}
+#phoneContent .phone-bank-total strong{display:block;font:46px/1.2 var(--os-body);color:var(--os-green);font-weight:400}
+#phoneContent .phone-stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+#phoneContent .phone-stat-grid .phone-card{margin:0 0 6px}
+#phoneContent .phone-stat-grid strong{font:30px var(--os-body);color:var(--os-text)}
+#phoneContent .phone-stat-grid small{display:block;font:12px var(--os-label);color:var(--os-muted)}
+#phoneContent button:focus-visible,#phoneOverlay .phone-topline button:focus-visible{outline:2px solid var(--os-gold);outline-offset:2px}
+/* OL-055/056/057: a physical pixel smartphone around the life interface. */
+#phoneOverlay .phone-shell{inset:10px 12px;padding:7px 9px 5px;border:4px solid #78637e;box-shadow:inset 0 0 0 2px #33253d,4px 5px #050409;clip-path:polygon(0 12px,4px 12px,4px 4px,12px 4px,12px 0,calc(100% - 12px) 0,calc(100% - 12px) 4px,calc(100% - 4px) 4px,calc(100% - 4px) 12px,100% 12px,100% calc(100% - 12px),calc(100% - 4px) calc(100% - 12px),calc(100% - 4px) calc(100% - 4px),calc(100% - 12px) calc(100% - 4px),calc(100% - 12px) 100%,12px 100%,12px calc(100% - 4px),4px calc(100% - 4px),4px calc(100% - 12px),0 calc(100% - 12px))}
+#phoneOverlay .phone-earpiece{height:13px;flex:none;display:flex;justify-content:center;align-items:center;gap:7px}
+#phoneOverlay .phone-earpiece i{width:34px;height:3px;background:#78637e;box-shadow:0 2px #171322}
+#phoneOverlay .phone-earpiece b{width:4px;height:4px;background:#bdacc4;box-shadow:1px 1px #49334f}
+#phoneOverlay .phone-device-status{display:flex;align-items:center;gap:8px;min-height:22px;color:var(--os-text);font:12px var(--os-label);padding:0 2px}
+#phoneOverlay .phone-carrier{margin-right:auto;color:var(--os-gold);font-size:10px;letter-spacing:1px}
+#phoneOverlay .phone-signal{color:var(--os-green);font-size:14px}
+#phoneOverlay .phone-battery{position:relative;display:block;box-sizing:border-box;width:20px;height:10px;padding:2px;border:1px solid var(--os-text)}
+#phoneOverlay .phone-battery:after{content:'';position:absolute;right:-3px;top:2px;width:2px;height:4px;background:var(--os-text)}
+#phoneOverlay .phone-battery i{display:block;width:100%;height:100%;background:var(--os-green)}
+#phoneOverlay .phone-topline{padding:3px 0 6px;min-height:40px}
+#phoneOverlay .phone-topline button{width:40px;height:40px;min-height:40px;font-size:22px}
+#phoneContent .phone-system-status .phone-signal{display:none}
+#phoneContent .phone-next .phone-incoming-kicker{display:flex;justify-content:space-between;gap:6px}
+#phoneContent .phone-next .phone-incoming-kicker span{font-size:10px;color:var(--os-muted);letter-spacing:0}
+#phoneOverlay .phone-home-key{flex:none;display:grid;place-items:center;height:32px;min-height:32px;background:transparent;border:0;cursor:pointer;touch-action:manipulation}
+#phoneOverlay .phone-home-key i{display:block;width:44px;height:4px;background:#78637e;border:1px solid #171322}
+#phoneOverlay.device-locked #phoneSettingsButton,#phoneOverlay.device-locked #phoneLockButton,#phoneOverlay.device-locked .phone-home-key{visibility:hidden}
+#phoneContent .phone-lock-screen{min-height:85%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;background:repeating-linear-gradient(0deg,transparent 0 23px,#171322 23px 24px),repeating-linear-gradient(90deg,transparent 0 23px,#171322 23px 24px)}
+#phoneContent .phone-lock-screen h1{font-size:42px;border:0}
+#phoneContent .phone-lock-glyph{font:58px var(--os-body);color:var(--os-gold)}
+#phoneContent .phone-unlock{width:90%;text-align:center;border-color:var(--os-gold)}
+#phoneContent .phone-search{display:block;font:12px var(--os-label);color:var(--os-muted);margin:8px 0}
+#phoneContent .phone-search input{display:block;box-sizing:border-box;width:100%;height:40px;margin:5px 0;background:var(--os-surface);color:var(--os-text);border:1px solid var(--os-line);border-left:3px solid var(--os-red);font:20px var(--os-body);padding:5px 9px;border-radius:0}
+#phoneContent .phone-contact-list{min-height:56px}
+#phoneContent .phone-keyboard{position:sticky;bottom:0;background:#171322;border-top:2px solid var(--os-line);padding:7px 0 3px;box-shadow:0 -4px #0c0b14}
+#phoneContent .phone-keyboard>div{display:flex;justify-content:center;gap:3px;margin:4px 0}
+#phoneContent .phone-keyboard button{flex:1;min-width:0;min-height:36px;max-width:34px;padding:4px 0;background:var(--os-raised);color:var(--os-text);border:1px solid var(--os-line);border-bottom:3px solid #090710;font:16px var(--os-body);cursor:pointer;touch-action:manipulation}
+#phoneContent .phone-keyboard>div:last-child button{max-width:none;flex:1;font-size:14px}
+#phoneContent .phone-keyboard>div:last-child .phone-space{flex:3}
+#phoneContent .phone-keyboard button:active{background:#681937;border-bottom-color:var(--os-red)}
+#phoneContent{touch-action:pan-y;overscroll-behavior:contain;-webkit-overflow-scrolling:touch}
+#phoneContent .phone-thread p.msg{clip-path:polygon(0 4px,4px 4px,4px 0,100% 0,100% calc(100% - 4px),calc(100% - 4px) calc(100% - 4px),calc(100% - 4px) 100%,0 100%)}
+#phoneContent .phone-thread p.msg.me{margin-left:auto;border-right:2px solid var(--os-red)}
+#phoneContent .phone-message-time{display:block;font:10px var(--os-label);color:var(--os-muted);margin-bottom:5px;letter-spacing:1px}
+#pdWorld > .pd-grounded:after{display:none}
 
 /* Desire Trip #001: authored Powder Springs environment and held Rich poses. */
 body.trip-mode #screen > :not(#tripTravel):not(#powderSpringsCurb):not(#stargazingScene):not(#tripReturn):not(#devPanel):not(#soundtrack){display:none!important}
@@ -724,7 +854,13 @@ body.jdm-battle .production-ceo.state-hit{filter:brightness(1.25)}
 .jdm-panel-action,.jdm-action{width:100%;min-height:28px;padding:5px 3px;background:#17142c;color:#fff;border:2px solid #fff;font:6px/1.35 var(--font-command);cursor:pointer}
 .jdm-action:disabled{opacity:.55;cursor:default}
 .jdm-store-actions{display:grid;gap:5px;margin-top:8px}
-.supra-product{display:block;width:136px;height:50px;margin:4px auto 7px;image-rendering:pixelated;object-fit:fill}
+.supra-product{display:block;width:136px;height:auto;margin:4px auto 7px;image-rendering:pixelated}
+/* ART SHIP 014 frozen UI art on phone cards (native pixels, integer scale only). */
+.car-listing{display:block;width:68px;height:50px;margin:0 auto 4px;image-rendering:pixelated}
+.radio-cover,.family-avatar,.vg-avatar,.adv-choice-icon,.c2-icon{image-rendering:pixelated;flex:none}
+.radio-cover{float:left;width:32px;height:32px;margin:0 8px 2px 0}
+.vg-avatar{float:left;width:40px;height:44px;margin:0 6px 2px 0;background:no-repeat -20px -6px}
+.family-avatar{display:inline-block;vertical-align:middle;width:22px;height:28px;margin-right:4px;background:no-repeat -29px -34px}
 .jdm-price{margin:7px 0;font-size:9px;color:#7d194b}
 .jdm-access-note{font-size:7px;color:#544757}
 .supra-payoff-panel{position:absolute;z-index:6;left:4%;right:4%;bottom:4%;padding:7px;background:#f1e5c5;color:#17142c;border:3px solid #28131c;box-shadow:3px 3px #7d194b;text-align:center;font:7px/1.5 var(--font-dialogue)}
@@ -744,3 +880,85 @@ body.jdm-mode .reveal-overlay{z-index:140}
 .reveal-assistant-sprite.conversion-bite{filter:brightness(1.7) sepia(.4)}
 .reveal-assistant-sprite.conversion-first{filter:brightness(.72) sepia(1) hue-rotate(290deg) saturate(2)}
 .reveal-assistant-sprite.conversion-second{filter:brightness(.55) sepia(1) hue-rotate(280deg) saturate(2.5);transform:translateX(-50%) scale(1.3)}
+
+/* ==== Presentation Director (docs/PRESENTATION_DIRECTOR.md) ====
+   Generic per-mode layout driven by Director CSS variables. No per-scene sizing lives here. */
+body.pd-active #stage{height:min(100dvh,calc(min(100vw,56.25dvh) * 2.2223));aspect-ratio:auto}
+body.pd-active #screen{height:100%;aspect-ratio:auto;overflow:clip}
+/* overflow:clip — focus() on off-screen command buttons during attacks must never scroll the camera. */
+#pdWorld{position:absolute;overflow:hidden;pointer-events:none;box-shadow:0 -2px 0 #05040b,0 2px 0 #05040b,0 -3px 0 #403b72,0 3px 0 #403b72}
+#pdWorld > *{position:absolute;margin:0}
+#screen[data-pd-mode="combat"] .combat-hud{left:var(--pd-hud-x);right:auto;top:var(--pd-hud-y);width:var(--pd-hud-w);height:var(--pd-hud-h);align-items:center}
+#screen[data-pd-mode="combat"] .battle-ui{left:var(--pd-ui-x);right:auto;bottom:auto;width:var(--pd-ui-w);height:min(var(--pd-ui-h),calc(var(--pd-ui-w) * .6));top:calc(var(--pd-ui-y) + max(0px,(var(--pd-ui-h) - var(--pd-ui-w) * .6) / 2))}
+#screen[data-pd-mode="combat"] .toast:not(.jdm-speaker-bubble){top:calc(var(--pd-world-y) + var(--pd-world-h) * .82)}
+/* Effects positioned in code from actor rectangles keep their authored size relative to the actor. */
+body.pd-active .blood-bath-contact-layer,body.pd-active .revenge-wound,body.pd-active .revenge-extract,body.pd-active .revenge-crack,body.pd-active .vampire-bite-contact,body.pd-active .contact-fragment,body.pd-active .vampire-life-particle{scale:var(--pd-fx,1)}
+body.pd-active .blood-bath-engulf{transform-origin:50% 92%}
+body.pd-active .detailed-blood-missile,body.pd-active .missile-ghost,body.pd-active .detailed-impact{scale:var(--pd-fx,1);transform-origin:0 0}
+/* Flight distances are Director variables (in pre-scale px; the element's scale applies to its transform). */
+body.pd-active .fire-orbs .detailed-blood-missile{animation:detailedLiquid 170ms steps(1,end) infinite,pdDetailFlight var(--flight) var(--delay) cubic-bezier(.1,.78,.16,1) forwards}
+body.pd-active .fire-orbs .missile-ghost{animation:pdGhostFlight var(--flight) var(--delay) cubic-bezier(.1,.78,.16,1) forwards}
+body.pd-active .briefcase-projectile.fly{animation:pdBriefcaseFly 430ms steps(4,end) forwards}
+@keyframes pdDetailFlight{0%{transform:translateX(0);opacity:1}82%{opacity:1}100%{transform:translateX(var(--pd-missile-dx,128px));opacity:0}}
+@keyframes pdGhostFlight{0%{transform:translateX(-5px) scale(.92);opacity:0}12%{opacity:var(--ghost)}82%{opacity:var(--ghost)}100%{transform:translateX(calc(var(--pd-missile-dx,128px) - 8px)) scale(.92);opacity:0}}
+@keyframes pdBriefcaseFly{0%{transform:translateX(0);background-position:0 0}25%{background-position:-64px 0}50%{background-position:-128px 0}75%{background-position:-192px 0}100%{transform:translateX(var(--pd-briefcase-dx,-145px));background-position:0 0}}
+/* Director actors: sprite size comes from the camera (per-element --pd-w/--pd-h/--pd-k), never from scene CSS. */
+#pdWorld > .gemini-rich,#pdWorld > .production-ceo,#pdWorld > .production-assistant{background-size:var(--pd-w) var(--pd-h)}
+#pdWorld > .production-ceo.combat-authored-ceo-normal,#pdWorld > .production-ceo.combat-authored-ceo-heavy,#pdWorld > .production-ceo.combat-authored-ceo-lethal{background-size:calc(var(--pd-k) * 240px) var(--pd-h)}
+#pdWorld > .production-ceo.combat-authored-ceo-heavy{background-position:calc(var(--pd-k) * -80px) 0}
+#pdWorld > .production-ceo.combat-authored-ceo-lethal{background-position:calc(var(--pd-k) * -160px) 0}
+/* Contact shadow sits on the contact line (source y 88), sized in source pixels. */
+#pdWorld > .production-ceo:after,#pdWorld > .production-assistant:after{width:calc(var(--pd-k) * 19px);height:calc(var(--pd-k) * 2.5px);bottom:calc(var(--pd-k) * 6.75px)}
+/* Dialogue mode (adventure adapter): world viewport on top, dialogue/choices in the UI band below it. */
+#screen[data-pd-mode="dialogue"] .adv-box{left:var(--pd-ui-x);right:auto;width:var(--pd-ui-w);top:calc(var(--pd-ui-y) + 1.6em);bottom:auto;min-height:min(calc(var(--pd-ui-h) * .5),calc(var(--pd-ui-h) - 1.6em))}
+#screen[data-pd-mode="dialogue"] .adv-choices{left:var(--pd-ui-x);right:auto;width:var(--pd-ui-w);top:var(--pd-ui-y);bottom:auto;max-height:var(--pd-ui-h)}
+#screen[data-pd-mode="dialogue"] .adv-location{left:calc(var(--pd-world-x) + 8px);top:calc(var(--pd-world-y) + 8px)}
+#screen[data-pd-mode="dialogue"] .adv-scene{background:#080711}
+/* Combat 2.0 in combat mode (Director path): HUD band, telegraph on the world, panel in the UI band. */
+#screen[data-pd-mode="combat"] .c2-scene{background:#080711}
+#screen[data-pd-mode="combat"] .c2-hud{left:var(--pd-hud-x);right:auto;width:var(--pd-hud-w);top:var(--pd-hud-y);height:var(--pd-hud-h);align-items:center}
+#screen[data-pd-mode="combat"] .c2-telegraph{left:calc(var(--pd-world-x) + 4%);right:auto;width:calc(var(--pd-world-w) * .92);top:calc(var(--pd-world-y) + 8px)}
+#screen[data-pd-mode="combat"] .c2-panel{left:var(--pd-ui-x);right:auto;width:var(--pd-ui-w);top:var(--pd-ui-y);bottom:auto;height:var(--pd-ui-h);max-height:var(--pd-ui-h)}
+/* The command grid fills the band: taller, easier touch targets instead of an empty strip under the menu. */
+#screen[data-pd-mode="combat"] .c2-menu{max-height:none;flex:1;min-height:0;grid-auto-rows:minmax(min-content,1fr);overflow:auto}
+#screen[data-pd-mode="combat"] .c2-btn{display:flex;flex-direction:column;justify-content:center}
+#screen[data-pd-mode="combat"] .c2-orb{width:calc(23px * var(--pd-fx,1));animation-name:pdC2Orb}
+@keyframes pdC2Orb{to{left:var(--pd-orb-to,70%)}}
+/* Generic scene UI roles (data-pd-ui) — any Director scene tags its UI and the mode lays it out. */
+#screen[data-pd-mode] [data-pd-ui="location"]{left:calc(var(--pd-world-x) + 8px);right:auto;width:auto;max-width:calc(var(--pd-world-w) - 16px);top:calc(var(--pd-world-y) + 8px);text-align:left;padding:3px 6px}
+#screen[data-pd-mode] [data-pd-ui="actions"]{left:calc(var(--pd-ui-x) + var(--pd-ui-w) * .1);right:auto;width:calc(var(--pd-ui-w) * .8);top:calc(var(--pd-ui-y) + var(--pd-ui-h) * .18);bottom:auto;transform:none}
+#screen[data-pd-mode] [data-pd-ui="dialogue"]{left:var(--pd-ui-x);right:auto;width:var(--pd-ui-w);top:calc(var(--pd-ui-y) + 1.6em);bottom:auto;max-height:calc(var(--pd-ui-h) - 1.6em)}
+#screen[data-pd-mode] [data-pd-ui="choices"]{left:var(--pd-ui-x);right:auto;width:var(--pd-ui-w);top:var(--pd-ui-y);bottom:auto;max-height:var(--pd-ui-h)}
+#screen[data-pd-mode] .trip-scene{background:#080711}
+/* Minigames paint a fixed 270×480 canvas: on tall Director screens the stage keeps 9:16 (full width, centred);
+   it is never stretched. Surplus height stays the minigame's dark background. */
+body.pd-active .ra-minigame-stage{inset:auto;left:0;right:auto;width:100%;height:auto;aspect-ratio:9/16;top:50%;transform:translateY(-50%)}
+/* Full-screen authored effects are frozen 270×480 art: aspect-preserving cover on Director screens (never stretched).
+   The octopus tentacles (270×362) fit the width anchored to the bottom (the legacy 100%×100% stretch is removed). */
+body.pd-active .blood-bath-impact,body.pd-active .revenge-impact-authored,body.pd-active .vampire-bite-jaw,body.pd-active .vampire-bite-snap{background-size:cover!important;background-position:center!important}
+body.pd-active .tentacle-sprite{background-size:100% auto!important;background-position:center bottom!important}
+/* The throne's legacy room layer is only shown when the throne scene adopts it into #pdWorld. */
+body.pd-active #screen > .room{display:none}
+
+/* RC2 · BUILD 1 — guidance (OL-063). The app the player should open next shakes in two stepped frames and wears a "!" until it is opened;
+   the bedroom phone icon shakes while anything is pending. VampGPT's RECOMMENDED lines; the cheap-buy toast. Reduced motion: still outline. */
+#phoneContent .app-button.phone-pulse .phone-icon-tile{outline:2px solid var(--os-red);outline-offset:1px;animation:ra-pulse-shake .5s steps(2,end) infinite}
+#phoneContent .phone-pulse-dot{position:absolute;right:15px;top:0;min-width:15px;padding:2px;background:var(--os-red);color:#fff;border:1px solid var(--os-bg);font:12px var(--os-label);font-style:normal;text-align:center;animation:ra-pulse-blink 1s steps(2,end) infinite}
+#phoneContent .phone-next-button[data-guide]{animation:ra-pulse-blink 1.2s steps(2,end) infinite}
+.check-phone.guide-pulse{animation:ra-pulse-shake .5s steps(2,end) infinite;outline:2px solid #f04067;outline-offset:1px}
+@keyframes ra-pulse-shake{0%{transform:translate(0,0)}25%{transform:translate(-1px,1px)}50%{transform:translate(1px,0)}75%{transform:translate(0,-1px)}100%{transform:translate(0,0)}}
+@keyframes ra-pulse-blink{0%{opacity:1}50%{opacity:.55}100%{opacity:1}}
+#phoneContent .phone-rec{margin:0 0 12px}
+#phoneContent .phone-rec .rec-line{display:block;width:100%;text-align:left;min-height:38px;margin:0 0 6px}
+#phoneContent .phone-rec .rec-line small{display:block;color:var(--os-gold);margin:0 0 2px}
+#phoneContent .phone-rec .rec-line strong{display:block;font-weight:400;line-height:1.1}
+#phoneContent .phone-rec .rec-first{border:2px solid var(--os-red);background:var(--os-raised);box-shadow:3px 3px #4c1932}
+.ra-toast{position:fixed;left:50%;bottom:14%;transform:translateX(-50%);z-index:10050;max-width:86%;padding:8px 10px;background:#f1e5c5;color:#21151a;border:2px solid #28131c;box-shadow:3px 3px #7d194b;font:8px/1.5 var(--font-system,monospace);text-align:center;pointer-events:none}
+@media (prefers-reduced-motion:reduce){#phoneContent .app-button.phone-pulse .phone-icon-tile,#phoneContent .phone-pulse-dot,#phoneContent .phone-next-button[data-guide],.check-phone.guide-pulse{animation:none}}
+/* OL-076: meters run silently; cash stays legible in every host scene. */
+body.rc3 .rc3-cash{position:fixed;top:6px;right:8px;z-index:2147483100;background:#10101b;color:#fff;padding:5px 8px;font:14px monospace;pointer-events:none;border:1px solid #f4c95d}
+body.rc3 .combat-hud .hpbox span,body.rc3 .c2-hp span{visibility:hidden}
+body.rc3 .c2-scene{z-index:130}
+body.rc3 .c2-btn small,body.rc3 #moves span,body.rc3 #revengeValue{display:none}
+body.rc3 .phone-section-label{display:none}
+body.rc3 .phone-app-grid{grid-template-columns:repeat(3,minmax(0,1fr))}

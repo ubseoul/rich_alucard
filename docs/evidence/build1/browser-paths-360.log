@@ -1,0 +1,22 @@
+PASS [360] fresh save: START is shown, CONTINUE and NEW GAME are not - {"start":"▶ START","ng":true}
+PASS [360] existing life: CONTINUE and NEW GAME are shown - {"start":"▶ CONTINUE","ng":false}
+PASS [360] CONTINUE resumes the life in the bedroom (first WAKE of the existing life)
+PASS [360] flags ON: F03 live
+PASS [360] M9 is the WAKE delivery once m8Resolved is written (gates on m8Resolved)
+PASS [360] M9 THE TRIBUTE offers GIVE IT
+PASS [360] GIVE IT: the most-driven available car is TRIBUTED (hidden, not deleted) - toyota_supra_mk4_001
+PASS [360] one mission per WAKE: M10 and VampGPT do not chain into the same day
+PASS [360] M10 VICE PRESIDENT arrives on the NEXT WAKE - NEW_OGA_M10
+PASS [360] M10 completes (rank 5 VICE PRESIDENT) - VICE PRESIDENT
+PASS [360] VampGPT does not arrive on the same WAKE as M10
+PASS [360] VampGPT arrives on the WAKE after M10 - NEW_OGA_VAMPGPT
+PASS [360] VampGPT offers the authored SAY LESS choice
+PASS [360] SAY LESS records finaleBegun (F07 finale unlocked)
+PASS [360] M10 pays the authored $15,000 on the 7th day after the grant (a WAKE delta of at least $15,000 appears within 8 nights) - {"g":16,"days":[0,0,0,0,0,15000,0,0]}
+PASS [360] reload keeps the ladder state (CONTINUE)
+PASS [360] flags OFF: F03, F07 and F15 are dark by default - {"f03":false,"f07":false,"f15":false}
+PASS [360] flags OFF: M8, M9 and the finale are unavailable
+PASS [360] flags OFF: no F03/F07/F15 namespace is written to the save - []
+PASS [360] flags OFF: START still reaches the bedroom
+PASS [360] no console / page errors
+PASS build1 browser paths @360 (21 checks)

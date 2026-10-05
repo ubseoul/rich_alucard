@@ -71,7 +71,7 @@ const moveData=window.RACombatDefinitions.moves;
 function syncBattleState(){if(!battleState)return;battleState.player.hp=richHP;battleState.enemy.hp=ceoHP;battleState.revengeStored=revengeStored;}
 battleState=window.RACombatFoundation.createBattleState('ceo');
 function wait(ms){return new Promise(r=>setTimeout(r,ms))}
-function layoutJdmBubble(node,speaker,stack=0){if(!node||battleEncounter!=='jdm'||!document.body.classList.contains('jdm-battle'))return;const screen=document.querySelector('#screen'),actor=speaker==='importer'?productionCEO:geminiRich;if(!screen||!actor)return;const sr=screen.getBoundingClientRect(),ar=actor.getBoundingClientRect(),width=node.offsetWidth||92,height=node.offsetHeight||24;const left=Math.round(Math.max(8,Math.min(sr.width-width-8,ar.left-sr.left+ar.width*.5-width*.5)));const top=Math.round(Math.max(sr.height*.20,ar.top-sr.top-height-10-stack));node.style.setProperty('--speaker-bubble-left',`${left}px`);node.style.setProperty('--speaker-bubble-top',`${top}px`);node.style.setProperty('--bubble-left',`${left}px`);node.style.setProperty('--bubble-top',`${top}px`)}
+function layoutJdmBubble(node,speaker,stack=0){if(!node||battleEncounter!=='jdm'||!document.body.classList.contains('jdm-battle'))return;const screen=document.querySelector('#screen'),actor=speaker==='importer'?productionCEO:geminiRich;if(!screen||!actor)return;const sr=screen.getBoundingClientRect(),ar=actor.getBoundingClientRect(),width=node.offsetWidth||92,height=node.offsetHeight||24;const left=Math.round(Math.max(8,Math.min(sr.width-width-8,ar.left-sr.left+ar.width*.5-width*.5)));const world=window.RAPresentationDirector?.worldRect?.(),minTop=world?world.y+6:sr.height*.20,top=Math.round(Math.max(minTop,ar.top-sr.top-height-10-stack));node.style.setProperty('--speaker-bubble-left',`${left}px`);node.style.setProperty('--speaker-bubble-top',`${top}px`);node.style.setProperty('--bubble-left',`${left}px`);node.style.setProperty('--bubble-top',`${top}px`)}
 function layoutJdmBubbles(){layoutJdmBubble(richLyricBubble,'rich',toast.classList.contains('show')&&toast.classList.contains('jdm-speaker-bubble')&&toast.classList.contains('speaker-rich')?(toast.offsetHeight||24)+10:0);if(toast.classList.contains('show')&&toast.classList.contains('jdm-speaker-bubble'))layoutJdmBubble(toast,toast.classList.contains('speaker-importer')?'importer':'rich')}
 function say(msg,ms=900,speaker=null){toast.textContent=msg;toast.classList.add('show');toast.classList.remove('jdm-speaker-bubble','speaker-rich','speaker-importer');if(battleEncounter==='jdm'&&speaker){toast.classList.add('jdm-speaker-bubble',speaker==='importer'?'speaker-importer':'speaker-rich');layoutJdmBubbles();requestAnimationFrame(layoutJdmBubbles)}clearTimeout(say.t);say.t=setTimeout(()=>toast.classList.remove('show','jdm-speaker-bubble','speaker-rich','speaker-importer'),ms)}
 function clamp(v){return Math.max(0,Math.min(MAX_HP,v))}
@@ -90,14 +90,14 @@ function paint(){
  if(inMoves&&!busy)moves[moveIndex].focus();
 }
 function resetBattle(encounter='ceo'){
- battleEncounter=encounter;
+ battleEncounter=encounter;window.RAPresentationDirector?.resetMoves?.();
  battleState=window.RACombatFoundation.createBattleState(encounter);
  richHP=100;ceoHP=100;revengeStored=0;battleOver=false;busy=false;inMoves=false;mainIndex=0;moveIndex=0;
  document.querySelector('#enemyName').textContent=encounter==='jdm'?'JDM IMPORTER':'CEO ZOMBIE PRINCE';
  setCEOState('idle');document.body.classList.toggle('jdm-battle',encounter==='jdm');
  window.RADevState.revengeStoredDamage=0;
  lastRichHP=richHP;lastCeoHP=ceoHP;
- clearRevengeWounds();updateRevengeDisplay();choiceOverlay.classList.remove('show');battleUI.classList.remove('attack-mode');updateHP();paint();
+ clearRevengeWounds();updateRevengeDisplay();choiceOverlay.classList.remove('show');victoryOverlay.classList.remove('on');endingText.classList.remove('on');endingText.textContent='';victoryCard.style.display='block';battleUI.classList.remove('attack-mode','victory-retract');updateHP();paint();
  window.RACombatFoundation.emit(battleState,'battle-start',{stageId:battleState.definition.stageId});
 }
 function updateRevengeDisplay(pulse=false){if(revengeValue){revengeValue.textContent=revengeStored;if(pulse){revengeValue.classList.remove('revenge-value-pulse');void revengeValue.offsetWidth;revengeValue.classList.add('revenge-value-pulse')}}}
@@ -112,7 +112,10 @@ function activateMain(){
 }
 function pressFeedback(node){if(!node)return;node.classList.remove('pressed');void node.offsetWidth;node.classList.add('pressed');setTimeout(()=>node.classList.remove('pressed'),150)}
 async function hitStop(ms=70){const screen=document.querySelector('#screen');screen.classList.add('hit-stop');await wait(ms);screen.classList.remove('hit-stop')}
-async function projectileVolley(){battleUI.classList.add('attack-mode');attackLayer.classList.add('active');richCast.classList.add('cast');say('BLOOD BATH!',420);await wait(150);const lanes=[35,40,45,32,43,38],starts=[22,27,23,30,26,32];for(let i=0;i<6;i++){const o=document.createElement('div');o.className='detailed-blood-missile';o.style.left=starts[i]+'%';o.style.top=lanes[i]+'%';o.style.setProperty('--row',`${-i*24}px`);o.style.setProperty('--delay',`${i*70}ms`);o.style.setProperty('--flight',`${420+(i%3)*30}ms`);projectiles.appendChild(o);for(let t=1;t<=2;t++){const g=document.createElement('div');g.className='missile-ghost';g.style.left=starts[i]+'%';g.style.top=lanes[i]+'%';g.style.setProperty('--row',`${-i*24}px`);g.style.setProperty('--delay',`${i*70+t*34}ms`);g.style.setProperty('--flight',`${420+(i%3)*30}ms`);g.style.setProperty('--ghost',`${.22/t}`);projectiles.appendChild(g);}}projectiles.classList.add('charge-orbs');await wait(310);projectiles.classList.remove('charge-orbs');setRichState('cast');setCEOState('hit');projectiles.classList.add('fire-orbs');for(let i=0;i<6;i++){await wait(i===0?355:74);const q=document.createElement('div');q.className='detailed-impact';q.style.top=`${31+(i%4)*3.4}%`;projectiles.appendChild(q);const s=document.querySelector('#screen');s.classList.remove('micro-shake');void s.offsetWidth;s.classList.add('micro-shake');setTimeout(()=>q.remove(),430);}document.querySelector('#screen').classList.add('blood-shake');enemyHit.classList.add('hit');ceoRecoil.classList.add('active');damageNumber.classList.add('show');await wait(390);document.querySelector('#screen').classList.remove('blood-shake','micro-shake');enemyHit.classList.remove('hit');ceoRecoil.classList.remove('active');damageNumber.classList.remove('show');projectiles.classList.remove('fire-orbs');setRichState('idle');if(typeof ceoHP==='undefined'||ceoHP>0)setCEOState('idle');projectiles.replaceChildren();richCast.classList.remove('cast');await wait(70);attackLayer.classList.remove('active');battleUI.classList.remove('attack-mode');}
+// Presentation Director scenes anchor code-spawned effects to actors; legacy scenes keep screen percentages.
+function directorOn(stage){return window.RAPresentationDirector?.current?.()?.stage===stage}
+function directorSpawn(role,dx,dy,size){return window.RAPresentationDirector?.active?.()?window.RAPresentationDirector.fxPoint(role,dx,dy,size):null}
+async function projectileVolley(){battleUI.classList.add('attack-mode');attackLayer.classList.add('active');richCast.classList.add('cast');say('BLOOD BATH!',420);await wait(150);const lanes=[35,40,45,32,43,38],starts=[22,27,23,30,26,32];for(let i=0;i<6;i++){const at=directorSpawn('rich',...(window.RAPresentationData?.spawn.missileStarts[i]||[0,0]),[40,24]),left=at?`${at.x}px`:starts[i]+'%',top=at?`${at.y}px`:lanes[i]+'%';const o=document.createElement('div');o.className='detailed-blood-missile';o.style.left=left;o.style.top=top;o.style.setProperty('--row',`${-i*24}px`);o.style.setProperty('--delay',`${i*70}ms`);o.style.setProperty('--flight',`${420+(i%3)*30}ms`);projectiles.appendChild(o);for(let t=1;t<=2;t++){const g=document.createElement('div');g.className='missile-ghost';g.style.left=left;g.style.top=top;g.style.setProperty('--row',`${-i*24}px`);g.style.setProperty('--delay',`${i*70+t*34}ms`);g.style.setProperty('--flight',`${420+(i%3)*30}ms`);g.style.setProperty('--ghost',`${.22/t}`);projectiles.appendChild(g);}}projectiles.classList.add('charge-orbs');await wait(310);projectiles.classList.remove('charge-orbs');setRichState('cast');setCEOState('hit');projectiles.classList.add('fire-orbs');for(let i=0;i<6;i++){await wait(i===0?355:74);const q=document.createElement('div');q.className='detailed-impact';const hit=window.RAPresentationData&&directorSpawn('enemy',RAPresentationData.spawn.impact.dx,RAPresentationData.spawn.impact.dy+(i%4)*RAPresentationData.spawn.impact.step,[64,64]);if(hit){q.style.left=`${hit.x}px`;q.style.top=`${hit.y}px`}else q.style.top=`${31+(i%4)*3.4}%`;projectiles.appendChild(q);const s=document.querySelector('#screen');s.classList.remove('micro-shake');void s.offsetWidth;s.classList.add('micro-shake');setTimeout(()=>q.remove(),430);}document.querySelector('#screen').classList.add('blood-shake');enemyHit.classList.add('hit');ceoRecoil.classList.add('active');damageNumber.classList.add('show');await wait(390);document.querySelector('#screen').classList.remove('blood-shake','micro-shake');enemyHit.classList.remove('hit');ceoRecoil.classList.remove('active');damageNumber.classList.remove('show');projectiles.classList.remove('fire-orbs');setRichState('idle');if(typeof ceoHP==='undefined'||ceoHP>0)setCEOState('idle');projectiles.replaceChildren();richCast.classList.remove('cast');await wait(70);attackLayer.classList.remove('active');battleUI.classList.remove('attack-mode');}
 
 async function revengeFX(amount,target=productionCEO){
  const stage=document.querySelector('#screen');battleUI.classList.add('attack-mode');attackLayer.classList.add('active');document.body.classList.add('revenge-freeze');
@@ -152,6 +155,7 @@ async function normalVictory(){
       victoryOverlay.classList.remove('on');
       document.querySelector('.battle-ui')?.classList.add('victory-retract');
       if(window.RACharacterReveal) await RACharacterReveal.open();
+      document.dispatchEvent(new CustomEvent('ra:ceo-resolved',{detail:{stole:true}}));
       resolve();
     };
     stealNo.onclick=async()=>{
@@ -160,6 +164,7 @@ async function normalVictory(){
       victoryCard.style.display='none';
       endingText.textContent='RICH STAYS ON THE THRONE.';
       endingText.classList.add('on');
+      document.dispatchEvent(new CustomEvent('ra:ceo-resolved',{detail:{stole:false}}));
       resolve();
     };
   });
@@ -201,9 +206,10 @@ async function resolveOctopus(result){
   if(result.kind==='hoe'){
     say('SHE JOINS RICH.',650);
     setAssistantState('walk');
-    const a=document.querySelector('.production-assistant');
+    if(directorOn('throne-room')){await RAPresentationDirector.mark('assistantJoin',{ms:1000,steps:8});await RAPresentationDirector.setBeat('tableau',{transition:'snap-pan',ms:280});await wait(1200);await RAPresentationDirector.setBeat('combat',{transition:'snap-pan',ms:280});}
+    else{const a=document.querySelector('.production-assistant');
     if(a){a.style.transition='left 1s steps(8,end)';a.style.left='28%';}
-    await wait(1050);
+    await wait(1050);}
     setAssistantState('idle');
     return false; // combat continues
   }
@@ -214,8 +220,9 @@ async function resolveOctopus(result){
     return true;
   }
   say('CEO HAS HEARD ENOUGH.',850);
-  const c=document.querySelector('.production-ceo');
-  if(c){c.style.transition='left 1s steps(8,end)';c.style.left='115%';}
+  if(directorOn('throne-room'))RAPresentationDirector.mark('ceoExit',{ms:1000,steps:8});
+  else{const c=document.querySelector('.production-ceo');
+  if(c){c.style.transition='left 1s steps(8,end)';c.style.left='115%';}}
   ceoHP=0; updateHP();
   battleOver=true;
   return true;
@@ -341,6 +348,7 @@ let loopEnd = 45.80;
 let lastRichLyric = -1;
 
 const richLyricBubble=document.querySelector('#richLyricBubble');
+const newGameButton=document.querySelector('#newGameButton');
 const richLyricLines=[
   [15.932,'cali hoes'],
   [17.548,'i love cali hoes'],
@@ -378,13 +386,24 @@ audio.addEventListener('loadedmetadata',()=>{
 });
 audio.addEventListener('seeking',resetRichLyric);
 audio.addEventListener('ended',()=>{
+  if(window.RAMusicLibrary?.onEnded?.())return;
   seekToLoopStart();
   audio.play().catch(()=>{});
 });
 
-start.addEventListener('click',async()=>{
+function startSurfaceHasProgress(){
+  return !!window.RANewGame?.hasProgress?.();
+}
+function refreshStartSurface(){
+  const hasProgress=startSurfaceHasProgress();
+  start.textContent=hasProgress?'▶ CONTINUE':'▶ START';
+  if(newGameButton)newGameButton.hidden=!hasProgress;
+}
+async function launchGame(){
   overlay.style.display='none';
-  await window.RAScenes?.go?.('bedroom',{start:true});
+  try{window.RAAudio?.unlock?.();}catch(e){}
+  const routed=await window.RANewGame?.onStart?.();
+  if(!routed)await window.RAScenes?.go?.('bedroom',{start:true});
   try{
     if(audio.readyState<1){
       await new Promise(resolve=>audio.addEventListener('loadedmetadata',resolve,{once:true}));
@@ -395,12 +414,21 @@ start.addEventListener('click',async()=>{
     console.error(e);
     say('TAP AGAIN FOR AUDIO');
   }
+}
+start.addEventListener('click',launchGame);
+newGameButton?.addEventListener('click',async()=>{
+  if(!startSurfaceHasProgress())return;
+  if(!window.confirm('START A NEW GAME?'))return;
+  window.RAState?.reset?.();
+  refreshStartSurface();
+  await launchGame();
 });
+refreshStartSurface();
 
 mainButtons.forEach((b,i)=>b.addEventListener('click',()=>{if(busy||battleOver)return;pressFeedback(b);mainIndex=i;inMoves=false;paint();activateMain()}));
 moves.forEach((b,i)=>b.addEventListener('click',()=>{if(busy||battleOver)return;pressFeedback(b);moveIndex=i;inMoves=true;paint();activateMove()}));
 window.addEventListener('keydown',e=>{
-  if(['bedroom','ogun-rave'].includes(window.RAScenes?.current()))return;
+  if(['bedroom','ogun-rave','adventure'].includes(window.RAScenes?.current())||document.body.classList.contains('minigame-mode')||document.body.classList.contains('combat2-mode'))return;
   if(overlay.style.display!=='none'&&(e.key==='Enter'||e.key===' ')){start.click();return}
   if(busy||battleOver)return;
   if(['ArrowUp','ArrowDown','ArrowLeft','ArrowRight','Enter','Escape',' '].includes(e.key))e.preventDefault();
@@ -414,33 +442,10 @@ window.RACombat={startJdmEncounter(){resetBattle('jdm');document.body.classList.
 
 const richBiteSprite=document.querySelector('#richBiteSprite'),biteTrail=document.querySelector('#biteTrail'),biteImpact=document.querySelector('#biteImpact'),healFloat=document.querySelector('#healFloat');const biteSleep=ms=>new Promise(r=>setTimeout(r,ms));async function vampireBiteAttack(){const rich=document.querySelector('.gemini-rich'),stage=document.querySelector('.game')||document.querySelector('.game-shell')||document.querySelector('#game')||document.body;if(rich)rich.style.opacity='0';biteTrail.classList.remove('flash');void biteTrail.offsetWidth;biteTrail.classList.add('flash');await biteSleep(125);richBiteSprite.classList.add('active');await biteSleep(115);setCEOState('hit');biteImpact.classList.remove('flash');void biteImpact.offsetWidth;biteImpact.classList.add('flash');stage.classList.add('bite-shake');if(typeof ceoHP!=='undefined')ceoHP=Math.max(0,ceoHP-24);if(typeof richHP!=='undefined')richHP=Math.min(100,richHP+18);if(typeof updateHP==='function')updateHP();if(typeof updateBars==='function')updateBars();healFloat.classList.remove('show');void healFloat.offsetWidth;healFloat.classList.add('show');await biteSleep(210);stage.classList.remove('bite-shake');richBiteSprite.classList.remove('active');await biteSleep(90);if(rich)rich.style.opacity='1';if(typeof ceoHP!=='undefined'&&ceoHP<=0){setCEOState('defeated');setAssistantState('reaction');if(typeof victory==='function')victory();}else{setCEOState('idle');if(typeof enemyTurn==='function')setTimeout(()=>enemyTurn(),180);else if(typeof ceoTurn==='function')setTimeout(()=>ceoTurn(),180);}}
 
+// RC2 / Ube's RC1 hotfix: lyric bubbles are off. Hide and return; the song rotation owns looping now.
 function syncRichLyrics(){
-  if(!audio || audio.paused){
-    richLyricBubble?.classList.remove('on');
-    requestAnimationFrame(syncRichLyrics);
-    return;
-  }
-  if(audio.currentTime>=loopEnd){
-    seekToLoopStart();
-    requestAnimationFrame(syncRichLyrics);
-    return;
-  }
-  const t=audio.currentTime+LYRIC_LEAD;
-  let idx=-1;
-  for(let i=0;i<richLyricLines.length;i++){
-    if(t>=richLyricLines[i][0]) idx=i;
-    else break;
-  }
-  if(idx<0){
-    resetRichLyric();
-  }else if(idx!==lastRichLyric){
-    lastRichLyric=idx;
-    if(richLyricBubble){
-      richLyricBubble.textContent=richLyricLines[idx][1];
-      richLyricBubble.classList.add('on');
-    }
-  }
-  requestAnimationFrame(syncRichLyrics);
+  richLyricBubble?.classList.remove('on');
+  return;
 }
-requestAnimationFrame(syncRichLyrics);
+syncRichLyrics();
 window.RAJDMCombatPresentation={layoutBubbles:layoutJdmBubbles};
