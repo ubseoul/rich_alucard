@@ -107,7 +107,26 @@
  // Cut runs in an old save cannot resume through the bedroom, and old automatic follow-ups are retired.
  const active=RAAdventures.active();if(active&&!allowed(active.id)){RAAdventures.abandon();RAState.patch('life.clock.returnBeat',null);}
  RALife.setFlag('wakeTrigger',null);RAState.patch('life.temptations.live',[]);
- RALife.setFlag('onlyvamps_subs',[]);if(window.RAFame)RAFame.claimsWake=()=>false;
+ RALife.setFlag('onlyvamps_subs',[]);
+ // OL-079: the protected ending owns its wake; retiring optional fame routes
+ // must not retire the ending. Read eligibility late because the private pack
+ // installs its authored momentum rules after this production policy.
+ function claimsEnding(){
+  const m=L().momentum;if(m.fameFired)return false;
+  if(!m.fameEligible&&!window.RAFame?.eligible?.()&&day()<36)return false;
+  if(!m.fameEligible)RAState.patch('life.momentum.fameEligible',true);
+  return true;
+ }
+ if(window.RAFame)RAFame.claimsWake=claimsEnding;
+ // Old saves already beyond the intended wake recover in the bedroom, even
+ // with an unfinished daily job. Never interrupt or abandon an active scene.
+ function recoverEnding(){
+  if(day()<36||!L().clock.started||!flag('throneDone')||
+   window.RAScenes?.current?.()!=='bedroom'||RAAdventures.active())return false;
+  if(!claimsEnding())return false;
+  window.RAFame.play();return true;
+ }
+ document.addEventListener('ra:scene',e=>{if(e.detail?.id==='bedroom')setTimeout(recoverEnding,60);});
  // Bank owns the existing property surface; Maps owns adventure discovery. No tenth app.
  const hall=()=>window.RACastle?.ROOMS.find(r=>r.id==='party_hall');
  // A26 is cut. The savings goal must not require hosting that retired adventure.
