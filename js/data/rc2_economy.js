@@ -8,7 +8,7 @@
   start:Object.freeze({cash:40000}),   // OL-068: was $100,000 on Day 1 (the monthly budget is unchanged)
   // ---- PLAYs are the main path -------------------------------------------------------------------------------------------
   // F04 Mister December's first offer (was: Days 16-22, Ogun's Rave done, MID rep, a car, two COOL homies).
-  offer:Object.freeze({firstDay:2,secondOfferGapDays:3,oneSlotThroughDay:8}),                       // second gap was 8
+  offer:Object.freeze({firstDay:1,secondOfferGapDays:3,oneSlotThroughDay:8}),                       // second gap was 8
   // NEW OGA M1 JUG THE PLUG window (was Days 8-12). A way into the crew story that starts early and stays open.
   newOgaM1:Object.freeze({fromDay:3,toDay:24}),
   // ---- strip club ---------------------------------------------------------------------------------------------------------
@@ -29,6 +29,6 @@
   // ---- cheap buys pay off -------------------------------------------------------------------------------------------------
   cheapBuys:Object.freeze({maxPrice:60,chance:0.5,cooldownDays:1}),
   // ---- guidance -----------------------------------------------------------------------------------------------------------
-  guidance:Object.freeze({recommended:4,earlyRoomMax:60000,keepCash:15000})
+  guidance:Object.freeze({recommended:4,earlyRoomMax:60000,keepCash:15000,clubMin:3000})   // RC3: the club is every night once there is cash for a round
  });
 })();

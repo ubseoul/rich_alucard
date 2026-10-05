@@ -136,6 +136,7 @@
    ]
   },
   "js/if1/hold_bridge.js",
+  "js/systems/rc3_cut.js",
   {
    "overlay": true
   },

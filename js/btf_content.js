@@ -1,7 +1,7 @@
 // BTF content + lane modules, loaded in order after the engine. Keep this list the single source of truth.
 // (Static <script> tags are used in index.html for cache-versioned loading; tools/btf-test.mjs reads this list.)
 window.RABtfContentFiles=[
- 'js/data/rc2_economy.js','js/data/rc2_lines.js',
+ 'js/data/rc2_economy.js','js/data/rc3_cut.js','js/data/rc2_lines.js',
  'js/data/btf/new_oga_tunables.js','js/data/btf/combat.js','js/engine/combat2.js','js/scenes/combat2.js',
  'js/systems/new_oga.js',
  'js/systems/dragon.js','js/systems/cars.js','js/systems/castle.js','js/systems/realestate.js','js/systems/dating.js','js/systems/music.js','js/systems/world_life.js','js/systems/legacy_bridge.js','js/systems/party_life.js','js/systems/cheap_buys.js','js/systems/guidance.js','js/systems/strip_club.js',

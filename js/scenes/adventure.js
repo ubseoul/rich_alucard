@@ -5,6 +5,8 @@
  const SLOTS={farLeft:34,left:72,mid:135,right:198,farRight:238};
  const imageCache=new Map();
  function loadImage(src){if(!imageCache.has(src)){const img=new Image();img.src=src;imageCache.set(src,img);}return imageCache.get(src);}
+ // RC3 (OL-078): every text box and title is tap-to-skip. SKIP jumps to the next choice; a REPEAT (an adventure already finished) plays instantly.
+ let skip=false,instant=false;
  let root=null,scope=null,envCanvas=null,actorLayer=null,foreground=null,box=null,choicesEl=null,titleEl=null,bubble=null,tapResolver=null,currentEnv=null,audio=null;
  const personName=id=>{if(!id)return '';if(id==='rich')return 'RICH';const p=window.RABtfPeople?.get(id);return p?p.name:String(id).toUpperCase();};
  function build(host){
@@ -17,6 +19,7 @@
   box=document.createElement('div');box.className='adv-box';box.hidden=true;box.innerHTML='<b class="adv-speaker"></b><p class="adv-text"></p><i class="adv-more" aria-hidden="true">▼</i>';root.append(box);
   choicesEl=document.createElement('div');choicesEl.className='adv-choices';choicesEl.hidden=true;root.append(choicesEl);
   titleEl=document.createElement('div');titleEl.className='adv-title';titleEl.hidden=true;root.append(titleEl);
+  const skipBtn=document.createElement('button');skipBtn.type='button';skipBtn.className='adv-skip';skipBtn.textContent='SKIP ▶▶';skipBtn.addEventListener('click',e=>{e.stopPropagation();skip=true;if(tapResolver){const r=tapResolver;tapResolver=null;r();}});root.append(skipBtn);
   host.append(root);
   scope.listen(root,'click',e=>{if(e.target.closest('button'))return;if(tapResolver){const r=tapResolver;tapResolver=null;r();}});
   scope.listen(document,'keydown',e=>{if((e.key==='Enter'||e.key===' ')&&tapResolver&&!e.target.closest?.('button')){e.preventDefault();const r=tapResolver;tapResolver=null;r();}});
@@ -106,13 +109,13 @@
    await typeText(box.querySelector('.adv-text'),text);
   }
   for(const n of actorLayer.children)n.classList.toggle('adv-speaking',n.dataset.actor===speaker);
-  await waitTap();
+  if(!(skip||instant))await waitTap();
   if(opts.entrance)actorNode(opts.entrance)?.classList.remove('adv-entrance');
  }
  function hideDialogue(){box.hidden=true;bubble.hidden=true;}
- async function showTitle(text){titleEl.hidden=false;titleEl.innerHTML=`<span>${text}</span><small>TAP</small>`;await waitTap();titleEl.hidden=true;}
+ async function showTitle(text){if(skip||instant)return;titleEl.hidden=false;titleEl.innerHTML=`<span>${text}</span><small>TAP</small>`;await waitTap();titleEl.hidden=true;}
  function showChoices(list){
-  hideDialogue();choicesEl.hidden=false;choicesEl.replaceChildren();
+  hideDialogue();skip=false;choicesEl.hidden=false;choicesEl.replaceChildren();
   return new Promise(resolve=>{
    for(const c of list){const b=document.createElement('button');b.type='button';b.className='adv-choice'+(c.octopus?' adv-octopus':'')+(c.locked?' adv-locked':'');
     // A choice may carry frozen item art (a store's fit/item, the armory's gun case), shown at native pixels.
@@ -135,6 +138,7 @@
  }
  function applyRoute(opt){const A=RAAdventures.context();A.set('route',opt.id);if(opt.id==='fly')RALife.spend(420);if(opt.id==='ride')RALife.spend(18);if(opt.id.startsWith('car:')){A.set('car',opt.id.slice(4));window.RANodd?.maybeStop?.();}}
  async function run(nodeId){
+  skip=false;{const a=RAAdventures.active();instant=!!a&&(RAAdventures.record(a.id)?.count||0)>0;}
   while(scope?.isActive()&&nodeId){
    const r=RAAdventures.enter(nodeId);if(!r){await leave();return;}
    const {node,env,actors}=r;if(directorNode){window.RAPresentationDirector?.exit();directorNode=false;}const envId=typeof env==='function'?env(RAAdventures.context()):env;const props=(typeof node.props==='function'?node.props(RAAdventures.context()):node.props||[]).filter(p=>p?.src);const staged=registeredActors(actors,paintEnv(envId,{key:window.RAPresentationData?.screenKey(RAEnvironments.get(envId)?.id||'street_night',actors||{}),node:`${r.def.id}:${nodeId}`},props).slots);renderActors(staged);stageDirector(staged,node);
@@ -144,7 +148,8 @@
    for(const line of lines){if(!scope?.isActive())return;if(line)await showLine(line);}
    if(!scope?.isActive())return;
    if(node.end){hideDialogue();const res=RAAdventures.complete(nodeId);await returnHome(res);return;}
-   if(node.route){const opts=routeOptions(typeof node.route.dest==='function'?node.route.dest(RAAdventures.context()):node.route.dest);const pick=await showChoices(opts.map(o=>({...o})));if(!pick)return;applyRoute(pick);nodeId=node.route.next;continue;}
+   if(node.route){const opts=routeOptions(typeof node.route.dest==='function'?node.route.dest(RAAdventures.context()):node.route.dest);// RC3 (OL-078): no dead travel. The first way there is taken (a car you own, else a walk); only a flight, which costs money, is still a choice.
+    const pick=opts.some(o=>o.id==='fly')?await showChoices(opts.map(o=>({...o}))):opts[0];if(!pick)return;applyRoute(pick);nodeId=node.route.next;continue;}
    // Every choice locked (e.g. nothing affordable) and no authored fallback: never strand the player on a screen with
    // no control. They leave the way the castle menu answers — "not tonight." — and the night is not counted.
    if(node.choices){const list=RAAdventures.choicesFor(nodeId);if(!list.length){if(node.next){nodeId=RAAdventures.nextOf(nodeId);continue;}const out=await showChoices([{label:'NOT TONIGHT',sub:'NOTHING HERE YOU CAN DO RIGHT NOW'}]);if(!out)return;RAAdventures.abandon();await leave();return;}const pick=await showChoices(list);if(!pick)return;nodeId=RAAdventures.choose(nodeId,pick.index);continue;}

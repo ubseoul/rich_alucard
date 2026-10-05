@@ -16,12 +16,12 @@
   const tap=overlay.querySelector('small');if(tap)tap.textContent='tap start. music on.';}
  // ---- scene-change fade + shake ----
  let root=null,obs=null,lastEnv=null;
- function fade(ms=420){const r=document.querySelector('#adventureScene');if(!r||reduced())return;const f=el('div','rc2-fade');f.style.animationDuration=`${ms}ms`;r.append(f);setTimeout(()=>f.remove(),ms+60);}
+ function fade(ms=200){const r=document.querySelector('#adventureScene');if(!r||reduced())return;const f=el('div','rc2-fade');f.style.animationDuration=`${ms}ms`;r.append(f);setTimeout(()=>f.remove(),ms+60);}
  function shake(){const r=document.querySelector('#adventureScene');if(!r||reduced())return;r.classList.remove('rc2-shake');void r.offsetWidth;r.classList.add('rc2-shake');setTimeout(()=>r.classList.remove('rc2-shake'),520);}
  function watchAdventure(){
   const r=document.querySelector('#adventureScene');if(!r){obs?.disconnect();obs=null;root=null;lastEnv=null;return;}
-  if(r===root)return;root=r;lastEnv=r.dataset.env;fade(700);
-  obs?.disconnect();obs=new MutationObserver(()=>{const env=r.dataset.env;if(env!==lastEnv){const prev=lastEnv;lastEnv=env;fade(env==='ocean_floor_collapsed'||prev==='ocean_floor_collapsed'?220:420);if(env==='ocean_floor_collapsed')shake();}});
+  if(r===root)return;root=r;lastEnv=r.dataset.env;fade(250);
+  obs?.disconnect();obs=new MutationObserver(()=>{const env=r.dataset.env;if(env!==lastEnv){const prev=lastEnv;lastEnv=env;fade(env==='ocean_floor_collapsed'||prev==='ocean_floor_collapsed'?160:220);if(env==='ocean_floor_collapsed')shake();}});
   obs.observe(r,{attributes:true,attributeFilter:['data-env']});
  }
  document.addEventListener('ra:scene',()=>setTimeout(watchAdventure,20));

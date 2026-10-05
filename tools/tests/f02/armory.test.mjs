@@ -18,11 +18,11 @@ export async function test(root){
  const app=c.RAIronAndGrace.armory.app();
  assert.match(app.render('',stub),/THE ARMORY/);
  app.onAction('buy','mac_and_cheese',stub);assert.equal(R.owns('mac_and_cheese'),true);
- assert.match(app.render('',stub),/MAC & CHEESE/);
+ assert.match(app.render('',stub),/LIL OGA/);assert.ok(!/MAC & CHEESE|WORKBENCH/.test(app.render('',stub)),'RC3 (OL-076B): five guns, no mods');
  app.onAction('equip','mac_and_cheese',stub);assert.equal(R.equipped(),'mac_and_cheese');
  app.onAction('buyMod','drum_mag',stub);assert.equal(R.modsOwned().includes('drum_mag'),true);
  app.onAction('attach','mac_and_cheese|drum_mag',stub);assert.equal(R.hasMod('mac_and_cheese','drum_mag'),true);
- assert.match(app.render('gun:mac_and_cheese',stub),/DRUM MAG/);
+ assert.ok(!/DRUM MAG/.test(app.render('gun:mac_and_cheese',stub)),'RC3 (OL-076B): mods are hidden (the engine keeps them)');
  app.onAction('detach','mac_and_cheese|drum_mag',stub);assert.equal(R.hasMod('mac_and_cheese','drum_mag'),false);
 
  // ---- Range Day core: deterministic, DOM-free ----

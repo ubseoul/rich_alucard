@@ -17,8 +17,8 @@
  async function toThrone(){document.body.classList.remove('adventure-mode');await RAScenes.go('battle',{prologue:true});}
  async function cutToBedroom(){
   const screen=document.querySelector('#screen');const fade=document.createElement('div');fade.className='wake-overlay';screen.append(fade);
-  await new Promise(r=>setTimeout(r,40));fade.classList.add('on');await new Promise(r=>setTimeout(r,1400));
-  RALife.setFlag('throneDone',true);await RAScenes.go('bedroom',{firstWake:true});fade.classList.remove('on');await new Promise(r=>setTimeout(r,650));fade.remove();
+  await new Promise(r=>setTimeout(r,40));fade.classList.add('on');await new Promise(r=>setTimeout(r,500));
+  RALife.setFlag('throneDone',true);await RAScenes.go('bedroom',{firstWake:true});fade.classList.remove('on');await new Promise(r=>setTimeout(r,250));fade.remove();
   await firstWake();
  }
  async function firstWake(){

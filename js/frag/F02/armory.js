@@ -31,19 +31,24 @@
   const ammo=R.effectiveAmmo(g.id);
   return `<div class="ia-gun ia-owned"><b>${R.displayName(g.id)}</b><small>AMMO ${ammo===Infinity?'∞':ammo} · ${g.type}${equipped}</small>${tags}
    ${R.equipped()===g.id?'':act(`equip:${g.id}`,'EQUIP','ia-small')}
-   ${nav(`gun:${g.id}`,'MODS','ia-small')}
-   ${R.hasMod(g.id,'custom_engraving')?act(`engrave:${g.id}`,'ENGRAVE','ia-small'):''}
+
    ${window.RAMinigames?act(`range:${g.id}`,'RANGE DAY','ia-small'):''}</div>`;
  }
+ // RC3 (OL-076B): five guns stay (RARC3Cut.GUNS_KEEP), every mod and the workbench are hidden, and one learned move can be swapped in here.
+ const keep=g=>{const k=window.RARC3Cut?.GUNS_KEEP;return !k||k.includes(g.id);};
+ function learnedRow(){
+  const L=window.RALife?.life?.().combat||{},known=(L.learnedMoves||[]).filter(id=>window.RACombatData?.MOVES?.[id]);if(!known.length)return '';
+  return `<p class="phone-speaker">LEARNED MOVE</p>${known.map(id=>act(`learn:${id}`,`${window.RACombatData.MOVES[id].label}${L.learnedSlot===id?' · EQUIPPED':''}`,'ia-small')).join('')}`;
+ }
  function home(){
-  const owned=R.ownedGuns();const sale=C.armoryGuns().filter(g=>!R.owns(g.id));
+  const owned=R.ownedGuns().filter(keep);const sale=[...C.armoryGuns(),C.byId('auntie_slipper')].filter(g=>g&&!R.owns(g.id)&&keep(g));   // the slipper was Naija Mart's $12: the Naija Mart shop is cut, so the wall sells it
   const medals=R.medalCount(),tokens=R.discountTokens();
   return `<h1>THE ARMORY</h1>
    <p class="phone-small">DEACON BRASS · GUNS AND GRACE · ${fmt(window.RALife.money())}${tokens?` · ${tokens} MOD DISCOUNT`:''}${medals?` · ${medals} RANGE MEDAL${medals>1?'S':''}`:''}</p>
    <p class="phone-speaker">ON THE WALL</p>${owned.map(gunCard).join('')||'<p class="phone-small">nothing yet.</p>'}
-   <p class="phone-speaker">DEACON'S WORKBENCH</p>${nav('bench','MODS','ia-wide')}
+   ${learnedRow()}
    ${sale.length?`<p class="phone-speaker">FOR SALE</p>${sale.map(gunCard).join('')}`:''}
-   <p class="phone-small">RANGE/PRICE TUNING: ${C.TUNABLES.owner}</p>`;
+`;
  }
  function bench(){
   const tokens=R.discountTokens();
@@ -65,10 +70,9 @@
 
  const app={id:'armory',flag:'F02.armory',render(sub){
   const s=String(sub||'');
-  if(s==='bench')return bench();
-  if(s.startsWith('gun:'))return gunPage(s.slice(4));
   return home();
  },onAction(actName,arg,api){
+  if(actName==='learn'){window.RAState.patch('life.combat.learnedSlot',arg);api.message?.('EQUIPPED.');api.refresh();return;}
   if(actName==='buy'){const r=R.buy(arg);api.message?.(r.ok?`BOUGHT ${R.gun(arg).label}`:`CAN'T — ${r.reason}`);api.refresh();return;}
   if(actName==='equip'){const r=R.equip(arg);api.message?.(r.ok?'EQUIPPED.':`CAN'T — ${r.reason}`);api.refresh();return;}
   if(actName==='buyMod'){const [modId,flag]=String(arg).split('|');const r=R.buyMod(modId,{useDiscount:flag==='d'});api.message?.(r.ok?`${C.MODS[modId].label} — ${fmt(r.price)}${r.discount?' (MEDAL DISCOUNT)':''}`:`CAN'T — ${r.reason}`);api.refresh();return;}

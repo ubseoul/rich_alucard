@@ -89,6 +89,8 @@ function seedOgunsRave(ctx){ctx.RAState.patch('life.world.flags.ogunsRaveComplet
 
 export async function proofs(root=here){
  const results=[];const ok=(name,route,seeds,evidence)=>results.push({name,route,seeds,evidence,result:'PASS'});
+ // RC3: JUG THE PLUG no longer waits for a day-job shift, so on Day 3+ it would take the wake slot; the Coffe proofs are about the Coffe arc, not the ladder.
+ const noLadder=ctx=>ctx.RAState.patch('life.newOga',{...ctx.RAState.get().life.newOga,status:'closed'});
  const fresh=async()=>{const ctx=await loadBtf(root);ctx.RAClock.wake({first:true});return ctx};
  // A_EMBERLY1 — Kush & Crypt back room.
  {const ctx=await fresh(),log=[];assert.equal(ctx.RAPlaces.get('kush').adventure(ctx.RALife.L()),'A09');
@@ -175,7 +177,7 @@ export async function proofs(root=here){
   ok('PIER','GO SOMEWHERE → SANTA MONICA PIER → PIER (repeatable, once a night) after A12',['a hatched dragon (A11 outcome)'],['A12 → PIER minigame']);}
  // ---------------- Engineering 06 routes (each was NO PLAYER ENTRY at 9ae8fd7) ----------------
  // Coffe arc: PT1 wake beat (days 2–8) → tells on days 20/23/26 → PT2 fork in WHAT WE ON → PT3 raid at a later wake.
- {const ctx=await fresh();const {RAWakeTriggers,RALife,RAAdventures}=ctx;wakeTo(ctx,2);assert.equal(RAWakeTriggers.pick(),'A29','Coffe must knock on a morning in days 2–8');
+ {const ctx=await fresh();noLadder(ctx);const {RAWakeTriggers,RALife,RAAdventures}=ctx;wakeTo(ctx,2);assert.equal(RAWakeTriggers.pick(),'A29','Coffe must knock on a morning in days 2–8');
   drive(ctx,'A29');assert(ctx.RARelations.met('coffe'));
   let t;for(let d=3;d<=27&&!t;d++){t=wakeTo(ctx,d).find(x=>x.id==='coffe_tells');if(d<23)assert(!t,`PT2 fork offered before two tells (day ${d})`);}
   assert(t,'PT2 fork never offered');assert((Number(RALife.flag('coffeTells'))||0)>=2,'tells did not accumulate');
@@ -183,7 +185,7 @@ export async function proofs(root=here){
   const day=RALife.today().day;wakeTo(ctx,day+1);assert.equal(RAWakeTriggers.pick(),'A29C','the raid must come at a wake after PT2');drive(ctx,'A29C');
   assert(!RAAdventures.available('A29')&&!RAAdventures.available('A29B')&&!RAAdventures.available('A29C'),'Coffe arc must not repeat');
   // A life that never takes the fork still gets the raid once PT2's window (days 20–30) is over.
-  const lazy=await fresh();wakeTo(lazy,2);drive(lazy,'A29');let raid=null;for(let d=3;d<=34&&!raid;d++){wakeTo(lazy,d);if(lazy.RAWakeTriggers.pick()==='A29C')raid=d;}
+  const lazy=await fresh();noLadder(lazy);wakeTo(lazy,2);drive(lazy,'A29');let raid=null;for(let d=3;d<=34&&!raid;d++){wakeTo(lazy,d);if(lazy.RAWakeTriggers.pick()==='A29C')raid=d;}
   assert(raid&&raid>=31,`raid without the fork should come on day 31+ (got ${raid})`);
   ok('A29 → A29B → A29C','wake beat (days 2–8) → tells → WHAT WE ON "something is off about coffe." → wake raid',['none'],[`fork offered on day ${t.createdDay}; raid next wake; untaken fork → raid on day ${raid}`]);}
  // Waffle Saga: GO SOMEWHERE → HEARTSFELT-JACKSUN, one night per trip, a sleep between nights.

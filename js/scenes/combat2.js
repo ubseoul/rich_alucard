@@ -1,7 +1,9 @@
 (function(){
  // Combat 2.0 presentation. Existing throne CEO/Importer fights stay in game.js as built; every new enemy uses this.
  const D=()=>window.RACombatData;
- const wait=ms=>new Promise(r=>setTimeout(r,ms));
+ // RC3 (OL-078): the fight's animation beats are tap-to-skip: a tap while a turn plays out collapses the waits (and every later turn plays at a third of the time).
+ let fastForward=false;
+ const wait=ms=>new Promise(r=>setTimeout(r,fastForward?Math.round(ms/6):Math.round(ms*.7)));
  let active=null;
  const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
  function actorEl(personId,x,floor,scale,flip,src=null){
@@ -51,9 +53,10 @@
   // ART SHIP 014 item/gun art beside the label (native pixels); items without frozen art stay text-only.
   const icon=art=>art?.asset?`<img class="c2-icon" src="${art.asset}" alt="" width="${art.cell[0]}" height="${art.cell[1]}" draggable="false">`:'';
   function renderMenu(){
+   fastForward=false;
    const m=$('.c2-menu');if(state.over){m.innerHTML='';return;}
    if(state.awaitingOctopus){showOcto();m.innerHTML='';return;}
-   if(menu==='main')m.innerHTML=btn('▶ FIGHT','fight')+btn('ITEM','item')+btn('HOES','hoes')+btn('RUN','run')+(window.RACombat2Ext?.menuButtons(state)||[]).map(b=>btn(`${icon(window.RAArtRegistry?.items?.guns?.[b.gun]?.held)}${esc(b.label)}`,b.act,b.cls)).join(''); // IF-1 weapon-slot button seam (empty unless registered + flag ON)
+   if(menu==='main')m.innerHTML=btn('▶ FIGHT','fight')+btn('ITEM','item')+btn('RUN','run')+(window.RACombat2Ext?.menuButtons(state)||[]).map(b=>btn(`${icon(window.RAArtRegistry?.items?.guns?.[b.gun]?.held)}${esc(b.label)}`,b.act,b.cls)).join(''); // IF-1 weapon-slot button seam (empty unless registered + flag ON)
    else if(menu==='fight'){m.innerHTML=state.moves.map(id=>{const mv=D().MOVES[id];return btn(`${mv.label}<small>PP ${state.rich.pp[id]}/${mv.pp}${id==='revenge'?` · ${state.rich.revenge}`:''}</small>`,`move:${id}`,state.rich.pp[id]>0?'':'c2-off');}).join('')+state.guns.map(g=>btn(`${icon(window.RAArtRegistry?.items?.guns?.[g.id]?.held)}GUN: ${D().GUNS[g.id].label}<small>AMMO ${g.ammo}</small>`,`gun:${g.id}`,g.ammo>0?'c2-gun':'c2-off')).join('')+btn('BACK','back','c2-back');}
    else if(menu==='item'){const list=Object.entries(state.items).filter(([id,n])=>n>0&&D().ITEMS[id]);m.innerHTML=(list.map(([id,n])=>btn(`${icon(window.RAArtRegistry?.items?.combat?.[id])}${D().ITEMS[id].label}<small>×${n}</small>`,`item:${id}`)).join('')||'<p class="c2-empty">BAG IS EMPTY.</p>')+btn('BACK','back','c2-back');}
    else if(menu==='hoes'){const list=state.companions;m.innerHTML=(list.flatMap(c=>c.moves.map(mv=>btn(`${c.name}: ${mv.label}<small>${2-(state.hoesUsed[c.id]||0)} LEFT</small>`,`hoe:${c.id}:${mv.id}`,(state.hoesUsed[c.id]||0)>=2?'c2-off':''))).join('')||'<p class="c2-empty">NOBODY CLOSE ENOUGH YET.</p>')+btn('BACK','back','c2-back');}
@@ -95,6 +98,7 @@
    if(state.over)return finish();
    renderMenu();
   }
+  root.addEventListener('pointerdown',()=>{if(busy)fastForward=true;});
   root.addEventListener('click',e=>{
    const o=e.target.closest('[data-octo]');if(o){$('.c2-octo').hidden=true;doAction({type:'octopus',option:o.dataset.octo});return;}
    const b=e.target.closest('[data-c2]');if(!b||busy)return;const [kind,a,c]=b.dataset.c2.split(':');
@@ -110,7 +114,7 @@
    if(outcome==='win'||outcome==='lose'){try{window.RAAudio?.sfx?.(outcome==='win'?'VICTORY':'DEFEAT');}catch(e){}}
    // Persist what the fight used/earned (items spent, moves learned, drops, people who saw it).
    const life=RAState.get().life;const items={...life.ownership.items};for(const [id,n] of Object.entries(state.items))if(D().ITEMS[id]){if(n>0)items[id]=n;else delete items[id];}RAState.patch('life.ownership.items',items);
-   if(state.learned){const learned=[...new Set([...(life.combat.learnedMoves||[]),state.learned])];RAState.patch('life.combat.learnedMoves',learned);const eq=[...life.combat.equippedMoves];if(!eq.includes(state.learned)){if(eq.length<4)eq.push(state.learned);RAState.patch('life.combat.equippedMoves',eq);}}
+   if(state.learned){const learned=[...new Set([...(life.combat.learnedMoves||[]),state.learned])];RAState.patch('life.combat.learnedMoves',learned);const eq=[...life.combat.equippedMoves];if(!eq.includes(state.learned)){if(eq.length<4)eq.push(state.learned);RAState.patch('life.combat.equippedMoves',eq);}if(!life.combat.learnedSlot)RAState.patch('life.combat.learnedSlot',state.learned);}
    if(outcome==='win'||outcome==='spared'){const drop=def.drop||{};if(drop.money&&outcome==='win')RALife.addMoney(drop.money);if(drop.followers)RALife.addFollowers(drop.followers);if(state.filming)RALife.addFollowers(state.filming);if(state.subscribe)RALife.addMoney(state.subscribe);for(const c of Object.keys(state.hoesUsed))if(RABtfPeople.get(c)?.dateable)RARelations.add(c,5,{reason:'fought together'});}
    for(const id of state.companionHurt)RALife.text(id,RABtfPeople.get(id)?.name||id,'my shoulder still hurts from last night. worth it tho.',{id:`hurt:${id}:${RALife.today().day}`});
    if(outcome==='lose'&&!params.noPenalty)window.RADefeat?.apply?.({enemy:state.enemy.name,witnesses:params.witnesses||Object.keys(state.hoesUsed)});

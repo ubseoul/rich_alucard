@@ -3,6 +3,12 @@
  // Enemies TELEGRAPH next intent one turn early; preparation (fits, items, companions, guns, rooms) beats grinding.
  const D=()=>window.RACombatData;
  const clampHp=(v,max)=>Math.max(0,Math.min(max,Math.round(v)));
+ // RC3 (OL-076B): the visible move list is the core four plus ONE learned move (life.combat.learnedSlot, swapped in the ARMORY); with the equipped
+ // gun that is six at most. The learned moves a player has picked up stay in life.combat.learnedMoves.
+ function coreMoves(life){
+  const core=['blood','octopus','bite','revenge'],slot=life.combat.learnedSlot,known=life.combat.learnedMoves||[];
+  return slot&&known.includes(slot)&&!core.includes(slot)&&window.RACombatData?.MOVES?.[slot]?[...core,slot]:core;
+ }
  function loadout(){
   const life=window.RAState?.get?.().life;const L=window.RALife;if(!life)return {maxHp:100,moves:['blood','octopus','bite','revenge'],items:{},guns:[],fits:[],rooms:[],companions:[]};
   const fits=Object.values(life.ownership.fits?.equipped||{}).map(id=>D().FITS[id]).filter(Boolean);
@@ -11,7 +17,7 @@
   const iron=window.RAIronFlags?.core?.()&&window.RAIronAndGrace?.loadout?.().length;
   const guns=iron?[]:(life.ownership.guns||[]).map(g=>g.id).filter(id=>D().GUNS[id]&&(!D().GUNS[id].dev||L?.flag?.('devKratos'))).slice(-slots);
   let maxHp=100+(rooms.includes('coffin_upgrade')?20:0)+fits.reduce((s,f)=>s+(f.maxhp||0),0);
-  return {maxHp,moves:[...(life.combat.equippedMoves||['blood','octopus','bite','revenge'])].slice(0,4),items:{...life.ownership.items},guns,fits,rooms,companions:window.RARelations?.companions?.()||[]};
+  return {maxHp,moves:coreMoves(life),items:{...life.ownership.items},guns,fits,rooms,companions:window.RARelations?.companions?.()||[]};
  }
  function create(enemyId,params={},lo=loadout(),rng=Math.random){
   const e=D().ENEMIES[enemyId];if(!e)throw new Error(`unknown enemy ${enemyId}`);

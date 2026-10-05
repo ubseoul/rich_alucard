@@ -955,3 +955,12 @@ body.pd-active #screen > .room{display:none}
 #phoneContent .phone-rec .rec-first{border:2px solid var(--os-red);background:var(--os-raised);box-shadow:3px 3px #4c1932}
 .ra-toast{position:fixed;left:50%;bottom:14%;transform:translateX(-50%);z-index:10050;max-width:86%;padding:8px 10px;background:#f1e5c5;color:#21151a;border:2px solid #28131c;box-shadow:3px 3px #7d194b;font:8px/1.5 var(--font-system,monospace);text-align:center;pointer-events:none}
 @media (prefers-reduced-motion:reduce){#phoneContent .app-button.phone-pulse .phone-icon-tile,#phoneContent .phone-pulse-dot,#phoneContent .phone-next-button[data-guide],.check-phone.guide-pulse{animation:none}}
+
+/* RC3 (OL-074/078) */
+.adv-skip{position:absolute;right:6px;top:6px;z-index:9;font:10px var(--os-label,monospace);letter-spacing:1px;padding:6px 8px;background:rgba(10,6,14,.72);color:var(--os-gold,#e8c05a);border:1px solid var(--os-line,#5a3a6a);pointer-events:auto}
+#phoneContent .vgpt-story{border:1px solid var(--os-red);background:var(--os-raised);padding:8px;margin:0 0 10px}
+#phoneContent .vgpt-story small{display:block;color:var(--os-gold);margin-bottom:4px}
+#phoneContent .vgpt-story b{display:block;font-weight:400;font-size:1.15em;line-height:1.1;margin-bottom:8px}
+#phoneContent .vgpt-row{margin:2px 0}
+#phoneContent .vgpt-later{opacity:.8}
+.mail-story{border-color:var(--os-red,#d7193f)}

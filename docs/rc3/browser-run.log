@@ -1,0 +1,17 @@
+[5.4s] START clicked
+[17.7s] FIRST FIGHT on screen
+[54.1s] CONTROL: bedroom, life started
+{"firstFight":"17.7","control":"54.1","errors":[]}
+[56.4s] tiles 8 ["VampGPT !","Texts 2","War Room","Strip Club","Armory","Bank","Maps","Rich Radio"] next PROLOGUE · YOUR FIRST JOB MISTER DECEMBER'S OFFER ↗
+[57.0s] after NEXT UP: {"scene":"bedroom","day":1,"money":40000,"phone":true,"page":"app:warRoom","body":"☎ DAY 1 · THU OCT 1 ⌂ CASTLE ☾ SLEEP 21:38 RICH / LIFE OS ▂▄▆ THU · OCT 1 ▣ ⚙ × WAR ROOM MISTER DECEMBER A black car is outside. I'M IN. NAH. HOME $40,000"}
+[57.9s] accepted "app:warRoom"
+[58.6s] PLAY frame up after 3 taps from the bedroom ["phone","next-up","next-up(PLAY)"]
+[164.1s] PLAY done; cash 53300
+[164.7s] NEXT UP after the PLAY: FIRST VISIT · DISCOUNT STRIP CLUB ↗
+[168.2s] club launched: {"scene":"bedroom","dom":["stage",""]}
+[169.7s] after leaving the club: {"scene":"bedroom","day":1,"money":53300,"phone":false,"page":"home","body":"☎ DAY 1 · THU OCT 1 ⌂ CASTLE ☾ SLEEP $53,300"}
+[170.3s] SLEEP tapped; confirm box shown: false (was false )
+[176.5s] DAY 2 morning: {"day":2,"cards":["OGUN TONIGHT"],"next":"OGUN SAID TONIGHT","sub":"OGUN'S RAVE · INVITE"}
+[177.5s] invite page: OGUN OGUN meatpacking district. bring yourself. don't be too fashionably late. I'M THERE HOME
+[178.7s] DAY 2 NEXT UP: OGUN'S RAVE · TONIGHT OGUN'S RAVE ↗
+[178.8s] errors: []

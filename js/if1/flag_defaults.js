@@ -10,5 +10,5 @@
  //   F04.war_room         WAR ROOM: the board that sends crew out on PLAYs (offer window moved to Day 2, js/frag/F04/wake.js)
  //   F06.rainmaker        MAKE IT RAIN, the strip-club spend loop
  //   F15.velvet_rotation  club dancers on the real MAKE IT RAIN stage (requires F06.rainmaker)
- window.RAFlagDefaults=Object.freeze({'F01.showdown_core':true,'F02.iron_and_grace':true,'F02.armory':true,'F02.range_day':true,'F03.new_oga_ladder_close':true,'F04.war_room':true,'F05.trap':true,'F06.rainmaker':true,'F07.m8_and_finale':true,'F15.velvet_rotation':true});
+ window.RAFlagDefaults=Object.freeze({'F01.showdown_core':true,'F02.iron_and_grace':true,'F02.armory':true,'F02.range_day':true,'F03.new_oga_ladder_close':true,'F04.war_room':true,'F05.trap':false,'F06.rainmaker':true,'F07.m8_and_finale':true,'F15.velvet_rotation':true});
 })();

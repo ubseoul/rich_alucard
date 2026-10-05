@@ -30,7 +30,7 @@ export async function runFragmentTests(root=defaultRoot,{fragment=null}={}){
     const mod=await import(pathToFileURL(suite.path).href);
     if(typeof mod.test!=='function')throw new Error(`${suite.fragment}/${suite.file} must export async function test(root)`);
     // RC2 (OL-063): the IF-1 suites prove the dark-by-default contract, so they run on a build with no promoted flags (js/if1/flag_defaults.js ships ten ON).
-    if(suite.fragment!=='rc2')process.env.RA_FLAGS_DARK='1';   // OL-068: every other suite predates the promotions and proves its own contract (dark or an explicit flag set) on an unpromoted build; tools/tests/rc2 and the browser path run with the shipped defaults
+    if(!['rc2','rc3'].includes(suite.fragment))process.env.RA_FLAGS_DARK='1';   // OL-068: every other suite predates the promotions and proves its own contract (dark or an explicit flag set) on an unpromoted build; tools/tests/rc2 and the browser path run with the shipped defaults
     try{await mod.test(root);}catch(error){error.message=`[${suite.fragment}/${suite.file}] ${error.message}`;throw error;}finally{delete process.env.RA_FLAGS_DARK;}
   }
   return suites.length;

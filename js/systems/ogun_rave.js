@@ -26,7 +26,7 @@
         RAState.patch('life.night.active',null);
         const completed=[...(RAState.get().life.night.completed||[])];
         if(prior&&!completed.some(x=>x.id===prior.id)){completed.push({id:prior.id,completedAt});RAState.patch('life.night.completed',completed);}
-        RAState.patch('life.world.flags.ogunsRaveCompleted',true);
+        RAState.patch('life.world.flags.ogunsRaveCompleted',true);RAState.patch('life.world.flags.rc3StoryDay',RALife.today().day);
         RAState.patch('life.world.flags.castlePartyHostingUnlocked',true);
         RAState.patch('life.world.location','LA');
         RAState.recordEvent({id:'ogun-rave-completed',type:'night_completed',nightId:NIGHT_ID,at:completedAt});

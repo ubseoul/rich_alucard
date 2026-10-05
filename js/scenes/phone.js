@@ -18,7 +18,7 @@
  // ---- app registry ----
  function register(app){registry.set(app.id,{canon:false,order:50,...app});}
  const appLabel=id=>registry.get(id)?.label||CANON.find(c=>c[1]===id)?.[0]||id;
- function isUnlocked(id){if(['vampgpt','realEstate','jdmImports','bank','maps','contacts'].includes(id))return true;if(id==='stripClub')return !!window.RAStripClub?.isOpen?.();return !!window.RALife?.appUnlocked?.(id);}
+ function isUnlocked(id){if(['vampgpt','realEstate','jdmImports','bank','maps','contacts','texts','radio','armory'].includes(id))return true;if(id==='stripClub')return !!window.RAStripClub?.isOpen?.();return !!window.RALife?.appUnlocked?.(id);}
  function unreadCount(){try{const threads=state().life.phone.threads||{};let n=0;for(const t of Object.values(threads))n+=t.filter(m=>!m.read&&m.from!=='RICH').length;return n;}catch(e){return 0}}
  function badge(id){const app=registry.get(id);const n=app?.badge?.()||0;return n?` <i class="phone-badge">${n}</i>`:''}
  function header(){
@@ -45,22 +45,16 @@
   // "Do this next": time-limited interrupts (an incoming event, a raid, a PLAY mid-flight) first, then the one step RAGuidance picks.
   function nextAction(){
    const event=incoming()[0];if(event)return {label:event.subject||event.sender,sub:event.sender,action:`openWorldEvent:${event.id}`};
-   if(isUnlocked('trap')&&window.RATrap?.raids?.pending?.())return {label:'HOLD THE HOUSE',sub:'TRAP · RAID PENDING',action:'app:trap:report'};
    const pending=window.RAWarRoomPlay?.pending?.();if(isUnlocked('warRoom')&&pending)return {label:'RESUME THE PLAY',sub:pending.jobMeta?.label||'WAR ROOM',action:'app:warRoom:jobs'};
    const g=window.RAGuidance?.next?.();if(g)return {label:g.label,sub:g.sub,action:g.action};
-   const unread=unreadCount();if(unread&&isUnlocked('texts'))return {label:'TEXTS',sub:`${unread} UNREAD`,action:'app:texts'};
-   return {label:'OGA WHAT DO I DO',sub:'VAMPGPT',action:'prompt'};
+   return {label:'OGA WHAT DO I DO',sub:'VAMPGPT',action:'app:vampgpt'};
   }
   function nextMarkup(){const n=nextAction();return `<section class="phone-next"><p class="phone-incoming-kicker">NEXT UP <span>AVAILABLE NOW</span></p>${button(`<small>${esc(n.sub||'')}</small><strong>${esc(n.label)}</strong><span class="phone-next-arrow" aria-hidden="true">↗</span>`,n.action,'phone-next-button')}</section>`;}
+  // RC3: eight apps, one flat 3-wide grid, one NEXT UP card. No sections, no stacked INCOMING list (NEXT UP is the one notification).
   function homeMarkup(){
-   const entries=CANON.map(([name,id])=>({id,label:name,canon:true}));
-   for(const a of [...registry.values()].filter(x=>!x.canon&&!x.hidden).sort((a,b)=>a.order-b.order))entries.push({id:a.id,label:a.label,canon:false});
-   const hierarchy=window.RAPhoneHierarchy;
-   const sections=hierarchy?.sections?.()||[{id:'life',label:'APPS'}];
-   const groups=new Map(sections.map(s=>[s.id,[]]));
-   for(const entry of entries){const key=hierarchy?.sectionFor?.(entry.id,registry.get(entry.id))||'life';(groups.get(key)||groups.get('life')).push(entry);}
-   const grid=sections.map(section=>{const items=groups.get(section.id)||[];if(!items.length)return '';return `<p class="phone-section-label" data-phone-section="${esc(section.id)}">${esc(section.label)}</p>`+items.map(e=>appButton(e.id,e.label,e.canon)).join('');}).join('');
-   return `${header()}${nextMarkup()}${incomingCard()}<div class="phone-app-grid">${grid}</div><div class="phone-message" aria-live="polite"></div>${button('CLOSE PHONE','close','phone-close-button')}`;
+   const apps=(window.RARC3Cut?.APPS||CANON.map(([label,id])=>({id,label})));
+   const grid=apps.map(a=>appButton(a.id,a.label,true)).join('');
+   return `${header()}${nextMarkup()}<div class="phone-app-grid">${grid}</div><div class="phone-message" aria-live="polite"></div>${button('CLOSE PHONE','close','phone-close-button')}`;
   }
  // ---- VampGPT (canon flow + WHAT WE ON + the three lanes) ----
  function whatWeOn(){
@@ -76,6 +70,21 @@
  function deviceChrome(){const now=new Date(),time=document.querySelector('#phoneDeviceTime'),date=document.querySelector('#phoneDeviceDate');if(time)time.textContent=`${String(now.getHours()).padStart(2,'0')}:${String(now.getMinutes()).padStart(2,'0')}`;if(date&&window.RALife)date.textContent=`${RALife.today().weekday.slice(0,3)} · ${RALife.today().dateLabel}`;overlay.classList.toggle('device-locked',deviceLocked);}
  function pixelKeyboard(){return `<div class="phone-keyboard" aria-label="Contact search keyboard">${['QWERTYUIOP','ASDFGHJKL','ZXCVBNM'].map(row=>`<div>${[...row].map(k=>`<button type="button" data-phone-key="${k.toLowerCase()}" aria-label="Type ${k}">${k}</button>`).join('')}</div>`).join('')}<div><button type="button" data-phone-key="clear">CLEAR</button><button type="button" data-phone-key=" " class="phone-space">SPACE</button><button type="button" data-phone-key="backspace" aria-label="Backspace">⌫</button></div></div>`;}
  function filterContacts(){const input=content.querySelector('[data-contact-search]'),query=(input?.value||'').toLowerCase();content.querySelectorAll('[data-contact-name]').forEach(card=>{card.hidden=!card.dataset.contactName.includes(query);});}
+  // VampGPT (RC3): the next story step, then today's loop. Nothing else.
+ function vampgptMarkup(){
+  const sp=window.RAGuidance?.spine?.(),rows=window.RAGuidance?.today?.()||[];
+  const story=sp?`<div class="phone-card vgpt-story"><small>${esc(sp.sub||sp.chapter)}</small><b>${esc(sp.label)}</b>${sp.ready?button('GO',sp.action,'rec-line rec-first'):`<span class="phone-small">${esc(sp.wait||'TOMORROW')}</span>${button('SLEEP','sleep','rec-line')}`}</div>`:`<div class="phone-card vgpt-story"><b>THE STORY IS DONE</b><span class="phone-small">NEW OGA OF LA</span></div>`;
+  const mark={done:'✔',next:'▶',wait:'…',later:'○'};
+  const list=rows.map(r=>r.action&&r.state!=='done'?button(`${mark[r.state]||'○'} ${esc(r.label)}<small>${esc(r.sub||'')}</small>`,r.action,r.state==='next'?'rec-line':'rec-line vgpt-later'):`<p class="phone-small vgpt-row">${mark[r.state]||'○'} ${esc(r.label)} · ${esc(r.sub||'')}</p>`).join('');
+  return `<h1>VAMPGPT</h1><div class="phone-chat"><p class="phone-speaker">NEXT STORY</p>${story}<p class="phone-speaker">TODAY</p>${list}<div class="phone-message" aria-live="polite"></div></div>${button('HOME','home','phone-back')}`;
+ }
+ // MAPS (RC3): the ten optional adventures (only the ones playable today) and the day job. Nothing here is ever pushed at the player.
+ function mapsMarkup(){
+  const opts=(window.RACut?.optional?.()||[]).filter(o=>o.available);
+  const L=window.RALife,shift=!window.RAAdventures?.active?.()&&(window.RAAdventures?.available?.('SLURP')?'SLURP':window.RAAdventures?.available?.('A08')?'A08':null);
+  const rows=[...(shift?[button(`WORK A SHIFT<br><small>RAMEN · LOW PAY</small>`,`maps:go:${shift}`,'destination-available')]:[]),...opts.map(o=>button(`${esc(o.title)}<br><small>${esc(o.tag)}</small>`,`maps:go:${o.id}`,'destination-available'))];
+  return `<h1>MAPS</h1><p class="phone-small">${esc(state().life.world.location)} · ${esc(L.today().dateLabel)}</p><div class="phone-option-list">${rows.join('')||'<p class="phone-small">nothing on the map today.</p>'}</div><div class="phone-message" aria-live="polite"></div>${button('HOME','home','phone-home')}`;
+ }
  function render(){
   if(!content)return;
   const s=state(),r=s.life.resources,w=s.life.world;
@@ -84,24 +93,10 @@
   content.dataset.phoneApp=page;
   {const cur=['vampgpt','options','money','people'].includes(page)?'vampgpt':page==='somewhere'?'maps':page.startsWith('app:')?page.split(':')[1]:(page==='realEstate'||page==='jdmImports')?page:null;if(cur){window.RAGuidance?.opened?.(cur);if(page==='somewhere')window.RAGuidance?.opened?.('vampgpt');}}
   if(page==='home'){content.innerHTML=homeMarkup();}
-  else if(page==='vampgpt'){
-   content.innerHTML=`<h1>VAMPGPT</h1><div class="phone-chat"><p class="phone-speaker">VAMPGPT</p><p>yo rich<br>what we on</p>${recommendedBlock()}${whatWeOn()}${button('OGA WHAT DO I DO','prompt','suggested-prompt')}</div>${button('HOME','home','phone-back')}`;
-  }else if(page==='options'){
-   content.innerHTML=`<h1>VAMPGPT</h1><div class="phone-chat"><p class="phone-speaker">RICH</p><p>oga what do i do</p><p class="phone-speaker">VAMPGPT</p><p>you got $${cash()}.<br>you in ${esc(w.location)}.<br>clout still ${String(r.clout).toLowerCase()}.<br>we got options though.</p><div class="phone-option-list">${button('MAKE MONEY','money')}${button('MEET PEOPLE','people')}${button('GO SOMEWHERE','somewhere')}</div><div class="phone-message" aria-live="polite"></div></div>${button('HOME','home','phone-back')}`;
-  }else if(page==='money'||page==='people'){
-   const opts=laneOptions(page);
-   content.innerHTML=`<h1>VAMPGPT</h1><div class="phone-chat"><p class="phone-speaker">RICH</p><p>${page==='money'?'how i make money':'i wanna meet people'}</p><p class="phone-speaker">VAMPGPT</p><p>${esc(window.RAVampGPT?.laneIntro?.(page)||'ok. options.')}</p><div class="phone-option-list">${opts.map(o=>button(`${esc(o.label)}${o.sub?`<br><small>${esc(o.sub)}</small>`:''}`,`go:${o.go}`,o.octopus?'octo-option':'')).join('')||'<p>nothing yet. give it a day.</p>'}</div></div>${button('BACK','options','phone-back')}${button('HOME','home','phone-home')}`;
-  }else if(page==='somewhere'){
-   const places=window.RAPlaces?.visible?.()||[];
-   const options=opportunities();
-   const available=options.filter(o=>o.available),locked=options.filter(o=>!o.available);
-   const destLockShort=o=>{const f=(o.failures||[]).join(' '),m=String(o.lockedMessage||'').toLowerCase();if(/money/.test(f))return 'NEED CASH';if(/clout/.test(f)||/clout/.test(m))return 'NEED CLOUT';if(/location/.test(f))return 'NOT HERE';if(/contact/.test(f))return 'NO CONTACT';if(/relationship/.test(f))return 'NOT CLOSE';return 'LOCKED';};
-   const destination=(o,unlocked)=>button(`${o.label}<br><small>${unlocked?'AVAILABLE':`LOCKED · ${esc(destLockShort(o))}`}</small>`,o.id,unlocked?'destination-available':'destination-locked',unlocked?'':'data-locked="1"');
-   const groups=[];
-   if(available.length)groups.push(`<p class="phone-section-label" data-phone-section="go-available">AVAILABLE</p>${available.map(o=>destination(o,true)).join('')}`);
-   if(places.length)groups.push(`<p class="phone-section-label" data-phone-section="go-open">OPEN NOW</p>${places.map(p=>button(`${esc(p.label)}<br><small>${esc(p.sub||'AVAILABLE')}</small>`,`go:${p.id}`,'destination-available')).join('')}`);
-   if(locked.length)groups.push(`<p class="phone-section-label" data-phone-section="go-locked">LOCKED</p>${locked.map(o=>destination(o,false)).join('')}`);
-   content.innerHTML=`<h1>VAMPGPT</h1><div class="phone-chat"><p>where you tryna go</p><div class="phone-option-list">${groups.join('')||'<p>nothing yet.</p>'}</div><div class="phone-message" aria-live="polite"></div></div>${button('BACK','options','phone-back')}${button('HOME','home','phone-home')}`;
+  else if(page==='vampgpt'||page==='options'||page==='money'||page==='people'){
+   content.innerHTML=vampgptMarkup();
+  }else if(page==='somewhere'||page==='maps'){
+   content.innerHTML=mapsMarkup();
   }else if(page==='settings'){
    const a=window.RAAudio?.settings?.()||{music:1,sfx:1,ambience:1,muted:false,haptics:true};
    const slider=(bus,label,value)=>`<label class="phone-setting"><span>${label}</span><input type="range" min="0" max="100" step="5" value="${Math.round(value*100)}" data-audio-bus="${bus}" aria-label="${label} volume"></label>`;
@@ -166,9 +161,14 @@
  const api={go(p){page=p;render();},refresh:render,close:closePhone,message:setMessage,button,esc,
   async begin(adventureId,opts={}){if(!window.RAAdventures?.available(adventureId)){setMessage('not tonight.');return false;}await closePhone();return RAAdventureScene.begin(adventureId,{from:'phone',...opts});},
   async launch(minigameId,params={},after){await closePhone();const result=await RAMinigames.launch(minigameId,params);window.RALifeRewards?.apply?.(result);if(after)after(result);return result;}};
+ const safeMenu=()=>{try{return window.RAWarRoomJobs?.buildNightMenu?.()||[]}catch(e){return []}};
  async function action(name){
   if(name==='deviceLock'){deviceLocked=true;window.RAAudio?.sfx?.('UI_CONFIRM');render();return}if(name==='deviceUnlock'){deviceLocked=false;window.RAAudio?.sfx?.('UI_CONFIRM');render();return}if(deviceLocked){if(name==='close')closePhone();return;}
-  if(name==='close'){closePhone();return}if(name==='home'){page='home';render();return}if(name==='vampgpt'){page='vampgpt';render();return}if(name==='prompt'){page='options';render();return}if(name==='somewhere'){page='somewhere';render();return}if(name==='options'){page='options';render();return}if(name==='jdmImports'){page='jdmImports';render();return}if(name==='realEstate'){page='realEstate';render();return}
+  if(name==='sleep'){await closePhone();window.RABedroomLife?.confirmBed?.();return}
+  if(name==='playNext'){const app=registry.get('warRoom'),menu=safeMenu(),i=menu.findIndex(j=>j.routesToPlay);if(app&&i>=0){await app.onAction('play',String(i),api);}else{page='app:warRoom:jobs';render();}return}
+  if(name.startsWith('story:')){const id=name.slice(6);if(!window.RAAdventures?.available(id)){setMessage('not yet.');return}await closePhone();await window.RAAdventureScene.begin(id,{from:'spine'});return}
+  if(name.startsWith('maps:go:')){const id=name.slice(8);if(!window.RAAdventures?.available(id)){setMessage('not today.');return}await closePhone();await window.RAAdventureScene.begin(id,{from:'maps'});return}
+  if(name==='close'){closePhone();return}if(name==='home'){page='home';render();return}if(name==='vampgpt'){page='vampgpt';render();return}if(name==='prompt'){page='vampgpt';render();return}if(name==='somewhere'||name==='maps'){page='maps';render();return}if(name==='options'){page='vampgpt';render();return}if(name==='jdmImports'){page='jdmImports';render();return}if(name==='realEstate'){page='realEstate';render();return}
   if(name==='settings'){window.RAAudio?.sfx?.('UI_CONFIRM');page='settings';render();return}
   if(name==='toggleMute'){window.RAAudio?.toggleMuted?.();window.RAAudio?.sfx?.('UI_CONFIRM');render();return}
   if(name.startsWith('openWorldEvent:')){page=`worldEvent:${name.slice('openWorldEvent:'.length)}`;render();return}
@@ -188,7 +188,7 @@
   if(name==='atlanta'){const option=window.RAOpportunities?.get('atlanta');if(option?.available&&option.action?.type==='dialogue'&&option.action.id==='butter_chicken'){page='butterChicken';render()}return}
   if(name==='tokyo'){const option=window.RAOpportunities?.get('tokyo');if(!option?.available){window.RAAudio?.sfx?.('UI_ERROR');setMessage(window.RALife&&RALife.rep()>=2?'almost. not yet.':(option?.lockedMessage||"tokyo vampires don't fw you yet. get your clout up."));}else window.RAAudio?.sfx?.('UI_CONFIRM');return}
   if(name==='ogun_rave'){const option=window.RAOpportunities?.get('ogun_rave');if(option?.available&&option.action?.type==='dialogue'&&option.action.id==='ogun_rave_intro'){page='ogunRaveIntro';render()}return}
-  if(name==='nah'){page='somewhere';render();return}
+  if(name==='nah'){page='vampgpt';render();return}
   if(name==='letsGo'){
    const trip=window.RADesireTrips?.createTrip(window.RADesireTripPresentation?.firstTrip||{});if(!trip)return;
    window.RAClock?.logOuting?.({type:'desire',id:'butter_chicken'});
@@ -216,7 +216,7 @@
  window.RAPhone={open:showPhone,close:closePhone,openApp,home(){page='home';render()},refresh:render,reset(){window.RAState.patch('life.phone.learned',false);updateEntry()},isOpen:()=>opened,apps:CANON.map(([name])=>name),api,page:()=>page,updateEntry};
  // Command views expose the existing economy, travel and contacts; no new game rules.
  function nextRoomMarkup(){const L=RALife.L(),room=(window.RACastle?.ROOMS||[]).filter(r=>!RALife.hasRoom(r.id)&&(!r.needs||r.needs(L))).sort((a,b)=>a.price-b.price)[0];if(!room)return "";return `<div class="phone-card"><b>TOMORROW'S RICH</b>${esc(room.label)}<br><span class="phone-small">${esc(room.verb)}</span><br>${RALife.fmt(room.price)} · ${RALife.money()>=room.price?"READY NOW":`${RALife.fmt(room.price-RALife.money())} TO GO`}${button("SEE YOUR CASTLE","app:realEstate")}</div>`;}
- register({id:'bank',label:'BANK',section:'money',order:1,render(){const l=state().life,o=l.ownership,props=(o.properties||[]).filter(p=>p.ownershipStatus==='owned'),due=props.reduce((n,p)=>n+(p.rentDue||0),0);return `<h1>BANK</h1><div class="phone-bank-total"><span>ON HAND</span><strong>$${cash()}</strong></div><div class="phone-card"><b>NET WORTH</b>${RALife.fmt(RALife.netWorth())}<br>RENT WAITING · ${RALife.fmt(due)}${due?button('PROPERTY · COLLECT RENT','app:realEstate'):''}</div><p class="phone-speaker">OWNED</p><div class="phone-stat-grid">${[['PROPERTIES',props.length],['CARS',(o.cars||[]).filter(c=>c.ownershipStatus!=='sold').length],['CASTLE ROOMS',(o.castleRooms||[]).length],['GUNS',(o.guns||[]).length]].map(([label,n])=>`<div class="phone-card"><strong>${n}</strong><small>${label}</small></div>`).join('')}</div>${nextRoomMarkup()}${button('PROPERTY','app:realEstate')}${button('CARS','app:jdmImports')}`;}});
- register({id:'maps',label:'MAPS',section:'now',order:6,render(){return `<h1>MAPS</h1><div class="phone-card"><b>${esc(state().life.world.location)}</b>${esc(RALife.today().dateLabel)}</div>${button('GO SOMEWHERE','somewhere')}`;}});
+ register({id:'bank',label:'BANK',section:'money',order:1,render(){const l=state().life,o=l.ownership,props=(o.properties||[]).filter(p=>p.ownershipStatus==='owned'),due=props.reduce((n,p)=>n+(p.rentDue||0),0);return `<h1>BANK</h1><div class="phone-bank-total"><span>ON HAND</span><strong>$${cash()}</strong></div><div class="phone-card"><b>NET WORTH</b>${RALife.fmt(RALife.netWorth())}<br>RENT WAITING · ${RALife.fmt(due)}${due?button('PROPERTY · COLLECT RENT','app:realEstate'):''}</div><p class="phone-speaker">OWNED</p><div class="phone-stat-grid">${[['PROPERTIES',props.length],['CARS',(o.cars||[]).filter(c=>c.ownershipStatus!=='sold').length],['GUNS',(o.guns||[]).length]].map(([label,n])=>`<div class="phone-card"><strong>${n}</strong><small>${label}</small></div>`).join('')}</div>${button('PROPERTY','app:realEstate')}${button('CARS','app:jdmImports')}`;}});
+ register({id:'maps',label:'MAPS',section:'now',order:6,direct:()=>{page='maps';render();return true;},render(){return mapsMarkup();}});
  register({id:'contacts',label:'CONTACTS',section:'social',order:6,render(){const known=window.RARelations?.known?.()||[];return `<h1>CONTACTS</h1><label class="phone-search"><span>FIND SOMEBODY</span><input data-contact-search type="search" inputmode="none" autocomplete="off" placeholder="name…" aria-label="Search contacts"></label>${isUnlocked('texts')?button('TEXTS','app:texts'):''}<div class="phone-contact-list">${known.map(p=>`<div class="phone-card" data-contact-name="${esc((p.catalog?.name||p.id).toLowerCase())}"><b>${esc(p.catalog?.name||p.id)}</b>${p.catalog?.dateable&&isUnlocked('instahoe')?button('PROFILE',`app:instahoe:p:${p.id}`):''}${(state().life.phone.threads[p.id]||[]).length&&isUnlocked('texts')?button('TEXTS',`app:texts:${p.id}`):''}</div>`).join('')||'<p class="phone-small">nobody yet. phone still got space.</p>'}</div>${pixelKeyboard()}`;}});
 })();

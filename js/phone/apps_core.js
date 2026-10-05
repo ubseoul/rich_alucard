@@ -33,9 +33,11 @@
   api.refresh();
  }
  // TEXTS — homies, family thread, everyone who isn't an InstaHoe DM.
- A.register({id:'texts',label:'TEXTS',order:5,badge:()=>unread(id=>!isDM(id)),
-  render(sub){if(sub)return threadMarkup(sub,'texts');const list=Object.entries(threads()).filter(([id])=>!isDM(id)).sort((a,b)=>(b[1].at(-1)?.day||0)-(a[1].at(-1)?.day||0));
-   return `<h1>TEXTS</h1>${list.map(([id,t])=>{const u=t.filter(m=>!m.read&&m.from!=='RICH').length;return btn(`${esc(threadName(id))}${u?` <i class="phone-badge">${u}</i>`:''}<br><small>${esc(t.at(-1)?.text||'')}</small>`,`app:texts:${id}`);}).join('')||'<p class="phone-small">nobody yet.</p>'}`;},
+ // TEXTS (RC3: also the VampGram feed, one row at the top: VampGram had no job of its own). Every thread, family and homies and dancers.
+ A.register({id:'texts',label:'TEXTS',order:5,badge:()=>unread(()=>true)+(window.RAVampGram?.unseen?.()||0),
+  render(sub){if(sub==='feed')return A.get('vampgram').render();if(sub)return threadMarkup(sub,'texts');const list=Object.entries(threads()).sort((a,b)=>(b[1].at(-1)?.day||0)-(a[1].at(-1)?.day||0));
+   const feed=btn(`VAMPGRAM${(window.RAVampGram?.unseen?.()||0)?` <i class="phone-badge">${window.RAVampGram.unseen()}</i>`:''}<br><small>THE FEED</small>`,'app:texts:feed');
+   return `<h1>TEXTS</h1>${feed}${list.map(([id,t])=>{const u=t.filter(m=>!m.read&&m.from!=='RICH').length;return btn(`${esc(threadName(id))}${u?` <i class="phone-badge">${u}</i>`:''}<br><small>${esc(t.at(-1)?.text||'')}</small>`,`app:texts:${id}`);}).join('')}`;},
   onAction(act,arg,api){if(act==='reply')reply(arg,api);}});
  // INSTAHOE — contacts, profiles (her LIKES are on her profile), DMs, date requests.
  A.register({id:'instahoe',label:'InstaHoe',canon:true,badge:()=>unread(isDM),
