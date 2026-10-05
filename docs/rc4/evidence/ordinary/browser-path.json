@@ -1,0 +1,95 @@
+{
+  "width": 390,
+  "fresh": true,
+  "firstFightSeconds": 17.258,
+  "steps": [
+    {
+      "scene": "bedroom",
+      "day": 1,
+      "next": {
+        "id": "cash",
+        "key": "rc3:1:COLLECT CASH",
+        "kind": "cash",
+        "app": "bank",
+        "label": "COLLECT CASH",
+        "sub": "money waiting go collect it",
+        "action": "rc3:next"
+      },
+      "daily": {
+        "day": 1,
+        "story": true,
+        "action": true,
+        "paid": false,
+        "moneyBefore": 40000
+      }
+    },
+    {
+      "scene": "bedroom",
+      "day": 1,
+      "next": {
+        "id": "rest",
+        "key": "rc3:1:SLEEP",
+        "kind": "rest",
+        "app": null,
+        "label": "SLEEP",
+        "sub": "club done go sleep before you buy more shit",
+        "action": "rc3:next"
+      },
+      "daily": {
+        "day": 1,
+        "story": true,
+        "action": true,
+        "paid": true,
+        "moneyBefore": 40000,
+        "cash": 15000
+      }
+    },
+    {
+      "scene": "bedroom",
+      "day": 2,
+      "next": {
+        "id": "story",
+        "key": "rc3:2:JUG THE PLUG",
+        "kind": "story",
+        "app": "vampgpt",
+        "label": "JUG THE PLUG",
+        "sub": "story first bro the club still gonna be there",
+        "action": "rc3:next"
+      },
+      "daily": {
+        "day": 2,
+        "story": false,
+        "action": false,
+        "paid": false,
+        "moneyBefore": 51250
+      }
+    }
+  ],
+  "errors": [],
+  "apps": [
+    "VampGPT",
+    "Texts",
+    "War Room",
+    "Strip Club",
+    "Armory",
+    "Bank",
+    "Maps",
+    "Rich Radio",
+    "VampGram"
+  ],
+  "raveVoice": [
+    "yall listen to carti?",
+    "whats haddenning",
+    "never met vampire ogas who listen to country",
+    "oh shit, that's Blad33ee!",
+    "here we go again"
+  ],
+  "cashAfterStory": 55000,
+  "clubVoice": [
+    "damn this shit is like magic city",
+    "gonna make it rain like hell",
+    "dance for me dance!"
+  ],
+  "day1Complete": true,
+  "day2Beat": "JUG THE PLUG"
+}

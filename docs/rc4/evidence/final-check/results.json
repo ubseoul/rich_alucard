@@ -1,0 +1,17 @@
+{
+  "mode": "explicit state fixtures, production controllers, no dev flag",
+  "width": 390,
+  "errors": [],
+  "m4": {
+    "ownedCars": [],
+    "error": "TypeError: Cannot read properties of undefined (reading 'id')",
+    "stack": "TypeError: Cannot read properties of undefined (reading 'id')\n    at keyOf (http://localhost:36471/js/systems/cars.js?v=__BUILD_ASSET_VERSION__:13:23)\n    at Object.toTouge (http://localhost:36471/js/systems/cars.js?v=__BUILD_ASSET_VERSION__:14:30)\n    at Object.params (http://localhost:36471/js/data/btf/adventures/new_oga_m4.js?v=__BUILD_ASSET_VERSION__:34:224)\n    at eval (eval at evaluate (:311:30), <anonymous>:1:129)\n    at UtilityScript.evaluate (<anonymous>:313:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+  },
+  "ending": {
+    "eligible": true,
+    "claimsWake": false,
+    "override": "()=>false"
+  },
+  "armoryHome": "THE ARMORY\n\nDEACON BRASS · GUNS AND GRACE · $100,000\n\nON THE WALL\n\nnothing yet.\n\nDEACON'S WORKBENCH\n\nMODS\n\nFOR SALE\n\nLIL OGA\n$25,000 · POCKET PISTOL\nNever misses on overwatch.\nBUY · $25,000\nSAPPORO SHOTGUN\n$60,000 · DOUBLE BARREL\nHits two enemies.\nBUY · $60,000\nMAC & CHEESE\n$75,000 · SMG\nSuppresses (enemy −20 aim next turn).\nBUY · $75,000\nCHOPSTICK SNIPER\n$90,000 · RIFLE\nx2 crit on turn 1.\nBUY · $90,000\nTHE RPG\n$400,000 · LAUNCHER\nDestroys cover; +10 heat.\nBUY · $400,000\n\nRANGE/PRICE TUNING: F13\n\nMOVES\nBLOOD BATH\nOCTOPUS BRAIN\nVAMPIRE BITE\nREVENGE\nHOME",
+  "armoryBench": "WORKBENCH\nBLESSED ROUNDS\n+25% damage vs vampires and undead · $15,000\nBUY\nDRUM MAG\n+1 ammo per fight · $20,000\nBUY\nSILENCER\nShowdown shots don't break concealment; −heat from gunfights · $18,000\nBUY\nSCOPE\n+10 aim at range · $12,000\nBUY\nGOLD PLATING\nNo stat change; clout +5 when equipped; VampGram notices · $50,000\nBUY\nCUSTOM ENGRAVING\nRich names the gun (text input); the name shows in combat · $2,500\nBUY\n\nMAX 2 MODS PER GUN.\n\nMOVES\nBLOOD BATH\nOCTOPUS BRAIN\nVAMPIRE BITE\nREVENGE\nBACK\nHOME"
+}

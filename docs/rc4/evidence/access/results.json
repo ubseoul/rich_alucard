@@ -1,0 +1,78 @@
+{
+  "mode": "patched-state fixtures / actual production controllers, no dev flags",
+  "width": 390,
+  "errors": [],
+  "checks": [
+    {
+      "name": "tribute buttons",
+      "result": [
+        {
+          "text": "OFFER ANOTHER CARURUS / AVENTADOR",
+          "disabled": true
+        },
+        {
+          "text": "NAH",
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "name": "no-car refusal consequence",
+      "result": {
+        "m9Resolved": true,
+        "nextMission": "NEW_OGA_M10",
+        "day": 10
+      }
+    },
+    {
+      "name": "M8 no-car result",
+      "result": {
+        "request": {
+          "owned": []
+        },
+        "result": {
+          "ok": true,
+          "refused": true,
+          "win": false,
+          "code": "NO_CAR",
+          "reason": "NO CAR",
+          "kind": "m8"
+        },
+        "lastRefusal": {
+          "day": 15,
+          "code": "NO_CAR",
+          "reason": "NO CAR"
+        },
+        "cars": []
+      }
+    },
+    {
+      "name": "Day37 completed finale",
+      "result": {
+        "next": {
+          "id": "action",
+          "key": "rc3:37:FIGHT · PROTECT THE CREW",
+          "kind": "action",
+          "app": "vampgpt",
+          "label": "FIGHT · PROTECT THE CREW",
+          "sub": "crew blocked clear the street then collect",
+          "action": "rc3:next"
+        },
+        "pendingMission": null,
+        "fameEligible": false,
+        "claimsWake": false
+      }
+    },
+    {
+      "name": "WarRoom request no personal car",
+      "result": {
+        "garage": {
+          "owned": [
+            "HOOPTIE"
+          ]
+        },
+        "owned": []
+      }
+    }
+  ]
+}

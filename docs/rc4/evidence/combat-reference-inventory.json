@@ -1,0 +1,637 @@
+{
+  "auditedSHA": "4981d5245d0600c062a7f431acd8253dc28b9cc6",
+  "mode": "A repo exact ref; B exact-byte standalone package fallback",
+  "noNewArt": true,
+  "files": [
+    {
+      "path": "assets/rich_seated_idle.png",
+      "sha256": "d0dbc3b07c112f9dc380df025ad987c003d9740e888caebee3a999a1b7c14eb4",
+      "dimensions": [
+        80,
+        96
+      ],
+      "registerStatus": "APPROVED MASTER",
+      "registerHashMatches": true,
+      "role": "exact source/reference; approval status must be honored"
+    },
+    {
+      "path": "assets/rich_vampire_bite.png",
+      "sha256": "6095b00a669dcd72cd151e24a858b79006a767cdc3e954189edd1b8591c19736",
+      "dimensions": [
+        80,
+        96
+      ],
+      "registerStatus": "APPROVED MASTER",
+      "registerHashMatches": true,
+      "role": "exact source/reference; approval status must be honored"
+    },
+    {
+      "path": "assets/rich_seated_cast.png",
+      "sha256": "515b65fe6e91844cc8f0f5bde5c81b5973e093355bf4fa9b309515b81dd201f0",
+      "dimensions": [
+        80,
+        96
+      ],
+      "registerStatus": "STATUS UNKNOWN \u00e2\u20ac\u201d HQ REVIEW REQUIRED",
+      "registerHashMatches": true,
+      "role": "exact source/reference; approval status must be honored"
+    },
+    {
+      "path": "assets/before_the_fame/characters/gbenga/runtime_80x96/gbenga_adjusting_sleeves_80x96_v2.png",
+      "sha256": "3c299fbdb15d6ad113c62b429ebec05b50d278f9a1402e7b8ed5bf53a63a4f8e",
+      "dimensions": [
+        80,
+        96
+      ],
+      "registerStatus": "FROZEN",
+      "registerHashMatches": true,
+      "role": "exact source/reference; approval status must be honored"
+    },
+    {
+      "path": "assets/before_the_fame/characters/gbenga/runtime_80x96/gbenga_defeated_80x96_v2.png",
+      "sha256": "1518fbc468f69bf8d774e74dde350ebdaa9421f84b01e64a72d5c6210c9f0807",
+      "dimensions": [
+        80,
+        96
+      ],
+      "registerStatus": "FROZEN",
+      "registerHashMatches": true,
+      "role": "exact source/reference; approval status must be honored"
+    },
+    {
+      "path": "assets/before_the_fame/characters/gbenga/runtime_80x96/gbenga_golden_draco_80x96_v2.png",
+      "sha256": "a71f7152df6b893ffeeef32d2726d20595eb3d50f1a6e6ffe63c2f9580c092b3",
+      "dimensions": [
+        80,
+        96
+      ],
+      "registerStatus": "FROZEN",
+      "registerHashMatches": true,
+      "role": "exact source/reference; approval status must be honored"
+    },
+    {
+      "path": "assets/before_the_fame/characters/gbenga/runtime_80x96/gbenga_my_son_80x96_v2.png",
+      "sha256": "7e89772cbeb33c7fde1545312c3f4d83ca898dc2cd2548b8dcce09a504e32002",
+      "dimensions": [
+        80,
+        96
+      ],
+      "registerStatus": "FROZEN",
+      "registerHashMatches": true,
+      "role": "exact source/reference; approval status must be honored"
+    },
+    {
+      "path": "assets/before_the_fame/characters/gbenga/runtime_80x96/gbenga_neutral_anchor_80x96_v2.png",
+      "sha256": "5712c83be09c601ed68dc27e6cd49c88831a80d27f7e3424ac711afef6756bb8",
+      "dimensions": [
+        80,
+        96
+      ],
+      "registerStatus": "FROZEN",
+      "registerHashMatches": true,
+      "role": "exact source/reference; approval status must be honored"
+    },
+    {
+      "path": "assets/before_the_fame/characters/gbenga/runtime_80x96/gbenga_voice_note_80x96_v2.png",
+      "sha256": "df568c0d2a9af65af1a4ad24a48d2bc383c33995dee441f5f8ce1bfd5cb13e62",
+      "dimensions": [
+        80,
+        96
+      ],
+      "registerStatus": "FROZEN",
+      "registerHashMatches": true,
+      "role": "exact source/reference; approval status must be honored"
+    },
+    {
+      "path": "assets/blood_bath_README.md",
+      "sha256": "589744013c54ee146f5c85f9910064ce2d79a7f1804cb9f8059739bf25d0ddc6",
+      "dimensions": null,
+      "registerStatus": "STATUS UNKNOWN \u00e2\u20ac\u201d HQ REVIEW REQUIRED",
+      "registerHashMatches": false,
+      "role": "exact source/reference; approval status must be honored"
+    },
+    {
+      "path": "assets/blood_bath_manifest.json",
+      "sha256": "d5220e022ec9adf29eb8cf0e215b8af6af8726df1d8b4604faff6fcf9fc2f2dc",
+      "dimensions": null,
+      "registerStatus": "STATUS UNKNOWN \u00e2\u20ac\u201d HQ REVIEW REQUIRED",
+      "registerHashMatches": true,
+      "role": "exact source/reference; approval status must be honored"
+    },
+    {
+      "path": "assets/blood_bath_contact_01.png",
+      "sha256": "eb243a5b4195307400ee0ee591e18a3980d57f8e9bf9d63a785ecd81a8f74c10",
+      "dimensions": [
+        96,
+        96
+      ],
+      "registerStatus": "REFERENCE",
+      "registerHashMatches": true,
+      "role": "exact source/reference; approval status must be honored"
+    },
+    {
+      "path": "assets/blood_bath_contact_02.png",
+      "sha256": "6f4e4e11dd76fb1e0014247fa3318a561803189223b72fbace8b2dbef689afc1",
+      "dimensions": [
+        96,
+        96
+      ],
+      "registerStatus": "STATUS UNKNOWN \u00e2\u20ac\u201d HQ REVIEW REQUIRED",
+      "registerHashMatches": true,
+      "role": "exact source/reference; approval status must be honored"
+    },
+    {
+      "path": "assets/blood_bath_contact_overlay_sheet.png",
+      "sha256": "c0d4ecfcb46d434b793f52a12e2ed46579078fcff4f37790c58ca9f5abd762f8",
+      "dimensions": [
+        192,
+        192
+      ],
+      "registerStatus": "STATUS UNKNOWN \u00e2\u20ac\u201d HQ REVIEW REQUIRED",
+      "registerHashMatches": true,
+      "role": "exact source/reference; approval status must be honored"
+    },
+    {
+      "path": "assets/blood_bath_engulf_overlay_01.png",
+      "sha256": "e3a78f7c7c3026cbc2b9996311dd90750a02d15670f050042c5200e4c3d1d969",
+      "dimensions": [
+        96,
+        96
+      ],
+      "registerStatus": "STATUS UNKNOWN \u00e2\u20ac\u201d HQ REVIEW REQUIRED",
+      "registerHashMatches": true,
+      "role": "exact source/reference; approval status must be honored"
+    },
+    {
+      "path": "assets/blood_bath_engulf_overlay_02.png",
+      "sha256": "9b7fe391bc5dfeb5cd4f89eb75cdfedfae4dc3a66ee5524fb991a21ec827f0e6",
+      "dimensions": [
+        96,
+        96
+      ],
+      "registerStatus": "STATUS UNKNOWN \u00e2\u20ac\u201d HQ REVIEW REQUIRED",
+      "registerHashMatches": true,
+      "role": "exact source/reference; approval status must be honored"
+    },
+    {
+      "path": "assets/blood_bath_floor_rise_01.png",
+      "sha256": "e2c88f6bc8ddb0200a696e985e622a859d6e566e5320a2fcde252ceee9c1a503",
+      "dimensions": [
+        270,
+        362
+      ],
+      "registerStatus": "STATUS UNKNOWN \u00e2\u20ac\u201d HQ REVIEW REQUIRED",
+      "registerHashMatches": true,
+      "role": "exact source/reference; approval status must be honored"
+    },
+    {
+      "path": "assets/blood_bath_floor_rise_02.png",
+      "sha256": "b8eb7e8067feaeb5368deb57dff662cbb8655c83a5d621c057691114472cbe2d",
+      "dimensions": [
+        270,
+        362
+      ],
+      "registerStatus": "STATUS UNKNOWN \u00e2\u20ac\u201d HQ REVIEW REQUIRED",
+      "registerHashMatches": true,
+      "role": "exact source/reference; approval status must be honored"
+    },
+    {
+      "path": "assets/blood_bath_floor_rise_03.png",
+      "sha256": "d8cdeca8b2861d0b20a07a35c51607870d7866df3c48ac340457c63d31011615",
+      "dimensions": [
+        270,
+        362
+      ],
+      "registerStatus": "STATUS UNKNOWN \u00e2\u20ac\u201d HQ REVIEW REQUIRED",
+      "registerHashMatches": true,
+      "role": "exact source/reference; approval status must be honored"
+    },
+    {
+      "path": "assets/blood_bath_floor_sheet.png",
+      "sha256": "a6d146ca43ea2dc4621cf80098ec53a38fc08b1ec1d32d828521d513ea293c2d",
+      "dimensions": [
+        540,
+        724
+      ],
+      "registerStatus": "STATUS UNKNOWN \u00e2\u20ac\u201d HQ REVIEW REQUIRED",
+      "registerHashMatches": true,
+      "role": "exact source/reference; approval status must be honored"
+    },
+    {
+      "path": "assets/blood_bath_foreground_01.png",
+      "sha256": "2dd583969ec1d8407a95eaedc1ea41e382d1a9ae05b36b62b04acc3097ad0c1a",
+      "dimensions": [
+        270,
+        362
+      ],
+      "registerStatus": "STATUS UNKNOWN \u00e2\u20ac\u201d HQ REVIEW REQUIRED",
+      "registerHashMatches": true,
+      "role": "exact source/reference; approval status must be honored"
+    },
+    {
+      "path": "assets/blood_bath_impact_fullscreen.png",
+      "sha256": "8291e3a4e76a49b4cf659811ab1931b3ee65b72935b31e8c23831f3fd19fa55e",
+      "dimensions": [
+        270,
+        480
+      ],
+      "registerStatus": "STATUS UNKNOWN \u00e2\u20ac\u201d HQ REVIEW REQUIRED",
+      "registerHashMatches": true,
+      "role": "exact source/reference; approval status must be honored"
+    },
+    {
+      "path": "assets/vampire_bite_README.md",
+      "sha256": "7db73ce193e27a625359db1a5141c5f2ec96e8c922ee8eb900211fdea2f18e92",
+      "dimensions": null,
+      "registerStatus": "STATUS UNKNOWN \u00e2\u20ac\u201d HQ REVIEW REQUIRED",
+      "registerHashMatches": false,
+      "role": "exact source/reference; approval status must be honored"
+    },
+    {
+      "path": "assets/vampire_bite_manifest.json",
+      "sha256": "a39da0405267134510d145c223f259fe8f63759d1b9b986dd56c730b98803f0b",
+      "dimensions": null,
+      "registerStatus": "STATUS UNKNOWN \u00e2\u20ac\u201d HQ REVIEW REQUIRED",
+      "registerHashMatches": true,
+      "role": "exact source/reference; approval status must be honored"
+    },
+    {
+      "path": "assets/vampire_bite_contact.png",
+      "sha256": "df9a605f9a48a854b560247a25073ab4dec3ac298dac2b318210f96746a901c7",
+      "dimensions": [
+        64,
+        64
+      ],
+      "registerStatus": "STATUS UNKNOWN \u00e2\u20ac\u201d HQ REVIEW REQUIRED",
+      "registerHashMatches": true,
+      "role": "exact source/reference; approval status must be honored"
+    },
+    {
+      "path": "assets/vampire_bite_jaw_lower.png",
+      "sha256": "8e19382756583157c468c758a0cfe425105b01741279812be1c422b2b69a5768",
+      "dimensions": [
+        270,
+        480
+      ],
+      "registerStatus": "STATUS UNKNOWN \u00e2\u20ac\u201d HQ REVIEW REQUIRED",
+      "registerHashMatches": true,
+      "role": "exact source/reference; approval status must be honored"
+    },
+    {
+      "path": "assets/vampire_bite_jaw_sheet.png",
+      "sha256": "5ab5f4ac70608fe738bfe3361a74d3248c9ffcd8338d5cf0287ae961ccabb79e",
+      "dimensions": [
+        810,
+        480
+      ],
+      "registerStatus": "STATUS UNKNOWN \u00e2\u20ac\u201d HQ REVIEW REQUIRED",
+      "registerHashMatches": true,
+      "role": "exact source/reference; approval status must be honored"
+    },
+    {
+      "path": "assets/vampire_bite_jaw_upper.png",
+      "sha256": "5e14781927eba0e8ed5fc0f1311701aaa9e82068500d791eb1c0d690237b3441",
+      "dimensions": [
+        270,
+        480
+      ],
+      "registerStatus": "STATUS UNKNOWN \u00e2\u20ac\u201d HQ REVIEW REQUIRED",
+      "registerHashMatches": true,
+      "role": "exact source/reference; approval status must be honored"
+    },
+    {
+      "path": "assets/vampire_bite_lifesteal_atlas.png",
+      "sha256": "447f134e37b9c36bc3d9b463ad8a699ed3fa48890b5e5311194a9ad57631fbec",
+      "dimensions": [
+        48,
+        16
+      ],
+      "registerStatus": "STATUS UNKNOWN \u00e2\u20ac\u201d HQ REVIEW REQUIRED",
+      "registerHashMatches": true,
+      "role": "exact source/reference; approval status must be honored"
+    },
+    {
+      "path": "assets/vampire_bite_lifesteal_drop_01.png",
+      "sha256": "781558b082aaad2dc545713470a6c247ddb621278189cdd04275f5a009a4356d",
+      "dimensions": [
+        16,
+        16
+      ],
+      "registerStatus": "STATUS UNKNOWN \u00e2\u20ac\u201d HQ REVIEW REQUIRED",
+      "registerHashMatches": true,
+      "role": "exact source/reference; approval status must be honored"
+    },
+    {
+      "path": "assets/vampire_bite_lifesteal_drop_02.png",
+      "sha256": "8db81aa343d5b99703e421f34de97013e26681f9053e62feafc38f005cbf4ff4",
+      "dimensions": [
+        16,
+        16
+      ],
+      "registerStatus": "STATUS UNKNOWN \u00e2\u20ac\u201d HQ REVIEW REQUIRED",
+      "registerHashMatches": true,
+      "role": "exact source/reference; approval status must be honored"
+    },
+    {
+      "path": "assets/vampire_bite_lifesteal_orb_01.png",
+      "sha256": "5aad7b2626ec40a7effab26252df3479e6b0006de09bdfbdac235e7b8e36ca33",
+      "dimensions": [
+        16,
+        16
+      ],
+      "registerStatus": "STATUS UNKNOWN \u00e2\u20ac\u201d HQ REVIEW REQUIRED",
+      "registerHashMatches": true,
+      "role": "exact source/reference; approval status must be honored"
+    },
+    {
+      "path": "assets/vampire_bite_snap_closed.png",
+      "sha256": "15618df382ab162a2f53a6263dddf9465ad7927f18ff07d329611c47b96811e8",
+      "dimensions": [
+        270,
+        480
+      ],
+      "registerStatus": "REFERENCE",
+      "registerHashMatches": true,
+      "role": "exact source/reference; approval status must be honored"
+    },
+    {
+      "path": "assets/revenge_README.md",
+      "sha256": "bf4a7c297f154e631c8ab948b5b55656baf348f8a1f885099f90eaaef933674b",
+      "dimensions": null,
+      "registerStatus": "STATUS UNKNOWN \u00e2\u20ac\u201d HQ REVIEW REQUIRED",
+      "registerHashMatches": false,
+      "role": "exact source/reference; approval status must be honored"
+    },
+    {
+      "path": "assets/revenge_manifest.json",
+      "sha256": "ff0e46e46f46a7c373bf66d9718c960249de5ace655d68ede78afde9d3ca2837",
+      "dimensions": null,
+      "registerStatus": "STATUS UNKNOWN \u00e2\u20ac\u201d HQ REVIEW REQUIRED",
+      "registerHashMatches": true,
+      "role": "exact source/reference; approval status must be honored"
+    },
+    {
+      "path": "assets/revenge_extraction_01.png",
+      "sha256": "0c9b1eeb2fe283b9da79bc5739cd0c5cd947af124b07845a3fdf6a2c5745dbff",
+      "dimensions": [
+        24,
+        24
+      ],
+      "registerStatus": "STATUS UNKNOWN \u00e2\u20ac\u201d HQ REVIEW REQUIRED",
+      "registerHashMatches": true,
+      "role": "exact source/reference; approval status must be honored"
+    },
+    {
+      "path": "assets/revenge_extraction_02.png",
+      "sha256": "22edcc194f85d11b9b6e5848a8afb68851bcb22dfeb3fe4e5bf3cad24d907929",
+      "dimensions": [
+        24,
+        24
+      ],
+      "registerStatus": "STATUS UNKNOWN \u00e2\u20ac\u201d HQ REVIEW REQUIRED",
+      "registerHashMatches": true,
+      "role": "exact source/reference; approval status must be honored"
+    },
+    {
+      "path": "assets/revenge_extraction_03.png",
+      "sha256": "c96fb6795847689f4ca8af29dc3b768ed4c439a70dd0d70fd44846dbbe094b07",
+      "dimensions": [
+        24,
+        24
+      ],
+      "registerStatus": "STATUS UNKNOWN \u00e2\u20ac\u201d HQ REVIEW REQUIRED",
+      "registerHashMatches": true,
+      "role": "exact source/reference; approval status must be honored"
+    },
+    {
+      "path": "assets/revenge_extraction_04.png",
+      "sha256": "27b9b533a0d2c4087b84f6df83ae7df19be96283f4de6d818f36e84a26ecc943",
+      "dimensions": [
+        24,
+        24
+      ],
+      "registerStatus": "STATUS UNKNOWN \u00e2\u20ac\u201d HQ REVIEW REQUIRED",
+      "registerHashMatches": true,
+      "role": "exact source/reference; approval status must be honored"
+    },
+    {
+      "path": "assets/revenge_extraction_sheet.png",
+      "sha256": "f7888500cd7765a5a1d455a4eeacb8eab02a7b330bf074a86d552c2a59669ac3",
+      "dimensions": [
+        96,
+        24
+      ],
+      "registerStatus": "STATUS UNKNOWN \u00e2\u20ac\u201d HQ REVIEW REQUIRED",
+      "registerHashMatches": true,
+      "role": "exact source/reference; approval status must be honored"
+    },
+    {
+      "path": "assets/revenge_impact_fullscreen.png",
+      "sha256": "e82097fc9472e0cc224999c69f8ce7d5b1dd02567b89ca0add3b693d18e6a008",
+      "dimensions": [
+        270,
+        480
+      ],
+      "registerStatus": "STATUS UNKNOWN \u00e2\u20ac\u201d HQ REVIEW REQUIRED",
+      "registerHashMatches": true,
+      "role": "exact source/reference; approval status must be honored"
+    },
+    {
+      "path": "assets/revenge_mass_01.png",
+      "sha256": "d8f8c47fbca456ce64a063993eaf721983cbd2480775572794bcac3bd9c271e0",
+      "dimensions": [
+        96,
+        96
+      ],
+      "registerStatus": "STATUS UNKNOWN \u00e2\u20ac\u201d HQ REVIEW REQUIRED",
+      "registerHashMatches": true,
+      "role": "exact source/reference; approval status must be honored"
+    },
+    {
+      "path": "assets/revenge_mass_02.png",
+      "sha256": "8e880fe980ec53186b33c4d975676a831e7b616e6ac5d010456e60a614f537f7",
+      "dimensions": [
+        96,
+        96
+      ],
+      "registerStatus": "REFERENCE",
+      "registerHashMatches": true,
+      "role": "exact source/reference; approval status must be honored"
+    },
+    {
+      "path": "assets/revenge_mass_03.png",
+      "sha256": "0ceceb3462adb13f8a1a42549b76921641babdd1e09e1373102e36b14e5f1746",
+      "dimensions": [
+        96,
+        96
+      ],
+      "registerStatus": "STATUS UNKNOWN \u00e2\u20ac\u201d HQ REVIEW REQUIRED",
+      "registerHashMatches": true,
+      "role": "exact source/reference; approval status must be honored"
+    },
+    {
+      "path": "assets/revenge_mass_sheet.png",
+      "sha256": "a3f86665b8478920315295e48fd0b733efc3cbdfcb731577f91ff2350caea389",
+      "dimensions": [
+        288,
+        96
+      ],
+      "registerStatus": "STATUS UNKNOWN \u00e2\u20ac\u201d HQ REVIEW REQUIRED",
+      "registerHashMatches": true,
+      "role": "exact source/reference; approval status must be honored"
+    },
+    {
+      "path": "assets/revenge_stored_wound_01.png",
+      "sha256": "ca96c7c10ef573bcf87822ba4ecf08f80f7037cf0ff2716ede7990a8935183b9",
+      "dimensions": [
+        16,
+        16
+      ],
+      "registerStatus": "STATUS UNKNOWN \u00e2\u20ac\u201d HQ REVIEW REQUIRED",
+      "registerHashMatches": true,
+      "role": "exact source/reference; approval status must be honored"
+    },
+    {
+      "path": "assets/revenge_stored_wound_02.png",
+      "sha256": "2efd5384e6ddfde320edf25a5642a00ea7cd95f6906250bf0a448ab082a048f6",
+      "dimensions": [
+        16,
+        16
+      ],
+      "registerStatus": "STATUS UNKNOWN \u00e2\u20ac\u201d HQ REVIEW REQUIRED",
+      "registerHashMatches": true,
+      "role": "exact source/reference; approval status must be honored"
+    },
+    {
+      "path": "assets/revenge_stored_wound_03.png",
+      "sha256": "421f7c019f7b15b5255a0778398132cd007430374de905ab676280bef9648ad4",
+      "dimensions": [
+        16,
+        16
+      ],
+      "registerStatus": "STATUS UNKNOWN \u00e2\u20ac\u201d HQ REVIEW REQUIRED",
+      "registerHashMatches": true,
+      "role": "exact source/reference; approval status must be honored"
+    },
+    {
+      "path": "assets/revenge_stored_wound_04.png",
+      "sha256": "6b76f70ab13980c9067118043e29a694cdc10827c201d79b833dab9091d80e86",
+      "dimensions": [
+        16,
+        16
+      ],
+      "registerStatus": "STATUS UNKNOWN \u00e2\u20ac\u201d HQ REVIEW REQUIRED",
+      "registerHashMatches": true,
+      "role": "exact source/reference; approval status must be honored"
+    },
+    {
+      "path": "assets/revenge_stored_wound_sheet.png",
+      "sha256": "47e4423038ae91de27428476de28b88525266f1589fd0f7a434a5e36b49092c3",
+      "dimensions": [
+        64,
+        16
+      ],
+      "registerStatus": "STATUS UNKNOWN \u00e2\u20ac\u201d HQ REVIEW REQUIRED",
+      "registerHashMatches": true,
+      "role": "exact source/reference; approval status must be honored"
+    },
+    {
+      "path": "assets/revenge_target_crack_01.png",
+      "sha256": "9ef2d606d6b4a75fff4be557604d605ca7d0b1e218e6fdcd0be5fba9a746ba78",
+      "dimensions": [
+        96,
+        96
+      ],
+      "registerStatus": "STATUS UNKNOWN \u00e2\u20ac\u201d HQ REVIEW REQUIRED",
+      "registerHashMatches": true,
+      "role": "exact source/reference; approval status must be honored"
+    },
+    {
+      "path": "assets/revenge_target_crack_02.png",
+      "sha256": "e764dc72a13204fca72d889f3774ad7fcdb729804fba78efe22cdba4268c2c52",
+      "dimensions": [
+        96,
+        96
+      ],
+      "registerStatus": "STATUS UNKNOWN \u00e2\u20ac\u201d HQ REVIEW REQUIRED",
+      "registerHashMatches": true,
+      "role": "exact source/reference; approval status must be honored"
+    },
+    {
+      "path": "assets/revenge_target_crack_03.png",
+      "sha256": "a16d084874447fa832de2606fdfd268926db7df28d0192e00bfc06a37c3dba79",
+      "dimensions": [
+        96,
+        96
+      ],
+      "registerStatus": "STATUS UNKNOWN \u00e2\u20ac\u201d HQ REVIEW REQUIRED",
+      "registerHashMatches": true,
+      "role": "exact source/reference; approval status must be honored"
+    },
+    {
+      "path": "assets/revenge_target_crack_sheet.png",
+      "sha256": "516e320f5cd84d0408909b6ad10d2d3201bcb9bd65f9b2350f0a6c763b4906c8",
+      "dimensions": [
+        288,
+        96
+      ],
+      "registerStatus": "STATUS UNKNOWN \u00e2\u20ac\u201d HQ REVIEW REQUIRED",
+      "registerHashMatches": true,
+      "role": "exact source/reference; approval status must be honored"
+    },
+    {
+      "path": "docs/CURRENT_CANON.md",
+      "sha256": "42f1873a062f3dea03f28f05efed311e7573cc1a63749ec5b0e32e1b0f12e8e6",
+      "dimensions": null,
+      "registerStatus": "NOT IN ASSET REGISTER / authority or placement reference",
+      "registerHashMatches": null,
+      "role": "exact source/reference; approval status must be honored"
+    },
+    {
+      "path": "docs/RICH_ALUCARD_GAME_BIBLE.md",
+      "sha256": "96590f6216ec8b451f0a151e633c6ea358e4dccde8012895a52c2f2343ce2922",
+      "dimensions": null,
+      "registerStatus": "NOT IN ASSET REGISTER / authority or placement reference",
+      "registerHashMatches": null,
+      "role": "exact source/reference; approval status must be honored"
+    },
+    {
+      "path": "docs/VISUAL_STYLE_BIBLE.md",
+      "sha256": "9a3f3891a202752e7a5faaf9e238715e5e0e8848f5ddd573ef593349bd84f365",
+      "dimensions": null,
+      "registerStatus": "NOT IN ASSET REGISTER / authority or placement reference",
+      "registerHashMatches": null,
+      "role": "exact source/reference; approval status must be honored"
+    },
+    {
+      "path": "js/frag/F07/gbenga_combat.js",
+      "sha256": "c821cc917167191e9f0ae32d6763fe2dba01d2456cd41fc2844ef469a6beeac4",
+      "dimensions": null,
+      "registerStatus": "NOT IN ASSET REGISTER / authority or placement reference",
+      "registerHashMatches": null,
+      "role": "exact source/reference; approval status must be honored"
+    },
+    {
+      "path": "docs/rc4/evidence/ordinary/01-first-fight.png",
+      "sha256": "cb91d50719378f8bf077c41e731864c1927b87909a499d1fdeac6c380397779d",
+      "dimensions": [
+        390,
+        844
+      ],
+      "registerStatus": "NOT IN ASSET REGISTER / authority or placement reference",
+      "registerHashMatches": null,
+      "role": "placement evidence, NOT identity"
+    },
+    {
+      "path": "docs/rc4/evidence/ordinary/03-blad33ee.png",
+      "sha256": "e49a75b44ae9743d7647113ccb9b61c1398a3d9a0700a8b97d7341d9a9a7685f",
+      "dimensions": [
+        390,
+        844
+      ],
+      "registerStatus": "NOT IN ASSET REGISTER / authority or placement reference",
+      "registerHashMatches": null,
+      "role": "placement evidence, NOT identity"
+    }
+  ]
+}

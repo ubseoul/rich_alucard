@@ -1,0 +1,788 @@
+{
+  "mode": "explicit patched-state fixtures; production page, no dev flags",
+  "width": 390,
+  "errors": [],
+  "checks": [
+    {
+      "name": "phone vampgpt",
+      "result": "VAMPGPT\n\nVAMPGPT\n\nyo rich what we doing\n\nRECOMMENDED\n\ncrew blocked clear the street then collect\nFIGHT · PROTECT THE CREW\nOGA WHAT DO I DO\nHOME"
+    },
+    {
+      "name": "phone texts",
+      "result": "DAY 2 · FRI OCT 2\nON HAND\n$100,000\nRICH RADIO · BLOODBATH\n\nNEXT UP\nAVAILABLE NOW\n\ncrew blocked clear the street then collect\nFIGHT · PROTECT THE CREW\n↗\nVampGPT\nTexts\nLOCKED · NO MESSAGES\nWar Room\nLOCKED · NO OFFER\nStrip Club\nArmory\nLOCKED · UNKNOWN DEALER\nBank\nMaps\nRich Radio\nLOCKED · NO TRACK\nVampGram\n1\nCLOSE PHONE"
+    },
+    {
+      "name": "phone warRoom",
+      "result": "DAY 2 · FRI OCT 2\nON HAND\n$100,000\nRICH RADIO · BLOODBATH\n\nNEXT UP\nAVAILABLE NOW\n\ncrew blocked clear the street then collect\nFIGHT · PROTECT THE CREW\n↗\nVampGPT\nTexts\nLOCKED · NO MESSAGES\nWar Room\nLOCKED · NO OFFER\nStrip Club\nArmory\nLOCKED · UNKNOWN DEALER\nBank\nMaps\nRich Radio\nLOCKED · NO TRACK\nVampGram\n1\nCLOSE PHONE"
+    },
+    {
+      "name": "phone armory",
+      "result": "DAY 2 · FRI OCT 2\nON HAND\n$100,000\nRICH RADIO · BLOODBATH\n\nNEXT UP\nAVAILABLE NOW\n\ncrew blocked clear the street then collect\nFIGHT · PROTECT THE CREW\n↗\nVampGPT\nTexts\nLOCKED · NO MESSAGES\nWar Room\nLOCKED · NO OFFER\nStrip Club\nArmory\nLOCKED · UNKNOWN DEALER\nBank\nMaps\nRich Radio\nLOCKED · NO TRACK\nVampGram\n1\nCLOSE PHONE"
+    },
+    {
+      "name": "phone bank",
+      "result": "BANK\nON HAND\n$100,000\nRENTAL INCOME\n$0 / DAY\nBUY RENTAL · $34,000\nBIG GOAL · PARTY HALL\n$250,000\nBUILD PARTY HALL\nHOME"
+    },
+    {
+      "name": "phone maps",
+      "result": "MAPS\n\ngot time? pick somewhere\n\nTHE YAM\nTHE AUNTIE COUNCIL\nFUFU FRIDAY\nTHE FOIL PLATES\nBAD PORTOBELLOS\nOFFICER NODD\nFORTY KEVINS\nBRUCE LOOSE AT THE FOOD COURT\nHIRING MARISOL\nUNCLE SUNDAY & THE AGEGE BREAD\nNAIJA MART & THE MALT\nLAN NIGHT\nGOD ON THE CURB\nLIL SMACK #5\nPOWER LEVEL PHIL\nSIR BONESWORTH\nHILT DOESN'T PLAY\nGUNS AND GRACE\nJOLLOF WARS\nJOLLOF WARS: THE FINAL\nHOME\nHOME"
+    },
+    {
+      "name": "phone radio",
+      "result": "DAY 2 · FRI OCT 2\nON HAND\n$100,000\nRICH RADIO · BLOODBATH\n\nNEXT UP\nAVAILABLE NOW\n\ncrew blocked clear the street then collect\nFIGHT · PROTECT THE CREW\n↗\nVampGPT\nTexts\nLOCKED · NO MESSAGES\nWar Room\nLOCKED · NO OFFER\nStrip Club\nArmory\nLOCKED · UNKNOWN DEALER\nBank\nMaps\nRich Radio\nLOCKED · NO TRACK\nVampGram\n1\nCLOSE PHONE"
+    },
+    {
+      "name": "phone vampgram",
+      "result": "VAMPGRAM\n\n@richalucard · 35 followers\n\n@meatpacking.nights\nlast night at ogun's 🩸 (blurry. but that's @richalucard in the back)\n♥ 3100\nHOME"
+    },
+    {
+      "name": "inventory",
+      "result": {
+        "apps": [
+          "vampgpt",
+          "texts",
+          "warRoom",
+          "stripClub",
+          "armory",
+          "bank",
+          "maps",
+          "radio",
+          "vampgram"
+        ],
+        "maps": [
+          {
+            "id": "YAM",
+            "title": "THE YAM",
+            "nodes": [
+              {
+                "key": "arrive"
+              },
+              {
+                "key": "warranty"
+              },
+              {
+                "key": "refuse"
+              },
+              {
+                "key": "carry"
+              },
+              {
+                "key": "kitchen"
+              },
+              {
+                "key": "phone"
+              },
+              {
+                "key": "boil"
+              },
+              {
+                "key": "roast"
+              },
+              {
+                "key": "pound"
+              },
+              {
+                "key": "dragon"
+              },
+              {
+                "key": "end"
+              }
+            ]
+          },
+          {
+            "id": "AUNTIES",
+            "title": "THE AUNTIE COUNCIL",
+            "nodes": [
+              {
+                "key": "arrive"
+              },
+              {
+                "key": "work"
+              },
+              {
+                "key": "work_music"
+              },
+              {
+                "key": "work_castle"
+              },
+              {
+                "key": "work_vamp"
+              },
+              {
+                "key": "wed"
+              },
+              {
+                "key": "wed_no"
+              },
+              {
+                "key": "wed_comp"
+              },
+              {
+                "key": "wed_busy"
+              },
+              {
+                "key": "eat"
+              },
+              {
+                "key": "verdict"
+              }
+            ]
+          },
+          {
+            "id": "FUFU",
+            "title": "FUFU FRIDAY",
+            "nodes": [
+              {
+                "key": "arrive"
+              },
+              {
+                "key": "mom"
+              },
+              {
+                "key": "rule"
+              },
+              {
+                "key": "swallow"
+              },
+              {
+                "key": "chew"
+              },
+              {
+                "key": "octo"
+              },
+              {
+                "key": "soup"
+              },
+              {
+                "key": "end"
+              }
+            ]
+          },
+          {
+            "id": "PLATES",
+            "title": "THE FOIL PLATES",
+            "nodes": [
+              {
+                "key": "knock"
+              },
+              {
+                "key": "hub"
+              },
+              {
+                "key": "tunde"
+              },
+              {
+                "key": "coffe"
+              },
+              {
+                "key": "dre"
+              },
+              {
+                "key": "lil_smack"
+              },
+              {
+                "key": "end"
+              }
+            ]
+          },
+          {
+            "id": "A30",
+            "title": "BAD PORTOBELLOS",
+            "nodes": [
+              {
+                "key": "wake"
+              },
+              {
+                "key": "breakfast"
+              },
+              {
+                "key": "commute"
+              },
+              {
+                "key": "kpi1"
+              },
+              {
+                "key": "kpi2"
+              },
+              {
+                "key": "kpi3"
+              },
+              {
+                "key": "approve"
+              },
+              {
+                "key": "bedtime"
+              },
+              {
+                "key": "porch"
+              },
+              {
+                "key": "bed"
+              },
+              {
+                "key": "wakeup"
+              }
+            ]
+          },
+          {
+            "id": "A57",
+            "title": "OFFICER NODD",
+            "nodes": [
+              {
+                "key": "stop"
+              },
+              {
+                "key": "leave"
+              },
+              {
+                "key": "end"
+              }
+            ]
+          },
+          {
+            "id": "A18",
+            "title": "FORTY KEVINS",
+            "nodes": [
+              {
+                "key": "arrive"
+              },
+              {
+                "key": "drop"
+              },
+              {
+                "key": "talk"
+              },
+              {
+                "key": "fight",
+                "fight": "kevins"
+              },
+              {
+                "key": "after"
+              },
+              {
+                "key": "behavior"
+              },
+              {
+                "key": "end"
+              }
+            ]
+          },
+          {
+            "id": "A19",
+            "title": "BRUCE LOOSE AT THE FOOD COURT",
+            "nodes": [
+              {
+                "key": "arrive"
+              },
+              {
+                "key": "fight",
+                "fight": "bruce_loose"
+              },
+              {
+                "key": "lesson"
+              },
+              {
+                "key": "armory"
+              },
+              {
+                "key": "end"
+              }
+            ]
+          },
+          {
+            "id": "A39",
+            "title": "HIRING MARISOL",
+            "nodes": [
+              {
+                "key": "ghost"
+              },
+              {
+                "key": "bones"
+              },
+              {
+                "key": "marisol"
+              },
+              {
+                "key": "hire"
+              },
+              {
+                "key": "done"
+              }
+            ]
+          },
+          {
+            "id": "A10",
+            "title": "UNCLE SUNDAY & THE AGEGE BREAD",
+            "nodes": [
+              {
+                "key": "arrive"
+              },
+              {
+                "key": "fight",
+                "fight": "uncle_sunday"
+              },
+              {
+                "key": "winbread"
+              },
+              {
+                "key": "losebread"
+              },
+              {
+                "key": "sparedbread"
+              },
+              {
+                "key": "pay"
+              },
+              {
+                "key": "melt"
+              },
+              {
+                "key": "settle"
+              }
+            ]
+          },
+          {
+            "id": "A43",
+            "title": "NAIJA MART & THE MALT",
+            "nodes": [
+              {
+                "key": "arrive"
+              },
+              {
+                "key": "q2"
+              },
+              {
+                "key": "q2o"
+              },
+              {
+                "key": "buy"
+              },
+              {
+                "key": "curb"
+              }
+            ]
+          },
+          {
+            "id": "A50",
+            "title": "LAN NIGHT",
+            "nodes": [
+              {
+                "key": "arrive"
+              },
+              {
+                "key": "civ"
+              },
+              {
+                "key": "xcom"
+              },
+              {
+                "key": "league"
+              },
+              {
+                "key": "sunrise"
+              },
+              {
+                "key": "end"
+              }
+            ]
+          },
+          {
+            "id": "A31",
+            "title": "GOD ON THE CURB",
+            "nodes": [
+              {
+                "key": "start"
+              },
+              {
+                "key": "arrive"
+              },
+              {
+                "key": "stars"
+              },
+              {
+                "key": "silence"
+              },
+              {
+                "key": "fade"
+              }
+            ]
+          },
+          {
+            "id": "A56",
+            "title": "LIL SMACK #5",
+            "nodes": [
+              {
+                "key": "arrive"
+              },
+              {
+                "key": "react"
+              },
+              {
+                "key": "leave"
+              }
+            ]
+          },
+          {
+            "id": "A20",
+            "title": "POWER LEVEL PHIL",
+            "nodes": [
+              {
+                "key": "arrive"
+              },
+              {
+                "key": "fork"
+              },
+              {
+                "key": "ask"
+              },
+              {
+                "key": "fightnow",
+                "fight": "phil"
+              },
+              {
+                "key": "food"
+              },
+              {
+                "key": "wrap"
+              },
+              {
+                "key": "end"
+              }
+            ]
+          },
+          {
+            "id": "A27",
+            "title": "SIR BONESWORTH",
+            "nodes": [
+              {
+                "key": "arrive"
+              },
+              {
+                "key": "fight",
+                "fight": "bonesworth"
+              },
+              {
+                "key": "outcome"
+              },
+              {
+                "key": "sword"
+              },
+              {
+                "key": "resident"
+              },
+              {
+                "key": "end"
+              }
+            ]
+          },
+          {
+            "id": "A23",
+            "title": "HILT DOESN'T PLAY",
+            "nodes": [
+              {
+                "key": "arrive"
+              },
+              {
+                "key": "fight",
+                "fight": "hilt"
+              },
+              {
+                "key": "take"
+              },
+              {
+                "key": "leave"
+              },
+              {
+                "key": "end"
+              }
+            ]
+          },
+          {
+            "id": "A24",
+            "title": "GUNS AND GRACE",
+            "nodes": [
+              {
+                "key": "arrive"
+              },
+              {
+                "key": "explain"
+              },
+              {
+                "key": "end"
+              }
+            ]
+          },
+          {
+            "id": "JOLLOF_WARS",
+            "title": "JOLLOF WARS",
+            "nodes": [
+              {
+                "key": "arrive"
+              },
+              {
+                "key": "cook",
+                "minigame": "jollof"
+              },
+              {
+                "key": "win"
+              },
+              {
+                "key": "lose"
+              }
+            ]
+          },
+          {
+            "id": "A54",
+            "title": "JOLLOF WARS: THE FINAL",
+            "nodes": [
+              {
+                "key": "arrive"
+              },
+              {
+                "key": "cook",
+                "minigame": "jollof"
+              },
+              {
+                "key": "win"
+              },
+              {
+                "key": "lose"
+              }
+            ]
+          }
+        ],
+        "missions": [
+          {
+            "id": "NEW_OGA_M1",
+            "title": "JUG THE PLUG",
+            "minigames": [
+              "touge"
+            ]
+          },
+          {
+            "id": "NEW_OGA_M2",
+            "title": "THE INTERVIEW",
+            "minigames": []
+          },
+          {
+            "id": "NEW_OGA_M3",
+            "title": "CANOPY DUTY",
+            "minigames": [
+              "slurp"
+            ]
+          },
+          {
+            "id": "NEW_OGA_M4",
+            "title": "SET UP CARLOS",
+            "minigames": [
+              "touge"
+            ]
+          },
+          {
+            "id": "NEW_OGA_ALTERNATIVE",
+            "title": "THE ALTERNATIVE",
+            "minigames": [
+              "slurp"
+            ]
+          },
+          {
+            "id": "NEW_OGA_M5",
+            "title": "THE OWAMBE COLLECTION",
+            "minigames": [
+              "owambe_collection"
+            ]
+          },
+          {
+            "id": "NEW_OGA_M6",
+            "title": "SENATOR",
+            "minigames": [
+              "hatch"
+            ]
+          },
+          {
+            "id": "NEW_OGA_M7",
+            "title": "DINNER AT GBENGA'S",
+            "minigames": []
+          },
+          {
+            "id": "NEW_OGA_M8",
+            "title": "THE TURF WAR",
+            "minigames": [
+              "f07_play"
+            ]
+          },
+          {
+            "id": "NEW_OGA_M9",
+            "title": "THE TRIBUTE",
+            "minigames": []
+          },
+          {
+            "id": "NEW_OGA_M10",
+            "title": "VICE PRESIDENT",
+            "minigames": []
+          },
+          {
+            "id": "NEW_OGA_VAMPGPT",
+            "title": "VAMPGPT",
+            "minigames": []
+          },
+          {
+            "id": "NEW_OGA_FINALE",
+            "title": "NEW OGA",
+            "minigames": [
+              "f07_play"
+            ]
+          }
+        ],
+        "guns": [
+          {
+            "id": "lil_oga",
+            "price": 25000,
+            "acquisition": "armory"
+          },
+          {
+            "id": "sapporo_shotgun",
+            "price": 60000,
+            "acquisition": "armory"
+          },
+          {
+            "id": "mac_and_cheese",
+            "price": 75000,
+            "acquisition": "armory"
+          },
+          {
+            "id": "chopstick_sniper",
+            "price": 90000,
+            "acquisition": "armory"
+          },
+          {
+            "id": "rpg",
+            "price": 400000,
+            "acquisition": "armory"
+          }
+        ],
+        "knownMoves": [
+          "blood",
+          "octopus",
+          "bite",
+          "revenge"
+        ],
+        "carCount": 0
+      }
+    },
+    {
+      "name": "m9-no-car",
+      "result": {
+        "active": {
+          "id": "NEW_OGA_M9",
+          "node": "choice",
+          "applied": [],
+          "vars": {},
+          "startedDay": 10,
+          "from": "rc3-story",
+          "env": "gbenga_rentals",
+          "actors": {
+            "left": "rich",
+            "right": "gbenga"
+          },
+          "titles": [
+            "voice"
+          ]
+        },
+        "buttons": [],
+        "cars": [],
+        "next": {
+          "id": "story",
+          "key": "rc3:10:THE TRIBUTE",
+          "kind": "story",
+          "app": "vampgpt",
+          "label": "THE TRIBUTE",
+          "sub": "story first bro the club still gonna be there",
+          "action": "rc3:next"
+        }
+      }
+    },
+    {
+      "name": "ending-gate",
+      "result": {
+        "day": 31,
+        "next": {
+          "id": "action",
+          "key": "rc3:31:FIGHT · PROTECT THE CREW",
+          "kind": "action",
+          "app": "vampgpt",
+          "label": "FIGHT · PROTECT THE CREW",
+          "sub": "crew blocked clear the street then collect",
+          "action": "rc3:next"
+        },
+        "fameEligible": false,
+        "claimsWake": false,
+        "daily": {
+          "day": 31,
+          "story": true,
+          "action": false,
+          "paid": false,
+          "moneyBefore": 100000
+        },
+        "pendingMission": "NEW_OGA_M9"
+      }
+    },
+    {
+      "name": "club-terms",
+      "result": {
+        "terms": {
+          "first": true,
+          "discount": 0.25,
+          "cap": 50000,
+          "paid": 0,
+          "minRound": 500,
+          "line": "first night half off bring half your cash leave the other half home"
+        },
+        "price1000": 750,
+        "lastDay": 2
+      }
+    },
+    {
+      "name": "empty-club-still-counts",
+      "result": {
+        "lastDay": 2,
+        "cash": 100000,
+        "support": {
+          "dancer": "roxy",
+          "spent": 0,
+          "throws": 0,
+          "thresholdLevel": 0,
+          "completed": 0,
+          "next": 1,
+          "nextThreshold": 10000,
+          "toNext": 10000,
+          "availableLevel": null,
+          "maxed": false
+        }
+      }
+    }
+  ],
+  "screens": [
+    "phone-vampgpt",
+    "phone-texts",
+    "phone-warRoom",
+    "phone-armory",
+    "phone-bank",
+    "phone-maps",
+    "phone-radio",
+    "phone-vampgram",
+    "ramen",
+    "ramen-input",
+    "ramen-receipt",
+    "chairs",
+    "owambe",
+    "senator",
+    "dance",
+    "jollof",
+    "range",
+    "m9-start-no-car",
+    "m9-choice-no-car",
+    "day31-after-finale",
+    "club-first-visit"
+  ]
+}
