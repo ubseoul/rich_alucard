@@ -75,7 +75,10 @@
    current={id,abort:()=>ctx.quit(),ctx};
    // RC2 B3: every minigame states its one-sentence rule before it starts (def.rule). Quit stays live on the card.
    const begin=()=>{if(done)return;stage.style.pointerEvents='none';setTimeout(()=>{stage.style.pointerEvents='';},300);try{instance=def.mount(stage,ctx)||{};}catch(error){console.error(error);end({quit:true,error:String(error?.message||error)});}};
-   const ruleText=typeof def.rule==='function'?def.rule(params):def.rule;if(ruleText&&!params.skipRule&&!window.RA_SKIP_MINIGAME_RULE)showRuleCard(stage,{...def,rule:ruleText},ctx,begin);else begin();
+   const ruleText=typeof def.rule==='function'?def.rule(params):def.rule;
+   const coachKey=`rc3Coach:${id}${params.canopyDuty?':chairs':''}`;
+   const coached=window.RARC3&&window.RALife?.flag?.(coachKey);
+   if(ruleText&&!coached&&!params.skipRule&&!window.RA_SKIP_MINIGAME_RULE){if(window.RARC3)window.RALife.setFlag(coachKey,true);showRuleCard(stage,{...def,rule:ruleText},ctx,begin);}else begin();
   });
  }
  function active(){return current?{id:current.id}:null}

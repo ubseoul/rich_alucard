@@ -7,7 +7,7 @@
  function markRead(id){const all={...threads()};if(!all[id])return;all[id]=all[id].map(m=>({...m,read:true}));RAState.patch('life.phone.threads',all);window.RAPhone?.updateEntry?.();}
  function threadName(id){if(id==='family')return 'FAMILY 🇳🇬';const p=RABtfPeople.get(id);return p?p.name:id.toUpperCase();}
  function unread(filter){let n=0;for(const [id,t] of Object.entries(threads()))if(filter(id))n+=t.filter(m=>!m.read&&m.from!=='RICH').length;return n;}
- const isDM=id=>!!RABtfPeople.get(id)?.dateable;
+ const isDM=id=>!window.RARC3&&!!RABtfPeople.get(id)?.dateable;
  // FAMILY THREAD avatars at native pixels. ART SHIP 014 mom/dad/sister are full figures, framed to head and torso by the
  // .family-avatar box; ART SHIP 015 brothers are authored busts, shown whole (their visible pixels, no crop).
  const FAMILY_AVATAR={MOM:{key:'family_mom'},DAD:{key:'family_dad'},SISTER:{key:'family_sister'},'BIG BRO':{key:'family_brother1',frame:[21,28,37,40]},'LIL BRO':{key:'family_brother2',frame:[23,29,35,38]}};
@@ -17,7 +17,7 @@
   const t=threads()[id]||[];markRead(id);
   const body=t.slice(-24).map(m=>`${m.from!=='RICH'&&id==='family'?`<p class="who">${familyAvatar(m.from)}${esc(m.from)}</p>`:''}<p class="msg ${m.from==='RICH'?'me':''}"><small class="phone-message-time">DAY ${m.day} · ${m.day===RALife.today().day?'TONIGHT':m.day>RALife.today().day?'LATER':'EARLIER'}</small>${esc(m.text)}</p>`).join('');
   const last=[...t].reverse().find(m=>m.choices&&!m.answered);
-  const choices=last?last.choices.map((c,i)=>btn(esc(c.label),`do:${appId}:reply:${id}|${last.id}|${i}`)).join(''):'';
+  const choices=last?last.choices.map((c,i)=>{const t=c.temptation&&(life().temptations.live||[]).find(t=>t.id===c.temptation);return window.RARC3&&c.temptation&&(!t?.adventure||!window.RAF15?.parse?.(t.adventure))?'':btn(esc(c.label),`do:${appId}:reply:${id}|${last.id}|${i}`);}).join(''):'';
   const live=last?.choices?.some(c=>!c.temptation||(life().temptations.live||[]).some(t=>t.id===c.temptation&&(!t.adventure||RAAdventures.available(t.adventure))));
   return `<h1>${esc(threadName(id))}</h1><div class="phone-thread">${body||'<p class="phone-small">no messages.</p>'}</div>${choices?`<p class="phone-small">${live?'AVAILABLE NOW':'EARLIER INVITATION'}</p><div class="phone-option-list">${choices}</div>`:''}`;
  }

@@ -41,6 +41,7 @@
   return baseValue(id);
  }
  function resolve(id,stack){
+  if(id==='F05.trap'&&window.RARC3)return false;
   if(typeof id!=='string'||!specs.has(id))return false;
   if(stack.includes(id))return false; // dependency cycle => OFF (a diamond of requires is fine: the stack is per path)
   if(!raw(id))return false;

@@ -139,6 +139,7 @@
   {
    "overlay": true
   },
+  "js/systems/rc3.js",
   "js/engine/core.js",
   "game.js"
  ],

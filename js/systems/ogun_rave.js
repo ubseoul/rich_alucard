@@ -1,5 +1,6 @@
 (function(){
   const NIGHT_ID='ogun_rave_001';
+  let hunterBusy=false;
   const active=()=>RAState.get().life.night?.active||null;
   function patchActive(fields){const prior=active();if(!prior)return false;return RAState.patch('life.night.active',{...prior,...fields});}
   function findChoice(phaseId,choiceId,phases){const phase=phases.find(p=>p.id===phaseId);return phase?.choices?.find(c=>c.id===choiceId)||null;}
@@ -11,6 +12,14 @@
       if(choice.next){patchActive({phase:choice.next});currentInteriorSession()?.setPhase(choice.next);}
       else if(choice.commit)currentInteriorSession()?.commit(choice.commit,{});
     },consequences:{
+      async fightHunter(){
+        if(hunterBusy)return;hunterBusy=true;
+        try{
+        const result=await RACombat2.run('blad33ee',{env:'rave_interior',intro:'BLAD33EE'});
+        if(!['win','spared'].includes(result?.outcome)){currentInteriorSession()?.setPhase('deescalate');return;}
+        window.RARC3?.patch?.({action:true});patchActive({phase:'exterior-outside'});RAScenes.go('ogun-rave-exterior');
+        }finally{hunterBusy=false;}
+      },
       leaveRave(){patchActive({phase:'exterior-outside'});RAScenes.go('ogun-rave-exterior');}
     }};
   }

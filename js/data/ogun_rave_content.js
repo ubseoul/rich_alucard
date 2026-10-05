@@ -52,13 +52,13 @@
     {id:'sprinklers',dialogue:"The ceiling opens up. Not water — cold, thick, unmistakably blood, right on the crowd. Ogun's signature move. Rich's first thought is his locs.",
       party:{situations:[situations.sprinklers]},choices:[{id:'continue',label:'SHAKE IT OFF',next:'bllad33Enter'}]},
     {id:'bllad33Enter',actors:{bllad33:true},
-      dialogue:"The door doesn't open so much as it gets opened. Everyone feels it before they see it — the music doesn't stop, but half the room does. He's dressed like he came to work, not to dance, and the whole rave suddenly remembers it's full of vampires.\nRICH: \"NIGGA IS THAT Bllad33\"",
+      dialogue:"The door crashes open. The whole rave remembers it's full of vampires. BLAD33EE is here.\nRICH: \"oh shit, that's Blad33ee!\"",
       choices:[{id:'hold',label:'HOLD YOUR SPOT',next:'tension'}]},
     {id:'tension',actors:{bllad33:true},dialogue:"Nobody on the floor is moving.",party:{situations:[situations.tension]},
       choices:[{id:'continue',label:'SEE WHAT HE WANTS',next:'deescalate'}]},
     {id:'deescalate',actors:{bllad33:true},
-      dialogue:"Bllad33 doesn't draw anything. He just looks around the room like he's counting exits, clocks Rich, and — nothing. A short nod, the kind that means later, not now. Ogun appears at his shoulder already talking him down with a drink. Whatever this was, it wasn't about Rich. Not tonight.",
-      choices:[{id:'bounce',label:'DIP OUTSIDE WHILE YOU CAN',commit:'leaveRave'}]}
+      dialogue:"BLAD33EE blocks the exit. Ogun's drink diplomacy has failed.",
+      choices:[{id:'bounce',label:'FIGHT BLAD33EE',commit:'fightHunter'}]}
   ];
   const exteriorPhases=[
     {id:'outside',dialogue:"Outside is quieter. Colder. Somewhere down the block a sign buzzes red and yellow — IN-N-GHOUL, some knockoff burger spot open all night for exactly this kind of crowd. Two women are already out here, smoking, in no hurry to go back in.",

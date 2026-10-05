@@ -1,0 +1,79 @@
+[
+  {
+    "day": 2,
+    "mission": "NEW_OGA_M1",
+    "before": 40000,
+    "afterCash": 55000,
+    "afterClub": 50000
+  },
+  {
+    "day": 3,
+    "mission": "NEW_OGA_M2",
+    "before": 50000,
+    "afterCash": 65000,
+    "afterClub": 60000
+  },
+  {
+    "day": 4,
+    "mission": "NEW_OGA_M3",
+    "before": 60000,
+    "afterCash": 75000,
+    "afterClub": 70000
+  },
+  {
+    "day": 5,
+    "mission": "NEW_OGA_M4",
+    "before": 70000,
+    "afterCash": 85000,
+    "afterClub": 80000
+  },
+  {
+    "day": 6,
+    "mission": "NEW_OGA_M5",
+    "before": 80000,
+    "afterCash": 95000,
+    "afterClub": 90000
+  },
+  {
+    "day": 7,
+    "mission": "NEW_OGA_M6",
+    "before": 90000,
+    "afterCash": 105000,
+    "afterClub": 100000
+  },
+  {
+    "day": 8,
+    "mission": "NEW_OGA_M7",
+    "before": 100000,
+    "afterCash": 115000,
+    "afterClub": 110000
+  },
+  {
+    "day": 9,
+    "mission": "NEW_OGA_M8",
+    "before": 110000,
+    "afterCash": 128000,
+    "afterClub": 123000
+  },
+  {
+    "day": 10,
+    "mission": "NEW_OGA_M9",
+    "before": 123000,
+    "afterCash": 138000,
+    "afterClub": 133000
+  },
+  {
+    "day": 11,
+    "mission": "NEW_OGA_M10",
+    "before": 133000,
+    "afterCash": 148000,
+    "afterClub": 143000
+  },
+  {
+    "day": 12,
+    "mission": "NEW_OGA_VAMPGPT",
+    "before": 143000,
+    "afterCash": 158000,
+    "afterClub": 153000
+  }
+]

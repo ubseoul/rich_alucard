@@ -34,6 +34,7 @@
  // {ignoreActive:true}: eligibility of a follow-up offered from INSIDE a running adventure (a hub choice that chains);
  // without it every other id reads unavailable while the current run is active.
  function available(id,{ignoreActive=false}={}){
+  if(window.RARC3&&!window.RARC3.allowed(id))return false;
   const def=get(id);if(!def)return false;const a=active();if(a&&a.id!==id&&!ignoreActive)return false;
   if(!def.repeatable&&isDone(id))return false;
   if(def.cooldown&&record(id)?.completedDay&&RALife.today().day-record(id).completedDay<def.cooldown)return false;
@@ -51,6 +52,7 @@
  }
  function resolveNext(next,A,extra){return typeof next==='function'?next(A,extra):next;}
  function start(id,{from='phone',vars={}}={}){
+  if(window.RARC3&&!window.RARC3.canStart(id,from))return false;
   const def=get(id);if(!def)return false;const cur=active();if(cur){if(cur.id===id)return cur;return false;}
   const rec=record(id)||{status:'available',count:0};
   saveRecord(id,{...rec,status:'active',startedDay:RALife.today().day});

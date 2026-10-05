@@ -16,6 +16,7 @@
  // ── Sub-view renderers ────────────────────────────────────────────────────
 
  function renderBoard() {
+  if(window.RARC3)return renderJobs();
   const active = window.RAFrag.read('F04', 'active', false);
   if (!active) return renderOffer();
   const districts = (window.RAWarRoomDistricts?.activeIds?.() || []).map(id => {
@@ -64,14 +65,16 @@ ${btn('HAND BACK', 'app:warRoom:handback', 'phone-button-danger')}`;
 ${offer.status === 'available' ? 'A black car is outside.' : 'He\'s back.'}
 </div>
 ${btn('I\'M IN.', 'do:warRoom:accept')}
-${btn('NAH.', 'do:warRoom:decline')}`;
+${window.RARC3?'':btn('NAH.', 'do:warRoom:decline')}`;
  }
 
  function renderJobs() {
   const active = window.RAFrag.read('F04', 'active', false);
+  if(window.RARC3&&!active)return `<h1>WAR ROOM</h1>${renderOffer()}${btn('RAMEN SHIFT','do:warRoom:ramen')}`;
   if (!active) return `<h1>JOBS</h1><p class="phone-small">not in the game.</p>`;
 
   const jobs = window.RAWarRoomJobs.buildNightMenu();
+  if(window.RARC3)return `<h1>PICK A JOB</h1>${jobs.map((job,i)=>job.routesToPlay?`<div class="phone-card"><b>${esc(job.label)}</b>${btn('PICK CREW → GO',`do:warRoom:play:${i}`)}</div>`:'').join('')}${btn('RAMEN SHIFT','do:warRoom:ramen')}`;
   const slots = window.RAFrag.read('F04', 'jobs.slotsPerNight', 1);
   const nightsIn = window.RAFrag.read('F04', 'jobs.nightsSinceStart', 0);
   if (!jobs.length) return `<h1>JOBS</h1><p class="phone-small">quiet tonight.</p>`;
@@ -176,6 +179,8 @@ ${btn('NOT YET', 'app:warRoom')}`;
 
  // ── Action handler ────────────────────────────────────────────────────────
  function onAction(act, arg, api) {
+  if(window.RARC3&&act==='ramen')return api.begin(window.RAAdventures.isDone('A08')?'SLURP':'A08');
+  if(window.RARC3&&!['accept','play','resume','ramen'].includes(act))return false;
   if (act === 'accept') {
    window.RAFrag.patch('F04', 'offer.status', 'accepted');
    window.RAFrag.patch('F04', 'offer.acceptedOnDay', window.RALife.today().day);
@@ -238,6 +243,7 @@ ${btn('NOT YET', 'app:warRoom')}`;
  // ── Main render ───────────────────────────────────────────────────────────
  function render(sub) {
   if (!window.RAFeatures.enabled(FLAG)) return '';
+  if(window.RARC3)return renderJobs();
 
   if (!sub || sub === 'board') return renderBoard();
   if (sub === 'jobs') return renderJobs();

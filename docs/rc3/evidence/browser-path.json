@@ -1,0 +1,83 @@
+{
+  "width": 390,
+  "fresh": true,
+  "firstFightSeconds": 21.235,
+  "steps": [
+    {
+      "scene": "bedroom",
+      "day": 1,
+      "next": {
+        "id": "cash",
+        "key": "rc3:1:COLLECT CASH",
+        "kind": "cash",
+        "app": "bank",
+        "label": "COLLECT CASH",
+        "sub": "New Oga ladder · DAY 1",
+        "action": "rc3:next"
+      },
+      "daily": {
+        "day": 1,
+        "story": true,
+        "action": true,
+        "paid": false,
+        "moneyBefore": 40000
+      }
+    },
+    {
+      "scene": "bedroom",
+      "day": 1,
+      "next": {
+        "id": "rest",
+        "key": "rc3:1:SLEEP",
+        "kind": "rest",
+        "app": null,
+        "label": "SLEEP",
+        "sub": "New Oga ladder · DAY 1",
+        "action": "rc3:next"
+      },
+      "daily": {
+        "day": 1,
+        "story": true,
+        "action": true,
+        "paid": true,
+        "moneyBefore": 40000,
+        "cash": 15000
+      }
+    },
+    {
+      "scene": "bedroom",
+      "day": 2,
+      "next": {
+        "id": "story",
+        "key": "rc3:2:JUG THE PLUG",
+        "kind": "story",
+        "app": "vampgpt",
+        "label": "JUG THE PLUG",
+        "sub": "New Oga ladder · DAY 2",
+        "action": "rc3:next"
+      },
+      "daily": {
+        "day": 2,
+        "story": false,
+        "action": false,
+        "paid": false,
+        "moneyBefore": 51250
+      }
+    }
+  ],
+  "errors": [],
+  "apps": [
+    "VampGPT",
+    "Texts",
+    "War Room",
+    "Strip Club",
+    "Armory",
+    "Bank",
+    "Maps",
+    "Rich Radio",
+    "VampGram"
+  ],
+  "cashAfterStory": 55000,
+  "day1Complete": true,
+  "day2Beat": "JUG THE PLUG"
+}

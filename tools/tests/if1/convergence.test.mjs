@@ -113,7 +113,7 @@ async function body(root){
   const cars=await read(root,'js/systems/cars.js');
   assert.equal((cars.match(/register\(\{id:'cars'/g)||[]).length,1,'the cars app is registered once (was twice)');
   const hier=await read(root,'js/data/phone_hierarchy.js');assert.ok(/onlyvamps:'social'/.test(hier)&&/onlyvamps:\{short:'INVITE ONLY'/.test(hier),'ONLYVAMPS placement + lock override preserved (intentional accepted UL-L2-001 hierarchy)');
-  const phone=await read(root,'js/scenes/phone.js');assert.ok(/\['RealMoneyRealEstate','realEstate'\]/.test(phone),'realEstate is the canonical page id; the lowercase realestate is the separate hidden action-routing app');
+  const phone=await read(root,'js/scenes/phone.js');assert.ok(/\['Bank','bank'\]/.test(phone)&&!/\['RealMoneyRealEstate','realEstate'\]/.test(phone),'OL-074: Bank folds property into the nine-app phone; the old property tile is cut');
   const c=await boot(root);on(c,'F04.war_room','F05.trap','F06.rainmaker');
   for(const id of ['warRoom','trap','rainmaker'])assert.ok(c.RAPhoneApps.get(id),`${id} registers once its flag is ON`);
   assert.equal(c.RAPhoneRegistry.reserved().find(r=>r.id==='armory').declared,false,'the ARMORY slot (F02, not in this composition) stays reserved and dark');

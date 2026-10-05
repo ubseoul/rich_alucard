@@ -5,6 +5,7 @@
  const host=document.querySelector('#phoneContent');if(!host)return;
  function mark(){
   const next=host.querySelector('.phone-next-button');next?.classList.add('rc2-nudge','rc2-nudge-big');
+  if(window.RARC3)return;
   const label=host.querySelector('[data-phone-section="now"]');if(!label)return;
   for(let n=label.nextElementSibling;n&&!n.matches('.phone-section-label');n=n.nextElementSibling)if(n.matches('.app-button:not(.app-dormant)'))n.classList.add('rc2-nudge');
   host.querySelectorAll('.app-button .phone-badge,.app-button .unread,.app-button [data-unread]').forEach(b=>b.closest('.app-button')?.classList.add('rc2-nudge'));

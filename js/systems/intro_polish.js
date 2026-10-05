@@ -30,7 +30,7 @@
  const prologueFight=()=>{try{return window.RAScenes?.current?.()==='battle'&&window.RALife?.flag?.('prologueDone')&&!window.RALife?.life?.()?.clock?.started&&overlay?.style.display==='none';}catch(e){return false;}};
  function placeCoach(){if(!coach)return;const ui=document.querySelector('#battleUI'),s=screen();if(!ui||!s)return;const u=ui.getBoundingClientRect(),r=s.getBoundingClientRect();coach.style.left=`${u.left-r.left+u.width/2}px`;coach.style.top=`${u.top-r.top-6}px`;}
  function hideCoach(){coach?.remove();coach=null;}
- function showCoach(text){hideCoach();if(!document.querySelector('#battleUI')||!screen())return;coach=el('div','rc2-coach',`<b>${text}</b><i aria-hidden="true">▼</i>`);screen().append(coach);placeCoach();}
+ function showCoach(text){if(window.RARC3&&RALife.flag('rc3Coach:combat'))return;hideCoach();if(!document.querySelector('#battleUI')||!screen())return;if(window.RARC3)RALife.setFlag('rc3Coach:combat',true);coach=el('div','rc2-coach',`<b>${window.RARC3?'TAP FIGHT → BLOOD BATH':text}</b><i aria-hidden="true">▼</i>`);screen().append(coach);placeCoach();}
  function armCoach(){clearTimeout(coachTimer);if(!prologueFight()){hideCoach();return;}coachTimer=setTimeout(()=>{if(prologueFight())showCoach(coachStage===0?'TAP FIGHT':'TAP BLOOD BATH');},coachStage===0?1200:700);}
  document.querySelector('#battleUI')?.addEventListener('click',e=>{const b=e.target.closest('button');if(!b||!prologueFight())return;hideCoach();
   const txt=(b.textContent||'').trim().toUpperCase();

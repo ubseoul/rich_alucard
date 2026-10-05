@@ -67,6 +67,7 @@
  const wakeDefs=[];
  function defineWake(list){wakeDefs.push(...list);wakeDefs.sort((a,b)=>(b.priority||0)-(a.priority||0));}
  function pick(){
+  if(window.RARC3)return null;
   const L=RALife.L();const prior=RALife.flag('wakeTrigger');if(prior?.day===L.day){if(prior.id&&RAAdventures.available(prior.id))return prior.id;return null;}
   for(const w of wakeDefs){try{if(RAAdventures.available(w.adventure)&&w.when(L)){RALife.setFlag('wakeTrigger',{day:L.day,id:w.adventure});return w.adventure;}}catch(e){console.error(e)}}
   RALife.setFlag('wakeTrigger',{day:L.day,id:null});return null;

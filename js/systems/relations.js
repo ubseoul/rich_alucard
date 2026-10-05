@@ -30,7 +30,7 @@
  function setFlag(id,flag,value=true){const rec=base(id);rec.flags[flag]=value;save(id,rec);}
  const flag=(id,f)=>raw(id)?.flags?.[f];
  // Dates: one per person per night; 1 sleep between meaningful meetings.
- function canDate(id){const rec=raw(id);if(!rec?.met)return false;const today=RALife.today().day;return !(rec.lastDateDay&&today-rec.lastDateDay<1);}
+ function canDate(id){if(window.RARC3&&!window.RAF15?.isDancer?.(id))return false;const rec=raw(id);if(!rec?.met)return false;const today=RALife.today().day;return !(rec.lastDateDay&&today-rec.lastDateDay<1);}
  function date(id,spot,{readRight=false,octopusFit=false}={}){
   const likes=catalog(id)?.likes||[];let pts=likes.includes(spot)?10:3;if(readRight)pts+=5;if(octopusFit)pts+=8;if(RALife.flag('freshUntil')>=RALife.today().day)pts+=3;
   const result=add(id,pts,{reason:'date'});const rec=base(id);rec.datesCount=(rec.datesCount||0)+1;rec.lastDateDay=RALife.today().day;rec.lastSpot=spot;save(id,rec);

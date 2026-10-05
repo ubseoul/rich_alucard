@@ -27,12 +27,14 @@
   return true;
  }
  function confirmBed({nightEnder=false}={}){
+  if(window.RARC3&&!window.RARC3.canSleep()){window.RAPhone?.openApp?.('vampgpt');return;}
   if(!layer||layer.querySelector('.bed-confirm'))return;
   const box=el('div','bed-confirm',`<span>${nightEnder?'THAT WAS A NIGHT.':'GO TO BED?'}</span><div><button type="button" data-bed="yes">SLEEP</button>${nightEnder?'':'<button type="button" data-bed="no">NOT YET</button>'}</div>`);
   box.style.pointerEvents='auto';layer.append(box);
   box.addEventListener('click',e=>{const b=e.target.closest('[data-bed]');if(!b)return;box.remove();if(b.dataset.bed==='yes')goToSleep();});
  }
  async function goToSleep(){
+  if(window.RARC3&&!window.RARC3.canSleep())return false;
   if(window.RAPhone?.isOpen?.())await RAPhone.close();
   window.RABedroom?.setRichState?.('sleeping');
   const over=el('div','wake-overlay','<div class="wake-day"></div>');document.querySelector('#screen').append(over);
@@ -51,6 +53,7 @@
  function showMail(mail,wakeAdventure){
   if(!layer)build();const today=RALife.today().day;
   const cards=(mail||RALife.life().clock.mail||[]).filter(m=>m.day===today&&!m.read);
+  if(window.RARC3){window.RARC3.showMorning(layer,el);return;}
   const wrap=el('div','morning-mail');wrap.style.pointerEvents='auto';wrap.append(el('h2',null,'MORNING'));
   const ordered=[...cards.filter(c=>c.kind==='weekday'),...cards.filter(c=>c.kind!=='weekday')];
   for(const c of ordered){const b=el('button',`mail-card mail-${c.kind||'note'}`,`<b>${c.title||''}</b>${c.body||''}`);b.type='button';
