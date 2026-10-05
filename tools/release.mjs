@@ -26,6 +26,7 @@ function memoryStorage(){const data=new Map();return {getItem:key=>data.has(key)
 async function javascriptFiles(directory){const entries=await readdir(directory,{withFileTypes:true});const nested=await Promise.all(entries.map(async entry=>entry.isDirectory()?javascriptFiles(path.join(directory,entry.name)):entry.name.endsWith('.js')?[path.join(directory,entry.name)]:[]));return nested.flat();}
 
 async function test(){
+  const voice=await import(pathToFileURL(path.join(root,'tools','rc3','voice-test.mjs')).href);await voice.test(root);
   const rc3=await import(pathToFileURL(path.join(root,'tools','rc3','policy-test.mjs')).href);await rc3.test(root);
   await testParty(root);
   await testRave(root);

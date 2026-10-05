@@ -216,18 +216,18 @@
    ctx.RAState.patch('life.newOga',{...ctx.RAState.get().life.newOga,status:'m8_hold',mission:7,rank:4,title:'SENIOR ASSOCIATE',rank4Granted:true,m7Completed:true,m6Completed:true,m5Completed:true,m8Resolved:true,lastMissionDay:14});},
   nodes:{
    voice:{env:'gbenga_rentals',actors:{left:'rich',right:'gbenga'},title:'VOICE NOTE · THE TRIBUTE',
-    lines:()=>{const c=favoriteCar();return [N(c?`Gbenga asks for a sign of commitment: the ${carName(c)} — the car Rich has driven most. It will sit in his warehouse under a canopy.`:'Gbenga asks for a sign of commitment: your favorite car.')];},
+    lines:()=>{const c=favoriteCar();return [N(c?`uncle wants your ${carName(c)} under his canopy commitment expensive as fuck`:"uncle wants your favorite car not a handshake")];},
     next:'choice'},
-   choice:{lines:[N('The car is on the line.')],choices:[
+   choice:{lines:[N("car or promotion pick your pain")],choices:[
     {label:'GIVE IT',next:'give'},
     {label:'OFFER ANOTHER CAR',sub:'URUS / AVENTADOR',when:()=>!!exoticCar(),hideLocked:false,next:'other'},
     {label:'NAH',next:'nah'}
    ]},
-   give:{lines:()=>{const c=favoriteCar();return [N(c?`Rich gives up the ${carName(c)}. It sits in Gbenga's warehouse under a canopy. Gbenga cries a little.`:'Rich gives up the car. Gbenga cries a little.')];},
+   give:{lines:()=>{const c=favoriteCar();return [N(c?`${carName(c)} under uncles canopy gbenga crying like its graduation`:"car gone uncle emotional damn")];},
     end:{outcome:'give',fx:()=>completeM9('give'),memory:{text:'tributed the car Rich drove most to Gbenga',lane:'cars'}}},
-   other:{lines:[N('Gbenga accepts the flex. The exotic is tributed instead.')],
+   other:{lines:[N("exotic car accepted uncle likes expensive apologies")],
     end:{outcome:'other',fx:()=>completeM9('other'),memory:{text:'tributed the exotic instead of the favorite car',lane:'cars'}}},
-   nah:{lines:[N('Gbenga hears the no. The car stays. The rank stays four.')],
+   nah:{lines:[N("car stays rank stays four uncle petty too")],
     end:{outcome:'nah',fx:()=>completeM9('nah'),memory:{text:'refused to tribute a car for the NEW OGA ladder',lane:'cars'}}}
   }});
 
@@ -236,9 +236,9 @@
    ctx.RAState.patch('life.newOga',{...ctx.RAState.get().life.newOga,status:'vice_president',mission:9,rank:5,title:'VICE PRESIDENT',rank4Granted:true,m7Completed:true,m6Completed:true,m5Completed:true,m8Resolved:true,m9Resolved:true,m9Outcome:'give',lastMissionDay:15});},
   nodes:{
    voice:{env:'gbenga_rentals',actors:{left:'rich',right:'gbenga'},title:'VICE PRESIDENT',
-    lines:[N('Gbenga names Rich VICE PRESIDENT: a block of his own in Koreatown, fifteen thousand a week, two of his boys, and an office at the warehouse.')],
+    lines:[N("vice president now koreatown block $15000 a week two boys warehouse office damn")],
     next:'grant'},
-   grant:{lines:[N('The nameplate says VICE PRESIDENT in gold.')],end:{outcome:'vice_president',fx:()=>completeM10(),memory:{text:'was named VICE PRESIDENT by Gbenga',lane:'money'}}}
+   grant:{lines:[N("gold nameplate vice president rent finally scared of you")],end:{outcome:'vice_president',fx:()=>completeM10(),memory:{text:'was named VICE PRESIDENT by Gbenga',lane:'money'}}}
   }});
 
  D({id:'NEW_OGA_VAMPGPT',title:'VAMPGPT',lane:'money',memoryType:'money',start:'vampgpt',repeatable:true,available:vampgptReady,
@@ -246,11 +246,11 @@
    ctx.RAState.patch('life.newOga',{...ctx.RAState.get().life.newOga,status:'vice_president',mission:10,rank:5,title:'VICE PRESIDENT',rank4Granted:true,m7Completed:true,m8Resolved:true,m9Resolved:true,m9Outcome:'give',m10Completed:true,m10GrantsApplied:true,lastMissionDay:16});},
   nodes:{
    vampgpt:{env:'bedroom',actors:{left:'rich'},title:'VAMPGPT · WAKE',
-    lines:[S('vampgpt','oga.'),RC('yeah.'),S('vampgpt','you know what oga means right.'),S('vampgpt','…boss.'),S('vampgpt','why are you climbing his ladder. you could own the building.')],
+    lines:[S('vampgpt',"oga you listening"),RC("yeah bro whats up"),S('vampgpt',"you know oga means boss right"),S('vampgpt',"boss bro act like it"),S('vampgpt',"climbing his ladder for what own the damn building")],
     choices:[{label:'…SAY LESS.',next:'say_less'},{label:'NAH, I’M GOOD HERE.',next:'nah_stay'}]},
-   say_less:{lines:[N('VampGPT goes quiet. The plan for the chair begins.')],
+   say_less:{lines:[N("vampgpt shuts up finally time to take the chair")],
     end:{outcome:'say_less',fx:()=>completeVampgpt('say_less'),memory:{text:'decided to take Gbenga’s chair',lane:'money'}}},
-   nah_stay:{lines:[N('Rich stays VICE PRESIDENT. VampGPT will ask again in seven sleeps.')],
+   nah_stay:{lines:[N("vice president for now vampgpt back in seven nights like a subscription")],
     end:{outcome:'nah_stay',fx:()=>completeVampgpt('nah_stay'),memory:{text:'stayed VICE PRESIDENT after all',lane:'money'}}}
   }});
 

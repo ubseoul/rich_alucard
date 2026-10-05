@@ -73,7 +73,7 @@
       const stop=window.RACombatPixelFX?.impact({root,target,attacker,severity,tick})||55;audio?.sound(tick?'HIT_LIGHT':lethal?'KO':severity==='heavy'?'HIT_HEAVY':'HIT_LIGHT');
       if(tick)await wait(110);else{root.classList.add('c2-impact-stop');await wait(stop);root.classList.remove('c2-impact-stop');}
      }
-     floatNum(total||ev.amount,onRich?'rich':'enemy',null,severity);hud();window.RABarks?.trigger({root,enemyId,kind:onRich?'hit_rich':'hurt',enemyEl,force:lethal&&!onRich});await wait(615);continue;
+     floatNum(total||ev.amount,onRich?'rich':'enemy',null,severity);hud();window.RABarks?.trigger({root,enemyId,kind:onRich?'hit_rich':'hurt',enemyEl:!onRich&&!lethal&&index%3===0?richEl:enemyEl,speaker:!onRich&&!lethal&&index%3===0?'rich':'enemy',force:lethal&&!onRich});await wait(615);continue;
     }
     if(ev.kind==='heal')floatNum(ev.amount?`+${ev.amount}`:'+','heal',ev.target);
     if(ev.kind==='telegraph')audio?.sound('TELEGRAPH');if(ev.kind==='miss')audio?.sound('MISS');

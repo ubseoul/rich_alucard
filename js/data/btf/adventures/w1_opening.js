@@ -4,32 +4,32 @@
  const climb=(n,cal)=>({env:'ocean_floor',actors:{mid:'rich',farLeft:{id:'soul',look:{top:'#1c2c44',bottom:'#1c2c44',hair:'#1c2c44',skin:'#2a3a54'}},farRight:{id:'soul',look:{top:'#22344c',bottom:'#22344c',hair:'#22344c',skin:'#2a3a54'}}},
   lines:[N(cal)],choices:[{label:'CLIMB',next:`fall${n}`}]});
  D({id:'A00',title:'THE GOLDFISH YEARS',lane:'home',scope:'MUST',memory:'the ladder at the bottom of the ocean',start:'dream',nodes:{
-  dream:{env:'bedroom',actors:null,props:[{src:'assets/rich_bedroom_sleeping.png',x:78,y:346}],lines:[N('rich is asleep.'),N('remember?')],next:'floor'},
+  dream:{env:'bedroom',actors:null,props:[{src:'assets/rich_bedroom_sleeping.png',x:78,y:346}],lines:[N("rich knocked out"),null],next:'floor'},
   floor:{env:'ocean_floor',title:'THE BOTTOM OF THE OCEAN',actors:{mid:'rich',farLeft:{id:'soul',look:{top:'#1c2c44',bottom:'#1c2c44',hair:'#1c2c44',skin:'#2a3a54'}},farRight:{id:'soul',look:{top:'#22344c',bottom:'#22344c',hair:'#22344c',skin:'#2a3a54'}}},
-   lines:[N('drowned souls climb a driftwood ladder toward the light.'),N('everybody climbs the same ladder.')],choices:[{label:'CLIMB',next:'fall1'}]},
-  fall1:{env:'ocean_floor_collapsed',lines:[N('near the top, it collapses.'),N('MONTH 7.')],next:'try2'},
+   lines:[N("dead souls climbing toward daylight"),N("one ladder for all these broke souls")],choices:[{label:'CLIMB',next:'fall1'}]},
+  fall1:{env:'ocean_floor_collapsed',lines:[N("ladder folds right before the top"),N("month 7 still down here")],next:'try2'},
   try2:climb(2,'the ladder is back. like nothing happened.'),
-  fall2:{env:'ocean_floor_collapsed',lines:[N('it collapses again.'),N('MONTH 19.')],next:'try3'},
+  fall2:{env:'ocean_floor_collapsed',lines:[N("ladder folds again damn"),N("month 19 somebody call maintenance")],next:'try3'},
   try3:climb(3,'again.'),
-  fall3:{env:'ocean_floor_collapsed',lines:[N('YEAR 2.'),R("shi. at least it's something.")],next:'sensei'},
+  fall3:{env:'ocean_floor_collapsed',lines:[N("two years for this shit"),R("still better than linkedin")],next:'sensei'},
   // ART SHIP 004 staging: Sensei neutral while arriving/listening, `point` only for the instruction line, then neutral.
-  sensei:{env:'ocean_floor',actors:{left:'rich',right:'octopus_sensei'},lines:[E('octopus_sensei','…'),N('something old drifts in. it has been watching.')],next:'sensei_point'},
-  sensei_point:{actors:{left:'rich',right:{id:'octopus_sensei',state:'point'}},lines:[S('octopus_sensei','USE YOUR HEAD.')],next:'sensei_listen'},
-  sensei_listen:{actors:{left:'rich',right:'octopus_sensei'},lines:[R('use my head.')],next:'brain'},
+  sensei:{env:'ocean_floor',actors:{left:'rich',right:'octopus_sensei'},lines:[null,N("old octopus pulls up like he knows the landlord")],next:'sensei_point'},
+  sensei_point:{actors:{left:'rich',right:{id:'octopus_sensei',state:'point'}},lines:[S('octopus_sensei',"use your head bro")],next:'sensei_listen'},
+  sensei_listen:{actors:{left:'rich',right:'octopus_sensei'},lines:[R("my head got us here")],next:'brain'},
   // RC2 B3 — THE BRAIN. Where the OCTOPUS BRAIN move comes from. Short, dumb, in canon: the sensei hands over a brain.
-  brain:{actors:{left:'rich',right:{id:'octopus_sensei',state:'point'}},lines:[S('octopus_sensei','…TAKE IT.'),R('take what?'),N('the octopus taps its own head. twice.')],next:'brain_offer'},
-  brain_offer:{actors:{left:'rich',right:'octopus_sensei'},lines:[S('octopus_sensei','MY BRAIN. IT HAS EIGHT PARTS. ONE PER ARM.'),S('octopus_sensei','THE SEVENTH PART IS MOSTLY SNACKS.')],
+  brain:{actors:{left:'rich',right:{id:'octopus_sensei',state:'point'}},lines:[S('octopus_sensei',"take it"),R("take what big bro"),N("octopus points at his own head")],next:'brain_offer'},
+  brain_offer:{actors:{left:'rich',right:'octopus_sensei'},lines:[S('octopus_sensei',"my brain eight parts one per arm"),S('octopus_sensei',"seventh part just snacks dont judge")],
    choices:[{label:'TAKE THE WHOLE BRAIN',next:'brain_all'},{label:'TAKE ONE PART. BE POLITE.',next:'brain_one'},{label:'ASK IF IT HURTS',octopus:true,next:'brain_ask'}]},
-  brain_all:{lines:[N('a small wet pop. rich now has a second brain.'),R('it is warm.')],enter:A=>{RALife.setFlag('octopusBrain','whole');},next:'brain_done'},
-  brain_one:{lines:[N('the octopus hands over one part, like a slice of cake.'),S('octopus_sensei','…GOOD MANNERS. RARE.')],enter:A=>{RALife.setFlag('octopusBrain','polite');},next:'brain_done'},
-  brain_ask:{lines:[S('octopus_sensei','YES. A LOT.'),N('it hands it over anyway.')],enter:A=>{RALife.setFlag('octopusBrain','asked');},next:'brain_done'},
-  brain_done:{lines:[N('eight ideas arrive at once. all eight are snacks.'),S('octopus_sensei','THAT IS THE BRAIN. USE IT. OR EAT.')],next:'merge'},
-  merge:{lines:[N('rich does it literally.'),N('eight tentacles. bubbles. his head is full of ocean.'),R("…oh. there's other ways out.")],next:'fork'},
+  brain_all:{lines:[N("wet pop rich got two brains and no plan"),R("damn its warm")],enter:A=>{RALife.setFlag('octopusBrain','whole');},next:'brain_done'},
+  brain_one:{lines:[N("octopus serves brain like birthday cake"),S('octopus_sensei',"manners? damn thats rare")],enter:A=>{RALife.setFlag('octopusBrain','polite');},next:'brain_done'},
+  brain_ask:{lines:[S('octopus_sensei',"hurts like hell"),N("still hands it over")],enter:A=>{RALife.setFlag('octopusBrain','asked');},next:'brain_done'},
+  brain_done:{lines:[N("eight thoughts all about food"),S('octopus_sensei',"use it or eat it your business")],next:'merge'},
+  merge:{lines:[null,N("rich grows eight tentacles real subtle"),R("oh i could just leave")],next:'fork'},
   fork:{choices:[{label:'CLIMB AGAIN',next:'out_climb'},{label:'SWIM',next:'out_swim'},{label:'ASK THE OCTOPUS WHERE THE EXIT IS',octopus:true,next:'out_ask'}]},
-  out_climb:{lines:[N('he climbs. this time he uses the tentacles. the ladder is irrelevant.')],next:'out'},
-  out_swim:{lines:[N('he just swims up. nobody ever tried that.')],next:'out'},
-  out_ask:{lines:[S('octopus_sensei','…up.'),N('it points up. it was always up.')],next:'out'},
-  out:{lines:[N("he's out.")],end:{outcome:'out',location:'battle',memory:{text:'the ladder at the bottom of the ocean',lane:'home'},receipt:{id:'ladder',caption:'the ladder. never again.'}}}
+  out_climb:{lines:[N("tentacles carry him up ladder unemployed")],next:'out'},
+  out_swim:{lines:[N("rich swims up nobody thought of that shit")],next:'out'},
+  out_ask:{lines:[S('octopus_sensei',"up bro"),null],next:'out'},
+  out:{lines:[N("finally out")],end:{outcome:'out',location:'battle',memory:{text:'the ladder at the bottom of the ocean',lane:'home'},receipt:{id:'ladder',caption:'the ladder. never again.'}}}
  }});
  // WAKE-time helpers for the life clock's first days.
  RAClock.onWake('btf-day-flags',15,({info})=>{

@@ -66,7 +66,7 @@
   const octx=over.getContext('2d');
   const bar=document.createElement('div');bar.className='f15-bar';bar.setAttribute('role','radiogroup');bar.setAttribute('aria-label','Choose who to support');
   const dateRow=document.createElement('div');dateRow.className='f15-date';
-  const note=document.createElement('p');note.className='f15-note';note.setAttribute('role','status');note.textContent='LOADING DANCERS...';
+  const note=document.createElement('p');note.className='f15-note';note.setAttribute('role','status');note.textContent=global.RAWriting.dancerGreeting(nightDancer());
   const idBox=document.createElement('details');idBox.className='f15-id';
   const anchor=shadow.querySelector('.player-bar');
   for(const el of [bar,dateRow,note,idBox])anchor?anchor.before(el):cab.appendChild(el);
@@ -80,7 +80,7 @@
   const HYPE_MAX=3000;
   function renderHype(){const level=vipLevel(encores),active=performance.now()<encoreUntil;
    hypePanel.dataset.encore=String(active);hypePanel.dataset.combo=String(combo);hypePanel.dataset.vip=String(level);
-   hypePanel.innerHTML=`<header><span>${names[selectedLocal]} · 21+</span><span>${VIP[level]}</span></header><progress max="${HYPE_MAX}" value="${hype}" aria-label="Hype"></progress><span>${active?'ENCORE · THE HOUSE IS YOURS':`HYPE ${Math.round(hype)}/${HYPE_MAX}`} · COMBO ${combo} · TIP ×${(1+Math.min(combo,12)*.25).toFixed(2)}</span><br><span>${level===3?'HEADLINER: GOLD STAGE':`${encores} ENCORES · NEXT VIP AT ${[1,4,9][level]}`}</span>`;
+   hypePanel.innerHTML=`<header><span>${names[selectedLocal]} · 21+</span><span>${VIP[level]}</span></header><progress max="${HYPE_MAX}" value="${hype}" aria-label="Hype"></progress><span>${active?'ENCORE · damn house going up':`HYPE ${Math.round(hype)}/${HYPE_MAX}`} · COMBO ${combo} · TIP ×${(1+Math.min(combo,12)*.25).toFixed(2)}</span><br><span>${level===3?'HEADLINER: GOLD STAGE':`${encores} ENCORES · NEXT VIP AT ${[1,4,9][level]}`}</span>`;
   }
   const geo={W:0,H:0,feetY:0,k:1,dpr:1,boxes:{},x:{},clamped:false};
   const cards={},pendingCards=new Set();
@@ -128,7 +128,7 @@
   function choose(d){
    if(d!==nightDancer())return false;
    if(!C().select(d))return;selectedLocal=d;applyTarget();lastKey='';
-   note.textContent=`SUPPORTING ${names[d]}. EVERY BILL YOU THROW COUNTS FOR HER.`;
+   note.textContent=global.RAWriting.dancerGreeting(d);
    for(const el of bar.children)el.setAttribute('aria-checked',String(el.dataset.dancer===d));
   }
   // F06 production calls this after it has paid for ONE throw. The recipient is read HERE, at the instant of the throw.
@@ -140,7 +140,7 @@
    if(hit){hype=Math.min(HYPE_MAX,hype+(result.hypeGained||100)*(1+Math.min(combo,12)*.25)*(1+vipLevel(encores)*.1));}
    else hype=Math.max(0,hype-120);
    if(hype>=HYPE_MAX&&N0>=encoreUntil){encores++;encoreUntil=N0+5000;global.RAMinigames?.saveProgress('club',{encores,bestCombo:Math.max(saved().bestCombo||0,combo),lastDancer:selectedLocal});
-    effects.push({x:geo.W/2,recipient:selectedLocal,encore:true,text:'MAX HYPE · ENCORE!',sub:'VIP '+VIP[vipLevel(encores)],color:'#efc16b',t0:N0,ttl:4500});
+    effects.push({x:geo.W/2,recipient:selectedLocal,encore:true,text:'RICH: '+global.RAWriting.voice(18),sub:'VIP '+VIP[vipLevel(encores)],color:'#efc16b',t0:N0,ttl:4500});
     global.RAAudio?.sfx?.('CROWD_CHEER_SMALL');
    }
    renderHype();
@@ -149,9 +149,10 @@
    effects.push({x,recipient,text:kind==='hit'?(result.perfect?'PERFECT':'HIT'):(kind==='overthrow'?'OVERTHROW':'MISS'),sub:'$'+Math.round(delta).toString().replace(/\B(?=(\d{3})+(?!\d))/g,','),color:kind==='hit'?'#ffe6a1':'#ff8a4a',t0:N,ttl:1100});
    pulses[recipient]={t0:N,hit:kind==='hit'};
    if(after.availableLevel&&after.availableLevel!==before.availableLevel){
-    note.textContent=`${names[recipient]}: SCENE ${after.availableLevel} IS READY.`;
+    note.textContent=`${names[recipient]}: wanna get out of here?`;
     try{global.RAF15Dates?.offer(recipient);}catch(e){console.error('F15 offer',e);}
    }
+   if(!after.availableLevel||after.availableLevel===before.availableLevel)note.textContent=global.RAWriting.throwReaction(recipient,delta);
    renderBar();lastKey='';
   }
 
@@ -230,10 +231,10 @@
   const loadImg=u=>new Promise((ok,bad)=>{const i=new Image();i.onload=()=>ok(i);i.onerror=()=>bad(new Error(u));i.src=u;});
   const ready=fetch(SHEET_DIR+'manifest.json',{cache:'no-cache'}).then(r=>{if(!r.ok)throw new Error('manifest '+r.status);return r.json();}).then(m=>{
    manifest=m;return Promise.all(T().HANDLES.map(sheetKey).map(k=>loadImg(SHEET_DIR+m.dancers[k].file).then(i=>{sheets[k]=global.RAHardPixel?global.RAHardPixel.process(i,{cell:m.dancers[k].cell,block:2,colors:28,outline:true}):i;})));
-  }).then(()=>{status.loaded=true;if(!disposed)note.textContent=`TONIGHT: ${names[selectedLocal]} · 21+. AIM AT THE MOVING PLATFORM; THROW IN THE LIGHT. COMBOS FILL HYPE FOR AN ENCORE.`;}).catch(e=>{
+  }).then(()=>{status.loaded=true;if(!disposed)note.textContent=global.RAWriting.dancerGreeting(selectedLocal)+' · 21+. aim at the platform bro hit in the light combo fills hype';}).catch(e=>{
    status.failed=String(e.message||e);console.error('F15 dancers failed to load',e);
    if(!manifest)manifest={dancers:Object.fromEntries(T().HANDLES.map(h=>[sheetKey(h),{frames:1,cell:[155,200],cols:1,anchor_in_cell_px:[77,200]}]))};
-   if(!disposed)note.textContent='DANCER ART FAILED TO LOAD. YOU CAN STILL SUPPORT AND THROW.';
+   if(!disposed)note.textContent='girls late you can still throw';
   });
 
   let binding=null;

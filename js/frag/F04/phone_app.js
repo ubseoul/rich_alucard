@@ -74,7 +74,7 @@ ${window.RARC3?'':btn('NAH.', 'do:warRoom:decline')}`;
   if (!active) return `<h1>JOBS</h1><p class="phone-small">not in the game.</p>`;
 
   const jobs = window.RAWarRoomJobs.buildNightMenu();
-  if(window.RARC3)return `<h1>PICK A JOB</h1>${jobs.map((job,i)=>job.routesToPlay?`<div class="phone-card"><b>${esc(job.label)}</b>${btn('PICK CREW → GO',`do:warRoom:play:${i}`)}</div>`:'').join('')}${btn('RAMEN SHIFT','do:warRoom:ramen')}`;
+  if(window.RARC3)return `<h1>PICK A JOB</h1>${!window.RAFrag.read('F04','jobLog',[]).some(j=>j.via==='play')?`<p class="phone-speaker">RICH</p><p>${esc(window.RAWriting.voice(5))}</p>`:''}${jobs.map((job,i)=>job.routesToPlay?`<div class="phone-card"><b>${esc(job.label)}</b>${btn('PICK CREW → GO',`do:warRoom:play:${i}`)}</div>`:'').join('')}${btn('RAMEN SHIFT','do:warRoom:ramen')}`;
   const slots = window.RAFrag.read('F04', 'jobs.slotsPerNight', 1);
   const nightsIn = window.RAFrag.read('F04', 'jobs.nightsSinceStart', 0);
   if (!jobs.length) return `<h1>JOBS</h1><p class="phone-small">quiet tonight.</p>`;

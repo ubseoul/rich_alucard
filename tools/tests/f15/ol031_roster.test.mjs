@@ -26,7 +26,7 @@ export async function test(root){
  // 3. Emerald L3's lost item is the recital sheet music
  const L3=c.RAAdventures.get('F15_EMERALD_L3');assert.ok(L3,'Emerald L3 exists');
  const text=JSON.stringify(L3.nodes);
- assert.ok(/My sheet music\. For the recital\./.test(text),'she lost her sheet music for the recital');
- assert.ok(/a folder of sheet music/.test(text),'the found item is the sheet music');
+ assert.ok(/sheet music for the recital/.test(text),'she lost her sheet music for the recital');
+ assert.ok(/sheet music folder under the bingo cage/.test(text),'the found item is the sheet music');
  console.log('PASS f15 roster: three stable identities, RC3 nightly stage rotation, no REQUEST mechanic, Emerald L3 recital sheet music');
 }

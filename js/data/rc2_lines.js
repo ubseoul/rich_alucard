@@ -4,14 +4,14 @@
  // the text here is a plain, functional placeholder (what the screen is doing, no joke, no character voice) so the UI is never
  // blank. Build 3 replaces the string for an id and nothing else changes. Keep each line within 3 short sentences.
  const LINES={
-  'club.first_visit':'FIRST NIGHT. HALF OFF AT THE DOOR. BRING HALF YOUR CASH, THE REST STAYS HOME.',
-  'club.cap_reached':'THAT IS HALF YOUR CASH. THE DOORMAN IS PROUD OF YOU.',
-  'club.need_cash':'NO CASH, NO SPRAY. THE DANCERS CAN TELL.',
-  'cheap.meet':'YOU BOUGHT SOMETHING SMALL. SOMEBODY NOTICED YOU.',
-  'cheap.unlock':'THAT SNACK PAID OFF. CHECK YOUR PHONE.',
-  'rent.in':'RENT IS IN. YOUR BUILDINGS WORKED WHILE YOU SLEPT.',
-  'guide.next_play':'MAKE A PLAY. SOMEONE ELSE HAS MONEY. YOU HAVE A PLAN.',
-  'guide.next_offer':'THE BLACK CAR IS OUTSIDE. IT HAS AN OFFER. DO NOT ASK.'
+  'club.first_visit':"first night half off bring half your cash leave the other half home",
+  'club.cap_reached':"half your cash gone doorman saving your ass",
+  'club.need_cash':"no funds no dance bro",
+  'cheap.meet':"small purchase big introduction",
+  'cheap.unlock':"snack did networking check your phone",
+  'rent.in':"rent landed building got a job now",
+  'guide.next_play':"somebody got funds go make a play",
+  'guide.next_offer':"black car outside rich ass offer waiting"
  };
  window.RAEconLines=Object.freeze({get:id=>LINES[id]||'',ids:()=>Object.keys(LINES)});
 })();

@@ -197,10 +197,10 @@ export async function test(root){
  // ===================================================================== source certification (Patch 1 NEW OGA, OPEN)
  {
   const src=await readFile(path.join(process.cwd(),'js/frag/F03/new_oga_ladder_close.js'),'utf8');
-  const seq=["S('vampgpt','oga.')","RC('yeah.')","S('vampgpt','you know what oga means right.')","S('vampgpt','…boss.')","S('vampgpt','why are you climbing his ladder. you could own the building.')"];
-  let at=-1;for(const piece of seq){const i=src.indexOf(piece,at+1);assert.ok(i>at,`VampGPT scene keeps the authored Patch 1 sequence: ${piece}`);at=i;}
+  const seq=[`S('vampgpt',"oga you listening")`,`RC("yeah bro whats up")`,`S('vampgpt',"you know oga means boss right")`,`S('vampgpt',"boss bro act like it")`,`S('vampgpt',"climbing his ladder for what own the damn building")`];
+  let at=-1;for(const piece of seq){const i=src.indexOf(piece,at+1);assert.ok(i>at,`VampGPT scene keeps the RC3 conversation sequence: ${piece}`);at=i;}
   assert.ok(src.includes("label:'…SAY LESS.'")&&src.includes("label:'NAH, I’M GOOD HERE.'"),'VampGPT authored choices');
-  console.log('PASS f03 source certification: VampGPT scene = Patch 1 NEW OGA sequence incl. Rich "yeah."');
+  console.log('PASS f03 source certification: VampGPT scene keeps NEW OGA conversation order in RC3 voice');
  }
 
  // ===================================================================== 12. M8 loan squad takes no crew slot

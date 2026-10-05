@@ -123,9 +123,9 @@ async function body(root){
   c.RALife.setFlag('lilSmackGone',true);
   assert.equal(c.RAF07Play.buildRequest('m8').request.job.f01JobId,'car_wash_stickup','lilSmackGone: the LIEUTENANT leads (no Lil Smack)');
   const lines=c.RAAdventures.get('NEW_OGA_M8').nodes.job.lines().map(l=>l[1]).join(' ');
-  assert.ok(!/Lil Smack/.test(lines),'job text omits Lil Smack once he is gone');
+  assert.ok(!/lil smack/i.test(lines),'job text omits Lil Smack once he is gone');
   c.RALife.setFlag('lilSmackGone',false);
-  assert.ok(/Lil Smack is there, chewing\./.test(c.RAAdventures.get('NEW_OGA_M8').nodes.job.lines().map(l=>l[1]).join(' ')));
+  assert.ok(/lil smack chewing through the briefing/.test(c.RAAdventures.get('NEW_OGA_M8').nodes.job.lines().map(l=>l[1]).join(' ')));
   console.log('PASS f07 M8 PLAY request: smack_crib (not BIG PLAY), boys on loan + any Ogas, contract-valid, lilSmackGone -> LIEUTENANT leads');
  }
 
@@ -341,7 +341,7 @@ async function body(root){
   const crew=A.get('NEW_OGA_FINALE').nodes.crew,actors=crew.actors(A.context());
   assert.ok(Object.values(actors).includes('shannon_001'),'Shannon appears ON SCREEN');assert.equal(actors.left,'rich');
   const lines=crew.lines(A.context()).map(l=>l[1]);
-  assert.ok(lines.includes('Shannon reads Gbenga’s business filings: the rental company is legally in Mama Gbenga’s name.'),'authored (source) sentence, no invented Shannon dialogue');
+  assert.ok(lines.includes('shannon checks the papers company belongs to mama gbenga uncle just loud'),'RC3 source sentence preserves the filings revelation');
   assert.ok(crew.lines(A.context()).every(l=>l[0]!=='shannon_001'),'Shannon speaks no line: none is authored in OPEN source');
   A.abandon();
   // Phase 1 through the real PLAY (win), Phase 2 spared by RETIRE, UNCLE
@@ -355,7 +355,7 @@ async function body(root){
   const s=lane(c);
   assert.equal(s.rank,6);assert.equal(s.title,'NEW OGA');assert.equal(s.finaleDone,true);assert.equal(s.finaleEnding,'blessing');assert.equal(s.enterprisesRenamed,true);
   assert.equal(s.sundayDinnerInvite,true);assert.equal(s.earpieceGiven,true);
-  const post=c.RAVampGram.feed?.()?.find?.(p=>/My son is now my oga/.test(p.text));
+  const post=c.RAVampGram.feed?.()?.find?.(p=>/my son now my oga/.test(p.text));
   void post;void k0;void m0;
   assert.equal(c.RAVehicles.isTributed(m9car),true,'BLESSING: the tributed car stays in the warehouse');
   for(const id of ['koreatown','inglewood']){const d=c.RADistricts.get(id);assert.equal(d.state,'CONTROLLED');assert.equal(d.holder,'rich');}
@@ -372,10 +372,10 @@ async function body(root){
   const c=await finaleLife({trust:3,extra:{leftoversAte:false}});wake(c);
   const out=await walkOf(root,c,'NEW_OGA_FINALE',{pick:()=>0,fight:()=>({outcome:'spared',octopus:'recruit'}),minigame:()=>({outcome:'win',data:{win:true}})});
   assert.equal(out.res.outcome,'consigliere');assert.equal(lane(c).consigliere,true);assert.equal(lane(c).rank,6);
-  const line=c.RAAdventures.get('NEW_OGA_FINALE').nodes.consigliere.lines.map(l=>l[1]);assert.ok(line.includes('Hello. Hello. Oga. Hello.'));
+  const line=c.RAAdventures.get('NEW_OGA_FINALE').nodes.consigliere.lines.map(l=>l[1]);assert.ok(line.includes('hello oga hello you hear me hello'));
   const day0=lane(c).finaleDay;for(let i=0;i<7;i++)c.RAClock.sleep();
-  const texts=JSON.stringify(c.RAState.get().life);assert.ok(texts.includes('Hello. Hello. Oga. Hello.'),'the voice notes continue');
-  console.log('PASS f07 THE CONSIGLIERE: WORK FOR ME (high trust) -> Gbenga stays as advisor; "Hello. Hello. Oga. Hello." continues');void day0;
+  const texts=JSON.stringify(c.RAState.get().life);assert.ok(texts.includes('hello oga hello you hear me hello'),'the voice notes continue');
+  console.log('PASS f07 THE CONSIGLIERE: WORK FOR ME (high trust) -> Gbenga stays as advisor; "hello oga hello you hear me hello" continues');void day0;
  }
  {
   const c=await finaleLife({});wake(c);
@@ -386,7 +386,7 @@ async function body(root){
   assert.equal(c.RAVehicles.isTributed(tributed),false,'THE TAKEOVER: the tributed car is pulled back and Rich gets it back');
   assert.equal(c.RALife.hasCar(tributed),true);assert.equal(hasCar0,true);
   assert.equal(c.RAFrag.read('F07','finale.tributeReturned',false),true);assert.ok(lane(c).m9TributeReturnedDay!=null,"F03's own return marker");
-  const lines=c.RAAdventures.get('NEW_OGA_FINALE').nodes.takeover.lines().map(l=>l[1]);assert.ok(lines.some(l=>/canopy with Rich’s tributed car is pulled back/.test(l)));
+  const lines=c.RAAdventures.get('NEW_OGA_FINALE').nodes.takeover.lines().map(l=>l[1]);assert.ok(lines.some(l=>/your car still under the canopy keys back finally/.test(l)));
   console.log('PASS f07 THE TAKEOVER: win the fight -> Gbenga leaves LA, warehouse is Rich’s, the F03-tributed car comes back (F03 returnTribute)');
  }
  // the M9 NAH path (no tribute) can still reach every ending; the takeover omits the car line and returns nothing
@@ -395,7 +395,7 @@ async function body(root){
   assert.equal(lane(c).m9TributedCar,null);
   const out=await walkOf(root,c,'NEW_OGA_FINALE',{pick:()=>0,fight:()=>({outcome:'win'}),minigame:()=>({outcome:'win',data:{win:true}})});
   assert.equal(out.res.outcome,'takeover');assert.equal(lane(c).rank,6);
-  assert.ok(!c.RAAdventures.get('NEW_OGA_FINALE').nodes.takeover.lines().some(l=>/tributed car/.test(l[1])),'no tribute: no car line');
+  assert.ok(!c.RAAdventures.get('NEW_OGA_FINALE').nodes.takeover.lines().some(l=>/your car still under the canopy/.test(l[1])),'no tribute: no car line');
   console.log('PASS f07 M9 NAH path reaches the finale and the NEW OGA ending (no tribute to return)');
  }
 
@@ -550,7 +550,7 @@ async function body(root){
    const tributed=lane(c).m9TributedCar;
    await walkOf(root,c,'NEW_OGA_FINALE',{pick:()=>0,fight:()=>fight,minigame:()=>({outcome:'win',data:{win:true}})});
    const s=lane(c);res[ending]={ending:s.finaleEnding,earpiece:!!s.earpieceGiven,sunday:!!s.sundayDinnerInvite,consig:!!s.consigliere,left:!!s.gbengaLeftLA,warehouse:!!s.rentalWarehouseOwned,carBack:!c.RAVehicles.isTributed(tributed),
-    post:JSON.stringify(c.RAState.get()).includes('My son is now my oga'),renamed:s.enterprisesRenamed===true,rank:s.rank,boysCanJoin:s.gbengasBoysCanJoin,recruitsInvented:c.RAFrag.read('F07','recruits',null)};
+    post:JSON.stringify(c.RAState.get()).includes('my son now my oga'),renamed:s.enterprisesRenamed===true,rank:s.rank,boysCanJoin:s.gbengasBoysCanJoin,recruitsInvented:c.RAFrag.read('F07','recruits',null)};
   }
   assert.deepEqual(J(res.blessing),{ending:'blessing',earpiece:true,sunday:true,consig:false,left:false,warehouse:false,carBack:false,post:true,renamed:true,rank:6,boysCanJoin:true,recruitsInvented:null});
   assert.deepEqual(J(res.consigliere),{ending:'consigliere',earpiece:false,sunday:false,consig:true,left:false,warehouse:false,carBack:false,post:false,renamed:true,rank:6,boysCanJoin:true,recruitsInvented:null});

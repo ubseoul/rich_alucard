@@ -103,7 +103,7 @@
  // ---------- 3. day summary ----------
  async function daySummary(over){
   if(!started()||!over)return;const d=dayRecord();const net=money()-d.start;const lines=Object.entries(d.src).filter(([,v])=>v).sort((a,b)=>Math.abs(b[1])-Math.abs(a[1])).slice(0,4);
-  const box=el('div',`rc2-day ${net>0?'plus':net<0?'minus':'zero'}`,`<small>DAY ${d.day} · TODAY'S MONEY</small><strong>${signed(net)}</strong><ul>${lines.length?lines.map(([k,v])=>`<li><span>${k}</span><b class="${v>0?'p':'m'}">${signed(v)}</b></li>`).join(''):'<li><span>NOTHING MOVED.</span><b>$0</b></li>'}</ul><p>${net>0?'MADE: '+fmt(d.in):'MADE: $0'} · SPENT: ${fmt(d.out)}</p><em>BALANCE ${fmt(money())}</em><i>TAP TO SLEEP</i>`);
+  const box=el('div',`rc2-day ${net>0?'plus':net<0?'minus':'zero'}`,`<small>DAY ${d.day} · damn what a night</small><strong>${signed(net)}</strong><ul>${lines.length?lines.map(([k,v])=>`<li><span>${k}</span><b class="${v>0?'p':'m'}">${signed(v)}</b></li>`).join(''):'<li><span>NOTHING MOVED.</span><b>$0</b></li>'}</ul><p>${net>0?'MADE: '+fmt(d.in):'MADE: $0'} · SPENT: ${fmt(d.out)}</p><em>BALANCE ${fmt(money())}</em><i>TAP TO SLEEP</i>`);
   over.append(box);requestAnimationFrame(()=>box.classList.add('on'));if(net>0)SFX()?.sell();else if(net<0)SFX()?.loss();else SFX()?.tally();
   await new Promise(res=>{let done=false;const fin=()=>{if(done)return;done=true;res();};over.addEventListener('click',fin,{once:true});setTimeout(fin,3600);});
   box.classList.remove('on');await wait(220);box.remove();

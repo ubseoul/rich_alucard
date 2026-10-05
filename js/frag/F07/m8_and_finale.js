@@ -107,7 +107,7 @@
   }
   if(ending==='blessing'){
    O().patch({sundayDinnerInvite:true,earpieceGiven:true});
-   window.RAVampGram?.post?.({id:`f07:gbenga-blessing:${d}`,handle:'gbenga',text:'My son is now my oga. I am proud. I am also angry.',likes:0});
+   window.RAVampGram?.post?.({id:`f07:gbenga-blessing:${d}`,handle:'gbenga',text:'my son now my oga proud as hell mad as hell too',likes:0});
   }
   if(ending==='consigliere')O().patch({consigliere:true});
   // §4.3 "Every ending": the Blood X operation begins immediately with Gbenga's blocks already his.
@@ -126,11 +126,11 @@
  bus?.subscribe?.({id:'F07.queued-grants',fragment:'F07',phase:'wake',priority:68,flag:FLAG,fn:()=>{
   if(rd('finale.warRoom',null)==='queued'&&F()?.enabled?.(F04_FLAG)){wr('finale.warRoom',startWarRoom());}
  }});
- // "Hello. Hello. Oga. Hello." — THE CONSIGLIERE's voice notes continue, addressed to the new oga.
+ // "hello oga hello you hear me hello" — THE CONSIGLIERE's voice notes continue, addressed to the new oga.
  bus?.subscribe?.({id:'F07.consigliere',fragment:'F07',phase:'wake',priority:69,flag:FLAG,fn:()=>{
   const s=state(),every=T().finale.CONSIGLIERE_EVERY_DAYS,d=day();
   if(!s.consigliere||!s.finaleDay||d<=s.finaleDay||(d-s.finaleDay)%every!==0)return;
-  window.RALife.text?.('gbenga','GBENGA','Hello. Hello. Oga. Hello.',{id:`f07:consigliere:${d}`});
+  window.RALife.text?.('gbenga','GBENGA',"hello oga hello you hear me hello",{id:`f07:consigliere:${d}`});
  }});
  // §5: fame fires on the next sleep if Day >= 25, otherwise on the first sleep of Day 25. The Life Momentum dimension requirement is waived;
  // the floor is not. (The accepted fame-night handler still evaluates its own rules; this only adds the chair route.)
@@ -178,19 +178,19 @@
    ctx.RAState.patch('life.newOga',{...ctx.RAState.get().life.newOga,status:'m8_hold',mission:7,rank:4,title:'SENIOR ASSOCIATE',rank4Granted:true,m5Completed:true,m6Completed:true,m7Completed:true,lastMissionDay:14});},
   nodes:{
    job:{env:'bedroom',actors:{left:'rich'},title:'JOB TEXT · THE TURF WAR',
-    lines:()=>[N('Gbenga’s first real Showdown for Rich: take a Koreatown block from the Open Mouth Gang.'),
-     N('Rich leads a squad of Gbenga’s boys and any Ogas.'),
-     ...(smackThere()?[N('Lil Smack is there, chewing.')]:[]),
-     N(`The job pays $${T().m8.AUTHORED_PAY.toLocaleString('en-US')}.`)],
+    lines:()=>[N("take koreatown from open mouth gang bro still chewing"),
+     N("gbengas boys and your ogas ride with you"),
+     ...(smackThere()?[N("lil smack chewing through the briefing")]:[]),
+     N(`job pays $${T().m8.AUTHORED_PAY.toLocaleString('en-US')} thats real funds`)],
     next:'choice'},
-   choice:{lines:[N('The block is on the line.')],choices:[
+   choice:{lines:[N("whole block on the line dont fold")],choices:[
     {label:'GO MYSELF',sub:'SHOWDOWN',next:'play'},
     {label:'SEND THE BOYS',sub:'BACK OUT',next:'send_boys'}
    ]},
-   play:{lines:[N('The Showdown begins.')],minigame:{id:'f07_play',params:{kind:'m8'},next:playNext}},
-   won:{lines:[N('The Open Mouth Gang loses the block.')],
+   play:{lines:[N("alright lets get paid")],minigame:{id:'f07_play',params:{kind:'m8'},next:playNext}},
+   won:{lines:[N("open mouth gang lost the block still talking though")],
     end:{outcome:'win',fx:()=>completeM8('win'),memory:{text:'took a Koreatown block from the Open Mouth Gang for Gbenga',lane:'money'}}},
-   lost:{lines:[N('The Open Mouth Gang holds the block.')],choices:[
+   lost:{lines:[N("they kept the block damn run it back")],choices:[
     {label:'TRY AGAIN',next:'play'},
     {label:'SEND THE BOYS',sub:'BACK OUT',next:'send_boys'}
    ]},
@@ -198,8 +198,8 @@
     {label:'SEND THE BOYS',sub:'BACK OUT',next:'send_boys'},
     {label:'NOT YET',next:'postponed'}
    ]},
-   postponed:{lines:[N('The Showdown waits.')],end:{outcome:'postponed',memory:{text:'put off the Koreatown Showdown',lane:'money'}}},
-   send_boys:{lines:[N('Rich sends the boys.')],
+   postponed:{lines:[N("job can wait uncle cant")],end:{outcome:'postponed',memory:{text:'put off the Koreatown Showdown',lane:'money'}}},
+   send_boys:{lines:[N("boys going rich staying call it management")],
     end:{outcome:'send_the_boys',fx:()=>completeM8('send_the_boys'),memory:{text:'sent Gbenga’s boys to take the Koreatown block',lane:'money'}}}
   }});
 
@@ -217,15 +217,15 @@
  }
  const pickNode=(n,next)=>({env:'castle_exterior',actors:{left:'rich'},title:n===1?'THE CASTLE · THE PLAN':undefined,
   enter:A=>{if(!lanesOf(A).includes('ogas'))A.set('lanes',['ogas',...othersOf(A)]);},
-  lines:n===1?[N('Rich plans the takeover at the castle with whoever he trusts.'),N('THE OGAS are in the plan. Two more.')]:[N('One more.')],
+  lines:n===1?[N("castle meeting bring people you actually trust"),N("ogas locked in pick two more")]:[N("one more dont invite everybody")],
   choices:A=>{const chosen=lanesOf(A),prior=A.get('prior')||[];
    return [{label:'THE OGAS',sub:'SQUAD · FIXED',when:()=>false,hideLocked:false,next:'plan'},
     ...lanesAvailable().filter(l=>l.id!=='ogas'&&!chosen.includes(l.id)).map(l=>({id:l.id,label:l.label,sub:prior.includes(l.id)?'PREVIOUSLY PICKED':undefined,fx:X=>X.set('lanes',[...lanesOf(X),l.id]),next}))];}});
  const laneLine={
-  shannon:'Shannon reads Gbenga’s business filings: the rental company is legally in Mama Gbenga’s name.',
-  tristan:'Tristan refuses, then shows up anyway with snacks.',
-  carlos:'Carlos knows the warehouse better than anyone, and he wants revenge on everyone including Rich.',
-  senator:'Senator follows Rich’s Yoruba commands now.'
+  shannon:"shannon checks the papers company belongs to mama gbenga uncle just loud",
+  tristan:"tristan said no pulled up with snacks anyway",
+  carlos:"carlos knows the warehouse hates everybody rich included",
+  senator:"senator taking yoruba commands now bilingual menace"
  };
  const crewActors=A=>{
   const people=(A.get('lanes')||[]).map(laneById).filter(l=>l?.person).map(l=>l.person),slots=['mid','right','farRight','farLeft'];
@@ -241,40 +241,40 @@
    plan:{...pickNode(1,'pick2'),title:'THE CASTLE · THE PLAN'},
    pick2:pickNode(2,'crew'),
    // saved plans from before D3 (a third pick, or no THE OGAS) and a refused squad are reconciled here
-   pick3:{lines:[N('The plan is reopened with THE OGAS fixed.')],next:A=>routePlan(A)},
-   replan:{lines:[N('The plan is reopened with THE OGAS fixed.')],next:A=>routePlan(A)},
+   pick3:{lines:[N("replan ogas stay dont get cute")],next:A=>routePlan(A)},
+   replan:{lines:[N("replan ogas stay dont get cute")],next:A=>routePlan(A)},
    crew:{env:'castle_exterior',actors:crewActors,title:'THE PLAN',
     lines:A=>[...(A.get('lanes')||[]).filter(id=>laneLine[id]).map(id=>N(laneLine[id])),
-     N('The date: Gbenga’s own 55th-birthday owambe at the warehouse.'),N('Every canopy Rich ever delivered is up. Every aunty is there.')],next:A=>{const r=routePlan(A);return r==='crew'?'party':r;}},
+     N("uncles 55th birthday warehouse owambe perfect timing terrible manners"),N("all your canopies up all the aunties present no witnesses missing")],next:A=>{const r=routePlan(A);return r==='crew'?'party':r;}},
    // OL-029 F: Phase 1 is a PLAY that Rich WATCHES ON HIS PHONE from the owambe. He is never an actor or a hazard target in it: the squad
    // (the Ogas + the picked lanes) fights inside F01's group-chat PLAY, and the narration is the existing text recast without Rich as subject.
    party:{env:PARTY_ENV,actors:{left:'rich'},title:'THE PARTY',
-    lines:[N('Gbenga’s boys are cleared through a warehouse full of canopies and stacked chairs without disrupting the owambe.'),
-     N('A canopy pole collapses on whoever is under it. The aunties are non-combatants: they block lines of fire and critique the tactics out loud.')],next:A=>{const r=routePlan(A);return r==='crew'?'p1':r;}},
+    lines:[N("crew clears gbengas boys between the chairs party keeps going"),
+     N("canopy poles fall on whoever underneath aunties wont fight but they block shots and roast the crew")],next:A=>{const r=routePlan(A);return r==='crew'?'p1':r;}},
    p1:{minigame:{id:'f07_play',params:A=>({kind:'finale_p1',lanes:A.get('lanes')||[]}),next:(A,res)=>{const n=playNext(A,res);return n==='won'?'office':n==='lost'?'p1_lost':'p1_refused';}}},
-   p1_lost:{lines:[N('Gbenga’s boys hold the warehouse.')],choices:[{label:'TRY AGAIN',next:'p1'}]},
+   p1_lost:{lines:[N("boys kept the warehouse uncle still boss")],choices:[{label:'TRY AGAIN',next:'p1'}]},
    p1_refused:{lines:A=>[N(refusalLine(A))],choices:A=>[
     ...(A.get('refusal')==='NO_SQUAD'?[{label:'REMAKE THE PLAN',next:'replan'}]:[]),
     {label:'NOT YET',next:'postponed'}]},
-   postponed:{lines:[N('The owambe waits.')],end:{outcome:'postponed',memory:{text:'put off taking Gbenga’s chair',lane:'money'}}},
+   postponed:{lines:[N("birthday takeover postponed rude either way")],end:{outcome:'postponed',memory:{text:'put off taking Gbenga’s chair',lane:'money'}}},
    office:{env:PARTY_ENV,actors:{left:'rich',right:'gbenga'},title:'THE OFFICE',
-    lines:[N('A glass office, and a framed photo of Gbenga shaking hands with himself.')],next:'duel'},
+    lines:[N("glass office uncle shaking his own hand in the photo networking different")],next:'duel'},
    duel:{fight:{enemy:'gbenga',params:()=>({hp:window.RAGbengaFight.hpFor(state().trust),env:PARTY_ENV,intro:'GBENGA · OGA OF THE BLOCK'}),
     win:'takeover',lose:'office_lost',run:'office_lost',spared:(A,r)=>r?.octopus==='recruit'?'consigliere':'blessing'}},
-   office_lost:{lines:[N('Gbenga keeps the chair.')],choices:[{label:'TRY AGAIN',next:'duel'}]},
+   office_lost:{lines:[N("uncle keeps the chair damn")],choices:[{label:'TRY AGAIN',next:'duel'}]},
    blessing:{env:'gbenga_rentals',actors:{left:'rich',right:'gbenga'},
-    lines:[N('Gbenga hands Rich his earpiece.'),N('Mama Gbenga invites Rich to Sunday dinner, still.'),
-     N('Gbenga posts on VampGram: “My son is now my oga. I am proud. I am also angry.”'),
-     N('GBENGA ENTERPRISES becomes RICH ENTERPRISES. The sign is repainted badly; GBENGA is still faintly visible.')],
+    lines:[N("uncle hands over the earpiece you boss now"),N("mama still wants you sunday business aint dinner"),
+     N("gbenga posts my son now my oga proud as hell mad as hell too"),
+     N("rich enterprises on the sign gbenga still showing through cheap paint")],
     end:{outcome:'blessing',fx:finish('blessing'),memory:{text:'became the NEW OGA: Gbenga retired and gave Rich his blessing',lane:'money'}}},
    consigliere:{env:'gbenga_rentals',actors:{left:'rich',right:'gbenga'},
-    lines:[N('Gbenga stays in the office as Rich’s advisor.'),S('gbenga','Hello. Hello. Oga. Hello.'),
-     N('GBENGA ENTERPRISES becomes RICH ENTERPRISES. The sign is repainted badly; GBENGA is still faintly visible.')],
+    lines:[N("uncle stays as advisor voice notes unavoidable"),S('gbenga',"hello oga hello you hear me hello"),
+     N("rich enterprises on the sign gbenga still showing through cheap paint")],
     end:{outcome:'consigliere',fx:finish('consigliere'),memory:{text:'became the NEW OGA: Gbenga stayed on as consigliere',lane:'money'}}},
    takeover:{env:EXTERIOR_ENV,actors:{left:'rich'},shot:{profile:'room',contact:.86},
-    lines:()=>[N('Gbenga leaves LA. His rental warehouse becomes Rich’s.'),
-     ...(tributed()?[N('The canopy with Rich’s tributed car is pulled back: it’s still there. Rich gets it back.')]:[]),
-     N('GBENGA ENTERPRISES becomes RICH ENTERPRISES. The sign is repainted badly; GBENGA is still faintly visible.')],
+    lines:()=>[N("gbenga leaves la warehouse yours damn"),
+     ...(tributed()?[N("your car still under the canopy keys back finally")]:[]),
+     N("rich enterprises on the sign gbenga still showing through cheap paint")],
     end:{outcome:'takeover',fx:finish('takeover'),memory:{text:'became the NEW OGA: took Gbenga’s chair and his warehouse',lane:'money'}}}
   }});
 

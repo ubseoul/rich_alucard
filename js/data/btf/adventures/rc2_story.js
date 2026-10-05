@@ -1,7 +1,7 @@
 (function(){
  // RC2 · BUILD 3 — NEW STORY (creator-authorized, OL-063). Every box <= 3 sentences. Existing characters + existing environments only.
  // Mirror of this content for the private step: docs/rc2/NEW_STORY.md. Rich lines are R() = voice pass required.
- const {R,S,N,E}=RAContent;const D=RAAdventures.define;
+ const {R,RC,S,N,E}=RAContent;const D=RAAdventures.define;
  const day=()=>RALife.today().day;
  const seeded=key=>RAPixel.rng(`rc2:${key}:${day()}`);
  // CHEAP-BUY ENCOUNTERS (Build 1 taco hook): a small buy sometimes opens a 2-box moment with a person. Deterministic per day.
@@ -14,21 +14,21 @@
  // ============================================================================================
  D({id:'YAM',title:'THE YAM',lane:'food',scope:'MUST',memory:'a yam',available:L=>L.done('A43')||L.day>=4,testSetup:ctx=>{ctx.RALife.addMoney(500);},start:'arrive',nodes:{
   arrive:{env:'naija_mart',actors:{left:'rich',right:'auntie'},title:'NAIJA MART · THE YAM',
-   lines:[N('behind the register, on its own chair: a yam the size of a toddler.'),S('auntie',"that is not a vegetable. that is a commitment."),R('how much?'),S('auntie','a yam has no price. a yam has a home. YOU are the home.')],
+   lines:[N("a yam got its own chair before you did"),S('auntie',"this a dependent"),R("how much for big bro"),S('auntie',"yam needs a home and you got a castle")],
    choices:[{label:'TAKE THE YAM ($6)',when:()=>RALife.money()>=6,fx:()=>RALife.spend(6),next:'carry'},{label:'"DOES IT HAVE A WARRANTY?"',octopus:true,sub:'she has an answer.',next:'warranty'},{label:'NO THANK YOU',next:'refuse'}]},
-  warranty:{lines:[S('auntie','it has a mother. she is in a field. she is watching.'),N('rich takes the yam.')],enter:A=>{RALife.spend(Math.min(6,RALife.money()));},next:'carry'},
-  refuse:{lines:[S('auntie','you will be back.'),N('she says it like weather. it is already true.')],end:{outcome:'refused',memory:{text:'said no to a yam. felt it later',lane:'food',quality:.4},receipt:{caption:'no yam. for now.'},home:['rich','the yam knows where i live.',{vp:true}]}},
-  carry:{env:'naija_lot',actors:{left:'rich'},lines:[N('a yam does not go in the trunk. a yam rides shotgun.'),N('rich buckles it in. the seatbelt light stops beeping.')],next:'kitchen'},
-  kitchen:{env:'kitchen',actors:{left:'rich'},lines:[N('the yam sits on the counter like it pays rent.'),N('mazda is staring at it from the rafters. mazda is hungry.')],next:'phone'},
-  phone:{actors:{left:'rich',right:'uncle_sunday'},lines:[N('the phone rings. it is uncle sunday. nobody told him about the yam.'),S('uncle_sunday','you bought yam? good. now: boil, roast, or pound?')],
+  warranty:{lines:[null,N("rich adopts the yam")],enter:A=>{RALife.spend(Math.min(6,RALife.money()));},next:'carry'},
+  refuse:{lines:[S('auntie',"dont make me come find you"),null],end:{outcome:'refused',memory:{text:'said no to a yam. felt it later',lane:'food',quality:.4},receipt:{caption:'no yam. for now.'},home:['rich',"yam got my address im cooked",{vp:true}]}},
+  carry:{env:'naija_lot',actors:{left:'rich'},lines:[N("yam riding shotgun like it paid for gas"),N("rich buckles big bro in")],next:'kitchen'},
+  kitchen:{env:'kitchen',actors:{left:'rich'},lines:[N("yam on the counter acting like the landlord"),N("mazda looking at lunch")],next:'phone'},
+  phone:{actors:{left:'rich',right:'uncle_sunday'},lines:[N("uncle sunday calls like he got yam notifications on"),S('uncle_sunday',"boil roast or pound it nephew")],
    choices:[{label:'BOIL IT',sub:'a man of peace.',next:'boil'},{label:'ROAST IT',sub:'smoky. street.',next:'roast'},{label:'POUND IT',sub:'by hand. for love.',next:'pound'},{label:'LET MAZDA DO IT',octopus:true,sub:'she has fire.',next:'dragon'}]},
-  boil:{lines:[N('soft. plain. perfect.'),S('uncle_sunday','BOILED. a man of peace. i am proud.')],enter:A=>{RALife.setFlag('yamCooked','boiled');},next:'end'},
-  roast:{lines:[N('crispy. smoky. it smells like a good decision.'),S('uncle_sunday','ROASTED. street yam. i am crying a little.')],enter:A=>{RALife.setFlag('yamCooked','roasted');},next:'end'},
-  pound:{lines:[N('rich pounds for twenty minutes. the yam wins.'),S('uncle_sunday','AH. the arm has no yam in it. practice.')],enter:A=>{RALife.setFlag('yamCooked','pounded');},next:'end'},
-  dragon:{lines:[N('mazda swoops down and breathes exactly once.'),N('the yam is perfect. the counter is not.'),S('uncle_sunday','a dragon-roasted yam. my grandfather would have died. happily.')],enter:A=>{RALife.setFlag('yamCooked','dragon');},next:'end'},
+  boil:{lines:[N("boiled and minding its business"),S('uncle_sunday',"boiled? peace in this house")],enter:A=>{RALife.setFlag('yamCooked','boiled');},next:'end'},
+  roast:{lines:[N("roasted and smelling expensive"),S('uncle_sunday',"street yam in a castle look at god")],enter:A=>{RALife.setFlag('yamCooked','roasted');},next:'end'},
+  pound:{lines:[N("twenty minutes pounding and the yam still winning"),S('uncle_sunday',"all that muscle for what")],enter:A=>{RALife.setFlag('yamCooked','pounded');},next:'end'},
+  dragon:{lines:[N("mazda handles the roasting"),N("yam cooked counter cooked too"),S('uncle_sunday',"dragon roasted? nephew you got money money")],enter:A=>{RALife.setFlag('yamCooked','dragon');},next:'end'},
   end:{enter:A=>{RALife.setFlag('yamCooked',RALife.flag('yamCooked')||'boiled');RARelations.add('uncle_sunday',2,{reason:'the yam'});RARelations.add('auntie',2,{reason:'took the yam'});},
-   lines:[N('rich eats the whole thing. he feels like he owes someone an apology.')],
-   end:{outcome:'yam',memory:{text:'bought a yam, cooked a yam, became a yam person',lane:'food',quality:1.2},receipt:{id:'yam',caption:'a yam. it had a home. you.'},home:['rich','yam is a lifestyle now.',{vp:true}]}}
+   lines:[N("rich eats the whole yam like nobody helped")],
+   end:{outcome:'yam',memory:{text:'bought a yam, cooked a yam, became a yam person',lane:'food',quality:1.2},receipt:{id:'yam',caption:'a yam. it had a home. you.'},home:['rich',"damn im a yam dad now",{vp:true}]}}
  }});
 
  // ============================================================================================
@@ -36,16 +36,16 @@
  // ============================================================================================
  D({id:'FUFU',title:'FUFU FRIDAY',lane:'food',scope:'MUST',memory:'fufu',available:L=>L.done('A43')||L.day>=5,start:'arrive',nodes:{
   arrive:{env:'kitchen',actors:{left:'rich',right:'tunde'},title:'FUFU FRIDAY',
-   lines:[E('tunde','tunde shows up with a bag of flour and a face of deep concern.'),S('tunde','you have never eaten fufu? at all?'),S('tunde','sit. today you become a man. or a better man.')],next:'mom'},
-  mom:{actors:{left:'mom',mid:'rich',right:'tunde'},lines:[N('mom joins the video call. nobody invited her. she was always going to join.'),S('mom','have you eaten? what are you eating? WHO IS COOKING?')],next:'rule'},
-  rule:{actors:{left:'rich',right:'tunde'},lines:[S('tunde','rule one: you do not chew fufu.'),R('why not?'),S('tunde','it is not a steak. it is a friend. you tear, you dip, you swallow.')],
+   lines:[E('tunde',"tunde pulls up with flour and concerns"),S('tunde',"you never had fufu? who raised you"),S('tunde',"sit down we fixing that")],next:'mom'},
+  mom:{actors:{left:'mom',mid:'rich',right:'tunde'},lines:[N("mom joins like she got a warrant"),S('mom',"who cooking and why wasnt i called")],next:'rule'},
+  rule:{actors:{left:'rich',right:'tunde'},lines:[S('tunde',"dont chew it"),R("why this shit got rules"),S('tunde',"tear dip swallow this aint steak")],
    choices:[{label:'SWALLOW IT',next:'swallow'},{label:'CHEW IT (RULES ARE RULES)',next:'chew'},{label:'ROLL IT WITH EIGHT TENTACLES',octopus:true,sub:'perfect little balls.',next:'octo'}]},
-  swallow:{lines:[N('it goes down in one piece. rich stares at the ceiling.'),S('tunde','…you are nigerian. i always knew.')],enter:A=>{RALife.setFlag('fufuStyle','swallow');},next:'soup'},
-  chew:{lines:[N('rich chews. the whole kitchen goes quiet.'),S('mom','who raised you?'),S('tunde','i cannot look at him.')],enter:A=>{RALife.setFlag('fufuStyle','chew');},next:'soup'},
-  octo:{lines:[N('eight tentacles. eight perfect balls. one very concerned dragon.'),S('tunde','that is cheating. it is also beautiful.')],enter:A=>{RALife.setFlag('fufuStyle','octopus');},next:'soup'},
-  soup:{lines:[N('the soup is egusi. it is red, hot, and personal.'),S('mom','is the soup hot? it should hurt a little.'),R('…it hurts a little.')],next:'end'},
-  end:{enter:A=>{RALife.setFlag('fufuLearned',true);RARelations.add('tunde',3,{reason:'fufu friday'});},lines:[S('mom','good. now eat again. i will watch.')],
-   end:{outcome:'fufu',memory:{text:'learned fufu. one rule: do not chew',lane:'food',quality:1.4},receipt:{id:'fufu',caption:'fufu friday. mom watched. i swallowed.'},home:['rich','fufu is a whole personality.',{vp:true}]}}
+  swallow:{lines:[N("rich swallows and checks if hes still alive"),S('tunde',"see you nigerian after all")],enter:A=>{RALife.setFlag('fufuStyle','swallow');},next:'soup'},
+  chew:{lines:[N("rich chews and the whole kitchen takes offense"),S('mom',"who raised you bro"),S('tunde',"dont put me on camera with him")],enter:A=>{RALife.setFlag('fufuStyle','chew');},next:'soup'},
+  octo:{lines:[N("eight tentacles eight balls mazda wants none of this"),S('tunde',"cheating but damn thats clean")],enter:A=>{RALife.setFlag('fufuStyle','octopus');},next:'soup'},
+  soup:{lines:[N("egusi hot enough to settle an argument"),S('mom',"it hurt? good"),R("damn a little warning next time")],next:'end'},
+  end:{enter:A=>{RALife.setFlag('fufuLearned',true);RARelations.add('tunde',3,{reason:'fufu friday'});},lines:[S('mom',"eat again im watching")],
+   end:{outcome:'fufu',memory:{text:'learned fufu. one rule: do not chew',lane:'food',quality:1.4},receipt:{id:'fufu',caption:'fufu friday. mom watched. i swallowed.'},home:['rich',"fufu got more rules than probation",{vp:true}]}}
  }});
 
  // ============================================================================================
@@ -53,21 +53,21 @@
  // ============================================================================================
  D({id:'AUNTIES',title:'THE AUNTIE COUNCIL',lane:'food',scope:'MUST',memory:'the auntie council',available:L=>L.done('A43')||L.day>=6,start:'arrive',nodes:{
   arrive:{env:'naija_lot',actors:{left:'rich',right:'auntie',farRight:'auntie'},title:'NAIJA MART · THE PARKING LOT',
-   lines:[N('three aunties on folding chairs, with a table and a thermos. nobody invited them.'),E('auntie','the council has reviewed your file.'),S('auntie','you are too thin. you are too pale. you are too single.'),R('i am a vampire.'),S('auntie','and?')],next:'work'},
-  work:{lines:[S('auntie','what work do you do?')],
+   lines:[N("three aunties set up a whole court outside"),E('auntie',"we been discussing you"),S('auntie',"too pale too thin still single"),R("ma im literally a vampire"),S('auntie',"and what that got to do with marriage")],next:'work'},
+  work:{lines:[S('auntie',"what you do for money")],
    choices:[{label:'"MUSIC."',next:'work_music'},{label:'"I HAVE A CASTLE."',next:'work_castle'},{label:'"I AM A VAMPIRE."',next:'work_vamp'}]},
-  work_music:{enter:A=>A.set('score',(A.vars.score||0)+1),lines:[S('auntie','music is a hobby. what is the WORK.')],next:'wed'},
-  work_castle:{enter:A=>A.set('score',(A.vars.score||0)+2),lines:[S('auntie','a castle! with whose money?'),N('the other two aunties nod. that was the right question.')],next:'wed'},
-  work_vamp:{enter:A=>A.set('score',(A.vars.score||0)+1),lines:[S('auntie','a vampire with a pension?'),R('no ma.'),S('auntie','we will pray.')],next:'wed'},
-  wed:{lines:[S('auntie','are you married?')],
+  work_music:{enter:A=>A.set('score',(A.vars.score||0)+1),lines:[S('auntie',"music cute whats the job")],next:'wed'},
+  work_castle:{enter:A=>A.set('score',(A.vars.score||0)+2),lines:[S('auntie',"castle? who paid"),null],next:'wed'},
+  work_vamp:{enter:A=>A.set('score',(A.vars.score||0)+1),lines:[S('auntie',"vampire pension good or no"),R("no ma im cooked"),S('auntie',"we praying extra")],next:'wed'},
+  wed:{lines:[S('auntie',"you married yet")],
    choices:[{label:'"NO MA."',next:'wed_no'},{label:'"IT IS COMPLICATED."',next:'wed_comp'},{label:'"I AM VERY BUSY."',next:'wed_busy'}]},
-  wed_no:{enter:A=>A.set('score',(A.vars.score||0)+1),lines:[S('auntie','sad.'),S('auntie','my niece is a doctor. she is also a lawyer. she is single.')],next:'eat'},
-  wed_comp:{enter:A=>A.set('score',(A.vars.score||0)+2),lines:[S('auntie','who is she? what is her mother\'s name?'),N('the thermos is put down. this is now an investigation.')],next:'eat'},
-  wed_busy:{enter:A=>A.set('score',(A.vars.score||0)+1),lines:[S('auntie','busy people still eat. EAT.')],next:'eat'},
-  eat:{lines:[N('a foil plate appears in rich\'s hands. nobody saw it arrive.'),S('auntie','do not wash the foil. we want the foil back.')],next:'verdict'},
-  verdict:{lines:A=>{const s=A.vars.score||0;return s>=4?[N('the council confers. it takes eleven seconds.'),S('auntie','you are acceptable. barely.')]:[N('the council confers. it takes forty minutes.'),S('auntie','you are a project. we like projects.')];},
+  wed_no:{enter:A=>A.set('score',(A.vars.score||0)+1),lines:[S('auntie',"damn"),S('auntie',"my niece a doctor and a lawyer dont embarrass me")],next:'eat'},
+  wed_comp:{enter:A=>A.set('score',(A.vars.score||0)+2),lines:[S('auntie',"whats her mother name"),N("thermos down investigation started")],next:'eat'},
+  wed_busy:{enter:A=>A.set('score',(A.vars.score||0)+1),lines:[S('auntie',"busy men still eat sit down")],next:'eat'},
+  eat:{lines:[N("foil plate appears like mom got bluetooth"),S('auntie',"bring my foil back dont play")],next:'verdict'},
+  verdict:{lines:A=>{const s=A.vars.score||0;return s>=4?[N("eleven seconds to judge a whole man"),S('auntie',"you passed barely")]:[N("forty minutes later they still on your case"),S('auntie',"you need work we got time")];},
    enter:A=>{RALife.setFlag('auntieApproval',(A.vars.score||0)>=4?'acceptable':'project');RARelations.add('auntie',3,{reason:'the council'});},
-   end:{outcome:'council',memory:{text:'the aunties reviewed my life. verdict: a project',lane:'food',quality:1.3},receipt:{id:'council',caption:'a foil plate. return the foil.'},home:['rich','i have been seen.',{vp:true}]}}
+   end:{outcome:'council',memory:{text:'the aunties reviewed my life. verdict: a project',lane:'food',quality:1.3},receipt:{id:'council',caption:'a foil plate. return the foil.'},home:['rich',"aunties got my whole file",{vp:true}]}}
  }});
 
  // ============================================================================================
@@ -94,15 +94,15 @@
  // ============================================================================================
  D({id:'PLATES',title:'THE FOIL PLATES',lane:'food',scope:'MUST',memory:'the foil plates',available:L=>L.day>=9,start:'knock',nodes:{
   knock:{env:'bedroom',actors:{left:'rich'},title:'MOM SENT PLATES',
-   lines:[N('someone is knocking. a cousin rich has never met is holding a cooler.'),S('mom','I SENT PLATES. EVERYONE GETS A PLATE. NO ONE IS LEFT OUT.'),N('there are four plates. each has a name written in marker.')],next:'hub'},
+   lines:[N("a cousin you never met pulls up with moms cooler"),S('mom',"everybody gets a plate dont start"),N("four plates four names no excuses")],next:'hub'},
   hub:{env:'castle_exterior',actors:{left:'rich'},lines:A=>[N(((A.vars.done||[]).length)?'plates left. mom is checking.':'where does the first plate go?')],
    choices:A=>['tunde','coffe','dre','lil_smack'].filter(p=>!(A.vars.done||[]).includes(p)).map(p=>({label:`PLATE FOR ${p.replace('_',' ').toUpperCase()}`,fx:X=>X.set('done',[...(X.vars.done||[]),p]),next:p}))},
-  tunde:{actors:{left:'rich',right:'tunde'},lines:[N('tunde inspects the foil like a customs officer.'),S('tunde','who packed this? this is a master.')],next:A=>(A.vars.done||[]).length>=4?'end':'hub'},
-  coffe:{actors:{left:'rich',right:'coffe'},lines:[N('coffe eats it in four seconds.'),S('coffe','I CAN TASTE SOUND NOW.')],next:A=>(A.vars.done||[]).length>=4?'end':'hub'},
-  dre:{actors:{left:'rich',right:'dre'},lines:[S('dre','is it spicy?'),N('it is. dre cries politely.')],next:A=>(A.vars.done||[]).length>=4?'end':'hub'},
-  lil_smack:{actors:{left:'rich',right:'lil_smack'},lines:[N('lil smack opens the foil with his mouth.'),N('the foil is gone. nobody asks where.')],next:A=>(A.vars.done||[]).length>=4?'end':'hub'},
-  end:{env:'castle_exterior',actors:{left:'rich'},enter:A=>{RALife.setFlag('platesDelivered',true);},lines:[S('mom','did everyone eat? SEND THE PHOTOS.'),R('they ate, ma.')],
-   end:{outcome:'plates',memory:{text:'mom sent plates. everybody ate',lane:'food',quality:1.4},receipt:{id:'plates',caption:'four foil plates. nobody left out.'},home:['rich','mom fed the whole block from atlanta.',{vp:true}]}}
+  tunde:{actors:{left:'rich',right:'tunde'},lines:[N("tunde checks the foil like tsa"),S('tunde',"who packed this they got credentials")],next:A=>(A.vars.done||[]).length>=4?'end':'hub'},
+  coffe:{actors:{left:'rich',right:'coffe'},lines:[N("coffe eats like the plate got a timer"),S('coffe',"damn i can hear colors")],next:A=>(A.vars.done||[]).length>=4?'end':'hub'},
+  dre:{actors:{left:'rich',right:'dre'},lines:[S('dre',"this shit spicy"),N("dre crying but saying thank you")],next:A=>(A.vars.done||[]).length>=4?'end':'hub'},
+  lil_smack:{actors:{left:'rich',right:'lil_smack'},lines:[N("lil smack eats the foil too"),null],next:A=>(A.vars.done||[]).length>=4?'end':'hub'},
+  end:{env:'castle_exterior',actors:{left:'rich'},enter:A=>{RALife.setFlag('platesDelivered',true);},lines:[S('mom',"send pictures i know yall lie"),R("everybody ate ma even the foil")],
+   end:{outcome:'plates',memory:{text:'mom sent plates. everybody ate',lane:'food',quality:1.4},receipt:{id:'plates',caption:'four foil plates. nobody left out.'},home:['rich',"mom doing catering from another state damn",{vp:true}]}}
  }});
 
  // ============================================================================================
@@ -110,7 +110,7 @@
  // ============================================================================================
  D({id:'CLUB_FIRST',title:'THE CLUB · FIRST NIGHT',lane:'people',scope:'MUST',memory:'the first night',start:'door',nodes:{
   door:{env:'street_night',actors:{left:'rich'},title:'THE CLUB · FIRST NIGHT',
-   lines:[N('a velvet rope. a very large man. a sign: FIRST NIGHT HALF OFF.'),S(null,'DOORMAN: first time? welcome. cover is half off tonight.'),S(null,'DOORMAN: house rule for first timers: bring half your cash. the rest stays home.'),R('half my bankroll?')],
+   lines:[N('a velvet rope. a very large man. a sign: FIRST NIGHT HALF OFF.'),S(null,'DOORMAN: first time? welcome. cover is half off tonight.'),S(null,'DOORMAN: house rule for first timers: bring half your cash. the rest stays home.'),RC("gonna make it rain like hell")],
    next:'rule'},
   rule:{lines:[S(null,'DOORMAN: yes. it is called not going broke on your first night.')],
    choices:[{label:'GO IN WITH HALF',sub:'THE SMART MOVE',next:'half'},{label:'GO IN WITH $20',sub:'THE VERY SMART MOVE',next:'small'},{label:'NOT TONIGHT',next:'leave'}]},

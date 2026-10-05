@@ -3,112 +3,494 @@
  // Rules: every line <= 3 sentences (almost all are one). Funny, simple, quick. No Rich lines here (voice pass owns Rich).
  // Ube's verbatim barks are a CREATOR OVERRIDE (OL-069); see CONTENT_AUTHORING.md.
  const L=(text,o={})=>({text,...o});
+ // OL-074: creator sheet. Numbered references keep each authored sentence exact.
+ const voiceSheet=Object.freeze(["damn im tired as fuck", "im broke as fuck i need funds", "this shit couldnt cover fly shoes", "all that work for beans?", "damn i move like tony now", "yall listen to carti?", "whats haddenning", "never met vampire ogas who listen to country", "oh shit, that's Blad33ee!", "here we go again", "say big bro, gonna need to leave that here", "please man you cant do this i need this for my student loans", "O ma ṣe o", "i own land uncle castle even", "the only reason i dont open the blinds to show you the sun is because my rags are in the wash", "damn this shit is like magic city", "dance for me dance!", "why are they leaving?", "wait one more round", "gonna make it rain like hell"]);
+ const voice=n=>voiceSheet[n-1];
  // ---------------------------------------------------------------- ENEMY BARKS
  // kinds: enter (fight opens) · hurt (Rich lands a hit) · lowhp (enemy under 30%) · telegraph (enemy is about to do the big move)
  //        win (enemy beats Rich) · lose (enemy goes down) · spared (octopus brain talks the fight out)
  const generic={
-  enter:['bro really came out here like this.','nobody told me he was this tall.','i did not clock in for this.','is that a vampire? at THIS hour?','tell my mom i said hi.','i got a coupon for this fight.','we doing this? we doing this.','my cousin said you were nice.'],
-  hurt:[L('oh shi this oga not playing'),'ow. okay. okay okay okay.','that was not in the brochure.','who taught him that.','i felt that in my childhood.','my insurance does not cover this.','not the face. the face is how i get paid.','ok that one counted.'],
-  lowhp:["i'm good. i'm good. i am not good.",'tell the group chat i went out fighting.','this is just a warm-up. a short one.','somebody call my cousin.','my legs are on a different schedule.','one more. i can take one more. i cannot.'],
-  telegraph:['watch this.','you are not ready for this one.','this next one is a lot.','hold on, i am winding up.','i been saving this.'],
-  win:['sit down, rich. sit down.',"i'm telling everybody. in detail.",'gg. no re.','that was easy. i am scared of how easy.','you almost had me. almost.'],
-  lose:['worth it. barely.',"i'm posting this as a win.",'run it back. after lunch.','my lawyer will hear about this.','i fell on purpose. tactical.'],
-  spared:["…you're lowkey cool.",'fine. but i was winning.','this never happened.','you want to get food? i want to get food.']
- };
- // The random ones: ANY enemy can say these, any time. The most random enemy says the wildest thing.
+  "enter": [
+    "bro really wore that to a fight",
+    "nobody said he was tall as fuck",
+    "i aint clocked in yet",
+    "vampire at this hour? damn",
+    "tell mama i tried",
+    "this fight better validate parking",
+    "alright run it then",
+    "my cousin said you soft"
+  ],
+  "hurt": [
+    "oh shi this oga not playing",
+    "damn okay that counted",
+    "who taught your ass that",
+    "felt that in primary school",
+    "insurance said hell no",
+    "not the face bro thats rent",
+    "you got eight hands? unfair as fuck",
+    "why my knee making that noise"
+  ],
+  "lowhp": [
+    "im good bro i lied",
+    "group chat better say i fought",
+    "warm up over im going home",
+    "somebody call my cousin now",
+    "legs done clocked out",
+    "one more hit and im a fundraiser"
+  ],
+  "telegraph": [
+    "watch this shit",
+    "you not ready big bro",
+    "hold on let me cook",
+    "been saving this one",
+    "dont blink you paid for this"
+  ],
+  "win": [
+    "sit your ass down rich",
+    "everybody hearing about this",
+    "gg go sleep",
+    "damn that was easy",
+    "almost had me keep almost"
+  ],
+  "lose": [
+    "posting this as a win",
+    "run it back after food",
+    "lawyer getting a voice note",
+    "fell on purpose dont clip it",
+    "damn the floor hard"
+  ],
+  "spared": [
+    "you lowkey cool bro",
+    "fine but i was winning",
+    "delete the footage first",
+    "we getting food or what"
+  ]
+};
  const wild=[
-  L('damn this nigga is crazy'),
-  "i left the stove on.",'my horoscope said stay home.','sir, this is a food court.','is this on camera? good. angle me.','i have never been this tired and this inspired.','wait. is that a silk bonnet?',"i'm just here for the orange chicken.",'my lawyer is a raccoon.','i love my job. i love my job. i love my job.',
-  'how do i turn this off.','my mom is watching this live.',"i'm not even supposed to be here. i'm covering for steve.",'somebody said there would be snacks.','i came for the vibes. the vibes are violent.','did anybody pay for parking?',"i don't get paid enough for this. i don't get paid.",'this is fake. this is so fake. ow.',
-  'i just remembered i love you guys.','what is a vampire even for.','are we in a movie? are we the bad guys?','call it. somebody call it.','rich alucard? from vampgram? hold on, let me get a pic.'
- ];
+  "damn this nigga is crazy",
+  "left the stove on damn",
+  "horoscope said stay home",
+  "bro this a food court",
+  "camera on? get my good side",
+  "is that a silk bonnet",
+  "i came for orange chicken",
+  "lawyer a raccoon dont ask",
+  "i love my job but damn",
+  "who turns this shit off",
+  "mama watching the live",
+  "covering steves shift fuck steve",
+  "they said snacks would be here",
+  "vibes violent as fuck",
+  "who paid for parking",
+  "my fee better clear",
+  "fake fight real pain",
+  "i love yall suddenly",
+  "what a vampire even do all day",
+  "we the bad guys or what",
+  "rich from vampgram? lemme get a pic"
+];
  const enemy={
-  uncle_sunday:{
-   enter:['you are too thin. eat first. then fight.','in my time we fought uphill. both ways.','WHO IS YOUR FATHER?','i will tell your mother.'],
-   hurt:['AH! you hit your uncle?!','is this how you greet elders?','the disrespect. i feel it in my knees.'],
-   lowhp:['my back. my back is not what it was.','you will carry me to the car. i insist.'],
-   telegraph:['stand straight when i am talking to you.'],
-   win:['now apologise. go on. i am waiting.'],lose:['ha! you have strength. take the bread.'],spared:['you called me uncle. come, sit. eat.']},
-  bruce_loose:{
-   enter:['i trained for this. mostly in a mirror.','WAAAH! (that was the warm-up.)','the tracksuit is lucky. you are not.'],
-   hurt:['that was a warm-up! i was warming up!','my tracksuit has a lifetime warranty. i do not.','okay. okay. nobody saw that.'],
-   lowhp:['the stripe stays. the stripe always stays.','i have beaten hungrier men than you.'],
-   telegraph:['wooo-AAAH... (that noise means kick.)','here comes the noise. the kick is next.'],
-   win:['LESSON ONE: do not lose.'],lose:['the chicken was never the point.'],spared:['you are my student now. do not tell my other students.']},
-  kevins:{
-   enter:['kevin.','we are kevin.','kevin? kevin. kevin!'],hurt:['KEVIN!','that was the wrong kevin.','kevin kevin kevin.'],lowhp:['there are only nineteen kevins left.','which one of us is the real kevin? me. no. me.'],
-   telegraph:['the real kevin is bowing...'],win:['kevin wins. all of us.'],lose:['we regret everything. all forty of us.'],spared:['thank you for the snacks. kevin.']},
-  phil:{
-   enter:['i can feel it BUILDING.','three more minutes. just three.','you picked the wrong day.'],hurt:['IT DOES NOT HURT. IT HURTS A LITTLE.','you hit me while i was CHARGING!','not yet! i am not done charging!'],lowhp:['my hair was gold yesterday.','i am STILL charging.'],
-   telegraph:['STAND BACK. THIS IS THE BEAM.'],win:['WHO IS POWER LEVEL NOW.'],lose:['i needed one more day.'],spared:['you brought food? nobody ever brings food.']},
-  bonesworth:{
-   enter:['i require ibuprofen and honor.','who threw this. i need to know who threw this.','my bones are literally ringing.'],hurt:['i am already dead. this is rude.','mind the ribs. they are original.'],lowhp:['i will rest in the crypt. not die. rest.','second wind. maybe. possibly.'],
-   telegraph:['i am steadying my shield. i am also steadying my stomach.'],win:['a victory. i would like a nap.'],lose:['tell the crypt i fought well.'],spared:['the jollof. the jollof is a mercy.']},
-  hilt:{enter:['…','no.','round one.'],hurt:['hm.','…okay.','no.'],lowhp:['…','hm.'],win:['no.'],lose:['…okay.'],spared:['…']},
-  hilt_rematch:{enter:['round two.','…again.'],hurt:['hm.','…good.'],lowhp:['…okay.'],win:['no.'],lose:['…that was good.'],spared:['…']},
-  paladin:{
-   enter:['the heavens see you.','i am a paladin. i have a calling. also a student loan.'],hurt:['the lord forgives you. i do not.','this armor was blessed. you chipped it.'],lowhp:['the light is a little dim right now.'],telegraph:['i raise my sword to the heavens. please hold still.'],win:['it is written. i wrote it.'],lose:['i yield. spiritually.'],spared:['i accept the job offer.']},
-  bard:{enter:['i wrote a song about this. it is mean.','(strums threateningly)'],hurt:['you just ruined the key change!','not the lute!'],lowhp:['final verse. it is a sad one.'],win:['i will make this a ballad.'],lose:['i will make this a ballad anyway.'],spared:['can i open for you?']},
-  cleric:{enter:["i'm praying for me. not you.",'bless this mess.'],hurt:['i healed that. i swear i healed that.','the prayer is on hold.'],lowhp:['ten percent faith. ninety percent fear.'],win:['amen. i guess.'],lose:['i blame the bard.'],spared:['i forgive you. loudly.']},
-  coffe:{enter:["SORRY BRO. CONTRACT'S A CONTRACT.",'this coffee is SO good.',"i've had seven. i can see through time."],hurt:['OW. THAT WAS A GOOD HIT. SO GOOD.','i did not feel that. i felt that.'],lowhp:['i am vibrating at a frequency.','one more coffee and i win.'],win:['bro. i did not want to win like this.'],lose:['still homies?'],spared:['double agent coffe. i can work with that.']},
-  lil_smack:{enter:['mouth open. always.','chew chew chew.','i brought crumbs. so many crumbs.'],hurt:['you made me drop the wing!','mmf. mmf!! (that means ow.)'],lowhp:["i'll be back. with snacks."],win:['mmmf. (that means i win.)'],lose:['i always come back. always.'],spared:['…can i have the rest of your fries?']},
-  smallie:{enter:['i sell Blood X with LOVE.','my cousin is outside. the whole time.'],hurt:["that's coming out of your cut.",'my cousin saw that!'],lowhp:['cousin. COUSIN.'],win:['the bag is mine. the cousin is a witness.'],lose:['keep the bag. i keep the cousin.'],spared:['one boba. on the house.']},
-  buckhead:{enter:['my brunch empire will end you.','do you know who my mimosa guy is.'],hurt:['this blazer is vintage!','you got blood on the linen.'],lowhp:['i will call my brunch lawyer.'],win:['bottomless. you are bottomless.'],lose:['i will see you at brunch.'],spared:['you have taste. unfortunately.']},
-  hunter:{enter:['i have a pamphlet.','this is covered in section four.'],hurt:['that is not in the pamphlet.','page seven said this would not happen.'],lowhp:['i should have read the whole pamphlet.'],win:['section nine: victory.'],lose:["i'm filing a complaint with the pamphlet."],spared:['i did not see you. nobody did.']},
-  groupies:{enter:['RICH! RICH! SIGN MY ARM!','we saw the VampGram!!'],hurt:["he touched me. i'm never washing.",'again! again!'],lowhp:['we love you so much. we are on the floor.'],win:['we are so sorry. but we are not sorry.'],lose:['best day of my life. best day.'],spared:['can we get a selfie. all sixty of us.']},
-  werewolf:{enter:['…did i do that.','sorry!! sorry!! (still biting)'],hurt:['sorry!! sorry!!','ow! that was my good ear!'],lowhp:['the moon is a lot tonight.'],win:['sorry. so sorry.'],lose:['…thank you. i think.'],spared:['i am so sorry about the mall.']},
-  training:{enter:['(dummy noises)'],hurt:['i have no feelings.','i also have no insurance.','(stands there. proudly.)'],lowhp:['(wobbles dramatically)'],win:['(it is a dummy. it did not win.)'],lose:['i have been defeated. by a vampire. at noon.'],spared:['(it is a dummy.)']},
-  // F01 THE PLAY ogas (grid showdowns)
-  CHEWER:{enter:['mouth open. always.','i am so loud. i am so loud on purpose.'],hurt:['mmf. mmf!!','not the sandwich!'],lowhp:['i am chewing slower. that is bad.'],win:['chew chew.'],lose:['i drop my snack. that is how you know.'],spared:['you want a bite? it is mostly crumbs.']},
-  ENFORCER:{enter:['i have a shotgun and a calm face.','nothing personal. a lot personal.'],hurt:['cover is a suggestion.','that was my good vest.'],lowhp:['i am still calm. my knees are not.'],win:['calm. as promised.'],lose:['calm. also, ow.'],spared:['…we did not see each other.']},
-  HUNTER:{enter:['silver bolts. read the pamphlet.','you are in section four.'],hurt:['not in the pamphlet!','silver was supposed to work!'],lowhp:['i should have gone into accounting.'],win:['section nine.'],lose:["tell bllad33 i said hi."],spared:['i have a nephew who is a vampire too.']},
-  LIEUTENANT:{enter:['stay in formation!','i said FORMATION!'],hurt:['stay in formation while i get hit!','everyone look tough. i am hurt.'],lowhp:['somebody else lead. somebody. anybody.'],win:['formation holds.'],lose:['formation broke. my feelings broke.'],spared:['we are going to lunch now.']},
-  LIL_SMACK:{enter:['mouth open. always.','i came back. i always come back.'],hurt:['you made me drop the wing!'],lowhp:["i'll be back. with snacks."],win:['mmmf. (that means i win.)'],lose:['i always come back.'],spared:['can i have your fries?']}
- };
+  "uncle_sunday": {
+    "enter": [
+      "eat first fight after"
+    ],
+    "hurt": [
+      "you hit your uncle? ah",
+      "is this how you greet elders",
+      "disrespect got my knees hurting",
+      "ah my back nephew",
+      "your mother hearing about this",
+      "carry me to the car after",
+      "dont hit the agege bread"
+    ],
+    "lose": [
+      "strong boy take the bread"
+    ],
+    "spared": [
+      "called me uncle now sit and eat"
+    ]
+  },
+  "bruce_loose": {
+    "enter": [
+      "tracksuit lucky you not"
+    ],
+    "hurt": [
+      "dont crease my shit"
+    ],
+    "lose": [
+      "orange chicken wasnt worth this"
+    ],
+    "spared": [
+      "you my student dont tell nobody"
+    ]
+  },
+  "kevins": {
+    "enter": [
+      "we all kevin who asking"
+    ],
+    "hurt": [
+      "wrong kevin bro"
+    ],
+    "lose": [
+      "forty kevins zero wins"
+    ],
+    "spared": [
+      "snacks for forty please"
+    ]
+  },
+  "phil": {
+    "enter": [
+      "full power loading hold on"
+    ],
+    "hurt": [
+      "you hit me while charging"
+    ],
+    "lose": [
+      "needed one more day damn"
+    ],
+    "spared": [
+      "food? for me? bro"
+    ]
+  },
+  "bonesworth": {
+    "enter": [
+      "need ibuprofen and honor"
+    ],
+    "hurt": [
+      "ribs original watch it"
+    ],
+    "lose": [
+      "tell the crypt i stood on business"
+    ],
+    "spared": [
+      "jollof saved your ass"
+    ]
+  },
+  "hilt": {
+    "enter": [
+      "round one move"
+    ],
+    "hurt": [
+      "hm that counted"
+    ],
+    "lose": [
+      "fine you got it"
+    ],
+    "spared": [
+      "we done here"
+    ]
+  },
+  "hilt_rematch": {
+    "enter": [
+      "back again huh"
+    ],
+    "hurt": [
+      "better than last time"
+    ],
+    "lose": [
+      "damn thats new"
+    ],
+    "spared": [
+      "alright go home"
+    ]
+  },
+  "paladin": {
+    "enter": [
+      "calling from god loan from sallie mae"
+    ],
+    "hurt": [
+      "lord forgives i dont"
+    ],
+    "lose": [
+      "yielding spiritually"
+    ],
+    "spared": [
+      "job offer? bless you"
+    ]
+  },
+  "bard": {
+    "enter": [
+      "wrote a diss track for this"
+    ],
+    "hurt": [
+      "bro my key change"
+    ],
+    "lose": [
+      "you still getting a ballad"
+    ],
+    "spared": [
+      "can i open for you though"
+    ]
+  },
+  "cleric": {
+    "enter": [
+      "praying for me fuck you"
+    ],
+    "hurt": [
+      "prayer on hold damn"
+    ],
+    "lose": [
+      "this the bards fault"
+    ],
+    "spared": [
+      "forgiving loud as hell"
+    ]
+  },
+  "coffe": {
+    "enter": [
+      "contract bro still homies"
+    ],
+    "hurt": [
+      "great hit terrible feeling"
+    ],
+    "lose": [
+      "coffee didnt save me"
+    ],
+    "spared": [
+      "double agent coffe lets go"
+    ]
+  },
+  "lil_smack": {
+    "enter": [
+      "brought crumbs for everybody"
+    ],
+    "hurt": [
+      "you made me drop my wing"
+    ],
+    "lose": [
+      "coming back with snacks"
+    ],
+    "spared": [
+      "rest of your fries please"
+    ]
+  },
+  "smallie": {
+    "enter": [
+      "blood x with love bro"
+    ],
+    "hurt": [
+      "my cousin saw that shit"
+    ],
+    "lose": [
+      "keep the bag cousin stay"
+    ],
+    "spared": [
+      "one boba on me"
+    ]
+  },
+  "buckhead": {
+    "enter": [
+      "brunch empire stand up"
+    ],
+    "hurt": [
+      "linen bro thats linen"
+    ],
+    "lose": [
+      "catch you at brunch"
+    ],
+    "spared": [
+      "you got taste unfortunately"
+    ]
+  },
+  "hunter": {
+    "enter": [
+      "section four vampire ass"
+    ],
+    "hurt": [
+      "pamphlet aint cover that"
+    ],
+    "lose": [
+      "filing a pamphlet complaint"
+    ],
+    "spared": [
+      "never saw you bro"
+    ]
+  },
+  "blad33ee": {
+    "enter": [
+      "party over vampire ass"
+    ],
+    "hurt": [
+      "silver supposed to work damn"
+    ],
+    "lose": [
+      "tell ogun dont post this"
+    ],
+    "spared": [
+      "you get one pass"
+    ]
+  },
+  "smallie_cousin": {
+    "enter": [
+      "cousin called so here i am"
+    ],
+    "hurt": [
+      "family business hurts damn"
+    ],
+    "lose": [
+      "cousin better cover my bill"
+    ],
+    "spared": [
+      "we cousins now or what"
+    ]
+  },
+  "groupies": {
+    "enter": [
+      "rich sign my arm big bro"
+    ],
+    "hurt": [
+      "he touched me dont wash this"
+    ],
+    "lose": [
+      "best day of my life damn"
+    ],
+    "spared": [
+      "sixty selfies real quick"
+    ]
+  },
+  "werewolf": {
+    "enter": [
+      "sorry bro still biting"
+    ],
+    "hurt": [
+      "not my good ear damn"
+    ],
+    "lose": [
+      "thanks i think"
+    ],
+    "spared": [
+      "sorry about the whole mall"
+    ]
+  },
+  "training": {
+    "enter": [
+      "dummy on duty"
+    ],
+    "hurt": [
+      "still got no insurance"
+    ],
+    "lose": [
+      "vampire beat a dummy congrats"
+    ],
+    "spared": [
+      "bro im stuffed fabric"
+    ]
+  },
+  "CHEWER": {
+    "enter": [
+      "mouth open sandwich ready"
+    ],
+    "hurt": [
+      "not the sandwich big bro"
+    ],
+    "lose": [
+      "snack dropped shit serious"
+    ],
+    "spared": [
+      "want a bite crumbs included"
+    ]
+  },
+  "ENFORCER": {
+    "enter": [
+      "shotgun calm face rough day"
+    ],
+    "hurt": [
+      "bro my good vest"
+    ],
+    "lose": [
+      "still calm still hurt"
+    ],
+    "spared": [
+      "we never met"
+    ]
+  },
+  "HUNTER": {
+    "enter": [
+      "silver bolts read the pamphlet"
+    ],
+    "hurt": [
+      "silver doing fuck all"
+    ],
+    "lose": [
+      "shoulda gone accounting"
+    ],
+    "spared": [
+      "nephew a vampire too dont tell"
+    ]
+  },
+  "LIEUTENANT": {
+    "enter": [
+      "formation damn formation"
+    ],
+    "hurt": [
+      "look tough im hurt"
+    ],
+    "lose": [
+      "somebody else lead this shit"
+    ],
+    "spared": [
+      "lunch break everybody"
+    ]
+  },
+  "LIL_SMACK": {
+    "enter": [
+      "came back like i told you"
+    ],
+    "hurt": [
+      "wing down repeat wing down"
+    ],
+    "lose": [
+      "ill be back dont get comfy"
+    ],
+    "spared": [
+      "can i get those fries"
+    ]
+  }
+};
  // ---------------------------------------------------------------- CHEAP-BUY ENCOUNTERS (Build 1 taco hook)
  // A $2–$20 buy opens a 2–3 box moment. Pools are keyed by what was bought; `meet` names an existing character where possible.
  // `tip` is a tiny helpful thing the stranger says (Build 1 decides whether it pays out).
  const cheapBuy={
   tacos:[
-   {id:'tacos_regular',lines:['a guy in line is whispering to his taco. it seems to be going well.','guy: "the al pastor changed my life. do not tell my wife."'],tip:'al pastor is the move.'},
-   {id:'tacos_nodd',meet:'officer_nodd',lines:['officer nodd is in line behind you. he nods at the menu.','he orders. he nods again. you are both somehow full.'],tip:'nodd likes you now.'},
-   {id:'tacos_chuy',meet:'don_chuy',lines:['don chuy slides over a seventh taco. nobody ordered it.','"for the castle guy. do not tell the others."'],tip:'seventh taco. free.'},
-   {id:'tacos_dm',lines:['a girl in line looks at your fangs. then your wallet. then your fangs.','she hands you a flyer for a party. there is no address. there is a taco on it.'],tip:'a party flyer, no address.'}
+   {id:'tacos_regular',lines:["bro whispering sweet shit to a taco","guy: al pastor changed my life dont tell my wife"],tip:'al pastor is the move.'},
+   {id:'tacos_nodd',meet:'officer_nodd',lines:["nodd behind you even his order a nod","nod received tacos secured"],tip:'nodd likes you now.'},
+   {id:'tacos_chuy',meet:'don_chuy',lines:["chuy slides a seventh taco damn sponsorship","for castle guy dont tell nobody"],tip:'seventh taco. free.'},
+   {id:'tacos_dm',lines:["girl checks fangs wallet fangs again priorities","party flyer no address just a taco good luck"],tip:'a party flyer, no address.'}
   ],
   malt:[
-   {id:'malt_auntie',meet:'auntie',lines:['the auntie sees you buying one malt. she adds a second malt to the bag.','"one malt is a sad purchase. two is a plan."'],tip:'two malts. she is not charging.'},
-   {id:'malt_uncle',lines:['an old man at the freezer nods at your malt like you passed a test.','"now you are a man." he does not explain.'],tip:'passed a test. no idea which.'}
+   {id:'malt_auntie',meet:'auntie',lines:["auntie adds a second malt like your life depends on it","one malt sad two malts a plan"],tip:'two malts. she is not charging.'},
+   {id:'malt_uncle',lines:["uncle approves the malt you passed something","manhood unlocked at the freezer damn"],tip:'passed a test. no idea which.'}
   ],
   boba:[
-   {id:'boba_cashier',lines:['the cashier writes your name on the cup. it says RICH ALUMCARD.','close enough. she gives you extra pearls for the trouble.'],tip:'extra pearls.'},
-   {id:'boba_stranger',lines:['a stranger at the next table says: "tapioca is just a feeling."','you are not sure what that means. you feel it.'],tip:'a feeling, free.'}
+   {id:'boba_cashier',lines:["cup says rich alumcard close enough","extra pearls for emotional damages"],tip:'extra pearls.'},
+   {id:'boba_stranger',lines:["bro says tapioca just a feeling","dont know what that means but damn"],tip:'a feeling, free.'}
   ],
   coffee:[
-   {id:'coffee_coffe',meet:'coffe',lines:['coffe appears behind you. he did not walk there.','"THAT IS A SMALL. SIR. THAT IS A SMALL."'],tip:'coffe is judging your size.'}
+   {id:'coffee_coffe',meet:'coffe',lines:["coffe appears like caffeine got teleport","a small? bro thats a sample"],tip:'coffe is judging your size.'}
   ],
   gas_station:[
-   {id:'gas_hot_dog',lines:['the hot dog has been rolling since 2019. it salutes you.','the clerk says: "you want it? i want it gone."'],tip:'hot dog. free if you hurry.'},
-   {id:'gas_scratch',lines:['you buy a scratch ticket. you win three dollars.','you spend it on another ticket. a very american feeling.'],tip:'+$3, then -$3.'}
+   {id:'gas_hot_dog',lines:["hot dog been rolling since 2019 veteran status","you want it? i want it gone"],tip:'hot dog. free if you hurry.'},
+   {id:'gas_scratch',lines:["scratch ticket wins three dollars generational wealth","three dollars gone again american dream"],tip:'+$3, then -$3.'}
   ],
   thrift:[
-   {id:'thrift_jacket',lines:['you find a jacket with $20 in the pocket. it is not your jacket.','you put the $20 back. then you take it. then you put it back.'],tip:'a very honest jacket.'}
+   {id:'thrift_jacket',lines:["twenty dollars in a strangers jacket damn","take it leave it take it conscience lagging"],tip:'a very honest jacket.'}
   ],
   generic:[
-   {id:'any_cashier',lines:['the cashier says: "you look like you needed that."','you did.'],tip:'cashier believes in you.'},
-   {id:'any_stranger',lines:['a stranger next to you says: "good choice."','nobody has ever said that to you about anything.'],tip:'a compliment.'}
+   {id:'any_cashier',lines:["cashier says damn you needed that","yeah you did"],tip:'cashier believes in you.'},
+   {id:'any_stranger',lines:["stranger approves your snack","finally somebody believes in your ass"],tip:'a compliment.'}
   ]
  };
  // ---------------------------------------------------------------- STRIP CLUB · FIRST VISIT PROTECTION
  // The first night: half-off cover, and the house holds half the bankroll at the door. Build 1 wires the money; these are the words.
  const stripClub={
   firstVisit:{
-   door:['first time? welcome. cover is half off tonight.','house rule for first timers: bring half your cash. the rest stays home.','it is called not going broke on your first night.'],
-   rich:['half my bankroll?','…that is the most responsible thing anyone has said to me.'],
+   door:["first night cover half off dont act brand new","bring half your cash other half stays home","we trying to keep you off gofundme"],
+   rich:[voice(20)],
    deal:'FIRST NIGHT · HALF OFF COVER · BRING HALF YOUR CASH, NO MORE',
-   leaving:['"spend the first half wisely."','"come back. the rope is not going anywhere. neither are we."'],
+   leaving:["spend that half like rent exists","come back rope aint retiring"],
    mail:{title:'THE CLUB',body:'first night: half off cover. bring half your cash. the rest stays home.'}
   },
-  returnVisit:['"welcome back. no more training wheels."','"we do not hold your money anymore. we hold your attention."']
+  returnVisit:["back again training wheels off","wallet your problem now eyes up"]
  };
  // ---------------------------------------------------------------- accessors
  function rngOf(r){return typeof r==='function'?r:Math.random;}
@@ -127,21 +509,54 @@
  function allBarks(){const out=[];for(const k of Object.keys(generic))for(const t of generic[k])out.push(textOf(t));for(const t of wild)out.push(textOf(t));for(const e of Object.values(enemy))for(const arr of Object.values(e))for(const t of arr)out.push(textOf(t));return out;}
  // OCTOPUS BRAIN: where the move comes from (the prologue scene) and how the game talks about it afterwards.
  const octopusBrain={
-  origin:'the sensei handed rich a brain. it has eight parts. the seventh part is mostly snacks.',
-  firstUse:['the second brain wakes up. it already has an idea.','eight thoughts, one move. rich picks the dumbest one.','the octopus part of his head says: do not hit it. ask it.'],
-  reminder:['every part of the brain is thinking about food.','use your head. the other head.']
+  origin:"sensei gave rich eight brain parts seventh one all snacks",
+  firstUse:["second brain awake first one still buffering","eight thoughts rich picks the dumbest damn","octopus brain says talk first save your knuckles"],
+  reminder:["eight brains all hungry as fuck","use your other head bro"]
  };
  // ---------------------------------------------------------------- BUILD 1 UI LINES (OL-071)
  // Keyed by Build 1's ids (docs/rc2/LINES_FOR_BUILD3.md on rc2/economy-001). Step 4 maps these into rc2_lines.js. Funny, simple, <= 3 sentences.
  const ui={
-  'club.first_visit':'FIRST NIGHT. HALF OFF AT THE DOOR. BRING HALF YOUR CASH, THE REST STAYS HOME.',
-  'club.cap_reached':'THAT IS HALF YOUR CASH. THE DOORMAN IS PROUD OF YOU.',
-  'club.need_cash':'NO CASH, NO SPRAY. THE DANCERS CAN TELL.',
-  'cheap.meet':'YOU BOUGHT SOMETHING SMALL. SOMEBODY NOTICED YOU.',
-  'cheap.unlock':'THAT SNACK PAID OFF. CHECK YOUR PHONE.',
-  'rent.in':'RENT IS IN. YOUR BUILDINGS WORKED WHILE YOU SLEPT.',
-  'guide.next_play':'MAKE A PLAY. SOMEONE ELSE HAS MONEY. YOU HAVE A PLAN.',
-  'guide.next_offer':'THE BLACK CAR IS OUTSIDE. IT HAS AN OFFER. DO NOT ASK.'
+  'club.first_visit':"first night half off bring half your cash leave the other half home",
+  'club.cap_reached':"half your cash gone doorman saving your ass",
+  'club.need_cash':"no funds no dance bro",
+  'cheap.meet':"small purchase big introduction",
+  'cheap.unlock':"snack did networking check your phone",
+  'rent.in':"rent landed building got a job now",
+  'guide.next_play':"somebody got funds go make a play",
+  'guide.next_offer':"black car outside rich ass offer waiting"
  };
- window.RAWriting={ui,octopusBrain,barks:{generic,wild,enemy,kinds:['enter','hurt','lowhp','telegraph','win','lose','spared']},bark,allBarks,cheapBuy,cheapBuyPick,stripClub};
+
+ const voiceSlots=Object.freeze({
+  "21": "ROXY: you got rhythm or just funds",
+  "22": "ROSALYN: hey rich same booth right",
+  "23": "EMERALD: rich dont throw your whole life at me",
+  "24": "ROXY: damn you finally hit the beat",
+  "25": "ROSALYN: okay big tipper i see you",
+  "26": "EMERALD: rent money flying act normal",
+  "27": "ROXY: that bill paying for one breath",
+  "28": "ROSALYN: a dollar? cute",
+  "29": "EMERALD: keep some for the bus rich",
+  "30": "here we go again",
+  "31": "bro picked the wrong vampire",
+  "32": "damn my rent got hands",
+  "33": "you hit your uncle? ah",
+  "34": "my cousin saw that shit",
+  "35": "silver doing fuck all",
+  "36": "story first bro the club still gonna be there",
+  "37": "crew blocked clear the street then collect",
+  "38": "money waiting go collect it",
+  "39": "get paid then go be irresponsible",
+  "40": "club done go sleep before you buy more shit",
+  "41": "damn what a night",
+  "42": "im done for tonight",
+  "43": "left the stove on damn",
+  "44": "they said snacks would be here",
+  "45": "horoscope said stay home",
+  "46": "lawyer a raccoon dont ask",
+  "47": "camera on? get my good side",
+  "48": "mama watching the live"
+});
+ const dancerGreeting=d=>voiceSlots[{roxy:21,rosalyn:22,emerald:23}[d]];
+ const throwReaction=(d,amount)=>voiceSlots[(amount>=1000?{roxy:24,rosalyn:25,emerald:26}:{roxy:27,rosalyn:28,emerald:29})[d]];
+ window.RAWriting={voiceSheet,voice,voiceSlots,dancerGreeting,throwReaction,ui,octopusBrain,barks:{generic,wild,enemy,kinds:['enter','hurt','lowhp','telegraph','win','lose','spared']},bark,allBarks,cheapBuy,cheapBuyPick,stripClub};
 })();

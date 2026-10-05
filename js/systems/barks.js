@@ -6,7 +6,7 @@
  const COOLDOWN=2600,CHANCE={telegraph:.9,attack:.45,hit_rich:.4,hurt:.5,lose:1,win:1};
  let last=0,seed=0;
  const pick=(arr)=>arr[(seed++*7+Math.floor(Math.random()*arr.length))%arr.length];
- function lineFor(enemyId,kind){const L=window.RABarkLines||{};const pool=[...(L[enemyId]?.[kind]||[]),...((L[enemyId]?.[kind]?.length?[]:L._any?.[kind])||[])];return pool.length?pick(pool):null;}
+ function lineFor(enemyId,kind){if(window.RAWriting)return window.RAWriting.bark(enemyId,{attack:'enter',hit_rich:'win'}[kind]||kind);const L=window.RABarkLines||{};const pool=[...(L[enemyId]?.[kind]||[]),...((L[enemyId]?.[kind]?.length?[]:L._any?.[kind])||[])];return pool.length?pick(pool):null;}
  function show({root,anchor,text,speaker='enemy',hold=1500}){
   if(!root||!text)return null;root.querySelectorAll('.rc2-bark').forEach(n=>n.remove());
   const b=document.createElement('div');b.className=`rc2-bark rc2-bark-${speaker}`;b.textContent=text;b.setAttribute('aria-hidden','true');root.append(b);
@@ -17,12 +17,12 @@
   requestAnimationFrame(()=>b.classList.add('on'));setTimeout(()=>{b.classList.remove('on');setTimeout(()=>b.remove(),160);},hold);return b;
  }
  // trigger({root,enemyId,kind,enemyEl}): rate-limited; picks a line and anchors above the enemy sprite.
- function trigger({root,enemyId,kind,enemyEl,force=false}){
+ function trigger({root,enemyId,kind,enemyEl,force=false,speaker='enemy'}){
   const now=performance.now();if(!force&&(now-last<COOLDOWN||Math.random()>(CHANCE[kind]??.4)))return null;
-  const text=lineFor(enemyId,kind);if(!text||!enemyEl?.isConnected)return null;
-  const rr=root.getBoundingClientRect();const a=window.RAPresentationDirector?.actorBox?.('enemy');const eb=enemyEl.getBoundingClientRect();
+  const text=speaker==='rich'?window.RAWriting.voiceSlots[31+Math.floor(Math.random()*2)]:lineFor(enemyId,kind);if(!text||!enemyEl?.isConnected)return null;
+  const rr=root.getBoundingClientRect();const a=window.RAPresentationDirector?.actorBox?.(speaker==='rich'?'rich':'enemy');const eb=enemyEl.getBoundingClientRect();
   const anchor=a?{x:a.visible.x+a.visible.w*.5-rr.left,y:a.visible.y-rr.top+a.visible.h*.12}:{x:eb.left-rr.left+eb.width*.5,y:eb.top-rr.top+eb.height*.2};
-  last=now;return show({root,anchor,text,speaker:'enemy'});
+  last=now;return show({root,anchor,text,speaker});
  }
  window.RABarks={show,trigger,lineFor,reset(){last=0;}};
 })();

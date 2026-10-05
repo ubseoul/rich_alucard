@@ -173,7 +173,7 @@ try{
    await shot(p,'06b_TAKEOVER_exterior');
   }
   const tr=[];await finish(p,tr);const all=tr.join('\n');
-  const f=await p.evaluate(()=>({l:RANewOga.current(),kt:RADistricts.get('koreatown'),ing:RADistricts.get('inglewood'),wr:RAFrag.read('F04','active',false),tributed:RAVehicles.isTributed('toyota_supra_mk4_001'),texts:JSON.stringify(RAState.get().life).includes('My son is now my oga'),renamed:RANewOga.current().enterprisesRenamed}));
+  const f=await p.evaluate(()=>({l:RANewOga.current(),kt:RADistricts.get('koreatown'),ing:RADistricts.get('inglewood'),wr:RAFrag.read('F04','active',false),tributed:RAVehicles.isTributed('toyota_supra_mk4_001'),texts:JSON.stringify(RAState.get().life).includes('my son now my oga'),renamed:RANewOga.current().enterprisesRenamed}));
   log(f.l.finaleDone&&f.l.finaleEnding===E.name.toLowerCase()&&f.l.rank===6&&f.l.title==='NEW OGA',`${E.name}: Rich is the NEW OGA (rank 6), ending ${f.l.finaleEnding}`);
   log(await p.evaluate(e=>RAF07.warehouseExterior().includes(e==='TAKEOVER'?'warehouse_exterior_rich_enterprises':'warehouse_exterior_270x480'),E.name),`${E.name}: exterior condition respects the saved ending`);
   log(E.expect.test(all),`${E.name}: its own ending text is shown`);
@@ -182,7 +182,7 @@ try{
   log(f.texts===(E.name==='BLESSING'),`${E.name}: Gbenga's VampGram post ${E.name==='BLESSING'?'is posted':'is not posted'}`);
   log(f.kt.state==='CONTROLLED'&&f.ing.holder==='rich'&&f.wr===true&&/GBENGA ENTERPRISES becomes RICH ENTERPRISES/.test(all),"every ending: Gbenga's blocks are Rich's, the War Room begins, GBENGA ENTERPRISES -> RICH ENTERPRISES");
   await shot(p,`07_${E.name}_done`);
-  if(E.name==='CONSIGLIERE'){for(let i=0;i<7;i++)await p.evaluate(()=>RAClock.sleep());log(await p.evaluate(()=>JSON.stringify(RAState.get().life).includes('Hello. Hello. Oga. Hello.')),'CONSIGLIERE: the voice notes continue ("Hello. Hello. Oga. Hello.")');}
+  if(E.name==='CONSIGLIERE'){for(let i=0;i<7;i++)await p.evaluate(()=>RAClock.sleep());log(await p.evaluate(()=>JSON.stringify(RAState.get().life).includes('hello oga hello you hear me hello')),'CONSIGLIERE: the voice notes continue ("hello oga hello you hear me hello")');}
   await p.reload();await p.click('#startButton');await p.waitForFunction(()=>window.RAScenes&&RAScenes.current()==='bedroom',null,{timeout:30000});
   const r=await p.evaluate(()=>({l:RANewOga.current(),kt:RADistricts.get('koreatown').state,a:RAAdventures.available('NEW_OGA_FINALE'),tr:RAVehicles.isTributed('toyota_supra_mk4_001')}));
   log(r.l.finaleDone===true&&r.l.rank===6&&r.kt==='CONTROLLED'&&r.a===false&&r.tr===(E.name!=='TAKEOVER'),`${E.name}: reload keeps NEW OGA, blocks and the car state; the finale never re-arrives`);

@@ -114,13 +114,14 @@
     const f15 = global.RAF15Club?.enabled?.() ? global.RAF15Club.open({shadow, stage: shadow.querySelector('.stage'), canvas: shadow.querySelector('canvas')}) : null;   // F15 seam (dark)
     const session = mount(shadow.querySelector('canvas'), {
       terms: opts.terms || null,
-      hideTarget: !!f15, tunables: f15?.tunables, onSpend: f15?.onSpend,
+      hideTarget: !!f15, tunables: f15?.tunables,
+      onSpend: event => { f15?.onSpend(event);if(!host.dataset.voiceThrow){host.dataset.voiceThrow='1';say('RICH: '+global.RAWriting.voice(17));} },
       onStart: ({budget}) => {
         actions.hidden = true; status.textContent = '';
         shadow.querySelectorAll('[data-budget]').forEach(button => button.setAttribute('aria-pressed', String(Number(button.dataset.budget) === budget)));
       },
       onResult: () => { actions.hidden = false; },
-      onError: () => { say(global.RAEconLines?.get('club.need_cash') || 'NEED CASH'); },
+      onError: () => { say('RICH: '+global.RAWriting.voice(19)); },
       onClose: () => {
         f15?.close();
         global.document.removeEventListener('keydown', key, true);
@@ -131,7 +132,7 @@
     function start(budget) {
       if (session.start(budget)) return;
       const t = opts.terms;
-      say(t && t.first && t.paid > 0 ? (global.RAEconLines?.get('club.cap_reached') || 'NEED CASH') : (global.RAEconLines?.get('club.need_cash') || 'NEED CASH'));
+      say(t && t.first && t.paid > 0 ? (global.RAEconLines?.get('club.cap_reached') || 'NEED CASH') : ('RICH: '+global.RAWriting.voice(19)));
     }
     shadow.querySelectorAll('[data-budget]').forEach(button => button.addEventListener('click', () => start(Number(button.dataset.budget))));
     shadow.querySelector('.btn--again').addEventListener('click', () => start(session.game.core.budget));
@@ -141,7 +142,7 @@
     global.document.addEventListener('keydown', key, true);
     global.document.addEventListener('ra:scene', scene);
     start(10000);
-    if (opts.terms && opts.terms.first && !status.textContent) say(opts.terms.line || '');
+    if(!status.textContent)say('RICH: '+global.RAWriting.voice(16)+(opts.terms?.first?'\nRICH: '+global.RAWriting.voice(20)+'\n'+opts.terms.line:''));
     return true;
   }
   global.RAPhoneRegistry.declare('F06', {

@@ -27,9 +27,9 @@ async function body(root){
 
  // 1. the THE PARTY scene never makes Rich the subject or the hazard target of the encounter
  assert.deepEqual(J(lines),[
-  'Gbenga’s boys are cleared through a warehouse full of canopies and stacked chairs without disrupting the owambe.',
-  'A canopy pole collapses on whoever is under it. The aunties are non-combatants: they block lines of fire and critique the tactics out loud.'],
-  'Phase 1 scene = the existing narration recast with no Rich-as-actor (no new facts)');
+  'crew clears gbengas boys between the chairs party keeps going',
+  'canopy poles fall on whoever underneath aunties wont fight but they block shots and roast the crew'],
+  'Phase 1 scene keeps the same facts in RC3 voice with no Rich-as-actor');
  assert.ok(lines.every(l=>!/\bRich\b/.test(l)),'no line puts Rich inside the encounter');
  assert.ok(lines.every(l=>!/Rich included|including you|your tactics/i.test(l)),'no hazard or critique lands on Rich');
 

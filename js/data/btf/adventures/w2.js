@@ -32,24 +32,24 @@
  D({id:'A08',title:'FIRST SHIFT AT SLURP DYNASTY',lane:'money',memoryType:'money',start:'arrive',nodes:{
   arrive:{env:'slurp',title:'SLURP DYNASTY · LITTLE TOKYO',actors:{left:'rich',right:'okada'},
    enter:A=>{RARelations.meet('okada','a08');},
-   lines:[N('a HELP WANTED sign, taped over an older HELP WANTED sign.'),S('okada','you scared of vampires? good. neither am i.'),N('he hands you an apron. he does not ask your name.')],
+   lines:[N("help wanted over help wanted they down bad"),S('okada',"vampires dont scare me customers do"),N("apron first name later")],
    choices:[{label:'PUT ON THE APRON',next:'hina'}]},
   hina:{env:'slurp',actors:{left:{id:'rich',state:'ramen_apron'},right:'okada',farRight:'hina'},
    enter:A=>{RARelations.meet('hina','a08');},
-   lines:[E('hina','a woman with a knife and a stopwatch clocks you without looking up.'),S('hina','new guy. don\'t embarrass the broth.')],next:'shift'},
-  shift:{lines:[N('the tickets start.')],minigame:{id:'slurp',params:()=>({firstShift:true}),next:(A,r)=>{A.set('res',r);return 'special';}}},
-  special:{lines:A=>[N('a ticket comes back with no order on it. just: "THE RICH SPECIAL."'),R('…that ain\'t a real thing.'),N('you put jollof in the broth anyway. it works.'),N('hina tries it. she does not say anything nice, which from her is everything.'),S('hina','it\'s on the menu now.')],
+   lines:[E('hina',"hina got a knife and a stopwatch you better move"),S('hina',"dont fuck up my broth new guy")],next:'shift'},
+  shift:{lines:[N("tickets rolling in")],minigame:{id:'slurp',params:()=>({firstShift:true}),next:(A,r)=>{A.set('res',r);return 'special';}}},
+  special:{lines:A=>[N("blank ticket says THE RICH SPECIAL bro just got here"),R("i dont even know what that is"),N('you put jollof in the broth anyway. it works.'),N('hina tries it. she does not say anything nice, which from her is everything.'),S('hina',"menu updated keep moving")],
    enter:A=>{RALife.setFlag('jollofRamenOnMenu',true);},next:'clockout'},
-  clockout:{lines:[S('okada','good shift.'),N('he pays you out of a coffee can.')],
+  clockout:{lines:[S('okada',"you survived"),N("okada pays out the coffee can payroll fancy")],
    // ENGINEERING 05 (HQ route): Hina's own first beat follows the first Slurp Dynasty experience (one time).
    end:{outcome:'done',fx:A=>{},chain:()=>RAAdventures.available('A_HINA1')?'A_HINA1':null,memory:{text:'first shift at slurp dynasty',lane:'money'},
     receipt:{id:'a08:first',caption:'jollof ramen. on the menu now. because of you.'},
-    home:['rich','my hands smell like broth. i respect it.',{vp:true}]}}
+    home:['rich',"all that work for beans?",{canon:true,ube:true}]}}
  }});
  D({id:'SLURP',title:'SLURP DYNASTY',lane:'money',repeatable:true,oncePerNight:true,memoryType:'money',available:L=>L.done('A08'),start:'shift',nodes:{
-  shift:{env:'slurp',actors:{left:'rich',right:'okada'},lines:[N('the fryers are loud. okada nods once. that\'s your clock-in.')],
+  shift:{env:'slurp',actors:{left:'rich',right:'okada'},lines:[N("okada nods fryers scream thats clock in")],
    minigame:{id:'slurp',params:()=>({hinaBest:RAMinigames.progress('slurp').hinaBest||0,kevinChance:RALife.done('A18')?0.06:0}),next:(A,r)=>{A.set('res',r);return 'done';}}},
-  done:{end:{outcome:'done',chain:()=>RAAdventures.available('A_HINA1')?'A_HINA1':null,memory:{text:'a shift at slurp dynasty',lane:'money',quality:.6},home:['rich','my feet hurt. worth it.',{vp:true}]}}
+  done:{end:{outcome:'done',chain:()=>RAAdventures.available('A_HINA1')?'A_HINA1':null,memory:{text:'a shift at slurp dynasty',lane:'money',quality:.6},home:['rich',"feet hurt funds barely worth it",{vp:true}]}}
  }});
  RAPlaces.define([{id:'slurp',label:'SLURP DYNASTY',sub:'LITTLE TOKYO',adventure:L=>L.done('A08')?'SLURP':'A08',order:21}]);
 
@@ -99,7 +99,7 @@
    lines:[S('uncle_sunday','you eating well? text me. i worry.')],
    end:{outcome:'bread',memory:{text:'the most respectful fight of your life, over bread',lane:'dragons'},
     receipt:{id:'a10:bread',caption:'agege bread. legendary. from a pet store.'},
-    home:['rich','i have an uncle now. i think.',{vp:true}]}}
+    home:['rich',"new uncle unlocked damn",{vp:true}]}}
  }});
 
  // ---------------------------------------------------------------- A11 — HATCH NIGHT

@@ -39,7 +39,7 @@
   else if(!s.paid){label='COLLECT CASH';kind='cash';app='bank';}
   else if(flag('stripClubLastDay')!==day()){label='STRIP CLUB NIGHT';kind='club';app='stripClub';}
   else {label='SLEEP';kind='rest';app=null;}
-  return {id:kind,key:`rc3:${day()}:${label}`,kind,app,label,sub:`${chapter()} · DAY ${day()}`,action:'rc3:next'};
+  return {id:kind,key:`rc3:${day()}:${label}`,kind,app,label,sub:window.RAWriting.voiceSlots[{story:36,action:37,cash:38,club:39,rest:40}[kind]],action:'rc3:next'};
  }
  async function advance(){const n=next();
   if(n.label==='FINISH THE PROLOGUE')return RANewGame.onStart();
@@ -60,10 +60,10 @@
  const canSleep=()=>read().paid&&flag('stripClubLastDay')===day();
  const storyEvent=id=>id==='ogun_rave_invite_001'&&!flag('ogunsRaveCompleted');
  function showMorning(layer,el){const n=next(),wrap=el('div','morning-mail');wrap.style.pointerEvents='auto';
-  wrap.append(el('h2',null,`DAY ${day()}`));const b=el('button','mail-card',`<b>${n.label}</b>${chapter()}`);b.type='button';b.addEventListener('click',()=>{wrap.remove();RAPhone.openApp('vampgpt');});
+  wrap.append(el('h2',null,`DAY ${day()}`));if(day()===1)wrap.append(el('p','phone-chat',`<b>RICH</b> ${window.RAWriting.voice(1)}`));const b=el('button','mail-card',`<b>${n.label}</b>${chapter()}`);b.type='button';b.addEventListener('click',()=>{wrap.remove();RAPhone.openApp('vampgpt');});
   const up=el('button','mail-done','GET UP');up.type='button';up.addEventListener('click',()=>{wrap.remove();window.RABedroom?.releasePhone?.();});wrap.append(b,up);layer.append(wrap);
  }
- function mapsMarkup(api){return `<h1>MAPS</h1><p class="phone-small">OPTIONAL ADVENTURES · PICK ONE</p>${MAPS.filter(id=>RAAdventures.available(id)).map(id=>api.button(api.esc(RAAdventures.get(id).title),`rc3:map:${id}`)).join('')||'<p>All caught up.</p>'}${api.button('HOME','home','phone-home')}`;}
+ function mapsMarkup(api){return `<h1>MAPS</h1><p class="phone-small">got time? pick somewhere</p>${MAPS.filter(id=>RAAdventures.available(id)).map(id=>api.button(api.esc(RAAdventures.get(id).title),`rc3:map:${id}`)).join('')||'<p>whole map cleared damn</p>'}${api.button('HOME','home','phone-home')}`;}
  async function mapGo(id){if(!MAPS.includes(id)||!RAAdventures.available(id))return false;await RAPhone.close();return RAAdventureScene.begin(id,{from:'rc3-maps'});}
  function phoneRoute(id){return APPS.includes(id);}
  function phoneAction(name){if(name.startsWith('app:'))return phoneRoute(name.split(':')[1]);if(name.startsWith('do:'))return phoneRoute(name.split(':')[1]);
@@ -86,13 +86,13 @@
  if(m1){m1.nodes.pitch.choices=m1.nodes.pitch.choices.filter(c=>c.next!=='nah');m1.nodes.table.choices=m1.nodes.table.choices.filter(c=>c.next!=='leave');}
  if(m2)m2.nodes.debt.choices=m2.nodes.debt.choices.filter(c=>c.next==='work');
  // A vehicle is no longer a shopping prerequisite. Gbenga supplies transport for this assignment.
- const m4=RAAdventures.get('NEW_OGA_M4');if(m4){m4.nodes.beat3.lines=[RAContent.N("Gbenga's rental van heads toward Koreatown.")];m4.nodes.run.lines=[RAContent.N("Carlos runs. Rich follows in Gbenga's rental van, making the escape look close.")];}
+ const m4=RAAdventures.get('NEW_OGA_M4');if(m4){m4.nodes.beat3.lines=[RAContent.N("uncles rental van headed to koreatown free ride finally")];m4.nodes.run.lines=[RAContent.N("carlos running rich in uncles van making it look close")];}
  const m9=RAAdventures.get('NEW_OGA_M9');if(m9){for(const c of m9.nodes.choice.choices)if(c.next==='give')c.when=()=>RALife.ownedCars().length>0;}
  // A short mandatory crew fight fills dialogue-only days. Existing fighter/art/rules; no optional outing is pushed.
  RAAdventures.define({id:'RC3_FIGHT',title:'PROTECT THE CREW',lane:'combat',repeatable:true,available:()=>!read().action,start:'brief',nodes:{
-  brief:{env:'street_night',actors:{left:'rich',right:'smallie_cousin'},lines:[RAContent.N("Gbenga's delivery is blocked. Clear the street.")],next:'fight'},
+  brief:{env:'street_night',actors:{left:'rich',right:'smallie_cousin'},lines:[RAContent.N("crew blocked clear the street then collect")],next:'fight'},
   fight:{fight:{enemy:'smallie_cousin',params:{env:'street_night'},win:'done',lose:'retry',run:'retry'}},
-  retry:{lines:[RAContent.N('The street is still blocked.')],choices:[{label:'TRY AGAIN',next:'fight'}]},
+  retry:{lines:[RAContent.N("street still blocked bro run it back")],choices:[{label:'TRY AGAIN',next:'fight'}]},
   done:{end:{outcome:'win',memory:{text:'cleared the street for the crew',lane:'combat'}}}
  }});
  // Count real successful fights/PLAYs, including those inside the authored mission.
