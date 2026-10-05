@@ -1,5 +1,5 @@
-// F15 OL-031 launch roster: Roxy, Rosalyn and Emerald are ALL on stage every WAKE; no REQUEST mechanic (withdrawn in OL-029);
-// Emerald L3's lost item is the recital sheet music. (Rainmaker §5 rotation is NOT built: it ships with Rainmaker's ten, OL-037.)
+// RC3 nightly rotation supersedes OL-031's simultaneous stage lineup. All three identities/date paths stay stable.
+// No REQUEST mechanic (withdrawn in OL-029); Emerald L3's lost item remains the recital sheet music.
 import assert from 'node:assert/strict';
 import {readFile} from 'node:fs/promises';
 import {boot} from './_lib.mjs';
@@ -9,14 +9,12 @@ export async function test(root){
  const c=await boot(root);
  const T=c.RAF15Tunables;
 
- // 1. all three on stage every WAKE: one fixed roster of three, one stage slot each, nothing filters or rotates the roster
+ // RC3 overrides the stage lineup. The three identities and date progress remain stable; nightly presentation is tested below.
  assert.deepEqual(J(T.DANCERS),['roxy','rosalyn','emerald']);
  assert.deepEqual(J(c.RAF15.dancers()),['roxy','rosalyn','emerald']);
  assert.deepEqual(J(Object.keys(T.LAYOUT.slots).sort()),J(Object.values(c.RAF15.mapping()).sort()),'one stage slot per dancer (handles wolf/pink/dragon)');
- for(const f of ['club','dates','core','tunables']){
-  const src=(await readFile(`${root}/js/frag/F15/${f}.js`,'utf8')).replace(/^\s*\/\/.*$/gm,'');
-  assert.ok(!/stageLineup|\bROTATION\s*:|lineup/i.test(src),`${f}.js has no roster rotation / lineup logic`);
- }
+ const {run}=await import('../if1/_lib.mjs');await run(root,c,['js/frag/F15/club.js']);
+ assert.deepEqual([1,2,3,4].map(c.RAF15Club.nightDancer),['roxy','rosalyn','emerald','roxy'],'RC3: one performer per night, stable three-night cycle');
 
  // 2. no REQUEST mechanic (withdrawn in OL-029)
  for(const f of ['club','dates','core','tunables','roxy','rosalyn','emerald','migrations']){
@@ -30,5 +28,5 @@ export async function test(root){
  const text=JSON.stringify(L3.nodes);
  assert.ok(/My sheet music\. For the recital\./.test(text),'she lost her sheet music for the recital');
  assert.ok(/a folder of sheet music/.test(text),'the found item is the sheet music');
- console.log('PASS f15 OL-031: three dancers on stage every WAKE (no rotation / lineup logic), no REQUEST mechanic, Emerald L3 lost item = recital sheet music');
+ console.log('PASS f15 roster: three stable identities, RC3 nightly stage rotation, no REQUEST mechanic, Emerald L3 recital sheet music');
 }

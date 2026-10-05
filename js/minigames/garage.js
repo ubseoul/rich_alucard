@@ -267,4 +267,6 @@
  }
 
  window.RAMinigames.register('garage',{title:'GARAGE',rule:'Tap a part to see what it does to your car, then tap BUY to install it.',mount});
+ // RC3: parts bay is the preparation utility for TOUGE, not a separate game in the minigame roster.
+ const utility=window.RAMinigames.get?.('garage');if(utility)utility.kind='utility';
 })();

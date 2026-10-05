@@ -189,4 +189,7 @@
    canvas.removeEventListener('touchstart',onDown);canvas.removeEventListener('touchend',onUp);
   }};
  }});
+ // RC3: retire the generic charge-and-release court game. Keep a reward-free compatibility route for existing story saves.
+ const retired=window.RAMinigames.get?.('pickup');if(retired){retired.retired=true;retired.rule=null;
+ retired.mount=(root,ctx)=>{ctx.scope.timeout(()=>ctx.finish({outcome:'retired',score:0,data:{retired:true}}),0);return {dispose(){}};};}
 })();

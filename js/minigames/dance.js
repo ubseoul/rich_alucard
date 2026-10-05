@@ -61,6 +61,17 @@
   const P=window.RAPixel,params=ctx.params||{};
   if(!P||!root)return {dispose(){}};
   const cfg=config(params),spray=!!params.spray,seed=params.seed||`dance-${params.song||'owambe'}-${params.day||1}`;
+  // The rave's original kick/hat pulse is aligned to chart timestamps, not a licensed track or radio tempo.
+  let beatAudio=null,beatIndex=-1;
+  function raveBeat(index){
+   if(!params.rave||index<0||index===beatIndex)return;beatIndex=index;
+   const settings=window.RAState?.get?.()?.life?.settings?.audio||{};if(settings.muted||settings.sfx===0)return;
+   const AC=window.AudioContext||window.webkitAudioContext;if(!AC)return;
+   try{beatAudio=beatAudio||new AC();if(beatAudio.state==='suspended')beatAudio.resume().catch(()=>{});
+    const n=beatAudio.currentTime,o=beatAudio.createOscillator(),v=beatAudio.createGain();o.type=index%2?'triangle':'sine';o.frequency.setValueAtTime(index%2?1800:95,n);o.frequency.exponentialRampToValueAtTime(index%2?600:38,n+.12);
+    v.gain.setValueAtTime((index%2?.025:.13)*(settings.sfx??1),n);v.gain.exponentialRampToValueAtTime(.001,n+.14);o.connect(v);v.connect(beatAudio.destination);o.start(n);o.stop(n+.15);
+   }catch(_){/* audio unavailable: visual beat stays fully playable */}
+  }
   const {canvas,ctx:g,toNative}=P.createCanvas(root);
   const J=window.RAJuice?window.RAJuice.create(g):{burst(){},float(){},ring(){},shake(){},flash(){},update(){},begin(){g.save();},end(){g.restore();}};
   root.dataset.phase='ready';root.dataset.input='pointer';
@@ -107,7 +118,8 @@
    const best=Math.max(ctx.progress()?.bestAccuracy||0,sum.accuracy);ctx.saveProgress({bestAccuracy:best,bestCombo:Math.max(ctx.progress()?.bestCombo||0,stats.maxCombo)});
    const card=document.createElement('div');card.className='dance-result';
    card.style.cssText='position:absolute;inset:0;z-index:6;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;padding:22px;background:rgba(8,7,15,.93);color:#f6efd9;text-align:center;font-family:"Press Start 2P",monospace';
-   const headline=sum.stars>=3?'THE ROOM LOST IT':sum.win?'THE CROWD LOVED IT':stats.mood<=0?'THE CROWD LEFT':'THE CROWD PRAYED FOR YOU';
+   const headline=params.rave?(sum.win?'YOU BLENDED IN':'THE CROWD CLOCKED YOU'):sum.stars>=3?'THE ROOM LOST IT':sum.win?'THE CROWD LOVED IT':stats.mood<=0?'THE CROWD LEFT':'THE CROWD PRAYED FOR YOU';
+   if(params.rave){ctx.finish({outcome:sum.outcome,score:stats.perfect*2+stats.good,data:{...stats,...sum}});return;}
    card.innerHTML=`<div style="font-size:11px;color:${sum.win?'#ffd36a':'#d7193f'};line-height:1.5">${headline}</div><div style="font-size:8px;color:#ffd36a">${'★'.repeat(sum.stars)}${'☆'.repeat(3-sum.stars)}</div><div style="font-size:7px;line-height:1.8">PERFECT ${stats.perfect} · GOOD ${stats.good} · OOPS ${stats.miss}<br>BEST STREAK ${stats.maxCombo}</div>${spray?`<div style="font-size:8px;color:#20c66b">SPRAYED $${sum.money}</div>`:''}`;
    const done=document.createElement('button');done.type='button';done.className='dance-done';done.textContent='DONE';
    done.style.cssText='font:8px "Press Start 2P",monospace;padding:.8em 1.1em;background:#f6efd9;color:#10101b;border:2px solid #10101b;box-shadow:2px 2px #7d194b;cursor:pointer';
@@ -118,6 +130,7 @@
   function drawBg(now){
    P.paintEnvironment(g,{sky:'#170d27',wall:'#4d214b',floor:'#3d302d',horizon:150,seed:'dance-floor',props:[{type:'string',x1:8,x2:262,y:40,color:'#ffd36a'},{type:'sign',x:48,y:52,w:174,h:18,text:params.rival?`VS ${params.rival}`:'DANCE FLOOR',glow:'#ffb040',size:6}],crowd:16,crowdColors:['#9d4a5a','#4a6a9d','#6a9d4a','#9d8a4a']});
    const beat=60000/cfg.bpm,pulse=songMs>0?1-((songMs%beat)/beat):0;
+   if(params.rave){P.rect(g,0,0,270,54,'#170811');P.text(g,"OGUN'S BLOOD RAVE",135,40,{size:8,color:'#ff6fb5',align:'center'});for(let i=0;i<36;i++){const x=(i*43)%270,y=((i*61+Math.floor(Math.max(0,songMs)/15))%146);P.rect(g,x,y,2,5,'#9c173f');}P.rect(g,4,148,262,3,pulse>.75?'#ffd36a':'#7d194b');}
    // the floor under the lanes: dark lanes, bright zone that pulses on the beat
    for(let i=0;i<4;i++){g.fillStyle=i%2?'rgba(8,7,15,.62)':'rgba(8,7,15,.74)';g.fillRect(LANE_X+i*LANE_W,SPAWN_Y-6,LANE_W,ZONE_Y+40-SPAWN_Y+6);}
    g.fillStyle=`rgba(255,211,106,${.18+.18*pulse})`;g.fillRect(LANE_X,ZONE_Y-TILE_H/2-4,LANE_W*4,TILE_H+8);
@@ -152,7 +165,7 @@
   }
   function drawHud(){
    P.text(g,`STREAK ${stats.combo}`,8,8,{size:6,color:'#f6efd9'});
-   P.text(g,'CROWD',8,22,{size:5,color:'#f6efd9'});P.rect(g,44,20,150,8,'#21182c');P.rect(g,45,21,148*(stats.mood/100),6,stats.mood<25?'#d7193f':stats.mood>75?'#20c66b':'#c18b3c');
+   P.text(g,params.rave?'BLEND':'CROWD',8,22,{size:5,color:'#f6efd9'});P.rect(g,44,20,150,8,'#21182c');P.rect(g,45,21,148*(stats.mood/100),6,stats.mood<25?'#d7193f':stats.mood>75?'#20c66b':'#c18b3c');
    if(spray)P.text(g,`$${Math.min(cfg.payCap,spent)}`,200,22,{size:6,color:'#20c66b'});
   }
   function frame(now){
@@ -160,10 +173,12 @@
    const dt=(now-last)/1000;last=now;J.update(dt);
    if(!ended){
     songMs+= Math.min(50,dt*1000);
+    raveBeat(Math.floor((songMs-cfg.firstMs)/(60000/cfg.bpm/2)));
     for(const n of notes)if(!n.judged&&songMs>n.t+cfg.goodMs)miss(n);
     const sec=Math.ceil(-songMs/1000);if(songMs<0&&sec>0&&sec<=3&&sec!==countSounded){countSounded=sec;ctx.audio?.sound('COUNTDOWN');}
     if(songMs>=0)root.dataset.phase='run';
     if(stats.mood<=0||songMs>endMs)finish();
+    if(raf===null)return; // rave completion disposes immediately; never resurrect its animation loop
    }
    for(let i=0;i<4;i++)pressFlash[i]=Math.max(0,pressFlash[i]-dt*5);
    root.dataset.due=notes.filter(n=>!n.judged&&Math.abs(n.t-songMs)<=cfg.goodMs).map(n=>n.lane).join(',');
@@ -174,7 +189,7 @@
    raf=requestAnimationFrame(frame);
   }
   raf=requestAnimationFrame(frame);
-  return {dispose(){const r=raf;raf=null;if(r)cancelAnimationFrame(r);canvas.removeEventListener('pointerdown',pointerDown);window.removeEventListener('keydown',keyDown);}};
+  return {dispose(){const r=raf;raf=null;if(r)cancelAnimationFrame(r);if(beatAudio)beatAudio.close().catch(()=>{});canvas.removeEventListener('pointerdown',pointerDown);window.removeEventListener('keydown',keyDown);}};
  }
  window.RAMinigames.register('dance',{title:'DANCE FLOOR',rule:'Tap the dance move when it falls into the glowing zone.',mount});
 })();

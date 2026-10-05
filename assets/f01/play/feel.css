@@ -182,3 +182,54 @@ button:disabled{opacity:.4;cursor:default}
 .phone .decide .fb{background:var(--os-chat-surface);color:var(--os-chat-text)}
 .phone .dial{background:#0c0b14f0}
 .phone .dial .dn,.phone .delivered{color:var(--os-chat-muted)}
+
+/* RC3 OL-074 · Life OS. Presentation only: PLAY odds, clocks and capture bands stay in the engine. */
+@font-face{font-family:Monogram;src:url(../../fonts/monogram.ttf)}
+@font-face{font-family:Tiny5;src:url(../../fonts/tiny5.ttf)}
+:root{--os-bg:#0c0b14;--os-surface:#171322;--os-raised:#241b30;--os-line:#49334f;--os-text:#f6efd9;--os-muted:#bdacc4;--os-gold:#efc16b;--os-red:#f04067;--os-green:#88dbad;--red:var(--os-red);--gold:var(--os-gold);--green:var(--os-green)}
+body{font-family:Monogram,"Courier New",monospace;font-weight:400;color:var(--os-text)}
+button{font-family:Tiny5,"Courier New",monospace;letter-spacing:1px;border-radius:0!important}
+.call,.lock,#setpanel{background:var(--os-bg);border:2px solid var(--os-line);border-radius:0;box-shadow:3px 4px #050409}
+.call{padding:12px;text-align:left}
+.call .who,.call .ring{font-family:Tiny5;font-size:11px;color:var(--os-muted);letter-spacing:1px}
+.call .ring{color:var(--os-green)}
+.call .pname{font-family:Tiny5;font-size:24px;color:var(--os-text);letter-spacing:1px;line-height:1.1;border-bottom:2px solid var(--os-red);padding-bottom:8px}
+.call .cash{font-size:34px;text-shadow:none;color:var(--os-gold)}
+.call .min{font:13px Tiny5;letter-spacing:1px}
+.call .quote,.call .hint{font:16px/1.05 Monogram;color:var(--os-muted);font-style:normal}
+.call .hint{border-left:2px solid var(--os-red)}
+.call .btns button{font:15px Tiny5;min-height:34px;padding:8px 3px;border:1px solid var(--os-line)}
+.b-ans{background:var(--os-green);color:var(--os-bg);box-shadow:2px 2px #49334f}
+.b-dec{background:var(--os-raised);color:var(--os-text)}
+.pre-top .n{font:22px Tiny5}.pre-top .m{font:13px Tiny5;color:var(--os-gold)}
+.hints{font:14px/1.05 Monogram;top:100px;color:var(--os-text)}
+.card,.bench,.carpick,.wslot{background:var(--os-surface);border:1px solid var(--os-line);border-radius:0;box-shadow:2px 2px #050409}
+.card{height:78px}.card .nm{font:11px Tiny5;top:30px}.card .tr{font:10px Monogram;top:41px;color:var(--os-gold)}
+.card .fc{border-radius:0;width:24px;height:24px;margin-left:-12px}.card .sw{background:var(--os-raised);border-radius:0;color:var(--os-text)}
+.card .wslot{height:22px}
+.wslot .wt{font:11px Monogram}.wslot .wt small{font:9px Monogram;color:var(--os-muted)}
+.send{height:32px;font:16px Tiny5;border:2px solid var(--os-red);box-shadow:2px 2px #49334f}
+.send.hold .lab{font:12px Tiny5}
+.quilt{background-color:#3c0818;background-image:repeating-linear-gradient(0deg,#650c24 0 4px,transparent 4px 20px),repeating-linear-gradient(90deg,transparent 0 16px,#8b1435 16px 20px);image-rendering:pixelated}
+.rig{isolation:isolate;will-change:transform}
+.rig .phone{z-index:1}.rig .handpov{z-index:2}.rig .thumbpov{z-index:3}
+.phone .ph-head{height:65px;padding:20px 7px 3px;display:grid;grid-template-columns:1fr auto;align-content:start;gap:3px;border-bottom:2px solid var(--os-line)}
+.phone .ph-head .t{font:14px/1 Tiny5;margin:0;letter-spacing:1px}
+.phone .ph-head .s{font:9px/1 Tiny5;color:var(--os-green);letter-spacing:0;margin:3px 0 0}
+.ph-crew{grid-column:1 / -1;display:flex;align-items:center;gap:2px;color:var(--os-muted);font:9px Tiny5}
+.phone .ph-head .av{width:14px;height:14px;margin:0;border-radius:0;flex:none;border:1px solid var(--os-line)}
+.ph-crew>span{margin-left:auto}
+.phone .msgs{top:65px;padding:6px 6px 8px;gap:7px}
+.phone .bub{max-width:96%;border:1px solid var(--os-line);border-image:none;background:var(--os-surface);padding:5px 6px;box-shadow:2px 2px #050409;font:17px/1 Monogram;letter-spacing:0;border-radius:0;overflow-wrap:anywhere}
+.phone .bub.ev{border-left:3px solid var(--os-gold);letter-spacing:0}
+.phone .bub .fr{font:10px/1 Tiny5;letter-spacing:.5px;margin-bottom:3px}
+.phone .bub.me{background:#681937;border:1px solid #a7466c;padding:5px 6px;border-radius:0}
+.phone .decide{left:5px;right:5px;bottom:5px;padding:6px;border:2px solid var(--os-gold);border-radius:0;box-shadow:2px 2px #050409}
+.phone .decide button{font:12px/1 Tiny5;min-height:32px;padding:8px 3px;white-space:normal}
+.phone .decide .who{font:11px Tiny5;letter-spacing:1px}
+.phone .decide .fb{font:10px Tiny5;padding:4px 1px;min-width:0}
+.phone .decide .fb .f{width:22px;height:22px}
+.phone .dial{top:65px}.phone .dial .dn{font:16px Tiny5;letter-spacing:1px}
+.count .amt{font:38px Monogram}.count .amt.final{font:28px Monogram}
+.count .sub{font:12px Tiny5;letter-spacing:1px}.again{height:32px;background:var(--os-surface);font:14px Tiny5}
+@media(prefers-reduced-motion:reduce){.buzzing,.vib,.bub,.dots span{animation:none!important}}

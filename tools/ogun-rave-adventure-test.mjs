@@ -71,9 +71,10 @@ export async function testOgunRaveAdventure(root){
     assert(committed,'adventure did not reach its expected completion consequence');
     return steps;
   }
-  const interiorSteps=walk(RAOgunRaveContent.interiorPhases,'arrival','fightHunter');
+  const interiorSteps=walk(RAOgunRaveContent.interiorPhases,'arrival','dance');
+  walk(RAOgunRaveContent.interiorPhases,'bllad33Enter','fight');
   const exteriorSteps=walk(RAOgunRaveContent.exteriorPhases,'outside','finishNight');
-  assert(interiorSteps>=6,'interior adventure feels too short for a first full adventure');
+  assert.equal(interiorSteps,3,'arrival and greet must lead directly into the rhythm game');
 
   const eventsContext={structuredClone};eventsContext.window=eventsContext;vm.createContext(eventsContext);
   vm.runInContext(await read('js/data/world_events.js'),eventsContext,{filename:'js/data/world_events.js'});
@@ -103,5 +104,5 @@ export async function testOgunRaveAdventure(root){
   const withCompleted=RAState.migrateWithReport({version:10,life:{...RAState.defaults.life,night:{active:null,completed:[{id:'ogun_rave_001',completedAt:'2026-09-23T02:00:00.000Z'}]},world:{...RAState.defaults.life.world,flags:{ogunsRaveCompleted:true,castlePartyHostingUnlocked:true}}}});
   assert(withCompleted.ok&&withCompleted.state.life.world.flags.castlePartyHostingUnlocked===true,'completed-night flags must persist through migration');
 
-  console.log(`PASS ogun's rave adventure (${allPhases.length} authored phases, ${interiorSteps} interior / ${exteriorSteps} exterior choice-graph steps, 3 party situations replayed across all behaviors, Bllad33 stage slot + frozen hash, world-event/opportunity gating, save v10 persistence)`);
+  console.log(`PASS ogun's rave adventure (${allPhases.length} phases, ${interiorSteps} steps to rhythm / ${exteriorSteps} exterior steps, OL-075 BLAD33EE reaction, frozen hunter stage slot/hash, world-event/opportunity gating, save v10 persistence)`);
 }

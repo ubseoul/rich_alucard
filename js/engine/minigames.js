@@ -83,5 +83,5 @@
  }
  function active(){return current?{id:current.id}:null}
  function quitActive(){current?.abort();}
- window.RAMinigames={register,launch,list:()=>[...registry.values()].map(({id,title})=>({id,title})),get:id=>registry.get(id)||null,progress,saveProgress,active,quitActive,mergeRewards};
+ window.RAMinigames={register,launch,list:()=>[...registry.values()].filter(d=>!d.retired&&d.kind!=='utility').map(({id,title})=>({id,title})),get:id=>registry.get(id)||null,progress,saveProgress,active,quitActive,mergeRewards};
 })();

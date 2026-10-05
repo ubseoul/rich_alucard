@@ -1,0 +1,322 @@
+{
+  "results": [
+    {
+      "ok": true,
+      "name": "club night 1: one scheduled dancer",
+      "detail": {
+        "dancer": "roxy",
+        "onStage": [
+          "roxy"
+        ],
+        "t0": 0.5,
+        "t1": 0.72,
+        "chips": [
+          {
+            "id": "roxy",
+            "disabled": false
+          },
+          {
+            "id": "rosalyn",
+            "disabled": true
+          },
+          {
+            "id": "emerald",
+            "disabled": true
+          }
+        ],
+        "pixel": true
+      }
+    },
+    {
+      "ok": true,
+      "name": "club night 1: moving collision target and pixel portraits",
+      "detail": {
+        "dancer": "roxy",
+        "onStage": [
+          "roxy"
+        ],
+        "t0": 0.5,
+        "t1": 0.72,
+        "chips": [
+          {
+            "id": "roxy",
+            "disabled": false
+          },
+          {
+            "id": "rosalyn",
+            "disabled": true
+          },
+          {
+            "id": "emerald",
+            "disabled": true
+          }
+        ],
+        "pixel": true
+      }
+    },
+    {
+      "ok": true,
+      "name": "club night 1: real paid throws hit and progress",
+      "detail": {
+        "cash": 495500,
+        "spent": 6000,
+        "encores": 1,
+        "last": {
+          "recipient": "roxy",
+          "delta": 2000,
+          "kind": "hit",
+          "targetX": 0.3135567013156684,
+          "at": 13206.099999964237
+        },
+        "hits": 3
+      }
+    },
+    {
+      "ok": true,
+      "name": "club night 1: max hype encore and persistent VIP",
+      "detail": {
+        "cash": 495500,
+        "spent": 6000,
+        "encores": 1,
+        "last": {
+          "recipient": "roxy",
+          "delta": 2000,
+          "kind": "hit",
+          "targetX": 0.3135567013156684,
+          "at": 13206.099999964237
+        },
+        "hits": 3
+      }
+    },
+    {
+      "ok": true,
+      "name": "club night 2: one scheduled dancer",
+      "detail": {
+        "dancer": "rosalyn",
+        "onStage": [
+          "rosalyn"
+        ],
+        "t0": 0.5,
+        "t1": 0.72,
+        "chips": [
+          {
+            "id": "roxy",
+            "disabled": true
+          },
+          {
+            "id": "rosalyn",
+            "disabled": false
+          },
+          {
+            "id": "emerald",
+            "disabled": true
+          }
+        ],
+        "pixel": true
+      }
+    },
+    {
+      "ok": true,
+      "name": "club night 2: moving collision target and pixel portraits",
+      "detail": {
+        "dancer": "rosalyn",
+        "onStage": [
+          "rosalyn"
+        ],
+        "t0": 0.5,
+        "t1": 0.72,
+        "chips": [
+          {
+            "id": "roxy",
+            "disabled": true
+          },
+          {
+            "id": "rosalyn",
+            "disabled": false
+          },
+          {
+            "id": "emerald",
+            "disabled": true
+          }
+        ],
+        "pixel": true
+      }
+    },
+    {
+      "ok": true,
+      "name": "club night 2: real paid throws hit and progress",
+      "detail": {
+        "cash": 489500,
+        "spent": 6000,
+        "encores": 2,
+        "last": {
+          "recipient": "rosalyn",
+          "delta": 2000,
+          "kind": "hit",
+          "targetX": 0.3280175960257662,
+          "at": 22392
+        },
+        "hits": 3
+      }
+    },
+    {
+      "ok": true,
+      "name": "club night 2: max hype encore and persistent VIP",
+      "detail": {
+        "cash": 489500,
+        "spent": 6000,
+        "encores": 2,
+        "last": {
+          "recipient": "rosalyn",
+          "delta": 2000,
+          "kind": "hit",
+          "targetX": 0.3280175960257662,
+          "at": 22392
+        },
+        "hits": 3
+      }
+    },
+    {
+      "ok": true,
+      "name": "club night 3: one scheduled dancer",
+      "detail": {
+        "dancer": "emerald",
+        "onStage": [
+          "emerald"
+        ],
+        "t0": 0.5,
+        "t1": 0.72,
+        "chips": [
+          {
+            "id": "roxy",
+            "disabled": true
+          },
+          {
+            "id": "rosalyn",
+            "disabled": true
+          },
+          {
+            "id": "emerald",
+            "disabled": false
+          }
+        ],
+        "pixel": true
+      }
+    },
+    {
+      "ok": true,
+      "name": "club night 3: moving collision target and pixel portraits",
+      "detail": {
+        "dancer": "emerald",
+        "onStage": [
+          "emerald"
+        ],
+        "t0": 0.5,
+        "t1": 0.72,
+        "chips": [
+          {
+            "id": "roxy",
+            "disabled": true
+          },
+          {
+            "id": "rosalyn",
+            "disabled": true
+          },
+          {
+            "id": "emerald",
+            "disabled": false
+          }
+        ],
+        "pixel": true
+      }
+    },
+    {
+      "ok": true,
+      "name": "club night 3: real paid throws hit and progress",
+      "detail": {
+        "cash": 483500,
+        "spent": 6000,
+        "encores": 3,
+        "last": {
+          "recipient": "emerald",
+          "delta": 2000,
+          "kind": "hit",
+          "targetX": 0.2802455859589994,
+          "at": 36694.69999998808
+        },
+        "hits": 3
+      }
+    },
+    {
+      "ok": true,
+      "name": "club night 3: max hype encore and persistent VIP",
+      "detail": {
+        "cash": 483500,
+        "spent": 6000,
+        "encores": 3,
+        "last": {
+          "recipient": "emerald",
+          "delta": 2000,
+          "kind": "hit",
+          "targetX": 0.2802455859589994,
+          "at": 36694.69999998808
+        },
+        "hits": 3
+      }
+    },
+    {
+      "ok": true,
+      "name": "VIP survives reload"
+    },
+    {
+      "ok": true,
+      "name": "rave quit preserves retryable progress"
+    },
+    {
+      "ok": true,
+      "name": "OL-075 exact reaction"
+    },
+    {
+      "ok": true,
+      "name": "rave cuts straight into existing hunter fight"
+    },
+    {
+      "ok": true,
+      "name": "rave completes and unlocks party hosting"
+    },
+    {
+      "ok": true,
+      "name": "ramen: orders served, receipt and rewards settle"
+    },
+    {
+      "ok": true,
+      "name": "retired pickup and garage utility absent from playable roster"
+    },
+    {
+      "ok": true,
+      "name": "PLAY offer and answer buttons fit the stage"
+    },
+    {
+      "ok": true,
+      "name": "PLAY loadout labels and controls do not overlap"
+    },
+    {
+      "ok": true,
+      "name": "PLAY single hand compositor"
+    },
+    {
+      "ok": true,
+      "name": "PLAY header fits phone"
+    },
+    {
+      "ok": true,
+      "name": "390 PLAY canonical result consumed exactly once"
+    },
+    {
+      "ok": true,
+      "name": "no browser errors or missing assets",
+      "detail": []
+    }
+  ],
+  "errors": []
+}
