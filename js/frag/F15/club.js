@@ -1,16 +1,12 @@
-// F15 VELVET ROTATION — the club stage: three dancers over the REAL F06 MAKE IT RAIN renderer, the support choice, targeting,
-// per-throw recipient snapshot and feedback. DARK behind F15.velvet_rotation.
+// RC3 VELVET ROTATION — one nightly dancer over the real F06 renderer, moving-platform aim, combos, encores and VIP.
 //
 // Seam (smallest legitimate F06/F15 contact): F06's production launcher calls RAF15Club.open() when the flag is ON and passes the
 //   result's {hideTarget, tunables, onSpend} into its own mount; F06's pure core and tunables are untouched. The neutral placeholder
 //   mannequin is not drawn (adapter option hideTarget), the dancers are drawn on an overlay canvas at device resolution (the accepted
 //   Layout A rendering), and F06's approved mechanics decide every hit, miss, hype and dollar.
 //
-// Targeting: the F06 target is the existing `target` tunable block. With the period made effectively infinite and the amplitude set
-//   to (cx - 0.5) the approved formula 0.5 + A*sin(2*pi*t/P + pi/2) evaluates to the supported dancer's slot x, so F06's own hit
-//   test, spotlight pool and HIT/MISS feedback land on HER. Changing selection only rewrites those numbers for FUTURE releases: the
-//   F06 core resolves a throw (targetX included) at the instant of release and the feedback animation already carries that value,
-//   so nothing already in flight can be redirected.
+// Targeting: the platform uses F06's own sinusoidal target and clock. Collision and recipient are resolved at release;
+//   later movement cannot redirect a bill already in flight. Off-night performer selection is disabled.
 //
 // Money: F06 production debits each throw once (rainmaker:flick). F15 only ATTRIBUTES that already-paid amount to the recipient
 //   chosen at that same instant (floor and missed bills included). No money is created, refunded or moved here.
@@ -21,14 +17,25 @@
  const SHEET_DIR='assets/f15/dancers/';
  const PSTART='"Press Start 2P", "Courier New", monospace';
  let current=null;
+ // RC3 nightly bill: fixed for the whole visit, including repeat rounds and reloads.
+ const nightDancer=(day=global.RALife?.today?.().day||1)=>T().DANCERS[(Math.max(1,day)-1)%T().DANCERS.length];
+ const targetFor=()=>({driftAmplitude:.22,driftPeriodMs:4800,driftPhase:0});
+ const vipLevel=encores=>encores>=9?3:encores>=4?2:encores>=1?1:0;
+ const VIP=['HOUSE GUEST','FRONT ROW','VELVET VIP','HEADLINER'];
 
  const CSS=`
- .cab.f15 .stage{height:clamp(340px,calc(100vh - 216px),calc((var(--stage-w) - 16px) * 1.78));height:clamp(340px,calc(100dvh - 216px),calc((var(--stage-w) - 16px) * 1.78))}
+ .cab.f15 .stage{height:clamp(280px,calc(100vh - 410px),500px);height:clamp(280px,calc(100dvh - 410px),500px)}
+ .cab.f15 .player-bar{position:sticky;bottom:0;z-index:4;padding:5px 0;background:#090813}
  .f15-dancers{position:absolute;left:0;top:0;pointer-events:none}
  .f15-bar{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:10px}
  .f15-chip{font-family:var(--font);color:#f4f0ff;background:var(--purple);border:2px solid #8a85b8;outline:1px solid var(--ink);padding:6px 4px;min-height:58px;min-width:0;cursor:pointer;text-align:center;box-shadow:2px 2px 0 var(--blood);touch-action:manipulation;border-radius:0}
  .f15-chip[aria-checked="true"]{border-color:var(--cyan);background:#0f3a52}
- .f15-card{display:block;width:100%;height:76px;margin:0 0 5px;object-fit:cover;object-position:50% 22%;border:2px solid #17131e;background:#17131e;image-rendering:auto}
+ .f15-card{display:block;width:100%;height:56px;margin:0 0 5px;object-fit:cover;object-position:50% 22%;border:2px solid #17131e;background:#17131e;image-rendering:pixelated}
+ .f15-chip:disabled{cursor:default;opacity:.55;box-shadow:none}
+ .f15-hype{margin:8px 0 0;padding:8px;background:#171322;border:2px solid #49334f;color:#f6efd9;font:8px/1.6 var(--font)}
+ .f15-hype header{display:flex;justify-content:space-between;gap:6px;color:#efc16b}
+ .f15-hype progress{display:block;width:100%;height:12px;margin:5px 0;accent-color:#f04067}
+ .f15-hype[data-encore="true"]{border-color:#efc16b;box-shadow:3px 3px #7d194b}
  .f15-chip[aria-checked="true"] .f15-card{border-color:var(--cyan)}
  .f15-chip b{display:block;font-size:9px;font-weight:400;letter-spacing:0}
  .f15-chip span{display:block;margin-top:5px;font-size:7px;line-height:1.35;color:var(--lav);word-break:break-word}
@@ -65,19 +72,29 @@
   for(const el of [bar,dateRow,note,idBox])anchor?anchor.before(el):cab.appendChild(el);
 
   const sheets={},status={loaded:false,failed:null};
-  let manifest=null,game=null,api=null,disposed=false,raf=0,t0=performance.now(),lastKey='',effects=[],pulses={},last=null,selectedLocal=C().selected();
+  let manifest=null,game=null,api=null,disposed=false,raf=0,t0=performance.now(),lastKey='',effects=[],pulses={},last=null,selectedLocal=nightDancer();
+  C().select(selectedLocal);
+  const hypePanel=document.createElement('section');hypePanel.className='f15-hype';hypePanel.setAttribute('aria-label','Club hype and VIP');bar.before(hypePanel);
+  const saved=()=>global.RAMinigames?.progress('club')||{};
+  let hype=0,combo=0,encoreUntil=0,encores=Number(saved().encores)||0;
+  const HYPE_MAX=3000;
+  function renderHype(){const level=vipLevel(encores),active=performance.now()<encoreUntil;
+   hypePanel.dataset.encore=String(active);hypePanel.dataset.combo=String(combo);hypePanel.dataset.vip=String(level);
+   hypePanel.innerHTML=`<header><span>${names[selectedLocal]} · 21+</span><span>${VIP[level]}</span></header><progress max="${HYPE_MAX}" value="${hype}" aria-label="Hype"></progress><span>${active?'ENCORE · THE HOUSE IS YOURS':`HYPE ${Math.round(hype)}/${HYPE_MAX}`} · COMBO ${combo} · TIP ×${(1+Math.min(combo,12)*.25).toFixed(2)}</span><br><span>${level===3?'HEADLINER: GOLD STAGE':`${encores} ENCORES · NEXT VIP AT ${[1,4,9][level]}`}</span>`;
+  }
   const geo={W:0,H:0,feetY:0,k:1,dpr:1,boxes:{},x:{},clamped:false};
-  const targetFor=dancer=>{const cx=L.slots[C().handleOf(dancer)].cx,A=cx-0.5;return {driftAmplitude:A,driftPeriodMs:1e15,driftPhase:Math.PI/2};};
+  const cards={},pendingCards=new Set();
+  function pixelCard(d,src){if(cards[d])return cards[d];if(pendingCards.has(d))return src;pendingCards.add(d);const img=new Image();img.onload=()=>{if(disposed)return;const c=document.createElement('canvas');c.width=42;c.height=48;const x=c.getContext('2d');x.imageSmoothingEnabled=false;x.drawImage(img,0,0,42,48);const hard=global.RAHardPixel?.process(c,{block:1,colors:24,outline:true})||c;cards[d]=hard.toDataURL();renderBar();};img.src=src;return src;}
 
   // ---- chips ---------------------------------------------------------------------------------------------------------
   function renderBar(){
-   bar.replaceChildren();
+   renderHype();bar.replaceChildren();
    for(const d of C().dancers()){
     const p=C().progress(d),b=document.createElement('button');
-    b.type='button';b.className='f15-chip';b.dataset.dancer=d;b.setAttribute('role','radio');b.setAttribute('aria-checked',String(d===selectedLocal));
+    b.type='button';b.className='f15-chip';b.dataset.dancer=d;b.disabled=d!==selectedLocal;b.setAttribute('role','radio');b.setAttribute('aria-checked',String(d===selectedLocal));
     const pct=p.maxed?100:Math.min(100,Math.round(100*p.spent/(p.nextThreshold||1)));
     const card=global.RAArtRegistry?.ui?.f15?.stagecards?.[d]?.asset; // OL-067: the frozen stage card presents each dancer
-    b.innerHTML=`${card?`<img class="f15-card" src="${card}" alt="" width="945" height="1680" draggable="false">`:''}<b>${names[d]}</b><span>${money(p.spent)}</span><i><u style="width:${pct}%"></u></i><span>${p.maxed?'ALL 4 SEEN':p.availableLevel?`SCENE ${p.availableLevel} READY`:`SCENE ${p.next} AT ${short(p.nextThreshold)}`}</span>`;
+    b.innerHTML=`${card?`<img class="f15-card" src="${pixelCard(d,card)}" alt="${names[d]}, adult 21+" width="42" height="48" draggable="false">`:''}<b>${names[d]}</b><span>${d===selectedLocal?'TONIGHT':`NIGHT ${T().DANCERS.indexOf(d)+1} / 3`}</span><i><u style="width:${pct}%"></u></i><span>${money(p.spent)} · ${p.maxed?'ALL 4 SEEN':p.availableLevel?`SCENE ${p.availableLevel} READY`:`NEXT ${short(p.nextThreshold)}`}</span>`;
     b.addEventListener('click',()=>choose(d));bar.appendChild(b);
    }
    dateRow.replaceChildren();
@@ -109,6 +126,7 @@
   // ---- targeting -------------------------------------------------------------------------------------------------------
   function applyTarget(){if(!game)return;Object.assign(game.tunables.target,targetFor(selectedLocal));}
   function choose(d){
+   if(d!==nightDancer())return false;
    if(!C().select(d))return;selectedLocal=d;applyTarget();lastKey='';
    note.textContent=`SUPPORTING ${names[d]}. EVERY BILL YOU THROW COUNTS FOR HER.`;
    for(const el of bar.children)el.setAttribute('aria-checked',String(el.dataset.dancer===d));
@@ -118,6 +136,14 @@
    const recipient=selectedLocal,before=C().progress(recipient);
    const after=C().recordSpend(recipient,delta);
    if(!after)return;
+   const N0=performance.now(),hit=result?.kind==='hit';combo=hit?combo+1:0;
+   if(hit){hype=Math.min(HYPE_MAX,hype+(result.hypeGained||100)*(1+Math.min(combo,12)*.25)*(1+vipLevel(encores)*.1));}
+   else hype=Math.max(0,hype-120);
+   if(hype>=HYPE_MAX&&N0>=encoreUntil){encores++;encoreUntil=N0+5000;global.RAMinigames?.saveProgress('club',{encores,bestCombo:Math.max(saved().bestCombo||0,combo),lastDancer:selectedLocal});
+    effects.push({x:geo.W/2,recipient:selectedLocal,encore:true,text:'MAX HYPE · ENCORE!',sub:'VIP '+VIP[vipLevel(encores)],color:'#efc16b',t0:N0,ttl:4500});
+    global.RAAudio?.sfx?.('CROWD_CHEER_SMALL');
+   }
+   renderHype();
    last={recipient,delta:Math.round(delta),kind:result?.kind||null,targetX:result?.targetX??null,at:performance.now()};
    const x=geo.x[recipient]??geo.W/2,N=performance.now(),kind=result?.kind||'hit';
    effects.push({x,recipient,text:kind==='hit'?(result.perfect?'PERFECT':'HIT'):(kind==='overthrow'?'OVERTHROW':'MISS'),sub:'$'+Math.round(delta).toString().replace(/\B(?=(\d{3})+(?!\d))/g,','),color:kind==='hit'?'#ffe6a1':'#ff8a4a',t0:N,ttl:1100});
@@ -140,11 +166,11 @@
    geo.feetY=offY+(g.deckTop+Math.round(g.deckH*L.deckFeetFrac))*scale;
    const kw=L.refScale*W/L.refStageWidth,kh=(geo.feetY-(offY+L.hudLogicalY*scale)-L.headroomPx)/L.tallestMasterPx;
    geo.k=Math.min(kw,kh);geo.clamped=kh<kw;geo.kWidth=kw;geo.kHeadroom=kh;geo.hudBottom=offY+L.hudLogicalY*scale;
-   for(const d of C().dancers())geo.x[d]=offX+L.slots[C().handleOf(d)].cx*cr.width;
+   geo.x[selectedLocal]=offX+game.core.targetX(game.core.nowMs)*cr.width;
    return true;
   }
   const sheetKey=h=>h==='wolf'?T().WOLF_SHEET:h;   // WOLF has two recoverable sheets: the approved v2 replacement and the previous one
-  const frameFor=handle=>Math.floor((performance.now()-t0)/(1000/L.fps))%manifest.dancers[sheetKey(handle)].frames;
+  const frameFor=handle=>Math.floor((performance.now()-t0)/(1000/L.fps)*(performance.now()<encoreUntil?1.6:1))%manifest.dancers[sheetKey(handle)].frames;
   function draw(){
    const W=geo.W,H=geo.H,dpr=geo.dpr,cw=Math.round(W*dpr),ch=Math.round(H*dpr);
    if(over.width!==cw||over.height!==ch){over.width=cw;over.height=ch;}
@@ -152,7 +178,14 @@
    octx.setTransform(1,0,0,1,0,0);octx.clearRect(0,0,cw,ch);
    octx.imageSmoothingEnabled=false; // RC2: hard pixels, never smoothed
    geo.boxes={};
-   const order=C().dancers().slice().sort((a,b)=>L.slots[C().handleOf(a)].z-L.slots[C().handleOf(b)].z),N=performance.now();
+   const order=[selectedLocal],N=performance.now(),active=N<encoreUntil;
+   // A hard-pixel rotating deck: its axis tracks the exact F06 collision target.
+   const px=Math.round(geo.x[selectedLocal]*dpr),py=Math.round(geo.feetY*dpr),turn=Math.sin(game.core.nowMs/4800*Math.PI*2),pw=Math.round((74+18*Math.abs(turn))*dpr);
+   octx.fillStyle=active?'#efc16b':'#7d194b';octx.fillRect(px-pw/2,py+3*dpr,pw,12*dpr);
+   const slant=Math.round(turn*8)*dpr;octx.fillStyle=active?'#fff0b8':'#49334f';octx.beginPath();octx.moveTo(px-pw/2,py+3*dpr);octx.lineTo(px+pw/2-slant,py-5*dpr);octx.lineTo(px+pw/2,py+3*dpr);octx.lineTo(px-pw/2+slant,py+8*dpr);octx.closePath();octx.fill();
+   octx.fillStyle=vipLevel(encores)>=2?'#efc16b':'#5fe3ff';octx.fillRect(px-pw/2,py+3*dpr,pw,3*dpr);
+   for(let i=0;i<6;i++){octx.fillStyle=active?'#f04067':'#241b30';octx.fillRect(Math.round(px-pw/2+((i*16+turn*12+100)%90)*dpr),py+7*dpr,4*dpr,4*dpr);}
+   if(active){for(let i=0;i<32;i++){octx.fillStyle=i%2?'#efc16b':'#f04067';octx.fillRect(((i*43+Math.floor(N/35))%Math.max(1,W))*dpr,((i*79+Math.floor(N/18))%Math.max(1,H))*dpr,3*dpr,5*dpr);}}
    // floor marks first, under every dancer: selected = cyan pool, others = dim ring; a throw pulses the recipient's ring
    for(const d of order){
     const cx=geo.x[d]*dpr,cy=geo.feetY*dpr,rx=0.30*464*geo.k*dpr,ry=Math.max(3*dpr,rx*0.2),sel=d===selectedLocal,pu=pulses[d],age=pu?N-pu.t0:9e9;
@@ -176,9 +209,9 @@
    // throw feedback, tied to the recipient and above every figure
    effects=effects.filter(e=>N-e.t0<e.ttl);
    for(const e of effects){
-    const a=(N-e.t0)/e.ttl,top=geo.boxes[e.recipient]?.y??geo.feetY-120,y=(Math.max(geo.hudBottom+8,top)-14-a*14)*dpr;
+    const a=(N-e.t0)/e.ttl,top=geo.boxes[e.recipient]?.y??geo.feetY-120,y=(e.encore?H*.59-a*5:Math.max(geo.hudBottom+8,top)-14-a*14)*dpr;
     octx.globalAlpha=Math.min(1,2*(1-a));octx.textBaseline='bottom';octx.textAlign='center';
-    octx.font=`${Math.round(9*dpr)}px ${PSTART}`;octx.lineWidth=3*dpr;octx.strokeStyle='#07060f';octx.strokeText(e.text,e.x*dpr,y);octx.fillStyle=e.color;octx.fillText(e.text,e.x*dpr,y);
+    octx.font=`${Math.round((e.encore?11:9)*dpr)}px ${PSTART}`;octx.lineWidth=3*dpr;octx.strokeStyle='#07060f';octx.strokeText(e.text,e.x*dpr,y);octx.fillStyle=e.color;octx.fillText(e.text,e.x*dpr,y);
     octx.font=`${Math.round(7*dpr)}px ${PSTART}`;octx.strokeText(e.sub,e.x*dpr,y+12*dpr);octx.fillStyle='#f6efd9';octx.fillText(e.sub,e.x*dpr,y+12*dpr);
     octx.globalAlpha=1;
    }
@@ -187,16 +220,17 @@
   function tick(){
    if(disposed)return;
    raf=requestAnimationFrame(tick);
+   if(encoreUntil&&performance.now()>=encoreUntil){encoreUntil=0;hype=0;renderHype();}
    if(!manifest||!measure())return;
    const frames=T().HANDLES.map(frameFor).join(','),key=[frames,geo.W,geo.H,geo.feetY.toFixed(1),geo.dpr,selectedLocal,effects.length,Object.keys(pulses).length,C().handleOf('roxy'),C().handleOf('rosalyn')].join('|');
-   if(key!==lastKey||effects.length||Object.keys(pulses).length){lastKey=key;draw();}
+   if(key!==lastKey||game||effects.length||Object.keys(pulses).length){lastKey=key;draw();}
   }
 
   // ---- loading (reliable: every failure is visible and nothing blocks the throw/attribution path) -----------------------------
   const loadImg=u=>new Promise((ok,bad)=>{const i=new Image();i.onload=()=>ok(i);i.onerror=()=>bad(new Error(u));i.src=u;});
   const ready=fetch(SHEET_DIR+'manifest.json',{cache:'no-cache'}).then(r=>{if(!r.ok)throw new Error('manifest '+r.status);return r.json();}).then(m=>{
    manifest=m;return Promise.all(T().HANDLES.map(sheetKey).map(k=>loadImg(SHEET_DIR+m.dancers[k].file).then(i=>{sheets[k]=global.RAHardPixel?global.RAHardPixel.process(i,{cell:m.dancers[k].cell,block:2,colors:28,outline:true}):i;})));
-  }).then(()=>{status.loaded=true;if(!disposed)note.textContent=`SUPPORTING ${names[selectedLocal]}. TAP A NAME TO SUPPORT SOMEONE ELSE.`;}).catch(e=>{
+  }).then(()=>{status.loaded=true;if(!disposed)note.textContent=`TONIGHT: ${names[selectedLocal]} · 21+. AIM AT THE MOVING PLATFORM; THROW IN THE LIGHT. COMBOS FILL HYPE FOR AN ENCORE.`;}).catch(e=>{
    status.failed=String(e.message||e);console.error('F15 dancers failed to load',e);
    if(!manifest)manifest={dancers:Object.fromEntries(T().HANDLES.map(h=>[sheetKey(h),{frames:1,cell:[155,200],cols:1,anchor_in_cell_px:[77,200]}]))};
    if(!disposed)note.textContent='DANCER ART FAILED TO LOAD. YOU CAN STILL SUPPORT AND THROW.';
@@ -206,12 +240,12 @@
   const tunables={target:targetFor(selectedLocal)};
   const instance={tunables,onSpend,
    bind(session,hooks){binding=hooks;game=session.game;api=session;applyTarget();renderBar();raf=requestAnimationFrame(tick);},
-   close(){if(disposed)return;disposed=true;cancelAnimationFrame(raf);over.remove();bar.remove();dateRow.remove();note.remove();idBox.remove();style.remove();effects=[];pulses={};if(current===instance)current=null;},
+   close(){if(disposed)return;disposed=true;cancelAnimationFrame(raf);over.remove();bar.remove();hypePanel.remove();dateRow.remove();note.remove();idBox.remove();style.remove();effects=[];pulses={};if(current===instance)current=null;},
    select:choose,selected:()=>selectedLocal,game:()=>game,lastThrow:()=>last&&{...last},ready,status:()=>({...status}),geo:()=>({...geo,boxes:JSON.parse(JSON.stringify(geo.boxes)),x:{...geo.x}}),
    frames:()=>manifest?Object.fromEntries(T().HANDLES.map(h=>[h,frameFor(h)])):null,refresh:()=>{renderBar();lastKey='';},manifest:()=>manifest,
    restart(){t0=performance.now();lastKey='';}};
   current=instance;
   return instance;
  }
- global.RAF15Club={enabled,open,current:()=>current};
+ global.RAF15Club={enabled,open,current:()=>current,nightDancer,targetFor,vipLevel};
 })(window);

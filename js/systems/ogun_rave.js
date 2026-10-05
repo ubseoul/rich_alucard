@@ -4,6 +4,34 @@
   function patchActive(fields){const prior=active();if(!prior)return false;return RAState.patch('life.night.active',{...prior,...fields});}
   function findChoice(phaseId,choiceId,phases){const phase=phases.find(p=>p.id===phaseId);return phase?.choices?.find(c=>c.id===choiceId)||null;}
   function currentInteriorSession(){return RARaveScene.current()?.session||null;}
+  let running=null,entranceTimer=null;
+  const advance=phase=>{patchActive({phase});currentInteriorSession()?.setPhase(phase);};
+  async function dance(){
+    if(running)return;running='dance';
+    try{
+      advance('floor1');
+      const root=RARaveScene.current()?.root;if(root)root.hidden=true;
+      const result=await RAMinigames.launch('dance',{rave:true,seed:'ogun-blood-rave',bpm:126,notes:36,moodStart:70,quitLabel:'LEAVE FLOOR'});
+      if(root)root.hidden=false;
+      if(result.quit){return;}
+      patchActive({danceResult:result.outcome});
+      // Poor rhythm changes the crowd's reaction, never prevents the hunter arrival or quest progress.
+      advance('bllad33Enter');
+      entranceTimer=setTimeout(()=>{entranceTimer=null;if(active()?.phase==='bllad33Enter')fight();},1800);
+    }finally{running=null;}
+  }
+  async function fight(){
+    if(running)return;running='fight';clearTimeout(entranceTimer);entranceTimer=null;
+    try{
+      advance('fight');
+      const root=RARaveScene.current()?.root;if(root)root.hidden=true;
+      // Existing hunter faction rules and approved actor art; no licensed character or new combat engine.
+      RACombatData.ENEMIES.blad33ee={...RACombatData.ENEMIES.hunter,name:'BLAD33EE',person:'bllad33',noRun:true,drop:{},octopus:{}};
+      const result=await RACombat2.run('blad33ee',{env:'rave_interior',name:'BLAD33EE',noPenalty:true});
+      patchActive({fightResult:result?.outcome||'done',phase:'exterior-outside'});
+      await RAScenes.go('ogun-rave-exterior');
+    }finally{running=null;}
+  }
   function buildInteriorDefinition(){
     const phases=RAOgunRaveContent.interiorPhases;
     return {phases,onChoice(id,snapshot){
@@ -11,6 +39,7 @@
       if(choice.next){patchActive({phase:choice.next});currentInteriorSession()?.setPhase(choice.next);}
       else if(choice.commit)currentInteriorSession()?.commit(choice.commit,{});
     },consequences:{
+      dance,fight,
       leaveRave(){patchActive({phase:'exterior-outside'});RAScenes.go('ogun-rave-exterior');}
     }};
   }
@@ -49,7 +78,10 @@
     document.body.classList.add('ogun-rave-mode');
     if(window.RAPhone?.isOpen?.())await window.RAPhone.close();
     if(String(record.phase||'').startsWith('exterior')){await RAScenes.go('ogun-rave-exterior');return;}
-    await RAScenes.go('ogun-rave',{definition:buildInteriorDefinition(),phase:record.phase||'arrival'});
+    const aliases={banter:'floor1',sprinklers:'floor1',tension:'bllad33Enter',deescalate:'bllad33Enter'};
+    const phase=aliases[record.phase]||record.phase||'arrival';patchActive({phase});
+    await RAScenes.go('ogun-rave',{definition:buildInteriorDefinition(),phase});
+    if(phase==='fight')await fight();
   }
   function resetForDev(){
     RAState.patch('life.night.active',null);RAState.patch('life.night.completed',[]);
@@ -72,7 +104,7 @@
   });
   window.RAOgunRave={
     nightId:NIGHT_ID,active,begin,resume,resetForDev,
-    buildInteriorDefinition,buildExteriorDefinition,
+    buildInteriorDefinition,buildExteriorDefinition,dance,fight,
     mountExterior(session){exteriorSessionRef=session;},
     unmountExterior(){exteriorSessionRef=null;}
   };

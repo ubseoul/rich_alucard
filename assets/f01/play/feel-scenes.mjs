@@ -95,10 +95,10 @@ export async function crewScene({pr,w,job,hints,pitcher,big,defense,lastCar}){
   if(carPick){carPick.remove();carPick=null;}
   if(defense)return;
   const {w:cw,h:ch}=A.carSize(carId);
-  carNode=el('car',`<div class="body">${A.carHTML(carId)}</div>`,null,{left:'8px',top:(366-ch)+'px',width:cw+'px',height:ch+'px'});carNode.dataset.car=carId;
-  carNode._sh=el('shadow','',null,{left:'14px',top:'362px',width:(cw-12)+'px',height:'8px'});
+  carNode=el('car',`<div class="body">${A.carHTML(carId)}</div>`,null,{left:'8px',top:(344-ch)+'px',width:cw+'px',height:ch+'px'});carNode.dataset.car=carId;
+  carNode._sh=el('shadow','',null,{left:'14px',top:'340px',width:(cw-12)+'px',height:'8px'});
   const opt=options.find(o=>o.id===carId);
-  carPick=el('carpick',`◂ ${carId} ▸<small>${esc(C.CARS[carId].word)}</small>`,null,{left:'20px',top:(366-ch-30)+'px'});
+  carPick=el('carpick',`◂ ${carId} ▸<small>${esc(C.CARS[carId].word)}</small>`,null,{left:'20px',top:(344-ch-30)+'px'});
   const cyc=()=>{const ids=options.map(o=>o.id);let k=ids.indexOf(carId);for(let t=0;t<ids.length;t++){k=(k+1)%ids.length;const o=options[k];if(!o.disabled){carId=o.id;break;}}
    const n=nFor(carId);while(crewIds.length>n)crewIds.pop();for(const o of rank){if(crewIds.length>=n)break;if(!crewIds.includes(o.id))crewIds.push(o.id);}S.tap();drawCar();drawCards();};
   carPick.onclick=carNode.onclick=cyc;carNode.style.cursor='pointer';
@@ -112,7 +112,7 @@ export async function crewScene({pr,w,job,hints,pitcher,big,defense,lastCar}){
   crewIds.forEach((id,i)=>{
    const o=avail.find(x=>x.id===id);const g=gunOf[id];const gv=A.gunView(g);
    const c=el('card',`<div class="fc">${faceOf(o)}</div><div class="nm">${esc(o.short)}</div><div class="tr">${esc(C.TRAIT_WORD[o.traits[0]]||'')}</div>
-    <div class="wslot"><span class="gi">${A.gunImg(g,26,13)}</span><span class="wt">${esc(gv.type)}${gv.nick?`<small>${esc(gv.nick)}</small>`:''}</span></div>${big&&o.named?'<span class="skull" title="may not come back">☠</span>':''}<button class="sw" aria-label="swap ${esc(o.short)}">⇄</button>`,cards,{left:(x0+i*(cw+4))+'px',top:'374px',width:cw+'px',pointerEvents:'auto'});
+    <div class="wslot"><span class="gi">${A.gunImg(g,26,13)}</span><span class="wt">${esc(gv.type)}${gv.nick?`<small>${esc(gv.nick)}</small>`:''}</span></div>${big&&o.named?'<span class="skull" title="may not come back">☠</span>':''}<button class="sw" aria-label="swap ${esc(o.short)}">⇄</button>`,cards,{left:(x0+i*(cw+4))+'px',top:'360px',width:cw+'px',pointerEvents:'auto'});
    c.querySelector('.wslot').onclick=()=>{let k=order.indexOf(g);for(let t=0;t<order.length;t++){k=(k+1)%order.length;const cand=order[k];if(used(cand,id)<copies(cand)){gunOf[id]=cand;break;}}S.tap();drawCards();};
    c.querySelector('.sw').onclick=e=>{e.stopPropagation();openBench(i,c);};
   });
@@ -238,11 +238,13 @@ export async function arriveScene({slide,crewObjs,carId,defense,job}){
 const CLS_COL={MUSCLE:'#e0603a',SHOOTER:'#e8c14a',WHEELS:'#3fd0e0',TALKER:'#b07ae8',GHOST:'#7f8cff',DOC:'#5fe08a'};
 export async function roomScene({crewObjs,defense}){
  clear();
- el('bedwrap',A.bedBase());                       // FL-A01 base: the deep-red bed (never moves, never tinted)
+ // RC3: the frozen base already contains a hand. A second moving hand above it produced a ghost during jolt.
+ // Draw a hard-pixel quilt behind the single frozen idle hand; never modify the frozen PNGs.
+ el('bedwrap quilt');
  const flash=el('flash');
  // the RIG = phone DOM + FL-A01 idle layer + thumb overlay. JOLT shakes the rig in code; the idle layer's screen is transparent so the live chat shows through.
  const rig=el('rig');
- const phone=el('phone',`<div class="ph-head">${crewObjs.map(o=>`<div class="av">${faceOf(o)}</div>`).join('')}<span class="t">THE PLAY</span><span class="s">LIVE</span></div>`,rig);
+ const phone=el('phone',`<div class="ph-head"><span class="t">THE PLAY</span><span class="s">● LIVE</span><div class="ph-crew">${crewObjs.map(o=>`<div class="av" title="${esc(o.name)}">${faceOf(o)}</div>`).join('')}<span>CREW CHAT</span></div></div>`,rig);
  const msgs=el('msgs','',phone);
  rig.insertAdjacentHTML('beforeend',A.handIdle()+A.thumbOverlay());
  const thumb=rig.querySelector('.thumbpov');

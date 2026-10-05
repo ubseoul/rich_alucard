@@ -85,7 +85,7 @@
   const savedProgress=ctx.progress()||{};
   let rng=P.rng(params.seed||('slurp'+Date.now()));
   let jollofRamen=!!params.jollofRamen;
-  let money=0,bowlsServed=0,perfect=0,walkouts=0,tickets=[],hinaBest=params.hinaBest||savedProgress.hinaBest||0;
+  let money=0,bowlsServed=0,perfect=0,walkouts=0,tickets=[],hinaBest=params.hinaBest||savedProgress.hinaBest||0,streak=0,bestStreak=0;
   let firstShift=!!params.firstShift,tutorialDone=!firstShift;
   let step=0,bowl={broth:null,noodles:null,toppings:[]},workStart=null,kevinServesLeft=0;
   let lastOrderAt=0,startTime=performance.now(),last=startTime,ended=false,orderNo=0;
@@ -101,7 +101,7 @@
    const kevin=!firstShift&&(!tickets.length)&&rng()<(params.kevinChance!=null?params.kevinChance:0.06);
    const order=makeOrder(rng,{jollofRamen,kevin});order.no=++orderNo;if(order.kevin)kevinServesLeft=KEVIN_BOWLS;
    if(firstShift&&!tutorialDone&&tickets.length===0){order.tutorial=true;order.broth=null;order.noodles=null;order.toppings=[];order.meat=null;order.topping=null;order.label='RICH SPECIAL (???)';}
-   tickets.push(order);
+   order.patienceStart=order.tutorial?null:performance.now();tickets.push(order);
   }
   const current=()=>tickets[0]||null;
   function want(order,s){return !order||order.tutorial?null:s===0?order.broth:s===1?order.noodles:s===2?order.meat:order.topping;}
@@ -127,7 +127,8 @@
     J.burst(135,150,['#e0562a','#ffd36a','#20c66b'],24,110);J.flash('#e0562a',160);serving={until:performance.now()+450,bowl:{...bowl}};resetBowl();return;
    }
    const res=checkBowl(o,bowl),tip=o.kevin?tipFor(took)*3:tipFor(took);
-   ctx.audio?.sound('TIP_COINS');money+=6+tip;perfect++;bowlsServed++;
+   ctx.audio?.sound('TIP_COINS');money+=6+tip;perfect++;bowlsServed++;streak++;bestStreak=Math.max(bestStreak,streak);
+   if(streak%3===0){ctx.audio?.sound('COMBO_UP');J.flash('#efc16b',90);J.float(`${streak} BOWL STREAK`,135,184,{color:'#efc16b',size:7});}
    flash={text:`+$${(6+tip).toFixed(2)}${tip>=8?' · FAST!':''}`,color:P.palette.green};flashUntil=performance.now()+1100;
    J.burst(135,150,['#20c66b','#ffd36a','#f6efd9'],20,100);J.float(`+$${(6+tip).toFixed(2)}`,200,170,{color:'#20c66b',size:8,life:1,rise:34});J.ring(135,150,'#ffd36a',30);
    serving={until:performance.now()+450,bowl:{...bowl}};
@@ -136,7 +137,7 @@
   }
   function walkout(){
    const o=current();if(!o)return;
-   walkouts++;ctx.audio?.sound('MISS');J.shake(4);J.flash('#d7193f',160);
+   walkouts++;streak=0;ctx.audio?.sound('MISS');J.shake(4);J.flash('#d7193f',160);
    flash={text:'TOO SLOW — THEY LEFT',color:P.palette.red};flashUntil=performance.now()+1200;
    tickets.shift();kevinServesLeft=0;resetBowl();
    if(walkouts>=3)finishShift();
@@ -162,9 +163,10 @@
   function showEndCard(beatHina){
    const div=document.createElement('div');
    div.style.cssText='position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;background:rgba(8,7,15,.92);color:#f6efd9;font-family:"Press Start 2P",monospace;text-align:center;padding:0 20px;z-index:6';
-   div.innerHTML=`<div style="font-size:12px;color:#c18b3c">CLOCKED OUT</div>
+   div.className='slurp-shift-result';div.setAttribute('role','status');
+   div.innerHTML=`<div style="font-size:8px;color:#ff6fb5">SLURP DYNASTY · SHIFT RECEIPT</div><div style="font-size:12px;color:#efc16b">${walkouts>=3?'RUSH OVER':'CLOCKED OUT'}</div>
     <div style="font-size:9px">SERVED ${bowlsServed}</div>
-    <div style="font-size:8px">MONEY $${money.toFixed(2)}</div>
+    <div style="font-size:14px;color:#88dbad">EARNED $${money.toFixed(2)}</div><div style="font-size:7px">BEST BOWL STREAK ${bestStreak}</div>
     <div style="font-size:7px">PERFECT ${perfect} · WALKOUTS ${walkouts}</div>
     <div style="font-size:7px;color:${beatHina?'#20c66b':'#d7193f'}">HINA'S BEST: $${hinaBest.toFixed(2)} ${beatHina?'— BEATEN':''}</div>`;
    const btnRow=document.createElement('div');btnRow.style.cssText='display:flex;gap:8px;margin-top:6px';
@@ -209,7 +211,7 @@
    const need=want(o,step),tut=firstShift&&!tutorialDone&&!o.tutorial;
    for(const b of binsFor(step)){
     const flashed=flashBin&&flashBin.value===b.value&&now<flashBinUntil,bad=flashed&&flashBin.bad,good=flashed&&!flashBin.bad;
-    const hint=(o.tutorial||tut||workStart==null&&firstShift)&&(!need||need===b.value)&&Math.floor(now/300)%2===0;
+    const hint=(!need||need===b.value); // every shift: match the highlighted order row to this bin
     P.rect(g,b.x+2,b.y+2,b.w,b.h,'#10101b');P.rect(g,b.x,b.y,b.w,b.h,bad?'#d7193f':good?'#20c66b':hint?'#ffd36a':'#f6efd9');P.rect(g,b.x+3,b.y+3,b.w-6,b.h-6,'#1e1a2a');
     P.rect(g,b.x+b.w/2-14,b.y+8,28,Math.min(24,b.h-30),SWATCH[b.value]||'#d9d2c7');
     P.text(g,b.value,b.x+b.w/2,b.y+b.h-14,{size:6,color:'#f6efd9',align:'center'});
