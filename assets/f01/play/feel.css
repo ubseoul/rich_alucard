@@ -102,7 +102,7 @@ button:disabled{opacity:.4;cursor:default}
 .rig>*{pointer-events:auto}
 .rig .handpov,.rig .thumbpov{position:absolute;left:0;top:0;width:270px;height:480px;display:block;pointer-events:none}
 .rig .thumbpov{opacity:0}.rig .thumbpov.on{opacity:1}
-/* the live screen sits exactly in the FL-A01 cutout: compositor contract DOM rectangle [57,39,216,391] */
+/* Black backplate covers the original FL-A01 rectangle; live content uses the reviewed inset below. */
 .phone{position:absolute;left:57px;top:39px;width:159px;height:352px;background:#08080c;overflow:hidden}
 .ph-head{height:42px;background:#12121a;border-bottom:1px solid #222;display:flex;align-items:center;gap:6px;padding:12px 10px 0}
 .ph-head .av{width:20px;height:20px;border-radius:50%;overflow:hidden;background:#222;margin-left:-6px;border:1px solid #08080c}
@@ -320,3 +320,7 @@ button{font-family:Tiny5,"Courier New",monospace;letter-spacing:1px;border-radiu
 .card .wslot .gi{display:none}
 .card .wslot .wt{display:block;font:10px/1 Tiny5;white-space:normal}
 .card .wslot .wt small{font:10px/1 Monogram;white-space:nowrap;margin-top:2px}
+
+/* Approved candidate v6 inset: [63,52,208,380], not the original aperture. */
+.phone-content{position:absolute;left:6px;top:13px;width:145px;height:328px;background:#08080c;overflow:hidden}
+.phone-content .crew-inspect{max-height:calc(100% - 75px);box-sizing:border-box;overflow:auto}
