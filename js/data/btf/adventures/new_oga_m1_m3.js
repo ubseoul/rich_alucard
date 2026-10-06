@@ -9,14 +9,14 @@
   available:L=>m1Window(L)&&L.life.newOga.status==='unstarted'&&(L.done('A08')||L.money<40000),
   testSetup:ctx=>{ctx.RAState.patch('life.world.day',8);ctx.RAState.patch('life.newOga.status','unstarted');ctx.RAState.patch('life.adventures.records.A08',{status:'completed',count:1,completedDay:7});},
   nodes:{
-   pitch:{env:'bedroom',actors:{left:'rich'},title:'VAMPGPT · WAKE',lines:[N('Rich came to Los Angeles for music. He needs money to live while he works on that.'),S('vampgpt',"oga. you're cooking noodles for tips."),S('vampgpt',"i have an idea. you won't like it."),RC('what.'),S('vampgpt','jug the plug.'),RC('…brother. why would I jug the plug.'),S('vampgpt',"it's just an idea. you're tired of the ramen. the ramen is tired of you.")],
+   pitch:{env:'bedroom',actors:{left:'rich'},title:'VAMPGPT · WAKE',lines:[N('Rich came to Los Angeles for music. He wants his music to pay his way. VampGPT has another idea.'),S('vampgpt',"oga. you're cooking noodles for tips."),S('vampgpt',"i have an idea. you won't like it."),RC('what.'),S('vampgpt','jug the plug.'),RC('…brother. why would I jug the plug.'),S('vampgpt',"it's just an idea. you're tired of the ramen. the ramen is tired of you.")],
     choices:[{label:"WHO'S THE PLUG?",next:'brief'},{label:'NAH',next:'nah'},{label:'SAY LESS.',next:'table'}]},
    brief:{lines:[S('vampgpt','Smallie sells Blood X out of a boba shop. back table. always eating.'),S('vampgpt','cousin in the parking lot.'),N('Blood X is synthetic blood. Vampires buy it instead of hunting people. The cases are valuable because the city is hungry.'),S('vampgpt','cousin in the parking lot. easy money.'),N('Easy money is VampGPT\'s opinion. The cases belong to somebody.')],next:'table'},
    nah:{end:{outcome:'backout',fx:()=>RANewOga.backOutM1(),memory:{text:'left the NEW OGA idea alone',lane:'money'}}},
    table:{env:'boba_shop',actors:{left:'rich',right:'smallie'},title:'BOBA SHOP · BACK TABLE',lines:[E('smallie','Smallie is at the back table. the Blood X is beside him.',{narration:true}),RC("say big bro, gonna need to leave that here"),S('smallie',"please man you cant do this i need this for my student loans")],choices:[
     {label:'STICK-UP',next:'fight_smallie'},
-    {label:'SWITCH THE BAG',sub:'KIKI · COOL',when:L=>L.level('kiki')>=2,hideLocked:false,next:'switch'},
-    {label:'GRAB AND GO',when:L=>(L.life.ownership.cars||[]).length>0,hideLocked:false,next:'touge'},
+    {label:'SWITCH THE BAG',sub:'Requires Kiki friendship: COOL or closer. She keeps Smallie talking.',when:L=>L.level('kiki')>=2,hideLocked:false,next:'switch'},
+    {label:'GRAB AND GO',sub:'Requires a car for the getaway.',when:L=>(L.life.ownership.cars||[]).length>0,hideLocked:false,next:'touge'},
     {label:'BUY A BOBA AND LEAVE',next:'leave'}
    ]},
    fight_smallie:{fight:{enemy:'smallie',params:{env:'boba_shop',intro:'SMALLIE · 50 HP'},win:'cousin_arrives',lose:'table',run:'table'}},
