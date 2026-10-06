@@ -37,7 +37,7 @@
  function chapter(){return !flag('throneDone')?'Prologue':!flag('ogunsRaveCompleted')?"Ogun's Rave":L().newOga.finaleBegun?'Finale':'New Oga ladder';}
  function next(){const s=read(),m=pendingMission(),active=RAAdventures.active();let label,kind='story',app='vampgpt';
   if(active?.vars?.rc4Paused)return {id:'recovery',key:`rc4:${day()}:resume`,kind:'recovery',app:'vampgpt',label:attemptAllowed(active.id,active.node)?'RESUME STORY':'SLEEP — RETRY TOMORROW',sub:'Your checkpoint is saved.',action:'rc3:next'};
-  if(campaignComplete())return {id:'rest',key:`rc4:${day()}:rest`,kind:'rest',app:null,label:'SLEEP',sub:window.RAWriting.voiceSlots[40],action:'rc3:next'};
+  if(campaignComplete())return {id:'rest',key:`rc4:${day()}:rest`,kind:'rest',app:null,label:L().momentum.fameFired?'SLEEP':'END THE DAY',sub:L().momentum.fameFired?'Explore or rest; tomorrow advances time.':restCopy(),action:'rc3:next'};
   if(!flag('throneDone'))label='FINISH THE PROLOGUE';
   else if(!s.story&&!flag('ogunsRaveCompleted'))label="OGUN'S RAVE";
   else if(!s.story&&m&&missionReady(m))label=RAAdventures.get(m)?.title||m;
@@ -217,9 +217,9 @@
  // installs its authored momentum rules after this production policy.
  function claimsEnding(){
   const m=L().momentum;if(m.fameFired)return false;
-  if(!campaignComplete()||day()<21||RAAdventures.active())return false;
-  // User-authorized RC4 window replaces the retired optional momentum gates.
-  // Day 25 is the safety boundary; mandatory work is never manufactured or skipped.
+  if(!campaignComplete()||day()<=Number(L().newOga.lastMissionDay||0)||RAAdventures.active())return false;
+  // Delegated pacing decision: the next normal wake after real completion owns
+  // the ending. Optional postgame days never delay it or manufacture mission work.
   if(!m.fameEligible)RAState.patch('life.momentum.fameEligible',true);
   return true;
  }
@@ -229,7 +229,7 @@
  // Old saves already beyond the intended wake recover in the bedroom, even
  // with an unfinished daily job. Never interrupt or abandon an active scene.
  function recoverEnding(){
-  if(day()<21||!L().clock.started||!flag('throneDone')||
+  if(!L().clock.started||!flag('throneDone')||
    window.RAScenes?.current?.()!=='bedroom'||RAAdventures.active())return false;
   if(!claimsEnding())return false;
   window.RAFame.play();return true;

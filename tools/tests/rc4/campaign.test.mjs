@@ -50,16 +50,21 @@ export async function test(root){
   c.RANewOga.patch({m4Outcome:'walk_in',m5Completed:true,m6Completed:true,m7Completed:true,m8Resolved:true,finaleBegun:false,m10VampgptReaskDay:12,lastMissionDay:5});c.RAState.patch('life.world.day',6);G.patch({story:false});
   assert.equal(A.available('NEW_OGA_VAMPGPT'),false);assert.equal(G.next().kind,'rest');assert.equal(G.canSleep(),true);
   // Labelled completed-spine fixture: no natural playthrough claim.
-  c.RANewOga.patch({mission:11,m1Rewarded:true,m3Rewarded:true,m4Outcome:'walk_in',alternativePending:false,m5Completed:true,m6Completed:true,m7Completed:true,m8Resolved:true,m9Resolved:true,m10Completed:true,finaleBegun:true,finaleDone:true});
+  c.RANewOga.patch({mission:11,m1Rewarded:true,m3Rewarded:true,m4Outcome:'walk_in',alternativePending:false,m5Completed:true,m6Completed:true,m7Completed:true,m8Resolved:true,m9Resolved:true,m10Completed:true,finaleBegun:true,finaleDone:true,lastMissionDay:13});
   c.RAState.patch('life.momentum.fameFired',false);
-  for(const d of [20,21,22,23,24,25,37]){c.RAState.patch('life.world.day',d);assert.equal(G.claimsEnding(),d>=21,`ending day ${d}`);}
+  assert.equal(G.next().sub.includes('club done'),false,'completed campaign does not direct a forced club visit');
+  for(const d of [13,14,20,21,25,37]){c.RAState.patch('life.world.day',d);assert.equal(G.claimsEnding(),d>13,`ending on next wake, day ${d}`);}
+  assert.ok(A.start('A20',{from:'rc3-maps'}));assert.equal(G.claimsEnding(),false,'ending never interrupts an active scene');A.abandon();
   c.RANewOga.patch({m8Resolved:false});assert.equal(G.claimsEnding(),false,'overdue fallback never fabricates mandatory story');
-  c.RANewOga.patch({m8Resolved:true});c.RAState.patch('life.momentum.fameFired',true);assert.equal(G.claimsEnding(),false,'once-only ending');
+  c.RANewOga.patch({m8Resolved:true,finaleDone:false});assert.equal(G.claimsEnding(),false,'finished ladder never skips an incomplete finale');
+  c.RANewOga.patch({finaleDone:true});c.RAState.patch('life.momentum.fameFired',true);assert.equal(G.claimsEnding(),false,'once-only ending');
+  const ended=await boot(root,{seedState:plain(c.RAState.get())});assert.equal(ended.RARC3.claimsEnding(),false,'delivered ending stays once-only after reload');
+  assert.equal(ended.RARC3.next().sub,'Explore or rest; tomorrow advances time.','postgame access remains voluntary');
   // Encounter transport recovers without touching a personal garage or engine odds.
   await import(new URL('../f01/play-sim/globals.mjs',import.meta.url));
   const {prepareWorld}=await import(new URL('../../../js/frag/F01/play/adapter.mjs',import.meta.url));
   const first=prepareWorld(plain(m8.request),null);first.garage.lost.HOOPTIE={route:'DEALER'};
   const again=prepareWorld(plain(m8.request),first);assert.ok(again.garage.owned.includes('HOOPTIE'));assert.equal(again.garage.lost.HOOPTIE,undefined);
-  console.log('PASS B1 seeded campaign: carless Carlos/M8/War Room, settlement idempotency, retry/reload, live prerequisites, NAH authority, Day21–25/overdue mandatory ending gates');
+  console.log('PASS B1 seeded campaign: carless Carlos/M8/War Room, settlement idempotency, retry/reload, live prerequisites, NAH authority, next-wake/overdue mandatory ending gates');
  }finally{if(dark===undefined)delete process.env.RA_FLAGS_DARK;else process.env.RA_FLAGS_DARK=dark;}
 }
