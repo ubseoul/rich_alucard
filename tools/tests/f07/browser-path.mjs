@@ -1,6 +1,6 @@
 // F07 M8 + FINALE: real-browser smoke of the player-facing paths (not part of `npm test`; needs a browser):
-//   node tools/tests/f07/browser-path.mjs [--shots dir] [--port 8127]
-// M8: voice-note adventure UI -> GO MYSELF -> the REAL F01 PLAY iframe -> back into the adventure -> m8Resolved -> reload -> next WAKE = M9.
+//   node tools/tests/f07/browser-path.mjs [--shots dir] [--port 8127] [--m8-only]
+// M8: RC3 story dispatch -> job-text adventure UI -> GO MYSELF -> the REAL F01 PLAY iframe -> back into the adventure -> m8Resolved -> reload -> M9 eligibility.
 //     SEND THE BOYS through the UI. M8 is JOB TEXT ONLY (no voice-note UI). FINALE: lane picks (a plan without THE OGAS is refused,
 //     REMAKE THE PLAN) -> Phase 1 on F07's PLAY page (THE PARTY: AUNTIES + CANOPY POLE cards) -> Phase 2 GBENGA in the real Combat 2.0
 //     scene -> ALL THREE endings (BLESSING / CONSIGLIERE / TAKEOVER) with their distinct consequences, reload.
@@ -62,13 +62,14 @@ let code=0;
 try{
  // ---------------------------------------------------------------- M8: GO MYSELF through the real PLAY
  {
-  const p=await open();await seed(p);
+  const p=await open();await seed(p,{extra:{m1Rewarded:true,m4Outcome:'win'}});
+  await p.evaluate(()=>{RALife.setFlag('throneDone',true);RALife.setFlag('ogunsRaveCompleted',true);RARC3.patch({story:false});});
   log(await p.evaluate(()=>!!(RAF07&&RAF07Play&&RAShowdown.play&&RAAdventures.get('NEW_OGA_M8')&&RAAdventures.get('NEW_OGA_FINALE'))),'game loads F07 (M8 + finale adventures, PLAY bridge) after F01/F03/F04');
-  log(await p.evaluate(()=>RAAdventures.available('NEW_OGA_M8')&&RAWakeTriggers.pick()==='NEW_OGA_M8'),'M8 is delivered by the WAKE arbiter (priority 77)');
+  log(await p.evaluate(()=>RAAdventures.available('NEW_OGA_M8')&&RAWakeTriggers.pick()===null&&RARC3.pendingMission()==='NEW_OGA_M8'&&RARC3.next().kind==='story'),'RC3 owns eligible M8 story dispatch; legacy WAKE arbiter yields');
   const m0=await p.evaluate(()=>RALife.money()),h0=await p.evaluate(()=>RANewOga.current().heat);
-  await begin(p,'NEW_OGA_M8');await shot(p,'01_m8_job_text');
+  await p.evaluate(()=>RARC3.advance());await p.waitForFunction(()=>RAScenes.current()==='adventure'&&RAAdventures.active()?.id==='NEW_OGA_M8');log(true,'RC3.advance opens the actual M8 adventure');await shot(p,'01_m8_job_text');
   const tr0=[];await toChoices(p,tr0);const text=tr0.join('\n');
-  log(/JOB TEXT/i.test(text)&&/Koreatown/.test(text)&&/Open Mouth Gang/.test(text),'M8 is delivered as JOB TEXT (Koreatown block, Open Mouth Gang)');
+  log(/JOB TEXT/i.test(text)&&/Koreatown/i.test(text)&&/Open Mouth Gang/i.test(text),'M8 is delivered as JOB TEXT (Koreatown block, Open Mouth Gang)');
   log(!/voice/i.test(text)&&!(await p.locator('.voice, [class*=voice]').count()),'no voice-note UI or voice content in M8',(text.match(/[^\n]*voice[^\n]*/i)||[''])[0]+' | audio/voice nodes: '+await p.locator('.voice, [class*=voice]').count());
   await pick(p,'GO MYSELF');
   let outcome=null;
@@ -89,10 +90,11 @@ try{
   await p.reload();await p.click('#startButton');await p.waitForFunction(()=>window.RAScenes&&RAScenes.current()==='bedroom',null,{timeout:30000});
   const r=await p.evaluate(()=>({m8:RANewOga.current().m8Resolved,loan:RACrew.list({fragment:'F07'}).length,pending:RAF07Play.pending()}));
   log(r.m8===true&&r.pending===null,'reload: m8Resolved persists, nothing pending',JSON.stringify(r));
-  const nxt=await p.evaluate(()=>{RANewOga.patch({lastMissionDay:RALife.today().day-1});RALife.addCar({id:'toyota_supra_mk4_001',make:'X',model:'s',short:'s',price:1,value:1,parts:{}});return RAAdventures.available('NEW_OGA_M9');});
-  log(nxt===true,'F03 handoff in the real page: M9 becomes eligible after M8 resolved');
+  const nxt=await p.evaluate(()=>{RAState.patch('life.world.day',RALife.today().day+1);RALife.addCar({id:'toyota_supra_mk4_001',make:'X',model:'s',short:'s',price:1,value:1,parts:{}});return RAAdventures.available('NEW_OGA_M9')&&RARC3.pendingMission()==='NEW_OGA_M9'&&RARC3.next().kind==='story';});
+  log(nxt===true,'F03/RC3 handoff: next-day M9 becomes eligible after M8 resolved');
   await p.context().close();
  }
+ if(!process.argv.includes('--m8-only')){
  // ---------------------------------------------------------------- M8: SEND THE BOYS through the UI
  {
   const p=await open();await seed(p);const m0=await p.evaluate(()=>RALife.money());
@@ -188,6 +190,7 @@ try{
   log(r.l.finaleDone===true&&r.l.rank===6&&r.kt==='CONTROLLED'&&r.a===false&&r.tr===(E.name!=='TAKEOVER'),`${E.name}: reload keeps NEW OGA, blocks and the car state; the finale never re-arrives`);
   log(await p.evaluate(e=>RAF07.warehouseExterior().includes(e==='TAKEOVER'?'warehouse_exterior_rich_enterprises':'warehouse_exterior_270x480'),E.name),`${E.name}: exterior condition survives reload`);
   await p.context().close();
+ }
  }
  log(errs.length===0,'no console / page errors',errs.slice(0,3).join(' | '));
  code=results.every(r=>r.ok)?0:1;
