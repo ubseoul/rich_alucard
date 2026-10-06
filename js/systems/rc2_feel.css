@@ -70,6 +70,8 @@ body.rc2-title .start-overlay{background:radial-gradient(ellipse at 50% 42%,rgba
 body.rc2-title .start-card{background:none;border:0;box-shadow:none;color:#f6efd9}
 body.rc2-title .start-card .title{font-size:clamp(20px,7.2cqw,40px);letter-spacing:1px;white-space:nowrap;color:#ff3b5c;text-shadow:3px 3px 0 #17131e,0 0 14px rgba(215,25,63,.5);animation:rc2TitleFlicker 3.2s steps(1,end) infinite}
 .rc2-title-sub{font:8px/1.4 var(--font-system);color:#f0c050;margin:0 0 14px;letter-spacing:.12em;text-transform:uppercase}
+/* RC5 polish: a classic scrollbar no longer eats the phone's right edge */
+#phoneContent{scrollbar-gutter:stable both-edges}
 /* RC5 polish: stacked logo title that fits 360-430px phones */
 body.rc2-title .start-card{width:min(92%,460px)}
 body.rc2-title .start-card .title:has(.rc5-t1){white-space:normal;display:grid;justify-items:center;gap:8px;margin-bottom:12px}

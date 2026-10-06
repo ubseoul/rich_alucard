@@ -66,7 +66,7 @@
     if(!options||Object.keys(options).length===0){s.awaitingOctopus=false;say(s,'NOTHING HAPPENS.','info');return endPlayer(s);}
     say(s,'OCTOPUS BRAIN.','weird');s.awaitingOctopus=true;return s;
    }
-   if(action.id==='revenge'){let amt=s.rich.revenge*(s.rich.revengeDouble?2:1);s.rich.revenge=0;s.rich.revengeDouble=false;if(!amt){say(s,'NOTHING TO RETURN.','info');}else{s.enemy.hp=clampHp(s.enemy.hp-amt,s.enemy.max);say(s,`REVENGE: ${amt} DAMAGE REFLECTED.`,'hit',{target:'enemy',amount:amt,heavy:amt>=s.enemy.max*.2,fx:'revenge'});}return endPlayer(s);}
+   if(action.id==='revenge'){let amt=s.rich.revenge*(s.rich.revengeDouble?2:1);s.rich.revenge=0;s.rich.revengeDouble=false;if(!amt){say(s,'NO PAIN TO RETURN. TAKE A HIT FIRST.','info');}else{s.enemy.hp=clampHp(s.enemy.hp-amt,s.enemy.max);say(s,`REVENGE: ${amt} DAMAGE REFLECTED.`,'hit',{target:'enemy',amount:amt,heavy:amt>=s.enemy.max*.2,fx:'revenge'});}return endPlayer(s);}
    if(mv.effect){applyMagic(s,mv);return endPlayer(s);}
    const times=s.rich.doubleNext?2:1;s.rich.doubleNext=false;
    for(let i=0;i<times;i++){

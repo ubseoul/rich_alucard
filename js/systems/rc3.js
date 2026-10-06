@@ -48,8 +48,8 @@
   else if(!s.story&&m&&!missionReady(m)){label='SLEEP — STORY RETURNS TOMORROW';kind='rest';app=null;}
   else if(!s.story){label='FINISH TODAY’S STORY';kind='story';}
   else {label='END THE DAY';kind='rest';app=null;}
-  const sub=kind==='rest'?(s.story?'Story done. A game progression bonus may settle when you sleep. Stay out if you want.':'No story ready tonight. Explore or rest; tomorrow advances time.'):
-   !flag('throneDone')?'Get out of the ocean. Then deal with the throne.':!flag('ogunsRaveCompleted')?'Your invite is ready. Meet the city before taking work.':'One assignment. Its choices and consequences carry forward.';
+  const sub=kind==='rest'?(s.story?'Story done. A game progression bonus may settle when you sleep. Stay out if you want.':'nothing on the books tonight. roam or sleep.'):
+   !flag('throneDone')?'get out the ocean. then handle the throne.':!flag('ogunsRaveCompleted')?'ogun throwing a rave. pull up before you clock in.':'one job today. what you choose follows you.';
   return {id:kind,key:`rc3:${day()}:${label}`,kind,app,label,sub,action:'rc3:next'};
  }
  async function advance(){const n=next();
@@ -130,19 +130,19 @@
   const picks=[];
   if(ready.length){const id=ready[(day()-1)%ready.length],purpose={A43:'FOOD · meet the auntie; bring home a malt',YAM:'HOME · buy a yam and cook it',FUFU:'FAMILY · learn the rule, choose your way',AUNTIES:'SOCIAL · face the council',PLATES:'CREW · share the plates',A19:'CREW · trouble at the food court',JOLLOF_WARS:'COOK · put your jollof to the test',A54:'COOK · the final awaits',A56:'FOOD · follow the win',A20:'TRAIN · check in with Phil'};
    picks.push({label:RAAdventures.get(id).title,sub:purpose[id],action:'rc3:map:'+id});}
-  if(day()%3===1&&RAAdventures.available(RAAdventures.isDone('A08')?'SLURP':'A08'))picks.push({label:'RAMEN SHIFT',sub:'EARN · work a shift; keep its actual pay',action:'rc3:activity:ramen'});
+  if(day()%3===1&&RAAdventures.available(RAAdventures.isDone('A08')?'SLURP':'A08'))picks.push({label:'RAMEN SHIFT',sub:'EARN · clock in, keep what you make',action:'rc3:activity:ramen'});
   if(day()%3===2)picks.push({label:'JDM / YOUR GARAGE',sub:RALife.ownedCars().length?'OWNED · select your car and drive':'GOAL · save for a car you can keep and drive',action:'app:jdmImports'});
   if(day()%3===0&&window.RAIronAndGrace?.ownedGuns?.().length)picks.push({label:'RANGE DAY',sub:'SKILL · practice with your owned gun',action:'app:armory'});
-  if(!picks.length&&RAAdventures.available(RAAdventures.isDone('A08')?'SLURP':'A08'))picks.push({label:'RAMEN SHIFT',sub:'EARN · optional work, no nightly quota',action:'rc3:activity:ramen'});
+  if(!picks.length&&RAAdventures.available(RAAdventures.isDone('A08')?'SLURP':'A08'))picks.push({label:'RAMEN SHIFT',sub:'EARN · optional. nobody counting',action:'rc3:activity:ramen'});
   return '<section class="rc4-day-options"><p class="phone-speaker">YOUR TIME · OPTIONAL</p>'+picks.slice(0,2).map(x=>api.button('<strong>'+api.esc(x.label)+'</strong><small>'+api.esc(x.sub)+'</small>',x.action,'rc4-opportunity')).join('')+
-   (window.RAStripClub?.isOpen?.()?api.button('STRIP CLUB <small>SOCIAL · your budget, your choice</small>','app:stripClub','rc4-opportunity'):'')+
-   (canSleep()&&next().kind!=='rest'?api.button('REST INSTEAD <small>Advance one day. No story pay for skipped work.</small>','rc3:rest','rc4-opportunity'):'')+'</section>';
+   (window.RAStripClub?.isOpen?.()?api.button('STRIP CLUB <small>SOCIAL · your money, your problem</small>','app:stripClub','rc4-opportunity'):'')+
+   (canSleep()&&next().kind!=='rest'?api.button('REST INSTEAD <small>skip to tomorrow. skipped work dont pay.</small>','rc3:rest','rc4-opportunity'):'')+'</section>';
  }
  async function activityGo(id){if(id==='rest'){await RAPhone.close();return RABedroomLife.confirmBed();}
   if(id!=='ramen')return false;const adventure=RAAdventures.isDone('A08')?'SLURP':'A08';
   if(!RAAdventures.available(adventure))return false;await RAPhone.close();return RAAdventureScene.begin(adventure,{from:'rc3-activity'});
  }
- function mapsMarkup(api){releaseMap();return `<h1>MAPS</h1><p class="phone-small">Food, familiar faces and trouble worth leaving home for. Pick an outing or keep the night to yourself.</p>${[...MAPS,...SOCIAL].filter(id=>RAAdventures.available(id)).map(id=>api.button(api.esc(RAAdventures.get(id).title),`rc3:map:${id}`)).join('')||'<p>No outing ready tonight.</p>'}${api.button('HOME','home','phone-home')}`;}
+ function mapsMarkup(api){releaseMap();return `<h1>MAPS</h1><p class="phone-small">food, family and trouble worth leaving the castle for.</p>${[...MAPS,...SOCIAL].filter(id=>RAAdventures.available(id)).map(id=>api.button(api.esc(RAAdventures.get(id).title),`rc3:map:${id}`)).join('')||'<p>nothing popping tonight.</p>'}${api.button('HOME','home','phone-home')}`;}
  async function mapGo(id){if(![...MAPS,...SOCIAL].includes(id)||!RAAdventures.available(id))return false;await RAPhone.close();return RAAdventureScene.begin(id,{from:'rc3-maps'});}
  function phoneRoute(id){return APPS.includes(id)||id==='jdmImports'||id==='cars';}
  function phoneAction(name){if(name.startsWith('app:'))return phoneRoute(name.split(':')[1]);if(name.startsWith('do:'))return phoneRoute(name.split(':')[1]);
