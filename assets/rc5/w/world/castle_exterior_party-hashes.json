@@ -1,0 +1,26 @@
+[
+  {
+    "file": "castle_exterior_party_1x.png",
+    "sha256": "42f20de7680247693e707cda81c0aaf1600a298d3acfb62a354e34f08b801ce4"
+  },
+  {
+    "file": "castle_exterior_party_2x.png",
+    "sha256": "294a1b776e2c7a07b49b16c824bb7f18610832d3f7ce509b3994f78f067de13e"
+  },
+  {
+    "file": "export-validation.json",
+    "sha256": "9956d36072a03f45f2d13d12812fa584517440a2d57300274c2978bed43d3dac"
+  },
+  {
+    "file": "generator-original.png",
+    "sha256": "b8751ae8faad9f6c6bc0dbd3ca39ac2a54e56e8b0ab4a0f688a2225604240129"
+  },
+  {
+    "file": "manifest.json",
+    "sha256": "5a7d051a23c8c3b0ea57bbb83f01dc5370c5c4d90159afcd0ba8b39a55a01bb0"
+  },
+  {
+    "file": "source-prompt.txt",
+    "sha256": "a49a0ee88d7a1a508694d0cb72be73a1fbf73a9d5aa0b2f30be1bc5caa9a71d7"
+  }
+]
