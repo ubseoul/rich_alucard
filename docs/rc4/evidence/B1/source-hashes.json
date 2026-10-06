@@ -1,0 +1,67 @@
+[
+  {
+    "index": 3,
+    "source_id": "art-department-asset-register-json",
+    "path": "art_department/ASSET_REGISTER.json",
+    "previous_commit": "0c6ccc3d18674c713a0a6e5896fe6ecbf7f7bc0f",
+    "previous_registered_sha256": "3fc8e6d7d45e20d58915cc81089b09ab8510fd86e413818d758937a4aecd0d39",
+    "previous_commit_sha256": "3fc8e6d7d45e20d58915cc81089b09ab8510fd86e413818d758937a4aecd0d39",
+    "verified_runtime_commit": "c9c273ff91a417d7953b30e718421339edd98c01",
+    "verified_runtime_sha256": "24bfa73960a035d7b1c0348183422ee913fb67d2bb84b4a87d83ebc742ff3fa1",
+    "checkout_lf_equals_base": true,
+    "authority": "AUTHORITATIVE",
+    "change": "metadata only; accepted exact RC4 base file bytes unchanged"
+  },
+  {
+    "index": 52,
+    "source_id": "art-department-start-here-md",
+    "path": "art_department/START_HERE.md",
+    "previous_commit": "0c6ccc3d18674c713a0a6e5896fe6ecbf7f7bc0f",
+    "previous_registered_sha256": "5f3a384f4edfe482e01750e673a088943a7589208e121ad51a09dcdb72a38c63",
+    "previous_commit_sha256": "5f3a384f4edfe482e01750e673a088943a7589208e121ad51a09dcdb72a38c63",
+    "verified_runtime_commit": "c9c273ff91a417d7953b30e718421339edd98c01",
+    "verified_runtime_sha256": "040e18380d0d888cfcfc6fcac4038d5d07788288839cbedaf1ff328ee0fe258c",
+    "checkout_lf_equals_base": true,
+    "authority": "SUPPORTING",
+    "change": "metadata only; accepted exact RC4 base file bytes unchanged"
+  },
+  {
+    "index": 76,
+    "source_id": "docs-btf-content-authoring-md",
+    "path": "docs/btf/CONTENT_AUTHORING.md",
+    "previous_commit": "2e6a446539aafeb04fb2e8e18747be58c0cdd063",
+    "previous_registered_sha256": "0464c47569d87babc764c6da9340ba88dcb8ad7c52a644e0afc8d1431213e536",
+    "previous_commit_sha256": "0464c47569d87babc764c6da9340ba88dcb8ad7c52a644e0afc8d1431213e536",
+    "verified_runtime_commit": "c9c273ff91a417d7953b30e718421339edd98c01",
+    "verified_runtime_sha256": "3d0eda2dd0001310539c33408262db74a55bbdae276d54ba7d8a3bdce91624d3",
+    "checkout_lf_equals_base": true,
+    "authority": "SUPPORTING",
+    "change": "metadata only; accepted exact RC4 base file bytes unchanged"
+  },
+  {
+    "index": 144,
+    "source_id": "f07-safe-reserved-scaffold",
+    "path": "js/if1/features.js",
+    "previous_commit": "2e6a446539aafeb04fb2e8e18747be58c0cdd063",
+    "previous_registered_sha256": "8f4360257842f6d41690cb6bc352ba404739e832a2de03dc2d04792f47f8e784",
+    "previous_commit_sha256": "8f4360257842f6d41690cb6bc352ba404739e832a2de03dc2d04792f47f8e784",
+    "verified_runtime_commit": "c9c273ff91a417d7953b30e718421339edd98c01",
+    "verified_runtime_sha256": "328a10ef76e97ed73c812056c5fbc03e0773ce5bf99c02065606e07b65900b89",
+    "checkout_lf_equals_base": true,
+    "authority": "HISTORICAL",
+    "change": "metadata only; accepted exact RC4 base file bytes unchanged"
+  },
+  {
+    "index": 161,
+    "source_id": "t10-existing-job-specs",
+    "path": "js/frag/F01/play/content.mjs",
+    "previous_commit": "2e6a446539aafeb04fb2e8e18747be58c0cdd063",
+    "previous_registered_sha256": "3dc0910e91bb3f7e32173c535125787f4f680dde0ea6a5067c5da1e29c37cddd",
+    "previous_commit_sha256": "3dc0910e91bb3f7e32173c535125787f4f680dde0ea6a5067c5da1e29c37cddd",
+    "verified_runtime_commit": "c9c273ff91a417d7953b30e718421339edd98c01",
+    "verified_runtime_sha256": "80f19da16a8a7ac45efa58b0d2f045108acdac4dd90538f476d96ee3056d890b",
+    "checkout_lf_equals_base": true,
+    "authority": "SUPPORTING",
+    "change": "metadata only; accepted exact RC4 base file bytes unchanged"
+  }
+]

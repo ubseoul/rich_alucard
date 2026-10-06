@@ -11,7 +11,9 @@
  const patch=v=>{const s={...read(),...v};RALife.setFlag('rc3Day',s);return s;};
  const dancer=id=>!!window.RAF15?.parse?.(id);
  function allowed(id){return id==='A00'||id==='RC3_FIGHT'||MISSIONS.includes(id)||MAPS.includes(id)||UTILITY.includes(id)||dancer(id);}
- function canStart(id,from){if(!allowed(id))return false;if(MAPS.includes(id))return from==='rc3-maps'||RAAdventures.active()?.id===id;
+ function canStart(id,from){if(!allowed(id))return false;if(RAAdventures.active()?.id===id)return true;
+  if(MAPS.includes(id))return (from==='rc3-maps'||(from==='chain'&&id==='A56'&&RAAdventures.isDone('A54')))&&RAAdventures.available(id);
+  if(MISSIONS.includes(id))return RAAdventures.available(id);
   if(id==='DATE')return false;return true;}
  function pendingMission(){const s=L().newOga;
   if(!s.m1Rewarded)return 'NEW_OGA_M1';
@@ -30,10 +32,13 @@
   return null;
  }
  function chapter(){return !flag('throneDone')?'Prologue':!flag('ogunsRaveCompleted')?"Ogun's Rave":L().newOga.finaleBegun?'Finale':'New Oga ladder';}
- function next(){const s=read(),m=pendingMission();let label,kind='story',app='vampgpt';
+ function next(){const s=read(),m=pendingMission(),active=RAAdventures.active();let label,kind='story',app='vampgpt';
+  if(active?.vars?.rc4Paused)return {id:'recovery',key:`rc4:${day()}:resume`,kind:'recovery',app:'vampgpt',label:attemptAllowed(active.id,active.node)?'RESUME STORY':'SLEEP — RETRY TOMORROW',sub:'Your checkpoint is saved.',action:'rc3:next'};
+  if(campaignComplete())return {id:'rest',key:`rc4:${day()}:rest`,kind:'rest',app:null,label:'SLEEP',sub:window.RAWriting.voiceSlots[40],action:'rc3:next'};
   if(!flag('throneDone'))label='FINISH THE PROLOGUE';
   else if(!s.story&&!flag('ogunsRaveCompleted'))label="OGUN'S RAVE";
-  else if(!s.story&&m&&day()>Number(L().newOga.lastMissionDay||0))label=RAAdventures.get(m)?.title||m;
+  else if(!s.story&&m&&missionReady(m))label=RAAdventures.get(m)?.title||m;
+  else if(!s.story&&m&&!missionReady(m)){label='SLEEP — STORY RETURNS TOMORROW';kind='rest';app=null;}
   else if(!s.story){label='FINISH TODAY’S STORY';kind='story';}
   else if(!s.action){label='FIGHT · PROTECT THE CREW';kind='action';}
   else if(!s.paid){label='COLLECT CASH';kind='cash';app='bank';}
@@ -42,6 +47,7 @@
   return {id:kind,key:`rc3:${day()}:${label}`,kind,app,label,sub:window.RAWriting.voiceSlots[{story:36,action:37,cash:38,club:39,rest:40}[kind]],action:'rc3:next'};
  }
  async function advance(){const n=next();
+  if(n.kind==='recovery'){const a=RAAdventures.active();if(!attemptAllowed(a.id,a.node))return RABedroomLife.goToSleep();RAAdventures.context().set('rc4Paused',false);return RAAdventureScene.resume();}
   if(n.label==='FINISH THE PROLOGUE')return RANewGame.onStart();
   if(n.label==="OGUN'S RAVE"){patch({moneyBefore:RALife.money()});RALife.setFlag('ogunsRaveInvited',true);return RAOgunRave.begin();}
   if(n.kind==='story'){const id=pendingMission();patch({moneyBefore:RALife.money()});await RAPhone?.close?.();return RAAdventureScene.begin(id,{from:'rc3-story'});}
@@ -57,7 +63,26 @@
   const amount=Math.max(0,15000-earned);if(amount)window.RAMoneyLedger?.credit?RAMoneyLedger.credit(amount,{source:'rc3:story'}):RALife.addMoney(amount);
   patch({paid:true,cash:amount});RAState.recordEvent({id:`rc3:cash:${day()}`,type:'rc3_story_cash',day:day(),amount});return true;
  }
- const canSleep=()=>read().paid&&flag('stripClubLastDay')===day();
+ const canSleep=()=>campaignComplete()||!!RAAdventures.active()?.vars?.rc4Paused||(!read().story&&!!pendingMission()&&!missionReady(pendingMission()))||(read().paid&&flag('stripClubLastDay')===day());
+ // B1 settlement contract: only a returned, validated COMPLETE PLAY earns credit.
+ // Receipts are keyed by request, not UI entry; cancel/refusal/reload cannot farm it.
+ function settlePlay(result,summary){
+  if(result?.status!=='COMPLETE'||!result.requestId||summary?.errors?.length||summary?.day!==day())return false;
+  const seen={...(flag('rc4PlayCredit')||{})};if(seen[result.requestId])return false;
+  seen[result.requestId]=day();RALife.setFlag('rc4PlayCredit',seen);patch({action:true});return true;
+ }
+ const attemptKey=(id,node)=>`${id}:${node}`;
+ const attempts=()=>flag('rc4Attempts')?.day===day()?flag('rc4Attempts'):{day:day(),failures:{}};
+ function attemptAllowed(id,node){return Number(attempts().failures[attemptKey(id,node)]||0)<2;}
+ function settleAttempt(id,node,result){
+  if(result?.quit||result?.error||['quit','cancel','refused'].includes(result?.outcome)||result?.data?.refused)return 'paused';
+  if(['lose','fail'].includes(result?.outcome)){const a=attempts(),k=attemptKey(id,node);RALife.setFlag('rc4Attempts',{day:day(),failures:{...a.failures,[k]:Number(a.failures[k]||0)+1}});}
+  return 'settled';
+ }
+ function suspend(){if(RAAdventures.active())RAAdventures.context().set('rc4Paused',true);}
+ function missionReady(id){const s=L().newOga;if(day()<=Number(s.lastMissionDay||0))return false;
+  if(id==='NEW_OGA_VAMPGPT'&&s.m10VampgptReaskDay!=null&&day()<s.m10VampgptReaskDay)return false;return true;
+ }
  const storyEvent=id=>id==='ogun_rave_invite_001'&&!flag('ogunsRaveCompleted');
  function showMorning(layer,el){const n=next(),wrap=el('div','morning-mail');wrap.style.pointerEvents='auto';
   wrap.append(el('h2',null,`DAY ${day()}`));if(day()===1)wrap.append(el('p','phone-chat',`<b>RICH</b> ${window.RAWriting.voice(1)}`));const b=el('button','mail-card',`<b>${n.label}</b>${chapter()}`);b.type='button';b.addEventListener('click',()=>{wrap.remove();RAPhone.openApp('vampgpt');});
@@ -68,7 +93,7 @@
  function phoneRoute(id){return APPS.includes(id);}
  function phoneAction(name){if(name.startsWith('app:'))return phoneRoute(name.split(':')[1]);if(name.startsWith('do:'))return phoneRoute(name.split(':')[1]);
   if(name.startsWith('go:')||name.startsWith('tempt:')||['money','people','jdmImports','realEstate','atlanta','tokyo','letsGo','butterChicken'].includes(name))return false;return true;}
- window.RARC3={apps:APPS,maps:MAPS,missions:MISSIONS,utility:UTILITY,allowed,canStart,pendingMission,chapter,next,advance,read,patch,claimCash,canSleep,storyEvent,showMorning,mapsMarkup,mapGo,phoneRoute,phoneAction};
+ window.RARC3={apps:APPS,maps:MAPS,missions:MISSIONS,utility:UTILITY,allowed,canStart,pendingMission,chapter,next,advance,read,patch,claimCash,canSleep,storyEvent,showMorning,mapsMarkup,mapGo,phoneRoute,phoneAction,settlePlay,attemptAllowed,settleAttempt,suspend,missionReady};
  // Existing saves get the same nine functional entry points without waiting for another wake.
  for(const id of APPS)RALife.unlockApp(id,{silent:true});RALife.setFlag('armoryKnown',true);
  // The existing app registry stays available to its owners, while only these nine tiles render.
@@ -78,15 +103,22 @@
  const ack=new Set();window.RAGuidance={next,story:()=>[next()],cash:()=>[],spend:()=>[],recommended:()=>[next()],steps:()=>['prologue','rave',...MISSIONS,'fight','cash','club','sleep'],
   opened:id=>ack.add(`${day()}:${id}:${next().key}`),target:()=>{const n=next();return n.app&&!ack.has(`${day()}:${n.app}:${n.key}`)?{app:n.app,key:n.key,item:n}:null;},pulsing:id=>{const t=window.RAGuidance.target();return t?.app===id;}};
  // Optional scenes no longer need completion of a cut adventure to appear in Maps.
- for(const id of MAPS){const d=RAAdventures.get(id);if(d)d.available=()=>true;}
- for(const id of MISSIONS){const d=RAAdventures.get(id);if(d)d.available=()=>flag('ogunsRaveCompleted')&&!read().story&&pendingMission()===id&&day()>Number(L().newOga.lastMissionDay||0);}
+ // B1 retains live story prerequisites. B2 owns only explicit cut-dependency substitutions.
+ for(const id of MAPS){const d=RAAdventures.get(id);if(d){const original=d.available;d.available=L=>original?original(L):true;}}
+ const phil=RAAdventures.get('A20');if(phil)phil.available=L=>L.day>18&&!L.flag('phil3Done')&&L.flag('philLastDay')!==L.day;
+ const smack=RAAdventures.get('A56');if(smack)smack.available=()=>RAAdventures.record('A54')?.outcome==='win';
+ for(const id of MISSIONS){const d=RAAdventures.get(id);if(d)d.available=()=>flag('ogunsRaveCompleted')&&!read().story&&pendingMission()===id&&missionReady(id);}
  const prologue=RAAdventures.get('A00');if(prologue){prologue.nodes.fall1.next='sensei_point';prologue.nodes.sensei_point.next='brain_offer';prologue.nodes.brain_done.next='fork';}
  // Preserve the main ladder: remove early arc-ending choices.
  const m1=RAAdventures.get('NEW_OGA_M1'),m2=RAAdventures.get('NEW_OGA_M2');
  if(m1){m1.nodes.pitch.choices=m1.nodes.pitch.choices.filter(c=>c.next!=='nah');m1.nodes.table.choices=m1.nodes.table.choices.filter(c=>c.next!=='leave');}
  if(m2)m2.nodes.debt.choices=m2.nodes.debt.choices.filter(c=>c.next==='work');
  // A vehicle is no longer a shopping prerequisite. Gbenga supplies transport for this assignment.
- const m4=RAAdventures.get('NEW_OGA_M4');if(m4){m4.nodes.beat3.lines=[RAContent.N("uncles rental van headed to koreatown free ride finally")];m4.nodes.run.lines=[RAContent.N("carlos running rich in uncles van making it look close")];}
+ const m4=RAAdventures.get('NEW_OGA_M4');if(m4){m4.nodes.beat3.lines=[RAContent.N("uncles rental van headed to koreatown free ride finally")];m4.nodes.run.lines=[RAContent.N("carlos running rich in uncles van making it look close")];
+  // Use the existing neutral Touge handling profile for the authored rental van.
+  // It is encounter data, never an owned Supra or acquisition reward.
+  m4.nodes.run.minigame.params=()=>({course:'warehouse_alleys',car:'supra',durationSeconds:RANewOgaTunables.m4.ESCAPE_DURATION_SECONDS,escapeRunner:'Carlos'});
+ }
  const m9=RAAdventures.get('NEW_OGA_M9');if(m9){for(const c of m9.nodes.choice.choices)if(c.next==='give')c.when=()=>RALife.ownedCars().length>0;}
  // A short mandatory crew fight fills dialogue-only days. Existing fighter/art/rules; no optional outing is pushed.
  RAAdventures.define({id:'RC3_FIGHT',title:'PROTECT THE CREW',lane:'combat',repeatable:true,available:()=>!read().action,start:'brief',nodes:{
@@ -98,7 +130,7 @@
  // Count real successful fights/PLAYs, including those inside the authored mission.
  const afterFight=RAAdventures.afterFight,afterPlay=RAAdventures.afterMinigame;
  RAAdventures.afterFight=function(node,result){if(MISSIONS.includes(RAAdventures.active()?.id)||RAAdventures.active()?.id==='RC3_FIGHT')if(['win','spared'].includes(result?.outcome))patch({action:true});return afterFight(node,result);};
- RAAdventures.afterMinigame=function(node,result){if(MISSIONS.includes(RAAdventures.active()?.id)&&!result?.quit&&!result?.error&&!['lose','fail','cancel'].includes(result?.outcome))patch({action:true});return afterPlay(node,result);};
+ RAAdventures.afterMinigame=function(node,result){if(MISSIONS.includes(RAAdventures.active()?.id)&&!result?.quit&&!result?.error&&!result?.data?.refused&&!['lose','fail','cancel','quit','refused'].includes(result?.outcome))patch({action:true});return afterPlay(node,result);};
  document.addEventListener('ra:adventure-complete',e=>{if(MISSIONS.includes(e.detail?.id))patch({story:true});});
  document.addEventListener('ra:scene',e=>{if(e.detail?.id==='bedroom'){
   if(flag('ogunsRaveCompleted')&&!flag('rc3RaveRecorded')){RALife.setFlag('rc3RaveRecorded',true);patch({story:true});}
@@ -113,15 +145,19 @@
  // installs its authored momentum rules after this production policy.
  function claimsEnding(){
   const m=L().momentum;if(m.fameFired)return false;
-  if(!m.fameEligible&&!window.RAFame?.eligible?.()&&day()<36)return false;
+  if(!campaignComplete()||day()<21||RAAdventures.active())return false;
+  // User-authorized RC4 window replaces the retired optional momentum gates.
+  // Day 25 is the safety boundary; mandatory work is never manufactured or skipped.
   if(!m.fameEligible)RAState.patch('life.momentum.fameEligible',true);
   return true;
  }
+ function campaignComplete(){const s=L().newOga;return !!flag('throneDone')&&!!flag('ogunsRaveCompleted')&&!!s.m1Rewarded&&s.mission>=3&&!!s.m4Outcome&&!s.alternativePending&&!!s.m5Completed&&!!s.m6Completed&&!!s.m7Completed&&!!s.m8Resolved&&!!s.m9Resolved&&(!!s.m10Completed||!!s.m9GrantsWithheld)&&!!s.finaleBegun&&!!s.finaleDone;}
+ RARC3.campaignComplete=campaignComplete;RARC3.claimsEnding=claimsEnding;
  if(window.RAFame)RAFame.claimsWake=claimsEnding;
  // Old saves already beyond the intended wake recover in the bedroom, even
  // with an unfinished daily job. Never interrupt or abandon an active scene.
  function recoverEnding(){
-  if(day()<36||!L().clock.started||!flag('throneDone')||
+  if(day()<21||!L().clock.started||!flag('throneDone')||
    window.RAScenes?.current?.()!=='bedroom'||RAAdventures.active())return false;
   if(!claimsEnding())return false;
   window.RAFame.play();return true;

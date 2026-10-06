@@ -5,7 +5,7 @@ import {boot as base} from '../tests/f15/_lib.mjs';
 import {run} from '../tests/if1/_lib.mjs';
 import {F01_FILES,F04_FILES} from '../tests/F04/_lib.mjs';
 import {F02_FILES} from '../tests/F02/_lib.mjs';
-export async function boot(root){const c=await base(root);c.setInterval=()=>0;
+export async function boot(root,opts={}){const c=await base(root,opts);c.setInterval=()=>0;
  await run(root,c,[...F01_FILES,'js/frag/F02/migrations.js',...F02_FILES,'js/frag/F03/new_oga_ladder_close.js',...F04_FILES,...['tunables','play_bridge','gbenga_combat','m8_and_finale'].map(f=>`js/frag/F07/${f}.js`)]);
  c.RAFeatures.set('F02.iron_and_grace',true);c.RAFeatures.set('F02.armory',true);await run(root,c,['js/systems/rc3.js']);return c;}
 export async function test(root){
@@ -13,12 +13,13 @@ export async function test(root){
  assert.equal(G.apps.length,9);assert.equal(new Set(G.apps).size,9);assert.equal(G.maps.length,20);
  c.RAFeatures.set('F05.trap',true);assert.equal(c.RAFeatures.enabled('F05.trap'),false,'cut survives flag override');
  for(const d of A.all())if(!G.allowed(d.id)){assert.equal(A.available(d.id),false,d.id);assert.equal(A.start(d.id),false,d.id);}
- for(const id of G.maps){assert.equal(A.start(id,{from:'phone'}),false);assert.equal(A.start(id,{from:'wake'}),false);assert.ok(A.start(id,{from:'rc3-maps'}),id);A.abandon();}
+ for(const id of G.maps){assert.equal(A.start(id,{from:'phone'}),false);assert.equal(A.start(id,{from:'wake'}),false);if(A.available(id))assert.ok(A.start(id,{from:'rc3-maps'}),id);else assert.equal(A.start(id,{from:'rc3-maps'}),false,id);A.abandon();}
  assert.equal(c.RAWakeTriggers.pick(),null);assert.equal(G.phoneRoute('instahoe'),false);assert.equal(G.phoneRoute('trap'),false);
  c.RALife.setFlag('throneDone',true);assert.equal(G.next().label,"OGUN'S RAVE");
  c.RALife.setFlag('ogunsRaveCompleted',true);c.RAState.patch('life.world.day',2);assert.equal(G.pendingMission(),'NEW_OGA_M1');assert.ok(A.available('NEW_OGA_M1'),'ramen/cash prerequisite retired');
  // Canonical mission consequences, no optional friends/car/Trap prerequisites, one beat per day.
- const finish=[()=>c.RANewOga.completeM1('STICK_UP'),()=>c.RANewOga.workOffM2(),()=>c.RANewOga.completeM3('complete'),()=>c.RANewOga.completeM4('walk_in'),()=>c.RANewOga.completeM5({outcome:'SUCCESS',amountCaught:30000}),()=>c.RANewOga.completeM6({walked:true}),()=>c.RANewOga.completeM7('take'),()=>c.RAF07.completeM8('win'),()=>c.RANewOgaLadder.completeM9('nah'),()=>c.RANewOgaLadder.completeM10(),()=>c.RANewOgaLadder.completeVampgpt('say_less')];
+ c.RALife.addCar({id:c.RACars.SUPRA,short:'SUPRA'}); // explicit grant-path fixture; carless NAH is tested by B1
+ const finish=[()=>c.RANewOga.completeM1('STICK_UP'),()=>c.RANewOga.workOffM2(),()=>c.RANewOga.completeM3('complete'),()=>c.RANewOga.completeM4('walk_in'),()=>c.RANewOga.completeM5({outcome:'SUCCESS',amountCaught:30000}),()=>c.RANewOga.completeM6({walked:true}),()=>c.RANewOga.completeM7('take'),()=>c.RAF07.completeM8('win'),()=>c.RANewOgaLadder.completeM9('give'),()=>c.RANewOgaLadder.completeM10(),()=>c.RANewOgaLadder.completeVampgpt('say_less')];
  const spine=['NEW_OGA_M1','NEW_OGA_M2','NEW_OGA_M3','NEW_OGA_M4','NEW_OGA_M5','NEW_OGA_M6','NEW_OGA_M7','NEW_OGA_M8','NEW_OGA_M9','NEW_OGA_M10','NEW_OGA_VAMPGPT'];
  const economy=[];for(let i=0;i<spine.length;i++){
   assert.equal(G.pendingMission(),spine[i]);assert.ok(A.available(spine[i]),spine[i]);const before=c.RALife.money();G.patch({moneyBefore:before});finish[i]();G.patch({story:true,action:true});assert.equal(G.next().kind,'cash');G.claimCash();const paid=c.RALife.money();assert.ok(paid-before>=15000,'nightly club reserve');assert.equal(G.claimCash(),false,'no duplicate credit');

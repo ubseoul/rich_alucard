@@ -78,9 +78,12 @@
   // keeps its world under its own storage namespace, so the vehicle can never become a persisted loaner, a lost car or a recovery card.
   // M8 and every ordinary F01 request keep F01's normal car rules.
   const g=kind==='finale_p1'?{owned:['HOOPTIE'],map:{}}:garage();
+  // B1: required M8 always offers the existing four-seat crew transport.
+  // A two-seat personal S2000 must not strand the three loan boys either.
+  if(kind==='m8'&&!g.owned.includes('HOOPTIE'))g.owned.push('HOOPTIE');
   const req={schema:window.RAPlayContract.REQUEST_SCHEMA,version:window.RAPlayContract.VERSION,requestId,seed:hashSeed(requestId),day:day(),
    job:{f01JobId:jobFor(kind),f04Type:'TAKE_THE_BLOCK',district:kind==='m8'?'koreatown':null,districtLabel:kind==='m8'?'KOREATOWN':null,handBack:false},
-   roster:roster(kind),garage:{owned:g.owned},bank:money(),heat:window.RAHeat?window.RAHeat.global():0,rosterCap:8,
+   roster:roster(kind),garage:{owned:g.owned,encounter:['HOOPTIE']},bank:money(),heat:window.RAHeat?window.RAHeat.global():0,rosterCap:8,
    dayOneThreshold:window.RAWarRoomCrew?.DAY_ONE_THRESHOLD||3};
   return {ok:true,request:req,carMap:g.map,seq,kind};
  }
@@ -100,7 +103,7 @@
  }
  function consume(result){
   const pending=rd(`${K}.pending`,null),consumed=rd(`${K}.consumed`,{});
-  if(result&&consumed[result.requestId]){if(pending?.request.requestId===result.requestId)wr(`${K}.pending`,null);return {ok:true,duplicate:true,...consumed[result.requestId]};}
+  if(result&&consumed[result.requestId]){if(pending?.request.requestId===result.requestId)wr(`${K}.pending`,null);window.RARC3?.settlePlay?.(result,consumed[result.requestId]);return {ok:true,duplicate:true,...consumed[result.requestId]};}
   if(!pending||!result||result.requestId!==pending.request.requestId)return {ok:false,code:'NOT_PENDING'};
   const valid=window.RAPlayContract.validateResult(result);
   if(!valid.ok){wr(`${K}.pending`,null);wr(`${K}.lastRefusal`,{day:day(),code:'BAD_RESULT',reason:valid.errors.join('; ')});return {ok:false,code:'BAD_RESULT',errors:valid.errors};}
@@ -119,11 +122,12 @@
    safe(errors,'car',()=>{if(result.car.id&&!result.car.lost&&cm?.[result.car.id])window.RAVehicles.recordDrive(cm[result.car.id],{by:1});});
    Object.assign(summary,{win:!!result.outcome.win,klass:result.outcome.klass||null,crew:ids});
   }
-  if(result.status==='DECLINED')summary.cashSpent=safe(errors,'spent',()=>{const n=Math.min(Math.max(0,Math.round(result.cash?.spent||0)),money());if(n>0)window.RAMoneyLedger?window.RAMoneyLedger.debit(n,{source:'new_oga:f07:play:spent'}):window.RALife.addMoney(-n);return n;})||0;
+  // B1: abandoning the offer is not a settled attempt and has no host penalty.
   if(result.status==='DECLINED')Object.assign(summary,{refused:true,code:'DECLINED',reason:'the offer was declined'});  // declining the PLAY resolves nothing
   const c2=rd(`${K}.consumed`,{});c2[result.requestId]={...summary,errors};
   const keys=Object.keys(c2);for(const k of keys.slice(0,Math.max(0,keys.length-20)))delete c2[k];
   wr(`${K}.consumed`,c2);wr(`${K}.seq`,pending.seq);wr(`${K}.pending`,null);
+  if(result.status==='COMPLETE')window.RARC3?.settlePlay?.(result,summary);
   return {ok:true,...summary,errors};
  }
 
@@ -145,16 +149,18 @@
    const doc=window.document;if(!doc||!window.addEventListener)return resolve({schema:window.RAPlayContract.RESULT_SCHEMA,version:window.RAPlayContract.VERSION,requestId:request.requestId,status:'REFUSED',code:'NO_HOST',reason:'no browser to show THE PLAY',errors:[],cash:{gain:0,spent:0}});
    let src=F07_PLAY_URL;try{const q=new URLSearchParams(window.location.search);for(const k of ['speed','mute','reduce','moretime'])if(q.has(k))src+='&'+k+'='+encodeURIComponent(q.get(k));}catch(e){}
    const frame=doc.createElement('iframe');frame.src=src;frame.setAttribute('title','THE PLAY');frame.id='f01-play-frame';
+   const cancel=doc.createElement('button');cancel.type='button';cancel.textContent='QUIT PLAY';cancel.setAttribute('aria-label','Quit PLAY');cancel.style.cssText='position:fixed;top:4px;left:4px;z-index:2147483001;padding:8px;background:#211a27;color:#fff;border:1px solid #aaa';
    frame.style.cssText='position:fixed;inset:0;width:100%;height:100%;border:0;z-index:2147483000;background:#000';
    let done=false;const origin=window.location.origin;
-   const finish=res=>{if(done)return;done=true;clearTimeout(timer);window.removeEventListener('message',on);frame.remove();resolve(res);};
+   const finish=res=>{if(done)return;done=true;clearTimeout(timer);window.removeEventListener('message',on);frame.remove();cancel.remove();resolve(res);};
+   cancel.addEventListener('click',()=>finish({schema:window.RAPlayContract.RESULT_SCHEMA,version:window.RAPlayContract.VERSION,requestId:request.requestId,status:'REFUSED',code:'QUIT',reason:'PLAY checkpoint returned without settlement',errors:[],cash:{gain:0,spent:0}}));
    const on=ev=>{
     if(ev.origin!==origin||ev.source!==frame.contentWindow||!ev.data)return;
     if(ev.data.type==='F01.play_ready'){clearTimeout(timer);frame.contentWindow.postMessage({type:'F04.play_request',request},origin);}
     else if(ev.data.type==='F01.play_result')finish(ev.data.result);
    };
    const timer=setTimeout(()=>finish({schema:window.RAPlayContract.RESULT_SCHEMA,version:window.RAPlayContract.VERSION,requestId:request.requestId,status:'REFUSED',code:'PLAY_UNAVAILABLE',reason:'THE PLAY page did not answer',errors:[],cash:{gain:0,spent:0}}),20000);
-   window.addEventListener('message',on);doc.body.appendChild(frame);
+   window.addEventListener('message',on);doc.body.appendChild(frame);doc.body.appendChild(cancel);
   });
  }
  // run(kind,{lanes,transport}): the pending request of THIS kind is re-issued after a reload (F01 answers a completed one from its record);

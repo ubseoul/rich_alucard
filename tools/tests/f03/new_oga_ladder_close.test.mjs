@@ -114,12 +114,12 @@ export async function test(root){
  // ===================================================================== 7. a TRIBUTED car cannot PLAY
  {
   const c=await boot(root);warRoomOn(c);activate(c,{cars:[SUPRA,URUS]});
-  const before=c.RAWarRoomPlay.buildRequest(card(c,'DROP','inglewood'));assert.deepEqual(J(before.request.garage.owned),['SUPRA','URUS']);
+  const before=c.RAWarRoomPlay.buildRequest(card(c,'DROP','inglewood'));assert.deepEqual(J(before.request.garage.owned),['SUPRA','URUS','HOOPTIE']);
   c.RANewOga.patch({status:'m8_hold',mission:7,rank:4,rank4Granted:true,m7Completed:true,m8Resolved:true,lastMissionDay:0});
   c.RANewOgaLadder.recordDrive(SUPRA,{by:2});assert.equal(c.RANewOgaLadder.favoriteCar().id,SUPRA);
   c.RANewOgaLadder.completeM9('give');
   const after=c.RAWarRoomPlay.buildRequest(card(c,'DROP','inglewood'));
-  assert.deepEqual(J(after.request.garage.owned),['URUS'],'7. the PLAY garage offers only the Urus');assert.equal(after.carMap.SUPRA,undefined,'7. the tributed Supra cannot be selected for PLAY');
+  assert.deepEqual(J(after.request.garage.owned),['URUS','HOOPTIE'],'7. tribute removes the Supra; B1 encounter transport remains');assert.equal(after.carMap.SUPRA,undefined,'7. the tributed Supra cannot be selected for PLAY');
   console.log('PASS f03 PLAY: a TRIBUTED car is not offered to PLAY');
  }
 

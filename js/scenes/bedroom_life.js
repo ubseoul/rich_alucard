@@ -75,7 +75,7 @@
  function onBedroom(e){
   if(!RALife.life().clock.started)return; // prologue/first wake owns the room until the life clock starts
   build();
-  if(RAAdventures.active()){RAAdventureScene.resume();return;}
+  if(RAAdventures.active()&&!RAAdventures.active().vars?.rc4Paused){RAAdventureScene.resume();return;}
   if(!showReturnBeat()){const unread=(RALife.life().clock.mail||[]).filter(m=>m.day===RALife.today().day&&!m.read&&m.kind!=='weekday');const wake=pendingWake();if(unread.length||wake)showMail(null,wake);}
  }
  window.RABedroomLife={build,confirmBed,goToSleep,showMail,refresh:()=>{if(layer)build();}};

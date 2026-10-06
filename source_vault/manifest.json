@@ -71,12 +71,12 @@
       ],
       "owner": "HQ",
       "provenance": "Existing public repository file at the accepted production base; indexed in place.",
-      "source_commit": "0c6ccc3d18674c713a0a6e5896fe6ecbf7f7bc0f",
+      "source_commit": "c9c273ff91a417d7953b30e718421339edd98c01",
       "source_branch": "build/visual-completion-002",
-      "sha256": "3fc8e6d7d45e20d58915cc81089b09ab8510fd86e413818d758937a4aecd0d39",
+      "sha256": "24bfa73960a035d7b1c0348183422ee913fb67d2bb84b4a87d83ebc742ff3fa1",
       "hash_mode": "lf",
       "present": true,
-      "notes": "Authority limited to recorded APPROVED/FROZEN items or explicitly OPEN source-subset constraints. Candidate/rejected/proposed rows stay non-authoritative. No SEALED content, original full packet, runtime acceptance, or absent artwork is inferred. FINAL-A reconciled the stale metadata hash against the unchanged accepted OL-053 base; source bytes were not edited."
+      "notes": "Authority limited to recorded APPROVED/FROZEN items or explicitly OPEN source-subset constraints. Candidate/rejected/proposed rows stay non-authoritative. No SEALED content, original full packet, runtime acceptance, or absent artwork is inferred. FINAL-A reconciled the stale metadata hash against the unchanged accepted OL-053 base; source bytes were not edited. RC4 B1 reverified current registered path against exact user-authorized rc4-base c9c273ff91a417d7953b30e718421339edd98c01; prior source commit 0c6ccc3d18674c713a0a6e5896fe6ecbf7f7bc0f retained as historical provenance. Metadata only; source bytes unchanged."
     },
     {
       "source_id": "art-department-current-handoff-md",
@@ -1002,12 +1002,12 @@
       ],
       "owner": "HQ",
       "provenance": "Existing public repository file at the accepted production base; indexed in place.",
-      "source_commit": "0c6ccc3d18674c713a0a6e5896fe6ecbf7f7bc0f",
+      "source_commit": "c9c273ff91a417d7953b30e718421339edd98c01",
       "source_branch": "build/visual-completion-002",
-      "sha256": "5f3a384f4edfe482e01750e673a088943a7589208e121ad51a09dcdb72a38c63",
+      "sha256": "040e18380d0d888cfcfc6fcac4038d5d07788288839cbedaf1ff328ee0fe258c",
       "hash_mode": "lf",
       "present": true,
-      "notes": "Existing Art discovery/evidence record. Recorded approvals and frozen bytes govern only their stated scope; old runtime lineage claims do not override the required base. FINAL-A reconciled the stale metadata hash against the unchanged accepted OL-053 base; source bytes were not edited."
+      "notes": "Existing Art discovery/evidence record. Recorded approvals and frozen bytes govern only their stated scope; old runtime lineage claims do not override the required base. FINAL-A reconciled the stale metadata hash against the unchanged accepted OL-053 base; source bytes were not edited. RC4 B1 reverified current registered path against exact user-authorized rc4-base c9c273ff91a417d7953b30e718421339edd98c01; prior source commit 0c6ccc3d18674c713a0a6e5896fe6ecbf7f7bc0f retained as historical provenance. Metadata only; source bytes unchanged."
     },
     {
       "source_id": "art-department-status-questions-md",
@@ -1433,12 +1433,12 @@
       "feature_ids": [],
       "owner": "HQ",
       "provenance": "Existing public repository file at the accepted production base; indexed in place.",
-      "source_commit": "2e6a446539aafeb04fb2e8e18747be58c0cdd063",
+      "source_commit": "c9c273ff91a417d7953b30e718421339edd98c01",
       "source_branch": "claude/practical-clarke-d9w789",
-      "sha256": "0464c47569d87babc764c6da9340ba88dcb8ad7c52a644e0afc8d1431213e536",
+      "sha256": "3d0eda2dd0001310539c33408262db74a55bbdae276d54ba7d8a3bdce91624d3",
       "hash_mode": "lf",
       "present": true,
-      "notes": "Supporting production/implementation evidence only. Read the source scope and its acceptance state; file presence is not creative or integration authorization."
+      "notes": "Supporting production/implementation evidence only. Read the source scope and its acceptance state; file presence is not creative or integration authorization. RC4 B1 reverified current registered path against exact user-authorized rc4-base c9c273ff91a417d7953b30e718421339edd98c01; prior source commit 2e6a446539aafeb04fb2e8e18747be58c0cdd063 retained as historical provenance. Metadata only; source bytes unchanged."
     },
     {
       "source_id": "docs-btf-decisions-md",
@@ -2660,12 +2660,12 @@
       ],
       "owner": "HQ",
       "provenance": "Existing public repository file at the accepted production base; indexed in place.",
-      "source_commit": "2e6a446539aafeb04fb2e8e18747be58c0cdd063",
+      "source_commit": "c9c273ff91a417d7953b30e718421339edd98c01",
       "source_branch": "claude/practical-clarke-d9w789",
-      "sha256": "8f4360257842f6d41690cb6bc352ba404739e832a2de03dc2d04792f47f8e784",
+      "sha256": "328a10ef76e97ed73c812056c5fbc03e0773ce5bf99c02065606e07b65900b89",
       "hash_mode": "lf",
       "present": true,
-      "notes": "Safe historical IF-1 reservation only, retained in this base. No dedicated F07 implementation, M8 packet or finale packet was found in public branch/path history. This scaffold is not authored story source. F03 is the prerequisite per the supplied current Source Muster; do not integrate F03 or F07."
+      "notes": "Safe historical IF-1 reservation only, retained in this base. No dedicated F07 implementation, M8 packet or finale packet was found in public branch/path history. This scaffold is not authored story source. F03 is the prerequisite per the supplied current Source Muster; do not integrate F03 or F07. RC4 B1 reverified current registered path against exact user-authorized rc4-base c9c273ff91a417d7953b30e718421339edd98c01; prior source commit 2e6a446539aafeb04fb2e8e18747be58c0cdd063 retained as historical provenance. Metadata only; source bytes unchanged."
     },
     {
       "source_id": "f11-sound-finder-brief",
@@ -2965,12 +2965,12 @@
       ],
       "owner": "HQ",
       "provenance": "Existing public repository file at the accepted production base; indexed in place.",
-      "source_commit": "2e6a446539aafeb04fb2e8e18747be58c0cdd063",
+      "source_commit": "c9c273ff91a417d7953b30e718421339edd98c01",
       "source_branch": "claude/practical-clarke-d9w789",
-      "sha256": "3dc0910e91bb3f7e32173c535125787f4f680dde0ea6a5067c5da1e29c37cddd",
+      "sha256": "80f19da16a8a7ac45efa58b0d2f045108acdac4dd90538f476d96ee3056d890b",
       "hash_mode": "lf",
       "present": true,
-      "notes": "Current accepted runtime evidence only: 10 specs across OPEN MOUTH GANG, HUNTERS and THE COUSINS, including mixed encounters (five display-label variants). Its header calls content authored placeholders/drafts and numbers provisional. It does not authorize expansion; additional authored job source remains required."
+      "notes": "Current accepted runtime evidence only: 10 specs across OPEN MOUTH GANG, HUNTERS and THE COUSINS, including mixed encounters (five display-label variants). Its header calls content authored placeholders/drafts and numbers provisional. It does not authorize expansion; additional authored job source remains required. RC4 B1 reverified current registered path against exact user-authorized rc4-base c9c273ff91a417d7953b30e718421339edd98c01; prior source commit 2e6a446539aafeb04fb2e8e18747be58c0cdd063 retained as historical provenance. Metadata only; source bytes unchanged."
     },
     {
       "source_id": "t10-expansion-authored-job-specs",

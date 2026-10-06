@@ -134,7 +134,9 @@
  }
 
  // --------------------------------------------------------------------- M10
- // M10 arrives on the first WAKE after M9 (grant path only). When M9 was NAH there is nothing to grant and the next WAKE is VampGPT.
+ // Creator ruling (docs/engineering/F03_NEW_OGA_LADDER_CLOSE.md): M10 arrives
+ // after M9 including NAH; normal grants remain reachable. The withheld flag is
+ // retained only for compatibility with older explicitly-withheld saves.
  const m10Ready=S=>{
   if(!enabled())return false;
   const s=S.life?.newOga;if(!s||!s.m9Resolved||s.m9GrantsWithheld||s.m10Completed||s.finaleBegun)return false;
@@ -153,7 +155,7 @@
  }
 
  // ------------------------------------------------------------------ VampGPT
- // The NEXT WAKE after M10 (or after a NAH M9). ...SAY LESS. records finaleBegun for F07 (the finale is F07's);
+ // The NEXT WAKE after M10 (or an older explicitly-withheld M9 save). ...SAY LESS. records finaleBegun for F07 (the finale is F07's);
  // NAH, I'M GOOD HERE. re-asks in REASK_DAYS sleeps, repeatable.
  const vampgptReady=S=>{
   if(!enabled())return false;

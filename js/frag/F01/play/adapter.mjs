@@ -61,6 +61,9 @@ export function prepareWorld(req,saved){
  w.cash=req.bank/K;w.heat=req.heat;w.night=req.day;w.cap=req.rosterCap||8;
  // garage: the cars F04 says Rich owns, minus what F01 already lost and Rich has not recovered
  w.garage=w.garage||{owned:[],lost:{},unique:[...C.UNIQUE_CARS]};w.garage.lost=w.garage.lost||{};
+ // B1 encounter vehicles are replenished by the encounter provider. They never
+ // map to personal ownership or block the next required job after a lost loaner.
+ for(const id of req.garage.encounter||[])if(id==='HOOPTIE')delete w.garage.lost[id];
  w.garage.owned=req.garage.owned.filter(id=>C.CARS[id]&&!C.CARS[id].castle&&!w.garage.lost[id]);
  w.cars={};for(const id of w.garage.owned)w.cars[id]=0;
  // captives: only the EXTRACT group the War Room asked for

@@ -103,16 +103,18 @@
    // QA / accessibility switches on the host URL (?speed=10, ?mute=1, ?reduce=1, ?moretime=1) reach the PLAY page unchanged
    let src=PLAY_URL;try{const q=new URLSearchParams(root.location.search);for(const k of ['speed','mute','reduce','moretime'])if(q.has(k))src+='&'+k+'='+encodeURIComponent(q.get(k));}catch(e){}
    const frame=doc.createElement('iframe');frame.src=src;frame.setAttribute('title','THE PLAY');frame.id='f01-play-frame';
+   const cancel=doc.createElement('button');cancel.type='button';cancel.textContent='QUIT PLAY';cancel.setAttribute('aria-label','Quit PLAY');cancel.style.cssText='position:fixed;top:4px;left:4px;z-index:2147483001;padding:8px;background:#211a27;color:#fff;border:1px solid #aaa';
    frame.style.cssText='position:fixed;inset:0;width:100%;height:100%;border:0;z-index:2147483000;background:#000';
    let done=false;const origin=root.location.origin;
-   const finish=res=>{if(done)return;done=true;clearTimeout(timer);root.removeEventListener('message',on);frame.remove();resolve(res);};
+   const finish=res=>{if(done)return;done=true;clearTimeout(timer);root.removeEventListener('message',on);frame.remove();cancel.remove();resolve(res);};
+   cancel.addEventListener('click',()=>finish(PC().refused(request,'QUIT','PLAY checkpoint returned without settlement')));
    const on=ev=>{
     if(ev.origin!==origin||ev.source!==frame.contentWindow||!ev.data)return;
     if(ev.data.type==='F01.play_ready'){clearTimeout(timer);frame.contentWindow.postMessage({type:'F04.play_request',request},origin);} // only the LOAD is time-boxed; a PLAY takes as long as it takes
     else if(ev.data.type==='F01.play_result')finish(ev.data.result);
    };
    const timer=setTimeout(()=>finish(PC().refused(request,'PLAY_UNAVAILABLE','THE PLAY page did not answer')),20000);
-   root.addEventListener('message',on);doc.body.appendChild(frame);
+   root.addEventListener('message',on);doc.body.appendChild(frame);doc.body.appendChild(cancel);
   });
  }
  const PC=()=>({refused:(req,code,reason,errors)=>({schema:root.RAPlayContract.RESULT_SCHEMA,version:root.RAPlayContract.VERSION,requestId:(req&&req.requestId)||'',status:'REFUSED',code,reason,errors:errors||[],cash:{gain:0,spent:0}})});

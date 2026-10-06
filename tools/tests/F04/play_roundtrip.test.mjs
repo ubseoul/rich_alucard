@@ -14,7 +14,7 @@ export async function test(root){
   assert.equal(r.schema,'F04.play_request');assert.equal(r.version,ctx.RAPlayContract.VERSION);assert.ok(ctx.RAPlayContract.validateRequest(r).ok);
   assert.deepEqual(r.roster.map(o=>o.id).sort(),['auntie_grit','dre','half_pint','sunday_best','tunde','young_mazi']);
   assert.ok(r.roster.every(o=>o.status==='ACTIVE'&&!('stats' in o)&&!('actionsPerTurn' in o)),'no provisional stat block, no tactical fields');
-  assert.deepEqual([...r.garage.owned].sort(),['SUPRA','URUS'],"Rich's owned cars mapped onto F01 ids; nothing invented");
+  assert.deepEqual([...r.garage.owned].sort(),['HOOPTIE','SUPRA','URUS'],"personal cars plus B1's existing encounter transport");
   assert.equal(r.bank,money(ctx));assert.equal(r.job.district,'koreatown');assert.ok(['car_wash_stickup','smack_crib'].includes(r.job.f01JobId));
   assert.equal(r.rich,undefined,'Rich does not go: no field stats');assert.equal(r.grid,undefined,'no grid / seating / approach');assert.equal(JSON.stringify(r).includes('%'),false);
   for(const t of ['DROP','RE_UP','COLLECT','PROTECT','BAIT','TAKE_THE_BLOCK','RETALIATION'])assert.ok(ctx.RAWarRoomPlay.buildRequest(card(ctx,t,'inglewood')).ok,`${t} maps to a PLAY`);

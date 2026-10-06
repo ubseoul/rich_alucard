@@ -182,7 +182,7 @@ async function body(root){
   void out;
   const r=await c.RAF07Play.run('m8');assert.equal(r.refused,true);assert.equal(r.code,'FLAG_OFF');assert.equal(c.RAF07Play.pending(),null,'nothing persisted when F01 is off');
   const d=await boot(root);ready(d,{cars:[]});await withHost(root,d);
-  const n=await d.RAF07Play.run('m8');assert.equal(n.refused,true);assert.equal(n.code,'NO_CAR','no car refuses the job (F01 recovery rule), never invents a loaner');
+  const n=await d.RAF07Play.run('m8');assert.equal(n.refused,false,'B1 existing encounter HOOPTIE makes carless M8 reachable');assert.equal(d.RALife.ownedCars().length,0,'encounter transport never becomes property');
   assert.equal(d.RAF07Play.pending(),null);
   // the refused node offers SEND THE BOYS and NOT YET; NOT YET leaves the mission open and re-arrives next WAKE
   const e=await boot(root);ready(e);
@@ -531,9 +531,9 @@ async function body(root){
    assert.equal(completed.res.outcome,'takeover');
    if(trib0.length)assert.equal(c.RAVehicles.isTributed(trib0[0]),false,`${name}: TAKEOVER still returns the tributed car (F03)`);
   }
-  // ordinary car rules are unchanged: M8 with no car is refused by F01 (NO_CAR) and with only a 2-seat car (NO_CAR_FITS); F01 stock canRoll untouched
-  {const c=await boot(root);ready(c,{cars:[]});await withHost(root,c);const r=await c.RAF07Play.run('m8');assert.equal(r.code,'NO_CAR','M8: ordinary F01 rule unchanged');
-   const d=await boot(root);ready(d,{cars:['honda_s2000_pink']});await withHost(root,d);const r2=await d.RAF07Play.run('m8');assert.equal(r2.code,'NO_CAR_FITS','M8: ordinary seat rule unchanged');
+  // B1 changes the required encounter request; F01 stock canRoll and capacity rules stay untouched.
+  {const c=await boot(root);ready(c,{cars:[]});await withHost(root,c);const r=await c.RAF07Play.run('m8');assert.equal(r.refused,false,'M8: existing four-seat encounter transport');
+   const d=await boot(root);ready(d,{cars:['honda_s2000_pink']});await withHost(root,d);const r2=await d.RAF07Play.run('m8');assert.equal(r2.refused,false,'M8: loan boys fit even with only a two-seat personal car');
    const U=await import('node:url');await import(U.pathToFileURL(root+'/tools/tests/f01/play-sim/globals.mjs').href);
    const AD=await import(U.pathToFileURL(root+'/js/frag/F01/play/adapter.mjs').href);const {makeDriver}=await import(U.pathToFileURL(root+'/tools/tests/f01/play-sim/driver.mjs').href);
    const roster=['tunde','dre','half_pint','sunday_best'].map(id=>({id,name:id,cls:'MUSCLE',status:'ACTIVE'}));

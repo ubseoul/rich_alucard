@@ -1,0 +1,68 @@
+{
+  "kind": "seeded browser fixtures",
+  "viewport": [
+    390,
+    844
+  ],
+  "checks": [
+    "carless Carlos dispatch, cancel without completion, persisted pause/reload",
+    "seeded two failures exhaust one retry, reload retains budget, next day resets",
+    "actual carless M8 iframe loads, four-seat request, visible host quit, no settlement",
+    "seeded settlement contract credits once; canonical real-engine settlement is covered by headless suite",
+    "actual protected ending begins Day21; seeded Day21–25/overdue eligibility; incomplete mandatory story blocks fallback"
+  ],
+  "errors": [],
+  "endingGates": [
+    [
+      21,
+      true
+    ],
+    [
+      22,
+      true
+    ],
+    [
+      23,
+      true
+    ],
+    [
+      24,
+      true
+    ],
+    [
+      25,
+      true
+    ],
+    [
+      37,
+      true
+    ],
+    [
+      "incomplete37",
+      false
+    ]
+  ],
+  "final": {
+    "day": 21,
+    "active": null,
+    "daily": {
+      "day": 21,
+      "story": true,
+      "action": false,
+      "paid": false,
+      "moneyBefore": 100000
+    },
+    "next": {
+      "id": "rest",
+      "key": "rc4:21:rest",
+      "kind": "rest",
+      "app": null,
+      "label": "SLEEP",
+      "sub": "club done go sleep before you buy more shit",
+      "action": "rc3:next"
+    },
+    "cars": [],
+    "fired": true
+  },
+  "ok": true
+}

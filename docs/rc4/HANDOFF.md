@@ -1,0 +1,57 @@
+# RC4 B1 integration handoff
+
+Foundation is the annotated `rc4-base` peeled commit `c9c273ff91a417d7953b30e718421339edd98c01` (OL079 ending recovery included). `rc4/b1-campaign` is the isolated candidate branch. The final delivery message identifies the immutable candidate SHA; branch names alone are not a review base. B2/B3/B4 branch from the reviewed immutable B1 SHA, and one later integrator consolidates. B1 does not declare RC acceptance.
+
+## Exact shared interfaces
+
+- `RARC3.settlePlay(result, summary)` returns boolean. A canonical `status:'COMPLETE'`, nonempty `requestId`, same-day `summary.day`, and no `summary.errors` earns daily action once, including a completed loss. `REFUSED`, `DECLINED`, invalid, quit and error do not. Both F04 and F07 call after their persisted consumed record. Duplicate result paths retry credit safely without repeating money/crew consequences.
+- `RARC3.attemptAllowed(id,node)` returns boolean; `settleAttempt(id,node,result)` returns `'settled'` or `'paused'`; `suspend()` persists the active adventure's `vars.rc4Paused`. Each activity key gets an initial settled failure and one retry per calendar day. Quit/error/cancel/refusal costs no attempt, action or mission completion. Positive authored fail-forward outcomes are still authored outcomes. F04 uses `id:'warRoom', node:jobCard.id`; adventures use adventure ID and node ID. B4/B5 should call these functions rather than add separate counters.
+- `RARC3.missionReady(id)` preserves one required beat per day and the authored VampGPT seven-day reask. `canStart` preserves live eligibility; exact `A54→A56` completed-win continuation is allowed through `from:'chain'`. A20 keeps its original wake predicate for one stage/day. B2 owns explicit substitutions for cut-only dependencies; it must not replace every `available` callback with true.
+- `RARC3.campaignComplete()` reads actual prologue/rave/ladder/alternative/finale completion. `claimsEnding()` additionally requires Day21 or later, no active adventure, and no fired ending. Day21–24 is the normal window; Day25 is the safety boundary, with immediate safe-bedroom recovery for overdue completed saves. Incomplete mandatory work beyond Day25 remains visible/recoverable; the ending waits until it is actually finished. No skipped or fabricated mandatory flags. This timing limit is explicit rather than falsely claiming every stalled run ends by Day25.
+- `F04.play_request` version1 retains all existing fields and accepts optional `garage.encounter:['HOOPTIE']`. The existing four-seat HOOPTIE is request-scoped and has no `carMap` entry. `prepareWorld` clears only its old loss record when that encounter fallback is supplied. Personal cars, tribute, drives and acquisitions use their existing IDs/records. Carlos's rental van uses the existing neutral Touge `supra` handling profile as encounter params only; it never creates an owned Supra. No PLAY engine odds, capture bands or car stat changes.
+- PLAY iframe transports expose `QUIT PLAY` above the iframe. Quit disposes iframe/listener/timer and returns a typed REFUSED/QUIT boundary. F04/F07 clear pending with no host spend; adventure dispatch preserves its node instead of invoking authored completion callbacks. Browser reload rehydrates the saved pending request/checkpoint through the existing APIs.
+
+## Section ownership and cross-lane patches
+
+| Shared file/surface | Section/function | Owner |
+|---|---|---|
+| `js/systems/rc3.js` | pendingMission, missionReady, next/advance, read/patch, canSleep, campaignComplete/claimsEnding/recoverEnding, settlement/retry helpers, M4 encounter params, mission gates | B1 |
+| `js/systems/rc3.js` | claimCash monetary formula, apps/phoneRoute/phoneAction for JDM access, Maps cut-dependency substitutions, bankMarkup/hall consumers, silent inbox migration | B2; coordinate next/advance calls with B1 |
+| `js/systems/rc3.js` | combat presentation/HUD and hunter presentation | B5; preserve authored encounter data |
+| `js/scenes/adventure.js` | run activity dispatch, pause/error/retry settlement and returnHome/continuation boundaries | B1 |
+| `js/scenes/adventure.js` | actorElement, renderActors, paintEnv, stageDirector, image/alias/grounding | B3 |
+| `js/scenes/adventure.js` | dialogue/choice layout and date/minigame presentation | B4; B3 owns actor grounding |
+| `js/scenes/bedroom_life.js` | active paused-checkpoint resume guard and ending sleep dispatch | B1 |
+| F01 `showdown.js` / `play/adapter.mjs` | iframe transport cancellation / encounter garage projection | B1; gameplay engine and odds remain protected |
+| F04/F07 PLAY adapters | request transport, pending/consumed settlement, daily credit calls, retry handoff | B1 |
+| F04/F07 adapters | money arithmetic/economy, owned car mapping/ownership migration | B2 with B1 settlement integration |
+| Art registries/renderers | alias lookup, approved art wiring, load diagnostics, grounding | B3 by function; no whole-file lock |
+| F15/club/minigames | club layout, date consistency, UI/rules/reload of existing games | B4; common settlement helpers stay B1 |
+| Combat animation/HUD/audio | timing owner, move costs, attack effects, music pin/restore | B5; F01 protected odds/capture untouched |
+| Loader/sync tools and index | each lane's necessary new manifest entries; generated ordering reviewed by integrator | Integrator; no independent ad hoc ordering |
+| Save migrations | campaign retry/pause/ending fields | B1 additive fields |
+| Save migrations | money/JDM/Maps/Hall/ownership/inbox | B2 additive normalization |
+
+B1 cross-lane patches are narrowly named: F04 encounter garage projection plus settlement callback; F07 encounter garage projection plus settlement callback; F01 request projection/iframe cancel; bedroom paused guard; shared adventure dispatch. B2 preserves these interfaces while restoring JDM buying; B1 does not implement or remove that loop. No whole-file locks are implied.
+
+## Save compatibility
+
+No save-version bump or destructive global migration. Existing state migration preserves world flags and active vars. New lazy fields: `world.flags.rc4Attempts={day,failures:{'adventure:node':number}}`, `rc4PlayCredit={requestId:day}`, and `adventures.active.vars.rc4Paused:boolean`. Missing fields mean no failures/credits/pause. Day mismatch resets the attempt view. Existing `rc3Day`, mission flags, ownership and consumed PLAY records retain their shape. Old pending requests without `garage.encounter` retain the old F01 projection; new requests have encounter metadata. Old save recovery never confiscates cars/grants or rewrites M9 history.
+
+M9 authority is resolved: `docs/engineering/F03_NEW_OGA_LADDER_CLOSE.md:74` explicitly rules rank4, no trust penalty, normal M10/grants reachable after NAH. Audit RC4-007's withholding proposal is superseded; the existing regression remains authoritative. B1 corrects contradictory comments only.
+
+## Validation and independent browser review
+
+Run `npm test`, `node tools/run-tests.mjs --fragment rc4`, `node tools/rc2/protected-lines.mjs check`, `npm run loader:verify`, `npm run leak-check`, then build only from the candidate SHA. Full packaged natural playthrough remains later integration work.
+
+Documented existing browser harness (no installation):
+
+```powershell
+$env:RA_CHROMIUM_PATH='C:/Program Files/Google/Chrome/Application/chrome.exe'
+$env:RA_PLAYWRIGHT_PATH='C:/Users/Ube/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright-core'
+node tools/rc4/b1-browser.mjs
+```
+
+The harness starts/closes a local HTTP server automatically. For manual independent review: `python -m http.server 4176 --directory .` from the checkout; open `http://localhost:4176/index.html?mute=1` at390×844. Optional `RA_B1_DIR` points the browser script to a packaged directory; it must contain this candidate's runtime. The script writes `docs/rc4/evidence/B1/browser.json` and six screenshots.
+
+Fixtures are deliberately seeded: Day5 M3-complete carless Carlos `run` node; Day10 M7-complete carless M8 `play` node; two seeded settled failures; canonical settlement boundary fixture; actual mandatory-completed spine at Day20/21–25/37; incomplete M8 at37. Expected: Carlos Touge loads; quit returns a paused checkpoint without credit/completion; reload preserves it; two failures force tomorrow and reload cannot bypass; next day resets; M8 iframe loads with HOOPTIE; visible host QUIT cleans up with no action/pending; one COMPLETE result credit; actual protected ending starts at21; incomplete mandatory fallback stays false. These are fixtures, not a natural playthrough. Real canonical-engine outcomes and duplicate settlement are separately covered by the headless suite.

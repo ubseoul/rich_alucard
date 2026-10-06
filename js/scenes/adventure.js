@@ -148,8 +148,19 @@
    // Every choice locked (e.g. nothing affordable) and no authored fallback: never strand the player on a screen with
    // no control. They leave the way the castle menu answers — "not tonight." — and the night is not counted.
    if(node.choices){const list=RAAdventures.choicesFor(nodeId);if(!list.length){if(node.next){nodeId=RAAdventures.nextOf(nodeId);continue;}const out=await showChoices([{label:'NOT TONIGHT',sub:'NOTHING HERE YOU CAN DO RIGHT NOW'}]);if(!out)return;RAAdventures.abandon();await leave();return;}const pick=await showChoices(list);if(!pick)return;nodeId=RAAdventures.choose(nodeId,pick.index);continue;}
-   if(node.minigame){hideDialogue();const params=typeof node.minigame.params==='function'?node.minigame.params(RAAdventures.context()):(node.minigame.params||{});const result=await RAMinigames.launch(node.minigame.id,params);if(!scope?.isActive())return;nodeId=RAAdventures.afterMinigame(nodeId,result);continue;}
-   if(node.fight){hideDialogue();const params=typeof node.fight.params==='function'?node.fight.params(RAAdventures.context()):(node.fight.params||{});const result=await RACombat2.run(node.fight.enemy,params);if(!scope?.isActive())return;nodeId=RAAdventures.afterFight(nodeId,result);continue;}
+   if(node.minigame||node.fight){
+    hideDialogue();const id=RAAdventures.active().id,policy=window.RARC3;
+    if(policy&&!policy.attemptAllowed(id,nodeId)){policy.suspend();await leave();return;}
+    let result;
+    try{const spec=node.minigame||node.fight,params=typeof spec.params==='function'?spec.params(RAAdventures.context()):(spec.params||{});
+     result=node.minigame?await RAMinigames.launch(spec.id,params):await RACombat2.run(spec.enemy,params);
+    }catch(error){console.error('adventure activity',id,nodeId,error);result={quit:true,error:String(error?.message||error)};}
+    if(!scope?.isActive())return;
+    if(policy&&policy.settleAttempt(id,nodeId,result)==='paused'){
+     policy.suspend();await leave();return;
+    }
+    nodeId=node.minigame?RAAdventures.afterMinigame(nodeId,result):RAAdventures.afterFight(nodeId,result);continue;
+   }
    nodeId=RAAdventures.nextOf(nodeId);
   }
  }

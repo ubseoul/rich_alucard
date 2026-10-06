@@ -77,7 +77,7 @@
   }
   // RC2 (OL-063): the first PLAY is reachable on Day 2, before Rich owns a car F01 has stats for. The crew's own hooptie (F01 car
   // HOOPTIE, authored in F01 CARS) is the ride until he does. It maps to no RALife vehicle, so nothing is driven or mutated.
-  if (!owned.length) owned.push('HOOPTIE');
+  if (!owned.includes('HOOPTIE')) owned.push('HOOPTIE');
   return { owned, map };
  }
 
@@ -104,7 +104,7 @@
    day: day(),
    job,
    roster: rosterSnapshot(),
-   garage: { owned: garage.owned },
+   garage: { owned: garage.owned, encounter: ['HOOPTIE'] },
    bank: money(),
    heat: window.RAHeat.global(),
    rosterCap: 8,
@@ -127,7 +127,7 @@
  function consume(result) {
   const pending = rd(`${K}.pending`, null);
   const consumed = rd(`${K}.consumed`, {});
-  if (result && consumed[result.requestId]) { if (pending?.request.requestId === result.requestId) wr(`${K}.pending`, null); return { ok: true, duplicate: true, summary: consumed[result.requestId] }; }
+  if (result && consumed[result.requestId]) { if (pending?.request.requestId === result.requestId) wr(`${K}.pending`, null);window.RARC3?.settlePlay?.(result,consumed[result.requestId]);return { ok: true, duplicate: true, summary: consumed[result.requestId] }; }
   if (!pending || !result || result.requestId !== pending.request.requestId) return { ok: false, code: 'NOT_PENDING' };
   const valid = window.RAPlayContract.validateResult(result);
   if (!valid.ok) { wr(`${K}.pending`, null); wr(`${K}.lastRefusal`, { day: day(), code: 'BAD_RESULT', reason: valid.errors.join('; ') }); return { ok: false, code: 'BAD_RESULT', errors: valid.errors }; }
@@ -200,13 +200,15 @@
    Object.assign(summary, { win: !!result.outcome.win, cashGain: result.cash.gain, heat: result.heat.delta, rejectedRecruits: rejected });
   }
 
-  if (result.status === 'DECLINED') summary.cashSpent = safe(errors, 'spent', () => debitClamped(result.cash?.spent || 0, 'war_room:play:spent')) || 0;
+  // B1: an unsettled offer/quit carries no host penalty.
   const c2 = rd(`${K}.consumed`, {});
   c2[result.requestId] = { ...summary, errors };
   const ids = Object.keys(c2); for (const k of ids.slice(0, Math.max(0, ids.length - 20))) delete c2[k];
   wr(`${K}.consumed`, c2);
   wr(`${K}.seq`, pending.seq);
   wr(`${K}.pending`, null);
+  if(result.status==='COMPLETE')window.RARC3?.settlePlay?.(result,c2[result.requestId]);
+  if(result.status==='COMPLETE')window.RARC3?.settleAttempt?.('warRoom',jobMeta.id,{outcome:result.outcome.win?'win':'lose'});
   return { ok: true, summary: c2[result.requestId], errors };
  }
 
@@ -225,6 +227,7 @@
   const off = unavailable(); if (off) return off;
   if (rd(`${K}.pending`, null)) return { ok: false, code: 'PLAY_PENDING', errors: ['a PLAY is already in progress: resume it'] };
   const built = buildRequest(jobCard); if (!built.ok) return built;
+  if(window.RARC3&&!window.RARC3.attemptAllowed('warRoom',jobCard.id))return {ok:false,code:'RETRY_TOMORROW',errors:['One retry per job per day; return tomorrow.']};
   const pending = { request: built.request, carMap: built.carMap, jobMeta: built.jobMeta, seq: built.seq, startedDay: day() };
   wr(`${K}.pending`, pending);      // persisted BEFORE F01 is asked: a reload mid-PLAY cannot lose or duplicate it
   return run(pending, opts);
