@@ -178,8 +178,8 @@
    ctx.RAState.patch('life.newOga',{...ctx.RAState.get().life.newOga,status:'m8_hold',mission:7,rank:4,title:'SENIOR ASSOCIATE',rank4Granted:true,m5Completed:true,m6Completed:true,m7Completed:true,lastMissionDay:14});},
   nodes:{
    job:{env:'bedroom',actors:{left:'rich'},title:'JOB TEXT · THE TURF WAR',
-    lines:()=>[N("take koreatown from open mouth gang bro still chewing"),
-     N("gbengas boys and your ogas ride with you"),
+    lines:()=>[N('The rental jobs led to this: Gbenga wants the Open Mouth Gang\'s Koreatown block. Taking it gives his Blood X business a route into the neighborhood.'),
+     N('Rich coordinates Gbenga\'s boys and his own Ogas through PLAY on his phone. The crew takes the field.'),
      ...(smackThere()?[N("lil smack chewing through the briefing")]:[]),
      N(`job pays $${T().m8.AUTHORED_PAY.toLocaleString('en-US')} thats real funds`)],
     next:'choice'},
@@ -187,10 +187,10 @@
     {label:'GO MYSELF',sub:'SHOWDOWN',next:'play'},
     {label:'SEND THE BOYS',sub:'BACK OUT',next:'send_boys'}
    ]},
-   play:{lines:[N("alright lets get paid")],minigame:{id:'f07_play',params:{kind:'m8'},next:playNext}},
-   won:{lines:[N("open mouth gang lost the block still talking though")],
+   play:{lines:[N('The crew arrives at the block. Rich watches the operation unfold on his phone; choices and crew condition decide what comes back.')],minigame:{id:'f07_play',params:{kind:'m8'},next:playNext}},
+   won:{lines:[N('The Open Mouth Gang loses the block. Gbenga\'s operation gains the route; Rich earns the agreed pay. This is not yet Rich\'s own territory.')],
     end:{outcome:'win',fx:()=>completeM8('win'),memory:{text:'took a Koreatown block from the Open Mouth Gang for Gbenga',lane:'money'}}},
-   lost:{lines:[N("they kept the block damn run it back")],choices:[
+   lost:{lines:[N('The Open Mouth Gang keeps the block. No territory or mission pay was earned. Rich can try again or send Gbenga\'s boys.')],choices:[
     {label:'TRY AGAIN',next:'play'},
     {label:'SEND THE BOYS',sub:'BACK OUT',next:'send_boys'}
    ]},

@@ -59,7 +59,13 @@
  }});
  // Castle rooms as places (⌂ CASTLE, one tap from the bedroom).
  D({id:'THRONE',title:'THE THRONE ROOM',lane:'home',repeatable:true,start:'sit',nodes:{
-  sit:{env:'throne',actors:{mid:'rich'},lines:A=>[N(RALife.life().clock.hungover?'you are hungover. the throne is the only place that makes sense.':'you sit on the throne. nobody is invading. it is kind of nice.')],
+  sit:{env:'throne',actors:{mid:'rich'},lines:A=>{
+   const career=window.RAMusic?.getCareer?.(),performed=career?.performed,released=career?.released,response=career?.responses?.find(r=>r.songId===released?.id);
+   const out=[N(RALife.life().clock.hungover?'you are hungover. the throne is the only place that makes sense.':'you sit on the throne. nobody is invading. it is kind of nice.')];
+   if(performed?.receiptId)out.push(N(`The show receipt for "${performed.title}" is still on his phone. Real crowd, real pay. He came to LA for nights like that.`));
+   else if(released&&response)out.push(N(`${response.handle} answered "${released.title}". Somebody heard the song Rich chose to put out.`));
+   else out.push(N('The castle is his home. Music is still why he came to LA; another quiet night can become a draft whenever he wants.'));
+   return out;},
    choices:[{label:'SPAR WITH A TRAINING DUMMY',sub:'no stakes. test your loadout.',next:'spar'},{label:'JUST SIT',next:'done'}]},
   spar:{fight:{enemy:'training',params:{env:'throne',noPenalty:true,intro:'A TRAINING DUMMY. IT HAS NO FEELINGS.'},win:'done',lose:'done',spared:'done'}},
   done:{end:{outcome:'sat',memory:{text:'sitting on the throne',lane:'home',quality:.3}}}

@@ -239,9 +239,9 @@
    ctx.RAState.patch('life.newOga',{...ctx.RAState.get().life.newOga,status:'vice_president',mission:9,rank:5,title:'VICE PRESIDENT',rank4Granted:true,m7Completed:true,m6Completed:true,m5Completed:true,m8Resolved:true,m9Resolved:true,m9Outcome:'give',lastMissionDay:15});},
   nodes:{
    voice:{env:'gbenga_rentals',actors:{left:'rich',right:'gbenga'},title:'VICE PRESIDENT',
-    lines:[N("vice president now koreatown block $15000 a week two boys warehouse office damn")],
+    lines:()=>state().m9Outcome==='nah'?[N('Rich kept his car and his senior-associate rank. The vice-president offer is withheld: no block, office, recruits or weekly income.'),N('He can still decide what comes next. Refusing the tribute did not end his story.')]:[N('Gbenga appoints Rich VICE PRESIDENT of the business. The tribute bought responsibility, not a crown.'),N('Rich gets the Koreatown block, two recruits and a warehouse office. The block brings fifteen thousand dollars per week, settled through the business.')],
     next:'grant'},
-   grant:{lines:[N("gold nameplate vice president rent finally scared of you")],end:{outcome:'vice_president',fx:()=>completeM10(),memory:{text:'was named VICE PRESIDENT by Gbenga',lane:'money'}}}
+   grant:{lines:()=>state().m9Outcome==='nah'?[N('No gold nameplate for Rich. His car remains his; the promotion benefits remain Gbenga\'s.')]:[N('On the warehouse office door: a gold nameplate reading VICE PRESIDENT. It names Rich\'s job in Gbenga Enterprises.'),N('The title is real. So are the block, the income and the man whose name is still over the building.')],end:{outcome:'vice_president',fx:()=>completeM10(),memory:()=>({text:state().m9Outcome==='nah'?'kept the car; vice-president grants were withheld':'was named VICE PRESIDENT by Gbenga',lane:'money'})}}
   }});
 
  D({id:'NEW_OGA_VAMPGPT',title:'VAMPGPT',lane:'money',memoryType:'money',start:'vampgpt',repeatable:true,available:vampgptReady,
@@ -253,8 +253,8 @@
     choices:[{label:'…SAY LESS.',next:'say_less'},{label:'NAH, I’M GOOD HERE.',next:'nah_stay'}]},
    say_less:{lines:[N("vampgpt shuts up finally time to take the chair")],
     end:{outcome:'say_less',fx:()=>completeVampgpt('say_less'),memory:{text:'decided to take Gbenga’s chair',lane:'money'}}},
-   nah_stay:{lines:[N("vice president for now vampgpt back in seven nights like a subscription")],
-    end:{outcome:'nah_stay',fx:()=>completeVampgpt('nah_stay'),memory:{text:'stayed VICE PRESIDENT after all',lane:'money'}}}
+   nah_stay:{lines:()=>[N(state().m9Outcome==='nah'?'Senior associate for now. Rich keeps the car and leaves the larger decision alone.':'Vice president for now. Rich keeps the job, block and business income.'),N('VampGPT will ask again in seven nights, like a subscription nobody remembers buying.')],
+    end:{outcome:'nah_stay',fx:()=>completeVampgpt('nah_stay'),memory:()=>({text:state().m9Outcome==='nah'?'stayed senior associate after refusing the tribute':'stayed VICE PRESIDENT after all',lane:'money'})}}
   }});
 
  // Mission voice notes (accepted ladder 85 … 78; 77 is reserved for NEW_OGA_M8 / F07): F03 takes 76 (M9) and 75 (M10).

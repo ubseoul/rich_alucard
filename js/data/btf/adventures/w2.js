@@ -32,7 +32,7 @@
  D({id:'A08',title:'FIRST SHIFT AT SLURP DYNASTY',lane:'money',memoryType:'money',start:'arrive',nodes:{
   arrive:{env:'slurp',title:'SLURP DYNASTY · LITTLE TOKYO',actors:{left:'rich',right:'okada'},
    enter:A=>{RARelations.meet('okada','a08');},
-   lines:[N("help wanted over help wanted they down bad"),S('okada',"vampires dont scare me customers do"),N("apron first name later")],
+   lines:[N('Rich moved to LA to build his music career. Tonight, the help-wanted sign offers money he can actually earn.'),N("help wanted over help wanted they down bad"),S('okada',"vampires dont scare me customers do"),N("apron first name later")],
    choices:[{label:'PUT ON THE APRON',next:'hina'}]},
   hina:{env:'slurp',actors:{left:{id:'rich',state:'ramen_apron'},right:'okada',farRight:'hina'},
    enter:A=>{RARelations.meet('hina','a08');},
@@ -209,13 +209,14 @@
  D({id:'A16',title:'CAFÉ LAPTOP NIGHT',lane:'music',memoryType:'music',start:'arrive',nodes:{
   arrive:{env:'cafe',title:'BEAN THERE DEAD THAT',actors:{left:'rich',right:'wispa'},
    enter:A=>{RARelations.meet('wispa','a16');},
-   lines:[N('lofi. rain on the window. you open the laptop.'),E('wispa','a ghost by the outlet watches you without blinking.'),S('wispa','you said you make music. when\'s the last time you made music.')],next:'open'},
-  open:{lines:[N('you have no real excuse.')],choices:[{label:'OPEN THE LAPTOP',next:'wispa2'}]},
+   lines:[N('Rich moved to Los Angeles for music. Tonight there is a laptop, an outlet and time he can choose to use.'),N('The songs playing through his nights are his recordings. The new memories can become the next draft.'),E('wispa','a ghost by the outlet watches you without blinking.'),S('wispa','you said you make music. when\'s the last time you made music.')],next:'open'},
+  open:{lines:[N('The job can wait for a moment. Making a song is an opportunity, not another debt.')],choices:[{label:'OPEN THE LAPTOP',fx:A=>A.set('wantCook',true),next:'wispa2'},{label:'JUST SIT TONIGHT',next:'quiet'}]},
+  quiet:{lines:[S('wispa','The outlet will still be here. So will I.'),N('Rich closes the laptop. A quiet night does not cancel why he came.')],next:'end'},
   wispa2:{actors:{left:{id:'rich',state:'laptop_seated'},right:'wispa'},lines:[S('wispa','i\'ve haunted this outlet since 1987. you\'re the first interesting thing plugged in.')],next:'end'},
-  end:{end:{outcome:'cooked',chain:A=>RAAdventures.available('COOK')?'COOK':null,
-   fx:A=>{RALife.setFlag('firstSongCooked',true);RALife.unlockApp('bars');RARelations.memory('wispa','a16_cafe');},
-   memory:{text:'the first cook, at the café',lane:'music'},
-   receipt:{id:'a16:first',caption:'bean there dead that. the first real song.'},
+  end:{end:{outcome:'visited',chain:A=>A.vars.wantCook&&RAAdventures.available('COOK')?'COOK':null,
+   fx:A=>{RALife.setFlag('firstCafeVisited',true);RALife.unlockApp('bars');RARelations.memory('wispa','a16_cafe');},
+   memory:{text:'visited the café with Wispa',lane:'music'},
+   receipt:{id:'a16:first',caption:'bean there dead that. a place to make music.'},
    home:A=>RALife.today().rain?['rich','wispa stayed the whole time. rain does that to her.',{vp:true}]:['rich','that ghost has better taste than most a&rs.',{vp:true}]}}
  }});
  D({id:'CAFE',title:'BEAN THERE DEAD THAT',lane:'music',repeatable:true,oncePerNight:true,memoryType:'music',available:L=>L.done('A16'),start:'sit',nodes:{
