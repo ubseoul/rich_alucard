@@ -4,8 +4,9 @@
     {id:'arrival',dialogue:"RICH: \"yall listen to carti?\"",choices:[{id:'go-in',label:'ENTER THE RAVE',next:'greet'}]},
     {id:'greet',dialogue:"OGUN: \"whats haddenning\"",choices:[{id:'floor',label:'BLEND IN ON THE BEAT',next:'floor1'}]},
     {id:'floor1',dialogue:"RICH: \"never met vampire ogas who listen to country\". four moves stay on beat bro",choices:[{id:'dance',label:'DANCE TO BLEND IN',commit:'dance'}]},
-    {id:'bllad33Enter',actors:{bllad33:true},dialogue:"BLAD33EE kicks the door in.\nRICH: \"oh shit, that's Blad33ee!\"\nRICH: \"here we go again\"",choices:[{id:'fight',label:'FIGHT BLAD33EE',commit:'fight'}]},
-    {id:'fight',actors:{bllad33:true},dialogue:"RICH: \"here we go again\"",choices:[{id:'fight',label:'BACK TO THE FIGHT',commit:'fight'}]}
+    {id:'bllad33Enter',actors:{bllad33:true},dialogue:"BLAD33EE kicks the door in.\nRICH: \"oh shit, that's Blad33ee!\"\nRICH: \"here we go again\"",choices:[{id:'clear',label:'GET CLEAR OF THE PARTY',next:'hilt_exit'}]},
+    {id:'hilt_exit',actors:{hilt:true},dialogue:"A different hunter in a windbreaker blocks the way out: Hilt. Rich needs to get clear of the interrupted party.",choices:[{id:'fight',label:'GET PAST HILT',commit:'fight'}]},
+    {id:'fight',actors:{hilt:true},dialogue:"HILT blocks the exit. Rich is fighting the hunter, while BLAD33EE's entrance has the whole room moving.",choices:[{id:'fight',label:'BACK TO THE HILT FIGHT',commit:'fight'}]}
   ];
   // Exterior closeout retained verbatim.
   const exteriorPhases=[
