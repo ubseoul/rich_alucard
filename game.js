@@ -434,7 +434,7 @@ async function launchGame(){
     if(audio.readyState<1){
       await new Promise(resolve=>audio.addEventListener('loadedmetadata',resolve,{once:true}));
     }
-    seekToLoopStart();
+    if(!window.RAMusicLibrary?.restored?.())seekToLoopStart();
     await audio.play();
   }catch(e){
     console.error(e);

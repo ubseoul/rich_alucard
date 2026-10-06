@@ -3,6 +3,22 @@ import {boot} from '../../rc3/policy-test.mjs';
 const plain=x=>JSON.parse(JSON.stringify(x));
 export async function test(root){
  const c=await boot(root),g=c.RARC3,l=c.RALife,a=c.RAAdventures;
+ // Restored voluntary music is reachable without reopening unrelated cuts or story quotas.
+ assert.equal(g.apps.length,9);
+ for(const id of ['COOK','A14','SHOW','A15','A16','IMANI_BOBA'])assert.equal(g.allowed(id),true,id);
+ assert.equal(g.allowed('PIER'),false);
+ assert.equal(a.get('A00').nodes.fall1.next,'try2','routing cannot skip requested repeated falls');
+ assert.equal(a.get('A00').nodes.brain_done.next,'merge','visible acquisition/merge remains authored');
+ assert.equal(g.canStart('A14','wake'),false,'music never becomes mandatory wake dispatch');
+ const musicAvailable=a.available;a.available=()=>false;
+ assert.equal(g.canStart('COOK','phone'),false,'existing music availability stays authoritative');
+ a.available=musicAvailable;
+ assert.equal(g.canStart('A14','phone'),a.available('A14'));
+ for(const id of ['A14','SHOW']){
+  assert.equal(g.settleAttempt(id,'perform',{quit:true,outcome:'quit'}),'settled','optional set can quit honestly');
+  for(let i=0;i<3;i++)g.settleAttempt(id,'perform',{outcome:'lose'});
+  assert.equal(g.attemptAllowed(id,'perform'),true,'optional music has no mandatory retry-day lock');
+ }
  l.setFlag('throneDone',true);l.setFlag('ogunsRaveCompleted',true);
  c.RAState.patch('life.world.day',4);g.patch({story:false,action:false,paid:false,earnedIncome:0});
  const cash=l.money();assert.equal(g.canSleep(),true,'quiet rest needs no attendance');

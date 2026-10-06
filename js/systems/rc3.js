@@ -7,13 +7,17 @@
  const HALL=['A26','HOST'];
  const CASH_FLOOR=28000;
  const UTILITY=['ARMORY','ARMORY_WALL','A08','SLURP'];
+ // Next-review: voluntary music restores Rich's career without changing the story ladder.
+ const MUSIC=['COOK','A14','SHOW','A15','A16'];
+ const SOCIAL=['IMANI_BOBA'];
  const MISSIONS=['NEW_OGA_M1','NEW_OGA_M2','NEW_OGA_M3','NEW_OGA_M4','NEW_OGA_ALTERNATIVE','NEW_OGA_M5','NEW_OGA_M6','NEW_OGA_M7','NEW_OGA_M8','NEW_OGA_M9','NEW_OGA_M10','NEW_OGA_VAMPGPT','NEW_OGA_FINALE'];
  const L=()=>RALife.life(),day=()=>RALife.today().day,flag=RALife.flag;
  const read=()=>flag('rc3Day')?.day===day()?flag('rc3Day'):{day:day(),story:!!flag('ogunsRaveCompleted')&&L().newOga.lastMissionDay===day(),action:false,paid:false,moneyBefore:RALife.money(),earnedIncome:0};
  const patch=v=>{const s={...read(),...v};RALife.setFlag('rc3Day',s);return s;};
  const dancer=id=>!!window.RAF15?.parse?.(id);
- function allowed(id){return id==='A00'||id==='RC3_FIGHT'||MISSIONS.includes(id)||MAPS.includes(id)||HALL.includes(id)||UTILITY.includes(id)||dancer(id);}
+ function allowed(id){return id==='A00'||id==='RC3_FIGHT'||MISSIONS.includes(id)||MAPS.includes(id)||HALL.includes(id)||UTILITY.includes(id)||MUSIC.includes(id)||SOCIAL.includes(id)||dancer(id);}
  function canStart(id,from){if(!allowed(id))return false;if(RAAdventures.active()?.id===id)return true;
+  if(MUSIC.includes(id)||SOCIAL.includes(id))return ['phone','chain','castle:music','rc5-music'].includes(from)&&RAAdventures.available(id);
   if(MAPS.includes(id))return (from==='rc3-maps'||(from==='chain'&&id==='A56'&&RAAdventures.isDone('A54')))&&RAAdventures.available(id);
   if(HALL.includes(id))return from==='rc4-hall'&&RALife.hasRoom('party_hall')&&RAAdventures.available(id);
   if(MISSIONS.includes(id))return RAAdventures.available(id);
@@ -96,8 +100,9 @@
  }
  const attemptKey=(id,node)=>`${id}:${node}`;
  const attempts=()=>flag('rc4Attempts')?.day===day()?flag('rc4Attempts'):{day:day(),failures:{}};
- function attemptAllowed(id,node){return Number(attempts().failures[attemptKey(id,node)]||0)<2;}
+ function attemptAllowed(id,node){return MUSIC.includes(id)||Number(attempts().failures[attemptKey(id,node)]||0)<2;}
  function settleAttempt(id,node,result){
+  if(MUSIC.includes(id))return 'settled'; // Voluntary quit/failure returns to its authored no-pay receipt.
   if(result?.quit||result?.error||['quit','cancel','refused'].includes(result?.outcome)||result?.data?.refused)return 'paused';
   if(['lose','fail'].includes(result?.outcome)){const a=attempts(),k=attemptKey(id,node);RALife.setFlag('rc4Attempts',{day:day(),failures:{...a.failures,[k]:Number(a.failures[k]||0)+1}});}
   return 'settled';
@@ -167,7 +172,8 @@
  releaseMap();RAClock.onWake('rc4-maps',999,releaseMap);
  for(const id of MISSIONS){const d=RAAdventures.get(id);if(d)d.available=()=>flag('ogunsRaveCompleted')&&!read().story&&pendingMission()===id&&missionReady(id);}
  const prologue=RAAdventures.get('A00');if(prologue){
-  prologue.nodes.fall1.next='sensei';prologue.nodes.sensei_point.next='brain';prologue.nodes.brain_done.next='fork';
+  // The revised opening owns its visible attempts, advice, acquisition and merge.
+  // Old compression overrides must not skip these authored transitions.
   // Preserve authored lines, remove empty tap beats; introduce the giver before
   // the brain choice so the compressed opening still has cause and effect.
   for(const node of Object.values(prologue.nodes))if(Array.isArray(node.lines))node.lines=node.lines.filter(Boolean);
@@ -178,8 +184,16 @@
   const pitch=m1.nodes.pitch.lines;
   // The ramen prerequisite was retired. Do not pretend the player worked there;
   // keep every protected Rich line and the actual offer, adjust only connective UI voice.
-  m1.nodes.pitch.lines=()=>RAAdventures.isDone('A08')?pitch:pitch.map((line,i)=>i===0?RAContent.S(null,'oga. you need funds.'):
-   i===5?RAContent.S(null,'cash first. what you do with it is your business.'):line);
+  m1.nodes.pitch.lines=()=>{
+   const lines=typeof pitch==='function'?pitch(RAAdventures.context()):pitch;
+   if(RAAdventures.isDone('A08'))return lines;
+   return lines.map(line=>{
+    if(!Array.isArray(line)||!['vampgpt',null].includes(line[0]))return line;
+    const replacement=line[1]==="oga. you're cooking noodles for tips."?'oga. you need funds.':
+     line[1]==="it's just an idea. you're tired of the ramen. the ramen is tired of you."?'cash first. what you do with it is your business.':null;
+    return replacement?[line[0]||'vampgpt',replacement,...line.slice(2)]:line;
+   });
+  };
  }
  if(m2)m2.nodes.debt.choices=m2.nodes.debt.choices.filter(c=>c.next==='work');
  // A vehicle is no longer a shopping prerequisite. Gbenga supplies transport for this assignment.
