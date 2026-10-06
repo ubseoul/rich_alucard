@@ -1,0 +1,233 @@
+{
+  "revision": "r4-review-receipt",
+  "noNewGeneration": true,
+  "recommendedFamily": "all exact r1 frames; r2/r3 excluded to avoid mixing chest/palette/identity directions",
+  "canvas": [
+    160,
+    160
+  ],
+  "actualCareScale": 1,
+  "anchor": [
+    80,
+    152
+  ],
+  "stageContact": [
+    135,
+    296
+  ],
+  "approval": {
+    "scope": "appearance of exact shown r1 JOKO settled/sitting candidate only; direction approved for Senator family",
+    "userQuote": "I understand your level of rigor but ill say its allowed to pass here",
+    "evidence": "Sentinel_d32327c96cfc81918c19abdc17301957; parent relayed transcript",
+    "comparisonLibraryFileId": "libfile_03ea848eb8148191af494cd8f059c0ba",
+    "approvedImageLibraryFileId": "libfile_3157146b92108191a6f01710845a4398",
+    "approvedFrame": "senator_joko_03_r1.png",
+    "approvedSHA256": "0326349bb684ab2f5b8d6e3b64286ac0801098cc76edb76a6e4e27b089eb76b7",
+    "notApproved": "other poses/motion/mechanics/characters"
+  },
+  "frames": [
+    {
+      "file": "senator_feed_01_r1.png",
+      "action": "feed",
+      "index": 1,
+      "durationMs": 140,
+      "alphaBounds": [
+        20,
+        35,
+        139,
+        153
+      ],
+      "sha256": "34f48a16ffb74b5bb40da6885b1f0e8ee9a74e0510854179fe1048c610868894",
+      "contactAlignmentDy": 35
+    },
+    {
+      "file": "senator_feed_02_r1.png",
+      "action": "feed",
+      "index": 2,
+      "durationMs": 180,
+      "alphaBounds": [
+        19,
+        33,
+        140,
+        153
+      ],
+      "sha256": "7b60c5e7f9d5890d57974f1b53a84b5e16d2779b71bba4f753c9d90ca75bbb41",
+      "contactAlignmentDy": 33
+    },
+    {
+      "file": "senator_feed_03_r1.png",
+      "action": "feed",
+      "index": 3,
+      "durationMs": 220,
+      "alphaBounds": [
+        23,
+        32,
+        137,
+        153
+      ],
+      "sha256": "56e88feadb002fd933a3a4252e441ba7d75d5d0f6d9f5916f00187ac9507eace",
+      "contactAlignmentDy": 32
+    },
+    {
+      "file": "senator_walk_01_r1.png",
+      "action": "walk",
+      "index": 1,
+      "durationMs": 120,
+      "alphaBounds": [
+        5,
+        40,
+        155,
+        153
+      ],
+      "sha256": "bd5ab2f648d67130e9bb33409dea0c87d6c477d53b4830948eedab7c61e6309e",
+      "contactAlignmentDy": 40
+    },
+    {
+      "file": "senator_walk_02_r1.png",
+      "action": "walk",
+      "index": 2,
+      "durationMs": 120,
+      "alphaBounds": [
+        5,
+        29,
+        155,
+        153
+      ],
+      "sha256": "79d9d127e2c498394e43a0cc1bfd7df5705a8991e735427e007466f059af9cfe",
+      "contactAlignmentDy": 29
+    },
+    {
+      "file": "senator_walk_03_r1.png",
+      "action": "walk",
+      "index": 3,
+      "durationMs": 120,
+      "alphaBounds": [
+        6,
+        36,
+        154,
+        153
+      ],
+      "sha256": "23ced0531454f058f95351eaf92f11241da988d21fd85cc0c055f3f55e1aa843",
+      "contactAlignmentDy": 36
+    },
+    {
+      "file": "senator_walk_04_r1.png",
+      "action": "walk",
+      "index": 4,
+      "durationMs": 120,
+      "alphaBounds": [
+        5,
+        30,
+        155,
+        153
+      ],
+      "sha256": "2bc58a370c42fb071bf6b22fbca91420b3af08d7b2b456cd19f8bb14b4ef3108",
+      "contactAlignmentDy": 30
+    },
+    {
+      "file": "senator_joko_01_r1.png",
+      "action": "joko",
+      "index": 1,
+      "durationMs": 160,
+      "alphaBounds": [
+        17,
+        28,
+        142,
+        153
+      ],
+      "sha256": "c14fdaf2742e03865b6b89880436519f13ea7574c063f3b32423b937d2e684c0",
+      "contactAlignmentDy": 28
+    },
+    {
+      "file": "senator_joko_02_r1.png",
+      "action": "joko",
+      "index": 2,
+      "durationMs": 160,
+      "alphaBounds": [
+        17,
+        35,
+        142,
+        153
+      ],
+      "sha256": "9453eb61d6ef3aad05c7b99cb4e7d0797e4d9613bcc88f13b092584a75ff7cb0",
+      "contactAlignmentDy": 35
+    },
+    {
+      "file": "senator_joko_03_r1.png",
+      "action": "joko",
+      "index": 3,
+      "durationMs": 160,
+      "alphaBounds": [
+        21,
+        43,
+        138,
+        153
+      ],
+      "sha256": "0326349bb684ab2f5b8d6e3b64286ac0801098cc76edb76a6e4e27b089eb76b7",
+      "contactAlignmentDy": 43
+    }
+  ],
+  "transitionPlan": {
+    "idle": "approved r1 JOKO03 during care idle/recovery; frozen source remains immutable for other consumers",
+    "feed": "idle -> r1 FEED01/02/03 at140/180/220ms -> approved idle",
+    "walk": "idle -> repeat r1 WALK01/02/03/04 at120ms each while walking -> approved idle",
+    "joko": "approved idle -> r1 JOKO01/02/03 at160ms each -> retain approved JOKO03",
+    "fixtureOnly": "320ms idle holds in transition previews for inspection, not a mandatory runtime duration",
+    "noInterpolation": "no transformed or repainted intermediate frames"
+  },
+  "pendingQuality": [
+    "Actual runtime/native160px stage motion acceptance by coordinator.",
+    "WALK head/top bounds vary by11px, planted support feet/gait/sliding and loop seam need perceptual review.",
+    "JOKO01/02 taller than approved JOKO03: head/body scale pop on settle requires perceptual review.",
+    "FEED upright-to-sniff and lick-to-idle silhouette jumps need perceptual review.",
+    "Small colored/detached edge pixels remain in unapproved action frames; tool reprompt only if perceptible at actual stage.",
+    "Frozen original fallback -> candidate idle may pop: switch idle with family at care entry; use one family within a session."
+  ],
+  "importGate": "Only shown sitting appearance approved; coordinator must approve remaining exact motion bytes before import",
+  "originalR1ManifestSHA256": "55856fad95d1724b42f5123e53e57d7a3ad4afc9b8821d9e9f1eb3cb4097d14c",
+  "artifacts": {
+    "family-2x-r4.png": "30462b4089dac5a5ca6e0e7dbd0c469ac518d43bde831475ed754a5d09a2f4c6",
+    "family-native-r4.png": "33ba8d161bf8d6292f65f5dbd814d77390264d2bca47a5ab085a4196da97185d",
+    "feed-native-motion-r4.png": "2bfd3cbd32e13cba3a69d2e28fd0964e6d4cee583d10a217eeff2aea0852aa52",
+    "feed-stage-1to1-transition-r4.png": "5689bb58e488ca073ba16550d9dbfcd5806d05b8b1127a9898431f9a888674e2",
+    "joko-native-motion-r4.png": "7ecd86209ae82b974ba31b22f1e2498f1df713e3ec02b25b447005d570b67666",
+    "joko-stage-1to1-transition-r4.png": "4840c3cd03905ad0470c84dca15fcb5caf7bceed9c1d6563b0bb1030ef4db575",
+    "senator_feed_01_r1.png": "34f48a16ffb74b5bb40da6885b1f0e8ee9a74e0510854179fe1048c610868894",
+    "senator_feed_02_r1.png": "7b60c5e7f9d5890d57974f1b53a84b5e16d2779b71bba4f753c9d90ca75bbb41",
+    "senator_feed_03_r1.png": "56e88feadb002fd933a3a4252e441ba7d75d5d0f6d9f5916f00187ac9507eace",
+    "senator_joko_01_r1.png": "c14fdaf2742e03865b6b89880436519f13ea7574c063f3b32423b937d2e684c0",
+    "senator_joko_02_r1.png": "9453eb61d6ef3aad05c7b99cb4e7d0797e4d9613bcc88f13b092584a75ff7cb0",
+    "senator_joko_03_r1.png": "0326349bb684ab2f5b8d6e3b64286ac0801098cc76edb76a6e4e27b089eb76b7",
+    "senator_walk_01_r1.png": "bd5ab2f648d67130e9bb33409dea0c87d6c477d53b4830948eedab7c61e6309e",
+    "senator_walk_02_r1.png": "79d9d127e2c498394e43a0cc1bfd7df5705a8991e735427e007466f059af9cfe",
+    "senator_walk_03_r1.png": "23ced0531454f058f95351eaf92f11241da988d21fd85cc0c055f3f55e1aa843",
+    "senator_walk_04_r1.png": "2bc58a370c42fb071bf6b22fbca91420b3af08d7b2b456cd19f8bb14b4ef3108",
+    "walk-native-motion-r4.png": "1e0fa1218e791240955baaa5220d0db923d111f55fa777395bf4f486d6f829bf",
+    "walk-stage-1to1-transition-r4.png": "9580a93af189797746599615e182d5ee85d104ea3665453ea946e1c322653882"
+  },
+  "runtimeContactRows": {
+    "feed": [
+      141,
+      139,
+      141
+    ],
+    "walk": [
+      149,
+      149,
+      149,
+      149
+    ],
+    "joko": [
+      150,
+      150,
+      151
+    ]
+  },
+  "runtimeDecisions": [
+    "Contact row follows visible opaque support paws, not detached low-alpha edge pixels; 1:1 draw only.",
+    "Care family switches atomically when all ten exact images load; approved JOKO03 is idle throughout.",
+    "WALK stays alongside the handler: no sinusoidal translation or endless loop seam. One out-and-back step sequence then idle.",
+    "JOKO uses raised-paw02 then approved settled03; redundant taller01 omitted from playback to reduce the pop.",
+    "Existing 1200ms response and care consequences unchanged."
+  ]
+}
