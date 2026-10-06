@@ -25,14 +25,14 @@
   'A00:floor':['LADDER_CREAK'],'A00:try2':['LADDER_CREAK'],'A00:try3':['LADDER_CREAK'],
   'A00:fall1':['LADDER_COLLAPSE'],'A00:fall2':['LADDER_COLLAPSE'],'A00:fall3':['LADDER_COLLAPSE'],'A00:sensei':['SENSEI_RUMBLE'],
   'A09:lower':['RECORD_SCRATCH'],'A09:back':['EGG_REVEAL'],'A11:crack':['EGG_CRACK'],'A11:sneeze':['DRAGON_FIRE_SMALL'],
-  'A14:arrive':['MIC_FEEDBACK'],'A14:crowd':['CROWD_OOH'],'A14:powercut':['POWER_CUT'],
+  'A14:arrive':['MIC_FEEDBACK'],'A14:result':['CROWD_OOH'],'SHOW:result':['CROWD_OOH'],
   'A16:wispa2':['LAPTOP_TYPING'],'A16:end':['HOOK_COOKED'],'A18:arrive':['NINJA_CROWD'],
   'A23:arrive':['HEAVY_STEPS'],'A24:explain':['HOLY_CHOIR_COMEDIC'],
   'A28:turn':['MALL_GATE','EN_HOWL'],'A30:wake':['ALARM_CLOCK'],'A30:approve':['POLITE_APPLAUSE'],'A30:wakeup':['WAKE_SCREAM'],
   'A31:stars':['STARS_SHIMMER'],'A32:night':['TRANSFORM_BLOOM'],'A41:drive':['CAR_WINDOWS_DOWN'],
   'A47:arrive':['SNEEZE'],'A50:xcom':['XCOM_MISS'],'A52:trick':['KIDS_HALLOWEEN'],'A57:stop':['SIREN_CHIRP']
  };
- function beat(a,adventure,node){for(const id of beats[`${adventure}:${node}`]||[])a.sound(id);}
+ function beat(a,adventure,node){if(['A14','SHOW'].includes(adventure)&&node==='result'&&window.RAAdventures?.active?.()?.vars?.showOutcome!=='success')return;for(const id of beats[`${adventure}:${node}`]||[])a.sound(id);}
  // Only unavailable authored-scene hooks are routed by the review tour, per Ube's explicit ruling.
  const reserved=['GRILL_LAND','TONGS','SIZZLE_PERFECT','CHAR_CRACKLE','SMOKE_HISS','AMB_KBBQ','AMB_HOTSPRING_OUT'];
  window.RAOpenAudio={scope,environment,combat,action,voice,beat,environments,enemy,beats,reserved};
