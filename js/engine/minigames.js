@@ -60,7 +60,7 @@
     if(done)return;done=true;current=null;
     try{instance?.dispose?.()}catch(e){console.error(e)}
     scope.cancel?.();root.remove();document.body.classList.remove('minigame-mode');
-    const final={quit:false,...result,rewards:mergeRewards(clone(rewards)||{},result?.rewards||{}),minigame:id};
+    const final={quit:false,...result,rewards:result?.quit?{}:mergeRewards(clone(rewards)||{},result?.rewards||{}),minigame:id};
     if(id==='range_day')window.RARC3?.settleAttempt('range_day','range',final);
     const best=progress(id);final.progress=best;
     resolve(final);
@@ -77,11 +77,11 @@
    quitButton.addEventListener('click',()=>ctx.quit());
    current={id,abort:()=>ctx.quit(),ctx};
    // RC2 B3: every minigame states its one-sentence rule before it starts (def.rule). Quit stays live on the card.
-   const begin=()=>{if(done)return;stage.style.pointerEvents='none';setTimeout(()=>{stage.style.pointerEvents='';},300);try{instance=def.mount(stage,ctx)||{};}catch(error){console.error(error);end({quit:true,error:String(error?.message||error)});}};
+   const begin=()=>{if(done)return;if(window.RARC3&&ruleText)window.RALife.setFlag(coachKey,true);stage.style.pointerEvents='none';scope.timeout(()=>{if(!done)stage.style.pointerEvents='';},180);try{instance=def.mount(stage,ctx)||{};}catch(error){console.error(error);end({quit:true,error:String(error?.message||error)});}};
    const ruleText=def.ruleFor?.(params)||(typeof def.rule==='function'?def.rule(params):def.rule);
    const coachKey=`rc3Coach:${id}${params.canopyDuty?':chairs':''}`;
    const coached=window.RARC3&&window.RALife?.flag?.(coachKey);
-   if(ruleText&&!coached&&!params.skipRule&&!window.RA_SKIP_MINIGAME_RULE){if(window.RARC3)window.RALife.setFlag(coachKey,true);showRuleCard(stage,{...def,rule:ruleText},ctx,begin);}else begin();
+   if(ruleText&&!coached&&!params.skipRule&&!window.RA_SKIP_MINIGAME_RULE){showRuleCard(stage,{...def,rule:ruleText},ctx,begin);}else begin();
   });
  }
  function active(){return current?{id:current.id}:null}

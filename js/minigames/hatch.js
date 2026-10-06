@@ -65,26 +65,32 @@
  function mountCare(root,ctx){
   const params=ctx.params||{},windowMs=window.RANewOgaTunables?.m6?.PROMPT_WINDOW_MS||10000,scale=Math.max(1,Math.min(20,Number(params.timeScale)||1));
   const {canvas,ctx:g,toNative}=R.createCanvas(root),actions=[];
+  const activeStory=window.RAAdventures?.active?.(),resultKey=activeStory?`${activeStory.id}:${activeStory.node||'care'}`:`standalone:${window.RALife?.today?.().day||0}`;
   const J=window.RAJuice?window.RAJuice.create(g):{burst(){},float(){},ring(){},shake(){},flash(){},update(){},begin(){g.save();},end(){g.restore();}};
   let index=0,elapsed=0,feedback='',feedbackMs=0,terminal=false,raf=null,last=performance.now(),buttons=[];
   root.dataset.phase='prompt';
   function advance(action=null){
-   if(terminal)return;const prompt=CARE_PROMPTS[index],success=action===prompt;actions.push({prompt,action,success});
-   if(success){J.burst(135,300,['#20c66b','#ffd36a','#f6efd9'],18,90);J.float('GOOD',135,270,{color:'#20c66b',size:9,life:.9});ctx.audio?.sound('DRAGON_HAPPY');}else{J.shake(4);J.flash('#d7193f',120);ctx.audio?.sound('DRAGON_SULK');}
+   if(terminal||feedbackMs>650)return;const prompt=CARE_PROMPTS[index],success=action===prompt;actions.push({prompt,action,success});
+   if(success){J.burst(135,300,['#20c66b','#ffd36a','#f6efd9'],18,90);J.float('GOOD',135,270,{color:'#20c66b',size:9,life:.9});ctx.audio?.sound('UI_CONFIRM');}else{J.shake(4);J.flash('#d7193f',120);ctx.audio?.sound('UI_ERROR');}
    feedback=success?`${prompt} · GOOD`:prompt==='WALK'?'SQUIRREL. SENATOR IS GONE.':prompt==='FEED'?'HE EATS THE AGEGE BREAD ANYWAY.':'HE IGNORES THE COMMAND.';feedbackMs=900;index++;elapsed=0;
    if(irreversibleCareFailure(prompt,success)){finish(true);return;}
    if(index>=CARE_PROMPTS.length)finish();
   }
   function finish(commit=false){
    terminal=true;const result=careOutcome(actions);root.dataset.phase='results';root.dataset.outcome=result.walked?'walked':'lost';
-   if(commit){ctx.finish({outcome:'lost',data:{...result,actions}});return;}
+   const delivery={outcome:result.walked?'walked':'lost',data:{...result,actions}};
+   // WALK failure is already consequential. Acknowledgement cannot turn it into a free quit.
+   const deliver=()=>{ctx.saveProgress({pendingCareResult:null});ctx.finish(delivery);};
+   if(commit){ctx.saveProgress({pendingCareResult:{key:resultKey,actions}});ctx.quit=deliver;const q=root.parentElement?.querySelector('.ra-minigame-quit');if(q){q.textContent='CONTINUE';q.setAttribute('aria-label','Continue care result');}}
    const card=document.createElement('div');card.className='hatch-care-result';card.style.cssText='position:absolute;inset:0;z-index:6;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:22px;background:rgba(8,7,15,.94);color:#f6efd9;text-align:center;font-family:"Press Start 2P",monospace';
    card.innerHTML=`<div style="color:#c18b3c;font-size:11px">${result.walked?'NIGHT COMPLETE':'SENATOR LOST'}</div><div style="font-size:7px">FEED ${result.care.feed?'✓':'—'} · WALK ${result.care.walk?'✓':'—'} · JOKO ${result.care.joko?'✓':'—'}</div>`;
-   const done=document.createElement('button');done.type='button';done.className='hatch-care-done';done.textContent='DONE';done.style.cssText='font:8px "Press Start 2P";padding:.8em 1em;background:#f6efd9;color:#10101b;border:2px solid #10101b;cursor:pointer';done.addEventListener('click',()=>ctx.finish({outcome:result.walked?'walked':'lost',data:{...result,actions}}));card.append(done);root.append(card);
+   const done=document.createElement('button');done.type='button';done.className='hatch-care-done';done.textContent='DONE';done.style.cssText='font:8px "Press Start 2P";padding:.8em 1em;background:#f6efd9;color:#10101b;border:2px solid #10101b;cursor:pointer';done.addEventListener('click',deliver);const detail=document.createElement('div');detail.style.cssText='font-size:8px;line-height:1.9';detail.textContent=result.walked?'Senator is safe. Your care result returns to the story.':'The walk was missed. Senator is lost; this result continues the story.';card.append(detail,done);root.append(card);
   }
   function hit(x,y){for(const b of buttons)if(x>=b.x&&x<=b.x+b.w&&y>=b.y&&y<=b.y+b.h)return b.id;return null;}
   function onDown(e){if(terminal)return;const p=toNative(e.clientX,e.clientY),id=hit(p.x,p.y);if(id)advance(id);}
   canvas.addEventListener('pointerdown',onDown);
+  function careKey(e){if(e.repeat||terminal||! /^[1-3]$/.test(e.key))return;e.preventDefault();advance(CARE_PROMPTS[Number(e.key)-1]);}
+  window.addEventListener('keydown',careKey);
   function drawDog(){
    if(R.drawRegistered(g,'senator',135,296,'sitting'))return;
    R.rect(g,74,224,122,72,'#4d4d55');R.rect(g,154,190,56,52,'#5b5b63');R.rect(g,164,176,12,22,'#3a3a42');R.rect(g,194,176,12,22,'#3a3a42');R.rect(g,168,208,8,6,'#d7193f');R.rect(g,194,208,8,6,'#d7193f');R.rect(g,167,238,36,7,'#c18b3c');R.text(g,'SENATOR',170,240,{size:5,color:'#10101b'});
@@ -93,12 +99,16 @@
    if(!R.drawBoard(g,'senator_care_ground'))R.paintEnvironment(g,{sky:'#0b1024',wall:'#1d1a33',floor:'#141225',horizon:360,seed:'senator-care',stars:18,props:[{type:'rect',x:0,y:346,w:270,h:134,color:'#1a1730'}]});drawDog();
    const prompt=CARE_PROMPTS[Math.min(index,CARE_PROMPTS.length-1)];R.text(g,'SENATOR CARE',10,12,{size:8,color:'#f6efd9'});R.text(g,`PROMPT ${Math.min(index+1,3)}/3 · ${prompt}!`,10,34,{size:8,color:'#ffd36a'});R.text(g,`${Math.max(0,Math.ceil((windowMs-elapsed)/1000))}`,248,34,{size:7,color:'#f6efd9',align:'right'});
    if(feedback&&feedbackMs>0)R.text(g,feedback,135,326,{size:6,color:'#f6efd9',align:'center',maxWidth:230});
-   buttons=[];for(const [i,id] of CARE_PROMPTS.entries()){const x=10+i*86;buttons.push({id,x,y:420,w:78,h:32});R.rect(g,x,420,78,32,id===prompt?'#c18b3c':'#3a6ff0');R.text(g,id==='JOKO'?'JOKO!':id,x+39,432,{size:7,color:'#f6efd9',align:'center'});}
+   buttons=[];for(const [i,id] of CARE_PROMPTS.entries()){const x=10+i*86;buttons.push({id,x,y:420,w:78,h:32});R.rect(g,x,420,78,32,feedbackMs>650?'#3a2f4a':id===prompt?'#c18b3c':'#3a6ff0');R.text(g,id==='JOKO'?'JOKO!':id,x+39,432,{size:7,color:'#f6efd9',align:'center'});}
+   R.text(g,'1 FEED  /  2 WALK  /  3 JOKO',135,466,{size:5,align:'center'});
+   R.text(g,'MISS WALK = SENATOR LOST',135,62,{size:6,align:'center',color:'#ff6fb5'});
+   R.rect(g,10,78,248,5,'#21182c');R.rect(g,10,78,248*Math.max(0,1-elapsed/windowMs),5,elapsed>windowMs*.75?'#d7193f':'#20c66b');
    root.dataset.prompt=prompt;root.dataset.elapsed=String(Math.round(elapsed));
   }
-  function loop(now){const dt=Math.min(50,now-last)*scale;last=now;if(!terminal){elapsed+=dt;feedbackMs=Math.max(0,feedbackMs-dt);if(elapsed>=windowMs)advance(null);if(!terminal){J.update(dt/1000/scale);J.begin();draw();J.end();}}raf=requestAnimationFrame(loop);}
+  function loop(now){const dt=Math.min(50,now-last)*scale;last=now;if(!terminal){if(feedbackMs<=650)elapsed+=dt;feedbackMs=Math.max(0,feedbackMs-dt);if(elapsed>=windowMs)advance(null);if(!terminal){J.update(dt/1000/scale);J.begin();draw();J.end();}}raf=terminal?null:requestAnimationFrame(loop);}
   raf=requestAnimationFrame(loop);
-  return {dispose(){if(raf)cancelAnimationFrame(raf);canvas.removeEventListener('pointerdown',onDown);}};
+  const pending=ctx.progress()?.pendingCareResult;if(pending?.key===resultKey&&Array.isArray(pending.actions)){actions.push(...pending.actions);finish(true);}
+  return {dispose(){terminal=true;if(raf)cancelAnimationFrame(raf);canvas.removeEventListener('pointerdown',onDown);window.removeEventListener('keydown',careKey);}};
  }
 
  const FOOD_LABEL={fish_common:'FISH',treats:'TREATS',dragon_keef:'DRAGON KEEF',agege_bread:'AGEGE BREAD',maggi_dragon_crumble:'DRAGON MAGGI CRUMBLE'};
@@ -391,5 +401,5 @@
   return {dispose(){if(raf)cancelAnimationFrame(raf);canvas.removeEventListener('pointerdown',onDown);}};
  }
 
- if(window.RAMinigames)RAMinigames.register('hatch',{title:'HATCH',rule:p=>p&&p.mode==='senator'?'Tap the button the prompt asks for before the timer runs out.':'Tap FEED, PLAY or TALK to look after your dragon and keep her happy.',mount});
+ if(window.RAMinigames)RAMinigames.register('hatch',{title:'HATCH',rule:p=>p&&p.mode==='senator'?'Match FEED, WALK and JOKO with the buttons or keys 1–3; missing WALK loses Senator and continues that story outcome.':'Tap FEED, PLAY or TALK to look after your dragon and keep her happy.',mount});
 })();

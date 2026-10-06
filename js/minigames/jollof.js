@@ -57,8 +57,8 @@
  function total(stages,judgeIds){
   const ids=(judgeIds&&judgeIds.length?judgeIds:['nneka','uncle_sunday','bunmi']);
   const judgeScores={};let sum=0,f=0,t=0,c=0,s=0;
-  for(const id of ids){const r=scoreDish(stages,id);judgeScores[id]=r;sum+=r.total;f+=r.flavor;t+=r.texture;c+=r.color;s+=r.smoke;}
-  const n=ids.length||1;
+  for(const id of ids){const r=scoreDish(stages,id);judgeScores[id]=r;if(!r.meaningless){sum+=r.total;f+=r.flavor;t+=r.texture;c+=r.color;s+=r.smoke;}}
+   const n=ids.filter(id=>!JUDGES[id]?.meaningless).length||1;
   return {judgeScores,average:sum/n,breakdown:{flavor:Math.round(f/n),texture:Math.round(t/n),color:Math.round(c/n),smoke:Math.round(s/n)}};
  }
  window.RAMinigameLogic=window.RAMinigameLogic||{};
@@ -110,10 +110,10 @@
   let judgeIdx=-1,scoreResult=null,resultShown=false;
   let raf=null,lastT=performance.now();
 
-  function pointToStage(){ctx.audio?.stop('BLENDER');ctx.audio?.sound('OIL_SIZZLE_PASTE');stage='fry';fryStart=performance.now();fryLastTap=fryStart;}
-  function toSeason(){ctx.audio?.stop('OIL_SIZZLE_PASTE');ctx.audio?.stop('BURNT_CRACKLE');stage='season';}
+  function pointToStage(){if(dead)return;ctx.audio?.stop('BLENDER');ctx.audio?.sound('OIL_SIZZLE_PASTE');stage='fry';fryStart=performance.now();fryLastTap=fryStart;}
+  function toSeason(){if(dead)return;ctx.audio?.stop('OIL_SIZZLE_PASTE');ctx.audio?.stop('BURNT_CRACKLE');stage='season';}
   function toSteam(){ctx.audio?.sound('LID_CLANK');ctx.audio?.sound('STEAM_HISS');stage='steam';steamStart=performance.now();}
-  function toJudging(){ctx.audio?.stop('STEAM_HISS');
+  function toJudging(){if(dead)return;ctx.audio?.stop('STEAM_HISS');
    scoreResult=window.RAMinigameLogic.jollof.total(stages,judgeIds);
    const best=ctx.progress();
    const bestTotal=Math.max(best.bestTotal||0,scoreResult.average);
@@ -138,18 +138,17 @@
 
   function onDown(nx,ny){
    if(dead)return;
-   if(stage==='blend'){ctx.audio?.sound('BLENDER');holding=true;holdStart=performance.now();}
+   if(stage==='blend'){if(holding)return;ctx.audio?.sound('BLENDER');holding=true;holdStart=performance.now();}
    else if(stage==='fry'){
     if(fryStopped)return;
-    const side=nx<135?'left':'right';const now=performance.now();
-    ctx.audio?.sound('STIR_POT');if(side!==fryLastSide){fryLastSide=side;fryLastTap=now;}
-    else{fryBurnPenalty+=.02;} // tapping same side repeatedly doesn't stir properly
     if(ny>380&&ny<420&&nx>75&&nx<195&&(performance.now()-fryStart)>1200){
      const darkness=stages.fry.darkness;fryStopped=true;J.burst(135,236,['#d7193f','#ffd36a'],14,70);J.ring(135,236,'#ffd36a',30);
      stages.fry.stoppedAtSheen=darkness>=.45&&darkness<=.88;
      const r=fryResult(darkness,stages.fry.stoppedAtSheen);stages.fry.result=r;
-     ctx.progress&&null;setTimeout(toSeason,650);
+     ctx.scope.timeout(toSeason,650);return;
     }
+    if(ny>=150&&ny<=280){const side=nx<135?'left':'right';const now=performance.now();ctx.audio?.sound('STIR_POT');if(side!==fryLastSide){fryLastSide=side;fryLastTap=now;}else fryBurnPenalty+=.02;}
+
    } else if(stage==='season'){
     for(let i=0;i<seasonItems.length;i++){
      const ix=30+i*48,iy=210;
@@ -168,7 +167,7 @@
      const crust=params.mazdaHelps?!mazdaBurn:(liftTime>.6&&liftTime<.92);
      stages.steam.liftTime=liftTime;stages.steam.crust=crust&&!(params.mazdaHelps&&mazdaBurn);
      if(params.mazdaHelps&&mazdaBurn){stages.steam.liftTime=.95;stages.steam.crust=false;}
-     setTimeout(toJudging,500);
+     ctx.scope.timeout(toJudging,500);
     }
    } else if(stage==='judging'){
     judgeIdx++;
@@ -185,31 +184,35 @@
   }
   function pos(e){const t=e.touches?e.touches[0]:e;const n=canvas.__toNative?canvas.__toNative(t.clientX,t.clientY):{x:t.clientX,y:t.clientY};return n;}
   const toNative=(x,y)=>{const r=canvas.getBoundingClientRect();return {x:(x-r.left)*270/(r.width||270),y:(y-r.top)*480/(r.height||480)};};
-  function handleDown(e){e.preventDefault();const t=e.touches?e.touches[0]:e;const n=toNative(t.clientX,t.clientY);onDown(n.x,n.y);}
-  function handleUp(e){e.preventDefault?.();onUp();}
+  let pointerId=null;
+  function handleDown(e){if(pointerId!==null)return;e.preventDefault();pointerId=e.pointerId;try{canvas.setPointerCapture(e.pointerId);}catch(_){}const n=toNative(e.clientX,e.clientY);onDown(n.x,n.y);}
+  function handleUp(e){if(e.pointerId!==pointerId)return;e.preventDefault();pointerId=null;if(e.type==='pointercancel'){holding=false;ctx.audio?.stop('BLENDER');return;}onUp();}
   canvas.addEventListener('pointerdown',handleDown);canvas.addEventListener('pointerup',handleUp);canvas.addEventListener('pointercancel',handleUp);
-  canvas.addEventListener('touchstart',handleDown,{passive:false});canvas.addEventListener('touchend',handleUp,{passive:false});
+  function keyDown(e){if(dead||e.repeat)return;if(e.key===' '&&stage==='blend'){e.preventDefault();onDown(135,230);}else if(stage==='fry'&&['a','d','ArrowLeft','ArrowRight'].includes(e.key)){e.preventDefault();onDown(e.key==='a'||e.key==='ArrowLeft'?70:200,220);}else if(stage==='season'&&/^[1-5]$/.test(e.key)){e.preventDefault();onDown(30+(Number(e.key)-1)*48,210);}else if(e.key==='Enter'){e.preventDefault();if(stage==='fry')onDown(135,400);else if(stage==='season')onDown(135,420);else if(stage==='steam')onDown(135,420);else if(stage==='judging'||stage==='result')onDown(135,420);}}
+  function keyUp(e){if(e.key===' '&&holding){e.preventDefault();onUp();}}
+  window.addEventListener('keydown',keyDown);window.addEventListener('keyup',keyUp);
 
   function draw(){
    const dt=performance.now()-lastT;lastT=performance.now();J.update(dt/1000);J.begin();
+   root.dataset.phase=stage;root.dataset.blend=String(holding?Math.min(1,(performance.now()-holdStart)/3000):stages.blend);root.dataset.fry=String(stages.fry.darkness);root.dataset.steam=String((performance.now()-steamStart)/8000);root.dataset.season=JSON.stringify(stages.season);
    const rp=P(),pal=palette();
    if(!rp.drawBoard(g,({practice:'jollof_kitchen',cookoff:'jollof_cookoff',final:'jollof_final'}[mode]||'jollof_kitchen')))rp.paintEnvironment(g,env(mode));
    else rp.text(g,mode==='final'?'JOLLOF WARS — A54 FINAL':mode==='cookoff'?'JOLLOF WARS — COOKOFF':'CASTLE KITCHEN',135,25,{size:7,align:'center',color:pal.gold});
    // The approved incidental cook has no identity or dialogue; named judges retain their own frozen art.
    if(stage==='blend'||stage==='fry')rp.drawRegistered(g,'jollof_cook',35,365);
    if(stage==='blend'){
-    rp.text(g,'HOLD TO BLEND',135,140,{size:8,align:'center'});
+    rp.text(g,'HOLD / SPACE TO BLEND',135,140,{size:8,align:'center'});
     rp.text(g,'RELEASE IN THE GREEN ZONE',135,155,{size:6,align:'center',color:pal.grey});
     drawPot(g,135,230);
     const level=holding?Math.min(1,(performance.now()-holdStart)/3000):stages.blend;
     rp.rect(g,45,270,180,14,'#151321');
-    rp.rect(g,47,272,54,10,'#5a4432');rp.rect(g,101,272,84,10,pal.green);rp.rect(g,185,272,38,10,'#5a4432');
+    rp.rect(g,47,272,54,10,'#5a4432');rp.rect(g,45+.3*176,272,.48*176,10,pal.green);rp.rect(g,185,272,38,10,'#5a4432');
     rp.rect(g,45+level*176,271,4,12,pal.bone);
     if(!holding&&stages.blend>0)rp.text(g,stages.blendResult?.tag||'',135,300,{size:6,align:'center'});
    } else if(stage==='fry'){
     const elapsed=performance.now()-fryStart;
     stages.fry.darkness=Math.min(1,elapsed/9000+fryBurnPenalty);
-    rp.text(g,'TAP LEFT / RIGHT TO STIR',135,140,{size:7,align:'center'});
+    rp.text(g,'STIR LEFT / RIGHT · A / D',135,140,{size:7,align:'center'});
     rp.text(g,'STOP WHEN OIL FLOATS',135,154,{size:6,align:'center',color:pal.grey});
     ctx.audio?.edge('burnt',stages.fry.darkness>.88,'BURNT_CRACKLE');const dk=stages.fry.darkness;const sheen=dk>=.45&&dk<=.88;
     drawPot(g,135,230,sheen?'rgba(215,25,63,.55)':null);
@@ -222,7 +225,7 @@
     if(sheen&&!fryStopped)rp.text(g,'the oil is floating...',135,270,{size:6,align:'center',color:pal.red});
     if(dk>=1)rp.text(g,'IT\'S BURNING',135,270,{size:7,align:'center',color:pal.red});
    } else if(stage==='season'){
-    rp.text(g,'TAP THE SPICES (3 OR MORE)',135,140,{size:7,align:'center'});
+    rp.text(g,'SPICES 1–5 · AT LEAST 3 TAPS',135,140,{size:7,align:'center'});
     drawPot(g,135,230);
     seasonItems.forEach((k,i)=>{
      const x=30+i*48,y=210;rp.rect(g,x-18,y-18,36,36,'#1b1830');rp.rect(g,x-16,y-16,32*(stages.season[k]||0),4,pal.green);
@@ -247,7 +250,7 @@
     rp.wrap(g,r.reaction,220,7).forEach((ln,i)=>rp.text(g,ln,135,280+i*12,{size:7,align:'center'}));
     if(!j.meaningless)rp.text(g,`${r.total}/40`,135,330,{size:9,align:'center',color:pal.green});
     else rp.text(g,'(doesn\'t count)',135,330,{size:6,align:'center',color:pal.grey});
-    rp.text(g,'TAP TO CONTINUE',135,440,{size:6,align:'center',color:pal.grey});
+    rp.text(g,'TAP / ENTER TO CONTINUE',135,440,{size:6,align:'center',color:pal.grey});
    } else if(stage==='result'){
     const b=scoreResult.breakdown;
     rp.text(g,'RESULT',135,140,{size:9,align:'center',color:pal.gold});
@@ -263,6 +266,6 @@
    if(!dead)raf=requestAnimationFrame(draw);
   }
   raf=requestAnimationFrame(draw);
-  return {dispose(){dead=true;if(raf)cancelAnimationFrame(raf);canvas.removeEventListener('pointerdown',handleDown);canvas.removeEventListener('pointerup',handleUp);canvas.removeEventListener('pointercancel',handleUp);canvas.removeEventListener('touchstart',handleDown);canvas.removeEventListener('touchend',handleUp);}};
+  return {dispose(){dead=true;if(raf)cancelAnimationFrame(raf);canvas.removeEventListener('pointerdown',handleDown);canvas.removeEventListener('pointerup',handleUp);canvas.removeEventListener('pointercancel',handleUp);window.removeEventListener('keydown',keyDown);window.removeEventListener('keyup',keyUp);}};
  }});
 })();
