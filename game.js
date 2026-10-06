@@ -266,7 +266,7 @@ async function importerTurn(generation=enemyTurnGeneration){
 async function enemyTurn(){
  const generation=enemyTurnGeneration;if(!enemyTurnActive(generation))return;
  if(battleOver)return;
- await wait(360);if(!enemyTurnActive(generation))return;
+ await wait(240);if(!enemyTurnActive(generation))return;
  const enemyMove=window.RACombatFoundation.selectEnemyMove(battleState);
  window.RACombatFoundation.emit(battleState,'enemy-move-selected',{moveId:enemyMove?.id});
  if(enemyMove?.id==='importer_shove')return importerTurn(generation);
@@ -296,7 +296,7 @@ async function enemyTurn(){
  attackLayer.classList.remove('active');
  battleUI.classList.remove('attack-mode');
  say(`-${actualDamage} HP. ${['THAT BRIEFCASE GOT EQUITY','HR GONNA HEAR ABOUT THIS','HE THREW THE WHOLE QUARTER'][(enemyTurn.n=(enemyTurn.n||0)+1)%3]}`,900);
- await wait(600);if(!enemyTurnActive(generation))return;
+ await wait(420);if(!enemyTurnActive(generation))return;
  if(richHP<=0){return defeat()}
  setBattleBusy(false);inMoves=true;paint();
 }
@@ -345,7 +345,7 @@ async function activateMove(){
      if(ceoHP<=0){await normalVictory();setBattleBusy(false);return;}
    }
  }
- await wait(650);
+ await wait(440);
  if(ceoHP<=0){await normalVictory();setBattleBusy(false);return;}
  await enemyTurn();
 }

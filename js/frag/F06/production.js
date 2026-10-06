@@ -171,7 +171,7 @@
       const d = f15?.selected?.(), name = d ? (global.RAF15Tunables?.NAMES?.[d] || d.toUpperCase()) : null, prog = d ? global.RAF15?.progress?.(d) : null;
       const line = summary.spent === 0 ? 'RICH: scared money dont make money'
         : summary.hits > 0 ? (d ? W.throwReaction(d, paid) : 'RICH: '+W.voice(17))
-        : (name ? `${name}: floor money still money` : 'RICH: all that on the floor damn');
+        : (name ? `${name}: money hit everything but me` : 'RICH: all that on the floor damn');
       const progLine = !prog ? '' : prog.maxed ? `ON ${name} ${fmt(prog.spent)} · ALL DATES SEEN` : prog.availableLevel ? `ON ${name} ${fmt(prog.spent)} · DATE READY ↓` : `ON ${name} ${fmt(prog.spent)} · DATE AT ${fmt(prog.nextThreshold)}`;
       const off = opts.terms?.first && summary.spent > paid;
       receipt.innerHTML = `<div class="rc5-rain" aria-hidden="true">${Array.from({length: Math.min(18, 6 + summary.hits * 3)}, (_, i) => `<i style="--x:${(i * 37) % 100}%;--d:${(i * 173) % 900}ms;--s:${1400 + (i * 97) % 900}ms"></i>`).join('')}</div><p class="rc5-k">NIGHT RECEIPT</p><p class="rc5-paid"><small>PAID</small><b data-to="${paid}">$0</b></p>${off ? `<p class="rc5-sub">THREW ${fmt(summary.spent)} · HOUSE COVERED HALF</p>` : ''}<div class="rc5-stats"><span><b>${summary.hits}</b>HITS</span><span><b>${summary.misses}</b>MISS</span><span><b>${summary.overthrows}</b>OVER</span><span><b>x${summary.bestStreak}</b>BEST</span></div><p class="rc5-said">${esc(line)}</p>${progLine ? `<p class="rc5-prog">${esc(progLine)}</p>` : ''}<div class="rc5-acts"></div>`;

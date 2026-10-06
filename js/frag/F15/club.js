@@ -77,7 +77,7 @@
   C().select(selectedLocal);
   const hypePanel=document.createElement('section');hypePanel.className='f15-hype';hypePanel.setAttribute('aria-label','Club hype and VIP');bar.before(hypePanel);
   const saved=()=>global.RAMinigames?.progress('club')||{};
-  let hype=0,combo=0,encoreUntil=0,encores=Number(saved().encores)||0;
+  let misses=0,hype=0,combo=0,encoreUntil=0,encores=Number(saved().encores)||0;
   const HYPE_MAX=3000;
   function renderHype(){const level=vipLevel(encores),active=performance.now()<encoreUntil;
    hypePanel.dataset.encore=String(active);hypePanel.dataset.combo=String(combo);hypePanel.dataset.vip=String(level);
@@ -153,7 +153,9 @@
     note.textContent=`${names[recipient]}: wanna get out of here?`;
     try{global.RAF15Dates?.offer(recipient);}catch(e){console.error('F15 offer',e);}
    }
-   if(!after.availableLevel||after.availableLevel===before.availableLevel)note.textContent=global.RAWriting.throwReaction(recipient,delta);
+   // RC5: a miss never earns the hit reaction; the floor gets its own roast.
+   const MISS=['floor money still money','aim bro. aim.','the floor say thank you','money hit everything but me'];
+   if(!after.availableLevel||after.availableLevel===before.availableLevel)note.textContent=hit?global.RAWriting.throwReaction(recipient,delta):`${names[recipient]}: ${MISS[(misses++)%MISS.length]}`;
    renderBar();lastKey='';
   }
 

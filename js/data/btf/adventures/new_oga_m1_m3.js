@@ -11,7 +11,7 @@
   nodes:{
    pitch:{env:'bedroom',actors:{left:'rich'},title:'VAMPGPT · WAKE',lines:[N('Rich came to Los Angeles for music. He wants his music to pay his way. VampGPT has another idea.'),S('vampgpt',"oga. you're cooking noodles for tips."),S('vampgpt',"i have an idea. you won't like it."),RC('what.'),S('vampgpt','jug the plug.'),RC('…brother. why would I jug the plug.'),S('vampgpt',"it's just an idea. you're tired of the ramen. the ramen is tired of you.")],
     choices:[{label:"WHO'S THE PLUG?",next:'brief'},{label:'NAH',next:'nah'},{label:'SAY LESS.',next:'table'}]},
-   brief:{lines:[S('vampgpt','Smallie sells Blood X out of a boba shop. back table. always eating.'),S('vampgpt','cousin in the parking lot.'),N('Blood X is synthetic blood. Vampires buy it instead of hunting people. The cases are valuable because the city is hungry.'),S('vampgpt','cousin in the parking lot. easy money.'),N('Easy money is VampGPT\'s opinion. The cases belong to somebody.')],next:'table'},
+   brief:{lines:[S('vampgpt','Smallie sells Blood X out of a boba shop. back table. always eating.'),S('vampgpt','cousin in the parking lot.'),N('blood x is lab-made blood. vampires buy it so they dont gotta hunt people. city stay hungry, so them cases worth real money.'),S('vampgpt','cousin in the parking lot. easy money.'),N('easy money is VampGPT\'s opinion. them cases belong to somebody.')],next:'table'},
    nah:{end:{outcome:'backout',fx:()=>RANewOga.backOutM1(),memory:{text:'left the NEW OGA idea alone',lane:'money'}}},
    table:{env:'boba_shop',actors:{left:'rich',right:'smallie'},title:'BOBA SHOP · BACK TABLE',lines:[E('smallie','Smallie is at the back table. the Blood X is beside him.',{narration:true}),RC("say big bro, gonna need to leave that here"),S('smallie',"please man you cant do this i need this for my student loans")],choices:[
     {label:'STICK-UP',next:'fight_smallie'},
@@ -27,7 +27,7 @@
    imani_ask:{actors:{left:'rich',right:{id:'smallie_cousin_girlfriend',state:'decline'}},lines:[S('smallie_cousin_girlfriend','Not tonight. I have a boyfriend and he needs help. If that changes, I decide what happens next.'),N('Rich leaves her a way to reach him. She does not promise to use it.')],enter:A=>{RARelations.setFlag('smallie_cousin_girlfriend','m1Approach','asked');RARelations.memory('smallie_cousin_girlfriend','m1_asked_and_listened');},next:'stick_receipt'},
    imani_messy:{actors:{left:'rich',right:{id:'smallie_cousin_girlfriend',state:'decline'}},lines:[S('smallie_cousin_girlfriend','With the man who just robbed my boyfriend\'s cousin? Are you hearing yourself?'),N('She turns away. Rich got the bag and absolutely did not get the girl.')],enter:A=>{RARelations.setFlag('smallie_cousin_girlfriend','m1Approach','claimed');RARelations.memory('smallie_cousin_girlfriend','m1_refused_claim');},next:'stick_receipt'},
    imani_leave:{actors:{left:'rich',right:{id:'smallie_cousin_girlfriend',state:'neutral'}},lines:[N('Rich steps aside. Imani stays to help the cousin.')],enter:A=>RARelations.setFlag('smallie_cousin_girlfriend','m1Approach','left'),next:'stick_receipt'},
-   stick_receipt:{lines:[N('the route is loud. the Blood X cases, cash, and chain leave with Rich.'),N('That money has an owner who will notice.')],end:{outcome:'stick_up',fx:m1Success('STICK_UP'),memory:{text:'JUG THE PLUG - stick-up route',lane:'money'}}},
+   stick_receipt:{lines:[N('the route is loud. the Blood X cases, cash, and chain leave with Rich.'),N('that money got an owner. he gonna notice.')],end:{outcome:'stick_up',fx:m1Success('STICK_UP'),memory:{text:'JUG THE PLUG - stick-up route',lane:'money'}}},
    switch:{lines:[N('Kiki keeps Smallie talking while Rich switches the bag. quiet and clean.')],end:{outcome:'switch_the_bag',fx:m1Success('SWITCH_THE_BAG'),memory:{text:'JUG THE PLUG — switched the bag',lane:'money'}}},
    touge:{lines:[N('the bag is in the car. Smallie and his cousin are behind him.')],minigame:{id:'touge',params:()=>({course:'angeles_crest',car:RACars.toTouge(RALife.ownedCars()[0]),tandem:{rival:'SMALLIE',role:'chase',threshold:T().touge.SUCCESS_THRESHOLD},durationSeconds:T().touge.AUTHORED_DURATION_SECONDS}),next:(A,r)=>r.outcome==='win'?'touge_done':'table'}},
    touge_done:{lines:()=>[N(`${T().touge.AUTHORED_DURATION_SECONDS} seconds and bro still cant catch me`)],end:{outcome:'touge_escape',fx:m1Success('TOUGE_ESCAPE'),memory:{text:'JUG THE PLUG — escaped by TOUGE',lane:'cars'}}},
@@ -44,7 +44,7 @@
     {label:'MY GREATEST WEAKNESS IS FISH',octopus:true,fx:()=>RANewOga.answerM2('fish'),next:'debt'}
    ]},
    flex_voice:{lines:[RC("i own land uncle castle even"),S('gbenga',"the only reason i dont open the blinds to show you the sun is because my rags are in the wash")],next:'debt'},
-   debt:{lines:[S('gbenga','Smallie sells for me. Those cases were mine.'),N('The theft made six thousand in cash. Gbenga counts the missing stock too: twenty thousand dollars owed.'),N('Gbenga puts the choice on the desk: repay twenty thousand dollars, or work off the debt.'),N('The party-rental business moves his Blood X too.')],choices:[
+   debt:{lines:[S('gbenga','Smallie sells for me. Those cases were mine.'),N('the bag had six thousand cash. Gbenga counts the missing stock too: twenty thousand owed.'),N('Gbenga puts the choice on the desk: repay twenty thousand dollars, or work off the debt.'),N('the party rentals? they move his Blood X too.')],choices:[
     {label:'PAY $20,000 · END',when:L=>L.money>=20000,hideLocked:false,next:'pay'},
     {label:'WORK OFF THE DEBT · CONTINUE',next:'work'}
    ]},
@@ -54,7 +54,7 @@
 
  D({id:'NEW_OGA_M3',title:'CANOPY DUTY',lane:'money',memoryType:'money',start:'voice',available:L=>L.life.newOga.status==='intern'&&L.life.newOga.mission===2&&L.day>L.life.newOga.lastMissionDay,
   testSetup:ctx=>ctx.RAState.patch('life.newOga',{...ctx.RAState.get().life.newOga,status:'intern',mission:2,rank:1,title:'INTERN',businessCard:true,lastMissionDay:1}),nodes:{
-   voice:{env:'gbenga_rentals',actors:{left:'rich',right:'gbenga'},title:'VOICE NOTE · CANOPY DUTY',lines:[N('sixty chairs, one canopy, and six Blood X coolers are assigned to a Carson owambe.'),S('gbenga','Rental business first. Chairs straight. Coolers cold.'),N('The party equipment is real work. The synthetic blood travels with it.')],next:'chairs'},
+   voice:{env:'gbenga_rentals',actors:{left:'rich',right:'gbenga'},title:'VOICE NOTE · CANOPY DUTY',lines:[N('sixty chairs, one canopy, and six Blood X coolers are assigned to a Carson owambe.'),S('gbenga','Rental business first. Chairs straight. Coolers cold.'),N('the chairs are real work. the Blood X rides along.')],next:'chairs'},
    chairs:{minigame:{id:'slurp',params:()=>({canopyDuty:true,totalChairs:T().chairs.AUTHORED_TOTAL,durationMs:T().chairs.DURATION_MS,bundleSize:T().chairs.BUNDLE_SIZE}),next:(A,r)=>{A.set('chairs',r.data||{});return 'critique';}}},
    critique:{env:'carson_owambe',actors:{left:'rich',right:'auntie'},title:'CARSON OWAMBE',lines:A=>A.vars.chairs?.success?[N('all sixty chairs are stacked and carried in.')]:[N('the aunties critique the chair stacks. the rank is not blocked.')],next:'delivery'},
    delivery:{lines:[N('the chairs are inside. the six Blood X coolers are still in the car.')],choices:[
@@ -63,7 +63,7 @@
    ]},
    complete:{lines:[N('the full delivery is complete. Gbenga pays three thousand dollars. an auntie forces a plate of jollof into Rich’s hands.')],next:'carlos_full'},
    carlos_full:{env:'carson_owambe',actors:{left:'rich',right:'carlos'},lines:[N('Carlos recognizes Rich from the Grave garage clips. He brings over a cold drink and films Rich trying to carry the jollof without losing a grain.'),S('carlos','I got the angle, bro. You look expensive. Even with the chairs.'),N('They trade handles. Carlos sends the clip, then stays to help fold the last canopy.')],end:{outcome:'complete',fx:()=>RANewOga.completeM3('complete'),memory:{text:'completed CANOPY DUTY; Carlos helped and filmed the night',lane:'money'}}},
-   backout:{lines:[N('the coolers stay in the car. only the chairs are delivered.'),N('Gbenga will hear about the missing stock.')],next:'carlos_partial'},
+   backout:{lines:[N('the coolers stay in the car. only the chairs are delivered.'),N('Gbenga gonna hear about them missing coolers.')],next:'carlos_partial'},
    carlos_partial:{env:'carson_owambe',actors:{left:'rich',right:'carlos'},lines:[N('Carlos recognizes Rich from the garage clips and brings him a cold drink.'),S('carlos','You carry sixty chairs? I would have left at chair seven.'),N('He helps fold the canopy and sends Rich the clip. They trade handles before leaving.')],end:{outcome:'chairs_only',fx:()=>RANewOga.completeM3('backout'),memory:{text:'delivered only chairs; Carlos helped at the owambe',lane:'money'}}}
   }});
 
