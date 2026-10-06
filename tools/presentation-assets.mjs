@@ -28,7 +28,7 @@ export async function buildAssets(){
  // Reviewed candidates have a separate additive input; frozen annotations and status remain authoritative.
  const candidates=JSON.parse(await readFile(path.join(root,'tools/presentation/candidate-annotations.json'),'utf8'));
  for(const [file,note] of Object.entries(candidates.assets)){
-  if(notes[file]||status[file]||!file.startsWith('assets/rc4/combat_candidates_'))throw new Error(`candidate metadata collision: ${file}`);
+  if(notes[file]||status[file]||!(file.startsWith('assets/rc4/combat_candidates_')||/^assets\/rc5\/imani\/imani_(neutral|decline|smile)_80x96\.png$/.test(file)))throw new Error(`candidate metadata collision: ${file}`);
   notes[file]=note;
  }
  // Read the same additive parts the production loader uses, with its frozen-collision guard.

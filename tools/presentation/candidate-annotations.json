@@ -852,6 +852,57 @@
         "authority": "ASSISTANT-DELEGATED ACCEPTED CANDIDATE; NOT CREATOR-FROZEN",
         "facing": "right"
       }
+    },
+    "assets/rc5/imani/imani_neutral_80x96.png": {
+      "anchor": [
+        40,
+        88
+      ],
+      "face": [
+        33,
+        41,
+        14,
+        13
+      ],
+      "candidate": {
+        "sha256": "e530fea1d3b80478f627161ec4f01f3c7d32bcbbfa851d47f31a0b71275cb646",
+        "authority": "PARENT-DELEGATED REVIEWED CANDIDATE; NOT CREATOR-FROZEN",
+        "facing": "left"
+      }
+    },
+    "assets/rc5/imani/imani_decline_80x96.png": {
+      "anchor": [
+        40,
+        88
+      ],
+      "face": [
+        33,
+        41,
+        14,
+        13
+      ],
+      "candidate": {
+        "sha256": "cd174c9681c4f82f3fed302b6b87b8c6480b7b9acc46c739785d4caa3ed25884",
+        "authority": "PARENT-DELEGATED REVIEWED CANDIDATE; NOT CREATOR-FROZEN",
+        "facing": "left"
+      }
+    },
+    "assets/rc5/imani/imani_smile_80x96.png": {
+      "anchor": [
+        40,
+        88
+      ],
+      "face": [
+        33,
+        41,
+        14,
+        13
+      ],
+      "candidate": {
+        "sha256": "61270f97be86ccebacf2d77907c42ba8dc0570b645c19ce9b1438222186574b9",
+        "authority": "PARENT-DELEGATED REVIEWED CANDIDATE; NOT CREATOR-FROZEN",
+        "facing": "left"
+      }
     }
   }
 }

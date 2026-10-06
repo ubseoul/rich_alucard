@@ -106,7 +106,7 @@
   const c=art.characters?.[p.id]||(art.creatures?.[p.id]&&{anchor:art.creatures[p.id].anchor,anchorPose:'sitting',states:{sitting:art.creatures[p.id].anchor}});
   if(!c)continue;
   if(c.anchor&&!p.sprite){p.sprite=c.anchor;p.anchorPose=c.anchorPose;}
-  p.states={...c.states};p.frozenArt=true;
+  p.states={...c.states};p.frozenArt=c.status!=='REVIEWED_CANDIDATE';if(c.status==='REVIEWED_CANDIDATE')p.candidateArt=true;
  }
  const byId=Object.fromEntries([rich,...people,...extras].map(p=>[p.id,p]));
  window.RABtfPeople={list:people,extras,byId,get:id=>byId[id]||null,women:people.filter(p=>p.dateable),rich};
