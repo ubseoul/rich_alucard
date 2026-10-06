@@ -243,7 +243,11 @@
   // ---- input -------------------------------------------------------------
   const input={steer:0,throttle:0,ebrake:false};
   const pointers=new Map();
+  const storyRun=!!(tandem||P.escapeRunner||window.RAAdventures?.active?.());
   let ebrakeHeld=false,prevThrottleHeld=false,clutchKick=false;
+  function clearInput(){keys.clear();pointers.clear();ebrakeHeld=false;prevThrottleHeld=false;clutchKick=false;}
+  function blur(){clearInput();}
+  window.addEventListener('blur',blur);
   const EBRAKE_RECT={x:156,y:292,w:104,h:46};
   function toNative(clientX,clientY){const r=canvas.getBoundingClientRect();return{x:(clientX-r.left)*270/(r.width||270),y:(clientY-r.top)*480/(r.height||480)};}
   function inRect(p,rct){return p.x>=rct.x&&p.x<=rct.x+rct.w&&p.y>=rct.y&&p.y<=rct.y+rct.h;}
@@ -276,7 +280,7 @@
    if(['ArrowLeft','ArrowRight','ArrowUp','ArrowDown',' '].includes(e.key))e.preventDefault();
    keys.add(e.key);
    if(e.key===' ')ebrakeHeld=true;
-   if(phase==='results'&&(e.key==='Enter'||e.key==='r'))runItBack();
+   if(phase==='results'&&!e.repeat){if(e.key==='Enter'){e.preventDefault();handleResultsTap({x:200,y:420});}else if(e.key==='r'&&!storyRun)runItBack();}
   }
   function onKeyUp(e){keys.delete(e.key);if(e.key===' ')ebrakeHeld=false;}
   window.addEventListener('keydown',onKeyDown);
@@ -300,7 +304,7 @@
 
   // ---- run lifecycle -------------------------------------------------------
   function bestKey(){return `${course.id}:${carId}`;}
-  function runItBack(){ctx.audio?.sound('COUNTDOWN');ctx.audio?.sound(motor,'idle');
+  function runItBack(){if(storyRun)return;clearInput();ctx.audio?.sound('COUNTDOWN');ctx.audio?.sound(motor,'idle');
    course=buildCourse(P.course&&COURSE_THEME[P.course]?P.course:'angeles_crest',Math.floor(Math.random()*1e9));
    state={heading:0,slideAngle:0,speed:0,x:0,distance:0,sliding:false,spinning:false};
    score=0;chain=1;spins=0;maxAngleSeen=0;clipHits=0;wallCooldown=0;tandemScore=0;
@@ -309,7 +313,7 @@
    lessonFlash={text:LESSON_WORD[lesson]||null,t:LESSON_WORD[lesson]?1.6:0};
   }
   function endRun(){ctx.audio?.stop(motor);ctx.audio?.stop('TIRE_SQUEAL');
-   phase='results';root.dataset.phase=phase;
+   phase='results';clearInput();root.dataset.phase=phase;
    const prev=ctx.progress();
    const best=Math.max(score,(prev.best&&prev.best[bestKey()])||0);
    const nextBest={...(prev.best||{}),[bestKey()]:best};
@@ -319,7 +323,7 @@
   const RESULT_BTN_BACK={x:20,y:400,w:110,h:36};
   const RESULT_BTN_DONE={x:150,y:400,w:100,h:36};
   function handleResultsTap(p){
-   if(inRect(p,RESULT_BTN_BACK)){runItBack();return;}
+   if(inRect(p,RESULT_BTN_BACK)&&!storyRun){runItBack();return;}
    if(inRect(p,RESULT_BTN_DONE)){
     const result={outcome:tandem?(tandemScore>=(tandem.threshold||3000)?'win':'lose'):'done',score,
      summary:`${Math.round(score)} pts on ${course.theme.label}`,
@@ -431,7 +435,11 @@
    RAPixel.text(c,`x${chain.toFixed(1)}`,6,18,{size:7,color:'#c18b3c'});
    {const face=runElapsed-spunAt<1.2?hudFaces.touge_spun:state.sliding?hudFaces.touge_locked:null;if(face?.complete&&face.naturalWidth){c.imageSmoothingEnabled=false;c.drawImage(face,18,4,44,46,4,30,44,46);}}
    RAPixel.text(c,`${Math.round(state.slideAngle)}°`,6,468,{size:7,color:Math.abs(state.slideAngle)>15?'#20c66b':'#6b6780',baseline:'bottom'});
-   RAPixel.text(c,`${runElapsed.toFixed(0)}s`,264,468,{size:7,align:'right',baseline:'bottom',color:'#f6efd9'});
+   RAPixel.text(c,`${Math.max(0,Math.ceil((Number(P.durationSeconds)||90)-runElapsed))}s LEFT`,264,468,{size:7,align:'right',baseline:'bottom',color:'#f6efd9'});
+   RAPixel.text(c,`${Math.round(state.speed)} KM/H`,135,468,{size:6,align:'center',baseline:'bottom',color:'#ffd36a'});
+   if(tandem){RAPixel.rect(c,64,42,142,20,'#17142c');RAPixel.text(c,`CHASE ${Math.round(tandemScore)}/${tandem.threshold||3000}`,135,48,{size:6,align:'center',color:'#ffd36a'});}
+   if(P.escapeRunner){RAPixel.rect(c,64,42,142,20,'#17142c');RAPixel.text(c,'KEEP THE ESCAPE CLOSE',135,48,{size:6,align:'center',color:'#ffd36a'});}
+   root.dataset.speed=String(Math.round(state.speed));root.dataset.score=String(Math.round(score));root.dataset.tandemScore=String(Math.round(tandemScore));
    if(passengerBubble&&passengerName){if(passengerSprite?.complete&&passengerSprite.naturalWidth){c.imageSmoothingEnabled=false;c.drawImage(passengerSprite,16,10,46,46,220,30,46,46);}RAPixel.text(c,`${passengerName}: ${passengerBubble.text}`,135,40,{size:6,align:'center',color:'#ff6fb5'});}
    if(lessonFlash.t>0&&lessonFlash.text){RAPixel.text(c,lessonFlash.text,135,220,{size:12,align:'center',color:'#20c66b'});}
    // First-time control cue (presentation only; hidden once the player has used any input) so a new player can make the
@@ -461,8 +469,9 @@
    let ly=170;
    const board=[...leaderboard,{name:'YOU',score:resultShown.score,you:true}].sort((a,b)=>b.score-a.score).slice(0,5);
    for(const row of board){RAPixel.text(c,`${row.you?'>':' '}${row.name} ${Math.round(row.score)}`,30,ly,{size:6,color:row.you?'#20c66b':'#f6efd9'});ly+=12;}
-   RAPixel.rect(c,RESULT_BTN_BACK.x,RESULT_BTN_BACK.y,RESULT_BTN_BACK.w,RESULT_BTN_BACK.h,'#f6efd9');
-   RAPixel.text(c,'RUN IT BACK',RESULT_BTN_BACK.x+RESULT_BTN_BACK.w/2,RESULT_BTN_BACK.y+RESULT_BTN_BACK.h/2-4,{size:6,align:'center',color:'#10101b',shadow:null});
+   if(!storyRun){RAPixel.rect(c,RESULT_BTN_BACK.x,RESULT_BTN_BACK.y,RESULT_BTN_BACK.w,RESULT_BTN_BACK.h,'#f6efd9');RAPixel.text(c,'RUN IT BACK',RESULT_BTN_BACK.x+RESULT_BTN_BACK.w/2,RESULT_BTN_BACK.y+RESULT_BTN_BACK.h/2-4,{size:6,align:'center',color:'#10101b',shadow:null});}
+   if(tandem){const won=tandemScore>=(tandem.threshold||3000);RAPixel.text(c,won?'CHASE WON':'CHASE LOST',135,254,{size:8,align:'center',color:won?'#20c66b':'#ff6fb5'});RAPixel.text(c,`CHASE ${Math.round(tandemScore)} / ${tandem.threshold||3000}`,135,275,{size:6,align:'center'});}
+   RAPixel.text(c,`CLEAN CLIPS ${clipHits} · SPINS ${spins}`,135,310,{size:6,align:'center'});RAPixel.text(c,storyRun?'DONE RETURNS THIS RESULT TO THE STORY':'R = RETRY · ENTER = DONE',135,340,{size:5,align:'center',color:'#ffd36a'});
    RAPixel.rect(c,RESULT_BTN_DONE.x,RESULT_BTN_DONE.y,RESULT_BTN_DONE.w,RESULT_BTN_DONE.h,'#f6efd9');
    RAPixel.text(c,'DONE',RESULT_BTN_DONE.x+RESULT_BTN_DONE.w/2,RESULT_BTN_DONE.y+RESULT_BTN_DONE.h/2-4,{size:6,align:'center',color:'#10101b',shadow:null});
   }
@@ -483,7 +492,7 @@
    canvas.removeEventListener('pointerup',onUp);
    canvas.removeEventListener('pointercancel',onUp);
    window.removeEventListener('keydown',onKeyDown);
-   window.removeEventListener('keyup',onKeyUp);
+   window.removeEventListener('keyup',onKeyUp);window.removeEventListener('blur',blur);clearInput();
   }};
  }
 

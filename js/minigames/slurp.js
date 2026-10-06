@@ -54,20 +54,29 @@
  window.RAMinigameLogic.slurp={makeOrder,checkBowl,tipFor,orderInterval,chairProgress,BROTHS,NOODLES,MEATS,TOPS,TOPPINGS};
 
  function mountCanopy(root,ctx){
-  const P=RAPixel,{canvas,ctx:g,toNative}=P.createCanvas(root),params=ctx.params||{};
-  const defaults=window.RANewOgaTunables?.chairs||{};
+  const P=RAPixel,{canvas,ctx:g,toNative}=P.createCanvas(root),params=ctx.params||{},defaults=window.RANewOgaTunables?.chairs||{};
   const total=Math.max(1,Number(params.totalChairs||defaults.AUTHORED_TOTAL)),bundle=Math.max(1,Number(params.bundleSize||defaults.BUNDLE_SIZE)),duration=Math.max(1000,Number(params.durationMs||defaults.DURATION_MS));
-  const STACK={x:18,y:370,w:92,h:62},CANOPY={x:156,y:122,w:96,h:142};
-  let stacked=0,dragging=false,dragPos=null,start=performance.now(),ended=false,raf=null;
+  const STACK={x:18,y:354,w:92,h:82},CANOPY={x:148,y:150,w:104,h:150};
+  const warehouse=P.assetSprite('assets/build4/p_d/gbenga_rentals_workday_270x480.png');
+  let stacked=0,dragging=null,dragPos=null,start=performance.now(),ended=false,raf=null,feedback='DRAG A BUNDLE TO THE CANOPY',flashUntil=0;
+  root.dataset.phase='run';
   const inRect=(p,r)=>p.x>=r.x&&p.x<=r.x+r.w&&p.y>=r.y&&p.y<=r.y+r.h;
-  function down(ev){if(ended)return;const p=toNative(ev.clientX,ev.clientY);if(inRect(p,STACK)&&stacked<total){dragging=true;dragPos=p;}}
-  function move(ev){if(dragging)dragPos=toNative(ev.clientX,ev.clientY);}
-  function up(){if(!dragging)return;if(inRect(dragPos||{},CANOPY))stacked=Math.min(total,stacked+bundle);dragging=false;dragPos=null;if(stacked>=total)finish();}
-  canvas.addEventListener('pointerdown',down);canvas.addEventListener('pointermove',move);window.addEventListener('pointerup',up);
-  const clock=document.createElement('button');clock.className='canopy-finish';clock.textContent='FINISH STACK';clock.style.cssText='position:absolute;right:4%;top:58%;z-index:4;font:6px "Press Start 2P";padding:.5em .6em;background:#f6efd9;color:#10101b;border:2px solid #10101b;box-shadow:2px 2px #7d194b;cursor:pointer';clock.addEventListener('click',finish);root.append(clock);
-  function finish(){if(ended)return;ended=true;const result=chairProgress(stacked,total);const card=document.createElement('div');card.className='canopy-result';card.style.cssText='position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;background:rgba(8,7,15,.92);color:#f6efd9;font-family:"Press Start 2P",monospace;text-align:center;padding:20px;z-index:6';card.innerHTML=`<div style="font-size:11px;color:#c18b3c">CHAIRS ${result.stacked}/${result.total}</div><div style="font-size:7px">${result.success?'DELIVERY STACKED':'AUNTIE CRITIQUE'}</div>`;const done=document.createElement('button');done.className='canopy-done';done.textContent='DONE';done.style.cssText='font:8px "Press Start 2P";padding:.7em .9em;background:#f6efd9;color:#10101b;border:2px solid #10101b;cursor:pointer';done.addEventListener('click',()=>ctx.finish({outcome:'done',score:result.stacked,data:result}));card.append(done);root.append(card);}
-  function frame(now){if(raf===null)return;g.clearRect(0,0,270,480);P.paintEnvironment(g,{sky:'#191027',wall:'#4a234c',floor:'#4a3a36',horizon:330,seed:'canopy-duty',props:[{type:'string',x1:8,x2:262,y:76,color:'#ffd36a'},{type:'sign',x:65,y:36,w:140,h:18,text:'CANOPY DUTY',glow:'#ffb040'}]});P.frame(g,STACK.x,STACK.y,STACK.w,STACK.h,{fill:'#d9d2c7',border:'#10101b',accent:'#8e8578'});P.text(g,'CHAIR STACK',64,390,{size:6,align:'center',color:'#10101b'});P.text(g,`${Math.max(0,total-stacked)} LEFT`,64,407,{size:6,align:'center',color:'#10101b'});P.frame(g,CANOPY.x,CANOPY.y,CANOPY.w,CANOPY.h,{fill:'rgba(240,225,205,.18)',border:'#f6efd9',accent:'#ffd36a'});P.text(g,'DROP HERE',204,180,{size:7,align:'center',color:'#f6efd9'});P.text(g,`${stacked}/${total}`,204,204,{size:9,align:'center',color:'#ffd36a'});if(dragging&&dragPos){P.frame(g,dragPos.x-28,dragPos.y-12,56,24,{fill:'#d9d2c7',border:'#10101b'});P.text(g,`+${bundle}`,dragPos.x,dragPos.y,{size:7,align:'center',baseline:'middle',color:'#10101b'});}const left=Math.max(0,Math.ceil((duration-(now-start))/1000));P.text(g,`${left}s`,262,466,{size:7,align:'right',color:'#f6efd9'});if(!ended&&now-start>=duration)finish();raf=requestAnimationFrame(frame);}raf=requestAnimationFrame(frame);
-  return {dispose(){const r=raf;raf=null;if(r)cancelAnimationFrame(r);canvas.removeEventListener('pointerdown',down);canvas.removeEventListener('pointermove',move);window.removeEventListener('pointerup',up);try{clock.remove();}catch(e){}}};
+  function add(){if(ended)return;const n=Math.min(bundle,total-stacked);stacked+=n;feedback=`+${n} CHAIRS · ${total-stacked} LEFT`;flashUntil=performance.now()+900;ctx.audio?.sound('UI_CONFIRM');if(stacked>=total)finish();}
+  function down(ev){if(ended||dragging!==null)return;const p=toNative(ev.clientX,ev.clientY);if(inRect(p,STACK)){ev.preventDefault();dragging=ev.pointerId;dragPos=p;try{canvas.setPointerCapture(ev.pointerId);}catch(_){}}}
+  function move(ev){if(ev.pointerId===dragging)dragPos=toNative(ev.clientX,ev.clientY);}
+  function up(ev){if(ev.pointerId!==dragging)return;const p=toNative(ev.clientX,ev.clientY);dragging=null;dragPos=null;if(ev.type==='pointerup'&&inRect(p,CANOPY))add();else{feedback='BUNDLE RETURNED · DROP INSIDE THE CANOPY';flashUntil=performance.now()+1000;}}
+  function key(ev){if(ended||ev.repeat||ev.key!==' ')return;ev.preventDefault();add();}
+  canvas.addEventListener('pointerdown',down);canvas.addEventListener('pointermove',move);canvas.addEventListener('pointerup',up);canvas.addEventListener('pointercancel',up);window.addEventListener('keydown',key);
+  const clock=document.createElement('button');clock.type='button';clock.className='canopy-finish';clock.textContent='FINISH EARLY';clock.addEventListener('click',finish);root.append(clock);
+  function finish(){if(ended)return;ended=true;dragging=null;root.dataset.phase='results';const result=chairProgress(stacked,total);const card=document.createElement('div');card.className='canopy-result';card.style.cssText='position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;background:rgba(8,7,15,.94);color:#f6efd9;font-family:"Press Start 2P",monospace;text-align:center;padding:24px;z-index:6';card.innerHTML=`<div style="font-size:11px;color:#ffd36a;line-height:1.6">${result.success?'DELIVERY STACKED':'STACK INCOMPLETE'}</div><div style="font-size:10px">${result.stacked} / ${result.total} CHAIRS</div><div style="font-size:8px;line-height:1.9">${result.success?'Every bundle is under the canopy.':'The aunties will review the unfinished stack.'}</div>`;const done=document.createElement('button');done.type='button';done.className='canopy-done';done.textContent='DONE';done.addEventListener('click',()=>ctx.finish({outcome:'done',score:result.stacked,data:result}));card.append(done);root.append(card);}
+  function chair(x,y,color){P.rect(g,x,y,26,5,color);P.rect(g,x,y+5,4,22,color);P.rect(g,x+22,y+5,4,22,color);P.rect(g,x-3,y+23,32,5,color);P.rect(g,x,y+28,4,16,color);P.rect(g,x+22,y+28,4,16,color);}
+  function frame(now){if(raf===null)return;g.clearRect(0,0,270,480);P.paintEnvironment(g,{sky:'#191027',wall:'#4a234c',floor:'#4a3a36',horizon:330,seed:'canopy-duty',props:[{type:'string',x1:8,x2:262,y:76,color:'#ffd36a'}]});if(warehouse?.complete&&warehouse.naturalWidth){g.imageSmoothingEnabled=false;g.drawImage(warehouse,0,0,270,480);P.rect(g,0,0,270,480,'#08070f66');}P.rect(g,0,0,270,64,'#17142c');P.text(g,'CANOPY DUTY',10,10,{size:8,color:'#ffd36a'});P.text(g,`${stacked}/${total} STACKED`,10,36,{size:7});P.rect(g,10,55,250,5,'#3a2f4a');P.rect(g,10,55,250*stacked/total,5,'#20c66b');
+   P.rect(g,140,130,120,12,'#ffd36a');P.rect(g,145,142,5,170,'#f6efd9');P.rect(g,250,142,5,170,'#f6efd9');P.frame(g,CANOPY.x,CANOPY.y,CANOPY.w,CANOPY.h,{fill:dragging!==null&&inRect(dragPos||{},CANOPY)?'#204838':'#17142c88',border:'#f6efd9',accent:'#ffd36a'});for(let i=0;i<Math.min(6,Math.floor(stacked/bundle));i++)chair(165+i%2*40,242-Math.floor(i/2)*22,'#b9a9c9');P.text(g,'DROP HERE',200,172,{size:7,align:'center',color:'#ffd36a'});P.text(g,'CANOPY',200,192,{size:6,align:'center'});
+   for(let i=0;i<3;i++)chair(40+i*4,358-i*9,'#d9d2c7');P.text(g,`${total-stacked} LEFT`,64,438,{size:6,align:'center'});P.text(g,`BUNDLE ${Math.min(bundle,total-stacked)}`,64,343,{size:6,align:'center',color:'#ffd36a'});
+   if(dragging!==null&&dragPos){chair(dragPos.x-13,dragPos.y-22,'#ffd36a');P.text(g,`+${Math.min(bundle,total-stacked)}`,dragPos.x,dragPos.y+30,{size:7,align:'center',color:'#ffd36a'});}
+   P.wrap(g,feedback,240,6).forEach((line,i)=>P.text(g,line,135,85+i*12,{size:6,align:'center',color:now<flashUntil?'#20c66b':'#f6efd9'}));const left=Math.max(0,Math.ceil((duration-(now-start))/1000));P.text(g,`${left}s`,262,466,{size:7,align:'right'});P.text(g,'SPACE = STACK BUNDLE',8,466,{size:5});root.dataset.stacked=String(stacked);if(!ended&&now-start>=duration)finish();raf=requestAnimationFrame(frame);
+  }raf=requestAnimationFrame(frame);
+  return {dispose(){ended=true;const r=raf;raf=null;if(r)cancelAnimationFrame(r);canvas.removeEventListener('pointerdown',down);canvas.removeEventListener('pointermove',move);canvas.removeEventListener('pointerup',up);canvas.removeEventListener('pointercancel',up);window.removeEventListener('keydown',key);clock.remove();}};
  }
 
  // ---------- mount (DOM/game) ----------
@@ -112,7 +121,7 @@
    const o=current();if(!o||(serving&&performance.now()<serving.until))return;if(o.patienceStart==null)o.patienceStart=performance.now();startWork();
    const need=want(o,step),cx=bin.x+bin.w/2,cy=bin.y+bin.h/2;
    if(need&&need!==bin.value){
-    ctx.audio?.sound('UI_ERROR');flashBin={value:bin.value,bad:true};flashBinUntil=performance.now()+420;J.shake(2);J.float('NOT THAT ONE',cx,cy-10,{color:'#d7193f',size:6,life:.7,rise:14});return;
+    ctx.audio?.sound('UI_ERROR');flashBin={value:bin.value,bad:true};flashBinUntil=performance.now()+420;J.shake(2);J.float('NOT THAT ONE',cx,cy-10,{color:'#d7193f',size:6,life:.7,rise:14});flash={text:`TICKET NEEDS ${need}`,color:P.palette.red};flashUntil=performance.now()+700;return;
    }
    ctx.audio?.sound('BOWL_CLINK');ctx.audio?.sound(step===0?'BROTH_POUR':'NOODLE_DROP');
    if(step===0)bowl.broth=bin.value;else if(step===1)bowl.noodles=bin.value;else bowl.toppings.push(bin.value);
@@ -151,7 +160,7 @@
   const keyDown=e=>{if(ended||e.repeat)return;const n=Number(e.key)-1,bin=binsFor(step)[n];if(bin&&/^[1-4]$/.test(e.key)){e.preventDefault();tapBin(bin);}};
   window.addEventListener('keydown',keyDown);
   const clockBtn=document.createElement('button');
-  clockBtn.textContent='CLOCK OUT';
+  clockBtn.textContent='CLOCK OUT';clockBtn.className='slurp-clock';clockBtn.type='button';
   clockBtn.style.cssText='position:absolute;right:3%;bottom:1.2%;z-index:4;font:6px "Press Start 2P";padding:.5em .6em;background:#f6efd9;color:#10101b;border:2px solid #10101b;box-shadow:2px 2px #7d194b;cursor:pointer';
   clockBtn.addEventListener('click',()=>finishShift());
   root.append(clockBtn);
@@ -214,11 +223,23 @@
    const need=want(o,step),tut=firstShift&&!tutorialDone&&!o.tutorial;
    for(const b of binsFor(step)){
     const flashed=flashBin&&flashBin.value===b.value&&now<flashBinUntil,bad=flashed&&flashBin.bad,good=flashed&&!flashBin.bad;
-    const hint=(!need||need===b.value); // every shift: match the highlighted order row to this bin
+    const hint=o.tutorial||(firstShift&&o.no<=2&&need===b.value); // train the first recipe; later bowls reward reading the ticket
     P.rect(g,b.x+2,b.y+2,b.w,b.h,'#10101b');P.rect(g,b.x,b.y,b.w,b.h,bad?'#d7193f':good?'#20c66b':hint?'#ffd36a':'#f6efd9');P.rect(g,b.x+3,b.y+3,b.w-6,b.h-6,'#1e1a2a');
-    P.rect(g,b.x+b.w/2-14,b.y+8,28,Math.min(24,b.h-30),SWATCH[b.value]||'#d9d2c7');
+    drawIngredient(b.value,Math.round(b.x+b.w/2),b.y+10);
     P.text(g,`${binsFor(step).findIndex(bin=>bin.value===b.value)+1}: ${b.value}`,b.x+b.w/2,b.y+b.h-14,{size:6,color:'#f6efd9',align:'center'});
    }
+  }
+  // Existing code-native ingredient vocabulary: readable food silhouettes instead of color swatches.
+  function drawIngredient(value,x,y){
+   const col=SWATCH[value]||'#d9d2c7';
+   if(BROTHS.includes(value)){P.rect(g,x-16,y+10,32,4,'#f6efd9');P.rect(g,x-13,y+14,26,8,'#d9d2c7');P.rect(g,x-12,y+7,24,7,col);P.rect(g,x-5,y,2,5,'#f6efd9');P.rect(g,x+6,y-2,2,6,'#f6efd9');}
+   else if(NOODLES.includes(value)){for(let i=0;i<5;i++){const yy=y+4+i*4;P.rect(g,x-14+i%2*3,yy,25, value==='THICK'?3:1,col);P.rect(g,x+8,yy,3,4,col);}}
+   else if(value==='EGG'){P.rect(g,x-10,y+2,20,20,'#f6efd9');P.rect(g,x-13,y+7,26,10,'#f6efd9');P.rect(g,x-5,y+8,10,10,'#ffd36a');}
+   else if(value==='NORI'){P.rect(g,x-12,y+2,24,22,col);for(let i=0;i<4;i++)P.rect(g,x-10,y+5+i*5,20,1,'#4aa84a');}
+   else if(value==='SCALLION'){for(let i=0;i<5;i++)P.rect(g,x-13+i*6,y+4+i%2*5,4,13,col);}
+   else if(value==='CORN'||value==='JOLLOF'){for(let i=0;i<12;i++)P.rect(g,x-13+i%4*7,y+3+Math.floor(i/4)*6,5,4,col);}
+   else if(value==='SHRIMP'){P.rect(g,x-12,y+4,23,6,col);P.rect(g,x+6,y+10,8,7,col);P.rect(g,x-2,y+16,13,5,col);P.rect(g,x-9,y+10,5,7,'#f6efd9');}
+   else{P.rect(g,x-14,y+5,28,16,col);P.rect(g,x-10,y+2,20,22,col);for(let i=0;i<3;i++)P.rect(g,x-9+i*8,y+6,3,13,value==='CHASHU'?'#f6efd9':'#c18b3c');}
   }
   function frame(now){
    if(raf===null)return;
@@ -246,7 +267,7 @@
    P.text(g,`$${money.toFixed(2)}`,8,462,{size:8,color:'#20c66b'});
    P.text(g,`WALKOUTS ${walkouts}/3`,92,462,{size:6,color:walkouts>=2?'#d7193f':'#c9c0a8'});
    P.text(g,`HINA ${hinaBest.toFixed(0)}`,196,462,{size:6,color:'#3d9ddd'});
-   if(flash&&now<flashUntil)P.text(g,flash.text,135,128+(flashUntil-now<300?-6:0),{size:7,align:'center',color:flash.color});else flash=null;
+   if(flash&&now<flashUntil)P.text(g,flash.text,135,190,{size:7,align:'center',color:flash.color});else flash=null;
    if(o){root.dataset.step=String(step);root.dataset.need=String(want(o,step)||'');}
    J.end();
    raf=requestAnimationFrame(frame);
@@ -262,5 +283,5 @@
   };
  }
 
- window.RAMinigames.register('slurp',{title:'SLURP',rule:'Tap ingredients left to right or use keys 1–4: broth, noodles, meat, topping; match the ticket before its patience runs out.',ruleFor:p=>p?.canopyDuty?'Drag chair bundles from the stack into the canopy before the timer ends.':null,mount});
+ window.RAMinigames.register('slurp',{title:'SLURP',rule:'Match the ticket with taps or keys 1–4, building broth, noodles, meat and topping before patience runs out.',ruleFor:p=>p?.canopyDuty?`Drag bundles into the canopy or press Space to stack; finish all ${p.totalChairs||window.RANewOgaTunables?.chairs?.AUTHORED_TOTAL||60} before the timer ends.`:null,mount});
 })();
