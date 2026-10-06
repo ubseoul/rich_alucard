@@ -260,7 +260,7 @@
  let active=null;
  function screenEl(){return document.querySelector('#screen')}
  function worldEl(host){let el=document.querySelector('#pdWorld');if(!el){el=document.createElement('div');el.id='pdWorld';el.setAttribute('aria-hidden','true');(host||active?.host||screenEl()).prepend(el)}return el}
- function elementAsset(el){if(!el)return null;if(el.tagName==='IMG')return assetPath(el.getAttribute('src'));if(el.tagName==='CANVAS')return el.dataset.asset||canvasAsset(el);const cs=getComputedStyle(el),path=assetPath(cs.backgroundImage),sheet=window.RAPresentationAssets?.[path]?.sheet;
+ function elementAsset(el){if(!el)return null;if(el.tagName==='IMG')return assetPath(el.getAttribute('src'))||assetPath(el.dataset.rc2Src);if(el.tagName==='CANVAS')return el.dataset.asset||canvasAsset(el);const cs=getComputedStyle(el),path=assetPath(cs.backgroundImage),sheet=window.RAPresentationAssets?.[path]?.sheet;
   // Sprite sheets resolve to the frame currently shown (background-position / frame width in CSS px).
   if(sheet){const k=parseFloat(el.style.getPropertyValue('--pd-k'))||1,index=Math.round(-parseFloat(cs.backgroundPositionX||'0')/(sheet.frameWidth*k));return `${path}#${Math.max(0,Math.min(sheet.frames-1,index))}`}return path}
  function currentAssets(ctl){const out={};for(const [slot,el] of Object.entries(ctl.actors))out[slot]=ctl.assetOf?.[slot]?.(el)??elementAsset(el);return out}
