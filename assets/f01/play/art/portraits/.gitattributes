@@ -1,0 +1,3 @@
+*.png binary
+author-*.json -text
+SHA256SUMS-v2.txt -text
