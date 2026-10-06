@@ -108,6 +108,12 @@
   return 'settled';
  }
  function suspend(){if(RAAdventures.active())RAAdventures.context().set('rc4Paused',true);}
+ function sceneActivityExit(){
+  const a=RAAdventures.active();if(!a)return;
+  // Voluntary music cancellation cannot become a compulsory resume gate.
+  // Authored campaign activities retain their actual checkpoint for later retry.
+  if(MUSIC.includes(a.id))RAAdventures.abandon();else suspend();
+ }
  function missionReady(id){const s=L().newOga;if(day()<=Number(s.lastMissionDay||0))return false;
   if(id==='NEW_OGA_VAMPGPT'&&s.m10VampgptReaskDay!=null&&day()<s.m10VampgptReaskDay)return false;return true;
  }
@@ -141,7 +147,7 @@
  function phoneRoute(id){return APPS.includes(id)||id==='jdmImports'||id==='cars';}
  function phoneAction(name){if(name.startsWith('app:'))return phoneRoute(name.split(':')[1]);if(name.startsWith('do:'))return phoneRoute(name.split(':')[1]);
   if(name.startsWith('go:')||name.startsWith('tempt:')||['money','people','realEstate','atlanta','tokyo','letsGo','butterChicken'].includes(name))return false;return true;}
- window.RARC3={prepareSleep,restCopy,creditActivity,activityMarkup,activityGo,apps:APPS,maps:MAPS,missions:MISSIONS,utility:UTILITY,allowed,canStart,pendingMission,chapter,next,advance,read,patch,claimCash,canSleep,storyEvent,showMorning,mapsMarkup,mapGo,phoneRoute,phoneAction,settlePlay,attemptAllowed,settleAttempt,suspend,missionReady};
+ window.RARC3={prepareSleep,restCopy,creditActivity,activityMarkup,activityGo,apps:APPS,maps:MAPS,missions:MISSIONS,utility:UTILITY,allowed,canStart,pendingMission,chapter,next,advance,read,patch,claimCash,canSleep,storyEvent,showMorning,mapsMarkup,mapGo,phoneRoute,phoneAction,settlePlay,attemptAllowed,settleAttempt,suspend,sceneActivityExit,missionReady};
  // Existing saves get the same nine functional entry points without waiting for another wake.
  for(const id of APPS)RALife.unlockApp(id,{silent:true});RALife.setFlag('armoryKnown',true);
  // The existing app registry stays available to its owners, while only these nine tiles render.

@@ -19,7 +19,7 @@
   // An entering adventure may await a live minigame. Cancel its scope before
   // unblocking that promise, so it cannot continue over the requested scene.
   if(id!==current&&window.RAMinigames?.active?.()){
-   currentScope?.cancel();window.RAMinigames.quitActive({sceneChange:true});
+   currentScope?.cancel();window.RARC3?.sceneActivityExit?.();window.RAMinigames.quitActive({sceneChange:true});
   }
   queued=queued.then(()=>transition(id,payload));return queued
  }function pause(){currentScope?.suspend();registry.get(current)?.pause?.({id:current,scope:currentScope})}function resume(){currentScope?.resume();registry.get(current)?.resume?.({id:current,scope:currentScope})}

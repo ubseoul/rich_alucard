@@ -27,6 +27,13 @@ export async function test(root){
   for(let i=0;i<3;i++)g.settleAttempt(id,'perform',{outcome:'lose'});
   assert.equal(g.attemptAllowed(id,'perform'),true,'optional music has no mandatory retry-day lock');
  }
+ const beforeCancel=l.money();
+ c.RAState.patch('life.adventures.active',{id:'SHOW',node:'perform',vars:{}});
+ g.sceneActivityExit();assert.equal(a.active(),null,'voluntary show cannot auto-resume over destination');
+ assert.equal(l.money(),beforeCancel,'scene cancellation creates no pay');
+ c.RAState.patch('life.adventures.active',{id:'NEW_OGA_M1',node:'fight',vars:{}});
+ g.sceneActivityExit();assert.equal(a.active().node,'fight');assert.equal(a.active().vars.rc4Paused,true,'campaign checkpoint remains saved');
+ c.RAState.patch('life.adventures.active',null);
  l.setFlag('throneDone',true);l.setFlag('ogunsRaveCompleted',true);
  c.RAState.patch('life.world.day',4);g.patch({story:false,action:false,paid:false,earnedIncome:0});
  const cash=l.money();assert.equal(g.canSleep(),true,'quiet rest needs no attendance');
