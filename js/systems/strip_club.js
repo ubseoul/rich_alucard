@@ -24,7 +24,7 @@
  function markFirstVisit(){if(!firstVisitDone())window.RALife.setFlag(FLAG_DONE,true);}
  function open(api){
   if(!isOpen())return false;
-  const run=()=>{try{window.RALife.setFlag(FLAG_SEEN,true);window.RALife.setFlag('stripClubLastDay',day());return !!window.RAF06Rainmaker?.launch?.({terms:terms()});}catch(e){console.error('strip club',e);return false;}};
+  const run=()=>{try{return !!window.RAF06Rainmaker?.launch?.({terms:terms()});}catch(e){console.error('strip club',e);return false;}};
   const closing=api?.close?api.close():null;
   return Promise.resolve(closing).then(run);
  }

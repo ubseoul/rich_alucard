@@ -287,7 +287,7 @@
       animations.push(anim);
 
       // stack-side feedback: what it cost
-      addPopup({ text: '-' + formatMoney(result.dollars), x: Math.round(geo.x0 - 26), y: geo.top + 4, ttl: 900, color: wasteful ? PAL.waste : PAL.cream, size: 16, mono: true, rise: -12, group: 'cost' });
+      if(!hideTarget)addPopup({ text: '-' + formatMoney(result.dollars), x: Math.round(geo.x0 - 26), y: geo.top + 4, ttl: 900, color: wasteful ? PAL.waste : PAL.cream, size: 16, mono: true, rise: -12, group: 'cost' });
 
       if (result.kind === 'hit') {
         hit.at = N; hit.perfect = !!result.perfect;
@@ -302,7 +302,7 @@
           addPopup({ text: 'ON BEAT', x: cx, y: geo.top - 26, ttl: 700, color: PAL.cyan, size: 8, rise: 6, group: 'timing' });
         }
         if (result.fan) {
-          addPopup({ text: 'FAN +CROWD', x: cx, y: geo.top - 40, ttl: 780, color: PAL.goldHi, size: 8, rise: 6, group: 'fan' });
+          if(!hideTarget)addPopup({ text: 'FAN', x: cx, y: geo.top - 40, ttl: 780, color: PAL.goldHi, size: 8, rise: 6, group: 'fan' });
         }
         burst(tx, ty, result.perfect ? 26 : 14, [PAL.goldHi, PAL.pinkHi, PAL.cyan, PAL.goldPale], result.perfect ? 0.07 : 0.05, 0.03, 620);
         if (result.streak >= 2) streakPopAt = N;
@@ -536,8 +536,7 @@
       scanlines();
       drawFlashes();
       drawHud(t, s, env, N);
-      drawCrowdLabel(L, s, N);
-      drawStreakBadge(s, N);
+      if(!hideTarget){drawCrowdLabel(L, s, N);drawStreakBadge(s, N);}
       drawPopups(N);
       if (!hintDone && core.flicks === 0 && !(pointer && pointer.active) && (N - roundStartReal) < 9000) drawHint(t, N);
       drawFrameGlow(env, s);
@@ -985,6 +984,7 @@
 
     // ---------------- HUD ----------------
     function drawHud(t, s, env, N) {
+      if(hideTarget){R(0,0,W,25,'rgba(7,6,15,.82)');text('THROW BUDGET '+formatMoney(s.cash),6,7,PAL.cream,16,'left');text(Math.ceil(s.timeLeftMs/1000)+'s',W-6,7,PAL.cyan,16,'right');return;}
       R(0, 0, W, 58, 'rgba(7,6,15,0.82)');
       R(0, 58, W, 1, PAL.lav2);
       // time strip along the very top edge
@@ -1094,6 +1094,7 @@
     }
 
     function drawResult(el) {
+      if(hideTarget)return; // F15 host owns paid receipt and return controls
       var s = core.summary();
       var full = !(isFinite(el)) || el > 2600;
       ctx.save();

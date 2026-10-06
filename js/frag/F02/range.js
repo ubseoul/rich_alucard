@@ -22,7 +22,7 @@
    score:0,shots:0,hits:0,ammo:ammoMax,reloading:0,spawnClock:.6,hiltSpawned:false,over:false,events:[]};
   function lane(){return Math.floor(rng()*(cfg.lanes||3));}
   function kindFor(t){
-   if(cfg.duration-t<1.6&&!s.hiltSpawned){s.hiltSpawned=true;return 'hilt';}
+   if(cfg.durationSeconds-t<1.6&&!s.hiltSpawned){s.hiltSpawned=true;return 'hilt';}
    const r=rng();
    if(r<.12)return 'hostage';if(r<.30)return 'gold';if(r<.62)return 'moving';return 'target';
   }
@@ -33,7 +33,7 @@
   }
   function update(dt){
    if(s.over)return s;dt=Math.max(0,Math.min(.1,dt));s.time+=dt;
-   if(s.reloading>0)s.reloading=Math.max(0,s.reloading-dt);
+   if(s.reloading>0){s.reloading=Math.max(0,s.reloading-dt);if(s.reloading===0){s.ammo=ammoMax;s.events.push({type:'reloaded',ammo:ammoMax});}}
    s.spawnClock-=(cfg.spawnRate||1.05)*(1+s.time/s.duration*.6)*dt;
    while(s.spawnClock<=0&&!s.over){spawn();s.spawnClock+=(cfg.spawnRate||1.05)/Math.max(.6,1+s.time/s.duration);}
    for(const t of s.targets){
@@ -80,14 +80,23 @@
   const lanesEl=root.querySelector('.rd-lanes');
   for(let i=0;i<core.state().lanes;i++){const b=document.createElement('button');b.type='button';b.className='rd-lane';b.dataset.lane=i;b.textContent='⦿';lanesEl.append(b);}
   const timeEl=root.querySelector('.rd-time'),ammoEl=root.querySelector('.rd-ammo');
+  const feedback=document.createElement('p');feedback.className='rd-feedback';feedback.setAttribute('role','status');feedback.textContent='RED = HOSTAGE · WHITE / BLUE / GOLD = TARGET';root.append(feedback);
   lanesEl.addEventListener('pointerdown',e=>{const b=e.target.closest('.rd-lane');if(!b)return;core.aim(Number(b.dataset.lane));});
-  lanesEl.addEventListener('pointerup',e=>{const b=e.target.closest('.rd-lane');if(!b)return;const r=core.fire();if(r.ok){if(r.hit)window.RAAudio?.oneShot?.('GN_06');const code=R.feedback(gunId)?.audio;if(code){window.RAAudio?.oneShot?.(code);const sound=window.RAAudioManifest?.get?.(code);if(sound?.type==='loop')setTimeout(()=>window.RAAudio?.stop?.(code,0),(sound.loopEnd||0)*1000);}}b.classList.remove('rd-hit','rd-miss');void b.offsetWidth;b.classList.add(r.hit?'rd-hit':'rd-miss');});
+  function shoot(b){const r=core.fire();feedback.textContent=!r.ok?'RELOADING — WAIT':r.kind==='hostage'?`HOSTAGE −${r.penalty}`:r.hit?`HIT +${r.points}`:'MISS';if(r.ok){if(r.hit)window.RAAudio?.oneShot?.('GN_06');const code=R.feedback(gunId)?.audio;if(code)window.RAAudio?.oneShot?.(code);}b.classList.remove('rd-hit','rd-miss');void b.offsetWidth;if(r.ok)b.classList.add(r.hit&&r.kind!=='hostage'?'rd-hit':'rd-miss');}
+  lanesEl.addEventListener('pointerup',e=>{const b=e.target.closest('.rd-lane');if(!b)return;core.aim(Number(b.dataset.lane));shoot(b);});
+  lanesEl.addEventListener('keydown',e=>{const b=e.target.closest('.rd-lane');if(b&&(e.key==='Enter'||e.key===' ')){e.preventDefault();core.aim(Number(b.dataset.lane));shoot(b);}});
   let raf=0,last=0,done=false;
   function frame(t){if(done)return;if(!last)last=t;core.update((t-last)/1000);last=t;
    const st=core.status();timeEl.textContent=`${st.remaining.toFixed(1)}s`;ammoEl.textContent=st.reloadingNow?'RELOADING':`AMMO ${st.ammo===Infinity?'∞':st.ammo}`;
    for(const el of lanesEl.children){el.querySelectorAll('.rd-target').forEach(n=>n.remove());}
    for(const tg of st.targets){const el=lanesEl.children[tg.lane];if(!el)continue;const dot=document.createElement('i');dot.className=`rd-target rd-${tg.kind}`;dot.style.opacity=String(Math.min(1,.25+tg.progress));dot.style.transform=`translateY(${(1-tg.progress)*70}%)`;el.append(dot);}
-   if(st.over){done=true;const medal=medalFor(st.score);const award=R.awardRange(gunId,st.score);ctx.finish({outcome:'done',score:st.score,data:{...st,medal,award}});return;}
+   if(st.over){done=true;const medal=medalFor(st.score);root.dataset.phase='results';
+    const card=document.createElement('section');card.className='rd-result';card.innerHTML=`<h2>RANGE COMPLETE</h2><p>SCORE ${st.score} · ${medal?medal.toUpperCase():'NO MEDAL'}</p><p>HITS ${st.hits}/${st.shots}</p><p>Reload refills automatically. Red targets are hostages.</p>`;
+    const leave=document.createElement('button');leave.type='button';leave.textContent='RETURN TO ARMORY';
+    const finish=retry=>{const award=R.awardRange(gunId,st.score);ctx.finish({outcome:medal?'win':'lose',score:st.score,data:{...st,medal,award}});if(retry&&(!window.RARC3||window.RARC3.attemptAllowed('range_day','range')))queueMicrotask(()=>window.RAMinigames.launch('range_day',ctx.params));else window.RAPhone?.openApp?.('armory');};
+    leave.addEventListener('click',()=>finish(false));card.append(leave);
+    if(!medal){const retry=document.createElement('button');retry.type='button';const attempts=window.RALife?.flag?.('rc4Attempts');retry.disabled=attempts?.day===window.RALife?.today?.().day&&Number(attempts.failures?.['range_day:range']||0)>=1;retry.textContent=retry.disabled?'RETRY TOMORROW':'RETRY · ONCE PER DAY';retry.addEventListener('click',()=>finish(true));card.append(retry);}
+    root.append(card);return;}
    raf=requestAnimationFrame(frame);
   }
   raf=requestAnimationFrame(frame);

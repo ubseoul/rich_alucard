@@ -24,13 +24,13 @@
  const VIP=['HOUSE GUEST','FRONT ROW','VELVET VIP','HEADLINER'];
 
  const CSS=`
- .cab.f15 .stage{height:clamp(280px,calc(100vh - 410px),500px);height:clamp(280px,calc(100dvh - 410px),500px)}
+ .cab.f15 .stage{height:clamp(320px,calc(100vh - 320px),580px);height:clamp(320px,calc(100dvh - 320px),580px)}
  .cab.f15 .player-bar{position:sticky;bottom:0;z-index:4;padding:5px 0;background:#090813}
  .f15-dancers{position:absolute;left:0;top:0;pointer-events:none}
  .f15-bar{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:10px}
  .f15-chip{font-family:var(--font);color:#f4f0ff;background:var(--purple);border:2px solid #8a85b8;outline:1px solid var(--ink);padding:6px 4px;min-height:58px;min-width:0;cursor:pointer;text-align:center;box-shadow:2px 2px 0 var(--blood);touch-action:manipulation;border-radius:0}
  .f15-chip[aria-checked="true"]{border-color:var(--cyan);background:#0f3a52}
- .f15-card{display:block;width:100%;height:56px;margin:0 0 5px;object-fit:cover;object-position:50% 22%;border:2px solid #17131e;background:#17131e;image-rendering:pixelated}
+ .f15-card{display:block;width:32px;height:36px;margin:0 auto 4px;object-fit:contain;border:2px solid #17131e;background:#17131e;image-rendering:pixelated}
  .f15-chip:disabled{cursor:default;opacity:.55;box-shadow:none}
  .f15-hype{margin:8px 0 0;padding:8px;background:#171322;border:2px solid #49334f;color:#f6efd9;font:8px/1.6 var(--font)}
  .f15-hype header{display:flex;justify-content:space-between;gap:6px;color:#efc16b}
@@ -51,6 +51,7 @@
  .f15-id p{margin:4px 0 8px;line-height:1.7;color:var(--cream)}
  .f15-id label{display:flex;justify-content:space-between;align-items:center;gap:6px;margin:4px 0}
  .f15-id select{font-family:var(--font);font-size:8px;background:var(--purple);color:var(--cream);border:2px solid var(--lav-2);padding:6px;min-height:36px}
+ .cab.f15{padding-bottom:8px}.cab.f15 .player-bar{margin-top:8px}.cab.f15 .btn{font-size:8px;padding:8px 5px}
  .f15-dev{color:var(--gold-hi)}
  `;
 
@@ -80,7 +81,7 @@
   const HYPE_MAX=3000;
   function renderHype(){const level=vipLevel(encores),active=performance.now()<encoreUntil;
    hypePanel.dataset.encore=String(active);hypePanel.dataset.combo=String(combo);hypePanel.dataset.vip=String(level);
-   hypePanel.innerHTML=`<header><span>${names[selectedLocal]} · 21+</span><span>${VIP[level]}</span></header><progress max="${HYPE_MAX}" value="${hype}" aria-label="Hype"></progress><span>${active?'ENCORE · damn house going up':`HYPE ${Math.round(hype)}/${HYPE_MAX}`} · COMBO ${combo} · TIP ×${(1+Math.min(combo,12)*.25).toFixed(2)}</span><br><span>${level===3?'HEADLINER: GOLD STAGE':`${encores} ENCORES · NEXT VIP AT ${[1,4,9][level]}`}</span>`;
+   hypePanel.innerHTML=`<header><span>${names[selectedLocal]} · 21+</span><span>${last?`PAID ${money(last.delta)}`:VIP[level]}</span></header><progress max="${HYPE_MAX}" value="${hype}" aria-label="Hype"></progress><span>${active?'ENCORE · damn house going up':`HYPE ${Math.round(hype)}/${HYPE_MAX}`} · COMBO ${combo} · HYPE ×${(1+Math.min(combo,12)*.25).toFixed(2)}</span><br><span>${level===3?'HEADLINER: GOLD STAGE':`${encores} ENCORES · NEXT VIP AT ${[1,4,9][level]}`}</span><br><span>${last?`THROWN ${money(last.thrown)}${last.thrown!==last.delta?" · 50% OFF":""} · ${last.kind.toUpperCase()}`:"PAID SUPPORT UNLOCKS DATES · HITS FILL HYPE · NO CASH BONUS"}</span>`;
   }
   const geo={W:0,H:0,feetY:0,k:1,dpr:1,boxes:{},x:{},clamped:false};
   const cards={},pendingCards=new Set();
@@ -132,7 +133,7 @@
    for(const el of bar.children)el.setAttribute('aria-checked',String(el.dataset.dancer===d));
   }
   // F06 production calls this after it has paid for ONE throw. The recipient is read HERE, at the instant of the throw.
-  function onSpend({delta,result}){
+  function onSpend({delta,thrown=delta,result}){
    const recipient=selectedLocal,before=C().progress(recipient);
    const after=C().recordSpend(recipient,delta);
    if(!after)return;
@@ -144,7 +145,7 @@
     global.RAAudio?.sfx?.('CROWD_CHEER_SMALL');
    }
    renderHype();
-   last={recipient,delta:Math.round(delta),kind:result?.kind||null,targetX:result?.targetX??null,at:performance.now()};
+   last={recipient,delta:Math.round(delta),thrown:Math.round(thrown),kind:result?.kind||null,targetX:result?.targetX??null,at:performance.now()};
    const x=geo.x[recipient]??geo.W/2,N=performance.now(),kind=result?.kind||'hit';
    effects.push({x,recipient,text:kind==='hit'?(result.perfect?'PERFECT':'HIT'):(kind==='overthrow'?'OVERTHROW':'MISS'),sub:'$'+Math.round(delta).toString().replace(/\B(?=(\d{3})+(?!\d))/g,','),color:kind==='hit'?'#ffe6a1':'#ff8a4a',t0:N,ttl:1100});
    pulses[recipient]={t0:N,hit:kind==='hit'};
@@ -165,8 +166,8 @@
    const offX=(cr.left-sr.left)-stage.clientLeft,offY=(cr.top-sr.top)-stage.clientTop;
    geo.W=W;geo.H=H;geo.dpr=dpr;
    geo.feetY=offY+(g.deckTop+Math.round(g.deckH*L.deckFeetFrac))*scale;
-   const kw=L.refScale*W/L.refStageWidth,kh=(geo.feetY-(offY+L.hudLogicalY*scale)-L.headroomPx)/L.tallestMasterPx;
-   geo.k=Math.min(kw,kh);geo.clamped=kh<kw;geo.kWidth=kw;geo.kHeadroom=kh;geo.hudBottom=offY+L.hudLogicalY*scale;
+   const kw=.44*W/L.refStageWidth,kh=(geo.feetY-(offY+25*scale)-L.headroomPx)/L.tallestMasterPx;
+   geo.k=Math.min(kw,kh);geo.clamped=kh<kw;geo.kWidth=kw;geo.kHeadroom=kh;geo.hudBottom=offY+25*scale;
    geo.x[selectedLocal]=offX+game.core.targetX(game.core.nowMs)*cr.width;
    return true;
   }

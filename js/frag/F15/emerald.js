@@ -78,7 +78,7 @@
    N("different voice laughing rolling her eyes exam thursday im fine"),
    N("call ends bank app opens"),
    N("transfer sent phone down family handled for the week")],
-   choices:[{label:'ASK ABOUT THE CALL',next:'talk'},{label:'WAIT FOR HER TO BRING IT UP',next:'talk'}]},
+   choices:[{label:'ASK ABOUT THE CALL',next:'talk'}]},
   talk:{lines:[
    S(R,"my dad everybody back home"),S(R,"they counting on me"),S(R,"aint sad just true"),
    U(`Hey Emerald - you are enough okay, your family is lucky to have you but remember you are enough`),

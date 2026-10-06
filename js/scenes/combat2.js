@@ -36,6 +36,7 @@
   const minionEls=[];if(def.minions){for(let i=0;i<5;i++){const k=actorEl(def.person,150+i*22,floor-30+i*6,scale*.55,false);k.classList.add('c2-minion');root.append(k);minionEls.push(k);}}
   root.insertAdjacentHTML('beforeend',`<div class="c2-hud"><div class="c2-hp c2-hp-rich"><b>RICH ALUCARD</b><span>HP <i><em></em></i> <strong></strong></span></div><div class="c2-hp c2-hp-enemy"><b>${esc(state.enemy.name)}</b><span>HP <i><em></em></i> <strong></strong></span></div></div><div class="c2-telegraph" hidden></div><div class="c2-float" aria-hidden="true"></div><div class="c2-panel"><div class="c2-log" aria-live="polite"></div><div class="c2-menu"></div></div><div class="c2-octo" hidden></div>`);
   screen.append(root);document.body.classList.add('combat2-mode');
+  if(params.spar)root.querySelectorAll('.c2-hp span').forEach(el=>{el.style.visibility='visible';});
   window.RACombatPixelFX?.prewarm();
   if(directed)stageDirector();
   function stageDirector(){
@@ -52,6 +53,7 @@
   const icon=art=>art?.asset?`<img class="c2-icon" src="${art.asset}" alt="" width="${art.cell[0]}" height="${art.cell[1]}" draggable="false">`:'';
   function renderMenu(){
    const m=$('.c2-menu');if(state.over){m.innerHTML='';return;}
+   if(params.spar){m.innerHTML=btn('JAB','spar:jab')+btn('CROSS','spar:cross')+btn('GUARD','spar:guard')+btn('QUIT · NO PENALTY','run');return;}
    if(state.awaitingOctopus){showOcto();m.innerHTML='';return;}
    if(menu==='main')m.innerHTML=btn('▶ FIGHT','fight')+btn('ITEM','item')+btn('HOES','hoes')+btn('RUN','run')+(window.RACombat2Ext?.menuButtons(state)||[]).map(b=>btn(`${icon(window.RAArtRegistry?.items?.guns?.[b.gun]?.held)}${esc(b.label)}`,b.act,b.cls)).join(''); // IF-1 weapon-slot button seam (empty unless registered + flag ON)
    else if(menu==='fight'){m.innerHTML=state.moves.map(id=>{const mv=D().MOVES[id];return btn(`${mv.label}<small>PP ${state.rich.pp[id]}/${mv.pp}${id==='revenge'?` · ${state.rich.revenge}`:''}</small>`,`move:${id}`,state.rich.pp[id]>0?'':'c2-off');}).join('')+state.guns.map(g=>btn(`${icon(window.RAArtRegistry?.items?.guns?.[g.id]?.held)}GUN: ${D().GUNS[g.id].label}<small>AMMO ${g.ammo}</small>`,`gun:${g.id}`,g.ammo>0?'c2-gun':'c2-off')).join('')+btn('BACK','back','c2-back');}
@@ -98,6 +100,7 @@
   root.addEventListener('click',e=>{
    const o=e.target.closest('[data-octo]');if(o){$('.c2-octo').hidden=true;doAction({type:'octopus',option:o.dataset.octo});return;}
    const b=e.target.closest('[data-c2]');if(!b||busy)return;const [kind,a,c]=b.dataset.c2.split(':');
+   if(kind==='spar'){doAction({type:'spar',id:a});return;}
    if((kind==='fight'||kind==='item'||kind==='hoes')&&!a){menu=kind;renderMenu();return;}if(kind==='back'){menu='main';renderMenu();return;}
    if(kind==='run'){doAction({type:'run'});return;}
    if(kind==='move'){doAction({type:'move',id:a});return;}if(kind==='gun'){doAction({type:'gun',id:a});return;}
@@ -106,16 +109,17 @@
   });
   async function finish(){
    const outcome=state.outcome;
+   if(outcome==='quit'){close({quit:true,outcome:'quit'});return;}
    RACombat2Rules.finish?.(state); // IF-1 boss-script onEnd seam (inert unless registered)
-   if(outcome==='win'||outcome==='lose'){try{window.RAAudio?.sfx?.(outcome==='win'?'VICTORY':'DEFEAT');}catch(e){}}
+   if(!params.spar&&(outcome==='win'||outcome==='lose')){try{window.RAAudio?.sfx?.(outcome==='win'?'VICTORY':'DEFEAT');}catch(e){}}
    // Persist what the fight used/earned (items spent, moves learned, drops, people who saw it).
    const life=RAState.get().life;const items={...life.ownership.items};for(const [id,n] of Object.entries(state.items))if(D().ITEMS[id]){if(n>0)items[id]=n;else delete items[id];}RAState.patch('life.ownership.items',items);
    if(state.learned){const learned=[...new Set([...(life.combat.learnedMoves||[]),state.learned])];RAState.patch('life.combat.learnedMoves',learned);const eq=[...life.combat.equippedMoves];if(!eq.includes(state.learned)){if(eq.length<4)eq.push(state.learned);RAState.patch('life.combat.equippedMoves',eq);}}
    if(outcome==='win'||outcome==='spared'){const drop=def.drop||{};if(drop.money&&outcome==='win')RALife.addMoney(drop.money);if(drop.followers)RALife.addFollowers(drop.followers);if(state.filming)RALife.addFollowers(state.filming);if(state.subscribe)RALife.addMoney(state.subscribe);for(const c of Object.keys(state.hoesUsed))if(RABtfPeople.get(c)?.dateable)RARelations.add(c,5,{reason:'fought together'});}
    for(const id of state.companionHurt)RALife.text(id,RABtfPeople.get(id)?.name||id,'my shoulder still hurts from last night. worth it tho.',{id:`hurt:${id}:${RALife.today().day}`});
-   if(outcome==='lose'&&!params.noPenalty)window.RADefeat?.apply?.({enemy:state.enemy.name,witnesses:params.witnesses||Object.keys(state.hoesUsed)});
+   if(outcome==='lose'&&!params.noPenalty&&!params.spar)window.RADefeat?.apply?.({enemy:state.enemy.name,witnesses:params.witnesses||Object.keys(state.hoesUsed)});
    RAState.recordEvent({id:`fight:${enemyId}:${RALife.today().day}:${Date.now()}`,type:'fight',enemy:enemyId,outcome,day:RALife.today().day});
-   $('.c2-log').textContent=outcome==='win'?`${state.enemy.name} IS DOWN.`:outcome==='spared'?'THE FIGHT IS OVER.':outcome==='run'?'RICH LEFT.':'RICH IS DOWN.';
+   $('.c2-log').textContent=params.spar?`SPAR OVER · ${outcome==='win'?'RICH':'ROXY'} REACHED FIVE · BOTH SAFE`:outcome==='win'?`${state.enemy.name} IS DOWN.`:outcome==='spared'?'THE FIGHT IS OVER.':outcome==='run'?'RICH LEFT.':'RICH IS DOWN.';
    $('.c2-menu').innerHTML=btn('CONTINUE','done');
    await new Promise(r=>{root.addEventListener('click',e=>{if(e.target.closest('[data-c2="done"]'))r();});});
    close({outcome,octopus:state.octopusUsed,recruited:!!state.recruited,learned:state.learned||null,turns:state.turn});

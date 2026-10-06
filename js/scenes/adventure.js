@@ -100,6 +100,7 @@
  async function typeText(el,text){el.textContent=text;}
  async function showLine([speaker,text,opts={}]){
   if(!scope?.isActive())return;
+  if(opts.narration)speaker=null; // preserve entrance actor while presenting explicit staging as narration
   window.RAOpenAudio?.voice(audio,speaker,opts);const dev=document.body.classList.contains('dev-enabled');
   if(opts.entrance){const node=actorNode(opts.entrance);if(node){node.classList.add('adv-entrance');}}
   const richOnStage=speaker==='rich'&&actorNode('rich');

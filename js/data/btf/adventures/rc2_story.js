@@ -15,8 +15,8 @@
  D({id:'YAM',title:'THE YAM',lane:'food',scope:'MUST',memory:'a yam',available:L=>L.done('A43')||L.day>=4,testSetup:ctx=>{ctx.RALife.addMoney(500);},start:'arrive',nodes:{
   arrive:{env:'naija_mart',actors:{left:'rich',right:'auntie'},title:'NAIJA MART · THE YAM',
    lines:[N("a yam got its own chair before you did"),S('auntie',"this a dependent"),R("how much for big bro"),S('auntie',"yam needs a home and you got a castle")],
-   choices:[{label:'TAKE THE YAM ($6)',when:()=>RALife.money()>=6,fx:()=>RALife.spend(6),next:'carry'},{label:'"DOES IT HAVE A WARRANTY?"',octopus:true,sub:'she has an answer.',next:'warranty'},{label:'NO THANK YOU',next:'refuse'}]},
-  warranty:{lines:[null,N("rich adopts the yam")],enter:A=>{RALife.spend(Math.min(6,RALife.money()));},next:'carry'},
+   choices:[{label:'TAKE THE YAM ($6)',when:()=>RALife.money()>=6,fx:()=>RALife.spend(6),next:'carry'},{label:'"DOES IT HAVE A WARRANTY?"',octopus:true,sub:'$6 · she has an answer.',when:()=>RALife.money()>=6,next:'warranty'},{label:'NO THANK YOU',next:'refuse'}]},
+  warranty:{lines:[null,N("rich adopts the yam")],enter:A=>{RALife.spend(6);},next:'carry'},
   refuse:{lines:[S('auntie',"dont make me come find you"),null],end:{outcome:'refused',memory:{text:'said no to a yam. felt it later',lane:'food',quality:.4},receipt:{caption:'no yam. for now.'},home:['rich',"yam got my address im cooked",{vp:true}]}},
   carry:{env:'naija_lot',actors:{left:'rich'},lines:[N("yam riding shotgun like it paid for gas"),N("rich buckles big bro in")],next:'kitchen'},
   kitchen:{env:'kitchen',actors:{left:'rich'},lines:[N("yam on the counter acting like the landlord"),N("mazda looking at lunch")],next:'phone'},
@@ -45,7 +45,7 @@
   octo:{lines:[N("eight tentacles eight balls mazda wants none of this"),S('tunde',"cheating but damn thats clean")],enter:A=>{RALife.setFlag('fufuStyle','octopus');},next:'soup'},
   soup:{lines:[N("egusi hot enough to settle an argument"),S('mom',"it hurt? good"),R("damn a little warning next time")],next:'end'},
   end:{enter:A=>{RALife.setFlag('fufuLearned',true);RARelations.add('tunde',3,{reason:'fufu friday'});},lines:[S('mom',"eat again im watching")],
-   end:{outcome:'fufu',memory:{text:'learned fufu. one rule: do not chew',lane:'food',quality:1.4},receipt:{id:'fufu',caption:'fufu friday. mom watched. i swallowed.'},home:['rich',"fufu got more rules than probation",{vp:true}]}}
+   end:{outcome:'fufu',memory:{text:'learned fufu. one rule: do not chew',lane:'food',quality:1.4},receipt:()=>({id:'fufu',caption:`fufu friday. mom watched. ${RALife.flag('fufuStyle')==='chew'?'i chewed.':RALife.flag('fufuStyle')==='octopus'?'eight tentacles.':'i swallowed.'}`}),home:['rich',"fufu got more rules than probation",{vp:true}]}}
  }});
 
  // ============================================================================================
@@ -67,7 +67,7 @@
   eat:{lines:[N("foil plate appears like mom got bluetooth"),S('auntie',"bring my foil back dont play")],next:'verdict'},
   verdict:{lines:A=>{const s=A.vars.score||0;return s>=4?[N("eleven seconds to judge a whole man"),S('auntie',"you passed barely")]:[N("forty minutes later they still on your case"),S('auntie',"you need work we got time")];},
    enter:A=>{RALife.setFlag('auntieApproval',(A.vars.score||0)>=4?'acceptable':'project');RARelations.add('auntie',3,{reason:'the council'});},
-   end:{outcome:'council',memory:{text:'the aunties reviewed my life. verdict: a project',lane:'food',quality:1.3},receipt:{id:'council',caption:'a foil plate. return the foil.'},home:['rich',"aunties got my whole file",{vp:true}]}}
+   end:{outcome:'council',memory:()=>({text:`the aunties reviewed my life. verdict: ${RALife.flag('auntieApproval')}`,lane:'food',quality:1.3}),receipt:{id:'council',caption:'a foil plate. return the foil.'},home:['rich',"aunties got my whole file",{vp:true}]}}
  }});
 
  // ============================================================================================
