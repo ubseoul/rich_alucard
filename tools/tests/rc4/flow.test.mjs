@@ -15,9 +15,9 @@ export async function test(root){
  a.available=musicAvailable;
  assert.equal(g.canStart('A14','phone'),a.available('A14'));
  const pitch=a.get('NEW_OGA_M1').nodes.pitch.lines();
- assert.equal(pitch[0][1],'Rich came to Los Angeles for music. He needs money to live while he works on that.');
+ assert.equal(pitch[0][1],'Rich came to Los Angeles for music. He wants his music to pay his way. VampGPT has another idea.');
  assert(pitch.some(x=>x[0]==='rich'&&x[1]==='…brother. why would I jug the plug.'),'semantic adapter preserves normalized Rich brother line');
- assert(pitch.some(x=>x[0]==='vampgpt'&&x[1]==='oga. you need funds.'));
+ assert(pitch.some(x=>x[0]==='vampgpt'&&x[1]==='oga. you came here for music.'));
  assert(pitch.some(x=>x[0]==='vampgpt'&&x[1]==='cash first. what you do with it is your business.'));
  assert.equal(c.RABtfPeople.get('smallie_cousin_girlfriend').dateable,false);
  assert.equal(c.RABtfPeople.get('smallie_cousin_girlfriend').age,25);
