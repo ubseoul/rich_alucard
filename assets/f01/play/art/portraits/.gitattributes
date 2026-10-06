@@ -1,0 +1,3 @@
+*.png binary
+author-*.json -text whitespace=cr-at-eol
+SHA256SUMS-v2.txt -text whitespace=cr-at-eol

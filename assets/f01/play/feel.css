@@ -324,3 +324,16 @@ button{font-family:Tiny5,"Courier New",monospace;letter-spacing:1px;border-radiu
 /* Approved candidate v6 inset: [63,52,208,380], not the original aperture. */
 .phone-content{position:absolute;left:6px;top:13px;width:145px;height:328px;background:#08080c;overflow:hidden}
 .phone-content .crew-inspect{max-height:calc(100% - 75px);box-sizing:border-box;overflow:auto}
+
+/* Reviewed native portraits: source HP/status remains the condition authority. */
+.play-portrait{image-rendering:pixelated;object-fit:contain;flex:none}
+.face.play-portrait[data-native-size="16"]{width:16px;height:16px}
+.face.play-portrait[data-native-size="32"]{width:32px;height:32px}
+.phone .ph-head .av{width:16px;height:16px}
+.phone .operation-unit{position:relative}
+.phone .operation-unit .op-portrait{position:absolute;left:2px;top:3px;width:16px;height:16px;margin:0}
+.phone .operation-unit>span:not(.op-portrait){position:absolute;left:20px;right:1px;top:4px}
+.phone .operation-unit>b{position:absolute;left:0;right:0;bottom:3px}
+.op-portrait .play-portrait{margin:0 auto}
+.phone .fr .play-portrait,.phone .bub.me .play-portrait{display:inline-block;vertical-align:middle;margin-right:3px}
+.phone .decide .fb .f{width:16px;height:16px}
