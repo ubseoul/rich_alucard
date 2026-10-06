@@ -20,8 +20,15 @@
    const offer=active.vars?.brainOffer||['whole','polite','asked'][active.vars?.picks?.brain_offer]||'whole';
    const wait=offer==='whole'?0:350;
    const world=RAPresentationDirector.worldRect()||{x:0,y:0,w:root.clientWidth,h:root.clientHeight}, origin=root.getBoundingClientRect(), rr=rich.getBoundingClientRect(), sr=sensei?.getBoundingClientRect()||rr, scale=world.w/270;
-   const head=r=>({x:(r.left-origin.left-world.x)/scale+r.width/scale/2-24,y:(r.top-origin.top-world.y)/scale+8});
-   const from=head(sr),to=head(rr),point=t=>({x:from.x+(to.x-from.x)*t,y:from.y+(to.y-from.y)*t});
+   const head=(el,r,state)=>{
+    const staged=window.RAPresentationDirector?.actorBox?.(el?.dataset.slot),fallback=el?.dataset.actor==='octopus_sensei'?{width:96,height:96,face:[36,36,22,12]}:{width:80,height:96,face:[32,45,19,14]};
+    const meta=staged?.meta||fallback,face=meta.face||fallback.face;
+    const supplied=art().headCenters?.[el?.dataset.actor]?.[state],center=supplied||[face[0]+face[2]/2,face[1]+face[3]/2];
+    const fx=staged?.flip?meta.width-center[0]:center[0];
+    // Authored face coordinates exclude transparent cell padding and survive Director zoom.
+    return {x:(r.left-origin.left-world.x+r.width*fx/meta.width)/scale-24,y:(r.top-origin.top-world.y+r.height*center[1]/meta.height)/scale-24};
+   };
+   const from=head(sensei,sr,'startled'),to=head(rich,rr,'headache'),point=t=>({x:from.x+(to.x-from.x)*t,y:from.y+(to.y-from.y)*t});
    const result=await RABeatTimeline.play({root,scope,duration:2050+wait,overlays:[{id:'brain',src:art().brain?.reveal,canvas:art().brain?.reveal?null:purple,x:from.x,y:from.y,w:48,h:48,hidden:true}],frames:[
     {at:0,actors:[{el:rich,src:poses.reach},{el:sensei,src:sp.point}]},
     {at:300+wait,actors:[{el:rich,dx:offer==='whole'?16:8,src:poses.grab},{el:sensei,src:sp.startled}],overlays:[{id:'brain',visible:true,src:art().brain?.reveal}]},
