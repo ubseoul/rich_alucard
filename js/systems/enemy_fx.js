@@ -218,8 +218,8 @@
   const a=V.enemy,t=V.rich;L.canvas.classList.add('rc2-enemy-fx');root.dataset.lastEnemyFx=`${enemyId}:${moveId}:${sp.s}`;
  const opts={...sp,hits:sp.hits},original=attacker.getAttribute('src');
  const sequence=TIMELINES[appearance?`${enemyId}@${appearance}`:enemyId]?.[moveId],originalStyle=attacker.getAttribute('style');
- const savedTransform=attacker.style.transform,nativeScale=attacker.getBoundingClientRect().height/96;
- const savedTop=(parseFloat(attacker.style.top)||0)-(sequence?.native?.[original]?(88-sequence.native[original].contact[1])*nativeScale:0);
+ const savedTransform=sequence?.native?attacker.style.transform:null,nativeScale=sequence?.native?attacker.getBoundingClientRect().height/96:0;
+ const savedTop=sequence?.native?(parseFloat(attacker.style.top)||0)-(sequence.native[original]?(88-sequence.native[original].contact[1])*nativeScale:0):0;
   let contact=false,cancelled=false,timer=null,wake=null;
   const owner={cancel:()=>{if(cancelled)return;cancelled=true;clearTimeout(timer);wake?.();cleanup();}};
   const owns=()=>active.get(root)===owner;

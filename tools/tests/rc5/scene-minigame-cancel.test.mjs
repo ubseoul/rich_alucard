@@ -1,6 +1,11 @@
 import assert from 'node:assert/strict';
 import vm from 'node:vm';
-import {readFile} from 'node:fs/promises';
+import {readFile as readSource} from 'node:fs/promises';
+import path from 'node:path';
+import {fileURLToPath} from 'node:url';
+export async function test(root=process.cwd()){
+ const readFile=(file,...args)=>readSource(path.resolve(root,file),...args);
+
 const events=[];let live=false,resolveGame,continued=0,cancelOptions;
 const c={console,setTimeout,clearTimeout,setInterval,clearInterval,requestAnimationFrame:()=>0,cancelAnimationFrame(){},CustomEvent:class{constructor(type,{detail}){this.type=type;this.detail=detail;}},document:{dispatchEvent:e=>events.push(e.detail.id)},RAState:{patch(){}}};
 c.window=c;vm.createContext(c);
@@ -18,3 +23,6 @@ assert.equal(c.RAScenes.current(),'bedroom');
 assert.equal(cancelOptions.sceneChange,true,'host must suppress its old returnScene');
 assert.deepEqual(events,['bedroom'],'cancelled entering scene never emits completion');
 console.log('PASS queued minigame cancellation unblocks destination and prevents stale adventure continuation');
+
+}
+if(process.argv[1]===fileURLToPath(import.meta.url))await test();
