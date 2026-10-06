@@ -1,0 +1,5 @@
+import {open} from '../rc2/harness.mjs';import fs from 'node:fs';import assert from 'node:assert/strict';
+const h=await open({query:'?mute=1'}),p=h.page;
+try{await p.locator('#startButton').click();await p.waitForFunction(()=>!!window.RAMusicLibrary);
+const row=await p.evaluate(async()=>{const a=document.querySelector('#soundtrack');RAMusicLibrary.play('montana');await a.play();await new Promise(r=>{a.addEventListener('seeked',r,{once:true});a.currentTime=8;});const before=a.currentTime;const owner=document.createElement('div');document.body.append(owner);RAMusicLibrary.combat(owner,'gbenga');await new Promise(r=>setTimeout(r,180));const cue=a.dataset.track;owner.dispatchEvent(new Event('c2:close'));await new Promise(r=>setTimeout(r,400));return {before,after:a.currentTime,cue,src:a.getAttribute('src'),seekable:a.seekable.length,errors:[]};});console.log(JSON.stringify(row));assert(row.before>=7.9);assert(Math.abs(row.after-row.before)<1);assert.equal(row.cue,'oxblood');assert.equal(h.errors.length,0);
+}finally{await h.close();}

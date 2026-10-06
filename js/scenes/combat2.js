@@ -35,7 +35,7 @@
   function setEnemyState(role){if(enemyEl.tagName!=='IMG'||!art.base)return;const src=(role&&combatState(role))||art.base;if(enemyEl.getAttribute('src')===src)return;enemyEl.src=src;if(directed)RAPresentationDirector.relayout();}
   const minionEls=[];if(def.minions){for(let i=0;i<5;i++){const k=actorEl(def.person,150+i*22,floor-30+i*6,scale*.55,false);k.classList.add('c2-minion');root.append(k);minionEls.push(k);}}
   root.insertAdjacentHTML('beforeend',`<div class="c2-hud"><div class="c2-hp c2-hp-rich"><b>RICH ALUCARD</b><span>HP <i><em></em></i> <strong></strong></span></div><div class="c2-hp c2-hp-enemy"><b>${esc(state.enemy.name)}</b><span>HP <i><em></em></i> <strong></strong></span></div></div><div class="c2-telegraph" hidden></div><div class="c2-float" aria-hidden="true"></div><div class="c2-panel"><div class="c2-log" aria-live="polite"></div><div class="c2-menu"></div></div><div class="c2-octo" hidden></div>`);
-  screen.append(root);document.body.classList.add('combat2-mode');
+  screen.append(root);document.body.classList.add('combat2-mode');window.RAMusicLibrary?.combat(root,enemyId,params);
   if(params.spar)root.querySelectorAll('.c2-hp span').forEach(el=>{el.style.visibility='visible';});
   window.RACombatPixelFX?.prewarm();
   if(directed)stageDirector();
@@ -48,31 +48,36 @@
   }
   const $=sel=>root.querySelector(sel);let resolveRun;let menu='main';
   function hud(){const r=state.rich,e=state.enemy;$('.c2-hp-rich em').style.width=`${r.hp/r.max*100}%`;$('.c2-hp-rich strong').textContent=`${r.hp}/${r.max}`;$('.c2-hp-enemy em').style.width=`${e.hp/e.max*100}%`;$('.c2-hp-enemy strong').textContent=`${e.hp}/${e.max}`;const t=$('.c2-telegraph');t.hidden=!state.telegraph||state.over;t.textContent=state.telegraph||'';if(def.minions){const n=Math.max(1,Math.ceil(state.enemy.minions*e.hp/e.max));root.querySelectorAll('.c2-minion').forEach((m,i)=>m.style.opacity=i<Math.min(5,Math.ceil(n/8))?'1':'0');}}
-  function btn(label,act,cls=''){return `<button type="button" class="c2-btn ${cls}" data-c2="${esc(act)}">${label}</button>`;}
+  function btn(label,act,cls=''){return `<button type="button" class="c2-btn ${cls}" ${cls.includes('c2-off')?'disabled aria-disabled="true"':''} data-c2="${esc(act)}">${label}</button>`;}
   // ART SHIP 014 item/gun art beside the label (native pixels); items without frozen art stay text-only.
   const icon=art=>art?.asset?`<img class="c2-icon" src="${art.asset}" alt="" width="${art.cell[0]}" height="${art.cell[1]}" draggable="false">`:'';
   function renderMenu(){
    const m=$('.c2-menu');if(state.over){m.innerHTML='';return;}
    if(params.spar){m.innerHTML=btn('JAB','spar:jab')+btn('CROSS','spar:cross')+btn('GUARD','spar:guard')+btn('QUIT · NO PENALTY','run');return;}
    if(state.awaitingOctopus){showOcto();m.innerHTML='';return;}
-   if(menu==='main')m.innerHTML=btn('▶ FIGHT','fight')+btn('ITEM','item')+btn('HOES','hoes')+btn('RUN','run')+(window.RACombat2Ext?.menuButtons(state)||[]).map(b=>btn(`${icon(window.RAArtRegistry?.items?.guns?.[b.gun]?.held)}${esc(b.label)}`,b.act,b.cls)).join(''); // IF-1 weapon-slot button seam (empty unless registered + flag ON)
-   else if(menu==='fight'){m.innerHTML=state.moves.map(id=>{const mv=D().MOVES[id];return btn(`${mv.label}<small>PP ${state.rich.pp[id]}/${mv.pp}${id==='revenge'?` · ${state.rich.revenge}`:''}</small>`,`move:${id}`,state.rich.pp[id]>0?'':'c2-off');}).join('')+state.guns.map(g=>btn(`${icon(window.RAArtRegistry?.items?.guns?.[g.id]?.held)}GUN: ${D().GUNS[g.id].label}<small>AMMO ${g.ammo}</small>`,`gun:${g.id}`,g.ammo>0?'c2-gun':'c2-off')).join('')+btn('BACK','back','c2-back');}
+   if(menu==='main')m.innerHTML=btn('▶ FIGHT','fight')+btn('ITEM','item')+btn('HOES','hoes')+btn(def.noRun||def.boss||params.noRun?'RUN LOCKED':'RUN','run',def.noRun||def.boss||params.noRun?'c2-off':'')+(window.RACombat2Ext?.menuButtons(state)||[]).map(b=>btn(`${icon(window.RAArtRegistry?.items?.guns?.[b.gun]?.held)}${esc(b.label)}`,b.act,b.cls)).join(''); // IF-1 weapon-slot button seam (empty unless registered + flag ON)
+   else if(menu==='fight'){m.innerHTML=state.moves.map(id=>{const mv=D().MOVES[id];return btn(`${mv.label}<small>1 PP � ${state.rich.pp[id]}/${mv.pp}${id==='revenge'?` · ${state.rich.revenge}`:''}</small>`,`move:${id}`,state.rich.pp[id]>0?'':'c2-off');}).join('')+state.guns.map(g=>btn(`${icon(window.RAArtRegistry?.items?.guns?.[g.id]?.held)}GUN: ${D().GUNS[g.id].label}<small>AMMO ${g.ammo}</small>`,`gun:${g.id}`,g.ammo>0?'c2-gun':'c2-off')).join('')+btn('BACK','back','c2-back');}
    else if(menu==='item'){const list=Object.entries(state.items).filter(([id,n])=>n>0&&D().ITEMS[id]);m.innerHTML=(list.map(([id,n])=>btn(`${icon(window.RAArtRegistry?.items?.combat?.[id])}${D().ITEMS[id].label}<small>×${n}</small>`,`item:${id}`)).join('')||'<p class="c2-empty">BAG IS EMPTY.</p>')+btn('BACK','back','c2-back');}
    else if(menu==='hoes'){const list=state.companions;m.innerHTML=(list.flatMap(c=>c.moves.map(mv=>btn(`${c.name}: ${mv.label}<small>${2-(state.hoesUsed[c.id]||0)} LEFT</small>`,`hoe:${c.id}:${mv.id}`,(state.hoesUsed[c.id]||0)>=2?'c2-off':''))).join('')||'<p class="c2-empty">NOBODY CLOSE ENOUGH YET.</p>')+btn('BACK','back','c2-back');}
   }
   function showOcto(){const o=$('.c2-octo');o.hidden=false;const opts=def.octopus||{};o.innerHTML=`<img src="assets/octopus_brain_a.png" alt="" class="c2-tentacles"><div class="c2-octo-title">OCTOPUS BRAIN</div>${['charisma','recruit','roast'].filter(k=>opts[k]).map(k=>`<button type="button" class="c2-octo-choice" data-octo="${k}"><b>${k.toUpperCase()}</b><span>${esc(opts[k].label)}</span></button>`).join('')}`;const frames=window.RAArtRegistry?.combatMoves?.octopus?.frames;if(frames){const tentacle=o.querySelector('img');frames.slice(1).forEach((src,i)=>setTimeout(()=>{if(tentacle.isConnected)tentacle.src=src;},180*(i+1)));}}
-  async function play(events){
+  const reactiveSeen=new Set(),reactive={blood:'damn that counted as a deposit',bite:'needed that more than you',revenge:'keep the receipt bro'};
+  function react(id){const text=reactive[id];if(params.spar||!text||reactiveSeen.has(id))return;reactiveSeen.add(id);const rr=root.getBoundingClientRect(),a=window.RAPresentationDirector?.actorBox?.('rich');if(a)window.RABarks?.show({root,anchor:{x:a.visible.x+a.visible.w/2-rr.left,y:a.visible.y-rr.top},text,speaker:'rich'});}
+  async function play(events,presentation=null){
+   const started=performance.now();let playerContact=false,enemyContact=false;
    busy=true;$('.c2-menu').innerHTML='';
    for(let index=0;index<events.length;index++){const ev=events[index];window.RAOpenAudio?.combat(audio,enemyId,ev);
     $('.c2-log').textContent=ev.text;
     if(ev.kind==='telegraph')window.RABarks?.trigger({root,enemyId,kind:'telegraph',enemyEl});
-    if(ev.kind==='enemy'){window.RABarks?.trigger({root,enemyId,kind:'attack',enemyEl});const mv=D().ENEMIES[enemyId]?.moves?.[ev.move];await window.RAEnemyFX?.attack({root,enemyId,moveId:ev.move,dmg:mv?.dmg||0,attacker:enemyEl,target:richEl});}
+    if(ev.kind==='enemy'){window.RABarks?.trigger({root,enemyId,kind:'attack',enemyEl});const mv=D().ENEMIES[enemyId]?.moves?.[ev.move],willHit=events.slice(index+1).find(e=>['hurt','miss','enemy'].includes(e.kind))?.kind==='hurt';await window.RAEnemyFX?.attack({root,enemyId,moveId:ev.move,dmg:mv?.dmg||0,attacker:enemyEl,target:richEl,onContact:()=>{if(!willHit||(mv?.dmg||0)<=0)return;enemyContact=true;window.RACombatPixelFX?.impact({root,target:richEl,attacker:enemyEl,severity:(mv?.dmg||0)>=30?'heavy':'normal'});audio?.sound((mv?.dmg||0)>=30?'HIT_HEAVY':'HIT_LIGHT');}});}
     setEnemyState(ev.kind==='telegraph'?'telegraph':ev.kind==='hurt'?'strike':ev.kind==='hit'&&ev.target!=='rich'?'hit':ev.kind==='win'?'defeated':state.over&&state.outcome==='win'?'defeated':null);
     if(ev.kind==='hit'||ev.kind==='hurt'){
      const group=[ev];while(events[index+1]?.kind===ev.kind&&events[index+1]?.target===ev.target)group.push(events[++index]);
+     if(ev.kind==='hit'&&!playerContact&&presentation){playerContact=true;const contact=(window.RACombatPixelFX?.MOVES?.[presentation.id]?.contact||300)*(presentation.duration/720);await wait(Math.max(0,contact-(performance.now()-started)));}
+     if(ev.kind==='hit'&&presentation)react(presentation.id);
      const onRich=ev.kind==='hurt',target=onRich?richEl:enemyEl,attacker=onRich?enemyEl:richEl,total=group.reduce((sum,e)=>sum+(e.amount||0),0),lethal=events[index+1]?.kind===(onRich?'lose':'win'),severity=lethal?'lethal':group.some(e=>e.heavy)?'heavy':'normal';
      for(let hit=0;hit<group.length;hit++){const tick=hit<group.length-1;$('.c2-log').textContent=group[hit].text;
-      const stop=window.RACombatPixelFX?.impact({root,target,attacker,severity,tick})||55;audio?.sound(tick?'HIT_LIGHT':lethal?'KO':severity==='heavy'?'HIT_HEAVY':'HIT_LIGHT');
+      const stop=onRich&&enemyContact?0:window.RACombatPixelFX?.impact({root,target,attacker,severity,tick})||55;if(!(onRich&&enemyContact))audio?.sound(tick?'HIT_LIGHT':lethal?'KO':severity==='heavy'?'HIT_HEAVY':'HIT_LIGHT');
       if(tick)await wait(110);else{root.classList.add('c2-impact-stop');await wait(stop);root.classList.remove('c2-impact-stop');}
      }
      floatNum(total||ev.amount,onRich?'rich':'enemy',null,severity);hud();window.RABarks?.trigger({root,enemyId,kind:onRich?'hit_rich':'hurt',enemyEl:!onRich&&!lethal&&index%3===0?richEl:enemyEl,speaker:!onRich&&!lethal&&index%3===0?'rich':'enemy',force:lethal&&!onRich});await wait(615);continue;
@@ -91,8 +96,8 @@
    if(busy||state.over)return;busy=true;
    const presentation=window.RACombat2Ext?.presentationFor?.(state,action);window.RAOpenAudio?.action(audio,action);
    RACombat2Rules.act(state,action);const events=[...state.log];menu='main';
-   if(events[0]?.kind!=='block')window.RACombatPresentation?.move?.({root,attacker:richEl,target:enemyEl,action,gun:presentation?.gun||action.type==='gun'&&action.id,events});
-   await play(events);
+   const timeline=events[0]?.kind!=='block'?window.RACombatPresentation?.move?.({root,attacker:richEl,target:enemyEl,action,gun:presentation?.gun||action.type==='gun'&&action.id,events}):null;
+   await play(events,timeline);
    if(!root.isConnected)return;
    if(state.over)return finish();
    renderMenu();

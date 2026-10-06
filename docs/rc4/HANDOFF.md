@@ -90,3 +90,9 @@ Base: reviewed immutable `0b408fdd827fd6b14dadaaa8bc91d888cc708440`; branch `rc4
 - **Scope gaps:** RC4-029 social-stakes presentation for retired Owambe/Senator games depends on B1's retained-story decision. VIS-007 crew card fit belongs to the War Room presentation integrator; B4 did not introduce a new roster or modify F04 crew rendering. No claim of closure for these rows.
 
 Range's direct Armory path now calls B1 `attemptAllowed('range_day','range')`/`settleAttempt`; adventure games retain B1's existing dispatcher. Cancel never settles a failure. Rave's authored poor-rhythm fail-forward still proceeds after the result acknowledgement; it is not replaced with a replay grind.
+
+## B5 candidate seam / coordinator release gate
+
+B5 starts exact74f4179; changes only combat HUD/menu/presentation,enemy move pose/FX timing,existing-player scoped combat cues,one M7 acknowledgment,and throne-exit legacy overlay cleanup. Approved candidate frames live separately under assets/rc4/combat_candidates_v1; never overwrite frozen originals. Four new exact reactions/triggers and rollback decisions are in builds/B5.md. B4 nonlethal spar,B1 attempt/settlement/transport,B2 JDM/earnings and B3 actor grounding remain intact.
+
+Coordinator owns final natural packaged fresh-save-to-ending and alternate checkpoint run. B5 must hand off actual dist/build.json identity,ZIP/checksum,final suite/source and packaged browser evidence,and status-only private verification. Registry move coverage is not natural reachability; no perceptual listening or RC-ready claim without actual review. Legacy CEO no-steal overlay was a natural pointer blocker; verify ordinary M1 pointer input after repaired throne exit.

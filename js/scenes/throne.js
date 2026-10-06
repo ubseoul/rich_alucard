@@ -10,7 +10,7 @@
    viewportLayers:[q('#ambienceLayer')].filter(Boolean),
    worldLayers:['#bloodBathRear','#bloodBathForeground'].map(sel=>({el:q(sel),rect:stage.director.worldLayers.bloodBath})).filter(layer=>layer.el)});
  }
- RAScenes.register('battle',{enter:({scope})=>enterThrone(scope),exit:()=>window.RAPresentationDirector?.exit()});
+ RAScenes.register('battle',{enter:({scope})=>enterThrone(scope),exit:()=>{window.RAPresentationDirector?.exit();q('#victoryOverlay')?.classList.remove('on');const ending=q('#endingText');if(ending){ending.classList.remove('on');ending.textContent='';}}});
  // 'battle' is the boot scene and is never entered through RAScenes.go at load.
  document.addEventListener('DOMContentLoaded',()=>{if(RAScenes.current()==='battle')enterThrone(RAScenes.createScope('battle-boot'))},{once:true});
 })();

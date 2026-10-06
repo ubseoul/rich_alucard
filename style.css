@@ -957,8 +957,9 @@ body.pd-active #screen > .room{display:none}
 @media (prefers-reduced-motion:reduce){#phoneContent .app-button.phone-pulse .phone-icon-tile,#phoneContent .phone-pulse-dot,#phoneContent .phone-next-button[data-guide],.check-phone.guide-pulse{animation:none}}
 /* OL-076: meters run silently; cash stays legible in every host scene. */
 body.rc3 .rc3-cash{position:fixed;top:6px;right:8px;z-index:2147483100;background:#10101b;color:#fff;padding:5px 8px;font:14px monospace;pointer-events:none;border:1px solid #f4c95d}
-body.rc3 .combat-hud .hpbox span,body.rc3 .c2-hp span{visibility:hidden}
+body.rc3 .combat-hud .hpbox span,body.rc3 .c2-hp span{visibility:visible}
 body.rc3 .c2-scene{z-index:130}
-body.rc3 .c2-btn small,body.rc3 #moves span,body.rc3 #revengeValue{display:none}
+body.rc3 .c2-btn small,body.rc3 #moves span,body.rc3 #revengeValue{display:block}
 body.rc3 .phone-section-label{display:none}
 body.rc3 .phone-app-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+body.rc3.combat2-mode .rc3-cash{top:auto;bottom:6px}

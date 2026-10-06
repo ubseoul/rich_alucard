@@ -66,6 +66,8 @@
  // enemy -> move -> {style,...options}. Keys fall back to MOVE_DEFAULT[moveId] then STYLE_BY_DMG.
  const CC={bone:'#f5e8c5',gold:'#d6af62',red:'#ae2446',violet:'#9460c0',blue:'#6876d3',green:'#72b58a',orange:'#d98241',pink:'#d85a8a',brown:'#9a6a3c'};
  const MAP={
+  gbenga:{sweep:{s:'slash',color:CC.gold},voice:{s:'burst',glyph:'note',color:CC.gold,count:4,at:'toRich'},my_son:{s:'burst',glyph:'cross',color:CC.green,at:'self',count:4},draco:{s:'flurry',hits:2,color:CC.gold}},
+  blad33ee:{bolt:{s:'projectile',sprite:'arrow',color:CC.bone,arc:2},slash:{s:'slash',color:CC.bone}},
   uncle_sunday:{wag:{s:'word',color:CC.gold},father:{s:'word',color:CC.orange,heavy:1},marriage:{s:'burst',glyph:'heart',color:CC.pink,count:5,at:'toRich'}},
   bruce_loose:{flurry:{s:'flurry',hits:3,color:'#e6c23a'},kick:{s:'smash',color:'#e6c23a',heavy:1},noise:{s:'burst',glyph:'exclaim',color:'#e6c23a',at:'self',count:5}},
   kevins:{poke:{s:'flurry',hits:5,color:CC.blue},honor:{s:'slash',color:CC.bone}},
@@ -88,20 +90,30 @@
  };
  const MOVE_DEFAULT={briefcase_throw:{s:'projectile',sprite:'briefcase',color:CC.gold,arc:14},importer_shove:{s:'smash',color:CC.orange,heavy:1}};
  function specFor(enemyId,moveId,dmg){const base=MAP[enemyId]?.[moveId]||MOVE_DEFAULT[moveId];if(base)return base;return dmg>=30?{s:'smash',color:CC.red,heavy:1}:dmg>0?{s:'slash',color:CC.bone}:{s:'burst',glyph:'star',color:CC.violet,at:'self',count:3};}
+ const POSES={smallie:{chew:'smallie-chew',crumb:'smallie-crumb'},smallie_cousin:{dagger:'cousin-dagger',feint:'cousin-feint'}};
+ const GBENGA={sweep:'adjusting_sleeves',voice:'voice_note',my_son:'my_son',draco:'golden_draco'};
+ function poseFor(enemyId,moveId,f){
+  const key=POSES[enemyId]?.[moveId];
+  if(key)return `assets/rc4/combat_candidates_v1/${key}-f${f<2?1:f<5?2:3}.png`;
+  if(enemyId==='gbenga'){const states=window.RABtfPeople?.get('gbenga')?.states||{},key=GBENGA[moveId];return f<7?states[key]||null:null;}
+  return null;
+ }
  const wait=ms=>new Promise(r=>setTimeout(r,ms));
  // attack({root,enemyId,moveId,dmg,attacker:enemyEl,target:richEl}) -> resolves when the animation ends (<= ~650 ms).
- async function attack({root,enemyId,moveId,dmg=0,attacker,target,freeze=null}){
+ async function attack({root,enemyId,moveId,dmg=0,attacker,target,freeze=null,onContact=null}){
   const fx=H();if(!fx||!root||!root.isConnected)return 0;
   const sp=specFor(enemyId,moveId,dmg),paint=PAINT[sp.s];if(!paint)return 0;
   let V,L;try{V=fx.view(root,target,attacker);L=fx.layer(root,V,`enemy:${enemyId}:${moveId}`);}catch(e){return 0;}
   // fx.view(root,attacker,target) names rich as "attacker"; here the enemy attacks, so anchors are: enemy=V.enemy, rich=V.rich.
   const a=V.enemy,t=V.rich;L.canvas.classList.add('rc2-enemy-fx');root.dataset.lastEnemyFx=`${enemyId}:${moveId}:${sp.s}`;
-  const opts={...sp,hits:sp.hits};
-  const draw=f=>{L.ctx.clearRect(0,0,270,V.H);paint(L.ctx,f,a,t,opts);L.canvas.dataset.frame=String(f);};
-  if(freeze!==null){draw(freeze);await wait(700);L.canvas.remove();return 700;}
-  if(reduced()){draw(6);await wait(220);L.canvas.remove();return 220;}
+  const opts={...sp,hits:sp.hits},original=attacker.getAttribute('src');
+  const restore=()=>{if(original&&attacker.isConnected)attacker.src=original;};
+  let contact=false;
+  const draw=f=>{L.ctx.clearRect(0,0,270,V.H);paint(L.ctx,f,a,t,opts);L.canvas.dataset.frame=String(f);const pose=poseFor(enemyId,moveId,f);if(pose&&attacker.tagName==='IMG'){attacker.src=pose;attacker.dataset.movePose=pose;}else if(f>=7&&original&&attacker.tagName==='IMG'){attacker.src=original;delete attacker.dataset.movePose;}root.dataset.enemyPhase=f<2?'anticipation':f<5?'action':f<8?'impact':'recovery';if(f>=5&&!contact){contact=true;onContact?.();}};
+  if(freeze!==null){draw(freeze);await wait(700);L.canvas.remove();restore();return 700;}
+  if(reduced()){draw(6);await wait(220);L.canvas.remove();restore();return 220;}
   for(let f=0;f<FRAMES;f++){if(!root.isConnected)break;draw(f);await wait(FRAME_MS);}
-  L.canvas.remove();return FRAMES*FRAME_MS;
+  L.canvas.remove();restore();delete attacker.dataset.movePose;return FRAMES*FRAME_MS;
  }
- window.RAEnemyFX={attack,specFor,MAP,PAINT,SPRITES,FRAMES,FRAME_MS};
+ window.RAEnemyFX={attack,specFor,poseFor,POSES,GBENGA,MAP,PAINT,SPRITES,FRAMES,FRAME_MS};
 })();

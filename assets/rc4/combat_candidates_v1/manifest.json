@@ -1,0 +1,243 @@
+{
+  "status": "coordinator reviewed integration candidate; final in-game review pending",
+  "tool": "built-in image_gen",
+  "canvas": [
+    80,
+    96
+  ],
+  "durations_ms": [
+    124,
+    124,
+    186
+  ],
+  "moves": {
+    "smallie-chew": {
+      "frames": [
+        {
+          "path": "assets/rc4/combat_candidates_v1/smallie-chew-f1.png",
+          "sha256": "2524fb366fabd3ef8e793bd694c076c60d487ae2b07fd13f8ecadefd8e177035",
+          "decoded_rgba_sha256": "4807bf390bafb8ef4f37421855f065fe8809953b024c14fdfc786d1caaec5110",
+          "bbox": [
+            25,
+            47,
+            55,
+            89
+          ],
+          "duration_ms": 124
+        },
+        {
+          "path": "assets/rc4/combat_candidates_v1/smallie-chew-f2.png",
+          "sha256": "96135bdedfbddca27f19042fed2c739568e66fb445b3968ed07b3c23db7075ff",
+          "decoded_rgba_sha256": "7d693ede33051c2cf3fe10ac9c83ace616ed8f960694b49f6e14c3f847047350",
+          "bbox": [
+            25,
+            54,
+            55,
+            89
+          ],
+          "duration_ms": 124
+        },
+        {
+          "path": "assets/rc4/combat_candidates_v1/smallie-chew-f3.png",
+          "sha256": "233ba1dd36f0b76bf56b333bb2b0676fee1dc62225728bf7cbc45704e5821847",
+          "decoded_rgba_sha256": "b19431fdcdc9b63fd61bfa5b877183f69490ddeaa28a46dd025a2ec27350cb69",
+          "bbox": [
+            28,
+            47,
+            53,
+            89
+          ],
+          "duration_ms": 186
+        }
+      ],
+      "anchor": [
+        40,
+        88
+      ],
+      "export": "nearest-neighbor; shared sequence scale; native master palette; binary alpha",
+      "distinct_frames": 3,
+      "sheet": "assets/rc4/combat_candidates_v1/smallie-chew-native-sheet.png",
+      "loop_apng": "assets/rc4/combat_candidates_v1/smallie-chew-loop.png",
+      "apng_verified_durations_ms": [
+        124.0,
+        124.0,
+        186.0
+      ],
+      "pose_differences": "Raised open-mouth lean; compressed chewing crouch; upright closed-mouth reset. Both cups retained."
+    },
+    "smallie-crumb": {
+      "frames": [
+        {
+          "path": "assets/rc4/combat_candidates_v1/smallie-crumb-f1.png",
+          "sha256": "6b9492dc352e53bcc21ec8ebd94861d56dd63e3ef96e1aa79147ebe1f94d2b34",
+          "decoded_rgba_sha256": "bad7d85ad32c32b66d6bb1ba005ec296b6c32eadeae79418f8156b1688c9916a",
+          "bbox": [
+            28,
+            47,
+            53,
+            89
+          ],
+          "duration_ms": 124
+        },
+        {
+          "path": "assets/rc4/combat_candidates_v1/smallie-crumb-f2.png",
+          "sha256": "256f5a87c3d78a6a2acfb47c95e98edd24fd2bdcbec21f15b7373918fe021d75",
+          "decoded_rgba_sha256": "661358d5840b113bd1097d7945132454588bcadb42e6e01bcbdaac7987138b4e",
+          "bbox": [
+            20,
+            52,
+            60,
+            89
+          ],
+          "duration_ms": 124
+        },
+        {
+          "path": "assets/rc4/combat_candidates_v1/smallie-crumb-f3.png",
+          "sha256": "d4c23ab2c436e4967e828940fda34acf68778139aab170ca7023b710409d4b26",
+          "decoded_rgba_sha256": "1ad33b0d2bbb7ac4136e05680393a94f48a97c11bd1a3485a7adebb058f6d4e4",
+          "bbox": [
+            29,
+            48,
+            51,
+            89
+          ],
+          "duration_ms": 186
+        }
+      ],
+      "anchor": [
+        40,
+        88
+      ],
+      "export": "nearest-neighbor; shared sequence scale; native master palette; binary alpha",
+      "distinct_frames": 3,
+      "sheet": "assets/rc4/combat_candidates_v1/smallie-crumb-native-sheet.png",
+      "loop_apng": "assets/rc4/combat_candidates_v1/smallie-crumb-loop.png",
+      "apng_verified_durations_ms": [
+        124.0,
+        124.0,
+        186.0
+      ],
+      "pose_differences": "Head tilted back with cups raised; forward open-mouth lean with extended cup arm; upright withdrawn reset."
+    },
+    "cousin-dagger": {
+      "frames": [
+        {
+          "path": "assets/rc4/combat_candidates_v1/cousin-dagger-f1.png",
+          "sha256": "bbacefd5bc540a21eda6e895ae783bd1f3908730d057dae73426a89b12eb40a3",
+          "decoded_rgba_sha256": "032dea58f4dc2734d39a0e0bd5840b0d47e2d6a5881b9b4a06d4977eb4acdf9d",
+          "bbox": [
+            23,
+            42,
+            57,
+            89
+          ],
+          "duration_ms": 124
+        },
+        {
+          "path": "assets/rc4/combat_candidates_v1/cousin-dagger-f2.png",
+          "sha256": "f6e5889fcfa017808ea162286f29c187a899ddd78c90aa6540ea129dc3d439bc",
+          "decoded_rgba_sha256": "9b741c0b4ee853c02d94f3756de9d46cc65e5390765493e5d240d7ce10eec5a3",
+          "bbox": [
+            13,
+            44,
+            66,
+            89
+          ],
+          "duration_ms": 124
+        },
+        {
+          "path": "assets/rc4/combat_candidates_v1/cousin-dagger-f3.png",
+          "sha256": "62f0f937fb6066d8f5612c3d13812dd81b69188d5b4999b2e40ad200752b1586",
+          "decoded_rgba_sha256": "37a264fb0c45d3fe0579571ab11f04156af50b1fe8eaccd43f5f01af1f474236",
+          "bbox": [
+            27,
+            38,
+            54,
+            89
+          ],
+          "duration_ms": 186
+        }
+      ],
+      "anchor": [
+        40,
+        88
+      ],
+      "export": "nearest-neighbor; shared sequence scale; native master palette; binary alpha",
+      "distinct_frames": 3,
+      "sheet": "assets/rc4/combat_candidates_v1/cousin-dagger-native-sheet.png",
+      "loop_apng": "assets/rc4/combat_candidates_v1/cousin-dagger-loop.png",
+      "apng_verified_durations_ms": [
+        124.0,
+        124.0,
+        186.0
+      ],
+      "pose_differences": "Low blade crouch; extended dagger thrust with deeper knee bend; upright blade withdrawal."
+    },
+    "cousin-feint": {
+      "frames": [
+        {
+          "path": "assets/rc4/combat_candidates_v1/cousin-feint-f1.png",
+          "sha256": "d159dd6f2a38328ce9b002bba1d5dd3a936980630b5e9d05c17972611b236560",
+          "decoded_rgba_sha256": "55b0c3bc2ab3f0698d3078a78f85dc63722ed2554fe7b2f7690e376a709b3cc3",
+          "bbox": [
+            26,
+            38,
+            55,
+            89
+          ],
+          "duration_ms": 124
+        },
+        {
+          "path": "assets/rc4/combat_candidates_v1/cousin-feint-f2.png",
+          "sha256": "343c7e7a54ae8a8113d72b6ce41c9b84b6fc5e408cd7c30992787dc68b3ecc09",
+          "decoded_rgba_sha256": "a7ae496c8726edfa82cc362aa136f2d2df144c660decda86fac4407687811512",
+          "bbox": [
+            16,
+            44,
+            65,
+            89
+          ],
+          "duration_ms": 124
+        },
+        {
+          "path": "assets/rc4/combat_candidates_v1/cousin-feint-f3.png",
+          "sha256": "4fb6c78f2159c9bb9769d3c98d525dc73f81ad10ac026cc3cd57ff042c1691a4",
+          "decoded_rgba_sha256": "396b574fb29457b44ac3b7166f978354a6ed20485f063e562fe73bd2bd040043",
+          "bbox": [
+            24,
+            38,
+            57,
+            89
+          ],
+          "duration_ms": 186
+        }
+      ],
+      "anchor": [
+        40,
+        88
+      ],
+      "export": "nearest-neighbor; shared sequence scale; native master palette; binary alpha",
+      "distinct_frames": 3,
+      "sheet": "assets/rc4/combat_candidates_v1/cousin-feint-native-sheet.png",
+      "loop_apng": "assets/rc4/combat_candidates_v1/cousin-feint-loop.png",
+      "apng_verified_durations_ms": [
+        124.0,
+        124.0,
+        186.0
+      ],
+      "pose_differences": "Guarded stance; open-hand deceptive lunge; backward lean and tucked fists."
+    }
+  },
+  "references": {
+    "smallie": {
+      "sha256": "da4c2570fbbbe10b7534306f0b31a4376c0cfaf3eead051a602156d94f9f209a",
+      "anchor_x": 40,
+      "foot_baseline": 88
+    },
+    "smallie_cousin": {
+      "sha256": "694ed3ebf43ca21bac1987830ffdad2022700a024dc337aefa7b59462097ec40",
+      "anchor_x": 40,
+      "foot_baseline": 88
+    }
+  }
+}
