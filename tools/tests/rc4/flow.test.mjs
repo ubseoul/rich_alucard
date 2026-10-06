@@ -14,6 +14,14 @@ export async function test(root){
  assert.equal(g.canStart('COOK','phone'),false,'existing music availability stays authoritative');
  a.available=musicAvailable;
  assert.equal(g.canStart('A14','phone'),a.available('A14'));
+ const pitch=a.get('NEW_OGA_M1').nodes.pitch.lines();
+ assert.equal(pitch[0][1],'Rich came to Los Angeles for music. He needs money to live while he works on that.');
+ assert(pitch.some(x=>x[0]==='rich'&&x[1]==='…brother. why would I jug the plug.'),'semantic adapter preserves normalized Rich brother line');
+ assert(pitch.some(x=>x[0]==='vampgpt'&&x[1]==='oga. you need funds.'));
+ assert(pitch.some(x=>x[0]==='vampgpt'&&x[1]==='cash first. what you do with it is your business.'));
+ assert.equal(c.RABtfPeople.get('smallie_cousin_girlfriend').dateable,false);
+ assert.equal(c.RABtfPeople.get('smallie_cousin_girlfriend').age,25);
+ assert.equal(g.canStart('IMANI_BOBA','rc3-maps'),a.available('IMANI_BOBA'));
  for(const id of ['A14','SHOW']){
   assert.equal(g.settleAttempt(id,'perform',{quit:true,outcome:'quit'}),'settled','optional set can quit honestly');
   for(let i=0;i<3;i++)g.settleAttempt(id,'perform',{outcome:'lose'});

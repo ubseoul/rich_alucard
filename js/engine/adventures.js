@@ -73,7 +73,7 @@
  function choicesFor(nodeId){
   const a=active();if(!a)return [];const node=get(a.id)?.nodes[nodeId];const L=RALife.L();
   const list=typeof node?.choices==='function'?node.choices(context()):(node?.choices||[]);
-  return list.map((c,index)=>{let ok=true;try{ok=c.when?c.when(L)!==false:true}catch(e){ok=false}return {...c,index,locked:!ok};}).filter(c=>!(c.locked&&c.hideLocked!==false));
+  return list.map((c,index)=>{let ok=!c.octopus||window.RANewGame?.brainAvailable?.()!==false;try{ok=ok&&(c.when?c.when(L)!==false:true)}catch(e){ok=false}return {...c,index,locked:!ok};}).filter(c=>!(c.locked&&c.hideLocked!==false));
  }
  // Resolve dynamic dialogue before the renderer destructures tuples. A callback-only/no-op beat has
  // no dialogue to wait on; authored text callbacks use the same live context as node-line factories.
@@ -88,6 +88,7 @@
  }
  function choose(nodeId,index){
   const a=active();if(!a)return null;const node=get(a.id).nodes[nodeId];const all=typeof node?.choices==='function'?node.choices(context()):(node?.choices||[]);const c=all[index];if(!c)return null;
+  if(c.octopus&&window.RANewGame?.brainAvailable?.()===false)return null;
   let ok=true;try{ok=c.when?c.when(RALife.L())!==false:true}catch(e){ok=false}if(!ok)return null;
   const A=context();if(c.fx)try{c.fx(A)}catch(e){console.error('choice fx',e)}
   if(c.tendency)RALife.tendency(c.tendency);

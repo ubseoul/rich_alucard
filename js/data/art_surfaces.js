@@ -3,13 +3,10 @@
  // adventure census — do not edit by hand. Adventure node → the Art-mapped screen keys it presents; used by
  // RAEnvironments.surfaceLayers so surface-scoped layers follow the census screen even when a cast is runtime-bound.
  window.RAArtSurfaces={nodes:{
-  "A14:crowd": [
+  "A14:performance": [
    "catacomb|left:rich@on_stage"
   ],
-  "A14:powercut": [
-   "catacomb|left:rich@on_stage"
-  ],
-  "A14:tasha": [
+  "A14:result": [
    "catacomb|left:rich@on_stage,right:tasha"
   ],
   "A15:arrive": [
@@ -87,8 +84,11 @@
   "ROOFTOP_DTLA:arrive": [
    "rooftop_dtla|left:rich"
   ],
-  "SHOW:crowd": [
+  "SHOW:performance": [
    "catacomb|left:rich@on_stage"
+  ],
+  "SHOW:result": [
+   "catacomb|left:rich@on_stage,right:tasha"
   ]
  }};
 })();

@@ -3,7 +3,7 @@
  "summary": {
   "frozenFiles": 1090,
   "assets": {
-   "FROZEN + ALREADY INTEGRATED": 983,
+   "FROZEN + ALREADY INTEGRATED": 985,
    "REGISTERED — NO OBJECTIVE BEAT": 5,
    "REGISTERED — NO LIVE SURFACE": 9,
    "REGISTERED — PERSON NOT ON STAGE": 1,
@@ -15,14 +15,17 @@
    "REFERENCE — UI VISUAL-TREATMENT AUTHORITY ONLY": 13,
    "HANDOFF SHEET (placement uses individual masters)": 12,
    "FROZEN + MAPPING AMBIGUOUS": 4,
-   "FROZEN STATE AVAILABLE": 10,
+   "FROZEN STATE AVAILABLE": 8,
    "FROZEN + SUPERSEDED (history preserved)": 2,
    "FROZEN LIBRARY (no authorized runtime assignment)": 9,
    "FROZEN + READY TO INTEGRATE": 31
   },
-  "demand": {},
+  "demand": {
+   "person: NO APPROVED ART YET": 1
+  },
   "screens": {
-   "PASS": 292
+   "PASS": 293,
+   "HOLD": 2
   }
  },
  "surfaces": {
@@ -6464,15 +6467,19 @@
    "path": "assets/before_the_fame/characters/carlos/runtime_80x96/carlos_betrayed_80x96_review_v1.png",
    "kind": "character-state",
    "id": "carlos.betrayed",
-   "status": "FROZEN STATE AVAILABLE",
-   "runtime": []
+   "status": "FROZEN + ALREADY INTEGRATED",
+   "runtime": [
+    "state:carlos.betrayed"
+   ]
   },
   {
    "path": "assets/before_the_fame/characters/carlos/runtime_80x96/carlos_canopy_apron_80x96_review_v1.png",
    "kind": "character-state",
    "id": "carlos.canopy_apron",
-   "status": "FROZEN STATE AVAILABLE",
-   "runtime": []
+   "status": "FROZEN + ALREADY INTEGRATED",
+   "runtime": [
+    "state:carlos.canopy_apron"
+   ]
   },
   {
    "path": "assets/before_the_fame/characters/carlos/runtime_80x96/carlos_neutral_happy_anchor_80x96_review_v1.png",
@@ -9733,7 +9740,13 @@
    ]
   }
  ],
- "demand": [],
+ "demand": [
+  {
+   "kind": "person",
+   "id": "smallie_cousin_girlfriend",
+   "status": "NO APPROVED ART YET"
+  }
+ ],
  "screens": {
   "armory|left:rich": {
    "status": "PASS (final art)",
@@ -9940,6 +9953,11 @@
    "profile": "conversation",
    "lint": "pass"
   },
+  "boba_shop|farRight:smallie_cousin_girlfriend,left:rich,right:smallie_cousin": {
+   "status": "HOLD (mixed: unresolved cast art)",
+   "profile": "conversation",
+   "lint": "pass"
+  },
   "boba_shop|left:rich,right:kiki": {
    "status": "PASS (final art)",
    "profile": "conversation",
@@ -9947,6 +9965,11 @@
   },
   "boba_shop|left:rich,right:smallie": {
    "status": "PASS (final art)",
+   "profile": "conversation",
+   "lint": "pass"
+  },
+  "boba_shop|left:rich,right:smallie_cousin_girlfriend": {
+   "status": "HOLD (mixed: unresolved cast art)",
    "profile": "conversation",
    "lint": "pass"
   },
@@ -9986,6 +10009,11 @@
    "lint": "pass"
   },
   "carson_owambe|left:rich,right:auntie": {
+   "status": "PASS (final art)",
+   "profile": "conversation",
+   "lint": "pass"
+  },
+  "carson_owambe|left:rich,right:carlos": {
    "status": "PASS (final art)",
    "profile": "conversation",
    "lint": "pass"
@@ -10314,7 +10342,12 @@
    "profile": "conversation",
    "lint": "pass"
   },
-  "gbenga_rentals|left:carlos,right:gbenga": {
+  "gbenga_rentals|left:carlos@betrayed,right:gbenga": {
+   "status": "PASS (final art)",
+   "profile": "conversation",
+   "lint": "pass"
+  },
+  "gbenga_rentals|left:carlos@canopy_apron,right:gbenga": {
    "status": "PASS (final art)",
    "profile": "conversation",
    "lint": "pass"
@@ -10587,11 +10620,6 @@
    "lint": "pass"
   },
   "neighbor_castle|left:rich": {
-   "status": "PASS (final art)",
-   "profile": "conversation",
-   "lint": "pass"
-  },
-  "ocean_floor_collapsed|farLeft:soul,farRight:soul,mid:rich": {
    "status": "PASS (final art)",
    "profile": "conversation",
    "lint": "pass"

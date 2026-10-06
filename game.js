@@ -313,6 +313,7 @@ async function activateMove(){
  if(busy||battleOver)return;
  setBattleBusy(true);
  const id=moves[moveIndex].dataset.move;
+ if(id==='octopus'&&window.RANewGame?.brainAvailable?.()===false){setBattleBusy(false);return;}
  const m=moveData[id];
  if(id==='revenge'){
    say('REVENGE!',500,'rich');const dmg=window.RACombatFoundation.consumeRevenge(battleState);revengeStored=0;window.RADevState.revengeStoredDamage=0;updateRevengeDisplay(true);await revengeFX(dmg);await drainCEOHP(dmg);clearRevengeWounds();updateRevengeDisplay();say(dmg>0?`${dmg} DAMAGE REFLECTED.`:'NOTHING TO RETURN.',700);if(ceoHP<=0){await normalVictory();setBattleBusy(false);return;}

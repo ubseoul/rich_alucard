@@ -92,7 +92,7 @@
   for(const el of actorLayer.children){const slot=el.dataset.slot,spec=actors?.[slot];if(!slot||!spec)continue;const id=typeof spec==='string'?spec:spec.id;const x=typeof spec==='object'&&spec.x!=null?spec.x:SLOTS[slot]??135;
    cast[slot]={...(typeof spec==='object'?spec:{}),id,x,flip:(typeof spec==='object'&&spec.flip)||(id==='rich'&&x>150)};elements[slot]=el;}
   const assets=Object.fromEntries(Object.entries(elements).map(([slot,el])=>[slot,RAPresentationDirector.assetOf(el)]));
-  const stage=RAPresentationDirector.adventureStage(currentEnv,cast,{slots:SLOTS,node,assets});
+  const stage=window.RAWorldPresentation?.stage(currentEnv,cast)||RAPresentationDirector.adventureStage(currentEnv,cast,{slots:SLOTS,node,assets});
   const exception=RAPresentationData.adventure.exceptions?.[RAPresentationData.screenKey(currentEnv.id,actors||{})]||null;
   RAPresentationDirector.enter({stage,mode:'dialogue',beat:'default',scope,host:root,env:envCanvas.canvas||envCanvas,actors:elements,worldLayers:foreground.hidden?[]:[{el:foreground,rect:[0,0,270,480]}],autoShot:!node?.shot?.profile,exception,envPlaceholder:!!currentEnv.placeholder});
   directorNode=true;
@@ -100,6 +100,7 @@
  async function typeText(el,text){el.textContent=text;}
  async function showLine([speaker,text,opts={}]){
   if(!scope?.isActive())return;
+  speaker=opts.narration?speaker:(window.RAWorldPresentation?.speaker(speaker)??speaker);
   if(opts.narration)speaker=null; // preserve entrance actor while presenting explicit staging as narration
   window.RAOpenAudio?.voice(audio,speaker,opts);const dev=document.body.classList.contains('dev-enabled');
   if(opts.entrance){const node=actorNode(opts.entrance);if(node){node.classList.add('adv-entrance');}}
@@ -150,12 +151,14 @@
  async function run(nodeId){
   while(scope?.isActive()&&nodeId){
    const r=RAAdventures.enter(nodeId);if(!r){await leave();return;}
-   const {node,env,actors}=r;if(directorNode){window.RAPresentationDirector?.exit();directorNode=false;}const envId=typeof env==='function'?env(RAAdventures.context()):env;const props=(typeof node.props==='function'?node.props(RAAdventures.context()):node.props||[]).filter(p=>p?.src);const staged=registeredActors(actors,paintEnv(envId,{key:window.RAPresentationData?.screenKey(RAEnvironments.get(envId)?.id||'street_night',actors||{}),node:`${r.def.id}:${nodeId}`},props).slots);renderActors(staged);stageDirector(staged,node);
+   const {node,env,actors}=r;if(directorNode){window.RAPresentationDirector?.exit();directorNode=false;}const envId=typeof env==='function'?env(RAAdventures.context()):env;const props=(typeof node.props==='function'?node.props(RAAdventures.context()):node.props||[]).filter(p=>p?.src);const registered=registeredActors(actors,paintEnv(envId,{key:window.RAPresentationData?.screenKey(RAEnvironments.get(envId)?.id||'street_night',actors||{}),node:`${r.def.id}:${nodeId}`},props).slots);const staged=window.RAWorldPresentation?.actors(currentEnv,registered)||registered;renderActors(staged);stageDirector(staged,node);window.RAWorldPresentation?.mount(root,scope,currentEnv,staged);
    window.RAOpenAudio?.beat?.(audio,r.def.id,nodeId);const a=RAAdventures.active();
+   if(node.openingAction){hideDialogue();const shown=await window.RAOpeningTimeline?.play(root,scope,node);if(!scope?.isActive()||shown?.cancelled)return;}
    if(node.title&&!(a.titles||[]).includes(nodeId)){hideDialogue();await showTitle(typeof node.title==='function'?node.title(RAAdventures.context()):node.title);RAAdventures.patchActive({titles:[...(RAAdventures.active()?.titles||[]),nodeId]});}
    const lines=RAAdventures.linesFor(nodeId);
    for(const line of lines){if(!scope?.isActive())return;if(line)await showLine(line);}
    if(!scope?.isActive())return;
+   if(node.presentation){hideDialogue();const presented=await window.RAWorldPresentation?.play(root,scope,node);if(presented?.cancelled||!scope?.isActive())return;if(presented?.reason)root.dataset.presentationLimit=presented.reason;}
    if(node.end){hideDialogue();const res=RAAdventures.complete(nodeId);await returnHome(res);return;}
    if(node.route){const opts=routeOptions(typeof node.route.dest==='function'?node.route.dest(RAAdventures.context()):node.route.dest);const pick=await showChoices(opts.map(o=>({...o})));if(!pick)return;applyRoute(pick);nodeId=node.route.next;continue;}
    // Every choice locked (e.g. nothing affordable) and no authored fallback: never strand the player on a screen with

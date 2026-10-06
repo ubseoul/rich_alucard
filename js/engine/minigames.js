@@ -75,7 +75,7 @@
    };
    ctx.audio=window.RAOpenAudio?.scope(root,scope);
    quitButton.addEventListener('click',()=>ctx.quit());
-   current={id,abort:()=>ctx.quit(),ctx};
+   current={id,abort:({sceneChange=false}={})=>{if(sceneChange)returnScene=null;ctx.quit();},ctx};
    // RC2 B3: every minigame states its one-sentence rule before it starts (def.rule). Quit stays live on the card.
    const begin=()=>{if(done)return;if(window.RARC3&&ruleText)window.RALife.setFlag(coachKey,true);stage.style.pointerEvents='none';scope.timeout(()=>{if(!done)stage.style.pointerEvents='';},180);try{instance=def.mount(stage,ctx)||{};}catch(error){console.error(error);end({quit:true,error:String(error?.message||error)});}};
    const ruleText=def.ruleFor?.(params)||(typeof def.rule==='function'?def.rule(params):def.rule);
@@ -85,6 +85,6 @@
   });
  }
  function active(){return current?{id:current.id}:null}
- function quitActive(){current?.abort();}
+ function quitActive(options){current?.abort(options);}
  window.RAMinigames={register,launch,list:()=>[...registry.values()].filter(d=>!d.retired&&d.kind!=='utility'&&['slurp','dance','range_day'].includes(d.id)).map(({id,title})=>({id,title})),get:id=>registry.get(id)||null,progress,saveProgress,active,quitActive,mergeRewards};
 })();

@@ -11,7 +11,7 @@
   const iron=window.RAIronFlags?.core?.()&&window.RAIronAndGrace?.loadout?.().length;
   const guns=iron?[]:(life.ownership.guns||[]).map(g=>g.id).filter(id=>D().GUNS[id]&&(!D().GUNS[id].dev||L?.flag?.('devKratos'))).slice(-slots);
   let maxHp=100+(rooms.includes('coffin_upgrade')?20:0)+fits.reduce((s,f)=>s+(f.maxhp||0),0);
-  return {maxHp,moves:[...(life.combat.equippedMoves||['blood','octopus','bite','revenge'])].slice(0,4),items:{...life.ownership.items},guns,fits,rooms,companions:window.RARelations?.companions?.()||[]};
+  return {maxHp,moves:[...(life.combat.equippedMoves||['blood','octopus','bite','revenge'])].filter(id=>id!=='octopus'||window.RANewGame?.brainAvailable?.()!==false).slice(0,4),items:{...life.ownership.items},guns,fits,rooms,companions:window.RARelations?.companions?.()||[]};
  }
  function create(enemyId,params={},lo=loadout(),rng=Math.random){
   const e=D().ENEMIES[enemyId];if(!e)throw new Error(`unknown enemy ${enemyId}`);

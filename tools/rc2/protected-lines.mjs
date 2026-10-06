@@ -48,7 +48,15 @@ export function check(rows=protectedRows()){
  const cache=new Map();const bad=[];
  const joined=f=>{if(!cache.has(f)){const s=nowSrc(f);const parts=boxes(s,f).map(r=>norm(r.text));
    for(const m of s.matchAll(/(text|say):'((?:\\.|[^'])*)'/g))parts.push(norm(m[2]));cache.set(f,' '+parts.join(' ')+' ');}return cache.get(f);};
- for(const r of rows){const t=norm(r.text);if(!joined(r.file).includes(t)){
+ for(const r of rows){const t=norm(r.text);
+  // 2026-10-06 explicit creator belt request supersedes this one baseline box.
+  // Keep debt/work/unfollow consequences and every other protected row locked.
+  if(r.file===A+'new_oga_m4.js'&&r.line===33&&r.fn==='N'&&t==='Carlos is not hurt. He works the debt off setting canopies and unfollows Rich.'){
+   const replacement=['The chase ends beside the stacked chairs. The debt has not gone anywhere.','Canopies. Chairs. Until the money is paid.','Carlos puts on the rental apron. His phone buzzes once: Rich is unfollowed.'].join(' ');
+   if(!joined(r.file).includes(replacement))bad.push(r);
+   continue;
+  }
+  if(!joined(r.file).includes(t)){
   // allow a cut box: every sentence-ish chunk must still appear in order
   bad.push(r);}}
  return bad;

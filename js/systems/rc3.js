@@ -17,7 +17,7 @@
  const dancer=id=>!!window.RAF15?.parse?.(id);
  function allowed(id){return id==='A00'||id==='RC3_FIGHT'||MISSIONS.includes(id)||MAPS.includes(id)||HALL.includes(id)||UTILITY.includes(id)||MUSIC.includes(id)||SOCIAL.includes(id)||dancer(id);}
  function canStart(id,from){if(!allowed(id))return false;if(RAAdventures.active()?.id===id)return true;
-  if(MUSIC.includes(id)||SOCIAL.includes(id))return ['phone','chain','castle:music','rc5-music'].includes(from)&&RAAdventures.available(id);
+  if(MUSIC.includes(id)||SOCIAL.includes(id))return ['phone','chain','castle:music','rc5-music',...(SOCIAL.includes(id)?['rc3-maps']:[])].includes(from)&&RAAdventures.available(id);
   if(MAPS.includes(id))return (from==='rc3-maps'||(from==='chain'&&id==='A56'&&RAAdventures.isDone('A54')))&&RAAdventures.available(id);
   if(HALL.includes(id))return from==='rc4-hall'&&RALife.hasRoom('party_hall')&&RAAdventures.available(id);
   if(MISSIONS.includes(id))return RAAdventures.available(id);
@@ -136,8 +136,8 @@
   if(id!=='ramen')return false;const adventure=RAAdventures.isDone('A08')?'SLURP':'A08';
   if(!RAAdventures.available(adventure))return false;await RAPhone.close();return RAAdventureScene.begin(adventure,{from:'rc3-activity'});
  }
- function mapsMarkup(api){releaseMap();return `<h1>MAPS</h1><p class="phone-small">Food, familiar faces and trouble worth leaving home for. Pick an outing or keep the night to yourself.</p>${MAPS.filter(id=>RAAdventures.available(id)).map(id=>api.button(api.esc(RAAdventures.get(id).title),`rc3:map:${id}`)).join('')||'<p>No outing ready tonight.</p>'}${api.button('HOME','home','phone-home')}`;}
- async function mapGo(id){if(!MAPS.includes(id)||!RAAdventures.available(id))return false;await RAPhone.close();return RAAdventureScene.begin(id,{from:'rc3-maps'});}
+ function mapsMarkup(api){releaseMap();return `<h1>MAPS</h1><p class="phone-small">Food, familiar faces and trouble worth leaving home for. Pick an outing or keep the night to yourself.</p>${[...MAPS,...SOCIAL].filter(id=>RAAdventures.available(id)).map(id=>api.button(api.esc(RAAdventures.get(id).title),`rc3:map:${id}`)).join('')||'<p>No outing ready tonight.</p>'}${api.button('HOME','home','phone-home')}`;}
+ async function mapGo(id){if(![...MAPS,...SOCIAL].includes(id)||!RAAdventures.available(id))return false;await RAPhone.close();return RAAdventureScene.begin(id,{from:'rc3-maps'});}
  function phoneRoute(id){return APPS.includes(id)||id==='jdmImports'||id==='cars';}
  function phoneAction(name){if(name.startsWith('app:'))return phoneRoute(name.split(':')[1]);if(name.startsWith('do:'))return phoneRoute(name.split(':')[1]);
   if(name.startsWith('go:')||name.startsWith('tempt:')||['money','people','realEstate','atlanta','tokyo','letsGo','butterChicken'].includes(name))return false;return true;}
