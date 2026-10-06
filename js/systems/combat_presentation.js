@@ -1,6 +1,7 @@
 (function(){
   const wait=ms=>new Promise(resolve=>setTimeout(resolve,ms));
   const profiles={normal:{stop:55,recoil:2,shake:'light',fragments:5,flash:'white'},heavy:{stop:85,recoil:4,shake:'heavy',fragments:9,flash:'white'},lethal:{stop:105,recoil:6,shake:'heavy',fragments:13,flash:'silhouette'}};
+  const reactions=new WeakMap();
   function targetNode(target){return typeof target==='string'?document.querySelector(target):target;}
   function burst(target,kind,count){
     const host=document.querySelector('#combatEffects')||document.querySelector('#attackLayer');
@@ -15,8 +16,19 @@
     }
   }
   async function play(spec={}){
-    const live=()=>spec.isActive?.()!==false;if(!live())return;
+    if(spec.isActive?.()===false)return;
     const profile=profiles[spec.severity||'normal']||profiles.normal, target=targetNode(spec.target), attacker=targetNode(spec.attacker), stage=document.querySelector('#screen'), kind=spec.kind||'blood';
+    const host=stage||target||attacker,owner={};
+    function cleanup(){
+      if(host&&reactions.get(host)!==owner)return;
+      target?.classList.remove('combat-contact','combat-white-flash','combat-silhouette-flash','combat-recoil-light','combat-recoil-heavy');
+      if(spec.authored)target?.classList.remove(`combat-authored-${spec.authored}-${spec.severity||'normal'}`);
+      attacker?.classList.remove('combat-attacker-commit');stage?.classList.remove('combat-hit-stop','combat-shake-light','combat-shake-heavy');
+      if(host)reactions.delete(host);
+    }
+    owner.cleanup=cleanup;if(host){reactions.get(host)?.cleanup();reactions.set(host,owner);}
+    const live=()=>spec.isActive?.()!==false&&(!host||reactions.get(host)===owner);
+    try{
     const RAA=window.RAAudio;
     if(RAA){const move={blood:'MOVE_BLOODBATH',bite:'MOVE_BITE',revenge:'MOVE_REVENGE',octopus:'MOVE_OCTOPUS','importer-shove':'EN_SHOVE',briefcase:'EN_BRIEFCASE'}[kind];if(move)RAA.sfx(move);}
     spec.onPhase?.('CONTACT'); target?.classList.add('combat-contact'); await wait(spec.contactMs??45);if(!live())return;
@@ -27,6 +39,7 @@
     spec.onPhase?.('RECOIL'); target?.classList.add(`combat-recoil-${profile.shake}`); if(spec.authored)target?.classList.add(`combat-authored-${spec.authored}-${spec.severity||'normal'}`); attacker?.classList.add('combat-attacker-commit'); stage?.classList.add(`combat-shake-${profile.shake}`); await wait(150);if(!live())return;
     target?.classList.remove('combat-recoil-light','combat-recoil-heavy'); if(spec.authored&&spec.severity!=='lethal')target?.classList.remove(`combat-authored-${spec.authored}-${spec.severity||'normal'}`); attacker?.classList.remove('combat-attacker-commit'); stage?.classList.remove('combat-shake-light','combat-shake-heavy');
     spec.onPhase?.('HP DRAIN'); await spec.drain?.();if(!live())return; spec.onPhase?.('RECOVERY'); await wait(spec.recoveryMs??90);if(!live())return; if(spec.authored)target?.classList.remove(`combat-authored-${spec.authored}-${spec.severity||'normal'}`); target?.classList.remove('combat-contact');
+    }finally{cleanup();}
   }
   // OL-045: menu combat consumes the same accepted reusable FX packages as the original encounter.
   // Presentation reads the action/log; it never alters rules, PP, damage, the four slots or F01 THE PLAY.
