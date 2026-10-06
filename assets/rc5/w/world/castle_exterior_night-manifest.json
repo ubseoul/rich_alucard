@@ -1,0 +1,32 @@
+{
+  "asset": "castle_exterior_night",
+  "status": "W_REVIEWED_ASSISTANT_CANDIDATE",
+  "generator": "built-in image_gen",
+  "original": "generator-original.png",
+  "originalDimensions": [
+    941,
+    1672
+  ],
+  "native": "castle_exterior_night_1x.png",
+  "nativeDimensions": [
+    270,
+    480
+  ],
+  "review": "castle_exterior_night_2x.png",
+  "reviewDimensions": [
+    540,
+    960
+  ],
+  "export": "System.Drawing nearest-neighbor; no repaint, palette threshold, or crop",
+  "floorY": 372,
+  "actorClearX": [
+    40,
+    230
+  ],
+  "lowerUiStartY": 348,
+  "frozenSourcesUnchanged": true,
+  "stagePreview": "stage-previews",
+  "partyCompanion": "gated on W review",
+  "acceptance": "Not STYLE-REVIEWED, UBE-APPROVED or RC-ACCEPTED",
+  "reviewReceipt": "../W-final-review.txt"
+}

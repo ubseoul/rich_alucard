@@ -99,6 +99,13 @@
  for(const [id,art] of Object.entries(registry))if(E[id]?.placeholder&&art.asset&&art.asset.includes('build4/p_d/')||id==='gbenga_rentals'&&E[id]?.placeholder&&art.asset){
   const previous=E[id];E[id]={id,name:previous.name,image:art.asset,floorY:previous.floorY,base:previous.base,approved:true,frozen:true,art:id};
  }
+ // Parent-delegated RC5 world candidates replace only their named retained display consumers.
+ // Keep original IDs/contact/depth/conditions; review is not creator-frozen approval.
+ for(const key of ['rc5_w_castle_exterior','rc5_w_castle_exterior_party','rc5_w_carson_owambe']){
+  const art=registry[key],id=art?.candidateFor,previous=E[id];
+  if(!previous||art.status!=='REVIEWED_CANDIDATE')continue;
+  E[id]={...previous,image:art.asset,art:key,approved:false,frozen:false,candidateArt:true};
+ }
  // Surface-scoped layers (ART SHIP 008): a condition/foreground layer is active only on the screens Art mapped it to.
  // `surface` = {key} (live screen key) plus {node:'ADVENTURE:node'} for adventures, whose runtime-bound casts are
  // resolved to their census screen through the generated RAArtSurfaces node table.

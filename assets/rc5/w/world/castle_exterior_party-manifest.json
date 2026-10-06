@@ -1,0 +1,37 @@
+{
+  "asset": "castle_exterior_party",
+  "status": "W_REVIEWED_ASSISTANT_CANDIDATE",
+  "generator": "built-in image_gen",
+  "editTarget": "../castle-night-pilot-v1/generator-original.png",
+  "nativeNightHash": "c52e59d022804ebc7a0f77e1ed0c0bec3d75370e806845709cdd3f497138a336",
+  "original": "generator-original.png",
+  "originalDimensions": [
+    941,
+    1672
+  ],
+  "native": "castle_exterior_party_1x.png",
+  "nativeDimensions": [
+    270,
+    480
+  ],
+  "review": "castle_exterior_party_2x.png",
+  "reviewDimensions": [
+    540,
+    960
+  ],
+  "origin": [
+    0,
+    0
+  ],
+  "export": "nearest-neighbor native, then exact2x doubling; no repaint, palette threshold or crop",
+  "floorY": 372,
+  "actorClearX": [
+    40,
+    230
+  ],
+  "lowerUiStartY": 348,
+  "frozenSourcesUnchanged": true,
+  "stagePreview": "stage-previews",
+  "acceptance": "Not STYLE-REVIEWED, UBE-APPROVED or RC-ACCEPTED",
+  "reviewReceipt": "../W-final-review.txt"
+}

@@ -1,0 +1,30 @@
+[
+  {
+    "file": "castle_exterior_night_1x.png",
+    "sha256": "c52e59d022804ebc7a0f77e1ed0c0bec3d75370e806845709cdd3f497138a336"
+  },
+  {
+    "file": "castle_exterior_night_2x.png",
+    "sha256": "54e301eb82392d394da50a022670a34f9536cdf592b2d2a83f94ce96c564fee1"
+  },
+  {
+    "file": "export-validation.json",
+    "sha256": "31a72f447f1818da8b2575af483492fe9d135102710e9d6a0a1145b8f1ea6581"
+  },
+  {
+    "file": "generator-original.png",
+    "sha256": "07b871778025e5238a3db15b18c3cbcc4c351c27b39ce07c5632aa65482e4e0d"
+  },
+  {
+    "file": "manifest.json",
+    "sha256": "477d8763c6d10882525bd3b0831a5144aab1ea80e5223afdaebddb8e25240885"
+  },
+  {
+    "file": "source-prompt.txt",
+    "sha256": "557ac1a49e9f0232f57ae1ff751835834d700a88974997451a1cf8019f59a2b9"
+  },
+  {
+    "file": "W-pass-receipt.txt",
+    "sha256": "03c9145ec55e83e018ba4e032f13f50b56d4207796023c49aa1ed09565507293"
+  }
+]
