@@ -52,10 +52,19 @@
  // ART SHIP 014 VampGram avatar by handle: Dragoon of the North posts as his frozen silhouette (framed to the head).
  const VG_AVATAR={dragoon_of_the_north:'dragoon_of_the_north',britney_stakes:'britney_stakes'};
  function vgAvatar(handle){const src=window.RAArtRegistry?.ui?.avatars?.[VG_AVATAR[handle]||window.RAVampGramAPI?.avatarKey?.(handle)]?.asset;return src?`<i class="vg-avatar" style="background-image:url('${esc(src)}')" aria-hidden="true"></i>`:'';}
+ // A post may name an approved photo, or carry a local candidate photo explicitly. Text remains the source of
+ // truth; a missing image never hides the release/response. No feed state or music receipt is changed here.
+ function vgPhoto(p){
+  const photo=p.photoKey?window.RAArtRegistry?.ui?.photos?.[p.photoKey]:p.photo;
+  const src=photo?.asset||photo?.src;if(!src||src.includes('..')||!/^assets\/[a-zA-Z0-9_./-]+\.(png|webp|jpg)$/.test(src))return '';
+  const caption=p.photoCaption||photo.caption;
+  return `<figure class="vg-photo"><img src="${esc(src)}" alt="${esc(p.photoAlt||photo.alt||'')}" loading="lazy" draggable="false">${caption?`<figcaption>${esc(caption)}</figcaption>`:''}</figure>`;
+ }
+ function vgSong(p){return p.songId?`<span class="vg-song-context">${esc(p.draftTitle||'RICH / MUSIC')}${p.responseKind?` / ${esc(String(p.responseKind).replace(/_/g,' '))}`:''}</span>`:'';}
  // VAMPGRAM — red/black vampire feed; headlines reflect the world; Obas post; Rich's drops land here.
  A.register({id:'vampgram',label:'VampGram',canon:true,badge:()=>window.RAVampGram?.unseen?.()||0,
   render(sub){const feed=window.RAVampGram?.feed?.()||[];window.RAVampGram?.markSeen?.();
-   return `<h1>VAMPGRAM</h1><p class="phone-small">@richalucard · ${new Intl.NumberFormat('en-US').format(life().resources.followers||0)} followers</p>${feed.slice(0,24).map(p=>`<div class="phone-card vg-post">${vgAvatar(p.handle)}<b>@${esc(p.handle)}</b>${esc(p.text)}${p.likes?`<br><span class="phone-small">♥ ${p.likes}${p.elder?' · an elder commented "'+esc(p.elder)+'"':''}</span>`:''}${(p.comments||[]).map(c=>`<br><span class="phone-small">@${esc(c.handle)} · ${esc(c.text)}</span>`).join('')}${p.action?btn(esc(p.action.label),p.action.go):''}</div>`).join('')||'<p class="phone-small">quiet night.</p>'}`;}});
+   return `<h1>VAMPGRAM</h1><p class="phone-small">@richalucard · ${new Intl.NumberFormat('en-US').format(life().resources.followers||0)} followers</p>${feed.slice(0,24).map(p=>`<div class="phone-card vg-post">${vgAvatar(p.handle)}<b>@${esc(p.handle)}</b>${vgSong(p)}${vgPhoto(p)}<p class="vg-post-text">${esc(p.text)}</p>${p.likes?`<br><span class="phone-small">♥ ${p.likes}${p.elder?' · an elder commented "'+esc(p.elder)+'"':''}</span>`:''}${(p.comments||[]).map(c=>`<br><span class="phone-small">@${esc(c.handle)} · ${esc(c.text)}</span>`).join('')}${p.action?btn(esc(p.action.label),p.action.go):''}</div>`).join('')||'<p class="phone-small">quiet night.</p>'}`;}});
  // RECEIPTS — the memoir app (VOL 5 §9.3). Automatic photo-cards; share one to VampGram.
  A.register({id:'receipts',label:'RECEIPTS',order:40,
   render(sub){const list=[...(life().receipts||[])].reverse();const byMonth={};for(const r of list){const m=`MONTH ${Math.floor((r.day-1)/28)+1}`;(byMonth[m]=byMonth[m]||[]).push(r);}
