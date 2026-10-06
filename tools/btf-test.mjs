@@ -51,6 +51,11 @@ export function walk(ctx,id,{vars={},pick=(choices,step)=>0,minigame=()=>({outco
   const r=RAAdventures.enter(node);assert(r,`${id}: enter failed at ${node}`);visited.push(node);const n=r.node;
   if(typeof n.lines==='function'){for(const line of n.lines(RAAdventures.context())||[])if(line&&line[0]==='rich')assert(line[2]&&(line[2].vp||line[2].canon),`${id}.${node}: Rich line not marked [VP]: ${line[1]}`);}
   if(typeof n.title==='function')n.title(RAAdventures.context());
+  if(id==='A00'&&node==='merge'&&n.openingAction==='brain'){
+   // Headless branch fixture models completed presentation, never browser proof.
+   assert.equal(RAAdventures.nextOf(node),'merge','acquisition must wait for presentation');
+   RAAdventures.context().set('brainTransferSeen',true);
+  }
   if(n.end){const res=RAAdventures.complete(node);return {res,visited};}
   if(n.route){const next=n.route.next;RAAdventures.context().set('route','walk');node=next;continue;}
   if(n.choices){const list=RAAdventures.choicesFor(node).filter(c=>!c.locked);if(!list.length){assert(n.next,`${id}.${node}: every choice locked and no fallback next`);node=RAAdventures.nextOf(node);continue;}const c=list[Math.min(list.length-1,pick(list,steps))];node=RAAdventures.choose(node,c.index);continue;}
