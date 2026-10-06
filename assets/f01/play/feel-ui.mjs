@@ -118,7 +118,7 @@ async function playBatch(batch,ctx,cfg){
   else if(e.t==='STEP_FAIL')steps=ctx.feed.stepFail(d);
   else if(e.t==='END'){if(d.kind!=='OBA')steps=ctx.feed.end(d);}
   else if(e.t==='REPORT'){if(!ctx.feed.quiet)steps=ctx.feed.out(d);}
-  if(steps.length)await ctx.room.run(steps);
+  if(steps.length)await ctx.room.run(steps);if(d.snap)ctx.room.state(d.snap,d.stage||(e.t.startsWith('STEP')?'EXTRA ROOM':e.t));
  }
 }
 async function onSlide(d,ctx,cfg){
@@ -128,7 +128,7 @@ async function onSlide(d,ctx,cfg){
  ctx.feed=createFeed({seed:cfg.seed,job:cfg.job,crew:ctx.crewObjs,roster:G.curRoster,recent:w.recent,seen:w.boardSeen,plan:ctx.plan});
  await V.departScene({ui:ctx.ui,slide:d,crewObjs:ctx.crewObjs,carId:d.car,defense:ctx.defense});
  await V.arriveScene({slide:d,crewObjs:ctx.crewObjs,carId:d.car,defense:ctx.defense,job:cfg.job});
- ctx.room=await V.roomScene({crewObjs:ctx.crewObjs,defense:ctx.defense});
+ ctx.room=await V.roomScene({crewObjs:ctx.crewObjs,defense:ctx.defense,objective:cfg.job.names?.[cfg.nameIdx||0]||cfg.job.name||cfg.job.id});
  // the opening of the feed is part of the beat stream; nothing to say until the engine reports the first beat
 }
 async function handlePrompt(pr,ctx,cfg,offer){
@@ -164,7 +164,9 @@ async function returnFlow(out,rec,bankBefore){
  const res=await V.returnScene({rec,crewObjs:objs,w,bankBefore});
  G.lastReturn=res;
  tele.start('again');
- await V.againButton(G.embed?'BACK TO THE WAR ROOM':undefined);
+ const canonical=G.embed?.canonical||null;
+ V.operationResult({rec,crewObjs:objs,canonical,bankBefore,bankAfter:w.cash,story:!!G.embed?.req.requestId?.startsWith('f07:')});
+ await V.againButton(G.embed?'RETURN TO MISSION':undefined);
 }
 
 // ------------------------------------------------------------------------------------------------ nights
@@ -211,7 +213,7 @@ export async function runEmbedded(req){
  if(picked.refuse&&!viaHome)return AD.refusedResult(req,picked.refuse.code,picked.refuse.reason);
  let result=null;
  const commit=(res)=>{const c=store.get(RESULTS_KEY,{});c[req.requestId]=res;const keys=Object.keys(c);for(const k of keys.slice(0,Math.max(0,keys.length-AD.RESULT_KEEP)))delete c[k];store.set(RESULTS_KEY,c);store.set(EMBED_KEY,G.w);};
- G.embed={req,onApplied:(rec,wNow)=>{result=AD.buildResult(req,{rec,w:wNow,before,cash0});wNow.morningTexts=G.texts.slice();commit(result);}};
+ G.embed={req,onApplied:(rec,wNow)=>{result=AD.buildResult(req,{rec,w:wNow,before,cash0});G.embed.canonical=result;wNow.morningTexts=G.texts.slice();commit(result);}};
  w.ui={open:w.night,used:false};
  try{
   await K.fadeTo(1,1);

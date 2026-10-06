@@ -156,14 +156,14 @@ export function createFeed(cfg){
   if(isGetaway){const p=draw('feed:getaway:MESSY');line=p?uc(p.text):'SOMETHING\'S BEHIND US.';}
   else{const cl=cardLine(pr.card&&pr.card.id);line=cl?uc(cl.text):uc((pr.card&&pr.card.text)||'DECISION.');if(pr.card)F.shownCards.add(pr.card.id);}
   const who=speaker();
-  const buttons=opts.map(v=>{const b=(pr.buttons||[]).find(x=>x.id===v);return {id:v,label:isGetaway&&b?b.verb:VERB_BUTTON[v]||v};});
-  return {who:who.id,line,buttons,ms:moreTime?14000:7000,shake:1,red:2};
+  const buttons=opts.map(v=>{const b=(pr.buttons||[]).find(x=>x.id===v);const detail=({TALK:'Try to defuse without shooting',BUST:'More force, more noise',SNEAK:'Try to slip past; risk an ambush',PAY:'Spend from Rich’s bank',PUSH:isGetaway?'Keep the load; risk the car':'Press on; expose the crew',FOLD:isGetaway?'Lose the load; ease the chase':'Fall back from this play',SAVE:'Rescuer goes back into danger',PULL_UP:'Rich joins the operation'})[v];return {id:v,label:isGetaway&&b?b.verb:VERB_BUTTON[v]||v,faceName:b&&b.faceName,detail};});
+  return {who:who.id,line,buttons,context:isGetaway?'GETAWAY · LOAD OR CREW?':'YOUR CALL · '+(pr.card?.text||'CREW NEEDS ORDERS'),timeout:'BAR EMPTY: CREW DECIDES',ms:moreTime?20000:10000,shake:1,red:2};
  };
  // HIT ONE MORE, in the same language: a crew line about their condition, a fiction line about what is really in the next room, then KEEP GOING / GET OUT
  F.climb=function(info,{moreTime=false}={}){
   const rd=draw('feed:climb:read:'+info.read),lit=draw('feed:climb:lit:'+(info.tease||'COMMON'));
   const w1=speaker(),w2=speaker();
-  return {who:w1.id,who2:w2.id,read:rd?chatText(w1,rd.text):'',lit:lit?chatText(w2,lit.text):'',buttons:[{id:'KEEP',label:'KEEP GOING'},{id:'OUT',label:'GET OUT'}],ms:moreTime?14000:7000,shake:1,red:2};
+  return {who:w1.id,who2:w2.id,read:rd?chatText(w1,rd.text):'',lit:lit?chatText(w2,lit.text):'',context:info.stake,timeout:'BAR EMPTY: CREW DECIDES',buttons:[{id:'KEEP',label:'KEEP GOING',detail:'Risk the haul for another room'},{id:'OUT',label:'GET OUT',detail:'Take the current win'}],ms:moreTime?20000:10000,shake:1,red:2};
  };
  F.turn=function(turnerId){const p=draw('feed:turn');const who=cById(turnerId)||speaker({vampire:true});return {who:who.id,text:p?chatText(who,p.text):'he wants in. willing.',buttons:[{id:'TURN',label:'TURN'},{id:'LET',label:'LET GO'}]};};
 

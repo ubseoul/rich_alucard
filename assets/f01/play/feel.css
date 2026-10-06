@@ -233,3 +233,54 @@ button{font-family:Tiny5,"Courier New",monospace;letter-spacing:1px;border-radiu
 .count .amt{font:38px Monogram}.count .amt.final{font:28px Monogram}
 .count .sub{font:12px Tiny5;letter-spacing:1px}.again{height:32px;background:var(--os-surface);font:14px Tiny5}
 @media(prefers-reduced-motion:reduce){.buzzing,.vib,.bub,.dots span{animation:none!important}}
+
+/* RC4 PLAY operation: pinned state and choices, incidental scrollback. */
+.phone .msgs{display:block;overflow-y:auto;overscroll-behavior:contain;top:88px;scrollbar-width:thin}
+.phone .bub{display:table;flex-shrink:0;margin:0 0 7px;max-width:100%;box-sizing:border-box}
+.phone .bub.me{margin-left:auto}
+.operation-state{position:absolute;left:0;right:0;top:65px;min-height:22px;padding:4px 5px;background:#241b30;color:var(--os-gold);font:10px/1.2 Tiny5;border-bottom:1px solid var(--os-line)}
+.ph-crew .av[data-state=DOWN],.ph-crew .av[data-state=DEAD],.ph-crew .av[data-state=RAN]{filter:grayscale(1);outline:1px solid var(--os-red)}
+.phone .decide .row{display:grid;grid-template-columns:1fr 1fr;gap:4px}
+.phone .decide button{min-width:0;font:12px/1 Tiny5;min-height:48px;letter-spacing:0}
+.phone .decide small,.phone .decide .actor{display:block;font:11px/1 Monogram;margin:4px 0;color:inherit}
+.phone .decision-context{font:11px/1 Tiny5;color:var(--os-gold);margin-bottom:6px}
+.phone .clock-note{font:10px/1 Tiny5;color:var(--os-muted);margin-top:5px}
+.setup-help{position:absolute;left:5px;right:5px;top:350px;font:10px/1 Tiny5;text-align:center;color:var(--os-gold)}
+.card .sw{left:2px;top:2px;width:29px;height:22px;font:10px Tiny5;z-index:2}
+.card .fc{top:3px;left:auto;right:3px;margin:0}
+.card .nm{top:30px;font:10px/1 Tiny5}
+.card .tr{background:none;border:0;padding:0;top:42px;width:100%;height:14px;font:10px/1 Tiny5;color:var(--os-gold)}
+.card .wslot{cursor:pointer;min-height:24px}
+.carpick{min-height:31px;cursor:pointer;font:12px Tiny5}
+.carpick .change{display:block;font:10px Tiny5;color:var(--os-green)}
+.crew-inspect{position:absolute;left:12px;right:12px;top:130px;background:var(--os-bg);border:2px solid var(--os-gold);padding:12px;z-index:18;font:16px/1.1 Monogram;box-shadow:4px 4px #050409}
+.crew-inspect b{font:16px Tiny5;color:var(--os-gold)}
+.crew-inspect p{margin:7px 0}.crew-inspect button{width:100%;min-height:30px;background:var(--os-raised);color:var(--os-text);border:1px solid var(--os-line)}
+.operation-result{position:absolute;inset:16px 12px auto;background:#0c0b14f5;border:2px solid var(--os-gold);padding:10px;z-index:9;max-height:370px;overflow:auto;box-shadow:3px 3px #050409;font:15px/1.1 Monogram}
+.operation-result h2{font:20px Tiny5;margin:0 0 8px;color:var(--os-gold)}
+.result-money{display:grid;grid-template-columns:1fr 1fr;gap:7px;border-block:1px solid var(--os-line);padding:6px 0;font:11px Tiny5}
+.result-money b{display:block;font:23px Monogram;color:var(--os-green)}
+.result-route{font:12px Tiny5;color:var(--os-muted);margin-top:6px}
+.operation-result ul{list-style:none;margin:8px 0;padding:0}.operation-result li{display:grid;grid-template-columns:1fr auto;gap:4px;padding:5px 0;border-bottom:1px solid var(--os-line)}
+.operation-result li b{font:10px Tiny5;color:var(--os-green)}.operation-result li b:not(.READY){color:var(--os-gold)}
+.operation-result small{font:10px/1.2 Tiny5;display:block;color:var(--os-muted)}
+.again{left:12px;width:246px;min-height:36px;z-index:10}
+.operation-crew{position:absolute;left:5px;right:5px;bottom:3px;display:flex;gap:3px;overflow-x:auto;z-index:5;background:#0c0b14ed;border-top:2px solid var(--os-gold);padding:4px 2px}
+.operation-unit{flex:1 0 48px;min-width:0;padding:4px 2px;color:var(--os-text);background:var(--os-surface);border:1px solid var(--os-line);cursor:pointer;text-align:center;min-height:31px}
+.operation-unit span{display:block;font:10px/1 Tiny5;overflow-wrap:anywhere}.operation-unit b{display:block;font:11px/1 Monogram;margin-top:3px;color:var(--os-gold)}
+.operation-unit.changed{border-color:var(--os-red);animation:state-contact .6s steps(3)}
+@keyframes state-contact{from{background:#681937;transform:translateY(-2px)}to{background:var(--os-surface);transform:none}}
+.rig .crew-inspect{z-index:10;top:130px;max-height:240px;overflow:auto}
+.operation-objective{position:absolute;left:22px;right:22px;top:4px;text-align:center;font:14px/1 Tiny5;color:var(--os-gold);background:#0c0b14ed;padding:4px;z-index:5;border:1px solid var(--os-line)}
+.result-calls{font:11px/1.2 Tiny5;color:var(--os-gold);margin-top:5px}
+.operation-crew[inert]{opacity:.8}.operation-crew[inert] .operation-unit{cursor:default}
+.card .tr{top:42px;height:9px;font:9px/1 Tiny5}.card .wslot{height:22px;min-height:22px;gap:1px;padding:0 1px}.wslot .gi{width:18px}.wslot .gi img{max-width:18px;object-fit:contain}.wslot .wt{font:10px/1 Monogram}
+.phone .bub{animation:none}.card .inspect{z-index:3;background:var(--os-surface)}
+.operation-unit .op-pose{height:30px;width:38px;overflow:hidden;margin:0 auto 2px}.op-pose img{display:block;width:40px;height:48px;margin-top:-15px;image-rendering:pixelated}
+/* A decision's narration uses .bub.call; the offer-card .call positioning must not leak into chat. */
+.phone .bub.call{position:static;inset:auto;z-index:auto;text-align:left;transform:none}
+.call .take-note{font:12px/1 Tiny5;color:var(--os-muted);margin-top:5px}
+.call .cash{font-size:30px;line-height:1}
+.report-toggle{position:absolute;left:12px;right:12px;bottom:50px;z-index:10;padding:5px;min-height:22px;font:11px Tiny5;text-align:center;background:var(--os-surface);color:var(--os-gold);border:1px solid var(--os-line);cursor:pointer}
+.operation-result[hidden]{display:none}
+.reduce .operation-unit.changed{animation:none}@media(prefers-reduced-motion:reduce){.operation-unit.changed{animation:none}}

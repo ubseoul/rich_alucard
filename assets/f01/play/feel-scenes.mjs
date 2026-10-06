@@ -6,6 +6,7 @@ import * as A from './feel-art.mjs';
 import {face,classColor,crate} from './faces.mjs';
 import * as C from '../../../js/frag/F01/play/content.mjs';
 import * as E from '../../../js/frag/F01/play/engine.mjs';
+import {weapon} from '../../../js/frag/F01/play/guns.mjs';
 import * as W from '../../../js/frag/F01/play/world.mjs';
 
 const esc=s=>String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
@@ -52,7 +53,7 @@ export async function offerScene(o){
  const hint=(o.hints||[]).map(h=>`<div class="hint">${esc(o.caller)}: ${esc(h.text)}</div>`).join('');
  const call=el('call',`<div class="who">${esc(o.caller)}</div><div class="ring">${o.notice?'URGENT':'INCOMING CALL'}</div>
   ${o.big?'<div class="bigtag">BIG PLAY</div>':''}<div class="pname">${esc(o.name)}</div>
-  ${o.notice?'<div class="cash notice">THEY\'RE COMING</div>':`<div class="cash">UP TO ${money(o.cashK)}</div><div class="min">${o.min} OGA MIN.</div>`}
+  ${o.notice?'<div class="cash notice">THEY\'RE COMING</div>':`<div class="cash">BASE TAKE UP TO ${money(o.cashK)}</div><div class="min">${o.min} OGA MIN.</div><div class="take-note">EXTRA ROOMS CAN ADD CASH + LOOT</div>`}
   ${o.quote?`<div class="quote">“${esc(o.quote)}”</div>`:''}${hint}
   <div class="btns"><button class="b-ans">${o.notice?'PICK UP':'ANSWER'}</button>${o.notice?'':'<button class="b-dec">DECLINE</button>'}</div>`);
  anim(call,[{transform:'translateY(440px)'},{transform:'translateY(0)'}],350,{easing:'ease-out'});
@@ -87,7 +88,7 @@ export async function crewScene({pr,w,job,hints,pitcher,big,defense,lastCar}){
  const used=(g,except)=>crewIds.filter(id=>id!==except&&gunOf[id]===g).length;
 
  el('grad');
- el('pre-top',`<div class="n">${esc(job.name||'')}</div><div class="m">${defense?'HOLD THE HOUSE':'UP TO '+money(job.band[1])+' · '+job.size[0]+' OGA MIN.'}</div>${big?'<div class="bigtag sm">BIG PLAY</div>':''}`);
+ el('pre-top',`<div class="n">${esc(job.name||'')}</div><div class="m">${defense?'HOLD THE HOUSE':'BASE UP TO '+money(job.band[1])+' · '+job.size[0]+' OGA MIN.'}</div>${big?'<div class="bigtag sm">BIG PLAY</div>':''}`);
  const hintBox=el('hints',(hints||[]).map(h=>`<div>${esc(pitcher||'')}: ${esc(h.text)}</div>`).join(''));
  let carNode=null,carPick=null;
  const drawCar=()=>{
@@ -98,12 +99,12 @@ export async function crewScene({pr,w,job,hints,pitcher,big,defense,lastCar}){
   carNode=el('car',`<div class="body">${A.carHTML(carId)}</div>`,null,{left:'8px',top:(344-ch)+'px',width:cw+'px',height:ch+'px'});carNode.dataset.car=carId;
   carNode._sh=el('shadow','',null,{left:'14px',top:'340px',width:(cw-12)+'px',height:'8px'});
   const opt=options.find(o=>o.id===carId);
-  carPick=el('carpick',`◂ ${carId} ▸<small>${esc(C.CARS[carId].word)}</small>`,null,{left:'20px',top:(344-ch-30)+'px'});
+  carPick=el('carpick',`◂ ${carId} ▸<small>${esc(C.CARS[carId].word)} · ${seatsOf(carId)} SEATS</small><span class="change">CHANGE TRANSPORT</span>`,null,{left:'20px',top:(344-ch-30)+'px'});
   const cyc=()=>{const ids=options.map(o=>o.id);let k=ids.indexOf(carId);for(let t=0;t<ids.length;t++){k=(k+1)%ids.length;const o=options[k];if(!o.disabled){carId=o.id;break;}}
    const n=nFor(carId);while(crewIds.length>n)crewIds.pop();for(const o of rank){if(crewIds.length>=n)break;if(!crewIds.includes(o.id))crewIds.push(o.id);}S.tap();drawCar();drawCards();};
-  carPick.onclick=carNode.onclick=cyc;carNode.style.cursor='pointer';
+  carPick.setAttribute('role','button');carPick.tabIndex=0;carPick.setAttribute('aria-label','change transport, currently '+carId);carPick.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();cyc();}};carPick.onclick=carNode.onclick=cyc;carNode.style.cursor='pointer';
  };
- const cards=el('',null,null,{position:'absolute',inset:'0',pointerEvents:'none'});
+ const cards=el('crew-cards',null,null,{position:'absolute',inset:'0',pointerEvents:'none'});
  let bench=null;
  const closeBench=()=>{if(bench){bench.remove();bench=null;}};
  const swapAllowed=(slot,newId)=>{const test=crewIds.map((id,i)=>i===slot?newId:id);return test.filter(id=>!defaultIds.includes(id)).length<=1;};
@@ -111,8 +112,11 @@ export async function crewScene({pr,w,job,hints,pitcher,big,defense,lastCar}){
   cards.innerHTML='';const n=crewIds.length;const cw=Math.floor((262-(n-1)*4)/n);const x0=Math.round((270-(cw*n+(n-1)*4))/2);
   crewIds.forEach((id,i)=>{
    const o=avail.find(x=>x.id===id);const g=gunOf[id];const gv=A.gunView(g);
-   const c=el('card',`<div class="fc">${faceOf(o)}</div><div class="nm">${esc(o.short)}</div><div class="tr">${esc(C.TRAIT_WORD[o.traits[0]]||'')}</div>
-    <div class="wslot"><span class="gi">${A.gunImg(g,26,13)}</span><span class="wt">${esc(gv.type)}${gv.nick?`<small>${esc(gv.nick)}</small>`:''}</span></div>${big&&o.named?'<span class="skull" title="may not come back">☠</span>':''}<button class="sw" aria-label="swap ${esc(o.short)}">⇄</button>`,cards,{left:(x0+i*(cw+4))+'px',top:'360px',width:cw+'px',pointerEvents:'auto'});
+   const c=el('card',`<div class="fc">${faceOf(o)}</div><div class="nm">${esc(o.short)}</div><button class="tr inspect" aria-label="inspect ${esc(o.name)}">INFO</button>
+    <div class="wslot"><span class="gi">${A.gunImg(g,26,13)}</span><span class="wt">${esc(gv.type)}${gv.nick?`<small>${esc(gv.nick)}</small>`:''}</span></div>${big&&o.named?'<span class="skull" title="may not come back">☠</span>':''}<button class="sw" aria-label="swap ${esc(o.short)}">SWAP</button>`,cards,{left:(x0+i*(cw+4))+'px',top:'360px',width:cw+'px',pointerEvents:'auto'});
+   c.querySelector('.inspect').onclick=()=>{closeBench();const old=world.querySelector('.crew-inspect');if(old)old.remove();const gun=g==='hands'?{}:weapon(P,g);const roles={MUSCLE:'Front-line force. Leads a breach.',SHOOTER:'Fits the back line. Delivers fire support.',WHEELS:'Fits the driver seat. Helps the getaway.',TALKER:'Fits the middle. Handles talking.',GHOST:'Fits the back line. Handles slipping past.',DOC:'Fits the middle. Helps crew recovery.'};const info=el('crew-inspect',`<b>${esc(o.name)}</b><p>${esc(roles[o.cls]||o.cls)}</p><p>${esc((o.traits||[]).map(t=>C.TRAIT_WORD[t]||t).join(' · '))}</p><b>${esc(gv.type)} ${esc(gv.nick||'')}</b><p>${esc(gun.role||'BARE HANDS')} · ${gun.dmg?gun.dmg.join('–')+' DAMAGE'+(gun.hits>1?' ×'+gun.hits:''):'NO GUN'}${gun.lane?' · '+esc(gun.lane)+' LINE':''}</p><p>${esc(gun.flavor||'')}</p><button>CLOSE</button>`);info.querySelector('button').onclick=()=>info.remove();};
+   c.querySelector('.wslot').setAttribute('role','button');c.querySelector('.wslot').tabIndex=0;c.querySelector('.wslot').setAttribute('aria-label','change weapon for '+o.name);
+   c.querySelector('.wslot').onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();c.querySelector('.wslot').click();}};
    c.querySelector('.wslot').onclick=()=>{let k=order.indexOf(g);for(let t=0;t<order.length;t++){k=(k+1)%order.length;const cand=order[k];if(used(cand,id)<copies(cand)){gunOf[id]=cand;break;}}S.tap();drawCards();};
    c.querySelector('.sw').onclick=e=>{e.stopPropagation();openBench(i,c);};
   });
@@ -127,6 +131,7 @@ export async function crewScene({pr,w,job,hints,pitcher,big,defense,lastCar}){
   el('bnote','swap one',bench);S.tap();
  }
  drawCar();drawCards();
+ const instruction=el('setup-help','SWAP CREW · TAP GEAR · INSPECT ROLE');
  const btn=document.createElement('button');btn.className='send'+(big?' hold':'');
  btn.innerHTML=big?`<span class="fill"></span><span class="lab">HOLD — SOME MAY NOT COME BACK</span>`:`<span class="lab">${defense?'HOLD THE HOUSE':"SEND 'EM"}</span>`;
  world.appendChild(btn);
@@ -139,7 +144,7 @@ export async function crewScene({pr,w,job,hints,pitcher,big,defense,lastCar}){
   ['pointerup','pointerleave','pointercancel'].forEach(ev=>btn.addEventListener(ev,()=>{if(t)stop();}));
   btn.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' ')res();});
  });
- closeBench();S.thud();
+ closeBench();instruction.remove();world.querySelector('.crew-inspect')?.remove();S.thud();
  // engine answer: crew, guns for the crew, the car. Seating and approach are backstage.
  const answer={car:carId,crew:[...crewIds],guns:Object.fromEntries(crewIds.map(id=>[id,gunOf[id]]))};
  return {answer,ui:{car:carNode,cards,btn,carPick,hintBox,top:world.querySelector('.pre-top'),grad:world.querySelector('.grad')},carId,crewIds};
@@ -236,7 +241,7 @@ export async function arriveScene({slide,crewObjs,carId,defense,job}){
 // ------------------------------------------------------------------------------------------------ 5. LIVE FEED — "what the hell is happening?"
 // Rich is in bed at home, hand on the phone. The room stays behind it. The group chat is the ONLY live combat UI.
 const CLS_COL={MUSCLE:'#e0603a',SHOOTER:'#e8c14a',WHEELS:'#3fd0e0',TALKER:'#b07ae8',GHOST:'#7f8cff',DOC:'#5fe08a'};
-export async function roomScene({crewObjs,defense}){
+export async function roomScene({crewObjs,defense,objective='THE PLAY'}){
  clear();
  // RC3: the frozen base already contains a hand. A second moving hand above it produced a ghost during jolt.
  // Draw a hard-pixel quilt behind the single frozen idle hand; never modify the frozen PNGs.
@@ -244,26 +249,32 @@ export async function roomScene({crewObjs,defense}){
  const flash=el('flash');
  // the RIG = phone DOM + FL-A01 idle layer + thumb overlay. JOLT shakes the rig in code; the idle layer's screen is transparent so the live chat shows through.
  const rig=el('rig');
- const phone=el('phone',`<div class="ph-head"><span class="t">THE PLAY</span><span class="s">● LIVE</span><div class="ph-crew">${crewObjs.map(o=>`<div class="av" title="${esc(o.name)}">${faceOf(o)}</div>`).join('')}<span>CREW CHAT</span></div></div>`,rig);
+ const phone=el('phone',`<div class="ph-head"><span class="t">THE PLAY</span><span class="s">● LIVE</span><div class="ph-crew">${crewObjs.map(o=>`<div class="av" data-crew="${esc(o.id)}" title="${esc(o.name)}">${faceOf(o)}</div>`).join('')}<span>CREW CHAT</span></div></div>`,rig);
  const msgs=el('msgs','',phone);
+ el('operation-objective',esc(objective.toUpperCase()),rig);
+ const op=el('operation-state','ENTRY · CREW MOVING',phone);op.setAttribute('aria-live','polite');op.title=objective;
+ const scroll=()=>{msgs.scrollTop=msgs.scrollHeight;};
+ const crewStrip=el('operation-crew','',rig);let previous=null;
+ const ctlState=(snap,phase)=>{crewStrip.innerHTML='';for(const c of snap.crew){const o=byId(c.id)||{name:c.name,short:c.short};const prior=previous?.crew.find(x=>x.id===c.id);const changed=prior&&(prior.hp!==c.hp||prior.state!==c.state);const pose=c.hp<c.maxhp?'wounded':'standing';const sprite=A.hasSprite(o)?`<span class="op-pose"><img alt="" src="${A.ogaSprite(pose,o.id)}"></span>`:'';const b=el('operation-unit'+(changed?' changed':''),`${sprite}<span>${esc(o.short||o.name)}</span><b>${c.state==='UP'?c.hp+'/'+c.maxhp+' HP':esc(c.state)}</b>`,crewStrip);b.setAttribute('role','button');b.tabIndex=0;b.setAttribute('aria-label',o.name+' '+c.state+' '+c.hp+' HP; inspect');const inspect=()=>{if(phone.querySelector('.decide'))return;rig.querySelector('.crew-inspect')?.remove();const info=el('crew-inspect',`<b>${esc(o.name)}</b><p>${esc(c.state)} · ${c.hp}/${c.maxhp} HP</p><p>${esc(c.zone)} · ${esc(c.lane||'CREW')} LINE</p><button>CLOSE</button>`,rig);info.querySelector('button').onclick=()=>info.remove();};b.onclick=inspect;b.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();inspect();}};}previous=snap;op.textContent=phase.replaceAll('_',' ')+' · '+snap.crew.filter(c=>c.state==='UP').length+'/'+snap.crew.length+' UP';for(const c of snap.crew){const n=phone.querySelector('[data-crew="'+c.id+'"]');if(n){n.dataset.state=c.state;n.title=c.name+' · '+c.hp+'/'+c.maxhp+' HP · '+c.zone;}}};
  rig.insertAdjacentHTML('beforeend',A.handIdle()+A.thumbOverlay());
  const thumb=rig.querySelector('.thumbpov');
  let alive=true,typingNode=null;
  const byId=id=>crewObjs.find(o=>o.id===id);
  const heart=setInterval(()=>{if(alive)S.heart();},1300/K.SPEED);
  const amb=S.room();
- const fade=()=>{[...msgs.children].reverse().forEach((c,i)=>{c.style.opacity=i<4?1:Math.max(.15,1-(i-3)*.28);});};
+ const fade=()=>{[...msgs.children].reverse().forEach((c,i)=>{c.style.opacity=i<4?1:Math.max(.7,1-(i-3)*.1);});};
  const vib=()=>{rig.classList.remove('vib');void rig.offsetWidth;rig.classList.add('vib');};
  const label=id=>{const o=byId(id);return o?`<span class="fr" style="color:${CLS_COL[o.cls]||'#9aa0b8'}">${esc(o.name)}</span>`:'';};
- const showTyping=async(who,ms)=>{clearTyping();typingNode=el('bub typing',`${label(who)}<span class="dots"><span></span><span></span><span></span></span>`,msgs);fade();await sleep(ms);clearTyping();};
+ const showTyping=async(who,ms)=>{clearTyping();typingNode=el('bub typing',`${label(who)}<span class="dots"><span></span><span></span><span></span></span>`,msgs);fade();scroll();await sleep(ms);clearTyping();};
  const clearTyping=()=>{if(typingNode){typingNode.remove();typingNode=null;fade();}};
  const ctl={
-  phone,rig,thumb,msgs,flash,
+  phone,rig,thumb,msgs,flash,state:ctlState,
   async say(step){
    if(step.typing){await showTyping(step.who,step.typing);if(step.interrupted){await sleep(650);await showTyping(step.who,Math.max(400,step.typing*.6));}}
    const b=el('bub'+(step.kind==='EVENT'?' ev':'')+(step.call?' call':''),`${label(step.who)}${esc(step.text)}`,msgs);fade();vib();
+   scroll();
    (step.shake>=2?S.ko:step.shake?S.hit:S.text)();
-   if(step.shake){const o=crewObjs[Math.floor(Math.random()*crewObjs.length)];S.gun(o&&o.gun);shake(step.shake,world);}
+   if(step.shake)shake(step.shake,world);
    else if(step.red)K.pulse(1);
    await sleep(step.pause||1500);
   },
@@ -314,9 +325,9 @@ export async function roomScene({crewObjs,defense}){
   },
   async decide(view){
    const ms=K.moreTime()?view.ms:view.ms; // the crew's own view already doubles the bar when MORE TIME is on
-   msgs.style.paddingBottom='84px';
-   const d=el('decide',`<div class="row">${view.buttons.map(b=>`<button data-id="${esc(b.id)}" class="${/KEEP|PUSH|FLOOR|BUST|TURN/.test(b.id+b.label)?'d-go':'d-out'}">${esc(b.label)}</button>`).join('')}</div><div class="bar"><i></i></div>`,phone);
-   d.dataset.kind=view.kind||'CALL';
+   msgs.style.paddingBottom='';
+   const d=el('decide',`<div class="decision-context">${esc(view.context||'CREW NEEDS YOUR CALL')}</div><div class="row">${view.buttons.map(b=>`<button data-id="${esc(b.id)}" class="${/KEEP|PUSH|FLOOR|BUST|TURN/.test(b.id+b.label)?'d-go':'d-out'}">${b.faceName?`<span class="actor">${esc(b.faceName)}</span>`:''}${esc(b.label)}${b.detail?`<small>${esc(b.detail)}</small>`:''}</button>`).join('')}</div><div class="clock-note">${esc(view.timeout||'BAR EMPTY: CREW DECIDES')}</div><div class="bar"><i></i></div>`,phone);
+   d.dataset.kind=view.kind||'CALL';crewStrip.setAttribute('aria-label','Decision live: crew inspection resumes after the call');crewStrip.inert=true;const gear=document.getElementById('gear');if(gear)gear.disabled=true;rig.querySelector('.crew-inspect')?.remove();msgs.style.bottom=(d.offsetHeight+10)+'px';scroll();
    const bar=d.querySelector('.bar i');
    const anim1=bar.animate([{width:'100%'},{width:'0%'}],{duration:ms/K.SPEED,fill:'forwards',easing:'linear'});
    S.buzz();shake(1,world);
@@ -324,7 +335,7 @@ export async function roomScene({crewObjs,defense}){
     d.querySelectorAll('button').forEach(b=>b.onclick=()=>{K.unlock();r(b.dataset.id);});
     anim1.finished.then(()=>r('TIMEOUT')).catch(()=>{});
    });
-   anim1.cancel();d.remove();msgs.style.paddingBottom='';
+   anim1.cancel();d.remove();crewStrip.inert=false;if(gear)gear.disabled=false;crewStrip.removeAttribute('aria-label');msgs.style.bottom='';msgs.style.paddingBottom='';const picked=view.buttons.find(b=>b.id===pick);await ctl.say({who:null,text:pick==='TIMEOUT'?'CREW MAKES THE CALL':(picked?.label||pick),kind:'EVENT',pause:500});
    if(pick==='TIMEOUT'){K.pulse(1);}
    return pick;
   },
@@ -340,7 +351,7 @@ export async function roomScene({crewObjs,defense}){
   async turnChoice(view){
    if(!alive)ctl.resume();
    await ctl.say({t:'say',who:view.who,text:view.text,kind:'CHAT',shake:0,red:1,typing:0,pause:300,call:true});
-   msgs.style.paddingBottom='84px';
+   msgs.style.paddingBottom='';
    const d=el('decide',`<div class="row">${view.buttons.map(b=>`<button data-id="${b.id}" class="${b.id==='TURN'?'d-go':'d-out'}">${esc(b.label)}</button>`).join('')}</div>`,phone);
    const pick=await new Promise(r=>d.querySelectorAll('button').forEach(b=>b.onclick=()=>{K.unlock();S.confirm();r(b.dataset.id);}));
    d.remove();msgs.style.paddingBottom='';return pick;
@@ -370,11 +381,11 @@ export async function returnScene({rec,crewObjs,w,bankBefore}){
  }
  let car=null;
  if(!defense&&!carLost){car=makeCar(rec.car,-170,318);car.classList.add('on');S.engine(rec.car,'idle',.35);await drive(car,4,1500,'cubic-bezier(.1,.7,.3,1)');car.classList.remove('on');puffs(car,4);S.thud();await sleep(600);}
- const slots=crewObjs.map((o,i)=>150+i*34);
+ const slots=crewObjs.map((o,i)=>92+i*Math.min(34,140/Math.max(1,crewObjs.length-1)));
  const holders={};
  for(let i=0;i<crewObjs.length;i++){
   const o=crewObjs[i];const st=rec.finalStatus[o.id];
-  if(!back.includes(o)){const g=el('missing','',null,{left:slots[i]+'px',top:'288px',opacity:0});anim(g,[{opacity:0},{opacity:1}],900);continue;}
+  if(!back.some(b=>b.id===o.id)){const g=el('missing','',null,{left:slots[i]+'px',top:'288px',opacity:0});anim(g,[{opacity:0},{opacity:1}],900);continue;}
   const gunNow=(rec.gunGifts||[]).find(g=>g.to===o.id);
   const oo={...o,gun:gunNow?gunNow.gun:(rec.lost&&rec.lost.guns||[]).some(g=>g.from===o.id)?'hands':o.gun};
   const b=bust(oo,32,{hurt:st!=='READY',zone:st==='READY'?'STEADY':'SHAKY',pose:st==='SHOT'?'carried':st==='READY'?'standing':'wounded'});pos(b,car?110:-40,322);b.style.opacity=0;if(st==='SHOT'&&!A.hasSprite(oo))b.style.transform='rotate(-12deg)';
@@ -441,6 +452,25 @@ export async function returnScene({rec,crewObjs,w,bankBefore}){
  }
  await sleep(600);
  return {alone:false,shown:shownList,counted:cashK};
+}
+export function operationResult({rec,crewObjs,canonical,bankBefore,bankAfter,story}){
+ const gain=canonical?.cash.gain??Math.round((rec.win?W.potBank(rec):0)*1000);
+ const spent=canonical?.cash.spent??Math.max(0,Math.round((bankBefore+gain/1000-bankAfter)*1000));
+ const crew=canonical?.crew||rec.crew.map(id=>({id,after:rec.finalStatus[id]}));
+ const calls=(rec.callLog||[]).map(c=>({SAVE:'RESCUE',PUSH:'PUSH ON',FOLD:'FALL BACK',SNEAK:'SLIP PAST',TALK:'TALK',PAY:'PAY',BUST:'BREACH',TIMEOUT:'CREW DECIDED',DEFAULT:'CREW DECIDED'})[c.choice]||c.choice);
+ const rows=crew.map(c=>{
+  const o=crewObjs.find(o=>o.id===c.id)||{name:c.id};
+  const status=c.after==='READY'?'HOME · READY':c.after==='WOUNDED'?'HOME · WOUNDED':c.after==='SHOT'?'HOME · DOWN':c.after;
+  return `<li><span>${esc(o.name)}</span><b class="${esc(c.after)}">${esc(status)}</b></li>`;
+ }).join('');
+ const panel=el('operation-result',`<h2>${rec.win?'OPERATION COMPLETE':'OPERATION LOST'}</h2>
+  <div class="result-money"><span>PLAY TAKE <b>${money(gain/1000)}</b></span><span>SPENT <b>${money(spent/1000)}</b></span></div>
+  <div class="result-route">RESULT: ${esc(rec.klass)} · GETAWAY: ${esc(rec.getaway?.kind||rec.getaway||'NONE')}</div><div class="result-route">${!story&&canonical?'HEAT: '+(canonical.heat.delta>=0?'+':'')+canonical.heat.delta+' · ':''}${rec.shape==='HOLD THE HOUSE'?'HOUSE: '+esc(rec.getaway||rec.klass):'TRANSPORT: '+esc(canonical?.car.id||rec.car||'NONE')+' · '+(canonical?.car.lost?'LOST':'HOME')}</div>
+  ${calls.length?`<div class="result-calls">YOUR CALLS: ${calls.map(esc).join(' · ')}</div>`:''}
+  <ul>${rows}</ul>${(rec.lost?.cars||[]).length?'<p>TRANSPORT LOST</p>':''}
+  ${(rec.lost?.guns||[]).length?'<p>'+rec.lost.guns.length+' WEAPON(S) LOST</p>':''}
+  <small>${story?'MISSION REWARD AND HEAT SETTLE ON RETURN':'CREW AND TAKE RECORDED · RETURN TO CONTINUE'}</small>`);
+ panel.setAttribute('role','status');const toggle=el('report-toggle','SHOW THE HAUL');toggle.setAttribute('role','button');toggle.tabIndex=0;const flip=()=>{panel.hidden=!panel.hidden;toggle.textContent=panel.hidden?'SHOW REPORT':'SHOW THE HAUL';};toggle.onclick=flip;toggle.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();flip();}};return panel;
 }
 export function againButton(label='RUN ANOTHER PLAY'){
  const b=document.createElement('button');b.className='again';b.textContent=label;world.appendChild(b);

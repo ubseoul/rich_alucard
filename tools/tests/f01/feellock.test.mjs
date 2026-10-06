@@ -208,7 +208,7 @@ export async function test(root){
  // ---- 12 MORE TIME accessibility: the call bar doubles; nothing else changes
  {const pr={i:1,opts:['BUST','SNEAK'],card:{id:'stoop',text:'x'},buttons:[{id:'BUST',verb:'BUST THROUGH'},{id:'SNEAK',verb:'SLIP PAST'}]};
   const out=runFeel(cfgFor(3,offense[0]),{policy:'careful'});const f=out.feed;
-  const a=f.call(pr,{moreTime:false}),b=f.call(pr,{moreTime:true});check(a.ms>=6000&&a.ms<=8000,'the call clock is 6-8 seconds by default');check(b.ms===a.ms*2,'MORE TIME doubles the clock');
+  const a=f.call(pr,{moreTime:false}),b=f.call(pr,{moreTime:true});check(a.ms===10000,'RC4 contextual call has an exact 10-second reading window');check(a.buttons.every(x=>x.detail),'each call explains its qualitative tradeoff');check(a.timeout==='BAR EMPTY: CREW DECIDES','timeout names the actual fallback');check(b.ms===a.ms*2,'MORE TIME doubles the clock');
   const cl=f.climb({read:'FRESH',tease:'RARE'},{moreTime:true});check(cl.ms===a.ms*2&&cl.buttons.length===2,'HIT ONE MORE uses the same clock and two buttons');}
 
  // ---- 13 the recorded tuned-sim numbers meet the OL-023 gates (T2 bands, T5)
