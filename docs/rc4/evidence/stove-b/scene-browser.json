@@ -1,0 +1,6969 @@
+{
+  "mode": "checkpoint fixtures, production flags, 390x844",
+  "stages": [
+    {
+      "requested": "A00:dream",
+      "id": "A00",
+      "node": "dream",
+      "env": "bedroom",
+      "text": [
+        "rich knocked out"
+      ],
+      "placeholder": false,
+      "actors": [],
+      "combat": false,
+      "minigame": null
+    },
+    {
+      "requested": "A00:floor",
+      "id": "A00",
+      "node": "floor",
+      "env": "ocean_floor",
+      "text": [
+        "THE BOTTOM OF THE OCEANTAP"
+      ],
+      "placeholder": false,
+      "actors": [
+        {
+          "id": "rich",
+          "slot": "mid",
+          "src": "assets/rich_standing_right.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": 81.25,
+            "y": 125,
+            "width": 292.03125,
+            "height": 350.4375,
+            "top": 125,
+            "right": 373.28125,
+            "bottom": 475.4375,
+            "left": 81.25
+          },
+          "flip": ""
+        },
+        {
+          "id": "soul",
+          "slot": "farLeft",
+          "src": "assets/before_the_fame/characters/ocean_soul/ocean_soul_climbing_80x96.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": -63.8125,
+            "y": 121,
+            "width": 292.03125,
+            "height": 350.4375,
+            "top": 121,
+            "right": 228.21875,
+            "bottom": 471.4375,
+            "left": -63.8125
+          },
+          "flip": ""
+        },
+        {
+          "id": "soul",
+          "slot": "farRight",
+          "src": "assets/before_the_fame/characters/ocean_soul/ocean_soul_climbing_80x96.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": 229.40625,
+            "y": 121,
+            "width": 292.03125,
+            "height": 350.4375,
+            "top": 121,
+            "right": 521.4375,
+            "bottom": 471.4375,
+            "left": 229.40625
+          },
+          "flip": ""
+        }
+      ],
+      "combat": false,
+      "minigame": null
+    },
+    {
+      "requested": "A00:fall1",
+      "id": "A00",
+      "node": "fall1",
+      "env": "ocean_floor_collapsed",
+      "text": [
+        "ladder folds right before the top"
+      ],
+      "placeholder": false,
+      "actors": [
+        {
+          "id": "rich",
+          "slot": "mid",
+          "src": "assets/rich_standing_right.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": 81.25,
+            "y": 125,
+            "width": 292.03125,
+            "height": 350.4375,
+            "top": 125,
+            "right": 373.28125,
+            "bottom": 475.4375,
+            "left": 81.25
+          },
+          "flip": ""
+        },
+        {
+          "id": "soul",
+          "slot": "farLeft",
+          "src": "assets/before_the_fame/characters/ocean_soul/ocean_soul_climbing_80x96.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": -63.8125,
+            "y": 121,
+            "width": 292.03125,
+            "height": 350.4375,
+            "top": 121,
+            "right": 228.21875,
+            "bottom": 471.4375,
+            "left": -63.8125
+          },
+          "flip": ""
+        },
+        {
+          "id": "soul",
+          "slot": "farRight",
+          "src": "assets/before_the_fame/characters/ocean_soul/ocean_soul_climbing_80x96.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": 229.40625,
+            "y": 121,
+            "width": 292.03125,
+            "height": 350.4375,
+            "top": 121,
+            "right": 521.4375,
+            "bottom": 471.4375,
+            "left": 229.40625
+          },
+          "flip": ""
+        }
+      ],
+      "combat": false,
+      "minigame": null
+    },
+    {
+      "requested": "A00:try2",
+      "id": "A00",
+      "node": "try2",
+      "env": "ocean_floor",
+      "text": [
+        "the ladder is back. like nothing happened."
+      ],
+      "placeholder": false,
+      "actors": [
+        {
+          "id": "rich",
+          "slot": "mid",
+          "src": "assets/rich_standing_right.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": 81.25,
+            "y": 125,
+            "width": 292.03125,
+            "height": 350.4375,
+            "top": 125,
+            "right": 373.28125,
+            "bottom": 475.4375,
+            "left": 81.25
+          },
+          "flip": ""
+        },
+        {
+          "id": "soul",
+          "slot": "farLeft",
+          "src": "assets/before_the_fame/characters/ocean_soul/ocean_soul_climbing_80x96.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": -63.8125,
+            "y": 121,
+            "width": 292.03125,
+            "height": 350.4375,
+            "top": 121,
+            "right": 228.21875,
+            "bottom": 471.4375,
+            "left": -63.8125
+          },
+          "flip": ""
+        },
+        {
+          "id": "soul",
+          "slot": "farRight",
+          "src": "assets/before_the_fame/characters/ocean_soul/ocean_soul_climbing_80x96.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": 229.40625,
+            "y": 121,
+            "width": 292.03125,
+            "height": 350.4375,
+            "top": 121,
+            "right": 521.4375,
+            "bottom": 471.4375,
+            "left": 229.40625
+          },
+          "flip": ""
+        }
+      ],
+      "combat": false,
+      "minigame": null
+    },
+    {
+      "requested": "A00:fall2",
+      "id": "A00",
+      "node": "fall2",
+      "env": "ocean_floor_collapsed",
+      "text": [
+        "ladder folds again damn"
+      ],
+      "placeholder": false,
+      "actors": [
+        {
+          "id": "rich",
+          "slot": "mid",
+          "src": "assets/rich_standing_right.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": 81.25,
+            "y": 125,
+            "width": 292.03125,
+            "height": 350.4375,
+            "top": 125,
+            "right": 373.28125,
+            "bottom": 475.4375,
+            "left": 81.25
+          },
+          "flip": ""
+        },
+        {
+          "id": "soul",
+          "slot": "farLeft",
+          "src": "assets/before_the_fame/characters/ocean_soul/ocean_soul_climbing_80x96.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": -63.8125,
+            "y": 121,
+            "width": 292.03125,
+            "height": 350.4375,
+            "top": 121,
+            "right": 228.21875,
+            "bottom": 471.4375,
+            "left": -63.8125
+          },
+          "flip": ""
+        },
+        {
+          "id": "soul",
+          "slot": "farRight",
+          "src": "assets/before_the_fame/characters/ocean_soul/ocean_soul_climbing_80x96.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": 229.40625,
+            "y": 121,
+            "width": 292.03125,
+            "height": 350.4375,
+            "top": 121,
+            "right": 521.4375,
+            "bottom": 471.4375,
+            "left": 229.40625
+          },
+          "flip": ""
+        }
+      ],
+      "combat": false,
+      "minigame": null
+    },
+    {
+      "requested": "A00:try3",
+      "id": "A00",
+      "node": "try3",
+      "env": "ocean_floor",
+      "text": [
+        "again."
+      ],
+      "placeholder": false,
+      "actors": [
+        {
+          "id": "rich",
+          "slot": "mid",
+          "src": "assets/rich_standing_right.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": 81.25,
+            "y": 125,
+            "width": 292.03125,
+            "height": 350.4375,
+            "top": 125,
+            "right": 373.28125,
+            "bottom": 475.4375,
+            "left": 81.25
+          },
+          "flip": ""
+        },
+        {
+          "id": "soul",
+          "slot": "farLeft",
+          "src": "assets/before_the_fame/characters/ocean_soul/ocean_soul_climbing_80x96.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": -63.8125,
+            "y": 121,
+            "width": 292.03125,
+            "height": 350.4375,
+            "top": 121,
+            "right": 228.21875,
+            "bottom": 471.4375,
+            "left": -63.8125
+          },
+          "flip": ""
+        },
+        {
+          "id": "soul",
+          "slot": "farRight",
+          "src": "assets/before_the_fame/characters/ocean_soul/ocean_soul_climbing_80x96.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": 229.40625,
+            "y": 121,
+            "width": 292.03125,
+            "height": 350.4375,
+            "top": 121,
+            "right": 521.4375,
+            "bottom": 471.4375,
+            "left": 229.40625
+          },
+          "flip": ""
+        }
+      ],
+      "combat": false,
+      "minigame": null
+    },
+    {
+      "requested": "A00:fall3",
+      "id": "A00",
+      "node": "fall3",
+      "env": "ocean_floor_collapsed",
+      "text": [
+        "two years for this shit"
+      ],
+      "placeholder": false,
+      "actors": [
+        {
+          "id": "rich",
+          "slot": "mid",
+          "src": "assets/rich_standing_right.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": 81.25,
+            "y": 125,
+            "width": 292.03125,
+            "height": 350.4375,
+            "top": 125,
+            "right": 373.28125,
+            "bottom": 475.4375,
+            "left": 81.25
+          },
+          "flip": ""
+        },
+        {
+          "id": "soul",
+          "slot": "farLeft",
+          "src": "assets/before_the_fame/characters/ocean_soul/ocean_soul_climbing_80x96.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": -63.8125,
+            "y": 121,
+            "width": 292.03125,
+            "height": 350.4375,
+            "top": 121,
+            "right": 228.21875,
+            "bottom": 471.4375,
+            "left": -63.8125
+          },
+          "flip": ""
+        },
+        {
+          "id": "soul",
+          "slot": "farRight",
+          "src": "assets/before_the_fame/characters/ocean_soul/ocean_soul_climbing_80x96.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": 229.40625,
+            "y": 121,
+            "width": 292.03125,
+            "height": 350.4375,
+            "top": 121,
+            "right": 521.4375,
+            "bottom": 471.4375,
+            "left": 229.40625
+          },
+          "flip": ""
+        }
+      ],
+      "combat": false,
+      "minigame": null
+    },
+    {
+      "requested": "A00:sensei",
+      "id": "A00",
+      "node": "sensei",
+      "env": "ocean_floor",
+      "text": [
+        "old octopus pulls up like he knows the landlord"
+      ],
+      "placeholder": false,
+      "actors": [
+        {
+          "id": "rich",
+          "slot": "left",
+          "src": "assets/rich_standing_right.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": -16.90625,
+            "y": 125,
+            "width": 292.03125,
+            "height": 350.4375,
+            "top": 125,
+            "right": 275.125,
+            "bottom": 475.4375,
+            "left": -16.90625
+          },
+          "flip": ""
+        },
+        {
+          "id": "octopus_sensei",
+          "slot": "right",
+          "src": "assets/goldfish_years/characters/octopus_sensei/octopus_sensei_neutral_96x96.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": 168.578125,
+            "y": 139,
+            "width": 350.4375,
+            "height": 350.4375,
+            "top": 139,
+            "right": 519.015625,
+            "bottom": 489.4375,
+            "left": 168.578125
+          },
+          "flip": ""
+        }
+      ],
+      "combat": false,
+      "minigame": null
+    },
+    {
+      "requested": "A00:sensei_point",
+      "id": "A00",
+      "node": "sensei_point",
+      "env": "ocean_floor",
+      "text": [
+        "use your head bro"
+      ],
+      "placeholder": false,
+      "actors": [
+        {
+          "id": "rich",
+          "slot": "left",
+          "src": "assets/rich_standing_right.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": -16.90625,
+            "y": 125,
+            "width": 292.03125,
+            "height": 350.4375,
+            "top": 125,
+            "right": 275.125,
+            "bottom": 475.4375,
+            "left": -16.90625
+          },
+          "flip": ""
+        },
+        {
+          "id": "octopus_sensei",
+          "slot": "right",
+          "src": "assets/goldfish_years/characters/octopus_sensei/octopus_sensei_point_96x96.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": 167.921875,
+            "y": 139,
+            "width": 350.4375,
+            "height": 350.4375,
+            "top": 139,
+            "right": 518.359375,
+            "bottom": 489.4375,
+            "left": 167.921875
+          },
+          "flip": ""
+        }
+      ],
+      "combat": false,
+      "minigame": null
+    },
+    {
+      "requested": "A00:sensei_listen",
+      "id": "A00",
+      "node": "sensei_listen",
+      "env": "ocean_floor",
+      "text": [
+        "my head got us here"
+      ],
+      "placeholder": false,
+      "actors": [
+        {
+          "id": "rich",
+          "slot": "left",
+          "src": "assets/rich_standing_right.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": -16.90625,
+            "y": 125,
+            "width": 292.03125,
+            "height": 350.4375,
+            "top": 125,
+            "right": 275.125,
+            "bottom": 475.4375,
+            "left": -16.90625
+          },
+          "flip": ""
+        },
+        {
+          "id": "octopus_sensei",
+          "slot": "right",
+          "src": "assets/goldfish_years/characters/octopus_sensei/octopus_sensei_neutral_96x96.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": 168.578125,
+            "y": 139,
+            "width": 350.4375,
+            "height": 350.4375,
+            "top": 139,
+            "right": 519.015625,
+            "bottom": 489.4375,
+            "left": 168.578125
+          },
+          "flip": ""
+        }
+      ],
+      "combat": false,
+      "minigame": null
+    },
+    {
+      "requested": "A00:brain",
+      "id": "A00",
+      "node": "brain",
+      "env": "ocean_floor",
+      "text": [
+        "take it"
+      ],
+      "placeholder": false,
+      "actors": [
+        {
+          "id": "rich",
+          "slot": "left",
+          "src": "assets/rich_standing_right.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": -16.90625,
+            "y": 125,
+            "width": 292.03125,
+            "height": 350.4375,
+            "top": 125,
+            "right": 275.125,
+            "bottom": 475.4375,
+            "left": -16.90625
+          },
+          "flip": ""
+        },
+        {
+          "id": "octopus_sensei",
+          "slot": "right",
+          "src": "assets/goldfish_years/characters/octopus_sensei/octopus_sensei_point_96x96.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": 167.921875,
+            "y": 139,
+            "width": 350.4375,
+            "height": 350.4375,
+            "top": 139,
+            "right": 518.359375,
+            "bottom": 489.4375,
+            "left": 167.921875
+          },
+          "flip": ""
+        }
+      ],
+      "combat": false,
+      "minigame": null
+    },
+    {
+      "requested": "A00:brain_offer",
+      "id": "A00",
+      "node": "brain_offer",
+      "env": "ocean_floor",
+      "text": [
+        "my brain eight parts one per arm"
+      ],
+      "placeholder": false,
+      "actors": [
+        {
+          "id": "rich",
+          "slot": "left",
+          "src": "assets/rich_standing_right.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": -16.90625,
+            "y": 125,
+            "width": 292.03125,
+            "height": 350.4375,
+            "top": 125,
+            "right": 275.125,
+            "bottom": 475.4375,
+            "left": -16.90625
+          },
+          "flip": ""
+        },
+        {
+          "id": "octopus_sensei",
+          "slot": "right",
+          "src": "assets/goldfish_years/characters/octopus_sensei/octopus_sensei_neutral_96x96.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": 168.578125,
+            "y": 139,
+            "width": 350.4375,
+            "height": 350.4375,
+            "top": 139,
+            "right": 519.015625,
+            "bottom": 489.4375,
+            "left": 168.578125
+          },
+          "flip": ""
+        }
+      ],
+      "combat": false,
+      "minigame": null
+    },
+    {
+      "requested": "NEW_OGA_M1:pitch",
+      "id": "NEW_OGA_M1",
+      "node": "pitch",
+      "env": "bedroom",
+      "text": [
+        "VAMPGPT \u00b7 WAKETAP"
+      ],
+      "placeholder": false,
+      "actors": [
+        {
+          "id": "rich",
+          "slot": "left",
+          "src": "assets/rich_standing_right.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": -3.734375,
+            "y": 94,
+            "width": 320,
+            "height": 384,
+            "top": 94,
+            "right": 316.265625,
+            "bottom": 478,
+            "left": -3.734375
+          },
+          "flip": ""
+        }
+      ],
+      "combat": false,
+      "minigame": null
+    },
+    {
+      "requested": "NEW_OGA_M1:table",
+      "id": "NEW_OGA_M1",
+      "node": "table",
+      "env": "boba_shop",
+      "text": [
+        "BOBA SHOP \u00b7 BACK TABLETAP"
+      ],
+      "placeholder": false,
+      "actors": [
+        {
+          "id": "rich",
+          "slot": "left",
+          "src": "assets/rich_standing_right.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": -18.0625,
+            "y": 94,
+            "width": 320,
+            "height": 384,
+            "top": 94,
+            "right": 301.9375,
+            "bottom": 478,
+            "left": -18.0625
+          },
+          "flip": ""
+        },
+        {
+          "id": "smallie",
+          "slot": "right",
+          "src": "inline PNG generated by registered frozen-asset loader; see asset census",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": 177.921875,
+            "y": 90,
+            "width": 320,
+            "height": 384,
+            "top": 90,
+            "right": 497.921875,
+            "bottom": 474,
+            "left": 177.921875
+          },
+          "flip": ""
+        }
+      ],
+      "combat": false,
+      "minigame": null
+    },
+    {
+      "requested": "NEW_OGA_M2:voice",
+      "id": "NEW_OGA_M2",
+      "node": "voice",
+      "env": "bedroom",
+      "text": [
+        "UNKNOWN VOICE NOTETAP"
+      ],
+      "placeholder": false,
+      "actors": [
+        {
+          "id": "rich",
+          "slot": "left",
+          "src": "assets/rich_standing_right.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": -3.734375,
+            "y": 94,
+            "width": 320,
+            "height": 384,
+            "top": 94,
+            "right": 316.265625,
+            "bottom": 478,
+            "left": -3.734375
+          },
+          "flip": ""
+        }
+      ],
+      "combat": false,
+      "minigame": null
+    },
+    {
+      "requested": "NEW_OGA_M2:arrive",
+      "id": "NEW_OGA_M2",
+      "node": "arrive",
+      "env": "gbenga_rentals",
+      "text": [
+        "GBENGA EVENT RENTALS \u00b7 INGLEWOODTAP"
+      ],
+      "placeholder": false,
+      "actors": [
+        {
+          "id": "rich",
+          "slot": "left",
+          "src": "assets/rich_standing_right.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": -16.90625,
+            "y": 125,
+            "width": 292.03125,
+            "height": 350.4375,
+            "top": 125,
+            "right": 275.125,
+            "bottom": 475.4375,
+            "left": -16.90625
+          },
+          "flip": ""
+        },
+        {
+          "id": "gbenga",
+          "slot": "right",
+          "src": "inline PNG generated by registered frozen-asset loader; see asset census",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": 173.921875,
+            "y": 114,
+            "width": 292.03125,
+            "height": 350.4375,
+            "top": 114,
+            "right": 465.953125,
+            "bottom": 464.4375,
+            "left": 173.921875
+          },
+          "flip": ""
+        }
+      ],
+      "combat": false,
+      "minigame": null
+    },
+    {
+      "requested": "NEW_OGA_M3:voice",
+      "id": "NEW_OGA_M3",
+      "node": "voice",
+      "env": "gbenga_rentals",
+      "text": [
+        "VOICE NOTE \u00b7 CANOPY DUTYTAP"
+      ],
+      "placeholder": false,
+      "actors": [
+        {
+          "id": "rich",
+          "slot": "left",
+          "src": "assets/rich_standing_right.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": -2.0625,
+            "y": 191,
+            "width": 213.765625,
+            "height": 256.53125,
+            "top": 191,
+            "right": 211.703125,
+            "bottom": 447.53125,
+            "left": -2.0625
+          },
+          "flip": ""
+        },
+        {
+          "id": "gbenga",
+          "slot": "right",
+          "src": "inline PNG generated by registered frozen-asset loader; see asset census",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": 178.25,
+            "y": 191,
+            "width": 213.765625,
+            "height": 256.53125,
+            "top": 191,
+            "right": 392.015625,
+            "bottom": 447.53125,
+            "left": 178.25
+          },
+          "flip": ""
+        }
+      ],
+      "combat": false,
+      "minigame": null
+    },
+    {
+      "requested": "NEW_OGA_M3:critique",
+      "id": "NEW_OGA_M3",
+      "node": "critique",
+      "env": "carson_owambe",
+      "text": [
+        "CARSON OWAMBETAP"
+      ],
+      "placeholder": false,
+      "actors": [
+        {
+          "id": "rich",
+          "slot": "left",
+          "src": "assets/rich_standing_right.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": -18.734375,
+            "y": 94,
+            "width": 320,
+            "height": 384,
+            "top": 94,
+            "right": 301.265625,
+            "bottom": 478,
+            "left": -18.734375
+          },
+          "flip": ""
+        },
+        {
+          "id": "auntie",
+          "slot": "right",
+          "src": "assets/before_the_fame/characters/auntie/auntie_register_neutral_80x96.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": 176.578125,
+            "y": 90,
+            "width": 320,
+            "height": 384,
+            "top": 90,
+            "right": 496.578125,
+            "bottom": 474,
+            "left": 176.578125
+          },
+          "flip": ""
+        }
+      ],
+      "combat": false,
+      "minigame": null
+    },
+    {
+      "requested": "NEW_OGA_M4:voice",
+      "id": "NEW_OGA_M4",
+      "node": "voice",
+      "env": "bedroom",
+      "text": [
+        "VOICE NOTE \u00b7 SET UP CARLOSTAP"
+      ],
+      "placeholder": false,
+      "actors": [
+        {
+          "id": "rich",
+          "slot": "left",
+          "src": "assets/rich_standing_right.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": -3.734375,
+            "y": 94,
+            "width": 320,
+            "height": 384,
+            "top": 94,
+            "right": 316.265625,
+            "bottom": 478,
+            "left": -3.734375
+          },
+          "flip": ""
+        }
+      ],
+      "combat": false,
+      "minigame": null
+    },
+    {
+      "requested": "NEW_OGA_M4:beat1",
+      "id": "NEW_OGA_M4",
+      "node": "beat1",
+      "env": "bedroom",
+      "text": [
+        "BEAT 1 \u00b7 THE DMTAP"
+      ],
+      "placeholder": false,
+      "actors": [
+        {
+          "id": "rich",
+          "slot": "left",
+          "src": "assets/rich_standing_right.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": -17.0625,
+            "y": 120,
+            "width": 295.90625,
+            "height": 355.09375,
+            "top": 120,
+            "right": 278.84375,
+            "bottom": 475.09375,
+            "left": -17.0625
+          },
+          "flip": ""
+        },
+        {
+          "id": "carlos",
+          "slot": "right",
+          "src": "inline PNG generated by registered frozen-asset loader; see asset census",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": 176.578125,
+            "y": 113,
+            "width": 295.90625,
+            "height": 355.09375,
+            "top": 113,
+            "right": 472.484375,
+            "bottom": 468.09375,
+            "left": 176.578125
+          },
+          "flip": ""
+        }
+      ],
+      "combat": false,
+      "minigame": null
+    },
+    {
+      "requested": "NEW_OGA_M4:beat2",
+      "id": "NEW_OGA_M4",
+      "node": "beat2",
+      "env": "street_night",
+      "text": [
+        "BEAT 2 \u00b7 THE PICKUPTAP"
+      ],
+      "placeholder": false,
+      "actors": [
+        {
+          "id": "rich",
+          "slot": "left",
+          "src": "assets/rich_standing_right.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": -2.90625,
+            "y": 191,
+            "width": 213.765625,
+            "height": 256.53125,
+            "top": 191,
+            "right": 210.859375,
+            "bottom": 447.53125,
+            "left": -2.90625
+          },
+          "flip": ""
+        },
+        {
+          "id": "carlos",
+          "slot": "right",
+          "src": "inline PNG generated by registered frozen-asset loader; see asset census",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": 179.078125,
+            "y": 191,
+            "width": 213.765625,
+            "height": 256.53125,
+            "top": 191,
+            "right": 392.84375,
+            "bottom": 447.53125,
+            "left": 179.078125
+          },
+          "flip": ""
+        }
+      ],
+      "combat": false,
+      "minigame": null
+    },
+    {
+      "requested": "NEW_OGA_M4:beat3",
+      "id": "NEW_OGA_M4",
+      "node": "beat3",
+      "env": "street_night",
+      "text": [
+        "BEAT 3 \u00b7 THE CARTAP"
+      ],
+      "placeholder": false,
+      "actors": [
+        {
+          "id": "rich",
+          "slot": "left",
+          "src": "assets/rich_standing_right.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": -2.90625,
+            "y": 191,
+            "width": 213.765625,
+            "height": 256.53125,
+            "top": 191,
+            "right": 210.859375,
+            "bottom": 447.53125,
+            "left": -2.90625
+          },
+          "flip": ""
+        },
+        {
+          "id": "carlos",
+          "slot": "right",
+          "src": "inline PNG generated by registered frozen-asset loader; see asset census",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": 179.078125,
+            "y": 191,
+            "width": 213.765625,
+            "height": 256.53125,
+            "top": 191,
+            "right": 392.84375,
+            "bottom": 447.53125,
+            "left": 179.078125
+          },
+          "flip": ""
+        }
+      ],
+      "combat": false,
+      "minigame": null
+    },
+    {
+      "requested": "NEW_OGA_M4:beat4",
+      "id": "NEW_OGA_M4",
+      "node": "beat4",
+      "env": "gbenga_rentals",
+      "text": [
+        "BEAT 4 \u00b7 THE DOORTAP"
+      ],
+      "placeholder": false,
+      "actors": [
+        {
+          "id": "rich",
+          "slot": "left",
+          "src": "assets/rich_standing_right.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": -2.90625,
+            "y": 191,
+            "width": 213.765625,
+            "height": 256.53125,
+            "top": 191,
+            "right": 210.859375,
+            "bottom": 447.53125,
+            "left": -2.90625
+          },
+          "flip": ""
+        },
+        {
+          "id": "carlos",
+          "slot": "right",
+          "src": "inline PNG generated by registered frozen-asset loader; see asset census",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": 179.078125,
+            "y": 191,
+            "width": 213.765625,
+            "height": 256.53125,
+            "top": 191,
+            "right": 392.84375,
+            "bottom": 447.53125,
+            "left": 179.078125
+          },
+          "flip": ""
+        }
+      ],
+      "combat": false,
+      "minigame": null
+    },
+    {
+      "requested": "NEW_OGA_M4:walk_in",
+      "id": "NEW_OGA_M4",
+      "node": "walk_in",
+      "env": "gbenga_rentals",
+      "text": [
+        "Carlos is not hurt. He works the debt off setting canopies and unfollows Rich."
+      ],
+      "placeholder": false,
+      "actors": [
+        {
+          "id": "carlos",
+          "slot": "left",
+          "src": "inline PNG generated by registered frozen-asset loader; see asset census",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": -1.40625,
+            "y": 191,
+            "width": 213.765625,
+            "height": 256.53125,
+            "top": 191,
+            "right": 212.359375,
+            "bottom": 447.53125,
+            "left": -1.40625
+          },
+          "flip": ""
+        },
+        {
+          "id": "gbenga",
+          "slot": "right",
+          "src": "inline PNG generated by registered frozen-asset loader; see asset census",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": 177.578125,
+            "y": 191,
+            "width": 213.765625,
+            "height": 256.53125,
+            "top": 191,
+            "right": 391.34375,
+            "bottom": 447.53125,
+            "left": 177.578125
+          },
+          "flip": ""
+        }
+      ],
+      "combat": false,
+      "minigame": null
+    },
+    {
+      "requested": "NEW_OGA_M4:run",
+      "id": "NEW_OGA_M4",
+      "node": "run",
+      "env": "street_night",
+      "text": [
+        "carlos running rich in uncles van making it look close"
+      ],
+      "placeholder": false,
+      "actors": [
+        {
+          "id": "rich",
+          "slot": "left",
+          "src": "assets/rich_standing_right.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": -2.90625,
+            "y": 191,
+            "width": 213.765625,
+            "height": 256.53125,
+            "top": 191,
+            "right": 210.859375,
+            "bottom": 447.53125,
+            "left": -2.90625
+          },
+          "flip": ""
+        },
+        {
+          "id": "carlos",
+          "slot": "right",
+          "src": "inline PNG generated by registered frozen-asset loader; see asset census",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": 179.078125,
+            "y": 191,
+            "width": 213.765625,
+            "height": 256.53125,
+            "top": 191,
+            "right": 392.84375,
+            "bottom": 447.53125,
+            "left": 179.078125
+          },
+          "flip": ""
+        }
+      ],
+      "combat": false,
+      "minigame": null
+    },
+    {
+      "requested": "NEW_OGA_ALTERNATIVE:voice",
+      "id": "NEW_OGA_ALTERNATIVE",
+      "node": "voice",
+      "env": "gbenga_rentals",
+      "text": [
+        "THE ALTERNATIVE \u00b7 VOICE NOTETAP"
+      ],
+      "placeholder": false,
+      "actors": [
+        {
+          "id": "rich",
+          "slot": "left",
+          "src": "assets/rich_standing_right.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": -2.0625,
+            "y": 191,
+            "width": 213.765625,
+            "height": 256.53125,
+            "top": 191,
+            "right": 211.703125,
+            "bottom": 447.53125,
+            "left": -2.0625
+          },
+          "flip": ""
+        },
+        {
+          "id": "gbenga",
+          "slot": "right",
+          "src": "inline PNG generated by registered frozen-asset loader; see asset census",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": 178.25,
+            "y": 191,
+            "width": 213.765625,
+            "height": 256.53125,
+            "top": 191,
+            "right": 392.015625,
+            "bottom": 447.53125,
+            "left": 178.25
+          },
+          "flip": ""
+        }
+      ],
+      "combat": false,
+      "minigame": null
+    },
+    {
+      "requested": "NEW_OGA_ALTERNATIVE:critique",
+      "id": "NEW_OGA_ALTERNATIVE",
+      "node": "critique",
+      "env": "carson_owambe",
+      "text": [
+        "THE ALTERNATIVE \u00b7 DELIVERYTAP"
+      ],
+      "placeholder": false,
+      "actors": [
+        {
+          "id": "rich",
+          "slot": "left",
+          "src": "assets/rich_standing_right.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": -18.734375,
+            "y": 94,
+            "width": 320,
+            "height": 384,
+            "top": 94,
+            "right": 301.265625,
+            "bottom": 478,
+            "left": -18.734375
+          },
+          "flip": ""
+        },
+        {
+          "id": "auntie",
+          "slot": "right",
+          "src": "assets/before_the_fame/characters/auntie/auntie_register_neutral_80x96.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": 176.578125,
+            "y": 90,
+            "width": 320,
+            "height": 384,
+            "top": 90,
+            "right": 496.578125,
+            "bottom": 474,
+            "left": 176.578125
+          },
+          "flip": ""
+        }
+      ],
+      "combat": false,
+      "minigame": null
+    },
+    {
+      "requested": "NEW_OGA_M5:voice",
+      "id": "NEW_OGA_M5",
+      "node": "voice",
+      "env": "bedroom",
+      "text": [
+        "VOICE NOTE \u00b7 THE OWAMBE COLLECTIONTAP"
+      ],
+      "placeholder": false,
+      "actors": [
+        {
+          "id": "rich",
+          "slot": "left",
+          "src": "assets/rich_standing_right.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": -3.734375,
+            "y": 94,
+            "width": 320,
+            "height": 384,
+            "top": 94,
+            "right": 316.265625,
+            "bottom": 478,
+            "left": -3.734375
+          },
+          "flip": ""
+        }
+      ],
+      "combat": false,
+      "minigame": null
+    },
+    {
+      "requested": "NEW_OGA_M5:arrival",
+      "id": "NEW_OGA_M5",
+      "node": "arrival",
+      "env": "carson_owambe",
+      "text": [
+        "UNCLE BAMIDELE\u2019S 60THTAP"
+      ],
+      "placeholder": false,
+      "actors": [
+        {
+          "id": "rich",
+          "slot": "left",
+          "src": "assets/rich_standing_right.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": -17.0625,
+            "y": 120,
+            "width": 295.90625,
+            "height": 355.09375,
+            "top": 120,
+            "right": 278.84375,
+            "bottom": 475.09375,
+            "left": -17.0625
+          },
+          "flip": ""
+        },
+        {
+          "id": "uncle_bamidele",
+          "slot": "right",
+          "src": "inline PNG generated by registered frozen-asset loader; see asset census",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": 176.578125,
+            "y": 117,
+            "width": 295.90625,
+            "height": 355.09375,
+            "top": 117,
+            "right": 472.484375,
+            "bottom": 472.09375,
+            "left": 176.578125
+          },
+          "flip": ""
+        }
+      ],
+      "combat": false,
+      "minigame": null
+    },
+    {
+      "requested": "NEW_OGA_M5:greedy",
+      "id": "NEW_OGA_M5",
+      "node": "greedy",
+      "env": "carson_owambe",
+      "text": [
+        "The aunties turn, reclaim every bill, and end the collection."
+      ],
+      "placeholder": false,
+      "actors": [
+        {
+          "id": "rich",
+          "slot": "left",
+          "src": "assets/rich_standing_right.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": -18.734375,
+            "y": 94,
+            "width": 320,
+            "height": 384,
+            "top": 94,
+            "right": 301.265625,
+            "bottom": 478,
+            "left": -18.734375
+          },
+          "flip": ""
+        },
+        {
+          "id": "auntie",
+          "slot": "right",
+          "src": "assets/before_the_fame/characters/auntie/auntie_register_neutral_80x96.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": 176.578125,
+            "y": 90,
+            "width": 320,
+            "height": 384,
+            "top": 90,
+            "right": 496.578125,
+            "bottom": 474,
+            "left": 176.578125
+          },
+          "flip": ""
+        }
+      ],
+      "combat": false,
+      "minigame": null
+    },
+    {
+      "requested": "NEW_OGA_M5:backout",
+      "id": "NEW_OGA_M5",
+      "node": "backout",
+      "env": "carson_owambe",
+      "text": [
+        "Rich dances with Uncle Bamidele and collects nothing."
+      ],
+      "placeholder": false,
+      "actors": [
+        {
+          "id": "rich",
+          "slot": "left",
+          "src": "assets/rich_standing_right.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": -2.90625,
+            "y": 191,
+            "width": 213.765625,
+            "height": 256.53125,
+            "top": 191,
+            "right": 210.859375,
+            "bottom": 447.53125,
+            "left": -2.90625
+          },
+          "flip": ""
+        },
+        {
+          "id": "uncle_bamidele",
+          "slot": "right",
+          "src": "inline PNG generated by registered frozen-asset loader; see asset census",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": 179.078125,
+            "y": 191,
+            "width": 213.765625,
+            "height": 256.53125,
+            "top": 191,
+            "right": 392.84375,
+            "bottom": 447.53125,
+            "left": 179.078125
+          },
+          "flip": ""
+        }
+      ],
+      "combat": false,
+      "minigame": null
+    },
+    {
+      "requested": "NEW_OGA_M6:voice",
+      "id": "NEW_OGA_M6",
+      "node": "voice",
+      "env": "bedroom",
+      "text": [
+        "VOICE NOTE \u00b7 SENATORTAP"
+      ],
+      "placeholder": false,
+      "actors": [
+        {
+          "id": "rich",
+          "slot": "left",
+          "src": "assets/rich_standing_right.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": -17.234375,
+            "y": 94,
+            "width": 320,
+            "height": 384,
+            "top": 94,
+            "right": 302.765625,
+            "bottom": 478,
+            "left": -17.234375
+          },
+          "flip": ""
+        },
+        {
+          "id": "senator",
+          "slot": "right",
+          "src": "inline PNG generated by registered frozen-asset loader; see asset census",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": 184.75,
+            "y": 274,
+            "width": 156,
+            "height": 187.1875,
+            "top": 274,
+            "right": 340.75,
+            "bottom": 461.1875,
+            "left": 184.75
+          },
+          "flip": ""
+        }
+      ],
+      "combat": false,
+      "minigame": null
+    },
+    {
+      "requested": "NEW_OGA_M6:egusi",
+      "id": "NEW_OGA_M6",
+      "node": "egusi",
+      "env": "bedroom",
+      "text": [
+        "Senator challenges Egusi. Senator loses."
+      ],
+      "placeholder": false,
+      "actors": [
+        {
+          "id": "cat",
+          "slot": "left",
+          "src": "assets/before_the_fame/creatures/cat/sphynx_cat_sitting_48x32.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": -9.734375,
+            "y": 322,
+            "width": 192,
+            "height": 128,
+            "top": 322,
+            "right": 182.265625,
+            "bottom": 450,
+            "left": -9.734375
+          },
+          "flip": ""
+        },
+        {
+          "id": "senator",
+          "slot": "right",
+          "src": "inline PNG generated by registered frozen-asset loader; see asset census",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": 184.75,
+            "y": 274,
+            "width": 156,
+            "height": 187.1875,
+            "top": 274,
+            "right": 340.75,
+            "bottom": 461.1875,
+            "left": 184.75
+          },
+          "flip": ""
+        }
+      ],
+      "combat": false,
+      "minigame": null
+    },
+    {
+      "requested": "NEW_OGA_M6:mazda",
+      "id": "NEW_OGA_M6",
+      "node": "mazda",
+      "env": "bedroom",
+      "text": [
+        "Senator and Mazda hold a perfect standoff."
+      ],
+      "placeholder": false,
+      "actors": [
+        {
+          "id": "mazda_human",
+          "slot": "left",
+          "src": "assets/before_the_fame/characters/mazda_human/blueberry_mazda_human_neutral_80x96.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": -15.90625,
+            "y": 94,
+            "width": 320,
+            "height": 384,
+            "top": 94,
+            "right": 304.09375,
+            "bottom": 478,
+            "left": -15.90625
+          },
+          "flip": ""
+        },
+        {
+          "id": "senator",
+          "slot": "right",
+          "src": "inline PNG generated by registered frozen-asset loader; see asset census",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": 184.75,
+            "y": 274,
+            "width": 156,
+            "height": 187.1875,
+            "top": 274,
+            "right": 340.75,
+            "bottom": 461.1875,
+            "left": 184.75
+          },
+          "flip": ""
+        }
+      ],
+      "combat": false,
+      "minigame": null
+    },
+    {
+      "requested": "NEW_OGA_M6:bread",
+      "id": "NEW_OGA_M6",
+      "node": "bread",
+      "env": "bedroom",
+      "text": [
+        "Senator eats the Agege bread. No inventory changes hands."
+      ],
+      "placeholder": false,
+      "actors": [
+        {
+          "id": "rich",
+          "slot": "left",
+          "src": "assets/rich_standing_right.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": -17.234375,
+            "y": 94,
+            "width": 320,
+            "height": 384,
+            "top": 94,
+            "right": 302.765625,
+            "bottom": 478,
+            "left": -17.234375
+          },
+          "flip": ""
+        },
+        {
+          "id": "senator",
+          "slot": "right",
+          "src": "inline PNG generated by registered frozen-asset loader; see asset census",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": 184.75,
+            "y": 274,
+            "width": 156,
+            "height": 187.1875,
+            "top": 274,
+            "right": 340.75,
+            "bottom": 461.1875,
+            "left": 184.75
+          },
+          "flip": ""
+        }
+      ],
+      "combat": false,
+      "minigame": null
+    },
+    {
+      "requested": "NEW_OGA_M6:walked",
+      "id": "NEW_OGA_M6",
+      "node": "walked",
+      "env": "bedroom",
+      "text": [
+        "Senator settles on the throne for the rest of the night."
+      ],
+      "placeholder": false,
+      "actors": [
+        {
+          "id": "rich",
+          "slot": "left",
+          "src": "assets/rich_standing_right.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": -17.234375,
+            "y": 94,
+            "width": 320,
+            "height": 384,
+            "top": 94,
+            "right": 302.765625,
+            "bottom": 478,
+            "left": -17.234375
+          },
+          "flip": ""
+        },
+        {
+          "id": "senator",
+          "slot": "right",
+          "src": "inline PNG generated by registered frozen-asset loader; see asset census",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": 184.75,
+            "y": 274,
+            "width": 156,
+            "height": 187.1875,
+            "top": 274,
+            "right": 340.75,
+            "bottom": 461.1875,
+            "left": 184.75
+          },
+          "flip": ""
+        }
+      ],
+      "combat": false,
+      "minigame": null
+    },
+    {
+      "requested": "NEW_OGA_M6:lost",
+      "id": "NEW_OGA_M6",
+      "node": "lost",
+      "env": "bedroom",
+      "text": [
+        "Senator follows a squirrel into the night. Gbenga handles the recovery off-screen."
+      ],
+      "placeholder": false,
+      "actors": [
+        {
+          "id": "rich",
+          "slot": "left",
+          "src": "assets/rich_standing_right.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": -3.734375,
+            "y": 94,
+            "width": 320,
+            "height": 384,
+            "top": 94,
+            "right": 316.265625,
+            "bottom": 478,
+            "left": -3.734375
+          },
+          "flip": ""
+        }
+      ],
+      "combat": false,
+      "minigame": null
+    },
+    {
+      "requested": "NEW_OGA_M7:arrival",
+      "id": "NEW_OGA_M7",
+      "node": "arrival",
+      "env": "gbenga_house_dining",
+      "text": [
+        "GBENGA'S HOME \u00b7 LADERA HEIGHTSTAP"
+      ],
+      "placeholder": false,
+      "actors": [
+        {
+          "id": "rich",
+          "slot": "left",
+          "src": "assets/rich_standing_right.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": -12.90625,
+            "y": 171,
+            "width": 249.75,
+            "height": 299.703125,
+            "top": 171,
+            "right": 236.84375,
+            "bottom": 470.703125,
+            "left": -12.90625
+          },
+          "flip": ""
+        },
+        {
+          "id": "mama_gbenga",
+          "slot": "mid",
+          "src": "inline PNG generated by registered frozen-asset loader; see asset census",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": 78.578125,
+            "y": 171,
+            "width": 249.75,
+            "height": 299.703125,
+            "top": 171,
+            "right": 328.328125,
+            "bottom": 470.703125,
+            "left": 78.578125
+          },
+          "flip": ""
+        },
+        {
+          "id": "gbenga",
+          "slot": "right",
+          "src": "inline PNG generated by registered frozen-asset loader; see asset census",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": 172.25,
+            "y": 171,
+            "width": 249.75,
+            "height": 299.703125,
+            "top": 171,
+            "right": 422,
+            "bottom": 470.703125,
+            "left": 172.25
+          },
+          "flip": ""
+        }
+      ],
+      "combat": false,
+      "minigame": null
+    },
+    {
+      "requested": "NEW_OGA_M7:dinner",
+      "id": "NEW_OGA_M7",
+      "node": "dinner",
+      "env": "gbenga_house_dining",
+      "text": [
+        "DINNERTAP"
+      ],
+      "placeholder": false,
+      "actors": [
+        {
+          "id": "rich",
+          "slot": "left",
+          "src": "assets/rich_standing_right.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": -12.90625,
+            "y": 171,
+            "width": 249.75,
+            "height": 299.703125,
+            "top": 171,
+            "right": 236.84375,
+            "bottom": 470.703125,
+            "left": -12.90625
+          },
+          "flip": ""
+        },
+        {
+          "id": "mama_gbenga",
+          "slot": "mid",
+          "src": "inline PNG generated by registered frozen-asset loader; see asset census",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": 78.578125,
+            "y": 171,
+            "width": 249.75,
+            "height": 299.703125,
+            "top": 171,
+            "right": 328.328125,
+            "bottom": 470.703125,
+            "left": 78.578125
+          },
+          "flip": ""
+        },
+        {
+          "id": "gbenga",
+          "slot": "right",
+          "src": "inline PNG generated by registered frozen-asset loader; see asset census",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": 172.25,
+            "y": 171,
+            "width": 249.75,
+            "height": 299.703125,
+            "top": 171,
+            "right": 422,
+            "bottom": 470.703125,
+            "left": 172.25
+          },
+          "flip": ""
+        }
+      ],
+      "combat": false,
+      "minigame": null
+    },
+    {
+      "requested": "NEW_OGA_M7:patio",
+      "id": "NEW_OGA_M7",
+      "node": "patio",
+      "env": "gbenga_house_patio",
+      "text": [
+        "THE PATIOTAP"
+      ],
+      "placeholder": false,
+      "actors": [
+        {
+          "id": "rich",
+          "slot": "left",
+          "src": "assets/rich_standing_right.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": -2.0625,
+            "y": 191,
+            "width": 213.765625,
+            "height": 256.53125,
+            "top": 191,
+            "right": 211.703125,
+            "bottom": 447.53125,
+            "left": -2.0625
+          },
+          "flip": ""
+        },
+        {
+          "id": "gbenga",
+          "slot": "right",
+          "src": "inline PNG generated by registered frozen-asset loader; see asset census",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": 178.25,
+            "y": 191,
+            "width": 213.765625,
+            "height": 256.53125,
+            "top": 191,
+            "right": 392.015625,
+            "bottom": 447.53125,
+            "left": 178.25
+          },
+          "flip": ""
+        }
+      ],
+      "combat": false,
+      "minigame": null
+    },
+    {
+      "requested": "NEW_OGA_M7:door",
+      "id": "NEW_OGA_M7",
+      "node": "door",
+      "env": "gbenga_house_dining",
+      "text": [
+        "AT THE DOORTAP"
+      ],
+      "placeholder": false,
+      "actors": [
+        {
+          "id": "rich",
+          "slot": "left",
+          "src": "assets/rich_standing_right.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": -2.90625,
+            "y": 191,
+            "width": 213.765625,
+            "height": 256.53125,
+            "top": 191,
+            "right": 210.859375,
+            "bottom": 447.53125,
+            "left": -2.90625
+          },
+          "flip": ""
+        },
+        {
+          "id": "mama_gbenga",
+          "slot": "right",
+          "src": "inline PNG generated by registered frozen-asset loader; see asset census",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": 179.078125,
+            "y": 191,
+            "width": 213.765625,
+            "height": 256.53125,
+            "top": 191,
+            "right": 392.84375,
+            "bottom": 447.53125,
+            "left": 179.078125
+          },
+          "flip": ""
+        }
+      ],
+      "combat": false,
+      "minigame": null
+    },
+    {
+      "requested": "NEW_OGA_M8:job",
+      "id": "NEW_OGA_M8",
+      "node": "job",
+      "env": "bedroom",
+      "text": [
+        "JOB TEXT \u00b7 THE TURF WARTAP"
+      ],
+      "placeholder": false,
+      "actors": [
+        {
+          "id": "rich",
+          "slot": "left",
+          "src": "assets/rich_standing_right.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": -3.734375,
+            "y": 94,
+            "width": 320,
+            "height": 384,
+            "top": 94,
+            "right": 316.265625,
+            "bottom": 478,
+            "left": -3.734375
+          },
+          "flip": ""
+        }
+      ],
+      "combat": false,
+      "minigame": null
+    },
+    {
+      "requested": "NEW_OGA_M9:voice",
+      "id": "NEW_OGA_M9",
+      "node": "voice",
+      "env": "gbenga_rentals",
+      "text": [
+        "VOICE NOTE \u00b7 THE TRIBUTETAP"
+      ],
+      "placeholder": false,
+      "actors": [
+        {
+          "id": "rich",
+          "slot": "left",
+          "src": "assets/rich_standing_right.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": -2.0625,
+            "y": 191,
+            "width": 213.765625,
+            "height": 256.53125,
+            "top": 191,
+            "right": 211.703125,
+            "bottom": 447.53125,
+            "left": -2.0625
+          },
+          "flip": ""
+        },
+        {
+          "id": "gbenga",
+          "slot": "right",
+          "src": "inline PNG generated by registered frozen-asset loader; see asset census",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": 178.25,
+            "y": 191,
+            "width": 213.765625,
+            "height": 256.53125,
+            "top": 191,
+            "right": 392.015625,
+            "bottom": 447.53125,
+            "left": 178.25
+          },
+          "flip": ""
+        }
+      ],
+      "combat": false,
+      "minigame": null
+    },
+    {
+      "requested": "NEW_OGA_M10:voice",
+      "id": "NEW_OGA_M10",
+      "node": "voice",
+      "env": "gbenga_rentals",
+      "text": [
+        "VICE PRESIDENTTAP"
+      ],
+      "placeholder": false,
+      "actors": [
+        {
+          "id": "rich",
+          "slot": "left",
+          "src": "assets/rich_standing_right.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": -2.0625,
+            "y": 191,
+            "width": 213.765625,
+            "height": 256.53125,
+            "top": 191,
+            "right": 211.703125,
+            "bottom": 447.53125,
+            "left": -2.0625
+          },
+          "flip": ""
+        },
+        {
+          "id": "gbenga",
+          "slot": "right",
+          "src": "inline PNG generated by registered frozen-asset loader; see asset census",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": 178.25,
+            "y": 191,
+            "width": 213.765625,
+            "height": 256.53125,
+            "top": 191,
+            "right": 392.015625,
+            "bottom": 447.53125,
+            "left": 178.25
+          },
+          "flip": ""
+        }
+      ],
+      "combat": false,
+      "minigame": null
+    },
+    {
+      "requested": "NEW_OGA_VAMPGPT:vampgpt",
+      "id": "NEW_OGA_VAMPGPT",
+      "node": "vampgpt",
+      "env": "bedroom",
+      "text": [
+        "VAMPGPT \u00b7 WAKETAP"
+      ],
+      "placeholder": false,
+      "actors": [
+        {
+          "id": "rich",
+          "slot": "left",
+          "src": "assets/rich_standing_right.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": -3.734375,
+            "y": 94,
+            "width": 320,
+            "height": 384,
+            "top": 94,
+            "right": 316.265625,
+            "bottom": 478,
+            "left": -3.734375
+          },
+          "flip": ""
+        }
+      ],
+      "combat": false,
+      "minigame": null
+    },
+    {
+      "requested": "NEW_OGA_FINALE:plan",
+      "id": "NEW_OGA_FINALE",
+      "node": "plan",
+      "env": "castle_exterior",
+      "text": [
+        "THE CASTLE \u00b7 THE PLANTAP"
+      ],
+      "placeholder": false,
+      "actors": [
+        {
+          "id": "rich",
+          "slot": "left",
+          "src": "assets/rich_standing_right.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": -3.734375,
+            "y": 94,
+            "width": 320,
+            "height": 384,
+            "top": 94,
+            "right": 316.265625,
+            "bottom": 478,
+            "left": -3.734375
+          },
+          "flip": ""
+        }
+      ],
+      "combat": false,
+      "minigame": null
+    },
+    {
+      "requested": "NEW_OGA_FINALE:pick2",
+      "id": "NEW_OGA_FINALE",
+      "node": "pick2",
+      "env": "castle_exterior",
+      "text": [
+        "one more dont invite everybody"
+      ],
+      "placeholder": false,
+      "actors": [
+        {
+          "id": "rich",
+          "slot": "left",
+          "src": "assets/rich_standing_right.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": -3.734375,
+            "y": 94,
+            "width": 320,
+            "height": 384,
+            "top": 94,
+            "right": 316.265625,
+            "bottom": 478,
+            "left": -3.734375
+          },
+          "flip": ""
+        }
+      ],
+      "combat": false,
+      "minigame": null
+    },
+    {
+      "requested": "NEW_OGA_FINALE:crew",
+      "id": "NEW_OGA_FINALE",
+      "node": "crew",
+      "env": "castle_exterior",
+      "text": [
+        "THE PLANTAP"
+      ],
+      "placeholder": false,
+      "actors": [
+        {
+          "id": "rich",
+          "slot": "left",
+          "src": "assets/rich_standing_right.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": -3.734375,
+            "y": 94,
+            "width": 320,
+            "height": 384,
+            "top": 94,
+            "right": 316.265625,
+            "bottom": 478,
+            "left": -3.734375
+          },
+          "flip": ""
+        }
+      ],
+      "combat": false,
+      "minigame": null
+    },
+    {
+      "requested": "NEW_OGA_FINALE:party",
+      "id": "NEW_OGA_FINALE",
+      "node": "party",
+      "env": "f07_warehouse_party",
+      "text": [
+        "THE PARTYTAP"
+      ],
+      "placeholder": false,
+      "actors": [
+        {
+          "id": "rich",
+          "slot": "left",
+          "src": "assets/rich_standing_right.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": -3.734375,
+            "y": 94,
+            "width": 320,
+            "height": 384,
+            "top": 94,
+            "right": 316.265625,
+            "bottom": 478,
+            "left": -3.734375
+          },
+          "flip": ""
+        }
+      ],
+      "combat": false,
+      "minigame": null
+    },
+    {
+      "requested": "NEW_OGA_FINALE:office",
+      "id": "NEW_OGA_FINALE",
+      "node": "office",
+      "env": "f07_warehouse_party",
+      "text": [
+        "THE OFFICETAP"
+      ],
+      "placeholder": false,
+      "actors": [
+        {
+          "id": "rich",
+          "slot": "left",
+          "src": "assets/rich_standing_right.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": -2.0625,
+            "y": 191,
+            "width": 213.765625,
+            "height": 256.53125,
+            "top": 191,
+            "right": 211.703125,
+            "bottom": 447.53125,
+            "left": -2.0625
+          },
+          "flip": ""
+        },
+        {
+          "id": "gbenga",
+          "slot": "right",
+          "src": "inline PNG generated by registered frozen-asset loader; see asset census",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": 178.25,
+            "y": 191,
+            "width": 213.765625,
+            "height": 256.53125,
+            "top": 191,
+            "right": 392.015625,
+            "bottom": 447.53125,
+            "left": 178.25
+          },
+          "flip": ""
+        }
+      ],
+      "combat": false,
+      "minigame": null
+    },
+    {
+      "requested": "NEW_OGA_FINALE:blessing",
+      "id": "NEW_OGA_FINALE",
+      "node": "blessing",
+      "env": "gbenga_rentals",
+      "text": [
+        "uncle hands over the earpiece you boss now"
+      ],
+      "placeholder": false,
+      "actors": [
+        {
+          "id": "rich",
+          "slot": "left",
+          "src": "assets/rich_standing_right.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": -2.0625,
+            "y": 191,
+            "width": 213.765625,
+            "height": 256.53125,
+            "top": 191,
+            "right": 211.703125,
+            "bottom": 447.53125,
+            "left": -2.0625
+          },
+          "flip": ""
+        },
+        {
+          "id": "gbenga",
+          "slot": "right",
+          "src": "inline PNG generated by registered frozen-asset loader; see asset census",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": 178.25,
+            "y": 191,
+            "width": 213.765625,
+            "height": 256.53125,
+            "top": 191,
+            "right": 392.015625,
+            "bottom": 447.53125,
+            "left": 178.25
+          },
+          "flip": ""
+        }
+      ],
+      "combat": false,
+      "minigame": null
+    },
+    {
+      "requested": "NEW_OGA_FINALE:consigliere",
+      "id": "NEW_OGA_FINALE",
+      "node": "consigliere",
+      "env": "gbenga_rentals",
+      "text": [
+        "uncle stays as advisor voice notes unavoidable"
+      ],
+      "placeholder": false,
+      "actors": [
+        {
+          "id": "rich",
+          "slot": "left",
+          "src": "assets/rich_standing_right.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": -2.0625,
+            "y": 191,
+            "width": 213.765625,
+            "height": 256.53125,
+            "top": 191,
+            "right": 211.703125,
+            "bottom": 447.53125,
+            "left": -2.0625
+          },
+          "flip": ""
+        },
+        {
+          "id": "gbenga",
+          "slot": "right",
+          "src": "inline PNG generated by registered frozen-asset loader; see asset census",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": 178.25,
+            "y": 191,
+            "width": 213.765625,
+            "height": 256.53125,
+            "top": 191,
+            "right": 392.015625,
+            "bottom": 447.53125,
+            "left": 178.25
+          },
+          "flip": ""
+        }
+      ],
+      "combat": false,
+      "minigame": null
+    },
+    {
+      "requested": "NEW_OGA_FINALE:takeover",
+      "id": "NEW_OGA_FINALE",
+      "node": "takeover",
+      "env": "f07_warehouse_exterior",
+      "text": [
+        "gbenga leaves la warehouse yours damn"
+      ],
+      "placeholder": false,
+      "actors": [
+        {
+          "id": "rich",
+          "slot": "left",
+          "src": "assets/rich_standing_right.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": -2.90625,
+            "y": 201,
+            "width": 213.765625,
+            "height": 256.53125,
+            "top": 201,
+            "right": 210.859375,
+            "bottom": 457.53125,
+            "left": -2.90625
+          },
+          "flip": ""
+        }
+      ],
+      "combat": false,
+      "minigame": null
+    },
+    {
+      "requested": "YAM:arrive",
+      "id": "YAM",
+      "node": "arrive",
+      "env": "naija_mart",
+      "text": [
+        "NAIJA MART \u00b7 THE YAMTAP"
+      ],
+      "placeholder": false,
+      "actors": [
+        {
+          "id": "rich",
+          "slot": "left",
+          "src": "assets/rich_standing_right.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": -18.734375,
+            "y": 94,
+            "width": 320,
+            "height": 384,
+            "top": 94,
+            "right": 301.265625,
+            "bottom": 478,
+            "left": -18.734375
+          },
+          "flip": ""
+        },
+        {
+          "id": "auntie",
+          "slot": "right",
+          "src": "assets/before_the_fame/characters/auntie/auntie_register_neutral_80x96.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": 176.578125,
+            "y": 90,
+            "width": 320,
+            "height": 384,
+            "top": 90,
+            "right": 496.578125,
+            "bottom": 474,
+            "left": 176.578125
+          },
+          "flip": ""
+        }
+      ],
+      "combat": false,
+      "minigame": null
+    },
+    {
+      "requested": "YAM:carry",
+      "id": "YAM",
+      "node": "carry",
+      "env": "naija_lot",
+      "text": [
+        "yam riding shotgun like it paid for gas"
+      ],
+      "placeholder": false,
+      "actors": [
+        {
+          "id": "rich",
+          "slot": "left",
+          "src": "assets/rich_standing_right.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": -3.734375,
+            "y": 94,
+            "width": 320,
+            "height": 384,
+            "top": 94,
+            "right": 316.265625,
+            "bottom": 478,
+            "left": -3.734375
+          },
+          "flip": ""
+        }
+      ],
+      "combat": false,
+      "minigame": null
+    },
+    {
+      "requested": "YAM:kitchen",
+      "id": "YAM",
+      "node": "kitchen",
+      "env": "kitchen",
+      "text": [
+        "yam on the counter acting like the landlord"
+      ],
+      "placeholder": false,
+      "actors": [
+        {
+          "id": "rich",
+          "slot": "left",
+          "src": "assets/rich_standing_right.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": -3.734375,
+            "y": 94,
+            "width": 320,
+            "height": 384,
+            "top": 94,
+            "right": 316.265625,
+            "bottom": 478,
+            "left": -3.734375
+          },
+          "flip": ""
+        }
+      ],
+      "combat": false,
+      "minigame": null
+    },
+    {
+      "requested": "YAM:phone",
+      "id": "YAM",
+      "node": "phone",
+      "env": "kitchen",
+      "text": [
+        "uncle sunday calls like he got yam notifications on"
+      ],
+      "placeholder": false,
+      "actors": [
+        {
+          "id": "rich",
+          "slot": "left",
+          "src": "assets/rich_standing_right.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": -17.234375,
+            "y": 117,
+            "width": 298.921875,
+            "height": 358.71875,
+            "top": 117,
+            "right": 281.6875,
+            "bottom": 475.71875,
+            "left": -17.234375
+          },
+          "flip": ""
+        },
+        {
+          "id": "uncle_sunday",
+          "slot": "right",
+          "src": "assets/before_the_fame/characters/uncle_sunday/uncle_sunday_neutral_80x96.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": 176.921875,
+            "y": 117,
+            "width": 298.921875,
+            "height": 358.71875,
+            "top": 117,
+            "right": 475.84375,
+            "bottom": 475.71875,
+            "left": 176.921875
+          },
+          "flip": ""
+        }
+      ],
+      "combat": false,
+      "minigame": null
+    },
+    {
+      "requested": "AUNTIES:arrive",
+      "id": "AUNTIES",
+      "node": "arrive",
+      "env": "naija_lot",
+      "text": [
+        "NAIJA MART \u00b7 THE PARKING LOTTAP"
+      ],
+      "placeholder": false,
+      "actors": [
+        {
+          "id": "rich",
+          "slot": "left",
+          "src": "assets/rich_standing_right.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": -16.90625,
+            "y": 125,
+            "width": 292.03125,
+            "height": 350.4375,
+            "top": 125,
+            "right": 275.125,
+            "bottom": 475.4375,
+            "left": -16.90625
+          },
+          "flip": ""
+        },
+        {
+          "id": "auntie",
+          "slot": "right",
+          "src": "assets/before_the_fame/characters/auntie/auntie_register_neutral_80x96.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": 166.25,
+            "y": 121,
+            "width": 292.03125,
+            "height": 350.4375,
+            "top": 121,
+            "right": 458.28125,
+            "bottom": 471.4375,
+            "left": 166.25
+          },
+          "flip": ""
+        },
+        {
+          "id": "auntie",
+          "slot": "farRight",
+          "src": "assets/before_the_fame/characters/auntie/auntie_register_neutral_80x96.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": 227.5625,
+            "y": 121,
+            "width": 292.03125,
+            "height": 350.4375,
+            "top": 121,
+            "right": 519.59375,
+            "bottom": 471.4375,
+            "left": 227.5625
+          },
+          "flip": ""
+        }
+      ],
+      "combat": false,
+      "minigame": null
+    },
+    {
+      "requested": "FUFU:arrive",
+      "id": "FUFU",
+      "node": "arrive",
+      "env": "kitchen",
+      "text": [
+        "FUFU FRIDAYTAP"
+      ],
+      "placeholder": false,
+      "actors": [
+        {
+          "id": "rich",
+          "slot": "left",
+          "src": "assets/rich_standing_right.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": -18.734375,
+            "y": 94,
+            "width": 320,
+            "height": 384,
+            "top": 94,
+            "right": 301.265625,
+            "bottom": 478,
+            "left": -18.734375
+          },
+          "flip": ""
+        },
+        {
+          "id": "tunde",
+          "slot": "right",
+          "src": "assets/before_the_fame/characters/tunde/tunde_neutral_80x96.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": 176.578125,
+            "y": 94,
+            "width": 320,
+            "height": 384,
+            "top": 94,
+            "right": 496.578125,
+            "bottom": 478,
+            "left": 176.578125
+          },
+          "flip": ""
+        }
+      ],
+      "combat": false,
+      "minigame": null
+    },
+    {
+      "requested": "FUFU:mom",
+      "id": "FUFU",
+      "node": "mom",
+      "env": "kitchen",
+      "text": [
+        "mom joins like she got a warrant"
+      ],
+      "placeholder": false,
+      "actors": [
+        {
+          "id": "mom",
+          "slot": "left",
+          "src": "assets/before_the_fame/characters/mom/mom_neutral_80x96.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": -20.0625,
+            "y": 90,
+            "width": 320,
+            "height": 384,
+            "top": 90,
+            "right": 299.9375,
+            "bottom": 474,
+            "left": -20.0625
+          },
+          "flip": ""
+        },
+        {
+          "id": "rich",
+          "slot": "mid",
+          "src": "assets/rich_standing_right.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": 77.921875,
+            "y": 94,
+            "width": 320,
+            "height": 384,
+            "top": 94,
+            "right": 397.921875,
+            "bottom": 478,
+            "left": 77.921875
+          },
+          "flip": ""
+        },
+        {
+          "id": "tunde",
+          "slot": "right",
+          "src": "assets/before_the_fame/characters/tunde/tunde_neutral_80x96.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": 175.921875,
+            "y": 94,
+            "width": 320,
+            "height": 384,
+            "top": 94,
+            "right": 495.921875,
+            "bottom": 478,
+            "left": 175.921875
+          },
+          "flip": ""
+        }
+      ],
+      "combat": false,
+      "minigame": null
+    },
+    {
+      "requested": "FUFU:rule",
+      "id": "FUFU",
+      "node": "rule",
+      "env": "kitchen",
+      "text": [
+        "dont chew it"
+      ],
+      "placeholder": false,
+      "actors": [
+        {
+          "id": "rich",
+          "slot": "left",
+          "src": "assets/rich_standing_right.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": -18.734375,
+            "y": 94,
+            "width": 320,
+            "height": 384,
+            "top": 94,
+            "right": 301.265625,
+            "bottom": 478,
+            "left": -18.734375
+          },
+          "flip": ""
+        },
+        {
+          "id": "tunde",
+          "slot": "right",
+          "src": "assets/before_the_fame/characters/tunde/tunde_neutral_80x96.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": 176.578125,
+            "y": 94,
+            "width": 320,
+            "height": 384,
+            "top": 94,
+            "right": 496.578125,
+            "bottom": 478,
+            "left": 176.578125
+          },
+          "flip": ""
+        }
+      ],
+      "combat": false,
+      "minigame": null
+    },
+    {
+      "requested": "PLATES:knock",
+      "id": "PLATES",
+      "node": "knock",
+      "env": "bedroom",
+      "text": [
+        "MOM SENT PLATESTAP"
+      ],
+      "placeholder": false,
+      "actors": [
+        {
+          "id": "rich",
+          "slot": "left",
+          "src": "assets/rich_standing_right.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": -3.734375,
+            "y": 94,
+            "width": 320,
+            "height": 384,
+            "top": 94,
+            "right": 316.265625,
+            "bottom": 478,
+            "left": -3.734375
+          },
+          "flip": ""
+        }
+      ],
+      "combat": false,
+      "minigame": null
+    },
+    {
+      "requested": "PLATES:hub",
+      "id": "PLATES",
+      "node": "hub",
+      "env": "castle_exterior",
+      "text": [
+        "where does the first plate go?"
+      ],
+      "placeholder": false,
+      "actors": [
+        {
+          "id": "rich",
+          "slot": "left",
+          "src": "assets/rich_standing_right.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": -3.734375,
+            "y": 94,
+            "width": 320,
+            "height": 384,
+            "top": 94,
+            "right": 316.265625,
+            "bottom": 478,
+            "left": -3.734375
+          },
+          "flip": ""
+        }
+      ],
+      "combat": false,
+      "minigame": null
+    },
+    {
+      "requested": "PLATES:tunde",
+      "id": "PLATES",
+      "node": "tunde",
+      "env": "castle_exterior",
+      "text": [
+        "tunde checks the foil like tsa"
+      ],
+      "placeholder": false,
+      "actors": [
+        {
+          "id": "rich",
+          "slot": "left",
+          "src": "assets/rich_standing_right.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": -18.734375,
+            "y": 94,
+            "width": 320,
+            "height": 384,
+            "top": 94,
+            "right": 301.265625,
+            "bottom": 478,
+            "left": -18.734375
+          },
+          "flip": ""
+        },
+        {
+          "id": "tunde",
+          "slot": "right",
+          "src": "assets/before_the_fame/characters/tunde/tunde_neutral_80x96.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": 176.578125,
+            "y": 94,
+            "width": 320,
+            "height": 384,
+            "top": 94,
+            "right": 496.578125,
+            "bottom": 478,
+            "left": 176.578125
+          },
+          "flip": ""
+        }
+      ],
+      "combat": false,
+      "minigame": null
+    },
+    {
+      "requested": "PLATES:coffe",
+      "id": "PLATES",
+      "node": "coffe",
+      "env": "castle_exterior",
+      "text": [
+        "coffe eats like the plate got a timer"
+      ],
+      "placeholder": false,
+      "actors": [
+        {
+          "id": "rich",
+          "slot": "left",
+          "src": "assets/rich_standing_right.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": -18.0625,
+            "y": 94,
+            "width": 320,
+            "height": 384,
+            "top": 94,
+            "right": 301.9375,
+            "bottom": 478,
+            "left": -18.0625
+          },
+          "flip": ""
+        },
+        {
+          "id": "coffe",
+          "slot": "right",
+          "src": "assets/before_the_fame/characters/coffe/coffe_neutral_80x96.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": 177.921875,
+            "y": 94,
+            "width": 320,
+            "height": 384,
+            "top": 94,
+            "right": 497.921875,
+            "bottom": 478,
+            "left": 177.921875
+          },
+          "flip": ""
+        }
+      ],
+      "combat": false,
+      "minigame": null
+    },
+    {
+      "requested": "PLATES:dre",
+      "id": "PLATES",
+      "node": "dre",
+      "env": "castle_exterior",
+      "text": [
+        "this shit spicy"
+      ],
+      "placeholder": false,
+      "actors": [
+        {
+          "id": "rich",
+          "slot": "left",
+          "src": "assets/rich_standing_right.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": -18.40625,
+            "y": 94,
+            "width": 320,
+            "height": 384,
+            "top": 94,
+            "right": 301.59375,
+            "bottom": 478,
+            "left": -18.40625
+          },
+          "flip": ""
+        },
+        {
+          "id": "dre",
+          "slot": "right",
+          "src": "assets/before_the_fame/characters/dre/dre_neutral_80x96.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": 177.578125,
+            "y": 94,
+            "width": 320,
+            "height": 384,
+            "top": 94,
+            "right": 497.578125,
+            "bottom": 478,
+            "left": 177.578125
+          },
+          "flip": ""
+        }
+      ],
+      "combat": false,
+      "minigame": null
+    },
+    {
+      "requested": "PLATES:lil_smack",
+      "id": "PLATES",
+      "node": "lil_smack",
+      "env": "castle_exterior",
+      "text": [
+        "lil smack eats the foil too"
+      ],
+      "placeholder": false,
+      "actors": [
+        {
+          "id": "rich",
+          "slot": "left",
+          "src": "assets/rich_standing_right.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": -17.734375,
+            "y": 110,
+            "width": 305.140625,
+            "height": 366.1875,
+            "top": 110,
+            "right": 287.40625,
+            "bottom": 476.1875,
+            "left": -17.734375
+          },
+          "flip": ""
+        },
+        {
+          "id": "lil_smack",
+          "slot": "right",
+          "src": "assets/before_the_fame/characters/lil_smack/lil_smack_eating_80x96.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": 177.25,
+            "y": 110,
+            "width": 305.140625,
+            "height": 366.1875,
+            "top": 110,
+            "right": 482.390625,
+            "bottom": 476.1875,
+            "left": 177.25
+          },
+          "flip": ""
+        }
+      ],
+      "combat": false,
+      "minigame": null
+    },
+    {
+      "requested": "PLATES:end",
+      "id": "PLATES",
+      "node": "end",
+      "env": "castle_exterior",
+      "text": [
+        "send pictures i know yall lie"
+      ],
+      "placeholder": false,
+      "actors": [
+        {
+          "id": "rich",
+          "slot": "left",
+          "src": "assets/rich_standing_right.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": -3.734375,
+            "y": 94,
+            "width": 320,
+            "height": 384,
+            "top": 94,
+            "right": 316.265625,
+            "bottom": 478,
+            "left": -3.734375
+          },
+          "flip": ""
+        }
+      ],
+      "combat": false,
+      "minigame": null
+    },
+    {
+      "requested": "A30:wake",
+      "id": "A30",
+      "node": "wake",
+      "env": "portobello_bedroom",
+      "text": [
+        "A TUESDAYTAP"
+      ],
+      "placeholder": false,
+      "actors": [
+        {
+          "id": "rich_portobello",
+          "slot": "mid",
+          "src": "assets/before_the_fame/characters/rich_portobello/rich_portobello_standing_80x96.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": 89.421875,
+            "y": 90,
+            "width": 320,
+            "height": 384,
+            "top": 90,
+            "right": 409.421875,
+            "bottom": 474,
+            "left": 89.421875
+          },
+          "flip": ""
+        },
+        {
+          "id": "portobello_wife",
+          "slot": "left",
+          "src": "assets/before_the_fame/characters/portobello_wife/portobello_wife_neutral_80x96.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": -8.5625,
+            "y": 90,
+            "width": 320,
+            "height": 384,
+            "top": 90,
+            "right": 311.4375,
+            "bottom": 474,
+            "left": -8.5625
+          },
+          "flip": ""
+        }
+      ],
+      "combat": false,
+      "minigame": null
+    },
+    {
+      "requested": "A30:breakfast",
+      "id": "A30",
+      "node": "breakfast",
+      "env": "portobello_bedroom",
+      "text": [
+        "eggs two kids arguing mazda outside just a car"
+      ],
+      "placeholder": false,
+      "actors": [
+        {
+          "id": "rich_portobello",
+          "slot": "mid",
+          "src": "assets/before_the_fame/characters/rich_portobello/rich_portobello_standing_80x96.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": 76.25,
+            "y": 121,
+            "width": 292.03125,
+            "height": 350.4375,
+            "top": 121,
+            "right": 368.28125,
+            "bottom": 471.4375,
+            "left": 76.25
+          },
+          "flip": ""
+        },
+        {
+          "id": "portobello_wife",
+          "slot": "left",
+          "src": "assets/before_the_fame/characters/portobello_wife/portobello_wife_neutral_80x96.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": -19.234375,
+            "y": 121,
+            "width": 292.03125,
+            "height": 350.4375,
+            "top": 121,
+            "right": 272.796875,
+            "bottom": 471.4375,
+            "left": -19.234375
+          },
+          "flip": ""
+        },
+        {
+          "id": "portobello_kid1",
+          "slot": "right",
+          "src": "assets/before_the_fame/characters/portobello_kid1/portobello_kid1_neutral_80x96.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": 171.75,
+            "y": 121,
+            "width": 292.03125,
+            "height": 350.4375,
+            "top": 121,
+            "right": 463.78125,
+            "bottom": 471.4375,
+            "left": 171.75
+          },
+          "flip": ""
+        },
+        {
+          "id": "portobello_kid2",
+          "slot": "farRight",
+          "src": "assets/before_the_fame/characters/portobello_kid2/portobello_kid2_neutral_80x96.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": 232.40625,
+            "y": 121,
+            "width": 292.03125,
+            "height": 350.4375,
+            "top": 121,
+            "right": 524.4375,
+            "bottom": 471.4375,
+            "left": 232.40625
+          },
+          "flip": ""
+        }
+      ],
+      "combat": false,
+      "minigame": null
+    },
+    {
+      "requested": "A30:kpi1",
+      "id": "A30",
+      "node": "kpi1",
+      "env": "portobello_office",
+      "text": [
+        "SLIDE 1."
+      ],
+      "placeholder": false,
+      "actors": [
+        {
+          "id": "rich_portobello",
+          "slot": "left",
+          "src": "assets/before_the_fame/characters/rich_portobello/rich_portobello_presenting_80x96.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": -13.40625,
+            "y": 117,
+            "width": 295.90625,
+            "height": 355.09375,
+            "top": 117,
+            "right": 282.5,
+            "bottom": 472.09375,
+            "left": -13.40625
+          },
+          "flip": ""
+        },
+        {
+          "id": "portobello_manager",
+          "slot": "right",
+          "src": "assets/before_the_fame/characters/portobello_manager/portobello_manager_neutral_80x96.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": 180.25,
+            "y": 117,
+            "width": 295.90625,
+            "height": 355.09375,
+            "top": 117,
+            "right": 476.15625,
+            "bottom": 472.09375,
+            "left": 180.25
+          },
+          "flip": "scaleX(-1)"
+        }
+      ],
+      "combat": false,
+      "minigame": null
+    },
+    {
+      "requested": "A30:kpi2",
+      "id": "A30",
+      "node": "kpi2",
+      "env": "portobello_office",
+      "text": [
+        "SLIDE 2."
+      ],
+      "placeholder": false,
+      "actors": [
+        {
+          "id": "rich_portobello",
+          "slot": "left",
+          "src": "assets/before_the_fame/characters/rich_portobello/rich_portobello_presenting_80x96.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": -13.40625,
+            "y": 117,
+            "width": 295.90625,
+            "height": 355.09375,
+            "top": 117,
+            "right": 282.5,
+            "bottom": 472.09375,
+            "left": -13.40625
+          },
+          "flip": ""
+        },
+        {
+          "id": "portobello_manager",
+          "slot": "right",
+          "src": "assets/before_the_fame/characters/portobello_manager/portobello_manager_neutral_80x96.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": 180.25,
+            "y": 117,
+            "width": 295.90625,
+            "height": 355.09375,
+            "top": 117,
+            "right": 476.15625,
+            "bottom": 472.09375,
+            "left": 180.25
+          },
+          "flip": "scaleX(-1)"
+        }
+      ],
+      "combat": false,
+      "minigame": null
+    },
+    {
+      "requested": "A30:kpi3",
+      "id": "A30",
+      "node": "kpi3",
+      "env": "portobello_office",
+      "text": [
+        "SLIDE 3."
+      ],
+      "placeholder": false,
+      "actors": [
+        {
+          "id": "rich_portobello",
+          "slot": "left",
+          "src": "assets/before_the_fame/characters/rich_portobello/rich_portobello_presenting_80x96.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": -13.40625,
+            "y": 117,
+            "width": 295.90625,
+            "height": 355.09375,
+            "top": 117,
+            "right": 282.5,
+            "bottom": 472.09375,
+            "left": -13.40625
+          },
+          "flip": ""
+        },
+        {
+          "id": "portobello_manager",
+          "slot": "right",
+          "src": "assets/before_the_fame/characters/portobello_manager/portobello_manager_neutral_80x96.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": 180.25,
+            "y": 117,
+            "width": 295.90625,
+            "height": 355.09375,
+            "top": 117,
+            "right": 476.15625,
+            "bottom": 472.09375,
+            "left": 180.25
+          },
+          "flip": "scaleX(-1)"
+        }
+      ],
+      "combat": false,
+      "minigame": null
+    },
+    {
+      "requested": "A30:approve",
+      "id": "A30",
+      "node": "approve",
+      "env": "portobello_office",
+      "text": [
+        "whole room agrees with him damn"
+      ],
+      "placeholder": false,
+      "actors": [
+        {
+          "id": "rich_portobello",
+          "slot": "left",
+          "src": "assets/before_the_fame/characters/rich_portobello/rich_portobello_presenting_80x96.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": -13.40625,
+            "y": 117,
+            "width": 295.90625,
+            "height": 355.09375,
+            "top": 117,
+            "right": 282.5,
+            "bottom": 472.09375,
+            "left": -13.40625
+          },
+          "flip": ""
+        },
+        {
+          "id": "portobello_manager",
+          "slot": "right",
+          "src": "assets/before_the_fame/characters/portobello_manager/portobello_manager_neutral_80x96.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": 180.25,
+            "y": 117,
+            "width": 295.90625,
+            "height": 355.09375,
+            "top": 117,
+            "right": 476.15625,
+            "bottom": 472.09375,
+            "left": 180.25
+          },
+          "flip": "scaleX(-1)"
+        }
+      ],
+      "combat": false,
+      "minigame": null
+    },
+    {
+      "requested": "A30:bedtime",
+      "id": "A30",
+      "node": "bedtime",
+      "env": "portobello_bedroom",
+      "text": [
+        "bath teeth fake dragon bedtime book"
+      ],
+      "placeholder": false,
+      "actors": [
+        {
+          "id": "rich_portobello",
+          "slot": "mid",
+          "src": "assets/before_the_fame/characters/rich_portobello/rich_portobello_standing_80x96.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": 79.25,
+            "y": 90,
+            "width": 320,
+            "height": 384,
+            "top": 90,
+            "right": 399.25,
+            "bottom": 474,
+            "left": 79.25
+          },
+          "flip": ""
+        },
+        {
+          "id": "portobello_kid1",
+          "slot": "left",
+          "src": "assets/before_the_fame/characters/portobello_kid1/portobello_kid1_neutral_80x96.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": -18.734375,
+            "y": 90,
+            "width": 320,
+            "height": 384,
+            "top": 90,
+            "right": 301.265625,
+            "bottom": 474,
+            "left": -18.734375
+          },
+          "flip": ""
+        },
+        {
+          "id": "portobello_kid2",
+          "slot": "right",
+          "src": "assets/before_the_fame/characters/portobello_kid2/portobello_kid2_neutral_80x96.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": 177.25,
+            "y": 90,
+            "width": 320,
+            "height": 384,
+            "top": 90,
+            "right": 497.25,
+            "bottom": 474,
+            "left": 177.25
+          },
+          "flip": ""
+        }
+      ],
+      "combat": false,
+      "minigame": null
+    },
+    {
+      "requested": "A30:porch",
+      "id": "A30",
+      "node": "porch",
+      "env": "portobello_porch",
+      "text": [
+        "sun goes down she leans on him"
+      ],
+      "placeholder": false,
+      "actors": [
+        {
+          "id": "rich_portobello",
+          "slot": "left",
+          "src": "assets/before_the_fame/characters/rich_portobello/rich_portobello_porch_seated_80x96.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": -16.734375,
+            "y": 90,
+            "width": 320,
+            "height": 384,
+            "top": 90,
+            "right": 303.265625,
+            "bottom": 474,
+            "left": -16.734375
+          },
+          "flip": ""
+        },
+        {
+          "id": "portobello_wife",
+          "slot": "right",
+          "src": "assets/before_the_fame/characters/portobello_wife/portobello_wife_neutral_80x96.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": 179.078125,
+            "y": 90,
+            "width": 320,
+            "height": 384,
+            "top": 90,
+            "right": 499.078125,
+            "bottom": 474,
+            "left": 179.078125
+          },
+          "flip": ""
+        }
+      ],
+      "combat": false,
+      "minigame": null
+    },
+    {
+      "requested": "A30:bed",
+      "id": "A30",
+      "node": "bed",
+      "env": "portobello_bedroom",
+      "text": [
+        "what if though"
+      ],
+      "placeholder": false,
+      "actors": [
+        {
+          "id": "rich_portobello",
+          "slot": "mid",
+          "src": "assets/before_the_fame/characters/rich_portobello/rich_portobello_standing_80x96.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": 89.421875,
+            "y": 90,
+            "width": 320,
+            "height": 384,
+            "top": 90,
+            "right": 409.421875,
+            "bottom": 474,
+            "left": 89.421875
+          },
+          "flip": ""
+        },
+        {
+          "id": "portobello_wife",
+          "slot": "left",
+          "src": "assets/before_the_fame/characters/portobello_wife/portobello_wife_neutral_80x96.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": -8.5625,
+            "y": 90,
+            "width": 320,
+            "height": 384,
+            "top": 90,
+            "right": 311.4375,
+            "bottom": 474,
+            "left": -8.5625
+          },
+          "flip": ""
+        }
+      ],
+      "combat": false,
+      "minigame": null
+    },
+    {
+      "requested": "A30:wakeup",
+      "id": "A30",
+      "node": "wakeup",
+      "env": "bedroom",
+      "text": [
+        "rich wakes up yelling"
+      ],
+      "placeholder": false,
+      "actors": [
+        {
+          "id": "rich",
+          "slot": "mid",
+          "src": "assets/rich_standing_right.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": 78.921875,
+            "y": 94,
+            "width": 320,
+            "height": 384,
+            "top": 94,
+            "right": 398.921875,
+            "bottom": 478,
+            "left": 78.921875
+          },
+          "flip": ""
+        }
+      ],
+      "combat": false,
+      "minigame": null
+    },
+    {
+      "requested": "A57:stop",
+      "id": "A57",
+      "node": "stop",
+      "env": "street_night",
+      "text": [
+        "PULLED OVERTAP"
+      ],
+      "placeholder": false,
+      "actors": [
+        {
+          "id": "rich",
+          "slot": "left",
+          "src": "assets/rich_standing_right.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": -18.734375,
+            "y": 94,
+            "width": 320,
+            "height": 384,
+            "top": 94,
+            "right": 301.265625,
+            "bottom": 478,
+            "left": -18.734375
+          },
+          "flip": ""
+        },
+        {
+          "id": "officer_nodd",
+          "slot": "right",
+          "src": "assets/before_the_fame/art_ship_014/package_a/A-officer_nodd-nod.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": 176.578125,
+            "y": 94,
+            "width": 320,
+            "height": 384,
+            "top": 94,
+            "right": 496.578125,
+            "bottom": 478,
+            "left": 176.578125
+          },
+          "flip": ""
+        }
+      ],
+      "combat": false,
+      "minigame": null
+    },
+    {
+      "requested": "A57:leave",
+      "id": "A57",
+      "node": "leave",
+      "env": "street_night",
+      "text": [
+        "ten seconds and you free to go"
+      ],
+      "placeholder": false,
+      "actors": [
+        {
+          "id": "rich",
+          "slot": "left",
+          "src": "assets/rich_standing_right.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": -18.734375,
+            "y": 94,
+            "width": 320,
+            "height": 384,
+            "top": 94,
+            "right": 301.265625,
+            "bottom": 478,
+            "left": -18.734375
+          },
+          "flip": ""
+        },
+        {
+          "id": "officer_nodd",
+          "slot": "right",
+          "src": "assets/before_the_fame/art_ship_014/package_a/A-officer_nodd-nod.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": 176.578125,
+            "y": 94,
+            "width": 320,
+            "height": 384,
+            "top": 94,
+            "right": 496.578125,
+            "bottom": 478,
+            "left": 176.578125
+          },
+          "flip": ""
+        }
+      ],
+      "combat": false,
+      "minigame": null
+    },
+    {
+      "requested": "A18:arrive",
+      "id": "A18",
+      "node": "arrive",
+      "env": "grave",
+      "text": [
+        "WAIT, WHY ARE THERE FORTY OF THEMTAP"
+      ],
+      "placeholder": false,
+      "actors": [
+        {
+          "id": "rich",
+          "slot": "left",
+          "src": "assets/rich_standing_right.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": -3.734375,
+            "y": 94,
+            "width": 320,
+            "height": 384,
+            "top": 94,
+            "right": 316.265625,
+            "bottom": 478,
+            "left": -3.734375
+          },
+          "flip": ""
+        }
+      ],
+      "combat": false,
+      "minigame": null
+    },
+    {
+      "requested": "A18:drop",
+      "id": "A18",
+      "node": "drop",
+      "env": "grave",
+      "text": [
+        "something falls out the food court vent"
+      ],
+      "placeholder": false,
+      "actors": [
+        {
+          "id": "rich",
+          "slot": "left",
+          "src": "assets/rich_standing_right.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": -18.734375,
+            "y": 94,
+            "width": 320,
+            "height": 384,
+            "top": 94,
+            "right": 301.265625,
+            "bottom": 478,
+            "left": -18.734375
+          },
+          "flip": ""
+        },
+        {
+          "id": "kaede",
+          "slot": "right",
+          "src": "assets/before_the_fame/art_ship_014/package_a/A-kaede-ceiling_drop.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": 177.25,
+            "y": 102,
+            "width": 320,
+            "height": 384,
+            "top": 102,
+            "right": 497.25,
+            "bottom": 486,
+            "left": 177.25
+          },
+          "flip": ""
+        }
+      ],
+      "combat": false,
+      "minigame": null
+    },
+    {
+      "requested": "A18:talk",
+      "id": "A18",
+      "node": "talk",
+      "env": "grave",
+      "text": [
+        "followed one kevin now its a family reunion"
+      ],
+      "placeholder": false,
+      "actors": [
+        {
+          "id": "rich",
+          "slot": "left",
+          "src": "assets/rich_standing_right.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": -17.40625,
+            "y": 94,
+            "width": 320,
+            "height": 384,
+            "top": 94,
+            "right": 302.59375,
+            "bottom": 478,
+            "left": -17.40625
+          },
+          "flip": ""
+        },
+        {
+          "id": "kaede",
+          "slot": "right",
+          "src": "assets/before_the_fame/characters/kaede/kaede_neutral_80x96.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": 178.578125,
+            "y": 94,
+            "width": 320,
+            "height": 384,
+            "top": 94,
+            "right": 498.578125,
+            "bottom": 478,
+            "left": 178.578125
+          },
+          "flip": ""
+        }
+      ],
+      "combat": false,
+      "minigame": null
+    },
+    {
+      "requested": "A19:arrive",
+      "id": "A19",
+      "node": "arrive",
+      "env": "food_court",
+      "text": [
+        "THE LAST ORANGE CHICKENTAP"
+      ],
+      "placeholder": false,
+      "actors": [
+        {
+          "id": "rich",
+          "slot": "left",
+          "src": "assets/rich_standing_right.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": -18.40625,
+            "y": 94,
+            "width": 320,
+            "height": 384,
+            "top": 94,
+            "right": 301.59375,
+            "bottom": 478,
+            "left": -18.40625
+          },
+          "flip": ""
+        },
+        {
+          "id": "bruce_loose",
+          "slot": "right",
+          "src": "assets/before_the_fame/characters/bruce_loose/bruce_loose_neutral_80x96.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": 177.578125,
+            "y": 94,
+            "width": 320,
+            "height": 384,
+            "top": 94,
+            "right": 497.578125,
+            "bottom": 478,
+            "left": 177.578125
+          },
+          "flip": ""
+        }
+      ],
+      "combat": false,
+      "minigame": null
+    },
+    {
+      "requested": "A39:ghost",
+      "id": "A39",
+      "node": "ghost",
+      "env": "throne",
+      "text": [
+        "THE THRONE ROOM \u00b7 INTERVIEWSTAP"
+      ],
+      "placeholder": false,
+      "actors": [
+        {
+          "id": "rich",
+          "slot": "mid",
+          "src": "assets/rich_standing_right.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": 78.921875,
+            "y": 94,
+            "width": 320,
+            "height": 384,
+            "top": 94,
+            "right": 398.921875,
+            "bottom": 478,
+            "left": 78.921875
+          },
+          "flip": ""
+        }
+      ],
+      "combat": false,
+      "minigame": null
+    },
+    {
+      "requested": "A39:marisol",
+      "id": "A39",
+      "node": "marisol",
+      "env": "throne",
+      "text": [
+        "marisol walks in and starts moving furniture"
+      ],
+      "placeholder": false,
+      "actors": [
+        {
+          "id": "rich",
+          "slot": "mid",
+          "src": "assets/rich_standing_right.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": 66.578125,
+            "y": 94,
+            "width": 320,
+            "height": 384,
+            "top": 94,
+            "right": 386.578125,
+            "bottom": 478,
+            "left": 66.578125
+          },
+          "flip": ""
+        },
+        {
+          "id": "marisol",
+          "slot": "right",
+          "src": "assets/before_the_fame/art_ship_014/package_a/A-marisol-disapproving.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": 164.578125,
+            "y": 76.72000122070312,
+            "width": 320,
+            "height": 384,
+            "top": 76.72000122070312,
+            "right": 484.578125,
+            "bottom": 460.7200012207031,
+            "left": 164.578125
+          },
+          "flip": ""
+        }
+      ],
+      "combat": false,
+      "minigame": null
+    },
+    {
+      "requested": "A10:arrive",
+      "id": "A10",
+      "node": "arrive",
+      "env": "pet_crypt",
+      "text": [
+        "PET CRYPTTAP"
+      ],
+      "placeholder": false,
+      "actors": [
+        {
+          "id": "rich",
+          "slot": "left",
+          "src": "assets/rich_standing_right.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": -16.90625,
+            "y": 125,
+            "width": 292.03125,
+            "height": 350.4375,
+            "top": 125,
+            "right": 275.125,
+            "bottom": 475.4375,
+            "left": -16.90625
+          },
+          "flip": ""
+        },
+        {
+          "id": "uncle_sunday",
+          "slot": "farRight",
+          "src": "assets/before_the_fame/characters/uncle_sunday/uncle_sunday_neutral_80x96.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": 225.734375,
+            "y": 125,
+            "width": 292.03125,
+            "height": 350.4375,
+            "top": 125,
+            "right": 517.765625,
+            "bottom": 475.4375,
+            "left": 225.734375
+          },
+          "flip": ""
+        }
+      ],
+      "combat": false,
+      "minigame": null
+    },
+    {
+      "requested": "A10:pay",
+      "id": "A10",
+      "node": "pay",
+      "env": "pet_crypt",
+      "text": [
+        "\u2026you would insult me like that? fine. FINE."
+      ],
+      "placeholder": false,
+      "actors": [
+        {
+          "id": "rich",
+          "slot": "left",
+          "src": "assets/rich_standing_right.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": -16.90625,
+            "y": 125,
+            "width": 292.03125,
+            "height": 350.4375,
+            "top": 125,
+            "right": 275.125,
+            "bottom": 475.4375,
+            "left": -16.90625
+          },
+          "flip": ""
+        },
+        {
+          "id": "uncle_sunday",
+          "slot": "farRight",
+          "src": "assets/before_the_fame/characters/uncle_sunday/uncle_sunday_offended_80x96.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": 225.734375,
+            "y": 125,
+            "width": 292.03125,
+            "height": 350.4375,
+            "top": 125,
+            "right": 517.765625,
+            "bottom": 475.4375,
+            "left": 225.734375
+          },
+          "flip": ""
+        }
+      ],
+      "combat": false,
+      "minigame": null
+    },
+    {
+      "requested": "A10:melt",
+      "id": "A10",
+      "node": "melt",
+      "env": "pet_crypt",
+      "text": [
+        "call him uncle."
+      ],
+      "placeholder": false,
+      "actors": [
+        {
+          "id": "rich",
+          "slot": "left",
+          "src": "assets/rich_standing_right.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": -16.90625,
+            "y": 125,
+            "width": 292.03125,
+            "height": 350.4375,
+            "top": 125,
+            "right": 275.125,
+            "bottom": 475.4375,
+            "left": -16.90625
+          },
+          "flip": ""
+        },
+        {
+          "id": "uncle_sunday",
+          "slot": "farRight",
+          "src": "assets/before_the_fame/characters/uncle_sunday/uncle_sunday_melted_80x96.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": 219.0625,
+            "y": 125,
+            "width": 292.03125,
+            "height": 350.4375,
+            "top": 125,
+            "right": 511.09375,
+            "bottom": 475.4375,
+            "left": 219.0625
+          },
+          "flip": ""
+        }
+      ],
+      "combat": false,
+      "minigame": null
+    },
+    {
+      "requested": "A10:settle",
+      "id": "A10",
+      "node": "settle",
+      "env": "pet_crypt",
+      "text": [
+        "you eating well? text me. i worry."
+      ],
+      "placeholder": false,
+      "actors": [
+        {
+          "id": "rich",
+          "slot": "left",
+          "src": "assets/rich_standing_right.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": -16.90625,
+            "y": 125,
+            "width": 292.03125,
+            "height": 350.4375,
+            "top": 125,
+            "right": 275.125,
+            "bottom": 475.4375,
+            "left": -16.90625
+          },
+          "flip": ""
+        },
+        {
+          "id": "uncle_sunday",
+          "slot": "farRight",
+          "src": "assets/before_the_fame/characters/uncle_sunday/uncle_sunday_neutral_80x96.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": 225.734375,
+            "y": 125,
+            "width": 292.03125,
+            "height": 350.4375,
+            "top": 125,
+            "right": 517.765625,
+            "bottom": 475.4375,
+            "left": 225.734375
+          },
+          "flip": ""
+        }
+      ],
+      "combat": false,
+      "minigame": null
+    },
+    {
+      "requested": "A43:arrive",
+      "id": "A43",
+      "node": "arrive",
+      "env": "naija_mart",
+      "text": [
+        "NAIJA MART \u00b7 HAWTHORNETAP"
+      ],
+      "placeholder": false,
+      "actors": [
+        {
+          "id": "rich",
+          "slot": "left",
+          "src": "assets/rich_standing_right.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": -18.734375,
+            "y": 94,
+            "width": 320,
+            "height": 384,
+            "top": 94,
+            "right": 301.265625,
+            "bottom": 478,
+            "left": -18.734375
+          },
+          "flip": ""
+        },
+        {
+          "id": "auntie",
+          "slot": "right",
+          "src": "assets/before_the_fame/characters/auntie/auntie_register_neutral_80x96.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": 176.578125,
+            "y": 90,
+            "width": 320,
+            "height": 384,
+            "top": 90,
+            "right": 496.578125,
+            "bottom": 474,
+            "left": 176.578125
+          },
+          "flip": ""
+        }
+      ],
+      "combat": false,
+      "minigame": null
+    },
+    {
+      "requested": "A43:curb",
+      "id": "A43",
+      "node": "curb",
+      "env": "naija_lot",
+      "text": [
+        "outside, on the curb of the lot. the malt is cold."
+      ],
+      "placeholder": false,
+      "actors": [
+        {
+          "id": "rich",
+          "slot": "left",
+          "src": "assets/rich_standing_right.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": -3.734375,
+            "y": 94,
+            "width": 320,
+            "height": 384,
+            "top": 94,
+            "right": 316.265625,
+            "bottom": 478,
+            "left": -3.734375
+          },
+          "flip": ""
+        }
+      ],
+      "combat": false,
+      "minigame": null
+    },
+    {
+      "requested": "A50:arrive",
+      "id": "A50",
+      "node": "arrive",
+      "env": "lan_night",
+      "text": [
+        "TRISTAN'S \u00b7 4 A.M.TAP"
+      ],
+      "placeholder": false,
+      "actors": [
+        {
+          "id": "rich",
+          "slot": "left",
+          "src": "assets/rich_standing_right.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": -17.40625,
+            "y": 94,
+            "width": 320,
+            "height": 384,
+            "top": 94,
+            "right": 302.59375,
+            "bottom": 478,
+            "left": -17.40625
+          },
+          "flip": ""
+        },
+        {
+          "id": "tristan",
+          "slot": "right",
+          "src": "assets/before_the_fame/characters/tristan/tristan_neutral_80x96.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": 178.578125,
+            "y": 94,
+            "width": 320,
+            "height": 384,
+            "top": 94,
+            "right": 498.578125,
+            "bottom": 478,
+            "left": 178.578125
+          },
+          "flip": ""
+        }
+      ],
+      "combat": false,
+      "minigame": null
+    },
+    {
+      "requested": "A31:start",
+      "id": "A31",
+      "node": "start",
+      "env": "street_night",
+      "text": [
+        "sunday night. rich wants to go somewhere he can't explain."
+      ],
+      "placeholder": false,
+      "actors": [
+        {
+          "id": "rich",
+          "slot": "mid",
+          "src": "assets/rich_standing_right.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": 78.921875,
+            "y": 94,
+            "width": 320,
+            "height": 384,
+            "top": 94,
+            "right": 398.921875,
+            "bottom": 478,
+            "left": 78.921875
+          },
+          "flip": ""
+        }
+      ],
+      "combat": false,
+      "minigame": null
+    },
+    {
+      "requested": "A31:arrive",
+      "id": "A31",
+      "node": "arrive",
+      "env": "curb",
+      "text": [
+        "the curb. the same curb, always."
+      ],
+      "placeholder": false,
+      "actors": [
+        {
+          "id": "rich",
+          "slot": "left",
+          "src": "assets/rich_standing_right.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": -56.265625,
+            "y": 94,
+            "width": 320,
+            "height": 384,
+            "top": 94,
+            "right": 263.734375,
+            "bottom": 478,
+            "left": -56.265625
+          },
+          "flip": ""
+        },
+        {
+          "id": "god",
+          "slot": "right",
+          "src": "assets/before_the_fame/art_ship_015/package_a/A-god-seated_on_curb.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": 125.71875,
+            "y": 94,
+            "width": 320,
+            "height": 384,
+            "top": 94,
+            "right": 445.71875,
+            "bottom": 478,
+            "left": 125.71875
+          },
+          "flip": ""
+        }
+      ],
+      "combat": false,
+      "minigame": null
+    },
+    {
+      "requested": "A31:fade",
+      "id": "A31",
+      "node": "fade",
+      "env": "curb",
+      "text": [
+        "she fades. the way morning fades a dream \u2014 you don't see it happen, you just notice that it did."
+      ],
+      "placeholder": false,
+      "actors": [
+        {
+          "id": "rich",
+          "slot": "left",
+          "src": "assets/rich_standing_right.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": -56.265625,
+            "y": 94,
+            "width": 320,
+            "height": 384,
+            "top": 94,
+            "right": 263.734375,
+            "bottom": 478,
+            "left": -56.265625
+          },
+          "flip": ""
+        },
+        {
+          "id": "god",
+          "slot": "right",
+          "src": "assets/before_the_fame/art_ship_015/package_a/A-god-fading.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": 125.71875,
+            "y": 94,
+            "width": 320,
+            "height": 384,
+            "top": 94,
+            "right": 445.71875,
+            "bottom": 478,
+            "left": 125.71875
+          },
+          "flip": ""
+        }
+      ],
+      "combat": false,
+      "minigame": null
+    },
+    {
+      "requested": "A56:arrive",
+      "id": "A56",
+      "node": "arrive",
+      "env": "kitchen",
+      "text": [
+        "\u2026"
+      ],
+      "placeholder": false,
+      "actors": [
+        {
+          "id": "rich",
+          "slot": "left",
+          "src": "assets/rich_standing_right.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": -17.734375,
+            "y": 110,
+            "width": 305.140625,
+            "height": 366.1875,
+            "top": 110,
+            "right": 287.40625,
+            "bottom": 476.1875,
+            "left": -17.734375
+          },
+          "flip": ""
+        },
+        {
+          "id": "lil_smack",
+          "slot": "right",
+          "src": "assets/before_the_fame/art_ship_014/package_a/A-lil_smack-finale.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": 177.25,
+            "y": 88.02874755859375,
+            "width": 305.140625,
+            "height": 366.1875,
+            "top": 88.02874755859375,
+            "right": 482.390625,
+            "bottom": 454.21624755859375,
+            "left": 177.25
+          },
+          "flip": ""
+        }
+      ],
+      "combat": false,
+      "minigame": null
+    },
+    {
+      "requested": "A20:arrive",
+      "id": "A20",
+      "node": "arrive",
+      "env": "street_night",
+      "text": [
+        "DAY ONETAP"
+      ],
+      "placeholder": false,
+      "actors": [
+        {
+          "id": "rich",
+          "slot": "left",
+          "src": "assets/rich_standing_right.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": -17.0625,
+            "y": 120,
+            "width": 295.90625,
+            "height": 355.09375,
+            "top": 120,
+            "right": 278.84375,
+            "bottom": 475.09375,
+            "left": -17.0625
+          },
+          "flip": ""
+        },
+        {
+          "id": "phil",
+          "slot": "right",
+          "src": "assets/before_the_fame/characters/phil/power_level_phil_charging_day1_80x96.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": 176.578125,
+            "y": 120,
+            "width": 295.90625,
+            "height": 355.09375,
+            "top": 120,
+            "right": 472.484375,
+            "bottom": 475.09375,
+            "left": 176.578125
+          },
+          "flip": ""
+        }
+      ],
+      "combat": false,
+      "minigame": null
+    },
+    {
+      "requested": "A20:food",
+      "id": "A20",
+      "node": "food",
+      "env": "street_night",
+      "text": [
+        "garlic knots interrupt the screaming"
+      ],
+      "placeholder": false,
+      "actors": [
+        {
+          "id": "rich",
+          "slot": "left",
+          "src": "assets/rich_standing_right.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": -2.875,
+            "y": 191,
+            "width": 213.765625,
+            "height": 256.53125,
+            "top": 191,
+            "right": 210.890625,
+            "bottom": 447.53125,
+            "left": -2.875
+          },
+          "flip": ""
+        },
+        {
+          "id": "phil",
+          "slot": "right",
+          "src": "inline PNG generated by registered frozen-asset loader; see asset census",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": 179.109375,
+            "y": 191,
+            "width": 213.765625,
+            "height": 256.53125,
+            "top": 191,
+            "right": 392.875,
+            "bottom": 447.53125,
+            "left": 179.109375
+          },
+          "flip": ""
+        }
+      ],
+      "combat": false,
+      "minigame": null
+    },
+    {
+      "requested": "A20:wrap",
+      "id": "A20",
+      "node": "wrap",
+      "env": "street_night",
+      "text": [
+        "phil waves and keeps charging"
+      ],
+      "placeholder": false,
+      "actors": [
+        {
+          "id": "rich",
+          "slot": "left",
+          "src": "assets/rich_standing_right.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": -2.734375,
+            "y": 191,
+            "width": 213.765625,
+            "height": 256.53125,
+            "top": 191,
+            "right": 211.03125,
+            "bottom": 447.53125,
+            "left": -2.734375
+          },
+          "flip": ""
+        },
+        {
+          "id": "phil",
+          "slot": "right",
+          "src": "inline PNG generated by registered frozen-asset loader; see asset census",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": 178.921875,
+            "y": 191,
+            "width": 213.765625,
+            "height": 256.53125,
+            "top": 191,
+            "right": 392.6875,
+            "bottom": 447.53125,
+            "left": 178.921875
+          },
+          "flip": ""
+        }
+      ],
+      "combat": false,
+      "minigame": null
+    },
+    {
+      "requested": "A27:arrive",
+      "id": "A27",
+      "node": "arrive",
+      "env": "throne_party_mess",
+      "text": [
+        "THE MORNING AFTERTAP"
+      ],
+      "placeholder": false,
+      "actors": [
+        {
+          "id": "rich",
+          "slot": "mid",
+          "src": "assets/rich_standing_right.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": 78.921875,
+            "y": 94,
+            "width": 320,
+            "height": 384,
+            "top": 94,
+            "right": 398.921875,
+            "bottom": 478,
+            "left": 78.921875
+          },
+          "flip": ""
+        }
+      ],
+      "combat": false,
+      "minigame": null
+    },
+    {
+      "requested": "A23:arrive",
+      "id": "A23",
+      "node": "arrive",
+      "env": "bedroom",
+      "text": [
+        "HE DOESN'T KNOCKTAP"
+      ],
+      "placeholder": false,
+      "actors": [
+        {
+          "id": "rich",
+          "slot": "left",
+          "src": "assets/rich_standing_right.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": -17.40625,
+            "y": 114,
+            "width": 302,
+            "height": 362.40625,
+            "top": 114,
+            "right": 284.59375,
+            "bottom": 476.40625,
+            "left": -17.40625
+          },
+          "flip": ""
+        },
+        {
+          "id": "hilt",
+          "slot": "right",
+          "src": "assets/before_the_fame/characters/hilt/hilt_neutral_80x96.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": 177.078125,
+            "y": 114,
+            "width": 302,
+            "height": 362.40625,
+            "top": 114,
+            "right": 479.078125,
+            "bottom": 476.40625,
+            "left": 177.078125
+          },
+          "flip": ""
+        }
+      ],
+      "combat": false,
+      "minigame": null
+    },
+    {
+      "requested": "A23:leave",
+      "id": "A23",
+      "node": "leave",
+      "env": "bedroom",
+      "text": [
+        "leaves through a locked door like rent due"
+      ],
+      "placeholder": false,
+      "actors": [
+        {
+          "id": "rich",
+          "slot": "left",
+          "src": "assets/rich_standing_right.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": -16.90625,
+            "y": 125,
+            "width": 292.03125,
+            "height": 350.4375,
+            "top": 125,
+            "right": 275.125,
+            "bottom": 475.4375,
+            "left": -16.90625
+          },
+          "flip": ""
+        },
+        {
+          "id": "hilt",
+          "slot": "right",
+          "src": "assets/before_the_fame/characters/hilt/hilt_walk_away_80x96.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": 173.921875,
+            "y": 125,
+            "width": 292.03125,
+            "height": 350.4375,
+            "top": 125,
+            "right": 465.953125,
+            "bottom": 475.4375,
+            "left": 173.921875
+          },
+          "flip": ""
+        }
+      ],
+      "combat": false,
+      "minigame": null
+    },
+    {
+      "requested": "A24:arrive",
+      "id": "A24",
+      "node": "arrive",
+      "env": "armory",
+      "text": [
+        "BEHIND THE CHURCHTAP"
+      ],
+      "placeholder": false,
+      "actors": [
+        {
+          "id": "rich",
+          "slot": "left",
+          "src": "assets/rich_standing_right.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": -17.40625,
+            "y": 114,
+            "width": 302,
+            "height": 362.40625,
+            "top": 114,
+            "right": 284.59375,
+            "bottom": 476.40625,
+            "left": -17.40625
+          },
+          "flip": ""
+        },
+        {
+          "id": "deacon_brass",
+          "slot": "right",
+          "src": "assets/before_the_fame/characters/deacon_brass/deacon_brass_neutral_80x96.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": 177.078125,
+            "y": 114,
+            "width": 302,
+            "height": 362.40625,
+            "top": 114,
+            "right": 479.078125,
+            "bottom": 476.40625,
+            "left": 177.078125
+          },
+          "flip": ""
+        }
+      ],
+      "combat": false,
+      "minigame": null
+    },
+    {
+      "requested": "JOLLOF_WARS:arrive",
+      "id": "JOLLOF_WARS",
+      "node": "arrive",
+      "env": "kitchen",
+      "text": [
+        "first sunday. every kitchen in the diaspora smells like this today."
+      ],
+      "placeholder": false,
+      "actors": [
+        {
+          "id": "rich",
+          "slot": "left",
+          "src": "assets/rich_standing_right.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": -3.734375,
+            "y": 94,
+            "width": 320,
+            "height": 384,
+            "top": 94,
+            "right": 316.265625,
+            "bottom": 478,
+            "left": -3.734375
+          },
+          "flip": ""
+        }
+      ],
+      "combat": false,
+      "minigame": null
+    },
+    {
+      "requested": "A54:arrive",
+      "id": "A54",
+      "node": "arrive",
+      "env": "kitchen",
+      "text": [
+        "the final. mom is on video call, already judging your knife work through the phone camera."
+      ],
+      "placeholder": false,
+      "actors": [
+        {
+          "id": "rich",
+          "slot": "left",
+          "src": "assets/rich_standing_right.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": -17.734375,
+            "y": 110,
+            "width": 305.140625,
+            "height": 366.1875,
+            "top": 110,
+            "right": 287.40625,
+            "bottom": 476.1875,
+            "left": -17.734375
+          },
+          "flip": ""
+        },
+        {
+          "id": "lil_smack",
+          "slot": "right",
+          "src": "assets/before_the_fame/characters/lil_smack/lil_smack_eating_80x96.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": 177.25,
+            "y": 110,
+            "width": 305.140625,
+            "height": 366.1875,
+            "top": 110,
+            "right": 482.390625,
+            "bottom": 476.1875,
+            "left": 177.25
+          },
+          "flip": ""
+        }
+      ],
+      "combat": false,
+      "minigame": null
+    },
+    {
+      "requested": "ARMORY:shop",
+      "id": "ARMORY",
+      "node": "shop",
+      "env": "armory",
+      "text": [
+        "THE ARMORYTAP"
+      ],
+      "placeholder": false,
+      "actors": [
+        {
+          "id": "rich",
+          "slot": "left",
+          "src": "assets/rich_standing_right.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": -17.40625,
+            "y": 114,
+            "width": 302,
+            "height": 362.40625,
+            "top": 114,
+            "right": 284.59375,
+            "bottom": 476.40625,
+            "left": -17.40625
+          },
+          "flip": ""
+        },
+        {
+          "id": "deacon_brass",
+          "slot": "right",
+          "src": "assets/before_the_fame/characters/deacon_brass/deacon_brass_neutral_80x96.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": 177.078125,
+            "y": 114,
+            "width": 302,
+            "height": 362.40625,
+            "top": 114,
+            "right": 479.078125,
+            "bottom": 476.40625,
+            "left": 177.078125
+          },
+          "flip": ""
+        }
+      ],
+      "combat": false,
+      "minigame": null
+    },
+    {
+      "requested": "ARMORY_WALL:look",
+      "id": "ARMORY_WALL",
+      "node": "look",
+      "env": "armory",
+      "text": [
+        "an empty wall. it wants guns."
+      ],
+      "placeholder": false,
+      "actors": [
+        {
+          "id": "rich",
+          "slot": "left",
+          "src": "assets/rich_standing_right.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": -3.734375,
+            "y": 94,
+            "width": 320,
+            "height": 384,
+            "top": 94,
+            "right": 316.265625,
+            "bottom": 478,
+            "left": -3.734375
+          },
+          "flip": ""
+        }
+      ],
+      "combat": false,
+      "minigame": null
+    },
+    {
+      "requested": "A08:arrive",
+      "id": "A08",
+      "node": "arrive",
+      "env": "slurp",
+      "text": [
+        "SLURP DYNASTY \u00b7 LITTLE TOKYOTAP"
+      ],
+      "placeholder": false,
+      "actors": [
+        {
+          "id": "rich",
+          "slot": "left",
+          "src": "assets/rich_standing_right.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": -17.734375,
+            "y": 94,
+            "width": 320,
+            "height": 384,
+            "top": 94,
+            "right": 302.265625,
+            "bottom": 478,
+            "left": -17.734375
+          },
+          "flip": ""
+        },
+        {
+          "id": "okada",
+          "slot": "right",
+          "src": "assets/before_the_fame/characters/okada/mr_okada_neutral_80x96.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": 178.25,
+            "y": 94,
+            "width": 320,
+            "height": 384,
+            "top": 94,
+            "right": 498.25,
+            "bottom": 478,
+            "left": 178.25
+          },
+          "flip": ""
+        }
+      ],
+      "combat": false,
+      "minigame": null
+    },
+    {
+      "requested": "A08:hina",
+      "id": "A08",
+      "node": "hina",
+      "env": "slurp",
+      "text": [
+        "hina got a knife and a stopwatch you better move"
+      ],
+      "placeholder": false,
+      "actors": [
+        {
+          "id": "rich",
+          "slot": "left",
+          "src": "assets/before_the_fame/characters/rich/rich_ramen_apron_corrected_80x96.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": -24.734375,
+            "y": 125,
+            "width": 292.03125,
+            "height": 350.4375,
+            "top": 125,
+            "right": 267.296875,
+            "bottom": 475.4375,
+            "left": -24.734375
+          },
+          "flip": ""
+        },
+        {
+          "id": "okada",
+          "slot": "right",
+          "src": "assets/before_the_fame/characters/okada/mr_okada_neutral_80x96.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": 167.578125,
+            "y": 125,
+            "width": 292.03125,
+            "height": 350.4375,
+            "top": 125,
+            "right": 459.609375,
+            "bottom": 475.4375,
+            "left": 167.578125
+          },
+          "flip": ""
+        },
+        {
+          "id": "hina",
+          "slot": "farRight",
+          "src": "assets/before_the_fame/characters/hina/hina_neutral_80x96.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": 228.734375,
+            "y": 103.97374725341797,
+            "width": 292.03125,
+            "height": 350.4375,
+            "top": 103.97374725341797,
+            "right": 520.765625,
+            "bottom": 454.41124725341797,
+            "left": 228.734375
+          },
+          "flip": ""
+        }
+      ],
+      "combat": false,
+      "minigame": null
+    },
+    {
+      "requested": "SLURP:shift",
+      "id": "SLURP",
+      "node": "shift",
+      "env": "slurp",
+      "text": [
+        "okada nods fryers scream thats clock in"
+      ],
+      "placeholder": false,
+      "actors": [
+        {
+          "id": "rich",
+          "slot": "left",
+          "src": "assets/rich_standing_right.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": -17.734375,
+            "y": 94,
+            "width": 320,
+            "height": 384,
+            "top": 94,
+            "right": 302.265625,
+            "bottom": 478,
+            "left": -17.734375
+          },
+          "flip": ""
+        },
+        {
+          "id": "okada",
+          "slot": "right",
+          "src": "assets/before_the_fame/characters/okada/mr_okada_neutral_80x96.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": 178.25,
+            "y": 94,
+            "width": 320,
+            "height": 384,
+            "top": 94,
+            "right": 498.25,
+            "bottom": 478,
+            "left": 178.25
+          },
+          "flip": ""
+        }
+      ],
+      "combat": false,
+      "minigame": null
+    },
+    {
+      "requested": "RC3_FIGHT:brief",
+      "id": "RC3_FIGHT",
+      "node": "brief",
+      "env": "street_night",
+      "text": [
+        "crew blocked clear the street then collect"
+      ],
+      "placeholder": false,
+      "actors": [
+        {
+          "id": "rich",
+          "slot": "left",
+          "src": "assets/rich_standing_right.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": -2.90625,
+            "y": 191,
+            "width": 213.765625,
+            "height": 256.53125,
+            "top": 191,
+            "right": 210.859375,
+            "bottom": 447.53125,
+            "left": -2.90625
+          },
+          "flip": ""
+        },
+        {
+          "id": "smallie_cousin",
+          "slot": "right",
+          "src": "inline PNG generated by registered frozen-asset loader; see asset census",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": 179.078125,
+            "y": 191,
+            "width": 213.765625,
+            "height": 256.53125,
+            "top": 191,
+            "right": 392.84375,
+            "bottom": 447.53125,
+            "left": 179.078125
+          },
+          "flip": ""
+        }
+      ],
+      "combat": false,
+      "minigame": null
+    },
+    {
+      "requested": "F15_ROXY_L1:bing",
+      "id": "F15_ROXY_L1",
+      "node": "bing",
+      "env": "f15_bing",
+      "text": [
+        "THE BING \u2014 AFTER CLOSETAP"
+      ],
+      "placeholder": false,
+      "actors": [
+        {
+          "id": "rich",
+          "slot": "left",
+          "src": "assets/rich_standing_right.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": -16.234375,
+            "y": 137,
+            "width": 280.84375,
+            "height": 337,
+            "top": 137,
+            "right": 264.609375,
+            "bottom": 474,
+            "left": -16.234375
+          },
+          "flip": ""
+        },
+        {
+          "id": "roxy",
+          "slot": "right",
+          "src": "inline PNG generated by registered frozen-asset loader; see asset census",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": 165.578125,
+            "y": 137,
+            "width": 280.84375,
+            "height": 337,
+            "top": 137,
+            "right": 446.421875,
+            "bottom": 474,
+            "left": 165.578125
+          },
+          "flip": ""
+        }
+      ],
+      "combat": false,
+      "minigame": null
+    },
+    {
+      "requested": "F15_ROXY_L1:waffle",
+      "id": "F15_ROXY_L1",
+      "node": "waffle",
+      "env": "waffle_haven",
+      "text": [
+        "WAFFLE HAVEN \u2014 3 A.M.TAP"
+      ],
+      "placeholder": false,
+      "actors": [
+        {
+          "id": "rich",
+          "slot": "left",
+          "src": "assets/rich_standing_right.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": -16.234375,
+            "y": 137,
+            "width": 280.84375,
+            "height": 337,
+            "top": 137,
+            "right": 264.609375,
+            "bottom": 474,
+            "left": -16.234375
+          },
+          "flip": ""
+        },
+        {
+          "id": "roxy",
+          "slot": "right",
+          "src": "inline PNG generated by registered frozen-asset loader; see asset census",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": 165.578125,
+            "y": 137,
+            "width": 280.84375,
+            "height": 337,
+            "top": 137,
+            "right": 446.421875,
+            "bottom": 474,
+            "left": 165.578125
+          },
+          "flip": ""
+        }
+      ],
+      "combat": false,
+      "minigame": null
+    },
+    {
+      "requested": "F15_ROXY_L1:texts",
+      "id": "F15_ROXY_L1",
+      "node": "texts",
+      "env": "bedroom",
+      "text": [
+        "TEXTS \u2014 LATERTAP"
+      ],
+      "placeholder": false,
+      "actors": [
+        {
+          "id": "rich",
+          "slot": "left",
+          "src": "assets/rich_standing_right.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": -3.734375,
+            "y": 94,
+            "width": 320,
+            "height": 384,
+            "top": 94,
+            "right": 316.265625,
+            "bottom": 478,
+            "left": -3.734375
+          },
+          "flip": ""
+        }
+      ],
+      "combat": false,
+      "minigame": null
+    },
+    {
+      "requested": "F15_ROXY_L2:gym",
+      "id": "F15_ROXY_L2",
+      "node": "gym",
+      "env": "f15_gym",
+      "text": [
+        "BOXING GYM \u2014 6 P.M.TAP"
+      ],
+      "placeholder": false,
+      "actors": [
+        {
+          "id": "rich",
+          "slot": "left",
+          "src": "assets/rich_standing_right.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": -16.234375,
+            "y": 137,
+            "width": 280.84375,
+            "height": 337,
+            "top": 137,
+            "right": 264.609375,
+            "bottom": 474,
+            "left": -16.234375
+          },
+          "flip": ""
+        },
+        {
+          "id": "roxy",
+          "slot": "right",
+          "src": "inline PNG generated by registered frozen-asset loader; see asset census",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": 165.578125,
+            "y": 137,
+            "width": 280.84375,
+            "height": 337,
+            "top": 137,
+            "right": 446.421875,
+            "bottom": 474,
+            "left": 165.578125
+          },
+          "flip": ""
+        }
+      ],
+      "combat": false,
+      "minigame": null
+    },
+    {
+      "requested": "F15_ROXY_L2:after",
+      "id": "F15_ROXY_L2",
+      "node": "after",
+      "env": "f15_gym",
+      "text": [
+        "five game go think about it"
+      ],
+      "placeholder": false,
+      "actors": [
+        {
+          "id": "rich",
+          "slot": "left",
+          "src": "assets/rich_standing_right.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": -16.234375,
+            "y": 137,
+            "width": 280.84375,
+            "height": 337,
+            "top": 137,
+            "right": 264.609375,
+            "bottom": 474,
+            "left": -16.234375
+          },
+          "flip": ""
+        },
+        {
+          "id": "roxy",
+          "slot": "right",
+          "src": "inline PNG generated by registered frozen-asset loader; see asset census",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": 165.578125,
+            "y": 137,
+            "width": 280.84375,
+            "height": 337,
+            "top": 137,
+            "right": 446.421875,
+            "bottom": 474,
+            "left": 165.578125
+          },
+          "flip": ""
+        }
+      ],
+      "combat": false,
+      "minigame": null
+    },
+    {
+      "requested": "F15_ROXY_L2:ramen",
+      "id": "F15_ROXY_L2",
+      "node": "ramen",
+      "env": "little_tokyo",
+      "text": [
+        "LITTLE TOKYO \u2014 RAMENTAP"
+      ],
+      "placeholder": false,
+      "actors": [
+        {
+          "id": "rich",
+          "slot": "left",
+          "src": "assets/rich_standing_right.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": -16.234375,
+            "y": 137,
+            "width": 280.84375,
+            "height": 337,
+            "top": 137,
+            "right": 264.609375,
+            "bottom": 474,
+            "left": -16.234375
+          },
+          "flip": ""
+        },
+        {
+          "id": "roxy",
+          "slot": "right",
+          "src": "inline PNG generated by registered frozen-asset loader; see asset census",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": 165.578125,
+            "y": 137,
+            "width": 280.84375,
+            "height": 337,
+            "top": 137,
+            "right": 446.421875,
+            "bottom": 474,
+            "left": 165.578125
+          },
+          "flip": ""
+        }
+      ],
+      "combat": false,
+      "minigame": null
+    },
+    {
+      "requested": "F15_ROXY_L3:ring",
+      "id": "F15_ROXY_L3",
+      "node": "ring",
+      "env": "f15_gym",
+      "text": [
+        "BOXING GYM \u2014 SAME GYMTAP"
+      ],
+      "placeholder": false,
+      "actors": [
+        {
+          "id": "rich",
+          "slot": "left",
+          "src": "assets/rich_standing_right.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": -16.234375,
+            "y": 137,
+            "width": 280.84375,
+            "height": 337,
+            "top": 137,
+            "right": 264.609375,
+            "bottom": 474,
+            "left": -16.234375
+          },
+          "flip": ""
+        },
+        {
+          "id": "roxy",
+          "slot": "right",
+          "src": "inline PNG generated by registered frozen-asset loader; see asset census",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": 165.578125,
+            "y": 137,
+            "width": 280.84375,
+            "height": 337,
+            "top": 137,
+            "right": 446.421875,
+            "bottom": 474,
+            "left": 165.578125
+          },
+          "flip": ""
+        }
+      ],
+      "combat": false,
+      "minigame": null
+    },
+    {
+      "requested": "F15_ROXY_L4:texts",
+      "id": "F15_ROXY_L4",
+      "node": "texts",
+      "env": "bedroom",
+      "text": [
+        "TEXTSTAP"
+      ],
+      "placeholder": false,
+      "actors": [
+        {
+          "id": "rich",
+          "slot": "left",
+          "src": "assets/rich_standing_right.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": -3.734375,
+            "y": 94,
+            "width": 320,
+            "height": 384,
+            "top": 94,
+            "right": 316.265625,
+            "bottom": 478,
+            "left": -3.734375
+          },
+          "flip": ""
+        }
+      ],
+      "combat": false,
+      "minigame": null
+    },
+    {
+      "requested": "F15_ROXY_L4:door",
+      "id": "F15_ROXY_L4",
+      "node": "door",
+      "env": "f15_roxy_apartment",
+      "text": [
+        "ROXY'S APARTMENTTAP"
+      ],
+      "placeholder": false,
+      "actors": [
+        {
+          "id": "rich",
+          "slot": "left",
+          "src": "assets/rich_standing_right.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": -16.234375,
+            "y": 137,
+            "width": 280.84375,
+            "height": 337,
+            "top": 137,
+            "right": 264.609375,
+            "bottom": 474,
+            "left": -16.234375
+          },
+          "flip": ""
+        },
+        {
+          "id": "roxy",
+          "slot": "right",
+          "src": "inline PNG generated by registered frozen-asset loader; see asset census",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": 165.578125,
+            "y": 137,
+            "width": 280.84375,
+            "height": 337,
+            "top": 137,
+            "right": 446.421875,
+            "bottom": 474,
+            "left": 165.578125
+          },
+          "flip": ""
+        }
+      ],
+      "combat": false,
+      "minigame": null
+    },
+    {
+      "requested": "F15_ROSALYN_L1:bing",
+      "id": "F15_ROSALYN_L1",
+      "node": "bing",
+      "env": "f15_bing",
+      "text": [
+        "THE BING \u2014 AFTER HER SETTAP"
+      ],
+      "placeholder": false,
+      "actors": [
+        {
+          "id": "rich",
+          "slot": "left",
+          "src": "assets/rich_standing_right.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": -2.90625,
+            "y": 191,
+            "width": 213.765625,
+            "height": 256.53125,
+            "top": 191,
+            "right": 210.859375,
+            "bottom": 447.53125,
+            "left": -2.90625
+          },
+          "flip": ""
+        },
+        {
+          "id": "rosalyn",
+          "slot": "right",
+          "src": "inline PNG generated by registered frozen-asset loader; see asset census",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": 179.078125,
+            "y": 191,
+            "width": 213.765625,
+            "height": 256.53125,
+            "top": 191,
+            "right": 392.84375,
+            "bottom": 447.53125,
+            "left": 179.078125
+          },
+          "flip": ""
+        }
+      ],
+      "combat": false,
+      "minigame": null
+    },
+    {
+      "requested": "F15_ROSALYN_L1:plenitude",
+      "id": "F15_ROSALYN_L1",
+      "node": "plenitude",
+      "env": "f15_plenitude",
+      "text": [
+        "PL\u00c9NITUDETAP"
+      ],
+      "placeholder": false,
+      "actors": [
+        {
+          "id": "rich",
+          "slot": "left",
+          "src": "assets/rich_standing_right.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": -2.90625,
+            "y": 191,
+            "width": 213.765625,
+            "height": 256.53125,
+            "top": 191,
+            "right": 210.859375,
+            "bottom": 447.53125,
+            "left": -2.90625
+          },
+          "flip": ""
+        },
+        {
+          "id": "rosalyn",
+          "slot": "right",
+          "src": "inline PNG generated by registered frozen-asset loader; see asset census",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": 179.078125,
+            "y": 191,
+            "width": 213.765625,
+            "height": 256.53125,
+            "top": 191,
+            "right": 392.84375,
+            "bottom": 447.53125,
+            "left": 179.078125
+          },
+          "flip": ""
+        }
+      ],
+      "combat": false,
+      "minigame": null
+    },
+    {
+      "requested": "F15_ROSALYN_L2:boba",
+      "id": "F15_ROSALYN_L2",
+      "node": "boba",
+      "env": "boba_shop",
+      "text": [
+        "KIKI'S BOBATAP"
+      ],
+      "placeholder": false,
+      "actors": [
+        {
+          "id": "rich",
+          "slot": "left",
+          "src": "assets/rich_standing_right.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": -2.90625,
+            "y": 191,
+            "width": 213.765625,
+            "height": 256.53125,
+            "top": 191,
+            "right": 210.859375,
+            "bottom": 447.53125,
+            "left": -2.90625
+          },
+          "flip": ""
+        },
+        {
+          "id": "rosalyn",
+          "slot": "right",
+          "src": "inline PNG generated by registered frozen-asset loader; see asset census",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": 179.078125,
+            "y": 191,
+            "width": 213.765625,
+            "height": 256.53125,
+            "top": 191,
+            "right": 392.84375,
+            "bottom": 447.53125,
+            "left": 179.078125
+          },
+          "flip": ""
+        }
+      ],
+      "combat": false,
+      "minigame": null
+    },
+    {
+      "requested": "F15_ROSALYN_L2:texts",
+      "id": "F15_ROSALYN_L2",
+      "node": "texts",
+      "env": "bedroom",
+      "text": [
+        "TEXTS \u2014 THAT NIGHTTAP"
+      ],
+      "placeholder": false,
+      "actors": [
+        {
+          "id": "rich",
+          "slot": "left",
+          "src": "assets/rich_standing_right.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": -3.734375,
+            "y": 94,
+            "width": 320,
+            "height": 384,
+            "top": 94,
+            "right": 316.265625,
+            "bottom": 478,
+            "left": -3.734375
+          },
+          "flip": ""
+        }
+      ],
+      "combat": false,
+      "minigame": null
+    },
+    {
+      "requested": "F15_ROSALYN_L3:hall",
+      "id": "F15_ROSALYN_L3",
+      "node": "hall",
+      "env": "f15_convention",
+      "text": [
+        "YUCK WARS CONVENTIONTAP"
+      ],
+      "placeholder": false,
+      "actors": [
+        {
+          "id": "rich",
+          "slot": "left",
+          "src": "assets/rich_standing_right.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": -2.90625,
+            "y": 191,
+            "width": 213.765625,
+            "height": 256.53125,
+            "top": 191,
+            "right": 210.859375,
+            "bottom": 447.53125,
+            "left": -2.90625
+          },
+          "flip": ""
+        },
+        {
+          "id": "rosalyn",
+          "slot": "right",
+          "src": "inline PNG generated by registered frozen-asset loader; see asset census",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": 179.078125,
+            "y": 191,
+            "width": 213.765625,
+            "height": 256.53125,
+            "top": 191,
+            "right": 392.84375,
+            "bottom": 447.53125,
+            "left": 179.078125
+          },
+          "flip": ""
+        }
+      ],
+      "combat": false,
+      "minigame": null
+    },
+    {
+      "requested": "F15_ROSALYN_L3:texts",
+      "id": "F15_ROSALYN_L3",
+      "node": "texts",
+      "env": "bedroom",
+      "text": [
+        "TEXTS \u2014 AFTER THE CONTAP"
+      ],
+      "placeholder": false,
+      "actors": [
+        {
+          "id": "rich",
+          "slot": "left",
+          "src": "assets/rich_standing_right.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": -3.734375,
+            "y": 94,
+            "width": 320,
+            "height": 384,
+            "top": 94,
+            "right": 316.265625,
+            "bottom": 478,
+            "left": -3.734375
+          },
+          "flip": ""
+        }
+      ],
+      "combat": false,
+      "minigame": null
+    },
+    {
+      "requested": "F15_ROSALYN_L4:call",
+      "id": "F15_ROSALYN_L4",
+      "node": "call",
+      "env": "bedroom",
+      "text": [
+        "INCOMING CALL \u2014 ROSALYNTAP"
+      ],
+      "placeholder": false,
+      "actors": [
+        {
+          "id": "rich",
+          "slot": "left",
+          "src": "assets/rich_standing_right.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": -3.734375,
+            "y": 94,
+            "width": 320,
+            "height": 384,
+            "top": 94,
+            "right": 316.265625,
+            "bottom": 478,
+            "left": -3.734375
+          },
+          "flip": ""
+        }
+      ],
+      "combat": false,
+      "minigame": null
+    },
+    {
+      "requested": "F15_ROSALYN_L4:dark",
+      "id": "F15_ROSALYN_L4",
+      "node": "dark",
+      "env": "f15_rosalyn_apartment_dark",
+      "text": [
+        "ROSALYN'S APARTMENT \u2014 LIGHTS OFFTAP"
+      ],
+      "placeholder": false,
+      "actors": [
+        {
+          "id": "rich",
+          "slot": "farLeft",
+          "src": "assets/rich_standing_right.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": -56.96875,
+            "y": 211,
+            "width": 213.765625,
+            "height": 256.53125,
+            "top": 211,
+            "right": 156.796875,
+            "bottom": 467.53125,
+            "left": -56.96875
+          },
+          "flip": ""
+        },
+        {
+          "id": "spirit_of_uncle_bunmi",
+          "slot": "mid",
+          "src": "assets/f15/characters/spirit_of_uncle_bunmi_444x222.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": 89.25,
+            "y": 352,
+            "width": 192.390625,
+            "height": 96.1875,
+            "top": 352,
+            "right": 281.640625,
+            "bottom": 448.1875,
+            "left": 89.25
+          },
+          "flip": ""
+        },
+        {
+          "id": "rosalyn",
+          "slot": "farRight",
+          "src": "inline PNG generated by registered frozen-asset loader; see asset census",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": 236.0625,
+            "y": 211,
+            "width": 213.765625,
+            "height": 256.53125,
+            "top": 211,
+            "right": 449.828125,
+            "bottom": 467.53125,
+            "left": 236.0625
+          },
+          "flip": ""
+        }
+      ],
+      "combat": false,
+      "minigame": null
+    },
+    {
+      "requested": "F15_ROSALYN_L4:mug",
+      "id": "F15_ROSALYN_L4",
+      "node": "mug",
+      "env": "f15_rosalyn_apartment_dark",
+      "text": [
+        "use the mug"
+      ],
+      "placeholder": false,
+      "actors": [
+        {
+          "id": "rich",
+          "slot": "left",
+          "src": "assets/rich_standing_right.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": -2.90625,
+            "y": 191,
+            "width": 213.765625,
+            "height": 256.53125,
+            "top": 191,
+            "right": 210.859375,
+            "bottom": 447.53125,
+            "left": -2.90625
+          },
+          "flip": ""
+        },
+        {
+          "id": "rosalyn",
+          "slot": "right",
+          "src": "inline PNG generated by registered frozen-asset loader; see asset census",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": 179.078125,
+            "y": 191,
+            "width": 213.765625,
+            "height": 256.53125,
+            "top": 191,
+            "right": 392.84375,
+            "bottom": 447.53125,
+            "left": 179.078125
+          },
+          "flip": ""
+        }
+      ],
+      "combat": false,
+      "minigame": null
+    },
+    {
+      "requested": "F15_ROSALYN_L4:lights",
+      "id": "F15_ROSALYN_L4",
+      "node": "lights",
+      "env": "f15_rosalyn_apartment",
+      "text": [
+        "ROSALYN'S APARTMENT \u2014 LIGHTS ONTAP"
+      ],
+      "placeholder": false,
+      "actors": [
+        {
+          "id": "rich",
+          "slot": "left",
+          "src": "assets/rich_standing_right.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": -2.90625,
+            "y": 191,
+            "width": 213.765625,
+            "height": 256.53125,
+            "top": 191,
+            "right": 210.859375,
+            "bottom": 447.53125,
+            "left": -2.90625
+          },
+          "flip": ""
+        },
+        {
+          "id": "rosalyn",
+          "slot": "right",
+          "src": "inline PNG generated by registered frozen-asset loader; see asset census",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": 179.078125,
+            "y": 191,
+            "width": 213.765625,
+            "height": 256.53125,
+            "top": 191,
+            "right": 392.84375,
+            "bottom": 447.53125,
+            "left": 179.078125
+          },
+          "flip": ""
+        }
+      ],
+      "combat": false,
+      "minigame": null
+    },
+    {
+      "requested": "F15_EMERALD_L1:bing",
+      "id": "F15_EMERALD_L1",
+      "node": "bing",
+      "env": "f15_bing",
+      "text": [
+        "THE BING \u2014 AFTER HER SETTAP"
+      ],
+      "placeholder": false,
+      "actors": [
+        {
+          "id": "rich",
+          "slot": "left",
+          "src": "assets/rich_standing_right.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": -16.734375,
+            "y": 128,
+            "width": 289.140625,
+            "height": 346.96875,
+            "top": 128,
+            "right": 272.40625,
+            "bottom": 474.96875,
+            "left": -16.734375
+          },
+          "flip": ""
+        },
+        {
+          "id": "emerald",
+          "slot": "right",
+          "src": "inline PNG generated by registered frozen-asset loader; see asset census",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": 164.078125,
+            "y": 128,
+            "width": 289.140625,
+            "height": 346.96875,
+            "top": 128,
+            "right": 453.21875,
+            "bottom": 474.96875,
+            "left": 164.078125
+          },
+          "flip": ""
+        }
+      ],
+      "combat": false,
+      "minigame": null
+    },
+    {
+      "requested": "F15_EMERALD_L1:throne",
+      "id": "F15_EMERALD_L1",
+      "node": "throne",
+      "env": "throne_party_mess",
+      "text": [
+        "RICH'S CASTLE \u2014 THRONE ROOM \u00b7 THE MORNING AFTERTAP"
+      ],
+      "placeholder": false,
+      "actors": [
+        {
+          "id": "rich",
+          "slot": "left",
+          "src": "assets/rich_standing_right.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": -16.734375,
+            "y": 128,
+            "width": 289.140625,
+            "height": 346.96875,
+            "top": 128,
+            "right": 272.40625,
+            "bottom": 474.96875,
+            "left": -16.734375
+          },
+          "flip": ""
+        },
+        {
+          "id": "emerald",
+          "slot": "right",
+          "src": "inline PNG generated by registered frozen-asset loader; see asset census",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": 164.078125,
+            "y": 128,
+            "width": 289.140625,
+            "height": 346.96875,
+            "top": 128,
+            "right": 453.21875,
+            "bottom": 474.96875,
+            "left": 164.078125
+          },
+          "flip": ""
+        }
+      ],
+      "combat": false,
+      "minigame": null
+    },
+    {
+      "requested": "F15_EMERALD_L1:kitchen",
+      "id": "F15_EMERALD_L1",
+      "node": "kitchen",
+      "env": "kitchen",
+      "text": [
+        "RICH'S CASTLE \u2014 KITCHENTAP"
+      ],
+      "placeholder": false,
+      "actors": [
+        {
+          "id": "rich",
+          "slot": "left",
+          "src": "assets/rich_standing_right.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": -16.734375,
+            "y": 128,
+            "width": 289.140625,
+            "height": 346.96875,
+            "top": 128,
+            "right": 272.40625,
+            "bottom": 474.96875,
+            "left": -16.734375
+          },
+          "flip": ""
+        },
+        {
+          "id": "emerald",
+          "slot": "right",
+          "src": "inline PNG generated by registered frozen-asset loader; see asset census",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": 164.078125,
+            "y": 128,
+            "width": 289.140625,
+            "height": 346.96875,
+            "top": 128,
+            "right": 453.21875,
+            "bottom": 474.96875,
+            "left": 164.078125
+          },
+          "flip": ""
+        }
+      ],
+      "combat": false,
+      "minigame": null
+    },
+    {
+      "requested": "F15_EMERALD_L2:texts",
+      "id": "F15_EMERALD_L2",
+      "node": "texts",
+      "env": "bedroom",
+      "text": [
+        "TEXTSTAP"
+      ],
+      "placeholder": false,
+      "actors": [
+        {
+          "id": "rich",
+          "slot": "left",
+          "src": "assets/rich_standing_right.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": -3.734375,
+            "y": 94,
+            "width": 320,
+            "height": 384,
+            "top": 94,
+            "right": 316.265625,
+            "bottom": 478,
+            "left": -3.734375
+          },
+          "flip": ""
+        }
+      ],
+      "combat": false,
+      "minigame": null
+    },
+    {
+      "requested": "F15_EMERALD_L2:table",
+      "id": "F15_EMERALD_L2",
+      "node": "table",
+      "env": "kitchen",
+      "text": [
+        "RICH'S CASTLE \u2014 KITCHEN TABLETAP"
+      ],
+      "placeholder": false,
+      "actors": [
+        {
+          "id": "rich",
+          "slot": "left",
+          "src": "assets/rich_standing_right.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": -16.734375,
+            "y": 128,
+            "width": 289.140625,
+            "height": 346.96875,
+            "top": 128,
+            "right": 272.40625,
+            "bottom": 474.96875,
+            "left": -16.734375
+          },
+          "flip": ""
+        },
+        {
+          "id": "emerald",
+          "slot": "right",
+          "src": "inline PNG generated by registered frozen-asset loader; see asset census",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": 164.078125,
+            "y": 128,
+            "width": 289.140625,
+            "height": 346.96875,
+            "top": 128,
+            "right": 453.21875,
+            "bottom": 474.96875,
+            "left": 164.078125
+          },
+          "flip": ""
+        }
+      ],
+      "combat": false,
+      "minigame": null
+    },
+    {
+      "requested": "F15_EMERALD_L3:call",
+      "id": "F15_EMERALD_L3",
+      "node": "call",
+      "env": "bedroom",
+      "text": [
+        "INCOMING CALL \u2014 EMERALDTAP"
+      ],
+      "placeholder": false,
+      "actors": [
+        {
+          "id": "rich",
+          "slot": "left",
+          "src": "assets/rich_standing_right.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": -3.734375,
+            "y": 94,
+            "width": 320,
+            "height": 384,
+            "top": 94,
+            "right": 316.265625,
+            "bottom": 478,
+            "left": -3.734375
+          },
+          "flip": ""
+        }
+      ],
+      "combat": false,
+      "minigame": null
+    },
+    {
+      "requested": "F15_EMERALD_L3:library",
+      "id": "F15_EMERALD_L3",
+      "node": "library",
+      "env": "f15_library",
+      "text": [
+        "library table somebody elses highlighters no music"
+      ],
+      "placeholder": false,
+      "actors": [
+        {
+          "id": "rich",
+          "slot": "left",
+          "src": "assets/rich_standing_right.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": -3.734375,
+            "y": 94,
+            "width": 320,
+            "height": 384,
+            "top": 94,
+            "right": 316.265625,
+            "bottom": 478,
+            "left": -3.734375
+          },
+          "flip": ""
+        }
+      ],
+      "combat": false,
+      "minigame": null
+    },
+    {
+      "requested": "F15_EMERALD_L3:waffle",
+      "id": "F15_EMERALD_L3",
+      "node": "waffle",
+      "env": "waffle_haven",
+      "text": [
+        "waffle booth coffee ring no folder damn"
+      ],
+      "placeholder": false,
+      "actors": [
+        {
+          "id": "rich",
+          "slot": "left",
+          "src": "assets/rich_standing_right.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": -4.578125,
+            "y": 94,
+            "width": 320,
+            "height": 384,
+            "top": 94,
+            "right": 315.421875,
+            "bottom": 478,
+            "left": -4.578125
+          },
+          "flip": ""
+        }
+      ],
+      "combat": false,
+      "minigame": null
+    },
+    {
+      "requested": "F15_EMERALD_L3:bing",
+      "id": "F15_EMERALD_L3",
+      "node": "bing",
+      "env": "f15_bing",
+      "text": [
+        "THE BING \u2014 BINGO NIGHTTAP"
+      ],
+      "placeholder": false,
+      "actors": [
+        {
+          "id": "rich",
+          "slot": "left",
+          "src": "assets/rich_standing_right.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": -17.234375,
+            "y": 117,
+            "width": 298.921875,
+            "height": 358.71875,
+            "top": 117,
+            "right": 281.6875,
+            "bottom": 475.71875,
+            "left": -17.234375
+          },
+          "flip": ""
+        },
+        {
+          "id": "granny_bing",
+          "slot": "right",
+          "src": "assets/before_the_fame/characters/granny_bing/cga_f2_032/granny_bing_neutral_calling_numbers_anchor_80x96_v1.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": 176.921875,
+            "y": 117,
+            "width": 298.921875,
+            "height": 358.71875,
+            "top": 117,
+            "right": 475.84375,
+            "bottom": 475.71875,
+            "left": 176.921875
+          },
+          "flip": ""
+        }
+      ],
+      "combat": false,
+      "minigame": null
+    },
+    {
+      "requested": "F15_EMERALD_L3:steps",
+      "id": "F15_EMERALD_L3",
+      "node": "steps",
+      "env": "f15_exam_hall",
+      "text": [
+        "OUTSIDE THE EXAM HALL \u2014 AFTERTAP"
+      ],
+      "placeholder": false,
+      "actors": [
+        {
+          "id": "rich",
+          "slot": "left",
+          "src": "assets/rich_standing_right.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": -2.875,
+            "y": 128,
+            "width": 289.140625,
+            "height": 346.96875,
+            "top": 128,
+            "right": 286.265625,
+            "bottom": 474.96875,
+            "left": -2.875
+          },
+          "flip": ""
+        },
+        {
+          "id": "emerald",
+          "slot": "right",
+          "src": "inline PNG generated by registered frozen-asset loader; see asset census",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": 179.109375,
+            "y": 128,
+            "width": 289.140625,
+            "height": 346.96875,
+            "top": 128,
+            "right": 468.25,
+            "bottom": 474.96875,
+            "left": 179.109375
+          },
+          "flip": ""
+        }
+      ],
+      "combat": false,
+      "minigame": null
+    },
+    {
+      "requested": "F15_EMERALD_L4:texts",
+      "id": "F15_EMERALD_L4",
+      "node": "texts",
+      "env": "bedroom",
+      "text": [
+        "TEXTSTAP"
+      ],
+      "placeholder": false,
+      "actors": [
+        {
+          "id": "rich",
+          "slot": "left",
+          "src": "assets/rich_standing_right.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": -3.734375,
+            "y": 94,
+            "width": 320,
+            "height": 384,
+            "top": 94,
+            "right": 316.265625,
+            "bottom": 478,
+            "left": -3.734375
+          },
+          "flip": ""
+        }
+      ],
+      "combat": false,
+      "minigame": null
+    },
+    {
+      "requested": "F15_EMERALD_L4:hall",
+      "id": "F15_EMERALD_L4",
+      "node": "hall",
+      "env": "f15_shrine",
+      "text": [
+        "SHRINE AUDITORIUMTAP"
+      ],
+      "placeholder": false,
+      "actors": [
+        {
+          "id": "rich",
+          "slot": "left",
+          "src": "assets/rich_standing_right.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": -16.734375,
+            "y": 128,
+            "width": 289.140625,
+            "height": 346.96875,
+            "top": 128,
+            "right": 272.40625,
+            "bottom": 474.96875,
+            "left": -16.734375
+          },
+          "flip": ""
+        },
+        {
+          "id": "emerald",
+          "slot": "right",
+          "src": "inline PNG generated by registered frozen-asset loader; see asset census",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": 164.078125,
+            "y": 128,
+            "width": 289.140625,
+            "height": 346.96875,
+            "top": 128,
+            "right": 453.21875,
+            "bottom": 474.96875,
+            "left": 164.078125
+          },
+          "flip": ""
+        }
+      ],
+      "combat": false,
+      "minigame": null
+    },
+    {
+      "requested": "F15_EMERALD_L4:outside",
+      "id": "F15_EMERALD_L4",
+      "node": "outside",
+      "env": "street_night",
+      "text": [
+        "OUTSIDE \u2014 AFTERTAP"
+      ],
+      "placeholder": false,
+      "actors": [
+        {
+          "id": "rich",
+          "slot": "left",
+          "src": "assets/rich_standing_right.png",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": -16.734375,
+            "y": 128,
+            "width": 289.140625,
+            "height": 346.96875,
+            "top": 128,
+            "right": 272.40625,
+            "bottom": 474.96875,
+            "left": -16.734375
+          },
+          "flip": ""
+        },
+        {
+          "id": "emerald",
+          "slot": "right",
+          "src": "inline PNG generated by registered frozen-asset loader; see asset census",
+          "placeholder": false,
+          "loaded": true,
+          "rect": {
+            "x": 164.078125,
+            "y": 128,
+            "width": 289.140625,
+            "height": 346.96875,
+            "top": 128,
+            "right": 453.21875,
+            "bottom": 474.96875,
+            "left": 164.078125
+          },
+          "flip": ""
+        }
+      ],
+      "combat": false,
+      "minigame": null
+    }
+  ],
+  "paths": [
+    {
+      "name": "Phil same-day run 1",
+      "texts": [
+        [
+          ""
+        ],
+        [
+          "phil screaming in the sidewalk like his mixtape dropped"
+        ],
+        [
+          "full power coming dont rush me"
+        ],
+        [
+          "full power coming dont rush me"
+        ],
+        [
+          "full power coming dont rush me"
+        ],
+        [
+          "full power coming dont rush me"
+        ],
+        [
+          "full power coming dont rush me"
+        ],
+        [
+          "full power coming dont rush me"
+        ],
+        [
+          "full power coming dont rush me"
+        ],
+        [
+          "full power coming dont rush me"
+        ],
+        [
+          "full power coming dont rush me"
+        ],
+        [
+          "full power coming dont rush me"
+        ],
+        [
+          "full power coming dont rush me"
+        ],
+        [
+          "full power coming dont rush me"
+        ],
+        [
+          "full power coming dont rush me"
+        ],
+        [
+          "full power coming dont rush me"
+        ],
+        [
+          "full power coming dont rush me"
+        ],
+        [
+          "full power coming dont rush me"
+        ]
+      ],
+      "state": {
+        "day": 40,
+        "record": {
+          "status": "active",
+          "count": 0,
+          "startedDay": 40
+        }
+      }
+    },
+    {
+      "name": "Phil same-day run 2",
+      "texts": [
+        [
+          ""
+        ],
+        [
+          ""
+        ],
+        [
+          ""
+        ],
+        [
+          ""
+        ],
+        [
+          ""
+        ],
+        [
+          ""
+        ],
+        [
+          ""
+        ],
+        [
+          ""
+        ],
+        [
+          ""
+        ],
+        [
+          ""
+        ],
+        [
+          ""
+        ],
+        [
+          ""
+        ],
+        [
+          ""
+        ],
+        [
+          ""
+        ],
+        [
+          ""
+        ],
+        [
+          ""
+        ],
+        [
+          ""
+        ],
+        [
+          ""
+        ]
+      ],
+      "state": {
+        "day": 40,
+        "record": {
+          "status": "active",
+          "count": 0,
+          "startedDay": 40
+        }
+      }
+    },
+    {
+      "name": "A54 quit",
+      "state": {
+        "record": {
+          "status": "completed",
+          "count": 1,
+          "startedDay": 40,
+          "completedDay": 40,
+          "lastDay": 40,
+          "outcome": "lose",
+          "picks": {}
+        },
+        "available": false,
+        "active": null,
+        "scene": "bedroom"
+      }
+    },
+    {
+      "name": "A31 route",
+      "buttons": [
+        "BOOK A FLIGHT$420"
+      ],
+      "money": 100000
+    }
+  ],
+  "errors": []
+}

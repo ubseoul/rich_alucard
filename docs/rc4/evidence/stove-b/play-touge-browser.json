@@ -1,0 +1,429 @@
+{
+  "mode": "day-2 War Room entry fixture, ordinary PLAY controls; direct Touge entry fixture",
+  "checks": [
+    {
+      "name": "PLAY settlement",
+      "result": {
+        "pending": {
+          "request": {
+            "schema": "F04.play_request",
+            "version": 1,
+            "requestId": "f04:2:koreatown_BAIT_2#1",
+            "seed": 23915,
+            "day": 2,
+            "job": {
+              "f01JobId": "quiet_lift",
+              "f04Type": "BAIT",
+              "district": "koreatown",
+              "districtLabel": "Koreatown",
+              "handBack": false
+            },
+            "roster": [
+              {
+                "id": "auntie_grit",
+                "name": "AUNTIE GRIT",
+                "cls": "DOC",
+                "status": "ACTIVE",
+                "bonds": {},
+                "perks": []
+              },
+              {
+                "id": "dre",
+                "name": "DRE",
+                "cls": "TALKER",
+                "status": "ACTIVE",
+                "bonds": {},
+                "perks": []
+              },
+              {
+                "id": "half_pint",
+                "name": "HALF-PINT",
+                "cls": "GHOST",
+                "status": "ACTIVE",
+                "bonds": {},
+                "perks": []
+              },
+              {
+                "id": "sunday_best",
+                "name": "SUNDAY BEST",
+                "cls": "SHOOTER",
+                "status": "ACTIVE",
+                "bonds": {},
+                "perks": []
+              },
+              {
+                "id": "tunde",
+                "name": "TUNDE",
+                "cls": "MUSCLE",
+                "status": "ACTIVE",
+                "bonds": {},
+                "perks": []
+              },
+              {
+                "id": "young_mazi",
+                "name": "YOUNG MAZI",
+                "cls": "WHEELS",
+                "status": "ACTIVE",
+                "bonds": {},
+                "perks": []
+              }
+            ],
+            "garage": {
+              "owned": [
+                "HOOPTIE"
+              ]
+            },
+            "bank": 100000,
+            "heat": 0,
+            "rosterCap": 8,
+            "dayOneThreshold": 3,
+            "iron": {
+              "schema": "F02.play_weapons/1",
+              "weapons": {
+                "lil_oga": {
+                  "id": "lil_oga",
+                  "label": "LIL OGA",
+                  "type": "POCKET PISTOL",
+                  "audio": "GUN_LILOGA",
+                  "price": 25000,
+                  "stats": {
+                    "damage": 3,
+                    "range": "close",
+                    "note": "never misses on overwatch",
+                    "mods": [],
+                    "bonuses": {
+                      "clout": 0,
+                      "ammo": 0,
+                      "vsVampireUndead": 0,
+                      "rangeAim": 0,
+                      "conceal": false,
+                      "cosmetic": false,
+                      "showdownOnly": []
+                    }
+                  },
+                  "held": "assets/before_the_fame/art_ship_014/package_e/E-gun-lil_oga-held.png"
+                },
+                "sapporo_shotgun": {
+                  "id": "sapporo_shotgun",
+                  "label": "SAPPORO SHOTGUN",
+                  "type": "DOUBLE BARREL",
+                  "audio": "GUN_SHOTGUN",
+                  "price": 60000,
+                  "stats": {
+                    "damage": "4-6",
+                    "range": "close",
+                    "hits": 2,
+                    "note": "hits two enemies",
+                    "mods": [],
+                    "bonuses": {
+                      "clout": 0,
+                      "ammo": 0,
+                      "vsVampireUndead": 0,
+                      "rangeAim": 0,
+                      "conceal": false,
+                      "cosmetic": false,
+                      "showdownOnly": []
+                    }
+                  },
+                  "held": "assets/before_the_fame/art_ship_014/package_e/E-gun-sapporo_shotgun-held.png"
+                },
+                "mac_and_cheese": {
+                  "id": "mac_and_cheese",
+                  "label": "MAC & CHEESE",
+                  "type": "SMG",
+                  "audio": "GN_01",
+                  "price": 75000,
+                  "stats": {
+                    "damage": "2x3",
+                    "range": "mid",
+                    "note": "suppresses",
+                    "mods": [],
+                    "bonuses": {
+                      "clout": 0,
+                      "ammo": 0,
+                      "vsVampireUndead": 0,
+                      "rangeAim": 0,
+                      "conceal": false,
+                      "cosmetic": false,
+                      "showdownOnly": []
+                    }
+                  },
+                  "held": "assets/build4/p_d/E-gun-mac_and_cheese-held.png"
+                },
+                "chopstick_sniper": {
+                  "id": "chopstick_sniper",
+                  "label": "CHOPSTICK SNIPER",
+                  "type": "RIFLE",
+                  "audio": "GUN_SNIPER",
+                  "price": 90000,
+                  "stats": {
+                    "damage": "4-6",
+                    "range": "long",
+                    "note": "x2 crit on turn 1",
+                    "mods": [],
+                    "bonuses": {
+                      "clout": 0,
+                      "ammo": 0,
+                      "vsVampireUndead": 0,
+                      "rangeAim": 0,
+                      "conceal": false,
+                      "cosmetic": false,
+                      "showdownOnly": []
+                    }
+                  },
+                  "held": "assets/before_the_fame/art_ship_014/package_e/E-gun-chopstick_sniper-held.png"
+                },
+                "tommy_tony": {
+                  "id": "tommy_tony",
+                  "label": "THE TOMMY TONY",
+                  "type": "DRUM-MAG VINTAGE SMG",
+                  "audio": "GN_02",
+                  "price": 120000,
+                  "stats": {
+                    "damage": "2x4",
+                    "range": "mid",
+                    "note": "+10% per consecutive turn fired",
+                    "mods": [],
+                    "bonuses": {
+                      "clout": 0,
+                      "ammo": 0,
+                      "vsVampireUndead": 0,
+                      "rangeAim": 0,
+                      "conceal": false,
+                      "cosmetic": false,
+                      "showdownOnly": []
+                    }
+                  },
+                  "held": "assets/build4/p_d/E-gun-tommy_tony-held.png"
+                },
+                "holy_baby_drake": {
+                  "id": "holy_baby_drake",
+                  "label": "HOLY BABY DRAKE",
+                  "type": "HAND CANNON",
+                  "audio": "GUN_HOLYDRAKE",
+                  "price": 180000,
+                  "stats": {
+                    "damage": "4-5",
+                    "range": "mid",
+                    "note": "x2 vs undead",
+                    "mods": [],
+                    "bonuses": {
+                      "clout": 0,
+                      "ammo": 0,
+                      "vsVampireUndead": 0,
+                      "rangeAim": 0,
+                      "conceal": false,
+                      "cosmetic": false,
+                      "showdownOnly": []
+                    }
+                  },
+                  "held": "assets/before_the_fame/art_ship_014/package_e/E-gun-holy_baby_drake-held.png"
+                },
+                "jollof_burner": {
+                  "id": "jollof_burner",
+                  "label": "JOLLOF BURNER",
+                  "type": "FLAMETHROWER",
+                  "audio": "GN_03",
+                  "price": 220000,
+                  "stats": {
+                    "damage": 3,
+                    "range": "area",
+                    "area": "cone3",
+                    "burn": {
+                      "dmg": 8,
+                      "turns": 3
+                    },
+                    "note": "cone 3 tiles; burns cover",
+                    "mods": [],
+                    "bonuses": {
+                      "clout": 0,
+                      "ammo": 0,
+                      "vsVampireUndead": 0,
+                      "rangeAim": 0,
+                      "conceal": false,
+                      "cosmetic": false,
+                      "showdownOnly": []
+                    }
+                  },
+                  "held": "assets/build4/p_d/E-gun-jollof_burner-held.png"
+                },
+                "blueberry_blaster": {
+                  "id": "blueberry_blaster",
+                  "label": "BLUEBERRY BLASTER",
+                  "type": "DRAGON-FIRE RIFLE",
+                  "audio": "GN_04",
+                  "price": null,
+                  "stats": {
+                    "damage": "5-7",
+                    "range": "long",
+                    "note": "only works if Mazda is MAJESTIC",
+                    "mods": [],
+                    "bonuses": {
+                      "clout": 0,
+                      "ammo": 0,
+                      "vsVampireUndead": 0,
+                      "rangeAim": 0,
+                      "conceal": false,
+                      "cosmetic": false,
+                      "showdownOnly": []
+                    }
+                  },
+                  "held": "assets/build4/p_d/E-gun-blueberry_blaster-held.png"
+                },
+                "legendary_draco": {
+                  "id": "legendary_draco",
+                  "label": "LEGENDARY DRACO — DECEMBER'S GIFT",
+                  "type": "LEGENDARY",
+                  "audio": null,
+                  "price": null,
+                  "stats": {
+                    "damage": "4-6",
+                    "range": "mid",
+                    "hits": 2,
+                    "note": "\"two taps\"",
+                    "mods": [],
+                    "bonuses": {
+                      "clout": 0,
+                      "ammo": 0,
+                      "vsVampireUndead": 0,
+                      "rangeAim": 0,
+                      "conceal": false,
+                      "cosmetic": false,
+                      "showdownOnly": []
+                    }
+                  },
+                  "held": "assets/build4/p_d/E-gun-legendary_draco-held.png"
+                },
+                "golden_draco": {
+                  "id": "golden_draco",
+                  "label": "THE GOLDEN DRACO",
+                  "type": "LEGENDARY",
+                  "audio": null,
+                  "price": null,
+                  "stats": {
+                    "damage": "4-6",
+                    "range": "mid",
+                    "hits": 2,
+                    "note": "blinding gold (enemy −15 aim)",
+                    "mods": [],
+                    "bonuses": {
+                      "clout": 0,
+                      "ammo": 0,
+                      "vsVampireUndead": 0,
+                      "rangeAim": 0,
+                      "conceal": false,
+                      "cosmetic": false,
+                      "showdownOnly": []
+                    }
+                  },
+                  "held": "assets/build4/p_d/E-gun-golden_draco-held.png"
+                },
+                "rpg": {
+                  "id": "rpg",
+                  "label": "THE RPG",
+                  "type": "LAUNCHER",
+                  "audio": "GUN_RPG",
+                  "price": 400000,
+                  "stats": {
+                    "damage": 5,
+                    "range": "area",
+                    "area": "3x3",
+                    "note": "area 3x3; destroys cover; +10 heat",
+                    "mods": [],
+                    "bonuses": {
+                      "clout": 0,
+                      "ammo": 0,
+                      "vsVampireUndead": 0,
+                      "rangeAim": 0,
+                      "conceal": false,
+                      "cosmetic": false,
+                      "showdownOnly": []
+                    }
+                  },
+                  "held": "assets/before_the_fame/art_ship_014/package_e/E-gun-the_rpg-held.png"
+                },
+                "auntie_slipper": {
+                  "id": "auntie_slipper",
+                  "label": "AUNTIE'S SLIPPER",
+                  "type": "THROWN",
+                  "audio": "GN_05",
+                  "price": 12,
+                  "stats": {
+                    "damage": 2,
+                    "range": "close",
+                    "knockback": true,
+                    "note": "enemies who grew up with it lose a turn to fear",
+                    "mods": [],
+                    "bonuses": {
+                      "clout": 0,
+                      "ammo": 0,
+                      "vsVampireUndead": 0,
+                      "rangeAim": 0,
+                      "conceal": false,
+                      "cosmetic": false,
+                      "showdownOnly": []
+                    }
+                  },
+                  "held": "assets/build4/p_d/E-gun-auntie_slipper-held.png"
+                }
+              },
+              "loadout": {},
+              "owned": [],
+              "conditions": {
+                "mazdaMajestic": false
+              }
+            }
+          },
+          "carMap": {},
+          "jobMeta": {
+            "type": "BAIT",
+            "district": "koreatown",
+            "label": "BAIT",
+            "isHandBack": false,
+            "id": "koreatown_BAIT_2"
+          },
+          "seq": 1,
+          "startedDay": 2
+        },
+        "log": [],
+        "daily": {
+          "day": 2,
+          "story": true,
+          "action": false,
+          "paid": false,
+          "moneyBefore": 100000
+        },
+        "cash": 100000
+      }
+    },
+    {
+      "name": "Touge actual result",
+      "result": {
+        "quit": false,
+        "outcome": "done",
+        "score": 67.43686806277725,
+        "summary": "67 pts on KOREATOWN · WAREHOUSE ALLEYS",
+        "data": {
+          "course": "warehouse_alleys",
+          "car": "supra",
+          "spins": 0,
+          "maxAngle": 59
+        },
+        "rewards": {
+          "memories": [
+            "first clean drift"
+          ]
+        },
+        "minigame": "touge",
+        "progress": {
+          "best": {
+            "warehouse_alleys:supra": 67.43686806277725
+          },
+          "runs": 1
+        }
+      }
+    }
+  ],
+  "errors": [],
+  "calls": []
+}

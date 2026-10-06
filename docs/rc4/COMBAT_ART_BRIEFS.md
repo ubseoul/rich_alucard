@@ -81,3 +81,9 @@ Trigger `enemy:sweep`/`enemy:voice` after actual chosen boss action, telegraph p
 ## Deferred set
 
 Octopus Brain already has four authored frames and a hold/choice function; protect weirdness and action readability before another animation request. BLAD33EE has an authored hunter slash/telegraph and approved historical identity, but no elaborate sequence authorized by that label. Roxy needs spar semantic repair before new attack art. Bunmi/other bosses should not get interchangeable new slash packs; nominate at most one next signature after the approved core set. No artist launched and no art generated during this audit.
+
+## Stove B placement addendum — no candidate art generated
+
+GB-01's prior missing real-fight placement dependency is now supplied: `evidence/stove-b/gbenga-turn-1.png`, turn-2, turn-3 and retire-gate plus focus-browser.json. Actual turns: sweep24, voice-note stun, skipped Rich turn + MY SON heal30, then conditional charisma retirement after labelled leftover-state fixture. This is not a full earned finale boss run; Mama/Draco threshold phases remain source-only. The four-turn playback confirms state/placement context, not approved FX provenance or candidate timing. Boss state art stays frozen80×96; metadata, not assumed floor, controls grounding.
+
+The new `evidence/stove-b/scene-reference.zip` bundles these placement captures and current approved scene/minigame references; original combat-reference.zip remains the identity/FX/authority package. ART ACCESS MODE A same exact4981d524 runtime, B both prepared packages supplied before launch. No artist launches until UNKNOWN FX status and proposed treatments are approved. Actual Roxy spar screenshot also exposes cash overlap: reserve UI/world safe area before integrating any candidate effects. ART_QUEUE deduplicates the same four combat families rather than commissioning additional copies.

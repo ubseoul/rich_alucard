@@ -1,0 +1,104 @@
+{
+  "mode": "day-2 War Room entry fixture, ordinary PLAY controls; direct Touge entry fixture",
+  "checks": [
+    {
+      "name": "PLAY settlement",
+      "result": {
+        "pending": null,
+        "consumed": {
+          "f04:2:koreatown_BAIT_2#1": {
+            "day": 2,
+            "status": "COMPLETE",
+            "jobId": "koreatown_BAIT_2",
+            "cashSpent": 0,
+            "cashGain": 0,
+            "win": false,
+            "heat": 2,
+            "rejectedRecruits": [],
+            "errors": []
+          }
+        },
+        "refusal": null,
+        "report": [
+          {
+            "id": "report_koreatown_BAIT_2",
+            "day": 2,
+            "district": "koreatown",
+            "districtLabel": "Koreatown",
+            "type": "play",
+            "approach": null,
+            "success": false,
+            "tally": {
+              "cash": 0,
+              "heat": 2,
+              "crewStatus": {
+                "active": 1,
+                "downed": 2,
+                "captured": 0,
+                "gone": 0
+              },
+              "newStories": 1,
+              "loot": null
+            },
+            "style": "rough",
+            "grainyPhoto": true,
+            "blackRibbon": false,
+            "comments": [
+              {
+                "handle": "vamp_commentor_1",
+                "text": "damn."
+              }
+            ],
+            "squad": [
+              {
+                "id": "auntie_grit",
+                "name": "AUNTIE GRIT",
+                "status": "DOWNED",
+                "class": "DOC"
+              },
+              {
+                "id": "dre",
+                "name": "DRE",
+                "status": "DOWNED",
+                "class": "TALKER"
+              },
+              {
+                "id": "half_pint",
+                "name": "HALF-PINT",
+                "status": "ACTIVE",
+                "class": "GHOST"
+              }
+            ],
+            "newStories": [
+              {
+                "oga": "HALF-PINT",
+                "key": "play_got_everybody_out",
+                "line": "got everybody out"
+              }
+            ]
+          }
+        ],
+        "daily": {
+          "day": 2,
+          "story": true,
+          "action": false,
+          "paid": false,
+          "moneyBefore": 100000
+        },
+        "cash": 100000
+      }
+    }
+  ],
+  "errors": [],
+  "send": {
+    "class": "send",
+    "onclick": "function"
+  },
+  "calls": [
+    [
+      "SLIP PAST",
+      "BUST THROUGH"
+    ]
+  ],
+  "resultText": "BACK TO THE WAR ROOM\n⚙"
+}

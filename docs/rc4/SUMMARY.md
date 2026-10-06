@@ -1,3 +1,50 @@
+# RC4 Stove B — current experience and asset review
+
+**Review plan only; no runtime repair, new writing/art, balance change or RC4 acceptance.** Runtime `4981d5245d0600c062a7f431acd8253dc28b9cc6`, continuing audit `55b7f9c34ef0632f181f339ad0bf29b5c4e9ebe5`, branch `rc4/comb-audit`. The original Stove A summary follows as historical context. Commit identity is recorded by Git and the delivery receipt rather than a self-referential hash in this commit.
+
+## Failures first — ten new or strengthened findings
+
+1. **042 / P1:** Range Day never refills ammunition after reload; meaningful play stops after the first magazine. Full50s and isolated4-shot/wait probe confirm it.
+2. **034 / P1:** QUIT permanently loses the one-time Jollof final, even before cooking. Cancellation needs a reversible route.
+3. **001/002 / P1 retained:** supplied-van M4 and fresh M8 PLAY still conflict with removed personal-car access. Existing mission loans/adequate seats are the smallest complete repair; no new car-shop system required unless ownership/tribute retained.
+4. **003 / P1 retained:** public ending trigger remains disabled; seeded ending dialogue is not a naturally completed campaign or confirmed OL-079 integration.
+5. **015/014 strengthened:** actual Roxy “first to five/no biting” spar offers Blood Bath/Bite/lethal HP grammar; cash overlaps enemy label and strategic resources are hidden.
+6. **037/009:** Phil progresses twice on one day after Maps overwrites the authored daily guard; multi-day joke becomes repeated taps.
+7. **009:** A54 winning follow-up cannot start A56 through Maps-only policy. It safely returns home but drops the authored payoff.
+8. **036:** cat/Mazda choices assume companions with cut acquisition; repair option/cast premise rather than restoring pets wholesale.
+9. **039/035:** food receipts disagree with chosen events, and clear scene narration is tagged as NPC speech. Use existing result/narrator fields; preserve protected lines.
+10. **040/038:** Emerald’s initiative choice goes to one response; Gbenga’s pivotal patio conversation becomes synopsis. Honest choice response is repair; reciprocal patio exchange is optional depth.
+
+041 additionally identifies inconsistent caller QUIT→forced retry or fictional completion. Actual optional PLAY failed/settled with report card, two DOWNED and heat+2 while daily action stayed false, strengthening017 without touching protected odds.
+
+## Coverage and continuity
+
+524 inventory rows: **PLAYED 9; INSPECTED WITH FIXTURE 228; SOURCE-ONLY 171; BLOCKED 10; CUT 106; NOT REVIEWED 0**. These are source/fixture classifications, not524 played scenes. 331 authored nodes,51 allowed definitions,94 cut definitions;144 requested visual checkpoints, all12 date scripts read,10 date paths completed after threshold fixtures,2 combat-boundary paths continued from labelled checkpoints. The ordinary9 rows cite unchanged Stove A coverage. No natural full campaign or21-day playthrough claimed.
+
+Rich/Gbenga’s ladder, loyalty test, entrusted Senator and leftovers gate are coherent and consequential; patio reciprocity and visible later acknowledgement deserve bounded depth. Roxy has recognizable chemistry but objective spar/item/pet contradictions. Rosalyn’s concealed-self/glasses/roach/kiss arc earns its place, including quietness. Emerald’s duty/help/recital arc works; initiative and performance focus deserve attention. Mandatory spine source floor is Day13 (alternate14), while authored fame floor25 and disabled endpoint conflict with~21goal. Optional time and the original Day31 money/Day37 reports are not newly reproduced natural runs.
+
+## Asset and minigame verdicts
+
+**BROKEN LOAD0 observed** in144 samples; **mandatory NEW ART REQUIRED0 established**. Current frozen library/exam/dining/patio/Jollof boards already ship. Six principal approved-reuse groups: Carlos states, Carson chairs backing, Senator states, Armory/Hilt Range frame, Rich apron ramen counter, rave world. Combat/Jollof HUD staging and watcher/recital focus are bounded code work; seven optional candidate families in ART_QUEUE await creator choice, not seven missing files. FX approval provenance remains unresolved022. Approved F15 single poses stay KEEP.
+
+Club KEEP/REFINE; ramen KEEP/REFINE; chairs REPLACE PRESENTATION; rave REFINE PRESENTATION; Range REPAIR RELOAD then REPLACE PRESENTATION; Owambe REFINE/SCOPE DECISION; Senator REFINE/SCOPE DECISION; Jollof KEEP/REFINE with cancellation/chain repair; Touge REFINE/SCOPE DECISION after access; PLAY KEEP/REFINE with transport/credit seams. Actual meaningful controls/results and unplayed upper tiers are detailed in MINIGAME_HANDS_ON. No listening study claimed.
+
+Blood Bath/Bite/Revenge briefs are source/access ready, pending FX provenance/timing/creator approval. Gbenga now has actual fight placement captures; its candidate state/FX treatment remains unapproved. New target/chair/prop art is optional after reuse and logic repair. Both unchanged-byte reference ZIPs and their manifests are supplied.
+
+## Five builds and required decisions
+
+R1 required-play access/checks → R2 endpoint/consequences/economy/Maps guards → R3 club/date coherence → R4 minigame reload/cancel/results/presentation → R5 signature combat/music. DEPTH_MAP separates **A necessary repairs** from **B optional depth**, assigns owners/effort/resources, dependencies and shared-file conflicts. All future repairs require full npm test + one390 smoke.
+
+Ube/Overlord decisions: OPEN ending/OL-079 authority and21-versus25 pacing; mission loans versus retained car ownership/tribute; Hall’s one payoff and NAH grant consequence; retained adventure/minigame roster/no-mod medals; literal half-off and bounded spar; pet premise, Phil cadence, cancellation/follow-up policy and Emerald initiative; optional protected patio exchange/recital cue; signature FX authority and exact three music stand-in slots. These do not authorize new sprawl or story rewrites here.
+
+Remaining gaps: winning PLAY/interrupt restore, natural VIP9/encores/date spend gates, Range medals blocked by reload, full Owambe SUCCESS/GREEDY, alternate Touge story bands, natural tribute/impound recovery, natural finale/three endings and long-term recurrence/music. Source server uses production defaults, not a built release artifact. Baseline npm test fails at missing uppercase tools/tests/F02 import; sources:check reports5 existing hash mismatches. Audit scripts are syntax-checked; JSON/CSV/counts/reference hashes/publication diff verified. No runtime files changed.
+
+Full reports: EXPERIENCE_COVERAGE, SCENE_CRITIQUE, ASSET_GAP_MATRIX, MINIGAME_HANDS_ON, CAMPAIGN_CONTINUITY, ART_QUEUE; updated ledger/depth/voice requests and combat placement addendum. Return to refinement-lead and Overlord for review; no implementation launched.
+
+---
+
+## Historical Stove A summary (unchanged below)
+
 # RC4 first comb audit — review handoff — failures first
 
 Audit base: `4981d5245d0600c062a7f431acd8253dc28b9cc6` (`origin/integration/rc3`). Audit branch: `rc4/comb-audit`. This is an OPEN-only review and proposed refinement plan, not implementation or RC4 acceptance. Stable finding IDs resolve to [COMB_LEDGER.md](COMB_LEDGER.md).

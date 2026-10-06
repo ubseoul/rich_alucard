@@ -1,0 +1,61 @@
+{
+  "runtime": "4981d5245d0600c062a7f431acd8253dc28b9cc6",
+  "auditParent": "55b7f9c34ef0632f181f339ad0bf29b5c4e9ebe5",
+  "checks": [
+    {
+      "file": "docs/rc4/evidence/scripts/stove-b-boundaries.mjs",
+      "syntax": "PASS"
+    },
+    {
+      "file": "docs/rc4/evidence/scripts/stove-b-continuity.mjs",
+      "syntax": "PASS"
+    },
+    {
+      "file": "docs/rc4/evidence/scripts/stove-b-focus.mjs",
+      "syntax": "PASS"
+    },
+    {
+      "file": "docs/rc4/evidence/scripts/stove-b-inventory.mjs",
+      "syntax": "PASS"
+    },
+    {
+      "file": "docs/rc4/evidence/scripts/stove-b-minigames.mjs",
+      "syntax": "PASS"
+    },
+    {
+      "file": "docs/rc4/evidence/scripts/stove-b-play-touge.mjs",
+      "syntax": "PASS"
+    },
+    {
+      "file": "docs/rc4/evidence/scripts/stove-b-play.mjs",
+      "syntax": "PASS"
+    },
+    {
+      "file": "docs/rc4/evidence/scripts/stove-b-ramen.mjs",
+      "syntax": "PASS"
+    },
+    {
+      "file": "docs/rc4/evidence/scripts/stove-b-range.mjs",
+      "syntax": "PASS"
+    },
+    {
+      "file": "docs/rc4/evidence/scripts/stove-b-scenes.mjs",
+      "syntax": "PASS"
+    }
+  ],
+  "counts": {
+    "INSPECTED WITH FIXTURE": 228,
+    "CUT": 106,
+    "SOURCE-ONLY": 171,
+    "BLOCKED": 10,
+    "PLAYED": 9
+  },
+  "assetRows": 331,
+  "stageRequests": 144,
+  "pngCount": 45,
+  "baselineChecks": {
+    "npm test": "FAIL before tests: Cannot find module tools/tests/F02/_lib.mjs imported from tools/rc3/policy-test.mjs",
+    "npm run sources:check": "FAIL: 5 existing sha256 mismatches (source indices3,52,76,144,161)"
+  },
+  "missingMarkdownTargets": []
+}

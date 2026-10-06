@@ -1,0 +1,138 @@
+{
+  "width": 390,
+  "mode": "direct entry fixtures / real inputs / ordinary durations unless explicitly named",
+  "runs": [
+    {
+      "name": "Range Day full 50s round, miss reload and targets",
+      "id": "range_day",
+      "params": {
+        "gunId": "lil_oga",
+        "seed": 17
+      },
+      "inputs": [
+        "opening miss",
+        {
+          "hostagesShot": 27
+        }
+      ],
+      "rule": [
+        "Tap to aim and let go to fire at the targets, but never hit the hostages."
+      ],
+      "result": {
+        "quit": false,
+        "outcome": "done",
+        "score": 100,
+        "data": {
+          "gunId": "lil_oga",
+          "time": 50.015,
+          "remaining": 0,
+          "ammo": 0,
+          "reloading": 0.85,
+          "reloadingNow": true,
+          "score": 100,
+          "shots": 4,
+          "hits": 1,
+          "accuracy": 0.25,
+          "targets": [
+            {
+              "id": 90,
+              "lane": 0,
+              "kind": "target",
+              "progress": 0.985
+            },
+            {
+              "id": 91,
+              "lane": 1,
+              "kind": "hostage",
+              "progress": 0.885
+            },
+            {
+              "id": 93,
+              "lane": 0,
+              "kind": "target",
+              "progress": 0.685
+            },
+            {
+              "id": 94,
+              "lane": 1,
+              "kind": "moving",
+              "progress": 0.826
+            },
+            {
+              "id": 95,
+              "lane": 1,
+              "kind": "moving",
+              "progress": 0.693
+            },
+            {
+              "id": 96,
+              "lane": 1,
+              "kind": "gold",
+              "progress": 0.395
+            },
+            {
+              "id": 97,
+              "lane": 2,
+              "kind": "gold",
+              "progress": 0.3
+            },
+            {
+              "id": 98,
+              "lane": 1,
+              "kind": "gold",
+              "progress": 0.205
+            },
+            {
+              "id": 99,
+              "lane": 0,
+              "kind": "moving",
+              "progress": 0.154
+            },
+            {
+              "id": 100,
+              "lane": 1,
+              "kind": "hostage",
+              "progress": 0.015
+            }
+          ],
+          "over": true,
+          "medal": null,
+          "award": {
+            "ok": true,
+            "gunId": "lil_oga",
+            "score": 100,
+            "medal": null,
+            "newMedal": null,
+            "cleared": false,
+            "story": false,
+            "storyTitle": "CLEANED THE RANGE WITH THE LIL OGA",
+            "discounts": 0
+          }
+        },
+        "rewards": {},
+        "minigame": "range_day",
+        "progress": {}
+      },
+      "money": 75000
+    },
+    {
+      "name": "Range retry then quit",
+      "id": "range_day",
+      "params": {
+        "gunId": "lil_oga",
+        "seed": 17
+      },
+      "inputs": [],
+      "rule": [],
+      "result": {
+        "quit": true,
+        "outcome": "quit",
+        "rewards": {},
+        "minigame": "range_day",
+        "progress": {}
+      },
+      "money": 75000
+    }
+  ],
+  "errors": []
+}

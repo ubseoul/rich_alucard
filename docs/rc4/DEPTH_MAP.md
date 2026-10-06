@@ -40,3 +40,27 @@ Serialize changes to `rc3.js`; R1 transport, R2 loop/ending, R3 club entry all t
 7. Approve the signature candidate set and the FX reference subset after steward reconciliation. Identify the three music stand-in slots and intended masters; two file:null records do not identify three stand-ins.
 
 The voice requests in [VOICE_SHEET_2_REQUESTS.md](VOICE_SHEET_2_REQUESTS.md) depend on these rulings. They do not ask for another broad rewrite or new story sprawl.
+
+## Stove B reconciliation — current refinement plan
+
+This supplements the five areas above; no sixth build or implementation is launched. Estimates remain engineering scope, not promised schedule.
+
+### A. Repairs needed for a coherent finished experience
+
+1. **R1 required-play access:**001/002/004/006 and stranded Armory consumers030. Shared supplied-transport/seats/recovery, runnable checks first. Existing loaner/curated crew/Armory app; engineer M. Car ownership and cut consumer rulings remain Ube's.
+2. **R2 endpoint/state/promise integrity:**003/005/007/008/009/017/035/036/037/039/009. Serialize rc3.js changes. Fix one ending trigger, actual tribute/cash/goal consumers, retained daily/chain guards and truthful memory/speaker routing. Existing scene/receipt/ending nodes; engineer M, Overlord text checks. F07 floor25 conflicts with21target—decide before cadence edits.
+3. **R3 club/date coherence:**010/011/015/016/023/025/026/027/036/040. First price, receipt/HUD, bounded spar, chosen item/pet premise, honest ASK/WAIT. Existing approved dancer loops/portraits/date flags. Engineer S/M, Ube spar/price/premise and Overlord new copy approval; all women21+.
+4. **R4 complete minigame loops:**034/041/042/009 before012/013/028/029/032/033. Actual refill, cancellation vs failure/retry, A54 follow-up, correct coach/results; then six approved-art reuse groups and shared backed panels. Engineer S/M per mode; optional minigame roster/no-mod ruling. No protected odds/bands retune.
+5. **R5 combat/music presentation:**014/019/020/022/024. Clear strategic values/HUD safe area, single event timeline, reference approval then candidate signature set. Actual Gbenga placement now available. Combat/music engineer M and separately approved art; not an automatic commission.
+
+Dependencies/overlap: R1→R2 transport/credit; R2 rc3.js policy→R3 and R4 retained routing; R3 spar→R5 command/presentation; R4 rave→R5 music. R2/R4 share adventures.js, adventure.js and w5.js; R3/R5 share combat2.js; R4 slurp serves ramen+chairs so one owner changes both. R2 fixes story result policy; R4 implements host/caller tests against it. Land sequentially or explicitly assign owners, not conflicting global overrides.
+
+### B. Optional depth for scenes already worth keeping
+
+-038: one reviewed reciprocal Rich/Gbenga patio exchange and one visible existing-slot callback for leftovers/trust, without new mission/private exposition. Existing dining/patio/cast; writer S + creator approval, R2.
+-Emerald recital: existing Shrine focus and named cue make the performance a moment; keep quiet ending/home/remittance continuity. Scene/music S/M, Ube cue and Overlord beat approval, R3/R5.
+-Owambe/Senator: one existing watcher/dog reaction makes attention/responsibility tangible. Approved birthday/care/state art, engineer/art S/M; retain-vignette ruling, R4.
+-Club: one chosen-performer support acknowledgement before new outfits; current loops/date flags, F15 writer/engineer S; Overlord approval, R3.
+-Approved signature candidates and moment music: deepen four existing move/boss families, no new combat catalogue. Art/combat M; provenance and Ube approval, R5.
+
+Future builds require full npm test plus one quick390 smoke; meaningful normal caller inputs/result/return and save persistence for changed behavior. This audit does not make those repairs or certify RC4.

@@ -28,3 +28,17 @@ RC3 helper copy repeats the next step in phone home, recommended card, app heade
 These are editorial inspection targets, not authorization to rewrite all823 RC3 entries or replace Rich’s voice with generic jokes. Keep specific props, people and embarrassment; do not fill depth gaps with more repeated “bro” or tutorial chatter. Preserve supplied spellings and punctuation verbatim where protected. Each proposed copy change should cite exact current string/node and authority, show affected runtime box, and request only the approved alternative needed for that state.
 
 See COMB_LEDGER for severity, evidence, reproduction, files, repair, effort, confidence, owner and ruling on each linked finding.
+
+## Stove B focused additions
+
+No replacement copy is authored. Preserve `docs/rc2/PROTECTED_LINES.md`, supplied RC3 lines and the RC3 voice sheet; maximum3 sentences per in-game box. Overlord owns new wording.
+
+| Request | Exact problem / smallest writing scope | Resources / owner / ruling |
+|---|---|---|
+|035 narrator attribution |“Smallie is at the back table” and Carlos third-person staging wear NPC speaker tags. Review attribution, keep words verbatim. |Existing narrator/null pipeline; integrator S, Overlord attribution check. |
+|036 cut pet premise |MENTION YOUR CAT and LET MAZDA DO IT assume unacquired pets. Decide gate vs existing companion premise before writing. |M6 already has conditional pet branches; Ube ruling, writer S only if new establishment needed. |
+|038 patio exchange |“Rich learns where the vault is…” is synopsis at an important trust beat. Optional one reciprocal exchange in current patio slot. |Approved patio/Gbenga, protected supplied summary retained; Ube/Overlord approves additive/order treatment, no private exposition. |
+|039 truthful receipts |CHEW says “i swallowed”; AUNTIES acceptable says “a project.” Request minimal result-dependent receipt, not joke paraphrase. |Existing choices/results; integrator/writer S, Overlord checks protected wording. |
+|040 ASK/WAIT |Emerald initiative is unacknowledged. Choose honest single option vs one short differentiated reaction. |Current table/talk node; Ube intent, Overlord line approval, writer S. |
+
+Necessary new creative rulings: reversible quit versus earned fail-forward for retained vignettes034/041; honour A54→A56 continuation or explicit Maps prompt043; Phil intended multi-day cadence037; pet premise036; Emerald initiative040; optional patio/recital depth038. Existing unanswered rulings (car/ending/21-vs25/Hall/retained roster/half-off/spar/no-mod/signature FX/three music slots) remain in the original requests. No extra world, date or character design requested.

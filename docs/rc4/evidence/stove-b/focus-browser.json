@@ -1,0 +1,190 @@
+{
+  "mode": "explicit final-win and boss checkpoints, normal controls; no debug win",
+  "checks": [
+    {
+      "name": "A54 winning checkpoint chain",
+      "result": {
+        "scene": "bedroom",
+        "active": null,
+        "final": {
+          "status": "completed",
+          "count": 1,
+          "startedDay": 1,
+          "completedDay": 1,
+          "lastDay": 1,
+          "outcome": "win",
+          "picks": {}
+        },
+        "smack": null,
+        "chainAllowed": false,
+        "buttons": []
+      }
+    },
+    {
+      "name": "Roxy real spar menu",
+      "result": {
+        "buttons": [
+          "BLOOD BATHPP 8/8",
+          "OCTOPUS BRAINPP 8/8",
+          "VAMPIRE BITEPP 8/8",
+          "REVENGEPP 8/8 · 0",
+          "BACK"
+        ],
+        "state": {
+          "hp": 100,
+          "max": 100,
+          "def": 0,
+          "crit": 0.08,
+          "acc": 0.95,
+          "accDown": null,
+          "weak": null,
+          "block": 0,
+          "stun": 0,
+          "buffNext": 1,
+          "doubleNext": false,
+          "sureNext": false,
+          "guardHits": 0,
+          "shield": 0,
+          "revenge": 0,
+          "revengeDouble": false,
+          "extraTurn": false,
+          "pp": {
+            "blood": 8,
+            "octopus": 8,
+            "bite": 8,
+            "revenge": 8
+          },
+          "charismaFree": false,
+          "gunBonus": 0
+        }
+      }
+    },
+    {
+      "name": "Roxy after Blood Bath",
+      "result": {
+        "rich": 94,
+        "enemy": 36,
+        "log": [
+          {
+            "text": "BLOOD BATH: 24 DAMAGE.",
+            "kind": "hit",
+            "target": "enemy",
+            "amount": 24,
+            "heavy": true
+          },
+          {
+            "text": "ROXY (SPARRING): JAB!",
+            "kind": "enemy",
+            "move": "jab"
+          },
+          {
+            "text": "RICH TOOK 6 DAMAGE.",
+            "kind": "hurt",
+            "target": "rich",
+            "amount": 6,
+            "heavy": false
+          }
+        ]
+      }
+    },
+    {
+      "name": "Gbenga turn 1",
+      "result": {
+        "rich": 76,
+        "enemy": 236,
+        "log": [
+          {
+            "text": "BLOOD BATH: 24 DAMAGE.",
+            "kind": "hit",
+            "target": "enemy",
+            "amount": 24,
+            "heavy": false
+          },
+          {
+            "text": "GBENGA: AGBADA SWEEP!",
+            "kind": "enemy",
+            "move": "sweep"
+          },
+          {
+            "text": "RICH TOOK 24 DAMAGE.",
+            "kind": "hurt",
+            "target": "rich",
+            "amount": 24,
+            "heavy": true
+          },
+          {
+            "text": "HE IS HOLDING THE PHONE FLAT IN FRONT OF HIS MOUTH",
+            "kind": "telegraph"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Gbenga turn 2",
+      "result": {
+        "rich": 76,
+        "enemy": 208,
+        "log": [
+          {
+            "text": "BLOOD BATH: 28 DAMAGE.",
+            "kind": "hit",
+            "target": "enemy",
+            "amount": 28,
+            "heavy": false
+          },
+          {
+            "text": "GBENGA: VOICE NOTE!",
+            "kind": "enemy",
+            "move": "voice"
+          },
+          {
+            "text": "RICH SKIPS HIS NEXT TURN LISTENING TO A 4-MINUTE VOICE NOTE.",
+            "kind": "debuff"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Gbenga turn 3",
+      "result": {
+        "rich": 76,
+        "enemy": 238,
+        "log": [
+          {
+            "text": "RICH IS PINNED. HE LOSES THE TURN.",
+            "kind": "block"
+          },
+          {
+            "text": "GBENGA: \"MY SON\"!",
+            "kind": "enemy",
+            "move": "my_son"
+          },
+          {
+            "text": "GBENGA RECOVERS 30.",
+            "kind": "heal",
+            "target": "enemy"
+          },
+          {
+            "text": "DISAPPOINTMENT REMOVES RICH’S BUFFS.",
+            "kind": "debuff"
+          },
+          {
+            "text": "HE IS ADJUSTING HIS SLEEVES",
+            "kind": "telegraph"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Gbenga actual spared result",
+      "result": {
+        "outcome": "spared",
+        "octopus": "charisma",
+        "recruited": false,
+        "learned": null,
+        "turns": 4
+      }
+    }
+  ],
+  "errors": []
+}

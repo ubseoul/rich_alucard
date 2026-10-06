@@ -1,0 +1,108 @@
+{
+  "mode": "explicit checkpoint fixtures / actual inputs; no debug wins",
+  "checks": [
+    {
+      "name": "range exhausted",
+      "result": {
+        "ammo": "RELOADING"
+      }
+    },
+    {
+      "name": "range after full reload",
+      "result": {
+        "ammo": "AMMO 0"
+      }
+    },
+    {
+      "name": "range fifth shot",
+      "result": {
+        "ammo": "AMMO 0"
+      }
+    },
+    {
+      "name": "cookoff win follow-up",
+      "result": {
+        "scene": "bedroom",
+        "active": null,
+        "cookoff": {
+          "status": "completed",
+          "count": 1,
+          "startedDay": 1,
+          "completedDay": 1,
+          "lastDay": 1,
+          "outcome": "win",
+          "picks": {}
+        },
+        "final": null,
+        "allowed": false,
+        "cash": 75500,
+        "buttons": []
+      }
+    },
+    {
+      "name": "club before",
+      "result": {
+        "cash": 75500,
+        "support": {
+          "dancer": "roxy",
+          "spent": 0,
+          "throws": 0,
+          "thresholdLevel": 0,
+          "completed": 0,
+          "next": 1,
+          "nextThreshold": 10000,
+          "toNext": 10000,
+          "availableLevel": null,
+          "maxed": false
+        },
+        "status": {
+          "loaded": true,
+          "failed": null
+        }
+      }
+    },
+    {
+      "name": "club after inputs",
+      "result": {
+        "cash": 71750,
+        "support": {
+          "dancer": "roxy",
+          "spent": 0,
+          "throws": 0,
+          "thresholdLevel": 0,
+          "completed": 0,
+          "next": 1,
+          "nextThreshold": 10000,
+          "toNext": 10000,
+          "availableLevel": null,
+          "maxed": false
+        },
+        "status": {
+          "loaded": true,
+          "failed": null
+        }
+      }
+    },
+    {
+      "name": "club persisted reload",
+      "result": {
+        "cash": 71750,
+        "support": {
+          "dancer": "roxy",
+          "spent": 0,
+          "throws": 0,
+          "thresholdLevel": 0,
+          "completed": 0,
+          "next": 1,
+          "nextThreshold": 10000,
+          "toNext": 10000,
+          "availableLevel": null,
+          "maxed": false
+        },
+        "lastDay": 2
+      }
+    }
+  ],
+  "errors": [],
+  "clubCashBeforeReload": 71750
+}

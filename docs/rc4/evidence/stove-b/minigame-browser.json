@@ -1,0 +1,523 @@
+{
+  "width": 390,
+  "mode": "direct entry fixtures / real inputs / ordinary durations unless explicitly named",
+  "runs": [
+    {
+      "name": "chairs completion and missed drop",
+      "id": "slurp",
+      "params": {
+        "canopyDuty": true
+      },
+      "inputs": [
+        "miss outside drop zone"
+      ],
+      "rule": [
+        "Build each bowl in the order on the card: broth, noodles, meat, topping, before the timer runs out."
+      ],
+      "result": {
+        "quit": false,
+        "outcome": "done",
+        "score": 60,
+        "data": {
+          "stacked": 60,
+          "total": 60,
+          "remaining": 0,
+          "success": true
+        },
+        "rewards": {},
+        "minigame": "slurp",
+        "progress": {}
+      },
+      "money": 100000
+    },
+    {
+      "name": "chairs early finish",
+      "id": "slurp",
+      "params": {
+        "canopyDuty": true
+      },
+      "inputs": [],
+      "rule": [],
+      "result": {
+        "quit": false,
+        "outcome": "done",
+        "score": 10,
+        "data": {
+          "stacked": 10,
+          "total": 60,
+          "remaining": 50,
+          "success": false
+        },
+        "rewards": {},
+        "minigame": "slurp",
+        "progress": {}
+      },
+      "money": 100000
+    },
+    {
+      "name": "ramen real first bowl and normal wrong ingredient",
+      "id": "slurp",
+      "params": {
+        "firstShift": true,
+        "seed": "stove-b"
+      },
+      "inputs": [
+        {
+          "tutorialServed": true,
+          "nextTicket": {
+            "phase": "run",
+            "step": "0",
+            "need": "MISO"
+          }
+        }
+      ],
+      "rule": [
+        "Build each bowl in the order on the card: broth, noodles, meat, topping, before the timer runs out."
+      ],
+      "afterWrong": {
+        "phase": "run",
+        "step": "0",
+        "need": "MISO"
+      },
+      "result": {
+        "quit": false,
+        "outcome": "done",
+        "score": 1,
+        "data": {
+          "money": 8,
+          "perfect": 1,
+          "walkouts": 0,
+          "beatHina": true
+        },
+        "rewards": {
+          "flags": {
+            "jollofRamenOnMenu": true
+          },
+          "money": 8,
+          "memories": [
+            "first shift"
+          ]
+        },
+        "minigame": "slurp",
+        "progress": {
+          "hinaBest": 8,
+          "bestRush": 1
+        }
+      },
+      "money": 100000
+    },
+    {
+      "name": "ramen walkout and quit",
+      "id": "slurp",
+      "params": {
+        "seed": "stove-b",
+        "kevinChance": 0
+      },
+      "inputs": [
+        "one full customer patience window; no order served"
+      ],
+      "rule": [],
+      "result": {
+        "quit": true,
+        "outcome": "quit",
+        "rewards": {},
+        "minigame": "slurp",
+        "progress": {
+          "hinaBest": 8,
+          "bestRush": 1
+        }
+      },
+      "money": 100000
+    },
+    {
+      "name": "Senator three correct actions",
+      "id": "hatch",
+      "params": {
+        "mode": "senator"
+      },
+      "inputs": [],
+      "rule": [
+        "Tap the button the prompt asks for before the timer runs out."
+      ],
+      "result": {
+        "quit": false,
+        "outcome": "walked",
+        "data": {
+          "care": {
+            "feed": true,
+            "walk": true,
+            "joko": true
+          },
+          "walked": true,
+          "senatorLost": false,
+          "missed": [],
+          "actions": [
+            {
+              "prompt": "FEED",
+              "action": "FEED",
+              "success": true
+            },
+            {
+              "prompt": "WALK",
+              "action": "WALK",
+              "success": true
+            },
+            {
+              "prompt": "JOKO",
+              "action": "JOKO",
+              "success": true
+            }
+          ]
+        },
+        "rewards": {},
+        "minigame": "hatch",
+        "progress": {}
+      },
+      "money": 100000
+    },
+    {
+      "name": "Senator mistaken walk immediate failure",
+      "id": "hatch",
+      "params": {
+        "mode": "senator"
+      },
+      "inputs": [],
+      "rule": [],
+      "result": {
+        "quit": false,
+        "outcome": "lost",
+        "data": {
+          "care": {
+            "feed": true,
+            "walk": false,
+            "joko": false
+          },
+          "walked": false,
+          "senatorLost": true,
+          "missed": [
+            "WALK",
+            "JOKO"
+          ],
+          "actions": [
+            {
+              "prompt": "FEED",
+              "action": "FEED",
+              "success": true
+            },
+            {
+              "prompt": "WALK",
+              "action": "JOKO",
+              "success": false
+            }
+          ]
+        },
+        "rewards": {},
+        "minigame": "hatch",
+        "progress": {}
+      },
+      "money": 100000
+    },
+    {
+      "name": "rave real full chart with intentional missed opening",
+      "id": "dance",
+      "params": {
+        "rave": true,
+        "seed": "ogun-blood-rave",
+        "bpm": 126,
+        "notes": 36,
+        "moodStart": 70
+      },
+      "inputs": [],
+      "rule": [
+        "Tap the dance move when it falls into the glowing zone."
+      ],
+      "result": {
+        "quit": false,
+        "outcome": "win",
+        "score": 36,
+        "data": {
+          "perfect": 0,
+          "good": 36,
+          "miss": 0,
+          "combo": 36,
+          "maxCombo": 36,
+          "mood": 100,
+          "hype": true,
+          "accuracy": 1,
+          "win": true,
+          "outcome": "win",
+          "money": 0,
+          "stars": 3
+        },
+        "rewards": {
+          "clout": 3,
+          "memories": [
+            "danced. they sprayed me"
+          ]
+        },
+        "minigame": "dance",
+        "progress": {
+          "bestAccuracy": 1,
+          "bestCombo": 36
+        }
+      },
+      "money": 100000
+    },
+    {
+      "name": "rave miss chart failure",
+      "id": "dance",
+      "params": {
+        "rave": true,
+        "seed": "ogun-blood-rave",
+        "bpm": 126,
+        "notes": 36,
+        "moodStart": 70
+      },
+      "inputs": [],
+      "rule": [],
+      "result": {
+        "quit": false,
+        "outcome": "lose",
+        "score": 0,
+        "data": {
+          "perfect": 0,
+          "good": 0,
+          "miss": 12,
+          "combo": 0,
+          "maxCombo": 0,
+          "mood": 0,
+          "accuracy": 0,
+          "win": false,
+          "outcome": "lose",
+          "money": 0,
+          "stars": 0
+        },
+        "rewards": {
+          "clout": 0,
+          "memories": []
+        },
+        "minigame": "dance",
+        "progress": {
+          "bestAccuracy": 1,
+          "bestCombo": 36
+        }
+      },
+      "money": 100000
+    },
+    {
+      "name": "owambe catches attention decay and backout",
+      "id": "owambe_collection",
+      "params": {
+        "seed": "stove-b"
+      },
+      "inputs": [],
+      "rule": [
+        "Tap the falling money to collect it, but go slow or the aunties will notice."
+      ],
+      "afterCatch": {
+        "phase": "run",
+        "input": "pointer",
+        "amountCaught": "3000",
+        "attention": "24.17",
+        "billTargets": "[]"
+      },
+      "afterWait": {
+        "phase": "run",
+        "input": "pointer",
+        "amountCaught": "3000",
+        "attention": "0.00",
+        "billTargets": "[[177,187],[121,186],[234,157],[218,134],[82,107]]"
+      },
+      "result": {
+        "quit": false,
+        "outcome": "back_out",
+        "score": 3000,
+        "data": {
+          "result": "BACK_OUT",
+          "amountCaught": 3000,
+          "attention": 0,
+          "payout": 0
+        },
+        "rewards": {},
+        "minigame": "owambe_collection",
+        "progress": {}
+      },
+      "money": 100000
+    },
+    {
+      "name": "owambe SHORT result, explicitly shortened duration fixture",
+      "id": "owambe_collection",
+      "params": {
+        "seed": "stove-b-short",
+        "durationSeconds": 8
+      },
+      "inputs": [],
+      "rule": [],
+      "result": {
+        "quit": false,
+        "outcome": "short",
+        "score": 4000,
+        "data": {
+          "result": "SHORT",
+          "amountCaught": 4000,
+          "attention": 0,
+          "payout": 800
+        },
+        "rewards": {},
+        "minigame": "owambe_collection",
+        "progress": {}
+      },
+      "money": 100000
+    },
+    {
+      "name": "Jollof final real winning dish",
+      "id": "jollof",
+      "params": {
+        "mode": "final",
+        "lauraScore": 34
+      },
+      "inputs": [],
+      "rule": [
+        "Cook the jollof in four steps: blend, fry, season, steam, and stop at each green zone."
+      ],
+      "result": {
+        "quit": false,
+        "outcome": "win",
+        "score": 36,
+        "data": {
+          "scores": {
+            "flavor": 9,
+            "texture": 10,
+            "color": 9,
+            "smoke": 8
+          },
+          "judgeScores": {
+            "nneka": {
+              "flavor": 9,
+              "texture": 10,
+              "color": 9,
+              "smoke": 8,
+              "total": 36,
+              "reaction": "\"Now THAT is jollof.\"",
+              "meaningless": false
+            },
+            "uncle_sunday": {
+              "flavor": 9,
+              "texture": 10,
+              "color": 9,
+              "smoke": 8,
+              "total": 36,
+              "reaction": "*wipes eye* \"...my father used to make it like this.\"",
+              "meaningless": false
+            },
+            "bunmi": {
+              "flavor": 9,
+              "texture": 10,
+              "color": 9,
+              "smoke": 8,
+              "total": 36,
+              "reaction": "\"Every grain separate. Respect.\"",
+              "meaningless": false
+            },
+            "mom": {
+              "flavor": 9,
+              "texture": 10,
+              "color": 9,
+              "smoke": 8,
+              "total": 36,
+              "reaction": "\"It's good, oh. Not like mine. But good.\"",
+              "meaningless": false
+            },
+            "lil_smack": {
+              "flavor": 9,
+              "texture": 10,
+              "color": 9,
+              "smoke": 8,
+              "total": 36,
+              "reaction": "*mouth full* \"s'good.\"",
+              "meaningless": true
+            }
+          },
+          "beatLaura": true
+        },
+        "rewards": {
+          "money": 5000,
+          "items": {
+            "jollof_trophy": 1
+          },
+          "memories": [
+            "won jollof wars"
+          ]
+        },
+        "minigame": "jollof",
+        "progress": {
+          "bestTotal": 36,
+          "wins": 1
+        }
+      },
+      "money": 100000
+    },
+    {
+      "name": "Jollof rushed real losing dish",
+      "id": "jollof",
+      "params": {
+        "mode": "cookoff",
+        "lauraScore": 34
+      },
+      "inputs": [],
+      "rule": [],
+      "result": {
+        "quit": false,
+        "outcome": "lose",
+        "score": 11,
+        "data": {
+          "scores": {
+            "flavor": 5,
+            "texture": 1,
+            "color": 4,
+            "smoke": 1
+          },
+          "judgeScores": {
+            "nneka": {
+              "flavor": 5,
+              "texture": 1,
+              "color": 4,
+              "smoke": 1,
+              "total": 11,
+              "reaction": "\"This is an insult to my ancestors.\"",
+              "meaningless": false
+            },
+            "uncle_sunday": {
+              "flavor": 5,
+              "texture": 1,
+              "color": 4,
+              "smoke": 1,
+              "total": 11,
+              "reaction": "\"No smoke, no soul, my brother.\"",
+              "meaningless": false
+            },
+            "bunmi": {
+              "flavor": 5,
+              "texture": 1,
+              "color": 4,
+              "smoke": 1,
+              "total": 11,
+              "reaction": "\"This is porridge, not jollof.\"",
+              "meaningless": false
+            }
+          },
+          "beatLaura": false
+        },
+        "rewards": {},
+        "minigame": "jollof",
+        "progress": {
+          "bestTotal": 36,
+          "wins": 1
+        }
+      },
+      "money": 100000
+    }
+  ],
+  "errors": [],
+  "failure": "Error: page.evaluate: Error: IRON & GRACE: unknown gun draco\n    at Object.buy (http://localhost:37673/js/frag/F02/registry.js?v=__BUILD_ASSET_VERSION__:46:51)\n    at eval (eval at evaluate (:311:30), <anonymous>:1:21)\n    at UtilityScript.evaluate (<anonymous>:313:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+}

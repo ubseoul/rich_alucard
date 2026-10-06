@@ -800,3 +800,153 @@ Evidence is explicitly **ordinary browser**, **fixture browser** or **source ins
 **Owner:** Armory engineering / design.
 
 **Ruling needed:** Confirm requested no-mod cut and active replacement for medal discount; this audit does not enforce it.
+
+## Stove B continuation — runtime unchanged
+
+Audited the same4981d524 runtime after audit commit55b7f9c. Original findings above are preserved as historical evidence; the following addenda supersede their stated coverage limits without erasing them. Methods and exact boundaries are in EXPERIENCE_COVERAGE.
+
+### RC4-034
+
+**P1 — Quitting the one-time Jollof final permanently records a loss.**
+
+- Evidence / player impact: A54 fixture entry → QUIT → caller lose dialogue → record completed lose and unavailable. `scene-browser.json` A54, a54-quit-return.png. Player loses the finale without playing it.
+- Reproduction: Enter A54 via labelled Maps-final fixture, tap QUIT, inspect adventure record and re-entry eligibility.
+- Exact files: `js/data/btf/adventures/w5.js`, `js/engine/minigames.js`, `js/engine/adventures.js`.
+- Smallest repair: Treat cancellation separately from scored failure; preserve availability and offer explicit retry/return using existing final/result nodes. No automatic win or blanket reset.
+- Existing resources: Existing A54 final/lose board and minigame outcome contract.
+- Effort: S. Owner: Story/minigame engineer, R4.
+- Confidence / kind: Objective; high, actual caller quit.
+- Ruling needed: Ube approves cancel/retry policy; Overlord reviews once-only final consequence.
+
+### RC4-035
+
+**P2 — Narration is displayed as the named character speaking about themselves.**
+
+- Evidence / player impact: M1 Smallie: “Smallie is at the back table”; M4 Carlos: “Carlos gets in expecting a party”; M2 Gbenga narrates plastic-chair setup. Similar Hina/Marisol/Kaede/Uncle Sunday/Auntie tags. Player must decode scene description as oddly self-referential dialogue.
+- Reproduction: Read listed node line speaker fields and normal M2/M4 checkpoint bubbles; compare named dialogue vs third-person action.
+- Exact files: `js/data/btf/adventures/new_oga_m1_m3.js`, `js/data/btf/adventures/new_oga_m4.js`, `js/data/btf/adventures/w2.js`, `js/data/btf/adventures/w3.js`, `js/data/btf/adventures/w4.js`, `js/scenes/adventure.js`.
+- Smallest repair: Route only clear third-person staging to narrator/null speaker, preserving exact text and intentional first-person/self-reference jokes. Audit protected-line attribution separately.
+- Existing resources: Existing narrator pipeline and line arrays.
+- Effort: S. Owner: Content integrator, R2.
+- Confidence / kind: Objective; high source and actual M2/M4/date dialogue.
+- Ruling needed: Overlord attribution review; no permission to paraphrase protected lines.
+
+### RC4-036
+
+**P2 — Pet-dependent choices assume companions whose acquisition was cut.**
+
+- Evidence / player impact: Roxy2 offers MENTION YOUR CAT with no ownership gate; YAM LET MAZDA DO IT similarly unguarded; finale Mazda presence unconditional. This differs from M6 correctly conditional pet branches. Player is told they have a relationship or possession never established.
+- Reproduction: Fresh pet ownership null → inspect/enter Roxy2 threshold fixture and YAM choices; source trace finale cast.
+- Exact files: `js/frag/F15/roxy.js`, `js/data/btf/adventures/rc2_story.js`, `js/frag/F07/m8_and_finale.js`, `js/systems/rc3.js`.
+- Smallest repair: Gate dependent options/cast on declared ownership, or establish an approved existing companion premise in a current beat. Decide together; do not restore whole pet system.
+- Existing resources: Existing ownership checks used by M6 and existing Mazda/cat references.
+- Effort: S/M. Owner: Story/F15 integration, R2/R3.
+- Confidence / kind: Objective; high source, selected dates fixture-played.
+- Ruling needed: Ube chooses companion premise after cut; Overlord reviews supplied-line constraints.
+
+### RC4-037
+
+**P2 — Phil’s three-day food joke advances twice on the same day.**
+
+- Evidence / player impact: continuity-browser.json records Day40 first food progress1,lastDay40 then another Day40 entry progress2,lastDay40. RC3 Maps override discards the authored daily available gate. The multi-day running gag becomes repeat tapping.
+- Reproduction: Seed calendar Day40 only; Maps → Phil → FOOD; return and repeat Maps → FOOD without sleep.
+- Exact files: `js/data/btf/adventures/w3.js`, `js/systems/rc3.js`, `js/engine/adventures.js`.
+- Smallest repair: Retain the Phil once-per-day/progression guard independently of removed dependency gates; keep stage3 payoff/repeat policy explicit. No global restoration of cut requirements.
+- Existing resources: Existing progress/lastDay/available function.
+- Effort: S. Owner: Adventure/state engineer, R2.
+- Confidence / kind: Objective; high, two actual normal Maps entries on seeded Day40.
+- Ruling needed: Ube confirms three-day cadence; no balance tuning required.
+
+### RC4-038
+
+**P3 — Gbenga’s important dinner revelation is delivered as a plot synopsis.**
+
+- Evidence / player impact: Patio: “Rich learns where the vault is, how the business actually works, and where Mister December stands above Gbenga.” This asserts relationship change rather than letting the two men respond to it. Existing family warmth and leftovers are worth keeping.
+- Reproduction: M7 ordinary TAKE/refuse choices after chapter fixture; inspect patio lines and readable-NEW_OGA_M7-patio.png.
+- Exact files: `js/data/btf/adventures/new_oga_m7.js`, `js/frag/F03/new_oga_ladder_close.js`.
+- Smallest repair: Request one reciprocal exchange/acknowledgement within the existing patio beat only. Preserve supplied/protected canon lines verbatim; insertion/order requires creator ruling. No invented vault story.
+- Existing resources: Current approved patio/dining/Mama/Gbenga states and leftovers consequence.
+- Effort: S writing plus review. Owner: Overlord writer/scene integrator, R2; optional depth.
+- Confidence / kind: Editorial; high source and actual patio screenshot.
+- Ruling needed: Ube/Overlord decides whether and where a short exchange may accompany protected summary.
+
+### RC4-039
+
+**P2 — Food choices and their receipts record different events.**
+
+- Evidence / player impact: FUFU CHEW sets chew but memory says “i swallowed”; acceptable AUNTIES verdict memory still says “a project”; YAM TAKE THE YAM ($6) is gated, but WARRANTY spends min(6,cash), even at0. Player’s chosen actions are falsely remembered; the alternate checkout bypasses the displayed purchase price without explaining it.
+- Reproduction: Inspect FUFU choice receipt, AUNTIES computed verdict/end memory, and YAM warranty spend expression at cash below6. Branch arithmetic is source-only, not three claimed earned runs.
+- Exact files: `js/data/btf/adventures/rc2_story.js`, `js/engine/adventures.js`.
+- Smallest repair: Use existing chosen style/verdict in receipt; guard priced warranty with actual affordability or explicitly reviewed free fallback. Keep Nigerian dialogue verbatim.
+- Existing resources: Existing scene flags, outcome memory and money ledger.
+- Effort: S. Owner: Adventure/content engineer, R2.
+- Confidence / kind: Objective; high source; representative food scenes fixture-inspected.
+- Ruling needed: Overlord approves receipt wording only; Ube priced-option fallback ruling.
+
+### RC4-040
+
+**P2 — Emerald’s ASK versus WAIT choice has the same response.**
+
+- Evidence / player impact: ASK ABOUT THE CALL vs WAIT FOR HER TO BRING IT UP both point to talk with no initiative flag or different line. An intimacy choice implies player posture but does not acknowledge it.
+- Reproduction: Enter Emerald2 threshold fixture; compare table choice targets/effects in emerald.js and normal talk path.
+- Exact files: `js/frag/F15/emerald.js`, `js/engine/adventures.js`.
+- Smallest repair: Remove misleading duplicate option or acknowledge chosen initiative in one existing beat with reviewed wording. No new affection stat, penalty or date.
+- Existing resources: Existing table/talk nodes and Emerald portrait.
+- Effort: S. Owner: F15 writer/content engineer, R3.
+- Confidence / kind: Objective branch equivalence; editorial consequence high source, date fixture.
+- Ruling needed: Ube choice intent + Overlord new line approval.
+
+### RC4-041
+
+**P2 — Quit means forced replay or fictional completion depending on caller.**
+
+- Evidence / player impact: M5 quit→collect and M6 quit→care; M3/A08 can advance completion after quit. Host reliably returns quit, callers give it inconsistent fiction. Player cannot predict whether leaving is allowed or counts as work. A54 permanent loss is separately034.
+- Reproduction: Read minigame next callbacks; direct host QUIT probes prove disposal/outcome, not every affected parent transition. Future repro M5/M6 quit from ordinary mission entry.
+- Exact files: `js/data/btf/adventures/new_oga_m5_m6.js`, `js/data/btf/adventures/new_oga_m1_m3.js`, `js/data/btf/adventures/w2.js`, `js/engine/minigames.js`, `js/scenes/adventure.js`.
+- Smallest repair: Define cancel vs earned failure vs retry; preserve mission checkpoint and provide an explicit home/retry route. Do not silently award work on cancellation.
+- Existing resources: Existing result nodes and shared host quit contract.
+- Effort: S/M. Owner: Minigame/story engineer, R4.
+- Confidence / kind: Objective; high source; host quits played, affected M3/M5/M6 caller paths source-only.
+- Ruling needed: Ube approves each retained vignette cancel/fail-forward behavior.
+
+### RC4-042
+
+**P1 — Range Day finishes reloading with zero ammunition.**
+
+- Evidence / player impact: range-browser.json full50s scored4shots/1hit/100 then no more ammo; boundaries-browser.json empties4-round magazine, waits2.5s and HUD still AMMO0. update decrements reloading timer without setting ammo. Meaningful play stops after first magazine.
+- Reproduction: Range with LIL OGA ownership fixture; click4shots, observe RELOADING, wait past timer, click again. range-ammo-zero-after-reload.png.
+- Exact files: `js/frag/F02/range.js`.
+- Smallest repair: Refill to weapon magazine capacity exactly once at reload completion; synchronize HUD and next fire. Keep target scoring/hostage penalty/medal policy unchanged pending scope.
+- Existing resources: Existing weapon magazine capacity, reload timer and HUD.
+- Effort: S. Owner: F02/minigame engineer, R4.
+- Confidence / kind: Objective; high, full round plus isolated real-input probe.
+- Ruling needed: Engineering repair; no creative approval for reload semantics, no protected PLAY changes.
+
+#### RC4-009 — Stove B chain-consumer evidence
+
+**P2 — Winning the Jollof final silently skips its authored Lil Smack follow-up.**
+
+- Evidence / player impact: A54 win clears active then end.chain asks to start A56 from chain. Maps-only canStart returns false. Runner ignores false, adventure guard returns bedroom, A56 record null. Safe return, not a blank-screen softlock. Follow-up/payoff disappears.
+- Reproduction: Enter labelled A54 win-node checkpoint; read/tap win line; inspect A56 record and canStart(A56,chain), focus-browser.json/a54-win-chain.png. Separate actual Jollof final36/40 win tests cooking, not parent chain.
+- Exact files: `js/data/btf/adventures/w5.js`, `js/systems/rc3.js`, `js/scenes/adventure.js`, `js/engine/adventures.js`.
+- Smallest repair: Permit this one approved continuation or present a clear Maps follow-up entry/prompt. Check failed start result. Do not globally reopen all legacy chain adventures.
+- Existing resources: Existing A56 Lil Smack scene and returnBeat/chain handling.
+- Effort: S. Owner: Adventure integration, R2/R4.
+- Confidence / kind: Objective; high source and final-win checkpoint, not earned whole-parent final.
+- Ruling needed: Ube confirms kept A54→A56 payoff vs Maps-only rule; extends009 with exact consumer mechanism.
+
+### Deeper evidence on existing IDs (history retained)
+
+| Existing ID | New evidence and confidence adjustment |
+|---|---|
+|001/002/006 |M4 actual normal dialogue reaches minigame only under a fixture that supplies a car; it does not invalidate the earlier carless TypeError. Touge actual controls played with explicit Supra. No natural car acquisition newly proven. |
+|003 |Public graph has earliest direct spine Day13/alternate14, then authored F07 floor25 and disabled RC3 wake trigger. No natural ending or OL-079 integration newly proven. Seeded three ending nodes test dialogue only. |
+|009 |Phil daily guard override now reproduced037; A54 chain failure now reproduced043. Current A31 BOOK FLIGHT420 route exists and works; it is not a dead-end node. |
+|010/026 |Actual Day2 club debit75500→71750,25% discount confirmed. Day2 Rosalyn rotation explains Roxy support0; do not report false attribution bug. Cash/visit persist reload. |
+|012/013/028/029/032 |Fuller real controls/results strengthen aesthetic verdicts: chairs60/60, ramen2perfect/$24, rave36good then loss, Range reload bug042, Senator correct/wrong, Owambe catches/shortened SHORT only, Jollof36/40. See MINIGAME_HANDS_ON. |
+|014/015/019 |Actual Roxy spar offered BLOOD BATH/OCTOPUS BITE/REVENGE and exchanged24 damage; cash overlaps enemy name. Gbenga actual sweep24, voice-note stun, missed turn/heal30, then charisma retirement. Real placement now supplied; lower-HP boss branches source-only. |
+|016 |Both ICE PACK and TOWEL selected with normal date controls after threshold fixture; same towel narration confirmed. |
+|017 |Actual optional PLAY completed failure: consumed COMPLETE/win:false, heat+2, two DOWNED; no consume errors, report card and cleared pending. Daily action remained false (play-settlement.json), strengthening the settlement-credit mismatch. Protected odds unchanged. |
+|022 |Build4 library/exam/dinner/Jollof art already shipped frozen; historical gap report is obsolete for those assets. Scene samples0 broken actor loads/placeholder environments. Combat UNKNOWN FX approval still unresolved. |
+|030 |Armory utility definitions allowed but entry stranded; A24 Holy Baby Drake altar_case acquisition is outside five native sale routes. Marisol/Hall consumers still cut. Existing consumer reuse preferred to system restoration. |
+|031 |No new conversation/combat leakage seen in144 scene states/continuity browser; defensive guard inspection remains MONITOR, not proof of universal absence. |

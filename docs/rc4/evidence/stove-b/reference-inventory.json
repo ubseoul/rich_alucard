@@ -1,0 +1,273 @@
+{
+  "ref": "4981d5245d0600c062a7f431acd8253dc28b9cc6",
+  "mode": "A repo paths; B supplied unchanged-byte ZIP fallback",
+  "authority": "Registry status is per-file, not inferred from inclusion. APPROVED MASTER/FROZEN identity only. Screenshots govern placement.",
+  "assets": [
+    {
+      "path": "assets/build4/p_d/p_d_f15_library.png",
+      "width": 270,
+      "height": 480,
+      "sha256": "1597863b8b3584c0837b86502fab802981eb59c2590f0e68eb10d88ced2a35fb",
+      "authority": "FROZEN",
+      "anchor": null,
+      "visible": null
+    },
+    {
+      "path": "assets/build4/p_d/p_d_f15_exam_hall.png",
+      "width": 270,
+      "height": 480,
+      "sha256": "d8764fb41fe490303714555e9433f26206a3eff2bd8b807d633b96c3ddaaf995",
+      "authority": "FROZEN",
+      "anchor": null,
+      "visible": null
+    },
+    {
+      "path": "assets/build4/p_d/p_d_gbenga_house_dining.png",
+      "width": 270,
+      "height": 480,
+      "sha256": "06912ce6c92307d138c3d25e8f7f3e259f4e8ffebcbea01534a05b92486e60c5",
+      "authority": "FROZEN",
+      "anchor": null,
+      "visible": null
+    },
+    {
+      "path": "assets/build4/p_d/p_d_gbenga_house_patio.png",
+      "width": 270,
+      "height": 480,
+      "sha256": "7fb9263ee00ca834a49f978673a01c8ddd153ae02f7a9b8e881f4fcbd753c5f3",
+      "authority": "FROZEN",
+      "anchor": null,
+      "visible": null
+    },
+    {
+      "path": "assets/build4/p_d/p_d_carson_owambe.png",
+      "width": 270,
+      "height": 480,
+      "sha256": "205fed2fa37fe062886a592107a4ea38c9b636aad43a4161dc04e59e1b4b4944",
+      "authority": "FROZEN",
+      "anchor": null,
+      "visible": null
+    },
+    {
+      "path": "assets/build4/p_d/p_d_jollof_kitchen.png",
+      "width": 270,
+      "height": 480,
+      "sha256": "4e55188c7be0f01e93de007564759e0ad18a6517412f0b664417a5f729483152",
+      "authority": "FROZEN",
+      "anchor": null,
+      "visible": null
+    },
+    {
+      "path": "assets/build4/p_d/p_d_jollof_cookoff.png",
+      "width": 270,
+      "height": 480,
+      "sha256": "7b57098e33bf1535d1aed17e9410991ea3cf22544862de141b7c13411047b11b",
+      "authority": "FROZEN",
+      "anchor": null,
+      "visible": null
+    },
+    {
+      "path": "assets/build4/p_d/p_d_jollof_final.png",
+      "width": 270,
+      "height": 480,
+      "sha256": "a7881a5e3ea474ec9097ffd7fb79caac9439e789f86a5d55de8ebe725585c7fe",
+      "authority": "FROZEN",
+      "anchor": null,
+      "visible": null
+    },
+    {
+      "path": "assets/build4/p_d/p_d_owambe_birthday.png",
+      "width": 270,
+      "height": 480,
+      "sha256": "6ad18801fcf68d45f3be215440a631aa7a743fddc72f2bb351b2766055df72c1",
+      "authority": "FROZEN",
+      "anchor": null,
+      "visible": null
+    },
+    {
+      "path": "assets/build4/p_d/p_d_senator_care_ground.png",
+      "width": 270,
+      "height": 480,
+      "sha256": "d01c490f2dc3a0affa1a4cb7dcbdcfbd227f932a2ae56ca7fef0d2dd7213acdb",
+      "authority": "FROZEN",
+      "anchor": null,
+      "visible": null
+    },
+    {
+      "path": "assets/build4/p_d/p_d_senator_states_480x160.png",
+      "width": 480,
+      "height": 160,
+      "sha256": "68e7ad0e83d4042d2a92c6bb8448a4605fb3f64e0a1d11c2a88892b7a1715ad0",
+      "authority": "FROZEN",
+      "anchor": null,
+      "visible": null,
+      "approvalEvidence": [
+        "User P-D delivery 2026-10-03; OL046_P-D_FROZEN_2026-10-03/HANDOFF.md and INVENTORY.json"
+      ],
+      "authoritySource": "art_department/ASSET_REGISTER.json"
+    },
+    {
+      "path": "assets/before_the_fame/characters/carlos/runtime_80x96/carlos_betrayed_80x96_review_v1.png",
+      "width": 80,
+      "height": 96,
+      "sha256": "46e325b2102811469898a9c5cd4d2c9c84dd4aff01058accf0294da51a588b14",
+      "authority": "FROZEN",
+      "anchor": [
+        40,
+        88
+      ],
+      "visible": [
+        23,
+        25,
+        39,
+        65
+      ]
+    },
+    {
+      "path": "assets/before_the_fame/characters/carlos/runtime_80x96/carlos_canopy_apron_80x96_review_v1.png",
+      "width": 80,
+      "height": 96,
+      "sha256": "edf2bb23b9d235edf07588032fa6480017083b470d841e7e355691d6eb36388a",
+      "authority": "FROZEN",
+      "anchor": [
+        40,
+        88
+      ],
+      "visible": [
+        20,
+        17,
+        42,
+        73
+      ]
+    },
+    {
+      "path": "assets/before_the_fame/characters/hilt/hilt_neutral_80x96.png",
+      "width": 80,
+      "height": 96,
+      "sha256": "e179293708207d5dbe7892dc71bd120ce270490c22141aaf6245d5bf4b46a4e9",
+      "authority": "FROZEN",
+      "anchor": [
+        40,
+        88
+      ],
+      "visible": [
+        24,
+        24,
+        32,
+        64
+      ]
+    },
+    {
+      "path": "assets/before_the_fame/environments/armory/armory_behind_church_270x480.png",
+      "width": 270,
+      "height": 480,
+      "sha256": "21db9cea10f6a65b318d58d92d1b8b6dcd2d8a5e7a81e8db1e42873d56207df0",
+      "authority": "FROZEN",
+      "anchor": null,
+      "visible": null
+    },
+    {
+      "path": "assets/before_the_fame/characters/rich/rich_ramen_apron_corrected_80x96.png",
+      "width": 80,
+      "height": 96,
+      "sha256": "9c2ba5ab7175cffb0d5c71040bf8461c3dd3e82320605009a0781ffc353d2019",
+      "authority": "FROZEN",
+      "anchor": [
+        40,
+        88
+      ],
+      "visible": [
+        40,
+        36,
+        28,
+        52
+      ]
+    },
+    {
+      "path": "assets/ogun_rave/masters/rave_interior_270x480.png",
+      "width": 270,
+      "height": 480,
+      "sha256": "597591188a9f3b7865625f967933b07586930982fb31d0c92ab4e5fc38c51118",
+      "authority": "FROZEN",
+      "anchor": null,
+      "visible": null,
+      "approvalEvidence": [
+        "docs/RAVE_STAGE_REVIEW.md",
+        "art_department/APPROVAL_LEDGER.md"
+      ],
+      "authoritySource": "art_department/ASSET_REGISTER.json"
+    },
+    {
+      "path": "assets/f15/portraits/roxy.png",
+      "width": 80,
+      "height": 96,
+      "sha256": "863f603116b19be9c696ccd28257e3818832c396af9dac5ef939027e33eefa7d",
+      "authority": "FROZEN",
+      "anchor": [
+        40,
+        88
+      ],
+      "visible": [
+        21,
+        4,
+        55,
+        92
+      ]
+    },
+    {
+      "path": "assets/f15/portraits/rosalyn.png",
+      "width": 80,
+      "height": 96,
+      "sha256": "f912029dd2729b8fc4ac22496435087b75294305dd004b9b20c302c3e8fbd916",
+      "authority": "FROZEN",
+      "anchor": [
+        40,
+        88
+      ],
+      "visible": [
+        20,
+        14,
+        34,
+        82
+      ]
+    },
+    {
+      "path": "assets/f15/portraits/emerald.png",
+      "width": 80,
+      "height": 96,
+      "sha256": "3fc896931d65b480537f11e68c0e0b5cf7e35903be1ae56f108d242b78b4d842",
+      "authority": "FROZEN",
+      "anchor": [
+        40,
+        88
+      ],
+      "visible": [
+        18,
+        0,
+        61,
+        96
+      ]
+    },
+    {
+      "path": "assets/f15/environments/shrine_auditorium_270x480.png",
+      "width": 270,
+      "height": 480,
+      "sha256": "58359742eb37d7cd4ff9f05c9312207f109528a59397268cd7d73491ae02cab9",
+      "authority": "FROZEN",
+      "anchor": null,
+      "visible": null
+    }
+  ],
+  "placementScreenshots": [
+    "roxy-spar-blood-menu.png",
+    "gbenga-turn-1.png",
+    "gbenga-turn-2.png",
+    "gbenga-turn-3.png",
+    "gbenga-retire-gate.png",
+    "readable-NEW_OGA_M7-patio.png",
+    "readable-F15_EMERALD_L4-hall.png",
+    "chairs-complete.png",
+    "range-ammo-zero-after-reload.png",
+    "touge-real-input.png"
+  ]
+}

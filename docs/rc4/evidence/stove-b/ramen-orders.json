@@ -1,0 +1,59 @@
+{
+  "width": 390,
+  "mode": "direct entry fixtures / real inputs / ordinary durations unless explicitly named",
+  "runs": [
+    {
+      "name": "ramen real first bowl and normal wrong ingredient",
+      "id": "slurp",
+      "params": {
+        "firstShift": true,
+        "seed": "stove-b"
+      },
+      "inputs": [
+        {
+          "tutorialServed": true,
+          "nextTicket": {
+            "phase": "run",
+            "step": "0",
+            "need": "MISO"
+          }
+        }
+      ],
+      "rule": [
+        "Build each bowl in the order on the card: broth, noodles, meat, topping, before the timer runs out."
+      ],
+      "afterWrong": {
+        "phase": "run",
+        "step": "0",
+        "need": "MISO"
+      },
+      "result": {
+        "quit": false,
+        "outcome": "done",
+        "score": 2,
+        "data": {
+          "money": 24,
+          "perfect": 2,
+          "walkouts": 0,
+          "beatHina": true
+        },
+        "rewards": {
+          "flags": {
+            "jollofRamenOnMenu": true
+          },
+          "money": 24,
+          "memories": [
+            "first shift"
+          ]
+        },
+        "minigame": "slurp",
+        "progress": {
+          "hinaBest": 24,
+          "bestRush": 2
+        }
+      },
+      "money": 100000
+    }
+  ],
+  "errors": []
+}
