@@ -1,0 +1,3032 @@
+{
+  "base": "1acc3c2 pre-validation assembly; final immutable SHA in integration receipt",
+  "rows": [
+    {
+      "enemy": "uncle_sunday",
+      "character": "uncle_sunday",
+      "name": "UNCLE SUNDAY",
+      "move": "wag",
+      "label": "FINGER WAG",
+      "pattern": [
+        "wag",
+        "marriage",
+        "father",
+        "wag",
+        "father"
+      ],
+      "telegraph": null,
+      "anchor": "assets/before_the_fame/characters/uncle_sunday/uncle_sunday_neutral_80x96.png",
+      "variant": null,
+      "roles": {},
+      "identityStates": {
+        "fishing": "assets/before_the_fame/characters/uncle_sunday/uncle_sunday_fishing_80x96.png",
+        "melted": "assets/before_the_fame/characters/uncle_sunday/uncle_sunday_melted_80x96.png",
+        "neutral": "assets/before_the_fame/characters/uncle_sunday/uncle_sunday_neutral_80x96.png",
+        "offended": "assets/before_the_fame/characters/uncle_sunday/uncle_sunday_offended_80x96.png"
+      },
+      "assets": [
+        "assets/before_the_fame/characters/uncle_sunday/uncle_sunday_neutral_80x96.png"
+      ],
+      "hashes": {
+        "assets/before_the_fame/characters/uncle_sunday/uncle_sunday_neutral_80x96.png": "79ee0ada6bbc4044180fefbd8371ee7ce16d2aa1eeaba998e83c471371ee4f63"
+      },
+      "encounterCandidates": [
+        {
+          "id": "A10",
+          "retained": false
+        },
+        {
+          "id": "A12",
+          "retained": false
+        },
+        {
+          "id": "YAM",
+          "retained": true
+        },
+        {
+          "id": "ASOEBI",
+          "retained": false
+        }
+      ],
+      "fx": {
+        "s": "word",
+        "color": "#d6af62"
+      },
+      "fxTimeline": {
+        "frames": 10,
+        "frameMs": 62
+      },
+      "coverage": "CODE_DRAWN_FX_PRESENT_ACTOR_TIMELINE_REVIEW_REQUIRED",
+      "distinctRoleAssets": 1
+    },
+    {
+      "enemy": "uncle_sunday",
+      "character": "uncle_sunday",
+      "name": "UNCLE SUNDAY",
+      "move": "father",
+      "label": "\"WHO IS YOUR FATHER\"",
+      "pattern": [
+        "wag",
+        "marriage",
+        "father",
+        "wag",
+        "father"
+      ],
+      "telegraph": "UNCLE SUNDAY IS INHALING DEEPLY…",
+      "anchor": "assets/before_the_fame/characters/uncle_sunday/uncle_sunday_neutral_80x96.png",
+      "variant": null,
+      "roles": {},
+      "identityStates": {
+        "fishing": "assets/before_the_fame/characters/uncle_sunday/uncle_sunday_fishing_80x96.png",
+        "melted": "assets/before_the_fame/characters/uncle_sunday/uncle_sunday_melted_80x96.png",
+        "neutral": "assets/before_the_fame/characters/uncle_sunday/uncle_sunday_neutral_80x96.png",
+        "offended": "assets/before_the_fame/characters/uncle_sunday/uncle_sunday_offended_80x96.png"
+      },
+      "assets": [
+        "assets/before_the_fame/characters/uncle_sunday/uncle_sunday_neutral_80x96.png"
+      ],
+      "hashes": {
+        "assets/before_the_fame/characters/uncle_sunday/uncle_sunday_neutral_80x96.png": "79ee0ada6bbc4044180fefbd8371ee7ce16d2aa1eeaba998e83c471371ee4f63"
+      },
+      "encounterCandidates": [
+        {
+          "id": "A10",
+          "retained": false
+        },
+        {
+          "id": "A12",
+          "retained": false
+        },
+        {
+          "id": "YAM",
+          "retained": true
+        },
+        {
+          "id": "ASOEBI",
+          "retained": false
+        }
+      ],
+      "fx": {
+        "s": "word",
+        "color": "#d98241",
+        "heavy": 1
+      },
+      "fxTimeline": {
+        "frames": 10,
+        "frameMs": 62
+      },
+      "coverage": "CODE_DRAWN_FX_PRESENT_ACTOR_TIMELINE_REVIEW_REQUIRED",
+      "distinctRoleAssets": 1
+    },
+    {
+      "enemy": "uncle_sunday",
+      "character": "uncle_sunday",
+      "name": "UNCLE SUNDAY",
+      "move": "marriage",
+      "label": "ASK ABOUT MARRIAGE",
+      "pattern": [
+        "wag",
+        "marriage",
+        "father",
+        "wag",
+        "father"
+      ],
+      "telegraph": null,
+      "anchor": "assets/before_the_fame/characters/uncle_sunday/uncle_sunday_neutral_80x96.png",
+      "variant": null,
+      "roles": {},
+      "identityStates": {
+        "fishing": "assets/before_the_fame/characters/uncle_sunday/uncle_sunday_fishing_80x96.png",
+        "melted": "assets/before_the_fame/characters/uncle_sunday/uncle_sunday_melted_80x96.png",
+        "neutral": "assets/before_the_fame/characters/uncle_sunday/uncle_sunday_neutral_80x96.png",
+        "offended": "assets/before_the_fame/characters/uncle_sunday/uncle_sunday_offended_80x96.png"
+      },
+      "assets": [
+        "assets/before_the_fame/characters/uncle_sunday/uncle_sunday_neutral_80x96.png"
+      ],
+      "hashes": {
+        "assets/before_the_fame/characters/uncle_sunday/uncle_sunday_neutral_80x96.png": "79ee0ada6bbc4044180fefbd8371ee7ce16d2aa1eeaba998e83c471371ee4f63"
+      },
+      "encounterCandidates": [
+        {
+          "id": "A10",
+          "retained": false
+        },
+        {
+          "id": "A12",
+          "retained": false
+        },
+        {
+          "id": "YAM",
+          "retained": true
+        },
+        {
+          "id": "ASOEBI",
+          "retained": false
+        }
+      ],
+      "fx": {
+        "s": "burst",
+        "glyph": "heart",
+        "color": "#d85a8a",
+        "count": 5,
+        "at": "toRich"
+      },
+      "fxTimeline": {
+        "frames": 10,
+        "frameMs": 62
+      },
+      "coverage": "CODE_DRAWN_FX_PRESENT_ACTOR_TIMELINE_REVIEW_REQUIRED",
+      "distinctRoleAssets": 1
+    },
+    {
+      "enemy": "bruce_loose",
+      "character": "bruce_loose",
+      "name": "BRUCE LOOSE",
+      "move": "flurry",
+      "label": "FLURRY",
+      "pattern": [
+        "noise",
+        "kick",
+        "noise",
+        "kick",
+        "flurry"
+      ],
+      "telegraph": null,
+      "anchor": "assets/before_the_fame/characters/bruce_loose/bruce_loose_neutral_80x96.png",
+      "variant": null,
+      "roles": {
+        "strike": {
+          "state": "strike",
+          "src": "assets/before_the_fame/characters/bruce_loose/bruce_strike_80x96.png"
+        }
+      },
+      "identityStates": {
+        "bow": "assets/before_the_fame/characters/bruce_loose/bruce_bow_80x96.png",
+        "neutral": "assets/before_the_fame/characters/bruce_loose/bruce_loose_neutral_80x96.png",
+        "strike": "assets/before_the_fame/characters/bruce_loose/bruce_strike_80x96.png"
+      },
+      "assets": [
+        "assets/before_the_fame/characters/bruce_loose/bruce_loose_neutral_80x96.png",
+        "assets/before_the_fame/characters/bruce_loose/bruce_strike_80x96.png"
+      ],
+      "hashes": {
+        "assets/before_the_fame/characters/bruce_loose/bruce_loose_neutral_80x96.png": "f3f21e5b8919f46b84a918a32abdd77e07a632dc5fcdcc6c12db9e310f278d46",
+        "assets/before_the_fame/characters/bruce_loose/bruce_strike_80x96.png": "ae869b1cff22a81cbf43d0500488ca969b4f6ee1d158949852cc66cc08fb8ef9"
+      },
+      "encounterCandidates": [
+        {
+          "id": "A19",
+          "retained": true
+        }
+      ],
+      "fx": {
+        "s": "flurry",
+        "hits": 3,
+        "color": "#e6c23a"
+      },
+      "fxTimeline": {
+        "frames": 10,
+        "frameMs": 62
+      },
+      "coverage": "CODE_DRAWN_FX_PRESENT_ACTOR_TIMELINE_REVIEW_REQUIRED",
+      "distinctRoleAssets": 2
+    },
+    {
+      "enemy": "bruce_loose",
+      "character": "bruce_loose",
+      "name": "BRUCE LOOSE",
+      "move": "kick",
+      "label": "KICK",
+      "pattern": [
+        "noise",
+        "kick",
+        "noise",
+        "kick",
+        "flurry"
+      ],
+      "telegraph": "THAT NOISE WAS THE WARNING. THE KICK IS NEXT.",
+      "anchor": "assets/before_the_fame/characters/bruce_loose/bruce_loose_neutral_80x96.png",
+      "variant": null,
+      "roles": {
+        "strike": {
+          "state": "strike",
+          "src": "assets/before_the_fame/characters/bruce_loose/bruce_strike_80x96.png"
+        }
+      },
+      "identityStates": {
+        "bow": "assets/before_the_fame/characters/bruce_loose/bruce_bow_80x96.png",
+        "neutral": "assets/before_the_fame/characters/bruce_loose/bruce_loose_neutral_80x96.png",
+        "strike": "assets/before_the_fame/characters/bruce_loose/bruce_strike_80x96.png"
+      },
+      "assets": [
+        "assets/before_the_fame/characters/bruce_loose/bruce_loose_neutral_80x96.png",
+        "assets/before_the_fame/characters/bruce_loose/bruce_strike_80x96.png"
+      ],
+      "hashes": {
+        "assets/before_the_fame/characters/bruce_loose/bruce_loose_neutral_80x96.png": "f3f21e5b8919f46b84a918a32abdd77e07a632dc5fcdcc6c12db9e310f278d46",
+        "assets/before_the_fame/characters/bruce_loose/bruce_strike_80x96.png": "ae869b1cff22a81cbf43d0500488ca969b4f6ee1d158949852cc66cc08fb8ef9"
+      },
+      "encounterCandidates": [
+        {
+          "id": "A19",
+          "retained": true
+        }
+      ],
+      "fx": {
+        "s": "smash",
+        "color": "#e6c23a",
+        "heavy": 1
+      },
+      "fxTimeline": {
+        "frames": 10,
+        "frameMs": 62
+      },
+      "coverage": "CODE_DRAWN_FX_PRESENT_ACTOR_TIMELINE_REVIEW_REQUIRED",
+      "distinctRoleAssets": 2
+    },
+    {
+      "enemy": "bruce_loose",
+      "character": "bruce_loose",
+      "name": "BRUCE LOOSE",
+      "move": "noise",
+      "label": "NOISE",
+      "pattern": [
+        "noise",
+        "kick",
+        "noise",
+        "kick",
+        "flurry"
+      ],
+      "telegraph": null,
+      "anchor": "assets/before_the_fame/characters/bruce_loose/bruce_loose_neutral_80x96.png",
+      "variant": null,
+      "roles": {
+        "strike": {
+          "state": "strike",
+          "src": "assets/before_the_fame/characters/bruce_loose/bruce_strike_80x96.png"
+        }
+      },
+      "identityStates": {
+        "bow": "assets/before_the_fame/characters/bruce_loose/bruce_bow_80x96.png",
+        "neutral": "assets/before_the_fame/characters/bruce_loose/bruce_loose_neutral_80x96.png",
+        "strike": "assets/before_the_fame/characters/bruce_loose/bruce_strike_80x96.png"
+      },
+      "assets": [
+        "assets/before_the_fame/characters/bruce_loose/bruce_loose_neutral_80x96.png",
+        "assets/before_the_fame/characters/bruce_loose/bruce_strike_80x96.png"
+      ],
+      "hashes": {
+        "assets/before_the_fame/characters/bruce_loose/bruce_loose_neutral_80x96.png": "f3f21e5b8919f46b84a918a32abdd77e07a632dc5fcdcc6c12db9e310f278d46",
+        "assets/before_the_fame/characters/bruce_loose/bruce_strike_80x96.png": "ae869b1cff22a81cbf43d0500488ca969b4f6ee1d158949852cc66cc08fb8ef9"
+      },
+      "encounterCandidates": [
+        {
+          "id": "A19",
+          "retained": true
+        }
+      ],
+      "fx": {
+        "s": "burst",
+        "glyph": "exclaim",
+        "color": "#e6c23a",
+        "at": "self",
+        "count": 5
+      },
+      "fxTimeline": {
+        "frames": 10,
+        "frameMs": 62
+      },
+      "coverage": "CODE_DRAWN_FX_PRESENT_ACTOR_TIMELINE_REVIEW_REQUIRED",
+      "distinctRoleAssets": 2
+    },
+    {
+      "enemy": "kevins",
+      "character": "kevin",
+      "name": "40 KEVINS",
+      "move": "poke",
+      "label": "KEVIN POKE ×5",
+      "pattern": [
+        "poke",
+        "poke",
+        "honor"
+      ],
+      "telegraph": null,
+      "anchor": "assets/before_the_fame/characters/kevin/kagebunshin_kevin_neutral_80x96.png",
+      "variant": null,
+      "roles": {
+        "strike": {
+          "state": "attack",
+          "src": "assets/before_the_fame/characters/kevin/kevin_attack_80x96.png"
+        },
+        "defeated": {
+          "state": "poof",
+          "src": "assets/before_the_fame/characters/kevin/kevin_poof_80x96.png"
+        }
+      },
+      "identityStates": {
+        "attack": "assets/before_the_fame/characters/kevin/kevin_attack_80x96.png",
+        "neutral": "assets/before_the_fame/characters/kevin/kagebunshin_kevin_neutral_80x96.png",
+        "poof": "assets/before_the_fame/characters/kevin/kevin_poof_80x96.png"
+      },
+      "assets": [
+        "assets/before_the_fame/characters/kevin/kagebunshin_kevin_neutral_80x96.png",
+        "assets/before_the_fame/characters/kevin/kevin_attack_80x96.png",
+        "assets/before_the_fame/characters/kevin/kevin_poof_80x96.png"
+      ],
+      "hashes": {
+        "assets/before_the_fame/characters/kevin/kagebunshin_kevin_neutral_80x96.png": "a009d371273a5d6d617eb05bb6582f8007fdfaab46b0c5775725c0ba3a5288c2",
+        "assets/before_the_fame/characters/kevin/kevin_attack_80x96.png": "1492b2bba948b19b37f82422984e8cff36bd74310568134e8d7b90515c4705cc",
+        "assets/before_the_fame/characters/kevin/kevin_poof_80x96.png": "04507581e14ce5fae8e91b53fa6be2900006173bc02154c294fe4da1736880a5"
+      },
+      "encounterCandidates": [
+        {
+          "id": "A18",
+          "retained": false
+        }
+      ],
+      "fx": {
+        "s": "flurry",
+        "hits": 5,
+        "color": "#6876d3"
+      },
+      "fxTimeline": {
+        "frames": 10,
+        "frameMs": 62
+      },
+      "coverage": "CODE_DRAWN_FX_PRESENT_ACTOR_TIMELINE_REVIEW_REQUIRED",
+      "distinctRoleAssets": 3
+    },
+    {
+      "enemy": "kevins",
+      "character": "kevin",
+      "name": "40 KEVINS",
+      "move": "honor",
+      "label": "HONOR STRIKE",
+      "pattern": [
+        "poke",
+        "poke",
+        "honor"
+      ],
+      "telegraph": "THE REAL KEVIN IS BOWING…",
+      "anchor": "assets/before_the_fame/characters/kevin/kagebunshin_kevin_neutral_80x96.png",
+      "variant": null,
+      "roles": {
+        "strike": {
+          "state": "attack",
+          "src": "assets/before_the_fame/characters/kevin/kevin_attack_80x96.png"
+        },
+        "defeated": {
+          "state": "poof",
+          "src": "assets/before_the_fame/characters/kevin/kevin_poof_80x96.png"
+        }
+      },
+      "identityStates": {
+        "attack": "assets/before_the_fame/characters/kevin/kevin_attack_80x96.png",
+        "neutral": "assets/before_the_fame/characters/kevin/kagebunshin_kevin_neutral_80x96.png",
+        "poof": "assets/before_the_fame/characters/kevin/kevin_poof_80x96.png"
+      },
+      "assets": [
+        "assets/before_the_fame/characters/kevin/kagebunshin_kevin_neutral_80x96.png",
+        "assets/before_the_fame/characters/kevin/kevin_attack_80x96.png",
+        "assets/before_the_fame/characters/kevin/kevin_poof_80x96.png"
+      ],
+      "hashes": {
+        "assets/before_the_fame/characters/kevin/kagebunshin_kevin_neutral_80x96.png": "a009d371273a5d6d617eb05bb6582f8007fdfaab46b0c5775725c0ba3a5288c2",
+        "assets/before_the_fame/characters/kevin/kevin_attack_80x96.png": "1492b2bba948b19b37f82422984e8cff36bd74310568134e8d7b90515c4705cc",
+        "assets/before_the_fame/characters/kevin/kevin_poof_80x96.png": "04507581e14ce5fae8e91b53fa6be2900006173bc02154c294fe4da1736880a5"
+      },
+      "encounterCandidates": [
+        {
+          "id": "A18",
+          "retained": false
+        }
+      ],
+      "fx": {
+        "s": "slash",
+        "color": "#f5e8c5"
+      },
+      "fxTimeline": {
+        "frames": 10,
+        "frameMs": 62
+      },
+      "coverage": "CODE_DRAWN_FX_PRESENT_ACTOR_TIMELINE_REVIEW_REQUIRED",
+      "distinctRoleAssets": 3
+    },
+    {
+      "enemy": "phil",
+      "character": "phil",
+      "name": "POWER LEVEL PHIL",
+      "move": "beam",
+      "label": "BEAM",
+      "pattern": [
+        "punch",
+        "beam",
+        "punch"
+      ],
+      "telegraph": "PHIL IS CHARGING A BEAM (2 TURNS)…",
+      "anchor": "assets/before_the_fame/characters/phil/power_level_phil_charging_day1_80x96.png",
+      "variant": null,
+      "roles": {},
+      "identityStates": {
+        "charging_day1": "assets/before_the_fame/characters/phil/power_level_phil_charging_day1_80x96.png",
+        "charging_day3": "assets/before_the_fame/characters/phil/phil_charging_day3_80x96.png",
+        "sitting_plate": "assets/before_the_fame/characters/phil/phil_sitting_plate_80x96.png",
+        "spent_grounded": "assets/before_the_fame/characters/phil/phil_spent_grounded_80x96.png"
+      },
+      "assets": [
+        "assets/before_the_fame/characters/phil/power_level_phil_charging_day1_80x96.png"
+      ],
+      "hashes": {
+        "assets/before_the_fame/characters/phil/power_level_phil_charging_day1_80x96.png": "fdbbe7b0665dc1ff63e33b7774a2976963a8c9ef5e4b408fc86d581bae2cfa8e"
+      },
+      "encounterCandidates": [
+        {
+          "id": "A20",
+          "retained": true
+        }
+      ],
+      "fx": {
+        "s": "beam",
+        "color": "#7ad0ff"
+      },
+      "fxTimeline": {
+        "frames": 10,
+        "frameMs": 62
+      },
+      "coverage": "CODE_DRAWN_FX_PRESENT_ACTOR_TIMELINE_REVIEW_REQUIRED",
+      "distinctRoleAssets": 1
+    },
+    {
+      "enemy": "phil",
+      "character": "phil",
+      "name": "POWER LEVEL PHIL",
+      "move": "punch",
+      "label": "PUNCH",
+      "pattern": [
+        "punch",
+        "beam",
+        "punch"
+      ],
+      "telegraph": null,
+      "anchor": "assets/before_the_fame/characters/phil/power_level_phil_charging_day1_80x96.png",
+      "variant": null,
+      "roles": {},
+      "identityStates": {
+        "charging_day1": "assets/before_the_fame/characters/phil/power_level_phil_charging_day1_80x96.png",
+        "charging_day3": "assets/before_the_fame/characters/phil/phil_charging_day3_80x96.png",
+        "sitting_plate": "assets/before_the_fame/characters/phil/phil_sitting_plate_80x96.png",
+        "spent_grounded": "assets/before_the_fame/characters/phil/phil_spent_grounded_80x96.png"
+      },
+      "assets": [
+        "assets/before_the_fame/characters/phil/power_level_phil_charging_day1_80x96.png"
+      ],
+      "hashes": {
+        "assets/before_the_fame/characters/phil/power_level_phil_charging_day1_80x96.png": "fdbbe7b0665dc1ff63e33b7774a2976963a8c9ef5e4b408fc86d581bae2cfa8e"
+      },
+      "encounterCandidates": [
+        {
+          "id": "A20",
+          "retained": true
+        }
+      ],
+      "fx": {
+        "s": "smash",
+        "color": "#d98241"
+      },
+      "fxTimeline": {
+        "frames": 10,
+        "frameMs": 62
+      },
+      "coverage": "CODE_DRAWN_FX_PRESENT_ACTOR_TIMELINE_REVIEW_REQUIRED",
+      "distinctRoleAssets": 1
+    },
+    {
+      "enemy": "bonesworth",
+      "character": "bonesworth",
+      "name": "SIR BONESWORTH",
+      "move": "sway",
+      "label": "HUNGOVER SWAY",
+      "pattern": [
+        "sway",
+        "cleave",
+        "bash",
+        "rattle"
+      ],
+      "telegraph": "SIR BONESWORTH IS RAISING HIS SWORD…",
+      "anchor": "assets/before_the_fame/characters/bonesworth/sir_bonesworth_hungover_80x96.png",
+      "variant": null,
+      "roles": {
+        "telegraph": {
+          "state": "telegraph",
+          "src": "assets/before_the_fame/characters/bonesworth/bonesworth_telegraph_80x96.png"
+        },
+        "strike": {
+          "state": "strike",
+          "src": "assets/before_the_fame/characters/bonesworth/bonesworth_strike_80x96.png"
+        },
+        "hit": {
+          "state": "hit",
+          "src": "assets/before_the_fame/characters/bonesworth/bonesworth_hit_80x96.png"
+        },
+        "defeated": {
+          "state": "defeated",
+          "src": "assets/before_the_fame/characters/bonesworth/bonesworth_defeated_80x96.png"
+        }
+      },
+      "identityStates": {
+        "defeated": "assets/before_the_fame/characters/bonesworth/bonesworth_defeated_80x96.png",
+        "hit": "assets/before_the_fame/characters/bonesworth/bonesworth_hit_80x96.png",
+        "hungover": "assets/before_the_fame/characters/bonesworth/sir_bonesworth_hungover_80x96.png",
+        "strike": "assets/before_the_fame/characters/bonesworth/bonesworth_strike_80x96.png",
+        "telegraph": "assets/before_the_fame/characters/bonesworth/bonesworth_telegraph_80x96.png"
+      },
+      "assets": [
+        "assets/before_the_fame/characters/bonesworth/sir_bonesworth_hungover_80x96.png",
+        "assets/before_the_fame/characters/bonesworth/bonesworth_telegraph_80x96.png",
+        "assets/before_the_fame/characters/bonesworth/bonesworth_strike_80x96.png",
+        "assets/before_the_fame/characters/bonesworth/bonesworth_hit_80x96.png",
+        "assets/before_the_fame/characters/bonesworth/bonesworth_defeated_80x96.png"
+      ],
+      "hashes": {
+        "assets/before_the_fame/characters/bonesworth/sir_bonesworth_hungover_80x96.png": "42b1acd8247bf855f73cce165246c2b4079ae1f2070f137800ffe89997f7cafe",
+        "assets/before_the_fame/characters/bonesworth/bonesworth_telegraph_80x96.png": "726af2a7b70533aacd98038a3fe380a1146b0c9151ffb9872c508e4265626e6d",
+        "assets/before_the_fame/characters/bonesworth/bonesworth_strike_80x96.png": "4c4327cbebbeaa7592e1e70114b04670af553dd1e2eab4173d6fb7f567e908d6",
+        "assets/before_the_fame/characters/bonesworth/bonesworth_hit_80x96.png": "32a2be64e45d60fb9480ca229a23275ff70e2a4c13de1379af26fdfa1f5d587c",
+        "assets/before_the_fame/characters/bonesworth/bonesworth_defeated_80x96.png": "38ce0b4f5a6eb0008207bb7643adaa58a0eb3e4fb365c112843a42f09047f862"
+      },
+      "encounterCandidates": [
+        {
+          "id": "A27",
+          "retained": false
+        },
+        {
+          "id": "A39",
+          "retained": false
+        }
+      ],
+      "fx": {
+        "s": "burst",
+        "glyph": "star",
+        "color": "#72b58a",
+        "at": "self",
+        "count": 5
+      },
+      "fxTimeline": {
+        "frames": 10,
+        "frameMs": 62
+      },
+      "coverage": "CODE_DRAWN_FX_PRESENT_ACTOR_TIMELINE_REVIEW_REQUIRED",
+      "distinctRoleAssets": 5
+    },
+    {
+      "enemy": "bonesworth",
+      "character": "bonesworth",
+      "name": "SIR BONESWORTH",
+      "move": "cleave",
+      "label": "OVERHEAD CLEAVE",
+      "pattern": [
+        "sway",
+        "cleave",
+        "bash",
+        "rattle"
+      ],
+      "telegraph": "HE IS STEADYING HIS SHIELD…",
+      "anchor": "assets/before_the_fame/characters/bonesworth/sir_bonesworth_hungover_80x96.png",
+      "variant": null,
+      "roles": {
+        "telegraph": {
+          "state": "telegraph",
+          "src": "assets/before_the_fame/characters/bonesworth/bonesworth_telegraph_80x96.png"
+        },
+        "strike": {
+          "state": "strike",
+          "src": "assets/before_the_fame/characters/bonesworth/bonesworth_strike_80x96.png"
+        },
+        "hit": {
+          "state": "hit",
+          "src": "assets/before_the_fame/characters/bonesworth/bonesworth_hit_80x96.png"
+        },
+        "defeated": {
+          "state": "defeated",
+          "src": "assets/before_the_fame/characters/bonesworth/bonesworth_defeated_80x96.png"
+        }
+      },
+      "identityStates": {
+        "defeated": "assets/before_the_fame/characters/bonesworth/bonesworth_defeated_80x96.png",
+        "hit": "assets/before_the_fame/characters/bonesworth/bonesworth_hit_80x96.png",
+        "hungover": "assets/before_the_fame/characters/bonesworth/sir_bonesworth_hungover_80x96.png",
+        "strike": "assets/before_the_fame/characters/bonesworth/bonesworth_strike_80x96.png",
+        "telegraph": "assets/before_the_fame/characters/bonesworth/bonesworth_telegraph_80x96.png"
+      },
+      "assets": [
+        "assets/before_the_fame/characters/bonesworth/sir_bonesworth_hungover_80x96.png",
+        "assets/before_the_fame/characters/bonesworth/bonesworth_telegraph_80x96.png",
+        "assets/before_the_fame/characters/bonesworth/bonesworth_strike_80x96.png",
+        "assets/before_the_fame/characters/bonesworth/bonesworth_hit_80x96.png",
+        "assets/before_the_fame/characters/bonesworth/bonesworth_defeated_80x96.png"
+      ],
+      "hashes": {
+        "assets/before_the_fame/characters/bonesworth/sir_bonesworth_hungover_80x96.png": "42b1acd8247bf855f73cce165246c2b4079ae1f2070f137800ffe89997f7cafe",
+        "assets/before_the_fame/characters/bonesworth/bonesworth_telegraph_80x96.png": "726af2a7b70533aacd98038a3fe380a1146b0c9151ffb9872c508e4265626e6d",
+        "assets/before_the_fame/characters/bonesworth/bonesworth_strike_80x96.png": "4c4327cbebbeaa7592e1e70114b04670af553dd1e2eab4173d6fb7f567e908d6",
+        "assets/before_the_fame/characters/bonesworth/bonesworth_hit_80x96.png": "32a2be64e45d60fb9480ca229a23275ff70e2a4c13de1379af26fdfa1f5d587c",
+        "assets/before_the_fame/characters/bonesworth/bonesworth_defeated_80x96.png": "38ce0b4f5a6eb0008207bb7643adaa58a0eb3e4fb365c112843a42f09047f862"
+      },
+      "encounterCandidates": [
+        {
+          "id": "A27",
+          "retained": false
+        },
+        {
+          "id": "A39",
+          "retained": false
+        }
+      ],
+      "fx": {
+        "s": "slash",
+        "color": "#f5e8c5"
+      },
+      "fxTimeline": {
+        "frames": 10,
+        "frameMs": 62
+      },
+      "coverage": "CODE_DRAWN_FX_PRESENT_ACTOR_TIMELINE_REVIEW_REQUIRED",
+      "distinctRoleAssets": 5
+    },
+    {
+      "enemy": "bonesworth",
+      "character": "bonesworth",
+      "name": "SIR BONESWORTH",
+      "move": "bash",
+      "label": "SHIELD BASH",
+      "pattern": [
+        "sway",
+        "cleave",
+        "bash",
+        "rattle"
+      ],
+      "telegraph": "HIS BONES START TO RATTLE…",
+      "anchor": "assets/before_the_fame/characters/bonesworth/sir_bonesworth_hungover_80x96.png",
+      "variant": null,
+      "roles": {
+        "telegraph": {
+          "state": "telegraph",
+          "src": "assets/before_the_fame/characters/bonesworth/bonesworth_telegraph_80x96.png"
+        },
+        "strike": {
+          "state": "strike",
+          "src": "assets/before_the_fame/characters/bonesworth/bonesworth_strike_80x96.png"
+        },
+        "hit": {
+          "state": "hit",
+          "src": "assets/before_the_fame/characters/bonesworth/bonesworth_hit_80x96.png"
+        },
+        "defeated": {
+          "state": "defeated",
+          "src": "assets/before_the_fame/characters/bonesworth/bonesworth_defeated_80x96.png"
+        }
+      },
+      "identityStates": {
+        "defeated": "assets/before_the_fame/characters/bonesworth/bonesworth_defeated_80x96.png",
+        "hit": "assets/before_the_fame/characters/bonesworth/bonesworth_hit_80x96.png",
+        "hungover": "assets/before_the_fame/characters/bonesworth/sir_bonesworth_hungover_80x96.png",
+        "strike": "assets/before_the_fame/characters/bonesworth/bonesworth_strike_80x96.png",
+        "telegraph": "assets/before_the_fame/characters/bonesworth/bonesworth_telegraph_80x96.png"
+      },
+      "assets": [
+        "assets/before_the_fame/characters/bonesworth/sir_bonesworth_hungover_80x96.png",
+        "assets/before_the_fame/characters/bonesworth/bonesworth_telegraph_80x96.png",
+        "assets/before_the_fame/characters/bonesworth/bonesworth_strike_80x96.png",
+        "assets/before_the_fame/characters/bonesworth/bonesworth_hit_80x96.png",
+        "assets/before_the_fame/characters/bonesworth/bonesworth_defeated_80x96.png"
+      ],
+      "hashes": {
+        "assets/before_the_fame/characters/bonesworth/sir_bonesworth_hungover_80x96.png": "42b1acd8247bf855f73cce165246c2b4079ae1f2070f137800ffe89997f7cafe",
+        "assets/before_the_fame/characters/bonesworth/bonesworth_telegraph_80x96.png": "726af2a7b70533aacd98038a3fe380a1146b0c9151ffb9872c508e4265626e6d",
+        "assets/before_the_fame/characters/bonesworth/bonesworth_strike_80x96.png": "4c4327cbebbeaa7592e1e70114b04670af553dd1e2eab4173d6fb7f567e908d6",
+        "assets/before_the_fame/characters/bonesworth/bonesworth_hit_80x96.png": "32a2be64e45d60fb9480ca229a23275ff70e2a4c13de1379af26fdfa1f5d587c",
+        "assets/before_the_fame/characters/bonesworth/bonesworth_defeated_80x96.png": "38ce0b4f5a6eb0008207bb7643adaa58a0eb3e4fb365c112843a42f09047f862"
+      },
+      "encounterCandidates": [
+        {
+          "id": "A27",
+          "retained": false
+        },
+        {
+          "id": "A39",
+          "retained": false
+        }
+      ],
+      "fx": {
+        "s": "smash",
+        "color": "#f5e8c5",
+        "heavy": 1
+      },
+      "fxTimeline": {
+        "frames": 10,
+        "frameMs": 62
+      },
+      "coverage": "CODE_DRAWN_FX_PRESENT_ACTOR_TIMELINE_REVIEW_REQUIRED",
+      "distinctRoleAssets": 5
+    },
+    {
+      "enemy": "bonesworth",
+      "character": "bonesworth",
+      "name": "SIR BONESWORTH",
+      "move": "rattle",
+      "label": "BONE RATTLE",
+      "pattern": [
+        "sway",
+        "cleave",
+        "bash",
+        "rattle"
+      ],
+      "telegraph": "HE SWAYS…",
+      "anchor": "assets/before_the_fame/characters/bonesworth/sir_bonesworth_hungover_80x96.png",
+      "variant": null,
+      "roles": {
+        "telegraph": {
+          "state": "telegraph",
+          "src": "assets/before_the_fame/characters/bonesworth/bonesworth_telegraph_80x96.png"
+        },
+        "strike": {
+          "state": "strike",
+          "src": "assets/before_the_fame/characters/bonesworth/bonesworth_strike_80x96.png"
+        },
+        "hit": {
+          "state": "hit",
+          "src": "assets/before_the_fame/characters/bonesworth/bonesworth_hit_80x96.png"
+        },
+        "defeated": {
+          "state": "defeated",
+          "src": "assets/before_the_fame/characters/bonesworth/bonesworth_defeated_80x96.png"
+        }
+      },
+      "identityStates": {
+        "defeated": "assets/before_the_fame/characters/bonesworth/bonesworth_defeated_80x96.png",
+        "hit": "assets/before_the_fame/characters/bonesworth/bonesworth_hit_80x96.png",
+        "hungover": "assets/before_the_fame/characters/bonesworth/sir_bonesworth_hungover_80x96.png",
+        "strike": "assets/before_the_fame/characters/bonesworth/bonesworth_strike_80x96.png",
+        "telegraph": "assets/before_the_fame/characters/bonesworth/bonesworth_telegraph_80x96.png"
+      },
+      "assets": [
+        "assets/before_the_fame/characters/bonesworth/sir_bonesworth_hungover_80x96.png",
+        "assets/before_the_fame/characters/bonesworth/bonesworth_telegraph_80x96.png",
+        "assets/before_the_fame/characters/bonesworth/bonesworth_strike_80x96.png",
+        "assets/before_the_fame/characters/bonesworth/bonesworth_hit_80x96.png",
+        "assets/before_the_fame/characters/bonesworth/bonesworth_defeated_80x96.png"
+      ],
+      "hashes": {
+        "assets/before_the_fame/characters/bonesworth/sir_bonesworth_hungover_80x96.png": "42b1acd8247bf855f73cce165246c2b4079ae1f2070f137800ffe89997f7cafe",
+        "assets/before_the_fame/characters/bonesworth/bonesworth_telegraph_80x96.png": "726af2a7b70533aacd98038a3fe380a1146b0c9151ffb9872c508e4265626e6d",
+        "assets/before_the_fame/characters/bonesworth/bonesworth_strike_80x96.png": "4c4327cbebbeaa7592e1e70114b04670af553dd1e2eab4173d6fb7f567e908d6",
+        "assets/before_the_fame/characters/bonesworth/bonesworth_hit_80x96.png": "32a2be64e45d60fb9480ca229a23275ff70e2a4c13de1379af26fdfa1f5d587c",
+        "assets/before_the_fame/characters/bonesworth/bonesworth_defeated_80x96.png": "38ce0b4f5a6eb0008207bb7643adaa58a0eb3e4fb365c112843a42f09047f862"
+      },
+      "encounterCandidates": [
+        {
+          "id": "A27",
+          "retained": false
+        },
+        {
+          "id": "A39",
+          "retained": false
+        }
+      ],
+      "fx": {
+        "s": "burst",
+        "glyph": "bone",
+        "color": "#f5e8c5",
+        "count": 5,
+        "at": "toRich"
+      },
+      "fxTimeline": {
+        "frames": 10,
+        "frameMs": 62
+      },
+      "coverage": "CODE_DRAWN_FX_PRESENT_ACTOR_TIMELINE_REVIEW_REQUIRED",
+      "distinctRoleAssets": 5
+    },
+    {
+      "enemy": "bonesworth",
+      "character": "bonesworth",
+      "name": "SIR BONESWORTH",
+      "move": "second_wind",
+      "label": "SECOND WIND",
+      "pattern": [
+        "sway",
+        "cleave",
+        "bash",
+        "rattle"
+      ],
+      "telegraph": "HE IS LOWERING INTO A CHARGE. ALL OF HIM.",
+      "anchor": "assets/before_the_fame/characters/bonesworth/sir_bonesworth_hungover_80x96.png",
+      "variant": null,
+      "roles": {
+        "telegraph": {
+          "state": "telegraph",
+          "src": "assets/before_the_fame/characters/bonesworth/bonesworth_telegraph_80x96.png"
+        },
+        "strike": {
+          "state": "strike",
+          "src": "assets/before_the_fame/characters/bonesworth/bonesworth_strike_80x96.png"
+        },
+        "hit": {
+          "state": "hit",
+          "src": "assets/before_the_fame/characters/bonesworth/bonesworth_hit_80x96.png"
+        },
+        "defeated": {
+          "state": "defeated",
+          "src": "assets/before_the_fame/characters/bonesworth/bonesworth_defeated_80x96.png"
+        }
+      },
+      "identityStates": {
+        "defeated": "assets/before_the_fame/characters/bonesworth/bonesworth_defeated_80x96.png",
+        "hit": "assets/before_the_fame/characters/bonesworth/bonesworth_hit_80x96.png",
+        "hungover": "assets/before_the_fame/characters/bonesworth/sir_bonesworth_hungover_80x96.png",
+        "strike": "assets/before_the_fame/characters/bonesworth/bonesworth_strike_80x96.png",
+        "telegraph": "assets/before_the_fame/characters/bonesworth/bonesworth_telegraph_80x96.png"
+      },
+      "assets": [
+        "assets/before_the_fame/characters/bonesworth/sir_bonesworth_hungover_80x96.png",
+        "assets/before_the_fame/characters/bonesworth/bonesworth_telegraph_80x96.png",
+        "assets/before_the_fame/characters/bonesworth/bonesworth_strike_80x96.png",
+        "assets/before_the_fame/characters/bonesworth/bonesworth_hit_80x96.png",
+        "assets/before_the_fame/characters/bonesworth/bonesworth_defeated_80x96.png"
+      ],
+      "hashes": {
+        "assets/before_the_fame/characters/bonesworth/sir_bonesworth_hungover_80x96.png": "42b1acd8247bf855f73cce165246c2b4079ae1f2070f137800ffe89997f7cafe",
+        "assets/before_the_fame/characters/bonesworth/bonesworth_telegraph_80x96.png": "726af2a7b70533aacd98038a3fe380a1146b0c9151ffb9872c508e4265626e6d",
+        "assets/before_the_fame/characters/bonesworth/bonesworth_strike_80x96.png": "4c4327cbebbeaa7592e1e70114b04670af553dd1e2eab4173d6fb7f567e908d6",
+        "assets/before_the_fame/characters/bonesworth/bonesworth_hit_80x96.png": "32a2be64e45d60fb9480ca229a23275ff70e2a4c13de1379af26fdfa1f5d587c",
+        "assets/before_the_fame/characters/bonesworth/bonesworth_defeated_80x96.png": "38ce0b4f5a6eb0008207bb7643adaa58a0eb3e4fb365c112843a42f09047f862"
+      },
+      "encounterCandidates": [
+        {
+          "id": "A27",
+          "retained": false
+        },
+        {
+          "id": "A39",
+          "retained": false
+        }
+      ],
+      "fx": {
+        "s": "burst",
+        "glyph": "cross",
+        "color": "#72b58a",
+        "at": "self",
+        "count": 4
+      },
+      "fxTimeline": {
+        "frames": 10,
+        "frameMs": 62
+      },
+      "coverage": "CODE_DRAWN_FX_PRESENT_ACTOR_TIMELINE_REVIEW_REQUIRED",
+      "distinctRoleAssets": 5
+    },
+    {
+      "enemy": "bonesworth",
+      "character": "bonesworth",
+      "name": "SIR BONESWORTH",
+      "move": "death_charge",
+      "label": "DEATH CHARGE",
+      "pattern": [
+        "sway",
+        "cleave",
+        "bash",
+        "rattle"
+      ],
+      "telegraph": null,
+      "anchor": "assets/before_the_fame/characters/bonesworth/sir_bonesworth_hungover_80x96.png",
+      "variant": null,
+      "roles": {
+        "telegraph": {
+          "state": "telegraph",
+          "src": "assets/before_the_fame/characters/bonesworth/bonesworth_telegraph_80x96.png"
+        },
+        "strike": {
+          "state": "strike",
+          "src": "assets/before_the_fame/characters/bonesworth/bonesworth_strike_80x96.png"
+        },
+        "hit": {
+          "state": "hit",
+          "src": "assets/before_the_fame/characters/bonesworth/bonesworth_hit_80x96.png"
+        },
+        "defeated": {
+          "state": "defeated",
+          "src": "assets/before_the_fame/characters/bonesworth/bonesworth_defeated_80x96.png"
+        }
+      },
+      "identityStates": {
+        "defeated": "assets/before_the_fame/characters/bonesworth/bonesworth_defeated_80x96.png",
+        "hit": "assets/before_the_fame/characters/bonesworth/bonesworth_hit_80x96.png",
+        "hungover": "assets/before_the_fame/characters/bonesworth/sir_bonesworth_hungover_80x96.png",
+        "strike": "assets/before_the_fame/characters/bonesworth/bonesworth_strike_80x96.png",
+        "telegraph": "assets/before_the_fame/characters/bonesworth/bonesworth_telegraph_80x96.png"
+      },
+      "assets": [
+        "assets/before_the_fame/characters/bonesworth/sir_bonesworth_hungover_80x96.png",
+        "assets/before_the_fame/characters/bonesworth/bonesworth_telegraph_80x96.png",
+        "assets/before_the_fame/characters/bonesworth/bonesworth_strike_80x96.png",
+        "assets/before_the_fame/characters/bonesworth/bonesworth_hit_80x96.png",
+        "assets/before_the_fame/characters/bonesworth/bonesworth_defeated_80x96.png"
+      ],
+      "hashes": {
+        "assets/before_the_fame/characters/bonesworth/sir_bonesworth_hungover_80x96.png": "42b1acd8247bf855f73cce165246c2b4079ae1f2070f137800ffe89997f7cafe",
+        "assets/before_the_fame/characters/bonesworth/bonesworth_telegraph_80x96.png": "726af2a7b70533aacd98038a3fe380a1146b0c9151ffb9872c508e4265626e6d",
+        "assets/before_the_fame/characters/bonesworth/bonesworth_strike_80x96.png": "4c4327cbebbeaa7592e1e70114b04670af553dd1e2eab4173d6fb7f567e908d6",
+        "assets/before_the_fame/characters/bonesworth/bonesworth_hit_80x96.png": "32a2be64e45d60fb9480ca229a23275ff70e2a4c13de1379af26fdfa1f5d587c",
+        "assets/before_the_fame/characters/bonesworth/bonesworth_defeated_80x96.png": "38ce0b4f5a6eb0008207bb7643adaa58a0eb3e4fb365c112843a42f09047f862"
+      },
+      "encounterCandidates": [
+        {
+          "id": "A27",
+          "retained": false
+        },
+        {
+          "id": "A39",
+          "retained": false
+        }
+      ],
+      "fx": {
+        "s": "smash",
+        "color": "#ae2446",
+        "heavy": 1
+      },
+      "fxTimeline": {
+        "frames": 10,
+        "frameMs": 62
+      },
+      "coverage": "CODE_DRAWN_FX_PRESENT_ACTOR_TIMELINE_REVIEW_REQUIRED",
+      "distinctRoleAssets": 5
+    },
+    {
+      "enemy": "hilt",
+      "character": "hilt",
+      "name": "HILT",
+      "move": "jab",
+      "label": "STAKE JAB",
+      "pattern": [
+        "jab",
+        "lunch",
+        "pin",
+        "lunch"
+      ],
+      "telegraph": null,
+      "anchor": "assets/before_the_fame/characters/hilt/hilt_neutral_80x96.png",
+      "variant": null,
+      "roles": {
+        "strike": {
+          "state": "strike",
+          "src": "assets/before_the_fame/characters/hilt/hilt_strike_80x96.png"
+        }
+      },
+      "identityStates": {
+        "neutral": "assets/before_the_fame/characters/hilt/hilt_neutral_80x96.png",
+        "strike": "assets/before_the_fame/characters/hilt/hilt_strike_80x96.png",
+        "walk_away": "assets/before_the_fame/characters/hilt/hilt_walk_away_80x96.png"
+      },
+      "assets": [
+        "assets/before_the_fame/characters/hilt/hilt_neutral_80x96.png",
+        "assets/before_the_fame/characters/hilt/hilt_strike_80x96.png"
+      ],
+      "hashes": {
+        "assets/before_the_fame/characters/hilt/hilt_neutral_80x96.png": "e179293708207d5dbe7892dc71bd120ce270490c22141aaf6245d5bf4b46a4e9",
+        "assets/before_the_fame/characters/hilt/hilt_strike_80x96.png": "4fe312f8a0e96e63f8463825d5d4e7cbc0f24bf6b7af2df27c6169bb5aefc6c7"
+      },
+      "encounterCandidates": [
+        {
+          "id": "A23",
+          "retained": false
+        },
+        {
+          "id": "A23R",
+          "retained": false
+        }
+      ],
+      "fx": {
+        "s": "stab",
+        "color": "#f5e8c5"
+      },
+      "fxTimeline": {
+        "frames": 10,
+        "frameMs": 62
+      },
+      "coverage": "CODE_DRAWN_FX_PRESENT_ACTOR_TIMELINE_REVIEW_REQUIRED",
+      "distinctRoleAssets": 2
+    },
+    {
+      "enemy": "hilt",
+      "character": "hilt",
+      "name": "HILT",
+      "move": "lunch",
+      "label": "LUNCHBOX",
+      "pattern": [
+        "jab",
+        "lunch",
+        "pin",
+        "lunch"
+      ],
+      "telegraph": null,
+      "anchor": "assets/before_the_fame/characters/hilt/hilt_neutral_80x96.png",
+      "variant": null,
+      "roles": {
+        "strike": {
+          "state": "strike",
+          "src": "assets/before_the_fame/characters/hilt/hilt_strike_80x96.png"
+        }
+      },
+      "identityStates": {
+        "neutral": "assets/before_the_fame/characters/hilt/hilt_neutral_80x96.png",
+        "strike": "assets/before_the_fame/characters/hilt/hilt_strike_80x96.png",
+        "walk_away": "assets/before_the_fame/characters/hilt/hilt_walk_away_80x96.png"
+      },
+      "assets": [
+        "assets/before_the_fame/characters/hilt/hilt_neutral_80x96.png",
+        "assets/before_the_fame/characters/hilt/hilt_strike_80x96.png"
+      ],
+      "hashes": {
+        "assets/before_the_fame/characters/hilt/hilt_neutral_80x96.png": "e179293708207d5dbe7892dc71bd120ce270490c22141aaf6245d5bf4b46a4e9",
+        "assets/before_the_fame/characters/hilt/hilt_strike_80x96.png": "4fe312f8a0e96e63f8463825d5d4e7cbc0f24bf6b7af2df27c6169bb5aefc6c7"
+      },
+      "encounterCandidates": [
+        {
+          "id": "A23",
+          "retained": false
+        },
+        {
+          "id": "A23R",
+          "retained": false
+        }
+      ],
+      "fx": {
+        "s": "projectile",
+        "sprite": "lunchbox",
+        "color": "#ae2446",
+        "arc": 18
+      },
+      "fxTimeline": {
+        "frames": 10,
+        "frameMs": 62
+      },
+      "coverage": "CODE_DRAWN_FX_PRESENT_ACTOR_TIMELINE_REVIEW_REQUIRED",
+      "distinctRoleAssets": 2
+    },
+    {
+      "enemy": "hilt",
+      "character": "hilt",
+      "name": "HILT",
+      "move": "pin",
+      "label": "PIN",
+      "pattern": [
+        "jab",
+        "lunch",
+        "pin",
+        "lunch"
+      ],
+      "telegraph": null,
+      "anchor": "assets/before_the_fame/characters/hilt/hilt_neutral_80x96.png",
+      "variant": null,
+      "roles": {
+        "strike": {
+          "state": "strike",
+          "src": "assets/before_the_fame/characters/hilt/hilt_strike_80x96.png"
+        }
+      },
+      "identityStates": {
+        "neutral": "assets/before_the_fame/characters/hilt/hilt_neutral_80x96.png",
+        "strike": "assets/before_the_fame/characters/hilt/hilt_strike_80x96.png",
+        "walk_away": "assets/before_the_fame/characters/hilt/hilt_walk_away_80x96.png"
+      },
+      "assets": [
+        "assets/before_the_fame/characters/hilt/hilt_neutral_80x96.png",
+        "assets/before_the_fame/characters/hilt/hilt_strike_80x96.png"
+      ],
+      "hashes": {
+        "assets/before_the_fame/characters/hilt/hilt_neutral_80x96.png": "e179293708207d5dbe7892dc71bd120ce270490c22141aaf6245d5bf4b46a4e9",
+        "assets/before_the_fame/characters/hilt/hilt_strike_80x96.png": "4fe312f8a0e96e63f8463825d5d4e7cbc0f24bf6b7af2df27c6169bb5aefc6c7"
+      },
+      "encounterCandidates": [
+        {
+          "id": "A23",
+          "retained": false
+        },
+        {
+          "id": "A23R",
+          "retained": false
+        }
+      ],
+      "fx": {
+        "s": "smash",
+        "color": "#f5e8c5",
+        "heavy": 1
+      },
+      "fxTimeline": {
+        "frames": 10,
+        "frameMs": 62
+      },
+      "coverage": "CODE_DRAWN_FX_PRESENT_ACTOR_TIMELINE_REVIEW_REQUIRED",
+      "distinctRoleAssets": 2
+    },
+    {
+      "enemy": "hilt_rematch",
+      "character": "hilt",
+      "name": "HILT",
+      "move": "jab",
+      "label": "STAKE JAB",
+      "pattern": [
+        "jab",
+        "lunch",
+        "jab",
+        "pin"
+      ],
+      "telegraph": null,
+      "anchor": "assets/before_the_fame/characters/hilt/hilt_neutral_80x96.png",
+      "variant": null,
+      "roles": {
+        "strike": {
+          "state": "strike",
+          "src": "assets/before_the_fame/characters/hilt/hilt_strike_80x96.png"
+        }
+      },
+      "identityStates": {
+        "neutral": "assets/before_the_fame/characters/hilt/hilt_neutral_80x96.png",
+        "strike": "assets/before_the_fame/characters/hilt/hilt_strike_80x96.png",
+        "walk_away": "assets/before_the_fame/characters/hilt/hilt_walk_away_80x96.png"
+      },
+      "assets": [
+        "assets/before_the_fame/characters/hilt/hilt_neutral_80x96.png",
+        "assets/before_the_fame/characters/hilt/hilt_strike_80x96.png"
+      ],
+      "hashes": {
+        "assets/before_the_fame/characters/hilt/hilt_neutral_80x96.png": "e179293708207d5dbe7892dc71bd120ce270490c22141aaf6245d5bf4b46a4e9",
+        "assets/before_the_fame/characters/hilt/hilt_strike_80x96.png": "4fe312f8a0e96e63f8463825d5d4e7cbc0f24bf6b7af2df27c6169bb5aefc6c7"
+      },
+      "encounterCandidates": [
+        {
+          "id": "A23R",
+          "retained": false
+        }
+      ],
+      "fx": {
+        "s": "stab",
+        "color": "#f5e8c5"
+      },
+      "fxTimeline": {
+        "frames": 10,
+        "frameMs": 62
+      },
+      "coverage": "CODE_DRAWN_FX_PRESENT_ACTOR_TIMELINE_REVIEW_REQUIRED",
+      "distinctRoleAssets": 2
+    },
+    {
+      "enemy": "hilt_rematch",
+      "character": "hilt",
+      "name": "HILT",
+      "move": "lunch",
+      "label": "LUNCHBOX",
+      "pattern": [
+        "jab",
+        "lunch",
+        "jab",
+        "pin"
+      ],
+      "telegraph": "HILT OPENS THE LUNCHBOX…",
+      "anchor": "assets/before_the_fame/characters/hilt/hilt_neutral_80x96.png",
+      "variant": null,
+      "roles": {
+        "strike": {
+          "state": "strike",
+          "src": "assets/before_the_fame/characters/hilt/hilt_strike_80x96.png"
+        }
+      },
+      "identityStates": {
+        "neutral": "assets/before_the_fame/characters/hilt/hilt_neutral_80x96.png",
+        "strike": "assets/before_the_fame/characters/hilt/hilt_strike_80x96.png",
+        "walk_away": "assets/before_the_fame/characters/hilt/hilt_walk_away_80x96.png"
+      },
+      "assets": [
+        "assets/before_the_fame/characters/hilt/hilt_neutral_80x96.png",
+        "assets/before_the_fame/characters/hilt/hilt_strike_80x96.png"
+      ],
+      "hashes": {
+        "assets/before_the_fame/characters/hilt/hilt_neutral_80x96.png": "e179293708207d5dbe7892dc71bd120ce270490c22141aaf6245d5bf4b46a4e9",
+        "assets/before_the_fame/characters/hilt/hilt_strike_80x96.png": "4fe312f8a0e96e63f8463825d5d4e7cbc0f24bf6b7af2df27c6169bb5aefc6c7"
+      },
+      "encounterCandidates": [
+        {
+          "id": "A23R",
+          "retained": false
+        }
+      ],
+      "fx": {
+        "s": "projectile",
+        "sprite": "lunchbox",
+        "color": "#ae2446",
+        "arc": 18
+      },
+      "fxTimeline": {
+        "frames": 10,
+        "frameMs": 62
+      },
+      "coverage": "CODE_DRAWN_FX_PRESENT_ACTOR_TIMELINE_REVIEW_REQUIRED",
+      "distinctRoleAssets": 2
+    },
+    {
+      "enemy": "hilt_rematch",
+      "character": "hilt",
+      "name": "HILT",
+      "move": "pin",
+      "label": "PIN",
+      "pattern": [
+        "jab",
+        "lunch",
+        "jab",
+        "pin"
+      ],
+      "telegraph": "HILT STEPS IN CLOSE…",
+      "anchor": "assets/before_the_fame/characters/hilt/hilt_neutral_80x96.png",
+      "variant": null,
+      "roles": {
+        "strike": {
+          "state": "strike",
+          "src": "assets/before_the_fame/characters/hilt/hilt_strike_80x96.png"
+        }
+      },
+      "identityStates": {
+        "neutral": "assets/before_the_fame/characters/hilt/hilt_neutral_80x96.png",
+        "strike": "assets/before_the_fame/characters/hilt/hilt_strike_80x96.png",
+        "walk_away": "assets/before_the_fame/characters/hilt/hilt_walk_away_80x96.png"
+      },
+      "assets": [
+        "assets/before_the_fame/characters/hilt/hilt_neutral_80x96.png",
+        "assets/before_the_fame/characters/hilt/hilt_strike_80x96.png"
+      ],
+      "hashes": {
+        "assets/before_the_fame/characters/hilt/hilt_neutral_80x96.png": "e179293708207d5dbe7892dc71bd120ce270490c22141aaf6245d5bf4b46a4e9",
+        "assets/before_the_fame/characters/hilt/hilt_strike_80x96.png": "4fe312f8a0e96e63f8463825d5d4e7cbc0f24bf6b7af2df27c6169bb5aefc6c7"
+      },
+      "encounterCandidates": [
+        {
+          "id": "A23R",
+          "retained": false
+        }
+      ],
+      "fx": {
+        "s": "smash",
+        "color": "#f5e8c5",
+        "heavy": 1
+      },
+      "fxTimeline": {
+        "frames": 10,
+        "frameMs": 62
+      },
+      "coverage": "CODE_DRAWN_FX_PRESENT_ACTOR_TIMELINE_REVIEW_REQUIRED",
+      "distinctRoleAssets": 2
+    },
+    {
+      "enemy": "paladin",
+      "character": "paladin",
+      "name": "PALADIN",
+      "move": "swing",
+      "label": "HOLY SWING",
+      "pattern": [
+        "shield",
+        "swing"
+      ],
+      "telegraph": "THE PALADIN RAISES HIS SWORD TO THE HEAVENS…",
+      "anchor": "assets/before_the_fame/characters/paladin/paladin_neutral_80x96.png",
+      "variant": null,
+      "roles": {},
+      "identityStates": {
+        "neutral": "assets/before_the_fame/characters/paladin/paladin_neutral_80x96.png"
+      },
+      "assets": [
+        "assets/before_the_fame/characters/paladin/paladin_neutral_80x96.png"
+      ],
+      "hashes": {
+        "assets/before_the_fame/characters/paladin/paladin_neutral_80x96.png": "cc7122015ee7750f24978763671f774101563231ead98c934380e60d8f9c6aa1"
+      },
+      "encounterCandidates": [
+        {
+          "id": "A29C",
+          "retained": false
+        }
+      ],
+      "fx": {
+        "s": "slash",
+        "color": "#d6af62"
+      },
+      "fxTimeline": {
+        "frames": 10,
+        "frameMs": 62
+      },
+      "coverage": "CODE_DRAWN_FX_PRESENT_ACTOR_TIMELINE_REVIEW_REQUIRED",
+      "distinctRoleAssets": 1
+    },
+    {
+      "enemy": "paladin",
+      "character": "paladin",
+      "name": "PALADIN",
+      "move": "shield",
+      "label": "SHIELD UP",
+      "pattern": [
+        "shield",
+        "swing"
+      ],
+      "telegraph": null,
+      "anchor": "assets/before_the_fame/characters/paladin/paladin_neutral_80x96.png",
+      "variant": null,
+      "roles": {},
+      "identityStates": {
+        "neutral": "assets/before_the_fame/characters/paladin/paladin_neutral_80x96.png"
+      },
+      "assets": [
+        "assets/before_the_fame/characters/paladin/paladin_neutral_80x96.png"
+      ],
+      "hashes": {
+        "assets/before_the_fame/characters/paladin/paladin_neutral_80x96.png": "cc7122015ee7750f24978763671f774101563231ead98c934380e60d8f9c6aa1"
+      },
+      "encounterCandidates": [
+        {
+          "id": "A29C",
+          "retained": false
+        }
+      ],
+      "fx": {
+        "s": "burst",
+        "glyph": "cross",
+        "color": "#d6af62",
+        "at": "self",
+        "count": 4
+      },
+      "fxTimeline": {
+        "frames": 10,
+        "frameMs": 62
+      },
+      "coverage": "CODE_DRAWN_FX_PRESENT_ACTOR_TIMELINE_REVIEW_REQUIRED",
+      "distinctRoleAssets": 1
+    },
+    {
+      "enemy": "bard",
+      "character": "bard",
+      "name": "BARD",
+      "move": "cover",
+      "label": "TERRIBLE COVER OF PLAYMAKERS",
+      "pattern": [
+        "cover",
+        "strum"
+      ],
+      "telegraph": null,
+      "anchor": "assets/before_the_fame/characters/bard/bard_neutral_80x96.png",
+      "variant": null,
+      "roles": {},
+      "identityStates": {
+        "neutral": "assets/before_the_fame/characters/bard/bard_neutral_80x96.png"
+      },
+      "assets": [
+        "assets/before_the_fame/characters/bard/bard_neutral_80x96.png"
+      ],
+      "hashes": {
+        "assets/before_the_fame/characters/bard/bard_neutral_80x96.png": "5213c311932331809945f0efc95aa3befe3049a8173d3ba1aa021b17ce8826dd"
+      },
+      "encounterCandidates": [
+        {
+          "id": "A29C",
+          "retained": false
+        }
+      ],
+      "fx": {
+        "s": "burst",
+        "glyph": "note",
+        "color": "#9460c0",
+        "count": 6,
+        "at": "toRich"
+      },
+      "fxTimeline": {
+        "frames": 10,
+        "frameMs": 62
+      },
+      "coverage": "CODE_DRAWN_FX_PRESENT_ACTOR_TIMELINE_REVIEW_REQUIRED",
+      "distinctRoleAssets": 1
+    },
+    {
+      "enemy": "bard",
+      "character": "bard",
+      "name": "BARD",
+      "move": "strum",
+      "label": "STRUM",
+      "pattern": [
+        "cover",
+        "strum"
+      ],
+      "telegraph": null,
+      "anchor": "assets/before_the_fame/characters/bard/bard_neutral_80x96.png",
+      "variant": null,
+      "roles": {},
+      "identityStates": {
+        "neutral": "assets/before_the_fame/characters/bard/bard_neutral_80x96.png"
+      },
+      "assets": [
+        "assets/before_the_fame/characters/bard/bard_neutral_80x96.png"
+      ],
+      "hashes": {
+        "assets/before_the_fame/characters/bard/bard_neutral_80x96.png": "5213c311932331809945f0efc95aa3befe3049a8173d3ba1aa021b17ce8826dd"
+      },
+      "encounterCandidates": [
+        {
+          "id": "A29C",
+          "retained": false
+        }
+      ],
+      "fx": {
+        "s": "burst",
+        "glyph": "note",
+        "color": "#d85a8a",
+        "count": 3,
+        "at": "toRich",
+        "hitStar": 1
+      },
+      "fxTimeline": {
+        "frames": 10,
+        "frameMs": 62
+      },
+      "coverage": "CODE_DRAWN_FX_PRESENT_ACTOR_TIMELINE_REVIEW_REQUIRED",
+      "distinctRoleAssets": 1
+    },
+    {
+      "enemy": "cleric",
+      "character": "cleric",
+      "name": "CLERIC",
+      "move": "heal",
+      "label": "HEAL ALLY",
+      "pattern": [
+        "judge",
+        "heal"
+      ],
+      "telegraph": "THE CLERIC IS PRAYING FOR SOMEONE…",
+      "anchor": "assets/before_the_fame/characters/cleric/cleric_neutral_80x96.png",
+      "variant": null,
+      "roles": {},
+      "identityStates": {
+        "neutral": "assets/before_the_fame/characters/cleric/cleric_neutral_80x96.png"
+      },
+      "assets": [
+        "assets/before_the_fame/characters/cleric/cleric_neutral_80x96.png"
+      ],
+      "hashes": {
+        "assets/before_the_fame/characters/cleric/cleric_neutral_80x96.png": "4b81e630e4fd2c45202eaf3e2812781558bd3f6bc015c761a24309003c59ecda"
+      },
+      "encounterCandidates": [
+        {
+          "id": "A29C",
+          "retained": false
+        }
+      ],
+      "fx": {
+        "s": "burst",
+        "glyph": "cross",
+        "color": "#72b58a",
+        "at": "self",
+        "count": 4
+      },
+      "fxTimeline": {
+        "frames": 10,
+        "frameMs": 62
+      },
+      "coverage": "CODE_DRAWN_FX_PRESENT_ACTOR_TIMELINE_REVIEW_REQUIRED",
+      "distinctRoleAssets": 1
+    },
+    {
+      "enemy": "cleric",
+      "character": "cleric",
+      "name": "CLERIC",
+      "move": "judge",
+      "label": "JUDGE",
+      "pattern": [
+        "judge",
+        "heal"
+      ],
+      "telegraph": null,
+      "anchor": "assets/before_the_fame/characters/cleric/cleric_neutral_80x96.png",
+      "variant": null,
+      "roles": {},
+      "identityStates": {
+        "neutral": "assets/before_the_fame/characters/cleric/cleric_neutral_80x96.png"
+      },
+      "assets": [
+        "assets/before_the_fame/characters/cleric/cleric_neutral_80x96.png"
+      ],
+      "hashes": {
+        "assets/before_the_fame/characters/cleric/cleric_neutral_80x96.png": "4b81e630e4fd2c45202eaf3e2812781558bd3f6bc015c761a24309003c59ecda"
+      },
+      "encounterCandidates": [
+        {
+          "id": "A29C",
+          "retained": false
+        }
+      ],
+      "fx": {
+        "s": "beam",
+        "color": "#d6af62",
+        "fromTop": 1
+      },
+      "fxTimeline": {
+        "frames": 10,
+        "frameMs": 62
+      },
+      "coverage": "CODE_DRAWN_FX_PRESENT_ACTOR_TIMELINE_REVIEW_REQUIRED",
+      "distinctRoleAssets": 1
+    },
+    {
+      "enemy": "coffe",
+      "character": "coffe",
+      "name": "COFFE (ROGUE)",
+      "move": "backstab",
+      "label": "BACKSTAB",
+      "pattern": [
+        "dagger",
+        "sip",
+        "backstab"
+      ],
+      "telegraph": "COFFE IS CIRCLING BEHIND YOU…",
+      "anchor": "assets/before_the_fame/characters/coffe/coffe_rogue_80x96.png",
+      "variant": "rogue",
+      "roles": {},
+      "identityStates": {
+        "caught": "assets/before_the_fame/art_ship_014/package_a/A-coffe-caught.png",
+        "hype": "assets/before_the_fame/art_ship_014/package_a/A-coffe-hype.png",
+        "neutral": "assets/before_the_fame/characters/coffe/coffe_neutral_80x96.png",
+        "rogue": "assets/before_the_fame/characters/coffe/coffe_rogue_80x96.png"
+      },
+      "assets": [
+        "assets/before_the_fame/characters/coffe/coffe_rogue_80x96.png"
+      ],
+      "hashes": {
+        "assets/before_the_fame/characters/coffe/coffe_rogue_80x96.png": "24c0789da9071eac3dc553a73b3df9d646c4d23d0829d054daa376095c6c350c"
+      },
+      "encounterCandidates": [
+        {
+          "id": "A26",
+          "retained": true
+        },
+        {
+          "id": "HOST",
+          "retained": true
+        },
+        {
+          "id": "A29",
+          "retained": false
+        },
+        {
+          "id": "A29B",
+          "retained": false
+        },
+        {
+          "id": "A29C",
+          "retained": false
+        },
+        {
+          "id": "PLATES",
+          "retained": true
+        }
+      ],
+      "fx": {
+        "s": "slash",
+        "color": "#9460c0"
+      },
+      "fxTimeline": {
+        "frames": 10,
+        "frameMs": 62
+      },
+      "coverage": "CODE_DRAWN_FX_PRESENT_ACTOR_TIMELINE_REVIEW_REQUIRED",
+      "distinctRoleAssets": 1
+    },
+    {
+      "enemy": "coffe",
+      "character": "coffe",
+      "name": "COFFE (ROGUE)",
+      "move": "dagger",
+      "label": "DAGGER",
+      "pattern": [
+        "dagger",
+        "sip",
+        "backstab"
+      ],
+      "telegraph": null,
+      "anchor": "assets/before_the_fame/characters/coffe/coffe_rogue_80x96.png",
+      "variant": "rogue",
+      "roles": {},
+      "identityStates": {
+        "caught": "assets/before_the_fame/art_ship_014/package_a/A-coffe-caught.png",
+        "hype": "assets/before_the_fame/art_ship_014/package_a/A-coffe-hype.png",
+        "neutral": "assets/before_the_fame/characters/coffe/coffe_neutral_80x96.png",
+        "rogue": "assets/before_the_fame/characters/coffe/coffe_rogue_80x96.png"
+      },
+      "assets": [
+        "assets/before_the_fame/characters/coffe/coffe_rogue_80x96.png"
+      ],
+      "hashes": {
+        "assets/before_the_fame/characters/coffe/coffe_rogue_80x96.png": "24c0789da9071eac3dc553a73b3df9d646c4d23d0829d054daa376095c6c350c"
+      },
+      "encounterCandidates": [
+        {
+          "id": "A26",
+          "retained": true
+        },
+        {
+          "id": "HOST",
+          "retained": true
+        },
+        {
+          "id": "A29",
+          "retained": false
+        },
+        {
+          "id": "A29B",
+          "retained": false
+        },
+        {
+          "id": "A29C",
+          "retained": false
+        },
+        {
+          "id": "PLATES",
+          "retained": true
+        }
+      ],
+      "fx": {
+        "s": "stab",
+        "color": "#9460c0"
+      },
+      "fxTimeline": {
+        "frames": 10,
+        "frameMs": 62
+      },
+      "coverage": "CODE_DRAWN_FX_PRESENT_ACTOR_TIMELINE_REVIEW_REQUIRED",
+      "distinctRoleAssets": 1
+    },
+    {
+      "enemy": "coffe",
+      "character": "coffe",
+      "name": "COFFE (ROGUE)",
+      "move": "sip",
+      "label": "SIP",
+      "pattern": [
+        "dagger",
+        "sip",
+        "backstab"
+      ],
+      "telegraph": null,
+      "anchor": "assets/before_the_fame/characters/coffe/coffe_rogue_80x96.png",
+      "variant": "rogue",
+      "roles": {},
+      "identityStates": {
+        "caught": "assets/before_the_fame/art_ship_014/package_a/A-coffe-caught.png",
+        "hype": "assets/before_the_fame/art_ship_014/package_a/A-coffe-hype.png",
+        "neutral": "assets/before_the_fame/characters/coffe/coffe_neutral_80x96.png",
+        "rogue": "assets/before_the_fame/characters/coffe/coffe_rogue_80x96.png"
+      },
+      "assets": [
+        "assets/before_the_fame/characters/coffe/coffe_rogue_80x96.png"
+      ],
+      "hashes": {
+        "assets/before_the_fame/characters/coffe/coffe_rogue_80x96.png": "24c0789da9071eac3dc553a73b3df9d646c4d23d0829d054daa376095c6c350c"
+      },
+      "encounterCandidates": [
+        {
+          "id": "A26",
+          "retained": true
+        },
+        {
+          "id": "HOST",
+          "retained": true
+        },
+        {
+          "id": "A29",
+          "retained": false
+        },
+        {
+          "id": "A29B",
+          "retained": false
+        },
+        {
+          "id": "A29C",
+          "retained": false
+        },
+        {
+          "id": "PLATES",
+          "retained": true
+        }
+      ],
+      "fx": {
+        "s": "burst",
+        "glyph": "star",
+        "color": "#9a6a3c",
+        "at": "self",
+        "count": 3
+      },
+      "fxTimeline": {
+        "frames": 10,
+        "frameMs": 62
+      },
+      "coverage": "CODE_DRAWN_FX_PRESENT_ACTOR_TIMELINE_REVIEW_REQUIRED",
+      "distinctRoleAssets": 1
+    },
+    {
+      "enemy": "lil_smack",
+      "character": "lil_smack",
+      "name": "LIL SMACK",
+      "move": "chew",
+      "label": "CHEW ATTACK",
+      "pattern": [
+        "chew",
+        "crumb"
+      ],
+      "telegraph": null,
+      "anchor": "assets/before_the_fame/characters/lil_smack/lil_smack_eating_80x96.png",
+      "variant": null,
+      "roles": {},
+      "identityStates": {
+        "diss": "assets/before_the_fame/art_ship_014/package_a/A-lil_smack-diss.png",
+        "eating": "assets/before_the_fame/characters/lil_smack/lil_smack_eating_80x96.png",
+        "finale": "assets/before_the_fame/art_ship_014/package_a/A-lil_smack-finale.png"
+      },
+      "assets": [
+        "assets/before_the_fame/characters/lil_smack/lil_smack_eating_80x96.png"
+      ],
+      "hashes": {
+        "assets/before_the_fame/characters/lil_smack/lil_smack_eating_80x96.png": "7640a3607d61bfdf28fd1169b80e784614a2376ff28fb2ee0277f80485fab0d8"
+      },
+      "encounterCandidates": [
+        {
+          "id": "A_SMACK2",
+          "retained": false
+        },
+        {
+          "id": "A26",
+          "retained": true
+        },
+        {
+          "id": "HOST",
+          "retained": true
+        },
+        {
+          "id": "VENICE",
+          "retained": false
+        },
+        {
+          "id": "A44_N2",
+          "retained": false
+        },
+        {
+          "id": "A54",
+          "retained": true
+        },
+        {
+          "id": "A56",
+          "retained": true
+        },
+        {
+          "id": "PLATES",
+          "retained": true
+        }
+      ],
+      "fx": {
+        "s": "flurry",
+        "hits": 3,
+        "color": "#d98241",
+        "sprite": "crumb"
+      },
+      "fxTimeline": {
+        "frames": 10,
+        "frameMs": 62
+      },
+      "coverage": "CODE_DRAWN_FX_PRESENT_ACTOR_TIMELINE_REVIEW_REQUIRED",
+      "distinctRoleAssets": 1
+    },
+    {
+      "enemy": "lil_smack",
+      "character": "lil_smack",
+      "name": "LIL SMACK",
+      "move": "crumb",
+      "label": "CRUMB SPRAY",
+      "pattern": [
+        "chew",
+        "crumb"
+      ],
+      "telegraph": null,
+      "anchor": "assets/before_the_fame/characters/lil_smack/lil_smack_eating_80x96.png",
+      "variant": null,
+      "roles": {},
+      "identityStates": {
+        "diss": "assets/before_the_fame/art_ship_014/package_a/A-lil_smack-diss.png",
+        "eating": "assets/before_the_fame/characters/lil_smack/lil_smack_eating_80x96.png",
+        "finale": "assets/before_the_fame/art_ship_014/package_a/A-lil_smack-finale.png"
+      },
+      "assets": [
+        "assets/before_the_fame/characters/lil_smack/lil_smack_eating_80x96.png"
+      ],
+      "hashes": {
+        "assets/before_the_fame/characters/lil_smack/lil_smack_eating_80x96.png": "7640a3607d61bfdf28fd1169b80e784614a2376ff28fb2ee0277f80485fab0d8"
+      },
+      "encounterCandidates": [
+        {
+          "id": "A_SMACK2",
+          "retained": false
+        },
+        {
+          "id": "A26",
+          "retained": true
+        },
+        {
+          "id": "HOST",
+          "retained": true
+        },
+        {
+          "id": "VENICE",
+          "retained": false
+        },
+        {
+          "id": "A44_N2",
+          "retained": false
+        },
+        {
+          "id": "A54",
+          "retained": true
+        },
+        {
+          "id": "A56",
+          "retained": true
+        },
+        {
+          "id": "PLATES",
+          "retained": true
+        }
+      ],
+      "fx": {
+        "s": "projectile",
+        "sprite": "crumb",
+        "color": "#d6af62",
+        "spray": 9,
+        "arc": 8
+      },
+      "fxTimeline": {
+        "frames": 10,
+        "frameMs": 62
+      },
+      "coverage": "CODE_DRAWN_FX_PRESENT_ACTOR_TIMELINE_REVIEW_REQUIRED",
+      "distinctRoleAssets": 1
+    },
+    {
+      "enemy": "smallie",
+      "character": "smallie",
+      "name": "SMALLIE",
+      "move": "chew",
+      "label": "CHEW ATTACK",
+      "pattern": [
+        "crumb",
+        "chew"
+      ],
+      "telegraph": "SMALLIE LEANS OVER THE TABLE…",
+      "anchor": "assets/build4/p_d/p_d_smallie_80x96.png",
+      "variant": null,
+      "roles": {},
+      "identityStates": {
+        "neutral": "assets/build4/p_d/p_d_smallie_80x96.png"
+      },
+      "assets": [
+        "assets/build4/p_d/p_d_smallie_80x96.png"
+      ],
+      "hashes": {
+        "assets/build4/p_d/p_d_smallie_80x96.png": "da4c2570fbbbe10b7534306f0b31a4376c0cfaf3eead051a602156d94f9f209a"
+      },
+      "encounterCandidates": [
+        {
+          "id": "NEW_OGA_M1",
+          "retained": true
+        }
+      ],
+      "fx": {
+        "s": "flurry",
+        "hits": 3,
+        "color": "#d98241",
+        "sprite": "crumb"
+      },
+      "fxTimeline": {
+        "frames": 10,
+        "frameMs": 62
+      },
+      "coverage": "CODE_DRAWN_FX_PRESENT_ACTOR_TIMELINE_REVIEW_REQUIRED",
+      "distinctRoleAssets": 1
+    },
+    {
+      "enemy": "smallie",
+      "character": "smallie",
+      "name": "SMALLIE",
+      "move": "crumb",
+      "label": "CRUMB SPRAY",
+      "pattern": [
+        "crumb",
+        "chew"
+      ],
+      "telegraph": null,
+      "anchor": "assets/build4/p_d/p_d_smallie_80x96.png",
+      "variant": null,
+      "roles": {},
+      "identityStates": {
+        "neutral": "assets/build4/p_d/p_d_smallie_80x96.png"
+      },
+      "assets": [
+        "assets/build4/p_d/p_d_smallie_80x96.png"
+      ],
+      "hashes": {
+        "assets/build4/p_d/p_d_smallie_80x96.png": "da4c2570fbbbe10b7534306f0b31a4376c0cfaf3eead051a602156d94f9f209a"
+      },
+      "encounterCandidates": [
+        {
+          "id": "NEW_OGA_M1",
+          "retained": true
+        }
+      ],
+      "fx": {
+        "s": "projectile",
+        "sprite": "crumb",
+        "color": "#d6af62",
+        "spray": 9,
+        "arc": 8
+      },
+      "fxTimeline": {
+        "frames": 10,
+        "frameMs": 62
+      },
+      "coverage": "CODE_DRAWN_FX_PRESENT_ACTOR_TIMELINE_REVIEW_REQUIRED",
+      "distinctRoleAssets": 1
+    },
+    {
+      "enemy": "smallie_cousin",
+      "character": "smallie_cousin",
+      "name": "SMALLIE'S COUSIN",
+      "move": "dagger",
+      "label": "DAGGER",
+      "pattern": [
+        "feint",
+        "dagger"
+      ],
+      "telegraph": "SMALLIE'S COUSIN CIRCLES BEHIND YOU…",
+      "anchor": "assets/build4/p_d/p_d_smallie_cousin_80x96.png",
+      "variant": null,
+      "roles": {},
+      "identityStates": {
+        "neutral": "assets/build4/p_d/p_d_smallie_cousin_80x96.png"
+      },
+      "assets": [
+        "assets/build4/p_d/p_d_smallie_cousin_80x96.png"
+      ],
+      "hashes": {
+        "assets/build4/p_d/p_d_smallie_cousin_80x96.png": "694ed3ebf43ca21bac1987830ffdad2022700a024dc337aefa7b59462097ec40"
+      },
+      "encounterCandidates": [
+        {
+          "id": "NEW_OGA_M1",
+          "retained": true
+        },
+        {
+          "id": "RC3_FIGHT",
+          "retained": true
+        }
+      ],
+      "fx": {
+        "s": "stab",
+        "color": "#9460c0"
+      },
+      "fxTimeline": {
+        "frames": 10,
+        "frameMs": 62
+      },
+      "coverage": "CODE_DRAWN_FX_PRESENT_ACTOR_TIMELINE_REVIEW_REQUIRED",
+      "distinctRoleAssets": 1
+    },
+    {
+      "enemy": "smallie_cousin",
+      "character": "smallie_cousin",
+      "name": "SMALLIE'S COUSIN",
+      "move": "feint",
+      "label": "FEINT",
+      "pattern": [
+        "feint",
+        "dagger"
+      ],
+      "telegraph": null,
+      "anchor": "assets/build4/p_d/p_d_smallie_cousin_80x96.png",
+      "variant": null,
+      "roles": {},
+      "identityStates": {
+        "neutral": "assets/build4/p_d/p_d_smallie_cousin_80x96.png"
+      },
+      "assets": [
+        "assets/build4/p_d/p_d_smallie_cousin_80x96.png"
+      ],
+      "hashes": {
+        "assets/build4/p_d/p_d_smallie_cousin_80x96.png": "694ed3ebf43ca21bac1987830ffdad2022700a024dc337aefa7b59462097ec40"
+      },
+      "encounterCandidates": [
+        {
+          "id": "NEW_OGA_M1",
+          "retained": true
+        },
+        {
+          "id": "RC3_FIGHT",
+          "retained": true
+        }
+      ],
+      "fx": {
+        "s": "burst",
+        "glyph": "star",
+        "color": "#9460c0",
+        "at": "self",
+        "count": 4,
+        "hitStar": 1
+      },
+      "fxTimeline": {
+        "frames": 10,
+        "frameMs": 62
+      },
+      "coverage": "CODE_DRAWN_FX_PRESENT_ACTOR_TIMELINE_REVIEW_REQUIRED",
+      "distinctRoleAssets": 1
+    },
+    {
+      "enemy": "buckhead",
+      "character": "buckhead",
+      "name": "BUCKHEAD VAMPIRE",
+      "move": "empire",
+      "label": "BRUNCH EMPIRE",
+      "pattern": [
+        "mimosa",
+        "empire"
+      ],
+      "telegraph": "HE IS PITCHING A FRANCHISE…",
+      "anchor": "assets/before_the_fame/characters/buckhead/buckhead_vampire_neutral_80x96.png",
+      "variant": null,
+      "roles": {},
+      "identityStates": {
+        "default": "assets/before_the_fame/characters/buckhead/buckhead_vampire_neutral_80x96.png"
+      },
+      "assets": [
+        "assets/before_the_fame/characters/buckhead/buckhead_vampire_neutral_80x96.png"
+      ],
+      "hashes": {
+        "assets/before_the_fame/characters/buckhead/buckhead_vampire_neutral_80x96.png": "710bede4d4372f20cd27956313d6589df528c3ec9b795b3c4e5cc996ea033b97"
+      },
+      "encounterCandidates": [
+        {
+          "id": "A44_N3",
+          "retained": false
+        }
+      ],
+      "fx": {
+        "s": "burst",
+        "glyph": "star",
+        "color": "#d6af62",
+        "count": 6,
+        "at": "toRich",
+        "hitStar": 1
+      },
+      "fxTimeline": {
+        "frames": 10,
+        "frameMs": 62
+      },
+      "coverage": "CODE_DRAWN_FX_PRESENT_ACTOR_TIMELINE_REVIEW_REQUIRED",
+      "distinctRoleAssets": 1
+    },
+    {
+      "enemy": "buckhead",
+      "character": "buckhead",
+      "name": "BUCKHEAD VAMPIRE",
+      "move": "mimosa",
+      "label": "MIMOSA TOSS",
+      "pattern": [
+        "mimosa",
+        "empire"
+      ],
+      "telegraph": null,
+      "anchor": "assets/before_the_fame/characters/buckhead/buckhead_vampire_neutral_80x96.png",
+      "variant": null,
+      "roles": {},
+      "identityStates": {
+        "default": "assets/before_the_fame/characters/buckhead/buckhead_vampire_neutral_80x96.png"
+      },
+      "assets": [
+        "assets/before_the_fame/characters/buckhead/buckhead_vampire_neutral_80x96.png"
+      ],
+      "hashes": {
+        "assets/before_the_fame/characters/buckhead/buckhead_vampire_neutral_80x96.png": "710bede4d4372f20cd27956313d6589df528c3ec9b795b3c4e5cc996ea033b97"
+      },
+      "encounterCandidates": [
+        {
+          "id": "A44_N3",
+          "retained": false
+        }
+      ],
+      "fx": {
+        "s": "projectile",
+        "sprite": "glass",
+        "color": "#d98241",
+        "arc": 16
+      },
+      "fxTimeline": {
+        "frames": 10,
+        "frameMs": 62
+      },
+      "coverage": "CODE_DRAWN_FX_PRESENT_ACTOR_TIMELINE_REVIEW_REQUIRED",
+      "distinctRoleAssets": 1
+    },
+    {
+      "enemy": "hunter",
+      "character": "hilt",
+      "name": "HUNTER",
+      "move": "bolt",
+      "label": "CROSSBOW",
+      "pattern": [
+        "bolt"
+      ],
+      "telegraph": null,
+      "anchor": "assets/before_the_fame/characters/hilt/hilt_neutral_80x96.png",
+      "variant": null,
+      "roles": {
+        "strike": {
+          "state": "strike",
+          "src": "assets/before_the_fame/characters/hilt/hilt_strike_80x96.png"
+        }
+      },
+      "identityStates": {
+        "neutral": "assets/before_the_fame/characters/hilt/hilt_neutral_80x96.png",
+        "strike": "assets/before_the_fame/characters/hilt/hilt_strike_80x96.png",
+        "walk_away": "assets/before_the_fame/characters/hilt/hilt_walk_away_80x96.png"
+      },
+      "assets": [
+        "assets/before_the_fame/characters/hilt/hilt_neutral_80x96.png",
+        "assets/before_the_fame/characters/hilt/hilt_strike_80x96.png"
+      ],
+      "hashes": {
+        "assets/before_the_fame/characters/hilt/hilt_neutral_80x96.png": "e179293708207d5dbe7892dc71bd120ce270490c22141aaf6245d5bf4b46a4e9",
+        "assets/before_the_fame/characters/hilt/hilt_strike_80x96.png": "4fe312f8a0e96e63f8463825d5d4e7cbc0f24bf6b7af2df27c6169bb5aefc6c7"
+      },
+      "encounterCandidates": [],
+      "fx": {
+        "s": "projectile",
+        "sprite": "arrow",
+        "color": "#f5e8c5",
+        "arc": 2
+      },
+      "fxTimeline": {
+        "frames": 10,
+        "frameMs": 62
+      },
+      "coverage": "CODE_DRAWN_FX_PRESENT_ACTOR_TIMELINE_REVIEW_REQUIRED",
+      "distinctRoleAssets": 2
+    },
+    {
+      "enemy": "groupies",
+      "character": "tasha",
+      "name": "GROUPIE RUSH",
+      "move": "hug",
+      "label": "HUG",
+      "pattern": [
+        "hug"
+      ],
+      "telegraph": null,
+      "anchor": "assets/before_the_fame/characters/tasha/tasha_tastemaker_filming_80x96.png",
+      "variant": null,
+      "roles": {},
+      "identityStates": {
+        "bedroom_company": "assets/before_the_fame/art_ship_014/package_a/A-tasha-bedroom_company.png",
+        "date": "assets/before_the_fame/art_ship_014/package_a/A-tasha-date.png",
+        "filming": "assets/before_the_fame/characters/tasha/tasha_tastemaker_filming_80x96.png",
+        "stage_rush": "assets/before_the_fame/art_ship_014/package_a/A-tasha-stage_rush.png"
+      },
+      "assets": [
+        "assets/before_the_fame/characters/tasha/tasha_tastemaker_filming_80x96.png"
+      ],
+      "hashes": {
+        "assets/before_the_fame/characters/tasha/tasha_tastemaker_filming_80x96.png": "744c37144d01cec4eb8e4bebf06f1eb664a8326772178f0795b35d02360096df"
+      },
+      "encounterCandidates": [],
+      "fx": {
+        "s": "flurry",
+        "hits": 3,
+        "color": "#d85a8a",
+        "sprite": "heart"
+      },
+      "fxTimeline": {
+        "frames": 10,
+        "frameMs": 62
+      },
+      "coverage": "CODE_DRAWN_FX_PRESENT_ACTOR_TIMELINE_REVIEW_REQUIRED",
+      "distinctRoleAssets": 1
+    },
+    {
+      "enemy": "werewolf",
+      "character": "moonie",
+      "name": "MOONIE (FULL MOON)",
+      "move": "swipe",
+      "label": "SWIPE",
+      "pattern": [
+        "howl",
+        "swipe",
+        "swipe"
+      ],
+      "telegraph": null,
+      "anchor": "assets/before_the_fame/characters/moonie/moonie_wolfed_out_80x96.png",
+      "variant": "wolfed_out",
+      "roles": {},
+      "identityStates": {
+        "bedroom_company": "assets/before_the_fame/art_ship_014/package_a/A-moonie-bedroom_company.png",
+        "date": "assets/before_the_fame/art_ship_014/package_a/A-moonie-date.png",
+        "neutral": "assets/before_the_fame/characters/moonie/moonie_dorsey_neutral_80x96.png",
+        "wolfed_out": "assets/before_the_fame/characters/moonie/moonie_wolfed_out_80x96.png"
+      },
+      "assets": [
+        "assets/before_the_fame/characters/moonie/moonie_wolfed_out_80x96.png"
+      ],
+      "hashes": {
+        "assets/before_the_fame/characters/moonie/moonie_wolfed_out_80x96.png": "a85b867ceb9fb2d1b852e1df0bbec5c1439dbffdccf8163390a7058a0fca6747"
+      },
+      "encounterCandidates": [
+        {
+          "id": "A28",
+          "retained": false
+        }
+      ],
+      "fx": {
+        "s": "slash",
+        "color": "#f5e8c5",
+        "claws": 1
+      },
+      "fxTimeline": {
+        "frames": 10,
+        "frameMs": 62
+      },
+      "coverage": "CODE_DRAWN_FX_PRESENT_ACTOR_TIMELINE_REVIEW_REQUIRED",
+      "distinctRoleAssets": 1
+    },
+    {
+      "enemy": "werewolf",
+      "character": "moonie",
+      "name": "MOONIE (FULL MOON)",
+      "move": "howl",
+      "label": "HOWL",
+      "pattern": [
+        "howl",
+        "swipe",
+        "swipe"
+      ],
+      "telegraph": "SHE IS SNIFFING THE AIR FOR STEAK…",
+      "anchor": "assets/before_the_fame/characters/moonie/moonie_wolfed_out_80x96.png",
+      "variant": "wolfed_out",
+      "roles": {},
+      "identityStates": {
+        "bedroom_company": "assets/before_the_fame/art_ship_014/package_a/A-moonie-bedroom_company.png",
+        "date": "assets/before_the_fame/art_ship_014/package_a/A-moonie-date.png",
+        "neutral": "assets/before_the_fame/characters/moonie/moonie_dorsey_neutral_80x96.png",
+        "wolfed_out": "assets/before_the_fame/characters/moonie/moonie_wolfed_out_80x96.png"
+      },
+      "assets": [
+        "assets/before_the_fame/characters/moonie/moonie_wolfed_out_80x96.png"
+      ],
+      "hashes": {
+        "assets/before_the_fame/characters/moonie/moonie_wolfed_out_80x96.png": "a85b867ceb9fb2d1b852e1df0bbec5c1439dbffdccf8163390a7058a0fca6747"
+      },
+      "encounterCandidates": [
+        {
+          "id": "A28",
+          "retained": false
+        }
+      ],
+      "fx": {
+        "s": "burst",
+        "glyph": "exclaim",
+        "color": "#9460c0",
+        "at": "self",
+        "count": 5
+      },
+      "fxTimeline": {
+        "frames": 10,
+        "frameMs": 62
+      },
+      "coverage": "CODE_DRAWN_FX_PRESENT_ACTOR_TIMELINE_REVIEW_REQUIRED",
+      "distinctRoleAssets": 1
+    },
+    {
+      "enemy": "training",
+      "character": "training_dummy",
+      "name": "TRAINING DUMMY",
+      "move": "bonk",
+      "label": "BONK",
+      "pattern": [
+        "bonk"
+      ],
+      "telegraph": null,
+      "anchor": "assets/before_the_fame/characters/training_dummy/training_dummy_combat_80x96.png",
+      "variant": null,
+      "roles": {},
+      "identityStates": {
+        "default": "assets/before_the_fame/characters/training_dummy/training_dummy_combat_80x96.png"
+      },
+      "assets": [
+        "assets/before_the_fame/characters/training_dummy/training_dummy_combat_80x96.png"
+      ],
+      "hashes": {
+        "assets/before_the_fame/characters/training_dummy/training_dummy_combat_80x96.png": "e30e3189af01afdd05300fc913ea541aab0e0f1f8c88704a094afac2b5f9face"
+      },
+      "encounterCandidates": [
+        {
+          "id": "THRONE",
+          "retained": false
+        }
+      ],
+      "fx": {
+        "s": "smash",
+        "color": "#9a6a3c"
+      },
+      "fxTimeline": {
+        "frames": 10,
+        "frameMs": 62
+      },
+      "coverage": "CODE_DRAWN_FX_PRESENT_ACTOR_TIMELINE_REVIEW_REQUIRED",
+      "distinctRoleAssets": 1
+    },
+    {
+      "enemy": "f15_roxy_spar",
+      "character": "roxy",
+      "name": "ROXY (SPARRING)",
+      "move": "jab",
+      "label": "JAB",
+      "pattern": [
+        "jab",
+        "jab",
+        "cross"
+      ],
+      "telegraph": null,
+      "anchor": "assets/f15/portraits/roxy.png",
+      "variant": null,
+      "roles": {},
+      "identityStates": {},
+      "assets": [
+        "assets/f15/portraits/roxy.png"
+      ],
+      "hashes": {
+        "assets/f15/portraits/roxy.png": "863f603116b19be9c696ccd28257e3818832c396af9dac5ef939027e33eefa7d"
+      },
+      "encounterCandidates": [
+        {
+          "id": "F15_ROXY_L2",
+          "retained": true
+        }
+      ],
+      "fx": {
+        "s": "slash",
+        "color": "#f5e8c5"
+      },
+      "fxTimeline": {
+        "frames": 10,
+        "frameMs": 62
+      },
+      "coverage": "CODE_DRAWN_FX_PRESENT_ACTOR_TIMELINE_REVIEW_REQUIRED",
+      "distinctRoleAssets": 1
+    },
+    {
+      "enemy": "f15_roxy_spar",
+      "character": "roxy",
+      "name": "ROXY (SPARRING)",
+      "move": "cross",
+      "label": "CROSS",
+      "pattern": [
+        "jab",
+        "jab",
+        "cross"
+      ],
+      "telegraph": "ROXY IS SETTING HER FEET…",
+      "anchor": "assets/f15/portraits/roxy.png",
+      "variant": null,
+      "roles": {},
+      "identityStates": {},
+      "assets": [
+        "assets/f15/portraits/roxy.png"
+      ],
+      "hashes": {
+        "assets/f15/portraits/roxy.png": "863f603116b19be9c696ccd28257e3818832c396af9dac5ef939027e33eefa7d"
+      },
+      "encounterCandidates": [
+        {
+          "id": "F15_ROXY_L2",
+          "retained": true
+        }
+      ],
+      "fx": {
+        "s": "slash",
+        "color": "#f5e8c5"
+      },
+      "fxTimeline": {
+        "frames": 10,
+        "frameMs": 62
+      },
+      "coverage": "CODE_DRAWN_FX_PRESENT_ACTOR_TIMELINE_REVIEW_REQUIRED",
+      "distinctRoleAssets": 1
+    },
+    {
+      "enemy": "f15_uncle_bunmi",
+      "character": "spirit_of_uncle_bunmi",
+      "name": "THE SPIRIT OF UNCLE BUNMI",
+      "move": "antenna",
+      "label": "ANTENNA THING",
+      "pattern": [
+        "antenna",
+        "scuttle",
+        "stare",
+        "scuttle",
+        "flies"
+      ],
+      "telegraph": "ROSALYN: IT'S DOING THE ANTENNA THING.",
+      "anchor": "assets/f15/characters/spirit_of_uncle_bunmi_444x222.png",
+      "variant": null,
+      "roles": {},
+      "identityStates": {},
+      "assets": [
+        "assets/f15/characters/spirit_of_uncle_bunmi_444x222.png"
+      ],
+      "hashes": {
+        "assets/f15/characters/spirit_of_uncle_bunmi_444x222.png": "e4cc409314da51b99627452dc92e5ce597f22b531ee57983c41af68aa4886c7d"
+      },
+      "encounterCandidates": [
+        {
+          "id": "F15_ROSALYN_L4",
+          "retained": true
+        }
+      ],
+      "fx": {
+        "s": "burst",
+        "glyph": "star",
+        "color": "#9460c0",
+        "at": "self",
+        "count": 3
+      },
+      "fxTimeline": {
+        "frames": 10,
+        "frameMs": 62
+      },
+      "coverage": "CODE_DRAWN_FX_PRESENT_ACTOR_TIMELINE_REVIEW_REQUIRED",
+      "distinctRoleAssets": 1
+    },
+    {
+      "enemy": "f15_uncle_bunmi",
+      "character": "spirit_of_uncle_bunmi",
+      "name": "THE SPIRIT OF UNCLE BUNMI",
+      "move": "scuttle",
+      "label": "SCUTTLE",
+      "pattern": [
+        "antenna",
+        "scuttle",
+        "stare",
+        "scuttle",
+        "flies"
+      ],
+      "telegraph": null,
+      "anchor": "assets/f15/characters/spirit_of_uncle_bunmi_444x222.png",
+      "variant": null,
+      "roles": {},
+      "identityStates": {},
+      "assets": [
+        "assets/f15/characters/spirit_of_uncle_bunmi_444x222.png"
+      ],
+      "hashes": {
+        "assets/f15/characters/spirit_of_uncle_bunmi_444x222.png": "e4cc409314da51b99627452dc92e5ce597f22b531ee57983c41af68aa4886c7d"
+      },
+      "encounterCandidates": [
+        {
+          "id": "F15_ROSALYN_L4",
+          "retained": true
+        }
+      ],
+      "fx": {
+        "s": "slash",
+        "color": "#f5e8c5"
+      },
+      "fxTimeline": {
+        "frames": 10,
+        "frameMs": 62
+      },
+      "coverage": "CODE_DRAWN_FX_PRESENT_ACTOR_TIMELINE_REVIEW_REQUIRED",
+      "distinctRoleAssets": 1
+    },
+    {
+      "enemy": "f15_uncle_bunmi",
+      "character": "spirit_of_uncle_bunmi",
+      "name": "THE SPIRIT OF UNCLE BUNMI",
+      "move": "stare",
+      "label": "THE STARE",
+      "pattern": [
+        "antenna",
+        "scuttle",
+        "stare",
+        "scuttle",
+        "flies"
+      ],
+      "telegraph": "ROSALYN: WHY IS IT LOOKING AT YOU. WHY IS IT LOOKING AT YOU LIKE THAT.",
+      "anchor": "assets/f15/characters/spirit_of_uncle_bunmi_444x222.png",
+      "variant": null,
+      "roles": {},
+      "identityStates": {},
+      "assets": [
+        "assets/f15/characters/spirit_of_uncle_bunmi_444x222.png"
+      ],
+      "hashes": {
+        "assets/f15/characters/spirit_of_uncle_bunmi_444x222.png": "e4cc409314da51b99627452dc92e5ce597f22b531ee57983c41af68aa4886c7d"
+      },
+      "encounterCandidates": [
+        {
+          "id": "F15_ROSALYN_L4",
+          "retained": true
+        }
+      ],
+      "fx": {
+        "s": "slash",
+        "color": "#f5e8c5"
+      },
+      "fxTimeline": {
+        "frames": 10,
+        "frameMs": 62
+      },
+      "coverage": "CODE_DRAWN_FX_PRESENT_ACTOR_TIMELINE_REVIEW_REQUIRED",
+      "distinctRoleAssets": 1
+    },
+    {
+      "enemy": "f15_uncle_bunmi",
+      "character": "spirit_of_uncle_bunmi",
+      "name": "THE SPIRIT OF UNCLE BUNMI",
+      "move": "flies",
+      "label": "FLIES",
+      "pattern": [
+        "antenna",
+        "scuttle",
+        "stare",
+        "scuttle",
+        "flies"
+      ],
+      "telegraph": "ROSALYN: PHASE TWO. IT FLIES. NOBODY TOLD ME IT FLIES.",
+      "anchor": "assets/f15/characters/spirit_of_uncle_bunmi_444x222.png",
+      "variant": null,
+      "roles": {},
+      "identityStates": {},
+      "assets": [
+        "assets/f15/characters/spirit_of_uncle_bunmi_444x222.png"
+      ],
+      "hashes": {
+        "assets/f15/characters/spirit_of_uncle_bunmi_444x222.png": "e4cc409314da51b99627452dc92e5ce597f22b531ee57983c41af68aa4886c7d"
+      },
+      "encounterCandidates": [
+        {
+          "id": "F15_ROSALYN_L4",
+          "retained": true
+        }
+      ],
+      "fx": {
+        "s": "slash",
+        "color": "#f5e8c5"
+      },
+      "fxTimeline": {
+        "frames": 10,
+        "frameMs": 62
+      },
+      "coverage": "CODE_DRAWN_FX_PRESENT_ACTOR_TIMELINE_REVIEW_REQUIRED",
+      "distinctRoleAssets": 1
+    },
+    {
+      "enemy": "gbenga",
+      "character": "gbenga",
+      "name": "GBENGA",
+      "move": "sweep",
+      "label": "AGBADA SWEEP",
+      "pattern": [
+        "sweep",
+        "voice",
+        "my_son",
+        "sweep"
+      ],
+      "telegraph": "HE IS ADJUSTING HIS SLEEVES",
+      "anchor": "assets/before_the_fame/characters/gbenga/runtime_80x96/gbenga_adjusting_sleeves_80x96_v2.png",
+      "variant": null,
+      "roles": {
+        "defeated": {
+          "state": "defeated",
+          "src": "assets/before_the_fame/characters/gbenga/runtime_80x96/gbenga_defeated_80x96_v2.png"
+        }
+      },
+      "identityStates": {
+        "neutral": "assets/before_the_fame/characters/gbenga/runtime_80x96/gbenga_neutral_anchor_80x96_v2.png",
+        "voice_note": "assets/before_the_fame/characters/gbenga/runtime_80x96/gbenga_voice_note_80x96_v2.png",
+        "my_son": "assets/before_the_fame/characters/gbenga/runtime_80x96/gbenga_my_son_80x96_v2.png",
+        "adjusting_sleeves": "assets/before_the_fame/characters/gbenga/runtime_80x96/gbenga_adjusting_sleeves_80x96_v2.png",
+        "golden_draco": "assets/before_the_fame/characters/gbenga/runtime_80x96/gbenga_golden_draco_80x96_v2.png",
+        "defeated": "assets/before_the_fame/characters/gbenga/runtime_80x96/gbenga_defeated_80x96_v2.png"
+      },
+      "assets": [
+        "assets/before_the_fame/characters/gbenga/runtime_80x96/gbenga_adjusting_sleeves_80x96_v2.png",
+        "assets/before_the_fame/characters/gbenga/runtime_80x96/gbenga_defeated_80x96_v2.png"
+      ],
+      "hashes": {
+        "assets/before_the_fame/characters/gbenga/runtime_80x96/gbenga_adjusting_sleeves_80x96_v2.png": "3c299fbdb15d6ad113c62b429ebec05b50d278f9a1402e7b8ed5bf53a63a4f8e",
+        "assets/before_the_fame/characters/gbenga/runtime_80x96/gbenga_defeated_80x96_v2.png": "1518fbc468f69bf8d774e74dde350ebdaa9421f84b01e64a72d5c6210c9f0807"
+      },
+      "encounterCandidates": [
+        {
+          "id": "NEW_OGA_M2",
+          "retained": true
+        },
+        {
+          "id": "NEW_OGA_M3",
+          "retained": true
+        },
+        {
+          "id": "NEW_OGA_M4",
+          "retained": true
+        },
+        {
+          "id": "NEW_OGA_ALTERNATIVE",
+          "retained": true
+        },
+        {
+          "id": "NEW_OGA_M5",
+          "retained": true
+        },
+        {
+          "id": "NEW_OGA_M7",
+          "retained": true
+        },
+        {
+          "id": "NEW_OGA_M9",
+          "retained": true
+        },
+        {
+          "id": "NEW_OGA_M10",
+          "retained": true
+        },
+        {
+          "id": "NEW_OGA_FINALE",
+          "retained": true
+        }
+      ],
+      "fx": {
+        "s": "slash",
+        "color": "#f5e8c5"
+      },
+      "fxTimeline": {
+        "frames": 10,
+        "frameMs": 62
+      },
+      "coverage": "CODE_DRAWN_FX_PRESENT_ACTOR_TIMELINE_REVIEW_REQUIRED",
+      "distinctRoleAssets": 2
+    },
+    {
+      "enemy": "gbenga",
+      "character": "gbenga",
+      "name": "GBENGA",
+      "move": "voice",
+      "label": "VOICE NOTE",
+      "pattern": [
+        "sweep",
+        "voice",
+        "my_son",
+        "sweep"
+      ],
+      "telegraph": "HE IS HOLDING THE PHONE FLAT IN FRONT OF HIS MOUTH",
+      "anchor": "assets/before_the_fame/characters/gbenga/runtime_80x96/gbenga_adjusting_sleeves_80x96_v2.png",
+      "variant": null,
+      "roles": {
+        "defeated": {
+          "state": "defeated",
+          "src": "assets/before_the_fame/characters/gbenga/runtime_80x96/gbenga_defeated_80x96_v2.png"
+        }
+      },
+      "identityStates": {
+        "neutral": "assets/before_the_fame/characters/gbenga/runtime_80x96/gbenga_neutral_anchor_80x96_v2.png",
+        "voice_note": "assets/before_the_fame/characters/gbenga/runtime_80x96/gbenga_voice_note_80x96_v2.png",
+        "my_son": "assets/before_the_fame/characters/gbenga/runtime_80x96/gbenga_my_son_80x96_v2.png",
+        "adjusting_sleeves": "assets/before_the_fame/characters/gbenga/runtime_80x96/gbenga_adjusting_sleeves_80x96_v2.png",
+        "golden_draco": "assets/before_the_fame/characters/gbenga/runtime_80x96/gbenga_golden_draco_80x96_v2.png",
+        "defeated": "assets/before_the_fame/characters/gbenga/runtime_80x96/gbenga_defeated_80x96_v2.png"
+      },
+      "assets": [
+        "assets/before_the_fame/characters/gbenga/runtime_80x96/gbenga_adjusting_sleeves_80x96_v2.png",
+        "assets/before_the_fame/characters/gbenga/runtime_80x96/gbenga_defeated_80x96_v2.png"
+      ],
+      "hashes": {
+        "assets/before_the_fame/characters/gbenga/runtime_80x96/gbenga_adjusting_sleeves_80x96_v2.png": "3c299fbdb15d6ad113c62b429ebec05b50d278f9a1402e7b8ed5bf53a63a4f8e",
+        "assets/before_the_fame/characters/gbenga/runtime_80x96/gbenga_defeated_80x96_v2.png": "1518fbc468f69bf8d774e74dde350ebdaa9421f84b01e64a72d5c6210c9f0807"
+      },
+      "encounterCandidates": [
+        {
+          "id": "NEW_OGA_M2",
+          "retained": true
+        },
+        {
+          "id": "NEW_OGA_M3",
+          "retained": true
+        },
+        {
+          "id": "NEW_OGA_M4",
+          "retained": true
+        },
+        {
+          "id": "NEW_OGA_ALTERNATIVE",
+          "retained": true
+        },
+        {
+          "id": "NEW_OGA_M5",
+          "retained": true
+        },
+        {
+          "id": "NEW_OGA_M7",
+          "retained": true
+        },
+        {
+          "id": "NEW_OGA_M9",
+          "retained": true
+        },
+        {
+          "id": "NEW_OGA_M10",
+          "retained": true
+        },
+        {
+          "id": "NEW_OGA_FINALE",
+          "retained": true
+        }
+      ],
+      "fx": {
+        "s": "burst",
+        "glyph": "star",
+        "color": "#9460c0",
+        "at": "self",
+        "count": 3
+      },
+      "fxTimeline": {
+        "frames": 10,
+        "frameMs": 62
+      },
+      "coverage": "CODE_DRAWN_FX_PRESENT_ACTOR_TIMELINE_REVIEW_REQUIRED",
+      "distinctRoleAssets": 2
+    },
+    {
+      "enemy": "gbenga",
+      "character": "gbenga",
+      "name": "GBENGA",
+      "move": "my_son",
+      "label": "\"MY SON\"",
+      "pattern": [
+        "sweep",
+        "voice",
+        "my_son",
+        "sweep"
+      ],
+      "telegraph": null,
+      "anchor": "assets/before_the_fame/characters/gbenga/runtime_80x96/gbenga_adjusting_sleeves_80x96_v2.png",
+      "variant": null,
+      "roles": {
+        "defeated": {
+          "state": "defeated",
+          "src": "assets/before_the_fame/characters/gbenga/runtime_80x96/gbenga_defeated_80x96_v2.png"
+        }
+      },
+      "identityStates": {
+        "neutral": "assets/before_the_fame/characters/gbenga/runtime_80x96/gbenga_neutral_anchor_80x96_v2.png",
+        "voice_note": "assets/before_the_fame/characters/gbenga/runtime_80x96/gbenga_voice_note_80x96_v2.png",
+        "my_son": "assets/before_the_fame/characters/gbenga/runtime_80x96/gbenga_my_son_80x96_v2.png",
+        "adjusting_sleeves": "assets/before_the_fame/characters/gbenga/runtime_80x96/gbenga_adjusting_sleeves_80x96_v2.png",
+        "golden_draco": "assets/before_the_fame/characters/gbenga/runtime_80x96/gbenga_golden_draco_80x96_v2.png",
+        "defeated": "assets/before_the_fame/characters/gbenga/runtime_80x96/gbenga_defeated_80x96_v2.png"
+      },
+      "assets": [
+        "assets/before_the_fame/characters/gbenga/runtime_80x96/gbenga_adjusting_sleeves_80x96_v2.png",
+        "assets/before_the_fame/characters/gbenga/runtime_80x96/gbenga_defeated_80x96_v2.png"
+      ],
+      "hashes": {
+        "assets/before_the_fame/characters/gbenga/runtime_80x96/gbenga_adjusting_sleeves_80x96_v2.png": "3c299fbdb15d6ad113c62b429ebec05b50d278f9a1402e7b8ed5bf53a63a4f8e",
+        "assets/before_the_fame/characters/gbenga/runtime_80x96/gbenga_defeated_80x96_v2.png": "1518fbc468f69bf8d774e74dde350ebdaa9421f84b01e64a72d5c6210c9f0807"
+      },
+      "encounterCandidates": [
+        {
+          "id": "NEW_OGA_M2",
+          "retained": true
+        },
+        {
+          "id": "NEW_OGA_M3",
+          "retained": true
+        },
+        {
+          "id": "NEW_OGA_M4",
+          "retained": true
+        },
+        {
+          "id": "NEW_OGA_ALTERNATIVE",
+          "retained": true
+        },
+        {
+          "id": "NEW_OGA_M5",
+          "retained": true
+        },
+        {
+          "id": "NEW_OGA_M7",
+          "retained": true
+        },
+        {
+          "id": "NEW_OGA_M9",
+          "retained": true
+        },
+        {
+          "id": "NEW_OGA_M10",
+          "retained": true
+        },
+        {
+          "id": "NEW_OGA_FINALE",
+          "retained": true
+        }
+      ],
+      "fx": {
+        "s": "burst",
+        "glyph": "star",
+        "color": "#9460c0",
+        "at": "self",
+        "count": 3
+      },
+      "fxTimeline": {
+        "frames": 10,
+        "frameMs": 62
+      },
+      "coverage": "CODE_DRAWN_FX_PRESENT_ACTOR_TIMELINE_REVIEW_REQUIRED",
+      "distinctRoleAssets": 2
+    },
+    {
+      "enemy": "gbenga",
+      "character": "gbenga",
+      "name": "GBENGA",
+      "move": "draco",
+      "label": "THE GOLDEN DRACO",
+      "pattern": [
+        "sweep",
+        "voice",
+        "my_son",
+        "sweep"
+      ],
+      "telegraph": "HE IS REACHING INTO THE COOLER",
+      "anchor": "assets/before_the_fame/characters/gbenga/runtime_80x96/gbenga_adjusting_sleeves_80x96_v2.png",
+      "variant": null,
+      "roles": {
+        "defeated": {
+          "state": "defeated",
+          "src": "assets/before_the_fame/characters/gbenga/runtime_80x96/gbenga_defeated_80x96_v2.png"
+        }
+      },
+      "identityStates": {
+        "neutral": "assets/before_the_fame/characters/gbenga/runtime_80x96/gbenga_neutral_anchor_80x96_v2.png",
+        "voice_note": "assets/before_the_fame/characters/gbenga/runtime_80x96/gbenga_voice_note_80x96_v2.png",
+        "my_son": "assets/before_the_fame/characters/gbenga/runtime_80x96/gbenga_my_son_80x96_v2.png",
+        "adjusting_sleeves": "assets/before_the_fame/characters/gbenga/runtime_80x96/gbenga_adjusting_sleeves_80x96_v2.png",
+        "golden_draco": "assets/before_the_fame/characters/gbenga/runtime_80x96/gbenga_golden_draco_80x96_v2.png",
+        "defeated": "assets/before_the_fame/characters/gbenga/runtime_80x96/gbenga_defeated_80x96_v2.png"
+      },
+      "assets": [
+        "assets/before_the_fame/characters/gbenga/runtime_80x96/gbenga_adjusting_sleeves_80x96_v2.png",
+        "assets/before_the_fame/characters/gbenga/runtime_80x96/gbenga_defeated_80x96_v2.png"
+      ],
+      "hashes": {
+        "assets/before_the_fame/characters/gbenga/runtime_80x96/gbenga_adjusting_sleeves_80x96_v2.png": "3c299fbdb15d6ad113c62b429ebec05b50d278f9a1402e7b8ed5bf53a63a4f8e",
+        "assets/before_the_fame/characters/gbenga/runtime_80x96/gbenga_defeated_80x96_v2.png": "1518fbc468f69bf8d774e74dde350ebdaa9421f84b01e64a72d5c6210c9f0807"
+      },
+      "encounterCandidates": [
+        {
+          "id": "NEW_OGA_M2",
+          "retained": true
+        },
+        {
+          "id": "NEW_OGA_M3",
+          "retained": true
+        },
+        {
+          "id": "NEW_OGA_M4",
+          "retained": true
+        },
+        {
+          "id": "NEW_OGA_ALTERNATIVE",
+          "retained": true
+        },
+        {
+          "id": "NEW_OGA_M5",
+          "retained": true
+        },
+        {
+          "id": "NEW_OGA_M7",
+          "retained": true
+        },
+        {
+          "id": "NEW_OGA_M9",
+          "retained": true
+        },
+        {
+          "id": "NEW_OGA_M10",
+          "retained": true
+        },
+        {
+          "id": "NEW_OGA_FINALE",
+          "retained": true
+        }
+      ],
+      "fx": {
+        "s": "slash",
+        "color": "#f5e8c5"
+      },
+      "fxTimeline": {
+        "frames": 10,
+        "frameMs": 62
+      },
+      "coverage": "CODE_DRAWN_FX_PRESENT_ACTOR_TIMELINE_REVIEW_REQUIRED",
+      "distinctRoleAssets": 2
+    },
+    {
+      "enemy": "blad33ee",
+      "character": "bllad33",
+      "name": "BLAD33EE",
+      "move": "slash",
+      "label": "HUNTER SLASH",
+      "pattern": [
+        "slash"
+      ],
+      "telegraph": "BLAD33EE REACHES FOR HIS BLADE",
+      "anchor": "assets/bllad33/masters/bllad33_neutral_candidate_80x96.png",
+      "variant": null,
+      "roles": {},
+      "identityStates": {
+        "dry": "assets/before_the_fame/art_ship_014/package_a/A-bllad33-dry.png",
+        "hookah_seated": "assets/bllad33/states/bllad33_hookah_seated_80x96.png"
+      },
+      "assets": [
+        "assets/bllad33/masters/bllad33_neutral_candidate_80x96.png"
+      ],
+      "hashes": {
+        "assets/bllad33/masters/bllad33_neutral_candidate_80x96.png": "fcca67ce0a90a60f16854c3c5f8019a28d243aa2bf3bf86ecdf5631013198f5b"
+      },
+      "encounterCandidates": [],
+      "fx": {
+        "s": "slash",
+        "color": "#f5e8c5"
+      },
+      "fxTimeline": {
+        "frames": 10,
+        "frameMs": 62
+      },
+      "coverage": "CODE_DRAWN_FX_PRESENT_ACTOR_TIMELINE_REVIEW_REQUIRED",
+      "distinctRoleAssets": 1
+    }
+  ]
+}
