@@ -3,7 +3,7 @@
  // Rich states and window-masked clouds stay untouched; this adds the day bar, SLEEP, CASTLE, return beats
  // and the WAKE sequence (fade → day card → drowsy wake → Morning Mail).
  const scene=document.querySelector('#bedroomScene');
- let layer=null,scope=null;
+ let layer=null,scope=null,sleeping=false;
  const el=(tag,cls,html)=>{const n=document.createElement(tag);if(cls)n.className=cls;if(html!=null)n.innerHTML=html;return n;};
  function dayLabel(){const i=RALife.today();return `DAY ${i.day} · ${i.weekday.slice(0,3)} ${i.dateLabel}${i.rain?' · RAIN':''}`;}
  function clear(){layer?.remove();layer=null;window.RABedroomCompany?.clear?.();}
@@ -29,12 +29,15 @@
  function confirmBed({nightEnder=false}={}){
   if(window.RARC3&&!window.RARC3.canSleep()){window.RAPhone?.openApp?.('vampgpt');return;}
   if(!layer||layer.querySelector('.bed-confirm'))return;
-  const box=el('div','bed-confirm',`<span>${nightEnder?'damn im done for tonight':'sleep before you buy more shit?'}</span><div><button type="button" data-bed="yes">SLEEP</button>${nightEnder?'':'<button type="button" data-bed="no">NOT YET</button>'}</div>`);
+  const box=el('div','bed-confirm',`<span>${window.RARC3?window.RARC3.restCopy():(nightEnder?'damn im done for tonight':'sleep before you buy more shit?')}</span><div><button type="button" data-bed="yes">SLEEP</button>${nightEnder?'':'<button type="button" data-bed="no">NOT YET</button>'}</div>`);
   box.style.pointerEvents='auto';layer.append(box);
   box.addEventListener('click',e=>{const b=e.target.closest('[data-bed]');if(!b)return;box.remove();if(b.dataset.bed==='yes')goToSleep();});
  }
  async function goToSleep(){
-  if(window.RARC3&&!window.RARC3.canSleep())return false;
+  if(sleeping||window.RARC3&&!window.RARC3.canSleep())return false;
+  sleeping=true;
+  window.RARC3?.prepareSleep?.();
+  try{
   if(window.RAPhone?.isOpen?.())await RAPhone.close();
   window.RABedroom?.setRichState?.('sleeping');
   const over=el('div','wake-overlay','<div class="wake-day"></div>');document.querySelector('#screen').append(over);
@@ -49,6 +52,7 @@
   over.classList.remove('on');await new Promise(r=>setTimeout(r,650));over.remove();
   const wakeAdventure=window.RAWakeTriggers?.pick?.();
   showMail(mail,wakeAdventure);
+  }finally{sleeping=false;}
  }
  function showMail(mail,wakeAdventure){
   if(!layer)build();const today=RALife.today().day;
