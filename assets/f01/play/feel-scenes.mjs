@@ -18,7 +18,7 @@ const faceOf=(o,st)=>face({id:o.id,name:o.name,cls:o.cls,quirk:o.quirk,vampire:o
 // ------------------------------------------------------------------------------------------------ 0. title (also unlocks audio)
 export async function titleScene(){
  clear();
- const t=el('title','<h1>THE PLAY</h1><p>TAP TO START</p>');
+ const t=el('title','<h1>THE PLAY</h1><p>TAP TO START</p>');t.setAttribute('role','button');t.tabIndex=0;t.setAttribute('aria-label','Start THE PLAY');t.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();t.click();}};
  await tapOnce(t);K.S.buzz();
 }
 
@@ -96,12 +96,18 @@ export async function crewScene({pr,w,job,hints,pitcher,big,defense,lastCar}){
   if(carPick){carPick.remove();carPick=null;}
   if(defense)return;
   const {w:cw,h:ch}=A.carSize(carId);
-  carNode=el('car',`<div class="body">${A.carHTML(carId)}</div>`,null,{left:'8px',top:(344-ch)+'px',width:cw+'px',height:ch+'px'});carNode.dataset.car=carId;
-  carNode._sh=el('shadow','',null,{left:'14px',top:'340px',width:(cw-12)+'px',height:'8px'});
+  carNode=el('car',`<div class="body">${A.carHTML(carId)}</div>`,null,{left:'8px',top:(300-ch)+'px',width:cw+'px',height:ch+'px'});carNode.dataset.car=carId;
+  carNode._sh=el('shadow','',null,{left:'14px',top:'296px',width:(cw-12)+'px',height:'8px'});
   const opt=options.find(o=>o.id===carId);
-  carPick=el('carpick',`◂ ${carId} ▸<small>${esc(C.CARS[carId].word)} · ${seatsOf(carId)} SEATS</small><span class="change">CHANGE TRANSPORT</span>`,null,{left:'20px',top:(344-ch-30)+'px'});
-  const cyc=()=>{const ids=options.map(o=>o.id);let k=ids.indexOf(carId);for(let t=0;t<ids.length;t++){k=(k+1)%ids.length;const o=options[k];if(!o.disabled){carId=o.id;break;}}
-   const n=nFor(carId);while(crewIds.length>n)crewIds.pop();for(const o of rank){if(crewIds.length>=n)break;if(!crewIds.includes(o.id))crewIds.push(o.id);}S.tap();drawCar();drawCards();};
+  carPick=el('carpick',`◂ ${carId} ▸<small>${esc(C.CARS[carId].word)} · ${seatsOf(carId)} SEATS</small><span class="change">CHANGE TRANSPORT</span>`,null,{left:'20px',top:'198px'});
+  const cyc=()=>{
+   closeBench();world.querySelector('.crew-inspect')?.remove();
+   const reads={HOOPTIE:'Budget ride. It can stall.',S2000:'Two seats. Nimble, with crash risk.',SUPRA:'Four seats. Grip for the chase.',URUS:'Five seats. Tough enough to ram.'};
+   const panel=el('crew-inspect transport-inspect',`<b>CHOOSE TRANSPORT</b><p>Seats decide how many can go. Only available rides can leave.</p>${options.map(o=>`<button data-transport="${esc(o.id)}" ${o.disabled?'disabled':''} aria-pressed="${o.id===carId}">${esc(o.id)} · ${o.seats} SEATS<small>${esc(o.disabled||reads[o.id]||o.word)}</small></button>`).join('')}<button data-close>CLOSE</button>`);
+   panel.querySelector('[data-close]').onclick=()=>{panel.remove();carPick.focus();};
+   panel.querySelectorAll('[data-transport]').forEach(b=>b.onclick=()=>{carId=b.dataset.transport;const n=nFor(carId);while(crewIds.length>n)crewIds.pop();for(const o of rank){if(crewIds.length>=n)break;if(!crewIds.includes(o.id))crewIds.push(o.id);}panel.remove();S.tap();drawCar();drawCards();carPick.focus();});
+   panel.querySelector('[data-transport]:not([disabled])')?.focus();
+  };
   carPick.setAttribute('role','button');carPick.tabIndex=0;carPick.setAttribute('aria-label','change transport, currently '+carId);carPick.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();cyc();}};carPick.onclick=carNode.onclick=cyc;carNode.style.cursor='pointer';
  };
  const cards=el('crew-cards',null,null,{position:'absolute',inset:'0',pointerEvents:'none'});
@@ -113,8 +119,8 @@ export async function crewScene({pr,w,job,hints,pitcher,big,defense,lastCar}){
   crewIds.forEach((id,i)=>{
    const o=avail.find(x=>x.id===id);const g=gunOf[id];const gv=A.gunView(g);
    const c=el('card',`<div class="fc">${faceOf(o)}</div><div class="nm">${esc(o.short)}</div><button class="tr inspect" aria-label="inspect ${esc(o.name)}">INFO</button>
-    <div class="wslot"><span class="gi">${A.gunImg(g,26,13)}</span><span class="wt">${esc(gv.type)}${gv.nick?`<small>${esc(gv.nick)}</small>`:''}</span></div>${big&&o.named?'<span class="skull" title="may not come back">☠</span>':''}<button class="sw" aria-label="swap ${esc(o.short)}">SWAP</button>`,cards,{left:(x0+i*(cw+4))+'px',top:'360px',width:cw+'px',pointerEvents:'auto'});
-   c.querySelector('.inspect').onclick=()=>{closeBench();const old=world.querySelector('.crew-inspect');if(old)old.remove();const gun=g==='hands'?{}:weapon(P,g);const roles={MUSCLE:'Front-line force. Leads a breach.',SHOOTER:'Fits the back line. Delivers fire support.',WHEELS:'Fits the driver seat. Helps the getaway.',TALKER:'Fits the middle. Handles talking.',GHOST:'Fits the back line. Handles slipping past.',DOC:'Fits the middle. Helps crew recovery.'};const info=el('crew-inspect',`<b>${esc(o.name)}</b><p>${esc(roles[o.cls]||o.cls)}</p><p>${esc((o.traits||[]).map(t=>C.TRAIT_WORD[t]||t).join(' · '))}</p><b>${esc(gv.type)} ${esc(gv.nick||'')}</b><p>${esc(gun.role||'BARE HANDS')} · ${gun.dmg?gun.dmg.join('–')+' DAMAGE'+(gun.hits>1?' ×'+gun.hits:''):'NO GUN'}${gun.lane?' · '+esc(gun.lane)+' LINE':''}</p><p>${esc(gun.flavor||'')}</p><button>CLOSE</button>`);info.querySelector('button').onclick=()=>info.remove();};
+    <div class="wslot"><span class="gi">${A.gunImg(g,26,13)}</span><span class="wt">${esc(gv.type)}${gv.nick?`<small>${esc(gv.nick)}</small>`:''}</span></div>${big&&o.named?'<span class="skull" title="may not come back">☠</span>':''}<button class="sw" aria-label="swap ${esc(o.short)}">SWAP</button>`,cards,{left:(x0+i*(cw+4))+'px',top:'318px',width:cw+'px',pointerEvents:'auto'});
+   c.querySelector('.inspect').onclick=()=>{closeBench();const old=world.querySelector('.crew-inspect');if(old)old.remove();const gun=g==='hands'?{}:weapon(P,g);const roles={MUSCLE:'Front-line force. Leads a breach.',SHOOTER:'Fits the back line. Delivers fire support.',WHEELS:'Fits the driver seat. Helps the getaway.',TALKER:'Fits the middle. Handles talking.',GHOST:'Fits the back line. Handles slipping past.',DOC:'Fits the middle. Helps crew recovery.'};const info=el('crew-inspect',`<b>${esc(o.name)}</b><p>${o.hp}/${o.maxhp} HP · ${esc(roles[o.cls]||o.cls)}</p><p>${esc((o.traits||[]).map(t=>C.TRAIT_WORD[t]||t).join(' · '))}</p><b>${esc(gv.type)} ${esc(gv.nick||'')}</b><p>${esc(gun.role||'BARE HANDS')} · ${gun.dmg?gun.dmg.join('–')+' DAMAGE'+(gun.hits>1?' ×'+gun.hits:''):'NO GUN'}${gun.lane?' · '+esc(gun.lane)+' LINE':''}</p><p>${esc(gun.flavor||'')}</p><button>CLOSE</button>`);info.querySelector('button').onclick=()=>info.remove();};
    c.querySelector('.wslot').setAttribute('role','button');c.querySelector('.wslot').tabIndex=0;c.querySelector('.wslot').setAttribute('aria-label','change weapon for '+o.name);
    c.querySelector('.wslot').onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();c.querySelector('.wslot').click();}};
    c.querySelector('.wslot').onclick=()=>{let k=order.indexOf(g);for(let t=0;t<order.length;t++){k=(k+1)%order.length;const cand=order[k];if(used(cand,id)<copies(cand)){gunOf[id]=cand;break;}}S.tap();drawCards();};
@@ -127,7 +133,7 @@ export async function crewScene({pr,w,job,hints,pitcher,big,defense,lastCar}){
   bench=el('bench','',null,{left:'8px',top:'300px'});
   for(const o of list){const ok=swapAllowed(slot,o.id);
    const b=el('bi'+(ok?'':' off'),`<div class="f">${faceOf(o)}</div>${esc(o.short)}<br><span>${esc(C.TRAIT_WORD[o.traits[0]]||'')}</span>`,bench);
-   b.onclick=()=>{if(!ok){S.tap();return;}crewIds[slot]=o.id;closeBench();S.tap();drawCards();};}
+   b.setAttribute('role','button');b.tabIndex=ok?0:-1;b.setAttribute('aria-disabled',String(!ok));b.setAttribute('aria-label','select '+o.name);b.onclick=()=>{if(!ok){S.tap();return;}crewIds[slot]=o.id;closeBench();S.tap();drawCards();};b.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();b.click();}};}
   el('bnote','swap one',bench);S.tap();
  }
  drawCar();drawCards();
@@ -138,11 +144,13 @@ export async function crewScene({pr,w,job,hints,pitcher,big,defense,lastCar}){
  await fadeTo(0,600);
  await new Promise(res=>{
   if(!big){btn.onclick=()=>{K.unlock();res();};return;}
-  let t=null,st=0;const need=1100;const fill=btn.querySelector('.fill');
+  let t=null,done=false;const need=1100;const fill=btn.querySelector('.fill');
   const stop=()=>{clearTimeout(t);t=null;fill.style.transition='none';fill.style.width='0';};
-  btn.addEventListener('pointerdown',e=>{K.unlock();e.preventDefault();fill.style.transition=`width ${need/K.SPEED}ms linear`;fill.style.width='100%';t=setTimeout(()=>{t=null;res();},need/K.SPEED);});
-  ['pointerup','pointerleave','pointercancel'].forEach(ev=>btn.addEventListener(ev,()=>{if(t)stop();}));
-  btn.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' ')res();});
+  const begin=()=>{if(t||done)return;K.unlock();fill.style.transition=`width ${need/K.SPEED}ms linear`;fill.style.width='100%';t=setTimeout(()=>{t=null;done=true;res();},need/K.SPEED);};
+  btn.addEventListener('pointerdown',e=>{e.preventDefault();begin();});
+  ['pointerup','pointerleave','pointercancel','blur'].forEach(ev=>btn.addEventListener(ev,()=>{if(t)stop();}));
+  btn.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();if(!e.repeat)begin();}});
+  btn.addEventListener('keyup',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();if(t)stop();}});
  });
  closeBench();instruction.remove();world.querySelector('.crew-inspect')?.remove();S.thud();
  // engine answer: crew, guns for the crew, the car. Seating and approach are backstage.
@@ -157,7 +165,7 @@ export async function departScene({ui,slide,crewObjs,carId,defense}){
  const seatsOrder=(slide.seats||[]).map(s=>crewObjs.find(o=>o.id===s.id)).filter(Boolean);
  const car=ui.car;const cx=parseFloat(car&&car.style.left||8);
  const busts=seatsOrder.map((o,i)=>{const b=bust(o,34,{pose:'walking'});pos(b,26+i*34,420);return b;});
- await Promise.all(busts.map((b,i)=>anim(b,[{top:'420px'},{top:'344px'}],650+i*130,{easing:'ease-out'})));
+ await Promise.all(busts.map((b,i)=>anim(b,[{top:'420px'},{top:'300px'}],650+i*130,{easing:'ease-out'})));
  await sleep(350);
  for(let i=0;i<busts.length;i++){
   const b=busts[i],o=seatsOrder[i];setPose(b,'boarding');
@@ -254,8 +262,8 @@ export async function roomScene({crewObjs,defense,objective='THE PLAY'}){
  el('operation-objective',esc(objective.toUpperCase()),rig);
  const op=el('operation-state','ENTRY · CREW MOVING',phone);op.setAttribute('aria-live','polite');op.title=objective;
  const scroll=()=>{msgs.scrollTop=msgs.scrollHeight;};
- const crewStrip=el('operation-crew','',rig);let previous=null;
- const ctlState=(snap,phase)=>{crewStrip.innerHTML='';for(const c of snap.crew){const o=byId(c.id)||{name:c.name,short:c.short};const prior=previous?.crew.find(x=>x.id===c.id);const changed=prior&&(prior.hp!==c.hp||prior.state!==c.state);const pose=c.hp<c.maxhp?'wounded':'standing';const sprite=A.hasSprite(o)?`<span class="op-pose"><img alt="" src="${A.ogaSprite(pose,o.id)}"></span>`:'';const b=el('operation-unit'+(changed?' changed':''),`${sprite}<span>${esc(o.short||o.name)}</span><b>${c.state==='UP'?c.hp+'/'+c.maxhp+' HP':esc(c.state)}</b>`,crewStrip);b.setAttribute('role','button');b.tabIndex=0;b.setAttribute('aria-label',o.name+' '+c.state+' '+c.hp+' HP; inspect');const inspect=()=>{if(phone.querySelector('.decide'))return;rig.querySelector('.crew-inspect')?.remove();const info=el('crew-inspect',`<b>${esc(o.name)}</b><p>${esc(c.state)} · ${c.hp}/${c.maxhp} HP</p><p>${esc(c.zone)} · ${esc(c.lane||'CREW')} LINE</p><button>CLOSE</button>`,rig);info.querySelector('button').onclick=()=>info.remove();};b.onclick=inspect;b.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();inspect();}};}previous=snap;op.textContent=phase.replaceAll('_',' ')+' · '+snap.crew.filter(c=>c.state==='UP').length+'/'+snap.crew.length+' UP';for(const c of snap.crew){const n=phone.querySelector('[data-crew="'+c.id+'"]');if(n){n.dataset.state=c.state;n.title=c.name+' · '+c.hp+'/'+c.maxhp+' HP · '+c.zone;}}};
+ const crewStrip=el('operation-crew','',phone);let previous=null;
+ const ctlState=(snap,phase)=>{crewStrip.innerHTML='';for(const c of snap.crew){const o=byId(c.id)||{name:c.name,short:c.short};const prior=previous?.crew.find(x=>x.id===c.id);const changed=prior&&(prior.hp!==c.hp||prior.state!==c.state);const pose=c.hp<c.maxhp?'wounded':'standing';const sprite=A.hasSprite(o)?`<span class="op-pose"><img alt="" src="${A.ogaSprite(pose,o.id)}"></span>`:'';const b=el('operation-unit'+(changed?' changed':''),`${sprite}<span>${esc(o.short||o.name)}</span><b>${c.state==='UP'?c.hp+'/'+c.maxhp+' HP':esc(c.state)}</b>`,crewStrip);b.setAttribute('role','button');b.tabIndex=0;b.setAttribute('aria-label',o.name+' '+c.state+' '+c.hp+' HP; inspect');const inspect=()=>{if(phone.querySelector('.decide'))return;phone.querySelector('.crew-inspect')?.remove();const info=el('crew-inspect',`<b>${esc(o.name)}</b><p>${esc(c.state)} · ${c.hp}/${c.maxhp} HP</p><p>${esc(c.zone)} · ${esc(c.lane||'CREW')} LINE</p><button>CLOSE</button>`,phone);info.querySelector('button').onclick=()=>info.remove();};b.onclick=inspect;b.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();inspect();}};}msgs.style.top=(64+crewStrip.offsetHeight+4)+'px';previous=snap;op.textContent=phase.replaceAll('_',' ')+' · '+snap.crew.filter(c=>c.state==='UP').length+'/'+snap.crew.length+' UP';for(const c of snap.crew){const n=phone.querySelector('[data-crew="'+c.id+'"]');if(n){n.dataset.state=c.state;n.title=c.name+' · '+c.hp+'/'+c.maxhp+' HP · '+c.zone;}}};
  rig.insertAdjacentHTML('beforeend',A.handIdle()+A.thumbOverlay());
  const thumb=rig.querySelector('.thumbpov');
  let alive=true,typingNode=null;
@@ -324,18 +332,18 @@ export async function roomScene({crewObjs,defense,objective='THE PLAY'}){
    return ctl.decide({...view,kind:'CLIMB'});
   },
   async decide(view){
-   const ms=K.moreTime()?view.ms:view.ms; // the crew's own view already doubles the bar when MORE TIME is on
+   const ms=view.ms; // the crew's own view already doubles the bar when MORE TIME is on
    msgs.style.paddingBottom='';
-   const d=el('decide',`<div class="decision-context">${esc(view.context||'CREW NEEDS YOUR CALL')}</div><div class="row">${view.buttons.map(b=>`<button data-id="${esc(b.id)}" class="${/KEEP|PUSH|FLOOR|BUST|TURN/.test(b.id+b.label)?'d-go':'d-out'}">${b.faceName?`<span class="actor">${esc(b.faceName)}</span>`:''}${esc(b.label)}${b.detail?`<small>${esc(b.detail)}</small>`:''}</button>`).join('')}</div><div class="clock-note">${esc(view.timeout||'BAR EMPTY: CREW DECIDES')}</div><div class="bar"><i></i></div>`,phone);
+   const d=el('decide',`<div class="decision-context">${esc(view.context||'CREW NEEDS YOUR CALL')}</div><div class="row">${view.buttons.map(b=>`<button data-id="${esc(b.id)}" class="${/KEEP|PUSH|FLOOR|BUST|TURN/.test(b.id+b.label)?'d-go':'d-out'}">${b.faceName?`<span class="actor">${esc(b.faceName)}</span>`:''}${esc(b.label)}${b.detail?`<small>${esc(b.detail)}</small>`:''}</button>`).join('')}</div><div class="clock-note"><span class="seconds" aria-hidden="true"></span>${esc(view.timeout||'BAR EMPTY: CREW DECIDES')}</div><div class="bar"><i></i></div>`,phone);
    d.dataset.kind=view.kind||'CALL';crewStrip.setAttribute('aria-label','Decision live: crew inspection resumes after the call');crewStrip.inert=true;const gear=document.getElementById('gear');if(gear)gear.disabled=true;rig.querySelector('.crew-inspect')?.remove();msgs.style.bottom=(d.offsetHeight+10)+'px';scroll();
-   const bar=d.querySelector('.bar i');
+   const bar=d.querySelector('.bar i');const started=performance.now();const seconds=d.querySelector('.seconds');const tick=()=>{seconds.textContent=Math.max(0,Math.ceil((ms/K.SPEED-(performance.now()-started))/1000))+'s · ';};tick();const clock=setInterval(tick,200);d.querySelector('button')?.focus({preventScroll:true});
    const anim1=bar.animate([{width:'100%'},{width:'0%'}],{duration:ms/K.SPEED,fill:'forwards',easing:'linear'});
    S.buzz();shake(1,world);
    const pick=await new Promise(r=>{
     d.querySelectorAll('button').forEach(b=>b.onclick=()=>{K.unlock();r(b.dataset.id);});
     anim1.finished.then(()=>r('TIMEOUT')).catch(()=>{});
    });
-   anim1.cancel();d.remove();crewStrip.inert=false;if(gear)gear.disabled=false;crewStrip.removeAttribute('aria-label');msgs.style.bottom='';msgs.style.paddingBottom='';const picked=view.buttons.find(b=>b.id===pick);await ctl.say({who:null,text:pick==='TIMEOUT'?'CREW MAKES THE CALL':(picked?.label||pick),kind:'EVENT',pause:500});
+   clearInterval(clock);anim1.cancel();d.remove();crewStrip.inert=false;if(gear)gear.disabled=false;crewStrip.removeAttribute('aria-label');msgs.style.bottom='';msgs.style.paddingBottom='';const picked=view.buttons.find(b=>b.id===pick);await ctl.say({who:null,text:pick==='TIMEOUT'?'CREW MAKES THE CALL':(picked?.label||pick),kind:'EVENT',pause:500});
    if(pick==='TIMEOUT'){K.pulse(1);}
    return pick;
   },
@@ -343,18 +351,18 @@ export async function roomScene({crewObjs,defense,objective='THE PLAY'}){
   async gunChoice({line,faces}){
    if(!alive)ctl.resume();
    await ctl.say({t:'say',who:faces[0]&&faces[0].id,text:line,kind:'EVENT',shake:0,red:0,typing:0,pause:300,call:true});
-   msgs.style.paddingBottom='96px';
+   msgs.style.paddingBottom='';
    const d=el('decide',`<div class="who">WHO GETS IT?</div><div class="row faces">${faces.map(o=>`<button data-id="${esc(o.id)}" class="fb"><span class="f">${faceOf(o)}</span>${esc(o.short)}</button>`).join('')}</div>`,phone);
-   const pick=await new Promise(r=>d.querySelectorAll('button').forEach(b=>b.onclick=()=>{K.unlock();S.confirm();r(b.dataset.id);}));
-   d.remove();msgs.style.paddingBottom='';return pick;
+   msgs.style.bottom=(d.offsetHeight+10)+'px';scroll();d.querySelector('button')?.focus({preventScroll:true});const pick=await new Promise(r=>d.querySelectorAll('button').forEach(b=>b.onclick=()=>{K.unlock();S.confirm();r(b.dataset.id);}));
+   d.remove();msgs.style.bottom='';msgs.style.paddingBottom='';return pick;
   },
   async turnChoice(view){
    if(!alive)ctl.resume();
    await ctl.say({t:'say',who:view.who,text:view.text,kind:'CHAT',shake:0,red:1,typing:0,pause:300,call:true});
    msgs.style.paddingBottom='';
    const d=el('decide',`<div class="row">${view.buttons.map(b=>`<button data-id="${b.id}" class="${b.id==='TURN'?'d-go':'d-out'}">${esc(b.label)}</button>`).join('')}</div>`,phone);
-   const pick=await new Promise(r=>d.querySelectorAll('button').forEach(b=>b.onclick=()=>{K.unlock();S.confirm();r(b.dataset.id);}));
-   d.remove();msgs.style.paddingBottom='';return pick;
+   msgs.style.bottom=(d.offsetHeight+10)+'px';scroll();d.querySelector('button')?.focus({preventScroll:true});const pick=await new Promise(r=>d.querySelectorAll('button').forEach(b=>b.onclick=()=>{K.unlock();S.confirm();r(b.dataset.id);}));
+   d.remove();msgs.style.bottom='';msgs.style.paddingBottom='';return pick;
   },
   stop(){alive=false;clearInterval(heart);if(amb)try{amb.pause();}catch(e){}}
  };

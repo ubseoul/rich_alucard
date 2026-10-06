@@ -284,3 +284,39 @@ button{font-family:Tiny5,"Courier New",monospace;letter-spacing:1px;border-radiu
 .report-toggle{position:absolute;left:12px;right:12px;bottom:50px;z-index:10;padding:5px;min-height:22px;font:11px Tiny5;text-align:center;background:var(--os-surface);color:var(--os-gold);border:1px solid var(--os-line);cursor:pointer}
 .operation-result[hidden]{display:none}
 .reduce .operation-unit.changed{animation:none}@media(prefers-reduced-motion:reduce){.operation-unit.changed{animation:none}}
+
+/* RC5 P: health belongs to the held screen; the quilt is no longer a HUD. */
+.phone .ph-head{height:44px;padding:17px 6px 4px;gap:0}
+.phone .ph-crew{display:none}
+.phone .operation-state{top:44px;min-height:20px;font:10px/1 Tiny5;padding:5px}
+.phone .operation-crew{top:64px;bottom:auto;left:0;right:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:2px;padding:3px;border-top:0;border-bottom:1px solid var(--os-line);overflow:hidden;z-index:2}
+.phone .operation-unit{min-height:33px;padding:2px 1px;box-shadow:none}
+.phone .operation-unit span{font:9px/1 Tiny5;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.phone .operation-unit b{font:11px/1 Monogram;margin-top:1px}
+.phone .operation-unit .op-pose{display:none}
+.phone .msgs{top:124px}
+.phone .clock-note{line-height:1.15}
+.phone .seconds{color:var(--os-gold);white-space:nowrap}
+.phone .decide button:focus-visible{outline:2px solid var(--os-text);outline-offset:-3px}
+.bench .bi:focus-visible{outline:2px solid var(--os-gold)}
+
+.phone .crew-inspect{left:4px;right:4px;top:65px;max-height:280px;padding:8px;font:14px/1.1 Monogram}
+.phone .crew-inspect b{font:12px Tiny5}
+.title:focus-visible{outline:3px solid var(--os-gold);outline-offset:-6px}
+
+.transport-inspect{top:106px;max-height:320px;overflow:auto}
+.transport-inspect button{display:block;text-align:left;margin-top:5px;padding:5px 7px;min-height:34px;font:12px Tiny5}
+.transport-inspect button[aria-pressed=true]{border-color:var(--os-gold);color:var(--os-gold)}
+.transport-inspect button small{display:block;font:13px/1 Monogram;margin-top:3px;color:var(--os-muted)}
+
+/* Loadout controls have real touch area rather than tiny text hitboxes. */
+.setup-help{top:305px}
+.card{height:122px}
+.card .fc{width:16px;height:16px;top:3px;right:3px}
+.card .nm{top:5px;right:20px;font:9px/1 Tiny5;text-align:left}
+.card .tr{top:22px;left:2px;right:2px;width:calc(100% - 4px);height:33px;font:10px Tiny5;border:1px solid var(--os-line)}
+.card .sw{top:55px;left:2px;right:2px;width:calc(100% - 4px);height:33px;font:10px Tiny5}
+.card .wslot{height:33px;min-height:33px;bottom:1px;left:2px;right:2px;padding:2px;display:block;text-align:center}
+.card .wslot .gi{display:none}
+.card .wslot .wt{display:block;font:10px/1 Tiny5;white-space:normal}
+.card .wslot .wt small{font:10px/1 Monogram;white-space:nowrap;margin-top:2px}
