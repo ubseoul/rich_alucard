@@ -963,3 +963,15 @@ body.rc3 .c2-btn small,body.rc3 #moves span,body.rc3 #revengeValue{display:block
 body.rc3 .phone-section-label{display:none}
 body.rc3 .phone-app-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
 body.rc3.combat2-mode .rc3-cash{top:auto;bottom:6px}
+
+/* RC4 campaign flow: title/dream context and purposeful optional phone routes. */
+body.rc3:has(#startOverlay:not([style*="display: none"])) .combat-hud,
+body.rc3:has(#startOverlay:not([style*="display: none"])) #healFloat,
+body.rc3.rc4-title .combat-hud,body.rc3.rc4-title #healFloat{display:none}
+body.rc3:has(#startOverlay:not([style*="display: none"])) .rc3-cash,
+body.rc3:has(#startOverlay:not([style*="display: none"])) .rc2-cash,
+body.rc3.rc4-prelife .rc3-cash,body.rc3 .rc2-cash{display:none}
+body.rc3 #startOverlay{background:rgba(5,4,12,.94)}
+.rc4-day-options{margin:10px 0;padding:10px;border:2px solid #574d74;background:#141321}
+.rc4-opportunity{display:block;width:100%;text-align:left;margin:8px 0;line-height:1.6}
+.rc4-opportunity small{display:block;font-size:.74em;line-height:1.65;opacity:.85;margin-top:5px;white-space:normal}

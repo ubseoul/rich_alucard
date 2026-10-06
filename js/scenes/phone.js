@@ -60,7 +60,7 @@
    const groups=new Map(sections.map(s=>[s.id,[]]));
    for(const entry of entries){const key=hierarchy?.sectionFor?.(entry.id,registry.get(entry.id))||'life';(groups.get(key)||groups.get('life')).push(entry);}
    const grid=window.RARC3?entries.map(e=>appButton(e.id,e.label,true)).join(''):sections.map(section=>{const items=groups.get(section.id)||[];if(!items.length)return '';return `<p class="phone-section-label" data-phone-section="${esc(section.id)}">${esc(section.label)}</p>`+items.map(e=>appButton(e.id,e.label,e.canon)).join('');}).join('');
-   return `${header()}${nextMarkup()}${incomingCard()}<div class="phone-app-grid">${grid}</div><div class="phone-message" aria-live="polite"></div>${button('CLOSE PHONE','close','phone-close-button')}`;
+   return `${header()}${nextMarkup()}${window.RARC3?.activityMarkup?.(api)||''}${incomingCard()}<div class="phone-app-grid">${grid}</div><div class="phone-message" aria-live="polite"></div>${button('CLOSE PHONE','close','phone-close-button')}`;
   }
  // ---- VampGPT (canon flow + WHAT WE ON + the three lanes) ----
  function whatWeOn(){
@@ -86,7 +86,7 @@
   {const cur=['vampgpt','options','money','people'].includes(page)?'vampgpt':page==='somewhere'?'maps':page.startsWith('app:')?page.split(':')[1]:(page==='realEstate'||page==='jdmImports')?page:null;if(cur){window.RAGuidance?.opened?.(cur);if(page==='somewhere')window.RAGuidance?.opened?.('vampgpt');}}
   if(page==='home'){content.innerHTML=homeMarkup();}
   else if(page==='vampgpt'){
-   content.innerHTML=`<h1>VAMPGPT</h1><div class="phone-chat"><p class="phone-speaker">VAMPGPT</p><p>yo rich what we doing</p>${window.RARC3&&RALife.today().day===1?`<p class="phone-speaker">RICH</p><p>${esc(window.RAWriting.voice(2))}</p><p>${esc(window.RAWriting.voice(3))}</p>`:''}${recommendedBlock()}${whatWeOn()}${button('OGA WHAT DO I DO','prompt','suggested-prompt')}</div>${button('HOME','home','phone-back')}`;
+   content.innerHTML=`<h1>VAMPGPT</h1><div class="phone-chat"><p class="phone-speaker">VAMPGPT</p><p>yo rich what we doing</p>${window.RARC3&&RALife.today().day===1?`<p class="phone-speaker">RICH</p><p>${esc(window.RAWriting.voice(2))}</p><p>${esc(window.RAWriting.voice(3))}</p>`:''}${recommendedBlock()}${window.RARC3?.activityMarkup?.(api)||''}${whatWeOn()}${button('OGA WHAT DO I DO','prompt','suggested-prompt')}</div>${button('HOME','home','phone-back')}`;
   }else if(page==='options'){
    if(window.RARC3){content.innerHTML=`<h1>VAMPGPT</h1>${recommendedBlock()}${button('HOME','home','phone-back')}`;return;}
    content.innerHTML=`<h1>VAMPGPT</h1><div class="phone-chat"><p class="phone-speaker">RICH</p><p>oga what do i do</p><p class="phone-speaker">VAMPGPT</p><p>you got $${cash()}.<br>you in ${esc(w.location)}.<br>clout still ${String(r.clout).toLowerCase()}.<br>we got options though.</p><div class="phone-option-list">${button('MAKE MONEY','money')}${button('MEET PEOPLE','people')}${button('GO SOMEWHERE','somewhere')}</div><div class="phone-message" aria-live="polite"></div></div>${button('HOME','home','phone-back')}`;
@@ -170,6 +170,8 @@
   async begin(adventureId,opts={}){if(!window.RAAdventures?.available(adventureId)){setMessage('not tonight.');return false;}await closePhone();return RAAdventureScene.begin(adventureId,{from:'phone',...opts});},
   async launch(minigameId,params={},after){await closePhone();const result=await RAMinigames.launch(minigameId,params);window.RALifeRewards?.apply?.(result);if(after)after(result);return result;}};
  async function action(name){
+  if(name==='rc3:rest'){await window.RARC3?.activityGo?.('rest');return;}
+  if(name.startsWith('rc3:activity:')){await window.RARC3?.activityGo?.(name.slice(13));return;}
   if(name==='rc3:next'){await window.RARC3?.advance?.();return;}
   if(name.startsWith('rc3:map:')){await window.RARC3?.mapGo?.(name.slice(8));return;}
   if(window.RARC3&&!window.RARC3.phoneAction(name))return;

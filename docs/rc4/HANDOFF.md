@@ -1,5 +1,9 @@
 # RC4 B1 integration handoff
 
+## K campaign flow candidate
+
+Exact base `9b511d7cacc8f30fb105ab33b8503ffbde6ae321`, branch `rc4/campaign-flow-polish`; scoped receipt: `builds/K.md`. Integrate the named campaign/phone/bedtime/report/CSS sections rather than replacing shared files. No loader or global migration patch. Completion and compensation stay campaign-owned; retained minigame dispatch and PLAY request settlement stay intact. Private ordinary-input evidence is separate from seeded save diagnostics. Final integrated packaged campaign acceptance remains coordinator-owned.
+
 ## B2 candidate integration notes
 
 B2 starts only at reviewed `0b408fdd827fd6b14dadaaa8bc91d888cc708440`, isolated `rc4/b2-economy-maps`. Receipt: `builds/B2.md`. Integrate by function/section, retaining sibling visual/combat/date edits.

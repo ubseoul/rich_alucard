@@ -28,7 +28,7 @@
  function saveDay(d){try{localStorage.setItem(DAY_KEY,JSON.stringify(d));}catch(e){}}
  const todayNum=()=>{try{return window.RALife.today().day;}catch(e){return 0;}};
  function dayRecord(before=null){let d=loadDay();const n=todayNum();if(!d||d.day!==n){d={day:n,start:before??money(),in:0,out:0,src:{}};saveDay(d);}return d;}
- function sourceLabel(tag){tag=String(tag||'untagged');const [fam,rest]=tag.split(':');if(fam==='adventure'){const def=window.RAAdventures?.get?.(rest);return (def?.title||rest||'STORY').toUpperCase();}
+ function sourceLabel(tag){tag=String(tag||'untagged');const [fam,rest]=tag.split(':');if(tag==='rc3:story')return 'STORY SUPPLEMENT';if(fam==='adventure'){const def=window.RAAdventures?.get?.(rest);return (def?.title||rest||'STORY').toUpperCase();}
   const m={untagged:'ODD JOBS',new_oga:'NEW OGA',trap:'THE TRAP',war_room:'WAR ROOM',rainmaker:'MAKE IT RAIN',cars:'CARS',castle:'CASTLE',realestate:'PROPERTY',minigame:'MINIGAMES',purchase:'SHOPPING'};return m[fam]||fam.replace(/_/g,' ').toUpperCase();}
  function tally(delta){const d=dayRecord(money()-delta);const tag=window.RAMoneyLedger?.current?.()||'untagged';if(delta>0)d.in+=delta;else d.out+=-delta;const k=sourceLabel(tag);d.src[k]=(d.src[k]||0)+delta;saveDay(d);}
 
