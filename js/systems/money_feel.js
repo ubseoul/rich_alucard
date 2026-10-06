@@ -115,7 +115,7 @@
   window.RAStateWatch?.watch('rc2.money',s=>s.life?.resources?.money,(next,prev)=>{
    const delta=next-prev;if(!delta)return;lastBalance=next;if(started()){tally(delta);floatDelta(delta);countTo(next);
     if(delta<0){lastSpend={t:Date.now(),amount:-delta};if(pendingAdds.length)schedulePurchase();}
-    else if(delta>=1000)SFX()?.chaching();else SFX()?.coin();}else{shown=next;const c=ensureChip();if(c)c.querySelector('.rc2-cash-amt').textContent=fmt(next);}
+    else if(delta>=1000)SFX()?.chaching();else SFX()?.coin();}else{shown=next;}
   },{silentVia:['load','reset']});
   window.RAStateWatch?.watch('rc2.own',s=>JSON.stringify(s.life?.ownership||{}),()=>{const now=ownSnap(),added=diffOwn(lastOwn||now,now);lastOwn=now;if(!added.length||!started())return;pendingAdds.push(...added);if(lastSpend&&Date.now()-lastSpend.t<2000)schedulePurchase();else schedulePurchase();});
   document.addEventListener('ra:scene',e=>{wrapEvents();ensureChip();if(e.detail?.id==='bedroom')setTimeout(renderBed,60);else{bedCanvas?.remove();bedCanvas=null;}});
