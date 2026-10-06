@@ -67,7 +67,7 @@ export async function buildMatrix(){
  // the file (a content state the census stages, or the consumer's code token), otherwise its recorded reason.
  const s14=await ship014Rows(code,usedStates);
  for(const file of Object.keys(R.assets)){
-  if(R.assets[file].status==='REVIEWED_CANDIDATE'){const c=Object.entries(R.characters).find(([,v])=>Object.values(v.states).includes(file));const state=c&&Object.entries(c[1].states).find(([,v])=>v===file)?.[0];row(file,'character-candidate',`${c?.[0]}.${state}`,'REVIEWED CANDIDATE; NOT CREATOR-FROZEN',people.some(p=>p.sprite===file)?[`person:${c?.[0]}`]:usedStates.has(`${c?.[0]}.${state}`)?[`state:${c?.[0]}.${state}`]:[]);continue;}
+  if(R.assets[file].status==='REVIEWED_CANDIDATE'){const icon=Object.entries(R.ui.apps).find(([,p])=>p===file);if(icon){row(file,'ui-app-candidate',icon[0],'REVIEWED CANDIDATE; NOT CREATOR-FROZEN',[`phone:${icon[0]}`]);continue;}const c=Object.entries(R.characters).find(([,v])=>Object.values(v.states).includes(file));const state=c&&Object.entries(c[1].states).find(([,v])=>v===file)?.[0];row(file,'character-candidate',`${c?.[0]}.${state}`,'REVIEWED CANDIDATE; NOT CREATOR-FROZEN',people.some(p=>p.sprite===file)?[`person:${c?.[0]}`]:usedStates.has(`${c?.[0]}.${state}`)?[`state:${c?.[0]}.${state}`]:[]);continue;}
   if(s14[file]){const r=s14[file];row(file,r.kind,r.id,r.status,r.runtime,r.note);continue}
   const reviewed=review.assets[file];
   const env=Object.entries(R.environments).find(([,e])=>e.asset===file||Object.values(e.layers||{}).includes(file));
@@ -132,6 +132,16 @@ export async function test(){
  const register=Object.fromEntries(JSON.parse(await readFile(path.join(root,'art_department/ASSET_REGISTER.json'),'utf8')).assets.map(a=>[a.path,a]));
  // Every runtime environment/actor path resolves to a registered asset; registry-resolved art must be FROZEN.
  const paths=[...ctx.RAEnvironments.all().flatMap(e=>[e.image,...envLayers(e)]),...[ctx.RABtfPeople.rich,...ctx.RABtfPeople.list,...(ctx.RABtfPeople.extras||[])].flatMap(p=>[p.sprite,p.spriteVampire,...Object.values(p.states||{})])].filter(Boolean);
+ // Exact, bounded phone candidate bytes; does not extend creator-frozen authority.
+ const iconHashes={"war_room": "20a766e466af08b747e1b1f5ac35145529ebb10e442ed081ba5417cda700984b", "strip_club": "8fe284dcf8413f9ad435be9e79faa04a936ee5e01b31416033a70b0f190e0e3b", "armory": "049945029314e9b19de07f54894e5de6fa19fbfecf83fd2dfb1dc36a5806c425", "bank": "7b9f646b40ecdccd4cfbcd626ee32d32dafbadede728d55424a79f93f6ec53e1", "maps": "b9f0217013e2a37c8a1d663931738d94fa27d6f5040412c493592a841c4146cd", "vampgram": "f171555e2aff3fea0e045222e4e39d459f9a493edc8981137f2bdce082a9c876"};
+ for(const [key,hash] of Object.entries(iconHashes)){
+  const file=`assets/rc5/phone_icons/app_${key}_24x24.png`;
+  assert.equal(R.ui.apps[key],file,`${key}: candidate phone binding changed`);
+  assert.equal(R.assets[file]?.status,'REVIEWED_CANDIDATE');
+  assert.equal(R.assets[file]?.authority,'PARENT-DELEGATED REVIEWED CANDIDATE; NOT CREATOR-FROZEN');
+  assert.equal(R.assets[file]?.sha256,hash,`${key}: registry hash changed`);
+  assert.equal(createHash('sha256').update(await readFile(path.join(root,file))).digest('hex'),hash,`${key}: candidate bytes changed`);
+ }
  const candidateNotes=JSON.parse(await readFile(path.join(root,'tools/presentation/candidate-annotations.json'),'utf8')).assets;
   for(const p of paths){if(/^assets\/rc5\/imani\/imani_(neutral|decline|smile)_80x96\.png$/.test(p)&&R.assets[p]?.status==='REVIEWED_CANDIDATE'){const expected=candidateNotes[p]?.candidate;assert.ok(expected&&expected.authority==='PARENT-DELEGATED REVIEWED CANDIDATE; NOT CREATOR-FROZEN',`${p}: missing delegated candidate authority`);assert.equal(R.assets[p].sha256,expected.sha256,`${p}: registry candidate hash mismatch`);assert.equal(createHash('sha256').update(await readFile(path.join(root,p))).digest('hex'),expected.sha256,`${p}: candidate bytes changed`);continue;}assert.ok(register[p],`runtime art ${p} is not in ASSET_REGISTER.json`);assert.ok(!/REJECTED/.test(register[p].status),`runtime art ${p} is rejected`);if(R.assets[p])assert.equal(register[p].status,'FROZEN',`${p} must be FROZEN`)}
  for(const e of ctx.RAEnvironments.all())if(e.frozen)assert.ok(R.environments[e.art]?.asset===e.image||R.environments[e.art]?.over===e.image,`${e.id} frozen art does not come from the registry`);

@@ -1,0 +1,165 @@
+{
+  "status": "BUILT; W final-family review pending before import",
+  "tool": "built-in image_gen; five separate new-asset calls; written pixel specification",
+  "pilot_acceptance": "parent accepted war_room under assistant authority based on W native and eight actual phone views PASS",
+  "sources": [
+    {
+      "path": "C:\\Users\\Ube\\Documents\\Codex\\2026-10-06\\task-11\\lane-w\\assets\\before_the_fame\\ui\\apps\\app_texts_24x24.png",
+      "relative": "assets/before_the_fame/ui/apps/app_texts_24x24.png",
+      "sha256": "c90776f5f92d4414a8a9d580b202206b36504aec4f3255114444fcbaf510de42",
+      "native": [
+        24,
+        24
+      ],
+      "anchor": null,
+      "observed_sha256": "c90776f5f92d4414a8a9d580b202206b36504aec4f3255114444fcbaf510de42",
+      "final_observed_sha256": "c90776f5f92d4414a8a9d580b202206b36504aec4f3255114444fcbaf510de42"
+    },
+    {
+      "path": "C:\\Users\\Ube\\Documents\\Codex\\2026-10-06\\task-11\\lane-w\\assets\\before_the_fame\\ui\\apps\\app_vampgpt_24x24.png",
+      "relative": "assets/before_the_fame/ui/apps/app_vampgpt_24x24.png",
+      "sha256": "3718d06745df8f48f8c9d83560407063aa597290ead10257f8b71753f5ac8bfa",
+      "native": [
+        24,
+        24
+      ],
+      "anchor": null,
+      "observed_sha256": "3718d06745df8f48f8c9d83560407063aa597290ead10257f8b71753f5ac8bfa",
+      "final_observed_sha256": "3718d06745df8f48f8c9d83560407063aa597290ead10257f8b71753f5ac8bfa"
+    },
+    {
+      "path": "C:\\Users\\Ube\\Documents\\Codex\\2026-10-06\\task-11\\lane-w\\assets\\before_the_fame\\ui\\apps\\app_rich_radio_24x24.png",
+      "relative": "assets/before_the_fame/ui/apps/app_rich_radio_24x24.png",
+      "sha256": "ef05b51f6403d31a97183f60b56401c2d0c793dd0241a38f168923cb0b804fde",
+      "native": [
+        24,
+        24
+      ],
+      "anchor": null,
+      "observed_sha256": "ef05b51f6403d31a97183f60b56401c2d0c793dd0241a38f168923cb0b804fde",
+      "final_observed_sha256": "ef05b51f6403d31a97183f60b56401c2d0c793dd0241a38f168923cb0b804fde"
+    }
+  ],
+  "pilot_original_manifest": "C:\\Users\\Ube\\Documents\\Codex\\2026-10-06\\task-27\\candidates\\pilot-v001\\manifest.json",
+  "transform": "whole generated square canvas to24x24 NEAREST; no crop/threshold/repaint/palette reduction; generated alpha preserved",
+  "icons": [
+    {
+      "key": "war_room",
+      "size": [
+        24,
+        24
+      ],
+      "alpha_bbox": [
+        4,
+        4,
+        20,
+        20
+      ],
+      "alpha_values": 20
+    },
+    {
+      "key": "strip_club",
+      "size": [
+        24,
+        24
+      ],
+      "alpha_bbox": [
+        5,
+        6,
+        20,
+        18
+      ],
+      "alpha_values": 9
+    },
+    {
+      "key": "armory",
+      "size": [
+        24,
+        24
+      ],
+      "alpha_bbox": [
+        3,
+        6,
+        21,
+        18
+      ],
+      "alpha_values": 9
+    },
+    {
+      "key": "bank",
+      "size": [
+        24,
+        24
+      ],
+      "alpha_bbox": [
+        5,
+        5,
+        19,
+        20
+      ],
+      "alpha_values": 24
+    },
+    {
+      "key": "maps",
+      "size": [
+        24,
+        24
+      ],
+      "alpha_bbox": [
+        5,
+        5,
+        19,
+        18
+      ],
+      "alpha_values": 8
+    },
+    {
+      "key": "vampgram",
+      "size": [
+        24,
+        24
+      ],
+      "alpha_bbox": [
+        4,
+        6,
+        20,
+        18
+      ],
+      "alpha_values": 9
+    }
+  ],
+  "sha256": {
+    "app_armory_24x24.png": "049945029314e9b19de07f54894e5de6fa19fbfecf83fd2dfb1dc36a5806c425",
+    "app_armory_48x48.png": "a652514821a602c60fc17226a3b50d0a52f5bc836014ed72ff87fd7f981f13c9",
+    "app_armory_generated-original.b64": "b2641fdcd8cc95d3e07a0cc251c0f96af955c2fa896d267d3a236a06751f4147",
+    "app_armory_generated-original.png": "e7b89e727265e64ef7da30d99476fd7afa7f14071d0178e5bb73c4b11ab59304",
+    "app_armory_prompt.txt": "c418b83901d2947febcdb45422d2e3294e6a41f40906c7ef42265eba71147090",
+    "app_bank_24x24.png": "7b9f646b40ecdccd4cfbcd626ee32d32dafbadede728d55424a79f93f6ec53e1",
+    "app_bank_48x48.png": "7bb4f8ae48533c8dac71b5b766212021d4490d02203a92c3fc078185ace90662",
+    "app_bank_generated-original.b64": "67275f2d3206879eb613f5d35c3d2ef434bf2ffa2ec056fb9ab1bde030785640",
+    "app_bank_generated-original.png": "33d69b2b187410269e0c62336a167d849ea2dc40ad4489a2b79db05a234c592b",
+    "app_bank_prompt.txt": "c0b2e5f4044ae80605385d520070416f9dc3739d730063785da4be9bb01681ef",
+    "app_maps_24x24.png": "b9f0217013e2a37c8a1d663931738d94fa27d6f5040412c493592a841c4146cd",
+    "app_maps_48x48.png": "72846792151e407ab9ef9797eabfe6dd5b4aaa0dd79326c6c92038856b2469fb",
+    "app_maps_generated-original.b64": "e36f39e1ea1cdae8540538e4ff5ecdffb7ac23f7c5c173f21742a445729db1ce",
+    "app_maps_generated-original.png": "0bc247fa187c2fc01d53db9bd8f900b70371aa5b1dbcf8304204be289152d30e",
+    "app_maps_prompt.txt": "d9a3b5502d02a51460dfdfcebaf70cbb3f992a40e56b42d57723a0c7b0f5faec",
+    "app_strip_club_24x24.png": "8fe284dcf8413f9ad435be9e79faa04a936ee5e01b31416033a70b0f190e0e3b",
+    "app_strip_club_48x48.png": "e5504bade5702cb27e2f792a51d4c387136aedab8de9863fd402b792e7283ab5",
+    "app_strip_club_generated-original.b64": "6cf36b982abd7718224868a60b57edeca769c8da059ac3b5ce8d25a2c1c29b4c",
+    "app_strip_club_generated-original.png": "5fc866ec2db40fac1ee37ee87cb5cb5eec381eaa28f258c1cf8882ffd1ce4341",
+    "app_strip_club_prompt.txt": "67490d5c6e5690ab8d26a3d0b0a3f202c9ab9b26f4efa40666322d06ecf0a278",
+    "app_vampgram_24x24.png": "f171555e2aff3fea0e045222e4e39d459f9a493edc8981137f2bdce082a9c876",
+    "app_vampgram_48x48.png": "57570b90fdbea8f6b4eed15d724c690e5338744c707d2b5d71a746535f6f8ed2",
+    "app_vampgram_generated-original.b64": "000030a2f6386a12ede5ed5de44f0f51f5d6b2a97df9477ce38349863af7fe31",
+    "app_vampgram_generated-original.png": "0b446a85519a76a3a98e4b5c421c3a9567de87ab89d5746c877977da7c455b6b",
+    "app_vampgram_prompt.txt": "a94369ff8c8c5712f84825d8eaded48e716bfc033a830127c17bd325f919eaf4",
+    "app_war_room_24x24.png": "20a766e466af08b747e1b1f5ac35145529ebb10e442ed081ba5417cda700984b",
+    "app_war_room_48x48.png": "0127759e65ee053172bdce7f4d20197baf751091a77c66c8233ba7772270be0a",
+    "dark-light-ui-preview.png": "30bba909fb85214ff6681368d8e69fb73eddca3da71f0d5c87ce06b0391b3ece",
+    "export_family.py": "6084288cd23f8302517f3b794c548155af530dc5a27d613837afc475c985817a",
+    "family-1x.png": "aabca054582ad14418ae0ebb22cb1092d82ee60538ffd2523c2c33eec594273c",
+    "family-2x.png": "b1da458f5d757c6b3ce01c0de7febfe71a3641a2601ebd781b110bbb3b7dfbdd"
+  },
+  "runtime_registry_writes": false
+}
