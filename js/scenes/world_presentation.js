@@ -47,9 +47,21 @@
   const g=root.querySelector('[data-actor="gbenga"]'),c=root.querySelector('[data-actor="carlos"]');
   const states=['anticipation','run1','run2','contact','follow_through','recover'];
   if(!g||!c||!window.RABeatTimeline||!states.every(k=>art?.gbenga?.[k]&&art?.carlos?.[k]))return {completed:false,cancelled:false,skipped:false,reason:'BELT_ART_REQUIRED'};
+  // Decode the bounded frame family before the first swap; leaving the scene cancels readiness too.
+  const readyScope=scope.child('belt-art-ready');
+  const sources=[...new Set(states.flatMap(k=>[art.gbenga[k],art.carlos[k]]))];
+  let ready;
+  try{ready=await Promise.all(sources.map(src=>new Promise(resolve=>{
+   const image=new Image();let done=false;
+   const finish=ok=>{if(done)return;done=true;image.onload=image.onerror=null;resolve(ok);};
+   readyScope.cleanup(()=>{finish(false);image.src='';});
+   image.onload=()=>finish(true);image.onerror=()=>finish(false);image.src=src;
+  })));}finally{readyScope.cancel();}
+  if(!scope.isActive()||!root.isConnected)return {completed:false,cancelled:true,skipped:false};
+  if(ready.some(ok=>!ok))return {completed:false,cancelled:false,skipped:false,reason:'BELT_ART_FAILED'};
   const times=[0,350,470,710,1060,1380];
   const frames=states.map((state,i)=>({at:times[i],actors:[
-   {el:g,src:art.gbenga[state],dx:i===1?-8:i===2?-16:0},
+   {el:g,src:art.gbenga[state],dx:[0,-16,-32,-40,-40,0][i]},
    {el:c,src:art.carlos[state],dx:i===1?-12:i===2?-24:0}
   ]}));
   return window.RABeatTimeline.play({root,scope,frames,duration:2500});

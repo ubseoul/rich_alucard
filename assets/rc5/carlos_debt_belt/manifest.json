@@ -1,0 +1,864 @@
+{
+  "version": "r3",
+  "status": "FULL_ANIMATION_ACCEPTANCE_PENDING",
+  "pilotAcceptance": "parentacceptedCarlosP3+GbengaP3 underdelegatedauthority, staticdirectiononly",
+  "frames": [
+    {
+      "actor": "carlos",
+      "slot": "anticipation",
+      "atMs": 0,
+      "durationMs": 350,
+      "path": "C:\\Users\\Ube\\Documents\\Codex\\2026-10-06\\task-20\\belt-family-r3\\carlos-anticipation-r3.png",
+      "sha256": "2f0efd67ffde7efbd2e90c25bca45d9f459bef143d2d97a0d12aaa13bd8952a3",
+      "native": [
+        80,
+        96
+      ],
+      "anchor": [
+        40,
+        88
+      ],
+      "pose": "f-lookback-v1",
+      "sourceNativePath": "C:\\Users\\Ube\\Documents\\Codex\\2026-10-06\\task-20\\carlos-pilot-f-lookback-v1\\native.png",
+      "sourceNativeSha256": "2f0efd67ffde7efbd2e90c25bca45d9f459bef143d2d97a0d12aaa13bd8952a3",
+      "sourceManifestSha256": "b2535cb36c53c0c33d4aa94a7641582d255052cfb029177e2f35b138695b2476",
+      "export": "wholecanvas nearest80x96; generatedalpha untouched; no mirror",
+      "acceptedPilot": false,
+      "bbox": [
+        24,
+        27,
+        64,
+        87
+      ]
+    },
+    {
+      "actor": "carlos",
+      "slot": "run1",
+      "atMs": 350,
+      "durationMs": 120,
+      "path": "C:\\Users\\Ube\\Documents\\Codex\\2026-10-06\\task-20\\belt-family-r3\\carlos-run1-r3.png",
+      "sha256": "ec55cb0ccd4ca4e859f52803553b04d5c8d44303d6034ac0ad11d47a32864c69",
+      "native": [
+        80,
+        96
+      ],
+      "anchor": [
+        40,
+        88
+      ],
+      "pose": "p3",
+      "sourceNativePath": "C:\\Users\\Ube\\Documents\\Codex\\2026-10-06\\task-20\\carlos-pilot-p3\\native.png",
+      "sourceNativeSha256": "ec55cb0ccd4ca4e859f52803553b04d5c8d44303d6034ac0ad11d47a32864c69",
+      "sourceManifestSha256": "4cf470fad98dadeb790427b79ddd4c52dd92e15177d15e2d68aeb9b2059166ef",
+      "export": "wholecanvas nearest80x96; generatedalpha untouched; no mirror",
+      "acceptedPilot": true,
+      "bbox": [
+        25,
+        26,
+        64,
+        90
+      ]
+    },
+    {
+      "actor": "carlos",
+      "slot": "run2",
+      "atMs": 470,
+      "durationMs": 240,
+      "path": "C:\\Users\\Ube\\Documents\\Codex\\2026-10-06\\task-20\\belt-family-r3\\carlos-run2-r3.png",
+      "sha256": "a739c78d8854e05ed5da94f02ab86f472105a95c88a2994e22e346780d387066",
+      "native": [
+        80,
+        96
+      ],
+      "anchor": [
+        40,
+        88
+      ],
+      "pose": "f-run2-v1",
+      "sourceNativePath": "C:\\Users\\Ube\\Documents\\Codex\\2026-10-06\\task-20\\carlos-pilot-f-run2-v1\\native.png",
+      "sourceNativeSha256": "a739c78d8854e05ed5da94f02ab86f472105a95c88a2994e22e346780d387066",
+      "sourceManifestSha256": "a172acfacb85ba45f098bc4b2d50f218d755787ebe6907d237649d8a05c59b04",
+      "export": "wholecanvas nearest80x96; generatedalpha untouched; no mirror",
+      "acceptedPilot": false,
+      "bbox": [
+        21,
+        32,
+        64,
+        89
+      ]
+    },
+    {
+      "actor": "carlos",
+      "slot": "contact",
+      "atMs": 710,
+      "durationMs": 350,
+      "path": "C:\\Users\\Ube\\Documents\\Codex\\2026-10-06\\task-20\\belt-family-r3\\carlos-contact-r3.png",
+      "sha256": "3c29af668bc9df86d3f96a6a63606822743f710947f21ebf059786575e5a1693",
+      "native": [
+        80,
+        96
+      ],
+      "anchor": [
+        40,
+        88
+      ],
+      "pose": "f-flinch-v1",
+      "sourceNativePath": "C:\\Users\\Ube\\Documents\\Codex\\2026-10-06\\task-20\\carlos-pilot-f-flinch-v1\\native.png",
+      "sourceNativeSha256": "3c29af668bc9df86d3f96a6a63606822743f710947f21ebf059786575e5a1693",
+      "sourceManifestSha256": "988fea2ee9efd219547d76c8a59521253d4e2b0f46bd970aca6f5b5009ddc815",
+      "export": "wholecanvas nearest80x96; generatedalpha untouched; no mirror",
+      "acceptedPilot": false,
+      "bbox": [
+        22,
+        24,
+        56,
+        89
+      ]
+    },
+    {
+      "actor": "carlos",
+      "slot": "follow_through",
+      "atMs": 1060,
+      "durationMs": 320,
+      "path": "C:\\Users\\Ube\\Documents\\Codex\\2026-10-06\\task-20\\belt-family-r3\\carlos-follow_through-r3.png",
+      "sha256": "0efdc13e5a416722bfcd00779af5564b24895f91daac607b8f40ee1d2e91aaf8",
+      "native": [
+        80,
+        96
+      ],
+      "anchor": [
+        40,
+        88
+      ],
+      "pose": "f-scream-v1",
+      "sourceNativePath": "C:\\Users\\Ube\\Documents\\Codex\\2026-10-06\\task-20\\carlos-pilot-f-scream-v1\\native.png",
+      "sourceNativeSha256": "0efdc13e5a416722bfcd00779af5564b24895f91daac607b8f40ee1d2e91aaf8",
+      "sourceManifestSha256": "1a1dd83f4000d3032ad122fbcb14490a9603e289f9408fc909132075a3cc111a",
+      "export": "wholecanvas nearest80x96; generatedalpha untouched; no mirror",
+      "acceptedPilot": false,
+      "bbox": [
+        20,
+        25,
+        58,
+        90
+      ]
+    },
+    {
+      "actor": "carlos",
+      "slot": "recover",
+      "atMs": 1380,
+      "durationMs": 1120,
+      "path": "C:\\Users\\Ube\\Documents\\Codex\\2026-10-06\\task-20\\belt-family-r3\\carlos-recover-r3.png",
+      "sha256": "efa787395b8877be90bebd03f8453652b371641834f5e928e6814ef58b40c851",
+      "native": [
+        80,
+        96
+      ],
+      "anchor": [
+        40,
+        88
+      ],
+      "pose": "f-recover-v1",
+      "sourceNativePath": "C:\\Users\\Ube\\Documents\\Codex\\2026-10-06\\task-20\\carlos-pilot-f-recover-v1\\native.png",
+      "sourceNativeSha256": "efa787395b8877be90bebd03f8453652b371641834f5e928e6814ef58b40c851",
+      "sourceManifestSha256": "8249ed675e2a4508097273a87e576612bf688a038721a0093dd2e86babf5d6da",
+      "export": "wholecanvas nearest80x96; generatedalpha untouched; no mirror",
+      "acceptedPilot": false,
+      "bbox": [
+        28,
+        30,
+        57,
+        89
+      ]
+    },
+    {
+      "actor": "gbenga",
+      "slot": "anticipation",
+      "atMs": 0,
+      "durationMs": 350,
+      "path": "C:\\Users\\Ube\\Documents\\Codex\\2026-10-06\\task-20\\belt-family-r3\\gbenga-anticipation-r3.png",
+      "sha256": "e3bd6829492ab0720d10aea48114cf4355f2f695eefac9f779d399bb95309467",
+      "native": [
+        80,
+        96
+      ],
+      "anchor": [
+        40,
+        88
+      ],
+      "pose": "p3",
+      "sourceNativePath": "C:\\Users\\Ube\\Documents\\Codex\\2026-10-06\\task-20\\gbenga-pilot-p3\\native.png",
+      "sourceNativeSha256": "e3bd6829492ab0720d10aea48114cf4355f2f695eefac9f779d399bb95309467",
+      "sourceManifestSha256": "6c9ff84f47fa278edf7cf25cc9dd08eba7f6476e9a754e92d18cdb195f29a54b",
+      "export": "wholecanvas nearest80x96; generatedalpha untouched; no mirror",
+      "acceptedPilot": true,
+      "bbox": [
+        14,
+        9,
+        60,
+        89
+      ]
+    },
+    {
+      "actor": "gbenga",
+      "slot": "run1",
+      "atMs": 350,
+      "durationMs": 120,
+      "path": "C:\\Users\\Ube\\Documents\\Codex\\2026-10-06\\task-20\\belt-family-r3\\gbenga-run1-r3.png",
+      "sha256": "704d12aa9a3995ab31817e82059f88292707e8e96d602f1e02f2c8ad989e41af",
+      "native": [
+        80,
+        96
+      ],
+      "anchor": [
+        40,
+        88
+      ],
+      "pose": "f-run1-v2",
+      "sourceNativePath": "C:\\Users\\Ube\\Documents\\Codex\\2026-10-06\\task-20\\gbenga-pilot-f-run1-v2\\native.png",
+      "sourceNativeSha256": "704d12aa9a3995ab31817e82059f88292707e8e96d602f1e02f2c8ad989e41af",
+      "sourceManifestSha256": "785e72b2317212c5d792e473c65ee982c54829fa37892edfe122d0088728c382",
+      "export": "wholecanvas nearest80x96; generatedalpha untouched; no mirror",
+      "acceptedPilot": false,
+      "bbox": [
+        18,
+        12,
+        62,
+        90
+      ]
+    },
+    {
+      "actor": "gbenga",
+      "slot": "run2",
+      "atMs": 470,
+      "durationMs": 240,
+      "path": "C:\\Users\\Ube\\Documents\\Codex\\2026-10-06\\task-20\\belt-family-r3\\gbenga-run2-r3.png",
+      "sha256": "e4f007f74785afa7ceb5082f7a30f8537d8ccfd79b794f49261e19e1e19c545d",
+      "native": [
+        80,
+        96
+      ],
+      "anchor": [
+        40,
+        88
+      ],
+      "pose": "f-run2-v1",
+      "sourceNativePath": "C:\\Users\\Ube\\Documents\\Codex\\2026-10-06\\task-20\\gbenga-pilot-f-run2-v1\\native.png",
+      "sourceNativeSha256": "e4f007f74785afa7ceb5082f7a30f8537d8ccfd79b794f49261e19e1e19c545d",
+      "sourceManifestSha256": "c5530eff422df6aa617fff6986df9acfadafb8940e046831f6dfbe9aab0965e0",
+      "export": "wholecanvas nearest80x96; generatedalpha untouched; no mirror",
+      "acceptedPilot": false,
+      "bbox": [
+        14,
+        10,
+        71,
+        89
+      ]
+    },
+    {
+      "actor": "gbenga",
+      "slot": "contact",
+      "atMs": 710,
+      "durationMs": 350,
+      "path": "C:\\Users\\Ube\\Documents\\Codex\\2026-10-06\\task-20\\belt-family-r3\\gbenga-contact-r3.png",
+      "sha256": "ed82f7bce2b1298a0ef859bbcb301bac2f3dce6423ccf7f303d1dc5456ea9747",
+      "native": [
+        80,
+        96
+      ],
+      "anchor": [
+        40,
+        88
+      ],
+      "pose": "f-contact-v3",
+      "sourceNativePath": "C:\\Users\\Ube\\Documents\\Codex\\2026-10-06\\task-20\\gbenga-pilot-f-contact-v3\\native.png",
+      "sourceNativeSha256": "ed82f7bce2b1298a0ef859bbcb301bac2f3dce6423ccf7f303d1dc5456ea9747",
+      "sourceManifestSha256": "05a6c583355a126177d2dd53b6dd45423db9b0252f2a521d7792a41c53d1d51a",
+      "export": "wholecanvas nearest80x96; generatedalpha untouched; no mirror",
+      "acceptedPilot": false,
+      "bbox": [
+        1,
+        0,
+        71,
+        93
+      ]
+    },
+    {
+      "actor": "gbenga",
+      "slot": "follow_through",
+      "atMs": 1060,
+      "durationMs": 320,
+      "path": "C:\\Users\\Ube\\Documents\\Codex\\2026-10-06\\task-20\\belt-family-r3\\gbenga-follow_through-r3.png",
+      "sha256": "770672055cb233cd9aaf2dc74ca0518de3876ee94632b287c1b7c3e5e3eae9da",
+      "native": [
+        80,
+        96
+      ],
+      "anchor": [
+        40,
+        88
+      ],
+      "pose": "f-follow-v1",
+      "sourceNativePath": "C:\\Users\\Ube\\Documents\\Codex\\2026-10-06\\task-20\\gbenga-pilot-f-follow-v1\\native.png",
+      "sourceNativeSha256": "770672055cb233cd9aaf2dc74ca0518de3876ee94632b287c1b7c3e5e3eae9da",
+      "sourceManifestSha256": "e354fcae5e9c5ed5b04af75e6d39ac78d5168f50515921ce61f8d672f0396548",
+      "export": "wholecanvas nearest80x96; generatedalpha untouched; no mirror",
+      "acceptedPilot": false,
+      "bbox": [
+        17,
+        11,
+        60,
+        88
+      ]
+    },
+    {
+      "actor": "gbenga",
+      "slot": "recover",
+      "atMs": 1380,
+      "durationMs": 1120,
+      "path": "C:\\Users\\Ube\\Documents\\Codex\\2026-10-06\\task-20\\belt-family-r3\\gbenga-recover-r3.png",
+      "sha256": "cae1356ae2644442a5f74c49c12b62e254df5ec1c49313ecad2a5a667835c441",
+      "native": [
+        80,
+        96
+      ],
+      "anchor": [
+        40,
+        88
+      ],
+      "pose": "f-recover-v1",
+      "sourceNativePath": "C:\\Users\\Ube\\Documents\\Codex\\2026-10-06\\task-20\\gbenga-pilot-f-recover-v1\\native.png",
+      "sourceNativeSha256": "eaa6e0b3888481858ace9a936cb71e3226bea7e252db50c415680252aa7000b2",
+      "sourceManifestSha256": "36ad85e6135f2bc9dacdfb4205c832095dbd6a02abbe5de62cf187d3fe3313fc",
+      "export": "wholecanvas nearest80x96; generatedalpha untouched; lossless fullimage horizontalmirror forleftfacing",
+      "acceptedPilot": false,
+      "bbox": [
+        18,
+        9,
+        66,
+        90
+      ]
+    }
+  ],
+  "timeline": [
+    {
+      "slot": "anticipation",
+      "startMs": 0,
+      "endMs": 350,
+      "gbengaDx": 0,
+      "carlosDx": 0
+    },
+    {
+      "slot": "run1",
+      "startMs": 350,
+      "endMs": 470,
+      "gbengaDx": -8,
+      "carlosDx": -12
+    },
+    {
+      "slot": "run2",
+      "startMs": 470,
+      "endMs": 710,
+      "gbengaDx": -16,
+      "carlosDx": -24
+    },
+    {
+      "slot": "contact",
+      "startMs": 710,
+      "endMs": 1060,
+      "gbengaDx": 0,
+      "carlosDx": 0
+    },
+    {
+      "slot": "follow_through",
+      "startMs": 1060,
+      "endMs": 1380,
+      "gbengaDx": 0,
+      "carlosDx": 0
+    },
+    {
+      "slot": "recover",
+      "startMs": 1380,
+      "endMs": 2500,
+      "gbengaDx": 0,
+      "carlosDx": 0
+    }
+  ],
+  "durationMs": 2500,
+  "screamMs": 320,
+  "nativeStage": [
+    270,
+    480
+  ],
+  "groundY": 305,
+  "centers": {
+    "carlos": 60,
+    "gbenga": 203
+  },
+  "stageScale": 2.5,
+  "kind": "isolated exact-wrapper artmotion; notruntimecapture",
+  "originalRefs": [
+    {
+      "path": "C:\\Users\\Ube\\Documents\\Codex\\2026-10-05\\task-3\\assembly-next-review\\assets\\before_the_fame\\characters\\gbenga\\runtime_80x96\\gbenga_neutral_anchor_80x96_v2.png",
+      "sha256": "5712c83be09c601ed68dc27e6cd49c88831a80d27f7e3424ac711afef6756bb8",
+      "native": [
+        80,
+        96
+      ],
+      "anchor": [
+        40,
+        88
+      ],
+      "role": "face/costume continuity; desk excluded"
+    },
+    {
+      "path": "C:\\Users\\Ube\\Documents\\Codex\\2026-10-05\\task-3\\assembly-next-review\\assets\\before_the_fame\\characters\\gbenga\\runtime_80x96\\gbenga_adjusting_sleeves_80x96_v2.png",
+      "sha256": "3c299fbdb15d6ad113c62b429ebec05b50d278f9a1402e7b8ed5bf53a63a4f8e",
+      "native": [
+        80,
+        96
+      ],
+      "anchor": [
+        40,
+        88
+      ],
+      "role": "standing body authority"
+    },
+    {
+      "path": "C:\\Users\\Ube\\Documents\\Codex\\2026-10-05\\task-3\\assembly-next-review\\assets\\before_the_fame\\characters\\carlos\\runtime_80x96\\carlos_neutral_happy_anchor_80x96_review_v1.png",
+      "sha256": "6ea034ef7ee96697ad6a0e7b473f1843adfe5d8127adbd08ea063100e78335ca",
+      "native": [
+        80,
+        96
+      ],
+      "anchor": [
+        40,
+        88
+      ],
+      "role": "identity/costume continuity"
+    },
+    {
+      "path": "C:\\Users\\Ube\\Documents\\Codex\\2026-10-05\\task-3\\assembly-next-review\\assets\\before_the_fame\\characters\\carlos\\runtime_80x96\\carlos_betrayed_80x96_review_v1.png",
+      "sha256": "46e325b2102811469898a9c5cd4d2c9c84dd4aff01058accf0294da51a588b14",
+      "native": [
+        80,
+        96
+      ],
+      "anchor": [
+        40,
+        88
+      ],
+      "role": "identity/costume continuity"
+    },
+    {
+      "path": "C:\\Users\\Ube\\Documents\\Codex\\2026-10-05\\task-3\\assembly-next-review\\assets\\before_the_fame\\characters\\carlos\\runtime_80x96\\carlos_canopy_apron_80x96_review_v1.png",
+      "sha256": "edf2bb23b9d235edf07588032fa6480017083b470d841e7e355691d6eb36388a",
+      "native": [
+        80,
+        96
+      ],
+      "anchor": [
+        40,
+        88
+      ],
+      "role": "identity/costume continuity"
+    }
+  ],
+  "limitations": [
+    "Newposes notblanketaccepted frompilots.",
+    "Contactreach/gap mustbereviewed: wrapperresetsdx0atcontact.",
+    "Carlosrun2has6pxheadbob vsrun1, tojudgefullmotion.",
+    "Costumepixelmotifs varybydrawnpose; nativeidentitycoherence requireWreview.",
+    "Generatedalpha preserved, faintfringepixels canaffectrawbbox.",
+    "Gbengarecovery generatedrightfacing; fullimage losslessmirrorusedinr3technicalexport.",
+    "No runtime/registry edits or imports.",
+    "Reducedmotioncurrentrunner showsfinalrecoveryonly; normalrunner adds60msfinalpause, skip/reduced120ms."
+  ],
+  "files": [
+    {
+      "path": "C:\\Users\\Ube\\Documents\\Codex\\2026-10-06\\task-20\\belt-family-r3\\actual-stage-contact-comparison.png",
+      "sha256": "80a490668d5e6294ad8d27966fb13420bfeda1caa788c4236421e8dec571852b",
+      "bytes": 117501
+    },
+    {
+      "path": "C:\\Users\\Ube\\Documents\\Codex\\2026-10-06\\task-20\\belt-family-r3\\carlos-anticipation-generated-source.png",
+      "sha256": "d37a11f8cd00634a7f6cf445b0f8db3fcc2d1907353bb0c4d048b670e87bd16e",
+      "bytes": 318989
+    },
+    {
+      "path": "C:\\Users\\Ube\\Documents\\Codex\\2026-10-06\\task-20\\belt-family-r3\\carlos-anticipation-r3.png",
+      "sha256": "2f0efd67ffde7efbd2e90c25bca45d9f459bef143d2d97a0d12aaa13bd8952a3",
+      "bytes": 4044
+    },
+    {
+      "path": "C:\\Users\\Ube\\Documents\\Codex\\2026-10-06\\task-20\\belt-family-r3\\carlos-contact-generated-source.png",
+      "sha256": "bba27b10d3d37af42b2d545b65361fc94d3c6aa341bf43dd5ba7410d5c8923f4",
+      "bytes": 329260
+    },
+    {
+      "path": "C:\\Users\\Ube\\Documents\\Codex\\2026-10-06\\task-20\\belt-family-r3\\carlos-contact-r3.png",
+      "sha256": "3c29af668bc9df86d3f96a6a63606822743f710947f21ebf059786575e5a1693",
+      "bytes": 4241
+    },
+    {
+      "path": "C:\\Users\\Ube\\Documents\\Codex\\2026-10-06\\task-20\\belt-family-r3\\carlos-follow_through-generated-source.png",
+      "sha256": "5f2afd03f205ca72a3eabfc93d6c9f5a6aa02e2b1cc3418740f504419a35dc02",
+      "bytes": 359533
+    },
+    {
+      "path": "C:\\Users\\Ube\\Documents\\Codex\\2026-10-06\\task-20\\belt-family-r3\\carlos-follow_through-r3.png",
+      "sha256": "0efdc13e5a416722bfcd00779af5564b24895f91daac607b8f40ee1d2e91aaf8",
+      "bytes": 4653
+    },
+    {
+      "path": "C:\\Users\\Ube\\Documents\\Codex\\2026-10-06\\task-20\\belt-family-r3\\carlos-recover-generated-source.png",
+      "sha256": "776b2c4d11d993c2dbee99543cd3b6bdc6dbab3a01cda129abb05ee76212d4b5",
+      "bytes": 287494
+    },
+    {
+      "path": "C:\\Users\\Ube\\Documents\\Codex\\2026-10-06\\task-20\\belt-family-r3\\carlos-recover-r3.png",
+      "sha256": "efa787395b8877be90bebd03f8453652b371641834f5e928e6814ef58b40c851",
+      "bytes": 3634
+    },
+    {
+      "path": "C:\\Users\\Ube\\Documents\\Codex\\2026-10-06\\task-20\\belt-family-r3\\carlos-run1-generated-source.png",
+      "sha256": "377e5500b6b30fbfb52bb3b56a8fa8d963ad4c6d91256638a4de260436e2a98b",
+      "bytes": 302418
+    },
+    {
+      "path": "C:\\Users\\Ube\\Documents\\Codex\\2026-10-06\\task-20\\belt-family-r3\\carlos-run1-r3.png",
+      "sha256": "ec55cb0ccd4ca4e859f52803553b04d5c8d44303d6034ac0ad11d47a32864c69",
+      "bytes": 3923
+    },
+    {
+      "path": "C:\\Users\\Ube\\Documents\\Codex\\2026-10-06\\task-20\\belt-family-r3\\carlos-run2-generated-source.png",
+      "sha256": "d2ebce7053e09fa341ffa1a3b9373a73e1f65cea227ca71199a5f1b23f230c32",
+      "bytes": 272022
+    },
+    {
+      "path": "C:\\Users\\Ube\\Documents\\Codex\\2026-10-06\\task-20\\belt-family-r3\\carlos-run2-r3.png",
+      "sha256": "a739c78d8854e05ed5da94f02ab86f472105a95c88a2994e22e346780d387066",
+      "bytes": 3430
+    },
+    {
+      "path": "C:\\Users\\Ube\\Documents\\Codex\\2026-10-06\\task-20\\belt-family-r3\\carlos-sheet-2x.png",
+      "sha256": "2a434fff0dcb51fed76516b51f892f2c49f9e84c0f6406289ba6e09095c896b1",
+      "bytes": 31484
+    },
+    {
+      "path": "C:\\Users\\Ube\\Documents\\Codex\\2026-10-06\\task-20\\belt-family-r3\\carlos-sheet-native.png",
+      "sha256": "260f62eba20dad460cc797f7c97a60c3e3afca33c88f1384609c0d73a9f78a36",
+      "bytes": 22944
+    },
+    {
+      "path": "C:\\Users\\Ube\\Documents\\Codex\\2026-10-06\\task-20\\belt-family-r3\\gbenga-anticipation-generated-source.png",
+      "sha256": "b6726cecf09579f0f898ac83df6a1044a6bd3d9e4f6e03439d651b038a784b6f",
+      "bytes": 494591
+    },
+    {
+      "path": "C:\\Users\\Ube\\Documents\\Codex\\2026-10-06\\task-20\\belt-family-r3\\gbenga-anticipation-r3.png",
+      "sha256": "e3bd6829492ab0720d10aea48114cf4355f2f695eefac9f779d399bb95309467",
+      "bytes": 6422
+    },
+    {
+      "path": "C:\\Users\\Ube\\Documents\\Codex\\2026-10-06\\task-20\\belt-family-r3\\gbenga-contact-generated-source.png",
+      "sha256": "d8135933acfe847b45978a8c331478b12ade71b0b18c983ef18be9e8efd5d6fe",
+      "bytes": 558898
+    },
+    {
+      "path": "C:\\Users\\Ube\\Documents\\Codex\\2026-10-06\\task-20\\belt-family-r3\\gbenga-contact-r3.png",
+      "sha256": "ed82f7bce2b1298a0ef859bbcb301bac2f3dce6423ccf7f303d1dc5456ea9747",
+      "bytes": 7057
+    },
+    {
+      "path": "C:\\Users\\Ube\\Documents\\Codex\\2026-10-06\\task-20\\belt-family-r3\\gbenga-f-contact-v1-UNUSED.png",
+      "sha256": "380da15a092e33955ef751e1ee4d52431742f6b86136e849f2f6871095a79bdd",
+      "bytes": 7605
+    },
+    {
+      "path": "C:\\Users\\Ube\\Documents\\Codex\\2026-10-06\\task-20\\belt-family-r3\\gbenga-f-contact-v2-UNUSED.png",
+      "sha256": "0ba6ee02987df7d7135e6d02dc27c757f2acc3fe136bff98fefde436165bbbd3",
+      "bytes": 7307
+    },
+    {
+      "path": "C:\\Users\\Ube\\Documents\\Codex\\2026-10-06\\task-20\\belt-family-r3\\gbenga-follow_through-generated-source.png",
+      "sha256": "0885abafa75222a2e1c5360ba269293f394b4c28241007b71457c123c84c5591",
+      "bytes": 535201
+    },
+    {
+      "path": "C:\\Users\\Ube\\Documents\\Codex\\2026-10-06\\task-20\\belt-family-r3\\gbenga-follow_through-r3.png",
+      "sha256": "770672055cb233cd9aaf2dc74ca0518de3876ee94632b287c1b7c3e5e3eae9da",
+      "bytes": 6649
+    },
+    {
+      "path": "C:\\Users\\Ube\\Documents\\Codex\\2026-10-06\\task-20\\belt-family-r3\\gbenga-recover-generated-source.png",
+      "sha256": "c6f434e4ababbb6e5114e0c61d2b5789ffb6e3ae5af1ccdf6fc495c4b32f8af3",
+      "bytes": 500289
+    },
+    {
+      "path": "C:\\Users\\Ube\\Documents\\Codex\\2026-10-06\\task-20\\belt-family-r3\\gbenga-recover-r3.png",
+      "sha256": "cae1356ae2644442a5f74c49c12b62e254df5ec1c49313ecad2a5a667835c441",
+      "bytes": 6187
+    },
+    {
+      "path": "C:\\Users\\Ube\\Documents\\Codex\\2026-10-06\\task-20\\belt-family-r3\\gbenga-run1-generated-source.png",
+      "sha256": "3765c64dad2bc5d1494c1beb24f24ffae164fe5b9a7ea037d8df660f957e9618",
+      "bytes": 448562
+    },
+    {
+      "path": "C:\\Users\\Ube\\Documents\\Codex\\2026-10-06\\task-20\\belt-family-r3\\gbenga-run1-r3.png",
+      "sha256": "704d12aa9a3995ab31817e82059f88292707e8e96d602f1e02f2c8ad989e41af",
+      "bytes": 5583
+    },
+    {
+      "path": "C:\\Users\\Ube\\Documents\\Codex\\2026-10-06\\task-20\\belt-family-r3\\gbenga-run2-generated-source.png",
+      "sha256": "95547788cbf6348038c7d8f93b5e9f0430f1d28fc787d15b2a523ba07111d0b3",
+      "bytes": 598257
+    },
+    {
+      "path": "C:\\Users\\Ube\\Documents\\Codex\\2026-10-06\\task-20\\belt-family-r3\\gbenga-run2-r3.png",
+      "sha256": "e4f007f74785afa7ceb5082f7a30f8537d8ccfd79b794f49261e19e1e19c545d",
+      "bytes": 7517
+    },
+    {
+      "path": "C:\\Users\\Ube\\Documents\\Codex\\2026-10-06\\task-20\\belt-family-r3\\gbenga-sheet-2x.png",
+      "sha256": "a307fe49e1089845781ed10f5233338dd94abc14225989a850ccf596832e011e",
+      "bytes": 52069
+    },
+    {
+      "path": "C:\\Users\\Ube\\Documents\\Codex\\2026-10-06\\task-20\\belt-family-r3\\gbenga-sheet-native.png",
+      "sha256": "9920fdb38f9f665e5f776eb2d7471708db7995cbf5bb1dd95e2d8a93e38d5c1d",
+      "bytes": 38800
+    },
+    {
+      "path": "C:\\Users\\Ube\\Documents\\Codex\\2026-10-06\\task-20\\belt-family-r3\\motion-2x.gif",
+      "sha256": "bbad862e4edfb3538e8a09e704efe81c3f5f4719905810a63300c18fad10f995",
+      "bytes": 222012
+    },
+    {
+      "path": "C:\\Users\\Ube\\Documents\\Codex\\2026-10-06\\task-20\\belt-family-r3\\motion-native.gif",
+      "sha256": "3e53ab85eb26acf5dee90332a3d165d1f2ae755fb9d784e41906c81a6a906e12",
+      "bytes": 98497
+    },
+    {
+      "path": "C:\\Users\\Ube\\Documents\\Codex\\2026-10-06\\task-20\\belt-family-r3\\motion-review.html",
+      "sha256": "a9176aca6b7dc425ed4b9eef8a9f60ec6fe6621d918081ba06e086e37c5ebc15",
+      "bytes": 87636
+    },
+    {
+      "path": "C:\\Users\\Ube\\Documents\\Codex\\2026-10-06\\task-20\\belt-family-r3\\motion-stage-atlas.png",
+      "sha256": "a96e3c1d5ac829bf1186358782eb397643ba7ba511eafe196ba652ac926cf5d4",
+      "bytes": 96885
+    },
+    {
+      "path": "C:\\Users\\Ube\\Documents\\Codex\\2026-10-06\\task-20\\belt-family-r3\\PROMPTS.txt",
+      "sha256": "ed7fcd2712a5613d8b8e445026aaf5cb835862be4e6a2aa66016ed3becad389d",
+      "bytes": 14076
+    },
+    {
+      "path": "C:\\Users\\Ube\\Documents\\Codex\\2026-10-06\\task-20\\belt-family-r3\\PROPOSED-contact-staging-atlas.png",
+      "sha256": "d75c6ccf3d36cfb1d365972f2fed0ecb99b5cbeb0bd940025b01004e84911529",
+      "bytes": 97171
+    },
+    {
+      "path": "C:\\Users\\Ube\\Documents\\Codex\\2026-10-06\\task-20\\belt-family-r3\\PROPOSED-contact-staging-motion.gif",
+      "sha256": "e6f7ef63acaeb4a236d4e6defad2c629fcb1b90f0e47c1964eadcbfd5ac02863",
+      "bytes": 99763
+    },
+    {
+      "path": "C:\\Users\\Ube\\Documents\\Codex\\2026-10-06\\task-20\\belt-family-r3\\QA-RECEIPT.txt",
+      "sha256": "db1fd2ea62258d8897d0cb9141272359e14f31e62799c31aab0c712fe431107d",
+      "bytes": 1909
+    }
+  ],
+  "checks": [
+    {
+      "actor": "carlos",
+      "slot": "anticipation",
+      "coreAlpha128BBox": [
+        24,
+        27,
+        63,
+        86
+      ],
+      "alphaPreserved": true
+    },
+    {
+      "actor": "carlos",
+      "slot": "run1",
+      "coreAlpha128BBox": [
+        25,
+        26,
+        64,
+        90
+      ],
+      "alphaPreserved": true
+    },
+    {
+      "actor": "carlos",
+      "slot": "run2",
+      "coreAlpha128BBox": [
+        21,
+        32,
+        64,
+        88
+      ],
+      "alphaPreserved": true
+    },
+    {
+      "actor": "carlos",
+      "slot": "contact",
+      "coreAlpha128BBox": [
+        23,
+        24,
+        56,
+        89
+      ],
+      "alphaPreserved": true
+    },
+    {
+      "actor": "carlos",
+      "slot": "follow_through",
+      "coreAlpha128BBox": [
+        20,
+        25,
+        58,
+        90
+      ],
+      "alphaPreserved": true
+    },
+    {
+      "actor": "carlos",
+      "slot": "recover",
+      "coreAlpha128BBox": [
+        29,
+        32,
+        55,
+        88
+      ],
+      "alphaPreserved": true
+    },
+    {
+      "actor": "gbenga",
+      "slot": "anticipation",
+      "coreAlpha128BBox": [
+        14,
+        9,
+        60,
+        89
+      ],
+      "alphaPreserved": true
+    },
+    {
+      "actor": "gbenga",
+      "slot": "run1",
+      "coreAlpha128BBox": [
+        18,
+        13,
+        59,
+        85
+      ],
+      "alphaPreserved": true
+    },
+    {
+      "actor": "gbenga",
+      "slot": "run2",
+      "coreAlpha128BBox": [
+        20,
+        10,
+        68,
+        88
+      ],
+      "alphaPreserved": true
+    },
+    {
+      "actor": "gbenga",
+      "slot": "contact",
+      "coreAlpha128BBox": [
+        2,
+        11,
+        61,
+        89
+      ],
+      "alphaPreserved": true
+    },
+    {
+      "actor": "gbenga",
+      "slot": "follow_through",
+      "coreAlpha128BBox": [
+        17,
+        11,
+        59,
+        87
+      ],
+      "alphaPreserved": true
+    },
+    {
+      "actor": "gbenga",
+      "slot": "recover",
+      "coreAlpha128BBox": [
+        26,
+        10,
+        61,
+        90
+      ],
+      "alphaPreserved": true
+    },
+    {
+      "gif": "motion-native.gif",
+      "frames": 6,
+      "durationsMs": [
+        350,
+        120,
+        240,
+        350,
+        320,
+        1120
+      ],
+      "totalMs": 2500
+    },
+    {
+      "gif": "motion-2x.gif",
+      "frames": 6,
+      "durationsMs": [
+        350,
+        120,
+        240,
+        350,
+        320,
+        1120
+      ],
+      "totalMs": 2500
+    },
+    {
+      "gif": "PROPOSED-contact-staging-motion.gif",
+      "frames": 6,
+      "durationsMs": [
+        350,
+        120,
+        240,
+        350,
+        320,
+        1120
+      ],
+      "totalMs": 2500
+    }
+  ],
+  "proposedStaging": {
+    "status": "UNAPPROVED_PRESENTATION_PROPOSAL_NOT_RUNTIME",
+    "changes": "Gbengadx-16atcontactandfollow_through instead0; alltimes/canvas/otheroffsetsunchanged",
+    "reason": "Exactcurrentwrapperleavesvisiblebelt-to-Carlosgap; retainpursuitoffsetforcomedicreach",
+    "files": [
+      "PROPOSED-contact-staging-motion.gif",
+      "PROPOSED-contact-staging-atlas.png"
+    ]
+  },
+  "motionReview": {
+    "status": "COORDINATOR_W_ACCEPTANCE_REQUIRED",
+    "nativeAndStageAtlas": "inspected",
+    "exactWrapper": "sixpose sequence readable, contactgap fails literalcontactfit",
+    "proposed": "contactreachproposal supplied, requiresdecision",
+    "liveBrowser": "fileprotocol rejected byBrowserURLsecuritypolicy; no alternateURL/serverworkaround attempted",
+    "runtime": "notedited/notimported/notcaptured"
+  }
+}
