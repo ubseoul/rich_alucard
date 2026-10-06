@@ -1,0 +1,49 @@
+{
+  "width": 390,
+  "mode": "cancel",
+  "kind": "seeded rave night, actual RAOgunRave.fight and ordinary legal UI actions",
+  "errors": [],
+  "entry": {
+    "name": "HILT",
+    "src": "assets/before_the_fame/characters/hilt/hilt_neutral_80x96.png",
+    "met": true,
+    "timeline": [
+      "assets/rc5/hilt_v001/prepare.png",
+      "assets/rc5/hilt_v001/aim.png",
+      "assets/rc5/hilt_v001/release.png",
+      "assets/rc5/hilt_v001/contact.png",
+      "assets/rc5/hilt_v001/recovery.png"
+    ],
+    "generic": null
+  },
+  "cancel": {
+    "phase": "bllad33Enter",
+    "scene": "ogun-rave",
+    "fx": 0,
+    "contacts": 0,
+    "rootHidden": false
+  },
+  "frames": [
+    {
+      "at": 3890.600000023842,
+      "frame": "0",
+      "src": "assets/rc5/hilt_v001/prepare.png",
+      "transform": "none",
+      "top": 246,
+      "foot": 523.60986328125,
+      "expectedFoot": 524,
+      "hud": "100/100"
+    }
+  ],
+  "contacts": [],
+  "restores": [
+    {
+      "styleBefore": "left: 146px; top: 160px; width: 264.388px; height: 317.265px; transform: scaleX(-1); --pd-w: 264.388px; --pd-h: 317.265px; --pd-k: 3.305;",
+      "styleAfter": "left: 49.4074%; top: 35.725%; width: 49.3333%; height: 33.3%; transform: scaleX(-1);",
+      "srcBefore": "assets/before_the_fame/characters/hilt/hilt_neutral_80x96.png",
+      "srcAfter": "assets/before_the_fame/characters/hilt/hilt_neutral_80x96.png",
+      "connected": false
+    }
+  ],
+  "passed": true
+}

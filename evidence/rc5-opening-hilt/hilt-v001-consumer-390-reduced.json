@@ -1,0 +1,134 @@
+{
+  "width": 390,
+  "mode": "reduced",
+  "kind": "seeded rave night, actual RAOgunRave.fight and ordinary legal UI actions",
+  "errors": [],
+  "entry": {
+    "name": "HILT",
+    "src": "assets/before_the_fame/characters/hilt/hilt_neutral_80x96.png",
+    "met": true,
+    "timeline": [
+      "assets/rc5/hilt_v001/prepare.png",
+      "assets/rc5/hilt_v001/aim.png",
+      "assets/rc5/hilt_v001/release.png",
+      "assets/rc5/hilt_v001/contact.png",
+      "assets/rc5/hilt_v001/recovery.png"
+    ],
+    "generic": null
+  },
+  "turns": [
+    {
+      "before": {
+        "hp": 100,
+        "enemy": 70,
+        "pp": 8,
+        "over": false
+      },
+      "after": {
+        "hp": 82,
+        "enemy": 47,
+        "pp": 7,
+        "over": false
+      }
+    },
+    {
+      "before": {
+        "hp": 82,
+        "enemy": 47,
+        "pp": 7,
+        "over": false
+      },
+      "after": {
+        "hp": 82,
+        "enemy": 24,
+        "pp": 6,
+        "over": false
+      }
+    },
+    {
+      "before": {
+        "hp": 82,
+        "enemy": 24,
+        "pp": 6,
+        "over": false
+      },
+      "after": {
+        "hp": 82,
+        "enemy": 2,
+        "pp": 5,
+        "over": false
+      }
+    },
+    {
+      "before": {
+        "hp": 82,
+        "enemy": 2,
+        "pp": 5,
+        "over": false
+      },
+      "after": {
+        "hp": 100,
+        "enemy": 0,
+        "pp": 4,
+        "over": true
+      }
+    }
+  ],
+  "result": "win",
+  "frames": [
+    {
+      "at": 4109,
+      "frame": "6",
+      "src": "assets/rc5/hilt_v001/contact.png",
+      "transform": "none",
+      "top": 253,
+      "foot": 524.22802734375,
+      "expectedFoot": 524,
+      "hud": "82/100"
+    }
+  ],
+  "contacts": [
+    {
+      "at": 4101.799999952316,
+      "frame": "6",
+      "before": "100/100",
+      "after": "82/100"
+    },
+    {
+      "at": 7280.399999976158,
+      "frame": "6",
+      "before": "100/100",
+      "after": "82/100"
+    },
+    {
+      "at": 10061.100000023842,
+      "frame": "6",
+      "before": "100/100",
+      "after": "82/100"
+    }
+  ],
+  "restores": [
+    {
+      "styleBefore": "left: 146px; top: 160px; width: 264.388px; height: 317.265px; transform: scaleX(-1); --pd-w: 264.388px; --pd-h: 317.265px; --pd-k: 3.305;",
+      "styleAfter": "left: 146px; top: 160px; width: 264.388px; height: 317.265px; transform: scaleX(-1); --pd-w: 264.388px; --pd-h: 317.265px; --pd-k: 3.305;",
+      "srcBefore": "assets/before_the_fame/characters/hilt/hilt_neutral_80x96.png",
+      "srcAfter": "assets/before_the_fame/characters/hilt/hilt_neutral_80x96.png",
+      "connected": true
+    },
+    {
+      "styleBefore": "left: 146px; top: 160px; width: 264.388px; height: 317.265px; transform: scaleX(-1); --pd-w: 264.388px; --pd-h: 317.265px; --pd-k: 3.305;",
+      "styleAfter": "left: 146px; top: 160px; width: 264.388px; height: 317.265px; transform: scaleX(-1); --pd-w: 264.388px; --pd-h: 317.265px; --pd-k: 3.305;",
+      "srcBefore": "assets/before_the_fame/characters/hilt/hilt_neutral_80x96.png",
+      "srcAfter": "assets/before_the_fame/characters/hilt/hilt_neutral_80x96.png",
+      "connected": true
+    },
+    {
+      "styleBefore": "left: 146px; top: 160px; width: 264.388px; height: 317.265px; transform: scaleX(-1); --pd-w: 264.388px; --pd-h: 317.265px; --pd-k: 3.305;",
+      "styleAfter": "left: 146px; top: 160px; width: 264.388px; height: 317.265px; transform: scaleX(-1); --pd-w: 264.388px; --pd-h: 317.265px; --pd-k: 3.305;",
+      "srcBefore": "assets/before_the_fame/characters/hilt/hilt_neutral_80x96.png",
+      "srcAfter": "assets/before_the_fame/characters/hilt/hilt_neutral_80x96.png",
+      "connected": true
+    }
+  ],
+  "passed": true
+}

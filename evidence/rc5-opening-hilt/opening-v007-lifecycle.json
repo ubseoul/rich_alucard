@@ -1,0 +1,102 @@
+[
+  {
+    "offer": "whole",
+    "mode": "natural",
+    "kind": "seeded named A00 node, actual production adventure presenter",
+    "errors": [],
+    "receipt": {
+      "node": "merge",
+      "layers": 0
+    },
+    "reload": {
+      "flag": "whole",
+      "node": "brain_acquired",
+      "transfers": 0
+    },
+    "passed": true
+  },
+  {
+    "offer": "polite",
+    "mode": "pointer",
+    "kind": "seeded named A00 node, actual production adventure presenter",
+    "errors": [],
+    "receipt": {
+      "node": "merge",
+      "layers": 0
+    },
+    "reload": {
+      "flag": "polite",
+      "node": "brain_acquired",
+      "transfers": 0
+    },
+    "passed": true
+  },
+  {
+    "offer": "asked",
+    "mode": "keyboard",
+    "kind": "seeded named A00 node, actual production adventure presenter",
+    "errors": [],
+    "receipt": {
+      "node": "merge",
+      "layers": 0
+    },
+    "reload": {
+      "flag": "asked",
+      "node": "brain_acquired",
+      "transfers": 0
+    },
+    "passed": true
+  },
+  {
+    "offer": "polite",
+    "mode": "reduced",
+    "kind": "seeded named A00 node, actual production adventure presenter",
+    "errors": [],
+    "receipt": {
+      "node": "merge",
+      "layers": 0
+    },
+    "reload": {
+      "flag": "polite",
+      "node": "brain_acquired",
+      "transfers": 0
+    },
+    "passed": true
+  },
+  {
+    "offer": "whole",
+    "mode": "cancel",
+    "kind": "seeded named A00 node, actual production adventure presenter",
+    "errors": [],
+    "after": {
+      "layers": 0
+    },
+    "passed": true
+  },
+  {
+    "offer": "asked",
+    "mode": "reload",
+    "kind": "seeded named A00 node, actual production adventure presenter",
+    "errors": [],
+    "receipt": {
+      "node": "merge",
+      "layers": 0
+    },
+    "reload": {
+      "flag": "asked",
+      "node": "brain_acquired",
+      "transfers": 0
+    },
+    "passed": true
+  },
+  {
+    "offer": "whole",
+    "mode": "fall-cancel",
+    "kind": "seeded named A00 node, actual production adventure presenter",
+    "errors": [],
+    "after": {
+      "layers": 0
+    },
+    "passed": true
+  }
+]

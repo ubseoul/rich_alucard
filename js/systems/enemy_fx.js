@@ -133,6 +133,7 @@
   smallie_cousin:{dagger:{s:'stab',color:CC.violet},feint:{s:'burst',glyph:'star',color:CC.violet,at:'self',count:4,hitStar:1}},
   buckhead:{empire:{s:'burst',glyph:'star',color:CC.gold,count:6,at:'toRich',hitStar:1},mimosa:{s:'projectile',sprite:'glass',color:CC.orange,arc:16}},
   hunter:{bolt:{s:'projectile',sprite:'arrow',color:CC.bone,arc:2}},
+  ogun_rave_hilt:{bolt:{s:'projectile',sprite:'arrow',color:CC.bone,arc:2}},
   groupies:{hug:{s:'flurry',hits:3,color:CC.pink,sprite:'heart'}},
   werewolf:{swipe:{s:'slash',color:CC.bone,claws:1},howl:{s:'burst',glyph:'exclaim',color:CC.violet,at:'self',count:5}},
   training:{bonk:{s:'smash',color:CC.brown}},
@@ -149,18 +150,19 @@
  function register(enemyId,moveId,sequence){
   if(!sequence||!['prepare','action','contact','recover'].every(k=>typeof sequence[k]==='string'))throw new Error('enemy timeline requires four explicit body-state assets');
   if(new Set(['prepare','action','contact','recover'].map(k=>sequence[k])).size<2)throw new Error('enemy timeline requires distinct drawn body assets');
+  if(sequence.frames&&(!Array.isArray(sequence.frames)||sequence.frames.length!==FRAMES||sequence.frames.some(p=>typeof p!=='string')))throw new Error('enemy timeline frames require ten explicit source slots');
   (TIMELINES[enemyId]??={})[moveId]=Object.freeze({...sequence});return TIMELINES[enemyId][moveId];
  }
  function preload(enemyId,appearance=null){
   const timelineId=appearance?`${enemyId}@${appearance}`:enemyId;
   const paths=new Set();
-  for(const id of new Set([...Object.keys(window.RACombatData?.ENEMIES?.[enemyId]?.moves||{}),...Object.keys(TIMELINES[timelineId]||{})]))for(const f of [0,3,5,8]){const src=poseFor(enemyId,id,f,appearance);if(src)paths.add(src);}
+  for(const id of new Set([...Object.keys(window.RACombatData?.ENEMIES?.[enemyId]?.moves||{}),...Object.keys(TIMELINES[timelineId]||{})]))for(let f=0;f<FRAMES;f++){const src=poseFor(enemyId,id,f,appearance);if(src)paths.add(src);}
   for(const src of paths)if(!warmImages.has(src)){const img=new Image();img.src=src;warmImages.set(src,img);}
   return [...paths];
  }
  function poseFor(enemyId,moveId,f,appearance=null){
   const sequence=TIMELINES[appearance?`${enemyId}@${appearance}`:enemyId]?.[moveId];
-  if(sequence)return sequence[f<2?'prepare':f<5?'action':f<8?'contact':'recover'];
+  if(sequence)return sequence.frames?.[f]||sequence[f<2?'prepare':f<5?'action':f<8?'contact':'recover'];
   if(appearance)return null; // Never replace an authored appearance with another stage's body poses.
   const key=POSES[enemyId]?.[moveId];
   // Contact is frame5: hold the drawn action through impact, then recover at frame7.
@@ -191,9 +193,22 @@
  // Authored A20 day-three charged appearance; day-one sequences remain separate.
  register("phil@charging_day3","punch",{"prepare":"assets/rc4/combat_candidates_v4/phil-day3-punch-prepare.png","action":"assets/rc4/combat_candidates_v4/phil-day3-punch-action.png","contact":"assets/rc4/combat_candidates_v4/phil-day3-punch-contact.png","recover":"assets/rc4/combat_candidates_v4/phil-day3-punch-recovery.png","review":"assistant-delegated accepted Phil day3"});
  register("phil@charging_day3","beam",{"prepare":"assets/rc4/combat_candidates_v4/phil-day3-beam-prepare.png","action":"assets/rc4/combat_candidates_v4/phil-day3-beam-action.png","contact":"assets/rc4/combat_candidates_v4/phil-day3-beam-contact.png","recover":"assets/rc4/combat_candidates_v4/phil-day3-beam-recovery.png","review":"assistant-delegated accepted Phil day3"});
+ // Named rave encounter only. Native LEFT assets are displayed without the canonical neutral's mirror.
+ // Zero-based frame5 remains the sole mechanical contact at450ms; artist preview slot numbering is independent.
+ const hiltBase='assets/rc5/hilt_v001/',hiltSrc=s=>hiltBase+s+'.png';
+ // Additive metadata for these five new paths only; measured native contacts, unchanged image bytes.
+ const hiltBounds={prepare:[23,31,46,56],aim:[13,24,53,61],release:[16,27,55,57],contact:[9,32,66,54],recovery:[21,28,44,62]};
+ if(window.RAPresentationAssets)for(const [s,y] of [['prepare',87],['aim',84],['release',84],['contact',85],['recovery',90]]){
+  const visible=hiltBounds[s];RAPresentationAssets[hiltSrc(s)]={width:80,height:96,anchor:[40,y],visible,face:[36,visible[1],16,14],faceSource:'estimated candidate pose',authority:'ASSISTANT REVIEWED CANDIDATE',support:{y,x1:28,x2:57,threshold:128}};
+ }
+ register('ogun_rave_hilt','bolt',{
+  prepare:hiltSrc('prepare'),action:hiltSrc('release'),contact:hiltSrc('contact'),recover:hiltSrc('recovery'),
+  frames:['prepare','prepare','aim','aim','release','contact','contact','recovery','recovery','recovery'].map(hiltSrc),
+  native:Object.fromEntries([['prepare',87],['aim',84],['release',84],['contact',85],['recovery',90]].map(([s,y])=>[hiltSrc(s),{canvas:[80,96],contact:[40,y],facing:'left'}]))
+ });
  const active=new WeakMap();
  // attack({root,enemyId,moveId,dmg,attacker:enemyEl,target:richEl}) -> resolves when the animation ends (<= ~650 ms).
- async function attack({root,enemyId,moveId,dmg=0,attacker,target,freeze=null,onContact=null,appearance=null}){
+ async function attack({root,enemyId,moveId,dmg=0,attacker,target,freeze=null,onContact=null,onPose=null,appearance=null}){
   const fx=H();if(!fx||!root||!root.isConnected||!attacker||!target)return 0;
   // One owner per stage. Finish the old owner's cleanup before taking its pose snapshot.
   active.get(root)?.cancel();
@@ -201,7 +216,10 @@
   let V,L;try{V=fx.view(root,target,attacker);L=fx.layer(root,V,`enemy:${enemyId}:${moveId}`);}catch(e){return 0;}
   // fx.view(root,attacker,target) names rich as "attacker"; here the enemy attacks, so anchors are: enemy=V.enemy, rich=V.rich.
   const a=V.enemy,t=V.rich;L.canvas.classList.add('rc2-enemy-fx');root.dataset.lastEnemyFx=`${enemyId}:${moveId}:${sp.s}`;
-  const opts={...sp,hits:sp.hits},original=attacker.getAttribute('src');
+ const opts={...sp,hits:sp.hits},original=attacker.getAttribute('src');
+ const sequence=TIMELINES[appearance?`${enemyId}@${appearance}`:enemyId]?.[moveId],originalStyle=attacker.getAttribute('style');
+ const savedTransform=attacker.style.transform,nativeScale=attacker.getBoundingClientRect().height/96;
+ const savedTop=(parseFloat(attacker.style.top)||0)-(sequence?.native?.[original]?(88-sequence.native[original].contact[1])*nativeScale:0);
   let contact=false,cancelled=false,timer=null,wake=null;
   const owner={cancel:()=>{if(cancelled)return;cancelled=true;clearTimeout(timer);wake?.();cleanup();}};
   const owns=()=>active.get(root)===owner;
@@ -209,7 +227,7 @@
    L.canvas.remove();root.removeEventListener('c2:close',owner.cancel);
    if(!owns())return;
    // A closed stage cannot restore over the next fight's identity or schedule a new effect.
-   if(root.isConnected&&attacker.isConnected&&original&&attacker.tagName==='IMG')attacker.src=original;
+  if(root.isConnected&&attacker.isConnected&&original&&attacker.tagName==='IMG'){attacker.src=original;if(sequence?.native){if(originalStyle==null)attacker.removeAttribute('style');else attacker.setAttribute('style',originalStyle);onPose?.(original,sequence.native[original]);}}
    delete attacker.dataset.movePose;delete root.dataset.enemyPhase;active.delete(root);
   }
   const pause=ms=>new Promise(resolve=>{wake=resolve;timer=setTimeout(()=>{wake=null;resolve();},ms);});
@@ -217,7 +235,9 @@
    if(cancelled||!owns()||!root.isConnected||!attacker.isConnected||!target.isConnected)return false;
    L.ctx.clearRect(0,0,270,V.H);paint(L.ctx,f,a,t,opts);L.canvas.dataset.frame=String(f);
    const pose=poseFor(enemyId,moveId,f,appearance);
-   if(pose&&attacker.tagName==='IMG'){attacker.src=pose;attacker.dataset.movePose=pose;}
+  if(pose&&attacker.tagName==='IMG'){attacker.src=pose;attacker.dataset.movePose=pose;
+   const meta=sequence?.native?.[pose];if(meta){if(onPose)onPose(pose,meta);else{attacker.style.transform=meta.facing==='left'?'none':savedTransform;attacker.style.top=(savedTop+(88-meta.contact[1])*nativeScale)+'px';}}
+  }
    else if(f>=7&&original&&attacker.tagName==='IMG'){attacker.src=original;delete attacker.dataset.movePose;}
    root.dataset.enemyPhase=f<2?'anticipation':f<5?'action':f<(TIMELINES[appearance?`${enemyId}@${appearance}`:enemyId]?.[moveId]?8:7)?'impact':'recovery';
    if(f>=5&&!contact){contact=true;onContact?.();}return true;

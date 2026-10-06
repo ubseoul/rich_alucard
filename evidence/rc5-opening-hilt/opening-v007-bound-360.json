@@ -1,0 +1,1599 @@
+{
+  "kind": "fresh natural START, ordinary inputs, production art binding",
+  "width": 360,
+  "errors": [],
+  "rows": [
+    {
+      "at": 2804.3000000715256,
+      "node": "floor",
+      "src": "assets/rich_standing_right.png",
+      "transform": "",
+      "rect": {
+        "x": 81.328125,
+        "y": 136.984375,
+        "width": 269.5625,
+        "height": 323.46875,
+        "top": 136.984375,
+        "right": 350.890625,
+        "bottom": 460.453125,
+        "left": 81.328125
+      },
+      "world": {
+        "x": 0,
+        "y": 0,
+        "w": 360,
+        "h": 468
+      }
+    },
+    {
+      "at": 4078.2000000476837,
+      "node": "fall1",
+      "src": "assets/rich_standing_right.png",
+      "transform": "",
+      "rect": {
+        "x": 213.328125,
+        "y": 316.15625,
+        "width": 106.65625,
+        "height": 128,
+        "top": 316.15625,
+        "right": 319.984375,
+        "bottom": 444.15625,
+        "left": 213.328125
+      },
+      "world": {
+        "x": 0,
+        "y": 0,
+        "w": 360,
+        "h": 468
+      }
+    },
+    {
+      "at": 4092.3000000715256,
+      "node": "fall1",
+      "src": "assets/rc5/opening_v007/rich/climb.png",
+      "transform": "translate(0px, 0px) rotate(0deg)",
+      "rect": {
+        "x": 213.328125,
+        "y": 316.15625,
+        "width": 106.65625,
+        "height": 128,
+        "top": 316.15625,
+        "right": 319.984375,
+        "bottom": 444.15625,
+        "left": 213.328125
+      },
+      "world": {
+        "x": 0,
+        "y": 0,
+        "w": 360,
+        "h": 468
+      }
+    },
+    {
+      "at": 4326.100000023842,
+      "node": "fall1",
+      "src": "assets/rc5/opening_v007/rich/climb.png",
+      "transform": "translate(0px, -58.0059px) rotate(0deg)",
+      "rect": {
+        "x": 213.328125,
+        "y": 258.150390625,
+        "width": 106.65625,
+        "height": 128,
+        "top": 258.150390625,
+        "right": 319.984375,
+        "bottom": 386.150390625,
+        "left": 213.328125
+      },
+      "world": {
+        "x": 0,
+        "y": 0,
+        "w": 360,
+        "h": 468
+      }
+    },
+    {
+      "at": 4576.600000023842,
+      "node": "fall1",
+      "src": "assets/rc5/opening_v007/rich/climb.png",
+      "transform": "translate(0px, -116.012px) rotate(0deg)",
+      "rect": {
+        "x": 213.328125,
+        "y": 200.14450073242188,
+        "width": 106.65625,
+        "height": 128,
+        "top": 200.14450073242188,
+        "right": 319.984375,
+        "bottom": 328.1445007324219,
+        "left": 213.328125
+      },
+      "world": {
+        "x": 0,
+        "y": 0,
+        "w": 360,
+        "h": 468
+      }
+    },
+    {
+      "at": 4809.700000047684,
+      "node": "fall1",
+      "src": "assets/rc5/opening_v007/rich/climb.png",
+      "transform": "translate(0px, -174.018px) rotate(0deg)",
+      "rect": {
+        "x": 213.328125,
+        "y": 142.1386260986328,
+        "width": 106.65625,
+        "height": 127.99998474121094,
+        "top": 142.1386260986328,
+        "right": 319.984375,
+        "bottom": 270.13861083984375,
+        "left": 213.328125
+      },
+      "world": {
+        "x": 0,
+        "y": 0,
+        "w": 360,
+        "h": 468
+      }
+    },
+    {
+      "at": 5061,
+      "node": "fall1",
+      "src": "assets/rc5/opening_v007/rich/reach.png",
+      "transform": "translate(0px, -232.023px) rotate(0deg)",
+      "rect": {
+        "x": 213.328125,
+        "y": 84.13275146484375,
+        "width": 106.65625,
+        "height": 128,
+        "top": 84.13275146484375,
+        "right": 319.984375,
+        "bottom": 212.13275146484375,
+        "left": 213.328125
+      },
+      "world": {
+        "x": 0,
+        "y": 0,
+        "w": 360,
+        "h": 468
+      }
+    },
+    {
+      "at": 5293.5,
+      "node": "fall1",
+      "src": "assets/rc5/opening_v007/rich/reach.png",
+      "transform": "translate(0px, -290.029px) rotate(0deg)",
+      "rect": {
+        "x": 213.328125,
+        "y": 26.12689208984375,
+        "width": 106.65625,
+        "height": 128,
+        "top": 26.12689208984375,
+        "right": 319.984375,
+        "bottom": 154.12689208984375,
+        "left": 213.328125
+      },
+      "world": {
+        "x": 0,
+        "y": 0,
+        "w": 360,
+        "h": 468
+      }
+    },
+    {
+      "at": 5493.800000071526,
+      "node": "fall1",
+      "src": "assets/rc5/opening_v007/rich/slip.png",
+      "transform": "translate(0px, -311.513px) rotate(0deg)",
+      "rect": {
+        "x": 213.328125,
+        "y": 4.643218994140625,
+        "width": 106.65625,
+        "height": 128,
+        "top": 4.643218994140625,
+        "right": 319.984375,
+        "bottom": 132.64321899414062,
+        "left": 213.328125
+      },
+      "world": {
+        "x": 0,
+        "y": 0,
+        "w": 360,
+        "h": 468
+      }
+    },
+    {
+      "at": 5644.5,
+      "node": "fall1",
+      "src": "assets/rc5/opening_v007/rich/tumble.png",
+      "transform": "translate(0px, -290.029px) rotate(-22deg)",
+      "rect": {
+        "x": 193.2364501953125,
+        "y": 10.81005859375,
+        "width": 146.839599609375,
+        "height": 158.6336669921875,
+        "top": 10.81005859375,
+        "right": 340.0760498046875,
+        "bottom": 169.4437255859375,
+        "left": 193.2364501953125
+      },
+      "world": {
+        "x": 0,
+        "y": 0,
+        "w": 360,
+        "h": 468
+      }
+    },
+    {
+      "at": 5794.100000023842,
+      "node": "fall1",
+      "src": "assets/rc5/opening_v007/rich/tumble.png",
+      "transform": "translate(0px, -240.617px) rotate(30deg)",
+      "rect": {
+        "x": 188.4727325439453,
+        "y": 57.44960403442383,
+        "width": 156.3670196533203,
+        "height": 164.17938232421875,
+        "top": 57.44960403442383,
+        "right": 344.8397521972656,
+        "bottom": 221.62898635864258,
+        "left": 188.4727325439453
+      },
+      "world": {
+        "x": 0,
+        "y": 0,
+        "w": 360,
+        "h": 468
+      }
+    },
+    {
+      "at": 5961,
+      "node": "fall1",
+      "src": "assets/rc5/opening_v007/rich/tumble.png",
+      "transform": "translate(0px, -161.127px) rotate(-36deg)",
+      "rect": {
+        "x": 185.89463806152344,
+        "y": 135.90625,
+        "width": 161.5232391357422,
+        "height": 166.24514770507812,
+        "top": 135.90625,
+        "right": 347.4178771972656,
+        "bottom": 302.1513977050781,
+        "left": 185.89463806152344
+      },
+      "world": {
+        "x": 0,
+        "y": 0,
+        "w": 360,
+        "h": 468
+      }
+    },
+    {
+      "at": 6128.700000047684,
+      "node": "fall1",
+      "src": "assets/rc5/opening_v007/rich/tumble.png",
+      "transform": "translate(0px, -42.9673px) rotate(42deg)",
+      "rect": {
+        "x": 184.2013702392578,
+        "y": 253.94418334960938,
+        "width": 164.9097442626953,
+        "height": 166.489501953125,
+        "top": 253.94418334960938,
+        "right": 349.1111145019531,
+        "bottom": 420.4336853027344,
+        "left": 184.2013702392578
+      },
+      "world": {
+        "x": 0,
+        "y": 0,
+        "w": 360,
+        "h": 468
+      }
+    },
+    {
+      "at": 6229,
+      "node": "fall1",
+      "src": "assets/rc5/opening_v007/rich/impact.png",
+      "transform": "translate(0px, 0px) rotate(0deg)",
+      "rect": {
+        "x": 213.328125,
+        "y": 316.15625,
+        "width": 106.65625,
+        "height": 128,
+        "top": 316.15625,
+        "right": 319.984375,
+        "bottom": 444.15625,
+        "left": 213.328125
+      },
+      "world": {
+        "x": 0,
+        "y": 0,
+        "w": 360,
+        "h": 468
+      }
+    },
+    {
+      "at": 6529.100000023842,
+      "node": "fall1",
+      "src": "assets/rc5/opening_v007/rich/recover.png",
+      "transform": "translate(0px, 0px) rotate(0deg)",
+      "rect": {
+        "x": 213.328125,
+        "y": 316.15625,
+        "width": 106.65625,
+        "height": 128,
+        "top": 316.15625,
+        "right": 319.984375,
+        "bottom": 444.15625,
+        "left": 213.328125
+      },
+      "world": {
+        "x": 0,
+        "y": 0,
+        "w": 360,
+        "h": 468
+      }
+    },
+    {
+      "at": 6829.800000071526,
+      "node": "fall1",
+      "src": "assets/rc5/opening_v007/rich/settled.png",
+      "transform": "translate(0px, 0px) rotate(0deg)",
+      "rect": {
+        "x": 213.328125,
+        "y": 316.15625,
+        "width": 106.65625,
+        "height": 128,
+        "top": 316.15625,
+        "right": 319.984375,
+        "bottom": 444.15625,
+        "left": 213.328125
+      },
+      "world": {
+        "x": 0,
+        "y": 0,
+        "w": 360,
+        "h": 468
+      }
+    },
+    {
+      "at": 6997.600000023842,
+      "node": "fall1",
+      "src": "assets/rich_standing_right.png",
+      "transform": "",
+      "rect": {
+        "x": 43,
+        "y": 136.984375,
+        "width": 269.5625,
+        "height": 323.46875,
+        "top": 136.984375,
+        "right": 312.5625,
+        "bottom": 460.453125,
+        "left": 43
+      },
+      "world": {
+        "x": 0,
+        "y": 0,
+        "w": 360,
+        "h": 468
+      }
+    },
+    {
+      "at": 7636.5,
+      "node": "try2",
+      "src": "assets/rich_standing_right.png",
+      "transform": "",
+      "rect": {
+        "x": 81.328125,
+        "y": 136.984375,
+        "width": 269.5625,
+        "height": 323.46875,
+        "top": 136.984375,
+        "right": 350.890625,
+        "bottom": 460.453125,
+        "left": 81.328125
+      },
+      "world": {
+        "x": 0,
+        "y": 0,
+        "w": 360,
+        "h": 468
+      }
+    },
+    {
+      "at": 8322.600000023842,
+      "node": "fall2",
+      "src": "assets/rich_standing_right.png",
+      "transform": "",
+      "rect": {
+        "x": 213.328125,
+        "y": 316.15625,
+        "width": 106.65625,
+        "height": 128,
+        "top": 316.15625,
+        "right": 319.984375,
+        "bottom": 444.15625,
+        "left": 213.328125
+      },
+      "world": {
+        "x": 0,
+        "y": 0,
+        "w": 360,
+        "h": 468
+      }
+    },
+    {
+      "at": 8329.899999976158,
+      "node": "fall2",
+      "src": "assets/rc5/opening_v007/rich/climb.png",
+      "transform": "translate(0px, 0px) rotate(0deg)",
+      "rect": {
+        "x": 213.328125,
+        "y": 316.15625,
+        "width": 106.65625,
+        "height": 128,
+        "top": 316.15625,
+        "right": 319.984375,
+        "bottom": 444.15625,
+        "left": 213.328125
+      },
+      "world": {
+        "x": 0,
+        "y": 0,
+        "w": 360,
+        "h": 468
+      }
+    },
+    {
+      "at": 8581.600000023842,
+      "node": "fall2",
+      "src": "assets/rc5/opening_v007/rich/climb.png",
+      "transform": "translate(0px, -58.0059px) rotate(0deg)",
+      "rect": {
+        "x": 213.328125,
+        "y": 258.150390625,
+        "width": 106.65625,
+        "height": 128,
+        "top": 258.150390625,
+        "right": 319.984375,
+        "bottom": 386.150390625,
+        "left": 213.328125
+      },
+      "world": {
+        "x": 0,
+        "y": 0,
+        "w": 360,
+        "h": 468
+      }
+    },
+    {
+      "at": 8814.600000023842,
+      "node": "fall2",
+      "src": "assets/rc5/opening_v007/rich/climb.png",
+      "transform": "translate(0px, -116.012px) rotate(0deg)",
+      "rect": {
+        "x": 213.328125,
+        "y": 200.14450073242188,
+        "width": 106.65625,
+        "height": 128,
+        "top": 200.14450073242188,
+        "right": 319.984375,
+        "bottom": 328.1445007324219,
+        "left": 213.328125
+      },
+      "world": {
+        "x": 0,
+        "y": 0,
+        "w": 360,
+        "h": 468
+      }
+    },
+    {
+      "at": 9048.5,
+      "node": "fall2",
+      "src": "assets/rc5/opening_v007/rich/climb.png",
+      "transform": "translate(0px, -174.018px) rotate(0deg)",
+      "rect": {
+        "x": 213.328125,
+        "y": 142.1386260986328,
+        "width": 106.65625,
+        "height": 127.99998474121094,
+        "top": 142.1386260986328,
+        "right": 319.984375,
+        "bottom": 270.13861083984375,
+        "left": 213.328125
+      },
+      "world": {
+        "x": 0,
+        "y": 0,
+        "w": 360,
+        "h": 468
+      }
+    },
+    {
+      "at": 9298.100000023842,
+      "node": "fall2",
+      "src": "assets/rc5/opening_v007/rich/reach.png",
+      "transform": "translate(0px, -232.023px) rotate(0deg)",
+      "rect": {
+        "x": 213.328125,
+        "y": 84.13275146484375,
+        "width": 106.65625,
+        "height": 128,
+        "top": 84.13275146484375,
+        "right": 319.984375,
+        "bottom": 212.13275146484375,
+        "left": 213.328125
+      },
+      "world": {
+        "x": 0,
+        "y": 0,
+        "w": 360,
+        "h": 468
+      }
+    },
+    {
+      "at": 9532.399999976158,
+      "node": "fall2",
+      "src": "assets/rc5/opening_v007/rich/reach.png",
+      "transform": "translate(0px, -290.029px) rotate(0deg)",
+      "rect": {
+        "x": 213.328125,
+        "y": 26.12689208984375,
+        "width": 106.65625,
+        "height": 128,
+        "top": 26.12689208984375,
+        "right": 319.984375,
+        "bottom": 154.12689208984375,
+        "left": 213.328125
+      },
+      "world": {
+        "x": 0,
+        "y": 0,
+        "w": 360,
+        "h": 468
+      }
+    },
+    {
+      "at": 9715.899999976158,
+      "node": "fall2",
+      "src": "assets/rc5/opening_v007/rich/slip.png",
+      "transform": "translate(0px, -311.513px) rotate(0deg)",
+      "rect": {
+        "x": 213.328125,
+        "y": 4.643218994140625,
+        "width": 106.65625,
+        "height": 128,
+        "top": 4.643218994140625,
+        "right": 319.984375,
+        "bottom": 132.64321899414062,
+        "left": 213.328125
+      },
+      "world": {
+        "x": 0,
+        "y": 0,
+        "w": 360,
+        "h": 468
+      }
+    },
+    {
+      "at": 9864.899999976158,
+      "node": "fall2",
+      "src": "assets/rc5/opening_v007/rich/tumble.png",
+      "transform": "translate(0px, -290.029px) rotate(-22deg)",
+      "rect": {
+        "x": 193.2364501953125,
+        "y": 10.81005859375,
+        "width": 146.839599609375,
+        "height": 158.6336669921875,
+        "top": 10.81005859375,
+        "right": 340.0760498046875,
+        "bottom": 169.4437255859375,
+        "left": 193.2364501953125
+      },
+      "world": {
+        "x": 0,
+        "y": 0,
+        "w": 360,
+        "h": 468
+      }
+    },
+    {
+      "at": 10048.399999976158,
+      "node": "fall2",
+      "src": "assets/rc5/opening_v007/rich/tumble.png",
+      "transform": "translate(0px, -240.617px) rotate(30deg)",
+      "rect": {
+        "x": 188.4727325439453,
+        "y": 57.44960403442383,
+        "width": 156.3670196533203,
+        "height": 164.17938232421875,
+        "top": 57.44960403442383,
+        "right": 344.8397521972656,
+        "bottom": 221.62898635864258,
+        "left": 188.4727325439453
+      },
+      "world": {
+        "x": 0,
+        "y": 0,
+        "w": 360,
+        "h": 468
+      }
+    },
+    {
+      "at": 10198.600000023842,
+      "node": "fall2",
+      "src": "assets/rc5/opening_v007/rich/tumble.png",
+      "transform": "translate(0px, -161.127px) rotate(-36deg)",
+      "rect": {
+        "x": 185.89463806152344,
+        "y": 135.90625,
+        "width": 161.5232391357422,
+        "height": 166.24514770507812,
+        "top": 135.90625,
+        "right": 347.4178771972656,
+        "bottom": 302.1513977050781,
+        "left": 185.89463806152344
+      },
+      "world": {
+        "x": 0,
+        "y": 0,
+        "w": 360,
+        "h": 468
+      }
+    },
+    {
+      "at": 10365.399999976158,
+      "node": "fall2",
+      "src": "assets/rc5/opening_v007/rich/tumble.png",
+      "transform": "translate(0px, -42.9673px) rotate(42deg)",
+      "rect": {
+        "x": 184.2013702392578,
+        "y": 253.94418334960938,
+        "width": 164.9097442626953,
+        "height": 166.489501953125,
+        "top": 253.94418334960938,
+        "right": 349.1111145019531,
+        "bottom": 420.4336853027344,
+        "left": 184.2013702392578
+      },
+      "world": {
+        "x": 0,
+        "y": 0,
+        "w": 360,
+        "h": 468
+      }
+    },
+    {
+      "at": 10448.800000071526,
+      "node": "fall2",
+      "src": "assets/rc5/opening_v007/rich/impact.png",
+      "transform": "translate(0px, 0px) rotate(0deg)",
+      "rect": {
+        "x": 213.328125,
+        "y": 316.15625,
+        "width": 106.65625,
+        "height": 128,
+        "top": 316.15625,
+        "right": 319.984375,
+        "bottom": 444.15625,
+        "left": 213.328125
+      },
+      "world": {
+        "x": 0,
+        "y": 0,
+        "w": 360,
+        "h": 468
+      }
+    },
+    {
+      "at": 10749,
+      "node": "fall2",
+      "src": "assets/rc5/opening_v007/rich/recover.png",
+      "transform": "translate(0px, 0px) rotate(0deg)",
+      "rect": {
+        "x": 213.328125,
+        "y": 316.15625,
+        "width": 106.65625,
+        "height": 128,
+        "top": 316.15625,
+        "right": 319.984375,
+        "bottom": 444.15625,
+        "left": 213.328125
+      },
+      "world": {
+        "x": 0,
+        "y": 0,
+        "w": 360,
+        "h": 468
+      }
+    },
+    {
+      "at": 11066,
+      "node": "fall2",
+      "src": "assets/rc5/opening_v007/rich/settled.png",
+      "transform": "translate(0px, 0px) rotate(0deg)",
+      "rect": {
+        "x": 213.328125,
+        "y": 316.15625,
+        "width": 106.65625,
+        "height": 128,
+        "top": 316.15625,
+        "right": 319.984375,
+        "bottom": 444.15625,
+        "left": 213.328125
+      },
+      "world": {
+        "x": 0,
+        "y": 0,
+        "w": 360,
+        "h": 468
+      }
+    },
+    {
+      "at": 11217.200000047684,
+      "node": "fall2",
+      "src": "assets/rich_standing_right.png",
+      "transform": "",
+      "rect": {
+        "x": 43,
+        "y": 136.984375,
+        "width": 269.5625,
+        "height": 323.46875,
+        "top": 136.984375,
+        "right": 312.5625,
+        "bottom": 460.453125,
+        "left": 43
+      },
+      "world": {
+        "x": 0,
+        "y": 0,
+        "w": 360,
+        "h": 468
+      }
+    },
+    {
+      "at": 12006.800000071526,
+      "node": "try3",
+      "src": "assets/rich_standing_right.png",
+      "transform": "",
+      "rect": {
+        "x": 81.328125,
+        "y": 136.984375,
+        "width": 269.5625,
+        "height": 323.46875,
+        "top": 136.984375,
+        "right": 350.890625,
+        "bottom": 460.453125,
+        "left": 81.328125
+      },
+      "world": {
+        "x": 0,
+        "y": 0,
+        "w": 360,
+        "h": 468
+      }
+    },
+    {
+      "at": 12467.5,
+      "node": "fall3",
+      "src": "assets/rich_standing_right.png",
+      "transform": "",
+      "rect": {
+        "x": 213.328125,
+        "y": 316.15625,
+        "width": 106.65625,
+        "height": 128,
+        "top": 316.15625,
+        "right": 319.984375,
+        "bottom": 444.15625,
+        "left": 213.328125
+      },
+      "world": {
+        "x": 0,
+        "y": 0,
+        "w": 360,
+        "h": 468
+      }
+    },
+    {
+      "at": 12484.100000023842,
+      "node": "fall3",
+      "src": "assets/rc5/opening_v007/rich/climb.png",
+      "transform": "translate(0px, 0px) rotate(0deg)",
+      "rect": {
+        "x": 213.328125,
+        "y": 316.15625,
+        "width": 106.65625,
+        "height": 128,
+        "top": 316.15625,
+        "right": 319.984375,
+        "bottom": 444.15625,
+        "left": 213.328125
+      },
+      "world": {
+        "x": 0,
+        "y": 0,
+        "w": 360,
+        "h": 468
+      }
+    },
+    {
+      "at": 12718.399999976158,
+      "node": "fall3",
+      "src": "assets/rc5/opening_v007/rich/climb.png",
+      "transform": "translate(0px, -58.0059px) rotate(0deg)",
+      "rect": {
+        "x": 213.328125,
+        "y": 258.150390625,
+        "width": 106.65625,
+        "height": 128,
+        "top": 258.150390625,
+        "right": 319.984375,
+        "bottom": 386.150390625,
+        "left": 213.328125
+      },
+      "world": {
+        "x": 0,
+        "y": 0,
+        "w": 360,
+        "h": 468
+      }
+    },
+    {
+      "at": 12968,
+      "node": "fall3",
+      "src": "assets/rc5/opening_v007/rich/climb.png",
+      "transform": "translate(0px, -116.012px) rotate(0deg)",
+      "rect": {
+        "x": 213.328125,
+        "y": 200.14450073242188,
+        "width": 106.65625,
+        "height": 128,
+        "top": 200.14450073242188,
+        "right": 319.984375,
+        "bottom": 328.1445007324219,
+        "left": 213.328125
+      },
+      "world": {
+        "x": 0,
+        "y": 0,
+        "w": 360,
+        "h": 468
+      }
+    },
+    {
+      "at": 13201.600000023842,
+      "node": "fall3",
+      "src": "assets/rc5/opening_v007/rich/climb.png",
+      "transform": "translate(0px, -174.018px) rotate(0deg)",
+      "rect": {
+        "x": 213.328125,
+        "y": 142.1386260986328,
+        "width": 106.65625,
+        "height": 127.99998474121094,
+        "top": 142.1386260986328,
+        "right": 319.984375,
+        "bottom": 270.13861083984375,
+        "left": 213.328125
+      },
+      "world": {
+        "x": 0,
+        "y": 0,
+        "w": 360,
+        "h": 468
+      }
+    },
+    {
+      "at": 13451.800000071526,
+      "node": "fall3",
+      "src": "assets/rc5/opening_v007/rich/reach.png",
+      "transform": "translate(0px, -232.023px) rotate(0deg)",
+      "rect": {
+        "x": 213.328125,
+        "y": 84.13275146484375,
+        "width": 106.65625,
+        "height": 128,
+        "top": 84.13275146484375,
+        "right": 319.984375,
+        "bottom": 212.13275146484375,
+        "left": 213.328125
+      },
+      "world": {
+        "x": 0,
+        "y": 0,
+        "w": 360,
+        "h": 468
+      }
+    },
+    {
+      "at": 13685.300000071526,
+      "node": "fall3",
+      "src": "assets/rc5/opening_v007/rich/reach.png",
+      "transform": "translate(0px, -290.029px) rotate(0deg)",
+      "rect": {
+        "x": 213.328125,
+        "y": 26.12689208984375,
+        "width": 106.65625,
+        "height": 128,
+        "top": 26.12689208984375,
+        "right": 319.984375,
+        "bottom": 154.12689208984375,
+        "left": 213.328125
+      },
+      "world": {
+        "x": 0,
+        "y": 0,
+        "w": 360,
+        "h": 468
+      }
+    },
+    {
+      "at": 13868.800000071526,
+      "node": "fall3",
+      "src": "assets/rc5/opening_v007/rich/slip.png",
+      "transform": "translate(0px, -311.513px) rotate(0deg)",
+      "rect": {
+        "x": 213.328125,
+        "y": 4.643218994140625,
+        "width": 106.65625,
+        "height": 128,
+        "top": 4.643218994140625,
+        "right": 319.984375,
+        "bottom": 132.64321899414062,
+        "left": 213.328125
+      },
+      "world": {
+        "x": 0,
+        "y": 0,
+        "w": 360,
+        "h": 468
+      }
+    },
+    {
+      "at": 14019,
+      "node": "fall3",
+      "src": "assets/rc5/opening_v007/rich/tumble.png",
+      "transform": "translate(0px, -290.029px) rotate(-22deg)",
+      "rect": {
+        "x": 193.2364501953125,
+        "y": 10.81005859375,
+        "width": 146.839599609375,
+        "height": 158.6336669921875,
+        "top": 10.81005859375,
+        "right": 340.0760498046875,
+        "bottom": 169.4437255859375,
+        "left": 193.2364501953125
+      },
+      "world": {
+        "x": 0,
+        "y": 0,
+        "w": 360,
+        "h": 468
+      }
+    },
+    {
+      "at": 14185.899999976158,
+      "node": "fall3",
+      "src": "assets/rc5/opening_v007/rich/tumble.png",
+      "transform": "translate(0px, -240.617px) rotate(30deg)",
+      "rect": {
+        "x": 188.4727325439453,
+        "y": 57.44960403442383,
+        "width": 156.3670196533203,
+        "height": 164.17938232421875,
+        "top": 57.44960403442383,
+        "right": 344.8397521972656,
+        "bottom": 221.62898635864258,
+        "left": 188.4727325439453
+      },
+      "world": {
+        "x": 0,
+        "y": 0,
+        "w": 360,
+        "h": 468
+      }
+    },
+    {
+      "at": 14352.700000047684,
+      "node": "fall3",
+      "src": "assets/rc5/opening_v007/rich/tumble.png",
+      "transform": "translate(0px, -161.127px) rotate(-36deg)",
+      "rect": {
+        "x": 185.89463806152344,
+        "y": 135.90625,
+        "width": 161.5232391357422,
+        "height": 166.24514770507812,
+        "top": 135.90625,
+        "right": 347.4178771972656,
+        "bottom": 302.1513977050781,
+        "left": 185.89463806152344
+      },
+      "world": {
+        "x": 0,
+        "y": 0,
+        "w": 360,
+        "h": 468
+      }
+    },
+    {
+      "at": 14503.100000023842,
+      "node": "fall3",
+      "src": "assets/rc5/opening_v007/rich/tumble.png",
+      "transform": "translate(0px, -42.9673px) rotate(42deg)",
+      "rect": {
+        "x": 184.2013702392578,
+        "y": 253.94418334960938,
+        "width": 164.9097442626953,
+        "height": 166.489501953125,
+        "top": 253.94418334960938,
+        "right": 349.1111145019531,
+        "bottom": 420.4336853027344,
+        "left": 184.2013702392578
+      },
+      "world": {
+        "x": 0,
+        "y": 0,
+        "w": 360,
+        "h": 468
+      }
+    },
+    {
+      "at": 14603,
+      "node": "fall3",
+      "src": "assets/rc5/opening_v007/rich/impact.png",
+      "transform": "translate(0px, 0px) rotate(0deg)",
+      "rect": {
+        "x": 213.328125,
+        "y": 316.15625,
+        "width": 106.65625,
+        "height": 128,
+        "top": 316.15625,
+        "right": 319.984375,
+        "bottom": 444.15625,
+        "left": 213.328125
+      },
+      "world": {
+        "x": 0,
+        "y": 0,
+        "w": 360,
+        "h": 468
+      }
+    },
+    {
+      "at": 14903.300000071526,
+      "node": "fall3",
+      "src": "assets/rc5/opening_v007/rich/recover.png",
+      "transform": "translate(0px, 0px) rotate(0deg)",
+      "rect": {
+        "x": 213.328125,
+        "y": 316.15625,
+        "width": 106.65625,
+        "height": 128,
+        "top": 316.15625,
+        "right": 319.984375,
+        "bottom": 444.15625,
+        "left": 213.328125
+      },
+      "world": {
+        "x": 0,
+        "y": 0,
+        "w": 360,
+        "h": 468
+      }
+    },
+    {
+      "at": 15220.200000047684,
+      "node": "fall3",
+      "src": "assets/rc5/opening_v007/rich/settled.png",
+      "transform": "translate(0px, 0px) rotate(0deg)",
+      "rect": {
+        "x": 213.328125,
+        "y": 316.15625,
+        "width": 106.65625,
+        "height": 128,
+        "top": 316.15625,
+        "right": 319.984375,
+        "bottom": 444.15625,
+        "left": 213.328125
+      },
+      "world": {
+        "x": 0,
+        "y": 0,
+        "w": 360,
+        "h": 468
+      }
+    },
+    {
+      "at": 15371.899999976158,
+      "node": "fall3",
+      "src": "assets/rich_standing_right.png",
+      "transform": "",
+      "rect": {
+        "x": 43,
+        "y": 136.984375,
+        "width": 269.5625,
+        "height": 323.46875,
+        "top": 136.984375,
+        "right": 312.5625,
+        "bottom": 460.453125,
+        "left": 43
+      },
+      "world": {
+        "x": 0,
+        "y": 0,
+        "w": 360,
+        "h": 468
+      }
+    },
+    {
+      "at": 15955.5,
+      "node": "sensei",
+      "src": "assets/rich_standing_right.png",
+      "transform": "",
+      "rect": {
+        "x": -2.65625,
+        "y": 136.984375,
+        "width": 269.5625,
+        "height": 323.46875,
+        "top": 136.984375,
+        "right": 266.90625,
+        "bottom": 460.453125,
+        "left": -2.65625
+      },
+      "world": {
+        "x": 0,
+        "y": 0,
+        "w": 360,
+        "h": 468
+      }
+    },
+    {
+      "at": 16163.5,
+      "node": "sensei_point",
+      "src": "assets/rich_standing_right.png",
+      "transform": "",
+      "rect": {
+        "x": -2.65625,
+        "y": 136.984375,
+        "width": 269.5625,
+        "height": 323.46875,
+        "top": 136.984375,
+        "right": 266.90625,
+        "bottom": 460.453125,
+        "left": -2.65625
+      },
+      "world": {
+        "x": 0,
+        "y": 0,
+        "w": 360,
+        "h": 468
+      }
+    },
+    {
+      "at": 16555.700000047684,
+      "node": "sensei_listen",
+      "src": "assets/rich_standing_right.png",
+      "transform": "",
+      "rect": {
+        "x": -2.65625,
+        "y": 136.984375,
+        "width": 269.5625,
+        "height": 323.46875,
+        "top": 136.984375,
+        "right": 266.90625,
+        "bottom": 460.453125,
+        "left": -2.65625
+      },
+      "world": {
+        "x": 0,
+        "y": 0,
+        "w": 360,
+        "h": 468
+      }
+    },
+    {
+      "at": 16772.399999976158,
+      "node": "brain",
+      "src": "assets/rich_standing_right.png",
+      "transform": "",
+      "rect": {
+        "x": -2.65625,
+        "y": 136.984375,
+        "width": 269.5625,
+        "height": 323.46875,
+        "top": 136.984375,
+        "right": 266.90625,
+        "bottom": 460.453125,
+        "left": -2.65625
+      },
+      "world": {
+        "x": 0,
+        "y": 0,
+        "w": 360,
+        "h": 468
+      }
+    },
+    {
+      "at": 17572.899999976158,
+      "node": "brain_offer",
+      "src": "assets/rich_standing_right.png",
+      "transform": "",
+      "rect": {
+        "x": -2.65625,
+        "y": 136.984375,
+        "width": 269.5625,
+        "height": 323.46875,
+        "top": 136.984375,
+        "right": 266.90625,
+        "bottom": 460.453125,
+        "left": -2.65625
+      },
+      "world": {
+        "x": 0,
+        "y": 0,
+        "w": 360,
+        "h": 468
+      }
+    },
+    {
+      "at": 18206.700000047684,
+      "node": "brain_all",
+      "src": "assets/rich_standing_right.png",
+      "transform": "",
+      "rect": {
+        "x": -2.65625,
+        "y": 136.984375,
+        "width": 269.5625,
+        "height": 323.46875,
+        "top": 136.984375,
+        "right": 266.90625,
+        "bottom": 460.453125,
+        "left": -2.65625
+      },
+      "world": {
+        "x": 0,
+        "y": 0,
+        "w": 360,
+        "h": 468
+      }
+    },
+    {
+      "at": 18608.100000023842,
+      "node": "brain_done",
+      "src": "assets/rich_standing_right.png",
+      "transform": "",
+      "rect": {
+        "x": -2.65625,
+        "y": 136.984375,
+        "width": 269.5625,
+        "height": 323.46875,
+        "top": 136.984375,
+        "right": 266.90625,
+        "bottom": 460.453125,
+        "left": -2.65625
+      },
+      "world": {
+        "x": 0,
+        "y": 0,
+        "w": 360,
+        "h": 468
+      }
+    },
+    {
+      "at": 18813.600000023842,
+      "node": "merge",
+      "src": "assets/rich_standing_right.png",
+      "transform": "",
+      "rect": {
+        "x": -2.65625,
+        "y": 136.984375,
+        "width": 269.5625,
+        "height": 323.46875,
+        "top": 136.984375,
+        "right": 266.90625,
+        "bottom": 460.453125,
+        "left": -2.65625
+      },
+      "world": {
+        "x": 0,
+        "y": 0,
+        "w": 360,
+        "h": 468
+      },
+      "brainSrc": "assets/rc5/opening_v007/brain/reveal.png",
+      "brainHidden": true
+    },
+    {
+      "at": 18824,
+      "node": "merge",
+      "src": "assets/rc5/opening_v007/rich/reach.png",
+      "transform": "translate(0px, 0px) rotate(0deg)",
+      "rect": {
+        "x": -2.65625,
+        "y": 136.984375,
+        "width": 269.5625,
+        "height": 323.46875,
+        "top": 136.984375,
+        "right": 266.90625,
+        "bottom": 460.453125,
+        "left": -2.65625
+      },
+      "world": {
+        "x": 0,
+        "y": 0,
+        "w": 360,
+        "h": 468
+      },
+      "brainSrc": "assets/rc5/opening_v007/brain/reveal.png",
+      "brainHidden": true
+    },
+    {
+      "at": 19124.600000023842,
+      "node": "merge",
+      "src": "assets/rc5/opening_v007/rich/grasp.png",
+      "transform": "translate(21.3333px, 0px) rotate(0deg)",
+      "rect": {
+        "x": -19.994796752929688,
+        "y": 136.984375,
+        "width": 269.5625,
+        "height": 323.46875,
+        "top": 136.984375,
+        "right": 249.5677032470703,
+        "bottom": 460.453125,
+        "left": -19.994796752929688
+      },
+      "world": {
+        "x": 0,
+        "y": 0,
+        "w": 360,
+        "h": 468
+      },
+      "brainSrc": "assets/rc5/opening_v007/brain/reveal.png",
+      "brainHidden": false
+    },
+    {
+      "at": 19474.399999976158,
+      "node": "merge",
+      "src": "assets/rc5/opening_v007/rich/grasp.png",
+      "transform": "translate(21.3333px, 0px) rotate(0deg)",
+      "rect": {
+        "x": -58.66667175292969,
+        "y": 136.984375,
+        "width": 269.5625,
+        "height": 323.46875,
+        "top": 136.984375,
+        "right": 210.8958282470703,
+        "bottom": 460.453125,
+        "left": -58.66667175292969
+      },
+      "world": {
+        "x": 0,
+        "y": 0,
+        "w": 360,
+        "h": 468
+      },
+      "brainSrc": "assets/rc5/opening_v007/brain/reach.png",
+      "brainHidden": false
+    },
+    {
+      "at": 19724.700000047684,
+      "node": "merge",
+      "src": "assets/rc5/opening_v007/rich/grasp.png",
+      "transform": "translate(21.3333px, 0px) rotate(0deg)",
+      "rect": {
+        "x": -58.66667175292969,
+        "y": 136.984375,
+        "width": 269.5625,
+        "height": 323.46875,
+        "top": 136.984375,
+        "right": 210.8958282470703,
+        "bottom": 460.453125,
+        "left": -58.66667175292969
+      },
+      "world": {
+        "x": 0,
+        "y": 0,
+        "w": 360,
+        "h": 468
+      },
+      "brainSrc": "assets/rc5/opening_v007/brain/grab.png",
+      "brainHidden": false
+    },
+    {
+      "at": 19975.300000071526,
+      "node": "merge",
+      "src": "assets/rc5/opening_v007/rich/recoil.png",
+      "transform": "translate(0px, 0px) rotate(0deg)",
+      "rect": {
+        "x": -80,
+        "y": 136.984375,
+        "width": 269.5625,
+        "height": 323.46875,
+        "top": 136.984375,
+        "right": 189.5625,
+        "bottom": 460.453125,
+        "left": -80
+      },
+      "world": {
+        "x": 0,
+        "y": 0,
+        "w": 360,
+        "h": 468
+      },
+      "brainSrc": "assets/rc5/opening_v007/brain/travel.png",
+      "brainHidden": false
+    },
+    {
+      "at": 20242.100000023842,
+      "node": "merge",
+      "src": "assets/rc5/opening_v007/rich/headache.png",
+      "transform": "translate(0px, 0px) rotate(0deg)",
+      "rect": {
+        "x": -80,
+        "y": 136.984375,
+        "width": 269.5625,
+        "height": 323.46875,
+        "top": 136.984375,
+        "right": 189.5625,
+        "bottom": 460.453125,
+        "left": -80
+      },
+      "world": {
+        "x": 0,
+        "y": 0,
+        "w": 360,
+        "h": 468
+      },
+      "brainSrc": "assets/rc5/opening_v007/brain/merge.png",
+      "brainHidden": false
+    },
+    {
+      "at": 20592.300000071526,
+      "node": "merge",
+      "src": "assets/rc5/opening_v007/rich/settled.png",
+      "transform": "translate(0px, 0px) rotate(0deg)",
+      "rect": {
+        "x": -80,
+        "y": 136.984375,
+        "width": 269.5625,
+        "height": 323.46875,
+        "top": 136.984375,
+        "right": 189.5625,
+        "bottom": 460.453125,
+        "left": -80
+      },
+      "world": {
+        "x": 0,
+        "y": 0,
+        "w": 360,
+        "h": 468
+      },
+      "brainSrc": "assets/rc5/opening_v007/brain/settled.png",
+      "brainHidden": false
+    },
+    {
+      "at": 20962.200000047684,
+      "node": "merge",
+      "src": "assets/rich_standing_right.png",
+      "transform": "",
+      "rect": {
+        "x": -80,
+        "y": 136.984375,
+        "width": 269.5625,
+        "height": 323.46875,
+        "top": 136.984375,
+        "right": 189.5625,
+        "bottom": 460.453125,
+        "left": -80
+      },
+      "world": {
+        "x": 0,
+        "y": 0,
+        "w": 360,
+        "h": 468
+      },
+      "receipt": true
+    },
+    {
+      "at": 22277.399999976158,
+      "node": "brain_acquired",
+      "src": "assets/rich_standing_right.png",
+      "transform": "",
+      "rect": {
+        "x": -2.65625,
+        "y": 136.984375,
+        "width": 269.5625,
+        "height": 323.46875,
+        "top": 136.984375,
+        "right": 266.90625,
+        "bottom": 460.453125,
+        "left": -2.65625
+      },
+      "world": {
+        "x": 0,
+        "y": 0,
+        "w": 360,
+        "h": 468
+      },
+      "flag": "whole",
+      "receipt": true
+    },
+    {
+      "at": 23053.100000023842,
+      "node": "fork",
+      "src": "assets/rich_standing_right.png",
+      "transform": "",
+      "rect": {
+        "x": -2.65625,
+        "y": 136.984375,
+        "width": 269.5625,
+        "height": 323.46875,
+        "top": 136.984375,
+        "right": 266.90625,
+        "bottom": 460.453125,
+        "left": -2.65625
+      },
+      "world": {
+        "x": 0,
+        "y": 0,
+        "w": 360,
+        "h": 468
+      },
+      "flag": "whole",
+      "receipt": true
+    },
+    {
+      "at": 23328.5,
+      "node": "out_climb",
+      "src": "assets/rich_standing_right.png",
+      "transform": "",
+      "rect": {
+        "x": -2.65625,
+        "y": 136.984375,
+        "width": 269.5625,
+        "height": 323.46875,
+        "top": 136.984375,
+        "right": 266.90625,
+        "bottom": 460.453125,
+        "left": -2.65625
+      },
+      "world": {
+        "x": 0,
+        "y": 0,
+        "w": 360,
+        "h": 468
+      },
+      "flag": "whole",
+      "receipt": true
+    },
+    {
+      "at": 23552.100000023842,
+      "node": "out",
+      "src": "assets/rich_standing_right.png",
+      "transform": "",
+      "rect": {
+        "x": 81.328125,
+        "y": 116.984375,
+        "width": 288,
+        "height": 345.59375,
+        "top": 116.984375,
+        "right": 369.328125,
+        "bottom": 462.578125,
+        "left": 81.328125
+      },
+      "world": {
+        "x": 0,
+        "y": 0,
+        "w": 360,
+        "h": 468
+      },
+      "flag": "whole",
+      "receipt": true
+    }
+  ],
+  "end": {
+    "scene": "battle",
+    "flag": "whole",
+    "money": 40000
+  }
+}

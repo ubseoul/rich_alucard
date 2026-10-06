@@ -1,0 +1,72 @@
+{
+  "version": "family-v001",
+  "sourceManifestSha256": "0BADF9ED525F04A6D8BBE609C050F09D01A317531856599FE9EEDC8143DC8CB7",
+  "status": "user approved isolated test build; creator acceptance separate",
+  "files": [
+    {
+      "path": "assets/rc5/hilt_v001/prepare.png",
+      "sha256": "07307649FD819ABDAE98F25DBBA9BACDF5CEBFF92AF92FD04A51D749A0F369A7",
+      "canvas": [
+        80,
+        96
+      ],
+      "facing": "left",
+      "contact": [
+        40,
+        87
+      ]
+    },
+    {
+      "path": "assets/rc5/hilt_v001/aim.png",
+      "sha256": "29998DEF44A97BB6FF8F0352A80CC189FAA065D9FCEDAAA868FE10D6889ADC40",
+      "canvas": [
+        80,
+        96
+      ],
+      "facing": "left",
+      "contact": [
+        40,
+        84
+      ]
+    },
+    {
+      "path": "assets/rc5/hilt_v001/release.png",
+      "sha256": "C2477C1A99DCD9A69606CF1AC65BD0D37A90CB0A32D104A2A46E08502A6EFA22",
+      "canvas": [
+        80,
+        96
+      ],
+      "facing": "left",
+      "contact": [
+        40,
+        84
+      ]
+    },
+    {
+      "path": "assets/rc5/hilt_v001/contact.png",
+      "sha256": "D8EB8093659D4728AC9DA2EB505BD44582A4876DC7986C35B694D44D7946D4AB",
+      "canvas": [
+        80,
+        96
+      ],
+      "facing": "left",
+      "contact": [
+        40,
+        85
+      ]
+    },
+    {
+      "path": "assets/rc5/hilt_v001/recovery.png",
+      "sha256": "6BFA82BCE2797EE91168833718ED539F73D638FD1251270DA2DB08709F0C7C6D",
+      "canvas": [
+        80,
+        96
+      ],
+      "facing": "left",
+      "contact": [
+        40,
+        90
+      ]
+    }
+  ]
+}

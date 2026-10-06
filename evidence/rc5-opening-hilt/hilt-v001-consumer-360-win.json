@@ -1,0 +1,299 @@
+{
+  "width": 360,
+  "mode": "win",
+  "kind": "seeded rave night, actual RAOgunRave.fight and ordinary legal UI actions",
+  "errors": [
+    "console: AbortError: The play() request was interrupted by a new load request. https://goo.gl/LdLk22"
+  ],
+  "entry": {
+    "name": "HILT",
+    "src": "assets/before_the_fame/characters/hilt/hilt_neutral_80x96.png",
+    "met": true,
+    "timeline": [
+      "assets/rc5/hilt_v001/prepare.png",
+      "assets/rc5/hilt_v001/aim.png",
+      "assets/rc5/hilt_v001/release.png",
+      "assets/rc5/hilt_v001/contact.png",
+      "assets/rc5/hilt_v001/recovery.png"
+    ],
+    "generic": null
+  },
+  "turns": [
+    {
+      "before": {
+        "hp": 100,
+        "enemy": 70,
+        "pp": 8,
+        "over": false
+      },
+      "after": {
+        "hp": 82,
+        "enemy": 47,
+        "pp": 7,
+        "over": false
+      }
+    },
+    {
+      "before": {
+        "hp": 82,
+        "enemy": 47,
+        "pp": 7,
+        "over": false
+      },
+      "after": {
+        "hp": 82,
+        "enemy": 24,
+        "pp": 6,
+        "over": false
+      }
+    },
+    {
+      "before": {
+        "hp": 82,
+        "enemy": 24,
+        "pp": 6,
+        "over": false
+      },
+      "after": {
+        "hp": 100,
+        "enemy": 0,
+        "pp": 5,
+        "over": true
+      }
+    }
+  ],
+  "result": "win",
+  "frames": [
+    {
+      "at": 3365.7000000476837,
+      "frame": "0",
+      "src": "assets/rc5/hilt_v001/prepare.png",
+      "transform": "none",
+      "top": 242.984375,
+      "foot": 503.984375,
+      "expectedFoot": 503.984375,
+      "hud": "100/100"
+    },
+    {
+      "at": 3444,
+      "frame": "1",
+      "src": "assets/rc5/hilt_v001/prepare.png",
+      "transform": "none",
+      "top": 242.984375,
+      "foot": 503.984375,
+      "expectedFoot": 503.984375,
+      "hud": "100/100"
+    },
+    {
+      "at": 3511.7000000476837,
+      "frame": "2",
+      "src": "assets/rc5/hilt_v001/aim.png",
+      "transform": "none",
+      "top": 251.984375,
+      "foot": 503.984375,
+      "expectedFoot": 503.984375,
+      "hud": "100/100"
+    },
+    {
+      "at": 3578.4000000953674,
+      "frame": "3",
+      "src": "assets/rc5/hilt_v001/aim.png",
+      "transform": "none",
+      "top": 251.984375,
+      "foot": 503.984375,
+      "expectedFoot": 503.984375,
+      "hud": "100/100"
+    },
+    {
+      "at": 3628.5,
+      "frame": "4",
+      "src": "assets/rc5/hilt_v001/release.png",
+      "transform": "none",
+      "top": 251.984375,
+      "foot": 503.984375,
+      "expectedFoot": 503.984375,
+      "hud": "100/100"
+    },
+    {
+      "at": 3694.9000000953674,
+      "frame": "5",
+      "src": "assets/rc5/hilt_v001/contact.png",
+      "transform": "none",
+      "top": 248.984375,
+      "foot": 503.984375,
+      "expectedFoot": 503.984375,
+      "hud": "82/100"
+    },
+    {
+      "at": 3762.2000000476837,
+      "frame": "6",
+      "src": "assets/rc5/hilt_v001/contact.png",
+      "transform": "none",
+      "top": 248.984375,
+      "foot": 503.984375,
+      "expectedFoot": 503.984375,
+      "hud": "82/100"
+    },
+    {
+      "at": 3845.3000000715256,
+      "frame": "7",
+      "src": "assets/rc5/hilt_v001/recovery.png",
+      "transform": "none",
+      "top": 233.984375,
+      "foot": 503.984375,
+      "expectedFoot": 503.984375,
+      "hud": "82/100"
+    },
+    {
+      "at": 3894.7000000476837,
+      "frame": "8",
+      "src": "assets/rc5/hilt_v001/recovery.png",
+      "transform": "none",
+      "top": 233.984375,
+      "foot": 503.984375,
+      "expectedFoot": 503.984375,
+      "hud": "82/100"
+    },
+    {
+      "at": 3978,
+      "frame": "9",
+      "src": "assets/rc5/hilt_v001/recovery.png",
+      "transform": "none",
+      "top": 233.984375,
+      "foot": 503.984375,
+      "expectedFoot": 503.984375,
+      "hud": "82/100"
+    },
+    {
+      "at": 7031.700000047684,
+      "frame": "0",
+      "src": "assets/rc5/hilt_v001/prepare.png",
+      "transform": "none",
+      "top": 242.984375,
+      "foot": 503.984375,
+      "expectedFoot": 503.984375,
+      "hud": "100/100"
+    },
+    {
+      "at": 7098.300000071526,
+      "frame": "1",
+      "src": "assets/rc5/hilt_v001/prepare.png",
+      "transform": "none",
+      "top": 242.984375,
+      "foot": 503.984375,
+      "expectedFoot": 503.984375,
+      "hud": "100/100"
+    },
+    {
+      "at": 7165.600000023842,
+      "frame": "2",
+      "src": "assets/rc5/hilt_v001/aim.png",
+      "transform": "none",
+      "top": 251.984375,
+      "foot": 503.984375,
+      "expectedFoot": 503.984375,
+      "hud": "100/100"
+    },
+    {
+      "at": 7231.800000071526,
+      "frame": "3",
+      "src": "assets/rc5/hilt_v001/aim.png",
+      "transform": "none",
+      "top": 251.984375,
+      "foot": 503.984375,
+      "expectedFoot": 503.984375,
+      "hud": "100/100"
+    },
+    {
+      "at": 7316.5,
+      "frame": "4",
+      "src": "assets/rc5/hilt_v001/release.png",
+      "transform": "none",
+      "top": 251.984375,
+      "foot": 503.984375,
+      "expectedFoot": 503.984375,
+      "hud": "100/100"
+    },
+    {
+      "at": 7366,
+      "frame": "5",
+      "src": "assets/rc5/hilt_v001/contact.png",
+      "transform": "none",
+      "top": 248.984375,
+      "foot": 503.984375,
+      "expectedFoot": 503.984375,
+      "hud": "82/100"
+    },
+    {
+      "at": 7432.200000047684,
+      "frame": "6",
+      "src": "assets/rc5/hilt_v001/contact.png",
+      "transform": "none",
+      "top": 248.984375,
+      "foot": 503.984375,
+      "expectedFoot": 503.984375,
+      "hud": "82/100"
+    },
+    {
+      "at": 7518.600000023842,
+      "frame": "7",
+      "src": "assets/rc5/hilt_v001/recovery.png",
+      "transform": "none",
+      "top": 233.984375,
+      "foot": 503.984375,
+      "expectedFoot": 503.984375,
+      "hud": "82/100"
+    },
+    {
+      "at": 7598.900000095367,
+      "frame": "8",
+      "src": "assets/rc5/hilt_v001/recovery.png",
+      "transform": "none",
+      "top": 233.984375,
+      "foot": 503.984375,
+      "expectedFoot": 503.984375,
+      "hud": "82/100"
+    },
+    {
+      "at": 7648.600000023842,
+      "frame": "9",
+      "src": "assets/rc5/hilt_v001/recovery.png",
+      "transform": "none",
+      "top": 233.984375,
+      "foot": 503.984375,
+      "expectedFoot": 503.984375,
+      "hud": "82/100"
+    }
+  ],
+  "contacts": [
+    {
+      "at": 3689,
+      "frame": "5",
+      "before": "100/100",
+      "after": "82/100"
+    },
+    {
+      "at": 7362,
+      "frame": "5",
+      "before": "100/100",
+      "after": "82/100"
+    }
+  ],
+  "restores": [
+    {
+      "styleBefore": "left: 136px; top: 153px; width: 240px; height: 288px; transform: scaleX(-1); --pd-w: 240px; --pd-h: 288px; --pd-k: 3;",
+      "styleAfter": "left: 136px; top: 153px; width: 240px; height: 288px; transform: scaleX(-1); --pd-w: 240px; --pd-h: 288px; --pd-k: 3;",
+      "srcBefore": "assets/before_the_fame/characters/hilt/hilt_neutral_80x96.png",
+      "srcAfter": "assets/before_the_fame/characters/hilt/hilt_neutral_80x96.png",
+      "connected": true
+    },
+    {
+      "styleBefore": "left: 136px; top: 153px; width: 240px; height: 288px; transform: scaleX(-1); --pd-w: 240px; --pd-h: 288px; --pd-k: 3;",
+      "styleAfter": "left: 136px; top: 153px; width: 240px; height: 288px; transform: scaleX(-1); --pd-w: 240px; --pd-h: 288px; --pd-k: 3;",
+      "srcBefore": "assets/before_the_fame/characters/hilt/hilt_neutral_80x96.png",
+      "srcAfter": "assets/before_the_fame/characters/hilt/hilt_neutral_80x96.png",
+      "connected": true
+    }
+  ],
+  "passed": true
+}
