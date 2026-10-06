@@ -34,12 +34,16 @@
           const payment = global.RASalesChannels.record('rainmaker', {amount: -charge, kind: 'flick', memo: String(round.id)});
           if (!payment.ok) { abort(); options.onError?.('insufficient-funds'); return; }
           if (terms) { terms.paid += charge; if (terms.first) global.RAStripClub.markFirstVisit(); }
+          if(terms){global.RALife?.setFlag('stripClubSeen',true);global.RALife?.setFlag('stripClubLastDay',global.RALife.today().day);}
           // Reload abandons a partial round; it never replays a charge or grants a reward.
           const next = state();
           next.active.spent = current.spent;
-          next.spent += delta;
+          next.spent += charge;
+          next.thrown = (next.thrown || 0) + delta;
+          next.active.paid = (next.active.paid || 0) + charge;
+          next.lastReceipt = {id:round.id,thrown:delta,paid:charge,discount:terms?.first?terms.discount:0};
           write(next);
-          options.onSpend?.({delta, result, round: round.id});   // F15 seam: after the real, once-only payment
+          options.onSpend?.({delta:charge, thrown:delta, result, round: round.id}); // support tracks actual debit
           sound('RM_02');
         },
         onHit: () => sound('RM_04')
@@ -115,12 +119,12 @@
     const session = mount(shadow.querySelector('canvas'), {
       terms: opts.terms || null,
       hideTarget: !!f15, tunables: f15?.tunables,
-      onSpend: event => { f15?.onSpend(event);if(!host.dataset.voiceThrow){host.dataset.voiceThrow='1';say('RICH: '+global.RAWriting.voice(17));} },
+      onSpend: event => { f15?.onSpend(event);const receipt=`THROWN $${event.thrown} / PAID $${event.delta}${opts.terms?.first?' · 50% OFF':''}`;say((!host.dataset.voiceThrow?'RICH: '+global.RAWriting.voice(17)+'\n':'')+receipt);host.dataset.voiceThrow='1'; },
       onStart: ({budget}) => {
         actions.hidden = true; status.textContent = '';
         shadow.querySelectorAll('[data-budget]').forEach(button => button.setAttribute('aria-pressed', String(Number(button.dataset.budget) === budget)));
       },
-      onResult: () => { actions.hidden = false; },
+      onResult: summary => { actions.hidden = false;const paid=global.RAStripClub?.price(opts.terms,summary.spent)??summary.spent;say(`ROUND COMPLETE · PAID $${paid} · HITS ${summary.hits} · MISSES ${summary.misses} · BACK TO RETURN`); },
       onError: () => { say('RICH: '+global.RAWriting.voice(19)); },
       onClose: () => {
         f15?.close();

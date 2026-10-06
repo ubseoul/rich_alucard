@@ -1,0 +1,117 @@
+{
+  "platform": "installed Chrome / Playwright",
+  "viewport": [
+    390,
+    844
+  ],
+  "kind": "seeded focused smoke",
+  "checks": [
+    "half-off real throw / exact receipt / actual-paid support / one nightly dancer / no-action quit / reload consumes discount",
+    "Rosalyn actual split debit / reload checkpoint / no second debit / no concurrent date",
+    "nonlethal spar boxing-only controls / first-to-five 1HP result / Range reload and firing / real timed result / return to Armory / second attempt / quit preserves remaining retry",
+    "ramen keyboard builds and serves bowl / clear receipt / rave timed matching inputs and acknowledged result"
+  ],
+  "errors": [],
+  "club": {
+    "before": {
+      "cash": 100000,
+      "support": 0
+    },
+    "after": {
+      "cash": 99000,
+      "support": 1000,
+      "receipt": {
+        "id": 3,
+        "thrown": 2000,
+        "paid": 1000,
+        "discount": 0.5
+      },
+      "feedback": {
+        "recipient": "roxy",
+        "delta": 1000,
+        "thrown": 2000,
+        "kind": "hit",
+        "targetX": 0.416368684502629,
+        "at": 8359.300000011921
+      },
+      "geo": {
+        "W": 370,
+        "H": 520,
+        "feetY": 246,
+        "k": 0.31666666666666665,
+        "dpr": 1,
+        "boxes": {
+          "roxy": {
+            "x": 59.90512356571942,
+            "y": 56.00000000000003,
+            "w": 161.09401709401706,
+            "h": 190.97435897435895,
+            "feet": 246,
+            "frame": 78,
+            "handle": "wolf"
+          }
+        },
+        "x": {
+          "roxy": 140.45213211272795
+        },
+        "clamped": true,
+        "kWidth": 0.44000000000000006,
+        "kHeadroom": 0.31666666666666665,
+        "hudBottom": 50
+      },
+      "dancer": "roxy"
+    }
+  },
+  "desktop": {
+    "geo": {
+      "W": 410,
+      "H": 576,
+      "feetY": 272,
+      "k": 0.36,
+      "dpr": 1,
+      "boxes": {
+        "roxy": {
+          "x": 192.73385165927894,
+          "y": 56.00000000000003,
+          "w": 183.1384615384615,
+          "h": 217.10769230769228,
+          "feet": 272,
+          "frame": 18,
+          "handle": "wolf"
+        }
+      },
+      "x": {
+        "roxy": 284.3030824285097
+      },
+      "clamped": true,
+      "kWidth": 0.4875675675675676,
+      "kHeadroom": 0.36,
+      "hudBottom": 50
+    },
+    "portrait": {
+      "x": 484,
+      "y": 707.1875,
+      "width": 32,
+      "height": 36,
+      "top": 707.1875,
+      "right": 516,
+      "bottom": 743.1875,
+      "left": 484
+    },
+    "controls": {
+      "x": 433,
+      "y": 836.5,
+      "width": 414,
+      "height": 56,
+      "top": 836.5,
+      "right": 847,
+      "bottom": 892.5,
+      "left": 433
+    }
+  },
+  "spar": {
+    "rich": 5,
+    "enemy": 1
+  },
+  "ok": true
+}

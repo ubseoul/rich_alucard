@@ -74,7 +74,7 @@
   if(actName==='buyMod'){const [modId,flag]=String(arg).split('|');const r=R.buyMod(modId,{useDiscount:flag==='d'});api.message?.(r.ok?`${C.MODS[modId].label} — ${fmt(r.price)}${r.discount?' (MEDAL DISCOUNT)':''}`:`CAN'T — ${r.reason}`);api.refresh();return;}
   if(actName==='attach'||actName==='detach'){const [gid,mid]=String(arg).split('|');const r=actName==='attach'?R.attachMod(gid,mid):R.detachMod(gid,mid);api.message?.(r.ok?`${mid} ${actName==='attach'?'ATTACHED':'REMOVED'}`:`CAN'T — ${r.reason}`);api.refresh();return;}
   if(actName==='engrave'){const name=typeof window.prompt==='function'?window.prompt('NAME THE GUN',R.engravedName(arg)||''):null;const r=R.engrave(arg,name);api.message?.(r.ok?`ENGRAVED: “${r.name}”`:`CAN'T — ${r.reason}`);api.refresh();return;}
-  if(actName==='range'){Promise.resolve(api.close?.()).then(()=>window.RAMinigames?.launch?.('range_day',{gunId:arg}));return;}
+  if(actName==='range'){if(window.RARC3&&!window.RARC3.attemptAllowed('range_day','range')){api.message?.('RETRY TOMORROW');return;}Promise.resolve(api.close?.()).then(()=>window.RAMinigames?.launch?.('range_day',{gunId:arg})).then(result=>{if(result?.quit)window.RAPhone?.openApp?.('armory');});return;}
  }};
 
  if(Reg)Reg.declare('F02',app);

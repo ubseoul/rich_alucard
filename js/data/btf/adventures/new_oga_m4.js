@@ -16,7 +16,7 @@
     {label:'NAH, NOT HIM.',next:'beat1_out'}
    ]},
    beat1_out:{lines:[N('Rich asks for a replacement job instead.')],end:{outcome:'beat_1',fx:backout('beat_1'),memory:{text:'backed out of SET UP CARLOS before the pickup',lane:'money'}}},
-   beat2:{env:'street_night',actors:{left:'rich',right:'carlos'},title:'BEAT 2 · THE PICKUP',lines:[E('carlos','Carlos gets in expecting a party.')],choices:[
+   beat2:{env:'street_night',actors:{left:'rich',right:'carlos'},title:'BEAT 2 · THE PICKUP',lines:[E('carlos','Carlos gets in expecting a party.',{narration:true})],choices:[
     {label:'DRIVE TO THE WAREHOUSE',next:'beat3'},
     {label:'TEXT CARLOS A WARNING',next:'beat2_out'}
    ]},

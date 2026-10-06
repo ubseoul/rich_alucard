@@ -56,7 +56,8 @@ export async function test() {
     assert.ok(logic.TOPS.includes(o.topping) || o.topping === 'JOLLOF', 'topping is a TOPPING (or JOLLOF)');
     assert.deepStrictEqual([...o.toppings], [o.meat, o.topping], 'toppings = [meat, topping] so checkBowl stays compatible');
   }
-  assert.ok(window.RAMinigames.get('slurp').rule.split(/[.!?]/).filter(Boolean).length === 1, 'slurp has a one-sentence rule');
+  const def=window.RAMinigames.get('slurp');
+  for(const p of [{},{canopyDuty:true}])assert.ok((def.ruleFor(p)||def.rule).split(/[.!?]/).filter(Boolean).length===1,'slurp has a context-correct one-sentence rule');
   let sawJollof = false;
   for (let i = 0; i < 60 && !sawJollof; i++) {
     const order = logic.makeOrder(rng, { jollofRamen: true });

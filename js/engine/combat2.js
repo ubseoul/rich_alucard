@@ -42,6 +42,17 @@
  // ---- player actions ----
  function act(s,action){
   if(s.over)return s;s.log=[];
+  // B4/B5 seam: opt-in light-contact date spar; normal combat is unchanged.
+  if(s.params.spar){
+   if(action.type==='run'){s.over=true;s.outcome='quit';return s;}
+   if(action.type!=='spar'||!['jab','cross','guard'].includes(action.id)){say(s,'LIGHT CONTACT ONLY: JAB, CROSS OR GUARD.','block');return s;}
+   s.sparScore=s.sparScore||{rich:0,enemy:0};const score=s.sparScore;
+   if(action.id!=='guard'&&roll(s,action.id==='cross'?.7:.9)){score.rich++;say(s,`CLEAN ${action.id.toUpperCase()} · RICH ${score.rich}/5.`,'info');}else say(s,action.id==='guard'?'GUARD UP.':'NO CLEAN CONTACT.','info');
+   if(score.rich<5&&roll(s,action.id==='guard'?.15:.55)){score.enemy++;say(s,`ROXY CLEAN CONTACT · ${score.enemy}/5.`,'info');}
+   s.enemy.hp=Math.max(1,Math.round(s.enemy.max*(1-score.rich/5)));s.rich.hp=Math.max(1,Math.round(s.rich.max*(1-score.enemy/5)));
+   if(score.rich>=5||score.enemy>=5){s.over=true;s.outcome=score.rich>=5?'win':'lose';say(s,'SPAR OVER · BOTH SAFE · NO DEFEAT PENALTY.','info');}
+   s.turn++;return s;
+  }
   if(s.rich.stun>0){s.rich.stun--;say(s,'RICH IS PINNED. HE LOSES THE TURN.','block');return endPlayer(s);}
   const t=action.type;
   if(t==='move'){

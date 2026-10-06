@@ -45,6 +45,8 @@
  }
  function launch(id,params={},{host,returnScene=null,returnPayload={}}={}){
   const def=registry.get(id);if(!def)return Promise.resolve({quit:true,error:'unknown-minigame'});
+  // Range's Armory entry has no adventure dispatcher; use B1's same daily contract here.
+  if(id==='range_day'&&window.RARC3&&!window.RARC3.attemptAllowed('range_day','range'))return Promise.resolve({quit:true,outcome:'refused',error:'retry-tomorrow'});
   if(current)current.abort();
   const screen=host||document.querySelector('#screen');
   return new Promise(resolve=>{
@@ -59,6 +61,7 @@
     try{instance?.dispose?.()}catch(e){console.error(e)}
     scope.cancel?.();root.remove();document.body.classList.remove('minigame-mode');
     const final={quit:false,...result,rewards:mergeRewards(clone(rewards)||{},result?.rewards||{}),minigame:id};
+    if(id==='range_day')window.RARC3?.settleAttempt('range_day','range',final);
     const best=progress(id);final.progress=best;
     resolve(final);
     if(returnScene&&window.RAScenes)RAScenes.go(returnScene,{...returnPayload,minigameResult:final});
@@ -75,7 +78,7 @@
    current={id,abort:()=>ctx.quit(),ctx};
    // RC2 B3: every minigame states its one-sentence rule before it starts (def.rule). Quit stays live on the card.
    const begin=()=>{if(done)return;stage.style.pointerEvents='none';setTimeout(()=>{stage.style.pointerEvents='';},300);try{instance=def.mount(stage,ctx)||{};}catch(error){console.error(error);end({quit:true,error:String(error?.message||error)});}};
-   const ruleText=typeof def.rule==='function'?def.rule(params):def.rule;
+   const ruleText=def.ruleFor?.(params)||(typeof def.rule==='function'?def.rule(params):def.rule);
    const coachKey=`rc3Coach:${id}${params.canopyDuty?':chairs':''}`;
    const coached=window.RARC3&&window.RALife?.flag?.(coachKey);
    if(ruleText&&!coached&&!params.skipRule&&!window.RA_SKIP_MINIGAME_RULE){if(window.RARC3)window.RALife.setFlag(coachKey,true);showRuleCard(stage,{...def,rule:ruleText},ctx,begin);}else begin();
@@ -83,5 +86,5 @@
  }
  function active(){return current?{id:current.id}:null}
  function quitActive(){current?.abort();}
- window.RAMinigames={register,launch,list:()=>[...registry.values()].filter(d=>!d.retired&&d.kind!=='utility').map(({id,title})=>({id,title})),get:id=>registry.get(id)||null,progress,saveProgress,active,quitActive,mergeRewards};
+ window.RAMinigames={register,launch,list:()=>[...registry.values()].filter(d=>!d.retired&&d.kind!=='utility'&&['slurp','dance','range_day'].includes(d.id)).map(({id,title})=>({id,title})),get:id=>registry.get(id)||null,progress,saveProgress,active,quitActive,mergeRewards};
 })();

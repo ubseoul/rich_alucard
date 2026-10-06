@@ -56,7 +56,7 @@
    S(R,"losing fine i just dont do it"),S(R,"run that back"),
    ],next:'bout'},
   // Existing Combat 2.0, no defeat penalty. Either result continues the same scene (the spar's result is not authored).
-  bout:{fight:{enemy:'f15_roxy_spar',params:()=>({env:'f15_gym',noPenalty:spar().noPenalty,intro:'FIRST TO FIVE CLEAN SHOTS. LIGHT CONTACT.'}),win:'after',lose:'after',spared:'after',run:'after'}},
+  bout:{fight:{enemy:'f15_roxy_spar',params:()=>({env:'f15_gym',spar:true,noPenalty:spar().noPenalty,intro:'FIRST TO FIVE CLEAN SHOTS. LIGHT CONTACT.'}),win:'after',lose:'after',spared:'after',run:'after'}},
   after:{env:'f15_gym',actors:her,lines:[
    S(R,"five game go think about it"),
 
@@ -75,7 +75,7 @@
    S(R,"yard and three dogs thats the plan"),
 
    S(R,"love animals"),S(R,"hate cats"),S(R,"dont ask me shit")],
-   choices:[{label:'MENTION YOUR CAT',next:'cat'},{label:'KEEP THE CAT TO YOURSELF',next:'pays'}]},
+   choices:[{label:'MENTION YOUR CAT',when:()=>!!global.RALife.life().ownership.cat,hideLocked:true,next:'cat'},{label:'KEEP THE CAT TO YOURSELF',next:'pays'}]},
   cat:{lines:[
    U(`well…all cats aren’t bad.`),
 
@@ -103,7 +103,7 @@
    S(R,"show me your left"),S(R,"you fix it or what"),
    U(`It’s feeling better..thanks.`),
    S(R,"better aint fixed"),S(R,"thursday")],
-   choices:[{label:'HAND HER THE ICE PACK',next:'after'},{label:'TOSS HER A TOWEL',next:'after'}]},
+   choices:[{label:'TOSS HER A TOWEL',next:'after'}]},
   after:{lines:[
    N("takes the towel keeps it doesnt look up"),
    N("buys two waters hands rich one"),

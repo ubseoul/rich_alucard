@@ -80,6 +80,7 @@
   if(ctx.params?.canopyDuty)return mountCanopy(root,ctx);
   const P=RAPixel;
   const {canvas,ctx:g,toNative}=P.createCanvas(root);
+  const approvedKitchen=new Image();approvedKitchen.src='assets/before_the_fame/environments/slurp/slurp_dynasty_little_tokyo_270x480.png';
   const J=window.RAJuice?window.RAJuice.create(g):{burst(){},float(){},ring(){},shake(){},flash(){},update(){},begin(){g.save();},end(){g.restore();}};
   const params=ctx.params||{};
   const savedProgress=ctx.progress()||{};
@@ -147,6 +148,8 @@
    for(const b of binsFor(step))if(p.x>=b.x&&p.x<=b.x+b.w&&p.y>=b.y&&p.y<=b.y+b.h){tapBin(b);return;}
   }
   canvas.addEventListener('pointerdown',pointerDown);
+  const keyDown=e=>{if(ended||e.repeat)return;const n=Number(e.key)-1,bin=binsFor(step)[n];if(bin&&/^[1-4]$/.test(e.key)){e.preventDefault();tapBin(bin);}};
+  window.addEventListener('keydown',keyDown);
   const clockBtn=document.createElement('button');
   clockBtn.textContent='CLOCK OUT';
   clockBtn.style.cssText='position:absolute;right:3%;bottom:1.2%;z-index:4;font:6px "Press Start 2P";padding:.5em .6em;background:#f6efd9;color:#10101b;border:2px solid #10101b;box-shadow:2px 2px #7d194b;cursor:pointer';
@@ -214,7 +217,7 @@
     const hint=(!need||need===b.value); // every shift: match the highlighted order row to this bin
     P.rect(g,b.x+2,b.y+2,b.w,b.h,'#10101b');P.rect(g,b.x,b.y,b.w,b.h,bad?'#d7193f':good?'#20c66b':hint?'#ffd36a':'#f6efd9');P.rect(g,b.x+3,b.y+3,b.w-6,b.h-6,'#1e1a2a');
     P.rect(g,b.x+b.w/2-14,b.y+8,28,Math.min(24,b.h-30),SWATCH[b.value]||'#d9d2c7');
-    P.text(g,b.value,b.x+b.w/2,b.y+b.h-14,{size:6,color:'#f6efd9',align:'center'});
+    P.text(g,`${binsFor(step).findIndex(bin=>bin.value===b.value)+1}: ${b.value}`,b.x+b.w/2,b.y+b.h-14,{size:6,color:'#f6efd9',align:'center'});
    }
   }
   function frame(now){
@@ -223,6 +226,7 @@
    g.clearRect(0,0,270,480);
    J.begin();
    P.paintEnvironment(g,{sky:P.palette.night,wall:'#2a2340',floor:'#3a2f2a',horizon:150,seed:'slurp',props:[{type:'counter',x:0,y:150,w:270,h:14,color:'#4a3a30'}]});
+   if(approvedKitchen.complete&&approvedKitchen.naturalWidth){g.imageSmoothingEnabled=false;g.drawImage(approvedKitchen,0,0,270,480);g.fillStyle='#08070f66';g.fillRect(0,0,270,480);}
    P.rect(g,0,0,270,28,'#17142c');P.text(g,'SLURP DYNASTY',72,9,{size:6,color:'#ff6fb5'});
    const elapsed=now-startTime;
    if(!ended){
@@ -252,10 +256,11 @@
    dispose(){
     const r=raf;raf=null;if(r)cancelAnimationFrame(r);
     canvas.removeEventListener('pointerdown',pointerDown);
+    window.removeEventListener('keydown',keyDown);
     try{clockBtn.remove();}catch(e){}
    }
   };
  }
 
- window.RAMinigames.register('slurp',{title:'SLURP',rule:'Build each bowl in the order on the card: broth, noodles, meat, topping, before the timer runs out.',mount});
+ window.RAMinigames.register('slurp',{title:'SLURP',rule:'Tap ingredients left to right or use keys 1–4: broth, noodles, meat, topping; match the ticket before its patience runs out.',ruleFor:p=>p?.canopyDuty?'Drag chair bundles from the stack into the canopy before the timer ends.':null,mount});
 })();

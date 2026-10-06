@@ -73,6 +73,8 @@
    }catch(_){/* audio unavailable: visual beat stays fully playable */}
   }
   const {canvas,ctx:g,toNative}=P.createCanvas(root);
+  const approvedRich=P.personSprite?.('rich');
+  const approvedRave=new Image();approvedRave.src='assets/ogun_rave/masters/rave_interior_270x480.png';
   const J=window.RAJuice?window.RAJuice.create(g):{burst(){},float(){},ring(){},shake(){},flash(){},update(){},begin(){g.save();},end(){g.restore();}};
   root.dataset.phase='ready';root.dataset.input='pointer';
   const notes=makeChart(seed,params);
@@ -119,9 +121,9 @@
    const card=document.createElement('div');card.className='dance-result';
    card.style.cssText='position:absolute;inset:0;z-index:6;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;padding:22px;background:rgba(8,7,15,.93);color:#f6efd9;text-align:center;font-family:"Press Start 2P",monospace';
    const headline=params.rave?(sum.win?'YOU BLENDED IN':'THE CROWD CLOCKED YOU'):sum.stars>=3?'THE ROOM LOST IT':sum.win?'THE CROWD LOVED IT':stats.mood<=0?'THE CROWD LEFT':'THE CROWD PRAYED FOR YOU';
-   if(params.rave){ctx.finish({outcome:sum.outcome,score:stats.perfect*2+stats.good,data:{...stats,...sum}});return;}
+   // Rave shares the readable result card; CONTINUE advances the existing phase only after acknowledgement.
    card.innerHTML=`<div style="font-size:11px;color:${sum.win?'#ffd36a':'#d7193f'};line-height:1.5">${headline}</div><div style="font-size:8px;color:#ffd36a">${'★'.repeat(sum.stars)}${'☆'.repeat(3-sum.stars)}</div><div style="font-size:7px;line-height:1.8">PERFECT ${stats.perfect} · GOOD ${stats.good} · OOPS ${stats.miss}<br>BEST STREAK ${stats.maxCombo}</div>${spray?`<div style="font-size:8px;color:#20c66b">SPRAYED $${sum.money}</div>`:''}`;
-   const done=document.createElement('button');done.type='button';done.className='dance-done';done.textContent='DONE';
+   const done=document.createElement('button');done.type='button';done.className='dance-done';done.textContent=params.rave?'CONTINUE RAVE':'DONE';
    done.style.cssText='font:8px "Press Start 2P",monospace;padding:.8em 1.1em;background:#f6efd9;color:#10101b;border:2px solid #10101b;box-shadow:2px 2px #7d194b;cursor:pointer';
    done.addEventListener('click',()=>ctx.finish({outcome:sum.outcome,score:stats.perfect*2+stats.good,summary:headline.toLowerCase(),data:{...stats,...sum,spray}}));
    card.append(done);root.append(card);
@@ -129,6 +131,7 @@
   }
   function drawBg(now){
    P.paintEnvironment(g,{sky:'#170d27',wall:'#4d214b',floor:'#3d302d',horizon:150,seed:'dance-floor',props:[{type:'string',x1:8,x2:262,y:40,color:'#ffd36a'},{type:'sign',x:48,y:52,w:174,h:18,text:params.rival?`VS ${params.rival}`:'DANCE FLOOR',glow:'#ffb040',size:6}],crowd:16,crowdColors:['#9d4a5a','#4a6a9d','#6a9d4a','#9d8a4a']});
+   if(params.rave&&approvedRave.complete&&approvedRave.naturalWidth){g.imageSmoothingEnabled=false;g.drawImage(approvedRave,0,0,270,480);g.fillStyle='#08070f88';g.fillRect(0,0,270,480);}
    const beat=60000/cfg.bpm,pulse=songMs>0?1-((songMs%beat)/beat):0;
    if(params.rave){P.rect(g,0,0,270,54,'#170811');P.text(g,"OGUN'S BLOOD RAVE",135,40,{size:8,color:'#ff6fb5',align:'center'});for(let i=0;i<36;i++){const x=(i*43)%270,y=((i*61+Math.floor(Math.max(0,songMs)/15))%146);P.rect(g,x,y,2,5,'#9c173f');}P.rect(g,4,148,262,3,pulse>.75?'#ffd36a':'#7d194b');}
    // the floor under the lanes: dark lanes, bright zone that pulses on the beat
@@ -158,7 +161,7 @@
    const pose=songMs<poseUntil?lastPose:'shake';
    // spotlight so the black jacket reads against the crowd
    g.fillStyle='rgba(255,211,106,.16)';g.fillRect(92,62,86,92);g.fillStyle='rgba(255,211,106,.14)';g.fillRect(100,70,70,84);
-   drawPose(g,P,pose,102,86-bob,4,'#0c0c10');
+   if(approvedRich?.complete&&approvedRich.naturalWidth){g.imageSmoothingEnabled=false;g.drawImage(approvedRich,0,0,80,96,102,68-bob,64,77);}else drawPose(g,P,pose,102,86-bob,4,'#0c0c10');
    P.rect(g,102+6*4,86-bob+10*4,2*4,2,'#20c66b');
    if(params.rival){const rp=songMs<poseUntil+400?lastPose:'dip';drawPose(g,P,rp,28,96+bob,3,'#e0b040');P.text(g,'UNCLE',44,150,{size:5,color:'#e0b040',align:'center'});}
    if(spray&&stats.perfect>0){for(let i=0;i<Math.min(6,stats.perfect);i++){const bx=104+((i*37+Math.floor(songMs/90))%60),by=70+((i*23+Math.floor(songMs/60))%40);P.rect(g,bx,by,6,3,'#20c66b');}}
@@ -191,5 +194,5 @@
   raf=requestAnimationFrame(frame);
   return {dispose(){const r=raf;raf=null;if(r)cancelAnimationFrame(r);if(beatAudio)beatAudio.close().catch(()=>{});canvas.removeEventListener('pointerdown',pointerDown);window.removeEventListener('keydown',keyDown);}};
  }
- window.RAMinigames.register('dance',{title:'DANCE FLOOR',rule:'Tap the dance move when it falls into the glowing zone.',mount});
+ window.RAMinigames.register('dance',{title:'DANCE FLOOR',rule:'Tap the matching lane at the gold zone or use A S D F / arrow keys; hits build blend and misses break your streak.',mount});
 })();

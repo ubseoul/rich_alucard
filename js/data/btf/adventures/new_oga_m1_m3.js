@@ -13,7 +13,7 @@
     choices:[{label:"WHO'S THE PLUG?",next:'brief'},{label:'NAH',next:'nah'},{label:'SAY LESS.',next:'table'}]},
    brief:{lines:[N('Smallie sells Blood X out of a boba shop. back table. always eating.'),N('cousin in the parking lot.')],next:'table'},
    nah:{end:{outcome:'backout',fx:()=>RANewOga.backOutM1(),memory:{text:'left the NEW OGA idea alone',lane:'money'}}},
-   table:{env:'boba_shop',actors:{left:'rich',right:'smallie'},title:'BOBA SHOP · BACK TABLE',lines:[E('smallie','Smallie is at the back table. the Blood X is beside him.'),RC("say big bro, gonna need to leave that here"),S('smallie',"please man you cant do this i need this for my student loans")],choices:[
+   table:{env:'boba_shop',actors:{left:'rich',right:'smallie'},title:'BOBA SHOP · BACK TABLE',lines:[E('smallie','Smallie is at the back table. the Blood X is beside him.',{narration:true}),RC("say big bro, gonna need to leave that here"),S('smallie',"please man you cant do this i need this for my student loans")],choices:[
     {label:'STICK-UP',next:'fight_smallie'},
     {label:'SWITCH THE BAG',sub:'KIKI · COOL',when:L=>L.level('kiki')>=2,hideLocked:false,next:'switch'},
     {label:'GRAB AND GO',when:L=>(L.life.ownership.cars||[]).length>0,hideLocked:false,next:'touge'},
@@ -31,7 +31,7 @@
  D({id:'NEW_OGA_M2',title:'THE INTERVIEW',lane:'money',memoryType:'money',start:'voice',available:L=>L.life.newOga.status==='awaiting_interview'&&L.day>L.life.newOga.lastMissionDay,
   testSetup:ctx=>ctx.RAState.patch('life.newOga',{...ctx.RAState.get().life.newOga,status:'awaiting_interview',mission:1,lastMissionDay:1}),nodes:{
    voice:{env:'bedroom',actors:{left:'rich'},title:'UNKNOWN VOICE NOTE',lines:[S('gbenga',"O ma ṣe o"),S(null,'Hello. Hello. Rich.'),S(null,'Hello. Can you hear me. Hello.')],next:'arrive'},
-   arrive:{env:'gbenga_rentals',actors:{left:'rich',right:'gbenga'},title:'GBENGA EVENT RENTALS · INGLEWOOD',lines:[E('gbenga','plastic chairs, coolers, canopies. Gbenga waits inside the warehouse.')],next:'questions'},
+   arrive:{env:'gbenga_rentals',actors:{left:'rich',right:'gbenga'},title:'GBENGA EVENT RENTALS · INGLEWOOD',lines:[E('gbenga','plastic chairs, coolers, canopies. Gbenga waits inside the warehouse.',{narration:true})],next:'questions'},
    questions:{lines:[S('gbenga','Where do you see yourself in five years?'),S('gbenga','What is your greatest weakness?'),S('gbenga','Why did you rob my boy?')],choices:[
     {label:'HONEST',fx:()=>RANewOga.answerM2('honest'),next:'debt'},
     {label:'FLEX',fx:()=>RANewOga.answerM2('flex'),next:'flex_voice'},

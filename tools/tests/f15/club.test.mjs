@@ -14,7 +14,7 @@ export async function test(root){
   const adapter=(await rd('js/frag/F06/make_it_rain.js')).replace(/\r\n/g,'\n');
   assert.match(adapter,/var hideTarget = !!options\.hideTarget;/);assert.match(adapter,/if \(!hideTarget\) drawTarget\(L, tx, spot, N\);/);assert.match(adapter,/geometry: function \(\)/);
   const prod=(await rd('js/frag/F06/production.js')).replace(/\r\n/g,'\n');
-  assert.match(prod,/options\.onSpend\?\.\(\{delta, result, round: round\.id\}\)/);
+  assert.match(prod,/options\.onSpend\?\.\(\{delta:charge, thrown:delta, result, round: round\.id\}\)/);
   console.log('PASS F15 seam: F06 adapter/production deltas are the additive hideTarget/geometry/onSpend seams (core + tunables guarded by f06/source.test.mjs)');}
 
  // ---- WOLF v2 replacement: verified, distinct, previous recoverable --------------------------------------------------------------------------
