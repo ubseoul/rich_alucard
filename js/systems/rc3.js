@@ -48,7 +48,7 @@
   else if(!s.story&&m&&!missionReady(m)){label='SLEEP — STORY RETURNS TOMORROW';kind='rest';app=null;}
   else if(!s.story){label='FINISH TODAY’S STORY';kind='story';}
   else {label='END THE DAY';kind='rest';app=null;}
-  const sub=kind==='rest'?(s.story?'Story done. Earnings settle when you sleep. Stay out if you want.':'No story ready tonight. Explore or rest; tomorrow advances time.'):
+  const sub=kind==='rest'?(s.story?'Story done. A game progression bonus may settle when you sleep. Stay out if you want.':'No story ready tonight. Explore or rest; tomorrow advances time.'):
    !flag('throneDone')?'Get out of the ocean. Then deal with the throne.':!flag('ogunsRaveCompleted')?'Your invite is ready. Meet the city before taking work.':'One assignment. Its choices and consequences carry forward.';
   return {id:kind,key:`rc3:${day()}:${label}`,kind,app,label,sub,action:'rc3:next'};
  }
@@ -82,8 +82,8 @@
  // Return a live activity through its normal quit/checkpoint path before sleeping.
  const canSleep=()=>!!flag('throneDone')&&(!RAAdventures.active()||!!RAAdventures.active()?.vars?.rc4Paused);
  function prepareSleep(){if(!canSleep())return false;if(read().story){if(!read().action)patch({action:true,activity:'story'});claimCash();}return true;}
- function restCopy(){const s=read();return s.story?`Story done. ${s.paid?'Earnings already settled.':RALife.fmt(Math.max(0,CASH_FLOOR-(Number(s.earnedIncome)||0)))+' story supplement settles tonight.'} Sleep advances one day.`:
-  'Rest advances one day. No story supplement tonight; unfinished work stays available. Saved checkpoints and purchases stay yours.';}
+ function restCopy(){const s=read();return s.story?`Story done. ${s.paid?"Today's progression bonus is already settled.":RALife.fmt(Math.max(0,CASH_FLOOR-(Number(s.earnedIncome)||0)))+' game progression bonus settles tonight.'} Sleep advances one day.`:
+  'Rest advances one day. No progression bonus tonight; unfinished work stays available. Saved checkpoints and purchases stay yours.';}
  function creditActivity(id,result){
   if(!result||result.quit||result.error||result.data?.refused||['lose','fail','cancel','quit','refused'].includes(String(result.outcome).toLowerCase()))return false;
   patch({action:true,activity:id});return true;
@@ -195,7 +195,7 @@
    if(RAAdventures.isDone('A08'))return lines;
    return lines.map(line=>{
     if(!Array.isArray(line)||!['vampgpt',null].includes(line[0]))return line;
-    const replacement=line[1]==="oga. you're cooking noodles for tips."?'oga. you need funds.':
+    const replacement=line[1]==="oga. you're cooking noodles for tips."?'oga. you came here for music.':
      line[1]==="it's just an idea. you're tired of the ramen. the ramen is tired of you."?'cash first. what you do with it is your business.':null;
     return replacement?[line[0]||'vampgpt',replacement,...line.slice(2)]:line;
    });
