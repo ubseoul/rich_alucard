@@ -69,7 +69,7 @@
 
  function garageSnapshot() {
   const map = {}; const owned = [];
-  for (const c of window.RAVehicles.list()) {
+   for (const c of window.RAVehicles.available()) {
    if (c.service?.tributed) continue;
    const f01 = CAR_MAP[c.id];
    if (!f01 || map[f01]) continue;

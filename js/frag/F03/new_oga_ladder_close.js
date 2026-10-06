@@ -35,7 +35,7 @@
   const s=String(c.ownershipStatus||'').toUpperCase();
   return s==='LOST'||s==='IMPOUNDED'?s:'AVAILABLE';
  };
- const availableCars=()=>L().ownedCars().filter(c=>carState(c)==='AVAILABLE');
+ const availableCars=()=>V().available();
  // TOUGE reports its car as a catalog key; map it back to the owned record so the drive is counted for THAT car.
  function ownedCarForTougeKey(key){
   if(!key)return null;
@@ -80,7 +80,8 @@
   const s=state();if(s.m9Resolved)return s;
   const d=day(),tv=tunables().trust;
   if(outcome==='give'||outcome==='other'){
-   const carId=tributeCar(outcome==='give'?favoriteCar():exoticCar());
+    const carId=tributeCar(outcome==='give'?favoriteCar():exoticCar());
+    if(!carId)return s; // A stale choice cannot grant a promotion with no car.
    return O().patch({status:'vice_president',mission:9,rank:5,title:'VICE PRESIDENT',m9Resolved:true,m9Outcome:outcome,
     m9TributedCar:carId,m9TributedDay:carId?d:null,trust:s.trust+(Number(outcome==='other'?tv.M9_OTHER:tv.M9_GIVE)||0),lastMissionDay:d});
   }

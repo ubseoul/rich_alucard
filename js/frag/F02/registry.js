@@ -77,6 +77,7 @@
   return {ok:true};
  }
  function buyMod(modId,{useDiscount=false}={}){
+  if(window.RARC3)return {ok:false,reason:'retired'};
   const m=mod(modId);if(!m)return {ok:false,reason:'unknown'};
   if(state().modsOwned?.[modId])return {ok:false,reason:'owned'};
   let price=m.price,usedDiscount=false;

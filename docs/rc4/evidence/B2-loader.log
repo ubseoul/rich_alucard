@@ -1,0 +1,5 @@
+
+> rich-alucard-static-release@0.0.0 loader:verify
+> node tools/loader.mjs verify
+
+PASS loader (246 scripts, deterministic order, index.html in sync)

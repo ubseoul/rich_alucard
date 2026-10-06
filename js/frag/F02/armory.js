@@ -31,17 +31,17 @@
   const ammo=R.effectiveAmmo(g.id);
   return `<div class="ia-gun ia-owned"><b>${R.displayName(g.id)}</b><small>AMMO ${ammo===Infinity?'∞':ammo} · ${g.type}${equipped}</small>${tags}
    ${R.equipped()===g.id?'':act(`equip:${g.id}`,'EQUIP','ia-small')}
-   ${nav(`gun:${g.id}`,'MODS','ia-small')}
-   ${R.hasMod(g.id,'custom_engraving')?act(`engrave:${g.id}`,'ENGRAVE','ia-small'):''}
+   ${nav(`gun:${g.id}`,window.RARC3?'GUN STORY':'MODS','ia-small')}
+   ${!window.RARC3&&R.hasMod(g.id,'custom_engraving')?act(`engrave:${g.id}`,'ENGRAVE','ia-small'):''}
    ${window.RAMinigames?act(`range:${g.id}`,'RANGE DAY','ia-small'):''}</div>`;
  }
  function home(){
   const owned=R.ownedGuns();const sale=C.armoryGuns().filter(g=>!R.owns(g.id));
-  const medals=R.medalCount(),tokens=R.discountTokens();
+  const medals=R.medalCount(),tokens=window.RARC3?0:R.discountTokens();
   return `<h1>THE ARMORY</h1>
    <p class="phone-small">DEACON BRASS · GUNS AND GRACE · ${fmt(window.RALife.money())}${tokens?` · ${tokens} MOD DISCOUNT`:''}${medals?` · ${medals} RANGE MEDAL${medals>1?'S':''}`:''}</p>
    <p class="phone-speaker">ON THE WALL</p>${owned.map(gunCard).join('')||'<p class="phone-small">nothing yet.</p>'}
-   <p class="phone-speaker">DEACON'S WORKBENCH</p>${nav('bench','MODS','ia-wide')}
+   ${window.RARC3?'':`<p class="phone-speaker">DEACON'S WORKBENCH</p>${nav('bench','MODS','ia-wide')}`}
    ${sale.length?`<p class="phone-speaker">FOR SALE</p>${sale.map(gunCard).join('')}`:''}
    <p class="phone-small">RANGE/PRICE TUNING: ${C.TUNABLES.owner}</p>`;
  }
@@ -60,15 +60,16 @@
    ${range?`<small>RANGE BEST ${range.best||0}${range.story?` · ${R.storyTitle(id)}`:''}</small>`:''}</div>
    ${R.hasMod(id,'custom_engraving')?act(`engrave:${id}`,'ENGRAVE A NAME','ia-wide'):''}
    ${nav('','BACK TO WALL','ia-small')}
-   <p class="phone-speaker">MODS (MAX ${C.TUNABLES.maxModsPerGun})</p>${modList(id)}`;
+   ${window.RARC3?'':`<p class="phone-speaker">MODS (MAX ${C.TUNABLES.maxModsPerGun})</p>${modList(id)}`}`;
  }
 
  const app={id:'armory',flag:'F02.armory',render(sub){
   const s=String(sub||'');
-  if(s==='bench')return bench();
+  if(s==='bench')return window.RARC3?home():bench();
   if(s.startsWith('gun:'))return gunPage(s.slice(4));
   return home();
  },onAction(actName,arg,api){
+  if(window.RARC3&&['buyMod','attach','detach','engrave'].includes(actName))return;
   if(actName==='buy'){const r=R.buy(arg);api.message?.(r.ok?`BOUGHT ${R.gun(arg).label}`:`CAN'T — ${r.reason}`);api.refresh();return;}
   if(actName==='equip'){const r=R.equip(arg);api.message?.(r.ok?'EQUIPPED.':`CAN'T — ${r.reason}`);api.refresh();return;}
   if(actName==='buyMod'){const [modId,flag]=String(arg).split('|');const r=R.buyMod(modId,{useDiscount:flag==='d'});api.message?.(r.ok?`${C.MODS[modId].label} — ${fmt(r.price)}${r.discount?' (MEDAL DISCOUNT)':''}`:`CAN'T — ${r.reason}`);api.refresh();return;}

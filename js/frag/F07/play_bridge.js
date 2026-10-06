@@ -54,7 +54,7 @@
  }
  function garage(){
   const map={},owned=[],cm=carMap();
-  for(const c of window.RAVehicles.list()){
+  for(const c of window.RAVehicles.available()){
    if(c.service?.tributed)continue;
    const f01=cm[c.id];if(!f01||map[f01])continue;
    map[f01]=c.id;owned.push(f01);

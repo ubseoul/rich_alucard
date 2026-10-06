@@ -2,17 +2,20 @@
  'use strict';
  // OL-074: production routing policy. Content and frozen art remain in the repository.
  const APPS=['vampgpt','texts','warRoom','stripClub','armory','bank','maps','radio','vampgram'];
- // Editorial order: funniest first, then scenes with a strong story/combat payoff.
- const MAPS=['YAM','AUNTIES','FUFU','PLATES','A30','A57','A18','A19','A39','A10','A43','A50','A31','A56','A20','A27','A23','A24','JOLLOF_WARS','A54'];
+ // Ten retained outings, prerequisite introductions before their authored follow-ups.
+ const MAPS=['A43','YAM','FUFU','AUNTIES','PLATES','A19','JOLLOF_WARS','A54','A56','A20'];
+ const HALL=['A26','HOST'];
+ const CASH_FLOOR=28000;
  const UTILITY=['ARMORY','ARMORY_WALL','A08','SLURP'];
  const MISSIONS=['NEW_OGA_M1','NEW_OGA_M2','NEW_OGA_M3','NEW_OGA_M4','NEW_OGA_ALTERNATIVE','NEW_OGA_M5','NEW_OGA_M6','NEW_OGA_M7','NEW_OGA_M8','NEW_OGA_M9','NEW_OGA_M10','NEW_OGA_VAMPGPT','NEW_OGA_FINALE'];
  const L=()=>RALife.life(),day=()=>RALife.today().day,flag=RALife.flag;
- const read=()=>flag('rc3Day')?.day===day()?flag('rc3Day'):{day:day(),story:!!flag('ogunsRaveCompleted')&&(L().newOga.lastMissionDay===day()||!!L().newOga.finaleDone),action:false,paid:false,moneyBefore:RALife.money()};
+ const read=()=>flag('rc3Day')?.day===day()?flag('rc3Day'):{day:day(),story:!!flag('ogunsRaveCompleted')&&(L().newOga.lastMissionDay===day()||!!L().newOga.finaleDone),action:false,paid:false,moneyBefore:RALife.money(),earnedIncome:0};
  const patch=v=>{const s={...read(),...v};RALife.setFlag('rc3Day',s);return s;};
  const dancer=id=>!!window.RAF15?.parse?.(id);
- function allowed(id){return id==='A00'||id==='RC3_FIGHT'||MISSIONS.includes(id)||MAPS.includes(id)||UTILITY.includes(id)||dancer(id);}
+ function allowed(id){return id==='A00'||id==='RC3_FIGHT'||MISSIONS.includes(id)||MAPS.includes(id)||HALL.includes(id)||UTILITY.includes(id)||dancer(id);}
  function canStart(id,from){if(!allowed(id))return false;if(RAAdventures.active()?.id===id)return true;
   if(MAPS.includes(id))return (from==='rc3-maps'||(from==='chain'&&id==='A56'&&RAAdventures.isDone('A54')))&&RAAdventures.available(id);
+  if(HALL.includes(id))return from==='rc4-hall'&&RALife.hasRoom('party_hall')&&RAAdventures.available(id);
   if(MISSIONS.includes(id))return RAAdventures.available(id);
   if(id==='DATE')return false;return true;}
  function pendingMission(){const s=L().newOga;
@@ -56,12 +59,19 @@
   if(n.kind==='club')return RAStripClub.open(RAPhone?.api);
   if(n.kind==='rest'){await RAPhone?.close?.();return RABedroomLife.goToSleep();}
  }
- // Cuts removed the day-job/Trap income paths. Ensure a story + action day earns the RC2 $15K club reserve.
- // Authored mission income counts toward this floor; one receipt per day prevents repeat/reload farming.
+ // Persist gross income independently of spending. Legacy current-day saves cannot
+ // prove prior earnings: conservatively cover today's floor, track normally tomorrow.
+ if(flag('rc3Day')?.day===day()&&!Number.isFinite(flag('rc3Day').earnedIncome))patch({earnedIncome:CASH_FLOOR,earningsMigration:'legacy-floor-covered'});
+ window.RAStateWatch?.watch('rc4.income',s=>s.life?.resources?.money,(next,prev)=>{
+  if(next>prev&&!read().paid)patch({earnedIncome:(Number(read().earnedIncome)||0)+(next-prev)});
+ });
  function claimCash(){const s=read();if(!s.story||!s.action||s.paid)return false;
-  const earned=Math.max(0,RALife.money()-(s.moneyBefore??RALife.money()));
-  const amount=Math.max(0,15000-earned);if(amount)window.RAMoneyLedger?.credit?RAMoneyLedger.credit(amount,{source:'rc3:story'}):RALife.addMoney(amount);
-  patch({paid:true,cash:amount});RAState.recordEvent({id:`rc3:cash:${day()}`,type:'rc3_story_cash',day:day(),amount});return true;
+  const amount=Math.max(0,CASH_FLOOR-(Number(s.earnedIncome)||0)),life=JSON.parse(JSON.stringify(L()));
+  life.resources.money+=amount;life.world.flags.rc3Day={...s,paid:true,cash:amount};
+  const event={id:'rc3:cash:'+day(),type:'rc3_story_cash',day:day(),amount};
+  if(!life.history.some(e=>e.id===event.id))life.history.push(event);
+  const settle=()=>RAState.patch('life',life);
+  if(window.RAMoneyLedger)RAMoneyLedger.withSource('rc3:story',settle);else settle();return true;
  }
  const canSleep=()=>campaignComplete()||!!RAAdventures.active()?.vars?.rc4Paused||(!read().story&&!!pendingMission()&&!missionReady(pendingMission()))||(read().paid&&flag('stripClubLastDay')===day());
  // B1 settlement contract: only a returned, validated COMPLETE PLAY earns credit.
@@ -88,11 +98,11 @@
   wrap.append(el('h2',null,`DAY ${day()}`));if(day()===1)wrap.append(el('p','phone-chat',`<b>RICH</b> ${window.RAWriting.voice(1)}`));const b=el('button','mail-card',`<b>${n.label}</b>${chapter()}`);b.type='button';b.addEventListener('click',()=>{wrap.remove();RAPhone.openApp('vampgpt');});
   const up=el('button','mail-done','GET UP');up.type='button';up.addEventListener('click',()=>{wrap.remove();window.RABedroom?.releasePhone?.();});wrap.append(b,up);layer.append(wrap);
  }
- function mapsMarkup(api){return `<h1>MAPS</h1><p class="phone-small">got time? pick somewhere</p>${MAPS.filter(id=>RAAdventures.available(id)).map(id=>api.button(api.esc(RAAdventures.get(id).title),`rc3:map:${id}`)).join('')||'<p>whole map cleared damn</p>'}${api.button('HOME','home','phone-home')}`;}
+ function mapsMarkup(api){releaseMap();return `<h1>MAPS</h1><p class="phone-small">New outings appear at least two days apart. Story prerequisites still apply.</p>${MAPS.filter(id=>RAAdventures.available(id)).map(id=>api.button(api.esc(RAAdventures.get(id).title),`rc3:map:${id}`)).join('')||'<p>No outing ready tonight.</p>'}${api.button('HOME','home','phone-home')}`;}
  async function mapGo(id){if(!MAPS.includes(id)||!RAAdventures.available(id))return false;await RAPhone.close();return RAAdventureScene.begin(id,{from:'rc3-maps'});}
- function phoneRoute(id){return APPS.includes(id);}
+ function phoneRoute(id){return APPS.includes(id)||id==='jdmImports'||id==='cars';}
  function phoneAction(name){if(name.startsWith('app:'))return phoneRoute(name.split(':')[1]);if(name.startsWith('do:'))return phoneRoute(name.split(':')[1]);
-  if(name.startsWith('go:')||name.startsWith('tempt:')||['money','people','jdmImports','realEstate','atlanta','tokyo','letsGo','butterChicken'].includes(name))return false;return true;}
+  if(name.startsWith('go:')||name.startsWith('tempt:')||['money','people','realEstate','atlanta','tokyo','letsGo','butterChicken'].includes(name))return false;return true;}
  window.RARC3={apps:APPS,maps:MAPS,missions:MISSIONS,utility:UTILITY,allowed,canStart,pendingMission,chapter,next,advance,read,patch,claimCash,canSleep,storyEvent,showMorning,mapsMarkup,mapGo,phoneRoute,phoneAction,settlePlay,attemptAllowed,settleAttempt,suspend,missionReady};
  // Existing saves get the same nine functional entry points without waiting for another wake.
  for(const id of APPS)RALife.unlockApp(id,{silent:true});RALife.setFlag('armoryKnown',true);
@@ -102,11 +112,26 @@
  RAClock.onWake('rc3-apps',998,()=>{for(const id of APPS)RALife.unlockApp(id,{silent:true});RALife.setFlag('armoryKnown',true);patch({moneyBefore:RALife.money()});});
  const ack=new Set();window.RAGuidance={next,story:()=>[next()],cash:()=>[],spend:()=>[],recommended:()=>[next()],steps:()=>['prologue','rave',...MISSIONS,'fight','cash','club','sleep'],
   opened:id=>ack.add(`${day()}:${id}:${next().key}`),target:()=>{const n=next();return n.app&&!ack.has(`${day()}:${n.app}:${n.key}`)?{app:n.app,key:n.key,item:n}:null;},pulsing:id=>{const t=window.RAGuidance.target();return t?.app===id;}};
- // Optional scenes no longer need completion of a cut adventure to appear in Maps.
- // B1 retains live story prerequisites. B2 owns only explicit cut-dependency substitutions.
- for(const id of MAPS){const d=RAAdventures.get(id);if(d){const original=d.available;d.available=L=>original?original(L):true;}}
- const phil=RAAdventures.get('A20');if(phil)phil.available=L=>L.day>18&&!L.flag('phil3Done')&&L.flag('philLastDay')!==L.day;
- const smack=RAAdventures.get('A56');if(smack)smack.available=()=>RAAdventures.record('A54')?.outcome==='win';
+ // Preserve authored predicates. Exactly one newly released outing per >=2 days;
+ // no catch-up burst or fabricated completion on old saves. Already released arcs
+ // keep their own per-day prerequisites and can continue on subsequent days.
+ const mapPredicates=new Map(MAPS.map(id=>[id,RAAdventures.get(id)?.available]));
+ mapPredicates.set('A20',L=>L.day>18&&!L.flag('phil3Done')&&L.flag('philLastDay')!==L.day);
+ mapPredicates.set('A56',()=>RAAdventures.record('A54')?.outcome==='win');
+ // Older saves already visited some of these outings before release metadata
+ // existed. Keep those continuations/repeatable rewards known, never completed anew.
+ if(!flag('rc4Maps')){
+  const known=MAPS.filter(id=>{const r=RAAdventures.record(id);return r&&(r.count>0||r.status==='active');});
+  if(known.length)RALife.setFlag('rc4Maps',{unlocked:Object.fromEntries(known.map(id=>[id,Number(RAAdventures.record(id).startedDay)||day()])),lastDay:day(),migration:'legacy-known-outings'});
+ }
+ const mapState=()=>flag('rc4Maps')||{unlocked:{},lastDay:0};let releasingMap=false;
+ function releaseMap(){if(releasingMap)return;releasingMap=true;try{
+  const s=mapState();if(day()<2||day()<Number(s.lastDay||0)+2)return;
+  const id=MAPS.find(id=>!s.unlocked[id]&&!RAAdventures.isDone(id)&&(!mapPredicates.get(id)||mapPredicates.get(id)(RALife.L())));
+  if(id)RALife.setFlag('rc4Maps',{unlocked:{...s.unlocked,[id]:day()},lastDay:day()});
+ }finally{releasingMap=false;}}
+ for(const id of MAPS){const d=RAAdventures.get(id);if(d)d.available=L=>{releaseMap();return !!mapState().unlocked[id]&&(!mapPredicates.get(id)||mapPredicates.get(id)(L));};}
+ releaseMap();RAClock.onWake('rc4-maps',999,releaseMap);
  for(const id of MISSIONS){const d=RAAdventures.get(id);if(d)d.available=()=>flag('ogunsRaveCompleted')&&!read().story&&pendingMission()===id&&missionReady(id);}
  const prologue=RAAdventures.get('A00');if(prologue){prologue.nodes.fall1.next='sensei_point';prologue.nodes.sensei_point.next='brain_offer';prologue.nodes.brain_done.next='fork';}
  // Preserve the main ladder: remove early arc-ending choices.
@@ -119,7 +144,7 @@
   // It is encounter data, never an owned Supra or acquisition reward.
   m4.nodes.run.minigame.params=()=>({course:'warehouse_alleys',car:'supra',durationSeconds:RANewOgaTunables.m4.ESCAPE_DURATION_SECONDS,escapeRunner:'Carlos'});
  }
- const m9=RAAdventures.get('NEW_OGA_M9');if(m9){for(const c of m9.nodes.choice.choices)if(c.next==='give')c.when=()=>RALife.ownedCars().length>0;}
+ const m9=RAAdventures.get('NEW_OGA_M9');if(m9){for(const c of m9.nodes.choice.choices)if(c.next==='give')c.when=()=>!!RANewOgaLadder.favoriteCar();}
  // A short mandatory crew fight fills dialogue-only days. Existing fighter/art/rules; no optional outing is pushed.
  RAAdventures.define({id:'RC3_FIGHT',title:'PROTECT THE CREW',lane:'combat',repeatable:true,available:()=>!read().action,start:'brief',nodes:{
   brief:{env:'street_night',actors:{left:'rich',right:'smallie_cousin'},lines:[RAContent.N("crew blocked clear the street then collect")],next:'fight'},
@@ -165,12 +190,25 @@
  document.addEventListener('ra:scene',e=>{if(e.detail?.id==='bedroom')setTimeout(recoverEnding,60);});
  // Bank owns the existing property surface; Maps owns adventure discovery. No tenth app.
  const hall=()=>window.RACastle?.ROOMS.find(r=>r.id==='party_hall');
- // A26 is cut. The savings goal must not require hosting that retired adventure.
+ // Ownership comes before the first authored party: no circular hosting prerequisite.
  if(hall())hall().needs=()=>true;
  function bankMarkup(sub,api){const rent=L().ownership.properties.filter(p=>p.ownershipStatus==='owned').reduce((sum,p)=>sum+(Number(window.RAEcon.rent.perDay[p.id])||Math.round((Number(p.weeklyRent)||0)/7)),0),h=hall(),owned=RALife.hasRoom('party_hall');
-  return `<h1>BANK</h1><div class="phone-bank-total"><span>ON HAND</span><strong>${RALife.fmt(RALife.money())}</strong></div><div class="phone-card"><b>RENTAL INCOME</b>${RALife.fmt(rent)} / DAY${L().ownership.properties.some(p=>p.id===RAPropertyQuest.propertyId)?'':api.button('BUY RENTAL · $34,000','do:bank:rental','',RALife.money()<39000?'disabled':'')}</div><div class="phone-card"><b>BIG GOAL · PARTY HALL</b>${owned?'BUILT':`${RALife.fmt(h.price)}${api.button('BUILD PARTY HALL','do:bank:hall','',RALife.money()<h.price+5000?'disabled':'')}`}</div>`;
+  return `<h1>BANK</h1><div class="phone-bank-total"><span>ON HAND</span><strong>${RALife.fmt(RALife.money())}</strong></div><div class="phone-card"><b>RENTAL INCOME</b>${RALife.fmt(rent)} / DAY${L().ownership.properties.some(p=>p.id===RAPropertyQuest.propertyId)?'':api.button('BUY RENTAL · $34,000','do:bank:rental','',RALife.money()<39000?'disabled':'')}</div><div class="phone-card"><b>BIG GOAL · PARTY HALL</b>${owned?`OWNED${api.button('CASTLE PARTY NIGHT','do:bank:party','',RALife.money()<500||flag('partyNight')===day()?'disabled':'')}`:`${RALife.fmt(h.price)}${api.button('BUILD PARTY HALL','do:bank:hall','',RALife.money()<h.price+5000?'disabled':'')}`}</div>`;
  }
- const bank=window.RAPhoneApps?.get?.('bank');if(bank){bank.render=bankMarkup;bank.onAction=(act,arg,api)=>{if(act==='rental'&&RALife.money()>=39000)RAPropertyQuest.completePurchase('cut');if(act==='hall'&&RALife.money()>=hall().price+5000)RACastle.buy('party_hall');api.refresh();};}
+ async function partyGo(){if(!RALife.hasRoom('party_hall')||flag('partyNight')===day()||RALife.money()<500)return false;await RAPhone?.close?.();return RAAdventureScene.begin(RAAdventures.isDone('A26')?'HOST':'A26',{from:'rc4-hall'});}
+ RARC3.partyGo=partyGo;RARC3.releaseMap=releaseMap;
+ for(const id of HALL){const d=RAAdventures.get(id),original=d?.available;if(!d)continue;
+  d.available=L=>L.hasRoom('party_hall')&&L.flag('partyNight')!==L.day&&L.money>=500&&(!original||original(L));
+  // Keep authored choices/copy. A saved bar receipt makes reload/double dispatch
+  // idempotent; cash, tier and next checkpoint persist in one state mutation.
+  d.nodes.drinks.choices=d.nodes.drinks.choices.map((c,i)=>({...c,fx:A=>{
+   if(A.vars.rc4BarPaid)return;const price=[500,5000,25000][i];if(RALife.money()<price)return;
+   const life=JSON.parse(JSON.stringify(L()));life.resources.money-=price;
+   life.adventures.active={...life.adventures.active,node:'door',vars:{...life.adventures.active.vars,tier:['cheap','mid','extra'][i],rc4BarPaid:price}};
+   RAState.patch('life',life);
+  }}));
+ }
+ const bank=window.RAPhoneApps?.get?.('bank');if(bank){bank.render=(sub,api)=>bankMarkup(sub,api)+api.button('JDM IMPORTS / GARAGE','app:jdmImports');bank.onAction=(act,arg,api)=>{if(act==='rental'&&RALife.money()>=39000)RAPropertyQuest.completePurchase('cut');if(act==='hall'&&RALife.money()>=hall().price+5000)RACastle.buy('party_hall');if(act==='party')return partyGo();api.refresh();};}
  if(window.RACastle){const buy=RACastle.buy;RACastle.buy=id=>id==='party_hall'&&buy(id);RACastle.open=()=>RAPhone.openApp('bank');RACastle.markup=()=>'';}
  const maps=window.RAPhoneApps?.get?.('maps');if(maps)maps.render=(sub,api)=>mapsMarkup(api);
  // The retired MOVES tile is an essential loadout function, folded into Armory.
@@ -185,6 +223,9 @@
  if(document.body?.append){document.body.classList.add('rc3');const hud=document.createElement('div');hud.className='rc3-cash';hud.setAttribute('aria-label','Cash');document.body.append(hud);
   const update=()=>{hud.textContent=RALife.fmt(RALife.money());};update();document.addEventListener('ra:state',update);setInterval(update,500);
  }
+ // Clear old silent unread badges without deleting messages.
+ function silenceThreads(){const threads=L().phone.threads||{};if(Object.values(threads).some(t=>t.some(m=>!m.read)))RAState.patch('life.phone.threads',Object.fromEntries(Object.entries(threads).map(([id,t])=>[id,t.map(m=>({...m,read:true}))])));}
+ silenceThreads();const text=RALife.text;RALife.text=function(...args){const result=text(...args);silenceThreads();return result;};
  // One notification, story only. Other messages survive as silent badges in Texts/Bank.
  const mail=RALife.mail;RALife.mail=function(card){return mail({...card,silent:true});};
  const worldPending=RAWorldEvents.pending,deliver=RAWorldEvents.deliver;

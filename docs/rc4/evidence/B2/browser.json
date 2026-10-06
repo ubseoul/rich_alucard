@@ -1,0 +1,20 @@
+{
+  "kind": "seeded targeted Chrome fixtures",
+  "viewport": [
+    390,
+    844
+  ],
+  "checks": [
+    "earn 7000/spend 6000/supplement 21000; reload does not repeat receipt",
+    "UI listing -> S15 buy/debit -> garage selected -> reload -> real Touge -> quit -> tribute blocks selection",
+    "Supra actual listing/dock/pause/reload/resume; seeded defeated-importer boundary; authored leave-alone/purchase/payoff; $78K debit once/reload",
+    "Maps two-day cadence, authored final prerequisite, completed-win follow-up released later (seeded final boundary)",
+    "late seeded Hall $255K -> purchase $250K once -> owned access -> authored $500 bar/party art -> seeded dance success -> return/reload/day gate"
+  ],
+  "errors": [],
+  "desktop": [
+    1280,
+    900
+  ],
+  "ok": true
+}

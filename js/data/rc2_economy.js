@@ -15,7 +15,7 @@
   stripClub:Object.freeze({
    openDay:1,                       // the phone app is there from the first wake (was: after the first world event)
    firstVisit:Object.freeze({
-    discount:0.25,                  // the house comps this share of every throw on the first visit
+    discount:0.5,                  // the house comps this share of every throw on the first visit
     capShare:0.5                    // and a first-visit round never risks more than this share of the cash on hand
    }),
    minRound:500                     // a capped round below this is refused ("NEED CASH")
