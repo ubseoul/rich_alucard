@@ -1,5 +1,5 @@
 // Reviewed assistant candidate; native canvas/contact unchanged; presentation only.
-RAArtParts.register('RC5_W_BELT',{
+RAArtParts.register('F12',{
  "assets": {
   "assets/rc5/carlos_debt_belt/carlos-anticipation-r3.png": {
    "width": 80,

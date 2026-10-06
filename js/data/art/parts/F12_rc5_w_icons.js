@@ -1,5 +1,5 @@
 // Additive reviewed phone icons. Existing creator masters and app behavior are unchanged.
-RAArtParts.register('RC5_W_ICONS',{
+RAArtParts.register('F12',{
  "assets": {
   "assets/rc5/phone_icons/app_war_room_24x24.png": {
    "width": 24,

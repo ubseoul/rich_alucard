@@ -1,5 +1,5 @@
 // Additive parent-delegated Imani candidate. Original creator sources remain unchanged.
-RAArtParts.register('RC5_W_IMANI',{
+RAArtParts.register('F12',{
  "assets": {
   "assets/rc5/imani/imani_neutral_80x96.png": {
    "width": 80,
