@@ -971,6 +971,9 @@ body.rc3.rc4-title .combat-hud,body.rc3.rc4-title #healFloat{display:none}
 body.rc3:has(#startOverlay:not([style*="display: none"])) .rc3-cash,
 body.rc3:has(#startOverlay:not([style*="display: none"])) .rc2-cash,
 body.rc3.rc4-prelife .rc3-cash,body.rc3 .rc2-cash{display:none}
+/* The phone already presents the balance; keep its status bar unobstructed. */
+body.rc3:has(#phoneOverlay.open) .rc3-cash,
+body.rc3:has(#phoneOverlay.closing) .rc3-cash{display:none}
 body.rc3 #startOverlay{background:rgba(5,4,12,.94)}
 .rc4-day-options{margin:10px 0;padding:10px;border:2px solid #574d74;background:#141321}
 .rc4-opportunity{display:block;width:100%;text-align:left;margin:8px 0;line-height:1.6}
