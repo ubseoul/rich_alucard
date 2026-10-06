@@ -39,7 +39,7 @@
   root.dataset.phase='run';root.dataset.input='pointer';
   let elapsedMs=0,spawnClock=0,attention=0,amountCaught=0,lastCatch=-Infinity,terminal=null,raf=null,last=performance.now(),nextId=1;
   const bills=[];let cursor={x:135,y:220},inputFlash='',flashUntil=0;
-  const descriptions={SUCCESS:'Debt target reached. Rich keeps his authored 20% share.',SHORT:'The song ended before the target. Rich keeps 20% of the money caught.',GREEDY:'The aunties noticed. No money is kept; the story records this result.',BACK_OUT:'Rich stopped collecting and danced with Uncle. The story records this choice.'};
+  const descriptions={SUCCESS:'Debt target reached. Rich keeps his 20% share.',SHORT:'The song ended before the target. Rich keeps 20% of the money caught.',GREEDY:'The aunties noticed. No money is kept; the story records this result.',BACK_OUT:'Rich stopped collecting and danced with Uncle. The story records this choice.'};
   function spawn(){bills.push({id:nextId++,x:24+rng()*222,y:92+rng()*34,v:24+rng()*18,born:elapsedMs});}
   function finish(outcome){
    if(terminal)return;terminal=outcome;root.dataset.phase='results';root.dataset.outcome=outcome;
@@ -57,20 +57,20 @@
    for(let i=0;i<caught;i++){amountCaught=Math.min(cfg.AUTHORED_DEBT_TARGET,amountCaught+cfg.BILL_VALUE);attention=catchAttention(attention,elapsedMs-lastCatch,cfg);lastCatch=elapsedMs;}
    const outcome=resolve({amountCaught,attention,elapsedMs},cfg);if(outcome)finish(outcome);
   }
-  function pointerDown(e){const p=toNative(e.clientX,e.clientY);if(backOutHit(p.x,p.y)){finish('BACK_OUT');return;}catchAt(p.x,p.y);}
+  function pointerDown(e){e.preventDefault();const p=toNative(e.clientX,e.clientY);if(backOutHit(p.x,p.y)){finish('BACK_OUT');return;}catchAt(p.x,p.y);}
   canvas.addEventListener('pointerdown',pointerDown);
-  function key(e){if(terminal||e.repeat)return;const shifts={ArrowLeft:[-24,0],ArrowRight:[24,0],ArrowUp:[0,-24],ArrowDown:[0,24]};if(shifts[e.key]){e.preventDefault();const [x,y]=shifts[e.key];cursor.x=Math.max(20,Math.min(250,cursor.x+x));cursor.y=Math.max(92,Math.min(400,cursor.y+y));root.dataset.input='keyboard';}else if(e.key===' '){e.preventDefault();catchAt(cursor.x,cursor.y);}}
+  function key(e){if(terminal)return;if(e.key.toLowerCase()==='b'&&!e.repeat){e.preventDefault();finish('BACK_OUT');return;}const shifts={ArrowLeft:[-24,0],ArrowRight:[24,0],ArrowUp:[0,-24],ArrowDown:[0,24]};if(shifts[e.key]){e.preventDefault();const [x,y]=shifts[e.key];cursor.x=Math.max(20,Math.min(250,cursor.x+x));cursor.y=Math.max(92,Math.min(400,cursor.y+y));root.dataset.input='keyboard';}else if(e.key===' '&&!e.repeat){e.preventDefault();catchAt(cursor.x,cursor.y);}}
   window.addEventListener('keydown',key);
   function draw(){
    if(!R.drawBoard(g,'owambe_birthday'))R.paintEnvironment(g,{sky:'#170d27',wall:'#4d214b',floor:'#3d302d',horizon:326,seed:'bamidele-60',props:[{type:'string',x1:8,x2:262,y:70,color:'#ffd36a'},{type:'sign',x:38,y:98,w:194,h:20,text:"UNCLE BAMIDELE'S 60TH",glow:'#ffb040'}],crowd:18,crowdColors:['#9d5ca8','#2b8c75','#d18b3f']});
    R.text(g,`COLLECT $${amountCaught.toLocaleString()} / $${cfg.AUTHORED_DEBT_TARGET.toLocaleString()}`,10,12,{size:7,color:'#f6efd9'});
-   R.text(g,'RICH KEEPS 20% · FULL ATTENTION = $0',135,70,{size:5,color:'#ffd36a',align:'center'});
+   R.text(g,'KEEP 20% / FULL ATTENTION = $0',135,70,{size:6,color:'#ffd36a',align:'center'});
    R.text(g,`SONG ${Math.max(0,Math.ceil(cfg.SONG_SECONDS-elapsedMs/1000))}`,10,28,{size:6,color:'#f6efd9'});
    R.text(g,'ATTENTION',10,44,{size:6,color:'#f6efd9'});R.rect(g,78,42,180,10,'#21182c');R.rect(g,80,44,176*Math.min(1,attention/cfg.ATTENTION_MAX),6,attention>70?'#d7193f':'#c18b3c');
    for(const b of bills){R.rect(g,b.x-15,b.y-7,30,14,'#d9d2a4');R.rect(g,b.x-10,b.y-4,20,8,'#7aa06a');R.text(g,'$',b.x-3,b.y-4,{size:6,color:'#16311c'});}
-   R.rect(g,20,430,230,30,'#7d194b');R.text(g,'DANCE WITH UNCLE · BACK OUT',34,440,{size:6,color:'#f6efd9'});
+   R.rect(g,20,430,230,30,'#7d194b');R.text(g,'DANCE WITH UNCLE / B',34,440,{size:6,color:'#f6efd9'});
    if(root.dataset.input==='keyboard'){R.rect(g,cursor.x-14,cursor.y-1,28,2,'#f6efd9');R.rect(g,cursor.x-1,cursor.y-14,2,28,'#f6efd9');}
-   const cue=performance.now()<flashUntil?inputFlash:attention>65?'SLOW DOWN · LET ATTENTION COOL':'TAP ONE BILL · ARROWS + SPACE TO CATCH';R.text(g,cue,135,404,{size:5,color:attention>65?'#ff6fb5':'#ffd36a',align:'center'});root.dataset.amountCaught=String(amountCaught);root.dataset.attention=attention.toFixed(2);root.dataset.billTargets=JSON.stringify(bills.map(b=>[Math.round(b.x),Math.round(b.y)]));
+   const cue=performance.now()<flashUntil?inputFlash:attention>65?'WAIT: ATTENTION COOLS':'TAP BILL / ARROWS + SPACE';R.text(g,cue,135,396,{size:6,color:attention>65?'#ff6fb5':'#ffd36a',align:'center'});root.dataset.amountCaught=String(amountCaught);root.dataset.attention=attention.toFixed(2);root.dataset.billTargets=JSON.stringify(bills.map(b=>[Math.round(b.x),Math.round(b.y)]));
   }
   function loop(now){
    const real=Math.min(50,now-last);last=now;if(!terminal){const dt=real*scale;elapsedMs+=dt;spawnClock+=dt;attention=decayAttention(attention,dt,cfg);while(spawnClock>=cfg.BILL_SPAWN_MS){spawnClock-=cfg.BILL_SPAWN_MS;spawn();}for(const b of bills)b.y+=b.v*dt/1000;for(let i=bills.length-1;i>=0;i--)if(elapsedMs-bills[i].born>=cfg.BILL_LIFETIME_MS||bills[i].y>412)bills.splice(i,1);const outcome=resolve({amountCaught,attention,elapsedMs},cfg);if(outcome)finish(outcome);J.update(real/1000);J.begin();draw();J.end();}raf=requestAnimationFrame(loop);

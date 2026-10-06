@@ -98,7 +98,7 @@
    const cx=LANE_X+lane*LANE_W+LANE_W/2,col=MOVES[lane].color;
    if(kind==='perfect'){ctx.audio?.sound(stats.combo%5===0?'COMBO_UP':'TIP_COINS');J.burst(cx,ZONE_Y,[col,'#f6efd9','#ffd36a'],16,95);J.ring(cx,ZONE_Y,col);J.float('PERFECT',cx,ZONE_Y-26,{color:'#ffd36a',size:7});J.shake(1.5);}
    else{ctx.audio?.sound('UI_TAP');J.burst(cx,ZONE_Y,[col,'#f6efd9'],8,60);J.float('GOOD',cx,ZONE_Y-26,{color:'#f6efd9',size:6});}
-   if(spray){const pay=kind==='perfect'?cfg.payPerPerfect:cfg.payPerGood;if(spent<cfg.payCap){spent+=pay;J.float(`+$${pay}`,cx,ZONE_Y-44,{color:'#20c66b',size:6,life:1.1,rise:40});}}
+   if(spray){const pay=Math.min(Math.max(0,cfg.payCap-spent),kind==='perfect'?cfg.payPerPerfect:cfg.payPerGood);if(spent<cfg.payCap){spent+=pay;J.float(`+$${pay}`,cx,ZONE_Y-44,{color:'#20c66b',size:6,life:1.1,rise:40});}}
    if(stats.combo>0&&stats.combo%8===0){J.flash(col,140);J.float(`${stats.combo} IN A ROW!`,135,210,{color:'#ff6fb5',size:8,life:1.1});ctx.audio?.sound('CROWD_CHEER_SMALL');}
    if(stats.mood>=100&&!stats.hype){stats.hype=true;J.float('THE ROOM IS YOURS',135,190,{color:'#ffd36a',size:8,life:1.4});}
   }
