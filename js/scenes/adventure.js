@@ -46,7 +46,12 @@
   return Object.fromEntries(Object.entries(actors).map(([slot,spec])=>[slot,spec&&slots[slot]?{...(typeof spec==='string'?{id:spec}:spec),...slots[slot]}:spec]));
  }
  function actorElement(spec){
-  const id=typeof spec==='string'?spec:spec.id;const state=typeof spec==='object'?spec.state:null;
+  const id=typeof spec==='string'?spec:spec.id;
+  // Presentation only: match these existing authored beats to their approved costume/pose.
+  // Explicit node states always win. Combat move poses remain owned by the combat timeline adapter.
+  const active=RAAdventures.active(),beat=`${active?.id}:${active?.node}`;
+  const poses={'NEW_OGA_M4:beat4':{carlos:'betrayed'},'NEW_OGA_M4:walk_in':{carlos:'canopy_apron'},'NEW_OGA_M6:walked':{senator:'asleep'}};
+  const state=(typeof spec==='object'?spec.state:null)||poses[beat]?.[id]||null;
   const person=id==='rich'?window.RABtfPeople.rich:window.RABtfPeople.get(id);
   let src=null;
   if(person?.sprite){src=person.sprite;if(state==='vampire'&&person.spriteVampire)src=person.spriteVampire;if(id==='jdm_importer_daughter_001'&&RARelations?.get(id)?.conversionState==='converted')src='assets/jdm_imports/characters/daughter/daughter_vampire_reveal.png';if(id==='ceo_assistant_001'&&RARelations?.get(id)?.conversionState==='converted')src=person.spriteVampire;}
@@ -55,14 +60,21 @@
   let el;
   if(src){el=document.createElement('img');el.src=src;el.alt='';el.draggable=false;}
   else{el=document.createElement('canvas');el.width=80;el.height=96;const c=el.getContext('2d');c.imageSmoothingEnabled=false;RAPixel.drawActor(c,{...(person?.look||{}),...(typeof spec==='object'?spec.look:{})},40,88,1);el.classList.add('adv-placeholder-actor');}
-  el.className+=' adv-actor';el.dataset.actor=id;return el;
+  el.className+=' adv-actor';el.dataset.actor=id;
+  el.dataset.artPath=src||'';el.dataset.artState=state||person?.anchorPose||'default';
+  if(state&&!person?.states?.[state]&&state!=='vampire'&&!(typeof spec==='object'&&spec.src))el.dataset.artFallback='missing-state';
+  if(!src)el.dataset.artFallback='missing-identity';return el;
  }
  function renderActors(actors){
   actorLayer.replaceChildren();const env=currentEnv||{floorY:372,base:1};const s=RADisplay.scaled(env.base||1);
   for(const [slot,spec] of Object.entries(actors||{})){
    if(!spec)continue;const x=typeof spec==='object'&&spec.x!=null?spec.x:SLOTS[slot]??135;const y=typeof spec==='object'&&spec.y!=null?spec.y:env.floorY;
    const el=actorElement(spec);const id=typeof spec==='string'?spec:spec.id;
-   Object.assign(el.style,{left:`${(x-40*s)/270*100}%`,top:`${(y-88*s)/480*100}%`,width:`${80*s/270*100}%`,height:`${96*s/480*100}%`});
+   const art=window.RAArtRegistry?.characters?.[id]||window.RAArtRegistry?.creatures?.[id];
+   const meta=window.RAPresentationAssets?.[el.dataset.artPath];
+   const [w,h]=meta?[meta.width,meta.height]:art?.cell||[80,96];
+   const [ax,ay]=meta?.anchor||art?.contact||[40,88],scale=s*(art?.stageScale||1);
+   Object.assign(el.style,{left:`${(x-ax*scale)/270*100}%`,top:`${(y-ay*scale)/480*100}%`,width:`${w*scale/270*100}%`,height:`${h*scale/480*100}%`});
    const faceLeft=(typeof spec==='object'&&spec.flip)||(id==='rich'&&x>150);if(faceLeft)el.style.transform='scaleX(-1)';
    if(typeof spec==='object'&&spec.hidden)el.style.opacity='0';
    el.dataset.slot=slot;actorLayer.append(el);

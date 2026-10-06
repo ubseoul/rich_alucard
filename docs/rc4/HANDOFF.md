@@ -10,6 +10,17 @@ B2 starts only at reviewed `0b408fdd827fd6b14dadaaa8bc91d888cc708440`, isolated 
 - B4 coordination: first club visit now literally half-off (.5); cap remains half opening cash. RC4 Armory retires mod buying/attaching UI while preserving legacy inventory/effects. Range medal's existing story/crit payoff stays; retain sibling range/date presentation work.
 - Party Hall restores only existing owned-home A26/HOST via Bank; active `rc4BarPaid` guards bar expense across reload. A27/Jade automatic follow-ups remain dormant; Maps ten-list is explicit in B2. Do not restore wider property/room/roster entry without authority.
 - Silent phone threads retain all content while clearing unread state. B2 did not change creator dialogue, NAH consequences, masters, F01 probabilities, main, private packs or deployment.
+## B3 candidate art/render contract
+
+B3 bases on reviewed B1 `0b408fdd827fd6b14dadaaa8bc91d888cc708440`; runtime checkpoint `b29060b14500de57349b8de191fc0b45455c248f`. Dispositions/evidence: `docs/rc4/builds/B3.md` and `docs/rc4/evidence/B3/`. No self acceptance.
+
+- Frozen `RAArtRegistry.assets[path]` images bypass runtime re-pixelation; preserve approved bytes and the actual path. For older transformed images, Director lookup uses `dataset.rc2Src` when `src` is a data URL. Do not erase source provenance.
+- Adventure `actorElement` preserves explicit `state` and `src` overrides. Presentation-only defaults match M4 beat4 Carlos→betrayed, M4 walk_in Carlos→canopy_apron, M6 walked Senator→asleep. Creator dialogue and outcomes remain intact.
+- `dataset.artPath`, `artState`, and explicit `artFallback` make loaded selection reviewable. Missing identities/states are diagnostic, not substituted with another named character.
+- Legacy placement reads approved native width/height and contact anchor from presentation metadata (then registry cell/contact); registered `stageScale` remains honored. Director remains responsible for support contact, crop, facing, depth, and UI-aware camera placement. Keep exact-origin prop/foreground layer order.
+- B4 keeps club layout/dancer and portrait sizing. B5 keeps combat timelines/FX; reuse the exact approved pose scope and frozen master, retaining measured anchor/scale across frames. B3 does not attach named Gbenga poses to generic combat events.
+- BLAD33EE's actual rave card must be inspected after the rave entry replaces startup slash with hunter bolt; retain the exact RT SHIP001 neutral master. Seeded screenshots do not prove natural reachability or accepted move animation.
+- HQ-R01 HOLD; HQ-R02 PASS. Private evidence/dispositions remain in HQ.
 
 Foundation is the annotated `rc4-base` peeled commit `c9c273ff91a417d7953b30e718421339edd98c01` (OL079 ending recovery included). `rc4/b1-campaign` is the isolated candidate branch. The final delivery message identifies the immutable candidate SHA; branch names alone are not a review base. B2/B3/B4 branch from the reviewed immutable B1 SHA, and one later integrator consolidates. B1 does not declare RC acceptance.
 

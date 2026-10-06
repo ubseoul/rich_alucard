@@ -54,7 +54,12 @@
  // palette and a 1px ink outline. Hand-pixeled sprites (<~400 colours, no semi-alpha) are never touched.
  function hardenImg(el){
   if(!el||el.tagName!=='IMG'||window.RA_NO_HARD_PIXEL||el.dataset.rc2Hp)return;
-  const run=()=>{if(el.dataset.rc2Hp||!el.naturalWidth||el.naturalWidth>260||/^data:/.test(el.src))return;const key=el.src;let url=urlMemo.get(key);
+  const run=()=>{if(el.dataset.rc2Hp||!el.naturalWidth||el.naturalWidth>260||/^data:/.test(el.src))return;
+   // Approved masters render their exact pixels. Re-pixelation must not recolor a frozen identity or
+   // replace its path with an unregistered data URL (which also loses the Director's crop/contact metadata).
+   const path=el.getAttribute('src')?.match(/assets\/[^?]+/)?.[0];
+   if(window.RAArtRegistry?.assets?.[path]?.status==='FROZEN')return;
+   const key=el.src;let url=urlMemo.get(key);
    if(url===undefined){url=isSoft(el,{colors:400,semi:3})?process(el,{colors:24,dither:0,outline:true}).toDataURL():false;urlMemo.set(key,url);}
    if(url){el.dataset.rc2Hp='1';el.dataset.rc2Src=key;el.src=url;}};
   if(el.complete)run();else el.addEventListener('load',run,{once:true});

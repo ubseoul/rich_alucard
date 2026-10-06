@@ -1,0 +1,2593 @@
+{
+  "kind": "seeded art/staging fixtures; no natural playthrough claimed",
+  "phase": "before",
+  "errors": [],
+  "scenes": [
+    {
+      "id": "NEW_OGA_M2",
+      "node": "arrive",
+      "actors": [
+        {
+          "actor": "rich",
+          "src": "assets/rich_standing_right.png",
+          "transformed": false,
+          "fallback": null,
+          "loaded": true,
+          "natural": [
+            80,
+            96
+          ],
+          "director": {
+            "slot": "left",
+            "asset": "assets/rich_standing_right.png",
+            "scale": 1.85,
+            "line": "floor",
+            "anchor": {
+              "x": 75.40470085470088,
+              "y": 372
+            },
+            "sprite": {
+              "x": -87,
+              "y": 125,
+              "w": 292.03200000000004,
+              "h": 350.4384
+            },
+            "visible": {
+              "x": 11.560800000000015,
+              "y": 256.4144,
+              "w": 98.56080000000001,
+              "h": 189.82080000000002
+            },
+            "face": {
+              "x": 29.81280000000001,
+              "y": 289.26800000000003,
+              "w": 69.3576,
+              "h": 51.1056
+            },
+            "faceSource": "authored",
+            "authority": "APPROVED MASTER",
+            "meta": {
+              "width": 80,
+              "height": 96,
+              "sha256": "765170076e8d3a9af9e8857e176e079b2a68c7ee1daafb7c8d551482228f144b",
+              "authority": "APPROVED MASTER",
+              "visible": [
+                27,
+                36,
+                27,
+                52
+              ],
+              "support": {
+                "y": 88,
+                "x1": 32,
+                "x2": 51,
+                "threshold": 16
+              },
+              "anchor": [
+                40,
+                88
+              ],
+              "face": [
+                32,
+                45,
+                19,
+                14
+              ],
+              "faceSource": "authored"
+            },
+            "flip": false,
+            "world": {
+              "x": 75.40470085470088,
+              "y": 372
+            },
+            "k": 3.6504000000000003,
+            "contact": {
+              "x": 59,
+              "y": 446
+            },
+            "support": {
+              "x": 64.4916,
+              "y": 446.2352,
+              "baseline": 88,
+              "lift": 0
+            },
+            "shadow": {
+              "x": 30,
+              "y": 442,
+              "w": 69.3576,
+              "h": 7.300800000000001
+            }
+          },
+          "box": {
+            "x": -87,
+            "y": 125,
+            "w": 292.03125,
+            "h": 350.4375
+          }
+        },
+        {
+          "actor": "gbenga",
+          "src": "assets/before_the_fame/characters/gbenga/runtime_80x96/gbenga_adjusting_sleeves_80x96_v2.png",
+          "transformed": true,
+          "fallback": null,
+          "loaded": true,
+          "natural": [
+            80,
+            96
+          ],
+          "director": {
+            "slot": "right",
+            "asset": "assets/before_the_fame/characters/gbenga/runtime_80x96/gbenga_adjusting_sleeves_80x96_v2.png",
+            "scale": 1.85,
+            "line": "floor",
+            "anchor": {
+              "x": 194.59529914529912,
+              "y": 372
+            },
+            "sprite": {
+              "x": 148,
+              "y": 114,
+              "w": 292.03200000000004,
+              "h": 350.4384
+            },
+            "visible": {
+              "x": 188.1544,
+              "y": 146.8536,
+              "w": 189.82080000000002,
+              "h": 299.3328
+            },
+            "face": {
+              "x": 217.3576,
+              "y": 194.30880000000002,
+              "w": 131.4144,
+              "h": 91.26
+            },
+            "faceSource": "derived",
+            "authority": "FROZEN",
+            "meta": {
+              "width": 80,
+              "height": 96,
+              "sha256": "3c299fbdb15d6ad113c62b429ebec05b50d278f9a1402e7b8ed5bf53a63a4f8e",
+              "authority": "FROZEN",
+              "visible": [
+                11,
+                9,
+                52,
+                82
+              ],
+              "support": {
+                "y": 91,
+                "x1": 28,
+                "x2": 57,
+                "threshold": 16
+              },
+              "anchor": [
+                40,
+                88
+              ],
+              "face": [
+                19,
+                22,
+                36,
+                25
+              ],
+              "faceSource": "derived"
+            },
+            "flip": false,
+            "world": {
+              "x": 194.59529914529912,
+              "y": 372
+            },
+            "k": 3.6504000000000003,
+            "contact": {
+              "x": 294,
+              "y": 446
+            },
+            "support": {
+              "x": 303.14200000000005,
+              "y": 446.18640000000005,
+              "baseline": 91,
+              "lift": 0
+            },
+            "shadow": {
+              "x": 250,
+              "y": 442,
+              "w": 105.86160000000001,
+              "h": 7.300800000000001
+            }
+          },
+          "box": {
+            "x": 148,
+            "y": 92.97374725341797,
+            "w": 292.03125,
+            "h": 350.4375
+          }
+        }
+      ]
+    },
+    {
+      "id": "NEW_OGA_M4",
+      "node": "beat4",
+      "actors": [
+        {
+          "actor": "rich",
+          "src": "assets/rich_standing_right.png",
+          "transformed": false,
+          "fallback": null,
+          "loaded": true,
+          "natural": [
+            80,
+            96
+          ],
+          "director": {
+            "slot": "left",
+            "asset": "assets/rich_standing_right.png",
+            "scale": 1.85,
+            "line": "floor",
+            "anchor": {
+              "x": 72,
+              "y": 372
+            },
+            "sprite": {
+              "x": -88,
+              "y": 120,
+              "w": 295.91928006544856,
+              "h": 355.1031360785382
+            },
+            "visible": {
+              "x": 11.87275702208889,
+              "y": 253.16367602945184,
+              "w": 99.87275702208889,
+              "h": 192.34753204254156
+            },
+            "face": {
+              "x": 30.36771202617942,
+              "y": 286.4545950368148,
+              "w": 70.28082901554403,
+              "h": 51.785874011453494
+            },
+            "faceSource": "authored",
+            "authority": "APPROVED MASTER",
+            "meta": {
+              "width": 80,
+              "height": 96,
+              "sha256": "765170076e8d3a9af9e8857e176e079b2a68c7ee1daafb7c8d551482228f144b",
+              "authority": "APPROVED MASTER",
+              "visible": [
+                27,
+                36,
+                27,
+                52
+              ],
+              "support": {
+                "y": 88,
+                "x1": 32,
+                "x2": 51,
+                "threshold": 16
+              },
+              "anchor": [
+                40,
+                88
+              ],
+              "face": [
+                32,
+                45,
+                19,
+                14
+              ],
+              "faceSource": "authored"
+            },
+            "flip": false,
+            "world": {
+              "x": 72,
+              "y": 372
+            },
+            "k": 3.698991000818107,
+            "contact": {
+              "x": 60,
+              "y": 446
+            },
+            "support": {
+              "x": 65.50812653395144,
+              "y": 445.5112080719934,
+              "baseline": 88,
+              "lift": 0
+            },
+            "shadow": {
+              "x": 30,
+              "y": 442,
+              "w": 70.28082901554403,
+              "h": 7.397982001636214
+            }
+          },
+          "box": {
+            "x": -88,
+            "y": 120,
+            "w": 295.90625,
+            "h": 355.09375
+          }
+        },
+        {
+          "actor": "carlos",
+          "src": "assets/before_the_fame/characters/carlos/runtime_80x96/carlos_neutral_happy_anchor_80x96_review_v1.png",
+          "transformed": true,
+          "fallback": null,
+          "loaded": true,
+          "natural": [
+            80,
+            96
+          ],
+          "director": {
+            "slot": "right",
+            "asset": "assets/before_the_fame/characters/carlos/runtime_80x96/carlos_neutral_happy_anchor_80x96_review_v1.png",
+            "scale": 1.85,
+            "line": "floor",
+            "anchor": {
+              "x": 198,
+              "y": 372
+            },
+            "sprite": {
+              "x": 164,
+              "y": 113,
+              "w": 295.91928006544856,
+              "h": 355.1031360785382
+            },
+            "visible": {
+              "x": 252.77578401963456,
+              "y": 205.47477502045268,
+              "w": 125.76569402781563,
+              "h": 240.43441505317693
+            },
+            "face": {
+              "x": 271.2707390237251,
+              "y": 242.46468502863374,
+              "w": 88.77578401963456,
+              "h": 73.97982001636214
+            },
+            "faceSource": "derived",
+            "authority": "FROZEN",
+            "meta": {
+              "width": 80,
+              "height": 96,
+              "sha256": "6ea034ef7ee96697ad6a0e7b473f1843adfe5d8127adbd08ea063100e78335ca",
+              "authority": "FROZEN",
+              "visible": [
+                24,
+                25,
+                34,
+                65
+              ],
+              "support": {
+                "y": 90,
+                "x1": 26,
+                "x2": 56,
+                "threshold": 16
+              },
+              "anchor": [
+                40,
+                88
+              ],
+              "face": [
+                29,
+                35,
+                24,
+                20
+              ],
+              "faceSource": "derived"
+            },
+            "flip": false,
+            "world": {
+              "x": 198,
+              "y": 372
+            },
+            "k": 3.698991000818107,
+            "contact": {
+              "x": 312,
+              "y": 446
+            },
+            "support": {
+              "x": 315.6586310335424,
+              "y": 445.9091900736296,
+              "baseline": 90,
+              "lift": 0
+            },
+            "shadow": {
+              "x": 260,
+              "y": 442,
+              "w": 110.96973002454321,
+              "h": 7.397982001636214
+            }
+          },
+          "box": {
+            "x": 164,
+            "y": 113,
+            "w": 295.90625,
+            "h": 355.09375
+          }
+        }
+      ]
+    },
+    {
+      "id": "NEW_OGA_M4",
+      "node": "walk_in",
+      "actors": [
+        {
+          "actor": "carlos",
+          "src": "assets/before_the_fame/characters/carlos/runtime_80x96/carlos_neutral_happy_anchor_80x96_review_v1.png",
+          "transformed": true,
+          "fallback": null,
+          "loaded": true,
+          "natural": [
+            80,
+            96
+          ],
+          "director": {
+            "slot": "left",
+            "asset": null,
+            "scale": 1.85,
+            "line": "floor",
+            "anchor": {
+              "x": 78.17970085470087,
+              "y": 372
+            },
+            "sprite": {
+              "x": 6,
+              "y": 191,
+              "w": 213.7777777777778,
+              "h": 256.53333333333336
+            },
+            "visible": {
+              "x": 6,
+              "y": 191,
+              "w": 213.7777777777778,
+              "h": 256.53333333333336
+            },
+            "face": {
+              "x": 38.06666666666667,
+              "y": 231.08333333333334,
+              "w": 149.64444444444445,
+              "h": 77.49444444444445
+            },
+            "faceSource": "fallback",
+            "authority": "UNREGISTERED",
+            "meta": {
+              "width": 80,
+              "height": 96,
+              "visible": [
+                0,
+                0,
+                80,
+                96
+              ],
+              "anchor": [
+                40,
+                88
+              ],
+              "face": [
+                12,
+                15,
+                56,
+                29
+              ],
+              "faceSource": "fallback",
+              "authority": "UNREGISTERED",
+              "missing": true
+            },
+            "flip": false,
+            "world": {
+              "x": 78.17970085470087,
+              "y": 372
+            },
+            "k": 2.6722222222222225,
+            "contact": {
+              "x": 113,
+              "y": 426
+            },
+            "support": null,
+            "shadow": null
+          },
+          "box": {
+            "x": 6,
+            "y": 191,
+            "w": 213.765625,
+            "h": 256.53125
+          }
+        },
+        {
+          "actor": "gbenga",
+          "src": "assets/before_the_fame/characters/gbenga/runtime_80x96/gbenga_adjusting_sleeves_80x96_v2.png",
+          "transformed": true,
+          "fallback": null,
+          "loaded": true,
+          "natural": [
+            80,
+            96
+          ],
+          "director": {
+            "slot": "right",
+            "asset": null,
+            "scale": 1.85,
+            "line": "floor",
+            "anchor": {
+              "x": 191.82029914529915,
+              "y": 372
+            },
+            "sprite": {
+              "x": 170,
+              "y": 191,
+              "w": 213.7777777777778,
+              "h": 256.53333333333336
+            },
+            "visible": {
+              "x": 170,
+              "y": 191,
+              "w": 213.7777777777778,
+              "h": 256.53333333333336
+            },
+            "face": {
+              "x": 202.06666666666666,
+              "y": 231.08333333333334,
+              "w": 149.64444444444445,
+              "h": 77.49444444444445
+            },
+            "faceSource": "fallback",
+            "authority": "UNREGISTERED",
+            "meta": {
+              "width": 80,
+              "height": 96,
+              "visible": [
+                0,
+                0,
+                80,
+                96
+              ],
+              "anchor": [
+                40,
+                88
+              ],
+              "face": [
+                12,
+                15,
+                56,
+                29
+              ],
+              "faceSource": "fallback",
+              "authority": "UNREGISTERED",
+              "missing": true
+            },
+            "flip": false,
+            "world": {
+              "x": 191.82029914529915,
+              "y": 372
+            },
+            "k": 2.6722222222222225,
+            "contact": {
+              "x": 277,
+              "y": 426
+            },
+            "support": null,
+            "shadow": null
+          },
+          "box": {
+            "x": 170,
+            "y": 191,
+            "w": 213.765625,
+            "h": 256.53125
+          }
+        }
+      ]
+    },
+    {
+      "id": "NEW_OGA_M6",
+      "node": "voice",
+      "actors": [
+        {
+          "actor": "rich",
+          "src": "assets/rich_standing_right.png",
+          "transformed": false,
+          "fallback": null,
+          "loaded": true,
+          "natural": [
+            80,
+            96
+          ],
+          "director": {
+            "slot": "left",
+            "asset": "assets/rich_standing_right.png",
+            "scale": 1.85,
+            "line": "floor",
+            "anchor": {
+              "x": 82.80470085470085,
+              "y": 400
+            },
+            "sprite": {
+              "x": -87,
+              "y": 125,
+              "w": 292.03200000000004,
+              "h": 350.4384
+            },
+            "visible": {
+              "x": 11.560800000000015,
+              "y": 256.4144,
+              "w": 98.56080000000001,
+              "h": 189.82080000000002
+            },
+            "face": {
+              "x": 29.81280000000001,
+              "y": 289.26800000000003,
+              "w": 69.3576,
+              "h": 51.1056
+            },
+            "faceSource": "authored",
+            "authority": "APPROVED MASTER",
+            "meta": {
+              "width": 80,
+              "height": 96,
+              "sha256": "765170076e8d3a9af9e8857e176e079b2a68c7ee1daafb7c8d551482228f144b",
+              "authority": "APPROVED MASTER",
+              "visible": [
+                27,
+                36,
+                27,
+                52
+              ],
+              "support": {
+                "y": 88,
+                "x1": 32,
+                "x2": 51,
+                "threshold": 16
+              },
+              "anchor": [
+                40,
+                88
+              ],
+              "face": [
+                32,
+                45,
+                19,
+                14
+              ],
+              "faceSource": "authored"
+            },
+            "flip": false,
+            "world": {
+              "x": 82.80470085470085,
+              "y": 400
+            },
+            "k": 3.6504000000000003,
+            "contact": {
+              "x": 59,
+              "y": 446
+            },
+            "support": {
+              "x": 64.4916,
+              "y": 446.2352,
+              "baseline": 88,
+              "lift": 0
+            },
+            "shadow": {
+              "x": 30,
+              "y": 442,
+              "w": 69.3576,
+              "h": 7.300800000000001
+            }
+          },
+          "box": {
+            "x": -87,
+            "y": 125,
+            "w": 292.03125,
+            "h": 350.4375
+          }
+        },
+        {
+          "actor": "senator",
+          "src": "assets/build4/p_d/p_d_senator_sitting_160x160.png",
+          "transformed": true,
+          "fallback": null,
+          "loaded": true,
+          "natural": [
+            160,
+            160
+          ],
+          "director": {
+            "slot": "right",
+            "asset": "assets/build4/p_d/p_d_senator_sitting_160x160.png",
+            "scale": 0.925,
+            "line": "y400d",
+            "anchor": {
+              "x": 187.19529914529915,
+              "y": 400
+            },
+            "sprite": {
+              "x": 119,
+              "y": 167,
+              "w": 292.03200000000004,
+              "h": 292.03200000000004
+            },
+            "visible": {
+              "x": 153.6788,
+              "y": 210.8048,
+              "w": 224.49960000000002,
+              "h": 235.45080000000002
+            },
+            "face": {
+              "x": 186.5324,
+              "y": 249.13400000000001,
+              "w": 156.96720000000002,
+              "h": 71.1828
+            },
+            "faceSource": "derived",
+            "authority": "FROZEN",
+            "meta": {
+              "width": 160,
+              "height": 160,
+              "sha256": "19e6377e077e3b6feebaa394f530fd6f1902b77aaad95215bd0a1948bc26c5c8",
+              "authority": "FROZEN",
+              "visible": [
+                19,
+                24,
+                123,
+                129
+              ],
+              "support": {
+                "y": 153,
+                "x1": 47,
+                "x2": 142,
+                "threshold": 16
+              },
+              "anchor": [
+                80,
+                152
+              ],
+              "face": [
+                37,
+                45,
+                86,
+                39
+              ],
+              "faceSource": "derived"
+            },
+            "flip": false,
+            "world": {
+              "x": 187.19529914529915,
+              "y": 400
+            },
+            "k": 1.8252000000000002,
+            "contact": {
+              "x": 265,
+              "y": 446
+            },
+            "support": {
+              "x": 291.4814,
+              "y": 446.2556,
+              "baseline": 153,
+              "lift": 0
+            },
+            "shadow": {
+              "x": 205,
+              "y": 444,
+              "w": 173.394,
+              "h": 3.6504000000000003
+            }
+          },
+          "box": {
+            "x": 119,
+            "y": 167,
+            "w": 292.03125,
+            "h": 292.03125
+          }
+        }
+      ]
+    },
+    {
+      "id": "NEW_OGA_M6",
+      "node": "walked",
+      "actors": [
+        {
+          "actor": "rich",
+          "src": "assets/rich_standing_right.png",
+          "transformed": false,
+          "fallback": null,
+          "loaded": true,
+          "natural": [
+            80,
+            96
+          ],
+          "director": {
+            "slot": "left",
+            "asset": "assets/rich_standing_right.png",
+            "scale": 1.85,
+            "line": "floor",
+            "anchor": {
+              "x": 82.80470085470085,
+              "y": 400
+            },
+            "sprite": {
+              "x": -89,
+              "y": 94,
+              "w": 320,
+              "h": 384
+            },
+            "visible": {
+              "x": 19,
+              "y": 238,
+              "w": 108,
+              "h": 208
+            },
+            "face": {
+              "x": 39,
+              "y": 274,
+              "w": 76,
+              "h": 56
+            },
+            "faceSource": "authored",
+            "authority": "APPROVED MASTER",
+            "meta": {
+              "width": 80,
+              "height": 96,
+              "sha256": "765170076e8d3a9af9e8857e176e079b2a68c7ee1daafb7c8d551482228f144b",
+              "authority": "APPROVED MASTER",
+              "visible": [
+                27,
+                36,
+                27,
+                52
+              ],
+              "support": {
+                "y": 88,
+                "x1": 32,
+                "x2": 51,
+                "threshold": 16
+              },
+              "anchor": [
+                40,
+                88
+              ],
+              "face": [
+                32,
+                45,
+                19,
+                14
+              ],
+              "faceSource": "authored"
+            },
+            "flip": false,
+            "world": {
+              "x": 82.80470085470085,
+              "y": 400
+            },
+            "k": 4,
+            "contact": {
+              "x": 71,
+              "y": 446
+            },
+            "support": {
+              "x": 77,
+              "y": 446,
+              "baseline": 88,
+              "lift": 0
+            },
+            "shadow": {
+              "x": 39,
+              "y": 442,
+              "w": 76,
+              "h": 8
+            }
+          },
+          "box": {
+            "x": -89,
+            "y": 94,
+            "w": 320,
+            "h": 384
+          }
+        },
+        {
+          "actor": "senator",
+          "src": "assets/build4/p_d/p_d_senator_sitting_160x160.png",
+          "transformed": true,
+          "fallback": null,
+          "loaded": true,
+          "natural": [
+            160,
+            160
+          ],
+          "director": {
+            "slot": "right",
+            "asset": null,
+            "scale": 0.925,
+            "line": "y400d",
+            "anchor": {
+              "x": 187.19529914529915,
+              "y": 400
+            },
+            "sprite": {
+              "x": 213,
+              "y": 274,
+              "w": 156.00000000000003,
+              "h": 187.20000000000005
+            },
+            "visible": {
+              "x": 213,
+              "y": 274,
+              "w": 156.00000000000003,
+              "h": 187.20000000000005
+            },
+            "face": {
+              "x": 236.4,
+              "y": 303.25,
+              "w": 109.20000000000002,
+              "h": 56.55000000000001
+            },
+            "faceSource": "fallback",
+            "authority": "UNREGISTERED",
+            "meta": {
+              "width": 80,
+              "height": 96,
+              "visible": [
+                0,
+                0,
+                80,
+                96
+              ],
+              "anchor": [
+                40,
+                88
+              ],
+              "face": [
+                12,
+                15,
+                56,
+                29
+              ],
+              "faceSource": "fallback",
+              "authority": "UNREGISTERED",
+              "missing": true
+            },
+            "flip": false,
+            "world": {
+              "x": 187.19529914529915,
+              "y": 400
+            },
+            "k": 1.9500000000000004,
+            "contact": {
+              "x": 291,
+              "y": 446
+            },
+            "support": null,
+            "shadow": null
+          },
+          "box": {
+            "x": 213,
+            "y": 274,
+            "w": 156,
+            "h": 187.1875
+          }
+        }
+      ]
+    },
+    {
+      "id": "NEW_OGA_M7",
+      "node": "arrival",
+      "actors": [
+        {
+          "actor": "rich",
+          "src": "assets/rich_standing_right.png",
+          "transformed": false,
+          "fallback": null,
+          "loaded": true,
+          "natural": [
+            80,
+            96
+          ],
+          "director": {
+            "slot": "left",
+            "asset": "assets/rich_standing_right.png",
+            "scale": 1.85,
+            "line": "floor",
+            "anchor": {
+              "x": 75.40470085470088,
+              "y": 372
+            },
+            "sprite": {
+              "x": -63,
+              "y": 171,
+              "w": 249.75442171919357,
+              "h": 299.7053060630323
+            },
+            "visible": {
+              "x": 21.29211733022784,
+              "y": 283.38948977363714,
+              "w": 84.29211733022784,
+              "h": 162.34037411747582
+            },
+            "face": {
+              "x": 36.90176868767743,
+              "y": 311.4868622170464,
+              "w": 59.31667515830848,
+              "h": 43.70702380085888
+            },
+            "faceSource": "authored",
+            "authority": "APPROVED MASTER",
+            "meta": {
+              "width": 80,
+              "height": 96,
+              "sha256": "765170076e8d3a9af9e8857e176e079b2a68c7ee1daafb7c8d551482228f144b",
+              "authority": "APPROVED MASTER",
+              "visible": [
+                27,
+                36,
+                27,
+                52
+              ],
+              "support": {
+                "y": 88,
+                "x1": 32,
+                "x2": 51,
+                "threshold": 16
+              },
+              "anchor": [
+                40,
+                88
+              ],
+              "face": [
+                32,
+                45,
+                19,
+                14
+              ],
+              "faceSource": "authored"
+            },
+            "flip": false,
+            "world": {
+              "x": 75.40470085470088,
+              "y": 372
+            },
+            "k": 3.1219302714899198,
+            "contact": {
+              "x": 62,
+              "y": 446
+            },
+            "support": {
+              "x": 66.56010626683167,
+              "y": 445.7298638911129,
+              "baseline": 88,
+              "lift": 0
+            },
+            "shadow": {
+              "x": 37,
+              "y": 443,
+              "w": 59.31667515830848,
+              "h": 6.2438605429798395
+            }
+          },
+          "box": {
+            "x": -63,
+            "y": 171,
+            "w": 249.75,
+            "h": 299.703125
+          }
+        },
+        {
+          "actor": "mama_gbenga",
+          "src": "assets/build4/p_d/p_d_mama_gbenga_80x96.png",
+          "transformed": true,
+          "fallback": null,
+          "loaded": true,
+          "natural": [
+            80,
+            96
+          ],
+          "director": {
+            "slot": "mid",
+            "asset": "assets/build4/p_d/p_d_mama_gbenga_80x96.png",
+            "scale": 1.85,
+            "line": "floor",
+            "anchor": {
+              "x": 131.59529914529912,
+              "y": 372
+            },
+            "sprite": {
+              "x": 31,
+              "y": 168,
+              "w": 249.75442171919357,
+              "h": 299.7053060630323
+            },
+            "visible": {
+              "x": 118.41404760171775,
+              "y": 283.511420045127,
+              "w": 78.048256787248,
+              "h": 162.34037411747582
+            },
+            "face": {
+              "x": 130.90176868767742,
+              "y": 308.4868622170464,
+              "w": 56.194744886818555,
+              "h": 49.950884343838716
+            },
+            "faceSource": "derived",
+            "authority": "FROZEN",
+            "meta": {
+              "width": 80,
+              "height": 96,
+              "sha256": "995aea18c7f6e953a812981440da632140245f67c7a52601692010b9d6a52242",
+              "authority": "FROZEN",
+              "visible": [
+                28,
+                37,
+                25,
+                52
+              ],
+              "support": {
+                "y": 89,
+                "x1": 32,
+                "x2": 49,
+                "threshold": 16
+              },
+              "anchor": [
+                40,
+                88
+              ],
+              "face": [
+                32,
+                45,
+                18,
+                16
+              ],
+              "faceSource": "derived"
+            },
+            "flip": false,
+            "world": {
+              "x": 131.59529914529912,
+              "y": 372
+            },
+            "k": 3.1219302714899198,
+            "contact": {
+              "x": 156,
+              "y": 446
+            },
+            "support": {
+              "x": 157.43817599534174,
+              "y": 445.85179416260286,
+              "baseline": 89,
+              "lift": 0
+            },
+            "shadow": {
+              "x": 131,
+              "y": 443,
+              "w": 53.07281461532864,
+              "h": 6.2438605429798395
+            }
+          },
+          "box": {
+            "x": 31,
+            "y": 168,
+            "w": 249.75,
+            "h": 299.703125
+          }
+        },
+        {
+          "actor": "gbenga",
+          "src": "assets/before_the_fame/characters/gbenga/runtime_80x96/gbenga_adjusting_sleeves_80x96_v2.png",
+          "transformed": true,
+          "fallback": null,
+          "loaded": true,
+          "natural": [
+            80,
+            96
+          ],
+          "director": {
+            "slot": "right",
+            "asset": null,
+            "scale": 1.85,
+            "line": "floor",
+            "anchor": {
+              "x": 194.59529914529912,
+              "y": 372
+            },
+            "sprite": {
+              "x": 138,
+              "y": 171,
+              "w": 249.75442171919357,
+              "h": 299.7053060630323
+            },
+            "visible": {
+              "x": 138,
+              "y": 171,
+              "w": 249.75442171919357,
+              "h": 299.7053060630323
+            },
+            "face": {
+              "x": 175.46316325787905,
+              "y": 217.82895407234878,
+              "w": 174.8280952034355,
+              "h": 90.53597787320767
+            },
+            "faceSource": "fallback",
+            "authority": "UNREGISTERED",
+            "meta": {
+              "width": 80,
+              "height": 96,
+              "visible": [
+                0,
+                0,
+                80,
+                96
+              ],
+              "anchor": [
+                40,
+                88
+              ],
+              "face": [
+                12,
+                15,
+                56,
+                29
+              ],
+              "faceSource": "fallback",
+              "authority": "UNREGISTERED",
+              "missing": true
+            },
+            "flip": false,
+            "world": {
+              "x": 194.59529914529912,
+              "y": 372
+            },
+            "k": 3.1219302714899198,
+            "contact": {
+              "x": 263,
+              "y": 446
+            },
+            "support": null,
+            "shadow": null
+          },
+          "box": {
+            "x": 138,
+            "y": 171,
+            "w": 249.75,
+            "h": 299.703125
+          }
+        }
+      ]
+    }
+  ],
+  "combat": [
+    {
+      "enemy": "gbenga",
+      "actor": {
+        "src": "assets/before_the_fame/characters/gbenga/runtime_80x96/gbenga_adjusting_sleeves_80x96_v2.png",
+        "transformed": true,
+        "loaded": true,
+        "director": {
+          "slot": "enemy",
+          "asset": null,
+          "scale": 1.85,
+          "line": "floor",
+          "anchor": {
+            "x": 198,
+            "y": 372
+          },
+          "sprite": {
+            "x": 145,
+            "y": 250,
+            "w": 248.84955752212392,
+            "h": 298.6194690265487
+          },
+          "visible": {
+            "x": 145,
+            "y": 250,
+            "w": 248.84955752212392,
+            "h": 298.6194690265487
+          },
+          "face": {
+            "x": 182.3274336283186,
+            "y": 296.65929203539827,
+            "w": 174.19469026548674,
+            "h": 90.20796460176992
+          },
+          "faceSource": "fallback",
+          "authority": "UNREGISTERED",
+          "meta": {
+            "width": 80,
+            "height": 96,
+            "visible": [
+              0,
+              0,
+              80,
+              96
+            ],
+            "anchor": [
+              40,
+              88
+            ],
+            "face": [
+              12,
+              15,
+              56,
+              29
+            ],
+            "faceSource": "fallback",
+            "authority": "UNREGISTERED",
+            "missing": true
+          },
+          "flip": true,
+          "world": {
+            "x": 198,
+            "y": 372
+          },
+          "k": 3.110619469026549,
+          "contact": {
+            "x": 269,
+            "y": 524
+          },
+          "support": null,
+          "shadow": null
+        }
+      },
+      "selected": {
+        "base": "assets/before_the_fame/characters/gbenga/runtime_80x96/gbenga_adjusting_sleeves_80x96_v2.png",
+        "state": null,
+        "roles": {
+          "defeated": {
+            "state": "defeated",
+            "src": "assets/before_the_fame/characters/gbenga/runtime_80x96/gbenga_defeated_80x96_v2.png"
+          }
+        }
+      }
+    },
+    {
+      "enemy": "smallie",
+      "actor": {
+        "src": "assets/build4/p_d/p_d_smallie_80x96.png",
+        "transformed": true,
+        "loaded": true,
+        "director": {
+          "slot": "enemy",
+          "asset": "assets/build4/p_d/p_d_smallie_80x96.png",
+          "scale": 1.85,
+          "line": "floor",
+          "anchor": {
+            "x": 198,
+            "y": 372
+          },
+          "sprite": {
+            "x": 181,
+            "y": 229,
+            "w": 265,
+            "h": 318
+          },
+          "visible": {
+            "x": 277.0625,
+            "y": 384.6875,
+            "w": 69.5625,
+            "h": 139.125
+          },
+          "face": {
+            "x": 287,
+            "y": 407.875,
+            "w": 49.6875,
+            "h": 43.0625
+          },
+          "faceSource": "derived",
+          "authority": "FROZEN",
+          "meta": {
+            "width": 80,
+            "height": 96,
+            "sha256": "da4c2570fbbbe10b7534306f0b31a4376c0cfaf3eead051a602156d94f9f209a",
+            "authority": "FROZEN",
+            "visible": [
+              30,
+              47,
+              21,
+              42
+            ],
+            "support": {
+              "y": 89,
+              "x1": 34,
+              "x2": 48,
+              "threshold": 16
+            },
+            "anchor": [
+              40,
+              88
+            ],
+            "face": [
+              33,
+              54,
+              15,
+              13
+            ],
+            "faceSource": "derived"
+          },
+          "flip": true,
+          "world": {
+            "x": 198,
+            "y": 372
+          },
+          "k": 3.3125,
+          "contact": {
+            "x": 313,
+            "y": 524
+          },
+          "support": {
+            "x": 310.1875,
+            "y": 523.8125,
+            "baseline": 89,
+            "lift": 0
+          },
+          "shadow": {
+            "x": 287,
+            "y": 521,
+            "w": 46.375,
+            "h": 6.625
+          }
+        }
+      },
+      "selected": {
+        "base": "assets/build4/p_d/p_d_smallie_80x96.png",
+        "state": null,
+        "roles": {}
+      }
+    },
+    {
+      "enemy": "smallie_cousin",
+      "actor": {
+        "src": "assets/build4/p_d/p_d_smallie_cousin_80x96.png",
+        "transformed": true,
+        "loaded": true,
+        "director": {
+          "slot": "enemy",
+          "asset": "assets/build4/p_d/p_d_smallie_cousin_80x96.png",
+          "scale": 1.85,
+          "line": "floor",
+          "anchor": {
+            "x": 198,
+            "y": 372
+          },
+          "sprite": {
+            "x": 177,
+            "y": 229,
+            "w": 265,
+            "h": 318
+          },
+          "visible": {
+            "x": 276.375,
+            "y": 354.875,
+            "w": 72.875,
+            "h": 168.9375
+          },
+          "face": {
+            "x": 289.625,
+            "y": 381.375,
+            "w": 49.6875,
+            "h": 49.6875
+          },
+          "faceSource": "derived",
+          "authority": "FROZEN",
+          "meta": {
+            "width": 80,
+            "height": 96,
+            "sha256": "694ed3ebf43ca21bac1987830ffdad2022700a024dc337aefa7b59462097ec40",
+            "authority": "FROZEN",
+            "visible": [
+              28,
+              38,
+              22,
+              51
+            ],
+            "support": {
+              "y": 89,
+              "x1": 32,
+              "x2": 49,
+              "threshold": 16
+            },
+            "anchor": [
+              40,
+              88
+            ],
+            "face": [
+              31,
+              46,
+              15,
+              15
+            ],
+            "faceSource": "derived"
+          },
+          "flip": true,
+          "world": {
+            "x": 198,
+            "y": 372
+          },
+          "k": 3.3125,
+          "contact": {
+            "x": 309,
+            "y": 524
+          },
+          "support": {
+            "x": 307.84375,
+            "y": 523.8125,
+            "baseline": 89,
+            "lift": 0
+          },
+          "shadow": {
+            "x": 280,
+            "y": 521,
+            "w": 56.3125,
+            "h": 6.625
+          }
+        }
+      },
+      "selected": {
+        "base": "assets/build4/p_d/p_d_smallie_cousin_80x96.png",
+        "state": null,
+        "roles": {}
+      }
+    },
+    {
+      "enemy": "bonesworth",
+      "actor": {
+        "src": "assets/before_the_fame/characters/bonesworth/sir_bonesworth_hungover_80x96.png",
+        "transformed": false,
+        "loaded": true,
+        "director": {
+          "slot": "enemy",
+          "asset": "assets/before_the_fame/characters/bonesworth/sir_bonesworth_hungover_80x96.png",
+          "scale": 1.85,
+          "line": "floor",
+          "anchor": {
+            "x": 198,
+            "y": 372
+          },
+          "sprite": {
+            "x": 151,
+            "y": 233,
+            "w": 265,
+            "h": 318
+          },
+          "visible": {
+            "x": 217.25,
+            "y": 319.125,
+            "w": 135.8125,
+            "h": 205.375
+          },
+          "face": {
+            "x": 276.875,
+            "y": 325.75,
+            "w": 39.75,
+            "h": 39.75
+          },
+          "faceSource": "authored",
+          "authority": "FROZEN",
+          "meta": {
+            "width": 80,
+            "height": 96,
+            "sha256": "42b1acd8247bf855f73cce165246c2b4079ae1f2070f137800ffe89997f7cafe",
+            "authority": "FROZEN",
+            "visible": [
+              19,
+              26,
+              41,
+              62
+            ],
+            "support": {
+              "y": 88,
+              "x1": 24,
+              "x2": 60,
+              "threshold": 16
+            },
+            "anchor": [
+              40,
+              88
+            ],
+            "face": [
+              30,
+              28,
+              12,
+              12
+            ],
+            "faceSource": "authored"
+          },
+          "flip": true,
+          "world": {
+            "x": 198,
+            "y": 372
+          },
+          "k": 3.3125,
+          "contact": {
+            "x": 283,
+            "y": 524
+          },
+          "support": {
+            "x": 276.875,
+            "y": 524.5,
+            "baseline": 88,
+            "lift": 0
+          },
+          "shadow": {
+            "x": 217,
+            "y": 521,
+            "w": 119.25,
+            "h": 6.625
+          }
+        }
+      },
+      "selected": {
+        "base": "assets/before_the_fame/characters/bonesworth/sir_bonesworth_hungover_80x96.png",
+        "state": null,
+        "roles": {
+          "telegraph": {
+            "state": "telegraph",
+            "src": "assets/before_the_fame/characters/bonesworth/bonesworth_telegraph_80x96.png"
+          },
+          "strike": {
+            "state": "strike",
+            "src": "assets/before_the_fame/characters/bonesworth/bonesworth_strike_80x96.png"
+          },
+          "hit": {
+            "state": "hit",
+            "src": "assets/before_the_fame/characters/bonesworth/bonesworth_hit_80x96.png"
+          },
+          "defeated": {
+            "state": "defeated",
+            "src": "assets/before_the_fame/characters/bonesworth/bonesworth_defeated_80x96.png"
+          }
+        }
+      }
+    },
+    {
+      "enemy": "hilt",
+      "actor": {
+        "src": "assets/before_the_fame/characters/hilt/hilt_neutral_80x96.png",
+        "transformed": false,
+        "loaded": true,
+        "director": {
+          "slot": "enemy",
+          "asset": "assets/before_the_fame/characters/hilt/hilt_neutral_80x96.png",
+          "scale": 1.85,
+          "line": "floor",
+          "anchor": {
+            "x": 198,
+            "y": 372
+          },
+          "sprite": {
+            "x": 161,
+            "y": 233,
+            "w": 265,
+            "h": 318
+          },
+          "visible": {
+            "x": 240.5,
+            "y": 312.5,
+            "w": 106,
+            "h": 212
+          },
+          "face": {
+            "x": 276.9375,
+            "y": 322.4375,
+            "w": 33.125,
+            "h": 29.8125
+          },
+          "faceSource": "authored",
+          "authority": "FROZEN",
+          "meta": {
+            "width": 80,
+            "height": 96,
+            "sha256": "e179293708207d5dbe7892dc71bd120ce270490c22141aaf6245d5bf4b46a4e9",
+            "authority": "FROZEN",
+            "visible": [
+              24,
+              24,
+              32,
+              64
+            ],
+            "support": {
+              "y": 88,
+              "x1": 29,
+              "x2": 56,
+              "threshold": 16
+            },
+            "anchor": [
+              40,
+              88
+            ],
+            "face": [
+              35,
+              27,
+              10,
+              9
+            ],
+            "faceSource": "authored"
+          },
+          "flip": true,
+          "world": {
+            "x": 198,
+            "y": 372
+          },
+          "k": 3.3125,
+          "contact": {
+            "x": 293,
+            "y": 524
+          },
+          "support": {
+            "x": 285.21875,
+            "y": 524.5,
+            "baseline": 88,
+            "lift": 0
+          },
+          "shadow": {
+            "x": 241,
+            "y": 521,
+            "w": 89.4375,
+            "h": 6.625
+          }
+        }
+      },
+      "selected": {
+        "base": "assets/before_the_fame/characters/hilt/hilt_neutral_80x96.png",
+        "state": null,
+        "roles": {
+          "strike": {
+            "state": "strike",
+            "src": "assets/before_the_fame/characters/hilt/hilt_strike_80x96.png"
+          }
+        }
+      }
+    },
+    {
+      "enemy": "blad33ee",
+      "actor": {
+        "src": "assets/bllad33/masters/bllad33_neutral_candidate_80x96.png",
+        "transformed": false,
+        "loaded": true,
+        "director": {
+          "slot": "enemy",
+          "asset": "assets/bllad33/masters/bllad33_neutral_candidate_80x96.png",
+          "scale": 1.85,
+          "line": "floor",
+          "anchor": {
+            "x": 198,
+            "y": 372
+          },
+          "sprite": {
+            "x": 176,
+            "y": 233,
+            "w": 265,
+            "h": 318
+          },
+          "visible": {
+            "x": 265.4375,
+            "y": 339,
+            "w": 86.125,
+            "h": 185.5
+          },
+          "face": {
+            "x": 278.6875,
+            "y": 358.875,
+            "w": 49.6875,
+            "h": 39.75
+          },
+          "faceSource": "authored",
+          "authority": "FROZEN",
+          "meta": {
+            "width": 80,
+            "height": 96,
+            "sha256": "fcca67ce0a90a60f16854c3c5f8019a28d243aa2bf3bf86ecdf5631013198f5b",
+            "authority": "FROZEN",
+            "visible": [
+              27,
+              32,
+              26,
+              56
+            ],
+            "support": {
+              "y": 88,
+              "x1": 31,
+              "x2": 52,
+              "threshold": 16
+            },
+            "anchor": [
+              40,
+              88
+            ],
+            "face": [
+              34,
+              38,
+              15,
+              12
+            ],
+            "faceSource": "authored"
+          },
+          "flip": true,
+          "world": {
+            "x": 198,
+            "y": 372
+          },
+          "k": 3.3125,
+          "contact": {
+            "x": 308,
+            "y": 524
+          },
+          "support": {
+            "x": 303.53125,
+            "y": 524.5,
+            "baseline": 88,
+            "lift": 0
+          },
+          "shadow": {
+            "x": 269,
+            "y": 521,
+            "w": 69.5625,
+            "h": 6.625
+          }
+        }
+      },
+      "selected": {
+        "base": "assets/bllad33/masters/bllad33_neutral_candidate_80x96.png",
+        "state": null,
+        "roles": {}
+      }
+    }
+  ],
+  "cast": {
+    "ceo_assistant_001": {
+      "sprite": "assets/assistant_idle.png",
+      "states": {
+        "bedroom_company": "assets/before_the_fame/art_ship_014/package_a/A-ceo_assistant-bedroom.png",
+        "date": "assets/before_the_fame/art_ship_014/package_a/A-ceo_assistant-date.png"
+      },
+      "registry": true
+    },
+    "jdm_importer_daughter_001": {
+      "sprite": "assets/jdm_imports/characters/daughter/daughter_neutral.png",
+      "states": {
+        "bedroom_company": "assets/before_the_fame/art_ship_014/package_a/A-cammile-bedroom.png",
+        "date": "assets/before_the_fame/art_ship_014/package_a/A-cammile-date.png",
+        "touge_spectator": "assets/before_the_fame/art_ship_014/package_a/A-cammile-touge_spectator.png"
+      },
+      "registry": true
+    },
+    "mazda_human": {
+      "sprite": "assets/before_the_fame/characters/mazda_human/blueberry_mazda_human_neutral_80x96.png",
+      "states": {
+        "bedroom_company": "assets/before_the_fame/art_ship_014/package_b/B-human-bedroom.png",
+        "eating": "assets/before_the_fame/art_ship_014/package_b/B-human-eating.png",
+        "neutral": "assets/before_the_fame/characters/mazda_human/blueberry_mazda_human_neutral_80x96.png"
+      },
+      "registry": true
+    },
+    "kiki": {
+      "sprite": "assets/before_the_fame/characters/kiki/kiki_neutral_work_80x96.png",
+      "states": {
+        "bedroom_company": "assets/before_the_fame/art_ship_014/package_a/A-kiki-bedroom_company.png",
+        "date": "assets/before_the_fame/art_ship_014/package_a/A-kiki-date.png",
+        "laughing": "assets/before_the_fame/art_ship_014/package_a/A-kiki-laughing.png",
+        "neutral_work": "assets/before_the_fame/characters/kiki/kiki_neutral_work_80x96.png"
+      },
+      "registry": true
+    },
+    "nneka": {
+      "sprite": "assets/before_the_fame/characters/nneka/nneka_neutral_80x96.png",
+      "states": {
+        "bedroom_company": "assets/before_the_fame/art_ship_014/package_a/A-nneka-bedroom_company.png",
+        "date": "assets/before_the_fame/art_ship_014/package_a/A-nneka-date.png",
+        "handing_bill": "assets/before_the_fame/art_ship_014/package_a/A-nneka-handing_bill.png",
+        "neutral": "assets/before_the_fame/characters/nneka/nneka_neutral_80x96.png"
+      },
+      "registry": true
+    },
+    "pinky": {
+      "sprite": "assets/before_the_fame/characters/pinky/pinky_arms_crossed_80x96.png",
+      "states": {
+        "arms_crossed": "assets/before_the_fame/characters/pinky/pinky_arms_crossed_80x96.png",
+        "bedroom_company": "assets/before_the_fame/art_ship_014/package_a/A-pinky-bedroom_company.png",
+        "date": "assets/before_the_fame/art_ship_014/package_a/A-pinky-date.png",
+        "impressed": "assets/before_the_fame/art_ship_014/package_a/A-pinky-impressed.png",
+        "neutral": "assets/before_the_fame/art_ship_014/package_a/A-pinky-neutral.png"
+      },
+      "registry": true
+    },
+    "moonie": {
+      "sprite": "assets/before_the_fame/characters/moonie/moonie_dorsey_neutral_80x96.png",
+      "states": {
+        "bedroom_company": "assets/before_the_fame/art_ship_014/package_a/A-moonie-bedroom_company.png",
+        "date": "assets/before_the_fame/art_ship_014/package_a/A-moonie-date.png",
+        "neutral": "assets/before_the_fame/characters/moonie/moonie_dorsey_neutral_80x96.png",
+        "wolfed_out": "assets/before_the_fame/characters/moonie/moonie_wolfed_out_80x96.png"
+      },
+      "registry": true
+    },
+    "kaede": {
+      "sprite": "assets/before_the_fame/characters/kaede/kaede_neutral_80x96.png",
+      "states": {
+        "bedroom_company": "assets/before_the_fame/art_ship_014/package_a/A-kaede-bedroom_company.png",
+        "ceiling_drop": "assets/before_the_fame/art_ship_014/package_a/A-kaede-ceiling_drop.png",
+        "date": "assets/before_the_fame/art_ship_014/package_a/A-kaede-date.png",
+        "neutral": "assets/before_the_fame/characters/kaede/kaede_neutral_80x96.png"
+      },
+      "registry": true
+    },
+    "wispa": {
+      "sprite": "assets/before_the_fame/characters/wispa/wispa_neutral_80x96.png",
+      "states": {
+        "date": "assets/before_the_fame/art_ship_014/package_a/A-wispa-date.png",
+        "neutral": "assets/before_the_fame/characters/wispa/wispa_neutral_80x96.png",
+        "wave": "assets/before_the_fame/art_ship_014/package_a/A-wispa-wave.png"
+      },
+      "registry": true
+    },
+    "tasha": {
+      "sprite": "assets/before_the_fame/characters/tasha/tasha_tastemaker_filming_80x96.png",
+      "states": {
+        "bedroom_company": "assets/before_the_fame/art_ship_014/package_a/A-tasha-bedroom_company.png",
+        "date": "assets/before_the_fame/art_ship_014/package_a/A-tasha-date.png",
+        "filming": "assets/before_the_fame/characters/tasha/tasha_tastemaker_filming_80x96.png",
+        "stage_rush": "assets/before_the_fame/art_ship_014/package_a/A-tasha-stage_rush.png"
+      },
+      "registry": true
+    },
+    "marisol": {
+      "sprite": "assets/before_the_fame/characters/marisol/marisol_neutral_80x96.png",
+      "states": {
+        "date": "assets/before_the_fame/art_ship_014/package_a/A-marisol-date.png",
+        "disapproving": "assets/before_the_fame/art_ship_014/package_a/A-marisol-disapproving.png",
+        "neutral": "assets/before_the_fame/characters/marisol/marisol_neutral_80x96.png"
+      },
+      "registry": true
+    },
+    "duchess": {
+      "sprite": "assets/before_the_fame/characters/duchess/duchess_bathory_brown_neutral_80x96.png",
+      "states": {
+        "bedroom_company": "assets/before_the_fame/art_ship_014/package_a/A-duchess-bedroom_company.png",
+        "impressed": "assets/before_the_fame/art_ship_014/package_a/A-duchess-impressed.png",
+        "neutral": "assets/before_the_fame/characters/duchess/duchess_bathory_brown_neutral_80x96.png",
+        "unimpressed": "assets/before_the_fame/art_ship_014/package_a/A-duchess-unimpressed.png"
+      },
+      "registry": true
+    },
+    "nightshade": {
+      "sprite": "assets/before_the_fame/characters/nightshade/nightshade_neutral_80x96.png",
+      "states": {
+        "casting": "assets/before_the_fame/art_ship_014/package_a/A-nightshade-casting.png",
+        "date": "assets/before_the_fame/art_ship_014/package_a/A-nightshade-date.png",
+        "neutral": "assets/before_the_fame/characters/nightshade/nightshade_neutral_80x96.png"
+      },
+      "registry": true
+    },
+    "emberly": {
+      "sprite": "assets/before_the_fame/characters/emberly/emberly_neutral_80x96.png",
+      "states": {
+        "bedroom_company": "assets/before_the_fame/art_ship_014/package_a/A-emberly-bedroom_company.png",
+        "date": "assets/before_the_fame/art_ship_014/package_a/A-emberly-date.png",
+        "neutral": "assets/before_the_fame/characters/emberly/emberly_neutral_80x96.png"
+      },
+      "registry": true
+    },
+    "jade": {
+      "sprite": "assets/before_the_fame/characters/jade/jade_wyrmwood_neutral_80x96.png",
+      "states": {
+        "impressed": "assets/before_the_fame/art_ship_014/package_a/A-jade-impressed.png",
+        "neutral": "assets/before_the_fame/characters/jade/jade_wyrmwood_neutral_80x96.png"
+      },
+      "registry": true
+    },
+    "lo": {
+      "sprite": "assets/before_the_fame/characters/lo/lo_dolores_neutral_80x96.png",
+      "states": {
+        "arm_fall": "assets/before_the_fame/art_ship_014/package_a/A-lo-arm_fall.png",
+        "date": "assets/before_the_fame/art_ship_014/package_a/A-lo-date.png",
+        "neutral": "assets/before_the_fame/characters/lo/lo_dolores_neutral_80x96.png"
+      },
+      "registry": true
+    },
+    "brenda": {
+      "sprite": "assets/before_the_fame/characters/brenda/brenda_neutral_80x96.png",
+      "states": {
+        "date": "assets/before_the_fame/art_ship_014/package_a/A-brenda-date.png",
+        "gossiping": "assets/before_the_fame/art_ship_014/package_a/A-brenda-gossiping.png",
+        "neutral": "assets/before_the_fame/characters/brenda/brenda_neutral_80x96.png"
+      },
+      "registry": true
+    },
+    "hina": {
+      "sprite": "assets/before_the_fame/characters/hina/hina_neutral_80x96.png",
+      "states": {
+        "date": "assets/before_the_fame/art_ship_014/package_a/A-hina-date.png",
+        "neutral": "assets/before_the_fame/characters/hina/hina_neutral_80x96.png",
+        "smug": "assets/before_the_fame/art_ship_014/package_a/A-hina-smug.png"
+      },
+      "registry": true
+    },
+    "bunmi": {
+      "sprite": "assets/before_the_fame/characters/bunmi/bunmi_neutral_80x96.png",
+      "states": {
+        "bedroom_company": "assets/before_the_fame/art_ship_014/package_a/A-bunmi-bedroom_company.png",
+        "date": "assets/before_the_fame/art_ship_014/package_a/A-bunmi-date.png",
+        "neutral": "assets/before_the_fame/characters/bunmi/bunmi_neutral_80x96.png"
+      },
+      "registry": true
+    },
+    "velvet": {
+      "sprite": "assets/before_the_fame/characters/velvet/velvet_vantablack_profile_80x96.png",
+      "states": {
+        "date": "assets/before_the_fame/art_ship_014/package_a/A-velvet-date.png",
+        "profile": "assets/before_the_fame/characters/velvet/velvet_vantablack_profile_80x96.png"
+      },
+      "registry": true
+    },
+    "june": {
+      "sprite": "assets/before_the_fame/characters/june/june_neutral_80x96.png",
+      "states": {
+        "bedroom_company": "assets/before_the_fame/art_ship_014/package_a/A-june-bedroom.png",
+        "date": "assets/before_the_fame/art_ship_014/package_a/A-june-date.png",
+        "neutral": "assets/before_the_fame/characters/june/june_neutral_80x96.png",
+        "working": "assets/before_the_fame/art_ship_014/package_a/A-june-working.png"
+      },
+      "registry": true
+    },
+    "ms_patrice": {
+      "sprite": "assets/before_the_fame/characters/ms_patrice/ms_patrice_neutral_80x96.png",
+      "states": {
+        "bedroom_company": "assets/before_the_fame/art_ship_014/package_a/A-ms_patrice-bedroom.png",
+        "date": "assets/before_the_fame/art_ship_014/package_a/A-ms_patrice-date.png",
+        "laugh": "assets/before_the_fame/art_ship_014/package_a/A-ms_patrice-laugh.png",
+        "neutral": "assets/before_the_fame/characters/ms_patrice/ms_patrice_neutral_80x96.png"
+      },
+      "registry": true
+    },
+    "anfeesa": {
+      "sprite": "assets/before_the_fame/characters/anfeesa/dj_anfeesa_neutral_80x96.png",
+      "states": {
+        "dj": "assets/before_the_fame/art_ship_014/package_a/A-anfeesa-dj.png",
+        "neutral": "assets/before_the_fame/characters/anfeesa/dj_anfeesa_neutral_80x96.png"
+      },
+      "registry": true
+    },
+    "shannon_001": {
+      "sprite": "assets/property/characters/shannon/shannon_neutral_80x96.png",
+      "states": {},
+      "registry": false
+    },
+    "importer": {
+      "sprite": "assets/jdm_imports/characters/importer/importer_neutral.png",
+      "states": {},
+      "registry": false
+    },
+    "tristan": {
+      "sprite": "assets/before_the_fame/characters/tristan/tristan_neutral_80x96.png",
+      "states": {
+        "floor": "assets/before_the_fame/art_ship_014/package_a/A-tristan-floor.png",
+        "laugh": "assets/before_the_fame/art_ship_014/package_a/A-tristan-laugh.png",
+        "neutral": "assets/before_the_fame/characters/tristan/tristan_neutral_80x96.png",
+        "passenger": "assets/before_the_fame/art_ship_014/package_a/A-tristan-passenger.png"
+      },
+      "registry": true
+    },
+    "rookoko": {
+      "sprite": "assets/before_the_fame/characters/rookoko/rookoko_neutral_80x96.png",
+      "states": {
+        "hookah_seated": "assets/before_the_fame/characters/rookoko/rookoko_hookah_seated_80x96.png",
+        "neutral": "assets/before_the_fame/characters/rookoko/rookoko_neutral_80x96.png",
+        "painting": "assets/before_the_fame/art_ship_014/package_a/A-rookoko-painting.png"
+      },
+      "registry": true
+    },
+    "coffe": {
+      "sprite": "assets/before_the_fame/characters/coffe/coffe_neutral_80x96.png",
+      "states": {
+        "caught": "assets/before_the_fame/art_ship_014/package_a/A-coffe-caught.png",
+        "hype": "assets/before_the_fame/art_ship_014/package_a/A-coffe-hype.png",
+        "neutral": "assets/before_the_fame/characters/coffe/coffe_neutral_80x96.png",
+        "rogue": "assets/before_the_fame/characters/coffe/coffe_rogue_80x96.png"
+      },
+      "registry": true
+    },
+    "tunde": {
+      "sprite": "assets/before_the_fame/characters/tunde/tunde_neutral_80x96.png",
+      "states": {
+        "asleep_floor": "assets/before_the_fame/characters/tunde/tunde_asleep_floor_80x96.png",
+        "hookah_seated": "assets/before_the_fame/characters/tunde/tunde_hookah_seated_80x96.png",
+        "neutral": "assets/before_the_fame/characters/tunde/tunde_neutral_80x96.png"
+      },
+      "registry": true
+    },
+    "dre": {
+      "sprite": "assets/before_the_fame/characters/dre/dre_neutral_80x96.png",
+      "states": {
+        "asleep_floor": "assets/before_the_fame/characters/dre/dre_asleep_floor_80x96.png",
+        "hookah_seated": "assets/before_the_fame/characters/dre/dre_hookah_seated_80x96.png",
+        "neutral": "assets/before_the_fame/characters/dre/dre_neutral_80x96.png"
+      },
+      "registry": true
+    },
+    "uncle_sunday": {
+      "sprite": "assets/before_the_fame/characters/uncle_sunday/uncle_sunday_neutral_80x96.png",
+      "states": {
+        "fishing": "assets/before_the_fame/characters/uncle_sunday/uncle_sunday_fishing_80x96.png",
+        "melted": "assets/before_the_fame/characters/uncle_sunday/uncle_sunday_melted_80x96.png",
+        "neutral": "assets/before_the_fame/characters/uncle_sunday/uncle_sunday_neutral_80x96.png",
+        "offended": "assets/before_the_fame/characters/uncle_sunday/uncle_sunday_offended_80x96.png"
+      },
+      "registry": true
+    },
+    "reggie": {
+      "sprite": "assets/before_the_fame/characters/reggie/reggie_neutral_80x96.png",
+      "states": {
+        "neutral": "assets/before_the_fame/characters/reggie/reggie_neutral_80x96.png"
+      },
+      "registry": true
+    },
+    "okada": {
+      "sprite": "assets/before_the_fame/characters/okada/mr_okada_neutral_80x96.png",
+      "states": {
+        "neutral": "assets/before_the_fame/characters/okada/mr_okada_neutral_80x96.png"
+      },
+      "registry": true
+    },
+    "deacon_brass": {
+      "sprite": "assets/before_the_fame/characters/deacon_brass/deacon_brass_neutral_80x96.png",
+      "states": {
+        "blessing": "assets/before_the_fame/characters/deacon_brass/deacon_brass_blessing_80x96.png",
+        "neutral": "assets/before_the_fame/characters/deacon_brass/deacon_brass_neutral_80x96.png"
+      },
+      "registry": true
+    },
+    "bllad33": {
+      "sprite": "assets/bllad33/masters/bllad33_neutral_candidate_80x96.png",
+      "states": {
+        "dry": "assets/before_the_fame/art_ship_014/package_a/A-bllad33-dry.png",
+        "hookah_seated": "assets/bllad33/states/bllad33_hookah_seated_80x96.png"
+      },
+      "registry": true
+    },
+    "hilt": {
+      "sprite": "assets/before_the_fame/characters/hilt/hilt_neutral_80x96.png",
+      "states": {
+        "neutral": "assets/before_the_fame/characters/hilt/hilt_neutral_80x96.png",
+        "strike": "assets/before_the_fame/characters/hilt/hilt_strike_80x96.png",
+        "walk_away": "assets/before_the_fame/characters/hilt/hilt_walk_away_80x96.png"
+      },
+      "registry": true
+    },
+    "ogun": {
+      "sprite": "assets/ogun_rave/masters/ogun_neutral_80x96.png",
+      "states": {},
+      "registry": false
+    },
+    "lil_smack": {
+      "sprite": "assets/before_the_fame/characters/lil_smack/lil_smack_eating_80x96.png",
+      "states": {
+        "diss": "assets/before_the_fame/art_ship_014/package_a/A-lil_smack-diss.png",
+        "eating": "assets/before_the_fame/characters/lil_smack/lil_smack_eating_80x96.png",
+        "finale": "assets/before_the_fame/art_ship_014/package_a/A-lil_smack-finale.png"
+      },
+      "registry": true
+    },
+    "officer_nodd": {
+      "sprite": "assets/before_the_fame/characters/officer_nodd/officer_nodd_neutral_80x96.png",
+      "states": {
+        "neutral": "assets/before_the_fame/characters/officer_nodd/officer_nodd_neutral_80x96.png",
+        "nod": "assets/before_the_fame/art_ship_014/package_a/A-officer_nodd-nod.png",
+        "phone": "assets/before_the_fame/art_ship_014/package_a/A-officer_nodd-phone.png"
+      },
+      "registry": true
+    },
+    "don_chuy": {
+      "sprite": "assets/before_the_fame/characters/don_chuy/don_chuy_neutral_80x96.png",
+      "states": {
+        "neutral": "assets/before_the_fame/characters/don_chuy/don_chuy_neutral_80x96.png",
+        "singing": "assets/before_the_fame/art_ship_014/package_a/A-don_chuy-singing.png"
+      },
+      "registry": true
+    },
+    "bruce_loose": {
+      "sprite": "assets/before_the_fame/characters/bruce_loose/bruce_loose_neutral_80x96.png",
+      "states": {
+        "bow": "assets/before_the_fame/characters/bruce_loose/bruce_bow_80x96.png",
+        "neutral": "assets/before_the_fame/characters/bruce_loose/bruce_loose_neutral_80x96.png",
+        "strike": "assets/before_the_fame/characters/bruce_loose/bruce_strike_80x96.png"
+      },
+      "registry": true
+    },
+    "kevin": {
+      "sprite": "assets/before_the_fame/characters/kevin/kagebunshin_kevin_neutral_80x96.png",
+      "states": {
+        "attack": "assets/before_the_fame/characters/kevin/kevin_attack_80x96.png",
+        "neutral": "assets/before_the_fame/characters/kevin/kagebunshin_kevin_neutral_80x96.png",
+        "poof": "assets/before_the_fame/characters/kevin/kevin_poof_80x96.png"
+      },
+      "registry": true
+    },
+    "phil": {
+      "sprite": "assets/before_the_fame/characters/phil/power_level_phil_charging_day1_80x96.png",
+      "states": {
+        "charging_day1": "assets/before_the_fame/characters/phil/power_level_phil_charging_day1_80x96.png",
+        "charging_day3": "assets/before_the_fame/characters/phil/phil_charging_day3_80x96.png",
+        "sitting_plate": "assets/before_the_fame/characters/phil/phil_sitting_plate_80x96.png",
+        "spent_grounded": "assets/before_the_fame/characters/phil/phil_spent_grounded_80x96.png"
+      },
+      "registry": true
+    },
+    "iron_jaw": {
+      "sprite": "assets/before_the_fame/characters/iron_jaw/iron_jaw_neutral_80x96.png",
+      "states": {
+        "defeated": "assets/before_the_fame/characters/iron_jaw/iron_jaw_defeated_80x96.png",
+        "neutral": "assets/before_the_fame/characters/iron_jaw/iron_jaw_neutral_80x96.png",
+        "rapping": "assets/before_the_fame/characters/iron_jaw/iron_jaw_rapping_80x96.png"
+      },
+      "registry": true
+    },
+    "tokyo_tony": {
+      "sprite": "assets/before_the_fame/characters/tokyo_tony/tokyo_tony_smug_80x96.png",
+      "states": {
+        "smug": "assets/before_the_fame/characters/tokyo_tony/tokyo_tony_smug_80x96.png"
+      },
+      "registry": true
+    },
+    "bonesworth": {
+      "sprite": "assets/before_the_fame/characters/bonesworth/sir_bonesworth_hungover_80x96.png",
+      "states": {
+        "defeated": "assets/before_the_fame/characters/bonesworth/bonesworth_defeated_80x96.png",
+        "hit": "assets/before_the_fame/characters/bonesworth/bonesworth_hit_80x96.png",
+        "hungover": "assets/before_the_fame/characters/bonesworth/sir_bonesworth_hungover_80x96.png",
+        "strike": "assets/before_the_fame/characters/bonesworth/bonesworth_strike_80x96.png",
+        "telegraph": "assets/before_the_fame/characters/bonesworth/bonesworth_telegraph_80x96.png"
+      },
+      "registry": true
+    },
+    "vicky": {
+      "sprite": "assets/before_the_fame/characters/vicky/vicky_neutral_80x96.png",
+      "states": {
+        "doorway": "assets/before_the_fame/art_ship_014/package_a/A-vicky-doorway.png",
+        "neutral": "assets/before_the_fame/characters/vicky/vicky_neutral_80x96.png"
+      },
+      "registry": true
+    },
+    "mom": {
+      "sprite": "assets/before_the_fame/characters/mom/mom_neutral_80x96.png",
+      "states": {
+        "default": "assets/before_the_fame/characters/mom/mom_neutral_80x96.png"
+      },
+      "registry": true
+    },
+    "dad": {
+      "sprite": "assets/before_the_fame/characters/dad/dad_neutral_80x96.png",
+      "states": {
+        "default": "assets/before_the_fame/characters/dad/dad_neutral_80x96.png"
+      },
+      "registry": true
+    },
+    "sister": {
+      "sprite": "assets/before_the_fame/characters/sister/sister_neutral_80x96.png",
+      "states": {
+        "default": "assets/before_the_fame/characters/sister/sister_neutral_80x96.png"
+      },
+      "registry": true
+    },
+    "brother1": {
+      "sprite": "assets/before_the_fame/art_ship_015/package_a/A-family-brother1.png",
+      "states": {
+        "neutral": "assets/before_the_fame/art_ship_015/package_a/A-family-brother1.png"
+      },
+      "registry": true
+    },
+    "brother2": {
+      "sprite": "assets/before_the_fame/art_ship_015/package_a/A-family-brother2.png",
+      "states": {
+        "neutral": "assets/before_the_fame/art_ship_015/package_a/A-family-brother2.png"
+      },
+      "registry": true
+    },
+    "octopus_sensei": {
+      "sprite": "assets/goldfish_years/characters/octopus_sensei/octopus_sensei_neutral_96x96.png",
+      "states": {
+        "neutral": "assets/goldfish_years/characters/octopus_sensei/octopus_sensei_neutral_96x96.png",
+        "point": "assets/goldfish_years/characters/octopus_sensei/octopus_sensei_point_96x96.png"
+      },
+      "registry": true
+    },
+    "god": {
+      "sprite": "assets/before_the_fame/art_ship_015/package_a/A-god-seated_on_curb.png",
+      "states": {
+        "fading": "assets/before_the_fame/art_ship_015/package_a/A-god-fading.png",
+        "seated_on_curb": "assets/before_the_fame/art_ship_015/package_a/A-god-seated_on_curb.png"
+      },
+      "registry": true
+    },
+    "j_circle": {
+      "sprite": "assets/before_the_fame/characters/j_circle/j_circle_entrance_80x96.png",
+      "states": {
+        "entrance": "assets/before_the_fame/characters/j_circle/j_circle_entrance_80x96.png"
+      },
+      "registry": true
+    },
+    "trippin_red": {
+      "sprite": "assets/before_the_fame/characters/trippin_red/trippin_red_stage_ready_80x96.png",
+      "states": {
+        "stage_ready": "assets/before_the_fame/characters/trippin_red/trippin_red_stage_ready_80x96.png"
+      },
+      "registry": true
+    },
+    "paladin": {
+      "sprite": "assets/before_the_fame/characters/paladin/paladin_neutral_80x96.png",
+      "states": {
+        "neutral": "assets/before_the_fame/characters/paladin/paladin_neutral_80x96.png"
+      },
+      "registry": true
+    },
+    "bard": {
+      "sprite": "assets/before_the_fame/characters/bard/bard_neutral_80x96.png",
+      "states": {
+        "neutral": "assets/before_the_fame/characters/bard/bard_neutral_80x96.png"
+      },
+      "registry": true
+    },
+    "cleric": {
+      "sprite": "assets/before_the_fame/characters/cleric/cleric_neutral_80x96.png",
+      "states": {
+        "neutral": "assets/before_the_fame/characters/cleric/cleric_neutral_80x96.png"
+      },
+      "registry": true
+    },
+    "buckhead": {
+      "sprite": "assets/before_the_fame/characters/buckhead/buckhead_vampire_neutral_80x96.png",
+      "states": {
+        "default": "assets/before_the_fame/characters/buckhead/buckhead_vampire_neutral_80x96.png"
+      },
+      "registry": true
+    },
+    "og_hooper": {
+      "sprite": "assets/before_the_fame/art_ship_015/package_a/A-og-hooper.png",
+      "states": {
+        "court_ready": "assets/before_the_fame/art_ship_015/package_a/A-og-hooper.png"
+      },
+      "registry": true
+    },
+    "cat": {
+      "sprite": "assets/before_the_fame/creatures/cat/sphynx_cat_sitting_48x32.png",
+      "states": {
+        "sitting": "assets/before_the_fame/creatures/cat/sphynx_cat_sitting_48x32.png"
+      },
+      "registry": false
+    },
+    "rich_portobello": {
+      "sprite": "assets/before_the_fame/characters/rich_portobello/rich_portobello_standing_80x96.png",
+      "states": {
+        "default": "assets/before_the_fame/characters/rich_portobello/rich_portobello_standing_80x96.png",
+        "porch_seated": "assets/before_the_fame/characters/rich_portobello/rich_portobello_porch_seated_80x96.png",
+        "presenting": "assets/before_the_fame/characters/rich_portobello/rich_portobello_presenting_80x96.png"
+      },
+      "registry": true
+    },
+    "portobello_wife": {
+      "sprite": "assets/before_the_fame/characters/portobello_wife/portobello_wife_neutral_80x96.png",
+      "states": {
+        "default": "assets/before_the_fame/characters/portobello_wife/portobello_wife_neutral_80x96.png"
+      },
+      "registry": true
+    },
+    "portobello_kid1": {
+      "sprite": "assets/before_the_fame/characters/portobello_kid1/portobello_kid1_neutral_80x96.png",
+      "states": {
+        "default": "assets/before_the_fame/characters/portobello_kid1/portobello_kid1_neutral_80x96.png"
+      },
+      "registry": true
+    },
+    "portobello_kid2": {
+      "sprite": "assets/before_the_fame/characters/portobello_kid2/portobello_kid2_neutral_80x96.png",
+      "states": {
+        "default": "assets/before_the_fame/characters/portobello_kid2/portobello_kid2_neutral_80x96.png"
+      },
+      "registry": true
+    },
+    "portobello_manager": {
+      "sprite": "assets/before_the_fame/characters/portobello_manager/portobello_manager_neutral_80x96.png",
+      "states": {
+        "default": "assets/before_the_fame/characters/portobello_manager/portobello_manager_neutral_80x96.png"
+      },
+      "registry": true
+    },
+    "auntie": {
+      "sprite": "assets/before_the_fame/characters/auntie/auntie_register_neutral_80x96.png",
+      "states": {
+        "default": "assets/before_the_fame/characters/auntie/auntie_register_neutral_80x96.png"
+      },
+      "registry": true
+    },
+    "smallie": {
+      "sprite": "assets/build4/p_d/p_d_smallie_80x96.png",
+      "states": {
+        "neutral": "assets/build4/p_d/p_d_smallie_80x96.png"
+      },
+      "registry": true
+    },
+    "smallie_cousin": {
+      "sprite": "assets/build4/p_d/p_d_smallie_cousin_80x96.png",
+      "states": {
+        "neutral": "assets/build4/p_d/p_d_smallie_cousin_80x96.png"
+      },
+      "registry": true
+    },
+    "gbenga": {
+      "sprite": "assets/before_the_fame/characters/gbenga/runtime_80x96/gbenga_adjusting_sleeves_80x96_v2.png",
+      "states": {
+        "neutral": "assets/before_the_fame/characters/gbenga/runtime_80x96/gbenga_neutral_anchor_80x96_v2.png",
+        "voice_note": "assets/before_the_fame/characters/gbenga/runtime_80x96/gbenga_voice_note_80x96_v2.png",
+        "my_son": "assets/before_the_fame/characters/gbenga/runtime_80x96/gbenga_my_son_80x96_v2.png",
+        "adjusting_sleeves": "assets/before_the_fame/characters/gbenga/runtime_80x96/gbenga_adjusting_sleeves_80x96_v2.png",
+        "golden_draco": "assets/before_the_fame/characters/gbenga/runtime_80x96/gbenga_golden_draco_80x96_v2.png",
+        "defeated": "assets/before_the_fame/characters/gbenga/runtime_80x96/gbenga_defeated_80x96_v2.png"
+      },
+      "registry": true
+    },
+    "mama_gbenga": {
+      "sprite": "assets/build4/p_d/p_d_mama_gbenga_80x96.png",
+      "states": {
+        "neutral": "assets/build4/p_d/p_d_mama_gbenga_80x96.png"
+      },
+      "registry": true
+    },
+    "carlos": {
+      "sprite": "assets/before_the_fame/characters/carlos/runtime_80x96/carlos_neutral_happy_anchor_80x96_review_v1.png",
+      "states": {
+        "neutral_happy": "assets/before_the_fame/characters/carlos/runtime_80x96/carlos_neutral_happy_anchor_80x96_review_v1.png",
+        "betrayed": "assets/before_the_fame/characters/carlos/runtime_80x96/carlos_betrayed_80x96_review_v1.png",
+        "canopy_apron": "assets/before_the_fame/characters/carlos/runtime_80x96/carlos_canopy_apron_80x96_review_v1.png",
+        "neutral": "assets/before_the_fame/characters/carlos/runtime_80x96/carlos_neutral_happy_anchor_80x96_review_v1.png"
+      },
+      "registry": true
+    },
+    "uncle_bamidele": {
+      "sprite": "assets/build4/p_d/p_d_uncle_bamidele_80x96.png",
+      "states": {
+        "neutral": "assets/build4/p_d/p_d_uncle_bamidele_80x96.png"
+      },
+      "registry": true
+    },
+    "senator": {
+      "sprite": "assets/build4/p_d/p_d_senator_sitting_160x160.png",
+      "states": {
+        "sitting": "assets/build4/p_d/p_d_senator_sitting_160x160.png",
+        "charging": "assets/build4/p_d/p_d_senator_charging_160x160.png",
+        "asleep": "assets/build4/p_d/p_d_senator_asleep_160x160.png",
+        "neutral": "assets/build4/p_d/p_d_senator_sitting_160x160.png"
+      },
+      "registry": true
+    },
+    "soul": {
+      "sprite": "assets/before_the_fame/characters/ocean_soul/ocean_soul_climbing_80x96.png",
+      "states": {
+        "default": "assets/before_the_fame/characters/ocean_soul/ocean_soul_climbing_80x96.png"
+      },
+      "registry": true
+    },
+    "training_dummy": {
+      "sprite": "assets/before_the_fame/characters/training_dummy/training_dummy_combat_80x96.png",
+      "states": {
+        "default": "assets/before_the_fame/characters/training_dummy/training_dummy_combat_80x96.png"
+      },
+      "registry": true
+    }
+  },
+  "staticCastAudit": [],
+  "canvas": [
+    "assets/build4/p_d/p_d_senator_sitting_160x160.png",
+    "assets/build4/p_d/p_d_senator_care_ground.png"
+  ],
+  "assets": [
+    {
+      "path": "assets/rich_standing_right.png",
+      "sha256": "765170076e8d3a9af9e8857e176e079b2a68c7ee1daafb7c8d551482228f144b",
+      "approval": null
+    },
+    {
+      "path": "assets/before_the_fame/characters/gbenga/runtime_80x96/gbenga_adjusting_sleeves_80x96_v2.png",
+      "sha256": "3c299fbdb15d6ad113c62b429ebec05b50d278f9a1402e7b8ed5bf53a63a4f8e",
+      "approval": {
+        "sha256": "3c299fbdb15d6ad113c62b429ebec05b50d278f9a1402e7b8ed5bf53a63a4f8e",
+        "width": 80,
+        "height": 96,
+        "status": "FROZEN",
+        "authority": "art_department/ASSET_REGISTER.json"
+      }
+    },
+    {
+      "path": "assets/before_the_fame/characters/carlos/runtime_80x96/carlos_neutral_happy_anchor_80x96_review_v1.png",
+      "sha256": "6ea034ef7ee96697ad6a0e7b473f1843adfe5d8127adbd08ea063100e78335ca",
+      "approval": {
+        "sha256": "6ea034ef7ee96697ad6a0e7b473f1843adfe5d8127adbd08ea063100e78335ca",
+        "width": 80,
+        "height": 96,
+        "status": "FROZEN",
+        "authority": "art_department/ASSET_REGISTER.json"
+      }
+    },
+    {
+      "path": "assets/build4/p_d/p_d_senator_sitting_160x160.png",
+      "sha256": "19e6377e077e3b6feebaa394f530fd6f1902b77aaad95215bd0a1948bc26c5c8",
+      "approval": {
+        "sha256": "19e6377e077e3b6feebaa394f530fd6f1902b77aaad95215bd0a1948bc26c5c8",
+        "width": 160,
+        "height": 160,
+        "status": "FROZEN",
+        "authority": "art_department/ASSET_REGISTER.json"
+      }
+    },
+    {
+      "path": "assets/build4/p_d/p_d_mama_gbenga_80x96.png",
+      "sha256": "995aea18c7f6e953a812981440da632140245f67c7a52601692010b9d6a52242",
+      "approval": {
+        "sha256": "995aea18c7f6e953a812981440da632140245f67c7a52601692010b9d6a52242",
+        "width": 80,
+        "height": 96,
+        "status": "FROZEN",
+        "authority": "art_department/ASSET_REGISTER.json"
+      }
+    },
+    {
+      "path": "assets/build4/p_d/p_d_smallie_80x96.png",
+      "sha256": "da4c2570fbbbe10b7534306f0b31a4376c0cfaf3eead051a602156d94f9f209a",
+      "approval": {
+        "sha256": "da4c2570fbbbe10b7534306f0b31a4376c0cfaf3eead051a602156d94f9f209a",
+        "width": 80,
+        "height": 96,
+        "status": "FROZEN",
+        "authority": "art_department/ASSET_REGISTER.json"
+      }
+    },
+    {
+      "path": "assets/build4/p_d/p_d_smallie_cousin_80x96.png",
+      "sha256": "694ed3ebf43ca21bac1987830ffdad2022700a024dc337aefa7b59462097ec40",
+      "approval": {
+        "sha256": "694ed3ebf43ca21bac1987830ffdad2022700a024dc337aefa7b59462097ec40",
+        "width": 80,
+        "height": 96,
+        "status": "FROZEN",
+        "authority": "art_department/ASSET_REGISTER.json"
+      }
+    },
+    {
+      "path": "assets/before_the_fame/characters/bonesworth/sir_bonesworth_hungover_80x96.png",
+      "sha256": "42b1acd8247bf855f73cce165246c2b4079ae1f2070f137800ffe89997f7cafe",
+      "approval": {
+        "height": 96,
+        "sha256": "42b1acd8247bf855f73cce165246c2b4079ae1f2070f137800ffe89997f7cafe",
+        "ship": "005",
+        "status": "FROZEN",
+        "width": 80
+      }
+    },
+    {
+      "path": "assets/before_the_fame/characters/hilt/hilt_neutral_80x96.png",
+      "sha256": "e179293708207d5dbe7892dc71bd120ce270490c22141aaf6245d5bf4b46a4e9",
+      "approval": {
+        "height": 96,
+        "sha256": "e179293708207d5dbe7892dc71bd120ce270490c22141aaf6245d5bf4b46a4e9",
+        "ship": "005",
+        "status": "FROZEN",
+        "width": 80
+      }
+    },
+    {
+      "path": "assets/bllad33/masters/bllad33_neutral_candidate_80x96.png",
+      "sha256": "fcca67ce0a90a60f16854c3c5f8019a28d243aa2bf3bf86ecdf5631013198f5b",
+      "approval": {
+        "sha256": "fcca67ce0a90a60f16854c3c5f8019a28d243aa2bf3bf86ecdf5631013198f5b",
+        "width": 80,
+        "height": 96,
+        "status": "FROZEN",
+        "authority": "art_department/ASSET_REGISTER.json"
+      }
+    },
+    {
+      "path": "assets/build4/p_d/p_d_senator_care_ground.png",
+      "sha256": "d01c490f2dc3a0affa1a4cb7dcbdcfbd227f932a2ae56ca7fef0d2dd7213acdb",
+      "approval": {
+        "sha256": "d01c490f2dc3a0affa1a4cb7dcbdcfbd227f932a2ae56ca7fef0d2dd7213acdb",
+        "width": 270,
+        "height": 480,
+        "status": "FROZEN",
+        "authority": "art_department/ASSET_REGISTER.json"
+      }
+    }
+  ],
+  "ok": true
+}
