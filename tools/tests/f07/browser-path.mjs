@@ -6,7 +6,7 @@
 //     scene -> ALL THREE endings (BLESSING / CONSIGLIERE / TAKEOVER) with their distinct consequences, reload.
 import {createRequire} from 'node:module';import fs from 'node:fs';import path from 'node:path';
 const require=createRequire(process.env.RA_PLAYWRIGHT_PATH||'/opt/node22/lib/node_modules/');
-const {chromium}=require('playwright');
+let browserLibrary;try{browserLibrary=require('playwright');}catch(e){if(e.code!=='MODULE_NOT_FOUND')throw e;browserLibrary=require('playwright-core');}const {chromium}=browserLibrary;
 import {serve} from '../f01/play-sim/serve-play.mjs';
 import {measure,evaluate} from '../f15/_art.mjs';
 const arg=(k,d)=>{const i=process.argv.indexOf('--'+k);return i>=0?process.argv[i+1]:d;};
@@ -23,14 +23,17 @@ async function open(){
  const ctx=await browser.newContext({viewport:{width:+(process.env.RA_VW||390),height:+(process.env.RA_VH||844)}});const p=await ctx.newPage();
  p.on('pageerror',e=>errs.push('pageerror: '+e.message));p.on('console',m=>{if(m.type()==='error'&&!/favicon|net::ERR|404/.test(m.text()))errs.push('console: '+m.text().slice(0,200));});
  await p.goto(URL_);
- await p.evaluate(()=>{const saved=RAState.migrateRecord(RASaveFixtures.fixtures.supraOwned);RAState.write(localStorage,saved,false);});
- await p.reload();await p.click('#startButton');await p.waitForFunction(()=>window.RAScenes&&RAScenes.current()==='bedroom',null,{timeout:30000});
+ // Explicit post-prologue benchmark fixture, not naturally earned campaign progress.
+ const fixtureStorage=await p.evaluate(()=>{const saved=RAState.migrateRecord(RASaveFixtures.fixtures.supraOwned);saved.life.clock.started=true;for(const key of ['prologueDone','throneDone','firstWakeDone'])saved.life.world.flags[key]=true;RAState.write(localStorage,saved,false);return Object.fromEntries(Object.keys(localStorage).map(key=>[key,localStorage.getItem(key)]));});
+ await p.addInitScript(storage=>{if(!sessionStorage.getItem('f07-fixture-installed')){for(const [key,value] of Object.entries(storage))localStorage.setItem(key,value);sessionStorage.setItem('f07-fixture-installed','1');}},fixtureStorage);
+ await p.reload();await p.evaluate(()=>{const panel=document.querySelector('#devPanel');if(panel)panel.style.display='none';});await p.click('#startButton');await p.waitForFunction(()=>window.RAScenes&&RAScenes.current()==='bedroom',null,{timeout:30000});
  return p;
 }
 const seed=(p,{cars=['lambo_urus_oxblood'],extra={},day=15,last=14}={})=>p.evaluate(({cars,extra,day,last})=>{
  RAState.patch('life.world.day',day);RAState.patch('life.resources.money',300000);
+ for(const key of ['throneDone','ogunsRaveCompleted'])RALife.setFlag(key,true);
  for(const id of cars)if(!RALife.ownedCars().some(c=>c.id===id))RALife.addCar({id,make:'X',model:id,short:id,price:1,value:1,parts:{}});
- RANewOga.patch({status:'m8_hold',mission:7,rank:4,title:'SENIOR ASSOCIATE',rank4Granted:true,m5Completed:true,m6Completed:true,m7Completed:true,trust:1,lastMissionDay:last,...extra});
+ RANewOga.patch({status:'m8_hold',mission:7,rank:4,title:'SENIOR ASSOCIATE',m1Rewarded:true,m4Outcome:'win',rank4Granted:true,m5Completed:true,m6Completed:true,m7Completed:true,trust:1,lastMissionDay:last,...extra});
 },{cars,extra,day,last});
 const begin=async(p,id)=>{await p.evaluate(id=>RAAdventureScene.begin(id,{from:'qa'}),id);await p.waitForFunction(()=>RAScenes.current()==='adventure');};
 async function toChoices(p,tr=null){for(let i=0;i<150;i++){if(tr!==null)tr.push(await p.evaluate(()=>document.querySelector('#adventureScene')?.innerText||''));if(await p.locator('.adv-choice:not([disabled])').count())return;if(!await p.evaluate(()=>!!RAAdventures.active()))throw new Error('adventure ended before choices');await p.locator('#adventureScene').click({position:{x:40,y:300}}).catch(()=>{});await p.waitForTimeout(35);}throw new Error('choices did not appear');}
@@ -87,7 +90,7 @@ try{
   log(s.lane.m8Resolved===true&&['win','send_the_boys'].includes(s.lane.m8Outcome),'M8 resolved: m8Resolved written by the mission itself',s.lane.m8Outcome);
   if(outcome==='win')log(s.heat-h0===12&&s.money-m0>=18000-250000,'win: authored +12 HEAT and $18K',`heat ${h0}->${s.heat}`);
   await shot(p,'03_m8_done');
-  await p.reload();await p.click('#startButton');await p.waitForFunction(()=>window.RAScenes&&RAScenes.current()==='bedroom',null,{timeout:30000});
+  await p.reload();await p.evaluate(()=>{const panel=document.querySelector('#devPanel');if(panel)panel.style.display='none';});await p.click('#startButton');await p.waitForFunction(()=>window.RAScenes&&RAScenes.current()==='bedroom',null,{timeout:30000});
   const r=await p.evaluate(()=>({m8:RANewOga.current().m8Resolved,loan:RACrew.list({fragment:'F07'}).length,pending:RAF07Play.pending()}));
   log(r.m8===true&&r.pending===null,'reload: m8Resolved persists, nothing pending',JSON.stringify(r));
   const nxt=await p.evaluate(()=>{RAState.patch('life.world.day',RALife.today().day+1);RALife.addCar({id:'toyota_supra_mk4_001',make:'X',model:'s',short:'s',price:1,value:1,parts:{}});return RAAdventures.available('NEW_OGA_M9')&&RARC3.pendingMission()==='NEW_OGA_M9'&&RARC3.next().kind==='story';});
@@ -118,8 +121,8 @@ try{
  // ---------------------------------------------------------------- FINALE: all three endings through the real UI
  const ENDINGS=[
   {name:'BLESSING',cars:['toyota_supra_mk4_001'],trust:1,extra:{leftoversAte:true},octopus:'charisma',hp:'260',expect:/earpiece/i,flags:l=>l.earpieceGiven&&l.sundayDinnerInvite&&!l.consigliere&&!l.gbengaLeftLA},
-  {name:'CONSIGLIERE',cars:['toyota_supra_mk4_001','honda_s2000_pink'],trust:3,extra:{},octopus:'recruit',hp:'320',expect:/Hello\. Hello\. Oga\. Hello\./,flags:l=>l.consigliere&&!l.earpieceGiven&&!l.gbengaLeftLA},
-  {name:'TAKEOVER',cars:['toyota_supra_mk4_001','lambo_urus_oxblood'],trust:1,extra:{},octopus:null,hp:'260',expect:/tributed car is pulled back/i,flags:l=>l.gbengaLeftLA&&l.rentalWarehouseOwned&&!l.consigliere&&!l.earpieceGiven}
+  {name:'CONSIGLIERE',cars:['toyota_supra_mk4_001','honda_s2000_pink'],trust:3,extra:{},octopus:'recruit',hp:'320',expect:/hello oga hello you hear me hello/i,flags:l=>l.consigliere&&!l.earpieceGiven&&!l.gbengaLeftLA},
+  {name:'TAKEOVER',cars:['toyota_supra_mk4_001','lambo_urus_oxblood'],trust:1,extra:{},octopus:null,hp:'260',expect:/your car still under the canopy keys back finally/i,flags:l=>l.gbengaLeftLA&&l.rentalWarehouseOwned&&!l.consigliere&&!l.earpieceGiven}
  ];
  for(const E of ENDINGS){
   const p=await open();
@@ -182,10 +185,13 @@ try{
   log(!!E.flags(f.l),`${E.name}: only its own consequence flags are set`);
   log(f.tributed===(E.name!=='TAKEOVER'),`${E.name}: the tributed car ${E.name==='TAKEOVER'?'comes back':'stays in the warehouse'}`);
   log(f.texts===(E.name==='BLESSING'),`${E.name}: Gbenga's VampGram post ${E.name==='BLESSING'?'is posted':'is not posted'}`);
-  log(f.kt.state==='CONTROLLED'&&f.ing.holder==='rich'&&f.wr===true&&/GBENGA ENTERPRISES becomes RICH ENTERPRISES/.test(all),"every ending: Gbenga's blocks are Rich's, the War Room begins, GBENGA ENTERPRISES -> RICH ENTERPRISES");
+  log(f.kt.state==='CONTROLLED'&&f.kt.holder==='rich'&&f.ing.state==='CONTROLLED'&&f.ing.holder==='rich'&&f.wr===true&&f.renamed&&f.l.gbengaEnterprises==='RICH ENTERPRISES',"every ending: both blocks belong to Rich, War Room and saved enterprise rename are set");
+  log(/rich enterprises on the sign gbenga still showing through cheap paint/i.test(all),'every ending: protected enterprise rename narration appears');
   await shot(p,`07_${E.name}_done`);
+  await p.reload();await p.evaluate(()=>{const panel=document.querySelector('#devPanel');if(panel)panel.style.display='none';});await p.click('#startButton');await p.waitForFunction(()=>window.RAScenes&&RAScenes.current()==='bedroom',null,{timeout:30000});
+  log(await p.evaluate(()=>RANewOga.current().finaleDone===true&&RAAdventures.available('NEW_OGA_FINALE')===false),`${E.name}: immediate reload preserves completed finale and blocks replay`);
   if(E.name==='CONSIGLIERE'){for(let i=0;i<7;i++)await p.evaluate(()=>RAClock.sleep());log(await p.evaluate(()=>JSON.stringify(RAState.get().life).includes('hello oga hello you hear me hello')),'CONSIGLIERE: the voice notes continue ("hello oga hello you hear me hello")');}
-  await p.reload();await p.click('#startButton');await p.waitForFunction(()=>window.RAScenes&&RAScenes.current()==='bedroom',null,{timeout:30000});
+  await p.reload();await p.evaluate(()=>{const panel=document.querySelector('#devPanel');if(panel)panel.style.display='none';});await p.click('#startButton');await p.waitForFunction(()=>window.RAScenes&&RAScenes.current()==='bedroom',null,{timeout:30000});
   const r=await p.evaluate(()=>({l:RANewOga.current(),kt:RADistricts.get('koreatown').state,a:RAAdventures.available('NEW_OGA_FINALE'),tr:RAVehicles.isTributed('toyota_supra_mk4_001')}));
   log(r.l.finaleDone===true&&r.l.rank===6&&r.kt==='CONTROLLED'&&r.a===false&&r.tr===(E.name!=='TAKEOVER'),`${E.name}: reload keeps NEW OGA, blocks and the car state; the finale never re-arrives`);
   log(await p.evaluate(e=>RAF07.warehouseExterior().includes(e==='TAKEOVER'?'warehouse_exterior_rich_enterprises':'warehouse_exterior_270x480'),E.name),`${E.name}: exterior condition survives reload`);
@@ -197,3 +203,4 @@ try{
 }catch(e){console.error('FAIL',e.stack||e);code=1;}
 finally{await browser.close();srv.close?.();}
 console.log(code===0?`PASS f07 browser (${results.length} checks)`:'FAIL f07 browser');process.exit(code);
+
