@@ -978,3 +978,11 @@ body.rc3 #startOverlay{background:rgba(5,4,12,.94)}
 .rc4-day-options{margin:10px 0;padding:10px;border:2px solid #574d74;background:#141321}
 .rc4-opportunity{display:block;width:100%;text-align:left;margin:8px 0;line-height:1.6}
 .rc4-opportunity small{display:block;font-size:.74em;line-height:1.65;opacity:.85;margin-top:5px;white-space:normal}
+/* C2 lane: legacy input availability follows its actual busy/over state. */
+#battleUI button:disabled{opacity:.45;cursor:default;filter:saturate(.35)}
+#battleUI[aria-busy=true] #dialogue{border-color:#d6af62}
+
+body.rc3.legacy-combat-mode .rc3-cash{display:none}
+
+/* Accepted importer shove sprites face right; the actual opponent stands at Rich's right. */
+body.jdm-battle .production-ceo[data-importer-move]{transform:scaleX(-1)!important}

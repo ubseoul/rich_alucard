@@ -58,8 +58,8 @@ body.minigame-mode .rc2-cash,body.combat2-mode .rc2-cash{display:none}
 .rc2-ambient{position:absolute;inset:0;width:100%;height:100%;image-rendering:pixelated;pointer-events:none;z-index:2}
 @media(prefers-reduced-motion:reduce){.rc2-float,.rc2-bag-float,.rc2-tag-rip{animation-duration:1ms}#bedroomScene #checkPhone.check-phone.has-unread,#bedroomScene #checkPhone.check-phone.has-unread::before{animation:none}.rc2-day i{animation:none}}
 /* ---- SCENE GUARD: no combat chrome outside combat; command panel yields while someone is talking ---- */
-body[data-ra-scene]:not([data-ra-scene="battle"]) :is(.combat-hud,#battleUI,.battle-ui,#geminiRich,#productionCEO,#productionAssistant,#attackLayer,#richLyricBubble,#biteTrail,#richBiteSprite,#biteImpact,#healFloat),
-body[data-ra-scene-next]:not([data-ra-scene-next="battle"]) :is(.combat-hud,#battleUI,.battle-ui,#geminiRich,#productionCEO,#productionAssistant){display:none!important}
+body[data-ra-scene]:not([data-ra-scene="battle"]):not([data-ra-scene="jdmCombat"]) :is(.combat-hud,#battleUI,.battle-ui,#geminiRich,#productionCEO,#productionAssistant,#attackLayer,#richLyricBubble,#biteTrail,#richBiteSprite,#biteImpact,#healFloat),
+body[data-ra-scene-next]:not([data-ra-scene-next="battle"]):not([data-ra-scene-next="jdmCombat"]) :is(.combat-hud,#battleUI,.battle-ui,#geminiRich,#productionCEO,#productionAssistant){display:none!important}
 body.rc2-talking .battle-ui{visibility:hidden;pointer-events:none}
 body.rc2-talking .combat-hud{opacity:.35}
 .battle-ui{transition:opacity 120ms steps(3,end)}

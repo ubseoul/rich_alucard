@@ -24,7 +24,7 @@
   s.telegraph=telegraphFor(s);window.RACombat2Ext?.boss(s,'onCreate',helpers());return s;
  }
  const E=s=>D().ENEMIES[s.enemyId];
- function say(s,text,kind='info',extra={}){s.log.push({text,kind,...extra});}
+ function say(s,text,kind='info',extra={}){s.log.push({text,kind,hp:{rich:s.rich.hp,richMax:s.rich.max,enemy:s.enemy.hp,enemyMax:s.enemy.max},...(s.params.spar?{sparScore:{rich:s.sparScore?.rich||0,enemy:s.sparScore?.enemy||0}}:{}),...extra});}
  function nextMoveId(s){const e=E(s);if(s.enemy.queue.length)return s.enemy.queue[0];return e.pattern[s.enemy.step%e.pattern.length];}
  function telegraphFor(s){const e=E(s);if(e.noTelegraph)return null;const mv=e.moves[nextMoveId(s)];if(s.enemy.intel>0)return `${e.name} WILL USE ${mv.label}.`;return mv.telegraph||null;}
  function roll(s,p){return s.rng()<p;}
@@ -47,8 +47,11 @@
    if(action.type==='run'){s.over=true;s.outcome='quit';return s;}
    if(action.type!=='spar'||!['jab','cross','guard'].includes(action.id)){say(s,'LIGHT CONTACT ONLY: JAB, CROSS OR GUARD.','block');return s;}
    s.sparScore=s.sparScore||{rich:0,enemy:0};const score=s.sparScore;
-   if(action.id!=='guard'&&roll(s,action.id==='cross'?.7:.9)){score.rich++;say(s,`CLEAN ${action.id.toUpperCase()} · RICH ${score.rich}/5.`,'info');}else say(s,action.id==='guard'?'GUARD UP.':'NO CLEAN CONTACT.','info');
-   if(score.rich<5&&roll(s,action.id==='guard'?.15:.55)){score.enemy++;say(s,`ROXY CLEAN CONTACT · ${score.enemy}/5.`,'info');}
+   if(action.id!=='guard'&&roll(s,action.id==='cross'?.7:.9)){score.rich++;s.enemy.hp=Math.max(1,Math.round(s.enemy.max*(1-score.rich/5)));say(s,`CLEAN ${action.id.toUpperCase()} · RICH ${score.rich}/5.`,'info');}else say(s,action.id==='guard'?'GUARD UP.':'NO CLEAN CONTACT.','info');
+    if(score.rich<5){const def=E(s),move=def.moves[def.pattern[s.turn%def.pattern.length]],clean=roll(s,action.id==='guard'?.15:.55);
+     say(s,`${def.name}: ${move.label}!`,'enemy',{move:move.id,spar:true,sparClean:clean});
+     if(clean){score.enemy++;s.rich.hp=Math.max(1,Math.round(s.rich.max*(1-score.enemy/5)));say(s,`ROXY CLEAN CONTACT · ${score.enemy}/5.`,'info',{sparContact:true});}
+    }
    s.enemy.hp=Math.max(1,Math.round(s.enemy.max*(1-score.rich/5)));s.rich.hp=Math.max(1,Math.round(s.rich.max*(1-score.enemy/5)));
    if(score.rich>=5||score.enemy>=5){s.over=true;s.outcome=score.rich>=5?'win':'lose';say(s,'SPAR OVER · BOTH SAFE · NO DEFEAT PENALTY.','info');}
    s.turn++;return s;
@@ -200,7 +203,7 @@
   if(e.skip>0||e.stun>0){if(e.skip>0)e.skip--;else e.stun--;say(s,`${e.name} LOSES THE TURN.`,'info');return afterEnemy(s);}
   if(e.evade){e.evade=false;say(s,`${e.name} SWINGS AT NOBODY.`,'miss');advance(s);return afterEnemy(s);}
   const id=nextMoveId(s),mv=def.moves[id];
-  if(mv.charge&&e.charge<mv.charge){e.charge++;say(s,`${e.name} IS CHARGING…`,'telegraph');if(e.charge>=mv.charge)e.readyCharge=true;return afterEnemy(s);}
+  if(mv.charge&&e.charge<mv.charge){e.charge++;say(s,`${e.name} IS CHARGING…`,'telegraph',{move:id,charge:e.charge});if(e.charge>=mv.charge)e.readyCharge=true;return afterEnemy(s);}
   e.charge=0;advance(s);
   say(s,`${e.name}: ${mv.label}!`,'enemy',{move:id});
   if(e.reflect&&mv.dmg){e.reflect=false;e.hp=clampHp(e.hp-mv.dmg,e.max);say(s,`IT HITS ${e.name} INSTEAD. ${mv.dmg} DAMAGE.`,'hit',{target:'enemy'});return afterEnemy(s);}
@@ -225,12 +228,12 @@
   if(e.weaken){e.weaken.turns--;if(e.weaken.turns<=0)e.weaken=null;}if(e.blind){e.blind.turns--;if(e.blind.turns<=0)e.blind=null;}
   if(e.guard&&E(s).moves[nextMoveId(s)]?.effect?.guard==null)e.guard=Math.max(0,e.guard-.5);
   if(e.intel>0)e.intel--;
-  s.turn++;s.telegraph=telegraphFor(s);if(s.telegraph)say(s,s.telegraph,'telegraph');
+  s.turn++;s.telegraph=telegraphFor(s);if(s.telegraph)say(s,s.telegraph,'telegraph',{move:nextMoveId(s)});
   return s;
  }
  function forceEnd(s,outcome){s.over=true;s.outcome=outcome;return s;}
  // IF-1 (additive): the rule primitives handed to registered weapon / boss-script / item-hook handlers.
  function helpers(){return {say,damageToEnemy,rollHit,hurtRich,endPlayer,enemyTurn,clampHp,roll,E};}
  const finish=s=>window.RACombat2Ext?.boss(s,'onEnd',helpers());
- window.RACombat2Rules={create,act,loadout,forceEnd,finish};
+ window.RACombat2Rules={create,act,loadout,forceEnd,finish,intent:nextMoveId};
 })();

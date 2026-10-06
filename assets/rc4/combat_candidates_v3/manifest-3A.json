@@ -1,0 +1,337 @@
+{
+  "batch": "3A",
+  "status": "assistant-delegated accepted candidate; not creator-frozen; runtime reviewed",
+  "tool": "built-in image_gen",
+  "source_manifest_sha256": "eca8335733b918966d6ed16309e45ed529689427768bb9dc00d4ca44a2ce13f1",
+  "durations_ms": [
+    124,
+    186,
+    186,
+    124
+  ],
+  "total_ms": 620,
+  "contact_ms": 310,
+  "references": {
+    "assets/before_the_fame/characters/bruce_loose/bruce_loose_neutral_80x96.png": "f3f21e5b8919f46b84a918a32abdd77e07a632dc5fcdcc6c12db9e310f278d46",
+    "assets/before_the_fame/characters/bruce_loose/bruce_strike_80x96.png": "ae869b1cff22a81cbf43d0500488ca969b4f6ee1d158949852cc66cc08fb8ef9",
+    "assets/before_the_fame/characters/bruce_loose/bruce_bow_80x96.png": "7db0b9ccbd9d6e206bdf22400921750ebe7427f0e09187e765f6cc5e75ace4d9",
+    "assets/before_the_fame/characters/phil/power_level_phil_charging_day1_80x96.png": "fdbbe7b0665dc1ff63e33b7774a2976963a8c9ef5e4b408fc86d581bae2cfa8e",
+    "assets/before_the_fame/characters/phil/phil_charging_day3_80x96.png": "1609de089d3d893927752c98d6f9af6033dac77d1213a2ab518e4717ffb85af5",
+    "assets/jdm_imports/characters/importer/importer_combat_ready.png": "edf1419be7c480e37f544b36b7b6b21ed82142654dc2a059e19a764dc9fc0481",
+    "assets/jdm_imports/characters/importer/importer_neutral.png": "156286be5472556c8b23fd6e81875624355ddb149e2b5e4cf30e7f080a8511d3"
+  },
+  "frames": [
+    {
+      "asset": "assets/rc4/combat_candidates_v3/bruce-flurry-prepare.png",
+      "sha256": "26f5094ec747fb2669c9df8de6bdd565bfc45e0d1d575a6f4dfc5d563f79c4a0",
+      "canvas": [
+        80,
+        96
+      ],
+      "anchor": [
+        40,
+        88
+      ],
+      "facing": "right"
+    },
+    {
+      "asset": "assets/rc4/combat_candidates_v3/bruce-flurry-action.png",
+      "sha256": "63c8bd58db8614e40f702a1a190a464d36d12a4e82c00df29c0186a2aed3d05f",
+      "canvas": [
+        80,
+        96
+      ],
+      "anchor": [
+        40,
+        88
+      ],
+      "facing": "right"
+    },
+    {
+      "asset": "assets/rc4/combat_candidates_v3/bruce-flurry-contact.png",
+      "sha256": "e967115bf0325c6cbd62032cf6a97d31db49c9ba90c175d83c0ed10a70071dab",
+      "canvas": [
+        80,
+        96
+      ],
+      "anchor": [
+        40,
+        88
+      ],
+      "facing": "right"
+    },
+    {
+      "asset": "assets/rc4/combat_candidates_v3/bruce-flurry-recovery.png",
+      "sha256": "061916df9b7b045b36dd6f0e70c16ce1abcbd5b6e0642fdfe073fce1bf824259",
+      "canvas": [
+        80,
+        96
+      ],
+      "anchor": [
+        40,
+        88
+      ],
+      "facing": "right"
+    },
+    {
+      "asset": "assets/rc4/combat_candidates_v3/bruce-kick-prepare.png",
+      "sha256": "d03ef0ea01e512bbf39aab2b865da0d759c1bd3822d91db6730856a2384f891c",
+      "canvas": [
+        80,
+        96
+      ],
+      "anchor": [
+        40,
+        88
+      ],
+      "facing": "right"
+    },
+    {
+      "asset": "assets/rc4/combat_candidates_v3/bruce-kick-action.png",
+      "sha256": "ed3ae349f667340c2c23217e57153d386e05d40cbc376fdd52597bb4d5d4f239",
+      "canvas": [
+        80,
+        96
+      ],
+      "anchor": [
+        40,
+        88
+      ],
+      "facing": "right"
+    },
+    {
+      "asset": "assets/rc4/combat_candidates_v3/bruce-kick-contact.png",
+      "sha256": "7201743d5442ac31fcb72e1ca5c2b96d80399edd7a47fbb753608dd1195cb3a1",
+      "canvas": [
+        80,
+        96
+      ],
+      "anchor": [
+        40,
+        88
+      ],
+      "facing": "right"
+    },
+    {
+      "asset": "assets/rc4/combat_candidates_v3/bruce-kick-recovery.png",
+      "sha256": "6b8704724ed74acf2d2397bf6fa7cdc2943b802d0249f5ecadbf1d8dcfa3f909",
+      "canvas": [
+        80,
+        96
+      ],
+      "anchor": [
+        40,
+        88
+      ],
+      "facing": "right"
+    },
+    {
+      "asset": "assets/rc4/combat_candidates_v3/bruce-noise-prepare.png",
+      "sha256": "d58aaaa7824829d77b9f7c036f22d485f7a2cf2b59e84e86e8dd2911bc899b37",
+      "canvas": [
+        80,
+        96
+      ],
+      "anchor": [
+        40,
+        88
+      ],
+      "facing": "right"
+    },
+    {
+      "asset": "assets/rc4/combat_candidates_v3/bruce-noise-action.png",
+      "sha256": "acf5e90078b4f2c38d31e0d16b37903fc30f6ec321a49cf1b25f41218c454f65",
+      "canvas": [
+        80,
+        96
+      ],
+      "anchor": [
+        40,
+        88
+      ],
+      "facing": "right"
+    },
+    {
+      "asset": "assets/rc4/combat_candidates_v3/bruce-noise-contact.png",
+      "sha256": "e30b3929e32d92afce6b269743eac85ffa7bb532b4bbf3d8116914381b45a850",
+      "canvas": [
+        80,
+        96
+      ],
+      "anchor": [
+        40,
+        88
+      ],
+      "facing": "right"
+    },
+    {
+      "asset": "assets/rc4/combat_candidates_v3/bruce-noise-recovery.png",
+      "sha256": "8822320d6f866cc2eabc85844aab29a4fa58e3ed4e1604c40f85acfab63f43c1",
+      "canvas": [
+        80,
+        96
+      ],
+      "anchor": [
+        40,
+        88
+      ],
+      "facing": "right"
+    },
+    {
+      "asset": "assets/rc4/combat_candidates_v3/importer-shove-prepare.png",
+      "sha256": "dc953868cc981129565ad3e87b92611507b3b37daf3cd02bb57ca68928dd976a",
+      "canvas": [
+        80,
+        96
+      ],
+      "anchor": [
+        40,
+        88
+      ],
+      "facing": "right"
+    },
+    {
+      "asset": "assets/rc4/combat_candidates_v3/importer-shove-action.png",
+      "sha256": "94f7be5bc2503c585a7a637bcf71dd3db3bc9697aea250d28574a637842c30fa",
+      "canvas": [
+        80,
+        96
+      ],
+      "anchor": [
+        40,
+        88
+      ],
+      "facing": "right"
+    },
+    {
+      "asset": "assets/rc4/combat_candidates_v3/importer-shove-contact.png",
+      "sha256": "84afee353ef1cadd14ca20328cfe0c95d60f85a17d79becfd00d7e0a6c221afb",
+      "canvas": [
+        80,
+        96
+      ],
+      "anchor": [
+        40,
+        88
+      ],
+      "facing": "right"
+    },
+    {
+      "asset": "assets/rc4/combat_candidates_v3/importer-shove-recovery.png",
+      "sha256": "007f0381b4b4773294bbc1acb906fbbed473f7602e9a24f597e4cd6e9746e386",
+      "canvas": [
+        80,
+        96
+      ],
+      "anchor": [
+        40,
+        88
+      ],
+      "facing": "right"
+    },
+    {
+      "asset": "assets/rc4/combat_candidates_v3/phil-beam-prepare.png",
+      "sha256": "d593a94ffec54783cb51ef30231bfb51fdb7e6d37d65d8dbcbf42b3c8ec720f8",
+      "canvas": [
+        80,
+        96
+      ],
+      "anchor": [
+        40,
+        88
+      ],
+      "facing": "right"
+    },
+    {
+      "asset": "assets/rc4/combat_candidates_v3/phil-beam-action.png",
+      "sha256": "887bad5473249ee8c1dcf42d600bba1af1bae1296e801c3021aa16ec25930bd5",
+      "canvas": [
+        80,
+        96
+      ],
+      "anchor": [
+        40,
+        88
+      ],
+      "facing": "right"
+    },
+    {
+      "asset": "assets/rc4/combat_candidates_v3/phil-beam-contact.png",
+      "sha256": "b104d03141495bdf4a7e77b13c14f11a08443915026a01c7a5a876ac3132d9ab",
+      "canvas": [
+        80,
+        96
+      ],
+      "anchor": [
+        40,
+        88
+      ],
+      "facing": "right"
+    },
+    {
+      "asset": "assets/rc4/combat_candidates_v3/phil-beam-recovery.png",
+      "sha256": "909fe03e8bff5a00db00bcaff6c9e3eb7a2f8fa9f3f0da4a8529244d5314ad6f",
+      "canvas": [
+        80,
+        96
+      ],
+      "anchor": [
+        40,
+        88
+      ],
+      "facing": "right"
+    },
+    {
+      "asset": "assets/rc4/combat_candidates_v3/phil-punch-prepare.png",
+      "sha256": "2891a7d9956ce7ad11fd3b012956dcc16b21c1d7958e21c5d72f14e2101b9e6f",
+      "canvas": [
+        80,
+        96
+      ],
+      "anchor": [
+        40,
+        88
+      ],
+      "facing": "right"
+    },
+    {
+      "asset": "assets/rc4/combat_candidates_v3/phil-punch-action.png",
+      "sha256": "49c60d3d0e2432b23ca798c2f041d918ab85464ec7a4e51f0abb7b70990bdc7a",
+      "canvas": [
+        80,
+        96
+      ],
+      "anchor": [
+        40,
+        88
+      ],
+      "facing": "right"
+    },
+    {
+      "asset": "assets/rc4/combat_candidates_v3/phil-punch-contact.png",
+      "sha256": "0602324fbefecb4cbea81021b5a9c4f9316925c60892eb738d769861bde18dba",
+      "canvas": [
+        80,
+        96
+      ],
+      "anchor": [
+        40,
+        88
+      ],
+      "facing": "right"
+    },
+    {
+      "asset": "assets/rc4/combat_candidates_v3/phil-punch-recovery.png",
+      "sha256": "52938b6ff2050b0614d21af82f6d6a7bc10614825a5253521e373ced850c402b",
+      "canvas": [
+        80,
+        96
+      ],
+      "anchor": [
+        40,
+        88
+      ],
+      "facing": "right"
+    }
+  ]
+}

@@ -25,29 +25,38 @@
   // Wave 2: every Combat 2.0 fight is Director-staged (params.director:false or the census legacy hook opt out).
   const directed=params.director!==false&&!window.__pdLegacy&&!!window.RAPresentationDirector;
   const scale=RADisplay.scaled(1)*.9,floor=318;
-  const richEl=actorEl('rich',70,floor,scale,false);const art=D().enemyArt(enemyId);const enemyEl=actorEl(def.person||enemyId,200,floor,scale,!!art.base,art.base);
+  const richEl=actorEl('rich',70,floor,scale,false);let art=D().enemyArt(enemyId);
+  const appearance=params.artState||null,timelineId=appearance?`${enemyId}@${appearance}`:enemyId;
+  if(appearance){const src=RABtfPeople.get(def.person||enemyId)?.states?.[appearance];if(!src)throw new Error('Unknown combat appearance: '+appearance);art={base:src,state:appearance,roles:{}};}
+  const guard=enemyId==='f15_roxy_spar'&&window.RAEnemyFX?.TIMELINES?.[enemyId]?.jab?.neutral;if(guard)art={base:guard,state:'spar-guard',roles:{}};
+  // Bunmi's authored single sprite already faces Rich; other right-facing combat actors flip once.
+  const enemyFlip=!!art.base&&enemyId!=='f15_uncle_bunmi';const enemyEl=actorEl(def.person||enemyId,200,floor,scale,enemyFlip,art.base);
   richEl.classList.add('c2-rich');enemyEl.classList.add('c2-enemy');root.append(richEl,enemyEl);
   // Approved frozen combat states (RAArtRegistry, ART SHIP 006) follow the fight's own events: the enemy telegraphs,
   // strikes when Rich is hurt, reacts when hit and stays defeated on a win; otherwise it returns to its base sprite.
   // Only states that exist are used; a fight staged in a named state (RACombatData.enemyArt) holds that state.
   const combatState=role=>art.roles[role]?.src||null;
-  const enemyStates=[art.base,...Object.values(art.roles).map(r=>r.src)].filter((src,i,all)=>src&&all.indexOf(src)===i);
+  const enemyStates=[art.base,...Object.values(art.roles).map(r=>r.src),...Object.values(window.RAEnemyFX?.TIMELINES?.[timelineId]||{}).flatMap(p=>['prepare','action','contact','recover'].map(k=>p[k]))].filter((src,i,all)=>src&&all.indexOf(src)===i);
   function setEnemyState(role){if(enemyEl.tagName!=='IMG'||!art.base)return;const src=(role&&combatState(role))||art.base;if(enemyEl.getAttribute('src')===src)return;enemyEl.src=src;if(directed)RAPresentationDirector.relayout();}
   const minionEls=[];if(def.minions){for(let i=0;i<5;i++){const k=actorEl(def.person,150+i*22,floor-30+i*6,scale*.55,false);k.classList.add('c2-minion');root.append(k);minionEls.push(k);}}
   root.insertAdjacentHTML('beforeend',`<div class="c2-hud"><div class="c2-hp c2-hp-rich"><b>RICH ALUCARD</b><span>HP <i><em></em></i> <strong></strong></span></div><div class="c2-hp c2-hp-enemy"><b>${esc(state.enemy.name)}</b><span>HP <i><em></em></i> <strong></strong></span></div></div><div class="c2-telegraph" hidden></div><div class="c2-float" aria-hidden="true"></div><div class="c2-panel"><div class="c2-log" aria-live="polite"></div><div class="c2-menu"></div></div><div class="c2-octo" hidden></div>`);
   screen.append(root);document.body.classList.add('combat2-mode');window.RAMusicLibrary?.combat(root,enemyId,params);
   if(params.spar)root.querySelectorAll('.c2-hp span').forEach(el=>{el.style.visibility='visible';});
-  window.RACombatPixelFX?.prewarm();
+  window.RACombatPixelFX?.prewarm();window.RAEnemyFX?.preload(enemyId,appearance);
   if(directed)stageDirector();
   function stageDirector(){
    // Same adapter contract as adventures: environment floor + depth scale, slot anchors; minions stand on a
    // farther depth band (0.55 of the floor scale — the legacy crowd depth made explicit).
-   const stage=RAPresentationDirector.combat2Stage(envDef,def.person||enemyId,{flip:!!art.base,minions:minionEls.length,states:enemyStates,enemyScale:def.stageScale});
+   const stage=RAPresentationDirector.combat2Stage(envDef,def.person||enemyId,{flip:enemyFlip,minions:minionEls.length,states:enemyStates,enemyScale:def.stageScale});
    const actors={rich:richEl,enemy:enemyEl};minionEls.forEach((el,i)=>actors[`minion${i}`]=el);
    RAPresentationDirector.enter({stage,mode:'combat',beat:'default',host:root,env:env.canvas,actors,roles:stage.director.roles,fx:false,ui:{selectors:['.c2-hud .c2-hp','.c2-panel'],dialogue:['.c2-log'],bubbles:[]}});
   }
   const $=sel=>root.querySelector(sel);let resolveRun;let menu='main';
-  function hud(){const r=state.rich,e=state.enemy;$('.c2-hp-rich em').style.width=`${r.hp/r.max*100}%`;$('.c2-hp-rich strong').textContent=`${r.hp}/${r.max}`;$('.c2-hp-enemy em').style.width=`${e.hp/e.max*100}%`;$('.c2-hp-enemy strong').textContent=`${e.hp}/${e.max}`;const t=$('.c2-telegraph');t.hidden=!state.telegraph||state.over;t.textContent=state.telegraph||'';if(def.minions){const n=Math.max(1,Math.ceil(state.enemy.minions*e.hp/e.max));root.querySelectorAll('.c2-minion').forEach((m,i)=>m.style.opacity=i<Math.min(5,Math.ceil(n/8))?'1':'0');}}
+  let shownHP={rich:state.rich.hp,richMax:state.rich.max,enemy:state.enemy.hp,enemyMax:state.enemy.max};
+  let shownScore={rich:0,enemy:0};
+  function showHP(event){if(event?.hp)shownHP={...event.hp};if(event?.sparScore)shownScore={...event.sparScore};}
+  let shownTelegraph=state.telegraph;
+  function hud(){const r={...state.rich,hp:shownHP.rich,max:shownHP.richMax},e={...state.enemy,hp:shownHP.enemy,max:shownHP.enemyMax};$('.c2-hp-rich em').style.width=`${r.hp/r.max*100}%`;$('.c2-hp-rich strong').textContent=`${r.hp}/${r.max}`;$('.c2-hp-enemy em').style.width=`${e.hp/e.max*100}%`;$('.c2-hp-enemy strong').textContent=`${e.hp}/${e.max}`;if(params.spar){for(const who of ['rich','enemy']){const box=$('.c2-hp-'+who);box.querySelector('span').firstChild.nodeValue='CLEAN ';box.querySelector('em').style.width=`${shownScore[who]/5*100}%`;box.querySelector('strong').textContent=`${shownScore[who]}/5`;}}const t=$('.c2-telegraph');t.hidden=!shownTelegraph||state.over;t.textContent=shownTelegraph||'';if(def.minions){const n=Math.max(1,Math.ceil(state.enemy.minions*e.hp/e.max));root.querySelectorAll('.c2-minion').forEach((m,i)=>m.style.opacity=i<Math.min(5,Math.ceil(n/8))?'1':'0');}}
   function btn(label,act,cls=''){return `<button type="button" class="c2-btn ${cls}" ${cls.includes('c2-off')?'disabled aria-disabled="true"':''} data-c2="${esc(act)}">${label}</button>`;}
   // ART SHIP 014 item/gun art beside the label (native pixels); items without frozen art stay text-only.
   const icon=art=>art?.asset?`<img class="c2-icon" src="${art.asset}" alt="" width="${art.cell[0]}" height="${art.cell[1]}" draggable="false">`:'';
@@ -66,29 +75,35 @@
   async function play(events,presentation=null){
    const started=performance.now();let playerContact=false,enemyContact=false;
    busy=true;$('.c2-menu').innerHTML='';
-   for(let index=0;index<events.length;index++){const ev=events[index];window.RAOpenAudio?.combat(audio,enemyId,ev);
+   for(let index=0;index<events.length;index++){if(!root.isConnected)return;const ev=events[index];window.RAOpenAudio?.combat(audio,enemyId,ev);
     $('.c2-log').textContent=ev.text;
+    if(ev.kind==='telegraph'){shownTelegraph=ev.text;hud();}
+    if(ev.kind==='enemy'){shownTelegraph=ev.text;hud();}
     if(ev.kind==='telegraph')window.RABarks?.trigger({root,enemyId,kind:'telegraph',enemyEl});
-    if(ev.kind==='enemy'){window.RABarks?.trigger({root,enemyId,kind:'attack',enemyEl});const mv=D().ENEMIES[enemyId]?.moves?.[ev.move],willHit=events.slice(index+1).find(e=>['hurt','miss','enemy'].includes(e.kind))?.kind==='hurt';await window.RAEnemyFX?.attack({root,enemyId,moveId:ev.move,dmg:mv?.dmg||0,attacker:enemyEl,target:richEl,onContact:()=>{if(!willHit||(mv?.dmg||0)<=0)return;enemyContact=true;window.RACombatPixelFX?.impact({root,target:richEl,attacker:enemyEl,severity:(mv?.dmg||0)>=30?'heavy':'normal'});audio?.sound((mv?.dmg||0)>=30?'HIT_HEAVY':'HIT_LIGHT');}});}
-    setEnemyState(ev.kind==='telegraph'?'telegraph':ev.kind==='hurt'?'strike':ev.kind==='hit'&&ev.target!=='rich'?'hit':ev.kind==='win'?'defeated':state.over&&state.outcome==='win'?'defeated':null);
+    if(ev.kind==='enemy'){window.RABarks?.trigger({root,enemyId,kind:'attack',enemyEl});const mv=D().ENEMIES[enemyId]?.moves?.[ev.move],willHit=events.slice(index+1).find(e=>['hurt','miss','enemy'].includes(e.kind))?.kind==='hurt';await window.RAEnemyFX?.attack({root,enemyId,appearance,moveId:ev.move,dmg:mv?.dmg||0,attacker:enemyEl,target:richEl,onContact:()=>{if(!root.isConnected)return;if(ev.spar){if(ev.sparClean){showHP(events.slice(index+1).find(e=>e.sparContact));hud();window.RACombatPixelFX?.impact({root,target:richEl,attacker:enemyEl,severity:'normal'});audio?.sound('HIT_LIGHT');}return;}if(mv?.heal||mv?.healAlly){showHP(events.slice(index+1).find(e=>e.kind==='heal'&&e.target==='enemy'));hud();}if(!willHit||(mv?.dmg||0)<=0)return;enemyContact=true;const contactEvents=events.slice(index+1);const end=contactEvents.findIndex(e=>e.kind==='enemy'||e.kind==='telegraph');const hits=(end<0?contactEvents:contactEvents.slice(0,end)).filter(e=>e.kind==='hurt');showHP(hits.at(-1));hud();window.RACombatPixelFX?.impact({root,target:richEl,attacker:enemyEl,severity:(mv?.dmg||0)>=30?'heavy':'normal'});audio?.sound((mv?.dmg||0)>=30?'HIT_HEAVY':'HIT_LIGHT');}});}
+    if(!root.isConnected)return;
+    const intentPose=ev.kind==='telegraph'&&ev.move&&window.RAEnemyFX?.poseFor(enemyId,ev.move,0,appearance);
+    if(intentPose&&enemyEl.tagName==='IMG')enemyEl.src=intentPose;
+    else setEnemyState(ev.kind==='telegraph'?'telegraph':ev.kind==='hit'&&ev.target!=='rich'?'hit':ev.kind==='win'?'defeated':state.over&&state.outcome==='win'?'defeated':null);
     if(ev.kind==='hit'||ev.kind==='hurt'){
      const group=[ev];while(events[index+1]?.kind===ev.kind&&events[index+1]?.target===ev.target)group.push(events[++index]);
      if(ev.kind==='hit'&&!playerContact&&presentation){playerContact=true;const contact=(window.RACombatPixelFX?.MOVES?.[presentation.id]?.contact||300)*(presentation.duration/720);await wait(Math.max(0,contact-(performance.now()-started)));}
      if(ev.kind==='hit'&&presentation)react(presentation.id);
      const onRich=ev.kind==='hurt',target=onRich?richEl:enemyEl,attacker=onRich?enemyEl:richEl,total=group.reduce((sum,e)=>sum+(e.amount||0),0),lethal=events[index+1]?.kind===(onRich?'lose':'win'),severity=lethal?'lethal':group.some(e=>e.heavy)?'heavy':'normal';
-     for(let hit=0;hit<group.length;hit++){const tick=hit<group.length-1;$('.c2-log').textContent=group[hit].text;
+     for(let hit=0;hit<group.length;hit++){if(!root.isConnected)return;const tick=hit<group.length-1;$('.c2-log').textContent=group[hit].text;
       const stop=onRich&&enemyContact?0:window.RACombatPixelFX?.impact({root,target,attacker,severity,tick})||55;if(!(onRich&&enemyContact))audio?.sound(tick?'HIT_LIGHT':lethal?'KO':severity==='heavy'?'HIT_HEAVY':'HIT_LIGHT');
       if(tick)await wait(110);else{root.classList.add('c2-impact-stop');await wait(stop);root.classList.remove('c2-impact-stop');}
      }
-     floatNum(total||ev.amount,onRich?'rich':'enemy',null,severity);hud();window.RABarks?.trigger({root,enemyId,kind:onRich?'hit_rich':'hurt',enemyEl:!onRich&&!lethal&&index%3===0?richEl:enemyEl,speaker:!onRich&&!lethal&&index%3===0?'rich':'enemy',force:lethal&&!onRich});await wait(615);continue;
+     if(!root.isConnected)return;if(!(onRich&&enemyContact))showHP(group.at(-1));floatNum(total||ev.amount,onRich?'rich':'enemy',null,severity);hud();window.RABarks?.trigger({root,enemyId,kind:onRich?'hit_rich':'hurt',enemyEl:!onRich&&!lethal&&index%3===0?richEl:enemyEl,speaker:!onRich&&!lethal&&index%3===0?'rich':'enemy',force:lethal&&!onRich});await wait(615);continue;
     }
+    if(ev.kind!=='enemy')showHP(ev);
     if(ev.kind==='heal')floatNum(ev.amount?`+${ev.amount}`:'+','heal',ev.target);
     if(ev.kind==='telegraph')audio?.sound('TELEGRAPH');if(ev.kind==='miss')audio?.sound('MISS');
     if(ev.kind==='win'||ev.kind==='lose')window.RABarks?.trigger({root,enemyId,kind:ev.kind==='win'?'lose':'win',enemyEl,force:true});
-    if(ev.kind==='win'||ev.kind==='lose'){ $('.c2-log').textContent='';await wait(400);$('.c2-log').textContent=ev.text; }
+    if(ev.kind==='win'||ev.kind==='lose'){ $('.c2-log').textContent='';await wait(400);if(!root.isConnected)return;$('.c2-log').textContent=ev.text; }
     hud();await wait(ev.kind==='telegraph'?900:ev.kind==='enemy'?220:ev.kind==='info'?450:ev.kind==='win'||ev.kind==='lose'?320:720);if(!root.isConnected)return;
    }
-   busy=false;
+   shownTelegraph=state.telegraph;hud();busy=false;
   }
   function floatNum(n,kind,target,severity='normal'){if(n==null)return;const f=document.createElement('b');f.className=`c2-num c2-num-${kind} c2-num-${severity}`;f.textContent=typeof n==='number'?`-${n}`:n;const onRich=kind==='rich'||target==='rich';const at=directed?RAPresentationDirector.fxPoint(onRich?'rich':'enemy',-12,-84,[24,16]):null;f.style.left=at?`${at.x}px`:onRich?'18%':'66%';f.style.top=at?`${at.y}px`:'44%';$('.c2-float').append(f);setTimeout(()=>f.remove(),900);}
   let busy=false;
@@ -99,6 +114,7 @@
    const timeline=events[0]?.kind!=='block'?window.RACombatPresentation?.move?.({root,attacker:richEl,target:enemyEl,action,gun:presentation?.gun||action.type==='gun'&&action.id,events}):null;
    await play(events,timeline);
    if(!root.isConnected)return;
+   shownHP={rich:state.rich.hp,richMax:state.rich.max,enemy:state.enemy.hp,enemyMax:state.enemy.max};hud();
    if(state.over)return finish();
    renderMenu();
   }
@@ -112,7 +128,9 @@
    if(kind==='item'){doAction({type:'item',id:a});return;}if(kind==='hoe'){doAction({type:'hoe',companion:a,move:c});return;}
    const ext=window.RACombat2Ext?.actionFromButton(b.dataset.c2,state);if(ext){doAction(ext);return;}
   });
+  let closed=false,settled=false;
   async function finish(){
+   if(closed||settled||!root.isConnected)return;settled=true;
    const outcome=state.outcome;
    if(outcome==='quit'){close({quit:true,outcome:'quit'});return;}
    RACombat2Rules.finish?.(state); // IF-1 boss-script onEnd seam (inert unless registered)
@@ -126,13 +144,14 @@
    RAState.recordEvent({id:`fight:${enemyId}:${RALife.today().day}:${Date.now()}`,type:'fight',enemy:enemyId,outcome,day:RALife.today().day});
    $('.c2-log').textContent=params.spar?`SPAR OVER · ${outcome==='win'?'RICH':'ROXY'} REACHED FIVE · BOTH SAFE`:outcome==='win'?`${state.enemy.name} IS DOWN.`:outcome==='spared'?'THE FIGHT IS OVER.':outcome==='run'?'RICH LEFT.':'RICH IS DOWN.';
    $('.c2-menu').innerHTML=btn('CONTINUE','done');
-   await new Promise(r=>{root.addEventListener('click',e=>{if(e.target.closest('[data-c2="done"]'))r();});});
+   await new Promise(r=>{const done=e=>{if(e.target.closest('[data-c2="done"]')){root.removeEventListener('click',done);root.removeEventListener('c2:close',cancel);r();}},cancel=()=>{root.removeEventListener('click',done);r();};root.addEventListener('click',done);root.addEventListener('c2:close',cancel,{once:true});});
+   if(closed)return;
    close({outcome,octopus:state.octopusUsed,recruited:!!state.recruited,learned:state.learned||null,turns:state.turn});
   }
-  function close(result){root.dispatchEvent(new Event('c2:close'));if(directed)RAPresentationDirector.exit();root.remove();document.body.classList.remove('combat2-mode');active=null;resolveRun(result);}
+  function close(result){if(closed)return;closed=true;root.dispatchEvent(new Event('c2:close'));if(directed)RAPresentationDirector.exit();root.remove();document.body.classList.remove('combat2-mode');active=null;resolveRun(result);}
   try{window.RAAudio?.sfx?.('BATTLE_START');}catch(e){}
   hud();$('.c2-log').textContent=params.intro||`${state.enemy.name} WANTS TO FIGHT.`;renderMenu();
-  if(state.telegraph){$('.c2-telegraph').hidden=false;}
+  if(state.telegraph){$('.c2-telegraph').hidden=false;const prepared=window.RAEnemyFX?.poseFor(enemyId,RACombat2Rules.intent?.(state),0,appearance);if(prepared&&enemyEl.tagName==='IMG')enemyEl.src=prepared;}
   return new Promise(resolve=>{resolveRun=resolve;active={abort:()=>close({outcome:'run'}),state,busy:()=>busy,debugResolve:o=>{RACombat2Rules.forceEnd(state,o);finish();}};});
  }
  // DEFEAT (VOL 1 §4.3, A17, VOL 3 §4.4): BLOOD BANK BILL + one social consequence. Failure writes story, not reload.

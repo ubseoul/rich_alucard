@@ -72,7 +72,7 @@
    next:'fork'},
   fork:{choices:A=>[{label:'ASK HOW LONG',next:'ask'},{label:'FIGHT NOW',next:'fightnow'},{label:'GET FOOD WHILE HE CHARGES',octopus:true,next:'food'}]},
   ask:{lines:A=>[S('phil',"almost there")],next:A=>A.vars.stage>=3?'fightnow':'wrap'},
-  fightnow:{fight:{enemy:'phil',params:A=>({env:'street_night',invincible:A.vars.stage<3,intro:A.vars.stage<3?'PHIL IS INVINCIBLE WHILE HE CHARGES.':'PHIL IS AT FULL POWER. FINALLY.'}),win:'wrap',lose:'wrap',spared:'wrap'}},
+  fightnow:{fight:{enemy:'phil',params:A=>({env:'street_night',artState:A.vars.stage>=3?'charging_day3':null,invincible:A.vars.stage<3,intro:A.vars.stage<3?'PHIL IS INVINCIBLE WHILE HE CHARGES.':'PHIL IS AT FULL POWER. FINALLY.'}),win:'wrap',lose:'wrap',spared:'wrap'}},
   food:{actors:{left:'rich',right:{id:'phil',state:'sitting_plate'}},lines:[N("garlic knots interrupt the screaming"),S('phil',"damn nobody brings me food")],
    enter:A=>{RARelations.add('phil',2,{reason:'fed him'});},next:'wrap'},
   // Day three: the wrap narrates Phil spent on the ground (ART SHIP 008 phil.spent_grounded); earlier days keep the cast.

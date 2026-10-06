@@ -30,14 +30,14 @@
  const prologueFight=()=>{try{return window.RAScenes?.current?.()==='battle'&&window.RALife?.flag?.('prologueDone')&&!window.RALife?.life?.()?.clock?.started&&overlay?.style.display==='none';}catch(e){return false;}};
  function placeCoach(){if(!coach)return;const ui=document.querySelector('#battleUI'),s=screen();if(!ui||!s)return;const u=ui.getBoundingClientRect(),r=s.getBoundingClientRect();coach.style.left=`${u.left-r.left+u.width/2}px`;coach.style.top=`${u.top-r.top-6}px`;}
  function hideCoach(){coach?.remove();coach=null;}
- function showCoach(text){if(window.RARC3&&RALife.flag('rc3Coach:combat'))return;hideCoach();if(!document.querySelector('#battleUI')||!screen())return;if(window.RARC3)RALife.setFlag('rc3Coach:combat',true);coach=el('div','rc2-coach',`<b>${window.RARC3?'TAP FIGHT → BLOOD BATH':text}</b><i aria-hidden="true">▼</i>`);screen().append(coach);placeCoach();}
- function armCoach(){clearTimeout(coachTimer);if(!prologueFight()){hideCoach();return;}coachTimer=setTimeout(()=>{if(prologueFight())showCoach(coachStage===0?'TAP FIGHT':'TAP BLOOD BATH');},coachStage===0?1200:700);}
+ function showCoach(text){if(window.RACombat?.snapshot?.().busy||window.RACombat?.snapshot?.().battleOver)return;if(window.RARC3&&RALife.flag('rc3Coach:combat'))return;hideCoach();if(!document.querySelector('#battleUI')||!screen())return;if(window.RARC3)RALife.setFlag('rc3Coach:combat',true);coach=el('div','rc2-coach',`<b>${window.RARC3?'TAP FIGHT → BLOOD BATH':text}</b><i aria-hidden="true">▼</i>`);screen().append(coach);placeCoach();}
+ function armCoach(){clearTimeout(coachTimer);if(!prologueFight()){hideCoach();return;}coachTimer=setTimeout(()=>{if(prologueFight()&&!window.RACombat?.snapshot?.().busy&&!window.RACombat?.snapshot?.().battleOver)showCoach(coachStage===0?'TAP FIGHT':'TAP BLOOD BATH');},coachStage===0?1200:700);}
  document.querySelector('#battleUI')?.addEventListener('click',e=>{const b=e.target.closest('button');if(!b||!prologueFight())return;hideCoach();
   const txt=(b.textContent||'').trim().toUpperCase();
   if(coachStage===0&&txt.includes('FIGHT')){coachStage=1;armCoach();}
   else if(coachStage===1&&b.closest('#moves')){coachStage=2;clearTimeout(coachTimer);}
   else armCoach();});
  document.addEventListener('ra:scene',()=>{coachStage=0;hideCoach();setTimeout(()=>{if(prologueFight())armCoach();},200);});
- setInterval(()=>{if(prologueFight()&&coachStage<2&&!coach)armCoach();else if(coach)placeCoach();else if(!prologueFight())hideCoach();},2500);
+ setInterval(()=>{if(prologueFight()&&!window.RACombat?.snapshot?.().busy&&!window.RACombat?.snapshot?.().battleOver&&coachStage<2&&!coach)armCoach();else if(coach)placeCoach();else if(!prologueFight())hideCoach();},2500);
  window.RAIntroPolish={fade,shake,showCoach,hideCoach,coachState:()=>({stage:coachStage,visible:!!coach})};
 })();
