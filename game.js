@@ -89,7 +89,7 @@ function updateHP(){
   syncBattleState();
 }
 function setBattlePhase(html){document.querySelector('#dialogue').innerHTML=html;}
-function setBattleBusy(value){busy=value;if(busy||battleOver)window.RAIntroPolish?.hideCoach?.();paint();setBattlePhase(battleOver?'FIGHT OVER<br><strong>YOUR CALL ↓</strong>':busy?'RICH<br><strong>GOING IN</strong>':'YOUR MOVE<br><strong>PICK ONE ↓</strong>');}
+function setBattleBusy(value){busy=value;if(busy||battleOver)window.RAIntroPolish?.hideCoach?.();paint();setBattlePhase(battleOver?'FIGHT OVER<br><strong>YOUR CALL</strong>':busy?'RICH<br><strong>GOING IN</strong>':'YOUR MOVE<br><strong>PICK ONE ↓</strong>');}
 function paint(){
  mainButtons.concat(moves).forEach(button=>{button.disabled=busy||battleOver;button.setAttribute('aria-disabled',String(button.disabled));});
  battleUI.setAttribute('aria-busy',String(busy));

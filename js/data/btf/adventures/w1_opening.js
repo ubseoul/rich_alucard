@@ -27,7 +27,7 @@
   merge:{openingAction:'brain',lines:[N("purple brain. little tentacles. straight into his head."),N("eight thoughts all about food")],next:A=>A.vars.brainTransferSeen?'brain_acquired':'merge'},
   brain_acquired:{enter:A=>{if(!RALife.flag('octopusBrain'))RALife.setFlag('octopusBrain',A.vars.brainOffer||['whole','polite','asked'][A.vars.picks?.brain_offer]||'whole');},lines:[N("one borrowed brain. still no plan."),R("damn its warm"),N("rich grows eight tentacles real subtle"),R("oh i could just leave")],next:'fork'},
   fork:{choices:[{label:'CLIMB AGAIN',next:'out_climb'},{label:'SWIM',next:'out_swim'},{label:'ASK THE OCTOPUS WHERE THE EXIT IS',octopus:true,next:'out_ask'}]},
-  out_climb:{lines:[N("tentacles carry him up ladder unemployed")],next:'out'},
+  out_climb:{lines:[N("tentacles climb the ladder for him. rich still unemployed")],next:'out'},
   out_swim:{lines:[N("rich swims up nobody thought of that shit")],next:'out'},
   out_ask:{lines:[S('octopus_sensei',"up bro"),null],next:'out'},
   out:{env:'throne',actors:{mid:'rich'},lines:[N("finally out"),N("the memory carries on. back at his castle, the borrowed brain came with him."),R("ugh my head hurts"),N("in the throne room, the CEO zombie prince is already throwing his weight around. and his briefcase."),N("rich wants a quiet life making music. somebody always brings a fight to his house.")],end:{outcome:'out',location:'battle',memory:{text:'the ladder at the bottom of the ocean',lane:'home'},receipt:{id:'ladder',caption:'the ladder. never again.'}}}

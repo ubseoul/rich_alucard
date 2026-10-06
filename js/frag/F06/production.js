@@ -98,6 +98,7 @@
   .rc5-cap{color:#f6efd9;font:8px/1.7 var(--font);margin:6px 2px 0;text-align:center;min-height:14px;white-space:pre-line}
   .rc5-cap:empty{display:none}
   .rc5-gate,.rc5-receipt{position:absolute;inset:0;z-index:6;display:grid;align-content:center;justify-items:center;gap:8px;padding:18px 16px;text-align:center;background:radial-gradient(ellipse at 50% 38%,rgba(125,25,75,.55),rgba(7,6,15,.94) 72%);font-family:var(--font);overflow:hidden}
+  .rc5-gate{align-content:end;padding-bottom:20px;background:linear-gradient(to bottom,rgba(7,6,15,.05) 0%,rgba(40,8,30,.45) 34%,rgba(7,6,15,.92) 56%)}
   .rc5-gate[hidden],.rc5-receipt[hidden]{display:none}
   .rc5-k{margin:0;color:#5fe3ff;font-size:8px;letter-spacing:.2em}
   .rc5-name{margin:0;color:#ff4fa3;font-size:28px;line-height:1;text-shadow:3px 3px 0 #17131e,0 0 18px rgba(255,79,163,.55);animation:rc5Neon 2.6s steps(1,end) infinite}
@@ -119,6 +120,8 @@
   .rc5-said{margin:6px 0 0;color:#f6efd9;font-size:9px;line-height:1.6;max-width:32ch}
   .rc5-prog{margin:0;color:#5fe3ff;font-size:7px}
   .rc5-acts{display:flex;gap:8px;margin-top:8px}.rc5-acts .btn--again{min-width:170px}
+  .rc5-shout{position:absolute;left:8px;right:8px;top:23%;z-index:5;margin:0;text-align:center;pointer-events:none;font:11px/1.5 var(--font);color:#ffe6a1;text-shadow:2px 2px 0 #07060f,-1px -1px 0 #07060f,0 0 12px rgba(255,79,163,.7);animation:rc5Shout 2.6s steps(12,end) forwards}
+  @keyframes rc5Shout{0%{opacity:0;transform:scale(.6)}8%{opacity:1;transform:scale(1.12)}14%{transform:scale(1)}80%{opacity:1}100%{opacity:0;transform:translateY(-14px)}}
   .rc5-rain{position:absolute;inset:0;pointer-events:none;z-index:-1}
   .rc5-rain i{position:absolute;top:-24px;left:var(--x);width:14px;height:8px;background:#2fbf6a;box-shadow:inset 0 0 0 1px #1a7a45,inset 5px 0 0 -3px #a6f5c2;animation:rc5Fall var(--s) linear var(--d) both}
   @keyframes rc5Fall{0%{transform:translateY(0) rotate(0)}50%{transform:translateY(55vh) rotate(160deg) translateX(10px)}100%{transform:translateY(110vh) rotate(340deg) translateX(-8px)}}
@@ -162,6 +165,8 @@
     stageEl.appendChild(gate);
     const receipt = global.document.createElement('div'); receipt.className = 'rc5-receipt'; receipt.hidden = true; stageEl.appendChild(receipt);
     const fmt = n => '$' + Math.round(n || 0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    // First paid throw: Rich's sheet line pops over the stage long enough to read.
+    function shout(text) { const s = global.document.createElement('p'); s.className = 'rc5-shout'; s.textContent = text; stageEl.appendChild(s); global.setTimeout(() => s.remove(), 2600); }
     function showReceipt(summary, paid) {
       const d = f15?.selected?.(), name = d ? (global.RAF15Tunables?.NAMES?.[d] || d.toUpperCase()) : null, prog = d ? global.RAF15?.progress?.(d) : null;
       const line = summary.spent === 0 ? 'RICH: scared money dont make money'
@@ -181,7 +186,7 @@
     const session = mount(shadow.querySelector('canvas'), {
       terms: opts.terms || null,
       hideTarget: !!f15, tunables: f15?.tunables,
-      onSpend: event => { f15?.onSpend(event);const receipt=`THROWN $${event.thrown} / PAID $${event.delta}${opts.terms?.first?' · 50% OFF':''}`;say((!host.dataset.voiceThrow?'RICH: '+global.RAWriting.voice(17)+'\n':'')+receipt);host.dataset.voiceThrow='1'; },
+      onSpend: event => { f15?.onSpend(event);const receipt=`THREW ${fmt(event.thrown)} · PAID ${fmt(event.delta)}${opts.terms?.first?' · HALF OFF':''}`;if(!host.dataset.voiceThrow)shout('RICH: '+global.RAWriting.voice(17));say((!host.dataset.voiceThrow?'RICH: '+global.RAWriting.voice(17)+'\n':'')+receipt);host.dataset.voiceThrow='1'; },
       onStart: ({budget}) => {
         actions.hidden = true; status.textContent = ''; gate.hidden = true; receipt.hidden = true;
         shadow.querySelectorAll('[data-budget]').forEach(button => button.setAttribute('aria-pressed', String(Number(button.dataset.budget) === budget)));
