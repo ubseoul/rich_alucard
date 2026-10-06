@@ -89,7 +89,7 @@ function updateHP(){
   syncBattleState();
 }
 function setBattlePhase(html){document.querySelector('#dialogue').innerHTML=html;}
-function setBattleBusy(value){busy=value;if(busy||battleOver)window.RAIntroPolish?.hideCoach?.();paint();setBattlePhase(battleOver?'BATTLE OVER<br><strong>CONTINUE BELOW</strong>':busy?'RESOLVING<br><strong>PLAYER MOVE</strong>':'YOUR TURN<br><strong>CHOOSE A MOVE</strong>');}
+function setBattleBusy(value){busy=value;if(busy||battleOver)window.RAIntroPolish?.hideCoach?.();paint();setBattlePhase(battleOver?'FIGHT OVER<br><strong>YOUR CALL ↓</strong>':busy?'RICH<br><strong>GOING IN</strong>':'YOUR MOVE<br><strong>PICK ONE ↓</strong>');}
 function paint(){
  mainButtons.concat(moves).forEach(button=>{button.disabled=busy||battleOver;button.setAttribute('aria-disabled',String(button.disabled));});
  battleUI.setAttribute('aria-busy',String(busy));
@@ -120,8 +120,8 @@ async function drainCEOHP(amount){const start=ceoHP,target=Math.max(0,start-amou
 function activateMain(){
  if(busy||battleOver)return;
  const id=mainButtons[mainIndex].dataset.main;
- if(id==='fight'){inMoves=true;paint()}
- else say('NOT AVAILABLE YET.');
+ if(id==='fight'){inMoves=true;paint();say('PICK A MOVE ↓',700)}
+ else say({item:'POCKETS EMPTY. FIGHT.',hoes:'NO HOES YET. TRAGIC.',run:'RUN? THIS YOUR HOUSE.'}[id]||'NOT YET.',900);
 }
 function pressFeedback(node){if(!node)return;node.classList.remove('pressed');void node.offsetWidth;node.classList.add('pressed');setTimeout(()=>node.classList.remove('pressed'),150)}
 async function hitStop(ms=70){const screen=document.querySelector('#screen');screen.classList.add('hit-stop');await wait(ms);screen.classList.remove('hit-stop')}
@@ -253,14 +253,14 @@ async function importerTurn(generation=enemyTurnGeneration){
  if(!enemyTurnActive(generation))return;
  const sequence=window.RAEnemyFX?.TIMELINES?.legacy_importer?.importer_shove;
  const pose=phase=>{const src=sequence?.[phase];if(src){productionCEO.style.backgroundImage=`url('${src}')`;productionCEO.dataset.importerMove=phase;}else setCEOState(phase==='prepare'?'idle':'throw');};
- setBattlePhase('IMPORTER MOVE<br><strong>SHOVE</strong>');say('THE IMPORTER SHOVES RICH BACK.',620,'importer');attackLayer.classList.add('active');battleUI.classList.add('attack-mode');
+ setBattlePhase('INCOMING<br><strong>SHOVE!</strong>');say('THE IMPORTER SHOVES RICH BACK.',620,'importer');attackLayer.classList.add('active');battleUI.classList.add('attack-mode');
  pose('prepare');await wait(124);if(!enemyTurnActive(generation))return;
  pose('action');await wait(186);if(!enemyTurnActive(generation))return;
  pose('contact');setRichState('hit');const actualDamage=Math.min(richHP,16);richHP-=actualDamage;revengeStored+=actualDamage;addRevengeWounds(actualDamage);window.RADevState.revengeStoredDamage=revengeStored;updateHP();
  const reaction=RACombatPresentation.play({target:geminiRich,attacker:productionCEO,severity:'normal',kind:'importer-shove',recoveryMs:40,isActive:()=>enemyTurnActive(generation)});
  await wait(186);if(!enemyTurnActive(generation))return;pose('recover');
  await wait(124);if(!enemyTurnActive(generation))return;await reaction;if(!enemyTurnActive(generation))return;
- setCEOState('idle');setRichState('idle');setBattlePhase('RECOVERY<br><strong>WAIT FOR YOUR TURN</strong>');attackLayer.classList.remove('active');battleUI.classList.remove('attack-mode');await wait(160);if(!enemyTurnActive(generation))return;
+ setCEOState('idle');setRichState('idle');setBattlePhase('SHAKE IT OFF<br><strong>YOU UP NEXT</strong>');attackLayer.classList.remove('active');battleUI.classList.remove('attack-mode');await wait(160);if(!enemyTurnActive(generation))return;
  if(richHP<=0)return defeat();setBattleBusy(false);inMoves=true;paint();
 }
 async function enemyTurn(){
@@ -270,7 +270,7 @@ async function enemyTurn(){
  const enemyMove=window.RACombatFoundation.selectEnemyMove(battleState);
  window.RACombatFoundation.emit(battleState,'enemy-move-selected',{moveId:enemyMove?.id});
  if(enemyMove?.id==='importer_shove')return importerTurn(generation);
- setBattlePhase('ENEMY MOVE<br><strong>BRIEFCASE THROW</strong>');
+ setBattlePhase('INCOMING<br><strong>BRIEFCASE!</strong>');
  say('BRIEFCASE THROW!',620);
  setCEOState('idle');
  attackLayer.classList.add('active');
@@ -290,12 +290,12 @@ async function enemyTurn(){
  await wait(90);if(!enemyTurnActive(generation))return;
  await wait(260);if(!enemyTurnActive(generation))return;
  document.querySelector('#screen').classList.remove('briefcase-shake');
- setRichState('idle');setCEOState('idle');setBattlePhase('RECOVERY<br><strong>WAIT FOR YOUR TURN</strong>');
+ setRichState('idle');setCEOState('idle');setBattlePhase('SHAKE IT OFF<br><strong>YOU UP NEXT</strong>');
  briefcaseImpact.classList.remove('active');
  briefcaseProjectile.classList.remove('fly');
  attackLayer.classList.remove('active');
  battleUI.classList.remove('attack-mode');
- say(`RICH TOOK ${actualDamage} DAMAGE.`,650);
+ say(`-${actualDamage} HP. ${['THAT BRIEFCASE GOT EQUITY','HR GONNA HEAR ABOUT THIS','HE THREW THE WHOLE QUARTER'][(enemyTurn.n=(enemyTurn.n||0)+1)%3]}`,900);
  await wait(600);if(!enemyTurnActive(generation))return;
  if(richHP<=0){return defeat()}
  setBattleBusy(false);inMoves=true;paint();
@@ -316,7 +316,7 @@ async function activateMove(){
  if(id==='octopus'&&window.RANewGame?.brainAvailable?.()===false){setBattleBusy(false);return;}
  const m=moveData[id];
  if(id==='revenge'){
-   say('REVENGE!',500,'rich');const dmg=window.RACombatFoundation.consumeRevenge(battleState);revengeStored=0;window.RADevState.revengeStoredDamage=0;updateRevengeDisplay(true);await revengeFX(dmg);await drainCEOHP(dmg);clearRevengeWounds();updateRevengeDisplay();say(dmg>0?`${dmg} DAMAGE REFLECTED.`:'NOTHING TO RETURN.',700);if(ceoHP<=0){await normalVictory();setBattleBusy(false);return;}
+   say('REVENGE!',500,'rich');const dmg=window.RACombatFoundation.consumeRevenge(battleState);revengeStored=0;window.RADevState.revengeStoredDamage=0;updateRevengeDisplay(true);await revengeFX(dmg);await drainCEOHP(dmg);clearRevengeWounds();updateRevengeDisplay();say(dmg>0?`${dmg} DAMAGE REFLECTED.`:'NO PAIN TO RETURN. TAKE A HIT FIRST.',700);if(ceoHP<=0){await normalVictory();setBattleBusy(false);return;}
  }else{
    say(m.name+'!',500,'rich');
    if(id==='blood')await projectileVolley();
@@ -337,7 +337,7 @@ async function activateMove(){
      revengeStored=0;window.RADevState.revengeStoredDamage=0;
      updateHP();
      if(ceoHP<=0){await normalVictory();setBattleBusy(false);return;}
-     say(reflected>0?`${reflected} DAMAGE RETURNED.`:'NOTHING TO RETURN.',750);
+     say(reflected>0?`${reflected} DAMAGE RETURNED.`:'NO PAIN TO RETURN. TAKE A HIT FIRST.',750);
      await wait(250);
    }else await genericPlayerFX(id);
    if(id!=='bite'&&id!=='revenge'&&id!=='octopus'){

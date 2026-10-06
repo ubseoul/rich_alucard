@@ -70,6 +70,12 @@ body.rc2-title .start-overlay{background:radial-gradient(ellipse at 50% 42%,rgba
 body.rc2-title .start-card{background:none;border:0;box-shadow:none;color:#f6efd9}
 body.rc2-title .start-card .title{font-size:clamp(20px,7.2cqw,40px);letter-spacing:1px;white-space:nowrap;color:#ff3b5c;text-shadow:3px 3px 0 #17131e,0 0 14px rgba(215,25,63,.5);animation:rc2TitleFlicker 3.2s steps(1,end) infinite}
 .rc2-title-sub{font:8px/1.4 var(--font-system);color:#f0c050;margin:0 0 14px;letter-spacing:.12em;text-transform:uppercase}
+/* RC5 polish: stacked logo title that fits 360-430px phones */
+body.rc2-title .start-card{width:min(92%,460px)}
+body.rc2-title .start-card .title:has(.rc5-t1){white-space:normal;display:grid;justify-items:center;gap:8px;margin-bottom:12px}
+body.rc2-title .start-card .title .rc5-t1{font-size:clamp(30px,10.5vw,52px);line-height:.95;letter-spacing:2px;text-transform:uppercase}
+body.rc2-title .start-card .title .rc5-t2{font:clamp(9px,2.9vw,14px)/1.3 var(--font-system);letter-spacing:.18em;text-transform:uppercase;color:#f6efd9;text-shadow:2px 2px 0 #17131e}
+body.rc2-title .start-card .title .rc5-t2 small{color:#f0c050;font-size:inherit}
 body.rc2-title .start-card button#startButton{width:84%;padding:12px;font-size:14px;background:#d7193f;color:#fff;border:3px solid #17131e;box-shadow:4px 4px 0 #f0c050;animation:rc2StartPulse 1.1s steps(2,end) infinite}
 body.rc2-title .start-card small{color:#f6efd9;opacity:.75}
 @keyframes rc2TitleFlicker{0%,92%,100%{opacity:1}93%{opacity:.55}95%{opacity:1}97%{opacity:.7}}

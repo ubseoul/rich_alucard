@@ -24,7 +24,7 @@
  const VIP=['HOUSE GUEST','FRONT ROW','VELVET VIP','HEADLINER'];
 
  const CSS=`
- .cab.f15 .stage{height:clamp(320px,calc(100vh - 320px),580px);height:clamp(320px,calc(100dvh - 320px),580px)}
+ .cab.f15 .stage{height:clamp(320px,calc(100vh - 330px),580px);height:clamp(320px,calc(100dvh - 330px),580px)}
  .cab.f15 .player-bar{position:sticky;bottom:0;z-index:4;padding:5px 0;background:#090813}
  .f15-dancers{position:absolute;left:0;top:0;pointer-events:none}
  .f15-bar{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:10px}
@@ -81,7 +81,7 @@
   const HYPE_MAX=3000;
   function renderHype(){const level=vipLevel(encores),active=performance.now()<encoreUntil;
    hypePanel.dataset.encore=String(active);hypePanel.dataset.combo=String(combo);hypePanel.dataset.vip=String(level);
-   hypePanel.innerHTML=`<header><span>${names[selectedLocal]} · 21+</span><span>${last?`PAID ${money(last.delta)}`:VIP[level]}</span></header><progress max="${HYPE_MAX}" value="${hype}" aria-label="Hype"></progress><span>${active?'ENCORE · damn house going up':`HYPE ${Math.round(hype)}/${HYPE_MAX}`} · COMBO ${combo} · HYPE ×${(1+Math.min(combo,12)*.25).toFixed(2)}</span><br><span>${level===3?'HEADLINER: GOLD STAGE':`${encores} ENCORES · NEXT VIP AT ${[1,4,9][level]}`}</span><br><span>${last?`THROWN ${money(last.thrown)}${last.thrown!==last.delta?" · 50% OFF":""} · ${last.kind.toUpperCase()}`:"PAID SUPPORT UNLOCKS DATES · HITS FILL HYPE · NO CASH BONUS"}</span>`;
+   hypePanel.innerHTML=`<header><span>${names[selectedLocal]} · 21+ · ${VIP[level]}</span><span>${last?`PAID ${money(last.delta)}`:''}</span></header><progress max="${HYPE_MAX}" value="${hype}" aria-label="Hype"></progress><span>${active?'ENCORE · damn house going up':`HYPE ${Math.round(hype)}/${HYPE_MAX}`}${combo>1?` · COMBO x${combo}`:''} · ${level===3?'GOLD STAGE':`VIP AT ${[1,4,9][level]} ENCORE${[1,4,9][level]>1?'S':''}`}</span>`;
   }
   const geo={W:0,H:0,feetY:0,k:1,dpr:1,boxes:{},x:{},clamped:false};
   const cards={},pendingCards=new Set();
@@ -232,7 +232,7 @@
   const loadImg=u=>new Promise((ok,bad)=>{const i=new Image();i.onload=()=>ok(i);i.onerror=()=>bad(new Error(u));i.src=u;});
   const ready=fetch(SHEET_DIR+'manifest.json',{cache:'no-cache'}).then(r=>{if(!r.ok)throw new Error('manifest '+r.status);return r.json();}).then(m=>{
    manifest=m;return Promise.all(T().HANDLES.map(sheetKey).map(k=>loadImg(SHEET_DIR+m.dancers[k].file).then(i=>{sheets[k]=global.RAHardPixel?global.RAHardPixel.process(i,{cell:m.dancers[k].cell,block:2,colors:28,outline:true}):i;})));
-  }).then(()=>{status.loaded=true;if(!disposed)note.textContent=global.RAWriting.dancerGreeting(selectedLocal)+' · 21+. aim at the platform bro hit in the light combo fills hype';}).catch(e=>{
+  }).then(()=>{status.loaded=true;if(!disposed)note.textContent=global.RAWriting.dancerGreeting(selectedLocal);}).catch(e=>{
    status.failed=String(e.message||e);console.error('F15 dancers failed to load',e);
    if(!manifest)manifest={dancers:Object.fromEntries(T().HANDLES.map(h=>[sheetKey(h),{frames:1,cell:[155,200],cols:1,anchor_in_cell_px:[77,200]}]))};
    if(!disposed)note.textContent='girls late you can still throw';

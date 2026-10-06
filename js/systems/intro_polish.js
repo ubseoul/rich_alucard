@@ -12,7 +12,10 @@
  const overlay=document.querySelector('#startOverlay');
  function titleSync(){const on=overlay&&getComputedStyle(overlay).display!=='none';body.classList.toggle('rc2-title',!!on);}
  if(overlay){new MutationObserver(titleSync).observe(overlay,{attributes:true,attributeFilter:['style','class']});titleSync();
-  const card=overlay.querySelector('.start-card');if(card&&!card.querySelector('.rc2-title-sub')){const sub=el('div','rc2-title-sub','a vampire lost gameboy game');card.insertBefore(sub,card.querySelector('#startButton'));}
+  const card=overlay.querySelector('.start-card');
+  // RC5 polish: the one-line title overflowed a 390px phone; stack it as a logo (same words, same order).
+  const title=card?.querySelector('.title');if(title&&!title.querySelector('.rc5-t1')){const m=/^(.*?):\s*(.*?)(\s+Demo)?$/.exec(title.textContent.trim());if(m){title.setAttribute('aria-label',title.textContent.trim());title.innerHTML=`<span class="rc5-t1">${m[1]}</span><span class="rc5-t2">${m[2]}${m[3]?`<small> ·${m[3]}</small>`:''}</span>`;}}
+  if(card&&!card.querySelector('.rc2-title-sub')){const sub=el('div','rc2-title-sub','a vampire lost gameboy game');card.insertBefore(sub,card.querySelector('#startButton'));}
   const tap=overlay.querySelector('small');if(tap)tap.textContent='tap start. music on.';}
  // ---- scene-change fade + shake ----
  let root=null,obs=null,lastEnv=null;
