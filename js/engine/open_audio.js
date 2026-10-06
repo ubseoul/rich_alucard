@@ -32,7 +32,7 @@
   'A31:stars':['STARS_SHIMMER'],'A32:night':['TRANSFORM_BLOOM'],'A41:drive':['CAR_WINDOWS_DOWN'],
   'A47:arrive':['SNEEZE'],'A50:xcom':['XCOM_MISS'],'A52:trick':['KIDS_HALLOWEEN'],'A57:stop':['SIREN_CHIRP']
  };
- function beat(a,adventure,node){if(['A14','SHOW'].includes(adventure)&&node==='result'&&window.RAAdventures?.active?.()?.vars?.showOutcome!=='success')return;for(const id of beats[`${adventure}:${node}`]||[])a.sound(id);}
+ function beat(a,adventure,node){if(['A14','SHOW'].includes(adventure)&&node==='result'){const vars=window.RAAdventures?.active?.()?.vars;if(vars?.showOutcome!=='success'||!(Number(vars.pay)>0))return;}for(const id of beats[`${adventure}:${node}`]||[])a.sound(id);}
  // Only unavailable authored-scene hooks are routed by the review tour, per Ube's explicit ruling.
  const reserved=['GRILL_LAND','TONGS','SIZZLE_PERFECT','CHAR_CRACKLE','SMOKE_HISS','AMB_KBBQ','AMB_HOTSPRING_OUT'];
  window.RAOpenAudio={scope,environment,combat,action,voice,beat,environments,enemy,beats,reserved};
