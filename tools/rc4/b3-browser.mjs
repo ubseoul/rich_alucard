@@ -31,6 +31,14 @@ try{
   if(phase!=='before'){assert.equal(actor.src,selected.base);assert(actor.loaded);assert(!actor.transformed);}
   await p.screenshot({path:`${out}/combat-${enemy}-390.png`});await p.evaluate(()=>RACombat2.active()?.abort());
  }
+ // Use the actual rave entry, which replaces the startup card with the hunter-derived bolt card.
+ await p.evaluate(()=>{void RAOgunRave.fight();});await p.waitForTimeout(450);
+ const raveActor=await p.locator('.c2-enemy').evaluate(e=>({src:e.dataset.rc2Src?.match(/assets\/[^?]+/)?.[0]||e.getAttribute('src'),transformed:e.getAttribute('src')?.startsWith('data:')||false,loaded:e.complete&&e.naturalWidth>0}));
+ const raveArt=await p.evaluate(()=>({art:RACombatData.enemyArt('blad33ee'),moves:Object.keys(RACombatData.ENEMIES.blad33ee.moves)}));
+ assert(raveActor.loaded);assert(raveActor.src.includes('bllad33_neutral_candidate_80x96.png'));assert(raveArt.moves.includes('bolt'));
+ if(phase!=='before')assert(!raveActor.transformed);
+ report.combat.push({enemy:'blad33ee-rave',actor:raveActor,selected:raveArt.art,moves:raveArt.moves});await p.screenshot({path:`${out}/combat-blad33ee-rave-390.png`});
+ await p.evaluate(()=>RACombat2.active()?.abort());await p.waitForTimeout(200);await p.evaluate(async()=>{await RAScenes.go('bedroom');});
  await p.evaluate(()=>{window.__b3Draws=[];window.__b3DrawImage=CanvasRenderingContext2D.prototype.drawImage;CanvasRenderingContext2D.prototype.drawImage=function(img,...args){if(img?.getAttribute?.('src')?.includes('senator'))window.__b3Draws.push(img.getAttribute('src'));return window.__b3DrawImage.call(this,img,...args)};void RAMinigames.launch('hatch',{mode:'senator',skipRule:true});});
  await p.waitForTimeout(700);report.canvas=await p.evaluate(()=>[...new Set(window.__b3Draws)]);assert(report.canvas.some(s=>s.includes('senator_sitting')),'canvas care actually draws Senator');
  await p.screenshot({path:`${out}/canvas-senator-390.png`});await p.evaluate(()=>{RAMinigames.quitActive();CanvasRenderingContext2D.prototype.drawImage=window.__b3DrawImage;});

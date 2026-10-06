@@ -1,0 +1,198 @@
+{
+  "base": "0b408fdd827fd6b14dadaaa8bc91d888cc708440",
+  "runtimeCheckpoint": "b29060b14500de57349b8de191fc0b45455c248f",
+  "rows": [
+    {
+      "identity": "rich",
+      "scene": "NEW_OGA_M2:arrive",
+      "alias": "rich",
+      "selectedState": "default",
+      "packagedPath": "assets/rich_standing_right.png",
+      "sha256": "765170076e8d3a9af9e8857e176e079b2a68c7ee1daafb7c8d551482228f144b",
+      "approval": null,
+      "loaded": true,
+      "transformed": false
+    },
+    {
+      "identity": "gbenga",
+      "scene": "NEW_OGA_M2:arrive",
+      "alias": "gbenga",
+      "selectedState": "adjusting_sleeves",
+      "packagedPath": "assets/before_the_fame/characters/gbenga/runtime_80x96/gbenga_adjusting_sleeves_80x96_v2.png",
+      "sha256": "3c299fbdb15d6ad113c62b429ebec05b50d278f9a1402e7b8ed5bf53a63a4f8e",
+      "approval": {
+        "sha256": "3c299fbdb15d6ad113c62b429ebec05b50d278f9a1402e7b8ed5bf53a63a4f8e",
+        "width": 80,
+        "height": 96,
+        "status": "FROZEN",
+        "authority": "art_department/ASSET_REGISTER.json"
+      },
+      "loaded": true,
+      "transformed": false
+    },
+    {
+      "identity": "rich",
+      "scene": "NEW_OGA_M4:beat4",
+      "alias": "rich",
+      "selectedState": "default",
+      "packagedPath": "assets/rich_standing_right.png",
+      "sha256": "765170076e8d3a9af9e8857e176e079b2a68c7ee1daafb7c8d551482228f144b",
+      "approval": null,
+      "loaded": true,
+      "transformed": false
+    },
+    {
+      "identity": "carlos",
+      "scene": "NEW_OGA_M4:beat4",
+      "alias": "carlos",
+      "selectedState": "betrayed",
+      "packagedPath": "assets/before_the_fame/characters/carlos/runtime_80x96/carlos_betrayed_80x96_review_v1.png",
+      "sha256": "46e325b2102811469898a9c5cd4d2c9c84dd4aff01058accf0294da51a588b14",
+      "approval": {
+        "sha256": "46e325b2102811469898a9c5cd4d2c9c84dd4aff01058accf0294da51a588b14",
+        "width": 80,
+        "height": 96,
+        "status": "FROZEN",
+        "authority": "art_department/ASSET_REGISTER.json"
+      },
+      "loaded": true,
+      "transformed": false
+    },
+    {
+      "identity": "carlos",
+      "scene": "NEW_OGA_M4:walk_in",
+      "alias": "carlos",
+      "selectedState": "canopy_apron",
+      "packagedPath": "assets/before_the_fame/characters/carlos/runtime_80x96/carlos_canopy_apron_80x96_review_v1.png",
+      "sha256": "edf2bb23b9d235edf07588032fa6480017083b470d841e7e355691d6eb36388a",
+      "approval": {
+        "sha256": "edf2bb23b9d235edf07588032fa6480017083b470d841e7e355691d6eb36388a",
+        "width": 80,
+        "height": 96,
+        "status": "FROZEN",
+        "authority": "art_department/ASSET_REGISTER.json"
+      },
+      "loaded": true,
+      "transformed": false
+    },
+    {
+      "identity": "gbenga",
+      "scene": "NEW_OGA_M4:walk_in",
+      "alias": "gbenga",
+      "selectedState": "adjusting_sleeves",
+      "packagedPath": "assets/before_the_fame/characters/gbenga/runtime_80x96/gbenga_adjusting_sleeves_80x96_v2.png",
+      "sha256": "3c299fbdb15d6ad113c62b429ebec05b50d278f9a1402e7b8ed5bf53a63a4f8e",
+      "approval": {
+        "sha256": "3c299fbdb15d6ad113c62b429ebec05b50d278f9a1402e7b8ed5bf53a63a4f8e",
+        "width": 80,
+        "height": 96,
+        "status": "FROZEN",
+        "authority": "art_department/ASSET_REGISTER.json"
+      },
+      "loaded": true,
+      "transformed": false
+    },
+    {
+      "identity": "rich",
+      "scene": "NEW_OGA_M6:voice",
+      "alias": "rich",
+      "selectedState": "default",
+      "packagedPath": "assets/rich_standing_right.png",
+      "sha256": "765170076e8d3a9af9e8857e176e079b2a68c7ee1daafb7c8d551482228f144b",
+      "approval": null,
+      "loaded": true,
+      "transformed": false
+    },
+    {
+      "identity": "senator",
+      "scene": "NEW_OGA_M6:voice",
+      "alias": "senator",
+      "selectedState": "sitting",
+      "packagedPath": "assets/build4/p_d/p_d_senator_sitting_160x160.png",
+      "sha256": "19e6377e077e3b6feebaa394f530fd6f1902b77aaad95215bd0a1948bc26c5c8",
+      "approval": {
+        "sha256": "19e6377e077e3b6feebaa394f530fd6f1902b77aaad95215bd0a1948bc26c5c8",
+        "width": 160,
+        "height": 160,
+        "status": "FROZEN",
+        "authority": "art_department/ASSET_REGISTER.json"
+      },
+      "loaded": true,
+      "transformed": false
+    },
+    {
+      "identity": "rich",
+      "scene": "NEW_OGA_M6:walked",
+      "alias": "rich",
+      "selectedState": "default",
+      "packagedPath": "assets/rich_standing_right.png",
+      "sha256": "765170076e8d3a9af9e8857e176e079b2a68c7ee1daafb7c8d551482228f144b",
+      "approval": null,
+      "loaded": true,
+      "transformed": false
+    },
+    {
+      "identity": "senator",
+      "scene": "NEW_OGA_M6:walked",
+      "alias": "senator",
+      "selectedState": "asleep",
+      "packagedPath": "assets/build4/p_d/p_d_senator_asleep_160x160.png",
+      "sha256": "fd35425f815a2eb29ee9468c6cc3d11ebb2568338724198e80bcb95dcafabe19",
+      "approval": {
+        "sha256": "fd35425f815a2eb29ee9468c6cc3d11ebb2568338724198e80bcb95dcafabe19",
+        "width": 160,
+        "height": 160,
+        "status": "FROZEN",
+        "authority": "art_department/ASSET_REGISTER.json"
+      },
+      "loaded": true,
+      "transformed": false
+    },
+    {
+      "identity": "rich",
+      "scene": "NEW_OGA_M7:arrival",
+      "alias": "rich",
+      "selectedState": "default",
+      "packagedPath": "assets/rich_standing_right.png",
+      "sha256": "765170076e8d3a9af9e8857e176e079b2a68c7ee1daafb7c8d551482228f144b",
+      "approval": null,
+      "loaded": true,
+      "transformed": false
+    },
+    {
+      "identity": "mama_gbenga",
+      "scene": "NEW_OGA_M7:arrival",
+      "alias": "mama_gbenga",
+      "selectedState": "neutral",
+      "packagedPath": "assets/build4/p_d/p_d_mama_gbenga_80x96.png",
+      "sha256": "995aea18c7f6e953a812981440da632140245f67c7a52601692010b9d6a52242",
+      "approval": {
+        "sha256": "995aea18c7f6e953a812981440da632140245f67c7a52601692010b9d6a52242",
+        "width": 80,
+        "height": 96,
+        "status": "FROZEN",
+        "authority": "art_department/ASSET_REGISTER.json"
+      },
+      "loaded": true,
+      "transformed": false
+    },
+    {
+      "identity": "gbenga",
+      "scene": "NEW_OGA_M7:arrival",
+      "alias": "gbenga",
+      "selectedState": "adjusting_sleeves",
+      "packagedPath": "assets/before_the_fame/characters/gbenga/runtime_80x96/gbenga_adjusting_sleeves_80x96_v2.png",
+      "sha256": "3c299fbdb15d6ad113c62b429ebec05b50d278f9a1402e7b8ed5bf53a63a4f8e",
+      "approval": {
+        "sha256": "3c299fbdb15d6ad113c62b429ebec05b50d278f9a1402e7b8ed5bf53a63a4f8e",
+        "width": 80,
+        "height": 96,
+        "status": "FROZEN",
+        "authority": "art_department/ASSET_REGISTER.json"
+      },
+      "loaded": true,
+      "transformed": false
+    }
+  ],
+  "frozenAssetDiff": []
+}
