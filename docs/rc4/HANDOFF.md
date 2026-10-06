@@ -1,5 +1,16 @@
 # RC4 B1 integration handoff
 
+## B2 candidate integration notes
+
+B2 starts only at reviewed `0b408fdd827fd6b14dadaaa8bc91d888cc708440`, isolated `rc4/b2-economy-maps`. Receipt: `builds/B2.md`. Integrate by function/section, retaining sibling visual/combat/date edits.
+
+- B2 keeps nine tiles; Bank links to existing JDM page and hidden `cars` actions. Canon Supra/S15 buying and saved selection use existing records; no parts/exotic ecosystem. No new manifest entries or frozen art.
+- `RAVehicles.available()` is the shared host usable-car reader used by F03/F04/F07 and garage. Preserve B1 request `garage.encounter`, consumed settlement and retry functions. F01 tactical loss/recovery stays in its existing namespaces; a natural cross-surface loss/recovery playthrough remains integration coverage, not a promised new buyback.
+- Gross story/action floor $28K with persisted `rc3Day.earnedIncome` and atomic paid+receipt; current-day legacy missing earnings receives no extra floor until tomorrow. `rc4Maps` adds only release metadata; one new eligible outing per two days, no burst. B1 mission/advance interfaces unchanged.
+- B4 coordination: first club visit now literally half-off (.5); cap remains half opening cash. RC4 Armory retires mod buying/attaching UI while preserving legacy inventory/effects. Range medal's existing story/crit payoff stays; retain sibling range/date presentation work.
+- Party Hall restores only existing owned-home A26/HOST via Bank; active `rc4BarPaid` guards bar expense across reload. A27/Jade automatic follow-ups remain dormant; Maps ten-list is explicit in B2. Do not restore wider property/room/roster entry without authority.
+- Silent phone threads retain all content while clearing unread state. B2 did not change creator dialogue, NAH consequences, masters, F01 probabilities, main, private packs or deployment.
+
 Foundation is the annotated `rc4-base` peeled commit `c9c273ff91a417d7953b30e718421339edd98c01` (OL079 ending recovery included). `rc4/b1-campaign` is the isolated candidate branch. The final delivery message identifies the immutable candidate SHA; branch names alone are not a review base. B2/B3/B4 branch from the reviewed immutable B1 SHA, and one later integrator consolidates. B1 does not declare RC acceptance.
 
 ## Exact shared interfaces

@@ -1,0 +1,62 @@
+import assert from 'node:assert/strict';
+import {boot} from '../../rc3/policy-test.mjs';
+import {run} from '../if1/_lib.mjs';
+const plain=x=>JSON.parse(JSON.stringify(x));
+export async function test(root){
+ const c=await boot(root),G=c.RARC3,A=c.RAAdventures,L=c.RALife;
+ c.RAState.patch('life.world.day',3);G.patch({story:true,action:true,earnedIncome:0});
+ const opening=L.money();L.addMoney(7000);L.spend(6000);assert.equal(G.read().earnedIncome,7000);
+ const reload=await boot(root,{seedState:plain(c.RAState.get())});
+ assert.equal(reload.RARC3.read().earnedIncome,7000,'gross earnings survive reload');
+ assert.ok(reload.RARC3.claimCash());assert.equal(reload.RARC3.read().cash,21000);
+ const settled=reload.RALife.money();assert.equal(reload.RARC3.claimCash(),false);assert.equal(reload.RALife.money(),settled);
+ const again=await boot(root,{seedState:plain(reload.RAState.get())});assert.equal(again.RARC3.claimCash(),false);
+ assert.equal(reload.RAState.get().life.history.filter(e=>e.id==='rc3:cash:3').length,1);
+ const old=plain(c.RAState.get());delete old.life.world.flags.rc3Day.earnedIncome;
+ const legacy=await boot(root,{seedState:old});assert.equal(legacy.RARC3.read().earnedIncome,28000);assert.ok(legacy.RARC3.claimCash());assert.equal(legacy.RARC3.read().cash,0);
+ legacy.RAState.patch('life.world.day',4);legacy.RARC3.patch({story:true,action:true});assert.ok(legacy.RARC3.claimCash());assert.equal(legacy.RARC3.read().cash,28000);
+ // A bounded optional canon car purchase: poor, exact balance, duplicate, reload, select/drive/tribute.
+ c.RAState.patch('life.ownership.cars',[]);c.RAState.patch('life.resources.money',37999);assert.equal(c.RACars.buy('s15'),false);
+ c.RAState.patch('life.resources.money',38000);assert.equal(c.RACars.buy('s15'),true);assert.equal(L.money(),0);
+ assert.equal(c.RACars.buy('s15'),false);assert.equal(L.money(),0);assert.equal(L.ownedCars().length,1);
+ const car=await boot(root,{seedState:plain(c.RAState.get())});assert.equal(car.RACars.buy('s15'),false);assert.equal(car.RALife.flag('tougeCar'),'nissan_silvia_s15');
+ await car.RACars.touge({course:'docks'},{launch:async(id,p)=>{assert.equal(p.car,'s15');return {quit:true};}});
+ assert.equal(car.RAVehicles.tribute('nissan_silvia_s15').ok,true);assert.equal(car.RACars.usableCars().length,0);
+ assert.equal(car.RANewOgaLadder.favoriteCar(),null);assert.equal(car.RACars.buy('s15'),false,'tribute cannot be bought back silently');
+ assert.ok(car.RAF07Play.buildRequest('m8').request.garage.owned.includes('HOOPTIE'));
+ assert.equal(car.RAVehicles.returnTribute('nissan_silvia_s15').ok,true);assert.equal(car.RACars.usableCars().length,1);
+ car.RALife.patchCar('nissan_silvia_s15',{ownershipStatus:'lost'});assert.equal(car.RACars.usableCars().length,0);assert.equal(car.RANewOgaLadder.favoriteCar(),null);
+ c.Image=function(){};c.addEventListener=()=>{};await run(root,c,['js/systems/jdm_imports.js']);
+ const acquisition=plain(L.life());acquisition.ownership.cars=[];acquisition.resources.money=78000;
+ acquisition.acquisitions.active={id:'supra_mk4_first_collection',vehicleId:c.RACars.SUPRA,quotedPrice:78000,purchaseEventId:'vehicle-acquired:'+c.RACars.SUPRA,stage:'aftermath'};
+ const supra=c.RAJDMImports.computeCompletionState(acquisition);assert.equal(supra.ok,true);assert.equal(supra.life.resources.money,0);
+ assert.equal(supra.life.world.flags.tougeCar,c.RACars.SUPRA);assert.equal(c.RAJDMImports.computeCompletionState(supra.life).charged,false);
+ acquisition.resources.money=77999;assert.equal(c.RAJDMImports.computeCompletionState(acquisition).reason,'insufficient-funds');
+ acquisition.acquisitions.active.quotedPrice='invalid';assert.equal(c.RAJDMImports.computeCompletionState(acquisition).reason,'invalid-acquisition');
+ // Authored Maps timing, prerequisites, future follow-up, and multi-day Phil.
+ A.abandon();L.setFlag('rc4Maps',{unlocked:{},lastDay:0});c.RAState.patch('life.world.day',2);G.releaseMap();
+ assert.deepEqual(Object.keys(L.flag('rc4Maps').unlocked),['A43']);G.releaseMap();assert.equal(Object.keys(L.flag('rc4Maps').unlocked).length,1);
+ c.RAState.patch('life.world.day',3);G.releaseMap();assert.equal(A.available('YAM'),false);
+ c.RAState.patch('life.world.day',4);G.releaseMap();assert.equal(A.available('YAM'),true);assert.equal(A.available('A54'),false);
+ L.setFlag('rc4Maps',{unlocked:{A54:2},lastDay:4});L.setFlag('jollofWarsWins',0);assert.equal(A.available('A54'),false);
+ L.setFlag('jollofWarsWins',1);assert.ok(A.start('A54',{from:'rc3-maps'}));A.enter('win');A.complete('win');
+ assert.equal(A.available('A56'),false,'final win does not skip release cadence');
+ c.RAState.patch('life.world.day',6);L.setFlag('rc4Maps',{unlocked:Object.fromEntries(G.maps.filter(id=>id!=='A56').map(id=>[id,2])),lastDay:4});G.releaseMap();assert.equal(A.available('A56'),true);
+ c.RAState.patch('life.world.day',19);assert.ok(A.start('A20',{from:'rc3-maps'}));A.enter('arrive');A.enter('wrap');A.complete('end');assert.equal(A.available('A20'),false);
+ c.RAState.patch('life.world.day',20);assert.equal(A.available('A20'),true);
+ const oldMaps=plain(c.RAState.get());delete oldMaps.life.world.flags.rc4Maps;
+ const knownMaps=await boot(root,{seedState:oldMaps});assert.equal(knownMaps.RAAdventures.available('A20'),true,'legacy Phil stage keeps its continuation without new release');
+ // Late-state Hall fixture: owned home, authored party expenses/effects once, reload.
+ A.abandon();c.RAState.patch('life.resources.money',255000);assert.ok(c.RACastle.buy('party_hall'));assert.equal(L.money(),5000);
+ assert.equal(c.RACastle.buy('party_hall'),false);assert.ok(A.start('A26',{from:'rc4-hall'}));A.enter('guests');
+ A.enter('drinks');A.choose('drinks',0);assert.equal(L.money(),4500);assert.equal(A.active().node,'door');A.choose('drinks',0);assert.equal(L.money(),4500);
+ const bar=await boot(root,{seedState:plain(c.RAState.get())});bar.RAAdventures.choose('drinks',0);assert.equal(bar.RALife.money(),4500);
+ A.enter('resolve');const followers=L.life().resources.followers;
+ A.enter('resolve');assert.equal(L.life().resources.followers,followers,'resolve rewards are once per run');
+ const party=await boot(root,{seedState:plain(c.RAState.get())});party.RAAdventures.enter('resolve');assert.equal(party.RALife.life().resources.followers,followers);
+ party.RAAdventures.complete('end');assert.equal(party.RAAdventures.available('HOST'),false,'one party per day');
+ party.RAState.patch('life.world.day',21);assert.equal(party.RAAdventures.available('HOST'),true);
+ const terms=c.RAStripClub.terms();assert.equal(c.RAStripClub.price(terms,1000),500,'literal half off');
+ assert.equal(c.RAIronAndGrace.buyMod('extended_mag').reason,'retired');
+ console.log('PASS B2 income/spend/migration/atomic settlement, bounded JDM/reload/tribute, ten Maps/cadence/prerequisites/follow-up/Phil, late Hall purchase/party/reload');
+}

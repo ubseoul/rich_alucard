@@ -30,10 +30,11 @@
  const totalDrives=()=>owned().reduce((n,c)=>n+driveCount(c.id),0);
  const globalDrives=()=>Number(L().flag('drives'))||0;
  const list=()=>owned().map(c=>({...c,service:record(c.id)}));
+ const available=()=>list().filter(c=>!c.service.tributed&&!['SOLD','LOST','IMPOUNDED'].includes(String(c.ownershipStatus).toUpperCase()));
  const onChange=fn=>{listeners.add(fn);return ()=>listeners.delete(fn);};
  // PURE READER (F07 reads the tribute here; it never calls a mutator): the car F03's M9 tributed, or null. Written only by F03 (life.newOga.m9TributedCar).
  const tributedCar=()=>window.RAState.get().life?.newOga?.m9TributedCar||null;
  // The TAKEOVER ending returns the tributed car: the TRIBUTED mark is cleared; the ownership record was never touched.
  function returnTribute(idOrCar){const id=resolve(idOrCar);if(!id||!record(id).tributed)return {ok:false,reason:'not-tributed'};write(id,r=>{r.tributed=false;r.returnedDay=L().today().day;});emit({type:'return',id});return {ok:true,id};}
- window.RAVehicles={owned,has,list,tribute,isTributed,tributedCar,returnTribute,recordDrive,driveCount,totalDrives,globalDrives,onChange};
+ window.RAVehicles={owned,has,list,available,tribute,isTributed,tributedCar,returnTribute,recordDrive,driveCount,totalDrives,globalDrives,onChange};
 })();

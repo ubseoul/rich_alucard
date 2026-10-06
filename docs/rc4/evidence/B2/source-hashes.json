@@ -1,0 +1,41 @@
+{
+  "baseline": "0b408fdd827fd6b14dadaaa8bc91d888cc708440",
+  "files": [
+    {
+      "file": "js/data/btf/adventures/rc2_story.js",
+      "sha256": "7d541e5affd4562cd146934d54e1d8819d7844533bb44cbe42fc9950178ac470",
+      "matchesReviewedB1": false
+    },
+    {
+      "file": "js/data/btf/adventures/w1_life.js",
+      "sha256": "ebe546fdfc335f7527a864df77f68e2237cf6adfe15ec43dfcb1dc942409163d",
+      "matchesReviewedB1": false
+    },
+    {
+      "file": "js/data/btf/adventures/w3.js",
+      "sha256": "2f566bcc253f6665b9d1577fa4e19516d8a12da9cf98b9a6f0ad515da96b94e3",
+      "matchesReviewedB1": false
+    },
+    {
+      "file": "js/data/btf/adventures/w5.js",
+      "sha256": "467beee20bd51f597d0c0be16f26cf93a6476585c1345743bd4f9e63f68d96b4",
+      "matchesReviewedB1": false
+    },
+    {
+      "file": "docs/rc3/VOICE.md",
+      "sha256": "d6ca9729ae16c8e5b4d6c6563d614e37da462282867f85ee63948df723abd074",
+      "matchesReviewedB1": false
+    },
+    {
+      "file": "docs/rc2/PROTECTED_LINES.md",
+      "sha256": "6cf3c15e26e782836cb9dfc980f017e6334dd04bb7784eb3492d30ec000a7814",
+      "matchesReviewedB1": false
+    },
+    {
+      "file": "art_department/build4/PRESERVED_ART_HASH_AUDIT.json",
+      "sha256": "28ef3e2d15999f9a6a6f7cfe748b0a1d1866254f5939fcdf8b41362f5c93644f",
+      "matchesReviewedB1": true
+    }
+  ],
+  "frozenChanges": ""
+}

@@ -1,0 +1,200 @@
+[
+  {
+    "kind": "seeded canonical settlements, not natural play",
+    "buyS15": false,
+    "clubSpendPerStoryDay": 5000,
+    "rows": [
+      {
+        "day": 2,
+        "mission": "NEW_OGA_M1",
+        "before": 63000,
+        "afterCash": 91000,
+        "supplement": 22000,
+        "afterClub": 86000
+      },
+      {
+        "day": 3,
+        "mission": "NEW_OGA_M2",
+        "before": 86000,
+        "afterCash": 114000,
+        "supplement": 28000,
+        "afterClub": 109000
+      },
+      {
+        "day": 4,
+        "mission": "NEW_OGA_M3",
+        "before": 109000,
+        "afterCash": 137000,
+        "supplement": 25000,
+        "afterClub": 132000
+      },
+      {
+        "day": 5,
+        "mission": "NEW_OGA_M4",
+        "before": 132000,
+        "afterCash": 160000,
+        "supplement": 16000,
+        "afterClub": 155000
+      },
+      {
+        "day": 6,
+        "mission": "NEW_OGA_M5",
+        "before": 155000,
+        "afterCash": 183000,
+        "supplement": 22000,
+        "afterClub": 178000
+      },
+      {
+        "day": 7,
+        "mission": "NEW_OGA_M6",
+        "before": 178000,
+        "afterCash": 206000,
+        "supplement": 28000,
+        "afterClub": 201000
+      },
+      {
+        "day": 8,
+        "mission": "NEW_OGA_M7",
+        "before": 201000,
+        "afterCash": 229000,
+        "supplement": 28000,
+        "afterClub": 224000
+      },
+      {
+        "day": 9,
+        "mission": "NEW_OGA_M8",
+        "before": 224000,
+        "afterCash": 252000,
+        "supplement": 10000,
+        "afterClub": 247000
+      },
+      {
+        "day": 10,
+        "mission": "NEW_OGA_M9",
+        "before": 247000,
+        "afterCash": 275000,
+        "supplement": 28000,
+        "afterClub": 270000
+      },
+      {
+        "day": 11,
+        "mission": "NEW_OGA_M10",
+        "before": 270000,
+        "afterCash": 298000,
+        "supplement": 28000,
+        "afterClub": 293000
+      },
+      {
+        "day": 12,
+        "mission": "NEW_OGA_VAMPGPT",
+        "before": 293000,
+        "afterCash": 321000,
+        "supplement": 28000,
+        "afterClub": 316000
+      }
+    ],
+    "hallPrice": 250000,
+    "requiredWithReserve": 255000,
+    "finalCash": 316000,
+    "canBuyHall": true
+  },
+  {
+    "kind": "seeded canonical settlements, not natural play",
+    "buyS15": true,
+    "clubSpendPerStoryDay": 5000,
+    "rows": [
+      {
+        "day": 2,
+        "mission": "NEW_OGA_M1",
+        "before": 25000,
+        "afterCash": 53000,
+        "supplement": 22000,
+        "afterClub": 48000
+      },
+      {
+        "day": 3,
+        "mission": "NEW_OGA_M2",
+        "before": 48000,
+        "afterCash": 76000,
+        "supplement": 28000,
+        "afterClub": 71000
+      },
+      {
+        "day": 4,
+        "mission": "NEW_OGA_M3",
+        "before": 71000,
+        "afterCash": 99000,
+        "supplement": 25000,
+        "afterClub": 94000
+      },
+      {
+        "day": 5,
+        "mission": "NEW_OGA_M4",
+        "before": 94000,
+        "afterCash": 122000,
+        "supplement": 16000,
+        "afterClub": 117000
+      },
+      {
+        "day": 6,
+        "mission": "NEW_OGA_M5",
+        "before": 117000,
+        "afterCash": 145000,
+        "supplement": 22000,
+        "afterClub": 140000
+      },
+      {
+        "day": 7,
+        "mission": "NEW_OGA_M6",
+        "before": 140000,
+        "afterCash": 168000,
+        "supplement": 28000,
+        "afterClub": 163000
+      },
+      {
+        "day": 8,
+        "mission": "NEW_OGA_M7",
+        "before": 163000,
+        "afterCash": 191000,
+        "supplement": 28000,
+        "afterClub": 186000
+      },
+      {
+        "day": 9,
+        "mission": "NEW_OGA_M8",
+        "before": 186000,
+        "afterCash": 214000,
+        "supplement": 10000,
+        "afterClub": 209000
+      },
+      {
+        "day": 10,
+        "mission": "NEW_OGA_M9",
+        "before": 209000,
+        "afterCash": 237000,
+        "supplement": 28000,
+        "afterClub": 232000
+      },
+      {
+        "day": 11,
+        "mission": "NEW_OGA_M10",
+        "before": 232000,
+        "afterCash": 260000,
+        "supplement": 28000,
+        "afterClub": 255000
+      },
+      {
+        "day": 12,
+        "mission": "NEW_OGA_VAMPGPT",
+        "before": 255000,
+        "afterCash": 283000,
+        "supplement": 28000,
+        "afterClub": 278000
+      }
+    ],
+    "hallPrice": 250000,
+    "requiredWithReserve": 255000,
+    "finalCash": 278000,
+    "canBuyHall": true
+  }
+]

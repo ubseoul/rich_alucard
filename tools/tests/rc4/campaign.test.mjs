@@ -35,6 +35,7 @@ export async function test(root){
   c.RAFrag.patch('F04','active',true);c.RAFeatures.set('F04.war_room',true);const job=card(c,'DROP','inglewood');
   c.RAState.patch('life.ownership.cars',[]);const w=await c.RAWarRoomPlay.launch(job,{transport:host.transport});
   assert.equal(w.ok,true);assert.equal(w.summary.status,'COMPLETE');assert.equal(G.read().action,true);assert.equal(c.RALife.ownedCars().length,0);
+  c.RALife.setFlag('rc4Maps',{unlocked:{A54:2,A56:4,A20:6},lastDay:6});
   // Real authored prerequisites and the one retained continuation.
   assert.equal(A.available('A54'),false);assert.equal(A.start('A54',{from:'rc3-maps'}),false);
   c.RALife.setFlag('jollofWarsWins',1);assert.ok(A.available('A54'));assert.ok(A.start('A54',{from:'rc3-maps'}));
