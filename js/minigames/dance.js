@@ -47,8 +47,9 @@
  }
  // nearest un-judged note in a lane within the GOOD window (taps never pick far-away notes)
  function pickNote(notes,lane,songMs,cfg=DEFAULTS){let best=null,bd=1e9;for(const n of notes){if(n.judged||n.lane!==lane)continue;const d=Math.abs(n.t-songMs);if(d<=cfg.goodMs&&d<bd){best=n;bd=d;}}return best;}
+ function memoriesFor(result){return result.win?[result.money>0?'danced. they sprayed me':'danced']:[];}
  window.RAMinigameLogic=window.RAMinigameLogic||{};
- window.RAMinigameLogic.dance={MOVES,DEFAULTS,config,makeChart,judge,moodDelta,summarize,pickNote};
+ window.RAMinigameLogic.dance={MOVES,DEFAULTS,config,makeChart,judge,moodDelta,summarize,pickNote,memoriesFor};
 
  // ---------- drawing ----------
  function drawPose(g,P,pose,x,y,u,color,shade='#10101b'){
@@ -117,7 +118,7 @@
    if(ended)return;ended=true;root.dataset.phase='results';
    const sum=summarize(stats,cfg,{spray});root.dataset.outcome=sum.outcome;
    if(sum.money)ctx.reward({money:sum.money});
-   ctx.reward({clout:sum.win?3:0,memories:sum.win?['danced. they sprayed me']:[]});
+   ctx.reward({clout:sum.win?3:0,memories:memoriesFor(sum)});
    const best=Math.max(ctx.progress()?.bestAccuracy||0,sum.accuracy);ctx.saveProgress({bestAccuracy:best,bestCombo:Math.max(ctx.progress()?.bestCombo||0,stats.maxCombo)});
    const card=document.createElement('div');card.className='dance-result';
    card.style.cssText='position:absolute;inset:0;z-index:6;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;padding:22px;background:rgba(8,7,15,.93);color:#f6efd9;text-align:center;font-family:"Press Start 2P",monospace';
