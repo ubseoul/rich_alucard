@@ -4,6 +4,7 @@ import * as K from './feel-core.mjs';
 import {el,pos,anim,sleep,fadeTo,clear,bg,BG,shake,S,reduced,settings,world,stage} from './feel-core.mjs';
 import * as A from './feel-art.mjs';
 import {face,classColor,crate} from './faces.mjs';
+import {portrait} from './art/portraits/portraits.mjs';
 import * as C from '../../../js/frag/F01/play/content.mjs';
 import * as E from '../../../js/frag/F01/play/engine.mjs';
 import {weapon} from '../../../js/frag/F01/play/guns.mjs';
@@ -13,7 +14,7 @@ const esc=s=>String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;',
 const money=k=>'$'+Math.round(k*1000).toLocaleString('en-US');
 const tapOnce=(node,fn)=>new Promise(r=>node.addEventListener('click',e=>{K.unlock();fn&&fn(e);r(e);},{once:true}));
 const richEl=(css)=>el('rich','',null,css);
-const faceOf=(o,st)=>face({id:o.id,name:o.name,cls:o.cls,quirk:o.quirk,vampire:o.vampire},st||{});
+const faceOf=(o,st={},size=32)=>portrait(o,st,size)||face({id:o.id,name:o.name,cls:o.cls,quirk:o.quirk,vampire:o.vampire},st);
 
 // ------------------------------------------------------------------------------------------------ 0. title (also unlocks audio)
 export async function titleScene(){
@@ -118,7 +119,7 @@ export async function crewScene({pr,w,job,hints,pitcher,big,defense,lastCar}){
   cards.innerHTML='';const n=crewIds.length;const cw=Math.floor((262-(n-1)*4)/n);const x0=Math.round((270-(cw*n+(n-1)*4))/2);
   crewIds.forEach((id,i)=>{
    const o=avail.find(x=>x.id===id);const g=gunOf[id];const gv=A.gunView(g);
-   const c=el('card',`<div class="fc">${faceOf(o)}</div><div class="nm">${esc(o.short)}</div><button class="tr inspect" aria-label="inspect ${esc(o.name)}">INFO</button>
+   const c=el('card',`<div class="fc">${faceOf(o,{},16)}</div><div class="nm">${esc(o.short)}</div><button class="tr inspect" aria-label="inspect ${esc(o.name)}">INFO</button>
     <div class="wslot"><span class="gi">${A.gunImg(g,26,13)}</span><span class="wt">${esc(gv.type)}${gv.nick?`<small>${esc(gv.nick)}</small>`:''}</span></div>${big&&o.named?'<span class="skull" title="may not come back">☠</span>':''}<button class="sw" aria-label="swap ${esc(o.short)}">SWAP</button>`,cards,{left:(x0+i*(cw+4))+'px',top:'318px',width:cw+'px',pointerEvents:'auto'});
    c.querySelector('.inspect').onclick=()=>{closeBench();const old=world.querySelector('.crew-inspect');if(old)old.remove();const gun=g==='hands'?{}:weapon(P,g);const roles={MUSCLE:'Front-line force. Leads a breach.',SHOOTER:'Fits the back line. Delivers fire support.',WHEELS:'Fits the driver seat. Helps the getaway.',TALKER:'Fits the middle. Handles talking.',GHOST:'Fits the back line. Handles slipping past.',DOC:'Fits the middle. Helps crew recovery.'};const info=el('crew-inspect',`<b>${esc(o.name)}</b><p>${o.hp}/${o.maxhp} HP · ${esc(roles[o.cls]||o.cls)}</p><p>${esc((o.traits||[]).map(t=>C.TRAIT_WORD[t]||t).join(' · '))}</p><b>${esc(gv.type)} ${esc(gv.nick||'')}</b><p>${esc(gun.role||'BARE HANDS')} · ${gun.dmg?gun.dmg.join('–')+' DAMAGE'+(gun.hits>1?' ×'+gun.hits:''):'NO GUN'}${gun.lane?' · '+esc(gun.lane)+' LINE':''}</p><p>${esc(gun.flavor||'')}</p><button>CLOSE</button>`);info.querySelector('button').onclick=()=>info.remove();};
    c.querySelector('.wslot').setAttribute('role','button');c.querySelector('.wslot').tabIndex=0;c.querySelector('.wslot').setAttribute('aria-label','change weapon for '+o.name);
@@ -258,13 +259,13 @@ export async function roomScene({crewObjs,defense,objective='THE PLAY'}){
  const rig=el('rig');
  // Reviewed v6 redesign: preserve a full black backplate behind the regenerated opening.
  const screenBackplate=el('phone','',rig);
- const phone=el('phone-content',`<div class="ph-head"><span class="t">THE PLAY</span><span class="s">● LIVE</span><div class="ph-crew">${crewObjs.map(o=>`<div class="av" data-crew="${esc(o.id)}" title="${esc(o.name)}">${faceOf(o)}</div>`).join('')}<span>CREW CHAT</span></div></div>`,screenBackplate);
+ const phone=el('phone-content',`<div class="ph-head"><span class="t">THE PLAY</span><span class="s">● LIVE</span><div class="ph-crew">${crewObjs.map(o=>`<div class="av" data-crew="${esc(o.id)}" title="${esc(o.name)}">${faceOf(o,{},16)}</div>`).join('')}<span>CREW CHAT</span></div></div>`,screenBackplate);
  const msgs=el('msgs','',phone);
  el('operation-objective',esc(objective.toUpperCase()),rig);
  const op=el('operation-state','ENTRY · CREW MOVING',phone);op.setAttribute('aria-live','polite');op.title=objective;
  const scroll=()=>{msgs.scrollTop=msgs.scrollHeight;};
- const crewStrip=el('operation-crew','',phone);let previous=null;
- const ctlState=(snap,phase)=>{crewStrip.innerHTML='';for(const c of snap.crew){const o=byId(c.id)||{name:c.name,short:c.short};const prior=previous?.crew.find(x=>x.id===c.id);const changed=prior&&(prior.hp!==c.hp||prior.state!==c.state);const pose=c.hp<c.maxhp?'wounded':'standing';const sprite=A.hasSprite(o)?`<span class="op-pose"><img alt="" src="${A.ogaSprite(pose,o.id)}"></span>`:'';const b=el('operation-unit'+(changed?' changed':''),`${sprite}<span>${esc(o.short||o.name)}</span><b>${c.state==='UP'?c.hp+'/'+c.maxhp+' HP':esc(c.state)}</b>`,crewStrip);b.setAttribute('role','button');b.tabIndex=0;b.setAttribute('aria-label',o.name+' '+c.state+' '+c.hp+' HP; inspect');b.title=o.name+' — '+c.hp+'/'+c.maxhp+' HP — '+c.state+' — '+c.zone;const inspect=()=>{if(phone.querySelector('.decide'))return;phone.querySelector('.crew-inspect')?.remove();const info=el('crew-inspect',`<b>${esc(o.name)}</b><p>${esc(c.state)} · ${c.hp}/${c.maxhp} HP</p><p>${esc(c.zone)} · ${esc(c.lane||'CREW')} LINE</p><button>CLOSE</button>`,phone);info.querySelector('button').onclick=()=>info.remove();};b.onclick=inspect;b.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();inspect();}};}msgs.style.top=(64+crewStrip.offsetHeight+4)+'px';previous=snap;op.textContent=phase.replaceAll('_',' ')+' · '+snap.crew.filter(c=>c.state==='UP').length+'/'+snap.crew.length+' UP';for(const c of snap.crew){const n=phone.querySelector('[data-crew="'+c.id+'"]');if(n){n.dataset.state=c.state;n.title=c.name+' · '+c.hp+'/'+c.maxhp+' HP · '+c.zone;}}};
+ const crewStrip=el('operation-crew','',phone);let previous=null;const liveStates=new Map();
+ const ctlState=(snap,phase)=>{crewStrip.innerHTML='';for(const c of snap.crew){const o=byId(c.id)||{name:c.name,short:c.short};const prior=previous?.crew.find(x=>x.id===c.id);const changed=prior&&(prior.hp!==c.hp||prior.state!==c.state);liveStates.set(c.id,c);const sprite=`<span class="op-portrait">${faceOf(o,c,16)}</span>`;const b=el('operation-unit'+(changed?' changed':''),`${sprite}<span>${esc(o.short||o.name)}</span><b>${c.state==='UP'?c.hp+'/'+c.maxhp+' HP':esc(c.state)}</b>`,crewStrip);b.setAttribute('role','button');b.tabIndex=0;b.setAttribute('aria-label',o.name+' '+c.state+' '+c.hp+' HP; inspect');b.title=o.name+' — '+c.hp+'/'+c.maxhp+' HP — '+c.state+' — '+c.zone;const inspect=()=>{if(phone.querySelector('.decide'))return;phone.querySelector('.crew-inspect')?.remove();const info=el('crew-inspect',`<b>${esc(o.name)}</b><p>${esc(c.state)} · ${c.hp}/${c.maxhp} HP</p><p>${esc(c.zone)} · ${esc(c.lane||'CREW')} LINE</p><button>CLOSE</button>`,phone);info.querySelector('button').onclick=()=>info.remove();};b.onclick=inspect;b.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();inspect();}};}msgs.style.top=(64+crewStrip.offsetHeight+4)+'px';previous=snap;op.textContent=phase.replaceAll('_',' ')+' · '+snap.crew.filter(c=>c.state==='UP').length+'/'+snap.crew.length+' UP';for(const c of snap.crew){const n=phone.querySelector('[data-crew="'+c.id+'"]');if(n){n.dataset.state=c.state;n.innerHTML=faceOf(byId(c.id)||{id:c.id,name:c.name,cls:c.cls},c,16);n.title=c.name+' · '+c.hp+'/'+c.maxhp+' HP · '+c.zone;}}};
  rig.insertAdjacentHTML('beforeend',`<img class="handpov" src="${new URL('./art/rc5-hand-idle-270x480.png',import.meta.url).href}" alt="" aria-hidden="true"><img class="thumbpov" src="${new URL('./art/rc5-hand-thumb-270x480.png',import.meta.url).href}" alt="" aria-hidden="true">`);
  const thumb=rig.querySelector('.thumbpov');
  let alive=true,typingNode=null;
@@ -273,7 +274,7 @@ export async function roomScene({crewObjs,defense,objective='THE PLAY'}){
  const amb=S.room();
  const fade=()=>{[...msgs.children].reverse().forEach((c,i)=>{c.style.opacity=i<4?1:Math.max(.7,1-(i-3)*.1);});};
  const vib=()=>{rig.classList.remove('vib');void rig.offsetWidth;rig.classList.add('vib');};
- const label=id=>{const o=byId(id);return o?`<span class="fr" style="color:${CLS_COL[o.cls]||'#9aa0b8'}">${esc(o.name)}</span>`:'';};
+ const label=id=>{const o=byId(id);return o?`<span class="fr" style="color:${CLS_COL[o.cls]||'#9aa0b8'}">${faceOf(o,liveStates.get(id)||{},16)}${esc(o.name)}</span>`:'';};
  const showTyping=async(who,ms)=>{clearTyping();typingNode=el('bub typing',`${label(who)}<span class="dots"><span></span><span></span><span></span></span>`,msgs);fade();scroll();await sleep(ms);clearTyping();};
  const clearTyping=()=>{if(typingNode){typingNode.remove();typingNode=null;fade();}};
  const ctl={
@@ -299,7 +300,7 @@ export async function roomScene({crewObjs,defense,objective='THE PLAY'}){
    // Keep chat below the reviewed thumb's y242..275 footprint (+2px motion).
    const chatTop=msgs.style.top;msgs.style.top=Math.max(parseFloat(getComputedStyle(msgs).top),228)+'px';
    thumb.classList.add('on');const tap=reduced()?null:thumb.animate([{transform:'translateY(0)'},{transform:'translateY(2px)'},{transform:'translateY(0)'}],{duration:220/K.SPEED,iterations:Infinity});
-   el('bub me',esc(step.text),msgs);fade();scroll();S.rich();await sleep(1600);
+   el('bub me',faceOf({id:'rich'}, {},16)+esc(step.text),msgs);fade();scroll();S.rich();await sleep(1600);
    if(tap)tap.cancel();thumb.classList.remove('on');msgs.style.top=chatTop;scroll();
   },
   async silence(ms){alive=false;K.duck(true);await sleep(ms);},
@@ -355,7 +356,7 @@ export async function roomScene({crewObjs,defense,objective='THE PLAY'}){
    if(!alive)ctl.resume();
    await ctl.say({t:'say',who:faces[0]&&faces[0].id,text:line,kind:'EVENT',shake:0,red:0,typing:0,pause:300,call:true});
    msgs.style.paddingBottom='';
-   const d=el('decide',`<div class="who">WHO GETS IT?</div><div class="row faces">${faces.map(o=>`<button data-id="${esc(o.id)}" class="fb"><span class="f">${faceOf(o)}</span>${esc(o.short)}</button>`).join('')}</div>`,phone);
+   const d=el('decide',`<div class="who">WHO GETS IT?</div><div class="row faces">${faces.map(o=>`<button data-id="${esc(o.id)}" class="fb"><span class="f">${faceOf(o,liveStates.get(o.id)||{},16)}</span>${esc(o.short)}</button>`).join('')}</div>`,phone);
    msgs.style.bottom=(d.offsetHeight+10)+'px';scroll();d.querySelector('button')?.focus({preventScroll:true});const pick=await new Promise(r=>d.querySelectorAll('button').forEach(b=>b.onclick=()=>{K.unlock();S.confirm();r(b.dataset.id);}));
    d.remove();msgs.style.bottom='';msgs.style.paddingBottom='';return pick;
   },
