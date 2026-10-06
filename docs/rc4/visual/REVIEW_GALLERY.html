@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RC4 Visual & Finish Audit Gallery — Rich Alucard</title>
+  <style>
+    :root {
+      --bg: #0d0f12;
+      --card-bg: #161a22;
+      --border: #30363d;
+      --text: #c9d1d9;
+      --heading: #f0f6fc;
+      --accent: #d7193f;
+      --defect: #f85149;
+      --approved: #3fb950;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      padding: 24px;
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.5;
+    }
+    header {
+      border-bottom: 2px solid var(--border);
+      padding-bottom: 20px;
+      margin-bottom: 30px;
+    }
+    h1 { color: var(--heading); margin: 0 0 8px 0; font-size: 26px; }
+    .badge {
+      display: inline-block;
+      padding: 4px 8px;
+      border-radius: 4px;
+      font-size: 12px;
+      font-weight: 600;
+      margin-right: 8px;
+    }
+    .badge-p1 { background: rgba(248, 81, 73, 0.2); color: #f85149; border: 1px solid #f85149; }
+    .badge-ok { background: rgba(63, 185, 80, 0.2); color: #3fb950; border: 1px solid #3fb950; }
+    
+    .comparison-section {
+      background: #1c2128;
+      border: 2px solid var(--accent);
+      border-radius: 8px;
+      padding: 20px;
+      margin-bottom: 40px;
+    }
+    .comparison-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      margin-top: 16px;
+    }
+    .pair-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 16px;
+      text-align: center;
+    }
+    .pair-images {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 16px;
+      margin: 12px 0;
+      min-height: 120px;
+      background: #090b0e;
+      border-radius: 4px;
+      padding: 12px;
+    }
+    .pair-images img {
+      max-height: 110px;
+      image-rendering: pixelated;
+    }
+    .pair-desc { font-size: 13px; text-align: left; }
+
+    .section-title {
+      font-size: 20px;
+      color: var(--heading);
+      border-left: 4px solid var(--accent);
+      padding-left: 12px;
+      margin: 36px 0 16px 0;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 20px;
+    }
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.15s ease, border-color 0.15s ease;
+    }
+    .card:hover {
+      transform: translateY(-2px);
+      border-color: #58a6ff;
+    }
+    .card img {
+      width: 100%;
+      height: auto;
+      display: block;
+      background: #000;
+      image-rendering: pixelated;
+    }
+    .card-info {
+      padding: 12px;
+      font-size: 13px;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .card-label {
+      font-weight: 600;
+      color: var(--heading);
+      margin-bottom: 6px;
+    }
+    .card-meta {
+      font-size: 11px;
+      color: #8b949e;
+      font-family: monospace;
+      word-break: break-all;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>RC4 Every-Screen Visual & Finish Audit Gallery</h1>
+  <p>Playable Build: <code>ra-c9c273ff91a4-20261005062000</code> (RC3-play) &bull; Viewport: 390&times;844 &bull; Total Captures: 63</p>
+</header>
+
+<div class="comparison-section">
+  <h2 style="margin-top:0; color:#f85149;">&#9888; Critical Wrong-Art Defects: Expected Approved Art vs Loaded Canvas Silhouette</h2>
+  <p>In all four cases, approved chunky pixel character artwork exists inside the build but failed to wire into <code>people.js</code>, falling back to procedural placeholder canvases.</p>
+  
+  <div class="comparison-grid">
+    <div class="pair-card">
+      <h3 style="margin:0 0 8px 0; color:var(--heading);">VIS-001: Gbenga (NEW OGA Boss)</h3>
+      <div class="pair-images">
+        <div>
+          <span style="display:block; font-size:11px; color:#f85149;">ACTUAL (Canvas)</span>
+          <img src="evidence/side_by_side/gbenga_actual_rendered.png" alt="Gbenga Actual">
+        </div>
+        <div style="font-size:20px; color:#8b949e;">&rarr;</div>
+        <div>
+          <span style="display:block; font-size:11px; color:#3fb950;">EXPECTED (v2 Anchor)</span>
+          <img src="evidence/side_by_side/gbenga_expected_approved.png" alt="Gbenga Approved">
+        </div>
+      </div>
+      <div class="pair-desc">
+        <strong>Nodes:</strong> <code>NEW_OGA_M7</code>, <code>M8</code>, Gbenga Boss Combat<br>
+        <strong>Authority:</strong> BUILD-4 / OL-039 (Ledger #241).
+      </div>
+    </div>
+
+    <div class="pair-card">
+      <h3 style="margin:0 0 8px 0; color:var(--heading);">VIS-002: Carlos (Friend)</h3>
+      <div class="pair-images">
+        <div>
+          <span style="display:block; font-size:11px; color:#f85149;">ACTUAL (Canvas)</span>
+          <img src="evidence/side_by_side/carlos_actual_actor.png" alt="Carlos Actual">
+        </div>
+        <div style="font-size:20px; color:#8b949e;">&rarr;</div>
+        <div>
+          <span style="display:block; font-size:11px; color:#3fb950;">EXPECTED (v1 Anchor)</span>
+          <img src="evidence/side_by_side/carlos_expected_approved.png" alt="Carlos Approved">
+        </div>
+      </div>
+      <div class="pair-desc">
+        <strong>Nodes:</strong> <code>NEW_OGA_M4:beat1–4</code><br>
+        <strong>Authority:</strong> BUILD-4 / OL-039 (Ledger #241).
+      </div>
+    </div>
+
+    <div class="pair-card">
+      <h3 style="margin:0 0 8px 0; color:var(--heading);">VIS-003: Senator (Boss)</h3>
+      <div class="pair-images">
+        <div>
+          <span style="display:block; font-size:11px; color:#f85149;">ACTUAL (Canvas)</span>
+          <img src="evidence/side_by_side/senator_actual_rendered.png" alt="Senator Actual">
+        </div>
+        <div style="font-size:20px; color:#8b949e;">&rarr;</div>
+        <div>
+          <span style="display:block; font-size:11px; color:#3fb950;">EXPECTED (160x160 Sitting)</span>
+          <img src="evidence/side_by_side/senator_expected_approved.png" alt="Senator Approved">
+        </div>
+      </div>
+      <div class="pair-desc">
+        <strong>Nodes:</strong> <code>NEW_OGA_M6:beat2</code><br>
+        <strong>Authority:</strong> BUILD-4 Presentation Director / OL-039.
+      </div>
+    </div>
+
+    </div>
+</div>
+</div>
+
+<h2 class="section-title">1. Start Screen & Ocean Floor Prologue</h2>
+<div class="grid">
+  <div class="card">
+    <a href="evidence/start_prologue/01_start_screen.png" target="_blank"><img src="evidence/start_prologue/01_start_screen.png" alt="Start Screen with PRESS START Prompt" loading="lazy"></a>
+    <div class="card-info">
+      <div class="card-label">Start Screen with PRESS START Prompt</div>
+      <div class="card-meta">01_start_screen.png</div>
+    </div>
+  </div>
+  <div class="card">
+    <a href="evidence/start_prologue/02_ocean_ladder_intact.png" target="_blank"><img src="evidence/start_prologue/02_ocean_ladder_intact.png" alt="Prologue: Ocean Floor with Intact Ladder (Soul)" loading="lazy"></a>
+    <div class="card-info">
+      <div class="card-label">Prologue: Ocean Floor with Intact Ladder (Soul)</div>
+      <div class="card-meta">02_ocean_ladder_intact.png</div>
+    </div>
+  </div>
+  <div class="card">
+    <a href="evidence/start_prologue/03_ocean_ladder_collapsed.png" target="_blank"><img src="evidence/start_prologue/03_ocean_ladder_collapsed.png" alt="Prologue: Ladder Collapse" loading="lazy"></a>
+    <div class="card-info">
+      <div class="card-label">Prologue: Ladder Collapse</div>
+      <div class="card-meta">03_ocean_ladder_collapsed.png</div>
+    </div>
+  </div>
+  <div class="card">
+    <a href="evidence/start_prologue/04_octopus_sensei_appears.png" target="_blank"><img src="evidence/start_prologue/04_octopus_sensei_appears.png" alt="Prologue: Octopus Sensei Teaching" loading="lazy"></a>
+    <div class="card-info">
+      <div class="card-label">Prologue: Octopus Sensei Teaching</div>
+      <div class="card-meta">04_octopus_sensei_appears.png</div>
+    </div>
+  </div>
+</div>
+
+<h2 class="section-title">2. Battle System & Combat Staging</h2>
+<div class="grid">
+  <div class="card">
+    <a href="evidence/combat/05_throne_room_battle_intro.png" target="_blank"><img src="evidence/combat/05_throne_room_battle_intro.png" alt="Throne Room Battle: CEO Prince & Assistant vs Rich" loading="lazy"></a>
+    <div class="card-info">
+      <div class="card-label">Throne Room Battle: CEO Prince & Assistant vs Rich</div>
+      <div class="card-meta">05_throne_room_battle_intro.png</div>
+    </div>
+  </div>
+  <div class="card">
+    <a href="evidence/combat/06_combat_move_menu.png" target="_blank"><img src="evidence/combat/06_combat_move_menu.png" alt="Combat Move Selection Menu (Blood Bath, Bite, Octopus, Revenge)" loading="lazy"></a>
+    <div class="card-info">
+      <div class="card-label">Combat Move Selection Menu (Blood Bath, Bite, Octopus, Revenge)</div>
+      <div class="card-meta">06_combat_move_menu.png</div>
+    </div>
+  </div>
+  <div class="card">
+    <a href="evidence/combat/07_blood_bath_animation.png" target="_blank"><img src="evidence/combat/07_blood_bath_animation.png" alt="Blood Bath Attack Animation & Damage FX" loading="lazy"></a>
+    <div class="card-info">
+      <div class="card-label">Blood Bath Attack Animation & Damage FX</div>
+      <div class="card-meta">07_blood_bath_animation.png</div>
+    </div>
+  </div>
+  <div class="card">
+    <a href="evidence/combat/08_vampire_bite_animation.png" target="_blank"><img src="evidence/combat/08_vampire_bite_animation.png" alt="Vampire Bite Attack & HP Siphon" loading="lazy"></a>
+    <div class="card-info">
+      <div class="card-label">Vampire Bite Attack & HP Siphon</div>
+      <div class="card-meta">08_vampire_bite_animation.png</div>
+    </div>
+  </div>
+  <div class="card">
+    <a href="evidence/combat/09_octopus_brain_overlay.png" target="_blank"><img src="evidence/combat/09_octopus_brain_overlay.png" alt="Octopus Brain Strategic Choice Modal" loading="lazy"></a>
+    <div class="card-info">
+      <div class="card-label">Octopus Brain Strategic Choice Modal</div>
+      <div class="card-meta">09_octopus_brain_overlay.png</div>
+    </div>
+  </div>
+  <div class="card">
+    <a href="evidence/combat/10_battle_victory_steal.png" target="_blank"><img src="evidence/combat/10_battle_victory_steal.png" alt="Combat Victory: CEO Defeated, Steal Decision Overlay" loading="lazy"></a>
+    <div class="card-info">
+      <div class="card-label">Combat Victory: CEO Defeated, Steal Decision Overlay</div>
+      <div class="card-meta">10_battle_victory_steal.png</div>
+    </div>
+  </div>
+</div>
+
+<h2 class="section-title">3. Bedroom & Castle Exploration</h2>
+<div class="grid">
+  <div class="card">
+    <a href="evidence/home_bedroom/11_bedroom_waking_clouds.png" target="_blank"><img src="evidence/home_bedroom/11_bedroom_waking_clouds.png" alt="Bedroom Sleeping / Wake Animation with Drifting Clouds" loading="lazy"></a>
+    <div class="card-info">
+      <div class="card-label">Bedroom Sleeping / Wake Animation with Drifting Clouds</div>
+      <div class="card-meta">11_bedroom_waking_clouds.png</div>
+    </div>
+  </div>
+  <div class="card">
+    <a href="evidence/home_bedroom/12_bedroom_lounging_hud.png" target="_blank"><img src="evidence/home_bedroom/12_bedroom_lounging_hud.png" alt="Bedroom Lounging: Cash HUD, Clock, Sleep/Castle Options" loading="lazy"></a>
+    <div class="card-info">
+      <div class="card-label">Bedroom Lounging: Cash HUD, Clock, Sleep/Castle Options</div>
+      <div class="card-meta">12_bedroom_lounging_hud.png</div>
+    </div>
+  </div>
+  <div class="card">
+    <a href="evidence/home_bedroom/13_castle_navigation_menu.png" target="_blank"><img src="evidence/home_bedroom/13_castle_navigation_menu.png" alt="Castle Rooms & Wings Navigation Menu" loading="lazy"></a>
+    <div class="card-info">
+      <div class="card-label">Castle Rooms & Wings Navigation Menu</div>
+      <div class="card-meta">13_castle_navigation_menu.png</div>
+    </div>
+  </div>
+</div>
+
+<h2 class="section-title">4. Smartphone UI & Retained Apps</h2>
+<div class="grid">
+  <div class="card">
+    <a href="evidence/phone_apps/14_phone_home_9apps.png" target="_blank"><img src="evidence/phone_apps/14_phone_home_9apps.png" alt="Pixel Smartphone: Home Grid of 9 Apps" loading="lazy"></a>
+    <div class="card-info">
+      <div class="card-label">Pixel Smartphone: Home Grid of 9 Apps</div>
+      <div class="card-meta">14_phone_home_9apps.png</div>
+    </div>
+  </div>
+  <div class="card">
+    <a href="evidence/phone_apps/15_texts_thread_list.png" target="_blank"><img src="evidence/phone_apps/15_texts_thread_list.png" alt="Texts App: Message Threads List" loading="lazy"></a>
+    <div class="card-info">
+      <div class="card-label">Texts App: Message Threads List</div>
+      <div class="card-meta">15_texts_thread_list.png</div>
+    </div>
+  </div>
+  <div class="card">
+    <a href="evidence/phone_apps/16_texts_family_thread.png" target="_blank"><img src="evidence/phone_apps/16_texts_family_thread.png" alt="Family Thread: Mom, Dad, Sister, Big Bro, Lil Bro Avatars" loading="lazy"></a>
+    <div class="card-info">
+      <div class="card-label">Family Thread: Mom, Dad, Sister, Big Bro, Lil Bro Avatars</div>
+      <div class="card-meta">16_texts_family_thread.png</div>
+    </div>
+  </div>
+  <div class="card">
+    <a href="evidence/phone_apps/17_vampgram_feed.png" target="_blank"><img src="evidence/phone_apps/17_vampgram_feed.png" alt="VampGram App: Feed Posts, Follower Count & Avatars" loading="lazy"></a>
+    <div class="card-info">
+      <div class="card-label">VampGram App: Feed Posts, Follower Count & Avatars</div>
+      <div class="card-meta">17_vampgram_feed.png</div>
+    </div>
+  </div>
+  <div class="card">
+    <a href="evidence/phone_apps/18_bank_real_estate.png" target="_blank"><img src="evidence/phone_apps/18_bank_real_estate.png" alt="Bank App: Cash Reserves, Rent Balance, Property Listings" loading="lazy"></a>
+    <div class="card-info">
+      <div class="card-label">Bank App: Cash Reserves, Rent Balance, Property Listings</div>
+      <div class="card-meta">18_bank_real_estate.png</div>
+    </div>
+  </div>
+  <div class="card">
+    <a href="evidence/phone_apps/19_maps_retained_outings.png" target="_blank"><img src="evidence/phone_apps/19_maps_retained_outings.png" alt="Maps App: Retained Adventures & City Outings" loading="lazy"></a>
+    <div class="card-info">
+      <div class="card-label">Maps App: Retained Adventures & City Outings</div>
+      <div class="card-meta">19_maps_retained_outings.png</div>
+    </div>
+  </div>
+  <div class="card">
+    <a href="evidence/phone_apps/20_armory_catalog.png" target="_blank"><img src="evidence/phone_apps/20_armory_catalog.png" alt="Armory: Deacon Brass Gun Catalog & Inventory" loading="lazy"></a>
+    <div class="card-info">
+      <div class="card-label">Armory: Deacon Brass Gun Catalog & Inventory</div>
+      <div class="card-meta">20_armory_catalog.png</div>
+    </div>
+  </div>
+  <div class="card">
+    <a href="evidence/phone_apps/21_radio_player.png" target="_blank"><img src="evidence/phone_apps/21_radio_player.png" alt="Rich Radio: Track Player, Cassette Covers & Cook Stems" loading="lazy"></a>
+    <div class="card-info">
+      <div class="card-label">Rich Radio: Track Player, Cassette Covers & Cook Stems</div>
+      <div class="card-meta">21_radio_player.png</div>
+    </div>
+  </div>
+  <div class="card">
+    <a href="evidence/phone_apps/22_vampgpt_guidance.png" target="_blank"><img src="evidence/phone_apps/22_vampgpt_guidance.png" alt="VampGPT: Conversational Guidance & Next Recommended Step" loading="lazy"></a>
+    <div class="card-info">
+      <div class="card-label">VampGPT: Conversational Guidance & Next Recommended Step</div>
+      <div class="card-meta">22_vampgpt_guidance.png</div>
+    </div>
+  </div>
+  <div class="card">
+    <a href="evidence/phone_apps/23_onlyvamps_subscriptions.png" target="_blank"><img src="evidence/phone_apps/23_onlyvamps_subscriptions.png" alt="OnlyVamps App: Subscriptions & Content Tiers" loading="lazy"></a>
+    <div class="card-info">
+      <div class="card-label">OnlyVamps App: Subscriptions & Content Tiers</div>
+      <div class="card-meta">23_onlyvamps_subscriptions.png</div>
+    </div>
+  </div>
+  <div class="card">
+    <a href="evidence/phone_apps/24_war_room_playmakers.png" target="_blank"><img src="evidence/phone_apps/24_war_room_playmakers.png" alt="War Room / PLAY: Crew Roster, Vehicles & Active District Jobs" loading="lazy"></a>
+    <div class="card-info">
+      <div class="card-label">War Room / PLAY: Crew Roster, Vehicles & Active District Jobs</div>
+      <div class="card-meta">24_war_room_playmakers.png</div>
+    </div>
+  </div>
+</div>
+
+<h2 class="section-title">5. Flagship Strip Club & Stage Cards</h2>
+<div class="grid">
+  <div class="card">
+    <a href="evidence/strip_club/25_club_stage_entrance.png" target="_blank"><img src="evidence/strip_club/25_club_stage_entrance.png" alt="Strip Club Flagship: Stage Lights, Velvet Decor & Audience" loading="lazy"></a>
+    <div class="card-info">
+      <div class="card-label">Strip Club Flagship: Stage Lights, Velvet Decor & Audience</div>
+      <div class="card-meta">25_club_stage_entrance.png</div>
+    </div>
+  </div>
+  <div class="card">
+    <a href="evidence/strip_club/26_club_dancer_stagecards.png" target="_blank"><img src="evidence/strip_club/26_club_dancer_stagecards.png" alt="Strip Club Dancers: Roxy, Rosalyn, Emerald Stage Cards & Tier Indicators" loading="lazy"></a>
+    <div class="card-info">
+      <div class="card-label">Strip Club Dancers: Roxy, Rosalyn, Emerald Stage Cards & Tier Indicators</div>
+      <div class="card-meta">26_club_dancer_stagecards.png</div>
+    </div>
+  </div>
+  <div class="card">
+    <a href="evidence/strip_club/27_club_spray_cash_particles.png" target="_blank"><img src="evidence/strip_club/27_club_spray_cash_particles.png" alt="Make It Rain: Cascading Money Notes Animation" loading="lazy"></a>
+    <div class="card-info">
+      <div class="card-label">Make It Rain: Cascading Money Notes Animation</div>
+      <div class="card-meta">27_club_spray_cash_particles.png</div>
+    </div>
+  </div>
+</div>
+
+<h2 class="section-title">6. All 12 Dancer Dates (Roxy, Rosalyn, Emerald)</h2>
+<div class="grid">
+  <div class="card">
+    <a href="evidence/dancer_dates/28_date_roxy_l1.png" target="_blank"><img src="evidence/dancer_dates/28_date_roxy_l1.png" alt="Roxy Level 1 Date Scene (F15_ROXY_L1)" loading="lazy"></a>
+    <div class="card-info">
+      <div class="card-label">Roxy Level 1 Date Scene (F15_ROXY_L1)</div>
+      <div class="card-meta">28_date_roxy_l1.png</div>
+    </div>
+  </div>
+  <div class="card">
+    <a href="evidence/dancer_dates/28_date_roxy_l2.png" target="_blank"><img src="evidence/dancer_dates/28_date_roxy_l2.png" alt="Roxy Level 2 Date Scene (F15_ROXY_L2)" loading="lazy"></a>
+    <div class="card-info">
+      <div class="card-label">Roxy Level 2 Date Scene (F15_ROXY_L2)</div>
+      <div class="card-meta">28_date_roxy_l2.png</div>
+    </div>
+  </div>
+  <div class="card">
+    <a href="evidence/dancer_dates/28_date_roxy_l3.png" target="_blank"><img src="evidence/dancer_dates/28_date_roxy_l3.png" alt="Roxy Level 3 Date Scene (F15_ROXY_L3)" loading="lazy"></a>
+    <div class="card-info">
+      <div class="card-label">Roxy Level 3 Date Scene (F15_ROXY_L3)</div>
+      <div class="card-meta">28_date_roxy_l3.png</div>
+    </div>
+  </div>
+  <div class="card">
+    <a href="evidence/dancer_dates/28_date_roxy_l4.png" target="_blank"><img src="evidence/dancer_dates/28_date_roxy_l4.png" alt="Roxy Level 4 Date Scene (F15_ROXY_L4)" loading="lazy"></a>
+    <div class="card-info">
+      <div class="card-label">Roxy Level 4 Date Scene (F15_ROXY_L4)</div>
+      <div class="card-meta">28_date_roxy_l4.png</div>
+    </div>
+  </div>
+  <div class="card">
+    <a href="evidence/dancer_dates/28_date_rosalyn_l1.png" target="_blank"><img src="evidence/dancer_dates/28_date_rosalyn_l1.png" alt="Rosalyn Level 1 Date Scene (F15_ROSALYN_L1)" loading="lazy"></a>
+    <div class="card-info">
+      <div class="card-label">Rosalyn Level 1 Date Scene (F15_ROSALYN_L1)</div>
+      <div class="card-meta">28_date_rosalyn_l1.png</div>
+    </div>
+  </div>
+  <div class="card">
+    <a href="evidence/dancer_dates/28_date_rosalyn_l2.png" target="_blank"><img src="evidence/dancer_dates/28_date_rosalyn_l2.png" alt="Rosalyn Level 2 Date Scene (F15_ROSALYN_L2)" loading="lazy"></a>
+    <div class="card-info">
+      <div class="card-label">Rosalyn Level 2 Date Scene (F15_ROSALYN_L2)</div>
+      <div class="card-meta">28_date_rosalyn_l2.png</div>
+    </div>
+  </div>
+  <div class="card">
+    <a href="evidence/dancer_dates/28_date_rosalyn_l3.png" target="_blank"><img src="evidence/dancer_dates/28_date_rosalyn_l3.png" alt="Rosalyn Level 3 Date Scene (F15_ROSALYN_L3)" loading="lazy"></a>
+    <div class="card-info">
+      <div class="card-label">Rosalyn Level 3 Date Scene (F15_ROSALYN_L3)</div>
+      <div class="card-meta">28_date_rosalyn_l3.png</div>
+    </div>
+  </div>
+  <div class="card">
+    <a href="evidence/dancer_dates/28_date_rosalyn_l4.png" target="_blank"><img src="evidence/dancer_dates/28_date_rosalyn_l4.png" alt="Rosalyn Level 4 Date Scene (F15_ROSALYN_L4)" loading="lazy"></a>
+    <div class="card-info">
+      <div class="card-label">Rosalyn Level 4 Date Scene (F15_ROSALYN_L4)</div>
+      <div class="card-meta">28_date_rosalyn_l4.png</div>
+    </div>
+  </div>
+  <div class="card">
+    <a href="evidence/dancer_dates/28_date_emerald_l1.png" target="_blank"><img src="evidence/dancer_dates/28_date_emerald_l1.png" alt="Emerald Level 1 Date Scene (F15_EMERALD_L1)" loading="lazy"></a>
+    <div class="card-info">
+      <div class="card-label">Emerald Level 1 Date Scene (F15_EMERALD_L1)</div>
+      <div class="card-meta">28_date_emerald_l1.png</div>
+    </div>
+  </div>
+  <div class="card">
+    <a href="evidence/dancer_dates/28_date_emerald_l2.png" target="_blank"><img src="evidence/dancer_dates/28_date_emerald_l2.png" alt="Emerald Level 2 Date Scene (F15_EMERALD_L2)" loading="lazy"></a>
+    <div class="card-info">
+      <div class="card-label">Emerald Level 2 Date Scene (F15_EMERALD_L2)</div>
+      <div class="card-meta">28_date_emerald_l2.png</div>
+    </div>
+  </div>
+  <div class="card">
+    <a href="evidence/dancer_dates/28_date_emerald_l3.png" target="_blank"><img src="evidence/dancer_dates/28_date_emerald_l3.png" alt="Emerald Level 3 Date Scene (F15_EMERALD_L3)" loading="lazy"></a>
+    <div class="card-info">
+      <div class="card-label">Emerald Level 3 Date Scene (F15_EMERALD_L3)</div>
+      <div class="card-meta">28_date_emerald_l3.png</div>
+    </div>
+  </div>
+  <div class="card">
+    <a href="evidence/dancer_dates/28_date_emerald_l4.png" target="_blank"><img src="evidence/dancer_dates/28_date_emerald_l4.png" alt="Emerald Level 4 Date Scene (F15_EMERALD_L4)" loading="lazy"></a>
+    <div class="card-info">
+      <div class="card-label">Emerald Level 4 Date Scene (F15_EMERALD_L4)</div>
+      <div class="card-meta">28_date_emerald_l4.png</div>
+    </div>
+  </div>
+</div>
+
+<h2 class="section-title">7. Retained Minigames & Activities</h2>
+<div class="grid">
+  <div class="card">
+    <a href="evidence/minigames/29_minigame_slurp_ramen.png" target="_blank"><img src="evidence/minigames/29_minigame_slurp_ramen.png" alt="Minigame: Slurp Ramen" loading="lazy"></a>
+    <div class="card-info">
+      <div class="card-label">Minigame: Slurp Ramen</div>
+      <div class="card-meta">29_minigame_slurp_ramen.png</div>
+    </div>
+  </div>
+  <div class="card">
+    <a href="evidence/minigames/30_minigame_jollof_wars.png" target="_blank"><img src="evidence/minigames/30_minigame_jollof_wars.png" alt="Minigame: Jollof Wars Cookoff" loading="lazy"></a>
+    <div class="card-info">
+      <div class="card-label">Minigame: Jollof Wars Cookoff</div>
+      <div class="card-meta">30_minigame_jollof_wars.png</div>
+    </div>
+  </div>
+  <div class="card">
+    <a href="evidence/minigames/31_minigame_pier_fishing.png" target="_blank"><img src="evidence/minigames/31_minigame_pier_fishing.png" alt="Minigame: Pier Fishing" loading="lazy"></a>
+    <div class="card-info">
+      <div class="card-label">Minigame: Pier Fishing</div>
+      <div class="card-meta">31_minigame_pier_fishing.png</div>
+    </div>
+  </div>
+  <div class="card">
+    <a href="evidence/minigames/32_minigame_range_day.png" target="_blank"><img src="evidence/minigames/32_minigame_range_day.png" alt="Minigame: Range Day Shooting" loading="lazy"></a>
+    <div class="card-info">
+      <div class="card-label">Minigame: Range Day Shooting</div>
+      <div class="card-meta">32_minigame_range_day.png</div>
+    </div>
+  </div>
+  <div class="card">
+    <a href="evidence/minigames/33_minigame_hookah_roof.png" target="_blank"><img src="evidence/minigames/33_minigame_hookah_roof.png" alt="Minigame: Hookah Roof" loading="lazy"></a>
+    <div class="card-info">
+      <div class="card-label">Minigame: Hookah Roof</div>
+      <div class="card-meta">33_minigame_hookah_roof.png</div>
+    </div>
+  </div>
+  <div class="card">
+    <a href="evidence/minigames/34_minigame_touge_drift.png" target="_blank"><img src="evidence/minigames/34_minigame_touge_drift.png" alt="Minigame: Touge Mountain Drift" loading="lazy"></a>
+    <div class="card-info">
+      <div class="card-label">Minigame: Touge Mountain Drift</div>
+      <div class="card-meta">34_minigame_touge_drift.png</div>
+    </div>
+  </div>
+  <div class="card">
+    <a href="evidence/minigames/35_minigame_bars_rap.png" target="_blank"><img src="evidence/minigames/35_minigame_bars_rap.png" alt="Minigame: Bars Rap Battle" loading="lazy"></a>
+    <div class="card-info">
+      <div class="card-label">Minigame: Bars Rap Battle</div>
+      <div class="card-meta">35_minigame_bars_rap.png</div>
+    </div>
+  </div>
+  <div class="card">
+    <a href="evidence/minigames/36_minigame_pickup_hoops.png" target="_blank"><img src="evidence/minigames/36_minigame_pickup_hoops.png" alt="Minigame: Pickup Basketball Venice" loading="lazy"></a>
+    <div class="card-info">
+      <div class="card-label">Minigame: Pickup Basketball Venice</div>
+      <div class="card-meta">36_minigame_pickup_hoops.png</div>
+    </div>
+  </div>
+  <div class="card">
+    <a href="evidence/minigames/37_minigame_hatch_dragon.png" target="_blank"><img src="evidence/minigames/37_minigame_hatch_dragon.png" alt="Minigame: Hatch Dragon Nursery" loading="lazy"></a>
+    <div class="card-info">
+      <div class="card-label">Minigame: Hatch Dragon Nursery</div>
+      <div class="card-meta">37_minigame_hatch_dragon.png</div>
+    </div>
+  </div>
+</div>
+
+<h2 class="section-title">8. Story Bosses & Faction Staging</h2>
+<div class="grid">
+  <div class="card">
+    <a href="evidence/bosses_factions/38_carlos_m4_staging_defect.png" target="_blank"><img src="evidence/bosses_factions/38_carlos_m4_staging_defect.png" alt="NEW OGA M4: Carlos Staged as Grey Silhouette" loading="lazy"></a>
+    <div class="card-info">
+      <div class="card-label">NEW OGA M4: Carlos Staged as Grey Silhouette</div>
+      <div class="card-meta">38_carlos_m4_staging_defect.png</div>
+    </div>
+  </div>
+  <div class="card">
+    <a href="evidence/bosses_factions/39_gbenga_m7_dinner_defect.png" target="_blank"><img src="evidence/bosses_factions/39_gbenga_m7_dinner_defect.png" alt="NEW OGA M7: Gbenga Staged as Placeholder Silhouette" loading="lazy"></a>
+    <div class="card-info">
+      <div class="card-label">NEW OGA M7: Gbenga Staged as Placeholder Silhouette</div>
+      <div class="card-meta">39_gbenga_m7_dinner_defect.png</div>
+    </div>
+  </div>
+  <div class="card">
+    <a href="evidence/bosses_factions/40_senator_m6_staging_defect.png" target="_blank"><img src="evidence/bosses_factions/40_senator_m6_staging_defect.png" alt="NEW OGA M6: Senator Staging" loading="lazy"></a>
+    <div class="card-info">
+      <div class="card-label">NEW OGA M6: Senator Staging</div>
+      <div class="card-meta">40_senator_m6_staging_defect.png</div>
+    </div>
+  </div>
+  <div class="card">
+    <a href="evidence/bosses_factions/41_gbenga_boss_combat.png" target="_blank"><img src="evidence/bosses_factions/41_gbenga_boss_combat.png" alt="Gbenga Boss Fight Encounter Staging" loading="lazy"></a>
+    <div class="card-info">
+      <div class="card-label">Gbenga Boss Fight Encounter Staging</div>
+      <div class="card-meta">41_gbenga_boss_combat.png</div>
+    </div>
+  </div>
+</div>
+
+<h2 class="section-title">9. Retained City Adventures & Encounters</h2>
+<div class="grid">
+  <div class="card">
+    <a href="evidence/maps_adventures/42_a31_god_on_curb.png" target="_blank"><img src="evidence/maps_adventures/42_a31_god_on_curb.png" alt="Maps Outing: God on the Curb (A31)" loading="lazy"></a>
+    <div class="card-info">
+      <div class="card-label">Maps Outing: God on the Curb (A31)</div>
+      <div class="card-meta">42_a31_god_on_curb.png</div>
+    </div>
+  </div>
+  <div class="card">
+    <a href="evidence/maps_adventures/43_a18_forty_kevins.png" target="_blank"><img src="evidence/maps_adventures/43_a18_forty_kevins.png" alt="Maps Outing: Forty Kevins (A18)" loading="lazy"></a>
+    <div class="card-info">
+      <div class="card-label">Maps Outing: Forty Kevins (A18)</div>
+      <div class="card-meta">43_a18_forty_kevins.png</div>
+    </div>
+  </div>
+  <div class="card">
+    <a href="evidence/maps_adventures/44_a10_uncle_sunday.png" target="_blank"><img src="evidence/maps_adventures/44_a10_uncle_sunday.png" alt="Maps Outing: Uncle Sunday Agege Bread (A10)" loading="lazy"></a>
+    <div class="card-info">
+      <div class="card-label">Maps Outing: Uncle Sunday Agege Bread (A10)</div>
+      <div class="card-meta">44_a10_uncle_sunday.png</div>
+    </div>
+  </div>
+  <div class="card">
+    <a href="evidence/maps_adventures/45_a43_naija_mart.png" target="_blank"><img src="evidence/maps_adventures/45_a43_naija_mart.png" alt="Maps Outing: Naija Mart & Malt (A43)" loading="lazy"></a>
+    <div class="card-info">
+      <div class="card-label">Maps Outing: Naija Mart & Malt (A43)</div>
+      <div class="card-meta">45_a43_naija_mart.png</div>
+    </div>
+  </div>
+  <div class="card">
+    <a href="evidence/maps_adventures/46_a20_power_level_phil.png" target="_blank"><img src="evidence/maps_adventures/46_a20_power_level_phil.png" alt="Maps Outing: Power Level Phil (A20)" loading="lazy"></a>
+    <div class="card-info">
+      <div class="card-label">Maps Outing: Power Level Phil (A20)</div>
+      <div class="card-meta">46_a20_power_level_phil.png</div>
+    </div>
+  </div>
+  <div class="card">
+    <a href="evidence/maps_adventures/47_a27_sir_bonesworth.png" target="_blank"><img src="evidence/maps_adventures/47_a27_sir_bonesworth.png" alt="Maps Outing: Sir Bonesworth (A27)" loading="lazy"></a>
+    <div class="card-info">
+      <div class="card-label">Maps Outing: Sir Bonesworth (A27)</div>
+      <div class="card-meta">47_a27_sir_bonesworth.png</div>
+    </div>
+  </div>
+  <div class="card">
+    <a href="evidence/maps_adventures/48_a23_hilt_hunter.png" target="_blank"><img src="evidence/maps_adventures/48_a23_hilt_hunter.png" alt="Maps Outing: Hilt Hunter (A23)" loading="lazy"></a>
+    <div class="card-info">
+      <div class="card-label">Maps Outing: Hilt Hunter (A23)</div>
+      <div class="card-meta">48_a23_hilt_hunter.png</div>
+    </div>
+  </div>
+  <div class="card">
+    <a href="evidence/maps_adventures/49_a24_guns_and_grace.png" target="_blank"><img src="evidence/maps_adventures/49_a24_guns_and_grace.png" alt="Maps Outing: Guns and Grace (A24)" loading="lazy"></a>
+    <div class="card-info">
+      <div class="card-label">Maps Outing: Guns and Grace (A24)</div>
+      <div class="card-meta">49_a24_guns_and_grace.png</div>
+    </div>
+  </div>
+</div>
+
+<h2 class="section-title">10. Royal Bug / Little Brother Case</h2>
+<div class="grid">
+  <div class="card">
+    <a href="evidence/royal_bug/50_a53_thanksgiving_kitchen_brothers.png" target="_blank"><img src="evidence/royal_bug/50_a53_thanksgiving_kitchen_brothers.png" alt="A53 Thanksgiving: Big Bro & Lil Bro in Kitchen" loading="lazy"></a>
+    <div class="card-info">
+      <div class="card-label">A53 Thanksgiving: Big Bro & Lil Bro in Kitchen</div>
+      <div class="card-meta">50_a53_thanksgiving_kitchen_brothers.png</div>
+    </div>
+  </div>
+</div>
+
+<h2 class="section-title">11. Responsive Viewports & Scaling (360px & 430px)</h2>
+<div class="grid">
+  <div class="card">
+    <a href="evidence/finish_defects/51_viewport_360_bedroom.png" target="_blank"><img src="evidence/finish_defects/51_viewport_360_bedroom.png" alt="Viewport 360x740: Bedroom Layout & Scale" loading="lazy"></a>
+    <div class="card-info">
+      <div class="card-label">Viewport 360x740: Bedroom Layout & Scale</div>
+      <div class="card-meta">51_viewport_360_bedroom.png</div>
+    </div>
+  </div>
+  <div class="card">
+    <a href="evidence/finish_defects/52_viewport_430_bedroom.png" target="_blank"><img src="evidence/finish_defects/52_viewport_430_bedroom.png" alt="Viewport 430x932: Bedroom Layout & Scale" loading="lazy"></a>
+    <div class="card-info">
+      <div class="card-label">Viewport 430x932: Bedroom Layout & Scale</div>
+      <div class="card-meta">52_viewport_430_bedroom.png</div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
