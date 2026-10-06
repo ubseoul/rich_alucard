@@ -13,7 +13,7 @@
   Object.assign(layer.style,{position:'absolute',left:`${world.x}px`,top:`${world.y}px`,width:`${world.w}px`,height:`${world.h}px`,pointerEvents:'none',zIndex:'4',overflow:'hidden',imageRendering:'pixelated'});root.append(layer);
   for(const o of overlays){const el=o.canvas||document.createElement('img');if(o.src)el.src=o.src;el.alt='';el.hidden=!!o.hidden;Object.assign(el.style,{position:'absolute',left:`${o.x*scale}px`,top:`${o.y*scale}px`,width:`${o.w*scale}px`,height:`${o.h*scale}px`,imageRendering:'pixelated'});layer.append(el);objects.set(o.id,el);}
   const skip=document.createElement('button');skip.type='button';skip.textContent='SKIP ANIMATION';skip.setAttribute('aria-label','Skip animation');
-  Object.assign(skip.style,{position:'absolute',right:'8px',top:'8px',zIndex:'12',font:'inherit',fontSize:'10px',padding:'8px',color:'#f6efd9',background:'#181326',border:'1px solid #9460c0'});root.append(skip);
+  Object.assign(skip.style,{position:'absolute',right:'8px',top:Math.max(world.y+8,world.y+world.h-36)+'px',zIndex:'12',font:'inherit',fontSize:'10px',padding:'8px',color:'#f6efd9',background:'#181326',border:'1px solid #9460c0'});root.append(skip);
   const draw=frame=>{for(const a of frame?.actors||[]){const el=a.el;if(!el?.isConnected)continue;const prior=original.get(el);if(a.src)el.src=a.src;el.hidden=false;
     const base=prior?.style?(()=>{const probe=document.createElement('div');probe.setAttribute('style',prior.style);return probe.style.transform;})():'';
     el.style.transform=`translate(${(a.dx||0)*scale}px,${(a.dy||0)*scale}px) rotate(${a.angle||0}deg) ${base||''}`;if(a.opacity!=null)el.style.opacity=String(a.opacity);}
