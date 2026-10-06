@@ -30,7 +30,7 @@
   out_climb:{lines:[N("tentacles carry him up ladder unemployed")],next:'out'},
   out_swim:{lines:[N("rich swims up nobody thought of that shit")],next:'out'},
   out_ask:{lines:[S('octopus_sensei',"up bro"),null],next:'out'},
-  out:{lines:[N("finally out"),N("the memory carries on. back at his castle, the borrowed brain came with him."),R("ugh my head hurts"),N("in the throne room, the CEO zombie prince is already throwing his weight around. and his briefcase."),N("rich wants a quiet life making music. somebody always brings a fight to his house.")],end:{outcome:'out',location:'battle',memory:{text:'the ladder at the bottom of the ocean',lane:'home'},receipt:{id:'ladder',caption:'the ladder. never again.'}}}
+  out:{env:'throne',actors:{mid:'rich'},lines:[N("finally out"),N("the memory carries on. back at his castle, the borrowed brain came with him."),R("ugh my head hurts"),N("in the throne room, the CEO zombie prince is already throwing his weight around. and his briefcase."),N("rich wants a quiet life making music. somebody always brings a fight to his house.")],end:{outcome:'out',location:'battle',memory:{text:'the ladder at the bottom of the ocean',lane:'home'},receipt:{id:'ladder',caption:'the ladder. never again.'}}}
  }});
  // WAKE-time helpers for the life clock's first days.
  RAClock.onWake('btf-day-flags',15,({info})=>{
