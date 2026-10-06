@@ -1,0 +1,366 @@
+[
+  {
+    "identity": "rich",
+    "state": "READY",
+    "size": 32,
+    "file": "rich-ready-32-v3-native.png",
+    "sha256": "B347C0E3BEC7B21A9C4A5C312EC17907DFDC66B5A425955F2CD70BFA0AAE8188"
+  },
+  {
+    "identity": "rich",
+    "state": "WOUNDED",
+    "size": 16,
+    "file": "rich-wounded-16-v3-native.png",
+    "sha256": "F40A71A73B6E2A298CFCF1E250018FC9526A420E0D1FCD9675BCE499FFD4BB14"
+  },
+  {
+    "identity": "rich",
+    "state": "WOUNDED",
+    "size": 32,
+    "file": "rich-wounded-32-v3-native.png",
+    "sha256": "A663CE5DA37526A1B5CF77C76F398C5824626158EAF9F2B59208886A53766E8E"
+  },
+  {
+    "identity": "rich",
+    "state": "READY",
+    "size": 16,
+    "file": "rich-ready-mini-v2-16px.png",
+    "sha256": "C3ED76ABCE21ECD1B3347433495524FB7172B1883865F3508F549EB27AA18942"
+  },
+  {
+    "identity": "tunde",
+    "state": "READY",
+    "size": 16,
+    "file": "tunde-ready-16-v1-native.png",
+    "sha256": "4D4874F9851F957B5AEF6FD87A1B4D4EB291F5770C05BEB853A57F10E79EEFB3"
+  },
+  {
+    "identity": "tunde",
+    "state": "WOUNDED",
+    "size": 16,
+    "file": "tunde-wounded-16-v2-native.png",
+    "sha256": "51A1B1159B7E760B86D06C9B43B1A09302B56EC7E3C4467E723128B3D7D2944E"
+  },
+  {
+    "identity": "tunde",
+    "state": "READY",
+    "size": 32,
+    "file": "tunde-ready-32-v1-native.png",
+    "sha256": "F8A72C6A87C2C7DCEBF61F87802AD6794E91BBE81D86867301F0EE367B0E2F37"
+  },
+  {
+    "identity": "tunde",
+    "state": "WOUNDED",
+    "size": 32,
+    "file": "tunde-wounded-32-v1-native.png",
+    "sha256": "8E148429CED48A226CD82D58225E08A7AC72C6BAFAC4FE30688D8274A7360D2D"
+  },
+  {
+    "identity": "dre",
+    "state": "READY",
+    "size": 16,
+    "file": "dre-ready-16-v1-native.png",
+    "sha256": "7AB34A84C9D09D3AFBC4FB4E0CC7F61082E5143DD2639BB39D99CD39B1F6BB48"
+  },
+  {
+    "identity": "dre",
+    "state": "WOUNDED",
+    "size": 16,
+    "file": "dre-wounded-16-v1-native.png",
+    "sha256": "4BBFB273F443D6CD1B7A07F5B0B2DAF764DBECF35657697E35102429ACD441E7"
+  },
+  {
+    "identity": "dre",
+    "state": "READY",
+    "size": 32,
+    "file": "dre-ready-32-v1-native.png",
+    "sha256": "EFEDC4D4A3C67787510DC15A64C98C5C41679D37E5A1F574D3BAAB98E8BF4697"
+  },
+  {
+    "identity": "dre",
+    "state": "WOUNDED",
+    "size": 32,
+    "file": "dre-wounded-32-v1-native.png",
+    "sha256": "07FEC3CB0D00822A8FE8315026C197A1687D3201ED5C11E16954C17FA552AB96"
+  },
+  {
+    "identity": "half_pint",
+    "state": "READY",
+    "size": 16,
+    "file": "half_pint-ready-16-v1-native.png",
+    "sha256": "E8A1EEA3F283DE1CF23F1C80DC9C991821C5CA8F0AE9392088BE8E1A3C883E9D"
+  },
+  {
+    "identity": "half_pint",
+    "state": "WOUNDED",
+    "size": 16,
+    "file": "half_pint-wounded-16-v1-native.png",
+    "sha256": "CD1211AE21EEDAEAD060BA75FF62E54A68216B49E6B9F1E4AE554B966B491491"
+  },
+  {
+    "identity": "half_pint",
+    "state": "READY",
+    "size": 32,
+    "file": "half_pint-ready-32-v3-native.png",
+    "sha256": "E758452152BE7FFE74131E8B14A39F2A9CAA931F9E194DCC7A91E7347479AE50"
+  },
+  {
+    "identity": "half_pint",
+    "state": "WOUNDED",
+    "size": 32,
+    "file": "half_pint-wounded-32-v1-native.png",
+    "sha256": "7F75D5A215699A35C2377062F1B4B1790D6FE8C0BA591DB17CDABA901CAC12DE"
+  },
+  {
+    "identity": "sunday_best",
+    "state": "READY",
+    "size": 16,
+    "file": "sunday_best-ready-16-v1-native.png",
+    "sha256": "DE8772C5669FE920B9FADA8C6D3A359B728F77AA6B56E01053818B90FFBF0CEB"
+  },
+  {
+    "identity": "sunday_best",
+    "state": "WOUNDED",
+    "size": 16,
+    "file": "sunday_best-wounded-16-v1-native.png",
+    "sha256": "A065620B96A47BB1B5FA726B19581F42912BE70AD6148A7ABEFBAAD7FFDE7792"
+  },
+  {
+    "identity": "sunday_best",
+    "state": "READY",
+    "size": 32,
+    "file": "sunday_best-ready-32-v1-native.png",
+    "sha256": "E06C75F644EB1652A30D3E047CCD219BE281B8598D73F31138A0DDC21C6D1C45"
+  },
+  {
+    "identity": "sunday_best",
+    "state": "WOUNDED",
+    "size": 32,
+    "file": "sunday_best-wounded-32-v2-native.png",
+    "sha256": "3D0FC8D7849A6EF88B71AC1AD8B2CC6FAC2C91BF4B00AFDF0FF6C8E4C62FFCD4"
+  },
+  {
+    "identity": "young_mazi",
+    "state": "READY",
+    "size": 16,
+    "file": "young_mazi-ready-16-v1-native.png",
+    "sha256": "EE72616456E784CF5570D9BE20CD53B00B30F83F9C71BA18BD40C2F390B5EEB2"
+  },
+  {
+    "identity": "young_mazi",
+    "state": "WOUNDED",
+    "size": 16,
+    "file": "young_mazi-wounded-16-v1-native.png",
+    "sha256": "8EC158325DF85502853C73F28673B2AEF112498105BB18D15A410FAE32353008"
+  },
+  {
+    "identity": "young_mazi",
+    "state": "READY",
+    "size": 32,
+    "file": "young_mazi-ready-32-v1-native.png",
+    "sha256": "B5DB3CE17B980D6D5D4E27DDA03C57C1173AC7DFEEE9966B360163653886FE9A"
+  },
+  {
+    "identity": "young_mazi",
+    "state": "WOUNDED",
+    "size": 32,
+    "file": "young_mazi-wounded-32-v1-native.png",
+    "sha256": "5077412CC23935470B3D203C61931937E98F8D4C8479EDF03C30A79BE3F5FFEA"
+  },
+  {
+    "identity": "auntie_grit",
+    "state": "READY",
+    "size": 16,
+    "file": "auntie_grit-ready-16-v1-native.png",
+    "sha256": "A18C74A8A7627F94DCDD378F1CEFC318C48537BC64AB817DAE60811CB89A7154"
+  },
+  {
+    "identity": "auntie_grit",
+    "state": "WOUNDED",
+    "size": 16,
+    "file": "auntie_grit-wounded-16-v1-native.png",
+    "sha256": "A9ABE2098AA877C00841296BF4B1BAC072B39AE49E36A853133237A1EA93E9B5"
+  },
+  {
+    "identity": "auntie_grit",
+    "state": "READY",
+    "size": 32,
+    "file": "auntie_grit-ready-32-v1-native.png",
+    "sha256": "CF57E98390E7B31F5340DCD00FD95B94A3294C219B25EAE32C053054351854DA"
+  },
+  {
+    "identity": "auntie_grit",
+    "state": "WOUNDED",
+    "size": 32,
+    "file": "auntie_grit-wounded-32-v1-native.png",
+    "sha256": "41ECDDEE489A41377E437BA3CF02CCB97C1962755F68B5B28AD4AF7EFBD7858E"
+  },
+  {
+    "identity": "muscle",
+    "state": "READY",
+    "size": 16,
+    "file": "muscle-ready-16-v1-native.png",
+    "sha256": "39F4FCC8E588E79A4A049255221E6395E6426A508EDD82227152B4B8B7CC37DC"
+  },
+  {
+    "identity": "muscle",
+    "state": "WOUNDED",
+    "size": 16,
+    "file": "muscle-wounded-16-v1-native.png",
+    "sha256": "2125D06A26D7A2698D52F46E2D4FA75CA089BCBD59D1B27E92FE5354AC883F05"
+  },
+  {
+    "identity": "muscle",
+    "state": "READY",
+    "size": 32,
+    "file": "muscle-ready-32-v1-native.png",
+    "sha256": "D46D2E0A870FAE111D71DC58C0AC5C93FD82B56C1890A58B7CFA697620355579"
+  },
+  {
+    "identity": "muscle",
+    "state": "WOUNDED",
+    "size": 32,
+    "file": "muscle-wounded-32-v1-native.png",
+    "sha256": "B08CE2EC8CB4E41B4FD6CD6A8027CF56FF2E1DE4B9A7B08FD316C8BFA61E847F"
+  },
+  {
+    "identity": "shooter",
+    "state": "READY",
+    "size": 16,
+    "file": "shooter-ready-16-v1-native.png",
+    "sha256": "81B7A0605E15F2F64554E25032BD3F27C5C6BC8CB8A7F6E3B18A21C461AF3C7E"
+  },
+  {
+    "identity": "shooter",
+    "state": "WOUNDED",
+    "size": 16,
+    "file": "shooter-wounded-16-v1-native.png",
+    "sha256": "056442FF3C5D668B8D0EC522F450C996C7C1DB8C3A5D46E5B6037CBC4A2B2F31"
+  },
+  {
+    "identity": "shooter",
+    "state": "READY",
+    "size": 32,
+    "file": "shooter-ready-32-v1-native.png",
+    "sha256": "41177D8B6A5024814D3E6CF71A5060BC35A14BBD90568C05B8E32F8D6C3B47B4"
+  },
+  {
+    "identity": "shooter",
+    "state": "WOUNDED",
+    "size": 32,
+    "file": "shooter-wounded-32-v1-native.png",
+    "sha256": "D5C7115AB30E475D63B2B7AD9BCA4385310D604A731C9315F9E8C9A38EBF3836"
+  },
+  {
+    "identity": "wheels",
+    "state": "READY",
+    "size": 16,
+    "file": "wheels-ready-16-v1-native.png",
+    "sha256": "A36889D8124A702DB4C2338F2CCBF01D30B900E70D4D3C176FD524914B31D0BF"
+  },
+  {
+    "identity": "wheels",
+    "state": "WOUNDED",
+    "size": 16,
+    "file": "wheels-wounded-16-v1-native.png",
+    "sha256": "72C206F95AA897E14BDE103AC9B5F6F34562E853579FA3DA807B2E6D2141A457"
+  },
+  {
+    "identity": "wheels",
+    "state": "READY",
+    "size": 32,
+    "file": "wheels-ready-32-v1-native.png",
+    "sha256": "63D35CF4198E8B3032E86C1E25A851795DA991889CB4BCA093CD0E6173BBC53B"
+  },
+  {
+    "identity": "wheels",
+    "state": "WOUNDED",
+    "size": 32,
+    "file": "wheels-wounded-32-v1-native.png",
+    "sha256": "0E624FD4C2454DE23C412CF23F5312BD42BBD6A52F6B79B8D42717814C8B9006"
+  },
+  {
+    "identity": "talker",
+    "state": "READY",
+    "size": 16,
+    "file": "talker-ready-16-v1-native.png",
+    "sha256": "51F6C70E6E687EEA7FE754DC062BDD1C19BE355B7DCF79668A8DAD65DF280F65"
+  },
+  {
+    "identity": "talker",
+    "state": "WOUNDED",
+    "size": 16,
+    "file": "talker-wounded-16-v1-native.png",
+    "sha256": "A5C479CFC5B89C4CC5A098B6599E8BA9BBFB458D4858FD1C3DAE2875DE061488"
+  },
+  {
+    "identity": "talker",
+    "state": "READY",
+    "size": 32,
+    "file": "talker-ready-32-v1-native.png",
+    "sha256": "1DE9E187B2F701626309FD9EC647D1E073BB97761D22679E9D55E0E6303DF8BA"
+  },
+  {
+    "identity": "talker",
+    "state": "WOUNDED",
+    "size": 32,
+    "file": "talker-wounded-32-v1-native.png",
+    "sha256": "275AA1AC014702E2C154B346C79234F86D8D6FF71DF55E11795650E92D024FED"
+  },
+  {
+    "identity": "ghost",
+    "state": "READY",
+    "size": 16,
+    "file": "ghost-ready-16-v1-native.png",
+    "sha256": "2D92A32755A16F507847BE9ECD8C35B600592A8E207C2EBBA400EA93FA60BEF5"
+  },
+  {
+    "identity": "ghost",
+    "state": "WOUNDED",
+    "size": 16,
+    "file": "ghost-wounded-16-v1-native.png",
+    "sha256": "B9F41273D2984B1F428B15AA0CCA01F812B4C839BC7D7D4215236ACF026AB06B"
+  },
+  {
+    "identity": "ghost",
+    "state": "READY",
+    "size": 32,
+    "file": "ghost-ready-32-v1-native.png",
+    "sha256": "B1EE0E17AED6BC06D83A936F0F46BF1C56573AA19D64E63DE2CAB8F85162F458"
+  },
+  {
+    "identity": "ghost",
+    "state": "WOUNDED",
+    "size": 32,
+    "file": "ghost-wounded-32-v1-native.png",
+    "sha256": "27EEBAA843DEAC9D63D3DDA9077710BA2BC052191550BE403136821DE94A8C5C"
+  },
+  {
+    "identity": "doc",
+    "state": "READY",
+    "size": 16,
+    "file": "doc-ready-16-v1-native.png",
+    "sha256": "F011BE336010996D185741FA142471E803DB49033CB87F20AD79986F3C5F006A"
+  },
+  {
+    "identity": "doc",
+    "state": "WOUNDED",
+    "size": 16,
+    "file": "doc-wounded-16-v1-native.png",
+    "sha256": "A0F43D5A67F6801F45D7630BAB609E28A0A7475FBC519B13B64C7BF4E53AAEE8"
+  },
+  {
+    "identity": "doc",
+    "state": "READY",
+    "size": 32,
+    "file": "doc-ready-32-v1-native.png",
+    "sha256": "0CABEF5D305B952D71791790C236AAFB4ACC1010C19B8ADB0FC6BA6949B31C11"
+  },
+  {
+    "identity": "doc",
+    "state": "WOUNDED",
+    "size": 32,
+    "file": "doc-wounded-32-v1-native.png",
+    "sha256": "5FC41E299F3858FD6C581E11D5194538929B4E58B3DFFDB5DF235F48AB8570C1"
+  }
+]
