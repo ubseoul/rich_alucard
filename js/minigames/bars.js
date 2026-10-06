@@ -153,6 +153,9 @@
   let rng=P.rng(rngSeed);
 
   var dispose_extra=[];
+  const mountedScene=window.RAScenes?.current?.();
+  const onScene=e=>{if(mountedScene&&e.detail?.id&&e.detail.id!==mountedScene)ctx.quit();};
+  document.addEventListener('ra:scene',onScene);dispose_extra.push(()=>document.removeEventListener('ra:scene',onScene));
   if(!window.RABarsWords){
    setWords(FALLBACK);
    const s=document.createElement('script');s.src='js/data/bars_words.js';
@@ -165,7 +168,7 @@
   // audio (muted by default; simple synthesized kick/hat)
   let audioCtx=null,muted=true;
   function beat(strong){
-   if(muted)return;
+   if(muted||window.RAState?.get?.()?.life?.settings?.audio?.muted)return;
    try{
     audioCtx=audioCtx||new (window.AudioContext||window.webkitAudioContext)();
     const t=audioCtx.currentTime;
@@ -179,7 +182,8 @@
   const battle=params.opponent||null;
   const duet=params.duet||null;
   const roundMs0=3300; // RC2: was 1500. The bar is a real, readable timer now.
-  const runMs=battle?(battle.rounds||3)*20000:60000;
+  const runMs=battle?(battle.rounds||3)*20000:Math.max(10000,Number(params.durationMs)||60000);
+  const restoreMusic=params.performance&&params.trackId?window.RAMusicLibrary?.performance?.(root,params.trackId):null;dispose_extra.push(()=>restoreMusic?.());
 
   let state={combo:0,score:0,chainWord:norm(pickStartWord(params.seedWords,params.pool,rng))};
   let best=savedProgress.best||0,bestCombo=savedProgress.bestCombo||0;
@@ -194,7 +198,7 @@
   let multiPending=null; // {word, until}
   let ended=false,paused=false;
   let battleRound=0,battleScore=0,battleTargetShown=battle?battle.target||500:0,battleRounds=[],betweenRounds=false,betweenUntil=0,betweenText='';
-  let duetTurn='PLAYER',duetUntil=0,duetLog=[];
+  let duetTurn='PLAYER',duetUntil=performance.now()+10000,duetLog=[],duetLast=0;
   let nodPhase=0;
 
   function layoutChoices(){
@@ -227,7 +231,7 @@
    if(state.score>best)best=state.score;
    if(state.combo===15)awardHook();
    beat(state.combo%4===0);
-   if(battle)battleScore=state.score;
+   if(battle)battleScore+=res.points;
   }
   function onWrong(){ctx.audio?.sound('BARS_WRONG');
    flashUntil=performance.now()+220;flashColor=P.palette.red;flashMsg='OFF BEAT';
@@ -271,6 +275,9 @@
    if(p.x<=34&&p.y<=20){muted=!muted;return;}
   }
   canvas.addEventListener('pointerdown',pointerDown);
+  canvas.tabIndex=0;canvas.setAttribute('aria-label','BARS. Press 1 to 4 to pick a rhyme; M toggles percussion.');
+  const key=e=>{if(ended||paused||betweenRounds||e.repeat||duet&&duetTurn!=='PLAYER')return;if(e.key.toLowerCase()==='m'){muted=!muted;return;}const i=Number(e.key)-1;if(i>=0&&i<choices.length){e.preventDefault();handleTap(choices[i].word,choices[i].type);}};
+  window.addEventListener('keydown',key);dispose_extra.push(()=>window.removeEventListener('keydown',key));
 
   // duet auto-play
   function duetTick(now){
@@ -279,7 +286,7 @@
     duetTurn='PARTNER';duetUntil=now+10000;
    } else if(duetTurn==='PARTNER'){
     if(now>duetUntil){duetTurn='PLAYER';duetUntil=now+10000;duetLog=[];return;}
-    if(!duetTurn._last||now-duetTurn._last>1100){
+    if(now-duetLast>1100){duetLast=now;
      const skillGood=duet.partner==='JUNE';
      const success=rng()<(skillGood?0.85:0.35);
      const lines=PARTNER_LINES[duet.partner]||PARTNER_LINES.TRISTAN;
@@ -319,7 +326,7 @@
   function showEndCard(){
    const div=document.createElement('div');
    div.style.cssText='position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;background:rgba(8,7,15,.92);color:#f6efd9;font-family:"Press Start 2P",monospace;text-align:center;padding:0 20px;z-index:6';
-   let lines=`<div style="font-size:14px;color:#c18b3c">${battle?(battleRounds.filter(r=>r.won).length>battleRounds.length/2?'YOU WIN':'IRON JAW WINS'):'RUN DONE'}</div>`;
+   let lines=`<div style="font-size:14px;color:#c18b3c">${battle?(battleRounds.filter(r=>r.won).length>battleRounds.length/2?'YOU WIN':'IRON JAW WINS'):params.performance?(state.score>=(params.target||1500)?'ROOM LOCKED IN':'ROOM DRIFTED'):'RUN DONE'}</div>`;
    lines+=`<div style="font-size:10px">SCORE ${state.score}</div>`;
    lines+=`<div style="font-size:8px">BEST ${best}</div>`;
    if(params.ironJawDaily)lines+=`<div style="font-size:7px;color:#d7193f">IRON JAW POSTED ${Math.round(params.ironJawDaily)}</div>`;
@@ -330,7 +337,7 @@
    again.addEventListener('click',()=>{root.removeChild(div);restart();});
    const done=document.createElement('button');done.textContent='DONE';done.style.cssText=again.style.cssText;
    done.addEventListener('click',()=>{
-    ctx.finish({outcome:battle?(battleRounds.filter(r=>r.won).length>battleRounds.length/2?'win':'lose'):'done',score:state.score,
+    ctx.finish({outcome:battle?(battleRounds.filter(r=>r.won).length>battleRounds.length/2?'win':'lose'):params.performance?(state.score>=(params.target||1500)?'win':'lose'):'done',score:state.score,
      data:{bestCombo,hook:hookAwardedThisRun,battleRounds}});
    });
    btnRow.append(again,done);div.append(btnRow);
@@ -350,7 +357,7 @@
    const consumed=multiPending&&multiPending.word===c.word;
    const col=consumed?'#3a3550':(c.type==='punchline'?'#c18b3c':'#f6efd9');
    P.frame(g,c.x,y,c.w,c.h,{fill:col,border:'#10101b',accent:c.type==='curveball'?P.palette.neon:'#7d194b'});
-   P.text(g,c.word,c.x+c.w/2,y+c.h/2,{size:c.word.length>7?7:9,align:'center',baseline:'middle',color:'#10101b'});
+   P.text(g,`${choices.indexOf(c)+1}. ${c.word}`,c.x+c.w/2,y+c.h/2,{size:c.word.length>7?7:9,align:'center',baseline:'middle',color:'#10101b'});
   }
   function frame(){
    if(dispose_extra.__stopped)return;
@@ -358,11 +365,13 @@
    g.clearRect(0,0,270,480);J.update((now-(frame._l||now))/1000);frame._l=now;J.begin();
    const pulse=0.5+0.5*Math.sin(now/(260-Math.min(160,state.combo*6)));
    P.rect(g,0,0,270,480,P.palette.night);
+   P.drawBoard?.(g,params.performance?'catacomb':'music_room');P.rect(g,0,0,270,410,'rgba(8,7,15,.82)');
+   if(params.performance){P.wrap(g,params.songTitle||'FREESTYLE',240,7).slice(0,2).forEach((line,i)=>P.text(g,line,135,35+i*12,{size:7,align:'center',color:P.palette.gold}));}
    P.rect(g,0,0,270,80,`rgba(125,25,75,${0.15+pulse*0.15})`);
    nodPhase+=0.05+state.combo*0.01;
    const nodY=94+Math.sin(nodPhase)*2*(1+state.combo*0.05);
    // Frozen Rich: the on-stage (mic) state in a battle, the standing anchor otherwise; the nod stays a whole-pixel bob.
-   if(!P.drawSprite?.(g,P.personSprite?.('rich',battle?'on_stage':null),40,Math.round(nodY)+382))P.drawActor(g,{top:'#1b1824',bottom:'#111018',hair:'#0b0a12',hairShape:'locs',shades:true,accent:P.palette.blood},40,nodY+390,1.05);
+   if(!P.drawSprite?.(g,P.personSprite?.('rich',battle||params.performance?'on_stage':null),228,Math.round(nodY)+382))P.drawActor(g,{top:'#1b1824',bottom:'#111018',hair:'#0b0a12',hairShape:'locs',shades:true,accent:P.palette.blood},228,nodY+390,1.05);
 
    // speaker toggle
    P.frame(g,4,4,30,16,{fill:muted?'#3a3550':'#20c66b',border:'#10101b'});
@@ -372,24 +381,24 @@
     P.text(g,'ROUND BREAK',135,120,{size:9,align:'center',color:P.palette.gold});
     P.wrap(g,betweenText,220,7).forEach((l,i)=>P.text(g,l,135,150+i*12,{size:7,align:'center',color:'#c9c0a8'}));
    } else {
-    P.text(g,'CHAIN',135,96,{size:6,align:'center',color:'#c9c0a8'});
+    P.text(g,params.performance?'LIVE / RHYME ON THE MIC':'CHAIN',135,96,{size:6,align:'center',color:'#c9c0a8'});
     P.text(g,state.chainWord,135,108,{size:16,align:'center',color:'#f6efd9'});
     const elapsedRound=now-roundStart;
     const pct=Math.max(0,1-elapsedRound/roundMs);ctx.audio?.edge('timer',pct<=0,'BARS_TIMER');
-    if(pct<=0&&!ended&&!multiPending){onWrong();flashMsg='TOO SLOW';J.shake(2);newRound(state.chainWord);}
+    if(pct<=0&&!ended&&!multiPending){state.combo=0;onWrong();flashMsg='TOO SLOW';J.shake(2);newRound(state.chainWord);}
     P.rect(g,10,132,250,6,'#231f2c');P.rect(g,10,132,250*pct,6,pct>0.3?P.palette.green:P.palette.red);
     choices.forEach(c=>drawChoiceChip(c,now));
    }
 
    P.text(g,`SCORE ${state.score}`,8,340,{size:8,color:'#f6efd9'});
    P.text(g,`COMBO x${state.combo}`,8,354,{size:8,color:state.combo>=10?P.palette.gold:'#f6efd9'});
-   P.text(g,`BEST ${best}`,8,368,{size:6,color:'#c9c0a8'});
+   P.text(g,`LEFT ${Math.max(0,Math.ceil((runMs-(now-startTime))/1000))}s / 1-4 PICK`,8,368,{size:6,color:'#c9c0a8'});
    if(battle)P.text(g,`ROUND ${Math.min(battleRound+1,battle.rounds||3)}/${battle.rounds||3}  TARGET ${Math.round((battle.target||500)*(1+battleRound*0.15))}`,135,388,{size:6,align:'center',color:'#d7193f'});
    if(duet)P.text(g,duetTurn==='PLAYER'?'YOUR TURN':`${duet.partner}'S TURN — ${duetLog[0]||''}`,135,402,{size:6,align:'center',color:'#3d9ddd'});
 
    if(now<flashUntil&&flashColor){
-    g.save();g.globalAlpha=0.35;P.rect(g,0,0,270,480,flashColor);g.restore();
-    P.text(g,flashMsg,135,230,{size:10,align:'center',color:flashColor});
+    g.save();g.globalAlpha=0.12;P.rect(g,0,0,270,480,flashColor);g.restore();
+    P.text(g,flashMsg,135,314,{size:10,align:'center',color:flashColor});
    }
    if(!ended){
     if(!betweenRounds&&multiPending&&now>multiPending.until){multiPending=null;newRound(state.chainWord);}
@@ -405,12 +414,12 @@
   return {
    dispose(){
     dispose_extra.__stopped=true;
-    cancelAnimationFrame(raf);
+    cancelAnimationFrame(raf);if(audioCtx){audioCtx.close().catch(()=>{});audioCtx=null;}
     canvas.removeEventListener('pointerdown',pointerDown);
     dispose_extra.forEach(f=>{try{f();}catch(e){}});
    }
   };
  }
 
- window.RAMinigames.register('bars',{title:'BARS',rule:'Tap the word that rhymes with the big word before the bar runs out, and keep the chain going.',mount});
+ window.RAMinigames.register('bars',{title:'BARS',ruleFor:p=>p.performance?'Live set: score 1,500 in 30 seconds by tapping or pressing 1–4 for rhymes; missing the bar breaks your combo, and quitting earns no show pay.':'Tap the word that rhymes before the bar runs out, or press 1–4; a 15-word combo earns a saved hook.',rule:'Tap the word that rhymes with the big word before the bar runs out, and keep the chain going.',mount});
 })();

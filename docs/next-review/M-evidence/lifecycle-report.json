@@ -1,0 +1,63 @@
+{
+  "mode": "seeded lifecycle + actual input; no forced result",
+  "errors": [],
+  "wake": [
+    {
+      "id": "music:response:song:1:0:0",
+      "songId": "song:1:0",
+      "trackId": "on_the_moon",
+      "draftTitle": "QA DRAFT",
+      "title": "QA DRAFT",
+      "masterTitle": "ON THE MOON",
+      "memoryId": "qa:memory",
+      "handle": "tasha",
+      "text": "\"QA DRAFT\" — that raw verse stayed with me. What's the story behind it?",
+      "responseKind": "release-response",
+      "day": 2,
+      "followers": 33
+    }
+  ],
+  "failure": {
+    "id": "A14:2:0",
+    "receiptId": "music:A14:2:0",
+    "day": 2,
+    "crowd": 0,
+    "pay": 0,
+    "outcome": "failure",
+    "songId": "song:1:0",
+    "title": "QA DRAFT",
+    "trackId": "on_the_moon",
+    "masterTitle": "ON THE MOON"
+  },
+  "audio": {
+    "before": {
+      "src": "assets/audio/music/in_montana.mp3",
+      "time": 0.275188,
+      "muted": true,
+      "pin": "1"
+    },
+    "after": {
+      "src": "assets/audio/music/in_montana.mp3",
+      "time": 2.3618,
+      "muted": true,
+      "pin": "1"
+    }
+  },
+  "quit": {
+    "id": "SHOW:3:0",
+    "receiptId": "music:SHOW:3:0",
+    "day": 3,
+    "crowd": 0,
+    "pay": 0,
+    "outcome": "quit",
+    "songId": "song:1:0",
+    "title": "QA DRAFT",
+    "trackId": "on_the_moon",
+    "masterTitle": "ON THE MOON"
+  },
+  "cancel": {
+    "remaining": 1,
+    "audio": "assets/audio/music/on_the_moon.mp3",
+    "needsHostPatch": true
+  }
+}

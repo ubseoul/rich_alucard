@@ -160,29 +160,21 @@
  }});
 
  // ---------------------------------------------------------------- A14 — OPEN MIC AT THE CATACOMB
- function crowdSetlist(){const cooked=RAState.get().life.creativeLife.music.cooked||[];return cooked.length?cooked.slice(-3).map(s=>s.title):null;}
+ function setChoices(){return (RAState.get().life.creativeLife.music.cooked||[]).filter(s=>window.RAMusicLibrary?.trackFor(s.trackId||s.beat)).slice(-6).map(s=>({label:`PERFORM "${s.title}"`,sub:`EXISTING MASTER: ${s.masterTitle||s.beat}`,fx:A=>A.set('song',s.id),next:'performance'}));}
+ function showParams(A){const song=(RAState.get().life.creativeLife.music.cooked||[]).find(s=>s.id===A.vars.song);return {performance:true,trackId:song?.trackId||song?.beat||'almond_freestyle',songTitle:song?.title||'FREESTYLE',durationMs:30000,target:1500,seedWords:RAMusic.seedWords(),memoryRef:song?.memory||null,day:RALife.today().day};}
+ function performanceNext(A,r){A.set('showOutcome',r.quit?'quit':r.outcome==='win'?'success':'failure');A.set('crowd',Math.min(180,Math.round((r.score||0)/100)));return 'result';}
+ function settleShow(A){return RAMusic.showResult(A.vars.crowd||0,{id:`${A.id}:${RALife.today().day}:${RAAdventures.record(A.id)?.count||0}`,songId:A.vars.song,outcome:A.vars.showOutcome||'quit'});}
+ const showNodes={
+  setlist:{env:'catacomb',actors:{left:'rich'},lines:[N('Your words, your room. Pick a saved draft or freestyle. Land rhymes to hold the crowd; the recording is an existing Rich master.')],choices:()=>[...setChoices(),{label:'FREESTYLE',next:'performance'},{label:'NOT TONIGHT',fx:A=>A.set('showOutcome','quit'),next:'result'}]},
+  performance:{actors:{left:{id:'rich',state:'on_stage'}},minigame:{id:'bars',params:showParams,next:performanceNext}},
+  result:{env:'catacomb',actors:{left:{id:'rich',state:'on_stage'},right:'tasha'},enter:A=>{RARelations.meet('tasha','catacomb');A.set('pay',settleShow(A));},
+   lines:A=>{const song=(RAState.get().life.creativeLife.music.cooked||[]).find(s=>s.id===A.vars.song),ok=A.vars.showOutcome==='success';return [S('tasha',ok?`That ${song?.hook?`"${song.hook}" hook`:'last verse'} landed. ${song?.dropped?`I saw "${song.title}" on VampGram. Now I get it.`:'Put this one out when you are ready.'}`:A.vars.showOutcome==='quit'?'Another night. The mic will still be here.':'You lost the room on that run. Keep the words; try a different delivery.'),N(ok?`${RALife.fmt(A.vars.pay||0)} performance pay. A real set, a real receipt.`:'No performance pay tonight.')];},next:'end'},
+  end:{end:{outcome:A=>A.vars.showOutcome||'quit',memory:A=>({text:`${A.vars.showOutcome==='success'?'performed':'attempted'} ${(RAState.get().life.creativeLife.music.cooked||[]).find(s=>s.id===A.vars.song)?.title||'a freestyle'} at the catacomb`,lane:'music'}),home:A=>['rich',A.vars.showOutcome==='success'?'.somebody heard me tonight.':'.keep writing.',{vp:true}]}}
+ };
  D({id:'A14',title:'OPEN MIC AT THE CATACOMB',lane:'music',memoryType:'music',start:'arrive',nodes:{
-  arrive:{env:'catacomb',title:'THE CATACOMB',actors:{left:'rich'},
-   lines:[N('a venue in the basement of a koreatown laundromat. dryers thump through the ceiling.')],next:'setlist'},
-  setlist:{lines:A=>{const sl=crowdSetlist();return [N(sl?'you pick from what you\'ve actually cooked.':'you have no songs cooked yet. you\'ll freestyle the whole set.')];},
-   choices:A=>{const sl=crowdSetlist();return sl?sl.slice(0,3).map((t,i)=>({label:`PLAY "${t}"`,fx:X=>X.set('setlist',(X.vars.setlist||[]).concat(t)),next:i<Math.min(sl.length,3)-1?'setlist':'crowd'})):[{label:'FREESTYLE THE WHOLE SET',next:'crowd'}];}},
-  crowd:{actors:{left:{id:'rich',state:'on_stage'}},lines:[N('half the room is paying attention.')],
-   choices:A=>RAParties.choices({results:{'two-step':{reaction:'a few heads nod. not bad.',score:4},'head-nod':{reaction:'the room nods along. safe.',score:3},'too-cool':{reaction:'nobody moves. respect, maybe.',score:2}},fallback:{reaction:'the room shrugs.',score:1}},'powercut')},
-  powercut:{lines:[N('the power cuts. total dark. one dryer keeps thumping upstairs.'),R('…guess i\'m rapping over the dryer now.'),N('it works better than it should.')],next:'tasha'},
-  tasha:{env:'catacomb',actors:{left:{id:'rich',state:'on_stage'},right:'tasha'},
-   enter:A=>{RARelations.meet('tasha','a14');},
-   lines:[E('tasha','a woman rushes the stage. she knows every ad-lib before you say it.'),S('tasha','I KNOW ALL YOUR WORDS. ALL OF THEM.')],next:'end'},
-  end:{end:{outcome:'played',fx:A=>{const pay=RAMusic.showResult(A.vars.partyScore||3);A.set('pay',pay);},
-   memory:A=>({text:'first show at the catacomb',lane:'music'}),
-   receipt:{id:'a14:first',caption:'the power cut. i rapped over the dryers. it worked.'},
-   home:['rich','that room was mine for four minutes.',{vp:true}]}}
+  arrive:{env:'catacomb',title:'THE CATACOMB',actors:{left:'rich'},lines:[N('a venue in the basement of a koreatown laundromat. dryers thump through the ceiling.'),R('.came to LA for the music. tonight I get on the mic.')],next:'setlist'},...showNodes
  }});
- D({id:'SHOW',title:'A SHOW AT THE CATACOMB',lane:'music',repeatable:true,oncePerNight:true,memoryType:'music',available:L=>L.done('A14'),start:'crowd',nodes:{
-  crowd:{env:'catacomb',actors:{left:{id:'rich',state:'on_stage'}},lines:[N('the catacomb. dryers thump through the ceiling, same as always.')],
-   choices:A=>RAParties.choices({results:{'two-step':{reaction:'a few heads nod. not bad.',score:4},'head-nod':{reaction:'the room nods along. safe.',score:3},'too-cool':{reaction:'nobody moves. respect, maybe.',score:2}},fallback:{reaction:'the room shrugs.',score:1}},'end')},
-  end:{end:{outcome:'played',fx:A=>{RAMusic.showResult(A.vars.partyScore||3);RAParties.attended('human');},
-   memory:{text:'a show at the catacomb',lane:'music',quality:.7},home:['rich','good crowd tonight.',{vp:true}]}}
- }});
+ D({id:'SHOW',title:'A SHOW AT THE CATACOMB',lane:'music',repeatable:true,oncePerNight:true,memoryType:'music',available:L=>L.done('A14'),start:'setlist',nodes:showNodes});
  RAPlaces.define([{id:'catacomb',label:'THE CATACOMB',sub:L=>L.done('A14')?'PLAY A SHOW':'OPEN MIC NIGHT',adventure:L=>L.done('A14')?'SHOW':'A14',order:23}]);
 
  // ---------------------------------------------------------------- A15 — IRON JAW

@@ -40,11 +40,11 @@
   nodes:{
   memory:{env:A=>A.vars.where==='music_room'?'music_room':'cafe',actors:{left:{id:'rich',state:'laptop_seated'}},lines:[N('laptop open. what is this one about?')],
    choices:A=>RAMusic.memories().slice(0,4).map(m=>({label:m.text.toUpperCase(),fx:X=>X.set('mem',m.id),next:'beat'}))},
-  beat:{lines:[N('pick the beat.')],choices:A=>RAMusic.beats().slice(0,4).map(b=>({label:b.label,fx:X=>X.set('beat',b.id),next:'hook'}))},
+  beat:{lines:[N('pick the beat.')],choices:A=>RAMusic.beats().map(b=>({label:b.label,sub:'EXISTING RICH MASTER — NOT A GENERATED BEAT',fx:X=>X.set('beat',b.id),next:'hook'}))},
   hook:{lines:[N('a hook?')],choices:A=>[...RAMusic.hooks().slice(0,3).map((h,i)=>({label:`"${h.word}"`,sub:h.fromMemory?`HOOK FROM: ${h.fromMemory.toUpperCase()}`:'FROM BARS',fx:X=>X.set('hook',i),next:'title'})),{label:'NO HOOK. RAW.',fx:X=>X.set('hook',null),next:'title'}]},
-  title:{lines:[N('what is it called?')],choices:A=>{const mem=RAState.get().life.memoryLog.find(m=>m.id===A.vars.mem)||RAMusic.memories()[0];return RAMusic.titles(mem).map(t=>({label:t.title,sub:'TITLE · VOICE PASS',fx:X=>X.set('title',t.title),next:'cooked'}));}},
-  cooked:{actors:{left:{id:'rich',state:'laptop_nod'}},enter:A=>{const r=RAMusic.cook({memoryId:A.vars.mem,beat:A.vars.beat,hookIndex:A.vars.hook,title:A.vars.title});A.set('song',r?.song?.id||null);A.set('unlocked',r?.unlocked||null);},
-   lines:A=>{const tr=RARadio.TRACKS.find(t=>t.id===A.vars.unlocked);return [N(`"${A.vars.title}" is cooked.`),...(tr?[N(`this is the song that came out of that night: ${tr.title}.`)]:[])];},
+  title:{lines:[N('what is it called?')],choices:A=>{const mem=RAState.get().life.memoryLog.find(m=>m.id===A.vars.mem)||RAMusic.memories()[0];return RAMusic.titles(mem).map(t=>({label:t.title,sub:'DRAFT TITLE — EXISTING MASTER STAYS NAMED',fx:X=>X.set('title',t.title),next:'cooked'}));}},
+  cooked:{actors:{left:{id:'rich',state:'laptop_nod'}},enter:A=>{const r=RAMusic.cook({memoryId:A.vars.mem,beat:A.vars.beat,hookIndex:A.vars.hook,title:A.vars.title,operationId:`COOK:${RALife.today().day}:${RAAdventures.record('COOK')?.count||0}`});A.set('song',r?.song?.id||null);A.set('unlocked',r?.unlocked||null);},
+   lines:A=>{const song=(RAState.get().life.creativeLife.music.cooked||[]).find(s=>s.id===A.vars.song);return [N(`"${A.vars.title}" is your saved draft.`),N(`Reference master: ${song?.masterTitle||'existing catalog'}. Your memory and hook shape its story; this does not create a new recording.`)];},
    choices:[{label:'DROP IT ON VAMPGRAM',fx:A=>RAMusic.drop(A.vars.song,'vampgram'),next:A=>waves(A)?'closing':'done'},{label:'SIT ON IT',next:A=>waves(A)?'closing':'done'}]},
   closing:{env:'cafe',actors:{left:'rich',right:{id:'wispa',state:'wave'}},lines:[N('the café closes.'),N('wispa waves.')],enter:A=>RALife.setFlag('wispaWaved',true),next:'done'},
   done:{end:{outcome:'cooked',memory:A=>({text:`cooked a song about ${(RAState.get().life.memoryLog.find(m=>m.id===A.vars.mem)?.text||'that night')}`,lane:'music'}),home:['rich','…that one might be something.',{vp:true}]}}

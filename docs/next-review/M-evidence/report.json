@@ -1,0 +1,93 @@
+{
+  "reports": [
+    {
+      "width": 390,
+      "mode": "seeded route shim; assisted rhyme success using real keyboard inputs, no forced result",
+      "heard": {
+        "src": "assets/audio/music/on_the_moon.mp3",
+        "paused": false,
+        "time": 0.010303,
+        "muted": false
+      },
+      "career": {
+        "cooked": {
+          "id": "song:1:0",
+          "title": "THE CASTLE",
+          "titleVp": true,
+          "operationId": "COOK:1:0",
+          "trackId": "on_the_moon",
+          "masterTitle": "ON THE MOON",
+          "memory": "a quiet night at the castle",
+          "memoryId": "qa:experience",
+          "type": "quiet",
+          "beat": "on_the_moon",
+          "hook": null,
+          "quality": 1,
+          "day": 1,
+          "dropped": true,
+          "droppedDay": 1,
+          "where": "vampgram"
+        },
+        "released": {
+          "id": "song:1:0",
+          "title": "THE CASTLE",
+          "titleVp": true,
+          "operationId": "COOK:1:0",
+          "trackId": "on_the_moon",
+          "masterTitle": "ON THE MOON",
+          "memory": "a quiet night at the castle",
+          "memoryId": "qa:experience",
+          "type": "quiet",
+          "beat": "on_the_moon",
+          "hook": null,
+          "quality": 1,
+          "day": 1,
+          "dropped": true,
+          "droppedDay": 1,
+          "where": "vampgram"
+        },
+        "responses": [
+          {
+            "id": "music:response:song:1:0:0",
+            "songId": "song:1:0",
+            "trackId": "on_the_moon",
+            "draftTitle": "THE CASTLE",
+            "title": "THE CASTLE",
+            "masterTitle": "ON THE MOON",
+            "memoryId": "qa:experience",
+            "handle": "tasha",
+            "text": "\"THE CASTLE\" — that raw verse stayed with me. What's the story behind it?",
+            "responseKind": "release-response",
+            "day": 2,
+            "followers": 33
+          }
+        ],
+        "performed": {
+          "id": "A14:2:0",
+          "receiptId": "music:A14:2:0",
+          "day": 2,
+          "crowd": 60,
+          "pay": 1200,
+          "outcome": "success",
+          "songId": "song:1:0",
+          "title": "THE CASTLE",
+          "trackId": "on_the_moon",
+          "masterTitle": "ON THE MOON"
+        }
+      }
+    },
+    {
+      "width": 360,
+      "mode": "seeded ordinary keyboard + touch + quit"
+    },
+    {
+      "width": 430,
+      "mode": "seeded ordinary keyboard + touch + quit"
+    },
+    {
+      "width": 1280,
+      "mode": "seeded ordinary keyboard + touch + quit"
+    }
+  ],
+  "errors": []
+}

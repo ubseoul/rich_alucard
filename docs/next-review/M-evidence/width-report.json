@@ -1,0 +1,17 @@
+{
+  "reports": [
+    {
+      "width": 360,
+      "mode": "seeded ordinary keyboard + touch + quit"
+    },
+    {
+      "width": 430,
+      "mode": "seeded ordinary keyboard + touch + quit"
+    },
+    {
+      "width": 1280,
+      "mode": "seeded ordinary keyboard + touch + quit"
+    }
+  ],
+  "errors": []
+}
