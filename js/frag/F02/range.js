@@ -86,7 +86,7 @@
   function laneAt(e){const r=lanesEl.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)return null;return Math.min(core.state().lanes-1,Math.floor((e.clientX-r.left)/r.width*core.state().lanes));}
   function down(e){if(done||held!==null)return;const l=laneAt(e);if(l===null)return;e.preventDefault();held=e.pointerId;aim(l);try{lanesEl.setPointerCapture(e.pointerId);}catch(_){}}
   function move(e){if(e.pointerId!==held)return;const l=laneAt(e);if(l!==null)aim(l);}
-  function up(e){if(e.pointerId!==held)return;const l=laneAt(e);held=null;if(e.type==='pointerup'&&l!==null){aim(l);shoot();}}
+  function up(e){if(e.pointerId!==held)return;const l=laneAt(e);try{lanesEl.releasePointerCapture(held);}catch(_){}held=null;if(e.type==='pointerup'&&l!==null){aim(l);shoot();}}
   function key(e){if(done||e.repeat)return;if(/^[1-3]$/.test(e.key)){e.preventDefault();aim(Number(e.key)-1);shoot();}}
   function click(e){if(e.detail!==0)return;const b=e.target.closest('.rd-lane');if(b){aim(Number(b.dataset.lane));shoot();}}
   lanesEl.addEventListener('pointerdown',down);lanesEl.addEventListener('pointermove',move);lanesEl.addEventListener('pointerup',up);lanesEl.addEventListener('pointercancel',up);lanesEl.addEventListener('click',click);window.addEventListener('keydown',key);aim(0);
@@ -103,7 +103,7 @@
     if(!medal){const retry=document.createElement('button');retry.type='button';const attempts=window.RALife?.flag?.('rc4Attempts');retry.disabled=attempts?.day===window.RALife?.today?.().day&&Number(attempts.failures?.['range_day:range']||0)>=1;retry.textContent=retry.disabled?'RETRY TOMORROW':'RETRY · ONCE PER DAY';retry.addEventListener('click',()=>finish(true));card.append(retry);}root.append(card);return;
    }raf=requestAnimationFrame(frame);
   }raf=requestAnimationFrame(frame);
-  return {dispose(){done=true;held=null;cancelAnimationFrame(raf);window.removeEventListener('keydown',key);lanesEl.removeEventListener('pointerdown',down);lanesEl.removeEventListener('pointermove',move);lanesEl.removeEventListener('pointerup',up);lanesEl.removeEventListener('pointercancel',up);lanesEl.removeEventListener('click',click);}};
+  return {dispose(){done=true;if(held!==null){try{lanesEl.releasePointerCapture(held);}catch(_){}}held=null;cancelAnimationFrame(raf);window.removeEventListener('keydown',key);lanesEl.removeEventListener('pointerdown',down);lanesEl.removeEventListener('pointermove',move);lanesEl.removeEventListener('pointerup',up);lanesEl.removeEventListener('pointercancel',up);lanesEl.removeEventListener('click',click);}};
  }
 
  if(window.RAMinigames)window.RAMinigames.register('range_day',{title:'RANGE DAY',rule:'Tap to aim and let go to fire at the targets, but never hit the hostages.',mount});

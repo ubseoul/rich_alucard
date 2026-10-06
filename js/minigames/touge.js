@@ -245,7 +245,7 @@
   const pointers=new Map();
   const storyRun=!!(tandem||P.escapeRunner||window.RAAdventures?.active?.());
   let ebrakeHeld=false,prevThrottleHeld=false,clutchKick=false;
-  function clearInput(){keys.clear();pointers.clear();ebrakeHeld=false;prevThrottleHeld=false;clutchKick=false;}
+  function clearInput(){keys.clear();for(const id of pointers.keys()){try{canvas.releasePointerCapture(id);}catch(_){}}pointers.clear();ebrakeHeld=false;prevThrottleHeld=false;clutchKick=false;}
   function blur(){clearInput();}
   window.addEventListener('blur',blur);
   const EBRAKE_RECT={x:156,y:292,w:104,h:46};
@@ -253,7 +253,7 @@
   function inRect(p,rct){return p.x>=rct.x&&p.x<=rct.x+rct.w&&p.y>=rct.y&&p.y<=rct.y+rct.h;}
   function safeCapture(id){try{canvas.setPointerCapture&&canvas.setPointerCapture(id);}catch(e){}}
   function onDown(e){
-   const p=toNative(e.clientX,e.clientY);
+   e.preventDefault();const p=toNative(e.clientX,e.clientY);
    if(phase==='results'){handleResultsTap(p);return;}
    if(inRect(p,EBRAKE_RECT)){ebrakeHeld=true;pointers.set(e.pointerId,{kind:'ebrake'});safeCapture(e.pointerId);return;}
    if(p.x<135){pointers.set(e.pointerId,{kind:'steer',startX:p.x,x:p.x});}
@@ -269,7 +269,7 @@
   function onUp(e){
    const rec=pointers.get(e.pointerId);
    if(rec&&rec.kind==='ebrake')ebrakeHeld=false;
-   pointers.delete(e.pointerId);
+   try{canvas.releasePointerCapture(e.pointerId);}catch(_){}pointers.delete(e.pointerId);
   }
   canvas.addEventListener('pointerdown',onDown);
   canvas.addEventListener('pointermove',onMove);
