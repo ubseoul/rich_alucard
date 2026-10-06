@@ -1,0 +1,161 @@
+{
+  "version": "opening-expansion-v007",
+  "sourceManifestSha256": "c27c932e372bb2b0c3826d96c017d817c4952d32617823a0bfd64c363ed5362a",
+  "status": "assistant reviewed candidate; creator acceptance separate",
+  "files": [
+    {
+      "path": "rich/climb.png",
+      "sha256": "30A64E85FA5DF7CF140343B531067AD9C93F1EBFB94F7FD82369C342BFBB4884"
+    },
+    {
+      "path": "rich/reach.png",
+      "sha256": "3288E56A35D5CCE50873026CFAB11A35B482BDAB0A9EEA47887A68C344F55600"
+    },
+    {
+      "path": "rich/slip.png",
+      "sha256": "1E512224A92B3D3D22134B5D2C36241D543FCC9840E8AAA105C1C531FFC6CFB2"
+    },
+    {
+      "path": "rich/tumble.png",
+      "sha256": "87671EC0DF8DEDEE40221E0ED8F20B29BF3A1BD576E8CE2D1F425594F14854DC"
+    },
+    {
+      "path": "rich/impact.png",
+      "sha256": "5B97CF2EAAA0ACF4717C8EDF4584E7A3F591B4293307B808C2BA3A907FB161CC"
+    },
+    {
+      "path": "rich/recover.png",
+      "sha256": "95EFE1D89A24B57B146F080B59183392F4502A99B38BD14B9703AE23ECC6B5B5"
+    },
+    {
+      "path": "rich/grasp.png",
+      "sha256": "A983B8C2C94B6E3975C49EAE4CE225FB0308AD3FA323638E202484A9E72A8100"
+    },
+    {
+      "path": "rich/recoil.png",
+      "sha256": "E73C57B3D3243216E8A74F46FE4A82DAA5E4B4F10D54954E3BB8A3A8ED22C66C"
+    },
+    {
+      "path": "rich/headache.png",
+      "sha256": "7613A1C88017570954C4415F70FAF6ED351343E0E533201785E1C03304684084"
+    },
+    {
+      "path": "rich/settled.png",
+      "sha256": "765170076E8D3A9AF9E8857E176E079B2A68C7EE1DAAFB7C8D551482228F144B"
+    },
+    {
+      "path": "sensei/neutral.png",
+      "sha256": "716C1DC09F1322CDC0FBBE7DA7F5A17764AC89668E97265AFDD6CD7D8994DC78"
+    },
+    {
+      "path": "sensei/point.png",
+      "sha256": "8C00EBDAECFC1709FA68982426C1A146E2CD10AB985BA9EC1625A3AF27C82E13"
+    },
+    {
+      "path": "sensei/startled.png",
+      "sha256": "06127F8F2ADAC60D08E90216A28538DACAD2473BDE53DDCE3CFB0AC892DC1D08"
+    },
+    {
+      "path": "sensei/recoil.png",
+      "sha256": "AFD1AF42C344751C662074D35544396004C68B47406A8E5A91EA3FF705C4025A"
+    },
+    {
+      "path": "sensei/exasperated.png",
+      "sha256": "DAD49A2B5B752E14FE929A268434EEF15E2A2E47FF8A03FE83994E194656688A"
+    },
+    {
+      "path": "brain/grab.png",
+      "sha256": "30D5F0D60E736B22004583B13A3D0C652BADEC4A728D1A41D4B2717870809C5F"
+    },
+    {
+      "path": "brain/merge.png",
+      "sha256": "3598B460B2FC0F710584C7BF637F57982CE086C3B52741B25C6A6A7E8573DF8D"
+    },
+    {
+      "path": "brain/reach.png",
+      "sha256": "E582C94AF30A6C04FFA01EDD64E9760F6B0E1A8FF77B6DD370B2D7503FF10D1F"
+    },
+    {
+      "path": "brain/reveal.png",
+      "sha256": "A205482F295FD3E8960C8978D4380568C32A21071D43D8683C6E19E917D495A6"
+    },
+    {
+      "path": "brain/settled.png",
+      "sha256": "A7BFC40506A352D96F353DBDEF0DD51D0F6940184735F89D2BDFE3B763BF7DA1"
+    },
+    {
+      "path": "brain/travel.png",
+      "sha256": "118B65A1693B5CAD6E7EAEFBEEE17DC32E78A8624A5874457647380D97B29C3A"
+    }
+  ],
+  "headCenters": {
+    "rich": {
+      "climb": [
+        39.5,
+        50
+      ],
+      "reach": [
+        40.5,
+        42
+      ],
+      "slip": [
+        37.5,
+        52
+      ],
+      "tumble": [
+        34,
+        64
+      ],
+      "impact": [
+        44.5,
+        61
+      ],
+      "recover": [
+        45.5,
+        62.7
+      ],
+      "grab": [
+        39.045,
+        48.409
+      ],
+      "recoil": [
+        37.5,
+        52
+      ],
+      "headache": [
+        41.5,
+        52
+      ],
+      "settled": [
+        41.5,
+        52
+      ],
+      "idle": [
+        41.5,
+        52
+      ]
+    },
+    "octopus_sensei": {
+      "neutral": [
+        47,
+        42
+      ],
+      "point": [
+        47,
+        42
+      ],
+      "startled": [
+        47,
+        43
+      ],
+      "recoil": [
+        46,
+        42
+      ],
+      "exasperated": [
+        47,
+        42
+      ]
+    }
+  }
+}
