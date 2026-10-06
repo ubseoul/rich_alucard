@@ -201,7 +201,18 @@ async function mainLoop(){
 // WAR ROOM -> PHONE (this one offer) -> CREW / CAR -> DEPARTURE -> ARRIVAL -> LIVE FEED -> RETURN -> back to the WAR ROOM with a canonical result.
 // The whole canonical presentation is reused unchanged; only the loop around it (the board, the nights, the title) is replaced by the request.
 const EMBED_KEY='world_f04',RESULTS_KEY='embed_results';
-export async function runEmbedded(req){
+// Transport retries can arrive before settlement: share the same live operation,
+// just as completed requests share the persisted canonical receipt.
+const activeRequests=new Map();
+export function runEmbedded(req){
+ const id=req&&req.requestId;
+ if(typeof id!=='string'||!id)return runEmbeddedOnce(req);
+ if(activeRequests.has(id))return activeRequests.get(id);
+ if(activeRequests.size)return Promise.resolve(AD.refusedResult(req,'PLAY_BUSY','another operation is still in progress'));
+ const pending=runEmbeddedOnce(req).finally(()=>activeRequests.delete(id));
+ activeRequests.set(id,pending);return pending;
+}
+async function runEmbeddedOnce(req){
  const CT=globalThis.RAPlayContract;
  const cache=store.get(RESULTS_KEY,{});
  if(req&&cache[req.requestId])return cache[req.requestId]; // idempotent: an already-completed request is answered from the record, never replayed
