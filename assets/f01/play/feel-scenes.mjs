@@ -251,20 +251,21 @@ export async function arriveScene({slide,crewObjs,carId,defense,job}){
 const CLS_COL={MUSCLE:'#e0603a',SHOOTER:'#e8c14a',WHEELS:'#3fd0e0',TALKER:'#b07ae8',GHOST:'#7f8cff',DOC:'#5fe08a'};
 export async function roomScene({crewObjs,defense,objective='THE PLAY'}){
  clear();
- // RC3: the frozen base already contains a hand. A second moving hand above it produced a ghost during jolt.
- // Draw a hard-pixel quilt behind the single frozen idle hand; never modify the frozen PNGs.
+ // Draw a quilt behind the single reviewed idle hand. Original frozen PNGs stay untouched.
  el('bedwrap quilt');
  const flash=el('flash');
- // the RIG = phone DOM + FL-A01 idle layer + thumb overlay. JOLT shakes the rig in code; the idle layer's screen is transparent so the live chat shows through.
+ // The reviewed RC5 idle/thumb pair moves with the live screen during jolt.
  const rig=el('rig');
- const phone=el('phone',`<div class="ph-head"><span class="t">THE PLAY</span><span class="s">● LIVE</span><div class="ph-crew">${crewObjs.map(o=>`<div class="av" data-crew="${esc(o.id)}" title="${esc(o.name)}">${faceOf(o)}</div>`).join('')}<span>CREW CHAT</span></div></div>`,rig);
+ // Reviewed v6 redesign: preserve a full black backplate behind the regenerated opening.
+ const screenBackplate=el('phone','',rig);
+ const phone=el('phone-content',`<div class="ph-head"><span class="t">THE PLAY</span><span class="s">● LIVE</span><div class="ph-crew">${crewObjs.map(o=>`<div class="av" data-crew="${esc(o.id)}" title="${esc(o.name)}">${faceOf(o)}</div>`).join('')}<span>CREW CHAT</span></div></div>`,screenBackplate);
  const msgs=el('msgs','',phone);
  el('operation-objective',esc(objective.toUpperCase()),rig);
  const op=el('operation-state','ENTRY · CREW MOVING',phone);op.setAttribute('aria-live','polite');op.title=objective;
  const scroll=()=>{msgs.scrollTop=msgs.scrollHeight;};
  const crewStrip=el('operation-crew','',phone);let previous=null;
- const ctlState=(snap,phase)=>{crewStrip.innerHTML='';for(const c of snap.crew){const o=byId(c.id)||{name:c.name,short:c.short};const prior=previous?.crew.find(x=>x.id===c.id);const changed=prior&&(prior.hp!==c.hp||prior.state!==c.state);const pose=c.hp<c.maxhp?'wounded':'standing';const sprite=A.hasSprite(o)?`<span class="op-pose"><img alt="" src="${A.ogaSprite(pose,o.id)}"></span>`:'';const b=el('operation-unit'+(changed?' changed':''),`${sprite}<span>${esc(o.short||o.name)}</span><b>${c.state==='UP'?c.hp+'/'+c.maxhp+' HP':esc(c.state)}</b>`,crewStrip);b.setAttribute('role','button');b.tabIndex=0;b.setAttribute('aria-label',o.name+' '+c.state+' '+c.hp+' HP; inspect');const inspect=()=>{if(phone.querySelector('.decide'))return;phone.querySelector('.crew-inspect')?.remove();const info=el('crew-inspect',`<b>${esc(o.name)}</b><p>${esc(c.state)} · ${c.hp}/${c.maxhp} HP</p><p>${esc(c.zone)} · ${esc(c.lane||'CREW')} LINE</p><button>CLOSE</button>`,phone);info.querySelector('button').onclick=()=>info.remove();};b.onclick=inspect;b.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();inspect();}};}msgs.style.top=(64+crewStrip.offsetHeight+4)+'px';previous=snap;op.textContent=phase.replaceAll('_',' ')+' · '+snap.crew.filter(c=>c.state==='UP').length+'/'+snap.crew.length+' UP';for(const c of snap.crew){const n=phone.querySelector('[data-crew="'+c.id+'"]');if(n){n.dataset.state=c.state;n.title=c.name+' · '+c.hp+'/'+c.maxhp+' HP · '+c.zone;}}};
- rig.insertAdjacentHTML('beforeend',A.handIdle()+A.thumbOverlay());
+ const ctlState=(snap,phase)=>{crewStrip.innerHTML='';for(const c of snap.crew){const o=byId(c.id)||{name:c.name,short:c.short};const prior=previous?.crew.find(x=>x.id===c.id);const changed=prior&&(prior.hp!==c.hp||prior.state!==c.state);const pose=c.hp<c.maxhp?'wounded':'standing';const sprite=A.hasSprite(o)?`<span class="op-pose"><img alt="" src="${A.ogaSprite(pose,o.id)}"></span>`:'';const b=el('operation-unit'+(changed?' changed':''),`${sprite}<span>${esc(o.short||o.name)}</span><b>${c.state==='UP'?c.hp+'/'+c.maxhp+' HP':esc(c.state)}</b>`,crewStrip);b.setAttribute('role','button');b.tabIndex=0;b.setAttribute('aria-label',o.name+' '+c.state+' '+c.hp+' HP; inspect');b.title=o.name+' — '+c.hp+'/'+c.maxhp+' HP — '+c.state+' — '+c.zone;const inspect=()=>{if(phone.querySelector('.decide'))return;phone.querySelector('.crew-inspect')?.remove();const info=el('crew-inspect',`<b>${esc(o.name)}</b><p>${esc(c.state)} · ${c.hp}/${c.maxhp} HP</p><p>${esc(c.zone)} · ${esc(c.lane||'CREW')} LINE</p><button>CLOSE</button>`,phone);info.querySelector('button').onclick=()=>info.remove();};b.onclick=inspect;b.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();inspect();}};}msgs.style.top=(64+crewStrip.offsetHeight+4)+'px';previous=snap;op.textContent=phase.replaceAll('_',' ')+' · '+snap.crew.filter(c=>c.state==='UP').length+'/'+snap.crew.length+' UP';for(const c of snap.crew){const n=phone.querySelector('[data-crew="'+c.id+'"]');if(n){n.dataset.state=c.state;n.title=c.name+' · '+c.hp+'/'+c.maxhp+' HP · '+c.zone;}}};
+ rig.insertAdjacentHTML('beforeend',`<img class="handpov" src="${new URL('./art/rc5-hand-idle-270x480.png',import.meta.url).href}" alt="" aria-hidden="true"><img class="thumbpov" src="${new URL('./art/rc5-hand-thumb-270x480.png',import.meta.url).href}" alt="" aria-hidden="true">`);
  const thumb=rig.querySelector('.thumbpov');
  let alive=true,typingNode=null;
  const byId=id=>crewObjs.find(o=>o.id===id);
@@ -295,9 +296,11 @@ export async function roomScene({crewObjs,defense,objective='THE PLAY'}){
   },
   async typing(step){await showTyping(step.who,step.ms);},
   async rich(step){
+   // Keep chat below the reviewed thumb's y242..275 footprint (+2px motion).
+   const chatTop=msgs.style.top;msgs.style.top=Math.max(parseFloat(getComputedStyle(msgs).top),228)+'px';
    thumb.classList.add('on');const tap=reduced()?null:thumb.animate([{transform:'translateY(0)'},{transform:'translateY(2px)'},{transform:'translateY(0)'}],{duration:220/K.SPEED,iterations:Infinity});
-   el('bub me',esc(step.text),msgs);fade();S.rich();await sleep(1600);
-   if(tap)tap.cancel();thumb.classList.remove('on');
+   el('bub me',esc(step.text),msgs);fade();scroll();S.rich();await sleep(1600);
+   if(tap)tap.cancel();thumb.classList.remove('on');msgs.style.top=chatTop;scroll();
   },
   async silence(ms){alive=false;K.duck(true);await sleep(ms);},
   async dial(){
