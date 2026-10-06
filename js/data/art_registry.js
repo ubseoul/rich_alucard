@@ -4979,6 +4979,20 @@
      ],
      "reference": true
     }
+   },
+   "photos": {
+    "rc5_music_castle_release": {
+     "asset": "assets/rc5/w/photos/rc5_music_castle_release_192x144.png",
+     "alt": "Rich releasing his chosen song from the castle music room",
+     "status": "ASSISTANT_REVIEWED_CANDIDATE",
+     "sha256": "99ba8a1f414198ace17d488524978cfea7dcc3e1ab78795d919f5f8daa6ae03f"
+    },
+    "rc5_music_catacomb_success": {
+     "asset": "assets/rc5/w/photos/rc5_music_catacomb_success_192x144.png",
+     "alt": "Rich performing at the Catacomb for the responding room",
+     "status": "ASSISTANT_REVIEWED_CANDIDATE",
+     "sha256": "68583a98c18ae126676d3e184c46a21f365edff2b7bd444241c9cb6be49e7ab4"
+    }
    }
   },
   "vehicles": {

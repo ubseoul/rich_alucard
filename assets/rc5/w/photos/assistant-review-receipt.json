@@ -1,0 +1,30 @@
+{
+  "reviewer": "W under delegated assistant aesthetic judgment",
+  "decision": "PAIR PASS: recommend assistant candidate acceptance and bounded event bindings integration",
+  "creatorFrozen": false,
+  "runtimeImported": false,
+  "proof": "Seeded real cook/drop/showResult APIs and retained VampGram consumer; not naturally earned campaign event",
+  "evidence": "W-evidence/photo-pair/report.json",
+  "files": [
+    {
+      "photoKey": "rc5_music_castle_release",
+      "path": "C:\\Users\\Ube\\Documents\\Codex\\2026-10-06\\task-22\\output\\v3-castle-head-pilot\\rc5_music_castle_release_192x144.png",
+      "sha256": "99ba8a1f414198ace17d488524978cfea7dcc3e1ab78795d919f5f8daa6ae03f",
+      "canvas": [
+        192,
+        144
+      ]
+    },
+    {
+      "photoKey": "rc5_music_catacomb_success",
+      "path": "C:\\Users\\Ube\\Documents\\Codex\\2026-10-06\\task-22\\output\\v2-catacomb-pilot\\rc5_music_catacomb_success_192x144.png",
+      "sha256": "68583a98c18ae126676d3e184c46a21f365edff2b7bd444241c9cb6be49e7ab4",
+      "canvas": [
+        192,
+        144
+      ]
+    }
+  ],
+  "observations": "Recognizable Rich across new photo poses; accepted fuller hair/brighter face direction. Coherent castle music room and Catacomb venue, modest adult crowd, mic and black shoes. Natural4:3 display, no crop; captions external. Minor hand/body/density variations do not materially change identity.",
+  "eventLimits": "Release only first successful drop; Catacomb only first successful paid showResult pay>0. Repeat/failure/quit fixtures produced no extra photo posts. Final importer must use exact hashes, preserve originals, no baked captions."
+}
