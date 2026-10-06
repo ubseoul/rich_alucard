@@ -24,6 +24,7 @@
   // so the legacy 0.9 × global multiplier and the fixed floor at y=318 are not used on this path.
   // Wave 2: every Combat 2.0 fight is Director-staged (params.director:false or the census legacy hook opt out).
   const directed=params.director!==false&&!window.__pdLegacy&&!!window.RAPresentationDirector;
+  let directorStage=null;
   const scale=RADisplay.scaled(1)*.9,floor=318;
   const richEl=actorEl('rich',70,floor,scale,false);let art=D().enemyArt(enemyId);
   const appearance=params.artState||null,timelineId=appearance?`${enemyId}@${appearance}`:enemyId;
@@ -36,8 +37,9 @@
   // strikes when Rich is hurt, reacts when hit and stays defeated on a win; otherwise it returns to its base sprite.
   // Only states that exist are used; a fight staged in a named state (RACombatData.enemyArt) holds that state.
   const combatState=role=>art.roles[role]?.src||null;
-  const enemyStates=[art.base,...Object.values(art.roles).map(r=>r.src),...Object.values(window.RAEnemyFX?.TIMELINES?.[timelineId]||{}).flatMap(p=>['prepare','action','contact','recover'].map(k=>p[k]))].filter((src,i,all)=>src&&all.indexOf(src)===i);
-  function setEnemyState(role){if(enemyEl.tagName!=='IMG'||!art.base)return;const src=(role&&combatState(role))||art.base;if(enemyEl.getAttribute('src')===src)return;enemyEl.src=src;if(directed)RAPresentationDirector.relayout();}
+  const enemyStates=[art.base,...Object.values(art.roles).map(r=>r.src),...Object.values(window.RAEnemyFX?.TIMELINES?.[timelineId]||{}).flatMap(p=>[...['prepare','action','contact','recover'].map(k=>p[k]),...(p.frames||[])])].filter((src,i,all)=>src&&all.indexOf(src)===i);
+  function presentEnemyPose(src,meta){if(!directed||!directorStage)return;directorStage.actors.enemy.flip=meta?.facing==='left'?false:enemyFlip;enemyEl.style.transform=meta?.facing==='left'?'none':enemyFlip?'scaleX(-1)':'';RAPresentationDirector.relayout();}
+  function setEnemyState(role){if(enemyEl.tagName!=='IMG'||!art.base)return;const src=(role&&combatState(role))||art.base;if(enemyEl.getAttribute('src')===src)return;enemyEl.src=src;presentEnemyPose(src,null);}
   const minionEls=[];if(def.minions){for(let i=0;i<5;i++){const k=actorEl(def.person,150+i*22,floor-30+i*6,scale*.55,false);k.classList.add('c2-minion');root.append(k);minionEls.push(k);}}
   root.insertAdjacentHTML('beforeend',`<div class="c2-hud"><div class="c2-hp c2-hp-rich"><b>RICH ALUCARD</b><span>HP <i><em></em></i> <strong></strong></span></div><div class="c2-hp c2-hp-enemy"><b>${esc(state.enemy.name)}</b><span>HP <i><em></em></i> <strong></strong></span></div></div><div class="c2-telegraph" hidden></div><div class="c2-float" aria-hidden="true"></div><div class="c2-panel"><div class="c2-log" aria-live="polite"></div><div class="c2-menu"></div></div><div class="c2-octo" hidden></div>`);
   screen.append(root);document.body.classList.add('combat2-mode');window.RAMusicLibrary?.combat(root,enemyId,params);
@@ -48,6 +50,7 @@
    // Same adapter contract as adventures: environment floor + depth scale, slot anchors; minions stand on a
    // farther depth band (0.55 of the floor scale — the legacy crowd depth made explicit).
    const stage=RAPresentationDirector.combat2Stage(envDef,def.person||enemyId,{flip:enemyFlip,minions:minionEls.length,states:enemyStates,enemyScale:def.stageScale});
+   directorStage=stage;
    const actors={rich:richEl,enemy:enemyEl};minionEls.forEach((el,i)=>actors[`minion${i}`]=el);
    RAPresentationDirector.enter({stage,mode:'combat',beat:'default',host:root,env:env.canvas,actors,roles:stage.director.roles,fx:false,ui:{selectors:['.c2-hud .c2-hp','.c2-panel'],dialogue:['.c2-log'],bubbles:[]}});
   }
@@ -80,10 +83,10 @@
     if(ev.kind==='telegraph'){shownTelegraph=ev.text;hud();}
     if(ev.kind==='enemy'){shownTelegraph=ev.text;hud();}
     if(ev.kind==='telegraph')window.RABarks?.trigger({root,enemyId,kind:'telegraph',enemyEl});
-    if(ev.kind==='enemy'){window.RABarks?.trigger({root,enemyId,kind:'attack',enemyEl});const mv=D().ENEMIES[enemyId]?.moves?.[ev.move],willHit=events.slice(index+1).find(e=>['hurt','miss','enemy'].includes(e.kind))?.kind==='hurt';await window.RAEnemyFX?.attack({root,enemyId,appearance,moveId:ev.move,dmg:mv?.dmg||0,attacker:enemyEl,target:richEl,onContact:()=>{if(!root.isConnected)return;if(ev.spar){if(ev.sparClean){showHP(events.slice(index+1).find(e=>e.sparContact));hud();window.RACombatPixelFX?.impact({root,target:richEl,attacker:enemyEl,severity:'normal'});audio?.sound('HIT_LIGHT');}return;}if(mv?.heal||mv?.healAlly){showHP(events.slice(index+1).find(e=>e.kind==='heal'&&e.target==='enemy'));hud();}if(!willHit||(mv?.dmg||0)<=0)return;enemyContact=true;const contactEvents=events.slice(index+1);const end=contactEvents.findIndex(e=>e.kind==='enemy'||e.kind==='telegraph');const hits=(end<0?contactEvents:contactEvents.slice(0,end)).filter(e=>e.kind==='hurt');showHP(hits.at(-1));hud();window.RACombatPixelFX?.impact({root,target:richEl,attacker:enemyEl,severity:(mv?.dmg||0)>=30?'heavy':'normal'});audio?.sound((mv?.dmg||0)>=30?'HIT_HEAVY':'HIT_LIGHT');}});}
+    if(ev.kind==='enemy'){window.RABarks?.trigger({root,enemyId,kind:'attack',enemyEl});const mv=D().ENEMIES[enemyId]?.moves?.[ev.move],willHit=events.slice(index+1).find(e=>['hurt','miss','enemy'].includes(e.kind))?.kind==='hurt';await window.RAEnemyFX?.attack({root,enemyId,appearance,moveId:ev.move,dmg:mv?.dmg||0,attacker:enemyEl,target:richEl,onPose:directed?presentEnemyPose:null,onContact:()=>{if(!root.isConnected)return;if(ev.spar){if(ev.sparClean){showHP(events.slice(index+1).find(e=>e.sparContact));hud();window.RACombatPixelFX?.impact({root,target:richEl,attacker:enemyEl,severity:'normal'});audio?.sound('HIT_LIGHT');}return;}if(mv?.heal||mv?.healAlly){showHP(events.slice(index+1).find(e=>e.kind==='heal'&&e.target==='enemy'));hud();}if(!willHit||(mv?.dmg||0)<=0)return;enemyContact=true;const contactEvents=events.slice(index+1);const end=contactEvents.findIndex(e=>e.kind==='enemy'||e.kind==='telegraph');const hits=(end<0?contactEvents:contactEvents.slice(0,end)).filter(e=>e.kind==='hurt');showHP(hits.at(-1));hud();window.RACombatPixelFX?.impact({root,target:richEl,attacker:enemyEl,severity:(mv?.dmg||0)>=30?'heavy':'normal'});audio?.sound((mv?.dmg||0)>=30?'HIT_HEAVY':'HIT_LIGHT');}});}
     if(!root.isConnected)return;
     const intentPose=ev.kind==='telegraph'&&ev.move&&window.RAEnemyFX?.poseFor(enemyId,ev.move,0,appearance);
-    if(intentPose&&enemyEl.tagName==='IMG')enemyEl.src=intentPose;
+    if(intentPose&&enemyEl.tagName==='IMG'){enemyEl.src=intentPose;presentEnemyPose(intentPose,window.RAEnemyFX?.TIMELINES?.[timelineId]?.[ev.move]?.native?.[intentPose]);}
     else setEnemyState(ev.kind==='telegraph'?'telegraph':ev.kind==='hit'&&ev.target!=='rich'?'hit':ev.kind==='win'?'defeated':state.over&&state.outcome==='win'?'defeated':null);
     if(ev.kind==='hit'||ev.kind==='hurt'){
      const group=[ev];while(events[index+1]?.kind===ev.kind&&events[index+1]?.target===ev.target)group.push(events[++index]);

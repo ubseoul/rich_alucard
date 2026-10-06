@@ -1,0 +1,424 @@
+{
+  "width": 430,
+  "mode": "win",
+  "kind": "seeded rave night, actual RAOgunRave.fight and ordinary legal UI actions",
+  "errors": [],
+  "entry": {
+    "name": "HILT",
+    "src": "assets/before_the_fame/characters/hilt/hilt_neutral_80x96.png",
+    "met": true,
+    "timeline": [
+      "assets/rc5/hilt_v001/prepare.png",
+      "assets/rc5/hilt_v001/aim.png",
+      "assets/rc5/hilt_v001/release.png",
+      "assets/rc5/hilt_v001/contact.png",
+      "assets/rc5/hilt_v001/recovery.png"
+    ],
+    "generic": null
+  },
+  "turns": [
+    {
+      "before": {
+        "hp": 100,
+        "enemy": 70,
+        "pp": 8,
+        "over": false
+      },
+      "after": {
+        "hp": 82,
+        "enemy": 47,
+        "pp": 7,
+        "over": false
+      }
+    },
+    {
+      "before": {
+        "hp": 82,
+        "enemy": 47,
+        "pp": 7,
+        "over": false
+      },
+      "after": {
+        "hp": 82,
+        "enemy": 24,
+        "pp": 6,
+        "over": false
+      }
+    },
+    {
+      "before": {
+        "hp": 82,
+        "enemy": 24,
+        "pp": 6,
+        "over": false
+      },
+      "after": {
+        "hp": 82,
+        "enemy": 2,
+        "pp": 5,
+        "over": false
+      }
+    },
+    {
+      "before": {
+        "hp": 82,
+        "enemy": 2,
+        "pp": 5,
+        "over": false
+      },
+      "after": {
+        "hp": 100,
+        "enemy": 0,
+        "pp": 4,
+        "over": true
+      }
+    }
+  ],
+  "result": "win",
+  "frames": [
+    {
+      "at": 3630,
+      "frame": "0",
+      "src": "assets/rc5/hilt_v001/prepare.png",
+      "transform": "none",
+      "top": 251,
+      "foot": 556.576171875,
+      "expectedFoot": 557,
+      "hud": "100/100"
+    },
+    {
+      "at": 3713.3000000715256,
+      "frame": "1",
+      "src": "assets/rc5/hilt_v001/prepare.png",
+      "transform": "none",
+      "top": 251,
+      "foot": 556.576171875,
+      "expectedFoot": 557,
+      "hud": "100/100"
+    },
+    {
+      "at": 3764.600000023842,
+      "frame": "2",
+      "src": "assets/rc5/hilt_v001/aim.png",
+      "transform": "none",
+      "top": 262,
+      "foot": 557.0390625,
+      "expectedFoot": 557,
+      "hud": "100/100"
+    },
+    {
+      "at": 3846.2000000476837,
+      "frame": "3",
+      "src": "assets/rc5/hilt_v001/aim.png",
+      "transform": "none",
+      "top": 262,
+      "foot": 557.0390625,
+      "expectedFoot": 557,
+      "hud": "100/100"
+    },
+    {
+      "at": 3898,
+      "frame": "4",
+      "src": "assets/rc5/hilt_v001/release.png",
+      "transform": "none",
+      "top": 262,
+      "foot": 557.0390625,
+      "expectedFoot": 557,
+      "hud": "100/100"
+    },
+    {
+      "at": 3963.4000000953674,
+      "frame": "5",
+      "src": "assets/rc5/hilt_v001/contact.png",
+      "transform": "none",
+      "top": 258,
+      "foot": 556.5514322916667,
+      "expectedFoot": 557,
+      "hud": "82/100"
+    },
+    {
+      "at": 4030,
+      "frame": "6",
+      "src": "assets/rc5/hilt_v001/contact.png",
+      "transform": "none",
+      "top": 258,
+      "foot": 556.5514322916667,
+      "expectedFoot": 557,
+      "hud": "82/100"
+    },
+    {
+      "at": 4113.800000071526,
+      "frame": "7",
+      "src": "assets/rc5/hilt_v001/recovery.png",
+      "transform": "none",
+      "top": 241,
+      "foot": 557.11328125,
+      "expectedFoot": 557,
+      "hud": "82/100"
+    },
+    {
+      "at": 4180.300000071526,
+      "frame": "8",
+      "src": "assets/rc5/hilt_v001/recovery.png",
+      "transform": "none",
+      "top": 241,
+      "foot": 557.11328125,
+      "expectedFoot": 557,
+      "hud": "82/100"
+    },
+    {
+      "at": 4247.600000023842,
+      "frame": "9",
+      "src": "assets/rc5/hilt_v001/recovery.png",
+      "transform": "none",
+      "top": 241,
+      "foot": 557.11328125,
+      "expectedFoot": 557,
+      "hud": "82/100"
+    },
+    {
+      "at": 6950.100000023842,
+      "frame": "0",
+      "src": "assets/rc5/hilt_v001/prepare.png",
+      "transform": "none",
+      "top": 251,
+      "foot": 556.576171875,
+      "expectedFoot": 557,
+      "hud": "100/100"
+    },
+    {
+      "at": 7034.5,
+      "frame": "1",
+      "src": "assets/rc5/hilt_v001/prepare.png",
+      "transform": "none",
+      "top": 251,
+      "foot": 556.576171875,
+      "expectedFoot": 557,
+      "hud": "100/100"
+    },
+    {
+      "at": 7102.300000071526,
+      "frame": "2",
+      "src": "assets/rc5/hilt_v001/aim.png",
+      "transform": "none",
+      "top": 262,
+      "foot": 557.0390625,
+      "expectedFoot": 557,
+      "hud": "100/100"
+    },
+    {
+      "at": 7166.300000071526,
+      "frame": "3",
+      "src": "assets/rc5/hilt_v001/aim.png",
+      "transform": "none",
+      "top": 262,
+      "foot": 557.0390625,
+      "expectedFoot": 557,
+      "hud": "100/100"
+    },
+    {
+      "at": 7235.300000071526,
+      "frame": "4",
+      "src": "assets/rc5/hilt_v001/release.png",
+      "transform": "none",
+      "top": 262,
+      "foot": 557.0390625,
+      "expectedFoot": 557,
+      "hud": "100/100"
+    },
+    {
+      "at": 7285,
+      "frame": "5",
+      "src": "assets/rc5/hilt_v001/contact.png",
+      "transform": "none",
+      "top": 258,
+      "foot": 556.5514322916667,
+      "expectedFoot": 557,
+      "hud": "82/100"
+    },
+    {
+      "at": 7367.5,
+      "frame": "6",
+      "src": "assets/rc5/hilt_v001/contact.png",
+      "transform": "none",
+      "top": 258,
+      "foot": 556.5514322916667,
+      "expectedFoot": 557,
+      "hud": "82/100"
+    },
+    {
+      "at": 7434.700000047684,
+      "frame": "7",
+      "src": "assets/rc5/hilt_v001/recovery.png",
+      "transform": "none",
+      "top": 241,
+      "foot": 557.11328125,
+      "expectedFoot": 557,
+      "hud": "82/100"
+    },
+    {
+      "at": 7500.900000095367,
+      "frame": "8",
+      "src": "assets/rc5/hilt_v001/recovery.png",
+      "transform": "none",
+      "top": 241,
+      "foot": 557.11328125,
+      "expectedFoot": 557,
+      "hud": "82/100"
+    },
+    {
+      "at": 7567.100000023842,
+      "frame": "9",
+      "src": "assets/rc5/hilt_v001/recovery.png",
+      "transform": "none",
+      "top": 241,
+      "foot": 557.11328125,
+      "expectedFoot": 557,
+      "hud": "82/100"
+    },
+    {
+      "at": 10271.400000095367,
+      "frame": "0",
+      "src": "assets/rc5/hilt_v001/prepare.png",
+      "transform": "none",
+      "top": 251,
+      "foot": 556.576171875,
+      "expectedFoot": 557,
+      "hud": "100/100"
+    },
+    {
+      "at": 10353,
+      "frame": "1",
+      "src": "assets/rc5/hilt_v001/prepare.png",
+      "transform": "none",
+      "top": 251,
+      "foot": 556.576171875,
+      "expectedFoot": 557,
+      "hud": "100/100"
+    },
+    {
+      "at": 10420.100000023842,
+      "frame": "2",
+      "src": "assets/rc5/hilt_v001/aim.png",
+      "transform": "none",
+      "top": 262,
+      "foot": 557.0390625,
+      "expectedFoot": 557,
+      "hud": "100/100"
+    },
+    {
+      "at": 10469.800000071526,
+      "frame": "3",
+      "src": "assets/rc5/hilt_v001/aim.png",
+      "transform": "none",
+      "top": 262,
+      "foot": 557.0390625,
+      "expectedFoot": 557,
+      "hud": "100/100"
+    },
+    {
+      "at": 10537.600000023842,
+      "frame": "4",
+      "src": "assets/rc5/hilt_v001/release.png",
+      "transform": "none",
+      "top": 262,
+      "foot": 557.0390625,
+      "expectedFoot": 557,
+      "hud": "100/100"
+    },
+    {
+      "at": 10603.300000071526,
+      "frame": "5",
+      "src": "assets/rc5/hilt_v001/contact.png",
+      "transform": "none",
+      "top": 258,
+      "foot": 556.5514322916667,
+      "expectedFoot": 557,
+      "hud": "82/100"
+    },
+    {
+      "at": 10687.100000023842,
+      "frame": "6",
+      "src": "assets/rc5/hilt_v001/contact.png",
+      "transform": "none",
+      "top": 258,
+      "foot": 556.5514322916667,
+      "expectedFoot": 557,
+      "hud": "82/100"
+    },
+    {
+      "at": 10736.700000047684,
+      "frame": "7",
+      "src": "assets/rc5/hilt_v001/recovery.png",
+      "transform": "none",
+      "top": 241,
+      "foot": 557.11328125,
+      "expectedFoot": 557,
+      "hud": "82/100"
+    },
+    {
+      "at": 10820.200000047684,
+      "frame": "8",
+      "src": "assets/rc5/hilt_v001/recovery.png",
+      "transform": "none",
+      "top": 241,
+      "foot": 557.11328125,
+      "expectedFoot": 557,
+      "hud": "82/100"
+    },
+    {
+      "at": 10887,
+      "frame": "9",
+      "src": "assets/rc5/hilt_v001/recovery.png",
+      "transform": "none",
+      "top": 241,
+      "foot": 557.11328125,
+      "expectedFoot": 557,
+      "hud": "82/100"
+    }
+  ],
+  "contacts": [
+    {
+      "at": 3958.2000000476837,
+      "frame": "5",
+      "before": "100/100",
+      "after": "82/100"
+    },
+    {
+      "at": 7281.400000095367,
+      "frame": "5",
+      "before": "100/100",
+      "after": "82/100"
+    },
+    {
+      "at": 10596.600000023842,
+      "frame": "5",
+      "before": "100/100",
+      "after": "82/100"
+    }
+  ],
+  "restores": [
+    {
+      "styleBefore": "left: 163px; top: 169px; width: 281px; height: 337.2px; transform: scaleX(-1); --pd-w: 281px; --pd-h: 337.2px; --pd-k: 3.513;",
+      "styleAfter": "left: 163px; top: 169px; width: 281px; height: 337.2px; transform: scaleX(-1); --pd-w: 281px; --pd-h: 337.2px; --pd-k: 3.513;",
+      "srcBefore": "assets/before_the_fame/characters/hilt/hilt_neutral_80x96.png",
+      "srcAfter": "assets/before_the_fame/characters/hilt/hilt_neutral_80x96.png",
+      "connected": true
+    },
+    {
+      "styleBefore": "left: 163px; top: 169px; width: 281px; height: 337.2px; transform: scaleX(-1); --pd-w: 281px; --pd-h: 337.2px; --pd-k: 3.513;",
+      "styleAfter": "left: 163px; top: 169px; width: 281px; height: 337.2px; transform: scaleX(-1); --pd-w: 281px; --pd-h: 337.2px; --pd-k: 3.513;",
+      "srcBefore": "assets/before_the_fame/characters/hilt/hilt_neutral_80x96.png",
+      "srcAfter": "assets/before_the_fame/characters/hilt/hilt_neutral_80x96.png",
+      "connected": true
+    },
+    {
+      "styleBefore": "left: 163px; top: 169px; width: 281px; height: 337.2px; transform: scaleX(-1); --pd-w: 281px; --pd-h: 337.2px; --pd-k: 3.513;",
+      "styleAfter": "left: 163px; top: 169px; width: 281px; height: 337.2px; transform: scaleX(-1); --pd-w: 281px; --pd-h: 337.2px; --pd-k: 3.513;",
+      "srcBefore": "assets/before_the_fame/characters/hilt/hilt_neutral_80x96.png",
+      "srcAfter": "assets/before_the_fame/characters/hilt/hilt_neutral_80x96.png",
+      "connected": true
+    }
+  ],
+  "passed": true
+}
