@@ -13,6 +13,9 @@
  async function onStart(){
   if(started())return false; // caller keeps the historical START → bedroom behavior
   const f=RALife.flag;
+  // Show the authored starting balance before the prologue, rather than silently replacing it after the CEO fight.
+  // The existing wake latch prevents a second initialization; resumed adventures and saved lives keep their cash.
+  if(!hasProgress()&&!f('startCashSet')&&window.RAEcon?.start?.cash!=null){RAState.patch('life.resources.money',RAEcon.start.cash);RALife.setFlag('startCashSet',true);}
   if(!f('prologueDone')){if(!RAAdventures.active())RAAdventures.start('A00',{from:'newgame'});await RAScenes.go('adventure',{});return true;}
   if(!f('throneDone')){await toThrone();return true;}
   await firstWake();return true;
