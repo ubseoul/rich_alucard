@@ -58,6 +58,55 @@
   flurry(c,f,a,t,o){const {C,rect,line,star}=H();const n=o.hits||3,col=o.color||C.gold;
    for(let i=0;i<n;i++){const start=1+i*Math.max(1,Math.floor(6/n)),k=f-start;if(k<0||k>3)continue;
     const jx=((i*37)%17)-8,jy=((i*23)%23)-11;if(k<=1)line(c,lerp(a.x-8,t.x+8,.3+k*.4),a.y+jy*.4,t.x+8+jx*.4,t.y+jy,col,2);else{star(c,t.x+jx,t.y+jy,k===2?16:11,o.sprite?C.bone:col);if(o.sprite&&k===2)blit(c,o.sprite,t.x+jx,t.y+jy-12,.8,col);}}},
+  sleeve(c,f,a,t,o){const {C,line,star}=H();
+   if(f<2){line(c,a.x-8,a.y+12,a.x-2-f*3,a.y+4,C.gold,2);return;}
+   if(f<5){const u=(f-1)/4;for(let i=0;i<3;i++)line(c,a.x-10,a.y+8+i*4,lerp(a.x-10,t.x+12,u),a.y+8+i*8,'#6f173b',3);return;}
+   if(f<8){for(let i=0;i<3;i++)line(c,t.x+22,t.y-12+i*12,t.x-14,t.y-8+i*9,i===1?C.gold:'#6f173b',2);if(f===5)star(c,t.x,t.y+6,12,C.gold);}
+  },
+  voiceNote(c,f,a,t,o){const {C,rect,line}=H();
+   if(f<2)return;
+   for(let i=0;i<4;i++){const x=a.x-16-i*7,y=a.y-12;const height=2+((i+f)%3)*3;line(c,x,y-height,x,y+height,C.gold,1);}
+   if(f>=5&&f<8)for(let i=0;i<3;i++)rect(c,t.x-10+i*10,t.y-25+(i%2)*4,2,3,C.gold);
+  },
+  fatherPalm(c,f,a,t,o){const {C,line,cross}=H();
+   if(f<2)return;
+   if(f<5){line(c,a.x-22,a.y+10,a.x-22,a.y+17-f*2,C.gold,2);return;}
+   if(f<8){cross(c,a.x,a.y+5,4+(f-5)*3,C.gold);line(c,a.x-14,a.floor-3,a.x+14,a.floor-3,C.gold,2);}
+  },
+  draco(c,f,a,t,o){const {C,line,star,rect}=H();const x=a.x-12,y=a.y+7;
+   if(f<2){rect(c,x+4,y+6-f*3,3,3,C.gold);return;}
+   if(f<5){line(c,x,y,t.x+12,t.y,C.gold,1);return;}
+   if(f===5||f===7){star(c,x,y,7,C.gold);line(c,x-5,y,t.x+4,t.y,C.bone,2);star(c,t.x,t.y+(f===7?6:-4),11,C.gold);}
+   if(f>=8)rect(c,x+2+(f-8)*3,y+10,2,2,C.gold);
+  },
+  heel(c,f,a,t,o){const {C,line,star}=H();
+   if(f<2){line(c,a.x-8,a.floor-12,a.x-13,a.floor-19-f*2,C.gold,2);return;}
+   if(f<5){const u=(f-1)/4;line(c,a.x-12,a.floor-22,lerp(a.x-12,t.x+10,u),lerp(a.floor-22,t.y+12,u),C.gold,3);return;}
+   if(f<8){line(c,t.x+17,t.y+12,t.x-14,t.y+12,C.bone,3);if(f===5)star(c,t.x,t.y+12,16,C.gold);}
+  },
+  boxing(c,f,a,t,o){const {C,line,star}=H();const y=t.y+(o.cross?4:-4);
+   if(f<2)return;
+   if(f<5){const u=(f-1)/4;line(c,a.x-8,a.y+(o.cross?6:-3),lerp(a.x-8,t.x+9,u),lerp(a.y,y,u),C.bone,2);}
+   else if(f<7){if(o.cross)line(c,t.x+14,y-8,t.x-7,y+6,C.gold,2);star(c,t.x,y,o.cross?9:6,C.bone);}
+  },
+  antenna(c,f,a,t,o){const {C,line,rect}=H();
+   if(f<5){const u=f/5;line(c,a.x-20,a.y-12,a.x-32-u*10,a.y-28+u*12,C.orange,2);return;}
+   if(f<8)for(let i=0;i<3;i++)rect(c,t.x-12+i*10,t.y-22-i%2*3,2,4,C.orange);
+  },
+  scuttle(c,f,a,t,o){const {C,rect,line,star}=H();
+   const u=Math.max(0,Math.min(1,(f-1)/4)),floor=t.floor-3;
+   if(f<5)for(let i=0;i<4;i++)rect(c,lerp(a.x,t.x+18,u)+i*5,floor-i%2*3,3,2,C.orange);
+   else if(f<8){line(c,t.x+19,floor,t.x-12,floor,C.orange,2);if(f===5)star(c,t.x,t.y+17,12,C.orange);}
+  },
+  stare(c,f,a,t,o){const {C,rect,line}=H();
+   if(f<5){rect(c,a.x-26,a.y-8,3+f,2,C.gold);return;}
+   if(f<8)for(let i=0;i<3;i++)line(c,t.x-12+i*10,t.y-27,t.x-14+i*10,t.y-21,C.orange,1);
+  },
+  wingbeat(c,f,a,t,o){const {C,line,star}=H();
+   if(f<2)return;
+   if(f<5){for(let i=0;i<3;i++)line(c,a.x+14+i*8,a.y-10-i*3,a.x+20+i*8,a.y-15-i*3,C.orange,2);return;}
+   if(f<8){line(c,t.x+12,t.y-25,t.x-8,t.y+8,C.orange,2);if(f===5)star(c,t.x,t.y,15,C.gold);}
+  },
   word(c,f,a,t,o){const {C,rect,line,ring,star}=H();const col=o.color||C.gold;
    if(f<=4){for(let i=0;i<3;i++){const u=Math.min(1,Math.max(0,(f-i*.6)/3.4));if(u>0)blit(c,'exclaim',a.x-6+(i-1)*16,a.y-34-u*18+(i%2)*3,1.4,col);}return;}
    const u=(f-4)/5;for(let i=0;i<3;i++){const x=lerp(a.x-12,t.x+14,u)+i*-6;ring(c,x,a.y-4+(i-1)*5,6+i*3,i%2?C.bone:col);}
@@ -66,10 +115,10 @@
  // enemy -> move -> {style,...options}. Keys fall back to MOVE_DEFAULT[moveId] then STYLE_BY_DMG.
  const CC={bone:'#f5e8c5',gold:'#d6af62',red:'#ae2446',violet:'#9460c0',blue:'#6876d3',green:'#72b58a',orange:'#d98241',pink:'#d85a8a',brown:'#9a6a3c'};
  const MAP={
-  gbenga:{sweep:{s:'slash',color:CC.gold},voice:{s:'burst',glyph:'note',color:CC.gold,count:4,at:'toRich'},my_son:{s:'burst',glyph:'cross',color:CC.green,at:'self',count:4},draco:{s:'flurry',hits:2,color:CC.gold}},
+  gbenga:{sweep:{s:'sleeve'},voice:{s:'voiceNote'},my_son:{s:'fatherPalm'},draco:{s:'draco'}},
   blad33ee:{bolt:{s:'projectile',sprite:'arrow',color:CC.bone,arc:2},slash:{s:'slash',color:CC.bone}},
   uncle_sunday:{wag:{s:'word',color:CC.gold},father:{s:'word',color:CC.orange,heavy:1},marriage:{s:'burst',glyph:'heart',color:CC.pink,count:5,at:'toRich'}},
-  bruce_loose:{flurry:{s:'flurry',hits:3,color:'#e6c23a'},kick:{s:'smash',color:'#e6c23a',heavy:1},noise:{s:'burst',glyph:'exclaim',color:'#e6c23a',at:'self',count:5}},
+  bruce_loose:{flurry:{s:'flurry',hits:3,color:'#e6c23a'},kick:{s:'heel'},noise:{s:'burst',glyph:'exclaim',color:'#e6c23a',at:'self',count:5}},
   kevins:{poke:{s:'flurry',hits:5,color:CC.blue},honor:{s:'slash',color:CC.bone}},
   phil:{beam:{s:'beam',color:'#7ad0ff'},punch:{s:'smash',color:CC.orange}},
   bonesworth:{sway:{s:'burst',glyph:'star',color:CC.green,at:'self',count:5},cleave:{s:'slash',color:CC.bone},bash:{s:'smash',color:CC.bone,heavy:1},rattle:{s:'burst',glyph:'bone',color:CC.bone,count:5,at:'toRich'},second_wind:{s:'burst',glyph:'cross',color:CC.green,at:'self',count:4},death_charge:{s:'smash',color:CC.red,heavy:1}},
@@ -86,34 +135,100 @@
   hunter:{bolt:{s:'projectile',sprite:'arrow',color:CC.bone,arc:2}},
   groupies:{hug:{s:'flurry',hits:3,color:CC.pink,sprite:'heart'}},
   werewolf:{swipe:{s:'slash',color:CC.bone,claws:1},howl:{s:'burst',glyph:'exclaim',color:CC.violet,at:'self',count:5}},
-  training:{bonk:{s:'smash',color:CC.brown}}
+  training:{bonk:{s:'smash',color:CC.brown}},
+  f15_roxy_spar:{jab:{s:'boxing'},cross:{s:'boxing',cross:true}},
+  f15_uncle_bunmi:{antenna:{s:'antenna'},scuttle:{s:'scuttle'},stare:{s:'stare'},flies:{s:'wingbeat'}}
  };
  const MOVE_DEFAULT={briefcase_throw:{s:'projectile',sprite:'briefcase',color:CC.gold,arc:14},importer_shove:{s:'smash',color:CC.orange,heavy:1}};
  function specFor(enemyId,moveId,dmg){const base=MAP[enemyId]?.[moveId]||MOVE_DEFAULT[moveId];if(base)return base;return dmg>=30?{s:'smash',color:CC.red,heavy:1}:dmg>0?{s:'slash',color:CC.bone}:{s:'burst',glyph:'star',color:CC.violet,at:'self',count:3};}
  const POSES={smallie:{chew:'smallie-chew',crumb:'smallie-crumb'},smallie_cousin:{dagger:'cousin-dagger',feint:'cousin-feint'}};
  const GBENGA={sweep:'adjusting_sleeves',voice:'voice_note',my_son:'my_son',draco:'golden_draco'};
- function poseFor(enemyId,moveId,f){
+ // Additive reviewed candidates. Four named body states share the mechanical frame5 contact.
+ // Callers may register private sequences without exposing their paths in the public registry.
+ const TIMELINES={},warmImages=new Map();
+ function register(enemyId,moveId,sequence){
+  if(!sequence||!['prepare','action','contact','recover'].every(k=>typeof sequence[k]==='string'))throw new Error('enemy timeline requires four explicit body-state assets');
+  if(new Set(['prepare','action','contact','recover'].map(k=>sequence[k])).size<2)throw new Error('enemy timeline requires distinct drawn body assets');
+  (TIMELINES[enemyId]??={})[moveId]=Object.freeze({...sequence});return TIMELINES[enemyId][moveId];
+ }
+ function preload(enemyId,appearance=null){
+  const timelineId=appearance?`${enemyId}@${appearance}`:enemyId;
+  const paths=new Set();
+  for(const id of new Set([...Object.keys(window.RACombatData?.ENEMIES?.[enemyId]?.moves||{}),...Object.keys(TIMELINES[timelineId]||{})]))for(const f of [0,3,5,8]){const src=poseFor(enemyId,id,f,appearance);if(src)paths.add(src);}
+  for(const src of paths)if(!warmImages.has(src)){const img=new Image();img.src=src;warmImages.set(src,img);}
+  return [...paths];
+ }
+ function poseFor(enemyId,moveId,f,appearance=null){
+  const sequence=TIMELINES[appearance?`${enemyId}@${appearance}`:enemyId]?.[moveId];
+  if(sequence)return sequence[f<2?'prepare':f<5?'action':f<8?'contact':'recover'];
+  if(appearance)return null; // Never replace an authored appearance with another stage's body poses.
   const key=POSES[enemyId]?.[moveId];
-  if(key)return `assets/rc4/combat_candidates_v1/${key}-f${f<2?1:f<5?2:3}.png`;
+  // Contact is frame5: hold the drawn action through impact, then recover at frame7.
+  if(key)return `assets/rc4/combat_candidates_v1/${key}-f${f<2?1:f<7?2:3}.png`;
   if(enemyId==='gbenga'){const states=window.RABtfPeople?.get('gbenga')?.states||{},key=GBENGA[moveId];return f<7?states[key]||null:null;}
   return null;
  }
- const wait=ms=>new Promise(r=>setTimeout(r,ms));
+ // Batch2 exact reviewed PNGs; originals remain unchanged.
+ register("gbenga","sweep",{"prepare":"assets/rc4/combat_candidates_v2/gbenga-sweep-prepare.png","action":"assets/rc4/combat_candidates_v2/gbenga-sweep-action.png","contact":"assets/rc4/combat_candidates_v2/gbenga-sweep-contact.png","recover":"assets/rc4/combat_candidates_v2/gbenga-sweep-recovery.png","review":"assistant-delegated accepted batch2"});
+ register("gbenga","voice",{"prepare":"assets/rc4/combat_candidates_v2/gbenga-voice-prepare.png","action":"assets/rc4/combat_candidates_v2/gbenga-voice-action.png","contact":"assets/rc4/combat_candidates_v2/gbenga-voice-contact.png","recover":"assets/rc4/combat_candidates_v2/gbenga-voice-recovery.png","review":"assistant-delegated accepted batch2"});
+ register("gbenga","my_son",{"prepare":"assets/rc4/combat_candidates_v2/gbenga-my_son-prepare.png","action":"assets/rc4/combat_candidates_v2/gbenga-my_son-action.png","contact":"assets/rc4/combat_candidates_v2/gbenga-my_son-contact.png","recover":"assets/rc4/combat_candidates_v2/gbenga-my_son-recovery.png","review":"assistant-delegated accepted batch2"});
+ register("gbenga","draco",{"prepare":"assets/rc4/combat_candidates_v2/gbenga-draco-prepare.png","action":"assets/rc4/combat_candidates_v2/gbenga-draco-action.png","contact":"assets/rc4/combat_candidates_v2/gbenga-draco-contact.png","recover":"assets/rc4/combat_candidates_v2/gbenga-draco-recovery.png","review":"assistant-delegated accepted batch2"});
+ register("blad33ee","bolt",{"prepare":"assets/rc4/combat_candidates_v2/blad33ee-bolt-prepare.png","action":"assets/rc4/combat_candidates_v2/blad33ee-bolt-action.png","contact":"assets/rc4/combat_candidates_v2/blad33ee-bolt-contact.png","recover":"assets/rc4/combat_candidates_v2/blad33ee-bolt-recovery.png","review":"assistant-delegated accepted batch2"});
+ // Batch3B exact accepted wolf boxing and left-facing native cockroach states.
+ register("f15_roxy_spar","jab",{"prepare":"assets/rc4/combat_candidates_v3/roxy-jab-prepare.png","action":"assets/rc4/combat_candidates_v3/roxy-jab-action.png","contact":"assets/rc4/combat_candidates_v3/roxy-jab-contact.png","recover":"assets/rc4/combat_candidates_v3/roxy-jab-recovery.png","neutral":"assets/rc4/combat_candidates_v3/roxy-guard.png","review":"assistant-delegated accepted batch3B"});
+ register("f15_roxy_spar","cross",{"prepare":"assets/rc4/combat_candidates_v3/roxy-cross-prepare.png","action":"assets/rc4/combat_candidates_v3/roxy-cross-action.png","contact":"assets/rc4/combat_candidates_v3/roxy-cross-contact.png","recover":"assets/rc4/combat_candidates_v3/roxy-cross-recovery.png","neutral":"assets/rc4/combat_candidates_v3/roxy-guard.png","review":"assistant-delegated accepted batch3B"});
+ register("f15_uncle_bunmi","antenna",{"prepare":"assets/rc4/combat_candidates_v3/bunmi-antenna-prepare.png","action":"assets/rc4/combat_candidates_v3/bunmi-antenna-action.png","contact":"assets/rc4/combat_candidates_v3/bunmi-antenna-contact.png","recover":"assets/rc4/combat_candidates_v3/bunmi-antenna-recovery.png","review":"assistant-delegated accepted batch3B"});
+ register("f15_uncle_bunmi","scuttle",{"prepare":"assets/rc4/combat_candidates_v3/bunmi-scuttle-prepare.png","action":"assets/rc4/combat_candidates_v3/bunmi-scuttle-action.png","contact":"assets/rc4/combat_candidates_v3/bunmi-scuttle-contact.png","recover":"assets/rc4/combat_candidates_v3/bunmi-scuttle-recovery.png","review":"assistant-delegated accepted batch3B"});
+ register("f15_uncle_bunmi","stare",{"prepare":"assets/rc4/combat_candidates_v3/bunmi-stare-prepare.png","action":"assets/rc4/combat_candidates_v3/bunmi-stare-action.png","contact":"assets/rc4/combat_candidates_v3/bunmi-stare-contact.png","recover":"assets/rc4/combat_candidates_v3/bunmi-stare-recovery.png","review":"assistant-delegated accepted batch3B"});
+ register("f15_uncle_bunmi","flies",{"prepare":"assets/rc4/combat_candidates_v3/bunmi-flies-prepare.png","action":"assets/rc4/combat_candidates_v3/bunmi-flies-action.png","contact":"assets/rc4/combat_candidates_v3/bunmi-flies-contact.png","recover":"assets/rc4/combat_candidates_v3/bunmi-flies-recovery.png","review":"assistant-delegated accepted batch3B"});
+ // Batch3A exact accepted martial, low-stance and compact two-palm body states.
+ register("bruce_loose","flurry",{"prepare":"assets/rc4/combat_candidates_v3/bruce-flurry-prepare.png","action":"assets/rc4/combat_candidates_v3/bruce-flurry-action.png","contact":"assets/rc4/combat_candidates_v3/bruce-flurry-contact.png","recover":"assets/rc4/combat_candidates_v3/bruce-flurry-recovery.png","review":"assistant-delegated accepted batch3A"});
+ register("bruce_loose","kick",{"prepare":"assets/rc4/combat_candidates_v3/bruce-kick-prepare.png","action":"assets/rc4/combat_candidates_v3/bruce-kick-action.png","contact":"assets/rc4/combat_candidates_v3/bruce-kick-contact.png","recover":"assets/rc4/combat_candidates_v3/bruce-kick-recovery.png","review":"assistant-delegated accepted batch3A"});
+ register("bruce_loose","noise",{"prepare":"assets/rc4/combat_candidates_v3/bruce-noise-prepare.png","action":"assets/rc4/combat_candidates_v3/bruce-noise-action.png","contact":"assets/rc4/combat_candidates_v3/bruce-noise-contact.png","recover":"assets/rc4/combat_candidates_v3/bruce-noise-recovery.png","review":"assistant-delegated accepted batch3A"});
+ register("phil","punch",{"prepare":"assets/rc4/combat_candidates_v3/phil-punch-prepare.png","action":"assets/rc4/combat_candidates_v3/phil-punch-action.png","contact":"assets/rc4/combat_candidates_v3/phil-punch-contact.png","recover":"assets/rc4/combat_candidates_v3/phil-punch-recovery.png","review":"assistant-delegated accepted batch3A"});
+ register("phil","beam",{"prepare":"assets/rc4/combat_candidates_v3/phil-beam-prepare.png","action":"assets/rc4/combat_candidates_v3/phil-beam-action.png","contact":"assets/rc4/combat_candidates_v3/phil-beam-contact.png","recover":"assets/rc4/combat_candidates_v3/phil-beam-recovery.png","review":"assistant-delegated accepted batch3A"});
+ register("legacy_importer","importer_shove",{"prepare":"assets/rc4/combat_candidates_v3/importer-shove-prepare.png","action":"assets/rc4/combat_candidates_v3/importer-shove-action.png","contact":"assets/rc4/combat_candidates_v3/importer-shove-contact.png","recover":"assets/rc4/combat_candidates_v3/importer-shove-recovery.png","review":"assistant-delegated accepted batch3A"});
+ // Authored A20 day-three charged appearance; day-one sequences remain separate.
+ register("phil@charging_day3","punch",{"prepare":"assets/rc4/combat_candidates_v4/phil-day3-punch-prepare.png","action":"assets/rc4/combat_candidates_v4/phil-day3-punch-action.png","contact":"assets/rc4/combat_candidates_v4/phil-day3-punch-contact.png","recover":"assets/rc4/combat_candidates_v4/phil-day3-punch-recovery.png","review":"assistant-delegated accepted Phil day3"});
+ register("phil@charging_day3","beam",{"prepare":"assets/rc4/combat_candidates_v4/phil-day3-beam-prepare.png","action":"assets/rc4/combat_candidates_v4/phil-day3-beam-action.png","contact":"assets/rc4/combat_candidates_v4/phil-day3-beam-contact.png","recover":"assets/rc4/combat_candidates_v4/phil-day3-beam-recovery.png","review":"assistant-delegated accepted Phil day3"});
+ const active=new WeakMap();
  // attack({root,enemyId,moveId,dmg,attacker:enemyEl,target:richEl}) -> resolves when the animation ends (<= ~650 ms).
- async function attack({root,enemyId,moveId,dmg=0,attacker,target,freeze=null,onContact=null}){
-  const fx=H();if(!fx||!root||!root.isConnected)return 0;
+ async function attack({root,enemyId,moveId,dmg=0,attacker,target,freeze=null,onContact=null,appearance=null}){
+  const fx=H();if(!fx||!root||!root.isConnected||!attacker||!target)return 0;
+  // One owner per stage. Finish the old owner's cleanup before taking its pose snapshot.
+  active.get(root)?.cancel();
   const sp=specFor(enemyId,moveId,dmg),paint=PAINT[sp.s];if(!paint)return 0;
   let V,L;try{V=fx.view(root,target,attacker);L=fx.layer(root,V,`enemy:${enemyId}:${moveId}`);}catch(e){return 0;}
   // fx.view(root,attacker,target) names rich as "attacker"; here the enemy attacks, so anchors are: enemy=V.enemy, rich=V.rich.
   const a=V.enemy,t=V.rich;L.canvas.classList.add('rc2-enemy-fx');root.dataset.lastEnemyFx=`${enemyId}:${moveId}:${sp.s}`;
   const opts={...sp,hits:sp.hits},original=attacker.getAttribute('src');
-  const restore=()=>{if(original&&attacker.isConnected)attacker.src=original;};
-  let contact=false;
-  const draw=f=>{L.ctx.clearRect(0,0,270,V.H);paint(L.ctx,f,a,t,opts);L.canvas.dataset.frame=String(f);const pose=poseFor(enemyId,moveId,f);if(pose&&attacker.tagName==='IMG'){attacker.src=pose;attacker.dataset.movePose=pose;}else if(f>=7&&original&&attacker.tagName==='IMG'){attacker.src=original;delete attacker.dataset.movePose;}root.dataset.enemyPhase=f<2?'anticipation':f<5?'action':f<8?'impact':'recovery';if(f>=5&&!contact){contact=true;onContact?.();}};
-  if(freeze!==null){draw(freeze);await wait(700);L.canvas.remove();restore();return 700;}
-  if(reduced()){draw(6);await wait(220);L.canvas.remove();restore();return 220;}
-  for(let f=0;f<FRAMES;f++){if(!root.isConnected)break;draw(f);await wait(FRAME_MS);}
-  L.canvas.remove();restore();delete attacker.dataset.movePose;return FRAMES*FRAME_MS;
+  let contact=false,cancelled=false,timer=null,wake=null;
+  const owner={cancel:()=>{if(cancelled)return;cancelled=true;clearTimeout(timer);wake?.();cleanup();}};
+  const owns=()=>active.get(root)===owner;
+  function cleanup(){
+   L.canvas.remove();root.removeEventListener('c2:close',owner.cancel);
+   if(!owns())return;
+   // A closed stage cannot restore over the next fight's identity or schedule a new effect.
+   if(root.isConnected&&attacker.isConnected&&original&&attacker.tagName==='IMG')attacker.src=original;
+   delete attacker.dataset.movePose;delete root.dataset.enemyPhase;active.delete(root);
+  }
+  const pause=ms=>new Promise(resolve=>{wake=resolve;timer=setTimeout(()=>{wake=null;resolve();},ms);});
+  const draw=f=>{
+   if(cancelled||!owns()||!root.isConnected||!attacker.isConnected||!target.isConnected)return false;
+   L.ctx.clearRect(0,0,270,V.H);paint(L.ctx,f,a,t,opts);L.canvas.dataset.frame=String(f);
+   const pose=poseFor(enemyId,moveId,f,appearance);
+   if(pose&&attacker.tagName==='IMG'){attacker.src=pose;attacker.dataset.movePose=pose;}
+   else if(f>=7&&original&&attacker.tagName==='IMG'){attacker.src=original;delete attacker.dataset.movePose;}
+   root.dataset.enemyPhase=f<2?'anticipation':f<5?'action':f<(TIMELINES[appearance?`${enemyId}@${appearance}`:enemyId]?.[moveId]?8:7)?'impact':'recovery';
+   if(f>=5&&!contact){contact=true;onContact?.();}return true;
+  };
+  active.set(root,owner);root.addEventListener('c2:close',owner.cancel,{once:true});
+  try{
+   if(freeze!==null){if(draw(freeze))await pause(700);return cancelled?0:700;}
+   if(reduced()){if(draw(6))await pause(220);return cancelled?0:220;}
+   for(let f=0;f<FRAMES;f++){if(!draw(f))break;await pause(FRAME_MS);}
+   return cancelled?0:FRAMES*FRAME_MS;
+  }finally{clearTimeout(timer);cleanup();}
  }
- window.RAEnemyFX={attack,specFor,poseFor,POSES,GBENGA,MAP,PAINT,SPRITES,FRAMES,FRAME_MS};
+ window.RAEnemyFX={attack,cancel:root=>active.get(root)?.cancel(),register,preload,TIMELINES,specFor,poseFor,POSES,GBENGA,MAP,PAINT,SPRITES,FRAMES,FRAME_MS};
 })();

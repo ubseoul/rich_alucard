@@ -3,7 +3,7 @@ const octopusOverlay=document.querySelector('#octopusOverlay'),octoRoll=document
 const victoryOverlay=document.querySelector('#victoryOverlay'),victoryCard=document.querySelector('#victoryCard'),endingText=document.querySelector('#endingText'),stealYes=document.querySelector('#stealYes'),stealNo=document.querySelector('#stealNo');
 const productionCEO=document.querySelector('#productionCEO');
 const productionAssistant=document.querySelector('#productionAssistant');
-function setCEOState(s){if(productionCEO)productionCEO.className='production-ceo state-'+s;}
+function setCEOState(s){if(productionCEO){if(productionCEO.dataset.importerMove){productionCEO.style.backgroundImage='';delete productionCEO.dataset.importerMove;}productionCEO.className='production-ceo state-'+s;}}
 function setAssistantState(s){if(productionAssistant)productionAssistant.className='production-assistant state-'+s;}
 
 function setRichState(state){
@@ -71,6 +71,10 @@ const moveData=window.RACombatDefinitions.moves;
 function syncBattleState(){if(!battleState)return;battleState.player.hp=richHP;battleState.enemy.hp=ceoHP;battleState.revengeStored=revengeStored;}
 battleState=window.RACombatFoundation.createBattleState('ceo');
 function wait(ms){return new Promise(r=>setTimeout(r,ms))}
+// Legacy combat has no cash action; keep the campaign chip clear of battle HP/name controls.
+function syncLegacyCombatHud(){document.body.classList.toggle('legacy-combat-mode',['battle','jdmCombat'].includes(window.RAScenes?.current?.()||'battle'));}
+document.addEventListener('ra:scene',syncLegacyCombatHud);syncLegacyCombatHud();
+
 function layoutJdmBubble(node,speaker,stack=0){if(!node||battleEncounter!=='jdm'||!document.body.classList.contains('jdm-battle'))return;const screen=document.querySelector('#screen'),actor=speaker==='importer'?productionCEO:geminiRich;if(!screen||!actor)return;const sr=screen.getBoundingClientRect(),ar=actor.getBoundingClientRect(),width=node.offsetWidth||92,height=node.offsetHeight||24;const left=Math.round(Math.max(8,Math.min(sr.width-width-8,ar.left-sr.left+ar.width*.5-width*.5)));const world=window.RAPresentationDirector?.worldRect?.(),minTop=world?world.y+6:sr.height*.20,top=Math.round(Math.max(minTop,ar.top-sr.top-height-10-stack));node.style.setProperty('--speaker-bubble-left',`${left}px`);node.style.setProperty('--speaker-bubble-top',`${top}px`);node.style.setProperty('--bubble-left',`${left}px`);node.style.setProperty('--bubble-top',`${top}px`)}
 function layoutJdmBubbles(){layoutJdmBubble(richLyricBubble,'rich',toast.classList.contains('show')&&toast.classList.contains('jdm-speaker-bubble')&&toast.classList.contains('speaker-rich')?(toast.offsetHeight||24)+10:0);if(toast.classList.contains('show')&&toast.classList.contains('jdm-speaker-bubble'))layoutJdmBubble(toast,toast.classList.contains('speaker-importer')?'importer':'rich')}
 function say(msg,ms=900,speaker=null){toast.textContent=msg;toast.classList.add('show');toast.classList.remove('jdm-speaker-bubble','speaker-rich','speaker-importer');if(battleEncounter==='jdm'&&speaker){toast.classList.add('jdm-speaker-bubble',speaker==='importer'?'speaker-importer':'speaker-rich');layoutJdmBubbles();requestAnimationFrame(layoutJdmBubbles)}clearTimeout(say.t);say.t=setTimeout(()=>toast.classList.remove('show','jdm-speaker-bubble','speaker-rich','speaker-importer'),ms)}
@@ -84,17 +88,26 @@ function updateHP(){
   lastRichHP=richHP;lastCeoHP=ceoHP;
   syncBattleState();
 }
+function setBattlePhase(html){document.querySelector('#dialogue').innerHTML=html;}
+function setBattleBusy(value){busy=value;if(busy||battleOver)window.RAIntroPolish?.hideCoach?.();paint();setBattlePhase(battleOver?'BATTLE OVER<br><strong>CONTINUE BELOW</strong>':busy?'RESOLVING<br><strong>PLAYER MOVE</strong>':'YOUR TURN<br><strong>CHOOSE A MOVE</strong>');}
 function paint(){
+ mainButtons.concat(moves).forEach(button=>{button.disabled=busy||battleOver;button.setAttribute('aria-disabled',String(button.disabled));});
+ battleUI.setAttribute('aria-busy',String(busy));
  mainButtons.forEach((b,i)=>b.classList.toggle('selected',!inMoves&&i===mainIndex));
  moves.forEach((b,i)=>b.classList.toggle('active',inMoves&&i===moveIndex));
  if(inMoves&&!busy)moves[moveIndex].focus();
 }
+let enemyTurnGeneration=0;
+const enemyTurnActive=generation=>generation===enemyTurnGeneration&&!battleOver&&['battle','jdmCombat'].includes(window.RAScenes?.current?.()||'battle');
+document.addEventListener('ra:scene',()=>{if(!['battle','jdmCombat'].includes(window.RAScenes?.current?.()))enemyTurnGeneration++;});
 function resetBattle(encounter='ceo'){
- battleEncounter=encounter;window.RAPresentationDirector?.resetMoves?.();
+ enemyTurnGeneration++;
+ ceoRecoil.classList.remove('windup');briefcaseProjectile.classList.remove('fly');briefcaseImpact.classList.remove('active');document.querySelector('#screen').classList.remove('briefcase-shake','combat-hit-stop','combat-shake-light','combat-shake-heavy');attackLayer.classList.remove('active');
+ battleEncounter=encounter;window.RAPresentationDirector?.resetMoves?.();if(encounter==='jdm')window.RAEnemyFX?.preload('legacy_importer');
  battleState=window.RACombatFoundation.createBattleState(encounter);
- richHP=100;ceoHP=100;revengeStored=0;battleOver=false;busy=false;inMoves=false;mainIndex=0;moveIndex=0;
+ richHP=100;ceoHP=100;revengeStored=0;battleOver=false;setBattleBusy(false);inMoves=false;mainIndex=0;moveIndex=0;
  document.querySelector('#enemyName').textContent=encounter==='jdm'?'JDM IMPORTER':'CEO ZOMBIE PRINCE';
- setCEOState('idle');document.body.classList.toggle('jdm-battle',encounter==='jdm');
+ setCEOState('idle');setRichState('idle');document.body.classList.toggle('jdm-battle',encounter==='jdm');
  window.RADevState.revengeStoredDamage=0;
  lastRichHP=richHP;lastCeoHP=ceoHP;
  clearRevengeWounds();updateRevengeDisplay();choiceOverlay.classList.remove('show');victoryOverlay.classList.remove('on');endingText.classList.remove('on');endingText.textContent='';victoryCard.style.display='block';battleUI.classList.remove('attack-mode','victory-retract');updateHP();paint();
@@ -133,7 +146,7 @@ async function revengeFX(amount,target=productionCEO){
 
 async function normalVictory(){
   if(battleOver) return;
-  battleOver=true; busy=true;
+  battleOver=true; setBattleBusy(true);
   window.RACombatFoundation.route(battleState,'victory');
   if(battleEncounter==='jdm'){
     setCEOState('defeated');say('THE IMPORTER BACKS DOWN.',850,'importer');await wait(850);await window.RAJDMImports?.ownerDefeated?.();return;
@@ -236,43 +249,56 @@ async function genericPlayerFX(kind){
  await wait(320);const severity=ceoHP<=26?'lethal':ceoHP<=52?'heavy':'normal';await RACombatPresentation.play({target:productionCEO,attacker:geminiRich,severity,authored:battleEncounter==='ceo'?'ceo':undefined,kind,recoveryMs:40});
  document.querySelector('#screen').classList.remove('bite-flash','brain-flash','revenge-flash');richCast.classList.remove('cast');attackLayer.classList.remove('active');battleUI.classList.remove('attack-mode');
 }
-async function importerTurn(){
- say('THE IMPORTER SHOVES RICH BACK.',620,'importer');attackLayer.classList.add('active');battleUI.classList.add('attack-mode');setCEOState('throw');await wait(180);setRichState('hit');await RACombatPresentation.play({target:geminiRich,attacker:productionCEO,severity:'normal',kind:'importer-shove',recoveryMs:40});
- const actualDamage=Math.min(richHP,16);richHP-=actualDamage;revengeStored+=actualDamage;addRevengeWounds(actualDamage);window.RADevState.revengeStoredDamage=revengeStored;updateHP();await wait(160);setCEOState('idle');setRichState('idle');attackLayer.classList.remove('active');battleUI.classList.remove('attack-mode');if(richHP<=0)return defeat();busy=false;inMoves=true;paint();
+async function importerTurn(generation=enemyTurnGeneration){
+ if(!enemyTurnActive(generation))return;
+ const sequence=window.RAEnemyFX?.TIMELINES?.legacy_importer?.importer_shove;
+ const pose=phase=>{const src=sequence?.[phase];if(src){productionCEO.style.backgroundImage=`url('${src}')`;productionCEO.dataset.importerMove=phase;}else setCEOState(phase==='prepare'?'idle':'throw');};
+ setBattlePhase('IMPORTER MOVE<br><strong>SHOVE</strong>');say('THE IMPORTER SHOVES RICH BACK.',620,'importer');attackLayer.classList.add('active');battleUI.classList.add('attack-mode');
+ pose('prepare');await wait(124);if(!enemyTurnActive(generation))return;
+ pose('action');await wait(186);if(!enemyTurnActive(generation))return;
+ pose('contact');setRichState('hit');const actualDamage=Math.min(richHP,16);richHP-=actualDamage;revengeStored+=actualDamage;addRevengeWounds(actualDamage);window.RADevState.revengeStoredDamage=revengeStored;updateHP();
+ const reaction=RACombatPresentation.play({target:geminiRich,attacker:productionCEO,severity:'normal',kind:'importer-shove',recoveryMs:40,isActive:()=>enemyTurnActive(generation)});
+ await wait(186);if(!enemyTurnActive(generation))return;pose('recover');
+ await wait(124);if(!enemyTurnActive(generation))return;await reaction;if(!enemyTurnActive(generation))return;
+ setCEOState('idle');setRichState('idle');setBattlePhase('RECOVERY<br><strong>WAIT FOR YOUR TURN</strong>');attackLayer.classList.remove('active');battleUI.classList.remove('attack-mode');await wait(160);if(!enemyTurnActive(generation))return;
+ if(richHP<=0)return defeat();setBattleBusy(false);inMoves=true;paint();
 }
 async function enemyTurn(){
+ const generation=enemyTurnGeneration;if(!enemyTurnActive(generation))return;
  if(battleOver)return;
- await wait(360);
+ await wait(360);if(!enemyTurnActive(generation))return;
  const enemyMove=window.RACombatFoundation.selectEnemyMove(battleState);
  window.RACombatFoundation.emit(battleState,'enemy-move-selected',{moveId:enemyMove?.id});
- if(enemyMove?.id==='importer_shove')return importerTurn();
+ if(enemyMove?.id==='importer_shove')return importerTurn(generation);
+ setBattlePhase('ENEMY MOVE<br><strong>BRIEFCASE THROW</strong>');
  say('BRIEFCASE THROW!',620);
+ setCEOState('idle');
  attackLayer.classList.add('active');
  battleUI.classList.add('attack-mode');
  ceoRecoil.classList.add('windup');
- await wait(220);
+ await wait(220);if(!enemyTurnActive(generation))return;
  ceoRecoil.classList.remove('windup');
+ setCEOState('throw');
  briefcaseProjectile.classList.add('fly');
- await wait(430);
+ await wait(430);if(!enemyTurnActive(generation))return;
  document.querySelector('#screen').classList.add('briefcase-shake');
  setRichState('hit');
  briefcaseImpact.classList.add('active');
- await RACombatPresentation.play({target:geminiRich,attacker:productionCEO,severity:'normal',kind:'briefcase',recoveryMs:40});
- await wait(90);
- const dmg=16;
- const actualDamage=Math.min(richHP,dmg);
+ if(!enemyTurnActive(generation))return;const actualDamage=Math.min(richHP,16);
  richHP-=actualDamage;revengeStored+=actualDamage;addRevengeWounds(actualDamage);window.RADevState.revengeStoredDamage=revengeStored;updateHP();
- await wait(260);
+ await RACombatPresentation.play({target:geminiRich,attacker:productionCEO,severity:'normal',kind:'briefcase',recoveryMs:40,isActive:()=>enemyTurnActive(generation)});
+ await wait(90);if(!enemyTurnActive(generation))return;
+ await wait(260);if(!enemyTurnActive(generation))return;
  document.querySelector('#screen').classList.remove('briefcase-shake');
- setRichState('idle');
+ setRichState('idle');setCEOState('idle');setBattlePhase('RECOVERY<br><strong>WAIT FOR YOUR TURN</strong>');
  briefcaseImpact.classList.remove('active');
  briefcaseProjectile.classList.remove('fly');
  attackLayer.classList.remove('active');
  battleUI.classList.remove('attack-mode');
  say(`RICH TOOK ${actualDamage} DAMAGE.`,650);
- await wait(600);
+ await wait(600);if(!enemyTurnActive(generation))return;
  if(richHP<=0){return defeat()}
- busy=false;inMoves=true;paint();
+ setBattleBusy(false);inMoves=true;paint();
 }
 async function vampireBiteCanonicalFX(damage=24,heal=18,target=productionCEO){
  const screen=document.querySelector('#screen'),rich=document.querySelector('.gemini-rich'),biteScreen=document.querySelector('#vampireBiteScreen'),contact=document.querySelector('#vampireBiteContact'),life=document.querySelector('#vampireBiteLife');
@@ -285,11 +311,11 @@ async function vampireBiteCanonicalFX(damage=24,heal=18,target=productionCEO){
 }
 async function activateMove(){
  if(busy||battleOver)return;
- busy=true;
+ setBattleBusy(true);
  const id=moves[moveIndex].dataset.move;
  const m=moveData[id];
  if(id==='revenge'){
-   say('REVENGE!',500,'rich');const dmg=window.RACombatFoundation.consumeRevenge(battleState);revengeStored=0;window.RADevState.revengeStoredDamage=0;updateRevengeDisplay(true);await revengeFX(dmg);await drainCEOHP(dmg);clearRevengeWounds();updateRevengeDisplay();say(dmg>0?`${dmg} DAMAGE REFLECTED.`:'NOTHING TO RETURN.',700);if(ceoHP<=0){await normalVictory();busy=false;return;}
+   say('REVENGE!',500,'rich');const dmg=window.RACombatFoundation.consumeRevenge(battleState);revengeStored=0;window.RADevState.revengeStoredDamage=0;updateRevengeDisplay(true);await revengeFX(dmg);await drainCEOHP(dmg);clearRevengeWounds();updateRevengeDisplay();say(dmg>0?`${dmg} DAMAGE REFLECTED.`:'NOTHING TO RETURN.',700);if(ceoHP<=0){await normalVictory();setBattleBusy(false);return;}
  }else{
    say(m.name+'!',500,'rich');
    if(id==='blood')await projectileVolley();
@@ -302,24 +328,24 @@ async function activateMove(){
    }else if(id==='octopus'){
      const result=await octopusBrainFX();
      const ended=await resolveOctopus(result);
-     if(ended){if(ceoHP<=0){battleOver=false;await normalVictory();}busy=false;return;}
+     if(ended){if(ceoHP<=0){battleOver=false;await normalVictory();}setBattleBusy(false);return;}
    }else if(id==='revenge'){
      const reflected=Math.max(0,revengeStored);
      await revengeFX(reflected);
      ceoHP-=reflected;
      revengeStored=0;window.RADevState.revengeStoredDamage=0;
      updateHP();
-     if(ceoHP<=0){await normalVictory();busy=false;return;}
+     if(ceoHP<=0){await normalVictory();setBattleBusy(false);return;}
      say(reflected>0?`${reflected} DAMAGE RETURNED.`:'NOTHING TO RETURN.',750);
      await wait(250);
    }else await genericPlayerFX(id);
    if(id!=='bite'&&id!=='revenge'&&id!=='octopus'){
      ceoHP-=m.damage;updateHP();say(`${m.damage} DAMAGE.`,650);
-     if(ceoHP<=0){await normalVictory();busy=false;return;}
+     if(ceoHP<=0){await normalVictory();setBattleBusy(false);return;}
    }
  }
  await wait(650);
- if(ceoHP<=0){await normalVictory();busy=false;return;}
+ if(ceoHP<=0){await normalVictory();setBattleBusy(false);return;}
  await enemyTurn();
 }
 async function victory(){
@@ -328,7 +354,7 @@ async function victory(){
 }
 
 async function defeat(){
- battleOver=true;busy=true;richHP=0;updateHP();window.RACombatFoundation.route(battleState,'defeat');battleUI.classList.add('attack-mode');say('UGH. WE LOST AGAIN.',1300);
+ battleOver=true;setBattleBusy(true);richHP=0;updateHP();window.RACombatFoundation.route(battleState,'defeat');battleUI.classList.add('attack-mode');say('UGH. WE LOST AGAIN.',1300);
  await wait(1400);if(battleEncounter==='jdm'){choiceTitle.textContent='THE KEYS ARE STILL WITH HIM.';choiceYes.textContent='▶ TRY AGAIN';choiceNo.textContent='GO BACK';}else{choiceTitle.textContent='RESPAWN HUNGOVER?';choiceYes.textContent='▶ YES';choiceNo.textContent='STAY DEAD';}choiceOverlay.classList.add('show');
 }
 choiceYes.addEventListener('click',async()=>{

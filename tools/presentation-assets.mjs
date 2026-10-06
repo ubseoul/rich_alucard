@@ -25,6 +25,12 @@ export async function buildAssets(){
  // Every frozen ART SHIP 004–007 environment and actor in the generated Art Registry gets metadata automatically;
  // annotations.json only adds authored detail (face boxes). Contacts come from the Ship manifests.
  const registry=await buildRegistry(),notes={...annotations.assets};
+ // Reviewed candidates have a separate additive input; frozen annotations and status remain authoritative.
+ const candidates=JSON.parse(await readFile(path.join(root,'tools/presentation/candidate-annotations.json'),'utf8'));
+ for(const [file,note] of Object.entries(candidates.assets)){
+  if(notes[file]||status[file]||!file.startsWith('assets/rc4/combat_candidates_'))throw new Error(`candidate metadata collision: ${file}`);
+  notes[file]=note;
+ }
  // Read the same additive parts the production loader uses, with its frozen-collision guard.
  const ctx={window:{RAArtRegistry:registry}};vm.createContext(ctx);
  vm.runInContext(await readFile(path.join(root,'js/data/art/registry_parts.js'),'utf8'),ctx);
@@ -39,7 +45,9 @@ export async function buildAssets(){
   const bytes=await readFile(path.join(root,file)),png=decodePng(bytes),sha256=createHash('sha256').update(bytes).digest('hex');
   const registered=status[file];
   if(registered&&registered.sha256!==sha256)throw new Error(`${file}: bytes differ from ASSET_REGISTER.json (frozen authority)`);
-  const entry={width:png.width,height:png.height,sha256,authority:registered?.status||'UNREGISTERED'};
+  if(note.candidate&&note.candidate.sha256!==sha256)throw new Error(`${file}: accepted candidate hash differs`);
+  const entry={width:png.width,height:png.height,sha256,authority:registered?.status||note.candidate?.authority||'UNREGISTERED'};
+  if(note.candidate?.facing)entry.facing=note.candidate.facing;
   if(note.environment)entry.environment=true;
   else if(note.frames){
    // Horizontal sprite sheet: one metadata entry per frame, keyed `<path>#<index>`; the sheet entry lists them.

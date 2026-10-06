@@ -1,0 +1,294 @@
+{
+  "status": "assistant-delegated accepted candidate; not creator-frozen; runtime reviewed",
+  "tool": "built-in image_gen",
+  "base": "9b511d7cacc8f30fb105ab33b8503ffbde6ae321",
+  "canvas": [
+    80,
+    96
+  ],
+  "support_anchor": [
+    40,
+    88
+  ],
+  "facing": "right",
+  "durations_ms": [
+    124,
+    186,
+    186,
+    124
+  ],
+  "moves": {
+    "gbenga-sweep": {
+      "reference": "gbenga_adjusting_sleeves_80x96_v2.png",
+      "frames": {
+        "prepare": {
+          "asset": "assets/rc4/combat_candidates_v2/gbenga-sweep-prepare.png",
+          "sha256": "ab391d51b07af9aebe1c712a9539faa30c677bcee91b3d228c7afb01eb3e1217",
+          "decoded_rgba_sha256": "7dbb61e879eb32196c6080bbf5090e1462329c300d526d344ae4a90b63acf854",
+          "alpha_bbox": [
+            19,
+            10,
+            61,
+            89
+          ]
+        },
+        "action": {
+          "asset": "assets/rc4/combat_candidates_v2/gbenga-sweep-action.png",
+          "sha256": "6e3ba4184429df246b20385a241c5512efba5e727ab1fcdb208ca4557c25148d",
+          "decoded_rgba_sha256": "a20fb3c4eba7f3a3409999114731d92f2f614fe5547e6ce1fdc8d308d0bca501",
+          "alpha_bbox": [
+            7,
+            11,
+            73,
+            89
+          ]
+        },
+        "contact": {
+          "asset": "assets/rc4/combat_candidates_v2/gbenga-sweep-contact.png",
+          "sha256": "1e62e1f4f9b959d240380b6d554b760d47e19611aec7820776adf22c7b90c303",
+          "decoded_rgba_sha256": "773540069097b75aa5775abeab2d1f029c7b681616570b4601429506a88252b1",
+          "alpha_bbox": [
+            8,
+            11,
+            72,
+            89
+          ]
+        },
+        "recovery": {
+          "asset": "assets/rc4/combat_candidates_v2/gbenga-sweep-recovery.png",
+          "sha256": "688a4f0adf738d693645093b19c3c20fb79db378cc3bb9ca33f9e368cd2bce01",
+          "decoded_rgba_sha256": "9bd1267de0d16f4fdfdf3652c29d6b038b573ab0682e75f8882e655ebbcbcea0",
+          "alpha_bbox": [
+            18,
+            10,
+            63,
+            89
+          ]
+        }
+      },
+      "source_sha256": "1a8463c403518c34e6f0f9c680c4952825ec803307d4feeab1685a285fcd72c0",
+      "postprocessing": "crop, common sequence nearest-neighbor scaling, palette matching and binary alpha only; no pose drawing"
+    },
+    "gbenga-voice": {
+      "reference": "gbenga_voice_note_80x96_v2.png",
+      "frames": {
+        "prepare": {
+          "asset": "assets/rc4/combat_candidates_v2/gbenga-voice-prepare.png",
+          "sha256": "8f009c8fb89e6774061f032bf8eab986bdfc9870bc978715f389b7ad1e39e973",
+          "decoded_rgba_sha256": "7fd7692c5520299d782635f5bf7a17e577eecbc659647249e3331fc84c861c40",
+          "alpha_bbox": [
+            17,
+            10,
+            63,
+            89
+          ]
+        },
+        "action": {
+          "asset": "assets/rc4/combat_candidates_v2/gbenga-voice-action.png",
+          "sha256": "ebc8d4a610e5ddc652c1c974aab2d0a0df0dc098883aa8ec178e9cf41d621d24",
+          "decoded_rgba_sha256": "3416e4907d1bd64ea3a22ea88b26c4fd9fa95cb609f745c934f29109ff229cf5",
+          "alpha_bbox": [
+            17,
+            10,
+            64,
+            89
+          ]
+        },
+        "contact": {
+          "asset": "assets/rc4/combat_candidates_v2/gbenga-voice-contact.png",
+          "sha256": "46e97029f080261a4cab0670db1162825372d954a0959c72e08e8b58c8df453d",
+          "decoded_rgba_sha256": "d2283180dd1412f8898b1140c7ab6f2905911168e2a117449d9fd1a740253a1d",
+          "alpha_bbox": [
+            11,
+            10,
+            70,
+            89
+          ]
+        },
+        "recovery": {
+          "asset": "assets/rc4/combat_candidates_v2/gbenga-voice-recovery.png",
+          "sha256": "71b1b0a141588b406ec89288da5e1faf995f7d3ce2d48be76c078e0f88a967de",
+          "decoded_rgba_sha256": "f4621c74eab4e7307425459d95dc93f8b1aeebe7140434685baf7cc981c0a800",
+          "alpha_bbox": [
+            18,
+            10,
+            63,
+            89
+          ]
+        }
+      },
+      "source_sha256": "fac5a18ef02fdf3c7a7b29d44cdbacbfd4d42a380369a7f2ee8ba5ca4b70268c",
+      "postprocessing": "crop, common sequence nearest-neighbor scaling, palette matching and binary alpha only; no pose drawing"
+    },
+    "gbenga-my_son": {
+      "reference": "gbenga_my_son_80x96_v2.png",
+      "frames": {
+        "prepare": {
+          "asset": "assets/rc4/combat_candidates_v2/gbenga-my_son-prepare.png",
+          "sha256": "afd7873d4b249b4468c43fffa21e3493697401a1594cbe2f1cde40ad3583d4c7",
+          "decoded_rgba_sha256": "470aacf85510e8ff44f3b3bb655d74a5edcf1627f6a05582f9e54d52107e9724",
+          "alpha_bbox": [
+            19,
+            11,
+            61,
+            89
+          ]
+        },
+        "action": {
+          "asset": "assets/rc4/combat_candidates_v2/gbenga-my_son-action.png",
+          "sha256": "82db02800894f17610caabfcc25c04a366cbbbc4676c584d34d363bd4ed00135",
+          "decoded_rgba_sha256": "f3c5f47b4263d83fac7f2acdd3d449cd448b042c46853e47498c78ccdfa02deb",
+          "alpha_bbox": [
+            4,
+            11,
+            77,
+            89
+          ]
+        },
+        "contact": {
+          "asset": "assets/rc4/combat_candidates_v2/gbenga-my_son-contact.png",
+          "sha256": "b6691eb6fc82cbfa11b3e90d348333ffdaf9b692ffa66026c74fe7339c6fe328",
+          "decoded_rgba_sha256": "a90e700b06fba22af8c670d72e03ba6e615371f9dc5200b833c5811a7aa0cb3b",
+          "alpha_bbox": [
+            20,
+            10,
+            61,
+            89
+          ]
+        },
+        "recovery": {
+          "asset": "assets/rc4/combat_candidates_v2/gbenga-my_son-recovery.png",
+          "sha256": "f2c64ea5fc488fcfd692baa494106b6ca1b284f6b2223781c209c32dca7198ab",
+          "decoded_rgba_sha256": "b89e6534f968ef0618bdcf143d30ad78faf54d8a8eb3582770db8c4e70cd8abd",
+          "alpha_bbox": [
+            19,
+            10,
+            61,
+            89
+          ]
+        }
+      },
+      "source_sha256": "27817ad339728321f8054cbea34ab5d9e50e64e3ee1f6b7744ddce8aaf7d8821",
+      "postprocessing": "crop, common sequence nearest-neighbor scaling, palette matching and binary alpha only; no pose drawing"
+    },
+    "gbenga-draco": {
+      "reference": "gbenga_golden_draco_80x96_v2.png",
+      "frames": {
+        "prepare": {
+          "asset": "assets/rc4/combat_candidates_v2/gbenga-draco-prepare.png",
+          "sha256": "e650b1432a77d680be644f6a9aa5d93e55930d2d8d57426340d3627b060cb7f4",
+          "decoded_rgba_sha256": "449d2be154f18f7ed2224198fb7afe216e4122fa8433b339695cf1843aa76489",
+          "alpha_bbox": [
+            17,
+            10,
+            63,
+            89
+          ]
+        },
+        "action": {
+          "asset": "assets/rc4/combat_candidates_v2/gbenga-draco-action.png",
+          "sha256": "1403163805cf23035e60e13aaa913ead5eabb2792903d019cb27b4b32099ecf9",
+          "decoded_rgba_sha256": "73f9d7acbcf45a8f45a4df973d6739b99c8144a5a42ac8e68712233e25e88881",
+          "alpha_bbox": [
+            13,
+            12,
+            67,
+            89
+          ]
+        },
+        "contact": {
+          "asset": "assets/rc4/combat_candidates_v2/gbenga-draco-contact.png",
+          "sha256": "a735b8bf82c05cb2ad43a7dd909fdd2e380fac861f8c11147b5198ebcadd1197",
+          "decoded_rgba_sha256": "0fb858f73726c9d6efcd680b2cd6ea79c159038afb9a2344c00d03d91d56b93e",
+          "alpha_bbox": [
+            16,
+            12,
+            65,
+            89
+          ]
+        },
+        "recovery": {
+          "asset": "assets/rc4/combat_candidates_v2/gbenga-draco-recovery.png",
+          "sha256": "eae3fb386941a7486f698f9716d374026fdbb86b29ae6b8ff9c69c83ab4b075b",
+          "decoded_rgba_sha256": "8ea81969b6de24c04af4591a1e14b636b579ff137ba77cb048bfb8fdd2b2ce55",
+          "alpha_bbox": [
+            17,
+            12,
+            64,
+            89
+          ]
+        }
+      },
+      "source_sha256": "851418d3209b2ac74d110f81eaf9720be43e8e3abd566bf81b2790a1445e4a1a",
+      "postprocessing": "crop, common sequence nearest-neighbor scaling, palette matching and binary alpha only; no pose drawing"
+    },
+    "blad33ee-bolt": {
+      "reference": "bllad33_neutral_candidate_80x96.png",
+      "frames": {
+        "prepare": {
+          "asset": "assets/rc4/combat_candidates_v2/blad33ee-bolt-prepare.png",
+          "sha256": "2b2086e6a7e2ae06685ba2c2c75a58804aa5d87dd3644bc03e75ce4237000e8e",
+          "decoded_rgba_sha256": "fe03be1877d2ec1f31e1a397a7174e6e5ebb62d833d1e8f199794fcba9b78601",
+          "alpha_bbox": [
+            23,
+            34,
+            58,
+            89
+          ]
+        },
+        "action": {
+          "asset": "assets/rc4/combat_candidates_v2/blad33ee-bolt-action.png",
+          "sha256": "5ccc15beca047cdf71e2ffd41b40cda993ed33dfc488156892e6dc6614a23710",
+          "decoded_rgba_sha256": "670e0e1e5f67878c864c95721322ef8847c524601b49859815814ab8aba1be26",
+          "alpha_bbox": [
+            17,
+            35,
+            63,
+            89
+          ]
+        },
+        "contact": {
+          "asset": "assets/rc4/combat_candidates_v2/blad33ee-bolt-contact.png",
+          "sha256": "b3ebca1f215e11a6017dbd49d8c3e00fd401d553b15fb854055b8b3c5f09459a",
+          "decoded_rgba_sha256": "8e316b10c289e36c9b7815009fc08a1f7a4af4fcbecc38f1567d2ddd0eef3b16",
+          "alpha_bbox": [
+            16,
+            34,
+            65,
+            89
+          ]
+        },
+        "recovery": {
+          "asset": "assets/rc4/combat_candidates_v2/blad33ee-bolt-recovery.png",
+          "sha256": "adb6b7d0c759bd035380a28aa7baebbc72e7f17529a2107586ac234e813ed4e7",
+          "decoded_rgba_sha256": "8e92bb1ef315aefd30f195c7245fb2f23981ae7ad71541169629e37544c4f244",
+          "alpha_bbox": [
+            22,
+            34,
+            58,
+            89
+          ]
+        }
+      },
+      "source_sha256": "438c6518147f7483a5dc5e846ffc70a54b8090b3469c118229f6e1ba9be2e732",
+      "postprocessing": "crop, common sequence nearest-neighbor scaling, palette matching and binary alpha only; no pose drawing"
+    }
+  },
+  "runtime_contract": {
+    "total_ms": 620,
+    "contact_ms": 310,
+    "states": [
+      "preparation",
+      "action",
+      "contact",
+      "recovery"
+    ],
+    "viewports": [
+      360,
+      390,
+      1280
+    ],
+    "contact_once": true,
+    "cancellation_safe": true
+  }
+}

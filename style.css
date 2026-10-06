@@ -963,3 +963,12 @@ body.rc3 .c2-btn small,body.rc3 #moves span,body.rc3 #revengeValue{display:block
 body.rc3 .phone-section-label{display:none}
 body.rc3 .phone-app-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
 body.rc3.combat2-mode .rc3-cash{top:auto;bottom:6px}
+
+/* C2 lane: legacy input availability follows its actual busy/over state. */
+#battleUI button:disabled{opacity:.45;cursor:default;filter:saturate(.35)}
+#battleUI[aria-busy=true] #dialogue{border-color:#d6af62}
+
+body.rc3.legacy-combat-mode .rc3-cash{display:none}
+
+/* Accepted importer shove sprites face right; the actual opponent stands at Rich's right. */
+body.jdm-battle .production-ceo[data-importer-move]{transform:scaleX(-1)!important}
