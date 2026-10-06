@@ -4,33 +4,39 @@
   function patchActive(fields){const prior=active();if(!prior)return false;return RAState.patch('life.night.active',{...prior,...fields});}
   function findChoice(phaseId,choiceId,phases){const phase=phases.find(p=>p.id===phaseId);return phase?.choices?.find(c=>c.id===choiceId)||null;}
   function currentInteriorSession(){return RARaveScene.current()?.session||null;}
-  let running=null,entranceTimer=null;
+  let running=null;
   const advance=phase=>{patchActive({phase});currentInteriorSession()?.setPhase(phase);};
   async function dance(){
     if(running)return;running='dance';
     try{
       advance('floor1');
-      const root=RARaveScene.current()?.root;if(root)root.hidden=true;
+      const session=RARaveScene.current(),night=active();const root=session?.root;if(root)root.hidden=true;
+      const live=()=>root?.isConnected&&RARaveScene.current()===session&&active()?.startedAt===night?.startedAt&&RAScenes.current()==='ogun-rave';
       const result=await RAMinigames.launch('dance',{rave:true,seed:'ogun-blood-rave',bpm:126,notes:36,moodStart:70,quitLabel:'LEAVE FLOOR'});
-      if(root)root.hidden=false;
+      if(!live())return;if(root)root.hidden=false;
       if(result.quit){return;}
       patchActive({danceResult:result.outcome});
       // Poor rhythm changes the crowd's reaction, never prevents the hunter arrival or quest progress.
       advance('bllad33Enter');
-      entranceTimer=setTimeout(()=>{entranceTimer=null;if(active()?.phase==='bllad33Enter')fight();},1800);
-    }finally{running=null;}
+      // Hold the spectacular entrance until the player chooses to get clear; no orphaned automatic fight.
+    }finally{const current=RARaveScene.current();if(RAScenes.current()==='ogun-rave'&&current?.root?.isConnected)current.root.hidden=false;running=null;}
   }
   async function fight(){
-    if(running)return;running='fight';clearTimeout(entranceTimer);entranceTimer=null;
+    if(running)return;running='fight';
     try{
-      advance('fight');
-      const root=RARaveScene.current()?.root;if(root)root.hidden=true;
-      // Existing hunter faction rules and approved actor art; no licensed character or new combat engine.
-      RACombatData.ENEMIES.blad33ee={...RACombatData.ENEMIES.hunter,name:'BLAD33EE',person:'bllad33',noRun:true,drop:{},octopus:{}};
-      const result=await RACombat2.run('blad33ee',{env:'rave_interior',name:'BLAD33EE',noPenalty:true});
+      const session=RARaveScene.current(),night=active(),root=session?.root;
+      const live=()=>root?.isConnected&&RARaveScene.current()===session&&active()?.startedAt===night?.startedAt&&RAScenes.current()==='ogun-rave';
+      if(!live())return;
+      advance('fight');if(root)root.hidden=true;
+      // Q5 delegated named encounter: Hilt body, existing crossbow rules. Generic hunters and Blade remain intact.
+      RACombatData.ENEMIES.ogun_rave_hilt={...RACombatData.ENEMIES.hunter,name:'HILT',person:'hilt',noRun:true,drop:{},octopus:{}};
+      if(!window.RARelations?.met?.('hilt'))window.RARelations?.meet?.('hilt','ogun_rave_001');
+      const result=await RACombat2.run('ogun_rave_hilt',{env:'rave_interior',name:'HILT',noPenalty:true,intro:'HILT BLOCKS THE WAY OUT. GET CLEAR OF THE PARTY.'});
+      if(!live())return;
+      if(result?.quit||result?.outcome==='run'){root.hidden=false;advance('bllad33Enter');return;}
       patchActive({fightResult:result?.outcome||'done',phase:'exterior-outside'});
       await RAScenes.go('ogun-rave-exterior');
-    }finally{running=null;}
+    }finally{const current=RARaveScene.current();if(RAScenes.current()==='ogun-rave'&&current?.root?.isConnected)current.root.hidden=false;running=null;}
   }
   function buildInteriorDefinition(){
     const phases=RAOgunRaveContent.interiorPhases;
