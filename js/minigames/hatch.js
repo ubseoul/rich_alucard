@@ -97,14 +97,33 @@
   canvas.addEventListener('pointerdown',onDown);
   function careKey(e){if(e.repeat||terminal)return;if(!ready&&(e.key==='Enter'||e.key===' ')){e.preventDefault();begin();return;}if(! /^[1-3]$/.test(e.key))return;e.preventDefault();advance(CARE_PROMPTS[Number(e.key)-1]);}
   window.addEventListener('keydown',careKey);
+  // Exact candidate pixels are local to this consumer; frozen global Senator art is untouched.
+  const careFrames={feed:[],walk:[],joko:[]},contactRows={feed:[141,139,141],walk:[149,149,149,149],joko:[150,150,151]};
+  for(const [action,count] of [['feed',3],['walk',4],['joko',3]])for(let i=0;i<count;i++){
+   const image=new Image();image.src=`assets/rc5/senator-care-r1/senator_${action}_${String(i+1).padStart(2,'0')}_r1.png`;careFrames[action].push(image);
+  }
+  let candidateFamily=false;
   function drawDog(){
-   const reacting=response&&feedbackMs>0;const progress=reacting?1-feedbackMs/1200:0;
-   const pose=reacting&&response.prompt==='WALK'?'charging':reacting&&response.prompt==='JOKO'&&response.success?'asleep':'sitting';
-   const x=reacting&&response.prompt==='WALK'?135+Math.round(Math.sin(progress*Math.PI*2)*22):135;
-   const y=reacting&&response.prompt==='FEED'?296+Math.round(Math.sin(progress*Math.PI*4)*3):296;
-   if(reacting&&response.prompt==='FEED'){R.rect(g,180,286,28,8,'#c18b3c');R.rect(g,183,282,22,4,'#ffd36a');}
-   if(reacting&&response.prompt==='WALK'&&response.success){R.rect(g,x+30,250,2,30,'#ffd36a');R.text(g,'STAY CLOSE',135,180,{size:7,align:'center',color:'#20c66b'});}
-   if(R.drawRegistered(g,'senator',x,y,pose))return;
+   // Switch once, as a complete family; never mix an unloaded action with frozen idle.
+   if(!candidateFamily&&Object.values(careFrames).flat().every(im=>im.complete&&im.naturalWidth===160))candidateFamily=true;
+   const reacting=response&&feedbackMs>0,age=reacting?1200-feedbackMs:1200;
+   let action='joko',frame=2;
+   if(reacting&&response.prompt==='FEED'){
+    if(age<240){action='feed';frame=0;}else if(age<540){action='feed';frame=1;}else if(age<740){action='feed';frame=2;}
+    R.rect(g,190,289,24,7,'#c18b3c');R.rect(g,193,286,18,3,'#ffd36a');
+   }else if(reacting&&response.prompt==='WALK'&&response.success){
+    const sequence=[0,1,2,3,2,1,0],ends=[140,300,460,600,760,920,1060];
+    const step=ends.findIndex(t=>age<t);if(step>=0){action='walk';frame=sequence[step];}
+    R.rect(g,165,250,2,30,'#ffd36a');R.text(g,'STAY CLOSE',135,180,{size:7,align:'center',color:'#20c66b'});
+   }else if(reacting&&response.prompt==='JOKO'&&response.success&&age<240){frame=1;}
+   if(candidateFamily){
+    const contact=contactRows[action][frame],image=careFrames[action][frame];
+    g.imageSmoothingEnabled=false;g.drawImage(image,55,296-contact,160,160);
+    root.dataset.careArt=`${action}:${frame+1}`;root.dataset.careContact=String(contact);root.dataset.careGround='296';
+    return;
+   }
+   root.dataset.careArt='frozen-loading';
+   if(R.drawRegistered(g,'senator',135,296,'sitting'))return;
    R.rect(g,74,224,122,72,'#4d4d55');R.rect(g,154,190,56,52,'#5b5b63');R.rect(g,164,176,12,22,'#3a3a42');R.rect(g,194,176,12,22,'#3a3a42');R.rect(g,168,208,8,6,'#d7193f');R.rect(g,194,208,8,6,'#d7193f');R.rect(g,167,238,36,7,'#c18b3c');R.text(g,'SENATOR',170,240,{size:5,color:'#10101b'});
   }
   function draw(){
