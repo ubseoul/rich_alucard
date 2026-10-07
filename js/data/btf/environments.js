@@ -8,13 +8,13 @@
  function img(id,name,image,{floorY=372,base=1,cover=false}={}){E[id]={id,name,image,floorY,base,cover,approved:true};}
  function paint(id,name,spec,{floorY=372,base=1}={}){E[id]={id,name,paint:{seed:id,...spec},floorY,base,placeholder:true};}
  // --- approved / frozen masters (never modified) ---
- img('bedroom','THE BEDROOM','assets/rich_bedroom_environment_270x480.png',{floorY:400});
+ img('bedroom','THE BEDROOM','assets/rich_bedroom_environment_270x480.png',{floorY:416}); // OL-085: painted floor/rug y≈406–425 (400 stood on the bedspread)
  img('curb','POWDER SPRINGS, GA','assets/powder_springs_night_270x480.png',{floorY:406,base:1.5});
  img('docks','THE DOCKS','assets/jdm_imports/environment/docks_night_270x480.png',{floorY:350,base:1.25});
  img('rave_interior',"OGUN'S RAVE",'assets/ogun_rave/masters/rave_interior_270x480.png',{floorY:344});
  img('rave_exterior','MEATPACKING DISTRICT','assets/ogun_rave/masters/rave_exterior_270x480.png',{floorY:360});
  img('property_exterior','PALOMA FOURPLEX','assets/property/masters/property_exterior_270x480.png',{floorY:372});
- img('throne','THE THRONE ROOM','assets/throne_room_scene_portrait.png',{floorY:360,cover:true});
+ img('throne','THE THRONE ROOM','assets/throne_room_scene_portrait.png',{floorY:372,cover:true}); // OL-085: stone floor y≈362–378 (360 sat on the shelf seam)
  // --- placeholders ---
  paint('ocean_floor','THE OCEAN FLOOR',{sky:'#06142a',wall:null,floor:'#2a2a1e',horizon:360,stars:0,props:[{type:'rect',x:118,y:20,w:34,h:340,color:'rgba(120,200,255,.06)'},{type:'rect',x:132,y:40,w:4,h:320,color:'#5a4630'},{type:'rect',x:140,y:40,w:4,h:320,color:'#5a4630'},...Array.from({length:16},(_,i)=>({type:'rect',x:132,y:50+i*19,w:12,h:3,color:'#6e5a3e'})),{type:'circle',x:136,y:14,r:30,color:'rgba(160,220,255,.18)'}],crowd:9,crowdColors:['#1c2c44','#22344c']});
  paint('ocean_floor_collapsed','THE OCEAN FLOOR',{sky:'#06142a',wall:null,floor:'#2a2a1e',horizon:360,props:[{type:'rect',x:60,y:350,w:150,h:6,color:'#5a4630'},{type:'rect',x:90,y:340,w:80,h:5,color:'#6e5a3e'},{type:'circle',x:136,y:14,r:30,color:'rgba(160,220,255,.18)'}],crowd:9,crowdColors:['#1c2c44','#22344c']});
