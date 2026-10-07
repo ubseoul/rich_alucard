@@ -1,0 +1,43 @@
+name: Deploy tested Astra artifact
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify tested artifact hashes
+        run: |
+          sha256sum --check artifact.sha256 > /tmp/artifact-check.txt
+          printf 'Verified %s game files against the tested ZIP.\n' "$(wc -l < /tmp/artifact-check.txt)"
+          python3 - <<'PY'
+          import hashlib, json
+          from pathlib import Path
+          build = json.loads(Path('site/build.json').read_text())
+          assert build['releaseId'] == 'ra-a0f1d72b6b6c-20261007003329'
+          assert build['commit'] == 'a0f1d72b6b6cfd9166f1e96a8e0f6867776f56f7'
+          overlay = json.loads(Path('site/overlay-build.json').read_text())
+          assert overlay['empty'] is False and overlay['fileCount'] == 121
+          assert hashlib.sha256(Path('site/js/sealed/pack.js').read_bytes()).hexdigest() == '64ff913a785a352392246000c026c496467a0472c4df9efe96f58fc4d80c051c'
+          print('Verified Astra release and full content pack.')
+          PY
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          path: site
+      - id: deployment
+        uses: actions/deploy-pages@v4

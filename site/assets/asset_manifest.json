@@ -1,0 +1,100 @@
+{
+  "cellWidth": 80,
+  "cellHeight": 96,
+  "anchor": {
+    "x": 40,
+    "y": 88
+  },
+  "sheetColumns": 2,
+  "sheetRows": 2,
+  "rendering": {
+    "imageSmoothingEnabled": false,
+    "cssImageRendering": "pixelated",
+    "scale": "integer multiples",
+    "coordinates": "integer pixels"
+  },
+  "notes": [
+    "One held key pose per named state; no animation timings implied.",
+    "CEO crown retained by current user canon update. Held briefcase is normal-sized.",
+    "Assistant remains fully clothed with the authorized fuller adult silhouette."
+  ],
+  "sets": {
+    "room": {
+      "portraitScene": "throne_room_scene_portrait.png",
+      "portraitAsset": "rich_portrait_pixel.png"
+    },
+    "ceo": {
+      "sheet": "ceo_sprite_sheet.png",
+      "opaqueColors": 24,
+      "frames": {
+        "ceo_idle": {
+          "x": 0,
+          "y": 0,
+          "w": 80,
+          "h": 96
+        },
+        "ceo_briefcase_throw": {
+          "x": 80,
+          "y": 0,
+          "w": 80,
+          "h": 96
+        },
+        "ceo_hit": {
+          "x": 0,
+          "y": 96,
+          "w": 80,
+          "h": 96
+        },
+        "ceo_defeated": {
+          "x": 80,
+          "y": 96,
+          "w": 80,
+          "h": 96
+        }
+      }
+    },
+    "assistant": {
+      "sheet": "assistant_sprite_sheet.png",
+      "opaqueColors": 24,
+      "frames": {
+        "assistant_idle": {
+          "x": 0,
+          "y": 0,
+          "w": 80,
+          "h": 96
+        },
+        "assistant_heal": {
+          "x": 80,
+          "y": 0,
+          "w": 80,
+          "h": 96
+        },
+        "assistant_reaction": {
+          "x": 0,
+          "y": 96,
+          "w": 80,
+          "h": 96
+        },
+        "assistant_walk": {
+          "x": 80,
+          "y": 96,
+          "w": 80,
+          "h": 96
+        }
+      }
+    },
+    "assistant_vampire": {
+      "sheet": "assistant_vampire_sprite_sheet.png",
+      "frames": {
+        "assistant_vampire_idle": {"x": 0, "y": 0, "w": 80, "h": 96},
+        "assistant_bite_reaction": {"x": 80, "y": 0, "w": 80, "h": 96},
+        "assistant_transformation_01": {"x": 160, "y": 0, "w": 80, "h": 96},
+        "assistant_transformation_02": {"x": 240, "y": 0, "w": 80, "h": 96},
+        "assistant_vampire_reveal": {"x": 0, "y": 96, "w": 80, "h": 96},
+        "assistant_bat_01": {"x": 80, "y": 96, "w": 80, "h": 96},
+        "assistant_bat_02": {"x": 160, "y": 96, "w": 80, "h": 96},
+        "assistant_bat_03": {"x": 240, "y": 96, "w": 80, "h": 96}
+      }
+    }
+  }
+}

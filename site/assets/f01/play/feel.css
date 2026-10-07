@@ -1,0 +1,339 @@
+/* THE PLAY — FEEL LOCK (OL-023). A 270x480 portrait stage scaled to the window. Night palette. Everything here is presentation. */
+:root{--red:#ff2a3d;--gold:#ffd23f;--green:#5bc36a;--ink:#120c1c}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:100%;height:100%;background:#000;overflow:hidden;font-family:"Courier New",ui-monospace,monospace;font-weight:700;color:#eee;user-select:none;-webkit-user-select:none;touch-action:manipulation}
+#stage{position:absolute;left:0;top:0;width:270px;height:480px;transform-origin:0 0;overflow:hidden;background:#000;image-rendering:pixelated}
+#world,#fade{position:absolute;inset:0}
+#fade{background:#000;opacity:1;pointer-events:none;z-index:99}
+#pulse{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 50%,transparent 30%,#ff1030 130%);opacity:0;pointer-events:none;z-index:60}
+.bg{position:absolute;inset:0;width:270px;height:480px;image-rendering:pixelated}
+img{image-rendering:pixelated}
+button{font:inherit;color:inherit;cursor:pointer;border:0;text-transform:uppercase;letter-spacing:.5px}
+button:focus-visible{outline:2px solid var(--gold);outline-offset:1px}
+button:disabled{opacity:.4;cursor:default}
+.face{width:100%;height:100%;display:block}
+.title{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;background:radial-gradient(circle,#2a0410,#000 70%);cursor:pointer}
+.title h1{font-size:38px;letter-spacing:6px;color:var(--red);text-shadow:0 0 18px #f003}
+.title p{font-size:10px;letter-spacing:3px;opacity:.7;animation:blink 1.4s infinite}
+@keyframes blink{50%{opacity:.15}}
+.dim{position:absolute;inset:0;background:rgba(0,0,0,.35)}
+.bank{position:absolute;right:8px;top:8px;font-size:11px;color:var(--green);letter-spacing:1px;z-index:5}
+.rich{position:absolute;width:50px;height:96px;background:url(../../before_the_fame/characters/rich/rich_contextual_state_sheet_320x96.png) -190px 0 no-repeat;image-rendering:pixelated;transform-origin:50% 100%}
+/* phone offer */
+.call{position:absolute;left:16px;right:16px;top:44px;background:linear-gradient(#15151d,#0b0b10);border:2px solid #2a2a38;border-radius:20px;padding:14px 12px 12px;text-align:center;box-shadow:0 8px 30px #000c;z-index:5}
+.call .who{font-size:9px;letter-spacing:2px;color:#9aa0b8}
+.call .ring{font-size:9px;letter-spacing:2px;color:var(--green);margin-top:2px;animation:blink 1s infinite}
+.call .pname{font-size:23px;line-height:1.05;margin-top:12px;letter-spacing:1.5px;color:#fff}
+.call .cash{font-size:26px;color:var(--gold);margin-top:8px;text-shadow:0 0 12px #ffd23f55}
+.call .cash.notice{font-size:18px;color:var(--red)}
+.call .min{font-size:11px;letter-spacing:3px;color:#cfd3e6;margin-top:5px}
+.call .quote{font-size:9px;color:#cfd3e6;margin-top:10px;font-style:italic;font-weight:400;line-height:1.25}
+.call .hint{font-size:8.5px;color:#b8bccf;margin-top:6px;line-height:1.25;text-align:left;font-weight:400;border-left:2px solid #ff2a3d88;padding-left:6px}
+.call .btns{display:flex;gap:10px;margin-top:14px}
+.call .btns button{flex:1;padding:11px 0;border-radius:30px;font-size:12px}
+.b-ans{background:#2fa84b;color:#fff;box-shadow:0 0 14px #2fa84b88}
+.b-dec{background:#8e1b2b;color:#fff}
+.bigtag{display:inline-block;margin-top:6px;background:var(--red);color:#fff;font-size:9px;letter-spacing:3px;padding:2px 8px;border-radius:3px}
+.bigtag.sm{position:absolute;left:50%;transform:translateX(-50%);margin-top:3px}
+@keyframes buzz{0%,100%{transform:translate(0,0) rotate(0)}10%{transform:translate(-2px,1px) rotate(-1deg)}20%{transform:translate(2px,-1px) rotate(1deg)}30%{transform:translate(-2px,0)}40%{transform:translate(2px,1px)}50%,90%{transform:translate(0,0)}}
+.buzzing{animation:buzz .9s infinite}
+.lock{position:absolute;left:14px;right:14px;top:34px;background:#0b0b10ee;border:1px solid #2a2a38;border-radius:14px;padding:8px;z-index:6}
+.lock .lt{font-size:9.5px;line-height:1.25;padding:6px 8px;background:#1c1d28;border-radius:10px;margin-bottom:5px;font-weight:400}
+.lock .lt b{display:block;font-size:7.5px;letter-spacing:1px;color:#9aa0b8;margin-bottom:2px}
+.lock .lt button{margin-top:5px;padding:4px 9px;border-radius:5px;background:var(--gold);color:var(--ink);font-size:8px}
+.lock .ok{display:block;margin:6px auto 0;padding:5px 18px;border-radius:14px;background:#26263a;font-size:9px}
+/* crew / car */
+.grad{position:absolute;left:0;right:0;bottom:0;height:150px;background:linear-gradient(transparent,#000c 38%,#000f)}
+.pre-top{position:absolute;left:0;right:0;top:12px;text-align:center;text-shadow:0 2px 6px #000}
+.pre-top .n{font-size:17px;letter-spacing:2px}
+.pre-top .m{font-size:10px;color:var(--gold);letter-spacing:2px;margin-top:3px}
+.hints{position:absolute;left:14px;right:14px;top:58px;font-size:8.5px;line-height:1.3;color:#cfd3e6;text-shadow:0 1px 4px #000;font-weight:400}
+.hints div{border-left:2px solid #ff2a3d88;padding-left:6px;margin-bottom:3px}
+.car{position:absolute}
+.car .body{width:100%;height:100%;transform:scaleX(-1);display:block}
+.car .body{position:relative}
+.car .body img{position:absolute;left:0;top:0;width:100%;height:100%;display:block}
+.car .c-on{opacity:0}
+.car.on .c-on{opacity:1}
+.lostcar{position:relative;width:136px;height:50px;margin:3px 0 4px}
+.lostcar img{position:absolute;left:0;top:0;width:136px;height:50px;display:block}
+.car .hl{position:absolute;right:-70px;top:14px;width:80px;height:22px;background:linear-gradient(90deg,#fff7c2aa,transparent);clip-path:polygon(0 30%,100% 0,100% 100%,0 70%);opacity:0}
+.car.on .hl{opacity:1}
+.carpick{position:absolute;font-size:9px;letter-spacing:2px;color:#cfd3e6;background:#000a;padding:3px 8px;border-radius:10px;cursor:pointer;z-index:4;border:1px solid #fff3}
+.carpick small{display:block;font-size:6.5px;letter-spacing:.5px;color:#9aa0b8;font-weight:400}
+.card{position:absolute;height:76px;background:#0d0d16ee;border:1px solid #ffffff2a;border-radius:6px;overflow:visible}
+.card .fc{position:absolute;left:50%;top:4px;width:30px;height:30px;margin-left:-15px;background:#1a1a28;border-radius:4px;overflow:hidden}
+.card .nm{position:absolute;left:2px;right:2px;top:35px;text-align:center;font-size:8px;line-height:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.card .tr{position:absolute;left:2px;right:2px;top:45px;text-align:center;font-size:6px;letter-spacing:.5px;color:var(--gold);white-space:nowrap;overflow:hidden;font-weight:400}
+.card .sw{position:absolute;left:-6px;top:-9px;width:20px;height:20px;border-radius:5px;background:#26263a;border:1px solid #ffffff33;font-size:12px;line-height:18px;text-align:center;color:#9aa0b8;padding:0}
+.card .sw:hover{background:#3a3a55;color:#fff}
+.card .skull{position:absolute;right:2px;top:1px;font-size:10px;color:var(--red)}
+.wslot{position:absolute;left:3px;right:3px;bottom:3px;height:26px;background:#1d1d2e;border:1px solid #ffffff22;border-radius:4px;cursor:pointer;display:flex;align-items:center;gap:3px;padding:0 3px;overflow:hidden}
+.wslot:hover{border-color:var(--gold);background:#26263a}
+.wslot .gi{flex:none;display:flex;align-items:center;justify-content:center;width:26px}
+.wslot .wt{font-size:7px;line-height:1;letter-spacing:0;white-space:nowrap;min-width:0}
+.wslot .wt small{display:block;font-size:5.5px;color:#9aa0b8;margin-top:2px;font-weight:400;overflow:hidden;text-overflow:ellipsis}
+.bench{position:absolute;background:#0a0a12f5;border:1px solid #fff4;border-radius:8px;padding:6px;z-index:9;display:flex;gap:6px;flex-wrap:wrap;max-width:254px}
+.bench .bi{width:56px;text-align:center;font-size:8px;cursor:pointer;padding:4px;border-radius:6px;background:#1a1a28}
+.bench .bi span{font-size:6px;color:var(--gold);font-weight:400}
+.bench .bi.off{opacity:.35}
+.bench .bi .f{width:32px;height:32px;margin:0 auto 3px}
+.bench .bnote{width:100%;text-align:center;font-size:6px;color:#9aa0b8;letter-spacing:2px;font-weight:400}
+.send{position:absolute;left:24px;right:24px;bottom:6px;height:28px;border-radius:6px;background:var(--red);color:#fff;font-size:14px;letter-spacing:3px;box-shadow:0 0 18px #ff2a3d88;overflow:hidden;z-index:8}
+.send .lab{position:relative;z-index:1}
+.send .fill{position:absolute;left:0;top:0;bottom:0;width:0;background:#ffffff44}
+.send.hold .lab{font-size:9px;letter-spacing:1px}
+.send:hover{filter:brightness(1.2)}
+.slam{position:absolute;left:0;right:0;top:120px;height:44px;display:flex;align-items:center;justify-content:center;z-index:30;box-shadow:0 4px 0 #000a}
+.slam span{font-size:22px;letter-spacing:4px;color:#fff;text-shadow:2px 2px 0 #000;transform:skewX(12deg)}
+/* world bits */
+.bust{position:absolute;width:34px;height:34px;transform-origin:50% 100%}
+.bust .wp{position:absolute;object-fit:contain}
+.puff{position:absolute;width:8px;height:8px;border-radius:50%;background:#aaa8;pointer-events:none}
+.shadow{position:absolute;background:#0008;border-radius:50%;filter:blur(1px)}
+.cap{position:absolute;left:0;right:0;text-align:center;font-size:10px;letter-spacing:3px;color:#cfd3e6;text-shadow:0 1px 4px #000}
+.hbeam{position:absolute;width:70px;height:16px;background:radial-gradient(ellipse,#fff7c2cc,transparent 70%)}
+.missing{position:absolute;width:30px;height:34px;border:1px dashed #ffffff33;border-radius:50% 50% 4px 4px}
+/* live room */
+.flash{position:absolute;inset:0;background:#ff4a4a;opacity:0;pointer-events:none;mix-blend-mode:screen}
+.bedwrap{position:absolute;inset:0;pointer-events:none;z-index:3}
+/* FL-A01 rig: phone DOM (behind) + frozen idle layer (opaque hand/phone, transparent screen) + thumb overlay. JOLT shakes the whole rig in code. */
+.rig{position:absolute;inset:0;z-index:6;pointer-events:none;transform-origin:50% 55%}
+.rig>*{pointer-events:auto}
+.rig .handpov,.rig .thumbpov{position:absolute;left:0;top:0;width:270px;height:480px;display:block;pointer-events:none}
+.rig .thumbpov{opacity:0}.rig .thumbpov.on{opacity:1}
+/* Black backplate covers the original FL-A01 rectangle; live content uses the reviewed inset below. */
+.phone{position:absolute;left:57px;top:39px;width:159px;height:352px;background:#08080c;overflow:hidden}
+.ph-head{height:42px;background:#12121a;border-bottom:1px solid #222;display:flex;align-items:center;gap:6px;padding:12px 10px 0}
+.ph-head .av{width:20px;height:20px;border-radius:50%;overflow:hidden;background:#222;margin-left:-6px;border:1px solid #08080c}
+.ph-head .t{font-size:10px;letter-spacing:1px;margin-left:4px;white-space:nowrap}
+.ph-head .s{font-size:7px;color:#9aa0b8;letter-spacing:1px;margin-left:auto;white-space:nowrap}
+.msgs{position:absolute;left:0;right:0;top:42px;bottom:0;display:flex;flex-direction:column;justify-content:flex-end;padding:8px 8px 10px;gap:6px;overflow:hidden}
+.bub{max-width:90%;align-self:flex-start;background:transparent;border:6px solid transparent;border-image:url(../feel_lock/FL-A09/chat_bubble_64x24.png) 6 fill/6px;image-rendering:pixelated;padding:0 3px;font-size:12.5px;line-height:1.15;letter-spacing:.3px;animation:pop .18s ease-out;transition:opacity .6s;font-weight:700;word-break:break-word}
+.bub.ev{letter-spacing:.6px}
+.bub .fr{display:block;font-size:7px;letter-spacing:1px;margin-bottom:2px;opacity:.85}
+.bub.me{align-self:flex-end;background:#a3101f;border:0;border-image:none;border-radius:12px 12px 3px 12px;padding:5px 9px 6px}
+.bub.typing{padding:3px 4px}
+.dots span{display:inline-block;width:5px;height:5px;margin:0 1.5px;border-radius:50%;background:#aaa;animation:dot 1s infinite}
+.dots span:nth-child(2){animation-delay:.15s}.dots span:nth-child(3){animation-delay:.3s}
+@keyframes dot{0%,60%,100%{transform:translateY(0);opacity:.4}30%{transform:translateY(-3px);opacity:1}}
+@keyframes pop{from{transform:scale(.8) translateY(6px);opacity:0}}
+@keyframes vib{0%,100%{transform:rotate(0) translate(0,0)}20%{transform:rotate(-.9deg) translate(-2px,1px)}40%{transform:rotate(.8deg) translate(2px,-1px)}60%{transform:rotate(-.5deg) translate(-1px,1px)}80%{transform:rotate(.3deg) translate(1px,0)}}
+.vib{animation:vib .28s}
+.decide{position:absolute;left:8px;right:8px;bottom:8px;background:#000d;border-radius:12px;padding:8px;z-index:3;animation:pop .2s}
+.decide .row{display:flex;gap:6px}
+.decide button{flex:1;padding:11px 0;border-radius:8px;font-size:11px;letter-spacing:1px}
+.d-out{background:#e0e0e8;color:#111}
+.d-go{background:var(--red);color:#fff}
+.decide .bar{height:3px;background:#333;border-radius:2px;margin-top:7px;overflow:hidden}
+.decide .bar i{display:block;height:100%;background:var(--red);width:100%}
+.decide .who{font-size:7px;letter-spacing:2px;color:#9aa0b8;text-align:center;margin-bottom:5px}
+.decide .faces{gap:4px}
+.decide .fb{padding:4px 0;font-size:7px;background:#1c1d28;color:#fff}
+.decide .fb .f{display:block;width:28px;height:28px;margin:0 auto 2px}
+.dial{position:absolute;inset:42px 0 0;background:#08080cf0;display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:4;gap:8px}
+.dial .dn{font-size:12px;letter-spacing:3px;color:#cfd3e6}
+.delivered{align-self:flex-end;font-size:7px;color:#777;letter-spacing:1px}
+/* return */
+.bag{position:absolute;transform-origin:50% 100%}
+.bag svg{display:block;width:100%;height:100%}
+.count{position:absolute;left:0;right:0;top:190px;text-align:center;z-index:6;text-shadow:0 2px 8px #000}
+.count .amt{font-size:30px;color:var(--green);letter-spacing:1px}
+.count .amt.final{color:var(--gold);font-size:21px;letter-spacing:0;animation:pulse .5s}
+.count .sub{font-size:9px;color:#cfd3e6;letter-spacing:3px;height:12px;margin-top:2px}
+@keyframes pulse{0%{transform:scale(1.4)}100%{transform:scale(1)}}
+.bill{position:absolute;width:10px;height:5px;background:#6fd07d;border:1px solid #2c7a3a;pointer-events:none;z-index:4}
+.lootitem{position:absolute;text-align:center;z-index:5}
+.lootlab{position:absolute;left:50%;bottom:100%;transform:translateX(-50%);white-space:nowrap;font-size:8px;letter-spacing:1.5px;padding:2px 6px;border-radius:3px;background:#000c;border:1px solid;animation:pop .2s}
+.lootlab.lane{top:232px;bottom:auto;z-index:6}
+.again{position:absolute;left:24px;width:170px;bottom:8px;height:28px;border-radius:6px;background:#1c1c28;border:1px solid var(--gold);color:var(--gold);font-size:11px;letter-spacing:2px;z-index:8;animation:pop .3s}
+.again:hover{background:#2a2a3c}
+/* settings */
+#gear{position:absolute;left:4px;top:4px;width:18px;height:18px;border-radius:9px;background:#0009;color:#9aa0b8;font-size:11px;line-height:16px;text-align:center;z-index:70;padding:0;opacity:.5}
+#gear:hover{opacity:1}
+#setpanel{position:absolute;left:24px;right:24px;top:60px;background:#0b0b12f5;border:1px solid #fff4;border-radius:10px;padding:12px;z-index:80;font-size:10px}
+#setpanel .sh{letter-spacing:3px;font-size:9px;color:#9aa0b8;margin-bottom:8px}
+#setpanel label{display:block;margin:6px 0;font-size:10px;cursor:pointer}
+#setpanel button{margin:8px 6px 0 0;padding:5px 10px;border-radius:5px;background:#26263a;font-size:9px}
+/* REDUCE MOTION: no shaking, no bouncing, no constant blinking — the red pulse stays a static brief tint */
+.reduce .dots span,.reduce .title p,.reduce .call .ring{animation:none}
+.reduce .buzzing,.reduce .vib{animation:none}
+.reduce .bub{animation:none}
+
+/* QA REPAIR 001: the FL-A04 sprite is composited INSIDE the rig, between the live phone and the FL-A01 hand/phone layer, so the feed 'cuts to him' on the screen itself (the bezel and hand stay in front). 2x sprite, figure centred in the 159x352 screen opening, whole 160x192 box inside the 270x480 stage. */
+.obashade{position:absolute;left:51px;top:103px;width:160px;height:192px;pointer-events:none;opacity:0}
+.obashade img{display:block;width:160px;height:192px;image-rendering:pixelated}
+.bust.sprite .ogs{position:absolute;width:80px;height:96px;max-width:none;image-rendering:pixelated}
+.counthands{position:absolute;width:128px;height:96px;z-index:5;pointer-events:none}
+.counthands img,.bag img{display:block;image-rendering:pixelated}
+.lp-rare{filter:drop-shadow(0 0 3px #37d5e8)}.lp-legendary{filter:drop-shadow(0 0 4px #ffd23f)}
+
+/* FINAL-A Life OS tokens only. Chat geometry, type metrics, animations and call clocks remain OL-023. */
+.phone{--os-chat-bg:#0c0b14;--os-chat-surface:#171322;--os-chat-line:#49334f;--os-chat-text:#f6efd9;--os-chat-muted:#bdacc4;--os-chat-red:#f04067;background:var(--os-chat-bg);color:var(--os-chat-text)}
+.phone .ph-head{background:var(--os-chat-surface);border-bottom-color:var(--os-chat-line)}
+.phone .ph-head .av{background:var(--os-chat-line);border-color:var(--os-chat-bg)}
+.phone .ph-head .s,.phone .decide .who{color:var(--os-chat-muted)}
+.phone .bub.me{background:#681937;color:var(--os-chat-text)}
+.phone .dots span{background:var(--os-chat-muted)}
+.phone .decide{background:#0c0b14ed}
+.phone .d-go,.phone .decide .bar i{background:var(--os-chat-red)}
+.phone .d-out{background:var(--os-chat-text);color:var(--os-chat-bg)}
+.phone .decide .bar{background:var(--os-chat-line)}
+.phone .decide .fb{background:var(--os-chat-surface);color:var(--os-chat-text)}
+.phone .dial{background:#0c0b14f0}
+.phone .dial .dn,.phone .delivered{color:var(--os-chat-muted)}
+
+/* RC3 OL-074 · Life OS. Presentation only: PLAY odds, clocks and capture bands stay in the engine. */
+@font-face{font-family:Monogram;src:url(../../fonts/monogram.ttf)}
+@font-face{font-family:Tiny5;src:url(../../fonts/tiny5.ttf)}
+:root{--os-bg:#0c0b14;--os-surface:#171322;--os-raised:#241b30;--os-line:#49334f;--os-text:#f6efd9;--os-muted:#bdacc4;--os-gold:#efc16b;--os-red:#f04067;--os-green:#88dbad;--red:var(--os-red);--gold:var(--os-gold);--green:var(--os-green)}
+body{font-family:Monogram,"Courier New",monospace;font-weight:400;color:var(--os-text)}
+button{font-family:Tiny5,"Courier New",monospace;letter-spacing:1px;border-radius:0!important}
+.call,.lock,#setpanel{background:var(--os-bg);border:2px solid var(--os-line);border-radius:0;box-shadow:3px 4px #050409}
+.call{padding:12px;text-align:left}
+.call .who,.call .ring{font-family:Tiny5;font-size:11px;color:var(--os-muted);letter-spacing:1px}
+.call .ring{color:var(--os-green)}
+.call .pname{font-family:Tiny5;font-size:24px;color:var(--os-text);letter-spacing:1px;line-height:1.1;border-bottom:2px solid var(--os-red);padding-bottom:8px}
+.call .cash{font-size:34px;text-shadow:none;color:var(--os-gold)}
+.call .min{font:13px Tiny5;letter-spacing:1px}
+.call .quote,.call .hint{font:16px/1.05 Monogram;color:var(--os-muted);font-style:normal}
+.call .hint{border-left:2px solid var(--os-red)}
+.call .btns button{font:15px Tiny5;min-height:34px;padding:8px 3px;border:1px solid var(--os-line)}
+.b-ans{background:var(--os-green);color:var(--os-bg);box-shadow:2px 2px #49334f}
+.b-dec{background:var(--os-raised);color:var(--os-text)}
+.pre-top .n{font:22px Tiny5}.pre-top .m{font:13px Tiny5;color:var(--os-gold)}
+.hints{font:14px/1.05 Monogram;top:100px;color:var(--os-text)}
+.card,.bench,.carpick,.wslot{background:var(--os-surface);border:1px solid var(--os-line);border-radius:0;box-shadow:2px 2px #050409}
+.card{height:78px}.card .nm{font:11px Tiny5;top:30px}.card .tr{font:10px Monogram;top:41px;color:var(--os-gold)}
+.card .fc{border-radius:0;width:24px;height:24px;margin-left:-12px}.card .sw{background:var(--os-raised);border-radius:0;color:var(--os-text)}
+.card .wslot{height:22px}
+.wslot .wt{font:11px Monogram}.wslot .wt small{font:9px Monogram;color:var(--os-muted)}
+.send{height:32px;font:16px Tiny5;border:2px solid var(--os-red);box-shadow:2px 2px #49334f}
+.send.hold .lab{font:12px Tiny5}
+.quilt{background-color:#3c0818;background-image:repeating-linear-gradient(0deg,#650c24 0 4px,transparent 4px 20px),repeating-linear-gradient(90deg,transparent 0 16px,#8b1435 16px 20px);image-rendering:pixelated}
+.rig{isolation:isolate;will-change:transform}
+.rig .phone{z-index:1}.rig .handpov{z-index:2}.rig .thumbpov{z-index:3}
+.phone .ph-head{height:65px;padding:20px 7px 3px;display:grid;grid-template-columns:1fr auto;align-content:start;gap:3px;border-bottom:2px solid var(--os-line)}
+.phone .ph-head .t{font:14px/1 Tiny5;margin:0;letter-spacing:1px}
+.phone .ph-head .s{font:9px/1 Tiny5;color:var(--os-green);letter-spacing:0;margin:3px 0 0}
+.ph-crew{grid-column:1 / -1;display:flex;align-items:center;gap:2px;color:var(--os-muted);font:9px Tiny5}
+.phone .ph-head .av{width:14px;height:14px;margin:0;border-radius:0;flex:none;border:1px solid var(--os-line)}
+.ph-crew>span{margin-left:auto}
+.phone .msgs{top:65px;padding:6px 6px 8px;gap:7px}
+.phone .bub{max-width:96%;border:1px solid var(--os-line);border-image:none;background:var(--os-surface);padding:5px 6px;box-shadow:2px 2px #050409;font:17px/1 Monogram;letter-spacing:0;border-radius:0;overflow-wrap:anywhere}
+.phone .bub.ev{border-left:3px solid var(--os-gold);letter-spacing:0}
+.phone .bub .fr{font:10px/1 Tiny5;letter-spacing:.5px;margin-bottom:3px}
+.phone .bub.me{background:#681937;border:1px solid #a7466c;padding:5px 6px;border-radius:0}
+.phone .decide{left:5px;right:5px;bottom:5px;padding:6px;border:2px solid var(--os-gold);border-radius:0;box-shadow:2px 2px #050409}
+.phone .decide button{font:12px/1 Tiny5;min-height:32px;padding:8px 3px;white-space:normal}
+.phone .decide .who{font:11px Tiny5;letter-spacing:1px}
+.phone .decide .fb{font:10px Tiny5;padding:4px 1px;min-width:0}
+.phone .decide .fb .f{width:22px;height:22px}
+.phone .dial{top:65px}.phone .dial .dn{font:16px Tiny5;letter-spacing:1px}
+.count .amt{font:38px Monogram}.count .amt.final{font:28px Monogram}
+.count .sub{font:12px Tiny5;letter-spacing:1px}.again{height:32px;background:var(--os-surface);font:14px Tiny5}
+@media(prefers-reduced-motion:reduce){.buzzing,.vib,.bub,.dots span{animation:none!important}}
+
+/* RC4 PLAY operation: pinned state and choices, incidental scrollback. */
+.phone .msgs{display:block;overflow-y:auto;overscroll-behavior:contain;top:88px;scrollbar-width:thin}
+.phone .bub{display:table;flex-shrink:0;margin:0 0 7px;max-width:100%;box-sizing:border-box}
+.phone .bub.me{margin-left:auto}
+.operation-state{position:absolute;left:0;right:0;top:65px;min-height:22px;padding:4px 5px;background:#241b30;color:var(--os-gold);font:10px/1.2 Tiny5;border-bottom:1px solid var(--os-line)}
+.ph-crew .av[data-state=DOWN],.ph-crew .av[data-state=DEAD],.ph-crew .av[data-state=RAN]{filter:grayscale(1);outline:1px solid var(--os-red)}
+.phone .decide .row{display:grid;grid-template-columns:1fr 1fr;gap:4px}
+.phone .decide button{min-width:0;font:12px/1 Tiny5;min-height:48px;letter-spacing:0}
+.phone .decide small,.phone .decide .actor{display:block;font:11px/1 Monogram;margin:4px 0;color:inherit}
+.phone .decision-context{font:11px/1 Tiny5;color:var(--os-gold);margin-bottom:6px}
+.phone .clock-note{font:10px/1 Tiny5;color:var(--os-muted);margin-top:5px}
+.setup-help{position:absolute;left:5px;right:5px;top:350px;font:10px/1 Tiny5;text-align:center;color:var(--os-gold)}
+.card .sw{left:2px;top:2px;width:29px;height:22px;font:10px Tiny5;z-index:2}
+.card .fc{top:3px;left:auto;right:3px;margin:0}
+.card .nm{top:30px;font:10px/1 Tiny5}
+.card .tr{background:none;border:0;padding:0;top:42px;width:100%;height:14px;font:10px/1 Tiny5;color:var(--os-gold)}
+.card .wslot{cursor:pointer;min-height:24px}
+.carpick{min-height:31px;cursor:pointer;font:12px Tiny5}
+.carpick .change{display:block;font:10px Tiny5;color:var(--os-green)}
+.crew-inspect{position:absolute;left:12px;right:12px;top:130px;background:var(--os-bg);border:2px solid var(--os-gold);padding:12px;z-index:18;font:16px/1.1 Monogram;box-shadow:4px 4px #050409}
+.crew-inspect b{font:16px Tiny5;color:var(--os-gold)}
+.crew-inspect p{margin:7px 0}.crew-inspect button{width:100%;min-height:30px;background:var(--os-raised);color:var(--os-text);border:1px solid var(--os-line)}
+.operation-result{position:absolute;inset:16px 12px auto;background:#0c0b14f5;border:2px solid var(--os-gold);padding:10px;z-index:9;max-height:370px;overflow:auto;box-shadow:3px 3px #050409;font:15px/1.1 Monogram}
+.operation-result h2{font:20px Tiny5;margin:0 0 8px;color:var(--os-gold)}
+.result-money{display:grid;grid-template-columns:1fr 1fr;gap:7px;border-block:1px solid var(--os-line);padding:6px 0;font:11px Tiny5}
+.result-money b{display:block;font:23px Monogram;color:var(--os-green)}
+.result-route{font:12px Tiny5;color:var(--os-muted);margin-top:6px}
+.operation-result ul{list-style:none;margin:8px 0;padding:0}.operation-result li{display:grid;grid-template-columns:1fr auto;gap:4px;padding:5px 0;border-bottom:1px solid var(--os-line)}
+.operation-result li b{font:10px Tiny5;color:var(--os-green)}.operation-result li b:not(.READY){color:var(--os-gold)}
+.operation-result small{font:10px/1.2 Tiny5;display:block;color:var(--os-muted)}
+.again{left:12px;width:246px;min-height:36px;z-index:10}
+.operation-crew{position:absolute;left:5px;right:5px;bottom:3px;display:flex;gap:3px;overflow-x:auto;z-index:5;background:#0c0b14ed;border-top:2px solid var(--os-gold);padding:4px 2px}
+.operation-unit{flex:1 0 48px;min-width:0;padding:4px 2px;color:var(--os-text);background:var(--os-surface);border:1px solid var(--os-line);cursor:pointer;text-align:center;min-height:31px}
+.operation-unit span{display:block;font:10px/1 Tiny5;overflow-wrap:anywhere}.operation-unit b{display:block;font:11px/1 Monogram;margin-top:3px;color:var(--os-gold)}
+.operation-unit.changed{border-color:var(--os-red);animation:state-contact .6s steps(3)}
+@keyframes state-contact{from{background:#681937;transform:translateY(-2px)}to{background:var(--os-surface);transform:none}}
+.rig .crew-inspect{z-index:10;top:130px;max-height:240px;overflow:auto}
+.operation-objective{position:absolute;left:22px;right:22px;top:4px;text-align:center;font:14px/1 Tiny5;color:var(--os-gold);background:#0c0b14ed;padding:4px;z-index:5;border:1px solid var(--os-line)}
+.result-calls{font:11px/1.2 Tiny5;color:var(--os-gold);margin-top:5px}
+.operation-crew[inert]{opacity:.8}.operation-crew[inert] .operation-unit{cursor:default}
+.card .tr{top:42px;height:9px;font:9px/1 Tiny5}.card .wslot{height:22px;min-height:22px;gap:1px;padding:0 1px}.wslot .gi{width:18px}.wslot .gi img{max-width:18px;object-fit:contain}.wslot .wt{font:10px/1 Monogram}
+.phone .bub{animation:none}.card .inspect{z-index:3;background:var(--os-surface)}
+.operation-unit .op-pose{height:30px;width:38px;overflow:hidden;margin:0 auto 2px}.op-pose img{display:block;width:40px;height:48px;margin-top:-15px;image-rendering:pixelated}
+/* A decision's narration uses .bub.call; the offer-card .call positioning must not leak into chat. */
+.phone .bub.call{position:static;inset:auto;z-index:auto;text-align:left;transform:none}
+.call .take-note{font:12px/1 Tiny5;color:var(--os-muted);margin-top:5px}
+.call .cash{font-size:30px;line-height:1}
+.report-toggle{position:absolute;left:12px;right:12px;bottom:50px;z-index:10;padding:5px;min-height:22px;font:11px Tiny5;text-align:center;background:var(--os-surface);color:var(--os-gold);border:1px solid var(--os-line);cursor:pointer}
+.operation-result[hidden]{display:none}
+.reduce .operation-unit.changed{animation:none}@media(prefers-reduced-motion:reduce){.operation-unit.changed{animation:none}}
+
+/* RC5 P: health belongs to the held screen; the quilt is no longer a HUD. */
+.phone .ph-head{height:44px;padding:17px 6px 4px;gap:0}
+.phone .ph-crew{display:none}
+.phone .operation-state{top:44px;min-height:20px;font:10px/1 Tiny5;padding:5px}
+.phone .operation-crew{top:64px;bottom:auto;left:0;right:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:2px;padding:3px;border-top:0;border-bottom:1px solid var(--os-line);overflow:hidden;z-index:2}
+.phone .operation-unit{min-height:33px;padding:2px 1px;box-shadow:none}
+.phone .operation-unit span{font:9px/1 Tiny5;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.phone .operation-unit b{font:11px/1 Monogram;margin-top:1px}
+.phone .operation-unit .op-pose{display:none}
+.phone .msgs{top:124px}
+.phone .clock-note{line-height:1.15}
+.phone .seconds{color:var(--os-gold);white-space:nowrap}
+.phone .decide button:focus-visible{outline:2px solid var(--os-text);outline-offset:-3px}
+.bench .bi:focus-visible{outline:2px solid var(--os-gold)}
+
+.phone .crew-inspect{left:4px;right:4px;top:65px;max-height:280px;padding:8px;font:14px/1.1 Monogram}
+.phone .crew-inspect b{font:12px Tiny5}
+.title:focus-visible{outline:3px solid var(--os-gold);outline-offset:-6px}
+
+.transport-inspect{top:106px;max-height:320px;overflow:auto}
+.transport-inspect button{display:block;text-align:left;margin-top:5px;padding:5px 7px;min-height:34px;font:12px Tiny5}
+.transport-inspect button[aria-pressed=true]{border-color:var(--os-gold);color:var(--os-gold)}
+.transport-inspect button small{display:block;font:13px/1 Monogram;margin-top:3px;color:var(--os-muted)}
+
+/* Loadout controls have real touch area rather than tiny text hitboxes. */
+.setup-help{top:305px}
+.card{height:122px}
+.card .fc{width:16px;height:16px;top:3px;right:3px}
+.card .nm{top:5px;right:20px;font:9px/1 Tiny5;text-align:left}
+.card .tr{top:22px;left:2px;right:2px;width:calc(100% - 4px);height:33px;font:10px Tiny5;border:1px solid var(--os-line)}
+.card .sw{top:55px;left:2px;right:2px;width:calc(100% - 4px);height:33px;font:10px Tiny5}
+.card .wslot{height:33px;min-height:33px;bottom:1px;left:2px;right:2px;padding:2px;display:block;text-align:center}
+.card .wslot .gi{display:none}
+.card .wslot .wt{display:block;font:10px/1 Tiny5;white-space:normal}
+.card .wslot .wt small{font:10px/1 Monogram;white-space:nowrap;margin-top:2px}
+
+/* Approved candidate v6 inset: [63,52,208,380], not the original aperture. */
+.phone-content{position:absolute;left:6px;top:13px;width:145px;height:328px;background:#08080c;overflow:hidden}
+.phone-content .crew-inspect{max-height:calc(100% - 75px);box-sizing:border-box;overflow:auto}
+
+/* Reviewed native portraits: source HP/status remains the condition authority. */
+.play-portrait{image-rendering:pixelated;object-fit:contain;flex:none}
+.face.play-portrait[data-native-size="16"]{width:16px;height:16px}
+.face.play-portrait[data-native-size="32"]{width:32px;height:32px}
+.phone .ph-head .av{width:16px;height:16px}
+.phone .operation-unit{position:relative}
+.phone .operation-unit .op-portrait{position:absolute;left:2px;top:3px;width:16px;height:16px;margin:0}
+.phone .operation-unit>span:not(.op-portrait){position:absolute;left:20px;right:1px;top:4px}
+.phone .operation-unit>b{position:absolute;left:0;right:0;bottom:3px}
+.op-portrait .play-portrait{margin:0 auto}
+.phone .fr .play-portrait,.phone .bub.me .play-portrait{display:inline-block;vertical-align:middle;margin-right:3px}
+.phone .decide .fb .f{width:16px;height:16px}

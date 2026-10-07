@@ -1,0 +1,372 @@
+{
+  "batch": "3B",
+  "status": "assistant-delegated accepted candidate; not creator-frozen; runtime reviewed",
+  "tool": "built-in image_gen",
+  "source_manifest_sha256": "38408381791c494f2b3da57d7e4d23c21e5ce15b7847953ca1adb0305a47fbb7",
+  "durations_ms": [
+    124,
+    186,
+    186,
+    124
+  ],
+  "total_ms": 620,
+  "contact_ms": 310,
+  "references": {
+    "art_department/production/f15-launch-trio-masters/foundation_cards/roxy-foundation.png": "681b2ca6b65b22d555568720d3a4e96a42272a2d9c26a75b5c0c30e3e8be9258",
+    "assets/f15/dancers/wolf.png": "32fdbd87572a3b7cb388ebc5121bc135c2d5b3c8772a044dbb8537642450dce3",
+    "assets/f15/portraits/roxy.png": "863f603116b19be9c696ccd28257e3818832c396af9dac5ef939027e33eefa7d",
+    "assets/f15/characters/spirit_of_uncle_bunmi_444x222.png": "e4cc409314da51b99627452dc92e5ce597f22b531ee57983c41af68aa4886c7d"
+  },
+  "frames": [
+    {
+      "asset": "assets/rc4/combat_candidates_v3/bunmi-antenna-action.png",
+      "sha256": "a4046ac9e8f9af62d26467e3b51754f3da3541096998fb1ecae9cfe0738b21a0",
+      "canvas": [
+        444,
+        222
+      ],
+      "anchor": [
+        222,
+        216
+      ],
+      "facing": "left",
+      "flight_lift_px": 0
+    },
+    {
+      "asset": "assets/rc4/combat_candidates_v3/bunmi-antenna-contact.png",
+      "sha256": "f5203f8a26deb661d2f01c3e0d0537c78a8c74549f1d208e66989312888f970d",
+      "canvas": [
+        444,
+        222
+      ],
+      "anchor": [
+        222,
+        216
+      ],
+      "facing": "left",
+      "flight_lift_px": 0
+    },
+    {
+      "asset": "assets/rc4/combat_candidates_v3/bunmi-antenna-prepare.png",
+      "sha256": "753560e5094e9c905382c885206b4b24bc35d570515ea2b01756c390bc44a8cb",
+      "canvas": [
+        444,
+        222
+      ],
+      "anchor": [
+        222,
+        216
+      ],
+      "facing": "left",
+      "flight_lift_px": 0
+    },
+    {
+      "asset": "assets/rc4/combat_candidates_v3/bunmi-antenna-recovery.png",
+      "sha256": "8044d1807e2edc23aa547fd84b59eb5c8b67aa556edfa0d2d7f36eb346308949",
+      "canvas": [
+        444,
+        222
+      ],
+      "anchor": [
+        222,
+        216
+      ],
+      "facing": "left",
+      "flight_lift_px": 0
+    },
+    {
+      "asset": "assets/rc4/combat_candidates_v3/bunmi-flies-action.png",
+      "sha256": "a6ae28402fe80bcd134b927da30d432b50693fdfa94d5b91cefcdd6a41aec2fa",
+      "canvas": [
+        444,
+        222
+      ],
+      "anchor": [
+        222,
+        216
+      ],
+      "facing": "left",
+      "flight_lift_px": 0
+    },
+    {
+      "asset": "assets/rc4/combat_candidates_v3/bunmi-flies-contact.png",
+      "sha256": "f688d9eb4fcfee83f45d95ec22f6ac9e7ac9d881868be1c746ba5ea44cb4ee8a",
+      "canvas": [
+        444,
+        222
+      ],
+      "anchor": [
+        222,
+        216
+      ],
+      "facing": "left",
+      "flight_lift_px": 18
+    },
+    {
+      "asset": "assets/rc4/combat_candidates_v3/bunmi-flies-prepare.png",
+      "sha256": "f0809a56ec6978df8551e98d451bbab4fe7a6b047af7e9e2cdb85e9cf0cd5d74",
+      "canvas": [
+        444,
+        222
+      ],
+      "anchor": [
+        222,
+        216
+      ],
+      "facing": "left",
+      "flight_lift_px": 0
+    },
+    {
+      "asset": "assets/rc4/combat_candidates_v3/bunmi-flies-recovery.png",
+      "sha256": "f17d81db0f04672ee37c25cc9bffed3e7b917860f4b18eb9e583a2970da226ca",
+      "canvas": [
+        444,
+        222
+      ],
+      "anchor": [
+        222,
+        216
+      ],
+      "facing": "left",
+      "flight_lift_px": 0
+    },
+    {
+      "asset": "assets/rc4/combat_candidates_v3/bunmi-scuttle-action.png",
+      "sha256": "3d2aa48e1bafcbfb6fdc2d2db14b2b40ff11f4a6fbf689c77d5d8c3cc2256157",
+      "canvas": [
+        444,
+        222
+      ],
+      "anchor": [
+        222,
+        216
+      ],
+      "facing": "left",
+      "flight_lift_px": 0
+    },
+    {
+      "asset": "assets/rc4/combat_candidates_v3/bunmi-scuttle-contact.png",
+      "sha256": "30b59c085b176935917b5ce839a9fc96d8b2c879e97fdf0c5d688b44b29622a7",
+      "canvas": [
+        444,
+        222
+      ],
+      "anchor": [
+        222,
+        216
+      ],
+      "facing": "left",
+      "flight_lift_px": 0
+    },
+    {
+      "asset": "assets/rc4/combat_candidates_v3/bunmi-scuttle-prepare.png",
+      "sha256": "423bea9ef9173d3d9fd27db78ffe4c2a22d2b14593a6df7616cfd46e2cbbfe35",
+      "canvas": [
+        444,
+        222
+      ],
+      "anchor": [
+        222,
+        216
+      ],
+      "facing": "left",
+      "flight_lift_px": 0
+    },
+    {
+      "asset": "assets/rc4/combat_candidates_v3/bunmi-scuttle-recovery.png",
+      "sha256": "1eb0951460b028a1738264cf0954eca5412e370e8c802c3c046a41ae386192d4",
+      "canvas": [
+        444,
+        222
+      ],
+      "anchor": [
+        222,
+        216
+      ],
+      "facing": "left",
+      "flight_lift_px": 0
+    },
+    {
+      "asset": "assets/rc4/combat_candidates_v3/bunmi-stare-action.png",
+      "sha256": "e7b36db6a6d81eecbdb267c0009452e734dbc13de489b7daf5a5b46c129c03fb",
+      "canvas": [
+        444,
+        222
+      ],
+      "anchor": [
+        222,
+        216
+      ],
+      "facing": "left",
+      "flight_lift_px": 0
+    },
+    {
+      "asset": "assets/rc4/combat_candidates_v3/bunmi-stare-contact.png",
+      "sha256": "bff5ebb50b5405341a6dc45b9e07790018a55bde8fab43371ef1f89c2e55c102",
+      "canvas": [
+        444,
+        222
+      ],
+      "anchor": [
+        222,
+        216
+      ],
+      "facing": "left",
+      "flight_lift_px": 0
+    },
+    {
+      "asset": "assets/rc4/combat_candidates_v3/bunmi-stare-prepare.png",
+      "sha256": "4ff169b5176bdcf9c09711883bff42aa1d340c741d38243ed2a18ef863bead65",
+      "canvas": [
+        444,
+        222
+      ],
+      "anchor": [
+        222,
+        216
+      ],
+      "facing": "left",
+      "flight_lift_px": 0
+    },
+    {
+      "asset": "assets/rc4/combat_candidates_v3/bunmi-stare-recovery.png",
+      "sha256": "1724c8dd98b7851985d759eeab964e25a3718866bd4f6a9696df50431f5d27a0",
+      "canvas": [
+        444,
+        222
+      ],
+      "anchor": [
+        222,
+        216
+      ],
+      "facing": "left",
+      "flight_lift_px": 0
+    },
+    {
+      "asset": "assets/rc4/combat_candidates_v3/roxy-cross-action.png",
+      "sha256": "b0ef7e5c67aa3f695791a33330d4604bc7f4e5ffa1d61d07358a2dae7cda7130",
+      "canvas": [
+        80,
+        96
+      ],
+      "anchor": [
+        40,
+        88
+      ],
+      "facing": "right",
+      "flight_lift_px": 0
+    },
+    {
+      "asset": "assets/rc4/combat_candidates_v3/roxy-cross-contact.png",
+      "sha256": "cb29fb93d250b064426b93f943e06873f40402a357137157332f7799cf47359f",
+      "canvas": [
+        80,
+        96
+      ],
+      "anchor": [
+        40,
+        88
+      ],
+      "facing": "right",
+      "flight_lift_px": 0
+    },
+    {
+      "asset": "assets/rc4/combat_candidates_v3/roxy-cross-prepare.png",
+      "sha256": "2a82eced9f290051cb820b48c3f5b68da25d6f621d0467bf0964d66c235fac61",
+      "canvas": [
+        80,
+        96
+      ],
+      "anchor": [
+        40,
+        88
+      ],
+      "facing": "right",
+      "flight_lift_px": 0
+    },
+    {
+      "asset": "assets/rc4/combat_candidates_v3/roxy-cross-recovery.png",
+      "sha256": "1e9b97ad936a65815d970ba080c53f6f6dbd9668c12de9018151d5d37be1f0a3",
+      "canvas": [
+        80,
+        96
+      ],
+      "anchor": [
+        40,
+        88
+      ],
+      "facing": "right",
+      "flight_lift_px": 0
+    },
+    {
+      "asset": "assets/rc4/combat_candidates_v3/roxy-guard.png",
+      "sha256": "875ff86f4e9091a3ace70cb1c11c6152f0196bc5a294b871503a40d2bf162a70",
+      "canvas": [
+        80,
+        96
+      ],
+      "anchor": [
+        40,
+        88
+      ],
+      "facing": "right",
+      "flight_lift_px": 0
+    },
+    {
+      "asset": "assets/rc4/combat_candidates_v3/roxy-jab-action.png",
+      "sha256": "3fe2f914404b44cbaccd1204509f7284941165698f9bc9f009245694bf7d995d",
+      "canvas": [
+        80,
+        96
+      ],
+      "anchor": [
+        40,
+        88
+      ],
+      "facing": "right",
+      "flight_lift_px": 0
+    },
+    {
+      "asset": "assets/rc4/combat_candidates_v3/roxy-jab-contact.png",
+      "sha256": "a6d2b4cb41857287ff48cae165249af1362360c431e807be5783f4164695c093",
+      "canvas": [
+        80,
+        96
+      ],
+      "anchor": [
+        40,
+        88
+      ],
+      "facing": "right",
+      "flight_lift_px": 0
+    },
+    {
+      "asset": "assets/rc4/combat_candidates_v3/roxy-jab-prepare.png",
+      "sha256": "ac6511dba5e70ca667bb893121d6b96c7d6f2f9f37769f35f7e19de02b3d4dca",
+      "canvas": [
+        80,
+        96
+      ],
+      "anchor": [
+        40,
+        88
+      ],
+      "facing": "right",
+      "flight_lift_px": 0
+    },
+    {
+      "asset": "assets/rc4/combat_candidates_v3/roxy-jab-recovery.png",
+      "sha256": "cb2b9f01f0a5d5efb75f9d4eb75e520e4cc0772841e6b51c2e22c40556b5bada",
+      "canvas": [
+        80,
+        96
+      ],
+      "anchor": [
+        40,
+        88
+      ],
+      "facing": "right",
+      "flight_lift_px": 0
+    }
+  ]
+}

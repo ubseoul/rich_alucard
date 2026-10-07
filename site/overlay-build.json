@@ -1,0 +1,13 @@
+{
+ "schema": 1,
+ "kind": "private-overlay-build",
+ "overlay": "6e3ebc4c41f1b74f",
+ "open": {
+  "releaseId": "ra-a0f1d72b6b6c-20261007003329",
+  "commit": "a0f1d72b6b6cfd9166f1e96a8e0f6867776f56f7"
+ },
+ "fileCount": 121,
+ "scriptCount": 0,
+ "empty": false,
+ "payloadDigest": "44634be718ee5ecf1cf7429317ea6c96834ed044ce2895d2cd0d4c8e66d65f93"
+}

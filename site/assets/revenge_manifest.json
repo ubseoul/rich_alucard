@@ -1,0 +1,268 @@
+{
+  "move": "Revenge",
+  "visualTheme": "Fear — the damage never disappeared; Rich was keeping it.",
+  "mechanic": {
+    "status": "LOCKED",
+    "rule": "Reflect all actual accumulated damage Rich has received; deal exactly that amount to the target; then reset stored damage to zero.",
+    "assetInfluenceOnDamage": "NONE"
+  },
+  "targetAgnostic": true,
+  "containsCharacters": false,
+  "palette": [
+    [
+      16,
+      5,
+      13
+    ],
+    [
+      164,
+      15,
+      50
+    ],
+    [
+      255,
+      227,
+      222
+    ]
+  ],
+  "frames": [
+    {
+      "file": "revenge_stored_wound_01.png",
+      "size": [
+        16,
+        16
+      ],
+      "anchor": [
+        8,
+        8
+      ],
+      "role": "persistent_attacker_relative_fragment"
+    },
+    {
+      "file": "revenge_stored_wound_02.png",
+      "size": [
+        16,
+        16
+      ],
+      "anchor": [
+        8,
+        8
+      ],
+      "role": "persistent_attacker_relative_fragment"
+    },
+    {
+      "file": "revenge_stored_wound_03.png",
+      "size": [
+        16,
+        16
+      ],
+      "anchor": [
+        8,
+        8
+      ],
+      "role": "persistent_attacker_relative_fragment"
+    },
+    {
+      "file": "revenge_stored_wound_04.png",
+      "size": [
+        16,
+        16
+      ],
+      "anchor": [
+        8,
+        8
+      ],
+      "role": "persistent_attacker_relative_fragment"
+    },
+    {
+      "file": "revenge_extraction_01.png",
+      "size": [
+        24,
+        24
+      ],
+      "anchor": [
+        12,
+        12
+      ],
+      "role": "runtime_extraction_particle"
+    },
+    {
+      "file": "revenge_extraction_02.png",
+      "size": [
+        24,
+        24
+      ],
+      "anchor": [
+        12,
+        12
+      ],
+      "role": "runtime_extraction_particle"
+    },
+    {
+      "file": "revenge_extraction_03.png",
+      "size": [
+        24,
+        24
+      ],
+      "anchor": [
+        12,
+        12
+      ],
+      "role": "runtime_extraction_particle"
+    },
+    {
+      "file": "revenge_extraction_04.png",
+      "size": [
+        24,
+        24
+      ],
+      "anchor": [
+        12,
+        12
+      ],
+      "role": "runtime_extraction_particle"
+    },
+    {
+      "file": "revenge_mass_01.png",
+      "size": [
+        96,
+        96
+      ],
+      "anchor": [
+        48,
+        48
+      ],
+      "role": "condensed_wound_mass"
+    },
+    {
+      "file": "revenge_mass_02.png",
+      "size": [
+        96,
+        96
+      ],
+      "anchor": [
+        48,
+        48
+      ],
+      "role": "condensed_wound_mass"
+    },
+    {
+      "file": "revenge_mass_03.png",
+      "size": [
+        96,
+        96
+      ],
+      "anchor": [
+        48,
+        48
+      ],
+      "role": "condensed_wound_mass"
+    },
+    {
+      "file": "revenge_target_crack_01.png",
+      "size": [
+        96,
+        96
+      ],
+      "anchor": [
+        48,
+        48
+      ],
+      "role": "runtime_target_alpha_overlay"
+    },
+    {
+      "file": "revenge_target_crack_02.png",
+      "size": [
+        96,
+        96
+      ],
+      "anchor": [
+        48,
+        48
+      ],
+      "role": "runtime_target_alpha_overlay"
+    },
+    {
+      "file": "revenge_target_crack_03.png",
+      "size": [
+        96,
+        96
+      ],
+      "anchor": [
+        48,
+        48
+      ],
+      "role": "runtime_target_alpha_overlay"
+    },
+    {
+      "file": "revenge_impact_fullscreen.png",
+      "size": [
+        270,
+        480
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "role": "opaque_transient_screen_impact"
+    }
+  ],
+  "sheets": [
+    {
+      "file": "revenge_stored_wound_sheet.png",
+      "cell": [
+        16,
+        16
+      ],
+      "columns": 4,
+      "group": "stored_wound"
+    },
+    {
+      "file": "revenge_extraction_sheet.png",
+      "cell": [
+        24,
+        24
+      ],
+      "columns": 4,
+      "group": "extraction"
+    },
+    {
+      "file": "revenge_mass_sheet.png",
+      "cell": [
+        96,
+        96
+      ],
+      "columns": 3,
+      "group": "mass"
+    },
+    {
+      "file": "revenge_target_crack_sheet.png",
+      "cell": [
+        96,
+        96
+      ],
+      "columns": 3,
+      "group": "target_crack"
+    }
+  ],
+  "masking": {
+    "source": "current target reaction sprite alpha at runtime",
+    "operation": "Render generic crack on offscreen canvas, then destination-in with current target alpha; restore source-over.",
+    "noBakedSilhouette": true
+  },
+  "runtimeOwns": [
+    "timing",
+    "stored-damage representation",
+    "movement",
+    "silence/audio",
+    "hit-stop",
+    "shake",
+    "target reaction",
+    "HP drain",
+    "mechanic execution"
+  ],
+  "rendering": {
+    "alpha": "binary 0/255; full-screen impact opaque",
+    "scaling": "nearest-neighbor integer scaling only"
+  }
+}

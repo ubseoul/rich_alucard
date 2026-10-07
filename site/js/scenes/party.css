@@ -1,0 +1,27 @@
+@font-face{font-family:"Press Start 2P";src:url('../../assets/fonts/press-start-2p.ttf') format('truetype');font-display:swap}
+*{box-sizing:border-box}body{margin:0;background:#090813;color:#f6efd9;font-family:"Press Start 2P",monospace}button{font:inherit;cursor:pointer;touch-action:manipulation}button:focus-visible{outline:3px solid #57dcba;outline-offset:-5px}button:disabled{cursor:default}
+#party{position:absolute;width:270px;height:480px;left:50%;top:50%;transform:translate(-50%,-50%) scale(var(--scale,1));padding:8px;display:grid;grid-template-rows:24px 152px 50px 126px 44px 44px;gap:4px;background:#17142c;border:2px solid #c18b3c;overflow:hidden}
+header{font-size:8px;display:flex;flex-direction:column;gap:5px}header small{font-size:6px;color:#c8b7ce}
+#room{position:relative;overflow:hidden;background:#242039;border:2px solid #655273;border-bottom:6px solid #846378}
+#room:before{content:'';position:absolute;inset:85px 0 0;background:repeating-linear-gradient(90deg,transparent 0 39px,#5b3a59 39px 41px),repeating-linear-gradient(0deg,#37243e 0 19px,#5b3a59 19px 21px)}
+#reaction{position:absolute;z-index:4;top:3px;left:3px;right:3px;min-height:34px;padding:7px 5px;background:#f6efd9;color:#17142c;border:2px solid #100f1b;font-size:8px;line-height:1.55}
+#rich{position:absolute;image-rendering:pixelated;z-index:2;pointer-events:none}
+#crowd i{position:absolute;width:18px;height:31px;background:#776387;top:92px;left:24px;border-bottom:6px solid #10101b;box-shadow:0 -10px 0 -3px #b292b1;image-rendering:pixelated}
+#crowd i:nth-child(2){left:57px;top:66px}#crowd i:nth-child(3){left:86px;top:78px}#crowd i:nth-child(4){left:160px;top:72px}#crowd i:nth-child(5){left:196px;top:60px}#crowd i:nth-child(6){left:214px;top:98px}
+#roomState{position:absolute;bottom:1px;left:0;right:0;text-align:center;z-index:3;font-size:6px;background:#17142c;padding:3px}
+#situation{padding:5px 4px;font-size:8px;line-height:1.6}#situation strong{color:#f0c373}#situation p{font-size:7px;margin:5px 0 0}
+#behaviors{display:grid;gap:3px}#behaviors button{text-align:left;border:2px solid #76667f;background:#262137;color:#f6efd9;padding:5px 8px;font-size:8px;line-height:1.4}#behaviors button small{display:block;font-size:6px;color:#c4b9ce;margin-top:3px}#behaviors button[aria-pressed=true]{border-color:#f2ce80;background:#4b2942;box-shadow:inset 4px 0 #f2ce80}
+#act,#enter{background:#f6efd9;color:#17142c;border:3px solid #b7966a;font-size:8px;padding:6px;line-height:1.5}#act:disabled{background:#807489;color:#201c2d;border-color:#655273}
+footer{display:grid;grid-template-columns:1fr 1fr 1fr;gap:4px}footer button{font-size:7px;background:#30273e;border:2px solid #806b83;color:#f6efd9}footer button:disabled{color:#82768d;border-color:#463a50}
+#gate{position:absolute;inset:26px 8px 8px;z-index:5;background:#17142cf5;display:flex;flex-direction:column;justify-content:center;padding:18px;gap:18px;text-align:center}#gate[hidden]{display:none}#gate h1{font-size:15px;line-height:1.8;color:#f0c373}#gate p{font-size:8px;line-height:1.9;margin:0}#gate button{min-height:48px}#gate small{font-size:6px;line-height:1.8;overflow-wrap:anywhere;color:#baadc7}
+#room[data-response=circle] #crowd i:nth-child(3),#room[data-response=follow] #crowd i:nth-child(3){left:57px}#room[data-response=circle] #crowd i:nth-child(4),#room[data-response=follow] #crowd i:nth-child(4){left:186px}
+#room[data-response=follow] #crowd i{background:#b89662;animation:nod 700ms steps(2,end) 3}
+#room[data-response=nod] #crowd i:nth-child(4){background:#77ae9f;animation:nod 700ms steps(2,end) 3}
+#room[data-response=closed] #crowd i:nth-child(3){left:106px}#room[data-response=closed] #crowd i:nth-child(4){left:136px}
+#room[data-response=awkward] #crowd i{background:#51465e}#room[data-response=awkward] #rich{animation:step 650ms steps(2,end) 3}
+#room[data-response=notice] #crowd i:nth-child(5),#room[data-response=watch] #crowd i:nth-child(5){background:#c4a273}
+#room[data-response=approach] #crowd i:nth-child(6),#room[data-response=gather] #crowd i:nth-child(6){left:161px}#room[data-response=gather] #crowd i:nth-child(5){left:168px;top:70px}
+#room[data-response=corner] #crowd i:nth-child(4){left:187px;background:#77ae9f}
+#room[data-performing=two-step] #rich{animation:step 650ms steps(2,end) 3}#room[data-performing=head-nod] #rich{animation:nod 700ms steps(2,end) 3}
+@keyframes step{50%{transform:translateX(5px)}}@keyframes nod{50%{transform:translateY(2px)}}
+@media(prefers-reduced-motion:reduce){#room #rich,#room #crowd i{animation:none!important}}

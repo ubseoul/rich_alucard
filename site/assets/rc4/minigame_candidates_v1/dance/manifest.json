@@ -1,0 +1,18 @@
+{
+  "authority": "CANDIDATE",
+  "creator_frozen": false,
+  "review_status": "coordinator accepted native and compositor motion candidate; actual lane gameplay verified separately; final integrated acceptance pending",
+  "source_master": "assets/rich_standing_right.png",
+  "source_sha256": "765170076e8d3a9af9e8857e176e079b2a68c7ee1daafb7c8d551482228f144b",
+  "workflow": "Dedicated built-in imagegen identity edits; native export with binary alpha and exact master palette. Original master unchanged.",
+  "canvas": [80, 96],
+  "anchor": [40, 88],
+  "runtime_scale": 2,
+  "runtime_support": [135, 166],
+  "poses": {
+    "up": {"sha256":"ec04759b41b6dff855ff47103d6bf101e98596c7412eb7df15c99e371e6b27bd", "bbox":[24,32,57,88], "occupied_pixels":1046},
+    "spin": {"sha256":"a067ddee270c0fda479b74ce2798013fd91752c424bf50c2cac5a4263daf5281", "bbox":[15,34,65,88], "occupied_pixels":954},
+    "shake": {"sha256":"d25de35dc99067b6a9e48c60d11e3e3fce401259d1a687faaad0868deff0dfe9", "bbox":[24,36,56,88], "occupied_pixels":934},
+    "dip": {"sha256":"c9217193294942c8e0d87b76bd4a6840ff406d90383e60cb72ed7ce93b2706bb", "bbox":[22,44,58,88], "occupied_pixels":893}
+  }
+}

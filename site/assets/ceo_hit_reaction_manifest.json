@@ -1,0 +1,46 @@
+{
+  "status": "LOCKED / APPROVED",
+  "cell": [
+    80,
+    96
+  ],
+  "anchor": [
+    40,
+    88
+  ],
+  "sheet": "ceo_hit_reaction_sheet.png",
+  "order": [
+    "ceo_recoil_normal",
+    "ceo_recoil_heavy",
+    "ceo_reaction_lethal"
+  ],
+  "frames": [
+    {
+      "name": "ceo_recoil_normal",
+      "x": 0,
+      "y": 0,
+      "w": 80,
+      "h": 96
+    },
+    {
+      "name": "ceo_recoil_heavy",
+      "x": 80,
+      "y": 0,
+      "w": 80,
+      "h": 96
+    },
+    {
+      "name": "ceo_reaction_lethal",
+      "x": 160,
+      "y": 0,
+      "w": 80,
+      "h": 96
+    }
+  ],
+  "palette": "Exact approved CEO palette",
+  "notes": [
+    "Normal, heavy and lethal: one authored key pose each.",
+    "Impact direction is left to right; bodily displacement is authored within the fixed cell.",
+    "Contact effects and custom move assets await reaction-language approval."
+  ]
+}

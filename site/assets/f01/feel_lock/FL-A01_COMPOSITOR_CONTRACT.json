@@ -1,0 +1,28 @@
+{
+  "canvas": [
+    270,
+    480
+  ],
+  "phone_outer_approx": [
+    43,
+    24,
+    231,
+    408
+  ],
+  "dom_rectangle": [
+    57,
+    39,
+    216,
+    391
+  ],
+  "cutout_rule": "screen bright pixels within DOM rectangle are binary transparent in the idle foreground",
+  "idle_layer": "FL-A01/hand_phone_idle_270x480.png",
+  "jolt": "reuse idle layer; shake phone + hand group in code",
+  "thumb_typing_layer": "FL-A01/thumb_typing_overlay_270x480.png",
+  "screen_transparent_pixels": 54925,
+  "reference_red_sample_rgb": [
+    112,
+    6,
+    35
+  ]
+}

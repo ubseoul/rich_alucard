@@ -1,0 +1,142 @@
+{
+  "move": "Vampire Bite",
+  "targetAgnostic": true,
+  "containsCharacters": false,
+  "screenSize": [
+    270,
+    480
+  ],
+  "palette": [
+    [
+      16,
+      5,
+      13
+    ],
+    [
+      236,
+      41,
+      73
+    ],
+    [
+      255,
+      227,
+      222
+    ]
+  ],
+  "alpha": "0 or 255",
+  "frames": [
+    {
+      "file": "vampire_bite_jaw_upper.png",
+      "size": [
+        270,
+        480
+      ],
+      "anchor": [
+        135,
+        0
+      ],
+      "role": "screen_top_jaw"
+    },
+    {
+      "file": "vampire_bite_jaw_lower.png",
+      "size": [
+        270,
+        480
+      ],
+      "anchor": [
+        135,
+        480
+      ],
+      "role": "screen_bottom_jaw"
+    },
+    {
+      "file": "vampire_bite_snap_closed.png",
+      "size": [
+        270,
+        480
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "role": "screen_snap_replacement"
+    },
+    {
+      "file": "vampire_bite_contact.png",
+      "size": [
+        64,
+        64
+      ],
+      "anchor": [
+        32,
+        32
+      ],
+      "role": "runtime_contact_point"
+    },
+    {
+      "file": "vampire_bite_lifesteal_drop_01.png",
+      "size": [
+        16,
+        16
+      ],
+      "anchor": [
+        8,
+        8
+      ],
+      "role": "runtime_lifesteal_particle"
+    },
+    {
+      "file": "vampire_bite_lifesteal_orb_01.png",
+      "size": [
+        16,
+        16
+      ],
+      "anchor": [
+        8,
+        8
+      ],
+      "role": "runtime_lifesteal_particle"
+    },
+    {
+      "file": "vampire_bite_lifesteal_drop_02.png",
+      "size": [
+        16,
+        16
+      ],
+      "anchor": [
+        8,
+        8
+      ],
+      "role": "runtime_lifesteal_particle"
+    }
+  ],
+  "closedComposition": {
+    "lowerJawOffset": [
+      0,
+      -100
+    ],
+    "upperJawOffset": [
+      0,
+      70
+    ],
+    "drawOrder": [
+      "lower",
+      "upper"
+    ],
+    "edgeFill": "Extend near-black jaw mass beyond top and bottom viewport edges."
+  },
+  "lifestealAtlas": {
+    "file": "vampire_bite_lifesteal_atlas.png",
+    "cell": [
+      16,
+      16
+    ],
+    "columns": 3,
+    "order": [
+      "vampire_bite_lifesteal_drop_01",
+      "vampire_bite_lifesteal_orb_01",
+      "vampire_bite_lifesteal_drop_02"
+    ]
+  },
+  "timing": "Entirely runtime-controlled; no new durations or mechanics."
+}

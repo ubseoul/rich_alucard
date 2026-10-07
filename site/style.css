@@ -1,0 +1,1024 @@
+@font-face{font-family:"Monogram";src:url("assets/fonts/monogram.ttf") format("truetype");font-style:normal;font-weight:400;font-display:swap}
+@font-face{font-family:"Press Start 2P";src:url("assets/fonts/press-start-2p.ttf") format("truetype");font-style:normal;font-weight:400;font-display:swap}
+@font-face{font-family:"Tiny5";src:url("assets/fonts/tiny5.ttf") format("truetype");font-style:normal;font-weight:400;font-display:swap}
+:root{--cream:#f6efd9;--ink:#10101b;--purple:#17142c;--line:#d9d3f1}
+:root{--bone-cream:#f6efd9;--near-black:#10101b;--rich-red:#d7193f;--nocturnal-purple:#17142c;--dried-blood:#7d194b;--muted-gold:#c18b3c;--accent:#20c66b;--font-dialogue:"Press Start 2P","Courier New",monospace;--font-name:"Press Start 2P","Courier New",monospace;--font-command:"Press Start 2P","Courier New",monospace;--font-move:"Press Start 2P","Courier New",monospace;--font-number:"Press Start 2P","Courier New",monospace;--font-system:"Press Start 2P","Courier New",monospace}
+html[data-dev-font="monogram"]{--font-dialogue:Monogram,"Courier New",monospace;--font-name:Monogram,"Courier New",monospace;--font-command:Monogram,"Courier New",monospace;--font-move:Monogram,"Courier New",monospace;--font-number:Monogram,"Courier New",monospace;--font-system:Monogram,"Courier New",monospace}
+html[data-dev-font="press-start"]{--font-dialogue:"Press Start 2P","Courier New",monospace;--font-name:"Press Start 2P","Courier New",monospace;--font-command:"Press Start 2P","Courier New",monospace;--font-move:"Press Start 2P","Courier New",monospace;--font-number:"Press Start 2P","Courier New",monospace;--font-system:"Press Start 2P","Courier New",monospace}
+html[data-dev-font="tiny5"]{--font-dialogue:Tiny5,"Courier New",monospace;--font-name:Tiny5,"Courier New",monospace;--font-command:Tiny5,"Courier New",monospace;--font-move:Tiny5,"Courier New",monospace;--font-number:Tiny5,"Courier New",monospace;--font-system:Tiny5,"Courier New",monospace}
+*{box-sizing:border-box} html,body{margin:0;width:100%;height:100%;background:#090813;overflow:hidden;font-family:"Courier New",monospace}
+body{display:grid;place-items:center}
+#stage{width:min(100vw,56.25dvh);height:min(100dvh,177.78vw);max-width:100vw;max-height:100dvh;aspect-ratio:9/16;display:grid;place-items:center}
+#screen{position:relative;width:min(100vw,56.25dvh);aspect-ratio:9/16;background:#080711;overflow:hidden;image-rendering:pixelated;box-shadow:0 0 0 2px #05040b}
+.room{position:absolute;inset:0 0 auto 0;height:75.5%;background:url('assets/throne_room_scene_portrait.png') top center/100% 100% no-repeat;image-rendering:pixelated}
+.edge-frame{position:absolute;inset:3px;border:2px solid #b7b1df;pointer-events:none;z-index:8}.edge-frame:after{content:"";position:absolute;inset:3px;border:1px solid #403b72}
+.panel{background:var(--cream);color:var(--ink);border:2px solid #fef9e9;outline:2px solid var(--ink);box-shadow:inset 0 0 0 1px #77718b}
+.battle-ui{position:absolute;left:4%;right:4%;bottom:3.3%;height:24%;display:grid;grid-template-columns:1.78fr 1.22fr;grid-template-rows:56% 44%;gap:4px;z-index:4}
+.dialogue{padding:8px 9px;font-size:clamp(10px,3.6cqw,17px);line-height:1.15;display:flex;align-items:center}.dialogue strong{letter-spacing:-1px}
+.main-menu{padding:5px 5px;display:flex;flex-direction:column;justify-content:center}
+button{font:inherit;cursor:pointer}.main-menu button{border:0;background:transparent;text-align:left;color:var(--ink);font-weight:bold;padding:1px 3px;font-size:clamp(9px,3.4cqw,16px);line-height:1.05}.main-menu button.selected{background:#ddd5bb}
+.moves{grid-column:1/3;display:grid;grid-template-columns:repeat(4,1fr);gap:3px}.moves button{position:relative;border:2px solid #e8e4f8;outline:1px solid #11101d;background:var(--purple);color:#f4f0ff;font-weight:bold;font-size:clamp(7px,2.7cqw,13px);line-height:1.0;padding:5px 2px 14px}.moves button span{position:absolute;left:0;right:0;bottom:0;background:var(--cream);color:var(--ink);font-size:.72em;padding:2px}.moves button:focus,.moves button.active{background:#33255b;transform:translateY(-1px)}
+.start-overlay{position:absolute;inset:0;background:rgba(5,4,12,.72);display:grid;place-items:center;z-index:20}.start-card{width:78%;padding:14px 12px;text-align:center}.title{font-weight:900;font-size:clamp(18px,6cqw,30px);letter-spacing:-1px}.subtitle{font-size:clamp(8px,2.8cqw,13px);margin:4px 0 12px}.start-card button{width:80%;background:#17142c;color:#fff;border:3px double #fff;padding:8px;font-weight:bold}.start-card #newGameButton{margin-top:6px;background:transparent;color:#17142c;border-color:#17142c}.start-card small{display:block;margin-top:8px;font-size:clamp(7px,2.3cqw,11px)}
+.toast{position:absolute;z-index:15;left:8%;right:8%;top:59%;padding:7px;text-align:center;font-size:clamp(8px,2.8cqw,13px);display:none}.toast.show{display:block}
+@media (max-aspect-ratio:9/16){#screen{width:100vw;height:auto}}
+
+/* v0.2 Blood Bath vertical slice */
+.attack-layer{position:absolute;inset:0;z-index:12;pointer-events:none;display:none;overflow:hidden}
+.attack-layer.active{display:block}
+.battle-ui{transition:transform 120ms steps(2,end),opacity 120ms linear}
+.battle-ui.attack-mode{transform:translateY(68%);opacity:.15}
+.rich-cast{position:absolute;left:5.5%;top:38%;width:25%;height:19%;border-radius:45%;opacity:0}
+.rich-cast.cast{opacity:1;animation:castAura 520ms steps(3,end) infinite}
+.blood-flash{position:absolute;inset:0;background:#8b0018;opacity:0}
+.blood-flash.pulse{animation:bloodPulse 500ms steps(2,end)}
+.projectiles{position:absolute;inset:0}
+.blood-shot{position:absolute;left:24%;top:var(--y);width:var(--size);height:calc(var(--size) * .72);background:#d30d2f;box-shadow:-3px 0 #6d0016,3px 0 #ff3152;border-radius:45% 55% 55% 45%;opacity:0;animation:shot 390ms var(--delay) cubic-bezier(.2,.7,.25,1) forwards}
+.blood-shot:after{content:"";position:absolute;right:100%;top:35%;width:9px;height:2px;background:#8c001d}
+@keyframes castAura{0%{box-shadow:0 0 0 0 rgba(190,0,35,.15)}50%{box-shadow:0 0 0 7px rgba(210,0,40,.35)}100%{box-shadow:0 0 0 2px rgba(255,40,70,.2)}}
+@keyframes bloodPulse{0%,100%{opacity:0}35%{opacity:.13}55%{opacity:.03}}
+@keyframes shot{0%{transform:translateX(0) scale(.65);opacity:0}10%{opacity:1}85%{opacity:1}100%{transform:translateX(135px) scale(1.2);opacity:0}}
+
+/* v0.3 complete combat skeleton */
+.combat-hud{position:absolute;left:4.5%;right:4.5%;top:6.8%;height:12%;z-index:9;display:flex;justify-content:space-between;gap:7%}
+.hpbox{width:46%;height:max-content;background:#f6efd9;color:#10101b;border:2px solid #fff9e8;outline:2px solid #10101b;padding:4px 5px;font-size:clamp(6px,2.25cqw,11px);line-height:1.05}
+.hpbox b{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.hpbox span{display:flex;align-items:center;gap:3px;margin-top:3px}.hpbox i{height:6px;flex:1;background:#111323;border:1px solid #10101b;overflow:hidden}.hpbox em{display:block;height:100%;width:100%;background:#20c66b;transition:width 280ms steps(5,end)}.ceo-hp em{background:#d7193f}.hpbox strong{font-size:.8em;min-width:30px}
+.choice-overlay{position:absolute;inset:0;background:rgba(4,3,10,.52);z-index:30;display:none;place-items:center}.choice-overlay.show{display:grid}.choice-card{width:76%;padding:13px;text-align:center;font-weight:bold;font-size:clamp(10px,3.5cqw,17px)}.choice-buttons{display:flex;gap:10px;margin-top:12px;justify-content:center}.choice-buttons button{background:#17142c;color:#fff;border:2px solid #fff;padding:7px 16px;font-weight:bold}
+#screen.enemy-turn{animation:enemyTurn 420ms steps(3,end)}
+#screen.bite-flash:after,#screen.brain-flash:after,#screen.revenge-flash:after{content:"";position:absolute;inset:0;z-index:11;pointer-events:none}
+#screen.bite-flash:after{background:rgba(120,0,25,.22);animation:fxblink 320ms steps(3,end)}
+#screen.brain-flash:after{background:rgba(80,35,160,.20);animation:fxblink 320ms steps(3,end)}
+#screen.revenge-flash:after{background:rgba(220,20,65,.18);animation:fxblink 320ms steps(3,end)}
+@keyframes enemyTurn{0%,100%{transform:translateX(0)}35%{transform:translateX(-2px)}60%{transform:translateX(2px)}}
+@keyframes fxblink{0%,100%{opacity:0}45%{opacity:1}}
+
+/* v0.4 Blood Bath refinement */
+.battle-ui.attack-mode{transform:translateY(108%);opacity:0}
+.rich-cast.cast{animation:castAuraV4 620ms steps(3,end) infinite}
+.blood-shot{border-radius:0;clip-path:polygon(0 30%,68% 0,100% 50%,68% 100%,0 70%);animation:shotV4 350ms var(--delay) cubic-bezier(.12,.75,.18,1) forwards}
+.blood-shot:after{width:13px;background:#710016}
+.blood-burst{position:absolute;left:67%;top:38%;width:18%;height:21%;opacity:0}
+.blood-burst.burst{opacity:1;animation:burstV4 315ms steps(4,end)}
+.blood-burst:before,.blood-burst:after{content:"";position:absolute;left:45%;top:45%;width:8px;height:8px;background:#e30b38;box-shadow:-14px -8px #92001f,12px -12px #ff3156,18px 5px #820018,-9px 16px #c6002e,7px 20px #f31a45}
+.blood-burst:after{transform:rotate(45deg) scale(.8)}
+.damage-number{position:absolute;left:72%;top:35%;color:#fff6dd;text-shadow:2px 0 #640016,-2px 0 #640016,0 2px #640016,0 -2px #640016;font:bold 14px "Courier New",monospace;opacity:0}
+.damage-number.show{animation:damagePop 620ms steps(4,end)}
+.hit-shade{position:absolute;inset:0;background:rgba(90,0,18,.15);opacity:0}.hit-shade.show{opacity:1}
+#screen.hit-stop .room,#screen.hit-stop .combat-hud{filter:brightness(.72)}
+@keyframes castAuraV4{0%{box-shadow:0 0 0 0 rgba(170,0,32,0)}45%{box-shadow:0 0 0 4px rgba(190,0,38,.32),0 0 0 8px rgba(90,0,22,.12)}100%{box-shadow:0 0 0 2px rgba(255,35,70,.18)}}
+@keyframes shotV4{0%{transform:translateX(0) scaleX(.55);opacity:0}8%{opacity:1}78%{opacity:1}100%{transform:translateX(140px) scaleX(1.28);opacity:0}}
+@keyframes burstV4{0%{transform:scale(.45);filter:brightness(1.8)}35%{transform:scale(1.28)}70%{transform:scale(.95)}100%{transform:scale(1.08);opacity:0}}
+@keyframes damagePop{0%{opacity:0;transform:translateY(5px) scale(.7)}18%{opacity:1;transform:translateY(0) scale(1.25)}65%{opacity:1;transform:translateY(-8px) scale(1)}100%{opacity:0;transform:translateY(-14px)}}
+
+/* v0.5 Blood Bath OVERDRIVE — based on Bible pages 4, 8, 9: dense red room-crossing barrage */
+#screen.blood-charge{filter:contrast(1.08) saturate(1.12)}
+#screen.blood-shake{animation:screenShakeV5 360ms steps(8,end)}
+.blood-flash.pulse{animation:bloodPulseV5 760ms steps(4,end)}
+.blood-curtain{position:absolute;left:21%;right:10%;top:30%;height:34%;opacity:0;background:linear-gradient(90deg,rgba(100,0,20,.22),rgba(225,0,43,.11),rgba(120,0,24,.20));clip-path:polygon(0 36%,12% 22%,23% 40%,34% 14%,45% 35%,58% 18%,69% 39%,80% 12%,100% 31%,100% 74%,87% 62%,72% 79%,59% 58%,43% 82%,28% 60%,14% 77%,0 63%)}
+.blood-curtain.rise{animation:curtainV5 820ms steps(5,end)}
+.blood-shot{background:#f10b3b;box-shadow:-5px 0 #690015,4px 0 #ff4967,0 3px #a00026;animation:shotV5 315ms var(--delay) cubic-bezier(.08,.82,.16,1) forwards}
+.blood-shot:nth-child(3n){background:#a90029}.blood-shot:nth-child(4n){background:#ff214b}.blood-shot:nth-child(5n){filter:brightness(1.35)}
+.blood-burst.burst{animation:burstV5 420ms steps(5,end)}
+.impact-core{position:absolute;left:70%;top:40%;width:14%;height:18%;opacity:0}
+.impact-core.boom{opacity:1;animation:coreV5 400ms steps(5,end)}
+.impact-core:before{content:"";position:absolute;inset:0;background:#ff1648;clip-path:polygon(50% 0,61% 34%,100% 18%,72% 49%,100% 67%,64% 63%,50% 100%,40% 65%,4% 84%,28% 51%,0 31%,39% 36%);box-shadow:0 0 0 4px rgba(105,0,20,.45)}
+.damage-number{font-size:18px;font-weight:900}
+@keyframes screenShakeV5{0%,100%{transform:translate(0,0)}12%{transform:translate(-4px,2px)}25%{transform:translate(4px,-2px)}38%{transform:translate(-3px,-1px)}50%{transform:translate(4px,2px)}62%{transform:translate(-2px,2px)}75%{transform:translate(3px,-1px)}88%{transform:translate(-1px,1px)}}
+@keyframes bloodPulseV5{0%,100%{opacity:0}18%{opacity:.12}42%{opacity:.24}64%{opacity:.09}78%{opacity:.19}}
+@keyframes curtainV5{0%{opacity:0;transform:scaleX(.25);transform-origin:left}22%{opacity:.32}55%{opacity:.48;transform:scaleX(1)}82%{opacity:.22}100%{opacity:0;transform:scaleX(1.04)}}
+@keyframes shotV5{0%{transform:translateX(0) scaleX(.45);opacity:0}5%{opacity:1}76%{opacity:1}100%{transform:translateX(var(--travel)) scaleX(1.5);opacity:0}}
+@keyframes burstV5{0%{transform:scale(.25);filter:brightness(2.2);opacity:1}22%{transform:scale(1.65);opacity:1}48%{transform:scale(1.15);filter:brightness(1.3)}76%{transform:scale(1.45);opacity:.75}100%{transform:scale(1.8);opacity:0}}
+@keyframes coreV5{0%{transform:scale(.2) rotate(0);filter:brightness(2.5)}28%{transform:scale(1.55) rotate(8deg)}55%{transform:scale(.9) rotate(-5deg)}100%{transform:scale(1.9);opacity:0}}
+
+/* v0.6: direct Master Bible Blood Bath language — six large pixel orbs */
+.bible-blood-orb{position:absolute;width:30px;height:20px;image-rendering:pixelated;image-rendering:crisp-edges;z-index:3;opacity:0;filter:none}
+.projectiles.charge-orbs .bible-blood-orb{opacity:1;animation:orbCharge 260ms steps(2,end) var(--delay) both}
+.projectiles.fire-orbs .bible-blood-orb{opacity:1;animation:orbFly 360ms cubic-bezier(.12,.72,.18,1) var(--delay) forwards}
+.pixel-impact{position:absolute;left:69%;top:37%;width:52px;height:52px;image-rendering:pixelated;z-index:4;animation:pixelImpact 300ms steps(4,end) forwards}
+@keyframes orbCharge{0%{transform:translateX(-5px) scale(.78);opacity:0}55%{transform:translateX(2px) scale(1.08);opacity:1}100%{transform:translateX(0) scale(1);opacity:1}}
+@keyframes orbFly{0%{transform:translateX(0);opacity:1}82%{opacity:1}100%{transform:translateX(128px);opacity:0}}
+@keyframes pixelImpact{0%{transform:scale(.35);opacity:1}35%{transform:scale(1.15);opacity:1}70%{transform:scale(.9);opacity:1}100%{transform:scale(1.3);opacity:0}}
+
+/* v0.7 authored pixel Blood Bath: animated liquid orb + tendril tail + per-hit impact frames */
+.blood-orb-sprite{position:absolute;width:32px;height:32px;background-image:url('assets/blood_orb_sheet.png');background-repeat:no-repeat;background-size:96px 32px;image-rendering:pixelated;opacity:0;z-index:4;animation:orbLiquid 210ms steps(1,end) infinite}
+.charge-orbs .blood-orb-sprite{opacity:1;animation:orbLiquid 210ms steps(1,end) infinite,orbCharge 300ms steps(4,end) both}
+.fire-orbs .blood-orb-sprite{opacity:1;animation:orbLiquid 180ms steps(1,end) infinite,orbFlight var(--flight) var(--delay) cubic-bezier(.12,.75,.15,1) forwards}
+.impact-sprite{position:absolute;left:68%;width:64px;height:64px;background-image:url('assets/blood_impact_sheet.png');background-repeat:no-repeat;background-size:320px 64px;image-rendering:pixelated;z-index:6;animation:impactFrames 330ms steps(1,end) forwards}
+#screen.micro-shake{animation:microShake 150ms steps(4,end)}
+@keyframes orbLiquid{0%,32%{background-position:0 0}33%,65%{background-position:-32px 0}66%,100%{background-position:-64px 0}}
+@keyframes orbCharge{0%{transform:translate(-3px,2px) scale(.72)}35%{transform:translate(1px,-2px) scale(.92)}70%{transform:translate(-1px,1px) scale(.84)}100%{transform:translate(0,0) scale(1)}}
+@keyframes orbFlight{0%{transform:translateX(0) scale(1);opacity:1}82%{opacity:1}100%{transform:translateX(128px) scale(1.08);opacity:0}}
+@keyframes impactFrames{0%,19%{background-position:0 0;opacity:1}20%,39%{background-position:-64px 0}40%,59%{background-position:-128px 0}60%,79%{background-position:-192px 0}80%,94%{background-position:-256px 0}100%{background-position:-256px 0;opacity:0}}
+@keyframes microShake{0%,100%{transform:translate(0)}25%{transform:translate(-2px,1px)}50%{transform:translate(2px,-1px)}75%{transform:translate(-1px,-1px)}}
+.detailed-blood-missile,.missile-ghost{position:absolute;width:40px;height:24px;background-image:url('assets/blood_missiles_detailed.png');background-size:120px 144px;background-repeat:no-repeat;background-position:0 var(--row);image-rendering:pixelated;opacity:0;z-index:5}.charge-orbs .detailed-blood-missile{opacity:1;animation:detailedLiquid 210ms steps(1,end) infinite,detailCharge 310ms steps(4,end) both}.fire-orbs .detailed-blood-missile{opacity:1;animation:detailedLiquid 170ms steps(1,end) infinite,detailFlight var(--flight) var(--delay) cubic-bezier(.1,.78,.16,1) forwards}.fire-orbs .missile-ghost{animation:ghostFlight var(--flight) var(--delay) cubic-bezier(.1,.78,.16,1) forwards}.detailed-impact{position:absolute;left:67%;width:64px;height:64px;background:url('assets/blood_impact_detailed.png') 0 0/384px 64px no-repeat;image-rendering:pixelated;z-index:8;animation:detailImpact 410ms steps(1,end) forwards}@keyframes detailedLiquid{0%,32%{background-position:0 var(--row)}33%,65%{background-position:-40px var(--row)}66%,100%{background-position:-80px var(--row)}}@keyframes detailCharge{0%{transform:translate(-3px,1px) scale(.72)}38%{transform:translate(1px,-2px) scale(.93)}72%{transform:translate(-1px,1px) scale(.86)}100%{transform:translate(0) scale(1)}}@keyframes detailFlight{0%{transform:translateX(0);opacity:1}82%{opacity:1}100%{transform:translateX(128px);opacity:0}}@keyframes ghostFlight{0%{transform:translateX(-5px) scale(.92);opacity:0}12%{opacity:var(--ghost)}82%{opacity:var(--ghost)}100%{transform:translateX(120px) scale(.92);opacity:0}}@keyframes detailImpact{0%,15%{background-position:0 0;opacity:1}16%,31%{background-position:-64px 0}32%,47%{background-position:-128px 0}48%,63%{background-position:-192px 0}64%,79%{background-position:-256px 0}80%,94%{background-position:-320px 0}100%{background-position:-320px 0;opacity:0}}
+/* v0.9 CEO authored reaction + Briefcase Throw */
+.ceo-recoil{position:absolute;left:66%;top:39%;width:18%;height:22%;opacity:0;z-index:7}
+.ceo-recoil.active{opacity:1;animation:ceoRecoilV9 390ms steps(4,end)}
+.ceo-recoil.windup{opacity:1;animation:ceoWindupV9 220ms steps(3,end)}
+.briefcase-projectile{position:absolute;left:69%;top:48%;width:32px;height:24px;background:url('assets/briefcase_throw_sheet.png') 0 0/128px 24px no-repeat;image-rendering:pixelated;opacity:0;z-index:9}
+.briefcase-projectile.fly{opacity:1;animation:briefcaseFlyV9 430ms steps(4,end) forwards}
+.briefcase-impact{position:absolute;left:12%;top:40%;width:64px;height:64px;background:url('assets/briefcase_impact_sheet.png') 0 0/256px 64px no-repeat;image-rendering:pixelated;opacity:0;z-index:10}
+.briefcase-impact.active{opacity:1;animation:briefImpactV9 350ms steps(1,end) forwards}
+@keyframes ceoRecoilV9{0%{transform:translateX(0)}20%{transform:translateX(5px) rotate(2deg)}45%{transform:translateX(-3px) rotate(-2deg)}70%{transform:translateX(2px)}100%{transform:translateX(0)}}
+@keyframes ceoWindupV9{0%{transform:translateX(0)}50%{transform:translateX(5px) rotate(3deg)}100%{transform:translateX(2px) rotate(1deg)}}
+@keyframes briefcaseFlyV9{0%{transform:translateX(0);background-position:0 0}25%{background-position:-32px 0}50%{background-position:-64px 0}75%{background-position:-96px 0}100%{transform:translateX(-145px);background-position:0 0}}
+@keyframes briefImpactV9{0%,24%{background-position:0 0}25%,49%{background-position:-64px 0}50%,74%{background-position:-128px 0}75%,94%{background-position:-192px 0}100%{background-position:-192px 0;opacity:0}}
+@keyframes briefcase-shake-placeholder{0%{transform:none}}
+#screen.briefcase-shake{animation:briefcaseScreenShakeV9 320ms steps(6,end)}
+@keyframes briefcaseScreenShakeV9{0%,100%{transform:translate(0)}18%{transform:translate(3px,-1px)}36%{transform:translate(-3px,2px)}54%{transform:translate(2px,1px)}72%{transform:translate(-2px,-1px)}88%{transform:translate(1px,1px)}}
+
+/* v0.9.1: absurdly large CEO briefcase — ~4x visual area */
+.briefcase-projectile{
+  width:64px;
+  height:48px;
+  background-size:256px 48px;
+  transform-origin:center center;
+}
+.briefcase-impact{
+  transform:scale(1.22);
+  transform-origin:center center;
+}
+@keyframes briefcaseFlyV91{
+  0%{transform:translateX(0);background-position:0 0}
+  25%{background-position:-64px 0}
+  50%{background-position:-128px 0}
+  75%{background-position:-192px 0}
+  100%{transform:translateX(-145px);background-position:0 0}
+}
+.briefcase-projectile.fly{animation:briefcaseFlyV91 430ms steps(4,end) forwards}
+
+/* v0.10 Gemini Rich trial — supplied production PNGs used directly */
+.gemini-rich-mask{
+ position:absolute; left:3%; top:30%; width:31%; height:31%;
+ background:#171529; z-index:4; pointer-events:none;
+}
+.gemini-rich{
+ position:absolute; left:4%; top:30%;
+ width:80px; height:96px;
+ background-repeat:no-repeat;
+ background-size:80px 96px;
+ image-rendering:pixelated;
+ z-index:6; pointer-events:none;
+}
+.gemini-rich.state-idle{background-image:url('assets/rich_seated_idle.png')}
+.gemini-rich.state-cast{background-image:url('assets/rich_seated_cast.png')}
+.gemini-rich.state-hit{background-image:url('assets/rich_seated_hit.png')}
+.gemini-rich.state-victory{background-image:url('assets/rich_seated_victory.png')}
+
+/* v0.10.1 scale + grounding trial — same Gemini art, no redraw */
+.gemini-rich-mask{
+  left:2%;
+  top:29%;
+  width:39%;
+  height:39%;
+}
+.gemini-rich{
+  left:5.5%;
+  top:37.5%;
+  width:128px;
+  height:154px;
+  background-size:128px 154px;
+  image-rendering:pixelated;
+}
+
+/* v0.11 clean-room production composite */
+.gemini-rich-mask{display:none!important}
+
+/* Exact Gemini Rich PNGs, now judged against the real clean room.
+   v0.10.1 was 128x154; this trial is ~1.22x larger. */
+.gemini-rich{
+  left:3.5%;
+  top:31.5%;
+  width:156px;
+  height:187px;
+  background-size:156px 187px;
+  image-rendering:pixelated;
+  z-index:6;
+}
+
+/* v0.12 production cast */
+.gemini-rich{left:3.5%;top:40.5%;width:156px;height:187px;background-size:156px 187px;image-rendering:pixelated;z-index:6}
+.production-ceo{position:absolute;left:61%;top:43.5%;width:160px;height:192px;background-repeat:no-repeat;background-size:160px 192px;image-rendering:pixelated;z-index:7;pointer-events:none}
+.production-ceo.state-idle{background-image:url('assets/ceo_idle.png')}
+.production-ceo.state-throw{background-image:url('assets/ceo_briefcase_throw.png')}
+.production-ceo.state-hit{background-image:url('assets/ceo_hit.png')}
+.production-ceo.state-defeated{background-image:url('assets/ceo_defeated.png')}
+.production-ceo.combat-authored-ceo-normal,.production-ceo.combat-authored-ceo-heavy,.production-ceo.combat-authored-ceo-lethal{background-image:url('assets/ceo_hit_reaction_sheet.png');background-size:480px 192px;background-repeat:no-repeat}
+.production-ceo.combat-authored-ceo-normal{background-position:0 0}
+.production-ceo.combat-authored-ceo-heavy{background-position:-160px 0}
+.production-ceo.combat-authored-ceo-lethal{background-position:-320px 0}
+.production-assistant{position:absolute;left:78%;top:47%;width:136px;height:163px;background-repeat:no-repeat;background-size:136px 163px;image-rendering:pixelated;z-index:6;pointer-events:none}
+.production-assistant.state-idle{background-image:url('assets/assistant_idle.png')}
+.production-assistant.state-heal{background-image:url('assets/assistant_heal.png')}
+.production-assistant.state-reaction{background-image:url('assets/assistant_reaction.png')}
+.production-assistant.state-walk{background-image:url('assets/assistant_walk.png')}
+#ceoSprite,#assistantSprite,.ceo-sprite,.assistant-sprite{opacity:0!important}
+
+/* v0.12.1 — composition-only pass */
+.gemini-rich{
+  left:7%;
+  top:44%;
+}
+.production-ceo{
+  left:55%;
+  top:44%;
+}
+.production-assistant{
+  left:72%;
+  top:47%;
+}
+.rich-bite-sprite{position:absolute;width:120px;height:144px;left:57%;top:44%;background:url('assets/rich_vampire_bite.png') center/contain no-repeat;image-rendering:pixelated;opacity:0;z-index:14;pointer-events:none}.rich-bite-sprite.active{opacity:1}.bite-trail{position:absolute;left:18%;top:53%;width:46%;height:18px;opacity:0;z-index:12;background:repeating-linear-gradient(90deg,transparent 0 8px,#6d0715 8px 18px,#d21f3c 18px 26px,transparent 26px 34px);clip-path:polygon(0 40%,88% 0,100% 50%,88% 100%,0 60%);pointer-events:none}.bite-trail.flash{animation:biteTrail .16s steps(2,end) both}@keyframes biteTrail{0%{opacity:0;transform:scaleX(.08);transform-origin:left}35%{opacity:1}100%{opacity:0;transform:scaleX(1)}}.bite-impact{position:absolute;left:68%;top:50%;width:58px;height:58px;opacity:0;z-index:15;background:linear-gradient(45deg,transparent 42%,#ff3151 43% 56%,transparent 57%),linear-gradient(-45deg,transparent 42%,#9d102a 43% 56%,transparent 57%);pointer-events:none}.bite-impact.flash{animation:biteImpact .2s steps(3,end) both}@keyframes biteImpact{0%{opacity:0;transform:scale(.3)}35%{opacity:1;transform:scale(1.25)}100%{opacity:0;transform:scale(.7)}}.heal-float{position:absolute;left:12%;top:34%;z-index:18;opacity:0;font:bold 10px monospace;color:#4dff7a;text-shadow:1px 1px #07140a;pointer-events:none}.heal-float.show{animation:healFloat .55s steps(4,end) both}@keyframes healFloat{0%{opacity:0;transform:translateY(5px)}20%{opacity:1}100%{opacity:0;transform:translateY(-16px)}}.bite-shake{animation:biteShake .18s steps(2,end)}@keyframes biteShake{0%,100%{transform:translate(0)}25%{transform:translate(-3px,1px)}50%{transform:translate(3px,-1px)}75%{transform:translate(-2px,0)}}
+/* v0.14 — REVENGE */
+.revenge-shade{position:absolute;inset:0;background:#08000d;opacity:0;z-index:26;pointer-events:none}
+.revenge-shade.on{animation:revengeShade .72s steps(4,end) both}
+@keyframes revengeShade{0%{opacity:0}22%,72%{opacity:.48}100%{opacity:0}}
+
+.revenge-stored-text{position:absolute;left:14%;top:44%;width:30%;text-align:center;
+font:bold 13px monospace;color:#ff3151;text-shadow:2px 2px #25000a;opacity:0;z-index:31;pointer-events:none}
+.revenge-stored-text.on{animation:revengeNumber .62s steps(5,end) both}
+@keyframes revengeNumber{0%{opacity:0;transform:scale(.7)}20%,62%{opacity:1;transform:scale(1.18)}100%{opacity:0;transform:scale(.55)}}
+
+.revenge-mass{position:absolute;left:19%;top:49%;width:52px;height:52px;opacity:0;z-index:32;pointer-events:none;
+background:radial-gradient(circle,#fff 0 5%,#ff3151 6% 18%,#8e0b27 19% 42%,#30000c 43% 60%,transparent 61%);
+filter:drop-shadow(0 0 4px #d21f3c)}
+.revenge-mass.fire{animation:revengeFire .42s steps(6,end) both}
+@keyframes revengeFire{
+0%{opacity:0;transform:translate(0,0) scale(.3)}
+18%{opacity:1;transform:translate(0,0) scale(1.2)}
+38%{opacity:1;transform:translate(15px,0) scale(.9)}
+82%{opacity:1;transform:translate(250px,-4px) scale(.72)}
+100%{opacity:0;transform:translate(280px,-4px) scale(.45)}
+}
+.revenge-impact{position:absolute;left:67%;top:47%;width:76px;height:76px;opacity:0;z-index:33;pointer-events:none;
+background:
+linear-gradient(0deg,transparent 44%,#ff3151 45% 55%,transparent 56%),
+linear-gradient(45deg,transparent 44%,#a60d2d 45% 55%,transparent 56%),
+linear-gradient(-45deg,transparent 44%,#ff3151 45% 55%,transparent 56%)}
+.revenge-impact.hit{animation:revengeHit .28s steps(4,end) both}
+@keyframes revengeHit{0%{opacity:0;transform:scale(.25)}25%,65%{opacity:1;transform:scale(1.2)}100%{opacity:0;transform:scale(.65)}}
+.revenge-shake{animation:revengeShake .24s steps(4,end)}
+@keyframes revengeShake{0%,100%{transform:translate(0)}20%{transform:translate(-5px,1px)}40%{transform:translate(5px,-2px)}60%{transform:translate(-4px,1px)}80%{transform:translate(3px,0)}}
+
+/* v0.15 OCTOPUS BRAIN */
+.octopus-overlay{position:absolute;inset:0;z-index:70;background:rgba(9,0,17,.83);display:none;overflow:hidden;image-rendering:pixelated}
+.octopus-overlay.on{display:block}
+.octo-title{position:absolute;top:10%;left:0;width:100%;text-align:center;font:bold 15px monospace;color:#f4e7c5;text-shadow:2px 2px #5b123e;letter-spacing:1px}
+.octo-core{position:absolute;left:50%;top:39%;transform:translate(-50%,-50%);font-size:40px;z-index:74;filter:grayscale(1) sepia(1) saturate(4) hue-rotate(285deg)}
+.tentacle{position:absolute;left:50%;top:39%;width:8px;height:118px;background:#8b164e;border:2px solid #31051d;border-radius:45%;transform-origin:50% 0;z-index:72;animation:tentaclePulse .55s steps(4,end) infinite alternate}
+.t1{transform:rotate(0deg)}.t2{transform:rotate(45deg)}.t3{transform:rotate(90deg)}.t4{transform:rotate(135deg)}
+.t5{transform:rotate(180deg)}.t6{transform:rotate(225deg)}.t7{transform:rotate(270deg)}.t8{transform:rotate(315deg)}
+@keyframes tentaclePulse{from{height:88px}to{height:126px}}
+.octo-choices{position:absolute;left:8%;right:8%;bottom:8%;display:grid;gap:6px;z-index:76}
+.octo-choices button{display:grid;gap:7px;min-height:52px;background:#f1e5c5;border:3px solid #28131c;box-shadow:2px 2px #7d194b;padding:10px 12px;text-align:left;font-family:monospace;color:#21151a}
+.octo-choices button b{display:block;font-size:9px;color:#8a174c}.octo-choices button span{font-weight:bold;font-size:clamp(10px,2.9cqw,13px);line-height:1.4}
+.octo-roll{position:absolute;left:12%;right:12%;bottom:19%;background:#f1e5c5;border:4px solid #28131c;padding:12px;text-align:center;font:bold 13px monospace;color:#21151a;z-index:80;display:none}
+.octo-roll.on{display:block}
+
+/* v0.15.1 — underwater Octopus Brain refinement */
+.octopus-overlay{background:rgba(0,32,83,.58);backdrop-filter:sepia(.15) hue-rotate(155deg) saturate(1.35)}
+.octopus-overlay.choosing-away .tentacle,
+.octopus-overlay.choosing-away .brain-bubble,
+.octopus-overlay.choosing-away .octo-title,
+.octopus-overlay.choosing-away .octo-choices{display:none}
+
+.tentacle{
+  left:50%;top:auto;bottom:-20px;width:14px;height:0;
+  background:linear-gradient(90deg,#32105f 0 18%,#7645a7 19% 62%,#b678ca 63% 76%,#3a145d 77%);
+  border:2px solid #18082d;border-radius:55% 55% 18% 18%;
+  transform-origin:50% 100%;
+  animation:groundTentacle .52s steps(6,end) forwards, tentacleSway .62s .52s steps(3,end) infinite alternate;
+}
+.t1{left:5%;transform:rotate(-12deg)} .t2{left:16%;transform:rotate(8deg)}
+.t3{left:28%;transform:rotate(-5deg)} .t4{left:40%;transform:rotate(9deg)}
+.t5{left:53%;transform:rotate(-8deg)} .t6{left:65%;transform:rotate(7deg)}
+.t7{left:78%;transform:rotate(-8deg)} .t8{left:90%;transform:rotate(10deg)}
+@keyframes groundTentacle{0%{height:0}100%{height:205px}}
+@keyframes tentacleSway{from{margin-left:-2px}to{margin-left:3px}}
+
+.brain-bubble{position:absolute;bottom:8%;width:8px;height:8px;border:2px solid rgba(210,242,255,.8);
+border-radius:50%;z-index:73;opacity:0;animation:bubbleRise 2.3s steps(9,end) infinite}
+.b1{left:9%;animation-delay:.1s}.b2{left:18%;animation-delay:.8s}.b3{left:27%;animation-delay:1.4s}
+.b4{left:36%;animation-delay:.35s}.b5{left:45%;animation-delay:1.1s}.b6{left:55%;animation-delay:.55s}
+.b7{left:64%;animation-delay:1.65s}.b8{left:72%;animation-delay:.2s}.b9{left:82%;animation-delay:1.0s}
+.b10{left:91%;animation-delay:.65s}.b11{left:49%;animation-delay:1.9s}.b12{left:23%;animation-delay:2.05s}
+@keyframes bubbleRise{0%{bottom:5%;opacity:0;transform:scale(.5)}12%{opacity:.8}80%{opacity:.55}100%{bottom:88%;opacity:0;transform:scale(1.35)}}
+
+/* v0.15.2 — authored throne-floor tentacles */
+.tentacle{display:none!important}
+.tentacle-sprite{
+ position:absolute;left:0;top:0;width:100%;height:100%;z-index:72;
+ background:url('assets/octopus_brain_a.png') 0 0/100% 100% no-repeat;
+ image-rendering:pixelated;pointer-events:none;
+}
+.octopus-overlay.on .tentacle-sprite{animation:authoredTentacles 1.45s steps(1,end) infinite}
+.octopus-overlay.choosing-away .tentacle-sprite{display:none}
+@keyframes authoredTentacles{
+ 0%,12%{background-image:url('assets/octopus_brain_a.png')}
+ 13%,27%{background-image:url('assets/octopus_brain_b.png')}
+ 28%,57%{background-image:url('assets/octopus_brain_c.png')}
+ 58%,86%{background-image:url('assets/octopus_brain_d.png')}
+ 87%,100%{background-image:url('assets/octopus_brain_c.png')}
+}
+
+/* v0.15.3 — tentacles anchored to throne-room floor, not viewport */
+.octopus-overlay{overflow:hidden}
+.tentacle-sprite{
+  top:92px !important;
+  height:270px !important;
+  width:100% !important;
+  background-size:270px 362px !important;
+  background-position:center bottom !important;
+  clip-path:inset(0 0 0 0);
+}
+
+/* v0.15.4 — TRUE ROOM-FLOOR ANCHOR
+   Match the authored 270x362 frame to the .room itself (75.5% of screen). */
+.tentacle-sprite{
+  left:0 !important;
+  top:0 !important;
+  width:100% !important;
+  height:75.5% !important;
+  background-size:100% 100% !important;
+  background-position:center top !important;
+  background-repeat:no-repeat !important;
+}
+
+/* v0.15.5 — CHARACTER-FLOOR ANCHOR
+   Root line = actual throne-room floor under Rich/CEO (~61.5% stage height).
+   Keep authored room-scale height (75.5%), so top becomes -14%. */
+.tentacle-sprite{
+  left:0 !important;
+  top:-14% !important;
+  width:100% !important;
+  height:75.5% !important;
+  background-size:100% 100% !important;
+  background-position:center top !important;
+}
+
+/* v0.15.6 — user preference: restore bottom placement */
+.tentacle-sprite{
+  left:0 !important;
+  top:0 !important;
+  width:100% !important;
+  height:75.5% !important;
+  background-size:100% 100% !important;
+  background-position:center top !important;
+}
+
+/* v0.15.7 — literal bottom-of-screen placement */
+.tentacle-sprite{
+  left:0 !important;
+  top:0 !important;
+  bottom:0 !important;
+  width:100% !important;
+  height:100% !important;
+  background-size:100% 100% !important;
+  background-position:center bottom !important;
+}
+
+/* v0.16 — victory + walk-off */
+.victory-overlay{position:absolute;inset:0;z-index:88;display:none;pointer-events:none}
+.victory-overlay.on{display:block;pointer-events:auto}
+.victory-card{position:absolute;left:10%;right:10%;bottom:15%;background:#f1e5c5;border:4px solid #28131c;
+box-shadow:4px 4px #7d194b;padding:12px;text-align:center;font-family:monospace;color:#21151a}
+.victory-title{font-weight:bold;font-size:14px;margin-bottom:10px}
+.victory-question{font-weight:bold;font-size:18px;margin-bottom:10px}
+.victory-buttons{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.victory-buttons button{font:bold 14px monospace;background:#f8efd6;border:3px solid #28131c;padding:8px}
+.ending-text{position:absolute;left:8%;right:8%;top:42%;display:none;background:#f1e5c5;border:4px solid #28131c;
+padding:12px;text-align:center;font:bold 14px monospace;color:#21151a}
+.ending-text.on{display:block}
+.walkoff-rich{transition:left 1.45s steps(12,end)!important}
+.walkoff-assistant{transition:left 1.45s steps(12,end)!important}
+
+/* v0.16.1 — detach Rich from throne during walk-off */
+.rich-detached-walker{
+ position:absolute;left:17%;top:46%;width:31%;height:auto;z-index:46;
+ image-rendering:pixelated;pointer-events:none;
+ transition:left 1.45s steps(12,end);
+}
+.rich-detached-walker.go{left:112%}
+
+/* v0.17 — authored Rich get-up + walk cycle */
+.rich-authored-exit{
+ position:absolute;
+ left:9%;
+ top:43%;
+ width:29.63%;
+ height:auto;
+ z-index:46;
+ image-rendering:pixelated;
+ pointer-events:none;
+ transition:left .62s steps(6,end);
+}
+.rich-authored-exit.approach{left:59%}
+.rich-authored-exit.leave{
+ left:112%;
+ transition:left 1.25s steps(12,end);
+}
+
+/* v0.17.1 — throne remains while Rich gets up */
+.rich-throne-only{
+ position:absolute;left:7%;top:44%;width:38%;height:auto;z-index:5;
+ image-rendering:pixelated;pointer-events:none;
+}
+
+/* v0.18 — authored empty throne + victory UI cleanup */
+.rich-throne-only{display:none!important}
+.rich-throne-empty-authored{
+ position:absolute;
+ left:5.5%;
+ top:43%;
+ width:39%;
+ height:auto;
+ z-index:5;
+ image-rendering:pixelated;
+ pointer-events:none;
+}
+.battle-ui.victory-retract{
+ opacity:0;
+ transform:translateY(110%);
+ transition:opacity .25s steps(3,end),transform .35s steps(5,end);
+ pointer-events:none;
+}
+
+/* v0.19 — Rich sings the soundtrack */
+.rich-lyric-bubble{
+ position:absolute;left:7%;top:35%;z-index:60;
+ max-width:34%;padding:4px 6px;
+ background:#f6edcf;border:2px solid #24141b;
+ box-shadow:2px 2px 0 #7d194b;
+ color:#1d1317;font:bold 7px/1.2 monospace;
+ text-transform:uppercase;text-align:center;
+ image-rendering:pixelated;pointer-events:none;
+ opacity:0;transition:none;
+}
+.rich-lyric-bubble::after{
+ content:"";position:absolute;left:17px;bottom:-7px;
+ width:8px;height:8px;background:#f6edcf;
+ border-right:2px solid #24141b;border-bottom:2px solid #24141b;
+ transform:rotate(45deg);
+}
+
+/* v0.23 Character #001 reveal and vampire conversion */
+.reveal-overlay{position:absolute;inset:0;z-index:90;display:none;place-items:center;background:rgba(5,4,12,.76);image-rendering:pixelated}
+.reveal-overlay.on{display:grid}
+.reveal-scene{position:relative;width:90%;height:92%;padding:12px;display:grid;grid-template-rows:auto minmax(96px,1fr) auto auto;gap:10px;background:#f1e5c5;border:4px solid #28131c;box-shadow:4px 4px #7d194b;color:#21151a;overflow:hidden}
+.reveal-title{text-align:center;font:bold clamp(11px,3.4cqw,17px) monospace;letter-spacing:.5px;margin-bottom:4px}
+.reveal-assistant-sprite{position:relative;left:0;top:0;grid-row:2;justify-self:center;width:min(240px,100%);height:100%;max-height:288px;align-self:center;min-height:0;background:url('assets/assistant_idle.png') center/contain no-repeat;image-rendering:pixelated;transition:none}
+.reveal-assistant-sprite.fly{left:140%;transition:left .95s steps(8,end)}
+.reveal-profile{position:relative;grid-row:3;display:flex;flex-direction:column;gap:0;font:clamp(10px,3cqw,14px)/1.35 monospace;white-space:pre-line;overflow:auto;min-height:0}
+.reveal-row{display:grid;grid-template-columns:38% minmax(0,1fr);gap:8px;border-bottom:1px solid rgba(40,19,28,.28);padding:5px 0}
+.reveal-row b{font-size:.88em}.reveal-row span{font-weight:bold}
+.reveal-prompt,.reveal-aftercare{position:relative;grid-row:4;display:none;text-align:center;font:bold clamp(11px,3.6cqw,18px) monospace}
+.reveal-prompt.on,.reveal-aftercare.on{display:block}
+.reveal-prompt button,.reveal-aftercare button{display:block;width:100%;min-height:44px;margin-top:8px;padding:8px;background:#17142c;color:#fff;border:2px solid #fff;font:bold clamp(11px,3cqw,14px) monospace}
+.reveal-aftercare{font-size:clamp(9px,3cqw,15px)}
+.reveal-lock{margin-bottom:5px;color:#5b123e}
+.reveal-prompt button:disabled,.reveal-aftercare button:disabled{opacity:.45}
+
+/* v0.23.1 polish pass: keep the footprint, sharpen the lost-GBC hierarchy */
+#ambienceLayer{position:absolute;inset:0;z-index:2;overflow:hidden;pointer-events:none}
+.ambience-bat{position:absolute;left:-12%;width:18px;height:8px;transform:scale(var(--bat-scale));image-rendering:pixelated;opacity:0;animation:batFlight var(--bat-duration) var(--bat-delay) steps(9,end) forwards}
+.ambience-bat:before{content:"";position:absolute;left:6px;top:2px;width:6px;height:4px;background:#17142c;box-shadow:-6px -2px 0 #17142c,-10px 1px 0 #17142c,6px -2px 0 #17142c,10px 1px 0 #17142c}
+@keyframes batFlight{0%{left:-12%;opacity:0}12%{opacity:.7}88%{opacity:.7}100%{left:112%;opacity:0}}
+
+.dialogue{padding:12px 15px;font-size:clamp(11px,3.8cqw,18px);line-height:1.28;letter-spacing:.35px;justify-content:flex-start;flex-direction:column;align-items:flex-start}
+.dialogue strong{display:block;margin-top:5px;font-size:1.14em;letter-spacing:1px;color:#251432}
+.main-menu{padding:8px 9px;gap:3px;justify-content:center}
+.main-menu button{padding:3px 5px;font-size:clamp(10px,3.5cqw,17px);line-height:1.12;letter-spacing:.35px}
+.main-menu button.selected{background:#d7ccb0;outline:1px solid #8b164e}
+.moves{gap:4px}
+.moves button{font-size:clamp(8px,2.9cqw,14px);line-height:1.08;letter-spacing:.15px;padding:6px 3px 16px;transition:transform 90ms steps(1,end),background 90ms steps(1,end),filter 90ms steps(1,end)}
+.moves button span{padding:3px 2px;font-size:.7em;letter-spacing:.25px}
+.moves button b{display:inline-block;margin-left:2px;min-width:1.2em;font-family:var(--font-number);font-weight:bold;color:#f6efd9}
+button:focus-visible{outline:2px solid #8b164e;outline-offset:1px}
+button:hover{filter:brightness(1.08)}
+button:active,.main-menu button.pressed,.moves button.pressed{transform:translateY(2px);filter:brightness(.86)}
+.moves button.active{transform:translateY(-1px)}
+.hpbox strong.drain{animation:hpNumberDrain .42s steps(4,end)}
+@keyframes hpNumberDrain{0%{color:#10101b}35%{color:#8b164e;transform:translateY(1px)}100%{color:#10101b;transform:none}}
+.hpbox i em{transition:width 420ms steps(8,end)}
+.production-ceo:after,.production-assistant:after{content:"";position:absolute;left:50%;bottom:1px;width:38px;height:5px;transform:translateX(-50%);background:#201329;opacity:.42;z-index:-1}
+.production-assistant:after{width:30px;opacity:.34}
+.rich-lyric-bubble{left:var(--bubble-left,10.5%) !important;top:var(--bubble-top,34%) !important;max-width:38% !important;min-width:0 !important;padding:4px 6px !important;font-size:8px !important;line-height:1.05 !important;border-width:2px !important}
+.rich-lyric-bubble::after{left:18px !important;bottom:-7px !important;width:8px !important;height:8px !important}
+.revenge-mass.gather{opacity:1;animation:revengeGather .32s steps(5,end) both}
+.revenge-mass:before,.revenge-mass:after{content:"";position:absolute;width:4px;height:4px;background:#ff3151;box-shadow:-12px -8px #a60d2d,14px -11px #d21f3c,-16px 9px #6d0715,15px 13px #ff3151;opacity:0}
+.revenge-mass:after{width:3px;height:7px;left:18px;top:-12px;box-shadow:-20px 6px #d21f3c,21px 5px #8e0b27}
+.revenge-mass.gather:before,.revenge-mass.gather:after{opacity:1;animation:revengeFragments .32s steps(5,end) both}
+@keyframes revengeGather{0%{transform:scale(.35);opacity:.15}100%{transform:scale(1.18);opacity:1}}
+@keyframes revengeFragments{0%{transform:translate(0,0);opacity:0}45%{opacity:1}100%{transform:translate(0,0) scale(.4);opacity:0}}
+#screen.hit-stop .room,#screen.hit-stop .production-ceo,#screen.hit-stop .production-assistant,#screen.hit-stop .gemini-rich{filter:brightness(.72)}
+@media (prefers-reduced-motion:reduce){.ambience-bat{display:none}.moves button,.main-menu button{transition:none}}
+
+/* Universal combat presentation hooks. Authored animator frames can attach to these states later. */
+#combatEffects{position:absolute;inset:0;z-index:18;pointer-events:none;overflow:hidden}
+.combat-contact{transform-origin:center bottom}
+.combat-white-flash{filter:brightness(2.1) grayscale(.35)}
+.combat-silhouette-flash{filter:brightness(2.4) contrast(1.5) grayscale(1)}
+.combat-recoil-light{animation:combatRecoilLight 150ms steps(3,end)}
+.combat-recoil-heavy{animation:combatRecoilHeavy 190ms steps(4,end)}
+.combat-attacker-commit{filter:brightness(1.18)}
+.combat-hit-stop{filter:brightness(.8) contrast(1.08)}
+.combat-shake-light{animation:combatShakeLight 120ms steps(3,end)}
+.combat-shake-heavy{animation:combatShakeHeavy 170ms steps(4,end)}
+.contact-fragment{position:absolute;width:5px;height:5px;background:#d7193f;image-rendering:pixelated;animation:contactFragment 300ms var(--delay) steps(4,end) both}
+.contact-fragment.briefcase{background:#f6efd9;border:1px solid #10101b}
+@keyframes combatRecoilLight{0%,100%{transform:translateX(0)}35%{transform:translateX(-2px)}70%{transform:translateX(1px)}}
+@keyframes combatRecoilHeavy{0%,100%{transform:translateX(0)}28%{transform:translateX(-5px)}55%{transform:translateX(3px)}78%{transform:translateX(-1px)}}
+@keyframes combatShakeLight{0%,100%{transform:translate(0)}35%{transform:translate(-2px,1px)}70%{transform:translate(1px,-1px)}}
+@keyframes combatShakeHeavy{0%,100%{transform:translate(0)}25%{transform:translate(-4px,2px)}50%{transform:translate(3px,-1px)}75%{transform:translate(-2px,1px)}}
+@keyframes contactFragment{0%{opacity:1;transform:translate(0,0) scale(.7)}100%{opacity:0;transform:translate(var(--dx),var(--dy)) scale(1.3)}}
+
+/* v0.24 UX spacing corrections for the canonical 270x480 frame. */
+.battle-ui{grid-template-columns:1fr;grid-template-rows:minmax(44px,auto) 48px minmax(0,1fr);gap:6px}
+.battle-ui .dialogue{grid-column:1;display:block;min-height:0;padding:8px 10px;font-size:clamp(10px,3cqw,14px);line-height:1.4}
+.battle-ui .dialogue strong{display:inline;margin:0;font-size:1em;letter-spacing:0}
+.battle-ui .main-menu{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));padding:0;gap:0}
+.main-menu button{font-size:clamp(10px,3cqw,14px);line-height:1.2;padding:8px 3px;min-height:44px;text-align:center}
+.battle-ui .moves{grid-column:1;grid-template-columns:repeat(2,minmax(0,1fr));min-height:0}
+.subtitle{font-size:clamp(7px,2.35cqw,11px);white-space:nowrap}
+.moves button{font-size:clamp(9px,2.5cqw,12px);padding:6px 4px 14px;letter-spacing:0;min-height:48px}
+.moves button span{font-size:.66em;padding:2px 1px}
+/* Short screens keep every move in one row; normal portrait screens use the roomier 2x2 grid. */
+@media(max-height:760px){.battle-ui .moves{grid-template-columns:repeat(4,minmax(0,1fr))}.moves button{font-size:clamp(8px,2.4cqw,12px)}}
+@media(max-height:600px){.battle-ui{grid-template-rows:minmax(28px,auto) 36px minmax(0,1fr);gap:4px}.battle-ui .dialogue{padding:4px 8px;font-size:clamp(7px,3cqw,10px)}.main-menu button{min-height:32px;padding:4px 2px;font-size:clamp(7px,3cqw,10px)}.moves button{min-height:36px;padding:4px 2px 12px;font-size:clamp(7px,2.4cqw,10px)}}
+.octo-title{top:16%;font-size:13px}
+.octo-choices{bottom:6%}
+.blood-bath-layer{position:absolute;left:0;top:0;width:100%;height:75.5%;background-position:0 0;background-size:100% 100%;background-repeat:no-repeat;image-rendering:pixelated;display:none;pointer-events:none}
+.blood-bath-layer.on{display:block}
+.blood-bath-rear{z-index:6}.blood-bath-foreground{z-index:9}
+.blood-bath-contact-layer{position:absolute;width:96px;height:96px;background-position:0 0;background-size:96px 96px;background-repeat:no-repeat;image-rendering:pixelated;display:none;pointer-events:none}
+.blood-bath-contact-layer.on{display:block}.blood-bath-engulf{left:calc(70% - 48px);top:calc(56% - 88px);z-index:8}.blood-bath-contact{left:calc(70% - 48px);top:calc(49% - 48px);z-index:10}
+.blood-bath-impact{position:absolute;inset:0;background:url('assets/blood_bath_impact_fullscreen.png') 0 0/100% 100% no-repeat;image-rendering:pixelated;display:none;pointer-events:none;z-index:11}
+.blood-bath-impact.on{display:block}
+.vampire-bite-screen{position:absolute;inset:0;z-index:20;display:none;overflow:hidden;pointer-events:none;image-rendering:pixelated}
+.vampire-bite-screen.on{display:block}
+.vampire-bite-jaw,.vampire-bite-snap{position:absolute;inset:0;background-size:100% 100%;background-repeat:no-repeat;image-rendering:pixelated}
+.vampire-bite-upper{background-image:url('assets/vampire_bite_jaw_upper.png');transform:translateY(-100%)}
+.vampire-bite-lower{background-image:url('assets/vampire_bite_jaw_lower.png');transform:translateY(100%)}
+.vampire-bite-screen.jaws-in .vampire-bite-upper{transform:translateY(0);transition:transform var(--jaw-speed,260ms) steps(8,end)}
+.vampire-bite-screen.jaws-in .vampire-bite-lower{transform:translateY(0);transition:transform var(--jaw-speed,260ms) steps(8,end)}
+.vampire-bite-snap{display:none;background-image:url('assets/vampire_bite_snap_closed.png')}
+.vampire-bite-screen.snapped .vampire-bite-jaw{display:none}.vampire-bite-screen.snapped .vampire-bite-snap{display:block}
+.vampire-bite-contact{position:absolute;width:64px;height:64px;background:url('assets/vampire_bite_contact.png') center/64px 64px no-repeat;image-rendering:pixelated;display:none;z-index:21;pointer-events:none}
+.vampire-bite-contact.on{display:block}
+.vampire-bite-life{position:absolute;inset:0;z-index:22;pointer-events:none;display:none}
+.vampire-bite-life.on{display:block}
+.vampire-afterimage{position:absolute;width:31%;height:19%;background:inherit;background-image:url('assets/rich_seated_idle.png');background-size:100% 100%;image-rendering:pixelated;opacity:.28;filter:contrast(1.2) saturate(.5);pointer-events:none;z-index:14;animation:vampireAfterimage 120ms var(--ghost-delay) steps(2,end) forwards}
+.vampire-life-particle{position:absolute;width:16px;height:16px;background-size:48px 16px;background-repeat:no-repeat;image-rendering:pixelated;animation:vampireLifeTravel 260ms steps(5,end) forwards}
+@keyframes vampireLifeTravel{0%{opacity:1;transform:translate(0,0) scale(1)}100%{opacity:0;transform:translate(var(--dx),var(--dy)) scale(1.05)}}
+@keyframes vampireAfterimage{0%{opacity:.35}100%{opacity:0;transform:translateX(18px)}}
+.revenge-fx{position:absolute;inset:0;z-index:23;pointer-events:none;display:none;image-rendering:pixelated}.revenge-fx.on{display:block}
+.revenge-mass-authored,.revenge-crack{position:absolute;width:96px;height:96px;background-size:96px 96px;background-repeat:no-repeat;display:none}.revenge-mass-authored.on,.revenge-crack.on{display:block}
+.revenge-mass-authored{left:24%;top:29%}.revenge-crack{left:70%;top:40%}.revenge-impact-authored{position:absolute;inset:0;background:url('assets/revenge_impact_fullscreen.png') 0 0/100% 100% no-repeat;display:none}.revenge-impact-authored.on{display:block}
+.revenge-wound{position:absolute;width:16px;height:16px;background-size:64px 16px;image-rendering:pixelated;pointer-events:none;z-index:15;opacity:.8}.revenge-wound.extracted{animation:revengeWoundExtract 260ms steps(4,end) forwards}@keyframes revengeWoundExtract{to{opacity:0;transform:translate(var(--dx),var(--dy))}}
+.revenge-wounds{position:absolute;inset:0;z-index:15;pointer-events:none}.revenge-extract{position:absolute;width:16px;height:16px;background-size:16px 16px;background-repeat:no-repeat;image-rendering:pixelated;animation:revengeExtract 420ms steps(6,end) forwards}@keyframes revengeExtract{to{opacity:0;transform:translate(var(--dx),var(--dy))}}
+.revenge-wounds .revenge-wound{position:absolute;width:16px;height:16px;background-size:16px 16px;background-repeat:no-repeat;animation:none;opacity:.9}.revenge-value-pulse{animation:revengeValuePulse 240ms steps(2,end)}@keyframes revengeValuePulse{50%{color:#ff3153;transform:scale(1.16)} }
+body.revenge-freeze .production-ceo,body.revenge-freeze .production-assistant,body.revenge-freeze .gemini-rich,body.revenge-freeze .ambience-bat{animation-play-state:paused!important;transition:none!important}
+
+/* Developer-only cartridge lab. Nothing here is visible in ordinary play. */
+.dialogue{font-family:var(--font-dialogue);font-size:clamp(8px,3.1cqw,15px);line-height:1.1}
+.dialogue strong{margin-top:2px;font-size:1em}
+.choice-card,.choice-buttons button,.octo-title,.octo-choices button,.octo-roll,.victory-card,.victory-buttons button,.reveal-title,.reveal-profile,.reveal-prompt,.reveal-aftercare,.reveal-prompt button,.reveal-aftercare button{font-family:var(--font-system)}
+.hpbox b,.reveal-title{font-family:var(--font-name)}
+.main-menu button{font-family:var(--font-command)}
+.moves button{font-family:var(--font-move)}
+.hpbox strong,.moves button span{font-family:var(--font-number)}
+.toast,.subtitle,.dev-panel{font-family:var(--font-system)}
+.dev-panel{position:absolute;right:3%;top:20%;z-index:120;width:45%;padding:7px;display:none;background:#f1e5c5;color:#21151a;border:2px solid #28131c;box-shadow:3px 3px #7d194b;font-size:8px;line-height:1.25}
+.dev-panel.show{display:block}
+.dev-title{font-weight:bold;letter-spacing:1px;border-bottom:1px solid #7d194b;margin-bottom:5px}
+.dev-panel label{display:block;margin:4px 0}.dev-panel select{width:100%;font:inherit;background:#fff8df;border:1px solid #28131c}.dev-panel input{vertical-align:middle}
+.dev-readout{white-space:pre-line;margin:5px 0;border-top:1px solid #b58d72;padding-top:4px;font-size:7px}
+.dev-panel button{width:100%;font:inherit;background:#17142c;color:#fff;border:1px solid #fff;padding:3px}
+#screen.cartridge-tint:after{content:"";position:absolute;inset:0;z-index:3;pointer-events:none;background:rgba(36,11,57,.08);mix-blend-mode:multiply;box-shadow:inset 0 0 0 999px rgba(13,5,25,.04)}
+#screen.cartridge-tint .room,#screen.cartridge-tint .production-ceo,#screen.cartridge-tint .production-assistant{filter:contrast(1.05) brightness(.94) saturate(1.03)}
+body.dev-enabled .production-ceo,body.dev-enabled .production-assistant{outline:1px dashed rgba(255,220,120,.7)}
+.rich-lyric-bubble.on{opacity:1}
+
+/* Bedroom scene: immutable source art with a window-clipped cloud layer and stable authored Rich frames. */
+#bedroomScene{position:absolute;inset:0;z-index:2;display:none;overflow:hidden;image-rendering:pixelated;pointer-events:none}
+.bedroom-base{position:absolute;inset:0;background:url('assets/rich_bedroom_environment_270x480.png') 0 0/100% 100% no-repeat;image-rendering:pixelated}
+#bedroomCloudCanvas{position:absolute;inset:0;width:100%;height:100%;z-index:1;image-rendering:pixelated;pointer-events:none}
+.bedroom-rich{position:absolute;z-index:3;left:5.185%;top:58.75%;width:47.407%;height:13.333%;object-fit:fill;image-rendering:pixelated;user-select:none}
+body.bedroom-mode #bedroomScene{display:block}
+body.bedroom-mode .room,body.bedroom-mode #ambienceLayer,body.bedroom-mode #bloodBathRear,body.bedroom-mode .edge-frame,body.bedroom-mode .combat-hud,body.bedroom-mode .battle-ui,body.bedroom-mode #geminiRich,body.bedroom-mode #productionCEO,body.bedroom-mode #productionAssistant,body.bedroom-mode #biteTrail,body.bedroom-mode #richBiteSprite,body.bedroom-mode #biteImpact,body.bedroom-mode #healFloat,body.bedroom-mode #revengeShade,body.bedroom-mode #revengeStoredText,body.bedroom-mode #revengeWounds,body.bedroom-mode #revengeMass,body.bedroom-mode #revengeImpact,body.bedroom-mode #bloodBathEngulf,body.bedroom-mode #bloodBathForeground,body.bedroom-mode #bloodBathContact,body.bedroom-mode #bloodBathImpact,body.bedroom-mode #vampireBiteScreen,body.bedroom-mode #vampireBiteContact,body.bedroom-mode #vampireBiteLife,body.bedroom-mode #revengeFX,body.bedroom-mode #richLyricBubble,body.bedroom-mode #victoryOverlay,body.bedroom-mode #octopusOverlay,body.bedroom-mode #revealOverlay,body.bedroom-mode #attackLayer,body.bedroom-mode #choiceOverlay,body.bedroom-mode #toast,body.bedroom-mode #startOverlay{display:none!important}
+.bedroom-dev-controls{border-top:1px solid #b58d72;margin-top:5px;padding-top:4px}
+.bedroom-dev-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px}
+.dev-panel .bedroom-dev-grid button{width:100%;font-size:6px;padding:3px 1px}
+body.dev-enabled .dev-panel{max-height:72%;overflow:auto}
+
+/* Phone v0.1: cartridge UI expands from the authored handset in Rich's hand. */
+.check-phone{position:absolute;z-index:5;pointer-events:auto;right:5%;top:51%;max-width:43%;padding:5px 6px;background:#f1e5c5;color:#21151a;border:2px solid #28131c;box-shadow:2px 2px #7d194b;font:7px/1.4 var(--font-system);image-rendering:pixelated;white-space:normal;text-align:center}
+.check-phone.learned{width:30px;height:30px;padding:0;font-size:13px}
+.phone-overlay{position:absolute;inset:0;z-index:110;display:none;overflow:hidden;background:#080711;transform-origin:25.2% 63.3%;image-rendering:pixelated;touch-action:manipulation}
+.phone-overlay.open,.phone-overlay.closing{display:block}
+.phone-overlay.open{animation:phoneExpand 230ms steps(6,end) both}
+.phone-overlay.closing{animation:phoneCollapse 210ms steps(6,end) both}
+@keyframes phoneExpand{from{transform:scale(.035);opacity:.7}to{transform:scale(1);opacity:1}}
+@keyframes phoneCollapse{from{transform:scale(1);opacity:1}to{transform:scale(.035);opacity:.7}}
+.phone-shell{position:absolute;inset:0;box-sizing:border-box;padding:14px 12px 12px;background:#17142c;border:5px solid #10101b;box-shadow:inset 0 0 0 2px #7d194b;color:#f6efd9;display:flex;flex-direction:column;gap:8px}
+.phone-topline{display:flex;align-items:center;justify-content:space-between;min-height:28px;padding:3px 5px;border:2px solid #f6efd9;background:#10101b;font:7px var(--font-system)}
+.phone-topline button{width:27px;height:24px;padding:0;border:1px solid #f6efd9;background:#d7193f;color:#fff;font:14px var(--font-system)}
+.phone-content{min-height:0;flex:1;overflow-y:auto;overscroll-behavior:contain;padding:9px;background:#f6efd9;color:#10101b;border:3px solid #10101b;box-shadow:inset 0 0 0 1px #c18b3c;touch-action:pan-y}
+.phone-content h1{margin:1px 0 12px;padding-bottom:7px;border-bottom:2px solid #7d194b;font:10px var(--font-system);color:#7d194b}
+.phone-app-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.phone-button{display:block;width:100%;min-height:33px;padding:6px 4px;border:2px solid #28131c;box-shadow:2px 2px #7d194b;background:#17142c;color:#fff;font:7px/1.35 var(--font-system);text-align:center;overflow-wrap:anywhere;touch-action:manipulation}
+.phone-button:active{transform:translate(1px,1px);box-shadow:1px 1px #7d194b}
+.phone-app-grid .phone-button{min-height:50px;font-size:6px}
+/* Frozen app icons: native 24×24 at 1 CSS px per source px (integer device pixels), never smoothed or stretched. */
+.phone-app-icon{display:block;width:24px;height:24px;margin:0 auto 4px;image-rendering:pixelated;pointer-events:none}
+.phone-app-grid .phone-button:first-of-type{background:#d7193f}
+.phone-chat{padding:8px 7px;border:2px solid #28131c;background:#fff8df;font:8px/1.65 var(--font-system);overflow-wrap:anywhere}
+.phone-chat p{margin:0 0 9px}
+.phone-chat .phone-speaker{margin:0 0 3px;color:#7d194b;font-size:7px}
+.phone-button.suggested-prompt{margin-top:7px;min-height:39px;background:#17142c;color:#fff}
+.phone-option-list{display:grid;gap:6px;margin:7px 0}
+.phone-option-list .phone-button{text-align:left;padding-left:8px}
+.phone-button.destination-available{background:#27623d}
+.phone-button.destination-locked{background:#403744;color:#f6efd9}
+.phone-button small{display:block;margin-top:4px;color:#c18b3c;font-size:6px}
+.phone-message{min-height:25px;margin-top:8px;color:#7d194b;font:7px/1.6 var(--font-system)}
+.phone-back,.phone-home{display:inline-block;width:48%;margin-top:8px}
+.phone-home{float:right}
+.phone-close-button{margin-top:9px;background:#7d194b}
+.phone-content button:focus-visible,.phone-topline button:focus-visible{outline:3px solid #c18b3c;outline-offset:2px}
+.phone-trip-choice{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-top:9px}
+.phone-incoming{margin:0 0 10px;padding:6px;border:2px solid #28131c;background:#fff8df;box-shadow:inset 0 0 0 1px #c18b3c}
+.phone-incoming-kicker{margin:0 0 5px;color:#7d194b;font:6px/1.4 var(--font-system)}
+.phone-button.incoming-button{min-height:38px;background:#7d194b;text-align:left;padding-left:8px}
+.phone-incoming-message{border-color:#7d194b}
+/* Phone hierarchy (PACKET UL-L2-001): grouped sections + concise lock communication + engine settings. */
+.phone-section-label{grid-column:1/-1;margin:4px 0 0;padding:2px 1px;color:#7d194b;font:6px/1.4 var(--font-system);letter-spacing:1px;border-bottom:1px dotted #c18b3c}
+.phone-app-grid .phone-button.app-dormant{opacity:.72;filter:saturate(.5)}
+.phone-button[data-locked="1"]{background:#2a2433}
+.phone-lock-short{display:block;margin-top:4px;color:#c18b3c;font-size:6px}
+.phone-settings-button{background:#403744 !important}
+.phone-settings{display:grid;gap:9px}
+.phone-setting{display:flex;align-items:center;justify-content:space-between;gap:8px;font:7px var(--font-system);color:#10101b}
+.phone-setting input[type=range]{width:52%;accent-color:#7d194b}
+.phone-toggle{padding:5px 0 0;border-top:1px solid #c18b3c}
+.phone-toggle input{width:18px;height:18px;accent-color:#7d194b}
+.phone-toggle-mute{background:#7d194b}
+
+/* FINAL-A: Rich's Life OS. Scoped tokens unify every app without leaking into THE PLAY / RAINMAKER. */
+#phoneOverlay{--os-bg:#0c0b14;--os-surface:#171322;--os-raised:#241b30;--os-line:#49334f;--os-text:#f6efd9;--os-muted:#bdacc4;--os-gold:#efc16b;--os-red:#f04067;--os-green:#88dbad;--os-body:Monogram,"Courier New",monospace;--os-label:"Tiny5","Courier New",monospace;color:var(--os-text)}
+#phoneOverlay .phone-shell{padding:10px 10px 8px;gap:0;background:var(--os-bg);border:3px solid #49334f;box-shadow:inset 0 0 0 1px #0c0b14}
+#phoneOverlay .phone-topline{min-height:34px;padding:0 0 8px;border:0;border-bottom:1px solid var(--os-line);background:transparent;gap:6px;font:12px var(--os-label);letter-spacing:1px}
+#phoneOverlay .phone-topline>span{margin-right:auto;color:var(--os-gold)}
+#phoneOverlay .phone-topline button{width:28px;height:28px;min-height:28px;border:1px solid var(--os-line);background:var(--os-surface);color:var(--os-text);font:16px var(--os-body);box-shadow:none}
+#phoneContent{padding:9px 2px 12px;border:0;box-shadow:none;background:var(--os-bg);color:var(--os-text);font:20px/1.15 var(--os-body);scrollbar-width:thin;scrollbar-color:var(--os-line) var(--os-bg)}
+#phoneContent h1{font:24px/1 var(--os-label);color:var(--os-text);letter-spacing:1px;margin:3px 0 14px;padding:0 0 9px;border-bottom:2px solid var(--os-red);overflow-wrap:anywhere}
+#phoneContent .phone-status{font:12px var(--os-label);display:flex;justify-content:space-between;color:var(--os-muted);border:0;margin:0 0 9px}
+#phoneContent .phone-signal{color:var(--os-green);letter-spacing:2px}
+#phoneContent .phone-balance{display:flex;align-items:baseline;justify-content:space-between;margin:6px 0 14px;color:var(--os-muted);font:12px var(--os-label)}
+#phoneContent .phone-balance strong{color:var(--os-text);font:32px/1 var(--os-body);letter-spacing:1px}
+#phoneContent .phone-next{border:1px solid var(--os-red);background:var(--os-raised);padding:8px;margin:0 0 15px;box-shadow:3px 3px #4c1932}
+#phoneContent .phone-next .phone-incoming-kicker{color:var(--os-red);font:12px var(--os-label);letter-spacing:2px;margin:0 0 5px}
+#phoneContent .phone-next-button{position:relative;background:transparent;border:0;padding:0 23px 0 0;box-shadow:none;text-align:left;min-height:42px}
+#phoneContent .phone-next-button small{margin:0 0 4px;color:var(--os-gold)}
+#phoneContent .phone-next-button strong{font-weight:400;line-height:1.05;display:block}
+#phoneContent .phone-next-arrow{position:absolute;right:1px;top:12px;color:var(--os-red);font:26px var(--os-body)}
+#phoneContent .phone-app-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:9px 7px}
+#phoneContent .phone-section-label{grid-column:1/-1;color:var(--os-muted);font:12px var(--os-label);letter-spacing:2px;margin:8px 0 1px;padding:0 0 5px;border-bottom:1px solid var(--os-line)}
+#phoneContent .phone-button{min-height:40px;margin:5px 0;padding:8px 9px;border:1px solid var(--os-line);box-shadow:2px 2px #06050b;background:var(--os-raised);color:var(--os-text);font:20px/1.05 var(--os-body);text-align:left;overflow-wrap:anywhere;transition:background 80ms steps(2,end)}
+#phoneContent .phone-button:active{transform:translate(1px,1px);background:#49334f;box-shadow:1px 1px #06050b}
+#phoneContent .phone-button:disabled{opacity:.5;cursor:default}
+#phoneContent .phone-app-grid .app-button{display:flex;flex-direction:column;align-items:center;position:relative;gap:5px;min-height:81px;margin:0;padding:5px 2px 6px;background:transparent;border:0;box-shadow:none;font:12px/1.1 var(--os-label);text-align:center}
+#phoneContent .phone-app-grid .app-button:active{background:var(--os-raised)}
+#phoneContent .phone-app-label{max-width:100%;min-height:13px;overflow-wrap:anywhere}
+#phoneContent .phone-icon-tile{display:grid;place-items:center;position:relative;flex:none;width:42px;height:42px;background:var(--os-surface);color:var(--os-gold);border:2px solid var(--os-line);box-shadow:2px 2px #050409}
+#phoneContent .phone-icon-tile[data-icon="vampgpt"]{background:#681937;border-color:var(--os-red);color:var(--os-text)}
+#phoneContent .phone-icon-tile[data-icon="warRoom"],#phoneContent .phone-icon-tile[data-icon="armory"]{color:var(--os-red)}
+#phoneContent .phone-icon-tile[data-icon="bank"],#phoneContent .phone-icon-tile[data-icon="trap"]{color:var(--os-green)}
+#phoneContent .phone-app-icon{width:24px;height:24px;margin:0}
+#phoneContent .phone-pixel-icon{display:block;width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.5}
+#phoneContent .phone-badge{font:12px var(--os-label);background:var(--os-red);color:#fff;border:1px solid var(--os-bg);min-width:15px;padding:2px;text-align:center;font-style:normal}
+#phoneContent .app-button .phone-badge{position:absolute;right:17px;top:0}
+#phoneContent .phone-app-grid .app-dormant{opacity:1;filter:none;color:var(--os-muted)}
+#phoneContent .app-dormant .phone-icon-tile{color:#8b7893;box-shadow:none}
+#phoneContent .app-dormant .phone-icon-tile:after{content:'×';position:absolute;right:-4px;bottom:-3px;background:var(--os-bg);font:18px var(--os-body);color:var(--os-muted);line-height:12px}
+#phoneContent .phone-button small,#phoneContent .phone-lock-short{display:block;font:12px/1.2 var(--os-label);margin-top:4px;color:var(--os-muted)}
+#phoneContent .phone-lock-short{font-size:10px;letter-spacing:0}
+#phoneContent .phone-chat,#phoneContent .phone-card,#phoneContent .ia-gun,#phoneContent .ia-mod{padding:10px;margin:8px 0;background:var(--os-surface);border:1px solid var(--os-line);border-radius:0;color:var(--os-text);font:20px/1.15 var(--os-body);box-shadow:2px 2px #06050b;overflow-wrap:anywhere}
+#phoneContent .phone-chat p{margin:0 0 10px}
+#phoneContent .phone-card b,#phoneContent .ia-gun b,#phoneContent .ia-mod b{display:block;color:var(--os-gold);font:16px/1.2 var(--os-label);margin-bottom:5px;letter-spacing:.5px}
+#phoneContent .phone-small,#phoneContent .phone-speaker,#phoneContent .ia-gun small,#phoneContent .ia-mod small{font:14px/1.2 var(--os-label);color:var(--os-muted)}
+#phoneContent .phone-speaker{display:block;letter-spacing:1px;margin:12px 0 5px;color:var(--os-gold)}
+#phoneContent .phone-incoming{margin:9px 0 12px;padding:8px;border:1px solid var(--os-gold);background:var(--os-surface);box-shadow:none}
+#phoneContent .phone-incoming-kicker{color:var(--os-gold);font:12px var(--os-label);letter-spacing:1px}
+#phoneContent .incoming-button{background:var(--os-raised)}
+#phoneContent .phone-message{min-height:0;margin:9px 0;color:var(--os-gold);font:16px/1.15 var(--os-label)}
+#phoneContent .phone-message:not(:empty){padding:9px;border-left:3px solid var(--os-gold);background:var(--os-surface)}
+#phoneContent .phone-option-list{gap:3px;margin:8px 0}
+#phoneContent .destination-available{border-left:3px solid var(--os-green)}
+#phoneContent .destination-locked{border-left:3px solid #786381;color:var(--os-muted)}
+#phoneContent .phone-back,#phoneContent .phone-home{width:48%;font:16px var(--os-label);text-align:center;border-color:var(--os-line);background:var(--os-bg);margin-top:12px}
+#phoneContent .phone-nav{display:flow-root;margin-top:8px}
+#phoneContent .phone-thread p.msg{max-width:90%;margin:7px 0;padding:8px;background:var(--os-raised);color:var(--os-text);font:20px/1.15 var(--os-body);border-left:2px solid var(--os-line)}
+#phoneContent .phone-thread p.msg.me{background:#571c35;border-left-color:var(--os-red)}
+#phoneContent .phone-thread p.who{font:12px var(--os-label);color:var(--os-muted);margin:10px 0 3px}
+#phoneContent .vg-post{border-top:2px solid var(--os-red);min-height:62px}
+#phoneContent .vg-avatar{margin-bottom:6px}
+#phoneContent .phone-wwo{margin:10px 0;padding:8px;border:1px dashed var(--os-red);background:var(--os-bg);gap:5px}
+#phoneContent .phone-wwo .phone-button.wwo-line{font:20px/1.15 var(--os-body);background:var(--os-raised);color:var(--os-text);min-height:40px}
+#phoneContent .jdm-price{font:28px var(--os-body);color:var(--os-green);margin:9px 0}
+#phoneContent .jdm-access-note,#phoneContent .radio-mini{font:14px/1.2 var(--os-label);color:var(--os-muted)}
+#phoneContent .radio-mini{border:1px solid var(--os-line);background:var(--os-surface);padding:7px;min-height:32px;margin-bottom:12px}
+#phoneContent .radio-mini i{border-radius:0;border:1px solid var(--os-line);background:var(--os-red)}
+#phoneContent .octo-option{border-color:#a272ca;background:#311d46;box-shadow:2px 2px #06050b}
+#phoneContent .phone-setting{font:16px var(--os-label);color:var(--os-text)}
+#phoneContent .phone-setting input{accent-color:var(--os-red)}
+#phoneContent .phone-toggle{border-top-color:var(--os-line)}
+#phoneContent .phone-close-button{margin-top:12px;text-align:center;font:14px var(--os-label);background:var(--os-bg)}
+#phoneContent .phone-bank-total{padding:14px 8px;border-bottom:2px solid var(--os-green);margin-bottom:12px}
+#phoneContent .phone-bank-total span{display:block;color:var(--os-muted);font:14px var(--os-label)}
+#phoneContent .phone-bank-total strong{display:block;font:46px/1.2 var(--os-body);color:var(--os-green);font-weight:400}
+#phoneContent .phone-stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+#phoneContent .phone-stat-grid .phone-card{margin:0 0 6px}
+#phoneContent .phone-stat-grid strong{font:30px var(--os-body);color:var(--os-text)}
+#phoneContent .phone-stat-grid small{display:block;font:12px var(--os-label);color:var(--os-muted)}
+#phoneContent button:focus-visible,#phoneOverlay .phone-topline button:focus-visible{outline:2px solid var(--os-gold);outline-offset:2px}
+/* OL-055/056/057: a physical pixel smartphone around the life interface. */
+#phoneOverlay .phone-shell{inset:10px 12px;padding:7px 9px 5px;border:4px solid #78637e;box-shadow:inset 0 0 0 2px #33253d,4px 5px #050409;clip-path:polygon(0 12px,4px 12px,4px 4px,12px 4px,12px 0,calc(100% - 12px) 0,calc(100% - 12px) 4px,calc(100% - 4px) 4px,calc(100% - 4px) 12px,100% 12px,100% calc(100% - 12px),calc(100% - 4px) calc(100% - 12px),calc(100% - 4px) calc(100% - 4px),calc(100% - 12px) calc(100% - 4px),calc(100% - 12px) 100%,12px 100%,12px calc(100% - 4px),4px calc(100% - 4px),4px calc(100% - 12px),0 calc(100% - 12px))}
+#phoneOverlay .phone-earpiece{height:13px;flex:none;display:flex;justify-content:center;align-items:center;gap:7px}
+#phoneOverlay .phone-earpiece i{width:34px;height:3px;background:#78637e;box-shadow:0 2px #171322}
+#phoneOverlay .phone-earpiece b{width:4px;height:4px;background:#bdacc4;box-shadow:1px 1px #49334f}
+#phoneOverlay .phone-device-status{display:flex;align-items:center;gap:8px;min-height:22px;color:var(--os-text);font:12px var(--os-label);padding:0 2px}
+#phoneOverlay .phone-carrier{margin-right:auto;color:var(--os-gold);font-size:10px;letter-spacing:1px}
+#phoneOverlay .phone-signal{color:var(--os-green);font-size:14px}
+#phoneOverlay .phone-battery{position:relative;display:block;box-sizing:border-box;width:20px;height:10px;padding:2px;border:1px solid var(--os-text)}
+#phoneOverlay .phone-battery:after{content:'';position:absolute;right:-3px;top:2px;width:2px;height:4px;background:var(--os-text)}
+#phoneOverlay .phone-battery i{display:block;width:100%;height:100%;background:var(--os-green)}
+#phoneOverlay .phone-topline{padding:3px 0 6px;min-height:40px}
+#phoneOverlay .phone-topline button{width:40px;height:40px;min-height:40px;font-size:22px}
+#phoneContent .phone-system-status .phone-signal{display:none}
+#phoneContent .phone-next .phone-incoming-kicker{display:flex;justify-content:space-between;gap:6px}
+#phoneContent .phone-next .phone-incoming-kicker span{font-size:10px;color:var(--os-muted);letter-spacing:0}
+#phoneOverlay .phone-home-key{flex:none;display:grid;place-items:center;height:32px;min-height:32px;background:transparent;border:0;cursor:pointer;touch-action:manipulation}
+#phoneOverlay .phone-home-key i{display:block;width:44px;height:4px;background:#78637e;border:1px solid #171322}
+#phoneOverlay.device-locked #phoneSettingsButton,#phoneOverlay.device-locked #phoneLockButton,#phoneOverlay.device-locked .phone-home-key{visibility:hidden}
+#phoneContent .phone-lock-screen{min-height:85%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;background:repeating-linear-gradient(0deg,transparent 0 23px,#171322 23px 24px),repeating-linear-gradient(90deg,transparent 0 23px,#171322 23px 24px)}
+#phoneContent .phone-lock-screen h1{font-size:42px;border:0}
+#phoneContent .phone-lock-glyph{font:58px var(--os-body);color:var(--os-gold)}
+#phoneContent .phone-unlock{width:90%;text-align:center;border-color:var(--os-gold)}
+#phoneContent .phone-search{display:block;font:12px var(--os-label);color:var(--os-muted);margin:8px 0}
+#phoneContent .phone-search input{display:block;box-sizing:border-box;width:100%;height:40px;margin:5px 0;background:var(--os-surface);color:var(--os-text);border:1px solid var(--os-line);border-left:3px solid var(--os-red);font:20px var(--os-body);padding:5px 9px;border-radius:0}
+#phoneContent .phone-contact-list{min-height:56px}
+#phoneContent .phone-keyboard{position:sticky;bottom:0;background:#171322;border-top:2px solid var(--os-line);padding:7px 0 3px;box-shadow:0 -4px #0c0b14}
+#phoneContent .phone-keyboard>div{display:flex;justify-content:center;gap:3px;margin:4px 0}
+#phoneContent .phone-keyboard button{flex:1;min-width:0;min-height:36px;max-width:34px;padding:4px 0;background:var(--os-raised);color:var(--os-text);border:1px solid var(--os-line);border-bottom:3px solid #090710;font:16px var(--os-body);cursor:pointer;touch-action:manipulation}
+#phoneContent .phone-keyboard>div:last-child button{max-width:none;flex:1;font-size:14px}
+#phoneContent .phone-keyboard>div:last-child .phone-space{flex:3}
+#phoneContent .phone-keyboard button:active{background:#681937;border-bottom-color:var(--os-red)}
+#phoneContent{touch-action:pan-y;overscroll-behavior:contain;-webkit-overflow-scrolling:touch}
+/* RC5 W: a single scrolling content band, with status and a reachable home control inside the phone. */
+#phoneOverlay .phone-shell{gap:5px;padding-bottom:max(5px,env(safe-area-inset-bottom))}
+#phoneOverlay .phone-topline{flex:none}
+#phoneOverlay .phone-home-key{height:44px;min-height:44px;border-top:1px solid var(--os-line)}
+#phoneOverlay .phone-life-status{flex:none;display:flex;align-items:baseline;flex-wrap:wrap;gap:5px 10px;padding:5px 2px;border-bottom:1px solid var(--os-line);font:10px/1.5 var(--os-label);color:var(--os-muted)}
+#phoneOverlay .phone-life-status>strong{margin-left:auto;color:var(--os-green);font-weight:400}
+#phoneOverlay .phone-life-status details{width:100%;max-height:100px;overflow:auto}
+#phoneOverlay .phone-life-status summary{min-height:44px;display:flex;align-items:center;cursor:pointer}
+#phoneOverlay .phone-life-status details span{display:block;color:var(--os-text)}
+#phoneOverlay .phone-life-status[hidden]{display:none}
+#phoneContent .phone-activities{margin:12px 0;border:1px solid var(--os-line);padding:0 8px}
+#phoneContent .phone-activities>summary{cursor:pointer;min-height:44px;display:flex;align-items:center;font:12px/1.5 var(--os-label);color:var(--os-gold)}
+#phoneContent .phone-activities>summary::before{content:'+';margin-right:8px}
+#phoneContent .phone-activities[open]>summary::before{content:'−'}
+#phoneContent .phone-activities .rc4-day-options{border:0;margin:0;padding:0}
+#phoneContent .phone-app-grid{margin-top:10px}
+#phoneContent .vg-photo{margin:10px 0}
+#phoneContent .vg-photo img{display:block;width:100%;height:auto;image-rendering:pixelated;border:1px solid var(--os-line);box-sizing:border-box}
+#phoneContent .vg-photo figcaption{font:16px/1.3 var(--os-body);color:var(--os-muted);padding:5px 0}
+#phoneContent .vg-song-context{display:block;color:var(--os-gold);font:12px/1.5 var(--os-label);margin-top:7px}
+#phoneContent .vg-post-text{margin:8px 0;white-space:pre-line}
+.world-call-source{position:absolute;right:3%;top:6%;z-index:7;max-width:90%;padding:7px 9px;background:#10101b;color:#f4c95d;border:1px solid #78637e;font:10px/1.5 var(--font-system);pointer-events:none}
+#phoneContent .phone-thread p.msg{clip-path:polygon(0 4px,4px 4px,4px 0,100% 0,100% calc(100% - 4px),calc(100% - 4px) calc(100% - 4px),calc(100% - 4px) 100%,0 100%)}
+#phoneContent .phone-thread p.msg.me{margin-left:auto;border-right:2px solid var(--os-red)}
+#phoneContent .phone-message-time{display:block;font:10px var(--os-label);color:var(--os-muted);margin-bottom:5px;letter-spacing:1px}
+#pdWorld > .pd-grounded:after{display:none}
+
+/* Desire Trip #001: authored Powder Springs environment and held Rich poses. */
+body.trip-mode #screen > :not(#tripTravel):not(#powderSpringsCurb):not(#stargazingScene):not(#tripReturn):not(#devPanel):not(#soundtrack){display:none!important}
+.trip-scene{position:absolute;inset:0;z-index:100;display:none;overflow:hidden;image-rendering:pixelated}
+.trip-scene.active{display:block}
+.trip-travel,.trip-return{background:#10101b;color:#f6efd9;display:none;place-items:center}
+.trip-travel.active,.trip-return.active{display:grid}
+.trip-route{display:grid;justify-items:center;gap:10px;font:10px/1.3 var(--font-system);text-align:center}
+.trip-route div:nth-child(even){color:#d7193f;font-size:14px}
+.trip-environment{position:absolute;inset:0;width:100%;height:100%;image-rendering:pixelated;object-fit:fill}
+.trip-rich{position:absolute;z-index:1;display:block;max-width:none;object-fit:fill;image-rendering:pixelated;pointer-events:none}
+.trip-location{position:absolute;z-index:2;top:2%;left:0;width:100%;padding:2px;text-align:center;color:#bec9e5;background:rgba(5,15,39,.42);font:5px/1.5 var(--font-system);letter-spacing:.2px;opacity:.72}
+.trip-activity-action{position:absolute;z-index:3;left:15%;right:15%;bottom:5.5%;display:flex;justify-content:center}
+.trip-activity-action:empty{display:none}
+.trip-action{width:100%;padding:8px 5px;background:rgba(15,18,40,.86);color:#e1e5f2;border:1px solid rgba(205,215,242,.72);font:6px/1.5 var(--font-system);opacity:.86}
+.trip-action:active{transform:translateY(1px)}
+.trip-stargazing #stargazingDone{position:absolute;z-index:3;left:50%;bottom:4.5%;transform:translateX(-50%);padding:6px 9px;background:rgba(10,15,35,.4);color:rgba(218,226,246,.7);border:1px solid rgba(180,193,224,.34);font:5px var(--font-system);opacity:0;visibility:hidden;pointer-events:none;transition:opacity 800ms linear}
+.trip-stargazing #stargazingDone.visible{opacity:.64;visibility:visible;pointer-events:auto}
+.trip-stargazing #stargazingDone:active{transform:translate(-50%,1px);opacity:1}
+#devTripScaleControl{display:block}
+/* v0.19.1 — larger lyric bubble, anchored close to Rich */
+.rich-lyric-bubble{
+ left:8.5% !important;
+ top:39.5% !important;
+ max-width:45% !important;
+ min-width:25% !important;
+ padding:6px 8px !important;
+ border-width:3px !important;
+ font-size:9px !important;
+ line-height:1.15 !important;
+ z-index:61 !important;
+}
+.rich-lyric-bubble::after{
+ left:30px !important;
+ bottom:-8px !important;
+ width:9px !important;
+ height:9px !important;
+}
+/* DEV-only life state inspector */
+#devLifeInspector{margin-top:6px;border-top:1px solid #524564;padding-top:5px;font-size:8px;line-height:1.5}
+#devLifeInspector summary{cursor:pointer;font-weight:bold;margin-bottom:5px}
+#devLifeInspector pre{max-height:220px;overflow:auto;white-space:pre-wrap;overflow-wrap:anywhere;background:#111020;padding:5px;font-size:7px}
+#devLifeInspector label{display:flex;align-items:center;justify-content:space-between;gap:4px;margin:3px 0}
+#devLifeInspector input[type="text"],#devLifeInspector input[type="number"]{width:54%;min-width:0;box-sizing:border-box}
+#devPeopleInspector,#devEventsInspector{margin-top:6px;border-top:1px solid #524564;padding-top:5px;font-size:8px;line-height:1.5}
+#devPeopleInspector summary,#devEventsInspector summary{cursor:pointer;font-weight:bold;margin-bottom:5px}
+#devPeopleInspector pre,#devEventsInspector pre{max-height:180px;overflow:auto;white-space:pre-wrap;overflow-wrap:anywhere;background:#111020;color:#f6efd9;padding:5px;font-size:7px}
+#jdmDockBattleCanvas{display:none;position:absolute;inset:0;width:100%;height:100%;z-index:1;image-rendering:pixelated}
+#stageContractOverlay{display:none;position:absolute;inset:0;width:100%;height:100%;z-index:13;pointer-events:none;image-rendering:pixelated}
+body.jdm-mode .room,body.jdm-mode #ambienceLayer{display:none!important}
+body.jdm-battle #jdmDockBattleCanvas{display:block}
+body.jdm-battle.stage-overlay-active #stageContractOverlay{display:block}
+body.jdm-battle #productionAssistant{display:none!important}
+body.jdm-battle .gemini-rich{left:-25px;top:174px;width:160px;height:192px;background-size:160px 192px;background-image:url('assets/rich_standing_right.png')}
+body.jdm-battle .production-ceo{left:100px;top:174px;width:160px;height:192px;background-size:160px 192px}
+#jdmBattleDaughter{display:none;position:absolute;z-index:5;object-fit:fill;image-rendering:pixelated;pointer-events:none}
+body.jdm-battle #jdmBattleDaughter{display:block}
+body.jdm-battle .toast.jdm-speaker-bubble{left:var(--speaker-bubble-left);right:auto;top:var(--speaker-bubble-top);width:auto;max-width:38%;padding:4px 6px;z-index:14;font-size:7px;line-height:1.2}
+body.jdm-battle .toast.jdm-speaker-bubble:after{content:"";position:absolute;bottom:-7px;width:8px;height:8px;background:#f6efd9;border-right:2px solid #10101b;border-bottom:2px solid #10101b;transform:rotate(45deg)}
+body.jdm-battle .toast.speaker-rich:after{left:17px}
+body.jdm-battle .toast.speaker-importer:after{right:17px}
+body.jdm-battle .production-ceo.state-idle{background-image:url('assets/jdm_imports/characters/importer/importer_combat_ready.png')}
+body.jdm-battle .production-ceo.state-throw{background-image:url('assets/jdm_imports/characters/importer/importer_combat_ready.png');transform:none}
+body.jdm-battle .production-ceo.state-hit,body.jdm-battle .production-ceo.combat-recoil-light,body.jdm-battle .production-ceo.combat-recoil-heavy{background-image:url('assets/jdm_imports/characters/importer/importer_hit.png')}
+body.jdm-battle .production-ceo.state-defeated{background-image:url('assets/jdm_imports/characters/importer/importer_defeated.png');filter:none;opacity:1;transform:none}
+body.jdm-battle .production-ceo.state-hit{filter:brightness(1.25)}
+.jdm-story-scene{position:absolute;inset:0;z-index:100;display:none;overflow:hidden;background:#091427;image-rendering:pixelated}
+.jdm-story-scene.active{display:block}
+.jdm-story-scene canvas{position:absolute;inset:0;width:100%;height:100%;image-rendering:pixelated}
+.jdm-scene-character{display:none;position:absolute;z-index:2;width:80px;height:96px;object-fit:fill;image-rendering:pixelated;pointer-events:none}
+.jdm-scene-character.visible{display:block}
+#jdmDockRich{z-index:2}
+#jdmDockImporter{z-index:2}
+#jdmDockDaughter{z-index:3}
+.jdm-story-panel{position:absolute;z-index:5;left:5%;right:5%;bottom:4%;max-height:42%;overflow:auto;padding:9px 8px;background:#f1e5c5;color:#17142c;border:3px solid #28131c;box-shadow:3px 3px #7d194b;font:7px/1.7 var(--font-dialogue);text-align:center}
+.jdm-kicker{margin:0 0 5px;color:#7d194b;font-size:6px}
+.jdm-speaker{margin:6px 0 0;color:#7d194b;font-size:6px}
+.jdm-small{font-size:6px;color:#544757}
+.jdm-actions{display:grid;grid-template-columns:1fr 1fr;gap:5px;margin-top:8px}
+.jdm-panel-action,.jdm-action{width:100%;min-height:28px;padding:5px 3px;background:#17142c;color:#fff;border:2px solid #fff;font:6px/1.35 var(--font-command);cursor:pointer}
+.jdm-action:disabled{opacity:.55;cursor:default}
+.jdm-store-actions{display:grid;gap:5px;margin-top:8px}
+.supra-product{display:block;width:136px;height:auto;margin:4px auto 7px;image-rendering:pixelated}
+/* ART SHIP 014 frozen UI art on phone cards (native pixels, integer scale only). */
+.car-listing{display:block;width:68px;height:50px;margin:0 auto 4px;image-rendering:pixelated}
+.radio-cover,.family-avatar,.vg-avatar,.adv-choice-icon,.c2-icon{image-rendering:pixelated;flex:none}
+.radio-cover{float:left;width:32px;height:32px;margin:0 8px 2px 0}
+.vg-avatar{float:left;width:40px;height:44px;margin:0 6px 2px 0;background:no-repeat -20px -6px}
+.family-avatar{display:inline-block;vertical-align:middle;width:22px;height:28px;margin-right:4px;background:no-repeat -29px -34px}
+.jdm-price{margin:7px 0;font-size:9px;color:#7d194b}
+.jdm-access-note{font-size:7px;color:#544757}
+.supra-payoff-panel{position:absolute;z-index:6;left:4%;right:4%;bottom:4%;padding:7px;background:#f1e5c5;color:#17142c;border:3px solid #28131c;box-shadow:3px 3px #7d194b;text-align:center;font:7px/1.5 var(--font-dialogue)}
+.supra-title{margin:0 0 4px;color:#7d194b;font-size:8px}
+#supraPayoffRich,#supraPayoffCar,#supraPayoffKey{display:none;position:absolute;object-fit:fill;image-rendering:pixelated;pointer-events:none}
+#supraPayoffRich.visible{display:block;z-index:3}
+#supraPayoffCar{left:100px;top:304px;width:136px;height:50px;z-index:2}
+#supraPayoffCar.visible{display:block}
+#supraPayoffKey{left:67px;top:319px;width:24px;height:16px;z-index:4}
+#supraPayoffKey.visible{display:block}
+#devJdmScaleControl{display:none}
+body.dev-enabled #devJdmScaleControl{display:flex}
+#devStageOverlayControl{display:none}
+body.dev-enabled #devStageOverlayControl{display:flex}
+body.jdm-mode .reveal-overlay{z-index:140}
+.reveal-overlay.external-conversion .reveal-profile,.reveal-overlay.external-conversion .reveal-prompt,.reveal-overlay.external-conversion .reveal-aftercare{display:none!important}
+.reveal-assistant-sprite.conversion-bite{filter:brightness(1.7) sepia(.4)}
+.reveal-assistant-sprite.conversion-first{filter:brightness(.72) sepia(1) hue-rotate(290deg) saturate(2)}
+.reveal-assistant-sprite.conversion-second{filter:brightness(.55) sepia(1) hue-rotate(280deg) saturate(2.5)}
+.reveal-overlay.external-conversion .reveal-scene{grid-template-rows:auto 1fr}
+
+/* ==== Presentation Director (docs/PRESENTATION_DIRECTOR.md) ====
+   Generic per-mode layout driven by Director CSS variables. No per-scene sizing lives here. */
+body.pd-active #stage{height:min(100dvh,calc(min(100vw,56.25dvh) * 2.2223));aspect-ratio:auto}
+body.pd-active #screen{height:100%;aspect-ratio:auto;overflow:clip}
+/* overflow:clip — focus() on off-screen command buttons during attacks must never scroll the camera. */
+#pdWorld{position:absolute;overflow:hidden;pointer-events:none;box-shadow:0 -2px 0 #05040b,0 2px 0 #05040b,0 -3px 0 #403b72,0 3px 0 #403b72}
+#pdWorld > *{position:absolute;margin:0}
+#screen[data-pd-mode="combat"] .combat-hud{left:var(--pd-hud-x);right:auto;top:var(--pd-hud-y);width:var(--pd-hud-w);height:var(--pd-hud-h);align-items:center}
+#screen[data-pd-mode="combat"] .battle-ui{left:var(--pd-ui-x);right:auto;bottom:auto;width:var(--pd-ui-w);height:var(--pd-ui-h);top:var(--pd-ui-y)}
+#screen[data-pd-mode="combat"] .toast:not(.jdm-speaker-bubble){top:calc(var(--pd-world-y) + var(--pd-world-h) * .82)}
+/* Effects positioned in code from actor rectangles keep their authored size relative to the actor. */
+body.pd-active .blood-bath-contact-layer,body.pd-active .revenge-wound,body.pd-active .revenge-extract,body.pd-active .revenge-crack,body.pd-active .vampire-bite-contact,body.pd-active .contact-fragment,body.pd-active .vampire-life-particle{scale:var(--pd-fx,1)}
+body.pd-active .blood-bath-engulf{transform-origin:50% 92%}
+body.pd-active .detailed-blood-missile,body.pd-active .missile-ghost,body.pd-active .detailed-impact{scale:var(--pd-fx,1);transform-origin:0 0}
+/* Flight distances are Director variables (in pre-scale px; the element's scale applies to its transform). */
+body.pd-active .fire-orbs .detailed-blood-missile{animation:detailedLiquid 170ms steps(1,end) infinite,pdDetailFlight var(--flight) var(--delay) cubic-bezier(.1,.78,.16,1) forwards}
+body.pd-active .fire-orbs .missile-ghost{animation:pdGhostFlight var(--flight) var(--delay) cubic-bezier(.1,.78,.16,1) forwards}
+body.pd-active .briefcase-projectile.fly{animation:pdBriefcaseFly 430ms steps(4,end) forwards}
+@keyframes pdDetailFlight{0%{transform:translateX(0);opacity:1}82%{opacity:1}100%{transform:translateX(var(--pd-missile-dx,128px));opacity:0}}
+@keyframes pdGhostFlight{0%{transform:translateX(-5px) scale(.92);opacity:0}12%{opacity:var(--ghost)}82%{opacity:var(--ghost)}100%{transform:translateX(calc(var(--pd-missile-dx,128px) - 8px)) scale(.92);opacity:0}}
+@keyframes pdBriefcaseFly{0%{transform:translateX(0);background-position:0 0}25%{background-position:-64px 0}50%{background-position:-128px 0}75%{background-position:-192px 0}100%{transform:translateX(var(--pd-briefcase-dx,-145px));background-position:0 0}}
+/* Director actors: sprite size comes from the camera (per-element --pd-w/--pd-h/--pd-k), never from scene CSS. */
+#pdWorld > .gemini-rich,#pdWorld > .production-ceo,#pdWorld > .production-assistant{background-size:var(--pd-w) var(--pd-h)}
+#pdWorld > .production-ceo.combat-authored-ceo-normal,#pdWorld > .production-ceo.combat-authored-ceo-heavy,#pdWorld > .production-ceo.combat-authored-ceo-lethal{background-size:calc(var(--pd-k) * 240px) var(--pd-h)}
+#pdWorld > .production-ceo.combat-authored-ceo-heavy{background-position:calc(var(--pd-k) * -80px) 0}
+#pdWorld > .production-ceo.combat-authored-ceo-lethal{background-position:calc(var(--pd-k) * -160px) 0}
+/* Contact shadow sits on the contact line (source y 88), sized in source pixels. */
+#pdWorld > .production-ceo:after,#pdWorld > .production-assistant:after{width:calc(var(--pd-k) * 19px);height:calc(var(--pd-k) * 2.5px);bottom:calc(var(--pd-k) * 6.75px)}
+/* Dialogue mode (adventure adapter): world viewport on top, dialogue/choices in the UI band below it. */
+#screen[data-pd-mode="dialogue"] .adv-box{left:var(--pd-ui-x);right:auto;width:var(--pd-ui-w);top:calc(var(--pd-ui-y) + 1.6em);bottom:auto;min-height:6em;max-height:calc(var(--pd-ui-h) - 1.6em);overflow-y:auto}
+#screen[data-pd-mode="dialogue"] .adv-choices{left:var(--pd-ui-x);right:auto;width:var(--pd-ui-w);top:var(--pd-ui-y);bottom:auto;max-height:var(--pd-ui-h)}
+#screen[data-pd-mode="dialogue"] .adv-location{left:calc(var(--pd-world-x) + 8px);top:calc(var(--pd-world-y) + 8px)}
+#screen[data-pd-mode="dialogue"] .adv-scene{background:#080711}
+/* Combat 2.0 in combat mode (Director path): HUD band, telegraph on the world, panel in the UI band. */
+#screen[data-pd-mode="combat"] .c2-scene{background:#080711}
+#screen[data-pd-mode="combat"] .c2-hud{left:var(--pd-hud-x);right:auto;width:var(--pd-hud-w);top:var(--pd-hud-y);height:var(--pd-hud-h);align-items:center}
+#screen[data-pd-mode="combat"] .c2-telegraph{left:calc(var(--pd-world-x) + 4%);right:auto;width:calc(var(--pd-world-w) * .92);top:calc(var(--pd-world-y) + 8px)}
+#screen[data-pd-mode="combat"] .c2-panel{left:var(--pd-ui-x);right:auto;width:var(--pd-ui-w);top:var(--pd-ui-y);bottom:auto;height:var(--pd-ui-h);max-height:var(--pd-ui-h);gap:3px}
+#screen[data-pd-mode="combat"] .c2-log{padding:4px 8px;min-height:3.8em;line-height:1.4}
+/* The command grid fills the band: taller, easier touch targets instead of an empty strip under the menu. */
+#screen[data-pd-mode="combat"] .c2-menu{max-height:none;flex:1;min-height:0;grid-auto-rows:minmax(min-content,1fr);overflow:auto;gap:3px}
+#screen[data-pd-mode="combat"] .c2-btn{display:flex;flex-direction:column;justify-content:center;padding:4px 8px}
+#screen[data-pd-mode="combat"] .c2-menu[data-result]{flex:0 0 auto;grid-template-columns:1fr;margin-top:8px}
+.c2-menu[data-result] .c2-btn{min-height:56px;text-align:center;align-items:center;border-color:#f6efd9}
+.c2-menu .c2-back{grid-column:1/-1;min-height:44px}
+.c2-enemy.c2-defeated{opacity:.3;filter:grayscale(1);transition:opacity 240ms steps(4,end)}
+@media(prefers-reduced-motion:reduce){.c2-enemy.c2-defeated{transition:none}}
+#screen[data-pd-mode="combat"] .c2-orb{width:calc(23px * var(--pd-fx,1));animation-name:pdC2Orb}
+@keyframes pdC2Orb{to{left:var(--pd-orb-to,70%)}}
+/* Generic scene UI roles (data-pd-ui) — any Director scene tags its UI and the mode lays it out. */
+#screen[data-pd-mode] [data-pd-ui="location"]{left:calc(var(--pd-world-x) + 8px);right:auto;width:auto;max-width:calc(var(--pd-world-w) - 16px);top:calc(var(--pd-world-y) + 8px);text-align:left;padding:3px 6px}
+#screen[data-pd-mode] [data-pd-ui="actions"]{left:calc(var(--pd-ui-x) + var(--pd-ui-w) * .1);right:auto;width:calc(var(--pd-ui-w) * .8);top:calc(var(--pd-ui-y) + var(--pd-ui-h) * .18);bottom:auto;transform:none}
+#screen[data-pd-mode] [data-pd-ui="dialogue"]{left:var(--pd-ui-x);right:auto;width:var(--pd-ui-w);top:calc(var(--pd-ui-y) + 1.6em);bottom:auto;max-height:calc(var(--pd-ui-h) - 1.6em)}
+#screen[data-pd-mode] [data-pd-ui="choices"]{left:var(--pd-ui-x);right:auto;width:var(--pd-ui-w);top:var(--pd-ui-y);bottom:auto;max-height:var(--pd-ui-h)}
+#screen[data-pd-mode] .trip-scene{background:#080711}
+/* Minigames paint a fixed 270×480 canvas: on tall Director screens the stage keeps 9:16 (full width, centred);
+   it is never stretched. Surplus height stays the minigame's dark background. */
+body.pd-active .ra-minigame-stage{inset:auto;left:0;right:auto;width:100%;height:auto;aspect-ratio:9/16;top:50%;transform:translateY(-50%)}
+/* Full-screen authored effects are frozen 270×480 art: aspect-preserving cover on Director screens (never stretched).
+   The octopus tentacles (270×362) fit the width anchored to the bottom (the legacy 100%×100% stretch is removed). */
+body.pd-active .blood-bath-impact,body.pd-active .revenge-impact-authored,body.pd-active .vampire-bite-jaw,body.pd-active .vampire-bite-snap{background-size:cover!important;background-position:center!important}
+body.pd-active .tentacle-sprite{background-size:100% auto!important;background-position:center bottom!important}
+/* The throne's legacy room layer is only shown when the throne scene adopts it into #pdWorld. */
+body.pd-active #screen > .room{display:none}
+
+/* RC2 · BUILD 1 — guidance (OL-063). The app the player should open next shakes in two stepped frames and wears a "!" until it is opened;
+   the bedroom phone icon shakes while anything is pending. VampGPT's RECOMMENDED lines; the cheap-buy toast. Reduced motion: still outline. */
+#phoneContent .app-button.phone-pulse .phone-icon-tile{outline:2px solid var(--os-red);outline-offset:1px;animation:ra-pulse-shake .5s steps(2,end) infinite}
+#phoneContent .phone-pulse-dot{position:absolute;right:15px;top:0;min-width:15px;padding:2px;background:var(--os-red);color:#fff;border:1px solid var(--os-bg);font:12px var(--os-label);font-style:normal;text-align:center;animation:ra-pulse-blink 1s steps(2,end) infinite}
+#phoneContent .phone-next-button[data-guide]{animation:ra-pulse-blink 1.2s steps(2,end) infinite}
+.check-phone.guide-pulse{animation:ra-pulse-shake .5s steps(2,end) infinite;outline:2px solid #f04067;outline-offset:1px}
+@keyframes ra-pulse-shake{0%{translate:0 0}25%{translate:-1px 1px}50%{translate:1px 0}75%{translate:0 -1px}100%{translate:0 0}}
+@keyframes ra-pulse-blink{0%{opacity:1}50%{opacity:.55}100%{opacity:1}}
+#phoneContent .phone-rec{margin:0 0 12px}
+#phoneContent .phone-rec .rec-line{display:block;width:100%;text-align:left;min-height:38px;margin:0 0 6px}
+#phoneContent .phone-rec .rec-line small{display:block;color:var(--os-gold);margin:0 0 2px}
+#phoneContent .phone-rec .rec-line strong{display:block;font-weight:400;line-height:1.1}
+#phoneContent .phone-rec .rec-first{border:2px solid var(--os-red);background:var(--os-raised);box-shadow:3px 3px #4c1932}
+.ra-toast{position:fixed;left:50%;bottom:14%;transform:translateX(-50%);z-index:10050;max-width:86%;padding:8px 10px;background:#f1e5c5;color:#21151a;border:2px solid #28131c;box-shadow:3px 3px #7d194b;font:8px/1.5 var(--font-system,monospace);text-align:center;pointer-events:none}
+@media (prefers-reduced-motion:reduce){#phoneContent .app-button.phone-pulse .phone-icon-tile,#phoneContent .phone-pulse-dot,#phoneContent .phone-next-button[data-guide],.check-phone.guide-pulse{animation:none}}
+/* OL-076: meters run silently; cash stays legible in every host scene. */
+#stage{position:relative}
+body.rc3 .rc3-cash{position:absolute;top:6px;right:8px;z-index:2147483100;background:#10101b;color:#fff;padding:5px 8px;font:14px monospace;pointer-events:none;border:1px solid #f4c95d}
+body.rc3 .combat-hud .hpbox span,body.rc3 .c2-hp span{visibility:visible}
+body.rc3 .c2-scene{z-index:130}
+body.rc3 .c2-btn small,body.rc3 #moves span,body.rc3 #revengeValue{display:block}
+body.rc3 .phone-section-label{display:none}
+body.rc3 .phone-app-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+body.rc3.combat2-mode .rc3-cash{top:auto;bottom:6px}
+body.rc3 .c2-panel{padding-bottom:28px}
+
+/* RC4 campaign flow: title/dream context and purposeful optional phone routes. */
+body.rc3:has(#startOverlay:not([style*="display: none"])) .combat-hud,
+body.rc3:has(#startOverlay:not([style*="display: none"])) #healFloat,
+body.rc3.rc4-title .combat-hud,body.rc3.rc4-title #healFloat{display:none}
+body.rc3:has(#startOverlay:not([style*="display: none"])) .rc3-cash,
+body.rc3:has(#startOverlay:not([style*="display: none"])) .rc2-cash,
+body.rc3.rc4-prelife .rc3-cash,body.rc3 .rc2-cash{display:none}
+/* The phone already presents the balance; keep its status bar unobstructed. */
+body.rc3:has(#phoneOverlay.open) .rc3-cash,
+body.rc3:has(#phoneOverlay.closing) .rc3-cash{display:none}
+body.rc3 #startOverlay{background:rgba(5,4,12,.94)}
+.rc4-day-options{margin:10px 0;padding:10px;border:2px solid #574d74;background:#141321}
+.rc4-opportunity{display:block;width:100%;text-align:left;margin:8px 0;line-height:1.6}
+.rc4-opportunity small{display:block;font-size:.74em;line-height:1.65;opacity:.85;margin-top:5px;white-space:normal}
+/* C2 lane: legacy input availability follows its actual busy/over state. */
+#battleUI button:disabled{opacity:.45;cursor:default;filter:saturate(.35)}
+#battleUI[aria-busy=true] #dialogue{border-color:#d6af62}
+
+body.rc3.legacy-combat-mode .rc3-cash{display:none}
+
+/* Accepted importer shove sprites face right; the actual opponent stands at Rich's right. */
+body.jdm-battle .production-ceo[data-importer-move]{transform:scaleX(-1)!important}

@@ -1,0 +1,151 @@
+{
+  "project": "Rich Alucard: Before the Fame",
+  "card": "Art Production Card 02",
+  "status": "READY FOR HQ REVIEW",
+  "approval_scope": "Approved visual target only; delivered production candidates require HQ review",
+  "ogun": {
+    "master": "masters/ogun_neutral_80x96.png",
+    "states": [
+      "neutral"
+    ],
+    "state_type": "single held frame; no timing or animation",
+    "canvas": [
+      80,
+      96
+    ],
+    "anchor": [
+      40,
+      88
+    ],
+    "contact_edge_y": 88,
+    "visible_bounds_exclusive": [
+      27,
+      32,
+      53,
+      88
+    ],
+    "visual_direction": "A / Ivory Host",
+    "pixel_change_from_approved_A": "none"
+  },
+  "environment": {
+    "master": "masters/rave_interior_270x480.png",
+    "canvas": [
+      270,
+      480
+    ],
+    "layer_origin": [
+      0,
+      0
+    ],
+    "partition_order": [
+      "layers/room_without_foreground.png",
+      "layers/speaker_foreground_overlay.png"
+    ],
+    "opaque_alternative": "Use opaque master below actors and foreground overlay above actors; do not also draw the partition base.",
+    "mask_semantics": "visual compositing only, not gameplay",
+    "palette": "same 20 RGB entries as approved room study; no new colors",
+    "edit_scope": "crowd silhouettes removed within saved edit-region mask"
+  },
+  "proof": {
+    "actor_scale": 1,
+    "rich_cell_top_left": [
+      35,
+      256
+    ],
+    "ogun_cell_top_left": [
+      152,
+      185
+    ],
+    "rich_world_contact": [
+      75,
+      344
+    ],
+    "ogun_world_contact": [
+      192,
+      273
+    ],
+    "not_stage_contract": true
+  },
+  "files": {
+    "01_composition_native_270x480.png": {
+      "bytes": 71051,
+      "sha256": "816dbe1d2bdc013884ff41cb189460a64f133844e03ca80f0239e959a933944c"
+    },
+    "02_composition_review_4x.png": {
+      "bytes": 114546,
+      "sha256": "31349d07249b7cf0c8684f6b43a7c68d3c53a699e76cb4935dce08c201d7fb48"
+    },
+    "03_master_review_sheet.png": {
+      "bytes": 182147,
+      "sha256": "c63c5a9188c6954fb9d9d39b91d9dbdb32f4c688a06e56b2c3c3d51ba9eac5d5"
+    },
+    "04_anchor_layer_evidence.png": {
+      "bytes": 175501,
+      "sha256": "be894d8d6619496e02c9fce0c5fe4b8194da65cb1e45acdaa5309775f788420a"
+    },
+    "evidence/validation.json": {
+      "bytes": 671,
+      "sha256": "9a64c38304d58c87289ba1d802dbde55bc8a28478505119e9a4642b8bd2861d7"
+    },
+    "layers/room_without_foreground.png": {
+      "bytes": 72881,
+      "sha256": "fc1690873d84d492e49756cde4daf4ae16befbaead4410aef59d090864ee5556"
+    },
+    "layers/speaker_foreground_overlay.png": {
+      "bytes": 72885,
+      "sha256": "04e5fb68a58df316c1848941390fdac7968d1691385604958490ac6ec698913c"
+    },
+    "masks/crowd_removal_edit_region.png": {
+      "bytes": 370,
+      "sha256": "dc6440802dc5190b27bd9f044ccdb67b4254017ddaaf7b5f42b0400a1b4d6c2b"
+    },
+    "masks/ogun_neutral_silhouette.png": {
+      "bytes": 276,
+      "sha256": "b788634871cbe6bb354b7d2ce9950b1ebdeecb01a7652548767a6b729b6e42f1"
+    },
+    "masks/speaker_foreground_mask.png": {
+      "bytes": 439,
+      "sha256": "810a9b02e4325c27932318e153f9353b90df24b2ef7109ff252707d51dc54628"
+    },
+    "masters/ogun_neutral_80x96.png": {
+      "bytes": 1816,
+      "sha256": "093bf68ef4b4d3ff64228b50a94b8e57e568886a582b13e005636581c18e412b"
+    },
+    "masters/rave_interior_270x480.png": {
+      "bytes": 68697,
+      "sha256": "597591188a9f3b7865625f967933b07586930982fb31d0c92ab4e5fc38c51118"
+    },
+    "provenance/approved_room_study.png": {
+      "bytes": 70040,
+      "sha256": "d7b9d7427ac16d8ec60c74e986dc215bdc3485b1d0156121220347888cd1f400"
+    },
+    "provenance/approved_target_decision.md": {
+      "bytes": 2270,
+      "sha256": "bad90f44a3936404c0ea6cab0d8b480866cfc90b0fbe61a763833fdae8d7318b"
+    },
+    "provenance/generated_crowd_removal.png": {
+      "bytes": 1174457,
+      "sha256": "b825e4058b85180c8820f1b9dbee11af06838bbba48cd1069ac688a06757505b"
+    },
+    "provenance/GENERATION_RECORD.md": {
+      "bytes": 1737,
+      "sha256": "8dddf141debe43cf784a7ef2e745ec7b9319d5cc84b8c4313e7fcd66168c1898"
+    },
+    "README_HANDOFF.md": {
+      "bytes": 5077,
+      "sha256": "e51c4007fe2a4153404db3b55a6e6fc6c1c622257b156b76b88ea75bc6249ca6"
+    },
+    "references/rich_standing_right.png": {
+      "bytes": 798,
+      "sha256": "765170076e8d3a9af9e8857e176e079b2a68c7ee1daafb7c8d551482228f144b"
+    },
+    "review/ogun_neutral_6x.png": {
+      "bytes": 4631,
+      "sha256": "07d3af97dbecaa3edb765db76817c4101b49f56f95b3d39b6601494fe64378cd"
+    },
+    "review/rave_interior_4x.png": {
+      "bytes": 111643,
+      "sha256": "63460aaf17ee79748163428009791820b3717a42f5d6afb7a63975a5400d4f06"
+    }
+  }
+}

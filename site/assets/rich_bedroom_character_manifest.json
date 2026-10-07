@@ -1,0 +1,135 @@
+{
+  "version": 1,
+  "status": "For visual review",
+  "image": "rich_bedroom_sprite_sheet.png",
+  "sheet": {
+    "width": 384,
+    "height": 128,
+    "columns": 3,
+    "rows": 2,
+    "order": "Left to right, then top to bottom"
+  },
+  "cell": {
+    "width": 128,
+    "height": 64
+  },
+  "anchor": {
+    "x": 24,
+    "y": 56,
+    "meaning": "Fixed left-side support-line reference; use the same world position for every frame."
+  },
+  "frames": {
+    "rich_bedroom_lounge_idle": {
+      "file": "rich_bedroom_lounge_idle.png",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "w": 128,
+        "h": 64
+      },
+      "anchor": {
+        "x": 24,
+        "y": 56
+      }
+    },
+    "rich_bedroom_phone_scroll": {
+      "file": "rich_bedroom_phone_scroll.png",
+      "rect": {
+        "x": 128,
+        "y": 0,
+        "w": 128,
+        "h": 64
+      },
+      "anchor": {
+        "x": 24,
+        "y": 56
+      }
+    },
+    "rich_bedroom_small_idle": {
+      "file": "rich_bedroom_small_idle.png",
+      "rect": {
+        "x": 256,
+        "y": 0,
+        "w": 128,
+        "h": 64
+      },
+      "anchor": {
+        "x": 24,
+        "y": 56
+      }
+    },
+    "rich_bedroom_phone_reaction": {
+      "file": "rich_bedroom_phone_reaction.png",
+      "rect": {
+        "x": 0,
+        "y": 64,
+        "w": 128,
+        "h": 64
+      },
+      "anchor": {
+        "x": 24,
+        "y": 56
+      }
+    },
+    "rich_bedroom_sleeping": {
+      "file": "rich_bedroom_sleeping.png",
+      "rect": {
+        "x": 128,
+        "y": 64,
+        "w": 128,
+        "h": 64
+      },
+      "anchor": {
+        "x": 24,
+        "y": 56
+      }
+    },
+    "rich_bedroom_drowsy_wake": {
+      "file": "rich_bedroom_drowsy_wake.png",
+      "rect": {
+        "x": 256,
+        "y": 64,
+        "w": 128,
+        "h": 64
+      },
+      "anchor": {
+        "x": 24,
+        "y": 56
+      }
+    }
+  },
+  "nativeVisibleWidth": 108,
+  "screenWidthFraction": 0.4,
+  "alpha": "Binary: 0 or 255",
+  "rendering": {
+    "scale": 1,
+    "sampling": "nearest-neighbor",
+    "imageSmoothingEnabled": false,
+    "cssImageRendering": "pixelated",
+    "integerCoordinates": true
+  },
+  "suggestedBedroomPlacement": {
+    "canvasTopLeft": {
+      "x": 14,
+      "y": 282
+    },
+    "worldAnchor": {
+      "x": 38,
+      "y": 338
+    },
+    "note": "Starting placement for approved 270x480 bedroom; all states use identical placement. No bedroom pixels included."
+  },
+  "animation": {
+    "philosophy": "Long holds with tiny authored changes; no tweening required.",
+    "order": [
+      "rich_bedroom_lounge_idle",
+      "rich_bedroom_phone_scroll",
+      "rich_bedroom_small_idle",
+      "rich_bedroom_phone_reaction",
+      "rich_bedroom_sleeping",
+      "rich_bedroom_drowsy_wake"
+    ],
+    "timing": "Runtime-controlled. Sleeping and drowsy wake are separate states, not automatic steps in ambient idle."
+  },
+  "identity": "Canonical Rich with black bonnet, sunglasses, green earring, all-black lounge outfit and socks. Phone included; no furniture or environment."
+}

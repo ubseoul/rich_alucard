@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no">
+<meta name="theme-color" content="#000000">
+<title>THE PLAY</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 16 16%27%3E%3Crect width=%2716%27 height=%2716%27 fill=%27%230b0716%27/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../f01/play/feel.css">
+<!-- F07 PHASE 1 HOST. Identical to F01's embed page (assets/f01/play/index.html, untouched) except for three F07-owned things:
+     1. an import map that gives F01's controller F07's feed wrapper (guaranteed AUNTIES / CANOPY POLE feedback; every other beat is F01's own);
+     2. a storage namespace shim: this page's PLAY world lives under ra.f07.play.v1.* so the encounter vehicle (D7) and the encounter itself can never
+        touch F01's ordinary world, car losses or recovery surface;
+     3. install(): the F07-owned THE PARTY job + stage cards, before F01's controller boots. -->
+<script type="importmap">{"imports":{"../../../js/frag/F01/play/feed.mjs":"../../../js/frag/F07/play/feed_f07.mjs"}}</script>
+</head>
+<body>
+<noscript>THE PLAY needs JavaScript.</noscript>
+<div id="stage"><div id="world"></div><div id="fade"></div></div>
+<script>
+(function(){var A='ra.f01.play.v1',B='ra.f07.play.v1',m=function(k){return typeof k==='string'&&k.indexOf(A)===0?B+k.slice(A.length):k;},P=Storage.prototype,g=P.getItem,s=P.setItem,r=P.removeItem;
+ P.getItem=function(k){return g.call(this,m(k));};P.setItem=function(k,v){return s.call(this,m(k),v);};P.removeItem=function(k){return r.call(this,m(k));};})();
+</script>
+<script src="../../../js/frag/F01/rng.js"></script>
+<script src="../../../js/frag/F01/data.js"></script>
+<script src="../../../js/frag/F01/play_contract.js"></script>
+<script type="module">
+  import * as C from '../../../js/frag/F01/play/content.mjs';
+  import {install} from '../../../js/frag/F07/play/owambe.mjs';
+  install(C);   // F07-owned Phase 1 job + stage cards; F01's files are not edited
+  // A1: the approved exterior is installed only in this F07 page's module instance.
+  const {FL_ART} = await import('../../f01/play/feel-frozen.mjs');
+  const exterior = window.parent !== window ? window.parent.RAF07?.warehouseExterior?.() : null;
+  FL_ART.exterior.owambe_party = exterior ? '../../../'+exterior : '../backgrounds/warehouse_exterior_270x480.png';
+  const {boot} = await import('../../f01/play/feel-ui.mjs');
+  boot();
+</script>
+</body>
+</html>
