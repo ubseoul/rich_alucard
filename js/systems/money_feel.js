@@ -92,7 +92,7 @@
   card.classList.remove('on');card.classList.add('off');await wait(160);card.remove();
  }
  async function pumpCards(){if(cardShowing)return;cardShowing=true;try{while(cardQueue.length)await showCard(cardQueue.shift());}finally{cardShowing=false;}}
- function eventResult(title,startBal,sub){if(!started())return;const net=money()-startBal;cardQueue.push({title,net,sub});setTimeout(pumpCards,420);}
+ function eventResult(title,startBal,sub){if(!started())return;const net=money()-startBal;if(net===0)return;cardQueue.push({title,net,sub});setTimeout(pumpCards,420);}
  // wrap event sources without touching their modules
  function wrapEvents(){
   const M=window.RAMinigames;if(M&&!M.__rc2){const launch=M.launch;M.launch=function(id,params,opts){const b=money(),def=M.get?.(id);const p=launch.call(this,id,params,opts);Promise.resolve(p).then(r=>{if(r&&!r.quit)eventResult(def?.title||id,b);});return p;};M.__rc2=true;}

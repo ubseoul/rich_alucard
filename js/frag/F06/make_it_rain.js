@@ -314,10 +314,10 @@
       } else {
         var isOver = result.kind === 'overthrow';
         var lx = clamp(result.landingX, 0.08, 0.92) * W, ly = Math.round(H * 0.34);
-        addPopup(isOver
+        if (!hideTarget) addPopup(isOver
           ? { text: 'OVERTHROW', x: lx, y: ly - 8, ttl: 1100, color: PAL.hot, size: 32, mono: true, rise: 10, delay: dur - 160, shadow: PAL.void, group: 'target2' }
           : { text: 'MISS', x: lx, y: ly - 8, ttl: 1000, color: PAL.orange, size: 32, mono: true, rise: 10, delay: dur - 160, shadow: PAL.void, group: 'target2' });
-        addPopup(isOver
+        if (!hideTarget) addPopup(isOver
           ? { text: 'IN THE DARK', x: lx, y: ly + 16, ttl: 1100, color: PAL.dim, size: 16, mono: true, rise: 8, delay: dur - 160, group: 'target' }
           : { text: 'OFF TARGET', x: lx, y: ly + 16, ttl: 1000, color: PAL.dim, size: 16, mono: true, rise: 8, delay: dur - 160, group: 'target' });
         if (!reduce) shake = tunables.feedback.shakeMs;

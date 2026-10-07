@@ -142,7 +142,7 @@
   if(id!=='ramen')return false;const adventure=RAAdventures.isDone('A08')?'SLURP':'A08';
   if(!RAAdventures.available(adventure))return false;await RAPhone.close();return RAAdventureScene.begin(adventure,{from:'rc3-activity'});
  }
- function mapsMarkup(api){releaseMap();return `<h1>MAPS</h1><p class="phone-small">Food, familiar faces and trouble worth leaving home for. Pick an outing or keep the night to yourself.</p>${[...MAPS,...SOCIAL].filter(id=>RAAdventures.available(id)).map(id=>api.button(api.esc(RAAdventures.get(id).title),`rc3:map:${id}`)).join('')}${tripReady()?api.button('ATLANTA · BUTTER CHICKEN','rc3:map:atlanta'):''}${[...MAPS,...SOCIAL].some(id=>RAAdventures.available(id))||tripReady()?'':'<p>No outing ready tonight.</p>'}${api.button('HOME','home','phone-home')}`;}
+ function mapsMarkup(api,nav=true){releaseMap();return `<h1>MAPS</h1><p class="phone-small">Food, familiar faces and trouble worth leaving home for. Pick an outing or keep the night to yourself.</p>${[...MAPS,...SOCIAL].filter(id=>RAAdventures.available(id)).map(id=>api.button(api.esc(RAAdventures.get(id).title),`rc3:map:${id}`)).join('')}${tripReady()?api.button('ATLANTA · BUTTER CHICKEN','rc3:map:atlanta'):''}${[...MAPS,...SOCIAL].some(id=>RAAdventures.available(id))||tripReady()?'':'<p>No outing ready tonight.</p>'}${nav?api.button('HOME','home','phone-home'):''}`;}
  // Powder Springs butter chicken (desire trip 001): repeatable, after Ogun's rave, never mid-adventure.
  function tripReady(){return !!flag('ogunsRaveCompleted')&&!RAAdventures.active()&&!!window.RADesireTrips&&window.RAOpportunities?.get?.('atlanta')?.available!==false;}
  async function tripGo(){if(!tripReady())return false;const trip=RADesireTrips.createTrip(window.RADesireTripPresentation?.firstTrip||{});if(!trip)return false;window.RAClock?.logOuting?.({type:'desire',id:'butter_chicken'});const ok=await RAPhone.close();if(ok===false)return false;return RADesireTrips.beginTravel();}
@@ -280,7 +280,7 @@
  }
  const bank=window.RAPhoneApps?.get?.('bank');if(bank){bank.render=(sub,api)=>bankMarkup(sub,api)+api.button('JDM IMPORTS / GARAGE','app:jdmImports');bank.onAction=(act,arg,api)=>{if(act==='rental'&&RALife.money()>=39000)RAPropertyQuest.completePurchase('cut');if(act==='hall'&&RALife.money()>=hall().price+5000)RACastle.buy('party_hall');if(act==='party')return partyGo();api.refresh();};}
  if(window.RACastle){const buy=RACastle.buy;RACastle.buy=id=>id==='party_hall'&&buy(id);RACastle.open=()=>RAPhone.openApp('bank');RACastle.markup=()=>'';}
- const maps=window.RAPhoneApps?.get?.('maps');if(maps)maps.render=(sub,api)=>mapsMarkup(api);
+ const maps=window.RAPhoneApps?.get?.('maps');if(maps)maps.render=(sub,api)=>mapsMarkup(api,false);
  // The retired MOVES tile is an essential loadout function, folded into Armory.
  const armory=window.RAPhoneApps?.get?.('armory');if(armory){const render=armory.render,action=armory.onAction;
   armory.render=(sub,api)=>{if(sub?.startsWith('move:')){const slot=Number(sub.slice(5));return `<h1>ARMORY · MOVE ${slot+1}</h1>${(window.RAIronMoves?.known?.()||[]).map(id=>api.button(api.esc(RACombatData.MOVES[id].label),`do:armory:moveEquip:${slot}|${id}`)).join('')}${api.button('BACK','app:armory')}`;}

@@ -199,5 +199,5 @@
   raf=requestAnimationFrame(frame);
   return {dispose(){const r=raf;raf=null;if(r)cancelAnimationFrame(r);if(beatAudio)beatAudio.close().catch(()=>{});canvas.removeEventListener('pointerdown',pointerDown);window.removeEventListener('keydown',keyDown);}};
  }
- window.RAMinigames.register('dance',{title:'DANCE FLOOR',rule:'Match arrows at the gold line with the pads, A S D F or left/down/up/right; keep blend above zero.',ruleFor:p=>`Match arrows at the gold line with the pads or A S D F; hit ${Math.round(config(p).winAccuracy*100)}% and keep blend above zero.`,mount});
+ window.RAMinigames.register('dance',{title:'DANCE FLOOR',rule:'Match arrows at the gold line with the pads, A S D F or left/down/up/right; keep blend above zero.',ruleFor:p=>`Match arrows at the gold line with the pads or A\u00a0S\u00a0D\u00a0F; hit ${Math.round(config(p).winAccuracy*100)}% and keep blend above zero.`,mount});
 })();

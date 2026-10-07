@@ -283,5 +283,5 @@
   };
  }
 
- window.RAMinigames.register('slurp',{title:'SLURP',rule:'Match the ticket with taps or keys 1–4, building broth, noodles, meat and topping before patience runs out.',ruleFor:p=>p?.canopyDuty?`Drag bundles into the canopy or press Space to stack; finish all ${p.totalChairs||window.RANewOgaTunables?.chairs?.AUTHORED_TOTAL} before the timer ends.`:null,mount});
+ window.RAMinigames.register('slurp',{title:'SLURP',titleFor:p=>p?.canopyDuty?'CANOPY DUTY':'SLURP',rule:'Match the ticket with taps or keys 1–4, building broth, noodles, meat and topping before patience runs out.',ruleFor:p=>p?.canopyDuty?`Drag bundles into the canopy or press Space to stack; finish all ${p.totalChairs||window.RANewOgaTunables?.chairs?.AUTHORED_TOTAL} before the timer ends.`:null,mount});
 })();

@@ -81,7 +81,7 @@
    const ruleText=def.ruleFor?.(params)||(typeof def.rule==='function'?def.rule(params):def.rule);
    const coachKey=`rc3Coach:${id}${params.canopyDuty?':chairs':''}`;
    const coached=window.RARC3&&window.RALife?.flag?.(coachKey);
-   if(ruleText&&!coached&&!params.skipRule&&!window.RA_SKIP_MINIGAME_RULE){showRuleCard(stage,{...def,rule:ruleText},ctx,begin);}else begin();
+   if(ruleText&&!coached&&!params.skipRule&&!window.RA_SKIP_MINIGAME_RULE){showRuleCard(stage,{...def,title:def.titleFor?.(params)||def.title,rule:ruleText},ctx,begin);}else begin();
   });
  }
  function active(){return current?{id:current.id}:null}

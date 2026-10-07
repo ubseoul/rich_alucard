@@ -211,7 +211,7 @@
    // throw feedback, tied to the recipient and above every figure
    effects=effects.filter(e=>N-e.t0<e.ttl);
    for(const e of effects){
-    const a=(N-e.t0)/e.ttl,top=geo.boxes[e.recipient]?.y??geo.feetY-120,y=(e.encore?H*.59-a*5:Math.max(geo.hudBottom+8,top)-14-a*14)*dpr;
+    const a=(N-e.t0)/e.ttl,top=geo.boxes[e.recipient]?.y??geo.feetY-120,y=(e.encore?H*.59-a*5:Math.max(geo.hudBottom+26,top-14)-a*14)*dpr;
     octx.globalAlpha=Math.min(1,2*(1-a));octx.textBaseline='bottom';octx.textAlign='center';
     octx.font=`${Math.round((e.encore?11:9)*dpr)}px ${PSTART}`;octx.lineWidth=3*dpr;octx.strokeStyle='#07060f';octx.strokeText(e.text,e.x*dpr,y);octx.fillStyle=e.color;octx.fillText(e.text,e.x*dpr,y);
     octx.font=`${Math.round(7*dpr)}px ${PSTART}`;octx.strokeText(e.sub,e.x*dpr,y+12*dpr);octx.fillStyle='#f6efd9';octx.fillText(e.sub,e.x*dpr,y+12*dpr);
