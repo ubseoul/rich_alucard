@@ -142,8 +142,11 @@
   if(id!=='ramen')return false;const adventure=RAAdventures.isDone('A08')?'SLURP':'A08';
   if(!RAAdventures.available(adventure))return false;await RAPhone.close();return RAAdventureScene.begin(adventure,{from:'rc3-activity'});
  }
- function mapsMarkup(api){releaseMap();return `<h1>MAPS</h1><p class="phone-small">Food, familiar faces and trouble worth leaving home for. Pick an outing or keep the night to yourself.</p>${[...MAPS,...SOCIAL].filter(id=>RAAdventures.available(id)).map(id=>api.button(api.esc(RAAdventures.get(id).title),`rc3:map:${id}`)).join('')||'<p>No outing ready tonight.</p>'}${api.button('HOME','home','phone-home')}`;}
- async function mapGo(id){if(![...MAPS,...SOCIAL].includes(id)||!RAAdventures.available(id))return false;await RAPhone.close();return RAAdventureScene.begin(id,{from:'rc3-maps'});}
+ function mapsMarkup(api){releaseMap();return `<h1>MAPS</h1><p class="phone-small">Food, familiar faces and trouble worth leaving home for. Pick an outing or keep the night to yourself.</p>${[...MAPS,...SOCIAL].filter(id=>RAAdventures.available(id)).map(id=>api.button(api.esc(RAAdventures.get(id).title),`rc3:map:${id}`)).join('')}${tripReady()?api.button('ATLANTA · BUTTER CHICKEN','rc3:map:atlanta'):''}${[...MAPS,...SOCIAL].some(id=>RAAdventures.available(id))||tripReady()?'':'<p>No outing ready tonight.</p>'}${api.button('HOME','home','phone-home')}`;}
+ // Powder Springs butter chicken (desire trip 001): repeatable, after Ogun's rave, never mid-adventure.
+ function tripReady(){return !!flag('ogunsRaveCompleted')&&!RAAdventures.active()&&!!window.RADesireTrips&&window.RAOpportunities?.get?.('atlanta')?.available!==false;}
+ async function tripGo(){if(!tripReady())return false;const trip=RADesireTrips.createTrip(window.RADesireTripPresentation?.firstTrip||{});if(!trip)return false;window.RAClock?.logOuting?.({type:'desire',id:'butter_chicken'});const ok=await RAPhone.close();if(ok===false)return false;return RADesireTrips.beginTravel();}
+ async function mapGo(id){if(id==='atlanta')return tripGo();if(![...MAPS,...SOCIAL].includes(id)||!RAAdventures.available(id))return false;await RAPhone.close();return RAAdventureScene.begin(id,{from:'rc3-maps'});}
  function phoneRoute(id){return APPS.includes(id)||id==='jdmImports'||id==='cars';}
  function phoneAction(name){if(name.startsWith('app:'))return phoneRoute(name.split(':')[1]);if(name.startsWith('do:'))return phoneRoute(name.split(':')[1]);
   if(name.startsWith('go:')||name.startsWith('tempt:')||['money','people','realEstate','atlanta','tokyo','letsGo','butterChicken'].includes(name))return false;return true;}
