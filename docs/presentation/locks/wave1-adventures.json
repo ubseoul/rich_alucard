@@ -171,7 +171,7 @@
   "pier|left:rich": "conversation",
   "pier|left:rich,right:uncle_sunday@fishing": "conversation",
   "pier|left:rich@holding_fish_away,right:uncle_sunday@fishing": "conversation",
-  "portobello_bedroom|farRight:portobello_kid2,left:portobello_wife,mid:rich_portobello,right:portobello_kid1": "conversation",
+  "portobello_bedroom|farLeft:portobello_kid3,farRight:portobello_kid2,left:portobello_wife,mid:rich_portobello,right:portobello_kid1": "room",
   "portobello_bedroom|left:portobello_kid1,mid:rich_portobello,right:portobello_kid2": "conversation!PD-FA-03",
   "portobello_bedroom|left:portobello_wife,mid:rich_portobello": "conversation",
   "portobello_office|left:rich_portobello@presenting,right:portobello_manager": "conversation",

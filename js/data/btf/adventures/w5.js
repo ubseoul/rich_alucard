@@ -20,7 +20,7 @@
  const PORTO_MGR={id:'portobello_manager',flip:true,look:{skin:'#d8b090',top:'#3a3a4a',bottom:'#1f2a44',hair:'#5a4a3a',hairShape:'hat'}};
  // Breakfast table: every figure stays framed by the generic staging, but only the wife and Rich speak here, so only
  // their faces carry the dialogue face-size floor (the kids read at the frozen child-height scale).
- const BREAKFAST_SPEAKERS={speakers:['mid','left']};
+ const BREAKFAST_SPEAKERS={profile:'room',focal:['mid','left','right','farRight','farLeft'],speakers:['mid','left'],reference:'mid'};
  const kpiRound=(n,next)=>({env:'portobello_office',actors:{left:RICH_PORTO_PRESENTING,right:PORTO_MGR},
   lines:[N(`SLIDE ${n}.`),S('portobello_manager','walk us through it.')],
   choices:[{label:'THE BAR CHART — REGIONAL GROWTH',next},{label:'THE LINE — QUARTER OVER QUARTER',next},{label:'THE PIE — MARKET SHARE',next}]});
@@ -33,7 +33,7 @@
   kpi1:kpiRound(1,'kpi2'),kpi2:kpiRound(2,'kpi3'),kpi3:kpiRound(3,'approve'),
   approve:{env:'portobello_office',actors:{left:RICH_PORTO_PRESENTING,right:PORTO_MGR},
    lines:[N("whole room agrees with him damn"),S('portobello_manager',"rich these numbers clean"),R("i know my shit")],next:'bedtime'},
-  bedtime:{env:'portobello_bedroom',actors:{mid:RICH_PORTO,left:PORTO_KID1,right:PORTO_KID2,farLeft:PORTO_KID3},
+  bedtime:{env:'portobello_bedroom',actors:{mid:RICH_PORTO,left:PORTO_KID1,right:PORTO_KID2},
    lines:[N("bath teeth fake dragon bedtime book"),S('portobello_kid1',"one more chapter dad"),R("alright one more")],next:'porch'},
   porch:{env:'portobello_porch',actors:{left:RICH_PORTO_PORCH,right:PORTO_WIFE},
    lines:[N("sun goes down she leans on him"),S('portobello_wife',"good day or what"),R("yeah pretty good"),N("good life no punchline coming")],next:'bed'},
