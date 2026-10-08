@@ -1,0 +1,13 @@
+/* F05 - THE TRAP - the_trap.css
+   Player-facing phone app styling. Uses only existing phone classes where possible; adds a couple of trap-local
+   helpers. No art assets are referenced (trap art is artSourceRequired / Visual A). */
+.phone-button[data-phone-action^="do:trap:buyHouse"],
+.phone-button[data-phone-action^="do:trap:cook"],
+.phone-button[data-phone-action^="do:trap:assign"],
+.phone-button[data-phone-action^="do:trap:crewRecruit"],
+.phone-button[data-phone-action^="do:trap:buyUpgrade"] {
+  border-color: #c18b3c;
+}
+.ra-trap-counter {
+  image-rendering: pixelated;
+}

@@ -1,3 +1,16 @@
 *.png binary
 *.pdf binary
 *.xlsx binary
+
+# Preserve the byte-identical approved compiled release.
+assets/** -text
+js/** -text
+index.html -text
+game.js -text
+style.css -text
+minigame-lab.html -text
+party-dev.html -text
+rave-review.html -text
+build.json -text
+overlay-build.json -text
+GAME-RELEASE.json -text

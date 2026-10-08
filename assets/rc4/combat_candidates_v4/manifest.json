@@ -1,0 +1,123 @@
+{
+  "batch": "Phil-day3",
+  "status": "assistant-delegated accepted candidate; not creator-frozen; runtime reviewed",
+  "tool": "built-in image_gen",
+  "source_manifest_sha256": "eaa532e7be2df4c0533a1167d308597791e380707052a5a1fb7b59c4c530ae1e",
+  "durations_ms": [
+    124,
+    186,
+    186,
+    124
+  ],
+  "total_ms": 620,
+  "contact_ms": 310,
+  "references": {
+    "assets/before_the_fame/characters/phil/phil_charging_day3_80x96.png": "1609de089d3d893927752c98d6f9af6033dac77d1213a2ab518e4717ffb85af5"
+  },
+  "frames": [
+    {
+      "asset": "assets/rc4/combat_candidates_v4/phil-day3-beam-prepare.png",
+      "sha256": "5c00b0c0628da0fb9c1e2f67ebfd91e639e7122e54e5063dba204be20d73091d",
+      "canvas": [
+        80,
+        96
+      ],
+      "anchor": [
+        40,
+        88
+      ],
+      "facing": "right"
+    },
+    {
+      "asset": "assets/rc4/combat_candidates_v4/phil-day3-beam-action.png",
+      "sha256": "da858e50b49667cbca35705c1bced87c81d42fcc5f49e64dabdfe9e43557aebc",
+      "canvas": [
+        80,
+        96
+      ],
+      "anchor": [
+        40,
+        88
+      ],
+      "facing": "right"
+    },
+    {
+      "asset": "assets/rc4/combat_candidates_v4/phil-day3-beam-contact.png",
+      "sha256": "78a898d2504dd21d95506a009e8b3f440b7fb52673ff03ffcc37d2217dc86a33",
+      "canvas": [
+        80,
+        96
+      ],
+      "anchor": [
+        40,
+        88
+      ],
+      "facing": "right"
+    },
+    {
+      "asset": "assets/rc4/combat_candidates_v4/phil-day3-beam-recovery.png",
+      "sha256": "36144a240044a2ede2a2bce07e102a49c499e390c0de9c5c8674c3847ea44b7f",
+      "canvas": [
+        80,
+        96
+      ],
+      "anchor": [
+        40,
+        88
+      ],
+      "facing": "right"
+    },
+    {
+      "asset": "assets/rc4/combat_candidates_v4/phil-day3-punch-prepare.png",
+      "sha256": "5a1a833814c150f888dcc0073a4b74a1860121742044c9983891b9bf2df59aa7",
+      "canvas": [
+        80,
+        96
+      ],
+      "anchor": [
+        40,
+        88
+      ],
+      "facing": "right"
+    },
+    {
+      "asset": "assets/rc4/combat_candidates_v4/phil-day3-punch-action.png",
+      "sha256": "e518e8562b36f278422ee4ab7b923aca627ba67bffe17d9a51733cfa0935615a",
+      "canvas": [
+        80,
+        96
+      ],
+      "anchor": [
+        40,
+        88
+      ],
+      "facing": "right"
+    },
+    {
+      "asset": "assets/rc4/combat_candidates_v4/phil-day3-punch-contact.png",
+      "sha256": "ed00c186f94fcd552f294486c28b6c5e8c9955736d7d7e0fd2180f29b39c5fee",
+      "canvas": [
+        80,
+        96
+      ],
+      "anchor": [
+        40,
+        88
+      ],
+      "facing": "right"
+    },
+    {
+      "asset": "assets/rc4/combat_candidates_v4/phil-day3-punch-recovery.png",
+      "sha256": "5c9d07a65e807c8fce031dee2aa5d186cfa7dd8f95b73e90fde23d9fc18e35f9",
+      "canvas": [
+        80,
+        96
+      ],
+      "anchor": [
+        40,
+        88
+      ],
+      "facing": "right"
+    }
+  ]
+}

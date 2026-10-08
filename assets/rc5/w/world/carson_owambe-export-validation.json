@@ -1,0 +1,14 @@
+[
+  {
+    "file": "carson_owambe_1x.png",
+    "width": 270,
+    "height": 480,
+    "minAlpha": 255
+  },
+  {
+    "file": "carson_owambe_2x.png",
+    "width": 540,
+    "height": 960,
+    "minAlpha": 255
+  }
+]

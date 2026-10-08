@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no">
+<meta name="theme-color" content="#070a16">
+<title>Showdown Sandbox</title>
+<style>
+@font-face{font-family:"Press Start 2P";src:url("../fonts/press-start-2p.ttf") format("truetype");font-display:swap}
+*{box-sizing:border-box}html,body{margin:0;height:100%;background:#070a16;overflow:hidden;font-family:"Press Start 2P","Courier New",monospace}
+noscript{color:#f6efd9;padding:16px;display:block}
+</style>
+<link rel="stylesheet" href="../../js/frag/F01/showdown.css">
+</head>
+<body>
+<noscript>This sandbox needs JavaScript.</noscript>
+<script src="../../js/frag/F01/rng.js"></script>
+<script src="../../js/frag/F01/data.js"></script>
+<script src="../../js/frag/F01/rules.js"></script>
+<script src="../../js/frag/F01/engine.js"></script>
+<script src="../../js/frag/F01/ai.js"></script>
+<script src="../../js/frag/F01/maps.js"></script>
+<script src="../../js/frag/F01/packets.js"></script>
+<script src="../../js/frag/F01/showdown.js"></script>
+<script src="../../js/frag/F01/sprites.js"></script>
+<script src="../../js/frag/F01/sfx.js"></script>
+<script src="../../js/frag/F01/ui.js"></script>
+<script src="../../js/frag/F01/sandbox.js"></script>
+<script>
+(function(){
+  var start=function(){window.RAShowdownSandbox.start(document.body);};
+  if(document.fonts&&document.fonts.load){document.fonts.load('10px "Press Start 2P"').then(start,start);}else{start();}
+})();
+</script>
+</body>
+</html>

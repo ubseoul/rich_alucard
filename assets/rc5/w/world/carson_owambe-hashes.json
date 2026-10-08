@@ -1,0 +1,26 @@
+[
+  {
+    "file": "carson_owambe_1x.png",
+    "sha256": "bb593b78c0a61c6b2cf1aeda59748118863828ae2f6dc2527bd988f1d47e209d"
+  },
+  {
+    "file": "carson_owambe_2x.png",
+    "sha256": "e7f18d827a8dac7120a6743eb2a6d4600694e519a1e2f083eb136a28eccc793b"
+  },
+  {
+    "file": "export-validation.json",
+    "sha256": "1fb1094db8c1aaf1858af2c03464f9630650c7eeae01cf5eff87f7ff869dea71"
+  },
+  {
+    "file": "generator-original.png",
+    "sha256": "226f601cea4f8ed620fe0e0267deea6d7cf9fcf59d1419ffbedde6b07aee195f"
+  },
+  {
+    "file": "manifest.json",
+    "sha256": "d9c23eefa00bf90e1bdcbe1d3101bca5427059f4d4dfd7f909a0aad0db0068cc"
+  },
+  {
+    "file": "source-prompt.txt",
+    "sha256": "d8753e34bcddd843b69ad47550c6175868c020c7441dde815fb1e70e4ebbb398"
+  }
+]

@@ -2,8 +2,13 @@
   const KEY='rich_alucard_save_v1';
   const RECOVERY_KEY='rich_alucard_save_v1_recovery';
   const QUARANTINE_KEY='rich_alucard_save_v1_invalid';
-  const VERSION=11;
-  const defaults={version:VERSION,life:{identity:{name:'Rich Alucard'},world:{location:'LA',day:1,month:1,scene:'bedroom',flags:{}},resources:{money:100000,clout:'LOW',vampireReputation:'LOW'},ownership:{cars:[],properties:[],possessions:[]},people:{contacts:[],relationships:[],records:{}},events:{records:{}},creativeLife:{music:{songs:[],progress:{}}},phone:{learned:false},desires:{activeTrip:null,completed:[]},acquisitions:{active:null,completed:[]},night:{active:null,completed:[]},property:{active:null,completed:[]},opportunities:{},history:[]},characters:{ceo_assistant_001:{met:true,stolen:false,vampire:false,cracked:false}},encounters:{ceo_prince:{defeated:false,completed:false}}};
+  // IF-1 (F00): schema authority is split. Versions up to BASE_VERSION are the accepted migrations below; anything above is
+  // assigned ONLY by the integration owner in js/if1/migration_ledger.js and supplied by RAMigrations. Without the registry
+  // loaded (legacy harnesses) the schema is exactly the accepted v16.
+  const REGISTRY=window.RAMigrations||null;
+  const BASE_VERSION=16;
+  const VERSION=REGISTRY?REGISTRY.target():BASE_VERSION;
+  const defaults={version:VERSION,life:{identity:{name:'Rich Alucard'},world:{location:'LA',day:1,month:1,scene:'bedroom',flags:{}},resources:{money:100000,clout:'LOW',vampireReputation:'LOW',followers:0,cloutPoints:0,vampRepPoints:0},ownership:{cars:[],properties:[],possessions:[],castleRooms:[],guns:[],fits:{owned:[],equipped:{}},items:{},props:[],dragon:null,cat:null},people:{contacts:[],relationships:[],records:{}},events:{records:{}},creativeLife:{music:{songs:[],progress:{},cooked:[],drops:[],shows:[],hooks:[],castleSong:null}},phone:{learned:false,apps:{},threads:{},radio:{track:null,castleSong:null}},desires:{activeTrip:null,completed:[]},acquisitions:{active:null,completed:[]},night:{active:null,completed:[]},property:{active:null,completed:[]},opportunities:{},history:[],clock:{started:false,lastWakeDay:0,nightOutings:[],mail:[],interruptionsTonight:0,hungover:false,returnBeat:null},temptations:{live:[],history:[],lastGeneratedDay:0},adventures:{active:null,records:{}},memoryLog:[],receipts:[],ecology:{pressure:0,headlinesSeen:[],hiltStatus:'none'},momentum:{expression:0,connection:0,ownership:0,legend:0,chaos:0,counts:{},sparkId:null,fameEligible:false,fameFired:false},minigames:{},tendencies:{solid:0,messy:0},combat:{learnedMoves:[],equippedMoves:['blood','octopus','bite','revenge'],magic:[],defeats:0},sealed:{slots:{}},laura:{ledger:0},newOga:{status:'unstarted',mission:0,rank:0,title:null,businessCard:false,gangClout:0,trust:0,heat:0,debt:0,m1Route:null,m2Answer:null,m2Outcome:null,m3Outcome:null,m1Rewarded:false,m3Rewarded:false,lastMissionDay:0,carlosMutual:false,carlosMutualDay:0,carlosMutualSource:null,carlosUnfollowed:false,m4Outcome:null,m4Rewarded:false,m4TougeBand:null,carlosEscaped:false,alternativePending:false,alternativeCompleted:false,alternativeRewarded:false,carlosCanopyApron:false,carlosLaterParty:false,carlosLaterStage:null,m5Progress:null,m5Outcome:null,m5AmountCaught:0,m5Attention:0,m5Completed:false,m5Rewarded:false,m6Progress:null,m6Outcome:null,m6CareResult:null,senatorLost:false,m6Completed:false,m6ConsequencesApplied:false,trustAtM6:null,senatorCommands:false,rank4Granted:false,m7Eligible:false,m7Progress:null,m7Outcome:null,m7Completed:false,m7ConsequencesApplied:false,vaultKnown:false,businessStructureKnown:false,misterDecemberHierarchyKnown:false,leftoversAte:false,refusedMama:false,m8Held:false},settings:{audio:{music:1,sfx:1,ambience:1,muted:false,haptics:true}}},characters:{ceo_assistant_001:{met:true,stolen:false,vampire:false,cracked:false}},encounters:{ceo_prince:{defeated:false,completed:false}}};
   const clone=value=>JSON.parse(JSON.stringify(value));
   const isObject=value=>value!==null&&typeof value==='object'&&!Array.isArray(value);
   const isFiniteNumber=value=>typeof value==='number'&&Number.isFinite(value);
@@ -59,7 +64,34 @@
     if(typeof life.resources.clout!=='string')life.resources.clout=defaults.life.resources.clout;
     if(typeof life.resources.vampireReputation!=='string')life.resources.vampireReputation=defaults.life.resources.vampireReputation;
     life.phone.learned=!!life.phone.learned;
+    ensureBtf(life);
+    if(REGISTRY)REGISTRY.normalize(normalized);
     return normalized;
+  }
+  // BTF (Before the Fame) Rough Complete sections. Additive: never removes or rewrites existing structures.
+  function ensureBtf(life){
+    const d=defaults.life;
+    for(const key of ['clock','temptations','adventures','ecology','momentum','minigames','tendencies','combat','sealed','laura','newOga'])life[key]=objectOr(life[key],clone(d[key]));
+    for(const [key,value] of Object.entries(d.clock))if(life.clock[key]===undefined)life.clock[key]=clone(value);
+    life.clock.nightOutings=arrayOr(life.clock.nightOutings);life.clock.mail=arrayOr(life.clock.mail);
+    life.temptations.live=arrayOr(life.temptations.live).filter(isObject);life.temptations.history=arrayOr(life.temptations.history);
+    if(!isFiniteNumber(life.temptations.lastGeneratedDay))life.temptations.lastGeneratedDay=0;
+    life.adventures.records=objectOr(life.adventures.records,{});life.adventures.active=isObject(life.adventures.active)?life.adventures.active:null;
+    life.memoryLog=arrayOr(life.memoryLog).filter(isObject);life.receipts=arrayOr(life.receipts).filter(isObject);
+    for(const [key,value] of Object.entries(d.ecology))if(life.ecology[key]===undefined)life.ecology[key]=clone(value);
+    for(const [key,value] of Object.entries(d.momentum))if(life.momentum[key]===undefined)life.momentum[key]=clone(value);
+    for(const [key,value] of Object.entries(d.combat))if(life.combat[key]===undefined)life.combat[key]=clone(value);
+    for(const [key,value] of Object.entries(d.newOga))if(life.newOga[key]===undefined)life.newOga[key]=clone(value);
+    life.sealed.slots=objectOr(life.sealed.slots,{});
+    for(const [key,value] of Object.entries(d.resources))if(life.resources[key]===undefined)life.resources[key]=clone(value);
+    for(const key of ['followers','cloutPoints','vampRepPoints'])if(!isFiniteNumber(life.resources[key]))life.resources[key]=0;
+    const own=life.ownership;for(const key of ['castleRooms','guns','props'])own[key]=arrayOr(own[key]);own.fits=objectOr(own.fits,{owned:[],equipped:{}});own.fits.owned=arrayOr(own.fits.owned);own.fits.equipped=objectOr(own.fits.equipped,{});own.items=objectOr(own.items,{});if(own.dragon!==null&&!isObject(own.dragon))own.dragon=null;if(own.dragon===undefined)own.dragon=null;if(own.cat===undefined||(own.cat!==null&&!isObject(own.cat)))own.cat=null;
+    life.phone.apps=objectOr(life.phone.apps,{});life.phone.threads=objectOr(life.phone.threads,{});life.phone.radio=objectOr(life.phone.radio,{track:null,castleSong:null});
+    life.settings=objectOr(life.settings,clone(d.settings));life.settings.audio=objectOr(life.settings.audio,clone(d.settings.audio));
+    for(const [key,value] of Object.entries(d.settings.audio))if(life.settings.audio[key]===undefined)life.settings.audio[key]=clone(value);
+    for(const key of ['music','sfx','ambience'])life.settings.audio[key]=isFiniteNumber(life.settings.audio[key])?Math.min(1,Math.max(0,life.settings.audio[key])):d.settings.audio[key];
+    life.settings.audio.muted=!!life.settings.audio.muted;life.settings.audio.haptics=life.settings.audio.haptics!==false;
+    const music=life.creativeLife.music;for(const key of ['cooked','drops','shows','hooks'])music[key]=arrayOr(music[key]);if(music.castleSong===undefined)music.castleSong=null;
   }
   function migrateLegacyToV5(saved){
     const old=clone(saved),life=clone(defaults.life),legacy={};
@@ -93,7 +125,35 @@
   function migrateV8ToV9(saved){const next=clone(saved);next.life.events=next.life.events||{records:{}};next.life.events.records=next.life.events.records||{};next.version=9;return next;}
   function migrateV9ToV10(saved){const next=clone(saved);next.life.night=next.life.night||{active:null,completed:[]};next.version=10;return next;}
   function migrateV10ToV11(saved){const next=clone(saved);next.life.property=next.life.property||{active:null,completed:[]};next.version=11;return next;}
-  const migrations={5:migrateV5ToV6,6:migrateV6ToV7,7:migrateV7ToV8,8:migrateV8ToV9,9:migrateV9ToV10,10:migrateV10ToV11};
+  // v11 -> v12: Before the Fame life clock. Existing players skip the new prologue and keep every record;
+  // apps and rent schedules are derived from progress they already made.
+  function migrateV11ToV12(saved){
+    const next=clone(saved),life=next.life=objectOr(next.life,{});
+    life.world=objectOr(life.world,{});life.world.flags=objectOr(life.world.flags,{});
+    ensureBtf(Object.assign(life,{resources:objectOr(life.resources,{}),ownership:objectOr(life.ownership,{}),phone:objectOr(life.phone,{}),creativeLife:objectOr(life.creativeLife,{music:{}})}));
+    life.creativeLife.music=objectOr(life.creativeLife.music,{songs:[],progress:{}});ensureBtf(life);
+    const flags=life.world.flags,own=life.ownership;
+    // HQ (Engineering 05): a paused Supra acquisition is existing progress too, so that life never replays the prologue.
+    const acq=life.acquisitions?.active,pausedSupra=isObject(acq)&&acq.status==='paused'&&acq.vehicleId==='toyota_supra_mk4_001';
+    const progressed=!!(life.phone.learned||arrayOr(life.desires?.completed).length||arrayOr(own.cars).length||arrayOr(own.properties).length||arrayOr(life.night?.completed).length||next.encounters?.ceo_prince?.defeated||pausedSupra);
+    if(progressed){life.clock.started=true;flags.prologueDone=true;flags.throneDone=true;flags.firstWakeDone=true;flags.ogunInviteWindow=true;}
+    const day=isFiniteNumber(life.world.day)&&life.world.day>=1?Math.floor(life.world.day):1;life.world.day=day;life.world.month=Math.floor((day-1)/28)+1;
+    if(!life.clock.lastWakeDay)life.clock.lastWakeDay=progressed?day:0;
+    const unlock=id=>{if(!life.phone.apps[id])life.phone.apps[id]={unlocked:true,unlockedDay:day,migrated:true};};
+    unlock('vampgpt');
+    if(flags.ogunsRaveCompleted)unlock('vampgram');
+    if(arrayOr(own.cars).length||flags.jdmImportsUnlocked)unlock('jdmImports');
+    if(arrayOr(life.desires?.completed).length)unlock('receipts');
+    own.properties=arrayOr(own.properties).map(p=>{if(!isObject(p)||p.ownershipStatus!=='owned')return p;const q={...p};if(!isFiniteNumber(q.weeklyRent))q.weeklyRent=isFiniteNumber(q.monthlyIncome)?q.monthlyIncome:Math.round((Number(q.purchasePrice)||0)*.025);if(!isFiniteNumber(q.rentDue))q.rentDue=Date.parse(q.nextCollectionAt||0)<=Date.now()?q.weeklyRent:0;if(!isFiniteNumber(q.acquiredDay))q.acquiredDay=day;return q;});
+    for(const record of arrayOr(life.night?.completed))if(isObject(record)&&record.id&&!life.adventures.records[record.id])life.adventures.records[record.id]={status:'completed',completedDay:day,migrated:true};
+    if(flags.propertyOwned&&!life.adventures.records.property_la_4p_01_acquisition)life.adventures.records.property_la_4p_01_acquisition={status:'completed',completedDay:day,migrated:true};
+    next.version=12;return next;
+  }
+  function migrateV12ToV13(saved){const next=clone(saved),life=next.life=objectOr(next.life,{});life.newOga=objectOr(life.newOga,clone(defaults.life.newOga));next.version=13;return next;}
+  function migrateV13ToV14(saved){const next=clone(saved),life=next.life=objectOr(next.life,{});life.newOga=merge(clone(defaults.life.newOga),objectOr(life.newOga,{}));next.version=14;return next;}
+  function migrateV14ToV15(saved){const next=clone(saved),life=next.life=objectOr(next.life,{});life.newOga=merge(clone(defaults.life.newOga),objectOr(life.newOga,{}));next.version=15;return next;}
+  function migrateV15ToV16(saved){const next=clone(saved),life=next.life=objectOr(next.life,{});life.newOga=merge(clone(defaults.life.newOga),objectOr(life.newOga,{}));next.version=16;return next;}
+  const migrations={5:migrateV5ToV6,6:migrateV6ToV7,7:migrateV7ToV8,8:migrateV8ToV9,9:migrateV9ToV10,10:migrateV10ToV11,11:migrateV11ToV12,12:migrateV12ToV13,13:migrateV13ToV14,14:migrateV14ToV15,15:migrateV15ToV16,...(REGISTRY?REGISTRY.steps():{})};
   function migrateWithReport(saved){
     if(!isObject(saved))return {ok:false,error:'root-not-object'};
     let next=clone(saved),from=Number.isInteger(next.version)?next.version:0;
@@ -128,7 +188,17 @@
   function reset(){state=clone(defaults);save();return state;}
   function get(){return state;}
   function patch(path,value){const parts=String(path||'').split('.').filter(Boolean);if(!parts.length)return false;let current=state;for(let index=0;index<parts.length-1;index++)current=current[parts[index]]||(current[parts[index]]={});current[parts.at(-1)]=value;save();return value;}
+  // Commit related state changes together. Failed storage writes leave the live state untouched.
+  function transaction(mutator){
+    if(typeof mutator!=='function')return {ok:false,error:'mutator-required'};
+    const next=clone(state);let value;
+    try{value=mutator(next);}catch(error){return {ok:false,error:error.message||'mutation-failed'};}
+    if(value===false)return {ok:false,error:'aborted'};
+    const checked=migrateWithReport(next);if(!checked.ok)return {ok:false,error:checked.error};
+    if(!write(localStorage,checked.state,true))return {ok:false,error:'storage-write-failed'};
+    state=checked.state;return {ok:true,value};
+  }
   function recordEvent(event){if(!event?.id)return false;const history=state.life.history;if(history.some(item=>item.id===event.id))return false;history.push({...event,at:event.at||new Date().toISOString()});save();return true;}
-  window.RAState={load,save,reset,get,patch,recordEvent,migrateRecord,migrateWithReport,normalizeRecord,parseRecord,read,write,getLoadStatus:()=>({...loadStatus}),defaults:clone(defaults),version:VERSION,keys:{primary:KEY,recovery:RECOVERY_KEY,quarantine:QUARANTINE_KEY}};
+  window.RAState={load,save,reset,get,patch,transaction,recordEvent,migrateRecord,migrateWithReport,normalizeRecord,parseRecord,read,write,getLoadStatus:()=>({...loadStatus}),defaults:clone(defaults),version:VERSION,keys:{primary:KEY,recovery:RECOVERY_KEY,quarantine:QUARANTINE_KEY}};
   load();
 })();

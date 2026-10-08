@@ -17,6 +17,7 @@
  */
 import { execFileSync } from 'node:child_process';
 import { existsSync, readFileSync } from 'node:fs';
+import { verifyApprovedPublication } from '../verify-public-release.mjs';
 
 // Explicit, justified exceptions ONLY. Everything else must be rejected.
 // - js/sealed/pack.js  : the accepted empty overlay install slot (comments-only, enforced below).
@@ -92,11 +93,13 @@ function main(argv) {
   else if (argv.includes('--stdin')) paths = readStdin().split(/\s+/);
   else paths = gitTrackedPaths();
 
-  const violations = scanPaths(paths);
+  // Public approval applies only to the complete, hash-pinned compiled release.
+  const approved = existsSync('PUBLIC-RELEASE.json') ? verifyApprovedPublication(process.cwd()).approved : new Set();
+  const violations = scanPaths(paths).filter(v => !approved.has(v.path));
 
   const packPath = 'js/sealed/pack.js';
   if (existsSync(packPath)) {
-    if (!packIsCommentsOnly(readFileSync(packPath, 'utf8'))) {
+    if (!packIsCommentsOnly(readFileSync(packPath, 'utf8')) && !approved.has(packPath)) {
       violations.push({ path: packPath, rule: 'PACK_NOT_COMMENTS_ONLY' });
     }
   }

@@ -1,5 +1,18 @@
 # Release runbook
 
+## Approved compiled Legendary release
+
+Ube explicitly authorized publication of the finished compiled game, gameplay 99e16d1f1ce1650cd98a18ca42f4bd251402ef4d, on the existing Pages site.
+PUBLIC-RELEASE.json lists its 1,792 byte-identical runtime files. The fixed manifest digest and pack SHA256 in tools/verify-public-release.mjs permit only this approved compiled artifact through the existing protected-path guard.
+Private repository history, source overlays, credentials, personal data and QA reports are excluded.
+
+Keep all existing push-triggered workflows, guards and deployment verification active. npm test verifies the immutable artifact and its dependency closure; npm run build copies its exact bytes without regenerating the campaign; npm run verify:artifact verifies the resulting dist.
+Use a normal forward push to main. Existing Pages settings and domain remain unchanged. build.json retains its original base-build identity; GAME-RELEASE.json identifies the finished gameplay.
+The Actions artifact adds PUBLIC-DEPLOYMENT.json carrying the workflow commit. Public deployment verification requires that commit plus exact index, build and pack hashes.
+
+The source-build cutover notes below describe the earlier development path.
+
+
 This runbook supports Engineer/Codex responsibilities described in [Studio Production Control](PRODUCTION_CONTROL.md): implementation, testing, tooling, deployment and evidence. Documentation-only production-control patches do not require deployment unless the repository workflow or HQ explicitly requires it.
 
 ## One-time GitHub Pages cutover

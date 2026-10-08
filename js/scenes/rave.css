@@ -25,3 +25,5 @@
 .rave-exterior-rich{position:absolute;left:12%;bottom:10%;width:26%;height:auto;z-index:5;image-rendering:pixelated;pointer-events:none}
 .rave-exterior-dialogue{left:6%;right:6%;top:8%;position:absolute;z-index:9}
 .rave-exterior-choices{left:6%;right:6%;bottom:8%;position:absolute;z-index:9}
+/* Presentation Director: the exterior neon sign is world-anchored; type scales with the camera. */
+#screen[data-pd-mode] .rave-exterior-sign{font-size:calc(6.23px * var(--pd-u,1.444));text-align:right;right:auto}

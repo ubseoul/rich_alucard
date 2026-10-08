@@ -113,7 +113,10 @@ async function verifyDeployment(){
 }
 
 try{
-  if(action==='test')await test();
+  if(existsSync(path.join(root,'PUBLIC-RELEASE.json'))){
+    const {runCompiledRelease}=await import('./verify-public-release.mjs');
+    await runCompiledRelease(root,action);
+  }else if(action==='test')await test();
   else if(action==='build')await build();
   else if(action==='verify-artifact')await verifyArtifact();
   else if(action==='verify-deployment')await verifyDeployment();

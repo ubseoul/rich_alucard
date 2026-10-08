@@ -1,0 +1,25 @@
+.ra-minigame{position:absolute;inset:0;z-index:80;background:#08070f;overflow:hidden;touch-action:none;user-select:none;-webkit-user-select:none}
+.ra-minigame-stage{position:absolute;inset:0}
+.ra-minigame-stage canvas{image-rendering:pixelated}
+.ra-minigame-quit{position:absolute;right:1.5%;top:1%;z-index:30;font-family:var(--font-system,"Press Start 2P",monospace);font-size:clamp(7px,2.6cqw,11px);padding:.5em .7em;background:#f6efd9;color:#10101b;border:2px solid #10101b;box-shadow:2px 2px #7d194b;cursor:pointer}
+.ra-minigame-quit:active{transform:translate(1px,1px);box-shadow:1px 1px #7d194b}
+body.minigame-mode #devPanel{z-index:90}
+body.minigame-mode .rc3-cash{display:none}
+/* STOVE L: minigame-local controls and acknowledged receipts. */
+.ra-minigame-quit{min-height:36px;min-width:64px;right:8px;top:8px;font-size:9px;opacity:1!important;visibility:visible!important}
+.ra-minigame-rule{overflow-y:auto;box-sizing:border-box}
+.ra-minigame-rule button,.dance-result button,.slurp-shift-result button,.canopy-result button,.hatch-care-result button,.owambe-result button{min-height:44px;min-width:96px;font:8px/1.5 "Press Start 2P",monospace;background:#f6efd9;color:#10101b;border:2px solid #10101b;box-shadow:3px 3px #7d194b;padding:10px;cursor:pointer;border-radius:0}
+.ra-minigame-rule-text{white-space:normal}
+.ra-minigame-stage .canopy-finish,.ra-minigame-stage .slurp-clock{position:absolute;z-index:4;font:8px/1.5 "Press Start 2P",monospace!important;min-height:38px;padding:8px!important;bottom:8%!important;top:auto!important;right:4%!important;border-radius:0;background:#f6efd9;color:#10101b;border:2px solid #10101b;box-shadow:2px 2px #7d194b;cursor:pointer}
+.ra-minigame[data-minigame="range_day"] .ra-minigame-stage{display:flex;flex-direction:column;padding:44px 8px 10px;box-sizing:border-box;background:linear-gradient(#08070f66,#08070f88)}
+.ra-minigame[data-minigame="range_day"] .rd-hud{padding:0 2px 10px;gap:6px;font-size:9px;flex:none}
+.rd-hud small{grid-column:1/-1;font-size:7px;color:#b9a9c9}.rd-hud .rd-score{color:#ffd75e}.rd-hud .rd-medal{font-size:7px;align-self:center}
+.ra-minigame[data-minigame="range_day"] .rd-lanes{flex:1;min-height:180px;height:auto;padding:0;gap:6px;margin:0 0 6px}
+.rd-lane-number{position:absolute;bottom:8px;left:0;right:0;font:9px "Press Start 2P",monospace;color:#8a8296}
+.rd-reticle{position:absolute;top:82%;left:0;right:0;font:22px monospace;color:#f6efd9}.rd-aimed{border-color:#ffd75e!important}.rd-aimed .rd-reticle{color:#ffd75e}
+.ra-minigame[data-minigame="range_day"] .rd-target{width:42px;height:48px;margin-left:-21px;background:#d9d2b9;border:3px solid #10101b;opacity:1;box-shadow:3px 3px #10101b;transform:none}
+.rd-target::before{content:"";position:absolute;left:10px;top:4px;width:16px;height:16px;border:3px solid #655e55;box-sizing:border-box;background:#f6efd9}.rd-target::after{content:"";position:absolute;left:6px;top:23px;width:24px;height:16px;background:#8e8578}
+.rd-target span{position:absolute;z-index:2;bottom:4px;left:-2px;right:-2px;font:7px "Press Start 2P",monospace;color:#10101b;text-align:center;font-style:normal}
+.ra-minigame[data-minigame="range_day"] .rd-moving{background:#7fd0ff}.rd-moving::after{background:#3d9ddd}.ra-minigame[data-minigame="range_day"] .rd-gold{background:#ffd75e}.rd-gold::after{background:#c18b3c}.ra-minigame[data-minigame="range_day"] .rd-hostage{background:#ff6b6b;border-color:#f6efd9}.rd-hostage::before{background:#10101b;border-color:#10101b}.rd-hostage::after{background:#f6efd9}.rd-hostage span{font-size:8px;color:#d7193f}.ra-minigame[data-minigame="range_day"] .rd-hilt{background:#c9b8ff}.rd-hilt span{font-size:12px}
+.ra-minigame[data-minigame="range_day"] .rd-help{font:7px/1.8 "Press Start 2P",monospace;padding:4px 0;flex:none}.ra-minigame[data-minigame="range_day"] .rd-feedback{font-size:8px;min-height:30px;padding:4px 0;margin:0;flex:none;line-height:1.8}.rd-result{box-sizing:border-box;overflow:auto}.rd-result p{margin:0}.rd-result-score{color:#20c66b;font-size:15px}
+.minigame-mode .rc2-result{display:none}

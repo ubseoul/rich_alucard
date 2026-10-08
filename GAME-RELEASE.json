@@ -1,0 +1,11 @@
+{
+  "title": "Rich Alucard — The Legendary Pass",
+  "private": true,
+  "gameplayCommit": "99e16d1f1ce1650cd98a18ca42f4bd251402ef4d",
+  "public": {
+    "releaseId": "ra-84a543d3083f-20261008032701",
+    "commit": "84a543d3083ff2b4bd2568a6319c8578bf4d2f3c"
+  },
+  "overlayDigest": "065799a18ff54d0f070f1b34f6969b3f94ab5551681e9a743b6e6b457c187fd5",
+  "packSha256": "a866bcb4231db3e920102730d1dced570497fdecbb7f554be18ad81a2cd241cd"
+}

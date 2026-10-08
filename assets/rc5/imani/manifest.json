@@ -1,0 +1,106 @@
+{
+  "status": "native anchored export candidate; pending runtime review",
+  "authority": "assistant technical export under delegated routine decision; not creator freeze",
+  "generatedSource": "unchanged task23 sources via built-in imagegen; native v1 nearest-neighbor export",
+  "frames": [
+    {
+      "pose": "neutral",
+      "source": "C:\\Users\\Ube\\Documents\\Codex\\2026-10-06\\task-23\\candidate-imani-v1\\native-export-v1\\imani-neutral-native80x96-v1.png",
+      "sourceSha256": "3665b9810588c858e57f35c44316cc26875b0b7a4bb559b4a47e986d3a0a57cf",
+      "target": "C:\\Users\\Ube\\Documents\\Codex\\2026-10-05\\task-3\\imani-native-anchored-v2\\imani_neutral_80x96.png",
+      "sha256": "e530fea1d3b80478f627161ec4f01f3c7d32bcbbfa851d47f31a0b71275cb646",
+      "canvas": [
+        80,
+        96
+      ],
+      "anchor": [
+        40,
+        88
+      ],
+      "facing": "left",
+      "transform": {
+        "type": "RGBA placement only",
+        "translate": [
+          -3,
+          -2
+        ],
+        "alphaThreshold": null,
+        "repainting": false,
+        "nontransparentPixelMultisetPreserved": true,
+        "alphaHistogramPreserved": true
+      },
+      "boundsAlpha128": [
+        29,
+        35,
+        50,
+        89
+      ]
+    },
+    {
+      "pose": "decline",
+      "source": "C:\\Users\\Ube\\Documents\\Codex\\2026-10-06\\task-23\\candidate-imani-v1\\native-export-v1\\imani-decline-native80x96-v1.png",
+      "sourceSha256": "318255e679ab60aa672cd3f9aaf12fb93560473e882234537f1d2d1167cc83f5",
+      "target": "C:\\Users\\Ube\\Documents\\Codex\\2026-10-05\\task-3\\imani-native-anchored-v2\\imani_decline_80x96.png",
+      "sha256": "cd174c9681c4f82f3fed302b6b87b8c6480b7b9acc46c739785d4caa3ed25884",
+      "canvas": [
+        80,
+        96
+      ],
+      "anchor": [
+        40,
+        88
+      ],
+      "facing": "left",
+      "transform": {
+        "type": "RGBA placement only",
+        "translate": [
+          -3,
+          -2
+        ],
+        "alphaThreshold": null,
+        "repainting": false,
+        "nontransparentPixelMultisetPreserved": true,
+        "alphaHistogramPreserved": true
+      },
+      "boundsAlpha128": [
+        22,
+        35,
+        50,
+        89
+      ]
+    },
+    {
+      "pose": "smile",
+      "source": "C:\\Users\\Ube\\Documents\\Codex\\2026-10-06\\task-23\\candidate-imani-v1\\native-export-v1\\imani-smile-native80x96-v1.png",
+      "sourceSha256": "ef14e54748510a8f6a17ae52cd976954a1ac2afd5044da2ff9587ae397907f59",
+      "target": "C:\\Users\\Ube\\Documents\\Codex\\2026-10-05\\task-3\\imani-native-anchored-v2\\imani_smile_80x96.png",
+      "sha256": "61270f97be86ccebacf2d77907c42ba8dc0570b645c19ce9b1438222186574b9",
+      "canvas": [
+        80,
+        96
+      ],
+      "anchor": [
+        40,
+        88
+      ],
+      "facing": "left",
+      "transform": {
+        "type": "RGBA placement only",
+        "translate": [
+          -3,
+          -2
+        ],
+        "alphaThreshold": null,
+        "repainting": false,
+        "nontransparentPixelMultisetPreserved": true,
+        "alphaHistogramPreserved": true
+      },
+      "boundsAlpha128": [
+        23,
+        35,
+        50,
+        89
+      ]
+    }
+  ]
+}

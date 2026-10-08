@@ -3,7 +3,7 @@ const octopusOverlay=document.querySelector('#octopusOverlay'),octoRoll=document
 const victoryOverlay=document.querySelector('#victoryOverlay'),victoryCard=document.querySelector('#victoryCard'),endingText=document.querySelector('#endingText'),stealYes=document.querySelector('#stealYes'),stealNo=document.querySelector('#stealNo');
 const productionCEO=document.querySelector('#productionCEO');
 const productionAssistant=document.querySelector('#productionAssistant');
-function setCEOState(s){if(productionCEO)productionCEO.className='production-ceo state-'+s;}
+function setCEOState(s){if(productionCEO){if(productionCEO.dataset.importerMove){productionCEO.style.backgroundImage='';delete productionCEO.dataset.importerMove;}productionCEO.className='production-ceo state-'+s;}}
 function setAssistantState(s){if(productionAssistant)productionAssistant.className='production-assistant state-'+s;}
 
 function setRichState(state){
@@ -71,7 +71,11 @@ const moveData=window.RACombatDefinitions.moves;
 function syncBattleState(){if(!battleState)return;battleState.player.hp=richHP;battleState.enemy.hp=ceoHP;battleState.revengeStored=revengeStored;}
 battleState=window.RACombatFoundation.createBattleState('ceo');
 function wait(ms){return new Promise(r=>setTimeout(r,ms))}
-function layoutJdmBubble(node,speaker,stack=0){if(!node||battleEncounter!=='jdm'||!document.body.classList.contains('jdm-battle'))return;const screen=document.querySelector('#screen'),actor=speaker==='importer'?productionCEO:geminiRich;if(!screen||!actor)return;const sr=screen.getBoundingClientRect(),ar=actor.getBoundingClientRect(),width=node.offsetWidth||92,height=node.offsetHeight||24;const left=Math.round(Math.max(8,Math.min(sr.width-width-8,ar.left-sr.left+ar.width*.5-width*.5)));const top=Math.round(Math.max(sr.height*.20,ar.top-sr.top-height-10-stack));node.style.setProperty('--speaker-bubble-left',`${left}px`);node.style.setProperty('--speaker-bubble-top',`${top}px`);node.style.setProperty('--bubble-left',`${left}px`);node.style.setProperty('--bubble-top',`${top}px`)}
+// Legacy combat has no cash action; keep the campaign chip clear of battle HP/name controls.
+function syncLegacyCombatHud(){document.body.classList.toggle('legacy-combat-mode',['battle','jdmCombat'].includes(window.RAScenes?.current?.()||'battle'));}
+document.addEventListener('ra:scene',syncLegacyCombatHud);syncLegacyCombatHud();
+
+function layoutJdmBubble(node,speaker,stack=0){if(!node||battleEncounter!=='jdm'||!document.body.classList.contains('jdm-battle'))return;const screen=document.querySelector('#screen'),actor=speaker==='importer'?productionCEO:geminiRich;if(!screen||!actor)return;const sr=screen.getBoundingClientRect(),ar=actor.getBoundingClientRect(),width=node.offsetWidth||92,height=node.offsetHeight||24;const left=Math.round(Math.max(8,Math.min(sr.width-width-8,ar.left-sr.left+ar.width*.5-width*.5)));const world=window.RAPresentationDirector?.worldRect?.(),minTop=world?world.y+6:sr.height*.20,top=Math.round(Math.max(minTop,ar.top-sr.top-height-10-stack));node.style.setProperty('--speaker-bubble-left',`${left}px`);node.style.setProperty('--speaker-bubble-top',`${top}px`);node.style.setProperty('--bubble-left',`${left}px`);node.style.setProperty('--bubble-top',`${top}px`)}
 function layoutJdmBubbles(){layoutJdmBubble(richLyricBubble,'rich',toast.classList.contains('show')&&toast.classList.contains('jdm-speaker-bubble')&&toast.classList.contains('speaker-rich')?(toast.offsetHeight||24)+10:0);if(toast.classList.contains('show')&&toast.classList.contains('jdm-speaker-bubble'))layoutJdmBubble(toast,toast.classList.contains('speaker-importer')?'importer':'rich')}
 function say(msg,ms=900,speaker=null){toast.textContent=msg;toast.classList.add('show');toast.classList.remove('jdm-speaker-bubble','speaker-rich','speaker-importer');if(battleEncounter==='jdm'&&speaker){toast.classList.add('jdm-speaker-bubble',speaker==='importer'?'speaker-importer':'speaker-rich');layoutJdmBubbles();requestAnimationFrame(layoutJdmBubbles)}clearTimeout(say.t);say.t=setTimeout(()=>toast.classList.remove('show','jdm-speaker-bubble','speaker-rich','speaker-importer'),ms)}
 function clamp(v){return Math.max(0,Math.min(MAX_HP,v))}
@@ -84,20 +88,29 @@ function updateHP(){
   lastRichHP=richHP;lastCeoHP=ceoHP;
   syncBattleState();
 }
+function setBattlePhase(html){document.querySelector('#dialogue').innerHTML=html;}
+function setBattleBusy(value){busy=value;if(busy||battleOver)window.RAIntroPolish?.hideCoach?.();paint();setBattlePhase(battleOver?'BATTLE OVER<br><strong>CONTINUE BELOW</strong>':busy?'RESOLVING<br><strong>PLAYER MOVE</strong>':'YOUR TURN<br><strong>CHOOSE A MOVE</strong>');}
 function paint(){
+ mainButtons.concat(moves).forEach(button=>{button.disabled=busy||battleOver;button.setAttribute('aria-disabled',String(button.disabled));});
+ battleUI.setAttribute('aria-busy',String(busy));
  mainButtons.forEach((b,i)=>b.classList.toggle('selected',!inMoves&&i===mainIndex));
  moves.forEach((b,i)=>b.classList.toggle('active',inMoves&&i===moveIndex));
  if(inMoves&&!busy)moves[moveIndex].focus();
 }
+let enemyTurnGeneration=0;
+const enemyTurnActive=generation=>generation===enemyTurnGeneration&&!battleOver&&['battle','jdmCombat'].includes(window.RAScenes?.current?.()||'battle');
+document.addEventListener('ra:scene',()=>{if(!['battle','jdmCombat'].includes(window.RAScenes?.current?.()))enemyTurnGeneration++;});
 function resetBattle(encounter='ceo'){
- battleEncounter=encounter;
+ enemyTurnGeneration++;
+ ceoRecoil.classList.remove('windup');briefcaseProjectile.classList.remove('fly');briefcaseImpact.classList.remove('active');document.querySelector('#screen').classList.remove('briefcase-shake','combat-hit-stop','combat-shake-light','combat-shake-heavy');attackLayer.classList.remove('active');
+ battleEncounter=encounter;window.RAPresentationDirector?.resetMoves?.();if(encounter==='jdm')window.RAEnemyFX?.preload('legacy_importer');
  battleState=window.RACombatFoundation.createBattleState(encounter);
- richHP=100;ceoHP=100;revengeStored=0;battleOver=false;busy=false;inMoves=false;mainIndex=0;moveIndex=0;
+ richHP=100;ceoHP=100;revengeStored=0;battleOver=false;setBattleBusy(false);inMoves=false;mainIndex=0;moveIndex=0;
  document.querySelector('#enemyName').textContent=encounter==='jdm'?'JDM IMPORTER':'CEO ZOMBIE PRINCE';
- setCEOState('idle');document.body.classList.toggle('jdm-battle',encounter==='jdm');
+ setCEOState('idle');setRichState('idle');document.body.classList.toggle('jdm-battle',encounter==='jdm');
  window.RADevState.revengeStoredDamage=0;
  lastRichHP=richHP;lastCeoHP=ceoHP;
- clearRevengeWounds();updateRevengeDisplay();choiceOverlay.classList.remove('show');battleUI.classList.remove('attack-mode');updateHP();paint();
+ clearRevengeWounds();updateRevengeDisplay();choiceOverlay.classList.remove('show');victoryOverlay.classList.remove('on');endingText.classList.remove('on');endingText.textContent='';victoryCard.style.display='block';battleUI.classList.remove('attack-mode','victory-retract');updateHP();paint();
  window.RACombatFoundation.emit(battleState,'battle-start',{stageId:battleState.definition.stageId});
 }
 function updateRevengeDisplay(pulse=false){if(revengeValue){revengeValue.textContent=revengeStored;if(pulse){revengeValue.classList.remove('revenge-value-pulse');void revengeValue.offsetWidth;revengeValue.classList.add('revenge-value-pulse')}}}
@@ -112,7 +125,10 @@ function activateMain(){
 }
 function pressFeedback(node){if(!node)return;node.classList.remove('pressed');void node.offsetWidth;node.classList.add('pressed');setTimeout(()=>node.classList.remove('pressed'),150)}
 async function hitStop(ms=70){const screen=document.querySelector('#screen');screen.classList.add('hit-stop');await wait(ms);screen.classList.remove('hit-stop')}
-async function projectileVolley(){battleUI.classList.add('attack-mode');attackLayer.classList.add('active');richCast.classList.add('cast');say('BLOOD BATH!',420);await wait(150);const lanes=[35,40,45,32,43,38],starts=[22,27,23,30,26,32];for(let i=0;i<6;i++){const o=document.createElement('div');o.className='detailed-blood-missile';o.style.left=starts[i]+'%';o.style.top=lanes[i]+'%';o.style.setProperty('--row',`${-i*24}px`);o.style.setProperty('--delay',`${i*70}ms`);o.style.setProperty('--flight',`${420+(i%3)*30}ms`);projectiles.appendChild(o);for(let t=1;t<=2;t++){const g=document.createElement('div');g.className='missile-ghost';g.style.left=starts[i]+'%';g.style.top=lanes[i]+'%';g.style.setProperty('--row',`${-i*24}px`);g.style.setProperty('--delay',`${i*70+t*34}ms`);g.style.setProperty('--flight',`${420+(i%3)*30}ms`);g.style.setProperty('--ghost',`${.22/t}`);projectiles.appendChild(g);}}projectiles.classList.add('charge-orbs');await wait(310);projectiles.classList.remove('charge-orbs');setRichState('cast');setCEOState('hit');projectiles.classList.add('fire-orbs');for(let i=0;i<6;i++){await wait(i===0?355:74);const q=document.createElement('div');q.className='detailed-impact';q.style.top=`${31+(i%4)*3.4}%`;projectiles.appendChild(q);const s=document.querySelector('#screen');s.classList.remove('micro-shake');void s.offsetWidth;s.classList.add('micro-shake');setTimeout(()=>q.remove(),430);}document.querySelector('#screen').classList.add('blood-shake');enemyHit.classList.add('hit');ceoRecoil.classList.add('active');damageNumber.classList.add('show');await wait(390);document.querySelector('#screen').classList.remove('blood-shake','micro-shake');enemyHit.classList.remove('hit');ceoRecoil.classList.remove('active');damageNumber.classList.remove('show');projectiles.classList.remove('fire-orbs');setRichState('idle');if(typeof ceoHP==='undefined'||ceoHP>0)setCEOState('idle');projectiles.replaceChildren();richCast.classList.remove('cast');await wait(70);attackLayer.classList.remove('active');battleUI.classList.remove('attack-mode');}
+// Presentation Director scenes anchor code-spawned effects to actors; legacy scenes keep screen percentages.
+function directorOn(stage){return window.RAPresentationDirector?.current?.()?.stage===stage}
+function directorSpawn(role,dx,dy,size){return window.RAPresentationDirector?.active?.()?window.RAPresentationDirector.fxPoint(role,dx,dy,size):null}
+async function projectileVolley(){battleUI.classList.add('attack-mode');attackLayer.classList.add('active');richCast.classList.add('cast');say('BLOOD BATH!',420);await wait(150);const lanes=[35,40,45,32,43,38],starts=[22,27,23,30,26,32];for(let i=0;i<6;i++){const at=directorSpawn('rich',...(window.RAPresentationData?.spawn.missileStarts[i]||[0,0]),[40,24]),left=at?`${at.x}px`:starts[i]+'%',top=at?`${at.y}px`:lanes[i]+'%';const o=document.createElement('div');o.className='detailed-blood-missile';o.style.left=left;o.style.top=top;o.style.setProperty('--row',`${-i*24}px`);o.style.setProperty('--delay',`${i*70}ms`);o.style.setProperty('--flight',`${420+(i%3)*30}ms`);projectiles.appendChild(o);for(let t=1;t<=2;t++){const g=document.createElement('div');g.className='missile-ghost';g.style.left=left;g.style.top=top;g.style.setProperty('--row',`${-i*24}px`);g.style.setProperty('--delay',`${i*70+t*34}ms`);g.style.setProperty('--flight',`${420+(i%3)*30}ms`);g.style.setProperty('--ghost',`${.22/t}`);projectiles.appendChild(g);}}projectiles.classList.add('charge-orbs');await wait(310);projectiles.classList.remove('charge-orbs');setRichState('cast');setCEOState('hit');projectiles.classList.add('fire-orbs');for(let i=0;i<6;i++){await wait(i===0?355:74);const q=document.createElement('div');q.className='detailed-impact';const hit=window.RAPresentationData&&directorSpawn('enemy',RAPresentationData.spawn.impact.dx,RAPresentationData.spawn.impact.dy+(i%4)*RAPresentationData.spawn.impact.step,[64,64]);if(hit){q.style.left=`${hit.x}px`;q.style.top=`${hit.y}px`}else q.style.top=`${31+(i%4)*3.4}%`;projectiles.appendChild(q);const s=document.querySelector('#screen');s.classList.remove('micro-shake');void s.offsetWidth;s.classList.add('micro-shake');setTimeout(()=>q.remove(),430);}document.querySelector('#screen').classList.add('blood-shake');enemyHit.classList.add('hit');ceoRecoil.classList.add('active');damageNumber.classList.add('show');await wait(390);document.querySelector('#screen').classList.remove('blood-shake','micro-shake');enemyHit.classList.remove('hit');ceoRecoil.classList.remove('active');damageNumber.classList.remove('show');projectiles.classList.remove('fire-orbs');setRichState('idle');if(typeof ceoHP==='undefined'||ceoHP>0)setCEOState('idle');projectiles.replaceChildren();richCast.classList.remove('cast');await wait(70);attackLayer.classList.remove('active');battleUI.classList.remove('attack-mode');}
 
 async function revengeFX(amount,target=productionCEO){
  const stage=document.querySelector('#screen');battleUI.classList.add('attack-mode');attackLayer.classList.add('active');document.body.classList.add('revenge-freeze');
@@ -130,7 +146,7 @@ async function revengeFX(amount,target=productionCEO){
 
 async function normalVictory(){
   if(battleOver) return;
-  battleOver=true; busy=true;
+  battleOver=true; setBattleBusy(true);
   window.RACombatFoundation.route(battleState,'victory');
   if(battleEncounter==='jdm'){
     setCEOState('defeated');say('THE IMPORTER BACKS DOWN.',850,'importer');await wait(850);await window.RAJDMImports?.ownerDefeated?.();return;
@@ -152,6 +168,7 @@ async function normalVictory(){
       victoryOverlay.classList.remove('on');
       document.querySelector('.battle-ui')?.classList.add('victory-retract');
       if(window.RACharacterReveal) await RACharacterReveal.open();
+      document.dispatchEvent(new CustomEvent('ra:ceo-resolved',{detail:{stole:true}}));
       resolve();
     };
     stealNo.onclick=async()=>{
@@ -160,6 +177,7 @@ async function normalVictory(){
       victoryCard.style.display='none';
       endingText.textContent='RICH STAYS ON THE THRONE.';
       endingText.classList.add('on');
+      document.dispatchEvent(new CustomEvent('ra:ceo-resolved',{detail:{stole:false}}));
       resolve();
     };
   });
@@ -201,9 +219,10 @@ async function resolveOctopus(result){
   if(result.kind==='hoe'){
     say('SHE JOINS RICH.',650);
     setAssistantState('walk');
-    const a=document.querySelector('.production-assistant');
+    if(directorOn('throne-room')){await RAPresentationDirector.mark('assistantJoin',{ms:1000,steps:8});await RAPresentationDirector.setBeat('tableau',{transition:'snap-pan',ms:280});await wait(1200);await RAPresentationDirector.setBeat('combat',{transition:'snap-pan',ms:280});}
+    else{const a=document.querySelector('.production-assistant');
     if(a){a.style.transition='left 1s steps(8,end)';a.style.left='28%';}
-    await wait(1050);
+    await wait(1050);}
     setAssistantState('idle');
     return false; // combat continues
   }
@@ -214,8 +233,9 @@ async function resolveOctopus(result){
     return true;
   }
   say('CEO HAS HEARD ENOUGH.',850);
-  const c=document.querySelector('.production-ceo');
-  if(c){c.style.transition='left 1s steps(8,end)';c.style.left='115%';}
+  if(directorOn('throne-room'))RAPresentationDirector.mark('ceoExit',{ms:1000,steps:8});
+  else{const c=document.querySelector('.production-ceo');
+  if(c){c.style.transition='left 1s steps(8,end)';c.style.left='115%';}}
   ceoHP=0; updateHP();
   battleOver=true;
   return true;
@@ -229,43 +249,56 @@ async function genericPlayerFX(kind){
  await wait(320);const severity=ceoHP<=26?'lethal':ceoHP<=52?'heavy':'normal';await RACombatPresentation.play({target:productionCEO,attacker:geminiRich,severity,authored:battleEncounter==='ceo'?'ceo':undefined,kind,recoveryMs:40});
  document.querySelector('#screen').classList.remove('bite-flash','brain-flash','revenge-flash');richCast.classList.remove('cast');attackLayer.classList.remove('active');battleUI.classList.remove('attack-mode');
 }
-async function importerTurn(){
- say('THE IMPORTER SHOVES RICH BACK.',620,'importer');attackLayer.classList.add('active');battleUI.classList.add('attack-mode');setCEOState('throw');await wait(180);setRichState('hit');await RACombatPresentation.play({target:geminiRich,attacker:productionCEO,severity:'normal',kind:'importer-shove',recoveryMs:40});
- const actualDamage=Math.min(richHP,16);richHP-=actualDamage;revengeStored+=actualDamage;addRevengeWounds(actualDamage);window.RADevState.revengeStoredDamage=revengeStored;updateHP();await wait(160);setCEOState('idle');setRichState('idle');attackLayer.classList.remove('active');battleUI.classList.remove('attack-mode');if(richHP<=0)return defeat();busy=false;inMoves=true;paint();
+async function importerTurn(generation=enemyTurnGeneration){
+ if(!enemyTurnActive(generation))return;
+ const sequence=window.RAEnemyFX?.TIMELINES?.legacy_importer?.importer_shove;
+ const pose=phase=>{const src=sequence?.[phase];if(src){productionCEO.style.backgroundImage=`url('${src}')`;productionCEO.dataset.importerMove=phase;}else setCEOState(phase==='prepare'?'idle':'throw');};
+ setBattlePhase('IMPORTER MOVE<br><strong>SHOVE</strong>');say('THE IMPORTER SHOVES RICH BACK.',620,'importer');attackLayer.classList.add('active');battleUI.classList.add('attack-mode');
+ pose('prepare');await wait(124);if(!enemyTurnActive(generation))return;
+ pose('action');await wait(186);if(!enemyTurnActive(generation))return;
+ pose('contact');setRichState('hit');const actualDamage=Math.min(richHP,16);richHP-=actualDamage;revengeStored+=actualDamage;addRevengeWounds(actualDamage);window.RADevState.revengeStoredDamage=revengeStored;updateHP();
+ const reaction=RACombatPresentation.play({target:geminiRich,attacker:productionCEO,severity:'normal',kind:'importer-shove',recoveryMs:40,isActive:()=>enemyTurnActive(generation)});
+ await wait(186);if(!enemyTurnActive(generation))return;pose('recover');
+ await wait(124);if(!enemyTurnActive(generation))return;await reaction;if(!enemyTurnActive(generation))return;
+ setCEOState('idle');setRichState('idle');setBattlePhase('RECOVERY<br><strong>WAIT FOR YOUR TURN</strong>');attackLayer.classList.remove('active');battleUI.classList.remove('attack-mode');await wait(160);if(!enemyTurnActive(generation))return;
+ if(richHP<=0)return defeat();setBattleBusy(false);inMoves=true;paint();
 }
 async function enemyTurn(){
+ const generation=enemyTurnGeneration;if(!enemyTurnActive(generation))return;
  if(battleOver)return;
- await wait(360);
+ await wait(360);if(!enemyTurnActive(generation))return;
  const enemyMove=window.RACombatFoundation.selectEnemyMove(battleState);
  window.RACombatFoundation.emit(battleState,'enemy-move-selected',{moveId:enemyMove?.id});
- if(enemyMove?.id==='importer_shove')return importerTurn();
+ if(enemyMove?.id==='importer_shove')return importerTurn(generation);
+ setBattlePhase('ENEMY MOVE<br><strong>BRIEFCASE THROW</strong>');
  say('BRIEFCASE THROW!',620);
+ setCEOState('idle');
  attackLayer.classList.add('active');
  battleUI.classList.add('attack-mode');
  ceoRecoil.classList.add('windup');
- await wait(220);
+ await wait(220);if(!enemyTurnActive(generation))return;
  ceoRecoil.classList.remove('windup');
+ setCEOState('throw');
  briefcaseProjectile.classList.add('fly');
- await wait(430);
+ await wait(430);if(!enemyTurnActive(generation))return;
  document.querySelector('#screen').classList.add('briefcase-shake');
  setRichState('hit');
  briefcaseImpact.classList.add('active');
- await RACombatPresentation.play({target:geminiRich,attacker:productionCEO,severity:'normal',kind:'briefcase',recoveryMs:40});
- await wait(90);
- const dmg=16;
- const actualDamage=Math.min(richHP,dmg);
+ if(!enemyTurnActive(generation))return;const actualDamage=Math.min(richHP,16);
  richHP-=actualDamage;revengeStored+=actualDamage;addRevengeWounds(actualDamage);window.RADevState.revengeStoredDamage=revengeStored;updateHP();
- await wait(260);
+ await RACombatPresentation.play({target:geminiRich,attacker:productionCEO,severity:'normal',kind:'briefcase',recoveryMs:40,isActive:()=>enemyTurnActive(generation)});
+ await wait(90);if(!enemyTurnActive(generation))return;
+ await wait(260);if(!enemyTurnActive(generation))return;
  document.querySelector('#screen').classList.remove('briefcase-shake');
- setRichState('idle');
+ setRichState('idle');setCEOState('idle');setBattlePhase('RECOVERY<br><strong>WAIT FOR YOUR TURN</strong>');
  briefcaseImpact.classList.remove('active');
  briefcaseProjectile.classList.remove('fly');
  attackLayer.classList.remove('active');
  battleUI.classList.remove('attack-mode');
  say(`RICH TOOK ${actualDamage} DAMAGE.`,650);
- await wait(600);
+ await wait(600);if(!enemyTurnActive(generation))return;
  if(richHP<=0){return defeat()}
- busy=false;inMoves=true;paint();
+ setBattleBusy(false);inMoves=true;paint();
 }
 async function vampireBiteCanonicalFX(damage=24,heal=18,target=productionCEO){
  const screen=document.querySelector('#screen'),rich=document.querySelector('.gemini-rich'),biteScreen=document.querySelector('#vampireBiteScreen'),contact=document.querySelector('#vampireBiteContact'),life=document.querySelector('#vampireBiteLife');
@@ -278,11 +311,12 @@ async function vampireBiteCanonicalFX(damage=24,heal=18,target=productionCEO){
 }
 async function activateMove(){
  if(busy||battleOver)return;
- busy=true;
+ setBattleBusy(true);
  const id=moves[moveIndex].dataset.move;
+ if(id==='octopus'&&window.RANewGame?.brainAvailable?.()===false){setBattleBusy(false);return;}
  const m=moveData[id];
  if(id==='revenge'){
-   say('REVENGE!',500,'rich');const dmg=window.RACombatFoundation.consumeRevenge(battleState);revengeStored=0;window.RADevState.revengeStoredDamage=0;updateRevengeDisplay(true);await revengeFX(dmg);await drainCEOHP(dmg);clearRevengeWounds();updateRevengeDisplay();say(dmg>0?`${dmg} DAMAGE REFLECTED.`:'NOTHING TO RETURN.',700);if(ceoHP<=0){await normalVictory();busy=false;return;}
+   say('REVENGE!',500,'rich');const dmg=window.RACombatFoundation.consumeRevenge(battleState);revengeStored=0;window.RADevState.revengeStoredDamage=0;updateRevengeDisplay(true);await revengeFX(dmg);await drainCEOHP(dmg);clearRevengeWounds();updateRevengeDisplay();say(dmg>0?`${dmg} DAMAGE REFLECTED.`:'NOTHING TO RETURN.',700);if(ceoHP<=0){await normalVictory();setBattleBusy(false);return;}
  }else{
    say(m.name+'!',500,'rich');
    if(id==='blood')await projectileVolley();
@@ -295,24 +329,24 @@ async function activateMove(){
    }else if(id==='octopus'){
      const result=await octopusBrainFX();
      const ended=await resolveOctopus(result);
-     if(ended){if(ceoHP<=0){battleOver=false;await normalVictory();}busy=false;return;}
+     if(ended){if(ceoHP<=0){battleOver=false;await normalVictory();}setBattleBusy(false);return;}
    }else if(id==='revenge'){
      const reflected=Math.max(0,revengeStored);
      await revengeFX(reflected);
      ceoHP-=reflected;
      revengeStored=0;window.RADevState.revengeStoredDamage=0;
      updateHP();
-     if(ceoHP<=0){await normalVictory();busy=false;return;}
+     if(ceoHP<=0){await normalVictory();setBattleBusy(false);return;}
      say(reflected>0?`${reflected} DAMAGE RETURNED.`:'NOTHING TO RETURN.',750);
      await wait(250);
    }else await genericPlayerFX(id);
    if(id!=='bite'&&id!=='revenge'&&id!=='octopus'){
      ceoHP-=m.damage;updateHP();say(`${m.damage} DAMAGE.`,650);
-     if(ceoHP<=0){await normalVictory();busy=false;return;}
+     if(ceoHP<=0){await normalVictory();setBattleBusy(false);return;}
    }
  }
  await wait(650);
- if(ceoHP<=0){await normalVictory();busy=false;return;}
+ if(ceoHP<=0){await normalVictory();setBattleBusy(false);return;}
  await enemyTurn();
 }
 async function victory(){
@@ -321,7 +355,7 @@ async function victory(){
 }
 
 async function defeat(){
- battleOver=true;busy=true;richHP=0;updateHP();window.RACombatFoundation.route(battleState,'defeat');battleUI.classList.add('attack-mode');say('UGH. WE LOST AGAIN.',1300);
+ battleOver=true;setBattleBusy(true);richHP=0;updateHP();window.RACombatFoundation.route(battleState,'defeat');battleUI.classList.add('attack-mode');say('UGH. WE LOST AGAIN.',1300);
  await wait(1400);if(battleEncounter==='jdm'){choiceTitle.textContent='THE KEYS ARE STILL WITH HIM.';choiceYes.textContent='▶ TRY AGAIN';choiceNo.textContent='GO BACK';}else{choiceTitle.textContent='RESPAWN HUNGOVER?';choiceYes.textContent='▶ YES';choiceNo.textContent='STAY DEAD';}choiceOverlay.classList.add('show');
 }
 choiceYes.addEventListener('click',async()=>{
@@ -341,6 +375,7 @@ let loopEnd = 45.80;
 let lastRichLyric = -1;
 
 const richLyricBubble=document.querySelector('#richLyricBubble');
+const newGameButton=document.querySelector('#newGameButton');
 const richLyricLines=[
   [15.932,'cali hoes'],
   [17.548,'i love cali hoes'],
@@ -378,29 +413,49 @@ audio.addEventListener('loadedmetadata',()=>{
 });
 audio.addEventListener('seeking',resetRichLyric);
 audio.addEventListener('ended',()=>{
+  if(window.RAMusicLibrary?.onEnded?.())return;
   seekToLoopStart();
   audio.play().catch(()=>{});
 });
 
-start.addEventListener('click',async()=>{
+function startSurfaceHasProgress(){
+  return !!window.RANewGame?.hasProgress?.();
+}
+function refreshStartSurface(){
+  const hasProgress=startSurfaceHasProgress();
+  start.textContent=hasProgress?'▶ CONTINUE':'▶ START';
+  if(newGameButton)newGameButton.hidden=!hasProgress;
+}
+async function launchGame(){
   overlay.style.display='none';
-  await window.RAScenes?.go?.('bedroom',{start:true});
+  try{window.RAAudio?.unlock?.();}catch(e){}
+  const routed=await window.RANewGame?.onStart?.();
+  if(!routed)await window.RAScenes?.go?.('bedroom',{start:true});
   try{
     if(audio.readyState<1){
       await new Promise(resolve=>audio.addEventListener('loadedmetadata',resolve,{once:true}));
     }
-    seekToLoopStart();
+    if(!window.RAMusicLibrary?.restored?.())seekToLoopStart();
     await audio.play();
   }catch(e){
     console.error(e);
     say('TAP AGAIN FOR AUDIO');
   }
+}
+start.addEventListener('click',launchGame);
+newGameButton?.addEventListener('click',async()=>{
+  if(!startSurfaceHasProgress())return;
+  if(!window.confirm('START A NEW GAME?'))return;
+  window.RAState?.reset?.();
+  refreshStartSurface();
+  await launchGame();
 });
+refreshStartSurface();
 
 mainButtons.forEach((b,i)=>b.addEventListener('click',()=>{if(busy||battleOver)return;pressFeedback(b);mainIndex=i;inMoves=false;paint();activateMain()}));
 moves.forEach((b,i)=>b.addEventListener('click',()=>{if(busy||battleOver)return;pressFeedback(b);moveIndex=i;inMoves=true;paint();activateMove()}));
 window.addEventListener('keydown',e=>{
-  if(['bedroom','ogun-rave'].includes(window.RAScenes?.current()))return;
+  if(['bedroom','ogun-rave','adventure'].includes(window.RAScenes?.current())||document.body.classList.contains('minigame-mode')||document.body.classList.contains('combat2-mode'))return;
   if(overlay.style.display!=='none'&&(e.key==='Enter'||e.key===' ')){start.click();return}
   if(busy||battleOver)return;
   if(['ArrowUp','ArrowDown','ArrowLeft','ArrowRight','Enter','Escape',' '].includes(e.key))e.preventDefault();
@@ -414,33 +469,10 @@ window.RACombat={startJdmEncounter(){resetBattle('jdm');document.body.classList.
 
 const richBiteSprite=document.querySelector('#richBiteSprite'),biteTrail=document.querySelector('#biteTrail'),biteImpact=document.querySelector('#biteImpact'),healFloat=document.querySelector('#healFloat');const biteSleep=ms=>new Promise(r=>setTimeout(r,ms));async function vampireBiteAttack(){const rich=document.querySelector('.gemini-rich'),stage=document.querySelector('.game')||document.querySelector('.game-shell')||document.querySelector('#game')||document.body;if(rich)rich.style.opacity='0';biteTrail.classList.remove('flash');void biteTrail.offsetWidth;biteTrail.classList.add('flash');await biteSleep(125);richBiteSprite.classList.add('active');await biteSleep(115);setCEOState('hit');biteImpact.classList.remove('flash');void biteImpact.offsetWidth;biteImpact.classList.add('flash');stage.classList.add('bite-shake');if(typeof ceoHP!=='undefined')ceoHP=Math.max(0,ceoHP-24);if(typeof richHP!=='undefined')richHP=Math.min(100,richHP+18);if(typeof updateHP==='function')updateHP();if(typeof updateBars==='function')updateBars();healFloat.classList.remove('show');void healFloat.offsetWidth;healFloat.classList.add('show');await biteSleep(210);stage.classList.remove('bite-shake');richBiteSprite.classList.remove('active');await biteSleep(90);if(rich)rich.style.opacity='1';if(typeof ceoHP!=='undefined'&&ceoHP<=0){setCEOState('defeated');setAssistantState('reaction');if(typeof victory==='function')victory();}else{setCEOState('idle');if(typeof enemyTurn==='function')setTimeout(()=>enemyTurn(),180);else if(typeof ceoTurn==='function')setTimeout(()=>ceoTurn(),180);}}
 
+// RC2 / Ube's RC1 hotfix: lyric bubbles are off. Hide and return; the song rotation owns looping now.
 function syncRichLyrics(){
-  if(!audio || audio.paused){
-    richLyricBubble?.classList.remove('on');
-    requestAnimationFrame(syncRichLyrics);
-    return;
-  }
-  if(audio.currentTime>=loopEnd){
-    seekToLoopStart();
-    requestAnimationFrame(syncRichLyrics);
-    return;
-  }
-  const t=audio.currentTime+LYRIC_LEAD;
-  let idx=-1;
-  for(let i=0;i<richLyricLines.length;i++){
-    if(t>=richLyricLines[i][0]) idx=i;
-    else break;
-  }
-  if(idx<0){
-    resetRichLyric();
-  }else if(idx!==lastRichLyric){
-    lastRichLyric=idx;
-    if(richLyricBubble){
-      richLyricBubble.textContent=richLyricLines[idx][1];
-      richLyricBubble.classList.add('on');
-    }
-  }
-  requestAnimationFrame(syncRichLyrics);
+  richLyricBubble?.classList.remove('on');
+  return;
 }
-requestAnimationFrame(syncRichLyrics);
+syncRichLyrics();
 window.RAJDMCombatPresentation={layoutBubbles:layoutJdmBubbles};

@@ -1,0 +1,50 @@
+{
+  "outputs": [
+    {
+      "asset": "castle_exterior_night",
+      "native": "castle-night-pilot-v1\\castle_exterior_night_1x.png",
+      "sha256": "c52e59d022804ebc7a0f77e1ed0c0bec3d75370e806845709cdd3f497138a336",
+      "size": [
+        270,
+        480
+      ],
+      "opaque": true,
+      "sourcePrompt": "castle-night-pilot-v1\\source-prompt.txt"
+    },
+    {
+      "asset": "castle_exterior_party",
+      "native": "castle-party-v1\\castle_exterior_party_1x.png",
+      "sha256": "42f20de7680247693e707cda81c0aaf1600a298d3acfb62a354e34f08b801ce4",
+      "size": [
+        270,
+        480
+      ],
+      "opaque": true,
+      "sourcePrompt": "castle-party-v1\\source-prompt.txt"
+    },
+    {
+      "asset": "carson_owambe",
+      "native": "carson-owambe-v1\\carson_owambe_1x.png",
+      "sha256": "bb593b78c0a61c6b2cf1aeda59748118863828ae2f6dc2527bd988f1d47e209d",
+      "size": [
+        270,
+        480
+      ],
+      "opaque": true,
+      "sourcePrompt": "carson-owambe-v1\\source-prompt.txt"
+    }
+  ],
+  "tool": "built-in image_gen",
+  "count": 3,
+  "floorY": 372,
+  "origin": [
+    0,
+    0
+  ],
+  "runtimeEdits": false,
+  "frozenSourceVerification": "source-verification.json",
+  "status": "W_REVIEWED_ASSISTANT_CANDIDATES",
+  "reviewReceipt": "W-final-review.txt",
+  "creatorFrozen": false,
+  "runtimeImportedByArtist": false
+}

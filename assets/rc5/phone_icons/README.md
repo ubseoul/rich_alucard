@@ -1,0 +1,1 @@
+Parent-delegated assistant candidate phone icon family. Reviewed in the actual phone at 360/390/430/desktop, locked and unlocked. Not creator-frozen. Native PNG bytes and artist manifest preserved unchanged. Original Texts, VampGPT and Radio assets remain untouched. No navigation, lock, accessibility or story changes.

@@ -1,5 +1,11 @@
 (function(){
   const params=new URLSearchParams(location.search);
+  // Release pages cannot acquire developer controls through F2, a saved preference or an API call.
+  if(params.get('dev')!=='1'){
+    const remove=()=>{document.querySelector('#devPanel')?.remove();document.querySelector('#stageContractOverlay')?.remove();document.body.classList.remove('dev-enabled','stage-overlay-active');};
+    if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',remove,{once:true});else remove();
+    return;
+  }
   let enabled=params.get('dev')==='1';
   const panel=()=>document.querySelector('#devPanel');
   const readout=()=>document.querySelector('#devReadout');

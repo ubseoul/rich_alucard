@@ -1,0 +1,21 @@
+/* F02 IRON & GRACE — fragment styles (Armory phone app + Range Day). Scoped under classes the fragment owns so they
+   cannot collide with accepted phone/minigame styles. Loaded through the loader's fragment css slot. */
+.ia-gun,.ia-mod{display:block;border:1px solid #3a2f4a;background:rgba(20,14,28,.72);padding:8px;margin:6px 0;border-radius:6px}
+.ia-gun b,.ia-mod b{display:block;color:#f2e9d8;letter-spacing:.5px}
+.ia-gun small,.ia-mod small{display:block;color:#b9a9c9;font-size:11px;line-height:1.35;margin-top:2px}
+.ia-owned{border-color:#6c5a2a}
+.ia-small{font-size:11px;padding:4px 8px;margin-top:6px}
+.ia-wide{display:block;width:100%;margin:6px 0}
+.rd-lanes{display:grid;gap:6px;align-items:stretch;height:68%;padding:8px}
+.rd-lane{position:relative;background:repeating-linear-gradient(0deg,#241a2e 0 16px,#191320 16px 32px);border:3px solid #49334f;border-radius:0;color:#a49fc0;touch-action:none}
+.rd-target{position:absolute;left:50%;top:8%;width:26px;height:34px;margin-left:-13px;border:4px solid #10101b;box-shadow:3px 3px #49334f;border-radius:0;background:#e8e2d0;pointer-events:none}
+.rd-hostage{background:#ff6b6b}.rd-gold{background:#ffd75e}.rd-hilt{background:#c9b8ff;width:34px;height:34px;margin-left:-17px}
+.rd-hit{outline:2px solid #7fff9a}.rd-miss{outline:2px solid #ff6b6b}
+.rd-hud{display:grid;grid-template-columns:1fr 1fr;gap:10px;font:8px/1.6 var(--font-system,"Press Start 2P",monospace);color:#f2e9d8;padding:48px 8px 8px}.rd-hud b{grid-column:1/-1}
+.rd-help{font-size:10px;color:#b9a9c9;text-align:center;padding:4px}
+.rd-empty{color:#b9a9c9;padding:20px;text-align:center}
+.rd-feedback{font:8px/1.6 var(--font-system,"Press Start 2P",monospace);color:#ffd75e;padding:4px 8px;text-align:center}
+.rd-result{position:absolute;inset:0;z-index:6;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:12px;padding:48px 20px;background:#08070f;color:#f6efd9;text-align:center;font:9px/1.8 var(--font-system,"Press Start 2P",monospace)}
+.rd-result h2{font-size:12px;color:#ffd75e}.rd-result button{font:inherit;min-height:44px;padding:8px;border:3px solid #49334f;background:#f6efd9;color:#10101b;cursor:pointer}
+.ra-minigame[data-minigame="range_day"]{background:linear-gradient(#08070fcc,#08070fcc),url('../../../assets/before_the_fame/environments/armory/armory_behind_church_270x480.png') center/100% 100%;image-rendering:pixelated}
+.rd-lane{background:repeating-linear-gradient(0deg,#241a2ebb 0 16px,#191320bb 16px 32px)}

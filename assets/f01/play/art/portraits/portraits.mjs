@@ -1,0 +1,65 @@
+// Reviewed RC5 portraits. Generic class art does not establish a named identity.
+const files={
+  "rich_READY_32": "rich-ready-32-v3-native.png",
+  "rich_WOUNDED_16": "rich-wounded-16-v3-native.png",
+  "rich_WOUNDED_32": "rich-wounded-32-v3-native.png",
+  "rich_READY_16": "rich-ready-mini-v2-16px.png",
+  "tunde_READY_16": "tunde-ready-16-v1-native.png",
+  "tunde_WOUNDED_16": "tunde-wounded-16-v2-native.png",
+  "tunde_READY_32": "tunde-ready-32-v1-native.png",
+  "tunde_WOUNDED_32": "tunde-wounded-32-v1-native.png",
+  "dre_READY_16": "dre-ready-16-v1-native.png",
+  "dre_WOUNDED_16": "dre-wounded-16-v1-native.png",
+  "dre_READY_32": "dre-ready-32-v1-native.png",
+  "dre_WOUNDED_32": "dre-wounded-32-v1-native.png",
+  "half_pint_READY_16": "half_pint-ready-16-v1-native.png",
+  "half_pint_WOUNDED_16": "half_pint-wounded-16-v1-native.png",
+  "half_pint_READY_32": "half_pint-ready-32-v3-native.png",
+  "half_pint_WOUNDED_32": "half_pint-wounded-32-v1-native.png",
+  "sunday_best_READY_16": "sunday_best-ready-16-v1-native.png",
+  "sunday_best_WOUNDED_16": "sunday_best-wounded-16-v1-native.png",
+  "sunday_best_READY_32": "sunday_best-ready-32-v1-native.png",
+  "sunday_best_WOUNDED_32": "sunday_best-wounded-32-v2-native.png",
+  "young_mazi_READY_16": "young_mazi-ready-16-v1-native.png",
+  "young_mazi_WOUNDED_16": "young_mazi-wounded-16-v1-native.png",
+  "young_mazi_READY_32": "young_mazi-ready-32-v1-native.png",
+  "young_mazi_WOUNDED_32": "young_mazi-wounded-32-v1-native.png",
+  "auntie_grit_READY_16": "auntie_grit-ready-16-v1-native.png",
+  "auntie_grit_WOUNDED_16": "auntie_grit-wounded-16-v1-native.png",
+  "auntie_grit_READY_32": "auntie_grit-ready-32-v1-native.png",
+  "auntie_grit_WOUNDED_32": "auntie_grit-wounded-32-v1-native.png",
+  "muscle_READY_16": "muscle-ready-16-v1-native.png",
+  "muscle_WOUNDED_16": "muscle-wounded-16-v1-native.png",
+  "muscle_READY_32": "muscle-ready-32-v1-native.png",
+  "muscle_WOUNDED_32": "muscle-wounded-32-v1-native.png",
+  "shooter_READY_16": "shooter-ready-16-v1-native.png",
+  "shooter_WOUNDED_16": "shooter-wounded-16-v1-native.png",
+  "shooter_READY_32": "shooter-ready-32-v1-native.png",
+  "shooter_WOUNDED_32": "shooter-wounded-32-v1-native.png",
+  "wheels_READY_16": "wheels-ready-16-v1-native.png",
+  "wheels_WOUNDED_16": "wheels-wounded-16-v1-native.png",
+  "wheels_READY_32": "wheels-ready-32-v1-native.png",
+  "wheels_WOUNDED_32": "wheels-wounded-32-v1-native.png",
+  "talker_READY_16": "talker-ready-16-v1-native.png",
+  "talker_WOUNDED_16": "talker-wounded-16-v1-native.png",
+  "talker_READY_32": "talker-ready-32-v1-native.png",
+  "talker_WOUNDED_32": "talker-wounded-32-v1-native.png",
+  "ghost_READY_16": "ghost-ready-16-v1-native.png",
+  "ghost_WOUNDED_16": "ghost-wounded-16-v1-native.png",
+  "ghost_READY_32": "ghost-ready-32-v1-native.png",
+  "ghost_WOUNDED_32": "ghost-wounded-32-v1-native.png",
+  "doc_READY_16": "doc-ready-16-v1-native.png",
+  "doc_WOUNDED_16": "doc-wounded-16-v1-native.png",
+  "doc_READY_32": "doc-ready-32-v1-native.png",
+  "doc_WOUNDED_32": "doc-wounded-32-v1-native.png"
+};
+export function portrait(o,st={},size=32){
+ const named=Object.hasOwn(files,o.id+'_READY_'+size);
+ const identity=named?o.id:String(o.cls||'').toLowerCase();
+ const hp=st.hp??o.hp,max=st.maxhp??o.maxhp;
+ const hurt=st.hurt===true||(Number.isFinite(hp)&&Number.isFinite(max)&&hp<max)||['DOWN','DEAD'].includes(st.state);
+ const state=hurt?'WOUNDED':'READY';
+ const file=files[identity+'_'+state+'_'+size];
+ if(!file)return '';
+ return '<img class="face play-portrait" data-portrait="'+identity+'" data-portrait-state="'+state+'" data-native-size="'+size+'" src="'+new URL('./'+file,import.meta.url).href+'" width="'+size+'" height="'+size+'" alt="" aria-hidden="true">';
+}

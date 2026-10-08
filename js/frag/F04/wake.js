@@ -1,0 +1,152 @@
+(function(){
+ 'use strict';
+ // F04 — PLAYMAKERS WAR ROOM — wake.js
+ // Registers nightly wake handlers via RAWakeBus (IF-1 4C).
+ // Handles: Offer availability check, rival pressure tick, crew timer expiry, retaliation scheduling.
+ // SOURCE: Vol 7 §1 (unlock conditions), §3.1 (clock / rival pressure), §3.1 (2 job slots at 6+ Ogas).
+
+ if (!window.RAFeatures?.get('F04.war_room')) return;
+
+ // ── Offer availability (Vol 7 §1) ────────────────────────────────────────
+ // RC2 (OL-063, ECONOMY_DELTA): PLAYs are the main path, so the first offer opens on Day 2 (RAEcon.offer.firstDay) once the intro
+ // is done. It was Days 16–22 with Ogun's Rave done, Vampire Rep ≥ MID, a car and 2+ COOL homies. The crew is the six named
+ // Ogas from the moment Rich says yes; the car is the crew's hooptie (play_adapter.js garageSnapshot).
+ // Second offer: RAEcon.offer.secondOfferGapDays sleeps after the first decline (was 8).
+ function checkOfferEligibility() {
+  const life = window.RAState.get().life;
+  const day = window.RALife.today().day;
+  if (day < (window.RAEcon?.offer?.firstDay ?? 2)) return false;
+  return true;   // wake handlers only run once the life clock has started, so the intro is already behind the player
+ }
+
+ // Wake handler: check and update offer availability.
+ window.RAWakeBus.subscribe({
+  id: 'F04.offer-check',
+  fragment: 'F04',
+  phase: 'wake',
+  priority: 63, // CONTENT band (unique, non-colliding)
+  flag: 'F04.war_room',
+  fn(ctx) {
+   const offer = window.RAFrag.read('F04', 'offer', {});
+   const day = ctx?.info?.day || window.RALife.today().day;
+
+   // Already accepted or finally declined
+   if (['accepted', 'declined_final', 'closed_fame'].includes(offer.status)) return;
+
+   // Second offer: ~8 sleeps after first decline
+   if (offer.status === 'declined_once' && offer.declinedOnDay != null) {
+    const secondDay = offer.declinedOnDay + (window.RAEcon?.offer?.secondOfferGapDays ?? 8);
+    if (day >= secondDay && offer.secondOfferDay == null) {
+     window.RAFrag.patch('F04', 'offer.secondOfferDay', day);
+     window.RAFrag.patch('F04', 'offer.status', 'available');
+     window.RAPhoneRegistry.unlock('warRoom', { badge: true });
+    }
+    return;
+   }
+
+   // First offer
+   if (offer.status === 'unavailable' && checkOfferEligibility()) {
+    window.RAFrag.patch('F04', 'offer.status', 'available');
+    // RC2 (OL-063): the app has to be on the phone for the offer to be answerable. It used to unlock only on ACCEPT, which the locked
+    // app could never offer; the offer now puts WAR ROOM on the home screen the morning it lands.
+    window.RAPhoneRegistry.unlock('warRoom', { badge: true });
+   }
+  }
+ });
+
+ // ── Rival pressure tick (Vol 7 §3.1) ─────────────────────────────────────
+ // Every night that a district is not serviced, rival pressure rises.
+ // "You cannot service everything. That's the strategy."
+ window.RAWakeBus.subscribe({
+  id: 'F04.rival-pressure',
+  fragment: 'F04',
+  phase: 'wake',
+  priority: 64, // CONTENT band — after offer check
+  flag: 'F04.war_room',
+  fn(ctx) {
+   if (!window.RAFrag.read('F04', 'active', false)) return;
+
+   const day = ctx?.info?.day || window.RALife.today().day;
+   const log = window.RAFrag.read('F04', 'jobs.log', []);
+   // Districts serviced tonight (jobs completed on this day)
+   const servicedTonight = new Set(
+    log.filter(e => e.day === day - 1 && e.result === 'success').map(e => e.district)
+   );
+
+   for (const distId of window.RAWarRoomDistricts.activeIds()) {
+    const dist = window.RADistricts.get(distId);
+    if (!dist) continue;
+    // Only tick districts that Rich has some interest in (not already lost)
+    if (dist.state === 'CONTROLLED' && dist.holder === 'rival') continue;
+    if (!servicedTonight.has(distId)) {
+     window.RAWarRoomDistricts.tickPressure(distId);
+    }
+   }
+
+   // Update slot count in frag state
+   window.RAFrag.patch('F04', 'jobs.slotsPerNight', window.RAWarRoomCrew.slotsPerNight());
+
+   // Retaliation: check if a retaliation event is due
+   for (const distId of window.RAWarRoomDistricts.activeIds()) {
+    const retDay = window.RAFrag.read('F04', `districts.${distId}.retaliationDay`, null);
+    if (retDay != null && day >= retDay) {
+     window.RAFrag.patch('F04', `districts.${distId}.retaliationDay`, null);
+     window.RAFrag.patch('F04', `districts.${distId}.retaliationPending`, true);
+    }
+   }
+  }
+ });
+
+ // ── Night report contribution ─────────────────────────────────────────────
+ window.RAWakeBus.nightReport.contribute({
+  id: 'F04.war-room-summary',
+  fragment: 'F04',
+  priority: 30,
+  flag: 'F04.war_room',
+  fn(ctx) {
+   if (!window.RAFrag.read('F04', 'active', false)) return null;
+   const cards = window.RAWarRoomReportCard?.recent(1) || [];
+   if (!cards.length) return null;
+   const c = cards[0];
+   // A report belongs to the night that produced it; an idle night must not replay an older job.
+   if (c.day !== ctx?.night?.day) return null;
+   return {
+    title: 'WAR ROOM',
+    text: `${c.districtLabel}: ${c.success ? 'clean run' : 'rough night'}. Cash ${c.tally.cash >= 0 ? '+' : ''}$${c.tally.cash.toLocaleString()}.`
+   };
+  }
+ });
+
+ // Parked World Reaction C2: surface the existing authored report through Morning Mail.
+ // Keep its words and numbers intact; this only connects the report to the phone after sleep.
+ window.RAWakeBus.subscribe({
+  id: 'F04.report-mail', fragment: 'F04', phase: 'wake', priority: 94, flag: 'F04.war_room',
+  fn(ctx) {
+   const report = window.RAWakeBus.nightReport.last();
+   if (!report || report.day !== ctx?.info?.day - 1) return;
+   for (const section of report.sections.filter(s => s.fragment === 'F04')) {
+    window.RALife.mail({id:`war-room:night:${report.day}:${section.id}`,kind:'world',
+     title:section.title,body:section.text,app:'warRoom'});
+   }
+  }
+ });
+
+ // ── Fame closure (Vol 7 §9) ───────────────────────────────────────────────
+ // Route closes when fame arrives. Detected via the accepted fame system.
+ window.RAWakeBus.subscribe({
+  id: 'F04.fame-close',
+  fragment: 'F04',
+  phase: 'wake',
+  priority: 98, // TAIL band (unique, non-colliding)
+  flag: 'F04.war_room',
+  fn() {
+   const momentum = window.RAState.get().life?.momentum;
+   if (!momentum?.fameFired) return;
+   const offer = window.RAFrag.read('F04', 'offer', {});
+   if (offer.status === 'accepted') {
+    window.RAFrag.patch('F04', 'offer.status', 'closed_fame');
+    window.RAFrag.patch('F04', 'active', false);
+   }
+  }
+ });
+})();

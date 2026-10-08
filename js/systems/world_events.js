@@ -56,6 +56,7 @@
  function deliver(channel){
   const delivered=[];
   for(const event of definitions().filter(item=>item.deliveryChannel===channel)){
+   if(window.RARC3&&(!window.RARC3.storyEvent(event.id)||delivered.length))continue;
    const current=baseRecord(event.id);
    if(current.status!=='pending')continue;
    const next=saveRecord(event.id,{...current,status:'delivered',deliveredAt:current.deliveredAt||now(),deliveries:(current.deliveries||0)+1});
