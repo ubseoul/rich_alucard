@@ -924,6 +924,9 @@
         "sha256": "bb593b78c0a61c6b2cf1aeda59748118863828ae2f6dc2527bd988f1d47e209d",
         "authority": "PARENT-DELEGATED REVIEWED CANDIDATE; NOT CREATOR-FROZEN"
       }
-    }
+    },
+    "assets/player_feedback/senator-pixel-v3/senator_sitting_pixel_v3_160x160.png": {"anchor":[80,152],"support":{"threshold":128},"candidate":{"sha256":"be4019e74fe57df88d0f4e8a8c4cf17b95e582973defb9170ec52e115b8b9b64","authority":"PARENT-DELEGATED REVIEWED SENATOR PIXEL CANDIDATE; NOT CREATOR-FROZEN"}},
+    "assets/player_feedback/senator-pixel-v3/senator_charging_pixel_v3_160x160.png": {"anchor":[80,152],"support":{"threshold":128},"candidate":{"sha256":"f7f5c2b426ffd404f809758f35222d77052a78aa0f4414e61e7476acb4602377","authority":"PARENT-DELEGATED REVIEWED SENATOR PIXEL CANDIDATE; NOT CREATOR-FROZEN"}},
+    "assets/player_feedback/senator-pixel-v3/senator_asleep_pixel_v3_160x160.png": {"anchor":[80,152],"support":{"threshold":128},"candidate":{"sha256":"1d4a7075a55d6688ded35f19499ff2c21dd241fefad9e912ea75a2309183ecc5","authority":"PARENT-DELEGATED REVIEWED SENATOR PIXEL CANDIDATE; NOT CREATOR-FROZEN"}}
   }
 }

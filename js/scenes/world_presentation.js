@@ -23,7 +23,11 @@
  function actors(env,cast){
   const c=call(cast,env);
   if(window.RAAdventures?.active?.()?.id==='RB_DELIVERY')return Object.fromEntries(Object.entries(cast||{}).map(([slot,v])=>[slot,(typeof v==='string'?v:v?.id)==='rich'?{...(typeof v==='object'?v:{}),id:'rich',x:48,y:372,lineScale:1}:v]));
-  if(!frozen(env,cast)&&env?.id==='bedroom')cast=Object.fromEntries(Object.entries(cast||{}).map(([slot,v])=>[(slot),(typeof v==='string'?v:v?.id)==='senator'?{...(typeof v==='object'?v:{}),id:'senator',x:210,y:470,lineScale:.45}:v]));
+  if(!frozen(env,cast)&&env?.id==='bedroom')cast=Object.fromEntries(Object.entries(cast||{}).map(([slot,v])=>{
+   if((typeof v==='string'?v:v?.id)!=='senator')return [slot,v];
+   const pose=['sitting','charging','asleep'].includes(v?.state)?v.state:(window.RAAdventures?.active?.()?.node==='walked'?'asleep':'sitting');
+   return [slot,{...(typeof v==='object'?v:{}),id:'senator',state:pose,src:`assets/player_feedback/senator-pixel-v3/senator_${pose}_pixel_v3_160x160.png`,x:210,y:470,lineScale:.45}];
+  }));
   if(c)return {...cast,[c.slot]:{...(typeof cast[c.slot]==='object'?cast[c.slot]:{}),id:'rich',src:'assets/rich_bedroom_phone_scroll.png',state:'phone_scroll',x:78,y:338,lineScale:1,flip:false}};
   if(env?.id==='gbenga_house_dining')return Object.fromEntries(Object.entries(cast||{}).map(([slot,spec])=>{
    const id=typeof spec==='string'?spec:spec?.id;

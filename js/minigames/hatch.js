@@ -98,9 +98,9 @@
   function careKey(e){if(e.repeat||terminal)return;if(!ready&&(e.key==='Enter'||e.key===' ')){e.preventDefault();begin();return;}if(! /^[1-3]$/.test(e.key))return;e.preventDefault();advance(CARE_PROMPTS[Number(e.key)-1]);}
   window.addEventListener('keydown',careKey);
   // Exact candidate pixels are local to this consumer; frozen global Senator art is untouched.
-  const careFrames={feed:[],walk:[],joko:[]},contactRows={feed:[141,139,141],walk:[149,149,149,149],joko:[150,150,151]};
+  const careFrames={feed:[],walk:[],joko:[]},contactRows={feed:[152,152,152],walk:[152,152,152,152],joko:[152,152,152]};
   for(const [action,count] of [['feed',3],['walk',4],['joko',3]])for(let i=0;i<count;i++){
-   const image=new Image();image.src=`assets/rc5/senator-care-r1/senator_${action}_${String(i+1).padStart(2,'0')}_r1.png`;careFrames[action].push(image);
+   const image=new Image();image.src=`assets/player_feedback/senator-pixel-v3/senator_${action}_${String(i+1).padStart(2,'0')}_pixel_v3_160x160.png`;careFrames[action].push(image);
   }
   let candidateFamily=false;
   function drawDog(){
