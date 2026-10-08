@@ -5,8 +5,8 @@ import {PD_ART} from './pd-art.mjs';
 import {ASSETS,BTF} from './feel-core.mjs';
 import {FL,FL_ART,UNWIRED,carPng,supraOverlay,frozenPaths} from './feel-frozen.mjs';
 export {FL,FL_ART,UNWIRED,frozenPaths};
-// Player-feedback return: approved street arrival, independent of frozen castle base art.
-export const RETURN_BASE={home:BTF+'environments/street_night/street_night_270x480.png',empty:BTF+'environments/street_night/street_night_270x480.png'};
+// Player-feedback return: code-authored pixel alley, independent of frozen castle base art.
+export const RETURN_BASE={home:'../../../assets/player_feedback/play-return-alley.svg',empty:'../../../assets/player_feedback/play-return-alley.svg'};
 
 const PKG=BTF+'art_ship_014/package_e/E-gun-';
 // weapon TYPE first (readable), in-world nickname second. PISTOL / SPRAYER / SLIPPER / BARE HANDS are the frozen FL-A08 24x24 icons (sq = square icon, drawn at integer scale).
