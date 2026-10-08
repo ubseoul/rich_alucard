@@ -386,7 +386,7 @@ export async function roomScene({crewObjs,defense,objective='THE PLAY'}){
 // Rich COUNTS while the total rolls upward, then the trunk reveals ONE ITEM AT A TIME — everything shown is what was really awarded (M6).
 export async function returnScene({rec,crewObjs,w,bankBefore,canonical=null}){
  const RR=W.returnRoster(rec);
- clear();bg(RR.alone?A.RETURN_BASE.empty:A.RETURN_BASE.home); // Code-authored pixel alley; frozen FL-A02 stays byte-identical
+ clear();bg(RR.alone?A.RETURN_BASE.empty:A.RETURN_BASE.home); // Commissioned native pixel alley; frozen FL-A02 stays byte-identical
  el('shadow','',null,{left:'204px',top:'419px',width:'32px',height:'3px'});
  const rich=richEl({left:'180px',top:'332px'});
  await fadeTo(0,900);await sleep(1100);
