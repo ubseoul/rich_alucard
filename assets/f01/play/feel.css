@@ -259,7 +259,7 @@ button{font-family:Tiny5,"Courier New",monospace;letter-spacing:1px;border-radiu
 .crew-inspect{position:absolute;left:12px;right:12px;top:130px;background:var(--os-bg);border:2px solid var(--os-gold);padding:12px;z-index:18;font:16px/1.1 Monogram;box-shadow:4px 4px #050409}
 .crew-inspect b{font:16px Tiny5;color:var(--os-gold)}
 .crew-inspect p{margin:7px 0}.crew-inspect button{width:100%;min-height:30px;background:var(--os-raised);color:var(--os-text);border:1px solid var(--os-line)}
-.operation-result{position:absolute;inset:52px 12px auto;box-sizing:border-box;background:#0c0b14f5;border:2px solid var(--os-gold);padding:10px;z-index:9;max-height:270px;overflow:auto;box-shadow:3px 3px #050409;font:15px/1.1 Monogram}
+.operation-result{position:absolute;inset:52px 12px auto;box-sizing:border-box;background:#0c0b14;border:2px solid var(--os-gold);padding:10px;z-index:9;max-height:270px;overflow:auto;box-shadow:3px 3px #050409;font:15px/1.1 Monogram}
 .operation-result h2{font:20px Tiny5;margin:0 0 8px;color:var(--os-gold)}
 .result-money{display:grid;grid-template-columns:1fr 1fr;gap:7px;border-block:1px solid var(--os-line);padding:6px 0;font:11px Tiny5}
 .result-money b{display:block;font:23px Monogram;color:var(--os-green)}
