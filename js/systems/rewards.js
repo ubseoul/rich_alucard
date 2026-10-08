@@ -59,5 +59,5 @@
   active=()=>{clearTimeout(timer);cue.remove();document.removeEventListener('ra:scene',stop);};
   document.addEventListener('ra:scene',stop,{once:true});
  });
- window.addEventListener('pagehide',stop);
+ window.addEventListener?.('pagehide',stop);
 })();

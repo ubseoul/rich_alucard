@@ -245,10 +245,10 @@ async function body(root){
   const c=await boot(root);ready(c);const R=c.RACombat2Rules;
   assert.equal(c.RAGbengaFight.hpFor(0),260);assert.equal(c.RAGbengaFight.hpFor(3),320,'320 if trust was high');
   const s=R.create('gbenga',{hp:260},LO,()=>.99);
-  assert.equal(s.enemy.max,260);assert.equal(s.telegraph,'HE IS ADJUSTING HIS SLEEVES','AGBADA SWEEP is telegraphed');
-  R.act(s,{type:'move',id:'bite'});                       // Rich acts; Gbenga sweeps for 24
-  assert.ok(s.log.some(l=>l.move==='sweep'));assert.equal(s.rich.max-s.rich.hp-0,24-0>0?s.rich.max-s.rich.hp:0);
-  assert.equal(s.log.find(l=>l.kind==='hurt').amount,24,'AGBADA SWEEP: 24');
+  assert.equal(s.enemy.max,260);assert.equal(R.intent(s),'phone','the requested giant-phone opener is first');assert.equal(c.RACombatData.ENEMIES.gbenga.moves.phone.label,'HELLO HELLO RICH CAN YOU HEAR ME');
+  R.act(s,{type:'move',id:'bite'});                       // Rich misses; the giant phone lands for the preserved 24 damage
+  assert.ok(s.log.some(l=>l.move==='phone'));assert.equal(s.rich.hp,76,'the phone preserves the original 24 damage');assert.equal(s.f07.dracoEquipped,false,'a missed player attack does not equip Draco');
+  assert.equal(s.log.find(l=>l.kind==='hurt').amount,24,'giant-phone opener: 24');
   assert.equal(s.telegraph,'HE IS HOLDING THE PHONE FLAT IN FRONT OF HIS MOUTH','the VOICE NOTE is telegraphed next');
   // VOICE NOTE: Rich skips his next turn
   R.act(s,{type:'move',id:'bite'});assert.ok(s.log.some(l=>l.move==='voice'));assert.equal(s.rich.stun,1,'Rich skips his next turn');
@@ -257,7 +257,7 @@ async function body(root){
   const s2=R.create('gbenga',{hp:260},LO,()=>.99);s2.enemy.step=2;s2.enemy.hp=200;s2.rich.buffNext=1.5;s2.rich.doubleNext=true;s2.rich.shield=9;s2.rich.sureNext=true;
   R.act(s2,{type:'move',id:'revenge'});assert.ok(s2.log.some(l=>l.move==='my_son'));
   assert.equal(s2.enemy.hp,230,'MY SON heals 30');assert.equal(s2.rich.buffNext,1);assert.equal(s2.rich.doubleNext,false);assert.equal(s2.rich.shield,0);assert.equal(s2.rich.sureNext,false,"removes Rich's buffs");
-  console.log('PASS f07 GBENGA: 260 / 320 HP, AGBADA SWEEP 24 (telegraphed), VOICE NOTE skips Rich\'s turn, MY SON heals 30 + removes buffs');
+  console.log('PASS f07 GBENGA: giant phone opener24, 260 / 320 HP, VOICE NOTE skips a turn, MY SON heals30 and removes buffs');
  }
  {
   const c=await boot(root);ready(c);const R=c.RACombat2Rules;
@@ -273,15 +273,15 @@ async function body(root){
   assert.ok(e.log.some(l=>/Gbenga, are you fighting at your own party\?/.test(l.text)),'authored Mama Gbenga line');
   assert.ok(e.log.some(l=>/LOSES (A|THE) TURN/.test(l.text)));assert.ok(!e.log.some(l=>l.kind==='enemy'),'he loses the turn: no attack');
   const before=e.log.length;R.act(e,{type:'move',id:'bite'});assert.ok(!e.log.some(l=>/fighting at your own party/.test(l.text)),'the shame beat fires once');void before;
-  // below 30%: THE GOLDEN DRACO, 2 x 20, telegraphed
+  // The first received player hit equips THE GOLDEN DRACO, 2 x 20, regardless of remaining HP.
   const g=R.create('gbenga',{hp:260},LO,()=>.5);g.f07.shamed=true;g.enemy.hp=100;g.enemy.step=0;
-  R.act(g,{type:'move',id:'blood'});               // 100-26 = 74 <= 30% of 260 (78): THE GOLDEN DRACO is queued behind this turn
+  R.act(g,{type:'move',id:'blood'});               // First positive hit: Draco is queued after the phone opener.
   assert.equal(g.telegraph,'HE IS REACHING INTO THE COOLER','THE GOLDEN DRACO is telegraphed');
   R.act(g,{type:'move',id:'bite'});
   const hits=g.log.filter(l=>l.kind==='hurt');assert.equal(hits.length,2,'2 hits');assert.ok(hits.every(h=>h.amount===20),'2 × 20');
   const above=R.create('gbenga',{hp:260},LO,()=>.5);above.f07.shamed=true;above.enemy.hp=200;above.enemy.step=0;R.act(above,{type:'move',id:'blood'});
-  assert.notEqual(above.telegraph,'HE IS REACHING INTO THE COOLER','not below 30%: no GOLDEN DRACO');
-  console.log('PASS f07 GBENGA scripts: VOICE NOTE interruptible only by REVENGE / DEAD RINGER, 50% Mama Gbenga shame turn (once), below 30% GOLDEN DRACO 2×20 telegraphed');
+  assert.equal(above.telegraph,'HE IS REACHING INTO THE COOLER','first received hit equips Draco even above 30%');assert.equal(above.f07.dracoEquipped,true);
+  console.log('PASS f07 GBENGA scripts: VOICE NOTE interruptible only by REVENGE / DEAD RINGER, 50% Mama Gbenga shame turn (once), first-hit GOLDEN DRACO 2×20 telegraphed');
  }
  {
   const c=await boot(root);ready(c);const R=c.RACombat2Rules;
