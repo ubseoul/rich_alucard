@@ -441,7 +441,6 @@ export async function returnScene({rec,crewObjs,w,bankBefore,canonical=null}){
   const who=it.cat==='GUN'&&it.to?` → ${(crewObjs.find(o=>o.id===it.to)||{short:''}).short.toUpperCase()}`:'';
   if(prevLab)anim(prevLab,[{opacity:1},{opacity:0}],250);
   prevLab=el('lootlab lane',esc(short+who),null,{color:col,borderColor:col});
-  {const r=prevLab.getBoundingClientRect(),sr=stage.getBoundingClientRect(),sc=sr.width/270;const L=(r.left-sr.left)/sc,R=(r.right-sr.left)/sc;if(R>266)prevLab.style.transform=`translateX(calc(-50% - ${Math.round(R-266)}px))`;else if(L<4)prevLab.style.transform=`translateX(calc(-50% + ${Math.round(4-L)}px))`;}
   node.dataset.loot=it.name;shownList.push({name:it.name,cat:it.cat,rar:it.rar});
   await sleep(1500);
  }
