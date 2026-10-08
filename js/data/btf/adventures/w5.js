@@ -14,6 +14,8 @@
  const PORTO_WIFE={id:'portobello_wife',look:{skin:'#e0b896',top:'#d8a0b0',bottom:'#2a2a38',hair:'#3a2010',hairShape:'long'}};
  const PORTO_KID1={id:'portobello_kid1',look:{skin:'#c99a78',top:'#7ad0a0',bottom:'#3a3a3a',hair:'#2a1810',hairShape:'bun',height:.6}};
  const PORTO_KID2={id:'portobello_kid2',look:{skin:'#c99a78',top:'#f0c060',bottom:'#3a3a3a',hair:'#2a1810',hairShape:'spiky',height:.55}};
+ // Explicit player-requested third child; additive generated candidate, original family art unchanged.
+ const PORTO_KID3={id:'portobello_kid3',look:{skin:'#c99a78',top:'#b5a0c7',bottom:'#3a3a3a',hair:'#2a1810',hairShape:'short',height:.57}};
  // The frozen manager pose turns to its right; on the right slot it is mirrored (runtime only) to face Rich's pitch.
  const PORTO_MGR={id:'portobello_manager',flip:true,look:{skin:'#d8b090',top:'#3a3a4a',bottom:'#1f2a44',hair:'#5a4a3a',hairShape:'hat'}};
  // Breakfast table: every figure stays framed by the generic staging, but only the wife and Rich speak here, so only
@@ -25,13 +27,13 @@
  D({id:'A30',title:'BAD PORTOBELLOS',lane:'life',scope:'MUST',start:'wake',legend:false,nodes:{
   wake:{env:'portobello_bedroom',actors:{mid:RICH_PORTO,left:PORTO_WIFE},title:'A TUESDAY',
    lines:[N("no locs clean cut expensive sweater damn"),N("woman beside him actually loves him"),R("wait who life is this")],next:'breakfast'},
-  breakfast:{actors:{mid:RICH_PORTO,left:PORTO_WIFE,right:PORTO_KID1,farRight:PORTO_KID2},shot:BREAKFAST_SPEAKERS,
-   lines:[N("eggs two kids arguing mazda outside just a car"),S('portobello_wife',"you late again"),R("im on time in spirit")],next:'commute'},
+  breakfast:{actors:{mid:{...RICH_PORTO,x:104},left:{...PORTO_WIFE,x:48},right:{...PORTO_KID1,x:160},farRight:{...PORTO_KID2,x:198},farLeft:{...PORTO_KID3,x:236}},shot:BREAKFAST_SPEAKERS,
+   lines:[N("eggs three kids arguing nissan minivan outside just a car"),S('portobello_wife',"you late again"),R("im on time in spirit")],next:'commute'},
   commute:{shot:BREAKFAST_SPEAKERS,lines:[N("commute normal radio normal what the fuck")],next:'kpi1'},
   kpi1:kpiRound(1,'kpi2'),kpi2:kpiRound(2,'kpi3'),kpi3:kpiRound(3,'approve'),
   approve:{env:'portobello_office',actors:{left:RICH_PORTO_PRESENTING,right:PORTO_MGR},
    lines:[N("whole room agrees with him damn"),S('portobello_manager',"rich these numbers clean"),R("i know my shit")],next:'bedtime'},
-  bedtime:{env:'portobello_bedroom',actors:{mid:RICH_PORTO,left:PORTO_KID1,right:PORTO_KID2},
+  bedtime:{env:'portobello_bedroom',actors:{mid:RICH_PORTO,left:PORTO_KID1,right:PORTO_KID2,farLeft:PORTO_KID3},
    lines:[N("bath teeth fake dragon bedtime book"),S('portobello_kid1',"one more chapter dad"),R("alright one more")],next:'porch'},
   porch:{env:'portobello_porch',actors:{left:RICH_PORTO_PORCH,right:PORTO_WIFE},
    lines:[N("sun goes down she leans on him"),S('portobello_wife',"good day or what"),R("yeah pretty good"),N("good life no punchline coming")],next:'bed'},
@@ -39,7 +41,7 @@
    lines:[R("what if though"),null],next:'wakeup'},
   wakeup:{env:'bedroom',actors:{mid:'rich'},
    lines:[N("rich wakes up yelling"),N("checks his head locs still there thank god"),R("damn okay im back")],
-   end:{outcome:'woke',nightEnder:true,memory:{text:'a whole other life: a data analyst, a wife who loved him, two kids, a mazda',lane:'home',quality:2},receipt:{caption:'bad portobellos. good life. wrong one.'},home:['rich','i had a mazda. i had a WIFE.',{vp:true}]}}
+   end:{outcome:'woke',nightEnder:true,memory:{text:'a whole other life: a data analyst, a wife who loved him, three kids, a nissan minivan',lane:'home',quality:2},receipt:{caption:'bad portobellos. good life. wrong one.'},home:['rich','i had three kids and a nissan minivan. i had a WIFE.',{vp:true}]}}
  }});
  D({id:'A31',title:'GOD ON THE CURB',lane:'home',scope:'MUST',start:'start',available:L=>L.info.sunday,
   testSetup:ctx=>{ctx.RALife.setFlag('lastDefeatDay',ctx.RALife.today().day);ctx.RAState.patch('life.world.day',46);},

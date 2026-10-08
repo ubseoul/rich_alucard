@@ -81,6 +81,7 @@
   {id:'portobello_wife',name:'PORTOBELLO_WIFE',look:{skin:'#e0b896',top:'#d8a0b0',bottom:'#2a2a38',hair:'#3a2010',hairShape:'long'}},
   {id:'portobello_kid1',name:'PORTOBELLO_KID1',look:{skin:'#c99a78',top:'#7ad0a0',bottom:'#3a3a3a',hair:'#2a1810',hairShape:'bun',height:.6}},
   {id:'portobello_kid2',name:'PORTOBELLO_KID2',look:{skin:'#c99a78',top:'#f0c060',bottom:'#3a3a3a',hair:'#2a1810',hairShape:'spiky',height:.55}},
+  {id:'portobello_kid3',name:'PORTOBELLO_KID3',sprite:'assets/player_feedback/portobello-kid3-native.png',look:{skin:'#c99a78',top:'#b5a0c7',bottom:'#3a3a3a',hair:'#2a1810',hairShape:'short',height:.57}},
   {id:'portobello_manager',name:'PORTOBELLO_MANAGER',look:{skin:'#d8b090',top:'#3a3a4a',bottom:'#1f2a44',hair:'#5a4a3a',hairShape:'hat'}},
  {id:'auntie',name:'THE AUNTIE',look:{skin:'#5a3420',top:'#2a8a5a',hair:'#1a1a1a',hairShape:'hat',width:1.2}},
   {id:'smallie',name:'SMALLIE',look:{skin:'#70442c',top:'#15151c',bottom:'#303038',hair:'#130d0a',hairShape:'spiky',height:.86,accent:'#c18b3c'}},
