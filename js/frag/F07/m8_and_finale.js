@@ -57,7 +57,7 @@
  const LANES=Object.freeze([
   {id:'ogas',label:'THE OGAS',person:null},
   {id:'shannon',label:'SHANNON',person:'shannon_001'},
-  {id:'mazda',label:'MAZDA',person:'mazda_human'},
+  {id:'mazda',label:'MAZDA',person:'mazda_human',when:()=>window.RADragon?.hasHumanForm?.()===true},
   {id:'pinky',label:'PINKY',person:'pinky'},
   {id:'tristan',label:'TRISTAN',person:'tristan'},
   {id:'carlos',label:'CARLOS',person:'carlos',when:s=>s.m4Outcome==='walk_in'},
@@ -66,6 +66,8 @@
 
  const lanesAvailable=(s=state())=>LANES.filter(l=>!l.when||l.when(s));
  const laneById=id=>LANES.find(l=>l.id===id);
+ const eligibleLanes=ids=>[...new Set((Array.isArray(ids)?ids:[]).filter(id=>lanesAvailable().some(l=>l.id===id)))];
+ const lanesEligible=ids=>Array.isArray(ids)&&ids.every(id=>lanesAvailable().some(l=>l.id===id));
  const finaleReady=S=>{
   if(!enabled())return false;
   const s=S.life?.newOga;if(!s||!s.finaleBegun||s.finaleDone)return false;
@@ -97,7 +99,7 @@
   if(!['blessing','consigliere','takeover'].includes(ending))throw new Error(`Unknown finale ending ${ending}`);
   const d=day();
   // "Gbenga's boys can join Rich's crew as recruits after the finale": recorded as available; no recruit identity or class is invented (D-queue D5).
-  O().patch({status:'new_oga',mission:11,rank:6,title:'NEW OGA',gbengasBoysCanJoin:true,finaleDone:true,finaleEnding:ending,finaleDay:d,finaleCrew:[...lanes],
+  O().patch({status:'new_oga',mission:11,rank:6,title:'NEW OGA',gbengasBoysCanJoin:true,finaleDone:true,finaleEnding:ending,finaleDay:d,finaleCrew:eligibleLanes(lanes),
    finaleHighTrust:s.trust>=window.RANewOgaTunables.trustThresholds.HIGH_MIN,enterprisesRenamed:true,gbengaEnterprises:'RICH ENTERPRISES',lastMissionDay:d});
   const blocks=takeBlocks();
   if(ending==='takeover'){
@@ -164,7 +166,8 @@
   NO_CAR:'THE PLAY WILL NOT RUN: RICH HAS NO CAR. THE PLAY NEEDS A CAR.',
   NO_CAR_FITS:'THE PLAY WILL NOT RUN: NO CAR THAT SEATS THIS CREW. THE PLAY NEEDS A CAR THAT SEATS THE SQUAD.',
   NOBODY_READY:'THE PLAY WILL NOT RUN: NOBODY IS READY.',
-  NO_SQUAD:'THE PARTY HAS NO SQUAD: THE OGAS ARE NOT IN THE PLAN.'
+  NO_SQUAD:'THE PARTY HAS NO SQUAD: THE OGAS ARE NOT IN THE PLAN.',
+  INELIGIBLE_LANES:'THE PLAN NEEDS PEOPLE RICH HAS ACTUALLY MET. REMAKE THE PLAN.'
  };
  const refusalLine=A=>REFUSAL_TEXT[A.get('refusal')]||'THE PLAY IS NOT AVAILABLE RIGHT NOW.';
  const playNext=(A,res)=>{
@@ -208,7 +211,7 @@
  // routePlan(): THE OGAS is fixed, every other selected lane is kept, and when three others were saved selection reopens with those marked
  // PREVIOUSLY PICKED — nothing is dropped silently. A plan built through this UI can never reach the PLAY without a squad.
  const lanesOf=A=>A.get('lanes')||[];
- const othersOf=A=>lanesOf(A).filter(id=>id!=='ogas');
+ const othersOf=A=>eligibleLanes(lanesOf(A)).filter(id=>id!=='ogas');
  function routePlan(A){
   const others=othersOf(A);
   if(others.length>T().finale.PICKS-1){A.set('prior',others);A.set('lanes',['ogas']);return 'plan';}
@@ -216,11 +219,11 @@
   return others.length===T().finale.PICKS-1?'crew':others.length===1?'pick2':'plan';
  }
  const pickNode=(n,next)=>({env:'castle_exterior',actors:{left:'rich'},title:n===1?'THE CASTLE · THE PLAN':undefined,
-  enter:A=>{if(!lanesOf(A).includes('ogas'))A.set('lanes',['ogas',...othersOf(A)]);},
+  enter:A=>{A.set('lanes',['ogas',...othersOf(A)]);},
   lines:n===1?[N("castle meeting bring people you actually trust"),N("ogas locked in pick two more")]:[N("one more dont invite everybody")],
   choices:A=>{const chosen=lanesOf(A),prior=A.get('prior')||[];
    return [{label:'THE OGAS',sub:'SQUAD · FIXED',when:()=>false,hideLocked:false,next:'plan'},
-    ...lanesAvailable().filter(l=>l.id!=='ogas'&&!chosen.includes(l.id)).map(l=>({id:l.id,label:l.label,sub:prior.includes(l.id)?'PREVIOUSLY PICKED':undefined,fx:X=>X.set('lanes',[...lanesOf(X),l.id]),next}))];}});
+    ...lanesAvailable().filter(l=>l.id!=='ogas'&&!chosen.includes(l.id)).map(l=>({id:l.id,label:l.label,sub:prior.includes(l.id)?'PREVIOUSLY PICKED':undefined,fx:X=>{if(lanesAvailable().some(x=>x.id===l.id))X.set('lanes',[...eligibleLanes(lanesOf(X)),l.id]);},next}))];}});
  const laneLine={
   shannon:"shannon checks the papers company belongs to mama gbenga uncle just loud",
   tristan:"tristan said no pulled up with snacks anyway",
@@ -228,7 +231,7 @@
   senator:"senator taking yoruba commands now bilingual menace"
  };
  const crewActors=A=>{
-  const people=(A.get('lanes')||[]).map(laneById).filter(l=>l?.person).map(l=>l.person),slots=['mid','right','farRight','farLeft'];
+  const people=eligibleLanes(A.get('lanes')).map(laneById).filter(l=>l?.person).map(l=>l.person),slots=['mid','right','farRight','farLeft'];
   return {left:'rich',...Object.fromEntries(people.slice(0,4).map((p,i)=>[slots[i],p]))};
  };
  const tributed=()=>!!state().m9TributedCar;
@@ -254,7 +257,7 @@
    p1:{minigame:{id:'f07_play',params:A=>({kind:'finale_p1',lanes:A.get('lanes')||[]}),next:(A,res)=>{const n=playNext(A,res);return n==='won'?'office':n==='lost'?'p1_lost':'p1_refused';}}},
    p1_lost:{lines:[N("boys kept the warehouse uncle still boss")],choices:[{label:'TRY AGAIN',next:'p1'}]},
    p1_refused:{lines:A=>[N(refusalLine(A))],choices:A=>[
-    ...(A.get('refusal')==='NO_SQUAD'?[{label:'REMAKE THE PLAN',next:'replan'}]:[]),
+    ...(['NO_SQUAD','INELIGIBLE_LANES'].includes(A.get('refusal'))?[{label:'REMAKE THE PLAN',next:'replan'}]:[]),
     {label:'NOT YET',next:'postponed'}]},
    postponed:{lines:[N("birthday takeover postponed rude either way")],end:{outcome:'postponed',memory:{text:'put off taking Gbenga’s chair',lane:'money'}}},
    office:{env:PARTY_ENV,actors:{left:'rich',right:'gbenga'},title:'THE OFFICE',
@@ -284,5 +287,5 @@
  // The finale rides the same one-per-WAKE arbiter just below VampGPT (74), which must complete first.
  window.RAWakeTriggers?.define?.([{adventure:'NEW_OGA_FINALE',priority:72,when:finaleReady}]);
 
- window.RAF07={FLAG,enabled,m8Ready,finaleReady,completeM8,completeFinale,lanes:LANES,lanesAvailable,takeBlocks,startWarRoom,HEADLINES,warehouseExterior};
+ window.RAF07={FLAG,enabled,m8Ready,finaleReady,completeM8,completeFinale,lanes:LANES,lanesAvailable,eligibleLanes,lanesEligible,takeBlocks,startWarRoom,HEADLINES,warehouseExterior};
 })();

@@ -71,6 +71,7 @@
   // Phase 1's squad is THE OGAS lane (Patch 1 §4.1 "THE OGAS (squad)"). The source does not say who fights Phase 1 when it is not picked,
   // and no default is invented: the PLAY is refused (NO_SQUAD) and the plan can be remade. Creator decision recorded (F07 D-queue).
   if(kind==='finale_p1'&&!(Array.isArray(lanes)&&lanes.includes('ogas')))return {ok:false,code:'NO_SQUAD',reason:'THE OGAS ARE NOT IN THE PLAN',errors:['THE OGAS lane was not picked']};
+  if(kind==='finale_p1'&&window.RAF07?.lanesEligible?.(lanes)!==true)return {ok:false,code:'INELIGIBLE_LANES',reason:'REMAKE THE PLAN WITH ELIGIBLE PEOPLE',errors:['A selected lane has not been earned']};
   if(kind==='m8')ensureLoan();
   const seq=Number(rd(`${K}.seq`,0))+1,requestId=`f07:${kind}:${day()}#${seq}`;
   // D7 (creator-delegated): Phase 1 needs no car and no seat capacity. The request carries F01's own stock encounter vehicle (HOOPTIE) INSTEAD of
@@ -152,9 +153,21 @@
   const off=unavailable();if(off)return refusal(off,kind);
   let pending=rd(`${K}.pending`,null);
   if(pending&&pending.kind!==kind){wr(`${K}.pending`,null);pending=null;} // a request of another mission is stale: never mixed
+  let selected=opts.lanes;
+  if(kind==='finale_p1'){
+   // Older requests carry no lane provenance. Recheck the active plan before resuming them.
+   selected=opts.lanes??pending?.lanes??window.RAAdventures?.active?.()?.vars?.lanes;
+   if(!Array.isArray(selected)||!selected.includes('ogas'))return refusal({code:'NO_SQUAD',reason:'THE OGAS ARE NOT IN THE PLAN'},kind);
+   if(window.RAF07?.lanesEligible?.(selected)!==true){
+    // The host pauses refusals before the node's result router runs. Save the remake node now.
+    const a=window.RAAdventures?.active?.();if(a?.id==='NEW_OGA_FINALE')window.RAAdventures.patchActive({node:'plan',vars:{...a.vars,lanes:window.RAF07.eligibleLanes(selected)}});
+    return refusal({code:'INELIGIBLE_LANES',reason:'REMAKE THE PLAN WITH ELIGIBLE PEOPLE'},kind);
+   }
+   if(pending?.lanes&&window.RAF07?.lanesEligible?.(pending.lanes)!==true){wr(`${K}.pending`,null);pending=null;}
+  }
   if(!pending){
-   const built=buildRequest(kind,{lanes:opts.lanes});if(!built.ok)return refusal(built,kind);
-   pending={request:built.request,carMap:built.carMap,seq:built.seq,kind,startedDay:day()};
+   const built=buildRequest(kind,{lanes:selected});if(!built.ok)return refusal(built,kind);
+   pending={request:built.request,carMap:built.carMap,seq:built.seq,kind,...(kind==='finale_p1'?{lanes:[...selected]}:{}),startedDay:day()};
    wr(`${K}.pending`,pending);
   }
   // a real browser page gets F07's page for Phase 1; a headless host (no DOM) uses whatever transport F01 was given (tests)

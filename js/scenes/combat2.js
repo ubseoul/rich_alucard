@@ -70,7 +70,7 @@
    if(menu==='main')m.innerHTML=btn('▶ FIGHT','fight')+btn('ITEM','item')+btn('HOES','hoes')+btn(def.noRun||def.boss||params.noRun?'RUN LOCKED':'RUN','run',def.noRun||def.boss||params.noRun?'c2-off':'')+(window.RACombat2Ext?.menuButtons(state)||[]).map(b=>btn(`${icon(window.RAArtRegistry?.items?.guns?.[b.gun]?.held)}${esc(b.label)}`,b.act,b.cls)).join(''); // IF-1 weapon-slot button seam (empty unless registered + flag ON)
    else if(menu==='fight'){m.innerHTML=state.moves.map(id=>{const mv=D().MOVES[id];return btn(`${mv.label}<small>1 PP � ${state.rich.pp[id]}/${mv.pp}${id==='revenge'?` · ${state.rich.revenge}`:''}</small>`,`move:${id}`,state.rich.pp[id]>0?'':'c2-off');}).join('')+state.guns.map(g=>btn(`${icon(window.RAArtRegistry?.items?.guns?.[g.id]?.held)}GUN: ${D().GUNS[g.id].label}<small>AMMO ${g.ammo}</small>`,`gun:${g.id}`,g.ammo>0?'c2-gun':'c2-off')).join('')+btn('BACK','back','c2-back');}
    else if(menu==='item'){const list=Object.entries(state.items).filter(([id,n])=>n>0&&D().ITEMS[id]);m.innerHTML=(list.map(([id,n])=>btn(`${icon(window.RAArtRegistry?.items?.combat?.[id])}${D().ITEMS[id].label}<small>×${n}</small>`,`item:${id}`)).join('')||'<p class="c2-empty">BAG IS EMPTY.</p>')+btn('BACK','back','c2-back');}
-   else if(menu==='hoes'){const list=state.companions;m.innerHTML=(list.flatMap(c=>c.moves.map(mv=>btn(`${c.name}: ${mv.label}<small>${2-(state.hoesUsed[c.id]||0)} LEFT</small>`,`hoe:${c.id}:${mv.id}`,(state.hoesUsed[c.id]||0)>=2?'c2-off':''))).join('')||'<p class="c2-empty">NOBODY CLOSE ENOUGH YET.</p>')+btn('BACK','back','c2-back');}
+   else if(menu==='hoes'){const list=state.companions.filter(c=>c.id==='mazda_human'?window.RADragon?.hasHumanForm?.():c.id==='mazda_dragon'?window.RADragon?.canAssist?.():true);m.innerHTML=(list.flatMap(c=>c.moves.map(mv=>btn(`${c.name}: ${mv.label}<small>${2-(state.hoesUsed[c.id]||0)} LEFT</small>`,`hoe:${c.id}:${mv.id}`,(state.hoesUsed[c.id]||0)>=2?'c2-off':''))).join('')||'<p class="c2-empty">NOBODY CLOSE ENOUGH YET.</p>')+btn('BACK','back','c2-back');}
   }
   function showOcto(){const o=$('.c2-octo');o.hidden=false;const opts=def.octopus||{};o.innerHTML=`<img src="assets/octopus_brain_a.png" alt="" class="c2-tentacles"><div class="c2-octo-title">OCTOPUS BRAIN</div>${['charisma','recruit','roast'].filter(k=>opts[k]).map(k=>`<button type="button" class="c2-octo-choice" data-octo="${k}"><b>${k.toUpperCase()}</b><span>${esc(opts[k].label)}</span></button>`).join('')}`;const frames=window.RAArtRegistry?.combatMoves?.octopus?.frames;if(frames){const tentacle=o.querySelector('img');frames.slice(1).forEach((src,i)=>setTimeout(()=>{if(tentacle.isConnected)tentacle.src=src;},180*(i+1)));}}
   const reactiveSeen=new Set(),reactive={blood:'damn that counted as a deposit',bite:'needed that more than you',revenge:'keep the receipt bro'};
@@ -80,10 +80,11 @@
    busy=true;$('.c2-menu').innerHTML='';
    for(let index=0;index<events.length;index++){if(!root.isConnected)return;const ev=events[index];window.RAOpenAudio?.combat(audio,enemyId,ev);
     $('.c2-log').textContent=ev.text;
+    if(ev.kind==='combat_beat'){const text=window.RABarks?.moveText?.(ev.barkKey);if(text&&!window.RABarks.silent(enemyId,appearance)){const rr=root.getBoundingClientRect(),a=window.RAPresentationDirector?.actorBox?.('enemy'),eb=enemyEl.getBoundingClientRect(),hold=window.RABarks.readHold(text);window.RABarks.show({root,anchor:a?{x:a.visible.x+a.visible.w/2-rr.left,y:a.visible.y-rr.top}:{x:eb.left-rr.left+eb.width/2,y:eb.top-rr.top},text,speaker:ev.speaker,hold,scripted:true});await wait(hold);if(!root.isConnected)return;}continue;}
     if(ev.kind==='telegraph'){shownTelegraph=ev.text;hud();}
     if(ev.kind==='enemy'){shownTelegraph=ev.text;hud();}
-    if(ev.kind==='telegraph')window.RABarks?.trigger({root,enemyId,kind:'telegraph',enemyEl});
-    if(ev.kind==='enemy'){window.RABarks?.trigger({root,enemyId,kind:'attack',enemyEl});const mv=D().ENEMIES[enemyId]?.moves?.[ev.move],willHit=events.slice(index+1).find(e=>['hurt','miss','enemy'].includes(e.kind))?.kind==='hurt';await window.RAEnemyFX?.attack({root,enemyId,appearance,moveId:ev.move,dmg:mv?.dmg||0,attacker:enemyEl,target:richEl,onPose:directed?presentEnemyPose:null,onContact:()=>{if(!root.isConnected)return;if(ev.spar){if(ev.sparClean){showHP(events.slice(index+1).find(e=>e.sparContact));hud();window.RACombatPixelFX?.impact({root,target:richEl,attacker:enemyEl,severity:'normal'});audio?.sound('HIT_LIGHT');}return;}if(mv?.heal||mv?.healAlly){showHP(events.slice(index+1).find(e=>e.kind==='heal'&&e.target==='enemy'));hud();}if(!willHit||(mv?.dmg||0)<=0)return;enemyContact=true;const contactEvents=events.slice(index+1);const end=contactEvents.findIndex(e=>e.kind==='enemy'||e.kind==='telegraph');const hits=(end<0?contactEvents:contactEvents.slice(0,end)).filter(e=>e.kind==='hurt');showHP(hits.at(-1));hud();window.RACombatPixelFX?.impact({root,target:richEl,attacker:enemyEl,severity:(mv?.dmg||0)>=30?'heavy':'normal'});audio?.sound((mv?.dmg||0)>=30?'HIT_HEAVY':'HIT_LIGHT');}});}
+    if(ev.kind==='telegraph')window.RABarks?.trigger({root,enemyId,kind:'telegraph',enemyEl,appearance,attacker:'enemy',move:ev.move});
+    if(ev.kind==='enemy'){window.RABarks?.trigger({root,enemyId,kind:'attack',enemyEl,appearance,attacker:'enemy',target:'rich',move:ev.move});const mv=D().ENEMIES[enemyId]?.moves?.[ev.move],willHit=events.slice(index+1).find(e=>['hurt','miss','enemy'].includes(e.kind))?.kind==='hurt';await window.RAEnemyFX?.attack({root,enemyId,appearance,moveId:ev.move,dmg:mv?.dmg||0,attacker:enemyEl,target:richEl,onPose:directed?presentEnemyPose:null,onContact:()=>{if(!root.isConnected)return;if(ev.spar){if(ev.sparClean){showHP(events.slice(index+1).find(e=>e.sparContact));hud();window.RACombatPixelFX?.impact({root,target:richEl,attacker:enemyEl,severity:'normal'});audio?.sound('HIT_LIGHT');}return;}if(mv?.heal||mv?.healAlly){showHP(events.slice(index+1).find(e=>e.kind==='heal'&&e.target==='enemy'));hud();}if(!willHit||(mv?.dmg||0)<=0)return;enemyContact=true;const contactEvents=events.slice(index+1);const end=contactEvents.findIndex(e=>e.kind==='enemy'||e.kind==='telegraph');const hits=(end<0?contactEvents:contactEvents.slice(0,end)).filter(e=>e.kind==='hurt');showHP(hits.at(-1));hud();window.RACombatPixelFX?.impact({root,target:richEl,attacker:enemyEl,severity:(mv?.dmg||0)>=30?'heavy':'normal'});audio?.sound((mv?.dmg||0)>=30?'HIT_HEAVY':'HIT_LIGHT');}});}
     if(!root.isConnected)return;
     const intentPose=ev.kind==='telegraph'&&ev.move&&window.RAEnemyFX?.poseFor(enemyId,ev.move,0,appearance);
     if(intentPose&&enemyEl.tagName==='IMG'){enemyEl.src=intentPose;presentEnemyPose(intentPose,window.RAEnemyFX?.TIMELINES?.[timelineId]?.[ev.move]?.native?.[intentPose]);}
@@ -91,18 +92,18 @@
     if(ev.kind==='hit'||ev.kind==='hurt'){
      const group=[ev];while(events[index+1]?.kind===ev.kind&&events[index+1]?.target===ev.target)group.push(events[++index]);
      if(ev.kind==='hit'&&!playerContact&&presentation){playerContact=true;const contact=(window.RACombatPixelFX?.MOVES?.[presentation.id]?.contact||300)*(presentation.duration/720);await wait(Math.max(0,contact-(performance.now()-started)));}
-     if(ev.kind==='hit'&&presentation)react(presentation.id);
-     const onRich=ev.kind==='hurt',target=onRich?richEl:enemyEl,attacker=onRich?enemyEl:richEl,total=group.reduce((sum,e)=>sum+(e.amount||0),0),lethal=events[index+1]?.kind===(onRich?'lose':'win'),severity=lethal?'lethal':group.some(e=>e.heavy)?'heavy':'normal';
+     if(ev.kind==='hit'&&ev.attacker==='rich'&&presentation)react(presentation.id);
+     const onRich=ev.kind==='hurt',target=onRich?richEl:enemyEl,attacker=ev.attacker==='enemy'?enemyEl:richEl,total=group.reduce((sum,e)=>sum+(e.amount||0),0),lethal=events[index+1]?.kind===(onRich?'lose':'win'),severity=lethal?'lethal':group.some(e=>e.heavy)?'heavy':'normal';
      for(let hit=0;hit<group.length;hit++){if(!root.isConnected)return;const tick=hit<group.length-1;$('.c2-log').textContent=group[hit].text;
       const stop=onRich&&enemyContact?0:window.RACombatPixelFX?.impact({root,target,attacker,severity,tick})||55;if(!(onRich&&enemyContact))audio?.sound(tick?'HIT_LIGHT':lethal?'KO':severity==='heavy'?'HIT_HEAVY':'HIT_LIGHT');
       if(tick)await wait(110);else{root.classList.add('c2-impact-stop');await wait(stop);root.classList.remove('c2-impact-stop');}
      }
-     if(!root.isConnected)return;if(!(onRich&&enemyContact))showHP(group.at(-1));floatNum(total||ev.amount,onRich?'rich':'enemy',null,severity);hud();window.RABarks?.trigger({root,enemyId,kind:onRich?'hit_rich':'hurt',enemyEl:!onRich&&!lethal&&index%3===0?richEl:enemyEl,speaker:!onRich&&!lethal&&index%3===0?'rich':'enemy',force:lethal&&!onRich});await wait(615);continue;
+     if(!root.isConnected)return;if(!(onRich&&enemyContact))showHP(group.at(-1));floatNum(total||ev.amount,onRich?'rich':'enemy',null,severity);hud();window.RABarks?.trigger({root,enemyId,kind:onRich?'hit_rich':'hurt',enemyEl,appearance,attacker:ev.attacker,target:onRich?'rich':'enemy',force:lethal&&!onRich});await wait(615);continue;
     }
     if(ev.kind!=='enemy')showHP(ev);
     if(ev.kind==='heal')floatNum(ev.amount?`+${ev.amount}`:'+','heal',ev.target);
     if(ev.kind==='telegraph')audio?.sound('TELEGRAPH');if(ev.kind==='miss')audio?.sound('MISS');
-    if(ev.kind==='win'||ev.kind==='lose')window.RABarks?.trigger({root,enemyId,kind:ev.kind==='win'?'lose':'win',enemyEl,force:true});
+    if(ev.kind==='win'||ev.kind==='lose')window.RABarks?.trigger({root,enemyId,kind:ev.kind==='win'?'lose':'win',enemyEl,appearance,outcome:ev.kind,force:true});
     if(ev.kind==='win'||ev.kind==='lose'){ $('.c2-log').textContent='';await wait(400);if(!root.isConnected)return;$('.c2-log').textContent=ev.text; }
     hud();await wait(ev.kind==='telegraph'?900:ev.kind==='enemy'?220:ev.kind==='info'?450:ev.kind==='win'||ev.kind==='lose'?320:720);if(!root.isConnected)return;
    }
@@ -151,8 +152,9 @@
    if(closed)return;
    close({outcome,octopus:state.octopusUsed,recruited:!!state.recruited,learned:state.learned||null,turns:state.turn});
   }
-  function close(result){if(closed)return;closed=true;root.dispatchEvent(new Event('c2:close'));if(directed)RAPresentationDirector.exit();root.remove();document.body.classList.remove('combat2-mode');active=null;resolveRun(result);}
+  function close(result){if(closed)return;closed=true;root.dispatchEvent(new Event('c2:close'));window.RABarks?.reset(root);if(directed)RAPresentationDirector.exit();root.remove();document.body.classList.remove('combat2-mode');active=null;resolveRun(result);}
   try{window.RAAudio?.sfx?.('BATTLE_START');}catch(e){}
+  window.RABarks?.reset(root);window.RABarks?.trigger({root,enemyId,kind:'enter',enemyEl,appearance,force:true});
   hud();$('.c2-log').textContent=params.intro||`${state.enemy.name} WANTS TO FIGHT.`;renderMenu();
   if(state.telegraph){$('.c2-telegraph').hidden=false;const prepared=window.RAEnemyFX?.poseFor(enemyId,RACombat2Rules.intent?.(state),0,appearance);if(prepared&&enemyEl.tagName==='IMG')enemyEl.src=prepared;}
   return new Promise(resolve=>{resolveRun=resolve;active={abort:()=>close({outcome:'run'}),state,busy:()=>busy,debugResolve:o=>{RACombat2Rules.forceEnd(state,o);finish();}};});

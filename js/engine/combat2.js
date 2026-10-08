@@ -2,6 +2,7 @@
  // COMBAT 2.0 rules (VOL 1 §9.13, VOL 3). Pure: no DOM, injectable RNG. Menu-only, no timing.
  // Enemies TELEGRAPH next intent one turn early; preparation (fits, items, companions, guns, rooms) beats grinding.
  const D=()=>window.RACombatData;
+ const companionEligible=id=>id==='mazda_human'?window.RADragon?.hasHumanForm?.()===true:id==='mazda_dragon'?window.RADragon?.canAssist?.()===true:true;
  const clampHp=(v,max)=>Math.max(0,Math.min(max,Math.round(v)));
  function loadout(){
   const life=window.RAState?.get?.().life;const L=window.RALife;if(!life)return {maxHp:100,moves:['blood','octopus','bite','revenge'],items:{},guns:[],fits:[],rooms:[],companions:[]};
@@ -20,11 +21,11 @@
    enemy:{name:params.name||e.name,hp:params.hp||e.hp,max:params.hp||e.hp,step:0,queue:[],charge:0,skip:0,stun:0,weaken:null,guard:0,dot:[],enraged:0,gossip:1,intel:0,reflect:false,evade:false,boss:!!e.boss,below50Used:false,minions:e.minions||0,invincible:!!params.invincible},
    rich:{hp:lo.maxHp,max:lo.maxHp,def,crit:.08+lo.fits.reduce((a,f)=>a+(f.crit||0),0),acc:.95+lo.fits.reduce((a,f)=>a+(f.acc||0),0),accDown:null,weak:null,block:0,stun:0,buffNext:1,doubleNext:false,sureNext:false,guardHits:0,shield:0,revenge:lo.rooms.includes('hookah_roof')?10:0,revengeDouble:false,extraTurn:false,
     pp:Object.fromEntries(lo.moves.map(id=>[id,D().MOVES[id]?.pp||8])),charismaFree:lo.fits.some(f=>f.charisma),gunBonus:lo.fits.reduce((a,f)=>a+(f.gun||0),0)},
-   moves:lo.moves.filter(id=>D().MOVES[id]),items:{...lo.items},guns:lo.guns.map(id=>({id,ammo:D().GUNS[id].ammo})),companions:lo.companions,hoesUsed:{},itemsUsed:{},octopusUsed:false,companionHurt:[]};
+   moves:lo.moves.filter(id=>D().MOVES[id]),items:{...lo.items},guns:lo.guns.map(id=>({id,ammo:D().GUNS[id].ammo})),companions:lo.companions.filter(c=>companionEligible(c.id)),hoesUsed:{},itemsUsed:{},octopusUsed:false,companionHurt:[]};
   s.telegraph=telegraphFor(s);window.RACombat2Ext?.boss(s,'onCreate',helpers());return s;
  }
  const E=s=>D().ENEMIES[s.enemyId];
- function say(s,text,kind='info',extra={}){s.log.push({text,kind,hp:{rich:s.rich.hp,richMax:s.rich.max,enemy:s.enemy.hp,enemyMax:s.enemy.max},...(s.params.spar?{sparScore:{rich:s.sparScore?.rich||0,enemy:s.sparScore?.enemy||0}}:{}),...extra});}
+ function say(s,text,kind='info',extra={}){const who=kind==='enemy'||kind==='telegraph'||kind==='hurt'?'enemy':kind==='hit'?(s.damageActor||'rich'):null;const target=kind==='hurt'?'rich':kind==='hit'?'enemy':null;s.log.push({text,kind,...(who?{attacker:who}:{}),...(target?{target}:{}),...(['win','lose'].includes(kind)?{outcome:kind}:{}),hp:{rich:s.rich.hp,richMax:s.rich.max,enemy:s.enemy.hp,enemyMax:s.enemy.max},...(s.params.spar?{sparScore:{rich:s.sparScore?.rich||0,enemy:s.sparScore?.enemy||0}}:{}),...extra});}
  function nextMoveId(s){const e=E(s);if(s.enemy.queue.length)return s.enemy.queue[0];return e.pattern[s.enemy.step%e.pattern.length];}
  function telegraphFor(s){const e=E(s);if(e.noTelegraph)return null;const mv=e.moves[nextMoveId(s)];if(s.enemy.intel>0)return `${e.name} WILL USE ${mv.label}.`;return mv.telegraph||null;}
  function roll(s,p){return s.rng()<p;}
@@ -41,7 +42,7 @@
  function rollHit(s){const acc=s.rich.acc-(s.rich.accDown?.amt||0);if(s.rich.sureNext){s.rich.sureNext=false;return true;}return roll(s,acc);}
  // ---- player actions ----
  function act(s,action){
-  if(s.over)return s;s.log=[];
+  if(s.over)return s;s.log=[];s.damageActor=action.type==='hoe'?action.companion:'rich';
   // B4/B5 seam: opt-in light-contact date spar; normal combat is unchanged.
   if(s.params.spar){
    if(action.type==='run'){s.over=true;s.outcome='quit';return s;}
@@ -101,7 +102,7 @@
    if(!G.sure&&!rollHit(s)){say(s,'MISSED.','miss');return endPlayer(s);}
    damageToEnemy(s,base,{hits:G.hits||1,label:G.label,crit:!G.sure});
    if(G.healPerShot){s.rich.hp=clampHp(s.rich.hp+G.healPerShot,s.rich.max);say(s,`+${G.healPerShot} HP.`,'heal',{target:'rich'});}
-   if(G.splash){s.rich.hp=clampHp(s.rich.hp-G.splash,s.rich.max);say(s,`RICH TAKES ${G.splash} SPLASH.`,'hurt',{target:'rich'});}
+   if(G.splash){s.rich.hp=clampHp(s.rich.hp-G.splash,s.rich.max);say(s,`RICH TAKES ${G.splash} SPLASH.`,'hurt',{target:'rich',attacker:'rich'});}
    return endPlayer(s,{fx:'gun'});
   }
   if(t==='item'){
@@ -115,7 +116,7 @@
    if(it.pp)for(const k of Object.keys(s.rich.pp))s.rich.pp[k]+=it.pp;
    if(it.cleanse){s.rich.accDown=null;s.rich.weak=null;s.rich.stun=0;say(s,'DEBUFFS CLEARED.','heal');}
    if(it.vsVampire){if(E(s).vampire){damageToEnemy(s,it.vsVampire,{label:'GARLIC',crit:false});}else say(s,"IT'S JUST BREAD. HE EATS IT.",'info');}
-   if(it.roostFire){if(s.companions.some(c=>c.id==='mazda_dragon')){damageToEnemy(s,it.roostFire,{label:'MAZDA FIRE PASS',crit:false});}else say(s,'MAZDA IS NOT ON THE ROOST.','info');}
+   if(it.roostFire){if(companionEligible('mazda_dragon')&&s.companions.some(c=>c.id==='mazda_dragon')){damageToEnemy(s,it.roostFire,{label:'MAZDA FIRE PASS',crit:false});}else say(s,'MAZDA IS NOT ON THE ROOST.','info');}
    if(it.double)s.rich.doubleNext=true;
    window.RACombat2Ext?.itemHook(s,action.id,'after',helpers());
    if(it.feedsEaters&&E(s).eats){say(s,`${E(s).name} SMELLS HOME. KEEP FIGHTING, OR SIT DOWN AND EAT?`,'weird');if(roll(s,.7)){say(s,'THEY SIT DOWN AND EAT.','weird');s.over=true;s.outcome='spared';return s;}say(s,'THEY KEEP FIGHTING. RESPECT.','info');}
@@ -123,7 +124,7 @@
   }
   if(t==='hoe'){
    const c=s.companions.find(x=>x.id===action.companion);const mv=c?.moves.find(m=>m.id===action.move);
-   if(!c||!mv){return s;}if((s.hoesUsed[c.id]||0)>=2){say(s,`${c.name} ALREADY DID TWO THINGS.`,'block');return s;}
+   if(!c||!mv){return s;}if(!companionEligible(c.id)){say(s,'THAT COMPANION IS NOT AVAILABLE.','block');return s;}if((s.hoesUsed[c.id]||0)>=2){say(s,`${c.name} ALREADY DID TWO THINGS.`,'block');return s;}
    s.hoesUsed[c.id]=(s.hoesUsed[c.id]||0)+1;say(s,`${c.name}: ${mv.label}!`,'hoe',{companion:c.id});applyHoe(s,c,mv);return endPlayer(s);
   }
   if(t==='run'){
@@ -196,7 +197,7 @@
   const e=s.enemy,def=E(s);
   window.RACombat2Ext?.boss(s,'beforeEnemyTurn',helpers());
   // damage-over-time ticks
-  for(const d of e.dot){if(d.amt<0){s.rich.hp=clampHp(s.rich.hp-d.amt,s.rich.max);say(s,`${d.label}: +${-d.amt} HP.`,'heal',{target:'rich'});}else{e.hp=clampHp(e.hp-d.amt,e.max);say(s,`${d.label}: ${d.amt} DAMAGE.`,'hit',{target:'enemy'});}d.turns--;}
+  for(const d of e.dot){if(d.amt<0){s.rich.hp=clampHp(s.rich.hp-d.amt,s.rich.max);say(s,`${d.label}: +${-d.amt} HP.`,'heal',{target:'rich'});}else{e.hp=clampHp(e.hp-d.amt,e.max);say(s,`${d.label}: ${d.amt} DAMAGE.`,'hit',{target:'enemy',attacker:d.attacker||'effect',amount:d.amt});}d.turns--;}
   e.dot=e.dot.filter(d=>d.turns>0);
   if(e.hp<=0){s.over=true;s.outcome='win';say(s,`${e.name} IS DOWN.`,'win');return s;}
   if(!e.below50Used&&def.below50&&e.hp<=e.max*.5){e.below50Used=true;e.queue.push(...def.below50);}
@@ -206,7 +207,7 @@
   if(mv.charge&&e.charge<mv.charge){e.charge++;say(s,`${e.name} IS CHARGING…`,'telegraph',{move:id,charge:e.charge});if(e.charge>=mv.charge)e.readyCharge=true;return afterEnemy(s);}
   e.charge=0;advance(s);
   say(s,`${e.name}: ${mv.label}!`,'enemy',{move:id});
-  if(e.reflect&&mv.dmg){e.reflect=false;e.hp=clampHp(e.hp-mv.dmg,e.max);say(s,`IT HITS ${e.name} INSTEAD. ${mv.dmg} DAMAGE.`,'hit',{target:'enemy'});return afterEnemy(s);}
+  if(e.reflect&&mv.dmg){e.reflect=false;e.hp=clampHp(e.hp-mv.dmg,e.max);say(s,`IT HITS ${e.name} INSTEAD. ${mv.dmg} DAMAGE.`,'hit',{target:'enemy',attacker:'enemy',amount:mv.dmg});return afterEnemy(s);}
   if(mv.heal){e.hp=clampHp(e.hp+mv.heal,e.max);say(s,`${e.name} RECOVERS ${mv.heal}.`,'heal',{target:'enemy'});}
   if(mv.healAlly){e.hp=clampHp(e.hp+mv.healAlly,e.max);say(s,`+${mv.healAlly} HP.`,'heal',{target:'enemy'});}
   if(mv.dmg){const hits=mv.hits||1;let minionScale=e.minions?Math.max(.2,e.minions/40):1;if(mv.id!=='poke')minionScale=1;for(let h=0;h<hits;h++)hurtRich(s,Math.max(1,Math.round(mv.dmg*minionScale)),mv.label);}

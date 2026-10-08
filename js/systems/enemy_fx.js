@@ -268,7 +268,9 @@
   active.get(root)?.cancel();const V=fx.view(root,target,attacker),L=fx.layer(root,V,`enemy:${enemyId}:${moveId}`),a=V.enemy,t=V.rich;
   L.canvas.classList.add('rc2-enemy-fx');if(enemyId==='legacy_importer')L.canvas.style.zIndex='9';L.canvas.dataset.choreography='feedback';root.dataset.lastEnemyFx=`${enemyId}:${moveId}:feedback`;
   const sequence=TIMELINES[enemyId]?.[plan.body],original={src:attacker.getAttribute('src'),style:attacker.getAttribute('style'),targetStyle:target.getAttribute('style'),importerMove:attacker.dataset.importerMove};
-  let contact=false,cancelled=false,timer=null,wake=null,bubble=null;const owns=()=>active.get(root)===owner;
+  const quoteKey=enemyId==='gbenga'?`gbenga.${moveId==='draco'?'drako':moveId}`:enemyId==='legacy_importer'?`jdm.${moveId==='importer_shove'?'wheel':'part'}`:null;
+  const quote=window.RABarks?.moveText?.(quoteKey)||plan.quote||null,hold=quote?(window.RABarks?.readHold?.(quote)||1400):0;
+  let contact=false,cancelled=false,timer=null,wake=null,bubble=null,quoteStart=0;const owns=()=>active.get(root)===owner;
   const restore=(el,style)=>{if(style===null)el.removeAttribute('style');else el.setAttribute('style',style);};
   const owner={cancel:()=>{if(cancelled)return;cancelled=true;clearTimeout(timer);wake?.();cleanup();}};
   const live=()=>!cancelled&&owns()&&root.isConnected&&attacker.isConnected&&target.isConnected&&isActive?.()!==false;
@@ -287,10 +289,10 @@
    else restore(target,original.targetStyle);return true;
   };
   active.set(root,owner);root.addEventListener('c2:close',owner.cancel,{once:true});document.addEventListener('ra:scene',sceneChanged);
-  try{if(plan.quote){root.dataset.combatQuote=plan.quote;bubble=window.RABarks?.show({root,anchor:{x:V.world.x+a.x*V.S,y:V.world.y+(a.y-a.h*.35)*V.S},text:plan.quote,speaker:'enemy',hold:plan.frames*plan.ms+160});}
+  try{if(quote){quoteStart=performance.now();root.dataset.combatQuote=quote;bubble=window.RABarks?.show({root,anchor:{x:V.world.x+a.x*V.S,y:V.world.y+(a.y-a.h*.35)*V.S},text:quote,speaker:'enemy',hold:Math.max(hold,plan.frames*plan.ms+160),scripted:true});}
    if(freeze!==null){if(draw(freeze))await pause(700);return live()?700:0;}
-   if(reduced()){if(draw(plan.contact))await pause(220);return live()?220:0;}
-   for(let f=0;f<plan.frames;f++){if(!draw(f))break;await pause(plan.ms);}return live()?plan.frames*plan.ms:0;
+   if(reduced()){if(draw(plan.contact))await pause(220);if(live()&&quote)await pause(Math.max(0,hold-(performance.now()-quoteStart)));return live()?220:0;}
+   for(let f=0;f<plan.frames;f++){if(!draw(f))break;await pause(plan.ms);}if(live()&&quote)await pause(Math.max(0,hold-(performance.now()-quoteStart)));return live()?plan.frames*plan.ms:0;
   }finally{clearTimeout(timer);cleanup();}
  }
 

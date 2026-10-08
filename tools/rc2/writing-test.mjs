@@ -35,11 +35,22 @@ export async function test(root){
  const enemies=[...combat.matchAll(/^  ([a-z_0-9]+):\{name:'[^']+',hp:\d+/gm)].map(m=>m[1]).filter(id=>id!=='training'||true);
  for(const id of enemies)assert.ok(W.barks.enemy[id],`enemy ${id} has no bark pool`);
  for(const id of ['CHEWER','ENFORCER','HUNTER','LIEUTENANT','LIL_SMACK'])assert.ok(W.barks.enemy[id],`F01 oga ${id} has no bark pool`);
- for(const id of enemies)for(const k of W.barks.kinds){assert.ok((W.barks.enemy[id][k]||W.barks.generic[k]).length>0,`${id}.${k} has no line`);}
+ // Missing actor/event pools intentionally return silence; only that actor's authored pool may speak.
+ for(const id of enemies)for(const k of W.barks.kinds){
+  const own=W.barks.enemy[id][k]||[],line=W.bark(id,k,()=>0);
+  assert.ok(own.length?own.includes(line):line===null,`${id}.${k} must use its own pool or be silent`);
+ }
  let seq=0;const rng=()=>((seq=(seq*9301+49297)%233280)/233280);
  const seen=new Set();for(let i=0;i<400;i++)seen.add(W.bark('uncle_sunday','hurt',rng));
- assert.ok(seen.size>=6,'bark() varies');assert.ok([...seen].every(t=>typeof t==='string'&&t.length),'bark() always returns a line');
- assert.equal(W.bark('nobody_here','hurt',()=>.99).length>0,true,'unknown enemy falls back to the generic pool');
+ assert.equal(seen.size,new Set(W.barks.enemy.uncle_sunday.hurt).size,'bark() varies within the explicit event pool');
+ assert.ok([...seen].every(t=>W.barks.enemy.uncle_sunday.hurt.includes(t)),'no generic or unrelated actor injection');
+ assert.equal(W.bark('nobody_here','hurt',()=>.99),null,'unknown enemy stays silent');
+ assert.equal(W.bark('uncle_sunday','unmapped_event',()=>.99),null,'unknown event stays silent');
+ // A late editorial table is authoritative, including its intentional nulls.
+ ctx.RAAstraEditorial={barkFor:(id,kind)=>id==='uncle_sunday'&&kind==='hurt'?'accepted own line':null};
+ assert.equal(W.bark('uncle_sunday','hurt',rng),'accepted own line');
+ assert.equal(W.bark('uncle_sunday','enter',rng),null,'empty accepted pool cannot fall back to archived lines');
+ delete ctx.RAAstraEditorial;
  for(const kind of Object.keys(W.cheapBuy)){const e=W.cheapBuyPick(kind,()=>0);assert.ok(e.lines.length>=2&&e.lines.length<=3&&e.lines.every(t=>sentences(t)<=3),`cheap-buy ${kind}`);}
  assert.ok(Object.keys(W.cheapBuy).length>=5);
  assert.ok(W.stripClub.firstVisit.door.length>=3&&W.stripClub.firstVisit.door.every(t=>sentences(t)<=3),'strip club first-visit protection line');

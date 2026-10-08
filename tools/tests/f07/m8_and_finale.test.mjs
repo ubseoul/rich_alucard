@@ -31,6 +31,15 @@ function ready(c,{day=15,last=14,cars=[SUPRA],trust=1,extra={}}={}){
  for(const id of cars)car(c,id);
  c.RANewOga.patch({status:'m8_hold',mission:7,rank:4,title:'SENIOR ASSOCIATE',rank4Granted:true,m5Completed:true,m6Completed:true,m7Completed:true,m8Held:true,trust,lastMissionDay:last,...extra});
 }
+// Drive the existing story reward callbacks when a test needs an earned Mazda lane.
+function earnMazda(c){
+ c.RARelations.meet('mazda_human');assert.equal(c.RADragon.hasHumanForm(),false);
+ c.RADragon.adoptEgg();assert.equal(c.RADragon.hasHumanForm(),false);
+ c.RAAdventures.start('A11',{from:'test'});c.RAAdventures.enter('sneeze');c.RAAdventures.complete('end');
+ assert.equal(c.RADragon.hatched(),true);assert.equal(c.RADragon.hasHumanForm(),false,'hatch-only is not human reveal');
+ c.RAAdventures.start('A32',{from:'test'});c.RAAdventures.enter('night');c.RAAdventures.complete('land');
+ assert.equal(c.RADragon.hasHumanForm(),true,'A32 reveal earns the human lane');
+}
 let O7=null,C01=null,L01=null;
 async function owambe(root,fn){
  const U=await import('node:url');await import(U.pathToFileURL(root+'/tools/tests/f01/play-sim/globals.mjs').href);
@@ -318,12 +327,16 @@ async function body(root){
   const labels=()=>c.RAAdventures.choicesFor('plan').map(x=>x.label);
   const fixed=()=>c.RAAdventures.choicesFor('plan')[0];
   c.RAAdventures.start('NEW_OGA_FINALE',{from:'test'});c.RAAdventures.enter('plan');
-  assert.deepEqual(J(labels()),['THE OGAS','SHANNON','MAZDA','PINKY','TRISTAN'],'CARLOS (walked in at M4) and SENATOR (high trust at M6) are hidden');
+  assert.deepEqual(J(labels()),['THE OGAS','SHANNON','PINKY','TRISTAN'],'unearned Mazda, CARLOS (walked in at M4), and SENATOR (high trust at M6) are hidden');
   assert.ok(fixed().label==='THE OGAS'&&fixed().locked===true&&/FIXED/.test(fixed().sub),'D3: THE OGAS is shown preselected as a FIXED, locked entry');
   assert.equal(c.RAAdventures.choose('plan',0),null,'D3: THE OGAS cannot be deselected / re-chosen');
   assert.deepEqual(J(c.RAAdventures.active().vars.lanes),['ogas'],'D3: THE OGAS occupies the first of the three slots');
   c.RAAdventures.abandon();
   const d=await finaleLife({extra:{m4Outcome:'walk_in',carlosCanopyApron:true,senatorCommands:true}});wake(d);
+  earnMazda(d);
+  const earnedReload=await boot(root,{seedState:saveOf(d)});
+  assert.equal(earnedReload.RADragon.hasHumanForm(),true,'earned source state survives reload');
+  assert.ok(earnedReload.RAF07.lanesAvailable().some(l=>l.id==='mazda'));
   d.RAAdventures.start('NEW_OGA_FINALE',{from:'test'});d.RAAdventures.enter('plan');
   assert.deepEqual(J(d.RAAdventures.choicesFor('plan').map(x=>x.label)),['THE OGAS','SHANNON','MAZDA','PINKY','TRISTAN','CARLOS','SENATOR'],'all seven lanes when both conditions hold');
   d.RAAdventures.abandon();
@@ -485,6 +498,7 @@ async function body(root){
   const outs=[];
   for(const others of combos){
    const c=await finaleLife({cars:[SUPRA,URUS],extra:{leftoversAte:true,m4Outcome:'walk_in',carlosCanopyApron:true,senatorCommands:true}});await withHost(root,c);wake(c);
+   if(others.includes('mazda'))earnMazda(c);
    const A=c.RAAdventures;A.start('NEW_OGA_FINALE',{from:'test'});
    for(const [node,id] of [['plan',others[0]],['pick2',others[1]]]){A.enter(node);const label=c.RAF07.lanes.find(l=>l.id===id).label;const ch=A.choicesFor(node).find(x=>x.label===label);assert.ok(ch&&!ch.locked,`${id} selectable at ${node}`);A.choose(node,ch.index);
     assert.ok(!A.choicesFor(node).some(x=>x.label==='THE OGAS'&&!x.locked),'THE OGAS is never offered as a selectable lane');}
@@ -499,7 +513,7 @@ async function body(root){
    assert.ok(A.choicesFor('plan').filter(x=>x.label!=='THE OGAS').every(x=>x.sub===undefined),'no lane advertises an effect');A.abandon();}
   // ---- saved-plan recovery. Plans saved before the ruling: (a) no THE OGAS + two others, (b) no THE OGAS + three others, (c) nothing
   const recover=async(saved,node)=>{const c=await finaleLife({cars:[SUPRA,URUS],extra:{leftoversAte:true,m4Outcome:'walk_in',senatorCommands:true}});const host=await withHost(root,c);wake(c);
-   const A=c.RAAdventures;A.start('NEW_OGA_FINALE',{from:'test'});A.patchActive({node,vars:{lanes:saved}});A.enter(node);return {c,A,host};};
+   earnMazda(c);const A=c.RAAdventures;A.start('NEW_OGA_FINALE',{from:'test'});A.patchActive({node,vars:{lanes:saved}});A.enter(node);return {c,A,host};};
   {const {c,A,host}=await recover(['shannon','mazda'],'crew');
    const next=A.nextOf('crew');assert.equal(next,'party','two saved others: THE OGAS is added, both kept');assert.deepEqual(J(A.active().vars.lanes),['ogas','shannon','mazda']);
    assert.equal(A.nextOf('party'),'p1');assert.equal(host.calls,0);}
