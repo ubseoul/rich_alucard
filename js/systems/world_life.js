@@ -38,7 +38,7 @@
  const PROP_ART={prop_plant:'plant',prop_trippin_poster:'trippin_red_poster',prop_rookoko_painting:'rookoko_painting',prop_jollof_trophy:'jollof_trophy',prop_duoqlo_bag:'duoqlo_bag',prop_cat_bed:'unused_cat_bed',prop_umich_pennant:'michigan_pennant',prop_waffle_mix:'waffle_mix_bag'};
  // Frozen company sprites at native 1:1 on a contact point: she lies on the bed right of Rich; a homie sleeps it off
  // on the floor (the approved asleep-on-the-floor states); the cat curls on the bed where the placeholder sat.
- const WOMAN_CONTACT=[196,360],HOMIE_CONTACT=[128,478],CAT_AT=[202,350];
+ const WOMAN_CONTACT=[196,360],HOMIE_CONTACT=[128,478],CAT_AT=[202,338];
  // Source overlays are frozen; crop only their transparent padding while drawing.
  // Wall decor mounts on the solid left pier, floor objects sit on the foreground strip.
  const PROP_PLACEMENT={plant:[250,478,24,32],trippin_red_poster:[18,147,22,30],rookoko_painting:[18,201,24,23],jollof_trophy:[239,309,19,24],duoqlo_bag:[191,478,22,28],unused_cat_bed:[147,478,30,15],michigan_pennant:[18,248,28,17],waffle_mix_bag:[217,478,20,25]};
@@ -73,7 +73,7 @@
     const person=RABtfPeople.get(c.id);
     if(c.kind==='woman'){if(!put(ctx,person?.states?.bedroom_company,WOMAN_CONTACT[0]-40,WOMAN_CONTACT[1]-88)){ctx.save();ctx.translate(196,332);ctx.rotate(-Math.PI/2);RAPixel.drawActor(ctx,person?.look||{},0,0,.9);ctx.restore();RAPixel.rect(ctx,150,332,86,12,'#e9dcc4');}}
     if(c.kind==='homie'){if(!put(ctx,person?.states?.[HOMIE_FLOOR[c.id]],HOMIE_CONTACT[0]-40,HOMIE_CONTACT[1]-88)){ctx.save();ctx.translate(120,452);ctx.rotate(-Math.PI/2);RAPixel.drawActor(ctx,person?.look||{},0,0,.8);ctx.restore();}}
-    if(c.kind==='cat'){const src=art().creatures?.cat?.states?.on_bed?.asset,im=src&&image(src,draw);if(im?.complete&&im.naturalWidth){ctx.fillStyle='rgba(27,6,22,.5)';ctx.fillRect(CAT_AT[0]-18,CAT_AT[1]-1,36,2);ctx.drawImage(im,CAT_AT[0]-30,CAT_AT[1]-30,60,40);}else if(!src){RAPixel.rect(ctx,200,336,16,10,'#e8c0b0');RAPixel.rect(ctx,212,330,6,6,'#e8c0b0');RAPixel.rect(ctx,212,327,2,3,'#e8c0b0');RAPixel.rect(ctx,216,327,2,3,'#e8c0b0');}}
+    if(c.kind==='cat'){const src=art().creatures?.cat?.states?.on_bed?.asset,im=src&&image(src,draw);if(im?.complete&&im.naturalWidth){ctx.fillStyle='rgba(27,6,22,.5)';ctx.fillRect(CAT_AT[0]-18,CAT_AT[1]-1,36,2);ctx.drawImage(im,CAT_AT[0]-24,CAT_AT[1]-24);}else if(!src){RAPixel.rect(ctx,200,336,16,10,'#e8c0b0');RAPixel.rect(ctx,212,330,6,6,'#e8c0b0');RAPixel.rect(ctx,212,327,2,3,'#e8c0b0');RAPixel.rect(ctx,216,327,2,3,'#e8c0b0');}}
     if(c.kind==='mazda'){if(!put(uctx,art().bedroom?.company?.mazda_flyby?.asset)){uctx.save();uctx.globalAlpha=.9;uctx.fillStyle='#3a6ff0';uctx.fillRect(150,90,46,10);uctx.fillRect(160,78,28,12);uctx.fillRect(196,86,12,6);uctx.restore();}}
    }
   };

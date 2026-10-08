@@ -8,8 +8,8 @@
   'NEW_OGA_M5:voice':'GBENGA'
  };
  const activeBeat=()=>{const a=window.RAAdventures?.active?.();return `${a?.id}:${a?.node}`;};
- // Phone-specific bedroom beats use the reclining identity at the pillow support.
- // The excluded Royal Glitch arc never enters this adapter.
+ // Every beat in the approved bedroom keeps Rich on the mattress and pillow.
+ // Phone attribution remains separate; Royal Glitch prose/mechanics are untouched.
  const FROZEN=new Set(['G5','G3','G7','G7-SET','G6','G7-SERMON','LEGENDARY_RECOGNITION']);
  function frozen(env,cast){const a=window.RAAdventures?.active?.();return FROZEN.has(a?.id)||/^G[1-9](?:[-:_.]|$)/.test(a?.id||'')||String(env?.id||'').startsWith('G3-')||Object.values(cast||{}).some(v=>['G1','LEGENDARY-MASK'].includes(typeof v==='string'?v:v?.id));}
  function call(actors,env){
@@ -20,6 +20,12 @@
   const entry=Object.entries(actors||{}).find(([,v])=>(typeof v==='string'?v:v?.id)==='rich');
   return entry?{slot:entry[0],caller:CALLS[key]||null}:null;
  }
+ const BED_STATES=new Set(['lounge_idle','phone_scroll','small_idle','phone_reaction','sleeping','drowsy_wake']);
+ function bedroomRich(spec,phone){
+  const sourceState=String(spec?.src||'').match(/^assets\/rich_bedroom_(.+)\.png$/)?.[1];
+  const state=BED_STATES.has(spec?.state)?spec.state:BED_STATES.has(sourceState)?sourceState:phone?'phone_scroll':'lounge_idle';
+  return {...(typeof spec==='object'?spec:{}),id:'rich',src:`assets/rich_bedroom_${state}.png`,state,x:78,y:338,lineScale:1,flip:false};
+ }
  function actors(env,cast){
   const c=call(cast,env);
   if(window.RAAdventures?.active?.()?.id==='RB_DELIVERY')return Object.fromEntries(Object.entries(cast||{}).map(([slot,v])=>[slot,(typeof v==='string'?v:v?.id)==='rich'?{...(typeof v==='object'?v:{}),id:'rich',x:48,y:372,lineScale:1}:v]));
@@ -28,7 +34,13 @@
    const pose=['sitting','charging','asleep'].includes(v?.state)?v.state:(window.RAAdventures?.active?.()?.node==='walked'?'asleep':'sitting');
    return [slot,{...(typeof v==='object'?v:{}),id:'senator',state:pose,src:`assets/player_feedback/senator-pixel-v3/senator_${pose}_pixel_v3_160x160.png`,x:210,y:470,lineScale:.45}];
   }));
-  if(c)return {...cast,[c.slot]:{...(typeof cast[c.slot]==='object'?cast[c.slot]:{}),id:'rich',src:'assets/rich_bedroom_phone_scroll.png',state:'phone_scroll',x:78,y:338,lineScale:1,flip:false}};
+  if(env?.id==='bedroom')return Object.fromEntries(Object.entries(cast||{}).map(([slot,v])=>{
+   const id=typeof v==='string'?v:v?.id;
+   if(id==='rich')return [slot,bedroomRich(v,!!c)];
+   // The native cat's paws sit on the duvet beside Rich, at its authored scale.
+   if(id==='cat')return [slot,{...(typeof v==='object'?v:{}),id,x:202,y:338,lineScale:1,flip:false}];
+   return [slot,v];
+  }));
   if(env?.id==='gbenga_house_dining')return Object.fromEntries(Object.entries(cast||{}).map(([slot,spec])=>{
    const id=typeof spec==='string'?spec:spec?.id;
    return [slot,id==='mama_gbenga'?{...(typeof spec==='object'?spec:{}),id,lineScale:(env.base||1)*1.85*1.25}:spec];
@@ -36,12 +48,18 @@
   return cast;
  }
  function stage(env,cast){
-  const c=call(cast,env),delivery=window.RAAdventures?.active?.()?.id==='RB_DELIVERY';if(!c&&!delivery)return null;
+  const c=call(cast,env),delivery=window.RAAdventures?.active?.()?.id==='RB_DELIVERY',bedroom=env?.id==='bedroom';if(!bedroom&&!delivery)return null;
   const reference=c?.slot||Object.keys(cast)[0];
   const stage=window.RAPresentationDirector.adventureStage(env,cast,{slots:{},node:{shot:{profile:'room',focal:Object.keys(cast),speakers:[],reference}}});
-  stage.id=delivery?'adv:car-delivery':'adv:bedroom-call';return stage;
+  stage.id=delivery?'adv:car-delivery':'adv:bedroom';return stage;
  }
  function mount(root,scope,env,cast){
+  // Legacy renderActors first writes standing percentages; the Director then writes
+  // the bed's pixels. Do not tween between those unrelated coordinate systems.
+  // Bed poses change source frames in place, never enter or walk off the pillow.
+  if(env?.id==='bedroom')for(const el of root.querySelectorAll('[data-actor="rich"]')){
+   el.style.transition='none';el.style.animation='none';
+  }
   const old=root.querySelector('.world-call-source');old?.remove();
   const c=call(cast,env);if(!c?.caller)return;
   const badge=document.createElement('div');badge.className='world-call-source';badge.textContent=`PHONE / ${c.caller}`;
