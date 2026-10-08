@@ -7,7 +7,7 @@
  "entries": {
   "A-RICH-riding_mazda": {
    "key": "characters.rich.states.riding_mazda",
-   "status": "REGISTERED — NO LIVE SURFACE",
+   "status": "REGISTERED \u2014 NO LIVE SURFACE",
    "note": "FLY ON MAZDA is a route choice with no staged beat; A32/arc flights stage her human form. The bedroom Mazda uses the fly-by overlay; HATCH majestic uses happy/perched."
   },
   "A-RICH-touge_locked": {
@@ -39,7 +39,7 @@
   },
   "A-bllad33-dry": {
    "key": "characters.bllad33.states.dry",
-   "status": "REGISTERED — NO OBJECTIVE BEAT",
+   "status": "REGISTERED \u2014 NO OBJECTIVE BEAT",
    "note": "No current OPEN beat narrates this exact reaction with the person on stage; placing it would be a guess."
   },
   "A-brenda-date": {
@@ -63,7 +63,7 @@
   "A-britney-profile": {
    "key": "ui.avatars.britney_stakes",
    "use": {
-    "surface": "VampGram: @britney_stakes posts carry her profile image (VOL 5 §2.11)",
+    "surface": "VampGram: @britney_stakes posts carry her profile image (VOL 5 \u00a72.11)",
     "consumer": "js/phone/apps_core.js",
     "token": "britney_stakes:'britney_stakes'"
    },
@@ -107,7 +107,7 @@
   },
   "A-cammile-touge_spectator": {
    "key": "characters.jdm_importer_daughter_001.states.touge_spectator",
-   "status": "REGISTERED — NO LIVE SURFACE",
+   "status": "REGISTERED \u2014 NO LIVE SURFACE",
    "note": "TOUGE has no spectator layer; ARC_CAMMILE_1 has her riding shotgun, not watching."
   },
   "A-ceo_assistant-bedroom": {
@@ -256,7 +256,7 @@
   },
   "A-jade-impressed": {
    "key": "characters.jade.states.impressed",
-   "status": "REGISTERED — PERSON NOT ON STAGE",
+   "status": "REGISTERED \u2014 PERSON NOT ON STAGE",
    "note": "The matching beat names her in an entrance/speaker line but never stages her (actors: Rich only). Staging would add a cast member to an authored beat."
   },
   "A-june-bedroom": {
@@ -279,7 +279,7 @@
   },
   "A-june-working": {
    "key": "characters.june.states.working",
-   "status": "REGISTERED — CAST CHANGE REQUIRED",
+   "status": "REGISTERED \u2014 CAST CHANGE REQUIRED",
    "note": "A paired composite (June working in Rich's locs, Rich included). A48 mirror / RETWIST stage Rich and June as two actors; using it means replacing the cast of an authored beat. Needs an HQ call."
   },
   "A-kaede-bedroom_company": {
@@ -329,12 +329,12 @@
   },
   "A-kiki-laughing": {
    "key": "characters.kiki.states.laughing",
-   "status": "REGISTERED — NO OBJECTIVE BEAT",
+   "status": "REGISTERED \u2014 NO OBJECTIVE BEAT",
    "note": "No current OPEN beat narrates this exact reaction with the person on stage; placing it would be a guess."
   },
   "A-lil_smack-diss": {
    "key": "characters.lil_smack.states.diss",
-   "status": "REGISTERED — NO OBJECTIVE BEAT",
+   "status": "REGISTERED \u2014 NO OBJECTIVE BEAT",
    "note": "No current OPEN beat narrates this exact reaction with the person on stage; placing it would be a guess."
   },
   "A-lil_smack-finale": {
@@ -519,7 +519,7 @@
   },
   "A-pinky-neutral": {
    "key": "characters.pinky.states.neutral",
-   "status": "REGISTERED — NO OBJECTIVE BEAT",
+   "status": "REGISTERED \u2014 NO OBJECTIVE BEAT",
    "note": "No current OPEN beat narrates this exact reaction with the person on stage; placing it would be a guess."
   },
   "A-rookoko-painting": {
@@ -551,7 +551,7 @@
   },
   "A-tasha-stage_rush": {
    "key": "characters.tasha.states.stage_rush",
-   "status": "REGISTERED — ART-MAPPED SURFACE CONFLICT",
+   "status": "REGISTERED \u2014 ART-MAPPED SURFACE CONFLICT",
    "note": "A14 tasha is the Art-mapped catacomb crowd surface `catacomb|left:rich@on_stage,right:tasha` (ART SHIP 008); staging her in a new state would change that frozen surface key and drop the crowd layer. Needs an Art/HQ call."
   },
   "A-tristan-floor": {
@@ -565,13 +565,13 @@
   },
   "A-tristan-laugh": {
    "key": "characters.tristan.states.laugh",
-   "status": "REGISTERED — NO OBJECTIVE BEAT",
+   "status": "REGISTERED \u2014 NO OBJECTIVE BEAT",
    "note": "No current OPEN beat narrates this exact reaction with the person on stage; placing it would be a guess."
   },
   "A-tristan-passenger": {
    "key": "characters.tristan.states.passenger",
    "use": {
-    "surface": "TOUGE passenger seat: Tristan's portrait while he reacts (TOUGE app → PASSENGER SEAT)",
+    "surface": "TOUGE passenger seat: Tristan's portrait while he reacts (TOUGE app \u2192 PASSENGER SEAT)",
     "consumer": "js/systems/cars.js",
     "token": "states?.passenger"
    },
@@ -588,7 +588,7 @@
   },
   "A-vicky-doorway": {
    "key": "characters.vicky.states.doorway",
-   "status": "REGISTERED — ART-MAPPED SURFACE CONFLICT",
+   "status": "REGISTERED \u2014 ART-MAPPED SURFACE CONFLICT",
    "note": "A29C vicky is the Art-mapped throne-party-mess surface `throne_party_mess|left:rich,right:vicky` (ART SHIP 008); a new state would change that frozen surface key. Needs an Art/HQ call."
   },
   "A-wispa-date": {
@@ -603,7 +603,7 @@
   "A-wispa-wave": {
    "key": "characters.wispa.states.wave",
    "use": {
-    "surface": "adventure beat: first cook at the café closes, Wispa waves (VOL 1 A16)",
+    "surface": "adventure beat: first cook at the caf\u00e9 closes, Wispa waves (VOL 1 A16)",
     "consumer": "js/data/btf/adventures/systems.js",
     "token": "content-state"
    },
@@ -656,7 +656,7 @@
   },
   "B-majestic-flying": {
    "key": "dragon.majestic.flying",
-   "status": "REGISTERED — NO LIVE SURFACE",
+   "status": "REGISTERED \u2014 NO LIVE SURFACE",
    "note": "FLY ON MAZDA is a route choice with no staged beat; A32/arc flights stage her human form. The bedroom Mazda uses the fly-by overlay; HATCH majestic uses happy/perched."
   },
   "B-majestic-happy": {
@@ -715,7 +715,7 @@
   },
   "C-cat-judging_combat": {
    "key": "creatures.cat.states.judging_combat",
-   "status": "REGISTERED — NO LIVE SURFACE",
+   "status": "REGISTERED \u2014 NO LIVE SURFACE",
    "note": "The cat never appears in Combat 2.0."
   },
   "C-cat-on_bed": {
@@ -738,7 +738,7 @@
   },
   "C-common-pier_perch-held": {
    "key": "items.catches.pier_perch.held",
-   "status": "REGISTERED — MAPPING AMBIGUOUS",
+   "status": "REGISTERED \u2014 MAPPING AMBIGUOUS",
    "note": "The frozen rich.holding_fish_away already paints a fish in hand; overlaying a held fish would double it. The catch icons carry the named fish."
   },
   "C-common-pier_perch-icon": {
@@ -752,7 +752,7 @@
   },
   "C-common-silver_grunt-held": {
    "key": "items.catches.silver_grunt.held",
-   "status": "REGISTERED — MAPPING AMBIGUOUS",
+   "status": "REGISTERED \u2014 MAPPING AMBIGUOUS",
    "note": "The frozen rich.holding_fish_away already paints a fish in hand; overlaying a held fish would double it. The catch icons carry the named fish."
   },
   "C-common-silver_grunt-icon": {
@@ -766,7 +766,7 @@
   },
   "C-common-ugly_mackerel-held": {
    "key": "items.catches.ugly_mackerel.held",
-   "status": "REGISTERED — MAPPING AMBIGUOUS",
+   "status": "REGISTERED \u2014 MAPPING AMBIGUOUS",
    "note": "The frozen rich.holding_fish_away already paints a fish in hand; overlaying a held fish would double it. The catch icons carry the named fish."
   },
   "C-common-ugly_mackerel-icon": {
@@ -861,7 +861,7 @@
   },
   "D-portobello-world": {
    "key": "vehicles.world.portobello",
-   "status": "REGISTERED — NO LIVE SURFACE",
+   "status": "REGISTERED \u2014 NO LIVE SURFACE",
    "note": "These cars are bought on the phone (no delivery beat); the GARAGE lift band is 32 px tall and cannot host a 50 px WORLD sprite without a minigame layout change; the Portobello Mazda is narrated at breakfast indoors (A30, protected PD-FA-03 scope)."
   },
   "D-r34-listing": {
@@ -876,7 +876,7 @@
   "D-r34-world": {
    "key": "vehicles.world.r34",
    "use": {
-    "surface": "⌂ CASTLE → GARAGE trophy view",
+    "surface": "\u2302 CASTLE \u2192 GARAGE trophy view",
     "consumer": "js/data/btf/adventures/w1_life.js",
     "token": "nissan_skyline_r34:'r34'"
    },
@@ -893,8 +893,8 @@
   },
   "D-rival_b-touge": {
    "key": "vehicles.touge.rival_b",
-   "status": "REGISTERED — NO LIVE SURFACE",
-   "note": "Content has one Midnight Mafia tandem driver (Tokyo Tony → rival A)."
+   "status": "REGISTERED \u2014 NO LIVE SURFACE",
+   "note": "Content has one Midnight Mafia tandem driver (Tokyo Tony \u2192 rival A)."
   },
   "D-s15_bodykit-listing": {
    "key": "vehicles.listing.s15_bodykit",
@@ -908,7 +908,7 @@
   "D-s15_bodykit-world": {
    "key": "vehicles.world.s15_bodykit",
    "use": {
-    "surface": "⌂ CASTLE → GARAGE trophy view (S15 with body kit)",
+    "surface": "\u2302 CASTLE \u2192 GARAGE trophy view (S15 with body kit)",
     "consumer": "js/data/btf/adventures/w1_life.js",
     "token": "'s15_bodykit'"
    },
@@ -926,7 +926,7 @@
   "D-s15_stock-world": {
    "key": "vehicles.world.s15",
    "use": {
-    "surface": "⌂ CASTLE → GARAGE trophy view (every owned car, native 1:1)",
+    "surface": "\u2302 CASTLE \u2192 GARAGE trophy view (every owned car, native 1:1)",
     "consumer": "js/data/btf/adventures/w1_life.js",
     "token": "nissan_silvia_s15:'s15'"
    },
@@ -979,18 +979,18 @@
   },
   "E-blood_bill": {
    "key": "props.blood_bank_bill",
-   "status": "REGISTERED — COVERED BY STATE",
+   "status": "REGISTERED \u2014 COVERED BY STATE",
    "note": "A17 bill stages nneka@handing_bill, which already shows the long receipt; adventures have no separate held-item layer."
   },
   "E-blood_held": {
    "key": "props.blood_bank_bill_held",
-   "status": "REGISTERED — COVERED BY STATE",
+   "status": "REGISTERED \u2014 COVERED BY STATE",
    "note": "A17 bill stages nneka@handing_bill, which already shows the long receipt; adventures have no separate held-item layer."
   },
   "E-bonesworth_sword": {
    "key": "props.bonesworth_sword",
    "use": {
-    "surface": "⌂ CASTLE → ARMORY WALL: Sir Bonesworth's sword hangs on the wall (after A27 sword choice)",
+    "surface": "\u2302 CASTLE \u2192 ARMORY WALL: Sir Bonesworth's sword hangs on the wall (after A27 sword choice)",
     "consumer": "js/data/btf/adventures/w1_life.js",
     "token": "props?.bonesworth_sword"
    },
@@ -998,7 +998,7 @@
   },
   "E-bread-torn": {
    "key": "props.agege_bread_torn",
-   "status": "REGISTERED — NO LIVE SURFACE",
+   "status": "REGISTERED \u2014 NO LIVE SURFACE",
    "note": "Adventures have no item layer for these beats (A27 sword, A10 bread, A11/A09 egg); HATCH shows the Ship 005 egg master. Wiring them needs a placement decision."
   },
   "E-egg-bed": {
@@ -1021,7 +1021,7 @@
   },
   "E-egg-held": {
    "key": "props.mazda_egg_held",
-   "status": "REGISTERED — NO LIVE SURFACE",
+   "status": "REGISTERED \u2014 NO LIVE SURFACE",
    "note": "Adventures have no item layer for these beats (A27 sword, A10 bread, A11/A09 egg); HATCH shows the Ship 005 egg master. Wiring them needs a placement decision."
   },
   "E-fit-black_leather_trench": {
@@ -1045,7 +1045,7 @@
   "E-fit-church_shoes": {
    "key": "items.fits.church_shoes",
    "use": {
-    "surface": "THE ARMORY sells CHURCH SHOES (VOL 3 §2.1); choice icon",
+    "surface": "THE ARMORY sells CHURCH SHOES (VOL 3 \u00a72.1); choice icon",
     "consumer": "js/data/btf/adventures/w3.js",
     "token": "id:'church_shoes',kind:'fit'"
    },
@@ -1287,18 +1287,18 @@
   },
   "F-company_system": {
    "key": "bedroom.company.company_system",
-   "status": "REGISTERED — ART GEOMETRY AMBIGUITY",
-   "note": "These exact-origin overlays draw a second, larger bed / a blanket pile that does not register with the runtime bedroom (Rich lies at x14–142, y282–346): they occlude or duplicate him. Per-woman bedroom_company states and the frozen asleep-floor states cover the same surface. Needs an Art call."
+   "status": "REGISTERED \u2014 ART GEOMETRY AMBIGUITY",
+   "note": "These exact-origin overlays draw a second, larger bed / a blanket pile that does not register with the runtime bedroom (Rich lies at x14\u2013142, y282\u2013346): they occlude or duplicate him. Per-woman bedroom_company states and the frozen asleep-floor states cover the same surface. Needs an Art call."
   },
   "F-covered_companion": {
    "key": "bedroom.company.covered_companion",
-   "status": "REGISTERED — ART GEOMETRY AMBIGUITY",
-   "note": "These exact-origin overlays draw a second, larger bed / a blanket pile that does not register with the runtime bedroom (Rich lies at x14–142, y282–346): they occlude or duplicate him. Per-woman bedroom_company states and the frozen asleep-floor states cover the same surface. Needs an Art call."
+   "status": "REGISTERED \u2014 ART GEOMETRY AMBIGUITY",
+   "note": "These exact-origin overlays draw a second, larger bed / a blanket pile that does not register with the runtime bedroom (Rich lies at x14\u2013142, y282\u2013346): they occlude or duplicate him. Per-woman bedroom_company states and the frozen asleep-floor states cover the same surface. Needs an Art call."
   },
   "F-homie_floor": {
    "key": "bedroom.company.homie_floor",
-   "status": "REGISTERED — ART GEOMETRY AMBIGUITY",
-   "note": "These exact-origin overlays draw a second, larger bed / a blanket pile that does not register with the runtime bedroom (Rich lies at x14–142, y282–346): they occlude or duplicate him. Per-woman bedroom_company states and the frozen asleep-floor states cover the same surface. Needs an Art call."
+   "status": "REGISTERED \u2014 ART GEOMETRY AMBIGUITY",
+   "note": "These exact-origin overlays draw a second, larger bed / a blanket pile that does not register with the runtime bedroom (Rich lies at x14\u2013142, y282\u2013346): they occlude or duplicate him. Per-woman bedroom_company states and the frozen asleep-floor states cover the same surface. Needs an Art call."
   },
   "F-mazda_flyby": {
    "key": "bedroom.company.mazda_flyby",
@@ -1312,72 +1312,72 @@
   "F-prop-duoqlo_bag": {
    "key": "bedroom.props.duoqlo_bag",
    "use": {
-    "surface": "bedroom props Rich owns: exact-origin room overlay",
+    "surface": "bedroom owned props: unchanged art cropped to opaque bounds and grounded on visible supports",
     "consumer": "js/systems/world_life.js",
-    "token": "bedroom?.props?.[PROP_ART[id]]"
+    "token": "bedroom?.props?.[key]"
    },
    "status": "INTEGRATED"
   },
   "F-prop-jollof_trophy": {
    "key": "bedroom.props.jollof_trophy",
    "use": {
-    "surface": "bedroom props Rich owns: exact-origin room overlay",
+    "surface": "bedroom owned props: unchanged art cropped to opaque bounds and grounded on visible supports",
     "consumer": "js/systems/world_life.js",
-    "token": "bedroom?.props?.[PROP_ART[id]]"
+    "token": "bedroom?.props?.[key]"
    },
    "status": "INTEGRATED"
   },
   "F-prop-michigan_pennant": {
    "key": "bedroom.props.michigan_pennant",
    "use": {
-    "surface": "bedroom props Rich owns: exact-origin room overlay",
+    "surface": "bedroom owned props: unchanged art cropped to opaque bounds and grounded on visible supports",
     "consumer": "js/systems/world_life.js",
-    "token": "bedroom?.props?.[PROP_ART[id]]"
+    "token": "bedroom?.props?.[key]"
    },
    "status": "INTEGRATED"
   },
   "F-prop-plant": {
    "key": "bedroom.props.plant",
    "use": {
-    "surface": "bedroom props Rich owns: exact-origin room overlay",
+    "surface": "bedroom owned props: unchanged art cropped to opaque bounds and grounded on visible supports",
     "consumer": "js/systems/world_life.js",
-    "token": "bedroom?.props?.[PROP_ART[id]]"
+    "token": "bedroom?.props?.[key]"
    },
    "status": "INTEGRATED"
   },
   "F-prop-rookoko_painting": {
    "key": "bedroom.props.rookoko_painting",
    "use": {
-    "surface": "bedroom props Rich owns: exact-origin room overlay",
+    "surface": "bedroom owned props: unchanged art cropped to opaque bounds and grounded on visible supports",
     "consumer": "js/systems/world_life.js",
-    "token": "bedroom?.props?.[PROP_ART[id]]"
+    "token": "bedroom?.props?.[key]"
    },
    "status": "INTEGRATED"
   },
   "F-prop-trippin_red_poster": {
    "key": "bedroom.props.trippin_red_poster",
    "use": {
-    "surface": "bedroom props Rich owns: exact-origin room overlay",
+    "surface": "bedroom owned props: unchanged art cropped to opaque bounds and grounded on visible supports",
     "consumer": "js/systems/world_life.js",
-    "token": "bedroom?.props?.[PROP_ART[id]]"
+    "token": "bedroom?.props?.[key]"
    },
    "status": "INTEGRATED"
   },
   "F-prop-unused_cat_bed": {
    "key": "bedroom.props.unused_cat_bed",
    "use": {
-    "surface": "bedroom props Rich owns: exact-origin room overlay",
+    "surface": "bedroom owned props: unchanged art cropped to opaque bounds and grounded on visible supports",
     "consumer": "js/systems/world_life.js",
-    "token": "bedroom?.props?.[PROP_ART[id]]"
+    "token": "bedroom?.props?.[key]"
    },
    "status": "INTEGRATED"
   },
   "F-prop-waffle_mix_bag": {
    "key": "bedroom.props.waffle_mix_bag",
    "use": {
-    "surface": "bedroom props Rich owns: exact-origin room overlay",
+    "surface": "bedroom owned props: unchanged art cropped to opaque bounds and grounded on visible supports",
     "consumer": "js/systems/world_life.js",
-    "token": "bedroom?.props?.[PROP_ART[id]]"
+    "token": "bedroom?.props?.[key]"
    },
    "status": "INTEGRATED"
   },
@@ -1392,13 +1392,13 @@
   },
   "F-stars_night_sky": {
    "key": "bedroom.window.stars_night_sky",
-   "status": "REGISTERED — NO LIVE SURFACE",
+   "status": "REGISTERED \u2014 NO LIVE SURFACE",
    "note": "The runtime bedroom window always shows the approved daytime sky with clouds; no night-window condition exists."
   },
   "G-vol5-airport": {
    "key": "environments.atl_airport",
    "use": {
-    "surface": "environment atl_airport (HEARTSFELT-JACKSUN INTERNATIONAL) — mapped; no current node stages it",
+    "surface": "environment atl_airport (HEARTSFELT-JACKSUN INTERNATIONAL) \u2014 mapped; no current node stages it",
     "consumer": "js/data/art_integration.js",
     "token": "atl_airport:env('atl_airport')"
    },
@@ -1406,67 +1406,67 @@
   },
   "H-bars": {
    "key": "ui.treatments.bars",
-   "status": "REFERENCE — UI VISUAL-TREATMENT AUTHORITY ONLY",
+   "status": "REFERENCE \u2014 UI VISUAL-TREATMENT AUTHORITY ONLY",
    "note": "Package H pixels carry example labels/values; they are never runtime images (package_h_rule). Kept as reference for a later UI pass."
   },
   "H-blood_bank_bill": {
    "key": "ui.treatments.blood_bank_bill",
-   "status": "REFERENCE — UI VISUAL-TREATMENT AUTHORITY ONLY",
+   "status": "REFERENCE \u2014 UI VISUAL-TREATMENT AUTHORITY ONLY",
    "note": "Package H pixels carry example labels/values; they are never runtime images (package_h_rule). Kept as reference for a later UI pass."
   },
   "H-garage": {
    "key": "ui.treatments.garage",
-   "status": "REFERENCE — UI VISUAL-TREATMENT AUTHORITY ONLY",
+   "status": "REFERENCE \u2014 UI VISUAL-TREATMENT AUTHORITY ONLY",
    "note": "Package H pixels carry example labels/values; they are never runtime images (package_h_rule). Kept as reference for a later UI pass."
   },
   "H-hatch": {
    "key": "ui.treatments.hatch",
-   "status": "REFERENCE — UI VISUAL-TREATMENT AUTHORITY ONLY",
+   "status": "REFERENCE \u2014 UI VISUAL-TREATMENT AUTHORITY ONLY",
    "note": "Package H pixels carry example labels/values; they are never runtime images (package_h_rule). Kept as reference for a later UI pass."
   },
   "H-hookah_rings": {
    "key": "ui.treatments.hookah_rings",
-   "status": "REFERENCE — UI VISUAL-TREATMENT AUTHORITY ONLY",
+   "status": "REFERENCE \u2014 UI VISUAL-TREATMENT AUTHORITY ONLY",
    "note": "Package H pixels carry example labels/values; they are never runtime images (package_h_rule). Kept as reference for a later UI pass."
   },
   "H-jollof_wars": {
    "key": "ui.treatments.jollof_wars",
-   "status": "REFERENCE — UI VISUAL-TREATMENT AUTHORITY ONLY",
+   "status": "REFERENCE \u2014 UI VISUAL-TREATMENT AUTHORITY ONLY",
    "note": "Package H pixels carry example labels/values; they are never runtime images (package_h_rule). Kept as reference for a later UI pass."
   },
   "H-pickup": {
    "key": "ui.treatments.pickup",
-   "status": "REFERENCE — UI VISUAL-TREATMENT AUTHORITY ONLY",
+   "status": "REFERENCE \u2014 UI VISUAL-TREATMENT AUTHORITY ONLY",
    "note": "Package H pixels carry example labels/values; they are never runtime images (package_h_rule). Kept as reference for a later UI pass."
   },
   "H-pier": {
    "key": "ui.treatments.pier",
-   "status": "REFERENCE — UI VISUAL-TREATMENT AUTHORITY ONLY",
+   "status": "REFERENCE \u2014 UI VISUAL-TREATMENT AUTHORITY ONLY",
    "note": "Package H pixels carry example labels/values; they are never runtime images (package_h_rule). Kept as reference for a later UI pass."
   },
   "H-receipts": {
    "key": "ui.treatments.receipts",
-   "status": "REFERENCE — UI VISUAL-TREATMENT AUTHORITY ONLY",
+   "status": "REFERENCE \u2014 UI VISUAL-TREATMENT AUTHORITY ONLY",
    "note": "Package H pixels carry example labels/values; they are never runtime images (package_h_rule). Kept as reference for a later UI pass."
   },
   "H-rich_radio": {
    "key": "ui.treatments.rich_radio",
-   "status": "REFERENCE — UI VISUAL-TREATMENT AUTHORITY ONLY",
+   "status": "REFERENCE \u2014 UI VISUAL-TREATMENT AUTHORITY ONLY",
    "note": "Package H pixels carry example labels/values; they are never runtime images (package_h_rule). Kept as reference for a later UI pass."
   },
   "H-touge": {
    "key": "ui.treatments.touge",
-   "status": "REFERENCE — UI VISUAL-TREATMENT AUTHORITY ONLY",
+   "status": "REFERENCE \u2014 UI VISUAL-TREATMENT AUTHORITY ONLY",
    "note": "Package H pixels carry example labels/values; they are never runtime images (package_h_rule). Kept as reference for a later UI pass."
   },
   "H-vehicle_listing_cards": {
    "key": "ui.treatments.vehicle_listing_cards",
-   "status": "REFERENCE — UI VISUAL-TREATMENT AUTHORITY ONLY",
+   "status": "REFERENCE \u2014 UI VISUAL-TREATMENT AUTHORITY ONLY",
    "note": "Package H pixels carry example labels/values; they are never runtime images (package_h_rule). Kept as reference for a later UI pass."
   },
   "H-what_we_on": {
    "key": "ui.treatments.what_we_on",
-   "status": "REFERENCE — UI VISUAL-TREATMENT AUTHORITY ONLY",
+   "status": "REFERENCE \u2014 UI VISUAL-TREATMENT AUTHORITY ONLY",
    "note": "Package H pixels carry example labels/values; they are never runtime images (package_h_rule). Kept as reference for a later UI pass."
   }
  }
