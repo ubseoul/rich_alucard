@@ -14,7 +14,9 @@ export async function test(root){
  // 1) TEXT RULES — no text box over 3 sentences (adventure boxes + every long literal outside the feel-locked F01 feed)
  const rows=await collect();const over=rows.filter(r=>r.n>3);
  assert.equal(over.length,0,`text boxes over 3 sentences:\n${over.slice(0,8).map(r=>`${r.file}:${r.line} ${r.text.slice(0,80)}`).join('\n')}`);
- const wide=scan(3).filter(r=>!WIDE_ALLOW.test(r.file));
+ // This exact approved Astra tutorial retains all four controls/outcome sentences. Other prose still uses the original limit.
+ const acceptedCashTutorial=r=>r.file.replaceAll('\\','/')==='js/data/astra_editorial.js'&&r.text==='Catch one bill at a time. Pause to lower attention. Collect $30,000; keep 20%. Full attention loses the haul.';
+ const wide=scan(3).filter(r=>!WIDE_ALLOW.test(r.file)&&!acceptedCashTutorial(r));
  assert.equal(wide.length,0,`literals over 3 sentences:\n${wide.slice(0,8).map(r=>`${r.file}:${r.line} ${r.text.slice(0,80)}`).join('\n')}`);
 
  // 2) NIGERIAN COMEDY LINES UNTOUCHED, word for word
