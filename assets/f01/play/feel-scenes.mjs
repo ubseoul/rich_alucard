@@ -386,7 +386,7 @@ export async function roomScene({crewObjs,defense,objective='THE PLAY'}){
 // Rich COUNTS while the total rolls upward, then the trunk reveals ONE ITEM AT A TIME — everything shown is what was really awarded (M6).
 export async function returnScene({rec,crewObjs,w,bankBefore,canonical=null}){
  const RR=W.returnRoster(rec);
- clear();bg(RR.alone?A.RETURN_BASE.empty:A.RETURN_BASE.home); // Approved night-street arrival; frozen FL-A02 stays byte-identical
+ clear();bg(RR.alone?A.RETURN_BASE.empty:A.RETURN_BASE.home); // Code-authored pixel alley; frozen FL-A02 stays byte-identical
  el('shadow','',null,{left:'204px',top:'419px',width:'32px',height:'3px'});
  const rich=richEl({left:'180px',top:'332px'});
  await fadeTo(0,900);await sleep(1100);
@@ -437,7 +437,7 @@ export async function returnScene({rec,crewObjs,w,bankBefore,canonical=null}){
   S.thud();
   if(it.rar==='RARE'){S.crateGlow();}else if(it.rar==='LEGENDARY'){S.gasp();S.stinger();}
   const col=({COMMON:'#cfd3e6',RARE:'#37d5e8',LEGENDARY:'#ffd23f'})[it.rar]||'#ffd23f';
-  const short=String(it.name).replace(/^an? /i,'').toUpperCase().slice(0,26);
+  const short=String(it.name).replace(/^an? /i,'').toUpperCase();
   const who=it.cat==='GUN'&&it.to?` → ${(crewObjs.find(o=>o.id===it.to)||{short:''}).short.toUpperCase()}`:'';
   if(prevLab)anim(prevLab,[{opacity:1},{opacity:0}],250);
   prevLab=el('lootlab lane',esc(short+who),null,{color:col,borderColor:col});
