@@ -46,9 +46,9 @@
       const owned=!!global.RALife.ownedCars().length,s=api.special.m9;
       result=result.map((r,i)=>{if(!r)return r;const opts={...(r[2]||{})};
        if(r[0]==='gbenga'&&(opts.sourceLine===969||i===0))return [r[0],owned?s.replyOwned:s.replyNoCar,{...opts,astraRecordIds:['R2135','R2139','R3388'],astraOwnership:owned?'owned-car':'no-car'}];
-       if(r[0]==null&&(opts.sourceLine===971||/rank|car stays|Mama hears/.test(r[1])))return [null,owned?s.narrationOwned:s.narrationNoCar,{...opts,astraRecordIds:['R2137','R3389'],astraOwnership:owned?'owned-car':'no-car'}];return r;
+       if(r[0]==null&&i===2)return [null,owned?s.narrationOwned:s.narrationNoCar,{...opts,astraRecordIds:['R2137','R3389'],astraOwnership:owned?'owned-car':'no-car'}];return r;
       });
-     }if(d.id==='LEGENDARY_RECOGNITION'&&name==='morning'){const count=Number(global.RALife.life().resources.followers)||0;result=result.map(r=>r?.[2]?.astraRecordIds?.includes('R2960')?[r[0],'THE NEXT MORNING. About '+new Intl.NumberFormat('en-US').format(count)+' followers.',{...r[2],astraDynamicTotal:true}]:r);}
+     }if(d.id==='LEGENDARY_RECOGNITION'&&name==='morning'){const count=Number(global.RALife.life().resources.followers)||0;result=result.map(r=>r?.[2]?.astraRecordIds?.includes('R2960')?[r[0],api.special.recognitionMorning.replace('${followers}',new Intl.NumberFormat('en-US').format(count)),{...r[2],astraDynamicTotal:true}]:r);}
      return result;
     };
     Object.defineProperty(out.lines,'astraOriginal',{value:original});
