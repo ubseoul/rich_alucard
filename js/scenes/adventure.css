@@ -32,8 +32,9 @@
 .adv-title small{font-size:clamp(5px,2cqw,8px);opacity:.7;animation:advBlink 1.2s steps(2,end) infinite}
 body.dev-enabled .adv-placeholder-env .adv-location::after{content:" · PLACEHOLDER ART";color:#c18b3c}
 /* Bedroom life controls */
-.bedroom-life{position:absolute;z-index:6;left:3%;right:3%;bottom:2%;display:flex;gap:2%;justify-content:space-between;pointer-events:none}
-.bedroom-life button{pointer-events:auto;flex:1;font-family:var(--font-command);font-size:clamp(6px,2.5cqw,11px);padding:.8em .4em;background:#f6efd9;color:#10101b;border:3px solid #10101b;box-shadow:3px 3px #7d194b;cursor:pointer}
+.bedroom-life{position:absolute;z-index:6;left:3%;right:3%;bottom:2%;display:grid;grid-template-columns:minmax(0,1fr) 112px minmax(0,1fr);gap:8px;pointer-events:none}
+.bedroom-life .bedroom-sleep{grid-column:3}
+.bedroom-life button{pointer-events:auto;min-height:44px;min-width:0;font-family:var(--font-command);font-size:clamp(6px,2.5cqw,11px);padding:.8em .4em;background:#f6efd9;color:#10101b;border:3px solid #10101b;box-shadow:3px 3px #7d194b;cursor:pointer}
 .bedroom-daybar{position:absolute;z-index:6;left:3%;top:1.2%;font-family:var(--font-system);font-size:clamp(5px,2.2cqw,9px);color:#f6efd9;background:rgba(16,16,27,.75);padding:.45em .7em;border:1px solid rgba(246,239,217,.35)}
 .bedroom-return{position:absolute;z-index:7;left:6%;right:6%;top:30%;background:#f6efd9;color:#10101b;border:3px solid #10101b;box-shadow:3px 3px #7d194b;padding:1.1em 1em .9em;font-family:var(--font-dialogue);font-size:clamp(7px,2.9cqw,12px);line-height:1.55;cursor:pointer}
 .bedroom-return b{position:absolute;left:4%;top:-1.2em;background:#10101b;color:#f6efd9;padding:.35em .7em;font-size:.85em}
