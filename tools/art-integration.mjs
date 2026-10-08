@@ -162,7 +162,19 @@ export async function test(){
   assert.equal(createHash('sha256').update(await readFile(path.join(root,file))).digest('hex'),hash,`${key}: candidate bytes changed`);
  }
  const candidateNotes=JSON.parse(await readFile(path.join(root,'tools/presentation/candidate-annotations.json'),'utf8')).assets;
-  for(const p of paths){if(worldHashes[p]){assert.equal(R.assets[p].authority,'PARENT-DELEGATED REVIEWED CANDIDATE; NOT CREATOR-FROZEN');continue;}if(/^assets\/rc5\/imani\/imani_(neutral|decline|smile)_80x96\.png$/.test(p)&&R.assets[p]?.status==='REVIEWED_CANDIDATE'){const expected=candidateNotes[p]?.candidate;assert.ok(expected&&expected.authority==='PARENT-DELEGATED REVIEWED CANDIDATE; NOT CREATOR-FROZEN',`${p}: missing delegated candidate authority`);assert.equal(R.assets[p].sha256,expected.sha256,`${p}: registry candidate hash mismatch`);assert.equal(createHash('sha256').update(await readFile(path.join(root,p))).digest('hex'),expected.sha256,`${p}: candidate bytes changed`);continue;}assert.ok(register[p],`runtime art ${p} is not in ASSET_REGISTER.json`);assert.ok(!/REJECTED/.test(register[p].status),`runtime art ${p} is rejected`);if(R.assets[p])assert.equal(register[p].status,'FROZEN',`${p} must be FROZEN`)}
+  for(const p of paths){if(p==='assets/player_feedback/portobello-kid3-native.png'){
+    // One player-requested child: validate exact candidate identity, bytes and contacts without extending frozen authority.
+    const expected=candidateNotes[p]?.candidate,asset=R.assets[p],child=R.characters.portobello_kid3;
+    const authority='PLAYER-REQUESTED GENERATED CANDIDATE; UBE TASTE REVIEW PENDING';
+    const hash='1e5ed9117a2861dd700c2d8157ffaeececc2f2f683651d118ed183ca01e8e275';
+    assert.equal(expected?.authority,authority);assert.equal(expected?.sha256,hash);
+    assert.equal(asset?.status,'REVIEWED_CANDIDATE');assert.equal(asset?.authority,authority);
+    assert.equal(asset?.sha256,hash);assert.equal(asset?.width,80);assert.equal(asset?.height,96);
+    assert.equal(child?.anchor,p);assert.equal(child?.states?.neutral,p);
+    assert.deepEqual(Array.from(child.cell),[80,96]);assert.deepEqual(Array.from(child.contact),[40,88]);
+    assert.equal(createHash('sha256').update(await readFile(path.join(root,p))).digest('hex'),hash);
+    continue;
+   }if(worldHashes[p]){assert.equal(R.assets[p].authority,'PARENT-DELEGATED REVIEWED CANDIDATE; NOT CREATOR-FROZEN');continue;}if(/^assets\/rc5\/imani\/imani_(neutral|decline|smile)_80x96\.png$/.test(p)&&R.assets[p]?.status==='REVIEWED_CANDIDATE'){const expected=candidateNotes[p]?.candidate;assert.ok(expected&&expected.authority==='PARENT-DELEGATED REVIEWED CANDIDATE; NOT CREATOR-FROZEN',`${p}: missing delegated candidate authority`);assert.equal(R.assets[p].sha256,expected.sha256,`${p}: registry candidate hash mismatch`);assert.equal(createHash('sha256').update(await readFile(path.join(root,p))).digest('hex'),expected.sha256,`${p}: candidate bytes changed`);continue;}assert.ok(register[p],`runtime art ${p} is not in ASSET_REGISTER.json`);assert.ok(!/REJECTED/.test(register[p].status),`runtime art ${p} is rejected`);if(R.assets[p])assert.equal(register[p].status,'FROZEN',`${p} must be FROZEN`)}
  for(const e of ctx.RAEnvironments.all())if(e.frozen)assert.ok(R.environments[e.art]?.asset===e.image||R.environments[e.art]?.over===e.image,`${e.id} frozen art does not come from the registry`);
  // A runtime id may present another id's frozen master unchanged only as an Art-approved zero-pixel reuse (registry
  // `aliases`, e.g. ART SHIP 009 lan_night → tristan_apt); unrelated locations never silently share a bitmap.
