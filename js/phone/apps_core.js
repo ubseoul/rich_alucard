@@ -69,7 +69,12 @@
  A.register({id:'receipts',label:'RECEIPTS',order:40,
   render(sub){const list=[...(life().receipts||[])].reverse();const byMonth={};for(const r of list){const m=`MONTH ${Math.floor((r.day-1)/28)+1}`;(byMonth[m]=byMonth[m]||[]).push(r);}
    return `<h1>RECEIPTS</h1>${Object.entries(byMonth).map(([m,rs])=>`<p class="phone-speaker">${m}</p>${rs.map(r=>`<div class="phone-card receipt-card"><b>DAY ${r.day} · ${esc(r.dateLabel||'')}</b>${esc(r.caption)}${r.shared?'<br><span class="phone-small">SHARED</span>':btn('SHARE TO VAMPGRAM',`do:receipts:share:${r.id}`)}</div>`).join('')}`).join('')||'<p class="phone-small">nothing yet. go live.</p>'}`;},
-  onAction(act,arg,api){if(act==='share'){const list=life().receipts.map(r=>r.id===arg?{...r,shared:true}:r);RAState.patch('life.receipts',list);const r=list.find(x=>x.id===arg);RALife.addFollowers(5+Math.floor(RALife.hash(RALife.today().day)%10));window.RAVampGram?.post?.({handle:'richalucard',text:r.caption,likes:12});api.refresh();}}});
+  onAction(act,arg,api){if(act==='share'){
+   const r=life().receipts.find(x=>x.id===arg);if(!r||r.shared){api.refresh();return;}
+   const nominal=5+Math.floor(RALife.hash(RALife.today().day)%10),gain=window.RALegendaryFollowers?.normalGain?.(nominal)??nominal;
+   const tx=RAState.transaction(s=>{const receipt=s.life.receipts.find(x=>x.id===arg);if(!receipt||receipt.shared)return false;receipt.shared=true;s.life.resources.followers=Math.max(0,(Number(s.life.resources.followers)||0)+gain);return true;});
+   if(tx.ok)window.RAVampGram?.post?.({id:'receipt:share:'+arg,handle:'richalucard',text:r.caption,likes:12});api.refresh();
+  }}});
  // ONLYVAMPS / RICHBOIMPORTS registered by their lanes; canon placeholders keep in-world locked lines.
  A.register({id:'onlyvamps',label:'ONLYVAMPS',canon:true,render:()=>window.RAOnlyVamps?.markup?.()||'<h1>ONLYVAMPS</h1><p class="phone-small">invite only.</p>',onAction:(a,arg,api)=>window.RAOnlyVamps?.action?.(a,arg,api)});
  A.register({id:'richboi',label:'RICHBOIMPORTS',canon:true,render:()=>window.RACars?.richboiMarkup?.()||'<h1>RICHBOIMPORTS</h1>',onAction:(a,arg,api)=>window.RACars?.richboiAction?.(a,arg,api)});
