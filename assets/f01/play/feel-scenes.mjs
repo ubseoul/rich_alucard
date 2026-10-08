@@ -465,7 +465,7 @@ export function operationResult({rec,crewObjs,canonical,bankBefore,bankAfter,sto
   <ul>${rows}</ul>${(rec.lost?.cars||[]).length?'<p>TRANSPORT LOST</p>':''}
   ${(rec.lost?.guns||[]).length?'<p>'+rec.lost.guns.length+' WEAPON(S) LOST</p>':''}
   <small>${story?'MISSION REWARD AND HEAT SETTLE ON RETURN':'CREW AND TAKE RECORDED · RETURN TO CONTINUE'}</small>`);
- panel.setAttribute('role','status');const toggle=el('report-toggle','SHOW THE HAUL');toggle.setAttribute('role','button');toggle.tabIndex=0;const flip=()=>{panel.hidden=!panel.hidden;toggle.textContent=panel.hidden?'SHOW REPORT':'SHOW THE HAUL';};toggle.onclick=flip;toggle.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();flip();}};return panel;
+ panel.setAttribute('role','status');const returnLabel=gain>0||(rec.received?.items||[]).length?'SHOW THE HAUL':'SHOW RETURN';const toggle=el('report-toggle',returnLabel);toggle.setAttribute('role','button');toggle.tabIndex=0;const flip=()=>{panel.hidden=!panel.hidden;toggle.textContent=panel.hidden?'SHOW REPORT':returnLabel;};toggle.onclick=flip;toggle.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();flip();}};return panel;
 }
 export function againButton(label='RUN ANOTHER PLAY'){
  const b=document.createElement('button');b.className='again';b.textContent=label;world.appendChild(b);
