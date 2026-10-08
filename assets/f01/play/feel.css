@@ -259,7 +259,7 @@ button{font-family:Tiny5,"Courier New",monospace;letter-spacing:1px;border-radiu
 .crew-inspect{position:absolute;left:12px;right:12px;top:130px;background:var(--os-bg);border:2px solid var(--os-gold);padding:12px;z-index:18;font:16px/1.1 Monogram;box-shadow:4px 4px #050409}
 .crew-inspect b{font:16px Tiny5;color:var(--os-gold)}
 .crew-inspect p{margin:7px 0}.crew-inspect button{width:100%;min-height:30px;background:var(--os-raised);color:var(--os-text);border:1px solid var(--os-line)}
-.operation-result{position:absolute;inset:16px 12px auto;background:#0c0b14f5;border:2px solid var(--os-gold);padding:10px;z-index:9;max-height:370px;overflow:auto;box-shadow:3px 3px #050409;font:15px/1.1 Monogram}
+.operation-result{position:absolute;inset:52px 12px auto;box-sizing:border-box;background:#0c0b14f5;border:2px solid var(--os-gold);padding:10px;z-index:9;max-height:270px;overflow:auto;box-shadow:3px 3px #050409;font:15px/1.1 Monogram}
 .operation-result h2{font:20px Tiny5;margin:0 0 8px;color:var(--os-gold)}
 .result-money{display:grid;grid-template-columns:1fr 1fr;gap:7px;border-block:1px solid var(--os-line);padding:6px 0;font:11px Tiny5}
 .result-money b{display:block;font:23px Monogram;color:var(--os-green)}
@@ -267,7 +267,7 @@ button{font-family:Tiny5,"Courier New",monospace;letter-spacing:1px;border-radiu
 .operation-result ul{list-style:none;margin:8px 0;padding:0}.operation-result li{display:grid;grid-template-columns:1fr auto;gap:4px;padding:5px 0;border-bottom:1px solid var(--os-line)}
 .operation-result li b{font:10px Tiny5;color:var(--os-green)}.operation-result li b:not(.READY){color:var(--os-gold)}
 .operation-result small{font:10px/1.2 Tiny5;display:block;color:var(--os-muted)}
-.again{left:12px;width:246px;min-height:36px;z-index:10}
+.again{left:138px;width:120px;top:8px;bottom:auto;height:36px;min-height:36px;letter-spacing:1px;z-index:10}
 .operation-crew{position:absolute;left:5px;right:5px;bottom:3px;display:flex;gap:3px;overflow-x:auto;z-index:5;background:#0c0b14ed;border-top:2px solid var(--os-gold);padding:4px 2px}
 .operation-unit{flex:1 0 48px;min-width:0;padding:4px 2px;color:var(--os-text);background:var(--os-surface);border:1px solid var(--os-line);cursor:pointer;text-align:center;min-height:31px}
 .operation-unit span{display:block;font:10px/1 Tiny5;overflow-wrap:anywhere}.operation-unit b{display:block;font:11px/1 Monogram;margin-top:3px;color:var(--os-gold)}
@@ -284,7 +284,7 @@ button{font-family:Tiny5,"Courier New",monospace;letter-spacing:1px;border-radiu
 .phone .bub.call{position:static;inset:auto;z-index:auto;text-align:left;transform:none}
 .call .take-note{font:12px/1 Tiny5;color:var(--os-muted);margin-top:5px}
 .call .cash{font-size:30px;line-height:1}
-.report-toggle{position:absolute;left:12px;right:12px;bottom:50px;z-index:10;padding:5px;min-height:22px;font:11px Tiny5;text-align:center;background:var(--os-surface);color:var(--os-gold);border:1px solid var(--os-line);cursor:pointer}
+.report-toggle{position:absolute;left:24px;right:auto;width:108px;top:8px;bottom:auto;z-index:10;padding:5px;min-height:36px;box-sizing:border-box;font:11px Tiny5;text-align:center;background:var(--os-surface);color:var(--os-gold);border:1px solid var(--os-line);cursor:pointer}
 .operation-result[hidden]{display:none}
 .reduce .operation-unit.changed{animation:none}@media(prefers-reduced-motion:reduce){.operation-unit.changed{animation:none}}
 

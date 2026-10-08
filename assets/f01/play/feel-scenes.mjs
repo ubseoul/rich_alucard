@@ -451,6 +451,7 @@ export async function returnScene({rec,crewObjs,w,bankBefore,canonical=null}){
 export function operationResult({rec,crewObjs,canonical,bankBefore,bankAfter,story}){
  const gain=canonical?.cash.gain??Math.round((rec.win?W.potBank(rec):0)*1000);
  const spent=canonical?.cash.spent??Math.max(0,Math.round((bankBefore+gain/1000-bankAfter)*1000));
+ const transportLost=canonical?.car?.lost??Boolean((rec.lost?.cars||[]).length);
  const crew=canonical?.crew||rec.crew.map(id=>({id,after:rec.finalStatus[id]}));
  const calls=(rec.callLog||[]).map(c=>({SAVE:'RESCUE',PUSH:'PUSH ON',FOLD:'FALL BACK',SNEAK:'SLIP PAST',TALK:'TALK',PAY:'PAY',BUST:'BREACH',TIMEOUT:'CREW DECIDED',DEFAULT:'CREW DECIDED'})[c.choice]||c.choice);
  const rows=crew.map(c=>{
@@ -460,9 +461,9 @@ export function operationResult({rec,crewObjs,canonical,bankBefore,bankAfter,sto
  }).join('');
  const panel=el('operation-result',`<h2>${rec.win?'OPERATION COMPLETE':'OPERATION LOST'}</h2>
   <div class="result-money"><span>PLAY TAKE <b>${money(gain/1000)}</b></span><span>SPENT <b>${money(spent/1000)}</b></span></div>
-  <div class="result-route">RESULT: ${esc(rec.klass)} · GETAWAY: ${esc(rec.getaway?.kind||rec.getaway||'NONE')}</div><div class="result-route">${!story&&canonical?'HEAT: '+(canonical.heat.delta>=0?'+':'')+canonical.heat.delta+' · ':''}${rec.shape==='HOLD THE HOUSE'?'HOUSE: '+esc(rec.getaway||rec.klass):'TRANSPORT: '+esc(canonical?.car.id||rec.car||'NONE')+' · '+(canonical?.car.lost?'LOST':'HOME')}</div>
+  <div class="result-route">RESULT: ${esc(rec.klass)} · GETAWAY: ${esc(rec.getaway?.kind||rec.getaway||'NONE')}</div><div class="result-route">${!story&&canonical?'HEAT: '+(canonical.heat.delta>=0?'+':'')+canonical.heat.delta+' · ':''}${rec.shape==='HOLD THE HOUSE'?'HOUSE: '+esc(rec.getaway||rec.klass):'TRANSPORT: '+esc(canonical?.car.id||rec.car||'NONE')+' · '+(transportLost?'LOST':'HOME')}</div>
   ${calls.length?`<div class="result-calls">YOUR CALLS: ${calls.map(esc).join(' · ')}</div>`:''}
-  <ul>${rows}</ul>${(rec.lost?.cars||[]).length?'<p>TRANSPORT LOST</p>':''}
+  <ul>${rows}</ul>${transportLost?'<p>TRANSPORT LOST</p>':''}
   ${(rec.lost?.guns||[]).length?'<p>'+rec.lost.guns.length+' WEAPON(S) LOST</p>':''}
   <small>${story?'MISSION REWARD AND HEAT SETTLE ON RETURN':'CREW AND TAKE RECORDED · RETURN TO CONTINUE'}</small>`);
  panel.setAttribute('role','status');const returnLabel=gain>0||(rec.received?.items||[]).length?'SHOW THE HAUL':'SHOW RETURN';const toggle=el('report-toggle',returnLabel);toggle.setAttribute('role','button');toggle.tabIndex=0;const flip=()=>{panel.hidden=!panel.hidden;toggle.textContent=panel.hidden?'SHOW REPORT':returnLabel;};toggle.onclick=flip;toggle.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();flip();}};return panel;
