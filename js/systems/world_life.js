@@ -71,7 +71,7 @@
    const c=RALife.flag('bedroomCompany');
    if(c&&c.day===RALife.today().day){
     const person=RABtfPeople.get(c.id);
-    if(c.kind==='woman'){if(!put(ctx,person?.states?.bedroom_company,WOMAN_CONTACT[0]-40,WOMAN_CONTACT[1]-88)){ctx.save();ctx.translate(196,332);ctx.rotate(-Math.PI/2);RAPixel.drawActor(ctx,person?.look||{},0,0,.9);ctx.restore();RAPixel.rect(ctx,150,332,86,12,'#e9dcc4');}}
+    if(c.kind==='woman'){const pose=window.RALegendaryBedroomVisuals?.companyPose?.(c),contact=pose?.contact||WOMAN_CONTACT;if(!put(ctx,pose?.src||person?.states?.bedroom_company,contact[0]-40,contact[1]-88)){ctx.save();ctx.translate(196,332);ctx.rotate(-Math.PI/2);RAPixel.drawActor(ctx,person?.look||{},0,0,.9);ctx.restore();RAPixel.rect(ctx,150,332,86,12,'#e9dcc4');}}
     if(c.kind==='homie'){if(!put(ctx,person?.states?.[HOMIE_FLOOR[c.id]],HOMIE_CONTACT[0]-40,HOMIE_CONTACT[1]-88)){ctx.save();ctx.translate(120,452);ctx.rotate(-Math.PI/2);RAPixel.drawActor(ctx,person?.look||{},0,0,.8);ctx.restore();}}
     if(c.kind==='cat'){const src=art().creatures?.cat?.states?.on_bed?.asset,im=src&&image(src,draw);if(im?.complete&&im.naturalWidth){ctx.fillStyle='rgba(27,6,22,.5)';ctx.fillRect(CAT_AT[0]-18,CAT_AT[1]-1,36,2);ctx.drawImage(im,CAT_AT[0]-24,CAT_AT[1]-24);}else if(!src){RAPixel.rect(ctx,200,336,16,10,'#e8c0b0');RAPixel.rect(ctx,212,330,6,6,'#e8c0b0');RAPixel.rect(ctx,212,327,2,3,'#e8c0b0');RAPixel.rect(ctx,216,327,2,3,'#e8c0b0');}}
     if(c.kind==='mazda'){if(!put(uctx,art().bedroom?.company?.mazda_flyby?.asset)){uctx.save();uctx.globalAlpha=.9;uctx.fillStyle='#3a6ff0';uctx.fillRect(150,90,46,10);uctx.fillRect(160,78,28,12);uctx.fillRect(196,86,12,6);uctx.restore();}}
