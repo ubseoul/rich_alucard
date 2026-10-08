@@ -1,0 +1,16 @@
+/* Native 270px stage. Existing bag/CASH masters remain unchanged. */
+.cash-reward{left:14px;right:14px;top:188px;padding:7px 8px 6px;background:#120c1cee;border:2px solid #426d53;box-shadow:3px 3px #080710;text-shadow:1px 1px #080710;pointer-events:none}
+.cash-reward .cash-label{font:12px/1 Tiny5;color:#c7c9b8;letter-spacing:2px}
+.cash-reward .amt{font:36px/1 Monogram;color:#b6d3a3;letter-spacing:0;font-variant-numeric:tabular-nums;margin:2px 0}
+.cash-meter{height:3px;margin:3px 18px 0;background:#28362e}
+.cash-meter i{display:block;height:100%;width:0;background:#93b67f;box-shadow:0 1px #203427}
+.cash-reward.cash-final{top:166px;padding:4px 8px;border-color:#ffd23f;box-shadow:3px 3px #080710,inset 0 -2px #614719}
+.cash-reward.cash-final .amt{font-size:30px;color:#ffd23f;animation:none}
+.cash-reward.cash-final .cash-label{color:#ffed9c}
+.cash-final .cash-meter{display:none}
+.cash-skip{position:absolute;top:42px;right:10px;z-index:12;min-width:98px;min-height:34px;padding:6px;background:#120c1c;color:#cfd3c0;border:2px solid #56765b;box-shadow:2px 2px #080710;font:14px/1 Tiny5;cursor:pointer}
+.cash-skip:focus-visible{outline:2px solid #ffd23f;outline-offset:2px}
+.cash-note{position:absolute;width:48px;height:48px;z-index:5;pointer-events:none;image-rendering:pixelated}
+.cash-note img{display:block;width:48px;height:48px;image-rendering:pixelated}
+.cash-haul{z-index:4;pointer-events:none}
+@media(prefers-reduced-motion:reduce){.cash-reward,.cash-haul{animation:none;transition:none}}

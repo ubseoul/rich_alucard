@@ -3,6 +3,7 @@
 import * as K from './feel-core.mjs';
 import {el,pos,anim,sleep,fadeTo,clear,bg,BG,shake,S,reduced,settings,world,stage} from './feel-core.mjs';
 import * as A from './feel-art.mjs';
+import {cashPayout} from './feel-cash.mjs';
 import {face,classColor,crate} from './faces.mjs';
 import {portrait} from './art/portraits/portraits.mjs';
 import * as C from '../../../js/frag/F01/play/content.mjs';
@@ -11,6 +12,7 @@ import {weapon} from '../../../js/frag/F01/play/guns.mjs';
 import * as W from '../../../js/frag/F01/play/world.mjs';
 
 const esc=s=>String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const frozenPhoneCrew=o=>['G1','LEGENDARY-MASK'].includes(o?.id);
 const money=k=>'$'+Math.round(k*1000).toLocaleString('en-US');
 const tapOnce=(node,fn)=>new Promise(r=>node.addEventListener('click',e=>{K.unlock();fn&&fn(e);r(e);},{once:true}));
 const richEl=(css)=>el('rich','',null,css);
@@ -121,7 +123,7 @@ export async function crewScene({pr,w,job,hints,pitcher,big,defense,lastCar}){
    const o=avail.find(x=>x.id===id);const g=gunOf[id];const gv=A.gunView(g);
    const c=el('card',`<div class="fc">${faceOf(o,{},16)}</div><div class="nm">${esc(o.short)}</div><button class="tr inspect" aria-label="inspect ${esc(o.name)}">INFO</button>
     <div class="wslot"><span class="gi">${A.gunImg(g,26,13)}</span><span class="wt">${esc(gv.type)}${gv.nick?`<small>${esc(gv.nick)}</small>`:''}</span></div>${big&&o.named?'<span class="skull" title="may not come back">☠</span>':''}<button class="sw" aria-label="swap ${esc(o.short)}">SWAP</button>`,cards,{left:(x0+i*(cw+4))+'px',top:'318px',width:cw+'px',pointerEvents:'auto'});
-   c.querySelector('.inspect').onclick=()=>{closeBench();const old=world.querySelector('.crew-inspect');if(old)old.remove();const gun=g==='hands'?{}:weapon(P,g);const roles={MUSCLE:'Front-line force. Leads a breach.',SHOOTER:'Fits the back line. Delivers fire support.',WHEELS:'Fits the driver seat. Helps the getaway.',TALKER:'Fits the middle. Handles talking.',GHOST:'Fits the back line. Handles slipping past.',DOC:'Fits the middle. Helps crew recovery.'};const info=el('crew-inspect',`<b>${esc(o.name)}</b><p>${o.hp}/${o.maxhp} HP · ${esc(roles[o.cls]||o.cls)}</p><p>${esc((o.traits||[]).map(t=>C.TRAIT_WORD[t]||t).join(' · '))}</p><b>${esc(gv.type)} ${esc(gv.nick||'')}</b><p>${esc(gun.role||'BARE HANDS')} · ${gun.dmg?gun.dmg.join('–')+' DAMAGE'+(gun.hits>1?' ×'+gun.hits:''):'NO GUN'}${gun.lane?' · '+esc(gun.lane)+' LINE':''}</p><p>${esc(gun.flavor||'')}</p><button>CLOSE</button>`);info.querySelector('button').onclick=()=>info.remove();};
+   c.querySelector('.inspect').onclick=()=>{closeBench();const old=world.querySelector('.crew-inspect');if(old)old.remove();const gun=g==='hands'?{}:weapon(P,g);const roles={MUSCLE:'Front-line force. Leads a breach.',SHOOTER:'Fits the back line. Delivers fire support.',WHEELS:'Fits the driver seat. Helps the getaway.',TALKER:'Fits the middle. Handles talking.',GHOST:'Fits the back line. Handles slipping past.',DOC:'Fits the middle. Helps crew recovery.'};const info=el('crew-inspect',`<b>${esc(o.name)}</b><p>${frozenPhoneCrew(o)?o.hp+'/'+o.maxhp+' HP · ':''}${esc(roles[o.cls]||o.cls)}</p><p>${esc((o.traits||[]).map(t=>C.TRAIT_WORD[t]||t).join(' · '))}</p><b>${esc(gv.type)} ${esc(gv.nick||'')}</b><p>${esc(gun.role||'BARE HANDS')} · ${gun.dmg?gun.dmg.join('–')+' DAMAGE'+(gun.hits>1?' ×'+gun.hits:''):'NO GUN'}${gun.lane?' · '+esc(gun.lane)+' LINE':''}</p><p>${esc(gun.flavor||'')}</p><button>CLOSE</button>`);info.querySelector('button').onclick=()=>info.remove();};
    c.querySelector('.wslot').setAttribute('role','button');c.querySelector('.wslot').tabIndex=0;c.querySelector('.wslot').setAttribute('aria-label','change weapon for '+o.name);
    c.querySelector('.wslot').onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();c.querySelector('.wslot').click();}};
    c.querySelector('.wslot').onclick=()=>{let k=order.indexOf(g);for(let t=0;t<order.length;t++){k=(k+1)%order.length;const cand=order[k];if(used(cand,id)<copies(cand)){gunOf[id]=cand;break;}}S.tap();drawCards();};
@@ -265,7 +267,7 @@ export async function roomScene({crewObjs,defense,objective='THE PLAY'}){
  const op=el('operation-state','ENTRY · CREW MOVING',phone);op.setAttribute('aria-live','polite');op.title=objective;
  const scroll=()=>{msgs.scrollTop=msgs.scrollHeight;};
  const crewStrip=el('operation-crew','',phone);let previous=null;const liveStates=new Map();
- const ctlState=(snap,phase)=>{crewStrip.innerHTML='';for(const c of snap.crew){const o=byId(c.id)||{name:c.name,short:c.short};const prior=previous?.crew.find(x=>x.id===c.id);const changed=prior&&(prior.hp!==c.hp||prior.state!==c.state);liveStates.set(c.id,c);const sprite=`<span class="op-portrait">${faceOf(o,c,16)}</span>`;const b=el('operation-unit'+(changed?' changed':''),`${sprite}<span>${esc(o.short||o.name)}</span><b>${c.state==='UP'?c.hp+'/'+c.maxhp+' HP':esc(c.state)}</b>`,crewStrip);b.setAttribute('role','button');b.tabIndex=0;b.setAttribute('aria-label',o.name+' '+c.state+' '+c.hp+' HP; inspect');b.title=o.name+' — '+c.hp+'/'+c.maxhp+' HP — '+c.state+' — '+c.zone;const inspect=()=>{if(phone.querySelector('.decide'))return;phone.querySelector('.crew-inspect')?.remove();const info=el('crew-inspect',`<b>${esc(o.name)}</b><p>${esc(c.state)} · ${c.hp}/${c.maxhp} HP</p><p>${esc(c.zone)} · ${esc(c.lane||'CREW')} LINE</p><button>CLOSE</button>`,phone);info.querySelector('button').onclick=()=>info.remove();};b.onclick=inspect;b.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();inspect();}};}msgs.style.top=(64+crewStrip.offsetHeight+4)+'px';previous=snap;op.textContent=phase.replaceAll('_',' ')+' · '+snap.crew.filter(c=>c.state==='UP').length+'/'+snap.crew.length+' UP';for(const c of snap.crew){const n=phone.querySelector('[data-crew="'+c.id+'"]');if(n){n.dataset.state=c.state;n.innerHTML=faceOf(byId(c.id)||{id:c.id,name:c.name,cls:c.cls},c,16);n.title=c.name+' · '+c.hp+'/'+c.maxhp+' HP · '+c.zone;}}};
+ const ctlState=(snap,phase)=>{crewStrip.innerHTML='';for(const c of snap.crew){const o=byId(c.id)||{name:c.name,short:c.short};const prior=previous?.crew.find(x=>x.id===c.id);const changed=prior&&(prior.hp!==c.hp||prior.state!==c.state);liveStates.set(c.id,c);const sprite=`<span class="op-portrait">${faceOf(o,c,16)}</span>`;const b=el('operation-unit'+(changed?' changed':''),`${sprite}<span>${esc(o.short||o.name)}</span><b>${frozenPhoneCrew(o)&&c.state==='UP'?c.hp+'/'+c.maxhp+' HP':esc(c.state)}</b>`,crewStrip);b.setAttribute('role','button');b.tabIndex=0;b.setAttribute('aria-label',o.name+' '+c.state+(frozenPhoneCrew(o)?' '+c.hp+' HP':'')+'; inspect');b.title=o.name+' — '+(frozenPhoneCrew(o)?c.hp+'/'+c.maxhp+' HP — ':'')+c.state+' — '+c.zone;const inspect=()=>{if(phone.querySelector('.decide'))return;phone.querySelector('.crew-inspect')?.remove();const info=el('crew-inspect',`<b>${esc(o.name)}</b><p>${esc(c.state)}${frozenPhoneCrew(o)?' · '+c.hp+'/'+c.maxhp+' HP':''}</p><p>${esc(c.zone)} · ${esc(c.lane||'CREW')} LINE</p><button>CLOSE</button>`,phone);info.querySelector('button').onclick=()=>info.remove();};b.onclick=inspect;b.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();inspect();}};}msgs.style.top=(64+crewStrip.offsetHeight+4)+'px';previous=snap;op.textContent=phase.replaceAll('_',' ')+' · '+snap.crew.filter(c=>c.state==='UP').length+'/'+snap.crew.length+' UP';for(const c of snap.crew){const n=phone.querySelector('[data-crew="'+c.id+'"]');if(n){n.dataset.state=c.state;n.innerHTML=faceOf(byId(c.id)||{id:c.id,name:c.name,cls:c.cls},c,16);n.title=c.name+' · '+(['G1','LEGENDARY-MASK'].includes(c.id)?c.hp+'/'+c.maxhp+' HP':c.state)+' · '+c.zone;}}};
  rig.insertAdjacentHTML('beforeend',`<img class="handpov" src="${new URL('./art/rc5-hand-idle-270x480.png',import.meta.url).href}" alt="" aria-hidden="true"><img class="thumbpov" src="${new URL('./art/rc5-hand-thumb-270x480.png',import.meta.url).href}" alt="" aria-hidden="true">`);
  const thumb=rig.querySelector('.thumbpov');
  let alive=true,typingNode=null;
@@ -377,7 +379,7 @@ export async function roomScene({crewObjs,defense,objective='THE PLAY'}){
 // ------------------------------------------------------------------------------------------------ 6. RETURN / AFTERMATH — "who came back and what did we get?"
 // Fade to black, then the base. The car pulls in (if there is a car), the ACTUAL survivors step out, physical CASH BAGS sized to the score,
 // Rich COUNTS while the total rolls upward, then the trunk reveals ONE ITEM AT A TIME — everything shown is what was really awarded (M6).
-export async function returnScene({rec,crewObjs,w,bankBefore}){
+export async function returnScene({rec,crewObjs,w,bankBefore,canonical=null}){
  const RR=W.returnRoster(rec);
  clear();bg(RR.alone?A.FL_ART.base.empty:A.FL_ART.base.home);   // FL-A02: the base curb/driveway; the empty variant is Rich alone
  const rich=richEl({left:'206px',top:'354px',transform:'scale(1.2)'});
@@ -408,33 +410,9 @@ export async function returnScene({rec,crewObjs,w,bankBefore}){
  const cashK=rec.received&&rec.win?rec.received.cash:0;
  const items=(rec.received&&rec.received.items)||[];
  if(cashK<=0&&!items.length){await sleep(1800);return {alone:false,empty:true};}
- // ---- bags
- // FL-A03: the tier IS the haul (1 duffel / 2-3 bags / a stacked pile). bagCount() still sets the beat count, so the drop keeps its old length and thuds.
- const n=A.bagCount(cashK),tier=A.bagTier(cashK);
- const HAUL={1:{cx:63,top:43,bot:70},2:{cx:60,top:29,bot:70},3:{cx:67,top:28,bot:79}}[tier];   // content box inside the 128x96 canvas
- const hx=Math.round(104-HAUL.cx),hy=426-HAUL.bot;
- const bag=el('bag',`<img src="${A.cashHaul(tier,false)}" alt="" width="128" height="96">`,null,{left:hx+'px',top:hy+'px',width:'128px',height:'96px',opacity:0});bag.dataset.tier=tier;
- const bagImg=bag.querySelector('img');new Image().src=A.cashHaul(tier,true);
- await anim(bag,[{opacity:1,transform:'translateY(-70px)'},{opacity:1,transform:'translateY(0)'}],360,{easing:'cubic-bezier(.5,0,1,.6)'});S.thud();await sleep(200);
- for(let i=1;i<n;i++){S.thud();await sleep(560);}
- // ---- Rich counts
- if(cashK>0){
-  await sleep(700);
-  const cnt=el('count','<div class="amt"></div><div class="sub"></div>');const amt=cnt.querySelector('.amt'),sub=cnt.querySelector('.sub');
-  bagImg.src=A.cashHaul(tier,true);     // the haul is opened to be counted; Rich's frozen counting-hands overlay works over it
-  const hands=el('counthands',`<img src="${A.FL_ART.counting}" alt="" width="128" height="96">`,null,{left:hx+'px',top:hy+HAUL.top-50+'px'});
-  const handsBob=reduced()?null:hands.animate([{transform:'translateY(0)'},{transform:'translateY(-3px)'},{transform:'translateY(0)'}],{duration:220/K.SPEED,iterations:Infinity});
-  const bob=reduced()?null:rich.animate([{transform:'scale(1.2) translateY(0) rotate(0)'},{transform:'scale(1.2) translateY(3px) rotate(-2deg)'},{transform:'scale(1.2) translateY(0) rotate(2deg)'}],{duration:260/K.SPEED,iterations:Infinity});
-  let flick=null;const startFlick=()=>{flick=setInterval(()=>{const b=el('bill','',null,{left:130+(Math.random()*60-30)+'px',top:'405px'});anim(b,[{transform:'translate(0,0) rotate(0)',opacity:1},{transform:`translate(${20+Math.random()*30}px,${-(35+Math.random()*35)}px) rotate(${Math.random()*240-120}deg)`,opacity:0}],700,{easing:'ease-out'}).then(()=>b.remove());S.tick();},110/K.SPEED);};
-  const stopFlick=()=>{clearInterval(flick);flick=null;};
-  const total=Math.round(cashK*1000/100)*100;const marks=[.12,.43,.79].map(f=>Math.round(total*f/100)*100);let cur=0;
-  const roll=async(to,ms)=>{const t0=performance.now(),from=cur;await new Promise(res=>{const step=()=>{const p=Math.min(1,(performance.now()-t0)*K.SPEED/ms);cur=Math.round((from+(to-from)*p)/100)*100;amt.textContent='$'+cur.toLocaleString('en-US');p<1?requestAnimationFrame(step):res();};step();});};
-  startFlick();
-  for(const m of marks){await roll(m,1400);stopFlick();sub.textContent='. . .';await sleep(1000);sub.textContent='';startFlick();}
-  await roll(total,1200);stopFlick();if(bob)bob.cancel();if(handsBob)handsBob.cancel();hands.remove();
-  amt.classList.add('final');amt.textContent='TAKE: $'+total.toLocaleString('en-US');S.cashIn();
-  await sleep(1400);
- }
+ // Cash is presentation only; the host settles its canonical receipt on return.
+ const payout=await cashPayout({cashK,amount:canonical?.cash?.gain??null});
+ if(payout.cancelled)return {alone:false,counted:cashK,cancelled:true};
  // ---- the trunk: one item at a time, physically dropped beside the bags (kicker last). Spots fit the 48px FL-A10 pieces inside the 270px stage.
  // QA REPAIR 001: the five spots keep clear of Rich (drawn body ~213-247 x 378-441), the cash haul (~47-162 x 375-427), the parked car (~8-137 x 325-364)
  // and the crew's feet (~323): three in the open courtyard above the car, two on the pavement between the car and Rich. The label sits in one caption lane
