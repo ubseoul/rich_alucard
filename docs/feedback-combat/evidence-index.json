@@ -1,0 +1,710 @@
+{
+  "taskRoot": "C:\\Users\\Ube\\Documents\\Codex\\2026-10-08\\task-10",
+  "libraryPreview": {
+    "library_file_id": "libfile_d212a707b4608191b622369f49625a33",
+    "file_id": "file_0000000014b4822fa5e518d0e7a0b2d4",
+    "file_name": "Rich-Alucard-combat-actual-sequence.gif",
+    "path": "/Rich-Alucard-combat-actual-sequence.gif",
+    "version": 0,
+    "status": "succeeded",
+    "localXattrApplied": false,
+    "localMetadataHelperError": "AttributeError: module 'os' has no attribute 'setxattr'"
+  },
+  "files": [
+    {
+      "path": "evidence/actual-preview/draco-f0.png",
+      "size": 116921,
+      "sha256": "f5719bcbe940e1e2017e0d9ff036995376764706950a3d0de983c225fa6ce13a"
+    },
+    {
+      "path": "evidence/actual-preview/draco-f1.png",
+      "size": 113266,
+      "sha256": "94be5f6d444d14352ecb6e138e08ea385eda9052d962876e314ed07f4693d928"
+    },
+    {
+      "path": "evidence/actual-preview/draco-f10.png",
+      "size": 113999,
+      "sha256": "beae30f6612766bde97d64a29deab4d74e4f6efbb62fe13625f1c52fee847f98"
+    },
+    {
+      "path": "evidence/actual-preview/draco-f11.png",
+      "size": 114228,
+      "sha256": "fdf5e6dd239995de8343a90099d19997a2a1ffdce071df150889da02f8c3c0d4"
+    },
+    {
+      "path": "evidence/actual-preview/draco-f12.png",
+      "size": 114142,
+      "sha256": "f1836b243189e1b1f0a289c52bf4754d151e14d28211bf764455144e816a0a9e"
+    },
+    {
+      "path": "evidence/actual-preview/draco-f13.png",
+      "size": 114021,
+      "sha256": "21de515ef6c1d1e49df7948303f526497954e3194950d7cd82aa729896564bd0"
+    },
+    {
+      "path": "evidence/actual-preview/draco-f14.png",
+      "size": 113594,
+      "sha256": "c80dd892b615ef4b74d1424e094f78c01afafbd3f1963f9fc0b382784e973f72"
+    },
+    {
+      "path": "evidence/actual-preview/draco-f15.png",
+      "size": 113431,
+      "sha256": "28d2732bbc0ed7aab8fb7bd514e23f98e55deaec22c70b93b145df9cd3600b19"
+    },
+    {
+      "path": "evidence/actual-preview/draco-f2.png",
+      "size": 113489,
+      "sha256": "0072f968d647bc0ac7a52d54ac17df9dcb41332bd9a29d5b24899a59fb4eedea"
+    },
+    {
+      "path": "evidence/actual-preview/draco-f3.png",
+      "size": 113632,
+      "sha256": "d095bdc8afbdbed98d68d0e6ba5e943aa76f1d31f49f149515f9a27d7c1fa161"
+    },
+    {
+      "path": "evidence/actual-preview/draco-f4.png",
+      "size": 113587,
+      "sha256": "bea15e9eec0ca78c01876c406727e6384da652018b9b6148a5cd6f32500b851d"
+    },
+    {
+      "path": "evidence/actual-preview/draco-f5.png",
+      "size": 118530,
+      "sha256": "196f10b8947974721be5c1b8f9ccb8e6e5b874bd5b5ee3ec52bffa3a5fd4c08e"
+    },
+    {
+      "path": "evidence/actual-preview/draco-f6.png",
+      "size": 114028,
+      "sha256": "c7db150be6b0c74fd0b8ebe71c25e446a3e249291e890d5fbc622d5d06a5dfab"
+    },
+    {
+      "path": "evidence/actual-preview/draco-f7.png",
+      "size": 114154,
+      "sha256": "92774a5bfe7249b8128fca739c4807cad27f23871c5bb4cc44b9719cc715588f"
+    },
+    {
+      "path": "evidence/actual-preview/draco-f8.png",
+      "size": 114119,
+      "sha256": "9d9b8a42d3c38c617deddf93abe371721b130e388bf0522e83a5936fd9af3096"
+    },
+    {
+      "path": "evidence/actual-preview/draco-f9.png",
+      "size": 113934,
+      "sha256": "2a3fae62ed644766ff7747239de18c096807cb59642df5eed6135f6500a556a5"
+    },
+    {
+      "path": "evidence/actual-preview/importer_parts-f0.png",
+      "size": 27288,
+      "sha256": "8558e7fe39885db28c3d1654f9e4b4278f50b47f1fd5719a63659f2a31b502b6"
+    },
+    {
+      "path": "evidence/actual-preview/importer_parts-f1.png",
+      "size": 27311,
+      "sha256": "acf61cae7c2ec545a510a2c328b11572d472020d7fa76f2a4b07e2d0d25f7bd6"
+    },
+    {
+      "path": "evidence/actual-preview/importer_parts-f10.png",
+      "size": 27261,
+      "sha256": "ffe7347b146a6e6518f4bad5b621fd1bea3ecd1edec87f0223c23db8874f0b12"
+    },
+    {
+      "path": "evidence/actual-preview/importer_parts-f11.png",
+      "size": 27356,
+      "sha256": "c6e29667d9bfe769a11dba766a91ebaf9fd892598a0ccfed6d78617232c1df84"
+    },
+    {
+      "path": "evidence/actual-preview/importer_parts-f2.png",
+      "size": 26998,
+      "sha256": "5dc6363df112184728b34077804fa1ee5f162268f10c39da38fc66ec60a36000"
+    },
+    {
+      "path": "evidence/actual-preview/importer_parts-f3.png",
+      "size": 26892,
+      "sha256": "79e8cbb48db3492ae82dc55374e9af45c28109b560a88ebdfffe03cc85e71849"
+    },
+    {
+      "path": "evidence/actual-preview/importer_parts-f4.png",
+      "size": 26814,
+      "sha256": "bd0d22b9582bb20b9da66b2d56a95ea99e3294deffbec9aba72a8041faff7290"
+    },
+    {
+      "path": "evidence/actual-preview/importer_parts-f5.png",
+      "size": 26653,
+      "sha256": "f80f5090dd63c5a5b32eceac630ff22d05ca46387f76c936d2459b588e28e00d"
+    },
+    {
+      "path": "evidence/actual-preview/importer_parts-f6.png",
+      "size": 26663,
+      "sha256": "1b989ad04c713108268d736b99b0acf5fb092210ec4f381f225fd768d9fd2b8d"
+    },
+    {
+      "path": "evidence/actual-preview/importer_parts-f7.png",
+      "size": 28021,
+      "sha256": "d5989cf25bd9a3eec6b9645406dbf5fbec9e733051122f14d45258e5ea2d9578"
+    },
+    {
+      "path": "evidence/actual-preview/importer_parts-f8.png",
+      "size": 27686,
+      "sha256": "e1b164af4db84004f164fb3c8e4109d36f6092ea99bbbcdf8aeb7b6d7bf6c9c0"
+    },
+    {
+      "path": "evidence/actual-preview/importer_parts-f9.png",
+      "size": 27384,
+      "sha256": "b0678652a53226165c9bfb4710468c360ebac759b1053c8783759c8070702481"
+    },
+    {
+      "path": "evidence/actual-preview/importer_shove-f0.png",
+      "size": 27672,
+      "sha256": "a6015e5114ffdb35360cb839d3de8a353f46e2bd7594c7e17f7a6524240d5389"
+    },
+    {
+      "path": "evidence/actual-preview/importer_shove-f1.png",
+      "size": 27662,
+      "sha256": "ede8abbb784099ba7bcd59584432ad23cfb50daa04bb1638d1c052987c4ec2ae"
+    },
+    {
+      "path": "evidence/actual-preview/importer_shove-f10.png",
+      "size": 27205,
+      "sha256": "abccb1d79f07b8072806269b73e74ddeec1730ede648b7ad4ff3297f4d8a2866"
+    },
+    {
+      "path": "evidence/actual-preview/importer_shove-f11.png",
+      "size": 27297,
+      "sha256": "4e13e492d7acb3e3d09b2e68f71e0f7f5b1fd1bc197f27fefd5f531f5d53a8f2"
+    },
+    {
+      "path": "evidence/actual-preview/importer_shove-f2.png",
+      "size": 27260,
+      "sha256": "51dd454fed2891df4d74392993dbf0ab197e881e9b35b2fb5a341391982e0adb"
+    },
+    {
+      "path": "evidence/actual-preview/importer_shove-f3.png",
+      "size": 27311,
+      "sha256": "d021c640f69af0e113896628c321dd29a3e59167d6938e93d4a4700fdb409c68"
+    },
+    {
+      "path": "evidence/actual-preview/importer_shove-f4.png",
+      "size": 26993,
+      "sha256": "c4d1b8b2737fafc8867f18ce0742a60cf0c10d0bebce007059f83104b15b9e40"
+    },
+    {
+      "path": "evidence/actual-preview/importer_shove-f5.png",
+      "size": 26653,
+      "sha256": "cd292f33c47098f00516e322dd5860c0b3530ec6ab355e5b350ab7ea8857edc2"
+    },
+    {
+      "path": "evidence/actual-preview/importer_shove-f6.png",
+      "size": 26658,
+      "sha256": "e5f4990d0197c45ea517ec6031acd79a21fe31661993dbf5963d9f8ca6a57894"
+    },
+    {
+      "path": "evidence/actual-preview/importer_shove-f7.png",
+      "size": 27900,
+      "sha256": "bda80e6df89b179f95333615eeccd6091152c3b4f7f0ece41b86c039b8b8f357"
+    },
+    {
+      "path": "evidence/actual-preview/importer_shove-f8.png",
+      "size": 27557,
+      "sha256": "0a3c98c9fe80861e36b229612ad8dd1dfc06adf8aeafbcb1a76cc7d9451eff17"
+    },
+    {
+      "path": "evidence/actual-preview/importer_shove-f9.png",
+      "size": 27322,
+      "sha256": "81e9180907cdcc590879777b224b15ea83edb8bd3758c639c175f2a1b7c58d39"
+    },
+    {
+      "path": "evidence/actual-preview/phone-f0.png",
+      "size": 115957,
+      "sha256": "7775dd194a35ba7eb1755c98e06406cd6773b9887314d58f49e0a2b064f8d860"
+    },
+    {
+      "path": "evidence/actual-preview/phone-f1.png",
+      "size": 113138,
+      "sha256": "b6f7a5dab97d911367aced808dac6f1ebfec8999a84fe5075d973055797fe302"
+    },
+    {
+      "path": "evidence/actual-preview/phone-f10.png",
+      "size": 112525,
+      "sha256": "78fb01d664539e5b8e2f5e86a653a64eb9b6237146ef3469cb09daeefbc4b7b1"
+    },
+    {
+      "path": "evidence/actual-preview/phone-f11.png",
+      "size": 112366,
+      "sha256": "b6783077d1754adaf74635872357e77fb02b6d28a13af3be487d818bb6b401a9"
+    },
+    {
+      "path": "evidence/actual-preview/phone-f2.png",
+      "size": 111702,
+      "sha256": "55e5234be4af1e0b6dc66cd0cc923e9b293503ded0d76c757f9ab3db54f100cc"
+    },
+    {
+      "path": "evidence/actual-preview/phone-f3.png",
+      "size": 110242,
+      "sha256": "651256149a0d0d35eba4031bdf88e37894e3eb2bab80dfe6c6552190c8bbfa95"
+    },
+    {
+      "path": "evidence/actual-preview/phone-f4.png",
+      "size": 109430,
+      "sha256": "3ce7a4e6d37236fbc09ff111d2857fe20649736a317752ac59561574f170b1db"
+    },
+    {
+      "path": "evidence/actual-preview/phone-f5.png",
+      "size": 107098,
+      "sha256": "e911a9ac839cc2d933c43894902767668dd5ffdefaee3ef5e401f9be124f80ec"
+    },
+    {
+      "path": "evidence/actual-preview/phone-f6.png",
+      "size": 116330,
+      "sha256": "caff68c60bc5492586b1d5cda335a1e95793450131765a2616d02be4ce311e56"
+    },
+    {
+      "path": "evidence/actual-preview/phone-f7.png",
+      "size": 110669,
+      "sha256": "4485839865fac194447ef1fa2233d694ed4cac847de55ca4252e6f7c7cdf4170"
+    },
+    {
+      "path": "evidence/actual-preview/phone-f8.png",
+      "size": 110451,
+      "sha256": "e16cc2dcc3e649b476c9602fecd5910618551e4a8ee89079e22fe9b1a46e49b8"
+    },
+    {
+      "path": "evidence/actual-preview/phone-f9.png",
+      "size": 112462,
+      "sha256": "af0ab2f1a42a999f5107e7e2e95506f1edaa890825baaedfa2d6a53e7ece9105"
+    },
+    {
+      "path": "evidence/baseline/gbenga-1280-draco-contact.png",
+      "size": 142819,
+      "sha256": "66987c66b35120da1fc17ab590caf877d1428cddc43e07d8efcadb9714e1a4bd"
+    },
+    {
+      "path": "evidence/baseline/gbenga-1280-idle.png",
+      "size": 141331,
+      "sha256": "51c6924d5e0ed16b5fc8f970984ecabad16fd4a0fc97f1234558699370122bfe"
+    },
+    {
+      "path": "evidence/baseline/gbenga-360-draco-contact.png",
+      "size": 112362,
+      "sha256": "f62e50b659c5cf9d67aa73a51cfb6e31723578be8708bc78afe055de82850416"
+    },
+    {
+      "path": "evidence/baseline/gbenga-360-idle.png",
+      "size": 111145,
+      "sha256": "d9444a5e688bd325f3847e291b1ef5bc2501be8bb6e7315c49cf9ea14cdfa1b6"
+    },
+    {
+      "path": "evidence/baseline/gbenga-390-draco-contact.png",
+      "size": 116528,
+      "sha256": "a2d0d7758dd862674f0453ccde831ff4689dd68e85b96c8bd0b997607aa9debd"
+    },
+    {
+      "path": "evidence/baseline/gbenga-390-idle.png",
+      "size": 115292,
+      "sha256": "5a8f7f589bc15faf0aa927fd9afd0485929230ec957ef3e77655f94983c46e14"
+    },
+    {
+      "path": "evidence/baseline/gbenga-430-draco-contact.png",
+      "size": 115842,
+      "sha256": "ecef9cda67ff2ef08e93a0087b40e9c38090aa58ee26387913200e1456fa44f5"
+    },
+    {
+      "path": "evidence/baseline/gbenga-430-idle.png",
+      "size": 114416,
+      "sha256": "e5fc335952d48dae50b460029f797e1709f1375470c9b72e5dba56b6f35b8114"
+    },
+    {
+      "path": "evidence/baseline/jdm-1280-idle.png",
+      "size": 43879,
+      "sha256": "2a8a5cb81172bfa1a538de6dd0a4d52ea31fc069ddba0f5ad14fd28863f16938"
+    },
+    {
+      "path": "evidence/baseline/jdm-360-idle.png",
+      "size": 33505,
+      "sha256": "44ba11420a5c6bfdd24354ce1f3907de0e9dcb77f997da5122d8cbf273503af4"
+    },
+    {
+      "path": "evidence/baseline/jdm-390-idle.png",
+      "size": 35413,
+      "sha256": "0a97232f864927ed9ca926b21c6b785ce9291c999088b14850b22d389ebe9367"
+    },
+    {
+      "path": "evidence/baseline/jdm-430-idle.png",
+      "size": 36745,
+      "sha256": "c1f5f3587ca28c5a8084d7d5bb5647c62d4cf8f369a924e374ff2ec6b0c4cc8e"
+    },
+    {
+      "path": "evidence/candidate-final/1280-gbenga-draco-f7.png",
+      "size": 144246,
+      "sha256": "bdf6ccf8ca40cbcd5ff27821eb052daec7bae90ab1414c5f4fe6b102081e561c"
+    },
+    {
+      "path": "evidence/candidate-final/1280-gbenga-phone-f4.png",
+      "size": 134788,
+      "sha256": "89691963f98c98222dc19e2406116691c2dfa0d54932d06f10ba114ac80300da"
+    },
+    {
+      "path": "evidence/candidate-final/1280-gbenga-phone-f6.png",
+      "size": 138510,
+      "sha256": "738c6e270fccfd6b72f22f588c683584784effcf793713b024f77b7944be1d90"
+    },
+    {
+      "path": "evidence/candidate-final/1280-jdm-importer_parts-contact.png",
+      "size": 46068,
+      "sha256": "ff19a16ed30933e7894d3824e4d912c65a9e2c3a0d35dee3e84e5785900eca0c"
+    },
+    {
+      "path": "evidence/candidate-final/1280-jdm-importer_shove-contact.png",
+      "size": 46082,
+      "sha256": "b5beabdd44f2c96cb72fda40b793961366d4b16380f3da217b345d0685e434c3"
+    },
+    {
+      "path": "evidence/candidate-final/360-gbenga-draco-f7.png",
+      "size": 113018,
+      "sha256": "63675684c1edc08cd1d2cfe3e6644768002ea020b51e3109588b6da0e46148a5"
+    },
+    {
+      "path": "evidence/candidate-final/360-gbenga-phone-f4.png",
+      "size": 108032,
+      "sha256": "2133e27c8493c986eb0473a4edc692e03b35c9a89e355d0f76b1152602078fbd"
+    },
+    {
+      "path": "evidence/candidate-final/360-gbenga-phone-f6.png",
+      "size": 109571,
+      "sha256": "c8ad3e5032167f139f3639a5c3b8b8f79b034b733b3229aba2fcffc6f3992a9c"
+    },
+    {
+      "path": "evidence/candidate-final/360-jdm-importer_parts-contact.png",
+      "size": 34909,
+      "sha256": "90feabfefbf72f5cb01950a68d23641ffdad3864235bdccdfe9a664e065d9ff6"
+    },
+    {
+      "path": "evidence/candidate-final/360-jdm-importer_shove-contact.png",
+      "size": 34935,
+      "sha256": "f881fdf8209e33dfe3afff9b2dbc04626c89a0ae2d904257cbc3b37d8d35ae59"
+    },
+    {
+      "path": "evidence/candidate-final/390-gbenga-draco-f7.png",
+      "size": 117956,
+      "sha256": "76e88b703617bb9f7901fe534b8d923b17e25b72369b4855282e5c824d827315"
+    },
+    {
+      "path": "evidence/candidate-final/390-gbenga-phone-f4.png",
+      "size": 112162,
+      "sha256": "e67e5b47a56a5e9a41c35a278ab52410a34f30b0f560fde68a5b08c2f2721d2b"
+    },
+    {
+      "path": "evidence/candidate-final/390-gbenga-phone-f6.png",
+      "size": 113679,
+      "sha256": "609dea7cccf935c3a45f8645bd851ec82c5249cc69adf24106996a2c22d5a70f"
+    },
+    {
+      "path": "evidence/candidate-final/390-jdm-importer_parts-contact.png",
+      "size": 36940,
+      "sha256": "bd16f3e51444b598740814ec5106a7428244f8badda9a0e29cb51b649aa791fd"
+    },
+    {
+      "path": "evidence/candidate-final/390-jdm-importer_shove-contact.png",
+      "size": 36988,
+      "sha256": "c37483d02a4fc9305f42738522ab6443453cab12217046943c3d8238d3f03dff"
+    },
+    {
+      "path": "evidence/candidate-final/430-gbenga-draco-f7.png",
+      "size": 117096,
+      "sha256": "7cac08c06f3e9ae83e86c6c0b9aba7ac8aec76761f4d4c3b3f6c22e573b6079c"
+    },
+    {
+      "path": "evidence/candidate-final/430-gbenga-phone-f4.png",
+      "size": 112396,
+      "sha256": "1bfca91ca5bab703419322eb062d354eaf7e5499e9c988e95348d1cae7a28709"
+    },
+    {
+      "path": "evidence/candidate-final/430-gbenga-phone-f6.png",
+      "size": 113065,
+      "sha256": "cafa2cfdc856d5092d26e5de46a788f833712685ece104b78bcd322e99f91c88"
+    },
+    {
+      "path": "evidence/candidate-final/430-jdm-importer_parts-contact.png",
+      "size": 38598,
+      "sha256": "9b9bfe4d8503a38a2bb85c64c37d1ed641f010f2c6339dca302704cf5bdc4d9e"
+    },
+    {
+      "path": "evidence/candidate-final/430-jdm-importer_shove-contact.png",
+      "size": 38720,
+      "sha256": "dc63041804d1d5b8d50be78132cabcc199107b894e1588efbd69829ebbb45be7"
+    },
+    {
+      "path": "evidence/candidate-final/enemy-gbenga-draco-f0.png",
+      "size": 3494,
+      "sha256": "5d535145020eed661a43d6ccdd316b2f5d560c6cf7518fb8268ab01e3f88bc84"
+    },
+    {
+      "path": "evidence/candidate-final/enemy-gbenga-draco-f1.png",
+      "size": 3494,
+      "sha256": "5d535145020eed661a43d6ccdd316b2f5d560c6cf7518fb8268ab01e3f88bc84"
+    },
+    {
+      "path": "evidence/candidate-final/enemy-gbenga-draco-f10.png",
+      "size": 4329,
+      "sha256": "69b40f5a435e1cc3d3c30e5ab88a7b1402d306cf7c9d23db1df591d198b431cc"
+    },
+    {
+      "path": "evidence/candidate-final/enemy-gbenga-draco-f11.png",
+      "size": 4691,
+      "sha256": "705118e925f6873b869523056638c767e9f6a4befd428800e977eee7cf032c76"
+    },
+    {
+      "path": "evidence/candidate-final/enemy-gbenga-draco-f12.png",
+      "size": 4238,
+      "sha256": "736c39dc6d59a82e2823a3065dd65a0f38f6ff311fbf40ff8a3e9079d3096327"
+    },
+    {
+      "path": "evidence/candidate-final/enemy-gbenga-draco-f13.png",
+      "size": 4258,
+      "sha256": "0414e9db0fe96b1d838861caf9a24e64be88a613a969b24cf6c8f59347572413"
+    },
+    {
+      "path": "evidence/candidate-final/enemy-gbenga-draco-f14.png",
+      "size": 3610,
+      "sha256": "260757fff7faac5328a841081145f9d5a0768d978fb6e345e78a088ffb3b7e18"
+    },
+    {
+      "path": "evidence/candidate-final/enemy-gbenga-draco-f15.png",
+      "size": 3494,
+      "sha256": "5d535145020eed661a43d6ccdd316b2f5d560c6cf7518fb8268ab01e3f88bc84"
+    },
+    {
+      "path": "evidence/candidate-final/enemy-gbenga-draco-f2.png",
+      "size": 3494,
+      "sha256": "5d535145020eed661a43d6ccdd316b2f5d560c6cf7518fb8268ab01e3f88bc84"
+    },
+    {
+      "path": "evidence/candidate-final/enemy-gbenga-draco-f3.png",
+      "size": 3900,
+      "sha256": "722f6ad408c750dfddb54f72fd8066d59ee13c295510b81fd77a138867682646"
+    },
+    {
+      "path": "evidence/candidate-final/enemy-gbenga-draco-f4.png",
+      "size": 3740,
+      "sha256": "7d782123848232d10bcef5f291b6107e9a64f1a33341f8369cc07480d22edfb5"
+    },
+    {
+      "path": "evidence/candidate-final/enemy-gbenga-draco-f5.png",
+      "size": 4510,
+      "sha256": "93637f51e47fbb7eb5fd249dd746c5f2ea593450a32d85ccf26fd1901a8a3e59"
+    },
+    {
+      "path": "evidence/candidate-final/enemy-gbenga-draco-f6.png",
+      "size": 4333,
+      "sha256": "98035429f770575c3ec33ee51feaf057e113ffd7bdcedb9d49788f3ada1fbb72"
+    },
+    {
+      "path": "evidence/candidate-final/enemy-gbenga-draco-f7.png",
+      "size": 4620,
+      "sha256": "f4cf868c6d7cd9874cf7abf01c671a8047e2c0d816032da0b72cfb2515fbd6b8"
+    },
+    {
+      "path": "evidence/candidate-final/enemy-gbenga-draco-f8.png",
+      "size": 4375,
+      "sha256": "acc4fe9592ec49353f0d224264f246282d6aa4f798da00ddab6900c2423a059b"
+    },
+    {
+      "path": "evidence/candidate-final/enemy-gbenga-draco-f9.png",
+      "size": 4519,
+      "sha256": "29e63c542518ab36348e5aa58fc58865514065e3d07be9fd86ac8ca9356eec20"
+    },
+    {
+      "path": "evidence/candidate-final/enemy-gbenga-phone-f0.png",
+      "size": 3559,
+      "sha256": "4c1ed8176745e11247a63baddeeb72e06d25aeeba8c384ff4d17c4fac99c9da6"
+    },
+    {
+      "path": "evidence/candidate-final/enemy-gbenga-phone-f1.png",
+      "size": 3585,
+      "sha256": "20fe97ecad47545ef98070425a176240ef5de70531d0a5cbacb427616f8c96f8"
+    },
+    {
+      "path": "evidence/candidate-final/enemy-gbenga-phone-f10.png",
+      "size": 3678,
+      "sha256": "1e2d5a34d0a1618cb7e5d921e41f4f65506ef9b28b0d50842f43e6bf440d16a8"
+    },
+    {
+      "path": "evidence/candidate-final/enemy-gbenga-phone-f11.png",
+      "size": 3623,
+      "sha256": "c568577b258691083231ee819d376fea1a4cde29b084c206f8563f39964a7c37"
+    },
+    {
+      "path": "evidence/candidate-final/enemy-gbenga-phone-f2.png",
+      "size": 3743,
+      "sha256": "ef9ee73a38b468cbb74235ba2c19c737de51c3f7e6dcf9e3c4ad5bce8db54087"
+    },
+    {
+      "path": "evidence/candidate-final/enemy-gbenga-phone-f3.png",
+      "size": 3930,
+      "sha256": "ca010c58743877823df7ab38221148df1e996731022da633308546c5083ffb9c"
+    },
+    {
+      "path": "evidence/candidate-final/enemy-gbenga-phone-f4.png",
+      "size": 3966,
+      "sha256": "57d6f5ee878a74e51f6e63d8bd06f6523461977cf9ae122b48e1adcf7c68fba6"
+    },
+    {
+      "path": "evidence/candidate-final/enemy-gbenga-phone-f5.png",
+      "size": 3978,
+      "sha256": "94f31775cc5bbec004fdc65846bc3dffd3b1add1184c1fae13029462a851ddab"
+    },
+    {
+      "path": "evidence/candidate-final/enemy-gbenga-phone-f6.png",
+      "size": 5036,
+      "sha256": "86b6b5f06dec8df0404564b28a07d89ec5392f0b40c0be0efe651cdf96475773"
+    },
+    {
+      "path": "evidence/candidate-final/enemy-gbenga-phone-f7.png",
+      "size": 4668,
+      "sha256": "95cda13a25f956d5a96c2ebe0c7e472a3e7a00c332aa91f05f9781ebedf26b34"
+    },
+    {
+      "path": "evidence/candidate-final/enemy-gbenga-phone-f8.png",
+      "size": 4464,
+      "sha256": "8ad39f7aea553c49a5da89840d997296fcb6d205c1390e10a540d092281fdb4d"
+    },
+    {
+      "path": "evidence/candidate-final/enemy-gbenga-phone-f9.png",
+      "size": 3679,
+      "sha256": "a5c53812986b6f81e2f0782f511e291978ae45e912ac9fa1639fd06bf97dc04c"
+    },
+    {
+      "path": "evidence/candidate-final/enemy-legacy_importer-importer_parts-f0.png",
+      "size": 4322,
+      "sha256": "e0bb783f91f62e6f16d7e87e5d3c69f2b10b391924645e4025a6eec258c60757"
+    },
+    {
+      "path": "evidence/candidate-final/enemy-legacy_importer-importer_parts-f1.png",
+      "size": 4425,
+      "sha256": "4b26675f59f8a66a6d04d4bd72f48c10bbbb5572fd9b2fb4c811a9363ee40d8b"
+    },
+    {
+      "path": "evidence/candidate-final/enemy-legacy_importer-importer_parts-f10.png",
+      "size": 4187,
+      "sha256": "f49691d7c6cd4fe5ce56921a3e141b30a7ed4652cc670f98c7baddc539af0e8a"
+    },
+    {
+      "path": "evidence/candidate-final/enemy-legacy_importer-importer_parts-f11.png",
+      "size": 4296,
+      "sha256": "58ce891b52c392c4be5dda49e9d6032c9a5e4bb960c9d4c391ec133a66b150b1"
+    },
+    {
+      "path": "evidence/candidate-final/enemy-legacy_importer-importer_parts-f2.png",
+      "size": 4354,
+      "sha256": "12f3831003939a1167ba4a5ff681bb23d64c6f40e81d89b6b9b4cfb5d3a4200b"
+    },
+    {
+      "path": "evidence/candidate-final/enemy-legacy_importer-importer_parts-f3.png",
+      "size": 4139,
+      "sha256": "82982ba78601dbb28c9e505499cfcf76607d0c0d5e58a297c5ff84e01510ad0e"
+    },
+    {
+      "path": "evidence/candidate-final/enemy-legacy_importer-importer_parts-f4.png",
+      "size": 3912,
+      "sha256": "7eda66541f1482ca18c3d1935ab1479c77fd611aa533d4709b6cbff74df4a0c4"
+    },
+    {
+      "path": "evidence/candidate-final/enemy-legacy_importer-importer_parts-f5.png",
+      "size": 4155,
+      "sha256": "a72c7c59487385434b3efb6142d26a436bf0957a8ffce3655f61d64307c6b264"
+    },
+    {
+      "path": "evidence/candidate-final/enemy-legacy_importer-importer_parts-f6.png",
+      "size": 5372,
+      "sha256": "fffb18e25115ab5522e9f8ba4a4c68518857e56aa5256e1d33112e941f4dfb66"
+    },
+    {
+      "path": "evidence/candidate-final/enemy-legacy_importer-importer_parts-f7.png",
+      "size": 5273,
+      "sha256": "43434c923e54f2b5c2647e798a1781ca7fb3fcbedcb5f26d67676f228483394e"
+    },
+    {
+      "path": "evidence/candidate-final/enemy-legacy_importer-importer_parts-f8.png",
+      "size": 5258,
+      "sha256": "55cf47ec7dee7e972ef1a2b4fe435c13adf947bacc35eff6ec11b31f401d2b5a"
+    },
+    {
+      "path": "evidence/candidate-final/enemy-legacy_importer-importer_parts-f9.png",
+      "size": 4856,
+      "sha256": "ae1d3e642b644378f5cfd06fb7ee60053fba2aa9dfaa35a3d21ed79c91c7ddb1"
+    },
+    {
+      "path": "evidence/candidate-final/enemy-legacy_importer-importer_shove-f0.png",
+      "size": 5417,
+      "sha256": "249ce4d137fa6d48aa04432fc6b0dea8bab4736716b0ae8084479a29ed7aff22"
+    },
+    {
+      "path": "evidence/candidate-final/enemy-legacy_importer-importer_shove-f1.png",
+      "size": 5351,
+      "sha256": "1f91da7ed5a838c425fa80c4fe7f23cb2521d706dbf34d1ded0a7dd4e49149a8"
+    },
+    {
+      "path": "evidence/candidate-final/enemy-legacy_importer-importer_shove-f10.png",
+      "size": 4187,
+      "sha256": "f49691d7c6cd4fe5ce56921a3e141b30a7ed4652cc670f98c7baddc539af0e8a"
+    },
+    {
+      "path": "evidence/candidate-final/enemy-legacy_importer-importer_shove-f11.png",
+      "size": 4296,
+      "sha256": "58ce891b52c392c4be5dda49e9d6032c9a5e4bb960c9d4c391ec133a66b150b1"
+    },
+    {
+      "path": "evidence/candidate-final/enemy-legacy_importer-importer_shove-f2.png",
+      "size": 5439,
+      "sha256": "bc055e65c0f1eb6dffa5109099a00acb63dde4cbd276a3e578c3b2be04755b1a"
+    },
+    {
+      "path": "evidence/candidate-final/enemy-legacy_importer-importer_shove-f3.png",
+      "size": 5353,
+      "sha256": "ead0dc2725bd9782687b87cbd51f9feac8902ff8a9111eb33d665fc066621366"
+    },
+    {
+      "path": "evidence/candidate-final/enemy-legacy_importer-importer_shove-f4.png",
+      "size": 5413,
+      "sha256": "d3f22ebca61fd6354eca5b77b86676212d9cd97d0d6f053a56d52a11f2e6a9f0"
+    },
+    {
+      "path": "evidence/candidate-final/enemy-legacy_importer-importer_shove-f5.png",
+      "size": 5357,
+      "sha256": "48b57af3c2138709ff5e06d8efcd9aa5e9ff38c5c097c89a66d2813ad73348cc"
+    },
+    {
+      "path": "evidence/candidate-final/enemy-legacy_importer-importer_shove-f6.png",
+      "size": 6050,
+      "sha256": "cc550da27fa463f5c619e16926c6c7b5d094479040dd9188ab8eea8a712a8a96"
+    },
+    {
+      "path": "evidence/candidate-final/enemy-legacy_importer-importer_shove-f7.png",
+      "size": 5899,
+      "sha256": "45fdcef6b2b3049848703c52f777313a9f302c3b8c830613e4a62cc190a3096a"
+    },
+    {
+      "path": "evidence/candidate-final/enemy-legacy_importer-importer_shove-f8.png",
+      "size": 5958,
+      "sha256": "edb39fb2758cceb628f9d4ecb7f78accfeb1321c31c1c18e2d84a01ddad40784"
+    },
+    {
+      "path": "evidence/candidate-final/enemy-legacy_importer-importer_shove-f9.png",
+      "size": 5535,
+      "sha256": "3b075a092919af4df32a06b3dabb3ed7874225c0c7dc12fe2d0dd638f13b7c31"
+    },
+    {
+      "path": "evidence/candidate-final/four-width-board.png",
+      "size": 989032,
+      "sha256": "efa96e8a33ca16f3baecbadd95e23acc8c31ad2265efb7b84fd1aa056ffc13bb"
+    },
+    {
+      "path": "Rich-Alucard-combat-actual-sequence.gif",
+      "size": 3481539,
+      "sha256": "f65c489b17f2b9f09f31009e5c58af855f60302f4274195819721fe52d983e1a"
+    },
+    {
+      "path": "Rich-Alucard-combat-contact-sheet.png",
+      "size": 619581,
+      "sha256": "6ef6c49c08b986fa24a737084afd0df8d64daca5a17b1b559040f536a2d7ce93"
+    }
+  ]
+}

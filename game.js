@@ -249,17 +249,19 @@ async function genericPlayerFX(kind){
  await wait(320);const severity=ceoHP<=26?'lethal':ceoHP<=52?'heavy':'normal';await RACombatPresentation.play({target:productionCEO,attacker:geminiRich,severity,authored:battleEncounter==='ceo'?'ceo':undefined,kind,recoveryMs:40});
  document.querySelector('#screen').classList.remove('bite-flash','brain-flash','revenge-flash');richCast.classList.remove('cast');attackLayer.classList.remove('active');battleUI.classList.remove('attack-mode');
 }
-async function importerTurn(generation=enemyTurnGeneration){
+async function importerTurn(generation=enemyTurnGeneration,moveId='importer_shove'){
  if(!enemyTurnActive(generation))return;
- const sequence=window.RAEnemyFX?.TIMELINES?.legacy_importer?.importer_shove;
- const pose=phase=>{const src=sequence?.[phase];if(src){productionCEO.style.backgroundImage=`url('${src}')`;productionCEO.dataset.importerMove=phase;}else setCEOState(phase==='prepare'?'idle':'throw');};
- setBattlePhase('IMPORTER MOVE<br><strong>SHOVE</strong>');say('THE IMPORTER SHOVES RICH BACK.',620,'importer');attackLayer.classList.add('active');battleUI.classList.add('attack-mode');
- pose('prepare');await wait(124);if(!enemyTurnActive(generation))return;
- pose('action');await wait(186);if(!enemyTurnActive(generation))return;
- pose('contact');setRichState('hit');const actualDamage=Math.min(richHP,16);richHP-=actualDamage;revengeStored+=actualDamage;addRevengeWounds(actualDamage);window.RADevState.revengeStoredDamage=revengeStored;updateHP();
- const reaction=RACombatPresentation.play({target:geminiRich,attacker:productionCEO,severity:'normal',kind:'importer-shove',recoveryMs:40,isActive:()=>enemyTurnActive(generation)});
- await wait(186);if(!enemyTurnActive(generation))return;pose('recover');
- await wait(124);if(!enemyTurnActive(generation))return;await reaction;if(!enemyTurnActive(generation))return;
+ const root=document.querySelector('#screen'),parts=moveId==='importer_parts';
+ setBattlePhase(`IMPORTER MOVE<br><strong>${parts?'BUMPER TOSS':'WHEEL THROW'}</strong>`);
+ // Preserve the existing authored line. The props communicate the two requested attacks.
+ say('THE IMPORTER SHOVES RICH BACK.',620,'importer');attackLayer.classList.add('active');battleUI.classList.add('attack-mode');
+ let contacted=false,reaction=null;
+ const contact=()=>{if(contacted||!enemyTurnActive(generation))return;contacted=true;setRichState('hit');
+  const actualDamage=Math.min(richHP,moveData[moveId]?.damage||16);richHP-=actualDamage;revengeStored+=actualDamage;addRevengeWounds(actualDamage);window.RADevState.revengeStoredDamage=revengeStored;updateHP();
+  reaction=RACombatPresentation.play({target:geminiRich,attacker:productionCEO,severity:'normal',kind:'importer-shove',recoveryMs:40,isActive:()=>enemyTurnActive(generation)});
+ };
+ await window.RAEnemyFX.feedbackAttack({root,enemyId:'legacy_importer',moveId,attacker:productionCEO,target:geminiRich,onContact:contact,isActive:()=>enemyTurnActive(generation)});
+ if(!enemyTurnActive(generation))return;if(reaction)await reaction;if(!enemyTurnActive(generation))return;
  setCEOState('idle');setRichState('idle');setBattlePhase('RECOVERY<br><strong>WAIT FOR YOUR TURN</strong>');attackLayer.classList.remove('active');battleUI.classList.remove('attack-mode');await wait(160);if(!enemyTurnActive(generation))return;
  if(richHP<=0)return defeat();setBattleBusy(false);inMoves=true;paint();
 }
@@ -269,7 +271,7 @@ async function enemyTurn(){
  await wait(360);if(!enemyTurnActive(generation))return;
  const enemyMove=window.RACombatFoundation.selectEnemyMove(battleState);
  window.RACombatFoundation.emit(battleState,'enemy-move-selected',{moveId:enemyMove?.id});
- if(enemyMove?.id==='importer_shove')return importerTurn(generation);
+ if(battleEncounter==='jdm'&&['importer_shove','importer_parts'].includes(enemyMove?.id))return importerTurn(generation,enemyMove.id);
  setBattlePhase('ENEMY MOVE<br><strong>BRIEFCASE THROW</strong>');
  say('BRIEFCASE THROW!',620);
  setCEOState('idle');

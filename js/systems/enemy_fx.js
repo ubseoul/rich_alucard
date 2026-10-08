@@ -206,9 +206,99 @@
   frames:['prepare','prepare','aim','aim','release','contact','contact','recovery','recovery','recovery'].map(hiltSrc),
   native:Object.fromEntries([['prepare',87],['aim',84],['release',84],['contact',85],['recovery',90]].map(([s,y])=>[hiltSrc(s),{canvas:[80,96],contact:[40,y],facing:'left'}]))
  });
+ // Player-feedback choreography, scoped to Gbenga and the native JDM encounter.
+ // Drawn hard-pixel prop frames complement the retained, separately drawn body poses.
+ const FEEDBACK={
+  gbenga:{phone:{frames:12,ms:80,contact:6,body:'voice',quote:'HELLO HELLO RICH CAN YOU HEAR ME'},draco:{frames:16,ms:68,contact:5,body:'draco',quote:'scatta dem'}},
+  legacy_importer:{importer_shove:{frames:12,ms:78,contact:6,body:'importer_shove',prop:'wheel'},importer_parts:{frames:12,ms:78,contact:6,body:'importer_shove',prop:'bumper'}}
+ };
+ function phonePixels(c,x,y,f){const {C,rect,line}=H(),w=58,h=100;
+  rect(c,x-w/2-2,y-h/2,w+4,h,C.ink);rect(c,x-w/2,y-h/2+3,w,h-6,'#5b456d');rect(c,x-w/2+3,y-h/2+5,w-6,h-12,C.gold);
+  rect(c,x-w/2+7,y-h/2+13,w-14,h-29,C.ink);rect(c,x-w/2+9,y-h/2+15,w-18,h-33,'#372742');
+  rect(c,x-7,y-h/2+7,14,3,C.ink);rect(c,x-6,y+h/2-13,12,6,C.ink);rect(c,x-3,y+h/2-12,6,3,C.bone);
+  // Handset and distinct ringing display beats, drawn into each frame.
+  rect(c,x-13,y-18,7,23,C.bone);rect(c,x-9,y-17,9,5,C.bone);rect(c,x-9,y+1,9,5,C.bone);rect(c,x+7,y-16,4,20,C.gold);
+  for(let i=0;i<3;i++)rect(c,x+5+i*5,y-22+i*5,2,4+(f+i)%3*3,C.gold);
+  for(let i=0;i<3;i++)line(c,x-w/2+10+i*12,y+17,x-w/2+15+i*12,y+17+(f%2),i%2?C.gold:C.bone,2);
+ }
+ function wheelPixels(c,x,y,f,r=36){const {C,rect,line}=H();
+  // Scanline tire/rim silhouette, alternating five-spoke orientation, no transformed static bitmap.
+  for(let yy=-r;yy<=r;yy++){const xx=Math.floor(Math.sqrt(r*r-yy*yy));rect(c,x-xx,y+yy,xx*2+1,1,C.ink);if(Math.abs(yy)<r-5){const ii=Math.floor(Math.sqrt((r-5)*(r-5)-yy*yy));rect(c,x-ii,y+yy,ii*2+1,1,'#747180');}}
+  for(let yy=-r+10;yy<=r-10;yy++){const rr=r-10,xx=Math.floor(Math.sqrt(rr*rr-yy*yy));rect(c,x-xx,y+yy,xx*2+1,1,'#282333');}
+  for(let i=0;i<5;i++){const a=i*Math.PI*2/5+f*.48;line(c,x,y,x+Math.cos(a)*(r-7),y+Math.sin(a)*(r-7),C.ink,6);line(c,x,y,x+Math.cos(a)*(r-7),y+Math.sin(a)*(r-7),C.bone,3);}
+  rect(c,x-5,y-5,11,11,C.ink);rect(c,x-3,y-3,7,7,C.gold);rect(c,x-1,y-1,3,3,C.bone);
+  for(let i=0;i<8;i++){const a=i*Math.PI/4;rect(c,x+Math.cos(a)*(r-2),y+Math.sin(a)*(r-2),2,2,'#544658');}
+ }
+ function bumperPixels(c,x,y,f){const {C,rect,line}=H(),tilt=[-10,-12,-9,-5,1,6,0,7,12,14,14,14][f]||0;
+  // Each scanline is authored at its travelling orientation; grille, lamps and plate stay readable.
+  for(let xx=-43;xx<=43;xx++){const yy=Math.round(xx*tilt/86),edge=Math.abs(xx)>36?3:0;rect(c,x+xx,y+yy-12+edge,1,27-edge*2,C.ink);rect(c,x+xx,y+yy-9+edge,1,20-edge*2,'#9e7688');rect(c,x+xx,y+yy+8-edge,1,3,'#4e364e');}
+  const sy=xx=>y+Math.round(xx*tilt/86);for(let i=0;i<9;i++)rect(c,x-22+i*5,sy(-22+i*5)-4,3,9,C.ink);
+  for(const xx of [-34,28]){rect(c,x+xx,sy(xx)-6,9,7,C.ink);rect(c,x+xx+1,sy(xx)-5,7,4,C.bone);}
+  rect(c,x-9,sy(0)+7,18,5,C.bone);rect(c,x-6,sy(0)+8,12,2,C.ink);line(c,x-36,sy(-36)+12,x+36,sy(36)+12,C.gold,1);
+ }
+ function feedbackPaint(c,f,a,t,plan,id){const {C,rect,line,star,ring}=H();
+  // Ground shadows stay on the support plane, independent of flying prop height.
+  if(id==='phone'){
+   const x=t.x,cy=f<=6?lerp(-58,t.floor-51,Math.pow(f/6,2)):t.floor-51+(f===7?5:f===8?-3:0);
+   if(f<9){for(let i=0;i<4;i++)rect(c,x-24-i*3,t.floor-2+i%2,48+i*6,2,i%2?'#312237':C.ink);phonePixels(c,x,cy,f);}
+   if(f>=2&&f<6){for(let i=0;i<3;i++)line(c,x-21+i*21,cy-80-i*5,x-21+i*21,cy-58,C.gold,2);}
+   if(f>=6){if(f<=8)star(c,x,t.y+10,[31,22,14][f-6],C.gold);for(let i=0;i<7;i++){const d=f-6;rect(c,x-30+i*10+(i%2?d*3:-d*3),t.floor-8-d*(i%3+2),3,3,i%2?C.bone:C.gold);}line(c,x-36-(f-6)*5,t.floor-1,x+36+(f-6)*5,t.floor-1,C.gold,2);}
+  }else if(id==='draco'){
+   const mx=a.x-a.w*.55,my=a.y-a.h*.28;
+   if(f>=3&&f<=13){const phase=f-3;
+    if(f%2){star(c,mx,my,8+(f%3)*2,C.gold);rect(c,mx-14,my-2,9,5,C.bone);}
+    // Eight independently staggered pixel rounds: each has its own flight and hit frame.
+    for(let i=0;i<8;i++){const k=f-(3+i),u=Math.min(1,k/2);if(k<0||k>3)continue;const yy=t.y+(i%3-1)*10;
+     if(k<2){const x=lerp(mx,t.x+3,u),y=lerp(my,yy,u);rect(c,x-10,y-2,12,5,C.ink);rect(c,x-9,y-1,9,3,C.gold);rect(c,x-4,y-1,4,1,C.bone);line(c,x+4,y,x+12,y,C.gold,1);}
+     else star(c,t.x+(i%2?5:-5),yy,k===2?13:7,i%2?C.gold:C.bone);
+    }
+    for(let i=0;i<3;i++)rect(c,a.x+8+i*5+phase*2,a.floor-14-(phase%4)*3+i*3,3,2,C.gold);
+   }
+   if(f>=12&&f<15)for(let i=0;i<5;i++)rect(c,t.x-16+i*8,t.floor-5-(15-f)*(i%2+1),2,3,i%2?C.gold:C.bone);
+  }else{
+   const u=Math.min(1,Math.max(0,(f-1)/5)),x=lerp(a.x-14,t.x+2,u),y=lerp(a.y-10,t.y+8,u)-Math.sin(u*Math.PI)*(plan.prop==='wheel'?36:48);
+   if(f<=6){if(plan.prop==='wheel')wheelPixels(c,x,y,f);else bumperPixels(c,x,y,f);for(let i=1;i<=3;i++)line(c,x+30+i*6,y-i*3,x+38+i*6,y-i*3,C.gold,1);}
+   if(f>=6){if(f<9)star(c,t.x,t.y+8,[30,23,15][f-6],plan.prop==='wheel'?C.bone:C.gold);
+    const d=f-6;if(f>6&&f<10){if(plan.prop==='wheel')wheelPixels(c,t.x-4-d*10,t.floor-26+d*3,f);else bumperPixels(c,t.x-d*8,t.floor-13+d*4,f);}
+    for(let i=0;i<6;i++)rect(c,t.x-24+i*9+(i%2?d*3:-d*4),t.floor-8-d*(i%3+2),3+i%2,3,i%2?C.bone:C.gold);ring(c,t.x,t.floor-3,9+d*5,C.gold);
+   }
+  }
+ }
+ async function feedbackAttack(spec){const {root,enemyId,moveId,attacker,target,onContact,onPose,freeze=null,isActive}=spec,plan=FEEDBACK[enemyId]?.[moveId],fx=H();if(!plan||!fx||!root?.isConnected)return 0;
+  active.get(root)?.cancel();const V=fx.view(root,target,attacker),L=fx.layer(root,V,`enemy:${enemyId}:${moveId}`),a=V.enemy,t=V.rich;
+  L.canvas.classList.add('rc2-enemy-fx');if(enemyId==='legacy_importer')L.canvas.style.zIndex='9';L.canvas.dataset.choreography='feedback';root.dataset.lastEnemyFx=`${enemyId}:${moveId}:feedback`;
+  const sequence=TIMELINES[enemyId]?.[plan.body],original={src:attacker.getAttribute('src'),style:attacker.getAttribute('style'),targetStyle:target.getAttribute('style'),importerMove:attacker.dataset.importerMove};
+  let contact=false,cancelled=false,timer=null,wake=null,bubble=null;const owns=()=>active.get(root)===owner;
+  const restore=(el,style)=>{if(style===null)el.removeAttribute('style');else el.setAttribute('style',style);};
+  const owner={cancel:()=>{if(cancelled)return;cancelled=true;clearTimeout(timer);wake?.();cleanup();}};
+  const live=()=>!cancelled&&owns()&&root.isConnected&&attacker.isConnected&&target.isConnected&&isActive?.()!==false;
+  function cleanup(){L.canvas.remove();bubble?.remove();root.removeEventListener('c2:close',owner.cancel);document.removeEventListener('ra:scene',sceneChanged);if(!owns())return;
+   if(root.isConnected&&attacker.isConnected){if(original.src!==null)attacker.setAttribute('src',original.src);restore(attacker,original.style);if(original.src)onPose?.(original.src,null);}
+   if(target.isConnected)restore(target,original.targetStyle);if(enemyId==='legacy_importer'){if(original.importerMove===undefined)delete attacker.dataset.importerMove;else attacker.dataset.importerMove=original.importerMove;}delete attacker.dataset.movePose;delete root.dataset.enemyPhase;active.delete(root);
+  }
+  const sceneChanged=()=>{if(isActive?.()===false||!root.isConnected)owner.cancel();};
+  const pause=ms=>new Promise(resolve=>{wake=resolve;timer=setTimeout(()=>{wake=null;resolve();},ms);});
+  const draw=f=>{if(!live())return false;L.ctx.clearRect(0,0,270,V.H);feedbackPaint(L.ctx,f,a,t,plan,moveId);L.canvas.dataset.frame=String(f);
+   const phase=f<2?'prepare':f<plan.contact?'action':f<plan.frames-3?'contact':'recover',src=sequence?.[phase];
+   if(src){if(attacker.tagName==='IMG')attacker.src=src;else{attacker.style.backgroundImage=`url('${src}')`;if(enemyId==='legacy_importer')attacker.dataset.importerMove=phase;}attacker.dataset.movePose=src;onPose?.(src,sequence.native?.[src]);}
+   root.dataset.enemyPhase=f<2?'anticipation':f<plan.contact?'action':f<plan.frames-3?'impact':'recovery';
+   if(f>=plan.contact&&!contact){contact=true;onContact?.();}
+   if(!reduced()&&f>=plan.contact&&f<=plan.contact+2){const probe=document.createElement('div');if(original.targetStyle)probe.setAttribute('style',original.targetStyle);target.style.transform=`translate(${-7+(f-plan.contact)*3}px,${f===plan.contact?4:0}px) ${probe.style.transform||''}`;}
+   else restore(target,original.targetStyle);return true;
+  };
+  active.set(root,owner);root.addEventListener('c2:close',owner.cancel,{once:true});document.addEventListener('ra:scene',sceneChanged);
+  try{if(plan.quote){root.dataset.combatQuote=plan.quote;bubble=window.RABarks?.show({root,anchor:{x:V.world.x+a.x*V.S,y:V.world.y+(a.y-a.h*.35)*V.S},text:plan.quote,speaker:'enemy',hold:plan.frames*plan.ms+160});}
+   if(freeze!==null){if(draw(freeze))await pause(700);return live()?700:0;}
+   if(reduced()){if(draw(plan.contact))await pause(220);return live()?220:0;}
+   for(let f=0;f<plan.frames;f++){if(!draw(f))break;await pause(plan.ms);}return live()?plan.frames*plan.ms:0;
+  }finally{clearTimeout(timer);cleanup();}
+ }
+
+ register("gbenga","phone",TIMELINES.gbenga.voice);
  const active=new WeakMap();
  // attack({root,enemyId,moveId,dmg,attacker:enemyEl,target:richEl}) -> resolves when the animation ends (<= ~650 ms).
  async function attack({root,enemyId,moveId,dmg=0,attacker,target,freeze=null,onContact=null,onPose=null,appearance=null}){
+  if(FEEDBACK[enemyId]?.[moveId])return feedbackAttack({root,enemyId,moveId,attacker,target,onContact,onPose,freeze,appearance});
   const fx=H();if(!fx||!root||!root.isConnected||!attacker||!target)return 0;
   // One owner per stage. Finish the old owner's cleanup before taking its pose snapshot.
   active.get(root)?.cancel();
@@ -250,5 +340,5 @@
    return cancelled?0:FRAMES*FRAME_MS;
   }finally{clearTimeout(timer);cleanup();}
  }
- window.RAEnemyFX={attack,cancel:root=>active.get(root)?.cancel(),register,preload,TIMELINES,specFor,poseFor,POSES,GBENGA,MAP,PAINT,SPRITES,FRAMES,FRAME_MS};
+ window.RAEnemyFX={attack,cancel:root=>active.get(root)?.cancel(),register,preload,TIMELINES,specFor,poseFor,POSES,GBENGA,MAP,PAINT,SPRITES,FRAMES,FRAME_MS,FEEDBACK,feedbackAttack,feedbackPaint};
 })();

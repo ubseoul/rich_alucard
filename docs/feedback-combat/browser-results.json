@@ -1,0 +1,717 @@
+{
+  "scope": "Earned QA checkpoint copied into fresh headless Chromium; native FIGHT/BLOOD/BITE and JDM menu taps. Deterministic player RNG and each weighted JDM option selected only to assure coverage. Contact visual screenshots separately frozen. Scoped cancel/replacement/reduced/reload; no full campaign claim.",
+  "rows": [
+    {
+      "width": 360,
+      "height": 800,
+      "before": {
+        "hp": 100,
+        "enemy": 260,
+        "pp": 8
+      },
+      "first": {
+        "hp": 76,
+        "enemy": 208,
+        "pp": 7,
+        "equipped": true,
+        "phoneUsed": true,
+        "next": "draco",
+        "contacts": [
+          {
+            "enemy": "gbenga",
+            "move": "phone",
+            "hpBefore": "100/100"
+          }
+        ]
+      },
+      "second": {
+        "hp": 54,
+        "pp": 7,
+        "next": "voice",
+        "contacts": [
+          {
+            "enemy": "gbenga",
+            "move": "phone",
+            "hpBefore": "100/100"
+          },
+          {
+            "enemy": "gbenga",
+            "move": "draco",
+            "hpBefore": "94/100"
+          }
+        ],
+        "log": [
+          {
+            "text": "VAMPIRE BITE: 24 DAMAGE.",
+            "kind": "hit",
+            "hp": {
+              "rich": 76,
+              "richMax": 100,
+              "enemy": 184,
+              "enemyMax": 260
+            },
+            "target": "enemy",
+            "amount": 24,
+            "heavy": false
+          },
+          {
+            "text": "+18 HP.",
+            "kind": "heal",
+            "hp": {
+              "rich": 94,
+              "richMax": 100,
+              "enemy": 184,
+              "enemyMax": 260
+            },
+            "target": "rich",
+            "amount": 18
+          },
+          {
+            "text": "GBENGA: THE GOLDEN DRACO!",
+            "kind": "enemy",
+            "hp": {
+              "rich": 94,
+              "richMax": 100,
+              "enemy": 184,
+              "enemyMax": 260
+            },
+            "move": "draco"
+          },
+          {
+            "text": "RICH TOOK 20 DAMAGE.",
+            "kind": "hurt",
+            "hp": {
+              "rich": 74,
+              "richMax": 100,
+              "enemy": 184,
+              "enemyMax": 260
+            },
+            "target": "rich",
+            "amount": 20,
+            "heavy": true
+          },
+          {
+            "text": "RICH TOOK 20 DAMAGE.",
+            "kind": "hurt",
+            "hp": {
+              "rich": 54,
+              "richMax": 100,
+              "enemy": 184,
+              "enemyMax": 260
+            },
+            "target": "rich",
+            "amount": 20,
+            "heavy": true
+          },
+          {
+            "text": "HE IS HOLDING THE PHONE FLAT IN FRONT OF HIS MOUTH",
+            "kind": "telegraph",
+            "hp": {
+              "rich": 54,
+              "richMax": 100,
+              "enemy": 184,
+              "enemyMax": 260
+            },
+            "move": "voice"
+          }
+        ],
+        "f07": {
+          "shamed": false,
+          "lastWasDraco": true,
+          "receivedPlayerHit": true,
+          "dracoEquipped": true,
+          "phoneUsed": true,
+          "pp": {
+            "revenge": 8
+          }
+        }
+      },
+      "jdm": [
+        {
+          "move": "importer_shove",
+          "before": "100/100",
+          "after": "84/100"
+        },
+        {
+          "move": "importer_parts",
+          "before": "84/100",
+          "after": "68/100"
+        }
+      ],
+      "lifecycle": {
+        "result": [
+          {
+            "delay": 50,
+            "contacts": 0,
+            "restored": true,
+            "layers": 0
+          },
+          {
+            "delay": 540,
+            "contacts": 1,
+            "restored": true,
+            "layers": 0
+          }
+        ],
+        "replacement": {
+          "c1": 0,
+          "c2": 1,
+          "restored": true,
+          "layers": 0
+        }
+      },
+      "reduced": {
+        "elapsed": 220,
+        "contact": 1,
+        "layers": 0
+      },
+      "interrupted": {
+        "scene": "bedroom",
+        "contacts": 0,
+        "layers": 0
+      },
+      "frameCounts": {
+        "enemy:gbenga:phone": 12,
+        "enemy:gbenga:draco": 16,
+        "enemy:legacy_importer:importer_shove": 12,
+        "enemy:legacy_importer:importer_parts": 12
+      },
+      "uniqueDrawnFrames": 48,
+      "errors": []
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "before": {
+        "hp": 100,
+        "enemy": 260,
+        "pp": 8
+      },
+      "first": {
+        "hp": 76,
+        "enemy": 208,
+        "pp": 7,
+        "equipped": true,
+        "phoneUsed": true,
+        "next": "draco",
+        "contacts": [
+          {
+            "enemy": "gbenga",
+            "move": "phone",
+            "hpBefore": "100/100"
+          }
+        ]
+      },
+      "second": {
+        "hp": 54,
+        "pp": 7,
+        "next": "voice",
+        "contacts": [
+          {
+            "enemy": "gbenga",
+            "move": "phone",
+            "hpBefore": "100/100"
+          },
+          {
+            "enemy": "gbenga",
+            "move": "draco",
+            "hpBefore": "94/100"
+          }
+        ],
+        "log": [
+          {
+            "text": "VAMPIRE BITE: 24 DAMAGE.",
+            "kind": "hit",
+            "hp": {
+              "rich": 76,
+              "richMax": 100,
+              "enemy": 184,
+              "enemyMax": 260
+            },
+            "target": "enemy",
+            "amount": 24,
+            "heavy": false
+          },
+          {
+            "text": "+18 HP.",
+            "kind": "heal",
+            "hp": {
+              "rich": 94,
+              "richMax": 100,
+              "enemy": 184,
+              "enemyMax": 260
+            },
+            "target": "rich",
+            "amount": 18
+          },
+          {
+            "text": "GBENGA: THE GOLDEN DRACO!",
+            "kind": "enemy",
+            "hp": {
+              "rich": 94,
+              "richMax": 100,
+              "enemy": 184,
+              "enemyMax": 260
+            },
+            "move": "draco"
+          },
+          {
+            "text": "RICH TOOK 20 DAMAGE.",
+            "kind": "hurt",
+            "hp": {
+              "rich": 74,
+              "richMax": 100,
+              "enemy": 184,
+              "enemyMax": 260
+            },
+            "target": "rich",
+            "amount": 20,
+            "heavy": true
+          },
+          {
+            "text": "RICH TOOK 20 DAMAGE.",
+            "kind": "hurt",
+            "hp": {
+              "rich": 54,
+              "richMax": 100,
+              "enemy": 184,
+              "enemyMax": 260
+            },
+            "target": "rich",
+            "amount": 20,
+            "heavy": true
+          },
+          {
+            "text": "HE IS HOLDING THE PHONE FLAT IN FRONT OF HIS MOUTH",
+            "kind": "telegraph",
+            "hp": {
+              "rich": 54,
+              "richMax": 100,
+              "enemy": 184,
+              "enemyMax": 260
+            },
+            "move": "voice"
+          }
+        ],
+        "f07": {
+          "shamed": false,
+          "lastWasDraco": true,
+          "receivedPlayerHit": true,
+          "dracoEquipped": true,
+          "phoneUsed": true,
+          "pp": {
+            "revenge": 8
+          }
+        }
+      },
+      "jdm": [
+        {
+          "move": "importer_shove",
+          "before": "100/100",
+          "after": "84/100"
+        },
+        {
+          "move": "importer_parts",
+          "before": "84/100",
+          "after": "68/100"
+        }
+      ],
+      "lifecycle": {
+        "result": [
+          {
+            "delay": 50,
+            "contacts": 0,
+            "restored": true,
+            "layers": 0
+          },
+          {
+            "delay": 540,
+            "contacts": 1,
+            "restored": true,
+            "layers": 0
+          }
+        ],
+        "replacement": {
+          "c1": 0,
+          "c2": 1,
+          "restored": true,
+          "layers": 0
+        }
+      },
+      "reduced": {
+        "elapsed": 220,
+        "contact": 1,
+        "layers": 0
+      },
+      "interrupted": {
+        "scene": "bedroom",
+        "contacts": 0,
+        "layers": 0
+      },
+      "frameCounts": {
+        "enemy:gbenga:phone": 12,
+        "enemy:gbenga:draco": 16,
+        "enemy:legacy_importer:importer_shove": 12,
+        "enemy:legacy_importer:importer_parts": 12
+      },
+      "uniqueDrawnFrames": 48,
+      "errors": []
+    },
+    {
+      "width": 430,
+      "height": 932,
+      "before": {
+        "hp": 100,
+        "enemy": 260,
+        "pp": 8
+      },
+      "first": {
+        "hp": 76,
+        "enemy": 208,
+        "pp": 7,
+        "equipped": true,
+        "phoneUsed": true,
+        "next": "draco",
+        "contacts": [
+          {
+            "enemy": "gbenga",
+            "move": "phone",
+            "hpBefore": "100/100"
+          }
+        ]
+      },
+      "second": {
+        "hp": 54,
+        "pp": 7,
+        "next": "voice",
+        "contacts": [
+          {
+            "enemy": "gbenga",
+            "move": "phone",
+            "hpBefore": "100/100"
+          },
+          {
+            "enemy": "gbenga",
+            "move": "draco",
+            "hpBefore": "94/100"
+          }
+        ],
+        "log": [
+          {
+            "text": "VAMPIRE BITE: 24 DAMAGE.",
+            "kind": "hit",
+            "hp": {
+              "rich": 76,
+              "richMax": 100,
+              "enemy": 184,
+              "enemyMax": 260
+            },
+            "target": "enemy",
+            "amount": 24,
+            "heavy": false
+          },
+          {
+            "text": "+18 HP.",
+            "kind": "heal",
+            "hp": {
+              "rich": 94,
+              "richMax": 100,
+              "enemy": 184,
+              "enemyMax": 260
+            },
+            "target": "rich",
+            "amount": 18
+          },
+          {
+            "text": "GBENGA: THE GOLDEN DRACO!",
+            "kind": "enemy",
+            "hp": {
+              "rich": 94,
+              "richMax": 100,
+              "enemy": 184,
+              "enemyMax": 260
+            },
+            "move": "draco"
+          },
+          {
+            "text": "RICH TOOK 20 DAMAGE.",
+            "kind": "hurt",
+            "hp": {
+              "rich": 74,
+              "richMax": 100,
+              "enemy": 184,
+              "enemyMax": 260
+            },
+            "target": "rich",
+            "amount": 20,
+            "heavy": true
+          },
+          {
+            "text": "RICH TOOK 20 DAMAGE.",
+            "kind": "hurt",
+            "hp": {
+              "rich": 54,
+              "richMax": 100,
+              "enemy": 184,
+              "enemyMax": 260
+            },
+            "target": "rich",
+            "amount": 20,
+            "heavy": true
+          },
+          {
+            "text": "HE IS HOLDING THE PHONE FLAT IN FRONT OF HIS MOUTH",
+            "kind": "telegraph",
+            "hp": {
+              "rich": 54,
+              "richMax": 100,
+              "enemy": 184,
+              "enemyMax": 260
+            },
+            "move": "voice"
+          }
+        ],
+        "f07": {
+          "shamed": false,
+          "lastWasDraco": true,
+          "receivedPlayerHit": true,
+          "dracoEquipped": true,
+          "phoneUsed": true,
+          "pp": {
+            "revenge": 8
+          }
+        }
+      },
+      "jdm": [
+        {
+          "move": "importer_shove",
+          "before": "100/100",
+          "after": "84/100"
+        },
+        {
+          "move": "importer_parts",
+          "before": "84/100",
+          "after": "68/100"
+        }
+      ],
+      "lifecycle": {
+        "result": [
+          {
+            "delay": 50,
+            "contacts": 0,
+            "restored": true,
+            "layers": 0
+          },
+          {
+            "delay": 540,
+            "contacts": 1,
+            "restored": true,
+            "layers": 0
+          }
+        ],
+        "replacement": {
+          "c1": 0,
+          "c2": 1,
+          "restored": true,
+          "layers": 0
+        }
+      },
+      "reduced": {
+        "elapsed": 220,
+        "contact": 1,
+        "layers": 0
+      },
+      "interrupted": {
+        "scene": "bedroom",
+        "contacts": 0,
+        "layers": 0
+      },
+      "frameCounts": {
+        "enemy:gbenga:phone": 12,
+        "enemy:gbenga:draco": 16,
+        "enemy:legacy_importer:importer_shove": 12,
+        "enemy:legacy_importer:importer_parts": 12
+      },
+      "uniqueDrawnFrames": 48,
+      "errors": []
+    },
+    {
+      "width": 1280,
+      "height": 900,
+      "before": {
+        "hp": 100,
+        "enemy": 260,
+        "pp": 8
+      },
+      "first": {
+        "hp": 76,
+        "enemy": 208,
+        "pp": 7,
+        "equipped": true,
+        "phoneUsed": true,
+        "next": "draco",
+        "contacts": [
+          {
+            "enemy": "gbenga",
+            "move": "phone",
+            "hpBefore": "100/100"
+          }
+        ]
+      },
+      "second": {
+        "hp": 54,
+        "pp": 7,
+        "next": "voice",
+        "contacts": [
+          {
+            "enemy": "gbenga",
+            "move": "phone",
+            "hpBefore": "100/100"
+          },
+          {
+            "enemy": "gbenga",
+            "move": "draco",
+            "hpBefore": "94/100"
+          }
+        ],
+        "log": [
+          {
+            "text": "VAMPIRE BITE: 24 DAMAGE.",
+            "kind": "hit",
+            "hp": {
+              "rich": 76,
+              "richMax": 100,
+              "enemy": 184,
+              "enemyMax": 260
+            },
+            "target": "enemy",
+            "amount": 24,
+            "heavy": false
+          },
+          {
+            "text": "+18 HP.",
+            "kind": "heal",
+            "hp": {
+              "rich": 94,
+              "richMax": 100,
+              "enemy": 184,
+              "enemyMax": 260
+            },
+            "target": "rich",
+            "amount": 18
+          },
+          {
+            "text": "GBENGA: THE GOLDEN DRACO!",
+            "kind": "enemy",
+            "hp": {
+              "rich": 94,
+              "richMax": 100,
+              "enemy": 184,
+              "enemyMax": 260
+            },
+            "move": "draco"
+          },
+          {
+            "text": "RICH TOOK 20 DAMAGE.",
+            "kind": "hurt",
+            "hp": {
+              "rich": 74,
+              "richMax": 100,
+              "enemy": 184,
+              "enemyMax": 260
+            },
+            "target": "rich",
+            "amount": 20,
+            "heavy": true
+          },
+          {
+            "text": "RICH TOOK 20 DAMAGE.",
+            "kind": "hurt",
+            "hp": {
+              "rich": 54,
+              "richMax": 100,
+              "enemy": 184,
+              "enemyMax": 260
+            },
+            "target": "rich",
+            "amount": 20,
+            "heavy": true
+          },
+          {
+            "text": "HE IS HOLDING THE PHONE FLAT IN FRONT OF HIS MOUTH",
+            "kind": "telegraph",
+            "hp": {
+              "rich": 54,
+              "richMax": 100,
+              "enemy": 184,
+              "enemyMax": 260
+            },
+            "move": "voice"
+          }
+        ],
+        "f07": {
+          "shamed": false,
+          "lastWasDraco": true,
+          "receivedPlayerHit": true,
+          "dracoEquipped": true,
+          "phoneUsed": true,
+          "pp": {
+            "revenge": 8
+          }
+        }
+      },
+      "jdm": [
+        {
+          "move": "importer_shove",
+          "before": "100/100",
+          "after": "84/100"
+        },
+        {
+          "move": "importer_parts",
+          "before": "84/100",
+          "after": "68/100"
+        }
+      ],
+      "lifecycle": {
+        "result": [
+          {
+            "delay": 50,
+            "contacts": 0,
+            "restored": true,
+            "layers": 0
+          },
+          {
+            "delay": 540,
+            "contacts": 1,
+            "restored": true,
+            "layers": 0
+          }
+        ],
+        "replacement": {
+          "c1": 0,
+          "c2": 1,
+          "restored": true,
+          "layers": 0
+        }
+      },
+      "reduced": {
+        "elapsed": 220,
+        "contact": 1,
+        "layers": 0
+      },
+      "interrupted": {
+        "scene": "bedroom",
+        "contacts": 0,
+        "layers": 0
+      },
+      "frameCounts": {
+        "enemy:gbenga:phone": 12,
+        "enemy:gbenga:draco": 16,
+        "enemy:legacy_importer:importer_shove": 12,
+        "enemy:legacy_importer:importer_parts": 12
+      },
+      "uniqueDrawnFrames": 47,
+      "errors": []
+    }
+  ]
+}

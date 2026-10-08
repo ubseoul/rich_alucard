@@ -1,0 +1,326 @@
+{
+  "scope": "Actual native menu actions and frame sequence. Frame dwell extended to 400ms only in this disposable capture context for precise screenshots. Runtime files unchanged; production frame timing is 80/68/78ms. Earned QA save copied into a fresh headless Chromium. Each selected screenshot verified to remain on its labeled frame; no screenshot reconstruction.",
+  "viewport": {
+    "width": 390,
+    "height": 844
+  },
+  "contacts": [
+    {
+      "enemy": "gbenga",
+      "move": "phone"
+    },
+    {
+      "enemy": "gbenga",
+      "move": "draco"
+    },
+    {
+      "enemy": "legacy_importer",
+      "move": "importer_shove"
+    },
+    {
+      "enemy": "legacy_importer",
+      "move": "importer_parts"
+    }
+  ],
+  "rows": [
+    {
+      "move": "phone",
+      "samples": [
+        {
+          "file": "phone-f0.png",
+          "frame": 0,
+          "phase": "anticipation"
+        },
+        {
+          "file": "phone-f1.png",
+          "frame": 1,
+          "phase": "anticipation"
+        },
+        {
+          "file": "phone-f2.png",
+          "frame": 2,
+          "phase": "action"
+        },
+        {
+          "file": "phone-f3.png",
+          "frame": 3,
+          "phase": "action"
+        },
+        {
+          "file": "phone-f4.png",
+          "frame": 4,
+          "phase": "action"
+        },
+        {
+          "file": "phone-f5.png",
+          "frame": 5,
+          "phase": "action"
+        },
+        {
+          "file": "phone-f6.png",
+          "frame": 6,
+          "phase": "impact"
+        },
+        {
+          "file": "phone-f7.png",
+          "frame": 7,
+          "phase": "impact"
+        },
+        {
+          "file": "phone-f8.png",
+          "frame": 8,
+          "phase": "impact"
+        },
+        {
+          "file": "phone-f9.png",
+          "frame": 9,
+          "phase": "recovery"
+        },
+        {
+          "file": "phone-f10.png",
+          "frame": 10,
+          "phase": "recovery"
+        },
+        {
+          "file": "phone-f11.png",
+          "frame": 11,
+          "phase": "recovery"
+        }
+      ]
+    },
+    {
+      "move": "draco",
+      "samples": [
+        {
+          "file": "draco-f0.png",
+          "frame": 0,
+          "phase": "anticipation"
+        },
+        {
+          "file": "draco-f1.png",
+          "frame": 1,
+          "phase": "anticipation"
+        },
+        {
+          "file": "draco-f2.png",
+          "frame": 2,
+          "phase": "action"
+        },
+        {
+          "file": "draco-f3.png",
+          "frame": 3,
+          "phase": "action"
+        },
+        {
+          "file": "draco-f4.png",
+          "frame": 4,
+          "phase": "action"
+        },
+        {
+          "file": "draco-f5.png",
+          "frame": 5,
+          "phase": "impact"
+        },
+        {
+          "file": "draco-f6.png",
+          "frame": 6,
+          "phase": "impact"
+        },
+        {
+          "file": "draco-f7.png",
+          "frame": 7,
+          "phase": "impact"
+        },
+        {
+          "file": "draco-f8.png",
+          "frame": 8,
+          "phase": "impact"
+        },
+        {
+          "file": "draco-f9.png",
+          "frame": 9,
+          "phase": "impact"
+        },
+        {
+          "file": "draco-f10.png",
+          "frame": 10,
+          "phase": "impact"
+        },
+        {
+          "file": "draco-f11.png",
+          "frame": 11,
+          "phase": "impact"
+        },
+        {
+          "file": "draco-f12.png",
+          "frame": 12,
+          "phase": "impact"
+        },
+        {
+          "file": "draco-f13.png",
+          "frame": 13,
+          "phase": "recovery"
+        },
+        {
+          "file": "draco-f14.png",
+          "frame": 14,
+          "phase": "recovery"
+        },
+        {
+          "file": "draco-f15.png",
+          "frame": 15,
+          "phase": "recovery"
+        }
+      ]
+    },
+    {
+      "move": "importer_shove",
+      "samples": [
+        {
+          "file": "importer_shove-f0.png",
+          "frame": 0,
+          "phase": "anticipation"
+        },
+        {
+          "file": "importer_shove-f1.png",
+          "frame": 1,
+          "phase": "anticipation"
+        },
+        {
+          "file": "importer_shove-f2.png",
+          "frame": 2,
+          "phase": "action"
+        },
+        {
+          "file": "importer_shove-f3.png",
+          "frame": 3,
+          "phase": "action"
+        },
+        {
+          "file": "importer_shove-f4.png",
+          "frame": 4,
+          "phase": "action"
+        },
+        {
+          "file": "importer_shove-f5.png",
+          "frame": 5,
+          "phase": "action"
+        },
+        {
+          "file": "importer_shove-f6.png",
+          "frame": 6,
+          "phase": "impact"
+        },
+        {
+          "file": "importer_shove-f7.png",
+          "frame": 7,
+          "phase": "impact"
+        },
+        {
+          "file": "importer_shove-f8.png",
+          "frame": 8,
+          "phase": "impact"
+        },
+        {
+          "file": "importer_shove-f9.png",
+          "frame": 9,
+          "phase": "recovery"
+        },
+        {
+          "file": "importer_shove-f10.png",
+          "frame": 10,
+          "phase": "recovery"
+        },
+        {
+          "file": "importer_shove-f11.png",
+          "frame": 11,
+          "phase": "recovery"
+        }
+      ]
+    },
+    {
+      "move": "importer_parts",
+      "samples": [
+        {
+          "file": "importer_parts-f0.png",
+          "frame": 0,
+          "phase": "anticipation"
+        },
+        {
+          "file": "importer_parts-f1.png",
+          "frame": 1,
+          "phase": "anticipation"
+        },
+        {
+          "file": "importer_parts-f2.png",
+          "frame": 2,
+          "phase": "action"
+        },
+        {
+          "file": "importer_parts-f3.png",
+          "frame": 3,
+          "phase": "action"
+        },
+        {
+          "file": "importer_parts-f4.png",
+          "frame": 4,
+          "phase": "action"
+        },
+        {
+          "file": "importer_parts-f5.png",
+          "frame": 5,
+          "phase": "action"
+        },
+        {
+          "file": "importer_parts-f6.png",
+          "frame": 6,
+          "phase": "impact"
+        },
+        {
+          "file": "importer_parts-f7.png",
+          "frame": 7,
+          "phase": "impact"
+        },
+        {
+          "file": "importer_parts-f8.png",
+          "frame": 8,
+          "phase": "impact"
+        },
+        {
+          "file": "importer_parts-f9.png",
+          "frame": 9,
+          "phase": "recovery"
+        },
+        {
+          "file": "importer_parts-f10.png",
+          "frame": 10,
+          "phase": "recovery"
+        },
+        {
+          "file": "importer_parts-f11.png",
+          "frame": 11,
+          "phase": "recovery"
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "packaging": {
+    "gif": "C:\\Users\\Ube\\Documents\\Codex\\2026-10-08\\task-10\\Rich-Alucard-combat-actual-sequence.gif",
+    "gifBytes": 3481539,
+    "gifSHA256": "f65c489b17f2b9f09f31009e5c58af855f60302f4274195819721fe52d983e1a",
+    "gifFrames": 52,
+    "gifEncodedDurationMs": 5600,
+    "runtimeTimingsMs": {
+      "phone": 80,
+      "draco": 68,
+      "importer_shove": 78,
+      "importer_parts": 78
+    },
+    "lastFrameHoldAddedMsPerMove": 500,
+    "captionBandOutsideScreenshot": true,
+    "gifPaletteLimit": 256,
+    "contactSheet": "Rich-Alucard-combat-contact-sheet.png",
+    "note": "All 52 native rendered frames are present. Capture-only dwell 400ms; GIF plays approximately production cadence with half-second end-of-move holds. GIF millisecond durations are rounded by format to 10ms. Screenshot content is unretouched; GIF palette conversion is format-required."
+  }
+}

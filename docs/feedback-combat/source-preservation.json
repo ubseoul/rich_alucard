@@ -1,0 +1,122 @@
+{
+  "baseEngine": "e608bf7878c93acc362b19c44e2228f92d353245",
+  "basePrivate": "a942875e6a8fe7fc78bc07ce37e55e4b7a718e2e",
+  "canonicalAndRetainedBodySources": [
+    {
+      "path": "assets/rich_standing_right.png",
+      "baseline": "765170076e8d3a9af9e8857e176e079b2a68c7ee1daafb7c8d551482228f144b",
+      "candidate": "765170076e8d3a9af9e8857e176e079b2a68c7ee1daafb7c8d551482228f144b",
+      "unchanged": true
+    },
+    {
+      "path": "assets/jdm_imports/characters/importer/importer_neutral.png",
+      "baseline": "156286be5472556c8b23fd6e81875624355ddb149e2b5e4cf30e7f080a8511d3",
+      "candidate": "156286be5472556c8b23fd6e81875624355ddb149e2b5e4cf30e7f080a8511d3",
+      "unchanged": true
+    },
+    {
+      "path": "assets/before_the_fame/characters/gbenga/runtime_80x96/gbenga_neutral_anchor_80x96_v2.png",
+      "baseline": "5712c83be09c601ed68dc27e6cd49c88831a80d27f7e3424ac711afef6756bb8",
+      "candidate": "5712c83be09c601ed68dc27e6cd49c88831a80d27f7e3424ac711afef6756bb8",
+      "unchanged": true
+    },
+    {
+      "path": "assets/before_the_fame/characters/gbenga/runtime_80x96/gbenga_golden_draco_80x96_v2.png",
+      "baseline": "a71f7152df6b893ffeeef32d2726d20595eb3d50f1a6e6ffe63c2f9580c092b3",
+      "candidate": "a71f7152df6b893ffeeef32d2726d20595eb3d50f1a6e6ffe63c2f9580c092b3",
+      "unchanged": true
+    },
+    {
+      "path": "assets/rc4/combat_candidates_v2/gbenga-voice-prepare.png",
+      "baseline": "8f009c8fb89e6774061f032bf8eab986bdfc9870bc978715f389b7ad1e39e973",
+      "candidate": "8f009c8fb89e6774061f032bf8eab986bdfc9870bc978715f389b7ad1e39e973",
+      "unchanged": true
+    },
+    {
+      "path": "assets/rc4/combat_candidates_v2/gbenga-voice-action.png",
+      "baseline": "ebc8d4a610e5ddc652c1c974aab2d0a0df0dc098883aa8ec178e9cf41d621d24",
+      "candidate": "ebc8d4a610e5ddc652c1c974aab2d0a0df0dc098883aa8ec178e9cf41d621d24",
+      "unchanged": true
+    },
+    {
+      "path": "assets/rc4/combat_candidates_v2/gbenga-voice-contact.png",
+      "baseline": "46e97029f080261a4cab0670db1162825372d954a0959c72e08e8b58c8df453d",
+      "candidate": "46e97029f080261a4cab0670db1162825372d954a0959c72e08e8b58c8df453d",
+      "unchanged": true
+    },
+    {
+      "path": "assets/rc4/combat_candidates_v2/gbenga-voice-recovery.png",
+      "baseline": "71b1b0a141588b406ec89288da5e1faf995f7d3ce2d48be76c078e0f88a967de",
+      "candidate": "71b1b0a141588b406ec89288da5e1faf995f7d3ce2d48be76c078e0f88a967de",
+      "unchanged": true
+    },
+    {
+      "path": "assets/rc4/combat_candidates_v2/gbenga-draco-prepare.png",
+      "baseline": "e650b1432a77d680be644f6a9aa5d93e55930d2d8d57426340d3627b060cb7f4",
+      "candidate": "e650b1432a77d680be644f6a9aa5d93e55930d2d8d57426340d3627b060cb7f4",
+      "unchanged": true
+    },
+    {
+      "path": "assets/rc4/combat_candidates_v2/gbenga-draco-action.png",
+      "baseline": "1403163805cf23035e60e13aaa913ead5eabb2792903d019cb27b4b32099ecf9",
+      "candidate": "1403163805cf23035e60e13aaa913ead5eabb2792903d019cb27b4b32099ecf9",
+      "unchanged": true
+    },
+    {
+      "path": "assets/rc4/combat_candidates_v2/gbenga-draco-contact.png",
+      "baseline": "a735b8bf82c05cb2ad43a7dd909fdd2e380fac861f8c11147b5198ebcadd1197",
+      "candidate": "a735b8bf82c05cb2ad43a7dd909fdd2e380fac861f8c11147b5198ebcadd1197",
+      "unchanged": true
+    },
+    {
+      "path": "assets/rc4/combat_candidates_v2/gbenga-draco-recovery.png",
+      "baseline": "eae3fb386941a7486f698f9716d374026fdbb86b29ae6b8ff9c69c83ab4b075b",
+      "candidate": "eae3fb386941a7486f698f9716d374026fdbb86b29ae6b8ff9c69c83ab4b075b",
+      "unchanged": true
+    },
+    {
+      "path": "assets/rc4/combat_candidates_v3/importer-shove-prepare.png",
+      "baseline": "dc953868cc981129565ad3e87b92611507b3b37daf3cd02bb57ca68928dd976a",
+      "candidate": "dc953868cc981129565ad3e87b92611507b3b37daf3cd02bb57ca68928dd976a",
+      "unchanged": true
+    },
+    {
+      "path": "assets/rc4/combat_candidates_v3/importer-shove-action.png",
+      "baseline": "94f7be5bc2503c585a7a637bcf71dd3db3bc9697aea250d28574a637842c30fa",
+      "candidate": "94f7be5bc2503c585a7a637bcf71dd3db3bc9697aea250d28574a637842c30fa",
+      "unchanged": true
+    },
+    {
+      "path": "assets/rc4/combat_candidates_v3/importer-shove-contact.png",
+      "baseline": "84afee353ef1cadd14ca20328cfe0c95d60f85a17d79becfd00d7e0a6c221afb",
+      "candidate": "84afee353ef1cadd14ca20328cfe0c95d60f85a17d79becfd00d7e0a6c221afb",
+      "unchanged": true
+    },
+    {
+      "path": "assets/rc4/combat_candidates_v3/importer-shove-recovery.png",
+      "baseline": "007f0381b4b4773294bbc1acb906fbbed473f7602e9a24f597e4cd6e9746e386",
+      "candidate": "007f0381b4b4773294bbc1acb906fbbed473f7602e9a24f597e4cd6e9746e386",
+      "unchanged": true
+    }
+  ],
+  "brotherFiles": [
+    {
+      "path": "private_overlay/src/S5.js",
+      "unchanged": true,
+      "sha256": "5eadf67794ff8c019a7f6e7764835f406b2d4c8a06839b3fdadbe50175092543"
+    },
+    {
+      "path": "private_overlay/src/S6.js",
+      "unchanged": true,
+      "sha256": "3dea2aac93966106410d92ceae7196fc50398e4f064c26771c9319a207f7c0af"
+    }
+  ],
+  "allOtherLegacyGameSourceUnchanged": true,
+  "privateDiff": [],
+  "runtimeFiles": [
+    "game.js",
+    "js/data/combat.js",
+    "js/frag/F07/gbenga_combat.js",
+    "js/systems/enemy_fx.js"
+  ]
+}
