@@ -188,7 +188,17 @@
   function reset(){state=clone(defaults);save();return state;}
   function get(){return state;}
   function patch(path,value){const parts=String(path||'').split('.').filter(Boolean);if(!parts.length)return false;let current=state;for(let index=0;index<parts.length-1;index++)current=current[parts[index]]||(current[parts[index]]={});current[parts.at(-1)]=value;save();return value;}
+  // Commit related state changes together. Failed storage writes leave the live state untouched.
+  function transaction(mutator){
+    if(typeof mutator!=='function')return {ok:false,error:'mutator-required'};
+    const next=clone(state);let value;
+    try{value=mutator(next);}catch(error){return {ok:false,error:error.message||'mutation-failed'};}
+    if(value===false)return {ok:false,error:'aborted'};
+    const checked=migrateWithReport(next);if(!checked.ok)return {ok:false,error:checked.error};
+    if(!write(localStorage,checked.state,true))return {ok:false,error:'storage-write-failed'};
+    state=checked.state;return {ok:true,value};
+  }
   function recordEvent(event){if(!event?.id)return false;const history=state.life.history;if(history.some(item=>item.id===event.id))return false;history.push({...event,at:event.at||new Date().toISOString()});save();return true;}
-  window.RAState={load,save,reset,get,patch,recordEvent,migrateRecord,migrateWithReport,normalizeRecord,parseRecord,read,write,getLoadStatus:()=>({...loadStatus}),defaults:clone(defaults),version:VERSION,keys:{primary:KEY,recovery:RECOVERY_KEY,quarantine:QUARANTINE_KEY}};
+  window.RAState={load,save,reset,get,patch,transaction,recordEvent,migrateRecord,migrateWithReport,normalizeRecord,parseRecord,read,write,getLoadStatus:()=>({...loadStatus}),defaults:clone(defaults),version:VERSION,keys:{primary:KEY,recovery:RECOVERY_KEY,quarantine:QUARANTINE_KEY}};
   load();
 })();

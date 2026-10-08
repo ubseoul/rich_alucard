@@ -9,7 +9,7 @@
  function check(via){for(const w of watchers.values()){const next=read(w);if(next!==w.last){const prev=w.last;w.last=next;if(prev!==undefined&&!w.silentVia?.has(via.split(':')[0])){try{w.fn(next,prev,{via});}catch(e){console.error('state watcher',w.id,e);}}}}}
  function install(){
   if(installed)return;installed=true;const S=window.RAState;
-  for(const name of ['patch','save','reset','load']){
+  for(const name of ['patch','save','reset','load','transaction']){
    const original=S[name];if(typeof original!=='function')continue;
    S[name]=function(...args){const result=original.apply(this,args);check(name==='patch'?`patch:${args[0]}`:name);return result;};
   }

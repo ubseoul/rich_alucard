@@ -15,14 +15,14 @@
  const read=()=>flag('rc3Day')?.day===day()?flag('rc3Day'):{day:day(),story:!!flag('ogunsRaveCompleted')&&L().newOga.lastMissionDay===day(),action:false,paid:false,moneyBefore:RALife.money(),earnedIncome:0};
  const patch=v=>{const s={...read(),...v};RALife.setFlag('rc3Day',s);return s;};
  const dancer=id=>!!window.RAF15?.parse?.(id);
- function allowed(id){return id==='A00'||id==='RC3_FIGHT'||MISSIONS.includes(id)||MAPS.includes(id)||HALL.includes(id)||UTILITY.includes(id)||MUSIC.includes(id)||SOCIAL.includes(id)||dancer(id);}
- function canStart(id,from){if(!allowed(id))return false;if(RAAdventures.active()?.id===id)return true;
+ function allowed(id){if(window.RAStoryPolicy?.allowed)return RAStoryPolicy.allowed(id);return id==='A00'||id==='RC3_FIGHT'||MISSIONS.includes(id)||MAPS.includes(id)||HALL.includes(id)||UTILITY.includes(id)||MUSIC.includes(id)||SOCIAL.includes(id)||dancer(id);}
+ function canStart(id,from){if(window.RAStoryPolicy?.canStart)return RAStoryPolicy.canStart(id,from);if(!allowed(id))return false;if(RAAdventures.active()?.id===id)return true;
   if(MUSIC.includes(id)||SOCIAL.includes(id))return ['phone','chain','castle:music','rc5-music',...(SOCIAL.includes(id)?['rc3-maps']:[])].includes(from)&&RAAdventures.available(id);
   if(MAPS.includes(id))return (from==='rc3-maps'||(from==='chain'&&id==='A56'&&RAAdventures.isDone('A54')))&&RAAdventures.available(id);
   if(HALL.includes(id))return from==='rc4-hall'&&RALife.hasRoom('party_hall')&&RAAdventures.available(id);
   if(MISSIONS.includes(id))return RAAdventures.available(id);
   if(id==='DATE')return false;return true;}
- function pendingMission(){const s=L().newOga;
+ function pendingMission(){if(window.RAStoryPolicy?.pendingMission)return RAStoryPolicy.pendingMission();const s=L().newOga;
   if(!s.m1Rewarded)return 'NEW_OGA_M1';
   if(s.mission<2)return 'NEW_OGA_M2';
   if(s.mission<3)return 'NEW_OGA_M3';
@@ -38,8 +38,8 @@
   if(!s.finaleDone)return 'NEW_OGA_FINALE';
   return null;
  }
- function chapter(){return !flag('throneDone')?'Prologue':!flag('ogunsRaveCompleted')?"Ogun's Rave":L().newOga.finaleBegun?'Finale':'New Oga ladder';}
- function next(){const s=read(),m=pendingMission(),active=RAAdventures.active();let label,kind='story',app='vampgpt';
+ function chapter(){if(window.RAStoryPolicy?.chapter)return RAStoryPolicy.chapter();return !flag('throneDone')?'Prologue':!flag('ogunsRaveCompleted')?"Ogun's Rave":L().newOga.finaleBegun?'Finale':'New Oga ladder';}
+ function next(){if(window.RAStoryPolicy?.next)return RAStoryPolicy.next();const s=read(),m=pendingMission(),active=RAAdventures.active();let label,kind='story',app='vampgpt';
   if(active?.vars?.rc4Paused)return {id:'recovery',key:`rc4:${day()}:resume`,kind:'recovery',app:'vampgpt',label:attemptAllowed(active.id,active.node)?'RESUME STORY':'SLEEP — RETRY TOMORROW',sub:'Your checkpoint is saved.',action:'rc3:next'};
   if(campaignComplete())return {id:'rest',key:`rc4:${day()}:rest`,kind:'rest',app:null,label:L().momentum.fameFired?'SLEEP':'END THE DAY',sub:L().momentum.fameFired?'Explore or rest; tomorrow advances time.':restCopy(),action:'rc3:next'};
   if(!flag('throneDone'))label='FINISH THE PROLOGUE';
@@ -52,7 +52,7 @@
    !flag('throneDone')?'Get out of the ocean. Then deal with the throne.':!flag('ogunsRaveCompleted')?'Your invite is ready. Meet the city before taking work.':'One assignment. Its choices and consequences carry forward.';
   return {id:kind,key:`rc3:${day()}:${label}`,kind,app,label,sub,action:'rc3:next'};
  }
- async function advance(){const n=next();
+ async function advance(){if(window.RAStoryPolicy?.advance)return RAStoryPolicy.advance();const n=next();
   if(n.kind==='recovery'){const a=RAAdventures.active();if(!attemptAllowed(a.id,a.node))return RABedroomLife.goToSleep();RAAdventures.context().set('rc4Paused',false);return RAAdventureScene.resume();}
   if(n.label==='FINISH THE PROLOGUE')return RANewGame.onStart();
   if(n.label==="OGUN'S RAVE"){patch({moneyBefore:RALife.money()});RALife.setFlag('ogunsRaveInvited',true);return RAOgunRave.begin();}
@@ -81,8 +81,8 @@
  // Rest advances time, never completes an assignment or pays a skipped day.
  // Return a live activity through its normal quit/checkpoint path before sleeping.
  const canSleep=()=>!!flag('throneDone')&&(!RAAdventures.active()||!!RAAdventures.active()?.vars?.rc4Paused);
- function prepareSleep(){if(!canSleep())return false;if(read().story){if(!read().action)patch({action:true,activity:'story'});claimCash();}return true;}
- function restCopy(){const s=read();return s.story?`Story done. ${s.paid?"Today's progression bonus is already settled.":RALife.fmt(Math.max(0,CASH_FLOOR-(Number(s.earnedIncome)||0)))+' game progression bonus settles tonight.'} Sleep advances one day.`:
+ function prepareSleep(){if(window.RAStoryPolicy?.prepareSleep)return RAStoryPolicy.prepareSleep();if(!canSleep())return false;if(read().story){if(!read().action)patch({action:true,activity:'story'});claimCash();}return true;}
+ function restCopy(){if(window.RAStoryPolicy?.restCopy)return RAStoryPolicy.restCopy();const s=read();return s.story?`Story done. ${s.paid?"Today's progression bonus is already settled.":RALife.fmt(Math.max(0,CASH_FLOOR-(Number(s.earnedIncome)||0)))+' game progression bonus settles tonight.'} Sleep advances one day.`:
   'Rest advances one day. No progression bonus tonight; unfinished work stays available. Saved checkpoints and purchases stay yours.';}
  function creditActivity(id,result){
   if(!result||result.quit||result.error||result.data?.refused||['lose','fail','cancel','quit','refused'].includes(String(result.outcome).toLowerCase()))return false;
@@ -114,11 +114,11 @@
   // Authored campaign activities retain their actual checkpoint for later retry.
   if(MUSIC.includes(a.id))RAAdventures.abandon();else suspend();
  }
- function missionReady(id){const s=L().newOga;if(day()<=Number(s.lastMissionDay||0))return false;
+ function missionReady(id){if(window.RAStoryPolicy?.missionReady)return RAStoryPolicy.missionReady(id);const s=L().newOga;if(day()<=Number(s.lastMissionDay||0))return false;
   if(id==='NEW_OGA_VAMPGPT'&&s.m10VampgptReaskDay!=null&&day()<s.m10VampgptReaskDay)return false;return true;
  }
  const storyEvent=id=>id==='ogun_rave_invite_001'&&!flag('ogunsRaveCompleted');
- function showMorning(layer,el){const n=next(),wrap=el('div','morning-mail');wrap.style.pointerEvents='auto';
+ function showMorning(layer,el){if(window.RAStoryPolicy?.showMorning)return RAStoryPolicy.showMorning(layer,el);const n=next(),wrap=el('div','morning-mail');wrap.style.pointerEvents='auto';
   wrap.append(el('h2',null,`DAY ${day()}`));if(day()===1)wrap.append(el('p','phone-chat',`<b>RICH</b> ${window.RAWriting.voice(1)}`));const b=el('button','mail-card',`<b>${n.label}</b>${chapter()}`);b.type='button';b.addEventListener('click',()=>{wrap.remove();advance();});
   const up=el('button','mail-done','GET UP');up.type='button';up.addEventListener('click',()=>{wrap.remove();window.RABedroom?.releasePhone?.();});wrap.append(b,up);layer.append(wrap);
  }
@@ -142,7 +142,7 @@
   if(id!=='ramen')return false;const adventure=RAAdventures.isDone('A08')?'SLURP':'A08';
   if(!RAAdventures.available(adventure))return false;await RAPhone.close();return RAAdventureScene.begin(adventure,{from:'rc3-activity'});
  }
- function mapsMarkup(api,nav=true){releaseMap();return `<h1>MAPS</h1><p class="phone-small">Food, familiar faces and trouble worth leaving home for. Pick an outing or keep the night to yourself.</p>${[...MAPS,...SOCIAL].filter(id=>RAAdventures.available(id)).map(id=>api.button(api.esc(RAAdventures.get(id).title),`rc3:map:${id}`)).join('')}${tripReady()?api.button('ATLANTA · BUTTER CHICKEN','rc3:map:atlanta'):''}${[...MAPS,...SOCIAL].some(id=>RAAdventures.available(id))||tripReady()?'':'<p>No outing ready tonight.</p>'}${nav?api.button('HOME','home','phone-home'):''}`;}
+ function mapsMarkup(api,nav=true){if(window.RAStoryPolicy?.mapsMarkup)return RAStoryPolicy.mapsMarkup(api,nav);releaseMap();return `<h1>MAPS</h1><p class="phone-small">Food, familiar faces and trouble worth leaving home for. Pick an outing or keep the night to yourself.</p>${[...MAPS,...SOCIAL].filter(id=>RAAdventures.available(id)).map(id=>api.button(api.esc(RAAdventures.get(id).title),`rc3:map:${id}`)).join('')}${tripReady()?api.button('ATLANTA · BUTTER CHICKEN','rc3:map:atlanta'):''}${[...MAPS,...SOCIAL].some(id=>RAAdventures.available(id))||tripReady()?'':'<p>No outing ready tonight.</p>'}${nav?api.button('HOME','home','phone-home'):''}`;}
  // Powder Springs butter chicken (desire trip 001): repeatable, after Ogun's rave, never mid-adventure.
  function tripReady(){return !!flag('ogunsRaveCompleted')&&!RAAdventures.active()&&!!window.RADesireTrips&&window.RAOpportunities?.get?.('atlanta')?.available!==false;}
  async function tripGo(){if(!tripReady())return false;const trip=RADesireTrips.createTrip(window.RADesireTripPresentation?.firstTrip||{});if(!trip)return false;window.RAClock?.logOuting?.({type:'desire',id:'butter_chicken'});const ok=await RAPhone.close();if(ok===false)return false;return RADesireTrips.beginTravel();}
@@ -232,7 +232,10 @@
   if(day()===1&&flag('throneDone'))patch({action:true});
  }});
  // Cut runs in an old save cannot resume through the bedroom, and old automatic follow-ups are retired.
- const active=RAAdventures.active();if(active&&!allowed(active.id)){RAAdventures.abandon();RAState.patch('life.clock.returnBeat',null);}
+ // Optional policy providers finish installing on DOMContentLoaded. Validate saved
+ // checkpoints against the final policy before removing an unavailable activity.
+ function validateStartupActivity(){const active=RAAdventures.active();if(active&&!window.RARC3.allowed(active.id)){RAAdventures.abandon();RAState.patch('life.clock.returnBeat',null);}}
+ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',validateStartupActivity,{once:true});else validateStartupActivity();
  RALife.setFlag('wakeTrigger',null);RAState.patch('life.temptations.live',[]);
  RALife.setFlag('onlyvamps_subs',[]);
  // OL-079: the protected ending owns its wake; retiring optional fame routes
