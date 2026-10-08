@@ -15,7 +15,10 @@ const esc=s=>String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;',
 const frozenPhoneCrew=o=>['G1','LEGENDARY-MASK'].includes(o?.id);
 const money=k=>'$'+Math.round(k*1000).toLocaleString('en-US');
 const tapOnce=(node,fn)=>new Promise(r=>node.addEventListener('click',e=>{K.unlock();fn&&fn(e);r(e);},{once:true}));
-const richEl=(css)=>el('rich','',null,css);
+const richEl=(css,pose='standing')=>{
+ const phone=pose==='phone',file=phone?'rich_bedroom_phone_scroll.png':'rich_standing_right.png';
+ return el('rich'+(phone?' rich-phone':''),`<img src="${K.ASSETS+file}" width="${phone?128:80}" height="${phone?64:96}" alt="Rich Alucard">`,null,css);
+};
 const faceOf=(o,st={},size=32)=>portrait(o,st,size)||face({id:o.id,name:o.name,cls:o.cls,quirk:o.quirk,vampire:o.vampire},st);
 
 // ------------------------------------------------------------------------------------------------ 0. title (also unlocks audio)

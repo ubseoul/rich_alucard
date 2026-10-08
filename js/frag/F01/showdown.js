@@ -97,26 +97,36 @@
  // engine headlessly. F01 never touches War Room state: it returns a record and the strategic layer applies it.
  const PLAY_URL='assets/f01/play/index.html?embed=1';
  let playTransport=null;
- function iframeTransport(request){
-  return new Promise(resolve=>{
+ const activePlayTransports=new Map();
+ function iframeTransport(request,options={}){
+  const id=request.requestId;
+  if(activePlayTransports.has(id))return activePlayTransports.get(id);
+  if(activePlayTransports.size)return Promise.resolve(PC().refused(request,'PLAY_BUSY','another operation is still in progress'));
+  const operation=new Promise(resolve=>{
    const doc=root.document;if(!doc||!root.addEventListener)return resolve(PC().refused(request,'NO_HOST','no browser to show THE PLAY'));
-   // QA / accessibility switches on the host URL (?speed=10, ?mute=1, ?reduce=1, ?moretime=1) reach the PLAY page unchanged
-   let src=PLAY_URL;try{const q=new URLSearchParams(root.location.search);for(const k of ['speed','mute','reduce','moretime'])if(q.has(k))src+='&'+k+'='+encodeURIComponent(q.get(k));}catch(e){}
+   let src=options.url||PLAY_URL;try{const q=new URLSearchParams(root.location.search);for(const k of ['speed','mute','reduce','moretime'])if(q.has(k))src+='&'+k+'='+encodeURIComponent(q.get(k));}catch(e){}
    const frame=doc.createElement('iframe');frame.src=src;frame.setAttribute('title','THE PLAY');frame.id='f01-play-frame';
-   const cancel=doc.createElement('button');cancel.type='button';cancel.textContent='QUIT PLAY';cancel.setAttribute('aria-label','Quit PLAY');cancel.style.cssText='position:fixed;top:4px;left:4px;z-index:2147483001;padding:8px;background:#211a27;color:#fff;border:1px solid #aaa';
+   const cancel=doc.createElement('button');cancel.type='button';cancel.id='f01-play-exit';cancel.textContent='QUIT PLAY';cancel.setAttribute('aria-label','Quit PLAY');cancel.style.cssText='position:fixed;top:4px;left:4px;z-index:2147483001;min-height:44px;padding:8px;background:#211a27;color:#fff;border:1px solid #aaa';
    frame.style.cssText='position:fixed;inset:0;width:100%;height:100%;border:0;z-index:2147483000;background:#000';
-   let done=false;const origin=root.location.origin;
-   const finish=res=>{if(done)return;done=true;clearTimeout(timer);root.removeEventListener('message',on);frame.remove();cancel.remove();resolve(res);};
-   cancel.addEventListener('click',()=>finish(PC().refused(request,'QUIT','PLAY checkpoint returned without settlement')));
+   let done=false,ownerWatch=null;const origin=root.location.origin,owner=doc.querySelector('.ra-minigame');
+   // The child commits before its return animation. Leaving that animation must
+   // deliver the exact earned receipt, while an unfinished PLAY has no settlement.
+   const committed=()=>{try{const r=JSON.parse(root.localStorage.getItem((options.storagePrefix||'ra.f01.play.v1')+'.embed_results')||'{}')[id];return r&&r.requestId===id&&['COMPLETE','DECLINED'].includes(r.status)&&root.RAPlayContract.validateResult(r).ok?r:null;}catch(e){return null;}};
+   const finish=res=>{if(done)return;done=true;clearTimeout(timer);ownerWatch?.disconnect();root.removeEventListener('message',on);frame.remove();cancel.remove();resolve(res);};
+   cancel.addEventListener('click',()=>finish(committed()||PC().refused(request,'QUIT','PLAY checkpoint returned without settlement')));
    const on=ev=>{
     if(ev.origin!==origin||ev.source!==frame.contentWindow||!ev.data)return;
-    if(ev.data.type==='F01.play_ready'){clearTimeout(timer);frame.contentWindow.postMessage({type:'F04.play_request',request},origin);} // only the LOAD is time-boxed; a PLAY takes as long as it takes
-    else if(ev.data.type==='F01.play_result')finish(ev.data.result);
+    if(ev.data.type==='F01.play_ready'){clearTimeout(timer);frame.contentWindow.postMessage({type:'F04.play_request',request},origin);}
+    else if(ev.data.type==='F01.play_committed'&&ev.data.requestId===id&&committed()){cancel.textContent='RETURN TO MISSION';cancel.setAttribute('aria-label','Return to mission');}
+    else if(ev.data.type==='F01.play_result'&&ev.data.result?.requestId===id)finish(ev.data.result);
    };
    const timer=setTimeout(()=>finish(PC().refused(request,'PLAY_UNAVAILABLE','THE PLAY page did not answer')),20000);
    root.addEventListener('message',on);doc.body.appendChild(frame);doc.body.appendChild(cancel);
+   if(owner&&root.MutationObserver){ownerWatch=new root.MutationObserver(()=>{if(!owner.isConnected)finish(committed()||PC().refused(request,'QUIT','PLAY checkpoint returned without settlement'));});ownerWatch.observe(doc.body,{childList:true,subtree:true});}
   });
+  const pending=operation.finally(()=>activePlayTransports.delete(id));activePlayTransports.set(id,pending);return pending;
  }
+
  const PC=()=>({refused:(req,code,reason,errors)=>({schema:root.RAPlayContract.RESULT_SCHEMA,version:root.RAPlayContract.VERSION,requestId:(req&&req.requestId)||'',status:'REFUSED',code,reason,errors:errors||[],cash:{gain:0,spent:0}})});
  async function launchPlay(request,opts){
   opts=opts||{};
@@ -131,7 +141,7 @@
   if(res.requestId!==request.requestId)return PC().refused(request,'BAD_RESULT','result answers a different request',[]);
   return res;
  }
- const play={launch:launchPlay,setTransport(fn){playTransport=typeof fn==='function'?fn:null;},contract:()=>root.RAPlayContract||null,version:()=>root.RAPlayContract?root.RAPlayContract.VERSION:0,url:PLAY_URL};
+ const play={launch:launchPlay,transport:iframeTransport,setTransport(fn){playTransport=typeof fn==='function'?fn:null;},contract:()=>root.RAPlayContract||null,version:()=>root.RAPlayContract?root.RAPlayContract.VERSION:0,url:PLAY_URL};
 
  root.RAShowdown={FLAG,enabled,hooks,stores,createSession,launch,describe,enter,play,f04:{enter:enterF04,toResolution:P.toF04Resolution},f02:{bind:P.bindF02,report:P.f02Report},
   profiles:P.profiles,registerProfile:P.registerProfile,engine:E,data:D,packets:P,

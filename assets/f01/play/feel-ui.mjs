@@ -161,7 +161,7 @@ async function returnFlow(out,rec,bankBefore){
  // a collapse or a clean win both end in black first (the WASH steps already faded; otherwise fade here)
  if(!(ctx.feed&&ctx.feed.quiet&&rec.klass==='WASH'))await K.fadeTo(1,rec.klass==='WASH'?1000:900);
  K.stopAll();K.duck(false);
- const res=await V.returnScene({rec,crewObjs:objs,w,bankBefore});
+ const res=await V.returnScene({rec,crewObjs:objs,w,bankBefore,canonical:G.embed?.canonical||null});
  G.lastReturn=res;
  tele.start('again');
  const canonical=G.embed?.canonical||null;
@@ -224,7 +224,8 @@ async function runEmbeddedOnce(req){
  if(picked.refuse&&!viaHome)return AD.refusedResult(req,picked.refuse.code,picked.refuse.reason);
  let result=null;
  const commit=(res)=>{const c=store.get(RESULTS_KEY,{});c[req.requestId]=res;const keys=Object.keys(c);for(const k of keys.slice(0,Math.max(0,keys.length-AD.RESULT_KEEP)))delete c[k];store.set(RESULTS_KEY,c);store.set(EMBED_KEY,G.w);};
- G.embed={req,onApplied:(rec,wNow)=>{result=AD.buildResult(req,{rec,w:wNow,before,cash0});G.embed.canonical=result;wNow.morningTexts=G.texts.slice();commit(result);}};
+ G.embed={req,onApplied:(rec,wNow)=>{result=AD.buildResult(req,{rec,w:wNow,before,cash0});G.embed.canonical=result;wNow.morningTexts=G.texts.slice();commit(result);
+  if(window.parent!==window)window.parent.postMessage({type:'F01.play_committed',requestId:req.requestId},location.origin);}};
  w.ui={open:w.night,used:false};
  try{
   await K.fadeTo(1,1);
