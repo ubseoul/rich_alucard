@@ -18,7 +18,10 @@ button:disabled{opacity:.4;cursor:default}
 @keyframes blink{50%{opacity:.15}}
 .dim{position:absolute;inset:0;background:rgba(0,0,0,.35)}
 .bank{position:absolute;right:8px;top:8px;font-size:11px;color:var(--green);letter-spacing:1px;z-index:5}
-.rich{position:absolute;width:50px;height:96px;background:url(../../before_the_fame/characters/rich/rich_contextual_state_sheet_320x96.png) -190px 0 no-repeat;image-rendering:pixelated;transform-origin:50% 100%}
+.rich{position:absolute;width:80px;height:96px;image-rendering:pixelated;transform-origin:40px 88px}
+.rich>img{display:block;width:80px;height:96px}
+.rich-phone{position:absolute;width:128px;height:64px;image-rendering:pixelated;transform-origin:64px 56px}
+.rich-phone>img{display:block;width:128px;height:64px}
 /* phone offer */
 .call{position:absolute;left:16px;right:16px;top:44px;background:linear-gradient(#15151d,#0b0b10);border:2px solid #2a2a38;border-radius:20px;padding:14px 12px 12px;text-align:center;box-shadow:0 8px 30px #000c;z-index:5}
 .call .who{font-size:9px;letter-spacing:2px;color:#9aa0b8}

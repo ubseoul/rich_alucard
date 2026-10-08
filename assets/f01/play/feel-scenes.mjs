@@ -31,8 +31,8 @@ export async function titleScene(){
 // ------------------------------------------------------------------------------------------------ 1a. home: what happened while Rich slept (only when something needs him)
 // lock-screen texts (a crew text from the morning after) and the two things that can still be undone: a lost car, a lost gun, a captive's ransom.
 export async function homeScene({w,texts=[],recover=[],ransom=[],bank}){
- clear();bg(BG.room,'brightness(.5) saturate(.8)');el('dim');el('bank','BANK '+money(bank));
- richEl({left:'110px',top:'300px',transform:'scale(1.5)'});
+ clear();bg(K.ASSETS+'rich_bedroom_environment_270x480.png','brightness(.5) saturate(.8)');el('dim');el('bank','BANK '+money(bank));
+ richEl({left:'14px',top:'282px'},'phone');
  await fadeTo(0,700);
  if(!texts.length&&!recover.length&&!ransom.length)return;
  const card=el('lock','',null);
@@ -53,8 +53,8 @@ export async function homeScene({w,texts=[],recover=[],ransom=[],bank}){
 // ------------------------------------------------------------------------------------------------ 1b. PHONE OFFER — "do I take the job?"
 // Name, potential cash, minimum Ogas, and danger as FICTION (never a percentage, never a risk stat). A NOTICE (HOLD THE HOUSE) cannot be declined.
 export async function offerScene(o){
- clear();bg(BG.room,'brightness(.5) saturate(.8)');el('dim');el('bank','BANK '+money(o.bank));
- richEl({left:'110px',top:'300px',transform:'scale(1.5)'});
+ clear();bg(K.ASSETS+'rich_bedroom_environment_270x480.png','brightness(.5) saturate(.8)');el('dim');el('bank','BANK '+money(o.bank));
+ richEl({left:'14px',top:'282px'},'phone');
  await fadeTo(0,500);await sleep(o.again?700:1300);
  const hint=(o.hints||[]).map(h=>`<div class="hint">${esc(o.caller)}: ${esc(h.text)}</div>`).join('');
  const call=el('call',`<div class="who">${esc(o.caller)}</div><div class="ring">${o.notice?'URGENT':'INCOMING CALL'}</div>
@@ -75,7 +75,9 @@ export async function offerScene(o){
 // ------------------------------------------------------------------------------------------------ 2. CREW / CAR — "who am I sending, what are they carrying, what are they taking?"
 // ONE screen. Crew is PRESELECTED. Confirm, swap ONE Oga, weapon or BARE HANDS per Oga, the owned car. Seating and approach are automatic (backstage).
 export async function crewScene({pr,w,job,hints,pitcher,big,defense,lastCar}){
- clear();bg(defense?BG.castle:BG.street);
+ clear();const setupBg=bg(defense?BG.castle:BG.street);
+ // A bounded street crop places the road under the setup car while controls keep their native geometry.
+ if(!defense)Object.assign(setupBg.style,{left:'-27px',top:'-96px',width:'324px',height:'576px'});
  const P=pr.P,avail=pr.avail,options=pr.options;
  const usable=options.filter(o=>!o.disabled);
  let carId=defense?'CASTLE':(lastCar&&usable.some(o=>o.id===lastCar)?lastCar:(usable[0]||options[0]).id);
@@ -103,7 +105,7 @@ export async function crewScene({pr,w,job,hints,pitcher,big,defense,lastCar}){
   if(defense)return;
   const {w:cw,h:ch}=A.carSize(carId);
   carNode=el('car',`<div class="body">${A.carHTML(carId)}</div>`,null,{left:'8px',top:(300-ch)+'px',width:cw+'px',height:ch+'px'});carNode.dataset.car=carId;
-  carNode._sh=el('shadow','',null,{left:'14px',top:'296px',width:(cw-12)+'px',height:'8px'});
+  carNode._sh=el('shadow','',null,{left:'14px',top:'295px',width:(cw-12)+'px',height:'3px'});
   const opt=options.find(o=>o.id===carId);
   carPick=el('carpick',`◂ ${carId} ▸<small>${esc(C.CARS[carId].word)} · ${seatsOf(carId)} SEATS</small><span class="change">CHANGE TRANSPORT</span>`,null,{left:'20px',top:'198px'});
   const cyc=()=>{
@@ -211,7 +213,7 @@ export function bust(o,size=34,st={}){
 }
 export function makeCar(id,x,y){
  const {w,h}=A.carSize(id);const car=el('car',`<div class="body">${A.carHTML(id)}</div><div class="hl"></div>`,null,{left:x+'px',top:y+'px',width:w+'px',height:h+'px'});car.dataset.car=id;
- car._sh=el('shadow','',null,{left:x+6+'px',top:y+h-6+'px',width:(w-12)+'px',height:'10px'});car._w=w;return car;
+ car._sh=el('shadow','',null,{left:x+6+'px',top:y+h-5+'px',width:(w-12)+'px',height:'3px'});car._w=w;return car;
 }
 function puffs(car,n=6){
  const x=parseFloat(car.style.left)-2,y=parseFloat(car.style.top)+(parseFloat(car.style.height)||50)-14;
@@ -384,8 +386,9 @@ export async function roomScene({crewObjs,defense,objective='THE PLAY'}){
 // Rich COUNTS while the total rolls upward, then the trunk reveals ONE ITEM AT A TIME — everything shown is what was really awarded (M6).
 export async function returnScene({rec,crewObjs,w,bankBefore,canonical=null}){
  const RR=W.returnRoster(rec);
- clear();bg(RR.alone?A.FL_ART.base.empty:A.FL_ART.base.home);   // FL-A02: the base curb/driveway; the empty variant is Rich alone
- const rich=richEl({left:'206px',top:'354px',transform:'scale(1.2)'});
+ clear();bg(RR.alone?A.RETURN_BASE.empty:A.RETURN_BASE.home); // Approved night-street arrival; frozen FL-A02 stays byte-identical
+ el('shadow','',null,{left:'204px',top:'419px',width:'32px',height:'3px'});
+ const rich=richEl({left:'180px',top:'332px'});
  await fadeTo(0,900);await sleep(1100);
  const back=crewObjs.filter(o=>RR.back.includes(o.id));
  const carLost=!RR.car&&rec.shape!=='HOLD THE HOUSE';
@@ -393,20 +396,20 @@ export async function returnScene({rec,crewObjs,w,bankBefore,canonical=null}){
  const nothing=RR.alone;
  S.curb();
  if(nothing){ // RICH IS ALONE. No crew, no car, no bags. The emptiness is the message.
-  rich.style.transform='scale(1.2) scaleX(-1)';
+  rich.style.transform='scaleX(-1)';
   await sleep(6500);return {alone:true};
  }
  let car=null;
- if(!defense&&!carLost){car=makeCar(rec.car,-170,318);car.classList.add('on');S.engine(rec.car,'idle',.35);await drive(car,4,1500,'cubic-bezier(.1,.7,.3,1)');car.classList.remove('on');puffs(car,4);S.thud();await sleep(600);}
- const slots=crewObjs.map((o,i)=>92+i*Math.min(34,140/Math.max(1,crewObjs.length-1)));
+ if(!defense&&!carLost){car=makeCar(rec.car,-170,344);car.classList.add('on');S.engine(rec.car,'idle',.35);await drive(car,4,1500,'cubic-bezier(.1,.7,.3,1)');car.classList.remove('on');puffs(car,4);S.thud();await sleep(600);}
+ const slots=crewObjs.map((o,i)=>20+i*Math.min(42,126/Math.max(1,crewObjs.length-1)));
  const holders={};
  for(let i=0;i<crewObjs.length;i++){
   const o=crewObjs[i];const st=rec.finalStatus[o.id];
-  if(!back.some(b=>b.id===o.id)){const g=el('missing','',null,{left:slots[i]+'px',top:'288px',opacity:0});anim(g,[{opacity:0},{opacity:1}],900);continue;}
+  if(!back.some(b=>b.id===o.id)){const g=el('missing','',null,{left:slots[i]+'px',top:'373px',opacity:0});anim(g,[{opacity:0},{opacity:1}],900);continue;}
   const gunNow=(rec.gunGifts||[]).find(g=>g.to===o.id);
   const oo={...o,gun:gunNow?gunNow.gun:(rec.lost&&rec.lost.guns||[]).some(g=>g.from===o.id)?'hands':o.gun};
-  const b=bust(oo,32,{hurt:st!=='READY',zone:st==='READY'?'STEADY':'SHAKY',pose:st==='SHOT'?'carried':st==='READY'?'standing':'wounded'});pos(b,car?110:-40,322);b.style.opacity=0;if(st==='SHOT'&&!A.hasSprite(oo))b.style.transform='rotate(-12deg)';
-  anim(b,[{opacity:0,left:(car?110:-40)+'px',top:'322px'},{opacity:1,left:slots[i]+'px',top:'290px'}],car?600:1300,{easing:'ease-out'});holders[o.id]=b;
+  const b=bust(oo,32,{hurt:st!=='READY',zone:st==='READY'?'STEADY':'SHAKY',pose:st==='SHOT'?'carried':st==='READY'?'standing':'wounded'});pos(b,car?110:-40,358);b.style.opacity=0;if(st==='SHOT'&&!A.hasSprite(oo))b.style.transform='rotate(-12deg)';
+  anim(b,[{opacity:0,left:(car?110:-40)+'px',top:'358px'},{opacity:1,left:slots[i]+'px',top:'373px'}],car?600:1300,{easing:'ease-out'});holders[o.id]=b;
   S.thud();await sleep(car?420:520);
  }
  await sleep(1000);
@@ -417,10 +420,9 @@ export async function returnScene({rec,crewObjs,w,bankBefore,canonical=null}){
  const payout=await cashPayout({cashK,amount:canonical?.cash?.gain??null});
  if(payout.cancelled)return {alone:false,counted:cashK,cancelled:true};
  // ---- the trunk: one item at a time, physically dropped beside the bags (kicker last). Spots fit the 48px FL-A10 pieces inside the 270px stage.
- // QA REPAIR 001: the five spots keep clear of Rich (drawn body ~213-247 x 378-441), the cash haul (~47-162 x 375-427), the parked car (~8-137 x 325-364)
- // and the crew's feet (~323): three in the open courtyard above the car, two on the pavement between the car and Rich. The label sits in one caption lane
- // (`.lootlab.lane`, between the TAKE line and the crew's heads) so a long name can never run over Rich, the haul or another piece.
- const spots=[[4,256],[52,256],[100,256],[142,330],[196,330]];let prevLab=null;
+ // Five native loot cells rest on the foreground pavement, below Rich, the crew and haul.
+ // Their caption keeps its existing lane; source pixels and item order are unchanged.
+ const spots=[[8,429],[56,430],[104,426],[152,426],[200,425]];let prevLab=null;
  const shownList=[];
  for(let i=0;i<items.length;i++){
   const it=items[i],[x,y]=spots[i]||[30+i*24,352];
@@ -430,7 +432,7 @@ export async function returnScene({rec,crewObjs,w,bankBefore,canonical=null}){
   if(piece)inner=`<img class="lp lp-${String(it.rar||'COMMON').toLowerCase()}" src="${piece}" alt="" width="48" height="48">`;
   else{inner=crate({cat:it.cat==='RECRUIT'?'RECRUIT':it.cat,rar:it.rar},44);wd=ht=44;}
   const node=el('lootitem',inner,null,{left:x+'px',top:y+'px',width:wd+'px',height:ht+'px',opacity:0});
-  el('shadow','',null,{left:x+'px',top:y+ht-3+'px',width:wd+'px',height:'7px'});
+  el('shadow','',null,{left:x+6+'px',top:'464px',width:wd-12+'px',height:'3px'});
   await anim(node,[{opacity:1,transform:'translateY(-120px) rotate(-20deg)'},{opacity:1,transform:'translateY(0) rotate(0)'},{opacity:1,transform:'translateY(-10px)'},{opacity:1,transform:'translateY(0)'}],620,{easing:'ease-in'});
   S.thud();
   if(it.rar==='RARE'){S.crateGlow();}else if(it.rar==='LEGENDARY'){S.gasp();S.stinger();}
