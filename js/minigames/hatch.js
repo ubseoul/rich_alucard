@@ -98,9 +98,9 @@
   function careKey(e){if(e.repeat||terminal)return;if(!ready&&(e.key==='Enter'||e.key===' ')){e.preventDefault();begin();return;}if(! /^[1-3]$/.test(e.key))return;e.preventDefault();advance(CARE_PROMPTS[Number(e.key)-1]);}
   window.addEventListener('keydown',careKey);
   // Exact candidate pixels are local to this consumer; frozen global Senator art is untouched.
-  const careFrames={feed:[],walk:[],joko:[]},contactRows={feed:[141,139,141],walk:[149,149,149,149],joko:[150,150,151]};
+  const careFrames={feed:[],walk:[],joko:[]},contactRows={feed:[152,152,152],walk:[152,152,152,152],joko:[152,152,152]};
   for(const [action,count] of [['feed',3],['walk',4],['joko',3]])for(let i=0;i<count;i++){
-   const image=new Image();image.src=`assets/rc5/senator-care-r1/senator_${action}_${String(i+1).padStart(2,'0')}_r1.png`;careFrames[action].push(image);
+   const image=new Image();image.src=`assets/player_feedback/senator-pixel-v3/senator_${action}_${String(i+1).padStart(2,'0')}_pixel_v3_160x160.png`;careFrames[action].push(image);
   }
   let candidateFamily=false;
   function drawDog(){
@@ -110,26 +110,26 @@
    let action='joko',frame=2;
    if(reacting&&response.prompt==='FEED'){
     if(age<240){action='feed';frame=0;}else if(age<540){action='feed';frame=1;}else if(age<740){action='feed';frame=2;}
-    R.rect(g,190,289,24,7,'#c18b3c');R.rect(g,193,286,18,3,'#ffd36a');
+    R.rect(g,190,374,24,7,'#c18b3c');R.rect(g,193,371,18,3,'#ffd36a');
    }else if(reacting&&response.prompt==='WALK'&&response.success){
     const sequence=[0,1,2,3,2,1,0],ends=[140,300,460,600,760,920,1060];
     const step=ends.findIndex(t=>age<t);if(step>=0){action='walk';frame=sequence[step];}
-    R.rect(g,165,250,2,30,'#ffd36a');R.text(g,'STAY CLOSE',135,180,{size:7,align:'center',color:'#20c66b'});
+    R.rect(g,165,346,2,30,'#ffd36a');R.text(g,'STAY CLOSE',135,180,{size:7,align:'center',color:'#20c66b'});
    }else if(reacting&&response.prompt==='JOKO'&&response.success&&age<240){frame=1;}
    if(candidateFamily){
     const contact=contactRows[action][frame],image=careFrames[action][frame];
-    g.imageSmoothingEnabled=false;g.drawImage(image,55,296-contact,160,160);
-    root.dataset.careArt=`${action}:${frame+1}`;root.dataset.careContact=String(contact);root.dataset.careGround='296';
+    g.imageSmoothingEnabled=false;const dogScale=.7,ground=378;g.fillStyle='rgba(8,7,17,.4)';g.fillRect(100,ground-1,70,3);g.drawImage(image,135-80*dogScale,ground-contact*dogScale,160*dogScale,160*dogScale);
+    root.dataset.careArt=`${action}:${frame+1}`;root.dataset.careContact=String(contact);root.dataset.careGround='378';
     return;
    }
    root.dataset.careArt='frozen-loading';
-   if(R.drawRegistered(g,'senator',135,296,'sitting'))return;
+   g.save();g.translate(135,378);g.scale(.7,.7);const loaded=R.drawRegistered(g,'senator',0,0,'sitting');g.restore();if(loaded)return;
    R.rect(g,74,224,122,72,'#4d4d55');R.rect(g,154,190,56,52,'#5b5b63');R.rect(g,164,176,12,22,'#3a3a42');R.rect(g,194,176,12,22,'#3a3a42');R.rect(g,168,208,8,6,'#d7193f');R.rect(g,194,208,8,6,'#d7193f');R.rect(g,167,238,36,7,'#c18b3c');R.text(g,'SENATOR',170,240,{size:5,color:'#10101b'});
   }
   function draw(){
    if(!R.drawBoard(g,'senator_care_ground'))R.paintEnvironment(g,{sky:'#0b1024',wall:'#1d1a33',floor:'#141225',horizon:360,seed:'senator-care',stars:18,props:[{type:'rect',x:0,y:346,w:270,h:134,color:'#1a1730'}]});drawDog();
    const displayIndex=feedbackMs>0&&response?Math.max(0,index-1):Math.min(index,2),prompt=CARE_PROMPTS[displayIndex];R.text(g,'SENATOR CARE',10,12,{size:8,color:'#f6efd9'});R.text(g,`PROMPT ${displayIndex+1}/3 · ${prompt}!`,10,34,{size:8,color:'#ffd36a'});R.text(g,`${Math.max(0,Math.ceil((windowMs-elapsed)/1000))}`,248,34,{size:7,color:'#f6efd9',align:'right'});
-   if(feedback&&feedbackMs>0)R.text(g,feedback,135,326,{size:6,color:'#f6efd9',align:'center',maxWidth:230});
+   if(feedback&&feedbackMs>0)R.text(g,feedback,135,194,{size:6,color:'#f6efd9',align:'center',maxWidth:230});
    buttons=[];for(const [i,id] of CARE_PROMPTS.entries()){const x=10+i*86;buttons.push({id,x,y:420,w:78,h:32});R.rect(g,x,420,78,32,feedbackMs>0?'#3a2f4a':id===prompt?'#c18b3c':'#3a6ff0');R.text(g,id==='JOKO'?'JOKO!':id,x+39,432,{size:7,color:'#f6efd9',align:'center'});}
    R.text(g,'1 FEED  /  2 WALK  /  3 JOKO',135,466,{size:5,align:'center'});
    R.text(g,'MISS WALK = SENATOR LOST',135,62,{size:6,align:'center',color:'#ff6fb5'});

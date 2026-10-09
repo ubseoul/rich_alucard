@@ -71,6 +71,7 @@
   // Phase 1's squad is THE OGAS lane (Patch 1 §4.1 "THE OGAS (squad)"). The source does not say who fights Phase 1 when it is not picked,
   // and no default is invented: the PLAY is refused (NO_SQUAD) and the plan can be remade. Creator decision recorded (F07 D-queue).
   if(kind==='finale_p1'&&!(Array.isArray(lanes)&&lanes.includes('ogas')))return {ok:false,code:'NO_SQUAD',reason:'THE OGAS ARE NOT IN THE PLAN',errors:['THE OGAS lane was not picked']};
+  if(kind==='finale_p1'&&window.RAF07?.lanesEligible?.(lanes)!==true)return {ok:false,code:'INELIGIBLE_LANES',reason:'REMAKE THE PLAN WITH ELIGIBLE PEOPLE',errors:['A selected lane has not been earned']};
   if(kind==='m8')ensureLoan();
   const seq=Number(rd(`${K}.seq`,0))+1,requestId=`f07:${kind}:${day()}#${seq}`;
   // D7 (creator-delegated): Phase 1 needs no car and no seat capacity. The request carries F01's own stock encounter vehicle (HOOPTIE) INSTEAD of
@@ -144,25 +145,7 @@
  // Phase 1 runs on F07's own PLAY page (F01's controller unchanged; F07's job + stage cards installed first). Same protocol as F01's
  // iframe transport: F01.play_ready -> F04.play_request -> F01.play_result, same-origin postMessage, only the LOAD is time-boxed.
  const F07_PLAY_URL='assets/f07/play/index.html?embed=1';
- function f07Transport(request){
-  return new Promise(resolve=>{
-   const doc=window.document;if(!doc||!window.addEventListener)return resolve({schema:window.RAPlayContract.RESULT_SCHEMA,version:window.RAPlayContract.VERSION,requestId:request.requestId,status:'REFUSED',code:'NO_HOST',reason:'no browser to show THE PLAY',errors:[],cash:{gain:0,spent:0}});
-   let src=F07_PLAY_URL;try{const q=new URLSearchParams(window.location.search);for(const k of ['speed','mute','reduce','moretime'])if(q.has(k))src+='&'+k+'='+encodeURIComponent(q.get(k));}catch(e){}
-   const frame=doc.createElement('iframe');frame.src=src;frame.setAttribute('title','THE PLAY');frame.id='f01-play-frame';
-   const cancel=doc.createElement('button');cancel.type='button';cancel.textContent='QUIT PLAY';cancel.setAttribute('aria-label','Quit PLAY');cancel.style.cssText='position:fixed;top:4px;left:4px;z-index:2147483001;padding:8px;background:#211a27;color:#fff;border:1px solid #aaa';
-   frame.style.cssText='position:fixed;inset:0;width:100%;height:100%;border:0;z-index:2147483000;background:#000';
-   let done=false;const origin=window.location.origin;
-   const finish=res=>{if(done)return;done=true;clearTimeout(timer);window.removeEventListener('message',on);frame.remove();cancel.remove();resolve(res);};
-   cancel.addEventListener('click',()=>finish({schema:window.RAPlayContract.RESULT_SCHEMA,version:window.RAPlayContract.VERSION,requestId:request.requestId,status:'REFUSED',code:'QUIT',reason:'PLAY checkpoint returned without settlement',errors:[],cash:{gain:0,spent:0}}));
-   const on=ev=>{
-    if(ev.origin!==origin||ev.source!==frame.contentWindow||!ev.data)return;
-    if(ev.data.type==='F01.play_ready'){clearTimeout(timer);frame.contentWindow.postMessage({type:'F04.play_request',request},origin);}
-    else if(ev.data.type==='F01.play_result')finish(ev.data.result);
-   };
-   const timer=setTimeout(()=>finish({schema:window.RAPlayContract.RESULT_SCHEMA,version:window.RAPlayContract.VERSION,requestId:request.requestId,status:'REFUSED',code:'PLAY_UNAVAILABLE',reason:'THE PLAY page did not answer',errors:[],cash:{gain:0,spent:0}}),20000);
-   window.addEventListener('message',on);doc.body.appendChild(frame);doc.body.appendChild(cancel);
-  });
- }
+ function f07Transport(request){return window.RAShowdown.play.transport(request,{url:F07_PLAY_URL,storagePrefix:'ra.f07.play.v1'});}
  // run(kind,{lanes,transport}): the pending request of THIS kind is re-issued after a reload (F01 answers a completed one from its record);
  // otherwise a new one is built and persisted BEFORE F01 is asked.
  let injected=null;   // headless hosts / tests only: a transport that replaces the iframe for every F07 PLAY
@@ -170,9 +153,21 @@
   const off=unavailable();if(off)return refusal(off,kind);
   let pending=rd(`${K}.pending`,null);
   if(pending&&pending.kind!==kind){wr(`${K}.pending`,null);pending=null;} // a request of another mission is stale: never mixed
+  let selected=opts.lanes;
+  if(kind==='finale_p1'){
+   // Older requests carry no lane provenance. Recheck the active plan before resuming them.
+   selected=opts.lanes??pending?.lanes??window.RAAdventures?.active?.()?.vars?.lanes;
+   if(!Array.isArray(selected)||!selected.includes('ogas'))return refusal({code:'NO_SQUAD',reason:'THE OGAS ARE NOT IN THE PLAN'},kind);
+   if(window.RAF07?.lanesEligible?.(selected)!==true){
+    // The host pauses refusals before the node's result router runs. Save the remake node now.
+    const a=window.RAAdventures?.active?.();if(a?.id==='NEW_OGA_FINALE')window.RAAdventures.patchActive({node:'plan',vars:{...a.vars,lanes:window.RAF07.eligibleLanes(selected)}});
+    return refusal({code:'INELIGIBLE_LANES',reason:'REMAKE THE PLAN WITH ELIGIBLE PEOPLE'},kind);
+   }
+   if(pending?.lanes&&window.RAF07?.lanesEligible?.(pending.lanes)!==true){wr(`${K}.pending`,null);pending=null;}
+  }
   if(!pending){
-   const built=buildRequest(kind,{lanes:opts.lanes});if(!built.ok)return refusal(built,kind);
-   pending={request:built.request,carMap:built.carMap,seq:built.seq,kind,startedDay:day()};
+   const built=buildRequest(kind,{lanes:selected});if(!built.ok)return refusal(built,kind);
+   pending={request:built.request,carMap:built.carMap,seq:built.seq,kind,...(kind==='finale_p1'?{lanes:[...selected]}:{}),startedDay:day()};
    wr(`${K}.pending`,pending);
   }
   // a real browser page gets F07's page for Phase 1; a headless host (no DOM) uses whatever transport F01 was given (tests)

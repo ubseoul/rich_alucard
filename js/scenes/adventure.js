@@ -24,6 +24,18 @@
  function waitTap(){return new Promise(resolve=>{tapResolver=resolve;scope?.cleanup(()=>{if(tapResolver===resolve){tapResolver=null;resolve();}});});}
  // `props`: frozen world art a node names ([{src,x,y}] — x centre, y contact line), drawn at native 1:1 in the
  // environment's 270×480 space above the base and its layers, below actors (e.g. a delivered car).
+ const propSupports=new Map();
+ // Only approved vehicle props use opaque wheel support. Frozen arcs retain full-cell placement.
+ function propSupport(p,img,env){
+  const active=window.RAAdventures?.active?.(),frozen=/^G[1-9](?:[-:]|$)/.test(active?.id||'')||active?.id==='LEGENDARY_RECOGNITION'||/^G3-/.test(env.id)||Object.values(active?.actors||{}).some(v=>['G1','LEGENDARY-MASK'].includes(typeof v==='string'?v:v?.id));
+  if(frozen||!Object.values(window.RAArtRegistry?.vehicles?.world||{}).some(v=>v?.asset===p.src))return img.naturalHeight;
+  if(Number.isFinite(p.supportY))return p.supportY;
+  const authored=window.RAPresentationAssets?.[p.src]?.support?.y;if(Number.isFinite(authored))return authored;
+  if(propSupports.has(p.src))return propSupports.get(p.src);
+  const cv=document.createElement('canvas');cv.width=img.naturalWidth;cv.height=img.naturalHeight;const c=cv.getContext('2d');c.drawImage(img,0,0);const a=c.getImageData(0,0,cv.width,cv.height).data;
+  let y=cv.height;outer:for(let j=cv.height-1;j>=0;j--)for(let x=0;x<cv.width;x++)if(a[(j*cv.width+x)*4+3]>=128){y=j+1;break outer;}
+  propSupports.set(p.src,y);return y;
+ }
  function paintEnv(id,surface,props=[]){
   window.RAOpenAudio?.environment(audio,id,RAEnvironments.get(id)?.paint?.rain);const env=RAEnvironments.get(id)||RAEnvironments.get('street_night');currentEnv=env;const {ctx}=envCanvas;ctx.clearRect(0,0,270,480);
   root.querySelector('.adv-location').textContent=env.name||'';
@@ -35,7 +47,7 @@
     for(const [layers,c] of [[[...(env.layers||[]),...scoped.under],ctx],[scoped.over,fctx]])for(const layer of layers){const L=loadImage(layer);const put=()=>{if(currentEnv===env)RAEnvironments.drawImage(c,L,env)};if(L.complete&&L.naturalWidth)put();else L.addEventListener('load',()=>{if(img.complete)put()},{once:true});}
     const pending=props.map(p=>loadImage(p.src)).filter(P=>!(P.complete&&P.naturalWidth));
     if(pending.length){for(const P of pending)P.addEventListener('load',()=>{if(currentEnv===env&&pending.every(q=>q.complete&&q.naturalWidth))draw();},{once:true});}
-    else for(const p of props){const P=loadImage(p.src);ctx.imageSmoothingEnabled=false;ctx.drawImage(P,Math.round(p.x-P.naturalWidth/2),Math.round(p.y-P.naturalHeight));}};if(img.complete&&img.naturalWidth)draw();else img.addEventListener('load',draw,{once:true});}
+    else for(const p of props){const P=loadImage(p.src);ctx.imageSmoothingEnabled=false;const support=propSupport(p,P,env);if(support!==P.naturalHeight){ctx.fillStyle='rgba(8,7,17,.35)';ctx.fillRect(Math.round(p.x-P.naturalWidth/2)+8,Math.round(p.y)-1,P.naturalWidth-16,2);}ctx.drawImage(P,Math.round(p.x-P.naturalWidth/2),Math.round(p.y-support));}};if(img.complete&&img.naturalWidth)draw();else img.addEventListener('load',draw,{once:true});}
   else RAPixel.paintEnvironment(ctx,env.paint);
   root.dataset.env=env.id;root.classList.toggle('adv-placeholder-env',!!env.placeholder);
   return scoped;

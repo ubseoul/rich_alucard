@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="270" height="480" viewBox="0 0 270 480" shape-rendering="crispEdges">
+<!-- Code-authored native pixel background for the PLAY car-return scene. -->
+<rect width="270" height="480" fill="#080e23"/>
+<rect x="100" y="0" width="76" height="241" fill="#061735"/>
+<path d="M0 0H64L100 252V334H0Z" fill="#151725"/>
+<path d="M270 0H214L176 252V334H270Z" fill="#121726"/>
+<path d="M0 26H44V329H0Z" fill="#1b1b2b"/>
+<path d="M270 43H235V329H270Z" fill="#1c1c2c"/>
+<path d="M64 0H69L104 252V333H99V252Z" fill="#242535"/>
+<path d="M214 0H209L172 252V333H177V252Z" fill="#292336"/>
+<rect x="75" y="244" width="120" height="91" fill="#202333"/>
+<rect x="91" y="269" width="78" height="64" fill="#101725"/>
+<rect x="89" y="264" width="82" height="5" fill="#35323e"/>
+<path d="M94 276H166V278H94ZM94 284H166V286H94ZM94 292H166V294H94ZM94 300H166V302H94ZM94 308H166V310H94ZM94 316H166V318H94Z" fill="#282735"/>
+<rect x="165" y="288" width="2" height="8" fill="#8d6e53"/>
+<rect x="80" y="249" width="25" height="8" fill="#0c1525"/>
+<rect x="82" y="251" width="8" height="4" fill="#765246"/>
+<rect x="97" y="251" width="6" height="4" fill="#412f34"/>
+<path d="M0 331H270V480H0Z" fill="#262a38"/>
+<path d="M100 335H173L224 480H50Z" fill="#242735"/>
+<rect y="335" width="270" height="3" fill="#121827"/>
+<path d="M0 331H68V337H0ZM187 331H270V337H187Z" fill="#44414d"/>
+<rect x="0" y="337" width="59" height="3" fill="#121726"/>
+<rect x="199" y="337" width="71" height="3" fill="#121726"/>
+<path d="M0 361H58V363H0ZM196 363H270V365H196ZM0 397H29V399H0ZM231 400H270V402H231Z" fill="#343541"/>
+<rect x="7" y="190" width="35" height="91" fill="#0b111f"/>
+<rect x="7" y="190" width="35" height="4" fill="#33313b"/>
+<rect x="39" y="194" width="3" height="87" fill="#2c2936"/>
+<rect x="11" y="204" width="26" height="40" fill="#182035"/>
+<path d="M11 216H37V218H11ZM11 230H37V232H11ZM23 204H25V244H23Z" fill="#2c2b39"/>
+<rect x="13" y="257" width="5" height="2" fill="#a38b69"/>
+<rect x="236" y="182" width="31" height="100" fill="#0c111e"/>
+<rect x="233" y="178" width="37" height="4" fill="#403440"/>
+<path d="M239 196H264V199H239ZM239 210H264V213H239ZM239 224H264V227H239Z" fill="#262938"/>
+<rect x="236" y="271" width="31" height="11" fill="#2a2633"/>
+<path d="M4 57H39V59H4ZM8 79H40V81H8ZM3 107H37V109H3ZM6 131H40V133H6ZM237 77H269V79H237ZM239 116H270V118H239ZM241 145H267V147H241Z" fill="#2b2635"/>
+<rect x="47" y="17" width="4" height="263" fill="#38313d"/>
+<path d="M43 51H56V54H43ZM43 121H56V124H43ZM43 213H56V216H43Z" fill="#53414b"/>
+<rect x="220" y="51" width="4" height="237" fill="#42313e"/>
+<path d="M216 86H228V89H216ZM216 191H228V194H216ZM216 268H228V271H216Z" fill="#644150"/>
+<rect x="48" y="137" width="16" height="5" fill="#090f1e"/>
+<rect x="51" y="142" width="10" height="3" fill="#9b664b"/>
+<rect x="53" y="145" width="6" height="3" fill="#dca56a"/>
+<path d="M54 149H60V166H62V182H65V204H67V222H70V241H73V262H76V282H39V262H42V241H45V222H48V204H50V182H52V166H54Z" fill="#292433"/>
+<rect x="23" y="290" width="43" height="37" fill="#112527"/>
+<rect x="20" y="287" width="49" height="6" fill="#203837"/>
+<rect x="23" y="294" width="4" height="31" fill="#2b3b3b"/>
+<rect x="31" y="296" width="29" height="2" fill="#0b181f"/>
+<rect x="31" y="307" width="29" height="2" fill="#0b181f"/>
+<rect x="26" y="327" width="6" height="5" fill="#070e1b"/>
+<rect x="56" y="327" width="6" height="5" fill="#070e1b"/>
+<rect x="203" y="305" width="23" height="28" fill="#312937"/>
+<rect x="205" y="307" width="19" height="3" fill="#685143"/>
+<path d="M209 313H211V330H209ZM218 313H220V330H218Z" fill="#493640"/>
+<path d="M128 344H143V345H128ZM90 370H107V372H90ZM154 386H177V388H154ZM79 422H98V424H79ZM176 433H203V435H176ZM47 464H69V466H47Z" fill="#191f2e"/>
+<path d="M122 357H134V358H122ZM62 392H82V393H62ZM192 417H214V418H192ZM98 452H129V453H98Z" fill="#383740"/>
+<rect x="112" y="460" width="32" height="8" fill="#141b2a"/>
+<path d="M115 462H117V467H115ZM121 462H123V467H121ZM127 462H129V467H127ZM133 462H135V467H133ZM139 462H141V467H139Z" fill="#353541"/>
+</svg>

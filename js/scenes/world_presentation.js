@@ -8,15 +8,39 @@
   'NEW_OGA_M5:voice':'GBENGA'
  };
  const activeBeat=()=>{const a=window.RAAdventures?.active?.();return `${a?.id}:${a?.node}`;};
+ // Every beat in the approved bedroom keeps Rich on the mattress and pillow.
+ // Phone attribution remains separate; Royal Glitch prose/mechanics are untouched.
+ const FROZEN=new Set(['G5','G3','G7','G7-SET','G6','G7-SERMON','LEGENDARY_RECOGNITION']);
+ function frozen(env,cast){const a=window.RAAdventures?.active?.();return FROZEN.has(a?.id)||/^G[1-9](?:[-:_.]|$)/.test(a?.id||'')||String(env?.id||'').startsWith('G3-')||Object.values(cast||{}).some(v=>['G1','LEGENDARY-MASK'].includes(typeof v==='string'?v:v?.id));}
  function call(actors,env){
-  if(env?.id!=='bedroom'||!CALLS[activeBeat()])return null;
-  const cast=Object.entries(actors||{}).filter(([,s])=>s);
-  if(cast.length!==1||(typeof cast[0][1]==='string'?cast[0][1]:cast[0][1].id)!=='rich')return null;
-  return {slot:cast[0][0],caller:CALLS[activeBeat()]};
+  if(env?.id!=='bedroom'||frozen(env,actors))return null;
+  const active=window.RAAdventures?.active?.(),key=activeBeat(),node=window.RAAdventures?.get?.(active?.id)?.nodes?.[active?.node];
+  const phone=CALLS[key]||['voice','texts','text','call','dm','notif','viral','unknown'].includes(active?.node)||Object.values(actors||{}).some(v=>v?.id==='rich'&&String(v.src||'').includes('rich_bedroom_phone'))||Array.isArray(node?.lines)&&node.lines.some(r=>['phone','dm','text'].includes(r?.[2]?.channel));
+  if(!phone)return null;
+  const entry=Object.entries(actors||{}).find(([,v])=>(typeof v==='string'?v:v?.id)==='rich');
+  return entry?{slot:entry[0],caller:CALLS[key]||null}:null;
+ }
+ const BED_STATES=new Set(['lounge_idle','phone_scroll','small_idle','phone_reaction','sleeping','drowsy_wake']);
+ function bedroomRich(spec,phone){
+  const sourceState=String(spec?.src||'').match(/^assets\/rich_bedroom_(.+)\.png$/)?.[1];
+  const state=BED_STATES.has(spec?.state)?spec.state:BED_STATES.has(sourceState)?sourceState:phone?'phone_scroll':'lounge_idle';
+  return {...(typeof spec==='object'?spec:{}),id:'rich',src:`assets/rich_bedroom_${state}.png`,state,x:78,y:338,lineScale:1,flip:false};
  }
  function actors(env,cast){
   const c=call(cast,env);
-  if(c)return {[c.slot]:{...(typeof cast[c.slot]==='object'?cast[c.slot]:{}),id:'rich',src:'assets/rich_bedroom_phone_scroll.png',state:'phone_scroll',x:78,y:338,lineScale:1}};
+  if(window.RAAdventures?.active?.()?.id==='RB_DELIVERY')return Object.fromEntries(Object.entries(cast||{}).map(([slot,v])=>[slot,(typeof v==='string'?v:v?.id)==='rich'?{...(typeof v==='object'?v:{}),id:'rich',x:48,y:372,lineScale:1}:v]));
+  if(!frozen(env,cast)&&env?.id==='bedroom')cast=Object.fromEntries(Object.entries(cast||{}).map(([slot,v])=>{
+   if((typeof v==='string'?v:v?.id)!=='senator')return [slot,v];
+   const pose=['sitting','charging','asleep'].includes(v?.state)?v.state:(window.RAAdventures?.active?.()?.node==='walked'?'asleep':'sitting');
+   return [slot,{...(typeof v==='object'?v:{}),id:'senator',state:pose,src:`assets/player_feedback/senator-pixel-v3/senator_${pose}_pixel_v3_160x160.png`,x:210,y:470,lineScale:.45}];
+  }));
+  if(env?.id==='bedroom')return Object.fromEntries(Object.entries(cast||{}).map(([slot,v])=>{
+   const id=typeof v==='string'?v:v?.id;
+   if(id==='rich')return [slot,bedroomRich(v,!!c)];
+   // The native cat's paws sit on the duvet beside Rich, at its authored scale.
+   if(id==='cat')return [slot,{...(typeof v==='object'?v:{}),id,x:202,y:338,lineScale:1,flip:false}];
+   return [slot,v];
+  }));
   if(env?.id==='gbenga_house_dining')return Object.fromEntries(Object.entries(cast||{}).map(([slot,spec])=>{
    const id=typeof spec==='string'?spec:spec?.id;
    return [slot,id==='mama_gbenga'?{...(typeof spec==='object'?spec:{}),id,lineScale:(env.base||1)*1.85*1.25}:spec];
@@ -24,16 +48,20 @@
   return cast;
  }
  function stage(env,cast){
-  const c=call(cast,env);if(!c)return null;
-  // Same frozen room, native bed contact and pose as the bedroom hub. Dialogue owns its lower UI band.
-  return {id:'adv:bedroom-call',native:{width:270,height:480},environment:env.image,
-   contactLines:[{id:'bed',y:338,x1:0,x2:270,scale:1}],
-   actors:{[c.slot]:{source:{width:128,height:64,anchor:{x:64,y:56}},anchor:{x:78,y:338,line:'bed'}}},
-   director:{states:{},shots:{default:{profile:'room',focal:[c.slot],speakers:[],reference:c.slot}}}};
+  const c=call(cast,env),delivery=window.RAAdventures?.active?.()?.id==='RB_DELIVERY',bedroom=env?.id==='bedroom';if(!bedroom&&!delivery)return null;
+  const reference=c?.slot||Object.keys(cast)[0];
+  const stage=window.RAPresentationDirector.adventureStage(env,cast,{slots:{},node:{shot:{profile:'room',focal:Object.keys(cast),speakers:[],reference}}});
+  stage.id=delivery?'adv:car-delivery':'adv:bedroom';return stage;
  }
  function mount(root,scope,env,cast){
+  // Legacy renderActors first writes standing percentages; the Director then writes
+  // the bed's pixels. Do not tween between those unrelated coordinate systems.
+  // Bed poses change source frames in place, never enter or walk off the pillow.
+  if(env?.id==='bedroom')for(const el of root.querySelectorAll('[data-actor="rich"]')){
+   el.style.transition='none';el.style.animation='none';
+  }
   const old=root.querySelector('.world-call-source');old?.remove();
-  const c=call(cast,env);if(!c)return;
+  const c=call(cast,env);if(!c?.caller)return;
   const badge=document.createElement('div');badge.className='world-call-source';badge.textContent=`PHONE / ${c.caller}`;
   badge.setAttribute('aria-label',`Caller: ${c.caller}`);root.append(badge);scope?.cleanup(()=>badge.remove());
  }

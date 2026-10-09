@@ -496,14 +496,10 @@
  function rngOf(r){return typeof r==='function'?r:Math.random;}
  const textOf=x=>typeof x==='string'?x:x.text;
  function pickFrom(list,rng){return list.length?textOf(list[Math.floor(rngOf(rng)()*list.length)]):null;}
- // bark(enemyId, kind, rng) -> a line. ~12% of the time ANY enemy says something wild instead.
- function bark(enemyId,kind='hurt',rng,{wildChance=.12}={}){
-  const r=rngOf(rng);
-  if(r()<wildChance)return pickFrom(wild,r);
-  const own=enemy[enemyId]?.[kind]||[];
-  // own pool 70%, generic pool 30% (when both exist)
-  const pool=own.length&&r()<.7?own:(generic[kind]||own);
-  return pickFrom(pool.length?pool:(generic[kind]||[]),r);
+ // Only explicit actor/event pools may speak. Missing pools are intentionally silent.
+ function bark(enemyId,kind='hurt',rng){
+  if(window.RAAstraEditorial?.barkFor)return window.RAAstraEditorial.barkFor(enemyId,kind,rng);
+  return pickFrom(enemy[enemyId]?.[kind]||[],rng);
  }
  function cheapBuyPick(kind='generic',rng){const list=cheapBuy[kind]||cheapBuy.generic;const e=list[Math.floor(rngOf(rng)()*list.length)];return {...e,lines:[...e.lines]};}
  function allBarks(){const out=[];for(const k of Object.keys(generic))for(const t of generic[k])out.push(textOf(t));for(const t of wild)out.push(textOf(t));for(const e of Object.values(enemy))for(const arr of Object.values(e))for(const t of arr)out.push(textOf(t));return out;}

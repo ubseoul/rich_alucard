@@ -36,10 +36,13 @@
    const id=`music:response:${song.id}:${stage}`;if((m.responses||[]).some(r=>r.id===id))continue;
    const handle=stage===1?'iron_jaw':'tasha';
    const text=stage===0?`"${song.title}" — that ${song.hook?`"${song.hook}" hook`:'raw verse'} stayed with me. What's the story behind it?`:stage===1?`"${song.title}": you turned ${song.memory} into a verse. Bring that one to the Catacomb; let's hear it live.`:`Coming to hear "${song.title}" at the Catacomb. Put it in your set.`;
-   const n=stage===2?pending.total-Math.round(pending.total*.5)-Math.round(pending.total*.3):Math.round(pending.total*(stage===0?.5:.3));
+   const nominal=stage===2?pending.total-Math.round(pending.total*.5)-Math.round(pending.total*.3):Math.round(pending.total*(stage===0?.5:.3));
+   const n=window.RALegendaryFollowers?.normalGain?.(nominal)??nominal;
    const response={id,songId:song.id,trackId:song.trackId||song.beat,draftTitle:song.title,title:song.title,masterTitle:song.masterTitle||RARadio.TRACKS.find(t=>t.id===song.beat)?.title||null,memoryId:song.memoryId,handle,text,responseKind:stage===1?'invitation':'release-response',day,followers:n};
-   m.responses=[...(m.responses||[]),response];m.drops=m.drops.map(d=>d.songId===song.id?{...d,wakes:stage+1,lastResponseDay:day}:d);
-   RAState.patch('life.creativeLife.music',m);RALife.addFollowers(n);
+   // Response ID, stage and follower award commit together: an interrupted wake cannot award twice.
+   const tx=RAState.transaction(s=>{const next=s.life.creativeLife.music;if((next.responses||[]).some(r=>r.id===id))return false;
+    next.responses=[...(next.responses||[]),response];next.drops=next.drops.map(d=>d.songId===song.id?{...d,wakes:stage+1,lastResponseDay:day}:d);
+    s.life.resources.followers=Math.max(0,(Number(s.life.resources.followers)||0)+n);return true;});if(!tx.ok)continue;
    window.RAVampGram?.post?.(response);RALife.mail({id,kind:'music',title:handle.toUpperCase(),body:text,app:'vampgram'});
    RALife.receipt({id,caption:text,lane:'music'});
   }
@@ -49,9 +52,10 @@
   const m={...music()},prior=(m.shows||[]).find(s=>s.id===id);if(prior)return prior.pay;
   const song=(m.cooked||[]).find(s=>s.id===songId);crowd=Math.max(0,Number(crowd)||0);
   const pay=outcome==='success'?Math.min(3000,300+15*crowd):0;
-  const entry={id,receiptId:`music:${id}`,day:RALife.today().day,crowd,pay,outcome,songId:song?.id||null,title:song?.title||'Freestyle',trackId:song?.trackId||song?.beat||null,masterTitle:song?.masterTitle||null};
+  const followers=pay?(window.RALegendaryFollowers?.normalGain?.(10+Math.round(crowd/2))??(10+Math.round(crowd/2))):0;
+  const entry={followers,id,receiptId:`music:${id}`,day:RALife.today().day,crowd,pay,outcome,songId:song?.id||null,title:song?.title||'Freestyle',trackId:song?.trackId||song?.beat||null,masterTitle:song?.masterTitle||null};
   m.shows=[...(m.shows||[]),entry];RAState.patch('life.creativeLife.music',m);
-  if(pay){window.RAVampGram?.post?.({id:`music:performance:${id}`,songId:entry.songId,trackId:entry.trackId,draftTitle:entry.title,handle:'tasha',responseKind:'performance-success',photoKey:'rc5_music_catacomb_success',photoCaption:`${entry.title} at the Catacomb. ${entry.masterTitle||'Existing Rich master'}; the room stayed with him.`,text:`${entry.title} at the Catacomb. That last verse landed.`,likes:Math.round(crowd)});RALife.addMoney(pay);RALife.addPoints('clout',6);RALife.addPoints('rep',2);RALife.addFollowers(10+Math.round(crowd/2));RALife.light('expression',1,`show:${id}`);}
+  if(pay){window.RAVampGram?.post?.({id:`music:performance:${id}`,songId:entry.songId,trackId:entry.trackId,draftTitle:entry.title,handle:'tasha',responseKind:'performance-success',photoKey:'rc5_music_catacomb_success',photoCaption:`${entry.title} at the Catacomb. ${entry.masterTitle||'Existing Rich master'}; the room stayed with him.`,text:`${entry.title} at the Catacomb. That last verse landed.`,likes:Math.round(crowd)});RALife.addMoney(pay);RALife.addPoints('clout',6);RALife.addPoints('rep',2);RALife.addFollowers(followers);RALife.light('expression',1,`show:${id}`);}
   RALife.receipt({id:entry.receiptId,caption:pay?`Performed "${entry.title}" at the Catacomb. ${RALife.fmt(pay)} paid.`:`"${entry.title}" set ${outcome}. No performance pay.`,lane:'music'});return pay;
  }
  function getCareer(){const m=music(),c=m.cooked||[];return {cooked:c.at(-1)||null,released:c.filter(s=>s.dropped).at(-1)||null,responses:[...(m.responses||[])],performed:(m.shows||[]).filter(s=>s.outcome==='success').at(-1)||null};}

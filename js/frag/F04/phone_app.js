@@ -73,18 +73,18 @@ ${window.RARC3?'':btn('NAH.', 'do:warRoom:decline')}`;
   if(window.RARC3&&!active)return `<h1>WAR ROOM</h1>${renderOffer()}${btn('RAMEN SHIFT','do:warRoom:ramen')}`;
   if (!active) return `<h1>JOBS</h1><p class="phone-small">not in the game.</p>`;
 
-  const jobs = window.RAWarRoomJobs.buildNightMenu();
-  if(window.RARC3)return `<h1>PICK A JOB</h1>${!window.RAFrag.read('F04','jobLog',[]).some(j=>j.via==='play')?`<p class="phone-speaker">RICH</p><p>${esc(window.RAWriting.voice(5))}</p>`:''}${jobs.map((job,i)=>job.routesToPlay?`<div class="phone-card"><b>${esc(job.label)}</b>${btn('PICK CREW → GO',`do:warRoom:play:${i}`)}</div>`:'').join('')}${btn('RAMEN SHIFT','do:warRoom:ramen')}`;
-  const slots = window.RAFrag.read('F04', 'jobs.slotsPerNight', 1);
-  const nightsIn = window.RAFrag.read('F04', 'jobs.nightsSinceStart', 0);
-  if (!jobs.length) return `<h1>JOBS</h1><p class="phone-small">quiet tonight.</p>`;
-
   const P = window.RAWarRoomPlay;
   const pend = P?.pending();
   const refusal = P?.lastRefusal();
   const pendLine = pend ? `<div class="phone-card"><b>A PLAY IS ON.</b><br>${esc(pend.jobMeta?.label || '')}
 ${btn('RESUME', 'do:warRoom:resume')}</div>` : '';
   const refuseLine = !pend && refusal && refusal.day === window.RALife.today().day ? `<p class="phone-small">not tonight: ${esc(String(refusal.reason || refusal.code).toLowerCase())}.</p>` : '';
+
+  const jobs = window.RAWarRoomJobs.buildNightMenu();
+  if(window.RARC3)return `<h1>PICK A JOB</h1>${pendLine}${refuseLine}${!window.RAFrag.read('F04','jobLog',[]).some(j=>j.via==='play')?`<p class="phone-speaker">RICH</p><p>${esc(window.RAWriting.voice(5))}</p>`:''}${(pend?[]:jobs).map((job,i)=>job.routesToPlay?`<div class="phone-card"><b>${esc(job.label)}</b>${btn('PICK CREW → GO',`do:warRoom:play:${i}`)}</div>`:'').join('')}${btn('RAMEN SHIFT','do:warRoom:ramen')}`;
+  const slots = window.RAFrag.read('F04', 'jobs.slotsPerNight', 1);
+  const nightsIn = window.RAFrag.read('F04', 'jobs.nightsSinceStart', 0);
+  if (!jobs.length) return `<h1>JOBS</h1><p class="phone-small">quiet tonight.</p>`;
 
   const mods = window.RAWarRoomJobs.nightModifiers();
   const modLine = mods.length ? `<p class="phone-small">TONIGHT: ${mods.map(m => esc(m.label)).join(' · ')}</p>` : '';

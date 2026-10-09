@@ -85,6 +85,7 @@ function updateHP(){
  richText.textContent=`${richHP}/100`;ceoText.textContent=`${ceoHP}/100`;
   if(richHP<lastRichHP)richText.classList.remove('drain'),void richText.offsetWidth,richText.classList.add('drain');
   if(ceoHP<lastCeoHP)ceoText.classList.remove('drain'),void ceoText.offsetWidth,ceoText.classList.add('drain');
+  if(battleEncounter==='jdm'&&ceoHP<lastCeoHP)window.RABarks?.trigger({root:document.querySelector('#screen'),enemyId:'jdm_importer',kind:'hurt',enemyEl:productionCEO,attacker:'rich',target:'enemy'});
   lastRichHP=richHP;lastCeoHP=ceoHP;
   syncBattleState();
 }
@@ -101,6 +102,7 @@ let enemyTurnGeneration=0;
 const enemyTurnActive=generation=>generation===enemyTurnGeneration&&!battleOver&&['battle','jdmCombat'].includes(window.RAScenes?.current?.()||'battle');
 document.addEventListener('ra:scene',()=>{if(!['battle','jdmCombat'].includes(window.RAScenes?.current?.()))enemyTurnGeneration++;});
 function resetBattle(encounter='ceo'){
+ window.RABarks?.reset(document.querySelector('#screen'));
  enemyTurnGeneration++;
  ceoRecoil.classList.remove('windup');briefcaseProjectile.classList.remove('fly');briefcaseImpact.classList.remove('active');document.querySelector('#screen').classList.remove('briefcase-shake','combat-hit-stop','combat-shake-light','combat-shake-heavy');attackLayer.classList.remove('active');
  battleEncounter=encounter;window.RAPresentationDirector?.resetMoves?.();if(encounter==='jdm')window.RAEnemyFX?.preload('legacy_importer');
@@ -149,7 +151,7 @@ async function normalVictory(){
   battleOver=true; setBattleBusy(true);
   window.RACombatFoundation.route(battleState,'victory');
   if(battleEncounter==='jdm'){
-    setCEOState('defeated');say('THE IMPORTER BACKS DOWN.',850,'importer');await wait(850);await window.RAJDMImports?.ownerDefeated?.();return;
+    setCEOState('defeated');window.RABarks?.trigger({root:document.querySelector('#screen'),enemyId:'jdm_importer',kind:'lose',enemyEl:productionCEO,outcome:'win',force:true});say('THE IMPORTER BACKS DOWN.',850,'importer');await wait(850);await window.RAJDMImports?.ownerDefeated?.();return;
   }
   if(window.RAState) RAState.patch('encounters.ceo_prince.defeated',true);
   setCEOState('defeated');
@@ -249,17 +251,19 @@ async function genericPlayerFX(kind){
  await wait(320);const severity=ceoHP<=26?'lethal':ceoHP<=52?'heavy':'normal';await RACombatPresentation.play({target:productionCEO,attacker:geminiRich,severity,authored:battleEncounter==='ceo'?'ceo':undefined,kind,recoveryMs:40});
  document.querySelector('#screen').classList.remove('bite-flash','brain-flash','revenge-flash');richCast.classList.remove('cast');attackLayer.classList.remove('active');battleUI.classList.remove('attack-mode');
 }
-async function importerTurn(generation=enemyTurnGeneration){
+async function importerTurn(generation=enemyTurnGeneration,moveId='importer_shove'){
  if(!enemyTurnActive(generation))return;
- const sequence=window.RAEnemyFX?.TIMELINES?.legacy_importer?.importer_shove;
- const pose=phase=>{const src=sequence?.[phase];if(src){productionCEO.style.backgroundImage=`url('${src}')`;productionCEO.dataset.importerMove=phase;}else setCEOState(phase==='prepare'?'idle':'throw');};
- setBattlePhase('IMPORTER MOVE<br><strong>SHOVE</strong>');say('THE IMPORTER SHOVES RICH BACK.',620,'importer');attackLayer.classList.add('active');battleUI.classList.add('attack-mode');
- pose('prepare');await wait(124);if(!enemyTurnActive(generation))return;
- pose('action');await wait(186);if(!enemyTurnActive(generation))return;
- pose('contact');setRichState('hit');const actualDamage=Math.min(richHP,16);richHP-=actualDamage;revengeStored+=actualDamage;addRevengeWounds(actualDamage);window.RADevState.revengeStoredDamage=revengeStored;updateHP();
- const reaction=RACombatPresentation.play({target:geminiRich,attacker:productionCEO,severity:'normal',kind:'importer-shove',recoveryMs:40,isActive:()=>enemyTurnActive(generation)});
- await wait(186);if(!enemyTurnActive(generation))return;pose('recover');
- await wait(124);if(!enemyTurnActive(generation))return;await reaction;if(!enemyTurnActive(generation))return;
+ const root=document.querySelector('#screen'),parts=moveId==='importer_parts';
+ setBattlePhase(`IMPORTER MOVE<br><strong>${parts?'BUMPER TOSS':'WHEEL THROW'}</strong>`);
+ // Accepted move-specific bubbles accompany the two requested prop attacks.
+ window.RABarks?.trigger({root,enemyId:'jdm_importer',kind:'attack',enemyEl:productionCEO,attacker:'enemy',target:'rich',move:moveId});attackLayer.classList.add('active');battleUI.classList.add('attack-mode');
+ let contacted=false,reaction=null;
+ const contact=()=>{if(contacted||!enemyTurnActive(generation))return;contacted=true;setRichState('hit');
+  const actualDamage=Math.min(richHP,moveData[moveId]?.damage||16);richHP-=actualDamage;revengeStored+=actualDamage;addRevengeWounds(actualDamage);window.RADevState.revengeStoredDamage=revengeStored;updateHP();if(actualDamage>0)window.RABarks?.trigger({root,enemyId:'jdm_importer',kind:'hit_rich',enemyEl:productionCEO,attacker:'enemy',target:'rich',move:moveId});
+  reaction=RACombatPresentation.play({target:geminiRich,attacker:productionCEO,severity:'normal',kind:'importer-shove',recoveryMs:40,isActive:()=>enemyTurnActive(generation)});
+ };
+ await window.RAEnemyFX.feedbackAttack({root,enemyId:'legacy_importer',moveId,attacker:productionCEO,target:geminiRich,onContact:contact,isActive:()=>enemyTurnActive(generation)});
+ if(!enemyTurnActive(generation))return;if(reaction)await reaction;if(!enemyTurnActive(generation))return;
  setCEOState('idle');setRichState('idle');setBattlePhase('RECOVERY<br><strong>WAIT FOR YOUR TURN</strong>');attackLayer.classList.remove('active');battleUI.classList.remove('attack-mode');await wait(160);if(!enemyTurnActive(generation))return;
  if(richHP<=0)return defeat();setBattleBusy(false);inMoves=true;paint();
 }
@@ -269,7 +273,7 @@ async function enemyTurn(){
  await wait(360);if(!enemyTurnActive(generation))return;
  const enemyMove=window.RACombatFoundation.selectEnemyMove(battleState);
  window.RACombatFoundation.emit(battleState,'enemy-move-selected',{moveId:enemyMove?.id});
- if(enemyMove?.id==='importer_shove')return importerTurn(generation);
+ if(battleEncounter==='jdm'&&['importer_shove','importer_parts'].includes(enemyMove?.id))return importerTurn(generation,enemyMove.id);
  setBattlePhase('ENEMY MOVE<br><strong>BRIEFCASE THROW</strong>');
  say('BRIEFCASE THROW!',620);
  setCEOState('idle');
@@ -355,6 +359,8 @@ async function victory(){
 }
 
 async function defeat(){
+ if(battleOver)return;
+ if(battleEncounter==='jdm')window.RABarks?.trigger({root:document.querySelector('#screen'),enemyId:'jdm_importer',kind:'win',enemyEl:productionCEO,outcome:'lose',force:true});
  battleOver=true;setBattleBusy(true);richHP=0;updateHP();window.RACombatFoundation.route(battleState,'defeat');battleUI.classList.add('attack-mode');say('UGH. WE LOST AGAIN.',1300);
  await wait(1400);if(battleEncounter==='jdm'){choiceTitle.textContent='THE KEYS ARE STILL WITH HIM.';choiceYes.textContent='▶ TRY AGAIN';choiceNo.textContent='GO BACK';}else{choiceTitle.textContent='RESPAWN HUNGOVER?';choiceYes.textContent='▶ YES';choiceNo.textContent='STAY DEAD';}choiceOverlay.classList.add('show');
 }

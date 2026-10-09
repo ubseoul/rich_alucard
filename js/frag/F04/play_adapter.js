@@ -131,7 +131,7 @@
   if (!pending || !result || result.requestId !== pending.request.requestId) return { ok: false, code: 'NOT_PENDING' };
   const valid = window.RAPlayContract.validateResult(result);
   if (!valid.ok) { wr(`${K}.pending`, null); wr(`${K}.lastRefusal`, { day: day(), code: 'BAD_RESULT', reason: valid.errors.join('; ') }); return { ok: false, code: 'BAD_RESULT', errors: valid.errors }; }
-  const errors = []; const { request, carMap, jobMeta } = pending;
+  const errors = []; const { request, carMap, jobMeta } = pending; let creditedAmount = 0;
 
   if (result.status === 'REFUSED') {
    wr(`${K}.pending`, null);
@@ -163,7 +163,7 @@
    const rejected = [];
    for (const r of result.recruits) safe(errors, `recruit:${r.id}`, () => { const out = window.RAWarRoomCrew.recruit({ id: r.id, name: r.name, cls: r.cls, source: 'play' }); if (!out.ok) rejected.push({ id: r.id, reason: out.reason }); });
    // 5. money (the PLAY's banked pot; nothing authored is added on top)
-   safe(errors, 'gain', () => { if (result.cash.gain > 0) window.RAMoneyLedger.credit(result.cash.gain, { source: 'war_room:play' }); });
+   safe(errors, 'gain', () => { const before=money(); if (result.cash.gain > 0) window.RAMoneyLedger.credit(result.cash.gain, { source: 'war_room:play' }); creditedAmount=Math.max(0,money()-before); });
    summary.cashSpent = safe(errors, 'spent', () => debitClamped(result.cash.spent || 0, 'war_room:play:spent')) || 0;
    // 6. HEAT (the PLAY's heat; F04's existing district + global-share distribution is unchanged)
    safe(errors, 'heat', () => {
@@ -209,6 +209,7 @@
   wr(`${K}.pending`, null);
   if(result.status==='COMPLETE')window.RARC3?.settlePlay?.(result,c2[result.requestId]);
   if(result.status==='COMPLETE')window.RARC3?.settleAttempt?.('warRoom',jobMeta.id,{outcome:result.outcome.win?'win':'lose'});
+  if(creditedAmount>0&&window.document?.dispatchEvent&&typeof window.CustomEvent==='function')window.document.dispatchEvent(new window.CustomEvent('ra:play-cash-credited',{detail:{requestId:result.requestId,amount:creditedAmount,balance:money(),source:'war_room:play'}}));
   return { ok: true, summary: c2[result.requestId], errors };
  }
 

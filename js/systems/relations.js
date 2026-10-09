@@ -39,9 +39,9 @@
  }
  function gift(id,giftId){const right=(catalog(id)?.gifts||[]).includes(giftId);const rec=base(id);rec.gifts=[...(rec.gifts||[]),giftId];save(id,rec);add(id,right?8:2,{reason:'gift'});return right;}
  function companions(){
-  const out=[];for(const p of window.RABtfPeople?.women||[]){const rec=raw(p.id);if(!rec?.met||!p.hoes?.length)continue;const lvl=levelIndexFor(base(p.id));const convertedAssistant=p.id==='ceo_assistant_001'&&(rec.conversionState==='converted'||rec.flags?.stolen);if(lvl>=3||convertedAssistant)out.push({id:p.id,name:p.name,moves:p.hoes});}
+  const out=[];for(const p of window.RABtfPeople?.women||[]){const rec=raw(p.id);if(!rec?.met||!p.hoes?.length||(p.id==='mazda_human'&&!window.RADragon?.hasHumanForm?.()))continue;const lvl=levelIndexFor(base(p.id));const convertedAssistant=p.id==='ceo_assistant_001'&&(rec.conversionState==='converted'||rec.flags?.stolen);if(lvl>=3||convertedAssistant)out.push({id:p.id,name:p.name,moves:p.hoes});}
   if(RALife.life().ownership.cat)out.push({id:'cat',name:'THE CAT',moves:[{id:'judge',label:'JUDGE',kind:'skip'}]});
-  if(RALife.hasRoom('dragon_roost')&&RALife.dragon()?.stage==='majestic')out.push({id:'mazda_dragon',name:'MAZDA (ROOST)',moves:[{id:'fire_pass',label:'FIRE PASS',kind:'damage',amount:40}]});
+  if(window.RADragon?.canAssist?.())out.push({id:'mazda_dragon',name:'MAZDA (ROOST)',moves:[{id:'fire_pass',label:'FIRE PASS',kind:'damage',amount:40}]});
   if(level('tristan')>=2)out.push({id:'tristan',name:'TRISTAN',moves:[{id:'one_more_turn',label:'ONE MORE TURN',kind:'extra_turn'},{id:'xcom',label:'XCOM (95%)',kind:'xcom',amount:40}]});
   return out;
  }

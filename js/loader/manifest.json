@@ -139,12 +139,14 @@
    ]
   },
   "js/if1/hold_bridge.js",
+  "js/data/astra_editorial.js",
   {
    "overlay": true
   },
   "js/systems/rc3.js",
   "js/engine/core.js",
-  "game.js"
+  "game.js",
+  "js/systems/analytics.js"
  ],
  "order": [
   [
@@ -294,6 +296,10 @@
   [
    "js/if1/phone_registry.js",
    "js/if1/first_event_unlock.js"
+  ],
+  [
+   "js/if1/hold_bridge.js",
+   "js/data/astra_editorial.js"
   ]
  ],
  "unloadedAllowed": []

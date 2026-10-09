@@ -38,7 +38,12 @@
  const PROP_ART={prop_plant:'plant',prop_trippin_poster:'trippin_red_poster',prop_rookoko_painting:'rookoko_painting',prop_jollof_trophy:'jollof_trophy',prop_duoqlo_bag:'duoqlo_bag',prop_cat_bed:'unused_cat_bed',prop_umich_pennant:'michigan_pennant',prop_waffle_mix:'waffle_mix_bag'};
  // Frozen company sprites at native 1:1 on a contact point: she lies on the bed right of Rich; a homie sleeps it off
  // on the floor (the approved asleep-on-the-floor states); the cat curls on the bed where the placeholder sat.
- const WOMAN_CONTACT=[196,352],HOMIE_CONTACT=[150,470],CAT_AT=[184,322];
+ const WOMAN_CONTACT=[196,360],HOMIE_CONTACT=[128,478],CAT_AT=[202,338];
+ // Source overlays are frozen; crop only their transparent padding while drawing.
+ // Wall decor mounts on the solid left pier, floor objects sit on the foreground strip.
+ const PROP_PLACEMENT={plant:[250,478,24,32],trippin_red_poster:[18,147,22,30],rookoko_painting:[18,201,24,23],jollof_trophy:[239,309,19,24],duoqlo_bag:[191,478,22,28],unused_cat_bed:[147,478,30,15],michigan_pennant:[18,248,28,17],waffle_mix_bag:[217,478,20,25]};
+ const cropCache=new Map();
+ function bounds(im){let b=cropCache.get(im.src);if(b)return b;const cv=document.createElement('canvas');cv.width=im.naturalWidth;cv.height=im.naturalHeight;const c=cv.getContext('2d');c.drawImage(im,0,0);const d=c.getImageData(0,0,cv.width,cv.height).data;let x1=cv.width,y1=cv.height,x2=0,y2=0;for(let y=0;y<cv.height;y++)for(let x=0;x<cv.width;x++)if(d[(y*cv.width+x)*4+3]){x1=Math.min(x1,x);y1=Math.min(y1,y);x2=Math.max(x2,x+1);y2=Math.max(y2,y+1);}b=[x1,y1,x2-x1,y2-y1];cropCache.set(im.src,b);return b;}
  const HOMIE_FLOOR={tunde:'asleep_floor',dre:'asleep_floor',tristan:'floor'};
  const art=()=>window.RAArtRegistry||{};
  const images=new Map();
@@ -55,22 +60,26 @@
    const ctx=cv.getContext('2d'),uctx=under?.getContext('2d');if(!uctx)return;
    for(const c of [ctx,uctx]){c.imageSmoothingEnabled=false;c.clearRect(0,0,270,480);}
    const put=(c,src,x=0,y=0)=>{if(!src)return false;const img=image(src,draw);if(img.complete&&img.naturalWidth){c.drawImage(img,x,y);}return true;};
-   for(const id of life().ownership.props||[]){const p=PROPS[id];if(!p)continue;if(put(ctx,art().bedroom?.props?.[PROP_ART[id]]?.asset))continue;RAPixel.rect(ctx,p.x,p.y,p.w,p.h,p.c);RAPixel.rect(ctx,p.x,p.y,p.w,1,'rgba(255,255,255,.25)');}
+   for(const id of life().ownership.props||[]){const p=PROPS[id],key=PROP_ART[id],at=PROP_PLACEMENT[key],src=art().bedroom?.props?.[key]?.asset;if(!p||!at)continue;const im=src&&image(src,draw);if(!im?.complete||!im.naturalWidth)continue;const [cx,foot,w,h]=at,[sx,sy,sw,sh]=bounds(im);
+    if(['plant','duoqlo_bag','unused_cat_bed','waffle_mix_bag'].includes(key)){ctx.fillStyle='rgba(8,5,12,.55)';ctx.fillRect(Math.round(cx-w/2)+2,foot-1,w-4,2);}
+    if(key==='jollof_trophy'){ctx.fillStyle='#251921';ctx.fillRect(cx-13,foot,26,2);ctx.fillStyle='#8a583e';ctx.fillRect(cx-13,foot-1,26,1);}
+    ctx.drawImage(im,sx,sy,sw,sh,Math.round(cx-w/2),foot-h,w,h);
+   }
    // Approved weather variant: rain nights dim the cloud window and show the frozen rain-window overlay.
    if(RALife.today().rain){uctx.save();uctx.beginPath();uctx.rect(32,10,236,250);uctx.clip();uctx.fillStyle='rgba(20,30,60,.28)';uctx.fillRect(32,10,236,250);uctx.restore();
     if(!put(uctx,art().bedroom?.window?.rain_night_window?.asset)){const rnd=RAPixel.rng(RALife.today().day);for(let i=0;i<90;i++)RAPixel.rect(uctx,32+rnd()*236,10+rnd()*250,1,6,'rgba(200,220,255,.55)');}}
    const c=RALife.flag('bedroomCompany');
    if(c&&c.day===RALife.today().day){
     const person=RABtfPeople.get(c.id);
-    if(c.kind==='woman'){if(!put(ctx,person?.states?.bedroom_company,WOMAN_CONTACT[0]-40,WOMAN_CONTACT[1]-88)){ctx.save();ctx.translate(196,332);ctx.rotate(-Math.PI/2);RAPixel.drawActor(ctx,person?.look||{},0,0,.9);ctx.restore();RAPixel.rect(ctx,150,332,86,12,'#e9dcc4');}}
+    if(c.kind==='woman'){const pose=window.RALegendaryBedroomVisuals?.companyPose?.(c),contact=pose?.contact||WOMAN_CONTACT;if(!put(ctx,pose?.src||person?.states?.bedroom_company,contact[0]-40,contact[1]-88)){ctx.save();ctx.translate(196,332);ctx.rotate(-Math.PI/2);RAPixel.drawActor(ctx,person?.look||{},0,0,.9);ctx.restore();RAPixel.rect(ctx,150,332,86,12,'#e9dcc4');}}
     if(c.kind==='homie'){if(!put(ctx,person?.states?.[HOMIE_FLOOR[c.id]],HOMIE_CONTACT[0]-40,HOMIE_CONTACT[1]-88)){ctx.save();ctx.translate(120,452);ctx.rotate(-Math.PI/2);RAPixel.drawActor(ctx,person?.look||{},0,0,.8);ctx.restore();}}
-    if(c.kind==='cat'){if(!put(ctx,art().creatures?.cat?.states?.on_bed?.asset,CAT_AT[0],CAT_AT[1])){RAPixel.rect(ctx,200,336,16,10,'#e8c0b0');RAPixel.rect(ctx,212,330,6,6,'#e8c0b0');RAPixel.rect(ctx,212,327,2,3,'#e8c0b0');RAPixel.rect(ctx,216,327,2,3,'#e8c0b0');}}
+    if(c.kind==='cat'){const src=art().creatures?.cat?.states?.on_bed?.asset,im=src&&image(src,draw);if(im?.complete&&im.naturalWidth){ctx.fillStyle='rgba(27,6,22,.5)';ctx.fillRect(CAT_AT[0]-18,CAT_AT[1]-1,36,2);ctx.drawImage(im,CAT_AT[0]-24,CAT_AT[1]-24);}else if(!src){RAPixel.rect(ctx,200,336,16,10,'#e8c0b0');RAPixel.rect(ctx,212,330,6,6,'#e8c0b0');RAPixel.rect(ctx,212,327,2,3,'#e8c0b0');RAPixel.rect(ctx,216,327,2,3,'#e8c0b0');}}
     if(c.kind==='mazda'){if(!put(uctx,art().bedroom?.company?.mazda_flyby?.asset)){uctx.save();uctx.globalAlpha=.9;uctx.fillStyle='#3a6ff0';uctx.fillRect(150,90,46,10);uctx.fillRect(160,78,28,12);uctx.fillRect(196,86,12,6);uctx.restore();}}
    }
   };
   draw();layer.prepend(cv);
  }
- window.RABedroomCompany={render,clear,PROPS,PROP_ART,HOMIE_FLOOR};
+ window.RABedroomCompany={render,clear,PROPS,PROP_ART,HOMIE_FLOOR,PROP_PLACEMENT};
  // ---- Laura: never seen. The ledger quietly counts; what happens at its end is sealed. ----
  RAClock.onWake('laura',95,()=>{const n=Number(RALife.flag('lauraLedger'))||0;if(n!==life().laura.ledger){RAState.patch('life.laura.ledger',n);RASealed.fire('LEDGER',{ledger:n});}});
  window.RAEcology=Eco;window.RANodd=Nodd;

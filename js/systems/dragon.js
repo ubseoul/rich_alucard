@@ -3,6 +3,10 @@
  // for that day. Neglect never kills; she sulks on the roof facing away.
  const STAGES=['egg','hatchling','young','majestic'];const NEED={egg:3,hatchling:6,young:8};
  const d=()=>RALife.dragon();
+ // A11 earns hatch state; A32 earns the human reveal. Roster acquaintance is not acquisition.
+ const hatched=()=>!!d()?.hatched&&['hatchling','young','majestic'].includes(d()?.stage);
+ const hasHumanForm=()=>hatched()&&(RALife.flag('mazdaHuman')===true||['both','human'].includes(d()?.form));
+ const canAssist=()=>hatched()&&d()?.stage==='majestic'&&RALife.hasRoom('dragon_roost');
  function adoptEgg(){if(d())return false;RAState.patch('life.ownership.dragon',{name:'BLUEBERRY MAZDA',stage:'egg',sleepsAtStage:0,fedDay:0,playedDay:0,warmDay:0,streak:0,bond:0,food:{fish:0,treats:0,play:0},sulking:false,form:'dragon',agegeUsed:false,lastCubeDay:0,hatched:false});RALife.unlockApp('hatch');return true;}
  function personality(dr){const f=dr.food||{};const top=Object.entries(f).sort((a,b)=>b[1]-a[1])[0];if(!top||top[1]<3)return null;return {fish:'ocean-proud',treats:'spoiled',play:'clingy'}[top[0]];}
  function applyActions(actions=[]){
@@ -36,5 +40,5 @@
    return `<h1>HATCH</h1><div class="phone-card"><b>${dr.name}</b>${dr.stage.toUpperCase()}${dr.personality?` · ${dr.personality.toUpperCase()}`:''}<br>${dr.stage==='egg'?'warm. quiet. waiting.':dr.sulking?'on the roof. facing away.':hungry?'looking at you. hungry.':'happy. full.'}</div><div class="phone-card"><b>BAG</b>FISH ${RALife.count('fish_common')} · TREATS ${RALife.count('treats')} · KEEF ${RALife.count('dragon_keef')}${RALife.count('agege_bread')?' · AGEGE BREAD':''}${RALife.count('maggi_dragon_crumble')?` · MAGGI CRUMBLE ${RALife.count('maggi_dragon_crumble')}`:''}</div><button type="button" class="phone-button" data-phone-action="do:hatch:open">OPEN HATCH</button>`;},
   async onAction(act,arg,api){if(act==='open'){const dr=d();const inv={fish_common:RALife.count('fish_common'),treats:RALife.count('treats'),dragon_keef:RALife.count('dragon_keef'),agege_bread:RALife.count('agege_bread'),maggi_dragon_crumble:RALife.count('maggi_dragon_crumble')};
    const cat=!!RALife.life().ownership.cat;await api.launch('hatch',{dragon:{...dr,fedToday:dr.fedDay===RALife.today().day,playedToday:dr.playedDay===RALife.today().day},inventory:inv,catOwned:cat});}}});
- window.RADragon={STAGES,adoptEgg,applyActions,get:d,personality};
+ window.RADragon={STAGES,adoptEgg,applyActions,get:d,personality,hatched,hasHumanForm,canAssist};
 })();
