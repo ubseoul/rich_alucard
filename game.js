@@ -439,6 +439,7 @@ function refreshStartSurface(){
 async function launchGame(){
   if(launchPromise)return launchPromise;
   entryMode='launching';
+  window.RAOpeningCinema?.consumeEntryKeys?.();
   launchPromise=(async()=>{
     overlay.hidden=true;overlay.style.display='none';
     try{window.RAAudio?.unlock?.();}catch(e){}
@@ -492,7 +493,7 @@ refreshStartSurface();
 mainButtons.forEach((b,i)=>b.addEventListener('click',()=>{if(busy||battleOver)return;pressFeedback(b);mainIndex=i;inMoves=false;paint();activateMain()}));
 moves.forEach((b,i)=>b.addEventListener('click',()=>{if(busy||battleOver)return;pressFeedback(b);moveIndex=i;inMoves=true;paint();activateMove()}));
 window.addEventListener('keydown',e=>{
-  if(window.RAEntryFlow?.blocksGameInput?.())return;
+  if(window.RAEntryFlow?.blocksGameInput?.()){if(entryMode==='title'&&(e.key==='Enter'||e.key===' ')){e.preventDefault();start.click();}return;}
   if(['bedroom','ogun-rave','adventure'].includes(window.RAScenes?.current())||document.body.classList.contains('minigame-mode')||document.body.classList.contains('combat2-mode'))return;
   if(overlay.style.display!=='none'&&(e.key==='Enter'||e.key===' ')){start.click();return}
   if(busy||battleOver)return;
