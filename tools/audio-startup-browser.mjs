@@ -6,7 +6,7 @@ import {serve} from './rc2/harness.mjs';
 
 const require=createRequire(import.meta.url);
 const {chromium}=require(process.env.RA_PLAYWRIGHT_PATH||'playwright-core');
-const {server,url}=await serve(path.resolve('.'));
+const {server,url}=process.env.RA_AUDIO_ORIGIN?{server:null,url:process.env.RA_AUDIO_ORIGIN}:await serve(path.resolve('.'));
 const browser=await chromium.launch(process.env.RA_CHROMIUM_PATH?{executablePath:process.env.RA_CHROMIUM_PATH,headless:true}:{channel:'chrome',headless:true});
 const report={scope:'disposable contexts; default browser autoplay policy; approved recordings only',checks:[],errors:[]};
 const output=process.argv[2]||'reports/audio-startup-browser.json';
@@ -43,5 +43,5 @@ try{
  await p.goto(url);await p.waitForFunction(()=>RAOpeningCinema.ready);await p.locator('#startButton').tap();await p.waitForFunction(()=>!RAOpeningCinema.isVisible(),{},{timeout:50000});await p.waitForTimeout(1000);
  check('full-cinematic/music-playing',await p.evaluate(()=>!soundtrack.paused&&soundtrack.currentTime>15&&RAAudio.describe().context==='running'));
  await c.close();check('no-page-errors',report.errors.length===0,report.errors);
-}finally{await fs.mkdir(path.dirname(output),{recursive:true});await fs.writeFile(output,JSON.stringify(report,null,2)+'\n');await browser.close();server.close();}
+}finally{await fs.mkdir(path.dirname(output),{recursive:true});await fs.writeFile(output,JSON.stringify(report,null,2)+'\n');await browser.close();server?.close();}
 console.log(`PASS audio startup browser (${report.checks.length} checks)`);
