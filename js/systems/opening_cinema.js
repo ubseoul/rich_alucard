@@ -172,29 +172,35 @@ function sfx(at){
  const ac=audio.ac,g=ac.createGain(),osc=ac.createOscillator();g.connect(audio.master);osc.connect(g);osc.type="triangle";osc.frequency.setValueAtTime(at==="shot"?90:45,ac.currentTime);osc.frequency.exponentialRampToValueAtTime(25,ac.currentTime+.14);g.gain.setValueAtTime(at==="shot"?1.1:.3,ac.currentTime);g.gain.exponentialRampToValueAtTime(.001,ac.currentTime+.2);osc.start();osc.stop(ac.currentTime+.21)
 }
 const hint=root.querySelector('#cinemaSkipHint');
-let heldSkipKey=null,resumeOnShow=false;
-const visible=()=>!root.hidden;
+let heldSkipKey=null,launchKey=null,resumeOnShow=false,pending=null;
+const downKeys=new Set(),consumedEntryKeys=new Set(),visible=()=>!root.hidden;
 function lock(){const stage=document.querySelector('#stage'),title=document.querySelector('#startOverlay');if(stage)stage.inert=visible()||!!(title&&!title.hidden&&getComputedStyle(title).display!=='none');if(title)title.inert=visible();}
 function setPlaying(value){playing=!!value;if(raf){cancelAnimationFrame(raf);raf=0;}if(playing&&ready&&visible()){last=performance.now();raf=requestAnimationFrame(loop);}}
 function begin(){started=true;if(t>=40)t=0;if(ready&&visible()){root.dataset.ready='true';render();setPlaying(true);}}
-function finish(){setPlaying(false);resumeOnShow=false;root.hidden=true;document.body.classList.remove('cinema-opening');const title=document.querySelector('#startOverlay');if(title){title.hidden=false;title.inert=false;}lock();const button=document.querySelector('#startButton');if(button&&!button.disabled)button.focus({preventScroll:true});document.dispatchEvent(new CustomEvent('ra:opening-cinema-complete'));}
-function replay(){t=0;root.hidden=false;document.body.classList.add('cinema-opening');const title=document.querySelector('#startOverlay');if(title)title.hidden=true;lock();started=true;render();if(!reduced.matches)begin();}
-function hintText(){hint.textContent='Click here to skip';}
-hintText();matchMedia('(pointer: coarse)').addEventListener?.('change',hintText);
+function finish(){if(!pending||!visible())return;setPlaying(false);resumeOnShow=false;root.hidden=true;document.body.classList.remove('cinema-opening');const resolve=pending.resolve;pending=null;lock();resolve();document.dispatchEvent(new CustomEvent('ra:opening-cinema-complete'));}
+function playNewGame(){
+ if(pending)return pending.promise;
+ let resolve;const promise=new Promise(done=>{resolve=done;});pending={promise,resolve};
+ t=0;started=true;root.hidden=false;document.body.classList.add('cinema-opening');
+ const title=document.querySelector('#startOverlay');if(title)title.hidden=true;
+ launchKey=downKeys.has('Enter')?'Enter':downKeys.has('Space')?'Space':null;
+ lock();if(ready)render();hint.focus({preventScroll:true});
+ if(ready&&!reduced.matches&&!document.hidden)begin();return promise;
+}
 hint.addEventListener('click',e=>{e.preventDefault();e.stopPropagation();finish();});
-// Capture both halves of a skip key, including repeats, so it never activates the title beneath.
+// Swallow the key that opened the film, plus both halves of a skip key. Neither can leak into game input.
 window.addEventListener('keydown',e=>{
- const key=e.code==='Space'||e.key===' '?'Space':e.key;
- if(heldSkipKey===key){e.preventDefault();e.stopImmediatePropagation();return;}
+ const key=e.code==='Space'||e.key===' '?'Space':e.key;downKeys.add(key);
+ if(consumedEntryKeys.has(key)||heldSkipKey===key||(launchKey===key&&visible())){e.preventDefault();e.stopImmediatePropagation();return;}
  if(!visible())return;
  if(key==='Space'||key==='Escape'||(key==='Enter'&&e.target===hint)){e.preventDefault();e.stopImmediatePropagation();heldSkipKey=key;finish();return;}
  if(key==='Enter'){e.preventDefault();e.stopImmediatePropagation();hint.focus({preventScroll:true});}
 },true);
-window.addEventListener('keyup',e=>{const key=e.code==='Space'||e.key===' '?'Space':e.key;if(heldSkipKey===key){e.preventDefault();e.stopImmediatePropagation();heldSkipKey=null;}},true);
+window.addEventListener('keyup',e=>{const key=e.code==='Space'||e.key===' '?'Space':e.key;downKeys.delete(key);if(consumedEntryKeys.delete(key)||heldSkipKey===key||launchKey===key){e.preventDefault();e.stopImmediatePropagation();if(heldSkipKey===key)heldSkipKey=null;if(launchKey===key)launchKey=null;}},true);
 document.addEventListener('visibilitychange',()=>{if(document.hidden){resumeOnShow=playing;setPlaying(false);}else if(resumeOnShow&&visible()&&!reduced.matches){resumeOnShow=false;begin();}});
 reduced.addEventListener?.('change',()=>{if(reduced.matches)setPlaying(false);else if(ready&&visible()&&!document.hidden)begin();});
 function loop(now){raf=0;if(!visible()||!playing||!ready)return;const dt=Math.min(.05,(now-last)/1000)||0;last=now;t=Math.min(40,t+dt);render();if(t>=40){finish();return;}raf=requestAnimationFrame(loop);}
-window.RAOpeningCinema={get time(){return t;},get playing(){return playing;},get ready(){return ready;},get framePending(){return !!raf;},get sound(){return false;},get audioState(){return 'not-created';},isVisible:visible,skip:finish,replay,begin,render,seek(time){setPlaying(false);started=true;render(time);}};
+window.RAOpeningCinema={get time(){return t;},get playing(){return playing;},get ready(){return ready;},get framePending(){return !!raf;},get sound(){return false;},get audioState(){return 'not-created';},isVisible:visible,skip:finish,playNewGame,consumeEntryKeys(){for(const key of ['Enter','Space','Escape'])if(downKeys.has(key))consumedEntryKeys.add(key);},begin,render,seek(time){setPlaying(false);started=true;render(time);}};
 lock();document.addEventListener('DOMContentLoaded',lock,{once:true});
-Promise.all(Object.entries(paths).map(([key,src])=>new Promise((resolve,reject)=>{const image=new Image();image.onload=()=>{imgs[key]=image;resolve();};image.onerror=()=>reject(Error('Opening asset failed: '+key));image.src=src;}))).then(async()=>{await document.fonts.ready;ready=true;started=true;root.dataset.ready='true';render();if(visible()&&!reduced.matches&&!document.hidden)begin();}).catch(error=>{root.querySelector('#cinemaStatus').textContent='Opening could not load. Use the skip hint to continue.';console.warn(error.message);});
+Promise.all(Object.entries(paths).map(([key,src])=>new Promise((resolve,reject)=>{const image=new Image();image.onload=()=>{imgs[key]=image;resolve();};image.onerror=()=>reject(Error('Opening asset failed: '+key));image.src=src;}))).then(async()=>{await document.fonts.ready;ready=true;root.dataset.ready='true';render();if(visible()&&pending&&!reduced.matches&&!document.hidden)begin();}).catch(error=>{root.querySelector('#cinemaStatus').textContent='Opening could not load. Use the skip hint to continue.';console.warn(error.message);});
 })();

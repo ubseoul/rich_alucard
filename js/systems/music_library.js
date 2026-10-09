@@ -11,7 +11,7 @@
  ];
  const ORDER=['bloodbath',...LIBRARY.map(t=>t.id)];
  let pinned=false,scoped=null,musicGeneration=0,needsGesture=false,restored=false;
- function requestPlay(a){const generation=musicGeneration;a.play().then(()=>{if(generation===musicGeneration)needsGesture=false;}).catch(()=>{if(generation===musicGeneration)needsGesture=true;});}
+ function requestPlay(a){const generation=musicGeneration;return a.play().then(()=>{if(generation===musicGeneration)needsGesture=false;return true;}).catch(()=>{if(generation===musicGeneration)needsGesture=true;return false;});}
  function remember(){const a=audioEl();if(!a||scoped)return;const radio=RAState.get().life.phone.radio||{};const next={...radio,track:a.dataset.track||radio.track,pinned,time:Number(a.currentTime)||0};if(next.track!==radio.track||next.pinned!==radio.pinned||Math.abs(next.time-(radio.time||0))>=3)RAState.patch('life.phone.radio',next);}
  const audioEl=()=>document.querySelector('#soundtrack');
  const trackFor=id=>id==='bloodbath'?{id,file:'assets/bloodbath_mix3.wav'}:LIBRARY.find(t=>t.id===id);
@@ -40,5 +40,5 @@
   window.addEventListener('pagehide',remember);
  }
  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init,{once:true});else init();
- window.RAMusicLibrary={LIBRARY,ORDER,play,next,onEnded,unpin,combat,trackFor,restored:()=>restored,isPinned:()=>pinned,needsGesture:()=>needsGesture,resume:()=>{const a=audioEl();if(a)requestPlay(a);},performance:(owner,trackId)=>combat(owner,null,{trackId,force:true})};
+ window.RAMusicLibrary={LIBRARY,ORDER,play,next,onEnded,unpin,combat,trackFor,restored:()=>restored,isPinned:()=>pinned,needsGesture:()=>needsGesture,resume:()=>{const a=audioEl();return a?requestPlay(a):Promise.resolve(false);},performance:(owner,trackId)=>combat(owner,null,{trackId,force:true})};
 })();

@@ -427,40 +427,74 @@ audio.addEventListener('ended',()=>{
 function startSurfaceHasProgress(){
   return !!window.RANewGame?.hasProgress?.();
 }
+let entryMode='title',replaceArmed=false,entryPromise=null,launchPromise=null;
+const entryNotice=document.querySelector('#entryNotice');
 function refreshStartSurface(){
   const hasProgress=startSurfaceHasProgress();
-  start.textContent=hasProgress?'CONTINUE':'PLAY NOW';
-  if(newGameButton)newGameButton.hidden=!hasProgress;
+  start.textContent=replaceArmed?'REPLACE SAVE':hasProgress?'CONTINUE':'NEW GAME';
+  start.disabled=entryMode!=='title';
+  if(newGameButton){newGameButton.hidden=!hasProgress&&!replaceArmed;newGameButton.textContent=replaceArmed?'CANCEL':'NEW GAME';newGameButton.disabled=entryMode!=='title';}
+  if(entryNotice){entryNotice.hidden=!replaceArmed;entryNotice.textContent=replaceArmed?'Replace this browser’s saved game?':'';}
 }
 async function launchGame(){
-  overlay.style.display='none';
-  try{window.RAAudio?.unlock?.();}catch(e){}
-  const routed=await window.RANewGame?.onStart?.();
-  if(!routed)await window.RAScenes?.go?.('bedroom',{start:true});
-  try{
-    if(audio.readyState<1){
-      await new Promise(resolve=>audio.addEventListener('loadedmetadata',resolve,{once:true}));
-    }
-    if(!window.RAMusicLibrary?.restored?.())seekToLoopStart();
-    await audio.play();
-  }catch(e){
-    console.error(e);
-    say('TAP AGAIN FOR AUDIO');
-  }
+  if(launchPromise)return launchPromise;
+  entryMode='launching';
+  window.RAOpeningCinema?.consumeEntryKeys?.();
+  launchPromise=(async()=>{
+    overlay.hidden=true;overlay.style.display='none';
+    try{window.RAAudio?.unlock?.();}catch(e){}
+    const routed=await window.RANewGame?.onStart?.();
+    if(!routed)await window.RAScenes?.go?.('bedroom',{start:true});
+    entryMode='game';document.body.classList.remove('title-front','entry-starting');
+    document.dispatchEvent(new CustomEvent('ra:entry-complete'));
+    // Optional music must never put an intermediate message between the title and the game.
+    (async()=>{
+      try{
+        if(audio.readyState<1)await new Promise(resolve=>audio.addEventListener('loadedmetadata',resolve,{once:true}));
+        if(!window.RAMusicLibrary?.restored?.())seekToLoopStart();
+        // Keep a rejected first play eligible for the library's next-gesture retry.
+        if(window.RAMusicLibrary)await window.RAMusicLibrary.resume();else await audio.play();
+      }catch(e){console.warn('Startup music unavailable:',e?.name||'audio-error');}
+    })();
+  })();
+  return launchPromise;
 }
-start.addEventListener('click',launchGame);
-newGameButton?.addEventListener('click',async()=>{
-  if(!startSurfaceHasProgress())return;
-  if(!window.confirm('START A NEW GAME?'))return;
-  window.RAState?.reset?.();
-  refreshStartSurface();
-  await launchGame();
+function beginNewGame(replaceSave){
+  if(entryMode!=='title'||entryPromise)return entryPromise;
+  entryMode='cinematic';replaceArmed=false;refreshStartSurface();
+  document.body.classList.add('entry-starting');overlay.hidden=true;
+  entryPromise=(async()=>{
+    await window.RAOpeningCinema.playNewGame();
+    if(replaceSave){
+      // Keep the native reset, committing it once or retaining the old save on failure.
+      const reset=window.RAState.atomic(()=>window.RAState.reset());
+      if(!reset.ok){
+        entryMode='title';entryPromise=null;overlay.hidden=false;overlay.style.display='';
+        document.body.classList.remove('entry-starting');refreshStartSurface();
+        if(entryNotice){entryNotice.hidden=false;entryNotice.textContent='Your save could not be replaced. Please try again.';}
+        start.focus({preventScroll:true});return;
+      }
+    }
+    await launchGame();
+  })();
+  return entryPromise;
+}
+start.addEventListener('click',()=>{
+  if(entryMode!=='title')return;
+  if(replaceArmed){beginNewGame(true);return;}
+  if(startSurfaceHasProgress())launchGame();else beginNewGame(false);
 });
+newGameButton?.addEventListener('click',()=>{
+  if(entryMode!=='title'||!startSurfaceHasProgress())return;
+  replaceArmed=!replaceArmed;refreshStartSurface();start.focus({preventScroll:true});
+});
+window.RAEntryFlow={get mode(){return entryMode;},get replacing(){return replaceArmed;},blocksGameInput:()=>entryMode!=='game'};
 refreshStartSurface();
 
 mainButtons.forEach((b,i)=>b.addEventListener('click',()=>{if(busy||battleOver)return;pressFeedback(b);mainIndex=i;inMoves=false;paint();activateMain()}));
 moves.forEach((b,i)=>b.addEventListener('click',()=>{if(busy||battleOver)return;pressFeedback(b);moveIndex=i;inMoves=true;paint();activateMove()}));
 window.addEventListener('keydown',e=>{
+  if(window.RAEntryFlow?.blocksGameInput?.()){if(entryMode==='title'&&(e.key==='Enter'||e.key===' ')){e.preventDefault();start.click();}return;}
   if(['bedroom','ogun-rave','adventure'].includes(window.RAScenes?.current())||document.body.classList.contains('minigame-mode')||document.body.classList.contains('combat2-mode'))return;
   if(overlay.style.display!=='none'&&(e.key==='Enter'||e.key===' ')){start.click();return}
   if(busy||battleOver)return;

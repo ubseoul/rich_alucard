@@ -4,7 +4,7 @@ import vm from 'node:vm';
 import {createHash} from 'node:crypto';
 const GAMEPLAY="e7122769543e7dcc116e8d44fe7dd9758dddefac";
 const PACK="b49ad1fa1a525c072a21fb4ebc18c1039be8ba75998ecf4ead585f7b8b63d2a3";
-const DIGEST="1011e94f6879461231ce7ef066d0992e3e1e633d6c56aea6caf7116811f6fcfc";
+const DIGEST="f0483bc2d18a371163db15154369bcd8c885d8de0d38df09d96b7be43faad687";
 const hash=b=>createHash('sha256').update(b).digest('hex');
 function assert(value,message){if(!value)throw Error(message);}
 export function verifyApprovedPublication(root,{syntax=false}={}){
