@@ -182,9 +182,9 @@
     if(recovery.ok){try{storage.setItem(QUARANTINE_KEY,storage.getItem(KEY)||'');storage.setItem(KEY,JSON.stringify(recovery.state));}catch(error){}return {state:recovery.state,status:{source:'recovery',migrated:recovery.from!==VERSION,recovered:true,error:primary.error}};}
     return {state:clone(defaults),status:{source:'fresh',migrated:false,recovered:false,error:primary.error==='missing'?null:primary.error}};
   }
-  let state=clone(defaults);let loadStatus={source:'fresh',migrated:false,recovered:false,error:null};
+  let state=clone(defaults),atomicFrame=null;let loadStatus={source:'fresh',migrated:false,recovered:false,error:null};
   function load(){const result=read(localStorage);state=result.state;loadStatus=result.status;if(loadStatus.source==='primary'&&loadStatus.migrated)write(localStorage,state,true);return state;}
-  function save(){const result=write(localStorage,state,true);if(result)state=migrateRecord(state);return result;}
+  function save(){if(atomicFrame)return true;const result=write(localStorage,state,true);if(result)state=migrateRecord(state);return result;}
   function reset(){state=clone(defaults);save();return state;}
   function get(){return state;}
   function patch(path,value){const parts=String(path||'').split('.').filter(Boolean);if(!parts.length)return false;let current=state;for(let index=0;index<parts.length-1;index++)current=current[parts[index]]||(current[parts[index]]={});current[parts.at(-1)]=value;save();return value;}
@@ -195,10 +195,33 @@
     try{value=mutator(next);}catch(error){return {ok:false,error:error.message||'mutation-failed'};}
     if(value===false)return {ok:false,error:'aborted'};
     const checked=migrateWithReport(next);if(!checked.ok)return {ok:false,error:checked.error};
-    if(!write(localStorage,checked.state,true))return {ok:false,error:'storage-write-failed'};
+    if(!atomicFrame&&!write(localStorage,checked.state,true))return {ok:false,error:'storage-write-failed'};
     state=checked.state;return {ok:true,value};
   }
+  // Existing services join one durable settlement; observers fire only after it commits.
+  function afterCommit(commit,rollback){
+    if(atomicFrame){if(typeof commit==='function')atomicFrame.commit.push(commit);if(typeof rollback==='function')atomicFrame.rollback.push(rollback);}
+    else if(typeof commit==='function')commit();
+  }
+  function atomic(mutator){
+    if(typeof mutator!=='function')return {ok:false,error:'mutator-required'};
+    const prior=state,parent=atomicFrame,frame={commit:[],rollback:[]};let value,checked,error;
+    state=clone(state);atomicFrame=frame;
+    try{
+      value=mutator();
+      if(value&&typeof value.then==='function')throw new Error('synchronous-mutator-required');
+      if(value===false)throw new Error('aborted');
+      checked=migrateWithReport(state);if(!checked.ok)throw new Error(checked.error);
+      if(!parent&&!write(localStorage,checked.state,true))throw new Error('storage-write-failed');
+    }catch(e){error=e.message||'mutation-failed';}
+    atomicFrame=parent;
+    if(error){state=prior;for(const undo of frame.rollback.reverse())try{undo();}catch(e){console.error('state rollback',e);}return {ok:false,error};}
+    state=checked.state;
+    if(parent){parent.commit.push(...frame.commit);parent.rollback.push(...frame.rollback);}
+    else for(const notify of frame.commit)try{notify();}catch(e){console.error('state observer',e);}
+    return {ok:true,value};
+  }
   function recordEvent(event){if(!event?.id)return false;const history=state.life.history;if(history.some(item=>item.id===event.id))return false;history.push({...event,at:event.at||new Date().toISOString()});save();return true;}
-  window.RAState={load,save,reset,get,patch,transaction,recordEvent,migrateRecord,migrateWithReport,normalizeRecord,parseRecord,read,write,getLoadStatus:()=>({...loadStatus}),defaults:clone(defaults),version:VERSION,keys:{primary:KEY,recovery:RECOVERY_KEY,quarantine:QUARANTINE_KEY}};
+  window.RAState={load,save,reset,get,patch,transaction,atomic,afterCommit,recordEvent,migrateRecord,migrateWithReport,normalizeRecord,parseRecord,read,write,getLoadStatus:()=>({...loadStatus}),defaults:clone(defaults),version:VERSION,keys:{primary:KEY,recovery:RECOVERY_KEY,quarantine:QUARANTINE_KEY}};
   load();
 })();

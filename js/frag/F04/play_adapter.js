@@ -125,6 +125,12 @@
  }
 
  function consume(result) {
+  const cue={amount:0},committed=window.RAState.atomic(()=>consumeState(result,cue));
+  if(!committed.ok)return {ok:false,code:'SAVE_FAILED',errors:[committed.error]};
+  if(cue.amount>0&&window.document?.dispatchEvent&&typeof window.CustomEvent==='function')window.document.dispatchEvent(new window.CustomEvent('ra:play-cash-credited',{detail:{requestId:result.requestId,amount:cue.amount,balance:money(),source:'war_room:play'}}));
+  return committed.value;
+ }
+ function consumeState(result,cue) {
   const pending = rd(`${K}.pending`, null);
   const consumed = rd(`${K}.consumed`, {});
   if (result && consumed[result.requestId]) { if (pending?.request.requestId === result.requestId) wr(`${K}.pending`, null);window.RARC3?.settlePlay?.(result,consumed[result.requestId]);return { ok: true, duplicate: true, summary: consumed[result.requestId] }; }
@@ -209,7 +215,7 @@
   wr(`${K}.pending`, null);
   if(result.status==='COMPLETE')window.RARC3?.settlePlay?.(result,c2[result.requestId]);
   if(result.status==='COMPLETE')window.RARC3?.settleAttempt?.('warRoom',jobMeta.id,{outcome:result.outcome.win?'win':'lose'});
-  if(creditedAmount>0&&window.document?.dispatchEvent&&typeof window.CustomEvent==='function')window.document.dispatchEvent(new window.CustomEvent('ra:play-cash-credited',{detail:{requestId:result.requestId,amount:creditedAmount,balance:money(),source:'war_room:play'}}));
+  cue.amount=creditedAmount;
   return { ok: true, summary: c2[result.requestId], errors };
  }
 
@@ -230,7 +236,8 @@
   const built = buildRequest(jobCard); if (!built.ok) return built;
   if(window.RARC3&&!window.RARC3.attemptAllowed('warRoom',jobCard.id))return {ok:false,code:'RETRY_TOMORROW',errors:['One retry per job per day; return tomorrow.']};
   const pending = { request: built.request, carMap: built.carMap, jobMeta: built.jobMeta, seq: built.seq, startedDay: day() };
-  wr(`${K}.pending`, pending);      // persisted BEFORE F01 is asked: a reload mid-PLAY cannot lose or duplicate it
+  const saved=window.RAState.atomic(()=>wr(`${K}.pending`,pending));
+  if(!saved.ok)return {ok:false,code:'SAVE_FAILED',errors:[saved.error]}; // Do not launch an unsaved request.
   return run(pending, opts);
  }
  async function resume(opts) {

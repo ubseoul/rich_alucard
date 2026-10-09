@@ -24,10 +24,10 @@
   stack.push({tag:String(tag),memo});let popped=false;const pop=()=>{if(!popped){popped=true;stack.pop();}};
   try{const result=fn();if(result&&typeof result.then==='function')return result.finally(pop);pop();return result;}catch(e){pop();throw e;}
  }
- function record({delta,source=null,memo=null,via='service'}){
+ function record({delta,source=null,memo=null,via='service',balance:observedBalance=null}){
   if(!Number.isFinite(delta)||delta===0)return null;
   const tag=source||ambientSource();if(memo===null&&stack.length)memo=stack.at(-1).memo;
-  const entry={seq:++seq,day:today(),delta:Math.round(delta),balance:balance(),source:tag,family:familyOf(tag),via};if(memo)entry.memo=String(memo);
+  const entry={seq:++seq,day:today(),delta:Math.round(delta),balance:Number.isFinite(observedBalance)?observedBalance:balance(),source:tag,family:familyOf(tag),via};if(memo)entry.memo=String(memo);
   entries.push(entry);if(entries.length>MAX)entries.shift();
   const t=totals[tag]||(totals[tag]={in:0,out:0,net:0,count:0});if(entry.delta>0)t.in+=entry.delta;else t.out+=-entry.delta;t.net+=entry.delta;t.count++;
   persist();return {...entry};
@@ -48,7 +48,7 @@
  const query=({source=null,family=null,fromSeq=0}={})=>entries.filter(e=>e.seq>fromSeq&&(!source||e.source===source||e.source.startsWith(`${source}:`))&&(!family||e.family===family)).map(e=>({...e}));
  function byFamily(){const out={};for(const [tag,t] of Object.entries(totals)){const f=familyOf(tag),o=out[f]||(out[f]={in:0,out:0,net:0,count:0});o.in+=t.in;o.out+=t.out;o.net+=t.net;o.count+=t.count;}return out;}
  function reset(){entries.length=0;for(const k of Object.keys(totals))delete totals[k];seq=0;}
- window.RAStateWatch?.watch('if1.money',s=>s.life?.resources?.money,(next,prev,{via})=>{record({delta:next-prev,via});});
+ window.RAStateWatch?.watch('if1.money',s=>s.life?.resources?.money,(next,prev,{via,source,balance})=>{record({delta:next-prev,via,source,balance});});
  restore();
  window.RAMoneyLedger={withSource,record,credit,debit,entries:()=>entries.map(e=>({...e})),query,totals:()=>JSON.parse(JSON.stringify(totals)),byFamily,familyOf,registerFamily,sources:()=>Object.keys(totals).sort(),reset,restore,balance,current:ambientSource};
 })();

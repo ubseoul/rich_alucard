@@ -46,7 +46,7 @@
  function bounds(im){let b=cropCache.get(im.src);if(b)return b;const cv=document.createElement('canvas');cv.width=im.naturalWidth;cv.height=im.naturalHeight;const c=cv.getContext('2d');c.drawImage(im,0,0);const d=c.getImageData(0,0,cv.width,cv.height).data;let x1=cv.width,y1=cv.height,x2=0,y2=0;for(let y=0;y<cv.height;y++)for(let x=0;x<cv.width;x++)if(d[(y*cv.width+x)*4+3]){x1=Math.min(x1,x);y1=Math.min(y1,y);x2=Math.max(x2,x+1);y2=Math.max(y2,y+1);}b=[x1,y1,x2-x1,y2-y1];cropCache.set(im.src,b);return b;}
  const HOMIE_FLOOR={tunde:'asleep_floor',dre:'asleep_floor',tristan:'floor'};
  const art=()=>window.RAArtRegistry||{};
- const images=new Map();
+ const images=new Map();let companyWindowMask=null;
  function image(src,redraw){if(!images.has(src)){const img=new Image();img.src=src;images.set(src,img);}const img=images.get(src);if(!(img.complete&&img.naturalWidth))img.addEventListener('load',redraw,{once:true});return img;}
  function canvas(className,z){const cv=document.createElement('canvas');cv.width=270;cv.height=480;cv.className=className;Object.assign(cv.style,{position:'absolute',inset:'0',width:'100%',height:'100%',imageRendering:'pixelated',pointerEvents:'none',zIndex:z});return cv;}
  let under=null;
@@ -74,7 +74,11 @@
     if(c.kind==='woman'){const pose=window.RALegendaryBedroomVisuals?.companyPose?.(c),contact=pose?.contact||WOMAN_CONTACT;if(!put(ctx,pose?.src||person?.states?.bedroom_company,contact[0]-40,contact[1]-88)){ctx.save();ctx.translate(196,332);ctx.rotate(-Math.PI/2);RAPixel.drawActor(ctx,person?.look||{},0,0,.9);ctx.restore();RAPixel.rect(ctx,150,332,86,12,'#e9dcc4');}}
     if(c.kind==='homie'){if(!put(ctx,person?.states?.[HOMIE_FLOOR[c.id]],HOMIE_CONTACT[0]-40,HOMIE_CONTACT[1]-88)){ctx.save();ctx.translate(120,452);ctx.rotate(-Math.PI/2);RAPixel.drawActor(ctx,person?.look||{},0,0,.8);ctx.restore();}}
     if(c.kind==='cat'){const src=art().creatures?.cat?.states?.on_bed?.asset,im=src&&image(src,draw);if(im?.complete&&im.naturalWidth){ctx.fillStyle='rgba(27,6,22,.5)';ctx.fillRect(CAT_AT[0]-18,CAT_AT[1]-1,36,2);ctx.drawImage(im,CAT_AT[0]-24,CAT_AT[1]-24);}else if(!src){RAPixel.rect(ctx,200,336,16,10,'#e8c0b0');RAPixel.rect(ctx,212,330,6,6,'#e8c0b0');RAPixel.rect(ctx,212,327,2,3,'#e8c0b0');RAPixel.rect(ctx,216,327,2,3,'#e8c0b0');}}
-    if(c.kind==='mazda'){if(!put(uctx,art().bedroom?.company?.mazda_flyby?.asset)){uctx.save();uctx.globalAlpha=.9;uctx.fillStyle='#3a6ff0';uctx.fillRect(150,90,46,10);uctx.fillRect(160,78,28,12);uctx.fillRect(196,86,12,6);uctx.restore();}}
+    if(c.kind==='mazda'){
+     const room=image('assets/rich_bedroom_environment_270x480.png',draw);
+     if(!companyWindowMask&&room.complete&&room.naturalWidth){companyWindowMask=document.createElement('canvas');companyWindowMask.width=270;companyWindowMask.height=480;const m=companyWindowMask.getContext('2d',{willReadFrequently:true});m.drawImage(room,0,0);const data=m.getImageData(0,0,270,480);for(let i=0;i<data.data.length;i+=4){const d=data.data;d[i+3]=d[i]===61&&d[i+1]===157&&d[i+2]===221?255:0;}m.putImageData(data,0,0);}
+     if(companyWindowMask){const fly=canvas('',0),f=fly.getContext('2d');f.imageSmoothingEnabled=false;if(!put(f,art().bedroom?.company?.mazda_flyby?.asset)){f.globalAlpha=.9;f.fillStyle='#3a6ff0';f.fillRect(150,90,46,10);f.fillRect(160,78,28,12);f.fillRect(196,86,12,6);}f.globalAlpha=1;f.globalCompositeOperation='destination-in';f.drawImage(companyWindowMask,0,0);uctx.drawImage(fly,0,0);}
+    }
    }
   };
   draw();layer.prepend(cv);

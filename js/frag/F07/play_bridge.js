@@ -103,6 +103,10 @@
   else if(c.after==='GONE'||c.after==='DEAD'){viaWar?W.setGone(c.id,{reason:'f07:play'}):window.RACrew.setStatus(c.id,'GONE',{reason:'f07:play'});}
  }
  function consume(result){
+  const committed=window.RAState.atomic(()=>consumeState(result));
+  return committed.ok?committed.value:{ok:false,code:'SAVE_FAILED',errors:[committed.error]};
+ }
+ function consumeState(result){
   const pending=rd(`${K}.pending`,null),consumed=rd(`${K}.consumed`,{});
   if(result&&consumed[result.requestId]){if(pending?.request.requestId===result.requestId)wr(`${K}.pending`,null);window.RARC3?.settlePlay?.(result,consumed[result.requestId]);return {ok:true,duplicate:true,...consumed[result.requestId]};}
   if(!pending||!result||result.requestId!==pending.request.requestId)return {ok:false,code:'NOT_PENDING'};
@@ -168,13 +172,14 @@
   if(!pending){
    const built=buildRequest(kind,{lanes:selected});if(!built.ok)return refusal(built,kind);
    pending={request:built.request,carMap:built.carMap,seq:built.seq,kind,...(kind==='finale_p1'?{lanes:[...selected]}:{}),startedDay:day()};
-   wr(`${K}.pending`,pending);
+   const saved=window.RAState.atomic(()=>wr(`${K}.pending`,pending));
+   if(!saved.ok)return {...refusal({code:'SAVE_FAILED',errors:[saved.error]},kind),ok:false};
   }
   // a real browser page gets F07's page for Phase 1; a headless host (no DOM) uses whatever transport F01 was given (tests)
   const launchOpts=injected?{transport:injected}:kind==='finale_p1'&&typeof window.document?.createElement==='function'?{transport:f07Transport}:{};
   const result=await window.RAShowdown.play.launch(pending.request,{...launchOpts,...(opts.transport?{transport:opts.transport}:{})});
   const out=consume(result);
-  return out.ok?out:refusal(out,kind);
+  return out.ok?out:{...refusal(out,kind),...(out.code==='SAVE_FAILED'?{ok:false}:{})};
  }
 
  // The adventure host: a minigame whose only job is to run the PLAY and report {win|lose|refused}. The PLAY page covers the host.

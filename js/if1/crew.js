@@ -17,7 +17,7 @@
   if(!def||typeof def.id!=='string'||!/^[a-z][a-z0-9_]*$/i.test(def.id))throw new Error('RACrew.define: {id} required');
   if(!def.fragment)throw new Error(`RACrew.define(${def.id}): fragment required`);
   if(defs.has(def.id))throw new Error(`RACrew.define: ${def.id} already defined by ${defs.get(def.id).fragment}`);
-  defs.set(def.id,Object.freeze({id:def.id,fragment:def.fragment,name:def.name||def.id,class:def.class||null,meta:Object.freeze({...(def.meta||{})})}));return def.id;
+  window.RAState.afterCommit?.(null,()=>defs.delete(def.id));defs.set(def.id,Object.freeze({id:def.id,fragment:def.fragment,name:def.name||def.id,class:def.class||null,meta:Object.freeze({...(def.meta||{})})}));return def.id;
  }
  function registerStatus(name){if(!/^[A-Z][A-Z_]*$/.test(name))throw new Error('status names are UPPER_SNAKE');extra.add(name);return name;}
  const blank=()=>({status:'ACTIVE',stories:{},bonds:{},timers:{},history:[]});
@@ -28,7 +28,7 @@
   const all=clone(units());const u=all[id]||blank();const before=clone(u);mutate(u);all[id]=u;window.RAFrag.patch('if1','crew.units',all);
   return {before,after:clone(u)};
  }
- function emit(event){for(const fn of [...listeners]){try{fn(event);}catch(e){console.error('crew listener',e);}}}
+ function emit(event){const notify=()=>{for(const fn of [...listeners]){try{fn(event);}catch(e){console.error('crew listener',e);}}};if(window.RAState.afterCommit)window.RAState.afterCommit(notify);else notify();}
  function setStatus(id,status,{reason=null,timer=null}={}){
   if(!valid(status))throw new Error(`RACrew.setStatus: unknown status ${status}`);
   const current=get(id);if(!current)throw new Error(`RACrew: unknown unit ${id}`);
