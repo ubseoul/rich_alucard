@@ -944,6 +944,10 @@ body.pd-active .briefcase-projectile.fly{animation:pdBriefcaseFly 430ms steps(4,
 /* The command grid fills the band: taller, easier touch targets instead of an empty strip under the menu. */
 #screen[data-pd-mode="combat"] .c2-menu{max-height:none;flex:1;min-height:0;grid-auto-rows:minmax(min-content,1fr);overflow:auto}
 #screen[data-pd-mode="combat"] .c2-btn{display:flex;flex-direction:column;justify-content:center}
+/* On short portrait screens, the three-row move menu needs one extra touch row. */
+@media (min-height:560px) and (max-height:640px){
+ #screen[data-pd-mode="combat"] .c2-panel:has([data-c2^="move:"]){top:calc(var(--pd-ui-y) - 32px);height:calc(var(--pd-ui-h) + 32px);max-height:calc(var(--pd-ui-h) + 32px)}
+}
 #screen[data-pd-mode="combat"] .c2-orb{width:calc(23px * var(--pd-fx,1));animation-name:pdC2Orb}
 @keyframes pdC2Orb{to{left:var(--pd-orb-to,70%)}}
 /* Generic scene UI roles (data-pd-ui) — any Director scene tags its UI and the mode lays it out. */
@@ -968,7 +972,9 @@ body.pd-active #screen > .room{display:none}
 #phoneContent .phone-pulse-dot{position:absolute;right:15px;top:0;min-width:15px;padding:2px;background:var(--os-red);color:#fff;border:1px solid var(--os-bg);font:12px var(--os-label);font-style:normal;text-align:center;animation:ra-pulse-blink 1s steps(2,end) infinite}
 #phoneContent .phone-next-button[data-guide]{animation:ra-pulse-blink 1.2s steps(2,end) infinite}
 .check-phone.guide-pulse{animation:ra-pulse-shake .5s steps(2,end) infinite;outline:2px solid #f04067;outline-offset:1px}
-@keyframes ra-pulse-shake{0%{transform:translate(0,0)}25%{transform:translate(-1px,1px)}50%{transform:translate(1px,0)}75%{transform:translate(0,-1px)}100%{transform:translate(0,0)}}
+body.bedroom-mode:has(.bedroom-return) #checkPhone{visibility:hidden}
+#phoneContent{overflow-anchor:none}
+@keyframes ra-pulse-shake{0%{translate:0 0}25%{translate:-1px 1px}50%{translate:1px 0}75%{translate:0 -1px}100%{translate:0 0}}
 @keyframes ra-pulse-blink{0%{opacity:1}50%{opacity:.55}100%{opacity:1}}
 #phoneContent .phone-rec{margin:0 0 12px}
 #phoneContent .phone-rec .rec-line{display:block;width:100%;text-align:left;min-height:38px;margin:0 0 6px}

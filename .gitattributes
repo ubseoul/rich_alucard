@@ -14,3 +14,7 @@ rave-review.html -text
 build.json -text
 overlay-build.json -text
 GAME-RELEASE.json -text
+PUBLIC-RELEASE.json -text
+PACKAGE-MANIFEST.json -text
+README.txt -text
+CNAME -text

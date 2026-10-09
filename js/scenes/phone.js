@@ -80,6 +80,7 @@
  function filterContacts(){const input=content.querySelector('[data-contact-search]'),query=(input?.value||'').toLowerCase();content.querySelectorAll('[data-contact-name]').forEach(card=>{card.hidden=!card.dataset.contactName.includes(query);});}
  function render(){
   if(!content)return;
+  const savedScroll=renderedPage===page?content.scrollTop:0;
   if(renderedPage!==page){content.scrollTop=0;renderedPage=page;}
   const s=state(),r=s.life.resources,w=s.life.world;
   deviceChrome();
@@ -130,11 +131,12 @@
    if(!app||!isUnlocked(id)){page='home';render();return;}
    content.innerHTML=`${app.render?.(rest.join(':'),api)||`<h1>${esc(app.label)}</h1>`}${app.noNav?'':`<div class="phone-nav">${rest.length?button('BACK',`app:${id}`,'phone-back'):''}${button('HOME','home','phone-home')}</div>`}`;
   }
-  content.scrollTop=0;
+  // Same-page refresh keeps scroll; navigation resets it above.
   // A short discrete page arrival, independent of the locked PLAY iframe.
   if(!matchMedia('(prefers-reduced-motion: reduce)').matches)content.animate?.([{opacity:.65,transform:'translateY(3px)'},{opacity:1,transform:'translateY(0)'}],{duration:120,easing:'steps(3,end)'});
   window.RAPhoneStyles?.();
   renderStatus();
+  content.scrollTop=savedScroll;
  }
  // Presentation reads real encounter/crew state. There is no invented persistent chapter-health resource.
  function statusSnapshot(){

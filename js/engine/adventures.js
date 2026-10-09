@@ -101,6 +101,10 @@
   return resolveNext(result.outcome==='win'?f.win:result.outcome==='spared'?(f.spared||f.win):result.outcome==='run'?(f.run||f.lose):f.lose,context(),result);}
  // EXIT + RETURN + MEMORY. Every authored adventure writes at least one later-readable memory.
  function complete(nodeId){
+  const committed=RAState.atomic(()=>completeState(nodeId));
+  return committed.ok?committed.value:null;
+ }
+ function completeState(nodeId){
   const a=active();if(!a)return null;const def=get(a.id);const end=def.nodes[nodeId]?.end||{};const A=context();
   // A chained continuation inherits the night-ending of the adventure it continues (chainNightEnder).
   const nightEnder=!!(end.nightEnder||def.nightEnder||a.vars?.chainNightEnder);
@@ -117,7 +121,7 @@
   const home=typeof end.home==='function'?end.home(A):end.home;
   RAState.patch('life.clock.returnBeat',home?{speaker:home[0],text:home[1],vp:!!home[2]?.vp,adventure:def.id,nightEnder}:{adventure:def.id,nightEnder});
   RAState.patch('life.adventures.active',null);
-  document.dispatchEvent(new CustomEvent('ra:adventure-complete',{detail:{id:def.id,outcome}}));
+  RAState.afterCommit(()=>document.dispatchEvent(new CustomEvent('ra:adventure-complete',{detail:{id:def.id,outcome}})));
   const chain=typeof end.chain==='function'?end.chain(A):end.chain;
   if(chain)RAState.patch('life.clock.returnBeat',null);
   return {id:def.id,outcome,nightEnder,location:end.location,chain:chain||null,chainVars:{...(end.chainVars?end.chainVars(A):{}),...(chain&&nightEnder?{chainNightEnder:true}:{})}};

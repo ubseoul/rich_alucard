@@ -171,7 +171,7 @@
    for(const line of lines){if(!scope?.isActive())return;if(line)await showLine(line);}
    if(!scope?.isActive())return;
    if(node.presentation){hideDialogue();const presented=await window.RAWorldPresentation?.play(root,scope,node);if(presented?.cancelled||!scope?.isActive())return;if(presented?.reason)root.dataset.presentationLimit=presented.reason;}
-   if(node.end){hideDialogue();const res=RAAdventures.complete(nodeId);await returnHome(res);return;}
+   if(node.end){hideDialogue();let res=RAAdventures.complete(nodeId);while(!res&&RAAdventures.active()){const retry=await showChoices([{label:'TRY SAVING AGAIN',sub:'YOUR PROGRESS COULD NOT BE SAVED'}]);if(!retry||!scope?.isActive())return;res=RAAdventures.complete(nodeId);}await returnHome(res);return;}
    if(node.route){const opts=routeOptions(typeof node.route.dest==='function'?node.route.dest(RAAdventures.context()):node.route.dest);const pick=await showChoices(opts.map(o=>({...o})));if(!pick)return;applyRoute(pick);nodeId=node.route.next;continue;}
    // Every choice locked (e.g. nothing affordable) and no authored fallback: never strand the player on a screen with
    // no control. They leave the way the castle menu answers — "not tonight." — and the night is not counted.

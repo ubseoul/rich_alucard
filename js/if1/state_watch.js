@@ -6,7 +6,7 @@
  // Interception is behavior-preserving: the original function runs first, unchanged, and its return value is returned.
  const watchers=new Map();let installed=false;
  const read=w=>{try{return w.select(window.RAState.get());}catch(e){return undefined;}};
- function check(via){for(const w of watchers.values()){const next=read(w);if(next!==w.last){const prev=w.last;w.last=next;if(prev!==undefined&&!w.silentVia?.has(via.split(':')[0])){try{w.fn(next,prev,{via});}catch(e){console.error('state watcher',w.id,e);}}}}}
+ function check(via){for(const w of watchers.values()){const next=read(w);if(next!==w.last){const prev=w.last;w.last=next;if(prev!==undefined&&!w.silentVia?.has(via.split(':')[0])){const meta={via,source:window.RAMoneyLedger?.current?.(),balance:window.RAState.get().life?.resources?.money},notify=()=>{try{w.fn(next,prev,meta);}catch(e){console.error('state watcher',w.id,e);}};if(window.RAState.afterCommit)window.RAState.afterCommit(notify,()=>{w.last=prev;});else notify();}}}}
  function install(){
   if(installed)return;installed=true;const S=window.RAState;
   for(const name of ['patch','save','reset','load','transaction']){
