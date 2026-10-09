@@ -21,6 +21,5 @@
  overlay.addEventListener('keydown',e=>{if((e.key==='Enter'||e.key===' ')&&e.target.closest('button'))e.stopPropagation();});
  new MutationObserver(sync).observe(overlay,{attributes:true,attributeFilter:['style','class','hidden']});
  reduce.addEventListener?.('change',sync);document.addEventListener('visibilitychange',sync);
- document.querySelector('#replayOpeningButton')?.addEventListener('click',()=>window.RAOpeningCinema?.replay?.());
  sync();
 })();

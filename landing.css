@@ -74,6 +74,3 @@
 
 #startOverlay.retro-start #startButton:hover{animation:none;background-color:#9f1636}
 #startOverlay.retro-start #startButton:focus-visible{background-color:#d7193f}
-
-#startOverlay.retro-start .retro-footer{display:flex;align-items:center;justify-content:space-between;gap:10px}
-#startOverlay.retro-start button.retro-replay{width:auto;min-height:44px;font-size:6px;line-height:1.6;padding:8px;background:#f6efd9;color:#10101b;box-shadow:2px 2px 0 #10101b}

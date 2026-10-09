@@ -3,7 +3,7 @@
 const root=document.querySelector('#cinematicIntro');
 if(!root)return;
 const canvas=root.querySelector('#film'),ctx=canvas.getContext('2d',{alpha:false});
-const $=s=>root.querySelector(s),DURATION=40;
+const DURATION=40;
 let t=0,playing=false,started=false,last=0,audio=null,sound=false,lastShot=-1,ready=false,raf=0;
 const imgs={},paths={"background":"opening-assets/roadside-master.png","car":"opening-assets/car.png","ogaIdle":"opening-assets/ogaIdle.png","ogaWalk":"opening-assets/ogaWalk.png","ogaAim":"opening-assets/ogaAim.png","driver":"opening-assets/driver.png","gbengaIdle":"opening-assets/gbenga-idle-trim.png","gbengaWalk1":"opening-assets/gbenga-walk1-trim.png","gbengaWalk2":"opening-assets/gbenga-walk2-trim.png","gbengaTalk":"opening-assets/gbenga-talk-trim.png"};
 const reduced=matchMedia('(prefers-reduced-motion: reduce)');
@@ -157,7 +157,6 @@ function render(time=t){
  if(t<1.65)board("GBENGA / THE ROADSIDE","AN ORIGINAL PIXEL OPENING SAMPLE",clamp(0,1-(t-1.1)/.5,1));
  if(t>=37.7)board("LEAVE THE GUN. TAKE THE PUFF PUFF.","SAMPLE ONLY / END",ease((t-37.7)/.7));
  if(!started&&!playing){rect(0,0,640,360,"#09081355")}
- $("#seek").value=t;$("#clock").textContent="00:"+String(Math.floor(t)).padStart(2,"0")+" / 00:40";
 }
 function startAudio(){
  if(audio)return;
@@ -172,66 +171,30 @@ function sfx(at){
  if(!sound||!audio)return;
  const ac=audio.ac,g=ac.createGain(),osc=ac.createOscillator();g.connect(audio.master);osc.connect(g);osc.type="triangle";osc.frequency.setValueAtTime(at==="shot"?90:45,ac.currentTime);osc.frequency.exponentialRampToValueAtTime(25,ac.currentTime+.14);g.gain.setValueAtTime(at==="shot"?1.1:.3,ac.currentTime);g.gain.exponentialRampToValueAtTime(.001,ac.currentTime+.2);osc.start();osc.stop(ac.currentTime+.21)
 }
-function syncAudio(){if(audio){if(sound&&playing)audio.ac.resume();else audio.ac.suspend()}}
-function visible(){return !root.hidden;}
-function lock(){
- const stage=document.querySelector('#stage'),title=document.querySelector('#startOverlay');
- if(stage)stage.inert=visible()||!!(title&&!title.hidden&&getComputedStyle(title).display!=='none');
- if(title)title.inert=visible();
-}
-function focusTitle(){const button=document.querySelector('#startButton');if(button&&!button.disabled)button.focus({preventScroll:true});}
-function finish(){
- setPlaying(false);sound=false;$('#sound').textContent='Sound: off';$('#sound').setAttribute('aria-pressed','false');syncAudio();
- root.hidden=true;document.body.classList.remove('cinema-opening');
- const title=document.querySelector('#startOverlay');if(title){title.hidden=false;title.inert=false;}
- lock();focusTitle();document.dispatchEvent(new CustomEvent('ra:opening-cinema-complete'));
-}
-function setPlaying(p){
- playing=!!p;$('#play').disabled=!ready;$('#play').textContent=playing?'Pause':t>=40?'Play again':'Play';syncAudio();
- if(raf){cancelAnimationFrame(raf);raf=0;}
- if(playing&&ready&&visible()){last=performance.now();raf=requestAnimationFrame(loop);}
-}
-function begin(){
- started=true;$('#start').hidden=true;if(t>=40)t=0;
- if(ready){root.dataset.ready='true';render();setPlaying(true);}
- else{$('#cinemaStatus').textContent='Loading opening…';}
-}
-function replay(){t=0;lastShot=-1;root.hidden=false;document.body.classList.add('cinema-opening');const title=document.querySelector('#startOverlay');if(title)title.hidden=true;lock();begin();canvas.focus({preventScroll:true});}
-$('#begin').onclick=begin;
-$('#play').onclick=()=>{if(!started||t>=40){t=0;begin();}else setPlaying(!playing);};
-$('#replay').onclick=replay;
-$('#skip').onclick=finish;
-$('#sound').onclick=()=>{sound=!sound;if(sound)startAudio();$('#sound').textContent='Sound: '+(sound?'on':'off');$('#sound').setAttribute('aria-pressed',String(sound));syncAudio();};
-$('#seek').oninput=e=>{t=Number(e.target.value);started=true;$('#start').hidden=true;lastShot=t>=18.55?2:t>=18.3?1:0;if(t>=40){finish();return;}render();};
+const hint=root.querySelector('#cinemaSkipHint');
+let heldSkipKey=null,resumeOnShow=false;
+const visible=()=>!root.hidden;
+function lock(){const stage=document.querySelector('#stage'),title=document.querySelector('#startOverlay');if(stage)stage.inert=visible()||!!(title&&!title.hidden&&getComputedStyle(title).display!=='none');if(title)title.inert=visible();}
+function setPlaying(value){playing=!!value;if(raf){cancelAnimationFrame(raf);raf=0;}if(playing&&ready&&visible()){last=performance.now();raf=requestAnimationFrame(loop);}}
+function begin(){started=true;if(t>=40)t=0;if(ready&&visible()){root.dataset.ready='true';render();setPlaying(true);}}
+function finish(){setPlaying(false);resumeOnShow=false;root.hidden=true;document.body.classList.remove('cinema-opening');const title=document.querySelector('#startOverlay');if(title){title.hidden=false;title.inert=false;}lock();const button=document.querySelector('#startButton');if(button&&!button.disabled)button.focus({preventScroll:true});document.dispatchEvent(new CustomEvent('ra:opening-cinema-complete'));}
+function replay(){t=0;root.hidden=false;document.body.classList.add('cinema-opening');const title=document.querySelector('#startOverlay');if(title)title.hidden=true;lock();started=true;render();if(!reduced.matches)begin();}
+function hintText(){hint.textContent='Click here to skip';}
+hintText();matchMedia('(pointer: coarse)').addEventListener?.('change',hintText);
+hint.addEventListener('click',e=>{e.preventDefault();e.stopPropagation();finish();});
+// Capture both halves of a skip key, including repeats, so it never activates the title beneath.
 window.addEventListener('keydown',e=>{
- if(!visible()||root.contains(e.target))return;
- e.preventDefault();e.stopImmediatePropagation();
- if(e.key==='Escape')finish();else if(e.code==='Space')$('#play').click();else if(e.key==='Enter'&&!playing)begin();
- canvas.focus({preventScroll:true});
+ const key=e.code==='Space'||e.key===' '?'Space':e.key;
+ if(heldSkipKey===key){e.preventDefault();e.stopImmediatePropagation();return;}
+ if(!visible())return;
+ if(key==='Space'||key==='Escape'||(key==='Enter'&&e.target===hint)){e.preventDefault();e.stopImmediatePropagation();heldSkipKey=key;finish();return;}
+ if(key==='Enter'){e.preventDefault();e.stopImmediatePropagation();hint.focus({preventScroll:true});}
 },true);
-root.addEventListener('keydown',e=>{
- e.stopPropagation();if(e.key==='Escape'){e.preventDefault();finish();return;}
- if(e.target.matches('input'))return;
- if(e.key.toLowerCase()==='r'){e.preventDefault();replay();return;}
- if(e.target.matches('button'))return;
- if(e.code==='Space'){e.preventDefault();$('#play').click();}
-});
-root.addEventListener('focusin',e=>{if(e.target.matches('button,input'))e.target.scrollIntoView({block:'nearest',inline:'nearest'});});
-document.addEventListener('visibilitychange',()=>{if(document.hidden&&playing)setPlaying(false);});
-reduced.addEventListener?.('change',()=>{if(reduced.matches&&playing)setPlaying(false);});
-function loop(now){
- raf=0;if(!visible()||!playing||!ready)return;
- const dt=Math.min(.05,(now-last)/1000)||0;last=now;
- const prev=t;t=Math.min(40,t+dt);
- if(prev<18.3&&t>=18.3)sfx('shot');if(prev<18.55&&t>=18.55)sfx('shot');
- render();if(t>=40){finish();return;}raf=requestAnimationFrame(loop);
-}
-window.RAOpeningCinema={get time(){return t;},get playing(){return playing;},get audioState(){return audio?audio.ac.state:'not-created';},get sound(){return sound;},get ready(){return ready;},get framePending(){return !!raf;},isVisible:visible,replay,skip:finish,
- seek(time){setPlaying(false);started=true;$('#start').hidden=true;render(time);},render,begin};
+window.addEventListener('keyup',e=>{const key=e.code==='Space'||e.key===' '?'Space':e.key;if(heldSkipKey===key){e.preventDefault();e.stopImmediatePropagation();heldSkipKey=null;}},true);
+document.addEventListener('visibilitychange',()=>{if(document.hidden){resumeOnShow=playing;setPlaying(false);}else if(resumeOnShow&&visible()&&!reduced.matches){resumeOnShow=false;begin();}});
+reduced.addEventListener?.('change',()=>{if(reduced.matches)setPlaying(false);else if(ready&&visible()&&!document.hidden)begin();});
+function loop(now){raf=0;if(!visible()||!playing||!ready)return;const dt=Math.min(.05,(now-last)/1000)||0;last=now;t=Math.min(40,t+dt);render();if(t>=40){finish();return;}raf=requestAnimationFrame(loop);}
+window.RAOpeningCinema={get time(){return t;},get playing(){return playing;},get ready(){return ready;},get framePending(){return !!raf;},get sound(){return false;},get audioState(){return 'not-created';},isVisible:visible,skip:finish,replay,begin,render,seek(time){setPlaying(false);started=true;render(time);}};
 lock();document.addEventListener('DOMContentLoaded',lock,{once:true});
-Promise.all(Object.entries(paths).map(([key,src])=>new Promise((resolve,reject)=>{const image=new Image();image.onload=()=>{imgs[key]=image;resolve();};image.onerror=()=>reject(Error('Opening asset failed: '+key));image.src=src;}))).then(async()=>{
- await document.fonts.ready;ready=true;root.dataset.ready='true';$('#cinemaStatus').textContent='';$('#play').disabled=false;
- render();if(!visible())return;
- if(!reduced.matches||started)begin();else{$('#start').hidden=false;canvas.focus({preventScroll:true});}
-}).catch(error=>{$('#cinemaStatus').textContent='Opening could not load. Skip to continue.';$('#begin').disabled=true;console.warn(error.message);});
+Promise.all(Object.entries(paths).map(([key,src])=>new Promise((resolve,reject)=>{const image=new Image();image.onload=()=>{imgs[key]=image;resolve();};image.onerror=()=>reject(Error('Opening asset failed: '+key));image.src=src;}))).then(async()=>{await document.fonts.ready;ready=true;started=true;root.dataset.ready='true';render();if(visible()&&!reduced.matches&&!document.hidden)begin();}).catch(error=>{root.querySelector('#cinemaStatus').textContent='Opening could not load. Use the skip hint to continue.';console.warn(error.message);});
 })();
