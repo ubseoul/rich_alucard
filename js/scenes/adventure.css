@@ -5,7 +5,8 @@
 .adv-actors{position:absolute;inset:0;z-index:2;pointer-events:none}
 /* Surface-scoped frozen foreground layer (exact origin, full environment frame): above actors, below the UI. */
 .adv-foreground{position:absolute;left:0;top:0;width:100%;height:100%;z-index:3;pointer-events:none;image-rendering:pixelated}
-.adv-actor{position:absolute;image-rendering:pixelated;transition:left .5s steps(6,end),opacity .3s}
+/* Initial camera placement is a cut; authored walk/pan motion opts in through the Director. */
+.adv-actor{position:absolute;image-rendering:pixelated;transition:opacity .3s}
 .adv-actor.adv-entrance{animation:advEntrance .6s steps(4,end)}
 .adv-actor.adv-speaking{filter:brightness(1.08)}
 @keyframes advEntrance{from{opacity:0;transform:translateY(-6%)}to{opacity:1;transform:none}}

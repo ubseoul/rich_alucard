@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "engineCommit": "ff7686e1dc8ee69530ca42c41c503d835dfcb23e",
+  "engineCommit": "238664fa38330a356ed76c113f3525fb860588f6",
   "gameplayCommit": "156eb8b27f1eff6b8957b4753a244a7cb53e3d39",
   "packSha256": "d92cff1878bf544a83b7ec51585bc50c6ac77c336dc599019f362a4901d179d9",
   "files": {
@@ -13,7 +13,7 @@
       "bytes": 15
     },
     "GAME-RELEASE.json": {
-      "sha256": "60c6fbe999e8c56f67db56fc0f7416f3ed5f23f99fb7a3596d7a9db4056713b5",
+      "sha256": "1257df959d3546c515607352100af002e1fc075ba6a1b40238ebbdc35bee8be9",
       "bytes": 1655
     },
     "README.txt": {
@@ -6049,7 +6049,7 @@
       "bytes": 6266
     },
     "build.json": {
-      "sha256": "bcac145d82c1e31f1db06b37f6f8d5b9b5f97a659b264bdc534ca58cd51e6b60",
+      "sha256": "64da07db05db0e91267ce2081e8680948d39623121b13a28cb8bd71682395d94",
       "bytes": 256
     },
     "game.js": {
@@ -6057,7 +6057,7 @@
       "bytes": 41394
     },
     "index.html": {
-      "sha256": "0fbc1fd69a631ba74421e2876a09075e31195bb7d11d8b418f9adf3cb3dd96ef",
+      "sha256": "ed679e9f4d35c1ea69faa2389812bfb41c1e85471cec6bbf4930217a0f455ef3",
       "bytes": 38933
     },
     "js/btf_content.js": {
@@ -6065,7 +6065,7 @@
       "bytes": 1701
     },
     "js/build-info.js": {
-      "sha256": "caf359e5d6895a1b659b88d04476ec37ecc68bf4418453d3bd91a7b80b152b71",
+      "sha256": "a13f2137348e882c0b001a80b95ab0a86a6d0ac032cf428695b27943beaac06b",
       "bytes": 298
     },
     "js/data/art/parts/F02_combat_fx.js": {
@@ -6921,8 +6921,8 @@
       "bytes": 10432
     },
     "js/scenes/adventure.css": {
-      "sha256": "3c1b0b7e1b5fe3d67eaf4fb740aa2299f12d3a69a0865a2bcffaae3bb6e39f3d",
-      "bytes": 14976
+      "sha256": "3ab5c893aaff5ad8154e82eb04344273cf8ab1d690431e8f56e323949bb04ee3",
+      "bytes": 14922
     },
     "js/scenes/adventure.js": {
       "sha256": "e8d8fe6c3c4ed80ae8d1ce33c764588320ee6d5f708a2050c26d80c6d4d261e4",
@@ -7261,19 +7261,19 @@
       "bytes": 10816
     },
     "minigame-lab.html": {
-      "sha256": "c1311ba1e35bc07387a81199c6134e0b2acc2db1fdaf2664da887e4f5ec9440f",
+      "sha256": "752d8323d581c88d9659891c2778a529f704d1d8e5ea7dcdb49e8dc72d223e63",
       "bytes": 3422
     },
     "overlay-build.json": {
-      "sha256": "5488db4d2bf6ddfc825698362a8e2194dd9e02fee91a2abd0f7a417e5c2d964a",
+      "sha256": "93cc95374ee911f6cf98a1d7cc779a9620a8181d358b43cd15911184e38a8bdf",
       "bytes": 356
     },
     "party-dev.html": {
-      "sha256": "96f3300ff691087fcfeffbe6dba41f99d07ad396ce99fab7a4838cca2b848c56",
+      "sha256": "de8a52c3959274265ce27135a27136aa1c9752b4351f77802a3eb8c87224dd15",
       "bytes": 2290
     },
     "rave-review.html": {
-      "sha256": "c7ca4bf4c6c39a965003ff7d6600746d9d9b3335602dab993c06e7cc85179e40",
+      "sha256": "90d54f74970a21d5eee17d1c649ee62e2461e761594a910353cfe7ee73b9f73f",
       "bytes": 2096
     },
     "style.css": {
