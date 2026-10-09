@@ -1,0 +1,9 @@
+@font-face{font-family:Pixel;src:url('opening-assets/press-start-2p.ttf')}@font-face{font-family:OpeningMono;src:url('opening-assets/monogram.ttf')}
+#cinematicIntro{position:fixed;inset:0;z-index:10001;display:grid;place-items:center;background:#090813;color:#f6efd9;padding:64px 12px 12px;overflow:auto;overscroll-behavior:contain;isolation:isolate}
+#cinematicIntro,#cinematicIntro *{box-sizing:border-box}#cinematicIntro[hidden],#startOverlay[hidden]{display:none!important}
+.cinema-shell{width:min(1100px,100%);margin:auto}.cinema-frame{position:relative;width:100%;aspect-ratio:16/9;overflow:hidden;background:#090813;max-width:calc((100svh - 92px)*16/9);margin:auto}
+.cinema-first-card{position:absolute;inset:0;display:flex;justify-content:center;flex-direction:column;padding-left:14%;font-family:Pixel,monospace;line-height:1.8}.cinema-first-card b{font-size:clamp(9px,2.4vw,32px)}.cinema-first-card span{font-size:clamp(7px,1.3vw,17px);color:#d7193f}
+.cinema-poster,#cinematicIntro canvas{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;image-rendering:pixelated}#cinematicIntro canvas{opacity:0}#cinematicIntro[data-ready=true] canvas{opacity:1}#cinematicIntro[data-ready=true] .cinema-poster,#cinematicIntro[data-ready=true] .cinema-first-card{visibility:hidden}
+#cinematicIntro .cinema-skip-hint{position:absolute;left:8px;top:8px;z-index:3;min-height:44px;min-width:44px;padding:0 8px;appearance:none;border:0;background:transparent;color:#b7aec1;opacity:.7;text-align:left;font:20px OpeningMono,monospace;cursor:pointer}
+#cinematicIntro .cinema-skip-hint:hover{opacity:1}#cinematicIntro .cinema-skip-hint:focus-visible{opacity:1;outline:2px solid #c18b3c;outline-offset:1px}
+#cinematicIntro .cinema-status{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}

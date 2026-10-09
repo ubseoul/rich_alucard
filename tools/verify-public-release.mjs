@@ -4,7 +4,7 @@ import vm from 'node:vm';
 import {createHash} from 'node:crypto';
 const GAMEPLAY="e7122769543e7dcc116e8d44fe7dd9758dddefac";
 const PACK="b49ad1fa1a525c072a21fb4ebc18c1039be8ba75998ecf4ead585f7b8b63d2a3";
-const DIGEST="291d49c1d5b6017f51571666813644d1b08c8ed2eb0c06318cc424a593e03f30";
+const DIGEST="1011e94f6879461231ce7ef066d0992e3e1e633d6c56aea6caf7116811f6fcfc";
 const hash=b=>createHash('sha256').update(b).digest('hex');
 function assert(value,message){if(!value)throw Error(message);}
 export function verifyApprovedPublication(root,{syntax=false}={}){
@@ -22,7 +22,7 @@ export function verifyApprovedPublication(root,{syntax=false}={}){
   if(syntax&&f.path.endsWith('.js'))new vm.Script(data.toString('utf8'),{filename:f.path});
   approved.add(f.path);
  }
- assert(approved.size===1820,'Unexpected compiled release file count');
+ assert(approved.size===1843,'Unexpected compiled release file count');
  const pack=release.files.find(f=>f.path==='js/sealed/pack.js');
  assert(pack?.sha256===PACK,'Unapproved compiled pack');
  if(syntax){
@@ -71,7 +71,7 @@ export async function runCompiledRelease(root,action){
  }
  assert(action==='test'||action==='build','Unsupported compiled release action');
  const {release}=verifyApprovedPublication(root,{syntax:true});
- if(action==='test'){console.log('PASS compiled release: 1820 byte-identical files, JavaScript syntax, HTML dependency closure');return;}
+ if(action==='test'){console.log('PASS compiled release: 1843 byte-identical files, JavaScript syntax, HTML dependency closure');return;}
  const output=path.resolve(root,'dist');assert(path.dirname(output)===path.resolve(root)&&path.basename(output)==='dist','Unsafe build directory');
  fs.rmSync(output,{recursive:true,force:true});fs.mkdirSync(output,{recursive:true});
  for(const f of release.files){const dest=path.join(output,f.path);fs.mkdirSync(path.dirname(dest),{recursive:true});fs.copyFileSync(path.join(root,f.path),dest);}

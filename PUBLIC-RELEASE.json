@@ -3,16 +3,16 @@
   "title": "Rich Alucard: Before The Fame — Free Demo",
   "gameplayCommit": "e7122769543e7dcc116e8d44fe7dd9758dddefac",
   "packSha256": "b49ad1fa1a525c072a21fb4ebc18c1039be8ba75998ecf4ead585f7b8b63d2a3",
-  "artifactDigest": "291d49c1d5b6017f51571666813644d1b08c8ed2eb0c06318cc424a593e03f30",
+  "artifactDigest": "1011e94f6879461231ce7ef066d0992e3e1e633d6c56aea6caf7116811f6fcfc",
   "originalBuild": {
     "schemaVersion": 1,
-    "releaseId": "ra-e4748abd0a13-20261009142013",
-    "commit": "e4748abd0a13c10beb32fea99c8bc51691ea73fe",
-    "shortCommit": "e4748abd0a13",
-    "builtAt": "2026-10-09T14:20:13.354Z",
-    "assetVersion": "ra-e4748abd0a13-20261009142013"
+    "releaseId": "ra-833f07f5da7d-20261009160806",
+    "commit": "833f07f5da7d1d35506076f94a04be8f5518b500",
+    "shortCommit": "833f07f5da7d",
+    "builtAt": "2026-10-09T16:08:06.979Z",
+    "assetVersion": "ra-833f07f5da7d-20261009160806"
   },
-  "engineCommit": "e4748abd0a13c10beb32fea99c8bc51691ea73fe",
+  "engineCommit": "833f07f5da7d1d35506076f94a04be8f5518b500",
   "freeProofOfConcept": true,
   "analytics": {
     "measurement_id": "G-L2VZCN5S7Y",
@@ -65,13 +65,13 @@
     },
     {
       "path": "GAME-RELEASE.json",
-      "sha256": "70f118a1a875b5b99083278786f62963a448854a0686e02f3009715dec539f8e",
+      "sha256": "17f2621b2819cc5f58bf918054c4ec656f89f70863a4f91329fb503d447e9ca0",
       "bytes": 1542
     },
     {
       "path": "PACKAGE-MANIFEST.json",
-      "sha256": "28e187d5cbdcc2715aef32803fc173f9e063a9a2ae9eb302d6c365530e93c59a",
-      "bytes": 303885
+      "sha256": "1f4e4c209eb1443ddd56923bfcd271364b791f697c7440de5703f8b1fc613dcf",
+      "bytes": 307311
     },
     {
       "path": "README.txt",
@@ -7615,18 +7615,48 @@
     },
     {
       "path": "build.json",
-      "sha256": "f256fe773c22165540f3307d70d2faf0a4fac7fe191475a10fc9dee568eff729",
+      "sha256": "322d8cea49dfe86de4b4d8e41014833e3362dca1b3a43a3b464e4ee5c2cd415f",
       "bytes": 256
     },
     {
       "path": "game.js",
-      "sha256": "6d48a48ce354c613d71fca263dd728ce73eea2c26ce45a795c3f5c73bc7713b7",
-      "bytes": 41394
+      "sha256": "9b390203feacdcfaf59e5256c8e372eb75ea7d0a241bd22dd2ac144b128abfaa",
+      "bytes": 41389
     },
     {
       "path": "index.html",
-      "sha256": "ad53b9422902fd23bdcb5a3720bf306b0562f2c738579212d5e76a41d10d6593",
-      "bytes": 38933
+      "sha256": "f843fc9d9a60fe45f139f8f3d9c86dadebd484fdcc2f4685e3a39f4545f7fc0c",
+      "bytes": 41925
+    },
+    {
+      "path": "intro-assets/bite.png",
+      "sha256": "1cfa67fb081e18f6b2a5c8d9998f3e99cbe32ecf9023f6e8b3494bfdd20b6492",
+      "bytes": 4124
+    },
+    {
+      "path": "intro-assets/gbenga.png",
+      "sha256": "6ae1a9b32bfa9492f2d77d4f6136975e4a5193851398480cefbd2e57ec4b58d7",
+      "bytes": 15136
+    },
+    {
+      "path": "intro-assets/plays-poster.png",
+      "sha256": "adff612a22c0b50114354bbec9bdd0cafdd7da0efb4313334c0138b6d4e44d72",
+      "bytes": 17852
+    },
+    {
+      "path": "intro-assets/plays.mp4",
+      "sha256": "6dbae30105b81b6ee81ca03df18f8ca0c5d542edb2d3fe39225fdc7b74eaf202",
+      "bytes": 46942
+    },
+    {
+      "path": "intro-assets/press-start-2p.ttf",
+      "sha256": "7b939b816f8ce185dd8c2c59e85fb05d3dcd5cde0c0b0de4a1651cb5af9c2c2b",
+      "bytes": 115280
+    },
+    {
+      "path": "intro-assets/rich-standing.png",
+      "sha256": "9f28b7ae88dcee5f016d323db1b222d01601ed530ff31a4c696070211878a1b0",
+      "bytes": 929
     },
     {
       "path": "js/btf_content.js",
@@ -7635,7 +7665,7 @@
     },
     {
       "path": "js/build-info.js",
-      "sha256": "c59980017b5c6b3ed660ab111be89e106843f7b5c2bff1e4d44d0857ed8630a4",
+      "sha256": "d0d28c539a1e2fbfe677c5ad0a4c80bba89fbc1e05990579830a497fdf81f0d1",
       "bytes": 298
     },
     {
@@ -8630,8 +8660,8 @@
     },
     {
       "path": "js/loader/manifest.json",
-      "sha256": "5682c85dde2f03d5e7e55295dfee901df9dc5765111a1c90533f18d91e65d996",
-      "bytes": 6567
+      "sha256": "0d83ad0ed9c871e5b5f4c54b656205986ab6cea1e7cd2228ad6ad8c2c786b16b",
+      "bytes": 6394
     },
     {
       "path": "js/minigames/bars.js",
@@ -8994,6 +9024,11 @@
       "bytes": 7068
     },
     {
+      "path": "js/systems/opening_cinema.js",
+      "sha256": "698d0e19e0445a9942fb7f6b20cd79e2f2a3a80e1c4e19d4a86d81bafb6d5d91",
+      "bytes": 14795
+    },
+    {
       "path": "js/systems/opening_timeline.js",
       "sha256": "b52684ffd289a5cd32f4c2e4240ea23d5c6494cb8a83acb965b0c8cede7eab5f",
       "bytes": 11287
@@ -9114,6 +9149,11 @@
       "bytes": 10757
     },
     {
+      "path": "js/systems/title_intro.js",
+      "sha256": "c128fe41d6857779c52af454003a9bd751cb2d2b6da199f7ced04d53142774d1",
+      "bytes": 1796
+    },
+    {
       "path": "js/systems/vampgram.js",
       "sha256": "ddf39127c3e23f32d0ccf8d2c832914ccb53a1702fe279f823afd69ad9c6ddf7",
       "bytes": 2149
@@ -9129,23 +9169,98 @@
       "bytes": 10816
     },
     {
+      "path": "landing.css",
+      "sha256": "53e998d1ad607630b2e21cf8343330ce6121a33e5ef8d354258d63cd49cdd1ea",
+      "bytes": 6450
+    },
+    {
       "path": "minigame-lab.html",
-      "sha256": "75e132c01f28d674aa010b044e9a9f675a1ecca5d6f72584bd3ac5b6431d3020",
+      "sha256": "5f1dfae66954d2a765869e1901d6f9110f9a4cf37990a4e1859f85e106bc4f1f",
       "bytes": 3422
     },
     {
+      "path": "opening-assets/car.png",
+      "sha256": "66017dc6f905b6c80811ab0e3357cf20e91abedb98f78e0b43f4e7e8773e3e0b",
+      "bytes": 775196
+    },
+    {
+      "path": "opening-assets/driver.png",
+      "sha256": "ccd5110e568245d1cc413484c75f0190c9da06bca8142f4204a91bc9e01f3bba",
+      "bytes": 177171
+    },
+    {
+      "path": "opening-assets/first-frame.png",
+      "sha256": "d286fa193f7ae1b8d5a15cd0c075588d22d127c30fcd54217848e85a2729e4ee",
+      "bytes": 13268
+    },
+    {
+      "path": "opening-assets/gbenga-idle-trim.png",
+      "sha256": "e1f41de98a4552530b433953954e95bc9fbc3535357c3c845c0de5c54459787c",
+      "bytes": 5684
+    },
+    {
+      "path": "opening-assets/gbenga-talk-trim.png",
+      "sha256": "6fe962a24e690a47c881330805f86726a76924947b541d41d7b2a4dea2c18224",
+      "bytes": 6572
+    },
+    {
+      "path": "opening-assets/gbenga-walk1-trim.png",
+      "sha256": "95ae247767d335859e8d72dfffd9bcb53b85cd8fa084c8785ca957f704373e81",
+      "bytes": 5450
+    },
+    {
+      "path": "opening-assets/gbenga-walk2-trim.png",
+      "sha256": "9cf7402174aa986d90f24dc48c053d795b0765643b08afe008ea675f80921c30",
+      "bytes": 7422
+    },
+    {
+      "path": "opening-assets/monogram.ttf",
+      "sha256": "13658c0d344553a6c272bf9e72e0f2b6edf23ac5ecf066837d9b61254b7452d6",
+      "bytes": 10468
+    },
+    {
+      "path": "opening-assets/ogaAim.png",
+      "sha256": "0283264f875573ad89bbcca04b44d4fb736657bbcf57d4ee5b4b04853e9e9eb3",
+      "bytes": 288567
+    },
+    {
+      "path": "opening-assets/ogaIdle.png",
+      "sha256": "82d03663c01fc9ba02708a5f027eba5f004857472c54fb2ed339d1aa2d5cc8fb",
+      "bytes": 199966
+    },
+    {
+      "path": "opening-assets/ogaWalk.png",
+      "sha256": "087c565628556897339e2de40478bc6b3cc3ad322d926d6439bbfd2064fd8385",
+      "bytes": 253603
+    },
+    {
+      "path": "opening-assets/press-start-2p.ttf",
+      "sha256": "7b939b816f8ce185dd8c2c59e85fb05d3dcd5cde0c0b0de4a1651cb5af9c2c2b",
+      "bytes": 115280
+    },
+    {
+      "path": "opening-assets/roadside-master.png",
+      "sha256": "dde2df11c5001432c0b12b0331389f20fe057c393d72277195e5216e9c363e2f",
+      "bytes": 1962815
+    },
+    {
+      "path": "opening.css",
+      "sha256": "2180861304c5717449581b3149675d288ca5eccef425d8e3bc1665ee8b1137d1",
+      "bytes": 1865
+    },
+    {
       "path": "overlay-build.json",
-      "sha256": "869850650075b52427da31cc9ab2d0162039caa814fb7e082c44cf3f8863ce4c",
+      "sha256": "5fbf66a2fda40082cfdde22e752750d4c5d92af7c05c12d0d8709cd4527fc0ac",
       "bytes": 356
     },
     {
       "path": "party-dev.html",
-      "sha256": "c1a003ac8a17143e5a41cdd281dbeff674722145aa3c842b1d524f240272efdf",
+      "sha256": "0db2db12cf42e77c0fa64025b1f7432a05d616bf2bb508ae8acffae638b42121",
       "bytes": 2290
     },
     {
       "path": "rave-review.html",
-      "sha256": "6fd80cfbb2f01a9930fae18d8c7c644fe0c5e5dc327b1fcbf5c51f391abc7619",
+      "sha256": "5b0e2ee4fd4fa4f560cee1fc2b6394ef9c33c3ccc9e483f11c26117d20b82b59",
       "bytes": 2096
     },
     {

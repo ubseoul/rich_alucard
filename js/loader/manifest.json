@@ -302,5 +302,13 @@
    "js/data/astra_editorial.js"
   ]
  ],
- "unloadedAllowed": []
+ "unloadedAllowed": [],
+ "pageScripts": {
+  "beforeBlock": [
+   "js/systems/opening_cinema.js"
+  ],
+  "afterBlock": [
+   "js/systems/title_intro.js"
+  ]
+ }
 }
