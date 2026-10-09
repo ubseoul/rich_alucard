@@ -242,22 +242,33 @@
 
   // ---- input -------------------------------------------------------------
   const input={steer:0,throttle:0,ebrake:false};
-  const pointers=new Map();
+  const pointers=new Map(),keys=new Set();
   const storyRun=!!(tandem||P.escapeRunner||window.RAAdventures?.active?.());
   let ebrakeHeld=false,prevThrottleHeld=false,clutchKick=false;
-  function clearInput(){keys.clear();for(const id of pointers.keys()){try{canvas.releasePointerCapture(id);}catch(_){}}pointers.clear();ebrakeHeld=false;prevThrottleHeld=false;clutchKick=false;}
+  // Native-sized hold controls: no drag gesture is required. Legacy analog dragging remains available above them.
+  const DRIVE_BUTTONS=[
+   {kind:'steerButton',value:-1,label:'LEFT',x:8,y:428,w:58,h:46},
+   {kind:'steerButton',value:1,label:'RIGHT',x:72,y:428,w:58,h:46},
+   {kind:'throttleButton',label:'GAS',x:136,y:428,w:58,h:46},
+   {kind:'ebrake',label:'E-BRAKE',x:200,y:428,w:62,h:46}
+  ];
+  function clearInput(){
+   keys.clear();const ids=[...pointers.keys()];pointers.clear();
+   for(const id of ids){try{canvas.releasePointerCapture(id);}catch(_){}}
+   ebrakeHeld=false;prevThrottleHeld=false;clutchKick=false;input.steer=0;input.throttle=0;input.ebrake=false;
+  }
   function blur(){clearInput();}
   window.addEventListener('blur',blur);
-  const EBRAKE_RECT={x:156,y:292,w:104,h:46};
   function toNative(clientX,clientY){const r=canvas.getBoundingClientRect();return{x:(clientX-r.left)*270/(r.width||270),y:(clientY-r.top)*480/(r.height||480)};}
   function inRect(p,rct){return p.x>=rct.x&&p.x<=rct.x+rct.w&&p.y>=rct.y&&p.y<=rct.y+rct.h;}
   function safeCapture(id){try{canvas.setPointerCapture&&canvas.setPointerCapture(id);}catch(e){}}
   function onDown(e){
    e.preventDefault();const p=toNative(e.clientX,e.clientY);
    if(phase==='results'){handleResultsTap(p);return;}
-   if(inRect(p,EBRAKE_RECT)){ebrakeHeld=true;pointers.set(e.pointerId,{kind:'ebrake'});safeCapture(e.pointerId);return;}
-   if(p.x<135){pointers.set(e.pointerId,{kind:'steer',startX:p.x,x:p.x});}
-   else{pointers.set(e.pointerId,{kind:'throttle',startY:p.y,y:p.y});}
+   const button=DRIVE_BUTTONS.find(b=>inRect(p,b));
+   if(button)pointers.set(e.pointerId,{kind:button.kind,value:button.value});
+   else if(p.x<135)pointers.set(e.pointerId,{kind:'steer',startX:p.x,x:p.x});
+   else pointers.set(e.pointerId,{kind:'throttle',startY:p.y,y:p.y});
    safeCapture(e.pointerId);
   }
   function onMove(e){
@@ -266,37 +277,38 @@
    if(rec.kind==='steer')rec.x=p.x;
    else if(rec.kind==='throttle')rec.y=p.y;
   }
-  function onUp(e){
-   const rec=pointers.get(e.pointerId);
-   if(rec&&rec.kind==='ebrake')ebrakeHeld=false;
-   try{canvas.releasePointerCapture(e.pointerId);}catch(_){}pointers.delete(e.pointerId);
-  }
+  function onUp(e){pointers.delete(e.pointerId);try{canvas.releasePointerCapture(e.pointerId);}catch(_){}}
+  function onLostCapture(e){pointers.delete(e.pointerId);}
   canvas.addEventListener('pointerdown',onDown);
   canvas.addEventListener('pointermove',onMove);
   canvas.addEventListener('pointerup',onUp);
   canvas.addEventListener('pointercancel',onUp);
-  const keys=new Set();
+  canvas.addEventListener('lostpointercapture',onLostCapture);
   function onKeyDown(e){
    if(['ArrowLeft','ArrowRight','ArrowUp','ArrowDown',' '].includes(e.key))e.preventDefault();
    keys.add(e.key);
-   if(e.key===' ')ebrakeHeld=true;
    if(phase==='results'&&!e.repeat){if(e.key==='Enter'){e.preventDefault();handleResultsTap({x:200,y:420});}else if(e.key==='r'&&!storyRun)runItBack();}
   }
-  function onKeyUp(e){keys.delete(e.key);if(e.key===' ')ebrakeHeld=false;}
+  function onKeyUp(e){keys.delete(e.key);}
   window.addEventListener('keydown',onKeyDown);
   window.addEventListener('keyup',onKeyUp);
 
   function readInput(){
-   let steer=0,throttle=0;
+   let steer=0,throttle=0,buttonSteer=0,hasSteerButton=false;
+   ebrakeHeld=keys.has(' ');
    for(const rec of pointers.values()){
     if(rec.kind==='steer')steer=clamp((rec.x-rec.startX)/40,-1,1);
-    if(rec.kind==='throttle')throttle=clamp01((rec.startY-rec.y)/60);
+    if(rec.kind==='throttle')throttle=Math.max(throttle,clamp01((rec.startY-rec.y)/60));
+    if(rec.kind==='steerButton'){hasSteerButton=true;buttonSteer+=rec.value;}
+    if(rec.kind==='throttleButton')throttle=1;
+    if(rec.kind==='ebrake')ebrakeHeld=true;
    }
+   if(hasSteerButton)steer=clamp(buttonSteer,-1,1);
    if(keys.has('ArrowLeft'))steer=-1;
    if(keys.has('ArrowRight'))steer=1;
    if(keys.has('ArrowUp'))throttle=1;
-   if(throttle>0.01||steer!==0)cueUsed=true; // first-time control cue hides as soon as the player uses input
-   // RC2: cruise assist. The car holds half throttle on its own, so a new player only has to steer. Pull up on the right for more.
+   if(throttle>0.01||steer!==0||ebrakeHeld)cueUsed=true;
+   // Existing half-throttle cruise assist is unchanged; GAS adds speed. noAssist still requires gas.
    input.steer=steer;input.throttle=P.noAssist?throttle:Math.max(throttle,.5);input.ebrake=ebrakeHeld;
    clutchKick=handling.manual&&ebrakeHeld&&throttle>0.5&&!prevThrottleHeld;if(clutchKick)ctx.audio?.sound('CLUTCH_KICK');if(prevThrottleHeld&&throttle<=0.5&&['supra','s15','r34_awd','r34_rwd'].includes(carId))ctx.audio?.sound('BLOWOFF');ctx.audio?.edge('motorhigh',throttle>0.5,motor,'high');
    prevThrottleHeld=throttle>0.5;
@@ -308,7 +320,7 @@
    course=buildCourse(P.course&&COURSE_THEME[P.course]?P.course:'angeles_crest',Math.floor(Math.random()*1e9));
    state={heading:0,slideAngle:0,speed:0,x:0,distance:0,sliding:false,spinning:false};
    score=0;chain=1;spins=0;maxAngleSeen=0;clipHits=0;wallCooldown=0;tandemScore=0;
-   runElapsed=0;phase='run';root.dataset.phase=phase;resultShown=null;cleanTimer=0;rewardedClean=false;spunAt=-9;
+   runElapsed=0;phase='run';root.dataset.phase=phase;resultShown=null;cleanTimer=0;rewardedClean=false;cueUsed=false;spunAt=-9;
    lessonCounts={1:0,2:0,3:0,4:0};
    lessonFlash={text:LESSON_WORD[lesson]||null,t:LESSON_WORD[lesson]?1.6:0};
   }
@@ -434,20 +446,30 @@
    RAPixel.text(c,`${Math.round(score)}`,6,4,{size:10,color:'#f6efd9'});
    RAPixel.text(c,`x${chain.toFixed(1)}`,6,18,{size:7,color:'#c18b3c'});
    {const face=runElapsed-spunAt<1.2?hudFaces.touge_spun:state.sliding?hudFaces.touge_locked:null;if(face?.complete&&face.naturalWidth){c.imageSmoothingEnabled=false;c.drawImage(face,18,4,44,46,4,30,44,46);}}
-   RAPixel.text(c,`${Math.round(state.slideAngle)}°`,6,468,{size:7,color:Math.abs(state.slideAngle)>15?'#20c66b':'#6b6780',baseline:'bottom'});
-   RAPixel.text(c,`${Math.max(0,Math.ceil((Number(P.durationSeconds)||90)-runElapsed))}s LEFT`,264,468,{size:7,align:'right',baseline:'bottom',color:'#f6efd9'});
-   RAPixel.text(c,`${Math.round(state.speed)} KM/H`,135,468,{size:6,align:'center',baseline:'bottom',color:'#ffd36a'});
+   RAPixel.text(c,`${Math.round(state.slideAngle)}°`,6,84,{size:7,color:Math.abs(state.slideAngle)>15?'#20c66b':'#6b6780',baseline:'bottom'});
+   RAPixel.text(c,`${Math.max(0,Math.ceil((Number(P.durationSeconds)||90)-runElapsed))}s LEFT`,264,84,{size:7,align:'right',baseline:'bottom',color:'#f6efd9'});
+   RAPixel.text(c,`${Math.round(state.speed)} KM/H`,135,84,{size:6,align:'center',baseline:'bottom',color:'#ffd36a'});
    if(tandem){RAPixel.rect(c,64,42,142,20,'#17142c');RAPixel.text(c,`CHASE ${Math.round(tandemScore)}/${tandem.threshold||3000}`,135,48,{size:6,align:'center',color:'#ffd36a'});}
    if(P.escapeRunner){RAPixel.rect(c,64,42,142,20,'#17142c');RAPixel.text(c,'KEEP THE ESCAPE CLOSE',135,48,{size:6,align:'center',color:'#ffd36a'});}
    root.dataset.speed=String(Math.round(state.speed));root.dataset.score=String(Math.round(score));root.dataset.tandemScore=String(Math.round(tandemScore));
    if(passengerBubble&&passengerName){if(passengerSprite?.complete&&passengerSprite.naturalWidth){c.imageSmoothingEnabled=false;c.drawImage(passengerSprite,16,10,46,46,220,30,46,46);}RAPixel.text(c,`${passengerName}: ${passengerBubble.text}`,135,40,{size:6,align:'center',color:'#ff6fb5'});}
    if(lessonFlash.t>0&&lessonFlash.text){RAPixel.text(c,lessonFlash.text,135,220,{size:12,align:'center',color:'#20c66b'});}
-   // First-time control cue (presentation only; hidden once the player has used any input) so a new player can make the
-   // car move and steer. No physics, scoring or difficulty change.
-   if(!cueUsed&&runElapsed<8){RAPixel.text(c,'HOLD UP = GAS',135,266,{size:6,align:'center',color:'#c9c0a8'});RAPixel.text(c,'LEFT / RIGHT = STEER',135,278,{size:6,align:'center',color:'#c9c0a8'});RAPixel.text(c,'E-BRAKE = SLIDE',135,290,{size:6,align:'center',color:'#c9c0a8'});}
-   if(state.sliding&&!state.spinning&&Math.abs(state.slideAngle)>15)RAPixel.text(c,'DRIFT',135,352,{size:6,align:'center',color:'#20c66b'});
-   RAPixel.rect(c,EBRAKE_RECT.x,EBRAKE_RECT.y,EBRAKE_RECT.w,EBRAKE_RECT.h,ebrakeHeld?'#d7193f':'#7d194b');
-   RAPixel.text(c,'E-BRAKE',EBRAKE_RECT.x+EBRAKE_RECT.w/2,EBRAKE_RECT.y+EBRAKE_RECT.h/2-4,{size:7,align:'center',color:'#f6efd9'});
+   if(phase==='run'){
+    if(!cueUsed&&runElapsed<8){
+     RAPixel.text(c,'HOLD BUTTONS BELOW TO DRIVE',135,256,{size:6,align:'center',color:'#f6efd9'});
+     RAPixel.text(c,P.noAssist?'HOLD GAS TO MOVE':'AUTO-CRUISE ON / GAS ADDS SPEED',135,268,{size:6,align:'center',color:'#ffd36a'});
+     RAPixel.text(c,'ARROWS = DRIVE / SPACE = E-BRAKE',135,280,{size:5,align:'center',color:'#c9c0a8'});
+    }
+    if(state.sliding&&!state.spinning&&Math.abs(state.slideAngle)>15)RAPixel.text(c,'DRIFT',135,352,{size:6,align:'center',color:'#20c66b'});
+    for(const b of DRIVE_BUTTONS){
+     const held=b.kind==='steerButton'?(b.value<0?input.steer<0:input.steer>0):b.kind==='throttleButton'?prevThrottleHeld:ebrakeHeld;
+     RAPixel.frame(c,b.x,b.y,b.w,b.h,{fill:held?'#f6efd9':'#17142c',border:held?'#ffd36a':'#f6efd9',accent:held?'#ffd36a':'#7d194b'});
+     RAPixel.text(c,b.label,b.x+b.w/2,b.y+11,{size:6,align:'center',color:held?'#10101b':'#f6efd9',shadow:null});
+     RAPixel.text(c,held?'HELD':'HOLD',b.x+b.w/2,b.y+29,{size:5,align:'center',color:held?'#7d194b':'#c9c0a8',shadow:null});
+    }
+   }
+   // Read-only live input markers; they do not participate in physics or settlement.
+   root.dataset.steer=String(input.steer);root.dataset.throttle=String(input.throttle);root.dataset.ebrake=String(input.ebrake);root.dataset.pointers=String(pointers.size);
 
    if(phase==='results')drawResults();
   }
@@ -491,10 +513,11 @@
    canvas.removeEventListener('pointermove',onMove);
    canvas.removeEventListener('pointerup',onUp);
    canvas.removeEventListener('pointercancel',onUp);
+   canvas.removeEventListener('lostpointercapture',onLostCapture);
    window.removeEventListener('keydown',onKeyDown);
    window.removeEventListener('keyup',onKeyUp);window.removeEventListener('blur',blur);clearInput();
   }};
  }
 
- window.RAMinigames.register('touge',{title:'TOUGE',rule:'Drag on the left side to steer, drag up on the right for more gas, and slide through the bends to score.',mount});
+ window.RAMinigames.register('touge',{title:'TOUGE',rule:'Hold LEFT or RIGHT to steer, GAS for speed, and E-BRAKE to slide; use two fingers together or arrows + Space.',mount});
 })();
