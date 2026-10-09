@@ -16,7 +16,14 @@ export async function test(root){
   for(const [a,b] of [['js/if1/migrations.js','js/engine/state.js'],['js/engine/state.js','js/if1/wake_bus.js'],['js/systems/life_clock.js','js/if1/wake_bus.js'],['js/if1/combat2_ext.js','js/engine/combat2.js'],['js/data/art_registry.js','js/data/art/registry_parts.js'],['js/data/audio_manifest.js','js/data/audio/manifest_parts.js'],['js/if1/if1.js','js/engine/core.js'],['js/engine/core.js','game.js']])assert(at(a)>=0&&at(a)<at(b),`${a} before ${b}`);
   // every accepted script from the pre-F00 index.html still loads, in its original relative order
   const html=await readFile(path.join(root,'index.html'),'utf8').then(t=>t.replace(/\r\n/g,'\n'));
-  const generated=[...html.matchAll(/<script src="([^"?]+)\?v=__BUILD_ASSET_VERSION__"><\/script>/g)].map(m=>m[1]);same(generated,list,'index.html script order == manifest expansion');
+  const scriptTags=text=>[...text.matchAll(/<script src="([^"?]+)\?v=__BUILD_ASSET_VERSION__"><\/script>/g)].map(m=>m[1]);
+  const block=html.slice(html.indexOf('<!-- LOADER:BEGIN -->'),html.indexOf('<!-- LOADER:END -->'));
+  same(scriptTags(block),list,'generated game block script order == manifest expansion');
+  const pageScripts=(await L.readManifest()).pageScripts;
+  same(pageScripts,{beforeBlock:['js/systems/opening_cinema.js'],afterBlock:['js/systems/title_intro.js']},'manifest declares exact approved presentation lifecycle order');
+  same(scriptTags(html),[...pageScripts.beforeBlock,...list,...pageScripts.afterBlock],'index.html full-page script order == manifest');
+  assert(html.indexOf('js/systems/opening_cinema.js')<html.indexOf('id="startOverlay"'),'cinematic installs before title');
+  assert(html.indexOf('js/systems/title_intro.js')>html.indexOf('game.js?'),'title lifecycle installs after native start handlers');
   const legacy=(await readFile(path.join(root,'tools','if1','legacy-script-order.json'),'utf8').then(JSON.parse));
   same(list.filter(f=>legacy.includes(f)),legacy,'accepted pre-F00 scripts keep their exact relative load order');
   // ---- analyze(): pure structural checks with synthetic manifests
@@ -49,6 +56,15 @@ export async function test(root){
     assert.equal((await T.verify({quiet:true})).ok,false,'a stale index.html is reported');
     await T.sync();const synced=await T.verify({quiet:true});assert(synced.ok,`after sync: ${synced.problems.join('; ')}`);
     const html2=await readFile(path.join(tmp,'index.html'),'utf8');assert(html2.includes('js/frag/F98/f.css?v=__BUILD_ASSET_VERSION__'),'fragment css lands in the head region');assert(html2.includes('<!-- SEALED:OVERLAY:BEGIN -->')&&html2.includes('<!-- SEALED:OVERLAY:END -->'),'overlay slot markers present');
+    // presentation entries are mandatory and may not be duplicated or moved around the game block.
+    const openingTag='<script src="js/systems/opening_cinema.js?v=__BUILD_ASSET_VERSION__"></script>';
+    await writeFile(path.join(tmp,'index.html'),html2.replace(openingTag,''));
+    assert((await T.verify({quiet:true})).problems.some(p=>/full-page script order/.test(p)),'missing opening script caught');
+    await writeFile(path.join(tmp,'index.html'),html2.replace(openingTag,openingTag+openingTag));
+    assert((await T.verify({quiet:true})).problems.some(p=>/full-page script order/.test(p)),'duplicate opening script caught');
+    await writeFile(path.join(tmp,'index.html'),html2.replace(openingTag,'').replace('<!-- LOADER:END -->','<!-- LOADER:END -->'+openingTag));
+    assert((await T.verify({quiet:true})).problems.some(p=>/full-page script order/.test(p)),'misplaced opening script caught');
+    await writeFile(path.join(tmp,'index.html'),html2);
     // a fragment may only list its own files
     await writeFile(path.join(tmp,'js','frag','F99','manifest.json'),JSON.stringify({files:['js/engine/state.js']}));await assert.rejects(()=>T.scriptList(),/may only list files under js\/frag\/F99/);
     await writeFile(path.join(tmp,'js','frag','F99','manifest.json'),JSON.stringify({files:['js/frag/F99/x.js']}));

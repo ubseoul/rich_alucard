@@ -17,8 +17,48 @@
 <link rel="stylesheet" href="js/frag/F02/armory.css?v=__BUILD_ASSET_VERSION__" />
 <link rel="stylesheet" href="js/frag/F05/the_trap.css?v=__BUILD_ASSET_VERSION__" />
 <!-- LOADER:CSS:END -->
+<link rel="stylesheet" href="landing.css?v=__BUILD_ASSET_VERSION__" />
+<style>body.cinema-opening #stage{visibility:hidden}#cinematicIntro{position:fixed;inset:0;z-index:10001;background:#090813}#cinematicIntro[hidden],#startOverlay[hidden]{display:none!important}</style>
+<link rel="preload" as="image" href="opening-assets/first-frame.png" fetchpriority="high">
+<link rel="stylesheet" href="opening.css?v=__BUILD_ASSET_VERSION__">
 </head>
-<body>
+<body class="cinema-opening">
+<section id="cinematicIntro" class="opening-cinema" aria-label="Gbenga opening" role="region">
+ <div class="cinema-shell">
+  <div class="cinema-frame">
+   <div class="cinema-first-card" aria-hidden="true"><b>RICH ALUCARD</b><span>BEFORE THE FAME</span><p>GBENGA / THE ROADSIDE</p><small>AN ORIGINAL PIXEL OPENING SAMPLE</small></div>
+   <img class="cinema-poster" src="opening-assets/first-frame.png" width="640" height="360" alt="" fetchpriority="high">
+   <canvas id="film" width="640" height="360" tabindex="0" aria-label="Gbenga, an oga and a vampire chauffeur stop beside tall grass at night"></canvas>
+   <div id="start" hidden><button id="begin" type="button">Play opening · 40 seconds</button></div>
+  </div>
+  <div class="cinema-controls">
+   <button id="play" type="button" disabled>Pause</button><button id="replay" type="button">Replay</button><button id="skip" type="button">Skip opening</button><button id="sound" type="button" aria-pressed="false">Sound: off</button>
+   <input id="seek" type="range" min="0" max="40" step="0.05" value="0" aria-label="Seek through opening"><output id="clock">00:00 / 00:40</output>
+  </div>
+  <p id="cinemaStatus" role="status" aria-live="polite"></p>
+ </div>
+</section>
+<script src="js/systems/opening_cinema.js?v=__BUILD_ASSET_VERSION__"></script>
+<section id="startOverlay" hidden inert class="start-overlay retro-start" aria-labelledby="retroTitle">
+  <div class="retro-card">
+    <header class="retro-header">
+      <h1 id="retroTitle" aria-label="Rich Alucard: Before The Fame"><span class="retro-rich-title">RICH</span><span class="retro-alucard-title">ALUCARD</span></h1>
+      <p class="retro-demo">Before the Fame &#8212; Demo</p>
+    </header>
+    <div class="retro-subtitle" aria-hidden="true">BEFORE THE FAME</div>
+    <div class="retro-hero">
+      <div class="retro-copy"><p class="retro-tagline"><span>Bite.</span><span>Dance.</span><span>Jug.</span></p><p class="retro-description">Rich Alucard, a Nigerian vampire moves to LA.</p></div>
+      <div class="retro-action"><button id="startButton" type="button" disabled>PLAY NOW</button><button id="newGameButton" type="button" disabled hidden>NEW GAME</button></div>
+      <div class="retro-character"><img src="intro-assets/rich-standing.png" width="81" height="156" alt="Rich Alucard" draggable="false"></div>
+    </div>
+    <div class="retro-features" aria-label="Game preview">
+      <figure><img src="intro-assets/bite.png" width="98" height="60" alt="Rich using Vampire Bite in a docks battle" draggable="false"><figcaption>Bite</figcaption></figure>
+      <figure><video id="retroPlayPreview" width="234" height="156" muted loop playsinline preload="metadata" poster="intro-assets/plays-poster.png" aria-label="Actual PLAY operation gameplay preview"><source src="intro-assets/plays.mp4" type="video/mp4"></video><figcaption>Plays</figcaption></figure>
+      <figure><img src="intro-assets/gbenga.png" width="234" height="156" alt="Gbenga in the actual warehouse encounter" draggable="false"><figcaption>Meet Gbenga</figcaption></figure>
+    </div>
+    <footer class="retro-footer"><button id="replayOpeningButton" class="retro-replay" type="button">REPLAY OPENING</button><span>richalucard.com</span></footer>
+  </div>
+</section>
 <main id="stage" aria-label="Rich Alucard: Before The Fame Demo">
   <div id="screen">
     <div class="room" aria-hidden="true"></div>
@@ -54,14 +94,7 @@
       </div>
     </section>
 
-    <section id="startOverlay" class="start-overlay">
-      <div class="start-card panel">
-        <div class="title">Rich Alucard: Before The Fame Demo</div>
-        <button id="startButton">▶ START</button>
-        <button id="newGameButton" hidden>NEW GAME</button>
-        <small>Bloodbath begins with the game.</small>
-      </div>
-    </section>
+
 
     <div id="geminiRich" class="gemini-rich state-idle"></div>
 <div id="productionCEO" class="production-ceo state-idle"></div>
@@ -511,5 +544,6 @@
 <script src="game.js?v=__BUILD_ASSET_VERSION__"></script>
 <script src="js/systems/analytics.js?v=__BUILD_ASSET_VERSION__"></script>
 <!-- LOADER:END -->
+<script src="js/systems/title_intro.js?v=__BUILD_ASSET_VERSION__"></script>
 </body>
 </html>

@@ -429,7 +429,7 @@ function startSurfaceHasProgress(){
 }
 function refreshStartSurface(){
   const hasProgress=startSurfaceHasProgress();
-  start.textContent=hasProgress?'▶ CONTINUE':'▶ START';
+  start.textContent=hasProgress?'CONTINUE':'PLAY NOW';
   if(newGameButton)newGameButton.hidden=!hasProgress;
 }
 async function launchGame(){

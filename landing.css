@@ -1,0 +1,79 @@
+/* Selected Crimson Cartridge landing. Presentation only; native start routing stays in game.js. */
+@font-face{font-family:RetroRichPress;src:url("intro-assets/press-start-2p.ttf") format("truetype");font-display:swap}
+#startOverlay.retro-start{position:fixed;inset:0;z-index:10000;display:grid;place-items:safe center;overflow:auto;scroll-padding:16px;background:#10101b!important;padding:16px;box-sizing:border-box;isolation:isolate;color:#10101b;overscroll-behavior:contain}
+#startOverlay.retro-start *{box-sizing:border-box}
+.retro-card{width:min(100%,650px);position:relative;margin:auto;background:#f6efd9;border:4px solid #10101b;border-right-color:#d7193f;padding:30px 28px 20px;box-shadow:8px 8px 0 #7d194b;font-family:RetroRichPress,monospace;font-weight:400;text-align:left}
+.retro-card:before{content:"";position:absolute;inset:0 0 auto;height:12px;background:#d7193f}
+.retro-header{display:grid;grid-template-columns:minmax(0,1fr) 90px;align-items:center;gap:12px;border-top:3px solid #10101b;padding-top:16px}
+#retroTitle{font:inherit;line-height:1.1;margin:0;padding:0;color:#10101b;text-shadow:none}
+.retro-rich-title,.retro-alucard-title{display:block;white-space:nowrap}
+.retro-rich-title{font-size:clamp(48px,6vw,72px);margin-bottom:12px}
+.retro-alucard-title{font-size:clamp(32px,4vw,48px)}
+.retro-demo{font-size:9px;line-height:1.8;padding:12px 0 12px 12px;border-left:4px solid #d7193f;margin:0;overflow-wrap:normal}
+.retro-subtitle{background:#10101b;color:#f6efd9;font-size:clamp(10px,1.2vw,14px);line-height:1.5;text-align:center;margin-top:22px;padding:10px 4px}
+.retro-hero{--retro-action-width:210px;position:relative;display:flex;align-items:center;min-height:296px;padding:20px 0 16px;isolation:isolate}
+.retro-copy{position:relative;z-index:1;min-width:0;width:calc((100% - var(--retro-action-width)) / 2 - 12px);align-self:center}
+.retro-tagline{font-size:clamp(14px,1.8vw,20px);line-height:1.6;margin:0 0 18px}
+.retro-tagline span{display:block}
+.retro-description{font-size:clamp(8px,1vw,10px);line-height:1.85;margin:0;max-width:100%;overflow-wrap:normal}
+.retro-action{position:absolute;z-index:2;left:50%;top:50%;transform:translate(-50%,-50%);width:var(--retro-action-width);display:grid;gap:14px;padding:18px;background:#10101b;align-content:center}
+#startOverlay.retro-start button{appearance:none;border:3px solid #10101b;border-radius:0;font:inherit;font-size:clamp(9px,1.2vw,12px);line-height:1.6;padding:14px 5px;margin:0;width:100%;min-height:48px;background:#d7193f;color:#f6efd9;box-shadow:4px 4px 0 #10101b;cursor:pointer;text-shadow:none}
+#startOverlay.retro-start #startButton{animation:retro-pulse 2.8s ease-in-out infinite}
+#startOverlay.retro-start #newGameButton{background:#f6efd9;color:#10101b;font-size:8px;box-shadow:2px 2px 0 #10101b}
+#startOverlay.retro-start button[hidden]{display:none!important}
+#startOverlay.retro-start button:hover{background:#7d194b}
+#startOverlay.retro-start button:active{translate:2px 2px;box-shadow:2px 2px 0 #10101b}
+#startOverlay.retro-start button:focus-visible{outline:4px solid #20c66b;outline-offset:5px;animation:none!important;opacity:1!important}
+.retro-character{position:absolute;z-index:1;right:0;top:50%;transform:translateY(-50%);width:135px;min-width:0;display:grid;place-items:center;height:260px}
+.retro-hero:before{content:"";position:absolute;z-index:0;inset:18px -4px 16px 32%;background:#d7193f;clip-path:polygon(22% 0,100% 0,100% 100%,0 100%,0 32%,12% 32%,12% 14%,22% 14%)}
+.retro-hero:after{content:"";position:absolute;z-index:0;right:-4px;bottom:16px;width:16px;height:60%;background:#7d194b}
+.retro-character img{position:relative;z-index:1;width:135px;height:260px;max-width:none;image-rendering:pixelated;image-rendering:crisp-edges;object-fit:contain}
+.retro-features{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;border-top:3px solid #10101b;padding-top:20px}
+.retro-features figure{margin:0;min-width:0}
+.retro-features img,.retro-features video{display:block;width:100%;height:auto;aspect-ratio:3/2;object-fit:cover;border:3px solid #10101b;background:#10101b;image-rendering:pixelated;image-rendering:crisp-edges}
+.retro-features figcaption{text-align:center;font-size:clamp(7px,1vw,10px);line-height:1.6;margin-top:12px;white-space:nowrap}
+.retro-footer{text-align:right;font-size:7px;line-height:1.6;margin-top:22px}
+@keyframes retro-pulse{0%,100%{background-color:#d7193f}50%{background-color:#9f1636}}
+@media(max-width:599px){
+ #startOverlay.retro-start{padding:12px}
+ .retro-card{padding:24px 16px 16px;box-shadow:4px 4px 0 #7d194b}
+ .retro-header{grid-template-columns:minmax(0,1fr) 57px;gap:8px;padding-top:14px}
+ .retro-demo{font-size:7px;line-height:1.75;padding:8px 0 8px 7px;border-left-width:3px}
+ .retro-rich-title{font-size:48px;margin-bottom:12px}
+ .retro-alucard-title{font-size:32px}
+ .retro-subtitle{margin-top:18px;font-size:10px;padding:8px 3px}
+ .retro-hero{--retro-action-width:clamp(94px,calc(100vw - 280px),160px);min-height:248px;padding:20px 0}
+ .retro-action{padding:10px}
+ .retro-character{width:108px}
+ .retro-tagline{font-size:13px;margin-bottom:16px}
+ .retro-description{font-size:7px;line-height:1.85}
+ .retro-character{height:208px}
+ .retro-character img{width:108px;height:208px}
+ #startOverlay.retro-start button{font-size:8px;padding:12px 3px;border-width:2px;box-shadow:3px 3px 0 #10101b}
+ .retro-features{gap:9px;padding-top:16px}
+ .retro-features img,.retro-features video{border-width:2px}
+ .retro-features figcaption{font-size:7px;margin-top:9px}
+ .retro-footer{font-size:6px;margin-top:18px}
+}
+@media(max-width:370px){
+ .retro-rich-title{font-size:40px}
+ .retro-alucard-title{font-size:28px}
+ .retro-demo{font-size:6px}
+ .retro-header{grid-template-columns:minmax(0,1fr) 50px;gap:6px}
+ .retro-character{height:156px}
+ .retro-character img{width:81px;height:156px}
+ .retro-hero{min-height:218px}
+ .retro-action{padding:10px}
+ .retro-character{width:81px}
+ .retro-tagline{font-size:11px}
+ .retro-description{font-size:7px}
+ #startOverlay.retro-start button{font-size:7px}
+ .retro-features figcaption{font-size:6px}
+}
+@media(prefers-reduced-motion:reduce){#startOverlay.retro-start #startButton{animation:none;opacity:1;background-color:#d7193f}#startOverlay.retro-start button:active{translate:none}}
+
+#startOverlay.retro-start #startButton:hover{animation:none;background-color:#9f1636}
+#startOverlay.retro-start #startButton:focus-visible{background-color:#d7193f}
+
+#startOverlay.retro-start .retro-footer{display:flex;align-items:center;justify-content:space-between;gap:10px}
+#startOverlay.retro-start button.retro-replay{width:auto;min-height:44px;font-size:6px;line-height:1.6;padding:8px;background:#f6efd9;color:#10101b;box-shadow:2px 2px 0 #10101b}

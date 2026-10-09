@@ -100,6 +100,15 @@ export async function verify({quiet=false}={}){
   if(actual!==expected)problems.push('index.html loader block is stale — run: node tools/loader.mjs sync');
   // every js file must be loaded somewhere or explicitly allow-listed
   const loaded=new Set(seen.keys());
+  // The same manifest owns presentation scripts surrounding the generated game block.
+  const pageScripts=manifest.pageScripts||{beforeBlock:[],afterBlock:[]};
+  const expectedPage=[...pageScripts.beforeBlock,...scripts.map(s=>s.src),...pageScripts.afterBlock];
+  const actualPage=[...actual.matchAll(/<script src="([^"?]+\.js)(?:\?[^"]*)?"><\/script>/g)].map(m=>m[1]);
+  if(JSON.stringify(actualPage)!==JSON.stringify(expectedPage))problems.push('index.html full-page script order differs from manifest');
+  for(const f of [...pageScripts.beforeBlock,...pageScripts.afterBlock]){
+    if(!existsSync(path.join(root,f)))problems.push(`missing presentation script file ${f}`);
+    if(loaded.has(f))problems.push(`duplicate presentation script ${f}`);loaded.add(f);
+  }
   for(const page of ['party-dev.html','rave-review.html','minigame-lab.html']){const html=await readFile(path.join(root,page),'utf8');for(const m of html.matchAll(/src="([^"?]+\.js)/g))loaded.add(m[1]);}
   const all=await walk(path.join(root,'js'));
   const allow=new Set(manifest.unloadedAllowed||[]);

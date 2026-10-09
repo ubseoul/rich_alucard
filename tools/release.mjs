@@ -18,8 +18,8 @@ const arg=name=>{const index=process.argv.indexOf(name);return index===-1?null:p
 const sha=()=>arg('--commit')||process.env.GITHUB_SHA||execFileSync('git',['rev-parse','HEAD'],{cwd:root,encoding:'utf8'}).trim();
 const compactTimestamp=value=>value.replace(/[-:.TZ]/g,'').slice(0,14);
 const read=relative=>readFile(path.join(root,relative),'utf8');
-const runtimeFiles=['index.html','party-dev.html','rave-review.html','minigame-lab.html','style.css','game.js'];
-const staticDirectories=['assets','js'];
+const runtimeFiles=['index.html','party-dev.html','rave-review.html','minigame-lab.html','style.css','game.js','landing.css','opening.css'];
+const staticDirectories=['assets','js','intro-assets','opening-assets'];
 
 function assert(condition,message){if(!condition)throw new Error(message);}
 function memoryStorage(){const data=new Map();return {getItem:key=>data.has(key)?data.get(key):null,setItem:(key,value)=>data.set(key,String(value)),removeItem:key=>data.delete(key)};}
