@@ -40,6 +40,15 @@ function caption(speaker,lines,phase=1){
 function board(title,subtitle,alpha){
  ctx.save();ctx.globalAlpha=alpha;rect(0,0,640,360,"#090813");rect(68,101,2,130,"#d7193f");text("RICH ALUCARD",88,110,19);text("BEFORE THE FAME",89,140,10,"#d7193f");text(title,89,183,10);text(subtitle,89,210,7,"#c18b3c");ctx.restore()
 }
+function endingFont(){return getComputedStyle(document.documentElement).getPropertyValue('--font-system').trim()||'"Press Start 2P",monospace';}
+function endingCard(){
+ const alpha=ease((t-37.7)/.6);
+ ctx.save();ctx.globalAlpha=alpha;rect(0,0,640,360,"#000000");
+ ctx.globalAlpha=alpha*(1-ease((t-39.2)/.8));
+ ctx.font="28px "+endingFont();ctx.textAlign="center";ctx.textBaseline="middle";
+ ctx.fillStyle=getComputedStyle(document.documentElement).getPropertyValue('--rich-red').trim()||"#d7193f";
+ ctx.fillText("Rich Alucard",320,180);ctx.restore();
+}
 function driver(x,opacity=1){
  const im=imgs.driver;if(!im)return;ctx.save();ctx.globalAlpha=opacity;ctx.drawImage(im,Math.round(x+122),225,25,32);ctx.restore()
 }
@@ -86,7 +95,7 @@ function door(left,open,offset=206){
  rect(x+w-10,265,6,2,"#c1bdaf")
 }
 function render(time=t){
- t=clamp(0,time,DURATION);ctx.imageSmoothingEnabled=false;rect(0,0,640,360,"#17142c");
+ t=clamp(0,time,DURATION);root.classList.toggle('cinema-ending',t>=37.7);ctx.imageSmoothingEnabled=false;rect(0,0,640,360,"#17142c");
  ctx.drawImage(imgs.background,0,0,640,360);
  cloud(35+(t*1.6)%720-80,57,1.45,.23);cloud(450-t*.65,112,1.1,.19);
  for(let i=0;i<3;i++)grassPatch(91+i*34,272,false);
@@ -154,8 +163,8 @@ function render(time=t){
  if(between(19.9,22))caption("OGA",["Not this night."]);
  if(between(26.7,28.6))caption("GBENGA",["Leave the gun."]);
  if(between(29,32.4))caption("GBENGA",["Take the puff puff."]);
- if(t<1.65)board("GBENGA / THE ROADSIDE","AN ORIGINAL PIXEL OPENING SAMPLE",clamp(0,1-(t-1.1)/.5,1));
- if(t>=37.7)board("LEAVE THE GUN. TAKE THE PUFF PUFF.","SAMPLE ONLY / END",ease((t-37.7)/.7));
+ if(t<1.65)board("GBENGA / THE ROADSIDE","AN ORIGINAL PIXEL OPENING",clamp(0,1-(t-1.1)/.5,1));
+ if(t>=37.7)endingCard();
  if(!started&&!playing){rect(0,0,640,360,"#09081355")}
 }
 function startAudio(){
@@ -202,5 +211,5 @@ reduced.addEventListener?.('change',()=>{if(reduced.matches)setPlaying(false);el
 function loop(now){raf=0;if(!visible()||!playing||!ready)return;const dt=Math.min(.05,(now-last)/1000)||0;last=now;t=Math.min(40,t+dt);render();if(t>=40){finish();return;}raf=requestAnimationFrame(loop);}
 window.RAOpeningCinema={get time(){return t;},get playing(){return playing;},get ready(){return ready;},get framePending(){return !!raf;},get sound(){return false;},get audioState(){return 'not-created';},isVisible:visible,skip:finish,playNewGame,consumeEntryKeys(){for(const key of ['Enter','Space','Escape'])if(downKeys.has(key))consumedEntryKeys.add(key);},begin,render,seek(time){setPlaying(false);started=true;render(time);}};
 lock();document.addEventListener('DOMContentLoaded',lock,{once:true});
-Promise.all(Object.entries(paths).map(([key,src])=>new Promise((resolve,reject)=>{const image=new Image();image.onload=()=>{imgs[key]=image;resolve();};image.onerror=()=>reject(Error('Opening asset failed: '+key));image.src=src;}))).then(async()=>{await document.fonts.ready;ready=true;root.dataset.ready='true';render();if(visible()&&pending&&!reduced.matches&&!document.hidden)begin();}).catch(error=>{root.querySelector('#cinemaStatus').textContent='Opening could not load. Use the skip hint to continue.';console.warn(error.message);});
+Promise.all(Object.entries(paths).map(([key,src])=>new Promise((resolve,reject)=>{const image=new Image();image.onload=()=>{imgs[key]=image;resolve();};image.onerror=()=>reject(Error('Opening asset failed: '+key));image.src=src;}))).then(async()=>{await document.fonts.load('28px '+endingFont());await document.fonts.ready;ready=true;root.dataset.ready='true';render();if(visible()&&pending&&!reduced.matches&&!document.hidden)begin();}).catch(error=>{root.querySelector('#cinemaStatus').textContent='Opening could not load. Use the skip hint to continue.';console.warn(error.message);});
 })();

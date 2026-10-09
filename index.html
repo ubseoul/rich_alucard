@@ -19,15 +19,13 @@
 <!-- LOADER:CSS:END -->
 <link rel="stylesheet" href="landing.css?v=__BUILD_ASSET_VERSION__" />
 <style>body.title-front #stage,body.cinema-opening #stage,body.entry-starting #stage{visibility:hidden}#cinematicIntro{position:fixed;inset:0;z-index:10001;background:#090813}#cinematicIntro[hidden],#startOverlay[hidden]{display:none!important}</style>
-<link rel="preload" as="image" href="opening-assets/first-frame.png" fetchpriority="high">
 <link rel="stylesheet" href="opening.css?v=__BUILD_ASSET_VERSION__">
 </head>
 <body class="title-front">
 <section id="cinematicIntro" hidden class="opening-cinema" aria-label="Gbenga opening" role="region">
  <button id="cinemaSkipHint" class="cinema-skip-hint" type="button" aria-label="Skip opening">Click here to skip</button>
  <div class="cinema-shell"><div class="cinema-frame">
-  <div class="cinema-first-card" aria-hidden="true"><b>GBENGA / THE ROADSIDE</b><span>AN ORIGINAL PIXEL OPENING SAMPLE</span></div>
-  <img class="cinema-poster" src="opening-assets/first-frame.png" width="640" height="360" alt="" aria-hidden="true" fetchpriority="high">
+  <div class="cinema-first-card" aria-hidden="true"><b>GBENGA / THE ROADSIDE</b><span>AN ORIGINAL PIXEL OPENING</span></div>
   <canvas id="film" width="640" height="360" role="img" aria-label="Gbenga and a Mercedes at the roadside"></canvas>
  </div></div>
  <p id="cinemaStatus" class="cinema-status" role="status" aria-live="polite"></p>
