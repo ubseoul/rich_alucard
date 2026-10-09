@@ -1,8 +1,8 @@
 {
   "schema": 1,
-  "engineCommit": "238664fa38330a356ed76c113f3525fb860588f6",
-  "gameplayCommit": "156eb8b27f1eff6b8957b4753a244a7cb53e3d39",
-  "packSha256": "d92cff1878bf544a83b7ec51585bc50c6ac77c336dc599019f362a4901d179d9",
+  "engineCommit": "e4748abd0a13c10beb32fea99c8bc51691ea73fe",
+  "gameplayCommit": "e7122769543e7dcc116e8d44fe7dd9758dddefac",
+  "packSha256": "b49ad1fa1a525c072a21fb4ebc18c1039be8ba75998ecf4ead585f7b8b63d2a3",
   "files": {
     ".nojekyll": {
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -13,8 +13,8 @@
       "bytes": 15
     },
     "GAME-RELEASE.json": {
-      "sha256": "1257df959d3546c515607352100af002e1fc075ba6a1b40238ebbdc35bee8be9",
-      "bytes": 1655
+      "sha256": "70f118a1a875b5b99083278786f62963a448854a0686e02f3009715dec539f8e",
+      "bytes": 1542
     },
     "README.txt": {
       "sha256": "922f915d043ba4d9b117bc1109eb7528df0971ffaa5598f6d7cc9893b1610ae7",
@@ -6049,7 +6049,7 @@
       "bytes": 6266
     },
     "build.json": {
-      "sha256": "64da07db05db0e91267ce2081e8680948d39623121b13a28cb8bd71682395d94",
+      "sha256": "f256fe773c22165540f3307d70d2faf0a4fac7fe191475a10fc9dee568eff729",
       "bytes": 256
     },
     "game.js": {
@@ -6057,7 +6057,7 @@
       "bytes": 41394
     },
     "index.html": {
-      "sha256": "ed679e9f4d35c1ea69faa2389812bfb41c1e85471cec6bbf4930217a0f455ef3",
+      "sha256": "ad53b9422902fd23bdcb5a3720bf306b0562f2c738579212d5e76a41d10d6593",
       "bytes": 38933
     },
     "js/btf_content.js": {
@@ -6065,7 +6065,7 @@
       "bytes": 1701
     },
     "js/build-info.js": {
-      "sha256": "a13f2137348e882c0b001a80b95ab0a86a6d0ac032cf428695b27943beaac06b",
+      "sha256": "c59980017b5c6b3ed660ab111be89e106843f7b5c2bff1e4d44d0857ed8630a4",
       "bytes": 298
     },
     "js/data/art/parts/F02_combat_fx.js": {
@@ -6121,8 +6121,8 @@
       "bytes": 2217
     },
     "js/data/astra_editorial.js": {
-      "sha256": "94cbb20cd328095abcacac0e9e2883bd4f7d5f7b52ab6825082cfedf24e3b9f5",
-      "bytes": 117634
+      "sha256": "a5679a8cb0a36f905bc22630420025facb0bc3f6de4224b2eeecab05074e9f71",
+      "bytes": 117567
     },
     "js/data/audio/manifest_parts.js": {
       "sha256": "3662ba8310c15bcb4354a0af6ded64d6704bbb8abb3089fde24d38719d4a69d1",
@@ -6913,8 +6913,8 @@
       "bytes": 24979
     },
     "js/minigames/touge.js": {
-      "sha256": "a2fee4ebe5354512df95ecefa0a820630601faf0c2b2f8a9ecd5720866b8ba9a",
-      "bytes": 30055
+      "sha256": "547557e1397d5f23d164d1e9dbe5cdf65447911331be940a19d612b321930342",
+      "bytes": 30760
     },
     "js/phone/apps_core.js": {
       "sha256": "8bbee376a6d5c2e5326856948f69f91441628e8286d646dafd872c225a06bf17",
@@ -7021,8 +7021,8 @@
       "bytes": 24663
     },
     "js/sealed/pack.js": {
-      "sha256": "d92cff1878bf544a83b7ec51585bc50c6ac77c336dc599019f362a4901d179d9",
-      "bytes": 1268640
+      "sha256": "b49ad1fa1a525c072a21fb4ebc18c1039be8ba75998ecf4ead585f7b8b63d2a3",
+      "bytes": 1271776
     },
     "js/systems/ambience.js": {
       "sha256": "3113caa0d0d20e27a463ca982694fdfd5f4e682882498b9d9b5cb44462156b97",
@@ -7261,19 +7261,19 @@
       "bytes": 10816
     },
     "minigame-lab.html": {
-      "sha256": "752d8323d581c88d9659891c2778a529f704d1d8e5ea7dcdb49e8dc72d223e63",
+      "sha256": "75e132c01f28d674aa010b044e9a9f675a1ecca5d6f72584bd3ac5b6431d3020",
       "bytes": 3422
     },
     "overlay-build.json": {
-      "sha256": "93cc95374ee911f6cf98a1d7cc779a9620a8181d358b43cd15911184e38a8bdf",
+      "sha256": "869850650075b52427da31cc9ab2d0162039caa814fb7e082c44cf3f8863ce4c",
       "bytes": 356
     },
     "party-dev.html": {
-      "sha256": "de8a52c3959274265ce27135a27136aa1c9752b4351f77802a3eb8c87224dd15",
+      "sha256": "c1a003ac8a17143e5a41cdd281dbeff674722145aa3c842b1d524f240272efdf",
       "bytes": 2290
     },
     "rave-review.html": {
-      "sha256": "90d54f74970a21d5eee17d1c649ee62e2461e761594a910353cfe7ee73b9f73f",
+      "sha256": "6fd80cfbb2f01a9930fae18d8c7c644fe0c5e5dc327b1fcbf5c51f391abc7619",
       "bytes": 2096
     },
     "style.css": {
