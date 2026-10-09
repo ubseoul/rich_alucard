@@ -452,7 +452,8 @@ async function launchGame(){
       try{
         if(audio.readyState<1)await new Promise(resolve=>audio.addEventListener('loadedmetadata',resolve,{once:true}));
         if(!window.RAMusicLibrary?.restored?.())seekToLoopStart();
-        await audio.play();
+        // Keep a rejected first play eligible for the library's next-gesture retry.
+        if(window.RAMusicLibrary)await window.RAMusicLibrary.resume();else await audio.play();
       }catch(e){console.warn('Startup music unavailable:',e?.name||'audio-error');}
     })();
   })();
