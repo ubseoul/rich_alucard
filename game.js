@@ -467,7 +467,8 @@ function beginNewGame(replaceSave){
     await window.RAOpeningCinema.playNewGame();
     if(replaceSave){
       // Keep the native reset, committing it once or retaining the old save on failure.
-      const reset=window.RAState.atomic(()=>window.RAState.reset());
+      const audioSettings=JSON.parse(JSON.stringify(window.RAState.get().life.settings.audio));
+      const reset=window.RAState.atomic(()=>{window.RAState.reset();window.RAState.patch('life.settings.audio',audioSettings);});
       if(!reset.ok){
         entryMode='title';entryPromise=null;overlay.hidden=false;overlay.style.display='';
         document.body.classList.remove('entry-starting');refreshStartSurface();

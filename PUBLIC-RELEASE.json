@@ -1,18 +1,18 @@
 {
   "schema": 1,
   "title": "Rich Alucard: Before The Fame — Free Demo",
-  "gameplayCommit": "e7122769543e7dcc116e8d44fe7dd9758dddefac",
-  "packSha256": "b49ad1fa1a525c072a21fb4ebc18c1039be8ba75998ecf4ead585f7b8b63d2a3",
-  "artifactDigest": "52b1fd5f66c2dace3e595f36032dc5eefe5618974a382734810f2c187f1f95b0",
+  "gameplayCommit": "80827e82eaf0b30eda254d1a78d32f7751fc3449",
+  "packSha256": "5eef0088ac70cd0d06af5dcbb7448e2b788aac8ef21db366478fea24ac59ad94",
+  "artifactDigest": "a746f61176f6cfef1aceae069a11fec23043201063a19f5bd433ba83e88a930c",
   "originalBuild": {
     "schemaVersion": 1,
-    "releaseId": "ra-7060099b05e7-20261009184537",
-    "commit": "7060099b05e7aee51e12df556faaaea80c84d224",
-    "shortCommit": "7060099b05e7",
-    "builtAt": "2026-10-09T18:45:37.202Z",
-    "assetVersion": "ra-7060099b05e7-20261009184537"
+    "releaseId": "ra-679574164a67-20261009195218",
+    "commit": "679574164a6748f5fa402802e3fb9dd7f7e30416",
+    "shortCommit": "679574164a67",
+    "builtAt": "2026-10-09T19:52:18.393Z",
+    "assetVersion": "ra-679574164a67-20261009195218"
   },
-  "engineCommit": "7060099b05e7aee51e12df556faaaea80c84d224",
+  "engineCommit": "679574164a6748f5fa402802e3fb9dd7f7e30416",
   "freeProofOfConcept": true,
   "analytics": {
     "measurement_id": "G-L2VZCN5S7Y",
@@ -65,13 +65,13 @@
     },
     {
       "path": "GAME-RELEASE.json",
-      "sha256": "57ac302e2f0afe07eb58f5dd3b427178d8874b723271e53723f185a7344838f0",
-      "bytes": 1589
+      "sha256": "120360057244800c6492a403f71bd922534b401360e4a797e379940219c7818e",
+      "bytes": 1542
     },
     {
       "path": "PACKAGE-MANIFEST.json",
-      "sha256": "4b07a39817871006c492370d98e0808dcfbd29e0853206c737800e319b0fe17f",
-      "bytes": 314687
+      "sha256": "1794f37cc481194d0ffe9397dc3e76862549ab4055371da92cbc501646ad7580",
+      "bytes": 307374
     },
     {
       "path": "README.txt",
@@ -7615,17 +7615,17 @@
     },
     {
       "path": "build.json",
-      "sha256": "dd3774d9b897f58eff8c31d1793832e8353a1536238a507bf55239df21dff62c",
-      "bytes": 264
+      "sha256": "b8f5f600c4458682ea832d7362216ed2d3b0db7a830cf5d006e662d81f2cca58",
+      "bytes": 256
     },
     {
       "path": "game.js",
-      "sha256": "c0d4490407a9adf71ab228d892a803be001567fca1f555d4aa41ed45fe802ee6",
-      "bytes": 43839
+      "sha256": "99887dda36c219c8b3f8f40330dd320f9d7e7f356a4f995f704e61917587a2cf",
+      "bytes": 43478
     },
     {
       "path": "index.html",
-      "sha256": "2f88ef5978165d1fc8ad878273cd4a412b0688273a0ccb622cad7308d44969da",
+      "sha256": "6d19436126cf4921fee4e240d9bfd424e87892bb8863b1207f2eb0ba41480e6e",
       "bytes": 41827
     },
     {
@@ -7665,8 +7665,8 @@
     },
     {
       "path": "js/build-info.js",
-      "sha256": "082bd367eb1ad9e600583548ad29006a2c968fae03b18ee8ae49b04646710557",
-      "bytes": 300
+      "sha256": "b784de041d61fe31ee580aa982610c2395c4f632adda919c1054b12a0867cee7",
+      "bytes": 298
     },
     {
       "path": "js/data/art/parts/F02_combat_fx.js",
@@ -8860,8 +8860,8 @@
     },
     {
       "path": "js/sealed/pack.js",
-      "sha256": "b49ad1fa1a525c072a21fb4ebc18c1039be8ba75998ecf4ead585f7b8b63d2a3",
-      "bytes": 1271776
+      "sha256": "5eef0088ac70cd0d06af5dcbb7448e2b788aac8ef21db366478fea24ac59ad94",
+      "bytes": 1276757
     },
     {
       "path": "js/systems/ambience.js",
@@ -9005,8 +9005,8 @@
     },
     {
       "path": "js/systems/music_library.js",
-      "sha256": "c3638684b763a557f545d3fb82dd21ae6070aaeeb7137b3a25b743386793fc16",
-      "bytes": 5323
+      "sha256": "4f2e98b4f85b5e39271f30ff1d5e8da833e60f9390f2d6826f6a32650bbaf080",
+      "bytes": 6023
     },
     {
       "path": "js/systems/new_oga.js",
@@ -9025,8 +9025,8 @@
     },
     {
       "path": "js/systems/opening_cinema.js",
-      "sha256": "2d1067609950dd607cb9dedc48b9dfda3d4073da282d62279e33d62120c6ac22",
-      "bytes": 15790
+      "sha256": "cddd2e7a5f60caa205d1ffc8366ce2d7f6b29ca8d59b77ff00273d470f3b0b11",
+      "bytes": 16180
     },
     {
       "path": "js/systems/opening_timeline.js",
@@ -9175,7 +9175,7 @@
     },
     {
       "path": "minigame-lab.html",
-      "sha256": "4643b24c9e0cc52d9e1c796648de58ee21989e72d7d20111df25bfa1cb7390a8",
+      "sha256": "194d956cdd0a96a6fafb5c3c8ad14ac3e8ef721404541998ca9cf99faa1ad0cb",
       "bytes": 3422
     },
     {
@@ -9250,17 +9250,17 @@
     },
     {
       "path": "overlay-build.json",
-      "sha256": "6c7a3f38a2d50032cbe5392f3e9d3222ffe4e36b91a86e323bd98b22d0b48c35",
-      "bytes": 369
+      "sha256": "1fdb1554b4df2ee51c98cf8d20ff3db86c00a3d5723724fe776145ce07c09edf",
+      "bytes": 356
     },
     {
       "path": "party-dev.html",
-      "sha256": "19444d362eb0eff9cf5787e6c301e30b1871e8a1c1e5f5f93ecc7a7b5877f403",
+      "sha256": "3d59bf8f3e6ebdd1008522dfa56de9525a0ef95030b4920d188ecc1a1ace0109",
       "bytes": 2290
     },
     {
       "path": "rave-review.html",
-      "sha256": "43941f7547efe3427cfa5ef5de92fd3fc26fc8ddd420fe0bfdd9a5c09b778dc0",
+      "sha256": "b68815bd14188371c55017b47b4a726b3a55c6aa73c1decc78dbb69d69df7c64",
       "bytes": 2096
     },
     {

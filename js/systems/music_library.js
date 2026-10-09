@@ -20,15 +20,27 @@
  function onEnded(){if(scoped){const a=audioEl();if(a){a.currentTime=0;requestPlay(a);}return true;}if(pinned)return false;next();return true;}
  function unpin(){pinned=false;const a=audioEl();if(a){a.loop=false;a.dataset.pin='';remember();}}
  // A combat cue temporarily borrows the existing player; user radio pins take precedence.
- function combat(owner,enemyId,{spar=false,trackId=null,force=false}={}){
+ function combat(owner,enemyId,{spar=false,trackId=null,force=false,resumeOnRestore=true}={}){
   const a=audioEl();if(!a||(pinned&&!force))return ()=>{};
   scoped?.restore();
   const saved={src:a.getAttribute('src'),track:a.dataset.track,time:a.currentTime,loop:a.loop,paused:a.paused,pinned};
   const id=trackId|| (spar?'almond_freestyle':enemyId==='gbenga'?'oxblood':'bloodbath'),t=trackFor(id);if(!t)return ()=>{};if(force)pinned=false;
   let live=true;
-  function restore(){if(!live)return;live=false;if(scoped?.owner!==owner)return;scoped=null;if(pinned)return;pinned=saved.pinned;a.dataset.pin=pinned?'1':'';const generation=++musicGeneration;a.src=saved.src||'assets/bloodbath_mix3.wav';a.dataset.track=saved.track||'bloodbath';a.loop=saved.loop;const seek=()=>{if(!scoped&&generation===musicGeneration){a.currentTime=Math.min(saved.time,Number.isFinite(a.duration)?Math.max(0,a.duration-.05):saved.time);if(!saved.paused)requestPlay(a);else a.pause();}};a.addEventListener('loadedmetadata',seek,{once:true});a.load();}
+  function restore(){if(!live)return;live=false;if(scoped?.owner!==owner)return;scoped=null;if(pinned)return;pinned=saved.pinned;a.dataset.pin=pinned?'1':'';const generation=++musicGeneration;a.pause();a.src=saved.src||'assets/bloodbath_mix3.wav';a.dataset.track=saved.track||'bloodbath';a.loop=saved.loop;const seek=()=>{if(!scoped&&generation===musicGeneration){a.currentTime=Math.min(saved.time,Number.isFinite(a.duration)?Math.max(0,a.duration-.05):saved.time);if(resumeOnRestore&&!saved.paused)requestPlay(a);else a.pause();}};a.addEventListener('loadedmetadata',seek,{once:true});a.load();}
   musicGeneration++;scoped={owner,restore};a.dataset.track=id;a.loop=true;a.src=t.file;requestPlay(a);owner.dataset.musicCue=id;
   owner.addEventListener('c2:close',restore,{once:true});return restore;
+ }
+ // New Game borrows this one player for the film without changing the saved radio.
+ // Native entry owns the later gameplay play request; Skip must stop the cue first.
+ function cinematic(owner,trackId){
+  const a=audioEl(),track=trackFor(trackId);if(!a||!track)return null;
+  const restore=combat(owner,null,{trackId,force:true,resumeOnRestore:false});
+  const active=()=>scoped?.owner===owner;
+  return {track:track.id,file:track.file,active,
+   pause(){if(active()){musicGeneration++;needsGesture=false;a.pause();}},
+   resume(){return active()?requestPlay(a):Promise.resolve(false);},
+   stop(){if(active())a.pause();restore();}
+  };
  }
  function init(){const a=audioEl();if(!a)return;
   const radio=RAState.get().life.phone.radio||{},saved=trackFor(radio.track);
@@ -40,5 +52,5 @@
   window.addEventListener('pagehide',remember);
  }
  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init,{once:true});else init();
- window.RAMusicLibrary={LIBRARY,ORDER,play,next,onEnded,unpin,combat,trackFor,restored:()=>restored,isPinned:()=>pinned,needsGesture:()=>needsGesture,resume:()=>{const a=audioEl();return a?requestPlay(a):Promise.resolve(false);},performance:(owner,trackId)=>combat(owner,null,{trackId,force:true})};
+ window.RAMusicLibrary={LIBRARY,ORDER,play,next,onEnded,unpin,combat,cinematic,trackFor,restored:()=>restored,isPinned:()=>pinned,needsGesture:()=>needsGesture,resume:()=>{const a=audioEl();return a?requestPlay(a):Promise.resolve(false);},performance:(owner,trackId)=>combat(owner,null,{trackId,force:true})};
 })();
