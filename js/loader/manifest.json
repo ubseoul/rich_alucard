@@ -145,7 +145,8 @@
   },
   "js/systems/rc3.js",
   "js/engine/core.js",
-  "game.js"
+  "game.js",
+  "js/systems/analytics.js"
  ],
  "order": [
   [
