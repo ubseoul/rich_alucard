@@ -18,12 +18,12 @@
 <link rel="stylesheet" href="js/frag/F05/the_trap.css?v=__BUILD_ASSET_VERSION__" />
 <!-- LOADER:CSS:END -->
 <link rel="stylesheet" href="landing.css?v=__BUILD_ASSET_VERSION__" />
-<style>body.cinema-opening #stage{visibility:hidden}#cinematicIntro{position:fixed;inset:0;z-index:10001;background:#090813}#cinematicIntro[hidden],#startOverlay[hidden]{display:none!important}</style>
+<style>body.title-front #stage,body.cinema-opening #stage,body.entry-starting #stage{visibility:hidden}#cinematicIntro{position:fixed;inset:0;z-index:10001;background:#090813}#cinematicIntro[hidden],#startOverlay[hidden]{display:none!important}</style>
 <link rel="preload" as="image" href="opening-assets/first-frame.png" fetchpriority="high">
 <link rel="stylesheet" href="opening.css?v=__BUILD_ASSET_VERSION__">
 </head>
-<body class="cinema-opening">
-<section id="cinematicIntro" class="opening-cinema" aria-label="Gbenga opening" role="region">
+<body class="title-front">
+<section id="cinematicIntro" hidden class="opening-cinema" aria-label="Gbenga opening" role="region">
  <button id="cinemaSkipHint" class="cinema-skip-hint" type="button" aria-label="Skip opening">Click here to skip</button>
  <div class="cinema-shell"><div class="cinema-frame">
   <div class="cinema-first-card" aria-hidden="true"><b>GBENGA / THE ROADSIDE</b><span>AN ORIGINAL PIXEL OPENING SAMPLE</span></div>
@@ -33,7 +33,7 @@
  <p id="cinemaStatus" class="cinema-status" role="status" aria-live="polite"></p>
 </section>
 <script src="js/systems/opening_cinema.js?v=__BUILD_ASSET_VERSION__"></script>
-<section id="startOverlay" hidden inert class="start-overlay retro-start" aria-labelledby="retroTitle">
+<section id="startOverlay" class="start-overlay retro-start" aria-labelledby="retroTitle">
   <div class="retro-card">
     <header class="retro-header">
       <h1 id="retroTitle" aria-label="Rich Alucard: Before The Fame"><span class="retro-rich-title">RICH</span><span class="retro-alucard-title">ALUCARD</span></h1>
@@ -42,7 +42,7 @@
     <div class="retro-subtitle" aria-hidden="true">BEFORE THE FAME</div>
     <div class="retro-hero">
       <div class="retro-copy"><p class="retro-tagline"><span>Bite.</span><span>Dance.</span><span>Jug.</span></p><p class="retro-description">Rich Alucard, a Nigerian vampire moves to LA.</p></div>
-      <div class="retro-action"><button id="startButton" type="button" disabled>PLAY NOW</button><button id="newGameButton" type="button" disabled hidden>NEW GAME</button></div>
+      <div class="retro-action"><button id="startButton" type="button" disabled>NEW GAME</button><button id="newGameButton" type="button" disabled hidden>NEW GAME</button><p id="entryNotice" class="retro-entry-notice" hidden role="status" aria-live="polite"></p></div>
       <div class="retro-character"><img src="intro-assets/rich-standing.png" width="81" height="156" alt="Rich Alucard" draggable="false"></div>
     </div>
     <div class="retro-features" aria-label="Game preview">
@@ -53,7 +53,7 @@
     <footer class="retro-footer">richalucard.com</footer>
   </div>
 </section>
-<main id="stage" aria-label="Rich Alucard: Before The Fame Demo">
+<main id="stage" inert aria-label="Rich Alucard: Before The Fame Demo">
   <div id="screen">
     <div class="room" aria-hidden="true"></div>
     <canvas id="jdmDockBattleCanvas" width="270" height="480" aria-hidden="true"></canvas>
