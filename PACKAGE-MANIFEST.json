@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "engineCommit": "e4c27efb8df8d580f417bb351c43d136ad501034",
+  "engineCommit": "04e142b4800aa5ebfdfcc61d90d2d4aaef40c333",
   "gameplayCommit": "156eb8b27f1eff6b8957b4753a244a7cb53e3d39",
   "packSha256": "d92cff1878bf544a83b7ec51585bc50c6ac77c336dc599019f362a4901d179d9",
   "files": {
@@ -8,9 +8,13 @@
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "bytes": 0
     },
+    "CNAME": {
+      "sha256": "c0dcbed35a53bb93c6c30fccd8d5b2e107945b8efd8bc501b60ccd8de6cec1ad",
+      "bytes": 15
+    },
     "GAME-RELEASE.json": {
-      "sha256": "d9af6b34226712936a3c84de4b231c586685a168665a4d127194f7f021e83ee7",
-      "bytes": 1104
+      "sha256": "433d3446af1815fba95aa9651d45d35c7ba2d55ba5062a3c39e23563ad20d734",
+      "bytes": 1655
     },
     "README.txt": {
       "sha256": "922f915d043ba4d9b117bc1109eb7528df0971ffaa5598f6d7cc9893b1610ae7",
@@ -6045,7 +6049,7 @@
       "bytes": 6266
     },
     "build.json": {
-      "sha256": "6df90cac07638f2ba0862aa26836152d0b2fb20eaae062784e3058adbadf4a0f",
+      "sha256": "6c5f2c0d10f466469c3f7d641657a156c6a2131efcfb11e150edf01801416b0a",
       "bytes": 256
     },
     "game.js": {
@@ -6053,15 +6057,15 @@
       "bytes": 41394
     },
     "index.html": {
-      "sha256": "1a4254bce57c340d3be04eab9d4ab1015b9e7c4882c4aea6edb46d4f7850cc64",
-      "bytes": 39448
+      "sha256": "9f9e0beb461a43e3e6a40ce5451e436439ec339f4d5331449e6d4fd84abdc705",
+      "bytes": 38933
     },
     "js/btf_content.js": {
       "sha256": "5e2a180842d8069d6c06d510d454f3af3a8deb2fdc684b941eaa1b83ef5ccc4d",
       "bytes": 1701
     },
     "js/build-info.js": {
-      "sha256": "bbae5362dac1d8b618b121defaaef0f124a6c37073f82f77917461c3e5bb0386",
+      "sha256": "2732c4daee319089e13f3b78720bd3730d3a1adcf39482d5d2213a0e224539a0",
       "bytes": 298
     },
     "js/data/art/parts/F02_combat_fx.js": {
@@ -7029,8 +7033,8 @@
       "bytes": 5723
     },
     "js/systems/analytics.js": {
-      "sha256": "1aedbf05e4807c80931290204184dedbfaf8c98a67b5c223ff58f55aea69b596",
-      "bytes": 6422
+      "sha256": "9b0fa796715b3ee9bca2c0a5d2bbb44b6413069dcb5e5a703302eb32d9ffcec8",
+      "bytes": 6747
     },
     "js/systems/barks.js": {
       "sha256": "6b8f79b0d052874c5f373381ee01c8e779a81ad5ee9e56e41405be98a600e98a",
@@ -7257,20 +7261,20 @@
       "bytes": 10182
     },
     "minigame-lab.html": {
-      "sha256": "b33b7ed7e72512a9bf34397d8df5cdec4c4cbea2aa98c8a9419929bbee629faf",
-      "bytes": 3473
+      "sha256": "d5affd9d83e504247722d96ca92459a2dc8e32b0ea41cfcb52881379682cbc09",
+      "bytes": 3422
     },
     "overlay-build.json": {
       "sha256": "a465f69d8d0087e68d5fb5f68014a8053cc0b628529d8e3eeefbeec6723ea43d",
       "bytes": 343
     },
     "party-dev.html": {
-      "sha256": "9a684d236c6d6f03e4885569aea1157c44dcbf81c383a487ac2d9cc3215df9e2",
-      "bytes": 2323
+      "sha256": "4e8bb8a12ffa3b885a0094f6a8399d050e9f730ac49cc2480d4b9bfea598d7fd",
+      "bytes": 2290
     },
     "rave-review.html": {
-      "sha256": "71d8f7e4093cb4693a0cd78d50985a0ed0ff5ab35309d7fd8a8dbc7620c0d38d",
-      "bytes": 2135
+      "sha256": "a0a12937389a51f0cc8132612e2234c2c33b1ba557feaf40c5cea6e6f352bb31",
+      "bytes": 2096
     },
     "style.css": {
       "sha256": "d724b36416b4f00375cdfd2bfcc6211022a43524471ec76c1c572c424de2fbc8",

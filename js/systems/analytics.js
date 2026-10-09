@@ -2,9 +2,12 @@
 (function(){
  'use strict';
  const ID='G-L2VZCN5S7Y',KEY='ra_usage_analytics_consent_v1';
- const publicPage=location.protocol==='https:'&&location.hostname==='ubseoul.github.io'&&/^\/rich_alucard\/(?:index\.html)?$/.test(location.pathname);
+ const pagesPage=location.hostname==='ubseoul.github.io'&&/^\/rich_alucard\/(?:index\.html)?$/.test(location.pathname);
+ const customPage=['richalucard.com','www.richalucard.com'].includes(location.hostname)&&/^\/(?:index\.html)?$/.test(location.pathname);
+ const publicPage=location.protocol==='https:'&&(pagesPage||customPage);
  if(!publicPage||window.RABuild?.source||new URLSearchParams(location.search).has('dev')||navigator.webdriver)return;
- const safePage='https://ubseoul.github.io/rich_alucard/';
+ const safePage=customPage?'https://richalucard.com/':'https://ubseoul.github.io/rich_alucard/';
+ const cookiePath=customPage?'/':'/rich_alucard/',cookieDomain=customPage?'richalucard.com':'ubseoul.github.io';
  let consent=null,loaded=false,sent=false,dialog=null,previousFocus=null;
  try{const v=localStorage.getItem(KEY);if(v==='granted'||v==='denied')consent=v;}catch{}
  window['ga-disable-'+ID]=consent!=='granted';
@@ -17,7 +20,7 @@
    tag('set',{ads_data_redaction:true,url_passthrough:false,allow_google_signals:false,allow_ad_personalization_signals:false,page_location:safePage,page_referrer:'',page_title:'Rich Alucard: Before The Fame'});
    tag('consent','update',{analytics_storage:'granted',ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied'});
    tag('js',new Date());
-   tag('config',ID,{send_page_view:false,allow_google_signals:false,allow_ad_personalization_signals:false,page_location:safePage,page_referrer:'',ignore_referrer:true,page_title:'Rich Alucard: Before The Fame',cookie_prefix:'ra',cookie_path:'/rich_alucard/',cookie_domain:'ubseoul.github.io'});
+   tag('config',ID,{send_page_view:false,allow_google_signals:false,allow_ad_personalization_signals:false,page_location:safePage,page_referrer:'',ignore_referrer:true,page_title:'Rich Alucard: Before The Fame',cookie_prefix:'ra',cookie_path:cookiePath,cookie_domain:cookieDomain});
    const script=document.createElement('script');script.async=true;script.id='ra-google-tag';script.src='https://www.googletagmanager.com/gtag/js?id='+ID;document.head.append(script);
   }else tag('consent','update',{analytics_storage:'granted',ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied'});
   if(!sent){sent=true;tag('event','page_view',{send_to:ID,page_location:safePage,page_referrer:'',page_title:'Rich Alucard: Before The Fame'});}
@@ -25,7 +28,7 @@
  function optOut(){
   window['ga-disable-'+ID]=true;
   if(loaded)tag('consent','update',{analytics_storage:'denied',ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied'});
-  for(const part of document.cookie.split(';')){const name=part.trim().split('=')[0];if(!/^ra_ga(?:_|$)/.test(name))continue;for(const domain of ['', '; domain=ubseoul.github.io','; domain=.ubseoul.github.io'])for(const path of ['/','/rich_alucard/'])document.cookie=name+'=; max-age=0; path='+path+domain+'; SameSite=Lax; Secure';}
+  for(const part of document.cookie.split(';')){const name=part.trim().split('=')[0];if(!/^ra_ga(?:_|$)/.test(name))continue;for(const domain of new Set(['',cookieDomain,'.'+cookieDomain,location.hostname,'.'+location.hostname]))for(const path of new Set([cookiePath,'/','/rich_alucard/']))document.cookie=name+'=; max-age=0; path='+path+(domain?'; domain='+domain:'')+'; SameSite=Lax; Secure';}
  }
  function choose(value){consent=value;try{localStorage.setItem(KEY,value);}catch{}if(value==='granted')start();else optOut();close();}
  function node(tagName,text,cls){const n=document.createElement(tagName);if(text)n.textContent=text;if(cls)n.className=cls;return n;}
