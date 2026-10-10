@@ -32,7 +32,7 @@
   await step('',900);
   await step('<div class="fame-title">RICH ALUCARD</div>',3400);
   const receipts=L().receipts||[];
-  const credits=['BEFORE THE FAME','','a life, in receipts:',...receipts.map(r=>`DAY ${r.day} · ${r.caption}`),'','thank you for living here.'];
+  const credits=['BEFORE THE FAME','','Lead Pixel Artist — WWinnerG33','','a life, in receipts:',...receipts.map(r=>`DAY ${r.day} · ${r.caption}`),'','thank you for living here.'];
   await step(`<div class="fame-credits"><div class="fame-roll">${credits.map(c=>`<p>${String(c).replace(/</g,'&lt;')}</p>`).join('')}</div></div>`,Math.min(60000,9000+receipts.length*1400));
   o.innerHTML='<button type="button" class="fame-continue">THE NEXT MORNING</button>';
   o.querySelector('button').addEventListener('click',()=>{o.remove();RAClock.wake({first:true});window.RABedroomLife?.build?.();window.RABedroomLife?.showMail?.();},{once:true});
