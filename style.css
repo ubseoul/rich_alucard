@@ -743,6 +743,8 @@ body.dev-enabled .dev-panel{max-height:72%;overflow:auto}
 #phoneOverlay .phone-device-status{display:flex;align-items:center;gap:8px;min-height:22px;color:var(--os-text);font:12px var(--os-label);padding:0 2px}
 #phoneOverlay .phone-carrier{margin-right:auto;color:var(--os-gold);font-size:10px;letter-spacing:1px}
 #phoneOverlay .phone-signal{color:var(--os-green);font-size:14px}
+/* Device controls do not depend on a font's Unicode symbol coverage. */
+#phoneOverlay .phone-control-icon{display:block;width:18px;height:18px;margin:auto;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:square;stroke-linejoin:miter;shape-rendering:crispEdges;pointer-events:none}
 #phoneOverlay .phone-battery{position:relative;display:block;box-sizing:border-box;width:20px;height:10px;padding:2px;border:1px solid var(--os-text)}
 #phoneOverlay .phone-battery:after{content:'';position:absolute;right:-3px;top:2px;width:2px;height:4px;background:var(--os-text)}
 #phoneOverlay .phone-battery i{display:block;width:100%;height:100%;background:var(--os-green)}
