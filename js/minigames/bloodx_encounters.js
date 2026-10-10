@@ -185,6 +185,16 @@
   host.append(root); root.focus({ preventScroll: true });
   let resolve, closed = false, closing = false, busy = true, saveQueue = Promise.resolve(), effectOwner = 0, committedState = clone(state), touchPress = null, suppressTouchClick = null, currentEnemyMove = null;
   const timers = new Map(), effects = new Set();
+  // Use the shipped combat recordings; never queue a locked/muted cue for later playback.
+  const moveSound = id => global.RACombatPixelFX?.MOVES?.[id]?.sound || ({ blood: 'MOVE_BLOODBATH', bite: 'MOVE_BITE', octopus: 'MOVE_OCTOPUS', revenge: 'MOVE_REVENGE' })[id];
+  const audioIds = ['BATTLE_START', 'TELEGRAPH', 'HIT_LIGHT', 'HIT_HEAVY', 'KO', 'VICTORY', 'DEFEAT', 'GUN_RPG', 'BUFF', 'HEAL', 'EN_SHIELD', ...config.player.moves.map(move => moveSound(move.id))].filter(id => id && global.RAAudioManifest?.get?.(id)?.registered);
+  global.RAAudio?.preloadScene?.([...new Set(audioIds)])?.catch?.(() => {});
+  async function sound(id) {
+   const audio = global.RAAudio, owner = effectOwner;
+   const live = () => !closed && !closing && root.isConnected && owner === effectOwner && audio?.isUnlocked?.() && !audio.settings?.().muted;
+   if (!id || !live()) return false;
+   try { await audio.preload(id); return live() ? audio.sfx(id) : false; } catch (_) { return false; }
+  }
   const warmImages = [];
   const warm = value => { if (typeof value === 'string' && /\.png(?:[?#].*)?$/i.test(value)) { const image = new global.Image(); image.src = value; warmImages.push(image); } else if (value && typeof value === 'object') Object.values(value).forEach(warm); };
   warm(config.assets); warm(config.enemy.assets); warm(global.RAArtRegistry?.combatMoves);
@@ -266,6 +276,8 @@
     await wait(clamp(500 + $('.bx-log').textContent.length * 30, 1100, 5500)); if (closing || closed) return;
     if (!poses.action) prop(config.assets.launcher, 177, 158, 52, 32);
    } else await wait(240);
+   if (closed || closing) return;
+   if (id === 'rpg') await sound('GUN_RPG');
    enemy.src = poses.action || config.enemy.assets.attack || config.enemy.assets.idle;
    const from = actorPoint(enemy, 15, 50), to = actorPoint(rich);
    if (id === 'chancla') {
@@ -324,6 +336,7 @@
    }
   }
   async function contact(event) {
+   if (event.amount > 0) await sound(event.hp[event.target] <= 0 ? 'KO' : event.amount >= 30 ? 'HIT_HEAVY' : 'HIT_LIGHT');
    const target = event.target === 'enemy' ? enemy : rich;
    if (event.target === 'enemy' && config.enemy.assets.hit) enemy.src = config.enemy.assets.hit;
    if (event.target === 'player' && config.assets.playerHit) rich.src = config.assets.playerHit;
@@ -344,15 +357,15 @@
     const event = clone(state.pending.events[state.pending.cursor]);
     // Commit the cursor BEFORE its visual contact. A reload resumes the next event.
     state = acknowledge(state); await persist(`event:${event.kind}`); if (closed || closing) return;
-    if (event.kind === 'player') { $('.bx-log').textContent = event.label; await playerAttack(event.move); }
-    else if (event.kind === 'enemy') { $('.bx-log').textContent = event.label; $('.bx-telegraph').textContent = `${config.labels.attacking || 'ATTACK'}: ${event.label}`; $('.bx-telegraph').hidden = false; await enemyAttack(event.move); }
+    if (event.kind === 'player') { $('.bx-log').textContent = event.label; await sound(moveSound(event.move)); if (!closed && !closing) await playerAttack(event.move); }
+    else if (event.kind === 'enemy') { $('.bx-log').textContent = event.label; $('.bx-telegraph').textContent = `${config.labels.attacking || 'ATTACK'}: ${event.label}`; $('.bx-telegraph').hidden = false; if (config.enemy.moves[event.move]?.dmg > 0) await sound('TELEGRAPH'); if (!closed && !closing) await enemyAttack(event.move); }
     else if (event.kind === 'contact') { $('.bx-log').textContent = `${event.target === 'player' ? config.player.name : config.enemy.name} −${event.amount} HP`; await contact(event); }
     else if (event.kind === 'phase') { $('.bx-log').textContent = config.enemy.dialogue.phase2 || config.labels.phase2 || 'PHASE 2'; await wait(750); }
-    else if (event.kind === 'guard') { $('.bx-log').textContent = config.labels.guarding || 'GUARD UP'; await wait(250); }
-    else if (event.kind === 'heal') { $('.bx-log').textContent = `+${event.amount} HP`; hud(); await wait(240); }
-    else if (event.kind === 'blocked') { $('.bx-log').textContent = config.labels.blocked || 'BLOCKED'; await wait(200); }
+    else if (event.kind === 'guard') { $('.bx-log').textContent = config.labels.guarding || 'GUARD UP'; await sound('BUFF'); await wait(250); }
+    else if (event.kind === 'heal') { $('.bx-log').textContent = `+${event.amount} HP`; hud(); await sound('HEAL'); await wait(240); }
+    else if (event.kind === 'blocked') { $('.bx-log').textContent = config.labels.blocked || 'BLOCKED'; await sound('EN_SHIELD'); await wait(200); }
     else if (event.kind === 'recovery') { $('.bx-log').textContent = config.enemy.moves.recover?.telegraph || config.labels.recovery || 'RECOVERY · ATTACK OPENING'; await wait(300); }
-    else if (event.kind === 'end') await wait(180);
+    else if (event.kind === 'end') { await sound(event.outcome === 'win' ? 'VICTORY' : 'DEFEAT'); await wait(180); }
     cleanupFX(event.kind !== 'enemy' && event.kind !== 'player');
    }
    if (closed || closing) return;
@@ -385,7 +398,7 @@
   root.addEventListener('click', click); root.addEventListener('pointerdown', touchDown); root.addEventListener('pointermove', touchMove); root.addEventListener('pointerup', touchUp); root.addEventListener('pointercancel', touchCancel); global.addEventListener('keydown', key); doc.addEventListener('visibilitychange', visibility); config.signal?.addEventListener('abort', abort, { once: true });
   active = { root, state: () => clone(state), dispose: abort };
   $('.bx-log').textContent = config.enemy.dialogue.intro || config.labels.intro || 'Choose a move. Read the next attack.'; hud(); menu();
-  (async () => { try { await persist('mount'); if (closed || closing) return; if (state.pending) await play(); else { busy = false; menu(); } } catch (error) { fail(error); } })();
+  (async () => { try { await persist('mount'); if (closed || closing) return; if (!input.state && !input.snapshot) await sound('BATTLE_START'); if (closed || closing) return; if (state.pending) await play(); else { busy = false; menu(); } } catch (error) { fail(error); } })();
   if (config.signal?.aborted) abort();
   return promise;
  }
