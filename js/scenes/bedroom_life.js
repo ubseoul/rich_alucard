@@ -29,7 +29,13 @@
  function confirmBed({nightEnder=false}={}){
   if(window.RARC3&&!window.RARC3.canSleep()){window.RAPhone?.openApp?.('vampgpt');return;}
   if(!layer||layer.querySelector('.bed-confirm'))return;
-  const box=el('div','bed-confirm',`<span>${window.RARC3?window.RARC3.restCopy():(nightEnder?'damn im done for tonight':'sleep before you buy more shit?')}</span><div><button type="button" data-bed="yes">SLEEP</button>${nightEnder?'':'<button type="button" data-bed="no">NOT YET</button>'}</div>`);
+  const life=RAState.get().life,flags=life.world.flags;
+  // A prior wake after day one is evidence an old save already used sleep.
+  const explained=flags.sleepExplanationSeen===true||(flags.sleepExplanationSeen===undefined&&life.clock.lastWakeDay>1);
+  const explanation=explained?'':`<span>${window.RARC3?window.RARC3.restCopy():(nightEnder?'damn im done for tonight':'sleep before you buy more shit?')}</span>`;
+  const box=el('div','bed-confirm',`${explanation}<div><button type="button" data-bed="yes">Sleep</button>${nightEnder?'':'<button type="button" data-bed="no">Not yet</button>'}</div>`);
+  // Seen means shown, including when the player chooses Not yet. New Game resets flags.
+  if(flags.sleepExplanationSeen!==true)RAState.transaction(s=>{s.life.world.flags.sleepExplanationSeen=true;});
   box.style.pointerEvents='auto';layer.append(box);
   box.addEventListener('click',e=>{const b=e.target.closest('[data-bed]');if(!b)return;box.remove();if(b.dataset.bed==='yes')goToSleep();});
  }
