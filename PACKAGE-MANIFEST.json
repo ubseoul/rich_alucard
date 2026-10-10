@@ -1,8 +1,8 @@
 {
   "schema": 1,
-  "engineCommit": "679574164a6748f5fa402802e3fb9dd7f7e30416",
+  "engineCommit": "fcc14bac5324a4bc3717ad5c292a513ca3237171",
   "gameplayCommit": "e7122769543e7dcc116e8d44fe7dd9758dddefac",
-  "packSha256": "5eef0088ac70cd0d06af5dcbb7448e2b788aac8ef21db366478fea24ac59ad94",
+  "packSha256": "7797532886ed27f3dc2057c165978271654fa357affc49ca1ac92ea14a5a40c1",
   "files": {
     ".nojekyll": {
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -13,7 +13,7 @@
       "bytes": 15
     },
     "GAME-RELEASE.json": {
-      "sha256": "120360057244800c6492a403f71bd922534b401360e4a797e379940219c7818e",
+      "sha256": "e78de53a9d454e79a8e4928860296ac1cd068d54c278b8cf1955b903d7dee90c",
       "bytes": 1542
     },
     "README.txt": {
@@ -6049,7 +6049,7 @@
       "bytes": 6266
     },
     "build.json": {
-      "sha256": "b8f5f600c4458682ea832d7362216ed2d3b0db7a830cf5d006e662d81f2cca58",
+      "sha256": "e1b3bde0a64955d1ef32f1273d48eae5756dac7502514d5a4a3ae97d1fcfa50d",
       "bytes": 256
     },
     "game.js": {
@@ -6057,7 +6057,7 @@
       "bytes": 43478
     },
     "index.html": {
-      "sha256": "6d19436126cf4921fee4e240d9bfd424e87892bb8863b1207f2eb0ba41480e6e",
+      "sha256": "b6994567b2027a79355c0229a6477749dd8fac714de9187f3a22f897bfd03eae",
       "bytes": 41827
     },
     "intro-assets/bite.png": {
@@ -6089,7 +6089,7 @@
       "bytes": 1701
     },
     "js/build-info.js": {
-      "sha256": "b784de041d61fe31ee580aa982610c2395c4f632adda919c1054b12a0867cee7",
+      "sha256": "cc1b268b22c742def5878563769977c73890e9a868d9b432bf9683b783e24b2a",
       "bytes": 298
     },
     "js/data/art/parts/F02_combat_fx.js": {
@@ -6957,8 +6957,8 @@
       "bytes": 10385
     },
     "js/scenes/bedroom_life.js": {
-      "sha256": "26c7d607066eba2953dae3565bb0589549318b1dba483ccb3e1588aee7fcef8d",
-      "bytes": 6708
+      "sha256": "9d91c54bde1c99c67e406af1ba99ffd0c9b8769df5cf2d7c1a74620424098bd5",
+      "bytes": 7127
     },
     "js/scenes/character_reveal.js": {
       "sha256": "767dc124cf31aa9dd6b7de530dffe25ad2727b18a9015c034459a16324326dd8",
@@ -7045,8 +7045,8 @@
       "bytes": 24663
     },
     "js/sealed/pack.js": {
-      "sha256": "5eef0088ac70cd0d06af5dcbb7448e2b788aac8ef21db366478fea24ac59ad94",
-      "bytes": 1276757
+      "sha256": "7797532886ed27f3dc2057c165978271654fa357affc49ca1ac92ea14a5a40c1",
+      "bytes": 1274659
     },
     "js/systems/ambience.js": {
       "sha256": "3113caa0d0d20e27a463ca982694fdfd5f4e682882498b9d9b5cb44462156b97",
@@ -7297,7 +7297,7 @@
       "bytes": 6633
     },
     "minigame-lab.html": {
-      "sha256": "194d956cdd0a96a6fafb5c3c8ad14ac3e8ef721404541998ca9cf99faa1ad0cb",
+      "sha256": "24e3c1474f6aefe3d1e781a9abaa31e3a4a3ac53c5448c32b41bf57afc6339b3",
       "bytes": 3422
     },
     "opening-assets/car.png": {
@@ -7357,15 +7357,15 @@
       "bytes": 1957
     },
     "overlay-build.json": {
-      "sha256": "1fdb1554b4df2ee51c98cf8d20ff3db86c00a3d5723724fe776145ce07c09edf",
+      "sha256": "7143ad707e79dbfee96580dee6accea72a0733f4ddb88288f7cc8a0544e0682c",
       "bytes": 356
     },
     "party-dev.html": {
-      "sha256": "3d59bf8f3e6ebdd1008522dfa56de9525a0ef95030b4920d188ecc1a1ace0109",
+      "sha256": "28e378a5638ab093d5e94df40da2222f6fcba306cf9f1d112a6b5283c24765f0",
       "bytes": 2290
     },
     "rave-review.html": {
-      "sha256": "b68815bd14188371c55017b47b4a726b3a55c6aa73c1decc78dbb69d69df7c64",
+      "sha256": "d7687b64532e8b53f3d1eea897ef985f3a955699f4f7fc6fae2f47ac3f1d8a8d",
       "bytes": 2096
     },
     "style.css": {
@@ -7373,5 +7373,5 @@
       "bytes": 95612
     }
   },
-  "privateCommit": "80827e82eaf0b30eda254d1a78d32f7751fc3449"
+  "privateCommit": "c515f12d36062c84a8783725671fed64332829be"
 }

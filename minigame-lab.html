@@ -6,8 +6,8 @@
 <link rel="icon" href="data:,">
 <title>Rich Alucard — FEEL BATCH (Play Window A)</title>
 <script>if(new URLSearchParams(location.search).get('dev')!=='1')location.replace('./');</script>
-<link rel="stylesheet" href="style.css?v=ra-679574164a67-20261009195218" />
-<link rel="stylesheet" href="js/scenes/minigames.css?v=ra-679574164a67-20261009195218" />
+<link rel="stylesheet" href="style.css?v=ra-fcc14bac5324-20261010032037" />
+<link rel="stylesheet" href="js/scenes/minigames.css?v=ra-fcc14bac5324-20261010032037" />
 <style>
 #labMenu{position:absolute;inset:0;z-index:10;display:flex;flex-direction:column;gap:2.4%;padding:10% 8%;background:#17142c;color:#f6efd9;font-family:"Press Start 2P",monospace;font-size:clamp(7px,2.7cqw,12px);overflow:auto}
 #labMenu h1{font-size:1.4em;margin:0 0 4%;color:#d7193f}
@@ -29,17 +29,17 @@
   </div>
 </main>
 <script>window.RA_MINIGAME_LAB=new URLSearchParams(location.search).get('dev')==='1';if(!window.RA_MINIGAME_LAB)document.querySelector('#stage')?.remove();</script>
-<script src="js/engine/pixel.js?v=ra-679574164a67-20261009195218"></script>
-<script src="js/data/btf/new_oga_tunables.js?v=ra-679574164a67-20261009195218"></script><!-- FCPB convergence: OWAMBE COLLECTION reads RANewOgaTunables.m5 (was undefined in the lab; pre-existing on the F04 base) -->
-<script src="js/data/art_registry.js?v=ra-679574164a67-20261009195218"></script>
-<script src="js/engine/minigames.js?v=ra-679574164a67-20261009195218"></script>
-<script src="js/minigames/index.js?v=ra-679574164a67-20261009195218"></script>
+<script src="js/engine/pixel.js?v=ra-fcc14bac5324-20261010032037"></script>
+<script src="js/data/btf/new_oga_tunables.js?v=ra-fcc14bac5324-20261010032037"></script><!-- FCPB convergence: OWAMBE COLLECTION reads RANewOgaTunables.m5 (was undefined in the lab; pre-existing on the F04 base) -->
+<script src="js/data/art_registry.js?v=ra-fcc14bac5324-20261010032037"></script>
+<script src="js/engine/minigames.js?v=ra-fcc14bac5324-20261010032037"></script>
+<script src="js/minigames/index.js?v=ra-fcc14bac5324-20261010032037"></script>
 <script>
 (async function(){
  if(!window.RA_MINIGAME_LAB)return;
  const list=document.querySelector('#labList'),result=document.querySelector('#labResult'),menu=document.querySelector('#labMenu');
  const files=(window.RAMinigameFiles||[]);
- for(const file of files){await new Promise(resolve=>{const s=document.createElement('script');s.src=`js/minigames/${file}?v=ra-679574164a67-20261009195218`;s.onload=s.onerror=resolve;document.body.append(s);});}
+ for(const file of files){await new Promise(resolve=>{const s=document.createElement('script');s.src=`js/minigames/${file}?v=ra-fcc14bac5324-20261010032037`;s.onload=s.onerror=resolve;document.body.append(s);});}
  const params=new URLSearchParams(location.search);
  async function play(id,extra={}){menu.style.display='none';const r=await RAMinigames.launch(id,{lab:true,...extra});menu.style.display='';result.textContent=`${id.toUpperCase()}: ${r.quit?'QUIT':(r.outcome||'DONE').toUpperCase()}${r.score!=null?`\nSCORE ${r.score}`:''}${r.summary?`\n${r.summary}`:''}`;}
  for(const game of RAMinigames.list()){const b=document.createElement('button');b.type='button';b.textContent=game.title;b.dataset.game=game.id;b.addEventListener('click',()=>play(game.id));list.append(b);}
