@@ -43,10 +43,12 @@
   if(sleeping||window.RARC3&&!window.RARC3.canSleep())return false;
   sleeping=true;
   window.RARC3?.prepareSleep?.();
+  let over=null;
   try{
   if(window.RAPhone?.isOpen?.())await RAPhone.close();
+  if(window.RABalconyNight&&!await RABalconyNight.beforeSleep())return false;
   window.RABedroom?.setRichState?.('sleeping');
-  const over=el('div','wake-overlay','<div class="wake-day"></div>');document.querySelector('#screen').append(over);
+  over=el('div','wake-overlay','<div class="wake-day"></div>');document.querySelector('#screen').append(over);
   await new Promise(r=>setTimeout(r,50));over.classList.add('on');await new Promise(r=>setTimeout(r,900));
   try{await window.RAMoneyFeel?.daySummary?.(over);}catch(e){console.error(e);} // RC2: what Rich made today, on the black screen
   const mail=RAClock.sleep();
@@ -58,6 +60,9 @@
   over.classList.remove('on');await new Promise(r=>setTimeout(r,650));over.remove();
   const wakeAdventure=window.RAWakeTriggers?.pick?.();
   showMail(mail,wakeAdventure);
+  }catch(e){
+   if(!window.RABalconyNight||(!e.balconySave&&!String(e.message).includes('balcony')))throw e;
+   over?.remove();window.RABedroom?.setRichState?.('small_idle');build();RABalconyNight.showError(e.message);return false;
   }finally{sleeping=false;}
  }
  function showMail(mail,wakeAdventure){

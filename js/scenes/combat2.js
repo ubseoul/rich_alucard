@@ -97,6 +97,10 @@
      for(let hit=0;hit<group.length;hit++){if(!root.isConnected)return;const tick=hit<group.length-1;$('.c2-log').textContent=group[hit].text;
       const stop=onRich&&enemyContact?0:window.RACombatPixelFX?.impact({root,target,attacker,severity,tick})||55;if(!(onRich&&enemyContact))audio?.sound(tick?'HIT_LIGHT':lethal?'KO':severity==='heavy'?'HIT_HEAVY':'HIT_LIGHT');
       if(tick)await wait(110);else{root.classList.add('c2-impact-stop');await wait(stop);root.classList.remove('c2-impact-stop');}
+      if(ev.kind==='hit'&&typeof params.onPlayerHitContact==='function'){
+       showHP(group[hit]);hud();
+       if(await presentationHook(params.onPlayerHitContact,{event:group[hit],events,index:index-group.length+1+hit,cancelPresentation:()=>{presentation?.close?.();root.querySelectorAll('.c2-approved-fx').forEach(el=>el.remove());}}))return;
+      }
      }
      if(!root.isConnected)return;if(!(onRich&&enemyContact))showHP(group.at(-1));floatNum(total||ev.amount,onRich?'rich':'enemy',null,severity);hud();window.RABarks?.trigger({root,enemyId,kind:onRich?'hit_rich':'hurt',enemyEl,appearance,attacker:ev.attacker,target:onRich?'rich':'enemy',force:lethal&&!onRich});await wait(615);continue;
     }
@@ -110,7 +114,24 @@
    shownTelegraph=state.telegraph;hud();busy=false;
   }
   function floatNum(n,kind,target,severity='normal'){if(n==null)return;const f=document.createElement('b');f.className=`c2-num c2-num-${kind} c2-num-${severity}`;f.textContent=typeof n==='number'?`-${n}`:n;const onRich=kind==='rich'||target==='rich';const at=directed?RAPresentationDirector.fxPoint(onRich?'rich':'enemy',-12,-84,[24,16]):null;f.style.left=at?`${at.x}px`:onRich?'18%':'66%';f.style.top=at?`${at.y}px`:'44%';$('.c2-float').append(f);setTimeout(()=>f.remove(),900);}
-  let busy=false;
+  let busy=false,presentationHandled=false,presentationResult={};
+  // Optional private presentation hooks run while the battle owns input. A handled contact
+  // discards the remaining presentation events and returns through the existing finish path.
+  function retrySave(){return new Promise(resolve=>{
+   $('.c2-log').textContent='COULD NOT SAVE. RETRY TO CONTINUE.';$('.c2-menu').innerHTML=btn('RETRY SAVE','retry-save');
+   const done=e=>{if(!e.target.closest('[data-c2="retry-save"]'))return;cleanup();$('.c2-menu').innerHTML='';resolve(true);};
+   const cancel=()=>{cleanup();resolve(false);};
+   const cleanup=()=>{root.removeEventListener('click',done);root.removeEventListener('c2:close',cancel);};
+   root.addEventListener('click',done);root.addEventListener('c2:close',cancel,{once:true});
+  });}
+  async function presentationHook(hook,extra={}){
+   if(typeof hook!=='function'||presentationHandled)return false;
+   busy=true;$('.c2-menu').innerHTML='';let result;
+   while(root.isConnected){try{result=await hook({state,root,richEl,enemyEl,syncHP:()=>{shownHP={rich:state.rich.hp,richMax:state.rich.max,enemy:state.enemy.hp,enemyMax:state.enemy.max};hud();},...extra});break;}catch(error){console.error('combat presentation hook',error);if(!await retrySave())return true;}}
+   if(!root.isConnected)return true;if(!result?.handled)return false;
+   presentationHandled=true;presentationResult=result.result||{};RACombat2Rules.forceEnd(state,result.outcome||'win');
+   shownTelegraph=null;shownHP={rich:state.rich.hp,richMax:state.rich.max,enemy:state.enemy.hp,enemyMax:state.enemy.max};hud();setEnemyState(state.outcome==='win'?'defeated':null);return true;
+  }
   async function doAction(action){
    if(busy||state.over)return;busy=true;
    const presentation=window.RACombat2Ext?.presentationFor?.(state,action);window.RAOpenAudio?.action(audio,action);
@@ -137,27 +158,35 @@
    if(closed||settled||!root.isConnected)return;settled=true;
    const outcome=state.outcome;
    if(outcome==='quit'){close({quit:true,outcome:'quit'});return;}
+   const outcomeCue=()=>{if(!params.spar&&(outcome==='win'||outcome==='lose')){try{window.RAAudio?.sfx?.(outcome==='win'?'VICTORY':'DEFEAT');}catch(e){}}};
+   const settle=()=>{
    RACombat2Rules.finish?.(state); // IF-1 boss-script onEnd seam (inert unless registered)
-   if(!params.spar&&(outcome==='win'||outcome==='lose')){try{window.RAAudio?.sfx?.(outcome==='win'?'VICTORY':'DEFEAT');}catch(e){}}
+   if(typeof params.settleBattle!=='function')outcomeCue();
    // Persist what the fight used/earned (items spent, moves learned, drops, people who saw it).
    const life=RAState.get().life;const items={...life.ownership.items};for(const [id,n] of Object.entries(state.items))if(D().ITEMS[id]){if(n>0)items[id]=n;else delete items[id];}RAState.patch('life.ownership.items',items);
    if(state.learned){const learned=[...new Set([...(life.combat.learnedMoves||[]),state.learned])];RAState.patch('life.combat.learnedMoves',learned);const eq=[...life.combat.equippedMoves];if(!eq.includes(state.learned)){if(eq.length<4)eq.push(state.learned);RAState.patch('life.combat.equippedMoves',eq);}}
    if(outcome==='win'||outcome==='spared'){const drop=def.drop||{};if(drop.money&&outcome==='win')RALife.addMoney(drop.money);if(drop.followers)RALife.addFollowers(drop.followers);if(state.filming)RALife.addFollowers(state.filming);if(state.subscribe)RALife.addMoney(state.subscribe);for(const c of Object.keys(state.hoesUsed))if(RABtfPeople.get(c)?.dateable)RARelations.add(c,5,{reason:'fought together'});}
    for(const id of state.companionHurt)RALife.text(id,RABtfPeople.get(id)?.name||id,'my shoulder still hurts from last night. worth it tho.',{id:`hurt:${id}:${RALife.today().day}`});
    if(outcome==='lose'&&!params.noPenalty&&!params.spar)window.RADefeat?.apply?.({enemy:state.enemy.name,witnesses:params.witnesses||Object.keys(state.hoesUsed)});
-   RAState.recordEvent({id:`fight:${enemyId}:${RALife.today().day}:${Date.now()}`,type:'fight',enemy:enemyId,outcome,day:RALife.today().day});
+   RAState.recordEvent({id:params.settlementEventId||`fight:${enemyId}:${RALife.today().day}:${Date.now()}`,type:'fight',enemy:enemyId,outcome,day:RALife.today().day});
+   return true;};
+   const committed=typeof params.settleBattle==='function'?params.settleBattle({state,settle}):{ok:true,value:settle()};
+   if(committed?.ok===false){settled=false;busy=true;if(await retrySave())return finish();return;}
+   if(typeof params.settleBattle==='function')outcomeCue();
    $('.c2-log').textContent=params.spar?`SPAR OVER · ${outcome==='win'?'RICH':'ROXY'} REACHED FIVE · BOTH SAFE`:outcome==='win'?`${state.enemy.name} IS DOWN.`:outcome==='spared'?'THE FIGHT IS OVER.':outcome==='run'?'RICH LEFT.':'RICH IS DOWN.';
    $('.c2-menu').innerHTML=btn('CONTINUE','done');
    await new Promise(r=>{const done=e=>{if(e.target.closest('[data-c2="done"]')){root.removeEventListener('click',done);root.removeEventListener('c2:close',cancel);r();}},cancel=()=>{root.removeEventListener('click',done);r();};root.addEventListener('click',done);root.addEventListener('c2:close',cancel,{once:true});});
    if(closed)return;
-   close({outcome,octopus:state.octopusUsed,recruited:!!state.recruited,learned:state.learned||null,turns:state.turn});
+   close({outcome,octopus:state.octopusUsed,recruited:!!state.recruited,learned:state.learned||null,turns:state.turn,...presentationResult});
   }
   function close(result){if(closed)return;closed=true;root.dispatchEvent(new Event('c2:close'));window.RABarks?.reset(root);if(directed)RAPresentationDirector.exit();root.remove();document.body.classList.remove('combat2-mode');active=null;resolveRun(result);}
   try{window.RAAudio?.sfx?.('BATTLE_START');}catch(e){}
   window.RABarks?.reset(root);window.RABarks?.trigger({root,enemyId,kind:'enter',enemyEl,appearance,force:true});
   hud();$('.c2-log').textContent=params.intro||`${state.enemy.name} WANTS TO FIGHT.`;renderMenu();
   if(state.telegraph){$('.c2-telegraph').hidden=false;const prepared=window.RAEnemyFX?.poseFor(enemyId,RACombat2Rules.intent?.(state),0,appearance);if(prepared&&enemyEl.tagName==='IMG')enemyEl.src=prepared;}
-  return new Promise(resolve=>{resolveRun=resolve;active={abort:()=>close({outcome:'run'}),state,busy:()=>busy,debugResolve:o=>{RACombat2Rules.forceEnd(state,o);finish();}};});
+  return new Promise(resolve=>{resolveRun=resolve;active={abort:()=>close({outcome:'run'}),state,busy:()=>busy,debugResolve:o=>{if(busy)return;RACombat2Rules.forceEnd(state,o);finish();}};
+   if(typeof params.onReady==='function'){busy=true;$('.c2-menu').innerHTML='';Promise.resolve().then(()=>presentationHook(params.onReady)).then(handled=>{if(!root.isConnected)return;if(handled)finish();else{busy=false;renderMenu();}});}
+  });
  }
  // DEFEAT (VOL 1 §4.3, A17, VOL 3 §4.4): BLOOD BANK BILL + one social consequence. Failure writes story, not reload.
  const RADefeat={apply({enemy,witnesses=[]}={}){

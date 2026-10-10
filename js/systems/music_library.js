@@ -32,9 +32,9 @@
  }
  // New Game borrows this one player for the film without changing the saved radio.
  // Native entry owns the later gameplay play request; Skip must stop the cue first.
- function cinematic(owner,trackId){
+ function cinematic(owner,trackId,{resumeOnRestore=false}={}){
   const a=audioEl(),track=trackFor(trackId);if(!a||!track)return null;
-  const restore=combat(owner,null,{trackId,force:true,resumeOnRestore:false});
+  const restore=combat(owner,null,{trackId,force:true,resumeOnRestore});
   const active=()=>scoped?.owner===owner;
   return {track:track.id,file:track.file,active,
    pause(){if(active()){musicGeneration++;needsGesture=false;a.pause();}},

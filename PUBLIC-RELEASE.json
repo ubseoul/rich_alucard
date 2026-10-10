@@ -1,18 +1,18 @@
 {
   "schema": 1,
   "title": "Rich Alucard: Before The Fame — Free Demo",
-  "gameplayCommit": "411286a3b2b85379e8cfd582e272a5675fdbc5ec",
-  "packSha256": "aed7817486efad5948eba416497559e496ab8393ab10cd0cdae2261b13fdf1e6",
-  "artifactDigest": "8c9a3a77af01f3a69ed328e4f1ed6d611a7e49dec0971974bfca523db97023e9",
+  "gameplayCommit": "d45e49319179c8f01fe8f3d6a145a99d85a83c50",
+  "packSha256": "98f708adba7d729a7aa50a5208bb43832038e57aef28a23fecb2f9d3ab983f94",
+  "artifactDigest": "b6214bb1a5e61a956d25a1800182e86527cd35e2bdfa11b1eb855d741be27377",
   "originalBuild": {
     "schemaVersion": 1,
-    "releaseId": "ra-8fc712aab068-20261010051945",
-    "commit": "8fc712aab0681e76d87d84944574c801f01af1b6",
-    "shortCommit": "8fc712aab068",
-    "builtAt": "2026-10-10T05:19:45.761Z",
-    "assetVersion": "ra-8fc712aab068-20261010051945"
+    "releaseId": "ra-13b88add1c26-20261010233119",
+    "commit": "13b88add1c26ff55888cf40ca9d33c6550baeeca",
+    "shortCommit": "13b88add1c26",
+    "builtAt": "2026-10-10T23:31:19.613Z",
+    "assetVersion": "ra-13b88add1c26-20261010233119"
   },
-  "engineCommit": "8fc712aab0681e76d87d84944574c801f01af1b6",
+  "engineCommit": "13b88add1c26ff55888cf40ca9d33c6550baeeca",
   "freeProofOfConcept": true,
   "analytics": {
     "measurement_id": "G-L2VZCN5S7Y",
@@ -65,13 +65,13 @@
     },
     {
       "path": "GAME-RELEASE.json",
-      "sha256": "6e8746819baac9c9f2d7aa4fe40f34670d59a5b8038e3d4e6251af1747618cd1",
+      "sha256": "2c1ca64deb4191ca44d56750d085f2a28d1de8876026a126233f87a4265a6404",
       "bytes": 1542
     },
     {
       "path": "PACKAGE-MANIFEST.json",
-      "sha256": "404566465715254bb875e4a77aa95c00159b03d015d192de927e707f60344f88",
-      "bytes": 307374
+      "sha256": "14dc88ce79679f0c1978d5469f55f58409d5d72a98a6c74ca9461b69efa3381a",
+      "bytes": 316900
     },
     {
       "path": "README.txt",
@@ -7615,7 +7615,7 @@
     },
     {
       "path": "build.json",
-      "sha256": "2c113dc01b8b5eeae21649fcfe24a31c6e11a826b40bd624f89efb017587593f",
+      "sha256": "d31e6ff0771e6f62f6cf667104dcf02601f35fe28575fb8df060f8180e4c812f",
       "bytes": 256
     },
     {
@@ -7625,8 +7625,8 @@
     },
     {
       "path": "index.html",
-      "sha256": "4cfab2a07d8f32789e7525fdf3622ab1c5ec27a6071652a43f15e856ef5d5a3a",
-      "bytes": 42374
+      "sha256": "420d7b64af20d07c5574f7193fb64ef9b3fd9d2bb312ef42c03de322d4fe5c0c",
+      "bytes": 42551
     },
     {
       "path": "intro-assets/bite.png",
@@ -7665,7 +7665,7 @@
     },
     {
       "path": "js/build-info.js",
-      "sha256": "bc12879d78dc036e795d4af559a586d64c47cf62c7a51ed7bf5423409fa2350d",
+      "sha256": "b8d65e91d4e422a59b0a12d07fa978b8e81afb43f6aeb18f35b070c11adf5979",
       "bytes": 298
     },
     {
@@ -8660,8 +8660,8 @@
     },
     {
       "path": "js/loader/manifest.json",
-      "sha256": "0d83ad0ed9c871e5b5f4c54b656205986ab6cea1e7cd2228ad6ad8c2c786b16b",
-      "bytes": 6394
+      "sha256": "bb804b6a0cc60cf5b7971c01191b89308f1fd0e0db8bb79a9f2188af40ffeade",
+      "bytes": 6467
     },
     {
       "path": "js/minigames/bars.js",
@@ -8750,8 +8750,8 @@
     },
     {
       "path": "js/scenes/bedroom_life.js",
-      "sha256": "9d91c54bde1c99c67e406af1ba99ffd0c9b8769df5cf2d7c1a74620424098bd5",
-      "bytes": 7127
+      "sha256": "0af283a607f17961043de9720a142580c37cbc4b301a3110dc9266180ca85610",
+      "bytes": 7448
     },
     {
       "path": "js/scenes/character_reveal.js",
@@ -8760,8 +8760,8 @@
     },
     {
       "path": "js/scenes/combat2.js",
-      "sha256": "7d722112b5469acbf6775fc70be478010ba14e5ca13a23bfa84b9ce147f3f716",
-      "bytes": 24306
+      "sha256": "0b148225ebc24a7f6821f75da4b96a90562bcea33bd593f6612c16f6f4d253ab",
+      "bytes": 27025
     },
     {
       "path": "js/scenes/desire_trip.js",
@@ -8860,8 +8860,8 @@
     },
     {
       "path": "js/sealed/pack.js",
-      "sha256": "aed7817486efad5948eba416497559e496ab8393ab10cd0cdae2261b13fdf1e6",
-      "bytes": 1275430
+      "sha256": "98f708adba7d729a7aa50a5208bb43832038e57aef28a23fecb2f9d3ab983f94",
+      "bytes": 1313044
     },
     {
       "path": "js/systems/ambience.js",
@@ -8920,13 +8920,13 @@
     },
     {
       "path": "js/systems/combat_pixel_fx.js",
-      "sha256": "0edbc9cd9950211272398ab8eed4bf00fa2dd512c31ca07cfee55d1430832a4c",
-      "bytes": 13995
+      "sha256": "fe45e9f82e523d0917ef5d2dfcad139e7dd1fabd139019cc31341b4d506373fc",
+      "bytes": 14060
     },
     {
       "path": "js/systems/combat_presentation.js",
-      "sha256": "beeb77a747620fbd6100b60fd897651fb5e065b0fda3c2f46094c9b6ab074ca3",
-      "bytes": 9031
+      "sha256": "d97a500289a81ab5092ed07ed045b947a6a06972d2a3dfb1e58f048fd84384d8",
+      "bytes": 8999
     },
     {
       "path": "js/systems/dating.js",
@@ -8955,8 +8955,8 @@
     },
     {
       "path": "js/systems/fame.js",
-      "sha256": "4119ec0097002875e03b945f4bd935c42c39d292abb002b0307a45130ba899f9",
-      "bytes": 4356
+      "sha256": "41c92428be3dff7461fb482d4b3c86013c78b751e367b3e96ed6d84cc8f345ec",
+      "bytes": 4346
     },
     {
       "path": "js/systems/feel_sfx.js",
@@ -9005,8 +9005,8 @@
     },
     {
       "path": "js/systems/music_library.js",
-      "sha256": "4f2e98b4f85b5e39271f30ff1d5e8da833e60f9390f2d6826f6a32650bbaf080",
-      "bytes": 6023
+      "sha256": "1789d85f5b01b44c9f93178cff83f78259117be877183c075221833333d6bcac",
+      "bytes": 6044
     },
     {
       "path": "js/systems/new_oga.js",
@@ -9150,8 +9150,8 @@
     },
     {
       "path": "js/systems/title_intro.js",
-      "sha256": "09b53298ba03b6a254eaf492bb4d6302c5733c4a0af6d7d38aa2990fb895609f",
-      "bytes": 1783
+      "sha256": "5b867d4cab8296f97fcc6847d228ab4cc84997cf69ca54802dab50d1b57367ec",
+      "bytes": 3099
     },
     {
       "path": "js/systems/vampgram.js",
@@ -9175,7 +9175,7 @@
     },
     {
       "path": "minigame-lab.html",
-      "sha256": "ef63135bd303f54b4c81cbd0cf6cc175ee2ca43139cb150806cd039a41da2335",
+      "sha256": "59430fed074131cef842601603231bdcb683d84393917a607b7e753f53abcb66",
       "bytes": 3422
     },
     {
@@ -9250,23 +9250,313 @@
     },
     {
       "path": "overlay-build.json",
-      "sha256": "c15ded71eff4207dc9d86406a00dfb606ca8409145f70b96ed1098fa73a1df45",
+      "sha256": "29d79e2cfbac5c7c5c19fbc3c434cc0b203b7aa6dcfdf02c2e65c6262286deb3",
       "bytes": 356
     },
     {
       "path": "party-dev.html",
-      "sha256": "4643cd2802353b041bfa947ab1cebbfbb9ccf63823f26267d4d63ab47fc54042",
+      "sha256": "744a210a9c639c0e768152e751348ccce1d69fa7fe3f213cba3b172c50e64424",
       "bytes": 2290
     },
     {
       "path": "rave-review.html",
-      "sha256": "ce03e42e1800358262b0092750ba47ba383589f403224b0bab1ce5cbe78ae3fb",
+      "sha256": "10710895da6259e3adaecead7130f845bd3d82d1b0403e8ccaa4614af8f82388",
       "bytes": 2096
     },
     {
       "path": "style.css",
       "sha256": "c4c0979994e6f753cc53413bd3df84c8c72d938f2db92e50562267b4744edf37",
       "bytes": 95905
+    },
+    {
+      "path": "assets/preview/balcony-night-640x360.png",
+      "sha256": "08caf46f93b4ef352fca210fcb8851f1572e2fb82ea3ec6529f84b601c10b80b",
+      "bytes": 262906
+    },
+    {
+      "path": "assets/preview/grandma_fx/grandma_fx_chancla_01.png",
+      "sha256": "2a70bfb5347d0046dcc087474e7900c67255a02a469a72d0457616112af581af",
+      "bytes": 944
+    },
+    {
+      "path": "assets/preview/grandma_fx/grandma_fx_chancla_02.png",
+      "sha256": "ddba0f6af3377b1110b54d9785a72c770665c893ea5f14caec36adce1edd440c",
+      "bytes": 963
+    },
+    {
+      "path": "assets/preview/grandma_fx/grandma_fx_chancla_impact.png",
+      "sha256": "793ab507c27ae0e2563a1385aee3b71e00c3f90ee077dd281eb3aeb48a36a9ef",
+      "bytes": 616
+    },
+    {
+      "path": "assets/preview/grandma_fx/grandma_fx_crack.png",
+      "sha256": "47ef7e84f04bfeb17a133dca1db5665667b3ee2c414ad67f53b681cbb8776976",
+      "bytes": 472
+    },
+    {
+      "path": "assets/preview/grandma_fx/grandma_fx_impact.png",
+      "sha256": "52bb3d0da49b667118ed692c358e75b1d64ee31607fe45939e2abb703dcbda70",
+      "bytes": 719
+    },
+    {
+      "path": "assets/preview/grandma_fx/grandma_fx_missile_01.png",
+      "sha256": "7e32f47444a4e3557e496d59651cb81e1f2beabb89dcd0051ee270cca8dc9380",
+      "bytes": 585
+    },
+    {
+      "path": "assets/preview/grandma_fx/grandma_fx_missile_02.png",
+      "sha256": "5f5bc87e4f29eb0c3fe52862816bfa85d84723e8d6e3ef423c569c11a4862480",
+      "bytes": 890
+    },
+    {
+      "path": "assets/preview/grandma_fx/grandma_fx_smoke.png",
+      "sha256": "2efe19ba3ba3141d90b04876252cdc4a6d90ce2dfcafeeeb149c7ed33b268292",
+      "bytes": 473
+    },
+    {
+      "path": "assets/preview/grandma_v2/grandma_v2_chancla_contact.png",
+      "sha256": "2b3aef346475e2a144b4593dd74ce3f74fe811d16e5a3411c399036822450af8",
+      "bytes": 2147
+    },
+    {
+      "path": "assets/preview/grandma_v2/grandma_v2_chancla_raise.png",
+      "sha256": "4598b46cf8d90fa83cd2898f3e83c88084113753618c9e59a0ab605589316822",
+      "bytes": 2290
+    },
+    {
+      "path": "assets/preview/grandma_v2/grandma_v2_chancla_recover.png",
+      "sha256": "160baafe9322a1845469f54cf3327637f1b626b9d9f1b4968fd256a299772301",
+      "bytes": 2111
+    },
+    {
+      "path": "assets/preview/grandma_v2/grandma_v2_chancla_wave.png",
+      "sha256": "47e61c5e0b950f9a264df71a419bb17a69485a3be0fda0e87720d28b61a18a22",
+      "bytes": 2181
+    },
+    {
+      "path": "assets/preview/grandma_v2/grandma_v2_defeated.png",
+      "sha256": "517ccd4fe7c8de79e4dee209afd12479912122fe1af0e2dc26ff5a6fbcfc19cc",
+      "bytes": 1783
+    },
+    {
+      "path": "assets/preview/grandma_v2/grandma_v2_hit.png",
+      "sha256": "9931343a7952736d2cc297d4709e2f3a9f4b68c7a6fea2a18b1b1a26541af13c",
+      "bytes": 2177
+    },
+    {
+      "path": "assets/preview/grandma_v2/grandma_v2_idle.png",
+      "sha256": "5a507c0a936d7c60e68012548d3c0e049c432ad292432457a3d87937749db1d8",
+      "bytes": 1804
+    },
+    {
+      "path": "assets/preview/grandma_v2/grandma_v2_rpg_aim.png",
+      "sha256": "fe471591d49bf32fe31e46b43df474eaa9427b535860499547fc74ad4652312b",
+      "bytes": 2069
+    },
+    {
+      "path": "assets/preview/grandma_v2/grandma_v2_rpg_fire.png",
+      "sha256": "242491394304961503512ed5f0d97cd1228805f341f0429676aeaf53df91d0b8",
+      "bytes": 2128
+    },
+    {
+      "path": "assets/preview/grandma_v2/grandma_v2_rpg_recover.png",
+      "sha256": "57f2dc8cfe05d9bab581b92563aef04110267afa43226455a5e128309ded1a4d",
+      "bytes": 2199
+    },
+    {
+      "path": "assets/preview/grandma_v2/grandma_v2_rpg_reveal.png",
+      "sha256": "90d120bd746b87e7261c906ea11a7184d6d0f906520aa40ea955e16732b792da",
+      "bytes": 2124
+    },
+    {
+      "path": "assets/preview/grandma_v2/grandma_v2_talk.png",
+      "sha256": "8492993e817df5e449bcab935313319b153d93a947fbce0b1b620e4639a82c41",
+      "bytes": 1973
+    },
+    {
+      "path": "assets/preview/kid1/kid1_idle.png",
+      "sha256": "d39838e734f3ebb68ac2d3cc5aa209de25bf2c63923ce79648513476ceec4eee",
+      "bytes": 1101
+    },
+    {
+      "path": "assets/preview/kid1/kid1_leave.png",
+      "sha256": "6279fa24fcfccf2dc186747c135c74a03804e131802e034c2ea6c490b6eca928",
+      "bytes": 1213
+    },
+    {
+      "path": "assets/preview/kid1/kid1_payment.png",
+      "sha256": "7d2d9d61c1bbe4596072e00780b97fde7e57848029d5f5bef9240ecba284bec0",
+      "bytes": 1186
+    },
+    {
+      "path": "assets/preview/kid1/kid1_tap.png",
+      "sha256": "2554ae8158c2324caf0b79ac00f7fd7236f344d88f48e123293e242569392b07",
+      "bytes": 1123
+    },
+    {
+      "path": "assets/preview/kid2/kid2_idle.png",
+      "sha256": "5e13bc4920212f3ebc0bc6733219b69a8b16af4b2983d76b8638b67acf4bf647",
+      "bytes": 1005
+    },
+    {
+      "path": "assets/preview/kid2/kid2_leave.png",
+      "sha256": "7de043812ec77e999f4b1ee49d0c76e16c8013d6cd916eec15babfa815e44eb0",
+      "bytes": 1016
+    },
+    {
+      "path": "assets/preview/kid2/kid2_payment.png",
+      "sha256": "a54b6b529aad60d9792cb99f637c94207e1a6e5a9c2764623d196bc1627c9f13",
+      "bytes": 986
+    },
+    {
+      "path": "assets/preview/kid2/kid2_tap.png",
+      "sha256": "4fe93ea7bdb77ae90505e6ef2dddce622b513633ad3079a4958bab84e86bd614",
+      "bytes": 989
+    },
+    {
+      "path": "assets/preview/kid3/kid3_idle.png",
+      "sha256": "f31465c3ee69d40a4b930fa98e21d8b1504daee21cb576518919b75256c9ab0e",
+      "bytes": 1260
+    },
+    {
+      "path": "assets/preview/kid3/kid3_leave.png",
+      "sha256": "0b1b2186a3cfd389bb3f2ad259fabe333388362609ad04826396bfd262e565b7",
+      "bytes": 1275
+    },
+    {
+      "path": "assets/preview/kid3/kid3_payment.png",
+      "sha256": "7644c5db13c01377d1680a84a73f82e0acb396410812a03458705f79ddb7c549",
+      "bytes": 1407
+    },
+    {
+      "path": "assets/preview/kid3/kid3_tap.png",
+      "sha256": "4a14f20bb86196df1dfffb0f208d5f350babe934ebe202fee9397da266690ec7",
+      "bytes": 1261
+    },
+    {
+      "path": "assets/preview/oga/oga_aim.png",
+      "sha256": "5e63d97548f8a0f35aeaf98c88df65443c46c05aca4227708d697573a7b6ec63",
+      "bytes": 1605
+    },
+    {
+      "path": "assets/preview/oga/oga_burst.png",
+      "sha256": "b27b3add9649081e561f6f8214a7a00c9a974602e7d56a12fe7005cfd4efe5fc",
+      "bytes": 1719
+    },
+    {
+      "path": "assets/preview/oga/oga_enter_01.png",
+      "sha256": "f3b23121026e1b79766a9e64675c9192ff864ceb4567f1f64c7a62235500f0cc",
+      "bytes": 1595
+    },
+    {
+      "path": "assets/preview/oga/oga_enter_02.png",
+      "sha256": "8497abed15175a8bb3eac7a50a4173ed63b785ffebf303eca56918d79277857d",
+      "bytes": 1659
+    },
+    {
+      "path": "assets/preview/oga/oga_exit.png",
+      "sha256": "7a8e7b1a1c6dab4f6f5f0550af4887ad619fa86cc09853334110c872510cdf7a",
+      "bytes": 1675
+    },
+    {
+      "path": "assets/preview/oga/oga_recoil.png",
+      "sha256": "521eae510a76b8997c993b350f0a03eae1bcacf4138efbfe171269fe10374176",
+      "bytes": 1744
+    },
+    {
+      "path": "assets/preview/oga/oga_recover.png",
+      "sha256": "d06eddae8ab0fcf7a381656f1142a36b775d5057c233380e6c3f6d30b53fd20f",
+      "bytes": 1655
+    },
+    {
+      "path": "assets/preview/oga/oga_stop.png",
+      "sha256": "93496f26dab7dd3b8049e94ed5c97400b21dbd00fb23d6aa60a7cd07ee0225bd",
+      "bytes": 1592
+    },
+    {
+      "path": "assets/preview/oga_fx/oga_fx_flash_01.png",
+      "sha256": "1a11187bcbcbd5bd95c7725294180a6335379b06549fe34627458521c35d5844",
+      "bytes": 349
+    },
+    {
+      "path": "assets/preview/oga_fx/oga_fx_flash_02.png",
+      "sha256": "391475632d24b9b06292a67e77ef1154f5bf880d01b19f46e8f82de603ec89bf",
+      "bytes": 515
+    },
+    {
+      "path": "assets/preview/oga_fx/oga_fx_smoke_01.png",
+      "sha256": "90cff3e64f3704d937862d786fba7cd815647926865ee98872649fe6e0b95e62",
+      "bytes": 392
+    },
+    {
+      "path": "assets/preview/oga_fx/oga_fx_smoke_02.png",
+      "sha256": "a5dea00418133fa6447a10b36cf478f49e22edd7bebf1a45d0eea0f9382d7c05",
+      "bytes": 225
+    },
+    {
+      "path": "assets/preview/oga_v2_refined/oga_v2_refined_aim.png",
+      "sha256": "af97cfd6f145e9e6196b337fc3eb2f9111a12915df04092e164baae64299d1a9",
+      "bytes": 4406
+    },
+    {
+      "path": "assets/preview/oga_v2_refined/oga_v2_refined_burst.png",
+      "sha256": "255aff70f0d8975884b80c032881205d52c3e36b92c54e626448749935b1a1c8",
+      "bytes": 4436
+    },
+    {
+      "path": "assets/preview/oga_v2_refined/oga_v2_refined_enter_01.png",
+      "sha256": "a409af5da3116687bf122078295d047d7c107000f24eb61021fa4b60d217d0e8",
+      "bytes": 4137
+    },
+    {
+      "path": "assets/preview/oga_v2_refined/oga_v2_refined_enter_02.png",
+      "sha256": "7814be1d58e60c0ac71b162895f427cd01899d12f3ee1eb7024959d6bee3873e",
+      "bytes": 3996
+    },
+    {
+      "path": "assets/preview/oga_v2_refined/oga_v2_refined_exit.png",
+      "sha256": "0e8864d299d4430cb14b6503ba4605905e5c631b6e61628d36d42301cdb3af8a",
+      "bytes": 4410
+    },
+    {
+      "path": "assets/preview/oga_v2_refined/oga_v2_refined_recoil.png",
+      "sha256": "0803573c986a4e11c2dc0e148c1374f0c83ad9610f460998ba8125fdd72cd210",
+      "bytes": 4079
+    },
+    {
+      "path": "assets/preview/oga_v2_refined/oga_v2_refined_recover.png",
+      "sha256": "caf1c1db5f568dd1c7d874c098fecc31b108154c7c1e5741c07d5c6f19a1e600",
+      "bytes": 3953
+    },
+    {
+      "path": "assets/preview/oga_v2_refined/oga_v2_refined_stop.png",
+      "sha256": "25b46eb87eb98d723873a1b33bdfcae4d90931914e915188aab005bb388b555e",
+      "bytes": 3902
+    },
+    {
+      "path": "assets/preview/uncle_bunmi/uncle_bunmi_discount.png",
+      "sha256": "fa3df64fba4f79a465ea2c05250461233ecddaad6bf4d042e1b99086bd89481c",
+      "bytes": 1926
+    },
+    {
+      "path": "assets/preview/uncle_bunmi/uncle_bunmi_invite.png",
+      "sha256": "46c64904366d5da32371ced457d8f23b4d51ff81e4946980e0f43c6f68044c40",
+      "bytes": 1968
+    },
+    {
+      "path": "assets/preview/uncle_bunmi/uncle_bunmi_neutral.png",
+      "sha256": "0b8d09a0d5db8e9222624acdccd537ceeb5d72000084955032ba49a32190a6ab",
+      "bytes": 1653
+    },
+    {
+      "path": "js/minigames/bloodx_encounters.js",
+      "sha256": "e8b09f60435f3cb0eccee01662fe11832ec7bb7690fed68f5bd9fda9bbd02691",
+      "bytes": 40639
+    },
+    {
+      "path": "js/minigames/bloodx_route.js",
+      "sha256": "a138a03238bfd62d28cc40e0b6add3c01bf60500ac38e26855244a5e25dd7742",
+      "bytes": 38987
     }
   ]
 }

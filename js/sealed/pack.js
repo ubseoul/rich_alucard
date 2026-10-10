@@ -1846,7 +1846,7 @@ const screen=document.querySelector('#screen');const o=document.createElement('d
   await step('',900);
   await step('<div class="fame-title">RICH ALUCARD</div>',3400);
   const receipts=L().receipts||[];
-  const credits=['BEFORE THE FAME','','a life, in receipts:',...receipts.map(r=>`DAY ${r.day} · ${r.caption}`),'','thank you for living here.'];
+  const credits=['BEFORE THE FAME','','Lead Pixel Artist — WWinnerG33','','a life, in receipts:',...receipts.map(r=>`DAY ${r.day} · ${r.caption}`),'','thank you for living here.'];
   await step(`<div class="fame-credits"><div class="fame-roll">${credits.map(c=>`<p>${String(c).replace(/</g,'&lt;')}</p>`).join('')}</div></div>`,Math.min(60000,9000+receipts.length*1400));
   o.innerHTML='<button type="button" class="fame-continue">THE NEXT MORNING</button>';
   o.querySelector('button').addEventListener('click',()=>{o.remove();RAClock.wake({first:true});window.RABedroomLife?.build?.();window.RABedroomLife?.showMail?.();},{once:true});
@@ -12090,6 +12090,7 @@ RABuild3Stages.push(function(B){
    }catch(e){canvas.style.visibility='';finish('quit','fight-unavailable:'+e.message);}
   }
   async function startDrive(){
+   if(window.RABloodXChapter&&s.pin===0&&!s.deliveries.length)return startBloodX();
    if(ended)return;const pin=PINS[s.pin];if(!pin){finish(s.deliveries.some(d=>d.outcome==='delivered')?'success':'loss','all-cases-lost');return;}
    const def=RAMinigames.get(DRIVE);if(!def){finish('quit','drop-adapter-unavailable');return;}
    const generation=++driveGeneration;s.phase='drive';clear();save();canvas.style.visibility='hidden';
@@ -12106,6 +12107,20 @@ RABuild3Stages.push(function(B){
      if(s.pin<3)startDrive();else finish(s.deliveries.some(x=>x.outcome==='delivered')?'success':'loss',s.deliveries.every(x=>x.outcome==='case-lost')?'all-cases-lost':null);
     });save();sound(d.outcome==='delivered'?'UI_CONFIRM':'UI_ERROR');
    }catch(e){nested?.dispose();nested=null;child.remove();canvas.style.visibility='';finish('quit','drop-unavailable:'+e.message);}
+  }
+  async function startBloodX(){
+   if(ended||disposed)return;const generation=++driveGeneration;s.phase='drive';clear();save();canvas.style.visibility='hidden';
+   const child=document.createElement('div');child.className='legendary-block-drive bloodx-chapter';child.style.cssText='position:absolute;inset:0;z-index:3';root.append(child);
+   try{
+    nested=RABloodXChapter.mount(child,runId,{audio,finish(){}});const r=await nested.result;
+    nested.dispose();nested=null;child.remove();if(ended||disposed||generation!==driveGeneration)return;canvas.style.visibility='';
+    if(r.outcome!=='completed'){
+     // Keep the resumable parent shift and the already committed route receipts.
+     s.phase='load';save();clear();button('RESUME BLOODX','resume-bloodx',startDrive);button('QUIT SHIFT','quit',()=>ctx.quit());return;
+    }
+    s.deliveries=r.route.outcomes.map(o=>({pin:o.stopId,outcome:'delivered',chase:o.outcome==='win'?'win':'none',bloodx:true}));s.pin=3;s.cases=0;s.phase='pin';save();clear();
+    button('FINISH SHIFT','finish-bloodx',()=>finish('success','bloodx-complete'));
+   }catch(e){nested?.dispose();nested=null;child.remove();canvas.style.visibility='';s.phase='load';save();clear();wrapped(e.message,220);button('RETRY BLOODX','retry-bloodx',startDrive);button('QUIT SHIFT','quit',()=>ctx.quit());}
   }
   function storeReceipt(r){
    const p=ctx.progress()||{};ctx.saveProgress({pending:null,awaitingReceipt:runId,lastReceipt:r,receipts:{...(p.receipts||{}),[runId]:r}});
@@ -13983,3 +13998,285 @@ function installDetroit({B,eligible=()=>B.S11.detroitEligible(),minigames=global
 }
 
 RABuild3Stages.push(function(B){window.RALegendaryDetroit=installDetroit({B,eligible:()=>window.RALegendary.order()==="P5"});});})();
+/* Preview-only required-ramen night. No grants or source art replacement. */
+RABuild3Stages.push(function(){
+ 'use strict';
+ const S=window.RAState,A=window.RAAdventures,N=window.RANewGame,KEY='gbengaBalconyNight';
+ const copy=[
+  {speaker:'',text:'',ms:1500,pose:'idle'},
+  {speaker:'GBENGA',text:"Oh ya, corrupt that boy. Don't let him think for himself.",ms:6600,pose:'talk'},
+  {speaker:'GBENGA',text:'I need a new soldier.',ms:3400,pose:'talk'},
+  {speaker:'VAMPGPT',text:'As you command, my oga.',ms:4000,pose:'idle'},
+  {speaker:'GBENGA',text:'Eh heh.',ms:1900,pose:'talk'},
+  {speaker:'GBENGA',text:'Now make yourself vanish like first of the month funds.',ms:6500,pose:'talk'},
+  {speaker:'',text:'',ms:900,pose:'hangup'},
+  {speaker:'',text:'',ms:4300,pose:'puff'},
+  {speaker:'MAMA GBENGA · OFFSCREEN',text:"It's time for 8pm prayer service.",ms:4700,pose:'idle'},
+  {speaker:'',text:'',ms:700,pose:'fade'}
+ ];
+ let assets=null,inFlight=null,installedClock=false;
+ const life=()=>S.get().life,day=()=>Number(life().world.day)||1,flag=()=>life().world.flags[KEY];
+ const progressed=()=>{const o=life().newOga||{},r=A.record('NEW_OGA_M1');return !!o.m1Rewarded||Number(o.mission)>0||Number(o.rank)>0||A.active()?.id==='NEW_OGA_M1'||Number(r?.startedDay)>0||Number(r?.count)>0;};
+ const eligible=()=>!A.active()&&!progressed()&&!flag()&&Number(window.RAPreJugRamen?.completedDay?.())===day()&&window.RALegendary?.order?.()==='NEW_OGA_M1';
+ function save(mutator){const r=S.transaction(s=>mutator(s.life.world.flags));if(!r.ok)throw Object.assign(Error('The night could not be saved. Please try Sleep again.'),{balconySave:true});return r.value;}
+ function reconcile(){const f=flag();if(f&&f.status!=='done'&&day()>f.triggerDay)save(fs=>{fs[KEY]={...fs[KEY],status:'done',wakeDay:day(),disposition:'already-woke'};});}
+ const image=src=>new Promise((resolve,reject)=>{const i=new Image();i.onload=()=>resolve(i);i.onerror=()=>reject(Object.assign(Error('Balcony art is unavailable. Your night has not advanced.'),{balconySave:true}));i.src=src;});
+ function style(){if(document.querySelector('#balcony-night-style'))return;const n=document.createElement('style');n.id='balcony-night-style';n.textContent=`.balcony-night{position:fixed;inset:0;z-index:9000;background:#100d1c;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;padding:18px;box-sizing:border-box;color:#fff1da;font-family:"Press Start 2P",monospace}.balcony-night canvas{width:min(100%,960px);height:auto;aspect-ratio:16/9;image-rendering:pixelated;max-height:64vh;object-fit:contain}.balcony-caption{width:min(100%,900px);min-height:100px;font-size:clamp(10px,1.7vw,16px);line-height:1.9;overflow-wrap:anywhere}.balcony-caption b{display:block;color:#e7bb60;margin-bottom:12px}.balcony-skip{position:absolute;right:18px;top:18px;min-height:44px;min-width:80px;border:2px solid #fff1da;background:#21172b;color:inherit;font:10px "Press Start 2P",monospace;padding:12px;cursor:pointer}.balcony-error{position:relative;z-index:20;padding:14px;line-height:1.8;color:#fff1da;background:#321c38;font:9px "Press Start 2P",monospace;pointer-events:auto}@media(max-height:500px){.balcony-night{gap:8px;padding:10px}.balcony-night canvas{max-height:55vh}.balcony-caption{min-height:70px;font-size:10px}}`;document.head.append(n);}
+ async function play(){
+  if(!assets?.background)throw Object.assign(Error('The balcony candidate is awaiting its saved art. Your night has not advanced.'),{balconySave:true});
+  const [bg,idle,talk]=await Promise.all([image(assets.background),image(assets.idle||'opening-assets/gbenga-idle-trim.png'),image(assets.talk||'opening-assets/gbenga-talk-trim.png')]);
+  if(!flag())save(fs=>{fs[KEY]={schema:1,status:'playing',triggerDay:day(),ramenDay:window.RAPreJugRamen.completedDay(),step:0};});
+  if(flag().status==='ready-to-wake')return true;
+  style();const root=document.createElement('section');root.className='balcony-night';root.setAttribute('role','dialog');root.setAttribute('aria-modal','true');root.setAttribute('aria-label',"Gbenga's balcony");
+  const canvas=document.createElement('canvas');canvas.width=640;canvas.height=360;const c=canvas.getContext('2d');c.imageSmoothingEnabled=false;
+  const caption=document.createElement('div');caption.className='balcony-caption';caption.setAttribute('aria-live','polite');const who=document.createElement('b'),line=document.createElement('span');caption.append(who,line);
+  const skip=document.createElement('button');skip.type='button';skip.className='balcony-skip';skip.textContent='SKIP';root.append(canvas,caption,skip);
+  const stage=document.querySelector('#stage'),oldInert=stage?.inert,priorFocus=document.activeElement,track=window.RAAudio?.get?.('soundtrack'),priorAudio=track?{paused:track.paused,time:track.currentTime,volume:track.volume,muted:track.muted}:null;
+  const priorNightClass=document.body.classList.contains('balcony-night-active');document.body.classList.add('balcony-night-active');const cash=document.querySelector('.rc3-cash'),cashVisibility=cash?.style.visibility;if(cash)cash.style.visibility='hidden';
+  if(stage)stage.inert=true;document.body.append(root);skip.focus({preventScroll:true});
+  // Borrow the established single player, preserving the user's radio and mute settings.
+  const music=window.RAMusicLibrary?.cinematic?.(root,'playmakers',{resumeOnRestore:true});
+  if(!music)track?.pause();
+  const visibility=()=>{if(document.hidden)music?.pause();else music?.resume();};
+  document.addEventListener('visibilitychange',visibility);if(document.hidden)music?.pause();
+  let skipping=false,step=Math.min(copy.length-1,Number(flag().step)||0),raf=0,closed=false;
+  const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const key=e=>{if(e.key==='Escape'){e.preventDefault();e.stopImmediatePropagation();skipping=true;}if(e.key==='Tab'){e.preventDefault();skip.focus();}if(e.key==='Enter'||e.key===' '){e.stopPropagation();}};
+  skip.addEventListener('click',()=>{skipping=true;});window.addEventListener('keydown',key,true);
+  function paint(age){c.clearRect(0,0,640,360);c.drawImage(bg,0,0,640,360);const beat=copy[step],sprite=beat.pose==='talk'&&Math.floor(age/190)%2?talk:idle,height=94,width=Math.round(sprite.width/sprite.height*height),x=360-width/2,y=302-height;
+   c.fillStyle='#100d1c66';c.fillRect(339,301,43,4);c.drawImage(sprite,Math.round(x),y,width,height);
+   if(!['hangup','puff','fade'].includes(beat.pose)){c.fillStyle='#171320';c.fillRect(376,218,7,14);c.fillStyle='#716991';c.fillRect(377,219,4,10);c.fillStyle='#f5d49d';c.fillRect(379,231,3,3);}
+   c.fillStyle='#6e392a';c.fillRect(367,230,13,3);c.fillStyle='#ed934a';c.fillRect(379,230,2,3);
+   if(beat.pose==='puff'){const frames=assets.smokeFrames;const t=(age%4300)/4300;if(frames?.length){/* Imported smoke may be supplied after exact-byte art review. */}c.fillStyle='#c9bfd0';for(let k=0;k<5;k++){const rise=reduced?12:Math.floor((t*39+k*9)%48);c.globalAlpha=Math.max(0,.5-rise/96);c.fillRect(381+Math.floor(rise/4)+(k%2)*3,229-rise,5+k,3+k%3);}c.globalAlpha=1;}
+   if(beat.pose==='fade'){c.fillStyle=`rgba(16,13,28,${Math.min(1,age/650)})`;c.fillRect(0,0,640,360);}
+  }
+  try{
+   for(;step<copy.length&&!skipping;step++){
+    if(flag().step!==step)save(fs=>{fs[KEY].step=step;});who.textContent=copy[step].speaker;line.textContent=copy[step].text;root.dataset.step=String(step);
+    let age=0,last=performance.now();await new Promise(resolve=>{const frame=now=>{if(closed||skipping){resolve();return;}if(!document.hidden)age+=Math.min(100,now-last);last=now;paint(age);if(age>=copy[step].ms){resolve();return;}raf=requestAnimationFrame(frame);};raf=requestAnimationFrame(frame);});
+   }
+   save(fs=>{fs[KEY]={...fs[KEY],status:'ready-to-wake',step:copy.length,skipped:skipping};});return true;
+  }finally{closed=true;cancelAnimationFrame(raf);window.removeEventListener('keydown',key,true);document.removeEventListener('visibilitychange',visibility);music?.stop();root.remove();if(!priorNightClass)document.body.classList.remove('balcony-night-active');if(cash)cash.style.visibility=cashVisibility;if(stage)stage.inert=oldInert;if(!music&&priorAudio&&track){track.currentTime=priorAudio.time;track.volume=priorAudio.volume;track.muted=priorAudio.muted;if(!priorAudio.paused)track.play().catch(()=>{});}if(priorFocus?.isConnected)priorFocus.focus({preventScroll:true});}
+ }
+ async function beforeSleep(){reconcile();const f=flag();if(f?.status==='done')return true;if(f?.status==='ready-to-wake')return true;if(!eligible()&&f?.status!=='playing')return true;if(!inFlight)inFlight=play().finally(()=>{inFlight=null;});return inFlight;}
+ function installClock(){if(installedClock)return;installedClock=true;const sleep=RAClock.sleep;RAClock.sleep=function(...args){const f=flag();if(f?.status!=='ready-to-wake'||f.triggerDay!==day())return sleep.apply(this,args);const r=S.atomic(()=>{const mail=sleep.apply(this,args);S.patch('life.world.flags.'+KEY,{...f,status:'done',wakeDay:day()});return mail;});if(!r.ok)throw Object.assign(Error('The wake could not be saved. Please try Sleep again.'),{balconySave:true});return r.value;};}
+ const onStart=N.onStart;N.onStart=async function(...args){const result=await onStart.apply(this,args);reconcile();if(['playing','ready-to-wake'].includes(flag()?.status)&&flag().triggerDay===day())await window.RABedroomLife.goToSleep();return result;};
+ installClock();window.RABalconyNight={schema:1,copy,eligible,beforeSleep,configure:value=>{assets=value;},status:()=>flag(),showError(message){style();const layer=document.querySelector('.bedroom-life-layer');if(!layer)return;layer.querySelector('.balcony-error')?.remove();const box=document.createElement('div');box.className='balcony-error';box.textContent=message;const b=document.createElement('button');b.type='button';b.textContent='Retry Sleep';b.addEventListener('click',()=>{box.remove();window.RABedroomLife.goToSleep();});box.append(b);layer.append(box);}};
+});
+
+/* Preview BloodX chapter. Cars, checkpoint and per-stop rewards commit together. */
+RABuild3Stages.push(function(){
+ 'use strict';
+ const S=window.RAState,KEY='bloodXRoutes',ID='bloodx-usc-v1';let art={};
+ const clone=v=>JSON.parse(JSON.stringify(v));
+ const map={title:'USC \u00b7 University Park',viewBox:{width:480,height:420},startNode:'vermont30',nodes:[{id:'vermont30',x:60,y:330,label:'Vermont / 30th'},{id:'grandma30',x:240,y:330},{id:'hoover30',x:420,y:330,label:'Hoover / 30th'},{id:'kidsHoover',x:420,y:225},{id:'hoover29',x:420,y:120,label:'Hoover / 29th'},{id:'bunmi29',x:240,y:120},{id:'vermont29',x:60,y:120,label:'Vermont / 29th'}],edges:[{id:'30-west',from:'vermont30',to:'grandma30',street:'W 30th St'},{id:'30-east',from:'grandma30',to:'hoover30',street:'W 30th St'},{id:'hoover-s',from:'hoover30',to:'kidsHoover',street:'S Hoover St'},{id:'hoover-n',from:'kidsHoover',to:'hoover29',street:'S Hoover St'},{id:'29-east',from:'hoover29',to:'bunmi29',street:'W 29th St'},{id:'29-west',from:'bunmi29',to:'vermont29',street:'W 29th St'},{id:'vermont',from:'vermont29',to:'vermont30',street:'S Vermont Ave'}],landmarks:[{x:240,y:395,label:'USC Village'}]};
+ const rewards={grandma:{deliver:2500,jug:750},kids:{deliver:1200},bunmi:{inside:1500}};
+ function availableCars(){const l=S.get().life;const owned=l.ownership.cars||[];const usable=window.RAVehicles?.available?.()||owned.filter(c=>!['LOST','IMPOUNDED','SOLD','TRIBUTED'].includes(String(c.ownershipStatus||'owned').toUpperCase()));return usable.filter(c=>owned.some(o=>o.id===c.id)).map(c=>({id:c.id,label:c.short||[c.make,c.model].filter(Boolean).join(' ')||c.id,owned:true,available:true,art:window.RAArtRegistry?.vehicles?.listing?.[window.RACars?.keyOf?.(c)||c.id]?.asset||null}));}
+ const read=runId=>S.get().life.world.flags[KEY]?.runs?.[runId]||null;
+ function save(runId,next,event){
+  const result=S.transaction(s=>{
+   const root=s.life.world.flags[KEY]||(s.life.world.flags[KEY]={schema:1,runs:{}}),run=root.runs[runId]||(root.runs[runId]={state:null,events:{},receipts:{}});
+   if(next.routeId!==ID||next.attemptId!==runId)throw Error('BloodX checkpoint identity mismatch');
+   if(run.events[event.id])return true;
+   if(next.revision!==(Number(run.state?.revision)||0)+1)throw Error('BloodX checkpoint is stale');
+   if(next.carId&&!availableCars().some(c=>c.id===next.carId))throw Error('That car is no longer available. Choose an owned car.');
+   if(event.type==='stop-complete'){
+    const c=event.completion,expected=['grandma','kids','bunmi'][next.currentStop];
+    if(c?.stopId!==expected||!['delivered','win'].includes(c.outcome)||!Number.isInteger(rewards[c.stopId]?.[c.choiceId]))throw Error('BloodX completion is invalid');
+    const repeatable=window.RAMinigames?.progress?.('legendary_block')?.pending?.repeatable===true;
+    const receiptId=(repeatable?runId:'story:'+ID)+':'+c.stopId;
+    root.receipts=root.receipts||{};
+    if(!run.receipts[receiptId]){
+     const amount=root.receipts[receiptId]?0:rewards[c.stopId][c.choiceId];s.life.resources.money=Math.max(0,Number(s.life.resources.money)||0)+amount;
+     run.receipts[receiptId]={id:receiptId,stopId:c.stopId,choiceId:c.choiceId,outcome:c.outcome,amount,day:s.life.world.day};
+     if(!root.receipts[receiptId]){root.receipts[receiptId]=clone(run.receipts[receiptId]);s.life.receipts.push({id:receiptId,day:s.life.world.day,caption:'BLOODX \u00b7 '+c.stopId.toUpperCase()+' \u00b7 $'+amount,type:'bloodx',amount});}
+    }
+   }
+   run.state=clone(next);run.events[event.id]={type:event.type,revision:next.revision};return true;
+  });
+  if(!result.ok)throw Error('BloodX could not save. No new reward was paid. '+(result.error||''));return result;
+ }
+ function config(runId){
+  if(!runId)throw Error('BloodX requires a parent shift identity');const held=read(runId),cars=availableCars();let state=held?.state?clone(held.state):null;
+  if(state?.carId&&!cars.some(c=>c.id===state.carId)&&state.phase!=='complete'){
+   const r=S.transaction(s=>{const saved=s.life.world.flags[KEY].runs[runId].state;saved.carId=null;if(saved.phase==='receipt'){saved.currentStop=saved.outcomes.length;saved.choiceId=null;}saved.phase=saved.currentStop===3?'complete':'car';saved.durableTerminal=saved.currentStop===3?'completed':null;saved.encounter=null;saved.revision++;return true;});if(!r.ok)throw Error('Could not return an unavailable car to selection');state=clone(read(runId).state);
+  }
+  const maxHp=Math.max(100,Number(window.RACombat2Rules?.loadout?.()?.maxHp)||100),player={hp:maxHp,maxHp};
+  const grandma={type:'grandma',player,encounter:{id:runId+':grandma',name:'ABUELA',hp:168,assets:{...(art.grandma||{}),prototype:!art.grandma?.idle},dialogue:{intro:'\u00bfMe quieres robar? Ni los extraterrestres se atrevieron.',phase2:'Ahora s\u00ed, mijo. Se acab\u00f3 la visita.',prayer:'Santa Mar\u00eda, cuida mi punter\u00eda.',win:'Est\u00e1 bien, mijo. Ya entend\u00ed.',lose:'Ven cuando aprendas a respetar una entrega.'},moves:{chancla:{label:'LA CHANCLA',telegraph:'ABUELA LEVANTA LA CHANCLA. PROT\u00c9GETE.',dmg:22},rpg:{label:'COHETAZO',telegraph:'ABUELA APUNTA. PROT\u00c9GETE: DESPU\u00c9S NECESITA RECARGAR.',dmg:48},recover:{label:'RECARGAR',telegraph:'ABUELA RECARGA. ES TU MOMENTO.',dmg:0}}},assets:{...(art.grandmaFX||{}),background:art.scenery?.grandma}};
+  const cockroach={type:'cockroach',player,assets:{background:art.scenery?.cockroach},encounter:{id:runId+':cockroach',name:'THE SPIRIT OF UNCLE BUNMI',hp:104,dialogue:{intro:'RICH: Uncle, your discount has legs.',win:'RICH: Keep the change. Close that door.',lose:'UNCLE BUNMI: You see? Even the spirit is managing expenses.'}}};
+  return {id:ID,title:'BLOODX',attemptId:runId,state,cars,map,save:(next,event)=>save(runId,next,event),art:{phoneBackdrop:art.phoneBackdrop||'assets/f01/play/art/rc5-hand-idle-270x480.png'},copy:{sender:'GBENGA',assignmentLines:[{speaker:'GBENGA',text:'Rich. Three houses around USC. Blood, not excuses.'},{speaker:'GBENGA',text:'Use a car you actually own. Grandma first. The children second. Uncle Bunmi last.'},{speaker:'RICH',text:'Why does the last one sound like a warning?'},{speaker:'GBENGA',text:'My friend, finish your route.'}],acceptLabel:'ANSWER \u00b7 ACCEPT ROUTE',carPrompt:'Choose an available car from your garage.',noCarsLabel:'No available personal car. Return after selecting or buying a car.',routeTitle:'BLOODX',controlsHint:'Arrow keys, swipe the map, or tap directions.',quitLabel:'LEAVE ROUTE',doneLabel:'RETURN TO SHIFT',savingLabel:'Saving route\u2026'},stops:[
+   {id:'grandma',nodeId:'grandma30',label:'ABUELA \u00b7 W 30TH',scene:{background:art.scenery?.arrival,portraits:art.grandma?.idle?[art.grandma.idle]:[]},arrivalLines:[{speaker:'ABUELA',text:'\u00a1Mijo! Qu\u00e9 bueno que llegaste. Los extraterrestres viven en el agua, \u00bfme oyes?'},{speaker:'ABUELA',text:'Necesito sangre. Agua no; ya tiene inquilinos.'}],choices:[{id:'deliver',label:'DELIVER THE BLOOD',action:'complete',rewardSummary:'$2,500 \u00b7 blood and a generous tip',receiptLines:[{speaker:'ABUELA',text:'Gracias, mijo. Te pago bien para que no bebas del grifo.'}]},{id:'jug',label:'TRY TO JUG HER',action:'encounter',encounter:grandma,rewardSummary:'$750 \u00b7 the hard way',receiptLines:[{speaker:'ABUELA',text:'La pr\u00f3xima vez toca la puerta con respeto.'}]}]},
+   {id:'kids',nodeId:'kidsHoover',label:'THREE KIDS \u00b7 S HOOVER',scene:{background:art.scenery?.arrival,portraits:art.kids||[],frames:art.kidFrames,receiptFrames:art.kidReceiptFrames},arrivalLines:[{speaker:'',text:'Three kids. Three iPads. Nobody looks up.'}],choices:[{id:'deliver',label:'HAND OVER THE BLOOD',action:'complete',rewardSummary:'$1,200 \u00b7 exact payment',receiptLines:[{speaker:'',text:'One payment lands. They take the blood and walk inside, still tapping.'},{speaker:'RICH',text:'Best conversation I have had all day.'}]}]},
+   {id:'bunmi',nodeId:'bunmi29',label:'UNCLE BUNMI \u00b7 W 29TH',scene:{background:art.scenery?.arrival,portraits:art.bunmi?[art.bunmi]:[],frames:art.bunmiFrames},arrivalLines:[{speaker:'UNCLE BUNMI',text:'My son, I have nine hundred. Take it. Blood is blood.'},{speaker:'RICH',text:'The price did not hear that argument.'},{speaker:'UNCLE BUNMI',text:'Come inside. We will settle it like family.'}],choices:[{id:'inside',label:'TAKE THE DISCOUNT \u00b7 STEP INSIDE',action:'encounter',encounter:cockroach,rewardSummary:'$1,500 \u00b7 delivery plus spirit bonus',receiptLines:[{speaker:'RICH',text:'Next time, we settle it outside.'}]}]}
+  ]};
+ }
+ function mount(root,runId,ctx={}){const cash=document.querySelector('.rc3-cash'),visibility=cash?.style.visibility;if(cash)cash.style.visibility='hidden';try{const controller=window.RABloodXRoute.mount(root,config(runId),ctx);controller.result.finally(()=>{if(cash)cash.style.visibility=visibility;});return controller;}catch(error){if(cash)cash.style.visibility=visibility;throw error;}}
+ RABloodXRoute.setConfigProvider(params=>config(params.runId));
+ window.RABloodXChapter={schema:1,id:ID,config,mount,availableCars,read,configure:value=>{art=value||{};},rewards,map};
+});
+
+/* Local-preview private CEO intervention. Install after the authored scene/text adapters. */
+(function(){
+ 'use strict';
+ const ENEMY='legendary_corporate_ceo',CORPORATE='LEGENDARY_CORPORATE_LIFE',AFTER='ceo-oga-after';
+ const KEY='ceoOgaIntervention',RECEIPT='ceo-oga-intervention:v1';
+ const QUOTE='You think oga has forgotten you?',REACTION='wtf';
+ const clone=v=>JSON.parse(JSON.stringify(v));
+ const beforeEnemy=new WeakMap();let installed=false,artReady=null;
+ const config={art:{enter:'assets/sealed/art/ceo_oga/oga_enter.png',aim:'assets/sealed/art/ceo_oga/oga_aim.png',burst:'assets/sealed/art/ceo_oga/oga_burst.png',recover:'assets/sealed/art/ceo_oga/oga_recover.png',enterFrames:[],stop:null,recoil:null,exit:null},fx:{flash:[],smoke:[]},metrics:{width:80,height:96,anchor:[40,88],visible:[20,20,45,68],scale:1,muzzle:{burst:[66,44],recoil:[60,41],recover:[65,44]},fxSize:[32,32],fxPivot:[8,16]},authority:'PREVIEW_ART_PENDING'};
+ const flags=()=>RAState.get().life.world.flags;
+ const receipt=()=>clone(flags()[KEY]||null);
+ const snapshot=s=>clone(Object.fromEntries(Object.entries(s).filter(([key])=>!['params','rng'].includes(key))));
+ const restore=(s,saved)=>{for(const key of Object.keys(s))if(!['params','rng'].includes(key))delete s[key];Object.assign(s,clone(saved));};
+ function durable(edit){const result=RAState.transaction(edit);if(!result.ok)throw Error('CEO intervention checkpoint: '+result.error);return result;}
+ function update(values){return durable(s=>{const r=s.life.world.flags[KEY];if(!r)throw Error('missing-contact-receipt');Object.assign(r,values);return true;});}
+ function completedCorporate(){const L=RAState.get().life;return !!(L.world.flags.throneDone||RAAdventures.isDone(CORPORATE)||L.world.flags.legendaryPass?.receipts?.corporate);}
+ const eligible=event=>event?.kind==='hit'&&event.target==='enemy'&&typeof event.attacker==='string'&&event.attacker.length>0&&event.attacker!=='enemy'&&event.attacker!=='effect'&&Number(event.amount)>0&&Number.isFinite(event.hp?.enemy)&&Number.isFinite(event.hp?.enemyMax)&&event.hp.enemyMax>0&&event.hp.enemy<event.hp.enemyMax*.4;
+ function claimContact(state,event){
+  const prior=receipt();if(prior)return prior;
+  if(completedCorporate()||!eligible(event))return null;
+  // Rules are eager; capture at beforeEnemyTurn and restore before presenting the crossing contact.
+  // The exact event HP also cancels any remaining hits from a multi-hit player action.
+  const saved=clone(beforeEnemy.get(state)||snapshot(state));saved.enemy.hp=event.hp.enemy;saved.rich.hp=event.hp.rich;
+  saved.enemy.queue=[];saved.telegraph=null;saved.awaitingOctopus=false;saved.over=false;saved.outcome=null;
+  const contactIndex=state.log.indexOf(event);saved.log=clone(state.log.slice(0,contactIndex<0?1:contactIndex+1));
+  const next={schema:1,id:RECEIPT,status:'contact',phase:'enter',day:RAState.get().life.world.day,contact:{hp:event.hp.enemy,max:event.hp.enemyMax,richHP:event.hp.rich,amount:event.amount,turn:saved.turn},snapshot:saved,quoteConsumed:false,burstConsumed:false,reactionConsumed:false};
+  durable(s=>{if(s.life.world.flags[KEY])return true;s.life.world.flags[KEY]=next;return true;});restore(state,saved);return receipt();
+ }
+ function readyArt(){
+  const audioReady=window.RAAudio?.preloadScene?.(['GUN_LILOGA','KO','VICTORY'])?.catch?.(()=>{});
+  if(!artReady)artReady=Promise.all([...new Set([...Object.values(config.art),...Object.values(config.fx)].flat().filter(Boolean))].map(src=>new Promise((resolve,reject)=>{const img=new Image();img.onload=()=>img.naturalWidth?resolve(src):reject(Error('CEO intervention art is empty: '+src));img.onerror=()=>reject(Error('CEO intervention art is unavailable: '+src));img.src=src;}))).catch(error=>{artReady=null;throw error;});
+  return Promise.all([artReady,audioReady]);
+ }
+ function sound(id,opts){if(window.RAAudio?.isUnlocked?.()&&!window.RAAudio.settings?.().muted)window.RAAudio.sfx(id,opts);}
+ function bubble(root,speaker,text){const log=root.querySelector('.c2-log');log.textContent=text;log.dataset.ceoSpeaker=speaker;}
+ async function cinematic({state,root,richEl,enemyEl,cancelPresentation,syncHP}){
+  const r=receipt();if(!r)return {handled:false};
+  restore(state,r.snapshot);state.params.settlementEventId=RECEIPT;cancelPresentation?.();window.RABarks?.reset(root);
+  if(r.status==='claimed'){state.enemy.hp=0;return {handled:true,outcome:'win',result:{ceoIntervention:true}};}
+  const scene=root.closest('.ra-minigame'),quit=scene?.querySelector('.ra-minigame-quit'),wasDisabled=quit?.disabled;
+  if(quit)quit.disabled=true;
+  root.classList.add('ceo-oga-cinematic');root.dataset.ceoIntervention=r.phase;
+  const style=document.createElement('style');style.textContent=`.ceo-oga-actor{position:absolute;z-index:7;image-rendering:pixelated;pointer-events:none;transition:left .32s steps(6,end)}.ceo-oga-cinematic .c2-telegraph{display:none}.ceo-oga-skip{position:absolute;left:8px;top:8px;z-index:25;min-width:64px;min-height:44px;font:8px "Press Start 2P",monospace;color:#f6efd9;background:#16121e;border:1px solid #927045}.ceo-oga-cinematic .c2-log::before{content:attr(data-ceo-speaker);display:block;font-size:8px;color:#c18b3c;margin-bottom:9px}.ceo-oga-flash{position:absolute;z-index:8;inset:0;background:#f6efd9;opacity:.12;pointer-events:none}.ceo-oga-fx{position:absolute;z-index:8;pointer-events:none;image-rendering:pixelated}.ceo-oga-dust{position:absolute;z-index:7;color:#ab9c92;pointer-events:none;font-size:16px;letter-spacing:3px}.ceo-oga-cinematic .c2-menu{min-height:44px}@media(prefers-reduced-motion:reduce){.ceo-oga-actor{transition:none}.ceo-oga-flash{display:none}}`;root.append(style);
+  const actor=document.createElement('img');actor.className='ceo-oga-actor';actor.alt='Oga in native attire';actor.src=config.art.enter;
+  const rr=root.getBoundingClientRect(),rb=richEl.getBoundingClientRect(),m=config.metrics,width=rb.width*(m.scale||1),height=width*m.height/m.width;
+  Object.assign(actor.style,{width:width+'px',height:height+'px',top:(rb.bottom-rr.top-height)+'px',left:-width+'px'});root.append(actor);
+  const destination=rr.width*.43-width*.5,fxNodes=new Set();
+  const attachFX=(src,pose='burst')=>{if(!src)return null;const img=document.createElement('img');img.className='ceo-oga-fx';img.alt='';img.src=src;
+   const box=actor.getBoundingClientRect(),point=m.muzzle?.[pose]||m.muzzle?.burst||[66,44],pivot=m.fxPivot||[8,16],size=m.fxSize||[32,32],scale=width/m.width;
+   Object.assign(img.style,{left:(box.left-rr.left+(point[0]-pivot[0])*scale)+'px',top:(box.top-rr.top+(point[1]-pivot[1])*scale)+'px',width:(size[0]*scale)+'px',height:(size[1]*scale)+'px'});root.append(img);fxNodes.add(img);return img;};
+  const removeFX=img=>{img?.remove();fxNodes.delete(img);};
+  const skip=document.createElement('button');skip.type='button';skip.className='ceo-oga-skip';skip.textContent='SKIP';skip.setAttribute('aria-label','Skip CEO intervention');root.append(skip);
+  let skipped=false,cancelled=false;const pending=new Set();
+  const wake=()=>{for(const done of [...pending])done();};
+  const onSkip=()=>{skipped=true;wake();};const onClose=()=>{cancelled=true;wake();};
+  const key=e=>{if(e.key==='Escape'){e.preventDefault();e.stopImmediatePropagation();onSkip();}};
+  skip.addEventListener('click',onSkip);root.addEventListener('c2:close',onClose,{once:true});document.addEventListener('keydown',key,true);
+  const hold=ms=>new Promise(resolve=>{if(skipped||cancelled){resolve();return;}let timer;const done=()=>{clearTimeout(timer);pending.delete(done);resolve();};pending.add(done);timer=setTimeout(done,ms);});
+  const phase=async(name,values={})=>{update({phase:name,...values});root.dataset.ceoIntervention=name;};
+  try{
+   if(!r.quoteConsumed){
+    await phase('enter');bubble(root,'','');await hold(80);actor.style.transition='none';
+    const walking=config.art.enterFrames.length?config.art.enterFrames:[config.art.enter];
+    for(let step=0;step<6&&!skipped&&!cancelled;step++){actor.src=walking[step%walking.length];actor.style.left=(-width+(destination+width)*(step+1)/6)+'px';await hold(55);}
+    actor.style.left=destination+'px';actor.src=config.art.stop||config.art.enter;await hold(120);
+    if(cancelled)return {handled:true,outcome:'win',result:{ceoIntervention:true}};
+    if(!skipped){await phase('quote',{quoteConsumed:true});actor.src=config.art.aim;bubble(root,'OGA',QUOTE);await hold(2900);}
+   }else{actor.style.left=destination+'px';actor.src=config.art.aim;}
+   if(cancelled)return {handled:true,outcome:'win',result:{ceoIntervention:true}};
+   if(!skipped&&!r.burstConsumed&&!['react','complete'].includes(r.phase)){
+    await phase('burst',{burstConsumed:true});bubble(root,'','');
+    for(let i=0;i<5&&!skipped&&!cancelled;i++){
+     actor.src=config.art.burst;
+     let flash=attachFX(config.fx.flash[i%Math.max(1,config.fx.flash.length)],'burst');
+     if(!flash){flash=document.createElement('i');flash.className='ceo-oga-flash';root.append(flash);fxNodes.add(flash);}
+     window.RACombatPixelFX?.impact({root,target:enemyEl,attacker:actor,severity:'heavy',tick:true});
+     try{sound('GUN_LILOGA',{restartVoice:true});}catch(e){}
+     await hold(65);removeFX(flash);actor.src=config.art.recoil||config.art.aim;
+     const smoke=attachFX(config.fx.smoke[i%Math.max(1,config.fx.smoke.length)],'recoil');await hold(65);removeFX(smoke);
+    }
+    actor.src=config.art.recover;enemyEl.style.opacity='0';if(!cancelled)try{sound('KO');}catch(e){}
+    const eb=enemyEl.getBoundingClientRect(),dust=document.createElement('i');dust.className='ceo-oga-dust';dust.textContent='\u00b7 \u00b7 \u00b7';Object.assign(dust.style,{left:(eb.left-rr.left+eb.width*.35)+'px',top:(eb.bottom-rr.top-14)+'px'});root.append(dust);await hold(200);
+   }
+   if(cancelled)return {handled:true,outcome:'win',result:{ceoIntervention:true}};
+   state.enemy.hp=0;state.enemy.queue=[];state.telegraph=null;RACombat2Rules.forceEnd(state,'win');syncHP?.();
+   if(!r.reactionConsumed&&!skipped){await phase('react',{reactionConsumed:true,snapshot:snapshot(state)});bubble(root,'RICH',REACTION);await hold(1350);}
+   if(cancelled)return {handled:true,outcome:'win',result:{ceoIntervention:true}};
+   state.enemy.hp=0;state.enemy.queue=[];state.telegraph=null;
+   if(!skipped&&config.art.exit){actor.src=config.art.exit;actor.style.transform='scaleX(-1)';actor.style.transition='none';for(let step=1;step<=4&&!skipped&&!cancelled;step++){actor.style.left=(destination-(destination+width)*step/4)+'px';await hold(65);}}
+   await phase('complete',{quoteConsumed:true,burstConsumed:true,reactionConsumed:true,skipped:r.skipped||skipped,snapshot:snapshot(state)});
+   return {handled:true,outcome:'win',result:{ceoIntervention:true}};
+  }finally{
+   document.removeEventListener('keydown',key,true);root.removeEventListener('c2:close',onClose);skip.remove();for(const fx of fxNodes)fx.remove();wake();
+   if(quit)quit.disabled=!!wasDisabled;
+  }
+ }
+ function settleBattle({state,settle}){
+  const current=receipt();
+  if(current?.status==='claimed')return {ok:true,value:{already:true}};
+  return RAState.atomic(()=>{
+   const value=settle();if(value===false)return false;
+   const r=RAState.get().life.world.flags[KEY];
+   if(r){r.status='claimed';r.phase='complete';r.completed=true;r.snapshot=snapshot(state);r.battleRewardClaimed=true;
+    const a=RAAdventures.active();if(a?.id===CORPORATE){a.vars||={};a.vars.ceoOgaIntervention=true;a.vars.astraCEOConfirmed=true;}}
+   return value;
+  });
+ }
+ function adaptStory(){
+  const d=RAAdventures.get(CORPORATE);if(!d||d.nodes[AFTER])return;
+  const authored=d.nodes['legendary-dust-after']?.lines||d.nodes.dust?.lines||[];
+  const lines=C=>(typeof authored==='function'?authored(C):authored).filter(row=>row[0]==='kiki'&&([238,246].includes(row[2]?.sourceLine)||/job description|finsta/.test(String(row[1]))));
+  // Extend the live nodes in place; defining this scene again would wrap its availability predicates.
+  d.nodes[AFTER]={env:d.nodes.fight.env||'throne',actors:{left:'rich',right:'kiki'},lines,next:'assistant'};
+ }
+ function reconcile(){
+  adaptStory();const r=receipt(),a=RAAdventures.active();if(!r||a?.id!==CORPORATE)return;
+  if(r.status==='claimed'&&['dust','legendary-dust-crumble','legendary-dust-after','corporate.singing-victory'].includes(a.node))durable(s=>{s.life.adventures.active.node=AFTER;s.life.adventures.active.vars.ceoOgaIntervention=true;return true;});
+ }
+ function install(B){
+  if(installed)return;installed=true;
+  if(!window.RAState?.atomic||!window.RACombat2||!window.RACombat2Ext||!window.RAAstraProgression)throw Error('CEO intervention requires the complete private runtime; install last');
+  const boss=RACombat2Ext.boss;
+  RACombat2Ext.boss=function(s,phase,...args){if(s.enemyId===ENEMY&&s.params.ceoOgaIntervention&&phase==='beforeEnemyTurn')beforeEnemy.set(s,snapshot(s));return boss.call(this,s,phase,...args);};
+  const run=RACombat2.run;
+  RACombat2.run=function(enemyId,params={}){
+   if(enemyId!==ENEMY||!params.legendaryCorporate||completedCorporate())return run.call(this,enemyId,params);
+   return run.call(this,enemyId,{...params,ceoOgaIntervention:true,settleBattle,
+    onReady:async ctx=>{const r=receipt();if(!r)return {handled:false};if(r.status!=='claimed')await readyArt();return cinematic(ctx);},
+    onPlayerHitContact:async ctx=>{if(!receipt()&&!eligible(ctx.event))return {handled:false};await readyArt();const r=claimContact(ctx.state,ctx.event);return r?cinematic(ctx):{handled:false};}
+   });
+  };
+  const afterMinigame=RAAdventures.afterMinigame;
+  RAAdventures.afterMinigame=function(node,result){
+   const id=RAAdventures.active()?.id,next=afterMinigame.call(this,node,result);
+   if(id===CORPORATE&&node==='fight'&&result?.outcome==='win'&&result.data?.ceoIntervention&&receipt()?.status==='claimed'){
+    durable(s=>{const a=s.life.adventures.active;if(a?.id!==CORPORATE)return true;a.vars.ceoOgaIntervention=true;a.vars.astraCEOConfirmed=true;a.node=AFTER;return true;});return AFTER;
+   }return next;
+  };
+  B.onComplete(reconcile);B.wake('ceo-oga-intervention',1001,reconcile);reconcile();
+ }
+ window.RACEOOgaIntervention={schema:1,enemyId:ENEMY,receiptId:RECEIPT,quote:QUOTE,reaction:REACTION,eligible,receipt,reconcile,install,configure(values={}){if(values.art){Object.assign(config.art,values.art);artReady=null;}if(values.fx){Object.assign(config.fx,values.fx);artReady=null;}if(values.metrics)Object.assign(config.metrics,values.metrics);if(values.authority)config.authority=values.authority;return clone(config);},configuration:()=>clone(config)};
+ window.RABuild3Stages.push(install);
+})();
+
+/* New AI-generated preview candidates; existing creator attribution remains unchanged. */
+RABuild3Stages.push(function(){
+ const path=(family,role)=>`assets/preview/${family}/${family}_${role}.png`;
+ RABalconyNight.configure({background:'assets/preview/balcony-night-640x360.png'});
+ const g=role=>path('grandma_v2',role),fx=role=>path('grandma_fx',role);
+ RABloodXChapter.configure({
+  grandma:{idle:g('idle'),talk:g('talk'),hit:g('hit'),defeated:g('defeated'),prototype:false,moves:{
+   chancla:{prepare:g('chancla_raise'),action:g('chancla_wave'),contact:g('chancla_contact'),recovery:g('chancla_recover')},
+   rpg:{prepare:g('rpg_reveal'),aim:g('rpg_aim'),action:g('rpg_fire'),contact:g('rpg_fire'),recovery:g('rpg_recover')}
+  }},
+  scenery:{arrival:'assets/before_the_fame/environments/portobello_porch/portobello_porch_dusk_270x480.png',grandma:'assets/before_the_fame/environments/portobello_porch/portobello_porch_dusk_270x480.png',cockroach:'assets/before_the_fame/environments/family_house/family_house_atl_kitchen_270x480.png'},
+  grandmaFX:{chanclaFrames:[fx('chancla_01'),fx('chancla_02')],chanclaImpact:fx('chancla_impact'),missileFrames:[fx('missile_01'),fx('missile_02')],smoke:fx('smoke'),impact:fx('impact'),crack:fx('crack')},
+  kids:[1,2,3].map(n=>path('kid'+n,'idle')),
+  kidFrames:['idle','tap'].map(role=>[1,2,3].map(n=>path('kid'+n,role))),
+  kidReceiptFrames:['payment','leave'].map(role=>[1,2,3].map(n=>path('kid'+n,role))),
+  bunmi:path('uncle_bunmi','neutral'),bunmiFrames:['neutral','discount','invite'].map(role=>path('uncle_bunmi',role))
+ });
+ const oga=role=>path('oga_v2_refined',role),ogaFx=role=>path('oga_fx',role);
+ window.RACEOOgaIntervention?.configure?.({art:{enter:oga('enter_01'),enterFrames:[oga('enter_01'),oga('enter_02')],stop:oga('stop'),aim:oga('aim'),burst:oga('burst'),recoil:oga('recoil'),recover:oga('recover'),exit:oga('exit')},fx:{flash:[ogaFx('flash_01'),ogaFx('flash_02')],smoke:[ogaFx('smoke_01'),ogaFx('smoke_02')]},metrics:{width:80,height:96,anchor:[40,88],visible:[22,24,50,64],scale:1,muzzle:{aim:[72,44],burst:[70,44],recoil:[65,41],recover:[34,74]},fxSize:[32,32],fxPivot:[8,16]},authority:'AI_GENERATED_PREVIEW_CANDIDATE_OWNER_R5'});
+});
+
