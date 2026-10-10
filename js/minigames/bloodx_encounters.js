@@ -74,7 +74,7 @@
   const state = clone(raw);
   if (state.status !== 'ready' || state.outcome) return state;
   const move = action.type === 'move' && config.player.moves.find(m => m.id === action.id);
-  if (action.type !== 'guard' && (!move || state.pp[move.id] <= 0)) return state;
+  if (!move || state.pp[move.id] <= 0) return state;
   const announced = intent(state, config), events = [], serial = ++state.actionSerial;
   const add = (kind, data = {}) => events.push({ kind, ...data, hp: { player: state.playerHp, enemy: state.enemyHp } });
   function damage(target, amount, fx, source) {
@@ -86,9 +86,7 @@
    add('contact', { target, amount: actual, fx, source, contactId: `${state.attemptId}:${serial}:${events.length}` });
    return actual;
   }
-  const guard = action.type === 'guard';
-  if (guard) add('guard');
-  else {
+  {
    state.pp[move.id]--;
    add('player', { move: move.id, label: move.label });
    let amount = move.id === 'revenge' ? state.revenge : move.base;
@@ -113,7 +111,6 @@
    if (state.stun > 0) { state.stun--; amount = 0; add('blocked', { reason: 'stun' }); }
    else if (amount > 0 && state.shield > 0) { state.shield--; amount = 0; add('blocked', { reason: 'shield' }); }
    else if (amount > 0) {
-    if (guard) amount *= .25;
     if (state.weaken > 0) amount *= .75;
    }
    if (amount > 0) damage('player', amount, announced.id, 'enemy');
@@ -190,7 +187,7 @@
   rich.src = config.assets.playerIdle; enemy.src = config.enemy.assets.idle;
   if (config.assets.background) { $('.bx-background').src = config.assets.background; $('.bx-background').hidden = false; }
   $('.bx-player-hp b').textContent = config.player.name; $('.bx-enemy-hp b').textContent = config.enemy.name;
-  $('.bx-help').textContent = config.labels.controls || `1–4 moves · G guard · Esc quit. Guard cuts the next hit by 75%.${config.type === 'grandma' ? ' RPG leaves a recovery turn.' : ''}`;
+  $('.bx-help').textContent = config.labels.controls || `1-4 moves · Esc quit.${config.type === 'grandma' ? ' RPG leaves a recovery turn.' : ''}`;
   if (config.enemy.prototypeArt) { const badge = doc.createElement('div'); badge.className = 'bx-prototype'; badge.textContent = config.labels.prototypeArt || 'PROTOTYPE ACTOR ART'; world.append(badge); }
   host.append(root); root.focus({ preventScroll: true });
   // Local native camera; never enter/replace the surrounding scene's Presentation Director.
@@ -296,7 +293,7 @@
    }
    if (busy) { button(config.labels.quit || 'QUIT', 'quit', true); return; }
    config.player.moves.forEach((move, index) => button(`${index + 1} · ${move.label}`, `move:${move.id}`, false, state.pp[move.id] <= 0, `${state.pp[move.id]}/${move.pp} PP${move.id === 'revenge' ? ` · ${state.revenge} STORED` : move.base ? ` · ${move.base} DAMAGE` : ''}`));
-   button(config.labels.guard || 'G · GUARD', 'guard', true, false, config.labels.guardDetail || '75% LESS DAMAGE'); button(config.labels.quit || 'QUIT', 'quit', true);
+   button(config.labels.quit || 'QUIT', 'quit', true);
   }
   function prop(src, x, y, w, h) {
    const img = doc.createElement('img'); img.className = 'bx-prop'; img.alt = ''; img.src = src;
@@ -404,7 +401,6 @@
     else if (event.kind === 'enemy') { $('.bx-log').textContent = event.label; $('.bx-telegraph').textContent = `${config.labels.attacking || 'ATTACK'}: ${event.label}`; $('.bx-telegraph').hidden = false; if (config.enemy.moves[event.move]?.dmg > 0) await sound('TELEGRAPH'); if (!closed && !closing) await enemyAttack(event.move); }
     else if (event.kind === 'contact') { $('.bx-log').textContent = `${event.target === 'player' ? config.player.name : config.enemy.name} −${event.amount} HP`; await contact(event); }
     else if (event.kind === 'phase') { $('.bx-log').textContent = config.enemy.dialogue.phase2 || config.labels.phase2 || 'PHASE 2'; await wait(750); }
-    else if (event.kind === 'guard') { $('.bx-log').textContent = config.labels.guarding || 'GUARD UP'; await sound('BUFF'); await wait(250); }
     else if (event.kind === 'heal') { $('.bx-log').textContent = `+${event.amount} HP`; hud(); await sound('HEAL'); await wait(240); }
     else if (event.kind === 'blocked') { $('.bx-log').textContent = config.labels.blocked || 'BLOCKED'; await sound('EN_SHIELD'); await wait(200); }
     else if (event.kind === 'recovery') { $('.bx-log').textContent = config.enemy.moves.recover?.telegraph || config.labels.recovery || 'RECOVERY · ATTACK OPENING'; await wait(300); }
@@ -425,7 +421,7 @@
    if (closed || closing) return;
    if (value === 'quit') return settle('quit');
    if (state.status === 'results' && !busy) { if (value === 'continue') settle(state.outcome); if (value === 'retry') settle('retry'); if (value === 'leave') settle('lose'); return; }
-   if (value === 'guard') return action('guard'); if (value.startsWith('move:')) action('move', value.slice(5));
+   if (value.startsWith('move:')) action('move', value.slice(5));
   }
   function click(event) { const button = event.target.closest('[data-bx-action]'); if (!button || !root.contains(button) || button.disabled) return; if (suppressTouchClick && Date.now() < suppressTouchClick.until && (event.pointerType === 'touch' || event.sourceCapabilities?.firesTouchEvents || (!event.pointerType && event.detail > 0))) { event.preventDefault(); return; } choose(button.dataset.bxAction); }
   function touchDown(event) { suppressTouchClick = null; if (event.pointerType !== 'touch') return; const button = event.target.closest('[data-bx-action]'); touchPress = button && root.contains(button) && !button.disabled ? { id: event.pointerId, button, x: event.clientX, y: event.clientY, moved: false } : null; }
@@ -435,7 +431,6 @@
   function key(event) {
    if (event.repeat || closed || closing || event.ctrlKey || event.metaKey || event.altKey || /^(INPUT|TEXTAREA|SELECT)$/.test(event.target?.tagName)) return;
    if (event.key === 'Escape') { event.preventDefault(); choose('quit'); }
-   else if (event.key.toLowerCase() === 'g') { event.preventDefault(); choose('guard'); }
    else if (/^[1-4]$/.test(event.key) && state.status === 'ready') { event.preventDefault(); const move = config.player.moves[Number(event.key) - 1]; if (move) choose(`move:${move.id}`); }
   }
   root.addEventListener('click', click); root.addEventListener('pointerdown', touchDown); root.addEventListener('pointermove', touchMove); root.addEventListener('pointerup', touchUp); root.addEventListener('pointercancel', touchCancel); global.addEventListener('keydown', key); doc.addEventListener('visibilitychange', visibility); config.signal?.addEventListener('abort', abort, { once: true });

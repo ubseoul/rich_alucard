@@ -140,6 +140,8 @@
   },
   "js/if1/hold_bridge.js",
   "js/data/astra_editorial.js",
+  "js/minigames/bloodx_encounters.js",
+  "js/minigames/bloodx_route.js",
   {
    "overlay": true
   },
