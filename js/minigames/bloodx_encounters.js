@@ -146,7 +146,7 @@
  const CSS = `
  .bx-encounter{position:relative!important;inset:auto!important;width:100%;min-height:480px;height:100%;overflow:hidden;background:#17131e;color:#f6efd9;font:8px/1.35 var(--font-system,monospace);box-sizing:border-box;isolation:isolate;touch-action:manipulation}
  .bx-encounter *{box-sizing:border-box}.bx-encounter .bx-world{position:absolute;inset:0 0 44%;overflow:hidden;background:linear-gradient(#242032,#393044 76%,#29222d 76%)}
- .bx-encounter .bx-background{width:100%;height:100%;object-fit:cover;position:absolute;inset:0;image-rendering:pixelated;opacity:.65}
+ .bx-encounter .bx-background{width:100%;height:100%;object-fit:cover;object-position:50% 100%;position:absolute;inset:0;image-rendering:pixelated;opacity:1}
  .bx-encounter .bx-actor{position:absolute;bottom:12%;width:27%;height:40%;object-fit:contain;image-rendering:pixelated;pointer-events:none}.bx-encounter .bx-rich{left:9%}.bx-encounter .bx-enemy{right:7%}.bx-encounter[data-type=cockroach] .bx-enemy{width:39%;height:36%;right:3%;bottom:11%}
  .bx-encounter .bx-hud{position:absolute;top:8px;left:8px;right:8px;display:grid;grid-template-columns:1fr 1fr;gap:10px;z-index:4;font-size:8px;line-height:1.3}
  .bx-encounter .bx-hp{padding:7px;background:#17131eee;border:1px solid #d6af62;min-width:0}.bx-encounter .bx-hp b{display:block;overflow-wrap:anywhere}.bx-encounter .bx-hp i{display:block;height:7px;background:#4b374e;margin:5px 0}.bx-encounter .bx-hp em{display:block;height:100%;background:#ae2446;transition:width .16s linear}.bx-encounter .bx-hp strong{font-weight:normal}
