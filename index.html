@@ -5,21 +5,21 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no" />
 <link rel="icon" href="data:,">
 <title>Rich Alucard: Before The Fame Demo</title>
-<link rel="stylesheet" href="style.css?v=ra-fcc14bac5324-20261010032037" />
-<link rel="stylesheet" href="js/scenes/rave.css?v=ra-fcc14bac5324-20261010032037" />
-<link rel="stylesheet" href="js/scenes/property.css?v=ra-fcc14bac5324-20261010032037" />
-<link rel="stylesheet" href="js/scenes/minigames.css?v=ra-fcc14bac5324-20261010032037" />
-<link rel="stylesheet" href="js/scenes/adventure.css?v=ra-fcc14bac5324-20261010032037" />
-<link rel="stylesheet" href="js/systems/combat_pixel_fx.css?v=ra-fcc14bac5324-20261010032037" />
-<link rel="stylesheet" href="js/systems/rc2_feel.css?v=ra-fcc14bac5324-20261010032037" />
+<link rel="stylesheet" href="style.css?v=ra-8fc712aab068-20261010051945" />
+<link rel="stylesheet" href="js/scenes/rave.css?v=ra-8fc712aab068-20261010051945" />
+<link rel="stylesheet" href="js/scenes/property.css?v=ra-8fc712aab068-20261010051945" />
+<link rel="stylesheet" href="js/scenes/minigames.css?v=ra-8fc712aab068-20261010051945" />
+<link rel="stylesheet" href="js/scenes/adventure.css?v=ra-8fc712aab068-20261010051945" />
+<link rel="stylesheet" href="js/systems/combat_pixel_fx.css?v=ra-8fc712aab068-20261010051945" />
+<link rel="stylesheet" href="js/systems/rc2_feel.css?v=ra-8fc712aab068-20261010051945" />
 <!-- LOADER:CSS:BEGIN -->
-<link rel="stylesheet" href="js/frag/F01/showdown.css?v=ra-fcc14bac5324-20261010032037" />
-<link rel="stylesheet" href="js/frag/F02/armory.css?v=ra-fcc14bac5324-20261010032037" />
-<link rel="stylesheet" href="js/frag/F05/the_trap.css?v=ra-fcc14bac5324-20261010032037" />
+<link rel="stylesheet" href="js/frag/F01/showdown.css?v=ra-8fc712aab068-20261010051945" />
+<link rel="stylesheet" href="js/frag/F02/armory.css?v=ra-8fc712aab068-20261010051945" />
+<link rel="stylesheet" href="js/frag/F05/the_trap.css?v=ra-8fc712aab068-20261010051945" />
 <!-- LOADER:CSS:END -->
-<link rel="stylesheet" href="landing.css?v=ra-fcc14bac5324-20261010032037" />
+<link rel="stylesheet" href="landing.css?v=ra-8fc712aab068-20261010051945" />
 <style>body.title-front #stage,body.cinema-opening #stage,body.entry-starting #stage{visibility:hidden}#cinematicIntro{position:fixed;inset:0;z-index:10001;background:#090813}#cinematicIntro[hidden],#startOverlay[hidden]{display:none!important}</style>
-<link rel="stylesheet" href="opening.css?v=ra-fcc14bac5324-20261010032037">
+<link rel="stylesheet" href="opening.css?v=ra-8fc712aab068-20261010051945">
 </head>
 <body class="title-front">
 <section id="cinematicIntro" hidden class="opening-cinema" aria-label="Gbenga opening" role="region">
@@ -30,7 +30,7 @@
  </div></div>
  <p id="cinemaStatus" class="cinema-status" role="status" aria-live="polite"></p>
 </section>
-<script src="js/systems/opening_cinema.js?v=ra-fcc14bac5324-20261010032037"></script>
+<script src="js/systems/opening_cinema.js?v=ra-8fc712aab068-20261010051945"></script>
 <section id="startOverlay" class="start-overlay retro-start" aria-labelledby="retroTitle">
   <div class="retro-card">
     <header class="retro-header">
@@ -159,8 +159,8 @@
     <section id="phoneOverlay" class="phone-overlay" aria-label="Phone" aria-hidden="true">
       <div class="phone-shell">
         <div class="phone-earpiece" aria-hidden="true"><i></i><b></b></div>
-        <div class="phone-device-status"><time id="phoneDeviceTime" title="Device local time"></time><span class="phone-carrier">RICH / LIFE OS</span><span class="phone-signal" aria-label="Connected">â–‚â–„â–†</span><span class="phone-battery" role="img" aria-label="Battery full"><i></i></span></div>
-        <div class="phone-topline"><span id="phoneDeviceDate"></span><button id="phoneLockButton" type="button" data-phone-action="deviceLock" aria-label="Lock phone">â–£</button><button id="phoneSettingsButton" class="phone-settings-button" type="button" data-phone-action="settings" aria-label="Audio settings">âš™</button><button id="phoneClose" type="button" aria-label="Close phone">Ã—</button></div>
+        <div class="phone-device-status"><time id="phoneDeviceTime" title="Device local time"></time><span class="phone-carrier">RICH / LIFE OS</span><span class="phone-signal" role="img" aria-label="Connected"><svg class="phone-control-icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 11h2v3H2zm5-4h2v7H7zm5-5h2v12h-2z" fill="currentColor" stroke="none"/></svg></span><span class="phone-battery" role="img" aria-label="Battery full"><i></i></span></div>
+        <div class="phone-topline"><span id="phoneDeviceDate"></span><button id="phoneLockButton" type="button" data-phone-action="deviceLock" aria-label="Lock phone" title="Lock phone"><svg class="phone-control-icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 7h10v7H3zM5 7V4h6v3M8 10v2"/></svg></button><button id="phoneSettingsButton" class="phone-settings-button" type="button" data-phone-action="settings" aria-label="Audio settings" title="Audio settings"><svg class="phone-control-icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 1v14M8 1v14M13 1v14M1 5h4M6 11h4M11 5h4"/></svg></button><button id="phoneClose" type="button" aria-label="Close phone" title="Close phone"><svg class="phone-control-icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 3l10 10M13 3L3 13"/></svg></button></div>
         <main id="phoneContent" class="phone-content"></main>
         <button class="phone-home-key" type="button" data-phone-action="home" aria-label="Phone home"><i></i></button>
       </div>
@@ -275,267 +275,267 @@
   </div>
 </main>
 <!-- LOADER:BEGIN -->
-<script src="js/build-info.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/if1/flag_defaults.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/if1/features.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/if1/migration_ledger.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/if1/migrations.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/frag/F01/migrations.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/frag/F02/migrations.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/frag/F03/migrations.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/frag/F04/migrations.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/frag/F05/migrations.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/frag/F06/migrations.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/frag/F07/migrations.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/frag/F15/migrations.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/engine/state.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/if1/state_watch.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/if1/frag_state.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/data/save_fixtures.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/engine/scenes.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/data/stages.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/data/presentation.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/data/presentation_assets.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/data/presentation_locks.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/engine/presentation_metrics.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/engine/stage.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/engine/display.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/engine/pixel.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/engine/hard_pixel.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/engine/minigames.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/data/party_behaviors.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/systems/party.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/systems/rave.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/scenes/rave.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/data/ogun_rave_content.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/systems/ogun_rave.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/scenes/ogun_rave_exterior.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/systems/desire_trips.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/data/opportunities.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/data/people.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/systems/people.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/data/world_events.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/systems/world_events.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/systems/jdm_imports.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/systems/property.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/data/property_content.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/scenes/property.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/systems/property_quest.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/systems/life.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/systems/life_clock.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/if1/wake_bus.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/if1/money_ledger.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/if1/heat.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/if1/heat_floors.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/if1/social.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/if1/crew.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/if1/vehicles.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/if1/districts.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/if1/sales_channels.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/data/art_registry.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/data/art/registry_parts.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/data/art/parts/F02_combat_fx.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/data/art/parts/F12_portobello_kid3.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/data/art/parts/F12_preserved.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/data/art/parts/F12_rc5_w_belt.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/data/art/parts/F12_rc5_w_icons.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/data/art/parts/F12_rc5_w_imani.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/data/art/parts/F12_rc5_w_world.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/data/art/parts/F15_stage_cards.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/data/art_integration.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/data/art_surfaces.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/data/btf/people.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/systems/relations.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/systems/rewards.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/engine/adventures.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/data/btf/environments.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/systems/temptations.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/systems/places.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/systems/sealed.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/systems/fame.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/systems/vampgram.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/if1/vampgram_api.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/scenes/bedroom.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/data/phone_hierarchy.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/scenes/phone.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/if1/phone_registry.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/scenes/desire_trip.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/scenes/world_presentation.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/scenes/adventure.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/scenes/throne.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/systems/presentation_fixtures.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/scenes/bedroom_life.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/systems/newgame.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/phone/apps_core.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/systems/music_library.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/data/rc2_barks.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/systems/barks.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/systems/enemy_fx.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/systems/feel_sfx.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/systems/money_feel.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/systems/ambient_life.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/systems/scene_guard.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/systems/intro_polish.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/systems/pixel_cutscene.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/systems/opening_timeline.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/systems/phone_nudge.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/systems/radio.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/data/btf/dsl.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/btf_content.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/if1/combat2_ext.js?v=ra-fcc14bac5324-20261010032037"></script>
+<script src="js/build-info.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/if1/flag_defaults.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/if1/features.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/if1/migration_ledger.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/if1/migrations.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/frag/F01/migrations.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/frag/F02/migrations.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/frag/F03/migrations.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/frag/F04/migrations.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/frag/F05/migrations.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/frag/F06/migrations.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/frag/F07/migrations.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/frag/F15/migrations.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/engine/state.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/if1/state_watch.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/if1/frag_state.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/data/save_fixtures.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/engine/scenes.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/data/stages.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/data/presentation.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/data/presentation_assets.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/data/presentation_locks.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/engine/presentation_metrics.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/engine/stage.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/engine/display.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/engine/pixel.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/engine/hard_pixel.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/engine/minigames.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/data/party_behaviors.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/systems/party.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/systems/rave.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/scenes/rave.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/data/ogun_rave_content.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/systems/ogun_rave.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/scenes/ogun_rave_exterior.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/systems/desire_trips.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/data/opportunities.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/data/people.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/systems/people.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/data/world_events.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/systems/world_events.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/systems/jdm_imports.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/systems/property.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/data/property_content.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/scenes/property.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/systems/property_quest.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/systems/life.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/systems/life_clock.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/if1/wake_bus.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/if1/money_ledger.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/if1/heat.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/if1/heat_floors.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/if1/social.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/if1/crew.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/if1/vehicles.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/if1/districts.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/if1/sales_channels.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/data/art_registry.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/data/art/registry_parts.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/data/art/parts/F02_combat_fx.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/data/art/parts/F12_portobello_kid3.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/data/art/parts/F12_preserved.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/data/art/parts/F12_rc5_w_belt.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/data/art/parts/F12_rc5_w_icons.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/data/art/parts/F12_rc5_w_imani.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/data/art/parts/F12_rc5_w_world.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/data/art/parts/F15_stage_cards.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/data/art_integration.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/data/art_surfaces.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/data/btf/people.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/systems/relations.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/systems/rewards.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/engine/adventures.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/data/btf/environments.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/systems/temptations.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/systems/places.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/systems/sealed.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/systems/fame.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/systems/vampgram.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/if1/vampgram_api.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/scenes/bedroom.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/data/phone_hierarchy.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/scenes/phone.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/if1/phone_registry.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/scenes/desire_trip.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/scenes/world_presentation.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/scenes/adventure.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/scenes/throne.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/systems/presentation_fixtures.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/scenes/bedroom_life.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/systems/newgame.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/phone/apps_core.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/systems/music_library.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/data/rc2_barks.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/systems/barks.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/systems/enemy_fx.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/systems/feel_sfx.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/systems/money_feel.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/systems/ambient_life.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/systems/scene_guard.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/systems/intro_polish.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/systems/pixel_cutscene.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/systems/opening_timeline.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/systems/phone_nudge.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/systems/radio.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/data/btf/dsl.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/btf_content.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/if1/combat2_ext.js?v=ra-8fc712aab068-20261010051945"></script>
 <!-- BTF:CONTENT:BEGIN -->
-<script src="js/data/rc2_economy.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/data/rc2_lines.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/data/btf/new_oga_tunables.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/data/btf/combat.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/engine/combat2.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/scenes/combat2.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/systems/new_oga.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/systems/dragon.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/systems/cars.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/systems/castle.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/systems/realestate.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/systems/dating.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/systems/music.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/systems/world_life.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/systems/legacy_bridge.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/systems/party_life.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/systems/cheap_buys.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/systems/guidance.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/systems/strip_club.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/data/bars_words.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/minigames/juice.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/minigames/touge.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/minigames/owambe_collection.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/minigames/hatch.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/minigames/pier.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/minigames/bars.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/minigames/slurp.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/minigames/jollof.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/minigames/garage.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/minigames/hookah.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/minigames/pickup.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/minigames/dance.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/data/rc2_writing.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/data/btf/adventures/w1_opening.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/data/btf/adventures/systems.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/data/btf/adventures/date.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/data/btf/dates.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/data/btf/adventures/w1_life.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/data/btf/adventures/w2.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/data/btf/adventures/w3.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/data/btf/adventures/w4.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/data/btf/adventures/w5.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/data/btf/adventures/rc2_story.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/data/btf/adventures/new_oga_m1_m3.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/data/btf/adventures/new_oga_m4.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/data/btf/adventures/new_oga_m5_m6.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/data/btf/adventures/new_oga_m7.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/data/btf/dates_cast.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/systems/btf_dev.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/systems/test_pilot.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/sealed/pack.js?v=ra-fcc14bac5324-20261010032037"></script>
+<script src="js/data/rc2_economy.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/data/rc2_lines.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/data/btf/new_oga_tunables.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/data/btf/combat.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/engine/combat2.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/scenes/combat2.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/systems/new_oga.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/systems/dragon.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/systems/cars.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/systems/castle.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/systems/realestate.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/systems/dating.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/systems/music.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/systems/world_life.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/systems/legacy_bridge.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/systems/party_life.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/systems/cheap_buys.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/systems/guidance.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/systems/strip_club.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/data/bars_words.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/minigames/juice.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/minigames/touge.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/minigames/owambe_collection.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/minigames/hatch.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/minigames/pier.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/minigames/bars.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/minigames/slurp.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/minigames/jollof.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/minigames/garage.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/minigames/hookah.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/minigames/pickup.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/minigames/dance.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/data/rc2_writing.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/data/btf/adventures/w1_opening.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/data/btf/adventures/systems.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/data/btf/adventures/date.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/data/btf/dates.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/data/btf/adventures/w1_life.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/data/btf/adventures/w2.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/data/btf/adventures/w3.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/data/btf/adventures/w4.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/data/btf/adventures/w5.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/data/btf/adventures/rc2_story.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/data/btf/adventures/new_oga_m1_m3.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/data/btf/adventures/new_oga_m4.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/data/btf/adventures/new_oga_m5_m6.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/data/btf/adventures/new_oga_m7.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/data/btf/dates_cast.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/systems/btf_dev.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/systems/test_pilot.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/sealed/pack.js?v=ra-8fc712aab068-20261010051945"></script>
 <!-- BTF:CONTENT:END -->
-<script src="js/data/audio_manifest.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/data/audio/manifest_parts.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/data/audio/parts/F01_showdown.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/data/audio/parts/F02_guns.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/data/audio/parts/F04_blood_x.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/data/audio/parts/F05_trap.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/data/audio/parts/F06_rainmaker.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/data/audio/parts/F11_seance_pick.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/engine/audio.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/systems/play_return_feedback.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/engine/open_audio.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/data/characters.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/data/moves.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/data/combat.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/engine/combat_foundation.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/systems/characters.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/systems/budget.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/systems/ambience.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/systems/devtools.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/systems/smoke.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/systems/combat_pixel_fx.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/systems/combat_presentation.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/scenes/character_reveal.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/if1/if1.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/if1/first_event_unlock.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/frag/F01/rng.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/frag/F01/data.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/frag/F01/play_contract.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/frag/F01/rules.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/frag/F01/engine.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/frag/F01/ai.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/frag/F01/maps.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/frag/F01/packets.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/frag/F01/showdown.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/frag/F01/sprites.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/frag/F01/sfx.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/frag/F01/ui.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/frag/F01/sandbox.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/frag/F01/integration.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/frag/F02/flags.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/frag/F02/catalog.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/frag/F02/registry.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/frag/F02/combat.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/frag/F02/range.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/frag/F02/armory.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/frag/F02/moves.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/frag/F02/showdown.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/frag/F02/iron_and_grace.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/frag/F02/integration.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/frag/F03/new_oga_ladder_close.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/frag/F04/districts.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/frag/F04/crew.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/frag/F04/jobs.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/frag/F04/heat_config.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/frag/F04/vampgram.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/frag/F04/report_card.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/frag/F04/wake.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/frag/F04/play_adapter.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/frag/F04/phone_app.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/frag/F05/tunables.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/frag/F05/util.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/frag/F05/state.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/frag/F05/heat.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/frag/F05/weapons.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/frag/F05/crew.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/frag/F05/unlock.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/frag/F05/production.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/frag/F05/sales.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/frag/F05/levels.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/frag/F05/reactions.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/frag/F05/raids.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/frag/F05/wake.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/frag/F05/minigame_cook.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/frag/F05/minigame_counter.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/frag/F05/phone_app.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/frag/F05/trap.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/frag/F06/make_it_rain_tunables.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/frag/F06/make_it_rain_core.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/frag/F06/make_it_rain.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/frag/F06/production.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/frag/F07/tunables.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/frag/F07/play_bridge.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/frag/F07/gbenga_combat.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/frag/F07/m8_and_finale.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/frag/F15/tunables.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/frag/F15/core.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/frag/F15/club.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/frag/F15/dates.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/frag/F15/roxy.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/frag/F15/rosalyn.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/frag/F15/emerald.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/if1/hold_bridge.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/data/astra_editorial.js?v=ra-fcc14bac5324-20261010032037"></script>
+<script src="js/data/audio_manifest.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/data/audio/manifest_parts.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/data/audio/parts/F01_showdown.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/data/audio/parts/F02_guns.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/data/audio/parts/F04_blood_x.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/data/audio/parts/F05_trap.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/data/audio/parts/F06_rainmaker.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/data/audio/parts/F11_seance_pick.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/engine/audio.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/systems/play_return_feedback.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/engine/open_audio.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/data/characters.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/data/moves.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/data/combat.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/engine/combat_foundation.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/systems/characters.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/systems/budget.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/systems/ambience.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/systems/devtools.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/systems/smoke.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/systems/combat_pixel_fx.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/systems/combat_presentation.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/scenes/character_reveal.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/if1/if1.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/if1/first_event_unlock.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/frag/F01/rng.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/frag/F01/data.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/frag/F01/play_contract.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/frag/F01/rules.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/frag/F01/engine.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/frag/F01/ai.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/frag/F01/maps.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/frag/F01/packets.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/frag/F01/showdown.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/frag/F01/sprites.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/frag/F01/sfx.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/frag/F01/ui.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/frag/F01/sandbox.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/frag/F01/integration.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/frag/F02/flags.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/frag/F02/catalog.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/frag/F02/registry.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/frag/F02/combat.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/frag/F02/range.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/frag/F02/armory.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/frag/F02/moves.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/frag/F02/showdown.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/frag/F02/iron_and_grace.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/frag/F02/integration.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/frag/F03/new_oga_ladder_close.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/frag/F04/districts.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/frag/F04/crew.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/frag/F04/jobs.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/frag/F04/heat_config.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/frag/F04/vampgram.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/frag/F04/report_card.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/frag/F04/wake.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/frag/F04/play_adapter.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/frag/F04/phone_app.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/frag/F05/tunables.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/frag/F05/util.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/frag/F05/state.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/frag/F05/heat.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/frag/F05/weapons.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/frag/F05/crew.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/frag/F05/unlock.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/frag/F05/production.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/frag/F05/sales.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/frag/F05/levels.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/frag/F05/reactions.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/frag/F05/raids.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/frag/F05/wake.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/frag/F05/minigame_cook.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/frag/F05/minigame_counter.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/frag/F05/phone_app.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/frag/F05/trap.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/frag/F06/make_it_rain_tunables.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/frag/F06/make_it_rain_core.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/frag/F06/make_it_rain.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/frag/F06/production.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/frag/F07/tunables.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/frag/F07/play_bridge.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/frag/F07/gbenga_combat.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/frag/F07/m8_and_finale.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/frag/F15/tunables.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/frag/F15/core.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/frag/F15/club.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/frag/F15/dates.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/frag/F15/roxy.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/frag/F15/rosalyn.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/frag/F15/emerald.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/if1/hold_bridge.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/data/astra_editorial.js?v=ra-8fc712aab068-20261010051945"></script>
 <!-- SEALED:OVERLAY:BEGIN -->
 <!-- SEALED:OVERLAY:END -->
-<script src="js/systems/rc3.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/engine/core.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="game.js?v=ra-fcc14bac5324-20261010032037"></script>
-<script src="js/systems/analytics.js?v=ra-fcc14bac5324-20261010032037"></script>
+<script src="js/systems/rc3.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/engine/core.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="game.js?v=ra-8fc712aab068-20261010051945"></script>
+<script src="js/systems/analytics.js?v=ra-8fc712aab068-20261010051945"></script>
 <!-- LOADER:END -->
-<script src="js/systems/title_intro.js?v=ra-fcc14bac5324-20261010032037"></script>
+<script src="js/systems/title_intro.js?v=ra-8fc712aab068-20261010051945"></script>
 </body>
 </html>

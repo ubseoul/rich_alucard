@@ -13635,6 +13635,13 @@ RABuild3Stages.push(function(B){
   if(installed)return;installed=true;
   const A=window.RAAdventures,S=window.RAState,N=window.RANewGame;
   if(!A||!S||!N||!window.RALegendary)throw Error('Astra progression requires the complete private runtime');
+  // The approved opening now starts at the existing CEO fight controls.
+  // Keep the preceding scene's staging, without replaying its dialogue.
+  const opening=A.get(CORPORATE);
+  if(!opening?.nodes?.fight||!opening.nodes.arrive)throw Error('Corporate fight opening is missing');
+  opening.start='fight';
+  opening.nodes.fight.env=opening.nodes.fight.env||opening.nodes.arrive.env;
+  opening.nodes.fight.actors=opening.nodes.fight.actors||{...opening.nodes.arrive.actors};
   const life=()=>S.get().life,flags=()=>life().world.flags;
   const root=s=>s.life.world.flags.astraProgression||(s.life.world.flags.astraProgression={schema:1});
   const isConfirmed=result=>!result?.quit&&!result?.error&&result?.outcome==='win'&&result?.data?.encounter==='ceo'&&(!result.data.outcome||result.data.outcome==='win');
@@ -13653,6 +13660,12 @@ RABuild3Stages.push(function(B){
   }
   function prepareOpening(){
    const a=A.active(),retired=a?.id==='A00',fresh=!N.hasProgress();
+   // Continue a saved pre-fight speech checkpoint at the same fight start.
+   if(a?.id===CORPORATE&&a.node==='arrive')return S.transaction(s=>{
+    const saved=s.life.adventures.active;
+    if(saved?.id===CORPORATE&&saved.node==='arrive')saved.node='fight';
+    return true;
+   });
    if(!retired&&(life().clock.started||flags().throneDone))return {ok:true,value:false};
    if(a&&!retired)return {ok:true,value:false};
    const def=A.get(CORPORATE);if(!def)throw Error('Accepted corporate opening is missing');

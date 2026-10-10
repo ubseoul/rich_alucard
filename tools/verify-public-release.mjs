@@ -2,9 +2,9 @@ import fs from 'node:fs';
 import path from 'node:path';
 import vm from 'node:vm';
 import {createHash} from 'node:crypto';
-const GAMEPLAY="c515f12d36062c84a8783725671fed64332829be";
-const PACK="7797532886ed27f3dc2057c165978271654fa357affc49ca1ac92ea14a5a40c1";
-const DIGEST="861481a5e3c5e6bf52c8fb98cbe4216f4bf7d2061665a10b16fab1cd5e75e0f5";
+const GAMEPLAY="411286a3b2b85379e8cfd582e272a5675fdbc5ec";
+const PACK="aed7817486efad5948eba416497559e496ab8393ab10cd0cdae2261b13fdf1e6";
+const DIGEST="8c9a3a77af01f3a69ed328e4f1ed6d611a7e49dec0971974bfca523db97023e9";
 const hash=b=>createHash('sha256').update(b).digest('hex');
 function assert(value,message){if(!value)throw Error(message);}
 export function verifyApprovedPublication(root,{syntax=false}={}){

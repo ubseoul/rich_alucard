@@ -1,8 +1,8 @@
 {
   "schema": 1,
-  "engineCommit": "fcc14bac5324a4bc3717ad5c292a513ca3237171",
-  "gameplayCommit": "e7122769543e7dcc116e8d44fe7dd9758dddefac",
-  "packSha256": "7797532886ed27f3dc2057c165978271654fa357affc49ca1ac92ea14a5a40c1",
+  "engineCommit": "8fc712aab0681e76d87d84944574c801f01af1b6",
+  "gameplayCommit": "411286a3b2b85379e8cfd582e272a5675fdbc5ec",
+  "packSha256": "aed7817486efad5948eba416497559e496ab8393ab10cd0cdae2261b13fdf1e6",
   "files": {
     ".nojekyll": {
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -13,7 +13,7 @@
       "bytes": 15
     },
     "GAME-RELEASE.json": {
-      "sha256": "e78de53a9d454e79a8e4928860296ac1cd068d54c278b8cf1955b903d7dee90c",
+      "sha256": "6e8746819baac9c9f2d7aa4fe40f34670d59a5b8038e3d4e6251af1747618cd1",
       "bytes": 1542
     },
     "README.txt": {
@@ -6049,7 +6049,7 @@
       "bytes": 6266
     },
     "build.json": {
-      "sha256": "e1b3bde0a64955d1ef32f1273d48eae5756dac7502514d5a4a3ae97d1fcfa50d",
+      "sha256": "2c113dc01b8b5eeae21649fcfe24a31c6e11a826b40bd624f89efb017587593f",
       "bytes": 256
     },
     "game.js": {
@@ -6057,8 +6057,8 @@
       "bytes": 43478
     },
     "index.html": {
-      "sha256": "b6994567b2027a79355c0229a6477749dd8fac714de9187f3a22f897bfd03eae",
-      "bytes": 41827
+      "sha256": "4cfab2a07d8f32789e7525fdf3622ab1c5ec27a6071652a43f15e856ef5d5a3a",
+      "bytes": 42374
     },
     "intro-assets/bite.png": {
       "sha256": "1cfa67fb081e18f6b2a5c8d9998f3e99cbe32ecf9023f6e8b3494bfdd20b6492",
@@ -6089,7 +6089,7 @@
       "bytes": 1701
     },
     "js/build-info.js": {
-      "sha256": "cc1b268b22c742def5878563769977c73890e9a868d9b432bf9683b783e24b2a",
+      "sha256": "bc12879d78dc036e795d4af559a586d64c47cf62c7a51ed7bf5423409fa2350d",
       "bytes": 298
     },
     "js/data/art/parts/F02_combat_fx.js": {
@@ -7045,8 +7045,8 @@
       "bytes": 24663
     },
     "js/sealed/pack.js": {
-      "sha256": "7797532886ed27f3dc2057c165978271654fa357affc49ca1ac92ea14a5a40c1",
-      "bytes": 1274659
+      "sha256": "aed7817486efad5948eba416497559e496ab8393ab10cd0cdae2261b13fdf1e6",
+      "bytes": 1275430
     },
     "js/systems/ambience.js": {
       "sha256": "3113caa0d0d20e27a463ca982694fdfd5f4e682882498b9d9b5cb44462156b97",
@@ -7277,8 +7277,8 @@
       "bytes": 10757
     },
     "js/systems/title_intro.js": {
-      "sha256": "845e2b981e73a9021810678db1a581e906ac16ca6c660cda238d044e1d789328",
-      "bytes": 1673
+      "sha256": "09b53298ba03b6a254eaf492bb4d6302c5733c4a0af6d7d38aa2990fb895609f",
+      "bytes": 1783
     },
     "js/systems/vampgram.js": {
       "sha256": "ddf39127c3e23f32d0ccf8d2c832914ccb53a1702fe279f823afd69ad9c6ddf7",
@@ -7297,7 +7297,7 @@
       "bytes": 6633
     },
     "minigame-lab.html": {
-      "sha256": "24e3c1474f6aefe3d1e781a9abaa31e3a4a3ac53c5448c32b41bf57afc6339b3",
+      "sha256": "ef63135bd303f54b4c81cbd0cf6cc175ee2ca43139cb150806cd039a41da2335",
       "bytes": 3422
     },
     "opening-assets/car.png": {
@@ -7357,20 +7357,20 @@
       "bytes": 1957
     },
     "overlay-build.json": {
-      "sha256": "7143ad707e79dbfee96580dee6accea72a0733f4ddb88288f7cc8a0544e0682c",
+      "sha256": "c15ded71eff4207dc9d86406a00dfb606ca8409145f70b96ed1098fa73a1df45",
       "bytes": 356
     },
     "party-dev.html": {
-      "sha256": "28e378a5638ab093d5e94df40da2222f6fcba306cf9f1d112a6b5283c24765f0",
+      "sha256": "4643cd2802353b041bfa947ab1cebbfbb9ccf63823f26267d4d63ab47fc54042",
       "bytes": 2290
     },
     "rave-review.html": {
-      "sha256": "d7687b64532e8b53f3d1eea897ef985f3a955699f4f7fc6fae2f47ac3f1d8a8d",
+      "sha256": "ce03e42e1800358262b0092750ba47ba383589f403224b0bab1ce5cbe78ae3fb",
       "bytes": 2096
     },
     "style.css": {
-      "sha256": "ca191ff7beabdf2b84f349c6ebeb40e6313fe46898bf5e79282ba0d790e9c2a3",
-      "bytes": 95612
+      "sha256": "c4c0979994e6f753cc53413bd3df84c8c72d938f2db92e50562267b4744edf37",
+      "bytes": 95905
     }
   },
   "privateCommit": "c515f12d36062c84a8783725671fed64332829be"
