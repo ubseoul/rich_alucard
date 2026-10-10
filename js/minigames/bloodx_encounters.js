@@ -143,20 +143,30 @@
   state.shown = { player: state.playerHp, enemy: state.enemyHp };
   return state;
  }
+ // Combat2 owns the visible battle language; the BloodX rules below remain independent.
  const CSS = `
- .bx-encounter{position:relative!important;inset:auto!important;width:100%;min-height:480px;height:100%;overflow:hidden;background:#17131e;color:#f6efd9;font:8px/1.35 var(--font-system,monospace);box-sizing:border-box;isolation:isolate;touch-action:manipulation}
- .bx-encounter *{box-sizing:border-box}.bx-encounter .bx-world{position:absolute;inset:0 0 44%;overflow:hidden;background:linear-gradient(#242032,#393044 76%,#29222d 76%)}
- .bx-encounter .bx-background{width:100%;height:100%;object-fit:cover;object-position:50% 100%;position:absolute;inset:0;image-rendering:pixelated;opacity:1}
- .bx-encounter .bx-actor{position:absolute;bottom:12%;width:27%;height:40%;object-fit:contain;image-rendering:pixelated;pointer-events:none}.bx-encounter .bx-rich{left:9%}.bx-encounter .bx-enemy{right:7%}.bx-encounter[data-type=cockroach] .bx-enemy{width:39%;height:36%;right:3%;bottom:11%}
- .bx-encounter .bx-hud{position:absolute;top:8px;left:8px;right:8px;display:grid;grid-template-columns:1fr 1fr;gap:10px;z-index:4;font-size:8px;line-height:1.3}
- .bx-encounter .bx-hp{padding:7px;background:#17131eee;border:1px solid #d6af62;min-width:0}.bx-encounter .bx-hp b{display:block;overflow-wrap:anywhere}.bx-encounter .bx-hp i{display:block;height:7px;background:#4b374e;margin:5px 0}.bx-encounter .bx-hp em{display:block;height:100%;background:#ae2446;transition:width .16s linear}.bx-encounter .bx-hp strong{font-weight:normal}
- .bx-encounter .bx-telegraph{position:absolute;top:30%;left:4%;right:4%;padding:6px;background:#17131ef2;border:2px solid #d6af62;z-index:5;text-align:center;white-space:pre-line;font-size:8px;line-height:1.35}
- .bx-encounter .bx-panel{position:absolute;bottom:0;left:0;right:0;height:44%;overflow:auto;background:#17131e;padding:8px;border-top:2px solid #d6af62;z-index:7}.bx-encounter .bx-log{font-size:8px;line-height:1.35;min-height:3.2em;white-space:pre-line;margin-bottom:6px;overflow-wrap:anywhere}
- .bx-encounter .bx-menu{display:grid;grid-template-columns:1fr 1fr;gap:6px}.bx-encounter button{font:8px/1.35 var(--font-system,monospace);min-height:44px;padding:6px;border:2px solid #c6ae84;background:#f6efd9;color:#17131e;cursor:pointer;touch-action:manipulation;overflow-wrap:anywhere}.bx-encounter button:focus-visible{outline:3px solid #72b58a;outline-offset:2px}.bx-encounter button:disabled{opacity:.4;cursor:default}.bx-encounter button small{display:block;font-size:6px}.bx-encounter .bx-secondary{background:#302338;color:#f6efd9}.bx-encounter .bx-help{font-size:6px;line-height:1.35;color:#d6af62;margin-top:6px}.bx-encounter .bx-fx{position:absolute;inset:0;z-index:6;pointer-events:none;image-rendering:pixelated}.bx-encounter .bx-prop{position:absolute;pointer-events:none;image-rendering:pixelated;object-fit:contain;z-index:5}.bx-encounter .bx-contact{filter:brightness(1.8)}
- .bx-encounter .bx-number{position:absolute;z-index:7;color:#f6efd9;font-size:22px;left:20%;top:55%;text-shadow:2px 2px #17131e}.bx-encounter .bx-number.enemy{left:72%}.bx-encounter .bx-shake{animation:bx-shake .18s steps(3,end)}@keyframes bx-shake{33%{translate:3px -2px}66%{translate:-3px 1px}}
- .bx-encounter .bx-prototype{position:absolute;bottom:3%;left:4%;right:4%;color:#d6af62;font-size:9px;text-align:center;z-index:5}.bx-encounter .bx-error{color:#ffadbb}.bx-encounter.bx-reduced .bx-hp em{transition:none}.bx-encounter.bx-reduced .bx-shake{animation:none}
- @media(max-height:550px){.bx-encounter .bx-panel{padding:6px}}
- @media(prefers-reduced-motion:reduce){.bx-encounter .bx-shake{animation:none}.bx-encounter .bx-hp em{transition:none}}
+ .bx-encounter{position:relative!important;inset:auto!important;width:100%;min-height:0;height:100%;overflow:hidden;background:#080711;color:#f6efd9;box-sizing:border-box;isolation:isolate;touch-action:manipulation;container-type:inline-size}
+ .bx-encounter *{box-sizing:border-box}.bx-encounter [hidden]{display:none!important}
+ .bx-encounter .bx-world{position:absolute;left:0;right:0;overflow:hidden;background:#080711;box-shadow:0 -2px #05040b,0 2px #05040b,0 -3px #403b72,0 3px #403b72}
+ .bx-encounter .bx-background{position:absolute;left:0;bottom:0;width:100%;height:auto;image-rendering:pixelated;pointer-events:none}
+ .bx-encounter .bx-world::after{content:'';position:absolute;inset:0;background:rgba(8,7,15,.25);z-index:1;pointer-events:none}
+ .bx-encounter .bx-actor{position:absolute;object-fit:contain;image-rendering:pixelated;pointer-events:none;z-index:2}
+ .bx-encounter .bx-hud{left:2.5%!important;right:2.5%!important;top:12px!important;width:auto!important;height:auto!important;display:flex;gap:3%;z-index:6}
+ .bx-encounter .bx-hp{min-width:0;font-size:clamp(7px,2.1cqw,10px)}
+ .bx-encounter .bx-telegraph{left:4%!important;right:4%!important;top:8px!important;width:auto!important;white-space:pre-line;font-size:clamp(7px,2.2cqw,10px);z-index:5}
+ .bx-encounter .bx-panel{left:2.5%!important;right:2.5%!important;top:auto!important;bottom:12px!important;width:auto!important;max-height:none!important;display:flex;flex-direction:column;gap:6px;z-index:8}
+ .bx-encounter .bx-log{font-size:clamp(8px,2.6cqw,11px);line-height:1.5;white-space:pre-line;overflow-wrap:anywhere;flex:none}
+ .bx-encounter .bx-menu{max-height:none!important;min-height:0;flex:1;grid-auto-rows:minmax(44px,1fr);overflow:auto}
+ .bx-encounter[data-status=presenting] .bx-menu{flex:0 0 auto;grid-auto-rows:44px;align-content:start}
+ .bx-encounter .c2-btn{font-family:var(--font-command);font-size:clamp(8px,2.4cqw,10px);line-height:1.35;text-align:left;min-height:44px;padding:.8em .7em;background:#17142c;color:#f6efd9;border:2px solid #10101b;border-radius:0;box-shadow:2px 2px #7d194b;display:flex;flex-direction:column;justify-content:center;overflow-wrap:anywhere;touch-action:manipulation}
+ .bx-encounter .c2-btn small{display:block;font: .72em/1.35 var(--font-number);color:#c18b3c;margin-top:.3em}
+ .bx-encounter .c2-btn.bx-secondary{background:#17142c;color:#f6efd9}.bx-encounter .c2-btn[data-bx-action=quit],.bx-encounter .c2-btn[data-bx-action=leave]{background:#f6efd9;color:#10101b}
+ .bx-encounter button:focus-visible{outline:3px solid #d6af62;outline-offset:2px}.bx-encounter button:disabled{opacity:.45;cursor:default}
+ .bx-encounter .bx-help{font:clamp(6px,1.7cqw,8px)/1.4 var(--font-system);color:#d6af62;flex:none;overflow-wrap:anywhere}
+ .bx-encounter .bx-fx{position:absolute;inset:0;z-index:4;pointer-events:none;image-rendering:pixelated}.bx-encounter .bx-prop{position:absolute;pointer-events:none;image-rendering:pixelated;object-fit:contain;z-index:4}
+ .bx-encounter .bx-number{z-index:6}.bx-encounter .bx-prototype{position:absolute;bottom:3%;left:4%;right:4%;font:8px var(--font-system);color:#d6af62;text-align:center;z-index:5}.bx-encounter .bx-error{color:#ffadbb}
+ .bx-encounter.bx-reduced .c2-num{animation:none}.bx-encounter.bx-reduced .bx-hp em{transition:none}
+ @media(max-height:650px){.bx-encounter .bx-log{padding:.5em .7em;min-height:3em}.bx-encounter .c2-btn{padding:.5em .6em}.bx-encounter .bx-panel{gap:4px;bottom:8px!important}}
  `;
  let active = null;
  function mount(input = {}) {
@@ -173,9 +183,9 @@
   const host = input.root || global.document?.querySelector('#screen');
   if (!host) return Promise.resolve({ ...result('error'), error: 'No encounter host' });
   const doc = host.ownerDocument, root = doc.createElement('section');
-  root.className = `bx-encounter${config.reducedMotion ? ' bx-reduced' : ''}`; root.dataset.type = config.type;
+  root.className = `c2-scene bx-encounter${config.reducedMotion ? ' bx-reduced' : ''}`; root.dataset.type = config.type;
   root.setAttribute('aria-label', config.enemy.name); root.tabIndex = -1;
-  root.innerHTML = `<style>${CSS}</style><div class="bx-world"><img class="bx-background" alt="" hidden><img class="bx-actor bx-rich c2-rich" alt=""><img class="bx-actor bx-enemy c2-enemy" alt=""><div class="bx-hud"><div class="bx-hp bx-player-hp"><b></b><i><em></em></i><strong></strong></div><div class="bx-hp bx-enemy-hp"><b></b><i><em></em></i><strong></strong></div></div><div class="bx-telegraph"></div></div><div class="bx-panel"><div class="bx-log" role="status" aria-live="polite"></div><div class="bx-menu"></div><div class="bx-help"></div></div>`;
+  root.innerHTML = `<style>${CSS}</style><div class="bx-world"><img class="bx-background" alt="" hidden><img class="c2-actor bx-actor bx-rich c2-rich" alt=""><img class="c2-actor bx-actor bx-enemy c2-enemy" alt=""><div class="c2-telegraph bx-telegraph"></div></div><div class="c2-hud bx-hud"><div class="c2-hp c2-hp-rich bx-hp bx-player-hp"><b></b><span>HP <i><em></em></i><strong></strong></span></div><div class="c2-hp c2-hp-enemy bx-hp bx-enemy-hp"><b></b><span>HP <i><em></em></i><strong></strong></span></div></div><div class="c2-panel bx-panel"><div class="c2-log bx-log" role="status" aria-live="polite"></div><div class="c2-menu bx-menu"></div><div class="bx-help"></div></div>`;
   const $ = selector => root.querySelector(selector), world = $('.bx-world'), rich = $('.bx-rich'), enemy = $('.bx-enemy');
   rich.src = config.assets.playerIdle; enemy.src = config.enemy.assets.idle;
   if (config.assets.background) { $('.bx-background').src = config.assets.background; $('.bx-background').hidden = false; }
@@ -183,6 +193,46 @@
   $('.bx-help').textContent = config.labels.controls || `1–4 moves · G guard · Esc quit. Guard cuts the next hit by 75%.${config.type === 'grandma' ? ' RPG leaves a recovery turn.' : ''}`;
   if (config.enemy.prototypeArt) { const badge = doc.createElement('div'); badge.className = 'bx-prototype'; badge.textContent = config.labels.prototypeArt || 'PROTOTYPE ACTOR ART'; world.append(badge); }
   host.append(root); root.focus({ preventScroll: true });
+  // Local native camera; never enter/replace the surrounding scene's Presentation Director.
+  const silhouettes = new Map();
+  function silhouette(actor) {
+   const nw = actor.naturalWidth || 80, nh = actor.naturalHeight || 96, key = actor.currentSrc || actor.src;
+   if (silhouettes.has(key)) return silhouettes.get(key);
+   const fallback = {width:nw,height:nh,visible:[0,0,nw,nh],support:nh * 88 / 96};
+   if (!actor.complete || !actor.naturalWidth) return fallback;
+   try {
+    const canvas = doc.createElement('canvas'); canvas.width = nw; canvas.height = nh;
+    const context = canvas.getContext('2d'); context.drawImage(actor,0,0);
+    const pixels = context.getImageData(0,0,nw,nh).data; let x1=nw,y1=nh,x2=0,y2=0;
+    for(let y=0;y<nh;y++)for(let x=0;x<nw;x++)if(pixels[(y*nw+x)*4+3]>=128){x1=Math.min(x1,x);y1=Math.min(y1,y);x2=Math.max(x2,x+1);y2=Math.max(y2,y+1);}
+    const value = x2 ? {width:nw,height:nh,visible:[x1,y1,x2-x1,y2-y1],support:y2} : fallback;
+    silhouettes.set(key,value); return value;
+   } catch (_) { return fallback; }
+  }
+  function layout() {
+   const box = root.getBoundingClientRect(), unit = box.width / 270;
+   const panelHeight = Math.min(280, Math.max(224, box.height * .28)), top = Math.min(82, box.height * .14);
+   $('.bx-panel').style.height = `${panelHeight}px`; world.style.top = `${top}px`; world.style.bottom = `${panelHeight + 26}px`;
+   const floor = world.clientHeight - 18 * unit, scale = Math.max(1, Math.min(2, (world.clientHeight / unit - 46) / 88));
+   const place = (actor, x, native = [80,96], anchor = [40,88], k = scale) => Object.assign(actor.style, {left:`${(x - anchor[0] * k) * unit}px`,top:`${floor - anchor[1] * k * unit}px`,width:`${native[0] * k * unit}px`,height:`${native[1] * k * unit}px`});
+   place(rich, 64);
+   if (config.type === 'cockroach') {
+    // The unchanged spirit/pose masters have their own wide source cells, not 80x96 padding.
+    const meta = silhouette(enemy), k = scale * 80 / meta.width;
+    place(enemy,184,[meta.width,meta.height],[meta.width/2,meta.support],k);
+   } else place(enemy, 200);
+   root.dataset.actorScale = String(scale); root.dataset.contactY = String(top + floor);
+  }
+  const resize = global.ResizeObserver ? new global.ResizeObserver(layout) : null; resize?.observe(root); rich.addEventListener('load',layout); enemy.addEventListener('load',layout); layout();
+  function geometry() {
+   const r = root.getBoundingClientRect(), w = world.getBoundingClientRect(), actor = el => {
+    const b = el.getBoundingClientRect(), nw = el.naturalWidth || 80, nh = el.naturalHeight || 96, k = Math.min(b.width / nw,b.height / nh), x = b.left - r.left + (b.width - nw*k)/2, y = b.top - r.top + (b.height - nh*k)/2;
+    const sprite = {x,y,w:nw*k,h:nh*k}, meta = silhouette(el), [vx,vy,vw,vh] = meta.visible;
+    return {sprite,visible:{x:x+vx*k,y:y+vy*k,w:vw*k,h:vh*k},contact:{x:x+nw*k/2,y:y+(config.type==='cockroach'&&el===enemy?meta.support:88)*k},flip:false};
+   };
+   return {world:{x:w.left-r.left,y:w.top-r.top,w:w.width,h:w.height},worldNode:world,actors:{rich:actor(rich),enemy:actor(enemy)}};
+  }
+  let presentation = null;
   let resolve, closed = false, closing = false, busy = true, saveQueue = Promise.resolve(), effectOwner = 0, committedState = clone(state), touchPress = null, suppressTouchClick = null, currentEnemyMove = null;
   const timers = new Map(), effects = new Set();
   // Use the shipped combat recordings; never queue a locked/muted cue for later playback.
@@ -205,9 +255,9 @@
    return saveQueue;
   }
   function wait(ms) { if (closed || closing) return Promise.resolve(); return new Promise(done => { const id = global.setTimeout(() => { timers.delete(id); done(); }, ms * config.timingScale); timers.set(id, done); }); }
-  function cleanupFX(resetActors = true) { effectOwner++; for (const node of effects) node.remove(); effects.clear(); rich.classList.remove('bx-contact'); enemy.classList.remove('bx-contact'); world.classList.remove('bx-shake'); if (resetActors) { rich.src = config.assets.playerIdle; enemy.src = config.enemy.assets.idle; } }
+  function cleanupFX(resetActors = true, keepPresentation = false) { if (!keepPresentation) { presentation?.close?.(); presentation = null; root.querySelectorAll('.c2-approved-fx,.c2-pixel-fx').forEach(el=>el.remove()); } effectOwner++; for (const node of effects) node.remove(); effects.clear(); rich.classList.remove('bx-contact'); enemy.classList.remove('bx-contact'); world.classList.remove('bx-shake'); if (resetActors) { rich.src = config.assets.playerIdle; enemy.src = config.enemy.assets.idle; } }
   function cleanup() {
-   if (closed) return; closed = true; cleanupFX();
+   if (closed) return; closed = true; resize?.disconnect(); rich.removeEventListener('load',layout); enemy.removeEventListener('load',layout); silhouettes.clear(); cleanupFX();
    for (const [id, done] of timers) { global.clearTimeout(id); done(); } timers.clear();
    root.removeEventListener('click', click); root.removeEventListener('pointerdown', touchDown); root.removeEventListener('pointermove', touchMove); root.removeEventListener('pointerup', touchUp); root.removeEventListener('pointercancel', touchCancel); touchPress = null; suppressTouchClick = null; warmImages.length = 0; global.removeEventListener('keydown', key);
    doc.removeEventListener('visibilitychange', visibility); config.signal?.removeEventListener('abort', abort);
@@ -231,7 +281,7 @@
    $('.bx-telegraph').hidden = !!state.outcome;
   }
   function button(text, action, secondary = false, disabled = false, detail = '') {
-   const el = doc.createElement('button'); el.type = 'button'; el.dataset.bxAction = action; el.className = secondary ? 'bx-secondary' : ''; el.disabled = disabled; el.append(doc.createTextNode(text));
+   const el = doc.createElement('button'); el.type = 'button'; el.dataset.bxAction = action; el.className = `c2-btn${secondary ? ' bx-secondary' : ''}`; el.disabled = disabled; el.append(doc.createTextNode(text));
    if (detail) { const small = doc.createElement('small'); small.textContent = detail; el.append(small); }
    $('.bx-menu').append(el);
   }
@@ -255,7 +305,7 @@
   const fxCell = config.assets.fxCell || [64, 64], fxAnchor = config.assets.fxAnchor || [fxCell[0] / 2, fxCell[1] / 2];
   function authoredProp(src, x, y) { return prop(src, x - fxAnchor[0], y - fxAnchor[1], fxCell[0], fxCell[1]); }
   function placeAuthored(node, x, y) { node.style.left = `${(x - fxAnchor[0]) / 270 * 100}%`; node.style.top = `${(y - fxAnchor[1]) / 300 * 100}%`; }
-  function actorPoint(actor, px = 40, py = 55) { const box = actor.getBoundingClientRect(), area = world.getBoundingClientRect(), w = actor.naturalWidth || 80, h = actor.naturalHeight || 96, scale = Math.min(box.width / w, box.height / h); return { x: (box.left - area.left + (box.width - w * scale) / 2 + px * scale) / area.width * 270, y: (box.top - area.top + (box.height - h * scale) / 2 + py * scale) / area.height * 300 }; }
+  function actorPoint(actor, px = 40, py = 55) { const box = actor.getBoundingClientRect(), area = world.getBoundingClientRect(), w = actor.naturalWidth || 80, h = actor.naturalHeight || 96, scale = Math.min(box.width / w, box.height / h); return { x: (box.left - area.left + (box.width - w * scale) / 2 + px / 80 * w * scale) / area.width * 270, y: (box.top - area.top + (box.height - h * scale) / 2 + py / 96 * h * scale) / area.height * 300 }; }
   async function frames(draw, count, ms) {
    const owner = effectOwner;
    if (config.reducedMotion) { draw(count - 1); await wait(Math.min(ms, 150)); return; }
@@ -321,27 +371,20 @@
    enemy.src = poses.contact || config.enemy.assets.attack || config.enemy.assets.idle;
   }
   async function playerAttack(id) {
-   const move = config.player.moves.find(m => m.id === id), art = move?.assets && Object.keys(move.assets).length ? move.assets : global.RAArtRegistry?.combatMoves?.[id];
    if (config.assets.playerAttack) rich.src = config.assets.playerAttack;
-   if (id === 'blood' && art?.rear?.length) {
-    const rear = prop(art.rear[0], 0, -60, 270, 362); await frames(frame => { rear.src = art.rear[Math.min(art.rear.length - 1, Math.floor(frame / 2))]; }, 6, 400);
-    if (art.foreground) prop(art.foreground, 0, -60, 270, 362);
-    if (art.overlay?.length) prop(art.overlay[art.overlay.length - 1], 150, 140, 96, 96);
-   } else if (id === 'bite' && art?.upper) {
-    prop(art.upper, 0, 0, 270, 300); prop(art.lower, 0, 0, 270, 300); await wait(300); cleanupFX(); if (art.snap) prop(art.snap, 0, 0, 270, 300);
-   } else if (id === 'octopus' && art?.frames) {
-    const octopus = prop(art.frames[0], 0, 0, 270, 300); await frames(frame => { octopus.src = art.frames[frame % art.frames.length]; }, 4, 420);
-   } else {
-    const { context } = fxCanvas(); await frames(frame => { context.clearRect(0, 0, 270, 300); burst(context, 207, 179, frame, id === 'revenge' ? '#ae2446' : '#d6af62'); }, 5, 320);
-   }
+   presentation = global.RACombatPresentation?.move?.({root,attacker:rich,target:enemy,action:{type:'move',id},geometry:geometry()});
+   if (!presentation) await sound(moveSound(id));
+   const contactAt = global.RACombatPixelFX?.MOVES?.[id]?.contact || 300;
+   await wait(config.reducedMotion ? 120 : contactAt * (presentation?.duration || 720) / 720);
   }
   async function contact(event) {
    if (event.amount > 0) await sound(event.hp[event.target] <= 0 ? 'KO' : event.amount >= 30 ? 'HIT_HEAVY' : 'HIT_LIGHT');
    const target = event.target === 'enemy' ? enemy : rich;
    if (event.target === 'enemy' && config.enemy.assets.hit) enemy.src = config.enemy.assets.hit;
    if (event.target === 'player' && config.assets.playerHit) rich.src = config.assets.playerHit;
-   target.classList.add('bx-contact'); if (!config.reducedMotion) world.classList.add('bx-shake');
-   const num = doc.createElement('b'); num.className = `bx-number ${event.target}`; num.textContent = `−${event.amount}`; world.append(num); effects.add(num);
+   const severity = event.hp[event.target] <= 0 ? 'lethal' : event.amount >= 30 ? 'heavy' : 'normal';
+   global.RACombatPixelFX?.impact?.({root,target,attacker:event.target === 'enemy' ? rich : enemy,severity,geometry:geometry()});
+   const num = doc.createElement('b'); num.className = `c2-num c2-num-${event.target === 'player' ? 'rich' : 'enemy'} c2-num-${severity} bx-number ${event.target}`; num.textContent = `−${event.amount}`; world.append(num); effects.add(num);
    const at = actorPoint(target); num.style.left = `${at.x / 270 * 100}%`; num.style.top = `${(at.y - 18) / 300 * 100}%`;
    if (event.target === 'player' && event.fx === 'chancla' && config.assets.chanclaImpact) authoredProp(config.assets.chanclaImpact, at.x, at.y);
    if (event.target === 'player' && event.fx === 'rpg' && config.assets.impact) authoredProp(config.assets.impact, at.x, at.y);
@@ -357,7 +400,7 @@
     const event = clone(state.pending.events[state.pending.cursor]);
     // Commit the cursor BEFORE its visual contact. A reload resumes the next event.
     state = acknowledge(state); await persist(`event:${event.kind}`); if (closed || closing) return;
-    if (event.kind === 'player') { $('.bx-log').textContent = event.label; await sound(moveSound(event.move)); if (!closed && !closing) await playerAttack(event.move); }
+    if (event.kind === 'player') { $('.bx-log').textContent = event.label; if (!closed && !closing) await playerAttack(event.move); }
     else if (event.kind === 'enemy') { $('.bx-log').textContent = event.label; $('.bx-telegraph').textContent = `${config.labels.attacking || 'ATTACK'}: ${event.label}`; $('.bx-telegraph').hidden = false; if (config.enemy.moves[event.move]?.dmg > 0) await sound('TELEGRAPH'); if (!closed && !closing) await enemyAttack(event.move); }
     else if (event.kind === 'contact') { $('.bx-log').textContent = `${event.target === 'player' ? config.player.name : config.enemy.name} −${event.amount} HP`; await contact(event); }
     else if (event.kind === 'phase') { $('.bx-log').textContent = config.enemy.dialogue.phase2 || config.labels.phase2 || 'PHASE 2'; await wait(750); }
@@ -366,7 +409,7 @@
     else if (event.kind === 'blocked') { $('.bx-log').textContent = config.labels.blocked || 'BLOCKED'; await sound('EN_SHIELD'); await wait(200); }
     else if (event.kind === 'recovery') { $('.bx-log').textContent = config.enemy.moves.recover?.telegraph || config.labels.recovery || 'RECOVERY · ATTACK OPENING'; await wait(300); }
     else if (event.kind === 'end') { await sound(event.outcome === 'win' ? 'VICTORY' : 'DEFEAT'); await wait(180); }
-    cleanupFX(event.kind !== 'enemy' && event.kind !== 'player');
+    cleanupFX(event.kind !== 'enemy' && event.kind !== 'player', event.kind === 'player');
    }
    if (closed || closing) return;
    state = completePresentation(state); await persist('ready'); if (closed || closing) return;

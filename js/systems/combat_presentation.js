@@ -43,15 +43,15 @@
   }
   // OL-045: menu combat consumes the same accepted reusable FX packages as the original encounter.
   // Presentation reads the action/log; it never alters rules, PP, damage, the four slots or F01 THE PLAY.
-  function move({root,attacker,target,action,gun,events=[]}){
-    const current=window.RACombatPixelFX?.move({root,attacker,target,action,gun,events});
+  function move({root,attacker,target,action,gun,events=[],geometry}){
+    const current=window.RACombatPixelFX?.move({root,attacker,target,action,gun,events,geometry});
     const id=action.type==='move'?action.id:gun?'gun':action.type;
     root.dataset.lastPresentation=gun?`gun:${gun}`:id;
     const art=window.RAArtRegistry?.combatMoves?.[id];
     if(!art&&!gun)return current;
     const box=root.getBoundingClientRect(),t=target.getBoundingClientRect(),r=attacker.getBoundingClientRect();
-    const world=window.RAPresentationDirector?.worldRect?.()||{x:0,y:0,w:box.width,h:box.height},scale=world.w/270,H=world.h/scale;
-    const point=(el,role)=>{const b=window.RAPresentationDirector?.actorBox?.(role);return b?{x:(b.visible.x+b.visible.w/2-world.x)/scale,y:(b.visible.y+b.visible.h*.42-world.y)/scale,floor:(b.contact.y-world.y)/scale}:{x:(el.left-box.left+el.width/2-world.x)/scale,y:(el.top-box.top+el.height*.42-world.y)/scale,floor:(el.bottom-box.top-world.y)/scale};};
+    const world=geometry?.world||window.RAPresentationDirector?.worldRect?.()||{x:0,y:0,w:box.width,h:box.height},scale=world.w/270,H=world.h/scale;
+    const point=(el,role)=>{const b=geometry?.actors?.[role]||window.RAPresentationDirector?.actorBox?.(role);return b?{x:(b.visible.x+b.visible.w/2-world.x)/scale,y:(b.visible.y+b.visible.h*.42-world.y)/scale,floor:(b.contact.y-world.y)/scale}:{x:(el.left-box.left+el.width/2-world.x)/scale,y:(el.top-box.top+el.height*.42-world.y)/scale,floor:(el.bottom-box.top-world.y)/scale};};
     const enemy=point(t,'enemy'),rich=point(r,'rich'),{x,y,floor}=enemy;
     const layer=document.createElement('div');layer.className='c2-approved-fx';layer.dataset.move=id;
     Object.assign(layer.style,{position:'absolute',left:`${world.x}px`,top:`${world.y}px`,width:`${world.w}px`,height:`${world.h}px`,overflow:'hidden',pointerEvents:'none',zIndex:'4'});root.append(layer);
