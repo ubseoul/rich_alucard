@@ -37,7 +37,7 @@
  }
 
  function initialState(config) {
-  return {version:1,routeId:config.id,attemptId:config.attemptId || null,revision:0,carId:null,currentStop:0,position:{nodeId:config.map.startNode},phase:'assignment',outcomes:[],choiceId:null,encounter:null,battleAttempt:0,durableTerminal:null};
+  return {version:1,routeId:config.id,attemptId:config.attemptId || null,revision:0,carId:null,currentStop:0,arrivalLine:0,position:{nodeId:config.map.startNode},phase:'assignment',outcomes:[],choiceId:null,encounter:null,battleAttempt:0,durableTerminal:null};
  }
 
  function restore(config, saved, nodes) {
@@ -54,6 +54,7 @@
   if (!['assignment','car','complete'].includes(s.phase) && !config.cars.some(c => c.id === s.carId && c.owned !== false && c.available !== false)) throw Error('route-selected-car-unavailable');
   if (['arrival','encounter','encounter-lost','receipt'].includes(s.phase) && s.position.nodeId !== config.stops[s.currentStop]?.nodeId) throw Error('route-checkpoint-location-invalid');
   if (['encounter','encounter-lost','receipt'].includes(s.phase) && !config.stops[s.currentStop]?.choices.some(c => c.id === s.choiceId)) throw Error('route-checkpoint-choice-invalid');
+  s.arrivalLine = Math.max(0,Math.min(config.stops[s.currentStop]?.arrivalLines?.length || 0,Number.isInteger(s.arrivalLine)?s.arrivalLine:0));
   s.battleAttempt = Number.isInteger(s.battleAttempt) ? s.battleAttempt : 0;
   return s;
  }
@@ -127,13 +128,18 @@
     const option = availableDirections(s.position.nodeId)[direction];
     if (!option) return false;
     s.position = {nodeId:option.nodeId,street:option.edge.street || '',direction};
-    if (s.position.nodeId === config.stops[s.currentStop].nodeId) s.phase = 'arrival';
+    if (s.position.nodeId === config.stops[s.currentStop].nodeId) { s.phase = 'arrival'; s.arrivalLine = 0; }
     return true;
    },{direction}); },
+   advanceArrival() { return commit('arrival-dialogue',s=>{
+    const stop=config.stops[s.currentStop];
+    if(s.phase!=='arrival'||!stop?.scene?.dialogue||s.arrivalLine>=stop.arrivalLines.length)return false;
+    s.arrivalLine++;return true;
+   }); },
    choose(id) {
     const choice = config.stops[state.currentStop]?.choices.find(c => c.id === id);
     return commit(choice?.action === 'complete' ? 'stop-complete' : 'encounter-started',s => {
-     if (s.phase !== 'arrival') return false;
+     if (s.phase !== 'arrival' || (config.stops[s.currentStop]?.scene?.dialogue && s.arrivalLine < config.stops[s.currentStop].arrivalLines.length)) return false;
      const selected = config.stops[s.currentStop].choices.find(c => c.id === id);
      if (!selected) return false;
      s.choiceId = id;
@@ -162,7 +168,7 @@
    }); },
    continue() { return commit(state.currentStop === 2 ? 'route-completed' : 'next-stop',s => {
     if (s.phase !== 'receipt') return false;
-    s.currentStop++; s.choiceId = null; s.encounter = null; s.battleAttempt = 0;
+    s.currentStop++; s.arrivalLine = 0; s.choiceId = null; s.encounter = null; s.battleAttempt = 0;
     s.phase = s.currentStop === 3 ? 'complete' : s.position.nodeId === config.stops[s.currentStop].nodeId ? 'arrival' : 'drive';
     if (s.phase === 'complete') s.durableTerminal = 'completed';
     return true;
@@ -196,6 +202,12 @@
  .bx-route .bx-receipt{background:#f2e6c7;color:#21152c;padding:18px 14px;border-top:7px solid #89d8ad;box-shadow:0 4px 0 #655172}.bx-route .bx-receipt h2{color:#3b2948}.bx-route .bx-receipt .bx-speaker{color:#7d2747}.bx-route .bx-receipt .bx-lines{margin-top:14px}.bx-route .bx-reward{border-top:1px dashed #a4947b;margin-top:14px;padding-top:9px;font-weight:700;color:#33604d}.bx-route .bx-busy{position:sticky;bottom:0;background:#0b0716;padding:5px 12px;font-size:9px;color:#a89bb8;text-align:center;min-height:22px}.bx-route .bx-encounter-host{min-height:100%;position:relative}.bx-route .bx-pause{position:absolute;inset:0;z-index:40;background:#0b0716dd;display:flex;align-items:center;justify-content:center;color:#ffd36a}.bx-route .bx-finish{padding:20px 14px}
 .bx-route[data-phase=drive] .bx-head h2{font-size:8px}.bx-route[data-phase=drive] .bx-body{gap:8px;padding:10px}.bx-route[data-phase=drive] .bx-next{font-size:8px}.bx-route[data-phase=drive] .bx-map{height:170px}.bx-route .bx-controls button{line-height:1}.bx-route .bx-stops{font-size:7px}.bx-route .bx-street{font-size:16px}
  .bx-route[data-phase=encounter] .bx-content{height:100%}.bx-route[data-phase=encounter] .bx-encounter-host{height:100%;min-height:0}
+ .ra-minigame[data-minigame="legendary_block"]>.ra-minigame-quit{top:6px;min-height:44px}
+ .bx-route[data-phase=arrival]:has(.bx-dialogue) .bx-content{height:100%}.bx-route:has(.bx-dialogue) .bx-busy{position:absolute;bottom:0;left:0;right:0;pointer-events:none}
+ .bx-route .bx-dialogue{position:absolute;inset:0;overflow:hidden}.bx-route .bx-dialogue-world{position:absolute;left:0;right:0;top:20px;bottom:29%;overflow:hidden;background:#17131e}
+ .bx-route .bx-dialogue-world .bx-scene-bg{bottom:0}.bx-route .bx-dialogue-world img.bx-talk-rich{position:absolute;object-fit:contain;image-rendering:pixelated}
+ .bx-route .bx-dialogue .adv-box{bottom:5%;z-index:8}.bx-route .bx-dialogue .adv-bubble{z-index:8}.bx-route .bx-dialogue .adv-choices{bottom:5%;z-index:9}
+ .bx-route .bx-dialogue .adv-choices button{font:inherit;min-height:44px}.bx-route .bx-dialogue .bx-portraits img{transform:none;bottom:auto;filter:drop-shadow(2px 1px #0b0716)}
  @media(prefers-reduced-motion:reduce){.bx-route .bx-car-marker{transition:none}}
  `;
 
@@ -206,6 +218,10 @@
   const style = document.createElement('style'); style.textContent = CSS;
   const content = document.createElement('div'); content.className = 'bx-content'; const status = document.createElement('div'); status.className = 'bx-busy'; status.setAttribute('role','status'); status.setAttribute('aria-live','polite');
   frame.append(style,content,status); root.append(frame);
+  // The parent shift retains its authored 9:16 camera. Reserve only the embedded route's visible toolbar overlap.
+  function reserveQuit(){const q=root.closest('.ra-minigame')?.querySelector('.ra-minigame-quit');frame.style.top=`${q?Math.max(0,q.getBoundingClientRect().bottom-root.getBoundingClientRect().top+6):0}px`;}
+  reserveQuit();const toolbarResize=global.ResizeObserver?new global.ResizeObserver(reserveQuit):null;toolbarResize?.observe(root);
+  life.signal.addEventListener('abort',()=>toolbarResize?.disconnect(),{once:true});
   let disposed = false, paused = false, busy = false, finished = false, battle = null, battleSerial = 0, swipe = null, touchPress = null, touchButtonAt = 0, renderedPhase = null, artTimer = null;
   let resolveResult; const result = new Promise(resolve => { resolveResult = resolve; });
   const txt = (key,fallback) => copy[key] == null ? fallback : String(copy[key]);
@@ -279,6 +295,18 @@
    };
    tick();
   }
+  function renderDialogue(stop,s){
+   if(!global.RAAdventureScene?.createDialogue)throw Error('standard-dialogue-required');
+   content.innerHTML=`<section class="adv-scene bx-dialogue"><div class="bx-dialogue-world"><img class="bx-scene-bg" src="${esc(stop.scene.background)}" alt=""><img class="bx-talk-rich" src="${esc(global.RABtfPeople?.rich?.sprite || 'assets/rich_standing_right.png')}" alt=""><div class="bx-portraits"><img src="${esc(stop.scene.portraits[0])}" alt="${esc(stop.label)}"></div></div><div class="adv-choices" hidden></div></section>`;
+   const stage=content.firstElementChild,world=stage.querySelector('.bx-dialogue-world'),rich=stage.querySelector('.bx-talk-rich'),uncle=stage.querySelector('.bx-portraits img');
+   const unit=frame.clientWidth/270,floor=world.clientHeight-18*unit;
+   const k=Math.min(Number(stop.scene.stageScale)||2.6,(world.clientHeight/unit-12)/88),rk=Math.min(2,(world.clientHeight/unit-12)/88);
+   for(const [el,x,scale] of [[rich,62,rk],[uncle,198,k]])Object.assign(el.style,{left:`${(x-40*scale)*unit}px`,top:`${floor-88*scale*unit}px`,width:`${80*scale*unit}px`,height:`${96*scale*unit}px`});
+   const dialogue=global.RAAdventureScene.createDialogue(stage,{richNode:rich});
+   if(s.arrivalLine<stop.arrivalLines.length)dialogue.show(stop.arrivalLines[s.arrivalLine]);
+   else{dialogue.clear();const choices=stage.querySelector('.adv-choices');choices.hidden=false;choices.innerHTML=stop.choices.map(c=>button(c.label,'choice','adv-choice',`data-choice-id="${esc(c.id)}"`)).join('');}
+   stage.dataset.line=String(s.arrivalLine);startSceneArt(stop,'arrival');
+  }
   function render() {
    if (disposed) return;
    if (artTimer) { clearTimeout(artTimer); artTimer = null; }
@@ -295,7 +323,8 @@
     content.innerHTML = `${head(s)}<div class="bx-body"><div class="bx-next"><strong>${esc(txt('nextLabel','Next'))}: ${esc(stop.label)}</strong><span>${s.currentStop + 1}/3</span></div>${mapMarkup(s)}<p class="bx-road-status">${esc(s.position.street || config.map.startLabel || '')}${nextDirection ? ` · ${esc(copy.directions?.[nextDirection] || nextDirection)}` : ''}</p><div class="bx-controls" aria-label="${esc(txt('controlsLabel','Drive controls'))}">${Object.keys(DIRECTIONS).map(dir => `<button type="button" data-move="${dir}" aria-label="${esc(copy.directions?.[dir] || dir)}" ${!directions[dir] ? 'disabled' : ''}>${{north:'↑',east:'→',south:'↓',west:'←'}[dir]}</button>`).join('')}</div><p class="bx-controls-hint">${esc(txt('controlsHint','Tap arrows · Swipe map · Arrow keys'))}</p>${stopList(s)}</div>`;
    } else if (s.phase === 'arrival') {
     const stop = config.stops[s.currentStop];
-    content.innerHTML = `${head(s)}<div class="bx-body">${sceneMarkup(stop)}<p class="bx-kicker">${esc(txt('arrivalLabel','ARRIVED'))} ${s.currentStop + 1}/3</p><h2>${esc(stop.label)}</h2>${lines(stop.arrivalLines)}<div class="bx-actions">${stop.choices.map(c => button(c.label,'choice',c.action === 'encounter' ? 'bx-danger' : 'bx-primary',`data-choice-id="${esc(c.id)}"`)).join('')}</div></div>`;
+    if(stop.scene?.dialogue)renderDialogue(stop,s);
+    else content.innerHTML = `${head(s)}<div class="bx-body">${sceneMarkup(stop)}<p class="bx-kicker">${esc(txt('arrivalLabel','ARRIVED'))} ${s.currentStop + 1}/3</p><h2>${esc(stop.label)}</h2>${lines(stop.arrivalLines)}<div class="bx-actions">${stop.choices.map(c => button(c.label,'choice',c.action === 'encounter' ? 'bx-danger' : 'bx-primary',`data-choice-id="${esc(c.id)}"`)).join('')}</div></div>`;
    } else if (s.phase === 'encounter-lost') {
     const stop = config.stops[s.currentStop], choice = currentChoice(s);
     content.innerHTML = `${head(s)}<div class="bx-body"><h2>${esc(stop.label)}</h2>${lines(choice?.lossLines || copy.lossLines)}<div class="bx-actions">${button(txt('retryLabel','Retry'),'retry','bx-primary')}${button(txt('quitLabel','Leave route'),'quit','bx-danger')}</div></div>`;
@@ -307,7 +336,7 @@
    } else {
     content.innerHTML = `${head(s)}<div class="bx-body bx-finish"><h1>${esc(txt('completeTitle','Route complete'))}</h1>${lines(copy.completeLines)}${stopList(s)}${button(txt('doneLabel','Done'),'done','bx-primary')}</div>`;
    }
-   if (['arrival','receipt'].includes(s.phase)) startSceneArt(config.stops[s.currentStop],s.phase);
+   if (['arrival','receipt'].includes(s.phase) && !config.stops[s.currentStop]?.scene?.dialogue) startSceneArt(config.stops[s.currentStop],s.phase);
    if (busy || paused) disableButtons();
   }
   async function runEncounter() {
@@ -360,13 +389,15 @@
   }
   function click(event) {
    const b = event.target.closest?.('button');
-   activate(b);
+   if(!b && frame.querySelector('.bx-dialogue') && model.read().arrivalLine<config.stops[model.read().currentStop].arrivalLines.length)action(()=>model.advanceArrival());
+   else activate(b);
   }
   function suppressTouchClick(event) {
    if (touchButtonAt && Date.now() - touchButtonAt < 450 && event.detail > 0) { event.preventDefault(); event.stopImmediatePropagation(); touchButtonAt = 0; }
   }
   function key(event) {
-   if (disposed || paused || !frame.isConnected || model.read().phase !== 'drive' || /INPUT|TEXTAREA|SELECT/.test(event.target?.tagName || '')) return;
+   if (!disposed && !paused && frame.isConnected && frame.querySelector('.bx-dialogue') && !event.repeat && ['Enter',' '].includes(event.key) && !event.target.closest?.('button')) {event.preventDefault();action(()=>model.advanceArrival());return;}
+   if (disposed || paused || !frame.isConnected || model.read().phase !== 'drive'  || /INPUT|TEXTAREA|SELECT/.test(event.target?.tagName || '')) return;
    const dir = {ArrowUp:'north',ArrowRight:'east',ArrowDown:'south',ArrowLeft:'west',w:'north',d:'east',s:'south',a:'west'}[event.key];
    if (dir) { event.preventDefault(); drive(dir); }
   }

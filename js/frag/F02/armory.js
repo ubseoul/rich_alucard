@@ -12,6 +12,24 @@
  const btn=(label,action,cls='')=>`<button type="button" class="phone-button ${cls}" data-phone-action="${action}">${label}</button>`;
  const nav=(sub,label,cls='')=>btn(label,`app:armory${sub?`:${sub}`:''}`,cls);
  const act=(action,label,cls='')=>btn(label,`do:armory:${action}`,cls);
+ const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+ let notice='',purchaseUntil=0;
+ // A purchase redraw moves the owned gun onto the wall. Keep a repeated press
+ // at the old BUY position from activating a different control in that redraw.
+ function purchaseFeedback(api,text){
+  notice=text;
+  api.message?.(text);
+  const content=typeof document==='undefined'?null:document.getElementById?.('phoneContent');
+  if(!content?.dataset?.phoneApp?.startsWith('app:armory')){api.refresh();return;}
+  purchaseUntil=Date.now()+750;
+  const block=e=>{if(Date.now()<purchaseUntil&&content?.dataset.phoneApp?.startsWith('app:armory')&&(e.type==='click'||e.key==='Enter'||e.key===' ')){e.preventDefault();e.stopImmediatePropagation();}};
+  content?.addEventListener('click',block,true);content?.addEventListener('keydown',block,true);
+  api.refresh();
+  const buttons=[...content?.querySelectorAll('[data-phone-action]:not(:disabled)')||[]];
+  buttons.forEach(b=>{b.disabled=true;});
+  content?.querySelector('.phone-message')?.focus();
+  setTimeout(()=>{buttons.forEach(b=>{if(b.isConnected)b.disabled=false;});content?.removeEventListener('click',block,true);content?.removeEventListener('keydown',block,true);},750);
+ }
 
  function modList(gunId){
   return R.mods().map(m=>{const equipped=R.hasMod(gunId,m.id),owned=R.modsOwned().includes(m.id);
@@ -65,12 +83,13 @@
 
  const app={id:'armory',flag:'F02.armory',render(sub){
   const s=String(sub||'');
-  if(s==='bench')return window.RARC3?home():bench();
-  if(s.startsWith('gun:'))return gunPage(s.slice(4));
-  return home();
+  const body=s==='bench'?(window.RARC3?home():bench()):s.startsWith('gun:')?gunPage(s.slice(4)):home();
+  return `<p class="phone-message" role="status" aria-live="polite" tabindex="-1">${esc(notice)}</p>${body}`;
  },onAction(actName,arg,api){
+  if(Date.now()<purchaseUntil)return;
   if(window.RARC3&&['buyMod','attach','detach','engrave'].includes(actName))return;
-  if(actName==='buy'){const r=R.buy(arg);api.message?.(r.ok?`BOUGHT ${R.gun(arg).label}`:`CAN'T — ${r.reason}`);api.refresh();return;}
+  if(actName==='buy'){const r=R.buy(arg),g=R.gun(arg);purchaseFeedback(api,r.ok?`BOUGHT ${g.label}`:r.reason==='funds'?`NOT ENOUGH CASH. PRICE ${fmt(g.price)}; CASH ${fmt(window.RALife.money())}.`:`CAN'T - ${r.reason}`);return;}
+  notice='';
   if(actName==='equip'){const r=R.equip(arg);api.message?.(r.ok?'EQUIPPED.':`CAN'T — ${r.reason}`);api.refresh();return;}
   if(actName==='buyMod'){const [modId,flag]=String(arg).split('|');const r=R.buyMod(modId,{useDiscount:flag==='d'});api.message?.(r.ok?`${C.MODS[modId].label} — ${fmt(r.price)}${r.discount?' (MEDAL DISCOUNT)':''}`:`CAN'T — ${r.reason}`);api.refresh();return;}
   if(actName==='attach'||actName==='detach'){const [gid,mid]=String(arg).split('|');const r=actName==='attach'?R.attachMod(gid,mid):R.detachMod(gid,mid);api.message?.(r.ok?`${mid} ${actName==='attach'?'ATTACHED':'REMOVED'}`:`CAN'T — ${r.reason}`);api.refresh();return;}

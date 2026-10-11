@@ -2,9 +2,9 @@ import fs from 'node:fs';
 import path from 'node:path';
 import vm from 'node:vm';
 import {createHash} from 'node:crypto';
-const GAMEPLAY="d45e49319179c8f01fe8f3d6a145a99d85a83c50";
-const PACK="98f708adba7d729a7aa50a5208bb43832038e57aef28a23fecb2f9d3ab983f94";
-const DIGEST="b6214bb1a5e61a956d25a1800182e86527cd35e2bdfa11b1eb855d741be27377";
+const GAMEPLAY="32f68dda85d8dd4ea27d7e3b4e0172bf952eea9a";
+const PACK="a0df9181683b3cbbb2710cc6db348d2de4cb5f00eab377b5f98244b987b210ed";
+const DIGEST="2a26011fd06a08512ddf328521bb03bba85d402d907cc64e9202a97e58f03f69";
 const hash=b=>createHash('sha256').update(b).digest('hex');
 function assert(value,message){if(!value)throw Error(message);}
 export function verifyApprovedPublication(root,{syntax=false}={}){
@@ -22,7 +22,7 @@ export function verifyApprovedPublication(root,{syntax=false}={}){
   if(syntax&&f.path.endsWith('.js'))new vm.Script(data.toString('utf8'),{filename:f.path});
   approved.add(f.path);
  }
- assert(approved.size===1901,'Unexpected compiled release file count');
+ assert(approved.size===1918,'Unexpected compiled release file count');
  const pack=release.files.find(f=>f.path==='js/sealed/pack.js');
  assert(pack?.sha256===PACK,'Unapproved compiled pack');
  if(syntax){
@@ -71,7 +71,7 @@ export async function runCompiledRelease(root,action){
  }
  assert(action==='test'||action==='build','Unsupported compiled release action');
  const {release}=verifyApprovedPublication(root,{syntax:true});
- if(action==='test'){console.log('PASS compiled release: 1901 byte-identical files, JavaScript syntax, HTML dependency closure');return;}
+ if(action==='test'){console.log('PASS compiled release: 1918 byte-identical files, JavaScript syntax, HTML dependency closure');return;}
  const output=path.resolve(root,'dist');assert(path.dirname(output)===path.resolve(root)&&path.basename(output)==='dist','Unsafe build directory');
  fs.rmSync(output,{recursive:true,force:true});fs.mkdirSync(output,{recursive:true});
  for(const f of release.files){const dest=path.join(output,f.path);fs.mkdirSync(path.dirname(dest),{recursive:true});fs.copyFileSync(path.join(root,f.path),dest);}

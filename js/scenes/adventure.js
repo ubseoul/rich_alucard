@@ -7,14 +7,34 @@
  function loadImage(src){if(!imageCache.has(src)){const img=new Image();img.src=src;imageCache.set(src,img);}return imageCache.get(src);}
  let root=null,scope=null,envCanvas=null,actorLayer=null,foreground=null,box=null,choicesEl=null,titleEl=null,bubble=null,tapResolver=null,currentEnv=null,audio=null;
  const personName=id=>{if(!id)return '';if(id==='rich')return 'RICH';const p=window.RABtfPeople?.get(id);return p?p.name:String(id).toUpperCase();};
+ // Both adventure beats and embedded conversations use these same dialogue elements.
+ function dialogueElements(parent){
+  const speech=document.createElement('div');speech.className='adv-bubble';speech.hidden=true;parent.append(speech);
+  const card=document.createElement('div');card.className='adv-box';card.hidden=true;card.innerHTML='<b class="adv-speaker"></b><p class="adv-text"></p><i class="adv-more" aria-hidden="true"></i>';parent.append(card);
+  return {bubble:speech,box:card};
+ }
+ function createDialogue(host,{richNode}={}){
+  const ui=dialogueElements(host);
+  function show(row){
+   const speaker=row.speaker==='RICH'?'rich':row.speaker,text=String(row.text||'');
+   ui.box.hidden=!!(speaker==='rich'&&richNode);ui.bubble.hidden=!ui.box.hidden;
+   if(!ui.bubble.hidden){
+    ui.bubble.replaceChildren();const tag=document.createElement('b');tag.className='adv-speaker';tag.textContent='RICH';const line=document.createElement('span');line.textContent=text;ui.bubble.append(tag,line);
+    const r=richNode.getBoundingClientRect(),rr=host.getBoundingClientRect();
+    Object.assign(ui.bubble.style,{left:`${Math.max(4,Math.min(rr.width-ui.bubble.offsetWidth-4,r.left-rr.left+r.width*.5-ui.bubble.offsetWidth*.5))}px`,top:`${Math.max(rr.height*.06,r.top-rr.top+r.height*.18-ui.bubble.offsetHeight)}px`});
+   }else{
+    const tag=ui.box.querySelector('.adv-speaker');tag.textContent=speaker?personName(speaker):'';tag.hidden=!speaker;ui.box.classList.toggle('adv-narration',!speaker);ui.box.querySelector('.adv-text').textContent=text;
+   }
+  }
+  return {show,clear(){ui.box.hidden=true;ui.bubble.hidden=true;},dispose(){ui.box.remove();ui.bubble.remove();}};
+ }
  function build(host){
   root=document.createElement('section');root.id='adventureScene';root.className='adv-scene';root.setAttribute('aria-label','Adventure');
   const env=RAPixel.createCanvas(root,{className:'adv-env'});envCanvas=env;
   actorLayer=document.createElement('div');actorLayer.className='adv-actors';root.append(actorLayer);
   foreground=document.createElement('canvas');foreground.width=270;foreground.height=480;foreground.className='adv-foreground';foreground.hidden=true;root.append(foreground);
   const loc=document.createElement('div');loc.className='adv-location';root.append(loc);
-  bubble=document.createElement('div');bubble.className='adv-bubble';bubble.hidden=true;root.append(bubble);
-  box=document.createElement('div');box.className='adv-box';box.hidden=true;box.innerHTML='<b class="adv-speaker"></b><p class="adv-text"></p><i class="adv-more" aria-hidden="true">▼</i>';root.append(box);
+  ({bubble,box}=dialogueElements(root));
   choicesEl=document.createElement('div');choicesEl.className='adv-choices';choicesEl.hidden=true;root.append(choicesEl);
   titleEl=document.createElement('div');titleEl.className='adv-title';titleEl.hidden=true;root.append(titleEl);
   host.append(root);
@@ -208,5 +228,5 @@
  RAScenes.register('adventure',{enter,exit(){scope=null;}});
  async function begin(id,opts){if(window.RAPhone?.isOpen?.())await RAPhone.close();const run=RAAdventures.start(id,opts);if(!run)return false;await RAScenes.go('adventure',{});return true;}
  async function resume(){if(!RAAdventures.active())return false;if(window.RAPhone?.isOpen?.())await RAPhone.close();await RAScenes.go('adventure',{});return true;}
- window.RAAdventureScene={begin,resume,routeOptions,slots:SLOTS};
+ window.RAAdventureScene={begin,resume,routeOptions,slots:SLOTS,createDialogue};
 })();

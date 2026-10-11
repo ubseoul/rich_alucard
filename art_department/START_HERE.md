@@ -1,3 +1,5 @@
+Current owner feedback (2026-10-11): read the bounded patch checklist and project-wide visual lessons at the top of [CURRENT_HANDOFF.md](CURRENT_HANDOFF.md). Original masters and unrelated historical guidance remain preserved.
+
 # Rich Alucard Art Department — start here
 
 This repository is the Art Department's institutional memory. **The project remembers. The chat does not.** A fresh Art Agent must be able to onboard from this file and the files it points to; no Ube-uploaded Volumes, Addenda, review boards, or prior chat are required.

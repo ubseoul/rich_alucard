@@ -212,11 +212,12 @@
    $('.bx-panel').style.height = `${panelHeight}px`; world.style.top = `${top}px`; world.style.bottom = `${panelHeight + 26}px`;
    const floor = world.clientHeight - 18 * unit, scale = Math.max(1, Math.min(2, (world.clientHeight / unit - 46) / 88));
    const place = (actor, x, native = [80,96], anchor = [40,88], k = scale) => Object.assign(actor.style, {left:`${(x - anchor[0] * k) * unit}px`,top:`${floor - anchor[1] * k * unit}px`,width:`${native[0] * k * unit}px`,height:`${native[1] * k * unit}px`});
-   place(rich, 64);
+   place(rich, config.type === 'cockroach' ? 55 : 64);
    if (config.type === 'cockroach') {
-    // The unchanged spirit/pose masters have their own wide source cells, not 80x96 padding.
-    const meta = silhouette(enemy), k = scale * 80 / meta.width;
-    place(enemy,184,[meta.width,meta.height],[meta.width/2,meta.support],k);
+    const meta = silhouette(enemy), authored=config.enemy.assets.cell;
+    const right=config.enemy.assets.visible ? config.enemy.assets.visible[0]+config.enemy.assets.visible[2]-(config.enemy.assets.anchor?.[0] || 44) : 43;
+    const k=authored?Math.min(scale*1.25,90/right):scale*80/meta.width;
+    place(enemy,authored?178:184,[meta.width,meta.height],config.enemy.assets.anchor || [meta.width/2,meta.support],k);
    } else place(enemy, 200);
    root.dataset.actorScale = String(scale); root.dataset.contactY = String(top + floor);
   }
@@ -328,14 +329,15 @@
    enemy.src = poses.action || config.enemy.assets.attack || config.enemy.assets.idle;
    const from = actorPoint(enemy, 15, 50), to = actorPoint(rich);
    if (id === 'chancla') {
-    const authored = config.assets.chanclaFrames?.length > 0;
-    const slippers = Array.from({ length: 7 }, () => authored ? authoredProp(config.assets.chanclaFrames[0], from.x, from.y) : prop(config.assets.chancla, from.x, from.y, 24, 24));
-    const context = authored ? null : fxCanvas().context;
-    await frames(frame => {
-     context?.clearRect(0, 0, 270, 300);
-     enemy.src = frame < 5 ? poses.action || enemy.src : poses.contact || poses.action || enemy.src;
-     slippers.forEach((slipper, i) => { const p = clamp((frame - i * .55) / 5, 0, 1), x = from.x + (to.x - from.x) * p, y = from.y + (to.y - from.y) * p + Math.sin(p * Math.PI) * (-38 + i * 10); slipper.src = config.assets.chanclaFrames?.[frame % config.assets.chanclaFrames.length] || config.assets.chancla; if (authored) { placeAuthored(slipper, x, y); slipper.style.opacity = frame < i * .55 ? '0' : '1'; } else { slipper.style.left = `${x / 270 * 100}%`; slipper.style.top = `${y / 300 * 100}%`; slipper.style.rotate = `${frame * 45 + i * 18}deg`; } if (context && frame >= 6) burst(context, to.x, to.y, frame - 5); });
-    }, 9, 680);
+    // Three separated native sandals form a readable wave; the original 9-frame contact timeline is unchanged.
+    const slippers=Array.from({length:3},()=>prop(config.assets.chancla,from.x-12,from.y-12,24,24)),context=fxCanvas().context;
+    await frames(frame=>{
+     context.clearRect(0,0,270,300);enemy.src=frame<5?poses.action||enemy.src:poses.contact||poses.action||enemy.src;
+     slippers.forEach((slipper,i)=>{
+      const p=clamp((frame-i*1.5)/5,0,1),x=Math.round(from.x+(to.x-from.x)*p-12),y=Math.round(from.y+(to.y-from.y)*p+Math.sin(p*Math.PI)*(-30+i*16)-12);
+      slipper.style.left=`${x/270*100}%`;slipper.style.top=`${y/300*100}%`;slipper.style.rotate=`${Math.floor((frame+i)/2)*90}deg`;slipper.style.opacity=frame<i*1.5?'0':'1';
+     });if(frame>=6)burst(context,to.x,to.y,frame-5);
+    },9,680);
    } else if (id === 'rpg') {
     const missileFrames = config.assets.missileFrames || (config.assets.missile ? [config.assets.missile] : null);
     if (missileFrames?.length) {
