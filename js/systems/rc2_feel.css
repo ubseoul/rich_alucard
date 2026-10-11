@@ -75,6 +75,7 @@ body.rc2-title .start-card .title{font-size:clamp(20px,7.2cqw,40px);letter-spaci
 /* RC5 polish: one cash chip (RC3 owns it); Rich's return line never shoves CASTLE/SLEEP under the phone */
 body.rc3.bedroom-mode .rc2-cash,body.rc3.adventure-mode .rc2-cash,body.rc3.property-mode .rc2-cash{display:none}
 .bedroom-life-layer:has(> .bedroom-return) .bedroom-life{display:none}
+.bedroom-life-layer:has(.morning-mail) .bedroom-life{display:none}
 /* RC5 polish: stacked logo title that fits 360-430px phones */
 body.rc2-title .start-card{width:min(92%,460px)}
 body.rc2-title .start-card .title:has(.rc5-t1){white-space:normal;display:grid;justify-items:center;gap:8px;margin-bottom:12px}
