@@ -15,12 +15,15 @@
  const shannonLane=()=>ownedIds().includes(window.RAPropertyQuest?.propertyId);
  function buy(id,{down=false}={}){
   const l=LISTINGS.find(x=>x.id===id);if(!l||ownedIds().includes(id))return false;
-  const pay=down&&shannonLane()?Math.round(l.price*.3):l.price;if(!RALife.spend(pay))return false;
+  const pay=down&&shannonLane()?Math.round(l.price*.3):l.price;
+  // Payment and deed commit as one save write; a failed write buys nothing.
+  return RAState.atomic(()=>{if(!RALife.spend(pay))return false;
   const rec={id,label:`${l.label} · ${l.hood}`,ownershipStatus:'owned',acquisitionSource:'realmoneyrealestate',purchasePrice:l.price,value:l.price,weeklyRent:l.rent,rentDue:0,owed:l.price-pay,acquiredDay:RALife.today().day,lastEventDay:RALife.today().day};
   RAState.patch('life.ownership.properties',[...props(),rec]);
   RALife.light('ownership',1,`property:${id}`);RALife.remember({text:`bought the ${l.label.toLowerCase()} in ${l.hood.toLowerCase()}`,lane:'property'});RALife.receipt({id:`prop:${id}`,caption:`${l.label.toLowerCase()}, ${l.hood.toLowerCase()}. four walls, mine.`,lane:'property'});
   if(window.RARelations?.met?.('shannon_001'))RARelations.add('shannon_001',3,{reason:'deal'});
   return true;
+  }).ok;
  }
  function collectAll(){let total=0;const next=props().map(p=>{if(p.ownershipStatus!=='owned'||!(p.rentDue>0))return p;let due=p.rentDue;const fee=shannonLane()&&p.id!==window.RAPropertyQuest?.propertyId?Math.round(due*.05):0;due-=fee;let owed=p.owed||0;const toLoan=Math.min(owed,Math.round(due*.5));owed-=toLoan;due-=toLoan;total+=due;return {...p,rentDue:0,owed};});
   RAState.patch('life.ownership.properties',next);if(total)RALife.addMoney(total);RAState.recordEvent({id:`rent-collected:${RALife.today().day}:${RAState.get().life.history.length}`,type:'rent_collected',amount:total});return total;}

@@ -18,10 +18,12 @@
   florist:{label:'THE FLORIST ON SUNSET',env:'street_night',items:[{id:'gift_flowers',kind:'gift',label:'LIVE FLOWERS (GIFT)',price:65}]}
  };
  function itemInfo(it){if(it.kind==='fit'){const f=F()[it.id];return {label:f.label,price:f.price,owned:RALife.hasFit(it.id)};}if(it.kind==='prop')return {label:it.label,price:it.price,owned:RALife.hasProp(it.id)};return {label:it.label,price:it.price,owned:false};}
- function buy(it){const info=itemInfo(it);if(info.owned||!RALife.spend(info.price))return false;
+ function buy(it){const info=itemInfo(it);if(info.owned)return false;
+  // Payment and item commit as one save write; a failed write buys nothing.
+  return RAState.atomic(()=>{if(!RALife.spend(info.price))return false;
   if(it.kind==='fit'){RALife.addFit(it.id);const f=F()[it.id];RALife.equipFit(f.slot,it.id);RALife.remember({text:`bought the ${f.label.toLowerCase()}`,lane:'mall',type:'mall'});if(it.id==='duoqlo_airism')RALife.setFlag('duoqloFit',true);}
   else if(it.kind==='prop'){RALife.addProp(it.id);}else RALife.addItem(it.id,1,{cap:it.kind==='item'?9:undefined});
-  RALife.counter('mallSpend',info.price);return true;}
+  RALife.counter('mallSpend',info.price);return true;}).ok;}
  // ART SHIP 014 item art on the choice that sells it (fits, bag items; nothing is drawn for items without frozen art).
  function itemIcon(it){const I=window.RAArtRegistry?.items||{};return (it.kind==='fit'?I.fits?.[it.id]:it.kind==='item'?I.combat?.[it.id]:null)?.asset||null;}
  window.RAStores={STORES,buy,itemInfo,itemIcon};

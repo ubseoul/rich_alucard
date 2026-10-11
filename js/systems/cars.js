@@ -14,12 +14,12 @@
  const toTouge=car=>{const k=keyOf(car);if(k==='r34')return car.parts?.rwd?'r34_rwd':'r34_awd';return k;};
  function owned(key){const c=key==='supra'?{id:SUPRA}:CATALOG[key];return !!c&&RALife.hasCar(c.id);}
  function buy(key){const c=CATALOG[key];if(!c||owned(key)||RALife.money()<c.price)return false;
-  // Purchase and ownership commit together. A double click/reload cannot debit twice.
-  const life=JSON.parse(JSON.stringify(RALife.life()));life.resources.money-=c.price;
+  // Purchase and ownership commit together. A double click/reload cannot debit twice; a failed save write buys nothing.
+  return RAState.atomic(()=>{const life=JSON.parse(JSON.stringify(RALife.life()));life.resources.money-=c.price;
   life.ownership.cars.push({id:c.id,make:c.make,model:c.model,short:c.short,price:c.price,value:c.price,parts:{},acquisitionSource:c.store,ownershipStatus:'owned',acquiredDay:RALife.today().day});
   life.world.flags.tougeCar=c.id;RAState.patch('life',life);
   if(c.clout)RALife.addPoints('clout',c.clout);if(c.rep)RALife.addPoints('rep',c.rep);RALife.light('ownership',1,`car:${key}`);
-  RALife.remember({text:`bought the ${c.short.toLowerCase()}`,lane:'cars'});RALife.receipt({id:`car:${key}`,caption:`the ${c.short.toLowerCase()}. mine.`,lane:'cars'});return true;}
+  RALife.remember({text:`bought the ${c.short.toLowerCase()}`,lane:'cars'});RALife.receipt({id:`car:${key}`,caption:`the ${c.short.toLowerCase()}. mine.`,lane:'cars'});return true;}).ok;}
  function installParts(carId,parts){const car=RALife.ownedCars().find(c=>c.id===carId||keyOf(c)===carId);if(!car)return;RALife.patchCar(car.id,{parts:{...(car.parts||{}),...parts}});}
  const supraCar=()=>RALife.ownedCars().find(c=>c.id===SUPRA);
  // ART SHIP 014 LISTING surfaces (68×50 frozen art, shown at native pixel scale) on every car card that has one.
