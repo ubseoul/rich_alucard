@@ -17,8 +17,11 @@
  // A purchase redraw moves the owned gun onto the wall. Keep a repeated press
  // at the old BUY position from activating a different control in that redraw.
  function purchaseFeedback(api,text){
-  notice=text;purchaseUntil=Date.now()+750;
-  const content=document.getElementById('phoneContent');
+  notice=text;
+  api.message?.(text);
+  const content=typeof document==='undefined'?null:document.getElementById?.('phoneContent');
+  if(!content?.dataset?.phoneApp?.startsWith('app:armory')){api.refresh();return;}
+  purchaseUntil=Date.now()+750;
   const block=e=>{if(Date.now()<purchaseUntil&&content?.dataset.phoneApp?.startsWith('app:armory')&&(e.type==='click'||e.key==='Enter'||e.key===' ')){e.preventDefault();e.stopImmediatePropagation();}};
   content?.addEventListener('click',block,true);content?.addEventListener('keydown',block,true);
   api.refresh();
