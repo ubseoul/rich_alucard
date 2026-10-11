@@ -1,0 +1,13 @@
+RA Press Start is a modified version of Press Start 2P.
+Copyright 2012 The Press Start 2P Project Authors (cody@zone38.net), with Reserved Font Name "Press Start 2P".
+Modified 2026-10-11 for Rich Alucard: added Yoruba letters and tone marks; internal family renamed RA Press Start. Existing glyphs preserved.
+Licensed under SIL Open Font License 1.1; the complete license is in OFL-RA-Press-Start.txt in this directory.
+Source: https://github.com/google/fonts/blob/main/ofl/pressstart2p/OFL.txt
+The same modified font is copied in assets/fonts/, intro-assets/ and opening-assets/.
+
+Monogram by Vinicius Menezio / datagoblin is released under CC0 1.0 Universal.
+Source and license declaration: https://datagoblin.itch.io/monogram
+License: https://creativecommons.org/publicdomain/zero/1.0/
+Modified 2026-10-11 for Rich Alucard: added Yoruba letters and tone marks. Existing glyphs preserved.
+The same modified font is copied in assets/fonts/ and opening-assets/.
+Generators: tools/fonts/yoruba-fonts.py and tools/fonts/fontpix.py in the source repository.
