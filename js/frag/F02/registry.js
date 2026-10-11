@@ -37,11 +37,17 @@
   if(window.RALife.hasGun(id))return {ok:false,reason:'owned'};
   if(!free&&def.price!=null&&money()<def.price)return {ok:false,reason:'funds'};
   const spend=()=>{if(free||def.price==null)return true;return !!window.RALife.spend(def.price);};
-  const tagged=window.RAMoneyLedger?.withSource?window.RAMoneyLedger.withSource(`iron_and_grace:${source}`,spend):spend();
-  if(!tagged)return {ok:false,reason:'funds'};
-  if(!window.RALife.addGun(id))return {ok:false,reason:'owned'};
-  patch(`acquired.${id}`,{day:day(),source});
-  return {ok:true,gun:def};
+  // Spend, ownership and acquisition commit as one save write; a rejected write leaves cash and guns untouched.
+  let result={ok:false,reason:'funds'};
+  const tx=window.RAState.atomic(()=>{
+   const tagged=window.RAMoneyLedger?.withSource?window.RAMoneyLedger.withSource(`iron_and_grace:${source}`,spend):spend();
+   if(!tagged)return false;
+   if(!window.RALife.addGun(id)){result={ok:false,reason:'owned'};return false;}
+   patch(`acquired.${id}`,{day:day(),source});
+   result={ok:true,gun:def};return true;
+  });
+  if(!tx.ok&&result.ok)return {ok:false,reason:'save-failed'};
+  return result;
  }
  function buy(id){const def=gun(id);if(!def)throw new Error(`IRON & GRACE: unknown gun ${id}`);
   if(def.dev)return {ok:false,reason:'dev'};

@@ -27,6 +27,10 @@ export async function test(root){
  assert.equal(R.buy('rpg').ok,true);assert.equal(c.RALife.money(),startMoney+1e6-400000,'authored price paid exactly once');
  assert.equal(R.acquisitionOf('rpg').source,'armory');
  assert.equal(R.grant('tommy_tony',{free:true}).ok,true);
+ // a rejected save write leaves no charge and no gun in live state (otherwise BOUGHT vanishes on reload)
+ {const store=c.localStorage,setItem=store.setItem,before=c.RALife.money();store.setItem=()=>{throw new Error('QuotaExceededError');};
+  const r=R.buy('sapporo_shotgun');store.setItem=setItem;
+  assert.equal(r.reason,'save-failed');assert.equal(c.RALife.money(),before,'no charge when the save write fails');assert.equal(c.RALife.hasGun('sapporo_shotgun'),false,'no gun when the save write fails');}
 
  // equip + loadout slots (1, or 2 with the accepted ARMORY WALL castle room)
  assert.equal(R.equip('sapporo_shotgun').reason,'not-owned');

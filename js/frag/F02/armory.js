@@ -88,7 +88,7 @@
  },onAction(actName,arg,api){
   if(Date.now()<purchaseUntil)return;
   if(window.RARC3&&['buyMod','attach','detach','engrave'].includes(actName))return;
-  if(actName==='buy'){const r=R.buy(arg),g=R.gun(arg);purchaseFeedback(api,r.ok?`BOUGHT ${g.label}`:r.reason==='funds'?`NOT ENOUGH CASH. PRICE ${fmt(g.price)}; CASH ${fmt(window.RALife.money())}.`:`CAN'T - ${r.reason}`);return;}
+  if(actName==='buy'){const r=R.buy(arg),g=R.gun(arg);purchaseFeedback(api,r.ok?`BOUGHT ${g.label}`:r.reason==='funds'?`NOT ENOUGH CASH. PRICE ${fmt(g.price)}; CASH ${fmt(window.RALife.money())}.`:r.reason==='save-failed'?`COULDN'T SAVE. NOTHING WAS BOUGHT.`:`CAN'T - ${r.reason}`);return;}
   notice='';
   if(actName==='equip'){const r=R.equip(arg);api.message?.(r.ok?'EQUIPPED.':`CAN'T — ${r.reason}`);api.refresh();return;}
   if(actName==='buyMod'){const [modId,flag]=String(arg).split('|');const r=R.buyMod(modId,{useDiscount:flag==='d'});api.message?.(r.ok?`${C.MODS[modId].label} — ${fmt(r.price)}${r.discount?' (MEDAL DISCOUNT)':''}`:`CAN'T — ${r.reason}`);api.refresh();return;}
