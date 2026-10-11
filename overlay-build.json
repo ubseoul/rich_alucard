@@ -1,13 +1,13 @@
 {
- "schema": 1,
- "kind": "private-overlay-build",
- "overlay": "6e3ebc4c41f1b74f",
- "open": {
-  "releaseId": "ra-4042ae5bd48a-20261011033211",
-  "commit": "4042ae5bd48a3519f11131ce224efd69a9fc8209"
- },
- "fileCount": 169,
- "scriptCount": 0,
- "empty": false,
- "payloadDigest": "49ab63174cf0970efd8d3139d8954fb4d6a61b10d88b00d4047479743649717c"
+  "schema": 1,
+  "kind": "private-overlay-build",
+  "overlay": "6e3ebc4c41f1b74f",
+  "open": {
+    "releaseId": "ra-67814c74427f-20261011174740",
+    "commit": "67814c74427f85aef69f0f86535937172ffacd74"
+  },
+  "fileCount": 169,
+  "scriptCount": 0,
+  "empty": false,
+  "payloadDigest": "49ab63174cf0970efd8d3139d8954fb4d6a61b10d88b00d4047479743649717c"
 }

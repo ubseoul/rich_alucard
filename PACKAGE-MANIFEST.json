@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "engineCommit": "4042ae5bd48a3519f11131ce224efd69a9fc8209",
+  "engineCommit": "67814c74427f85aef69f0f86535937172ffacd74",
   "gameplayCommit": "32f68dda85d8dd4ea27d7e3b4e0172bf952eea9a",
   "packSha256": "a0df9181683b3cbbb2710cc6db348d2de4cb5f00eab377b5f98244b987b210ed",
   "files": {
@@ -13,7 +13,7 @@
       "bytes": 15
     },
     "GAME-RELEASE.json": {
-      "sha256": "4451a32230a94d378dfcbb3036d98ef3a8291054bb40df6cd0fb753565680079",
+      "sha256": "b68c0a22179ce0c5da6b919a10bfa61cdb96a25c398d1f6bca8b16465c13166d",
       "bytes": 1589
     },
     "README.txt": {
@@ -4093,12 +4093,12 @@
       "bytes": 1999363
     },
     "assets/fonts/monogram.ttf": {
-      "sha256": "13658c0d344553a6c272bf9e72e0f2b6edf23ac5ecf066837d9b61254b7452d6",
-      "bytes": 10468
+      "sha256": "fd5ba8a865eb3f2ecdd7d0b332535ec5bada0db006a19d0b3ab822730391d842",
+      "bytes": 15416
     },
     "assets/fonts/press-start-2p.ttf": {
-      "sha256": "7b939b816f8ce185dd8c2c59e85fb05d3dcd5cde0c0b0de4a1651cb5af9c2c2b",
-      "bytes": 115280
+      "sha256": "9e1ce74ce37bd3b48aefbaf4710e08d6c6c4b053faaabccd4f9fa756c41aec6a",
+      "bytes": 116744
     },
     "assets/fonts/tiny5.ttf": {
       "sha256": "eb4206abc0c73e9fe4fe93c034ea270578859c40a7e740c6207322413c5c4c91",
@@ -6049,7 +6049,7 @@
       "bytes": 6266
     },
     "build.json": {
-      "sha256": "c5e3228cfebd30858d44f8f5ecda493bb9f0303cb7732bcc529db056a6af5ba1",
+      "sha256": "d701b4268b98be7159a43f35e307fd2782527a46ea21bba912bf30ab85735fa6",
       "bytes": 256
     },
     "game.js": {
@@ -6057,7 +6057,7 @@
       "bytes": 43478
     },
     "index.html": {
-      "sha256": "3b52bfc9b0cac46bf93d40ed2faf2156eeffec15744060047229a4af8fd76a68",
+      "sha256": "4bfdbcf898fc98cda017bad1034552e16e342a2685c90c5a917d4c7ed0ae14bc",
       "bytes": 42551
     },
     "intro-assets/bite.png": {
@@ -6077,8 +6077,8 @@
       "bytes": 46942
     },
     "intro-assets/press-start-2p.ttf": {
-      "sha256": "7b939b816f8ce185dd8c2c59e85fb05d3dcd5cde0c0b0de4a1651cb5af9c2c2b",
-      "bytes": 115280
+      "sha256": "9e1ce74ce37bd3b48aefbaf4710e08d6c6c4b053faaabccd4f9fa756c41aec6a",
+      "bytes": 116744
     },
     "intro-assets/rich-standing.png": {
       "sha256": "9f28b7ae88dcee5f016d323db1b222d01601ed530ff31a4c696070211878a1b0",
@@ -6089,7 +6089,7 @@
       "bytes": 1701
     },
     "js/build-info.js": {
-      "sha256": "e04b526171361e865cecf48a08fc4518b52309af1642b0048b59a64dab83cf1c",
+      "sha256": "51d8d4fbbbf5daa131700e6944aeefe632108bd56971a4fbc60331769fd6c1e0",
       "bytes": 298
     },
     "js/data/art/parts/F02_combat_fx.js": {
@@ -6893,8 +6893,8 @@
       "bytes": 22783
     },
     "js/minigames/dance.js": {
-      "sha256": "7b4ce77b9aa161a2542223a4be60131d9fffc8912a36c8243e8e081a7950a51c",
-      "bytes": 17840
+      "sha256": "f146e5ce5001b57345531c3b460fadfb33d2b4c14ffdb1016b43bfd44ab88f8d",
+      "bytes": 17793
     },
     "js/minigames/garage.js": {
       "sha256": "561a0b1f788ea5388dd661b0a94ae457a30b5f4793f3075fc894dea70bc17b49",
@@ -7297,7 +7297,7 @@
       "bytes": 6633
     },
     "minigame-lab.html": {
-      "sha256": "9a255db3d74269abcb5c87fdfd9dd1d1e9448f8fdbd96632b3914d6e1328b089",
+      "sha256": "6ff8373800b21b050ab8cfd9233f269d0bf712e68fa3345a06fe1d180ebbcdf4",
       "bytes": 3422
     },
     "opening-assets/car.png": {
@@ -7329,8 +7329,8 @@
       "bytes": 7422
     },
     "opening-assets/monogram.ttf": {
-      "sha256": "13658c0d344553a6c272bf9e72e0f2b6edf23ac5ecf066837d9b61254b7452d6",
-      "bytes": 10468
+      "sha256": "fd5ba8a865eb3f2ecdd7d0b332535ec5bada0db006a19d0b3ab822730391d842",
+      "bytes": 15416
     },
     "opening-assets/ogaAim.png": {
       "sha256": "0283264f875573ad89bbcca04b44d4fb736657bbcf57d4ee5b4b04853e9e9eb3",
@@ -7345,8 +7345,8 @@
       "bytes": 253603
     },
     "opening-assets/press-start-2p.ttf": {
-      "sha256": "7b939b816f8ce185dd8c2c59e85fb05d3dcd5cde0c0b0de4a1651cb5af9c2c2b",
-      "bytes": 115280
+      "sha256": "9e1ce74ce37bd3b48aefbaf4710e08d6c6c4b053faaabccd4f9fa756c41aec6a",
+      "bytes": 116744
     },
     "opening-assets/roadside-master.png": {
       "sha256": "dde2df11c5001432c0b12b0331389f20fe057c393d72277195e5216e9c363e2f",
@@ -7357,15 +7357,15 @@
       "bytes": 1957
     },
     "overlay-build.json": {
-      "sha256": "d05ab1a54be7783a61dd92be545e6bb0d00ee6259efa79a93a592960c1fe7f1c",
-      "bytes": 343
+      "sha256": "8f0b8875f5d31daffd83927df65adbed4075de524a5046a54443361f07b905fc",
+      "bytes": 369
     },
     "party-dev.html": {
-      "sha256": "57ebe989127152374469eba7e7e9416f05a70ddd0366d262e761dfb5616701ce",
+      "sha256": "ed1162474016d5a4566d0dbbb9ece4588c1d94a0bc5925810906400af410c8ff",
       "bytes": 2290
     },
     "rave-review.html": {
-      "sha256": "0b6d5012d29e0a117756772dcba4d0cdeecda30733b478d2f170bf783fe531d9",
+      "sha256": "855e0a3b5be0a081767806a25984a926bb1a497eb093b8100e52ec2542958286",
       "bytes": 2096
     },
     "style.css": {
@@ -7671,6 +7671,14 @@
     "assets/owner_feedback/cockroach-20261011/cockroach-stare-recovery.png": {
       "sha256": "9d7e4d1def0991dc6c17dafe7348f2515d506440c8826aeeb9321c5d2861cc53",
       "bytes": 3039
+    },
+    "assets/fonts/OFL-RA-Press-Start.txt": {
+      "sha256": "705960c3281a5765ecc0b59bd4ed7ca59eed165748076bc2fc3e8fdbfeb944b0",
+      "bytes": 4413
+    },
+    "assets/fonts/FONT-NOTICES.txt": {
+      "sha256": "e06bb1c5cc624d8a9624502ce56398287c61e4484aafdf6932682095c90baafd",
+      "bytes": 1068
     }
   },
   "privateCommit": "32f68dda85d8dd4ea27d7e3b4e0172bf952eea9a"

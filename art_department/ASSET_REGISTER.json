@@ -720,7 +720,7 @@
     },
     {
       "path": "assets/fonts/monogram.ttf",
-      "sha256": "13658c0d344553a6c272bf9e72e0f2b6edf23ac5ecf066837d9b61254b7452d6",
+      "sha256": "fd5ba8a865eb3f2ecdd7d0b332535ec5bada0db006a19d0b3ab822730391d842",
       "role": "runtime asset location; active usage not inferred",
       "status": "STATUS UNKNOWN \u2014 HQ REVIEW REQUIRED",
       "default_style_reference": false,
@@ -728,7 +728,7 @@
     },
     {
       "path": "assets/fonts/press-start-2p.ttf",
-      "sha256": "7b939b816f8ce185dd8c2c59e85fb05d3dcd5cde0c0b0de4a1651cb5af9c2c2b",
+      "sha256": "9e1ce74ce37bd3b48aefbaf4710e08d6c6c4b053faaabccd4f9fa756c41aec6a",
       "role": "runtime asset location; active usage not inferred",
       "status": "STATUS UNKNOWN \u2014 HQ REVIEW REQUIRED",
       "default_style_reference": false,

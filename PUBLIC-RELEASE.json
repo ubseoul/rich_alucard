@@ -3,16 +3,16 @@
   "title": "Rich Alucard: Before The Fame — Free Demo",
   "gameplayCommit": "32f68dda85d8dd4ea27d7e3b4e0172bf952eea9a",
   "packSha256": "a0df9181683b3cbbb2710cc6db348d2de4cb5f00eab377b5f98244b987b210ed",
-  "artifactDigest": "2a26011fd06a08512ddf328521bb03bba85d402d907cc64e9202a97e58f03f69",
+  "artifactDigest": "4dee005153e55238c5074a43aba90bae76787572e7f0184c9e43bcb393deab39",
   "originalBuild": {
     "schemaVersion": 1,
-    "releaseId": "ra-4042ae5bd48a-20261011033211",
-    "commit": "4042ae5bd48a3519f11131ce224efd69a9fc8209",
-    "shortCommit": "4042ae5bd48a",
-    "builtAt": "2026-10-11T03:32:11.323Z",
-    "assetVersion": "ra-4042ae5bd48a-20261011033211"
+    "releaseId": "ra-67814c74427f-20261011174740",
+    "commit": "67814c74427f85aef69f0f86535937172ffacd74",
+    "shortCommit": "67814c74427f",
+    "builtAt": "2026-10-11T17:47:40.628Z",
+    "assetVersion": "ra-67814c74427f-20261011174740"
   },
-  "engineCommit": "4042ae5bd48a3519f11131ce224efd69a9fc8209",
+  "engineCommit": "67814c74427f85aef69f0f86535937172ffacd74",
   "freeProofOfConcept": true,
   "analytics": {
     "measurement_id": "G-L2VZCN5S7Y",
@@ -65,13 +65,13 @@
     },
     {
       "path": "GAME-RELEASE.json",
-      "sha256": "4451a32230a94d378dfcbb3036d98ef3a8291054bb40df6cd0fb753565680079",
+      "sha256": "b68c0a22179ce0c5da6b919a10bfa61cdb96a25c398d1f6bca8b16465c13166d",
       "bytes": 1589
     },
     {
       "path": "PACKAGE-MANIFEST.json",
-      "sha256": "a8594da3bcf56adf1de75d580bdaef9d75c8bd5ae2cb573db8b6a39957fd9bbe",
-      "bytes": 327797
+      "sha256": "146bb040b48403e98d2c92f085520d2729e999d14f69baafeb4f6b749cae41a0",
+      "bytes": 328111
     },
     {
       "path": "README.txt",
@@ -5169,14 +5169,24 @@
       "bytes": 1999363
     },
     {
+      "path": "assets/fonts/FONT-NOTICES.txt",
+      "sha256": "e06bb1c5cc624d8a9624502ce56398287c61e4484aafdf6932682095c90baafd",
+      "bytes": 1068
+    },
+    {
+      "path": "assets/fonts/OFL-RA-Press-Start.txt",
+      "sha256": "705960c3281a5765ecc0b59bd4ed7ca59eed165748076bc2fc3e8fdbfeb944b0",
+      "bytes": 4413
+    },
+    {
       "path": "assets/fonts/monogram.ttf",
-      "sha256": "13658c0d344553a6c272bf9e72e0f2b6edf23ac5ecf066837d9b61254b7452d6",
-      "bytes": 10468
+      "sha256": "fd5ba8a865eb3f2ecdd7d0b332535ec5bada0db006a19d0b3ab822730391d842",
+      "bytes": 15416
     },
     {
       "path": "assets/fonts/press-start-2p.ttf",
-      "sha256": "7b939b816f8ce185dd8c2c59e85fb05d3dcd5cde0c0b0de4a1651cb5af9c2c2b",
-      "bytes": 115280
+      "sha256": "9e1ce74ce37bd3b48aefbaf4710e08d6c6c4b053faaabccd4f9fa756c41aec6a",
+      "bytes": 116744
     },
     {
       "path": "assets/fonts/tiny5.ttf",
@@ -7980,7 +7990,7 @@
     },
     {
       "path": "build.json",
-      "sha256": "c5e3228cfebd30858d44f8f5ecda493bb9f0303cb7732bcc529db056a6af5ba1",
+      "sha256": "d701b4268b98be7159a43f35e307fd2782527a46ea21bba912bf30ab85735fa6",
       "bytes": 256
     },
     {
@@ -7990,7 +8000,7 @@
     },
     {
       "path": "index.html",
-      "sha256": "3b52bfc9b0cac46bf93d40ed2faf2156eeffec15744060047229a4af8fd76a68",
+      "sha256": "4bfdbcf898fc98cda017bad1034552e16e342a2685c90c5a917d4c7ed0ae14bc",
       "bytes": 42551
     },
     {
@@ -8015,8 +8025,8 @@
     },
     {
       "path": "intro-assets/press-start-2p.ttf",
-      "sha256": "7b939b816f8ce185dd8c2c59e85fb05d3dcd5cde0c0b0de4a1651cb5af9c2c2b",
-      "bytes": 115280
+      "sha256": "9e1ce74ce37bd3b48aefbaf4710e08d6c6c4b053faaabccd4f9fa756c41aec6a",
+      "bytes": 116744
     },
     {
       "path": "intro-assets/rich-standing.png",
@@ -8030,7 +8040,7 @@
     },
     {
       "path": "js/build-info.js",
-      "sha256": "e04b526171361e865cecf48a08fc4518b52309af1642b0048b59a64dab83cf1c",
+      "sha256": "51d8d4fbbbf5daa131700e6944aeefe632108bd56971a4fbc60331769fd6c1e0",
       "bytes": 298
     },
     {
@@ -9045,8 +9055,8 @@
     },
     {
       "path": "js/minigames/dance.js",
-      "sha256": "7b4ce77b9aa161a2542223a4be60131d9fffc8912a36c8243e8e081a7950a51c",
-      "bytes": 17840
+      "sha256": "f146e5ce5001b57345531c3b460fadfb33d2b4c14ffdb1016b43bfd44ab88f8d",
+      "bytes": 17793
     },
     {
       "path": "js/minigames/garage.js",
@@ -9550,7 +9560,7 @@
     },
     {
       "path": "minigame-lab.html",
-      "sha256": "9a255db3d74269abcb5c87fdfd9dd1d1e9448f8fdbd96632b3914d6e1328b089",
+      "sha256": "6ff8373800b21b050ab8cfd9233f269d0bf712e68fa3345a06fe1d180ebbcdf4",
       "bytes": 3422
     },
     {
@@ -9590,8 +9600,8 @@
     },
     {
       "path": "opening-assets/monogram.ttf",
-      "sha256": "13658c0d344553a6c272bf9e72e0f2b6edf23ac5ecf066837d9b61254b7452d6",
-      "bytes": 10468
+      "sha256": "fd5ba8a865eb3f2ecdd7d0b332535ec5bada0db006a19d0b3ab822730391d842",
+      "bytes": 15416
     },
     {
       "path": "opening-assets/ogaAim.png",
@@ -9610,8 +9620,8 @@
     },
     {
       "path": "opening-assets/press-start-2p.ttf",
-      "sha256": "7b939b816f8ce185dd8c2c59e85fb05d3dcd5cde0c0b0de4a1651cb5af9c2c2b",
-      "bytes": 115280
+      "sha256": "9e1ce74ce37bd3b48aefbaf4710e08d6c6c4b053faaabccd4f9fa756c41aec6a",
+      "bytes": 116744
     },
     {
       "path": "opening-assets/roadside-master.png",
@@ -9625,17 +9635,17 @@
     },
     {
       "path": "overlay-build.json",
-      "sha256": "d05ab1a54be7783a61dd92be545e6bb0d00ee6259efa79a93a592960c1fe7f1c",
-      "bytes": 343
+      "sha256": "8f0b8875f5d31daffd83927df65adbed4075de524a5046a54443361f07b905fc",
+      "bytes": 369
     },
     {
       "path": "party-dev.html",
-      "sha256": "57ebe989127152374469eba7e7e9416f05a70ddd0366d262e761dfb5616701ce",
+      "sha256": "ed1162474016d5a4566d0dbbb9ece4588c1d94a0bc5925810906400af410c8ff",
       "bytes": 2290
     },
     {
       "path": "rave-review.html",
-      "sha256": "0b6d5012d29e0a117756772dcba4d0cdeecda30733b478d2f170bf783fe531d9",
+      "sha256": "855e0a3b5be0a081767806a25984a926bb1a497eb093b8100e52ec2542958286",
       "bytes": 2096
     },
     {
