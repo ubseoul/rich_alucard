@@ -131,10 +131,10 @@
   if(ready.length){const id=ready[(day()-1)%ready.length],purpose={A43:'FOOD · meet the auntie; bring home a malt',YAM:'HOME · buy a yam and cook it',FUFU:'FAMILY · learn the rule, choose your way',AUNTIES:'SOCIAL · face the council',PLATES:'CREW · share the plates',A19:'CREW · trouble at the food court',JOLLOF_WARS:'COOK · put your jollof to the test',A54:'COOK · the final awaits',A56:'FOOD · follow the win',A20:'TRAIN · check in with Phil'};
    picks.push({label:RAAdventures.get(id).title,sub:purpose[id],action:'rc3:map:'+id});}
   if(day()%3===1&&RAAdventures.available(RAAdventures.isDone('A08')?'SLURP':'A08'))picks.push({label:'RAMEN SHIFT',sub:'EARN · work a shift; keep its actual pay',action:'rc3:activity:ramen'});
-  if(day()%3===2)picks.push({label:'JDM / YOUR GARAGE',sub:RALife.ownedCars().length?'OWNED · select your car and drive':'GOAL · save for a car you can keep and drive',action:'app:jdmImports'});
   if(day()%3===0&&window.RAIronAndGrace?.ownedGuns?.().length)picks.push({label:'RANGE DAY',sub:'SKILL · practice with your owned gun',action:'app:armory'});
   if(!picks.length&&RAAdventures.available(RAAdventures.isDone('A08')?'SLURP':'A08'))picks.push({label:'RAMEN SHIFT',sub:'EARN · optional work, no nightly quota',action:'rc3:activity:ramen'});
   return '<section class="rc4-day-options"><p class="phone-speaker">YOUR TIME · OPTIONAL</p>'+picks.slice(0,2).map(x=>api.button('<strong>'+api.esc(x.label)+'</strong><small>'+api.esc(x.sub)+'</small>',x.action,'rc4-opportunity')).join('')+
+   api.button('<strong>GET A CAR</strong><small>JDM IMPORTS / YOUR GARAGE</small>','app:jdmImports','rc4-opportunity')+
    (window.RAStripClub?.isOpen?.()?api.button('STRIP CLUB <small>SOCIAL · your budget, your choice</small>','app:stripClub','rc4-opportunity'):'')+
    (canSleep()&&next().kind!=='rest'?api.button('REST INSTEAD <small>Advance one day. No story pay for skipped work.</small>','rc3:rest','rc4-opportunity'):'')+'</section>';
  }

@@ -1,3 +1,5 @@
+Current owner feedback (2026-10-11): read the bounded patch checklist and project-wide visual lessons at the top of [CURRENT_HANDOFF.md](CURRENT_HANDOFF.md). Original masters and unrelated historical guidance remain preserved.
+
 # Rich Alucard Art Department — start here
 
 OL-052 current launch scope: P-C deferred, 0 launch rows; no pose sheets/videos or wardrobe-tier code requested. Only P-D remains (50). Three accepted dance loops stay registered as the single launch outfits (Tier 2 internal record), with unchanged always-on rendering. P-C briefs/checklist are in `art_department/future/`; OL-042 wardrobe ingest wiring cancelled. All further work/drops use 002. Earlier wardrobe instructions below are historical.
