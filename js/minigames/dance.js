@@ -81,6 +81,8 @@
   root.dataset.phase='ready';root.dataset.input='pointer';
   const notes=makeChart(seed,params);
   const LANE_W=64,LANE_X=7,ZONE_Y=352,SPAWN_Y=182,TILE_H=30;
+  // hit feedback starts just above the TAP HERE label (drawn at ZONE_Y-TILE_H/2-14) so the two never overlap
+  const FEEDBACK_Y=ZONE_Y-TILE_H/2-22;
   const stats={perfect:0,good:0,miss:0,combo:0,maxCombo:0,mood:cfg.moodStart};
   const pressFlash=[0,0,0,0];let lastPose='up',poseUntil=0,rivalPose='up',rivalAt=0,lastTapMs=-Infinity,timingText='FOLLOW THE GOLD LINE',timingUntil=0;
   let songMs=-cfg.leadMs,raf=null,last=performance.now(),ended=false,countSounded=-1;
@@ -91,14 +93,14 @@
    if(ended||songMs<0||songMs-lastTapMs<75)return;lastTapMs=songMs;
    pressFlash[lane]=1;lastPose=MOVES[lane].id;poseUntil=songMs+480;
    const n=pickNote(notes,lane,songMs,cfg);
-   if(!n){const next=notes.find(n=>!n.judged&&n.lane===lane);timingText=next&&next.t>songMs?'EARLY · WAIT FOR THE LINE':'NO NOTE · FOLLOW THE CHART';timingUntil=songMs+550;J.float('EARLY',LANE_X+lane*LANE_W+LANE_W/2,ZONE_Y-25,{color:'#b9a9c9',size:6,life:.45,rise:8});return;}
+   if(!n){const next=notes.find(n=>!n.judged&&n.lane===lane);timingText=next&&next.t>songMs?'EARLY · WAIT FOR THE LINE':'NO NOTE · FOLLOW THE CHART';timingUntil=songMs+550;J.float('EARLY',LANE_X+lane*LANE_W+LANE_W/2,FEEDBACK_Y,{color:'#b9a9c9',size:6,life:.45,rise:8});return;}
    const kind=judge(n.t-songMs,cfg);n.judged=kind;timingText=kind==='perfect'?'PERFECT · ON THE BEAT':n.t>songMs?'GOOD · A LITTLE EARLY':'GOOD · A LITTLE LATE';timingUntil=songMs+550;
    stats[kind]++;stats.combo++;stats.maxCombo=Math.max(stats.maxCombo,stats.combo);
    stats.mood=clamp(stats.mood+moodDelta(kind,cfg),0,100);
    const cx=LANE_X+lane*LANE_W+LANE_W/2,col=MOVES[lane].color;
-   if(kind==='perfect'){ctx.audio?.sound(stats.combo%5===0?'COMBO_UP':'TIP_COINS');J.burst(cx,ZONE_Y,[col,'#f6efd9','#ffd36a'],16,95);J.ring(cx,ZONE_Y,col);J.float('PERFECT',cx,ZONE_Y-26,{color:'#ffd36a',size:7});J.shake(1.5);}
-   else{ctx.audio?.sound('UI_TAP');J.burst(cx,ZONE_Y,[col,'#f6efd9'],8,60);J.float('GOOD',cx,ZONE_Y-26,{color:'#f6efd9',size:6});}
-   if(spray){const pay=Math.min(Math.max(0,cfg.payCap-spent),kind==='perfect'?cfg.payPerPerfect:cfg.payPerGood);if(spent<cfg.payCap){spent+=pay;J.float(`+$${pay}`,cx,ZONE_Y-44,{color:'#20c66b',size:6,life:1.1,rise:40});}}
+   if(kind==='perfect'){ctx.audio?.sound(stats.combo%5===0?'COMBO_UP':'TIP_COINS');J.burst(cx,ZONE_Y,[col,'#f6efd9','#ffd36a'],16,95);J.ring(cx,ZONE_Y,col);J.float('PERFECT',cx,FEEDBACK_Y,{color:'#ffd36a',size:7});J.shake(1.5);}
+   else{ctx.audio?.sound('UI_TAP');J.burst(cx,ZONE_Y,[col,'#f6efd9'],8,60);J.float('GOOD',cx,FEEDBACK_Y,{color:'#f6efd9',size:6});}
+   if(spray){const pay=Math.min(Math.max(0,cfg.payCap-spent),kind==='perfect'?cfg.payPerPerfect:cfg.payPerGood);if(spent<cfg.payCap){spent+=pay;J.float(`+$${pay}`,cx,FEEDBACK_Y-18,{color:'#20c66b',size:6,life:1.1,rise:40});}}
    if(stats.combo>0&&stats.combo%8===0){J.flash(col,140);J.float(`${stats.combo} IN A ROW!`,135,210,{color:'#ff6fb5',size:8,life:1.1});ctx.audio?.sound('CROWD_CHEER_SMALL');}
    if(stats.mood>=100&&!stats.hype){stats.hype=true;J.float('THE ROOM IS YOURS',135,190,{color:'#ffd36a',size:8,life:1.4});}
   }
