@@ -297,7 +297,7 @@
   }
   function renderDialogue(stop,s){
    if(!global.RAAdventureScene?.createDialogue)throw Error('standard-dialogue-required');
-   content.innerHTML=`<section class="adv-scene bx-dialogue"><div class="bx-dialogue-world"><img class="bx-scene-bg" src="${esc(stop.scene.background)}" alt=""><img class="bx-talk-rich" src="${esc(global.RABtfPeople?.rich?.sprite || 'assets/before_the_fame/characters/rich/rich_standing_right_80x96.png')}" alt=""><div class="bx-portraits"><img src="${esc(stop.scene.portraits[0])}" alt="${esc(stop.label)}"></div></div><div class="adv-choices" hidden></div></section>`;
+   content.innerHTML=`<section class="adv-scene bx-dialogue"><div class="bx-dialogue-world"><img class="bx-scene-bg" src="${esc(stop.scene.background)}" alt=""><img class="bx-talk-rich" src="${esc(global.RABtfPeople?.rich?.sprite || 'assets/rich_standing_right.png')}" alt=""><div class="bx-portraits"><img src="${esc(stop.scene.portraits[0])}" alt="${esc(stop.label)}"></div></div><div class="adv-choices" hidden></div></section>`;
    const stage=content.firstElementChild,world=stage.querySelector('.bx-dialogue-world'),rich=stage.querySelector('.bx-talk-rich'),uncle=stage.querySelector('.bx-portraits img');
    const unit=frame.clientWidth/270,floor=world.clientHeight-18*unit;
    const k=Math.min(Number(stop.scene.stageScale)||2.6,(world.clientHeight/unit-12)/88),rk=Math.min(2,(world.clientHeight/unit-12)/88);
