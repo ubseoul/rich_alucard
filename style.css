@@ -679,6 +679,7 @@ body.dev-enabled .dev-panel{max-height:72%;overflow:auto}
 #phoneContent .phone-section-label{grid-column:1/-1;color:var(--os-muted);font:12px var(--os-label);letter-spacing:2px;margin:8px 0 1px;padding:0 0 5px;border-bottom:1px solid var(--os-line)}
 #phoneContent .phone-button{min-height:40px;margin:5px 0;padding:8px 9px;border:1px solid var(--os-line);box-shadow:2px 2px #06050b;background:var(--os-raised);color:var(--os-text);font:20px/1.05 var(--os-body);text-align:left;overflow-wrap:anywhere;transition:background 80ms steps(2,end)}
 #phoneContent .phone-button:active{transform:translate(1px,1px);background:#49334f;box-shadow:1px 1px #06050b}
+#phoneContent .phone-button.phone-next-button{padding-right:30px}
 #phoneContent .phone-button:disabled{opacity:.5;cursor:default}
 #phoneContent .phone-app-grid .app-button{display:flex;flex-direction:column;align-items:center;position:relative;gap:5px;min-height:81px;margin:0;padding:5px 2px 6px;background:transparent;border:0;box-shadow:none;font:12px/1.1 var(--os-label);text-align:center}
 #phoneContent .phone-app-grid .app-button:active{background:var(--os-raised)}
